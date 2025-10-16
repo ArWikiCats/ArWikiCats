@@ -374,6 +374,6 @@ Lenth_p = {
     "tabe_lab_yy2": sys.getsizeof(tabe_lab_yy2),
 }
 # ---
-from ..helps import len_print
+from ...helps import len_print
 
 len_print.lenth_pri("cities.py", Lenth_p, Max=100)

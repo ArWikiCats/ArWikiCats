@@ -17,7 +17,7 @@ len_print.lenth_pri("Labels_Contry.py", Lentha)
 """
 
 import sys
-from . import printe
+from ..ma_lists.helps import printe
 from humanize import naturalsize
 
 lenth_pri_text = True

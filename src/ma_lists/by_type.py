@@ -311,7 +311,7 @@ def main():
 # ---
 Lenth1 = {"by_table": sys.getsizeof(By_table)}
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("by_table.py", Lenth1)
 # ---

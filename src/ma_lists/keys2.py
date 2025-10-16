@@ -6,7 +6,7 @@
 # ---
 from .json_dir import open_json_file
 
-from .helps import len_print
+from ..helps import len_print
 
 new_2019 = open_json_file("keys2") or {}
 # ---

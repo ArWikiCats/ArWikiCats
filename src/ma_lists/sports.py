@@ -3,7 +3,7 @@
 
 """
 import sys
-from .helps import len_print
+from ..helps import len_print
 
 from .sports_lists import AFTER_KEYS, nat_menstt33, PPP_Keys, New_Tato_nat
 from .sportsb.team_job import sf_en_ar_is_p17

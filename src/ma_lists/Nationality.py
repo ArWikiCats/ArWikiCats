@@ -21,7 +21,7 @@ LIMIT 1000
 import sys
 
 from .json_dir import open_json_file
-from .helps import len_print
+from ..helps import len_print
 from .. import printe
 
 # ---

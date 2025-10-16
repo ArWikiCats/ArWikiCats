@@ -43,7 +43,7 @@ Lenth_p = {
     "People_key": sys.getsizeof(People_key),
 }
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("peoples.py", Lenth_p, Max=1000)
 # ---

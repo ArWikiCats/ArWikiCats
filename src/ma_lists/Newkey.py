@@ -338,7 +338,7 @@ for ta in Ta_s:
 # ---
 lenthe = {"pop_final6": sys.getsizeof(pop_final6)}
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("newkey.py", lenthe)
 # ---

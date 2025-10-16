@@ -140,7 +140,7 @@ Lenth1 = {
     "All_Nat Sports_Keys_For_Jobs": sys.getsizeof(Sports_Keys_For_Jobs),
 }
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("Sport_key.py", Lenth1)
 # ---

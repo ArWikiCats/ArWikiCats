@@ -613,7 +613,7 @@ Lenth1 = {
     "All_Nat New_male_keys": sys.getsizeof(New_male_keys),
 }
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("male_keys.py", Lenth1)
 # ---

@@ -36,7 +36,7 @@ import sys
 from .json_dir import open_json_file
 
 from .male_keys import New_male_keys
-from .helps import len_print
+from ..helps import len_print
 
 # ---
 clubs_query = """

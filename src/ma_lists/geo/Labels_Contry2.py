@@ -249,7 +249,7 @@ Lenth1 = {
     "New_Way_adding_Citeis": New_Way_adding_Citeis,
 }
 # ---
-from ..helps import len_print
+from ...helps import len_print
 
 len_print.lenth_pri("Labels_Contry2.py", Lenth1, Max=21)
 # ---
