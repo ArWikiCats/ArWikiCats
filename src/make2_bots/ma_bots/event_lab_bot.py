@@ -1,6 +1,6 @@
 """
 Usage:
-from ..ma_bots import event_lab_bot
+from ..make2_bots.ma_bots import event_lab_bot
 # category_lab = event_lab_bot.event_Lab(cate_r)
 
 """
@@ -29,8 +29,8 @@ from ..make2_bots.bots import tmp_bot
 from .lab_seoo_bot import event_Lab_seoo
 from .contry2_bot import Get_contry2
 
-# ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.ma_bots.ye_ts_bot'
-#  (most likely due to a circular import) (ma_bots\ye_ts_bot.py)
+# ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
+#  (most likely due to a circular import) (make2_bots.ma_bots\ye_ts_bot.py)
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"

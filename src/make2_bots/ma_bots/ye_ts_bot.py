@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-from  make.ma_bots.ye_ts_bot import translate_general_category
+from  make.make2_bots.ma_bots.ye_ts_bot import translate_general_category
 
-from ..ma_bots import ye_ts_bot
+from ..make2_bots.ma_bots import ye_ts_bot
 
 
 lab = ye_ts_bot.translate_general_category()
@@ -17,7 +17,7 @@ from ..helps.print_bot import print_def_head, print_put
 from ..make2_bots.format_bots import Tit_ose_Nmaes
 from ..make2_bots.date_bots import year_lab
 
-from ..ma_bots.ar_label_bot import find_ar_label
+from ..make2_bots.ma_bots.ar_label_bot import find_ar_label
 
 Find_f_wikidata = {1: "nowikidata" not in sys.argv}
 

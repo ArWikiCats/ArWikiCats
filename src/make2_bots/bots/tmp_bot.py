@@ -9,8 +9,8 @@ from ...helps.print_bot import print_put
 
 from ...make2_bots.date_bots import with_years_bot
 
-from ...ma_bots import contry2_lab
-from ...ma_bots import ye_ts_bot
+from ...make2_bots.ma_bots import contry2_lab
+from ...make2_bots.ma_bots import ye_ts_bot
 
 Work_Templates_cash = {}
 

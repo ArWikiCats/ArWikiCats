@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
 
-# from ..ma_bots.contry_bot import Get_contry, Get_c_t_lab
+# from ..make2_bots.ma_bots.contry_bot import Get_contry, Get_c_t_lab
 
 
-from ..ma_bots import contry_bot
+from ..make2_bots.ma_bots import contry_bot
 
 
 lab = contry_bot.Get_contry()

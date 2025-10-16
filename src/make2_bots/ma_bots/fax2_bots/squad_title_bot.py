@@ -1,6 +1,6 @@
 """
 
-from ..ma_bots.squad_title_bot import get_squad_title
+from ..make2_bots.ma_bots.squad_title_bot import get_squad_title
 # label = get_squad_title(tit)
 
 """

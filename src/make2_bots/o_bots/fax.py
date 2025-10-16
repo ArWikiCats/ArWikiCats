@@ -1,5 +1,5 @@
 """
-from  make.ma_bots import fax
+from  make.make2_bots.ma_bots import fax
 # Get_Teams_new(team)
 # test_Lang(cate)
 

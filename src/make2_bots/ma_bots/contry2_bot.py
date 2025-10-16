@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-python3 core8/pwb.py make/ma_bots/contry2_bot
+python3 core8/pwb.py make/make2_bots.ma_bots/contry2_bot
 
-# from ..ma_bots.contry2_bot import Get_contry2
+# from ..make2_bots.ma_bots.contry2_bot import Get_contry2
 
 
-from ..ma_bots import contry2_bot # contry2_bot.Get_contry2()
+from ..make2_bots.ma_bots import contry2_bot # contry2_bot.Get_contry2()
 
 
 lab = contry2_bot.Get_contry2()
