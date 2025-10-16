@@ -1,0 +1,262 @@
+{
+    "artists": {
+        "mens": "فنانون",
+        "womens": "فنانات"
+    },
+    "individualists": {
+        "mens": "فردانيون",
+        "womens": "فردانيات"
+    },
+    "anarchists": {
+        "mens": "لاسلطويون",
+        "womens": "لاسلطويات"
+    },
+    "libertarians": {
+        "mens": "ليبرتاريون",
+        "womens": "ليبرتاريات"
+    },
+    "objectivists": {
+        "mens": "موضوعيون",
+        "womens": "موضوعيات"
+    },
+    "liberals": {
+        "mens": "ليبراليون",
+        "womens": "ليبراليات"
+    },
+    "ballet dancers": {
+        "mens": "راقصو باليه",
+        "womens": "راقصات باله"
+    },
+    "playback singers": {
+        "mens": "مغنو أفلام",
+        "womens": "مغنيات أفلام"
+    },
+    "blues singers": {
+        "mens": "مغنو بلوز",
+        "womens": "مغنيات بلوز"
+    },
+    "jazz singers": {
+        "mens": "مغنو جاز",
+        "womens": "مغنيات جاز"
+    },
+    "pop singers": {
+        "mens": "مغنو بوب",
+        "womens": "مغنيات بوب"
+    },
+    "rhythm singers": {
+        "mens": "مغنو إيقاع",
+        "womens": "مغنيات إيقاع"
+    },
+    "rock singers": {
+        "mens": "مغنو روك",
+        "womens": "مغنيات روك"
+    },
+    "singers": {
+        "mens": "مغنون",
+        "womens": "مغنبات"
+    },
+    "volunteers": {
+        "mens": "متطوعون",
+        "womens": "متطوعات"
+    },
+    "cellists": {
+        "mens": "عازفو تشيلو",
+        "womens": "عازفات تشيلو"
+    },
+    "instrumentalist": {
+        "mens": "عازفون",
+        "womens": "عازفات"
+    },
+    "multi-instrumentalists": {
+        "mens": "عازفون على عدة آلات",
+        "womens": "عازفات على عدة آلات"
+    },
+    "multi instrumentalists": {
+        "mens": "عازفون على عدة آلات",
+        "womens": "عازفات على عدة آلات"
+    },
+    "choreographers": {
+        "mens": "مصممو رقص",
+        "womens": "مصممات رقص"
+    },
+    "composers": {
+        "mens": "ملحنون",
+        "womens": "ملحنات"
+    },
+    "dancers": {
+        "mens": "راقصون",
+        "womens": "راقصات"
+    },
+    "guitarists": {
+        "mens": "عازفو قيثارة",
+        "womens": "عازفات قيثارة"
+    },
+    "musicians": {
+        "mens": "موسيقيون",
+        "womens": "موسيقيات"
+    },
+    "session musicians": {
+        "mens": "موسيقيو جلسات",
+        "womens": "موسيقيات جلسات"
+    },
+    "painters": {
+        "mens": "رسامون",
+        "womens": "رسامات"
+    },
+    "illustrators": {
+        "mens": "رسامون توضيحيون",
+        "womens": "رسامات توضيحيات"
+    },
+    "percussionists": {
+        "mens": "فنانون إيقاعيون",
+        "womens": "فنانات إيقاعيات"
+    },
+    "pianists": {
+        "mens": "عازفو بيانو",
+        "womens": "عازفات بيانو"
+    },
+    "rappers": {
+        "mens": "مغنو راب",
+        "womens": "مغنيات راب"
+    },
+    "rhythm and blues singers": {
+        "mens": "مغنو إيقاع وبلوز",
+        "womens": "مغنيات  إيقاع وبلوز"
+    },
+    "saxophonists": {
+        "mens": "عازفو سكسفون",
+        "womens": "عازفات سكسفون"
+    },
+    "mandolinists": {
+        "mens": "عازفو مندولين",
+        "womens": "عازفات مندولين"
+    },
+    "violinists": {
+        "mens": "عازفو كمان",
+        "womens": "عازفات كمان"
+    },
+    "keyboardists": {
+        "mens": "عازفو لوحة مفاتيح",
+        "womens": "عازفات لوحة مفاتيح"
+    },
+    "dramatists": {
+        "mens": "دراميون",
+        "womens": "دراميات"
+    },
+    "playwrights": {
+        "mens": "كتاب مسرحيون",
+        "womens": "كاتبات مسرحيات"
+    },
+    "writers": {
+        "mens": "كتاب",
+        "womens": "كاتبات"
+    },
+    "authors": {
+        "mens": "مؤلفون",
+        "womens": "مؤلفات"
+    },
+    "short story writersxx": {
+        "mens": "كتاب قصص قصيرة",
+        "womens": "كاتبات قصص قصيرة"
+    },
+    "short story writers": {
+        "mens": "كتاب قصة قصيرة",
+        "womens": "كاتبات قصة قصيرة"
+    },
+    "singer-songwriters": {
+        "mens": "مغنون وكتاب أغاني",
+        "womens": "مغنيات وكاتبات أغاني"
+    },
+    "songwriters": {
+        "mens": "كتاب أغان",
+        "womens": "كاتبات أغان"
+    },
+    "television writers": {
+        "mens": "كتاب تلفاز",
+        "womens": "كاتبات تلفاز"
+    },
+    "mystery writers": {
+        "mens": "كتاب غموض",
+        "womens": "كاتبات غموض"
+    },
+    "screenwriters": {
+        "mens": "كتاب سيناريو",
+        "womens": "كاتبات سيناريو"
+    },
+    "poets": {
+        "mens": "شعراء",
+        "womens": "شاعرات"
+    },
+    "novelists": {
+        "mens": "روائيون",
+        "womens": "روائيات"
+    },
+    "video game actresses": {
+        "mens": "",
+        "womens": "ممثلات ألعاب فيديو"
+    },
+    "television chefs": {
+        "mens": "طباخو تلفاز",
+        "womens": "طباخات تلفاز"
+    },
+    "comedians": {
+        "mens": "كوميديون",
+        "womens": "كوميديات"
+    },
+    "theatre people": {
+        "mens": "مسرحيون",
+        "womens": "مسرحيات"
+    },
+    "web television miniseries": {
+        "mens": "ممثلو مسلسلات قصيرة",
+        "womens": "ممثلات مسلسلات قصيرة"
+    },
+    "television series actors": {
+        "mens": "ممثلو مسلسلات تلفزيونية",
+        "womens": "ممثلات مسلسلات تلفزيونية"
+    },
+    "web series actors": {
+        "mens": "ممثلو مسلسلات ويب",
+        "womens": "ممثلات مسلسلات ويب"
+    },
+    "video game actors": {
+        "mens": "ممثلو ألعاب فيديو",
+        "womens": "ممثلات ألعاب فيديو"
+    },
+    "television films actors": {
+        "mens": "ممثلو أفلام",
+        "womens": "ممثلات أفلام"
+    },
+    "soap opera actors": {
+        "mens": "ممثلو مسلسلات طويلة",
+        "womens": "ممثلات مسلسلات طويلة"
+    },
+    "film actors": {
+        "mens": "ممثلو أفلام تلفزيونية",
+        "womens": "ممثلات أفلام تلفزيونية"
+    },
+    "television actors": {
+        "mens": "ممثلو تلفزيون",
+        "womens": "ممثلات تلفزيون"
+    },
+    "musical theatre actors": {
+        "mens": "ممثلو مسرحيات موسيقية",
+        "womens": "ممثلات مسرحيات موسيقية"
+    },
+    "comics actors": {
+        "mens": "ممثلو قصص مصورة",
+        "womens": "ممثلات قصص مصورة"
+    },
+    "stage actors": {
+        "mens": "ممثلو مسرح",
+        "womens": "ممثلات مسرح"
+    },
+    "voice actors": {
+        "mens": "ممثلو أداء صوتي",
+        "womens": "ممثلات أداء صوتي"
+    },
+    "comedy actors": {
+        "mens": "ممثلون كوميديون",
+        "womens": "ممثلات كوميديات"
+    }
+}

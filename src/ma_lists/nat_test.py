@@ -1,0 +1,484 @@
+"""
+!
+
+"""
+
+from .Nationality import All_Nat, All_contry_with_nat_ar, A_Nat, All_Nat_o
+from .helps import printe
+
+fasenor = {
+    "ababda people": "عبابدة",
+    "abenaki people": "أبيناكي",
+    "acholi people": "أشولي",
+    "adyghe people": "أديغة",
+    "afar people": "عفار",
+    "afrikaner people": "أفريقان",
+    "aghul people": "أغول",
+    "akha people": "شعب الأكها",
+    "amhara people": "أمهره",
+    "antemoro people": "أنتيمور",
+    "arbëreshë people": "أربيريشي",
+    "arma people": "أرما",
+    "ashanti people": "أشانتي",
+    "asmat people": "أسمات",
+    "atayal people": "أتايال",
+    "ayam (people)": "عيم",
+    "bahrani people": "بحارنة",
+    "bajau people": "شعب الباجاو",
+    "baka people": "شعب الباكا",
+    "baloch people": "بلوش",
+    "bambara people": "بامبارا",
+    "bamum people": "باموم",
+    "banjar people": "بنجر",
+    "bassa people": "باسا",
+    "beja people": "شعب البجا",
+    "betawi people": "شعب بتاوي",
+    "betsileo people": "بيتسيليو",
+    "bonan people": "بونان",
+    "bouyei people": "شعب البوي",
+    "burun people": "برون",
+    "catalan people": "كتالان",
+    "catawba people": "كاتاوبا",
+    "cayuga people": "شعب كايوغا",
+    "cham people": "تشام",
+    "chaoui people": "شاوية",
+    "charrúa people": "تشاروا",
+    "cheyenne people": "شايان",
+    "chumash people": "تشوماش",
+    "chuvash people": "تشوفاش",
+    "daju people": "قببيلة الداجو",
+    "dani people": "داني",
+    "dargwa people": "دارجين",
+    "dayak people": "شعب الداياك",
+    "daza people": "دازا",
+    "dogon people": "قبيلة الدوجون",
+    "dom people": "دومر",
+    "dongxiang people": "دونغشيانغ",
+    "fula people": "فلان",
+    "fur people": "فور",
+    "galician people": "شعب غاليسي",
+    "gedeo people": "شعب جيدو",
+    "gorani people": "غوراني",
+    "gros ventre people": "أتسينا",
+    "gurage people": "جراجي",
+    "habesha people": "أحباش",
+    "hadhrami people": "حضارم",
+    "hadza people": "هادزا",
+    "hakka people": "هاكا",
+    "heiltsuk people": "بيلابيلا",
+    "hidatsa people": "هيداتسا",
+    "himba people": "قبيلة الهيمبا",
+    "hmong people": "همونغ",
+    "hopi people": "هوبي",
+    "huambisa people": "وامبيسا",
+    "iban people": "إيبان",
+    "igbo people": "إيجبو",
+    "inupiat people": "انوبياك",
+    "iranun people": "شعب إرانون",
+    "itza people": "شعب الإيتزا",
+    "iwellemmedan people": "إولميدان",
+    "jarawa people": "جاراوا",
+    "jat people": "زط",
+    "jek people": "شعب الجيك",
+    "kalash people": "قبيلة الكيلاش",
+    "kanembu people": "شعب كانيمبو",
+    "kanuri people": "كانوري",
+    "kawahla people": "كواهلة",
+    "khasi people": "خاسيس",
+    "khitan people": "شعب الخيتان",
+    "khmer people": "خمير",
+    "kist people": "كيست",
+    "klamath people": "كلاماث",
+    "kore people": "شعب الكوري",
+    "korowai people": "كورواي",
+    "kuranko people": "شعب كورانكو",
+    "lak people": "شعب لاك",
+    "lari people": "خودمونية",
+    "laz people": "شعب اللاز",
+    "lezgian people": "لزجين",
+    "lhoba people": "لوبا",
+    "li people": "قوم لي",
+    "lom people": "شعب اللوم",
+    "magyarab people": "مجراب",
+    "mandar people": "قبيلة مانداريز",
+    "mandinka people": "ماندينغي",
+    "maonan people": "ماونان",
+    "matsés people": "مايورونا",
+    "maya people": "شعب المايا",
+    "mazanderani people": "مزندراني",
+    "mehri people": "مهرة",
+    "modoc people": "مودوك",
+    "moro people": "مورو",
+    "mozabite people": "بني مزاب",
+    "munduruku people": "موندروكو",
+    "mursi people": "قبيلة مرسي",
+    "musgum people": "شعب موسغوم",
+    "métis people": "ميتي",
+    "māori people": "ماوري",
+    "nara people": "شعب نارا",
+    "natukhai people": "ناتخواج",
+    "navajo people": "نافاجو",
+    "nawar people": "نوار",
+    "ohlone people": "أولون",
+    "omaha people": "أوماها",
+    "orma people": "شعب الأورما",
+    "oromo people": "شعب أورومو",
+    "pashtun people": "بشتون",
+    "penobscot people": "بينوبسكوت",
+    "pirahã people": "بيراها",
+    "punjabi people": "بنجاب",
+    "pygmy people": "بيغمي",
+    "rakhine people": "راخين",
+    "rama people": "راما",
+    "rashaida people": "رشايدة",
+    "romani people": "غجر",
+    "rutul people": "رتول",
+    "saho people": "شعب الساهو",
+    "sel'knam people": "شعب السالكنام",
+    "seri people": "شعب سيري",
+    "shabak people": "شبك",
+    "shilluk people": "شلك",
+    "shoshone people": "شوشوني",
+    "si la people": "سي لا",
+    "silt'e people": "سيلتي",
+    "sindhi people": "سندي",
+    "siwi people": "سيوي",
+    "sri lankan tamil people": "تاميليو سريلانكا",
+    "tajik people": "طاجيك",
+    "tat people": "تاتيون",
+    "teda people": "تيدا",
+    "tehuelche people": "شعب التيهوليش",
+    "tibetan people": "شعب التبت",
+    "tigray-tigrinya people": "تغراي",
+    "tigre people": "شعب التيجر",
+    "toda people": "تودا",
+    "tongva people": "تونغفا",
+    "toucouleur people": "تكرور",
+    "tsakhur people": "تساخور",
+    "tuareg people": "طوارق",
+    "tujia people": "توجيا",
+    "ute people": "قبيلة يوت",
+    "uyghur people": "أويغور",
+    "va people": "بارووق",
+    "vai people": "شعب فاي",
+    "wampanoag people": "وامبانواغ",
+    "welayta people": "شعب ولايتا",
+    "wichita people": "ويتشيتا",
+    "yaghan people": "شعب الياغان",
+    "yakan people": "شعب ياكان",
+    "yamato people": "قوم الياماتو",
+    "yugur people": "يوغور",
+    "zaza people": "زازا",
+    "zo'é people": "شعب الزاوي",
+    # "kayan people" : "femme girafe",
+    # "mariche people" : "mariche",
+}
+
+for cdc in fasenor:
+    cdc2 = cdc.replace("peoples", "").replace("people", "").strip()
+    if All_Nat.get(cdc2):
+        print("%s in All_Nat" % cdc2.ljust(15))
+
+dpdpd = [
+    "آيسلندا",
+    "أذربيجان",
+    "أرمينيا",
+    "أستراليا",
+    "أفغانستان",
+    "ألبانيا",
+    "ألمانيا",
+    "أنتيغوا وباربودا",
+    "أندورا",
+    "أنغولا",
+    "أوزبكستان",
+    "أوغندا",
+    "أوكرانيا",
+    "إثيوبيا",
+    "إريتريا",
+    "إسبانيا",
+    "إستونيا",
+    "إسرائيل",
+    "إسواتيني",
+    "إندونيسيا",
+    "إيران",
+    "إيطاليا",
+    "الأرجنتين",
+    "الأردن",
+    "الأوروغواي",
+    "أوروغوايانية، (أبو هشام)",
+    "الإكوادور",
+    "الإمارات العربية المتحدة",
+    "البحرين",
+    "البرازيل",
+    "البرتغال",
+    "البوسنة والهرسك",
+    "التشيك",
+    "الجبل الأسود",
+    "الجزائر",
+    "الدنمارك",
+    "الرأس الأخضر",
+    "السعودية",
+    "السلفادور",
+    "السنغال",
+    "السودان",
+    "السويد",
+    "الصومال",
+    "الصين",
+    "العراق",
+    "الغابون",
+    "الفلبين",
+    "الكاميرون",
+    "الكويت",
+    "المالديف",
+    "المجر",
+    "المغرب",
+    "المكسيك",
+    "المملكة المتحدة",
+    "النرويج",
+    "النمسا",
+    "النيجر",
+    "الهند",
+    "الولايات المتحدة",
+    "اليابان",
+    "اليمن",
+    "اليونان",
+    "بابوا غينيا الجديدة",
+    "بابوا غينية،(أبو هشام)",
+    "باراغواي",
+    "بربادوس",
+    "باكستان",
+    "بالاو",
+    "باهاماس",
+    "بروناي",
+    "بلجيكا",
+    "بلغاريا",
+    "بليز",
+    "بنغلاديش",
+    "بنما",
+    "بنين",
+    "بوتان",
+    "بوتسوانا",
+    "بوركينا فاسو",
+    "بوروندي",
+    "بولندا",
+    "بوليفيا",
+    "بيرو",
+    "تايلاند",
+    "تركمانستان",
+    "تركيا",
+    "ترينيداد وتوباغو",
+    "تشاد",
+    "تشيلي",
+    "تنزانيا",
+    "توغو",
+    "توفالو",
+    "تونس",
+    "تونغا",
+    "تيمور الشرقية",
+    "جامايكا",
+    "جزر القمر",
+    "جزر سليمان",
+    "جزر مارشال",
+    "جمهورية إفريقيا الوسطى",
+    "جمهورية أيرلندا",
+    "جمهورية الدومينيكان",
+    "جمهورية الكونغو",
+    "جمهورية الكونغو الديمقراطية",
+    "جنوب إفريقيا",
+    "جنوب السودان",
+    "جورجيا",
+    "جيبوتي",
+    "دومينيكا",
+    "رواندا",
+    "روسيا",
+    "روسيا البيضاء",
+    "رومانيا",
+    "زامبيا",
+    "زيمبابوي",
+    "ساحل العاج",
+    "ساموا",
+    "سان مارينو",
+    "سانت فينسنت والغرينادين",
+    "سانت كيتس ونيفيس",
+    "سانت لوسيا",
+    "ساو تومي وبرينسيب",
+    "سريلانكا",
+    "سلطنة عمان",
+    "سلوفاكيا",
+    "سلوفينيا",
+    "سنغافورة",
+    "سوريا",
+    "سورينام",
+    "سويسرا",
+    "سيراليون",
+    "سيشل",
+    "شمال مقدونيا",
+    "صربيا",
+    "طاجيكستان",
+    "غامبيا",
+    "غانا",
+    "غرينادا",
+    "غواتيمالا",
+    "غيانا",
+    "غينيا",
+    "غينيا الاستوائية",
+    "غينيا بيساو",
+    "فانواتو",
+    "فرنسا",
+    "فنزويلا",
+    "فنلندا",
+    "فيتنام",
+    "فيجي",
+    "قبرص",
+    "قطر",
+    "قيرغيزستان",
+    "كازاخستان",
+    "كرواتيا",
+    "كمبوديا",
+    "كندا",
+    "كوبا",
+    "كوريا الجنوبية",
+    "كوريا الشمالية",
+    "كوستاريكا",
+    "كولومبيا",
+    "كيريباتي",
+    "كينيا",
+    "لاتفيا",
+    "لاوس",
+    "لبنان",
+    "لوكسمبورغ",
+    "ليبيا",
+    "ليبيريا",
+    "ليتوانيا",
+    "ليختنشتاين",
+    "ليسوتو",
+    "مالاوي",
+    "مالطا",
+    "مالي",
+    "ماليزيا",
+    "مدغشقر",
+    "مصر",
+    "مملكة هولندا",
+    "منغوليا",
+    "موريتانيا",
+    "موريشيوس",
+    "موزمبيق",
+    "مولدوفا",
+    "موناكو",
+    "ميانمار",
+    "ناميبيا",
+    "ناورو",
+    "نيبال",
+    "نيجيريا",
+    "نيكاراغوا",
+    "نيوزيلندا",
+    "هايتي",
+    "هندوراس",
+    "ولايات ميكرونيسيا المتحدة",
+]
+
+fafr = ""
+for nna, fafa in All_Nat_o.items():
+    if fafa.get("women", "").find(" ") == -1:
+        fafr += f"{fafa.get('women', '')}|"
+printe.output(fafr)
+
+
+def main():
+    for cd in All_contry_with_nat_ar:
+        if All_Nat[cd]["ar"] not in dpdpd:
+            printe.output(f"\"{All_Nat[cd]['ar']}\" : {All_Nat[cd]['women']}")
+    """
+    # ---
+    for kkk in All_Nat.keys():
+        faop = []
+        for kk in All_Nat[kkk]:
+            if All_Nat[kkk][kk] in faop:
+                printe.output('"%s" find : %s' %   (kkk , All_Nat[kkk][kk]))
+            else:
+                faop.append(All_Nat[kkk][kk])
+    # ---
+    for kuu in wsss_Womens.keys():
+        if kuu.lower() not in All_Nat:
+            printe.output('"%s" not in All_Nat' % kuu )
+        elif wsss_Womens[kuu] != All_Nat[kuu.lower()]["womens"]:
+            printe.output('"%s" != "%s"' % (wsss_Womens[kuu] , All_Nat[kuu.lower()]["womens"] ) )
+    """
+
+
+# ---
+soso = """
+    ,"{en}":[
+        "men":      "{men}"
+        ,"mens":      "{mens}"
+        ,"women":      "{women}"
+        ,"womens":      "{womens}"
+        ,"en":      ""
+        ,"ar":      ""
+      ]"""
+# ---
+"""
+# from people.Nationalities import translationsNationalities
+translationsNationalities = {
+    "abkhaz": "أبخازي",
+    "bengali": "بنغالي",
+    # "cook island" : "",
+    # "democratic republic of the congo" : "",
+    "east german": "ألماني شرقي",
+    # "falkland islands" : "",
+    "faroese": "فاروي",
+    "guianan": "غوياني",
+    "french guianan": "غوياني فرنسي",
+    "guam": "غوامي",
+    # "martiniquais" : "",
+    # "saint lucian" : "",
+    # "saint martin" : "",
+    # "saint vincent and the grenadines" : "",
+    "south sudanese": "جنوب سوداني",
+    # "wallis and futuna" : "",#واليس وفوتونا
+    "west german": "ألماني غربي",
+    "west india": "هندي غربي",
+}
+for x in translationsNationalities:
+    tt = translationsNationalities[x]
+    ark = tt  # ["ar"]['male']
+    # ---
+    # if x.lower() in All_Nat.keys():
+    # if ark in ar_Nat_men :
+    # printe.output('All_Nat_o["%s"] = All_Nat_o["%s"]#%s' %  (x.lower() , ar_Nat_men[ark] , ark) )
+    # ---
+    # printe.output(soso.format(en=x ,men = tt, mens = tt + "ون", women = tt + "ه", womens = tt + "ات"))
+    # ---
+    # if x.lower() not in All_Nat.keys():
+    # if ark not in ar_Nat_men:
+    # printe.output(soso.format(en=x ,men = tt, mens = tt + "ون", women = tt + "ه", womens = tt + "ات"))
+"""
+# ---
+if __name__ == "__main_3_":
+    main()
+    Max = 10
+    num = 0
+    for kkk, kkk_la in A_Nat.items():
+        num += 1
+        if num < Max:
+            # if All_Nat[kkk]["men"].find(" ") != -1:
+            printe.output(f',"{kkk}": "{kkk_la}"')
+# ---
+if __name__ == "__main__":
+    kk = ""
+    # ---
+    sdsd = [[len(xy["en"].split(" ")), xy["en"]] for kl, xy in All_Nat.items() if xy["en"] != ""]
+    # sdsd = list(set(sdsd))
+    sd3 = []
+    for x in sdsd:
+        if x not in sd3:
+            sd3.append(x)
+    sd3.sort(reverse=True)
+    # ---
+    ccc = "22"
+    # ---
+    for lln, sp in sd3:
+        ccc += f"|{sp}"
+    kk = ccc.replace("22|", "", 1)
+    # ---
+    print(kk)

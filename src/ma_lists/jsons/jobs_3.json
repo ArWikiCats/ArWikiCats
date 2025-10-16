@@ -1,0 +1,766 @@
+{
+    "advocates of pseudoscience": {
+        "mens": "مؤيدو العلم المزيف",
+        "womens": "مؤيدات العلم المزيف"
+    },
+    "agricultural engineers": {
+        "mens": "مهندسون زراعيون",
+        "womens": "مهندسون زراعيون"
+    },
+    "amnesty international prisoners of conscience": {
+        "mens": "سجناء حرية التعبير",
+        "womens": "سجينات حرية التعبير"
+    },
+    "analytic philosophers": {
+        "mens": "فلاسفة تحليليون",
+        "womens": "فيلسوفات تحليليات"
+    },
+    "anime composers": {
+        "mens": "ملحنو أنمي",
+        "womens": "ملحنات أنمي"
+    },
+    "arabists": {
+        "mens": "مستعربون",
+        "womens": "مستعربات"
+    },
+    "archbishops": {
+        "mens": "رؤساء أساقفة",
+        "womens": ""
+    },
+    "architectural designers": {
+        "mens": "مصممو عمارة",
+        "womens": "مصممات عمارة"
+    },
+    "architectural theoreticians": {
+        "mens": "منظرون معماريون",
+        "womens": "منظرات معماريات"
+    },
+    "armed forces diving": {
+        "mens": "غواصو قوات مسلحة",
+        "womens": "غواصات قوات مسلحة"
+    },
+    "armenian genocide deniers": {
+        "mens": "منكرو إبادة الأرمن",
+        "womens": "منكرات إبادة الأرمن"
+    },
+    "art critics": {
+        "mens": "نقاد فنيون",
+        "womens": "ناقدات فنيات"
+    },
+    "artificial intelligence researchers": {
+        "mens": "باحثو ذكاء اصطناعي",
+        "womens": "باحثات ذكاء اصطناعي"
+    },
+    "artists' models": {
+        "mens": "عارضون فنيون",
+        "womens": "عارضات فنيات"
+    },
+    "audio engineers": {
+        "mens": "مهندسو صوت",
+        "womens": "مهندسات صوت"
+    },
+    "automobile designers": {
+        "mens": "مصممو سيارات",
+        "womens": "مصممات سيارات"
+    },
+    "bass guitarists": {
+        "mens": "عازفو غيتار باس",
+        "womens": "عازفات غيتار باس"
+    },
+    "beekeepers": {
+        "mens": "نحالون",
+        "womens": "نحالات"
+    },
+    "bible translators": {
+        "mens": "مترجمو الكتاب المقدس",
+        "womens": "مترجمات الكتاب المقدس"
+    },
+    "biochemists": {
+        "mens": "كيميائيون حيويون",
+        "womens": "كيميائيات حيويات"
+    },
+    "biophysicists": {
+        "mens": "فيزيائيون حيويون",
+        "womens": "فيزيائيات حيويات"
+    },
+    "bmx riders": {
+        "mens": "سائقو بي إم إكس",
+        "womens": "سائقات بي إم إكس"
+    },
+    "bobsledders": {
+        "mens": "متزلجون جماعيون",
+        "womens": "متزلجات جماعيات"
+    },
+    "cabaret performers": {
+        "mens": "مؤدون في ملاهي ليلية",
+        "womens": "مؤديات في ملاهي ليلية"
+    },
+    "calligraphers": {
+        "mens": "خطاطون",
+        "womens": "خطاطات"
+    },
+    "cardiac surgeons": {
+        "mens": "جراحو قلب",
+        "womens": "جراحات قلب"
+    },
+    "catholic priests": {
+        "mens": "قساوسة كاثوليك",
+        "womens": ""
+    },
+    "catholics": {
+        "mens": "كاثوليك",
+        "womens": "كاثوليكيات"
+    },
+    "celebrity": {
+        "mens": "مشاهير",
+        "womens": "مشهورات"
+    },
+    "chemical engineers": {
+        "mens": "مهندسون كيميائيون",
+        "womens": "مهندسات كيميائيات"
+    },
+    "chemists": {
+        "mens": "كيميائيون",
+        "womens": "كيميائيات"
+    },
+    "chess composers": {
+        "mens": "مؤلفو مسائل شطرنج",
+        "womens": "مؤلفات مسائل شطرنج"
+    },
+    "chess theoreticians": {
+        "mens": "منظرو الشطرنج",
+        "womens": "منظرات الشطرنج"
+    },
+    "christian priests": {
+        "mens": "قساوسة مسيحيون",
+        "womens": ""
+    },
+    "christians of the crusades": {
+        "mens": "صليبيون",
+        "womens": "صليبيات"
+    },
+    "circumnavigators of the globe": {
+        "mens": "بحارة طافوا حول الأرض",
+        "womens": "بحارات طفن حول الأرض"
+    },
+    "circus performers": {
+        "mens": "عارضو سيرك",
+        "womens": "عارضات سيرك"
+    },
+    "civil engineers": {
+        "mens": "مهندسون مدنيون",
+        "womens": "مهندسات مدنيات"
+    },
+    "civil rights activists": {
+        "mens": "ناشطو حقوق مدنية",
+        "womens": "ناشطات حقوق مدنية"
+    },
+    "classical philologists": {
+        "mens": "فقهاء لغويون كلاسيكيون",
+        "womens": "فقيهات لغويات كلاسيكيات"
+    },
+    "classical scholars": {
+        "mens": "باحثون كلاسيكيون",
+        "womens": "باحثات كلاسيكيات"
+    },
+    "clerics regular": {
+        "mens": "رجل دين كاثوليكي",
+        "womens": ""
+    },
+    "clockmakers": {
+        "mens": "صانعو ساعات",
+        "womens": "صانعات ساعات"
+    },
+    "coachbuilders": {
+        "mens": "صانعو هياكل سيارات",
+        "womens": "صانعات هياكل سيارات"
+    },
+    "columnists": {
+        "mens": "كتاب عمود",
+        "womens": "كاتبات عمود"
+    },
+    "condottieri": {
+        "mens": "كوندوتييرويون",
+        "womens": "كوندوتييرويات"
+    },
+    "confidence tricksters": {
+        "mens": "محتالون كبار",
+        "womens": "محتالات كبيرات"
+    },
+    "conspiracy theorists": {
+        "mens": "منظرو المؤامرة",
+        "womens": "منظرات المؤامرة"
+    },
+    "constructed language creators": {
+        "mens": "مبتكرو اللغات",
+        "womens": "مبتكرات اللغات"
+    },
+    "coptologists": {
+        "mens": "مختصو دراسات قبطية",
+        "womens": "مختصات دراسات قبطية"
+    },
+    "copywriters": {
+        "mens": "كاتبون إعلانيون",
+        "womens": "كاتبات إعلانيات"
+    },
+    "democratic socialists": {
+        "mens": "اشتراكيون ديمقراطيون",
+        "womens": "اشتراكيات ديمقراطيات"
+    },
+    "dentists": {
+        "mens": "أطباء أسنان",
+        "womens": "طبيبات أسنان"
+    },
+    "diarists": {
+        "mens": "كتاب يوميات",
+        "womens": "كاتبات يوميات"
+    },
+    "discoverers": {
+        "mens": "مكتشفون",
+        "womens": "مكتشفات"
+    },
+    "discus throwers": {
+        "mens": "رماة قرص",
+        "womens": "راميات قرص"
+    },
+    "djs": {
+        "mens": "دي جيه",
+        "womens": ""
+    },
+    "double agents": {
+        "mens": "عملاء مزدوجون",
+        "womens": "عميلات مزدوجات"
+    },
+    "dukes": {
+        "mens": "دوقات",
+        "womens": ""
+    },
+    "educational theorists": {
+        "mens": "منظرون تربويون",
+        "womens": "منظرات تربويات"
+    },
+    "electrical engineers": {
+        "mens": "مهندسون كهربائيون",
+        "womens": "مهندسات كهربائيات"
+    },
+    "epistemologists": {
+        "mens": "فلاسفة نظرية المعرفة",
+        "womens": ""
+    },
+    "esotericists": {
+        "mens": "روحانيون",
+        "womens": "روحانيات"
+    },
+    "ethologists": {
+        "mens": "إيثولوجيون",
+        "womens": "إيثولوجيات"
+    },
+    "fabulists": {
+        "mens": "كتاب رمزيون",
+        "womens": "كاتبات رمزيات"
+    },
+    "film theorists": {
+        "mens": "منظرون سينمائيون",
+        "womens": "منظرات سينمائيات"
+    },
+    "flying aces": {
+        "mens": "طيارون عسكريون",
+        "womens": "طيارات عسكريات"
+    },
+    "folk guitarists": {
+        "mens": "",
+        "womens": ""
+    },
+    "forensic pathologists": {
+        "mens": "أطباء شرعيين",
+        "womens": "طبيبات شرعيات"
+    },
+    "formula e drivers": {
+        "mens": "سائقو فورمولا إي",
+        "womens": "سائقات فورمولا إي"
+    },
+    "formula one drivers": {
+        "mens": "سائقو فورمولا 1",
+        "womens": "سائقات فورمولا 1"
+    },
+    "fraudsters": {
+        "mens": "محتالون",
+        "womens": "محتالات"
+    },
+    "futurologists": {
+        "mens": "مستقبليون",
+        "womens": "مستقبليات"
+    },
+    "game designers": {
+        "mens": "مصممو ألعاب",
+        "womens": "مصممات ألعاب"
+    },
+    "geographers": {
+        "mens": "جغرافيون",
+        "womens": "جغرافيات"
+    },
+    "geologists": {
+        "mens": "جيولوجيون",
+        "womens": "جيولوجيات"
+    },
+    "geopoliticians": {
+        "mens": "مختصون في الجيوسياسية",
+        "womens": "مختصات في الجيوسياسية"
+    },
+    "goldsmiths": {
+        "mens": "صاغة",
+        "womens": "صائغات"
+    },
+    "graphic designers": {
+        "mens": "مصممو جرافيك",
+        "womens": "مصممات جرافيك"
+    },
+    "hammer throwers": {
+        "mens": "رماة مطرقة",
+        "womens": "راميات مطرقة"
+    },
+    "hebraists": {
+        "mens": "مستعبرون",
+        "womens": "مستعبرات"
+    },
+    "hellenists": {
+        "mens": "هلنستيون",
+        "womens": "هلنستيات"
+    },
+    "highwaymen": {
+        "mens": "قطاع طرق",
+        "womens": "قاطعات طريق"
+    },
+    "histologists": {
+        "mens": "أنساجيون",
+        "womens": "أنساجيات"
+    },
+    "holocaust deniers": {
+        "mens": "منكرو الهولوكوست",
+        "womens": "منكرات الهولوكوست"
+    },
+    "holocaust perpetrators": {
+        "mens": "مرتكبو الهولوكوست",
+        "womens": "مرتكبات هولوكوست"
+    },
+    "humorists": {
+        "mens": "فكاهيون",
+        "womens": "فكاهيات"
+    },
+    "illustrators": {
+        "mens": "رسامون",
+        "womens": "رسامات"
+    },
+    "industrial engineers": {
+        "mens": "مهندسون صناعيون",
+        "womens": "مهندسات صناعيات"
+    },
+    "inquisitors": {
+        "mens": "محققو محاكم تفتيش",
+        "womens": "محققات محاكم تفتيش"
+    },
+    "interior designers": {
+        "mens": "مصممو ديكور",
+        "womens": "مصممات ديكور"
+    },
+    "internet activists": {
+        "mens": "ناشطو إنترنت",
+        "womens": "ناشطات إنترنت"
+    },
+    "investors": {
+        "mens": "مستثمرون",
+        "womens": "مستثمرات"
+    },
+    "jazz bass guitarists": {
+        "mens": "",
+        "womens": ""
+    },
+    "jazz guitarists": {
+        "mens": "",
+        "womens": ""
+    },
+    "jewellery designers": {
+        "mens": "مصممو مجوهرات",
+        "womens": "مصممات مجوهرات"
+    },
+    "judaic scholars": {
+        "mens": "دارسو اليهودية",
+        "womens": "دارسات اليهودية"
+    },
+    "karateka": {
+        "mens": "ممارسو كاراتيه",
+        "womens": "ممارسات كاراتيه"
+    },
+    "language teachers": {
+        "mens": "معلمو لغات",
+        "womens": "معلمات لغات"
+    },
+    "lexicographers": {
+        "mens": "معجميون",
+        "womens": "معجميات"
+    },
+    "lgbt rights activists": {
+        "mens": "ناشطو إل جي بي تي",
+        "womens": "ناشطات إل جي بي تي"
+    },
+    "life coaches": {
+        "mens": "مدربو حياة",
+        "womens": "مدربات حياة"
+    },
+    "logicians": {
+        "mens": "منطقيون",
+        "womens": "منطقيات"
+    },
+    "magicians": {
+        "mens": "سحرة",
+        "womens": "ساحرات"
+    },
+    "marathon runners": {
+        "mens": "عداؤو ماراثون",
+        "womens": "عداءات ماراثون"
+    },
+    "mechanical engineers": {
+        "mens": "مهندسو ميكانيك",
+        "womens": "مهندسات ميكانيك"
+    },
+    "memoirists": {
+        "mens": "كتاب مذكرات",
+        "womens": "كاتبات مذكرات"
+    },
+    "metaphysicians": {
+        "mens": "ميتافيزيقيون",
+        "womens": "ميتافيزيقيات"
+    },
+    "midwives": {
+        "mens": "",
+        "womens": "قابلات"
+    },
+    "mimes": {
+        "mens": "ممثلون صامتون",
+        "womens": "ممثلات صامتات"
+    },
+    "mixed martial artists": {
+        "mens": "مقاتلو فنون قتالية مختلطة",
+        "womens": "مقاتلات فنون قتالية مختلطة"
+    },
+    "models (profession)": {
+        "mens": "عارضو أزياء",
+        "womens": "عارضات أزياء"
+    },
+    "mountain bikers": {
+        "mens": "راكبو دراجات جبلية",
+        "womens": "راكبات دراجات جبلية"
+    },
+    "muezzins": {
+        "mens": "مؤذنون",
+        "womens": "مؤذنات"
+    },
+    "music theorists": {
+        "mens": "منظرو الموسيقى",
+        "womens": "منظرات الموسيقى"
+    },
+    "music video directors": {
+        "mens": "مخرجو فيديوهات موسيقية",
+        "womens": "مخرجات فيديوهات موسيقية"
+    },
+    "mystics": {
+        "mens": "متصوفون",
+        "womens": "متصوفات"
+    },
+    "national association football team managers": {
+        "mens": "مدربو منتخبات وطنية لكرة القدم",
+        "womens": "مدربات منتخبات وطنية لكرة القدم"
+    },
+    "opinion journalists": {
+        "mens": "صحفيون ذوو رأي",
+        "womens": "صحفيات ذوات رأي"
+    },
+    "orthopedic surgeons": {
+        "mens": "جراحو عظام",
+        "womens": "جراحات عظام"
+    },
+    "pashas": {
+        "mens": "باشاوات",
+        "womens": ""
+    },
+    "performance artists": {
+        "mens": "فنانون أدائيون",
+        "womens": "فنانات أدائيات"
+    },
+    "petroleum engineers": {
+        "mens": "مهندسو نفط",
+        "womens": "مهندسات نفط"
+    },
+    "pharmacists": {
+        "mens": "صيادلة",
+        "womens": ""
+    },
+    "pharmacologists": {
+        "mens": "علماء صيدلة",
+        "womens": "عالمات صيدلة"
+    },
+    "phenomenologists": {
+        "mens": "فلاسفة ظاهراتيون",
+        "womens": ""
+    },
+    "philanthropists": {
+        "mens": "فاعلو خير",
+        "womens": "فاعلات خير"
+    },
+    "philologists": {
+        "mens": "فقهاء لغويون",
+        "womens": "فقيهات لغويات"
+    },
+    "philosophers of language": {
+        "mens": "فلاسفة لغات",
+        "womens": "فيلسوفات لغات"
+    },
+    "photojournalists": {
+        "mens": "مصورو أخبار",
+        "womens": "مصورات أخبار"
+    },
+    "pirates": {
+        "mens": "قراصنة",
+        "womens": "قرصانات"
+    },
+    "plus-size models": {
+        "mens": "عارضات بلس سايز",
+        "womens": "عارضات بلس سايز"
+    },
+    "pole vaulters": {
+        "mens": "قافزون بالزانة",
+        "womens": "قافزات بالزانة"
+    },
+    "portrait photographers": {
+        "mens": "مصورو بورتريه",
+        "womens": "مصورات بورتريه"
+    },
+    "professional magicians": {
+        "mens": "سحرة محترفون",
+        "womens": "ساحرات محترفات"
+    },
+    "psychoanalysts": {
+        "mens": "معالجون نفسيون",
+        "womens": "معالجات نفسيات"
+    },
+    "quran reciters": {
+        "mens": "قراء القرآن",
+        "womens": "قارئات القرآن"
+    },
+    "rabbis": {
+        "mens": "حاخامات",
+        "womens": "نساء حاخامات"
+    },
+    "radio and television announcers": {
+        "mens": "مذيعو إذاعة وتلفزيون",
+        "womens": "مذيعات إذاعة وتلفزيون"
+    },
+    "record producers": {
+        "mens": "منتجو تسجيلات",
+        "womens": "منتتجات تسجيلات"
+    },
+    "religion academics": {
+        "mens": "أكاديميون دينيون",
+        "womens": "أكاديميات دينيات"
+    },
+    "resistance members": {
+        "mens": "أعضاء مقاومة",
+        "womens": "عضوات مقاومة"
+    },
+    "revolutionaries": {
+        "mens": "ثوار",
+        "womens": "ثائرات"
+    },
+    "road racing cyclists": {
+        "mens": "دراجو طريق",
+        "womens": "دراجات طريق"
+    },
+    "rock guitarists": {
+        "mens": "",
+        "womens": ""
+    },
+    "royal consorts": {
+        "mens": "أقران ملكيون",
+        "womens": "قرينات ملكيات"
+    },
+    "samurai": {
+        "mens": "سامورايون",
+        "womens": "سامورايات"
+    },
+    "satirists": {
+        "mens": "كتاب هجائيون",
+        "womens": "كاتبات هجائيات"
+    },
+    "science fiction writers": {
+        "mens": "كتاب خيال علمي",
+        "womens": "كاتبات خيال علمي"
+    },
+    "scientific illustrators": {
+        "mens": "رسامو مجال علمي",
+        "womens": "رسامات مجال علمي"
+    },
+    "sculptors": {
+        "mens": "نحاتون",
+        "womens": "نحاتات"
+    },
+    "security guards": {
+        "mens": "حراس أمن",
+        "womens": "حارسات أمن"
+    },
+    "semiticists": {
+        "mens": "مختصون بالدراسات السامية",
+        "womens": "مختصات بالدراسات السامية"
+    },
+    "settlers": {
+        "mens": "مستوطنون",
+        "womens": "مستوطنات"
+    },
+    "sharia judges": {
+        "mens": "قضاة شرعيون",
+        "womens": "قاضيات شرعيات"
+    },
+    "sideshow performers": {
+        "mens": "مؤدو عروض",
+        "womens": "مؤديات عروض"
+    },
+    "smugglers": {
+        "mens": "مهربون",
+        "womens": "مهربات"
+    },
+    "snipers": {
+        "mens": "قناصون",
+        "womens": "قناصات"
+    },
+    "social scientists": {
+        "mens": "مختصون بالعلوم الاجتماعية",
+        "womens": "مختصات بالعلوم الاجتماعية"
+    },
+    "socialists": {
+        "mens": "اشتراكيون",
+        "womens": "اشتراكيات"
+    },
+    "sociolinguists": {
+        "mens": "لغويون اجتماعيون",
+        "womens": "لغويات اجتماعيات"
+    },
+    "software engineers": {
+        "mens": "مهندسو برمجيات",
+        "womens": "مهندسات برمجيات"
+    },
+    "speechwriters": {
+        "mens": "كاتبو خطابات",
+        "womens": "كاتبات خطابات"
+    },
+    "spokespersons": {
+        "mens": "متحدثون رسميون",
+        "womens": "متحدثات رسميات"
+    },
+    "stand-up comedians": {
+        "mens": "كوميديون ستاند أب",
+        "womens": "كوميديات ستاند أب"
+    },
+    "string musicians": {
+        "mens": "موسيقيو آلات وترية",
+        "womens": "موسيقيات آلات وترية"
+    },
+    "structural engineers": {
+        "mens": "مهندسو إنشاءات",
+        "womens": "مهندسات إنشاءات"
+    },
+    "synchronized swimmers": {
+        "mens": "سباحون إيقاعيون",
+        "womens": "سباحات إيقاعيات"
+    },
+    "tailors": {
+        "mens": "خياطون",
+        "womens": "خياطات"
+    },
+    "television talk show hosts": {
+        "mens": "مقدمو برامج تلفزيونية حوارية",
+        "womens": "مقدمات برامج تلفزيونية حوارية"
+    },
+    "test pilots": {
+        "mens": "طيارو اختبار",
+        "womens": "طيارات اختبار"
+    },
+    "theatre directors": {
+        "mens": "مخرجو مسرح",
+        "womens": "مخرجات مسرح"
+    },
+    "theoretical physicists": {
+        "mens": "فيزيائيون نظريون",
+        "womens": "فيزيائيات نظريات"
+    },
+    "thieves": {
+        "mens": "لصوص",
+        "womens": "لصات"
+    },
+    "topologists": {
+        "mens": "طوبولوجيون",
+        "womens": "طوبولوجيات"
+    },
+    "track cyclists": {
+        "mens": "دراجو مضمار",
+        "womens": "دراجات مضمار"
+    },
+    "truck drivers": {
+        "mens": "سائقو شاحنات",
+        "womens": "سائقات شاحنات"
+    },
+    "typographers": {
+        "mens": "طابعو حروف",
+        "womens": "طابعات حروف"
+    },
+    "urban designers": {
+        "mens": "مصممون حضريون",
+        "womens": "مصممات حضريات"
+    },
+    "veterinarians": {
+        "mens": "أطباء بيطريون",
+        "womens": "طبيبات بيطريات"
+    },
+    "video artists": {
+        "mens": "فنانو فيديو",
+        "womens": "فنانات فيديو"
+    },
+    "video game designers": {
+        "mens": "مصممو ألعاب فيديو",
+        "womens": "مصممات ألعاب فيديو"
+    },
+    "video game developers": {
+        "mens": "مطورو ألعاب فيديو",
+        "womens": "مطورات ألعاب فيديو"
+    },
+    "video game producers": {
+        "mens": "منتجو ألعاب فيديو",
+        "womens": "منتجات ألعاب فيديو"
+    },
+    "video game programmers": {
+        "mens": "مبرمجو ألعاب فيديو",
+        "womens": "مبرمجات ألعاب فيديو"
+    },
+    "video game writers": {
+        "mens": "كاتبو ألعاب فيديو",
+        "womens": "كاتبات ألعاب فيديو"
+    },
+    "vigilantes": {
+        "mens": "مطبقو عدالة ذاتية",
+        "womens": "مطبقات عدالة ذاتية"
+    },
+    "visual artists": {
+        "mens": "فنانون بصريون",
+        "womens": "فنانات بصريات"
+    },
+    "war photographers": {
+        "mens": "مصورون في وقت الحروب",
+        "womens": "مصورات في وقت الحروب"
+    },
+    "windsurfers": {
+        "mens": "راكبو أمواج",
+        "womens": "راكبات أمواج"
+    },
+    "youtubers": {
+        "mens": "مشاهير يوتيوب",
+        "womens": ""
+    }
+}
