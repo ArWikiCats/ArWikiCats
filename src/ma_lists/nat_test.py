@@ -464,21 +464,3 @@ if __name__ == "__main_3_":
             # if All_Nat[kkk]["men"].find(" ") != -1:
             printe.output(f',"{kkk}": "{kkk_la}"')
 # ---
-if __name__ == "__main__":
-    kk = ""
-    # ---
-    sdsd = [[len(xy["en"].split(" ")), xy["en"]] for kl, xy in All_Nat.items() if xy["en"] != ""]
-    # sdsd = list(set(sdsd))
-    sd3 = []
-    for x in sdsd:
-        if x not in sd3:
-            sd3.append(x)
-    sd3.sort(reverse=True)
-    # ---
-    ccc = "22"
-    # ---
-    for lln, sp in sd3:
-        ccc += f"|{sp}"
-    kk = ccc.replace("22|", "", 1)
-    # ---
-    print(kk)

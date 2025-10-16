@@ -1,15 +1,10 @@
 #!/usr/bin/python3
 """
 
-Usage:
-from .helps.print_bot import mainoutput, fafa2, testprint, only_print_heads
-from .helps.print_bot import do_print_options, print_def_head, output_main, print_put, output_test, output_test4
-# do_print_options(noprint="", printfirst="", printhead="", all_print_off="", tst_prnt_all=False)
 """
 
-from .. import printe
 import sys
-from ..log import logger
+from .. import printe
 
 all_the_print_off = "all_print_off" in sys.argv
 all_the_print_on = "printall" in sys.argv
@@ -17,67 +12,59 @@ mainoutput = {1: False}
 fafa2 = {1: False}
 testprint = {1: False}
 only_print_heads = {1: False}
-print_test4 = {1: False}
 
 if "printhead" in sys.argv:
     only_print_heads[1] = True
 
-if "testprint" in sys.argv:
-    print_test4[1] = True
-    printe.output("<<lightgreen>> test_4.py print_test4[1] = True")
-    printe.output("<<lightgreen>> test_4.py print_test4[1] = True")
 
-
-def output_test4(string):
+def output_test4(text):
     if all_the_print_off:
         return
-    if print_test4[1]:
-        printe.output(string)
+    printe.log(text)
 
 
-def output_main(string):
+def output_main(text):
     if all_the_print_on:
-        printe.output(string)
+        printe.output(text)
         return
     if all_the_print_off or only_print_heads[1]:
         return ""
     if mainoutput[1]:
-        printe.output(string)
+        printe.output(text)
 
 
-def print_def_head(string):
+def print_def_head(text):
     if all_the_print_on:
-        printe.output(string)
+        printe.output(text)
         return
     if all_the_print_off:
         return
     # if only_print_heads[1]:
     if mainoutput[1] or only_print_heads[1]:
-        printe.output(string)
+        printe.output(text)
 
 
-def print_put(string):
+def print_put(text):
     if all_the_print_on:
-        printe.output(string)
+        printe.output(text)
         return
     if all_the_print_off:
         return
     if "print_put" in sys.argv:
-        printe.output(string)
+        printe.output(text)
     else:
         if only_print_heads[1]:
             return ""
         if fafa2[1]:
-            printe.output(string)
+            printe.output(text)
 
 
-def output_test(string):
+def output_test(text):
     if all_the_print_off:
         return
     if only_print_heads[1]:
         return ""
-    if testprint[1]:
-        printe.output(string)
+    printe.log(text)
 
 
 def do_print_options(noprint="", printfirst="", printhead="", all_print_off="", tst_prnt_all=False):
@@ -126,15 +113,3 @@ def do_print_options(noprint="", printfirst="", printhead="", all_print_off="", 
 
             if noprint == "so":
                 mainoutput[1] = True
-
-
-for arg in sys.argv:
-    if arg == "noprint":
-        printe.output("<<lightred>>>>  noprint  \n\t\t>>  noprint  ")
-        mainoutput[1] = True
-        fafa2[1] = False
-        testprint[1] = False
-
-    if arg == "testprint" or arg == "-testprint":
-        printe.output("<<lightred>>>>  testprint  ")
-        testprint[1] = True

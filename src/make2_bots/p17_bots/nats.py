@@ -115,14 +115,3 @@ def find_nat_others(cate, fa=""):
     nat_others_cash[cate] = cnt_la
 
     return cnt_la
-
-
-if __name__ == "__main__":
-    print_put = printe.output
-    print("_________________")
-    # python3 core8/pwb.py make/bots/nats
-    op = make_sport_formts_p17("football junior championships")
-    print(op)
-
-    zo = find_nat_others("yemeni football junior championships")
-    print(zo)

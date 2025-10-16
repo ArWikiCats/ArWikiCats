@@ -11,7 +11,7 @@ from ...ma_lists import languages_pop, lang_ttty
 
 from .parties_bot import get_parties_lab
 from ..sports_bots import team_work
-from ...helps.print_bot import print_put, fafa2
+from ...helps.print_bot import print_put
 
 test_Lang_Cash = {}
 
@@ -26,7 +26,7 @@ def Get_Teams_new(team):
 
     print_put(f'Get_Teams_new team:"{team}"')
     team_lab = ""
-    team_lab = sport_lab.Get_New_team_xo(team, fafa_2=fafa2[1])
+    team_lab = sport_lab.Get_New_team_xo(team)
 
     if not team_lab:
         for tat, tab_lab in team_work.Teams_new_end_keys.items():

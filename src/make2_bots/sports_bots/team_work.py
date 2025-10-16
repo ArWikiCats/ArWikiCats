@@ -182,25 +182,3 @@ def Get_team_work_Club(s):
     lab = slab.get("lab", "")
 
     return lab
-
-
-# ---
-# python3 core8/pwb.py make/team_work Major_League_Soccer_team_manager
-
-
-def main():
-    print_team_w[1] = True
-    if sys.argv and sys.argv[1]:
-        La = sys.argv[1].lower()
-        La = re.sub(r"_", " ", La)
-        La = re.sub(r"Category:", "", La)
-        so = Get_Club(La)
-        # so = priffix_Mens_work(La)
-        print(f"Lab: {La}")
-        print(f"so :{so}")
-
-
-# ---
-if __name__ == "__main__":
-    main()
-# ---

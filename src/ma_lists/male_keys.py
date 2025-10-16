@@ -617,21 +617,4 @@ from ..helps import len_print
 
 len_print.lenth_pri("male_keys.py", Lenth1)
 # ---
-if __name__ == "__main__":
-    keyse = list(pop_key3_female.keys())
-    # ---#
-    for i in pop_key3_male:
-        if i not in keyse:
-            keyse.append(i)
-    # ---#
-    for k in keyse:
-        mal = pop_key3_male.get(k, "")
-        fem = pop_key3_female.get(k, "")
-        sd = ' "' + k + '" :\t{"male":"' + mal + '"\t,\tu"female":"' + fem + '" }, '
-        print(sd)
-    printe.output(f' len pop_key3_female "{len(pop_key3_female)}" ')
-    printe.output(f' len pop_key3_male "{len(pop_key3_male)}" ')
-    printe.output(f' len keyse "{len(keyse)}" ')
-# ---#
-# ---
 del Films_keys_male_female

@@ -233,27 +233,3 @@ def Jobs_in_Multi_Sports(cate, out=False, tab=None):
     Jobs_in_Multi_Sports_cash[cate] = Main_lab
     # ---
     return Main_lab
-
-
-def main():
-    # ase = try_relegins_jobs("hindu apologists")
-    # print_put(f"ase:{ase}")
-    # ---
-    # python3 core8/pwb.py make/bots/test_4 Afghan_men's_football_players testprint
-    # ---
-    if sys.argv and sys.argv[1]:
-        La = sys.argv[1].lower()
-        La = re.sub(r"_", " ", La)
-        La = re.sub(r"Category:", "", La)
-        so = test4_2018_Jobs(La, out=True)
-        # ss = nat_match(La, out = True)
-        # so = test4_2018_Jobs(La, out=True)
-        # so = priffix_Mens_work(La)
-        print_put(f"Lab: {La}")
-        print_put(f"so :{so}")
-        # print_put("yemeni :" +  Nat_mens.get("yemeni","")   )
-        # print_put("so :" + so   )
-
-
-if __name__ == "__main__":
-    main()

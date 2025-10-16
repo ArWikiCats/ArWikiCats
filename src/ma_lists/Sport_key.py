@@ -131,10 +131,6 @@ for x in faor :
 # ---
 # python3 core8/pwb.py make/Sport_key
 # ---
-if __name__ == "__main__":
-    print(PP)
-# ---
-# ---
 Lenth1 = {
     "Sports_Keys_New": sys.getsizeof(Sports_Keys_New),
     "All_Nat Sports_Keys_For_Jobs": sys.getsizeof(Sports_Keys_For_Jobs),

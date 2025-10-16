@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
 
-import sport_lab # sport_lab.Get_Sport_Format_xo_en_ar_is_P17(en) # sport_lab.Get_sport_formts_female_nat(en) # sport_lab.Get_New_team_xo(team, fafa_2 = False)
 
 """
 
@@ -29,8 +28,6 @@ All_nat_to_ar = texts_new.replace("22|", "", 1)
 All_nat_to_ar = All_nat_to_ar.replace("(", r"\(").replace(")", r"\)")
 nat_reg_line = rf".*\s({All_nat_to_ar})\s.*"
 # ---
-
-# do_print_options(noprint="", printfirst="", printhead="", all_print_off="", tst_prnt_all=False)
 
 
 # New_Sport_Format_team_xo_en_ar_is_P17
@@ -131,7 +128,7 @@ def Get_sport_formts_female_nat(con_77):  # New_For_nat_female_xo_team
     return labelll
 
 
-def Get_New_team_xo(team, fafa_2=False):
+def Get_New_team_xo(team):
     # ---
     # إيجاد تسميات نصوص رياضية مثل
     # world champion national football teams
@@ -228,32 +225,3 @@ def Get_New_team_xo(team, fafa_2=False):
         print_put(f'Get_New_team_xo: team_lab:"{team_lab}"')
     # ---
     return team_lab
-
-
-# ---
-if __name__ == "__main__":
-    te = ""
-    # ---
-    # python3 core8/pwb.py make/sport_lab test yemeni Golf championships
-    # python3 core8/pwb.py make/sport_lab test yemeni Golf Tour
-    # python3 core8/pwb.py make/sport_lab test ladies asian Golf Tour
-    # python3 core8/pwb.py make/sport_lab test Category:ladies_Asian_Golf_Tour
-    # ---
-    if sys.argv and "test" in sys.argv:
-        # ---
-        testprint[1] = True
-        # ---
-        Olist = sys.argv
-        Olist.remove(sys.argv[0])
-        Olist.remove("test")
-        # ---
-        cate = " ".join(Olist)
-        # ---
-        name = cate
-        name = name.lower().replace("category:", "").replace("_", " ")
-        # ---
-        lab = Get_New_team_xo(name, fafa_2=True)
-        print_put("<<lightred>>> ^^^^^^^^^ event end ^^^^^^^^^ ")
-        print(f'tab[{cate}] = "{lab}"')
-        # ---
-# ---
