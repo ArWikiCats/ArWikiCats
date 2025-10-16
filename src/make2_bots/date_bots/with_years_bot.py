@@ -6,14 +6,14 @@ import functools
 import re
 
 # ---
-from ..ma_lists import change_numb_to_word
-from ..ma_lists import Word_After_Years
-from ..make2_bots.format_bots import ar_lab_before_year_to_add_in
-from ..make2_bots.matables_bots.bot import Add_in_table
-from ..make2_bots.matables_bots.table1_bot import get_KAKO
+from ...ma_lists import change_numb_to_word
+from ...ma_lists import Word_After_Years
+from ..format_bots import ar_lab_before_year_to_add_in
+from ..matables_bots.bot import Add_in_table
+from ..matables_bots.table1_bot import get_KAKO
 
-from ..make2_bots.ma_bots import contry2_lab
-from ..make2_bots.ma_bots.ye_ts_bot import translate_general_category
+from ..ma_bots import contry2_lab
+from ..ma_bots.ye_ts_bot import translate_general_category
 
 Try_With_Years_cash = {}
 

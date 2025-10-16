@@ -5,7 +5,7 @@ from .langs_w import Lang_work
 
 """
 from typing import Dict
-from ...ma_lists import (
+from ....ma_lists import (
     All_Nat,
     Films_keys_both_new,
     Films_key_333,
@@ -16,7 +16,7 @@ from ...ma_lists import (
     languages_key,
     lang_key_m,
 )
-from ...helps.print_bot import output_test4, print_put
+from ....helps.print_bot import output_test4, print_put
 
 Lang_work_cash: Dict[str, str] = {}
 

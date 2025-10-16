@@ -8,8 +8,8 @@ from .mk2 import new_func_mk2
 
 import re
 
-from ...make2_bots.format_bots import ar_lab_before_year_to_add_in, contry_before_year
-from ...make2_bots.matables_bots.bot import (
+from ...format_bots import ar_lab_before_year_to_add_in, contry_before_year
+from ...matables_bots.bot import (
     Add_to_main2_tab,
     Films_O_TT,
     New_players,
@@ -18,7 +18,7 @@ from ...make2_bots.matables_bots.bot import (
     Keep_it_frist,
     add_in_to_contry,
 )
-from ...helps.print_bot import print_put, output_test
+from ....helps.print_bot import print_put, output_test
 
 
 def new_func_mk2(category, cat_test, year, typeo, In, contry, arlabel, year_labe, suf, Add_In, cnt_la, Add_In_Done):

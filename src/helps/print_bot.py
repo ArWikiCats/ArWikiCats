@@ -9,7 +9,7 @@ from .helps.print_bot import do_print_options, print_def_head, output_main, prin
 
 from .. import printe
 import sys
-from ...log import logger
+from ..log import logger
 
 all_the_print_off = "all_print_off" in sys.argv
 all_the_print_on = "printall" in sys.argv

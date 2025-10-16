@@ -1,6 +1,5 @@
 """
 
-from .. import malists_sport_lab as sport_lab
 
 """
 

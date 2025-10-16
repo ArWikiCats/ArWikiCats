@@ -8,7 +8,7 @@ from .make2_bots.jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 import re
 
 # ---
-from ...ma_lists import (
+from ....ma_lists import (
     People_key,
     All_Nat,
     Nat_women,
@@ -16,12 +16,12 @@ from ...ma_lists import (
     Jobs_key_mens,
     Jobs_key_womens,
 )
-from ...ma_lists import en_is_nat_ar_is_man, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to
+from ....ma_lists import en_is_nat_ar_is_man, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to
 
 from ..get_helps import get_con_3
 
 # ---
-from ...helps.print_bot import output_test4, print_put
+from ....helps.print_bot import output_test4, print_put
 from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ..jobs_mainbot import Jobs  # , Jobs2
 

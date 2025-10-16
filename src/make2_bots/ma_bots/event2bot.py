@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Usage:
-from ..make2_bots.ma_bots import event2bot
+from ..ma_bots import event2bot
 # category_lab = event2bot.event2(category_r)
 
 """
@@ -10,15 +10,15 @@ from ..make2_bots.ma_bots import event2bot
 import re
 import sys
 
-from .. import printe
-from ..fix import fixtitle
-from ..make2_bots.bots import tmp_bot
-from ..make2_bots.date_bots import with_years_bot
+from ... import printe
+from ...fix import fixtitle
+from ..bots import tmp_bot
+from ..date_bots import with_years_bot
 from .lab_seoo_bot import event_Lab_seoo
-from ..make2_bots.o_bots import univer  # univer.test_Universities(cate)
+from ..o_bots import univer  # univer.test_Universities(cate)
 
-from ..make2_bots.matables_bots.bot import safo, titttto
-from ..helps.print_bot import print_put
+from ..matables_bots.bot import safo, titttto
+from ...helps.print_bot import print_put
 from .contry_bot import Get_contry
 from .dodo_bots.event2bot_dodo import make_lab_dodo
 

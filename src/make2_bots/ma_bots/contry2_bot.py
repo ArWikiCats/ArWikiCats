@@ -2,10 +2,10 @@
 """
 python3 core8/pwb.py make/make2_bots.ma_bots/contry2_bot
 
-# from ..make2_bots.ma_bots.contry2_bot import Get_contry2
+# from ..ma_bots.contry2_bot import Get_contry2
 
 
-from ..make2_bots.ma_bots import contry2_bot # contry2_bot.Get_contry2()
+from ..ma_bots import contry2_bot # contry2_bot.Get_contry2()
 
 
 lab = contry2_bot.Get_contry2()
@@ -19,11 +19,11 @@ from . import contry2_lab
 from . import ye_ts_bot
 from .c2_bots.contry2_tit_bt import contry_2_tit
 
-from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import pop_All_2018
 
-from ..helps.print_bot import print_def_head, print_put, output_test
+from ...helps.print_bot import print_def_head, print_put, output_test
 
-from ..make2_bots.fromnet.wd_bot import find_wikidata
+from ..fromnet.wd_bot import find_wikidata
 
 Get_contry2_done: Dict[str, str] = {}
 use_main_s_done: List[str] = []

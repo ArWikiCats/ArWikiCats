@@ -7,7 +7,7 @@ from .arlabel_bots.bot_type_country import get_type_country
 
 import re
 from typing import Tuple
-from ...helps.print_bot import print_def_head, print_put
+from ....helps.print_bot import print_def_head, print_put
 
 
 def get_type_country(category: str, tito: str) -> Tuple[str, str]:

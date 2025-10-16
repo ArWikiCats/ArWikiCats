@@ -18,7 +18,7 @@ if not from_year and cat_year:
 """
 
 import re
-from ..helps.print_bot import output_main
+from ...helps.print_bot import output_main
 
 labs_done = {1: 0}
 cats_labels = {}

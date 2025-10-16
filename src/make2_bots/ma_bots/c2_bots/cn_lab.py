@@ -5,15 +5,15 @@ from .cn_lab import make_cnt_lab
 """
 
 import re
-from ...ma_lists import By_table
-from ...make2_bots.format_bots import pop_format, pop_format2
+from ....ma_lists import By_table
+from ...format_bots import pop_format, pop_format2
 
-from ...make2_bots.matables_bots.bot import (
+from ...matables_bots.bot import (
     Films_O_TT,
     New_players,
     typeTable,
 )
-from ...helps.print_bot import print_put
+from ....helps.print_bot import print_put
 
 
 def make_cnt_lab(tat_o: str, contry2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:

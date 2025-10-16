@@ -6,7 +6,7 @@ from . import fax2
 
 import sys
 from typing import Dict, Any, Tuple
-from ..helps.print_bot import print_put
+from ...helps.print_bot import print_put
 from .fax2_bots.squad_title_bot import get_squad_title
 
 Find_stubs: Dict[int, bool] = {1: "-stubs" in sys.argv}

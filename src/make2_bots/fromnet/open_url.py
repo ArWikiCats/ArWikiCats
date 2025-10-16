@@ -1,7 +1,7 @@
 
 import requests
 
-from ..log import logger
+from ...log import logger
 
 session = requests.Session()
 session.headers.update({

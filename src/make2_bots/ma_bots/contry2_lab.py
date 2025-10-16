@@ -2,27 +2,27 @@
 """
 python3 core8/pwb.py make/make2_bots.ma_bots/contry2_bot
 
-# from ..make2_bots.ma_bots.contry2_lab import get_lab_for_contry2
+# from ..ma_bots.contry2_lab import get_lab_for_contry2
 
 
 """
 from typing import Any
-from ..make2_bots.o_bots import fax
-from ..make2_bots.media_bots.films_bot import test_films
+from ..o_bots import fax
+from ..media_bots.films_bot import test_films
 
-from ..make2_bots.sports_bots import team_work
-from ..make2_bots.p17_bots import nats
-from ..make2_bots.matables_bots.centries_bot import centries_years_dec
+from ..sports_bots import team_work
+from ..p17_bots import nats
+from ..matables_bots.centries_bot import centries_years_dec
 
-from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
-from ..make2_bots.matables_bots.table1_bot import get_KAKO
+from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.table1_bot import get_KAKO
 
-from ..helps.print_bot import print_put
+from ...helps.print_bot import print_put
 
-from ..make2_bots.p17_bots.us_stat import Work_US_State
-from ..make2_bots.o_bots.rele import Work_relations
-from ..make2_bots.o_bots.popl import Work_peoples
-from ..make2_bots.o_bots import univer
+from ..p17_bots.us_stat import Work_US_State
+from ..o_bots.rele import Work_relations
+from ..o_bots.popl import Work_peoples
+from ..o_bots import univer
 
 from . import ye_ts_bot
 

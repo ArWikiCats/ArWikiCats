@@ -5,12 +5,12 @@ from  make.make2_bots.fromnet.wd_bot import find_wikidata
 import sys
 from typing import Dict
 from .wd import find_name_from_wikidata
-from ..helps.print_bot import print_put
-from ..ma_lists import New_P17_Finall
-from ..ma_lists import Ambassadors_tab
-from ..make2_bots.matables_bots.centries_bot import centries_years_dec
-from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
-from ..make2_bots.matables_bots.bot_2018 import Add_to_pop_All_18  # Add_to_pop_All_18(tab)
+from ...helps.print_bot import print_put
+from ...ma_lists import New_P17_Finall
+from ...ma_lists import Ambassadors_tab
+from ..matables_bots.centries_bot import centries_years_dec
+from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import Add_to_pop_All_18  # Add_to_pop_All_18(tab)
 
 wikidata_cash_oo: Dict[str, str] = {}
 Find_f_wikidata: Dict[int, bool] = {1: "nowikidata" not in sys.argv}

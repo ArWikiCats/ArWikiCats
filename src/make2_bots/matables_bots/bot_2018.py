@@ -2,12 +2,12 @@
 r"""
 
 Usage:
-from ..make2_bots.matables_bots import bot_2018
+from ...matables_bots import bot_2018
 # bot_2018.pop_All_2018.get()
 
 
-from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
-from ..make2_bots.matables_bots.bot_2018 import get_pop_All_18, Add_to_pop_All_18 # get_pop_All_18(key, "") #Add_to_pop_All_18(tab)
+from ...matables_bots.bot_2018 import pop_All_2018
+from ...matables_bots.bot_2018 import get_pop_All_18, Add_to_pop_All_18 # get_pop_All_18(key, "") #Add_to_pop_All_18(tab)
 
 
 # pop_All_2018\.get\((.*?), (.*?)\)
@@ -22,17 +22,17 @@ or
 
 import sys
 from typing import Dict, Any
-from ..helps import len_print
-from ..ma_lists import summer_winter_games
-from ..ma_lists import pf_keys2
-from ..ma_lists import New_P17_Finall
-from ..ma_lists import films_mslslat_tab
-from ..ma_lists import Jobs_new, Jobs_key
-from ..ma_lists import Sports_Keys_For_Label
-from ..ma_lists import By_table
+from ...helps import len_print
+from ...ma_lists import summer_winter_games
+from ...ma_lists import pf_keys2
+from ...ma_lists import New_P17_Finall
+from ...ma_lists import films_mslslat_tab
+from ...ma_lists import Jobs_new, Jobs_key
+from ...ma_lists import Sports_Keys_For_Label
+from ...ma_lists import By_table
 
-from ..ma_lists import Teams_new
-from ..ma_lists import pop_All_2018
+from ...ma_lists import Teams_new
+from ...ma_lists import pop_All_2018
 
 pop_All_2018["country"] = "البلد"
 

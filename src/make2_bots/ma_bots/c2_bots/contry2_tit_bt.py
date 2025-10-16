@@ -6,11 +6,11 @@ from .c2_bots.contry2_tit_bt import contry_2_tit
 
 import re
 from typing import Tuple
-from ... import printe
+from .... import printe
 
-from ...make2_bots.format_bots import Tit_ose_Nmaes
+from ...format_bots import Tit_ose_Nmaes
 
-from ...helps.print_bot import print_put, output_test
+from ....helps.print_bot import print_put, output_test
 
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 from .cn_lab import make_cnt_lab

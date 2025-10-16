@@ -2,14 +2,14 @@
 
 """
 import re
-from ..make2_bots.jobs_bots.get_helps import get_con_3
-from ..make2_bots.matables_bots.bot import All_P17, Add_to_main2_tab
-from ..make2_bots.format_bots import Tit_ose_Nmaes, pop_format
+from ..jobs_bots.get_helps import get_con_3
+from ..matables_bots.bot import All_P17, Add_to_main2_tab
+from ..format_bots import Tit_ose_Nmaes, pop_format
 
-from ..ma_lists import sport_formts_en_ar_is_p17
-from ..ma_lists import en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_P17_ar_is_al_women
-from ..ma_lists import All_contry_with_nat_keys_is_en, contries_from_nat
-from .. import malists_sport_lab as sport_lab  # sport_lab.Get_Sport_Format_xo_en_ar_is_P17(en) # sport_lab.Get_sport_formts_female_nat(en) # sport_lab.Get_New_team_xo(team, fafa_2 = False)
+from ...ma_lists import sport_formts_en_ar_is_p17
+from ...ma_lists import en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_P17_ar_is_al_women
+from ...ma_lists import All_contry_with_nat_keys_is_en, contries_from_nat
+from ... import malists_sport_lab as sport_lab  # sport_lab.Get_Sport_Format_xo_en_ar_is_P17(en) # sport_lab.Get_sport_formts_female_nat(en) # sport_lab.Get_New_team_xo(team, fafa_2 = False)
 
 
 def print_put(s):

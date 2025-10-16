@@ -1,6 +1,6 @@
 """
 Usage:
-from ..make2_bots.ma_bots import event_lab_bot
+from ..ma_bots import event_lab_bot
 # category_lab = event_lab_bot.event_Lab(cate_r)
 
 """
@@ -8,23 +8,21 @@ from ..make2_bots.ma_bots import event_lab_bot
 import sys
 import re
 
-# from .. import printe
-
 from . import fax2
 from . import list_cat_format
 
-from .. import malists_sport_lab as sport_lab
+from ... import malists_sport_lab as sport_lab
 
-from ..helps.print_bot import print_put
-from ..make2_bots.date_bots import year_lab
-from ..make2_bots.o_bots import univer
-from ..ma_lists import New_P17_Finall
-from ..make2_bots.fromnet import kooora
-from ..make2_bots.fromnet.wd_bot import find_wikidata
-from ..make2_bots.format_bots import pp_ends_with, pp_ends_with_pase, change_cat
-from ..fix import fixtitle
-from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
-from ..make2_bots.bots import tmp_bot
+from ...helps.print_bot import print_put
+from ..date_bots import year_lab
+from ..o_bots import univer
+from ...ma_lists import New_P17_Finall
+from ..fromnet import kooora
+from ..fromnet.wd_bot import find_wikidata
+from ..format_bots import pp_ends_with, pp_ends_with_pase, change_cat
+from ...fix import fixtitle
+from ..matables_bots.bot_2018 import pop_All_2018
+from ..bots import tmp_bot
 
 from .lab_seoo_bot import event_Lab_seoo
 from .contry2_bot import Get_contry2

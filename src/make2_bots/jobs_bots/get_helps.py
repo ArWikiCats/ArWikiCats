@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
 
-from ..make2_bots.jobs_bots.get_helps import get_con_3
+from ..jobs_bots.get_helps import get_con_3
 
 """
 from typing import Dict, Tuple, List, Any
-from ..helps.print_bot import output_test4
+from ...helps.print_bot import output_test4
 
 get_con_cash: Dict[Tuple[str, str], Tuple[str, str]] = {}
 

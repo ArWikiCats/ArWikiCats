@@ -5,8 +5,8 @@ from .test4_bots.relegin_jobs import try_relegins_jobs
 """
 from typing import Dict
 from ..jobs_mainbot import Jobs
-from ...ma_lists import religious_keys_PP
-from ...helps.print_bot import output_test4
+from ....ma_lists import religious_keys_PP
+from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
 
 try_relegins_jobs_cash: Dict[str, str] = {}

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
 
-# from ..make2_bots.ma_bots.contry_bot import Get_contry, Get_c_t_lab
+# from ..ma_bots.contry_bot import Get_contry, Get_c_t_lab
 
 
-from ..make2_bots.ma_bots import contry_bot
+from ..ma_bots import contry_bot
 
 
 lab = contry_bot.Get_contry()
@@ -15,26 +15,26 @@ import re
 from typing import Dict
 from . import ye_ts_bot
 
-from ..make2_bots.date_bots import with_years_bot
-from ..make2_bots.p17_bots import nats
-from ..make2_bots.sports_bots import team_work
+from ..date_bots import with_years_bot
+from ..p17_bots import nats
+from ..sports_bots import team_work
 
-from ..make2_bots.media_bots.films_bot import test_films
+from ..media_bots.films_bot import test_films
 
 from . import contry2_bot
 from . import contry2_lab
-from ..ma_lists import Sports_Keys_For_Label
-from ..ma_lists import Nat_mens
-from ..ma_lists import New_female_keys
+from ...ma_lists import Sports_Keys_For_Label
+from ...ma_lists import Nat_mens
+from ...ma_lists import New_female_keys
 
-from ..make2_bots.matables_bots.bot import Add_to_main2_tab
-from ..helps.print_bot import print_put, output_test
+from ..matables_bots.bot import Add_to_main2_tab
+from ...helps.print_bot import print_put, output_test
 
-from ..make2_bots.fromnet.wd_bot import find_wikidata
-from ..make2_bots.matables_bots.centries_bot import centries_years_dec
-from ..ma_lists import pop_of_without_in
-from ..ma_lists import Jobs_key
-from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
+from ..fromnet.wd_bot import find_wikidata
+from ..matables_bots.centries_bot import centries_years_dec
+from ...ma_lists import pop_of_without_in
+from ...ma_lists import Jobs_key
+from ..matables_bots.bot_2018 import pop_All_2018
 
 Get_contry_done: Dict[str, str] = {}
 

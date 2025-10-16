@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 """
-from ..make2_bots.ma_bots.ar_label_bot import find_ar_label
+from ..ma_bots.ar_label_bot import find_ar_label
 
 """
 
 import re
 from typing import Dict, Any, List, Tuple
-from ..fix import fixtitle
-from ..ma_lists import pop_of_without_in
+from ...fix import fixtitle
+from ...ma_lists import pop_of_without_in
 
-from ..make2_bots.format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
+from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 
-from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
-from ..make2_bots.matables_bots.bot import (
+from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot import (
     New_players,
     Table_for_frist_word,
     Add_ar_in,
@@ -20,7 +20,7 @@ from ..make2_bots.matables_bots.bot import (
     Keep_it_frist,
 )
 
-from ..helps.print_bot import print_put, output_test
+from ...helps.print_bot import print_put, output_test
 
 from .arlabel_bots.bot_type_country import get_type_country
 from .arlabel_bots.bot_type_lab import get_Type_lab

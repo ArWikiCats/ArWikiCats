@@ -1,20 +1,20 @@
 """
 
-from ..make2_bots.ma_bots.squad_title_bot import get_squad_title
+from ..ma_bots.squad_title_bot import get_squad_title
 # label = get_squad_title(tit)
 
 """
 
-from ...make2_bots.date_bots import with_years_bot
-from ... import malists_sport_lab as sport_lab
-from ...ma_lists import pop_of_football_lower
-from ...ma_lists import New_P17_Finall
-from ...make2_bots.fromnet.wd_bot import find_wikidata
+from ...date_bots import with_years_bot
+from .... import malists_sport_lab as sport_lab
+from ....ma_lists import pop_of_football_lower
+from ....ma_lists import New_P17_Finall
+from ...fromnet.wd_bot import find_wikidata
 
-from ...make2_bots.matables_bots.bot import All_P17
-from ...make2_bots.matables_bots.bot_2018 import pop_All_2018
+from ...matables_bots.bot import All_P17
+from ...matables_bots.bot_2018 import pop_All_2018
 
-from ...helps.print_bot import print_def_head, print_put
+from ....helps.print_bot import print_def_head, print_put
 
 
 def get_squad_title(tit: str) -> str:

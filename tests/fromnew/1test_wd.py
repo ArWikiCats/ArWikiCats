@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from fromnet.wd import find_name_from_wikidata
+from src.make2_bots.fromnet.wd import find_name_from_wikidata
 
 tase = """
 fort worth, texas

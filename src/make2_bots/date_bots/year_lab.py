@@ -1,5 +1,5 @@
 import re
-from ..make2_bots.matables_bots.bot import MONTH_table
+from ..matables_bots.bot import MONTH_table
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

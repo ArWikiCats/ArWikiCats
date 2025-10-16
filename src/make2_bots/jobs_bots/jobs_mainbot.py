@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 """
 
-from ..make2_bots.jobs_bots.jobs_mainbot import Jobs#, Jobs2
+from ..jobs_bots.jobs_mainbot import Jobs#, Jobs2
 
 """
 from typing import Dict, Optional, Any
-from ..ma_lists import Nat_mens, Nat_Womens
+from ...ma_lists import Nat_mens, Nat_Womens
 
-from ..ma_lists import (
+from ...ma_lists import (
     Jobs_key_mens,
     Jobs_key_womens,
     Nat_Before_Occ,
     Men_Womens_with_nato,
 )
-from ..helps.print_bot import output_test4
-from ..make2_bots.jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ...helps.print_bot import output_test4
+from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 Jobs_cash: Dict[str, str] = {}
 

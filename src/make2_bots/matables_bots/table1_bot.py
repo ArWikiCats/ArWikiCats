@@ -1,13 +1,13 @@
 """
 
 Usage:
-from ..make2_bots.matables_bots.table1_bot import table1get, get_KAKO
+from ...matables_bots.table1_bot import table1get, get_KAKO
 
 """
 from typing import Dict, Any
-from .. import printe
+from ... import printe
 from .bot_2018 import pop_All_2018
-from ..helps.print_bot import output_test
+from ...helps.print_bot import output_test
 from .bot import Add_to_main2_tab
 from .bot import Films_O_TT, New_players
 from .centries_bot import centries_years_dec
@@ -51,11 +51,11 @@ for tabd in list(Fgos2):
 
 FgosLi: Dict[int, Dict[str, Dict[str, str]]] = {1: Fgos1, 2: Fgos2}
 
-from ..ma_lists import pf_keys2
-from ..ma_lists import Music_By_table
-from ..ma_lists import Films_key_man
+from ...ma_lists import pf_keys2
+from ...ma_lists import Music_By_table
+from ...ma_lists import Films_key_man
 from .bot import All_P17
-from ..ma_lists import By_table
+from ...ma_lists import By_table
 
 KAKO: Dict[str, Dict[str, str]] = {
     "pf_keys2": pf_keys2,

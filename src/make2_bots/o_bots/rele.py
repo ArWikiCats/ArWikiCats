@@ -2,10 +2,10 @@
 """
 
 import re
-from .. import printe
-from ..ma_lists import Nat_women, Nat_men, All_contry_with_nat_keys_is_en
-from ..ma_lists import All_contry_ar
-from ..helps.print_bot import print_put
+from ... import printe
+from ...ma_lists import Nat_women, Nat_men, All_contry_with_nat_keys_is_en
+from ...ma_lists import All_contry_ar
+from ...helps.print_bot import print_put
 
 # ---
 Pp_Priffix_p17 = {

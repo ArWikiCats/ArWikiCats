@@ -104,6 +104,7 @@ zz
 import sys
 
 from ..json_dir import open_json_file
+from ...helps import len_print
 import time
 
 start = time.time()
@@ -374,6 +375,5 @@ Lenth_p = {
     "tabe_lab_yy2": sys.getsizeof(tabe_lab_yy2),
 }
 # ---
-from ...helps import len_print
 
 len_print.lenth_pri("cities.py", Lenth_p, Max=100)

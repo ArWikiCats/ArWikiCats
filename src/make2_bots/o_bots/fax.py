@@ -5,13 +5,13 @@ from  make.make2_bots.ma_bots import fax
 
 """
 
-from .. import malists_sport_lab as sport_lab
-from ..ma_lists import Sports_Keys_For_Jobs
-from ..ma_lists import languages_pop, lang_ttty
+from ... import malists_sport_lab as sport_lab
+from ...ma_lists import Sports_Keys_For_Jobs
+from ...ma_lists import languages_pop, lang_ttty
 
 from .parties_bot import get_parties_lab
-from ..make2_bots.sports_bots import team_work
-from ..helps.print_bot import print_put, fafa2
+from ..sports_bots import team_work
+from ...helps.print_bot import print_put, fafa2
 
 test_Lang_Cash = {}
 

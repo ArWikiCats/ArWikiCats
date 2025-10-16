@@ -3,8 +3,8 @@
 python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 
 Usage:
-from ..make2_bots.matables_bots.bot import Add_to_main2_tab  # Add_to_main2_tab()
-from ..make2_bots.matables_bots.bot import (
+from ...matables_bots.bot import Add_to_main2_tab  # Add_to_main2_tab()
+from ...matables_bots.bot import (
     MONTH_table,
     Work_With_Change_key,
     All_contry_with_nat_lower,
@@ -45,22 +45,22 @@ from ..make2_bots.matables_bots.bot import (
 import sys
 from typing import Dict, Any, Callable, List, Optional, Set
 from .bot_2018 import pop_All_2018, olympicss
-from ..helps import len_print
-from ..ma_lists import military_format_women, military_format_men
+from ...helps import len_print
+from ...ma_lists import military_format_women, military_format_men
 
-from ..ma_lists import languages_pop
-from ..ma_lists import Films_TT, typeTable_4
-from ..ma_lists import typeTable_7, albums_type, film_production_company
-from ..ma_lists import Jobs_new
-from ..ma_lists import Sports_Keys_For_Label
-from ..ma_lists import By_table
+from ...ma_lists import languages_pop
+from ...ma_lists import Films_TT, typeTable_4
+from ...ma_lists import typeTable_7, albums_type, film_production_company
+from ...ma_lists import Jobs_new
+from ...ma_lists import Sports_Keys_For_Label
+from ...ma_lists import By_table
 
-from ..ma_lists import Add_in_table2
+from ...ma_lists import Add_in_table2
 
-from ..ma_lists import People_key
-from ..ma_lists import All_contry_with_nat
+from ...ma_lists import People_key
+from ...ma_lists import All_contry_with_nat
 
-from ..make2_bots.format_bots import Tit_ose_Nmaes
+from ..format_bots import Tit_ose_Nmaes
 
 # ---
 MONTH_table = {

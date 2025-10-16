@@ -6,7 +6,7 @@
 import re
 import sys
 
-from .. import printe
+from ... import printe
 from .open_url import open_url_json
 
 pprint = {1: False}

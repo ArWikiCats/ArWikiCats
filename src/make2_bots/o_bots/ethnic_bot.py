@@ -11,10 +11,10 @@ def Ethnic(cate, Start, con_3):
 
 """
 from typing import Dict
-from ..ma_lists import Nat_women, Nat_men, Nat_mens
-from ..ma_lists import en_is_nat_ar_is_women_2
+from ...ma_lists import Nat_women, Nat_men, Nat_mens
+from ...ma_lists import en_is_nat_ar_is_women_2
 
-from ..helps.print_bot import output_test4
+from ...helps.print_bot import output_test4
 
 Ethnic_culture_cash: Dict[str, str] = {}
 Ethnic_cash: Dict[str, str] = {}

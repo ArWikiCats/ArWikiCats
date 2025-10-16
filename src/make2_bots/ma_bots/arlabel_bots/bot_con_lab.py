@@ -7,27 +7,27 @@ from .arlabel_bots.bot_con_lab import get_con_lab
 import sys
 from typing import Dict
 from .. import contry2_lab
-from ...make2_bots.sports_bots import team_work
-from ...make2_bots.date_bots import year_lab
+from ...sports_bots import team_work
+from ...date_bots import year_lab
 
-from ...make2_bots.bots import tmp_bot
-from ...make2_bots.o_bots import bys
-from ...make2_bots.p17_bots import nats
+from ...bots import tmp_bot
+from ...o_bots import bys
+from ...p17_bots import nats
 
-from ...make2_bots.media_bots.films_bot import test_films
+from ...media_bots.films_bot import test_films
 
-from ...ma_lists import pf_keys2
-from ...ma_lists import New_P17_Finall
-from ...ma_lists import New_female_keys
+from ....ma_lists import pf_keys2
+from ....ma_lists import New_P17_Finall
+from ....ma_lists import New_female_keys
 
-from ...make2_bots.fromnet.wd_bot import find_wikidata
-from ...make2_bots.fromnet import kooora
-from ...make2_bots.format_bots import for_table
+from ...fromnet.wd_bot import find_wikidata
+from ...fromnet import kooora
+from ...format_bots import for_table
 
-from ...make2_bots.matables_bots.bot_2018 import pop_All_2018
+from ...matables_bots.bot_2018 import pop_All_2018
 
 
-from ...helps.print_bot import print_put
+from ....helps.print_bot import print_put
 
 from ..contry_bot import Get_contry, Get_c_t_lab
 

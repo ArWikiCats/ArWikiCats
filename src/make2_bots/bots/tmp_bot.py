@@ -7,10 +7,10 @@ if not sub_ar_label:
 from ..format_bots import pp_start_with, pp_ends_with, pp_ends_with_pase
 from ...helps.print_bot import print_put
 
-from ...make2_bots.date_bots import with_years_bot
+from ..date_bots import with_years_bot
 
-from ...make2_bots.ma_bots import contry2_lab
-from ...make2_bots.ma_bots import ye_ts_bot
+from ..ma_bots import contry2_lab
+from ..ma_bots import ye_ts_bot
 
 Work_Templates_cash = {}
 
