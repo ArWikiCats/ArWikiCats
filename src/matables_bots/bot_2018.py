@@ -23,16 +23,16 @@ or
 import sys
 from typing import Dict, Any
 from ..helps import len_print
-from ..ma_lists_bots import summer_winter_games
-from ..ma_lists_bots import pf_keys2
-from ..ma_lists_bots import New_P17_Finall
-from ..ma_lists_bots import films_mslslat_tab
-from ..ma_lists_bots import Jobs_new, Jobs_key
-from ..ma_lists_bots import Sports_Keys_For_Label
-from ..ma_lists_bots import By_table
+from ..ma_lists import summer_winter_games
+from ..ma_lists import pf_keys2
+from ..ma_lists import New_P17_Finall
+from ..ma_lists import films_mslslat_tab
+from ..ma_lists import Jobs_new, Jobs_key
+from ..ma_lists import Sports_Keys_For_Label
+from ..ma_lists import By_table
 
-from ..ma_lists_bots import Teams_new
-from ..ma_lists_bots import pop_All_2018
+from ..ma_lists import Teams_new
+from ..ma_lists import pop_All_2018
 
 pop_All_2018["country"] = "البلد"
 

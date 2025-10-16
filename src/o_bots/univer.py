@@ -5,7 +5,7 @@ python3 core8/pwb.py make/m test Category:People executed by the International M
 from  make.bots import univer # univer.universities_tables | univer.test_Universities(cate)
 """
 
-from ..ma_lists_bots import N_cit_ies_s_lower
+from ..ma_lists import N_cit_ies_s_lower
 from ..helps.print_bot import print_put
 
 # ---

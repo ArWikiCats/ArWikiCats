@@ -7,7 +7,7 @@ from pathlib import Path
 import json
 import tqdm
 
-Dir2 = Path(__file__).parent.parent
+Dir2 = Path(__file__).parent.parent / "ma_lists"
 # ---
 with open(f"{Dir2}/jsons/All_Nat_o.json", "r", encoding="utf-8") as f:
     All_Nat_o = json.load(f)

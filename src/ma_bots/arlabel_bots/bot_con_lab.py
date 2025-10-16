@@ -16,9 +16,9 @@ from ...p17_bots import nats
 
 from ...media_bots.films_bot import test_films
 
-from ...ma_lists_bots import pf_keys2
-from ...ma_lists_bots import New_P17_Finall
-from ...ma_lists_bots import New_female_keys
+from ...ma_lists import pf_keys2
+from ...ma_lists import New_P17_Finall
+from ...ma_lists import New_female_keys
 
 from ...fromnet.wd_bot import find_wikidata
 from ...fromnet import kooora

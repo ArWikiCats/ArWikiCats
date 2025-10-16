@@ -46,19 +46,19 @@ import sys
 from typing import Dict, Any, Callable, List, Optional, Set
 from .bot_2018 import pop_All_2018, olympicss
 from ..helps import len_print
-from ..ma_lists_bots import military_format_women, military_format_men
+from ..ma_lists import military_format_women, military_format_men
 
-from ..ma_lists_bots import languages_pop
-from ..ma_lists_bots import Films_TT, typeTable_4
-from ..ma_lists_bots import typeTable_7, albums_type, film_production_company
-from ..ma_lists_bots import Jobs_new
-from ..ma_lists_bots import Sports_Keys_For_Label
-from ..ma_lists_bots import By_table
+from ..ma_lists import languages_pop
+from ..ma_lists import Films_TT, typeTable_4
+from ..ma_lists import typeTable_7, albums_type, film_production_company
+from ..ma_lists import Jobs_new
+from ..ma_lists import Sports_Keys_For_Label
+from ..ma_lists import By_table
 
-from ..ma_lists_bots import Add_in_table2
+from ..ma_lists import Add_in_table2
 
-from ..ma_lists_bots import People_key
-from ..ma_lists_bots import All_contry_with_nat
+from ..ma_lists import People_key
+from ..ma_lists import All_contry_with_nat
 
 from ..format_bots import Tit_ose_Nmaes
 

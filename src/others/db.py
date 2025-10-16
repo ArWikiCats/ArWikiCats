@@ -194,7 +194,7 @@ def main():
         "Sana'a": "صنعاء",
     }
     # ---
-    from ..ma_lists_bots import N_cit_ies_s_lower
+    from ..ma_lists import N_cit_ies_s_lower
 
     # ---
     print(f"len(N_cit_ies_s_lower): {len(N_cit_ies_s_lower)}")

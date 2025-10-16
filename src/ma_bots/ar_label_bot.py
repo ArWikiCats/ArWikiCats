@@ -7,7 +7,7 @@ from ..ma_bots.ar_label_bot import find_ar_label
 import re
 from typing import Dict, Any, List, Tuple
 from ..fix import fixtitle
-from ..ma_lists_bots import pop_of_without_in
+from ..ma_lists import pop_of_without_in
 
 from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 

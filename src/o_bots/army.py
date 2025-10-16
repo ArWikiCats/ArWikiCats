@@ -4,10 +4,10 @@ from ..o_bots.army import test_Army
 
 import re
 
-from ..ma_lists_bots import All_contry_with_nat, All_contry_with_nat_keys_is_en
-from ..ma_lists_bots import sport_formts_en_p17_ar_nat
+from ..ma_lists import All_contry_with_nat, All_contry_with_nat_keys_is_en
+from ..ma_lists import sport_formts_en_p17_ar_nat
 
-from ..ma_lists_bots import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
+from ..ma_lists import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
 
 test_Army_Cash = {}
 
