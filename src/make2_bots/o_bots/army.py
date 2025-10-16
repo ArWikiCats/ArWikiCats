@@ -9,20 +9,15 @@ from ...ma_lists import sport_formts_en_p17_ar_nat
 
 from ...ma_lists import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
 
+from ...helps.log import logger
 test_Army_Cash = {}
 
-
-def print_put(s):
-    # ---
-    # printe.output(s)
-    # ---
-    return
 
 
 def test_Army(cate):
     if cate in test_Army_Cash:
         if test_Army_Cash[cate]:
-            print_put(f"<<lightblue>>>> ============== test_Army_Cash : {test_Army_Cash[cate]}")
+            logger.debug(f"<<lightblue>>>> ============== test_Army_Cash : {test_Army_Cash[cate]}")
         return test_Army_Cash[cate]
 
     cate = cate.lower()
@@ -32,7 +27,7 @@ def test_Army(cate):
     women_lab = ""
     men_lab = ""
 
-    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_Army start, (cate:{cate}) vvvvvvvvvvvv ")
+    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv test_Army start, (cate:{cate}) vvvvvvvvvvvv ")
 
     for contry, contry_dict in All_contry_with_nat.items():
         if cnt_la:
@@ -57,7 +52,7 @@ def test_Army(cate):
             print("cate.endswith(contry2_end)")
 
         if women_labs == "" and men_labs == "":
-            print_put('women_labs and men_labs == ""')
+            logger.debug('women_labs and men_labs == ""')
             continue
 
         if cate.startswith(contry2) or cate.startswith(contry_3) or cate.startswith(contry4):
@@ -77,7 +72,7 @@ def test_Army(cate):
                 con_77 = cate[len(contry4) :].strip()
                 cota = contry4
 
-            print_put(f'<<lightblue>>>>>> get startswith All_contry_with_nat ({cota}), con_77:"{con_77}"')
+            logger.debug(f'<<lightblue>>>>>> get startswith All_contry_with_nat ({cota}), con_77:"{con_77}"')
             break
 
     # con_77 = cate[len(contry2):].strip()
@@ -93,18 +88,18 @@ def test_Army(cate):
             gagaga = cate[len(nana2) :].strip()
             con_labe = All_contry_with_nat_keys_is_en.get(gagaga, {}).get("women", "")
             if con_labe:
-                print_put(f'<<lightblue>>>>>> con_labe: "{con_labe}" ')
+                logger.debug(f'<<lightblue>>>>>> con_labe: "{con_labe}" ')
                 cnt_la = nanalab.format(nat=con_labe)
-                print_put(f'<<lightblue>>>>>> con_77_from_end: new cnt_la  "{cnt_la}" ')
+                logger.debug(f'<<lightblue>>>>>> con_77_from_end: new cnt_la  "{cnt_la}" ')
 
     if not cnt_la:
         con_77_lab = military_format_women_without_al.get(con_77, "")
         if con_77_lab:
             # FOF = "<<lightgreen>>military_format_women_without_al<<lightblue>> "
-            print_put('<<lightblue>>>>>> women_lab: "{women_lab}" ')
+            logger.debug('<<lightblue>>>>>> women_lab: "{women_lab}" ')
 
             cnt_la = con_77_lab.format(nat=women_lab)
-            print_put(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
+            logger.debug(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
 
     con_88 = con_77
     con_88_priff = ""  # بادئة
@@ -127,11 +122,11 @@ def test_Army(cate):
 
             if con_88_lab:
                 # FOF = "<<lightgreen>>military_format_women<<lightblue>> "
-                print_put(f'<<lightblue>>>>>> women_lab: "{women_lab}" ')
+                logger.debug(f'<<lightblue>>>>>> women_lab: "{women_lab}" ')
                 women_lab_no_al = re.sub(r" ", " ال", women_lab)
                 women_lab = f"ال{women_lab_no_al}"
                 cnt_la = con_88_lab.format(nat=women_lab)
-                print_put(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
+                logger.debug(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
                 cnt_la = con_88_priff.format(cnt_la)
             # ---
 
@@ -144,7 +139,7 @@ def test_Army(cate):
             men_lab_no_al = re.sub(r" ", " ال", men_lab)
             men_lab = f"ال{men_lab_no_al}"
             cnt_la = con_77_lab.format(nat=men_lab)
-            print_put(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
+            logger.debug(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
 
     # sport_formts_en_p17_ar_nat :
     # Category:China Basketball Federation
@@ -155,10 +150,10 @@ def test_Army(cate):
             men_lab_no_al = re.sub(r" ", " ال", men_lab)
             men_lab = f"ال{men_lab_no_al}"
             cnt_la = con_77_lab.format(nat=men_lab)
-            print_put(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
+            logger.debug(f'<<lightblue>>>>>> test_880: new cnt_la  "{cnt_la}" ')
 
     if cnt_la:
         test_Army_Cash[cate] = cnt_la
 
-    print_put("<<lightblue>>>> ^^^^^^^^^ test_Army end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ test_Army end ^^^^^^^^^ ")
     return cnt_la

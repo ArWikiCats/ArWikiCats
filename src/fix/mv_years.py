@@ -1,10 +1,7 @@
 import re
+from ..helps.print_bot import output_test
 
 YEARS_REGEX = r"(\d+[-–]\d+|\d+\sق[\s\.]م|\d+)|عقد\s(\d+\sق[\s\.]م|\d+)|القرن\s(\d+\sق[\s\.]م|\d+)|الألفية\s(\d+\sق[\s\.]م|\d+)"
-
-
-def print_test(s: str) -> str:
-    return s
 
 
 def move_3(text_str: str) -> str:
@@ -33,9 +30,9 @@ def move_3(text_str: str) -> str:
         # ---
         new_text = f"{first_part} في {date} حسب {by_part}"
         # ---
-        print_test(f"move_by_in: new_text: {new_text}")
+        output_test(f"move_by_in: new_text: {new_text}")
     else:
-        print_test("move_by_in: no match")
+        output_test("move_by_in: no match")
     # ---
     if new_text != text_str:
         new_text = re.sub(r"\s+", " ", new_text)
@@ -71,9 +68,9 @@ def move_by_in(text_str: str) -> str:
         # ---
         new_text = f"{first_part} في {date} حسب {by_part}"
         # ---
-        print_test(f"move_by_in: new_text: {new_text}")
+        output_test(f"move_by_in: new_text: {new_text}")
     else:
-        print_test("move_by_in: no match")
+        output_test("move_by_in: no match")
     # ---
     if new_text != text_str:
         new_text = re.sub(r"\s+", " ", new_text)
@@ -102,8 +99,8 @@ def move_years_first(text_str: str) -> str:
         first_part = match.group("first_part").strip()
         second_part = match.group("second_part").strip()
         # ---
-        print_test(f"{first_part=}")
-        print_test(f"{second_part=}")
+        output_test(f"{first_part=}")
+        output_test(f"{second_part=}")
         # ---
         skip_it = [
             "أفلام",
@@ -114,17 +111,17 @@ def move_years_first(text_str: str) -> str:
             return text_str
         # ---- "^.*?_في_.*?_في_.*?$"
         if " في x" in second_part:
-            print_test('second_part.find(" في ") != -1:')
+            output_test('second_part.find(" في ") != -1:')
             return text_str
         # ---
         # إعادة ترتيب الجملة
         new = f"{second_part} في {first_part}"
         # ---
         if result := re.search(r"^(.*)\sحسب\s([\s\w]+)$", second_part):
-            print_test("<<yellow>> find حسب in result:")
+            output_test("<<yellow>> find حسب in result:")
             new = f"{result.group(1)} في {first_part}" + f" حسب {result.group(2)}"
     else:
-        print_test("move_years no match")
+        output_test("move_years no match")
     # ---
     if new != text_str:
         new = re.sub(r"\s+", " ", new)

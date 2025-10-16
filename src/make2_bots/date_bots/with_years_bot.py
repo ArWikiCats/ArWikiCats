@@ -14,15 +14,9 @@ from ..matables_bots.table1_bot import get_KAKO
 
 from ..ma_bots import contry2_lab
 from ..ma_bots.ye_ts_bot import translate_general_category
+from ...helps.print_bot import output_test
 
 Try_With_Years_cash = {}
-
-
-def print_put(s):
-    # ---
-    # printe.output(s)
-    # ---
-    return
 
 
 @functools.lru_cache(maxsize=None)
@@ -48,7 +42,7 @@ def Try_With_Years(contry):
     """
 
     # ---
-    print_put(f">>> Try With Years contry ({contry})")
+    output_test(f">>> Try With Years contry ({contry})")
     # pop_final_Without_Years
 
     lab2 = ""
@@ -72,7 +66,7 @@ def Try_With_Years(contry):
         num_lab = change_numb_to_word.get(ye, f"الـ{ye}")
         # ---
         lab2 = f"{hh_Lab} {num_lab}"
-        print_put(f">>> 1591 lab2 ({lab2}),contry: ({contry})")
+        output_test(f">>> 1591 lab2 ({lab2}),contry: ({contry})")
         # ---
         return lab2
 
@@ -95,14 +89,14 @@ def Try_With_Years(contry):
     if year:
         con_3 = contry[len(year):]
         con_3 = con_3.strip()
-        print_put(f">>> Try With Years contry.startswith(year:{year}) con_3:{con_3}")
+        output_test(f">>> Try With Years contry.startswith(year:{year}) con_3:{con_3}")
 
         if con_3 in Word_After_Years:
             con_3_lab = Word_After_Years[con_3]
 
         if not con_3_lab:
             con_3_lab = get_KAKO(con_3.strip().lower())
-            print_put(f">>> Try With Years get_KAKO con_3_lab:{con_3_lab}")
+            output_test(f">>> Try With Years get_KAKO con_3_lab:{con_3_lab}")
 
         if con_3_lab == "":
             # print("translate_general_category 4")
@@ -114,16 +108,16 @@ def Try_With_Years(contry):
         sus = " "
 
         if con_3_lab.strip() in ar_lab_before_year_to_add_in:
-            print_put("ar_lab_before_year_to_add_in Add في to arlabel sus.")
+            output_test("ar_lab_before_year_to_add_in Add في to arlabel sus.")
             sus = " في "
 
         elif con_3 in Add_in_table:
-            print_put("a<<lightblue>>>>>> Add في to suf")
+            output_test("a<<lightblue>>>>>> Add في to suf")
             sus = " في "
 
         if con_3_lab:
             lab2 = con_3_lab + sus + year
-            print_put(f'>>>>>> Try With Years new lab2  "{lab2}" ')
+            output_test(f'>>>>>> Try With Years new lab2  "{lab2}" ')
 
     if not lab2:
         year2 = re.sub(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)$", r"\g<1>", contry.strip())
@@ -140,7 +134,7 @@ def Try_With_Years(contry):
 
         if year2:
             year2_lab = year2
-            print_put(f">>> Try With Years contry.startswith(year2:{year2})")
+            output_test(f">>> Try With Years contry.startswith(year2:{year2})")
             con_4 = contry[:-len(year2)]
 
             # print("translate_general_category 5")
@@ -154,9 +148,9 @@ def Try_With_Years(contry):
 
             if con_4_lab:
                 lab2 = f"{con_4_lab} {year2_lab}"
-                print_put(f'>>>>>> Try With Years new lab4  "{lab2}" ')
+                output_test(f'>>>>>> Try With Years new lab4  "{lab2}" ')
 
     if lab2:
-        print_put(f'>>>>>> Try With Years lab2 "{lab2}" ')
+        output_test(f'>>>>>> Try With Years lab2 "{lab2}" ')
 
     return lab2

@@ -1,14 +1,8 @@
 import re
 from ..matables_bots.bot import MONTH_table
+from ...helps.log import logger
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-
-
-def print_put(s: str) -> None:
-    # ---
-    # printe.output(s)
-    # ---
-    return
 
 
 def make_year_lab(year: str) -> str:  # 21st century
@@ -38,7 +32,7 @@ def make_year_lab(year: str) -> str:  # 21st century
     elif test_2.lower() in MONTH_table:
         fa2 = re.sub(test_2, "", year2).strip()
         y_l = f"{MONTH_table[test_2]} {fa2}{su}"
-        print_put(f' test_2 "{y_l}":')
+        logger.debug(f' test_2 "{y_l}":')
 
     elif test_2 == "s":
         y_l = f"عقد {_ye_}{su}"
@@ -59,7 +53,7 @@ def make_year_lab(year: str) -> str:  # 21st century
         y_l = ""
 
     if y_l:
-        print_put(f'>>>> make_year_lab: "{year}", "{y_l}":')
+        logger.info(f'>>>> make_year_lab: "{year}", "{y_l}":')
     return y_l
 
 
@@ -74,14 +68,14 @@ def make_month_lab(year: str) -> str:  # 21st century
     _ye_ = re.sub(tata.lower(), r"\g<1>", year)
     if _ye_ == year:
         _ye_ = ""
-    print_put(f' _ye_ "{_ye_}":')
+    logger.info(f' _ye_ "{_ye_}":')
 
     year2 = year
     test_2 = re.sub(r"\d+$", "", year2).strip()
     if test_2.lower() in MONTH_table:
         fa2 = re.sub(test_2, "", year2).strip()
         y_l = f"{MONTH_table[test_2.lower()]} {fa2}"
-        print_put(f' test_2 "{y_l}":')
+        logger.debug(f' test_2 "{y_l}":')
 
     # if y_l != year:
 
@@ -95,5 +89,5 @@ def make_month_lab(year: str) -> str:  # 21st century
         y_l = ""
 
     if y_l:
-        print_put(f'>>>> year_lab.make_month_lab: "{year}", "{y_l}":')
+        logger.info(f'>>>> year_lab.make_month_lab: "{year}", "{y_l}":')
     return y_l

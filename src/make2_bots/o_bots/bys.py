@@ -11,16 +11,11 @@ from ..matables_bots.bot_2018 import pop_All_2018
 from ..p17_bots.nats import find_nat_others
 from ..media_bots.films_bot import test_films
 
-
-def print_put(s):
-    # ---
-    # printe.output(s)
-    # ---
-    return
+from ...helps.log import logger
 
 
 def Make_By_lab(cate):
-    print_put(f"<<lightred>>>> vvvvvvvvvvvv Make_By_lab start, cate:{cate} vvvvvvvvvvvv ")
+    logger.info(f"<<lightred>>>> vvvvvvvvvvvv Make_By_lab start, cate:{cate} vvvvvvvvvvvv ")
     cnt_la = ""
 
     if cate.startswith("by "):
@@ -40,16 +35,16 @@ def Make_By_lab(cate):
         by1_lab = By_orginal2.get(by1, "")
         by2_lab = By_orginal2.get(by2, "")
 
-        print_put(f"<<lightred>>>> by:{by1},lab:{by1_lab}.")
-        print_put(f"<<lightred>>>> by:{by2},lab:{by2_lab}.")
+        logger.debug(f"<<lightred>>>> by:{by1},lab:{by1_lab}.")
+        logger.debug(f"<<lightred>>>> by:{by2},lab:{by2_lab}.")
 
         if by2_lab and by1_lab:
             cnt_la = f"حسب {by1_lab} و{by2_lab}"
 
     if cnt_la:
-        print_put(f"<<lightblue>>>> ^^^^^^^^^ Make_By_lab lab:{cnt_la}.")
+        logger.debug(f"<<lightblue>>>> ^^^^^^^^^ Make_By_lab lab:{cnt_la}.")
 
-    print_put("<<lightblue>>>> ^^^^^^^^^ Make_By_lab end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ Make_By_lab end ^^^^^^^^^ ")
     return cnt_la
 
 
@@ -58,7 +53,7 @@ def Get_by_label(cat):
     by = ""
     frist = ""
 
-    print_put(f"<<lightyellow>>>>Get_by_label {cat}")
+    logger.info(f"<<lightyellow>>>>Get_by_label {cat}")
 
     frist_lab = ""
     by_lab = ""
@@ -67,7 +62,7 @@ def Get_by_label(cat):
         frist = mama.group(1)
         by = mama.group(2)
 
-        print_put(f"<<lightyellow>>>>frist:{frist},by:{by}")
+        logger.debug(f"<<lightyellow>>>>frist:{frist},by:{by}")
 
     if frist.startswith("the "):
         frist = frist[len("the ") :]
@@ -88,7 +83,7 @@ def Get_by_label(cat):
 
     if frist_lab and by_lab:
         lab = f"{frist_lab} {by_lab}"
-        print_put(f"<<lightyellow>>>>Get_by_label lab {lab}")
+        logger.info(f"<<lightyellow>>>>Get_by_label lab {lab}")
 
     return lab
 
@@ -98,7 +93,7 @@ def Get_and_label(cat):
     frist = ""
     last = ""
 
-    print_put(f"<<lightyellow>>>>Get_and_label {cat}")
+    logger.info(f"<<lightyellow>>>>Get_and_label {cat}")
 
     frist_lab = ""
     last_lab = ""
@@ -107,7 +102,7 @@ def Get_and_label(cat):
         frist = mama.group(1)
         last = mama.group(2)
 
-        print_put(f"<<lightyellow>>>>frist:{frist},last:{last}")
+        logger.debug(f"<<lightyellow>>>>frist:{frist},last:{last}")
 
     if frist:
         if not frist_lab:
@@ -125,6 +120,6 @@ def Get_and_label(cat):
 
     if frist_lab and last_lab:
         lab = f"{frist_lab} و{last_lab}"
-        print_put(f"<<lightyellow>>>>Get_and_label lab {lab}")
+        logger.info(f"<<lightyellow>>>>Get_and_label lab {lab}")
 
     return lab

@@ -7,8 +7,7 @@ Category:Sports_commentators_by_sport
 
 
 import re
-from ... import printe
-import sys
+from ...helps.log import logger
 
 # ---
 from ...ma_lists import Clubs_key_2
@@ -97,18 +96,10 @@ Teams_new_end_keys = {
     # ---
 }
 # ---
-print_team_w = {1: True}
 Get_Club_Cash = {}
 
 
-def printet(string):
-    if print_team_w[1]:
-        printe.output(string)
-
-
 def Get_Club(cate, out=False, return_tab=False):
-    # ---
-    print_team_w[1] = out
     # ---
     added = {}
     # ---
@@ -117,8 +108,8 @@ def Get_Club(cate, out=False, return_tab=False):
     if cate in Get_Club_Cash:
         return Get_Club_Cash[cate]
     # ---
-    # printet(')))))))))))))))))))))))))))')
-    # printet('Get_Club cate:"%s"' % cate)
+    # logger.debug(')))))))))))))))))))))))))))')
+    # logger.debug('Get_Club cate:"%s"' % cate)
     catelab = ""
     # ---
     tab = {"lab": "", "add": {}}
@@ -135,7 +126,7 @@ def Get_Club(cate, out=False, return_tab=False):
             club_uu = cate[: -len(end1)]
         # ---
         if club_uu:
-            printet(f'club_uu:"{club_uu}", tat:"{tat}" ')
+            logger.debug(f'club_uu:"{club_uu}", tat:"{tat}" ')
             # if not c_t_lab:
             # ---
             club_lab = Clubs_key_2.get(club_uu) or pop_of_football_lower.get(club_uu) or Inter_Feds_lower.get(club_uu) or ""
@@ -158,11 +149,11 @@ def Get_Club(cate, out=False, return_tab=False):
                 break
     # ---
     if catelab:
-        printet(f'Get_Club cate:"{cate}", catelab:"{catelab}"')
+        logger.debug(f'Get_Club cate:"{cate}", catelab:"{catelab}"')
     # ---
     Get_Club_Cash[cate] = catelab
     # ---
-    # printet(')))))))))))))))))))))))))))')
+    # logger.debug(')))))))))))))))))))))))))))')
     # ---
     tab["lab"] = catelab
     # ---
