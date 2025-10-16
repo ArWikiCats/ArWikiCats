@@ -1,0 +1,8 @@
+
+*.pyc
+*.tmp.py
+/.vscode
+*.txt
+tests/fix/fixtitle.json
+make_tests
+/old
