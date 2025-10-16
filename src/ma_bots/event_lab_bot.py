@@ -30,7 +30,7 @@ from .lab_seoo_bot import event_Lab_seoo
 from .contry2_bot import Get_contry2
 
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.ma_bots.ye_ts_bot'
-#  (most likely due to a circular import) (I:\core\bots\ma\make2\ma_bots\ye_ts_bot.py)
+#  (most likely due to a circular import) (ma_bots\ye_ts_bot.py)
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"

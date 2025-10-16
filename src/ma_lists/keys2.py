@@ -4,21 +4,13 @@
 #
 #
 # ---
-from pathlib import Path
-import json
+from .json_dir import open_json_file
 
 from .helps import len_print
 
-Dir2 = Path(__file__).parent
+new_2019 = open_json_file("keys2") or {}
 # ---
-new_2019 = {}
-# ---
-with open(f"{Dir2}/jsons/keys2.json", "r", encoding="utf-8") as f:
-    new_2019 = json.load(f)
-keys2_py = {}
-# ---
-with open(f"{Dir2}/jsons/keys2_py.json", "r", encoding="utf-8") as f:
-    keys2_py = json.load(f)
+keys2_py = open_json_file("keys2_py") or {}
 # ---
 Add_in_table2 = [
     "censuses",  # تعداد السكان

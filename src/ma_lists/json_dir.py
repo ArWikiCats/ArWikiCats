@@ -14,13 +14,13 @@ Dir2 = Path(__file__).parent
 def open_json_file(file=""):
     # ---
     if not file:
-        return False
+        return {}
     # ---
     file_path = Dir2 / f"jsons/{file}.json"
     # ---
     if not file_path.exists():
         print(f"file {file_path} not found")
-        return False
+        return {}
     # ---
     try:
         with open(f"{Dir2}/jsons/{file}.json", "r", encoding="utf-8") as f:
@@ -28,4 +28,4 @@ def open_json_file(file=""):
     except BaseException:
         print(f"cant open {file}.json")
     # ---
-    return False
+    return {}

@@ -11,15 +11,12 @@ f"{$1} {$2}"
 
 
 # ---
-from pathlib import Path
-import json
+from .json_dir import open_json_file
 
 from .geo.games_labs import summer_winter_tabs
 
-Dir2 = Path(__file__).parent
 # ---
-with open(f"{Dir2}/jsons/pop_final_3.json", "r", encoding="utf-8") as f:
-    pop_final_3 = json.load(f)
+pop_final_3 = open_json_file("pop_final_3") or {}
 # ---
 # 'extradited people': "أشخاص تم تسليمهم",
 # 'people extradited': "أشخاص تم تسليمهم",

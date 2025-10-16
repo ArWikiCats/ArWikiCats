@@ -3,11 +3,7 @@
 # from .india_2 import Main_Table_2
 
 """
-
-from pathlib import Path
-import json
-
-Dir2 = Path(__file__).parent
+from ..json_dir import open_json_file
 # ---
 India_dd = {}
 popopo = {}
@@ -16,8 +12,7 @@ India_Main_Table = {}
 # India_districts = {}
 # India_Citiese = {}
 # ---
-with open(f"{Dir2}/jsons/India_dd.json", "r", encoding="utf-8") as f:
-    India_dd = json.load(f)
+India_dd = open_json_file("India_dd") or {}
 # ---
 for dd, dd_lab in India_dd.items():
     dd2 = dd.lower()
@@ -31,8 +26,7 @@ for dd, dd_lab in India_dd.items():
 # ---
 del India_dd
 # ---
-with open(f"{Dir2}/jsons/popopo.json", "r", encoding="utf-8") as f:
-    popopo = json.load(f)
+popopo = open_json_file("popopo") or {}
 # ---
 Egypht_t = {
     "alexandria": "الإسكندرية",

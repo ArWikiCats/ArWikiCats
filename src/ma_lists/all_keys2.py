@@ -2,8 +2,7 @@
 """
 from .all_keys2 import aerasee, albums_type1, Books_table, Books_type, Cinmakey, DIRECTIONS, mmmm, NosaK, pf_keys2, pop_of_football, pop_of_football_lower, pop_of_without_in, pop_of_with_in, QARAT, schools_keeys, Tato_type, towns_communities, weapons_pop, weapons_type, Word_After_Years
 """
-import json
-from pathlib import Path
+from .json_dir import open_json_file
 
 # ---
 from .keys_23 import new_2023
@@ -62,17 +61,12 @@ query2 = """
     LIMIT 10000
 """
 # ---
-Dir2 = Path(__file__).parent
-# ---
 # try:
 #     from .jobs_singers import singers_tab
 # except BaseException:
 #     singers_tab = {}
 # ---
-pop_of_football = {}
-# ---
-with open(f"{Dir2}/jsons/pop_of_football.json", "r", encoding="utf-8") as f:
-    pop_of_football = json.load(f)
+pop_of_football = open_json_file("pop_of_football") or {}
 # ---
 pf_keys2 = {}
 # ---
@@ -144,10 +138,7 @@ for x in pop_of_football:
 # "lgbt":"إل جي بي تي",
 # "peoples":"شعوب",
 # ---
-pop_of_with_in = {}
-# ---
-with open(f"{Dir2}/jsons/pop_of_with_in.json", "r", encoding="utf-8") as f:
-    pop_of_with_in = json.load(f)
+pop_of_with_in = open_json_file("pop_of_with_in") or {}
 # ---
 pf_keys2.update(pop_of_with_in)
 # ---
@@ -183,10 +174,7 @@ for si, si_lab in schools_keeys.items():
 # "state cabinet secretaries":"أمناء مجلس",
 # "republic":"جمهورية",
 # ---
-pop_of_without_in = {}
-# ---
-with open(f"{Dir2}/jsons/pop_of_without_in.json", "r", encoding="utf-8") as f:
-    pop_of_without_in = json.load(f)
+pop_of_without_in = open_json_file("pop_of_without_in") or {}
 # ---
 pf_keys2.update({x.lower(): v for x, v in pop_of_without_in.items() if x.lower() not in pf_keys2})
 pf_keys2.update({f"{x.lower()} of": v for x, v in pop_of_without_in.items()})
@@ -301,10 +289,7 @@ aerasee = {
 # ---
 pf_keys2.update({x.lower(): v for x, v in aerasee.items()})
 # ---
-Tato_type = {}
-# ---
-with open(f"{Dir2}/jsons/Tato_type.json", "r", encoding="utf-8") as f:
-    Tato_type = json.load(f)
+Tato_type = open_json_file("Tato_type") or {}
 # ---
 pf_keys2.update({x.lower(): v for x, v in Tato_type.items()})
 # ---

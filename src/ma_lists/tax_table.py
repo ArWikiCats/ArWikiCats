@@ -2,11 +2,7 @@
 """
 
 """
-
-from pathlib import Path
-import json
-
-Dir2 = Path(__file__).parent
+from .json_dir import open_json_file
 
 tax_q = """
     SELECT DISTINCT #?item ?humanLabel
@@ -38,14 +34,11 @@ Taxons3 = {}
 # "waterbears":"دب الماء",
 # "asterids":"",
 # ---
-with open(f"{Dir2}/jsons/Taxons.json", "r", encoding="utf-8") as f:
-    Taxons = json.load(f)
+Taxons = open_json_file("Taxons") or {}
 # ---
-with open(f"{Dir2}/jsons/Taxons2.json", "r", encoding="utf-8") as f:
-    Taxons2 = json.load(f)
+Taxons2 = open_json_file("Taxons2") or {}
 # ---
-with open(f"{Dir2}/jsons/Taxons3.json", "r", encoding="utf-8") as f:
-    Taxons3 = json.load(f)
+Taxons3 = open_json_file("Taxons3") or {}
 # ---
 Taxons.update(Taxons2)
 Taxons.update(Taxons3)

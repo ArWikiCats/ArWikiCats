@@ -94,7 +94,7 @@ def kooora_player(EnName: str) -> str:
                     # ---
                     printe.output(f'*kooora_player arlabel:"{arlabel}". ')
                     lline = f'\n"{EnName.lower()}":"{arlabel}",'
-                    log_kooora(lline, "make2/0kooora_player.log.csv")
+                    log_kooora(lline, "make2_new/0kooora_player.log.csv")
             elif pprindt[1]:
                 printe.output(len(tas4))
     Teamse_ko_done[EnName.lower()] = arlabel
@@ -157,7 +157,7 @@ def kooora_team(EnName: str, Local: bool = True) -> str:
                     # ---
                     printe.output(f'*kooora_team arlabel:"{arlabel}". ')
                     lline = f'\n"{EnName.lower()}":"{arlabel}",'
-                    log_kooora(lline, "make2/0kooora_team.log.csv")
+                    log_kooora(lline, "make2_new/0kooora_team.log.csv")
             elif pprindt[1]:
                 printe.output(len(tas4))
     # ---

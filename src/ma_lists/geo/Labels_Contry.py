@@ -4,8 +4,8 @@
 """
 
 import sys
-from pathlib import Path
-import json
+
+from ..json_dir import open_json_file
 
 from .us_counties import Counties
 from ..tax_table import Taxons_table
@@ -19,17 +19,13 @@ from .Cities import N_cit_ies_s, tabe_lab_yy2
 from .Labels_Contry2 import P17_PP
 
 
-Dir2 = Path(__file__).parent
-# ---
 P17_2_final_ll = {}
 # ---
-with open(f"{Dir2}/jsons/P17_2_final_ll.json", "r", encoding="utf-8") as f:
-    P17_2_final_ll = json.load(f)
+P17_2_final_ll = open_json_file("P17_2_final_ll") or {}
 # ---
 opop = {}
 # ---
-with open(f"{Dir2}/jsons/opop.json", "r", encoding="utf-8") as f:
-    opop = json.load(f)
+opop = open_json_file("opop") or {}
 # ---
 Jaban_cities = {
     "gokishichidō": "",

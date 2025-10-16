@@ -1,11 +1,11 @@
 """
 
-from make2.tests.helps import get_titles_to_tests
+from .tests.helps import get_titles_to_tests
 
 """
 
 import sys
-from newapi import printe
+from make2_new import printe
 
 
 def get_titles_to_tests(lista):

@@ -28,17 +28,14 @@ LIMIT 10000
 """
 # ---
 import sys
-from pathlib import Path
-import json
+
+from .json_dir import open_json_file
 
 
-# ---
-Dir2 = Path(__file__).parent
 # ---
 People_key = {}
 # ---
-with open(f"{Dir2}/jsons/peoples.json", "r", encoding="utf-8") as f:
-    People_key = json.load(f)
+People_key = open_json_file("peoples") or {}
 # ---
 # json.dump(People_key, open(f"{Dir2}/jsons/peoples.json", "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 # ---

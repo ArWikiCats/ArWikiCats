@@ -102,21 +102,16 @@ zz
 # ---
 # ---
 import sys
-from pathlib import Path
-import json
+
+from ..json_dir import open_json_file
 import time
 
 start = time.time()
 # ---
-Dir2 = Path(__file__).parent.parent
 # ---
-N_cit_ies_s = {}
-with open(f"{Dir2}/jsons/all_cities.json", "r", encoding="utf-8") as f:
-    N_cit_ies_s = json.load(f)
+N_cit_ies_s = open_json_file("all_cities") or {}
 # ---
-Cities_tab2 = {}
-with open(f"{Dir2}/jsons/Cities_tab2.json", "r", encoding="utf-8") as f:
-    Cities_tab2 = json.load(f)
+Cities_tab2 = open_json_file("Cities_tab2") or {}
 # ---
 # merge N_cit_ies_s and Cities_tab2
 N_cit_ies_s |= Cities_tab2
@@ -365,9 +360,7 @@ N_cit_ies_s_x = {
 # merge N_cit_ies_s and N_cit_ies_s_x
 N_cit_ies_s |= N_cit_ies_s_x
 # ---
-tabe_lab_yy2 = {}
-with open(f"{Dir2}/jsons/yy2.json", "r", encoding="utf-8") as f:
-    tabe_lab_yy2 = json.load(f)
+tabe_lab_yy2 = open_json_file("yy2") or {}
 N_cit_ies_s_lower = {x.lower(): xar for x, xar in N_cit_ies_s.items()}
 # ---
 # with open(f"{Dir2}/jsons/all_cities.json", "w", encoding="utf-8") as f:
