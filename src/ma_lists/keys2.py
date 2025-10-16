@@ -97,7 +97,7 @@ Parties = {
 for x in Parties:
     new_2019[x] = Parties[x]
 # ---
-from .us_counties import USA_newkeys
+from .geo.us_counties import USA_newkeys
 
 # ---
 for xg, xg_lab in USA_newkeys.items():

@@ -108,7 +108,7 @@ import time
 
 start = time.time()
 # ---
-Dir2 = Path(__file__).parent
+Dir2 = Path(__file__).parent.parent
 # ---
 N_cit_ies_s = {}
 with open(f"{Dir2}/jsons/all_cities.json", "r", encoding="utf-8") as f:
@@ -360,7 +360,7 @@ N_cit_ies_s_x = {
     "Al-Bireh" : "البيرة",
     "Ad-Dhahiriya" : "الظاهرية",
     "Ad-Deirat" : "الديرات",
-    }
+}
 # ---
 # merge N_cit_ies_s and N_cit_ies_s_x
 N_cit_ies_s |= N_cit_ies_s_x
@@ -381,6 +381,6 @@ Lenth_p = {
     "tabe_lab_yy2": sys.getsizeof(tabe_lab_yy2),
 }
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("cities.py", Lenth_p, Max=100)

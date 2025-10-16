@@ -14,7 +14,7 @@ f"{$1} {$2}"
 from pathlib import Path
 import json
 
-from .games_labs import summer_winter_tabs
+from .geo.games_labs import summer_winter_tabs
 
 Dir2 = Path(__file__).parent
 # ---

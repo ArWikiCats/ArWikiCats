@@ -39,15 +39,13 @@ Dir2 = Path(__file__).parent
 
 """
 # ---
+from ..json_dir import open_json_file
 Jobs_3333 = {}
 Jobs_2 = {}
 # ---
-Jobs_22 = {}
+Jobs_22 = open_json_file("Jobs_22")
 # ---
-with open(f"{Dir2}/jsons/Jobs_22.json", "r", encoding="utf-8") as f:
-    Jobs_22 = json.load(f)
-# ---
-jobs_3 = {}
+jobs_3 = open_json_file("jobs_3")
 # ---
 # "biochemists"    : {"mens":"أخصائيو كيمياء حيوية", "womens":""},
 # "coastal engineering" : {"mens":"هندسة الشواطئ", "womens":""},
@@ -68,9 +66,6 @@ jobs_3 = {}
 # "psycholinguists" : {"mens":"لسانيات ذهنية", "womens":""},
 # "scientific illustrators" : {"mens":"رسامون في المجال العلمي", "womens":""},
 # "topologists" : {"mens":"عاملون في الطوبولوجيا", "womens":""},
-# ---
-with open(f"{Dir2}/jsons/jobs_3.json", "r", encoding="utf-8") as f:
-    jobs_3 = json.load(f)
 # ---
 # "agriculturalists"  : {"mens":"مزارعون", "womens":"مزارعات"},
 # "astrophysicists"    : {"mens":"فيزيائيون فلكيون", "womens":"فيزيائيات فلكيات"},

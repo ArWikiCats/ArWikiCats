@@ -15,7 +15,7 @@ from .Newkey import pop_final6
 from .languages import languages_key, cccccc_m
 from .peoples import People_key
 from .ministers import minister_keyse, ministrees_keysse
-from .jobs_singers import singers_tab
+from .jobs.jobs_singers import singers_tab
 
 # ---
 query1 = """

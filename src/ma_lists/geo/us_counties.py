@@ -10,7 +10,7 @@ import json
 
 
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 # ---
 Dir2 = Path(__file__).parent

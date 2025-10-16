@@ -1,20 +1,12 @@
 """
 
-from ma_lists.all_keys4 import new2019
-from ma_lists.all_keys2 import new_2023
-from ma_lists.Labels_Contry import P17_final_ll
-from ma_lists.films_mslslat import Films_keys_male_female
-from ma_lists.all_keys3 import pop_final_3
-
-from ma_lists.jobs_players_list import Jobs_players
-from ma_lists.by_type import by_Only
 """
 
-from .Cities import N_cit_ies_s_lower
+from .geo.Cities import N_cit_ies_s_lower
 
-from .Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Nat_Before_Occ, Men_Womens_with_nato, Jobs_new, Jobs_key
+from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Nat_Before_Occ, Men_Womens_with_nato, Jobs_new, Jobs_key
 
-from .Labels_Contry import New_P17_Finall
+from .geo.Labels_Contry import New_P17_Finall
 
 from .Nationality import All_Nat, Nat_women, All_contry_ar, All_contry_with_nat, All_contry_with_nat_keys_is_en, All_contry_with_nat_ar, contries_from_nat, Nat_mens, Nat_Womens, Nat_men, ar_Nat_men, nats_to_add, en_nats_to_ar_label
 
@@ -22,7 +14,7 @@ from .Sport_key import fanco_line, Sports_Keys_For_Team, Sports_Keys_For_Label, 
 
 from .all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
 
-from .games_labs import summer_winter_games
+from .geo.games_labs import summer_winter_games
 
 from .all_keys3 import typeTable_7, albums_type, film_production_company, NN_table, Ambassadors_tab
 
@@ -34,7 +26,7 @@ from .by_type import By_table, By_orginal2, By_table_orginal, Music_By_table
 
 from .films_mslslat import Films_TT, typeTable_4, Films_key_CAO, Films_key_For_nat, Films_key_CAO_new_format, television_keys_female, Films_key_333, Films_key_man, film_key_women_2, films_mslslat_tab, film_Keys_For_female, Films_keys_both_new
 
-from .jobs_defs import religious_keys_PP
+from .jobs.jobs_defs import religious_keys_PP
 
 from .keys2 import Add_in_table2
 from .keys2 import Parties
@@ -59,7 +51,7 @@ from .sportsb.nat_p17 import sport_formts_for_p17, nat_p17_oioi
 
 from .test_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to, Multi_sport_for_Jobs, en_is_nat_ar_is_women_2, en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, replace_labels_2022, Mens_suffix, Mens_priffix, Women_s_priffix, en_is_P17_ar_is_al_women
 
-from .us_counties import US_State_lower, kk_end_US_State, party_end_keys
+from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
 
 from .sport_lab import Get_New_team_xo, Get_sport_formts_female_nat, Get_Sport_Format_xo_en_ar_is_P17
 
