@@ -1,2 +1,5 @@
-sandbox_mode = "danger-full-access"
+model = "gpt-5-codex"
+search = true
 approval_policy = "never"
+sandbox_mode = "danger-full-access"
+model_reasoning_effort = "high"
