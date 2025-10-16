@@ -1,5 +1,5 @@
 import re
-from .. import printe
+from ... import printe
 
 BBlcak: list[str] = [
     "Disambiguation",

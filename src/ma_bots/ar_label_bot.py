@@ -9,7 +9,7 @@ from typing import Dict, Any, List, Tuple
 from ..fix import fixtitle
 from ..ma_lists import pop_of_without_in
 
-from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
+from ..make2_bots.format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 
 from ..matables_bots.bot_2018 import pop_All_2018
 from ..matables_bots.bot import (

@@ -10,7 +10,7 @@ from .. import contry2_lab
 from ...sports_bots import team_work
 from ...date_bots import year_lab
 
-from ...bots import tmp_bot
+from ...make2_bots.bots import tmp_bot
 from ...o_bots import bys
 from ...p17_bots import nats
 
@@ -22,7 +22,7 @@ from ...ma_lists import New_female_keys
 
 from ...fromnet.wd_bot import find_wikidata
 from ...fromnet import kooora
-from ...format_bots import for_table
+from ...make2_bots.format_bots import for_table
 
 from ...matables_bots.bot_2018 import pop_All_2018
 

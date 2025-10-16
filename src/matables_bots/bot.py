@@ -60,7 +60,7 @@ from ..ma_lists import Add_in_table2
 from ..ma_lists import People_key
 from ..ma_lists import All_contry_with_nat
 
-from ..format_bots import Tit_ose_Nmaes
+from ..make2_bots.format_bots import Tit_ose_Nmaes
 
 # ---
 MONTH_table = {

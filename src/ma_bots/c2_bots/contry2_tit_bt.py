@@ -8,7 +8,7 @@ import re
 from typing import Tuple
 from ... import printe
 
-from ...format_bots import Tit_ose_Nmaes
+from ...make2_bots.format_bots import Tit_ose_Nmaes
 
 from ...helps.print_bot import print_put, output_test
 

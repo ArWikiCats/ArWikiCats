@@ -8,7 +8,7 @@ from .. import contry2_lab
 from ...o_bots.popl import make_people_lab
 from ...sports_bots import team_work
 
-from ...bots import tmp_bot
+from ...make2_bots.bots import tmp_bot
 from ...p17_bots import nats
 from ...jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 from ...media_bots.films_bot import test_films
@@ -18,7 +18,7 @@ from ...ma_lists import New_P17_Finall
 from ...ma_lists import religious_keys_PP
 from ...ma_lists import New_female_keys
 
-from ...format_bots import Tabl_with_in
+from ...make2_bots.format_bots import Tabl_with_in
 
 from ...helps.print_bot import print_put, output_test, mainoutput
 

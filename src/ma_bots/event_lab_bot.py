@@ -21,10 +21,10 @@ from ..o_bots import univer
 from ..ma_lists import New_P17_Finall
 from ..fromnet import kooora
 from ..fromnet.wd_bot import find_wikidata
-from ..format_bots import pp_ends_with, pp_ends_with_pase, change_cat
+from ..make2_bots.format_bots import pp_ends_with, pp_ends_with_pase, change_cat
 from ..fix import fixtitle
 from ..matables_bots.bot_2018 import pop_All_2018
-from ..bots import tmp_bot
+from ..make2_bots.bots import tmp_bot
 
 from .lab_seoo_bot import event_Lab_seoo
 from .contry2_bot import Get_contry2

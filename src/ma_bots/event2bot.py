@@ -12,7 +12,7 @@ import sys
 
 from .. import printe
 from ..fix import fixtitle
-from ..bots import tmp_bot
+from ..make2_bots.bots import tmp_bot
 from ..date_bots import with_years_bot
 from .lab_seoo_bot import event_Lab_seoo
 from ..o_bots import univer  # univer.test_Universities(cate)
