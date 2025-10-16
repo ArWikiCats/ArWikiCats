@@ -7,12 +7,12 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Optional
 
 from .make2_bots.co_bots import filter_en
-from .date_bots import labs_years
+from .make2_bots.date_bots import labs_years
 from .fix import fixtitle
 from .make2_bots.format_bots import change_cat
 from .helps.print_bot import output_test
 from .ma_bots import event2bot, event_lab_bot, ye_ts_bot
-from .matables_bots.bot import cash_2022, set_table_sink
+from .make2_bots.matables_bots.bot import cash_2022, set_table_sink
 
 LABEL_PREFIX = "تصنيف"
 _SHARED_EVENT_CACHE: Dict[str, str] = {}

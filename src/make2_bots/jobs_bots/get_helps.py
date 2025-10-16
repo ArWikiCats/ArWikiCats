@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-from ..jobs_bots.get_helps import get_con_3
+from ..make2_bots.jobs_bots.get_helps import get_con_3
 
 """
 from typing import Dict, Tuple, List, Any

@@ -5,13 +5,13 @@ from .arlabel_bots.bot_type_lab import get_Type_lab
 """
 from typing import Tuple
 from .. import contry2_lab
-from ...o_bots.popl import make_people_lab
-from ...sports_bots import team_work
+from ...make2_bots.o_bots.popl import make_people_lab
+from ...make2_bots.sports_bots import team_work
 
 from ...make2_bots.bots import tmp_bot
-from ...p17_bots import nats
-from ...jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
-from ...media_bots.films_bot import test_films
+from ...make2_bots.p17_bots import nats
+from ...make2_bots.jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
+from ...make2_bots.media_bots.films_bot import test_films
 from .. import event2bot
 
 from ...ma_lists import New_P17_Finall

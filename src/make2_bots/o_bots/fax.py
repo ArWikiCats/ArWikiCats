@@ -10,7 +10,7 @@ from ..ma_lists import Sports_Keys_For_Jobs
 from ..ma_lists import languages_pop, lang_ttty
 
 from .parties_bot import get_parties_lab
-from ..sports_bots import team_work
+from ..make2_bots.sports_bots import team_work
 from ..helps.print_bot import print_put, fafa2
 
 test_Lang_Cash = {}

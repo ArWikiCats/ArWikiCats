@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-from ..jobs_bots.jobs_mainbot import Jobs#, Jobs2
+from ..make2_bots.jobs_bots.jobs_mainbot import Jobs#, Jobs2
 
 """
 from typing import Dict, Optional, Any
@@ -14,7 +14,7 @@ from ..ma_lists import (
     Men_Womens_with_nato,
 )
 from ..helps.print_bot import output_test4
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ..make2_bots.jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 Jobs_cash: Dict[str, str] = {}
 

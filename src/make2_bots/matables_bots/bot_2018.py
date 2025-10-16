@@ -2,12 +2,12 @@
 r"""
 
 Usage:
-from ..matables_bots import bot_2018
+from ..make2_bots.matables_bots import bot_2018
 # bot_2018.pop_All_2018.get()
 
 
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..matables_bots.bot_2018 import get_pop_All_18, Add_to_pop_All_18 # get_pop_All_18(key, "") #Add_to_pop_All_18(tab)
+from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
+from ..make2_bots.matables_bots.bot_2018 import get_pop_All_18, Add_to_pop_All_18 # get_pop_All_18(key, "") #Add_to_pop_All_18(tab)
 
 
 # pop_All_2018\.get\((.*?), (.*?)\)
@@ -150,4 +150,4 @@ for olmp, olmp_lab in olympicss.items():
 
 Lenth: Dict[str, int] = {}
 Lenth["pop_All_2018"] = sys.getsizeof(pop_All_2018)
-len_print.lenth_pri("matables_bots/bot_2018.py", Lenth, Max=10)
+len_print.lenth_pri("make2_bots.matables_bots/bot_2018.py", Lenth, Max=10)

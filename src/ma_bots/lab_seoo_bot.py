@@ -6,26 +6,26 @@ from  make.ma_bots.lab_seoo_bot import event_Lab_seoo
 import re
 from ..fix import fixtitle
 
-from ..p17_bots.us_stat import Work_US_State
-from ..o_bots.popl import Work_peoples
+from ..make2_bots.p17_bots.us_stat import Work_US_State
+from ..make2_bots.o_bots.popl import Work_peoples
 
 # from ..bots import tmp_bot
-from ..p17_bots import nats
-from ..o_bots import univer
-from ..sports_bots import team_work
-from ..jobs_bots.test_4 import Jobs_in_Multi_Sports
-from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
+from ..make2_bots.p17_bots import nats
+from ..make2_bots.o_bots import univer
+from ..make2_bots.sports_bots import team_work
+from ..make2_bots.jobs_bots.test_4 import Jobs_in_Multi_Sports
+from ..make2_bots.jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 
 # ---
 from . import ye_ts_bot
-from ..media_bots.films_bot import test_films
+from ..make2_bots.media_bots.films_bot import test_films
 from . import event2bot
 from ..ma_lists import New_P17_Finall
 from ..ma_lists import Ambassadors_tab
-from ..fromnet.wd_bot import find_wikidata
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..matables_bots.centries_bot import centries_years_dec
-from ..matables_bots.bot import New_Lan
+from ..make2_bots.fromnet.wd_bot import find_wikidata
+from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
+from ..make2_bots.matables_bots.centries_bot import centries_years_dec
+from ..make2_bots.matables_bots.bot import New_Lan
 from ..helps.print_bot import print_put, mainoutput
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"

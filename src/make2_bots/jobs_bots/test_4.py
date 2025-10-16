@@ -31,13 +31,13 @@ from ..ma_lists import (
     Jobs_key_womens,
 )
 
-from ..media_bots.film_keys_bot import Films
-from ..jobs_bots.get_helps import get_con_3
+from ..make2_bots.media_bots.film_keys_bot import Films
+from ..make2_bots.jobs_bots.get_helps import get_con_3
 
 # ---
-from ..o_bots import ethnic_bot
+from ..make2_bots.o_bots import ethnic_bot
 from ..helps.print_bot import output_test4, print_put
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ..make2_bots.jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 from .test4_bots.for_me import Work_for_me
 

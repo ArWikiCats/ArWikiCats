@@ -7,9 +7,9 @@ from .dodo_bots.dodo_2019 import work_2019
 """
 
 import re
-from ...matables_bots.bot import New_players, Table_for_frist_word
+from ...make2_bots.matables_bots.bot import New_players, Table_for_frist_word
 
-from ...matables_bots.bot_2018 import pop_All_2018
+from ...make2_bots.matables_bots.bot_2018 import pop_All_2018
 from ...helps.print_bot import print_put
 from ..contry_bot import Get_contry
 

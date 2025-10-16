@@ -13,11 +13,11 @@ import sys
 from .. import printe
 from ..fix import fixtitle
 from ..make2_bots.bots import tmp_bot
-from ..date_bots import with_years_bot
+from ..make2_bots.date_bots import with_years_bot
 from .lab_seoo_bot import event_Lab_seoo
-from ..o_bots import univer  # univer.test_Universities(cate)
+from ..make2_bots.o_bots import univer  # univer.test_Universities(cate)
 
-from ..matables_bots.bot import safo, titttto
+from ..make2_bots.matables_bots.bot import safo, titttto
 from ..helps.print_bot import print_put
 from .contry_bot import Get_contry
 from .dodo_bots.event2bot_dodo import make_lab_dodo

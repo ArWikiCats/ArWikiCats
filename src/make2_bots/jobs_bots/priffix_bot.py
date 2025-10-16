@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ..make2_bots.jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 """
 from typing import Dict
 from ..ma_lists import Nat_mens
@@ -13,7 +13,7 @@ from ..ma_lists import (
 from ..ma_lists import By_table
 from ..ma_lists import replace_labels_2022, change_male_to_female, Mens_suffix, Mens_priffix, Women_s_priffix
 
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
 from ..helps.print_bot import output_test4
 
 priffix_Mens_work_cash: Dict[str, str] = {}

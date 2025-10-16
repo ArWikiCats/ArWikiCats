@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-python3 core8/pwb.py -m cProfile -s ncalls make/matables_bots/bot.py
+python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 
 Usage:
-from ..matables_bots.bot import Add_to_main2_tab  # Add_to_main2_tab()
-from ..matables_bots.bot import (
+from ..make2_bots.matables_bots.bot import Add_to_main2_tab  # Add_to_main2_tab()
+from ..make2_bots.matables_bots.bot import (
     MONTH_table,
     Work_With_Change_key,
     All_contry_with_nat_lower,
@@ -406,4 +406,4 @@ Lenth["typetable"] = sys.getsizeof(typeTable)
 Lenth["kingdom"] = len_Kingdom[1]
 # ---
 
-len_print.lenth_pri("matables_bots/bot.py", Lenth, lens=["kingdom"], Max=10)
+len_print.lenth_pri("make2_bots.matables_bots/bot.py", Lenth, lens=["kingdom"], Max=10)

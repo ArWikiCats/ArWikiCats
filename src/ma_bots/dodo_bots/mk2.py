@@ -9,7 +9,7 @@ from .mk2 import new_func_mk2
 import re
 
 from ...make2_bots.format_bots import ar_lab_before_year_to_add_in, contry_before_year
-from ...matables_bots.bot import (
+from ...make2_bots.matables_bots.bot import (
     Add_to_main2_tab,
     Films_O_TT,
     New_players,

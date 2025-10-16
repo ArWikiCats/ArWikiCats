@@ -7,9 +7,9 @@ import re
 # ---
 from ..ma_lists import By_table, By_orginal2, By_table_orginal
 from ..ma_lists import New_P17_Finall
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..p17_bots.nats import find_nat_others
-from ..media_bots.films_bot import test_films
+from ..make2_bots.matables_bots.bot_2018 import pop_All_2018
+from ..make2_bots.p17_bots.nats import find_nat_others
+from ..make2_bots.media_bots.films_bot import test_films
 
 
 def print_put(s):

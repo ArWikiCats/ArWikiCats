@@ -1,7 +1,7 @@
 """
 
 Usage:
-from ..matables_bots.table1_bot import table1get, get_KAKO
+from ..make2_bots.matables_bots.table1_bot import table1get, get_KAKO
 
 """
 from typing import Dict, Any

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-from .jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
+from .make2_bots.jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 
 """
 

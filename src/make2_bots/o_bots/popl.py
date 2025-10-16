@@ -8,7 +8,7 @@ import re
 from ..ma_lists import film_key_women_2
 from ..ma_lists import nats_to_add
 from ..helps.print_bot import print_put
-from ..matables_bots.bot import Pp_Priffix
+from ..make2_bots.matables_bots.bot import Pp_Priffix
 from ..ma_lists import People_key
 
 # ---

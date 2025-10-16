@@ -9,18 +9,18 @@ from .event2bot_dodo import make_lab_dodo
 import re
 from typing import Dict, Any
 from ...fix import fixtitle
-from ...date_bots import year_lab
+from ...make2_bots.date_bots import year_lab
 from ...make2_bots.format_bots import Tit_ose_Nmaes, NewFormat
 from ...ma_lists import Nat_mens
-from ...matables_bots.bot import Add_to_main2_tab
-from ...matables_bots.bot import (
+from ...make2_bots.matables_bots.bot import Add_to_main2_tab
+from ...make2_bots.matables_bots.bot import (
     New_Lan,
     Films_O_TT,
     New_players,
     typeTable,
     type_after_contry,
 )
-from ...matables_bots.bot_2018 import pop_All_2018
+from ...make2_bots.matables_bots.bot_2018 import pop_All_2018
 from ...helps.print_bot import print_put, output_test
 from ..contry_bot import Get_contry
 

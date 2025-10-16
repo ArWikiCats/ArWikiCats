@@ -1,15 +1,15 @@
 """
-from ..p17_bots import nats
+from ..make2_bots.p17_bots import nats
 """
 
 import re
 from .. import printe
 from ..ma_lists import sport_formts_for_p17, nat_p17_oioi
 from ..ma_lists import fanco_line, Sports_Keys_For_Team
-from ..matables_bots.bot import New_players, Add_to_main2_tab  # Add_to_main2_tab()
+from ..make2_bots.matables_bots.bot import New_players, Add_to_main2_tab  # Add_to_main2_tab()
 from .. import malists_sport_lab as sport_lab
 from ..ma_lists import All_Nat, Nat_women
-from ..jobs_bots.get_helps import get_con_3
+from ..make2_bots.jobs_bots.get_helps import get_con_3
 
 
 nat_others_cash = {}

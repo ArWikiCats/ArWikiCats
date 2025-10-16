@@ -1,5 +1,5 @@
 """
-from ..o_bots.army import test_Army
+from ..make2_bots.o_bots.army import test_Army
 """
 
 import re

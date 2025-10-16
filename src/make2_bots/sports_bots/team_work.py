@@ -14,12 +14,12 @@ import sys
 from ..ma_lists import Clubs_key_2
 from ..ma_lists import Inter_Feds_lower
 from ..ma_lists import pop_of_football_lower
-from ..jobs_bots import test_4
-from ..matables_bots.bot_2018 import Add_to_pop_All_18
+from ..make2_bots.jobs_bots import test_4
+from ..make2_bots.matables_bots.bot_2018 import Add_to_pop_All_18
 
 # from ..ma_lists import pop_of_football_lower
 # ---
-from ..fromnet import kooora
+from ..make2_bots.fromnet import kooora
 
 # kooora.kooora_team(EnName)
 # ---
