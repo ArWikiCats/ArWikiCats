@@ -18,3 +18,11 @@ reviews:
         - "!**/old/**"
 chat:
     auto_reply: true
+
+reports:
+  - title: "Release Notes"
+    instructions: |
+      Generate concise and clear release notes based on the changes in this pull request.
+      Focus on key features, bug fixes, and improvements.
+      Format the output using Markdown.
+    format: "markdown"
