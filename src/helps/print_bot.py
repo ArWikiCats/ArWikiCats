@@ -2,14 +2,14 @@
 """
 
 Usage:
-from ..helps.print_bot import output_main
-from ..helps.print_bot import mainoutput, fafa2, testprint, only_print_heads
-from ..helps.print_bot import do_print_options, print_def_head, output_main, print_put, output_test, output_test4
+from .helps.print_bot import mainoutput, fafa2, testprint, only_print_heads
+from .helps.print_bot import do_print_options, print_def_head, output_main, print_put, output_test, output_test4
 # do_print_options(noprint="", printfirst="", printhead="", all_print_off="", tst_prnt_all=False)
 """
 
 from .. import printe
 import sys
+from ...log import logger
 
 all_the_print_off = "all_print_off" in sys.argv
 all_the_print_on = "printall" in sys.argv
@@ -104,7 +104,7 @@ def do_print_options(noprint="", printfirst="", printhead="", all_print_off="", 
                 mainoutput[1] = False
                 fafa2[1] = False
                 testprint[1] = False
-            elif printhead:
+            elif "printhead" in sys.argv or printhead:
                 only_print_heads[1] = True
                 mainoutput[1] = False
                 fafa2[1] = False

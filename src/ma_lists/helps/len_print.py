@@ -17,7 +17,6 @@ len_print.lenth_pri("Labels_Contry.py", Lentha)
 """
 
 import sys
-# from .helps import printe
 from . import printe
 from humanize import naturalsize
 
@@ -25,7 +24,9 @@ lenth_pri_text = True
 
 
 def lenth_pri(bot, tab, Max=10000, lens=[]):
-    if not lenth_pri_text or "lenth_pri_text" in sys.argv:
+    if not lenth_pri_text:
+        return
+    if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
         return
 
     def do(x, y):

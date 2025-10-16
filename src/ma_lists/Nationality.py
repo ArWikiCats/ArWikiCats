@@ -22,7 +22,7 @@ import sys
 
 from .json_dir import open_json_file
 from .helps import len_print
-from .helps import printe
+from .. import printe
 
 # ---
 All_Nat_o = open_json_file("All_Nat_o") or {}

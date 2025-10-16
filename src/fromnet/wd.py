@@ -4,10 +4,10 @@
 """
 
 import re
-import json
-import requests
-from .. import printe
 import sys
+
+from .. import printe
+from .open_url import open_url_json
 
 pprint = {1: False}
 
@@ -17,23 +17,9 @@ def Priiint(text):
         printe.output(text)
 
 
-v56 = {
-    "action": "query",
-    "format": "json",
-    "prop": "langlinks",
-    "generator": "search",
-    "utf8": 1,
-    "lllang": "ar",
-    "gsrsearch": "osceola, fond du lac county, wisconsin",
-    "gsrnamespace": "0",
-    "gsrwhat": "text",
-}
-# ---
 Cashens = {}
 # ---
-#
 api_url = "https://www.wikidata.org/w/api.php"
-session_wd = {1: False}
 # ---
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 ar_literes = "[ابتثجحخدذرزسشصضطظعغفقكلمنهوية]"
@@ -47,10 +33,6 @@ def find_name_from_wikidata(text, lang, Local=False):
     if text in Cashens:
         return {text: Cashens[text]}
     # ---
-    if not session_wd[1]:
-        session_wd[1] = requests.Session()
-    # ---
-    # printe.output(text)
     params = {
         "action": "wbsearchentities",
         "format": "json",
@@ -63,25 +45,17 @@ def find_name_from_wikidata(text, lang, Local=False):
         "utf8": 1,
     }
     # ---
-    json1 = {}
+    json1 = open_url_json(api_url, data=params)
+    # ---
     printe.output(f"find_name_from_wikidata: '{text}'")
     # ---
-    try:
-        check = session_wd[1].post(api_url, data=params, timeout=10)
-        json1 = json.loads(check.text)
-    except Exception as e:
-        printe.output(f"<<lightred>> find_name_from_wikidata can't session.post. {e}")
-    Priiint(json1)
     tab = json1["search"] if json1 and json1["search"] else []
     La = {}
     # ---
-    Priiint(len(tab))
-    if len(tab) != 0:
-        for x in tab:
-            Priiint(x)
-            if x["label"] and x["match"] and x["match"]["text"]:
-                if x["match"]["type"] != "alias":
-                    La[x["match"]["text"]] = x["label"]
+    for x in tab:
+        if x["label"] and x["match"] and x["match"]["text"]:
+            if x["match"]["type"] != "alias":
+                La[x["match"]["text"]] = x["label"]
     # ---
     if La:
         printe.output(La)
@@ -101,4 +75,3 @@ def find_name_from_wikidata(text, lang, Local=False):
         La2[tf] = tf_lab
     # ---
     return La2
-    # ---

@@ -47,7 +47,7 @@ from ..male_keys import religious_female_keys, New_Company
 from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 from .jobs_defs import religious_keys_PP, Men_Womens_Jobs_2
-# from .helps import printe
+
 
 Jobs_new = {}
 # Jobs_new["fifa world cup players"] = "لاعبو كأس العالم لكرة القدم"

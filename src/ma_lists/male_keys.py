@@ -5,7 +5,7 @@ from .male_keys import New_female_keys, New_male_keys, religious_female_keys, fe
 """
 
 import sys
-from .helps import printe
+from .. import printe
 from .films_mslslat import Films_keys_male_female
 
 # ---

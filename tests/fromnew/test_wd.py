@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from .wd import find_name_from_wikidata
+from fromnet.wd import find_name_from_wikidata
 
 tase = """
 fort worth, texas

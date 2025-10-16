@@ -5,7 +5,7 @@ python3 core8/pwb.py make/m test Category:People executed by the International M
 """
 
 
-# from .helps import printe
+
 
 import sys
 

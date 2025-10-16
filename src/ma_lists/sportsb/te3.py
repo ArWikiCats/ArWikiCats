@@ -4,7 +4,6 @@ from .sportsb.te3 import sport_formts_enar_p17_team, New_team_xo_team
 
 import re
 import sys
-from ..helps import printe
 from ..helps import len_print
 from ..sports_lists import AFTER_KEYS_TEAM, menstt333
 
@@ -30,12 +29,6 @@ for mrr, mrr_lab in menstt333.items():
 New_Tato["men's under-23 national"] = "{} تحت 23 سنة للرجال"
 New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
 New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
-
-
-def prints(s):
-    if "prints" in sys.argv:
-        printe.output(s)
-
 
 # ---
 
@@ -128,7 +121,7 @@ if True:
     number_xo = 0
     # ---
     for tyu, tyu_lab in New_Tato.items():
-        prints(" ========= contry =========== ")
+        logger.debug(" ========= contry =========== ")
         K_at_p = tyu_lab.format("xoxo")
         number_xo += 1
         # if team2 == "road cycling":
@@ -150,7 +143,7 @@ if True:
             printo = f"nat_Lab: [{Ab}] : " + pre_lab2
             # if team2 == "road cycling"and pre == "team":
             # print("%d: %s" % (number_xo , printo) )
-            prints("%d: %s" % (number_xo, printo))
+            logger.debug("%d: %s" % (number_xo, printo))
             sport_formts_enar_p17_team[Ab] = pre_lab2
     # ---
     _format_ = "{}"
