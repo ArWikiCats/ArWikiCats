@@ -5,7 +5,7 @@ from .langs_w import Lang_work
 
 """
 from typing import Dict
-from ...ma_lists_bots import (
+from ...ma_lists import (
     All_Nat,
     Films_keys_both_new,
     Films_key_333,

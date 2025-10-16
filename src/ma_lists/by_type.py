@@ -5,10 +5,8 @@
 
 
 import sys
-import json
-from pathlib import Path
 
-Dir2 = Path(__file__).parent
+from .json_dir import open_json_file
 
 # ---
 # from .by_table import By_table
@@ -42,8 +40,7 @@ Dir2 = Path(__file__).parent
 # ---
 By_table = {}
 # ---
-with open(f"{Dir2}/jsons/By_table.json", "r", encoding="utf-8") as f:
-    By_table = json.load(f)
+By_table = open_json_file("By_table") or {}
 # ---
 Music_By_table = {
     "by city": "حسب المدينة",
@@ -314,7 +311,7 @@ def main():
 # ---
 Lenth1 = {"by_table": sys.getsizeof(By_table)}
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("by_table.py", Lenth1)
 # ---

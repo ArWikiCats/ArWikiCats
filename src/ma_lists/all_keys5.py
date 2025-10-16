@@ -32,14 +32,12 @@ WHERE {
 # from .all_keys5 import Clubs_key_2, pop_final_5
 # ---
 import sys
-from pathlib import Path
-import json
+
+from .json_dir import open_json_file
 
 from .male_keys import New_male_keys
-from .helps import len_print
+from ..helps import len_print
 
-# ---
-Dir2 = Path(__file__).parent
 # ---
 clubs_query = """
     # تصانيف الأندية
@@ -88,8 +86,7 @@ opvf = """
 # ---
 Clubs_key = {}
 # ---
-with open(f"{Dir2}/jsons/Clubs_key.json", "r", encoding="utf-8") as f:
-    Clubs_key = json.load(f)
+Clubs_key = open_json_file("Clubs_key") or {}
 # ---
 # "christian saints":"قديسون",
 # ---

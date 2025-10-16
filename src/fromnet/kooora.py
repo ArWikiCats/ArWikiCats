@@ -1,46 +1,17 @@
 #!/usr/bin/python3
 """
 
-محاولة إيجاد تسميات من كوووورة
-
-python3 core8/pwb.py make/kooora test Al-Arabi SC
-
-
-python3 core8/pwb.py make/testmain testfile:koo
-
-Usage:
-
-from ..fromnet import kooora
-# kooora.kooora_team(entitle)
-# kooora.kooora_player(entitle)
-
 """
 
 import re
 import sys
-from typing import Dict, Any
+from typing import Dict
 from .. import printe
+from .open_url import open_url_text
 
-try:
-    from API import open_url
-except BaseException:
-    open_url = None
-# ---
+
 Teamse_ko_done: Dict[str, str] = {}
 pprindt: Dict[int, bool] = {1: False}
-
-
-def gettheurl(url: str) -> str:
-    return open_url.open_the_url(url) if open_url else ""
-
-
-def log_kooora(t: str, dj: str) -> None:
-    try:
-        with open(dj, "a", encoding="utf-8") as f:
-            f.write(t)
-
-    except BaseException:
-        print("log_kooora Error writing")
 
 
 def kooora_player(EnName: str) -> str:
@@ -60,7 +31,7 @@ def kooora_player(EnName: str) -> str:
         return Teamse_ko_done[EnName.lower()]
     # ---
     printe.output(f'*kooora_player EnName : "{EnName}" ')
-    tas = gettheurl(eee)
+    tas = open_url_text(eee)
     # ---
     arlabel = ""
     if tas:
@@ -94,7 +65,6 @@ def kooora_player(EnName: str) -> str:
                     # ---
                     printe.output(f'*kooora_player arlabel:"{arlabel}". ')
                     lline = f'\n"{EnName.lower()}":"{arlabel}",'
-                    log_kooora(lline, "make2/0kooora_player.log.csv")
             elif pprindt[1]:
                 printe.output(len(tas4))
     Teamse_ko_done[EnName.lower()] = arlabel
@@ -127,7 +97,7 @@ def kooora_team(EnName: str, Local: bool = True) -> str:
     if pprindt[1]:
         printe.output(f'*kooora_team EnName : "{EnName}" ')
     # ---
-    tas = gettheurl(eee)
+    tas = open_url_text(eee)
     # ---
     arlabel = ""
     if tas:
@@ -156,42 +126,9 @@ def kooora_team(EnName: str, Local: bool = True) -> str:
                 if arlabel:
                     # ---
                     printe.output(f'*kooora_team arlabel:"{arlabel}". ')
-                    lline = f'\n"{EnName.lower()}":"{arlabel}",'
-                    log_kooora(lline, "make2/0kooora_team.log.csv")
             elif pprindt[1]:
                 printe.output(len(tas4))
     # ---
     Teamse_ko_done[EnName.lower()] = arlabel
     # ---
     return arlabel
-
-
-def main() -> None:
-    # ---
-    pprindt[1] = True
-    # python3 core8/pwb.py make/kooora test Osceola, Fond du Lac County, Wisconsin
-    # python3 core8/pwb.py make/kooora test kristianstad
-    # ---
-    if sys.argv:
-        if "team" in sys.argv:
-            Olist = sys.argv
-            Olist.remove(sys.argv[0])
-            Olist.remove("team")
-            # ---
-            Name = " ".join(Olist)
-            printe.output(f'Name: "{Name}"')
-            kooora_team(Name)
-        # python3 core8/pwb.py make/kooora player Lasse Nilsson
-        elif "player" in sys.argv:
-            Olist = sys.argv
-            Olist.remove(sys.argv[0])
-            Olist.remove("player")
-            # ---
-            Name = " ".join(Olist)
-            printe.output(f'Name: "{Name}"')
-            kooora_player(Name)
-    # ---
-
-
-if __name__ == "__main__":
-    main()

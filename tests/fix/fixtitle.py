@@ -2,11 +2,10 @@
 
 """
 
-import json
-import sys
-from newapi import printe
+from make2_new import printe
+from make2_new.fix.fixtitle import fixlab
 
-from make2.fix.fixtitle import fixlab
+from make2_new.tests.helps import get_titles_to_tests
 from pathlib import Path
 
 Dir = Path(__file__).parent
@@ -159,7 +158,6 @@ lista[4] = [
     "تصنيف:مسلسلات تلفزيونية كندية حسب النوع الفني عقد 1980",
 ]
 # ---
-from make2.tests.helps import get_titles_to_tests
 
 to_work = get_titles_to_tests(lista)
 

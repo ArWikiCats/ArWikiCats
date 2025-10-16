@@ -33,25 +33,22 @@ WHERE {
 
 import sys
 from pathlib import Path
-import json
+from ..json_dir import open_json_file
 
 # ---
-from .Nationality import Nat_mens
-from .all_keys4 import new2019_cycling
-from .all_keys2 import Books_table
-from .ministers import ministrs_tab_for_Jobs_2020
-from .by_type import Music_By_table
-from .films_mslslat import Films_key_For_Jobs
+from ..Nationality import Nat_mens
+from ..all_keys4 import new2019_cycling
+from ..all_keys2 import Books_table
+from ..ministers import ministrs_tab_for_Jobs_2020
+from ..by_type import Music_By_table
+from ..films_mslslat import Films_key_For_Jobs
 from .Jobs2 import Jobs_2
-from .male_keys import religious_female_keys, New_Company
+from ..male_keys import religious_female_keys, New_Company
 from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 from .jobs_defs import religious_keys_PP, Men_Womens_Jobs_2
-# from .helps import printe
 
-# ---
-Dir2 = Path(__file__).parent
-# ---
+
 Jobs_new = {}
 # Jobs_new["fifa world cup players"] = "لاعبو كأس العالم لكرة القدم"
 # ---
@@ -189,8 +186,7 @@ Men_Womens_with_nato = {
 # ,"military":  {"mens":"عسكريون", "womens":"عسكريات"}
 # ,"commodores": {"mens":"ضباط بحرية", "womens":"ضابطات بحرية"}
 # ---
-with open(f"{Dir2}/jsons/jobs_Men_Womens_PP.json", "r", encoding="utf-8") as f:
-    MenWomensJobsPP = json.load(f)
+MenWomensJobsPP = open_json_file("jobs_Men_Womens_PP")
 # ---
 for k, tab in religious_keys_PP.items():
     MenWomensJobsPP[k] = tab
@@ -275,10 +271,7 @@ Nat_Before_Occ = [
     "emigrants",
 ]
 # ---
-activists_keys = {}
-# ---
-with open(f"{str(Dir2)}/jsons/activists_keys.json", "r", encoding="utf-8") as f:
-    activists_keys = json.load(f)
+activists_keys = open_json_file("activists_keys")
 # ---
 for activ in activists_keys.keys():
     activ2 = activ.lower()
@@ -695,6 +688,6 @@ Lenth = {
     "Men_Womens_Jobs": sys.getsizeof(Men_Womens_Jobs),
 }
 # ---
-from .helps import len_print
+from ...helps import len_print
 
 len_print.lenth_pri("jobs.py", Lenth)

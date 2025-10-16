@@ -51,11 +51,11 @@ for tabd in list(Fgos2):
 
 FgosLi: Dict[int, Dict[str, Dict[str, str]]] = {1: Fgos1, 2: Fgos2}
 
-from ..ma_lists_bots import pf_keys2
-from ..ma_lists_bots import Music_By_table
-from ..ma_lists_bots import Films_key_man
+from ..ma_lists import pf_keys2
+from ..ma_lists import Music_By_table
+from ..ma_lists import Films_key_man
 from .bot import All_P17
-from ..ma_lists_bots import By_table
+from ..ma_lists import By_table
 
 KAKO: Dict[str, Dict[str, str]] = {
     "pf_keys2": pf_keys2,

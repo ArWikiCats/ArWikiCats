@@ -6,19 +6,15 @@ python3 core8/pwb.py make/lists/Labels_Contry2
 """
 
 import sys
-from pathlib import Path
-import json
+
+from ..json_dir import open_json_file
 
 # ---
-Dir2 = Path(__file__).parent
-# ---
 P17_PP = {}
-with open(f"{Dir2}/jsons/P17_PP.json", "r", encoding="utf-8") as f:
-    P17_PP = json.load(f)
+P17_PP = open_json_file("P17_PP") or {}
 # ---
 New_Keys = {}
-with open(f"{Dir2}/jsons/New_Keys.json", "r", encoding="utf-8") as f:
-    New_Keys = json.load(f)
+New_Keys = open_json_file("New_Keys") or {}
 # ---
 Cantons = {
     "aarga": "أرجاو",
@@ -253,7 +249,7 @@ Lenth1 = {
     "New_Way_adding_Citeis": New_Way_adding_Citeis,
 }
 # ---
-from .helps import len_print
+from ...helps import len_print
 
 len_print.lenth_pri("Labels_Contry2.py", Lenth1, Max=21)
 # ---

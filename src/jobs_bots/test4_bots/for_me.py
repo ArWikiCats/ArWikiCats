@@ -5,15 +5,15 @@ from .test4_bots.for_me import Work_for_me
 
 import re
 from typing import Dict
-from ...ma_lists_bots import NN_table
-from ...ma_lists_bots import (
+from ...ma_lists import NN_table
+from ...ma_lists import (
     Nat_women,
     Nat_men,
     All_contry_with_nat_ar,
 )
-from ...ma_lists_bots import New_female_keys, New_male_keys
+from ...ma_lists import New_female_keys, New_male_keys
 
-from ...ma_lists_bots import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women
+from ...ma_lists import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women
 
 # ---
 from ...o_bots import ethnic_bot

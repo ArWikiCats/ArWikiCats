@@ -360,6 +360,6 @@ def fixlab(label_old: str, out: bool = False, en: str = "") -> str:
     # ---
     if label_old != arlabel:
         if out is True:
-            printe.output(f'fixtitle: label_old before:"{label_old}", after:"{arlabel}"')
+            print(f'fixtitle: label_old before:"{label_old}", after:"{arlabel}"')
     # ---
     return arlabel

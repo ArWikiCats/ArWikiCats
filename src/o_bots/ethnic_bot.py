@@ -11,8 +11,8 @@ def Ethnic(cate, Start, con_3):
 
 """
 from typing import Dict
-from ..ma_lists_bots import Nat_women, Nat_men, Nat_mens
-from ..ma_lists_bots import en_is_nat_ar_is_women_2
+from ..ma_lists import Nat_women, Nat_men, Nat_mens
+from ..ma_lists import en_is_nat_ar_is_women_2
 
 from ..helps.print_bot import output_test4
 

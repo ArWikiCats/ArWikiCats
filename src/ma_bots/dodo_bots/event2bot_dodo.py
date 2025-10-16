@@ -11,7 +11,7 @@ from typing import Dict, Any
 from ...fix import fixtitle
 from ...date_bots import year_lab
 from ...format_bots import Tit_ose_Nmaes, NewFormat
-from ...ma_lists_bots import Nat_mens
+from ...ma_lists import Nat_mens
 from ...matables_bots.bot import Add_to_main2_tab
 from ...matables_bots.bot import (
     New_Lan,

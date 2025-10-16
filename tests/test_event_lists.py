@@ -14,7 +14,7 @@ for candidate in (PROJECT_PARENT, REPO_ROOT):
     if candidate_str not in sys.path:
         sys.path.append(candidate_str)
 
-from make2 import event, new_func_lab
+from make2_new import event, new_func_lab
 
 from tests_lists import (
     OIUHNM2,

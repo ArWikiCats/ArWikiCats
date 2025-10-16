@@ -6,7 +6,6 @@ import sport_lab # sport_lab.Get_Sport_Format_xo_en_ar_is_P17(en) # sport_lab.Ge
 """
 
 import re
-from .helps import printe
 import sys
 
 # ---
@@ -17,6 +16,7 @@ from .sportsb.team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts
 
 from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, fanco_line
 from .Nationality import All_contry_with_nat_ar
+from ..helps.print_bot import print_put, output_test, testprint
 
 # ---
 pp = [[len(xy.split(" ")), xy] for xy in All_contry_with_nat_ar]
@@ -29,7 +29,6 @@ All_nat_to_ar = texts_new.replace("22|", "", 1)
 All_nat_to_ar = All_nat_to_ar.replace("(", r"\(").replace(")", r"\)")
 nat_reg_line = rf".*\s({All_nat_to_ar})\s.*"
 # ---
-from .helps.print_bot import print_put, output_test, testprint
 
 # do_print_options(noprint="", printfirst="", printhead="", all_print_off="", tst_prnt_all=False)
 
@@ -165,9 +164,6 @@ def Get_New_team_xo(team, fafa_2=False):
     # ---
     print_put(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{team_xo}"')
     # ---
-    if testprint[1]:
-        printe.showDiff(team, team_xo)
-    # ---
     sp_lab = ""
     ar_label = ""
     # TTTY = ""
@@ -207,8 +203,6 @@ def Get_New_team_xo(team, fafa_2=False):
             natreg = natreg.strip()
             # ---
             if natreg != team_xo:
-                if testprint[1]:
-                    printe.showDiff(team_xo, natreg)
                 output_test(f'natreg:"{natreg}"')
                 # ---
                 if natreg in New_team_xo_team:

@@ -5,7 +5,7 @@ from .cn_lab import make_cnt_lab
 """
 
 import re
-from ...ma_lists_bots import By_table
+from ...ma_lists import By_table
 from ...format_bots import pop_format, pop_format2
 
 from ...matables_bots.bot import (

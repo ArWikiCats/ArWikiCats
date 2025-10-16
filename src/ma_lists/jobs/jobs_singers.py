@@ -16,16 +16,12 @@ WHERE {
 from .jobs_singers import singers_tab
 from .jobs_singers import Men_Womens_Singers, films_type
 """
-from pathlib import Path
-import json
+from ..json_dir import open_json_file
 
-# ---
-Dir2 = Path(__file__).parent
 # ---
 Men_Womens_Singers = {}
 # ---
-with open(f"{Dir2}/jsons/jobs_Men_Womens_Singers.json", "r", encoding="utf-8") as f:
-    Men_Womens_Singers = json.load(f)
+Men_Womens_Singers = open_json_file("jobs_Men_Womens_Singers") or {}
 # ---
 singers_tab = {}
 # "electronic dance":"الرقص الإلكترونية",
@@ -35,8 +31,7 @@ singers_tab = {}
 # "march":"مارش",
 # "performing":"الشعبي",
 # ---
-with open(f"{Dir2}/jsons/singers_tab.json", "r", encoding="utf-8") as f:
-    singers_tab = json.load(f)
+singers_tab = open_json_file("singers_tab") or {}
 # ---
 films_type = {
     "film": {"mens": "أفلام", "womens": "أفلام"},

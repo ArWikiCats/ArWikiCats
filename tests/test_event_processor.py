@@ -12,8 +12,8 @@ for candidate in (PROJECT_PARENT, REPO_ROOT):
     if candidate_str not in sys.path:
         sys.path.append(candidate_str)
 
-import make2.src.main as main_module
-from make2.src.event_processing import get_shared_event_cache
+import make2_new.src.main as main_module
+from make2_new.src.event_processing import get_shared_event_cache
 
 
 @pytest.fixture(autouse=True)

@@ -19,20 +19,17 @@ LIMIT 1000
 """
 
 import sys
-from pathlib import Path
-import json
-from .helps import len_print
-from .helps import printe
 
-Dir2 = Path(__file__).parent
+from .json_dir import open_json_file
+from ..helps import len_print
+from .. import printe
+
 # ---
-with open(f"{Dir2}/jsons/All_Nat_o.json", "r", encoding="utf-8") as f:
-    All_Nat_o = json.load(f)
+All_Nat_o = open_json_file("All_Nat_o") or {}
 # ---
 nats_to_add = {}
 # ---
-with open(f"{Dir2}/jsons/uu_nats.json", "r", encoding="utf-8") as f:
-    uu_nats = json.load(f)
+uu_nats = open_json_file("uu_nats") or {}
 # ---
 uu_nats["hindustan"] = uu_nats["hindustani"]
 # ---
@@ -80,8 +77,7 @@ for x, va in NATdd.items():
 # Category:Trinidad_and_Tobago_people
 # Category:Yoruba_people
 # ---
-with open(f"{Dir2}/jsons/Sub_Nat.json", "r", encoding="utf-8") as f:
-    Sub_Nat = json.load(f)
+Sub_Nat = open_json_file("Sub_Nat") or {}
 # ---
 The_Nat_women = {
     "cape verdean": "رأس أخضرية",

@@ -18,12 +18,10 @@ OPTIONAL {?item rdfs:label ?itemaa filter (lang(?itemaa) = "ar")   }
 #
 import re
 import sys
-from pathlib import Path
-import json
 
-Dir2 = Path(__file__).parent
+from .json_dir import open_json_file
 
-from .helps import len_print
+from ..helps import len_print
 
 # ---
 Films_keys_both_new = {}
@@ -55,25 +53,21 @@ Films_key_O_multi = {}
 # ,"prussian":{"male":"بروسي", "female":"بروسي", "Q":"Q1456178"}
 # ,"black comedy":{"male":"كوميديا سوداء", "female":"كوميديا سوداء", "Q":"Q5778924"}
 # ---
-with open(f"{Dir2}/jsons/Films_keys_male_female.json", "r", encoding="utf-8") as f:
-    Films_keys_male_female = json.load(f)
+Films_keys_male_female = open_json_file("Films_keys_male_female") or {}
 # ---
 # "drafts" : " {}",
 # "executives" : " {}",
 # "fan clubs" : " {}",
 # "organizations":"منظمات",
-with open(f"{Dir2}/jsons/television_keys.json", "r", encoding="utf-8") as f:
-    television_keys = json.load(f)
+television_keys = open_json_file("television_keys") or {}
 # ---
 # ,"science fantasy": {"male":"خيال فانتازي", "female":"خيالية فانتازيا", "Q":""}
 # ,"comedy-drama": {"male":"كوميديا درامية", "female":"كوميديا درامية", "Q":"Q859369"}
 # ---
-with open(f"{Dir2}/jsons/Films_key_O_multi.json", "r", encoding="utf-8") as f:
-    Films_key_O_multi = json.load(f)
+Films_key_O_multi = open_json_file("Films_key_O_multi") or {}
 # ---
 Films_key_For_nat = {}
-with open(f"{Dir2}/jsons/Films_key_For_nat.json", "r", encoding="utf-8") as f:
-    Films_key_For_nat = json.load(f)
+Films_key_For_nat = open_json_file("Films_key_For_nat") or {}
 # ---
 films_mslslat_tab = {}
 Films_key_For_Jobs = {}

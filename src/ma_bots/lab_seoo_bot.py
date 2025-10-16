@@ -20,8 +20,8 @@ from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 from . import ye_ts_bot
 from ..media_bots.films_bot import test_films
 from . import event2bot
-from ..ma_lists_bots import New_P17_Finall
-from ..ma_lists_bots import Ambassadors_tab
+from ..ma_lists import New_P17_Finall
+from ..ma_lists import Ambassadors_tab
 from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.bot_2018 import pop_All_2018
 from ..matables_bots.centries_bot import centries_years_dec

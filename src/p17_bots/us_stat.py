@@ -1,7 +1,7 @@
 """
 """
 
-from ..ma_lists_bots import US_State_lower, kk_end_US_State
+from ..ma_lists import US_State_lower, kk_end_US_State
 from ..helps.print_bot import print_put
 
 # ---

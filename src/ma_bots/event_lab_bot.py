@@ -18,7 +18,7 @@ from .. import malists_sport_lab as sport_lab
 from ..helps.print_bot import print_put
 from ..date_bots import year_lab
 from ..o_bots import univer
-from ..ma_lists_bots import New_P17_Finall
+from ..ma_lists import New_P17_Finall
 from ..fromnet import kooora
 from ..fromnet.wd_bot import find_wikidata
 from ..format_bots import pp_ends_with, pp_ends_with_pase, change_cat
@@ -30,7 +30,7 @@ from .lab_seoo_bot import event_Lab_seoo
 from .contry2_bot import Get_contry2
 
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.ma_bots.ye_ts_bot'
-#  (most likely due to a circular import) (I:\core\bots\ma\make2\ma_bots\ye_ts_bot.py)
+#  (most likely due to a circular import) (ma_bots\ye_ts_bot.py)
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"

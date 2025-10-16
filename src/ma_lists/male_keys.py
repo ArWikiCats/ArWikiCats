@@ -5,7 +5,7 @@ from .male_keys import New_female_keys, New_male_keys, religious_female_keys, fe
 """
 
 import sys
-from .helps import printe
+from .. import printe
 from .films_mslslat import Films_keys_male_female
 
 # ---
@@ -613,7 +613,7 @@ Lenth1 = {
     "All_Nat New_male_keys": sys.getsizeof(New_male_keys),
 }
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("male_keys.py", Lenth1)
 # ---

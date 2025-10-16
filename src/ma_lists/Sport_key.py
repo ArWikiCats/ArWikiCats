@@ -15,16 +15,13 @@ Sports_Keys_New2 = {}
 # ,"athletics indoor":{"label":"ألعاب القوى داخل الصالات", "team":"لألعاب القوى داخل الصالات", "jobs":"ألعاب قوى داخل صالات"}
 # ---
 import sys
-from pathlib import Path
-import json
 
-# ---
-Dir2 = Path(__file__).parent
+from .json_dir import open_json_file
+
 # ---
 Sports_Keys_New = {}
 # ---
-with open(f"{Dir2}/jsons/Sports_Keys_New.json", "r", encoding="utf-8") as f:
-    Sports_Keys_New = json.load(f)
+Sports_Keys_New = open_json_file("Sports_Keys_New") or {}
 # ---
 Sports_Keys_New["kick boxing"] = Sports_Keys_New["kickboxing"]
 Sports_Keys_New["sport climbing"] = Sports_Keys_New["climbing"]
@@ -143,7 +140,7 @@ Lenth1 = {
     "All_Nat Sports_Keys_For_Jobs": sys.getsizeof(Sports_Keys_For_Jobs),
 }
 # ---
-from .helps import len_print
+from ..helps import len_print
 
 len_print.lenth_pri("Sport_key.py", Lenth1)
 # ---

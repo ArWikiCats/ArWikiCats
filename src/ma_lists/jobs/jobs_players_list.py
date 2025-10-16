@@ -4,24 +4,20 @@
 from .jobs_players_list import Jobs_players, Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 
 """
-from pathlib import Path
-import json
+from ..json_dir import open_json_file
 
 # ---
-from .Sport_key import (
+from ..Sport_key import (
     Sports_Keys_For_Team,
     Sports_Keys_For_Jobs,
     Sports_Keys_For_Label,
 )
 
 # ---
-Dir2 = Path(__file__).parent
-# ---
 Female_Jobs_to = {}
 players_to_Men_Womens_Jobs = {}
 # ---
-with open(f"{Dir2}/jsons/jobs_Football_Keys_players.json", "r", encoding="utf-8") as f:
-    Football_Keys_players = json.load(f)
+Football_Keys_players = open_json_file("jobs_Football_Keys_players") or {}
 # ---
 Football_Keys_players_x = {}
 # "punters": {"mens":"", "womens":""},
@@ -71,10 +67,7 @@ Football_Keys_players_x = {}
 # نقلت من jobs2.py
 
 # ---
-Jobs_players = {}
-# ---
-with open(f"{Dir2}/jsons/Jobs_players.json", "r", encoding="utf-8") as f:
-    Jobs_players = json.load(f)
+Jobs_players = open_json_file("Jobs_players") or {}
 # ---
 Jobs_players["freestyle swimmers"] = {"mens": "سباحو تزلج حر", "womens": "سباحات تزلج حر"}
 # ---

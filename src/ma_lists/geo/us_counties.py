@@ -5,20 +5,17 @@
 # from .us_counties import US_State, Counties, US_State_lower, US_State_Keys, kk_end_US_State, usa_parties, USA_newkeys, party_end_keys
 # ---
 import sys
-from pathlib import Path
-import json
+
+from ..json_dir import open_json_file
 
 
 # ---
-from .helps import len_print
+from ...helps import len_print
 
-# ---
-Dir2 = Path(__file__).parent
 # ---
 Counties = {}
 # ---
-with open(f"{Dir2}/jsons/us_counties.json", "r", encoding="utf-8") as f:
-    Counties = json.load(f)
+Counties = open_json_file("us_counties") or {}
 # ---
 US_State = {
     # ---

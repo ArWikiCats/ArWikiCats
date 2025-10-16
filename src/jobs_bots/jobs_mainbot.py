@@ -5,9 +5,9 @@ from ..jobs_bots.jobs_mainbot import Jobs#, Jobs2
 
 """
 from typing import Dict, Optional, Any
-from ..ma_lists_bots import Nat_mens, Nat_Womens
+from ..ma_lists import Nat_mens, Nat_Womens
 
-from ..ma_lists_bots import (
+from ..ma_lists import (
     Jobs_key_mens,
     Jobs_key_womens,
     Nat_Before_Occ,

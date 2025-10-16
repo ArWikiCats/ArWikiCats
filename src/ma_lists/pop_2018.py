@@ -4,14 +4,9 @@ from .pop_2018 import pop_All_2018
 
 """
 # ---
-from pathlib import Path
-import json
-
-# ---
-Dir2 = Path(__file__).parent
+from .json_dir import open_json_file
 # ---
 pop_All_2018 = {}
 # ---
-with open(f"{Dir2}/jsons/pop_All_2018.json", "r", encoding="utf-8") as f:
-    pop_All_2018 = json.load(f)
+pop_All_2018 = open_json_file("pop_All_2018") or {}
 # ---

@@ -4,7 +4,7 @@ from .sportsb.te2 import New_For_nat_female_xo_team
 
 import sys
 import re
-from ..helps import len_print
+from ...helps import len_print
 from ..sports_lists import levels, AFTER_KEYS_NAT, New_Tato_nat
 
 sport_formts_enar_p17_jobs = {}

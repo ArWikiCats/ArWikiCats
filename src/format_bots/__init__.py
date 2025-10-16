@@ -7,8 +7,8 @@ from ..format_bots import Dont_Add_min, NewFormat, Tabl_with_in, Tit_ose_Nmaes, 
 import re
 import sys
 from ..helps import len_print
-from ..ma_lists_bots import ministrs_tab_for_pop_format
-from ..ma_lists_bots import New_Company
+from ..ma_lists import ministrs_tab_for_pop_format
+from ..ma_lists import New_Company
 from ..helps.print_bot import output_main
 from .pf_keys import Change_key, Change_key2
 
