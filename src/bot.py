@@ -10,7 +10,7 @@ from . import bot as MA_MAIN # MA_MAIN.event(tab, **kwargs)
 
 from typing import Dict, Any, List
 from . import main
-from .media_bots import films_bot  # test_films
+from .make2_bots.media_bots import films_bot  # test_films
 
 new_func_lab = main.new_func_lab
 

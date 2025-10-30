@@ -10,8 +10,11 @@ from .src import (
     print_memory,
 )
 
+from .src.helps.log import config_logger
+
 __all__ = [
     "printe",
+    "config_logger",
     "event",
     "new_func_lab",
     "EventProcessor",

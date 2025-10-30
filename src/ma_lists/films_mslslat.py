@@ -547,20 +547,3 @@ Lenth_oo = {
 # ---
 
 len_print.lenth_pri("films_mslslat.py", Lenth_oo)
-
-
-def main():
-    # main.event(Facos , noprint =False )
-    if sys.argv and sys.argv[1]:
-        La = sys.argv[1].lower()
-        La = re.sub(r"_", " ", La)
-        print("=========================")
-        print(f"lab: {La}")
-        print(f"Films_key_CAO:{Films_key_CAO.get(La, 'no lab')}")
-        print(f"Films_key_multi: {Films_key_multi.get(La, 'no lab')}")
-        print(f"Films_TT: {Films_TT.get(La, 'no lab')}")
-        # print("Films_key_both: " + Films_key_both.get(La , "no lab"))
-
-
-if __name__ == "__main__":
-    main()

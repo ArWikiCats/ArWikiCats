@@ -5,7 +5,7 @@ from .sportsb.te3 import sport_formts_enar_p17_team, New_team_xo_team
 import re
 import sys
 from ...helps import len_print
-from ...log import logger
+from ...helps.log import logger
 from ..sports_lists import AFTER_KEYS_TEAM, menstt333
 
 # ---

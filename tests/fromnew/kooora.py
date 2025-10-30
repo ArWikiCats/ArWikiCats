@@ -1,5 +1,5 @@
 import sys
-from fromnet import kooora_team, kooora_player
+from src.make2_bots.fromnet import kooora_team, kooora_player
 
 # python3 core8/pwb.py make/kooora test Osceola, Fond du Lac County, Wisconsin
 # python3 core8/pwb.py make/kooora test kristianstad

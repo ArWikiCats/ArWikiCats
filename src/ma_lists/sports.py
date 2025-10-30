@@ -338,29 +338,3 @@ Facos = [
     "women's football in china",
 ]
 # Nat_Womens#Nat_mens
-
-
-def mainxaxa():
-    # main.event(Facos , noprint =False )
-    if sys.argv and sys.argv[1]:
-        # La = sys.argv[1].lower()
-        # La = sys.argv[1].lower()
-        # ---
-        List = sys.argv
-        List.remove(sys.argv[0])
-        if "printtest" in List:
-            List.remove("printtest")
-        # La = re.sub(r"_", " " , La)
-        La = " ".join(List)
-        La = La.lower()
-        print("=========================")
-        print(f'Lab: "{La}"')
-        print("Teams_new:" + Teams_new.get(La, ""))
-        print("sport_formts_en_ar_is_p17: " + sport_formts_en_ar_is_p17.get(La, ""))
-        print("sport_formts_female_nat: " + sport_formts_female_nat.get(La, ""))
-
-
-# ---
-if __name__ == "__main__":
-    mainxaxa()
-# ---
