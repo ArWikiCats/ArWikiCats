@@ -1,6 +1,7 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 language: "en"
 early_access: false
+
 reviews:
     profile: "chill"
     request_changes_workflow: false
@@ -11,18 +12,23 @@ reviews:
     auto_review:
         enabled: true
         ignore_title_keywords:
-        - "WIP"
-        - "DO NOT MERGE"
+            - "WIP"
+            - "DO NOT MERGE"
         drafts: false
     path_filters:
         - "!**/old/**"
 chat:
     auto_reply: true
-
 reports:
-  - title: "Release Notes"
-    instructions: |
-      Generate concise and clear release notes based on the changes in this pull request.
-      Focus on key features, bug fixes, and improvements.
-      Format the output using Markdown.
-    format: "markdown"
+    - title: "CHANGELOG Update"
+      instructions: |
+          Generate an updated changelog section for CHANGELOG.md based on the modifications in this pull request.
+          Include:
+              - Added (new features)
+              - Changed (refactors or improvements)
+              - Fixed (bug fixes)
+              - Removed (deprecated or deleted parts)
+          Format the section in Markdown, starting with a header:
+              ## [<PR title>] - <date>
+          Do NOT duplicate existing entries.
+      format: "markdown"
