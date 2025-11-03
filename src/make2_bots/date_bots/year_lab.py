@@ -8,7 +8,7 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 def make_year_lab(year: str) -> str:  # 21st century
     # ---
     tata = (
-        r"(\d|\d+)(th century BCE|th millennium BCE|th century BC|th millennium BC|th century|th millennium"
+        r"\d+(th century BCE|th millennium BCE|th century BC|th millennium BC|th century|th millennium"
         + "|st century BCE|st millennium BCE|st century BC|st millennium BC|st century|st millennium"
         + "|rd century BCE|rd millennium BCE|rd century BC|rd millennium BC|rd century|rd millennium"
         + "|nd century BCE|nd millennium BCE|nd century BC|nd millennium BC|nd century|nd millennium"
