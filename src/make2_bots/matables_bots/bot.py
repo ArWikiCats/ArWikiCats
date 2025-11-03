@@ -43,6 +43,7 @@ from ...matables_bots.bot import (
 )
 """
 import sys
+import copy
 from typing import Dict, Any, Callable, List, Optional, Set
 from .bot_2018 import pop_All_2018, olympicss
 from ...helps import len_print
@@ -342,7 +343,7 @@ MONTHSTR = "(January|February|March|April|May|June|July|August|September|October
 type_after_contry = ["non-combat"]
 
 # Add_ar_in = [ "mediterranean games medalists",]
-Add_ar_in = olympicss.copy()
+Add_ar_in = copy.deepcopy(olympicss)
 
 for olmp, olmp_lab in Add_ar_in.items():
     typeTable[f"{olmp} for"] = {"ar": f"{olmp_lab} من", "Q": ""}

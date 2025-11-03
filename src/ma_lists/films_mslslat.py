@@ -17,6 +17,7 @@ OPTIONAL {?item rdfs:label ?itemaa filter (lang(?itemaa) = "ar")   }
 """
 #
 import re
+import copy
 import sys
 
 from .json_dir import open_json_file
@@ -513,7 +514,7 @@ boh = 0
 # printe.output("vfvfv == %d " % vfvfv)
 # printe.output("len(Films_key_333) == %d " % len(Films_key_333))
 # ---
-tabe_2 = Films_keys_male_female.copy()
+tabe_2 = copy.deepcopy(Films_keys_male_female)
 # ---
 for en, tab in Films_keys_male_female.items():
     for en2, tab2 in tabe_2.items():

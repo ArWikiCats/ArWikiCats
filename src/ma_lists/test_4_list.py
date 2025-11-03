@@ -3,7 +3,7 @@ from .test_4_list import replace_labels_2022, en_is_P17_ar_is_mens, en_is_P17_ar
 
 
 """
-
+import copy
 from .keys_23 import afc_keys
 from .all_keys3 import businesspeoples
 from .jobs.jobs_singers import singers_tab
@@ -456,7 +456,7 @@ for iu in businesspeoples:
     en_is_nat_ar_is_women[f"{iu} businesspeople"] = "شخصيات أعمال {} في %s" % businesspeoples[iu]
     en_is_nat_ar_is_women[f"{iu} industry businesspeople"] = "شخصيات أعمال {} في صناعة %s" % businesspeoples[iu]
 # ---
-en_is_nat_ar_is_women_2 = en_is_nat_ar_is_women.copy()
+en_is_nat_ar_is_women_2 = copy.deepcopy(en_is_nat_ar_is_women)
 # ---
 for bo, bo_la in Books_table.items():
     en_is_nat_ar_is_women[bo.lower()] = "%s {}" % bo_la
