@@ -8,7 +8,7 @@ import re
 YEARS_REGEX = r"(\d+[−–-]\d+|\d+\sق[\s\.]م|\d+)|عقد\s(\d+\sق[\s\.]م|\d+)|القرن\s(\d+\sق[\s\.]م|\d+)|الألفية\s(\d+\sق[\s\.]م|\d+)"
 
 regex_make_year_lab = (
-    r"\d+("
+    r"(\d+)("
     r"th century BCE|th millennium BCE|th century BC|th millennium BC|th century|th millennium"
     r"|st century BCE|st millennium BCE|st century BC|st millennium BC|st century|st millennium"
     r"|rd century BCE|rd millennium BCE|rd century BC|rd millennium BC|rd century|rd millennium"
