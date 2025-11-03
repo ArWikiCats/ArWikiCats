@@ -35,6 +35,7 @@ from ..matables_bots.centries_bot import centries_years_dec
 from ...ma_lists import pop_of_without_in
 from ...ma_lists import Jobs_key
 from ..matables_bots.bot_2018 import pop_All_2018
+from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 
 Get_contry_done: Dict[str, str] = {}
 
@@ -144,9 +145,9 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
             cnt_la = re.sub(r"سنوات في القرن", "سنوات القرن", cnt_la)
 
     if not cnt_la:
-        RE1 = re.match(r"^(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d).*", contry)
-        RE2 = re.match(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)$", contry)
-        RE3 = re.match(r"^.*?\s*\((\d+\-\d+|\d+\–\d+|\d+\–present|\d+\−\d+|\d\d\d\d)\)$", contry)
+        RE1 = RE1_compile.match(contry)
+        RE2 = RE2_compile.match(contry)
+        RE3 = RE3_compile.match(contry)
 
         if RE1 or RE2 or RE3:
             cnt_la = with_years_bot.Try_With_Years(contry)

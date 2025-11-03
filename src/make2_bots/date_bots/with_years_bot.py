@@ -15,6 +15,7 @@ from ..matables_bots.table1_bot import get_KAKO
 from ..ma_bots import contry2_lab
 from ..ma_bots.ye_ts_bot import translate_general_category
 from ...helps.print_bot import output_test
+from ..reg_lines import re_sub_year, RE1_compile, RE2_compile, RE33_compile
 
 Try_With_Years_cash = {}
 
@@ -70,19 +71,18 @@ def Try_With_Years(contry):
         # ---
         return lab2
 
-    RE1 = re.match(r"^(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d).*", contry)
-    RE2 = re.match(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)$", contry)
+    RE1 = RE1_compile.match(contry)
+    RE2 = RE2_compile.match(contry)
 
     # Category:American Soccer League (1933–83)
-    RE3 = re.match(r"^.*?\s*(\((?:\d\d\d\d|\d+\-\d+|\d+\–\d+|\d+\–present|\d+\−\d+)\))$", contry)
-    # RE4 = re.match(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d) season$", contry)
+    RE3 = RE33_compile.match(contry)
+    # RE4 = RE4_compile.match(contry)
 
     if not RE1 and not RE2 and not RE3:  # and not RE4
         # ---
         return ""
 
-    # year = re.sub(r"^(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)\s*.*$", r"\g<1>", contry)
-    year = re.sub(r"^(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)\s.*$", r"\g<1>", contry)
+    year = re.sub(re_sub_year, r"\g<1>", contry)
     if year == contry:
         year = ""
 
@@ -120,14 +120,14 @@ def Try_With_Years(contry):
             output_test(f'>>>>>> Try With Years new lab2  "{lab2}" ')
 
     if not lab2:
-        year2 = re.sub(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)$", r"\g<1>", contry.strip())
+        year2 = RE2_compile.sub(r"\g<1>", contry.strip())
 
         if RE3:
-            year2 = re.sub(r"^.*?\s*(\((?:\d\d\d\d|\d+\-\d+|\d+\–\d+|\d+\–present|\d+\−\d+)\))$", r"\g<1>", contry.strip())
-            year2 = re.sub(r"^.*?\s*(\((?:\d\d\d\d|\d+\-\d+|\d+\–\d+|\d+\–present|\d+\−\d+)\))$", r"\g<1>", contry.strip())
+            year2 = RE33_compile.sub(r"\g<1>", contry.strip())
+            year2 = RE33_compile.sub(r"\g<1>", contry.strip())
 
         # if RE4:
-        # year2 = "موسم " + re.sub(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d) season$", r"\g<1>", contry.strip() )
+        # year2 = "موسم " + RE4_compile.sub(r"\g<1>", contry.strip())
 
         if year2 == contry:
             year2 = ""
