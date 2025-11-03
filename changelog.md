@@ -1,6 +1,4 @@
 
-# Eliminate fetching any labels from the internet.
-
 ## Pull Request 1
 
 * **New Features:** Added a unified logger and web request utilities, enabling team/player and Wikidata searches through simple command-line tools.
@@ -16,3 +14,14 @@
 * Added a new logger and HTTP helper utilities, updating dependent modules accordingly.
 * Removed old scripts and tools from the `others` directory and reorganized import tests.
 * Updated tests and documentation to align with the new module structure.
+
+## 3 - 2025-11-03
+
+### Added
+*   New module `src/make2_bots/reg_lines.py` for centralized regular expression definitions.
+*   "solar eclipses" added to the country add-ins list.
+
+### Changed
+*   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
+*   Simplified the event labeling flow in `src/make2_bots/ma_bots/dodo_bots/event2bot_dodo.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
+
