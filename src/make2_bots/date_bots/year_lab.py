@@ -1,23 +1,16 @@
 import re
 from ..matables_bots.bot import MONTH_table
 from ...helps.log import logger
+from ..reg_lines import regex_make_year_lab
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def make_year_lab(year: str) -> str:  # 21st century
     # ---
-    tata = (
-        r"(\d|\d+)(th century BCE|th millennium BCE|th century BC|th millennium BC|th century|th millennium"
-        + "|st century BCE|st millennium BCE|st century BC|st millennium BC|st century|st millennium"
-        + "|rd century BCE|rd millennium BCE|rd century BC|rd millennium BC|rd century|rd millennium"
-        + "|nd century BCE|nd millennium BCE|nd century BC|nd millennium BC|nd century|nd millennium"
-        + "| century BCE| millennium BCE| century BC| millennium BC| century| millennium|s BCE| BCE"
-        + "|s BC| BC|s)"
-    )
 
     su = ""
-    _ye_ = re.sub(tata.lower(), r"\g<1>", year)
+    _ye_ = re.sub(regex_make_year_lab.lower(), r"\g<1>", year)
 
     if " bc" in year or " bce" in year:
         su = " ق م "
@@ -58,17 +51,10 @@ def make_year_lab(year: str) -> str:  # 21st century
 
 
 def make_month_lab(year: str) -> str:  # 21st century
-    y_l = ""
-
-    tata = r"(January |February |March |April |May |June |July |August |September |October |November |December |)(\d+)".lower()
-
     if re.match(r"^\d+$", year.strip()):
         return year.strip()
 
-    _ye_ = re.sub(tata.lower(), r"\g<1>", year)
-    if _ye_ == year:
-        _ye_ = ""
-    logger.info(f' _ye_ "{_ye_}":')
+    y_l = ""
 
     year2 = year
     test_2 = re.sub(r"\d+$", "", year2).strip()

@@ -281,15 +281,6 @@ t_start = r"Category\:(" + pop_new_ke + ").*"
 t_tits = r"Category\:(" + pop_new_ke + "|)(" + P17_new_keys + "|)"
 t_other = f"({P17_new_keys}|)"
 # ---
-yyd3 = (
-    r"\d+th century BCE|\d+th millennium BCE|\d+th century BC|\d+th millennium BC|\d+th century|\d+th millennium"
-    + r"|\d+st century BCE|\d+st millennium BCE|\d+st century BC|\d+st millennium BC|\d+st century|\d+st millennium"
-    + r"|\d+rd century BCE|\d+rd millennium BCE|\d+rd century BC|\d+rd millennium BC|\d+rd century|\d+rd millennium"
-    + r"|\d+nd century BCE|\d+nd millennium BCE|\d+nd century BC|\d+nd millennium BC|\d+nd century|\d+nd millennium"
-    + r"|\d+ century BCE|\d+ millennium BCE|\d+ century BC|\d+ millennium BC|\d+ century|\d+ millennium|\d+s BCE|\d+ BCE"
-    + r"|\d+s BC|\d+ BC|\d+s|\d\d\d\-\d\d|\d\d\-\d\d\d|\d+"
-)
-# ---
 add_in_to_contry = ["solar eclipses"]
 # ---
 army_line = "|".join(military_format_women.keys())

@@ -2,12 +2,11 @@
 """
 Usage:
 from .event2bot_dodo import make_lab_dodo
-# ar_label = make_lab_dodo(_category_, Tita_year, tita, tita_other, category3, category, cat_test, category_r)
 
 """
 
 import re
-from typing import Dict, Any
+from ...matables_bots.bot import safo, titttto
 from ....fix import fixtitle
 from ...date_bots import year_lab
 from ...format_bots import Tit_ose_Nmaes, NewFormat
@@ -20,36 +19,50 @@ from ...matables_bots.bot import (
     typeTable,
     type_after_contry,
 )
-from ...matables_bots.bot_2018 import pop_All_2018
-from ....helps.print_bot import print_put, output_test
-from ..contry_bot import Get_contry
-
 from .dodo_2019 import work_2019
 from .mk2 import new_func_mk2
+from ..contry_bot import Get_contry
+from ...matables_bots.bot_2018 import pop_All_2018
+from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
+from ....helps.print_bot import print_put, output_test
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+
+tita_other = r"\s*(" + safo + r"|)\s*(" + titttto + r"|)\s*(.*|).*"
 
 
 def make_lab_dodo(
     _category_: str,
-    Tita_year: str,
-    tita: str,
-    tita_other: str,
     category3: str,
     category: str,
     cat_test: str,
     category_r: str,
 ) -> str:
-    """Generate a label based on various input parameters related to categories
+    """
+    Generate a label based on various input parameters related to categories
     and years.
     """
+    # ---
+    Tita_year = tita_year
+    # ---
+    test_month = re.sub(ddd, "", category.lower())
+    # ---
+    if test_month == category:
+        Tita_year = tita_year_no_month
+    # ---
     Add_In_Done = False
     NoLab = False
+    # ---
+    reg_line_1 = tita + tita_other
+    reg_line_1 = reg_line_1.lower()
+    # ---
     category2 = category.lower()
     if category2.startswith("category:"):
         category2 = category2[len("category:") :]
+    # ---
     year = re.sub(Tita_year, r"\g<1>\g<2>", _category_)
-    typeo = re.sub(tita, r"\g<3>", _category_)
+    typeo = re.sub(reg_line_1, r"\g<3>", _category_)
+    # ---
     if year == _category_ or year == category3:
         year = ""
     elif year and _category_.startswith("category:" + year):
@@ -59,10 +72,14 @@ def make_lab_dodo(
 
     if typeo == _category_ or typeo == category3:
         typeo = ""
-    In = re.sub(tita, r"\g<4>", _category_)
+    # ---
+    In = re.sub(reg_line_1, r"\g<4>", _category_)
+    # ---
     if In == _category_ or In == category3:
         In = ""
-    contry = re.sub(tita, r"\g<5>", _category_)
+    # ---
+    contry = re.sub(reg_line_1, r"\g<5>", _category_)
+    # ---
     if contry == _category_ or contry == category3:
         contry = ""
 

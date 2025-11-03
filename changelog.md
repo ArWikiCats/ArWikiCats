@@ -1,17 +1,27 @@
-# الاستغناء عن أي مكتبات محلية يتم استدعائها خارج هذه المكتبة.
-# الاستغناء عن الحصول على أي تسميات عبر النت
 
+## Pull Request 1
 
-## طلب السحب الأول
-- **ميزات جديدة:** تمت إضافة سجل موحد وأدوات مساعدة لطلبات الويب، مع إتاحة البحث في الفريق/اللاعب وWikidata عبر أدوات سطر أوامر بسيطة.
-- **إعادة هيكلة:** توحيد تحميل ملفات JSON والبيانات مع توسيع التصدير العام؛ تنظيف الأدوات والمخطوطات القديمة.
-- **التوثيق:** إزالة مخطط قديم من README وتحديث سجل التغييرات بما يتماشى مع السياسات الجديدة.
-- **الاختبارات:** إضافة اختبارات لعمليات البحث الخارجية وتحديث مسارات الاستيراد.
-- **مهام الصيانة:** إضافة قاعدة تجاهل للملفات الناتجة عن التطوير المحلي.
+* **New Features:** Added a unified logger and web request utilities, enabling team/player and Wikidata searches through simple command-line tools.
+* **Refactor:** Unified JSON and data file loading with expanded public exports; cleaned up old tools and scripts.
+* **Documentation:** Removed an outdated diagram from the README and updated the changelog in line with new policies.
+* **Tests:** Added tests for external search operations and updated import paths.
+* **Maintenance Tasks:** Added ignore rules for files generated during local development.
 
-## طلب السحب الثاني
-- إزالة الوحدة القديمة `ma_lists_bots` وتحديث الوحدات المختلفة لاستخدام الوحدات الفرعية الجديدة ضمن `ma_lists`.
-- توحيد تحميل ملفات JSON عبر الدالة `open_json_file` مع إعادة تنظيم التصديرات العامة وتعديل الاستيرادات النسبية.
-- إضافة مسجل جديد وأدوات مساعدة للطلبات HTTP مع تحديث الوحدات المستفيدة من ذلك.
-- إزالة السكربتات والأدوات القديمة في مجلد `others` وإعادة تنظيم اختبارات الاستيراد.
-- تحديث الاختبارات والوثائق لتتوافق مع الهيكلية الجديدة للوحدات.
+## Pull Request 2
+
+* Removed the old `ma_lists_bots` module and updated various modules to use the new submodules under `ma_lists`.
+* Unified JSON file loading via the `open_json_file` function, reorganized public exports, and adjusted relative imports.
+* Added a new logger and HTTP helper utilities, updating dependent modules accordingly.
+* Removed old scripts and tools from the `others` directory and reorganized import tests.
+* Updated tests and documentation to align with the new module structure.
+
+## 3 - 2025-11-03
+
+### Added
+*   New module `src/make2_bots/reg_lines.py` for centralized regular expression definitions.
+*   "solar eclipses" added to the country add-ins list.
+
+### Changed
+*   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
+*   Simplified the event labeling flow in `src/make2_bots/ma_bots/dodo_bots/event2bot_dodo.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
+

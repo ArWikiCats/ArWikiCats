@@ -17,7 +17,6 @@ from ..date_bots import with_years_bot
 from .lab_seoo_bot import event_Lab_seoo
 from ..o_bots import univer  # univer.test_Universities(cate)
 
-from ..matables_bots.bot import safo, titttto
 from ...helps.print_bot import print_put
 from .contry_bot import Get_contry
 from .dodo_bots.event2bot_dodo import make_lab_dodo
@@ -90,29 +89,6 @@ def event2(category_r):
 
     print_put("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
     print_put(f'<<lightyellow>>>>>> event2 :"{category_r}"')
-    yy = (
-        r"\d+th century BCE|\d+th millennium BCE|\d+th century BC|\d+th millennium BC|\d+th century|\d+th millennium"
-        + r"|\d+st century BCE|\d+st millennium BCE|\d+st century BC|\d+st millennium BC|\d+st century|\d+st millennium"
-        + r"|\d+rd century BCE|\d+rd millennium BCE|\d+rd century BC|\d+rd millennium BC|\d+rd century|\d+rd millennium"
-        + r"|\d+nd century BCE|\d+nd millennium BCE|\d+nd century BC|\d+nd millennium BC|\d+nd century|\d+nd millennium"
-        + r"|\d+ century BCE|\d+ millennium BCE|\d+ century BC|\d+ millennium BC"
-        + r"|\d+ century|\d+ millennium|\d+s BCE|\d+ BCE|\d+s BC|\d+ BC"
-    )
-    en_dash = r"|\d+\–\d+"
-    MINUS = r"|\d+\−\d+"
-    keybord = r"|\d+\-\d+"
-    yy += en_dash
-    yy += MINUS
-    yy += keybord
-    yy += r"|\d+s"
-    yy += r"|\d+"
-    # yyx = r"(\w+\s*\d+|\d+(th|st|rd)|\d+s\s*|\d+|)(\s*BCE|\s*BC|)(\s*century|\s*millennium)"
-    MONTHSTR2 = "(january |february |march |april |may |june |july |august |september |october |november |december |)"
-    tita_year = r"Category\:" + MONTHSTR2 + "(" + yy + "|).*"
-    tita_year = tita_year.lower()
-    tita_other = r"\s*(" + safo + r"|)\s*(" + titttto + r"|)\s*(.*|).*"
-    tita = r"Category\:" + MONTHSTR2 + "(" + yy.lower() + "|)" + tita_other
-    tita = tita.lower()
     # tit = {}
 
     ar_label = ""
@@ -124,14 +100,6 @@ def event2(category_r):
         category = category.replace("–century", " century")
         if not category.lower().startswith("category:"):
             category = f"Category:{category}"
-
-        Tita_year = tita_year
-        ddd = r"category\:(january|february|march|april|may|june|july|august|september|october|november|december|)\s*"
-        test_month = re.sub(ddd, "", category.lower())
-
-        if test_month == category:
-            Tita_year = r"category\:(|)\s*(" + yy + ").*"
-        Tita_year = Tita_year.lower()
 
         _category_ = category
         _category_ = re.sub(r"-century", " century", _category_)
@@ -155,7 +123,7 @@ def event2(category_r):
                 event2_cash[cash_key] = category_lab
                 return category_lab
         # ---
-        ar_label = make_lab_dodo(_category_, Tita_year, tita, tita_other, category3, category, cat_test, category_r)
+        ar_label = make_lab_dodo(_category_, category3, category, cat_test, category_r)
     # ---
     if not ar_label:
         ar_label = dodo(category_r)

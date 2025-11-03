@@ -1,7 +1,6 @@
 import re
 from ..helps.print_bot import output_test
-
-YEARS_REGEX = r"(\d+[-–]\d+|\d+\sق[\s\.]م|\d+)|عقد\s(\d+\sق[\s\.]م|\d+)|القرن\s(\d+\sق[\s\.]م|\d+)|الألفية\s(\d+\sق[\s\.]م|\d+)"
+from ..make2_bots.reg_lines import YEARS_REGEX
 
 
 def move_3(text_str: str) -> str:
