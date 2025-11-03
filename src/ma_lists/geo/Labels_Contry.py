@@ -4,6 +4,7 @@
 """
 
 import sys
+import copy
 
 from ..json_dir import open_json_file
 
@@ -239,7 +240,7 @@ for vg in Counties:
 
 the_keys = 0
 
-for ase, z in New_P17_Finall.copy().items():
+for ase, z in copy.deepcopy(New_P17_Finall).items():
     if z:
         ase3 = ase.lower()
 
