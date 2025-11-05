@@ -80,6 +80,18 @@ def make_lab_dodo(
     # ---
     contry = re.sub(reg_line_1, r"\g<5>", _category_)
     # ---
+    if not typeo and contry:
+        for type_key in typeTable:
+            suffix = f" {type_key}"
+            if not contry.endswith(suffix):
+                continue
+            possible_contry = contry[: -len(suffix)].strip()
+            if not possible_contry:
+                continue
+            typeo = type_key
+            contry = possible_contry
+            cat_test = cat_test.replace(type_key, "", 1)
+            break
     if contry == _category_ or contry == category3:
         contry = ""
 
@@ -121,7 +133,13 @@ def make_lab_dodo(
 
         if cnt_la == "" and category3 == year + " " + contry:
             cnt_la = Nat_mens.get(contry, "")
-            if cnt_la:
+        type_entry = typeTable.get(typeo, {})
+        type_priff = type_entry.get("priff", "") if type_entry else ""
+        
+        if type_priff and not type_entry.get("ar") and cnt_la and not cnt_la.strip().startswith(type_priff):
+            cnt_la = f"{type_priff} {cnt_la}".strip()
+        
+        if cnt_la:
                 cnt_la = cnt_la + " في"
                 print_put("a<<lightblue>>>2021 cnt_la == %s" % cnt_la)
 
@@ -174,6 +192,12 @@ def make_lab_dodo(
             cat_test, arlabel = new_func_mk2(
                 category, cat_test, year, typeo, In, contry, arlabel, year_labe, suf, Add_In, cnt_la, Add_In_Done
             )
+            if type_priff and not type_entry.get("ar"):
+                cleaned = arlabel.strip()
+                suf_clean = suf.strip()
+                if suf_clean and cleaned.startswith(suf_clean) and cleaned.endswith(cnt_la):
+                    arlabel = f"{cnt_la} {suf_clean}".strip()
+                    
         else:
             print_put('a<<lightblue>>>>>> Cant id contry : "%s" ' % contry)
     else:
