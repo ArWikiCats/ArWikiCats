@@ -5,9 +5,9 @@ Category:1974–75 in Lebanese football leagues
 """
 
 import sys
-from make2_new import printe
-from make2_new.tests.helps import get_titles_to_tests
-from make2_new.fix.mv_years import move_years
+from src import printe
+from src.tests.helps import get_titles_to_tests
+from src.fix.mv_years import move_years
 
 # python3 core8/pwb.py make2/tests/fix/mv_years -list:1
 # python3 core8/pwb.py make2/tests/fix/mv_years -list:2

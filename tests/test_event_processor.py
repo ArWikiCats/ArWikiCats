@@ -13,7 +13,7 @@ for candidate in (PROJECT_PARENT, REPO_ROOT):
         sys.path.append(candidate_str)
 
 import make2_new.src.main as main_module
-from make2_new.src.event_processing import get_shared_event_cache
+from src.src.event_processing import get_shared_event_cache
 
 
 @pytest.fixture(autouse=True)

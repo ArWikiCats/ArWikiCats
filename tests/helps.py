@@ -5,7 +5,7 @@ from .tests.helps import get_titles_to_tests
 """
 
 import sys
-from make2_new import printe
+from src import printe
 
 
 def get_titles_to_tests(lista):
