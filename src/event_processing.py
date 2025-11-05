@@ -211,3 +211,8 @@ class EventProcessor:
 def new_func_lab(category_r: str) -> str:
     processor = EventProcessor(EventProcessorConfig(make_tab=False))
     return processor.process_single(category_r).raw_label
+
+
+def new_func_lab_final_label(category_r: str) -> str:
+    processor = EventProcessor(EventProcessorConfig(make_tab=False))
+    return processor.process_single(category_r).final_label

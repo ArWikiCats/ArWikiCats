@@ -1,5 +1,8 @@
+#
+from src import new_func_lab_final_label
 
-def ye_test_one_dataset(dataset, callback):
+
+def ye_test_one_dataset(dataset: dict, callback : new_func_lab_final_label):
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
     diff = {}

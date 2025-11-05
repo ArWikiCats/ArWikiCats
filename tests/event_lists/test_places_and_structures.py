@@ -1,5 +1,6 @@
 #
-from src import new_func_lab
+from src import new_func_lab_final_label
+from load_one_data import ye_test_one_dataset
 
 data ={
     "Category:Airlines established in 1968": "تصنيف:شركات طيران أنشئت في 1968",
@@ -15,7 +16,7 @@ data ={
 }
 
 
-def test_culture_and_mythology():
+def test_places_and_structures():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab)
+    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
     assert org == diff
