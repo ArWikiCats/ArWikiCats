@@ -85,7 +85,7 @@ def convert_time_to_arabic(en_year: str) -> str:
         return f"القرن {num}{bc}"
 
     # --- Millennium ---
-    m = re.match(r"^(\d+)(st|nd|rd|th)(?:[- ])millennium( BC| BCE)?$", en_year, re.I)
+    m = re.match(r"^(\d+)(?:st|nd|rd|th)(?:[- ])millennium( BC| BCE)?$", en_year, re.I)
     if m:
         num = int(m.group(1))
         bc = " ق م" if m.group(3) else ""
