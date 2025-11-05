@@ -1,0 +1,38 @@
+#
+from src import new_func_lab
+
+data ={
+    "Category:Afghan criminal law": "تصنيف:القانون الجنائي الأفغاني",
+    "Category:American award winners": "تصنيف:أمريكيون حائزو جوائز",
+    "Category:Archaeology of Europe by period": "تصنيف:علم الآثار في أوروبا حسب الحقبة",
+    "Category:Award winners by nationality": "تصنيف:حائزو جوائز حسب الجنسية",
+    "Category:Government of Saint Barthélemy": "تصنيف:حكومة سان بارتيلمي",
+    "Category:Historical novels": "تصنيف:روايات تاريخية",
+    "Category:Historical poems": "تصنيف:قصائد تاريخية",
+    "Category:Historical short stories": "تصنيف:قصص قصيرة تاريخية",
+    "Category:History of the British Army": "تصنيف:تاريخ الجيش البريطاني",
+    "Category:History of the British National Party": "تصنيف:تاريخ الحزب الوطني البريطاني",
+    "Category:History of the Royal Air Force": "تصنيف:تاريخ القوات الجوية الملكية",
+    "Category:History of the Royal Navy": "تصنيف:تاريخ البحرية الملكية",
+    "Category:Military alliances involving Japan": "تصنيف:تحالفات عسكرية تشمل اليابان",
+    "Category:Military alliances involving Yemen": "تصنيف:تحالفات عسكرية تشمل اليمن",
+    "Category:Penal system in Afghanistan": "تصنيف:قانون العقوبات في أفغانستان",
+    "Category:Prehistory of Venezuela": "تصنيف:فنزويلا ما قبل التاريخ",
+    "Category:Treaties extended to Curaçao": "تصنيف:معاهدات امتدت إلى كوراساو"
+}
+
+
+def ye_test_one_dataset(dataset):
+    print(f"len of dataset: {len(dataset)}")
+    org = {}
+    diff = {}
+    data = {x: v for x, v in dataset.items() if v}
+    for cat, ar in data.items():
+        result = new_func_lab(cat)
+        if result == ar:
+            assert result == ar
+        else:
+            org[cat] = ar
+            diff[cat] = result
+
+    assert org == diff
