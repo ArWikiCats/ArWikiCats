@@ -335,6 +335,7 @@ fix_o = {
     "templates": "قوالب",
     "venues": "ملاعب",
     "stadiums": "استادات",
+    "managers": "مدربو",
     "trainers": "مدربو",
     "scouts": "كشافة",
     "coaches": "مدربو",
