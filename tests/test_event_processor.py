@@ -1,19 +1,9 @@
 from __future__ import annotations
 
-import sys
-from pathlib import Path
-
 import pytest
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-PROJECT_PARENT = REPO_ROOT.parent
-for candidate in (PROJECT_PARENT, REPO_ROOT):
-    candidate_str = str(candidate)
-    if candidate_str not in sys.path:
-        sys.path.append(candidate_str)
-
-import make2_new.src.main as main_module
-from make2_new.src.event_processing import get_shared_event_cache
+import src.main as main_module
+from src.event_processing import get_shared_event_cache
 
 
 @pytest.fixture(autouse=True)

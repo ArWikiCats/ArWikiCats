@@ -208,6 +208,15 @@ class EventProcessor:
         return f"{LABEL_PREFIX}:{raw_label}"
 
 
-def new_func_lab(category_r: str) -> str:
+def _get_processed_category(category_r: str) -> ProcessedCategory:
+    """Helper to process a single category with a default processor."""
     processor = EventProcessor(EventProcessorConfig(make_tab=False))
-    return processor.process_single(category_r).raw_label
+    return processor.process_single(category_r)
+
+
+def new_func_lab(category_r: str) -> str:
+    return _get_processed_category(category_r).raw_label
+
+
+def new_func_lab_final_label(category_r: str) -> str:
+    return _get_processed_category(category_r).final_label
