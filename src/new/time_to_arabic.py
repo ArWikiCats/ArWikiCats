@@ -59,7 +59,7 @@ def match_time_en(en_key):
 
 def convert_time_to_arabic(en_year: str) -> str:
     """Convert an English time expression into its Arabic equivalent."""
-    en_year = en_year.strip().replace("–", "-")
+    en_year = en_year.strip().replace("–", "-").replace("−", "-")
     month_map = {
         "january": "يناير", "february": "فبراير", "march": "مارس", "april": "أبريل",
         "may": "مايو", "june": "يونيو", "july": "يوليو", "august": "أغسطس",
