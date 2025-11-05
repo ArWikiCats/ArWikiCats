@@ -15,7 +15,7 @@
 * Removed old scripts and tools from the `others` directory and reorganized import tests.
 * Updated tests and documentation to align with the new module structure.
 
-## 3 - 2025-11-03
+## #3 - 2025-11-03
 
 ### Added
 *   New module `src/make2_bots/reg_lines.py` for centralized regular expression definitions.
@@ -25,3 +25,24 @@
 *   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
 *   Simplified the event labeling flow in `src/make2_bots/ma_bots/dodo_bots/event2bot_dodo.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
 
+
+## #4 [Enhance event label processing and test suite reorganization] - 2025-11-05
+
+This update focuses on improving label processing accuracy and reorganizing the test architecture for better maintainability.
+
+### Added
+- Added `new_func_lab_final_label` function in `src/event_processing.py` and exported it from `src/__init__.py`.
+- Introduced new structured test suites covering fixlab, move_years, and event list datasets.
+
+### Changed
+- Updated `pytest.ini` for broader test discovery.
+- Refactored imports to use `src.` namespace.
+- Improved data consistency and label comparison logic.
+
+### Fixed
+- Corrected module import paths in tests and unified result assertions.
+
+### Removed
+- Deprecated manual test scripts and legacy helper files replaced by unified pytest structure.
+
+---
