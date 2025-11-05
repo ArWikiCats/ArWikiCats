@@ -67,7 +67,7 @@ def convert_time_to_arabic(en_year: str) -> str:
     }
 
     # --- Month + Year ---
-    m = re.match(r"^(January|February|March|April|May|June|July|August|September|October|November|December)\s*(\d{4})", en_year, re.I)
+    m = re.match(r"^(%s)\s*(\d{4})" % "|".join(month_map.keys()), en_year, re.I)
     if m:
         month = month_map[m.group(1).lower()]
         return f"{month} {m.group(2)}"
