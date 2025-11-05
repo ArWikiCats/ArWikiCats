@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 """
+This module provides functions to identify and convert English time-related
+expressions (such as years, decades, centuries, and millennia) into their
+Arabic equivalents.
 
-from convert_to_arabic import match_time_ar, match_time_en
-from convert_to_arabic import convert_time_to_arabic
-
+It includes regular expressions for matching time expressions in both English
+and Arabic, and a conversion function to translate English expressions.
 """
 import re
 
