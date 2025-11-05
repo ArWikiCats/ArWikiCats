@@ -5,7 +5,7 @@
 from src.fix.mv_years import move_years
 
 
-def load_test_move_years(data):
+def load_test_move_years_old(data):
     # ---
     expected_list = []
     diff_list = []
@@ -29,12 +29,32 @@ def load_test_move_years(data):
     assert diff_list == expected_list
 
 
+def load_test_move_years(data):
+    # ---
+    diff_list = []
+    # ---
+    same = 0
+    for title, expected in data.items():
+        result = move_years(title)
+        # ---
+        if result != expected:
+            # ---
+            diff_list.append({"input": title, "actual": result, "expected": expected})
+        else:
+            assert result == expected
+            same += 1
+    len_diff_list = len(diff_list)
+    print(f"<<green>> diff_list: {len_diff_list}, same:{same}.")
+
+    assert len_diff_list == 0, f"Found {len_diff_list} transformation mismatches: {'\n'.join(str(x) for x in diff_list)}"
+
+
 def test_fixlab_group_1():
     data = {
-        "2020 في الرياضة في آيوا": "الرياضة في آيوا في 2020",
-        "2020 في الرياضة في أريزونا": "الرياضة في أريزونا في 2020",
+        "2010 في الرياضة في آيوا": "الرياضة في آيوا في 2010",
+        "2010 في الرياضة في أريزونا": "الرياضة في أريزونا في 2010",
         "2020 في الرياضة في ألاباما": "الرياضة في ألاباما في 2020",
-        "2020 في الرياضة في أوريغن": "الرياضة في أوريغن في 2020",
+        "عقد 2010 في الرياضة في أوريغن": "الرياضة في أوريغن في عقد 2010",
         "2020 في الرياضة في أوريغون": "الرياضة في أوريغون في 2020",
         "2020 في الرياضة في أوكلاهوما": "الرياضة في أوكلاهوما في 2020",
         "2020 في الرياضة في أوهايو": "الرياضة في أوهايو في 2020",
