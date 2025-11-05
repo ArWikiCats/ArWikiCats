@@ -1,3 +1,4 @@
 tqdm
 humanize
 psutil
+requests
