@@ -1,10 +1,14 @@
-"""
-تصنيف:1974–75 في دوريات كرة قدم لبنانية
-Category:1974–75 in Lebanese football leagues
-"""
+# -*- coding: utf-8 -*-
+"""Pytest tests for move_years() behavior across predefined text lists."""
 
+import pytest
+import json
+from pathlib import Path
 from src.fix.mv_years import move_years
 
+Dir = Path(__file__).parent
+
+# --- Lists definitions ---
 text_list1 = [
     "عقد 2020 في مجتمع في مدريد",
     "عقد 2020 في الرياضة في يوتا",
@@ -218,31 +222,36 @@ text_list3 = [
     "تصنيف:فلاسفة فرنسيون في القرن 20",
 ]
 
-lista = {
-    1: text_list1,
-    2: text_list2,
-    3: text_list3,
-}
+# --- Parametrize tests: each list = one test case ---
 
-for n, to_work in lista.items():
+
+@pytest.mark.parametrize("group_id,texts", [(1, text_list1), (2, text_list2), (3, text_list3)])
+def test_move_years_per_list(group_id, texts):
+    """Run move_years() for each group of texts and compare transformations."""
+    changed = {}
     same = []
-
-    for text in to_work:
-
+    data = {}
+    for text in texts:
         if not text:
             continue
+        clean = text.replace("تصنيف:", "").replace("_", " ")
+        new = move_years(clean)
+        data[clean] = new
 
-        text = text.replace("تصنيف:", "")
-        text = text.replace("_", " ")
-
-        new = move_years(text)
-
-        if new != text:
-            print(f'old: "{text}"')
-            print(f'<<green>>new: "{new}"')
-            print("----------")
+        if new != clean:
+            changed[clean] = new
         else:
-            same.append(text)
+            same.append(clean)
 
-    for text in same:
-        print(f'same: "{text}"')
+    # Log summary in pytest output
+    print(f"\nGroup {group_id}: {len(changed)} changed, {len(same)} unchanged.")
+    for old, new in changed.items():
+        print(f'old: "{old}"\nnew: "{new}"\n----------')
+
+    out_file = Dir / f"mv_{group_id}.json"
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+    # Basic assertion: must produce valid strings
+    assert all(isinstance(v, str) for v in changed.values())
+    assert all(isinstance(s, str) for s in same)
