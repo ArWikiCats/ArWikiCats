@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 """Pytest tests for move_years() behavior across predefined text lists."""
 
-from src.fix.mv_years import move_years
 import pytest
+import json
+from pathlib import Path
+from src.fix.mv_years import move_years
+
+Dir = Path(__file__).parent
 
 # --- Lists definitions ---
 text_list1 = [
@@ -242,6 +246,10 @@ def test_move_years_per_list(group_id, texts):
     print(f"\nGroup {group_id}: {len(changed)} changed, {len(same)} unchanged.")
     for old, new in changed.items():
         print(f'old: "{old}"\nnew: "{new}"\n----------')
+
+    out_file = Dir / f"mv_{group_id}.json"
+    with open(out_file, "w", encoding="utf-8") as f:
+        json.dump(changed, f, ensure_ascii=False, indent=4)
 
     # Basic assertion: must produce valid strings
     assert all(isinstance(v, str) for v in changed.values())
