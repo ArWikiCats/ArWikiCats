@@ -20,7 +20,7 @@ def move_3(text_str: str) -> str:
     # ---
     new_text = text_str
     # ---
-    if result := re.search(rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX})$", text_str):
+    if result := re.search(r"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>" + YEARS_REGEX + r')$', text_str):
         # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
         # ---
         first_part = result.group("first_part")
@@ -58,7 +58,7 @@ def move_by_in(text_str: str) -> str:
     # ---
     new_text = text_str
     # ---
-    if result := re.search(rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX})$", text_str):
+    if result := re.search(r"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>" + YEARS_REGEX + r')$', text_str):
         # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
         # ---
         first_part = result.group("first_part")
@@ -92,7 +92,7 @@ def move_years_first(text_str: str) -> str:
     # ---
     new = text_str
     # ---
-    pattern = rf"^(?P<first_part>{YEARS_REGEX})\sفي\s(?P<second_part>[^0-9]*)$"
+    pattern = rf"^(?P<first_part>{YEARS_REGEX})\sفي\s(?P<second_part>.*)$"
     if match := re.match(pattern, text_str):
         # ---
         first_part = match.group("first_part").strip()
@@ -107,10 +107,6 @@ def move_years_first(text_str: str) -> str:
         ]
         # ---
         if second_part in skip_it:
-            return text_str
-        # ---- "^.*?_في_.*?_في_.*?$"
-        if " في x" in second_part:
-            output_test('second_part.find(" في ") != -1:')
             return text_str
         # ---
         # إعادة ترتيب الجملة
@@ -137,7 +133,7 @@ def move_years(text_str: str) -> str:
     cat_ns = False
     # ---
     if text_str.startswith("تصنيف:"):
-        cat_ns = True
+        cat_t = True
         text_str = text_str.replace("تصنيف:", "")
     # ---
     new_text = move_years_first(text_str)
