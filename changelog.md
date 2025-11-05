@@ -25,24 +25,27 @@
 *   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
 *   Simplified the event labeling flow in `src/make2_bots/ma_bots/dodo_bots/event2bot_dodo.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
 
+## #5 [Enhance event label processing and test suite reorganization] - 2025-11-05
 
-## #4 [Enhance event label processing and test suite reorganization] - 2025-11-05
-
-This update focuses on improving label processing accuracy and reorganizing the test architecture for better maintainability.
+This update improves label processing accuracy and restructures the test architecture for better maintainability.
 
 ### Added
-- Added `new_func_lab_final_label` function in `src/event_processing.py` and exported it from `src/__init__.py`.
-- Introduced new structured test suites covering fixlab, move_years, and event list datasets.
+
+* Introduced new event label processing functionality with enhanced category handling.
+* Expanded structured test suites covering various event domains such as culture, entertainment, geography, institutions, people, places, politics, science, sports, and temporal data.
 
 ### Changed
-- Updated `pytest.ini` for broader test discovery.
-- Refactored imports to use `src.` namespace.
-- Improved data consistency and label comparison logic.
+
+* Refactored imports and package-level exports for consistency.
+* Updated pytest configuration for broader and more efficient test discovery.
+* Improved data consistency and label comparison logic.
 
 ### Fixed
-- Corrected module import paths in tests and unified result assertions.
+
+* Corrected import paths and unified test result assertions.
 
 ### Removed
-- Deprecated manual test scripts and legacy helper files replaced by unified pytest structure.
+
+* Cleaned up deprecated test scripts and legacy helpers replaced by the unified pytest structure.
 
 ---
