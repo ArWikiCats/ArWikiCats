@@ -100,4 +100,4 @@ data ={
 def test_temporal():
     print(f"len of data: {len(data)}")
     org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
-    assert org == diff
+    assert diff == org
