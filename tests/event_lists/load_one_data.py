@@ -1,6 +1,6 @@
 
 def ye_test_one_dataset(dataset, callback):
-    print(f"len of dataset: {len(dataset)}")
+    print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
     diff = {}
     data = {x: v for x, v in dataset.items() if v}
@@ -12,4 +12,4 @@ def ye_test_one_dataset(dataset, callback):
             org[cat] = ar
             diff[cat] = result
 
-    assert org == diff
+    return org, diff

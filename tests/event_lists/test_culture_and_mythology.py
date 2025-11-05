@@ -14,4 +14,5 @@ data = {
 
 def test_culture_and_mythology():
     print(f"len of data: {len(data)}")
-    ye_test_one_dataset(data, new_func_lab)
+    org, diff = ye_test_one_dataset(data, new_func_lab)
+    assert org == diff

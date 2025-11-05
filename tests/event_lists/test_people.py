@@ -53,17 +53,7 @@ data = {
 }
 
 
-def ye_test_one_dataset(dataset):
-    print(f"len of dataset: {len(dataset)}")
-    org = {}
-    diff = {}
-    data = {x: v for x, v in dataset.items() if v}
-    for cat, ar in data.items():
-        result = new_func_lab(cat)
-        if result == ar:
-            assert result == ar
-        else:
-            org[cat] = ar
-            diff[cat] = result
-
+def test_culture_and_mythology():
+    print(f"len of data: {len(data)}")
+    org, diff = ye_test_one_dataset(data, new_func_lab)
     assert org == diff
