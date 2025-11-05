@@ -24,6 +24,7 @@ def load_test_fixlab_data(data):
             # ---
             expected_list.append({"en": title, "ar": expected})
         else:
+            assert result == expected
             same += 1
 
     print(f"<<green>> diff_list: {len(diff_list)}, same:{same}.")

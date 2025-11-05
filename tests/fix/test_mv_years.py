@@ -21,6 +21,7 @@ def load_test_move_years(data):
             # ---
             expected_list.append({"en": clean, "ar": expected})
         else:
+            assert result == expected
             same += 1
 
     print(f"<<green>> diff_list: {len(diff_list)}, same:{same}.")
