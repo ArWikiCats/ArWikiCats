@@ -234,6 +234,7 @@ sport_formts_en_ar_is_p17["governorate"] = "حكومة {nat}"
 sport_formts_en_ar_is_p17["sports templates"] = "قوالب {} الرياضية"
 sport_formts_en_ar_is_p17["national team"] = "منتخبات {} الوطنية"
 sport_formts_en_ar_is_p17["national teams"] = "منتخبات {} الوطنية"
+sport_formts_en_ar_is_p17["national football team managers"] = "مدربو منتخب {} لكرة القدم"
 # ---
 # فرق دول وطنية
 # Sports_Keys_For_Team = {}
