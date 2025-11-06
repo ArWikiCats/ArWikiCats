@@ -16,8 +16,8 @@ data = {
 
 def test_yemen():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
-    assert diff == org
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+    assert diff_result == expected
 
 
 @pytest.mark.skip("Need to be fixed")
@@ -33,5 +33,5 @@ def test_yemen2():
     }
 
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
-    assert diff == org
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+    assert diff_result == expected

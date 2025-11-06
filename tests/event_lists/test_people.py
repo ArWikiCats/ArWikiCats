@@ -42,10 +42,10 @@ data = {
 
 def test_people():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_people")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_people")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 def test_people_2():
@@ -63,10 +63,10 @@ def test_people_2():
         "Category:Polish women in business": "تصنيف:بولنديات في الأعمال",
     }
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_people")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_people")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 def test_people_from():
@@ -103,7 +103,7 @@ def test_people_from():
         "Category:Track and field athletes from Massachusetts": "تصنيف:رياضيو المسار والميدان من ماساتشوستس",
     }
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_people")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_people")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

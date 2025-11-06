@@ -8,6 +8,7 @@ def dump_diff(data, file_name):
     diff_data_path = Path(__file__).parent / "diff_data"
     diff_data_path.mkdir(exist_ok=True, parents=True)
     file_path = diff_data_path / f"{file_name}.json"
+
     if data or file_path.exists():
         try:
             with open(file_path, "w", encoding="utf-8") as f:
