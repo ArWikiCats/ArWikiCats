@@ -28,7 +28,7 @@ def get_shared_event_cache() -> Dict[str, str]:
 class EventProcessorConfig:
     """Configuration bundle for :class:`EventProcessor`."""
 
-    start_yementest: bool = "yementest" in sys.argv
+    use_yemen_test: bool = "yementest" in sys.argv
     use_main_s: bool = "usemains" in sys.argv or "use_main_s" in sys.argv
     find_from_wikidata: bool = "nowikidata" not in sys.argv
     make_tab: bool = False
@@ -106,7 +106,7 @@ class EventProcessor:
 
     def __init__(self, config: Optional[EventProcessorConfig] = None):
         self.config = config or EventProcessorConfig()
-        self._event_done = self.config.resolved_event_cache()
+        self._event_cache = self.config.resolved_event_cache()
 
     def process(self, categories: Iterable[str]) -> EventProcessingResult:
         result = EventProcessingResult()
@@ -159,15 +159,15 @@ class EventProcessor:
         return re.sub(r"_", " ", category)
 
     def _resolve_label(self, category: str) -> str:
-        if category in self._event_done:
-            cached = self._event_done[category]
-            output_test(f'>>>> category_r: "{category}" in event_done, lab:"{cached}"')
+        if category in self._event_cache:
+            cached = self._event_cache[category]
+            output_test(f'>>>> category: "{category}" in _event_cache, lab:"{cached}"')
             return cached
 
         category_lab = ""
-        cat_year, from_year = labs_years.lab_from_year(category)
-        if from_year:
-            category_lab = from_year
+        category_year, label_from_year = labs_years.lab_from_year(category)
+        if label_from_year:
+            category_lab = label_from_year
 
         if not category_lab and filter_en.filter_cat(category):
             changed_cat = change_cat(category)
@@ -176,7 +176,7 @@ class EventProcessor:
             if not category_lab and category_lower in cash_2022:
                 category_lab = cash_2022[category_lower]
 
-            if not category_lab and self.config.start_yementest:
+            if not category_lab and self.config.use_yemen_test:
                 category_lab = ye_ts_bot.translate_general_category(changed_cat)
 
             if not category_lab:
@@ -188,10 +188,10 @@ class EventProcessor:
         if category_lab:
             category_lab = fixtitle.fixlab(category_lab, en=category)
 
-        if not from_year and cat_year:
-            labs_years.lab_from_year_add(category, category_lab, cat_year)
+        if not label_from_year and category_year:
+            labs_years.lab_from_year_add(category, category_lab, category_year)
 
-        self._event_done[category] = category_lab
+        self._event_cache[category] = category_lab
         return category_lab
 
     @staticmethod
@@ -208,15 +208,15 @@ class EventProcessor:
         return f"{LABEL_PREFIX}:{raw_label}"
 
 
-def _get_processed_category(category_r: str) -> ProcessedCategory:
+def _get_processed_category(category: str) -> ProcessedCategory:
     """Helper to process a single category with a default processor."""
     processor = EventProcessor(EventProcessorConfig(make_tab=False))
-    return processor.process_single(category_r)
+    return processor.process_single(category)
 
 
-def new_func_lab(category_r: str) -> str:
-    return _get_processed_category(category_r).raw_label
+def new_func_lab(category: str) -> str:
+    return _get_processed_category(category).raw_label
 
 
-def new_func_lab_final_label(category_r: str) -> str:
-    return _get_processed_category(category_r).final_label
+def new_func_lab_final_label(category: str) -> str:
+    return _get_processed_category(category).final_label

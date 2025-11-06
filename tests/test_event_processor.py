@@ -15,10 +15,10 @@ def clear_event_cache():
 
 
 def test_event_with_maketab(monkeypatch, tmp_path):
-    monkeypatch.setattr(main_module, "Dir_ma", tmp_path)
+    monkeypatch.setattr(main_module, "PROJECT_ROOT", tmp_path)
 
     categories = ["Category:Japan Golf Tour golfers"]
-    result = main_module.event(categories, maketab=True)
+    result = main_module.event(categories, make_tab=True)
 
     key = "Category:Japan Golf Tour golfers"
     assert key in result
@@ -29,7 +29,7 @@ def test_event_with_maketab(monkeypatch, tmp_path):
 
 
 def test_event_with_return_no_labs(monkeypatch, tmp_path):
-    monkeypatch.setattr(main_module, "Dir_ma", tmp_path)
+    monkeypatch.setattr(main_module, "PROJECT_ROOT", tmp_path)
 
     category = "Category:Totally Nonexistent Category"
     labels, missing = main_module.event([category], return_no_labs=True)
@@ -39,7 +39,7 @@ def test_event_with_return_no_labs(monkeypatch, tmp_path):
 
 
 def test_event_with_printfirst_logs(monkeypatch, tmp_path):
-    monkeypatch.setattr(main_module, "Dir_ma", tmp_path)
+    monkeypatch.setattr(main_module, "PROJECT_ROOT", tmp_path)
 
     categories = ["Category:Japan Golf Tour golfers"]
     main_module.event(categories, printfirst=True)

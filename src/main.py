@@ -16,7 +16,7 @@ from . import printe
 from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
 from .helps.print_bot import do_print_options, print_put
 
-Dir_ma = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent
 
 
 def _iterable_with_progress(categories: Iterable[str]) -> Iterable[str]:
@@ -26,7 +26,7 @@ def _iterable_with_progress(categories: Iterable[str]) -> Iterable[str]:
 
 
 def _append_printfirst_entry(category: str) -> None:
-    err_file = Dir_ma / "textfiles" / "make2-err.txt"
+    err_file = PROJECT_ROOT / "textfiles" / "make2-err.txt"
     err_file.parent.mkdir(parents=True, exist_ok=True)
     with err_file.open("a", encoding="utf-8") as handle:
         handle.write(f"{category}\n")
@@ -51,10 +51,10 @@ def _remove_labelled_from_no_labels(labels: dict, no_labels: List[str]) -> List[
 
 
 def event(
-    NewList,
+    categories,
     noprint="",
-    maketab="",
-    Use_main_s="",
+    make_tab="",
+    use_main_s="",
     printfirst: bool = False,
     Local: bool = False,
     printhead: bool = False,
@@ -65,13 +65,13 @@ def event(
     """Process a list of categories and generate corresponding labels."""
 
     config = EventProcessorConfig(
-        make_tab=maketab is True,
+        make_tab=make_tab is True,
         event_cache=get_shared_event_cache(),
     )
     if Local:
         config.find_from_wikidata = False
 
-    if Use_main_s:
+    if use_main_s:
         config.use_main_s = True
 
     do_print_options(
@@ -82,18 +82,18 @@ def event(
         tst_prnt_all=tst_prnt_all,
     )
 
-    if Use_main_s:
-        printe.output("<<lightblue>>  Use_main_s ")
+    if use_main_s:
+        printe.output("<<lightblue>>  use_main_s ")
 
     preview = ""
     try:
-        if len(NewList) < 10:
-            preview = ",".join(NewList)
+        if len(categories) < 10:
+            preview = ",".join(categories)
     except TypeError:
         pass
 
     try:
-        total = len(NewList)
+        total = len(categories)
     except TypeError:
         total = 0
 
@@ -101,7 +101,7 @@ def event(
     print_put(f"<<lightblue>> event work with >  {total} cats. {preview} ")
 
     processor = EventProcessor(config)
-    result = processor.process(_iterable_with_progress(NewList))
+    result = processor.process(_iterable_with_progress(categories))
 
     if total == 0:
         total = len(result.processed)
