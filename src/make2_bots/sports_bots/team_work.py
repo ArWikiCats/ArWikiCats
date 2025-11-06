@@ -96,80 +96,81 @@ Teams_new_end_keys = {
     # ---
 }
 # ---
-Get_Club_Cash = {}
+GET_CLUB_CACHE = {}
 
 
-def Get_Club(cate, out=False, return_tab=False):
+def Get_Club(category, out=False, return_tab=False):
     # ---
     added = {}
     # ---
-    cate = cate.lower()
+    category = category.lower()
     # ---
-    if cate in Get_Club_Cash:
-        return Get_Club_Cash[cate]
+    if category in GET_CLUB_CACHE:
+        return GET_CLUB_CACHE[category]
     # ---
-    # logger.debug(')))))))))))))))))))))))))))')
-    # logger.debug('Get_Club cate:"%s"' % cate)
-    catelab = ""
+    category_label = ""
     # ---
     tab = {"lab": "", "add": {}}
     # ---
-    for tat, tat_laab in Teams_new_end_keys.items():
-        end1 = f" {tat}"
-        end2 = f" team {tat}"
-        club_uu = ""
+    for suffix, suffix_template in Teams_new_end_keys.items():
+        end1 = f" {suffix}"
+        end2 = f" team {suffix}"
+        club_key = ""
         # ---
-        if cate.endswith(end2) and catelab == "":
-            club_uu = cate[: -len(end2)]
+        if category.endswith(end2) and category_label == "":
+            club_key = category[: -len(end2)]
         # ---
-        elif cate.endswith(end1) and catelab == "":
-            club_uu = cate[: -len(end1)]
+        elif category.endswith(end1) and category_label == "":
+            club_key = category[: -len(end1)]
         # ---
-        if club_uu:
-            logger.debug(f'club_uu:"{club_uu}", tat:"{tat}" ')
+        if club_key:
+            logger.debug(f'club_uu:"{club_key}", tat:"{suffix}" ')
             # if not c_t_lab:
             # ---
-            club_lab = Clubs_key_2.get(club_uu) or pop_of_football_lower.get(club_uu) or Inter_Feds_lower.get(club_uu) or ""
+            club_lab = (
+                Clubs_key_2.get(club_key)
+                or pop_of_football_lower.get(club_key)
+                or Inter_Feds_lower.get(club_key)
+                or ""
+            )
             # ---
             if not club_lab:
                 # sd = ddfer
-                club_lab = test_4.test4_2018_with_nat(club_uu)
+                club_lab = test_4.test4_2018_with_nat(club_key)
             # ---
             if not club_lab:
-                club_lab = kooora.kooora_team(club_uu)
+                club_lab = kooora.kooora_team(club_key)
                 # ---
                 if club_lab:
                     c_test = re.sub(r"[abcdefghijklmnopqrstuvwxyz]", "", club_lab, flags=re.IGNORECASE)
                     if c_test == club_lab:
-                        tab["add"][club_uu.lower()] = club_lab
-                        added[club_uu.lower()] = club_lab
+                        tab["add"][club_key.lower()] = club_lab
+                        added[club_key.lower()] = club_lab
             # ---
             if club_lab:
-                catelab = tat_laab.format(club_lab)
+                category_label = suffix_template.format(club_lab)
                 break
     # ---
-    if catelab:
-        logger.debug(f'Get_Club cate:"{cate}", catelab:"{catelab}"')
+    if category_label:
+        logger.debug(f'Get_Club cate:"{category}", catelab:"{category_label}"')
     # ---
-    Get_Club_Cash[cate] = catelab
+    GET_CLUB_CACHE[category] = category_label
     # ---
-    # logger.debug(')))))))))))))))))))))))))))')
-    # ---
-    tab["lab"] = catelab
+    tab["lab"] = category_label
     # ---
     Add_to_pop_All_18(added)
     # ---
-    return tab if return_tab else catelab
+    return tab if return_tab else category_label
 
 
-def Get_team_work_Club(s):
-    lab = ""
+def Get_team_work_Club(category):
+    label = ""
 
-    slab = Get_Club(s, return_tab=True)
+    slab = Get_Club(category, return_tab=True)
 
     if isinstance(slab, str):
         return slab
 
-    lab = slab.get("lab", "")
+    label = slab.get("lab", "")
 
-    return lab
+    return label

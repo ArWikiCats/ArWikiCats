@@ -101,13 +101,18 @@ def contry_2_tit(tat_o: str, contry: str, With_Years: bool = True) -> str:
     fAAA = '>>>> XX--== <<lightgreen>> Ccon_1:"%s", lab"%s", cona_2:"%s", lab"%s", cnt_test: "%s"'
 
     contry2 = contry.lower().strip()
-    cnt_test = contry2
+    remaining_text = contry2
 
     if c_2_l == "" or c_1_l == "":
-        print_put(fAAA % (cona_1, c_1_l, cona_2, c_2_l, cnt_test))
+        print_put(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
         return ""
 
-    cnt_test = cnt_test.replace(cona_1, "").replace(cona_2, "").replace(tat_o.strip(), "").strip()
+    remaining_text = (
+        remaining_text.replace(cona_1, "")
+        .replace(cona_2, "")
+        .replace(tat_o.strip(), "")
+        .strip()
+    )
 
     if (tat_o.strip() == "in" or cona_1.endswith(" in")) and (not cona_1.endswith(" في")):
         output_test(f'>>>> Add في to c_1_l : "{c_1_l}"')
@@ -117,13 +122,13 @@ def contry_2_tit(tat_o: str, contry: str, With_Years: bool = True) -> str:
         output_test(f'>>>> Add من to c_2_l : "{c_2_l}"')
         c_2_l = f"من {c_2_l}"
 
-    print_put(fAAA % (cona_1, c_1_l, cona_2, c_2_l, cnt_test))
+    print_put(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
 
     sps = make_sps(tat_o, c_1_l, cona_1)
 
-    if cnt_test:
-        print_put(f'>>>> cnt_test:"{cnt_test}" != "" ')
+    if remaining_text:
+        print_put(f'>>>> cnt_test:"{remaining_text}" != "" ')
 
-    cnt_labe = make_cnt_lab(tat_o, contry2, c_2_l, c_1_l, cona_1, cona_2, sps)
+    resolved_label = make_cnt_lab(tat_o, contry2, c_2_l, c_1_l, cona_1, cona_2, sps)
 
-    return cnt_labe
+    return resolved_label

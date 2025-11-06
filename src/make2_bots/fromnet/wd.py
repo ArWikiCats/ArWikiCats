@@ -9,15 +9,15 @@ import sys
 from ... import printe
 from .open_url import open_url_json
 
-pprint = {1: False}
+PRINT_PREFERENCES = {1: False}
 
 
-def Priiint(text):
-    if pprint[1]:
+def debug_print(text):
+    if PRINT_PREFERENCES[1]:
         printe.output(text)
 
 
-Cashens = {}
+WIKIDATA_CACHE = {}
 # ---
 api_url = "https://www.wikidata.org/w/api.php"
 # ---
@@ -30,8 +30,8 @@ def find_name_from_wikidata(text, lang, Local=False):
     if "nowikidata" in sys.argv or "local" in sys.argv or Local:
         return {}
     # ---
-    if text in Cashens:
-        return {text: Cashens[text]}
+    if text in WIKIDATA_CACHE:
+        return {text: WIKIDATA_CACHE[text]}
     # ---
     params = {
         "action": "wbsearchentities",
@@ -60,7 +60,7 @@ def find_name_from_wikidata(text, lang, Local=False):
     if La:
         printe.output(La)
     # ---
-    Cashens[text] = La
+    WIKIDATA_CACHE[text] = La
     # ---
     La2 = {}
     # ---

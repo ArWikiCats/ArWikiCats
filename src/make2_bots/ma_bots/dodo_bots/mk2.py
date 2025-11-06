@@ -2,7 +2,7 @@
 """
 Usage:
 from .mk2 import new_func_mk2
-# cat_test, arlabel = new_func_mk2(category, cat_test, year, typeo, In, contry, arlabel, year_labe, suf, Add_In, cnt_la, Add_In_Done)
+# cat_test, arlabel = new_func_mk2(category, cat_test, year, typeo, In, contry, arlabel, year_labe, suf, Add_In, country_label, Add_In_Done)
 
 """
 
@@ -21,7 +21,20 @@ from ...matables_bots.bot import (
 from ....helps.print_bot import print_put, output_test
 
 
-def new_func_mk2(category, cat_test, year, typeo, In, contry, arlabel, year_labe, suf, Add_In, cnt_la, Add_In_Done):
+def new_func_mk2(
+    category,
+    cat_test,
+    year,
+    typeo,
+    In,
+    contry,
+    arlabel,
+    year_labe,
+    suf,
+    Add_In,
+    country_label,
+    Add_In_Done,
+):
     """Process and modify category-related labels based on various conditions.
 
     This function takes multiple parameters related to categories and
@@ -43,17 +56,17 @@ def new_func_mk2(category, cat_test, year, typeo, In, contry, arlabel, year_labe
         year_labe (str): The label for the year.
         suf (str): A suffix to be added to the label.
         Add_In (bool): A flag indicating whether to add a specific input.
-        cnt_la (str): A counter or label associated with the country.
+        country_label (str): A resolved label associated with the country.
         Add_In_Done (bool): A flag indicating whether the addition has been completed.
 
     Returns:
         tuple: A tuple containing the modified `cat_test` and `arlabel`.
     """
 
-    Add_to_main2_tab(contry, cnt_la)
+    Add_to_main2_tab(contry, country_label)
     cat_test = cat_test.replace(contry, "")
     arlabel = re.sub(r" ", " ", arlabel)
-    con_lab = cnt_la
+    con_lab = country_label
     Contry_In_Table = False
     for table in Table_for_frist_word.keys():
         if contry in Table_for_frist_word[table]:
@@ -128,7 +141,7 @@ def new_func_mk2(category, cat_test, year, typeo, In, contry, arlabel, year_labe
         print_put("a<<lightblue>>>3265>>>arlabel = con_lab + suf +  arlabel2")
         print_put(f"a<<lightblue>>>3265>>>{arlabel}")
 
-    print_put(f'a<<lightblue>>>>>> p:{cnt_la}, year_labe: {year_labe}:, cat:"{category}"')
+    print_put(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
     print_put(f'a<<lightblue>>>>>> arlabel  "{arlabel}"')
 
     return cat_test, arlabel

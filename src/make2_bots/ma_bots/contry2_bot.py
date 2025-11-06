@@ -41,13 +41,15 @@ def Get_contry2(contry: str, orginal: str = "", With_Years: bool = True) -> str:
     contry2 = contry.lower().strip()
     print_def_head(f'>> Get_contry2 "{contry2}":')
 
-    cnt_la = ""
+    resolved_label = ""
 
-    if not cnt_la:
-        cnt_la = contry2_lab.get_lab_for_contry2(contry, with_test_ye=False)
+    if not resolved_label:
+        resolved_label = contry2_lab.get_lab_for_contry2(contry, with_test_ye=False)
 
-    if not cnt_la:
-        cnt_la = ye_ts_bot.translate_general_category(contry2, do_Get_contry2=False)
+    if not resolved_label:
+        resolved_label = ye_ts_bot.translate_general_category(
+            contry2, do_Get_contry2=False
+        )
     ti_toseslist = [
         " based in ",
         " in ",
@@ -60,26 +62,26 @@ def Get_contry2(contry: str, orginal: str = "", With_Years: bool = True) -> str:
         " at ",
         " on ",
     ]
-    for tat_o in ti_toseslist:
-        if tat_o not in contry2:
+    for separator in ti_toseslist:
+        if separator not in contry2:
             continue
 
-        cnt_la = contry_2_tit(tat_o, contry, With_Years=With_Years)
+        resolved_label = contry_2_tit(separator, contry, With_Years=With_Years)
 
         break
 
-    if not cnt_la:
+    if not resolved_label:
         if contry2 in use_main_s_done:
             if use_main_s[1]:
                 use_main_s_done.append(contry2)
-                cnt_la = find_wikidata(contry2)
+                resolved_label = find_wikidata(contry2)
 
         elif pop_All_2018.get(contry2.lower(), "") != "":
-            cnt_la = pop_All_2018.get(contry2.lower(), "")
-    if cnt_la:
-        Get_contry2_done[contry] = cnt_la
-        print_put(f'>> Get_ scontry2 "{contry2}": cnt_la: {cnt_la}')
-        return cnt_la
+            resolved_label = pop_All_2018.get(contry2.lower(), "")
+    if resolved_label:
+        Get_contry2_done[contry] = resolved_label
+        print_put(f'>> Get_ scontry2 "{contry2}": cnt_la: {resolved_label}')
+        return resolved_label
 
-    Get_contry2_done[contry] = cnt_la
-    return cnt_la
+    Get_contry2_done[contry] = resolved_label
+    return resolved_label

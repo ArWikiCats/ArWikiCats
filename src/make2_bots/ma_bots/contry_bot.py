@@ -52,50 +52,50 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
 
     output_test(">> ----------------- Get_contry start ----------------- ")
     print_put(f'>>>> Get contry for "{contry}"')
-    cnt_la = contry if contry.strip().isdigit() else ""
-    if not cnt_la:
-        cnt_la = New_female_keys.get(contry, "")
-    if not cnt_la:
-        cnt_la = test_films(contry_no_lower)
-    if not cnt_la:
-        cnt_la = nats.find_nat_others(contry_no_lower)
-    if not cnt_la:
-        cnt_la = team_work.Get_team_work_Club(contry_no_lower)
+    resolved_label = contry if contry.strip().isdigit() else ""
+    if not resolved_label:
+        resolved_label = New_female_keys.get(contry, "")
+    if not resolved_label:
+        resolved_label = test_films(contry_no_lower)
+    if not resolved_label:
+        resolved_label = nats.find_nat_others(contry_no_lower)
+    if not resolved_label:
+        resolved_label = team_work.Get_team_work_Club(contry_no_lower)
 
-    if cnt_la == "" and do_Get_contry2:
-        cnt_la = contry2_bot.Get_contry2(contry)
+    if resolved_label == "" and do_Get_contry2:
+        resolved_label = contry2_bot.Get_contry2(contry)
 
-    if not cnt_la:
-        Preffix = {
+    if not resolved_label:
+        prefix_labels = {
             "women's ": "نسائية",
             "men's ": "رجالية",
             "fasa ": "فاسااا",
             "non-combat ": "غير قتالية",
         }
 
-        for prif, prif_lab in Preffix.items():
-            if not contry.startswith(prif):
+        for prefix, prefix_label in prefix_labels.items():
+            if not contry.startswith(prefix):
                 continue
-            print(f">>> contry.startswith({prif})")
-            con_3 = contry[len(prif) :]
-            Add_to_main2_tab(prif, prif_lab)
-            con_3_lab = contry2_bot.Get_contry2(con_3)
+            print(f">>> contry.startswith({prefix})")
+            remainder = contry[len(prefix) :]
+            Add_to_main2_tab(prefix, prefix_label)
+            remainder_label = contry2_bot.Get_contry2(remainder)
 
-            if con_3_lab == "":
-                con_3_lab = contry2_lab.get_lab_for_contry2(con_3)
+            if remainder_label == "":
+                remainder_label = contry2_lab.get_lab_for_contry2(remainder)
 
-            if con_3_lab == "":
-                con_3_lab = ye_ts_bot.translate_general_category(con_3)
+            if remainder_label == "":
+                remainder_label = ye_ts_bot.translate_general_category(remainder)
 
-            if con_3_lab:
-                Add_to_main2_tab(con_3, con_3_lab)
-                cnt_la = f"{con_3_lab} {prif_lab}"
-                print_put(f'>>>>>> xxx new cnt_la  "{cnt_la}" ')
+            if remainder_label:
+                Add_to_main2_tab(remainder, remainder_label)
+                resolved_label = f"{remainder_label} {prefix_label}"
+                print_put(f'>>>>>> xxx new cnt_la  "{resolved_label}" ')
                 break
 
     OKay = True
 
-    if cnt_la == "" and OKay:
+    if resolved_label == "" and OKay:
         ti_toseslist = [
             " by ",
             " based in ",
@@ -114,58 +114,63 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
                 OKay = False
                 break
 
-    if cnt_la == "" and OKay:
-        Preffix2 = {
+    if resolved_label == "" and OKay:
+        historical_prefixes = {
             "defunct national ": "{} وطنية سابقة",
         }
 
-        for prif, prif_lab in Preffix2.items():
-            if not contry.startswith(prif):
+        for prefix, prefix_template in historical_prefixes.items():
+            if not contry.startswith(prefix):
                 continue
-            print(f">>> contry.startswith({prif})")
-            con_3 = contry[len(prif) :]
-            con_3_lab = contry2_bot.Get_contry2(con_3)
+            print(f">>> contry.startswith({prefix})")
+            remainder = contry[len(prefix) :]
+            remainder_label = contry2_bot.Get_contry2(remainder)
 
-            if con_3_lab == "":
-                con_3_lab = contry2_lab.get_lab_for_contry2(con_3)
+            if remainder_label == "":
+                remainder_label = contry2_lab.get_lab_for_contry2(remainder)
 
-            if con_3_lab == "":
-                con_3_lab = ye_ts_bot.translate_general_category(con_3)
+            if remainder_label == "":
+                remainder_label = ye_ts_bot.translate_general_category(remainder)
 
-            if con_3_lab:
-                Add_to_main2_tab(con_3, con_3_lab)
-                cnt_la = prif_lab.format(con_3_lab)
-                if con_3_lab.strip().endswith(" في") and prif == "defunct ":
-                    cnt_la = f'{con_3_lab.strip()[:-len(" في")]} سابقة في'
-                print_put(f'>>>>>> cdcdc new cnt_la  "{cnt_la}" ')
+            if remainder_label:
+                Add_to_main2_tab(remainder, remainder_label)
+                resolved_label = prefix_template.format(remainder_label)
+                if (
+                    remainder_label.strip().endswith(" في")
+                    and prefix.startswith("defunct ")
+                ):
+                    resolved_label = f'{remainder_label.strip()[:-len(" في")]} سابقة في'
+                print_put(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
                 break
 
-    if cnt_la:
-        if "سنوات في القرن" in cnt_la:
-            cnt_la = re.sub(r"سنوات في القرن", "سنوات القرن", cnt_la)
+    if resolved_label:
+        if "سنوات في القرن" in resolved_label:
+            resolved_label = re.sub(
+                r"سنوات في القرن", "سنوات القرن", resolved_label
+            )
 
-    if not cnt_la:
+    if not resolved_label:
         RE1 = RE1_compile.match(contry)
         RE2 = RE2_compile.match(contry)
         RE3 = RE3_compile.match(contry)
 
         if RE1 or RE2 or RE3:
-            cnt_la = with_years_bot.Try_With_Years(contry)
+            resolved_label = with_years_bot.Try_With_Years(contry)
 
-    if cnt_la == "" and contry.endswith(" members of"):
+    if resolved_label == "" and contry.endswith(" members of"):
         contry2 = contry.replace(" members of", "")
-        cnt_la = Nat_mens.get(contry2, "")
-        if cnt_la:
-            cnt_la = f"{cnt_la} أعضاء في  "
-            print_put(f"a<<lightblue>>>2021 Get_contry lab = {cnt_la}")
+        resolved_label = Nat_mens.get(contry2, "")
+        if resolved_label:
+            resolved_label = f"{resolved_label} أعضاء في  "
+            print_put(f"a<<lightblue>>>2021 Get_contry lab = {resolved_label}")
 
-    if not cnt_la:
-        cnt_la = Sports_Keys_For_Label.get(contry, "")
+    if not resolved_label:
+        resolved_label = Sports_Keys_For_Label.get(contry, "")
 
-    Get_contry_done[contry] = cnt_la
-    output_test(f'>>>> Get contry "{cnt_la}"')
+    Get_contry_done[contry] = resolved_label
+    output_test(f'>>>> Get contry "{resolved_label}"')
     output_test(">> ----------------- end Get_contry ----------------- ")
-    return cnt_la
+    return resolved_label
 
 
 def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool = True) -> str:

@@ -73,48 +73,50 @@ def test_Universities(cate):
     # ---
     print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_Universities start, (cate:{cate}) vvvvvvvvvvvv ")
     # ---
-    cite = ""
-    majorlab = ""
+    city_key = ""
+    university_template = ""
     # ---
     for xi, xi_lab in universities_tables.items():
         xi2 = f"the {xi}"
         if cate.endswith(xi):
-            majorlab = xi_lab
-            cite = cate[: -len(xi)].strip()
+            university_template = xi_lab
+            city_key = cate[: -len(xi)].strip()
             break
         elif cate.endswith(xi2):
-            majorlab = xi_lab
-            cite = cate[: -len(xi2)].strip()
+            university_template = xi_lab
+            city_key = cate[: -len(xi2)].strip()
             break
     # ---
-    if not cite:
+    if not city_key:
         for xi, xi_lab in universities_tables.items():
             xi3 = f"{xi}, "
             the_xi = f"the {xi}"
             if cate.startswith(xi3):
-                majorlab = xi_lab
-                cite = cate[len(xi3) :].strip()
+                university_template = xi_lab
+                city_key = cate[len(xi3) :].strip()
                 break
             elif cate.startswith(xi):
-                majorlab = xi_lab
-                cite = cate[len(xi) :].strip()
+                university_template = xi_lab
+                city_key = cate[len(xi) :].strip()
                 break
             elif cate.startswith(the_xi):
-                majorlab = xi_lab
-                cite = cate[len(the_xi) :].strip()
+                university_template = xi_lab
+                city_key = cate[len(the_xi) :].strip()
                 break
     # ---
-    citelab = ""
-    if cite:
+    city_label = ""
+    if city_key:
         # ---
-        citelab = N_cit_ies_s_lower.get(cite, "")
+        city_label = N_cit_ies_s_lower.get(city_key, "")
         # ---
-        print_put(f"<<lightblue>>>> test_Universities cite:{cite}, majorlab:{majorlab}, citelab:{citelab}")
+        print_put(
+            f"<<lightblue>>>> test_Universities cite:{city_key}, majorlab:{university_template}, citelab:{city_label}"
+        )
     # ---
     univer_lab = ""
     # ---
-    if citelab:
-        univer_lab = majorlab.format(citelab)
+    if city_label:
+        univer_lab = university_template.format(city_label)
         print_put(f'<<lightblue>>>>>> test_Universities: new univer_lab  "{univer_lab}" ')
     # ---
     print_put("<<lightblue>>>> ^^^^^^^^^ test_Universities end ^^^^^^^^^ ")

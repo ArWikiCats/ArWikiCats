@@ -13,7 +13,7 @@ from .parties_bot import get_parties_lab
 from ..sports_bots import team_work
 from ...helps.print_bot import print_put
 
-test_Lang_Cash = {}
+LANGUAGE_CACHE = {}
 
 
 def Get_Teams_new(team):
@@ -25,58 +25,59 @@ def Get_Teams_new(team):
     # sports.py: len:"Teams_new":  114691
 
     print_put(f'Get_Teams_new team:"{team}"')
-    team_lab = ""
-    team_lab = sport_lab.Get_New_team_xo(team)
+    team_label = ""
+    team_label = sport_lab.Get_New_team_xo(team)
 
-    if not team_lab:
-        for tat, tab_lab in team_work.Teams_new_end_keys.items():
-            fafaf = f" {tat}"
-            if team.endswith(fafaf) and team_lab == "":
-                team_uu = team[: -len(fafaf)]
-                print_put(f'team_uu:"{team_uu}", tat:"{tat}" ')
-                club_lab = Sports_Keys_For_Jobs.get(team_uu, "")
-                if club_lab:
-                    if tab_lab.find("%s") != -1:
-                        team_lab = tab_lab % club_lab
+    if not team_label:
+        for suffix, suffix_template in team_work.Teams_new_end_keys.items():
+            suffix_with_space = f" {suffix}"
+            if team.endswith(suffix_with_space) and team_label == "":
+                team_prefix = team[: -len(suffix_with_space)]
+                print_put(f'team_uu:"{team_prefix}", tat:"{suffix}" ')
+                club_label = Sports_Keys_For_Jobs.get(team_prefix, "")
+                if club_label:
+                    if "%s" in suffix_template:
+                        team_label = suffix_template % club_label
                     else:
-                        team_lab = tab_lab.format(club_lab)
+                        team_label = suffix_template.format(club_label)
                     break
 
-    if team_lab:
-        print_put(f'team_lab:"{team_lab}"')
+    if team_label:
+        print_put(f'team_lab:"{team_label}"')
 
-    if not team_lab:
-        team_lab = get_parties_lab(team)
+    if not team_label:
+        team_label = get_parties_lab(team)
 
-    return team_lab
+    return team_label
 
 
-def test_Lang(cate):
-    if cate in test_Lang_Cash:
-        if test_Lang_Cash[cate]:
-            print_put(f"<<lightblue>>>> ============== test_Lang_Cash : {test_Lang_Cash[cate]}")
-        return test_Lang_Cash[cate]
+def test_Lang(category):
+    if category in LANGUAGE_CACHE:
+        if LANGUAGE_CACHE[category]:
+            print_put(
+                f"<<lightblue>>>> ============== test_Lang_Cash : {LANGUAGE_CACHE[category]}"
+            )
+        return LANGUAGE_CACHE[category]
 
-    cnt_la = ""
-    cate = cate.lower()
-    # test_cate = re.sub(r"(%s)" % Lang_line.lower(), "", cate)
-    lang_label = ""
-    tyy = ""
+    resolved_label = ""
+    category = category.lower()
+    language_label = ""
+    language_suffix = ""
 
-    for lan, dsdsd in languages_pop.items():
-        if cate.startswith(f"{lan.lower()} "):
-            lang_label = dsdsd
-            tyy = cate[len(f"{lan} ") :].strip()
+    for language_key, language_name in languages_pop.items():
+        if category.startswith(f"{language_key.lower()} "):
+            language_label = language_name
+            language_suffix = category[len(f"{language_key} ") :].strip()
 
-    if not cnt_la:
-        tyy_lab = lang_ttty.get(tyy, "")
-        if tyy_lab and lang_label:
-            cnt_la = tyy_lab % lang_label
+    if not resolved_label:
+        suffix_template = lang_ttty.get(language_suffix, "")
+        if suffix_template and language_label:
+            resolved_label = suffix_template % language_label
 
-    if cnt_la:
-        print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_Lang cate:{cate} vvvvvvvvvvvv ")
-        print_put(f'<<lightblue>>>>>> test_Lang: new_lab  "{cnt_la}" ')
+    if resolved_label:
+        print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_Lang cate:{category} vvvvvvvvvvvv ")
+        print_put(f'<<lightblue>>>>>> test_Lang: new_lab  "{resolved_label}" ')
         print_put("<<lightblue>>>> ^^^^^^^^^ test_Lang end ^^^^^^^^^ ")
 
-    test_Lang_Cash[cate] = cnt_la
-    return cnt_la
+    LANGUAGE_CACHE[category] = resolved_label
+    return resolved_label

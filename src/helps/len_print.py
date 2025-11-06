@@ -23,24 +23,26 @@ from humanize import naturalsize
 lenth_pri_text = True
 
 
-def lenth_pri(bot, tab, Max=10000, lens=[]):
+def lenth_pri(bot, tab, Max=10000, lens=None):
+    if lens is None:
+        lens = []
     if not lenth_pri_text:
         return
     if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
         return
 
-    def do(x, y):
-        if x in lens:
-            return y
-        return naturalsize(y, binary=True)
+    def format_size(key, value):
+        if key in lens:
+            return value
+        return naturalsize(value, binary=True)
 
-    faf = ", ".join(
+    formatted_entries = ", ".join(
         [
             # f"<<lightpurple>>{x}<<default>>: {tab[x]}"
-            f"<<lightpurple>>{x}<<default>>: {do(x, tab[x])}"
+            f"<<lightpurple>>{x}<<default>>: {format_size(x, tab[x])}"
             for x in tab
             if tab[x] > Max
         ]
     )
-    if faf:
-        printe.output(f"{bot}:".ljust(20) + faf)
+    if formatted_entries:
+        printe.output(f"{bot}:".ljust(20) + formatted_entries)

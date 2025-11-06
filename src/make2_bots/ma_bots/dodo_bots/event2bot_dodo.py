@@ -111,25 +111,25 @@ def make_lab_dodo(
         else:
             print_put('a<<lightblue>>>>>> typeo "%s" not in typeTable' % typeo)
 
-    cnt_la = ""
+    country_label = ""
 
     if contry:
-        cnt_la = pop_All_2018.get(contry, "")
+        country_label = pop_All_2018.get(contry, "")
 
-        if not cnt_la:
-            cnt_la = Get_contry(contry_not_lower)
+        if not country_label:
+            country_label = Get_contry(contry_not_lower)
 
-        if cnt_la == "" and category3 == year + " " + contry:
-            cnt_la = Nat_mens.get(contry, "")
-            if cnt_la:
-                cnt_la = cnt_la + " في"
-                print_put("a<<lightblue>>>2021 cnt_la == %s" % cnt_la)
+        if country_label == "" and category3 == year + " " + contry:
+            country_label = Nat_mens.get(contry, "")
+            if country_label:
+                country_label = country_label + " في"
+                print_put("a<<lightblue>>>2021 cnt_la == %s" % country_label)
 
-        if cnt_la:
-            Add_to_main2_tab(contry, cnt_la)
+        if country_label:
+            Add_to_main2_tab(contry, country_label)
             cat_test = cat_test.lower()
             cat_test = cat_test.replace(contry.lower(), "")
-            print_put("a<<lightblue>>>cnt_la : %s" % cnt_la)
+            print_put("a<<lightblue>>>cnt_la : %s" % country_label)
 
     if year:
         year_labe = year_lab.make_year_lab(year)
@@ -145,7 +145,7 @@ def make_lab_dodo(
                 Add_In = False
                 Add_In_Done = True
 
-    if not (contry != "" and cnt_la == "") and not (year != "" and year_labe == ""):
+    if not (contry != "" and country_label == "") and not (year != "" and year_labe == ""):
         if not (typeo != "" and typeo_lab == ""):
             if In.strip():
                 if In.strip() in Tit_ose_Nmaes and Tit_ose_Nmaes[In.strip()].strip() in arlabel:
@@ -170,9 +170,20 @@ def make_lab_dodo(
         arlabel = re.sub(r"\s+", " ", arlabel)
         output_test("a<<lightblue>>>>>> No contry.")
     elif contry:
-        if cnt_la:
+        if country_label:
             cat_test, arlabel = new_func_mk2(
-                category, cat_test, year, typeo, In, contry, arlabel, year_labe, suf, Add_In, cnt_la, Add_In_Done
+                category,
+                cat_test,
+                year,
+                typeo,
+                In,
+                contry,
+                arlabel,
+                year_labe,
+                suf,
+                Add_In,
+                country_label,
+                Add_In_Done,
             )
         else:
             print_put('a<<lightblue>>>>>> Cant id contry : "%s" ' % contry)
@@ -181,15 +192,15 @@ def make_lab_dodo(
         NoLab = True
 
     if NoLab and cat_test == "":
-        if cnt_la and typeo_lab and year == "" and In == "":
+        if country_label and typeo_lab and year == "" and In == "":
             if typeo in type_after_contry:
-                ar = f"{cnt_la} {typeo_lab}"
+                ar = f"{country_label} {typeo_lab}"
             elif (typeo in typeTable) or (typeo in Films_O_TT) or (typeo.lower() in New_players):
-                ar = f"{typeo_lab} {cnt_la}"
+                ar = f"{typeo_lab} {country_label}"
             else:
-                ar = f"{cnt_la} {typeo_lab}"
+                ar = f"{country_label} {typeo_lab}"
             New_Lan[category_r] = ar
-            print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{cnt_la}"')
+            print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
             print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
     if cat_test != cat_test3:
