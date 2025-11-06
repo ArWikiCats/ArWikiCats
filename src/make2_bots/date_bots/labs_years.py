@@ -72,7 +72,7 @@ def lab_from_year_add(category_r: str, category_lab: str, cat_year: str) -> None
         None
     """
     # ---
-    if cat_year not in category_lab or cat_year not in category_lab:
+    if cat_year not in category_lab:
         return
     # ---
     cat_key = category_r.replace(cat_year, "2020")
