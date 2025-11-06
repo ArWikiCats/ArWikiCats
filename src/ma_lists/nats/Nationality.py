@@ -72,8 +72,8 @@ NATdd = {
 }
 # ---
 CON_NAT = {}
-for x, va in NATdd.items():
-    CON_NAT[x.lower()] = va
+for nationality_key, country_label in NATdd.items():
+    CON_NAT[nationality_key.lower()] = country_label
 # ---
 # Category:Trinidad_and_Tobago_people
 # Category:Yoruba_people
@@ -91,10 +91,10 @@ The_Nat_women = {
 # ---
 All_Nat = {}
 # ---
-for suba in uu_nats:
-    All_Nat_o[suba] = uu_nats[suba]
-for sub in Sub_Nat:
-    All_Nat_o[sub] = Sub_Nat[sub]
+for nationality_key, nationality_labels in uu_nats.items():
+    All_Nat_o[nationality_key] = nationality_labels
+for nationality_key, nationality_labels in Sub_Nat.items():
+    All_Nat_o[nationality_key] = nationality_labels
 # ---
 All_Nat_o["equatorial guinean"] = All_Nat_o["equatoguinean"]  # غينيا الاستوائية
 All_Nat_o["south ossetian"] = All_Nat_o["ossetian"]  # غينيا الاستوائية
@@ -180,38 +180,38 @@ All_Nat_o["southwest asian"] = {
 }
 
 # ---
-for nana in All_Nat_o:
-    All_Nat[nana.lower()] = All_Nat_o[nana]
+for nationality_key, nationality_labels in All_Nat_o.items():
+    All_Nat[nationality_key.lower()] = nationality_labels
 # ---
 ar_Nat_men = {}
 # ---
 American_nat = 0
 # ---
-for kpk in All_Nat_o.keys():
+for nationality_key in All_Nat_o.keys():
     kb = {"men": "", "mens": "", "women": "", "womens": "", "en": "", "ar": ""}
     rog = False
     # ---
-    if All_Nat_o[kpk].get("men", "") != "":
-        kb["men"] = f"أمريكي {All_Nat_o[kpk]['men']}"
+    if All_Nat_o[nationality_key].get("men", "") != "":
+        kb["men"] = f"أمريكي {All_Nat_o[nationality_key]['men']}"
         rog = True
     # ---
-    if All_Nat_o[kpk]["mens"]:
-        kb["mens"] = f"أمريكيون {All_Nat_o[kpk]['mens']}"
+    if All_Nat_o[nationality_key]["mens"]:
+        kb["mens"] = f"أمريكيون {All_Nat_o[nationality_key]['mens']}"
         rog = True
     # ---
-    if All_Nat_o[kpk]["women"]:
-        kb["women"] = f"أمريكية {All_Nat_o[kpk]['women']}"
+    if All_Nat_o[nationality_key]["women"]:
+        kb["women"] = f"أمريكية {All_Nat_o[nationality_key]['women']}"
         rog = True
     # ---
-    if All_Nat_o[kpk]["womens"]:
-        kb["womens"] = f"أمريكيات {All_Nat_o[kpk]['womens']}"
+    if All_Nat_o[nationality_key]["womens"]:
+        kb["womens"] = f"أمريكيات {All_Nat_o[nationality_key]['womens']}"
         rog = True
     # ---
     if rog:
         American_nat += 1
-        All_Nat[f"{kpk.lower()}-American"] = kb
-        if kpk.lower() == "jewish":
-            All_Nat[f"{kpk.lower()} american"] = kb
+        All_Nat[f"{nationality_key.lower()}-American"] = kb
+        if nationality_key.lower() == "jewish":
+            All_Nat[f"{nationality_key.lower()} american"] = kb
 # ---
 en_nats_to_ar_label = {}
 # ---

@@ -40,20 +40,20 @@ New_Tato_nat = {}
 # Category:National junior women's goalball teams
 # tab[Category:Women's national under-20 association football teams] = "تصنيف:منتخبات كرة قدم وطنية نسائية تحت 20 سنة"
 # ---
-for mr_nat, mr_nat_a in nat_menstt33.items():
-    New_Tato_nat[mr_nat] = mr_nat_a
+for template_key, template_label in nat_menstt33.items():
+    New_Tato_nat[template_key] = template_label
     # printe.output(lightred % (mr_nat , mr_nat_a) )
-    for yea in Years_List:
+    for year in Years_List:
         # for ye# ---a in [23]:
         # ---
         # Category:Women's national under-20 association football teams
         # تصنيف:منتخبات كرة قدم وطنية تحت 20 سنة للسيدات
         # ---
-        ar_lala = mr_nat_a.replace("{nat}", "{nat} تحت %d سنة" % yea)
-        en_lala = f"{mr_nat} under-{yea}"
-        # printe.output(en_lala)
-        # printe.output(ar_lala)
-        New_Tato_nat[en_lala] = ar_lala
+        arabic_label = template_label.replace("{nat}", "{nat} تحت %d سنة" % year)
+        english_key = f"{template_key} under-{year}"
+        # printe.output(english_key)
+        # printe.output(arabic_label)
+        New_Tato_nat[english_key] = arabic_label
 # ---
 # =================
 # ---
@@ -139,13 +139,13 @@ AFTER_KEYS_NAT = {
 }
 # ---
 # نسخ AFTER_KEYS إلى AFTER_KEYS_TEAM وإلى AFTER_KEYS
-for x, xa in AFTER_KEYS.items():
+for suffix_key, suffix_label in AFTER_KEYS.items():
     # ---
-    AFTER_KEYS_TEAM[f"team {x}"] = xa + " {}"
+    AFTER_KEYS_TEAM[f"team {suffix_key}"] = suffix_label + " {}"
     # ---
-    AFTER_KEYS_NAT[f"{x}"] = xa + " {lab}"
+    AFTER_KEYS_NAT[f"{suffix_key}"] = suffix_label + " {lab}"
 # ---
-for level, lvl in levels.items():
-    AFTER_KEYS_NAT[f"{level} league"] = "دوريات {lab} من %s" % lvl
-    AFTER_KEYS_NAT[f"{level} leagues"] = "دوريات {lab} من %s" % lvl
+for level_key, level_label in levels.items():
+    AFTER_KEYS_NAT[f"{level_key} league"] = "دوريات {lab} من %s" % level_label
+    AFTER_KEYS_NAT[f"{level_key} leagues"] = "دوريات {lab} من %s" % level_label
 # ---

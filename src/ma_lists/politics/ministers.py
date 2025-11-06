@@ -202,89 +202,89 @@ ministrs_keys = {
 # ss = ministrs_keys[io].replace(' ' , ' ال')
 # print('"%s"\t:\t{ "s" : "%s" , "o" : "ال%s" }, ' %  (io , ministrs_keys[io] , ss  ) )
 # ---
-for minis in ministrs_keys:
-    minis2 = minis.lower().strip()
-    labe = ministrs_keys[minis]["s"]
-    ar = f"وزراء {labe}"
-    minister_keyse[f"{minis2} ministries"] = f"وزارات {labe}"
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower().strip()
+    short_label = ministry_labels["s"]
+    arabic_ministers_label = f"وزراء {short_label}"
+    minister_keyse[f"{normalized_ministry} ministries"] = f"وزارات {short_label}"
 
-    minister_keyse[f"{minis2} ministers"] = ar
+    minister_keyse[f"{normalized_ministry} ministers"] = arabic_ministers_label
 
-    minister_keyse[f"ministers-of {minis2}"] = ar
-    minister_keyse[f"ministers of {minis2}"] = ar
+    minister_keyse[f"ministers-of {normalized_ministry}"] = arabic_ministers_label
+    minister_keyse[f"ministers of {normalized_ministry}"] = arabic_ministers_label
 
-    minister_keyse[f"secretaries-of {minis2}"] = ar
-    minister_keyse[f"secretaries of {minis2}"] = ar
+    minister_keyse[f"secretaries-of {normalized_ministry}"] = arabic_ministers_label
+    minister_keyse[f"secretaries of {normalized_ministry}"] = arabic_ministers_label
     # minister_keyse["ministers for {}".format(minis2) ] = ar
     minister_keyse[f"ministers-for {minis2}"] = ar
     # ---
-    if labe in keyses_without_in:
+    if short_label in keyses_without_in:
         # ---
-        ministrees_keysse[f"ministers of {minis2} of"] = ar
-        ministrees_keysse[f"ministers-of {minis2} of"] = ar
-        ministrees_keysse[f"{minis2} ministers"] = ar
-        ministrees_keysse[f"{minis2} ministers of"] = ar
+        ministrees_keysse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
+        ministrees_keysse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
+        ministrees_keysse[f"{normalized_ministry} ministers"] = arabic_ministers_label
+        ministrees_keysse[f"{normalized_ministry} ministers of"] = arabic_ministers_label
         # ---
-        minister_keyse[f"ministers-of {minis2} of"] = ar
-        minister_keyse[f"ministers of {minis2} of"] = ar
+        minister_keyse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
+        minister_keyse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
         # minister_keyse["ministers for {} of".format(minis2) ] = ar
-        minister_keyse[f"ministers-for {minis2} of"] = ar
+        minister_keyse[f"ministers-for {normalized_ministry} of"] = arabic_ministers_label
 # ---
 ministrs_tab_for_Jobs_2020 = {}  # used in Jobs.py
 # ---
-for d, ta in ministrs_keys.items():
-    ministrs_tab_for_Jobs_2020[f"secretaries-of {d}"] = {
-        "mens": f'وزراء {ta["s"]}',
-        "womens": f'وزيرات {ta["s"]}',
+for ministry_key, ministry_labels in ministrs_keys.items():
+    ministrs_tab_for_Jobs_2020[f"secretaries-of {ministry_key}"] = {
+        "mens": f'وزراء {ministry_labels["s"]}',
+        "womens": f'وزيرات {ministry_labels["s"]}',
     }
-    ministrs_tab_for_Jobs_2020[f"secretaries of {d}"] = {
-        "mens": f'وزراء {ta["s"]}',
-        "womens": f'وزيرات {ta["s"]}',
+    ministrs_tab_for_Jobs_2020[f"secretaries of {ministry_key}"] = {
+        "mens": f'وزراء {ministry_labels["s"]}',
+        "womens": f'وزيرات {ministry_labels["s"]}',
     }
 # ---
 ministrs_tab_for_pop_format = {}  # used in pop_format.py
 # ---
-for aa in ministrs_keys:
-    bb = aa.lower().strip()
-    ab = ministrs_keys[aa]["s"]
-    ministrs_tab_for_pop_format[f"secretaries of {bb} of"] = "وزراء %s {}" % ab
-    ministrs_tab_for_pop_format[f"secretaries-of {bb} of"] = "وزراء %s {}" % ab
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower().strip()
+    short_label = ministry_labels["s"]
+    ministrs_tab_for_pop_format[f"secretaries of {normalized_ministry} of"] = "وزراء %s {}" % short_label
+    ministrs_tab_for_pop_format[f"secretaries-of {normalized_ministry} of"] = "وزراء %s {}" % short_label
 # ---
 ministrs_for_military_format_men = {}  # used in test_4.py
 # ---
-for mi, da in ministrs_keys.items():
-    mi2 = mi.lower()
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower()
     # ministrs_for_military_format_men["secretary of the {}".format(mi2)] = 'وزير %s {nat}' % da['al']
-    ministrs_for_military_format_men[f"assistant secretaries of {mi2}"] = "مساعدو وزير %s {nat}" % da["al"]
-    ministrs_for_military_format_men[f"deputy secretaries of {mi2}"] = "نواب وزير %s {nat}" % da["al"]
-    ministrs_for_military_format_men[f"deputy secretaries of the {mi2}"] = "نواب وزير %s {nat}" % da["al"]
+    ministrs_for_military_format_men[f"assistant secretaries of {normalized_ministry}"] = "مساعدو وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"deputy secretaries of {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"deputy secretaries of the {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
 
-    ministrs_for_military_format_men[f"assistant secretaries-of {mi2}"] = "مساعدو وزير %s {nat}" % da["al"]
-    ministrs_for_military_format_men[f"deputy secretaries-of {mi2}"] = "نواب وزير %s {nat}" % da["al"]
-    ministrs_for_military_format_men[f"deputy secretaries-of the {mi2}"] = "نواب وزير %s {nat}" % da["al"]
+    ministrs_for_military_format_men[f"assistant secretaries-of {normalized_ministry}"] = "مساعدو وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"deputy secretaries-of {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"deputy secretaries-of the {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
 
-    ministrs_for_military_format_men[f"deputy secretary of {mi2}"] = "نواب وزير %s {nat}" % da["al"]
-    ministrs_for_military_format_men[f"deputy secretary of the {mi2}"] = "نواب وزير %s {nat}" % da["al"]
+    ministrs_for_military_format_men[f"deputy secretary of {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"deputy secretary of the {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
 # ---
 ministrs_for_military_format_women = {}  # used in test_4.py
 # ---
-for mi, da in ministrs_keys.items():
-    mi2 = mi.lower()
-    ministrs_for_military_format_women[f"department of {mi2} agencies"] = "وكالات وزارة %s {nat}" % da["al"]
-    ministrs_for_military_format_women[f"department of {mi2} facilities"] = "مرافق وزارة %s {nat}" % da["al"]
-    ministrs_for_military_format_women[f"department of {mi2} national laboratories"] = "مختبرات وزارة %s {nat}" % da["al"]
-    ministrs_for_military_format_women[f"department of {mi2} national laboratories personnel"] = "موظفو مختبرات وزارة %s {nat}" % da["al"]
-    ministrs_for_military_format_women[f"department of {mi2} officials"] = "مسؤولو وزارة %s {nat}" % da["al"]
-    ministrs_for_military_format_women[f"department of {mi2}"] = "وزارة %s {nat}" % da["al"]
-    ministrs_for_military_format_women[f"department of the {mi2}"] = "وزارة %s {nat}" % da["al"]
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower()
+    ministrs_for_military_format_women[f"department of {normalized_ministry} agencies"] = "وكالات وزارة %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_women[f"department of {normalized_ministry} facilities"] = "مرافق وزارة %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories"] = "مختبرات وزارة %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories personnel"] = "موظفو مختبرات وزارة %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_women[f"department of {normalized_ministry} officials"] = "مسؤولو وزارة %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_women[f"department of {normalized_ministry}"] = "وزارة %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_women[f"department of the {normalized_ministry}"] = "وزارة %s {nat}" % ministry_labels["al"]
 # ---
 ministrs_for_en_is_P17_ar_is_mens = {}  # used in test_4.py
 # ---
-for mi, jj in ministrs_keys.items():
-    mi2 = mi.lower()
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of the {mi2}"] = "وزراء %s {}" % jj["s"]
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of the {mi2}"] = "وزراء %s {}" % jj["s"]
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {mi2}"] = "وزراء %s {}" % jj["s"]
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {mi2}"] = "وزراء %s {}" % jj["s"]
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower()
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of the {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of the {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
 # ---
 # ---

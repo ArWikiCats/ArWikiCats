@@ -24,28 +24,32 @@ def Get_sport_formts_female_nat(con_77):  # New_For_nat_female_xo_team
     # ---
     if faev:
         sport_key = faev.group(1)
-        sp_lab = ""
-        ar_label = ""
+        sport_arabic_label = ""
+        template_label = ""
         # ---
-        team_xz = con_77.replace(sport_key, "xzxz")
-        team_xz = re.sub(sport_key, "xzxz", team_xz, flags=re.IGNORECASE)
-        print_put(f'Get_Sport_Formats_For_nat female con_77:"{con_77}", sport_key:"{sport_key}", team_xz:"{team_xz}"')
+        normalized_team_key = con_77.replace(sport_key, "xzxz")
+        normalized_team_key = re.sub(sport_key, "xzxz", normalized_team_key, flags=re.IGNORECASE)
+        print_put(
+            f'Get_Sport_Formats_For_nat female con_77:"{con_77}", sport_key:"{sport_key}", team_xz:"{normalized_team_key}"'
+        )
         # ---
-        if team_xz in New_For_nat_female_xo_team:
-            sp_lab = Sports_Keys_For_Jobs.get(sport_key, "")
+        if normalized_team_key in New_For_nat_female_xo_team:
+            sport_arabic_label = Sports_Keys_For_Jobs.get(sport_key, "")
             # ---
-            if not sp_lab:
+            if not sport_arabic_label:
                 print_put(f' sport_key:"{sport_key}" not in Sports_Keys_For_Jobs ')
             # ---
-            ar_label = New_For_nat_female_xo_team[team_xz]
+            template_label = New_For_nat_female_xo_team[normalized_team_key]
             # ---
-            if ar_label and sp_lab:
-                bbvb = ar_label.replace("xzxz", sp_lab)
-                if bbvb.find("xzxz") == -1:
-                    label = bbvb
+            if template_label and sport_arabic_label:
+                resolved_label = template_label.replace("xzxz", sport_arabic_label)
+                if resolved_label.find("xzxz") == -1:
+                    label = resolved_label
                     print_put(f'Get_Sport_Formats_For_nat female bbvb:"{label}"')
         else:
-            print_put(f'Get_Sport_Formats_For_nat female team_xz:"{team_xz}" not in New_For_nat_female_xo_team')
+            print_put(
+                f'Get_Sport_Formats_For_nat female team_xz:"{normalized_team_key}" not in New_For_nat_female_xo_team'
+            )
             # ---
     if label:
         print_put(f'Get_Sport_Formats_For_nat female con_77:"{con_77}", label:"{label}"')

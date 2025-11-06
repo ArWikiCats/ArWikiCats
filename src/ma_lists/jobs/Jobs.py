@@ -115,8 +115,8 @@ Jobs_2020 = {
     },
 }
 # ---
-for a, aa in ministrs_tab_for_Jobs_2020.items():
-    Jobs_2020[a] = aa
+for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
+    Jobs_2020[minister_category] = minister_labels
 # ---
 Jobs_key_mens = {}
 # Jobs_key_womens#Jobs_key_mens
@@ -189,14 +189,14 @@ Men_Womens_with_nato = {
 # ---
 MenWomensJobsPP = open_json_file("jobs_Men_Womens_PP")
 # ---
-for k, tab in religious_keys_PP.items():
-    MenWomensJobsPP[k] = tab
+for religious_key, gendered_titles in religious_keys_PP.items():
+    MenWomensJobsPP[religious_key] = gendered_titles
     # ---
     # "religious activists" = {"mens":"ناشطون دينيون", "womens":"ناشطات دينيات"}
     # ---
-    MenWomensJobsPP[f"{k} activists"] = {
-        "mens": f"ناشطون {tab['mens']}",
-        "womens": f"ناشطات {tab['womens']}",
+    MenWomensJobsPP[f"{religious_key} activists"] = {
+        "mens": f"ناشطون {gendered_titles['mens']}",
+        "womens": f"ناشطات {gendered_titles['womens']}",
     }
     # ---
     # print(f"{k} activists")
@@ -224,24 +224,24 @@ executives = {
     "media5": "",
 }
 # ---
-for dcf, ll in executives.items():
-    jobs_table_3[f"{dcf} executives"] = {
-        "mens": f"مدراء {ll}",
-        "womens": f"مديرات {ll}",
+for industry_key, industry_label in executives.items():
+    jobs_table_3[f"{industry_key} executives"] = {
+        "mens": f"مدراء {industry_label}",
+        "womens": f"مديرات {industry_label}",
     }
 # ---
-for dgh in jobs_table_3.keys():
-    MenWomensJobsPP[dgh] = jobs_table_3[dgh]
+for disability_key, disability_labels in jobs_table_3.items():
+    MenWomensJobsPP[disability_key] = disability_labels
 # ---
-for va, b in Jobs_2020.items():
+for job_name, gender_labels in Jobs_2020.items():
     # printe.output("python3 core8/pwb.py asa/like addpro -ns:14 -project:أعلام -like:%s -like:%s" % (b["mens"].replace(" ","_"),b["womens"].replace(" ","_") ) )
-    if b["mens"] and b["womens"]:
-        if va.lower() not in MenWomensJobsPP:
-            MenWomensJobsPP[va.lower()] = b
+    if gender_labels["mens"] and gender_labels["womens"]:
+        if job_name.lower() not in MenWomensJobsPP:
+            MenWomensJobsPP[job_name.lower()] = gender_labels
 # ---
-for gf, gftab in Football_Keys_players.items():
-    if gf.lower() not in MenWomensJobsPP:
-        MenWomensJobsPP[gf.lower()] = gftab
+for player_category, player_labels in Football_Keys_players.items():
+    if player_category.lower() not in MenWomensJobsPP:
+        MenWomensJobsPP[player_category.lower()] = player_labels
 # ---
 # ---
 # "non-fiction writers":  {"mens":"كتاب غير روائيون", "womens":"كاتبات غير روائيات"}
@@ -274,10 +274,10 @@ Nat_Before_Occ = [
 # ---
 activists_keys = open_json_file("activists_keys")
 # ---
-for activ in activists_keys.keys():
-    activ2 = activ.lower()
-    Nat_Before_Occ.append(activ2)
-    Men_Womens_Jobs[activ2] = activists_keys[activ]
+for activist_category, activist_labels in activists_keys.items():
+    normalized_key = activist_category.lower()
+    Nat_Before_Occ.append(normalized_key)
+    Men_Womens_Jobs[normalized_key] = activist_labels
 # ---
 MenWomensJobsPP["fashion journalists"] = {
     "mens": "صحفيو موضة",
@@ -286,10 +286,10 @@ MenWomensJobsPP["fashion journalists"] = {
 MenWomensJobsPP["zionists"] = {"mens": "صهاينة", "womens": "صهيونيات"}
 MenWomensJobsPP.update(companies_to_jobs)
 # ---
-for ggg in religious_female_keys.keys():
-    MenWomensJobsPP[f"{ggg} founders"] = {
-        "mens": f"مؤسسو {religious_female_keys[ggg]}",
-        "womens": f"مؤسسات {religious_female_keys[ggg]}",
+for religious_key, female_label in religious_female_keys.items():
+    MenWomensJobsPP[f"{religious_key} founders"] = {
+        "mens": f"مؤسسو {female_label}",
+        "womens": f"مؤسسات {female_label}",
     }
 
 # ---
@@ -323,60 +323,69 @@ printe.output("for fff in jobs_type.keys(): ")
 """
 # ---
 # printe.output('jobs in Jobs_2: ')
-for ioi in Jobs_2:
-    ioi2 = ioi.lower()
-    if ioi not in MenWomensJobsPP and ioi2 not in MenWomensJobsPP:
-        if Jobs_2[ioi]["mens"] or Jobs_2[ioi]["womens"]:
-            MenWomensJobsPP[ioi2] = Jobs_2[ioi]
+for job_key in Jobs_2:
+    lowered_job_key = job_key.lower()
+    if job_key not in MenWomensJobsPP and lowered_job_key not in MenWomensJobsPP:
+        if Jobs_2[job_key]["mens"] or Jobs_2[job_key]["womens"]:
+            MenWomensJobsPP[lowered_job_key] = Jobs_2[job_key]
     # else:
     # printe.output('jobs: "%s" : { "mens": "%s" ,"womens":  "%s" },' %  (ioi , Jobs_2[ioi]["mens"],Jobs_2[ioi]["womens"]) )
 # ---
-for ioiz, b in MenWomensJobsPP.items():
-    Men_Womens_Jobs[ioiz.lower()] = b
+for job_key, gender_labels in MenWomensJobsPP.items():
+    Men_Womens_Jobs[job_key.lower()] = gender_labels
 # ---
 # إضافة وضائف مثل مذيعون رياضيون
 sports_len = 0
-for M_W in MenWomensJobsPP.keys():
+for base_job_key, base_job_labels in MenWomensJobsPP.items():
     sports_len += 1
-    M_W2 = M_W.lower()
+    lowered_job_key = base_job_key.lower()
     # ---
-    Men_Womens_Jobs[f"sports {M_W2}"] = {}
-    Men_Womens_Jobs[f"sports {M_W2}"]["mens"] = f"{MenWomensJobsPP[M_W]['mens']} رياضيون"
-    Men_Womens_Jobs[f"sports {M_W2}"]["womens"] = f"{MenWomensJobsPP[M_W]['womens']} رياضيات"
+    Men_Womens_Jobs[f"sports {lowered_job_key}"] = {}
+    Men_Womens_Jobs[f"sports {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} رياضيون"
+    Men_Womens_Jobs[f"sports {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} رياضيات"
     # ---
-    Men_Womens_Jobs[f"professional {M_W2}"] = {}
-    Men_Womens_Jobs[f"professional {M_W2}"]["mens"] = f"{MenWomensJobsPP[M_W]['mens']} محترفون"
-    Men_Womens_Jobs[f"professional {M_W2}"]["womens"] = f"{MenWomensJobsPP[M_W]['womens']} محترفات"
+    Men_Womens_Jobs[f"professional {lowered_job_key}"] = {}
+    Men_Womens_Jobs[f"professional {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} محترفون"
+    Men_Womens_Jobs[f"professional {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} محترفات"
     # ---
-    Men_Womens_Jobs[f"wheelchair {M_W2}"] = {}
-    Men_Womens_Jobs[f"wheelchair {M_W2}"]["mens"] = f"{MenWomensJobsPP[M_W]['mens']} على الكراسي المتحركة"
-    Men_Womens_Jobs[f"wheelchair {M_W2}"]["womens"] = f"{MenWomensJobsPP[M_W]['womens']} على الكراسي المتحركة"
+    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"] = {}
+    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} على الكراسي المتحركة"
+    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} على الكراسي المتحركة"
 # ---
 # "skaters": {"mens":"متزلجون على اللوح", "womens":"متزلجات على اللوح"},#تزلج على اللوح
 # "skiers":  {"mens":"متزلجون على الثلج", "womens":"متزلجات على الثلج"},#تزحلق على الثلج
 # ---
-for cyc, cyc_la in new2019_cycling.items():
-    cy2 = cyc.lower()
-    Men_Womens_Jobs[f"{cy2} cyclists"] = {"mens": f"دراجو {cyc_la}", "womens": f"دراجات {cyc_la}"}
-    Men_Womens_Jobs[f"{cy2} winners"] = {"mens": f"فائزون في {cyc_la}", "womens": f"فائزات في {cyc_la}"}
-    Men_Womens_Jobs[f"{cy2} stage winners"] = {"mens": f"فائزون في مراحل {cyc_la}", "womens": f"فائزات في مراحل {cyc_la}"}
-    Nat_Before_Occ.append(f"{cy2} winners")
-    Nat_Before_Occ.append(f"{cy2} stage winners")
+for cycling_event_key, cycling_event_label in new2019_cycling.items():
+    lowered_event_key = cycling_event_key.lower()
+    Men_Womens_Jobs[f"{lowered_event_key} cyclists"] = {
+        "mens": f"دراجو {cycling_event_label}",
+        "womens": f"دراجات {cycling_event_label}",
+    }
+    Men_Womens_Jobs[f"{lowered_event_key} winners"] = {
+        "mens": f"فائزون في {cycling_event_label}",
+        "womens": f"فائزات في {cycling_event_label}",
+    }
+    Men_Womens_Jobs[f"{lowered_event_key} stage winners"] = {
+        "mens": f"فائزون في مراحل {cycling_event_label}",
+        "womens": f"فائزات في مراحل {cycling_event_label}",
+    }
+    Nat_Before_Occ.append(f"{lowered_event_key} winners")
+    Nat_Before_Occ.append(f"{lowered_event_key} stage winners")
 # ---
 Female_Jobs2 = {}
 # ---
-for fop in films_type:
-    Female_Jobs2[f"{fop} actresses"] = f"ممثلات {films_type[fop]['womens']}"
+for film_category, film_gender_labels in films_type.items():
+    Female_Jobs2[f"{film_category} actresses"] = f"ممثلات {film_gender_labels['womens']}"
 Female_Jobs2["sportswomen"] = "رياضيات"
 # ---
 # immigration    الهجرة
 # migrations    الهجرة
 # emigration  النزوح
 # ---
-for hh, hh_lab in players_to_Men_Womens_Jobs.items():
-    Men_Womens_Jobs[hh] = hh_lab
-for gr, gr_lab in Female_Jobs_to.items():
-    Female_Jobs2[gr] = gr_lab
+for sports_category, sports_labels in players_to_Men_Womens_Jobs.items():
+    Men_Womens_Jobs[sports_category] = sports_labels
+for female_job_key, female_job_label in Female_Jobs_to.items():
+    Female_Jobs2[female_job_key] = female_job_label
 # ---
 typi = {
     "classical": {"mens": "كلاسيكيون", "womens": "كلاسيكيات"},
@@ -555,59 +564,59 @@ jobs_people = {
 
 # def Add_Jobs():
 # ---
-for men, men_tab in jobs_people.items():
-    if men_tab["mens"] and men_tab["womens"]:
+for job_category, job_titles in jobs_people.items():
+    if job_titles["mens"] and job_titles["womens"]:
         # ---
         # Books_table
-        for book, book_la in Books_table.items():
-            Men_Womens_Jobs[f"{book} {men}"] = {
-                "mens": f"{men_tab['mens']} {book_la}",
-                "womens": f"{men_tab['womens']} {book_la}",
+        for book_key, book_label in Books_table.items():
+            Men_Womens_Jobs[f"{book_key} {job_category}"] = {
+                "mens": f"{job_titles['mens']} {book_label}",
+                "womens": f"{job_titles['womens']} {book_label}",
             }
         # ---
         # jobs_type
-        for vg, vg_lab in jobs_type.items():
-            Men_Womens_Jobs[f"{vg} {men}"] = {
-                "mens": f"{men_tab['mens']} {vg_lab}",
-                "womens": f"{men_tab['womens']} {vg_lab}",
+        for genre_key, genre_label in jobs_type.items():
+            Men_Womens_Jobs[f"{genre_key} {job_category}"] = {
+                "mens": f"{job_titles['mens']} {genre_label}",
+                "womens": f"{job_titles['womens']} {genre_label}",
             }
         # ---
 # ---
-for put in Men_Womens_Singers.keys():
-    Men_Womens_Jobs[put] = Men_Womens_Singers[put]
+for singer_category, singer_labels in Men_Womens_Singers.items():
+    Men_Womens_Jobs[singer_category] = singer_labels
     # Men_Womens_Jobs["classical {}".format(put)] = {
     # "mens": "{} كلاسيكيون".format(Men_Womens_Singers[put]["mens"])
     # ,"womens": "{} كلاسيكيات".format(Men_Womens_Singers[put]["womens"])
     # }
     # ---
-    for nasd, nasd_la in typi.items():
-        Men_Womens_Jobs[f"{nasd} {put}"] = {
-            "mens": f"{Men_Womens_Singers[put]['mens']} {nasd_la['mens']}",
-            "womens": f"{Men_Womens_Singers[put]['womens']} {nasd_la['womens']}",
+    for style_key, style_labels in typi.items():
+        Men_Womens_Jobs[f"{style_key} {singer_category}"] = {
+            "mens": f"{Men_Womens_Singers[singer_category]['mens']} {style_labels['mens']}",
+            "womens": f"{Men_Womens_Singers[singer_category]['womens']} {style_labels['womens']}",
         }
     # printe.output(put2o)
     # printe.output({"mens": put_m ,"womens": put_f }    )
 # ---
-for papa, papa_ka in Men_Womens_Jobs.items():
+for job_key, gender_labels in Men_Womens_Jobs.items():
     # if papa not in fffff: fffff.append(papa)
     # Jobs_key_mens[f"male {papa}" ] = "%s ذكور" % papa_ka["mens"]
     # o Jobs_new[f"male {papa}" ] = "%s ذكور" % papa_ka["mens"]
     # ---
-    Jobs_key_mens[papa] = papa_ka["mens"]
+    Jobs_key_mens[job_key] = gender_labels["mens"]
     # ---
-    if papa_ka["womens"]:
-        womens_Jobs_2017[papa] = papa_ka["womens"]
+    if gender_labels["womens"]:
+        womens_Jobs_2017[job_key] = gender_labels["womens"]
         # o Jobs_key_womens["women's " + papa] =  papa_ka["womens"]
         # o Jobs_key_womens["women " + papa] =  papa_ka["womens"]
         # o Jobs_key_womens["female " + papa] =  papa_ka["womens"]
 # ---
-for bbb3 in Female_Jobs2:
-    Female_Jobs[bbb3] = Female_Jobs2[bbb3]
+for female_job_key, female_job_label in Female_Jobs2.items():
+    Female_Jobs[female_job_key] = female_job_label
 # ---
 # ll = 0
-for PP, pkk in Jobs_key_mens.items():  #
-    if pkk:
-        Jobs_key[PP] = pkk
+for job_key, job_label in Jobs_key_mens.items():  #
+    if job_label:
+        Jobs_key[job_key] = job_label
         # print(pkk)
         # if PP.startswith("male"):
         # ll += 1
@@ -618,11 +627,11 @@ for PP, pkk in Jobs_key_mens.items():  #
         # Jobs_new[ f"expatriate {PP}" ] =f"{pkk} مغتربون"
 # print ("FF Jobs.py: startswith make :  %d" % ll)
 # ---
-for yuy in Female_Jobs:
-    yuy2 = yuy.lower()
-    if Female_Jobs[yuy]:
-        Jobs_new[yuy2] = Female_Jobs[yuy]
-        Jobs_key_womens[yuy2] = Female_Jobs[yuy]
+for female_job_key, female_job_label in Female_Jobs.items():
+    lowered_female_job_key = female_job_key.lower()
+    if female_job_label:
+        Jobs_new[lowered_female_job_key] = female_job_label
+        Jobs_key_womens[lowered_female_job_key] = female_job_label
 # ---
 # for women in Jobs_key_womens:#
 # if Jobs_key_womens[women]:
@@ -633,8 +642,8 @@ for yuy in Female_Jobs:
 
 Jobs_key_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
 
-for xi in religious_keys_PP:
-    Nat_Before_Occ.append(xi)
+for religious_key in religious_keys_PP:
+    Nat_Before_Occ.append(religious_key)
 # ---
 """for cory in Nat_mens:
     cony2 = cory.lower()
@@ -644,20 +653,20 @@ for xi in religious_keys_PP:
             io2 = io.lower()"""
 # ---
 # ---
-for cory in Nat_mens:
-    cony2 = cory.lower()
-    if Nat_mens[cory]:
-        Jobs_new[f"{cony2} people"] = f"{Nat_mens[cory]}"
-        # printe.output("%s %s" % (f"{cony2} people", Nat_mens[cory]))
+for nationality_key, nationality_label in Nat_mens.items():
+    lowered_nationality = nationality_key.lower()
+    if nationality_label:
+        Jobs_new[f"{lowered_nationality} people"] = f"{nationality_label}"
+        # printe.output("%s %s" % (f"{lowered_nationality} people", nationality_label))
 # ---
 # ---
 Jobs_new["people of the ottoman empire"] = "عثمانيون"
 # oppp = {}
 # ---
 dfg = 0
-for x in Jobs_key.keys():
+for job_key in Jobs_key.keys():
     # oppp[x.lower()] =  Jobs_key[x]
-    Jobs_new[x.lower()] = Jobs_key[x]
+    Jobs_new[job_key.lower()] = Jobs_key[job_key]
     if sys.argv and "2080io" in sys.argv:
         for key in Music_By_table:
             if (Jobs_key[x] != "") and (Music_By_table[key] != ""):

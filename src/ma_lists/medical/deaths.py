@@ -27,10 +27,10 @@ deaths_by = {
 # ---
 medical_keys = {}
 # ---
-for di, diar in deaths_by.items():
-    medical_keys[di] = diar
-    medical_keys[f"deaths from {di}"] = f"وفيات {diar}"
+for cause_key, cause_label in deaths_by.items():
+    medical_keys[cause_key] = cause_label
+    medical_keys[f"deaths from {cause_key}"] = f"وفيات {cause_label}"
 # ---
-Lenth1 = {"medical_keys": len(medical_keys.keys())}
+length_stats = {"medical_keys": len(medical_keys.keys())}
 # ---
-len_print.lenth_pri("deaths.py", Lenth1)
+len_print.lenth_pri("deaths.py", length_stats)
