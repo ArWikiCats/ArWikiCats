@@ -215,8 +215,8 @@ for ministry_key, ministry_labels in ministrs_keys.items():
 
     minister_keyse[f"secretaries-of {normalized_ministry}"] = arabic_ministers_label
     minister_keyse[f"secretaries of {normalized_ministry}"] = arabic_ministers_label
-    # minister_keyse["ministers for {}".format(minis2) ] = ar
-    minister_keyse[f"ministers-for {minis2}"] = ar
+    # minister_keyse["ministers for {}".format(normalized_ministry) ] = arabic_ministers_label
+    minister_keyse[f"ministers-for {normalized_ministry}"] = arabic_ministers_label
     # ---
     if short_label in keyses_without_in:
         # ---
@@ -227,7 +227,7 @@ for ministry_key, ministry_labels in ministrs_keys.items():
         # ---
         minister_keyse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
-        # minister_keyse["ministers for {} of".format(minis2) ] = ar
+        # minister_keyse["ministers for {} of".format(normalized_ministry) ] = arabic_ministers_label
         minister_keyse[f"ministers-for {normalized_ministry} of"] = arabic_ministers_label
 # ---
 ministrs_tab_for_Jobs_2020 = {}  # used in Jobs.py
