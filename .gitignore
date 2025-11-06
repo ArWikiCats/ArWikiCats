@@ -8,3 +8,4 @@ make_tests
 /old
 /.codex
 categories.json
+/tests/event_lists/diff_data
