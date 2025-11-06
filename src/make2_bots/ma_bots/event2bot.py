@@ -18,7 +18,7 @@ from .lab_seoo_bot import event_Lab_seoo
 from ..o_bots import univer  # univer.test_Universities(cate)
 
 from ...helps.print_bot import print_put
-from .contry_bot import Get_contry
+from .contry_bot import get_country_label
 from .dodo_bots.event2bot_dodo import make_lab_dodo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -51,9 +51,9 @@ def event2_d2(cat3, category3_not_lower):
     if cat3.find(" in ") == -1 and cat3.find(" of ") == -1 and cat3.find(" from ") == -1:
         if cat3.find(" by ") == -1 and cat3.find(" at ") == -1:
             if re.sub(r"^\d", "", cat3) == cat3:
-                category_lab = Get_contry(category3_not_lower)
+                category_lab = get_country_label(category3_not_lower)
             else:
-                category_lab = with_years_bot.Try_With_Years(cat3)
+                category_lab = with_years_bot.get_label_with_years(cat3)
                 if category_lab:
                     category_lab = f"تصنيف:{category_lab}"
 

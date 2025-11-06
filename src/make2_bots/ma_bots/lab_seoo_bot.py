@@ -26,7 +26,7 @@ from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.bot_2018 import pop_All_2018
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.bot import New_Lan
-from ...helps.print_bot import print_put, mainoutput
+from ...helps.print_bot import print_put, main_output_enabled
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -91,10 +91,10 @@ def event_Lab_seoo(category_r, category3):
         category_lab = centries_years_dec.get(category3, "")
 
     if not category_lab:
-        category_lab = test4_2018_Jobs(category3, out=mainoutput[1])
+        category_lab = test4_2018_Jobs(category3, out=main_output_enabled[1])
 
     if not category_lab:
-        category_lab = Jobs_in_Multi_Sports(category3_no_lower, out=mainoutput[1])
+        category_lab = Jobs_in_Multi_Sports(category3_no_lower, out=main_output_enabled[1])
 
     # if not category_lab:
     #     category_lab = tmp_bot.Work_Templates(category3)

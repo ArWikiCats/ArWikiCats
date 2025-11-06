@@ -23,8 +23,8 @@ from ..matables_bots.bot import (
 from ...helps.print_bot import print_put, output_test
 
 from .arlabel_bots.bot_type_country import get_type_country
-from .arlabel_bots.bot_type_lab import get_Type_lab
-from .arlabel_bots.bot_con_lab import get_con_lab
+from .arlabel_bots.bot_type_lab import get_type_label
+from .arlabel_bots.bot_con_lab import get_connector_label
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -44,12 +44,12 @@ def find_ar_label(
     Type_lower = Type.strip().lower()
     contry_lower = contry.strip().lower()
 
-    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, contry_lower)
+    Type_lab, Add_in_lab = get_type_label(tito, Type, Type_lower, contry_lower)
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
 
-    con_lab = get_con_lab(tito, do_Get_contry2, tito2, contry, contry_lower)
+    con_lab = get_connector_label(tito, do_Get_contry2, tito2, contry, contry_lower)
 
     if con_lab:
         Cate_test = Cate_test.replace(contry_lower, "")

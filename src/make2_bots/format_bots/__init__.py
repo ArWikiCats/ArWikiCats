@@ -550,7 +550,7 @@ def change_cat(cat_orginal):
 
 Lenth1 = {"Change_key": sys.getsizeof(Change_key), "Change_key2": sys.getsizeof(Change_key2)}
 
-len_print.lenth_pri("pop_format.py", Lenth1)
+len_print.print_lengths("pop_format.py", Lenth1)
 
 __all__ = [
     "Dont_Add_min",

@@ -398,4 +398,4 @@ Lenth["typetable"] = sys.getsizeof(typeTable)
 Lenth["kingdom"] = len_Kingdom[1]
 # ---
 
-len_print.lenth_pri("make2_bots.matables_bots/bot.py", Lenth, lens=["kingdom"], Max=10)
+len_print.print_lengths("make2_bots.matables_bots/bot.py", Lenth, lens=["kingdom"], max_size=10)

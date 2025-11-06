@@ -370,6 +370,6 @@ for cdf in New_male_keys:
 # ---
 Lenth1 = {"pop_final_5": sys.getsizeof(pop_final_5)}
 # ---
-len_print.lenth_pri("all_keys5.py", Lenth1)
+len_print.print_lengths("all_keys5.py", Lenth1)
 # ---
 del Clubs_key

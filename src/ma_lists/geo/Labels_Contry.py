@@ -266,7 +266,7 @@ Lentha = {
     "the_keys": the_keys,
 }
 
-len_print.lenth_pri("Labels_Contry.py", Lentha)
+len_print.print_lengths("Labels_Contry.py", Lentha)
 
 del Counties
 del tabe_lab_yy2

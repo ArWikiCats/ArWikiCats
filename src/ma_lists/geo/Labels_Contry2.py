@@ -251,6 +251,6 @@ Lenth1 = {
 # ---
 from ...helps import len_print
 
-len_print.lenth_pri("Labels_Contry2.py", Lenth1, Max=21)
+len_print.print_lengths("Labels_Contry2.py", Lenth1, max_size=21)
 # ---
 # del New_Keys

@@ -36,7 +36,7 @@ def find_lab(category, category_r):
     if not _lab:
         _lab = New_players.get(cate_low, "")
     if not _lab:
-        _lab = year_lab.make_year_lab(cate_low)
+        _lab = year_lab.get_year_label(cate_low)
 
     if _lab:
         _lab = fixtitle.fixlab(_lab, en=category_r)

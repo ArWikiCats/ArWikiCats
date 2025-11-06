@@ -20,7 +20,7 @@ from ....ma_lists import New_female_keys
 
 from ...format_bots import Tabl_with_in
 
-from ....helps.print_bot import print_put, output_test, mainoutput
+from ....helps.print_bot import print_put, output_test, main_output_enabled
 
 from ..contry_bot import get_country_or_term_label
 
@@ -88,7 +88,7 @@ def get_type_label(tito: str, Type: str, type_lower: str, country_lower: str) ->
     if not type_label:
         type_label = event2bot.event2(type_lower)
     if not type_label:
-        type_label = test4_2018_Jobs(type_lower, out=mainoutput[1])
+        type_label = test4_2018_Jobs(type_lower, out=main_output_enabled[1])
 
     if not type_label:
         type_label = contry2_lab.get_lab_for_contry2(type_lower)

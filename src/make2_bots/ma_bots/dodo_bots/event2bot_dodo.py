@@ -21,7 +21,7 @@ from ...matables_bots.bot import (
 )
 from .dodo_2019 import work_2019
 from .mk2 import new_func_mk2
-from ..contry_bot import Get_contry
+from ..contry_bot import get_country_label
 from ...matables_bots.bot_2018 import pop_All_2018
 from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
 from ....helps.print_bot import print_put, output_test
@@ -117,7 +117,7 @@ def make_lab_dodo(
         cnt_la = pop_All_2018.get(contry, "")
 
         if not cnt_la:
-            cnt_la = Get_contry(contry_not_lower)
+            cnt_la = get_country_label(contry_not_lower)
 
         if cnt_la == "" and category3 == year + " " + contry:
             cnt_la = Nat_mens.get(contry, "")
@@ -132,7 +132,7 @@ def make_lab_dodo(
             print_put("a<<lightblue>>>cnt_la : %s" % cnt_la)
 
     if year:
-        year_labe = year_lab.make_year_lab(year)
+        year_labe = year_lab.get_year_label(year)
         if year_labe:
             Add_to_main2_tab(year, year_labe)
             cat_test = cat_test.lower().replace(year.lower(), "")

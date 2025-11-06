@@ -347,6 +347,6 @@ Lenth1 = {
 }
 # ---
 
-len_print.lenth_pri("male_keys.py", Lenth1)
+len_print.print_lengths("male_keys.py", Lenth1)
 # ---
 del Films_keys_male_female

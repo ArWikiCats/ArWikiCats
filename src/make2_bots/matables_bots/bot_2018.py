@@ -150,4 +150,4 @@ for olmp, olmp_lab in olympicss.items():
 
 Lenth: Dict[str, int] = {}
 Lenth["pop_All_2018"] = sys.getsizeof(pop_All_2018)
-len_print.lenth_pri("make2_bots.matables_bots/bot_2018.py", Lenth, Max=10)
+len_print.print_lengths("make2_bots.matables_bots/bot_2018.py", Lenth, max_size=10)

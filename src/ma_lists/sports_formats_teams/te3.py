@@ -190,4 +190,4 @@ Lenthtab = {
     "New_team_xo_team": sys.getsizeof(New_team_xo_team),
 }
 # ---
-len_print.lenth_pri("te3.py", Lenthtab)
+len_print.print_lengths("te3.py", Lenthtab)
