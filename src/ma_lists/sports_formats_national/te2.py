@@ -142,4 +142,4 @@ Lenthtab = {
     "New_For_nat_female_xo_team": sys.getsizeof(New_For_nat_female_xo_team),
 }
 
-len_print.lenth_pri("sports_format_xzxz/te2.py", Lenthtab)
+len_print.lenth_pri("sports_formats_national/te2.py", Lenthtab)

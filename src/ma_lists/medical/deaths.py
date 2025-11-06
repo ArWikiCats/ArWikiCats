@@ -3,7 +3,7 @@
 # ---
 from ...helps import len_print
 
-deathes_by = {
+deaths_by = {
     "lung cancer": "سرطان الرئة",
     "brain cancer": "سرطان الدماغ",
     "cancer": "السرطان",
@@ -27,7 +27,7 @@ deathes_by = {
 # ---
 medical_keys = {}
 # ---
-for di, diar in deathes_by.items():
+for di, diar in deaths_by.items():
     medical_keys[di] = diar
     medical_keys[f"deaths from {di}"] = f"وفيات {diar}"
 # ---

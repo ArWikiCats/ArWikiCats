@@ -6,7 +6,7 @@ import sys
 from ...helps import len_print
 
 from .sports_lists import AFTER_KEYS, nat_menstt33, PPP_Keys, New_Tato_nat
-from ..sports_format_xoxo.team_job import sf_en_ar_is_p17
+from ..sports_formats_teams.team_job import sf_en_ar_is_p17
 from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, Sports_Keys_For_olympic
 from ..jobs.jobs_players_list import Football_Keys_players
 

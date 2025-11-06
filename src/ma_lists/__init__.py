@@ -55,9 +55,9 @@ from .mixed.test_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_
 
 from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
 
-from .sports_format_xzxz.sport_lab_nat import Get_sport_formts_female_nat
+from .sports_formats_national.sport_lab_nat import Get_sport_formts_female_nat
 
-from .sports_format_xoxo.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
+from .sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
 
 from .utils.json_dir import open_json_file
 
