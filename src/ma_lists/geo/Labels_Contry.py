@@ -20,15 +20,11 @@ from .Cities import N_cit_ies_s, tabe_lab_yy2
 from .Labels_Contry2 import P17_PP
 
 
-P17_2_final_ll = {}
+COUNTRY_LABEL_OVERRIDES = open_json_file("P17_2_final_ll") or {}
 # ---
-P17_2_final_ll = open_json_file("P17_2_final_ll") or {}
+POPULATION_OVERRIDES = open_json_file("opop") or {}
 # ---
-opop = {}
-# ---
-opop = open_json_file("opop") or {}
-# ---
-Jaban_cities = {
+JAPAN_REGIONAL_LABELS = {
     "gokishichidō": "",
     "saitama": "سايتاما",
     "tohoku": "توهوكو",
@@ -86,7 +82,7 @@ Jaban_cities = {
     "hokkaidō": "هوكايدو",
 }
 
-Turky = {
+TURKEY_PROVINCE_LABELS = {
     "adana": "أضنة",
     "adıyaman": "أديامان",
     "afyonkarahisar": "أفيون قره حصار",
@@ -170,108 +166,113 @@ Turky = {
     "zonguldak": "زانغولداك",
 }
 
-pop_final_Without_Years = {}
-P17_final_ll = {}
-New_P17_Finall = {city1.lower(): N_cit_ies_s[city1] for city1 in N_cit_ies_s if N_cit_ies_s[city1] != ""}
+population_without_years = {}
+country_labels_final = {}
+COUNTRY_LABEL_INDEX = {city1.lower(): N_cit_ies_s[city1] for city1 in N_cit_ies_s if N_cit_ies_s[city1] != ""}
 # ---
 # ---
 # 402.55859375 before del
 # 402.42578125 after del
 # ---
-for city, lal in Jaban_cities.items():
+for city, lal in JAPAN_REGIONAL_LABELS.items():
     city2 = city.lower()
     if lal:
-        New_P17_Finall[city2] = lal
-        New_P17_Finall[f"{city2} Prefecture"] = f"محافظة {lal}"
-        New_P17_Finall[f"{city2} region"] = f"منطقة {lal}"
+        COUNTRY_LABEL_INDEX[city2] = lal
+        COUNTRY_LABEL_INDEX[f"{city2} Prefecture"] = f"محافظة {lal}"
+        COUNTRY_LABEL_INDEX[f"{city2} region"] = f"منطقة {lal}"
 
 frf = []
-for xa in P17_2_final_ll:
-    if P17_2_final_ll[xa]:
-        New_P17_Finall[xa.lower()] = P17_2_final_ll[xa]
+for xa, override_label in COUNTRY_LABEL_OVERRIDES.items():
+    if override_label:
+        COUNTRY_LABEL_INDEX[xa.lower()] = override_label
 
-for xa in opop:
-    if opop[xa]:
-        New_P17_Finall[xa.lower()] = opop[xa]
+for xa, override_label in POPULATION_OVERRIDES.items():
+    if override_label:
+        COUNTRY_LABEL_INDEX[xa.lower()] = override_label
 
-for xa in P17_PP:
-    if P17_PP[xa]:
-        New_P17_Finall[xa.lower()] = P17_PP[xa]
+for xa, override_label in P17_PP.items():
+    if override_label:
+        COUNTRY_LABEL_INDEX[xa.lower()] = override_label
 
-for ccc, ccc_lab in Main_Table.items():
-    New_P17_Finall[ccc.lower()] = ccc_lab
+    COUNTRY_LABEL_INDEX[ccc.lower()] = ccc_lab
 
-for ccc, ccc_lab in Main_Table_2.items():
-    New_P17_Finall[ccc.lower()] = ccc_lab
+    COUNTRY_LABEL_INDEX[ccc.lower()] = ccc_lab
 
 Main_Table_tr = {}
 Turky_Province = {}
 
-for dyd in Turky:
-    New_P17_Finall[dyd.lower()] = Turky[dyd]
-    New_P17_Finall[f"{dyd.lower()} Province"] = f"محافظة {Turky[dyd]}"
-    Turky_Province[f"{dyd.lower()} Province"] = f"محافظة {Turky[dyd]}"
-    New_P17_Finall[f"districts of {dyd.lower()} Province"] = f"أقضية محافظة {Turky[dyd]}"
+for dyd, province_label in TURKEY_PROVINCE_LABELS.items():
+    lower_name = dyd.lower()
+    COUNTRY_LABEL_INDEX[lower_name] = province_label
+    COUNTRY_LABEL_INDEX[f"{lower_name} Province"] = f"محافظة {province_label}"
+    Turky_Province[f"{lower_name} Province"] = f"محافظة {province_label}"
+    COUNTRY_LABEL_INDEX[f"districts of {lower_name} Province"] = f"أقضية محافظة {province_label}"
 
-for indi in India_Main_Table:
-    New_P17_Finall[indi.lower()] = India_Main_Table[indi]
+for indi, label in India_Main_Table.items():
+    COUNTRY_LABEL_INDEX[indi.lower()] = label
 
-for vvvv in tabe_lab_yy2:
-    New_P17_Finall[vvvv.lower()] = tabe_lab_yy2[vvvv]
+for vvvv, label in tabe_lab_yy2.items():
+    COUNTRY_LABEL_INDEX[vvvv.lower()] = label
 
-for contry in pf_keys2:
-    if pf_keys2[contry]:
-        New_P17_Finall[contry.lower()] = pf_keys2[contry]
+for contry, label in pf_keys2.items():
+    if label:
+        COUNTRY_LABEL_INDEX[contry.lower()] = label
 
-for p_o_5 in New_Company:
-    if p_o_5.lower() not in pf_keys2 and New_Company[p_o_5]:
-        New_P17_Finall[p_o_5.lower()] = New_Company[p_o_5]
+for company_name, company_label in New_Company.items():
+    lower_company = company_name.lower()
+    if lower_company not in pf_keys2 and company_label:
+        COUNTRY_LABEL_INDEX[lower_company] = company_label
 
-New_P17_Finall["indycar"] = "أندي كار"
-New_P17_Finall["indiana"] = "إنديانا"
-New_P17_Finall["motorsport"] = "رياضة محركات"
-New_P17_Finall["indianapolis"] = "إنديانابوليس"
-New_P17_Finall["sports in indiana"] = "الرياضة في إنديانا"
-New_P17_Finall["igbo"] = "إغبو"
+COUNTRY_LABEL_INDEX["indycar"] = "أندي كار"
+COUNTRY_LABEL_INDEX["indiana"] = "إنديانا"
+COUNTRY_LABEL_INDEX["motorsport"] = "رياضة محركات"
+COUNTRY_LABEL_INDEX["indianapolis"] = "إنديانابوليس"
+COUNTRY_LABEL_INDEX["sports in indiana"] = "الرياضة في إنديانا"
+COUNTRY_LABEL_INDEX["igbo"] = "إغبو"
 
-for vg in Counties:
-    if Counties[vg]:
-        New_P17_Finall[vg.lower()] = Counties[vg]
+for vg, county_label in Counties.items():
+    if county_label:
+        COUNTRY_LABEL_INDEX[vg.lower()] = county_label
 
 the_keys = 0
 
-for ase, z in copy.deepcopy(New_P17_Finall).items():
+for ase, z in copy.deepcopy(COUNTRY_LABEL_INDEX).items():
     if z:
         ase3 = ase.lower()
 
         if ase.startswith("the "):
             the_keys += 1
             ase33 = ase3[len("the ") :].strip()
-            New_P17_Finall[ase33] = z
+            COUNTRY_LABEL_INDEX[ase33] = z
 
-for ta2 in Taxons_table:
-    if ta2.lower() not in New_P17_Finall and Taxons_table[ta2]:
-        New_P17_Finall[ta2.lower()] = Taxons_table[ta2]
+for ta2, taxon_label in Taxons_table.items():
+    lower_taxon = ta2.lower()
+    if lower_taxon not in COUNTRY_LABEL_INDEX and taxon_label:
+        COUNTRY_LABEL_INDEX[lower_taxon] = taxon_label
 
 for po_5, poll in pop_final_5.items():
     if poll:
-        if po_5.lower() not in New_P17_Finall:
-            New_P17_Finall[po_5.lower()] = poll
+        lower_population_key = po_5.lower()
+        if lower_population_key not in COUNTRY_LABEL_INDEX:
+            COUNTRY_LABEL_INDEX[lower_population_key] = poll
 
 P17_fdd = {}
 
-Lentha = {
-    "New_P17_Finall": sys.getsizeof(New_P17_Finall),
-    "opop": sys.getsizeof(opop),
+memory_stats = {
+    "COUNTRY_LABEL_INDEX": sys.getsizeof(COUNTRY_LABEL_INDEX),
+    "POPULATION_OVERRIDES": sys.getsizeof(POPULATION_OVERRIDES),
     "the_keys": the_keys,
 }
 
-len_print.lenth_pri("Labels_Contry.py", Lentha)
+len_print.lenth_pri("Labels_Contry.py", memory_stats)
 
 del Counties
 del tabe_lab_yy2
-del P17_2_final_ll
+del COUNTRY_LABEL_OVERRIDES
 del N_cit_ies_s
-del opop
+del POPULATION_OVERRIDES
 del Main_Table
 del P17_PP
+# ---
+# Backwards compatible aliases
+New_P17_Finall = COUNTRY_LABEL_INDEX
