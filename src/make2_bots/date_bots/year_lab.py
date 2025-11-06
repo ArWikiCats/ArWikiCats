@@ -3,77 +3,59 @@ from ..matables_bots.bot import MONTH_table
 from ...helps.log import logger
 from ..reg_lines import regex_make_year_lab
 
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+en_letters = "[abcdefghijklmnopqrstuvwxyz]"
 
+def make_year_lab(year_str: str) -> str:  # 21st century
+    """Converts a year string into an Arabic label."""
+    suffix = " ق م " if " bc" in year_str or " bce" in year_str else ""
+    year_numeric = re.sub(regex_make_year_lab.lower(), r"\g<1>", year_str)
+    year_no_bc = year_str.split(" bce")[0].split(" bc")[0]
+    year_text = re.sub(r"\d+", "", year_no_bc).strip()
 
-def make_year_lab(year: str) -> str:  # 21st century
-    # ---
+    lab_map = {
+        "s": f"عقد {year_numeric}{suffix}",
+        "century": f"القرن {year_numeric}{suffix}",
+        "millennium": f"الألفية {year_numeric}{suffix}",
+    }
 
-    su = ""
-    _ye_ = re.sub(regex_make_year_lab.lower(), r"\g<1>", year)
+    if not year_text:
+        result = year_numeric + suffix
+    elif year_text.lower() in MONTH_table:
+        year_value = re.sub(year_text, "", year_no_bc).strip()
+        result = f"{MONTH_table[year_text]} {year_value}{suffix}"
+        logger.debug(f' test_2 "{result}":')
+    elif year_text in lab_map:
+        result = lab_map[year_text]
+    elif re.sub(r"\d+", "", year_str.strip()) in ["", "-", "–", "−"]:
+        result = year_str
+    else:
+        result = ""
 
-    if " bc" in year or " bce" in year:
-        su = " ق م "
+    if re.search(en_letters, result, flags=re.IGNORECASE):
+        result = ""
 
-    year2 = year.split(" bce")[0].split(" bc")[0]
-    test_2 = re.sub(r"\d+", "", year2).strip()
+    if result:
+        logger.info(f'>>>> make_year_lab: "{year_str}", "{result}":')
+    return result
 
-    y_l = ""
-    if not test_2:
-        y_l = _ye_ + su
+def make_month_lab(month_str: str) -> str:  # 21st century
+    """Converts a month string into an Arabic label."""
+    if re.match(r"^\d+$", month_str.strip()):
+        return month_str.strip()
 
-    elif test_2.lower() in MONTH_table:
-        fa2 = re.sub(test_2, "", year2).strip()
-        y_l = f"{MONTH_table[test_2]} {fa2}{su}"
-        logger.debug(f' test_2 "{y_l}":')
+    result = ""
+    month_text = re.sub(r"\d+$", "", month_str).strip()
+    if month_text.lower() in MONTH_table:
+        month_value = re.sub(month_text, "", month_str).strip()
+        result = f"{MONTH_table[month_text.lower()]} {month_value}"
+        logger.debug(f' test_2 "{result}":')
 
-    elif test_2 == "s":
-        y_l = f"عقد {_ye_}{su}"
+    if re.sub(r"\d+", "", month_str.strip()) in ["", "-", "–", "−"]:
+        result = month_str
 
-    elif "century" in year:
-        y_l = f"القرن {_ye_}{su}"
+    if re.search(en_letters, result, flags=re.IGNORECASE):
+        result = ""
 
-    elif "millennium" in year:
-        y_l = f"الألفية {_ye_}{su}"
-
-    tst3 = re.sub(r"\d+", "", year.strip())
-    test3_results = ["", "-", "–", "−"]
-    if tst3 in test3_results:
-        y_l = year
-
-    kaka = re.sub(en_literes, "", y_l, flags=re.IGNORECASE)
-    if kaka != y_l:
-        y_l = ""
-
-    if y_l:
-        logger.info(f'>>>> make_year_lab: "{year}", "{y_l}":')
-    return y_l
-
-
-def make_month_lab(year: str) -> str:  # 21st century
-    if re.match(r"^\d+$", year.strip()):
-        return year.strip()
-
-    y_l = ""
-
-    year2 = year
-    test_2 = re.sub(r"\d+$", "", year2).strip()
-    if test_2.lower() in MONTH_table:
-        fa2 = re.sub(test_2, "", year2).strip()
-        y_l = f"{MONTH_table[test_2.lower()]} {fa2}"
-        logger.debug(f' test_2 "{y_l}":')
-
-    # if y_l != year:
-
-    tst3 = re.sub(r"\d+", "", year.strip())
-    test3_results = ["", "-", "–", "−"]
-    if tst3 in test3_results:
-        y_l = year
-
-    kaka = re.sub(en_literes, "", y_l, flags=re.IGNORECASE)
-    if kaka != y_l:
-        y_l = ""
-
-    if y_l:
-        logger.info(f'>>>> year_lab.make_month_lab: "{year}", "{y_l}":')
-    return y_l
+    if result:
+        logger.info(f'>>>> year_lab.make_month_lab: "{month_str}", "{result}":')
+    return result
