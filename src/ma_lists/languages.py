@@ -6,7 +6,7 @@
 
 # import re
 # ---
-from .all_keys3 import albums_type
+from .mixed.all_keys3 import albums_type
 
 # ---
 languages_key = {}

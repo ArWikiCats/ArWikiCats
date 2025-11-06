@@ -49,3 +49,12 @@ This update improves label processing accuracy and restructures the test archite
 * Cleaned up deprecated test scripts and legacy helpers replaced by the unified pytest structure.
 
 ---
+## #13
+
+* **Refactor**
+  * Reorganized package structure with new submodules for improved organization (sports, politics, companies, utilities).
+  * Updated import paths across modules for better maintainability.
+
+* **New Features**
+  * Added comprehensive localization mappings for sports, companies, buildings, and medical terminology.
+  * Expanded translation data for enhanced language support and domain coverage.

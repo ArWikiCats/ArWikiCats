@@ -16,7 +16,7 @@ WHERE {
 from .jobs_singers import singers_tab
 from .jobs_singers import Men_Womens_Singers, films_type
 """
-from ..json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
 # ---
 Men_Womens_Singers = {}

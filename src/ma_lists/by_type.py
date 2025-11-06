@@ -6,7 +6,8 @@
 
 import sys
 
-from .json_dir import open_json_file
+from ..helps import len_print
+from .utils.json_dir import open_json_file
 
 # ---
 # from .by_table import By_table
@@ -311,6 +312,5 @@ def main():
 # ---
 Lenth1 = {"by_table": sys.getsizeof(By_table)}
 # ---
-from ..helps import len_print
 
 len_print.lenth_pri("by_table.py", Lenth1)
