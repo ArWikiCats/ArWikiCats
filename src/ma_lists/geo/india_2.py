@@ -3,7 +3,7 @@
 # from .india_2 import Main_Table_2
 
 """
-from ..json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 # ---
 India_dd = {}
 popopo = {}

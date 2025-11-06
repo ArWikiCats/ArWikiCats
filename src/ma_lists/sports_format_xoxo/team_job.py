@@ -5,7 +5,7 @@ from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p1
 import sys
 import re
 from ...helps import len_print
-from ..sports_lists import levels, AFTER_KEYS_NAT, New_Tato_nat
+from ..sports.sports_lists import levels, AFTER_KEYS_NAT, New_Tato_nat
 
 # ---
 New_team_xo_jobs = {}

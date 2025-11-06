@@ -5,9 +5,8 @@ python3 core8/pwb.py make/m test Category:People executed by the International M
 """
 
 
-
-
 import sys
+from ..helps import len_print
 
 #
 # ---
@@ -330,7 +329,6 @@ for first in Frist_type_female:
 # ---
 Ta_s = {
     "arts": "فنية",
-    "arts": "فنية",
 }
 # ---
 for ta in Ta_s:
@@ -338,8 +336,5 @@ for ta in Ta_s:
 # ---
 lenthe = {"pop_final6": sys.getsizeof(pop_final6)}
 # ---
-from ..helps import len_print
-
 len_print.lenth_pri("newkey.py", lenthe)
-# ---
 # ---

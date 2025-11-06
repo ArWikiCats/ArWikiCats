@@ -8,7 +8,7 @@ from .json_dir import open_json_file# open_json_file(file="")
 from pathlib import Path
 import json
 
-Dir2 = Path(__file__).parent
+Dir2 = Path(__file__).parent.parent
 
 
 def open_json_file(file=""):

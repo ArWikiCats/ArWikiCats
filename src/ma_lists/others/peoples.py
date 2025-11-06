@@ -29,7 +29,8 @@ LIMIT 10000
 # ---
 import sys
 
-from .json_dir import open_json_file
+from ..utils.json_dir import open_json_file
+from ...helps import len_print
 
 
 # ---
@@ -43,7 +44,6 @@ Lenth_p = {
     "People_key": sys.getsizeof(People_key),
 }
 # ---
-from ..helps import len_print
 
 len_print.lenth_pri("peoples.py", Lenth_p, Max=1000)
 # ---

@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 """
-from .all_keys2 import aerasee, albums_type1, Books_table, Books_type, Cinmakey, DIRECTIONS, mmmm, NosaK, pf_keys2, pop_of_football, pop_of_football_lower, pop_of_without_in, pop_of_with_in, QARAT, schools_keeys, Tato_type, towns_communities, weapons_pop, weapons_type, Word_After_Years
+
 """
-from .json_dir import open_json_file
+from .utils.json_dir import open_json_file
 
 # ---
 from .keys_23 import new_2023
 from .keys2 import keys2_py
 from .all_keys4 import new2019
-from .films_mslslat import film_Keys_For_male, film_Keys_For_female
-from .all_keys3 import albums_type, pop_final_3, tennis_key
+from .tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
+from .sports import tennis_keys
+from .all_keys3 import albums_type, pop_final_3
 from .Newkey import pop_final6
 from .languages import languages_key, cccccc_m
-from .peoples import People_key
-from .ministers import minister_keyse, ministrees_keysse
+from .others.peoples import People_key
+from .politics.ministers import minister_keyse, ministrees_keysse
 from .jobs.jobs_singers import singers_tab
 
 # ---
@@ -541,13 +542,13 @@ for cfy, cylab in cccccc_m.items():
     if not pf_keys2.get(cfy2) and cylab:
         pf_keys2[cfy2] = cylab
 # ---
-for xxx in tennis_key:  # all_keys3
+for xxx in tennis_keys:  # all_keys3
     gh2 = xxx.lower()
-    if gh2 not in pf_keys2 and tennis_key[xxx]:
-        pf_keys2[gh2] = tennis_key[xxx]
+    if gh2 not in pf_keys2 and tennis_keys[xxx]:
+        pf_keys2[gh2] = tennis_keys[xxx]
 """
 # ---
-pf_keys2.update({k.lower(): v.strip() for k, v in tennis_key.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
+pf_keys2.update({k.lower(): v.strip() for k, v in tennis_keys.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
 # ---
 pf_keys2.update({k.lower(): v.strip() for k, v in pop_final6.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
 # ---

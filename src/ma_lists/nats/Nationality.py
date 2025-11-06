@@ -20,9 +20,9 @@ LIMIT 1000
 
 import sys
 
-from .json_dir import open_json_file
-from ..helps import len_print
-from .. import printe
+from ..utils.json_dir import open_json_file
+from ...helps import len_print
+from ... import printe
 
 # ---
 All_Nat_o = open_json_file("All_Nat_o") or {}
@@ -31,7 +31,8 @@ nats_to_add = {}
 # ---
 uu_nats = open_json_file("uu_nats") or {}
 # ---
-uu_nats["hindustan"] = uu_nats["hindustani"]
+if uu_nats.get("hindustani"):
+    uu_nats["hindustan"] = uu_nats["hindustani"]
 # ---
 """
 for x in nats_to_add:

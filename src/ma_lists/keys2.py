@@ -4,13 +4,16 @@
 #
 #
 # ---
-from .json_dir import open_json_file
-
+from .utils.json_dir import open_json_file
 from ..helps import len_print
+from .geo.us_counties import USA_newkeys
+from .medical.deaths import medical_keys
 
 new_2019 = open_json_file("keys2") or {}
 # ---
 keys2_py = open_json_file("keys2_py") or {}
+# ---
+keys2_py.update(medical_keys)
 # ---
 Add_in_table2 = [
     "censuses",  # تعداد السكان
@@ -89,33 +92,8 @@ Parties = {
 for x in Parties:
     new_2019[x] = Parties[x]
 # ---
-from .geo.us_counties import USA_newkeys
-
-# ---
 for xg, xg_lab in USA_newkeys.items():
     new_2019[xg.lower()] = xg_lab
-# ---
-deathes_by = {
-    "lung cancer": "سرطان الرئة",
-    "brain cancer": "سرطان الدماغ",
-    "cancer": "السرطان",
-    "amyloidosis": "داء نشواني",
-    "mastocytosis": "كثرة الخلايا البدينة",
-    "autoimmune disease": "أمراض المناعة الذاتية",
-    "blood disease": "أمراض الدم",
-    "cardiovascular disease": "أمراض قلبية وعائية",
-    "digestive disease": "أمراض الجهاز الهضمي",
-    "infectious disease": "أمراض معدية",
-    "musculoskeletal disorders": "إصابة الإجهاد المتكرر",
-    "neurological disease": "أمراض عصبية",
-    "organ failure": "فشل عضوي",
-    "respiratory disease": "أمراض الجهاز التنفسي",
-    "skin disease": "مرض جلدي",
-    "urologic disease": "أمراض الجهاز البولي",
-    "endocrine disease": "أمراض الغدد الصماء",
-    "genetic disorders": "اضطرابات وراثية",
-    "reproductive system disease": "أمراض الجهاز التناسلي",
-}
 # ---
 # "united states senate elections" "انتخابات مجلس الشيوخ الأمريكي",
 # ,"cultural depictions":"التصوير الثقافي"
@@ -153,10 +131,6 @@ deathes_by = {
 # ,"women's organizations":"منظمات نسائية"
 # ,"women's organizations based":"منظمات نسائية مقرها"
 # ,"sports governing bodies":"مجالس إدارية رياضية"
-# ---
-for di, diar in deathes_by.items():
-    keys2_py[di] = diar
-    keys2_py[f"deaths from {di}"] = f"وفيات {diar}"
 # ---
 Lenth1 = {"keys2_py": len(keys2_py.keys())}
 # ---

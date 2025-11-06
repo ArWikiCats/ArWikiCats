@@ -8,7 +8,7 @@ import sys
 
 # ---
 from ...helps import len_print
-from ..Sport_key import Sports_Keys_For_Team
+from .Sport_key import Sports_Keys_For_Team
 
 nat_p17_oioi = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---

@@ -12,9 +12,9 @@ import os
 from pathlib import Path
 from colorama import Fore, Style
 
-from ..json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
-Dir = Path(__file__).parent
+Dir = Path(__file__).parent / "jsons"
 
 
 def scan_json_files(folder_path):

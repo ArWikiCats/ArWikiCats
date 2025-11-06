@@ -7,7 +7,7 @@
 import re
 # ---
 from .te2 import New_For_nat_female_xo_team
-from ..Sport_key import Sports_Keys_For_Jobs, fanco_line
+from ..sports.Sport_key import Sports_Keys_For_Jobs, fanco_line
 from ...helps.print_bot import print_put
 
 

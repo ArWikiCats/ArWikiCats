@@ -6,10 +6,10 @@
 import sys
 import copy
 
-from ..json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
 from .us_counties import Counties
-from ..tax_table import Taxons_table
+from ..others.tax_table import Taxons_table
 from ...helps import len_print
 from ..male_keys import New_Company
 from ..all_keys5 import pop_final_5

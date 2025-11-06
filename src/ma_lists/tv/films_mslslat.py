@@ -16,13 +16,12 @@ OPTIONAL {?item rdfs:label ?itemaa filter (lang(?itemaa) = "ar")   }
 #LIMIT 100
 """
 #
-import re
 import copy
 import sys
 
-from .json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
-from ..helps import len_print
+from ...helps import len_print
 
 # ---
 Films_keys_both_new = {}

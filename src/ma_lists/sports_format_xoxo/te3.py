@@ -6,7 +6,7 @@ import re
 import sys
 from ...helps import len_print
 from ...helps.log import logger
-from ..sports_lists import AFTER_KEYS_TEAM, menstt333
+from ..sports.sports_lists import AFTER_KEYS_TEAM, menstt333
 
 # ---
 sport_formts_enar_p17_team = {}

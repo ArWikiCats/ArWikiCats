@@ -1,9 +1,8 @@
 """
-from .all_keys4 import new2019, Cambridge, Inters_Fed, Inter_Feds_lower, united_states, Battleships, n_2019_ch, new2019_cycling
 """
 
 from .keys2 import new_2019
-
+from .sports.cycling import new_cy
 # ---
 new2019 = {}
 # ---
@@ -332,29 +331,7 @@ for ch, ch_tab in n_2019_ch.items():
         new2019[f"{ch2} catholic"] = f"{ch_tab['singular']} الكاثوليكية"
         new2019[f"{ch2} catholic eparchies"] = f"أبرشيات {plural} كاثوليكية"
 # ---
-new2019_cycling = {
-    "tour de france": "سباق طواف فرنسا",
-    "grand tour": "الطوافات الكبرى",
-    "grand tour (cycling)": "الطوافات الكبرى",
-    "vuelta a españa": "طواف إسبانيا",
-    "giro d'italia": "طواف إيطاليا",
-    "presidential cycling tour of turkey": "طواف تركيا",
-    "tour de suisse": "طواف سويسرا",
-    "vuelta a colombia": "طواف كولومبيا",
-    "vuelta a venezuela": "فويلتا فنزويلا",
-}
-# ---
-for cy, cy_lab in new2019_cycling.items():
-    cy2 = cy.lower()
-    new2019[cy2] = cy_lab
-    new2019[f"{cy2} media"] = f"إعلام {cy_lab}"
-    new2019[f"{cy2} squads"] = f"تشكيلات {cy_lab}"
-    new2019[f"{cy2} cyclists"] = f"دراجو {cy_lab}"
-    new2019[f"{cy2} directors"] = f"مدراء {cy_lab}"
-    new2019[f"{cy2} journalists"] = f"صحفيو {cy_lab}"
-    new2019[f"{cy2} people"] = f"أعلام {cy_lab}"
-    new2019[f"{cy2} stages"] = f"مراحل {cy_lab}"
-    new2019[f"{cy2} stage winners"] = f"فائزون في مراحل {cy_lab}"
+new2019.update(new_cy)
 # ---
 united_states = {
     "united states senate": "مجلس الشيوخ الأمريكي",

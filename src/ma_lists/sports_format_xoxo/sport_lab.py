@@ -10,8 +10,8 @@ from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p1
 from .te3 import New_team_xo_team
 
 from ..sports import sport_formts_enar_p17_team
-from ..Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, fanco_line
-from ..Nationality import All_contry_with_nat_ar
+from ..sports.Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, fanco_line
+from ..nats.Nationality import All_contry_with_nat_ar
 from ...helps.print_bot import print_put, output_test
 
 # ---

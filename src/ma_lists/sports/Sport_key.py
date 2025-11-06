@@ -6,8 +6,6 @@ from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_
 """
 
 # ---
-Sports_Keys_New2 = {}
-# ---
 # ,"professional league":{"label":"دوري المحترفين", "team":"لدوري المحترفين", "jobs":"دوري محترفين"}
 # ,"softball":{"label":"سوفتبول", "team":"للسوفتبول", "jobs":"سوفتبول"}
 # ,"baseball3":{"label":"البيسبول", "team":"للبيسبول", "jobs":"بيسبول"}
@@ -15,9 +13,10 @@ Sports_Keys_New2 = {}
 # ,"athletics indoor":{"label":"ألعاب القوى داخل الصالات", "team":"لألعاب القوى داخل الصالات", "jobs":"ألعاب قوى داخل صالات"}
 # ---
 import sys
+from ..utils.json_dir import open_json_file
 
-from .json_dir import open_json_file
-
+Sports_Keys_New2 = {}
+# ---
 # ---
 Sports_Keys_New = {}
 # ---
@@ -136,7 +135,7 @@ Lenth1 = {
     "All_Nat Sports_Keys_For_Jobs": sys.getsizeof(Sports_Keys_For_Jobs),
 }
 # ---
-from ..helps import len_print
+from ...helps import len_print
 
 len_print.lenth_pri("Sport_key.py", Lenth1)
 # ---

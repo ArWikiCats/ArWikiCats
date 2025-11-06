@@ -7,7 +7,7 @@ python3 core8/pwb.py make/lists/Labels_Contry2
 
 import sys
 
-from ..json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
 # ---
 P17_PP = {}

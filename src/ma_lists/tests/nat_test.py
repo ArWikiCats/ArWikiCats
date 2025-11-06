@@ -3,8 +3,8 @@
 
 """
 
-from .Nationality import All_Nat, All_contry_with_nat_ar, A_Nat, All_Nat_o
-from .. import printe
+from ..nats.Nationality import All_Nat, All_contry_with_nat_ar, A_Nat, All_Nat_o
+from ... import printe
 
 fasenor = {
     "ababda people": "عبابدة",

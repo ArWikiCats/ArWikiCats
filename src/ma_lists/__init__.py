@@ -8,9 +8,9 @@ from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_
 
 from .geo.Labels_Contry import New_P17_Finall
 
-from .Nationality import All_Nat, Nat_women, All_contry_ar, All_contry_with_nat, All_contry_with_nat_keys_is_en, All_contry_with_nat_ar, contries_from_nat, Nat_mens, Nat_Womens, Nat_men, ar_Nat_men, nats_to_add, en_nats_to_ar_label
+from .nats.Nationality import All_Nat, Nat_women, All_contry_ar, All_contry_with_nat, All_contry_with_nat_keys_is_en, All_contry_with_nat_ar, contries_from_nat, Nat_mens, Nat_Womens, Nat_men, ar_Nat_men, nats_to_add, en_nats_to_ar_label
 
-from .Sport_key import fanco_line, Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
+from .sports.Sport_key import fanco_line, Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
 
 from .all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
 
@@ -24,7 +24,7 @@ from .all_keys5 import Clubs_key_2
 
 from .by_type import By_table, By_orginal2, By_table_orginal, Music_By_table
 
-from .films_mslslat import Films_TT, typeTable_4, Films_key_CAO, Films_key_For_nat, Films_key_CAO_new_format, television_keys_female, Films_key_333, Films_key_man, film_key_women_2, films_mslslat_tab, film_Keys_For_female, Films_keys_both_new
+from .tv.films_mslslat import Films_TT, typeTable_4, Films_key_CAO, Films_key_For_nat, Films_key_CAO_new_format, television_keys_female, Films_key_333, Films_key_man, film_key_women_2, films_mslslat_tab, film_Keys_For_female, Films_keys_both_new
 
 from .jobs.jobs_defs import religious_keys_PP
 
@@ -35,15 +35,15 @@ from .languages import languages_pop, lang_ttty, languages_key, lang_key_m
 
 from .male_keys import New_female_keys, New_male_keys, New_Company
 
-from .military_keys import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
+from .politics.military_keys import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
 
-from .ministers import ministrs_tab_for_pop_format
+from .politics.ministers import ministrs_tab_for_pop_format
 
 from .numbers1 import change_numb_to_word
 
-from .peoples import People_key
+from .others.peoples import People_key
 
-from .pop_2018 import pop_All_2018
+from .others.pop_2018 import pop_All_2018
 
 from .sports import Teams_new, sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
 
@@ -57,7 +57,7 @@ from .sports_format_xzxz.sport_lab_nat import Get_sport_formts_female_nat
 
 from .sports_format_xoxo.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
 
-from .json_dir import open_json_file
+from .utils.json_dir import open_json_file
 
 __all__ = [
     "open_json_file",

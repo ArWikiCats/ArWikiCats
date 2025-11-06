@@ -629,5 +629,4 @@ Multi_sport_for_Jobs = {
 }
 
 Multi_sport_for_Jobs.update(summer_winter_games)
-
 Multi_sport_for_Jobs.update(afc_keys)

@@ -4,10 +4,10 @@
 from .jobs_players_list import Jobs_players, Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 
 """
-from ..json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
 # ---
-from ..Sport_key import (
+from ..sports.Sport_key import (
     Sports_Keys_For_Team,
     Sports_Keys_For_Jobs,
     Sports_Keys_For_Label,

@@ -6,7 +6,7 @@
 # ---
 import sys
 
-from ..json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
 
 # ---
