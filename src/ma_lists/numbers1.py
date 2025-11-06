@@ -115,39 +115,39 @@ change_numb = {
     "99": "التاسع والتسعون",
 }
 # ---
-for dt, dt_lab in change_numb.items():
-    change_numb_to_word[dt] = dt_lab
+for number_key, arabic_label in change_numb.items():
+    change_numb_to_word[number_key] = arabic_label
     # ---
-    dt1 = dt
+    extended_hundreds_key = number_key
     # ---
-    if len(dt) == 1:
-        dt1 = f"10{dt}"
-    if len(dt) == 2:
-        dt1 = f"1{dt}"
+    if len(number_key) == 1:
+        extended_hundreds_key = f"10{number_key}"
+    if len(number_key) == 2:
+        extended_hundreds_key = f"1{number_key}"
     # ---
-    change_numb_to_word[dt1] = f"{dt_lab} بعد المئة"
+    change_numb_to_word[extended_hundreds_key] = f"{arabic_label} بعد المئة"
     # print('dt1:%s' % dt1 )
     # ---
-    dt2 = dt
-    if len(dt) == 1:
-        dt2 = f"20{dt}"
-    if len(dt) == 2:
-        dt2 = f"2{dt}"
+    extended_two_hundred_key = number_key
+    if len(number_key) == 1:
+        extended_two_hundred_key = f"20{number_key}"
+    if len(number_key) == 2:
+        extended_two_hundred_key = f"2{number_key}"
     # ---
-    change_numb_to_word[dt2] = f"{dt_lab} بعد المائتين"
+    change_numb_to_word[extended_two_hundred_key] = f"{arabic_label} بعد المائتين"
     # ---
     # ---
-    dt3 = dt
-    if len(dt) == 1:
-        dt3 = f"30{dt}"
-    if len(dt) == 2:
-        dt3 = f"3{dt}"
+    extended_three_hundred_key = number_key
+    if len(number_key) == 1:
+        extended_three_hundred_key = f"30{number_key}"
+    if len(number_key) == 2:
+        extended_three_hundred_key = f"3{number_key}"
     # ---
-    change_numb_to_word[dt3] = f"{dt_lab} بعد الثلاثمائة"
+    change_numb_to_word[extended_three_hundred_key] = f"{arabic_label} بعد الثلاثمائة"
 
 
-def dd():
-    fff = {
+def get_tens_labels():
+    tens_mapping = {
         2: "العشرون",
         3: "الثلاثون",
         4: "الأربعون",
@@ -158,22 +158,9 @@ def dd():
         9: "التسعون",
     }
 
-    for x in fff:
-        print(f'"{x}0" : "{fff[x]}",')
-        print(f'"{x}1" : "الحادي و{fff[x]}",')
-        print(f'"{x}2" : "الثاني و{fff[x]}",')
-        print(f'"{x}3" : "الثالث و{fff[x]}",')
-        print(f'"{x}4" : "الرابع و{fff[x]}",')
-        print(f'"{x}5" : "الخامس و{fff[x]}",')
-        print(f'"{x}6" : "السادس و{fff[x]}",')
-        print(f'"{x}7" : "السابع و{fff[x]}",')
-        print(f'"{x}8" : "الثامن و{fff[x]}",')
-        print(f'"{x}9" : "التاسع و{fff[x]}",')
-        print("")
-        print("")
-    # ---
-    # ---
-    # ---
-
+    return tens_mapping
 
 # ---
+
+
+dd = get_tens_labels

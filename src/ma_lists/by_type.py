@@ -109,9 +109,10 @@ for year in [16, 17, 18, 19, 20, 21, 23]:
     By_table[f"by men's under-{year} national team"] = f"حسب المنتخب الوطني للرجال تحت {year} سنة"
     By_table[f"by women's under-{year} national team"] = f"حسب المنتخب الوطني للسيدات تحت {year} سنة"
 # ---
-by_Only = {by1: By_table[by1] for by1 in By_table}
+by_table_entries = {by_key: By_table[by_key] for by_key in By_table}
+by_Only = by_table_entries
 # ---
-key_5_suff1 = {
+TOURNAMENT_STAGE_LABELS = {
     "tournament": "مسابقة",
     "singles": "فردي",
     "qualification": "تصفيات",
@@ -119,7 +120,7 @@ key_5_suff1 = {
     "doubles": "زوجي",
 }
 # ---
-key_2_311 = {
+COMPETITION_CATEGORY_LABELS = {
     "girls": "فتيات",
     "mixed": "مختلط",
     "boys": "فتيان",
@@ -131,15 +132,15 @@ key_2_311 = {
     # ---
 }
 # ---
-for start in key_2_311:  # –
-    for suff in key_5_suff1:  # –
-        ke = f"by year - {start} {suff}"
-        lab_ke = f"حسب السنة - {key_5_suff1[suff]} {key_2_311[start]}"
-        By_table[ke] = lab_ke
-        # By_table[ "by year – %s %s" % (start , suff ) ] = "حسب السنة – %s %s" % (key_5_suff1[suff] , key_2_311[start])
+for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
+    for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
+        by_entry_key = f"by year - {category_key} {stage_key}"
+        translation_label = f"حسب السنة - {stage_label} {category_label}"
+        By_table[by_entry_key] = translation_label
+        # By_table[ "by year – %s %s" % (start , suff ) ] = "حسب السنة – %s %s" % (TOURNAMENT_STAGE_LABELS[suff] , COMPETITION_CATEGORY_LABELS[start])
         # printe.output('%s=[%s]' % (ke , lab_ke) )
 # ---
-Contry_cite_el = {
+CONTEXT_FIELD_LABELS = {
     "city": "مدينة",
     "date": "تاريخ",
     "country": "بلد",
@@ -153,31 +154,30 @@ Contry_cite_el = {
     "millennium": "ألفية",
     "century": "قرن",
 }
-for cc in Contry_cite_el:
+for context_key, context_label in CONTEXT_FIELD_LABELS.items():
     # ---
-    By_table[f"by {cc} of shooting location"] = f"حسب {Contry_cite_el[cc]} التصوير"
-    By_table[f"by {cc} of developer"] = f"حسب {Contry_cite_el[cc]} التطوير"
-    By_table[f"by {cc} of location"] = f"حسب {Contry_cite_el[cc]} الموقع"
-    By_table[f"by {cc} of setting"] = f"حسب {Contry_cite_el[cc]} الأحداث"
-    By_table[f"by {cc} of disestablishment"] = f"حسب {Contry_cite_el[cc]} الانحلال"
-    By_table[f"by {cc} of reestablishment"] = f"حسب {Contry_cite_el[cc]} إعادة التأسيس"
-    By_table[f"by {cc} of establishment"] = f"حسب {Contry_cite_el[cc]} التأسيس"
-    By_table[f"by {cc} of setting location"] = f"حسب {Contry_cite_el[cc]} موقع الأحداث"
-    By_table[f"by {cc} of invention"] = f"حسب {Contry_cite_el[cc]} الاختراع"
-    By_table[f"by {cc} of introduction"] = f"حسب {Contry_cite_el[cc]} الاستحداث"
-    By_table[f"by {cc} of formal description"] = f"حسب {Contry_cite_el[cc]} الوصف"
+    By_table[f"by {context_key} of shooting location"] = f"حسب {context_label} التصوير"
+    By_table[f"by {context_key} of developer"] = f"حسب {context_label} التطوير"
+    By_table[f"by {context_key} of location"] = f"حسب {context_label} الموقع"
+    By_table[f"by {context_key} of setting"] = f"حسب {context_label} الأحداث"
+    By_table[f"by {context_key} of disestablishment"] = f"حسب {context_label} الانحلال"
+    By_table[f"by {context_key} of reestablishment"] = f"حسب {context_label} إعادة التأسيس"
+    By_table[f"by {context_key} of establishment"] = f"حسب {context_label} التأسيس"
+    By_table[f"by {context_key} of setting location"] = f"حسب {context_label} موقع الأحداث"
+    By_table[f"by {context_key} of invention"] = f"حسب {context_label} الاختراع"
+    By_table[f"by {context_key} of introduction"] = f"حسب {context_label} الاستحداث"
+    By_table[f"by {context_key} of formal description"] = f"حسب {context_label} الوصف"
+    By_table[f"by {context_key} of photographing"] = f"حسب {context_label} التصوير"
+    By_table[f"by photographing {context_key} "] = f"حسب {context_label} التصوير"
 
-    By_table[f"by {cc} of photographing"] = f"حسب {Contry_cite_el[cc]} التصوير"
-    By_table[f"by photographing {cc} "] = f"حسب {Contry_cite_el[cc]} التصوير"
-
-    By_table[f"by {cc} of completion"] = f"حسب {Contry_cite_el[cc]} الانتهاء"
+    By_table[f"by {context_key} of completion"] = f"حسب {context_label} الانتهاء"
     # By_table["by {} of completion".format(cc) ] = "حسب {} الاكتمال".format(Contry_cite_el[cc])
 
-    By_table[f"by {cc} of opening"] = f"حسب {Contry_cite_el[cc]} الافتتاح"
-    By_table[f"by opening {cc} "] = f"حسب {Contry_cite_el[cc]} الافتتاح"
+    By_table[f"by {context_key} of opening"] = f"حسب {context_label} الافتتاح"
+    By_table[f"by opening {context_key} "] = f"حسب {context_label} الافتتاح"
 
 # ---
-by_and_by = {
+PRIMARY_BY_COMPONENTS = {
     "city": "المدينة",
     "rank": "الرتبة",
     "non-profit organizations": "المؤسسات غير الربحية",
@@ -251,29 +251,27 @@ by_and_by = {
     "state": "الولاية",
     "party": "الحزب",
 }
-# ---
-by_and_by2 = by_and_by
-for by in by_and_by:
-    by_Only[f"by {by}"] = f"حسب {by_and_by[by]}"
-    By_table[f"by {by}"] = f"حسب {by_and_by[by]}"
-    # print("{} : {}".format("by {}".format( by) , "حسب {}".format(by_and_by[by]) ))
-    for by2 in by_and_by2:
-        if by != by2:
-            by_by = f"by {by} and {by2}"
-            ar_ar = f"حسب {by_and_by[by]} و{by_and_by[by2]}"
-            By_table[by_by] = ar_ar
+for component_key, component_label in PRIMARY_BY_COMPONENTS.items():
+    by_table_entries[f"by {component_key}"] = f"حسب {component_label}"
+    By_table[f"by {component_key}"] = f"حسب {component_label}"
+    # print("{} : {}".format("by {}".format(component_key), "حسب {}".format(component_label)))
+    for secondary_key, secondary_label in PRIMARY_BY_COMPONENTS.items():
+        if component_key != secondary_key:
+            combined_key = f"by {component_key} and {secondary_key}"
+            combined_label = f"حسب {component_label} و{secondary_label}"
+            By_table[combined_key] = combined_label
             # print("{} : {}".format(by_by , ar_ar))
             # ---
-            by_or = f"by {by} or {by2}"
-            ar_or = f"حسب {by_and_by[by]} أو {by_and_by[by2]}"
-            By_table[by_or] = ar_or
+            either_key = f"by {component_key} or {secondary_key}"
+            either_label = f"حسب {component_label} أو {secondary_label}"
+            By_table[either_key] = either_label
             # print("{} : {}".format(by_by , ar_ar))
             # ---
-            by_by2 = f"by {by} by {by2}"
-            ar_ar2 = f"حسب {by_and_by[by]} حسب {by_and_by[by2]}"
-            By_table[by_by2] = ar_ar2
+            chained_key = f"by {component_key} by {secondary_key}"
+            chained_label = f"حسب {component_label} حسب {secondary_label}"
+            By_table[chained_key] = chained_label
 # ---
-by_and_by_new = {
+ADDITIONAL_BY_COMPONENTS = {
     "composer": "الملحن",
     "composer nationality": "جنسية الملحن",
     "artist": "الفنان",
@@ -282,16 +280,19 @@ by_and_by_new = {
     "manufacturer nationality": "جنسية الصانع",
 }
 # ---
-for by in by_and_by_new:
-    By_table[f"by {by}"] = f"حسب {by_and_by_new[by]}"
-    By_table[f"by genre and {by}"] = f"حسب النوع الفني و{by_and_by_new[by]}"
+for component_key, component_label in ADDITIONAL_BY_COMPONENTS.items():
+    By_table[f"by {component_key}"] = f"حسب {component_label}"
+    By_table[f"by genre and {component_key}"] = f"حسب النوع الفني و{component_label}"
 # ---
 for by, value in Music_By_table.items():  #
     if value:  # and not by.lower() in By_table :
         By_table[by.lower()] = value
 # ---
 By_table_orginal = By_table
-By_orginal2 = {x.replace("by ", "", 1).lower(): By_table_orginal[x].replace("حسب ", "", 1) for x in By_table_orginal}
+By_orginal2 = {
+    entry.replace("by ", "", 1).lower(): By_table_orginal[entry].replace("حسب ", "", 1)
+    for entry in By_table_orginal
+}
 # ---
 """
 from .Sport_key import Sports_Keys_For_Label
@@ -310,7 +311,7 @@ def main():
             printe.output('   ,"%s":"%s"' %   (k , ""))
 """
 # ---
-Lenth1 = {"by_table": sys.getsizeof(By_table)}
+BY_TABLE_MEMORY_STATS = {"by_table": sys.getsizeof(By_table)}
 # ---
 
-len_print.lenth_pri("by_table.py", Lenth1)
+len_print.lenth_pri("by_table.py", BY_TABLE_MEMORY_STATS)
