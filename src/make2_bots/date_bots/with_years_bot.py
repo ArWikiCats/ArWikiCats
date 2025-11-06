@@ -40,7 +40,8 @@ def _handle_political_terms(contry: str) -> str:
     return ""
 
 
-def _handle_year_at_start(contry):
+def _handle_year_at_start(contry: str) -> str:
+    """Handles cases where the year is at the start of the string."""
     lab2 = ""
     year = re.sub(re_sub_year, r"\g<1>", contry)
     if year == contry:
@@ -51,9 +52,9 @@ def _handle_year_at_start(contry):
 
     con_3 = contry[len(year):]
     con_3 = con_3.strip()
-    output_test(f">>> Try With Years contry.startswith(year:{year}) con_3:{con_3}")
-    con_3_lab = ""
+    output_test(f">>> _handle_year_at_start: year:{year}, con_3:{con_3}")
 
+    con_3_lab = ""
     if con_3 in Word_After_Years:
         con_3_lab = Word_After_Years[con_3]
 
@@ -85,8 +86,8 @@ def _handle_year_at_start(contry):
     return lab2
 
 
-def _handle_year_at_end(contry, RE2_compile, RE33_compile):
-
+def _handle_year_at_end(contry, RE2_compile, RE33_compile) -> str:
+    """Handles cases where the year is at the end of the string."""
     year2 = RE2_compile.sub(r"\g<1>", contry.strip())
 
     year_at_end2 = RE33_compile.match(contry)
@@ -105,7 +106,7 @@ def _handle_year_at_end(contry, RE2_compile, RE33_compile):
         return ""
 
     year2_lab = year2
-    output_test(f">>> Try With Years contry.startswith(year2:{year2})")
+    output_test(f">>> _handle_year_at_end: year2:{year2}")
     con_4 = contry[:-len(year2)]
 
     # print("translate_general_category 5")
