@@ -4,7 +4,6 @@ from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset, dump_diff
 
 geography_data = {
-    "Category:Cross-country skiers at the 1992 Winter Paralympics": "تصنيف:متزحلقون ريفيون في الألعاب البارالمبية الشتوية 1992",
     "Category:Culture of Westchester County, New York": "تصنيف:ثقافة مقاطعة ويستتشستر (نيويورك)",
     "Category:Economy of Westchester County, New York": "تصنيف:اقتصاد مقاطعة ويستتشستر (نيويورك)",
     "Category:Geography of Westchester County, New York": "تصنيف:جغرافيا مقاطعة ويستتشستر (نيويورك)",
