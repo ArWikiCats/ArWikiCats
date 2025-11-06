@@ -44,10 +44,7 @@ def _handle_year_at_start(contry: str) -> str:
     """Handles cases where the year is at the start of the string."""
     lab2 = ""
     year = re.sub(re_sub_year, r"\g<1>", contry)
-    if year == contry:
-        year = ""
-
-    if not year:
+    if year == contry or not year:
         return ""
 
     con_3 = contry[len(year):].strip()
@@ -61,7 +58,7 @@ def _handle_year_at_start(contry: str) -> str:
         con_3_lab = get_KAKO(con_3.strip().lower())
         output_test(f">>> _handle_year_at_start get_KAKO con_3_lab:{con_3_lab}")
 
-    if con_3_lab == "":
+    if not con_3_lab:
         con_3_lab = translate_general_category(con_3)
 
     if not con_3_lab:
@@ -99,23 +96,20 @@ def _handle_year_at_end(contry, RE2_compile, RE33_compile) -> str:
     # if RE4:
     # year2 = "موسم " + RE4_compile.sub(r"\g<1>", contry.strip())
 
-    if year2 == contry:
-        year2 = ""
-
-    if not year2:
+    if year2 == contry or not year2:
         return ""
 
     year2_lab = year2
     output_test(f">>> _handle_year_at_end: year2:{year2}")
-    con_4 = contry[:-len(year2)]
+    con_4 = contry[: -len(year2)]
 
     # print("translate_general_category 5")
     con_4_lab = translate_general_category(con_4)
 
-    if con_4_lab == "":
+    if not con_4_lab:
         con_4_lab = contry2_lab.get_lab_for_contry2(con_4)
 
-    if year2_lab.find("–present") != -1:
+    if "–present" in year2_lab:
         year2_lab = year2_lab.replace("–present", "–الآن")
 
     if con_4_lab:
