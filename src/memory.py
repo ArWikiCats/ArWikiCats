@@ -1,15 +1,27 @@
-"""
-from .memory import print_memory
-"""
+"""Helpers for printing the current process memory usage."""
 
-import psutil
+import importlib.util
 import os
+import sys
 
 
-def print_memory():
+def _resident_memory_bytes() -> int:
+    if importlib.util.find_spec("psutil") is not None:
+        import psutil  # type: ignore
+
+        return psutil.Process(os.getpid()).memory_info().rss
+
+    import resource
+
+    usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    if sys.platform == "darwin":
+        return usage
+    return usage * 1024
+
+
+def print_memory() -> None:
     yellow, purple = "\033[93m%s\033[00m", "\033[95m%s\033[00m"
 
-    usage = psutil.Process(os.getpid()).memory_info().rss
-    usage = usage / 1024 // 1024
+    usage_mb = _resident_memory_bytes() / (1024 * 1024)
 
-    print(yellow % "Memory usage:", purple % f"{usage} MB")
+    print(yellow % "Memory usage:", purple % f"{usage_mb:.0f} MB")

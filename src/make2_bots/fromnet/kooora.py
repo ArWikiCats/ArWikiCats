@@ -76,7 +76,9 @@ def kooora_player(english_name: str) -> str:
     return arabic_label
 
 
-def kooora_team(english_name: str, local: bool = True) -> str:
+def kooora_team(english_name: str, local: bool = True, *, Local: bool | None = None) -> str:
+    if Local is not None:
+        local = Local
     encoded_name = english_name.replace(" ", "+")
     # ---
     if english_name.lower() == "israel":

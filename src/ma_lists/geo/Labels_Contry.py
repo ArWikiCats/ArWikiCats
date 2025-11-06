@@ -194,11 +194,19 @@ for xa, override_label in P17_PP.items():
     if override_label:
         COUNTRY_LABEL_INDEX[xa.lower()] = override_label
 
-    COUNTRY_LABEL_INDEX[ccc.lower()] = ccc_lab
-
-    COUNTRY_LABEL_INDEX[ccc.lower()] = ccc_lab
-
 Main_Table_tr = {}
+
+for ccc, ccc_lab in Main_Table.items():
+    if ccc_lab:
+        lower_name = ccc.lower()
+        COUNTRY_LABEL_INDEX[lower_name] = ccc_lab
+        Main_Table_tr[lower_name] = ccc_lab
+
+for ccc, ccc_lab in Main_Table_2.items():
+    if ccc_lab:
+        lower_name = ccc.lower()
+        COUNTRY_LABEL_INDEX[lower_name] = ccc_lab
+        Main_Table_tr[lower_name] = ccc_lab
 Turky_Province = {}
 
 for dyd, province_label in TURKEY_PROVINCE_LABELS.items():
@@ -272,6 +280,7 @@ del COUNTRY_LABEL_OVERRIDES
 del N_cit_ies_s
 del POPULATION_OVERRIDES
 del Main_Table
+del Main_Table_2
 del P17_PP
 # ---
 # Backwards compatible aliases

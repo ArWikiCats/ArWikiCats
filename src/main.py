@@ -6,11 +6,19 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 """
 
+import importlib.util
 import sys
 from pathlib import Path
 from typing import Iterable, List
 
-from tqdm import tqdm
+if importlib.util.find_spec("tqdm") is not None:
+    from tqdm import tqdm  # type: ignore
+else:
+
+    def tqdm(iterable=None, *args, **kwargs):
+        """Fallback replacement for :func:`tqdm` when the package is unavailable."""
+
+        return iterable if iterable is not None else []
 
 from . import printe
 from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
