@@ -50,8 +50,7 @@ def _handle_year_at_start(contry: str) -> str:
     if not year:
         return ""
 
-    con_3 = contry[len(year):]
-    con_3 = con_3.strip()
+    con_3 = contry[len(year):].strip()
     output_test(f">>> _handle_year_at_start: year:{year}, con_3:{con_3}")
 
     con_3_lab = ""
@@ -60,14 +59,16 @@ def _handle_year_at_start(contry: str) -> str:
 
     if not con_3_lab:
         con_3_lab = get_KAKO(con_3.strip().lower())
-        output_test(f">>> Try With Years get_KAKO con_3_lab:{con_3_lab}")
+        output_test(f">>> _handle_year_at_start get_KAKO con_3_lab:{con_3_lab}")
 
     if con_3_lab == "":
-        # print("translate_general_category 4")
         con_3_lab = translate_general_category(con_3)
 
     if not con_3_lab:
         con_3_lab = contry2_lab.get_lab_for_contry2(con_3)
+
+    if not con_3_lab:
+        return ""
 
     sus = " "
 
@@ -79,9 +80,8 @@ def _handle_year_at_start(contry: str) -> str:
         output_test("a<<lightblue>>>>>> Add في to suf")
         sus = " في "
 
-    if con_3_lab:
-        lab2 = con_3_lab + sus + year
-        output_test(f'>>>>>> Try With Years new lab2  "{lab2}" ')
+    lab2 = con_3_lab + sus + year
+    output_test(f'>>>>>> Try With Years new lab2  "{lab2}" ')
 
     return lab2
 
