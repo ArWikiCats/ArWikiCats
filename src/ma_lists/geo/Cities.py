@@ -376,4 +376,4 @@ Lenth_p = {
 }
 # ---
 
-len_print.lenth_pri("cities.py", Lenth_p, Max=100)
+len_print.print_lengths("cities.py", Lenth_p, max_size=100)

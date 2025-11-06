@@ -279,4 +279,4 @@ Lenthtab = {
     "New_team_xo_jobs": sys.getsizeof(New_team_xo_jobs),
 }
 # ---
-len_print.lenth_pri("sports_formats_teams/team_job.py", Lenthtab)
+len_print.print_lengths("sports_formats_teams/team_job.py", Lenthtab)

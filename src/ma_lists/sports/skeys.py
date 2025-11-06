@@ -327,7 +327,7 @@ Lenth1 = {
     "New_With_Women": sys.getsizeof(New_With_Women),
 }
 # ---
-len_print.lenth_pri("sports.py", Lenth1)
+len_print.print_lengths("sports.py", Lenth1)
 # sport_formts_female_nat["road cycling"] = "سباقات {nat} للدراجات على الطريق"
 # ---
 Facos = [

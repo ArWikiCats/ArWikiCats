@@ -1,7 +1,7 @@
 import re
 from ... import printe
 
-BBlcak: list[str] = [
+blacklisted_substrings: list[str] = [
     "Disambiguation",
     "wikiproject",
     "sockpuppets",
@@ -9,7 +9,7 @@ BBlcak: list[str] = [
     "images for deletion",
 ]
 # ---
-blcak_starts: list[str] = [
+blacklisted_prefixes: list[str] = [
     "Clean-up",
     "Cleanup",
     "Uncategorized",
@@ -38,14 +38,14 @@ blcak_starts: list[str] = [
 
 
 def filter_cat(cat: str) -> bool:
-    for x in BBlcak:
+    for x in blacklisted_substrings:
         if x in cat.lower():
             printe.output(f"<<lightred>> find ({x}) in cat")
             return False
     # ---
     cat2 = cat.lower().replace("category:", "")
     # ---
-    for x in blcak_starts:
+    for x in blacklisted_prefixes:
         if cat2.startswith(x.lower()):
             printe.output(f"<<lightred>> cat.startswith({x})")
             return False
@@ -54,9 +54,9 @@ def filter_cat(cat: str) -> bool:
     # ---
     for x in months:
         # match the end of cat like month \d+
-        matt = rf"^.*? from {x.lower()} \d+$"
-        if re.match(matt, cat2):
-            printe.output(f"<<lightred>> cat.match({matt})")
+        month_year_pattern = rf"^.*? from {x.lower()} \d+$"
+        if re.match(month_year_pattern, cat2):
+            printe.output(f"<<lightred>> cat.match({month_year_pattern})")
             return False
     # ---
     return True

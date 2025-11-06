@@ -15,7 +15,7 @@ from ..ma_bots import ye_ts_bot
 Work_Templates_cash = {}
 
 
-def Work_Templates(SUUS):
+def Work_Templates(input_string):
     """Generate work templates based on the provided input string.
 
     This function takes an input string, processes it to determine if it
@@ -26,7 +26,7 @@ def Work_Templates(SUUS):
     additional data as needed.
 
     Args:
-        SUUS (str): The input string for which the work template is to be generated.
+        input_string (str): The input string for which the work template is to be generated.
 
     Returns:
         str: The formatted work template based on the input string, or an empty
@@ -35,70 +35,70 @@ def Work_Templates(SUUS):
     """
 
     # ---
-    cash_key = SUUS.lower().strip()
+    cash_key = input_string.lower().strip()
     # ---
     if cash_key in Work_Templates_cash:
         return Work_Templates_cash[cash_key]
     # ---
-    print_put(f">> ----------------- start Work_ Templates ----------------- SUUS:{SUUS}")
-    PpP_lab = ""
+    print_put(f">> ----------------- start Work_ Templates ----------------- input_string:{input_string}")
+    template_label = ""
     # pp_ends_with =  in pop_format
 
     # pp_ends_with_pase
     # pp_ends_with
     # merege pp_ends_with_pase and pp_ends_with
-    meregd = {**pp_ends_with_pase, **pp_ends_with}
+    merged_templates = {**pp_ends_with_pase, **pp_ends_with}
 
-    for pri_ooo, pri_lll in meregd.items():
-        if not SUUS.lower().endswith(pri_ooo.lower()):
+    for suffix, template in merged_templates.items():
+        if not input_string.lower().endswith(suffix.lower()):
             continue
-        U_8 = SUUS[:-len(pri_ooo)]
-        print_put(f'>>>><<lightblue>> Work_ Templates.endswith pri_ooo("{pri_ooo}"), U_8:"{U_8}"')
+        base_string = input_string[:-len(suffix)]
+        print_put(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), base_string:"{base_string}"')
 
-        U_lab = contry2_lab.get_lab_for_contry2(U_8)
+        U_lab = contry2_lab.get_lab_for_contry2(base_string)
         if not U_lab:
-            U_lab = with_years_bot.Try_With_Years(U_8)
+            U_lab = with_years_bot.get_label_with_years(base_string)
 
         if U_lab == "":
             # print("translate_general_category 2")
-            U_lab = ye_ts_bot.translate_general_category(U_8)
+            U_lab = ye_ts_bot.translate_general_category(base_string)
 
-        print_put(f'>>>><<lightblue>> Work_ Templates :"{SUUS}", U_8 :"{U_8}"')
+        print_put(f'>>>><<lightblue>> Work_ Templates :"{input_string}", base_string :"{base_string}"')
         # ---
         if U_lab:
-            print_put(f'>>>><<lightblue>> Work_ Templates.endswith pri_ooo("{pri_ooo}"), U_lab:"{U_lab}"')
-            PpP_lab = pri_lll.format(U_lab)
-            print_put(f'>>>> PpP_lab:"{PpP_lab}"')
+            print_put(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), U_lab:"{U_lab}"')
+            template_label = template.format(U_lab)
+            print_put(f'>>>> template_label:"{template_label}"')
             # ---
             break
 
     # pp_ends_with
-    if PpP_lab:
-        return PpP_lab
+    if template_label:
+        return template_label
 
     # pp_start_with
-    for pri_ss, pri_lll in pp_start_with.items():
-        if not SUUS.startswith(pri_ss):
+    for prefix, template in pp_start_with.items():
+        if not input_string.startswith(prefix):
             continue
-        U_c = SUUS[len(pri_ss):]
+        base_string = input_string[len(prefix):]
 
-        U_lab = contry2_lab.get_lab_for_contry2(U_c)
+        U_lab = contry2_lab.get_lab_for_contry2(base_string)
 
         if not U_lab:
-            U_lab = with_years_bot.Try_With_Years(U_c)
+            U_lab = with_years_bot.get_label_with_years(base_string)
 
         if U_lab == "":
             # print("translate_general_category 3")
-            U_lab = ye_ts_bot.translate_general_category(U_c)
+            U_lab = ye_ts_bot.translate_general_category(base_string)
 
-        print_put(f'>>>><<lightblue>> Work_ Templates :"{SUUS}", U_c :"{U_c}"')
+        print_put(f'>>>><<lightblue>> Work_ Templates :"{input_string}", base_string :"{base_string}"')
         if U_lab:
-            print_put(f'>>>><<lightblue>> Work_ Templates.startswith pri_ss("{pri_ss}"), U_lab:"{U_lab}"')
-            PpP_lab = pri_lll.format(U_lab)
-            print_put(f'>>>> PpP_lab:"{PpP_lab}"')
+            print_put(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), U_lab:"{U_lab}"')
+            template_label = template.format(U_lab)
+            print_put(f'>>>> template_label:"{template_label}"')
             # ---
             break
 
     print_put(">> ----------------- end Work_ Templates ----------------- ")
     # ---
-    return PpP_lab
+    return template_label

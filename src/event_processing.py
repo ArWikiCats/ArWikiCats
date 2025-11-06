@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Optional
 
 from .make2_bots.co_bots import filter_en
-from .make2_bots.date_bots import labs_years
+from .make2_bots.date_bots.yearly_translator import yearly_translator
 from .fix import fixtitle
 from .make2_bots.format_bots import change_cat
 from .helps.print_bot import output_test
@@ -165,7 +165,7 @@ class EventProcessor:
             return cached
 
         category_lab = ""
-        category_year, label_from_year = labs_years.lab_from_year(category)
+        category_year, label_from_year = yearly_translator.get_translation_from_year(category)
         if label_from_year:
             category_lab = label_from_year
 
@@ -189,7 +189,7 @@ class EventProcessor:
             category_lab = fixtitle.fixlab(category_lab, en=category)
 
         if not label_from_year and category_year:
-            labs_years.lab_from_year_add(category, category_lab, category_year)
+            yearly_translator.add_translation_for_year(category, category_lab, category_year)
 
         self._event_cache[category] = category_lab
         return category_lab

@@ -262,5 +262,5 @@ printe.output("all_keys2.py : len:uS_State_Keys %d" % len(US_State_Keys) )
 # ---
 Lenth1 = {"Counties": sys.getsizeof(Counties)}
 # ---
-len_print.lenth_pri("us_counties.py", Lenth1)
+len_print.print_lengths("us_counties.py", Lenth1)
 # ---

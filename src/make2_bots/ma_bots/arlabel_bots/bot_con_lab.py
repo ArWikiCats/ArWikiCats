@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from .arlabel_bots.bot_con_lab import get_con_lab
+from .arlabel_bots.bot_con_lab import get_connector_label
 
 """
 
@@ -29,73 +29,73 @@ from ...matables_bots.bot_2018 import pop_All_2018
 
 from ....helps.print_bot import print_put
 
-from ..contry_bot import Get_contry, Get_c_t_lab
+from ..contry_bot import get_country_label, get_country_or_term_label
 
 Find_f_wikidata: Dict[int, bool] = {1: "nowikidata" not in sys.argv}
 
 
-def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, contry: str, contry_lower: str) -> str:
+def get_connector_label(tito: str, do_get_country2: bool, tito2: str, country: str, country_lower: str) -> str:
     """Retrieve the corresponding label for a given country."""
 
-    con_lab = ""
+    connector_label = ""
 
-    if not con_lab:
-        con_lab = New_P17_Finall.get(contry_lower, "")
-    if not con_lab:
-        con_lab = pf_keys2.get(contry_lower, "")
-    if not con_lab:
-        con_lab = pop_All_2018.get(contry_lower, "")
-    if not con_lab:
-        con_lab = pop_All_2018.get(contry_lower.replace("-", " "), "")
-    if not con_lab:
-        con_lab = New_female_keys.get(contry_lower.replace("-", " "), "")
+    if not connector_label:
+        connector_label = New_P17_Finall.get(country_lower, "")
+    if not connector_label:
+        connector_label = pf_keys2.get(country_lower, "")
+    if not connector_label:
+        connector_label = pop_All_2018.get(country_lower, "")
+    if not connector_label:
+        connector_label = pop_All_2018.get(country_lower.replace("-", " "), "")
+    if not connector_label:
+        connector_label = New_female_keys.get(country_lower.replace("-", " "), "")
 
-    if con_lab == "" and "kingdom-of" in contry_lower:
-        con_lab = pop_All_2018.get(contry_lower.replace("kingdom-of", "kingdom of"), "")
+    if connector_label == "" and "kingdom-of" in country_lower:
+        connector_label = pop_All_2018.get(country_lower.replace("kingdom-of", "kingdom of"), "")
 
-    if con_lab == "" and contry_lower.startswith("by "):
-        con_lab = bys.Make_By_lab(contry_lower)
+    if connector_label == "" and country_lower.startswith("by "):
+        connector_label = bys.Make_By_lab(country_lower)
 
-    if con_lab == "" and " by " in contry_lower:
-        con_lab = bys.Get_by_label(contry_lower)
+    if connector_label == "" and " by " in country_lower:
+        connector_label = bys.Get_by_label(country_lower)
 
     if tito2 == "for":
-        con_lab = for_table.get(contry_lower, "")
+        connector_label = for_table.get(country_lower, "")
 
-    if con_lab == "" and contry_lower.strip().startswith("in "):
-        cco2 = contry_lower.strip()[len("in ") :].strip()
+    if connector_label == "" and country_lower.strip().startswith("in "):
+        country_substring = country_lower.strip()[len("in ") :].strip()
 
-        cco2_ = Get_contry(cco2)
+        country_substring_label = get_country_label(country_substring)
 
-        if not cco2_:
-            cco2_ = contry2_lab.get_lab_for_contry2(cco2)
+        if not country_substring_label:
+            country_substring_label = contry2_lab.get_lab_for_contry2(country_substring)
 
-        if cco2_:
-            con_lab = f"في {cco2_}"
+        if country_substring_label:
+            connector_label = f"في {country_substring_label}"
 
-    if not con_lab:
-        con_lab = year_lab.make_month_lab(contry_lower)
-    if not con_lab:
-        con_lab = test_films(contry)
-    if not con_lab:
-        con_lab = nats.find_nat_others(contry)
-    if not con_lab:
-        con_lab = team_work.Get_team_work_Club(contry.strip())
+    if not connector_label:
+        connector_label = year_lab.get_month_label(country_lower)
+    if not connector_label:
+        connector_label = test_films(country)
+    if not connector_label:
+        connector_label = nats.find_nat_others(country)
+    if not connector_label:
+        connector_label = team_work.Get_team_work_Club(country.strip())
 
-    if not con_lab:
-        con_lab = Get_c_t_lab(contry_lower, tito, do_Get_contry2=do_Get_contry2)
+    if not connector_label:
+        connector_label = get_country_or_term_label(country_lower, tito, do_Get_contry2=do_get_country2)
 
-    if not con_lab:
-        con_lab = tmp_bot.Work_Templates(contry_lower)
+    if not connector_label:
+        connector_label = tmp_bot.Work_Templates(country_lower)
 
-    if not con_lab:
-        con_lab = contry2_lab.get_lab_for_contry2(contry_lower)
+    if not connector_label:
+        connector_label = contry2_lab.get_lab_for_contry2(country_lower)
 
-    if not con_lab:
-        con_lab = find_wikidata(contry_lower)
-    if not con_lab:
-        con_lab = kooora.kooora_team(contry_lower, Local=Find_f_wikidata[1])
+    if not connector_label:
+        connector_label = find_wikidata(country_lower)
+    if not connector_label:
+        connector_label = kooora.kooora_team(country_lower, Local=Find_f_wikidata[1])
 
-    print_put(f"?????? get_con_lab: {contry_lower=}, {con_lab=}")
+    print_put(f"?????? get_connector_label: {country_lower=}, {connector_label=}")
 
-    return con_lab
+    return connector_label

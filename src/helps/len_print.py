@@ -4,7 +4,7 @@
 Usage:
 from .helps import len_print
 # ---
-# len_print.lenth_pri_text = False
+# len_print.enable_length_printing = False
 # ---
 Lentha = {
     "New_P17_Finall": sys.getsizeof(New_P17_Finall),
@@ -12,7 +12,7 @@ Lentha = {
     "the_keys": the_keys,
 }
 # ---
-len_print.lenth_pri("Labels_Contry.py", Lentha)
+len_print.print_lengths("Labels_Contry.py", Lentha)
 
 """
 
@@ -20,13 +20,13 @@ import sys
 from .. import printe
 from humanize import naturalsize
 
-lenth_pri_text = True
+enable_length_printing = True
 
 
-def lenth_pri(bot, tab, Max=10000, lens=[]):
-    if not lenth_pri_text:
+def print_lengths(script_name, size_map, max_size=10000, lens=[]):
+    if not enable_length_printing:
         return
-    if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
+    if "printhead" in sys.argv or "enable_length_printing" in sys.argv:
         return
 
     def do(x, y):
@@ -34,13 +34,13 @@ def lenth_pri(bot, tab, Max=10000, lens=[]):
             return y
         return naturalsize(y, binary=True)
 
-    faf = ", ".join(
+    output_string = ", ".join(
         [
-            # f"<<lightpurple>>{x}<<default>>: {tab[x]}"
-            f"<<lightpurple>>{x}<<default>>: {do(x, tab[x])}"
-            for x in tab
-            if tab[x] > Max
+            # f"<<lightpurple>>{x}<<default>>: {size_map[x]}"
+            f"<<lightpurple>>{x}<<default>>: {do(x, size_map[x])}"
+            for x in size_map
+            if size_map[x] > max_size
         ]
     )
-    if faf:
-        printe.output(f"{bot}:".ljust(20) + faf)
+    if output_string:
+        printe.output(f"{script_name}:".ljust(20) + output_string)

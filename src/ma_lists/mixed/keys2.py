@@ -134,5 +134,5 @@ for xg, xg_lab in USA_newkeys.items():
 # ---
 Lenth1 = {"keys2_py": len(keys2_py.keys())}
 # ---
-len_print.lenth_pri("keys2.py", Lenth1)
+len_print.print_lengths("keys2.py", Lenth1)
 # ---

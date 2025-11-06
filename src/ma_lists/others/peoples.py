@@ -45,5 +45,5 @@ Lenth_p = {
 }
 # ---
 
-len_print.lenth_pri("peoples.py", Lenth_p, Max=1000)
+len_print.print_lengths("peoples.py", Lenth_p, max_size=1000)
 # ---

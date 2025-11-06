@@ -313,4 +313,4 @@ def main():
 Lenth1 = {"by_table": sys.getsizeof(By_table)}
 # ---
 
-len_print.lenth_pri("by_table.py", Lenth1)
+len_print.print_lengths("by_table.py", Lenth1)

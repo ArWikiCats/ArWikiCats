@@ -299,7 +299,7 @@ Lenth = {
     "men_women": men_women,
 }
 # ---
-len_print.lenth_pri("nationality.py", Lenth)
+len_print.print_lengths("nationality.py", Lenth)
 # ---
 del uu_nats
 del Sub_Nat

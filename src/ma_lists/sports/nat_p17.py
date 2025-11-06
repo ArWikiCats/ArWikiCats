@@ -189,7 +189,7 @@ Lenth1 = {
     "nat_p17_oioi": sys.getsizeof(nat_p17_oioi),  # nat_p17.py: nat_p17_oioi: 98
 }
 # ---
-len_print.lenth_pri("sportsb/nat_p17.py", Lenth1, Max=1)
+len_print.print_lengths("sportsb/nat_p17.py", Lenth1, max_size=1)
 
 __all__ = [
     "sport_formts_for_p17",

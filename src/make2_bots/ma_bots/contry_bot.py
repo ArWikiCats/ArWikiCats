@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
 
-# from ..ma_bots.contry_bot import Get_contry, Get_c_t_lab
+# from ..ma_bots.contry_bot import get_country_label, get_country_or_term_label
 
 
 from ..ma_bots import contry_bot
 
 
-lab = contry_bot.Get_contry()
+lab = contry_bot.get_country_label()
 
 """
 import sys
@@ -37,66 +37,66 @@ from ...ma_lists import Jobs_key
 from ..matables_bots.bot_2018 import pop_All_2018
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 
-Get_contry_done: Dict[str, str] = {}
+get_country_label_done: Dict[str, str] = {}
 
 
-def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
+def get_country_label(country: str, do_Get_contry2: bool = True) -> str:
     """Retrieve the label for a given country name."""
 
-    contry_no_lower = contry
-    contry = contry.lower()
+    country_no_lower = country
+    country = country.lower()
 
-    if contry in Get_contry_done:
-        output_test(f'>>>> Get_contry: "{contry}" in Get_contry_done, lab:"{Get_contry_done[contry]}"')
-        return Get_contry_done[contry]
+    if country in get_country_label_done:
+        output_test(f'>>>> get_country_label: "{country}" in get_country_label_done, lab:"{get_country_label_done[country]}"')
+        return get_country_label_done[country]
 
-    output_test(">> ----------------- Get_contry start ----------------- ")
-    print_put(f'>>>> Get contry for "{contry}"')
-    cnt_la = contry if contry.strip().isdigit() else ""
-    if not cnt_la:
-        cnt_la = New_female_keys.get(contry, "")
-    if not cnt_la:
-        cnt_la = test_films(contry_no_lower)
-    if not cnt_la:
-        cnt_la = nats.find_nat_others(contry_no_lower)
-    if not cnt_la:
-        cnt_la = team_work.Get_team_work_Club(contry_no_lower)
+    output_test(">> ----------------- get_country_label start ----------------- ")
+    print_put(f'>>>> Get country for "{country}"')
+    country_label = country if country.strip().isdigit() else ""
+    if not country_label:
+        country_label = New_female_keys.get(country, "")
+    if not country_label:
+        country_label = test_films(country_no_lower)
+    if not country_label:
+        country_label = nats.find_nat_others(country_no_lower)
+    if not country_label:
+        country_label = team_work.Get_team_work_Club(country_no_lower)
 
-    if cnt_la == "" and do_Get_contry2:
-        cnt_la = contry2_bot.Get_contry2(contry)
+    if country_label == "" and do_Get_contry2:
+        country_label = contry2_bot.Get_contry2(country)
 
-    if not cnt_la:
-        Preffix = {
+    if not country_label:
+        Prefix = {
             "women's ": "نسائية",
             "men's ": "رجالية",
             "fasa ": "فاسااا",
             "non-combat ": "غير قتالية",
         }
 
-        for prif, prif_lab in Preffix.items():
-            if not contry.startswith(prif):
+        for prefix, prefix_label in Prefix.items():
+            if not country.startswith(prefix):
                 continue
-            print(f">>> contry.startswith({prif})")
-            con_3 = contry[len(prif) :]
-            Add_to_main2_tab(prif, prif_lab)
-            con_3_lab = contry2_bot.Get_contry2(con_3)
+            print(f">>> country.startswith({prefix})")
+            substring = country[len(prefix) :]
+            Add_to_main2_tab(prefix, prefix_label)
+            substring_label = contry2_bot.Get_contry2(substring)
 
-            if con_3_lab == "":
-                con_3_lab = contry2_lab.get_lab_for_contry2(con_3)
+            if substring_label == "":
+                substring_label = contry2_lab.get_lab_for_contry2(substring)
 
-            if con_3_lab == "":
-                con_3_lab = ye_ts_bot.translate_general_category(con_3)
+            if substring_label == "":
+                substring_label = ye_ts_bot.translate_general_category(substring)
 
-            if con_3_lab:
-                Add_to_main2_tab(con_3, con_3_lab)
-                cnt_la = f"{con_3_lab} {prif_lab}"
-                print_put(f'>>>>>> xxx new cnt_la  "{cnt_la}" ')
+            if substring_label:
+                Add_to_main2_tab(substring, substring_label)
+                country_label = f"{substring_label} {prefix_label}"
+                print_put(f'>>>>>> xxx new country_label  "{country_label}" ')
                 break
 
     OKay = True
 
-    if cnt_la == "" and OKay:
-        ti_toseslist = [
+    if country_label == "" and OKay:
+        separators = [
             " by ",
             " based in ",
             " in ",
@@ -109,146 +109,146 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
             " on ",
         ]
 
-        for ttt in ti_toseslist:
-            if ttt in contry:
+        for separator in separators:
+            if separator in country:
                 OKay = False
                 break
 
-    if cnt_la == "" and OKay:
-        Preffix2 = {
+    if country_label == "" and OKay:
+        Prefix2 = {
             "defunct national ": "{} وطنية سابقة",
         }
 
-        for prif, prif_lab in Preffix2.items():
-            if not contry.startswith(prif):
+        for prefix, prefix_label in Prefix2.items():
+            if not country.startswith(prefix):
                 continue
-            print(f">>> contry.startswith({prif})")
-            con_3 = contry[len(prif) :]
-            con_3_lab = contry2_bot.Get_contry2(con_3)
+            print(f">>> country.startswith({prefix})")
+            substring = country[len(prefix) :]
+            substring_label = contry2_bot.Get_contry2(substring)
 
-            if con_3_lab == "":
-                con_3_lab = contry2_lab.get_lab_for_contry2(con_3)
+            if substring_label == "":
+                substring_label = contry2_lab.get_lab_for_contry2(substring)
 
-            if con_3_lab == "":
-                con_3_lab = ye_ts_bot.translate_general_category(con_3)
+            if substring_label == "":
+                substring_label = ye_ts_bot.translate_general_category(substring)
 
-            if con_3_lab:
-                Add_to_main2_tab(con_3, con_3_lab)
-                cnt_la = prif_lab.format(con_3_lab)
-                if con_3_lab.strip().endswith(" في") and prif == "defunct ":
-                    cnt_la = f'{con_3_lab.strip()[:-len(" في")]} سابقة في'
-                print_put(f'>>>>>> cdcdc new cnt_la  "{cnt_la}" ')
+            if substring_label:
+                Add_to_main2_tab(substring, substring_label)
+                country_label = prefix_label.format(substring_label)
+                if substring_label.strip().endswith(" في") and prefix == "defunct ":
+                    country_label = f'{substring_label.strip()[:-len(" في")]} سابقة في'
+                print_put(f'>>>>>> cdcdc new country_label  "{country_label}" ')
                 break
 
-    if cnt_la:
-        if "سنوات في القرن" in cnt_la:
-            cnt_la = re.sub(r"سنوات في القرن", "سنوات القرن", cnt_la)
+    if country_label:
+        if "سنوات في القرن" in country_label:
+            country_label = re.sub(r"سنوات في القرن", "سنوات القرن", country_label)
 
-    if not cnt_la:
-        RE1 = RE1_compile.match(contry)
-        RE2 = RE2_compile.match(contry)
-        RE3 = RE3_compile.match(contry)
+    if not country_label:
+        RE1 = RE1_compile.match(country)
+        RE2 = RE2_compile.match(country)
+        RE3 = RE3_compile.match(country)
 
         if RE1 or RE2 or RE3:
-            cnt_la = with_years_bot.Try_With_Years(contry)
+            country_label = with_years_bot.get_label_with_years(country)
 
-    if cnt_la == "" and contry.endswith(" members of"):
-        contry2 = contry.replace(" members of", "")
-        cnt_la = Nat_mens.get(contry2, "")
-        if cnt_la:
-            cnt_la = f"{cnt_la} أعضاء في  "
-            print_put(f"a<<lightblue>>>2021 Get_contry lab = {cnt_la}")
+    if country_label == "" and country.endswith(" members of"):
+        country2 = country.replace(" members of", "")
+        country_label = Nat_mens.get(country2, "")
+        if country_label:
+            country_label = f"{country_label} أعضاء في  "
+            print_put(f"a<<lightblue>>>2021 get_country_label lab = {country_label}")
 
-    if not cnt_la:
-        cnt_la = Sports_Keys_For_Label.get(contry, "")
+    if not country_label:
+        country_label = Sports_Keys_For_Label.get(country, "")
 
-    Get_contry_done[contry] = cnt_la
-    output_test(f'>>>> Get contry "{cnt_la}"')
-    output_test(">> ----------------- end Get_contry ----------------- ")
-    return cnt_la
+    get_country_label_done[country] = country_label
+    output_test(f'>>>> Get country "{country_label}"')
+    output_test(">> ----------------- end get_country_label ----------------- ")
+    return country_label
 
 
-def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool = True) -> str:
+def get_country_or_term_label(text: str, tito: str, Type: str = "", do_Get_contry2: bool = True) -> str:
     """Retrieve the corresponding label for a given country or term."""
 
-    print_put(f'Get_c_t_lab Type:"{Type}", tito:"{tito}", c_ct_lower:"{c_t_lower}" ')
+    print_put(f'get_country_or_term_label Type:"{Type}", tito:"{tito}", c_ct_lower:"{text}" ')
     if "makeerr" in sys.argv:
         do_Get_contry2 = True
 
-    test_3 = re.sub(r"\d+", "", c_t_lower.strip())
+    test_3 = re.sub(r"\d+", "", text.strip())
     test3_results = ["", "-", "–", "−"]
-    c_t_lab = c_t_lower if test_3 in test3_results else ""
-    if not c_t_lab:
-        c_t_lab = New_female_keys.get(c_t_lower, "")
-    if not c_t_lab:
-        c_t_lab = centries_years_dec.get(c_t_lower, "")
+    label = text if test_3 in test3_results else ""
+    if not label:
+        label = New_female_keys.get(text, "")
+    if not label:
+        label = centries_years_dec.get(text, "")
 
-    if c_t_lab == "" and Type != "Type_lab":
-        if c_t_lower.startswith("the "):
-            print_put(f'>>>> c_t_lower:"{c_t_lower}" startswith("the ")')
-            LLL = c_t_lower[len("the ") :]
+    if label == "" and Type != "Type_lab":
+        if text.startswith("the "):
+            print_put(f'>>>> text:"{text}" startswith("the ")')
+            substring = text[len("the ") :]
 
-            c_t_lab = pop_All_2018.get(LLL, "")
+            label = pop_All_2018.get(substring, "")
 
-            if not c_t_lab:
-                c_t_lab = Get_contry(LLL, do_Get_contry2=do_Get_contry2)
+            if not label:
+                label = get_country_label(substring, do_Get_contry2=do_Get_contry2)
 
-    if not c_t_lab:
-        if re.sub(r"\d+", "", c_t_lower) == "":
-            c_t_lab = c_t_lower
+    if not label:
+        if re.sub(r"\d+", "", text) == "":
+            label = text
         else:
-            c_t_lab = centries_years_dec.get(c_t_lower, "")
+            label = centries_years_dec.get(text, "")
 
-    if c_t_lab == "":
-        c_t_lab = Get_contry(c_t_lower, do_Get_contry2=do_Get_contry2)
+    if label == "":
+        label = get_country_label(text, do_Get_contry2=do_Get_contry2)
 
-    if c_t_lab == "" and Type == "Type_lab":
-        tatos = [" of", " in", " at"]
+    if label == "" and Type == "Type_lab":
+        suffixes = [" of", " in", " at"]
 
-        for tat in tatos:
-            if c_t_lab:
+        for suffix in suffixes:
+            if label:
                 break
 
-            if not c_t_lower.endswith(tat):
+            if not text.endswith(suffix):
                 continue
 
-            tti = c_t_lower[: -len(tat)]
+            substring = text[: -len(suffix)]
 
-            tto = Jobs_key.get(tti, "")
+            substring_label = Jobs_key.get(substring, "")
 
-            print_put(f'tti:"{tti}", tto:"{tto}", c_t_lower:"{c_t_lower}" ')
+            print_put(f'substring:"{substring}", substring_label:"{substring_label}", text:"{text}" ')
 
-            if c_t_lab == "" and tto:
-                c_t_lab = f"{tto} من "
-                print_put(f"Jobs_key:: add من to c_t_lab:{c_t_lab}, line:1583.")
+            if label == "" and substring_label:
+                label = f"{substring_label} من "
+                print_put(f"Jobs_key:: add من to label:{label}, line:1583.")
 
-            if not tto:
-                tto = pop_All_2018.get(tti, "")
+            if not substring_label:
+                substring_label = pop_All_2018.get(substring, "")
 
-            if not tto:
-                tto = Get_contry(tti, do_Get_contry2=do_Get_contry2)
+            if not substring_label:
+                substring_label = get_country_label(substring, do_Get_contry2=do_Get_contry2)
 
-            if c_t_lab == "" and tto:
-                if c_t_lower in pop_of_without_in:
-                    c_t_lab = tto
+            if label == "" and substring_label:
+                if text in pop_of_without_in:
+                    label = substring_label
                     print_put("skip add في to pop_of_without_in")
                 else:
-                    c_t_lab = f"{tto} في "
-                    print_put(f"XX add في to c_t_lab:{c_t_lab}, line:1596.")
+                    label = f"{substring_label} في "
+                    print_put(f"XX add في to label:{label}, line:1596.")
                 break
-        if c_t_lab == "" and tito.strip() == "in":
-            c_t_lab = pop_All_2018.get(f"{c_t_lower} in", "")
+        if label == "" and tito.strip() == "in":
+            label = pop_All_2018.get(f"{text} in", "")
 
-        if not c_t_lab:
-            c_t_lab = Get_contry(c_t_lower, do_Get_contry2=do_Get_contry2)
+        if not label:
+            label = get_country_label(text, do_Get_contry2=do_Get_contry2)
 
-    if not c_t_lab:
-        c_t_lab = find_wikidata(c_t_lower)
+    if not label:
+        label = find_wikidata(text)
 
-    if c_t_lab:
-        print_put(f'Get_c_t_lab c_t_lab:"{c_t_lab}" ')
+    if label:
+        print_put(f'get_country_or_term_label label:"{label}" ')
 
-    elif tito.strip() == "for" and c_t_lower.startswith("for "):
-        return Get_c_t_lab(c_t_lower[len("for ") :], "", Type=Type)
+    elif tito.strip() == "for" and text.startswith("for "):
+        return get_country_or_term_label(text[len("for ") :], "", Type=Type)
 
-    return c_t_lab
+    return label

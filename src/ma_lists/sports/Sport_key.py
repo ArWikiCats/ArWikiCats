@@ -137,7 +137,7 @@ Lenth1 = {
 # ---
 from ...helps import len_print
 
-len_print.lenth_pri("Sport_key.py", Lenth1)
+len_print.print_lengths("Sport_key.py", Lenth1)
 # ---
 del Sports_Keys_New
 # ---

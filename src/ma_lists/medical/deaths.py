@@ -33,4 +33,4 @@ for di, diar in deaths_by.items():
 # ---
 Lenth1 = {"medical_keys": len(medical_keys.keys())}
 # ---
-len_print.lenth_pri("deaths.py", Lenth1)
+len_print.print_lengths("deaths.py", Lenth1)
