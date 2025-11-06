@@ -22,7 +22,10 @@ Try_With_Years_cash = {}
 
 def _handle_political_terms(contry: str) -> str:
     """Handles political terms like 'united states congress'."""
+    # كونغرس
+    # cs = re.match(r"^(\d+)(th|nd|st|rd) united states congress", contry)
     kak = {
+        # "term of the Iranian Majlis" : "المجلس الإيراني",
         "iranian majlis": "المجلس الإيراني",
         "united states congress": "الكونغرس الأمريكي",
     }
@@ -35,6 +38,82 @@ def _handle_political_terms(contry: str) -> str:
         output_test(f">>> _handle_political_terms lab ({lab}), contry: ({contry})")
         return lab
     return ""
+
+
+def _handle_year_at_start(contry: str) -> str:
+    """Handles cases where the year is at the start of the string."""
+    lab2 = ""
+    year = re.sub(re_sub_year, r"\g<1>", contry)
+    if year == contry or not year:
+        return ""
+
+    con_3 = contry[len(year):].strip()
+    output_test(f">>> _handle_year_at_start: year:{year}, con_3:{con_3}")
+
+    con_3_lab = ""
+    if con_3 in Word_After_Years:
+        con_3_lab = Word_After_Years[con_3]
+
+    if not con_3_lab:
+        con_3_lab = get_KAKO(con_3.strip().lower())
+        output_test(f">>> _handle_year_at_start get_KAKO con_3_lab:{con_3_lab}")
+
+    if not con_3_lab:
+        con_3_lab = translate_general_category(con_3)
+
+    if not con_3_lab:
+        con_3_lab = contry2_lab.get_lab_for_contry2(con_3)
+
+    if con_3_lab:
+        sus = " "
+        if con_3_lab.strip() in ar_lab_before_year_to_add_in:
+            output_test("ar_lab_before_year_to_add_in Add في to arlabel sus.")
+            sus = " في "
+
+        elif con_3 in Add_in_table:
+            output_test("a<<lightblue>>>>>> Add في to suf")
+            sus = " في "
+
+            lab2 = con_3_lab + sus + year
+
+        return lab2
+
+    return ""
+
+
+def _handle_year_at_end(contry, RE2_compile, RE33_compile) -> str:
+    """Handles cases where the year is at the end of the string."""
+    year2 = RE2_compile.sub(r"\g<1>", contry.strip())
+
+    year_at_end2 = RE33_compile.match(contry)
+
+    if year_at_end2:
+        year2 = RE33_compile.sub(r"\g<1>", contry.strip())
+        year2 = RE33_compile.sub(r"\g<1>", contry.strip())
+
+    # if RE4:
+    # year2 = "موسم " + RE4_compile.sub(r"\g<1>", contry.strip())
+
+    if year2 == contry or not year2:
+        return ""
+
+    year2_lab = year2
+    output_test(f">>> _handle_year_at_end: year2:{year2}")
+    con_4 = contry[: -len(year2)]
+
+    # print("translate_general_category 5")
+    con_4_lab = translate_general_category(con_4)
+
+    if not con_4_lab:
+        con_4_lab = contry2_lab.get_lab_for_contry2(con_4)
+
+    if "–present" in year2_lab:
+        year2_lab = year2_lab.replace("–present", "–الآن")
+
+    if con_4_lab:
+        lab2 = f"{con_4_lab} {year2_lab}"
+        output_test(f'>>>>>> Try With Years new lab4  "{lab2}" ')
+    return lab2
 
 
 @functools.lru_cache(maxsize=None)
@@ -64,22 +143,24 @@ def Try_With_Years(contry):
     # pop_final_Without_Years
 
     lab2 = ""
-    con_3_lab = ""
-
     contry = contry.strip()
     contry = contry.replace("−", "-")
 
     if lab2 := _handle_political_terms(contry):
         return lab2
 
-    RE1 = RE1_compile.match(contry)
-    RE2 = RE2_compile.match(contry)
-
+    year_at_start = RE1_compile.match(contry)
+    year_at_end = RE2_compile.match(contry)
     # Category:American Soccer League (1933–83)
-    RE3 = RE33_compile.match(contry)
+    year_at_end2 = RE33_compile.match(contry)
     # RE4 = RE4_compile.match(contry)
 
+    if not year_at_start and not year_at_end and not year_at_end2:  # and not RE4
+        # ---
+        return ""
+
     lab2 = _handle_year_at_start(contry)
+
     if not lab2:
         lab2 = _handle_year_at_end(contry, RE2_compile, RE33_compile)
 
@@ -87,63 +168,3 @@ def Try_With_Years(contry):
         output_test(f'>>>>>> Try With Years lab2 "{lab2}" ')
 
     return lab2
-
-
-def _handle_year_at_start(contry: str) -> str:
-    """Handles cases where the year is at the start of the string."""
-    year = re.sub(re_sub_year, r"\g<1>", contry)
-    if year == contry:
-        return ""
-
-    con_3 = contry[len(year) :].strip()
-    output_test(f">>> _handle_year_at_start: year:{year}, con_3:{con_3}")
-
-    con_3_lab = ""
-    if con_3 in Word_After_Years:
-        con_3_lab = Word_After_Years[con_3]
-
-    if not con_3_lab:
-        con_3_lab = get_KAKO(con_3.lower())
-        output_test(f">>> _handle_year_at_start get_KAKO con_3_lab:{con_3_lab}")
-
-    if not con_3_lab:
-        con_3_lab = translate_general_category(con_3)
-
-    if not con_3_lab:
-        con_3_lab = contry2_lab.get_lab_for_contry2(con_3)
-
-    if con_3_lab:
-        sus = " "
-        if con_3_lab.strip() in ar_lab_before_year_to_add_in or con_3 in Add_in_table:
-            sus = " في "
-        return con_3_lab + sus + year
-
-    return ""
-
-
-def _handle_year_at_end(contry: str, RE2, RE3) -> str:
-    """Handles cases where the year is at the end of the string."""
-    year2 = RE2_compile.sub(r"\g<1>", contry.strip())
-
-    if RE3:
-        year2 = RE33_compile.sub(r"\g<1>", contry.strip())
-
-    if year2 == contry:
-        return ""
-
-    year2_lab = year2
-    output_test(f">>> _handle_year_at_end: year2:{year2}")
-    con_4 = contry[: -len(year2)]
-
-    con_4_lab = translate_general_category(con_4)
-
-    if not con_4_lab:
-        con_4_lab = contry2_lab.get_lab_for_contry2(con_4)
-
-    if "–present" in year2_lab:
-        year2_lab = year2_lab.replace("–present", "–الآن")
-
-    if con_4_lab:
-        return f"{con_4_lab} {year2_lab}"
-
-    return ""
