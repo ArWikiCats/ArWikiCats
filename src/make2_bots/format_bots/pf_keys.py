@@ -4,7 +4,8 @@ from .pf_keys import Change_key, Change_key2
 """
 from typing import Dict
 
-Change_key: Dict[str, str] = {
+
+CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # "people of the ottoman empire" :"people-of-the-ottoman-empire",
     # "sentenced to death" :"sentenced-to-death",
     "africa cup of nations": "africa cup-of-nations",
@@ -142,7 +143,7 @@ Change_key: Dict[str, str] = {
 }
 # ---
 
-Change_key2 = {
+CHANGE_KEY_SECONDARY: Dict[str, str] = {
     " for the deafblind$": " for-the-deafblind",
     "charter airlines": "charter-airlines",
     " for the blind$": " for-the-blind",
@@ -182,3 +183,7 @@ Change_key2 = {
     r"^men\’s events ": "mensvents",
 }
 # ---
+
+# Backwards compatibility exports
+Change_key = CHANGE_KEY_MAPPINGS
+Change_key2 = CHANGE_KEY_SECONDARY

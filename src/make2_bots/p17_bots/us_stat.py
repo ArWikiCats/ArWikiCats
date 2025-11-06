@@ -5,50 +5,55 @@ from ...ma_lists import US_State_lower, kk_end_US_State
 from ...helps.print_bot import print_put
 
 # ---
-Work_US_State_cash = {}
+WORK_US_STATE_CACHE = {}
 
 
-def Work_US_State(SUUS):
-    SUUS = SUUS.lower().strip()
+def Work_US_State(state_identifier: str) -> str:
+    normalized_state = state_identifier.lower().strip()
     # ---
-    if SUUS in Work_US_State_cash:
-        return Work_US_State_cash[SUUS]
+    if normalized_state in WORK_US_STATE_CACHE:
+        return WORK_US_STATE_CACHE[normalized_state]
     # ---
-    print_put(f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", SUUS : "{SUUS}"')
-    lable = ""
+    print_put(
+        f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", '
+        f'SUUS : "{normalized_state}"'
+    )
+    label = ""
 
-    State_key = ""
-    pri = ""
-    for pri_ff in kk_end_US_State:
-        pri_ff_2 = f" state {pri_ff}"
-        if not State_key:
-            if SUUS.lower().endswith(pri_ff.lower()):
-                print_put(f'>>>><<lightblue>> Work_US_State :"{SUUS}"')
-                pri = pri_ff
-                State_key = SUUS[: -len(pri_ff)]
+    state_key = ""
+    suffix_key = ""
+    for suffix in kk_end_US_State:
+        state_suffix_variant = f" state {suffix}"
+        if not state_key:
+            if normalized_state.endswith(suffix.lower()):
+                print_put(f'>>>><<lightblue>> Work_US_State :"{normalized_state}"')
+                suffix_key = suffix
+                state_key = normalized_state[: -len(suffix)]
                 break
-            elif SUUS.lower().endswith(pri_ff_2.lower()):
-                print_put(f'>>>><<lightblue>> Work_US_State :"{SUUS}"')
-                pri = pri_ff
-                State_key = SUUS[: -len(pri_ff_2)]
+            if normalized_state.endswith(state_suffix_variant.lower()):
+                print_put(f'>>>><<lightblue>> Work_US_State :"{normalized_state}"')
+                suffix_key = suffix
+                state_key = normalized_state[: -len(state_suffix_variant)]
                 break
 
-    if pri:
-        print_put(f'>>>><<lightblue>> Work_US_State pri:"{pri}"')
-        Statelabel = US_State_lower.get(State_key, "")
-        if State_key and Statelabel == "":
-            print_put(f'>>>><<lightblue>> cant find Statelabel for:"{State_key}"')
+    if suffix_key:
+        print_put(f'>>>><<lightblue>> Work_US_State pri:"{suffix_key}"')
+        state_label = US_State_lower.get(state_key, "")
+        if state_key and state_label == "":
+            print_put(f'>>>><<lightblue>> cant find Statelabel for:"{state_key}"')
 
-        if State_key and Statelabel:
-            print_put(f'>>>><<lightblue>> State_key :"{State_key}", Statelabel : "{Statelabel}"')
+        if state_key and state_label:
+            print_put(f'>>>><<lightblue>> State_key :"{state_key}", Statelabel : "{state_label}"')
 
-            uuu_lab = kk_end_US_State[pri] % Statelabel
-            print_put(f'>>>><<lightblue>> SUUS.endswith pri("{pri}"), uuu_lab:"{uuu_lab}"')
-            lable = uuu_lab
+            resolved_label = kk_end_US_State[suffix_key] % state_label
+            print_put(
+                f'>>>><<lightblue>> SUUS.endswith pri("{suffix_key}"), uuu_lab:"{resolved_label}"'
+            )
+            label = resolved_label
 
-    lable = lable.replace("ولاية واشنطن العاصمة", "واشنطن العاصمة")
-    lable = lable.replace(" ولاية ولاية ", " ولاية ")
+    label = label.replace("ولاية واشنطن العاصمة", "واشنطن العاصمة")
+    label = label.replace(" ولاية ولاية ", " ولاية ")
     # ---
-    Work_US_State_cash[SUUS] = lable
+    WORK_US_STATE_CACHE[normalized_state] = label
     # ---
-    return lable
+    return label

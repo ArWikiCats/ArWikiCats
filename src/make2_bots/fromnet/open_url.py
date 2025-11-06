@@ -9,15 +9,15 @@ session.headers.update({
 })
 
 
-def open_url_json(url, params={}, timeout=5):
-
+def open_url_json(url, params=None, timeout=5):
     try:
-        response = session.get(url, params=params, timeout=timeout)
+        request_params = params or {}
+        response = session.get(url, params=request_params, timeout=timeout)
         response.raise_for_status()
         data = response.json()
         return data
     except Exception as e:
-        logger.error("open_url_json :", e)
+        logger.error("open_url_json : %s", e)
 
     return {}
 
@@ -26,9 +26,8 @@ def open_url_text(url, timeout=5):
     try:
         response = session.get(url, timeout=timeout)
         response.raise_for_status()
-        data = response.text
-        return data
+        return response.text
     except Exception as e:
-        logger.error("open_url_text :", e)
+        logger.error("open_url_text : %s", e)
 
     return ""

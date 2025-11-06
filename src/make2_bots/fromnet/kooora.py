@@ -6,129 +6,137 @@
 import re
 import sys
 from typing import Dict
+
 from ... import printe
 from .open_url import open_url_text
 
 
-Teamse_ko_done: Dict[str, str] = {}
-pprindt: Dict[int, bool] = {1: False}
+TEAM_LOOKUP_CACHE: Dict[str, str] = {}
+DEBUG_FLAGS: Dict[int, bool] = {1: False}
 
 
-def kooora_player(EnName: str) -> str:
-    EnName2 = EnName.replace(" ", "+")
+def kooora_player(english_name: str) -> str:
+    encoded_name = english_name.replace(" ", "+")
     # ---
     # if re.sub(r"\p{L}" , "" ,  EnName ) != EnName  :
     # printe.output("unicode: %s " % EnName)
     # EnName = ""
     # ---
     # eee = "https://www.kooora.com/?searchplayer=%s&showplayers=true" % EnName2
-    eee = f"https://kooora.com/?searchplayer={EnName2}&showplayers=true"
+    eee = f"https://kooora.com/?searchplayer={encoded_name}&showplayers=true"
     # ---
-    if EnName == "" or "nokooora" in sys.argv:
+    if english_name == "" or "nokooora" in sys.argv:
         return ""
     # ---
-    if EnName.lower() in Teamse_ko_done:
-        return Teamse_ko_done[EnName.lower()]
+    lowercase_name = english_name.lower()
+    if lowercase_name in TEAM_LOOKUP_CACHE:
+        return TEAM_LOOKUP_CACHE[lowercase_name]
     # ---
-    printe.output(f'*kooora_player EnName : "{EnName}" ')
-    tas = open_url_text(eee)
+    printe.output(f'*kooora_player EnName : "{english_name}" ')
+    response_text = open_url_text(eee)
     # ---
-    arlabel = ""
-    if tas:
-        if "var teams_list = new Array(" in tas:
-            tas = tas.split("var teams_list = new Array(")[1]
-            tas = tas.split("0,0 );")[0]
+    arabic_label = ""
+    if response_text:
+        if "var teams_list = new Array(" in response_text:
+            response_text = response_text.split("var teams_list = new Array(")[1]
+            response_text = response_text.split("0,0 );")[0]
             # ---
-            tas = re.sub(r'[\n\r"]', "", tas)
+            response_text = re.sub(r'[\n\r"]', "", response_text)
             # tas = re.sub(r"\n" , "" ,  tas)
             # tas = re.sub(r"\r" , "" ,  tas)
             # tas = re.sub(r"\"" , "" ,  tas)
             # ---
-            tas4 = tas.split(",")
+            team_fields = response_text.split(",")
             # ---
-            if pprindt[1]:
-                printe.output(tas4)
+            if DEBUG_FLAGS[1]:
+                printe.output(team_fields)
             # ---
-            if len(tas4) == 8:
+            if len(team_fields) == 8:
                 # ---
-                entest = tas4[4]
+                matched_name = team_fields[4]
                 # ---
-                if EnName.lower().replace(".", "") == entest.lower().replace(".", ""):
-                    arlabel = tas4[5]
+                if lowercase_name.replace(".", "") == matched_name.lower().replace(".", ""):
+                    arabic_label = team_fields[5]
                 else:
-                    printe.output(f'*kooora_player EnName:"{EnName}" != entest:"{entest}" , tas4[5]:"{tas4[5]}" ')
-                    if pprindt[1]:
-                        printe.output("====\n" + "\n".join(tas4) + "====")
+                    printe.output(
+                        f'*kooora_player EnName:"{english_name}" != entest:"{matched_name}" , '
+                        f'tas4[5]:"{team_fields[5]}" '
+                    )
+                    if DEBUG_FLAGS[1]:
+                        printe.output("====\n" + "\n".join(team_fields) + "====")
 
                 # ---
-                if arlabel:
+                if arabic_label:
                     # ---
-                    printe.output(f'*kooora_player arlabel:"{arlabel}". ')
-                    lline = f'\n"{EnName.lower()}":"{arlabel}",'
-            elif pprindt[1]:
-                printe.output(len(tas4))
-    Teamse_ko_done[EnName.lower()] = arlabel
+                    printe.output(f'*kooora_player arlabel:"{arabic_label}". ')
+            elif DEBUG_FLAGS[1]:
+                printe.output(len(team_fields))
+    TEAM_LOOKUP_CACHE[lowercase_name] = arabic_label
     # ---
-    return arlabel
+    return arabic_label
 
 
-def kooora_team(EnName: str, Local: bool = True) -> str:
-    EnName2 = EnName.replace(" ", "+")
+def kooora_team(english_name: str, local: bool = True) -> str:
+    encoded_name = english_name.replace(" ", "+")
     # ---
-    if EnName.lower() == "israel":
+    if english_name.lower() == "israel":
         return "إسرائيل"
     # ---
-    if Local is True:
+    if local is True:
         return ""
     # ---
     # eee = "https://www.kooora.com/?searchplayer=%s&showplayers=true" % EnName2
-    eee = f"https://kooora.com/?searchteam={EnName2}&searchcountry=&showteams=3"
-    eee = f"https://goalzz.com/?searchteam={EnName2}&searchcountry=&showteams=3"
+    eee = f"https://kooora.com/?searchteam={encoded_name}&searchcountry=&showteams=3"
+    eee = f"https://goalzz.com/?searchteam={encoded_name}&searchcountry=&showteams=3"
     # ---
-    if EnName == "" or "nokooora" in sys.argv or "local" in sys.argv:
+    if english_name == "" or "nokooora" in sys.argv or "local" in sys.argv:
         return ""
     # ---
-    if Teamse_ko_done.get(EnName.lower()):
-        return Teamse_ko_done.get(EnName.lower(), "")
+    lowercase_name = english_name.lower()
+    if TEAM_LOOKUP_CACHE.get(lowercase_name):
+        return TEAM_LOOKUP_CACHE.get(lowercase_name, "")
     # ---
-    if EnName.lower() in Teamse_ko_done:
-        return Teamse_ko_done[EnName.lower()]
+    if lowercase_name in TEAM_LOOKUP_CACHE:
+        return TEAM_LOOKUP_CACHE[lowercase_name]
     # ---
-    if pprindt[1]:
-        printe.output(f'*kooora_team EnName : "{EnName}" ')
+    if DEBUG_FLAGS[1]:
+        printe.output(f'*kooora_team EnName : "{english_name}" ')
     # ---
-    tas = open_url_text(eee)
+    response_text = open_url_text(eee)
     # ---
-    arlabel = ""
-    if tas:
-        if "var teams_list = new Array(" in tas:
-            tas = tas.split("var teams_list = new Array(")[1]
-            tas = tas.split("0,0 );")[0]
+    arabic_label = ""
+    if response_text:
+        if "var teams_list = new Array(" in response_text:
+            response_text = response_text.split("var teams_list = new Array(")[1]
+            response_text = response_text.split("0,0 );")[0]
             # ---
-            tas = re.sub(r'[\n\r"]', "", tas)
+            response_text = re.sub(r'[\n\r"]', "", response_text)
             # ---
-            tas4 = tas.split(",")  # 38471,1,8,5,"العربي","العربي","الكويت",
+            team_fields = response_text.split(",")  # 38471,1,8,5,"العربي","العربي","الكويت",
             # ---
-            if pprindt[1]:
-                printe.output(tas4)
+            if DEBUG_FLAGS[1]:
+                printe.output(team_fields)
             # ---
-            if len(tas4) == 8:
+            if len(team_fields) == 8:
                 # ---
-                entest = tas4[4]
+                matched_name = team_fields[4]
                 # ---
-                if EnName.lower() == entest.lower():
-                    arlabel = tas4[5]
+                if lowercase_name == matched_name.lower():
+                    arabic_label = team_fields[5]
                 else:
-                    printe.output(f'*kooora_team EnName:"{EnName}" != entest:"{entest}" , tas4[5]:"{tas4[5]}" ')
-                    if pprindt[1]:
-                        printe.output("====\n" + "\n".join(tas4) + "====")
+                    printe.output(
+                        f'*kooora_team EnName:"{english_name}" != entest:"{matched_name}" , '
+                        f'tas4[5]:"{team_fields[5]}" '
+                    )
+                    if DEBUG_FLAGS[1]:
+                        printe.output("====\n" + "\n".join(team_fields) + "====")
                 # ---
-                if arlabel:
+                if arabic_label:
                     # ---
-                    printe.output(f'*kooora_team arlabel:"{arlabel}". ')
-            elif pprindt[1]:
-                printe.output(len(tas4))
+                    printe.output(f'*kooora_team arlabel:"{arabic_label}". ')
+            elif DEBUG_FLAGS[1]:
+                printe.output(len(team_fields))
     # ---
-    Teamse_ko_done[EnName.lower()] = arlabel
+    TEAM_LOOKUP_CACHE[lowercase_name] = arabic_label
     # ---
-    return arlabel
+    return arabic_label

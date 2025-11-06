@@ -99,34 +99,32 @@ Teams_new_end_keys = {
 GET_CLUB_CACHE = {}
 
 
-def Get_Club(category, out=False, return_tab=False):
+def Get_Club(category: str, out: bool = False, return_tab: bool = False):
     # ---
-    added = {}
+    new_entries = {}
     # ---
-    category = category.lower()
+    normalized_category = category.lower()
     # ---
-    if category in GET_CLUB_CACHE:
-        return GET_CLUB_CACHE[category]
+    if normalized_category in GET_CLUB_CACHE:
+        return GET_CLUB_CACHE[normalized_category]
     # ---
     category_label = ""
     # ---
-    tab = {"lab": "", "add": {}}
+    result = {"lab": "", "add": {}}
     # ---
     for suffix, suffix_template in Teams_new_end_keys.items():
         end1 = f" {suffix}"
         end2 = f" team {suffix}"
         club_key = ""
         # ---
-        if category.endswith(end2) and category_label == "":
-            club_key = category[: -len(end2)]
+        if normalized_category.endswith(end2) and not category_label:
+            club_key = normalized_category[: -len(end2)]
         # ---
-        elif category.endswith(end1) and category_label == "":
-            club_key = category[: -len(end1)]
+        elif normalized_category.endswith(end1) and not category_label:
+            club_key = normalized_category[: -len(end1)]
         # ---
         if club_key:
             logger.debug(f'club_uu:"{club_key}", tat:"{suffix}" ')
-            # if not c_t_lab:
-            # ---
             club_lab = (
                 Clubs_key_2.get(club_key)
                 or pop_of_football_lower.get(club_key)
@@ -135,7 +133,6 @@ def Get_Club(category, out=False, return_tab=False):
             )
             # ---
             if not club_lab:
-                # sd = ddfer
                 club_lab = test_4.test4_2018_with_nat(club_key)
             # ---
             if not club_lab:
@@ -144,23 +141,23 @@ def Get_Club(category, out=False, return_tab=False):
                 if club_lab:
                     c_test = re.sub(r"[abcdefghijklmnopqrstuvwxyz]", "", club_lab, flags=re.IGNORECASE)
                     if c_test == club_lab:
-                        tab["add"][club_key.lower()] = club_lab
-                        added[club_key.lower()] = club_lab
+                        result["add"][club_key.lower()] = club_lab
+                        new_entries[club_key.lower()] = club_lab
             # ---
             if club_lab:
                 category_label = suffix_template.format(club_lab)
                 break
     # ---
     if category_label:
-        logger.debug(f'Get_Club cate:"{category}", catelab:"{category_label}"')
+        logger.debug(f'Get_Club cate:"{normalized_category}", catelab:"{category_label}"')
     # ---
-    GET_CLUB_CACHE[category] = category_label
+    GET_CLUB_CACHE[normalized_category] = category_label
     # ---
-    tab["lab"] = category_label
+    result["lab"] = category_label
     # ---
-    Add_to_pop_All_18(added)
+    Add_to_pop_All_18(new_entries)
     # ---
-    return tab if return_tab else category_label
+    return result if return_tab else category_label
 
 
 def Get_team_work_Club(category):

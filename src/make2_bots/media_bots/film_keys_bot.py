@@ -27,9 +27,8 @@ def get_Films_key_CAO(country_identifier: str) -> str:
 
     output_test4(f'<<lightblue>> get_Films_key_CAO : country_identifier "{country_identifier}" ')
     normalized_identifier = country_identifier.lower().strip()
-    suffix_label = ""
     resolved_label = ""
-    for suffix, suffix_label in television_keys_female.items():
+    for suffix, suffix_translation in television_keys_female.items():
         if normalized_identifier.endswith(suffix.lower()):
             prefix = normalized_identifier[: -len(suffix)].strip()
             output_test4(f'<<lightblue>> prefix:"{prefix}", endswith:"{suffix}" ')
@@ -37,9 +36,9 @@ def get_Films_key_CAO(country_identifier: str) -> str:
             if prefix_label:
                 output_test4(f'<<lightblue>> get_Films_key_CAO : prefix "{prefix}" ')
                 if "{}" in prefix_label:
-                    resolved_label = prefix_label.format(tyty=suffix_label)
+                    resolved_label = prefix_label.format(tyty=suffix_translation)
                 else:
-                    resolved_label = f"{suffix_label} {prefix_label}"
+                    resolved_label = f"{suffix_translation} {prefix_label}"
                 output_test4(
                     f'<<lightblue>> get_Films_key_CAO: new resolved_label "{resolved_label}" '
                 )

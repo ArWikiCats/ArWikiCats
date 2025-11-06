@@ -25,32 +25,34 @@ from ...helps.print_bot import print_def_head, print_put, output_test
 
 from ..fromnet.wd_bot import find_wikidata
 
-Get_contry2_done: Dict[str, str] = {}
-use_main_s_done: List[str] = []
+GET_COUNTRY_CACHE: Dict[str, str] = {}
+USE_MAIN_COUNTRY_DONE: List[str] = []
 
-use_main_s: Dict[int, bool] = {1: "usemains" in sys.argv or "use_main_s" in sys.argv}
+USE_MAIN_FLAGS: Dict[int, bool] = {1: "usemains" in sys.argv or "use_main_s" in sys.argv}
 
 
-def Get_contry2(contry: str, orginal: str = "", With_Years: bool = True) -> str:
+def Get_contry2(country: str, orginal: str = "", With_Years: bool = True) -> str:
     """Retrieve information related to a specified country."""
 
-    if contry in Get_contry2_done:
-        output_test(f'>>>> contry: "{contry}" in Get_contry2_done, lab:"{Get_contry2_done[contry]}"')
-        return Get_contry2_done[contry]
+    if country in GET_COUNTRY_CACHE:
+        output_test(
+            f'>>>> contry: "{country}" in Get_contry2_done, lab:"{GET_COUNTRY_CACHE[country]}"'
+        )
+        return GET_COUNTRY_CACHE[country]
 
-    contry2 = contry.lower().strip()
-    print_def_head(f'>> Get_contry2 "{contry2}":')
+    normalized_country = country.lower().strip()
+    print_def_head(f'>> Get_contry2 "{normalized_country}":')
 
     resolved_label = ""
 
     if not resolved_label:
-        resolved_label = contry2_lab.get_lab_for_contry2(contry, with_test_ye=False)
+        resolved_label = contry2_lab.get_lab_for_contry2(country, with_test_ye=False)
 
     if not resolved_label:
         resolved_label = ye_ts_bot.translate_general_category(
-            contry2, do_Get_contry2=False
+            normalized_country, do_Get_contry2=False
         )
-    ti_toseslist = [
+    title_separators = [
         " based in ",
         " in ",
         " by ",
@@ -62,26 +64,26 @@ def Get_contry2(contry: str, orginal: str = "", With_Years: bool = True) -> str:
         " at ",
         " on ",
     ]
-    for separator in ti_toseslist:
-        if separator not in contry2:
+    for separator in title_separators:
+        if separator not in normalized_country:
             continue
 
-        resolved_label = contry_2_tit(separator, contry, With_Years=With_Years)
+        resolved_label = contry_2_tit(separator, country, With_Years=With_Years)
 
         break
 
     if not resolved_label:
-        if contry2 in use_main_s_done:
-            if use_main_s[1]:
-                use_main_s_done.append(contry2)
-                resolved_label = find_wikidata(contry2)
+        if normalized_country in USE_MAIN_COUNTRY_DONE:
+            if USE_MAIN_FLAGS[1]:
+                USE_MAIN_COUNTRY_DONE.append(normalized_country)
+                resolved_label = find_wikidata(normalized_country)
 
-        elif pop_All_2018.get(contry2.lower(), "") != "":
-            resolved_label = pop_All_2018.get(contry2.lower(), "")
+        elif pop_All_2018.get(normalized_country.lower(), "") != "":
+            resolved_label = pop_All_2018.get(normalized_country.lower(), "")
     if resolved_label:
-        Get_contry2_done[contry] = resolved_label
-        print_put(f'>> Get_ scontry2 "{contry2}": cnt_la: {resolved_label}')
+        GET_COUNTRY_CACHE[country] = resolved_label
+        print_put(f'>> Get_ scontry2 "{normalized_country}": cnt_la: {resolved_label}')
         return resolved_label
 
-    Get_contry2_done[contry] = resolved_label
+    GET_COUNTRY_CACHE[country] = resolved_label
     return resolved_label

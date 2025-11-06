@@ -4,6 +4,7 @@ from  make.make2_bots.fromnet.wd_bot import find_wikidata
 
 import sys
 from typing import Dict
+
 from .wd import find_name_from_wikidata
 from ...helps.print_bot import print_put
 from ...ma_lists import New_P17_Finall
@@ -13,7 +14,8 @@ from ..matables_bots.bot_2018 import pop_All_2018
 from ..matables_bots.bot_2018 import Add_to_pop_All_18  # Add_to_pop_All_18(tab)
 
 WIKIDATA_CACHE: Dict[str, str] = {}
-Find_f_wikidata: Dict[int, bool] = {1: "nowikidata" not in sys.argv}
+FETCH_FROM_WIKIDATA_FLAGS: Dict[int, bool] = {1: "nowikidata" not in sys.argv}
+Find_f_wikidata = FETCH_FROM_WIKIDATA_FLAGS
 
 
 def find_wikidata(country: str) -> str:
@@ -31,9 +33,9 @@ def find_wikidata(country: str) -> str:
     if not resolved_label:
         resolved_label = centries_years_dec.get(normalized_country, "")
 
-    if resolved_label == "" and Find_f_wikidata[1]:
+    if resolved_label == "" and FETCH_FROM_WIKIDATA_FLAGS[1]:
         wikidata_matches = find_name_from_wikidata(
-            country, "en", Local=Find_f_wikidata[1]
+            country, "en", local_only=FETCH_FROM_WIKIDATA_FLAGS[1]
         )
 
         for match_key, match_label in wikidata_matches.items():

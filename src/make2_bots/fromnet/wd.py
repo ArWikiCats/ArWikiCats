@@ -21,13 +21,13 @@ WIKIDATA_CACHE = {}
 # ---
 api_url = "https://www.wikidata.org/w/api.php"
 # ---
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-ar_literes = "[ابتثجحخدذرزسشصضطظعغفقكلمنهوية]"
+ENGLISH_LETTER_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
+ARABIC_LETTER_PATTERN = "[ابتثجحخدذرزسشصضطظعغفقكلمنهوية]"
 
 
-def find_name_from_wikidata(text, lang, Local=False):
+def find_name_from_wikidata(text, lang, local_only=False):
     # ---
-    if "nowikidata" in sys.argv or "local" in sys.argv or Local:
+    if "nowikidata" in sys.argv or "local" in sys.argv or local_only:
         return {}
     # ---
     if text in WIKIDATA_CACHE:
@@ -45,33 +45,33 @@ def find_name_from_wikidata(text, lang, Local=False):
         "utf8": 1,
     }
     # ---
-    json1 = open_url_json(api_url, data=params)
+    json1 = open_url_json(api_url, params=params)
     # ---
     printe.output(f"find_name_from_wikidata: '{text}'")
     # ---
-    tab = json1["search"] if json1 and json1["search"] else []
-    La = {}
+    search_results = json1["search"] if json1 and json1["search"] else []
+    label_map = {}
     # ---
-    for x in tab:
-        if x["label"] and x["match"] and x["match"]["text"]:
-            if x["match"]["type"] != "alias":
-                La[x["match"]["text"]] = x["label"]
+    for entry in search_results:
+        if entry["label"] and entry["match"] and entry["match"]["text"]:
+            if entry["match"]["type"] != "alias":
+                label_map[entry["match"]["text"]] = entry["label"]
     # ---
-    if La:
-        printe.output(La)
+    if label_map:
+        printe.output(label_map)
     # ---
-    WIKIDATA_CACHE[text] = La
+    WIKIDATA_CACHE[text] = label_map
     # ---
-    La2 = {}
+    arabic_labels = {}
     # ---
-    for tf, tf_lab in La.items():
+    for matched_text, label in label_map.items():
         # ---
-        if re.sub(en_literes, "", tf_lab, flags=re.IGNORECASE) != tf_lab:
+        if re.sub(ENGLISH_LETTER_PATTERN, "", label, flags=re.IGNORECASE) != label:
             continue
         # ---
-        if re.sub(ar_literes, "", tf_lab, flags=re.IGNORECASE) == tf_lab:
+        if re.sub(ARABIC_LETTER_PATTERN, "", label, flags=re.IGNORECASE) == label:
             continue
         # ---
-        La2[tf] = tf_lab
+        arabic_labels[matched_text] = label
     # ---
-    return La2
+    return arabic_labels

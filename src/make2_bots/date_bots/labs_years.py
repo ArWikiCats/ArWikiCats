@@ -24,8 +24,8 @@ from ...helps.print_bot import output_main
 
 class LabsYears:
     def __init__(self):
-        self.labs_done = {1: 0}
-        self.cats_labels = {}
+        self.lookup_count = 0
+        self.category_templates = {}
 
     def lab_from_year(self, category_r: str) -> tuple:
         """
@@ -40,26 +40,26 @@ class LabsYears:
         from_year = ""
         cat_year = ""
 
-        m = re.search(r"\d{4}", category_r)
+        year_match = re.search(r"\d{4}", category_r)
 
-        if not m:
+        if not year_match:
             return cat_year, from_year
 
-        cat_year = m.group()
+        cat_year = year_match.group()
         cat_key = category_r.replace(cat_year, "2020")
-        cat_key_value = self.cats_labels.get(cat_key)
+        canonical_label = self.category_templates.get(cat_key)
 
-        if cat_key_value:
-            from_year = cat_key_value.replace("2020", cat_year)
-            self.labs_done[1] += 1
-            output_main(f"<<green>> lab_from_year: {self.labs_done[1]}")
+        if canonical_label:
+            from_year = canonical_label.replace("2020", cat_year)
+            self.lookup_count += 1
+            output_main(f"<<green>> lab_from_year: {self.lookup_count}")
             output_main(f"\t<<green>> {category_r=} , {from_year=}")
 
         return cat_year, from_year
 
     def lab_from_year_add(self, category_r: str, category_lab: str, cat_year: str) -> None:
         """
-        A function that converts the year in category_r and category_lab to "2020" and updates the cats_labels dictionary accordingly.
+        A function that converts the year in category_r and category_lab to "2020" and updates the category_templates dictionary accordingly.
         Parameters:
             category_r (str): The category from which to update the year.
             category_lab (str): The category from which to update the year.
@@ -76,7 +76,7 @@ class LabsYears:
         output_main("<<yellow>> lab_from_year_add:")
         output_main(f"\t<<yellow>> {cat_key=} , {lab_key=}")
 
-        self.cats_labels[cat_key] = lab_key
+        self.category_templates[cat_key] = lab_key
 
 
 labs_years_bot = LabsYears()
