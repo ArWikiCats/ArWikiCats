@@ -14,8 +14,8 @@ from ...helps import len_print
 from ..companies import New_Company
 from ..mixed.all_keys5 import pop_final_5
 from ..mixed.all_keys2 import pf_keys2
-from .india import Main_Table
-from .india_2 import India_Main_Table, Main_Table_2
+from .regions import Main_Table
+from .regions2 import India_Main_Table, Main_Table_2
 from .Cities import N_cit_ies_s, tabe_lab_yy2
 from .Labels_Contry2 import P17_PP
 
