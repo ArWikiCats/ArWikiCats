@@ -1,6 +1,7 @@
 #
 from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset
+from pathlib import Path
 
 data ={
     "Category:Action anime and manga": "تصنيف:أنمي ومانغا حركة",
@@ -16,7 +17,7 @@ data ={
     "Category:British editorial cartoonists": "تصنيف:محررون كارتونيون بريطانيون",
     "Category:British television chefs": "تصنيف:طباخو تلفاز بريطانيون",
     "Category:Cartoonists by publication": "تصنيف:كارتونيون حسب المؤسسة",
-    "Category:Characters in children's literature": "تصنيف:شخصيات في أدب أطفال",
+    "Category:Characters in children's literature": "تصنيف:شخصيات في أدب الأطفال",
     "Category:Comedy anime and manga": "تصنيف:أنمي ومانغا كوميدية",
     "Category:Comedy films by genre": "تصنيف:أفلام كوميدية حسب النوع الفني",
     "Category:Comics adapted into films": "تصنيف:قصص مصورة تم تحويلها إلى أفلام",
@@ -132,5 +133,5 @@ data ={
 
 def test_entertainment():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
-    assert diff == org
+    org, diff = ye_test_one_dataset(data, new_func_lab_final_label, "entertainment")
+    assert diff == org, f"Differences found: {len(diff)}"
