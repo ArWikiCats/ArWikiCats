@@ -33,7 +33,9 @@ from .keys2 import Parties
 
 from .languages import languages_pop, lang_ttty, languages_key, lang_key_m
 
-from .male_keys import New_female_keys, New_male_keys, New_Company
+from .male_keys import New_female_keys, New_male_keys
+
+from .companies import New_Company
 
 from .politics.military_keys import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
 

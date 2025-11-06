@@ -43,7 +43,8 @@ from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..by_type import Music_By_table
 from ..tv.films_mslslat import Films_key_For_Jobs
 from .Jobs2 import Jobs_2
-from ..male_keys import religious_female_keys, New_Company
+from ..male_keys import religious_female_keys
+from ..companies import companies_to_jobs
 from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 from .jobs_defs import religious_keys_PP, Men_Womens_Jobs_2
@@ -283,20 +284,7 @@ MenWomensJobsPP["fashion journalists"] = {
     "womens": "صحفيات موضة",
 }
 MenWomensJobsPP["zionists"] = {"mens": "صهاينة", "womens": "صهيونيات"}
-# ---
-for ggg in New_Company.keys():
-    MenWomensJobsPP[f"{ggg} owners"] = {
-        "mens": f"ملاك {New_Company[ggg]}",
-        "womens": f"مالكات {New_Company[ggg]}",
-    }
-    MenWomensJobsPP[f"{ggg} founders"] = {
-        "mens": f"مؤسسو {New_Company[ggg]}",
-        "womens": f"مؤسسات {New_Company[ggg]}",
-    }
-    MenWomensJobsPP[f"{ggg} company founders"] = {
-        "mens": f"مؤسسو شركات {New_Company[ggg]}",
-        "womens": f"مؤسسات شركات {New_Company[ggg]}",
-    }
+MenWomensJobsPP.update(companies_to_jobs)
 # ---
 for ggg in religious_female_keys.keys():
     MenWomensJobsPP[f"{ggg} founders"] = {
