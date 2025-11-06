@@ -1,5 +1,5 @@
 """
-from .sportsb.te3 import sport_formts_enar_p17_team, New_team_xo_team
+from .te3 import sport_formts_enar_p17_team, New_team_xo_team
 """
 
 import re

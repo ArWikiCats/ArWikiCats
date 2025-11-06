@@ -6,9 +6,9 @@
 
 import re
 # ---
-from .sportsb.te2 import New_For_nat_female_xo_team
-from .Sport_key import Sports_Keys_For_Jobs, fanco_line
-from ..helps.print_bot import print_put
+from .te2 import New_For_nat_female_xo_team
+from ..Sport_key import Sports_Keys_For_Jobs, fanco_line
+from ...helps.print_bot import print_put
 
 
 def Get_sport_formts_female_nat(con_77):  # New_For_nat_female_xo_team

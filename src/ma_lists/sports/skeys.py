@@ -3,12 +3,12 @@
 
 """
 import sys
-from ..helps import len_print
+from ...helps import len_print
 
-from .sports_lists import AFTER_KEYS, nat_menstt33, PPP_Keys, New_Tato_nat
-from .sportsb.team_job import sf_en_ar_is_p17
-from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, Sports_Keys_For_olympic
-from .jobs.Jobs import Football_Keys_players
+from ..sports_lists import AFTER_KEYS, nat_menstt33, PPP_Keys, New_Tato_nat
+from ..sports_format_xoxo.team_job import sf_en_ar_is_p17
+from ..Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, Sports_Keys_For_olympic
+from ..jobs.Jobs import Football_Keys_players
 
 sport_formts_male_nat = {}  # الإنجليزي جنسية والعربي جنسية
 sport_formts_female_nat = {}  # الإنجليزي جنسية والعربي جنسية
@@ -339,3 +339,13 @@ Facos = [
     "women's football in china",
 ]
 # Nat_Womens#Nat_mens
+
+__all__ = [
+    "Teams_new",
+    "sport_formts_en_ar_is_p17",
+    "sport_formts_en_p17_ar_nat",
+    "sport_formts_enar_p17_team",
+    "sport_formts_new_kkk",
+    "sport_formts_male_nat",
+    "sport_formts_female_nat",
+]

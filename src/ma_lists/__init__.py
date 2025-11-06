@@ -47,15 +47,15 @@ from .pop_2018 import pop_All_2018
 
 from .sports import Teams_new, sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
 
-from .sportsb.nat_p17 import sport_formts_for_p17, nat_p17_oioi
+from .sports.nat_p17 import sport_formts_for_p17, nat_p17_oioi
 
 from .test_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to, Multi_sport_for_Jobs, en_is_nat_ar_is_women_2, en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, replace_labels_2022, Mens_suffix, Mens_priffix, Women_s_priffix, en_is_P17_ar_is_al_women
 
 from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
 
-from .sport_lab_nat import Get_sport_formts_female_nat
+from .sports_format_xzxz.sport_lab_nat import Get_sport_formts_female_nat
 
-from .sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
+from .sports_format_xoxo.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
 
 from .json_dir import open_json_file
 

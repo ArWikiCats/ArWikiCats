@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from .sportsb.nat_p17 import sport_formts_for_p17, nat_p17_oioi
+from .nat_p17 import sport_formts_for_p17, nat_p17_oioi
 """
 
 
@@ -186,7 +186,7 @@ nat_p17_oioi["outdoor oioioi"] = f"oioioi {nat_f} في الهواء الطلق"
 # ---
 Lenth1 = {
     "sport_formts_for_p17": sys.getsizeof(sport_formts_for_p17),  #
-    "nat_p17_oioi": sys.getsizeof(nat_p17_oioi),  # sportsb/nat_p17.py: nat_p17_oioi: 98
+    "nat_p17_oioi": sys.getsizeof(nat_p17_oioi),  # nat_p17.py: nat_p17_oioi: 98
 }
 # ---
 len_print.lenth_pri("sportsb/nat_p17.py", Lenth1, Max=1)

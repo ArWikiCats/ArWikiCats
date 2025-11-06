@@ -1,5 +1,5 @@
 """
-from .sportsb.team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs, sf_en_ar_is_p17
+from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs, sf_en_ar_is_p17
 """
 
 import sys
@@ -279,4 +279,4 @@ Lenthtab = {
     "New_team_xo_jobs": sys.getsizeof(New_team_xo_jobs),
 }
 # ---
-len_print.lenth_pri("sportsb/team_job.py", Lenthtab)
+len_print.lenth_pri("sports_format_xoxo/team_job.py", Lenthtab)
