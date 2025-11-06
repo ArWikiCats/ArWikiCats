@@ -1,6 +1,6 @@
 #
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset
+from load_one_data import ye_test_one_dataset, dump_diff
 
 data ={
     "Category:00s establishments in the Roman Empire": "تصنيف:تأسيسات عقد 00 في الإمبراطورية الرومانية",
@@ -100,4 +100,6 @@ data ={
 def test_temporal():
     print(f"len of data: {len(data)}")
     org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
-    assert diff == org
+
+    dump_diff(diff, "test_temporal")
+    assert diff == org, f"Differences found: {len(diff)}"

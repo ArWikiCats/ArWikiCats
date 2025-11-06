@@ -1,6 +1,6 @@
 #
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset
+from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
     "Category:Yemeni football teams" : "تصنيف:فرق كرة قدم يمنية",

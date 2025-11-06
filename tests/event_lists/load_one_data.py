@@ -4,17 +4,18 @@ from typing import Callable
 from pathlib import Path
 
 
-def _dump_diff(diff, file_name):
+def dump_diff(data, file_name):
+    diff_data_path = Path(__file__).parent / "diff_data"
+    diff_data_path.mkdir(exist_ok=True, parents=True)
+
     try:
-        with open(Path(__file__).parent / "diff_data" / f"{file_name}.json", "w") as f:
-            f.write(json.dumps(diff, ensure_ascii=False, indent=4))
+        with open(diff_data_path / f"{file_name}.json", "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
     except Exception as e:
         print(f"Error writing diff data: {e}")
 
 
-def ye_test_one_dataset(dataset: dict, callback : Callable[[str], str], file_name=""):
-    diff_data_path = Path(__file__).parent / "diff_data"
-    diff_data_path.mkdir(exist_ok=True, parents=True)
+def ye_test_one_dataset(dataset: dict, callback : Callable[[str], str]):
 
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
@@ -22,13 +23,8 @@ def ye_test_one_dataset(dataset: dict, callback : Callable[[str], str], file_nam
     data = {x: v for x, v in dataset.items() if v}
     for cat, ar in data.items():
         result = callback(cat)
-        if result == ar:
-            assert result == ar
-        else:
+        if result != ar:
             org[cat] = ar
             diff[cat] = result
-
-    if file_name:
-        _dump_diff(diff, file_name)
 
     return org, diff
