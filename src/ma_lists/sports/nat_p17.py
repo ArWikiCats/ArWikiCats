@@ -190,3 +190,8 @@ Lenth1 = {
 }
 # ---
 len_print.lenth_pri("sportsb/nat_p17.py", Lenth1, Max=1)
+
+__all__ = [
+    "sport_formts_for_p17",
+    "nat_p17_oioi",
+]
