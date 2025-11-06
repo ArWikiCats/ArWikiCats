@@ -67,7 +67,7 @@ geography_by = {
     "Category:films by country": "تصنيف:أفلام حسب البلد",
 }
 
-geography_us = {
+geography_us_1 = {
     "Category:Louisiana": "تصنيف:لويزيانا",
     "Category:Maine": "تصنيف:مين",
     "Category:Kansas": "تصنيف:كانساس",
@@ -93,6 +93,9 @@ geography_us = {
     "Category:Minnesota": "تصنيف:مينيسوتا",
     "Category:Mississippi": "تصنيف:مسيسيبي",
     "Category:Montana": "تصنيف:مونتانا",
+}
+
+geography_us_2 = {
     "Category:Missouri": "تصنيف:ميزوري",
     "Category:Nebraska": "تصنيف:نبراسكا",
     "Category:Nevada": "تصنيف:نيفادا",
@@ -118,6 +121,9 @@ geography_us = {
     "Category:Rhode Island": "تصنيف:رود آيلاند",
     "Category:South Dakota": "تصنيف:داكوتا الجنوبية",
     "Category:Wisconsin": "تصنيف:ويسكونسن",
+}
+
+geography_us_3 = {
     "Category:Wyoming": "تصنيف:وايومنغ",
 }
 
@@ -177,7 +183,9 @@ geography_in = {
 test_data = [
     ("geography", geography_data),
     ("geography_by", geography_by),
-    ("geography_us", geography_us),
+    ("geography_us_1", geography_us_1),
+    ("geography_us_2", geography_us_2),
+    ("geography_us_3", geography_us_3),
     ("geography_in", geography_in),
 ]
 
