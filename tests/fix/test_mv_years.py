@@ -46,7 +46,11 @@ def load_test_move_years(data):
     len_diff_list = len(diff_list)
     print(f"<<green>> diff_list: {len_diff_list}, same:{same}.")
 
-    assert len_diff_list == 0, f"Found {len_diff_list} transformation mismatches: {'\n'.join(str(x) for x in diff_list)}"
+    if len_diff_list:
+        diff_details = "\n".join(str(entry) for entry in diff_list)
+        raise AssertionError(
+            f"Found {len_diff_list} transformation mismatches: {diff_details}"
+        )
 
 
 def test_fixlab_group_1():

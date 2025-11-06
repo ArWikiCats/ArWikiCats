@@ -1,9 +1,22 @@
 
-import requests
+import importlib.util
+
+if importlib.util.find_spec("requests") is not None:
+    import requests  # type: ignore
+    session = requests.Session()
+else:
+
+    class _OfflineSession:
+        def __init__(self):
+            self.headers = {}
+
+        def get(self, *args, **kwargs):
+            raise RuntimeError("requests library is unavailable")
+
+    session = _OfflineSession()
 
 from ...helps.log import logger
 
-session = requests.Session()
 session.headers.update({
     "User-Agent": "WikiMedBot/1.0 (https://meta.wikimedia.org/wiki/User:Mr.Ibrahem; mailto:example@example.org)"
 })
