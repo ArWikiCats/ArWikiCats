@@ -1,6 +1,6 @@
 #
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset
+from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
     "Category:Berlin University of the Arts": "تصنيف:جامعة برلين للفنون",
@@ -15,4 +15,6 @@ data = {
 def test_culture_and_mythology():
     print(f"len of data: {len(data)}")
     org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
-    assert diff == org
+
+    dump_diff(diff, "test_culture_and_mythology")
+    assert diff == org, f"Differences found: {len(diff)}"

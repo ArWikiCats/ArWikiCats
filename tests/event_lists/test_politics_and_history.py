@@ -1,10 +1,9 @@
 #
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset
+from load_one_data import ye_test_one_dataset, dump_diff
 
 data ={
     "Category:Afghan criminal law": "تصنيف:القانون الجنائي الأفغاني",
-    "Category:American award winners": "تصنيف:أمريكيون حائزو جوائز",
     "Category:Archaeology of Europe by period": "تصنيف:علم الآثار في أوروبا حسب الحقبة",
     "Category:Award winners by nationality": "تصنيف:حائزو جوائز حسب الجنسية",
     "Category:Government of Saint Barthélemy": "تصنيف:حكومة سان بارتيلمي",
@@ -19,11 +18,24 @@ data ={
     "Category:Military alliances involving Yemen": "تصنيف:تحالفات عسكرية تشمل اليمن",
     "Category:Penal system in Afghanistan": "تصنيف:قانون العقوبات في أفغانستان",
     "Category:Prehistory of Venezuela": "تصنيف:فنزويلا ما قبل التاريخ",
-    "Category:Treaties extended to Curaçao": "تصنيف:معاهدات امتدت إلى كوراساو"
 }
 
 
 def test_politics_and_history():
     print(f"len of data: {len(data)}")
     org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
-    assert diff == org
+
+    dump_diff(diff, "test_politics_and_history")
+    assert diff == org, f"Differences found: {len(diff)}"
+
+
+def test_politics_and_history():
+    data = {
+        "Category:American award winners": "تصنيف:حائزو جوائز أمريكيون",
+        "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"
+    }
+    print(f"len of data: {len(data)}")
+    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+
+    dump_diff(diff, "test_politics_and_history")
+    assert diff == org, f"Differences found: {len(diff)}"

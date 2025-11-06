@@ -15,7 +15,7 @@ from .sportsb.team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts
 
 from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, fanco_line
 from .Nationality import All_contry_with_nat_ar
-from ..helps.print_bot import print_put, output_test, testprint
+from ..helps.print_bot import print_put, output_test
 
 # ---
 pp = [[len(xy.split(" ")), xy] for xy in All_contry_with_nat_ar]
@@ -37,10 +37,12 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3):  # sport_formts_enar_p17_jobs
     # ---
     # sports.py: len:"sport_formts_en_ar_is_p17":  175  , len:"sport_formts_enar_p17_team":  1434  , len:"sport_formts_enar_p17_jobs":  27
     # ---
-    # ---
     # labs = sport_formts_female_nat.get(con_3 , "")
     con_3_label = ""
-    if faevv := re.match(fanco_line, con_3, flags=re.IGNORECASE):
+    # ---
+    faevv = re.match(fanco_line, con_3, flags=re.IGNORECASE)
+    # ---
+    if faevv:
         sport_key = faevv.group(1)
         ylab = ""
         mlab = ""
@@ -95,9 +97,10 @@ def Get_sport_formts_female_nat(con_77):  # New_For_nat_female_xo_team
     # بعد تطبيق الوظيفة
     # sports.py: len:"New_For_nat_female_xo_team":  1528  , len:"sport_formts_female_nat":  0
     # ---
-    # labs = sport_formts_female_nat.get(con_77 , "")
-    labelll = ""
-    if faev := re.match(fanco_line, con_77, flags=re.IGNORECASE):
+    label = ""
+    faev = re.match(fanco_line, con_77, flags=re.IGNORECASE)
+    # ---
+    if faev:
         sport_key = faev.group(1)
         sp_lab = ""
         ar_label = ""
@@ -117,15 +120,15 @@ def Get_sport_formts_female_nat(con_77):  # New_For_nat_female_xo_team
             if ar_label and sp_lab:
                 bbvb = ar_label.replace("xzxz", sp_lab)
                 if bbvb.find("xzxz") == -1:
-                    labelll = bbvb
-                    print_put(f'Get_Sport_Formats_For_nat female bbvb:"{labelll}"')
+                    label = bbvb
+                    print_put(f'Get_Sport_Formats_For_nat female bbvb:"{label}"')
         else:
             print_put(f'Get_Sport_Formats_For_nat female team_xz:"{team_xz}" not in New_For_nat_female_xo_team')
             # ---
-    if labelll:
-        print_put(f'Get_Sport_Formats_For_nat female con_77:"{con_77}", labelll:"{labelll}"')
+    if label:
+        print_put(f'Get_Sport_Formats_For_nat female con_77:"{con_77}", label:"{label}"')
     # ---
-    return labelll
+    return label
 
 
 def Get_New_team_xo(team):
