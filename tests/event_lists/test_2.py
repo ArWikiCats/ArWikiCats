@@ -18,7 +18,7 @@ data = {
 }
 
 
-def test_geography():
+def test_2():
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_2")
