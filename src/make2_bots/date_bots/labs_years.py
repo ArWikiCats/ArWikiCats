@@ -78,4 +78,8 @@ class LabsYears:
 
         self.cats_labels[cat_key] = lab_key
 
+
 labs_years_bot = LabsYears()
+
+lab_from_year = labs_years_bot.lab_from_year
+lab_from_year_add = labs_years_bot.lab_from_year_add
