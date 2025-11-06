@@ -14,6 +14,7 @@ from ...helps.log import logger
 
 nat_others_cash = {}
 
+
 def make_sport_formts_p17(co89):
     # ---
     # make_sport_formts_p17("football junior championships")
