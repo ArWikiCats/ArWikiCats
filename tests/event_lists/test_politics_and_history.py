@@ -23,10 +23,10 @@ data ={
 
 def test_politics_and_history():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_politics_and_history")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_politics_and_history")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 def test_politics_and_history():
@@ -35,7 +35,7 @@ def test_politics_and_history():
         "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"
     }
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_politics_and_history")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_politics_and_history")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

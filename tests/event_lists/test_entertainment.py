@@ -127,11 +127,11 @@ data = {
 
 def test_entertainment():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "entertainment")
+    dump_diff(diff_result, "entertainment")
 
-    assert diff == org, f"Differences found: {len(diff)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 @pytest.mark.skip("Need to fix")
@@ -147,8 +147,8 @@ def test_entertainment_2():
     }
 
     print(f"len of data: {len(data2)}")
-    org, diff = ye_test_one_dataset(data2, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data2, new_func_lab_final_label)
 
-    dump_diff(diff, "entertainment2")
+    dump_diff(diff_result, "entertainment2")
 
-    assert diff == org, f"Differences found: {len(diff)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

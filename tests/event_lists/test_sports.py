@@ -100,10 +100,10 @@ data = {
 
 def test_sports():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_sports")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_sports")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 def test_sports_2():
@@ -123,10 +123,10 @@ def test_sports_2():
         "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
     }
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_sports")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_sports")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 @pytest.mark.skip(reason="Test data incomplete")
@@ -143,7 +143,7 @@ def test_sports_3():
         "Category:Women's national under-18 ice hockey teams": "",
     }
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_sports")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_sports")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

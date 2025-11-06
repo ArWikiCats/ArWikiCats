@@ -185,7 +185,7 @@ test_data = [
 
 @pytest.mark.parametrize("name,data", test_data)
 def test_geography(name, data):
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, name)
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

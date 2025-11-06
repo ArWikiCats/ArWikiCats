@@ -84,10 +84,10 @@ data = {
 
 def test_temporal():
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_temporal")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_temporal")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 def test_temporal_2():
@@ -111,7 +111,7 @@ def test_temporal_2():
     }
 
     print(f"len of data: {len(data)}")
-    org, diff = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff, "test_temporal_2")
-    assert diff == org, f"Differences found: {len(diff)}"
+    dump_diff(diff_result, "test_temporal_2")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
