@@ -26,28 +26,30 @@ from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.bot_2018 import pop_All_2018
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.bot import New_Lan
-from ...helps.print_bot import print_put, mainoutput
+from ...helps.print_bot import print_put, main_output_preferences
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
-def test3(category_r):
-    arlabs = ""
+def test3(category_key):
+    arabic_label = ""
 
-    if category_r in New_Lan:
+    if category_key in New_Lan:
         print_put("<<lightblue>>>> vvvvvvvvvvvv test3 start vvvvvvvvvvvv ")
-        labs = New_Lan[category_r]
-        print_put(f'<<lightyellow>>>>>>  {category_r}", labs :"{labs}"')
-        if labs is not None:
-            if re.sub(en_literes, "", labs, flags=re.IGNORECASE) == labs:
-                labs = f"تصنيف:{fixtitle.fixlab(labs, en=category_r)}"
-                print_put(f'>>>>>> <<lightyellow>> test3: cat:"{category_r}", labs:"{labs}"')
+        existing_label = New_Lan[category_key]
+        print_put(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
+        if existing_label is not None:
+            if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:
+                normalized_label = f"تصنيف:{fixtitle.fixlab(existing_label, en=category_key)}"
+                print_put(
+                    f'>>>>>> <<lightyellow>> test3: cat:"{category_key}", labs:"{normalized_label}"'
+                )
                 print_put("<<lightblue>>>> ^^^^^^^^^ test3 end ^^^^^^^^^ ")
-                return labs
-    return arlabs
+                return normalized_label
+    return arabic_label
 
 
-def event_Lab_seoo(category_r, category3):
+def event_Lab_seoo(reference_category, target_category):
     """Retrieve category lab information based on the provided category.
 
     This function attempts to find the corresponding category lab for a
@@ -57,71 +59,79 @@ def event_Lab_seoo(category_r, category3):
     it attempts to find a wikidata entry based on the category string.
 
     Args:
-        category_r (str): A reference category string used in some lookups.
-        category3 (str): The category string for which the lab information is sought.
+        reference_category (str): A reference category string used in some lookups.
+        target_category (str): The category string for which the lab information is sought.
 
     Returns:
         str: The corresponding category lab information or an empty string if not
             found.
     """
 
-    category3_no_lower = category3.strip()
-    category3 = category3.lower().strip()
+    target_category_original_case = target_category.strip()
+    normalized_target_category = target_category.lower().strip()
 
     print_put("<<lightblue>>>>event_Lab_seoo vvvvvvvvvvvv event_Lab_seoo start vvvvvvvvvvvv ")
-    print_put(f'<<lightyellow>>>>>> event_Lab_seoo, category3:"{category3}"')
+    print_put(f'<<lightyellow>>>>>> event_Lab_seoo, normalized_target_category:"{normalized_target_category}"')
 
-    category_lab = ""
+    resolved_category_label = ""
 
-    if not category_lab:
-        category_lab = New_P17_Finall.get(category3, "")
+    if not resolved_category_label:
+        resolved_category_label = New_P17_Finall.get(normalized_target_category, "")
 
-    if not category_lab:
-        category_lab = Ambassadors_tab.get(category3, "")
+    if not resolved_category_label:
+        resolved_category_label = Ambassadors_tab.get(normalized_target_category, "")
 
-    if not category_lab:
-        category_lab = team_work.Get_team_work_Club(category3_no_lower)
+    if not resolved_category_label:
+        resolved_category_label = team_work.Get_team_work_Club(target_category_original_case)
 
-    if not category_lab:
-        category_lab = event2bot.event2(category3)
-    if not category_lab:
-        category_lab = pop_All_2018.get(category3.lower(), "")
+    if not resolved_category_label:
+        resolved_category_label = event2bot.event2(normalized_target_category)
+    if not resolved_category_label:
+        resolved_category_label = pop_All_2018.get(normalized_target_category, "")
 
-    if not category_lab:
-        category_lab = centries_years_dec.get(category3, "")
+    if not resolved_category_label:
+        resolved_category_label = centries_years_dec.get(normalized_target_category, "")
 
-    if not category_lab:
-        category_lab = test4_2018_Jobs(category3, out=mainoutput[1])
+    if not resolved_category_label:
+        resolved_category_label = test4_2018_Jobs(
+            normalized_target_category, out=main_output_preferences[1]
+        )
 
-    if not category_lab:
-        category_lab = Jobs_in_Multi_Sports(category3_no_lower, out=mainoutput[1])
+    if not resolved_category_label:
+        resolved_category_label = Jobs_in_Multi_Sports(
+            target_category_original_case, out=main_output_preferences[1]
+        )
 
     # if not category_lab:
     #     category_lab = tmp_bot.Work_Templates(category3)
 
-    if not category_lab:
-        category_lab = univer.test_Universities(category3)
+    if not resolved_category_label:
+        resolved_category_label = univer.test_Universities(normalized_target_category)
 
-    if not category_lab:
-        category_lab = test_films(category3, fa=category_r)
+    if not resolved_category_label:
+        resolved_category_label = test_films(
+            normalized_target_category, reference_category=reference_category
+        )
 
-    if not category_lab:
-        category_lab = nats.find_nat_others(category3, fa=category_r)
+    if not resolved_category_label:
+        resolved_category_label = nats.find_nat_others(
+            normalized_target_category, reference_category=reference_category
+        )
 
-    if not category_lab:
+    if not resolved_category_label:
         # print("translate_general_category 12")
-        category_lab = ye_ts_bot.translate_general_category(category3)
+        resolved_category_label = ye_ts_bot.translate_general_category(normalized_target_category)
 
-    if not category_lab:
-        category_lab = Work_US_State(category3)
+    if not resolved_category_label:
+        resolved_category_label = Work_US_State(normalized_target_category)
 
-    if not category_lab:
-        category_lab = Work_peoples(category3)
+    if not resolved_category_label:
+        resolved_category_label = Work_peoples(normalized_target_category)
 
-    if not category_lab:
-        category_lab = test3(category3)
+    if not resolved_category_label:
+        resolved_category_label = test3(normalized_target_category)
 
-    if category_lab == "" and category3.strip().find(" ") == -1:
-        category_lab = find_wikidata(category3)
+    if resolved_category_label == "" and normalized_target_category.strip().find(" ") == -1:
+        resolved_category_label = find_wikidata(normalized_target_category)
 
-    return category_lab
+    return resolved_category_label
