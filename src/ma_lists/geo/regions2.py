@@ -1,34 +1,36 @@
 #!/usr/bin/python3
 """
-# from .india_2 import Main_Table_2
+# from .india_2 import SECONDARY_REGION_TRANSLATIONS
 
 """
 from ..utils.json_dir import open_json_file
 # ---
-India_dd = {}
-popopo = {}
-Main_Table_2 = {}
-India_Main_Table = {}
+india_district_labels = {}
+raw_region_overrides = {}
+SECONDARY_REGION_TRANSLATIONS = {}
+INDIA_REGION_TRANSLATIONS = {}
 # India_districts = {}
 # India_Citiese = {}
 # ---
-India_dd = open_json_file("India_dd") or {}
+india_district_labels = open_json_file("India_dd") or {}
 # ---
-for dd, dd_lab in India_dd.items():
-    dd2 = dd.lower()
-    India_Main_Table[dd2] = dd_lab
+for district_name, district_label in india_district_labels.items():
+    normalized_name = district_name.lower()
+    INDIA_REGION_TRANSLATIONS[normalized_name] = district_label
     # ---
-    # India_districts[f"{dd2} district"] = f"مقاطعة {dd_lab}"
-    # India_Citiese[dd] = dd_lab
+    # India_districts[f"{normalized_name} district"] = f"مقاطعة {district_label}"
+    # India_Citiese[district_name] = district_label
     # ---
-    India_Main_Table[f"{dd2} district"] = f"مقاطعة {dd_lab}"
+    INDIA_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
+        f"مقاطعة {district_label}"
+    )
     # ---
 # ---
-del India_dd
+del india_district_labels
 # ---
-popopo = open_json_file("popopo") or {}
+raw_region_overrides = open_json_file("popopo") or {}
 # ---
-Egypht_t = {
+EGYPT_GOVERNORATE_TRANSLATIONS = {
     "alexandria": "الإسكندرية",
     "aswan": "أسوان",
     "asyut": "أسيوط",
@@ -58,14 +60,14 @@ Egypht_t = {
     "suez": "السويس",
 }
 # ---
-Regions = {
+DJIBOUTI_REGION_TRANSLATIONS = {
     "ali sabieh": "علي صبيح",
     "arta": "عرتا",
     "obock": "أوبوك",
     "tadjourah": "تاجورة",
 }
 # ---
-Departments = {
+GUATEMALA_DEPARTMENT_TRANSLATIONS = {
     "chiquimula": "تشيكيمولا",
     "totonicapán": "توتونيكابان",
     "sololá": "سولولا",
@@ -90,7 +92,7 @@ Departments = {
     "el progreso": "البروغريسو",
 }
 # ---
-Provinceies = {
+MONGOLIA_PROVINCE_TRANSLATIONS = {
     "arkhangai": "أرخانغاي",
     "bulgan": "بولغان",
     "selenge": "سيلنج",
@@ -113,7 +115,7 @@ Provinceies = {
     "uvs": "أوفس",
 }
 # ---
-Prefecture = {
+CAR_PREFECTURE_TRANSLATIONS = {
     "bangui": "بانغي",
     "ombella-m'poko": "أومبلامبوكو",
     "nana-mambéré": "نانا مامبيري",
@@ -131,32 +133,52 @@ Prefecture = {
     "haute-kotto": "هوت-كوتو",
 }
 # ---
-for dydcd in popopo:
-    Main_Table_2[dydcd.lower()] = popopo[dydcd]
+for region_key, region_label in raw_region_overrides.items():
+    SECONDARY_REGION_TRANSLATIONS[region_key.lower()] = region_label
 # ---
-for dyd, dyd_lab in Egypht_t.items():
-    dyd2 = dyd.lower()
-    Main_Table_2[dyd2] = dyd_lab
-    Main_Table_2[f"{dyd2} governorate"] = f"محافظة {dyd_lab}"
+for governorate_name, governorate_label in EGYPT_GOVERNORATE_TRANSLATIONS.items():
+    normalized_name = governorate_name.lower()
+    SECONDARY_REGION_TRANSLATIONS[normalized_name] = governorate_label
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} governorate"] = (
+        f"محافظة {governorate_label}"
+    )
 # ---
-for dyd, dyd_lab in Regions.items():
-    dyd2 = dyd.lower()
-    Main_Table_2[dyd2] = dyd_lab
-    Main_Table_2[f"{dyd2} region"] = f"منطقة {dyd_lab}"
+for region_name, region_label in DJIBOUTI_REGION_TRANSLATIONS.items():
+    normalized_name = region_name.lower()
+    SECONDARY_REGION_TRANSLATIONS[normalized_name] = region_label
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = (
+        f"منطقة {region_label}"
+    )
 # ---
-for dyd, dyd_lab in Departments.items():
-    dyd2 = dyd.lower()
-    Main_Table_2[dyd2] = dyd_lab
-    Main_Table_2[f"{dyd2} department"] = f"إدارة {dyd_lab}"
+for department_name, department_label in GUATEMALA_DEPARTMENT_TRANSLATIONS.items():
+    normalized_name = department_name.lower()
+    SECONDARY_REGION_TRANSLATIONS[normalized_name] = department_label
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} department"] = (
+        f"إدارة {department_label}"
+    )
 # ---
-for dycd, dycd_lab in Provinceies.items():
-    dycd2 = dycd.lower()
-    Main_Table_2[dycd2] = dycd_lab
-    Main_Table_2[f"{dycd2} province"] = f"محافظة {dycd_lab}"
+for province_name, province_label in MONGOLIA_PROVINCE_TRANSLATIONS.items():
+    normalized_name = province_name.lower()
+    SECONDARY_REGION_TRANSLATIONS[normalized_name] = province_label
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
+        f"محافظة {province_label}"
+    )
 # ---
-for Pref, Pref_lab in Prefecture.items():
-    Pref2 = Pref.lower()
-    Main_Table_2[Pref2] = Pref_lab
-    Main_Table_2[f"{Pref2} Prefecture"] = f"محافظة {Pref_lab}"
+for prefecture_name, prefecture_label in CAR_PREFECTURE_TRANSLATIONS.items():
+    normalized_name = prefecture_name.lower()
+    SECONDARY_REGION_TRANSLATIONS[normalized_name] = prefecture_label
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} prefecture"] = (
+        f"محافظة {prefecture_label}"
+    )
 # ---
-del popopo, Egypht_t, Regions, Departments, Provinceies, Prefecture
+del (
+    raw_region_overrides,
+    EGYPT_GOVERNORATE_TRANSLATIONS,
+    DJIBOUTI_REGION_TRANSLATIONS,
+    GUATEMALA_DEPARTMENT_TRANSLATIONS,
+    MONGOLIA_PROVINCE_TRANSLATIONS,
+    CAR_PREFECTURE_TRANSLATIONS,
+)
+
+Main_Table_2 = SECONDARY_REGION_TRANSLATIONS
+India_Main_Table = INDIA_REGION_TRANSLATIONS

@@ -42,7 +42,7 @@ religious_keys_PP = {
 # ---
 Men_Womens_Jobs_2 = {}
 # ---
-rel_jOBS = {
+RELIGIOUS_ROLE_LABELS = {
     "christians": {"mens": "مسيحيون", "womens": "مسيحيات"},
     "venerated": {"mens": "مبجلون", "womens": "مبجلات"},
     "missionaries": {"mens": "مبشرون", "womens": "مبشرات"},
@@ -60,11 +60,18 @@ rel_jOBS = {
     "religious leaders": {"mens": "قادة دينيون", "womens": "قائدات دينيات"},
 }
 # ---
-for oiuio, oiuio_lab in religious_keys_PP.items():
-    kj = f"{oiuio} %s"
-    for jobe, jobe_lab in rel_jOBS.items():
-        womens = f'{jobe_lab["womens"]} {oiuio_lab["womens"]}' if jobe_lab["womens"] else ""
-        Men_Womens_Jobs_2[kj % jobe] = {"mens": f'{jobe_lab["mens"]} {oiuio_lab["mens"]}', "womens": womens}
+for religion_key, religion_labels in religious_keys_PP.items():
+    label_template = f"{religion_key} %s"
+    for job_key, job_labels in RELIGIOUS_ROLE_LABELS.items():
+        womens_label = (
+            f'{job_labels["womens"]} {religion_labels["womens"]}'
+            if job_labels["womens"]
+            else ""
+        )
+        Men_Womens_Jobs_2[label_template % job_key] = {
+            "mens": f'{job_labels["mens"]} {religion_labels["mens"]}',
+            "womens": womens_label,
+        }
 # ---
 painters_PP = {
     "symbolist": {"mens": "رمزيون", "womens": "رمزيات"},
@@ -74,23 +81,27 @@ painters_PP = {
     "religious": {"mens": "دينيون", "womens": "دينيات"},
 }
 # ---
-painters_jOBS = {
+PAINTER_ROLE_LABELS = {
     "painters": {"mens": "رسامون", "womens": "رسامات"},
     "artists": {"mens": "فنانون", "womens": "فنانات"},
 }
 # ---
-for fgrrh, fgrrh_lab in painters_PP.items():
-    if fgrrh != "history":
-        Men_Womens_Jobs_2[fgrrh] = fgrrh_lab
+for painter_style, painter_style_labels in painters_PP.items():
+    if painter_style != "history":
+        Men_Womens_Jobs_2[painter_style] = painter_style_labels
 
-    for jcccobe, jcccobe_lab in painters_jOBS.items():
-        Men_Womens_Jobs_2[jcccobe] = jcccobe_lab
-        ky = f"{fgrrh} {jcccobe}"
-        Men_Womens_Jobs_2[ky] = {}
-        Men_Womens_Jobs_2[ky]["mens"] = f"{jcccobe_lab['mens']} {fgrrh_lab['mens']}"
-        Men_Womens_Jobs_2[ky]["womens"] = f"{jcccobe_lab['womens']} {fgrrh_lab['womens']}"
+    for artist_role, artist_role_labels in PAINTER_ROLE_LABELS.items():
+        Men_Womens_Jobs_2[artist_role] = artist_role_labels
+        composite_key = f"{painter_style} {artist_role}"
+        Men_Womens_Jobs_2[composite_key] = {}
+        Men_Womens_Jobs_2[composite_key]["mens"] = (
+            f"{artist_role_labels['mens']} {painter_style_labels['mens']}"
+        )
+        Men_Womens_Jobs_2[composite_key]["womens"] = (
+            f"{artist_role_labels['womens']} {painter_style_labels['womens']}"
+        )
 # ---
-painters_TT = {
+PAINTER_CATEGORY_LABELS = {
     "make-up": "مكياج",
     "comics": "قصص مصورة",
     "marvel comics": "مارفال كومكس",
@@ -104,16 +115,14 @@ painters_TT = {
     "still life": "طبيعة صامتة",
 }
 # ---
-for hhh, LLab in painters_TT.items():
-    # ---
-    Men_Womens_Jobs_2[f"{hhh} painters"] = {
-        "mens": f"رسامو {LLab}",
-        "womens": f"رسامات {LLab}",
+for painter_category, category_label in PAINTER_CATEGORY_LABELS.items():
+    Men_Womens_Jobs_2[f"{painter_category} painters"] = {
+        "mens": f"رسامو {category_label}",
+        "womens": f"رسامات {category_label}",
     }
-    # ---
-    Men_Womens_Jobs_2[f"{hhh} artists"] = {
-        "mens": f"فنانو {LLab}",
-        "womens": f"فنانات {LLab}",
+    Men_Womens_Jobs_2[f"{painter_category} artists"] = {
+        "mens": f"فنانو {category_label}",
+        "womens": f"فنانات {category_label}",
     }
 # ---
 military_PP = {
@@ -124,7 +133,7 @@ military_PP = {
     "organizational": {"mens": "تنظيميون", "womens": "تنظيميات"},
 }
 # ---
-military_jOBS = {
+MILITARY_ROLE_LABELS = {
     "theorists": {"mens": "منظرون", "womens": "منظرات"},
     "musicians": {"mens": "موسيقيون", "womens": "موسيقيات"},
     "engineers": {"mens": "مهندسون", "womens": "مهندسات"},
@@ -137,16 +146,20 @@ military_jOBS = {
 # ---
 pppp = ["military", "literary"]
 # ---
-for fgh, fgh_tab in military_PP.items():
-    if fgh not in pppp:
-        Men_Womens_Jobs_2[fgh] = fgh_tab
+for military_key, military_labels in military_PP.items():
+    if military_key not in pppp:
+        Men_Womens_Jobs_2[military_key] = military_labels
     # ---
-    for jccobe, jccobe_tab in military_jOBS.items():
-        ky = f"{fgh} {jccobe}"
-        Men_Womens_Jobs_2[jccobe] = jccobe_tab
-        Men_Womens_Jobs_2[ky] = {}
-        Men_Womens_Jobs_2[ky]["mens"] = f"{jccobe_tab['mens']} {fgh_tab['mens']}"
-        Men_Womens_Jobs_2[ky]["womens"] = f"{jccobe_tab['womens']} {fgh_tab['womens']}"
+    for role_key, role_labels in MILITARY_ROLE_LABELS.items():
+        composite_key = f"{military_key} {role_key}"
+        Men_Womens_Jobs_2[role_key] = role_labels
+        Men_Womens_Jobs_2[composite_key] = {}
+        Men_Womens_Jobs_2[composite_key]["mens"] = (
+            f"{role_labels['mens']} {military_labels['mens']}"
+        )
+        Men_Womens_Jobs_2[composite_key]["womens"] = (
+            f"{role_labels['womens']} {military_labels['womens']}"
+        )
 # ---
 """
 # ---
