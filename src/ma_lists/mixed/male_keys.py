@@ -4,10 +4,10 @@
 """
 
 import sys
-from ..helps import len_print
-from .tv.films_mslslat import Films_keys_male_female
-from .companies import companies_data
-from .structures import structures_data
+from ...helps import len_print
+from ..tv.films_mslslat import Films_keys_male_female
+from ..companies import companies_data
+from ..structures import structures_data
 # ---
 New_female_keys = {}
 New_male_keys = {}

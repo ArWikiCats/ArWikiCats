@@ -2,20 +2,20 @@
 """
 
 """
-from .utils.json_dir import open_json_file
+from ..utils.json_dir import open_json_file
 
 # ---
 from .keys_23 import new_2023
 from .keys2 import keys2_py
 from .all_keys4 import new2019
-from .tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
-from .sports import tennis_keys
+from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
+from ..sports import tennis_keys
 from .all_keys3 import albums_type, pop_final_3
 from .Newkey import pop_final6
-from .languages import languages_key, cccccc_m
-from .others.peoples import People_key
-from .politics.ministers import minister_keyse, ministrees_keysse
-from .jobs.jobs_singers import singers_tab
+from ..languages import languages_key, cccccc_m
+from ..others.peoples import People_key
+from ..politics.ministers import minister_keyse, ministrees_keysse
+from ..jobs.jobs_singers import singers_tab
 
 # ---
 query1 = """

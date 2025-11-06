@@ -6,10 +6,10 @@ from .test_4_list import replace_labels_2022, en_is_P17_ar_is_mens, en_is_P17_ar
 import copy
 from .keys_23 import afc_keys
 from .all_keys3 import businesspeoples
-from .jobs.jobs_singers import singers_tab
-from .geo.games_labs import summer_winter_games
+from ..jobs.jobs_singers import singers_tab
+from ..geo.games_labs import summer_winter_games
 
-from .sports import (
+from ..sports import (
     sport_formts_new_kkk,
     sport_formts_male_nat,
     sport_formts_female_nat,

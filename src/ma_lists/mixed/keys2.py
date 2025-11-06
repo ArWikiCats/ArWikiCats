@@ -4,10 +4,10 @@
 #
 #
 # ---
-from .utils.json_dir import open_json_file
-from ..helps import len_print
-from .geo.us_counties import USA_newkeys
-from .medical.deaths import medical_keys
+from ..utils.json_dir import open_json_file
+from ...helps import len_print
+from ..geo.us_counties import USA_newkeys
+from ..medical.deaths import medical_keys
 
 new_2019 = open_json_file("keys2") or {}
 # ---

@@ -6,7 +6,7 @@ python3 core8/pwb.py make/m test Category:People executed by the International M
 
 
 import sys
-from ..helps import len_print
+from ...helps import len_print
 
 #
 # ---

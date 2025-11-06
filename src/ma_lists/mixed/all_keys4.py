@@ -2,7 +2,7 @@
 """
 
 from .keys2 import new_2019
-from .sports.cycling import new_cy
+from ..sports.cycling import new_cy
 # ---
 new2019 = {}
 # ---

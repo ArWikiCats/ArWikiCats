@@ -38,12 +38,12 @@ from ..utils.json_dir import open_json_file
 # ---
 from ..nats.Nationality import Nat_mens
 from ..sports.cycling import new2019_cycling
-from ..all_keys2 import Books_table
+from ..mixed.all_keys2 import Books_table
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..by_type import Music_By_table
 from ..tv.films_mslslat import Films_key_For_Jobs
 from .Jobs2 import Jobs_2
-from ..male_keys import religious_female_keys
+from ..mixed.male_keys import religious_female_keys
 from ..companies import companies_to_jobs
 from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
