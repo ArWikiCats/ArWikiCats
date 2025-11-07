@@ -234,7 +234,7 @@ BOOK_CATEGORIES: Final[dict[str, str]] = {
     "poems": "قصائد",
     "publications": "منشورات",
     "screenplays": "نصوص سينمائية",
-    "short stories": "قصص صيرة",
+    "short stories": "قصص قصيرة",
     "soundtracks": "موسيقى تصويرية",
     "texts": "نصوص",
     "treaties": "اتفاقيات",
@@ -406,7 +406,7 @@ def _build_book_entries(registry: KeyRegistry) -> None:
     for category_key, category_label in BOOK_CATEGORIES.items():
         registry.data[category_key] = category_label
         registry.data[f"defunct {category_key}"] = f"{category_label} سابقة"
-        registry.data[f"{category_key} publications"] = f"منشوات {category_label}"
+        registry.data[f"{category_key} publications"] = f"منشورات {category_label}"
         lower_category = category_key.lower()
         for key, key_label in film_Keys_For_female.items():
             registry.data[f"{key.lower()} {lower_category}"] = f"{category_label} {key_label}"
@@ -505,9 +505,15 @@ pf_keys2: dict[str, str] = build_pf_keys2()
 # Backwards compatibility alias used by legacy imports.
 Word_After_Years = WORD_AFTER_YEARS
 
+# Maintain legacy module-level exports expected by older imports.
+Books_table = BOOK_CATEGORIES
+Books_type = BOOK_TYPES
+
 __all__ = [
     "pf_keys2",
     "pop_of_without_in",
     "pop_of_football_lower",
     "Word_After_Years",
+    "Books_table",
+    "Books_type",
 ]

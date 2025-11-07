@@ -21,6 +21,7 @@ __all__ = [
     "Add_in_table2",
     "ADD_IN_TABLE2",
     "PARTIES",
+    "Parties",
     "build_keys2_mapping",
     "build_keys2_py_mapping",
     "keys2_py",
@@ -105,6 +106,9 @@ PARTIES: Final[dict[str, str]] = {
     "socialist party of albania": "الحزب الإشتراكي (ألبانيا)",
     "socialist party-of albania": "الحزب الإشتراكي (ألبانيا)",
 }
+
+# Preserve historical export casing for downstream consumers.
+Parties = PARTIES
 
 
 def build_keys2_mapping() -> dict[str, str]:

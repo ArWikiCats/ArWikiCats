@@ -11,7 +11,13 @@ from ..structures import structures_data
 from ..tv.films_mslslat import Films_keys_male_female
 from .key_registry import KeyRegistry
 
-__all__ = ["New_female_keys", "New_male_keys", "build_female_keys", "build_male_keys"]
+__all__ = [
+    "New_female_keys",
+    "New_male_keys",
+    "build_female_keys",
+    "build_male_keys",
+    "religious_female_keys",
+]
 
 
 RELIGIOUS_FEMALE_KEYS: Final[dict[str, str]] = {
@@ -35,6 +41,9 @@ RELIGIOUS_FEMALE_KEYS: Final[dict[str, str]] = {
     "zoroastrian": "زرادشتية",
     "bahá'í": "بهائية",
 }
+
+# Backwards compatibility alias required by ``Jobs`` module imports.
+religious_female_keys = RELIGIOUS_FEMALE_KEYS
 
 
 FEMALE_SUFFIXES: Final[dict[str, str]] = {

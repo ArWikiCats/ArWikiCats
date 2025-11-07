@@ -6,7 +6,7 @@ from typing import Final
 
 from .key_registry import KeyRegistry
 
-__all__ = ["AFC_KEYS", "build_new_2023", "new_2023"]
+__all__ = ["AFC_KEYS", "afc_keys", "build_new_2023", "new_2023"]
 
 
 BASE_NEW_2023: Final[dict[str, str]] = {
@@ -194,6 +194,9 @@ AFC_KEYS: Final[dict[str, str]] = {
     "afc futsal asian cup": "كأس آسيا لكرة الصالات",
     "afc futsal club championship": "بطولة آسيا لكرة الصالات للأندية",
 }
+
+# Provide lowercase alias for legacy imports expecting ``afc_keys``.
+afc_keys = AFC_KEYS
 
 
 def _add_anti_suffixes(registry: KeyRegistry) -> None:

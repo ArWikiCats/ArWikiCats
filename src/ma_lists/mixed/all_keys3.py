@@ -155,6 +155,9 @@ NN_table: dict[str, str] = {}
 
 NN_table2: dict[str, dict[str, str]] = dict(NN_TABLE_GENDERED)
 
+# Maintain historical module level aliases consumed by legacy code.
+businesspeoples = BUSINESSPEOPLE_INDUSTRIES
+
 __all__ = [
     "pop_final_3",
     "typeTable_7",
@@ -163,4 +166,5 @@ __all__ = [
     "Ambassadors_tab",
     "NN_table",
     "NN_table2",
+    "businesspeoples",
 ]
