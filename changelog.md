@@ -1,3 +1,17 @@
+## [Refactor singer job label utilities] - 2025-11-07
+
+### Added
+* Introduced typed helpers for loading singer label JSON configuration and combining category roles.
+
+### Changed
+* Rebuilt `src/ma_lists/jobs/jobs_singers.py` around documented constants and reusable builders for gendered label assembly.
+
+### Fixed
+* Prevented duplicate whitespace when feminine non-fiction labels are unavailable, matching downstream expectations.
+
+### Removed
+* Eliminated the legacy self-import pattern from `jobs_singers` in favour of explicit exports.
+
 ## [Refactor player job label utilities] - 2025-11-07
 
 ### Added
