@@ -265,7 +265,7 @@ class TypeHintAdder(cst.CSTTransformer):
     # Helper utilities
     # ------------------------------------------------------------------
     def _annotation_from_string(self, type_str: str) -> cst.Annotation:
-        if re.search(r"\\bAny\\b", type_str):
+        if re.search(r"\bAny\b", type_str):
             self.any_import_needed = True
         return cst.Annotation(annotation=cst.parse_expression(type_str))
 
