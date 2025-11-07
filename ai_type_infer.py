@@ -89,7 +89,7 @@ def _get_docstring(func: cst.FunctionDef) -> Optional[str]:
         return None
     try:
         return ast.literal_eval(value.value)
-    except Exception:
+    except (ValueError, SyntaxError):
         return None
 
 
