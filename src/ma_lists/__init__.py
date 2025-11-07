@@ -47,9 +47,29 @@ from .others.peoples import People_key
 
 from .others.pop_2018 import pop_All_2018
 
-from .sports import Teams_new, sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
+from .sports import (
+    NAT_P17_OIOI,
+    SPORT_FORMTS_EN_AR_IS_P17,
+    SPORT_FORMTS_EN_P17_AR_NAT,
+    SPORT_FORMTS_ENAR_P17_TEAM,
+    SPORT_FORMTS_FEMALE_NAT,
+    SPORT_FORMTS_MALE_NAT,
+    SPORT_FORMTS_NEW_KKK,
+    SPORT_FORMATS_FOR_P17,
+    TEAMS_NEW,
+    TENNIS_KEYS,
+)
 
-from .sports.nat_p17 import sport_formts_for_p17, nat_p17_oioi
+Teams_new = TEAMS_NEW
+sport_formts_en_ar_is_p17 = SPORT_FORMTS_EN_AR_IS_P17
+sport_formts_en_p17_ar_nat = SPORT_FORMTS_EN_P17_AR_NAT
+sport_formts_enar_p17_team = SPORT_FORMTS_ENAR_P17_TEAM
+sport_formts_new_kkk = SPORT_FORMTS_NEW_KKK
+sport_formts_male_nat = SPORT_FORMTS_MALE_NAT
+sport_formts_female_nat = SPORT_FORMTS_FEMALE_NAT
+sport_formts_for_p17 = SPORT_FORMATS_FOR_P17
+nat_p17_oioi = NAT_P17_OIOI
+tennis_keys = TENNIS_KEYS
 
 from .mixed.test_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to, Multi_sport_for_Jobs, en_is_nat_ar_is_women_2, en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, replace_labels_2022, Mens_suffix, Mens_priffix, Women_s_priffix, en_is_P17_ar_is_al_women
 
@@ -161,12 +181,26 @@ __all__ = [
     #
     "pop_All_2018",
     #
+    "TEAMS_NEW",
+    "SPORT_FORMTS_EN_AR_IS_P17",
+    "SPORT_FORMTS_EN_P17_AR_NAT",
+    "SPORT_FORMTS_ENAR_P17_TEAM",
+    "SPORT_FORMTS_NEW_KKK",
+    "SPORT_FORMTS_MALE_NAT",
+    "SPORT_FORMTS_FEMALE_NAT",
+    "SPORT_FORMATS_FOR_P17",
+    "NAT_P17_OIOI",
+    "TENNIS_KEYS",
     "Teams_new",
     "sport_formts_en_ar_is_p17",
     "sport_formts_en_p17_ar_nat",
-    #
+    "sport_formts_enar_p17_team",
+    "sport_formts_new_kkk",
+    "sport_formts_male_nat",
+    "sport_formts_female_nat",
     "sport_formts_for_p17",
     "nat_p17_oioi",
+    "tennis_keys",
     #
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",

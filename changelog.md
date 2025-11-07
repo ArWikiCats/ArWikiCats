@@ -58,3 +58,17 @@ This update improves label processing accuracy and restructures the test archite
 * **New Features**
   * Added comprehensive localization mappings for sports, companies, buildings, and medical terminology.
   * Expanded translation data for enhanced language support and domain coverage.
+
+## #XX - 2025-11-06
+
+### Refactor
+
+* Typed and documented every module under `src/ma_lists/sports`, replacing ad-hoc dictionary manipulation with reusable helpers and
+  structured builders.
+* Standardized logging, constants, and package exports for the sports namespace to eliminate circular dependencies and to make the
+  data structures easier to consume across bots.
+
+### Maintenance
+
+* Added shared helper utilities, refreshed cycling and tennis datasets, and introduced a changelog-friendly summary of sports
+  refactors.

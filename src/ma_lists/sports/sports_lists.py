@@ -1,72 +1,71 @@
-#!/usr/bin/python3
-"""
-from .sports_lists import levels, AFTER_KEYS, AFTER_KEYS_TEAM, AFTER_KEYS_NAT, menstt333, nat_menstt33, PPP_Keys, New_Tato_nat
+"""Static lookup tables used by multiple sports modules.
+
+The module mostly contains translation dictionaries that are reused across
+different sports builders.  The dictionaries keep placeholder tokens such as
+``{nat}`` which are later formatted by the calling code.
 """
 
-# ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-# ---
-menstt333 = {
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Final
+
+from ._helpers import YEARS, extend_with_templates, extend_with_year_templates
+
+# Mapping of prefixes (menstt333) used when generating nationality based
+# templates.  The strings keep ``{}`` placeholders which are filled either at
+# dictionary creation time or by consumers when the final value is required.
+MENSTT333: Final[dict[str, str]] = {
     "": "{}",
     "national": "{}",
-    # "youth national" : "{} للشباب",
     "national youth": "{} للشباب",
-    # "amateur national" : "{} للهواة",
     "national amateur": "{} للهواة",
     "national junior men's": "{} للناشئين",
-    # "national men's junior" : "{} للناشئين",
-    # "men's junior national" : "{} للناشئين",
-    # "men's national junior" : "{} للناشئين",
     "national junior women's": "{} للناشئات",
-    # "national women's junior" : "{} للناشئات",
-    # "women's junior national" : "{} للناشئات",
-    # "women's national junior" : "{} للناشئات",
     "national men's": "{} للرجال",
-    # "men's national" : "{} للرجال",
     "national women's": "{} للسيدات",
     "multi-national women's": "{} متعددة الجنسيات للسيدات",
-    # "women's national" : "{} للسيدات",
-    # "national women's youth" : "{} للشابات",
-    # "women's youth national" : "{} للشابات",
-    # "women's national youth" : "{} للشابات",
     "national youth women's": "{} للشابات",
 }
-nat_menstt33 = {fafo: menstt333[fafo].replace("{}", "{nat}") for fafo in menstt333}
-# ---
-# =================
-# ---
-New_Tato_nat = {}
-# ---
-# Category:National junior women's goalball teams
-# tab[Category:Women's national under-20 association football teams] = "تصنيف:منتخبات كرة قدم وطنية نسائية تحت 20 سنة"
-# ---
-for template_key, template_label in nat_menstt33.items():
-    New_Tato_nat[template_key] = template_label
-    # printe.output(lightred % (mr_nat , mr_nat_a) )
-    for year in Years_List:
-        # for ye# ---a in [23]:
-        # ---
-        # Category:Women's national under-20 association football teams
-        # تصنيف:منتخبات كرة قدم وطنية تحت 20 سنة للسيدات
-        # ---
-        arabic_label = template_label.replace("{nat}", "{nat} تحت %d سنة" % year)
-        english_key = f"{template_key} under-{year}"
-        # printe.output(english_key)
-        # printe.output(arabic_label)
-        New_Tato_nat[english_key] = arabic_label
-# ---
-# =================
-# ---
-PPP_Keys = {
-    "men's": "رجالية",  # للرجال
-    "women's": "نسائية",  # للسيدات
-    "youth": "شبابية",  # للشباب
-    "men's youth": "للشباب",  # للشابات
-    "women's youth": "للشابات",  # للشابات
-    "amateur": "للهواة",  # للهواة
+
+# The MENSTT333 values are re-used with ``{nat}`` placeholders in some
+# contexts, therefore we prepare a second mapping that already incorporates
+# the placeholder in its value.
+NAT_MENSTT33: Final[dict[str, str]] = {key: value.replace("{}", "{nat}") for key, value in MENSTT333.items()}
+
+
+def _build_new_tato_nat() -> dict[str, str]:
+    """Construct the ``New_Tato_nat`` dictionary.
+
+    The data expands ``NAT_MENSTT33`` by adding templates for different age
+    categories.  ``{nat}`` remains a placeholder in the resulting strings.
+    """
+
+    result: dict[str, str] = {}
+    for template_key, template_label in NAT_MENSTT33.items():
+        extend_with_templates(result, {template_key: template_label}, nat="{nat}")
+
+        year_templates: Mapping[str, str] = {f"{template_key} under-{{year}}": template_label.replace("{nat}", "{nat} تحت {year} سنة")}
+        extend_with_year_templates(result, year_templates, nat="{nat}")
+    return result
+
+
+NEW_TATO_NAT: Final[dict[str, str]] = _build_new_tato_nat()
+
+# Gender/age qualifiers applied to job and team dictionaries when generating
+# composite keys.
+PPP_KEYS: Final[dict[str, str]] = {
+    "men's": "رجالية",
+    "women's": "نسائية",
+    "youth": "شبابية",
+    "men's youth": "للشباب",
+    "women's youth": "للشابات",
+    "amateur": "للهواة",
 }
-# ---
-levels = {
+
+# League levels used when describing national competitions.  Consumers provide
+# the base label (``{lab}``) for the translation.
+LEVELS: Final[dict[str, str]] = {
     "premier": "الدرجة الممتازة",
     "top level": "الدرجة الأولى",
     "first level": "الدرجة الأولى",
@@ -84,8 +83,9 @@ levels = {
     "seventh level": "الدرجة السابعة",
     "seventh tier": "الدرجة السابعة",
 }
-# ---
-AFTER_KEYS = {
+
+# Keys appended after a base sport name when generating extended templates.
+AFTER_KEYS: Final[dict[str, str]] = {
     "squads": "تشكيلات",
     "finals": "نهائيات",
     "positions": "مراكز",
@@ -102,12 +102,9 @@ AFTER_KEYS = {
     "umpires": "حكام",
     "trainers": "مدربو",
     "scouts": "كشافة",
-    # "people" : "أعلام",
     "coaches": "مدربو",
     "leagues": "دوريات",
     "managers": "مدربو",
-    # "managers" : "مدراء",
-    # "captains" : "مدربو",
     "playerss": "لاعبو",
     "players": "لاعبو",
     "results": "نتائج",
@@ -124,28 +121,46 @@ AFTER_KEYS = {
     "records and statistics": "سجلات وإحصائيات",
     "manager history": "تاريخ مدربو",
 }
-# ---
-AFTER_KEYS_TEAM = {
+
+# Templates used when building team specific suffixes.
+AFTER_KEYS_TEAM: Final[dict[str, str]] = {
     "team": "{}",
     "team umpires": "حكام {}",
     "team trainers": "مدربو {}",
     "team scouts": "كشافة {}",
 }
-# ---
-AFTER_KEYS_NAT = {
+
+# Templates applied to national teams.  ``{lab}`` is supplied by the caller
+# and usually corresponds to a translated sport label.
+AFTER_KEYS_NAT: Final[dict[str, str]] = {
     "": "{lab}",
     "second level leagues": "دوريات {lab} من الدرجة الثانية",
     "second tier leagues": "دوريات {lab} من الدرجة الثانية",
 }
-# ---
-# نسخ AFTER_KEYS إلى AFTER_KEYS_TEAM وإلى AFTER_KEYS
-for suffix_key, suffix_label in AFTER_KEYS.items():
-    # ---
-    AFTER_KEYS_TEAM[f"team {suffix_key}"] = suffix_label + " {}"
-    # ---
-    AFTER_KEYS_NAT[f"{suffix_key}"] = suffix_label + " {lab}"
-# ---
-for level_key, level_label in levels.items():
-    AFTER_KEYS_NAT[f"{level_key} league"] = "دوريات {lab} من %s" % level_label
-    AFTER_KEYS_NAT[f"{level_key} leagues"] = "دوريات {lab} من %s" % level_label
-# ---
+
+
+def _extend_suffix_mappings() -> None:
+    """Populate ``AFTER_KEYS_TEAM`` and ``AFTER_KEYS_NAT`` with variants."""
+
+    for suffix_key, suffix_label in AFTER_KEYS.items():
+        AFTER_KEYS_TEAM[f"team {suffix_key}"] = f"{suffix_label} {{}}"
+        AFTER_KEYS_NAT[suffix_key] = f"{suffix_label} {{lab}}"
+
+    for level_key, level_label in LEVELS.items():
+        AFTER_KEYS_NAT[f"{level_key} league"] = f"دوريات {{lab}} من {level_label}"
+        AFTER_KEYS_NAT[f"{level_key} leagues"] = f"دوريات {{lab}} من {level_label}"
+
+
+_extend_suffix_mappings()
+
+__all__ = [
+    "AFTER_KEYS",
+    "AFTER_KEYS_NAT",
+    "AFTER_KEYS_TEAM",
+    "LEVELS",
+    "MENSTT333",
+    "NAT_MENSTT33",
+    "NEW_TATO_NAT",
+    "PPP_KEYS",
+    "YEARS",
+]

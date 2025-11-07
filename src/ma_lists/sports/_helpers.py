@@ -1,0 +1,100 @@
+"""Utility helpers shared across the :mod:`ma_lists.sports` package.
+
+The original sports modules relied on ad-hoc loops to generate large
+collections of translated sports labels.  The helpers in this module
+centralise the common logic so that the individual modules remain readable
+and well typed.
+"""
+
+from __future__ import annotations
+
+import logging
+from collections.abc import Iterable, Mapping, MutableMapping
+from typing import Any
+
+LOGGER = logging.getLogger(__name__)
+
+# The list of age categories that appear throughout the sports templates.
+# It is referenced from multiple modules, therefore it lives in a single
+# shared location to keep definitions consistent.
+YEARS: tuple[int, ...] = (13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24)
+
+
+def extend_with_templates(
+    target: MutableMapping[str, str],
+    templates: Mapping[str, str],
+    **format_kwargs: Any,
+) -> None:
+    """Populate ``target`` using ``templates`` and ``format_kwargs``.
+
+    Args:
+        target: Dictionary that receives the rendered templates.
+        templates: Mapping of key template to label template.
+        **format_kwargs: Parameters available during ``str.format``
+            expansion for both template strings.
+    """
+
+    for key_template, value_template in templates.items():
+        rendered_key = key_template.format(**format_kwargs)
+        rendered_value = value_template.format(**format_kwargs)
+        target[rendered_key] = rendered_value
+
+
+def extend_with_year_templates(
+    target: MutableMapping[str, str],
+    templates: Mapping[str, str],
+    *,
+    years: Iterable[int] | None = None,
+    **format_kwargs: Any,
+) -> None:
+    """Render ``templates`` for every year and update ``target``.
+
+    Args:
+        target: Dictionary that receives all rendered templates.
+        templates: Mapping of key template to label template.
+        years: Optional iterable of integer years.  When omitted the
+            project wide :data:`YEARS` constant is used.
+        **format_kwargs: Extra formatting arguments used for the template
+            expansion.
+    """
+
+    for year in years or YEARS:
+        extend_with_templates(target, templates, year=year, **format_kwargs)
+
+
+def log_length_stats(
+    module_name: str,
+    stats: Mapping[str, int],
+    *,
+    max_entries: int | None = None,
+) -> None:
+    """Log diagnostics about the size of generated dictionaries.
+
+    Historically these modules relied on :mod:`...helps.len_print` to
+    inspect dictionary sizes.  The helper keeps that behaviour while
+    providing a graceful fallback to the logging module when the optional
+    dependency is absent.
+
+    Args:
+        module_name: Name of the module emitting the diagnostics.
+        stats: Mapping where keys describe the measured object and values
+            contain the size in bytes.
+        max_entries: Optional argument forwarded to ``len_print`` when
+            available.  It limits the number of entries that will be
+            displayed.
+    """
+
+    try:
+        from ...helps import len_print  # type: ignore import-not-found
+    except Exception:  # pragma: no cover - defensive fallback
+        for key, value in stats.items():
+            LOGGER.debug("%s[%s]=%d", module_name, key, value)
+        return
+
+    if max_entries is None:
+        len_print.lenth_pri(module_name, dict(stats))
+    else:
+        len_print.lenth_pri(module_name, dict(stats), Max=max_entries)
+
+
+__all__ = ["YEARS", "extend_with_templates", "extend_with_year_templates", "log_length_stats"]

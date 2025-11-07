@@ -1,5 +1,10 @@
+"""Cycling specific lookup tables used by the sports translation modules."""
 
-new2019_cycling = {
+from __future__ import annotations
+
+from typing import Final
+
+BASE_CYCLING_EVENTS: Final[dict[str, str]] = {
     "tour de france": "سباق طواف فرنسا",
     "grand tour": "الطوافات الكبرى",
     "grand tour (cycling)": "الطوافات الكبرى",
@@ -11,17 +16,31 @@ new2019_cycling = {
     "vuelta a venezuela": "فويلتا فنزويلا",
 }
 
-new_cy = {}
 
-for cy, cy_lab in new2019_cycling.items():
-    cy2 = cy.lower()
-    new_cy[cy2] = cy_lab
-    new_cy[f"{cy2} media"] = f"إعلام {cy_lab}"
-    new_cy[f"{cy2} squads"] = f"تشكيلات {cy_lab}"
-    new_cy[f"{cy2} cyclists"] = f"دراجو {cy_lab}"
-    new_cy[f"{cy2} directors"] = f"مدراء {cy_lab}"
-    new_cy[f"{cy2} journalists"] = f"صحفيو {cy_lab}"
-    new_cy[f"{cy2} people"] = f"أعلام {cy_lab}"
-    new_cy[f"{cy2} stages"] = f"مراحل {cy_lab}"
-    new_cy[f"{cy2} stage winners"] = f"فائزون في مراحل {cy_lab}"
-# ---
+def build_cycling_templates() -> dict[str, str]:
+    """Generate derivative keys for cycling tournaments.
+
+    Returns:
+        A mapping keyed by lower-case identifiers with Arabic labels covering
+        media, squads, and other related variations for every race.
+    """
+
+    templates: dict[str, str] = {}
+    for english_name, arabic_label in BASE_CYCLING_EVENTS.items():
+        normalized_name = english_name.lower()
+        templates[normalized_name] = arabic_label
+        templates[f"{normalized_name} media"] = f"إعلام {arabic_label}"
+        templates[f"{normalized_name} squads"] = f"تشكيلات {arabic_label}"
+        templates[f"{normalized_name} cyclists"] = f"دراجو {arabic_label}"
+        templates[f"{normalized_name} directors"] = f"مدراء {arabic_label}"
+        templates[f"{normalized_name} journalists"] = f"صحفيو {arabic_label}"
+        templates[f"{normalized_name} people"] = f"أعلام {arabic_label}"
+        templates[f"{normalized_name} stages"] = f"مراحل {arabic_label}"
+        templates[f"{normalized_name} stage winners"] = f"فائزون في مراحل {arabic_label}"
+    return templates
+
+
+CYCLING_TEMPLATES: Final[dict[str, str]] = build_cycling_templates()
+new_cy = CYCLING_TEMPLATES
+
+__all__ = ["BASE_CYCLING_EVENTS", "CYCLING_TEMPLATES", "build_cycling_templates", "new_cy"]

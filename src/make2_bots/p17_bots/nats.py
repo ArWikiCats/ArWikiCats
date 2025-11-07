@@ -3,7 +3,7 @@ from ..p17_bots import nats
 """
 
 import re
-from ...ma_lists import sport_formts_for_p17, nat_p17_oioi
+from ...ma_lists import NAT_P17_OIOI, SPORT_FORMATS_FOR_P17
 from ...ma_lists import fanco_line, Sports_Keys_For_Team
 from ..matables_bots.bot import New_players, Add_to_main2_tab  # Add_to_main2_tab()
 from ... import malists_sport_lab as sport_lab
@@ -20,7 +20,7 @@ def make_sport_formats_p17(category_key: str) -> str:
 
     logger.info(f'<<lightblue>>>>>> make_sport_formats_p17: category_key:"{category_key}"')
 
-    cached_label = sport_formts_for_p17.get(category_key, "")
+    cached_label = SPORT_FORMATS_FOR_P17.get(category_key, "")
     if cached_label:
         logger.debug(f"\tfind lab in sport_formts_for_p17: {cached_label}")
         return cached_label
@@ -41,11 +41,11 @@ def make_sport_formats_p17(category_key: str) -> str:
         f'sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"'
     )
 
-    if placeholder_key in nat_p17_oioi:
+    if placeholder_key in NAT_P17_OIOI:
         sport_label = Sports_Keys_For_Team.get(sport_key, "")
         if not sport_label:
             logger.debug(f' sport_key:"{sport_key}" not in Sports_Keys_For_Team ')
-        placeholder_template = nat_p17_oioi[placeholder_key]
+        placeholder_template = NAT_P17_OIOI[placeholder_key]
         if placeholder_template and sport_label:
             formatted_label = placeholder_template.replace("oioioi", sport_label)
             if "oioioi" not in formatted_label:
