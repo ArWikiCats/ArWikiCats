@@ -6,19 +6,11 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 """
 
-import importlib.util
 import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
-if importlib.util.find_spec("tqdm") is not None:
-    from tqdm import tqdm  # type: ignore
-else:
-
-    def tqdm(iterable: Iterable[Any] | None=None, *args: Any, **kwargs: Any) -> Iterable[Any]:
-        """Fallback replacement for :func:`tqdm` when the package is unavailable."""
-
-        return iterable if iterable is not None else []
+from tqdm import tqdm
 
 from . import printe
 from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
@@ -73,7 +65,7 @@ def event(
     """Process a list of categories and generate corresponding labels."""
 
     config = EventProcessorConfig(
-        make_tab=maketab,
+        make_tab=maketab is True,
         event_cache=get_shared_event_cache(),
     )
     if Local:
