@@ -90,7 +90,7 @@ class _TableCollector:
 
 
 @contextmanager
-def _table_sink_context(collector: Optional[_TableCollector]) -> None:
+def _table_sink_context(collector: Optional[_TableCollector]) -> Iterator[None]:
     if not collector:
         yield
         return
