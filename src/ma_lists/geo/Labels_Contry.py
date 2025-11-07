@@ -1,29 +1,20 @@
-"""
+"""Aggregate translation tables for country and region labels."""
 
+from __future__ import annotations
 
-"""
-
-import sys
-import copy
-
-from ..utils.json_dir import open_json_file
-
-from .us_counties import Counties
-from ..others.tax_table import Taxons_table
-from ...helps import len_print
-from ..companies import New_Company
-from ..mixed.all_keys5 import pop_final_5
-from ..mixed.all_keys2 import pf_keys2
+from ..companies import New_Company as COMPANY_LABELS
+from ..mixed.all_keys2 import pf_keys2 as ADDITIONAL_KEYS
+from ..mixed.all_keys5 import pop_final_5 as POPULATION_SUPPLEMENTS
+from ..others.tax_table import Taxons_table as TAXON_TABLE
+from ._shared import apply_suffix_templates, load_json_mapping, log_mapping_stats, normalize_to_lower, update_with_lowercased
+from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS
+from .Labels_Contry2 import COUNTRY_ADMIN_LABELS
 from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
-from .Cities import N_cit_ies_s, tabe_lab_yy2
-from .Labels_Contry2 import P17_PP
+from .us_counties import COUNTY_TRANSLATIONS
 
-
-COUNTRY_LABEL_OVERRIDES = open_json_file("P17_2_final_ll") or {}
-# ---
-POPULATION_OVERRIDES = open_json_file("opop") or {}
-# ---
+COUNTRY_LABEL_OVERRIDES = load_json_mapping("P17_2_final_ll")
+POPULATION_OVERRIDES = load_json_mapping("opop")
 JAPAN_REGIONAL_LABELS = {
     "gokishichidō": "",
     "saitama": "سايتاما",
@@ -166,122 +157,112 @@ TURKEY_PROVINCE_LABELS = {
     "zonguldak": "زانغولداك",
 }
 
-population_without_years = {}
-country_labels_final = {}
-COUNTRY_LABEL_INDEX = {city1.lower(): N_cit_ies_s[city1] for city1 in N_cit_ies_s if N_cit_ies_s[city1] != ""}
-# ---
-# ---
-# 402.55859375 before del
-# 402.42578125 after del
-# ---
-for city, lal in JAPAN_REGIONAL_LABELS.items():
-    city2 = city.lower()
-    if lal:
-        COUNTRY_LABEL_INDEX[city2] = lal
-        COUNTRY_LABEL_INDEX[f"{city2} Prefecture"] = f"محافظة {lal}"
-        COUNTRY_LABEL_INDEX[f"{city2} region"] = f"منطقة {lal}"
 
-frf = []
-for xa, override_label in COUNTRY_LABEL_OVERRIDES.items():
-    if override_label:
-        COUNTRY_LABEL_INDEX[xa.lower()] = override_label
+def _build_country_label_index() -> dict[str, str]:
+    """Return the aggregated translation table for countries and regions."""
 
-for xa, override_label in POPULATION_OVERRIDES.items():
-    if override_label:
-        COUNTRY_LABEL_INDEX[xa.lower()] = override_label
+    label_index: dict[str, str] = {}
 
-for xa, override_label in P17_PP.items():
-    if override_label:
-        COUNTRY_LABEL_INDEX[xa.lower()] = override_label
+    update_with_lowercased(label_index, CITY_TRANSLATIONS)
+    update_with_lowercased(label_index, COUNTRY_LABEL_OVERRIDES)
+    update_with_lowercased(label_index, POPULATION_OVERRIDES)
+    update_with_lowercased(label_index, COUNTRY_ADMIN_LABELS)
+    update_with_lowercased(label_index, Main_Table)
+    update_with_lowercased(label_index, Main_Table_2)
+    update_with_lowercased(label_index, India_Main_Table)
+    update_with_lowercased(label_index, CITY_LABEL_PATCHES)
+    update_with_lowercased(label_index, ADDITIONAL_KEYS)
+    update_with_lowercased(label_index, COUNTY_TRANSLATIONS)
 
-Main_Table_tr = {}
+    apply_suffix_templates(
+        label_index,
+        JAPAN_REGIONAL_LABELS,
+        (
+            (" prefecture", "محافظة %s"),
+            (" region", "منطقة %s"),
+        ),
+    )
+    apply_suffix_templates(
+        label_index,
+        TURKEY_PROVINCE_LABELS,
+        ((" province", "محافظة %s"),),
+    )
 
-for ccc, ccc_lab in Main_Table.items():
-    if ccc_lab:
-        lower_name = ccc.lower()
-        COUNTRY_LABEL_INDEX[lower_name] = ccc_lab
-        Main_Table_tr[lower_name] = ccc_lab
+    update_with_lowercased(label_index, JAPAN_REGIONAL_LABELS)
+    update_with_lowercased(label_index, TURKEY_PROVINCE_LABELS)
 
-for ccc, ccc_lab in Main_Table_2.items():
-    if ccc_lab:
-        lower_name = ccc.lower()
-        COUNTRY_LABEL_INDEX[lower_name] = ccc_lab
-        Main_Table_tr[lower_name] = ccc_lab
-Turky_Province = {}
+    for province_name, province_label in TURKEY_PROVINCE_LABELS.items():
+        if province_label:
+            normalized = province_name.lower()
+            label_index[f"districts of {normalized} province"] = f"أقضية محافظة {province_label}"
 
-for dyd, province_label in TURKEY_PROVINCE_LABELS.items():
-    lower_name = dyd.lower()
-    COUNTRY_LABEL_INDEX[lower_name] = province_label
-    COUNTRY_LABEL_INDEX[f"{lower_name} Province"] = f"محافظة {province_label}"
-    Turky_Province[f"{lower_name} Province"] = f"محافظة {province_label}"
-    COUNTRY_LABEL_INDEX[f"districts of {lower_name} Province"] = f"أقضية محافظة {province_label}"
+    for company_name, company_label in COMPANY_LABELS.items():
+        normalized_company = company_name.lower()
+        if normalized_company in ADDITIONAL_KEYS or not company_label:
+            continue
+        label_index[normalized_company] = company_label
 
-for indi, label in India_Main_Table.items():
-    COUNTRY_LABEL_INDEX[indi.lower()] = label
+    label_index.update(  # Specific overrides used by downstream consumers.
+        {
+            "indycar": "أندي كار",
+            "indiana": "إنديانا",
+            "motorsport": "رياضة محركات",
+            "indianapolis": "إنديانابوليس",
+            "sports in indiana": "الرياضة في إنديانا",
+            "igbo": "إغبو",
+        }
+    )
 
-for vvvv, label in tabe_lab_yy2.items():
-    COUNTRY_LABEL_INDEX[vvvv.lower()] = label
+    for key, value in list(label_index.items()):
+        if key.startswith("the ") and value:
+            trimmed_key = key[len("the ") :].strip()
+            label_index.setdefault(trimmed_key, value)
 
-for contry, label in pf_keys2.items():
-    if label:
-        COUNTRY_LABEL_INDEX[contry.lower()] = label
+    for taxon_name, taxon_label in TAXON_TABLE.items():
+        normalized_taxon = taxon_name.lower()
+        if normalized_taxon not in label_index and taxon_label:
+            label_index[normalized_taxon] = taxon_label
 
-for company_name, company_label in New_Company.items():
-    lower_company = company_name.lower()
-    if lower_company not in pf_keys2 and company_label:
-        COUNTRY_LABEL_INDEX[lower_company] = company_label
+    for population_key, population_label in POPULATION_SUPPLEMENTS.items():
+        if not population_label:
+            continue
+        normalized_population_key = population_key.lower()
+        label_index.setdefault(normalized_population_key, population_label)
 
-COUNTRY_LABEL_INDEX["indycar"] = "أندي كار"
-COUNTRY_LABEL_INDEX["indiana"] = "إنديانا"
-COUNTRY_LABEL_INDEX["motorsport"] = "رياضة محركات"
-COUNTRY_LABEL_INDEX["indianapolis"] = "إنديانابوليس"
-COUNTRY_LABEL_INDEX["sports in indiana"] = "الرياضة في إنديانا"
-COUNTRY_LABEL_INDEX["igbo"] = "إغبو"
+    return label_index
 
-for vg, county_label in Counties.items():
-    if county_label:
-        COUNTRY_LABEL_INDEX[vg.lower()] = county_label
 
-the_keys = 0
+COUNTRY_LABEL_INDEX = _build_country_label_index()
+COUNTRY_LABEL_INDEX_LOWER = normalize_to_lower(COUNTRY_LABEL_INDEX)
 
-for ase, z in copy.deepcopy(COUNTRY_LABEL_INDEX).items():
-    if z:
-        ase3 = ase.lower()
+log_mapping_stats(
+    "labels_country",
+    label_index=COUNTRY_LABEL_INDEX,
+    label_index_lower=COUNTRY_LABEL_INDEX_LOWER,
+)
 
-        if ase.startswith("the "):
-            the_keys += 1
-            ase33 = ase3[len("the ") :].strip()
-            COUNTRY_LABEL_INDEX[ase33] = z
 
-for ta2, taxon_label in Taxons_table.items():
-    lower_taxon = ta2.lower()
-    if lower_taxon not in COUNTRY_LABEL_INDEX and taxon_label:
-        COUNTRY_LABEL_INDEX[lower_taxon] = taxon_label
+def get_country_label_index() -> dict[str, str]:
+    """Return a copy of the country label mapping."""
 
-for po_5, poll in pop_final_5.items():
-    if poll:
-        lower_population_key = po_5.lower()
-        if lower_population_key not in COUNTRY_LABEL_INDEX:
-            COUNTRY_LABEL_INDEX[lower_population_key] = poll
+    return dict(COUNTRY_LABEL_INDEX)
 
-P17_fdd = {}
 
-memory_stats = {
-    "COUNTRY_LABEL_INDEX": sys.getsizeof(COUNTRY_LABEL_INDEX),
-    "POPULATION_OVERRIDES": sys.getsizeof(POPULATION_OVERRIDES),
-    "the_keys": the_keys,
-}
+def get_country_label_index_lower() -> dict[str, str]:
+    """Return a copy of the lower-cased country label mapping."""
 
-len_print.lenth_pri("Labels_Contry.py", memory_stats)
+    return dict(COUNTRY_LABEL_INDEX_LOWER)
 
-del Counties
-del tabe_lab_yy2
-del COUNTRY_LABEL_OVERRIDES
-del N_cit_ies_s
-del POPULATION_OVERRIDES
-del Main_Table
-del Main_Table_2
-del P17_PP
-# ---
+
 # Backwards compatible aliases
 New_P17_Finall = COUNTRY_LABEL_INDEX
+
+__all__ = [
+    "COUNTRY_LABEL_OVERRIDES",
+    "POPULATION_OVERRIDES",
+    "COUNTRY_LABEL_INDEX",
+    "COUNTRY_LABEL_INDEX_LOWER",
+    "get_country_label_index",
+    "get_country_label_index_lower",
+    "New_P17_Finall",
+]

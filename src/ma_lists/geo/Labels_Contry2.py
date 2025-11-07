@@ -1,19 +1,15 @@
-#!/usr/bin/python3
-"""
+"""Regional translation helpers for administrative areas."""
 
-python3 core8/pwb.py make/lists/Labels_Contry2
+from __future__ import annotations
 
-"""
+import logging
 
-import sys
+from ._shared import apply_suffix_templates, load_json_mapping, log_mapping_stats, normalize_to_lower, update_with_lowercased
 
-from ..utils.json_dir import open_json_file
+LOGGER = logging.getLogger(__name__)
 
-# ---
-COUNTRY_ADMIN_LABELS = open_json_file("P17_PP") or {}
-# ---
-ADDITIONAL_REGION_KEYS = open_json_file("New_Keys") or {}
-# ---
+COUNTRY_ADMIN_LABELS = load_json_mapping("P17_PP")
+ADDITIONAL_REGION_KEYS = load_json_mapping("New_Keys")
 SWISS_CANTON_LABELS = {
     "aarga": "أرجاو",
     "aargau": "أرجاو",
@@ -47,12 +43,12 @@ SWISS_CANTON_LABELS = {
     "zürich": "زيورخ",
 }
 # ---
-COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in SWISS_CANTON_LABELS.items()})
+update_with_lowercased(COUNTRY_ADMIN_LABELS, SWISS_CANTON_LABELS)
 # ---
 for canton, value in SWISS_CANTON_LABELS.items():
     COUNTRY_ADMIN_LABELS[f"canton-of {canton.lower()}"] = f"كانتون {value}"
 # ---
-COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.items()})
+update_with_lowercased(COUNTRY_ADMIN_LABELS, ADDITIONAL_REGION_KEYS)
 # ---
 PROVINCE_LABEL_OVERRIDES = {
     # ---
@@ -143,7 +139,7 @@ PROVINCE_LABEL_OVERRIDES = {
     # ---
 }
 # ---
-COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
+update_with_lowercased(COUNTRY_ADMIN_LABELS, PROVINCE_LABEL_OVERRIDES)
 # ---
 REGION_SUFFIXES_EN = [
     " province",
@@ -234,24 +230,50 @@ PROVINCE_LABELS = {
     "zaire": "زائير",
 }
 # ---
-for city, city_lab in PROVINCE_LABELS.items():
-    city2 = city.lower()
-    if city_lab:
-        COUNTRY_ADMIN_LABELS[city2] = city_lab
-        COUNTRY_ADMIN_LABELS[f"{city2} province"] = f"مقاطعة {city_lab}"
-        COUNTRY_ADMIN_LABELS[f"{city2} (province)"] = f"مقاطعة {city_lab}"
+update_with_lowercased(COUNTRY_ADMIN_LABELS, PROVINCE_LABELS)
+apply_suffix_templates(
+    COUNTRY_ADMIN_LABELS,
+    PROVINCE_LABELS,
+    (
+        (" province", "مقاطعة %s"),
+        (" (province)", "مقاطعة %s"),
+    ),
+)
 # ---
-Lenth1 = {
-    "ADDITIONAL_REGION_KEYS": sys.getsizeof(ADDITIONAL_REGION_KEYS),
-    "COUNTRY_ADMIN_LABELS": sys.getsizeof(COUNTRY_ADMIN_LABELS),
-    "region_suffix_matches": region_suffix_matches,
-}
-# ---
-from ...helps import len_print
+LOGGER.debug("Normalised %d region suffix combinations", region_suffix_matches)
 
-len_print.lenth_pri("Labels_Contry2.py", Lenth1, Max=21)
-# ---
-# del New_Keys
-# ---
+COUNTRY_ADMIN_LABELS_LOWER = normalize_to_lower(COUNTRY_ADMIN_LABELS)
+
+log_mapping_stats(
+    "labels_country2",
+    admin_labels=COUNTRY_ADMIN_LABELS,
+    admin_labels_lower=COUNTRY_ADMIN_LABELS_LOWER,
+)
+
+
+def get_country_admin_labels() -> dict[str, str]:
+    """Return a copy of the country administrative label mapping."""
+
+    return dict(COUNTRY_ADMIN_LABELS)
+
+
+def get_country_admin_labels_lower() -> dict[str, str]:
+    """Return a copy of the lower-cased admin label mapping."""
+
+    return dict(COUNTRY_ADMIN_LABELS_LOWER)
+
+
 # Backwards compatible alias
 P17_PP = COUNTRY_ADMIN_LABELS
+
+__all__ = [
+    "COUNTRY_ADMIN_LABELS",
+    "COUNTRY_ADMIN_LABELS_LOWER",
+    "ADDITIONAL_REGION_KEYS",
+    "SWISS_CANTON_LABELS",
+    "PROVINCE_LABEL_OVERRIDES",
+    "PROVINCE_LABELS",
+    "get_country_admin_labels",
+    "get_country_admin_labels_lower",
+    "P17_PP",
+]

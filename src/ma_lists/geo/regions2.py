@@ -1,35 +1,21 @@
-#!/usr/bin/python3
-"""
-# from .india_2 import SECONDARY_REGION_TRANSLATIONS
+"""Secondary region translation tables."""
 
-"""
-from ..utils.json_dir import open_json_file
-# ---
-india_district_labels = {}
-raw_region_overrides = {}
-SECONDARY_REGION_TRANSLATIONS = {}
-INDIA_REGION_TRANSLATIONS = {}
-# India_districts = {}
-# India_Citiese = {}
-# ---
-india_district_labels = open_json_file("India_dd") or {}
-# ---
-for district_name, district_label in india_district_labels.items():
-    normalized_name = district_name.lower()
-    INDIA_REGION_TRANSLATIONS[normalized_name] = district_label
-    # ---
-    # India_districts[f"{normalized_name} district"] = f"مقاطعة {district_label}"
-    # India_Citiese[district_name] = district_label
-    # ---
-    INDIA_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
-        f"مقاطعة {district_label}"
-    )
-    # ---
-# ---
-del india_district_labels
-# ---
-raw_region_overrides = open_json_file("popopo") or {}
-# ---
+from __future__ import annotations
+
+from ._shared import apply_suffix_templates, load_json_mapping, log_mapping_stats, update_with_lowercased
+
+SECONDARY_REGION_TRANSLATIONS: dict[str, str] = {}
+INDIA_REGION_TRANSLATIONS: dict[str, str] = {}
+
+india_district_labels = load_json_mapping("India_dd")
+update_with_lowercased(INDIA_REGION_TRANSLATIONS, india_district_labels)
+apply_suffix_templates(
+    INDIA_REGION_TRANSLATIONS,
+    india_district_labels,
+    ((" district", "مقاطعة %s"),),
+)
+
+raw_region_overrides = load_json_mapping("popopo")
 EGYPT_GOVERNORATE_TRANSLATIONS = {
     "alexandria": "الإسكندرية",
     "aswan": "أسوان",
@@ -133,52 +119,70 @@ CAR_PREFECTURE_TRANSLATIONS = {
     "haute-kotto": "هوت-كوتو",
 }
 # ---
-for region_key, region_label in raw_region_overrides.items():
-    SECONDARY_REGION_TRANSLATIONS[region_key.lower()] = region_label
-# ---
-for governorate_name, governorate_label in EGYPT_GOVERNORATE_TRANSLATIONS.items():
-    normalized_name = governorate_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = governorate_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} governorate"] = (
-        f"محافظة {governorate_label}"
-    )
-# ---
-for region_name, region_label in DJIBOUTI_REGION_TRANSLATIONS.items():
-    normalized_name = region_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = region_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = (
-        f"منطقة {region_label}"
-    )
-# ---
-for department_name, department_label in GUATEMALA_DEPARTMENT_TRANSLATIONS.items():
-    normalized_name = department_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = department_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} department"] = (
-        f"إدارة {department_label}"
-    )
-# ---
-for province_name, province_label in MONGOLIA_PROVINCE_TRANSLATIONS.items():
-    normalized_name = province_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = province_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"محافظة {province_label}"
-    )
-# ---
-for prefecture_name, prefecture_label in CAR_PREFECTURE_TRANSLATIONS.items():
-    normalized_name = prefecture_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = prefecture_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} prefecture"] = (
-        f"محافظة {prefecture_label}"
-    )
-# ---
-del (
-    raw_region_overrides,
+update_with_lowercased(SECONDARY_REGION_TRANSLATIONS, raw_region_overrides)
+
+update_with_lowercased(SECONDARY_REGION_TRANSLATIONS, EGYPT_GOVERNORATE_TRANSLATIONS)
+apply_suffix_templates(
+    SECONDARY_REGION_TRANSLATIONS,
     EGYPT_GOVERNORATE_TRANSLATIONS,
-    DJIBOUTI_REGION_TRANSLATIONS,
-    GUATEMALA_DEPARTMENT_TRANSLATIONS,
-    MONGOLIA_PROVINCE_TRANSLATIONS,
-    CAR_PREFECTURE_TRANSLATIONS,
+    ((" governorate", "محافظة %s"),),
 )
+
+update_with_lowercased(SECONDARY_REGION_TRANSLATIONS, DJIBOUTI_REGION_TRANSLATIONS)
+apply_suffix_templates(
+    SECONDARY_REGION_TRANSLATIONS,
+    DJIBOUTI_REGION_TRANSLATIONS,
+    ((" region", "منطقة %s"),),
+)
+
+update_with_lowercased(SECONDARY_REGION_TRANSLATIONS, GUATEMALA_DEPARTMENT_TRANSLATIONS)
+apply_suffix_templates(
+    SECONDARY_REGION_TRANSLATIONS,
+    GUATEMALA_DEPARTMENT_TRANSLATIONS,
+    ((" department", "إدارة %s"),),
+)
+
+update_with_lowercased(SECONDARY_REGION_TRANSLATIONS, MONGOLIA_PROVINCE_TRANSLATIONS)
+apply_suffix_templates(
+    SECONDARY_REGION_TRANSLATIONS,
+    MONGOLIA_PROVINCE_TRANSLATIONS,
+    ((" province", "محافظة %s"),),
+)
+
+update_with_lowercased(SECONDARY_REGION_TRANSLATIONS, CAR_PREFECTURE_TRANSLATIONS)
+apply_suffix_templates(
+    SECONDARY_REGION_TRANSLATIONS,
+    CAR_PREFECTURE_TRANSLATIONS,
+    ((" prefecture", "محافظة %s"),),
+)
+
+log_mapping_stats(
+    "regions2",
+    secondary_regions=SECONDARY_REGION_TRANSLATIONS,
+    india_regions=INDIA_REGION_TRANSLATIONS,
+)
+
+
+def get_secondary_region_translations() -> dict[str, str]:
+    """Return a copy of the secondary region translations."""
+
+    return dict(SECONDARY_REGION_TRANSLATIONS)
+
+
+def get_india_region_translations() -> dict[str, str]:
+    """Return a copy of the India region translations."""
+
+    return dict(INDIA_REGION_TRANSLATIONS)
+
 
 Main_Table_2 = SECONDARY_REGION_TRANSLATIONS
 India_Main_Table = INDIA_REGION_TRANSLATIONS
+
+__all__ = [
+    "SECONDARY_REGION_TRANSLATIONS",
+    "INDIA_REGION_TRANSLATIONS",
+    "get_secondary_region_translations",
+    "get_india_region_translations",
+    "Main_Table_2",
+    "India_Main_Table",
+]

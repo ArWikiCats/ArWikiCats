@@ -58,3 +58,11 @@ This update improves label processing accuracy and restructures the test archite
 * **New Features**
   * Added comprehensive localization mappings for sports, companies, buildings, and medical terminology.
   * Expanded translation data for enhanced language support and domain coverage.
+---
+## #14
+
+* **Refactor**
+  * Standardised geographic translation modules with shared helpers and comprehensive type hints.
+  * Replaced bespoke logging/printing with structured logging utilities across geo data sources.
+  * Added accessor functions and module exports for easier consumption without circular imports.
+
