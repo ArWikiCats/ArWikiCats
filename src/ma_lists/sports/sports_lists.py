@@ -153,6 +153,15 @@ def _extend_suffix_mappings() -> None:
 
 _extend_suffix_mappings()
 
+# Backwards compatibility aliases -------------------------------------------------
+#
+# Historical consumers import the lowercase/TitleCase names.  Provide aliases so
+# that the refactor that introduced uppercase constants remains source
+# compatible.
+levels: Final[dict[str, str]] = LEVELS
+New_Tato_nat: Final[dict[str, str]] = NEW_TATO_NAT
+menstt333: Final[dict[str, str]] = MENSTT333
+
 __all__ = [
     "AFTER_KEYS",
     "AFTER_KEYS_NAT",
@@ -163,4 +172,7 @@ __all__ = [
     "NEW_TATO_NAT",
     "PPP_KEYS",
     "YEARS",
+    "levels",
+    "New_Tato_nat",
+    "menstt333",
 ]
