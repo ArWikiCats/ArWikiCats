@@ -1,3 +1,17 @@
+## [Refactor player job label utilities] - 2025-11-07
+
+### Added
+* Exported structured constants for boxing, skating, and team sport player labels.
+
+### Changed
+* Rebuilt `src/ma_lists/jobs/jobs_players_list.py` around typed helper functions and reusable builders.
+* Standardized champion, commentator, and coaching label assembly with shared string joining logic.
+
+### Fixed
+* Ensured women's sports categories gracefully reuse masculine wording when feminine data is unavailable.
+
+### Removed
+* None.
 
 ## [Refactor job label definitions for typed helpers] - 2025-11-07
 

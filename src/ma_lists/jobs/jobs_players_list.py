@@ -1,77 +1,59 @@
-#!/usr/bin/python3
+"""Utilities for gendered Arabic player labels and related helpers.
+
+The legacy implementation of this module relied on a large, mutable script that
+loaded JSON dictionaries and updated them in place.  The refactor exposes typed
+constants and helper functions that retain the original Arabic content while
+being easier to reason about and test.
 """
 
-from .jobs_players_list import Jobs_players, Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
+from __future__ import annotations
 
-"""
-from ..utils.json_dir import open_json_file
+from typing import Any, Dict, Mapping
 
-# ---
 from ..sports.Sport_key import (
-    Sports_Keys_For_Team,
     Sports_Keys_For_Jobs,
     Sports_Keys_For_Label,
+    Sports_Keys_For_Team,
 )
+from ..utils.json_dir import open_json_file
+from .jobs_defs import GenderedLabel, GenderedLabelMap
 
-# ---
-Female_Jobs_to = {}
-players_to_Men_Womens_Jobs = {}
-# ---
-Football_Keys_players = open_json_file("jobs_Football_Keys_players") or {}
-# ---
-Football_Keys_players_x = {}
-# "punters": {"mens":"", "womens":""},
-# "return specialists": {"mens":"", "womens":""},
-# "long snappers": {"mens":"", "womens":""},
-# "ends": {"mens":"", "womens":""},
-# "tight ends": {"mens":"", "womens":""},
-# "five-eighths": {"mens":"", "womens":""},
-# "hookers": {"mens":"", "womens":""},
-# "locks": {"mens":"", "womens":""},
-# "props": {"mens":"", "womens":""},
-# "second-rows": {"mens":"", "womens":""},
-# "managers" : {"mens":"مدربو", "womens":"مدربات"},
-# "slotbacks": {"mens":"", "womens":""},
-# "defensive backs" : {"mens":"ظهور دفاع", "womens":"ظهيرات دفاع"},
-# "sweepers" : {"mens":"أجنحة", "womens":"جناحات"},
+# ---------------------------------------------------------------------------
+# Helpers
 
-# ---
 
-"""
-"beach volleyball players":""#"لاعبو ss",
-"racquets players":""#"لاعبو ss",
-"real tennis players":""#"لاعبو ss",
-"roque players":""#"لاعبو ss",
-"glider pilots":""#"لاعبو ss",
-"javelin throwers":""#"لاعبو ss",
-"modern pentathletes":""#"لاعبو ss",
-"motorboat racers":""#"لاعبو ss",
-"pelotaris":""#"لاعبو ss",
-"synchronized swimmers":""#"لاعبو ss",
-"tug of war competitors":""#"لاعبو ss",
-"wheelchair racers":""#"لاعبو ss",
-#"strength athletes":"",
-#"cue sports players":"",
-#"esports players":"",
-"""
-# ---
-# Jobs_players = {
-# ,"divers":  {"mens":"غطاسون", "womens":"غطاسات"}
-# ,"triathletes":  {"mens":"رياضيون", "womens":"رياضيات"}
-# "speed skaters": {"mens":"", "womens":""},
-# "skaters": {"mens":"متزلجون", "womens":"متزلجات"},
-# ---
-# "freestyle swimmers" : {"mens":"سباحو التزلج الحر", "womens":"سباحات التزلج الحر"},
-# "fencers" : {"mens":"مبارزو سيف الشيش", "womens":"مبارزات سيف الشيش"},
-# ,"women's footballers":  {"mens":"", "womens":"لاعبات كرة قدم"}
-# نقلت من jobs2.py
+def _gendered_label(mens: str, womens: str) -> GenderedLabel:
+    """Create a :class:`GenderedLabel` mapping from two strings."""
 
-# ---
-Jobs_players = open_json_file("Jobs_players") or {}
-# ---
-Jobs_players["freestyle swimmers"] = {"mens": "سباحو تزلج حر", "womens": "سباحات تزلج حر"}
-# ---
-boxerss = {
+    return {"mens": mens, "womens": womens}
+
+
+def _join_terms(*terms: str) -> str:
+    """Join non-empty terms with a single space."""
+
+    filtered_terms = [term.strip() for term in terms if term.strip()]
+    return " ".join(filtered_terms)
+
+
+def _load_gendered_label_map(filename: str) -> GenderedLabelMap:
+    """Load a JSON file into a :class:`GenderedLabelMap` structure."""
+
+    raw_data: Any = open_json_file(filename)
+    result: GenderedLabelMap = {}
+    if isinstance(raw_data, Mapping):
+        for raw_key, raw_value in raw_data.items():
+            if not isinstance(raw_key, str) or not isinstance(raw_value, Mapping):
+                continue
+            mens_value = str(raw_value.get("mens", ""))
+            womens_value = str(raw_value.get("womens", ""))
+            result[raw_key] = _gendered_label(mens_value, womens_value)
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Static configuration
+
+BOXING_WEIGHT_TRANSLATIONS: Mapping[str, str] = {
     "bantamweight": "وزن بانتام",
     "featherweight": "وزن الريشة",
     "lightweight": "وزن خفيف",
@@ -80,7 +62,6 @@ boxerss = {
     "light middleweight": "وزن خفيف متوسط",
     "middleweight": "وزن متوسط",
     "super heavyweight": "وزن ثقيل سوبر",
-    # ---
     "heavyweight": "وزن ثقيل",
     "welterweight": "وزن الويلتر",
     "flyweight": "وزن الذبابة",
@@ -96,38 +77,18 @@ boxerss = {
     "inimumweight": "",
     "atomweight": "وزن الذرة",
     "super cruiserweight": "وزن الطراد سوبر",
-    # ---
 }
-for bo, bo_lab in boxerss.items():
-    Jobs_players[f"{bo} boxers"] = {"mens": f"ملاكمو {bo_lab}", "womens": f"ملاكمات {bo_lab}"}
-    Jobs_players[f"world {bo} boxing champions"] = {"mens": f"أبطال العالم للملاكمة فئة {bo_lab}", "womens": ""}
-# ---
-skaterss = {
-    "nordic combined": {"mens": "تزلج نوردي مزدوج", "womens": "تزلج نوردي مزدوج"},
-    "speed": {"mens": "سرعة", "womens": "سرعة"},
-    "roller": {"mens": "بالعجلات", "womens": "بالعجلات"},
-    "alpine": {"mens": "منحدرات ثلجية", "womens": "منحدرات ثلجية"},
-    "short track speed": {"mens": "مسار قصير", "womens": "مسار قصير"},
+
+SKATING_DISCIPLINE_LABELS: Mapping[str, GenderedLabel] = {
+    "nordic combined": _gendered_label("تزلج نوردي مزدوج", "تزل نوردي مزدوج"),
+    "speed": _gendered_label("سرعة", "سرعة"),
+    "roller": _gendered_label("بالعجلات", "بالعجلات"),
+    "alpine": _gendered_label("منحدرات ثلجية", "منحدرات ثلجية"),
+    "short track speed": _gendered_label("مسار قصير", "مسار قصير"),
 }
-# ---
-for cc, cc_lab in skaterss.items():
-    mens = cc_lab["mens"]
-    womens = cc_lab["womens"]
-    players_to_Men_Womens_Jobs[f"{cc} skaters"] = {
-        "mens": f"متزلجو {mens}",
-        "womens": f"متزلجات {womens}",
-    }
-    players_to_Men_Womens_Jobs[f"{cc} skiers"] = {
-        "mens": f"متزحلقو {mens}",
-        "womens": f"متزحلقات {womens}",
-    }
-# ---
-players_kt = {
-    # "ice hockey players":"هوكي جليد",
-    # "ice hockey playerss":"هوكي جليد",
-    # "floorball players":"هوكي العشب",
-    # "tennis players":"تنس",
-    "croquet players": "",  # "كروكيت"
+
+TEAM_SPORT_TRANSLATIONS: Mapping[str, str] = {
+    "croquet players": "",
     "badminton players": "تنس الريشة",
     "chess players": "شطرنج",
     "basketball players": "كرة السلة",
@@ -164,148 +125,297 @@ players_kt = {
     "rugby union players": "اتحاد الرغبي",
     "lacrosse players": "لاكروس",
 }
-for cc, cva in players_kt.items():
-    if cva:
-        players_to_Men_Womens_Jobs[cc] = {}
-        players_to_Men_Womens_Jobs[cc]["mens"] = f"لاعبو {cva}"
-        players_to_Men_Womens_Jobs[cc]["womens"] = f"لاعبات {cva}"
-# ---
-for pla, pla_la in Jobs_players.items():
-    pla2 = pla.lower()
-    if pla_la:
-        mens = pla_la["mens"]
-        womens = pla_la["womens"]
-        players_to_Men_Womens_Jobs[pla2] = pla_la
-        # --- International
-        players_to_Men_Womens_Jobs[f"olympic {pla2}"] = {}
-        players_to_Men_Womens_Jobs[f"olympic {pla2}"]["mens"] = f"{mens} أولمبيون"
-        players_to_Men_Womens_Jobs[f"olympic {pla2}"]["womens"] = f"{womens} أولمبيات"
-        # ---
-        players_to_Men_Womens_Jobs[f"international {pla2}"] = {}
-        players_to_Men_Womens_Jobs[f"international {pla2}"]["mens"] = f"{mens} دوليون"
-        players_to_Men_Womens_Jobs[f"international {pla2}"]["womens"] = f"{womens} دوليات"
-# ---
-Sport_men = {
-    "managers": {"mens": "مدربون", "womens": "مدربات"},
-    "competitors": {"mens": "منافسون", "womens": "منافسات"},
-    "coaches": {"mens": "مدربون", "womens": "مدربات"},
+
+GENERAL_SPORT_ROLES: Mapping[str, GenderedLabel] = {
+    "managers": _gendered_label("مدربون", "مدربات"),
+    "competitors": _gendered_label("منافسون", "منافسات"),
+    "coaches": _gendered_label("مدربون", "مدربات"),
 }
-# ---
-Sportui = {
-    "paralympic": {"mens": "بارالمبيون", "womens": "بارالمبيات"},
-    "olympics": {"mens": "أولمبيون", "womens": "أولمبيات"},
-    "sports": {"mens": "رياضيون", "womens": "رياضيات"},
+
+SPORT_SCOPE_ROLES: Mapping[str, GenderedLabel] = {
+    "paralympic": _gendered_label("بارالمبيون", "بارالمبيات"),
+    "olympics": _gendered_label("أولمبيون", "أولمبيات"),
+    "sports": _gendered_label("رياضيون", "رياضيات"),
 }
-# ---
-players_to_Men_Womens_Jobs["national team coaches"] = {
-    "mens": "مدربو فرق وطنية",
-    "womens": "مدربات فرق وطنية",
+
+STATIC_PLAYER_LABELS: GenderedLabelMap = {
+    "national team coaches": _gendered_label("مدربو فرق وطنية", "مدربات فرق وطنية"),
+    "national team managers": _gendered_label("مدربو فرق وطنية", "مدربات فرق وطنية"),
+    "sports agents": _gendered_label("وكلاء رياضات", "وكيلات رياضات"),
+    "expatriate sprtspeople": _gendered_label("رياضيون مغتربون", "رياضيات مغتربات"),
+    "expatriate sportspeople": _gendered_label("رياضيون مغتربون", "رياضيات مغتربات"),
 }
-players_to_Men_Womens_Jobs["national team managers"] = {
-    "mens": "مدربو فرق وطنية",
-    "womens": "مدربات فرق وطنية",
+
+FREESTYLE_SWIMMERS_LABEL: GenderedLabel = _gendered_label(
+    "سباحو تزلج حر", "سباحات تزلج حر"
+)
+
+# ---------------------------------------------------------------------------
+# Builders
+
+
+def _build_boxing_labels(weights: Mapping[str, str]) -> GenderedLabelMap:
+    """Return gendered labels for boxing weight classes."""
+
+    result: GenderedLabelMap = {}
+    for weight_key, arabic_label in weights.items():
+        if not arabic_label:
+            continue
+        weight_boxers_key = f"{weight_key} boxers"
+        result[weight_boxers_key] = _gendered_label(
+            _join_terms("ملاكمو", arabic_label),
+            _join_terms("ملاكمات", arabic_label),
+        )
+        result[f"world {weight_key} boxing champions"] = _gendered_label(
+            _join_terms("أبطال العالم للملاكمة فئة", arabic_label),
+            "",
+        )
+    return result
+
+
+def _build_skating_labels(labels: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
+    """Create labels for skating and skiing disciplines."""
+
+    result: GenderedLabelMap = {}
+    for discipline_key, discipline_labels in labels.items():
+        result[f"{discipline_key} skaters"] = _gendered_label(
+            _join_terms("متزلجو", discipline_labels["mens"]),
+            _join_terms("متزلجات", discipline_labels["womens"]),
+        )
+        result[f"{discipline_key} skiers"] = _gendered_label(
+            _join_terms("متزحلقو", discipline_labels["mens"]),
+            _join_terms("متزحلقات", discipline_labels["womens"]),
+        )
+    return result
+
+
+def _build_team_sport_labels(translations: Mapping[str, str]) -> GenderedLabelMap:
+    """Translate team sport categories into gendered Arabic labels."""
+
+    result: GenderedLabelMap = {}
+    for english_key, arabic_value in translations.items():
+        if not arabic_value:
+            continue
+        result[english_key] = _gendered_label(
+            _join_terms("لاعبو", arabic_value),
+            _join_terms("لاعبات", arabic_value),
+        )
+    return result
+
+
+def _build_jobs_player_variants(players: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
+    """Generate derivative labels for the base player dataset."""
+
+    result: GenderedLabelMap = {}
+    for english_key, labels in players.items():
+        mens_label = labels.get("mens", "")
+        womens_label = labels.get("womens", "")
+        if not (mens_label or womens_label):
+            continue
+        lowered_key = english_key.lower()
+        result[lowered_key] = _gendered_label(mens_label, womens_label)
+        result[f"olympic {lowered_key}"] = _gendered_label(
+            _join_terms(mens_label, "أولمبيون"),
+            _join_terms(womens_label, "أولمبيات"),
+        )
+        result[f"international {lowered_key}"] = _gendered_label(
+            _join_terms(mens_label, "دوليون"),
+            _join_terms(womens_label, "دوليات"),
+        )
+    return result
+
+
+def _build_general_scope_labels(
+    roles: Mapping[str, GenderedLabel],
+    scopes: Mapping[str, GenderedLabel],
+) -> GenderedLabelMap:
+    """Combine generic sport roles with scope modifiers (e.g. Olympic)."""
+
+    result: GenderedLabelMap = {}
+    for role_key, role_labels in roles.items():
+        for scope_key, scope_labels in scopes.items():
+            composite_key = f"{scope_key} {role_key}".lower()
+            result[composite_key] = _gendered_label(
+                _join_terms(role_labels["mens"], scope_labels["mens"]),
+                _join_terms(role_labels["womens"], scope_labels["womens"]),
+            )
+    return result
+
+
+def _build_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
+    """Create champion labels from the sport label mapping."""
+
+    result: GenderedLabelMap = {}
+    for sport_key, arabic_label in labels.items():
+        composite_key = f"{sport_key.lower()} champions"
+        result[composite_key] = _gendered_label(
+            _join_terms("أبطال", arabic_label),
+            "",
+        )
+    return result
+
+
+def _build_world_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
+    """Create world champion labels from team descriptors."""
+
+    result: GenderedLabelMap = {}
+    for sport_key, arabic_label in labels.items():
+        composite_key = f"world {sport_key.lower()} champions"
+        result[composite_key] = _gendered_label(
+            _join_terms("أبطال العالم", arabic_label),
+            "",
+        )
+    return result
+
+
+def _build_sports_job_variants(
+    sport_jobs: Mapping[str, str],
+    football_roles: Mapping[str, GenderedLabel],
+) -> tuple[GenderedLabelMap, Dict[str, str]]:
+    """Create commentators, announcers, and other job variants."""
+
+    result: GenderedLabelMap = {}
+    female_aliases: Dict[str, str] = {}
+
+    for job_key, arabic_label in sport_jobs.items():
+        lowered_job_key = job_key.lower()
+        result[f"{lowered_job_key} biography"] = _gendered_label(
+            _join_terms("أعلام", arabic_label),
+            "",
+        )
+        result[f"{lowered_job_key} commentators"] = _gendered_label(
+            _join_terms("معلقو", arabic_label),
+            _join_terms("معلقات", arabic_label),
+        )
+        result[f"{lowered_job_key} announcers"] = _gendered_label(
+            _join_terms("مذيعو", arabic_label),
+            _join_terms("مذيعات", arabic_label),
+        )
+        result[f"{lowered_job_key} stage winners"] = _gendered_label(
+            _join_terms("فائزون في مراحل", arabic_label),
+            _join_terms("فائزات في مراحل", arabic_label),
+        )
+        result[f"{lowered_job_key} coaches"] = _gendered_label(
+            _join_terms("مدربو", arabic_label),
+            _join_terms("مدربات", arabic_label),
+        )
+        result[f"{lowered_job_key} executives"] = _gendered_label(
+            _join_terms("مسيرو", arabic_label),
+            _join_terms("مسيرات", arabic_label),
+        )
+        result[f"{lowered_job_key} sprtspeople"] = _gendered_label(
+            _join_terms("رياضيو", arabic_label),
+            _join_terms("رياضيات", arabic_label),
+        )
+        result[f"{lowered_job_key} sportspeople"] = _gendered_label(
+            _join_terms("رياضيو", arabic_label),
+            _join_terms("رياضيات", arabic_label),
+        )
+
+        # Provide a category entry for women's players to preserve the legacy API.
+        female_aliases[f"women's {lowered_job_key} players"] = _join_terms(
+            "لاعبات", arabic_label, "نسائية"
+        )
+
+        for football_key, football_labels in football_roles.items():
+            lowered_football_key = football_key.lower()
+            olympic_key = f"olympic {lowered_job_key} {lowered_football_key}"
+            result[olympic_key] = _gendered_label(
+                _join_terms(football_labels["mens"], arabic_label, "أولمبيون"),
+                _join_terms(football_labels["womens"], arabic_label, "أولمبيات"),
+            )
+
+            mens_category = _join_terms(football_labels["mens"], arabic_label, "رجالية")
+            # When a feminine variant is not provided we reuse the masculine form
+            # to match the historical dataset behaviour.
+            womens_category = football_labels["womens"] or football_labels["mens"]
+            womens_category = _join_terms(womens_category, arabic_label, "رجالية")
+            mens_key = f"men's {lowered_job_key} {lowered_football_key}"
+            result[mens_key] = _gendered_label(mens_category, womens_category)
+
+            composite_key = f"{lowered_job_key} {lowered_football_key}"
+            result[composite_key] = _gendered_label(
+                _join_terms(football_labels["mens"], arabic_label),
+                _join_terms(football_labels["womens"], arabic_label),
+            )
+
+    return result, female_aliases
+
+
+def _merge_maps(*maps: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
+    """Merge multiple :class:`GenderedLabelMap` instances."""
+
+    merged: GenderedLabelMap = {}
+    for source in maps:
+        merged.update(source)
+    return merged
+
+
+# ---------------------------------------------------------------------------
+# Data assembly
+
+FOOTBALL_KEYS_PLAYERS: GenderedLabelMap = _load_gendered_label_map(
+    "jobs_Football_Keys_players"
+)
+JOBS_PLAYERS: GenderedLabelMap = _load_gendered_label_map("Jobs_players")
+JOBS_PLAYERS.setdefault("freestyle swimmers", FREESTYLE_SWIMMERS_LABEL)
+
+BASE_PLAYER_VARIANTS = _build_jobs_player_variants(JOBS_PLAYERS)
+SKATING_LABELS = {
+    key: value
+    for key, value in _build_skating_labels(SKATING_DISCIPLINE_LABELS).items()
+    if key not in BASE_PLAYER_VARIANTS
 }
-# players_to_Men_Womens_Jobs["sports agents"] = {"mens":"وكلاء لاعبون", "womens":"وكيلات لاعبون"}
-players_to_Men_Womens_Jobs["sports agents"] = {"mens": "وكلاء رياضات", "womens": "وكيلات رياضات"}
-players_to_Men_Womens_Jobs["expatriate sprtspeople"] = {
-    "mens": "رياضيون مغتربون",
-    "womens": "رياضيات مغتربات",
-}
-players_to_Men_Womens_Jobs["expatriate sportspeople"] = {
-    "mens": "رياضيون مغتربون",
-    "womens": "رياضيات مغتربات",
-}
-# ---
-for ghj, ghj_tab in Sport_men.items():
-    for men, men_tab in Sportui.items():
-        kk = f"{men} {ghj}".lower()
-        players_to_Men_Womens_Jobs[kk] = {}
-        players_to_Men_Womens_Jobs[kk]["mens"] = f"{ghj_tab['mens']} {men_tab['mens']}"
-        players_to_Men_Womens_Jobs[kk]["womens"] = f"{ghj_tab['womens']} {men_tab['womens']}"
-# ---
-for rvf, sport_cla4b in Sports_Keys_For_Label.items():
-    players_to_Men_Womens_Jobs["%s champions" % rvf.lower()] = {
-        "mens": "أبطال %s " % sport_cla4b,
-        "womens": "",
-    }
-    # players_to_Men_Womens_Jobs[ f"{rvf} coaches"  ] = { "mens":"مدربو %s " % sport_cla4b ,"womens":"مدربات %s " % sport_cla4b }
-    # players_to_Men_Womens_Jobs[ f"{rvf} chairmen and investors"  ] = { "mens":"رؤساء ومسيرو %s " % sport_cla4b ,"womens":"رئيسات ومسيرات %s " % sport_cla4b }
-# ---
-for vvv, sport_clab in Sports_Keys_For_Team.items():
-    players_to_Men_Womens_Jobs["world %s champions" % vvv.lower()] = {
-        "mens": "أبطال العالم %s " % sport_clab,
-        "womens": "",
-    }
-# ---
-for sop, spor_lab in Sports_Keys_For_Jobs.items():
-    # ---
-    sop2 = sop.lower()
-    # ---
-    players_to_Men_Womens_Jobs[f"{sop2} biography"] = {
-        "mens": "أعلام %s " % spor_lab,
-        "womens": "",
-    }
-    players_to_Men_Womens_Jobs[f"{sop2} commentators"] = {
-        "mens": "معلقو %s " % spor_lab,
-        "womens": f"معلقات {spor_lab}",
-    }
-    players_to_Men_Womens_Jobs[f"{sop2} announcers"] = {
-        "mens": "مذيعو %s " % spor_lab,
-        "womens": f"مذيعات {spor_lab}",
-    }
-    # players_to_Men_Womens_Jobs[ "%s women's biography" % sop2  ] = { "mens":"" ,"womens":"أعلام %s " % spor_lab}
-    # ---
-    # players_to_Men_Womens_Jobs[ f"{sop2} champions"  ] = { "mens":"أبطال %s " % spor_lab ,"womens":""}
-    # ---
-    for ty, ty_la in Football_Keys_players.items():
-        y_mens = ty_la["mens"]
-        y_womens = ty_la["womens"]
-        # ---
-        players_to_Men_Womens_Jobs[f"olympic {sop2} {ty.lower()}"] = {
-            "mens": f"{y_mens} {spor_lab} أولمبيون",
-            "womens": f"{y_womens} {spor_lab} أولمبيات",
-        }
-        # ---
-        ww = f"men's {sop2} {ty.lower()}"
-        players_to_Men_Womens_Jobs[ww] = {
-            "mens": f"{y_mens} {spor_lab} رجالية",
-            "womens": f"{y_mens} {spor_lab} رجالية",
-        }
-        # ---
-        # players_to_Men_Womens_Jobs["women's {} players".format(sop2)] = {"mens":"" ,"womens":"لاعبات {} نسائية".format(spor_lab)}
-        Female_Jobs_to[f"women's {sop2} players"] = f"لاعبات {spor_lab} نسائية"
-    # ---
-    # players_to_Men_Womens_Jobs[ f"{rvf} coaches"  ] = { "mens":"مدربو %s " % sport_cla4b ,"womens":"مدربات %s " % sport_cla4b }
-    players_to_Men_Womens_Jobs[f"{sop2} stage winners"] = {
-        "mens": f"فائزون في مراحل {spor_lab}",
-        "womens": f"فائزات في مراحل {spor_lab}",
-    }
-    players_to_Men_Womens_Jobs[f"{sop2} coaches"] = {
-        "mens": f"مدربو {spor_lab}",
-        "womens": f"مدربات {spor_lab}",
-    }
-    players_to_Men_Womens_Jobs[f"{sop2} executives"] = {
-        "mens": f"مسيرو {spor_lab}",
-        "womens": f"مسيرات {spor_lab}",
-    }
-    players_to_Men_Womens_Jobs[f"{sop2} sprtspeople"] = {
-        "mens": f"رياضيو {spor_lab}",
-        "womens": f"رياضيات {spor_lab}",
-    }
-    players_to_Men_Womens_Jobs[f"{sop2} sportspeople"] = {
-        "mens": f"رياضيو {spor_lab}",
-        "womens": f"رياضيات {spor_lab}",
-    }
-    # players_to_Men_Womens_Jobs["olympic {} players".format(sop2)] = {"mens":"لاعبو {} أولمبيون".format(spor_lab) ,"womens":"لاعبات {} أولمبيات".format(spor_lab)}
-    # players_to_Men_Womens_Jobs["men's {} players".format(sop2)] = {"mens":"لاعبو {} رجالية".format(spor_lab) ,"womens":"لاعبات {} رجالية".format(spor_lab)}
-    # Female_Jobs2["women's {} players".format(sop2)] = "لاعبات {} نسائية".format(spor_lab)
-    # ---
-    for ko, ko_tab in Football_Keys_players.items():
-        mens = ko_tab["mens"]
-        womens = ko_tab["womens"]
-        ko2 = ko.lower()
-        hghg = f"{sop2} {ko2}"
-        # ---
-        players_to_Men_Womens_Jobs[hghg] = {}
-        players_to_Men_Womens_Jobs[hghg]["mens"] = f"{mens} {spor_lab}"
-        players_to_Men_Womens_Jobs[hghg]["womens"] = f"{womens} {spor_lab}"
+TEAM_SPORT_LABELS = _build_team_sport_labels(TEAM_SPORT_TRANSLATIONS)
+BOXING_LABELS = _build_boxing_labels(BOXING_WEIGHT_TRANSLATIONS)
+GENERAL_SCOPE_LABELS = _build_general_scope_labels(GENERAL_SPORT_ROLES, SPORT_SCOPE_ROLES)
+CHAMPION_LABELS = _build_champion_labels(Sports_Keys_For_Label)
+WORLD_CHAMPION_LABELS = _build_world_champion_labels(Sports_Keys_For_Team)
+SPORT_JOB_VARIANTS, FEMALE_JOBS_TO = _build_sports_job_variants(
+    Sports_Keys_For_Jobs,
+    FOOTBALL_KEYS_PLAYERS,
+)
+
+PLAYERS_TO_MEN_WOMENS_JOBS: GenderedLabelMap = _merge_maps(
+    TEAM_SPORT_LABELS,
+    SKATING_LABELS,
+    BOXING_LABELS,
+    GENERAL_SCOPE_LABELS,
+    CHAMPION_LABELS,
+    WORLD_CHAMPION_LABELS,
+    SPORT_JOB_VARIANTS,
+    BASE_PLAYER_VARIANTS,
+    STATIC_PLAYER_LABELS,
+)
+
+# ---------------------------------------------------------------------------
+# Backwards compatible exports
+
+Jobs_players: GenderedLabelMap = JOBS_PLAYERS
+Football_Keys_players: GenderedLabelMap = FOOTBALL_KEYS_PLAYERS
+players_to_Men_Womens_Jobs: GenderedLabelMap = PLAYERS_TO_MEN_WOMENS_JOBS
+Female_Jobs_to: Dict[str, str] = FEMALE_JOBS_TO
+
+__all__ = [
+    "BOXING_LABELS",
+    "BOXING_WEIGHT_TRANSLATIONS",
+    "FEMALE_JOBS_TO",
+    "FOOTBALL_KEYS_PLAYERS",
+    "GENERAL_SCOPE_LABELS",
+    "GENERAL_SPORT_ROLES",
+    "JOBS_PLAYERS",
+    "PLAYERS_TO_MEN_WOMENS_JOBS",
+    "SKATING_DISCIPLINE_LABELS",
+    "SKATING_LABELS",
+    "SPORT_SCOPE_ROLES",
+    "SPORT_JOB_VARIANTS",
+    "STATIC_PLAYER_LABELS",
+    "TEAM_SPORT_LABELS",
+    "TEAM_SPORT_TRANSLATIONS",
+    "WORLD_CHAMPION_LABELS",
+    # Backwards compatible exports
+    "Football_Keys_players",
+    "Jobs_players",
+    "Female_Jobs_to",
+    "players_to_Men_Womens_Jobs",
+]
