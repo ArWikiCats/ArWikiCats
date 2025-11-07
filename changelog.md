@@ -1,3 +1,17 @@
+## [Expose canonical jobs package API] - 2025-11-07
+
+### Added
+* Published a package-level API that re-exports the typed job datasets and helpers.
+
+### Changed
+* None.
+
+### Fixed
+* None.
+
+### Removed
+* None.
+
 ## [Refactor master job label aggregator] - 2025-11-07
 
 ### Added
