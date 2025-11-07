@@ -13,7 +13,7 @@ from ..sports import (
     sport_formts_male_nat,
     sport_formts_female_nat,
 )
-from .all_keys2 import Books_table, Books_type
+from .translations import Books_table, Books_type
 from .Newkey import pop_final6
 
 # ---
@@ -438,18 +438,7 @@ en_is_nat_ar_is_women = {
     "youth competitions": "منافسات شبابية {}",
     "youth music competitions": "منافسات موسيقية شبابية {}",
     "youth sports competitions": "منافسات رياضية شبابية {}",
-    # "athletic conference schools" : "كرة مضرب {}",
-    # "ballot measures":"استفتاءات عامة {}",
-    # "books" : "كتب {}",
-    # "cinema" : "سينما {}",
-    # "dukes" : "دوقات {}",
-    # ---
 }
-# ---
-# for sx in singers_tab.keys():
-#     en_is_nat_ar_is_man[sx] = "%s {}" % singers_tab[sx]
-#     en_is_nat_ar_is_women[f"{sx} groups"] = "فرق %s {}" % singers_tab[sx]
-#     en_is_nat_ar_is_women[f"{sx} musical groups"] = "فرق موسيقى %s {}" % singers_tab[sx]
 # ---
 for iu in businesspeoples:
     en_is_nat_ar_is_women[f"{iu} businesspeople"] = "شخصيات أعمال {} في %s" % businesspeoples[iu]
@@ -473,26 +462,19 @@ for bo in pop_final6:
 # ---
 Women_s_priffix = {}
 Wo_priffix = {
-    # "women of" : "{}",
-    # "non-" : "غير {}",
     "women": "{}",
     "female": "{}",
     "women's": "{}",
     "blind": "{} مكفوفات",
     "deafblind": "{} صم ومكفوفات",
     "deaf": "{} صم",
-    # "expatriate women's" : "{} مغتربات",
-    # "expatriate female" : "{} مغتربات",
-    # "expatriate women" : "{} مغتربات",
 }
 for wom in Wo_priffix:
     Women_s_priffix[wom] = Wo_priffix[wom]
     Women_s_priffix[f"expatriate {wom}"] = f"{Wo_priffix[wom]} مغتربات"
-    # Women_s_priffix["executed {}".format(wom)] = "%s معدومات" % Wo_priffix[wom]
     Women_s_priffix[f"kidnapped {wom}"] = f"{Wo_priffix[wom]} مختطفات"
-# Women_s_priffix["executed"] = "معدومات"
 # ---
-Mens_priffix = {}  # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
+Mens_priffix = {}
 # ---
 Me_priffix = {
     "amputee": "{} مبتورو أحد الأطراف",
@@ -518,7 +500,6 @@ Me_priffix = {
     "political": "{} سياسيون",
     "religious": "{} دينيون",
     "romantic": "{} رومانسيون",
-    # "male" : "ذكور {}",
 }
 # ---
 change_male_to_female = {
@@ -536,7 +517,7 @@ change_male_to_female = {
     "{} عسكريون": "{} عسكريات",
     "{} لاتينيون": "{} لاتينيات",
     "{} رومانسيون": "{} رومانسيات",
-    "{} دينيون": "{} دينيات",
+    "{} dينيون": "{} دينيات",
 }
 # ---
 for me in Me_priffix:
@@ -601,9 +582,7 @@ Main_priffix = {
     "cultural depictions of": "تصوير ثقافي عن {}",
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",
-    # "medieval" : "{} من العصور الوسطى",
     "non": "{} غير",
-    # "non" : "غير {}",
 }
 Main_priffix_to = {
     "non": "{t} غير {nat}",

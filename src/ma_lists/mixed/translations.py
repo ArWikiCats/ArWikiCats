@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+This module provides a dictionary of mixed translations from English to Arabic.
 """
 from ..utils.json_dir import open_json_file
 
@@ -17,58 +17,9 @@ from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
 
 # ---
-query1 = """
-    SELECT DISTINCT #?cat
-        #?ar  ?humanLabel
-        #?page_en ?page_ar
-        #(concat('   "' , ?page_en , '":"' , ?ar  , '",')  as ?itemscds)
-        (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-        WHERE {
-        #?human wdt:P31 wd:Q15401699.#
-        {
-        ?human wdt:P31/wdt:P279* wd:Q15401699. } UNION {
-        ?human wdt:P31/wdt:P279* wd:Q968159. } UNION {
-        ?human wdt:P31/wdt:P279* wd:Q32880. }
-        ?human wdt:P910 ?cat .
-        #?cat wdt:P301 ?human.
-        #{?cat rdfs:label ?page_ar .  FILTER((LANG(?page_ar)) = "ar") }
-        {?article2 schema:about ?cat ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar . }
-        #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:isPartOf <https://ar.wikipedia.org/> }
-        #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:inLanguage "ar" }
-        # but select items with no such article
-        #FILTER (!BOUND(?sitelink))
-        ?article schema:about ?cat ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-        SERVICE wikibase:label {
-            bd:serviceParam wikibase:language "ar,en" .
-        }
-        }
-    LIMIT 10000
-"""
-# ---
-query2 = """
-    SELECT DISTINCT #?cat
-    (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-    WHERE {
-    ?human wdt:P31 wd:Q13027888.
-    ?human rdfs:label ?page_ar filter (lang(?page_ar) = "ar") .
-    FILTER NOT EXISTS
-    {?article2 schema:about ?human ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar3 . }
-    ?article schema:about ?human ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-    SERVICE wikibase:label {
-        bd:serviceParam wikibase:language "ar,en" .
-    }
-        }
-    LIMIT 10000
-"""
-# ---
-# try:
-#     from .jobs_singers import singers_tab
-# except BaseException:
-#     singers_tab = {}
+pf_keys2 = {}
 # ---
 pop_of_football = open_json_file("pop_of_football") or {}
-# ---
-pf_keys2 = {}
 # ---
 pf_keys2.update(pop_of_football)
 # ---
@@ -84,7 +35,7 @@ pf_keys2["israeli–palestinian conflict"] = "الصراع الإسرائيلي 
 pf_keys2["legal issues"] = "قضايا قانونية"
 pf_keys2["stone-throwing"] = "رمي الحجارة"
 pf_keys2["temple mount and al-aqsa"] = "جبل الهيكل والأقصى"
-pf_keys2["sexual violence"] = "عنف جنسي"
+pf_keys2["sexual violence"] = "عنف جنסי"
 pf_keys2["hamas"] = "حماس"
 pf_keys2["the israel–hamas war"] = "الحرب الفلسطينية الإسرائيلية"
 pf_keys2["israel–hamas war"] = "الحرب الفلسطينية الإسرائيلية"
@@ -117,26 +68,8 @@ for direction_key, direction_label in DIRECTIONS.items():
 # ---
 pop_of_football_lower = {x.lower(): y for x, y in pop_of_football.items()}
 # ---
-# "english football league":"دوري كرة القدم",
-# "football league":"الدوري الإنجليزي لكرة القدم",
-# "gff national super league":"دوري السوبر غويانا لكرة القدم",
-# ---
-# "australian rugby league":"دوري الرغبي الوطني",
-# ---
-# "national football league":"الدوري الوطني لكرة القدم الأمريكية",
-# "lithuanian women's handball league":"الدوري الليتواني لكرة اليد للسيدات",
-# "women's british basketball league":"الدوري البريطاني لكرة السلة للسيدات",
-# "premier league":"الدوري الإنجليزي الممتاز",
-# ---
 for competition_key, competition_label in pop_of_football.items():
     pf_keys2[f"{competition_key} medalists"] = f"فائزون بميداليات {competition_label}"
-# ---
-# "canyons and gorges":"أخاديد ووديان",
-# "canyons and gorges":"أخاديد",
-# "health care": "رعاية صحية",
-# "lgbt people":"شخصيات إل جي بي تي",
-# "lgbt":"إل جي بي تي",
-# "peoples":"شعوب",
 # ---
 pop_of_with_in = open_json_file("pop_of_with_in") or {}
 # ---
@@ -152,27 +85,9 @@ schools_keeys = {
     "elementary schools": "مدارس إبتدائية {}",
 }
 # ---
-# "private bilingual schools":"مدارس خاصة ثنائية اللغة",
-# "private high schools":"مدارس ثانوية خاصة",
-# "private middle schools":"مدارس إعدادية خاصة",
-# "private elementary schools":"مدارس إبتدائية خاصة",
-# ---
-# "public schools":"مدارس عامة",
-# "private schools":"مدارس خاصة",
-# ---
 for school_category, school_template in schools_keeys.items():
     pf_keys2[f"private {school_category}"] = school_template.format("خاصة")
     pf_keys2[f"public {school_category}"] = school_template.format("عامة")
-# ---
-# "spits":"",
-# "typhoons":"أعاصير استوائية",
-# "chancellors":"",
-# "recipients":"حاصلون",
-# "dukedoms":"دوقات",
-# "state treasurers":"أمناء خزينة ولاية",
-# "treasurers":"أمناء خزينة",
-# "state cabinet secretaries":"أمناء مجلس",
-# "republic":"جمهورية",
 # ---
 pop_of_without_in = open_json_file("pop_of_without_in") or {}
 # ---
@@ -376,16 +291,6 @@ Books_type = {
     "arts": "فنية",
     "media": "إعلامية",
     "writing": "الكتابة",
-    # "realist":"واقعية",
-    # "strategy":"استراتيجية",
-    # "transportation":"نقل",
-    # "military":"عسكرية",
-    # "defense":"دفاعية",
-    # "government":"حكومية",
-    # "training":"تدريبية",
-    # "warfare":"حربية",
-    # "research":"بحثية",
-    # "logistics":"لوجستية",
 }
 # ---
 Books_table = {
@@ -408,8 +313,6 @@ Books_table = {
     "comic strips": "شرائط مصورة",
     "comic": "قصص مصورة",
     "comics": "قصص مصورة",
-    # "compositions": "تراكيب",
-    # "compositions": "مؤلفات موسيقية",
     "cookbooks": "كتب طبخ",
     "crime": "جريمة",
     "dictionaries": "قواميس",
@@ -517,36 +420,6 @@ albums_type1 = {
     "live": "مباشرة",
 }
 # ---
-# for xfxx, xfxx_lab in singers_tab.items():  # all_keys3
-#     xc2 = xfxx.lower()
-#     if xc2 not in pf_keys2 and xfxx_lab:
-#         pf_keys2[xc2] = xfxx_lab
-#         pf_keys2[f"{xc2} albums"] = f"ألبومات {xfxx_lab}"
-#         pf_keys2[f"{xc2} songs"] = f"أغاني {xfxx_lab}"
-#         pf_keys2[f"{xc2} groups"] = f"فرق {xfxx_lab}"
-#         pf_keys2[f"{xc2} duos"] = f"فرق {xfxx_lab} ثنائية"
-#         # ---
-#         pf_keys2[f"{xfxx} video albums"] = f"ألبومات فيديو {xfxx_lab}"
-#         # ---
-#         for ty, ty_lab in albums_type.items():
-#             pf_keys2[f"{xfxx} {ty} albums"] = f"ألبومات {ty_lab} {xfxx_lab}"
-# ---
-"""
-for po_5 in pop_final6:
-    if po_5.lower() not in pf_keys2 and pop_final6[po_5]:
-        pf_keys2[po_5.lower()] = pop_final6[po_5]
-# ---
-for cfy, cylab in cccccc_m.items():
-    cfy2 = cfy.lower()
-    if not pf_keys2.get(cfy2) and cylab:
-        pf_keys2[cfy2] = cylab
-# ---
-for xxx in tennis_keys:  # all_keys3
-    gh2 = xxx.lower()
-    if gh2 not in pf_keys2 and tennis_keys[xxx]:
-        pf_keys2[gh2] = tennis_keys[xxx]
-"""
-# ---
 pf_keys2.update({k.lower(): v.strip() for k, v in tennis_keys.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
 # ---
 pf_keys2.update({k.lower(): v.strip() for k, v in pop_final6.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
@@ -564,26 +437,3 @@ pf_keys2.update({k22.lower(): v22.strip() for k22, v22 in new_2023.items() if k2
 pf_keys2["law"] = "قانون"
 pf_keys2["books"] = "كتب"
 pf_keys2["military"] = "عسكرية"
-# ---
-mmmm = [
-    "gymnastics",
-    "polo",
-    "cycle",
-    "running",
-    "football",
-    "rugby",
-    "shooting",
-    "racing",
-    "tennis",
-    "handball",
-    "volleyball",
-    "sailing",
-    "wrestling",
-    "skiing",
-    "surfing",
-    "motor",
-    "rally",
-]
-# ---
-del pop_final_3
-del keys2_py

@@ -52,23 +52,13 @@ Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # بعد التعديل
 # sports.py: len:"sport_formts_female_nat":  559982  , len:"sport_formts_en_ar_is_p17":  564640  , len:"Teams_new":  696189
 # ---
-# Sports_Keys_For_Jobs["judo"] = "جودو"
-# ---
-# for typee in PPP_Keys:
-# Teams_new["{} sports".format(typee) ] = "رياضات {}".format( PPP_Keys[typee])
-# ---
 for hg, hga in Sports_Keys_For_Jobs.items():
-    # Teams_new[hg] = hga
     Teams_new[f"{hg} managers"] = f"مدربو {hga}"
     Teams_new[f"{hg} coaches"] = f"مدربو {hga}"
     Teams_new[f"{hg} people"] = f"أعلام {hga}"
     Teams_new[f"{hg} playerss"] = f"لاعبو {hga}"
     Teams_new[f"{hg} players"] = f"لاعبو {hga}"
     Teams_new[f"{hg} referees"] = f"حكام {hga}"
-# ---
-# Years_List = [18]
-# Sports_Keys_For_Jobs = {}
-# Sports_Keys_For_Jobs["association football"] = "هوكي جليد"
 # ---
 lightred = '<<lightred>> Teams_new[%s]: "%s"'
 # ---
@@ -89,12 +79,9 @@ for team in Sports_Keys_For_Jobs:
     # ---
     New_With_Women[team] = job_label
     # ---
-    # print(f"[{team}]:{job_label}")
-    # ---
     for PP in PPP_Keys:
         LPPPo = f"{job_label} {PPP_Keys[PP]}"
         New_With_Women[f"{PP} {team}"] = LPPPo
-        # print(f"[{PP} {team}]:{LPPPo}")
     # ---
     # replaced py Get_Teams_new()
 # ---
@@ -106,14 +93,10 @@ for team in Sports_Keys_For_Jobs:
 Teams_new["national youth sports teams of"] = "منتخبات رياضية وطنية شبابية في"
 Teams_new["national sports teams of"] = "منتخبات رياضية وطنية في"
 Teams_new["national sports teams"] = "منتخبات رياضية وطنية"
-# Teams_new["men's national sports teams"] = "منتخبات رياضية وطنية رجالية"
-# Teams_new["men's national sports teams of"] = "منتخبات رياضية وطنية رجالية في"
 Teams_new["national men's sports teams"] = "منتخبات رياضية وطنية رجالية"
 Teams_new["national men's sports teams of"] = "منتخبات رياضية وطنية رجالية في"
 Teams_new["national women's sports teams"] = "منتخبات رياضية وطنية نسائية"
-# Teams_new["women's national sports teams"] = "منتخبات رياضية وطنية نسائية"
 Teams_new["national women's sports teams of"] = "منتخبات رياضية وطنية نسائية في"
-# Teams_new["women's national sports teams of"] = "منتخبات رياضية وطنية نسائية في"
 # ---
 Teams = {
     "national sports teams": "منتخبات رياضية وطنية",
@@ -131,8 +114,6 @@ sport_formts_en_ar_is_p17["presidents"] = "رؤساء {}"
 sport_formts_en_ar_is_p17["territorial officials"] = "مسؤولو أقاليم {}"
 sport_formts_en_ar_is_p17["territorial judges"] = "قضاة أقاليم {}"
 sport_formts_en_ar_is_p17["war"] = "حرب {}"
-# sport_formts_en_ar_is_p17["responses"] = "استجابات {}"
-# sport_formts_en_ar_is_p17["courts"] = "محاكم {}"
 # ---
 # ---association football clubs
 # Category:Zimbabwe men's A' international footballers
@@ -159,8 +140,6 @@ for mem, labe in Sports_Keys_For_Label.items():
     for jjj in menstts:
         Teams_new[f"{jjj.strip()} {mem}"] = f"{labe} {menstts[jjj].strip()}"
     # ---
-    # Teams_new["{} video games".format(mem) ] = "ألعاب فيديو {}".format(labe)
-    # ---
     labes = f"{Sports_Keys_For_Label[mem]} أولمبية"
     # ---
     if mem in Sports_Keys_For_olympic:
@@ -175,9 +154,6 @@ for mem, labe in Sports_Keys_For_Label.items():
     # ---
     Teams_new[f"olympics men's {mem}"] = labes + " للرجال"
     Teams_new[f"olympics women's {mem}"] = labes + " للسيدات"
-    # ---
-    # sport_formts_female_nat["%s tour" % mem.lower()] = "بطولة %s {nat}" % labe
-    # sport_formts_female_nat["%s tournament" % mem.lower()] = "بطولة %s {nat}" % labe
     # ---
     emty_f = "{}"
     # ---
@@ -209,8 +185,6 @@ for ttt in menstts:
     sport_formts_en_ar_is_p17[ttt + "international footballers"] = Lab
     sport_formts_en_ar_is_p17[ttt + "international soccer players"] = Lab
     sport_formts_en_ar_is_p17[ttt + "international soccer playerss"] = Lab
-    # print("lab = " + Lab)
-    # print(ttt + " B international footballers")
     # ---
     # Category:Australia under-18 international soccer players
     # تصنيف:لاعبو منتخب أستراليا تحت 18 سنة لكرة القدم
@@ -221,7 +195,6 @@ for ttt in menstts:
     Lab2 = start + " {} تحت %d سنة " + "لكرة القدم " + menstts[ttt]
     for year in Years_List:
         Lab3 = Lab2 % year
-        # print("lab3 = " + Lab3)
         sport_formts_en_ar_is_p17[ttt + "under-%d international footballers" % (year)] = Lab3
         sport_formts_en_ar_is_p17[ttt + "under-%d international soccer players" % (year)] = Lab3
         sport_formts_en_ar_is_p17[ttt + "under-%d international soccer playerss" % (year)] = Lab3
@@ -236,8 +209,6 @@ sport_formts_en_ar_is_p17["national teams"] = "منتخبات {} الوطنية"
 sport_formts_en_ar_is_p17["national football team managers"] = "مدربو منتخب {} لكرة القدم"
 # ---
 # فرق دول وطنية
-# Sports_Keys_For_Team = {}
-# Sports_Keys_For_Team["association football"] = "لكرة القدم"
 # ---
 for team2 in Sports_Keys_For_Team:
     team2_lab = Sports_Keys_For_Team[team2]
@@ -248,11 +219,8 @@ for team2 in Sports_Keys_For_Team:
     # ---
     # Middle East Rally Championship بطولة الشرق الأوسط للراليات
     # ---
-    # sport_formts_female_nat["women's %s league" % team] = f"الدوري {nat_f} {team2_lab} للسيدات"
-    # ---
     emty_f = "{}"
     # ---
-    # sport_formts_male_nat[f"professional {team2.lower()} league"] = f"دوري {team2_lab} {emty_f} للمحترفين"
     sport_formts_male_nat[f"{team2.lower()} federation"] = f"الاتحاد {emty_f} {team2_lab}"
     # ---
     sport_formts_male_nat[f"{team2.lower()} league"] = f"الدوري {emty_f} {team2_lab}"
@@ -280,12 +248,8 @@ for team2 in Sports_Keys_For_Team:
     sport_formts_new_kkk[f"national {team2} team"] = "منتخب {} " + team2_lab
     sport_formts_new_kkk[f"national women's {team2} team"] = "منتخب {} " + team2_lab + " للسيدات"
     # ---
-    # sport_formts_new_kkk["women's %s league" % team] = "الدوري {} %s للسيدات" % team2_lab
-    # ---
     sport_formts_new_kkk[f"national men's {team2} team"] = "منتخب {} " + team2_lab + " للرجال"
     # ---
-# sport_formts_female_nat["competitors"] = "منافسون {nat}"
-
 Teams_new["international competitions"] = "منافسات دولية"
 # ---
 sport_formts_en_ar_is_p17["international rally"] = "رالي {} الدولي"
@@ -296,20 +260,6 @@ for sport in New_With_Women:
     for after in AFTER_KEYS:
         llab = AFTER_KEYS[after]
         Teams_new[f"{sport} {after}"] = f"{llab} {LAAP}"
-    # ---
-    # for after in Football_Keys_players:
-    #     PP_o = f"{sport} {after}"
-    #     # ---
-    #     llab = Football_Keys_players[after]["mens"]
-    #     if PP_o.find("women's") != -1:
-    #         llab = Football_Keys_players[after]["womens"]
-    #     # ---
-    #     LP_PP_o = f"{llab} {LAAP}"
-    #     Teams_new[PP_o] = LP_PP_o
-    #     # men's association football players:لاعبو كرة قدم رجالية
-    #     # men's football players:لاعبو كرة قدم رجالية
-    #     # if PP_o.find('football') != -1 and LP_PP_o.find('لاعبو كرة قدم رجالية') != -1:
-    #     # printe.output(f'<<yellow>> {PP_o}:{LP_PP_o}')
 # ---
 Teams_new["men's footballers"] = "لاعبو كرة قدم رجالية"
 # ---
@@ -327,7 +277,6 @@ Lenth1 = {
 }
 # ---
 len_print.lenth_pri("sports.py", Lenth1)
-# sport_formts_female_nat["road cycling"] = "سباقات {nat} للدراجات على الطريق"
 # ---
 Facos = [
     "china women's national football team",

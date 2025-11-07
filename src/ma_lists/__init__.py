@@ -19,7 +19,7 @@ from .nats.Nationality import All_Nat, Nat_women, All_contry_ar, All_contry_with
 
 from .sports.Sport_key import fanco_line, Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
 
-from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
+from .mixed.translations import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
 
 from .geo.games_labs import summer_winter_games
 
