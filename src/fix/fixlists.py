@@ -1,6 +1,24 @@
+"""Mappings used to normalize Arabic category labels.
+
+The module centralizes the string and regular expression replacements used by
+:mod:`src.fix.fixtitle`. Each constant is typed to improve static analysis and
+is named in uppercase for clarity and compliance with project conventions.
+"""
+
+from __future__ import annotations
+
 from typing import Dict, Set
 
-replase: Dict[str, str] = {
+__all__ = [
+    "REPLACEMENTS",
+    "STARTING_REPLACEMENTS",
+    "ENDING_REPLACEMENTS",
+    "YEAR_CATEGORY_LABELS",
+]
+
+# NOTE: the dictionaries intentionally preserve insertion order so that later
+# replacements can depend on previous substitutions.
+REPLACEMENTS: Dict[str, str] = {
     "المكان المأهول واحتلال": "المكان المأهول والمهنة",
     "حقوق المثليين": "معاملة المثليين",
     "منظمات في أطفال": "منظمات أطفال",
@@ -16,15 +34,12 @@ replase: Dict[str, str] = {
     "حوادث إرهابية إسلامية": "حوادث إرهابية منسوبة للمسلمين",
     "هجمات إسلامية": "هجمات منسوبة للمسلمين",
 }
-# ---
-Starting: Dict[str, str] = {
-    # ---
-    # "اكتشافات بواسطة" : "اكتشافات",
-    # ---
+"""Regex-based replacements applied globally to Arabic labels."""
+
+STARTING_REPLACEMENTS: Dict[str, str] = {
     "هجمات ضد": "هجمات على",
     "أشخاص أتهموا بتهمة": "متهمون بتهمة",
     "أشخاص أدينوا ب": "مدانون ب",
-    # ---
     "تاريخ تعليم في": "تاريخ التعليم في",
     "أفعال في الكونغرس": "قوانين الكونغرس",
     "أفعال الكونغرس": "قوانين الكونغرس",
@@ -57,14 +72,12 @@ Starting: Dict[str, str] = {
     "أفلام 1": "أفلام إنتاج 1",
     "أفلام 2": "أفلام إنتاج 2",
     "أفلام عقد ": "أفلام إنتاج عقد ",
-    # "معاهد أبحاث أسست في " : "معاهد أبحاث أسست سنة",
-    # "هيئات تعليمية تأسست في": "هيئات تعليمية أسست في",
     "وسائل الإعلام أسست": "وسائل إعلام تأسست",
     "وسائل الإعلام تأسست": "وسائل إعلام تأسست",
-    # "أحداث رياضية دورية تأسست": "أحداث رياضية دورية أسست",
 }
-# ---
-Ending: Dict[str, str] = {
+"""Prefix replacements that run on the start of the label."""
+
+ENDING_REPLACEMENTS: Dict[str, str] = {
     "صناعة إعلامية": "صناعة الإعلام",
     "إلى يونسكو": "لدى يونسكو",
     "إلى الأمم المتحدة": "لدى الأمم المتحدة",
@@ -94,10 +107,11 @@ Ending: Dict[str, str] = {
     " في": "",
     "في أحداث رياضية متعددة": "في الأحداث الرياضية المتعددة",
 }
-# ---
-fix_years: Set[str] = {
+"""Suffix replacements applied after trimming whitespace."""
+
+YEAR_CATEGORY_LABELS: Set[str] = {
     "كوارث صحية",
     "كوارث طبيعية",
     "كوارث طبية",
 }
-# ---
+"""Labels that require inserting the preposition 'في' before year values."""
