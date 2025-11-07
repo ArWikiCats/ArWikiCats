@@ -52,7 +52,7 @@ from ...ma_lists import military_format_women, military_format_men
 from ...ma_lists import languages_pop
 from ...ma_lists import Films_TT, typeTable_4
 from ...ma_lists import typeTable_7, albums_type, film_production_company
-from ...ma_lists import Jobs_new
+from ...ma_lists.jobs import ARABIC_TRANSLATIONS
 from ...ma_lists import Sports_Keys_For_Label
 from ...ma_lists import By_table
 
@@ -315,7 +315,14 @@ safo = "|".join(list(typeTable))
 
 Films_O_TT.update({x.lower(): v for x, v in Films_TT.items() if v})
 # ---
-New_players.update({x.lower(): v for x, v in Jobs_new.items() if v})
+for pla, translations in ARABIC_TRANSLATIONS.items():
+    pla2 = pla.lower()
+    if translations.get("mens"):
+        if not New_players.get(pla2):
+            New_players[pla2] = translations["mens"]
+    elif translations.get("womens"):
+        if not New_players.get(pla2):
+            New_players[pla2] = translations["womens"]
 # del Jobs_new
 # ---
 

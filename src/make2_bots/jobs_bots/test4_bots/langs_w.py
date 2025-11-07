@@ -12,10 +12,10 @@ from ....ma_lists import (
     film_Keys_For_female,
     Films_key_CAO,
     Films_key_For_nat,
-    Jobs_key_mens,
     languages_key,
     lang_key_m,
 )
+from ....ma_lists.jobs import ARABIC_TRANSLATIONS
 from ....helps.print_bot import output_test4, print_put
 
 Lang_work_cash: Dict[str, str] = {}
@@ -92,7 +92,8 @@ def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang2: str) -> str:
     language_lab = languages_key[lang]
     # ---
     con_8 = con_3[len(lang2) :]
-    con_78_lab = Jobs_key_mens.get(con_8, "")
+    translations = ARABIC_TRANSLATIONS.get(con_8, {})
+    con_78_lab = translations.get("mens", "") or translations.get("womens", "")
     # ---
     it_lab = ""
     # ---

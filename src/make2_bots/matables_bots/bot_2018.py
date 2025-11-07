@@ -27,7 +27,7 @@ from ...ma_lists import summer_winter_games
 from ...ma_lists import pf_keys2
 from ...ma_lists import New_P17_Finall
 from ...ma_lists import films_mslslat_tab
-from ...ma_lists import Jobs_new, Jobs_key
+from ...ma_lists.jobs import ARABIC_TRANSLATIONS
 from ...ma_lists import Sports_Keys_For_Label
 from ...ma_lists import By_table
 
@@ -51,16 +51,14 @@ for gg, gg_lab in pf_keys2.items():
     if not pop_All_2018.get(gg2):
         pop_All_2018[gg2] = gg_lab
 
-for pla in Jobs_new:
+for pla, translations in ARABIC_TRANSLATIONS.items():
     pla2 = pla.lower()
-    if Jobs_new[pla]:
+    if translations.get("mens"):
         if not pop_All_2018.get(pla2):
-            pop_All_2018[pla2] = Jobs_new[pla]
-for pla in Jobs_key:
-    pla2 = pla.lower()
-    if Jobs_key[pla]:
+            pop_All_2018[pla2] = translations["mens"]
+    elif translations.get("womens"):
         if not pop_All_2018.get(pla2):
-            pop_All_2018[pla2] = Jobs_key[pla]
+            pop_All_2018[pla2] = translations["womens"]
 
 for cyi in films_mslslat_tab:
     cyi2 = cyi.lower()

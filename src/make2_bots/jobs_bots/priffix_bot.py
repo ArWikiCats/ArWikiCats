@@ -4,12 +4,7 @@ from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 """
 from typing import Dict
 from ...ma_lists import Nat_mens
-from ...ma_lists import (
-    Jobs_key_mens,
-    Jobs_key_womens,
-    womens_Jobs_2017,
-    Female_Jobs,
-)
+from ...ma_lists.jobs import ARABIC_TRANSLATIONS
 from ...ma_lists import By_table
 from ...ma_lists import replace_labels_2022, change_male_to_female, Mens_suffix, Mens_priffix, Women_s_priffix
 
@@ -56,9 +51,13 @@ def priffix_Mens_work(con_33: str) -> str:
             return con_33_lab
     # ---
     if not con_33_lab:
-        con_33_lab = Jobs_key_mens.get(con_33, "")
+        translations = ARABIC_TRANSLATIONS.get(con_33, {})
+        if translations.get("mens"):
+            con_33_lab = translations["mens"]
+        elif translations.get("womens"):
+            con_33_lab = translations["womens"]
         if con_33_lab:
-            output_test4(f'<<lightblue>> Jobs_key_mens: con_33_lab:"{con_33_lab}"')
+            output_test4(f'<<lightblue>> ARABIC_TRANSLATIONS: con_33_lab:"{con_33_lab}"')
     # ---
     for priff, priff_lab in Mens_priffix.items():
         if con_33_lab:
@@ -82,11 +81,12 @@ def priffix_Mens_work(con_33: str) -> str:
         # ---
         output_test4(f'<<lightblue>> con_33.startswith pri ("{pri}"), con_88:"{con_88}"')
         # ---
-        con_8_lab = Jobs_key_mens.get(con_88, "")
+        translations = ARABIC_TRANSLATIONS.get(con_88, {})
+        con_8_lab = translations.get("mens", "") or translations.get("womens", "")
         if not con_8_lab:
             con_8_lab = Nat_mens.get(con_88, "")
         # ---
-        if con_88 in Female_Jobs and priff_lab in change_male_to_female:
+        if con_88 in ARABIC_TRANSLATIONS and priff_lab in change_male_to_female:
             priff_lab = change_male_to_female[priff_lab]
         # ---
         if con_8_lab:
@@ -163,7 +163,8 @@ def Women_s_priffix_work(con_3: str) -> str:
     f_lab = ""
     # ---
     if not f_lab:
-        f_lab = Jobs_key_womens.get(con_3, "")
+        translations = ARABIC_TRANSLATIONS.get(con_3, {})
+        f_lab = translations.get("womens", "")
     # ---
     con_33 = con_3
     if con_3.endswith(" women"):
@@ -177,7 +178,8 @@ def Women_s_priffix_work(con_3: str) -> str:
             Wriff2 = "women's-"
         if con_33.startswith(Wriff2):
             con_4 = con_33[len(Wriff2) :]
-            con_8_Wb = womens_Jobs_2017.get(con_4, "")
+            translations = ARABIC_TRANSLATIONS.get(con_4, {})
+            con_8_Wb = translations.get("womens", "")
             output_test4(f'<<lightblue>> con_33.startswith_Wriff2("{Wriff2}"),con_4:"{con_4}", con_8_Wb:"{con_8_Wb}"')
             if con_8_Wb:
                 f_lab = wrifflab.format(con_8_Wb)

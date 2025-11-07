@@ -8,7 +8,6 @@ from ...helps import len_print
 from .sports_lists import AFTER_KEYS, nat_menstt33, PPP_Keys, New_Tato_nat
 from ..sports_formats_teams.team_job import sf_en_ar_is_p17
 from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, Sports_Keys_For_olympic
-from ..jobs.jobs_players_list import Football_Keys_players
 
 sport_formts_male_nat = {}  # الإنجليزي جنسية والعربي جنسية
 sport_formts_female_nat = {}  # الإنجليزي جنسية والعربي جنسية
@@ -298,19 +297,19 @@ for sport in New_With_Women:
         llab = AFTER_KEYS[after]
         Teams_new[f"{sport} {after}"] = f"{llab} {LAAP}"
     # ---
-    for after in Football_Keys_players:
-        PP_o = f"{sport} {after}"
-        # ---
-        llab = Football_Keys_players[after]["mens"]
-        if PP_o.find("women's") != -1:
-            llab = Football_Keys_players[after]["womens"]
-        # ---
-        LP_PP_o = f"{llab} {LAAP}"
-        Teams_new[PP_o] = LP_PP_o
-        # men's association football players:لاعبو كرة قدم رجالية
-        # men's football players:لاعبو كرة قدم رجالية
-        # if PP_o.find('football') != -1 and LP_PP_o.find('لاعبو كرة قدم رجالية') != -1:
-        # printe.output(f'<<yellow>> {PP_o}:{LP_PP_o}')
+    # for after in Football_Keys_players:
+    #     PP_o = f"{sport} {after}"
+    #     # ---
+    #     llab = Football_Keys_players[after]["mens"]
+    #     if PP_o.find("women's") != -1:
+    #         llab = Football_Keys_players[after]["womens"]
+    #     # ---
+    #     LP_PP_o = f"{llab} {LAAP}"
+    #     Teams_new[PP_o] = LP_PP_o
+    #     # men's association football players:لاعبو كرة قدم رجالية
+    #     # men's football players:لاعبو كرة قدم رجالية
+    #     # if PP_o.find('football') != -1 and LP_PP_o.find('لاعبو كرة قدم رجالية') != -1:
+    #     # printe.output(f'<<yellow>> {PP_o}:{LP_PP_o}')
 # ---
 Teams_new["men's footballers"] = "لاعبو كرة قدم رجالية"
 # ---

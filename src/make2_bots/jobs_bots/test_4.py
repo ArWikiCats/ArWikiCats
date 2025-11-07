@@ -27,9 +27,8 @@ from ...ma_lists import (
     Multi_sport_for_Jobs,
     All_Nat,
     Nat_mens,
-    Jobs_key_mens,
-    Jobs_key_womens,
 )
+from ...ma_lists.jobs import ARABIC_TRANSLATIONS
 
 from ..media_bots.film_keys_bot import Films
 from ..jobs_bots.get_helps import get_con_3
@@ -152,10 +151,11 @@ def test4_2018_with_nat(
         return TEST4_2018_WITH_NAT_CACHE[normalized_category]
     # ---
     if not country_label:
-        country_label = Jobs_key_womens.get(normalized_category, "")
-    # ---
-    if not country_label:
-        country_label = Jobs_key_mens.get(normalized_category, "")
+        translations = ARABIC_TRANSLATIONS.get(normalized_category, {})
+        if translations.get("womens"):
+            country_label = translations["womens"]
+        elif translations.get("mens"):
+            country_label = translations["mens"]
     # ---
     con_3, nat = get_con_3(normalized_category, All_Nat, "nat")
     # ---

@@ -33,7 +33,7 @@ from ...helps.print_bot import print_put, output_test
 from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.centries_bot import centries_years_dec
 from ...ma_lists import pop_of_without_in
-from ...ma_lists import Jobs_key
+from ...ma_lists.jobs import ARABIC_TRANSLATIONS
 from ..matables_bots.bot_2018 import pop_All_2018
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 
@@ -219,13 +219,14 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
 
             tti = c_t_lower[: -len(tat)]
 
-            tto = Jobs_key.get(tti, "")
+            translations = ARABIC_TRANSLATIONS.get(tti, {})
+            tto = translations.get("mens", "") or translations.get("womens", "")
 
             print_put(f'tti:"{tti}", tto:"{tto}", c_t_lower:"{c_t_lower}" ')
 
             if c_t_lab == "" and tto:
                 c_t_lab = f"{tto} من "
-                print_put(f"Jobs_key:: add من to c_t_lab:{c_t_lab}, line:1583.")
+                print_put(f"ARABIC_TRANSLATIONS:: add من to c_t_lab:{c_t_lab}, line:1583.")
 
             if not tto:
                 tto = pop_All_2018.get(tti, "")

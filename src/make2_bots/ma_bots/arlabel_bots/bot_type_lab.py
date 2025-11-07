@@ -15,7 +15,7 @@ from ...media_bots.films_bot import test_films
 from .. import event2bot
 
 from ....ma_lists import New_P17_Finall
-from ....ma_lists import religious_keys_PP
+from ....ma_lists.jobs import ARABIC_TRANSLATIONS
 from ....ma_lists import New_female_keys
 
 from ...format_bots import Tabl_with_in
@@ -75,7 +75,11 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         type_label = make_people_lab(type_lower)
 
     if not type_label:
-        type_label = religious_keys_PP.get(type_lower, {}).get("mens", "")
+        translations = ARABIC_TRANSLATIONS.get(type_lower, {})
+        if translations.get("mens"):
+            type_label = translations["mens"]
+        elif translations.get("womens"):
+            type_label = translations["womens"]
     if not type_label:
         type_label = New_female_keys.get(type_lower, "")
     if not type_label:

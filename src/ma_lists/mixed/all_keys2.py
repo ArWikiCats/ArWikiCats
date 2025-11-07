@@ -15,7 +15,6 @@ from .Newkey import pop_final6
 from ..languages import languages_key, cccccc_m
 from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
-from ..jobs.jobs_singers import singers_tab
 
 # ---
 query1 = """
@@ -518,19 +517,19 @@ albums_type1 = {
     "live": "مباشرة",
 }
 # ---
-for xfxx, xfxx_lab in singers_tab.items():  # all_keys3
-    xc2 = xfxx.lower()
-    if xc2 not in pf_keys2 and xfxx_lab:
-        pf_keys2[xc2] = xfxx_lab
-        pf_keys2[f"{xc2} albums"] = f"ألبومات {xfxx_lab}"
-        pf_keys2[f"{xc2} songs"] = f"أغاني {xfxx_lab}"
-        pf_keys2[f"{xc2} groups"] = f"فرق {xfxx_lab}"
-        pf_keys2[f"{xc2} duos"] = f"فرق {xfxx_lab} ثنائية"
-        # ---
-        pf_keys2[f"{xfxx} video albums"] = f"ألبومات فيديو {xfxx_lab}"
-        # ---
-        for ty, ty_lab in albums_type.items():
-            pf_keys2[f"{xfxx} {ty} albums"] = f"ألبومات {ty_lab} {xfxx_lab}"
+# for xfxx, xfxx_lab in singers_tab.items():  # all_keys3
+#     xc2 = xfxx.lower()
+#     if xc2 not in pf_keys2 and xfxx_lab:
+#         pf_keys2[xc2] = xfxx_lab
+#         pf_keys2[f"{xc2} albums"] = f"ألبومات {xfxx_lab}"
+#         pf_keys2[f"{xc2} songs"] = f"أغاني {xfxx_lab}"
+#         pf_keys2[f"{xc2} groups"] = f"فرق {xfxx_lab}"
+#         pf_keys2[f"{xc2} duos"] = f"فرق {xfxx_lab} ثنائية"
+#         # ---
+#         pf_keys2[f"{xfxx} video albums"] = f"ألبومات فيديو {xfxx_lab}"
+#         # ---
+#         for ty, ty_lab in albums_type.items():
+#             pf_keys2[f"{xfxx} {ty} albums"] = f"ألبومات {ty_lab} {xfxx_lab}"
 # ---
 """
 for po_5 in pop_final6:

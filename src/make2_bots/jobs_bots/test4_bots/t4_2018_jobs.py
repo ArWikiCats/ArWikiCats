@@ -13,9 +13,8 @@ from ....ma_lists import (
     All_Nat,
     Nat_women,
     Nat_men,
-    Jobs_key_mens,
-    Jobs_key_womens,
 )
+from ....ma_lists.jobs import ARABIC_TRANSLATIONS
 from ....ma_lists import en_is_nat_ar_is_man, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to
 
 from ..get_helps import get_con_3
@@ -98,13 +97,14 @@ def test4_2018_Jobs(cate: str, out: bool=False, tab: dict[str, str] | None=None)
     if not contry_lab:
         contry_lab = People_key.get(cate, "")
     if not contry_lab:
-        contry_lab = Jobs_key_womens.get(cate, "")
+        translations = ARABIC_TRANSLATIONS.get(cate, {})
+        if translations.get("womens"):
+            contry_lab = translations["womens"]
+        elif translations.get("mens"):
+            contry_lab = translations["mens"]
     # ---
     if not contry_lab:
         contry_lab = Lang_work(cate)
-    # ---
-    if not contry_lab:
-        contry_lab = Jobs_key_mens.get(cate, "")
     # ---
     nat = ""
     job_example = ""
