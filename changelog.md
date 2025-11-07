@@ -1,3 +1,20 @@
+---
+
+## #30
+
+## Summary by CodeRabbit
+
+* **Bug Fixes**
+  * Improved template/label resolution with additional fallback steps for more accurate mapping.
+
+* **Tests**
+  * Reorganized and expanded locale/year and historical-period test data; trimmed other year mappings for focused coverage.
+
+* **Documentation**
+  * Standardized and simplified changelog structure and headers.
+
+* **Chores**
+  * Removed the automatic type-hint injector module; consolidated dependency imports and removed optional local fallbacks; minor typing and config adjustments.
 
 ---
 
