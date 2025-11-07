@@ -23,7 +23,7 @@ from ...helps.print_bot import output_main
 
 
 class LabsYears:
-    def __init__(self):
+    def __init__(self) -> None:
         self.lookup_count = 0
         self.category_templates = {}
 

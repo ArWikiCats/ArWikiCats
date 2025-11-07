@@ -62,7 +62,7 @@ for major, maj_ar in majors.items():
 test_Universities_cash = {}
 
 
-def test_Universities(cate):
+def test_Universities(cate: str) -> str:
     cate = cate.lower()
     # ---
     if cate.startswith("category:"):

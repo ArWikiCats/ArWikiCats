@@ -31,7 +31,7 @@ from ...helps.print_bot import print_put, main_output_preferences
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
-def test3(category_key):
+def test3(category_key: str) -> str:
     arabic_label = ""
 
     if category_key in New_Lan:
@@ -49,7 +49,7 @@ def test3(category_key):
     return arabic_label
 
 
-def event_Lab_seoo(reference_category, target_category):
+def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     """Retrieve category lab information based on the provided category.
 
     This function attempts to find the corresponding category lab for a

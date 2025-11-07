@@ -28,7 +28,7 @@ nat_reg_line = rf".*\s({All_nat_to_ar})\s.*"
 
 
 # New_Sport_Format_team_xo_en_ar_is_P17
-def Get_Sport_Format_xo_en_ar_is_P17(con_3):  # sport_formts_enar_p17_jobs
+def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
     # ---
     # len:"sport_formts_en_ar_is_p17":  572927 قبل بدء الوظيفة
     # ---
@@ -92,7 +92,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3):  # sport_formts_enar_p17_jobs
     return con_3_label
 
 
-def Get_New_team_xo(team):
+def Get_New_team_xo(team: str) -> str:
     # ---
     # إيجاد تسميات نصوص رياضية مثل
     # world champion national football teams

@@ -22,19 +22,19 @@ from ....helps.print_bot import print_put, output_test
 
 
 def new_func_mk2(
-    category,
-    cat_test,
-    year,
-    typeo,
-    In,
-    contry,
-    arlabel,
-    year_labe,
-    suf,
-    Add_In,
-    country_label,
-    Add_In_Done,
-):
+    category: str,
+    cat_test: str,
+    year: str,
+    typeo: str,
+    In: str,
+    contry: str,
+    arlabel: str,
+    year_labe: str,
+    suf: str,
+    Add_In: bool,
+    country_label: str,
+    Add_In_Done: bool,
+) -> tuple[str, str]:
     """Process and modify category-related labels based on various conditions.
 
     This function takes multiple parameters related to categories and

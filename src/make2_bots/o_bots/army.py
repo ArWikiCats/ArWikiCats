@@ -18,7 +18,7 @@ from ...helps.log import logger
 
 TEST_ARMY_CACHE = {}
 
-def test_Army(category):
+def test_Army(category: str) -> str:
     if category in TEST_ARMY_CACHE:
         if TEST_ARMY_CACHE[category]:
             logger.debug(

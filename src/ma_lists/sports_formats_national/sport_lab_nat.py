@@ -11,7 +11,7 @@ from ..sports.Sport_key import Sports_Keys_For_Jobs, fanco_line
 from ...helps.print_bot import print_put
 
 
-def Get_sport_formts_female_nat(con_77):  # New_For_nat_female_xo_team
+def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
     # ---
     # قبل تطبيق الوظيفة
     # sports.py: len:"sport_formts_female_nat":  549000

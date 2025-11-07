@@ -4,6 +4,7 @@ from  ..make2_bots.date_bots.with_years_bot import Try_With_Years
 
 import functools
 import re
+from typing import Pattern
 
 # ---
 from ...ma_lists import change_numb_to_word
@@ -81,7 +82,11 @@ def _handle_year_at_start(category_text: str) -> str:
     return label
 
 
-def _handle_year_at_end(category_text: str, compiled_year_pattern, compiled_range_pattern) -> str:
+def _handle_year_at_end(
+    category_text: str,
+    compiled_year_pattern: Pattern[str],
+    compiled_range_pattern: Pattern[str],
+) -> str:
     """Handles cases where the year is at the end of the string."""
     year_at_end_label = compiled_year_pattern.sub(r"\g<1>", category_text.strip())
 
@@ -118,7 +123,7 @@ def _handle_year_at_end(category_text: str, compiled_year_pattern, compiled_rang
 
 
 @functools.lru_cache(maxsize=None)
-def Try_With_Years(category_text: str):
+def Try_With_Years(category_text: str) -> str:
     """Retrieve a formatted label for a given country based on its historical
     context.
 

@@ -14,13 +14,13 @@ from ... import malists_sport_lab as sport_lab
 from ...helps.log import logger
 
 
-def add_definite_article(label):
+def add_definite_article(label: str) -> str:
     label_without_article = re.sub(r" ", " ال", label)
     new_label = f"ال{label_without_article}"
     return new_label
 
 
-def Get_P17_2(category):  # الإنجليزي اسم البلد والعربي جنسية رجال
+def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
     logger.info(
         f'<<lightblue>>>>>> Get_P17_2 "{category}" '
     )  # "united states government officials"
@@ -62,7 +62,7 @@ def Get_P17_2(category):  # الإنجليزي اسم البلد والعربي 
     return resolved_label
 
 
-def Get_P17(category):  # الإنجليزي جنسية والعربي اسم البلد
+def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
     resolved_label = ""
     con_3_lab = ""
     con_3 = ""

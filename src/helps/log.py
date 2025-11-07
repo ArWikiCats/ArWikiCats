@@ -1,11 +1,12 @@
 
 import sys
 import logging
+from typing import Optional, Union
 
 logger = logging.getLogger(__name__)
 
 
-def config_logger(level=None):
+def config_logger(level: Optional[Union[int, str]] = None) -> None:
     _levels = [
         'CRITICAL',
         'ERROR',

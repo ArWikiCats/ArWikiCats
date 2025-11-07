@@ -18,13 +18,15 @@ len_print.lenth_pri("Labels_Contry.py", Lentha)
 
 import importlib.util
 import sys
+from typing import Iterable, Mapping
+
 from .. import printe
 
 if importlib.util.find_spec("humanize") is not None:
     from humanize import naturalsize  # type: ignore
 else:
 
-    def naturalsize(value, binary=True):
+    def naturalsize(value: int | float | str, binary: bool=True) -> str:
         """Minimal replacement for :func:`humanize.naturalsize`."""
 
         try:
@@ -54,7 +56,12 @@ else:
 lenth_pri_text = True
 
 
-def lenth_pri(bot, tab, Max=10000, lens=None):
+def lenth_pri(
+    bot: str,
+    tab: Mapping[str, int | float],
+    Max: int=10000,
+    lens: Iterable[str] | None=None,
+) -> None:
     if lens is None:
         lens = []
     if not lenth_pri_text:
@@ -62,7 +69,7 @@ def lenth_pri(bot, tab, Max=10000, lens=None):
     if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
         return
 
-    def format_size(key, value):
+    def format_size(key: str, value: int | float) -> str:
         if key in lens:
             return value
         return naturalsize(value, binary=True)

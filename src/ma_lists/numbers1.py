@@ -146,7 +146,7 @@ for number_key, arabic_label in change_numb.items():
     change_numb_to_word[extended_three_hundred_key] = f"{arabic_label} بعد الثلاثمائة"
 
 
-def get_tens_labels():
+def get_tens_labels() -> dict[int, str]:
     tens_mapping = {
         2: "العشرون",
         3: "الثلاثون",

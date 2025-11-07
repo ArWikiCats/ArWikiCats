@@ -35,7 +35,7 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 Find_f_wikidata = {1: "nowikidata" not in sys.argv}
 
 
-def event_Lab(cate_r):
+def event_Lab(cate_r: str) -> str:
     category_lab = ""
     list_of_cat = ""
     cate_r2 = cate_r

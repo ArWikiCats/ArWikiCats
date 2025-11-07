@@ -384,7 +384,7 @@ for nna, fafa in All_Nat_o.items():
 printe.output(fafr)
 
 
-def main():
+def main() -> None:
     for cd in All_contry_with_nat_ar:
         if All_Nat[cd]["ar"] not in dpdpd:
             printe.output(f"\"{All_Nat[cd]['ar']}\" : {All_Nat[cd]['women']}")

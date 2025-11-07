@@ -66,7 +66,7 @@ class EventProcessingResult:
 class _TableCollector:
     """Capture data emitted through ``Add_to_main2_tab``."""
 
-    def __init__(self, title: str):
+    def __init__(self, title: str) -> None:
         self.title = title
         self.ar = ""
         self.lab: Dict[str, str] = {}
@@ -90,7 +90,7 @@ class _TableCollector:
 
 
 @contextmanager
-def _table_sink_context(collector: Optional[_TableCollector]):
+def _table_sink_context(collector: Optional[_TableCollector]) -> Iterator[None]:
     if not collector:
         yield
         return
@@ -104,7 +104,7 @@ def _table_sink_context(collector: Optional[_TableCollector]):
 class EventProcessor:
     """Pure processing core for category → label resolution."""
 
-    def __init__(self, config: Optional[EventProcessorConfig] = None):
+    def __init__(self, config: Optional[EventProcessorConfig] = None) -> None:
         self.config = config or EventProcessorConfig()
         self._event_done = self.config.resolved_event_cache()
 
