@@ -11,10 +11,9 @@ explains the intent of each transformation.
 from __future__ import annotations
 
 import logging
-from typing import Any, Iterable, Mapping, Tuple
+from typing import Iterable, Mapping, Tuple
 
-from ..utils.json_dir import open_json_file
-from .jobs_defs import GenderedLabel, GenderedLabelMap
+from .jobs_defs import GenderedLabel, GenderedLabelMap, gendered_label, load_gendered_label_map
 
 LOGGER = logging.getLogger(__name__)
 
@@ -165,35 +164,6 @@ LEGACY_EXPECTED_MENS_LABELS: Mapping[str, str] = {
 # Helper functions
 
 
-def _gendered_label(mens: str, womens: str) -> GenderedLabel:
-    """Create a :class:`GenderedLabel` mapping from two Arabic strings."""
-
-    return {"mens": mens, "womens": womens}
-
-
-def _load_gendered_label_map(filename: str) -> GenderedLabelMap:
-    """Load a JSON document into a :class:`GenderedLabelMap` structure.
-
-    Args:
-        filename: Basename of the JSON file stored under ``jsons/``.
-
-    Returns:
-        A mapping keyed by category that stores masculine and feminine Arabic
-        labels.  Non-string entries are ignored to keep the data well-typed.
-    """
-
-    raw_data: Any = open_json_file(filename)
-    result: GenderedLabelMap = {}
-    if isinstance(raw_data, Mapping):
-        for raw_key, raw_value in raw_data.items():
-            if not isinstance(raw_key, str) or not isinstance(raw_value, Mapping):
-                continue
-            mens_value = str(raw_value.get("mens", ""))
-            womens_value = str(raw_value.get("womens", ""))
-            result[raw_key] = _gendered_label(mens_value, womens_value)
-    return result
-
-
 def _lowercase_keys(jobs: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
     """Return a new mapping that lowercases every key.
 
@@ -221,7 +191,7 @@ def _build_scientist_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
 
     scientist_roles: GenderedLabelMap = {}
     for role_key, subject in disciplines.items():
-        scientist_roles[role_key.lower()] = _gendered_label(
+        scientist_roles[role_key.lower()] = gendered_label(
             f"علماء {subject}",
             f"عالمات {subject}",
         )
@@ -233,7 +203,7 @@ def _build_scholar_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
 
     scholar_roles: GenderedLabelMap = {}
     for discipline, subject in disciplines.items():
-        scholar_roles[f"{discipline.lower()} scholars"] = _gendered_label(
+        scholar_roles[f"{discipline.lower()} scholars"] = gendered_label(
             f"علماء {subject}",
             f"عالمات {subject}",
         )
@@ -301,8 +271,8 @@ def _build_jobs_datasets() -> Tuple[GenderedLabelMap, GenderedLabelMap]:
     scientist_jobs = _build_scientist_roles(SCIENTIST_DISCIPLINES)
     scholar_jobs = _build_scholar_roles(SCHOLAR_DISCIPLINES)
 
-    jobs_additional = _load_gendered_label_map(JSON_JOBS_ADDITIONAL_FILE)
-    jobs_primary = _load_gendered_label_map(JSON_JOBS_PRIMARY_FILE)
+    jobs_additional = load_gendered_label_map(JSON_JOBS_ADDITIONAL_FILE)
+    jobs_primary = load_gendered_label_map(JSON_JOBS_PRIMARY_FILE)
 
     lowercase_additional = _lowercase_keys(jobs_additional)
     lowercase_primary = _lowercase_keys(jobs_primary)

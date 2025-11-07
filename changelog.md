@@ -1,3 +1,18 @@
+## [Refactor shared gendered label helpers] - 2025-11-07
+
+### Added
+* Centralized reusable helper functions in `jobs_defs` for building and copying gendered label maps.
+
+### Changed
+* Updated job modules to import the shared helpers, eliminating duplicate JSON loading and label construction logic.
+* Documented the newly exposed helper functions in the jobs package exports.
+
+### Fixed
+* Ensured label concatenation trims whitespace consistently across modules by reusing a single joiner implementation.
+
+### Removed
+* Module-local helper implementations that duplicated shared logic for gendered labels and JSON loading.
+
 ## [Expose canonical jobs package API] - 2025-11-07
 
 ### Added

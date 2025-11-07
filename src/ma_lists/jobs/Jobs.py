@@ -28,12 +28,16 @@ from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..sports.cycling import new2019_cycling
 from ..tv.films_mslslat import Films_key_For_Jobs
-from ..utils.json_dir import open_json_file
 from .Jobs2 import Jobs_2
 from .jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,
     MEN_WOMENS_JOBS_2,
+    copy_gendered_map,
+    ensure_gendered_label,
+    gendered_label,
+    load_gendered_label_map,
+    merge_gendered_maps,
     religious_keys_PP,
 )
 from .jobs_players_list import (
@@ -51,55 +55,6 @@ LOGGER = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 
-def _gendered_label(mens: str, womens: str) -> GenderedLabel:
-    """Return a :class:`GenderedLabel` mapping."""
-
-    return {"mens": mens, "womens": womens}
-
-
-def _copy_gendered_map(source: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
-    """Create a deep copy of a :class:`GenderedLabelMap`.
-
-    The original datasets occasionally reuse the same dictionary references.
-    Copying the values avoids accidental mutation between helpers.
-    """
-
-    return {key: _gendered_label(value["mens"], value["womens"]) for key, value in source.items()}
-
-
-def _load_gendered_label_map(filename: str) -> GenderedLabelMap:
-    """Load a JSON document from ``jsons`` as a gendered label map."""
-
-    raw_data = open_json_file(filename)
-    result: GenderedLabelMap = {}
-    if isinstance(raw_data, Mapping):
-        for raw_key, raw_value in raw_data.items():
-            if not isinstance(raw_key, str) or not isinstance(raw_value, Mapping):
-                continue
-            mens_value = str(raw_value.get("mens", ""))
-            womens_value = str(raw_value.get("womens", ""))
-            result[raw_key] = _gendered_label(mens_value, womens_value)
-    return result
-
-
-def _merge_gendered_maps(target: MutableMapping[str, GenderedLabel], source: Mapping[str, GenderedLabel]) -> None:
-    """Update ``target`` with copies from ``source`` to avoid shared references."""
-
-    for key, value in source.items():
-        target[key] = _gendered_label(value["mens"], value["womens"])
-
-
-def _append_if_absent(
-    target: MutableMapping[str, GenderedLabel],
-    key: str,
-    value: GenderedLabel,
-) -> None:
-    """Add ``value`` to ``target`` if ``key`` does not already exist."""
-
-    if key not in target:
-        target[key] = _gendered_label(value["mens"], value["womens"])
-
-
 def _append_list_unique(sequence: List[str], value: str) -> None:
     """Append ``value`` to ``sequence`` if it is not already present."""
 
@@ -112,44 +67,44 @@ def _append_list_unique(sequence: List[str], value: str) -> None:
 # ---------------------------------------------------------------------------
 
 JOBS_2020_BASE: GenderedLabelMap = {
-    "lawn bowls players": _gendered_label("", ""),
-    "community activists": _gendered_label("ناشطو مجتمع", "ناشطات مجتمع"),
-    "ecosocialists": _gendered_label("إيكولوجيون", "إيكولوجيات"),
-    "ecosocialistes": _gendered_label("إيكولوجيون", "إيكولوجيات"),
-    "horse trainers": _gendered_label("مدربو خيول", "مدربات خيول"),
-    "bullfighters": _gendered_label("مصارعو ثيران", "مصارعات ثيران"),
-    "supremacists": _gendered_label("عنصريون", "عنصريات"),
-    "white supremacists": _gendered_label("عنصريون بيض", "عنصريات بيضوات"),
-    "ceramists": _gendered_label("خزفيون", "خزفيات"),
-    "bodybuilders": _gendered_label("لاعبو كمال أجسام", "لاعبات كمال أجسام"),
-    "bowlers": _gendered_label("لاعبو بولينج", "لاعبات بولينج"),
-    "dragon boat racers": _gendered_label("متسابقو قوارب التنين", "متسابقات قوارب التنين"),
-    "ju-jitsu practitioners": _gendered_label("ممارسو جوجوتسو", "ممارسات جوجوتسو"),
-    "kurash practitioners": _gendered_label("ممارسو كوراش", "ممارسات كوراش"),
-    "silat practitioners": _gendered_label("ممارسو سيلات", "ممارسات سيلات"),
-    "pencak silat practitioners": _gendered_label("ممارسو بنكات سيلات", "ممارسات بنكات سيلات"),
-    "sambo practitioners": _gendered_label("ممارسو سامب", "ممارسات سامبو"),
-    "ski orienteers": _gendered_label("متسابقو تزلج موجه", "متسابقات تزلج موجه"),
-    "ski-orienteers": _gendered_label("متسابقو تزلج موجه", "متسابقات تزلج موجه"),
-    "artistic swimmers": _gendered_label("سباحون فنيون", "سباحات فنيات"),
-    "synchronised swimmers": _gendered_label("سباحون متزامنون", "سباحات متزامنات"),
-    "powerlifters": _gendered_label("ممارسو رياضة القوة", "ممارسات رياضة القوة"),
-    "rifle shooters": _gendered_label("رماة بندقية", "راميات بندقية"),
-    "wheelchair curlers": _gendered_label("لاعبو كيرلنغ على الكراسي المتحركة", "لاعبات كيرلنغ على الكراسي المتحركة"),
-    "wheelchair fencers": _gendered_label("مبارزون على الكراسي المتحركة", "مبارزات على الكراسي المتحركة"),
-    "sepak takraw players": _gendered_label("لاعبو سيباك تاكرو", "لاعبات سيباك تاكرو"),
-    "boccia players": _gendered_label("لاعبو بوتشيا", "لاعبات بوتشيا"),
-    "wheelchair rugby players": _gendered_label("لاعبو رغبي على الكراسي المتحركة", "لاعبات رغبي على الكراسي المتحركة"),
-    "wheelchair tennis players": _gendered_label(
+    "lawn bowls players": gendered_label("", ""),
+    "community activists": gendered_label("ناشطو مجتمع", "ناشطات مجتمع"),
+    "ecosocialists": gendered_label("إيكولوجيون", "إيكولوجيات"),
+    "ecosocialistes": gendered_label("إيكولوجيون", "إيكولوجيات"),
+    "horse trainers": gendered_label("مدربو خيول", "مدربات خيول"),
+    "bullfighters": gendered_label("مصارعو ثيران", "مصارعات ثيران"),
+    "supremacists": gendered_label("عنصريون", "عنصريات"),
+    "white supremacists": gendered_label("عنصريون بيض", "عنصريات بيضوات"),
+    "ceramists": gendered_label("خزفيون", "خزفيات"),
+    "bodybuilders": gendered_label("لاعبو كمال أجسام", "لاعبات كمال أجسام"),
+    "bowlers": gendered_label("لاعبو بولينج", "لاعبات بولينج"),
+    "dragon boat racers": gendered_label("متسابقو قوارب التنين", "متسابقات قوارب التنين"),
+    "ju-jitsu practitioners": gendered_label("ممارسو جوجوتسو", "ممارسات جوجوتسو"),
+    "kurash practitioners": gendered_label("ممارسو كوراش", "ممارسات كوراش"),
+    "silat practitioners": gendered_label("ممارسو سيلات", "ممارسات سيلات"),
+    "pencak silat practitioners": gendered_label("ممارسو بنكات سيلات", "ممارسات بنكات سيلات"),
+    "sambo practitioners": gendered_label("ممارسو سامب", "ممارسات سامبو"),
+    "ski orienteers": gendered_label("متسابقو تزلج موجه", "متسابقات تزلج موجه"),
+    "ski-orienteers": gendered_label("متسابقو تزلج موجه", "متسابقات تزلج موجه"),
+    "artistic swimmers": gendered_label("سباحون فنيون", "سباحات فنيات"),
+    "synchronised swimmers": gendered_label("سباحون متزامنون", "سباحات متزامنات"),
+    "powerlifters": gendered_label("ممارسو رياضة القوة", "ممارسات رياضة القوة"),
+    "rifle shooters": gendered_label("رماة بندقية", "راميات بندقية"),
+    "wheelchair curlers": gendered_label("لاعبو كيرلنغ على الكراسي المتحركة", "لاعبات كيرلنغ على الكراسي المتحركة"),
+    "wheelchair fencers": gendered_label("مبارزون على الكراسي المتحركة", "مبارزات على الكراسي المتحركة"),
+    "sepak takraw players": gendered_label("لاعبو سيباك تاكرو", "لاعبات سيباك تاكرو"),
+    "boccia players": gendered_label("لاعبو بوتشيا", "لاعبات بوتشيا"),
+    "wheelchair rugby players": gendered_label("لاعبو رغبي على الكراسي المتحركة", "لاعبات رغبي على الكراسي المتحركة"),
+    "wheelchair tennis players": gendered_label(
         "لاعبو كرة مضرب على الكراسي المتحركة",
         "لاعبات كرة مضرب على الكراسي المتحركة",
     ),
 }
 
 DISABILITY_LABELS: GenderedLabelMap = {
-    "deaf": _gendered_label("صم", "صم"),
-    "blind": _gendered_label("مكفوفون", "مكفوفات"),
-    "deafblind": _gendered_label("صم ومكفوفون", "صم ومكفوفات"),
+    "deaf": gendered_label("صم", "صم"),
+    "blind": gendered_label("مكفوفون", "مكفوفات"),
+    "deafblind": gendered_label("صم ومكفوفون", "صم ومكفوفات"),
 }
 
 EXECUTIVE_DOMAINS: Mapping[str, str] = {
@@ -191,17 +146,17 @@ NAT_BEFORE_OCC_BASE: List[str] = [
 ]
 
 MEN_WOMENS_WITH_NATO: GenderedLabelMap = {
-    "eugenicists": _gendered_label("علماء {nato} متخصصون في تحسين النسل", "عالمات {nato} متخصصات في تحسين النسل"),
-    "politicians who committed suicide": _gendered_label(
+    "eugenicists": gendered_label("علماء {nato} متخصصون في تحسين النسل", "عالمات {nato} متخصصات في تحسين النسل"),
+    "politicians who committed suicide": gendered_label(
         "سياسيون {nato} أقدموا على الانتحار",
         "سياسيات {nato} أقدمن على الانتحار",
     ),
-    "contemporary artists": _gendered_label("فنانون {nato} معاصرون", "فنانات {nato} معاصرات"),
+    "contemporary artists": gendered_label("فنانون {nato} معاصرون", "فنانات {nato} معاصرات"),
 }
 
 TYPI_LABELS: Mapping[str, GenderedLabel] = {
-    "classical": _gendered_label("كلاسيكيون", "كلاسيكيات"),
-    "historical": _gendered_label("تاريخيون", "تاريخيات"),
+    "classical": gendered_label("كلاسيكيون", "كلاسيكيات"),
+    "historical": gendered_label("تاريخيون", "تاريخيات"),
 }
 
 FEMALE_JOBS_BASE: Dict[str, str] = {
@@ -302,32 +257,32 @@ JOBS_TYPE_TRANSLATIONS: Mapping[str, str] = {
 }
 
 JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
-    "bloggers": _gendered_label("مدونو", "مدونات"),
-    "writers": _gendered_label("كتاب", "كاتبات"),
-    "critics": _gendered_label("نقاد", "ناقدات"),
-    "journalists": _gendered_label("صحفيو", "صحفيات"),
-    "producers": _gendered_label("منتجو", "منتجات"),
-    "authors": _gendered_label("مؤلفو", "مؤلفات"),
-    "editors": _gendered_label("محررو", "محررات"),
-    "artists": _gendered_label("فنانو", "فنانات"),
-    "directors": _gendered_label("مخرجو", "مخرجات"),
-    "publisherspeople": _gendered_label("ناشرو", "ناشرات"),
-    "publishers (people)": _gendered_label("ناشرو", "ناشرات"),
-    "personalities": _gendered_label("شخصيات", "شخصيات"),
-    "presenters": _gendered_label("مذيعو", "مذيعات"),
-    "creators": _gendered_label("مبتكرو", "مبتكرات"),
+    "bloggers": gendered_label("مدونو", "مدونات"),
+    "writers": gendered_label("كتاب", "كاتبات"),
+    "critics": gendered_label("نقاد", "ناقدات"),
+    "journalists": gendered_label("صحفيو", "صحفيات"),
+    "producers": gendered_label("منتجو", "منتجات"),
+    "authors": gendered_label("مؤلفو", "مؤلفات"),
+    "editors": gendered_label("محررو", "محررات"),
+    "artists": gendered_label("فنانو", "فنانات"),
+    "directors": gendered_label("مخرجو", "مخرجات"),
+    "publisherspeople": gendered_label("ناشرو", "ناشرات"),
+    "publishers (people)": gendered_label("ناشرو", "ناشرات"),
+    "personalities": gendered_label("شخصيات", "شخصيات"),
+    "presenters": gendered_label("مذيعو", "مذيعات"),
+    "creators": gendered_label("مبتكرو", "مبتكرات"),
 }
 
 FILM_ROLE_LABELS: Mapping[str, GenderedLabel] = {
-    "filmmakers": _gendered_label("صانعو أفلام", "صانعات أفلام"),
-    "film editors": _gendered_label("محررو أفلام", "محررات أفلام"),
-    "film directors": _gendered_label("مخرجو أفلام", "مخرجات أفلام"),
-    "film producers": _gendered_label("منتجو أفلام", "منتجات أفلام"),
-    "film critics": _gendered_label("نقاد أفلام", "ناقدات أفلام"),
-    "film historians": _gendered_label("مؤرخو أفلام", "مؤرخات أفلام"),
-    "cinema editors": _gendered_label("محررون سينمائون", "محررات سينمائيات"),
-    "cinema directors": _gendered_label("مخرجون سينمائون", "مخرجات سينمائيات"),
-    "cinema producers": _gendered_label("منتجون سينمائون", "منتجات سينمائيات"),
+    "filmmakers": gendered_label("صانعو أفلام", "صانعات أفلام"),
+    "film editors": gendered_label("محررو أفلام", "محررات أفلام"),
+    "film directors": gendered_label("مخرجو أفلام", "مخرجات أفلام"),
+    "film producers": gendered_label("منتجو أفلام", "منتجات أفلام"),
+    "film critics": gendered_label("نقاد أفلام", "ناقدات أفلام"),
+    "film historians": gendered_label("مؤرخو أفلام", "مؤرخات أفلام"),
+    "cinema editors": gendered_label("محررون سينمائون", "محررات سينمائيات"),
+    "cinema directors": gendered_label("مخرجون سينمائون", "مخرجات سينمائيات"),
+    "cinema producers": gendered_label("منتجون سينمائون", "منتجات سينمائيات"),
 }
 
 
@@ -359,20 +314,20 @@ class JobsDataset:
 def _build_jobs_2020() -> GenderedLabelMap:
     """Return the 2020 job dictionary merged with ministerial categories."""
 
-    jobs_2020 = _copy_gendered_map(JOBS_2020_BASE)
+    jobs_2020 = copy_gendered_map(JOBS_2020_BASE)
     for category, labels in ministrs_tab_for_Jobs_2020.items():
-        jobs_2020[category] = _gendered_label(labels["mens"], labels["womens"])
+        jobs_2020[category] = gendered_label(labels["mens"], labels["womens"])
     return jobs_2020
 
 
 def _extend_with_religious_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMap:
     """Add religious role combinations and their activist variants."""
 
-    jobs = _copy_gendered_map(base_jobs)
+    jobs = copy_gendered_map(base_jobs)
     for religion_key, labels in religious_keys_PP.items():
-        jobs[religion_key] = _gendered_label(labels["mens"], labels["womens"])
+        jobs[religion_key] = gendered_label(labels["mens"], labels["womens"])
         activist_key = f"{religion_key} activists"
-        jobs[activist_key] = _gendered_label(
+        jobs[activist_key] = gendered_label(
             f"ناشطون {labels['mens']}",
             f"ناشطات {labels['womens']}",
         )
@@ -382,12 +337,12 @@ def _extend_with_religious_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMap
 def _extend_with_disability_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMap:
     """Insert disability-focused job labels and executive variants."""
 
-    jobs = _copy_gendered_map(base_jobs)
-    _merge_gendered_maps(jobs, DISABILITY_LABELS)
+    jobs = copy_gendered_map(base_jobs)
+    merge_gendered_maps(jobs, DISABILITY_LABELS)
     for domain_key, domain_label in EXECUTIVE_DOMAINS.items():
         if not domain_label:
             continue
-        jobs[f"{domain_key} executives"] = _gendered_label(
+        jobs[f"{domain_key} executives"] = gendered_label(
             f"مدراء {domain_label}",
             f"مديرات {domain_label}",
         )
@@ -397,7 +352,7 @@ def _extend_with_disability_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMa
 def _merge_jobs_sources() -> GenderedLabelMap:
     """Combine JSON sources and static configuration into a single map."""
 
-    jobs_pp = _load_gendered_label_map("jobs_Men_Womens_PP")
+    jobs_pp = load_gendered_label_map("jobs_Men_Womens_PP")
     jobs_pp = _extend_with_religious_jobs(jobs_pp)
     jobs_pp = _extend_with_disability_jobs(jobs_pp)
 
@@ -406,33 +361,33 @@ def _merge_jobs_sources() -> GenderedLabelMap:
         if labels["mens"] and labels["womens"]:
             lowered = job_name.lower()
             if lowered not in jobs_pp:
-                jobs_pp[lowered] = _gendered_label(labels["mens"], labels["womens"])
+                jobs_pp[lowered] = gendered_label(labels["mens"], labels["womens"])
 
     for category, labels in Football_Keys_players.items():
         lowered = category.lower()
-        _append_if_absent(jobs_pp, lowered, labels)
+        ensure_gendered_label(jobs_pp, lowered, labels)
 
-    jobs_pp["fashion journalists"] = _gendered_label("صحفيو موضة", "صحفيات موضة")
-    jobs_pp["zionists"] = _gendered_label("صهاينة", "صهيونيات")
+    jobs_pp["fashion journalists"] = gendered_label("صحفيو موضة", "صحفيات موضة")
+    jobs_pp["zionists"] = gendered_label("صهاينة", "صهيونيات")
 
-    _merge_gendered_maps(jobs_pp, companies_to_jobs)
+    merge_gendered_maps(jobs_pp, companies_to_jobs)
 
     for religion_key, feminine_label in religious_female_keys.items():
         founder_key = f"{religion_key} founders"
-        jobs_pp[founder_key] = _gendered_label(
+        jobs_pp[founder_key] = gendered_label(
             f"مؤسسو {feminine_label}",
             f"مؤسسات {feminine_label}",
         )
 
-    jobs_pp["imprisoned abroad"] = _gendered_label("مسجونون في الخارج", "مسجونات في الخارج")
-    jobs_pp["imprisoned"] = _gendered_label("مسجونون", "مسجونات")
-    jobs_pp["escapees"] = _gendered_label("هاربون", "هاربات")
-    jobs_pp["prison escapees"] = _gendered_label(
+    jobs_pp["imprisoned abroad"] = gendered_label("مسجونون في الخارج", "مسجونات في الخارج")
+    jobs_pp["imprisoned"] = gendered_label("مسجونون", "مسجونات")
+    jobs_pp["escapees"] = gendered_label("هاربون", "هاربات")
+    jobs_pp["prison escapees"] = gendered_label(
         "هاربون من السجن",
         "هاربات من السجن",
     )
-    jobs_pp["missionaries"] = _gendered_label("مبشرون", "مبشرات")
-    jobs_pp["venerated"] = _gendered_label("مبجلون", "مبجلات")
+    jobs_pp["missionaries"] = gendered_label("مبشرون", "مبشرات")
+    jobs_pp["venerated"] = gendered_label("مبجلون", "مبجلات")
 
     return jobs_pp
 
@@ -440,22 +395,22 @@ def _merge_jobs_sources() -> GenderedLabelMap:
 def _add_jobs_from_jobs2(jobs_pp: GenderedLabelMap) -> GenderedLabelMap:
     """Merge entries from :mod:`Jobs2` that are missing from ``jobs_pp``."""
 
-    merged = _copy_gendered_map(jobs_pp)
+    merged = copy_gendered_map(jobs_pp)
     for job_key, labels in Jobs_2.items():
         lowered = job_key.lower()
         if lowered not in merged and (labels["mens"] or labels["womens"]):
-            merged[lowered] = _gendered_label(labels["mens"], labels["womens"])
+            merged[lowered] = gendered_label(labels["mens"], labels["womens"])
     return merged
 
 
 def _load_activist_jobs(men_womens_jobs: MutableMapping[str, GenderedLabel], nat_before_occ: List[str]) -> None:
     """Extend ``men_womens_jobs`` with activist categories from JSON."""
 
-    activists = _load_gendered_label_map("activists_keys")
+    activists = load_gendered_label_map("activists_keys")
     for category, labels in activists.items():
         lowered = category.lower()
         _append_list_unique(nat_before_occ, lowered)
-        men_womens_jobs[lowered] = _gendered_label(labels["mens"], labels["womens"])
+        men_womens_jobs[lowered] = gendered_label(labels["mens"], labels["womens"])
 
 
 def _add_sport_variants(
@@ -466,15 +421,15 @@ def _add_sport_variants(
 
     for base_key, base_labels in base_jobs.items():
         lowered = base_key.lower()
-        men_womens_jobs[f"sports {lowered}"] = _gendered_label(
+        men_womens_jobs[f"sports {lowered}"] = gendered_label(
             f"{base_labels['mens']} رياضيون",
             f"{base_labels['womens']} رياضيات",
         )
-        men_womens_jobs[f"professional {lowered}"] = _gendered_label(
+        men_womens_jobs[f"professional {lowered}"] = gendered_label(
             f"{base_labels['mens']} محترفون",
             f"{base_labels['womens']} محترفات",
         )
-        men_womens_jobs[f"wheelchair {lowered}"] = _gendered_label(
+        men_womens_jobs[f"wheelchair {lowered}"] = gendered_label(
             f"{base_labels['mens']} على الكراسي المتحركة",
             f"{base_labels['womens']} على الكراسي المتحركة",
         )
@@ -488,17 +443,17 @@ def _add_cycling_variants(
 
     for event_key, event_label in new2019_cycling.items():
         lowered = event_key.lower()
-        men_womens_jobs[f"{lowered} cyclists"] = _gendered_label(
+        men_womens_jobs[f"{lowered} cyclists"] = gendered_label(
             f"دراجو {event_label}",
             f"دراجات {event_label}",
         )
         winners_key = f"{lowered} winners"
         stage_winners_key = f"{lowered} stage winners"
-        men_womens_jobs[winners_key] = _gendered_label(
+        men_womens_jobs[winners_key] = gendered_label(
             f"فائزون في {event_label}",
             f"فائزات في {event_label}",
         )
-        men_womens_jobs[stage_winners_key] = _gendered_label(
+        men_womens_jobs[stage_winners_key] = gendered_label(
             f"فائزون في مراحل {event_label}",
             f"فائزات في مراحل {event_label}",
         )
@@ -513,12 +468,12 @@ def _add_jobs_people_variants(men_womens_jobs: MutableMapping[str, GenderedLabel
         if not (role_labels["mens"] and role_labels["womens"]):
             continue
         for book_key, book_label in Books_table.items():
-            men_womens_jobs[f"{book_key} {role_key}"] = _gendered_label(
+            men_womens_jobs[f"{book_key} {role_key}"] = gendered_label(
                 f"{role_labels['mens']} {book_label}",
                 f"{role_labels['womens']} {book_label}",
             )
         for genre_key, genre_label in JOBS_TYPE_TRANSLATIONS.items():
-            men_womens_jobs[f"{genre_key} {role_key}"] = _gendered_label(
+            men_womens_jobs[f"{genre_key} {role_key}"] = gendered_label(
                 f"{role_labels['mens']} {genre_label}",
                 f"{role_labels['womens']} {genre_label}",
             )
@@ -531,9 +486,9 @@ def _add_film_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> i
     for film_key, film_label in Films_key_For_Jobs.items():
         lowered_film_key = film_key.lower()
         for role_key, role_labels in FILM_ROLE_LABELS.items():
-            men_womens_jobs[role_key] = _gendered_label(role_labels["mens"], role_labels["womens"])
+            men_womens_jobs[role_key] = gendered_label(role_labels["mens"], role_labels["womens"])
             combo_key = f"{lowered_film_key} {role_key}"
-            men_womens_jobs[combo_key] = _gendered_label(
+            men_womens_jobs[combo_key] = gendered_label(
                 f"{role_labels['mens']} {film_label}",
                 f"{role_labels['womens']} {film_label}",
             )
@@ -545,10 +500,10 @@ def _add_singer_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) ->
     """Add singer categories and stylistic combinations."""
 
     for category, labels in Men_Womens_Singers.items():
-        men_womens_jobs[category] = _gendered_label(labels["mens"], labels["womens"])
+        men_womens_jobs[category] = gendered_label(labels["mens"], labels["womens"])
         for style_key, style_labels in TYPI_LABELS.items():
             combo_key = f"{style_key} {category}"
-            men_womens_jobs[combo_key] = _gendered_label(
+            men_womens_jobs[combo_key] = gendered_label(
                 f"{labels['mens']} {style_labels['mens']}",
                 f"{labels['womens']} {style_labels['womens']}",
             )
@@ -608,15 +563,15 @@ def _finalise_jobs_dataset() -> JobsDataset:
     jobs_pp = _add_jobs_from_jobs2(jobs_pp)
 
     men_womens_jobs: GenderedLabelMap = {}
-    _merge_gendered_maps(men_womens_jobs, MEN_WOMENS_JOBS_2)
+    merge_gendered_maps(men_womens_jobs, MEN_WOMENS_JOBS_2)
 
     _load_activist_jobs(men_womens_jobs, nat_before_occ)
 
     for job_key, labels in jobs_pp.items():
-        men_womens_jobs[job_key.lower()] = _gendered_label(labels["mens"], labels["womens"])
+        men_womens_jobs[job_key.lower()] = gendered_label(labels["mens"], labels["womens"])
 
     _add_sport_variants(men_womens_jobs, jobs_pp)
-    _merge_gendered_maps(men_womens_jobs, players_to_Men_Womens_Jobs)
+    merge_gendered_maps(men_womens_jobs, players_to_Men_Womens_Jobs)
     _add_cycling_variants(men_womens_jobs, nat_before_occ)
     _add_jobs_people_variants(men_womens_jobs)
     film_variant_count = _add_film_variants(men_womens_jobs)
@@ -659,7 +614,7 @@ def _finalise_jobs_dataset() -> JobsDataset:
         female_jobs=female_jobs,
         men_womens_jobs=men_womens_jobs,
         nat_before_occ=nat_before_occ,
-        men_womens_with_nato=_copy_gendered_map(MEN_WOMENS_WITH_NATO),
+        men_womens_with_nato=copy_gendered_map(MEN_WOMENS_WITH_NATO),
         jobs_new=jobs_new,
         jobs_key=jobs_key,
     )

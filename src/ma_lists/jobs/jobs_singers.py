@@ -12,7 +12,13 @@ from __future__ import annotations
 from typing import Any, Dict, Mapping
 
 from ..utils.json_dir import open_json_file
-from .jobs_defs import GenderedLabel, GenderedLabelMap
+from .jobs_defs import (
+    GenderedLabel,
+    GenderedLabelMap,
+    gendered_label,
+    join_terms,
+    load_gendered_label_map,
+)
 
 # ---------------------------------------------------------------------------
 # JSON sources
@@ -27,52 +33,6 @@ JSON_SINGERS_TAB_FILE = "singers_tab"
 
 # ---------------------------------------------------------------------------
 # Helper functions
-
-
-def _gendered_label(mens: str, womens: str) -> GenderedLabel:
-    """Create a :class:`GenderedLabel` mapping from Arabic text snippets."""
-
-    return {"mens": mens, "womens": womens}
-
-
-def _join_terms(*terms: str) -> str:
-    """Join non-empty terms with a single space.
-
-    Args:
-        *terms: Strings that should be concatenated.
-
-    Returns:
-        The terms combined into a single Arabic label while skipping empty
-        pieces.  This mirrors the loose concatenation performed by the legacy
-        implementation but avoids accidental double spaces.
-    """
-
-    filtered_terms = [term.strip() for term in terms if term and term.strip()]
-    return " ".join(filtered_terms)
-
-
-def _load_gendered_label_map(filename: str) -> GenderedLabelMap:
-    """Load a JSON mapping into a :class:`GenderedLabelMap` instance.
-
-    Args:
-        filename: Basename of the JSON document stored under ``jsons/``.
-
-    Returns:
-        A dictionary keyed by category whose values contain masculine and
-        feminine Arabic forms.  Any malformed entries are ignored so downstream
-        code can rely on consistent typing.
-    """
-
-    raw_data: Any = open_json_file(filename)
-    result: GenderedLabelMap = {}
-    if isinstance(raw_data, Mapping):
-        for raw_key, raw_value in raw_data.items():
-            if not isinstance(raw_key, str) or not isinstance(raw_value, Mapping):
-                continue
-            mens_value = str(raw_value.get("mens", ""))
-            womens_value = str(raw_value.get("womens", ""))
-            result[raw_key] = _gendered_label(mens_value, womens_value)
-    return result
 
 
 def _load_string_map(filename: str) -> Dict[str, str]:
@@ -115,9 +75,9 @@ def _build_category_role_labels(
     for category_key, category_label in categories.items():
         for role_key, role_labels in roles.items():
             composite_key = f"{category_key} {role_key}"
-            combined[composite_key] = _gendered_label(
-                _join_terms(role_labels["mens"], category_label),
-                _join_terms(role_labels["womens"], category_label),
+            combined[composite_key] = gendered_label(
+                join_terms(role_labels["mens"], category_label),
+                join_terms(role_labels["womens"], category_label),
             )
     return combined
 
@@ -139,29 +99,29 @@ def _build_non_fiction_variants(
     for topic_key, topic_labels in topics.items():
         mens_topic = topic_labels["mens"]
         womens_topic = topic_labels["womens"]
-        variants[f"{topic_key} historian"] = _gendered_label(
-            _join_terms("مؤرخو", mens_topic),
-            _join_terms("مؤرخات", womens_topic),
+        variants[f"{topic_key} historian"] = gendered_label(
+            join_terms("مؤرخو", mens_topic),
+            join_terms("مؤرخات", womens_topic),
         )
-        variants[f"{topic_key} authors"] = _gendered_label(
-            _join_terms("مؤلفو", mens_topic),
-            _join_terms("مؤلفات", womens_topic),
+        variants[f"{topic_key} authors"] = gendered_label(
+            join_terms("مؤلفو", mens_topic),
+            join_terms("مؤلفات", womens_topic),
         )
-        variants[f"{topic_key} bloggers"] = _gendered_label(
-            _join_terms("مدونو", mens_topic),
-            _join_terms("مدونات", womens_topic),
+        variants[f"{topic_key} bloggers"] = gendered_label(
+            join_terms("مدونو", mens_topic),
+            join_terms("مدونات", womens_topic),
         )
-        variants[f"{topic_key} writers"] = _gendered_label(
-            _join_terms("كتاب", mens_topic),
-            _join_terms("كاتبات", womens_topic),
+        variants[f"{topic_key} writers"] = gendered_label(
+            join_terms("كتاب", mens_topic),
+            join_terms("كاتبات", womens_topic),
         )
-        variants[f"non-fiction {topic_key} writers"] = _gendered_label(
-            _join_terms("كتاب", mens_topic, "غير روائيون"),
-            _join_terms("كاتبات", womens_topic, "غير روائيات"),
+        variants[f"non-fiction {topic_key} writers"] = gendered_label(
+            join_terms("كتاب", mens_topic, "غير روائيون"),
+            join_terms("كاتبات", womens_topic, "غير روائيات"),
         )
-        variants[f"{topic_key} journalists"] = _gendered_label(
-            _join_terms("صحفيو", mens_topic),
-            _join_terms("صحفيات", womens_topic),
+        variants[f"{topic_key} journalists"] = gendered_label(
+            join_terms("صحفيو", mens_topic),
+            join_terms("صحفيات", womens_topic),
         )
     return variants
 
@@ -180,8 +140,8 @@ def _build_actor_labels(film_types: Mapping[str, GenderedLabel]) -> GenderedLabe
 
     actors: GenderedLabelMap = {}
     for film_key, film_labels in film_types.items():
-        actors[f"{film_key} actors"] = _gendered_label(
-            _join_terms("ممثلو", film_labels["mens"]),
+        actors[f"{film_key} actors"] = gendered_label(
+            join_terms("ممثلو", film_labels["mens"]),
             "",
         )
     return actors
@@ -192,15 +152,15 @@ def _build_actor_labels(film_types: Mapping[str, GenderedLabel]) -> GenderedLabe
 
 
 FILMS_TYPE: Mapping[str, GenderedLabel] = {
-    "film": _gendered_label("أفلام", "أفلام"),
-    "silent film": _gendered_label("أفلام صامتة", "أفلام صامتة"),
-    "pornographic film": _gendered_label("أفلام إباحية", "أفلام إباحية"),
-    "television": _gendered_label("تلفزيون", "تلفزيون"),
-    "musical theatre": _gendered_label("مسرحيات موسيقية", "مسرحيات موسيقية"),
-    "stage": _gendered_label("مسرح", "مسرح"),
-    "radio": _gendered_label("راديو", "راديو"),
-    "voice": _gendered_label("أداء صوتي", "أداء صوتي"),
-    "video game": _gendered_label("ألعاب فيديو", "ألعاب فيديو"),
+    "film": gendered_label("أفلام", "أفلام"),
+    "silent film": gendered_label("أفلام صامتة", "أفلام صامتة"),
+    "pornographic film": gendered_label("أفلام إباحية", "أفلام إباحية"),
+    "television": gendered_label("تلفزيون", "تلفزيون"),
+    "musical theatre": gendered_label("مسرحيات موسيقية", "مسرحيات موسيقية"),
+    "stage": gendered_label("مسرح", "مسرح"),
+    "radio": gendered_label("راديو", "راديو"),
+    "voice": gendered_label("أداء صوتي", "أداء صوتي"),
+    "video game": gendered_label("ألعاب فيديو", "ألعاب فيديو"),
 }
 """Media categories used when constructing actor related job labels."""
 
@@ -224,41 +184,41 @@ SINGERS_MAIN_CATEGORIES: Dict[str, str] = {
 
 
 SINGERS_AFTER_ROLES: Mapping[str, GenderedLabel] = {
-    "record producers": _gendered_label("منتجو تسجيلات", "منتجات تسجيلات"),
-    "musicians": _gendered_label("موسيقيو", "موسيقيات"),
-    "singers": _gendered_label("مغنو", "مغنيات"),
-    "singer-songwriters": _gendered_label("مغنون وكتاب أغاني", "مغنيات وكاتبات أغاني"),
-    "songwriters": _gendered_label("كتاب أغان", "كاتبات أغان"),
-    "critics": _gendered_label("نقاد", "ناقدات"),
-    "educators": _gendered_label("معلمو", "معلمات"),
-    "historians": _gendered_label("مؤرخو", "مؤرخات"),
-    "bloggers": _gendered_label("مدونو", "مدونات"),
-    "drummers": _gendered_label("طبالو", "طبالات"),
-    "violinists": _gendered_label("عازفو كمان", "عازفات كمان"),
-    "trumpeters": _gendered_label("عازفو بوق", "عازفات بوق"),
-    "bassoonists": _gendered_label("عازفو باسون", "عازفات باسون"),
-    "trombonists": _gendered_label("عازفو ترومبون", "عازفات ترومبون"),
-    "composers": _gendered_label("ملحنو", "ملحنات"),
-    "flautists": _gendered_label("عازفو فولت", "عازفات فولت"),
-    "writers": _gendered_label("كتاب", "كاتبات"),
-    "guitarists": _gendered_label("عازفو قيثارة", "عازفات قيثارة"),
-    "pianists": _gendered_label("عازفو بيانو", "عازفات بيانو"),
-    "saxophonists": _gendered_label("عازفو سكسفون", "عازفات سكسفون"),
-    "authors": _gendered_label("مؤلفو", "مؤلفات"),
-    "journalists": _gendered_label("صحفيو", "صحفيات"),
-    "bandleaders": _gendered_label("قادة فرق", "قائدات فرق"),
-    "cheerleaders": _gendered_label("قادة تشجيع", "قائدات تشجيع"),
+    "record producers": gendered_label("منتجو تسجيلات", "منتجات تسجيلات"),
+    "musicians": gendered_label("موسيقيو", "موسيقيات"),
+    "singers": gendered_label("مغنو", "مغنيات"),
+    "singer-songwriters": gendered_label("مغنون وكتاب أغاني", "مغنيات وكاتبات أغاني"),
+    "songwriters": gendered_label("كتاب أغان", "كاتبات أغان"),
+    "critics": gendered_label("نقاد", "ناقدات"),
+    "educators": gendered_label("معلمو", "معلمات"),
+    "historians": gendered_label("مؤرخو", "مؤرخات"),
+    "bloggers": gendered_label("مدونو", "مدونات"),
+    "drummers": gendered_label("طبالو", "طبالات"),
+    "violinists": gendered_label("عازفو كمان", "عازفات كمان"),
+    "trumpeters": gendered_label("عازفو بوق", "عازفات بوق"),
+    "bassoonists": gendered_label("عازفو باسون", "عازفات باسون"),
+    "trombonists": gendered_label("عازفو ترومبون", "عازفات ترومبون"),
+    "composers": gendered_label("ملحنو", "ملحنات"),
+    "flautists": gendered_label("عازفو فولت", "عازفات فولت"),
+    "writers": gendered_label("كتاب", "كاتبات"),
+    "guitarists": gendered_label("عازفو قيثارة", "عازفات قيثارة"),
+    "pianists": gendered_label("عازفو بيانو", "عازفات بيانو"),
+    "saxophonists": gendered_label("عازفو سكسفون", "عازفات سكسفون"),
+    "authors": gendered_label("مؤلفو", "مؤلفات"),
+    "journalists": gendered_label("صحفيو", "صحفيات"),
+    "bandleaders": gendered_label("قادة فرق", "قائدات فرق"),
+    "cheerleaders": gendered_label("قادة تشجيع", "قائدات تشجيع"),
 }
 """Roles that can be combined with the singer categories above."""
 
 
 NON_FICTION_BASE_TOPICS: Mapping[str, GenderedLabel] = {
-    "non-fiction": _gendered_label("غير روائيون", "غير روائيات"),
-    "non-fiction environmental": _gendered_label("بيئة غير روائيون", "بيئة غير روائيات"),
-    "detective": _gendered_label("بوليسيون", "بوليسيات"),
-    "military": _gendered_label("عسكريون", "عسكريات"),
-    "nautical": _gendered_label("بحريون", "بحريات"),
-    "maritime": _gendered_label("بحريون", "بحريات"),
+    "non-fiction": gendered_label("غير روائيون", "غير روائيات"),
+    "non-fiction environmental": gendered_label("بيئة غير روائيون", "بيئة غير روائيات"),
+    "detective": gendered_label("بوليسيون", "بوليسيات"),
+    "military": gendered_label("عسكريون", "عسكريات"),
+    "nautical": gendered_label("بحريون", "بحريات"),
+    "maritime": gendered_label("بحريون", "بحريات"),
 }
 """Seed topics that receive dedicated non-fiction role variants."""
 
@@ -305,12 +265,12 @@ SINGER_CATEGORY_LABELS.update(SINGERS_TAB)
 
 NON_FICTION_TOPICS: Dict[str, GenderedLabel] = dict(NON_FICTION_BASE_TOPICS)
 for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
-    NON_FICTION_TOPICS[topic_key] = _gendered_label(topic_label, topic_label)
+    NON_FICTION_TOPICS[topic_key] = gendered_label(topic_label, topic_label)
 """Expanded non-fiction topics covering both static and dynamically generated entries."""
 
 
 MEN_WOMENS_SINGERS: GenderedLabelMap = {}
-MEN_WOMENS_SINGERS.update(_load_gendered_label_map(JSON_SINGERS_LABELS_FILE))
+MEN_WOMENS_SINGERS.update(load_gendered_label_map(JSON_SINGERS_LABELS_FILE))
 MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
 MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
 MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
