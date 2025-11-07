@@ -46,7 +46,7 @@ This update improves label processing accuracy and restructures the test archite
 
 * Cleaned up deprecated test scripts and legacy helpers replaced by the unified pytest structure.
 
-----
+---
 
 ## #3 - 2025-11-03
 
@@ -58,7 +58,7 @@ This update improves label processing accuracy and restructures the test archite
 *   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
 *   Simplified the event labeling flow in `src/make2_bots/ma_bots/dodo_bots/event2bot_dodo.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
 
-----
+---
 
 ## Pull Request 2
 
@@ -68,7 +68,7 @@ This update improves label processing accuracy and restructures the test archite
 * Removed old scripts and tools from the `others` directory and reorganized import tests.
 * Updated tests and documentation to align with the new module structure.
 
-----
+---
 
 ## Pull Request 1
 
