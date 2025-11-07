@@ -1,8 +1,14 @@
+
+## #31
+### Changed
+
+* Standardized type hints, logging, and documentation across the `src/fix` package to support static analysis.
+* Consolidated repeated year-handling logic in `mv_years.py` into shared helpers to eliminate duplication.
+* Updated `__init__.py` exports to provide a coherent public API for normalization utilities.
+
 ---
 
 ## #30
-
-## Summary by CodeRabbit
 
 * **Bug Fixes**
   * Improved template/label resolution with additional fallback steps for more accurate mapping.
@@ -15,16 +21,6 @@
 
 * **Chores**
   * Removed the automatic type-hint injector module; consolidated dependency imports and removed optional local fallbacks; minor typing and config adjustments.
-
----
-
-## #17 - 2025-11-08
-
-### Changed
-
-* Standardized type hints, logging, and documentation across the `src/fix` package to support static analysis.
-* Consolidated repeated year-handling logic in `mv_years.py` into shared helpers to eliminate duplication.
-* Updated `__init__.py` exports to provide a coherent public API for normalization utilities.
 
 ---
 
