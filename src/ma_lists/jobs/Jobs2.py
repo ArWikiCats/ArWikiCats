@@ -1,97 +1,40 @@
-#!/usr/bin/python3
-r"""
-\{\s*"mens"\s*:\s*""\s*,\s*"womens"\s*:\s*""\s*\}\s*,
-{"mens":"", "womens":""},
+"""Assemble gendered Arabic labels for general job categories.
 
-
-\{\s*['"]mens['"]\s*:\s*['"]([\w\s]+|)['"]\s*,\s*['"]womens['"]\s*:\s*['"]([\w\s]+|)['"]\s*\}
-{"mens":"$1", "womens":"$2"}
-
-
-
-\{\s*['"]([\w\s]+|)['"]\s*:\s*['"]([\w\s]+|)['"]\s*,\s*['"]([\w\s]+|)['"]\s*:\s*['"]([\w\s]+|)['"]\s*\}
-{"$1":"$2", "$3":"$4"}
-
-\{\s*['"]([\w\s\d]+|)['"]\s*:\s*['"]([\w\s\d]+|)['"]\s*,\s*['"]([\w\s\d]+|)['"]\s*:\s*['"]([\w\s\d]+|)['"]\s*,\s*['"]([\w\s\d]+|)['"]\s*:\s*['"]([\w\s\d]+|)['"]\s*\}
-{"$1":"$2", "$3":"$4", "$5":"$6"}
-
-\{\s*['"]([\w\s\d]+|)['"]\s*:\s*['"]([\w\s\d]+|)['"]\s*,\s*['"]([\w\s\d]+|)['"]\s*:\s*['"]([\w\s\d]+|)['"]\s*,\s*['"]([\w\s\d]+|)['"]\s*:\s*['"]([\w\s\d]+|)['"]\s*,\s*['"]([\w\s\d]+|)['"]\s*:\s*['"]([\w\s\d]+|)['"]\s*\}
-{"$1":"$2", "$3":"$4", "$5":"$6", "$7":"$8"}
-
-
-jsub -mem 1g sh/a1.sh
-jsub -mem 1g sh/a2.sh
-jsub -mem 1g sh/a3.sh
-jsub -mem 1g sh/a4.sh
-jsub -mem 1g sh/a5.sh
-
+This module historically populated two large dictionaries: ``Jobs_2`` and
+``Jobs_3333``.  The original implementation performed a series of untyped
+mutations, loaded JSON documents directly into globals, and printed diagnostic
+information on import.  The refactor recreates the same data while providing
+type hints, reusable helpers, structured logging, and inline documentation that
+explains the intent of each transformation.
 """
 
-from pathlib import Path
-import json
+from __future__ import annotations
 
-Dir2 = Path(__file__).parent
+import logging
+from typing import Any, Iterable, Mapping, Tuple
 
-"""
-
-الأسطر المخفية تبدأ بـ
-#o
-
-"""
-# ---
 from ..utils.json_dir import open_json_file
-Jobs_3333 = {}
-Jobs_2 = {}
-# ---
-Jobs_22 = open_json_file("Jobs_22")
-# ---
-jobs_3 = open_json_file("jobs_3")
-# ---
-# "biochemists"    : {"mens":"أخصائيو كيمياء حيوية", "womens":""},
-# "coastal engineering" : {"mens":"هندسة الشواطئ", "womens":""},
-# "confidence tricksters" : {"mens":"أكبر المحتالين", "womens":""},
-# "coptologists" : {"mens":"مختصون بالدراسات القبطية", "womens":""},
-# "daimyo" : {"mens":"دايميو", "womens":""},
-# "film preservation" : {"mens":"حفظ الأفلام", "womens":""},
-# "fraudsters" : {"mens":"غشاشون", "womens":""},
-# "geisha" : {"mens":"غايشا", "womens":""},
-# "hacking (computer security)" : { "mens": "اختراق (حماية الحاسوب)" ,"womens": "" },
-# "heavy metal guitarists" : {"mens":"عازفو هيفي ميتال", "womens":"عازفات هيفي ميتال"},
-# "illustrators" : {"mens":"رسامون توضيحيون", "womens":""},
-# "literary editors" : {"mens":"محرر أدبي", "womens":""},
-# "ninja" : {"mens":"نينجا", "womens":""},
-# "pharmacologists" : {"mens":"اختصاصيو علم الأدوية", "womens":""},
-# "prophets of islam" : {"mens":"أنبياء ورسل بحسب المعتقد الإسلامي", "womens":""},
-# "prophets" : {"mens":"أنبياء ورسل", "womens":""},
-# "psycholinguists" : {"mens":"لسانيات ذهنية", "womens":""},
-# "scientific illustrators" : {"mens":"رسامون في المجال العلمي", "womens":""},
-# "topologists" : {"mens":"عاملون في الطوبولوجيا", "womens":""},
-# ---
-# "agriculturalists"  : {"mens":"مزارعون", "womens":"مزارعات"},
-# "astrophysicists"    : {"mens":"فيزيائيون فلكيون", "womens":"فيزيائيات فلكيات"},
-# "book publishers (people)": {"mens":"ناشرو كتب", "womens":""},
-# "farmers" : {"mens":"مزارعون", "womens":"مزارعات"},
-# "fencers" : {"mens":"مبارزون", "womens":"مبارزات"},
-# "justices of the peace" : {"mens":"", "womens":""},
-# "mass media owners": {"mens":"ملاك وسائل إعلام", "womens":"مالكات وسائل إعلام"},
-# "music historians" : {"mens":"مؤرخو موسيقى", "womens":"مؤرخات موسيقى"},
-# "music people" : {"mens":"أعلام موسيقى", "womens":""},
-# "newspaper people" : {"mens":"شخصيات صحفية", "womens":"شخصيات صحفية"},
-# "paleontologists":  {"mens":"إحاثيون", "womens":"إحاثيات"},
-# "people in the sex industry" : {"mens":"", "womens":""},
-# "polynesian sports coaches": {"mens":"", "womens":""},
-# "priests" : {"mens":"قساوسة", "womens":""},
-# "printmakers" : {"mens":"نقاشون", "womens":"نقاشات"},
-# "prostitutes" : {"mens":"", "womens":"عاهرات"},
-# "punk rock groups" : {"mens":"", "womens":""},
-# "railway mechanical engineers" : {"mens":"", "womens":""},
-# "stained glass artists and manufacturers" : {"mens":"", "womens":""},
-# "telecommunications engineers" : {"mens":"", "womens":""},
-# "television news anchors" : {"mens":"", "womens":""},
-# علماء $1" ,"womens": "عالمات $1"
-# علماء (.*)\" \,\u\"womens\"\:  \u\"\"
-# ---
-Main_scientists = {
+from .jobs_defs import GenderedLabel, GenderedLabelMap
+
+LOGGER = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# JSON configuration
+
+
+JSON_JOBS_ADDITIONAL_FILE = "jobs_3"
+"""Filename containing supplemental job labels keyed by category."""
+
+JSON_JOBS_PRIMARY_FILE = "Jobs_22"
+"""Filename storing the primary set of job labels used across modules."""
+
+
+# ---------------------------------------------------------------------------
+# Static configuration
+
+
+SCIENTIST_DISCIPLINES: Mapping[str, str] = {
     "anatomists": "تشريح",
     "anthropologists": "أنثروبولوجيا",
     "arachnologists": "عنكبوتيات",
@@ -159,8 +102,8 @@ Main_scientists = {
     "virologists": "فيروسات",
     "zoologists": "حيوانات",
 }
-# ---
-scholars_table = {
+
+SCHOLAR_DISCIPLINES: Mapping[str, str] = {
     "islamic studies": "دراسات إسلامية",
     "native american studies": "دراسات الأمريكيين الأصليين",
     "strategic studies": "دراسات إستراتيجية",
@@ -168,31 +111,8 @@ scholars_table = {
     "black studies": "دراسات إفريقية",
     "literary studies": "دراسات أدبية",
 }
-# ---
-for sci in Main_scientists:
-    lab = Main_scientists[sci]
-    Jobs_2[sci.lower()] = {"mens": f"علماء {lab}", "womens": f"عالمات {lab}"}
-# ---
-for sci in scholars_table:
-    lab = scholars_table[sci]
-    Jobs_2[f"{sci.lower()} scholars"] = {"mens": f"علماء {lab}", "womens": f"عالمات {lab}"}
-# ---
-for joj in jobs_3.keys():
-    Jobs_3333[joj.lower()] = jobs_3[joj]
-    if joj.lower() not in Jobs_2 and jobs_3[joj]["mens"]:
-        Jobs_2[joj.lower()] = jobs_3[joj]
-# ---
-nano = 0
-for jowj in Jobs_22.keys():
-    if jowj.lower() in Jobs_3333:
-        # printe.output('jobs2: "%s" : { "mens": "%s" ,"womens": "%s" },' %  (jowj , Jobs_22[jowj]["mens"],Jobs_22[jowj]["womens"]))
-        nano += 1
-    # else:
-    if jowj.lower() not in Jobs_2:
-        if Jobs_22[jowj]["mens"] or Jobs_22[jowj]["womens"]:
-            Jobs_2[jowj.lower()] = Jobs_22[jowj]
-# ---
-job2_opo = {
+
+LEGACY_EXPECTED_MENS_LABELS: Mapping[str, str] = {
     "air force generals": "جنرالات القوات الجوية",
     "air force officers": "ضباط القوات الجوية",
     "architecture critics": "نقاد عمارة",
@@ -239,31 +159,170 @@ job2_opo = {
     "sports scientists": "علماء رياضيون",
     "women writers": "كاتبات",
 }
-# ---
-"""
-lal = 'jobs2: "%s" : { "mens": "%s" ,"womens": "%s" },'
-# ---
-same = 0
-notsame = 0
-notin = 0
-for c in job2_opo:
-    if c.lower() in Jobs_2 :
-        if job2_opo[c] != Jobs_2[c.lower()]["mens"] :
-            #printe.output('"%s" : { "job2_opo": "%s" ,"Jobs_2": "%s" },' % (c , job2_opo[c] , Jobs_2[c.lower()]["mens"])   )
-            #printe.output('"%s" : "%s",' % (c , job2_opo[c])   )
-            notsame += 1
+
+
+# ---------------------------------------------------------------------------
+# Helper functions
+
+
+def _gendered_label(mens: str, womens: str) -> GenderedLabel:
+    """Create a :class:`GenderedLabel` mapping from two Arabic strings."""
+
+    return {"mens": mens, "womens": womens}
+
+
+def _load_gendered_label_map(filename: str) -> GenderedLabelMap:
+    """Load a JSON document into a :class:`GenderedLabelMap` structure.
+
+    Args:
+        filename: Basename of the JSON file stored under ``jsons/``.
+
+    Returns:
+        A mapping keyed by category that stores masculine and feminine Arabic
+        labels.  Non-string entries are ignored to keep the data well-typed.
+    """
+
+    raw_data: Any = open_json_file(filename)
+    result: GenderedLabelMap = {}
+    if isinstance(raw_data, Mapping):
+        for raw_key, raw_value in raw_data.items():
+            if not isinstance(raw_key, str) or not isinstance(raw_value, Mapping):
+                continue
+            mens_value = str(raw_value.get("mens", ""))
+            womens_value = str(raw_value.get("womens", ""))
+            result[raw_key] = _gendered_label(mens_value, womens_value)
+    return result
+
+
+def _lowercase_keys(jobs: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
+    """Return a new mapping that lowercases every key.
+
+    Args:
+        jobs: The mapping whose keys should be normalised.
+
+    Returns:
+        A dictionary keyed by lowercase category names.  The original values are
+        reused because :class:`GenderedLabel` objects are immutable mappings.
+    """
+
+    return {key.lower(): value for key, value in jobs.items()}
+
+
+def _build_scientist_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
+    """Create gendered labels for scientist categories.
+
+    Args:
+        disciplines: Mapping of role names to the Arabic specialisation.
+
+    Returns:
+        A dictionary containing entries such as ``"anatomists"`` whose values
+        include the masculine and feminine Arabic forms.
+    """
+
+    scientist_roles: GenderedLabelMap = {}
+    for role_key, subject in disciplines.items():
+        scientist_roles[role_key.lower()] = _gendered_label(
+            f"علماء {subject}",
+            f"عالمات {subject}",
+        )
+    return scientist_roles
+
+
+def _build_scholar_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
+    """Create gendered labels for scholar categories."""
+
+    scholar_roles: GenderedLabelMap = {}
+    for discipline, subject in disciplines.items():
+        scholar_roles[f"{discipline.lower()} scholars"] = _gendered_label(
+            f"علماء {subject}",
+            f"عالمات {subject}",
+        )
+    return scholar_roles
+
+
+def _merge_job_sources(
+    base_jobs: GenderedLabelMap,
+    supplemental_sources: Iterable[Mapping[str, GenderedLabel]],
+) -> GenderedLabelMap:
+    """Merge multiple job dictionaries while preserving existing entries.
+
+    Args:
+        base_jobs: Initial mapping that will be updated in-place.
+        supplemental_sources: Additional mappings layered on top of ``base_jobs``.
+
+    Returns:
+        The ``base_jobs`` dictionary after merging all supplemental sources.
+        Empty labels are skipped to mimic the behaviour of the legacy script.
+    """
+
+    for source in supplemental_sources:
+        for job_key, labels in source.items():
+            if job_key in base_jobs:
+                continue
+            if labels["mens"] or labels["womens"]:
+                base_jobs[job_key] = labels
+    return base_jobs
+
+
+def _log_expected_label_consistency(jobs: Mapping[str, GenderedLabel]) -> None:
+    """Emit debug information comparing legacy expectations to new data."""
+
+    matching = 0
+    mismatched = 0
+    missing = 0
+
+    for expected_key, expected_mens_label in LEGACY_EXPECTED_MENS_LABELS.items():
+        normalised_key = expected_key.lower()
+        gendered_label = jobs.get(normalised_key)
+        if gendered_label is None:
+            missing += 1
+            continue
+        if gendered_label["mens"] == expected_mens_label:
+            matching += 1
         else:
-            same += 1
-    else:
-        #printe.output('"%s" : "%s",' % (c , job2_opo[c]) )
-        notin += 1
-        #printe.output(lal % (c , job2_opo[c] , "")   )
-printe.output("jobs2: same:%d" % same)
-printe.output("jobs2: notsame:%d" % notsame)
-"""
-# ---
-del Jobs_22
-del Main_scientists
-del scholars_table
-del jobs_3
-del job2_opo
+            mismatched += 1
+
+    LOGGER.debug(
+        "legacy job labels compared (matching=%d, mismatched=%d, missing=%d)",
+        matching,
+        mismatched,
+        missing,
+    )
+
+
+def _build_jobs_datasets() -> Tuple[GenderedLabelMap, GenderedLabelMap]:
+    """Construct the ``Jobs_2`` and ``Jobs_3333`` datasets.
+
+    Returns:
+        A tuple where the first item represents ``Jobs_2`` and the second item
+        represents ``Jobs_3333`` from the legacy implementation.
+    """
+
+    scientist_jobs = _build_scientist_roles(SCIENTIST_DISCIPLINES)
+    scholar_jobs = _build_scholar_roles(SCHOLAR_DISCIPLINES)
+
+    jobs_additional = _load_gendered_label_map(JSON_JOBS_ADDITIONAL_FILE)
+    jobs_primary = _load_gendered_label_map(JSON_JOBS_PRIMARY_FILE)
+
+    lowercase_additional = _lowercase_keys(jobs_additional)
+    lowercase_primary = _lowercase_keys(jobs_primary)
+
+    combined_jobs = {**scientist_jobs, **scholar_jobs}
+    _merge_job_sources(combined_jobs, (lowercase_additional, lowercase_primary))
+    _log_expected_label_consistency(combined_jobs)
+
+    return combined_jobs, lowercase_additional
+
+
+# ---------------------------------------------------------------------------
+# Public API
+
+
+JOBS_2, JOBS_3333 = _build_jobs_datasets()
+
+# Backwards compatible exports -------------------------------------------------
+Jobs_2: GenderedLabelMap = JOBS_2
+Jobs_3333: GenderedLabelMap = JOBS_3333
+
+__all__ = ["JOBS_2", "JOBS_3333", "Jobs_2", "Jobs_3333", "GenderedLabel", "GenderedLabelMap"]
+

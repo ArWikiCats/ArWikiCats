@@ -1,3 +1,17 @@
+## [Refactor general job label dictionaries] - 2025-11-07
+
+### Added
+* None.
+
+### Changed
+* Rebuilt `src/ma_lists/jobs/Jobs2.py` around typed helpers, documented constants, and structured logging for gendered job labels.
+
+### Fixed
+* None.
+
+### Removed
+* Dropped legacy import-time print statements in favour of debug logging.
+
 ## [Refactor singer job label utilities] - 2025-11-07
 
 ### Added
