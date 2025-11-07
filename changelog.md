@@ -58,3 +58,11 @@ This update improves label processing accuracy and restructures the test archite
 * **New Features**
   * Added comprehensive localization mappings for sports, companies, buildings, and medical terminology.
   * Expanded translation data for enhanced language support and domain coverage.
+
+## #17 - 2025-11-08
+
+### Changed
+
+* Standardized type hints, logging, and documentation across the `src/fix` package to support static analysis.
+* Consolidated repeated year-handling logic in `mv_years.py` into shared helpers to eliminate duplication.
+* Updated `__init__.py` exports to provide a coherent public API for normalization utilities.
