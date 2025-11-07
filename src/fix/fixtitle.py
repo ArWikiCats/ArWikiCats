@@ -170,7 +170,7 @@ def _apply_category_specific_normalizations(ar_label: str, en_label: str) -> str
     ar_label = re.sub(r"محررون من منشورات", "محررو منشورات", ar_label)
     ar_label = re.sub(r"محررات من منشورات", "محررات منشورات", ar_label)
     ar_label = re.sub(r"قديسون صوفيون", "أولياء صوفيون", ar_label)
-    ar_label = re.sub(r"مدربو رياضية", "دربو رياضة", ar_label)
+    ar_label = re.sub(r"مدربو رياضية", "مدربو رياضة", ar_label)
     ar_label = re.sub(r" من من ", " من ", ar_label)
     ar_label = re.sub(r" حسب حسب ", " حسب ", ar_label)
     ar_label = re.sub(r" حسب بواسطة ", " بواسطة ", ar_label)
