@@ -1,14 +1,14 @@
-"""
-"""
+"""Supplementary mappings for educational, sporting and political contexts."""
 
-from .keys2 import new_2019
+from __future__ import annotations
+
+from typing import Final
+
 from ..sports.cycling import new_cy
-# ---
-new2019 = {}
-# ---
-new2019.update(new_2019)
-# ---
-Cambridge = {
+from .key_registry import KeyRegistry
+from .keys2 import new_2019
+
+CAMBRIDGE_COLLEGES: Final[dict[str, str]] = {
     "christ's": "كريست",
     "churchill": "تشرشل",
     "corpus christi": "كوربوس كريستي",
@@ -40,15 +40,8 @@ Cambridge = {
     "homerton": "هومرتون",
     "girton": "غيرتون",
 }
-# ---
-for x, x_lab in Cambridge.items():
-    new2019[f"{x}, Cambridge"] = f"{x_lab} (جامعة كامبريدج)"
-    new2019[f"{x} College, Cambridge"] = f"كلية {x_lab} (جامعة كامبريدج)"
-    new2019[f"{x} College, Oxford"] = f"كلية {x_lab} جامعة أكسفورد"
-# ---
-# ["'](FINA|UNAF|UEFA|IIHF|SAFF|FIS|FIVB|IAAF|FIFA|FIBA|AFF|ASEAN|CONCACAF|OFC|AFC|CAF|UCI|WTA|ATP|ConIFA|BWF|EHF|NCAA|FIL)\s
-# ---
-Inters_Fed = {
+
+INTER_FEDERATIONS: Final[dict[str, str]] = {
     "fifa women's world cup qualification": "تصفيات كأس العالم لكرة القدم للسيدات",
     "world athletics indoor championships": "بطولة العالم لألعاب القوى داخل الصالات",
     "fil world luge championships": "كأس العالم للزحف الثلجي",
@@ -107,7 +100,7 @@ Inters_Fed = {
     "uci track cycling world championships – men's sprint": "سباق السرعة الفردية في بطولة الدراجات على المضمار",
     "uci track cycling world championships – men's team pursuit": "سباق المطاردة الفرقية في بطولة الدراجات على المضمار",
     "uci track cycling world championships – men's team sprint": "سباق السرعة الفردية للفرق في بطولة الدراجات على المضمار",
-    "uci track cycling world championships – women's 500 m time trial": "سباق 500 متر ضد الساعة للنساء في بطولة الدراجات على المضمار",
+    "uci track cycling world championships – women's 500 m time trial": "سباق 500 متر ض الساعة للنساء في بطولة الدراجات على المضمار",
     "uci track cycling world championships – women's individual pursuit": "سباق المطاردة الفردية للنساء في بطولة الدراجات على المضمار",
     "uci track cycling world championships – women's keirin": "سباق الكيرين للنساء في بطولة الدراجات على المضمار",
     "uci track cycling world championships – women's madison": "سباق ماديسون للنساء في بطولة الدراجات على المضمار",
@@ -143,7 +136,7 @@ Inters_Fed = {
     "asean football championship": "بطولة اتحاد آسيان لكرة القدم",
     "fiba eurobasket": "بطولة أمم أوروبا لكرة السلة",
     "fiba basketball world cup": "كأس العالم لكرة السلة",
-    "fiba women's basketball world cup": "كأس العالم لكرة السلة للسيدات",
+    "fiba women's basketball world cup": "كأس العالم لكرة السلة للسيات",
     "fiba european champions cup": "كأس أبطال أوروبا لكرة السلة",
     "fiba women's european champions cup": "كأس أبطال أوروبا لكرة السلة للسيدات",
     "fiba women's world cup": "كأس العالم لكرة السلة للسيدات",
@@ -168,8 +161,6 @@ Inters_Fed = {
     "fiba world championship for women": "بطولة كأس العالم لكرة السلة للسيدات",
     "fifa confederations cup": "كأس القارات",
     "fifa world cup": "كأس العالم لكرة القدم",
-    # "fifa world cup":"كأس العالم",
-    # "fifa women's world cup":"كأس العالم للسيدات",
     "fifa women's world cup": "كأس العالم لكرة القدم للسيدات",
     "fifa u-17 world cup": "كأس العالم تحت 17 سنة لكرة القدم",
     "fifa u-17 women's world cup": "كأس العالم تحت 17 سنة لكرة القدم للسيدات",
@@ -202,7 +193,6 @@ Inters_Fed = {
     "fivb volleyball world league": "الدوري العالمي للكرة الطائرة",
     "iihf world championship": "بطولة العالم لهوكي الجليد",
     "iihf challenge cup of asia": "كأس التحدي الآسيوي لهوكي الجليد",
-    # "uefa euro":"بطولة أمم أوروبا لكرة القدم",
     "uefa women's euro": "بطولة أمم أوروبا لكرة القدم للسيدات",
     "uefa champions league": "دوري أبطال أوروبا",
     "uefa euro 2004 qualifying": "تصفيات بطولة أمم أوروبا لكرة القدم 2004",
@@ -221,7 +211,6 @@ Inters_Fed = {
     "uefa futsal euro": "بطولة أوروبا لكرة الصالات",
     "uefa euro": "بطولة أمم أوروبا",
     "2017–18 uefa champions league": "دوري أبطال أوروبا 2017–18",
-    # "uefa european championship":"بطولة أمم أوروبا لكرة القدم",
     "uefa nations league": "دوري الأمم الأوروبية",
     "uefa european championship qualifying": "تصفيات بطولة أمم أوروبا",
     "uefa super cup": "كأس السوبر الأوروبي",
@@ -252,12 +241,8 @@ Inters_Fed = {
     "fina world swimming championships (25 m)": "بطولة العالم للسباحة (25 متر)",
     "fina world swimming championships": "بطولة العالم للسباحة",
 }
-# ---
-Inter_Feds_lower = {x.lower(): v for x, v in Inters_Fed.items()}
-# ---
-new2019.update(Inter_Feds_lower)
-# ---
-Battleships = {
+
+BATTLESHIP_CATEGORIES: Final[dict[str, str]] = {
     "patrol vessels": "سفن دورية",
     "ocean liners": "عابرات محيطات",
     "naval ships": "سفن قوات بحرية",
@@ -273,7 +258,6 @@ Battleships = {
     "aircrafts": "طائرات",
     "cargo aircraft": "طائرة شحن",
     "cargo aircrafts": "طائرة شحن",
-    # "unmanned military aircraft of":"طائرات عسكرية بدون طيار",
     "unmanned military aircraft": "طائرات عسكرية بدون طيار",
     "unmanned aerial vehicles": "طائرات بدون طيار",
     "aircraft carriers": "حاملات طائرات",
@@ -284,7 +268,6 @@ Battleships = {
     "coastal defence ships": "سفن دفاع ساحلية",
     "cruisers": "طرادات",
     "escort ships": "سفن مرافقة",
-    # "escort carriers":"",
     "Ship classes": "فئات سفن",
     "frigates": "فرقاطات",
     "gunboats": "زوارق حربية",
@@ -292,48 +275,20 @@ Battleships = {
     "ships of the line": "سفن الخط",
     "mine warfare vessels": "سفن حرب ألغام",
     "missile boats": "قوارب صواريخ",
-    # "monitors":"",
     "radar ships": "سفن رادار",
-    # "radar picket ships":"",
     "sloops": "سلوبات",
     "torpedo boats": "زوارق طوربيد",
     "troop ships": "سفن جنود",
 }
-# ---
-new2019.update({x.lower(): o for x, o in Battleships.items()})
-new2019.update({f"active {x.lower()}": f"{o} نشطة" for x, o in Battleships.items()})
-# ---
-n_2019_ch = {
+
+RELIGIOUS_TRADITIONS: Final[dict[str, dict[str, str]]] = {
     "orthodox": {"singular": "الأرثوذكسية", "plural": "أرثوذكسية"},
-    "eastern orthodox": {
-        "singular": "الأرثوذكسية الشرقية",
-        "plural": "أرثوذكسية شرقية",
-    },
+    "eastern orthodox": {"singular": "الأرثوذكسية الشرقية", "plural": "أرثوذكسية شرقية"},
     "moravian": {"singular": "المورافية", "plural": "مورافية"},
-    # "moravian": {"singular": "المارونية", "plural": "مارونية"},
     "catholic": {"singular": "الكاثوليكية", "plural": "كاثوليكية"},
 }
-# ---
-# "church":"الكنيسة",
-# "maronite church":"الكنيسة المارونية",
-# ---
-for ch, ch_tab in n_2019_ch.items():
-    ch2 = ch.lower()
-    plural = ch_tab["plural"]
-    new2019[f"{ch2} cathedrals"] = f"كاتدرائيات {plural}"
-    new2019[f"{ch2} monasteries"] = f"أديرة {plural}"
-    new2019[f"{ch2} orders and societies"] = f"طوائف وتجمعات {plural}"
-    new2019[f"{ch2} eparchies"] = f"أبرشيات {plural}"
-    new2019[f"{ch2} religious orders"] = f"طوائف دينية {plural}"
-    new2019[f"{ch2} religious communities"] = f"طوائف دينية {plural}"
 
-    if ch != "catholic":
-        new2019[f"{ch2} catholic"] = f"{ch_tab['singular']} الكاثوليكية"
-        new2019[f"{ch2} catholic eparchies"] = f"أبرشيات {plural} كاثوليكية"
-# ---
-new2019.update(new_cy)
-# ---
-united_states = {
+UNITED_STATES_POLITICAL: Final[dict[str, str]] = {
     "united states senate": "مجلس الشيوخ الأمريكي",
     "united states house-of-representatives": "مجلس النواب الأمريكي",
     "united states house of representatives": "مجلس النواب الأمريكي",
@@ -343,11 +298,76 @@ united_states = {
     "vice-presidential": "نائب الرئيس",
     "vice presidential": "نائب الرئيس",
 }
-# ---
-for us, us_lab in united_states.items():
-    us2 = us.lower()
-    new2019[f"{us2} electors"] = f"ناخبو {us_lab}"
-    new2019[f"{us2} election,"] = f"انتخابات {us_lab}"
-    new2019[f"{us2} election"] = f"انتخابات {us_lab}"
-    new2019[f"{us2} elections"] = f"انتخابات {us_lab}"
-    new2019[f"{us2} candidates"] = f"مرشحو {us_lab}"
+
+INTER_FEDS_LOWER: Final[dict[str, str]] = {key.lower(): value for key, value in INTER_FEDERATIONS.items()}
+
+
+def _add_cambridge_entries(registry: KeyRegistry) -> None:
+    """Insert Cambridge and Oxford college entries."""
+
+    for college_key, college_label in CAMBRIDGE_COLLEGES.items():
+        registry.data[f"{college_key}, Cambridge"] = f"{college_label} (جامعة كامبريدج)"
+        registry.data[f"{college_key} College, Cambridge"] = f"كلية {college_label} (جامعة كامبريدج)"
+        registry.data[f"{college_key} College, Oxford"] = f"كلية {college_label} جامعة أكسفورد"
+
+
+def _add_inter_federation_entries(registry: KeyRegistry) -> None:
+    """Merge international sports federation labels."""
+
+    registry.update(INTER_FEDS_LOWER)
+
+
+def _add_battleship_entries(registry: KeyRegistry) -> None:
+    """Insert naval and aviation equipment categories."""
+
+    registry.update({key.lower(): label for key, label in BATTLESHIP_CATEGORIES.items()})
+    registry.update({f"active {key.lower()}": f"{label} نشطة" for key, label in BATTLESHIP_CATEGORIES.items()})
+
+
+def _add_religious_entries(registry: KeyRegistry) -> None:
+    """Add mappings for different religious traditions."""
+
+    for tradition, labels in RELIGIOUS_TRADITIONS.items():
+        plural = labels["plural"]
+        base_key = tradition.lower()
+        registry.data[f"{base_key} cathedrals"] = f"كاتدرائيات {plural}"
+        registry.data[f"{base_key} monasteries"] = f"أديرة {plural}"
+        registry.data[f"{base_key} orders and societies"] = f"طوائف وتجمعات {plural}"
+        registry.data[f"{base_key} eparchies"] = f"أبرشيات {plural}"
+        registry.data[f"{base_key} religious orders"] = f"طوائف دينية {plural}"
+        registry.data[f"{base_key} religious communities"] = f"طوائف دينية {plural}"
+        if tradition != "catholic":
+            registry.data[f"{base_key} catholic"] = f"{labels['singular']} الكاثوليكية"
+            registry.data[f"{base_key} catholic eparchies"] = f"أبرشيات {plural} كاثوليكية"
+
+
+def _add_united_states_entries(registry: KeyRegistry) -> None:
+    """Add entries related to United States elections and offices."""
+
+    for key, label in UNITED_STATES_POLITICAL.items():
+        base_key = key.lower()
+        registry.data[f"{base_key} electors"] = f"ناخبو {label}"
+        registry.data[f"{base_key} election,"] = f"انتخابات {label}"
+        registry.data[f"{base_key} election"] = f"انتخابات {label}"
+        registry.data[f"{base_key} elections"] = f"انتخابات {label}"
+        registry.data[f"{base_key} candidates"] = f"مرشحو {label}"
+
+
+def build_new2019() -> dict[str, str]:
+    """Assemble the 2019 key mapping including sports and political data."""
+
+    registry = KeyRegistry(new_2019)
+    _add_cambridge_entries(registry)
+    _add_inter_federation_entries(registry)
+    _add_battleship_entries(registry)
+    _add_religious_entries(registry)
+    registry.update(new_cy)
+    _add_united_states_entries(registry)
+    return registry.data
+
+
+new2019: dict[str, str] = build_new2019()
+
+Inter_Feds_lower: dict[str, str] = dict(INTER_FEDS_LOWER)
+
+__all__ = ["new2019", "Inter_Feds_lower"]
