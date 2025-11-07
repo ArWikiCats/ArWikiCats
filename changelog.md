@@ -1,3 +1,18 @@
+## [Refactor master job label aggregator] - 2025-11-07
+
+### Added
+* Documented the typed dataset container that encapsulates job exports for downstream imports.
+
+### Changed
+* Rebuilt `src/ma_lists/jobs/Jobs.py` around deterministic builder functions that assemble the full job dictionaries.
+* Standardized sport, activist, and film variants using reusable helpers and structured configuration.
+
+### Fixed
+* Preserved legacy key casing while preventing duplicate activist entries when combining JSON definitions.
+
+### Removed
+* Eliminated the ad-hoc global mutations and import-time side effects from `Jobs.py`.
+
 ## [Refactor general job label dictionaries] - 2025-11-07
 
 ### Added
