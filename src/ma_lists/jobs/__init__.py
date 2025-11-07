@@ -23,6 +23,7 @@ from .Jobs2 import JOBS_2, JOBS_3333, Jobs_2, Jobs_3333
 from .jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,
+    combine_gendered_labels,
     MEN_WOMENS_JOBS_2,
     Men_Womens_Jobs_2,
     religious_keys_PP,
@@ -48,6 +49,7 @@ __all__ = [
     # Core types and shared datasets
     "GenderedLabel",
     "GenderedLabelMap",
+    "combine_gendered_labels",
     "MEN_WOMENS_JOBS_2",
     "Men_Womens_Jobs_2",
     "religious_keys_PP",

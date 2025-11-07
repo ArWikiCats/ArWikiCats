@@ -8,7 +8,7 @@ being easier to reason about and test.
 
 from __future__ import annotations
 
-from typing import Dict, Mapping
+from typing import Dict, Final, Mapping
 
 from ..sports.Sport_key import (
     Sports_Keys_For_Jobs,
@@ -18,6 +18,7 @@ from ..sports.Sport_key import (
 from .jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,
+    combine_gendered_labels,
     gendered_label,
     join_terms,
     load_gendered_label_map,
@@ -52,6 +53,12 @@ BOXING_WEIGHT_TRANSLATIONS: Mapping[str, str] = {
     "super cruiserweight": "وزن الطراد سوبر",
 }
 
+BOXER_PREFIX_LABEL: Final[GenderedLabel] = gendered_label("ملاكمو", "ملاكمات")
+# Prefix applied to boxing weight class participants.
+
+WORLD_BOXING_CHAMPION_PREFIX: Final[GenderedLabel] = gendered_label("أبطال العالم للملاكمة فئة", "")
+# Prefix applied to boxing world champion descriptors.
+
 SKATING_DISCIPLINE_LABELS: Mapping[str, GenderedLabel] = {
     "nordic combined": gendered_label("تزلج نوردي مزدوج", "تزل نوردي مزدوج"),
     "speed": gendered_label("سرعة", "سرعة"),
@@ -59,6 +66,12 @@ SKATING_DISCIPLINE_LABELS: Mapping[str, GenderedLabel] = {
     "alpine": gendered_label("منحدرات ثلجية", "منحدرات ثلجية"),
     "short track speed": gendered_label("مسار قصير", "مسار قصير"),
 }
+
+SKATERS_PREFIX_LABEL: Final[GenderedLabel] = gendered_label("متزلجو", "متزلجات")
+# Prefix describing skaters for any discipline.
+
+SKIERS_PREFIX_LABEL: Final[GenderedLabel] = gendered_label("متزحلقو", "متزحلقات")
+# Prefix describing skiers for any discipline.
 
 TEAM_SPORT_TRANSLATIONS: Mapping[str, str] = {
     "croquet players": "",
@@ -111,6 +124,12 @@ SPORT_SCOPE_ROLES: Mapping[str, GenderedLabel] = {
     "sports": gendered_label("رياضيون", "رياضيات"),
 }
 
+OLYMPIC_SCOPE_SUFFIX: Final[GenderedLabel] = gendered_label("أولمبيون", "أولمبيات")
+# Suffix describing Olympic level participation.
+
+INTERNATIONAL_SCOPE_SUFFIX: Final[GenderedLabel] = gendered_label("دوليون", "دوليات")
+# Suffix describing international level participation.
+
 STATIC_PLAYER_LABELS: GenderedLabelMap = {
     "national team coaches": gendered_label("مدربو فرق وطنية", "مدربات فرق وطنية"),
     "national team managers": gendered_label("مدربو فرق وطنية", "مدربات فرق وطنية"),
@@ -135,13 +154,13 @@ def _build_boxing_labels(weights: Mapping[str, str]) -> GenderedLabelMap:
         if not arabic_label:
             continue
         weight_boxers_key = f"{weight_key} boxers"
-        result[weight_boxers_key] = gendered_label(
-            join_terms("ملاكمو", arabic_label),
-            join_terms("ملاكمات", arabic_label),
+        result[weight_boxers_key] = combine_gendered_labels(
+            BOXER_PREFIX_LABEL,
+            gendered_label(arabic_label, arabic_label),
         )
-        result[f"world {weight_key} boxing champions"] = gendered_label(
-            join_terms("أبطال العالم للملاكمة فئة", arabic_label),
-            "",
+        result[f"world {weight_key} boxing champions"] = combine_gendered_labels(
+            WORLD_BOXING_CHAMPION_PREFIX,
+            gendered_label(arabic_label, ""),
         )
     return result
 
@@ -151,13 +170,13 @@ def _build_skating_labels(labels: Mapping[str, GenderedLabel]) -> GenderedLabelM
 
     result: GenderedLabelMap = {}
     for discipline_key, discipline_labels in labels.items():
-        result[f"{discipline_key} skaters"] = gendered_label(
-            join_terms("متزلجو", discipline_labels["mens"]),
-            join_terms("متزلجات", discipline_labels["womens"]),
+        result[f"{discipline_key} skaters"] = combine_gendered_labels(
+            SKATERS_PREFIX_LABEL,
+            discipline_labels,
         )
-        result[f"{discipline_key} skiers"] = gendered_label(
-            join_terms("متزحلقو", discipline_labels["mens"]),
-            join_terms("متزحلقات", discipline_labels["womens"]),
+        result[f"{discipline_key} skiers"] = combine_gendered_labels(
+            SKIERS_PREFIX_LABEL,
+            discipline_labels,
         )
     return result
 
@@ -187,13 +206,13 @@ def _build_jobs_player_variants(players: Mapping[str, GenderedLabel]) -> Gendere
             continue
         lowered_key = english_key.lower()
         result[lowered_key] = gendered_label(mens_label, womens_label)
-        result[f"olympic {lowered_key}"] = gendered_label(
-            join_terms(mens_label, "أولمبيون"),
-            join_terms(womens_label, "أولمبيات"),
+        result[f"olympic {lowered_key}"] = combine_gendered_labels(
+            labels,
+            OLYMPIC_SCOPE_SUFFIX,
         )
-        result[f"international {lowered_key}"] = gendered_label(
-            join_terms(mens_label, "دوليون"),
-            join_terms(womens_label, "دوليات"),
+        result[f"international {lowered_key}"] = combine_gendered_labels(
+            labels,
+            INTERNATIONAL_SCOPE_SUFFIX,
         )
     return result
 
@@ -208,10 +227,7 @@ def _build_general_scope_labels(
     for role_key, role_labels in roles.items():
         for scope_key, scope_labels in scopes.items():
             composite_key = f"{scope_key} {role_key}".lower()
-            result[composite_key] = gendered_label(
-                join_terms(role_labels["mens"], scope_labels["mens"]),
-                join_terms(role_labels["womens"], scope_labels["womens"]),
-            )
+            result[composite_key] = combine_gendered_labels(role_labels, scope_labels)
     return result
 
 
@@ -221,9 +237,9 @@ def _build_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
     result: GenderedLabelMap = {}
     for sport_key, arabic_label in labels.items():
         composite_key = f"{sport_key.lower()} champions"
-        result[composite_key] = gendered_label(
-            join_terms("أبطال", arabic_label),
-            "",
+        result[composite_key] = combine_gendered_labels(
+            gendered_label("أبطال", ""),
+            gendered_label(arabic_label, ""),
         )
     return result
 
@@ -234,9 +250,9 @@ def _build_world_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
     result: GenderedLabelMap = {}
     for sport_key, arabic_label in labels.items():
         composite_key = f"world {sport_key.lower()} champions"
-        result[composite_key] = gendered_label(
-            join_terms("أبطال العالم", arabic_label),
-            "",
+        result[composite_key] = combine_gendered_labels(
+            gendered_label("أبطال العالم", ""),
+            gendered_label(arabic_label, ""),
         )
     return result
 

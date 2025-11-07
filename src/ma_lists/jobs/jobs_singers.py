@@ -15,6 +15,7 @@ from ..utils.json_dir import open_json_file
 from .jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,
+    combine_gendered_labels,
     gendered_label,
     join_terms,
     load_gendered_label_map,
@@ -75,9 +76,9 @@ def _build_category_role_labels(
     for category_key, category_label in categories.items():
         for role_key, role_labels in roles.items():
             composite_key = f"{category_key} {role_key}"
-            combined[composite_key] = gendered_label(
-                join_terms(role_labels["mens"], category_label),
-                join_terms(role_labels["womens"], category_label),
+            combined[composite_key] = combine_gendered_labels(
+                role_labels,
+                gendered_label(category_label, category_label),
             )
     return combined
 
@@ -99,29 +100,33 @@ def _build_non_fiction_variants(
     for topic_key, topic_labels in topics.items():
         mens_topic = topic_labels["mens"]
         womens_topic = topic_labels["womens"]
-        variants[f"{topic_key} historian"] = gendered_label(
-            join_terms("مؤرخو", mens_topic),
-            join_terms("مؤرخات", womens_topic),
+        topic_label = gendered_label(mens_topic, womens_topic)
+        variants[f"{topic_key} historian"] = combine_gendered_labels(
+            gendered_label("مؤرخو", "مؤرخات"),
+            topic_label,
         )
-        variants[f"{topic_key} authors"] = gendered_label(
-            join_terms("مؤلفو", mens_topic),
-            join_terms("مؤلفات", womens_topic),
+        variants[f"{topic_key} authors"] = combine_gendered_labels(
+            gendered_label("مؤلفو", "مؤلفات"),
+            topic_label,
         )
-        variants[f"{topic_key} bloggers"] = gendered_label(
-            join_terms("مدونو", mens_topic),
-            join_terms("مدونات", womens_topic),
+        variants[f"{topic_key} bloggers"] = combine_gendered_labels(
+            gendered_label("مدونو", "مدونات"),
+            topic_label,
         )
-        variants[f"{topic_key} writers"] = gendered_label(
-            join_terms("كتاب", mens_topic),
-            join_terms("كاتبات", womens_topic),
+        variants[f"{topic_key} writers"] = combine_gendered_labels(
+            gendered_label("كتاب", "كاتبات"),
+            topic_label,
         )
-        variants[f"non-fiction {topic_key} writers"] = gendered_label(
-            join_terms("كتاب", mens_topic, "غير روائيون"),
-            join_terms("كاتبات", womens_topic, "غير روائيات"),
+        variants[f"non-fiction {topic_key} writers"] = combine_gendered_labels(
+            gendered_label("كتاب", "كاتبات"),
+            gendered_label(
+                join_terms(mens_topic, "غير روائيون"),
+                join_terms(womens_topic, "غير روائيات"),
+            ),
         )
-        variants[f"{topic_key} journalists"] = gendered_label(
-            join_terms("صحفيو", mens_topic),
-            join_terms("صحفيات", womens_topic),
+        variants[f"{topic_key} journalists"] = combine_gendered_labels(
+            gendered_label("صحفيو", "صحفيات"),
+            topic_label,
         )
     return variants
 
@@ -140,9 +145,10 @@ def _build_actor_labels(film_types: Mapping[str, GenderedLabel]) -> GenderedLabe
 
     actors: GenderedLabelMap = {}
     for film_key, film_labels in film_types.items():
-        actors[f"{film_key} actors"] = gendered_label(
-            join_terms("ممثلو", film_labels["mens"]),
-            "",
+        actors[f"{film_key} actors"] = combine_gendered_labels(
+            gendered_label("ممثلو", ""),
+            film_labels,
+            require_base_womens=True,
         )
     return actors
 

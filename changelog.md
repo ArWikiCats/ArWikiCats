@@ -1,3 +1,18 @@
+## [Refine gendered label combination helper usage] - 2025-11-07
+
+### Added
+* Exposed the public `combine_gendered_labels` helper with documentation covering shared prefix and suffix handling.
+
+### Changed
+* Updated player and singer job datasets to lean on the shared combination helper and new typed constants for common prefixes and suffixes.
+* Marked frequently reused gendered label fragments as `Final` constants to signal immutability and improve static analysis.
+
+### Fixed
+* Ensured composite labels that omit feminine forms continue to do so by centralising the fallback rules in `combine_gendered_labels`.
+
+### Removed
+* Redundant inline calls to `join_terms` that manually mirrored the shared combination logic across modules.
+
 ## [Refactor shared gendered label helpers] - 2025-11-07
 
 ### Added

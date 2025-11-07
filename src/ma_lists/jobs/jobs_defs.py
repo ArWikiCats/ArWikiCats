@@ -106,17 +106,18 @@ def ensure_gendered_label(
         target[key] = gendered_label(value["mens"], value["womens"])
 
 
-def _combine_gendered_labels(
+def combine_gendered_labels(
     base_labels: GenderedLabel,
     suffix_labels: GenderedLabel,
     *,
     require_base_womens: bool = False,
 ) -> GenderedLabel:
-    """Merge two :class:`GenderedLabel` mappings.
+    """Merge two :class:`GenderedLabel` mappings into a new mapping.
 
     Args:
         base_labels: The primary role labels.
-        suffix_labels: The modifiers appended to the base labels.
+        suffix_labels: The modifiers appended to the base labels.  These may be
+            prefixes (e.g. ``"متزلجو"``) or suffixes (e.g. ``"أولمبيون"``).
         require_base_womens: When ``True`` the feminine label is emitted only if
             the base feminine label is available.  This mirrors the legacy
             behaviour used for some religious titles where the feminine form
@@ -124,6 +125,12 @@ def _combine_gendered_labels(
 
     Returns:
         A new mapping containing concatenated masculine and feminine labels.
+
+    Notes:
+        ``combine_gendered_labels`` centralises the join logic that previously
+        appeared across multiple modules.  Using the helper ensures consistent
+        trimming behaviour and keeps future changes confined to a single
+        implementation.
     """
 
     mens_label = join_terms(base_labels["mens"], suffix_labels["mens"])
@@ -153,7 +160,11 @@ def _build_religious_job_labels(
     for religion_key, religion_labels in religions.items():
         label_template = f"{religion_key} %s"
         for role_key, role_labels in roles.items():
-            combined_roles[label_template % role_key] = _combine_gendered_labels(role_labels, religion_labels, require_base_womens=True)
+            combined_roles[label_template % role_key] = combine_gendered_labels(
+                role_labels,
+                religion_labels,
+                require_base_womens=True,
+            )
     return combined_roles
 
 
@@ -184,7 +195,10 @@ def _build_painter_job_labels(
 
         for role_key, role_labels in painter_roles.items():
             composite_key = f"{style_key} {role_key}"
-            combined_roles[composite_key] = _combine_gendered_labels(role_labels, style_labels)
+            combined_roles[composite_key] = combine_gendered_labels(
+                role_labels,
+                style_labels,
+            )
 
     for category_key, category_label in painter_categories.items():
         combined_roles[f"{category_key} painters"] = {
@@ -226,7 +240,10 @@ def _build_military_job_labels(
 
         for role_key, role_labels in military_roles.items():
             composite_key = f"{prefix_key} {role_key}"
-            combined_roles[composite_key] = _combine_gendered_labels(role_labels, prefix_labels)
+            combined_roles[composite_key] = combine_gendered_labels(
+                role_labels,
+                prefix_labels,
+            )
 
     return combined_roles
 
@@ -366,6 +383,7 @@ Men_Womens_Jobs_2: GenderedLabelMap = MEN_WOMENS_JOBS_2
 __all__ = [
     "GenderedLabel",
     "GenderedLabelMap",
+    "combine_gendered_labels",
     "copy_gendered_map",
     "ensure_gendered_label",
     "gendered_label",
