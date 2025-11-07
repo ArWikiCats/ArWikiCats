@@ -1,25 +1,42 @@
-"""
+"""Helper utilities and datasets for the mixed key collections.
+
+This module historically exposed a collection of global dictionaries used by
+several other ``ma_lists`` modules.  The refactored implementation keeps the
+public API intact (``new_2019``, ``keys2_py`` and ``Add_in_table2``) while
+building the underlying data via the shared :class:`~ma_lists.mixed.key_registry.KeyRegistry`
+utility.  This ensures deterministic results, full type coverage and greatly
+simplifies future maintenance.
 """
 
-#
-#
-# ---
-from ..utils.json_dir import open_json_file
+from __future__ import annotations
+
+from typing import Final
+
 from ...helps import len_print
 from ..geo.us_counties import USA_newkeys
 from ..medical.deaths import medical_keys
+from .key_registry import KeyRegistry, load_json_mapping
 
-new_2019 = open_json_file("keys2") or {}
-# ---
-keys2_py = open_json_file("keys2_py") or {}
-# ---
-keys2_py.update(medical_keys)
-# ---
-Add_in_table2 = [
+__all__ = [
+    "Add_in_table2",
+    "ADD_IN_TABLE2",
+    "PARTIES",
+    "build_keys2_mapping",
+    "build_keys2_py_mapping",
+    "keys2_py",
+    "new_2019",
+]
+
+
+ADD_IN_TABLE2: Final[list[str]] = [
     "censuses",  # تعداد السكان
 ]
-# ---
-Parties = {
+
+# Backwards compatibility alias expected by legacy imports.
+Add_in_table2 = ADD_IN_TABLE2
+
+
+PARTIES: Final[dict[str, str]] = {
     "libertarian party of canada": "الحزب التحرري الكندي",
     "libertarian party-of-canada": "الحزب التحرري الكندي",
     "green party-of-quebec": "حزب الخضر في كيبيك",
@@ -88,51 +105,27 @@ Parties = {
     "socialist party of albania": "الحزب الإشتراكي (ألبانيا)",
     "socialist party-of albania": "الحزب الإشتراكي (ألبانيا)",
 }
-# ---
-for x in Parties:
-    new_2019[x] = Parties[x]
-# ---
-for xg, xg_lab in USA_newkeys.items():
-    new_2019[xg.lower()] = xg_lab
-# ---
-# "united states senate elections" "انتخابات مجلس الشيوخ الأمريكي",
-# ,"cultural depictions":"التصوير الثقافي"
-# ,"hot springs of":"ينابيع حارة في"
-# ,"youth wings":"أجنحة شبابية"
-# ,"cultural history of":"تاريخ ثقافي"
-# ,"military history of":"تاريخ عسكري"
-# ,"natural history":"تاريخ طبيعي"
-# ,"social history":"تاريخ اجتماعي"
-# ,"scheduled tribes":"قبائل"
-# ,"cabinets":"مجالس"
-# ,"biographies":"سير ذاتية"
-# ,"targeted killings":"عمليات القتل المستهدف"
-# Category:Aviators_killed_in_aviation_accidents_or_incidents_in_the_United_States
-# ,"buenos aires grand prix"  :"جائزة بوينس آيرس الكبرى"
-# ,"bilateral military relations of":"العلاقات الثنائية العسكرية ل"
-# ,"the british army":"الجيش البريطاني"
-# ,"lists oxf":"قوائم"
-# ,"women's sport":"رياضة نسوية"
-# , "alpine skiing":"التزلج على المنحدرات الثلجية"
-# ,"floristry":""
-# ,"summer":"الصيف"
-# ,"youth olympic games":"ألعاب أولمبية للشباب"
-# ,"recurring sporting events established":"أحداث رياضية دورية أسست"
-# ,"sports":"رياضة"
-# ,"track and field athletes":"ألعاب قوى المضمار والميدان"
-# ,"ballot measures":"استفتاءات عامة"
-# ,"establishments":"تأسيسات"
-# ,"establishments":"تأسيسات"
-# ,"disestablishments":"انحلالات"
-# ,"aquaria":"أحواض السمك"
-# ,"sports":"رياضات"
-# ,"sport":"الرياضة"
-# ,"organizations based":"منظمات أنشئت"
-# ,"women's organizations":"منظمات نسائية"
-# ,"women's organizations based":"منظمات نسائية مقرها"
-# ,"sports governing bodies":"مجالس إدارية رياضية"
-# ---
-Lenth1 = {"keys2_py": len(keys2_py.keys())}
-# ---
-len_print.lenth_pri("keys2.py", Lenth1)
-# ---
+
+
+def build_keys2_mapping() -> dict[str, str]:
+    """Return the base mapping historically stored in ``new_2019``."""
+
+    registry = KeyRegistry(load_json_mapping("keys2"))
+    registry.update(PARTIES)
+    registry.update_lowercase(USA_newkeys)
+    return registry.data
+
+
+def build_keys2_py_mapping() -> dict[str, str]:
+    """Return the mapping previously stored in ``keys2_py``."""
+
+    registry = KeyRegistry(load_json_mapping("keys2_py"))
+    registry.update(medical_keys)
+    return registry.data
+
+
+new_2019: dict[str, str] = build_keys2_mapping()
+keys2_py: dict[str, str] = build_keys2_py_mapping()
+
+LEN_STATS = {"keys2_py": len(keys2_py)}
+len_print.lenth_pri("keys2.py", LEN_STATS)
