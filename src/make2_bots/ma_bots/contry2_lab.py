@@ -32,37 +32,39 @@ def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) 
 
     contry2_no_lower = contry.strip()
     contry2 = contry.lower().strip()
-    cnt_la = pop_All_2018.get(contry2, "")
+    resolved_label = pop_All_2018.get(contry2, "")
 
-    if not cnt_la:
-        cnt_la = test_films(contry2)
-    if not cnt_la:
-        cnt_la = nats.find_nat_others(contry2)
-    if not cnt_la:
-        cnt_la = fax.Get_Teams_new(contry2)
-    if not cnt_la:
-        cnt_la = team_work.Get_team_work_Club(contry2_no_lower)
-    if not cnt_la:
-        cnt_la = Work_relations(contry2)
-    if not cnt_la:
-        cnt_la = univer.test_Universities(contry2)
-    if not cnt_la:
-        cnt_la = Work_US_State(contry2)
-    if not cnt_la:
-        cnt_la = Work_peoples(contry2)
-    if not cnt_la:
-        cnt_la = get_KAKO(contry2)
+    if not resolved_label:
+        resolved_label = test_films(contry2)
+    if not resolved_label:
+        resolved_label = nats.find_nat_others(contry2)
+    if not resolved_label:
+        resolved_label = fax.Get_Teams_new(contry2)
+    if not resolved_label:
+        resolved_label = team_work.Get_team_work_Club(contry2_no_lower)
+    if not resolved_label:
+        resolved_label = Work_relations(contry2)
+    if not resolved_label:
+        resolved_label = univer.test_Universities(contry2)
+    if not resolved_label:
+        resolved_label = Work_US_State(contry2)
+    if not resolved_label:
+        resolved_label = Work_peoples(contry2)
+    if not resolved_label:
+        resolved_label = get_KAKO(contry2)
 
-    if not cnt_la:
-        cnt_la = centries_years_dec.get(contry2, "")
+    if not resolved_label:
+        resolved_label = centries_years_dec.get(contry2, "")
 
-    if not cnt_la and contry2.startswith("the "):
-        cnt_la = pop_All_2018.get(contry2[len("the ") :], "")
+    if not resolved_label and contry2.startswith("the "):
+        resolved_label = pop_All_2018.get(contry2[len("the ") :], "")
 
-    if not cnt_la and with_test_ye:
-        cnt_la = ye_ts_bot.translate_general_category(contry2, do_Get_contry2=False)
+    if not resolved_label and with_test_ye:
+        resolved_label = ye_ts_bot.translate_general_category(
+            contry2, do_Get_contry2=False
+        )
 
-    if cnt_la:
-        print_put(f'>> get_lab_for_contry2 "{contry2}": cnt_la: {cnt_la}')
+    if resolved_label:
+        print_put(f'>> get_lab_for_contry2 "{contry2}": label: {resolved_label}')
 
-    return cnt_la
+    return resolved_label

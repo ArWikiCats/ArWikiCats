@@ -6,11 +6,19 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 """
 
+import importlib.util
 import sys
 from pathlib import Path
-from typing import Iterable, List
+from typing import Any, Dict, Iterable, List
 
-from tqdm import tqdm
+if importlib.util.find_spec("tqdm") is not None:
+    from tqdm import tqdm  # type: ignore
+else:
+
+    def tqdm(iterable: Iterable[Any] | None=None, *args: Any, **kwargs: Any) -> Iterable[Any]:
+        """Fallback replacement for :func:`tqdm` when the package is unavailable."""
+
+        return iterable if iterable is not None else []
 
 from . import printe
 from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
@@ -51,21 +59,21 @@ def _remove_labelled_from_no_labels(labels: dict, no_labels: List[str]) -> List[
 
 
 def event(
-    NewList,
-    noprint="",
-    maketab="",
-    Use_main_s="",
+    NewList: Iterable[str],
+    noprint: str="",
+    maketab: bool=False,
+    Use_main_s: bool=False,
     printfirst: bool = False,
     Local: bool = False,
     printhead: bool = False,
     all_print_off: bool = False,
-    tst_prnt_all=None,
+    tst_prnt_all: bool | None=None,
     return_no_labs: bool = False,
-):
+) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
     """Process a list of categories and generate corresponding labels."""
 
     config = EventProcessorConfig(
-        make_tab=maketab is True,
+        make_tab=maketab,
         event_cache=get_shared_event_cache(),
     )
     if Local:

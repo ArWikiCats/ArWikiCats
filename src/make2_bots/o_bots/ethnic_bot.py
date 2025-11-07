@@ -28,9 +28,9 @@ def Ethnic_culture(cate: str, Start: str, con_3: str) -> str:
         return Ethnic_culture_cash[cash_key]
     # ---
     contry = Start
-    cas = ""
+    topic_key = ""
     con_3_lab = ""
-    cas_lab = ""
+    topic_label = ""
     contry_lab = ""
     # ---
     if Nat_women.get(contry, "") == "" and Nat_men.get(contry, "") == "":
@@ -40,15 +40,15 @@ def Ethnic_culture(cate: str, Start: str, con_3: str) -> str:
         "culture": "ثقافة {}",
     }
     # ---
-    if not cas and not cas_lab:
+    if not topic_key and not topic_label:
         contry_L = Nat_women.get(contry, "")
         for x, x_lab in en_is_nat_ar_is_women_2.items():
-            if not cas_lab:
+            if not topic_label:
                 xx = f" {x}"
                 if con_3.endswith(xx):
-                    cas = x
+                    topic_key = x
                     con_3 = con_3[: -len(xx)]
-                    cas_lab = x_lab
+                    topic_label = x_lab
                     con_3_lab = Nat_women.get(con_3, "")
     # ---
     male_table = {
@@ -64,21 +64,21 @@ def Ethnic_culture(cate: str, Start: str, con_3: str) -> str:
         "television": "تلفاز {}",
     }
     # ---
-    if cas == "" and cas_lab == "":
+    if topic_key == "" and topic_label == "":
         contry_L = Nat_men.get(contry, "")
         for x, xlab in male_table.items():
-            if not cas_lab:
+            if not topic_label:
                 xx = f" {x}"
                 if con_3.endswith(xx):
-                    cas = x
+                    topic_key = x
                     con_3 = con_3[: -len(xx)]
-                    cas_lab = xlab
+                    topic_label = xlab
                     con_3_lab = Nat_men.get(con_3, "")
     # ---history
-    if cas and cas_lab:
+    if topic_key and topic_label:
         if con_3_lab:
             rz = f"{con_3_lab} {contry_L}"
-            contry_lab = cas_lab.format(rz)
+            contry_lab = topic_label.format(rz)
             output_test4(f'<<lightblue>> test Ethnic_culture: new contry_lab  "{contry_lab}" ')
     # ---
     Ethnic_culture_cash[cash_key] = contry_lab

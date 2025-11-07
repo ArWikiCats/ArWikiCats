@@ -473,7 +473,7 @@ replaces = {
 # ---
 
 
-def change_cat(cat_orginal):
+def change_cat(cat_orginal: str) -> str:
     cat_orginal = cat_orginal.lower().strip()
     # Category:Basketball at the 2007 All-Africa Games – Women's tournament
     # output_main('change_cat :"%s" ' % cat_orginal )

@@ -1,7 +1,7 @@
 import re
 from ... import printe
 
-BBlcak: list[str] = [
+CATEGORY_BLACKLIST: list[str] = [
     "Disambiguation",
     "wikiproject",
     "sockpuppets",
@@ -9,7 +9,7 @@ BBlcak: list[str] = [
     "images for deletion",
 ]
 # ---
-blcak_starts: list[str] = [
+CATEGORY_PREFIX_BLACKLIST: list[str] = [
     "Clean-up",
     "Cleanup",
     "Uncategorized",
@@ -36,26 +36,40 @@ blcak_starts: list[str] = [
     "Userspace",
 ]
 
+MONTH_NAMES = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
+
 
 def filter_cat(cat: str) -> bool:
-    for x in BBlcak:
-        if x in cat.lower():
-            printe.output(f"<<lightred>> find ({x}) in cat")
+    normalized_category = cat.lower()
+    for blocked_fragment in CATEGORY_BLACKLIST:
+        if blocked_fragment in normalized_category:
+            printe.output(f"<<lightred>> find ({blocked_fragment}) in cat")
             return False
     # ---
-    cat2 = cat.lower().replace("category:", "")
+    normalized_category = normalized_category.replace("category:", "")
     # ---
-    for x in blcak_starts:
-        if cat2.startswith(x.lower()):
-            printe.output(f"<<lightred>> cat.startswith({x})")
+    for blocked_prefix in CATEGORY_PREFIX_BLACKLIST:
+        if normalized_category.startswith(blocked_prefix.lower()):
+            printe.output(f"<<lightred>> cat.startswith({blocked_prefix})")
             return False
     # ---
-    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    # ---
-    for x in months:
+    for month_name in MONTH_NAMES:
         # match the end of cat like month \d+
-        matt = rf"^.*? from {x.lower()} \d+$"
-        if re.match(matt, cat2):
+        matt = rf"^.*? from {month_name.lower()} \d+$"
+        if re.match(matt, normalized_category):
             printe.output(f"<<lightred>> cat.match({matt})")
             return False
     # ---

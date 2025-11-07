@@ -4,6 +4,7 @@
 # ---
 import re
 import sys
+from typing import Any
 
 import logging
 
@@ -12,7 +13,7 @@ logger = logging.getLogger(__name__)
 no_print = False
 
 
-def get_color_table():
+def get_color_table() -> dict[str, str]:
     # new Define the color codes for different colors
     color_numbers = {
         # 'lightred': 101,
@@ -61,7 +62,7 @@ def get_color_table():
 color_table = get_color_table()
 
 
-def make_str(textm):
+def make_str(textm: str) -> str:
     """
     Prints the given text with color formatting.
 
@@ -127,7 +128,7 @@ def make_str(textm):
     return toprint
 
 
-def output(textm, *kwargs):
+def output(textm: str, *kwargs: Any) -> None:
     """
     Prints the given text with color formatting.
 
@@ -146,7 +147,7 @@ def output(textm, *kwargs):
     logger.info(toprint)
 
 
-def error(text):
+def error(text: str) -> None:
     if "noprint" in sys.argv or no_print:
         return
 
@@ -155,7 +156,7 @@ def error(text):
     logger.error(new_text)
 
 
-def debug(text):
+def debug(text: str) -> None:
     if "noprint" in sys.argv or no_print:
         return
 
@@ -163,7 +164,7 @@ def debug(text):
     logger.debug(new_text)
 
 
-def info(text):
+def info(text: str) -> None:
     if "noprint" in sys.argv or no_print:
         return
 
@@ -171,7 +172,7 @@ def info(text):
     logger.info(new_text)
 
 
-def warn(text):
+def warn(text: str) -> None:
     if "noprint" in sys.argv or no_print:
         return
 
@@ -179,7 +180,7 @@ def warn(text):
     logger.warning(new_text)
 
 
-def log(text):
+def log(text: str) -> None:
     if "noprint" in sys.argv or no_print:
         return
 

@@ -19,7 +19,7 @@ sport_formts_for_p17 = {}
 # ---
 # فرق دول وطنية
 # ---
-def make_tab():
+def make_tab() -> dict[str, str]:
     SP17 = {}
     for team2, team2_lab in Sports_Keys_For_Team.items():
         # ---

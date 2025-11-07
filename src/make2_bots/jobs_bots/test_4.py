@@ -44,11 +44,16 @@ from .test4_bots.for_me import Work_for_me
 # from .test4_bots.relegin_jobs import try_relegins_jobs
 from .test4_bots.t4_2018_jobs import test4_2018_Jobs
 
-Jobs_in_Multi_Sports_cash = {}
-test4_2018_with_nat_cash = {}
+JOBS_IN_MULTI_SPORTS_CACHE = {}
+TEST4_2018_WITH_NAT_CACHE = {}
 
 
-def nat_match(cate, out=False, fa="", tab=None):
+def nat_match(
+    category: str,
+    out: bool=False,
+    reference_category: str="",
+    tab: dict[str, str] | None=None,
+) -> str:
     """Match a category string to a localized sentiment label.
 
     This function takes a category string, processes it to identify if it
@@ -58,9 +63,9 @@ def nat_match(cate, out=False, fa="", tab=None):
     If no match is found, an empty string is returned.
 
     Args:
-        cate (str): The category string to be matched.
+        category (str): The category string to be matched.
         out (bool?): A flag to control output behavior. Defaults to False.
-        fa (str?): An additional parameter for future use. Defaults to an empty string.
+        reference_category (str?): An additional parameter for future use. Defaults to an empty string.
         tab (dict?): A dictionary for additional context. Defaults to None.
 
     Returns:
@@ -72,107 +77,133 @@ def nat_match(cate, out=False, fa="", tab=None):
     if not tab:
         tab = {}
     # ---
-    cate2 = cate.lower().replace("category:", "")
-    contry = ""
-    mat_m = ""
+    category_lower = category.lower().replace("category:", "")
+    matched_country_key = ""
+    country_label_template = ""
     # ---
-    output_test4(f'<<lightblue>> test_4: nat_match cate2 :: "{cate2}" ')
+    output_test4(f'<<lightblue>> test_4: nat_match normalized_category :: "{category_lower}" ')
     # ---
-    matchs = {
+    country_templates = {
         r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
         # r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
         # r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
     }
     # ---
-    for mat, matl in matchs.items():
-        if re.match(mat, cate2):
-            contry = re.sub(mat, r"\g<1>", cate2)
-            mat_m = matl
+    for pattern, template in country_templates.items():
+        if re.match(pattern, category_lower):
+            matched_country_key = re.sub(pattern, r"\g<1>", category_lower)
+            country_label_template = template
     # ---
     """
-    cate3 = cate2
-    if mat_m == "" and cate3.endswith(" sentiment") :
-        cate3 = cate3[:-len(" sentiment")]
-        if cate2.startswith("anti-") or cate2.startswith("anti-") :
-            cate3 = cate2[5:]
-    output_test4('<<lightblue>> test_4: nat_match cate3 :: "%s" ' % cate3)
+    sentiment_category = category_lower
+    if not country_label_template and sentiment_category.endswith(" sentiment"):
+        sentiment_category = sentiment_category[: -len(" sentiment")]
+        if category_lower.startswith("anti-"):
+            sentiment_category = category_lower[5:]
+    output_test4(
+        '<<lightblue>> test_4: nat_match sentiment_category :: "%s" ' % sentiment_category
+    )
     """
     # ---
-    if contry:
-        output_test4(f'<<lightblue>> test_4: nat_match contry :: "{contry}" ')
+    if matched_country_key:
+        output_test4(
+            f'<<lightblue>> test_4: nat_match country_key :: "{matched_country_key}" '
+        )
     # ---
-    contry_L = Nat_mens.get(contry, "")
-    contry_lab = mat_m % contry_L if mat_m and contry_L else ""
+    country_label_key = Nat_mens.get(matched_country_key, "")
+    country_label = (
+        country_label_template % country_label_key
+        if country_label_template and country_label_key
+        else ""
+    )
     # ---
-    if contry_lab:
-        output_test4(f'<<lightblue>> test_4: nat_match contry_lab :: "{contry_lab}" ')
+    if country_label:
+        output_test4(f'<<lightblue>> test_4: nat_match country_label :: "{country_label}" ')
     # ---
-    return contry_lab
+    return country_label
 
 
-def test4_2018_with_nat(cate, out=False, fa="", tab=None):
+def test4_2018_with_nat(
+    category: str,
+    out: bool=False,
+    reference_category: str="",
+    tab: dict[str, str] | None=None,
+) -> str:
     # ---
     if not tab:
         tab = {}
     # ---
-    if cate in test4_2018_with_nat_cash:
-        return test4_2018_with_nat_cash[cate]
+    if category in TEST4_2018_WITH_NAT_CACHE:
+        return TEST4_2018_WITH_NAT_CACHE[category]
     # ---
 
     # ---
-    output_test4(f"<<lightyellow>>>> test4_2018_with_nat >> cate:({cate}), fa:{fa}..")
-    contry_lab = ""
+    output_test4(
+        f"<<lightyellow>>>> test4_2018_with_nat >> category:({category}), reference_category:{reference_category}.."
+    )
+    country_label = ""
     # ---
-    # output_test4('test4_2018_with_nat "%s"' % cate)
+    # output_test4('test4_2018_with_nat "%s"' % category)
     # ---
-    cate = re.sub(r"_", " ", cate.lower())
-    cate = re.sub(r"-", " ", cate)
+    normalized_category = re.sub(r"_", " ", category.lower())
+    normalized_category = re.sub(r"-", " ", normalized_category)
+
+    if normalized_category in TEST4_2018_WITH_NAT_CACHE:
+        return TEST4_2018_WITH_NAT_CACHE[normalized_category]
     # ---
-    if not contry_lab:
-        contry_lab = Jobs_key_womens.get(cate, "")
+    if not country_label:
+        country_label = Jobs_key_womens.get(normalized_category, "")
     # ---
-    if not contry_lab:
-        contry_lab = Jobs_key_mens.get(cate, "")
+    if not country_label:
+        country_label = Jobs_key_mens.get(normalized_category, "")
     # ---
-    con_3, nat = get_con_3(cate, All_Nat, "nat")
+    con_3, nat = get_con_3(normalized_category, All_Nat, "nat")
     # ---
     if con_3:
         # ---
-        if not contry_lab:
-            contry_lab = Work_for_me(cate, nat, con_3)
+        if not country_label:
+            country_label = Work_for_me(normalized_category, nat, con_3)
         # ---
-        if not contry_lab:
-            contry_lab = Films(cate, nat, con_3, fa=fa)
+        if not country_label:
+            country_label = Films(
+                normalized_category, nat, con_3, reference_category=reference_category
+            )
         # ---
-        if not contry_lab:
-            contry_lab = ethnic_bot.Ethnic(cate, nat, con_3)
+        if not country_label:
+            country_label = ethnic_bot.Ethnic(normalized_category, nat, con_3)
         # ---
-        if not contry_lab:
-            contry_lab = nat_match(cate, nat, con_3)
+        if not country_label:
+            country_label = nat_match(normalized_category, nat, con_3)
     # ---
-    if not contry_lab:
-        contry_lab = priffix_Mens_work(cate)
+    if not country_label:
+        country_label = priffix_Mens_work(normalized_category)
     # ---
-    if not contry_lab:
-        contry_lab = Women_s_priffix_work(cate)
+    if not country_label:
+        country_label = Women_s_priffix_work(normalized_category)
     # ---
-    if contry_lab == "" and con_3 == "":
-        contry_lab = Films(cate, "", "", fa=fa)
+    if country_label == "" and con_3 == "":
+        country_label = Films(
+            normalized_category, "", "", reference_category=reference_category
+        )
     # ---
-    if contry_lab:
+    if country_label:
         if con_3:
             contry2 = ""
             output_test4(f'<<lightblue>> test4_2018_with_nat startswith({contry2}),con_3:"{con_3}"')
-        output_test4(f'<<lightblue>> test_4: test4_2018_with_nat :: "{contry_lab}" ')
+        output_test4(f'<<lightblue>> test_4: test4_2018_with_nat :: "{country_label}" ')
     # ---
     # Try with Jobs
     # ---
-    test4_2018_with_nat_cash[cate] = contry_lab
+    TEST4_2018_WITH_NAT_CACHE[normalized_category] = country_label
     # ---
-    return contry_lab
+    return country_label
 
 
-def Jobs_in_Multi_Sports(cate, out=False, tab=None):
+def Jobs_in_Multi_Sports(
+    category: str,
+    out: bool=False,
+    tab: dict[str, str] | None=None,
+) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
 
@@ -183,7 +214,7 @@ def Jobs_in_Multi_Sports(cate, out=False, tab=None):
     of the job in relation to the sport.
 
     Args:
-        cate (str): The category string representing the sport or job type.
+        category (str): The category string representing the sport or job type.
         out (bool?): A flag to control output behavior. Defaults to False.
         tab (dict?): A dictionary for additional parameters. Defaults to None.
 
@@ -196,40 +227,46 @@ def Jobs_in_Multi_Sports(cate, out=False, tab=None):
     if not tab:
         tab = {}
     # ---
-    if cate in Jobs_in_Multi_Sports_cash:
-        return Jobs_in_Multi_Sports_cash[cate]
+    if category in JOBS_IN_MULTI_SPORTS_CACHE:
+        return JOBS_IN_MULTI_SPORTS_CACHE[category]
     # ---
     # python3 core8/pwb.py make/test_4 Asian_Games_wrestlers
     # ---
-    output_test4(f"<<lightyellow>>>> Jobs_in_Multi_Sports >> cate:({cate}) ")
+    output_test4(f"<<lightyellow>>>> Jobs_in_Multi_Sports >> category:({category}) ")
     # ---
-    Main_lab = ""
+    primary_label = ""
     # ---
-    cate = re.sub(r"_", " ", cate)
+    category = re.sub(r"_", " ", category)
+
+    if category in JOBS_IN_MULTI_SPORTS_CACHE:
+        return JOBS_IN_MULTI_SPORTS_CACHE[category]
     # ---
     # cate2_no_lower = cate
-    cate2 = cate.lower()
+    category_lower = category.lower()
     # ---
-    job = ""
-    job_lab = ""
-    game_lab = ""
-    for ga, game_lab in Multi_sport_for_Jobs.items():
+    job_key = ""
+    job_label = ""
+    game_label = ""
+    for sport_prefix, game_label in Multi_sport_for_Jobs.items():
         # ---
-        game = f"{ga} "
-        if cate.startswith(game):
-            job = cate2[len(game):]
-            output_test4(f'Jobs_in_Multi_Sports cate.startswith(game: "{game}") game_lab:"{game_lab}",job:"{job}". ')
+        game_prefix = f"{sport_prefix} "
+        if category.startswith(game_prefix):
+            job_key = category_lower[len(game_prefix) :]
+            output_test4(
+                f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") '
+                f'game_label:"{game_label}",job:"{job_key}". '
+            )
             break
     # ---
-    if not job_lab and job:
-        job_lab = test4_2018_Jobs(job)
+    if not job_label and job_key:
+        job_label = test4_2018_Jobs(job_key)
         # job_lab = Jobs_key_womens.get(job , "")
     # ---
-    if job and game_lab and job_lab:
-        Main_lab = f"{job_lab} في {game_lab}"
+    if job_key and game_label and job_label:
+        primary_label = f"{job_label} في {game_label}"
     # ---
-    output_test4(f'end Jobs_in_Multi_Sports "{cate}" , Main_lab:"{Main_lab}"')
+    output_test4(f'end Jobs_in_Multi_Sports "{category}" , primary_label:"{primary_label}"')
     # ---
-    Jobs_in_Multi_Sports_cash[cate] = Main_lab
+    JOBS_IN_MULTI_SPORTS_CACHE[category] = primary_label
     # ---
-    return Main_lab
+    return primary_label

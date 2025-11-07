@@ -14,58 +14,66 @@ from ... import malists_sport_lab as sport_lab
 from ...helps.log import logger
 
 
-def add_all(lab):
-    lab_no_al = re.sub(r" ", " ال", lab)
-    new_lab = f"ال{lab_no_al}"
-    return new_lab
+def add_definite_article(label: str) -> str:
+    label_without_article = re.sub(r" ", " ال", label)
+    new_label = f"ال{label_without_article}"
+    return new_label
 
 
-def Get_P17_2(cate):  # الإنجليزي اسم البلد والعربي جنسية رجال
-    logger.info(f'<<lightblue>>>>>> Get_P17_2 "{cate}" ')  # "united states government officials"
+def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
+    logger.info(
+        f'<<lightblue>>>>>> Get_P17_2 "{category}" '
+    )  # "united states government officials"
 
     # Category:United States government officials
-    cnt_la = ""
-    for nana, gak in en_is_P17_ar_is_mens.items():
-        nana2 = f" {nana.strip().lower()}"
-        if cate.lower().endswith(nana2):
-            gagaga = cate[: -len(nana2)].strip()
+    resolved_label = ""
+    for suffix, template in en_is_P17_ar_is_mens.items():
+        suffix_key = f" {suffix.strip().lower()}"
+        if category.lower().endswith(suffix_key):
+            country_prefix = category[: -len(suffix_key)].strip()
 
-            mens = All_contry_with_nat_keys_is_en.get(gagaga, {}).get("mens", "")
-            if mens:
-                # FOF = "<<lightgreen>>en_is_P17_ar_is_mens<<lightblue>> "
-                logger.debug(f'<<lightblue>>>>>> mens: "{mens}" ')
-                cnt_la = gak.format(mens)
-                logger.debug(f'<<lightblue>>>>>> en_is_P17_ar_is_mens: new cnt_la  "{cnt_la}" ')
+            mens_label = All_contry_with_nat_keys_is_en.get(country_prefix, {}).get(
+                "mens", ""
+            )
+            if mens_label:
+                logger.debug(f'<<lightblue>>>>>> mens: "{mens_label}" ')
+                resolved_label = template.format(mens_label)
+                logger.debug(
+                    f'<<lightblue>>>>>> en_is_P17_ar_is_mens: new cnt_la  "{resolved_label}" '
+                )
     # ---
-    if not cnt_la:
-        for nana, gak in en_is_P17_ar_is_al_women.items():
-            nana2 = f" {nana.strip().lower()}"
-            if cate.lower().endswith(nana2):
-                gagaga = cate[: -len(nana2)].strip()
+    if not resolved_label:
+        for suffix, template in en_is_P17_ar_is_al_women.items():
+            suffix_key = f" {suffix.strip().lower()}"
+            if category.lower().endswith(suffix_key):
+                country_prefix = category[: -len(suffix_key)].strip()
 
-                women = All_contry_with_nat_keys_is_en.get(gagaga, {}).get("women", "")
-                if women:
-                    # FOF = "<<lightgreen>>en_is_P17_ar_is_al_women<<lightblue>> "
-                    women = add_all(women)
-                    logger.debug(f'<<lightblue>>>>>> women: "{women}" ')
-                    cnt_la = gak.format(women)
-                    logger.debug(f'<<lightblue>>>>>> en_is_P17_ar_is_al_women: new cnt_la  "{cnt_la}" ')
+                women_label = All_contry_with_nat_keys_is_en.get(country_prefix, {}).get(
+                    "women", ""
+                )
+                if women_label:
+                    women_label = add_definite_article(women_label)
+                    logger.debug(f'<<lightblue>>>>>> women: "{women_label}" ')
+                    resolved_label = template.format(women_label)
+                    logger.debug(
+                        f'<<lightblue>>>>>> en_is_P17_ar_is_al_women: new cnt_la  "{resolved_label}" '
+                    )
 
-    return cnt_la
+    return resolved_label
 
 
-def Get_P17(cate):  # الإنجليزي جنسية والعربي اسم البلد
-    cnt_la = ""
+def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
+    resolved_label = ""
     con_3_lab = ""
     con_3 = ""
     contry_start = ""
-    cate = cate.lower()
+    category = category.lower()
     contry_start_lab = ""
-    con_3, contry_start = get_con_3(cate, All_P17, "All_P17")
+    con_3, contry_start = get_con_3(category, All_P17, "All_P17")
     contry_start_lab = All_P17.get(contry_start, "")
 
     if con_3 == "" and contry_start == "":
-        con_3, contry_start = get_con_3(cate, contries_from_nat, "contries_from_nat")
+        con_3, contry_start = get_con_3(category, contries_from_nat, "contries_from_nat")
         contry_start_lab = contries_from_nat.get(contry_start, "")
     if con_3 and contry_start:
         logger.debug(f'<<lightpurple>>>>>> contry_start_lab:"{contry_start_lab}"')
@@ -98,24 +106,30 @@ def Get_P17(cate):  # الإنجليزي جنسية والعربي اسم الب
                 FOF = "<<lightgreen>>pop_format<<lightblue>>"
 
         if con_3_lab:
-            logger.debug(f'<<lightblue>>>>>> {FOF} .startswith({contry_start}), con_3:"{con_3}"')
+            logger.debug(
+                f'<<lightblue>>>>>> {FOF} .startswith({contry_start}), con_3:"{con_3}"'
+            )
             if con_3_lab.find("{nat}") != -1:
-                cnt_la = con_3_lab.format(nat=contry_start_lab)
+                resolved_label = con_3_lab.format(nat=contry_start_lab)
             else:
-                cnt_la = con_3_lab.format(contry_start_lab)
+                resolved_label = con_3_lab.format(contry_start_lab)
             Add_to_main2_tab(contry_start, contry_start_lab)
 
-        if con_3_lab and cnt_la == "":
-            cnt_la = con_3_lab.format(contry_start_lab)
+        if con_3_lab and resolved_label == "":
+            resolved_label = con_3_lab.format(contry_start_lab)
             Add_to_main2_tab(contry_start, contry_start_lab)
         if con_3_lab:
-            logger.debug(f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{cnt_la}" ')
-        logger.debug(f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{cnt_la}" == ""')
+            logger.debug(
+                f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" '
+            )
+        logger.debug(
+            f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{resolved_label}" == ""'
+        )
 
     else:
         logger.info(f'<<lightred>>>>>> con_3: "{con_3}" or contry_start :"{contry_start}" == ""')
 
-    if cnt_la:
-        logger.info(f'<<lightblue>>>>>> Get_P17 cnt_la "{cnt_la}" ')
+    if resolved_label:
+        logger.info(f'<<lightblue>>>>>> Get_P17 cnt_la "{resolved_label}" ')
 
-    return cnt_la
+    return resolved_label

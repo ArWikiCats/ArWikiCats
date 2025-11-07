@@ -18,5 +18,5 @@ def event(tab: Dict[str, Any], return_no_labs: bool = False, **kwargs: Any) -> L
     return main.event(tab, return_no_labs=return_no_labs, **kwargs)
 
 
-def test_films(cate: str, fa: str = "") -> str:
-    return films_bot.test_films(cate, fa=fa)
+def test_films(cate: str, reference_category: str = "") -> str:
+    return films_bot.test_films(cate, reference_category=reference_category)

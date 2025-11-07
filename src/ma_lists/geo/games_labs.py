@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
 
+from __future__ import annotations
+
 from .games_labs import summer_winter_tabs, summer_winter_games
 
 """
@@ -58,9 +60,9 @@ summer_winter_games = {
     "deaflympic games" : "ألعاب ديفلمبياد",
 }
 
-pop_Summer = {}
+seasonal_game_labels: dict[str, str] = {}
 
-Params = {
+BASE_GAME_LABELS = {
     "african games" : "الألعاب الإفريقية",
     "all-africa games" : "ألعاب عموم إفريقيا",
     "asian games" : "الألعاب الآسيوية",
@@ -80,16 +82,22 @@ Params = {
     "youth olympics" : "الألعاب الأولمبية الشبابية",
 }
 
-pop_Summer.update(summer_winter_games)
+seasonal_game_labels.update(summer_winter_games)
 
-for para, para_lab in Params.items():
-    pop_Summer[para] = para_lab
+for base_game_key, base_game_label in BASE_GAME_LABELS.items():
+    seasonal_game_labels[base_game_key] = base_game_label
     # ---
-    pop_Summer[f"winter {para}"] = f"{para_lab} الشتوية"
-    pop_Summer[f"summer {para}"] = f"{para_lab} الصيفية"
-    pop_Summer[f"west {para}"] = f"{para_lab} الغربية"
+    seasonal_game_labels[f"winter {base_game_key}"] = (
+        f"{base_game_label} الشتوية"
+    )
+    seasonal_game_labels[f"summer {base_game_key}"] = (
+        f"{base_game_label} الصيفية"
+    )
+    seasonal_game_labels[f"west {base_game_key}"] = (
+        f"{base_game_label} الغربية"
+    )
 
-Game_s = {
+GAME_CATEGORY_LABELS = {
     "competitions" : "منافسات",
     "events" : "أحداث",
     "festival" : "مهرجانات",
@@ -97,9 +105,14 @@ Game_s = {
     "templates" : "قوالب",
 }
 
-for po_3, lab in pop_Summer.items():
-    summer_winter_tabs[po_3] = lab
-    for g_s, g_s_lab in Game_s.items():
-        G_la = f"{po_3} {g_s}"
-        G_label = f"{g_s_lab} {lab}"
-        summer_winter_tabs[G_la] = G_label
+for game_key, game_label in seasonal_game_labels.items():
+    summer_winter_tabs[game_key] = game_label
+    for category_key, category_label in GAME_CATEGORY_LABELS.items():
+        category_entry_key = f"{game_key} {category_key}"
+        category_entry_label = f"{category_label} {game_label}"
+        summer_winter_tabs[category_entry_key] = category_entry_label
+
+# --- backwards compatibility -------------------------------------------------
+pop_Summer = seasonal_game_labels
+Params = BASE_GAME_LABELS
+Game_s = GAME_CATEGORY_LABELS

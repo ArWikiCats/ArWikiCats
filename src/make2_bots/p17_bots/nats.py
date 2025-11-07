@@ -12,99 +12,96 @@ from ..jobs_bots.get_helps import get_con_3
 
 from ...helps.log import logger
 
-nat_others_cash = {}
+NAT_OTHERS_CACHE = {}
 
 
-def make_sport_formts_p17(co89):
-    # ---
-    # make_sport_formts_p17("football junior championships")
-    # ---
-    logger.info(f'<<lightblue>>>>>> make_sport_formts_p17: co89:"{co89}"')
-    # ---
-    co89_lab = sport_formts_for_p17.get(co89, "")
-    # ---
-    if co89_lab:
-        logger.debug(f"\tfind lab in sport_formts_for_p17: {co89_lab}")
-        return co89_lab
-    # ---
-    # قبل تطبيق الوظيفة
-    # len sport_formts_for_p17: 66435
-    # ---
-    # بعد تطبيق الوظيفة
-    # len sport_formts_for_p17: 1
-    # len nat_p17_oioi: 100
-    # ---
-    co89_lab = ""
-    # ---
-    faev = re.match(fanco_line, co89, flags=re.IGNORECASE)
-    # ---
-    if not faev:
+def make_sport_formats_p17(category_key: str) -> str:
+    """Resolve a sport format label for P17 lookups."""
+
+    logger.info(f'<<lightblue>>>>>> make_sport_formats_p17: category_key:"{category_key}"')
+
+    cached_label = sport_formts_for_p17.get(category_key, "")
+    if cached_label:
+        logger.debug(f"\tfind lab in sport_formts_for_p17: {cached_label}")
+        return cached_label
+
+    resolved_label = ""
+    sport_match = re.match(fanco_line, category_key, flags=re.IGNORECASE)
+    if not sport_match:
         return ""
-    # ---
-    sport_key = faev.group(1)
-    sport_key_lab = ""
-    ar_label = ""
-    # ---
-    team_xz = co89.replace(sport_key, "oioioi")
-    team_xz = re.sub(sport_key, "oioioi", team_xz, flags=re.IGNORECASE)
-    logger.debug(f'make_sport_formts_p17 co89:"{co89}", sport_key:"{sport_key}", team_xz:"{team_xz}"')
-    # ---
-    if team_xz in nat_p17_oioi:
-        sport_key_lab = Sports_Keys_For_Team.get(sport_key, "")
-        # ---
-        if not sport_key_lab:
+
+    sport_key = sport_match.group(1)
+    sport_label = ""
+    placeholder_template = ""
+
+    placeholder_key = category_key.replace(sport_key, "oioioi")
+    placeholder_key = re.sub(sport_key, "oioioi", placeholder_key, flags=re.IGNORECASE)
+    logger.debug(
+        f'make_sport_formats_p17 category_key:"{category_key}", '
+        f'sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"'
+    )
+
+    if placeholder_key in nat_p17_oioi:
+        sport_label = Sports_Keys_For_Team.get(sport_key, "")
+        if not sport_label:
             logger.debug(f' sport_key:"{sport_key}" not in Sports_Keys_For_Team ')
-        # ---
-        ar_label = nat_p17_oioi[team_xz]
-        # ---
-        if ar_label and sport_key_lab:
-            bbvb = ar_label.replace("oioioi", sport_key_lab)
-            if bbvb.find("oioioi") == -1:
-                co89_lab = bbvb
-                logger.debug(f'make_sport_formts_p17 bbvb:"{co89_lab}"')
+        placeholder_template = nat_p17_oioi[placeholder_key]
+        if placeholder_template and sport_label:
+            formatted_label = placeholder_template.replace("oioioi", sport_label)
+            if "oioioi" not in formatted_label:
+                resolved_label = formatted_label
+                logger.debug(
+                    f'make_sport_formats_p17 formatted_label:"{resolved_label}"'
+                )
     else:
-        logger.debug(f'make_sport_formts_p17 team_xz:"{team_xz}" not in nat_p17_oioi')
-    # ---
-    if co89_lab:
-        logger.info(f'make_sport_formts_p17 co89:"{co89}", co89_lab:"{co89_lab}"')
-    # ---
-    return co89_lab
+        logger.debug(
+            f'make_sport_formats_p17 placeholder_key:"{placeholder_key}" not in nat_p17_oioi'
+        )
+
+    if resolved_label:
+        logger.info(
+            f'make_sport_formats_p17 category_key:"{category_key}", resolved_label:"{resolved_label}"'
+        )
+
+    return resolved_label
 
 
-def find_nat_others(cate, fa=""):
-    if cate in nat_others_cash:
-        return nat_others_cash[cate]
+def find_nat_others(category: str, reference_category: str="") -> str:
+    """Resolve fallback national labels for sport categories."""
+    if category in NAT_OTHERS_CACHE:
+        return NAT_OTHERS_CACHE[category]
 
-    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv find_nat_others cate:{cate} vvvvvvvvvvvv ")
+    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv find_nat_others category:{category} vvvvvvvvvvvv ")
 
-    cnt_la = ""
+    category_label = ""
 
-    cate = cate.lower()
+    normalized_category = category.lower()
 
-    con_77, contry_start = get_con_3(cate, Nat_women, "nat")
+    sport_format_key, country_start = get_con_3(normalized_category, Nat_women, "nat")
 
-    if con_77 and contry_start:
-        # con_77_lab = sport_formts_female_nat.get(con_77, "")
-        con_77_lab = sport_lab.Get_sport_formts_female_nat(con_77)
-        if con_77_lab:
-            cnt_la = con_77_lab.format(nat=Nat_women[contry_start])
-            logger.debug(f'<<lightblue>>xxx sport_formts_female_nat: new cnt_la  "{cnt_la}"')
+    if sport_format_key and country_start:
+        sport_format_label = sport_lab.Get_sport_formts_female_nat(sport_format_key)
+        if sport_format_label:
+            category_label = sport_format_label.format(nat=Nat_women[country_start])
+            logger.debug(
+                f'<<lightblue>>xxx sport_formts_female_nat: new category_label  "{category_label}"'
+            )
 
-    if con_77 and contry_start and cnt_la == "":
-        con_77_lab = make_sport_formts_p17(con_77)
-        # ---
-        P17_lab = All_Nat[contry_start].get("ar", "")
-        # ---
-        if con_77_lab and P17_lab:
-            Add_to_main2_tab(con_77, con_77_lab)
+    if sport_format_key and country_start and category_label == "":
+        sport_format_label = make_sport_formats_p17(sport_format_key)
+        country_label = All_Nat[country_start].get("ar", "")
+        if sport_format_label and country_label:
+            Add_to_main2_tab(sport_format_key, sport_format_label)
 
-            cnt_la = con_77_lab.format(nat=P17_lab)
-            Add_to_main2_tab(cnt_la, P17_lab)
-            logger.debug(f'<<lightblue>>>>>> sport_formts_for_p17: new cnt_la  "{cnt_la}"')
-            New_players[cate] = cnt_la
-    # ---
+            category_label = sport_format_label.format(nat=country_label)
+            Add_to_main2_tab(category_label, country_label)
+            logger.debug(
+                f'<<lightblue>>>>>> sport_formts_for_p17: new category_label  "{category_label}"'
+            )
+            New_players[category] = category_label
+
     logger.info("<<lightblue>>>> ^^^^^^^^^ find_nat_others end ^^^^^^^^^ ")
 
-    nat_others_cash[cate] = cnt_la
+    NAT_OTHERS_CACHE[category] = category_label
 
-    return cnt_la
+    return category_label

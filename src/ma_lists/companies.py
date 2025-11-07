@@ -1,5 +1,5 @@
 
-New_Company = {
+COMPANY_TYPE_TRANSLATIONS = {
     "privately held": "خاصة",
     "airliner": "طائرات",
     "condiment": "توابل",
@@ -136,63 +136,63 @@ New_Company = {
 companies_keys3 = {}
 companies_data = {}
 # ---
-for kes, lab in New_Company.items():  # Media company founders
-    keys2 = kes.lower()
-    # so = f"{keys2} %s"
-    companies_data[f"{keys2} company"] = f"شركات {lab}"
+for company_type, arabic_label in COMPANY_TYPE_TRANSLATIONS.items():  # Media company founders
+    company_type_lower = company_type.lower()
+    # so = f"{company_type_lower} %s"
+    companies_data[f"{company_type_lower} company"] = f"شركات {arabic_label}"
     # ---
-    companies_data[f"{keys2} offices"] = f"مكاتب {lab}"
+    companies_data[f"{company_type_lower} offices"] = f"مكاتب {arabic_label}"
 
-    companies_data[f"{keys2} companies of"] = f"شركات {lab} في"
-    companies_data[f"defunct {keys2} companies"] = f"شركات {lab} سابقة"
-    companies_data[f"defunct-{keys2}-companies"] = f"شركات {lab} سابقة"
-    companies_data[f"defunct {keys2}"] = f"{lab} سابقة"
-    companies_data[f"defunct {keys2} of"] = f"{lab} سابقة في"
-    companies_data[f"{keys2} firms of"] = f"شركات {lab} في"
-    companies_data[f"{keys2} services"] = f"خدمات {lab}"
-    companies_data[f"{keys2} firms"] = f"شركات {lab}"
-    companies_data[f"{keys2} franchises"] = f"امتيازات {lab}"
+    companies_data[f"{company_type_lower} companies of"] = f"شركات {arabic_label} في"
+    companies_data[f"defunct {company_type_lower} companies"] = f"شركات {arabic_label} سابقة"
+    companies_data[f"defunct-{company_type_lower}-companies"] = f"شركات {arabic_label} سابقة"
+    companies_data[f"defunct {company_type_lower}"] = f"{arabic_label} سابقة"
+    companies_data[f"defunct {company_type_lower} of"] = f"{arabic_label} سابقة في"
+    companies_data[f"{company_type_lower} firms of"] = f"شركات {arabic_label} في"
+    companies_data[f"{company_type_lower} services"] = f"خدمات {arabic_label}"
+    companies_data[f"{company_type_lower} firms"] = f"شركات {arabic_label}"
+    companies_data[f"{company_type_lower} franchises"] = f"امتيازات {arabic_label}"
     # ---
-    companies_data[f"{keys2} accidents-and-incidents"] = f"حوادث {lab}"
-    companies_data[f"{keys2} accidents and incidents"] = f"حوادث {lab}"
-    companies_data[f"{keys2} accidents or incidents"] = f"حوادث {lab}"
-    companies_data[f"{keys2} accidents"] = f"حوادث {lab}"
-    companies_data[f"{keys2} incidents"] = f"حوادث {lab}"
-    companies_data[f"{keys2} software"] = f"برمجيات {lab}"
-    companies_data[f"{keys2} databases"] = f"قواعد بيانات {lab}"
+    companies_data[f"{company_type_lower} accidents-and-incidents"] = f"حوادث {arabic_label}"
+    companies_data[f"{company_type_lower} accidents and incidents"] = f"حوادث {arabic_label}"
+    companies_data[f"{company_type_lower} accidents or incidents"] = f"حوادث {arabic_label}"
+    companies_data[f"{company_type_lower} accidents"] = f"حوادث {arabic_label}"
+    companies_data[f"{company_type_lower} incidents"] = f"حوادث {arabic_label}"
+    companies_data[f"{company_type_lower} software"] = f"برمجيات {arabic_label}"
+    companies_data[f"{company_type_lower} databases"] = f"قواعد بيانات {arabic_label}"
     # ---
-    companies_data[f"{keys2} agencies"] = f"وكالات {lab}"
-    companies_data[f"{keys2} disciplines"] = f"تخصصات {lab}"
-    companies_data[f"{keys2} museums"] = f"متاحف {lab}"
-    companies_data[f"{keys2} organizations"] = f"منظمات {lab}"
-    companies_data[f"{keys2} organization"] = f"منظمات {lab}"
-    companies_data[f"{keys2} facilities"] = f"مرافق {lab}"
-    companies_data[f"{keys2} bunkers"] = f"مخابئ {lab}"
-    companies_data[f"{keys2} industry"] = f"صناعة {lab}"
-    companies_data[f"{keys2} industry organisations"] = f"منظمات صناعة {lab}"
-    companies_data[f"{keys2} industry organizations"] = f"منظمات صناعة {lab}"
+    companies_data[f"{company_type_lower} agencies"] = f"وكالات {arabic_label}"
+    companies_data[f"{company_type_lower} disciplines"] = f"تخصصات {arabic_label}"
+    companies_data[f"{company_type_lower} museums"] = f"متاحف {arabic_label}"
+    companies_data[f"{company_type_lower} organizations"] = f"منظمات {arabic_label}"
+    companies_data[f"{company_type_lower} organization"] = f"منظمات {arabic_label}"
+    companies_data[f"{company_type_lower} facilities"] = f"مرافق {arabic_label}"
+    companies_data[f"{company_type_lower} bunkers"] = f"مخابئ {arabic_label}"
+    companies_data[f"{company_type_lower} industry"] = f"صناعة {arabic_label}"
+    companies_data[f"{company_type_lower} industry organisations"] = f"منظمات صناعة {arabic_label}"
+    companies_data[f"{company_type_lower} industry organizations"] = f"منظمات صناعة {arabic_label}"
     # companies_data[f"{key2} of"] = "{} في".format(lab)
 # ---
 companies_to_jobs = {}
 # ---
 
-for ggg in New_Company.keys():
-    companies_to_jobs[f"{ggg} owners"] = {
-        "mens": f"ملاك {New_Company[ggg]}",
-        "womens": f"مالكات {New_Company[ggg]}",
+for company_type in COMPANY_TYPE_TRANSLATIONS.keys():
+    companies_to_jobs[f"{company_type} owners"] = {
+        "mens": f"ملاك {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "womens": f"مالكات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
     }
-    companies_to_jobs[f"{ggg} founders"] = {
-        "mens": f"مؤسسو {New_Company[ggg]}",
-        "womens": f"مؤسسات {New_Company[ggg]}",
+    companies_to_jobs[f"{company_type} founders"] = {
+        "mens": f"مؤسسو {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "womens": f"مؤسسات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
     }
-    companies_to_jobs[f"{ggg} company founders"] = {
-        "mens": f"مؤسسو شركات {New_Company[ggg]}",
-        "womens": f"مؤسسات شركات {New_Company[ggg]}",
+    companies_to_jobs[f"{company_type} company founders"] = {
+        "mens": f"مؤسسو شركات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "womens": f"مؤسسات شركات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
     }
 
 
 # def Add_companies():
-tyui = {
+COMPANY_COLLECTION_PREFIXES = {
     "manufacturers": "مصانع",
     "manufacturing": "تصنيع",
     "manufacturing companies": "شركات تصنيع",
@@ -203,13 +203,13 @@ tyui = {
     "stations": "محطات",
     "tickets": "تذاكر",
 }
-tyui2 = {
+COMPANY_EVENT_PREFIXES = {
     "accident": "حوادث",
     "accidents": "حوادث",
     "institutions": "مؤسسات",
     "disasters": "كوارث",
 }
-Roood = {
+COMPANY_CATEGORY_CONTEXT = {
     "distance education": {"si": "التعليم عن بعد", "bb": "تعليم عن بعد"},
     "government-owned": {"si": "مملوكة للحكومة", "bb": "مملوكة للحكومة"},
     "design": {"si": "تصميم", "bb": "تصميم"},
@@ -238,16 +238,19 @@ Roood = {
 companies_keys3 = {}
 typeTable_update = {}
 
-for roo in Roood:
-    oi = Roood[roo]["si"]
-    companies_keys3[roo] = oi
-    for dd in tyui:
-        companies_keys3[f"{roo} {dd}"] = f"{tyui[dd]} {oi}"
+for category_key in COMPANY_CATEGORY_CONTEXT:
+    singular_label = COMPANY_CATEGORY_CONTEXT[category_key]["si"]
+    companies_keys3[category_key] = singular_label
+    for suffix_key, suffix_label in COMPANY_COLLECTION_PREFIXES.items():
+        companies_keys3[f"{category_key} {suffix_key}"] = f"{suffix_label} {singular_label}"
 
-    oi2 = Roood[roo]["bb"]
-    companies_keys3[f"defunct {roo} of"] = f"{oi2} سابقة في"
-    companies_keys3[f"defunct {roo}"] = f"{oi2} سابقة"
-    for dd in tyui2:
-        companies_keys3[f"{roo} {dd}"] = f"{tyui2[dd]} {oi2}"
-        typeTable_update[f"{roo} {dd}"] = f"{tyui2[dd]} {oi2}"
-        companies_keys3[f"{roo} {dd} of"] = f"{tyui2[dd]} {oi2} في"
+    plural_label = COMPANY_CATEGORY_CONTEXT[category_key]["bb"]
+    companies_keys3[f"defunct {category_key} of"] = f"{plural_label} سابقة في"
+    companies_keys3[f"defunct {category_key}"] = f"{plural_label} سابقة"
+    for event_key, event_label in COMPANY_EVENT_PREFIXES.items():
+        companies_keys3[f"{category_key} {event_key}"] = f"{event_label} {plural_label}"
+        typeTable_update[f"{category_key} {event_key}"] = f"{event_label} {plural_label}"
+        companies_keys3[f"{category_key} {event_key} of"] = f"{event_label} {plural_label} في"
+
+
+New_Company = COMPANY_TYPE_TRANSLATIONS

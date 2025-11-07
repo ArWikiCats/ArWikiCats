@@ -17,7 +17,7 @@ from ..utils.json_dir import open_json_file
 Dir = Path(__file__).parent / "jsons"
 
 
-def scan_json_files(folder_path):
+def scan_json_files(folder_path: os.PathLike[str] | str) -> None:
     """Scans all JSON files in a folder and reports errors.
 
     Args:

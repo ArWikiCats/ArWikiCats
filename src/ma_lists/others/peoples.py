@@ -40,10 +40,10 @@ People_key = open_json_file("peoples") or {}
 # ---
 # json.dump(People_key, open(f"{Dir2}/jsons/peoples.json", "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 # ---
-Lenth_p = {
+length_stats = {
     "People_key": sys.getsizeof(People_key),
 }
 # ---
 
-len_print.lenth_pri("peoples.py", Lenth_p, Max=1000)
+len_print.lenth_pri("peoples.py", length_stats, Max=1000)
 # ---

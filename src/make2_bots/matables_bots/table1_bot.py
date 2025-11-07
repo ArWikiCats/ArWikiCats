@@ -15,21 +15,25 @@ from .centries_bot import centries_years_dec
 fasop: Dict[str, str] = {}
 table1get_tab: Dict[str, str] = {}
 # ---
-Fgos2: Dict[str, Dict[str, str]] = {
+SECONDARY_SOURCE_TABLES: Dict[str, Dict[str, str]] = {
     "Films_O_TT": Films_O_TT,
     "pop_All_2018": pop_All_2018,
 }
 
-Fgos1: Dict[str, Dict[str, str]] = {
+PRIMARY_SOURCE_TABLES: Dict[str, Dict[str, str]] = {
     "centries_years_dec": centries_years_dec,
     "pop_All_2018": pop_All_2018,
     "New_players": New_players,
     "Films_O_TT": Films_O_TT,
 }
 
+# Backwards compatibility aliases
+Fgos2 = SECONDARY_SOURCE_TABLES
+Fgos1 = PRIMARY_SOURCE_TABLES
+
 papa = False
 if papa == 4:
-    for tabd, tab_data in Fgos1.items():
+    for tabd, tab_data in PRIMARY_SOURCE_TABLES.items():
         for ta, value in tab_data.items():
             ta2 = ta.lower()
             if "ف" in value and "f" not in ta2 and "ph" not in ta2:
@@ -42,14 +46,16 @@ if papa == 4:
     printe.output(f'<<lightblue>> len "<<lightpurple>>table1get_tab"<<default>>:\t{len(table1get_tab)}. ')
     printe.output(f"<<lightblue>>len fasop: {len(fasop)}")
 
-Fgo_done: Dict[str, Dict[str, str]] = {}
+TABLE_LOOKUP_CACHE: Dict[str, Dict[str, str]] = {}
 
-for tabd in list(Fgos1):
-    Fgo_done[tabd] = {}
-for tabd in list(Fgos2):
-    Fgo_done[tabd] = {}
+for tabd in list(PRIMARY_SOURCE_TABLES):
+    TABLE_LOOKUP_CACHE[tabd] = {}
+for tabd in list(SECONDARY_SOURCE_TABLES):
+    TABLE_LOOKUP_CACHE[tabd] = {}
 
-FgosLi: Dict[int, Dict[str, Dict[str, str]]] = {1: Fgos1, 2: Fgos2}
+TABLE_GROUPS: Dict[int, Dict[str, Dict[str, str]]] = {1: PRIMARY_SOURCE_TABLES, 2: SECONDARY_SOURCE_TABLES}
+Fgo_done = TABLE_LOOKUP_CACHE
+FgosLi = TABLE_GROUPS
 
 from ...ma_lists import pf_keys2
 from ...ma_lists import Music_By_table
@@ -70,33 +76,37 @@ KAKO: Dict[str, Dict[str, str]] = {
 
 
 def get_KAKO(cont: str) -> str:
-    cnt_la = ""
-    for KO, KOTab in KAKO.items():
-        if not cnt_la:
-            cnt_la = KOTab.get(cont, "")
-            if cnt_la:
-                output_test(f'>> get_KAKO_({KO}) for ["{cont}"] = "{cnt_la}"')
-                return cnt_la
-    return cnt_la
+    resolved_label = ""
+    for table_name, table_data in KAKO.items():
+        if not resolved_label:
+            resolved_label = table_data.get(cont, "")
+            if resolved_label:
+                output_test(
+                    f'>> get_KAKO_({table_name}) for ["{cont}"] = "{resolved_label}"'
+                )
+                return resolved_label
+    return resolved_label
 
 
 def table1get(category3: str, tt: int) -> str:
-    Fgos = FgosLi.get(tt, {})
+    Fgos = TABLE_GROUPS.get(tt, {})
 
-    y_lab = ""
+    resolved_label = ""
     for table1 in list(Fgos):
-        if not y_lab:
-            if category3 not in Fgo_done[table1]:
-                output_test(f'a<<lightblue>>>>>> table1get find in "{len(Fgos[table1])}" keys in table1 "{table1}"')
-                y_lab = Fgos[table1].get(category3, "")
-                Fgo_done[table1][category3] = y_lab
+        if not resolved_label:
+            if category3 not in TABLE_LOOKUP_CACHE[table1]:
+                output_test(
+                    f'a<<lightblue>>>>>> table1get find in "{len(Fgos[table1])}" keys in table1 "{table1}"'
+                )
+                resolved_label = Fgos[table1].get(category3, "")
+                TABLE_LOOKUP_CACHE[table1][category3] = resolved_label
                 break
             else:
-                Capo = Fgo_done[table1][category3]
-                output_test(f'a<<lightblue>>>>>> category3:"{category3}" in table1 "{table1}", lab:"{Capo}"')
-                if Capo:
-                    Add_to_main2_tab(category3, Capo)
-                    output_test(f'a<<lightgreen>>>>>> category3:"{category3}" in table1 "{table1}", lab:"{Capo}"')
-                    y_lab = Capo
+                cached_label = TABLE_LOOKUP_CACHE[table1][category3]
+                output_test(f'a<<lightblue>>>>>> category3:"{category3}" in table1 "{table1}", lab:"{cached_label}"')
+                if cached_label:
+                    Add_to_main2_tab(category3, cached_label)
+                    output_test(f'a<<lightgreen>>>>>> category3:"{category3}" in table1 "{table1}", lab:"{cached_label}"')
+                    resolved_label = cached_label
                     break
-    return y_lab
+    return resolved_label

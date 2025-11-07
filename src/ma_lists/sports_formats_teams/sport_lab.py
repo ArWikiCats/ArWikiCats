@@ -28,7 +28,7 @@ nat_reg_line = rf".*\s({All_nat_to_ar})\s.*"
 
 
 # New_Sport_Format_team_xo_en_ar_is_P17
-def Get_Sport_Format_xo_en_ar_is_P17(con_3):  # sport_formts_enar_p17_jobs
+def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
     # ---
     # len:"sport_formts_en_ar_is_p17":  572927 قبل بدء الوظيفة
     # ---
@@ -41,44 +41,50 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3):  # sport_formts_enar_p17_jobs
     # ---
     if faevv:
         sport_key = faevv.group(1)
-        ylab = ""
-        mlab = ""
+        sport_label = ""
+        template_label = ""
         # ---
-        team_xoxo = con_3.replace(sport_key, "xoxo")
-        team_xoxo = re.sub(sport_key, "xoxo", team_xoxo, flags=re.IGNORECASE)
+        normalized_team_key = con_3.replace(sport_key, "xoxo")
+        normalized_team_key = re.sub(sport_key, "xoxo", normalized_team_key, flags=re.IGNORECASE)
         # ---
-        print_put(f'Get_Sport Format_xo_en_ar_is P17: con_3:"{con_3}", sport_key:"{sport_key}", team_xoxo:"{team_xoxo}"')
+        print_put(
+            f'Get_Sport Format_xo_en_ar_is P17: con_3:"{con_3}", sport_key:"{sport_key}", team_xoxo:"{normalized_team_key}"'
+        )
         # ---
-        if team_xoxo in sport_formts_enar_p17_jobs:
-            ylab = Sports_Keys_For_Jobs[sport_key]
-            mlab = sport_formts_enar_p17_jobs.get(team_xoxo, "")
+        if normalized_team_key in sport_formts_enar_p17_jobs:
+            sport_label = Sports_Keys_For_Jobs[sport_key]
+            template_label = sport_formts_enar_p17_jobs.get(normalized_team_key, "")
         # ---
         # if team_xoxo == "music":
-        # ylab = Sports_Keys_For_Jobs[sport_key]
-        # mlab = "موسيقى"
+        # sport_label = Sports_Keys_For_Jobs[sport_key]
+        # template_label = "موسيقى"
         # ---
-        elif team_xoxo in sport_formts_enar_p17_team:
-            ylab = Sports_Keys_For_Team[sport_key]
-            mlab = sport_formts_enar_p17_team.get(team_xoxo, "")
+        elif normalized_team_key in sport_formts_enar_p17_team:
+            sport_label = Sports_Keys_For_Team[sport_key]
+            template_label = sport_formts_enar_p17_team.get(normalized_team_key, "")
         # ---
         else:
-            print_put(f'Get_Sport_Format_xo_en_ar_is P17 team_xoxo:"{team_xoxo}" not in sport_formts_enar_p17_jobs or sport_formts_enar_p17_team')
+            print_put(
+                f'Get_Sport_Format_xo_en_ar_is P17 team_xoxo:"{normalized_team_key}" not in sport_formts_enar_p17_jobs or sport_formts_enar_p17_team'
+            )
         # ---
-        # if team_xoxo in sport_formts_enar_p17_jobs:
-        # ylab = Sports_Keys_For_Jobs.get(sport_key , "")
+        # if normalized_team_key in sport_formts_enar_p17_jobs:
+        # sport_label = Sports_Keys_For_Jobs.get(sport_key , "")
         # ---
-        # if not ylab:
+        # if not sport_label:
         # print_put(' sport_key:"%s" not in Sports_Keys_For_Jobs ' % sport_key)
         # ---
-        # mlab = sport_formts_enar_p17_jobs[team_xoxo]
+        # template_label = sport_formts_enar_p17_jobs[normalized_team_key]
         # ---
-        if mlab and ylab:
-            blab = mlab.replace("xoxo", ylab)
-            if blab.find("xoxo") == -1:
-                con_3_label = blab
+        if template_label and sport_label:
+            resolved_label = template_label.replace("xoxo", sport_label)
+            if resolved_label.find("xoxo") == -1:
+                con_3_label = resolved_label
                 print_put(f'Get_Sport_Format_xo_en_ar_is P17 blab:"{con_3_label}"')
         else:
-            print_put(f'Get_Sport_Format_xo_en_ar_is P17 team_xoxo:"{team_xoxo}" not in sport_formts_enar_p17_jobs')
+            print_put(
+                f'Get_Sport_Format_xo_en_ar_is P17 team_xoxo:"{normalized_team_key}" not in sport_formts_enar_p17_jobs'
+            )
             # ---
     if con_3_label:
         print_put(f'Get_Sport_Format_xo_en_ar_is P17 con_3:"{con_3}", con_3_label:"{con_3_label}"')
@@ -86,7 +92,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3):  # sport_formts_enar_p17_jobs
     return con_3_label
 
 
-def Get_New_team_xo(team):
+def Get_New_team_xo(team: str) -> str:
     # ---
     # إيجاد تسميات نصوص رياضية مثل
     # world champion national football teams
@@ -111,72 +117,76 @@ def Get_New_team_xo(team):
         # print("")
         return ""
     # ---summer olympics
-    team_xo = team
-    # team_xo = team.replace("\b%s\b" % sport_key , "xoxo")
-    team_xo = re.sub(f" {sport_key} ", " xoxo ", f" {team_xo.strip()} ", flags=re.IGNORECASE).strip()
+    normalized_team = team
+    # normalized_team = team.replace("\b%s\b" % sport_key , "xoxo")
+    normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {normalized_team.strip()} ", flags=re.IGNORECASE).strip()
     # ---
     # team_xo = re.sub(sport_key , 'xoxo' , team_xo, flags=re.IGNORECASE)
     # ---
-    print_put(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{team_xo}"')
+    print_put(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{normalized_team}"')
     # ---
-    sp_lab = ""
-    ar_label = ""
+    sport_label = ""
+    template_label = ""
     # TTTY = ""
-    sp_lab_tab = {}
+    sport_label_source = {}
     # ---
-    if team_xo in New_team_xo_team:
+    if normalized_team in New_team_xo_team:
         # TTTY = "team"
-        ar_label = New_team_xo_team.get(team_xo, "")
-        # sp_lab = Sports_Keys_For_Team.get(sport_key , "")
-        sp_lab_tab = Sports_Keys_For_Team
+        template_label = New_team_xo_team.get(normalized_team, "")
+        # sport_label = Sports_Keys_For_Team.get(sport_key , "")
+        sport_label_source = Sports_Keys_For_Team
     # ---
-    elif team_xo in New_team_xo_jobs:
+    elif normalized_team in New_team_xo_jobs:
         # TTTY = "jobs"
-        ar_label = New_team_xo_jobs.get(team_xo, "")
-        # sp_lab = Sports_Keys_For_Jobs.get(sport_key , "")
-        sp_lab_tab = Sports_Keys_For_Jobs
+        template_label = New_team_xo_jobs.get(normalized_team, "")
+        # sport_label = Sports_Keys_For_Jobs.get(sport_key , "")
+        sport_label_source = Sports_Keys_For_Jobs
     # ---
-    elif team_xo in New_team_xo_labels:
+    elif normalized_team in New_team_xo_labels:
         # TTTY = "labels"
-        ar_label = New_team_xo_labels.get(team_xo, "")
-        # sp_lab = Sports_Keys_For_Label.get(sport_key , "")
-        sp_lab_tab = Sports_Keys_For_Label
+        template_label = New_team_xo_labels.get(normalized_team, "")
+        # sport_label = Sports_Keys_For_Label.get(sport_key , "")
+        sport_label_source = Sports_Keys_For_Label
     # ---
-    if sp_lab_tab != {}:
-        sp_lab = sp_lab_tab.get(sport_key, "")
+    if sport_label_source != {}:
+        sport_label = sport_label_source.get(sport_key, "")
         # ---
-        if not sp_lab:
+        if not sport_label:
             output_test(f'Get_New_team_xo sp_lab == "" , for sport_key "{sport_key}" ')
         # ---
     else:
-        output_test(f'Get_New_team_xo team_xo:"{team_xo}" not in (New_team_xo_jobs,New_team_xo_team,New_team_xo_labels)')
-        if nat_test := re.match(nat_reg_line, f" {team_xo.strip()} ", flags=re.IGNORECASE):
-            output_test(f'nat_test:"{str(nat_test)}"')
-            nat_ky = nat_test.group(1)
+        output_test(
+            f'Get_New_team_xo team_xo:"{normalized_team}" not in (New_team_xo_jobs,New_team_xo_team,New_team_xo_labels)'
+        )
+        if nationality_match := re.match(nat_reg_line, f" {normalized_team.strip()} ", flags=re.IGNORECASE):
+            output_test(f'nat_test:"{str(nationality_match)}"')
+            nationality_key = nationality_match.group(1)
             # ---
-            natreg = re.sub(f" {nat_ky} ", " natar ", f" {team_xo.strip()} ", flags=re.IGNORECASE)
-            natreg = natreg.strip()
+            normalized_nationality_key = re.sub(
+                f" {nationality_key} ", " natar ", f" {normalized_team.strip()} ", flags=re.IGNORECASE
+            )
+            normalized_nationality_key = normalized_nationality_key.strip()
             # ---
-            if natreg != team_xo:
-                output_test(f'natreg:"{natreg}"')
+            if normalized_nationality_key != normalized_team:
+                output_test(f'natreg:"{normalized_nationality_key}"')
                 # ---
-                if natreg in New_team_xo_team:
+                if normalized_nationality_key in New_team_xo_team:
                     # TTTY = "team"
-                    ar_label = New_team_xo_team.get(natreg, "")
+                    template_label = New_team_xo_team.get(normalized_nationality_key, "")
                     # ---
-                    nat_lab = All_contry_with_nat_ar.get(nat_ky, {}).get("ar", "")
-                    output_test(f'nat_lab:"{nat_lab}"')
+                    nationality_label = All_contry_with_nat_ar.get(nationality_key, {}).get("ar", "")
+                    output_test(f'nat_lab:"{nationality_label}"')
                     # ---
-                    sp_lab = Sports_Keys_For_Team.get(sport_key, "")
-                    output_test(f'sp_lab:"{sp_lab}"')
+                    sport_label = Sports_Keys_For_Team.get(sport_key, "")
+                    output_test(f'sp_lab:"{sport_label}"')
                     # ---
-                    if ar_label and nat_lab:
-                        ar_label = ar_label.replace("natar", nat_lab)
+                    if template_label and nationality_label:
+                        template_label = template_label.replace("natar", nationality_label)
     # ---
-    if ar_label and sp_lab:
-        bbb = ar_label.replace("xoxo", sp_lab)
-        if bbb.find("xoxo") == -1:
-            team_lab = bbb
+    if template_label and sport_label:
+        final_label = template_label.replace("xoxo", sport_label)
+        if final_label.find("xoxo") == -1:
+            team_lab = final_label
             output_test(f'Get_New_team_xo bbb:"{team_lab}"')
     # ---
     if team_lab:

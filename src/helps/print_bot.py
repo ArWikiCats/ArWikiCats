@@ -6,110 +6,116 @@
 import sys
 from .. import printe
 
-all_the_print_off = "all_print_off" in sys.argv
-all_the_print_on = "printall" in sys.argv
-mainoutput = {1: False}
-fafa2 = {1: False}
-testprint = {1: False}
-only_print_heads = {1: False}
+disable_all_printing = "all_print_off" in sys.argv
+force_all_printing = "printall" in sys.argv
+main_output_preferences = {1: False}
+print_put_preferences = {1: False}
+test_logging_preferences = {1: False}
+headline_only_preferences = {1: False}
 
 if "printhead" in sys.argv:
-    only_print_heads[1] = True
+    headline_only_preferences[1] = True
 
 
-def output_test4(text):
-    if all_the_print_off:
+def output_test4(text: str) -> None:
+    if disable_all_printing:
         return
     printe.log(text)
 
 
-def output_main(text):
-    if all_the_print_on:
+def output_main(text: str) -> str | None:
+    if force_all_printing:
         printe.output(text)
         return
-    if all_the_print_off or only_print_heads[1]:
+    if disable_all_printing or headline_only_preferences[1]:
         return ""
-    if mainoutput[1]:
+    if main_output_preferences[1]:
         printe.output(text)
 
 
-def print_def_head(text):
-    if all_the_print_on:
-        printe.output(text)
-        return
-    if all_the_print_off:
-        return
-    # if only_print_heads[1]:
-    if mainoutput[1] or only_print_heads[1]:
-        printe.output(text)
-
-
-def print_put(text):
-    if all_the_print_on:
+def print_def_head(text: str) -> None:
+    if force_all_printing:
         printe.output(text)
         return
-    if all_the_print_off:
+    if disable_all_printing:
+        return
+    # if headline_only_preferences[1]:
+    if main_output_preferences[1] or headline_only_preferences[1]:
+        printe.output(text)
+
+
+def print_put(text: str) -> str | None:
+    if force_all_printing:
+        printe.output(text)
+        return
+    if disable_all_printing:
         return
     if "print_put" in sys.argv:
         printe.output(text)
     else:
-        if only_print_heads[1]:
+        if headline_only_preferences[1]:
             return ""
-        if fafa2[1]:
+        if print_put_preferences[1]:
             printe.output(text)
 
 
-def output_test(text):
-    if all_the_print_off:
+def output_test(text: str) -> str | None:
+    if disable_all_printing:
         return
-    if only_print_heads[1]:
+    if headline_only_preferences[1]:
         return ""
     printe.log(text)
 
 
-def do_print_options(noprint="", printfirst="", printhead="", all_print_off="", tst_prnt_all=False):
-    global only_print_heads, mainoutput, fafa2, testprint
+def do_print_options(
+    noprint: str="",
+    printfirst: str="",
+    printhead: str="",
+    all_print_off: str="",
+    tst_prnt_all: bool=False,
+) -> None:
+    global headline_only_preferences, main_output_preferences, print_put_preferences, test_logging_preferences
     if "printhead" in sys.argv:
-        only_print_heads[1] = True
-        mainoutput[1] = False
-        fafa2[1] = False
-        testprint[1] = False
+        headline_only_preferences[1] = True
+        main_output_preferences[1] = False
+        print_put_preferences[1] = False
+        test_logging_preferences[1] = False
     else:
         if all_print_off:
-            only_print_heads[1] = False
-            mainoutput[1] = False
-            fafa2[1] = False
-            testprint[1] = False
+            headline_only_preferences[1] = False
+            main_output_preferences[1] = False
+            print_put_preferences[1] = False
+            test_logging_preferences[1] = False
         elif tst_prnt_all:
-            only_print_heads[1] = False
-            mainoutput[1] = True
-            fafa2[1] = True
-            testprint[1] = True
+            headline_only_preferences[1] = False
+            main_output_preferences[1] = True
+            print_put_preferences[1] = True
+            test_logging_preferences[1] = True
         else:
             if printfirst:
-                only_print_heads[1] = False
-                mainoutput[1] = False
-                fafa2[1] = False
-                testprint[1] = False
+                headline_only_preferences[1] = False
+                main_output_preferences[1] = False
+                print_put_preferences[1] = False
+                test_logging_preferences[1] = False
             elif "printhead" in sys.argv or printhead:
-                only_print_heads[1] = True
-                mainoutput[1] = False
-                fafa2[1] = False
-                testprint[1] = False
+                headline_only_preferences[1] = True
+                main_output_preferences[1] = False
+                print_put_preferences[1] = False
+                test_logging_preferences[1] = False
 
             elif noprint is True or noprint == "so":
                 printe.output("<<lightred>>  noprint  \n\t\t>>  noprint  ")
-                mainoutput[1] = True
-                only_print_heads[1] = False
-                fafa2[1] = False
-                testprint[1] = False
+                main_output_preferences[1] = True
+                headline_only_preferences[1] = False
+                print_put_preferences[1] = False
+                test_logging_preferences[1] = False
 
             elif noprint is False:
                 printe.output("<<lightblue>>  print  \n\t\t>>  print  ")
-                mainoutput[1] = True
-                only_print_heads[1] = True
-                fafa2[1] = True
-                testprint[1] = True
+                main_output_preferences[1] = True
+                headline_only_preferences[1] = True
+                print_put_preferences[1] = True
+                test_logging_preferences[1] = True
 
             if noprint == "so":
-                mainoutput[1] = True
+                main_output_preferences[1] = True

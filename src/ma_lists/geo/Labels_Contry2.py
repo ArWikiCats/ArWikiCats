@@ -10,13 +10,11 @@ import sys
 from ..utils.json_dir import open_json_file
 
 # ---
-P17_PP = {}
-P17_PP = open_json_file("P17_PP") or {}
+COUNTRY_ADMIN_LABELS = open_json_file("P17_PP") or {}
 # ---
-New_Keys = {}
-New_Keys = open_json_file("New_Keys") or {}
+ADDITIONAL_REGION_KEYS = open_json_file("New_Keys") or {}
 # ---
-Cantons = {
+SWISS_CANTON_LABELS = {
     "aarga": "أرجاو",
     "aargau": "أرجاو",
     "appenzell ausserrhoden": "أبينزيل أوسيرهودن",
@@ -49,14 +47,14 @@ Cantons = {
     "zürich": "زيورخ",
 }
 # ---
-P17_PP.update({k.lower(): v for k, v in Cantons.items()})
+COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in SWISS_CANTON_LABELS.items()})
 # ---
-for canton, value in Cantons.items():
-    P17_PP[f"canton-of {canton.lower()}"] = f"كانتون {value}"
+for canton, value in SWISS_CANTON_LABELS.items():
+    COUNTRY_ADMIN_LABELS[f"canton-of {canton.lower()}"] = f"كانتون {value}"
 # ---
-P17_PP.update({k.lower(): v for k, v in New_Keys.items()})
+COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.items()})
 # ---
-OIO_KK = {
+PROVINCE_LABEL_OVERRIDES = {
     # ---
     "quintana roo": "ولاية كينتانا رو",
     "tamaulipas": "ولاية تاماوليباس",
@@ -145,9 +143,9 @@ OIO_KK = {
     # ---
 }
 # ---
-P17_PP.update({k.lower(): v for k, v in OIO_KK.items()})
+COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
 # ---
-Kos_en = [
+REGION_SUFFIXES_EN = [
     " province",
     " district",
     " state",
@@ -159,7 +157,7 @@ Kos_en = [
     " governorate",
     " voivodeship",
 ]
-Kos_ar = [
+REGION_PREFIXES_AR = [
     "ولاية ",
     "الشعبة ",
     "شعبة ",
@@ -174,25 +172,25 @@ Kos_ar = [
     "اقليم ",
 ]
 # ---
-New_Way_adding_Citeis = 0
+region_suffix_matches = 0
 # ---
-for cc, lab in New_Keys.items():
-    TOI = True
+for cc, lab in ADDITIONAL_REGION_KEYS.items():
+    should_update = True
     cc2 = cc.lower()
-    for en_k in Kos_en:
-        for ar_k in Kos_ar:
-            if TOI and cc2.endswith(en_k) and lab.startswith(ar_k):
-                TOI = False
+    for en_k in REGION_SUFFIXES_EN:
+        for ar_k in REGION_PREFIXES_AR:
+            if should_update and cc2.endswith(en_k) and lab.startswith(ar_k):
+                should_update = False
                 # ---
                 cc3 = cc2[: -len(en_k)]
                 lab_2 = lab[len(ar_k) :]
                 # ---
-                P17_PP[cc3] = lab_2
-                New_Way_adding_Citeis += 1
+                COUNTRY_ADMIN_LABELS[cc3] = lab_2
+                region_suffix_matches += 1
 
 # ---
 # ,"mountain" : "ماونتين"
-Provincess = {
+PROVINCE_LABELS = {
     "antananarivo": "فيانارانتسوا",
     "antsiranana": "أنتسيرانانا",
     "artemisa": "أرتيميسا",
@@ -236,17 +234,17 @@ Provincess = {
     "zaire": "زائير",
 }
 # ---
-for city, city_lab in Provincess.items():
+for city, city_lab in PROVINCE_LABELS.items():
     city2 = city.lower()
     if city_lab:
-        P17_PP[city2] = city_lab
-        P17_PP[f"{city2} province"] = f"مقاطعة {city_lab}"
-        P17_PP[f"{city2} (province)"] = f"مقاطعة {city_lab}"
+        COUNTRY_ADMIN_LABELS[city2] = city_lab
+        COUNTRY_ADMIN_LABELS[f"{city2} province"] = f"مقاطعة {city_lab}"
+        COUNTRY_ADMIN_LABELS[f"{city2} (province)"] = f"مقاطعة {city_lab}"
 # ---
 Lenth1 = {
-    "New_Keys": sys.getsizeof(New_Keys),
-    "P17_PP": sys.getsizeof(P17_PP),
-    "New_Way_adding_Citeis": New_Way_adding_Citeis,
+    "ADDITIONAL_REGION_KEYS": sys.getsizeof(ADDITIONAL_REGION_KEYS),
+    "COUNTRY_ADMIN_LABELS": sys.getsizeof(COUNTRY_ADMIN_LABELS),
+    "region_suffix_matches": region_suffix_matches,
 }
 # ---
 from ...helps import len_print
@@ -254,3 +252,6 @@ from ...helps import len_print
 len_print.lenth_pri("Labels_Contry2.py", Lenth1, Max=21)
 # ---
 # del New_Keys
+# ---
+# Backwards compatible alias
+P17_PP = COUNTRY_ADMIN_LABELS

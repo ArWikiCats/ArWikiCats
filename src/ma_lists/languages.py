@@ -9,12 +9,12 @@
 from .mixed.all_keys3 import albums_type
 
 # ---
-languages_key = {}
+language_key_translations = {}
 # "spanish" : "إسبانية",
 # "arabic" : "عربية",
 # }
 # ---
-languages_pop = {
+PRIMARY_LANGUAGE_TRANSLATIONS = {
     "balinese": "بالية",
     "pali": "بالية",
     "abkhazian": "أبخازية",
@@ -200,7 +200,7 @@ languages_pop = {
     "молдовеняскэ": "مولدوفية",
 }
 # ---
-languages_pop2 = {
+SUPPLEMENTARY_LANGUAGE_TRANSLATIONS = {
     "herero": "هيريرو",
     "hiri motu": "هيري موتو",
     "ido": "إيدو",
@@ -232,20 +232,20 @@ languages_pop2 = {
     "esperanto": "إسبرانتو",
 }
 # ---
-lang_type = {
+LANGUAGE_SUFFIX_FORMATS = {
     # " language" : "لغة {}",
     "-language": "اللغة ال{}",
     " languages": "اللغات ال{}",
 }
 # ---
-for x, xlab in languages_pop.items():
-    x2 = x.lower()
-    languages_key[f"{x2} language"] = f"لغة {xlab}"
-    for mis, mis_lab in lang_type.items():
-        keyy = f"{x2}{mis.lower()}"
-        languages_key[keyy] = mis_lab.format(xlab)
+for language_key, arabic_name in PRIMARY_LANGUAGE_TRANSLATIONS.items():
+    normalized_key = language_key.lower()
+    language_key_translations[f"{normalized_key} language"] = f"لغة {arabic_name}"
+    for suffix_pattern, suffix_label in LANGUAGE_SUFFIX_FORMATS.items():
+        translation_key = f"{normalized_key}{suffix_pattern.lower()}"
+        language_key_translations[translation_key] = suffix_label.format(arabic_name)
 # ---
-languages_pop3 = {
+COMPLEX_LANGUAGE_TRANSLATIONS = {
     "west frisian": "فريزية غربية",
     "sorani": "كردية سورانية",
     "simple english": "إنجليزية بسيطة",
@@ -263,16 +263,16 @@ languages_pop3 = {
     "church slavic": "سلافونية كنسية قديمة",
 }
 # ---
-for x, lab in languages_pop3.items():
-    x2 = x.lower()
-    languages_key[f"{x2} language"] = f"لغة {lab}"
-    lab = lab.replace(" ", " ال")
+for language_key, arabic_name in COMPLEX_LANGUAGE_TRANSLATIONS.items():
+    normalized_key = language_key.lower()
+    language_key_translations[f"{normalized_key} language"] = f"لغة {arabic_name}"
+    arabic_name = arabic_name.replace(" ", " ال")
     # lab = re.sub(r" " , " ال" , lab )
     # languages_key[x2] = "ال%s" % lab
-    languages_key[x2] = lab
-    for mis in lang_type:
-        keyy = f"{x2}{mis}"
-        languages_key[keyy] = lang_type[mis].format(lab)
+    language_key_translations[normalized_key] = arabic_name
+    for suffix_pattern in LANGUAGE_SUFFIX_FORMATS:
+        translation_key = f"{normalized_key}{suffix_pattern}"
+        language_key_translations[translation_key] = LANGUAGE_SUFFIX_FORMATS[suffix_pattern].format(arabic_name)
 # ---
 """
 "arabic surnames" : "ألقاب عربية",
@@ -285,7 +285,7 @@ for x, lab in languages_pop3.items():
 "pakistani masculine given names" : "أسماء ذكور باكستانية",
 """
 # ---
-lang_key_m = {
+LANGUAGE_TOPIC_FORMATS = {
     "grammar": "قواعد اللغة ال{}",
     "romanization": "رومنة {}",
     "writing system": "نظام كتابة {}",
@@ -308,7 +308,7 @@ lang_key_m = {
     # "tirukkural translations" : " ب{}",
 }
 # ---
-cccccc_m = {
+MEDIA_CATEGORY_TRANSLATIONS = {
     "words and phrases": "كلمات وجمل",
     "academic journals": "دوريات أكاديمية",
     "albums": "ألبومات",
@@ -368,13 +368,13 @@ cccccc_m = {
     # "tirukkural translations" : "",
 }
 # ---
-for x in albums_type:
-    cccccc_m[f"{x} albums"] = f"ألبومات {albums_type[x]}"
+for album_type in albums_type:
+    MEDIA_CATEGORY_TRANSLATIONS[f"{album_type} albums"] = f"ألبومات {albums_type[album_type]}"
 # ---
-for x in cccccc_m:
-    lang_key_m[x.lower()] = "%s ب{}" % cccccc_m[x]
+for media_key, media_label in MEDIA_CATEGORY_TRANSLATIONS.items():
+    LANGUAGE_TOPIC_FORMATS[media_key.lower()] = "%s ب{}" % media_label
 # ---
-lang_ttty = {
+LANGUAGE_RESOURCE_FORMATS = {
     "poems": "قصائد %s",
     "phonology": "نطقيات %s",
     "mythology": "أساطير %s",
@@ -382,3 +382,13 @@ lang_ttty = {
     "prose texts": "نصوص نثرية %s",
 }
 # ---
+
+
+languages_key = language_key_translations
+languages_pop = PRIMARY_LANGUAGE_TRANSLATIONS
+languages_pop2 = SUPPLEMENTARY_LANGUAGE_TRANSLATIONS
+languages_pop3 = COMPLEX_LANGUAGE_TRANSLATIONS
+lang_type = LANGUAGE_SUFFIX_FORMATS
+lang_key_m = LANGUAGE_TOPIC_FORMATS
+lang_ttty = LANGUAGE_RESOURCE_FORMATS
+cccccc_m = MEDIA_CATEGORY_TRANSLATIONS

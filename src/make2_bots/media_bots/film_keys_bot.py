@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-"""
-from ..media_bots.film_keys_bot import get_Films_key_CAO, Films
+"""Helper utilities for resolving film- and media-related categories."""
 
-"""
 from typing import Dict
-from ...ma_lists import en_is_nat_ar_is_women
 
+from ...ma_lists import en_is_nat_ar_is_women
 from ...ma_lists import (
     Films_key_CAO,
     Films_key_For_nat,
@@ -13,91 +11,85 @@ from ...ma_lists import (
     television_keys_female,
     Films_key_333,
 )
-from ...ma_lists import (
-    Nat_women,
-    Nat_mens,
-)
+from ...ma_lists import (Nat_women, Nat_mens)
 from ...helps.print_bot import output_test4
 
 
-get_Films_key_CAO_cash: Dict[str, str] = {}
-Films_cash: Dict[str, str] = {}
+FILM_KEY_CAO_CACHE: Dict[str, str] = {}
+FILMS_CACHE: Dict[str, str] = {}
 
 
-def get_Films_key_CAO(con_3: str) -> str:
-    # ---
-    if con_3 in get_Films_key_CAO_cash:
-        return get_Films_key_CAO_cash[con_3]
-    # ---
-    output_test4(f'<<lightblue>> get_Films_key_CAO : con_3 "{con_3}" ')
-    con_33 = con_3.lower().strip()
-    cas_lab = ""
-    labr = ""
-    for tyty, cas_lab in television_keys_female.items():
-        # ---
-        if con_33.endswith(tyty.lower()):
-            cc = con_33[: -len(tyty)].strip()
-            output_test4(f'<<lightblue>> cc:"{cc}", endswith:"{tyty}" ')
-            # ---
-            con_3_lab = Films_key_333.get(cc.strip(), "")
-            # ---
-            if con_3_lab:
-                output_test4(f'<<lightblue>> get_Films_key_CAO : cc "{cc}" ')
-                if "{}" in con_3_lab:
-                    labr = con_3_lab.format(tyty=cas_lab)
+def get_Films_key_CAO(country_identifier: str) -> str:
+    """Resolve labels for composite television keys used in film lookups."""
+
+    if country_identifier in FILM_KEY_CAO_CACHE:
+        return FILM_KEY_CAO_CACHE[country_identifier]
+
+    output_test4(f'<<lightblue>> get_Films_key_CAO : country_identifier "{country_identifier}" ')
+    normalized_identifier = country_identifier.lower().strip()
+    resolved_label = ""
+    for suffix, suffix_translation in television_keys_female.items():
+        if normalized_identifier.endswith(suffix.lower()):
+            prefix = normalized_identifier[: -len(suffix)].strip()
+            output_test4(f'<<lightblue>> prefix:"{prefix}", endswith:"{suffix}" ')
+            prefix_label = Films_key_333.get(prefix.strip(), "")
+            if prefix_label:
+                output_test4(f'<<lightblue>> get_Films_key_CAO : prefix "{prefix}" ')
+                if "{}" in prefix_label:
+                    resolved_label = prefix_label.format(tyty=suffix_translation)
                 else:
-                    labr = f"{cas_lab} {con_3_lab}"
-                output_test4(f'<<lightblue>> get_Films_key_CAO: new labr "{labr}" ')
-    # ---
-    get_Films_key_CAO_cash[con_3] = labr
-    # ---
-    return labr
+                    resolved_label = f"{suffix_translation} {prefix_label}"
+                output_test4(
+                    f'<<lightblue>> get_Films_key_CAO: new resolved_label "{resolved_label}" '
+                )
+
+    FILM_KEY_CAO_CACHE[country_identifier] = resolved_label
+    return resolved_label
 
 
-def Films(cate: str, Start: str, con_3: str, fa: str = "") -> str:
-    # ---
-    cash_key = f"{cate}, {Start}, {con_3}".lower().strip()
-    # ---
-    if cash_key in Films_cash:
-        return Films_cash[cash_key]
-    # ---
-    contry = Start
-    contry_lab = ""
-    # ---
-    if con_3:
-        llab = Nat_mens[contry] if con_3 == "people" else Nat_women[contry]
-        con_3_lab = en_is_nat_ar_is_women.get(con_3.strip(), "")
-        if con_3_lab:
-            contry_lab = con_3_lab.format(llab)
-            output_test4(f'<<lightblue>> test_4:Films: new contry_lab  "{contry_lab}" ')
-        # ---#Films_key_CAO
-        if not contry_lab:
-            con_3_lab = Films_key_CAO.get(con_3, get_Films_key_CAO(con_3))
-            if con_3_lab:
-                contry_lab = f"{con_3_lab} {llab}"
-                # ---
-                if con_3 in Films_key_CAO_new_format:
-                    contry_lab = Films_key_CAO_new_format[con_3].format(llab)
-                # ---
-                output_test4(f'<<lightblue>> test_4:Films: new contry_lab "{contry_lab}" , con_3:{con_3} ')
-        # ---#Films_key_For_nat
-        if not contry_lab:
-            con_3_lab = Films_key_For_nat.get(con_3, "")
-            if con_3_lab:
-                contry_lab = con_3_lab.format(llab)
-                output_test4(f'<<lightblue>> Films_key_For_nat:Films: new contry_lab  "{contry_lab}" ')
-    # ---#get_Films_key_CAO
-    if not contry_lab:
-        cate_lab = Films_key_CAO.get(cate, "")
-        if cate_lab:
-            contry_lab = cate_lab
-            output_test4(f'<<lightblue>> test Films: contry_lab "{contry_lab}" ')
-    # ---
-    if not contry_lab:
-        contry_lab = get_Films_key_CAO(cate)
-        if contry_lab:
-            output_test4(f'<<lightblue>> test Films: new contry_lab "{contry_lab}" ')
-    # ---
-    Films_cash[cash_key] = contry_lab
-    # ---
-    return contry_lab
+def Films(category: str, country_start: str, country_code: str, reference_category: str = "") -> str:
+    """Resolve the Arabic label for a given film category."""
+
+    cache_key = f"{category}, {country_start}, {country_code}".lower().strip()
+    if cache_key in FILMS_CACHE:
+        return FILMS_CACHE[cache_key]
+
+    country_label = ""
+    if country_code:
+        country_name = Nat_mens[country_start] if country_code == "people" else Nat_women[country_start]
+        country_code_label = en_is_nat_ar_is_women.get(country_code.strip(), "")
+        if country_code_label:
+            country_label = country_code_label.format(country_name)
+            output_test4(
+                f'<<lightblue>> test_4:Films: new country_label  "{country_label}" '
+            )
+        if not country_label:
+            country_code_label = Films_key_CAO.get(country_code, get_Films_key_CAO(country_code))
+            if country_code_label:
+                country_label = f"{country_code_label} {country_name}"
+                if country_code in Films_key_CAO_new_format:
+                    country_label = Films_key_CAO_new_format[country_code].format(country_name)
+                output_test4(
+                    f'<<lightblue>> test_4:Films: new country_label "{country_label}" , country_code:{country_code} '
+                )
+        if not country_label:
+            country_code_label = Films_key_For_nat.get(country_code, "")
+            if country_code_label:
+                country_label = country_code_label.format(country_name)
+                output_test4(
+                    f'<<lightblue>> Films_key_For_nat:Films: new country_label  "{country_label}" '
+                )
+
+    if not country_label:
+        category_label = Films_key_CAO.get(category, "")
+        if category_label:
+            country_label = category_label
+            output_test4(f'<<lightblue>> test Films: country_label "{country_label}" ')
+
+    if not country_label:
+        country_label = get_Films_key_CAO(category)
+        if country_label:
+            output_test4(f'<<lightblue>> test Films: new country_label "{country_label}" ')
+
+    FILMS_CACHE[cache_key] = country_label
+    return country_label

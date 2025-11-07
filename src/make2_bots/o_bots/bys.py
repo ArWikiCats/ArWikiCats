@@ -14,112 +14,116 @@ from ..media_bots.films_bot import test_films
 from ...helps.log import logger
 
 
-def Make_By_lab(cate):
-    logger.info(f"<<lightred>>>> vvvvvvvvvvvv Make_By_lab start, cate:{cate} vvvvvvvvvvvv ")
-    cnt_la = ""
+def Make_By_lab(category: str) -> str:
+    logger.info(
+        f"<<lightred>>>> vvvvvvvvvvvv Make_By_lab start, cate:{category} vvvvvvvvvvvv "
+    )
+    resolved_label = ""
 
-    if cate.startswith("by "):
-        con_lab2 = test_films(cate.replace("by ", ""))
-        if con_lab2:
-            cnt_la = f"بواسطة {con_lab2}"
+    if category.startswith("by "):
+        category_label = test_films(category.replace("by ", ""))
+        if category_label:
+            resolved_label = f"بواسطة {category_label}"
         else:
-            con_lab2 = find_nat_others(cate.replace("by ", ""))
-            if con_lab2:
-                cnt_la = f"بواسطة {con_lab2}"
+            category_label = find_nat_others(category.replace("by ", ""))
+            if category_label:
+                resolved_label = f"بواسطة {category_label}"
 
-    Match = re.match(r"^by (.*?) and (.*?)$", cate.lower())
-    if not cnt_la and Match:
-        by1 = Match.group(1)
-        by2 = Match.group(2)
+    match = re.match(r"^by (.*?) and (.*?)$", category.lower())
+    if not resolved_label and match:
+        first_key = match.group(1)
+        second_key = match.group(2)
 
-        by1_lab = By_orginal2.get(by1, "")
-        by2_lab = By_orginal2.get(by2, "")
+        first_label = By_orginal2.get(first_key, "")
+        second_label = By_orginal2.get(second_key, "")
 
-        logger.debug(f"<<lightred>>>> by:{by1},lab:{by1_lab}.")
-        logger.debug(f"<<lightred>>>> by:{by2},lab:{by2_lab}.")
+        logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
+        logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
 
-        if by2_lab and by1_lab:
-            cnt_la = f"حسب {by1_lab} و{by2_lab}"
+        if second_label and first_label:
+            resolved_label = f"حسب {first_label} و{second_label}"
 
-    if cnt_la:
-        logger.debug(f"<<lightblue>>>> ^^^^^^^^^ Make_By_lab lab:{cnt_la}.")
+    if resolved_label:
+        logger.debug(
+            f"<<lightblue>>>> ^^^^^^^^^ Make_By_lab lab:{resolved_label}."
+        )
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ Make_By_lab end ^^^^^^^^^ ")
-    return cnt_la
+    return resolved_label
 
 
-def Get_by_label(cat):
-    lab = ""
-    by = ""
-    frist = ""
+def Get_by_label(category: str) -> str:
+    label = ""
+    by_section = ""
+    first_part = ""
 
-    logger.info(f"<<lightyellow>>>>Get_by_label {cat}")
+    logger.info(f"<<lightyellow>>>>Get_by_label {category}")
 
-    frist_lab = ""
-    by_lab = ""
+    first_label = ""
+    by_label = ""
 
-    if mama := re.match(r"^(.*?) (by .*)$", cat, flags=re.IGNORECASE):
-        frist = mama.group(1)
-        by = mama.group(2)
+    if match_info := re.match(r"^(.*?) (by .*)$", category, flags=re.IGNORECASE):
+        first_part = match_info.group(1)
+        by_section = match_info.group(2)
 
-        logger.debug(f"<<lightyellow>>>>frist:{frist},by:{by}")
+        logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
 
-    if frist.startswith("the "):
-        frist = frist[len("the ") :]
+    if first_part.startswith("the "):
+        first_part = first_part[len("the ") :]
 
-    if frist:
-        if not frist_lab:
-            frist_lab = New_P17_Finall.get(frist.lower(), "")
+    if first_part:
+        if not first_label:
+            first_label = New_P17_Finall.get(first_part.lower(), "")
 
-        if not frist_lab:
-            frist_lab = pop_All_2018.get(frist.lower(), "")
+        if not first_label:
+            first_label = pop_All_2018.get(first_part.lower(), "")
 
-    if by:
-        if not by_lab:
-            by_lab = By_table.get(by.lower(), "")
+    if by_section:
+        if not by_label:
+            by_label = By_table.get(by_section.lower(), "")
 
-        if not by_lab:
-            by_lab = By_table_orginal.get(by.lower(), "")
+        if not by_label:
+            by_label = By_table_orginal.get(by_section.lower(), "")
 
-    if frist_lab and by_lab:
-        lab = f"{frist_lab} {by_lab}"
-        logger.info(f"<<lightyellow>>>>Get_by_label lab {lab}")
+    if first_label and by_label:
+        label = f"{first_label} {by_label}"
+        logger.info(f"<<lightyellow>>>>Get_by_label lab {label}")
 
-    return lab
+    return label
 
 
-def Get_and_label(cat):
-    lab = ""
-    frist = ""
-    last = ""
+def Get_and_label(category: str) -> str:
+    label = ""
+    first_part = ""
+    last_part = ""
 
-    logger.info(f"<<lightyellow>>>>Get_and_label {cat}")
+    logger.info(f"<<lightyellow>>>>Get_and_label {category}")
 
-    frist_lab = ""
-    last_lab = ""
+    first_label = ""
+    last_label = ""
 
-    if mama := re.match(r"(.*?) and (.*)", cat, flags=re.IGNORECASE):
-        frist = mama.group(1)
-        last = mama.group(2)
+    if match_info := re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE):
+        first_part = match_info.group(1)
+        last_part = match_info.group(2)
 
-        logger.debug(f"<<lightyellow>>>>frist:{frist},last:{last}")
+        logger.debug(f"<<lightyellow>>>>frist:{first_part},last:{last_part}")
 
-    if frist:
-        if not frist_lab:
-            frist_lab = New_P17_Finall.get(frist.lower(), "")
+    if first_part:
+        if not first_label:
+            first_label = New_P17_Finall.get(first_part.lower(), "")
 
-        if not frist_lab:
-            frist_lab = pop_All_2018.get(frist.lower(), "")
+        if not first_label:
+            first_label = pop_All_2018.get(first_part.lower(), "")
 
-    if last:
-        if not last_lab:
-            last_lab = New_P17_Finall.get(last.lower(), "")
+    if last_part:
+        if not last_label:
+            last_label = New_P17_Finall.get(last_part.lower(), "")
 
-        if not last_lab:
-            last_lab = pop_All_2018.get(last.lower(), "")
+        if not last_label:
+            last_label = pop_All_2018.get(last_part.lower(), "")
 
-    if frist_lab and last_lab:
-        lab = f"{frist_lab} و{last_lab}"
-        logger.info(f"<<lightyellow>>>>Get_and_label lab {lab}")
+    if first_label and last_label:
+        label = f"{first_label} و{last_label}"
+        logger.info(f"<<lightyellow>>>>Get_and_label lab {label}")
 
-    return lab
+    return label

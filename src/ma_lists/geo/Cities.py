@@ -102,24 +102,24 @@ zz
 # ---
 # ---
 import sys
+import time
 
 from ..utils.json_dir import open_json_file
 from ...helps import len_print
-import time
 
-start = time.time()
+load_start_time = time.time()
 # ---
 # ---
-N_cit_ies_s = open_json_file("all_cities") or {}
+CITY_TRANSLATIONS = open_json_file("all_cities") or {}
 # ---
-Cities_tab2 = open_json_file("Cities_tab2") or {}
+CITY_TRANSLATIONS_SUPPLEMENT = open_json_file("Cities_tab2") or {}
 # ---
-# merge N_cit_ies_s and Cities_tab2
-N_cit_ies_s |= Cities_tab2
+# merge CITY_TRANSLATIONS and CITY_TRANSLATIONS_SUPPLEMENT
+CITY_TRANSLATIONS |= CITY_TRANSLATIONS_SUPPLEMENT
 # ---
-del Cities_tab2
+del CITY_TRANSLATIONS_SUPPLEMENT
 # ---
-N_cit_ies_s_x = {
+CITY_OVERRIDES = {
     "Tubas" : "طوباس",
     "Tulkarm" : "طولكرم",
     "Nablus" : "نابلس",
@@ -358,22 +358,27 @@ N_cit_ies_s_x = {
     "Ad-Deirat" : "الديرات",
 }
 # ---
-# merge N_cit_ies_s and N_cit_ies_s_x
-N_cit_ies_s |= N_cit_ies_s_x
+# merge CITY_TRANSLATIONS and CITY_OVERRIDES
+CITY_TRANSLATIONS |= CITY_OVERRIDES
 # ---
-tabe_lab_yy2 = open_json_file("yy2") or {}
-N_cit_ies_s_lower = {x.lower(): xar for x, xar in N_cit_ies_s.items()}
+CITY_LABEL_PATCHES = open_json_file("yy2") or {}
+CITY_TRANSLATIONS_LOWER = {x.lower(): xar for x, xar in CITY_TRANSLATIONS.items()}
 # ---
 # with open(f"{Dir2}/jsons/all_cities.json", "w", encoding="utf-8") as f:
-#     json.dump(N_cit_ies_s, f, indent=2, ensure_ascii=False)
+#     json.dump(CITY_TRANSLATIONS, f, indent=2, ensure_ascii=False)
 # ---
-end = time.time()
-print(f"Time: {end-start}")
+load_end_time = time.time()
+print(f"Time: {load_end_time - load_start_time}")
 # ---
-Lenth_p = {
-    "N_cit_ies_s": sys.getsizeof(N_cit_ies_s),
-    "tabe_lab_yy2": sys.getsizeof(tabe_lab_yy2),
+memory_sizes = {
+    "CITY_TRANSLATIONS": sys.getsizeof(CITY_TRANSLATIONS),
+    "CITY_LABEL_PATCHES": sys.getsizeof(CITY_LABEL_PATCHES),
 }
 # ---
 
-len_print.lenth_pri("cities.py", Lenth_p, Max=100)
+len_print.lenth_pri("cities.py", memory_sizes, Max=100)
+# ---
+# Backwards compatible aliases
+N_cit_ies_s = CITY_TRANSLATIONS
+tabe_lab_yy2 = CITY_LABEL_PATCHES
+N_cit_ies_s_lower = CITY_TRANSLATIONS_LOWER

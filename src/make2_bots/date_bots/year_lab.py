@@ -1,79 +1,80 @@
 import re
+
 from ..matables_bots.bot import MONTH_table
 from ...helps.log import logger
 from ..reg_lines import regex_make_year_lab
 
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+ENGLISH_LETTERS_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def make_year_lab(year: str) -> str:  # 21st century
     # ---
 
-    su = ""
-    _ye_ = re.sub(regex_make_year_lab.lower(), r"\g<1>", year)
+    suffix = ""
+    normalized_year = re.sub(regex_make_year_lab.lower(), r"\g<1>", year)
 
     if " bc" in year or " bce" in year:
-        su = " ق م "
+        suffix = " ق م "
 
-    year2 = year.split(" bce")[0].split(" bc")[0]
-    test_2 = re.sub(r"\d+", "", year2).strip()
+    year_without_suffix = year.split(" bce")[0].split(" bc")[0]
+    non_numeric_part = re.sub(r"\d+", "", year_without_suffix).strip()
 
-    y_l = ""
-    if not test_2:
-        y_l = _ye_ + su
+    year_label = ""
+    if not non_numeric_part:
+        year_label = normalized_year + suffix
 
-    elif test_2.lower() in MONTH_table:
-        fa2 = re.sub(test_2, "", year2).strip()
-        y_l = f"{MONTH_table[test_2]} {fa2}{su}"
-        logger.debug(f' test_2 "{y_l}":')
+    elif non_numeric_part.lower() in MONTH_table:
+        month_number_segment = re.sub(non_numeric_part, "", year_without_suffix).strip()
+        year_label = f"{MONTH_table[non_numeric_part.lower()]} {month_number_segment}{suffix}"
+        logger.debug(f' test_2 "{year_label}":')
 
-    elif test_2 == "s":
-        y_l = f"عقد {_ye_}{su}"
+    elif non_numeric_part == "s":
+        year_label = f"عقد {normalized_year}{suffix}"
 
     elif "century" in year:
-        y_l = f"القرن {_ye_}{su}"
+        year_label = f"القرن {normalized_year}{suffix}"
 
     elif "millennium" in year:
-        y_l = f"الألفية {_ye_}{su}"
+        year_label = f"الألفية {normalized_year}{suffix}"
 
-    tst3 = re.sub(r"\d+", "", year.strip())
-    test3_results = ["", "-", "–", "−"]
-    if tst3 in test3_results:
-        y_l = year
+    sanitized_year = re.sub(r"\d+", "", year.strip())
+    allowed_suffixes = ["", "-", "–", "−"]
+    if sanitized_year in allowed_suffixes:
+        year_label = year
 
-    kaka = re.sub(en_literes, "", y_l, flags=re.IGNORECASE)
-    if kaka != y_l:
-        y_l = ""
+    arabic_label_candidate = re.sub(ENGLISH_LETTERS_PATTERN, "", year_label, flags=re.IGNORECASE)
+    if arabic_label_candidate != year_label:
+        year_label = ""
 
-    if y_l:
-        logger.info(f'>>>> make_year_lab: "{year}", "{y_l}":')
-    return y_l
+    if year_label:
+        logger.info(f'>>>> make_year_lab: "{year}", "{year_label}":')
+    return year_label
 
 
 def make_month_lab(year: str) -> str:  # 21st century
     if re.match(r"^\d+$", year.strip()):
         return year.strip()
 
-    y_l = ""
+    year_label = ""
 
-    year2 = year
-    test_2 = re.sub(r"\d+$", "", year2).strip()
-    if test_2.lower() in MONTH_table:
-        fa2 = re.sub(test_2, "", year2).strip()
-        y_l = f"{MONTH_table[test_2.lower()]} {fa2}"
-        logger.debug(f' test_2 "{y_l}":')
+    year_without_numeric_suffix = year
+    non_numeric_part = re.sub(r"\d+$", "", year_without_numeric_suffix).strip()
+    if non_numeric_part.lower() in MONTH_table:
+        month_number_segment = re.sub(non_numeric_part, "", year_without_numeric_suffix).strip()
+        year_label = f"{MONTH_table[non_numeric_part.lower()]} {month_number_segment}"
+        logger.debug(f' test_2 "{year_label}":')
 
     # if y_l != year:
 
-    tst3 = re.sub(r"\d+", "", year.strip())
-    test3_results = ["", "-", "–", "−"]
-    if tst3 in test3_results:
-        y_l = year
+    sanitized_year = re.sub(r"\d+", "", year.strip())
+    allowed_suffixes = ["", "-", "–", "−"]
+    if sanitized_year in allowed_suffixes:
+        year_label = year
 
-    kaka = re.sub(en_literes, "", y_l, flags=re.IGNORECASE)
-    if kaka != y_l:
-        y_l = ""
+    arabic_label_candidate = re.sub(ENGLISH_LETTERS_PATTERN, "", year_label, flags=re.IGNORECASE)
+    if arabic_label_candidate != year_label:
+        year_label = ""
 
-    if y_l:
-        logger.info(f'>>>> year_lab.make_month_lab: "{year}", "{y_l}":')
-    return y_l
+    if year_label:
+        logger.info(f'>>>> year_lab.make_month_lab: "{year}", "{year_label}":')
+    return year_label

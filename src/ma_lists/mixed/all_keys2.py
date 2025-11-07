@@ -110,11 +110,11 @@ QARAT = {
     "oceania": "أوقيانوسيا",
 }
 # ---
-for di in DIRECTIONS:
-    for f in QARAT:
-        la = f"{DIRECTIONS[di]} {QARAT[f]}"
-        na = f"{di} {f}"
-        pf_keys2[na] = la
+for direction_key, direction_label in DIRECTIONS.items():
+    for region_key, region_label in QARAT.items():
+        arabic_label = f"{direction_label} {region_label}"
+        combined_key = f"{direction_key} {region_key}"
+        pf_keys2[combined_key] = arabic_label
 # ---
 pop_of_football_lower = {x.lower(): y for x, y in pop_of_football.items()}
 # ---
@@ -129,8 +129,8 @@ pop_of_football_lower = {x.lower(): y for x, y in pop_of_football.items()}
 # "women's british basketball league":"الدوري البريطاني لكرة السلة للسيدات",
 # "premier league":"الدوري الإنجليزي الممتاز",
 # ---
-for x in pop_of_football:
-    pf_keys2[f"{x} medalists"] = f"فائزون بميداليات {pop_of_football[x]}"
+for competition_key, competition_label in pop_of_football.items():
+    pf_keys2[f"{competition_key} medalists"] = f"فائزون بميداليات {competition_label}"
 # ---
 # "canyons and gorges":"أخاديد ووديان",
 # "canyons and gorges":"أخاديد",
@@ -143,8 +143,8 @@ pop_of_with_in = open_json_file("pop_of_with_in") or {}
 # ---
 pf_keys2.update(pop_of_with_in)
 # ---
-for x in pop_of_with_in:
-    pf_keys2[f"{x} of"] = f"{pop_of_with_in[x]} في"
+for population_key, population_label in pop_of_with_in.items():
+    pf_keys2[f"{population_key} of"] = f"{population_label} في"
 # ---
 schools_keeys = {
     "bilingual schools": "مدارس {} ثنائية اللغة",
@@ -161,9 +161,9 @@ schools_keeys = {
 # "public schools":"مدارس عامة",
 # "private schools":"مدارس خاصة",
 # ---
-for si, si_lab in schools_keeys.items():
-    pf_keys2[f"private {si}"] = si_lab.format("خاصة")
-    pf_keys2[f"public {si}"] = si_lab.format("عامة")
+for school_category, school_template in schools_keeys.items():
+    pf_keys2[f"private {school_category}"] = school_template.format("خاصة")
+    pf_keys2[f"public {school_category}"] = school_template.format("عامة")
 # ---
 # "spits":"",
 # "typhoons":"أعاصير استوائية",
@@ -177,8 +177,8 @@ for si, si_lab in schools_keeys.items():
 # ---
 pop_of_without_in = open_json_file("pop_of_without_in") or {}
 # ---
-pf_keys2.update({x.lower(): v for x, v in pop_of_without_in.items() if x.lower() not in pf_keys2})
-pf_keys2.update({f"{x.lower()} of": v for x, v in pop_of_without_in.items()})
+pf_keys2.update({key.lower(): value for key, value in pop_of_without_in.items() if key.lower() not in pf_keys2})
+pf_keys2.update({f"{key.lower()} of": value for key, value in pop_of_without_in.items()})
 # ---
 pf_keys2["navy of"] = "بحرية"
 pf_keys2["gulf of"] = "خليج"

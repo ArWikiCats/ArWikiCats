@@ -20,79 +20,85 @@ from ....ma_lists import New_female_keys
 
 from ...format_bots import Tabl_with_in
 
-from ....helps.print_bot import print_put, output_test, mainoutput
+from ....helps.print_bot import print_put, output_test, main_output_preferences
 
 from ..contry_bot import Get_c_t_lab
 
 
-def get_Type_lab(tito: str, Type: str, Type_lower: str, contry_lower: str) -> Tuple[str, bool]:
+def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters."""
 
-    tito2 = tito.strip()
+    normalized_preposition = preposition.strip()
 
-    Type_lab = ""
-    if Type_lower == "women" and tito2 == "from":
-        Type_lab = "نساء"
-        print_put(f'>> >> >> Make Type_lab "{Type_lab}".')
+    type_label = ""
+    if type_lower == "women" and normalized_preposition == "from":
+        type_label = "نساء"
+        print_put(f'>> >> >> Make type_label "{type_label}".')
 
-    elif Type_lower == "women of":
-        Type_lab = "نساء من"
-        print_put(f'>> >> >> Make Type_lab "{Type_lab}".')
+    elif type_lower == "women of":
+        type_label = "نساء من"
+        print_put(f'>> >> >> Make type_label "{type_label}".')
 
-    Add_in_lab = True
-    Type_lower_in = Type_lower.strip()
+    should_append_in_label = True
+    type_lower_with_preposition = type_lower.strip()
 
-    if not Type_lower_in.endswith(f" {tito2}"):
-        Type_lower_in = f"{Type_lower.strip()} {tito2}"
+    if not type_lower_with_preposition.endswith(f" {normalized_preposition}"):
+        type_lower_with_preposition = f"{type_lower.strip()} {normalized_preposition}"
 
-    if not Type_lab:
-        Type_lab = Tabl_with_in.get(Type_lower_in, "")
-        if Type_lab:
-            Add_in_lab = False
-            print_put(f'<<<< Type_lower_in "{Type_lower_in}",Type_lab : "{Type_lab}"')
+    if not type_label:
+        type_label = Tabl_with_in.get(type_lower_with_preposition, "")
+        if type_label:
+            should_append_in_label = False
+            print_put(
+                f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", type_label : "{type_label}"'
+            )
 
-    if not Type_lab:
-        Type_lab = New_P17_Finall.get(Type_lower, "")
-        if Type_lab:
-            output_test(f'<< Type_lower_in "{Type_lower_in}", Type_lab : "{Type_lab}"')
+    if not type_label:
+        type_label = New_P17_Finall.get(type_lower, "")
+        if type_label:
+            output_test(
+                f'<< type_lower_with_preposition "{type_lower_with_preposition}", type_label : "{type_label}"'
+            )
 
-    if Type_lab == "" and Type_lower.startswith("the "):
-        Type_lower2 = Type_lower[len("the ") :]
+    if type_label == "" and type_lower.startswith("the "):
+        type_lower_without_article = type_lower[len("the ") :]
 
-        Type_lab = New_P17_Finall.get(Type_lower2, "")
-        if Type_lab:
-            output_test(f'<<< Type_lower_in "{Type_lower_in}", Type_lab : "{Type_lab}"')
-    if Type_lower == "sport" and contry_lower.startswith("by "):
-        Type_lab = "رياضة"
+        type_label = New_P17_Finall.get(type_lower_without_article, "")
+        if type_label:
+            output_test(
+                f'<<< type_lower_with_preposition "{type_lower_with_preposition}", type_label : "{type_label}"'
+            )
+    if type_lower == "sport" and country_lower.startswith("by "):
+        type_label = "رياضة"
 
-    if Type_lab == "" and Type_lower.strip().endswith(" people"):
-        Type_lab = make_people_lab(Type_lower)
+    if type_label == "" and type_lower.strip().endswith(" people"):
+        type_label = make_people_lab(type_lower)
 
-    if not Type_lab:
-        Type_lab = religious_keys_PP.get(Type_lower, {}).get("mens", "")
-    if not Type_lab:
-        Type_lab = New_female_keys.get(Type_lower, "")
-    if not Type_lab:
-        Type_lab = test_films(Type_lower)
-    if not Type_lab:
-        Type_lab = nats.find_nat_others(Type_lower)
-    if not Type_lab:
-        Type_lab = team_work.Get_team_work_Club(Type.strip())
+    if not type_label:
+        type_label = religious_keys_PP.get(type_lower, {}).get("mens", "")
+    if not type_label:
+        type_label = New_female_keys.get(type_lower, "")
+    if not type_label:
+        type_label = test_films(type_lower)
+    if not type_label:
+        type_label = nats.find_nat_others(type_lower)
+    if not type_label:
+        type_label = team_work.Get_team_work_Club(type_value.strip())
 
-    if not Type_lab:
-        Type_lab = tmp_bot.Work_Templates(Type_lower)
+    if not type_label:
+        type_label = tmp_bot.Work_Templates(type_lower)
 
-    if not Type_lab:
-        Type_lab = Get_c_t_lab(Type_lower, tito, Type="Type_lab")
+    if not type_label:
+        type_label = Get_c_t_lab(type_lower, preposition, Type="Type_lab")
 
-    if not Type_lab:
-        Type_lab = event2bot.event2(Type_lower)
-    if not Type_lab:
-        Type_lab = test4_2018_Jobs(Type_lower, out=mainoutput[1])
+    if not type_label:
+        type_label = event2bot.event2(type_lower)
+    if not type_label:
+        type_label = test4_2018_Jobs(type_lower, out=main_output_preferences[1])
 
-    if not Type_lab:
-        Type_lab = contry2_lab.get_lab_for_contry2(Type_lower)
+    if not type_label:
+        type_label = contry2_lab.get_lab_for_contry2(type_lower)
 
-    print_put(f"?????? get_Type_lab: {Type_lower=}, {Type_lab=}")
+    print_put(f"?????? get_Type_lab: {type_lower=}, {type_label=}")
 
-    return Type_lab, Add_in_lab
+    return type_label, should_append_in_label
