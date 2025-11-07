@@ -4,7 +4,7 @@ import re
 import sys
 from contextlib import contextmanager
 from dataclasses import dataclass, field
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional, Iterator
 
 from .make2_bots.co_bots import filter_en
 from .make2_bots.date_bots import labs_years
