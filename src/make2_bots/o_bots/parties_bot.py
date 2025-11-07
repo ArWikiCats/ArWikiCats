@@ -1,34 +1,34 @@
-"""
-from  make.bots.parties_bot import get_parties_lab
+"""Party label helpers."""
 
-"""
-
-from ...ma_lists import party_end_keys
-from ...ma_lists import Parties
+from __future__ import annotations
 
 from ...helps.log import logger
+from ...ma_lists import Parties, party_end_keys
+from .utils import resolve_suffix_template
 
 
 def get_parties_lab(party: str) -> str:
-    # إيجاد لاحقات الأحزاب
-    logger.info(f'get_parties_lab party:"{party}"')
-    party_lab = ""
+    """Return the Arabic label for ``party`` using known suffixes.
 
-    for suffix, suffix_template in party_end_keys.items():
-        suffix_with_space = f" {suffix}"
-        if party.endswith(suffix_with_space) and party_lab == "":
-            party_key = party[: -len(suffix_with_space)]
-            logger.debug(f'party_uu:"{party_key}", tat:"{suffix}" ')
-            label = Parties.get(party_key, "")
-            if label:
-                party_lab = (
-                    suffix_template % label
-                    if "%s" in suffix_template
-                    else suffix_template.format(label)
-                )
-                break
+    Args:
+        party: The party name to resolve.
 
-    if party_lab:
-        logger.info(f'get_parties_lab party:"{party}", party_lab:"{party_lab}"')
+    Returns:
+        The resolved Arabic label or an empty string if the suffix is unknown.
+    """
 
-    return party_lab
+    normalized_party = party.strip()
+    logger.info("Resolving party label", extra={"party": normalized_party})
+
+    def _lookup(prefix: str) -> str:
+        return Parties.get(prefix, "")
+
+    party_label = resolve_suffix_template(normalized_party, party_end_keys, _lookup)
+
+    if party_label:
+        logger.info("Resolved party label", extra={"party": normalized_party, "label": party_label})
+
+    return party_label
+
+
+__all__ = ["get_parties_lab"]

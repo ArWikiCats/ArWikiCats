@@ -58,3 +58,15 @@ This update improves label processing accuracy and restructures the test archite
 * **New Features**
   * Added comprehensive localization mappings for sports, companies, buildings, and medical terminology.
   * Expanded translation data for enhanced language support and domain coverage.
+
+## #14 - 2025-11-06
+
+### Changed
+* Refactored all modules under `src/make2_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
+* Centralised shared suffix-matching and caching helpers to eliminate duplicated logic across bots.
+* Standardised logging usage and cache handling, adding inline comments to clarify complex resolution flows.
+* Updated dependent bots to consume the new PEP 8 interfaces and refreshed formatting across touched files.
+
+### Added
+* Introduced `src/make2_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
+

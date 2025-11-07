@@ -1,15 +1,14 @@
-#!/usr/bin/python3
-"""
-python3 core8/pwb.py make/m test Category:People executed by the International Military Tribunal in Nuremberg
+"""University labelling helpers."""
 
-from  make.bots import univer # univer.universities_tables | univer.test_Universities(cate)
-"""
+from __future__ import annotations
 
-from ...ma_lists import N_cit_ies_s_lower
+from typing import Dict
+
 from ...helps.print_bot import print_put
+from ...ma_lists import N_cit_ies_s_lower
+from .utils import get_or_set
 
-# ---
-majors = {
+MAJORS: Dict[str, str] = {
     "medical sciences": "للعلوم الطبية",
     "international university": "الدولية",
     "art": "للفنون",
@@ -37,90 +36,97 @@ majors = {
     "reading": "للقراءة",
     "applied sciences": "للعلوم التطبيقية",
 }
-# ---
-universities_tables = {
+
+UNIVERSITIES_TABLES: Dict[str, str] = {
     "national maritime university": "جامعة {} الوطنية البحرية",
     "national university": "جامعة {} الوطنية",
 }
-# ---
-"""
-"university of nebraska medical center":"جامعة نبراسكا كلية الطب",
-"university of new mexico school of law":"كلية الحقوق في جامعة نيو مكسيكو",
-"university of applied sciences, mainz":"جامعة ماينز للعلوم التطبيقية",
 
-"china university of petroleum":"جامعة الصين للبترول",
-"odesa national maritime university":"جامعة أوديسا الوطنية البحرية",
-"""
-for major, maj_ar in majors.items():
-    major = major.lower()
-    universities_tables[f"university of {major}"] = "جامعة {} %s" % maj_ar
-    universities_tables[f"university-of-{major}"] = "جامعة {} %s" % maj_ar
+for major, arabic_label in MAJORS.items():
+    normalized_major = major.lower()
+    template = f"جامعة {{}} {arabic_label}"
+    UNIVERSITIES_TABLES[f"university of {normalized_major}"] = template
+    UNIVERSITIES_TABLES[f"university-of-{normalized_major}"] = template
+    UNIVERSITIES_TABLES[f"university of the {normalized_major}"] = template
+    UNIVERSITIES_TABLES[f"university-of-the-{normalized_major}"] = template
 
-    universities_tables[f"university of the {major}"] = "جامعة {} %s" % maj_ar
-    universities_tables[f"university-of-the-{major}"] = "جامعة {} %s" % maj_ar
-
-test_Universities_cash = {}
+UNIVERSITIES_CACHE: Dict[str, str] = {}
 
 
-def test_Universities(cate: str) -> str:
-    cate = cate.lower()
-    # ---
-    if cate.startswith("category:"):
-        cate = cate[len("category:") :].strip()
-    # ---
-    if cate.lower().strip() in test_Universities_cash:
-        return test_Universities_cash[cate.lower().strip()]
-    # ---
-    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_Universities start, (cate:{cate}) vvvvvvvvvvvv ")
-    # ---
-    city_key = ""
-    university_template = ""
-    # ---
-    for xi, xi_lab in universities_tables.items():
-        xi2 = f"the {xi}"
-        if cate.endswith(xi):
-            university_template = xi_lab
-            city_key = cate[: -len(xi)].strip()
-            break
-        elif cate.endswith(xi2):
-            university_template = xi_lab
-            city_key = cate[: -len(xi2)].strip()
-            break
-    # ---
-    if not city_key:
-        for xi, xi_lab in universities_tables.items():
-            xi3 = f"{xi}, "
-            the_xi = f"the {xi}"
-            if cate.startswith(xi3):
-                university_template = xi_lab
-                city_key = cate[len(xi3) :].strip()
+def _normalise_category(category: str) -> str:
+    """Lowercase and strip ``category`` while removing ``Category:`` prefix."""
+
+    normalized = category.lower().strip()
+    if normalized.startswith("category:"):
+        normalized = normalized[len("category:") :].strip()
+    return normalized
+
+
+def test_universities(category: str) -> str:
+    """Return the Arabic label for university-related categories.
+
+    Args:
+        category: Category representing a university or faculty.
+
+    Returns:
+        The resolved Arabic label or an empty string when no mapping exists.
+    """
+
+    normalized_category = _normalise_category(category)
+
+    if normalized_category in UNIVERSITIES_CACHE:
+        return UNIVERSITIES_CACHE[normalized_category]
+
+    def _resolve() -> str:
+        print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
+
+        city_key = ""
+        university_template = ""
+
+        # Attempt to match based on the suffix first.
+        for key, template in UNIVERSITIES_TABLES.items():
+            prefixed_key = f"the {key}"
+            if normalized_category.endswith(key):
+                university_template = template
+                city_key = normalized_category[: -len(key)].strip()
                 break
-            elif cate.startswith(xi):
-                university_template = xi_lab
-                city_key = cate[len(xi) :].strip()
+            if normalized_category.endswith(prefixed_key):
+                university_template = template
+                city_key = normalized_category[: -len(prefixed_key)].strip()
                 break
-            elif cate.startswith(the_xi):
-                university_template = xi_lab
-                city_key = cate[len(the_xi) :].strip()
-                break
-    # ---
-    city_label = ""
-    if city_key:
-        # ---
-        city_label = N_cit_ies_s_lower.get(city_key, "")
-        # ---
-        print_put(
-            f"<<lightblue>>>> test_Universities cite:{city_key}, majorlab:{university_template}, citelab:{city_label}"
-        )
-    # ---
-    univer_lab = ""
-    # ---
-    if city_label:
-        univer_lab = university_template.format(city_label)
-        print_put(f'<<lightblue>>>>>> test_Universities: new univer_lab  "{univer_lab}" ')
-    # ---
-    print_put("<<lightblue>>>> ^^^^^^^^^ test_Universities end ^^^^^^^^^ ")
-    # ---
-    test_Universities_cash[cate.lower().strip()] = univer_lab
-    # ---
-    return univer_lab
+
+        # Fallback to prefix matching when suffixes fail.
+        if not city_key:
+            for key, template in UNIVERSITIES_TABLES.items():
+                prefixed_key = f"the {key}"
+                key_with_comma = f"{key}, "
+                if normalized_category.startswith(key_with_comma):
+                    university_template = template
+                    city_key = normalized_category[len(key_with_comma) :].strip()
+                    break
+                if normalized_category.startswith(key):
+                    university_template = template
+                    city_key = normalized_category[len(key) :].strip()
+                    break
+                if normalized_category.startswith(prefixed_key):
+                    university_template = template
+                    city_key = normalized_category[len(prefixed_key) :].strip()
+                    break
+
+        city_label = N_cit_ies_s_lower.get(city_key, "") if city_key else ""
+        if city_label and university_template:
+            university_label = university_template.format(city_label)
+            print_put(f'<<lightblue>>>>>> test_universities: new univer_lab  "{university_label}" ')
+            print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
+            return university_label
+
+        print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
+        return ""
+
+    return get_or_set(UNIVERSITIES_CACHE, normalized_category, _resolve)
+
+
+# Backwards compatibility ----------------------------------------------------------------------
+test_Universities = test_universities
+
+__all__ = ["test_universities", "test_Universities"]

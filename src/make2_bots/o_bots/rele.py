@@ -1,19 +1,20 @@
-"""
-"""
+"""Resolve labels for relations between countries."""
+
+from __future__ import annotations
 
 import re
-from ... import printe
-from ...ma_lists import Nat_women, Nat_men, All_contry_with_nat_keys_is_en
-from ...ma_lists import All_contry_ar
-from ...helps.print_bot import print_put
+from typing import Dict, Mapping, Tuple
 
-# ---
-Pp_Priffix_p17 = {
+from ... import printe
+from ...helps.print_bot import print_put
+from ...ma_lists import All_contry_ar, All_contry_with_nat_keys_is_en, Nat_men, Nat_women
+
+P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
     " proxy conflict": "صراع {} بالوكالة",
 }
-# ---
-PP_PRIFFIX_RELATIONS_FEMALE = {
+
+RELATIONS_FEMALE: Mapping[str, str] = {
     " military relations": "العلاقات {} العسكرية",
     " joint economic efforts": "الجهود الاقتصادية المشتركة {}",
     " relations": "العلاقات {}",
@@ -25,7 +26,7 @@ PP_PRIFFIX_RELATIONS_FEMALE = {
     " war": "الحرب {}",
 }
 
-PP_PRIFFIX_RELATIONS_MALE = {
+RELATIONS_MALE: Mapping[str, str] = {
     " conflict video games": "ألعاب فيديو الصراع {}",
     " conflict legal issues": "قضايا قانونية في الصراع {}",
     " conflict": "الصراع {}",
@@ -33,143 +34,131 @@ PP_PRIFFIX_RELATIONS_MALE = {
 }
 
 
-def Work_relations(suus: str) -> str:
-    suus = suus.lower()
-    print_put(f"start Work_relations: suus:{suus}")
-    # ---
-    gen_key = "women"
-    dodo = All_contry_with_nat_keys_is_en
-    nat_tab = Nat_women
-    pp_priffix = PP_PRIFFIX_RELATIONS_FEMALE
-    # ---
-    first_part = ""
-    end_part = ""
-    # ---
-    suus_lab = ""
-    # ---
-    # الحصول على الجزء الأخير
-    for pri_ff in PP_PRIFFIX_RELATIONS_FEMALE:
-        if suus.endswith(pri_ff):
-            print_put(f'\t\t>>>><<lightblue>> Work_relations :"{suus}".endswith({pri_ff})')
-            end_part = pri_ff
-            first_part = suus[: -len(pri_ff)]
-            break
-    # ---
-    if first_part == "" and end_part == "":
-        for pri_ff in PP_PRIFFIX_RELATIONS_MALE:
-            if suus.endswith(pri_ff):
-                print_put(f'\t\t>>>><<lightblue>> Work_relations :"{suus}".endswith({pri_ff})')
-                end_part = pri_ff
-                first_part = suus[: -len(pri_ff)]
-                # ---
-                nat_tab = Nat_men
-                gen_key = "men"
-                pp_priffix = PP_PRIFFIX_RELATIONS_MALE
-                # ---
-                break
+def _split_pair(expression: str) -> Tuple[str, str]:
+    """Split ``expression`` into two country identifiers."""
 
-    if first_part:
-        printe.output(f'\t\t>>>><<lightblue>> first_part :"{first_part}"')
-        # space = "–"
-        space = "-"
-        if first_part.find("–") != -1 or first_part.find("-") != -1:
-            print_put(f'\t\t>>>><<lightblue>> first_part.find(space) :"{first_part.find(space)}" ')
+    match = re.match(r"^(.*?)(?:–|-|−)(.*)$", expression)
+    if not match:
+        return "", ""
+    return match.group(1).strip(), match.group(2).strip()
 
-            Mash = "^(.*)(?:–|-|−)(.*)$"
-            co1 = re.sub(Mash, r"\g<1>", first_part.lower())
-            co2 = re.sub(Mash, r"\g<2>", first_part.lower())
 
-            if co2 == first_part:
-                co2 = ""
-            if co1 == first_part:
-                co1 = ""
+def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str]) -> str:
+    """Return the gender-specific label for ``key``."""
 
-            printe.output(f'\t\t>>>><<lightblue>> end_part:"{end_part}", co1:"{co1}", co2:"{co2}"')
+    normalized = key.strip()
+    if not normalized:
+        return ""
 
-            co1_lab = dodo.get(co1, {}).get(gen_key) or nat_tab.get(co1, "")
+    if gender_key:
+        details = All_contry_with_nat_keys_is_en.get(normalized, {})
+        label = details.get(gender_key, "")
+        if label:
+            return label
 
-            co2_lab = dodo.get(co2, {}).get(gen_key) or nat_tab.get(co2, "")
+    return nat_table.get(normalized, "")
 
-            # if co1 == "nato" : co1_lab = "الناتو"
-            # if co2 == "nato" : co2_lab = "الناتو"
 
-            if not co1_lab:
-                printe.output(f'\t\t>>>><<lightblue>> cant find lab for:"{co1}"')
+def _combine_labels(labels: Tuple[str, str], add_article: bool, joiner: str = " ") -> str:
+    """Combine ``labels`` with sorting and optional article insertion."""
 
-            if not co2_lab:
-                printe.output(f'\t\t>>>><<lightblue>> cant find lab for:"{co2}"')
-            else:
-                print_put(f'\t\t>>>><<lightblue>> co2_lab:{co2}"{co2_lab}"')
+    sorted_labels = sorted(labels)
+    if add_article:
+        combined = " ".join(sorted_labels)
+        # Replicate the historical behaviour where each word receives an ``ال``
+        # prefix and the combined string keeps the order alphabetical.
+        combined = re.sub(r" ", " ال", f" {combined}").strip()
+        return combined
 
-            if co1_lab and co2_lab:
-                # uuu_lab = co1_lab + " " + co2_lab
-                uuu_lab = f"{co1_lab} {co2_lab}"
-                popo = sorted([co1_lab, co2_lab])
-                uuu_lab = " ".join(popo)
-                uuu_lab = re.sub(r" ", " ال", f" {uuu_lab}")
-                print_put(f'\t\t>>>><<lightblue>> suus.endswith end_part("{end_part}"), uuu_lab:"{uuu_lab}"')
-                # ---
-                suus_lab = pp_priffix[end_part].format(uuu_lab)
-                # ---
-                # suus_lab = re.sub(r" ", " ال", suus_lab )
-                print_put(f'\t\t>>>> suus_lab:"{suus_lab}"')
+    return joiner.join(sorted_labels)
 
-            if end_part == " relations" and "nato" in [co2, co1]:
-                lab = All_contry_ar.get(co1, "")
-                if co1 == "nato":
-                    lab = All_contry_ar.get(co2, "")
-                if lab:
-                    suus_lab = f"علاقات الناتو و{lab}"
-                    print_put(f'\t\t>>>> suus_lab:"{suus_lab}"')
 
-    # dodo2 = All_contry_ar
-    if not suus_lab:
-        U_44 = ""
-        pri_o = ""
-        for pri_dd in Pp_Priffix_p17:
-            if not U_44:
-                if suus.endswith(pri_dd):
-                    printe.output(f'\t\t>>>><<lightblue>> Work_relations :"{suus}".endswith({pri_dd})')
-                    pri_o = pri_dd
-                    U_44 = suus[: -len(pri_dd)]
-        # ---
-        if U_44:
-            print_put(f'\t\t>>>><<lightblue>> U_44 :"{U_44}"')
-            # space = "–"
-            space = "-"
-            if U_44.find("–") != -1 or U_44.find("-") != -1 or U_44.find("−") != -1:
-                print_put(f'\t\t>>>><<lightblue>> U_44.find(space) :"{U_44}" ')
+def _resolve_relations(
+    normalized_value: str,
+    suffixes: Mapping[str, str],
+    gender_key: str,
+    nat_table: Mapping[str, str],
+    *,
+    add_article: bool,
+    joiner: str = " ",
+) -> str:
+    """Resolve a relation label using ``suffixes`` and ``nat_table``."""
 
-                Mash2 = "^(.*)(?:–|-|−)(.*)$"
-                co11 = re.sub(Mash2, r"\g<1>", U_44)
-                co22 = re.sub(Mash2, r"\g<2>", U_44)
+    for suffix, template in suffixes.items():
+        if not normalized_value.endswith(suffix):
+            continue
 
-                if co22 == U_44:
-                    co22 = ""
-                if co11 == U_44:
-                    co11 = ""
+        prefix = normalized_value[: -len(suffix)].strip()
+        first_key, second_key = _split_pair(prefix)
+        if not first_key or not second_key:
+            continue
 
-                print_put(f'\t\t>>>><<lightblue>> co11:"{co11}", co22:"{co22}"')
-                co11_lab = All_contry_ar.get(co11, "")
-                co22_lab = All_contry_ar.get(co22, "")
+        first_label = _lookup_country_label(first_key, gender_key, nat_table)
+        second_label = _lookup_country_label(second_key, gender_key, nat_table)
 
-                if not co11_lab:
-                    print_put(f'\t\t>>>><<lightblue>> cant find lab for:"{co11}"')
+        if not first_label or not second_label:
+            printe.output(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')
+            continue
 
-                if not co22_lab:
-                    print_put(f'\t\t>>>><<lightblue>> cant find lab for:"{co22}"')
-                else:
-                    print_put(f'\t\t>>>><<lightblue>> co22_lab:{co22}"{co22_lab}"')
+        combined = _combine_labels((first_label, second_label), add_article, joiner=joiner)
 
-                if co11_lab and co22_lab:
-                    # uuu_lab = co11_lab + " " + co22_lab
-                    uuu_lab = f"{co11_lab} و{co22_lab}"
-                    popo = sorted([co11_lab, co22_lab])
-                    uuu_lab = " و".join(popo)
+        if suffix == " relations" and "nato" in {first_key, second_key}:
+            counterpart = first_key if second_key == "nato" else second_key
+            counterpart_label = All_contry_ar.get(counterpart, "")
+            if counterpart_label:
+                combined = f"علاقات الناتو و{counterpart_label}"
 
-                    print_put(f'\t\t>>>><<lightyellow>> suus.endswith pri_o("{pri_o}"), uuu_lab:"{uuu_lab}"')
-                    suus_lab = Pp_Priffix_p17[pri_o].format(uuu_lab)
+        return template.format(combined)
 
-                    print_put(f'\t\t>>>> suus_lab:"{suus_lab}"')
+    return ""
 
-    return suus_lab
+
+def work_relations(value: str) -> str:
+    """Return the label for relations between two countries.
+
+    Args:
+        value: Category describing the relationship between two countries.
+
+    Returns:
+        The resolved Arabic label or an empty string when the relation cannot
+        be interpreted.
+    """
+
+    normalized = value.lower().strip()
+    print_put(f"start work_relations: value:{normalized}")
+
+    resolved = _resolve_relations(
+        normalized,
+        RELATIONS_FEMALE,
+        "women",
+        Nat_women,
+        add_article=True,
+    )
+    if resolved:
+        return resolved
+
+    resolved = _resolve_relations(
+        normalized,
+        RELATIONS_MALE,
+        "men",
+        Nat_men,
+        add_article=True,
+    )
+    if resolved:
+        return resolved
+
+    resolved = _resolve_relations(
+        normalized,
+        P17_PREFIXES,
+        "",
+        All_contry_ar,
+        add_article=False,
+        joiner=" و",
+    )
+    return resolved
+
+
+# Backwards compatibility ----------------------------------------------------------------------
+Work_relations = work_relations
+
+__all__ = ["work_relations", "Work_relations"]
