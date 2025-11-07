@@ -18,13 +18,22 @@ After completing any modifications in this repository, run the test suite to ver
 Generate an updated changelog section for `CHANGELOG.md` based on the modifications in this pull request.
 
 **Include:**
-- **Added:** new features  
-- **Changed:** refactors or improvements  
-- **Fixed:** bug fixes  
-- **Removed:** deprecated or deleted parts  
+- **Added:** new features
+- **Changed:** refactors or improvements
+- **Fixed:** bug fixes
+- **Removed:** deprecated or deleted parts
 
-**Format:**  
+**Format:**
 Start the section with a header in the following form: ```[<PR title>] - <date>```
 
-**Note:**  
+**Note:**
 Do **not** duplicate existing entries.
+
+---
+
+## Logging Rule
+
+Use **f-strings** for logging.
+
+✅ `logger.debug(f"part1={a} part2={b}")`
+❌ `logger.debug("part1=%s part2=%s", a, b)`
