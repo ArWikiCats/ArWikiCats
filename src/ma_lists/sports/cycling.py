@@ -41,6 +41,19 @@ def build_cycling_templates() -> dict[str, str]:
 
 
 CYCLING_TEMPLATES: Final[dict[str, str]] = build_cycling_templates()
-new_cy = CYCLING_TEMPLATES
 
-__all__ = ["BASE_CYCLING_EVENTS", "CYCLING_TEMPLATES", "build_cycling_templates", "new_cy"]
+# Backwards-compatible exports -------------------------------------------------
+
+# NOTE: Older callers import ``new2019_cycling`` and ``new_cy`` directly from this
+# module.  They expect a mapping identical to ``CYCLING_TEMPLATES``.  Expose both
+# aliases so the refactor remains a drop-in replacement for those consumers.
+new2019_cycling: Final[dict[str, str]] = CYCLING_TEMPLATES
+new_cy: Final[dict[str, str]] = CYCLING_TEMPLATES
+
+__all__ = [
+    "BASE_CYCLING_EVENTS",
+    "CYCLING_TEMPLATES",
+    "build_cycling_templates",
+    "new2019_cycling",
+    "new_cy",
+]
