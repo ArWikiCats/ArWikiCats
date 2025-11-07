@@ -19,4 +19,3 @@ reviews:
         - "!**/old/**"
 chat:
     auto_reply: true
-
