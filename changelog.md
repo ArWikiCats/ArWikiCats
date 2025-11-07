@@ -1,4 +1,18 @@
 
+## [Refactor job label definitions for typed helpers] - 2025-11-07
+
+### Added
+* None.
+
+### Changed
+* Replaced ad-hoc dictionary assembly in `src/ma_lists/jobs/jobs_defs.py` with typed helpers and documented constants for gendered job labels.
+
+### Fixed
+* None.
+
+### Removed
+* None.
+
 ## Pull Request 1
 
 * **New Features:** Added a unified logger and web request utilities, enabling team/player and Wikidata searches through simple command-line tools.
