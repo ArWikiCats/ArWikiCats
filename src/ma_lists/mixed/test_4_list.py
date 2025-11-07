@@ -438,6 +438,12 @@ en_is_nat_ar_is_women = {
     "youth competitions": "منافسات شبابية {}",
     "youth music competitions": "منافسات موسيقية شبابية {}",
     "youth sports competitions": "منافسات رياضية شبابية {}",
+    # "athletic conference schools" : "كرة مضرب {}",
+    # "ballot measures":"استفتاءات عامة {}",
+    # "books" : "كتب {}",
+    # "cinema" : "سينما {}",
+    # "dukes" : "دوقات {}",
+    # ---
 }
 # ---
 for iu in businesspeoples:
@@ -462,19 +468,26 @@ for bo in pop_final6:
 # ---
 Women_s_priffix = {}
 Wo_priffix = {
+    # "women of" : "{}",
+    # "non-" : "غير {}",
     "women": "{}",
     "female": "{}",
     "women's": "{}",
     "blind": "{} مكفوفات",
     "deafblind": "{} صم ومكفوفات",
     "deaf": "{} صم",
+    # "expatriate women's" : "{} مغتربات",
+    # "expatriate female" : "{} مغتربات",
+    # "expatriate women" : "{} مغتربات",
 }
 for wom in Wo_priffix:
     Women_s_priffix[wom] = Wo_priffix[wom]
     Women_s_priffix[f"expatriate {wom}"] = f"{Wo_priffix[wom]} مغتربات"
+    # Women_s_priffix["executed {}".format(wom)] = "%s معدومات" % Wo_priffix[wom]
     Women_s_priffix[f"kidnapped {wom}"] = f"{Wo_priffix[wom]} مختطفات"
+# Women_s_priffix["executed"] = "معدومات"
 # ---
-Mens_priffix = {}
+Mens_priffix = {}  # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
 # ---
 Me_priffix = {
     "amputee": "{} مبتورو أحد الأطراف",
@@ -500,6 +513,7 @@ Me_priffix = {
     "political": "{} سياسيون",
     "religious": "{} دينيون",
     "romantic": "{} رومانسيون",
+    # "male" : "ذكور {}",
 }
 # ---
 change_male_to_female = {
@@ -517,7 +531,7 @@ change_male_to_female = {
     "{} عسكريون": "{} عسكريات",
     "{} لاتينيون": "{} لاتينيات",
     "{} رومانسيون": "{} رومانسيات",
-    "{} dينيون": "{} دينيات",
+    "{} دينيون": "{} دينيات",
 }
 # ---
 for me in Me_priffix:
@@ -582,7 +596,9 @@ Main_priffix = {
     "cultural depictions of": "تصوير ثقافي عن {}",
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",
+    # "medieval" : "{} من العصور الوسطى",
     "non": "{} غير",
+    # "non" : "غير {}",
 }
 Main_priffix_to = {
     "non": "{t} غير {nat}",
