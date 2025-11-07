@@ -25,7 +25,7 @@ YTN_cash = {}
 from ..matables_bots.bot import Films_O_TT, New_players
 
 
-def find_lab(category, category_r):
+def find_lab(category: str, category_r: str) -> str:
     cate_low = category.lower()
 
     _lab = Films_O_TT.get(cate_low, "")
@@ -47,7 +47,12 @@ def find_lab(category, category_r):
     return _lab
 
 
-def work_titose_nmaes(category_r, do_Get_contry2, category, Cate_test):
+def work_titose_nmaes(
+    category_r: str,
+    do_Get_contry2: bool,
+    category: str,
+    Cate_test: str,
+) -> str:
     """Work with titose names based on the provided category.
 
     This function iterates through a predefined dictionary of titose names
@@ -83,7 +88,7 @@ def work_titose_nmaes(category_r, do_Get_contry2, category, Cate_test):
     return arlabel
 
 
-def translate_general_category(category_r, do_Get_contry2=True):
+def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> str:
     """Retrieve and process category names for the Yementest application.
 
     This function takes a category string, processes it to standardize the

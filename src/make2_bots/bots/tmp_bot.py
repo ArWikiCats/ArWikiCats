@@ -15,7 +15,7 @@ from ..ma_bots import ye_ts_bot
 WORK_TEMPLATES_CACHE = {}
 
 
-def Work_Templates(input_label):
+def Work_Templates(input_label: str) -> str:
     """Generate work templates based on the provided input string.
 
     This function takes an input string, processes it to determine if it

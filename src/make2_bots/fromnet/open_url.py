@@ -1,5 +1,6 @@
 
 import importlib.util
+from typing import Any, Mapping
 
 if importlib.util.find_spec("requests") is not None:
     import requests  # type: ignore
@@ -7,10 +8,10 @@ if importlib.util.find_spec("requests") is not None:
 else:
 
     class _OfflineSession:
-        def __init__(self):
+        def __init__(self) -> None:
             self.headers = {}
 
-        def get(self, *args, **kwargs):
+        def get(self, *args: Any, **kwargs: Any) -> None:
             raise RuntimeError("requests library is unavailable")
 
     session = _OfflineSession()
@@ -22,7 +23,11 @@ session.headers.update({
 })
 
 
-def open_url_json(url, params=None, timeout=5):
+def open_url_json(
+    url: str,
+    params: Mapping[str, Any] | None=None,
+    timeout: int=5,
+) -> dict[str, Any] | list[Any]:
     try:
         request_params = params or {}
         response = session.get(url, params=request_params, timeout=timeout)
@@ -35,7 +40,7 @@ def open_url_json(url, params=None, timeout=5):
     return {}
 
 
-def open_url_text(url, timeout=5):
+def open_url_text(url: str, timeout: int=5) -> str:
     try:
         response = session.get(url, timeout=timeout)
         response.raise_for_status()

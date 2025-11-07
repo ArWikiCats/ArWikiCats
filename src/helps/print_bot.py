@@ -17,13 +17,13 @@ if "printhead" in sys.argv:
     headline_only_preferences[1] = True
 
 
-def output_test4(text):
+def output_test4(text: str) -> None:
     if disable_all_printing:
         return
     printe.log(text)
 
 
-def output_main(text):
+def output_main(text: str) -> str | None:
     if force_all_printing:
         printe.output(text)
         return
@@ -33,7 +33,7 @@ def output_main(text):
         printe.output(text)
 
 
-def print_def_head(text):
+def print_def_head(text: str) -> None:
     if force_all_printing:
         printe.output(text)
         return
@@ -44,7 +44,7 @@ def print_def_head(text):
         printe.output(text)
 
 
-def print_put(text):
+def print_put(text: str) -> str | None:
     if force_all_printing:
         printe.output(text)
         return
@@ -59,7 +59,7 @@ def print_put(text):
             printe.output(text)
 
 
-def output_test(text):
+def output_test(text: str) -> str | None:
     if disable_all_printing:
         return
     if headline_only_preferences[1]:
@@ -67,7 +67,13 @@ def output_test(text):
     printe.log(text)
 
 
-def do_print_options(noprint="", printfirst="", printhead="", all_print_off="", tst_prnt_all=False):
+def do_print_options(
+    noprint: str="",
+    printfirst: str="",
+    printhead: str="",
+    all_print_off: str="",
+    tst_prnt_all: bool=False,
+) -> None:
     global headline_only_preferences, main_output_preferences, print_put_preferences, test_logging_preferences
     if "printhead" in sys.argv:
         headline_only_preferences[1] = True

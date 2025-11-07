@@ -12,7 +12,9 @@ from ..p17_bots.nats import find_nat_others
 from ..media_bots.films_bot import test_films
 
 from ...helps.log import logger
-def Make_By_lab(category):
+
+
+def Make_By_lab(category: str) -> str:
     logger.info(
         f"<<lightred>>>> vvvvvvvvvvvv Make_By_lab start, cate:{category} vvvvvvvvvvvv "
     )
@@ -50,7 +52,7 @@ def Make_By_lab(category):
     return resolved_label
 
 
-def Get_by_label(category):
+def Get_by_label(category: str) -> str:
     label = ""
     by_section = ""
     first_part = ""
@@ -90,7 +92,7 @@ def Get_by_label(category):
     return label
 
 
-def Get_and_label(category):
+def Get_and_label(category: str) -> str:
     label = ""
     first_part = ""
     last_part = ""

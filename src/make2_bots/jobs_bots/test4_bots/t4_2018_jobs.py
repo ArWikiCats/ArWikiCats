@@ -31,7 +31,7 @@ from .langs_w import Lang_work
 test4_2018_Jobs_cash = {}
 
 
-def test4_2018_Jobs(cate, out=False, tab=None):
+def test4_2018_Jobs(cate: str, out: bool=False, tab: dict[str, str] | None=None) -> str:
     """Retrieve job-related information based on the specified category.
 
     This function processes the input category to determine the appropriate

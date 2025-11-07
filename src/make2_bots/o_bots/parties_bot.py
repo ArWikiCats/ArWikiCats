@@ -9,7 +9,7 @@ from ...ma_lists import Parties
 from ...helps.log import logger
 
 
-def get_parties_lab(party):
+def get_parties_lab(party: str) -> str:
     # إيجاد لاحقات الأحزاب
     logger.info(f'get_parties_lab party:"{party}"')
     party_lab = ""

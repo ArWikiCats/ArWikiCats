@@ -382,7 +382,7 @@ def set_table_sink(sink: Optional[Callable[[str, str], None]]) -> None:
     main2_tab[1] = {"title": "", "lab": {}, "nolab": {}}
 
 
-def Add_to_main2_tab(en, ar):
+def Add_to_main2_tab(en: str, ar: str) -> None:
     if not en or not ar:
         return
     if _current_table_sink is not None:

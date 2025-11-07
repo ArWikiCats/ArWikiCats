@@ -27,7 +27,7 @@ event2_cash = {}
 Find_stubs = {1: "-stubs" in sys.argv}
 
 
-def event2_d2(cat3, category3_not_lower):
+def event2_d2(cat3: str, category3_not_lower: str) -> str:
     """Determine the category label based on the input string.
 
     This function analyzes the input string `cat3` to determine a
@@ -60,7 +60,7 @@ def event2_d2(cat3, category3_not_lower):
     return category_lab
 
 
-def event2(category_r):
+def event2(category_r: str) -> str:
     """Process a category string and return a corresponding label.
 
     This function takes a category string as input, processes it to extract
@@ -137,7 +137,7 @@ def event2(category_r):
     return ar_label
 
 
-def dodo(category_r):
+def dodo(category_r: str) -> str:
     """Generate an Arabic label for a given category.
 
     This function processes a category string to generate an Arabic label,

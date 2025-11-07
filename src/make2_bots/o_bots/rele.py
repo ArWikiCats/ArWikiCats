@@ -33,7 +33,7 @@ PP_PRIFFIX_RELATIONS_MALE = {
 }
 
 
-def Work_relations(suus):
+def Work_relations(suus: str) -> str:
     suus = suus.lower()
     print_put(f"start Work_relations: suus:{suus}")
     # ---

@@ -66,7 +66,7 @@ def make_sport_formats_p17(category_key: str) -> str:
     return resolved_label
 
 
-def find_nat_others(category, reference_category=""):
+def find_nat_others(category: str, reference_category: str="") -> str:
     """Resolve fallback national labels for sport categories."""
     if category in NAT_OTHERS_CACHE:
         return NAT_OTHERS_CACHE[category]

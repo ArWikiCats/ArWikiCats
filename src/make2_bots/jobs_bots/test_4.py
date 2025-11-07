@@ -48,7 +48,12 @@ JOBS_IN_MULTI_SPORTS_CACHE = {}
 TEST4_2018_WITH_NAT_CACHE = {}
 
 
-def nat_match(category, out=False, reference_category="", tab=None):
+def nat_match(
+    category: str,
+    out: bool=False,
+    reference_category: str="",
+    tab: dict[str, str] | None=None,
+) -> str:
     """Match a category string to a localized sentiment label.
 
     This function takes a category string, processes it to identify if it
@@ -118,7 +123,12 @@ def nat_match(category, out=False, reference_category="", tab=None):
     return country_label
 
 
-def test4_2018_with_nat(category, out=False, reference_category="", tab=None):
+def test4_2018_with_nat(
+    category: str,
+    out: bool=False,
+    reference_category: str="",
+    tab: dict[str, str] | None=None,
+) -> str:
     # ---
     if not tab:
         tab = {}
@@ -189,7 +199,11 @@ def test4_2018_with_nat(category, out=False, reference_category="", tab=None):
     return country_label
 
 
-def Jobs_in_Multi_Sports(category, out=False, tab=None):
+def Jobs_in_Multi_Sports(
+    category: str,
+    out: bool=False,
+    tab: dict[str, str] | None=None,
+) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
 

@@ -45,13 +45,13 @@ REG_CENTURY_AR = re.compile(
 )
 
 
-def match_time_ar(ar_value):
+def match_time_ar(ar_value: str) -> list[str]:
     ar_matches = [m.group().strip() for m in REG_YEAR_AR.finditer(f" {ar_value} ")]
     ar_matches.extend([m.group().strip() for m in REG_CENTURY_AR.finditer(f" {ar_value} ")])
     return ar_matches
 
 
-def match_time_en(en_key):
+def match_time_en(en_key: str) -> list[str]:
     en_matches = [m.group().strip() for m in REG_YEAR_EN.finditer(f" {en_key} ")]
     en_matches.extend([m.group().strip() for m in REG_CENTURY_EN.finditer(f" {en_key} ")])
     return en_matches
@@ -92,7 +92,7 @@ def convert_time_to_arabic(en_year: str) -> str:
         return f"الألفية {num}{bc}"
 
     # --- Numeric range ---
-    def expand_range(year_text):
+    def expand_range(year_text: str) -> str:
         parts = year_text.split("-")
         if len(parts) == 1:
             return year_text

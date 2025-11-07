@@ -15,7 +15,7 @@ from ...ma_lists import People_key
 Work_peoples_cash = {}
 
 
-def Work_peoples(SUUS):
+def Work_peoples(SUUS: str) -> str:
     # ---
     cash_key = SUUS.lower().strip()
     # ---
@@ -48,7 +48,7 @@ def Work_peoples(SUUS):
     return PpP_lab
 
 
-def make_people_lab(type_lower):
+def make_people_lab(type_lower: str) -> str:
     type_lower = type_lower.strip()
 
     newlab = nats_to_add.get(type_lower, "")

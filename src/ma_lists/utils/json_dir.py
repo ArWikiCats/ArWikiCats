@@ -6,12 +6,14 @@ from .json_dir import open_json_file# open_json_file(file="")
 """
 
 from pathlib import Path
+from typing import Any
+
 import json
 
 Dir2 = Path(__file__).parent.parent
 
 
-def open_json_file(file=""):
+def open_json_file(file: str="") -> dict[str, Any] | list[Any]:
     # ---
     if not file:
         return {}
