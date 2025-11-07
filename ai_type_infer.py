@@ -64,11 +64,11 @@ def _canonicalize_type_string(value: str) -> str:
         "NoneType": "None",
     }
     for original, replacement in replacements.items():
-        value = re.sub(rf"\\b{original}\\b", replacement, value)
+        value = re.sub(rf"\b{original}\b", replacement, value)
 
     # Replace textual " or None" with union syntax.
-    value = re.sub(r"\\bor None\\b", "| None", value)
-    value = re.sub(r"\\bor bool\\b", "| bool", value)
+    value = re.sub(r"\bor None\b", "| None", value)
+    value = re.sub(r"\bor bool\b", "| bool", value)
 
     return value
 
