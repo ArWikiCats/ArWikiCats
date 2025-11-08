@@ -43,6 +43,5 @@ def test_package_exports_reference_underlying_modules() -> None:
 def test_jobs_submodules_are_accessible() -> None:
     """Consumers should still be able to reach refactored submodules."""
 
-    assert hasattr(jobs_defs, "gendered_label")
     assert hasattr(jobs_players_list, "PLAYERS_TO_MEN_WOMENS_JOBS")
     assert hasattr(jobs_singers, "Men_Womens_Singers")

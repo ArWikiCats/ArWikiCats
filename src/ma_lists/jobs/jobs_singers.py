@@ -226,3 +226,6 @@ for sx, labs in non_fiction_tab.items():
 # ---
 for fop, fop_a in films_type.items():
     Men_Womens_Singers[f"{fop} actors"] = {"mens": "ممثلو " + fop_a["mens"], "womens": ""}
+
+FILMS_TYPE = films_type
+MEN_WOMENS_SINGERS = Men_Womens_Singers

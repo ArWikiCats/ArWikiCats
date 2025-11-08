@@ -309,3 +309,8 @@ for sop, spor_lab in Sports_Keys_For_Jobs.items():
         players_to_Men_Womens_Jobs[hghg] = {}
         players_to_Men_Womens_Jobs[hghg]["mens"] = f"{mens} {spor_lab}"
         players_to_Men_Womens_Jobs[hghg]["womens"] = f"{womens} {spor_lab}"
+
+FEMALE_JOBS_TO = Female_Jobs_to
+FOOTBALL_KEYS_PLAYERS = Football_Keys_players
+JOBS_PLAYERS = Jobs_players
+PLAYERS_TO_MEN_WOMENS_JOBS= players_to_Men_Womens_Jobs

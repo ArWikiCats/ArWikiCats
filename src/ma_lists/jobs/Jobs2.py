@@ -255,3 +255,6 @@ del Main_scientists
 del scholars_table
 del jobs_3
 del job2_opo
+
+JOBS_2 = Jobs_2
+JOBS_3333 = Jobs_3333
