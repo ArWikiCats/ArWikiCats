@@ -1,3 +1,18 @@
+## [Refactor city translation dataset loader] - 2025-11-07
+
+### Added
+* Introduced a typed `CityTranslationDataset` container for consolidated translation maps and lowercase lookups.
+
+### Changed
+* Rebuilt `geo/Cities.py` to load JSON sources through reusable helpers with structured logging and sanitized merges.
+* Documented the module and public loader with Google-style docstrings for clearer usage guidance.
+
+### Fixed
+* Filtered out non-string keys and values from JSON payloads to keep translation maps type-safe during initialization.
+
+### Removed
+* Direct printing of timing and memory statistics in favor of structured logging output.
+
 ## [Refine gendered label combination helper usage] - 2025-11-07
 
 ### Added
