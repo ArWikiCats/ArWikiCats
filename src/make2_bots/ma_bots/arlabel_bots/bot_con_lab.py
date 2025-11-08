@@ -19,9 +19,8 @@ from ...media_bots.films_bot import test_films
 from ...o_bots import bys
 from ...p17_bots import nats
 from ...sports_bots import team_work
-from .. import contry2_lab
 from ..contry_bot import Get_c_t_lab, Get_contry
-
+from .. import contry2_lab
 Find_f_wikidata: Dict[int, bool] = {1: "nowikidata" not in sys.argv}
 
 

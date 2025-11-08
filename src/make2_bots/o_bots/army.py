@@ -3,9 +3,6 @@
 from __future__ import annotations
 
 from typing import Dict, Mapping, Tuple
-
-"""Resolve Arabic labels for army-related categories."""
-
 from ...helps.log import logger
 from ...ma_lists import All_contry_with_nat, All_contry_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, sport_formts_en_p17_ar_nat
 from .utils import apply_arabic_article, get_or_set
