@@ -47,7 +47,7 @@ from ..mixed.male_keys import religious_female_keys
 from ..companies import companies_to_jobs
 from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
-from .jobs_defs import religious_keys_PP, MEN_WOMENS_JOBS_2
+from .jobs_defs import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
 
 Jobs_new = {}
 # ---
@@ -151,7 +151,7 @@ Men_Womens_with_nato = {
 # ---
 MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
 # ---
-for religious_key, gendered_titles in religious_keys_PP.items():
+for religious_key, gendered_titles in RELIGIOUS_KEYS_PP.items():
     MenWomensJobsPP[religious_key] = gendered_titles
     # ---
     # "religious activists" = {"mens":"ناشطون دينيون", "womens":"ناشطات دينيات"}
@@ -502,7 +502,7 @@ for female_job_key, female_job_label in Female_Jobs.items():
 
 Jobs_key_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
 
-for religious_key in religious_keys_PP:
+for religious_key in RELIGIOUS_KEYS_PP:
     Nat_Before_Occ.append(religious_key)
 # ---
 """for cory in Nat_mens:
