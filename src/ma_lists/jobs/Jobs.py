@@ -33,7 +33,7 @@ WHERE {
 
 import sys
 from ...helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils.json_dir import open_json
 
 # ---
 from ..nats.Nationality import Nat_mens
@@ -71,7 +71,7 @@ jobs_type = {
     "science fiction action": "خيال علمي وحركة",
 }
 # ---
-jobs_data = open_json_file("jobs/jobs")
+jobs_data = open_json("jobs/jobs.json")
 # ---
 Jobs_2020.update({x: v for x, v in jobs_data["Jobs_2020"] if v})
 jobs_people.update({x: v for x, v in jobs_data["jobs_people"] if v})
@@ -149,7 +149,7 @@ Men_Womens_with_nato = {
 # ,"military":  {"mens":"عسكريون", "womens":"عسكريات"}
 # ,"commodores": {"mens":"ضباط بحرية", "womens":"ضابطات بحرية"}
 # ---
-MenWomensJobsPP = open_json_file("jobs_Men_Womens_PP")
+MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
 # ---
 for religious_key, gendered_titles in religious_keys_PP.items():
     MenWomensJobsPP[religious_key] = gendered_titles
@@ -234,7 +234,7 @@ Nat_Before_Occ = [
     "emigrants",
 ]
 # ---
-activists_keys = open_json_file("activists_keys")
+activists_keys = open_json("jobs/activists_keys.json")
 # ---
 for activist_category, activist_labels in activists_keys.items():
     normalized_key = activist_category.lower()

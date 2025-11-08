@@ -4,7 +4,7 @@
 from .jobs_players_list import Jobs_players, Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 
 """
-from ..utils.json_dir import open_json_file
+from ..utils.json_dir import open_json
 
 # ---
 from ..sports.Sport_key import (
@@ -17,7 +17,7 @@ from ..sports.Sport_key import (
 Female_Jobs_to = {}
 players_to_Men_Womens_Jobs = {}
 # ---
-Football_Keys_players = open_json_file("jobs_Football_Keys_players") or {}
+Football_Keys_players = open_json("jobs/jobs_Football_Keys_players.json") or {}
 # ---
 Football_Keys_players_x = {}
 # "punters": {"mens":"", "womens":""},
@@ -67,7 +67,7 @@ Football_Keys_players_x = {}
 # نقلت من jobs2.py
 
 # ---
-Jobs_players = open_json_file("Jobs_players") or {}
+Jobs_players = open_json("jobs/Jobs_players.json") or {}
 # ---
 Jobs_players["freestyle swimmers"] = {"mens": "سباحو تزلج حر", "womens": "سباحات تزلج حر"}
 # ---
