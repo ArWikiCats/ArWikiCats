@@ -1,4 +1,15 @@
 
+## #34 - 2025-11-09
+
+* **New Features**
+  * Expanded and enriched job, player and singer datasets with additional entries and gendered labels, improving localized display.
+
+* **Refactor**
+  * Migrated data loading to centralized JSON sources for jobs, singers and players to enable data-driven updates and consistency.
+
+* **Chores**
+  * Added new JSON data files to supply the updated datasets and translations.
+
 ## #32 - 2025-11-08
 
 ### Changed
