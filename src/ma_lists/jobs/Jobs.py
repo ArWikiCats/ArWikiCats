@@ -47,7 +47,7 @@ from ..mixed.male_keys import religious_female_keys
 from ..companies import companies_to_jobs
 from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
-from .jobs_defs import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
+from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
 
 Jobs_new = {}
 # ---
@@ -117,37 +117,6 @@ Men_Womens_with_nato = {
     },
 }
 # ---
-# ,"marine painters":  {"mens":"رسامو ", "womens":"رسامات "}
-# "propagandists" : {"mens":"مدربو", "womens":"مدربات"},
-# "mnemonists":  {"mens":"", "womens":""}
-# "art curators" : {"mens":"", "womens":""},
-# "erotic artists" : {"mens":"", "womens":""},
-# "general practitioners":  {"mens":"", "womens":""},
-# "otolaryngologists":  {"mens":"", "womens":""},
-# "comic book creators":  {"mens":"", "womens":""},
-# "inkers":  {"mens":"", "womens":""},
-# "pencillers":  {"mens":"", "womens":""},
-# "letterers":  {"mens":"", "womens":""},
-# "video game businesspeople":  { "mens": "شخصيات أعمال {nato} في ألعاب الفيديو"   ,"womens": "سيدات أعمال {nato} في ألعاب الفيديو"},
-
-# ,"people":  {"mens":"أشخاص", "womens":"نساء"}
-
-# ,"ssssss": {"mens":"لاعبو", "womens":""}
-# ,"emigrants": {"mens":"نازحون", "womens":"نازحات"}#emigration
-# ,"football players":  {"mens":"لاعبو كرة قدم", "womens":"لاعبات كرة قدم"}
-# ,"chess players":  {"mens":"لاعبو شطرنج", "womens":"لاعبات شطرنج"}
-# ,"businesswomen":  {"mens":"شخصيات أعمال", "womens":"سيدات أعمال"}
-# ,"collaborators":  {"mens":"متعاونون", "womens":"متعاونات"}  # ,"people":  {"mens":"أشخاص", "womens":""}  # ,"justices":  {"mens":"قضاة", "womens":"قاضيات"}  # ,"notaries" : {"mens":"كتاب عدل", "womens":"كاتبات عدل"}  # ,"dramatists and playwrights":  {"mens":"دراميون وكتاب مسرحيون", "womens":"دراميات وكاتبات مسرحيات"} # ,"fictional":  {"mens":"خياليون", "womens":"خياليات"} # ,"educators":  {"mens":"مربون", "womens":"مربيات"} # ,"sculptures":  {"mens":"مخرجون", "womens":"مخرجات"}
-
-# ,"paleontologists":  {"mens":"إحاثيون", "womens":"إحاثيات"}
-# ,"secretaries":  {"mens":"أمناء", "womens":"أمينات"}
-# ,"cartoonists":  {"mens":"كاريكاتوريون", "womens":"كاريكاتوريات"}
-# ,"cartoonists":  {"mens":"كارتونيون", "womens":"كارتونيات"}
-# ,"creators":  {"mens":"صانعون", "womens":"صانعات"}
-# ,"webcomic creators":  {"mens":"صانعو ويب كومكس", "womens":"صانعات ويب كومكس"}
-# ,"comics people":  {"mens":"كتاب قصص مصورة", "womens":"كاتبات قصص مصورة"}
-# ,"military":  {"mens":"عسكريون", "womens":"عسكريات"}
-# ,"commodores": {"mens":"ضباط بحرية", "womens":"ضابطات بحرية"}
 # ---
 MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
 # ---

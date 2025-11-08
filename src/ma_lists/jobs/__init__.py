@@ -20,7 +20,7 @@ from .Jobs import (
     womens_Jobs_2017,
 )
 from .Jobs2 import JOBS_2, JOBS_3333, Jobs_2, Jobs_3333
-from .jobs_defs import (
+from .jobs_data import (
     MEN_WOMENS_JOBS_2,
     RELIGIOUS_KEYS_PP,
 )
