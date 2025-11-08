@@ -1,141 +1,154 @@
-#!/usr/bin/python3
-"""
+"""Language specific helpers for job labels."""
 
-from .langs_w import Lang_work
+from __future__ import annotations
 
-"""
-from typing import Dict
-from ....ma_lists import (
-    All_Nat,
-    Films_keys_both_new,
-    Films_key_333,
-    film_Keys_For_female,
-    Films_key_CAO,
-    Films_key_For_nat,
-    Jobs_key_mens,
-    languages_key,
-    lang_key_m,
-)
-from ....helps.print_bot import output_test4, print_put
+from ....helps.print_bot import print_put
+from ....ma_lists import All_Nat, Films_key_333, Films_key_CAO, Films_key_For_nat, Films_keys_both_new, Jobs_key_mens, film_Keys_For_female, lang_key_m, languages_key
+from ..utils import cached_lookup, log_debug, normalize_cache_key
 
-Lang_work_cash: Dict[str, str] = {}
+LANG_WORK_CACHE: dict[str, str] = {}
+
+__all__ = ["Lang_work"]
 
 
-def Lang_work(con_3: str) -> str:
-    """Process and retrieve language-related information based on input.
+def Lang_work(con_3: str) -> str:  # noqa: N802
+    """Process and retrieve language-related information based on input."""
 
-    This function takes a string input representing a language or a related
-    term, processes it to determine the appropriate language label, and
-    returns the corresponding label. It checks against predefined
-    dictionaries to find matches and formats the output accordingly. The
-    function also caches results for efficiency.
+    cache_key = normalize_cache_key(con_3)
+    return cached_lookup(
+        LANG_WORK_CACHE,
+        (cache_key,),
+        lambda: _resolve_language_label(con_3),
+    )
 
-    Args:
-        con_3 (str): A string representing a language or related term.
 
-    Returns:
-        str: The corresponding language label or an empty string if no match is
-            found.
-    """
+def _resolve_language_label(con_3: str) -> str:
+    """Resolve a label for :func:`Lang_work` without cache lookups."""
 
-    output_test4(f'<<lightblue>> Lang_work :"{con_3}"')
-    lang_lab = ""
-    # ---
-    cash_key = con_3.lower().strip()
-    # ---
-    if cash_key in Lang_work_cash:
-        return Lang_work_cash[cash_key]
-    # ---
-    if not lang_lab:
-        lang_lab = languages_key.get(con_3, "")
-    # ---
-    tta = {"romanization of": "رومنة {}"}
-    # ---
-    for wriff, Wriff_lab in tta.items():
-        if con_3.startswith(wriff) and lang_lab == "":
-            con_43 = con_3[len(wriff) :].strip()
-            lang_lac = languages_key.get(f"{con_43} language", "")
-            print_put(con_43)
-            if lang_lac:
-                lang_lab = Wriff_lab.format(lang_lac)
-                break
-    # ---
-    for lang, l_lab in languages_key.items():
-        # ---
-        if lang_lab:
-            break
-        # ---
-        lang2 = f"{lang} "
-        # ---
-        lang3 = f"{lang.replace('-language', '')} films"
-        if lang3 == con_3:
-            lang_lab = f"أفلام ب{l_lab}"
-            break
-        # ---
-        if con_3.startswith(lang2):
-            output_test4(f"<<lightblue>> con_3.startswith(lang:{lang2})")
-            # ---
-            lang_lab = lab_from_lang_keys(con_3, lang, l_lab, lang2)
-    # ---
-    Lang_work_cash[cash_key] = lang_lab
-    # ---
-    return lang_lab
+    log_debug('<<lightblue>> Lang_work :"%s"', con_3)
+
+    direct_match = languages_key.get(con_3, "")
+    if direct_match:
+        return direct_match
+
+    label = _romanization_label(con_3)
+    if label:
+        return label
+
+    for lang, translation in languages_key.items():
+        candidate = f"{lang} "
+        films_label = _films_match(con_3, lang, translation)
+        if films_label:
+            return films_label
+        if con_3.startswith(candidate):
+            log_debug("<<lightblue>> con_3.startswith(lang:%s)", candidate)
+            label = lab_from_lang_keys(con_3, lang, translation, candidate)
+            if label:
+                return label
+    return ""
+
+
+def _romanization_label(con_3: str) -> str:
+    """Handle romanization labels that follow a structured prefix."""
+
+    prefix = "romanization of"
+    if con_3.startswith(prefix):
+        remainder = con_3[len(prefix) :].strip()
+        language_value = languages_key.get(f"{remainder} language", "")
+        print_put(remainder)
+        if language_value:
+            return f"رومنة {language_value}"
+    return ""
+
+
+def _films_match(con_3: str, lang: str, translation: str) -> str:
+    """Handle simple film related matches before the more complex logic."""
+
+    target = f"{lang.replace('-language', '')} films"
+    if con_3 == target:
+        return f"أفلام ب{translation}"
+    return ""
 
 
 def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang2: str) -> str:
-    # ---
-    if All_Nat.get(lang, False):
-        nat_labe = All_Nat[lang]["mens"]
-        output_test4(f'<<lightred>> skip lang:"{lang}" in All_Nat,l_lab:"{l_lab}",nat_labe:"{nat_labe}" ')
+    """Resolve labels using the language specific helper dictionaries."""
+
+    if All_Nat.get(lang):
+        nat_label = All_Nat[lang]["mens"]
+        log_debug(
+            '<<lightred>> skip lang:"%s" in All_Nat,l_lab:"%s",nat_labe:"%s" ',
+            lang,
+            l_lab,
+            nat_label,
+        )
         return ""
-    # ---
+
     language_lab = languages_key[lang]
-    # ---
     con_8 = con_3[len(lang2) :]
-    con_78_lab = Jobs_key_mens.get(con_8, "")
-    # ---
-    it_lab = ""
-    # ---
-    if con_78_lab:
-        it_lab = f"{con_78_lab} ب{language_lab}"
-        output_test4(f'<<lightblue>> Jobs_key_mens({con_8}): con_3.startswith_priff2("{lang2}"), it_lab:"{it_lab}"')
-    # ---
-    if not it_lab:
-        con_78_lab = lang_key_m.get(con_8, "")
-        # ---
-        if con_78_lab:
-            output_test4(f'<<lightblue>> lang_key_m({con_8}), con_78_lab:"{con_78_lab}"')
-            it_lab = lang_key_m[con_8].format(language_lab)
-    # ---
-    if not it_lab:
-        output_test4(f"no match for :({con_8}), {language_lab=}")
-        if Films_key_For_nat.get(con_8):
-            it_lab = Films_key_For_nat[con_8].format(f"ب{language_lab}")
-            output_test4(f'<<lightblue>> lab_from_lang_keys Films_key_For_nat. it_lab:"{it_lab}"')
-    # ---
-    if not it_lab:
-        if con_8.endswith(" films"):
-            # ---
-            con_9 = con_8[: -len("films")].strip().lower()
-            con_9_lab = Films_keys_both_new.get(con_9, {}).get("female", "")
-            # ---
-            if con_9_lab:
-                it_lab = f"أفلام {con_9_lab} ب{language_lab}"
-                output_test4(f'<<lightblue>> lab_from_lang_keys Films_key_333. it_lab:"{it_lab}"')
-    # ---
-    dict_tabs = {
+
+    label = _label_from_jobs_key(con_8, language_lab, lang2)
+    if label:
+        return label
+
+    label = _label_from_language_keys(con_8, language_lab)
+    if label:
+        return label
+
+    label = _label_from_film_keys(con_8, language_lab)
+    if label:
+        return label
+
+    for name, dictionary in {
         "film_Keys_For_female": film_Keys_For_female,
         "Films_key_333": Films_key_333,
         "Films_key_CAO": Films_key_CAO,
-    }
-    # ---
-    if not it_lab:
-        for key, dict_tab in dict_tabs.items():
-            con_78_lab = dict_tab.get(con_8)
-            if con_78_lab:
-                # ---
-                it_lab = f"{con_78_lab} ب{language_lab}"
-                output_test4(f'<<lightblue>> lab_from_lang_keys {key}. it_lab:"{it_lab}"')
-                break
-    # ---
-    return it_lab
+    }.items():
+        if con_8 in dictionary:
+            result = f"{dictionary[con_8]} ب{language_lab}"
+            log_debug('<<lightblue>> lab_from_lang_keys %s. it_lab:"%s"', name, result)
+            return result
+    return ""
+
+
+def _label_from_jobs_key(con_8: str, language_lab: str, lang2: str) -> str:
+    """Return a label derived from job keys when available."""
+
+    jobs_label = Jobs_key_mens.get(con_8, "")
+    if jobs_label:
+        result = f"{jobs_label} ب{language_lab}"
+        log_debug(
+            '<<lightblue>> Jobs_key_mens(%s): con_3.startswith_priff2("%s"), it_lab:"%s"',
+            con_8,
+            lang2,
+            result,
+        )
+        return result
+    return ""
+
+
+def _label_from_language_keys(con_8: str, language_lab: str) -> str:
+    """Return labels derived from language specific helper dictionaries."""
+
+    language_key = lang_key_m.get(con_8, "")
+    if language_key:
+        log_debug('<<lightblue>> lang_key_m(%s), con_78_lab:"%s"', con_8, language_key)
+        return language_key.format(language_lab)
+    return ""
+
+
+def _label_from_film_keys(con_8: str, language_lab: str) -> str:
+    """Derive labels from film keys when possible."""
+
+    if Films_key_For_nat.get(con_8):
+        result = Films_key_For_nat[con_8].format(f"ب{language_lab}")
+        log_debug('<<lightblue>> lab_from_lang_keys Films_key_For_nat. it_lab:"%s"', result)
+        return result
+
+    if con_8.endswith(" films"):
+        con_9 = con_8[: -len("films")].strip().lower()
+        con_9_lab = Films_keys_both_new.get(con_9, {}).get("female", "")
+        if con_9_lab:
+            result = f"أفلام {con_9_lab} ب{language_lab}"
+            log_debug('<<lightblue>> lab_from_lang_keys Films_key_333. it_lab:"%s"', result)
+            return result
+    return ""

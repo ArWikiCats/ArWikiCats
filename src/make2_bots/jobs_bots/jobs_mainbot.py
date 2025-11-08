@@ -1,146 +1,219 @@
-#!/usr/bin/python3
-"""
+"""Primary logic for generating job labels."""
 
-from ..jobs_bots.jobs_mainbot import Jobs#, Jobs2
+from __future__ import annotations
 
-"""
-from typing import Dict, Optional, Any
-from ...ma_lists import Nat_mens, Nat_Womens
+from collections.abc import Mapping
+from typing import Callable
 
-from ...ma_lists import (
-    Jobs_key_mens,
-    Jobs_key_womens,
-    Nat_Before_Occ,
-    Men_Womens_with_nato,
-)
-from ...helps.print_bot import output_test4
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ...ma_lists import Jobs_key_mens, Jobs_key_womens, Men_Womens_with_nato, Nat_Before_Occ, Nat_mens, Nat_Womens
+from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from .utils import cached_lookup, log_debug, normalize_cache_key
 
-Jobs_cash: Dict[str, str] = {}
+JOBS_CACHE: dict[str, str] = {}
 
+_SuffixAdjuster = Callable[[str, str], str]
 
-def Jobs2(cate: str, Start: str, con_3: str) -> str:
-    # ---
-    contry: str = Start
-    contry_lab: str = ""
-    # ---
-    con_3_lab = Jobs_key_mens.get(con_3, "")
-    if con_3_lab:
-        if Nat_mens.get(contry, "") != "":
-            # output_test4('<<lightblue>> cate.startswith("%s"), con_3:"%s"' % (cate , con_3))
-            contry_lab = f"{con_3_lab} {Nat_mens.get(contry, '')}"
-            output_test4(f'<<lightblue>> test Jobs: new contry_lab  "{contry_lab}" ')
-    # ---
-    return contry_lab
+WOMEN_ALIASES = {"women", "female", "women's"}
+GENDER_SUFFIXES = (" مغتربون", " مغتربات")
+
+__all__ = ["Jobs", "Jobs2", "jobs", "jobs_secondary"]
 
 
-def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[str, str]] = None) -> str:
-    """Retrieve job labels based on category and country.
-
-    This function generates job labels for both men and women based on the
-    provided category, starting country, and additional context. It checks
-    cached results to improve performance and utilizes various mappings to
-    determine the appropriate labels. The function handles different cases
-    for men's and women's jobs, including specific prefixes and country-
-    specific labels.
+def jobs_secondary(category: str, country: str, key: str) -> str:
+    """Return a secondary job label for men.
 
     Args:
-        cate (str): The category of the job.
-        Start (str): The starting country for the job label.
-        con_3 (str): Additional context for the job label.
-        Type (str?): An optional type parameter. Defaults to an empty string.
-        tab (dict?): A dictionary containing additional labels for men and women.
-            Defaults to None.
+        category: The raw category label.
+        country: The ISO-like key identifying the country.
+        key: The job key that should be matched against ``Jobs_key_mens``.
 
     Returns:
-        str: The generated job label based on the input parameters.
+        The formatted country label, or an empty string when no match exists.
     """
 
-    # ---
-    if not tab:
-        tab = {}
-    # ---
-    cash_key = f"{cate}, {Start}, {Type}, {con_3}".lower().strip()
-    # ---
-    if cash_key in Jobs_cash:
-        return Jobs_cash[cash_key]
-    # ---
-    output_test4(f'<<lightblue>> test_4.py Jobs: cate: "{cate}", Start: "{Start}", con_3: "{con_3}" ')
-    contry = Start
-    contry_lab = ""
-    # ---
-    con_3_lab = Jobs_key_mens.get(con_3, "")
-    # ---
-    con_4 = con_3
-    if con_3.startswith("people "):
-        con_4 = con_3[len("people ") :]
-    # ---
-    pkjn = [" مغتربون", " مغتربات"]
-    # ---
-    # mens Jobs
-    mens_nat_lab = tab.get("mens") or Nat_mens.get(contry, "")
-    # ---
-    if mens_nat_lab:
-        # ---
-        if con_3.strip() == "people":
-            contry_lab = mens_nat_lab
-        # ---
-        if not contry_lab:
-            con_3_lab = priffix_Mens_work(con_3)
-        # ---
-        if con_3_lab:
-            # ---
-            contry_lab = f"{con_3_lab} {mens_nat_lab}"
-            if con_3_lab.startswith("حسب"):
-                contry_lab = f"{mens_nat_lab} {con_3_lab}"
+    key_label = Jobs_key_mens.get(key, "")
+    if key_label and Nat_mens.get(country):
+        label = f"{key_label} {Nat_mens[country]}"
+        log_debug("<<lightblue>> jobs_secondary produced label: %s", label)
+        return label
+    return ""
 
-            # ---
-            if con_3.strip() in Nat_Before_Occ or con_4.strip() in Nat_Before_Occ:
-                contry_lab = f"{mens_nat_lab} {con_3_lab}"
-            # ---
-            TAJO = Men_Womens_with_nato.get(con_3, {})
-            if TAJO and TAJO.get("mens", "").find("{nato}") != -1:
-                contry_lab = TAJO["mens"].format(nato=mens_nat_lab)
-                output_test4('<<lightblue>> TAJO["mens"]: has {nato} "%s"' % TAJO["mens"])
-            # ---
-            for kjn in pkjn:
-                if con_3_lab.endswith(kjn):
-                    contry_lab = f"{con_3_lab[:-len(kjn)]} {mens_nat_lab}{kjn}"
-                    break
-            # ---
-            output_test4(f'\t<<lightblue>> con_3: "{con_3}" ')
-            output_test4(f'\t<<lightblue>> test mens Jobs: new lab: "{contry_lab}" ')
-    # ---#
-    # Womens Jobs
-    # ---
-    if not contry_lab:
-        women_nat_lab = tab.get("womens") or Nat_Womens.get(contry, "")
-        if women_nat_lab:
-            # ---
-            if con_3.strip() in ["women", "female", "women's"]:
-                contry_lab = women_nat_lab
-            # ---
-            if not contry_lab:
-                f_lab = Jobs_key_womens.get(con_3, "")
-                # ---
-                if not f_lab:
-                    f_lab = Women_s_priffix_work(con_3)
-                # ---
-                if f_lab:
-                    # output_test4('<<lightblue>> cate.startswith("%s"), con_3:"%s"' % (cate , con_3))
-                    contry_lab = f"{f_lab} {women_nat_lab}"
-                    # ---
-                    if "{nato}" in f_lab:
-                        contry_lab = f_lab.format(nato=women_nat_lab)
-                        output_test4('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % f_lab)
-                # ---
-                for kjn in pkjn:
-                    if f_lab.endswith(kjn):
-                        contry_lab = f"{f_lab[:-len(kjn)]} {women_nat_lab}{kjn}"
-                        break
-        # ---
-        output_test4(f'\t<<lightblue>> test Womens Jobs: new lab: "{contry_lab}" ')
-    # ---
-    Jobs_cash[cash_key] = contry_lab
-    # ---
-    return contry_lab
+
+def jobs(
+    category: str,
+    country: str,
+    key: str,
+    *,
+    category_type: str = "",
+    overrides: Mapping[str, str] | None = None,
+) -> str:
+    """Retrieve job labels based on category and country.
+
+    Args:
+        category: The category of the job.
+        country: The starting country for the job label.
+        key: Additional context for the job label.
+        category_type: An optional type parameter. Defaults to an empty string.
+        overrides: Optional mapping providing explicit ``"mens"`` or
+            ``"womens"`` labels.
+
+    Returns:
+        The generated job label based on the input parameters.
+    """
+
+    cache_key = normalize_cache_key(category, country, category_type, key)
+    return cached_lookup(
+        JOBS_CACHE,
+        (cache_key,),
+        lambda: _resolve_job_label(category, country, key, category_type=category_type, overrides=overrides),
+    )
+
+
+def _resolve_job_label(
+    category: str,
+    country: str,
+    key: str,
+    *,
+    category_type: str,
+    overrides: Mapping[str, str] | None,
+) -> str:
+    """Resolve job labels without touching the cache layer."""
+
+    log_debug(
+        '<<lightblue>> jobs: category: "%s", country: "%s", key: "%s"',
+        category,
+        country,
+        key,
+    )
+
+    overrides = overrides or {}
+    normalized_key = key[len("people ") :].strip() if key.startswith("people ") else key
+
+    label = _build_gendered_label(
+        category=category,
+        country=country,
+        key=key,
+        normalized_key=normalized_key,
+        overrides=overrides,
+    )
+
+    if label:
+        return label
+
+    label = _build_gendered_label(
+        category=category,
+        country=country,
+        key=key,
+        normalized_key=normalized_key,
+        overrides=overrides,
+        feminine=True,
+    )
+
+    return label
+
+
+def _build_gendered_label(
+    *,
+    category: str,
+    country: str,
+    key: str,
+    normalized_key: str,
+    overrides: Mapping[str, str],
+    feminine: bool = False,
+) -> str:
+    """Construct the gender-specific portion of the label."""
+
+    nat_lookup = Nat_Womens if feminine else Nat_mens
+    override_key = "womens" if feminine else "mens"
+    nat_label = overrides.get(override_key) or nat_lookup.get(country, "")
+
+    if not nat_label:
+        return ""
+
+    if feminine and key.strip() in WOMEN_ALIASES:
+        return nat_label
+
+    prefix = Jobs_key_womens.get(key, "") if feminine else Jobs_key_mens.get(key, "")
+    if not prefix:
+        prefix = Women_s_priffix_work(key) if feminine else priffix_Mens_work(key)
+
+    if not prefix:
+        return ""
+
+    label = _format_label(prefix, nat_label, feminine=feminine)
+
+    if not feminine:
+        label = _apply_mens_rules(label, nat_label, prefix, key, normalized_key, category)
+    else:
+        label = _apply_womens_rules(label, nat_label, prefix)
+
+    return label
+
+
+def _format_label(prefix: str, nat_label: str, *, feminine: bool) -> str:
+    """Format the label with the nationality, respecting placeholders."""
+
+    if "{nato}" in prefix:
+        return prefix.format(nato=nat_label)
+    if prefix.startswith("حسب"):
+        return f"{nat_label} {prefix}"
+    return f"{prefix} {nat_label}"
+
+
+def _apply_mens_rules(
+    label: str,
+    nat_label: str,
+    prefix: str,
+    key: str,
+    normalized_key: str,
+    category: str,
+) -> str:
+    """Apply the men-specific adjustments and suffix handling."""
+
+    if key.strip() in Nat_Before_Occ or normalized_key.strip() in Nat_Before_Occ:
+        label = f"{nat_label} {prefix}"
+
+    nato_template = Men_Womens_with_nato.get(key, {}).get("mens", "")
+    if "{nato}" in nato_template:
+        label = nato_template.format(nato=nat_label)
+        log_debug('<<lightblue>> Men_Womens_with_nato template applied: "%s"', label)
+
+    for suffix in GENDER_SUFFIXES:
+        if prefix.endswith(suffix):
+            base_prefix = prefix[: -len(suffix)]
+            label = f"{base_prefix} {nat_label}{suffix}"
+            break
+
+    log_debug('\t<<lightblue>> men job label produced for "%s": "%s"', category, label)
+    return label
+
+
+def _apply_womens_rules(label: str, nat_label: str, prefix: str) -> str:
+    """Apply transformations specific to women's labels."""
+
+    for suffix in GENDER_SUFFIXES:
+        if prefix.endswith(suffix):
+            base_prefix = prefix[: -len(suffix)]
+            return f"{base_prefix} {nat_label}{suffix}"
+    return label
+
+
+# Backwards compatible aliases -------------------------------------------------
+
+
+def Jobs2(cate: str, Start: str, con_3: str) -> str:  # noqa: N802 - legacy name
+    """Compatibility wrapper for historical API usage."""
+
+    return jobs_secondary(cate, Start, con_3)
+
+
+def Jobs(  # noqa: N802 - legacy name
+    cate: str,
+    Start: str,
+    con_3: str,
+    Type: str = "",
+    tab: Mapping[str, str] | None = None,
+) -> str:
+    """Compatibility wrapper around :func:`jobs`."""
+
+    return jobs(cate, Start, con_3, category_type=Type, overrides=tab)

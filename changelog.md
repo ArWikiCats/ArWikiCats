@@ -58,3 +58,11 @@ This update improves label processing accuracy and restructures the test archite
 * **New Features**
   * Added comprehensive localization mappings for sports, companies, buildings, and medical terminology.
   * Expanded translation data for enhanced language support and domain coverage.
+
+## #14 - 2025-11-26
+
+### Changed
+
+* Refactored the legacy jobs bots modules with shared caching/logging utilities and complete type hints for every function.
+* Simplified duplicated country and language prefix logic by centralizing helper routines.
+* Standardized docstrings, logging, and public exports across the jobs bots package for consistent consumption by downstream tools.
