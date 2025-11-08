@@ -1,5 +1,5 @@
 #
-from ast import Dict
+from typing import Dict
 import json
 from typing import Callable
 from pathlib import Path

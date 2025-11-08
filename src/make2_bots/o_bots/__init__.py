@@ -23,10 +23,8 @@ from .univer import test_universities
 fax = fax_module
 
 __all__ = [
-    "get_teams_new",
-    "get_and_label",
-    "get_by_label",
-    "work_peoples",
+    "ethnic",
+    "ethnic_culture",
     "fax",
     "get_and_label",
     "get_by_label",
@@ -34,13 +32,9 @@ __all__ = [
     "get_teams_new",
     "make_by_label",
     "make_people_lab",
-    "test_language",
-    "test_universities",
     "test_army",
+    "test_language",
     "test_universities",
     "work_peoples",
     "work_relations",
-    "work_relations",
-    "ethnic",
-    "ethnic_culture",
 ]
