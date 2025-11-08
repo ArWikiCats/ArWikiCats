@@ -68,30 +68,24 @@ def _build_non_fiction_variants(
 
     variants: GenderedLabelMap = {}
 
+    roles = {
+        "historian": {"mens": "مؤرخو", "womens": "مؤرخات"},
+        "authors": {"mens": "مؤلفو", "womens": "مؤلفات"},
+        "bloggers": {"mens": "مدونو", "womens": "مدونات"},
+        "writers": {"mens": "كتاب", "womens": "كاتبات"},
+        "journalists": {"mens": "صحفيو", "womens": "صحفيات"},
+    }
+
     for topic_key, topic_labels in topics.items():
         mens_topic = topic_labels["mens"]
         womens_topic = topic_labels["womens"]
-        # ---
-        variants[f"{topic_key} historian"] = {
-            "mens": f"مؤرخو {mens_topic}",
-            "womens": f"مؤرخات {womens_topic}",
-        }
-        variants[f"{topic_key} authors"] = {
-            "mens": f"مؤلفو {mens_topic}",
-            "womens": f"مؤلفات {womens_topic}",
-        }
-        variants[f"{topic_key} bloggers"] = {
-            "mens": f"مدونو {mens_topic}",
-            "womens": f"مدونات {womens_topic}",
-        }
-        variants[f"{topic_key} writers"] = {
-            "mens": f"كتاب {mens_topic}",
-            "womens": f"كاتبات {womens_topic}",
-        }
-        variants[f"{topic_key} journalists"] = {
-            "mens": f"صحفيو {mens_topic}",
-            "womens": f"صحفيات {womens_topic}",
-        }
+
+        for role_key, role_labels in roles.items():
+            variants[f"{topic_key} {role_key}"] = {
+                "mens": f"{role_labels['mens']} {mens_topic}",
+                "womens": f"{role_labels['womens']} {womens_topic}",
+            }
+
         variants[f"non-fiction {topic_key} writers"] = {
             "mens": f"كتاب {mens_topic} غير روائيون",
             "womens": f"كاتبات {womens_topic} غير روائيات",
@@ -256,6 +250,7 @@ NON_FICTION_ADDITIONAL_TOPICS: Mapping[str, str] = {
     "technology": "تقنية",
     "comedy": "كوميدي",
 }
+
 """Topics duplicated for both masculine and feminine forms when generating variants."""
 
 
@@ -268,11 +263,9 @@ SINGER_CATEGORY_LABELS: Dict[str, str] = dict(SINGERS_MAIN_CATEGORIES)
 SINGER_CATEGORY_LABELS.update(SINGERS_TAB)
 """Complete mapping of singer categories combining static and JSON sources."""
 
-
 NON_FICTION_TOPICS: Dict[str, GenderedLabel] = dict(NON_FICTION_BASE_TOPICS)
 
 for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
-    # NON_FICTION_TOPICS[topic_key] = {"mens": topic_label, "womens":  topic_label}
     NON_FICTION_TOPICS[topic_key] = {"mens": topic_label, "womens": topic_label}
 
 """Expanded non-fiction topics covering both static and dynamically generated entries."""

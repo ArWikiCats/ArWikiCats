@@ -1,14 +1,20 @@
 
 ## [#36](https://github.com/MrIbrahem/make2_new/pull/36) - 2025-11-09
-* Refactor [jobs_singers.py](src/ma_lists/jobs/jobs_singers.py)
+
+* **Refactor [jobs_singers.py](src/ma_lists/jobs/jobs_singers.py)**
+  * Updated public constant names to follow Python naming conventions (MEN_WOMENS_SINGERS, FILMS_TYPE, SINGERS_TAB)
+  * Reorganized data generation with modular helper functions
+  * Consolidated internal data mappings and improved code organization
+
+* **Tests**
+  * Updated tests to align with refactored constant names
 
 ## [#35](https://github.com/MrIbrahem/make2_new/pull/35) - 2025-11-09
-* Refactor [Cities.py](src/ma_lists/geo/Cities.py), [jobs_defs.py](src/ma_lists/jobs/jobs_defs.py)
 
 * **New Features**
   * Expanded job and place name datasets with additional job categories and extensive place-name translations for improved Arabic localization.
 
-* **Refactor**
+* **Refactor  [Cities.py](src/ma_lists/geo/Cities.py), [jobs_defs.py](src/ma_lists/jobs/jobs_defs.py)**
   * Switched to centralized data-driven loading for geographic names and job labels to simplify updates and reduce hardcoded entries.
 
 * **Chores**
