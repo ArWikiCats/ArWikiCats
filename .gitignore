@@ -9,4 +9,3 @@ make_tests
 /.codex
 categories.json
 /tests/event_lists/diff_data
-src/make2_bots/o_bots/save.py
