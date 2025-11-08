@@ -1,5 +1,16 @@
 
-## #34 - 2025-11-09
+## [#35](https://github.com/MrIbrahem/make2_new/pull/35) - 2025-11-09
+
+* **New Features**
+  * Expanded datasets for jobs, players, and singers with additional entries and gendered labels for improved localization support.
+
+* **Refactor**
+  * Centralized data loading for geographic locations and job categories through data files for easier updates and maintenance.
+
+* **Chores**
+  * Added new data files to supply updated datasets and translations.
+
+## [#34](https://github.com/MrIbrahem/make2_new/pull/34) - 2025-11-09
 
 * **New Features**
   * Expanded and enriched job, player and singer datasets with additional entries and gendered labels, improving localized display.
@@ -10,7 +21,7 @@
 * **Chores**
   * Added new JSON data files to supply the updated datasets and translations.
 
-## #32 - 2025-11-08
+## [#32](https://github.com/MrIbrahem/make2_new/pull/32) - 2025-11-08
 
 ### Changed
 * Refactored all modules under `src/make2_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
@@ -20,7 +31,6 @@
 
 ### Added
 * Introduced `src/make2_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
-
 
 ## #31
 
