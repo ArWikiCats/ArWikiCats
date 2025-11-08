@@ -7,15 +7,11 @@ datasets with compatibility aliases matching the legacy API.
 
 from __future__ import annotations
 
-import logging
 import sys
-import time
 
 from ..utils.json_dir import open_json_file
 from ...helps import len_print
 
-load_start_time = time.time()
-# ---
 CITY_TRANSLATIONS = open_json_file("all_cities") or {}
 # ---
 CITY_TRANSLATIONS_SUPPLEMENT = open_json_file("Cities_tab2") or {}
@@ -50,18 +46,15 @@ CITY_TRANSLATIONS_LOWER = {x.lower(): xar for x, xar in CITY_TRANSLATIONS.items(
 # with open(f"{Dir2}/jsons/all_cities.json", "w", encoding="utf-8") as f:
 #     json.dump(CITY_TRANSLATIONS, f, indent=2, ensure_ascii=False)
 # ---
-load_end_time = time.time()
-print(f"Time: {load_end_time - load_start_time}")
-# ---
 memory_sizes = {
     "CITY_TRANSLATIONS": sys.getsizeof(CITY_TRANSLATIONS),
     "CITY_LABEL_PATCHES": sys.getsizeof(CITY_LABEL_PATCHES),
 }
 # ---
-
 len_print.lenth_pri("cities.py", memory_sizes, Max=100)
-# ---
-# Backwards compatible aliases
-N_cit_ies_s = CITY_TRANSLATIONS
-tabe_lab_yy2 = CITY_LABEL_PATCHES
-N_cit_ies_s_lower = CITY_TRANSLATIONS_LOWER
+
+__all__ = [
+    "CITY_TRANSLATIONS",
+    "CITY_LABEL_PATCHES",
+    "CITY_TRANSLATIONS_LOWER",
+]

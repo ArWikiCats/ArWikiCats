@@ -2,7 +2,7 @@
 
 """
 
-from .geo.Cities import N_cit_ies_s_lower
+from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
 from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Nat_Before_Occ, Men_Womens_with_nato, Jobs_new, Jobs_key
 
@@ -69,7 +69,7 @@ __all__ = [
     "Get_sport_formts_female_nat",
     "Get_Sport_Format_xo_en_ar_is_P17",
 
-    "N_cit_ies_s_lower",
+    "CITY_TRANSLATIONS_LOWER",
     #
     "Jobs_key_mens",
     "Jobs_key_womens",
