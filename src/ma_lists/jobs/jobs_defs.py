@@ -238,20 +238,28 @@ def _build_military_job_labels(
         A dictionary of gendered labels covering both base roles and composite
         role names.
     """
+    excluded = set(excluded_prefixes)
 
     combined_roles: GenderedLabelMap = {role_key: role_labels for role_key, role_labels in military_roles.items()}
 
-    excluded = set(excluded_prefixes)
-    for prefix_key, prefix_labels in military_prefixes.items():
-        if prefix_key not in excluded:
-            combined_roles[prefix_key] = prefix_labels
+    combined_roles.update({
+        prefix_key: prefix_labels
+        for prefix_key, prefix_labels
+        in military_prefixes.items()
+        if prefix_key not in excluded
+    })
 
+    for military_key, prefix_labels in military_prefixes.items():
         for role_key, role_labels in military_roles.items():
-            composite_key = f"{prefix_key} {role_key}"
-            combined_roles[composite_key] = combine_gendered_labels(
-                role_labels,
-                prefix_labels,
-            )
+            # ---
+            composite_key = f"{military_key} {role_key}"
+            # ---
+            # combined_roles[composite_key] = combine_gendered_labels(role_labels, prefix_labels)
+            # ---
+            MEN_WOMENS_JOBS_2[composite_key] = {
+                "mens": f"{role_labels['mens']} {prefix_labels['mens']}",
+                "womens": f"{role_labels['womens']} {prefix_labels['womens']}"
+            }
 
     return combined_roles
 
@@ -368,8 +376,6 @@ MEN_WOMENS_JOBS_2.update(
     _build_painter_job_labels(PAINTER_STYLES, PAINTER_ROLE_LABELS, PAINTER_CATEGORY_LABELS)
 )
 
-# #####################################
-# #####################################
 MEN_WOMENS_JOBS_2.update(
     _build_military_job_labels(
         MILITARY_PREFIXES,
@@ -377,27 +383,6 @@ MEN_WOMENS_JOBS_2.update(
         EXCLUDED_MILITARY_PREFIXES,
     )
 )
-
-# #####################################
-# #####################################
-
-
-for military_key, military_labels in MILITARY_PREFIXES.items():
-    if military_key not in EXCLUDED_MILITARY_PREFIXES:
-        MEN_WOMENS_JOBS_2[military_key] = military_labels
-    # ---
-    for role_key, role_labels in MILITARY_ROLE_LABELS.items():
-        composite_key = f"{military_key} {role_key}"
-        MEN_WOMENS_JOBS_2[role_key] = role_labels
-        MEN_WOMENS_JOBS_2[composite_key] = {}
-        MEN_WOMENS_JOBS_2[composite_key]["mens"] = (
-            f"{role_labels['mens']} {military_labels['mens']}"
-        )
-        MEN_WOMENS_JOBS_2[composite_key]["womens"] = (
-            f"{role_labels['womens']} {military_labels['womens']}"
-        )
-# ---
-
 
 __all__ = [
     "GenderedLabel",
