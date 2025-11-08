@@ -1,14 +1,15 @@
 
 ## [#35](https://github.com/MrIbrahem/make2_new/pull/35) - 2025-11-09
- * Refactor src/ma_lists/geo/Cities.py, src/ma_lists/jobs/jobs_defs.py
+* Refactor src/ma_lists/geo/Cities.py, src/ma_lists/jobs/jobs_defs.py
+
 * **New Features**
-  * Expanded datasets for jobs, players, and singers with additional entries and gendered labels for improved localization support.
+  * Expanded job and place name datasets with additional job categories and extensive place-name translations for improved Arabic localization.
 
 * **Refactor**
-  * Centralized data loading for geographic locations and job categories through data files for easier updates and maintenance.
+  * Switched to centralized data-driven loading for geographic names and job labels to simplify updates and reduce hardcoded entries.
 
 * **Chores**
-  * Added new data files to supply updated datasets and translations.
+  * Added new data assets and updated changelog with two new entries and an expanded existing entry.
 
 ## [#34](https://github.com/MrIbrahem/make2_new/pull/34) - 2025-11-09
 
