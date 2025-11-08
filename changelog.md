@@ -1,6 +1,9 @@
 
+## [#36](https://github.com/MrIbrahem/make2_new/pull/36) - 2025-11-09
+* Refactor [jobs_singers.py](src/ma_lists/jobs/jobs_singers.py)
+
 ## [#35](https://github.com/MrIbrahem/make2_new/pull/35) - 2025-11-09
-* Refactor src/ma_lists/geo/Cities.py, src/ma_lists/jobs/jobs_defs.py
+* Refactor [Cities.py](src/ma_lists/geo/Cities.py), [jobs_defs.py](src/ma_lists/jobs/jobs_defs.py)
 
 * **New Features**
   * Expanded job and place name datasets with additional job categories and extensive place-name translations for improved Arabic localization.
