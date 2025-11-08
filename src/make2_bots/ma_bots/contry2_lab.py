@@ -7,23 +7,18 @@ python3 core8/pwb.py make/make2_bots.ma_bots/contry2_bot
 
 """
 from typing import Any
-from ..o_bots import fax
-from ..media_bots.films_bot import test_films
-
-from ..sports_bots import team_work
-from ..p17_bots import nats
-from ..matables_bots.centries_bot import centries_years_dec
-
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..matables_bots.table1_bot import get_KAKO
 
 from ...helps.print_bot import print_put
-
-from ..p17_bots.us_stat import Work_US_State
-from ..o_bots.rele import Work_relations
+from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.centries_bot import centries_years_dec
+from ..matables_bots.table1_bot import get_KAKO
+from ..media_bots.films_bot import test_films
+from ..o_bots import fax, univer
 from ..o_bots.popl import Work_peoples
-from ..o_bots import univer
-
+from ..o_bots.rele import Work_relations
+from ..p17_bots import nats
+from ..p17_bots.us_stat import Work_US_State
+from ..sports_bots import team_work
 from . import ye_ts_bot
 
 
@@ -60,9 +55,7 @@ def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) 
         resolved_label = pop_All_2018.get(contry2[len("the ") :], "")
 
     if not resolved_label and with_test_ye:
-        resolved_label = ye_ts_bot.translate_general_category(
-            contry2, do_Get_contry2=False
-        )
+        resolved_label = ye_ts_bot.translate_general_category(contry2, do_Get_contry2=False)
 
     if resolved_label:
         print_put(f'>> get_lab_for_contry2 "{contry2}": label: {resolved_label}')

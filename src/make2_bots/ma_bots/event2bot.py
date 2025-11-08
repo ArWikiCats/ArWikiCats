@@ -12,14 +12,13 @@ import sys
 
 from ... import printe
 from ...fix import fixtitle
+from ...helps.print_bot import print_put
 from ..bots import tmp_bot
 from ..date_bots import with_years_bot
-from .lab_seoo_bot import event_Lab_seoo
 from ..o_bots import univer  # univer.test_Universities(cate)
-
-from ...helps.print_bot import print_put
 from .contry_bot import Get_contry
 from .dodo_bots.event2bot_dodo import make_lab_dodo
+from .lab_seoo_bot import event_Lab_seoo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 event2_cash = {}

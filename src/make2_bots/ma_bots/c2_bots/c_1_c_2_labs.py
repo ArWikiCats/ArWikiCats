@@ -7,24 +7,18 @@ from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 
 import re
 from typing import Callable, List
-from ...o_bots import fax
-from ...media_bots.films_bot import test_films
-from .. import contry2_lab
-
-from .. import contry_bot
-from ...sports_bots import team_work
-from ...o_bots import bys
-from ...p17_bots import nats
-from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
-
-from ...matables_bots.centries_bot import centries_years_dec
-
-from ...matables_bots.bot_2018 import pop_All_2018
-from ...matables_bots.table1_bot import get_KAKO
 
 from ....helps.print_bot import print_put, output_test
-
 from ...date_bots import with_years_bot
+from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
+from ...matables_bots.bot_2018 import pop_All_2018
+from ...matables_bots.centries_bot import centries_years_dec
+from ...matables_bots.table1_bot import get_KAKO
+from ...media_bots.films_bot import test_films
+from ...o_bots import bys, fax
+from ...p17_bots import nats
+from ...sports_bots import team_work
+from .. import contry2_lab, contry_bot
 
 
 def check_sources(cone_1: str) -> str:

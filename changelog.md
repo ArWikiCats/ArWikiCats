@@ -1,4 +1,16 @@
 
+## #32 - 2025-11-08
+
+### Changed
+* Refactored all modules under `src/make2_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
+* Centralised shared suffix-matching and caching helpers to eliminate duplicated logic across bots.
+* Standardised logging usage and cache handling, adding inline comments to clarify complex resolution flows.
+* Updated dependent bots to consume the new PEP 8 interfaces and refreshed formatting across touched files.
+
+### Added
+* Introduced `src/make2_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
+
+
 ## #31
 
 * **Bug Fixes**
