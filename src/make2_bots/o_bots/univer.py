@@ -6,7 +6,6 @@ from typing import Dict
 
 from ...helps.print_bot import print_put
 from ...ma_lists import N_cit_ies_s_lower
-from .utils import get_or_set
 
 MAJORS: Dict[str, str] = {
     "medical sciences": "للعلوم الطبية",
@@ -70,6 +69,53 @@ def _normalise_category(category: str) -> str:
     return normalized
 
 
+def _resolve(normalized_category) -> str:
+    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
+
+    city_key = ""
+    university_template = ""
+
+    # Attempt to match based on the suffix first.
+    for key, template in UNIVERSITIES_TABLES.items():
+        prefixed_key = f"the {key}"
+        if normalized_category.endswith(key):
+            university_template = template
+            city_key = normalized_category[: -len(key)].strip()
+            break
+        if normalized_category.endswith(prefixed_key):
+            university_template = template
+            city_key = normalized_category[: -len(prefixed_key)].strip()
+            break
+
+    # Fallback to prefix matching when suffixes fail.
+    if not city_key:
+        for key, template in UNIVERSITIES_TABLES.items():
+            prefixed_key = f"the {key}"
+            key_with_comma = f"{key}, "
+            if normalized_category.startswith(key_with_comma):
+                university_template = template
+                city_key = normalized_category[len(key_with_comma) :].strip()
+                break
+            if normalized_category.startswith(key):
+                university_template = template
+                city_key = normalized_category[len(key) :].strip()
+                break
+            if normalized_category.startswith(prefixed_key):
+                university_template = template
+                city_key = normalized_category[len(prefixed_key) :].strip()
+                break
+
+    city_label = N_cit_ies_s_lower.get(city_key, "") if city_key else ""
+    if city_label and university_template:
+        university_label = university_template.format(city_label)
+        print_put(f'<<lightblue>>>>>> test_universities: new university_label  "{university_label}" ')
+        print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
+        return university_label
+
+    print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
+    return ""
+
+
 def test_universities(category: str) -> str:
     """Return the Arabic label for university-related categories.
 
@@ -84,60 +130,10 @@ def test_universities(category: str) -> str:
 
     if normalized_category in UNIVERSITIES_CACHE:
         return UNIVERSITIES_CACHE[normalized_category]
-    # ---
-    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (category:{category}) vvvvvvvvvvvv ")
-    # ---
-    city_key = ""
-    university_template = ""
-    # ---
-    for xi, xi_lab in UNIVERSITIES_TABLES.items():
-        xi2 = f"the {xi}"
-        if category.endswith(xi):
-            university_template = xi_lab
-            city_key = category[: -len(xi)].strip()
-            break
-        elif category.endswith(xi2):
-            university_template = xi_lab
-            city_key = category[: -len(xi2)].strip()
-            break
-    # ---
-    if not city_key:
-        for xi, xi_lab in UNIVERSITIES_TABLES.items():
-            xi3 = f"{xi}, "
-            the_xi = f"the {xi}"
-            if category.startswith(xi3):
-                university_template = xi_lab
-                city_key = category[len(xi3) :].strip()
-                break
-            elif category.startswith(xi):
-                university_template = xi_lab
-                city_key = category[len(xi) :].strip()
-                break
-            elif category.startswith(the_xi):
-                university_template = xi_lab
-                city_key = category[len(the_xi) :].strip()
-                break
-    # ---
-    city_label = ""
-    if city_key:
-        # ---
-        city_label = N_cit_ies_s_lower.get(city_key, "")
-        # ---
-        print_put(
-            f"<<lightblue>>>> test_universities cite:{city_key}, majorlab:{university_template}, citelab:{city_label}"
-        )
-    # ---
-    univer_lab = ""
-    # ---
-    if city_label:
-        univer_lab = university_template.format(city_label)
-        print_put(f'<<lightblue>>>>>> test_universities: new univer_lab  "{univer_lab}" ')
-    # ---
-    print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
-    # ---
-    UNIVERSITIES_CACHE[normalized_category] = univer_lab
-    # ---
-    return univer_lab
+
+    UNIVERSITIES_CACHE[normalized_category] = _resolve(normalized_category)
+
+    return UNIVERSITIES_CACHE[normalized_category]
 
 
 __all__ = [
