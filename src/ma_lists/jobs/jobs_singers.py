@@ -4,9 +4,10 @@ Utilities for assembling singer-related gendered job labels.
 """
 
 from __future__ import annotations
-
+import sys
 from typing import Dict, Mapping
 
+from ...helps import len_print
 from ..utils.json_dir import open_json
 from .jobs_defs import (
     GenderedLabel,
@@ -270,7 +271,6 @@ for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
 
 """Expanded non-fiction topics covering both static and dynamically generated entries."""
 
-
 MEN_WOMENS_SINGERS: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Singers.json") or {}
 
 MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
@@ -278,6 +278,18 @@ MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SI
 MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
 
 MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
+
+len_print.lenth_pri("jobs_singers.py", {
+    "FILMS_TYPE": sys.getsizeof(FILMS_TYPE),
+    "NON_FICTION_ADDITIONAL_TOPICS": sys.getsizeof(NON_FICTION_ADDITIONAL_TOPICS),
+    "NON_FICTION_BASE_TOPICS": sys.getsizeof(NON_FICTION_BASE_TOPICS),
+    "NON_FICTION_TOPICS": sys.getsizeof(NON_FICTION_TOPICS),
+    "SINGER_CATEGORY_LABELS": sys.getsizeof(SINGER_CATEGORY_LABELS),
+    "SINGERS_AFTER_ROLES": sys.getsizeof(SINGERS_AFTER_ROLES),
+    "SINGERS_MAIN_CATEGORIES": sys.getsizeof(SINGERS_MAIN_CATEGORIES),
+    "MEN_WOMENS_SINGERS": sys.getsizeof(MEN_WOMENS_SINGERS),
+    "SINGERS_TAB": sys.getsizeof(SINGERS_TAB),
+})
 
 __all__ = [
     "FILMS_TYPE",
