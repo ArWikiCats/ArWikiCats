@@ -1,5 +1,5 @@
 """
-from ..o_bots.army import test_Army
+from ..o_bots.army import test_army
 """
 
 import re
@@ -18,7 +18,7 @@ from ...helps.log import logger
 
 TEST_ARMY_CACHE = {}
 
-def test_Army(category: str) -> str:
+def test_army(category: str) -> str:
     if category in TEST_ARMY_CACHE:
         if TEST_ARMY_CACHE[category]:
             logger.debug(
@@ -33,7 +33,7 @@ def test_Army(category: str) -> str:
     men_label = ""
 
     logger.info(
-        f"<<lightblue>>>> vvvvvvvvvvvv test_Army start, (category:{category}) vvvvvvvvvvvv "
+        f"<<lightblue>>>> vvvvvvvvvvvv test_army start, (category:{category}) vvvvvvvvvvvv "
     )
 
     for country, country_details in All_contry_with_nat.items():
@@ -179,5 +179,5 @@ def test_Army(category: str) -> str:
     if resolved_label:
         TEST_ARMY_CACHE[category] = resolved_label
 
-    logger.info("<<lightblue>>>> ^^^^^^^^^ test_Army end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ test_army end ^^^^^^^^^ ")
     return resolved_label

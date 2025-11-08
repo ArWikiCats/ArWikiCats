@@ -1,7 +1,7 @@
 """
 from  make.make2_bots.ma_bots import fax
 # get_teams_new(team)
-# test_Lang(cate)
+# test_language(cate)
 
 """
 
@@ -50,7 +50,7 @@ def get_teams_new(team_name: str) -> str:
     return team_label
 
 
-def test_Lang(category: str) -> str:
+def test_language(category: str) -> str:
     normalized_category = category.lower()
 
     if normalized_category in LANGUAGE_CACHE:
@@ -75,9 +75,9 @@ def test_Lang(category: str) -> str:
             resolved_label = suffix_template % language_label
 
     if resolved_label:
-        print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_Lang cate:{normalized_category} vvvvvvvvvvvv ")
-        print_put(f'<<lightblue>>>>>> test_Lang: new_lab  "{resolved_label}" ')
-        print_put("<<lightblue>>>> ^^^^^^^^^ test_Lang end ^^^^^^^^^ ")
+        print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_language cate:{normalized_category} vvvvvvvvvvvv ")
+        print_put(f'<<lightblue>>>>>> test_language: new_lab  "{resolved_label}" ')
+        print_put("<<lightblue>>>> ^^^^^^^^^ test_language end ^^^^^^^^^ ")
 
     LANGUAGE_CACHE[normalized_category] = resolved_label
     return resolved_label

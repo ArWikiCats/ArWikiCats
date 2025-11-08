@@ -5,8 +5,8 @@ from ..bots import ethnic_bot
 # ---
 ethnic_bot.output_test4 = output_test4
 # ---
-def Ethnic(cate, Start, con_3):
-    return ethnic_bot.Ethnic(cate, Start, con_3)
+def ethnic(cate, Start, con_3):
+    return ethnic_bot.ethnic(cate, Start, con_3)
 # ---
 
 """
@@ -20,7 +20,7 @@ Ethnic_culture_cash: Dict[str, str] = {}
 Ethnic_cash: Dict[str, str] = {}
 
 
-def Ethnic_culture(cate: str, Start: str, con_3: str) -> str:
+def ethnic_culture(cate: str, Start: str, con_3: str) -> str:
     # ---
     cash_key = f"{cate}, {Start}, {con_3}".lower().strip()
     # ---
@@ -79,14 +79,14 @@ def Ethnic_culture(cate: str, Start: str, con_3: str) -> str:
         if con_3_lab:
             rz = f"{con_3_lab} {contry_L}"
             contry_lab = topic_label.format(rz)
-            output_test4(f'<<lightblue>> test Ethnic_culture: new contry_lab  "{contry_lab}" ')
+            output_test4(f'<<lightblue>> test ethnic_culture: new contry_lab  "{contry_lab}" ')
     # ---
     Ethnic_culture_cash[cash_key] = contry_lab
     # ---
     return contry_lab
 
 
-def Ethnic(cate: str, Start: str, con_3: str) -> str:
+def ethnic(cate: str, Start: str, con_3: str) -> str:
     # ---
     cash_key = f"{cate}, {Start}, {con_3}".lower().strip()
     # ---
@@ -105,10 +105,10 @@ def Ethnic(cate: str, Start: str, con_3: str) -> str:
     if con_3_lab:
         if Nat_mens.get(contry, "") != "":
             contry_lab = f"{con_3_lab} {Nat_mens.get(contry, '')}"
-            output_test4(f'<<lightblue>> test Ethnic: new contry_lab  "{contry_lab}" ')
+            output_test4(f'<<lightblue>> test ethnic: new contry_lab  "{contry_lab}" ')
     # ---
     if not contry_lab:
-        contry_lab = Ethnic_culture(cate, Start, con_3)
+        contry_lab = ethnic_culture(cate, Start, con_3)
     # ---
     Ethnic_cash[cash_key] = contry_lab
     # ---

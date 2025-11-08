@@ -1,15 +1,14 @@
-#!/usr/bin/python3
-"""
-python3 core8/pwb.py make/m test Category:People executed by the International Military Tribunal in Nuremberg
+"""University labelling helpers."""
 
-from  make.bots import univer # univer.universities_tables | univer.test_universities(cate)
-"""
+from __future__ import annotations
 
-from ...ma_lists import N_cit_ies_s_lower
+from typing import Dict
+
 from ...helps.print_bot import print_put
+from ...ma_lists import N_cit_ies_s_lower
+from .utils import get_or_set
 
-# ---
-majors = {
+MAJORS: Dict[str, str] = {
     "medical sciences": "للعلوم الطبية",
     "international university": "الدولية",
     "art": "للفنون",
@@ -51,7 +50,7 @@ universities_tables = {
 "china university of petroleum":"جامعة الصين للبترول",
 "odesa national maritime university":"جامعة أوديسا الوطنية البحرية",
 """
-for major, maj_ar in majors.items():
+for major, maj_ar in MAJORS.items():
     major = major.lower()
     universities_tables[f"university of {major}"] = "جامعة {} %s" % maj_ar
     universities_tables[f"university-of-{major}"] = "جامعة {} %s" % maj_ar
@@ -59,7 +58,7 @@ for major, maj_ar in majors.items():
     universities_tables[f"university of the {major}"] = "جامعة {} %s" % maj_ar
     universities_tables[f"university-of-the-{major}"] = "جامعة {} %s" % maj_ar
 
-test_Universities_cash = {}
+test_universities_cash = {}
 
 
 def test_universities(cate: str) -> str:
@@ -68,8 +67,8 @@ def test_universities(cate: str) -> str:
     if cate.startswith("category:"):
         cate = cate[len("category:") :].strip()
     # ---
-    if cate.lower().strip() in test_Universities_cash:
-        return test_Universities_cash[cate.lower().strip()]
+    if cate.lower().strip() in test_universities_cash:
+        return test_universities_cash[cate.lower().strip()]
     # ---
     print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (cate:{cate}) vvvvvvvvvvvv ")
     # ---
@@ -121,6 +120,6 @@ def test_universities(cate: str) -> str:
     # ---
     print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
     # ---
-    test_Universities_cash[cate.lower().strip()] = univer_lab
+    test_universities_cash[cate.lower().strip()] = univer_lab
     # ---
     return univer_lab

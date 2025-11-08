@@ -4,7 +4,7 @@
 import re
 from typing import Dict
 
-from ..o_bots.army import test_Army
+from ..o_bots.army import test_army
 from ..p17_bots import p17_bot
 from ..media_bots.film_keys_bot import get_Films_key_CAO
 from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
@@ -75,10 +75,10 @@ def test_films(category: str, reference_category: str = "") -> str:
         resolved_label = p17_bot.Get_P17_2(normalized_category)
 
     if not resolved_label:
-        resolved_label = fax.test_Lang(normalized_category)
+        resolved_label = fax.test_language(normalized_category)
 
     if not resolved_label:
-        resolved_label = test_Army(normalized_category)
+        resolved_label = test_army(normalized_category)
 
     if not resolved_label:
         resolved_label = test4_2018_Jobs(normalized_category, out=main_output_preferences[1])

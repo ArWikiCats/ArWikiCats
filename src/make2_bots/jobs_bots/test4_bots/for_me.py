@@ -105,7 +105,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
     # ---
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and contry_lab == "":
-        contry_lab = ethnic_bot.Ethnic(cate, nat, con_3)
+        contry_lab = ethnic_bot.ethnic(cate, nat, con_3)
     # ---
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and contry_lab == "":
