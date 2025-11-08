@@ -2,7 +2,7 @@
 """
 python3 core8/pwb.py make/m test Category:People executed by the International Military Tribunal in Nuremberg
 
-from  make.bots import univer # univer.universities_tables | univer.test_Universities(cate)
+from  make.bots import univer # univer.universities_tables | univer.test_universities(cate)
 """
 
 from ...ma_lists import N_cit_ies_s_lower
@@ -62,7 +62,7 @@ for major, maj_ar in majors.items():
 test_Universities_cash = {}
 
 
-def test_Universities(cate: str) -> str:
+def test_universities(cate: str) -> str:
     cate = cate.lower()
     # ---
     if cate.startswith("category:"):
@@ -71,7 +71,7 @@ def test_Universities(cate: str) -> str:
     if cate.lower().strip() in test_Universities_cash:
         return test_Universities_cash[cate.lower().strip()]
     # ---
-    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_Universities start, (cate:{cate}) vvvvvvvvvvvv ")
+    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (cate:{cate}) vvvvvvvvvvvv ")
     # ---
     city_key = ""
     university_template = ""
@@ -110,16 +110,16 @@ def test_Universities(cate: str) -> str:
         city_label = N_cit_ies_s_lower.get(city_key, "")
         # ---
         print_put(
-            f"<<lightblue>>>> test_Universities cite:{city_key}, majorlab:{university_template}, citelab:{city_label}"
+            f"<<lightblue>>>> test_universities cite:{city_key}, majorlab:{university_template}, citelab:{city_label}"
         )
     # ---
     univer_lab = ""
     # ---
     if city_label:
         univer_lab = university_template.format(city_label)
-        print_put(f'<<lightblue>>>>>> test_Universities: new univer_lab  "{univer_lab}" ')
+        print_put(f'<<lightblue>>>>>> test_universities: new univer_lab  "{univer_lab}" ')
     # ---
-    print_put("<<lightblue>>>> ^^^^^^^^^ test_Universities end ^^^^^^^^^ ")
+    print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
     # ---
     test_Universities_cash[cate.lower().strip()] = univer_lab
     # ---

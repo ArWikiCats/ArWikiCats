@@ -1,6 +1,6 @@
 """
 
-from ..bots.popl import Work_peoples, make_people_lab
+from ..bots.popl import work_peoples, make_people_lab
 
 """
 
@@ -15,21 +15,21 @@ from ...ma_lists import People_key
 Work_peoples_cash = {}
 
 
-def Work_peoples(SUUS: str) -> str:
+def work_peoples(SUUS: str) -> str:
     # ---
     cash_key = SUUS.lower().strip()
     # ---
     if cash_key in Work_peoples_cash:
         return Work_peoples_cash[cash_key]
     # ---
-    print_put(f"<<lightpurple>> >Work_peoples:> len People_key: {len(People_key)} ")
+    print_put(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
     PpP_lab = ""
     person = ""
     pri = ""
     for pri_ff in Pp_Priffix:
         if not person:
             if SUUS.endswith(pri_ff):
-                print_put(f'>>>><<lightblue>> Work_peoples :"{SUUS}"')
+                print_put(f'>>>><<lightblue>> work_peoples :"{SUUS}"')
                 pri = pri_ff
                 person = SUUS[: -len(pri_ff)]
                 break

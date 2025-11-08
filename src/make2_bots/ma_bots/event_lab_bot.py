@@ -67,7 +67,7 @@ def event_Lab(cate_r: str) -> str:
             list_of_cat = ""
 
     if not category_lab:
-        category_lab = univer.test_Universities(category3)
+        category_lab = univer.test_universities(category3)
 
     if not category_lab:
         category_lab = year_lab.make_year_lab(category3)

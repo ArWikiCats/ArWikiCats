@@ -15,7 +15,7 @@ from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ..bots import tmp_bot
 from ..date_bots import with_years_bot
-from ..o_bots import univer  # univer.test_Universities(cate)
+from ..o_bots import univer  # univer.test_universities(cate)
 from .contry_bot import Get_contry
 from .dodo_bots.event2bot_dodo import make_lab_dodo
 from .lab_seoo_bot import event_Lab_seoo
@@ -91,7 +91,7 @@ def event2(category_r: str) -> str:
     # tit = {}
 
     ar_label = ""
-    ar_label = univer.test_Universities(category_r)
+    ar_label = univer.test_universities(category_r)
     # ---
     if not ar_label:
         category = category_r

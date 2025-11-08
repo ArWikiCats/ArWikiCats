@@ -44,10 +44,10 @@ def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, contry: str, contry
         con_lab = pop_All_2018.get(contry_lower.replace("kingdom-of", "kingdom of"), "")
 
     if con_lab == "" and contry_lower.startswith("by "):
-        con_lab = bys.Make_By_lab(contry_lower)
+        con_lab = bys.make_by_label(contry_lower)
 
     if con_lab == "" and " by " in contry_lower:
-        con_lab = bys.Get_by_label(contry_lower)
+        con_lab = bys.get_by_label(contry_lower)
 
     if tito2 == "for":
         con_lab = for_table.get(contry_lower, "")

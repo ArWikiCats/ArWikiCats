@@ -7,7 +7,7 @@ import re
 from ...fix import fixtitle
 
 from ..p17_bots.us_stat import Work_US_State
-from ..o_bots.popl import Work_peoples
+from ..o_bots.popl import work_peoples
 
 # from ..bots import tmp_bot
 from ..p17_bots import nats
@@ -106,7 +106,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     #     category_lab = tmp_bot.Work_Templates(category3)
 
     if not resolved_category_label:
-        resolved_category_label = univer.test_Universities(normalized_target_category)
+        resolved_category_label = univer.test_universities(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = test_films(
@@ -126,7 +126,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = Work_US_State(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = Work_peoples(normalized_target_category)
+        resolved_category_label = work_peoples(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = test3(normalized_target_category)

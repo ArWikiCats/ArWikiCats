@@ -33,9 +33,9 @@ PP_PRIFFIX_RELATIONS_MALE = {
 }
 
 
-def Work_relations(suus: str) -> str:
+def work_relations(suus: str) -> str:
     suus = suus.lower()
-    print_put(f"start Work_relations: suus:{suus}")
+    print_put(f"start work_relations: suus:{suus}")
     # ---
     gen_key = "women"
     dodo = All_contry_with_nat_keys_is_en
@@ -50,7 +50,7 @@ def Work_relations(suus: str) -> str:
     # الحصول على الجزء الأخير
     for pri_ff in PP_PRIFFIX_RELATIONS_FEMALE:
         if suus.endswith(pri_ff):
-            print_put(f'\t\t>>>><<lightblue>> Work_relations :"{suus}".endswith({pri_ff})')
+            print_put(f'\t\t>>>><<lightblue>> work_relations :"{suus}".endswith({pri_ff})')
             end_part = pri_ff
             first_part = suus[: -len(pri_ff)]
             break
@@ -58,7 +58,7 @@ def Work_relations(suus: str) -> str:
     if first_part == "" and end_part == "":
         for pri_ff in PP_PRIFFIX_RELATIONS_MALE:
             if suus.endswith(pri_ff):
-                print_put(f'\t\t>>>><<lightblue>> Work_relations :"{suus}".endswith({pri_ff})')
+                print_put(f'\t\t>>>><<lightblue>> work_relations :"{suus}".endswith({pri_ff})')
                 end_part = pri_ff
                 first_part = suus[: -len(pri_ff)]
                 # ---
@@ -129,7 +129,7 @@ def Work_relations(suus: str) -> str:
         for pri_dd in Pp_Priffix_p17:
             if not U_44:
                 if suus.endswith(pri_dd):
-                    printe.output(f'\t\t>>>><<lightblue>> Work_relations :"{suus}".endswith({pri_dd})')
+                    printe.output(f'\t\t>>>><<lightblue>> work_relations :"{suus}".endswith({pri_dd})')
                     pri_o = pri_dd
                     U_44 = suus[: -len(pri_dd)]
         # ---

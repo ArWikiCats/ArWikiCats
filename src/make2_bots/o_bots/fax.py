@@ -1,6 +1,6 @@
 """
 from  make.make2_bots.ma_bots import fax
-# Get_Teams_new(team)
+# get_teams_new(team)
 # test_Lang(cate)
 
 """
@@ -16,7 +16,7 @@ from ...helps.print_bot import print_put
 LANGUAGE_CACHE = {}
 
 
-def Get_Teams_new(team_name: str) -> str:
+def get_teams_new(team_name: str) -> str:
     # إيجاد لاحقات التسميات الرياضية
 
     # قبل تطبيق الوظيفة
@@ -24,7 +24,7 @@ def Get_Teams_new(team_name: str) -> str:
     # بعد تطبيق الوظيفة
     # sports.py: len:"Teams_new":  114691
 
-    print_put(f'Get_Teams_new team:"{team_name}"')
+    print_put(f'get_teams_new team:"{team_name}"')
     team_label = sport_lab.Get_New_team_xo(team_name)
 
     if not team_label:

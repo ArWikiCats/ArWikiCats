@@ -27,7 +27,7 @@ def check_sources(cone_1: str) -> str:
     sources: List[Callable[[str], str]] = [
         test_films,
         nats.find_nat_others,
-        fax.Get_Teams_new,
+        fax.get_teams_new,
     ]
     for source in sources:
         result = source(cone_1)
@@ -49,7 +49,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     if not c_1_l:
         c_1_l = nats.find_nat_others(cone_1)
     if not c_1_l:
-        c_1_l = fax.Get_Teams_new(cone_1)
+        c_1_l = fax.get_teams_new(cone_1)
     if not c_1_l:
         c_1_l = team_work.Get_team_work_Club(con_1_no_lower)
 
@@ -108,16 +108,16 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
 
     c_2_l = pop_All_2018.get(cone_2, "")
     if c_2_l == "" and cone_2.find(" by ") != -1:
-        c_2_l = bys.Get_by_label(cone_2)
+        c_2_l = bys.get_by_label(cone_2)
 
     if not c_2_l:
         c_2_l = test_films(cone_2)
     if not c_2_l:
         c_2_l = nats.find_nat_others(cone_2)
     if not c_2_l:
-        c_2_l = fax.Get_Teams_new(cone_2)
+        c_2_l = fax.get_teams_new(cone_2)
     if c_2_l == "" and cone_2.find(" and ") != -1:
-        c_2_l = bys.Get_and_label(cone_2)
+        c_2_l = bys.get_and_label(cone_2)
     if not c_2_l:
         c_2_l = team_work.Get_team_work_Club(con_2_no_lower)
 

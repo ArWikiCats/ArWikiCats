@@ -14,8 +14,8 @@ from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import test_films
 from ..o_bots import fax, univer
-from ..o_bots.popl import Work_peoples
-from ..o_bots.rele import Work_relations
+from ..o_bots.popl import work_peoples
+from ..o_bots.rele import work_relations
 from ..p17_bots import nats
 from ..p17_bots.us_stat import Work_US_State
 from ..sports_bots import team_work
@@ -34,17 +34,17 @@ def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) 
     if not resolved_label:
         resolved_label = nats.find_nat_others(contry2)
     if not resolved_label:
-        resolved_label = fax.Get_Teams_new(contry2)
+        resolved_label = fax.get_teams_new(contry2)
     if not resolved_label:
         resolved_label = team_work.Get_team_work_Club(contry2_no_lower)
     if not resolved_label:
-        resolved_label = Work_relations(contry2)
+        resolved_label = work_relations(contry2)
     if not resolved_label:
-        resolved_label = univer.test_Universities(contry2)
+        resolved_label = univer.test_universities(contry2)
     if not resolved_label:
         resolved_label = Work_US_State(contry2)
     if not resolved_label:
-        resolved_label = Work_peoples(contry2)
+        resolved_label = work_peoples(contry2)
     if not resolved_label:
         resolved_label = get_KAKO(contry2)
 
