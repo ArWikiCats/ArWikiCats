@@ -170,7 +170,7 @@ def test4_2018_with_nat(
             )
         # ---
         if not country_label:
-            country_label = ethnic_bot.Ethnic(normalized_category, nat, con_3)
+            country_label = ethnic_bot.ethnic(normalized_category, nat, con_3)
         # ---
         if not country_label:
             country_label = nat_match(normalized_category, nat, con_3)

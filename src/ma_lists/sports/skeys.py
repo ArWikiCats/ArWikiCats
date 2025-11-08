@@ -97,7 +97,7 @@ for team in Sports_Keys_For_Jobs:
         New_With_Women[f"{PP} {team}"] = LPPPo
         # print(f"[{PP} {team}]:{LPPPo}")
     # ---
-    # replaced py Get_Teams_new()
+    # replaced py get_teams_new()
 # ---
 # sport_formts_en_ar_is_p17#Sports_Format_en_is_P17_ar_P17
 # Teams_new
