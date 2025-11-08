@@ -47,7 +47,7 @@ from ..mixed.male_keys import religious_female_keys
 from ..companies import companies_to_jobs
 from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
-from .jobs_defs import religious_keys_PP, Men_Womens_Jobs_2
+from .jobs_defs import religious_keys_PP, MEN_WOMENS_JOBS_2
 
 Jobs_new = {}
 # ---
@@ -94,7 +94,7 @@ womens_Jobs_2017 = {}
 # ---
 Men_Womens_Jobs = {}
 # ---
-Men_Womens_Jobs.update(Men_Womens_Jobs_2)
+Men_Womens_Jobs.update(MEN_WOMENS_JOBS_2)
 # ---
 Jobs_key_Format = {
     # "politicians who committed suicide" : {"mens":"سياسيون أقدموا على الانتحار", "womens":"سياسيات أقدمن على الانتحار"},

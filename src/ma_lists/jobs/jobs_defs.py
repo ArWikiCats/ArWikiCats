@@ -1,6 +1,6 @@
 """
 
-from .jobs_defs import religious_keys_PP, Men_Womens_Jobs_2
+from .jobs_defs import religious_keys_PP, MEN_WOMENS_JOBS_2
 
 """
 
@@ -40,7 +40,7 @@ religious_keys_PP = {
     "saints": {"mens": "قديسون", "womens": "قديسات"},
 }
 # ---
-Men_Womens_Jobs_2 = {}
+MEN_WOMENS_JOBS_2 = {}
 # ---
 RELIGIOUS_ROLE_LABELS = {
     "christians": {"mens": "مسيحيون", "womens": "مسيحيات"},
@@ -50,7 +50,6 @@ RELIGIOUS_ROLE_LABELS = {
     "monks": {"mens": "رهبان", "womens": "راهبات"},
     "nuns": {"mens": "", "womens": "راهبات"},
     "saints": {"mens": "قديسون", "womens": "قديسات"},
-    # "hindu":  {"mens":"هندوس", "womens":"هندوسيات"},
     "astrologers": {"mens": "منجمون", "womens": "منجمات"},
     "leaders": {"mens": "قادة", "womens": "قائدات"},
     "bishops": {"mens": "أساقفة", "womens": ""},
@@ -68,7 +67,7 @@ for religion_key, religion_labels in religious_keys_PP.items():
             if job_labels["womens"]
             else ""
         )
-        Men_Womens_Jobs_2[label_template % job_key] = {
+        MEN_WOMENS_JOBS_2[label_template % job_key] = {
             "mens": f'{job_labels["mens"]} {religion_labels["mens"]}',
             "womens": womens_label,
         }
@@ -88,16 +87,16 @@ PAINTER_ROLE_LABELS = {
 # ---
 for painter_style, painter_style_labels in painters_PP.items():
     if painter_style != "history":
-        Men_Womens_Jobs_2[painter_style] = painter_style_labels
+        MEN_WOMENS_JOBS_2[painter_style] = painter_style_labels
 
     for artist_role, artist_role_labels in PAINTER_ROLE_LABELS.items():
-        Men_Womens_Jobs_2[artist_role] = artist_role_labels
+        MEN_WOMENS_JOBS_2[artist_role] = artist_role_labels
         composite_key = f"{painter_style} {artist_role}"
-        Men_Womens_Jobs_2[composite_key] = {}
-        Men_Womens_Jobs_2[composite_key]["mens"] = (
+        MEN_WOMENS_JOBS_2[composite_key] = {}
+        MEN_WOMENS_JOBS_2[composite_key]["mens"] = (
             f"{artist_role_labels['mens']} {painter_style_labels['mens']}"
         )
-        Men_Womens_Jobs_2[composite_key]["womens"] = (
+        MEN_WOMENS_JOBS_2[composite_key]["womens"] = (
             f"{artist_role_labels['womens']} {painter_style_labels['womens']}"
         )
 # ---
@@ -116,11 +115,11 @@ PAINTER_CATEGORY_LABELS = {
 }
 # ---
 for painter_category, category_label in PAINTER_CATEGORY_LABELS.items():
-    Men_Womens_Jobs_2[f"{painter_category} painters"] = {
+    MEN_WOMENS_JOBS_2[f"{painter_category} painters"] = {
         "mens": f"رسامو {category_label}",
         "womens": f"رسامات {category_label}",
     }
-    Men_Womens_Jobs_2[f"{painter_category} artists"] = {
+    MEN_WOMENS_JOBS_2[f"{painter_category} artists"] = {
         "mens": f"فنانو {category_label}",
         "womens": f"فنانات {category_label}",
     }
@@ -148,43 +147,39 @@ pppp = ["military", "literary"]
 # ---
 for military_key, military_labels in military_PP.items():
     if military_key not in pppp:
-        Men_Womens_Jobs_2[military_key] = military_labels
+        MEN_WOMENS_JOBS_2[military_key] = military_labels
     # ---
     for role_key, role_labels in MILITARY_ROLE_LABELS.items():
         composite_key = f"{military_key} {role_key}"
-        Men_Womens_Jobs_2[role_key] = role_labels
-        Men_Womens_Jobs_2[composite_key] = {}
-        Men_Womens_Jobs_2[composite_key]["mens"] = (
+        MEN_WOMENS_JOBS_2[role_key] = role_labels
+        MEN_WOMENS_JOBS_2[composite_key] = {}
+        MEN_WOMENS_JOBS_2[composite_key]["mens"] = (
             f"{role_labels['mens']} {military_labels['mens']}"
         )
-        Men_Womens_Jobs_2[composite_key]["womens"] = (
+        MEN_WOMENS_JOBS_2[composite_key]["womens"] = (
             f"{role_labels['womens']} {military_labels['womens']}"
         )
 # ---
-"""
-# ---
-for cory in Nat_Womens:
-    cony2 = cory.lower()
-    if Nat_Womens[cory] :
-        #Jobs_new[f"{cony2} women in business" ] = "سيدات أعمال %s" % Nat_Womens[cory]
-        #o Jobs_new[f"{cony2} women" ] = "%s" % Nat_Womens[cory]
-        #o Jobs_new[f"{cony2} female" ] = "%s" % Nat_Womens[cory]
-        for io in Female_Jobs:
-            io2 = io.lower()
-            if Female_Jobs[io] :
-                Jobs_new["%s %s" % (cony2 , io2) ] = "%s %s" % (Female_Jobs[io], Nat_Womens[cory])
-                #o Jobs_new["%s female %s" % (cony2 , io2) ] = "%s %s" % (Female_Jobs[io], Nat_Womens[cory])
-                #printe.output("-----%s female %s" % (cony2 , io2))
-                #printe.output("%s %s" % (Female_Jobs[io], Nat_Womens[cory]))
-        # ---
-        for w_jo in Jobs_key_womens:
-            w_jo2 = w_jo.lower()
-            if Jobs_key_womens[w_jo] :
-                catn  = "%s %s" % (Jobs_key_womens[w_jo], Nat_Womens[cory])
-                Jobs_new["%s %s" % (cony2 , w_jo2) ] = catn
-
-"""
-# ---
 
 
-MEN_WOMENS_JOBS_2 = Men_Womens_Jobs_2
+__all__ = [
+    "GenderedLabel",
+    "GenderedLabelMap",
+    "combine_gendered_labels",
+    "copy_gendered_map",
+    "ensure_gendered_label",
+    "gendered_label",
+    "join_terms",
+    "load_gendered_label_map",
+    "merge_gendered_maps",
+    "PAINTER_STYLES",
+    "RELIGIOUS_KEYS_PP",
+    "MILITARY_PREFIXES",
+
+    "MILITARY_ROLE_LABELS",
+    "PAINTER_CATEGORY_LABELS",
+    "PAINTER_ROLE_LABELS",
+    "RELIGIOUS_ROLE_LABELS",
+    "MEN_WOMENS_JOBS_2",
+    "religious_keys_PP",
+]

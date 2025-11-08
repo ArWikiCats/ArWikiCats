@@ -22,7 +22,7 @@ from .Jobs import (
 from .Jobs2 import JOBS_2, JOBS_3333, Jobs_2, Jobs_3333
 from .jobs_defs import (
     MEN_WOMENS_JOBS_2,
-    Men_Womens_Jobs_2,
+    MEN_WOMENS_JOBS_2,
     religious_keys_PP,
 )
 from .jobs_players_list import (
@@ -45,7 +45,7 @@ from .jobs_singers import (
 __all__ = [
     # Core types and shared datasets
     "MEN_WOMENS_JOBS_2",
-    "Men_Womens_Jobs_2",
+    "MEN_WOMENS_JOBS_2",
     "religious_keys_PP",
     "JOBS_2",
     "JOBS_3333",
