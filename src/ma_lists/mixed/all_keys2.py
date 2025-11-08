@@ -15,7 +15,7 @@ from .Newkey import pop_final6
 from ..languages import languages_key, cccccc_m
 from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
-from ..jobs.jobs_singers import singers_tab
+from ..jobs.jobs_singers import SINGERS_TAB
 
 # ---
 query1 = """
@@ -61,12 +61,7 @@ query2 = """
         }
     LIMIT 10000
 """
-# ---
-# try:
-#     from .jobs_singers import singers_tab
-# except BaseException:
-#     singers_tab = {}
-# ---
+
 pop_of_football = open_json_file("pop_of_football") or {}
 # ---
 pf_keys2 = {}
@@ -518,7 +513,7 @@ albums_type1 = {
     "live": "مباشرة",
 }
 # ---
-for xfxx, xfxx_lab in singers_tab.items():  # all_keys3
+for xfxx, xfxx_lab in SINGERS_TAB.items():  # all_keys3
     xc2 = xfxx.lower()
     if xc2 not in pf_keys2 and xfxx_lab:
         pf_keys2[xc2] = xfxx_lab

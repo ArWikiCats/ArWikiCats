@@ -45,4 +45,4 @@ def test_jobs_submodules_are_accessible() -> None:
 
     assert hasattr(jobs_defs, "gendered_label")
     assert hasattr(jobs_players_list, "PLAYERS_TO_MEN_WOMENS_JOBS")
-    assert hasattr(jobs_singers, "Men_Womens_Singers")
+    assert hasattr(jobs_singers, "MEN_WOMENS_SINGERS")

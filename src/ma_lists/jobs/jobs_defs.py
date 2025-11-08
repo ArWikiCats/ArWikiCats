@@ -75,14 +75,14 @@ def load_gendered_label_map(filename: str) -> GenderedLabelMap:
                 continue
             mens_value = str(raw_value.get("mens", ""))
             womens_value = str(raw_value.get("womens", ""))
-            result[raw_key] = gendered_label(mens_value, womens_value)
+            result[raw_key] = {"mens": mens_value, "womens": womens_value}
     return result
 
 
 def copy_gendered_map(source: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
     """Return a deep copy of ``source`` using :func:`gendered_label`."""
 
-    return {key: gendered_label(value["mens"], value["womens"]) for key, value in source.items()}
+    return {key: {"mens": value["mens"], "womens": value["womens"]} for key, value in source.items()}
 
 
 def merge_gendered_maps(
@@ -92,7 +92,7 @@ def merge_gendered_maps(
     """Update ``target`` with copies from ``source`` to avoid shared state."""
 
     for key, value in source.items():
-        target[key] = gendered_label(value["mens"], value["womens"])
+        target[key] = {"mens": value["mens"], "womens": value["womens"]}
 
 
 def ensure_gendered_label(
@@ -103,7 +103,7 @@ def ensure_gendered_label(
     """Insert ``value`` into ``target`` if ``key`` is not present."""
 
     if key not in target:
-        target[key] = gendered_label(value["mens"], value["womens"])
+        target[key] = {"mens": value["mens"], "womens": value["womens"]}
 
 
 def combine_gendered_labels(
