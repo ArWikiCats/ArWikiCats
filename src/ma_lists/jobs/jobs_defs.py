@@ -155,8 +155,8 @@ def _build_religious_job_labels(
         religion and role, matching the original dataset used by downstream
         modules.
     """
-    combined_roles: GenderedLabelMap = {}
 
+    combined_roles: GenderedLabelMap = {}
     for religion_key, religion_labels in religions.items():
         for role_key, role_labels in roles.items():
             womens_label = (
@@ -257,7 +257,7 @@ def _build_military_job_labels(
 
 
 # --- Religious role definitions -------------------------------------------------
-RELIGIOUS_KEYS_PP = {
+RELIGIOUS_KEYS_PP: GenderedLabelMap = {
     "bahá'ís": {"mens": "بهائيون", "womens": "بهائيات"},
     "yazidis": {"mens": "يزيديون", "womens": "يزيديات"},
     "christians": {"mens": "مسيحيون", "womens": "مسيحيات"},
@@ -292,7 +292,7 @@ RELIGIOUS_KEYS_PP = {
     "saints": {"mens": "قديسون", "womens": "قديسات"},
 }
 
-RELIGIOUS_ROLE_LABELS = {
+RELIGIOUS_ROLE_LABELS: GenderedLabelMap = {
     "christians": {"mens": "مسيحيون", "womens": "مسيحيات"},
     "venerated": {"mens": "مبجلون", "womens": "مبجلات"},
     "missionaries": {"mens": "مبشرون", "womens": "مبشرات"},
@@ -310,7 +310,8 @@ RELIGIOUS_ROLE_LABELS = {
 }
 
 
-PAINTER_STYLES = {
+# --- Painter role definitions ---------------------------------------------------
+PAINTER_STYLES: GenderedLabelMap = {
     "symbolist": {"mens": "رمزيون", "womens": "رمزيات"},
     "history": {"mens": "تاريخيون", "womens": "تاريخيات"},
     "romantic": {"mens": "رومانسيون", "womens": "رومانسيات"},
@@ -318,7 +319,7 @@ PAINTER_STYLES = {
     "religious": {"mens": "دينيون", "womens": "دينيات"},
 }
 
-PAINTER_ROLE_LABELS = {
+PAINTER_ROLE_LABELS: GenderedLabelMap = {
     "painters": {"mens": "رسامون", "womens": "رسامات"},
     "artists": {"mens": "فنانون", "womens": "فنانات"},
 }
@@ -337,7 +338,7 @@ PAINTER_CATEGORY_LABELS: Dict[str, str] = {
 }
 
 # --- Military role definitions --------------------------------------------------
-MILITARY_PREFIXES = {
+MILITARY_PREFIXES: GenderedLabelMap = {
     "military": {"mens": "عسكريون", "womens": "عسكريات"},
     "politicians": {"mens": "سياسيون", "womens": "سياسيات"},
     "nazi": {"mens": "نازيون", "womens": "نازيات"},
@@ -345,7 +346,7 @@ MILITARY_PREFIXES = {
     "organizational": {"mens": "تنظيميون", "womens": "تنظيميات"},
 }
 
-MILITARY_ROLE_LABELS = {
+MILITARY_ROLE_LABELS: GenderedLabelMap = {
     "theorists": {"mens": "منظرون", "womens": "منظرات"},
     "musicians": {"mens": "موسيقيون", "womens": "موسيقيات"},
     "engineers": {"mens": "مهندسون", "womens": "مهندسات"},
@@ -357,6 +358,7 @@ MILITARY_ROLE_LABELS = {
 }
 
 EXCLUDED_MILITARY_PREFIXES = ("military", "literary")
+
 
 # --- Aggregate outputs ----------------------------------------------------------
 MEN_WOMENS_JOBS_2: GenderedLabelMap = {}
@@ -378,8 +380,6 @@ MEN_WOMENS_JOBS_2.update(
 
 # #####################################
 # #####################################
-
-# --- Aggregate outputs ----------------------------------------------------------
 
 
 for military_key, military_labels in MILITARY_PREFIXES.items():
