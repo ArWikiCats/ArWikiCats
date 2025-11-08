@@ -1,6 +1,6 @@
 
 ## [#35](https://github.com/MrIbrahem/make2_new/pull/35) - 2025-11-09
-
+ * Refactor src/ma_lists/geo/Cities.py, src/ma_lists/jobs/jobs_defs.py
 * **New Features**
   * Expanded datasets for jobs, players, and singers with additional entries and gendered labels for improved localization support.
 
