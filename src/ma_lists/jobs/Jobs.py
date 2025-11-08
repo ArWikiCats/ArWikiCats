@@ -73,9 +73,9 @@ jobs_type = {
 # ---
 jobs_data = open_json("jobs/jobs.json")
 # ---
-Jobs_2020.update({x: v for x, v in jobs_data["Jobs_2020"] if v})
-jobs_people.update({x: v for x, v in jobs_data["jobs_people"] if v})
-jobs_type.update({x: v for x, v in jobs_data["jobs_type"] if v})
+Jobs_2020.update({x: v for x, v in jobs_data["Jobs_2020"].items() if v})
+jobs_people.update({x: v for x, v in jobs_data["jobs_people"].items() if v})
+jobs_type.update({x: v for x, v in jobs_data["jobs_type"].items() if v})
 # ---
 for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
     Jobs_2020[minister_category] = minister_labels

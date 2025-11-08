@@ -38,7 +38,7 @@ def open_json(file_path: str="") -> dict[str, Any] | list[Any]:
     if not file_path:
         return {}
     # ---
-    file_path = Dir2 / file_path
+    file_path = Dir2 / "jsons" / file_path
     # ---
     if not file_path.exists():
         print(f"file {file_path} not found")
