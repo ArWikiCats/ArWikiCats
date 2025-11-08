@@ -9,12 +9,13 @@ from __future__ import annotations
 
 import sys
 
-from ..utils.json_dir import open_json_file
+from ..utils.json_dir import open_json
 from ...helps import len_print
 
-CITY_TRANSLATIONS = open_json_file("all_cities") or {}
-# ---
-CITY_TRANSLATIONS_SUPPLEMENT = open_json_file("Cities_tab2") or {}
+CITY_TRANSLATIONS = open_json("geo/all_cities.json") or {}
+CITY_TRANSLATIONS_SUPPLEMENT = open_json("geo/Cities_tab2.json") or {}
+CITY_LABEL_PATCHES = open_json("geo/yy2.json") or {}
+CITY_OVERRIDES_ADDITIONAL = open_json("geo/CITY_OVERRIDES.json") or {}
 # ---
 # merge CITY_TRANSLATIONS and CITY_TRANSLATIONS_SUPPLEMENT
 CITY_TRANSLATIONS |= CITY_TRANSLATIONS_SUPPLEMENT
@@ -35,12 +36,11 @@ CITY_OVERRIDES = {
     "Hanunu": "هانونو"
 }
 # ---
-CITY_OVERRIDES.update(open_json_file("CITY_OVERRIDES") or {})
+CITY_OVERRIDES.update(CITY_OVERRIDES_ADDITIONAL)
 # ---
 # merge CITY_TRANSLATIONS and CITY_OVERRIDES
 CITY_TRANSLATIONS |= CITY_OVERRIDES
 # ---
-CITY_LABEL_PATCHES = open_json_file("yy2") or {}
 CITY_TRANSLATIONS_LOWER = {x.lower(): xar for x, xar in CITY_TRANSLATIONS.items()}
 # ---
 # with open(f"{Dir2}/jsons/all_cities.json", "w", encoding="utf-8") as f:
