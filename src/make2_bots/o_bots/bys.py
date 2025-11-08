@@ -32,41 +32,38 @@ def make_by_label(category: str) -> str:
         Resolved label or an empty string when the category is unknown.
     """
 
-    logger.info(
-        f"<<lightred>>>> vvvvvvvvvvvv make_by_label start, cate:{category} vvvvvvvvvvvv "
-    )
-    resolved_label = ""
+    normalized = category.strip()
+    logger.info("Resolving by-label", extra={"category": normalized})
+    logger.info(f"<<lightred>>>> vvvvvvvvvvvv make_by_label start, cate:{category} vvvvvvvvvvvv ")
+    resolved = ""
+    if normalized.lower().startswith("by "):
+        candidate = normalized[3:]
+        film_label = test_films(candidate)
+        if film_label:
+            resolved = f"بواسطة {film_label}"
+            logger.debug("Matched film label", extra={"category": normalized, "label": resolved})
 
-    if category.startswith("by "):
-        category_label = test_films(category.replace("by ", ""))
-        if category_label:
-            resolved_label = f"بواسطة {category_label}"
-        else:
-            category_label = find_nat_others(category.replace("by ", ""))
-            if category_label:
-                resolved_label = f"بواسطة {category_label}"
+        if not resolved:
+            nationality_label = find_nat_others(candidate)
+            if nationality_label:
+                resolved = f"بواسطة {nationality_label}"
+                logger.debug("Matched nationality label", extra={"category": normalized, "label": resolved})
+    if not resolved:
+        match = re.match(r"^by (.*?) and (.*?)$", normalized, flags=re.IGNORECASE)
+        if match:
+            first_key, second_key = match.groups()
+            first_label = By_orginal2.get(first_key.lower(), "")
+            second_label = By_orginal2.get(second_key.lower(), "")
 
-    match = re.match(r"^by (.*?) and (.*?)$", category.lower())
-    if not resolved_label and match:
-        first_key = match.group(1)
-        second_key = match.group(2)
+            logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
+            logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
 
-        first_label = By_orginal2.get(first_key, "")
-        second_label = By_orginal2.get(second_key, "")
-
-        logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
-        logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
-
-        if second_label and first_label:
-            resolved_label = f"حسب {first_label} و{second_label}"
-
-    if resolved_label:
-        logger.debug(
-            f"<<lightblue>>>> ^^^^^^^^^ make_by_label lab:{resolved_label}."
-        )
+            if first_label and second_label:
+                resolved = f"حسب {first_label} و{second_label}"
+                logger.debug(f"<<lightblue>>>> ^^^^^^^^^ make_by_label lab:{resolved}.")
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ make_by_label end ^^^^^^^^^ ")
-    return resolved_label
+    return resolved
 
 
 def _lookup_prefixed_label(part: str, lookup: LabelLookup) -> str:
@@ -95,30 +92,12 @@ def get_by_label(category: str) -> str:
     if not match:
         return ""
 
-    first_part = match.group(1)
-    by_section = match.group(2)
+    first_part, by_section = match.groups()
+    first_label = _lookup_prefixed_label(first_part, lambda key: _lookup_entity(key, New_P17_Finall, pop_All_2018))
 
-    first_label = ""
-    by_label = ""
+    by_label = _lookup_entity(by_section, By_table, By_table_orginal)
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
-
-    if first_part.startswith("the "):
-        first_part = first_part[len("the ") :]
-
-    if first_part:
-        if not first_label:
-            first_label = New_P17_Finall.get(first_part.lower(), "")
-
-        if not first_label:
-            first_label = pop_All_2018.get(first_part.lower(), "")
-
-    if by_section:
-        if not by_label:
-            by_label = By_table.get(by_section.lower(), "")
-
-        if not by_label:
-            by_label = By_table_orginal.get(by_section.lower(), "")
 
     if first_label and by_label:
         label = f"{first_label} {by_label}"
@@ -139,36 +118,18 @@ def get_and_label(category: str) -> str:
     """
 
     label = ""
-    first_part = ""
-    last_part = ""
-
     logger.info(f"<<lightyellow>>>>get_and_label {category}")
-
-    first_label = ""
-    last_label = ""
-
+    logger.info("Resolving get_and_label", extra={"category": category})
     match = re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE)
     if not match:
         return ""
 
-    first_part = match.group(1)
-    last_part = match.group(2)
+    first_part, last_part = match.groups()
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part},last:{last_part}")
 
-    if first_part:
-        if not first_label:
-            first_label = New_P17_Finall.get(first_part.lower(), "")
-
-        if not first_label:
-            first_label = pop_All_2018.get(first_part.lower(), "")
-
-    if last_part:
-        if not last_label:
-            last_label = New_P17_Finall.get(last_part.lower(), "")
-
-        if not last_label:
-            last_label = pop_All_2018.get(last_part.lower(), "")
+    first_label = _lookup_entity(first_part, New_P17_Finall, pop_All_2018)
+    last_label = _lookup_entity(last_part, New_P17_Finall, pop_All_2018)
 
     if first_label and last_label:
         label = f"{first_label} و{last_label}"

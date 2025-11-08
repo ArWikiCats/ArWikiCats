@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import re
 from typing import Mapping, Tuple
-
 from ... import printe
 from ...helps.print_bot import print_put
+from .utils import apply_arabic_article
+
 from ...ma_lists import All_contry_ar, All_contry_with_nat_keys_is_en, Nat_men, Nat_women
 
 P17_PREFIXES: Mapping[str, str] = {
@@ -184,3 +185,8 @@ def work_relations(value: str) -> str:
                     print_put(f'\t\t>>>> suus_lab:"{suus_lab}"')
 
     return suus_lab
+
+
+__all__ = [
+    "work_relations"
+]
