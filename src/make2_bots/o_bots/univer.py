@@ -36,8 +36,8 @@ MAJORS: Dict[str, str] = {
     "reading": "للقراءة",
     "applied sciences": "للعلوم التطبيقية",
 }
-# ---
-universities_tables = {
+
+UNIVERSITIES_TABLES: Dict[str, str] = {
     "national maritime university": "جامعة {} الوطنية البحرية",
     "national university": "جامعة {} الوطنية",
 }
@@ -50,57 +50,72 @@ universities_tables = {
 "china university of petroleum":"جامعة الصين للبترول",
 "odesa national maritime university":"جامعة أوديسا الوطنية البحرية",
 """
-for major, maj_ar in MAJORS.items():
-    major = major.lower()
-    universities_tables[f"university of {major}"] = "جامعة {} %s" % maj_ar
-    universities_tables[f"university-of-{major}"] = "جامعة {} %s" % maj_ar
+for major, arabic_label in MAJORS.items():
+    normalized_major = major.lower()
+    template = f"جامعة {{}} {arabic_label}"
+    UNIVERSITIES_TABLES[f"university of {normalized_major}"] = template
+    UNIVERSITIES_TABLES[f"university-of-{normalized_major}"] = template
+    UNIVERSITIES_TABLES[f"university of the {normalized_major}"] = template
+    UNIVERSITIES_TABLES[f"university-of-the-{normalized_major}"] = template
 
-    universities_tables[f"university of the {major}"] = "جامعة {} %s" % maj_ar
-    universities_tables[f"university-of-the-{major}"] = "جامعة {} %s" % maj_ar
-
-test_universities_cash = {}
+UNIVERSITIES_CACHE: Dict[str, str] = {}
 
 
-def test_universities(cate: str) -> str:
-    cate = cate.lower()
+def _normalise_category(category: str) -> str:
+    """Lowercase and strip ``category`` while removing ``Category:`` prefix."""
+
+    normalized = category.lower().strip()
+    if normalized.startswith("category:"):
+        normalized = normalized[len("category:") :].strip()
+    return normalized
+
+
+def test_universities(category: str) -> str:
+    """Return the Arabic label for university-related categories.
+
+    Args:
+        category: Category representing a university or faculty.
+
+    Returns:
+        The resolved Arabic label or an empty string when no mapping exists.
+    """
+
+    normalized_category = _normalise_category(category)
+
+    if normalized_category in UNIVERSITIES_CACHE:
+        return UNIVERSITIES_CACHE[normalized_category]
     # ---
-    if cate.startswith("category:"):
-        cate = cate[len("category:") :].strip()
-    # ---
-    if cate.lower().strip() in test_universities_cash:
-        return test_universities_cash[cate.lower().strip()]
-    # ---
-    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (cate:{cate}) vvvvvvvvvvvv ")
+    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (category:{category}) vvvvvvvvvvvv ")
     # ---
     city_key = ""
     university_template = ""
     # ---
-    for xi, xi_lab in universities_tables.items():
+    for xi, xi_lab in UNIVERSITIES_TABLES.items():
         xi2 = f"the {xi}"
-        if cate.endswith(xi):
+        if category.endswith(xi):
             university_template = xi_lab
-            city_key = cate[: -len(xi)].strip()
+            city_key = category[: -len(xi)].strip()
             break
-        elif cate.endswith(xi2):
+        elif category.endswith(xi2):
             university_template = xi_lab
-            city_key = cate[: -len(xi2)].strip()
+            city_key = category[: -len(xi2)].strip()
             break
     # ---
     if not city_key:
-        for xi, xi_lab in universities_tables.items():
+        for xi, xi_lab in UNIVERSITIES_TABLES.items():
             xi3 = f"{xi}, "
             the_xi = f"the {xi}"
-            if cate.startswith(xi3):
+            if category.startswith(xi3):
                 university_template = xi_lab
-                city_key = cate[len(xi3) :].strip()
+                city_key = category[len(xi3) :].strip()
                 break
-            elif cate.startswith(xi):
+            elif category.startswith(xi):
                 university_template = xi_lab
-                city_key = cate[len(xi) :].strip()
+                city_key = category[len(xi) :].strip()
                 break
-            elif cate.startswith(the_xi):
+            elif category.startswith(the_xi):
                 university_template = xi_lab
-                city_key = cate[len(the_xi) :].strip()
+                city_key = category[len(the_xi) :].strip()
                 break
     # ---
     city_label = ""
@@ -120,6 +135,11 @@ def test_universities(cate: str) -> str:
     # ---
     print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
     # ---
-    test_universities_cash[cate.lower().strip()] = univer_lab
+    UNIVERSITIES_CACHE[normalized_category] = univer_lab
     # ---
     return univer_lab
+
+
+__all__ = [
+    "test_universities"
+]
