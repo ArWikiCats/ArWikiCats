@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Dict
 
 from ...helps.print_bot import print_put
-from ...ma_lists import N_cit_ies_s_lower
+from ...ma_lists import CITY_TRANSLATIONS_LOWER
 
 MAJORS: Dict[str, str] = {
     "medical sciences": "للعلوم الطبية",
@@ -105,7 +105,7 @@ def _resolve(normalized_category) -> str:
                 city_key = normalized_category[len(prefixed_key) :].strip()
                 break
 
-    city_label = N_cit_ies_s_lower.get(city_key, "") if city_key else ""
+    city_label = CITY_TRANSLATIONS_LOWER.get(city_key, "") if city_key else ""
     if city_label and university_template:
         university_label = university_template.format(city_label)
         print_put(f'<<lightblue>>>>>> test_universities: new university_label  "{university_label}" ')

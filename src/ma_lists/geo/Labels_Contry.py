@@ -16,7 +16,7 @@ from ..mixed.all_keys5 import pop_final_5
 from ..mixed.all_keys2 import pf_keys2
 from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
-from .Cities import N_cit_ies_s, tabe_lab_yy2
+from .Cities import CITY_TRANSLATIONS, CITY_LABEL_PATCHES
 from .Labels_Contry2 import P17_PP
 
 
@@ -168,7 +168,7 @@ TURKEY_PROVINCE_LABELS = {
 
 population_without_years = {}
 country_labels_final = {}
-COUNTRY_LABEL_INDEX = {city1.lower(): N_cit_ies_s[city1] for city1 in N_cit_ies_s if N_cit_ies_s[city1] != ""}
+COUNTRY_LABEL_INDEX = {city1.lower(): CITY_TRANSLATIONS[city1] for city1 in CITY_TRANSLATIONS if CITY_TRANSLATIONS[city1] != ""}
 # ---
 # ---
 # 402.55859375 before del
@@ -219,7 +219,7 @@ for dyd, province_label in TURKEY_PROVINCE_LABELS.items():
 for indi, label in India_Main_Table.items():
     COUNTRY_LABEL_INDEX[indi.lower()] = label
 
-for vvvv, label in tabe_lab_yy2.items():
+for vvvv, label in CITY_LABEL_PATCHES.items():
     COUNTRY_LABEL_INDEX[vvvv.lower()] = label
 
 for contry, label in pf_keys2.items():
@@ -275,9 +275,9 @@ memory_stats = {
 len_print.lenth_pri("Labels_Contry.py", memory_stats)
 
 del Counties
-del tabe_lab_yy2
+del CITY_LABEL_PATCHES
 del COUNTRY_LABEL_OVERRIDES
-del N_cit_ies_s
+del CITY_TRANSLATIONS
 del POPULATION_OVERRIDES
 del Main_Table
 del Main_Table_2

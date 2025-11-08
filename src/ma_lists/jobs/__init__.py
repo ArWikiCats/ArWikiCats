@@ -20,10 +20,9 @@ from .Jobs import (
     womens_Jobs_2017,
 )
 from .Jobs2 import JOBS_2, JOBS_3333, Jobs_2, Jobs_3333
-from .jobs_defs import (
+from .jobs_data import (
     MEN_WOMENS_JOBS_2,
-    Men_Womens_Jobs_2,
-    religious_keys_PP,
+    RELIGIOUS_KEYS_PP,
 )
 from .jobs_players_list import (
     FEMALE_JOBS_TO,
@@ -45,8 +44,7 @@ from .jobs_singers import (
 __all__ = [
     # Core types and shared datasets
     "MEN_WOMENS_JOBS_2",
-    "Men_Womens_Jobs_2",
-    "religious_keys_PP",
+    "RELIGIOUS_KEYS_PP",
     "JOBS_2",
     "JOBS_3333",
     "Jobs_2",

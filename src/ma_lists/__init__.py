@@ -2,7 +2,7 @@
 
 """
 
-from .geo.Cities import N_cit_ies_s_lower
+from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
 from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Nat_Before_Occ, Men_Womens_with_nato, Jobs_new, Jobs_key
 
@@ -26,7 +26,7 @@ from .by_type import By_table, By_orginal2, By_table_orginal, Music_By_table
 
 from .tv.films_mslslat import Films_TT, typeTable_4, Films_key_CAO, Films_key_For_nat, Films_key_CAO_new_format, television_keys_female, Films_key_333, Films_key_man, film_key_women_2, films_mslslat_tab, film_Keys_For_female, Films_keys_both_new
 
-from .jobs.jobs_defs import religious_keys_PP
+from .jobs.jobs_data import RELIGIOUS_KEYS_PP
 
 from .mixed.keys2 import Add_in_table2
 from .mixed.keys2 import Parties
@@ -69,7 +69,7 @@ __all__ = [
     "Get_sport_formts_female_nat",
     "Get_Sport_Format_xo_en_ar_is_P17",
 
-    "N_cit_ies_s_lower",
+    "CITY_TRANSLATIONS_LOWER",
     #
     "Jobs_key_mens",
     "Jobs_key_womens",
@@ -134,7 +134,7 @@ __all__ = [
     "Films_keys_both_new",
     "Films_key_333",
     #
-    "religious_keys_PP",
+    "RELIGIOUS_KEYS_PP",
     #
     "Add_in_table2",
     "Parties",

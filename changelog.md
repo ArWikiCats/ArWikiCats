@@ -1,5 +1,28 @@
 
-## #32 - 2025-11-08
+## [#35](https://github.com/MrIbrahem/make2_new/pull/35) - 2025-11-09
+* Refactor src/ma_lists/geo/Cities.py, src/ma_lists/jobs/jobs_defs.py
+
+* **New Features**
+  * Expanded job and place name datasets with additional job categories and extensive place-name translations for improved Arabic localization.
+
+* **Refactor**
+  * Switched to centralized data-driven loading for geographic names and job labels to simplify updates and reduce hardcoded entries.
+
+* **Chores**
+  * Added new data assets and updated changelog with two new entries and an expanded existing entry.
+
+## [#34](https://github.com/MrIbrahem/make2_new/pull/34) - 2025-11-09
+
+* **New Features**
+  * Expanded and enriched job, player and singer datasets with additional entries and gendered labels, improving localized display.
+
+* **Refactor**
+  * Migrated data loading to centralized JSON sources for jobs, singers and players to enable data-driven updates and consistency.
+
+* **Chores**
+  * Added new JSON data files to supply the updated datasets and translations.
+
+## [#32](https://github.com/MrIbrahem/make2_new/pull/32) - 2025-11-08
 
 ### Changed
 * Refactored all modules under `src/make2_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
@@ -9,7 +32,6 @@
 
 ### Added
 * Introduced `src/make2_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
-
 
 ## #31
 

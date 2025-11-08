@@ -5,7 +5,7 @@ from .test4_bots.relegin_jobs import try_relegins_jobs
 """
 from typing import Dict
 from ..jobs_mainbot import Jobs
-from ....ma_lists import religious_keys_PP
+from ....ma_lists import RELIGIOUS_KEYS_PP
 from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
 
@@ -23,9 +23,9 @@ def try_relegins_jobs(cate: str) -> str:
     # ---
     contry_lab = ""
     # ---
-    job_example, nat = get_con_3(cate, list(religious_keys_PP.keys()), "religions")
+    job_example, nat = get_con_3(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
     # ---
-    Tab = religious_keys_PP.get(nat, {})
+    Tab = RELIGIOUS_KEYS_PP.get(nat, {})
     # ---
     if job_example:
         contry_lab = Jobs(cate, nat, job_example, Type="rel", tab=Tab)
