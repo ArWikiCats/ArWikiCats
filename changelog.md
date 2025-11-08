@@ -1,3 +1,17 @@
+## [Add tests for jobs and city datasets] - 2025-11-07
+
+### Added
+* Added pytest suites covering gendered job helpers, dataset exports, and city translation loaders.
+
+### Changed
+* None.
+
+### Fixed
+* None.
+
+### Removed
+* None.
+
 ## [Refactor city translation dataset loader] - 2025-11-07
 
 ### Added
