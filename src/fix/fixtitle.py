@@ -1,114 +1,154 @@
+"""Helpers for normalizing Arabic category titles.
+
+The module exposes the :func:`fixlab` entry point that performs a sequence of
+regular-expression driven transformations. The transformations are heavily
+localized for Arabic Wikipedia labels and rely on the constants defined in
+:mod:`src.fix.fixlists`.
+"""
+
+from __future__ import annotations
+
+import logging
 import re
-from .fixlists import replase, Starting, Ending, fix_years
-from .mv_years import move_years, YEARS_REGEX
-from ..helps.print_bot import print_put
+from typing import Iterable, Mapping
+
+from .fixlists import ENDING_REPLACEMENTS, REPLACEMENTS, STARTING_REPLACEMENTS, YEAR_CATEGORY_LABELS
+from ..make2_bots.reg_lines import YEARS_REGEX
+from .mv_years import move_years
+
+logger = logging.getLogger(__name__)
 
 
-def fix_n(arlabel: str) -> str:
-    """Fix and format a given label string based on predefined rules.
-
-    This function takes an input string `arlabel` and applies a series of
-    transformations to fix its format according to specific patterns. It
-    utilizes regular expressions to replace certain substrings, adjust
-    prefixes and suffixes, and ensure the label adheres to the desired
-    formatting standards. The function also handles specific cases for years
-    and categories, ensuring that the output is consistent and correctly
-    formatted.
+def _apply_regex_replacements(text: str, replacements: Mapping[str, str]) -> str:
+    """Sequentially apply regex-based replacements to ``text``.
 
     Args:
-        arlabel (str): The input label string that needs to be fixed.
+        text: The mutable text that should be normalized.
+        replacements: Pairs of patterns and replacement strings to apply in
+            insertion order.
 
     Returns:
-        str: The formatted label string after applying the necessary
-        transformations.
+        The normalized text.
     """
 
-    # ---
-    for ree, reelab in replase.items():
-        arlabel = re.sub(ree, reelab, arlabel)
-    # ---
-    for tt in fix_years:
-        arlabel = re.sub(rf"(\s*{tt}) (\d+\s*|عقد \d+\s*|القرن \d+\s*)", r"\g<1> في \g<2>", arlabel)
-    # ---
-    for f_a, f_lab in Starting.items():
-        if arlabel.startswith(f_a):
-            # arlabel = re.sub(r"^%s" % f_a, f_lab, arlabel)
-            arlabel = f_lab + arlabel[len(f_a) :]
-    # ---
-    arlabel = arlabel.strip()
-    for fa, falab in Ending.items():
-        if arlabel.endswith(fa):
-            arlabel = re.sub(f"{fa}$", falab, arlabel).strip()
-            # arlabel = arlabel[:-len(fa)] + " " + falab
-    # ---
-    # نصب تذكارية إلى الملكة
-    # نصب تذكارية لالملكة
-    # ---
-    # tab[Category:Monuments and memorials to women] = "تصنيف:معالم أثرية ونصب تذكارية لالمرأة"
-    # ---
-    arlabel = arlabel.replace("نصب تذكارية لال", "نصب تذكارية لل")
-    # ---
-    mates = [
-        # "^تصنيف\:(\d+|عقد \d+) مسلسلات تلفزيونية .*بدأ عرضها$",
-        r"^(\d+|عقد \d+) مسلسلات تلفزيونية .*بدأ عرضها$",
-        # "^(\d+|عقد \d+) مسلسلات تلفزيونية .*بدأ عرضها في$",
-        # "^(\d+|عقد \d+) مسلسلات تلفزيونية .*انتهت في$"
-        r"^(\d+|عقد \d+) مسلسلات تلفزيونية .*انتهت$",
-        # "^معاهد أبحاث أسست في (\d+)$"
-    ]
-    # ---
-    for mat in mates:
-        if re.match(mat, arlabel):
-            year = re.sub(mat, r"\g<1>", arlabel)
-            print_put(f"year: {year}")
-            fa = re.sub(year, "", arlabel)
-            arlabel = f"{fa} في {year}"
-    # ---
-    for fa, falab in Ending.items():
-        if arlabel.endswith(fa):
-            arlabel = re.sub(f"{fa}$", falab, arlabel).strip()
-            # arlabel = arlabel[:-len(fa)] + " " + falab
-    # ---
-    return arlabel
-
-
-def fix_2(text: str) -> str:
-    if rus := re.match(r"^(الغزو \w+|\w+ الغزو \w+) في (\w+.*?)$", text):
-        s1 = rus.group(1)
-        s2 = rus.group(2)
-        if s2.startswith("ال"):
-            s2 = s2[2:]
-        text = f"{s1} ل{s2}"
-    # ---
+    for pattern, replacement in replacements.items():
+        text = re.sub(pattern, replacement, text)
     return text
 
 
-def fix_sub(text: str) -> str:
-    if "اليابان" in text or "يابانيون" in text or "يابانيات" in text:
+def _apply_prefix_replacements(text: str, replacements: Mapping[str, str]) -> str:
+    """Replace matching prefixes using simple string slicing.
+
+    Args:
+        text: The text to normalise.
+        replacements: Mapping of prefix strings to their normalized versions.
+
+    Returns:
+        The updated text.
+    """
+
+    for prefix, replacement in replacements.items():
+        if text.startswith(prefix):
+            text = replacement + text[len(prefix) :]
+    return text
+
+
+def _apply_suffix_replacements(text: str, replacements: Mapping[str, str]) -> str:
+    """Replace matching suffixes using anchored regular expressions.
+
+    Args:
+        text: The text to normalise.
+        replacements: Mapping of suffix strings to replacement values.
+
+    Returns:
+        The updated text with trailing whitespace removed.
+    """
+
+    for suffix, replacement in replacements.items():
+        if text.endswith(suffix):
+            pattern = re.compile(rf"{re.escape(suffix)}$")
+            text = pattern.sub(replacement, text).strip()
+    return text
+
+
+def _insert_year_preposition(text: str, categories: Iterable[str]) -> str:
+    """Insert the preposition ``في`` when a year immediately follows a label.
+
+    Args:
+        text: The text to normalise.
+        categories: Category names that should receive the additional
+            preposition.
+
+    Returns:
+        The updated text with consistent year formatting.
+    """
+
+    for category in categories:
+        pattern = rf"(\s*{re.escape(category)}) (\d+\s*|عقد \d+\s*|القرن \d+\s*)"
+        text = re.sub(pattern, r"\g<1> في \g<2>", text)
+    return text
+
+
+def _apply_basic_normalizations(ar_label: str) -> str:
+    """Apply the shared replacements that most labels require."""
+
+    normalized = _apply_regex_replacements(ar_label, REPLACEMENTS)
+    normalized = _insert_year_preposition(normalized, YEAR_CATEGORY_LABELS)
+    normalized = _apply_prefix_replacements(normalized, STARTING_REPLACEMENTS)
+    normalized = normalized.strip()
+    normalized = _apply_suffix_replacements(normalized, ENDING_REPLACEMENTS)
+    normalized = normalized.replace("نصب تذكارية لال", "نصب تذكارية لل")
+    normalized = _apply_suffix_replacements(normalized, ENDING_REPLACEMENTS)
+    return normalized
+
+
+def _normalize_conflict_phrases(text: str) -> str:
+    """Normalize phrases describing conflicts or geographic relations."""
+
+    if match := re.match(r"^(الغزو \w+|\w+ الغزو \w+) في (\w+.*?)$", text):
+        first_part = match.group(1)
+        second_part = match.group(2)
+        if second_part.startswith("ال"):
+            second_part = second_part[1:]
+        text = f"{first_part} ل{second_part}"
+    return text
+
+
+def _normalize_sub_regions(text: str) -> str:
+    """Normalize sub-region terminology for a number of countries."""
+
+    if any(country in text for country in ("اليابان", "يابانيون", "يابانيات")):
         text = re.sub(r"حسب الولاية", "حسب المحافظة", text)
-    # ---
     if "سريلانكي" in text or "سريلانكا" in text:
         text = re.sub(r"الإقليم", "المقاطعة", text)
         text = re.sub(r"أقاليم", "مقاطعات", text)
-    # ---
-    if "تركيا" in text:  # Turkey
+    if "تركيا" in text:
         text = re.sub(r"مديريات", "أقضية", text)
-    # ---
     if "جزائر" in text:
         text = re.sub(r"المقاطعة", "الإقليم", text)
         text = re.sub(r"مقاطعات", "أقاليم", text)
         text = re.sub(r"مديريات", "دوائر", text)
         text = re.sub(r"المديرية", "الدائرة", text)
-    # ---
     return text
 
 
-def fix_it2(arlabel: str, en: str) -> str:
-    # مسلسلات تلفزيونية ...> مسلسلات تلفازية أنتجها أو أنتجتها ...
-    # مبان ومنشآت بواسطة ...> مبان ومنشآت صممها أو خططها ...
+def fix_formula(ar_label, en_label):
+
+    ar_label = re.sub(r"\bفورمولا 1\s*([12]\d+)", r"فورمولا 1 في سنة \g<1>", ar_label)
+
+    return ar_label
+
+
+def _apply_category_specific_normalizations(ar_label: str, en_label: str) -> str:
+    """Apply normalizations that depend on the English context string.
+
+    # مسلسلات تلفزيونية > to > مسلسلات تلفازية أنتجها أو أنتجتها ...
+    # مبان ومنشآت بواسطة > to > مبان ومنشآت صممها أو خططها ...
     # ألبومات ... بواسطة ... > ألبومات ... ل.....
     # لاعبو كرة بواسطة > لاعبو كرة حسب
-    fixx_byy = [
+    # """
+
+    fix_bys = [
         "أفلام",
         "أعمال",
         "اختراعات",
@@ -118,192 +158,151 @@ def fix_it2(arlabel: str, en: str) -> str:
         "روايات",
         "كتب",
     ]
-    for x in fixx_byy:
-        arlabel = re.sub(f"{x} بواسطة ", f"{x} ", arlabel)
+    for replacement in fix_bys:
+        ar_label = re.sub(f"{replacement} بواسطة ", f"{replacement} ", ar_label)
 
-    arlabel = re.sub(r"وفيات بواسطة ضربات ", "وفيات بضربات ", arlabel)
-    arlabel = re.sub(r"ضربات جوية نفذت بواسطة ", "ضربات جويت نفذتها ", arlabel)
-    arlabel = re.sub(r"أفلام أنتجت بواسطة ", "أفلام أنتجها ", arlabel)
-    arlabel = re.sub(r"كاميرات اخترعت ", "كاميرات عرضت ", arlabel)
-    arlabel = re.sub(r"هواتف محمولة اخترعت ", "هواتف محمولة عرضت ", arlabel)
-    arlabel = re.sub(r"مركبات اخترعت ", "مركبات عرضت ", arlabel)
-    arlabel = re.sub(r"منتجات اخترعت ", "منتجات عرضت ", arlabel)
-    # ---
+    ar_label = re.sub(r"وفيات بواسطة ضربات ", "وفيات بضربات ", ar_label)
+    ar_label = re.sub(r"ضربات جوية نفذت بواسطة ", "ضربات جوية نفذتها ", ar_label)
+    ar_label = re.sub(r"أفلام أنتجت بواسطة ", "أفلام أنتجها ", ar_label)
+    ar_label = re.sub(r"كاميرات اخترعت ", "كاميرات عرضت ", ar_label)
+    ar_label = re.sub(r"هواتف محمولة اخترعت ", "هواتف محمولة عرضت ", ar_label)
+    ar_label = re.sub(r"مركبات اخترعت ", "مركبات عرضت ", ar_label)
+    ar_label = re.sub(r"منتجات اخترعت ", "منتجات عرضت ", ar_label)
 
     # قصص قصيرة 1613 > قصص قصيرة كتبت سنة 1613
     # قصص قصيرة من تأليف إرنست همينغوي > قصص إرنست همينغوي القصيرة
     # قصص قصيرة لأنطون تشيخوف > قصص أنطون تشيخوف القصيرة
-    arlabel = re.sub(r"^قصص قصيرة (\d+)$", r"قصص قصيرة كتبت سنة \1", arlabel)
-    # ---
-    arlabel = re.sub(r"ردود فعل إلى ", "ردود فعل على ", arlabel)
-    arlabel = re.sub(r"مدراء كرة", "مدربو كرة", arlabel)
-    arlabel = re.sub(r"متعلقة 2", "متعلقة ب2", arlabel)
-    arlabel = re.sub(r"هولوكوستية", "الهولوكوست", arlabel)
-    arlabel = re.sub(r"في هولوكوست", "في الهولوكوست", arlabel)
-    arlabel = re.sub(r"صدور عظام في الدولة العثمانية", "صدور عظام عثمانيون في", arlabel)
-    arlabel = re.sub(r"أعمال بواسطة ", "أعمال ", arlabel)
-    arlabel = re.sub(r" في فائزون ", " فائزون ", arlabel)
-    arlabel = re.sub(r" في منافسون ", " منافسون ", arlabel)
-    arlabel = re.sub(r" على السجل الوطني للأماكن ", " في السجل الوطني للأماكن ", arlabel)
-    arlabel = re.sub(r" من قبل البلد", " حسب البلد", arlabel)
-    arlabel = re.sub(r"حكم عليهم الموت", "حكم عليهم بالإعدام", arlabel)
-    arlabel = re.sub(r"محررون من منشورات", "محررو منشورات", arlabel)
-    arlabel = re.sub(r"محررات من منشورات", "محررات منشورات", arlabel)
-    arlabel = re.sub(r"قديسون صوفيون", "أولياء صوفيون", arlabel)
-    arlabel = re.sub(r"مدربو رياضية", "مدربو رياضة", arlabel)
-    arlabel = re.sub(r" من من ", " من ", arlabel)
-    arlabel = re.sub(r" حسب حسب ", " حسب ", arlabel)
-    arlabel = re.sub(r" حسب بواسطة ", " بواسطة ", arlabel)
-    arlabel = re.sub(r" في في ", " في ", arlabel)
-    arlabel = re.sub(r" في في ", " في ", arlabel)
-    arlabel = re.sub(r" في في ", " في ", arlabel)
-    arlabel = re.sub(r"أدينوا ب ", "أدينوا ب", arlabel)
-    arlabel = re.sub(r" في من ", " من ", arlabel)
-    arlabel = re.sub(r" العسكري القرن ", " العسكري في القرن ", arlabel)
-    arlabel = re.sub(r" من في ", " في ", arlabel)
-    arlabel = re.sub(r" فورمولا 1 2", " فورمولا 1 في سنة 2", arlabel)
-    arlabel = re.sub(r" فورمولا 1 1", " فورمولا 1 في سنة 1", arlabel)
-    arlabel = re.sub(r" في حسب ", " حسب ", arlabel)
-    arlabel = re.sub(r" من حسب ", " حسب ", arlabel)
-    arlabel = re.sub(r" ق\.م ", " ق م ", arlabel)
-    # arlabel = re.sub(r"تأسيسات سنة", "تأسيسات", arlabel)
+    ar_label = re.sub(r"^قصص قصيرة (\d+)$", r"قصص قصيرة كتبت سنة \1", ar_label)
 
-    # ---
-    arlabel = re.sub(r"أحداث رياضية الرياضية", "أحداث رياضية", arlabel)
-    arlabel = re.sub(r" من القرن", " في القرن", arlabel)
-    arlabel = re.sub(r" من حروب", " في حروب", arlabel)
-    arlabel = re.sub(r" من الحروب", " في الحروب", arlabel)
-    arlabel = re.sub(r" من حرب", " في حرب", arlabel)
-    arlabel = re.sub(r" من الحرب", " في الحرب", arlabel)
-    arlabel = re.sub(r" من الثورة", " في الثورة", arlabel)
-    arlabel = re.sub(r"مغتربون ال", "مغتربون من ال", arlabel)
-    arlabel = re.sub(r"سفراء إلى ", "سفراء لدى ", arlabel)
-    arlabel = re.sub(r"أشخاص أصل ", "أشخاص من أصل ", arlabel)
-    # ---
-    arlabel = re.sub(r" بدأ عرضها حسب السنة", " حسب سنة بدء العرض", arlabel)
-    # ---
-    arlabel = re.sub(r" أنتهت حسب السنة", " حسب سنة انتهاء العرض", arlabel)
-    arlabel = re.sub(r" في رياضة في ", " في الرياضة في ", arlabel)
-    # ---
-    return arlabel
+    ar_label = re.sub(r"ردود فعل إلى ", "ردود فعل على ", ar_label)
+    ar_label = re.sub(r"مدراء كرة", "مدربو كرة", ar_label)
+    ar_label = re.sub(r"متعلقة 2", "متعلقة ب2", ar_label)
+    ar_label = re.sub(r"هولوكوستية", "الهولوكوست", ar_label)
+    ar_label = re.sub(r"في هولوكوست", "في الهولوكوست", ar_label)
+    ar_label = re.sub(r"صدور عظام في الدولة العثمانية", "صدور عظام عثمانيون في", ar_label)
+    ar_label = re.sub(r"أعمال بواسطة ", "أعمال ", ar_label)
+    ar_label = re.sub(r" في فائزون ", " فائزون ", ar_label)
+    ar_label = re.sub(r" في منافسون ", " منافسون ", ar_label)
+    ar_label = re.sub(r" على السجل الوطني للأماكن ", " في السجل الوطني للأماكن ", ar_label)
+    ar_label = re.sub(r" من قبل البلد", " حسب البلد", ar_label)
+    ar_label = re.sub(r"حكم عليهم الموت", "حكم عليهم بالإعدام", ar_label)
+    ar_label = re.sub(r"محررون من منشورات", "محررو منشورات", ar_label)
+    ar_label = re.sub(r"محررات من منشورات", "محررات منشورات", ar_label)
+    ar_label = re.sub(r"قديسون صوفيون", "أولياء صوفيون", ar_label)
+    ar_label = re.sub(r"مدربو رياضية", "مدربو رياضة", ar_label)
+    ar_label = re.sub(r" من من ", " من ", ar_label)
+    ar_label = re.sub(r" حسب حسب ", " حسب ", ar_label)
+    ar_label = re.sub(r" حسب بواسطة ", " بواسطة ", ar_label)
+    ar_label = re.sub(r" في في ", " في ", ar_label)
+    ar_label = re.sub(r" في في ", " في ", ar_label)
+    ar_label = re.sub(r" في في ", " في ", ar_label)
+    ar_label = re.sub(r"أدينوا ب ", "أدينوا ب", ar_label)
+    ar_label = re.sub(r" في من ", " من ", ar_label)
+    ar_label = re.sub(r" العسكري القرن ", " العسكري في القرن ", ar_label)
+    ar_label = re.sub(r" من في ", " في ", ar_label)
+
+    ar_label = fix_formula(ar_label, en_label)
+
+    ar_label = re.sub(r" في حسب ", " حسب ", ar_label)
+    ar_label = re.sub(r" من حسب ", " حسب ", ar_label)
+    ar_label = re.sub(r" ق\.م ", " ق م ", ar_label)
+    # ar_label = re.sub(r"تأسيسات سنة", "تأسيسات", ar_label)
+
+    ar_label = re.sub(r"أحداث رياضية الرياضية", "أحداث رياضية", ar_label)
+    ar_label = re.sub(r" من القرن", " في القرن", ar_label)
+    ar_label = re.sub(r" من حروب", " في حروب", ar_label)
+    ar_label = re.sub(r" من الحروب", " في الحروب", ar_label)
+    ar_label = re.sub(r" من حرب", " في حرب", ar_label)
+    ar_label = re.sub(r" من الحرب", " في الحرب", ar_label)
+    ar_label = re.sub(r" من الثورة", " في الثورة", ar_label)
+    ar_label = re.sub(r"مغتربون ال", "مغتربون من ال", ar_label)
+    ar_label = re.sub(r"سفراء إلى ", "سفراء لدى ", ar_label)
+    ar_label = re.sub(r"أشخاص أصل ", "أشخاص من أصل ", ar_label)
+    ar_label = re.sub(r" بدأ عرضها حسب السنة", " حسب سنة بدء العرض", ar_label)
+    ar_label = re.sub(r" أنتهت حسب السنة", " حسب سنة انتهاء العرض", ar_label)
+    ar_label = re.sub(r" في رياضة في ", " في الرياضة في ", ar_label)
+
+    if "attacks on" in en_label and "هجمات في " in ar_label:
+        ar_label = re.sub(r"هجمات في ", "هجمات على ", ar_label)
+
+    return ar_label
 
 
-def fix_it(arlabel: str, en: str) -> str:
-    """Fix and normalize the Arabic label based on specific rules.
-
-    This function takes an Arabic label and an English string, processes the
-    label to correct formatting issues, and applies various transformations
-    based on predefined patterns. It handles whitespace, specific phrases,
-    and formats dates and other elements according to the rules defined in
-    the function. The output is a cleaned and normalized version of the
-    input Arabic label.
+def fix_it(ar_label: str, en_label: str) -> str:
+    """Normalize an Arabic label based on heuristics and English context.
 
     Args:
-        arlabel (str): The Arabic label that needs to be fixed.
-        en (str): An English string that may influence the transformation of
-            the Arabic label.
+        ar_label: The Arabic label that requires normalization.
+        en_label: The English text associated with the label. The string is
+            inspected for hints that determine specific Arabic replacements.
 
     Returns:
-        str: The normalized Arabic label after applying the necessary fixes.
+        A normalised Arabic label.
     """
 
-    # ---
-    arlabel = re.sub(r"\s+", " ", arlabel)
-    arlabel = re.sub(r"\{\}", "", arlabel)
-    # ---
-    if arlabel.endswith(" في"):
-        # arlabel = re.sub(r"في$" ,"" , arlabel ).strip()
-        arlabel = arlabel[: -len(" في")]
-    # ---
-    if arlabel.startswith("لاعبو ") and arlabel.endswith(" للسيدات"):
-        arlabel = re.sub(r"^لاعبو ", "لاعبات ", arlabel)
-    # ---
-    en = en.replace("_", " ").lower()
-    # print_put("fixlab : " + en )
-    # if arlabel.find( "سرائيل") != -1 and "israeli" not in sys.argv :
-    # return ""
-    # ---
-    # if arlabel.find( "ذكور") != -1 :
-    # return ""
-    # ---
-    # RE2 = re.compile(r'(\d\d\d\d)\-(\d\d)', flags = re.IGNORECASE )#
-    # ---
-    if mat := re.match(r".*(\d\d\d\d)\-(\d\d).*", arlabel, flags=re.IGNORECASE):
-        te_1 = mat.group(1)
-        te_2 = mat.group(2)
-        arlabel = re.sub(f"{te_1}-{te_2}", f"{te_1}–{te_2}", arlabel)
-        print_put(" fixlab : fixlab :  replace - by  u2013.. ")
-    # ---
-    if re.sub(r"^\–\d+", "", arlabel) != arlabel:
+    ar_label = re.sub(r"\s+", " ", ar_label)
+    ar_label = re.sub(r"\{\}", "", ar_label)
+    if ar_label.endswith(" في"):
+        ar_label = ar_label[: -len(" في")]
+
+    normalized_en = en_label.replace("_", " ").lower()
+
+    if match := re.match(r".*(\d\d\d\d)\-(\d\d).*", ar_label, flags=re.IGNORECASE):
+        start_year = match.group(1)
+        end_year = match.group(2)
+        ar_label = re.sub(f"{start_year}-{end_year}", f"{start_year}–{end_year}", ar_label)
+        logger.debug(f"Replaced hyphen with en dash in range {start_year}-{end_year}")
+
+    if re.sub(r"^\–\d+", "", ar_label) != ar_label:
         return ""
-    # ---
-    arlabel = arlabel.strip()
-    # ---
-    arlabel = fix_n(arlabel)
-    # ---
-    arlabel = re.sub(r"كأس العالم لكرة القدم (\d)", r"كأس العالم \g<1>", arlabel)
-    arlabel = re.sub(r",", "،", arlabel)
-    arlabel = re.sub(r"^(.*) تصفيات مؤهلة إلى (.*)$", r"تصفيات \g<1> مؤهلة إلى \g<2>", arlabel)
-    arlabel = re.sub(r"تأسيسات (\d+.*)$", r"تأسيسات سنة \g<1>", arlabel)
-    arlabel = re.sub(r"انحلالات (\d+.*)$", r"انحلالات سنة \g<1>", arlabel)
-    arlabel = re.sub(r" من حسب ", " حسب ", arlabel)
-    # arlabel = re.sub(r"لاعبو في " , "لاعبو ", arlabel)
-    # arlabel = re.sub(r"لاعبو من " , "لاعبو " , arlabel)
-    # ---
-    arlabel = fix_it2(arlabel, en)
-    # ---
-    arlabel = arlabel.strip()
-    # ---
-    # if arlabel.endswith("أنتهت في"):
-    # arlabel = re.sub(r"أنتهت في$" , "أنتهت" , arlabel ).strip()
-    # ---
-    arlabel = fix_n(arlabel)
-    # ---
-    if "مبنية على" not in arlabel:
-        arlabel = re.sub(r" على أفلام$", " في الأفلام", arlabel)
-    # ---
-    arlabel = fix_sub(arlabel)
-    # ---
-    if "attacks on" in en and "هجمات في " in arlabel:
-        arlabel = re.sub(r"هجمات في ", "هجمات على ", arlabel)
-    # ---
-    arlabel = arlabel.replace("(توضيح)", "")
-    # ---
-    arlabel = arlabel.replace(" تأسست في ", " أسست في ")
-    # ---
-    arlabel = arlabel.replace("ب201", "بسنة 201")
-    arlabel = arlabel.replace("ب202", "بسنة 202")
-    # arlabel = arlabel.replace("ب2020" , "بسنة 2020")
-    # arlabel = arlabel.replace("ب2021" , "بسنة 2021")
-    # arlabel = arlabel.replace("ب2022" , "بسنة 2022")
-    # arlabel = arlabel.replace("ب2023" , "بسنة 2023")
-    # arlabel = arlabel.replace("ب2024" , "بسنة 2024")
-    # arlabel = arlabel.replace("ب2025" , "بسنة 2025")
-    # arlabel = arlabel.replace("ب2026" , "بسنة 2026")
-    # ---
-    arlabel = arlabel.replace("على المريخ", "في المريخ")
-    # ---
-    arlabel = arlabel.replace("  ", " ")
-    # ---
-    arlabel = re.sub(r"^شغب (\d+)", r"شغب في \g<1>", arlabel)
-    # ---
-    arlabel = re.sub(r"قوائممتعلقة", "قوائم متعلقة", arlabel)
-    arlabel = re.sub(r" في أصل ", " من أصل ", arlabel)
-    # ---
-    arlabel = fix_2(arlabel)
-    # ---
-    arlabel = arlabel.strip()
-    # ---
-    return arlabel
+
+    ar_label = ar_label.strip()
+    ar_label = _apply_basic_normalizations(ar_label)
+    ar_label = re.sub(r"كأس العالم لكرة القدم (\d)", r"كأس العالم \g<1>", ar_label)
+    ar_label = re.sub(r",", "،", ar_label)
+    ar_label = re.sub(r"^(.*) تصفيات مؤهلة إلى (.*)$", r"تصفيات \g<1> مؤهلة إلى \g<2>", ar_label)
+    ar_label = re.sub(r"تأسيسات (\d+.*)$", r"تأسيسات سنة \g<1>", ar_label)
+    ar_label = re.sub(r"انحلالات (\d+.*)$", r"انحلالات سنة \g<1>", ar_label)
+    ar_label = re.sub(r" من حسب ", " حسب ", ar_label)
+    # ar_label = re.sub(r"لاعبو في " , "لاعبو ", ar_label)
+    # ar_label = re.sub(r"لاعبو من " , "لاعبو " , ar_label)
+    ar_label = _apply_category_specific_normalizations(ar_label, normalized_en)
+    ar_label = ar_label.strip()
+
+    # if ar_label.endswith("أنتهت في"):
+    # ar_label = re.sub(r"أنتهت في$" , "أنتهت" , ar_label ).strip()
+
+    ar_label = _apply_basic_normalizations(ar_label)
+
+    if "مبنية على" not in ar_label:
+        ar_label = re.sub(r" على أفلام$", " في الأفلام", ar_label)
+
+    ar_label = _normalize_sub_regions(ar_label)
+    ar_label = ar_label.replace("(توضيح)", "")
+    ar_label = ar_label.replace(" تأسست في ", " أسست في ")
+    ar_label = ar_label.replace("ب201", "بسنة 201")
+    ar_label = ar_label.replace("ب202", "بسنة 202")
+    ar_label = ar_label.replace("على المريخ", "في المريخ")
+    ar_label = ar_label.replace("  ", " ")
+    ar_label = re.sub(r"^شغب (\d+)", r"شغب في \g<1>", ar_label)
+    ar_label = re.sub(r"قوائممتعلقة", "قوائم متعلقة", ar_label)
+    ar_label = re.sub(r" في أصل ", " من أصل ", ar_label)
+    ar_label = _normalize_conflict_phrases(ar_label)
+    ar_label = ar_label.strip()
+    return ar_label
 
 
-def add_fee(new_text: str) -> str:
-    # ---
-    # تصنيف:قضاة حسب الجنسية عقد 2010
-    # تصنيف:فنانون ذكور حسب الجنسية 2020
-    # تصنيف:فنانون ذكور حسب الجنسية القرن 20
-    # ---
-    hasab = [
+def add_fee(text: str) -> str:
+    """Ensure the preposition ``في`` precedes years in certain categories.
+
+    Args:
+        text: The label text that should be inspected.
+
+    Returns:
+        A label with normalized year phrasing.
+    """
+
+    categories = [
         "الآلة",
         "البلد",
         "البوابة",
@@ -328,38 +327,48 @@ def add_fee(new_text: str) -> str:
         "النزاع",
         "الولاية",
     ]
-    # ---
-    hasab_line = "|".join(hasab)
-    # ---
-    new_text = re.sub(rf" حسب\s({hasab_line}) ({YEARS_REGEX})$", r" حسب \1 في \2", new_text)
-    # ---
-    return new_text
+    categories_expression = "|".join(categories)
+    text = re.sub(rf" حسب\s({categories_expression}) ({YEARS_REGEX})$", r" حسب \1 في \2", text)
+    return text
 
 
 def fixlab(label_old: str, out: bool = False, en: str = "") -> str:
-    # ---
-    en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-    # output_main('fixlab:"%s"' % label_old)
-    # ---
-    if re.sub(en_literes, "", label_old, flags=re.IGNORECASE) != label_old:
+    """Return a normalized Arabic label suitable for publication.
+
+    Args:
+        label_old: The original, possibly denormalized, Arabic label.
+        out: When ``True`` emit an informational log when a label changes.
+        en: Optional English context string that influences certain fixes.
+
+    Returns:
+        The normalized label string. An empty string indicates that the label
+        was rejected by one of the validation steps.
+    """
+
+    letters_regex = "[abcdefghijklmnopqrstuvwxyz]"
+    if re.sub(letters_regex, "", label_old, flags=re.IGNORECASE) != label_old:
         return ""
-    # ---
+
     if "مشاعر معادية للإسرائيليون" in label_old:
         return ""
-    # ---
+
     label_old = label_old.strip()
     label_old = re.sub(r"_", " ", label_old)
     label_old = re.sub(r"تصنيف\:\s*", "", label_old)
     label_old = re.sub(r"تصنيف:", "", label_old)
-    # ---
-    arlabel = fix_it(label_old, en)
-    # ---
-    arlabel = add_fee(arlabel)
-    # ---
-    arlabel = move_years(arlabel)
-    # ---
-    if label_old != arlabel:
-        if out is True:
-            print(f'fixtitle: label_old before:"{label_old}", after:"{arlabel}"')
-    # ---
-    return arlabel
+
+    ar_label = fix_it(label_old, en)
+    ar_label = add_fee(ar_label)
+    ar_label = move_years(ar_label)
+
+    if label_old != ar_label and out:
+        logger.info(f'fixtitle: label_old before:"{label_old}", after:"{ar_label}"')
+
+    return ar_label
+
+
+__all__ = [
+    "add_fee",
+    "fix_it",
+    "fixlab",
+]

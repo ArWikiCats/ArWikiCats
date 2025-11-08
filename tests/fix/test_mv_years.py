@@ -5,30 +5,6 @@
 from src.fix.mv_years import move_years
 
 
-def load_test_move_years_old(data):
-    # ---
-    expected_list = []
-    diff_list = []
-    # ---
-    same = 0
-    for title, expected in data.items():
-        clean = title.replace("تصنيف:", "").replace("_", " ")
-        result = move_years(clean)
-        # ---
-        if result != expected:
-            # ---
-            diff_list.append({"en": clean, "ar": result})
-            # ---
-            expected_list.append({"en": clean, "ar": expected})
-        else:
-            assert result == expected
-            same += 1
-
-    print(f"<<green>> diff_list: {len(diff_list)}, same:{same}.")
-
-    assert diff_list == expected_list
-
-
 def load_test_move_years(data):
     # ---
     diff_list = []

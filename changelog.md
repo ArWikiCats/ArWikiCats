@@ -1,13 +1,32 @@
 
+## #31
+
+* **Bug Fixes**
+  * Improved template and label resolution with fallbacks
+  * Consolidated year-handling logic
+
+* **Tests**
+  * Expanded test coverage for locale, year, and historical-period data
+
+* **Improvements**
+  * Refined public API with clearer naming conventions
+  * Enhanced text normalization pipeline for Arabic label processing
+
 ---
 
-## #17 - 2025-11-08
+## #30
 
-### Changed
+* **Bug Fixes**
+  * Improved template/label resolution with additional fallback steps for more accurate mapping.
 
-* Standardized type hints, logging, and documentation across the `src/fix` package to support static analysis.
-* Consolidated repeated year-handling logic in `mv_years.py` into shared helpers to eliminate duplication.
-* Updated `__init__.py` exports to provide a coherent public API for normalization utilities.
+* **Tests**
+  * Reorganized and expanded locale/year and historical-period test data; trimmed other year mappings for focused coverage.
+
+* **Documentation**
+  * Standardized and simplified changelog structure and headers.
+
+* **Chores**
+  * Removed the automatic type-hint injector module; consolidated dependency imports and removed optional local fallbacks; minor typing and config adjustments.
 
 ---
 
