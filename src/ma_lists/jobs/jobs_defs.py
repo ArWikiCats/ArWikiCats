@@ -185,3 +185,6 @@ for cory in Nat_Womens:
 
 """
 # ---
+
+
+MEN_WOMENS_JOBS_2 = Men_Womens_Jobs_2

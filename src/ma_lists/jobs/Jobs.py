@@ -33,14 +33,14 @@ WHERE {
 
 import sys
 from ...helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils.json_dir import open_json
 
 # ---
 from ..nats.Nationality import Nat_mens
 from ..sports.cycling import new2019_cycling
 from ..mixed.all_keys2 import Books_table
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
-from ..by_type import Music_By_table
+# from ..by_type import Music_By_table
 from ..tv.films_mslslat import Films_key_For_Jobs
 from .Jobs2 import Jobs_2
 from ..mixed.male_keys import religious_female_keys
@@ -49,71 +49,33 @@ from .jobs_singers import Men_Womens_Singers, films_type
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 from .jobs_defs import religious_keys_PP, Men_Womens_Jobs_2
 
-
 Jobs_new = {}
-# Jobs_new["fifa world cup players"] = "لاعبو كأس العالم لكرة القدم"
 # ---
 Jobs_2020 = {
-    # "bridge players" : {"mens":"", "womens":""},
-    # "soft tennis players" : {"mens":"", "womens":""},
-    # "xiangqi players" : {"mens":"", "womens":""},
-    "lawn bowls players": {"mens": "", "womens": ""},
-    # "dartchers" : {"mens":"", "womens":""},
-    # "jet skiers" : {"mens":"", "womens":""},
-    # "freestyle skiers" : {"mens":"", "womens":""},
-    # "alpine skiers" : {"mens":"", "womens":""}
-    # "modern pentathletes" : {"mens":"", "womens":""},
-    "community activists": {"mens": "ناشطو مجتمع", "womens": "ناشطات مجتمع"},
     "ecosocialists": {"mens": "إيكولوجيون", "womens": "إيكولوجيات"},
-    "ecosocialistes": {"mens": "إيكولوجيون", "womens": "إيكولوجيات"},
-    "horse trainers": {"mens": "مدربو خيول", "womens": "مدربات خيول"},
-    "bullfighters": {"mens": "مصارعو ثيران", "womens": "مصارعات ثيران"},
-    "supremacists": {"mens": "عنصريون", "womens": "عنصريات"},
-    "white supremacists": {"mens": "عنصريون بيض", "womens": "عنصريات بيضوات"},
-    "ceramists": {"mens": "خزفيون", "womens": "خزفيات"},
-    "bodybuilders": {"mens": "لاعبو كمال أجسام", "womens": "لاعبات كمال أجسام"},
-    "bowlers": {"mens": "لاعبو بولينج", "womens": "لاعبات بولينج"},
-    "dragon boat racers": {
-        "mens": "متسابقو قوارب التنين",
-        "womens": "متسابقات قوارب التنين",
-    },
-    # "ice sledge speed racers" : {"mens":"متسابقو ", "womens":"متسابقات "},
-    "ju-jitsu practitioners": {"mens": "ممارسو جوجوتسو", "womens": "ممارسات جوجوتسو"},
-    "kurash practitioners": {"mens": "ممارسو كوراش", "womens": "ممارسات كوراش"},
-    "silat practitioners": {"mens": "ممارسو سيلات", "womens": "ممارسات سيلات"},
-    "pencak silat practitioners": {
-        "mens": "ممارسو بنكات سيلات",
-        "womens": "ممارسات بنكات سيلات",
-    },
-    "sambo practitioners": {"mens": "ممارسو سامبو", "womens": "ممارسات سامبو"},
-    "ski orienteers": {"mens": "متسابقو تزلج موجه", "womens": "متسابقات تزلج موجه"},
-    "ski-orienteers": {"mens": "متسابقو تزلج موجه", "womens": "متسابقات تزلج موجه"},
-    "artistic swimmers": {"mens": "سباحون فنيون", "womens": "سباحات فنيات"},
-    "synchronised swimmers": {"mens": "سباحون متزامنون", "womens": "سباحات متزامنات"},
-    "powerlifters": {"mens": "ممارسو رياضة القوة", "womens": "ممارسات رياضة القوة"},
-    "rifle shooters": {"mens": "رماة بندقية", "womens": "راميات بندقية"},
-    "wheelchair curlers": {
-        "mens": "لاعبو كيرلنغ على الكراسي المتحركة",
-        "womens": "لاعبات كيرلنغ على الكراسي المتحركة",
-    },
-    "wheelchair fencers": {
-        "mens": "مبارزون على الكراسي المتحركة",
-        "womens": "مبارزات على الكراسي المتحركة",
-    },
-    "sepak takraw players": {
-        "mens": "لاعبو سيباك تاكرو",
-        "womens": "لاعبات سيباك تاكرو",
-    },
-    "boccia players": {"mens": "لاعبو بوتشيا", "womens": "لاعبات بوتشيا"},
-    "wheelchair rugby players": {
-        "mens": "لاعبو رغبي على الكراسي المتحركة",
-        "womens": "لاعبات رغبي على الكراسي المتحركة",
-    },
     "wheelchair tennis players": {
         "mens": "لاعبو كرة مضرب على الكراسي المتحركة",
         "womens": "لاعبات كرة مضرب على الكراسي المتحركة",
     },
 }
+# ---
+jobs_people = {
+    "bloggers": {"mens": "مدونو", "womens": "مدونات"},
+    "writers": {"mens": "كتاب", "womens": "كاتبات"},
+}
+# ---
+jobs_type = {
+    "adventure": "مغامرة",
+    "alternate history": "تاريخ بديل",
+    "animated": "رسوم متحركة",
+    "science fiction action": "خيال علمي وحركة",
+}
+# ---
+jobs_data = open_json("jobs/jobs.json")
+# ---
+Jobs_2020.update({x: v for x, v in jobs_data["Jobs_2020"].items() if v.get("mens") and v.get("womens")})
+jobs_people.update({x: v for x, v in jobs_data["jobs_people"].items() if v.get("mens") and v.get("womens")})
+jobs_type.update({x: v for x, v in jobs_data["jobs_type"].items() if v})  # v is string
 # ---
 for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
     Jobs_2020[minister_category] = minister_labels
@@ -187,7 +149,7 @@ Men_Womens_with_nato = {
 # ,"military":  {"mens":"عسكريون", "womens":"عسكريات"}
 # ,"commodores": {"mens":"ضباط بحرية", "womens":"ضابطات بحرية"}
 # ---
-MenWomensJobsPP = open_json_file("jobs_Men_Womens_PP")
+MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
 # ---
 for religious_key, gendered_titles in religious_keys_PP.items():
     MenWomensJobsPP[religious_key] = gendered_titles
@@ -272,7 +234,7 @@ Nat_Before_Occ = [
     "emigrants",
 ]
 # ---
-activists_keys = open_json_file("activists_keys")
+activists_keys = open_json("jobs/activists_keys.json")
 # ---
 for activist_category, activist_labels in activists_keys.items():
     normalized_key = activist_category.lower()
@@ -459,108 +421,6 @@ for film, film_lab in Films_key_For_Jobs.items():
         # ---
         Men_Womens_Jobs[oiuio]["womens"] = f"{key_lab['womens']} {film_lab}"
 # ---
-jobs_type = {
-    # ,"film":"أفلام"    ,"action":"حركة"
-    "adventure": "مغامرة",
-    "alternate history": "تاريخ بديل",
-    "animated": "رسوم متحركة",
-    "anthology": "أنثولوجيا",
-    "biographical": "سيرة ذاتية",
-    "black comedy": "كوميديا سوداء",
-    "bollywood": "بوليوود",
-    "buddy": "رفقاء",
-    "business and financial": "أعمال ومالية",
-    "financial": "مالية",
-    "business": "أعمال",
-    "clay animation": "رسوم متحركة طينية",
-    "comedy fiction": "خيال كوميدي",
-    "comedy thriller": "كوميديا إثارة",
-    "comedy": "كوميديا",
-    "comedy drama": "كوميديا درامية",  # ,"comedy-drama":"كوميديا درامية"
-    "comics": "قصص مصورة",
-    "crime thriller": "إثارة وجريمة",
-    "crime": "جريمة",
-    "crossover fiction": "خيال متقاطع",
-    "cyberpunk": "سايبربانك",
-    "dance": "رقص",
-    "disaster": "كوارث",
-    "docudramas": "دراما وثائقية",
-    "drama": "دراما",
-    "dystopian": "ديستوبيا",
-    "environmental fiction": "خيال بيئي",
-    "environmental": "بيئة",
-    "erotic thriller": "إثارة جنسية",
-    "erotica": "أدب جنسي",
-    "fantasy": "فنتازيا",
-    "finance and investment": "تمويل واستثمار",
-    "finance": "تمويل",
-    "french comedy": "كوميديا فرنسية",
-    "gay male pornography": "إباحية مثلية",
-    "gothic horror": "رعب قوطي",
-    "historical": "تاريخ",
-    "horror": "رعب",
-    "investment": "استثمار",
-    "japanese horror": "رعب ياباني",
-    "kung fu": "كونغ فو",
-    "mafia comedy": "مافيا كوميدية",
-    "mafia": "مافيا",
-    "magazine": "مجلات",
-    "magic realism": "واقعية سحرية",
-    "martial arts": "فنون قتالية",
-    "mystery": "غموض",
-    "mysticism": "غموض",
-    "newspaper": "صحف",
-    "parody": "محاكاة ساخرة",
-    "pirate": "قراصنة",
-    "police procedural": "إجراءات الشرطة",
-    "police procedurals": "إجراءات الشرطة",
-    "political fiction": "خيال سياسي",
-    "propaganda": "بروباغندا",
-    "prussian": "بروسي",
-    "psychological horror": "رعب نفسي",
-    "radio": "راديو",
-    "rape and revenge": "إغتصاب وإنتقام",
-    "romantic comedy": "كوميديا رومانسية",
-    "samurai": "ساموراي",
-    "satire": "هجاء",
-    "science fiction action": "خيال علمي وحركة",
-    "science fiction": "خيال علمي",
-    "silent": "سينما صامتة",
-    "slapstick": "كوميديا تهريجية",
-    "socialist realism": "واقعية اشتراكية",
-    "speculative fiction": "خيال تأملي",
-    "sports": "رياضة",
-    "spy": "تجسس",
-    "surfing": "ركمجة",
-    "teen": "مراهقة",
-    "television": "تلفزيون",
-    "thriller": "إثارة",
-    "war": "حرب",
-    "yakuza": "ياكوزا",
-    "zombie": "زومبي",
-}
-# ---
-jobs_people = {
-    "bloggers": {"mens": "مدونو", "womens": "مدونات"},
-    "writers": {"mens": "كتاب", "womens": "كاتبات"},
-    "critics": {"mens": "نقاد", "womens": "ناقدات"},
-    "journalists": {"mens": "صحفيو", "womens": "صحفيات"},
-    "producers": {"mens": "منتجو", "womens": "منتجات"},
-    "authors": {"mens": "مؤلفو", "womens": "مؤلفات"},
-    "editors": {"mens": "محررو", "womens": "محررات"},
-    "artists": {"mens": "فنانو", "womens": "فنانات"},
-    "directors": {"mens": "مخرجو", "womens": "مخرجات"},
-    "publisherspeople": {"mens": "ناشرو", "womens": "ناشرات"},
-    "publishers (people)": {"mens": "ناشرو", "womens": "ناشرات"},
-    # "evangelists" : {"mens":"", "womens":""},
-    # "news anchors" : {"mens":"", "womens":""},
-    # "people" : {"mens":"", "womens":""},
-    "personalities": {"mens": "شخصيات", "womens": "شخصيات"},
-    "presenters": {"mens": "مذيعو", "womens": "مذيعات"},
-    "creators": {"mens": "مبتكرو", "womens": "مبتكرات"},
-    # "creators":  {"mens":"صانعو", "womens":"صانعات"},
-}
-
 
 # def Add_Jobs():
 # ---

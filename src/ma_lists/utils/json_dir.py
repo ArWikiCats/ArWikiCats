@@ -25,9 +25,29 @@ def open_json_file(file: str="") -> dict[str, Any] | list[Any]:
         return {}
     # ---
     try:
-        with open(f"{Dir2}/jsons/{file}.json", "r", encoding="utf-8") as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except BaseException:
-        print(f"cant open {file}.json")
+        print(f"cant open {file_path.name}")
+    # ---
+    return {}
+
+
+def open_json(file_path: str="") -> dict[str, Any] | list[Any]:
+    # ---
+    if not file_path:
+        return {}
+    # ---
+    file_path = Dir2 / "jsons" / file_path
+    # ---
+    if not file_path.exists():
+        print(f"file {file_path} not found")
+        return {}
+    # ---
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except BaseException:
+        print(f"cant open {file_path.name}")
     # ---
     return {}

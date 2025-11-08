@@ -27,25 +27,13 @@ jsub -mem 1g sh/a5.sh
 
 """
 
-from pathlib import Path
-import json
-
-Dir2 = Path(__file__).parent
-
-"""
-
-الأسطر المخفية تبدأ بـ
-#o
-
-"""
+from ..utils.json_dir import open_json
 # ---
-from ..utils.json_dir import open_json_file
-Jobs_3333 = {}
 Jobs_2 = {}
+Jobs_3333 = {}
 # ---
-Jobs_22 = open_json_file("Jobs_22")
-# ---
-jobs_3 = open_json_file("jobs_3")
+Jobs_22 = open_json("jobs/Jobs_22.json")
+jobs_3 = open_json("jobs/jobs_3.json")
 # ---
 # "biochemists"    : {"mens":"أخصائيو كيمياء حيوية", "womens":""},
 # "coastal engineering" : {"mens":"هندسة الشواطئ", "womens":""},
@@ -267,3 +255,6 @@ del Main_scientists
 del scholars_table
 del jobs_3
 del job2_opo
+
+JOBS_2 = Jobs_2
+JOBS_3333 = Jobs_3333
