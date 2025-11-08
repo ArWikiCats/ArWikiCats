@@ -40,7 +40,7 @@ def Work_Templates(input_label: str) -> str:
     if cache_key in WORK_TEMPLATES_CACHE:
         return WORK_TEMPLATES_CACHE[cache_key]
     # ---
-    print_put(f">> ----------------- start Work_ Templates ----------------- SUUS:{input_label}")
+    print_put(f">> ----------------- start Work_ Templates ----------------- input_label:{input_label}")
     template_label = ""
     # pp_ends_with =  in pop_format
 
@@ -53,7 +53,7 @@ def Work_Templates(input_label: str) -> str:
         if not input_label.lower().endswith(suffix.lower()):
             continue
         base_label = input_label[:-len(suffix)]
-        print_put(f'>>>><<lightblue>> Work_ Templates.endswith pri_ooo("{suffix}"), U_8:"{base_label}"')
+        print_put(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), base_label:"{base_label}"')
 
         resolved_label = contry2_lab.get_lab_for_contry2(base_label)
         if not resolved_label:
@@ -63,12 +63,12 @@ def Work_Templates(input_label: str) -> str:
             # print("translate_general_category 2")
             resolved_label = ye_ts_bot.translate_general_category(base_label)
 
-        print_put(f'>>>><<lightblue>> Work_ Templates :"{input_label}", U_8 :"{base_label}"')
+        print_put(f'>>>><<lightblue>> Work_ Templates :"{input_label}", base_label :"{base_label}"')
         # ---
         if resolved_label:
-            print_put(f'>>>><<lightblue>> Work_ Templates.endswith pri_ooo("{suffix}"), U_lab:"{resolved_label}"')
+            print_put(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), resolved_label:"{resolved_label}"')
             template_label = format_template.format(resolved_label)
-            print_put(f'>>>> PpP_lab:"{template_label}"')
+            print_put(f'>>>> template_label:"{template_label}"')
             # ---
             WORK_TEMPLATES_CACHE[cache_key] = template_label
             break
@@ -92,11 +92,11 @@ def Work_Templates(input_label: str) -> str:
             # print("translate_general_category 3")
             resolved_label = ye_ts_bot.translate_general_category(remaining_label)
 
-        print_put(f'>>>><<lightblue>> Work_ Templates :"{input_label}", U_c :"{remaining_label}"')
+        print_put(f'>>>><<lightblue>> Work_ Templates :"{input_label}", remaining_label :"{remaining_label}"')
         if resolved_label:
-            print_put(f'>>>><<lightblue>> Work_ Templates.startswith pri_ss("{prefix}"), U_lab:"{resolved_label}"')
+            print_put(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), resolved_label:"{resolved_label}"')
             template_label = format_template.format(resolved_label)
-            print_put(f'>>>> PpP_lab:"{template_label}"')
+            print_put(f'>>>> template_label:"{template_label}"')
             # ---
             WORK_TEMPLATES_CACHE[cache_key] = template_label
             break

@@ -16,42 +16,10 @@ len_print.lenth_pri("Labels_Contry.py", Lentha)
 
 """
 
-import importlib.util
 import sys
 from typing import Iterable, Mapping
-
 from .. import printe
-
-if importlib.util.find_spec("humanize") is not None:
-    from humanize import naturalsize  # type: ignore
-else:
-
-    def naturalsize(value: int | float | str, binary: bool=True) -> str:
-        """Minimal replacement for :func:`humanize.naturalsize`."""
-
-        try:
-            size = float(value)
-        except (TypeError, ValueError):
-            return str(value)
-
-        base = 1024.0 if binary else 1000.0
-        suffixes = [
-            "B",
-            "KiB" if binary else "KB",
-            "MiB" if binary else "MB",
-            "GiB" if binary else "GB",
-            "TiB" if binary else "TB",
-            "PiB" if binary else "PB",
-        ]
-
-        index = 0
-        while size >= base and index < len(suffixes) - 1:
-            size /= base
-            index += 1
-
-        if index == 0:
-            return f"{int(size)} {suffixes[index]}"
-        return f"{size:.1f} {suffixes[index]}"
+from humanize import naturalsize
 
 lenth_pri_text = True
 

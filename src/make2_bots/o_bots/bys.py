@@ -1,129 +1,155 @@
-"""
-from  make.bots import bys
-"""
+"""Label helpers for categories that use the word ``by``."""
+
+from __future__ import annotations
 
 import re
-
-# ---
-from ...ma_lists import By_table, By_orginal2, By_table_orginal
-from ...ma_lists import New_P17_Finall
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..p17_bots.nats import find_nat_others
-from ..media_bots.films_bot import test_films
+from typing import Callable, Dict
 
 from ...helps.log import logger
+from ...ma_lists import By_orginal2, By_table, By_table_orginal, New_P17_Finall
+from ..matables_bots.bot_2018 import pop_All_2018
+from ..media_bots.films_bot import test_films
+from ..p17_bots.nats import find_nat_others
+from .utils import first_non_empty
+
+LabelLookup = Callable[[str], str]
 
 
-def Make_By_lab(category: str) -> str:
-    logger.info(
-        f"<<lightred>>>> vvvvvvvvvvvv Make_By_lab start, cate:{category} vvvvvvvvvvvv "
-    )
-    resolved_label = ""
+def _lookup_entity(key: str, *tables: Dict[str, str]) -> str:
+    """Return the first non-empty label for ``key`` from ``tables``."""
 
-    if category.startswith("by "):
-        category_label = test_films(category.replace("by ", ""))
-        if category_label:
-            resolved_label = f"بواسطة {category_label}"
-        else:
-            category_label = find_nat_others(category.replace("by ", ""))
-            if category_label:
-                resolved_label = f"بواسطة {category_label}"
-
-    match = re.match(r"^by (.*?) and (.*?)$", category.lower())
-    if not resolved_label and match:
-        first_key = match.group(1)
-        second_key = match.group(2)
-
-        first_label = By_orginal2.get(first_key, "")
-        second_label = By_orginal2.get(second_key, "")
-
-        logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
-        logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
-
-        if second_label and first_label:
-            resolved_label = f"حسب {first_label} و{second_label}"
-
-    if resolved_label:
-        logger.debug(
-            f"<<lightblue>>>> ^^^^^^^^^ Make_By_lab lab:{resolved_label}."
-        )
-
-    logger.info("<<lightblue>>>> ^^^^^^^^^ Make_By_lab end ^^^^^^^^^ ")
-    return resolved_label
+    lower_key = key.lower()
+    return first_non_empty(lower_key, list(tables))
 
 
-def Get_by_label(category: str) -> str:
+def make_by_label(category: str) -> str:
+    """Return the Arabic label for ``category`` that starts with ``by``.
+
+    Args:
+        category: Category name that is expected to start with the word ``by``.
+
+    Returns:
+        Resolved label or an empty string when the category is unknown.
+    """
+
+    normalized = category.strip()
+    logger.info("Resolving by-label", extra={"category": normalized})
+    logger.info(f"<<lightred>>>> vvvvvvvvvvvv make_by_label start, cate:{category} vvvvvvvvvvvv ")
+    resolved = ""
+    if normalized.lower().startswith("by "):
+        candidate = normalized[3:]
+        film_label = test_films(candidate)
+        if film_label:
+            resolved = f"بواسطة {film_label}"
+            logger.debug("Matched film label", extra={"category": normalized, "label": resolved})
+
+        if not resolved:
+            nationality_label = find_nat_others(candidate)
+            if nationality_label:
+                resolved = f"بواسطة {nationality_label}"
+                logger.debug("Matched nationality label", extra={"category": normalized, "label": resolved})
+    if not resolved:
+        match = re.match(r"^by (.*?) and (.*?)$", normalized, flags=re.IGNORECASE)
+        if match:
+            first_key, second_key = match.groups()
+            first_label = By_orginal2.get(first_key.lower(), "")
+            second_label = By_orginal2.get(second_key.lower(), "")
+
+            logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
+            logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
+
+            if first_label and second_label:
+                resolved = f"حسب {first_label} و{second_label}"
+                logger.debug(f"<<lightblue>>>> ^^^^^^^^^ make_by_label lab:{resolved}.")
+
+    logger.info("<<lightblue>>>> ^^^^^^^^^ make_by_label end ^^^^^^^^^ ")
+    return resolved
+
+
+def _lookup_prefixed_label(part: str, lookup: LabelLookup) -> str:
+    """Return the label for ``part`` using ``lookup`` with normalisation."""
+
+    cleaned = part.strip().lower()
+    if cleaned.startswith("the "):
+        cleaned = cleaned[4:]
+    return lookup(cleaned)
+
+
+def get_by_label(category: str) -> str:
+    """Return the label for a category in the form ``<entity> by <suffix>``.
+
+    Args:
+        category: Full category string that contains a "by" clause.
+
+    Returns:
+        The composed Arabic label or an empty string when the lookup fails.
+    """
+
     label = ""
-    by_section = ""
-    first_part = ""
+    logger.info(f"<<lightyellow>>>>get_by_label {category}")
 
-    logger.info(f"<<lightyellow>>>>Get_by_label {category}")
+    match = re.match(r"^(.*?) (by .*)$", category, flags=re.IGNORECASE)
+    if not match:
+        return ""
 
-    first_label = ""
-    by_label = ""
+    first_part, by_section = match.groups()
+    first_label = _lookup_prefixed_label(first_part, lambda key: _lookup_entity(key, New_P17_Finall, pop_All_2018))
 
-    if match_info := re.match(r"^(.*?) (by .*)$", category, flags=re.IGNORECASE):
-        first_part = match_info.group(1)
-        by_section = match_info.group(2)
+    by_label = _lookup_entity(by_section, By_table, By_table_orginal)
 
-        logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
-
-    if first_part.startswith("the "):
-        first_part = first_part[len("the ") :]
-
-    if first_part:
-        if not first_label:
-            first_label = New_P17_Finall.get(first_part.lower(), "")
-
-        if not first_label:
-            first_label = pop_All_2018.get(first_part.lower(), "")
-
-    if by_section:
-        if not by_label:
-            by_label = By_table.get(by_section.lower(), "")
-
-        if not by_label:
-            by_label = By_table_orginal.get(by_section.lower(), "")
+    logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
 
     if first_label and by_label:
         label = f"{first_label} {by_label}"
-        logger.info(f"<<lightyellow>>>>Get_by_label lab {label}")
+        logger.info(f"<<lightyellow>>>>get_by_label lab {label}")
 
     return label
 
 
-def Get_and_label(category: str) -> str:
+def get_and_label(category: str) -> str:
+    """Return the label for ``<entity> and <entity>`` categories.
+
+    Args:
+        category: Category string that joins two entities with "and".
+
+    Returns:
+        The combined Arabic label or an empty string when either entity is
+        missing from the lookup tables.
+    """
+
     label = ""
-    first_part = ""
-    last_part = ""
+    logger.info(f"<<lightyellow>>>>get_and_label {category}")
+    logger.info("Resolving get_and_label", extra={"category": category})
+    match = re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE)
+    if not match:
+        return ""
 
-    logger.info(f"<<lightyellow>>>>Get_and_label {category}")
+    first_part, last_part = match.groups()
 
-    first_label = ""
-    last_label = ""
+    logger.debug(f"<<lightyellow>>>>frist:{first_part},last:{last_part}")
 
-    if match_info := re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE):
-        first_part = match_info.group(1)
-        last_part = match_info.group(2)
-
-        logger.debug(f"<<lightyellow>>>>frist:{first_part},last:{last_part}")
-
-    if first_part:
-        if not first_label:
-            first_label = New_P17_Finall.get(first_part.lower(), "")
-
-        if not first_label:
-            first_label = pop_All_2018.get(first_part.lower(), "")
-
-    if last_part:
-        if not last_label:
-            last_label = New_P17_Finall.get(last_part.lower(), "")
-
-        if not last_label:
-            last_label = pop_All_2018.get(last_part.lower(), "")
+    first_label = _lookup_entity(first_part, New_P17_Finall, pop_All_2018)
+    last_label = _lookup_entity(last_part, New_P17_Finall, pop_All_2018)
 
     if first_label and last_label:
         label = f"{first_label} و{last_label}"
-        logger.info(f"<<lightyellow>>>>Get_and_label lab {label}")
+        logger.info(f"<<lightyellow>>>>get_and_label lab {label}")
 
     return label
+
+
+# Backwards compatibility ----------------------------------------------------------------------
+make_By_lab = make_by_label  # type: ignore
+Make_By_lab = make_by_label
+Get_by_label = get_by_label
+Get_and_label = get_and_label
+
+__all__ = [
+    "get_and_label",
+    "get_by_label",
+    "make_by_label",
+    "Get_and_label",
+    "Get_by_label",
+    "Make_By_lab",
+    "make_By_lab",
+]
