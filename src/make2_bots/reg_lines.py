@@ -5,7 +5,11 @@ Group of regex expressions used in the bot for later improvements
 """
 import re
 
-YEARS_REGEX = r"(\d+[−–-]\d+|\d+\sق[\s\.]م|\d+)|عقد\s(\d+\sق[\s\.]م|\d+)|القرن\s(\d+\sق[\s\.]م|\d+)|الألفية\s(\d+\sق[\s\.]م|\d+)"
+YEARS_REGEX = (
+    r"\d+[−–-]\d+"
+    # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+    r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+)
 
 regex_make_year_lab = (
     r"(\d+)("

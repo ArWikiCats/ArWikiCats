@@ -112,5 +112,4 @@ __all__ = [
     "move_by_in",
     "move_years",
     "move_years_first",
-    "YEARS_REGEX",
 ]

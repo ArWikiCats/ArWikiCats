@@ -667,14 +667,6 @@ dfg = 0
 for job_key in Jobs_key.keys():
     # oppp[x.lower()] =  Jobs_key[x]
     Jobs_new[job_key.lower()] = Jobs_key[job_key]
-    if sys.argv and "2080io" in sys.argv:
-        for key in Music_By_table:
-            if (Jobs_key[x] != "") and (Music_By_table[key] != ""):
-                ip_1 = f"{x} {key}"
-                ip_2 = f"{Jobs_key[x]} {Music_By_table[key]}"
-                dfg += 1
-                Jobs_new[ip_1] = ip_2
-                # printe.output(',"%s":"%s"' %   (ip_1 , ip_2))
 # ---
 Lenth = {
     "Len_of_Films_Jobs": Len_of_Films_Jobs,

@@ -13,7 +13,8 @@ import re
 from typing import Iterable, Mapping
 
 from .fixlists import ENDING_REPLACEMENTS, REPLACEMENTS, STARTING_REPLACEMENTS, YEAR_CATEGORY_LABELS
-from .mv_years import YEARS_REGEX, move_years
+from ..make2_bots.reg_lines import YEARS_REGEX
+from .mv_years import move_years
 
 logger = logging.getLogger(__name__)
 
@@ -108,7 +109,7 @@ def _normalize_conflict_phrases(text: str) -> str:
         first_part = match.group(1)
         second_part = match.group(2)
         if second_part.startswith("ال"):
-            second_part = second_part[2:]
+            second_part = second_part[1:]
         text = f"{first_part} ل{second_part}"
     return text
 
@@ -129,6 +130,13 @@ def _normalize_sub_regions(text: str) -> str:
         text = re.sub(r"مديريات", "دوائر", text)
         text = re.sub(r"المديرية", "الدائرة", text)
     return text
+
+
+def fix_formula(ar_label, en_label):
+
+    ar_label = re.sub(r"\bفورمولا 1\s*([12]\d+)", r"فورمولا 1 في سنة \g<1>", ar_label)
+
+    return ar_label
 
 
 def _apply_category_specific_normalizations(ar_label: str, en_label: str) -> str:
@@ -154,7 +162,7 @@ def _apply_category_specific_normalizations(ar_label: str, en_label: str) -> str
         ar_label = re.sub(f"{replacement} بواسطة ", f"{replacement} ", ar_label)
 
     ar_label = re.sub(r"وفيات بواسطة ضربات ", "وفيات بضربات ", ar_label)
-    ar_label = re.sub(r"ضربات جوية نفذت بواسطة ", "ضربات جويت نفذتها ", ar_label)
+    ar_label = re.sub(r"ضربات جوية نفذت بواسطة ", "ضربات جوية نفذتها ", ar_label)
     ar_label = re.sub(r"أفلام أنتجت بواسطة ", "أفلام أنتجها ", ar_label)
     ar_label = re.sub(r"كاميرات اخترعت ", "كاميرات عرضت ", ar_label)
     ar_label = re.sub(r"هواتف محمولة اخترعت ", "هواتف محمولة عرضت ", ar_label)
@@ -192,8 +200,9 @@ def _apply_category_specific_normalizations(ar_label: str, en_label: str) -> str
     ar_label = re.sub(r" في من ", " من ", ar_label)
     ar_label = re.sub(r" العسكري القرن ", " العسكري في القرن ", ar_label)
     ar_label = re.sub(r" من في ", " في ", ar_label)
-    ar_label = re.sub(r" فورمولا 1 2", " فورمولا 1 في سنة 2", ar_label)
-    ar_label = re.sub(r" فورمولا 1 1", " فورمولا 1 في سنة 1", ar_label)
+
+    ar_label = fix_formula(ar_label, en_label)
+
     ar_label = re.sub(r" في حسب ", " حسب ", ar_label)
     ar_label = re.sub(r" من حسب ", " حسب ", ar_label)
     ar_label = re.sub(r" ق\.م ", " ق م ", ar_label)

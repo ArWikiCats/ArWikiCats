@@ -1,10 +1,16 @@
 
 ## #31
-### Changed
 
-* Standardized type hints, logging, and documentation across the `src/fix` package to support static analysis.
-* Consolidated repeated year-handling logic in `mv_years.py` into shared helpers to eliminate duplication.
-* Updated `__init__.py` exports to provide a coherent public API for normalization utilities.
+* **Bug Fixes**
+  * Improved template and label resolution with fallbacks
+  * Consolidated year-handling logic
+
+* **Tests**
+  * Expanded test coverage for locale, year, and historical-period data
+
+* **Improvements**
+  * Refined public API with clearer naming conventions
+  * Enhanced text normalization pipeline for Arabic label processing
 
 ---
 
