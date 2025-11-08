@@ -7,7 +7,7 @@ from ...ma_lists import Parties, party_end_keys
 from .utils import resolve_suffix_template
 
 
-def get_parties_lab(party: str) -> str:
+def get_parties_lab_old(party: str) -> str:
     """Return the Arabic label for ``party`` using known suffixes.
 
     Args:
@@ -34,6 +34,30 @@ def get_parties_lab(party: str) -> str:
                     else suffix_template.format(label)
                 )
                 break
+
+    if party_label:
+        logger.info(f'get_parties_lab party:"{party}", party_label:"{party_label}"')
+
+    return party_label
+
+
+def get_parties_lab(party: str) -> str:
+    """Return the Arabic label for ``party`` using known suffixes.
+
+    Args:
+        party: The party name to resolve.
+
+    Returns:
+        The resolved Arabic label or an empty string if the suffix is unknown.
+    """
+
+    normalized_party = party.strip()
+    logger.info(f'get_parties_lab party:"{party}"')
+
+    def _lookup(prefix: str) -> str:
+        return Parties.get(prefix, "")
+
+    party_label = resolve_suffix_template(normalized_party, party_end_keys, _lookup)
 
     if party_label:
         logger.info(f'get_parties_lab party:"{party}", party_label:"{party_label}"')

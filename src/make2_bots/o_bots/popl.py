@@ -14,7 +14,7 @@ from .utils import build_cache_key, get_or_set, resolve_suffix_template
 WORK_PEOPLES_CACHE: Dict[str, str] = {}
 
 
-def work_peoples(name: str) -> str:
+def work_peoples_old(name: str) -> str:
     """Return the label for ``name`` based on the population prefixes table.
 
     Args:
@@ -52,6 +52,36 @@ def work_peoples(name: str) -> str:
     WORK_PEOPLES_CACHE[cache_key] = PpP_lab
     # ---
     return PpP_lab
+
+
+def work_peoples(name: str) -> str:
+    """Return the label for ``name`` based on the population prefixes table.
+
+    Args:
+        name: The category name that may contain a known population suffix.
+
+    Returns:
+        The resolved Arabic label or an empty string when no mapping exists.
+    """
+
+    cache_key = build_cache_key(name)
+    if cache_key in WORK_PEOPLES_CACHE:
+        return WORK_PEOPLES_CACHE[cache_key]
+
+    def _resolve() -> str:
+        print_put(f"<<lightpurple>> work_peoples lookup for '{name}'")
+
+        def _lookup(prefix: str) -> str:
+            return People_key.get(prefix, "")
+
+        label = resolve_suffix_template(name, Pp_Priffix, _lookup)
+        if label:
+            logger.debug("Resolved work_peoples", extra={"name": name, "label": label})
+        else:
+            logger.debug("Failed to resolve work_peoples", extra={"name": name})
+        return label
+
+    return get_or_set(WORK_PEOPLES_CACHE, cache_key, _resolve)
 
 
 def make_people_lab(normalized_value: str) -> str:

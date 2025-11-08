@@ -59,4 +59,4 @@ def test_male_suffix_without_hyphen_returns_empty():
     """No hyphen-like separator means the function cannot split the pair."""
     value = "zanzibari anguillan conflict"
     result = work_relations(value)
-    assert result == "الصراع الأنغويلاني الزنجباري"
+    assert result == ""

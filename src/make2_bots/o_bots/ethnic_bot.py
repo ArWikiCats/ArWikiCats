@@ -44,52 +44,56 @@ def ethnic_culture(category: str, start: str, suffix: str) -> str:
     cache_key = build_cache_key(category, start, suffix)
     if cache_key in ETHNIC_CULTURE_CACHE:
         return ETHNIC_CULTURE_CACHE[cache_key]
-    # ---
-    contry = start
-    topic_key = ""
-    con_3_lab = ""
-    topic_label = ""
-    contry_lab = ""
-    # ---
-    if Nat_women.get(contry, "") == "" and Nat_men.get(contry, "") == "":
-        return contry_lab
-    # ---
-    _culture_table = {
-        "culture": "ثقافة {}",
-    }
-    # ---
-    if not topic_key and not topic_label:
-        contry_L = Nat_women.get(contry, "")
-        for x, x_lab in en_is_nat_ar_is_women_2.items():
-            if not topic_label:
-                xx = f" {x}"
-                if suffix.endswith(xx):
-                    topic_key = x
-                    suffix = suffix[: -len(xx)]
-                    topic_label = x_lab
-                    con_3_lab = Nat_women.get(suffix, "")
-    # ---
-    # ---
-    if topic_key == "" and topic_label == "":
-        contry_L = Nat_men.get(contry, "")
-        for x, xlab in MALE_TOPIC_TABLE.items():
-            if not topic_label:
-                xx = f" {x}"
-                if suffix.endswith(xx):
-                    topic_key = x
-                    suffix = suffix[: -len(xx)]
-                    topic_label = xlab
-                    con_3_lab = Nat_men.get(suffix, "")
-    # ---history
-    if topic_key and topic_label:
-        if con_3_lab:
-            rz = f"{con_3_lab} {contry_L}"
-            contry_lab = topic_label.format(rz)
-            output_test4(f'<<lightblue>> test ethnic_culture: new contry_lab  "{contry_lab}" ')
-    # ---
-    ETHNIC_CULTURE_CACHE[cache_key] = contry_lab
-    # ---
-    return contry_lab
+
+    def _resolve() -> str:
+        logger.info(
+            "Resolving ethnic culture",
+            extra={"category": category, "start": start, "suffix": suffix},
+        )
+
+        if not Nat_women.get(start, "") and not Nat_men.get(start, ""):
+            return ""
+
+        topic_label = ""
+        group_label = ""
+        start_label = ""
+
+        # Try to resolve using women-centric templates first.
+        start_women_label = Nat_women.get(start, "")
+        if start_women_label:
+            for key, template in en_is_nat_ar_is_women_2.items():
+                candidate_suffix = f" {key}"
+                if suffix.endswith(candidate_suffix):
+                    base_key = suffix[: -len(candidate_suffix)].strip()
+                    group_label = Nat_women.get(base_key, "")
+                    if group_label:
+                        topic_label = template
+                        start_label = start_women_label
+                        break
+
+        # Fallback to male templates when the women-specific search fails.
+        if not topic_label:
+            start_men_label = Nat_men.get(start, "")
+            if start_men_label:
+                for key, template in MALE_TOPIC_TABLE.items():
+                    candidate_suffix = f" {key}"
+                    if suffix.endswith(candidate_suffix):
+                        base_key = suffix[: -len(candidate_suffix)].strip()
+                        group_label = Nat_men.get(base_key, "")
+                        if group_label:
+                            topic_label = template
+                            start_label = start_men_label
+                            break
+
+        if topic_label and group_label and start_label:
+            combined = f"{group_label} {start_label}"
+            resolved = topic_label.format(combined)
+            output_test4(f'<<lightblue>> ethnic_culture resolved label "{resolved}" for "{category}"')
+            return resolved
+
+        return ""
+
+    return get_or_set(ETHNIC_CULTURE_CACHE, cache_key, _resolve)
 
 
 def ethnic(category: str, start: str, suffix: str) -> str:
@@ -98,27 +102,29 @@ def ethnic(category: str, start: str, suffix: str) -> str:
     cache_key = build_cache_key(category, start, suffix)
     if cache_key in ETHNIC_CACHE:
         return ETHNIC_CACHE[cache_key]
-    # ---
-    contry = start
-    contry_lab = ""
-    # ---
-    if suffix.endswith(" people"):
-        con_nat = suffix[: -len(" people")]
-        if Nat_mens.get(con_nat):
-            suffix = suffix[: -len(" people")]
-    # ---
-    con_3_lab = Nat_mens.get(suffix, "")
-    if con_3_lab:
-        if Nat_mens.get(contry, "") != "":
-            contry_lab = f"{con_3_lab} {Nat_mens.get(contry, '')}"
-            output_test4(f'<<lightblue>> test ethnic: new contry_lab  "{contry_lab}" ')
-    # ---
-    if not contry_lab:
-        contry_lab = ethnic_culture(category, start, suffix)
-    # ---
-    ETHNIC_CACHE[cache_key] = contry_lab
-    # ---
-    return contry_lab
+
+    def _resolve() -> str:
+        logger.info(
+            "Resolving ethnic label",
+            extra={"category": category, "start": start, "suffix": suffix},
+        )
+
+        normalized_suffix = suffix
+        if suffix.endswith(" people"):
+            candidate = suffix[: -len(" people")]
+            if Nat_mens.get(candidate, ""):
+                normalized_suffix = candidate
+
+        group_label = Nat_mens.get(normalized_suffix, "")
+        start_label = Nat_mens.get(start, "")
+        if group_label and start_label:
+            resolved = f"{group_label} {start_label}"
+            output_test4(f'<<lightblue>> ethnic resolved label "{resolved}" for "{category}"')
+            return resolved
+
+        return ethnic_culture(category, start, normalized_suffix)
+
+    return get_or_set(ETHNIC_CACHE, cache_key, _resolve)
 
 
 __all__ = [
