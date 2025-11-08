@@ -89,19 +89,19 @@ def get_by_label(category: str) -> str:
     """
 
     label = ""
-    by_section = ""
-    first_part = ""
-
     logger.info(f"<<lightyellow>>>>get_by_label {category}")
+
+    match = re.match(r"^(.*?) (by .*)$", category, flags=re.IGNORECASE)
+    if not match:
+        return ""
+
+    first_part = match.group(1)
+    by_section = match.group(2)
 
     first_label = ""
     by_label = ""
 
-    if match_info := re.match(r"^(.*?) (by .*)$", category, flags=re.IGNORECASE):
-        first_part = match_info.group(1)
-        by_section = match_info.group(2)
-
-        logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
+    logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
 
     if first_part.startswith("the "):
         first_part = first_part[len("the ") :]
@@ -147,11 +147,14 @@ def get_and_label(category: str) -> str:
     first_label = ""
     last_label = ""
 
-    if match_info := re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE):
-        first_part = match_info.group(1)
-        last_part = match_info.group(2)
+    match = re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE)
+    if not match:
+        return ""
 
-        logger.debug(f"<<lightyellow>>>>frist:{first_part},last:{last_part}")
+    first_part = match.group(1)
+    last_part = match.group(2)
+
+    logger.debug(f"<<lightyellow>>>>frist:{first_part},last:{last_part}")
 
     if first_part:
         if not first_label:

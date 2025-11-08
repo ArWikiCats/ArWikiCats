@@ -18,6 +18,7 @@ from ...helps.log import logger
 
 TEST_ARMY_CACHE = {}
 
+
 def test_army(category: str) -> str:
     if category in TEST_ARMY_CACHE:
         if TEST_ARMY_CACHE[category]:
@@ -181,3 +182,8 @@ def test_army(category: str) -> str:
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ test_army end ^^^^^^^^^ ")
     return resolved_label
+
+
+__all__ = [
+    "test_army"
+]

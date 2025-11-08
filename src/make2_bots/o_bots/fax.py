@@ -1,22 +1,30 @@
-"""
-from  make.make2_bots.ma_bots import fax
-# get_teams_new(team)
-# test_language(cate)
+"""Helpers for resolving sports teams and language categories."""
 
-"""
+from __future__ import annotations
+
+from typing import Dict
 
 from ... import malists_sport_lab as sport_lab
-from ...ma_lists import Sports_Keys_For_Jobs
-from ...ma_lists import languages_pop, lang_ttty
-
-from .parties_bot import get_parties_lab
-from ..sports_bots import team_work
+from ...helps.log import logger
 from ...helps.print_bot import print_put
+from ...ma_lists import Sports_Keys_For_Jobs, lang_ttty, languages_pop
+from ..sports_bots import team_work
+from .parties_bot import get_parties_lab
+from .utils import get_or_set, resolve_suffix_template
 
-LANGUAGE_CACHE = {}
+LANGUAGE_CACHE: Dict[str, str] = {}
 
 
 def get_teams_new(team_name: str) -> str:
+    """Return the label for ``team_name`` using multiple heuristics.
+
+    Args:
+        team_name: The English club or team name to translate.
+
+    Returns:
+        The resolved Arabic label or an empty string when no mapping exists.
+    """
+
     # إيجاد لاحقات التسميات الرياضية
 
     # قبل تطبيق الوظيفة
@@ -51,14 +59,23 @@ def get_teams_new(team_name: str) -> str:
 
 
 def test_language(category: str) -> str:
-    normalized_category = category.lower()
+    """Return the label for a language-related category.
+
+    Args:
+        category: Category name containing a language prefix.
+
+    Returns:
+        The resolved Arabic label or an empty string when the category is
+        unknown.
+    """
+
+    normalized_category = category.lower().strip()
 
     if normalized_category in LANGUAGE_CACHE:
-        if LANGUAGE_CACHE[normalized_category]:
-            print_put(
-                f"<<lightblue>>>> ============== test_Lang_Cash : {LANGUAGE_CACHE[normalized_category]}"
-            )
-        return LANGUAGE_CACHE[normalized_category]
+        cached = LANGUAGE_CACHE[normalized_category]
+        if cached:
+            print_put(f"<<lightblue>>>> ============== test_language cache hit : {cached}")
+        return cached
 
     resolved_label = ""
     language_label = ""
@@ -81,3 +98,9 @@ def test_language(category: str) -> str:
 
     LANGUAGE_CACHE[normalized_category] = resolved_label
     return resolved_label
+
+
+__all__ = [
+    "get_teams_new",
+    "test_language",
+]

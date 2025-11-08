@@ -1,19 +1,20 @@
-"""
-"""
+"""Resolve labels for relations between countries."""
+
+from __future__ import annotations
 
 import re
-from ... import printe
-from ...ma_lists import Nat_women, Nat_men, All_contry_with_nat_keys_is_en
-from ...ma_lists import All_contry_ar
-from ...helps.print_bot import print_put
+from typing import Mapping, Tuple
 
-# ---
-Pp_Priffix_p17 = {
+from ... import printe
+from ...helps.print_bot import print_put
+from ...ma_lists import All_contry_ar, All_contry_with_nat_keys_is_en, Nat_men, Nat_women
+
+P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
     " proxy conflict": "صراع {} بالوكالة",
 }
-# ---
-PP_PRIFFIX_RELATIONS_FEMALE = {
+
+RELATIONS_FEMALE: Mapping[str, str] = {
     " military relations": "العلاقات {} العسكرية",
     " joint economic efforts": "الجهود الاقتصادية المشتركة {}",
     " relations": "العلاقات {}",
@@ -25,7 +26,7 @@ PP_PRIFFIX_RELATIONS_FEMALE = {
     " war": "الحرب {}",
 }
 
-PP_PRIFFIX_RELATIONS_MALE = {
+RELATIONS_MALE: Mapping[str, str] = {
     " conflict video games": "ألعاب فيديو الصراع {}",
     " conflict legal issues": "قضايا قانونية في الصراع {}",
     " conflict": "الصراع {}",
@@ -33,14 +34,24 @@ PP_PRIFFIX_RELATIONS_MALE = {
 }
 
 
-def work_relations(suus: str) -> str:
-    suus = suus.lower()
-    print_put(f"start work_relations: suus:{suus}")
+def work_relations(value: str) -> str:
+    """Return the label for relations between two countries.
+
+    Args:
+        value: Category describing the relationship between two countries.
+
+    Returns:
+        The resolved Arabic label or an empty string when the relation cannot
+        be interpreted.
+    """
+
+    value = value.lower()
+    print_put(f"start work_relations: value:{value}")
     # ---
     gen_key = "women"
     dodo = All_contry_with_nat_keys_is_en
     nat_tab = Nat_women
-    pp_priffix = PP_PRIFFIX_RELATIONS_FEMALE
+    pp_priffix = RELATIONS_FEMALE
     # ---
     first_part = ""
     end_part = ""
@@ -48,23 +59,23 @@ def work_relations(suus: str) -> str:
     suus_lab = ""
     # ---
     # الحصول على الجزء الأخير
-    for pri_ff in PP_PRIFFIX_RELATIONS_FEMALE:
-        if suus.endswith(pri_ff):
-            print_put(f'\t\t>>>><<lightblue>> work_relations :"{suus}".endswith({pri_ff})')
+    for pri_ff in RELATIONS_FEMALE:
+        if value.endswith(pri_ff):
+            print_put(f'\t\t>>>><<lightblue>> work_relations :"{value}".endswith({pri_ff})')
             end_part = pri_ff
-            first_part = suus[: -len(pri_ff)]
+            first_part = value[: -len(pri_ff)]
             break
     # ---
     if first_part == "" and end_part == "":
-        for pri_ff in PP_PRIFFIX_RELATIONS_MALE:
-            if suus.endswith(pri_ff):
-                print_put(f'\t\t>>>><<lightblue>> work_relations :"{suus}".endswith({pri_ff})')
+        for pri_ff in RELATIONS_MALE:
+            if value.endswith(pri_ff):
+                print_put(f'\t\t>>>><<lightblue>> work_relations :"{value}".endswith({pri_ff})')
                 end_part = pri_ff
-                first_part = suus[: -len(pri_ff)]
+                first_part = value[: -len(pri_ff)]
                 # ---
                 nat_tab = Nat_men
                 gen_key = "men"
-                pp_priffix = PP_PRIFFIX_RELATIONS_MALE
+                pp_priffix = RELATIONS_MALE
                 # ---
                 break
 
@@ -107,7 +118,7 @@ def work_relations(suus: str) -> str:
                 popo = sorted([co1_lab, co2_lab])
                 uuu_lab = " ".join(popo)
                 uuu_lab = re.sub(r" ", " ال", f" {uuu_lab}")
-                print_put(f'\t\t>>>><<lightblue>> suus.endswith end_part("{end_part}"), uuu_lab:"{uuu_lab}"')
+                print_put(f'\t\t>>>><<lightblue>> value.endswith end_part("{end_part}"), uuu_lab:"{uuu_lab}"')
                 # ---
                 suus_lab = pp_priffix[end_part].format(uuu_lab)
                 # ---
@@ -126,12 +137,12 @@ def work_relations(suus: str) -> str:
     if not suus_lab:
         U_44 = ""
         pri_o = ""
-        for pri_dd in Pp_Priffix_p17:
+        for pri_dd in P17_PREFIXES:
             if not U_44:
-                if suus.endswith(pri_dd):
-                    printe.output(f'\t\t>>>><<lightblue>> work_relations :"{suus}".endswith({pri_dd})')
+                if value.endswith(pri_dd):
+                    printe.output(f'\t\t>>>><<lightblue>> work_relations :"{value}".endswith({pri_dd})')
                     pri_o = pri_dd
-                    U_44 = suus[: -len(pri_dd)]
+                    U_44 = value[: -len(pri_dd)]
         # ---
         if U_44:
             print_put(f'\t\t>>>><<lightblue>> U_44 :"{U_44}"')
@@ -167,8 +178,8 @@ def work_relations(suus: str) -> str:
                     popo = sorted([co11_lab, co22_lab])
                     uuu_lab = " و".join(popo)
 
-                    print_put(f'\t\t>>>><<lightyellow>> suus.endswith pri_o("{pri_o}"), uuu_lab:"{uuu_lab}"')
-                    suus_lab = Pp_Priffix_p17[pri_o].format(uuu_lab)
+                    print_put(f'\t\t>>>><<lightyellow>> value.endswith pri_o("{pri_o}"), uuu_lab:"{uuu_lab}"')
+                    suus_lab = P17_PREFIXES[pri_o].format(uuu_lab)
 
                     print_put(f'\t\t>>>> suus_lab:"{suus_lab}"')
 

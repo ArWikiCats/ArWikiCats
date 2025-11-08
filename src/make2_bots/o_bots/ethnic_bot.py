@@ -1,33 +1,51 @@
-#!/usr/bin/python3
-"""
+"""Ethnic labelling helpers."""
 
-from ..bots import ethnic_bot
-# ---
-ethnic_bot.output_test4 = output_test4
-# ---
-def ethnic(cate, Start, con_3):
-    return ethnic_bot.ethnic(cate, Start, con_3)
-# ---
+from __future__ import annotations
 
-"""
 from typing import Dict
-from ...ma_lists import Nat_women, Nat_men, Nat_mens
-from ...ma_lists import en_is_nat_ar_is_women_2
 
+from ...helps.log import logger
 from ...helps.print_bot import output_test4
+from ...ma_lists import Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2
+from .utils import build_cache_key, get_or_set
 
-Ethnic_culture_cash: Dict[str, str] = {}
-Ethnic_cash: Dict[str, str] = {}
+#: Cache for :func:`ethnic_culture` results keyed by the important parameters.
+ETHNIC_CULTURE_CACHE: Dict[str, str] = {}
+
+#: Cache for :func:`ethnic` results keyed by the important parameters.
+ETHNIC_CACHE: Dict[str, str] = {}
+
+MALE_TOPIC_TABLE: Dict[str, str] = {
+    "history": "تاريخ {}",
+    "descent": "أصل {}",
+    "cuisine": "مطبخ {}",
+    "literature": "أدب {}",
+    "law": "قانون {}",
+    "wine": "نبيذ {}",
+    "diaspora": "شتات {}",
+    "traditions": "تراث {}",
+    "folklore": "فلكور {}",
+    "television": "تلفاز {}",
+}
 
 
-def ethnic_culture(cate: str, Start: str, con_3: str) -> str:
+def ethnic_culture(category: str, start: str, suffix: str) -> str:
+    """Return the cultural label for ``suffix`` relative to ``start``.
+
+    Args:
+        category: Full category name (used only for logging).
+        start: The base nationality or country.
+        suffix: The trailing segment describing the specific topic.
+
+    Returns:
+        The resolved label or an empty string.
+    """
+
+    cache_key = build_cache_key(category, start, suffix)
+    if cache_key in ETHNIC_CULTURE_CACHE:
+        return ETHNIC_CULTURE_CACHE[cache_key]
     # ---
-    cash_key = f"{cate}, {Start}, {con_3}".lower().strip()
-    # ---
-    if cash_key in Ethnic_culture_cash:
-        return Ethnic_culture_cash[cash_key]
-    # ---
-    contry = Start
+    contry = start
     topic_key = ""
     con_3_lab = ""
     topic_label = ""
@@ -45,35 +63,23 @@ def ethnic_culture(cate: str, Start: str, con_3: str) -> str:
         for x, x_lab in en_is_nat_ar_is_women_2.items():
             if not topic_label:
                 xx = f" {x}"
-                if con_3.endswith(xx):
+                if suffix.endswith(xx):
                     topic_key = x
-                    con_3 = con_3[: -len(xx)]
+                    suffix = suffix[: -len(xx)]
                     topic_label = x_lab
-                    con_3_lab = Nat_women.get(con_3, "")
+                    con_3_lab = Nat_women.get(suffix, "")
     # ---
-    male_table = {
-        "history": "تاريخ {}",
-        "descent": "أصل {}",
-        "cuisine": "مطبخ {}",
-        "literature": "أدب {}",
-        "law": "قانون {}",
-        "wine": "نبيذ {}",
-        "diaspora": "شتات {}",
-        "traditions": "تراث {}",
-        "folklore": "فلكور {}",
-        "television": "تلفاز {}",
-    }
     # ---
     if topic_key == "" and topic_label == "":
         contry_L = Nat_men.get(contry, "")
-        for x, xlab in male_table.items():
+        for x, xlab in MALE_TOPIC_TABLE.items():
             if not topic_label:
                 xx = f" {x}"
-                if con_3.endswith(xx):
+                if suffix.endswith(xx):
                     topic_key = x
-                    con_3 = con_3[: -len(xx)]
+                    suffix = suffix[: -len(xx)]
                     topic_label = xlab
-                    con_3_lab = Nat_men.get(con_3, "")
+                    con_3_lab = Nat_men.get(suffix, "")
     # ---history
     if topic_key and topic_label:
         if con_3_lab:
@@ -81,35 +87,41 @@ def ethnic_culture(cate: str, Start: str, con_3: str) -> str:
             contry_lab = topic_label.format(rz)
             output_test4(f'<<lightblue>> test ethnic_culture: new contry_lab  "{contry_lab}" ')
     # ---
-    Ethnic_culture_cash[cash_key] = contry_lab
+    ETHNIC_CULTURE_CACHE[cache_key] = contry_lab
     # ---
     return contry_lab
 
 
-def ethnic(cate: str, Start: str, con_3: str) -> str:
+def ethnic(category: str, start: str, suffix: str) -> str:
+    """Return the ethnic label for ``category``."""
+
+    cache_key = build_cache_key(category, start, suffix)
+    if cache_key in ETHNIC_CACHE:
+        return ETHNIC_CACHE[cache_key]
     # ---
-    cash_key = f"{cate}, {Start}, {con_3}".lower().strip()
-    # ---
-    if cash_key in Ethnic_cash:
-        return Ethnic_cash[cash_key]
-    # ---
-    contry = Start
+    contry = start
     contry_lab = ""
     # ---
-    if con_3.endswith(" people"):
-        con_nat = con_3[: -len(" people")]
+    if suffix.endswith(" people"):
+        con_nat = suffix[: -len(" people")]
         if Nat_mens.get(con_nat):
-            con_3 = con_3[: -len(" people")]
+            suffix = suffix[: -len(" people")]
     # ---
-    con_3_lab = Nat_mens.get(con_3, "")
+    con_3_lab = Nat_mens.get(suffix, "")
     if con_3_lab:
         if Nat_mens.get(contry, "") != "":
             contry_lab = f"{con_3_lab} {Nat_mens.get(contry, '')}"
             output_test4(f'<<lightblue>> test ethnic: new contry_lab  "{contry_lab}" ')
     # ---
     if not contry_lab:
-        contry_lab = ethnic_culture(cate, Start, con_3)
+        contry_lab = ethnic_culture(category, start, suffix)
     # ---
-    Ethnic_cash[cash_key] = contry_lab
+    ETHNIC_CACHE[cache_key] = contry_lab
     # ---
     return contry_lab
+
+
+__all__ = [
+    "ethnic",
+    "ethnic_culture",
+]
