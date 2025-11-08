@@ -251,7 +251,7 @@ def fix_it(ar_label: str, en_label: str) -> str:
         start_year = match.group(1)
         end_year = match.group(2)
         ar_label = re.sub(f"{start_year}-{end_year}", f"{start_year}–{end_year}", ar_label)
-        logger.debug("Replaced hyphen with en dash in range %s-%s", start_year, end_year)
+        logger.debug(f"Replaced hyphen with en dash in range {start_year}-{end_year}")
 
     if re.sub(r"^\–\d+", "", ar_label) != ar_label:
         return ""
@@ -362,7 +362,7 @@ def fixlab(label_old: str, out: bool = False, en: str = "") -> str:
     ar_label = move_years(ar_label)
 
     if label_old != ar_label and out:
-        logger.info('fixtitle: label_old before:"%s", after:"%s"', label_old, ar_label)
+        logger.info(f'fixtitle: label_old before:"{label_old}", after:"{ar_label}"')
 
     return ar_label
 
