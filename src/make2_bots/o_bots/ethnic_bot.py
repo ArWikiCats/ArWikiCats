@@ -46,10 +46,7 @@ def ethnic_culture(category: str, start: str, suffix: str) -> str:
         return ETHNIC_CULTURE_CACHE[cache_key]
 
     def _resolve() -> str:
-        logger.info(
-            "Resolving ethnic culture",
-            extra={"category": category, "start": start, "suffix": suffix},
-        )
+        logger.info(f"Resolving ethnic culture, category={category}, start={start}, suffix={suffix}")
 
         if not Nat_women.get(start, "") and not Nat_men.get(start, ""):
             return ""
@@ -104,10 +101,7 @@ def ethnic(category: str, start: str, suffix: str) -> str:
         return ETHNIC_CACHE[cache_key]
 
     def _resolve() -> str:
-        logger.info(
-            "Resolving ethnic label",
-            extra={"category": category, "start": start, "suffix": suffix},
-        )
+        logger.info(f"Resolving ethnic label, category={category}, start={start}, suffix={suffix}")
 
         normalized_suffix = suffix
         if suffix.endswith(" people"):

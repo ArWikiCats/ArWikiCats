@@ -71,9 +71,6 @@ def event(
     if Local:
         config.find_from_wikidata = False
 
-    if Use_main_s:
-        config.use_main_s = True
-
     do_print_options(
         noprint=noprint,
         printfirst=printfirst,
@@ -81,9 +78,6 @@ def event(
         all_print_off=all_print_off,
         tst_prnt_all=tst_prnt_all,
     )
-
-    if Use_main_s:
-        printe.output("<<lightblue>>  Use_main_s ")
 
     preview = ""
     try:

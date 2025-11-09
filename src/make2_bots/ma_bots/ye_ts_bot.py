@@ -10,19 +10,15 @@ lab = ye_ts_bot.translate_general_category()
 """
 
 import re
-import sys
 from ...fix import fixtitle
 from ..matables_bots.bot_2018 import pop_All_2018
 from ...helps.print_bot import print_def_head, print_put
 from ..format_bots import Tit_ose_Nmaes
 from ..date_bots import year_lab
-
+from ..matables_bots.bot import Films_O_TT, New_players
 from ..ma_bots.ar_label_bot import find_ar_label
 
-Find_f_wikidata = {1: "nowikidata" not in sys.argv}
-
 YTN_cash = {}
-from ..matables_bots.bot import Films_O_TT, New_players
 
 
 def find_lab(category: str, category_r: str) -> str:

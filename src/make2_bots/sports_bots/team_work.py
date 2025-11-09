@@ -20,7 +20,6 @@ from ..matables_bots.bot_2018 import Add_to_pop_All_18
 # ---
 from ..fromnet import kooora
 
-# kooora.kooora_team(EnName)
 # ---
 Teams_new_end_keys = {
     # ---

@@ -27,7 +27,6 @@ from .contry2_bot import Get_contry2
 from .lab_seoo_bot import event_Lab_seoo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-Find_f_wikidata = {1: "nowikidata" not in sys.argv}
 
 
 def event_Lab(cate_r: str) -> str:
@@ -86,7 +85,7 @@ def event_Lab(cate_r: str) -> str:
         category_lab = Get_contry2(category3)
 
     if category_lab == "" and Find_ko:
-        category_lab = kooora.kooora_team(category3, Local=Find_f_wikidata[1])
+        category_lab = kooora.kooora_team(category3)
         if category_lab and category_lab and re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
             pop_All_2018.get({category3.lower(): category_lab})
 
