@@ -54,15 +54,22 @@ def lenth_pri(
         None: This function does not return a value; it prints output directly.
     """
 
-    if not lenth_pri_text:
-        return
-    if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
-        return
-
     def format_size(key: str, value: int | float) -> str:
         if key in lens:
             return value
         return naturalsize(value, binary=True)
+
+    all_len.setdefault(bot, {})
+
+    all_len[bot].update({
+        x: format_size(x, tab[x])
+        for x in tab
+    })
+
+    if not lenth_pri_text:
+        return
+    if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
+        return
 
     formatted_entries = ", ".join(
         [
@@ -72,18 +79,13 @@ def lenth_pri(
             if tab[x] > Max
         ]
     )
-
-    all_len.setdefault(bot, {})
-
-    all_len[bot].update({
-        x: format_size(x, tab[x])
-        for x in tab
-    })
-
     if formatted_entries:
         printe.output(f"{bot}:".ljust(20) + formatted_entries)
 
 
 def dump_all_len(file):
+    # sort all_len by keys ignore case
+    all_len_save = dict(sorted(all_len.items(), key=lambda item: item[0].lower()))
+
     with open(file, "w", encoding="utf-8") as f:
-        json.dump(all_len, f, ensure_ascii=False, indent=4)
+        json.dump(all_len_save, f, ensure_ascii=False, indent=4)
