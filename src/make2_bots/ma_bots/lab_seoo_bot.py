@@ -6,7 +6,7 @@ from  make.make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
 import re
 
 from ...fix import fixtitle
-from ...helps.print_bot import main_output_preferences, print_put
+from ...helps.print_bot import print_put
 from ...ma_lists import Ambassadors_tab, New_P17_Finall
 from ..fromnet.wd_bot import find_wikidata
 from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
@@ -89,10 +89,10 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = centries_years_dec.get(normalized_target_category, "")
 
     if not resolved_category_label:
-        resolved_category_label = test4_2018_Jobs(normalized_target_category, out=main_output_preferences[1])
+        resolved_category_label = test4_2018_Jobs(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = Jobs_in_Multi_Sports(target_category_original_case, out=main_output_preferences[1])
+        resolved_category_label = Jobs_in_Multi_Sports(target_category_original_case)
 
     # if not category_lab:
     #     category_lab = tmp_bot.Work_Templates(category3)
