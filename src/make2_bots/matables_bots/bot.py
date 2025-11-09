@@ -2,64 +2,28 @@
 """
 python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 
-Usage:
-from ...matables_bots.bot import Add_to_main2_tab  # Add_to_main2_tab()
-from ...matables_bots.bot import (
-    MONTH_table,
-    Work_With_Change_key,
-    All_contry_with_nat_lower,
-    Kingdom,
-    years_Baco,
-    Baco_decades,
-    pop_of_in,
-    pop_new,
-    pop_type,
-    LOG,
-    Pp_Priffix,
-    len_Kingdom,
-    Log_Work,
-    tita_Q,
-    medalists_type,
-    type_Table_oo,
-    cash_2022,
-    make_tab,
-    main2_tab,
-    New_Lan,
-    All_P17,
-    Films_O_TT,
-    New_players,
-    typeTable,
-    Table_for_frist_word,
-    Add_in_table,
-    Add_ar_in,
-    Keep_it_last,
-    Keep_it_frist,
-    safo,
-    titttto,
-    add_in_to_contry,
-    type_after_contry,
-    army_line,
-    Lang_line,
-)
 """
-import sys
 import copy
-from typing import Dict, Any, Callable, List, Optional, Set
-from .bot_2018 import pop_All_2018, olympicss
+from typing import Callable, Optional
+from .bot_2018 import pop_All_2018
 from ...helps import len_print
-from ...ma_lists import military_format_women, military_format_men
-
-from ...ma_lists import languages_pop
-from ...ma_lists import Films_TT, typeTable_4
-from ...ma_lists import typeTable_7, albums_type, film_production_company
-from ...ma_lists import Jobs_new
-from ...ma_lists import Sports_Keys_For_Label
-from ...ma_lists import By_table
-
-from ...ma_lists import Add_in_table2
-
-from ...ma_lists import People_key
-from ...ma_lists import All_contry_with_nat
+from ...ma_lists import (
+    military_format_women,
+    military_format_men,
+    olympics,
+    languages_pop,
+    Films_TT,
+    typeTable_4,
+    typeTable_7,
+    albums_type,
+    film_production_company,
+    Jobs_new,
+    Sports_Keys_For_Label,
+    By_table,
+    Add_in_table2,
+    People_key,
+    All_contry_with_nat,
+)
 
 from ..format_bots import Tit_ose_Nmaes
 
@@ -343,7 +307,7 @@ MONTHSTR = "(January|February|March|April|May|June|July|August|September|October
 type_after_contry = ["non-combat"]
 
 # Add_ar_in = [ "mediterranean games medalists",]
-Add_ar_in = copy.deepcopy(olympicss)
+Add_ar_in = copy.deepcopy(olympics)
 
 for olmp, olmp_lab in Add_ar_in.items():
     typeTable[f"{olmp} for"] = {"ar": f"{olmp_lab} من", "Q": ""}

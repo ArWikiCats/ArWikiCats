@@ -13,7 +13,7 @@ f"{$1} {$2}"
 # ---
 from ..utils.json_dir import open_json_file
 
-from ..geo.games_labs import summer_winter_tabs
+from ..sports.games_labs import summer_winter_tabs
 from ..companies import companies_keys3, typeTable_update
 from ..structures import tab2, pop_final_3_update
 # ---

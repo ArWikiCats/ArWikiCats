@@ -7,7 +7,7 @@ import copy
 from .keys_23 import afc_keys
 from .all_keys3 import businesspeoples
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..geo.games_labs import summer_winter_games
+from ..sports.games_labs import summer_winter_games
 
 from ..sports import (
     sport_formts_new_kkk,
