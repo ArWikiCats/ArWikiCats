@@ -273,10 +273,8 @@ if True:
     # ---
 # sport_formts_enar_p17_jobs["international rally"] =  "رالي {} الدولي"
 # ---
-Lenthtab = {
-    "sport_formts_enar_p17_jobs": sys.getsizeof(sport_formts_enar_p17_jobs),
-    "New_team_xo_labels": sys.getsizeof(New_team_xo_labels),
-    "New_team_xo_jobs": sys.getsizeof(New_team_xo_jobs),
-}
-# ---
-len_print.lenth_pri("sports_formats_teams/team_job.py", Lenthtab)
+len_print.data_len("sports_formats_teams/team_job.py", {
+    "sport_formts_enar_p17_jobs": sport_formts_enar_p17_jobs,
+    "New_team_xo_labels": New_team_xo_labels,
+    "New_team_xo_jobs": New_team_xo_jobs,
+})

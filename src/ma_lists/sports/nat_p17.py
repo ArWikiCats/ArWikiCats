@@ -185,11 +185,11 @@ nat_p17_oioi["indoor oioioi"] = f"oioioi {nat_f} داخل الصالات"
 nat_p17_oioi["outdoor oioioi"] = f"oioioi {nat_f} في الهواء الطلق"
 # ---
 Lenth1 = {
-    "sport_formts_for_p17": sys.getsizeof(sport_formts_for_p17),  #
-    "nat_p17_oioi": sys.getsizeof(nat_p17_oioi),  # nat_p17.py: nat_p17_oioi: 98
+    "sport_formts_for_p17": sport_formts_for_p17,  #
+    "nat_p17_oioi": nat_p17_oioi,  # nat_p17.py: nat_p17_oioi: 98
 }
 # ---
-len_print.lenth_pri("sportsb/nat_p17.py", Lenth1, Max=1)
+len_print.data_len("sportsb/nat_p17.py", Lenth1)
 
 __all__ = [
     "sport_formts_for_p17",

@@ -267,12 +267,12 @@ for po_5, poll in pop_final_5.items():
 P17_fdd = {}
 
 memory_stats = {
-    "COUNTRY_LABEL_INDEX": sys.getsizeof(COUNTRY_LABEL_INDEX),
-    "POPULATION_OVERRIDES": sys.getsizeof(POPULATION_OVERRIDES),
+    "COUNTRY_LABEL_INDEX": COUNTRY_LABEL_INDEX,
+    "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
     "the_keys": the_keys,
 }
 
-len_print.lenth_pri("Labels_Contry.py", memory_stats)
+len_print.data_len("Labels_Contry.py", memory_stats)
 
 del Counties
 del CITY_LABEL_PATCHES

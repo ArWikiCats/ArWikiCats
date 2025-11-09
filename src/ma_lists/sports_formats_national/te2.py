@@ -138,8 +138,6 @@ for ty_nat, tas in New_Tato_nat.items():
         New_For_nat_female_xo_team[Ab] = pr_e_Lab.format(lab=Ar_labs)
     New_For_nat_female_xo_team[f"{ty_nat} teams"] = Att2
 
-Lenthtab = {
-    "New_For_nat_female_xo_team": sys.getsizeof(New_For_nat_female_xo_team),
-}
-
-len_print.lenth_pri("sports_formats_national/te2.py", Lenthtab)
+len_print.data_len("sports_formats_national/te2.py", {
+    "New_For_nat_female_xo_team": New_For_nat_female_xo_team,
+})

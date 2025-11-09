@@ -292,14 +292,14 @@ for pa1 in All_Nat.keys():
                 A_Nat[f"{pa1} {pa2}" ] = "{} {}".format(All_Nat2[pa2]["mens"] , All_Nat2[pa1]["mens"]) """
 # ---
 Lenth = {
-    "All_Nat": sys.getsizeof(All_Nat),
-    "All_Nat with ar name": sys.getsizeof(All_contry_with_nat_ar),
-    "All_Nat with en name": sys.getsizeof(All_contry_with_nat),
+    "All_Nat": All_Nat,
+    "All_Nat with ar name": All_contry_with_nat_ar,
+    "All_Nat with en name": All_contry_with_nat,
     "American_nat": American_nat,
     "men_women": men_women,
 }
 # ---
-len_print.lenth_pri("nationality.py", Lenth)
+len_print.data_len("nationality.py", Lenth)
 # ---
 del uu_nats
 del Sub_Nat

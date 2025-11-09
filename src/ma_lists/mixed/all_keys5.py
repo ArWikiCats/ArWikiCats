@@ -368,8 +368,8 @@ for key in OPOPOP:
 for cdf in New_male_keys:
     pop_final_5[cdf] = New_male_keys[cdf]
 # ---
-Lenth1 = {"pop_final_5": sys.getsizeof(pop_final_5)}
+Lenth1 = {"pop_final_5": pop_final_5}
 # ---
-len_print.lenth_pri("all_keys5.py", Lenth1)
+len_print.data_len("all_keys5.py", Lenth1)
 # ---
 del Clubs_key

@@ -185,9 +185,7 @@ if True:
     sport_formts_enar_p17_team["national women's xoxo team trainers"] = f"مدربو منتخب {_format_} xoxo للسيدات"
     sport_formts_enar_p17_team["national xoxo team trainers"] = f"مدربو منتخب {_format_} xoxo"
 
-Lenthtab = {
-    "sport_formts_enar_p17_team": sys.getsizeof(sport_formts_enar_p17_team),
-    "New_team_xo_team": sys.getsizeof(New_team_xo_team),
-}
-# ---
-len_print.lenth_pri("te3.py", Lenthtab)
+len_print.data_len("te3.py", {
+    "sport_formts_enar_p17_team": sport_formts_enar_p17_team,
+    "New_team_xo_team": New_team_xo_team,
+})

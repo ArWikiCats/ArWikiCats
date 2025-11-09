@@ -1,4 +1,17 @@
 
+## [#37](https://github.com/MrIbrahem/make2_new/pull/37) - 2025-11-09
+
+* **New Features**
+  * Centralized runtime configuration controlling printing, Wikidata, Kooora, stubs, and other app flags.
+  * New colored text formatting helper for styled output.
+
+* **Refactor**
+  * Replaced argv-driven flags with settings-driven behavior across the app.
+  * Unified logging via a wrapper and simplified printing API to delegate to the logger.
+
+* **Chores**
+  * Updated ignore list (added generated start file).
+
 ## [#36](https://github.com/MrIbrahem/make2_new/pull/36) - 2025-11-09
 
 * **Refactor [jobs_singers.py](src/ma_lists/jobs/jobs_singers.py)**

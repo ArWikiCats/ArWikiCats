@@ -132,7 +132,7 @@ for xg, xg_lab in USA_newkeys.items():
 # ,"women's organizations based":"منظمات نسائية مقرها"
 # ,"sports governing bodies":"مجالس إدارية رياضية"
 # ---
-Lenth1 = {"keys2_py": len(keys2_py.keys())}
+Lenth1 = {"keys2_py": keys2_py}
 # ---
-len_print.lenth_pri("keys2.py", Lenth1)
+len_print.data_len("keys2.py", Lenth1)
 # ---

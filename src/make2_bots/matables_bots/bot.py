@@ -390,11 +390,10 @@ def Add_to_main2_tab(en: str, ar: str) -> None:
 
 
 Lenth = {}
-Lenth["All_P17"] = sys.getsizeof(All_P17)
-Lenth["pop_of_in"] = sys.getsizeof(pop_of_in)
-Lenth["pop_new"] = sys.getsizeof(pop_new)
-Lenth["typetable"] = sys.getsizeof(typeTable)
-Lenth["kingdom"] = len_Kingdom[1]
+Lenth["All_P17"] = All_P17
+Lenth["pop_of_in"] = pop_of_in
+Lenth["pop_new"] = pop_new
+Lenth["typetable"] = typeTable
 # ---
 
-len_print.lenth_pri("make2_bots.matables_bots/bot.py", Lenth, lens=["kingdom"], Max=10)
+len_print.data_len("make2_bots.matables_bots/bot.py", Lenth)

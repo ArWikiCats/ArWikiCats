@@ -31,6 +31,6 @@ for cause_key, cause_label in deaths_by.items():
     medical_keys[cause_key] = cause_label
     medical_keys[f"deaths from {cause_key}"] = f"وفيات {cause_label}"
 # ---
-length_stats = {"medical_keys": len(medical_keys.keys())}
+length_stats = {"medical_keys": medical_keys}
 # ---
-len_print.lenth_pri("deaths.py", length_stats)
+len_print.data_len("deaths.py", length_stats)

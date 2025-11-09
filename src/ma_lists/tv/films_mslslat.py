@@ -534,16 +534,13 @@ for en, tab in Films_keys_male_female.items():
         # if new_key == "historical romance": print("(historical romance)\n" * 10)
         # ---
         Films_keys_both_new[new_key] = {"male": new_lab_male, "female": new_lab_female}
-# ---
-Lenth_oo = {
+
+len_print.data_len("films_mslslat.py", {
     "third_Films_key_CAO": third_Films_key_CAO,
     "ss_Films_key_CAO": ss_Films_key_CAO,
     "vfvfv": vfvfv,
-    "Films_key_333": sys.getsizeof(Films_key_333),
-    "Films_TT": sys.getsizeof(Films_TT),
-    "Films_key_CAO": sys.getsizeof(Films_key_CAO),
-    "Films_keys_both_new": sys.getsizeof(Films_keys_both_new),
-}
-# ---
-
-len_print.lenth_pri("films_mslslat.py", Lenth_oo)
+    "Films_key_333": Films_key_333,
+    "Films_TT": Films_TT,
+    "Films_key_CAO": Films_key_CAO,
+    "Films_keys_both_new": Films_keys_both_new,
+})

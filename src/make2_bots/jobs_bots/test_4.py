@@ -36,7 +36,7 @@ from ..jobs_bots.get_helps import get_con_3
 
 # ---
 from ..o_bots import ethnic_bot
-from ...helps.print_bot import output_test4, print_put
+from ...helps.print_bot import output_test4
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 from .test4_bots.for_me import Work_for_me
@@ -50,9 +50,6 @@ TEST4_2018_WITH_NAT_CACHE = {}
 
 def nat_match(
     category: str,
-    out: bool=False,
-    reference_category: str="",
-    tab: dict[str, str] | None=None,
 ) -> str:
     """Match a category string to a localized sentiment label.
 
@@ -66,16 +63,12 @@ def nat_match(
         category (str): The category string to be matched.
         out (bool?): A flag to control output behavior. Defaults to False.
         reference_category (str?): An additional parameter for future use. Defaults to an empty string.
-        tab (dict?): A dictionary for additional context. Defaults to None.
 
     Returns:
         str: The localized sentiment label corresponding to the input category,
             or an empty string if no match is found.
     """
 
-    # ---
-    if not tab:
-        tab = {}
     # ---
     category_lower = category.lower().replace("category:", "")
     matched_country_key = ""
@@ -125,13 +118,8 @@ def nat_match(
 
 def test4_2018_with_nat(
     category: str,
-    out: bool=False,
     reference_category: str="",
-    tab: dict[str, str] | None=None,
 ) -> str:
-    # ---
-    if not tab:
-        tab = {}
     # ---
     if category in TEST4_2018_WITH_NAT_CACHE:
         return TEST4_2018_WITH_NAT_CACHE[category]
@@ -173,7 +161,7 @@ def test4_2018_with_nat(
             country_label = ethnic_bot.ethnic(normalized_category, nat, con_3)
         # ---
         if not country_label:
-            country_label = nat_match(normalized_category, nat, con_3)
+            country_label = nat_match(normalized_category)
     # ---
     if not country_label:
         country_label = priffix_Mens_work(normalized_category)
@@ -201,8 +189,6 @@ def test4_2018_with_nat(
 
 def Jobs_in_Multi_Sports(
     category: str,
-    out: bool=False,
-    tab: dict[str, str] | None=None,
 ) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
@@ -216,16 +202,12 @@ def Jobs_in_Multi_Sports(
     Args:
         category (str): The category string representing the sport or job type.
         out (bool?): A flag to control output behavior. Defaults to False.
-        tab (dict?): A dictionary for additional parameters. Defaults to None.
 
     Returns:
         str: A formatted string representing the job information related to the
             specified category.
     """
 
-    # ---
-    if not tab:
-        tab = {}
     # ---
     if category in JOBS_IN_MULTI_SPORTS_CACHE:
         return JOBS_IN_MULTI_SPORTS_CACHE[category]

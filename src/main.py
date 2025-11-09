@@ -7,21 +7,12 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 """
 
 from pathlib import Path
-from typing import Any, Dict, Iterable, List
-from tqdm import tqdm
-
-from . import print_settings
+from typing import Optional, Any, Dict, List
 from . import printe
 from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
 from .helps.print_bot import do_print_options, print_put
 
 Dir_ma = Path(__file__).parent.parent
-
-
-def _iterable_with_progress(categories: Iterable[str]) -> Iterable[str]:
-    if not print_settings.disable_all_printing:
-        return tqdm(categories)
-    return categories
 
 
 def _append_printfirst_entry(category: str) -> None:
@@ -31,7 +22,7 @@ def _append_printfirst_entry(category: str) -> None:
         handle.write(f"{category}\n")
 
 
-def _summarise_labels(labels: dict, printfirst: bool) -> None:
+def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
     if not labels:
         printe.output("<<lightyellow>>> event: Labels == None len = 0")
         return
@@ -42,7 +33,7 @@ def _summarise_labels(labels: dict, printfirst: bool) -> None:
             print(f"     {formatted} : \"{cat_lab}\",")
 
 
-def _remove_labelled_from_no_labels(labels: dict, no_labels: List[str]) -> List[str]:
+def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]) -> List[str]:
     if not no_labels:
         return no_labels
     labelled_set = set(labels.keys())
@@ -50,13 +41,13 @@ def _remove_labelled_from_no_labels(labels: dict, no_labels: List[str]) -> List[
 
 
 def event(
-    NewList: Iterable[str],
+    NewList: List[str],
     noprint: str="",
     maketab: bool=False,
     printfirst: bool = False,
     Local: bool = False,
     printhead: bool = False,
-    tst_prnt_all: bool | None=None,
+    tst_prnt_all: Optional[bool]=None,
     return_no_labs: bool = False,
 ) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
     """Process a list of categories and generate corresponding labels."""
@@ -91,7 +82,7 @@ def event(
     print_put(f"<<lightblue>> event work with >  {total} cats. {preview} ")
 
     processor = EventProcessor(config)
-    result = processor.process(_iterable_with_progress(NewList))
+    result = processor.process(NewList)
 
     if total == 0:
         total = len(result.processed)

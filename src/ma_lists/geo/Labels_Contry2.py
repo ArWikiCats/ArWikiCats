@@ -5,8 +5,7 @@ python3 core8/pwb.py make/lists/Labels_Contry2
 
 """
 
-import sys
-
+from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
 # ---
@@ -242,14 +241,13 @@ for city, city_lab in PROVINCE_LABELS.items():
         COUNTRY_ADMIN_LABELS[f"{city2} (province)"] = f"مقاطعة {city_lab}"
 # ---
 Lenth1 = {
-    "ADDITIONAL_REGION_KEYS": sys.getsizeof(ADDITIONAL_REGION_KEYS),
-    "COUNTRY_ADMIN_LABELS": sys.getsizeof(COUNTRY_ADMIN_LABELS),
+    "ADDITIONAL_REGION_KEYS": ADDITIONAL_REGION_KEYS,
+    "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,
     "region_suffix_matches": region_suffix_matches,
 }
 # ---
-from ...helps import len_print
 
-len_print.lenth_pri("Labels_Contry2.py", Lenth1, Max=21)
+len_print.data_len("Labels_Contry2.py", Lenth1)
 # ---
 # del New_Keys
 # ---

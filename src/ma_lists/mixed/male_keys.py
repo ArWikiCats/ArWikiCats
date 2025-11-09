@@ -342,11 +342,11 @@ for d_d in female_keys:
     New_female_keys[f"defunct secessionist {d_d}"] = f"{female_keys[d_d]} انفصالية سابقة"
 # ---
 Lenth1 = {
-    "New_female_keys": sys.getsizeof(New_female_keys),
-    "All_Nat New_male_keys": sys.getsizeof(New_male_keys),
+    "New_female_keys": New_female_keys,
+    "All_Nat New_male_keys": New_male_keys,
 }
 # ---
 
-len_print.lenth_pri("male_keys.py", Lenth1)
+len_print.data_len("male_keys.py", Lenth1)
 # ---
 del Films_keys_male_female

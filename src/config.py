@@ -11,7 +11,7 @@ all_params = []
 def one_req(name: str) -> bool:
     """Check if the given flag is active via env or command line."""
     all_params.append(name)
-    return os.getenv(name.upper(), "0") == "1" or name.lower() in argv_lower
+    return os.getenv(name.upper(), "false").lower() in ("1", "true", "yes") or name.lower() in argv_lower
 
 
 @dataclass(frozen=True)
@@ -20,7 +20,6 @@ class PrintConfig:
     force_all_printing: bool
     headline_only_preferences: bool
     enable_print_put: bool
-    print_memory_usage: bool
     noprint: bool
 
 
@@ -48,7 +47,6 @@ settings = Config(
         force_all_printing=one_req("PRINTALL"),
         headline_only_preferences=one_req("PRINTHEAD"),
         enable_print_put=one_req("PRINT_PUT"),
-        print_memory_usage=one_req("PRINT_MEMORY_USAGE"),
         noprint=noprint_flag,
     ),
     app=AppConfig(
