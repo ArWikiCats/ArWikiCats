@@ -12,3 +12,4 @@ categories.json
 src/make2_bots/o_bots/save.py
 _start.py
 monkeytype.sqlite3
+monkey.py

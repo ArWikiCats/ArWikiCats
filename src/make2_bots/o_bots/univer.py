@@ -69,7 +69,7 @@ def _normalise_category(category: str) -> str:
     return normalized
 
 
-def _resolve(normalized_category) -> str:
+def _resolve(normalized_category: str) -> str:
     print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
 
     city_key = ""
