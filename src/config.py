@@ -11,7 +11,7 @@ all_params = []
 def one_req(name: str) -> bool:
     """Check if the given flag is active via env or command line."""
     all_params.append(name)
-    return os.getenv(name.upper(), "0") == "1" or name.lower() in argv_lower
+    return os.getenv(name.upper(), "false").lower() in ("1", "true", "yes") or name.lower() in argv_lower
 
 
 @dataclass(frozen=True)
