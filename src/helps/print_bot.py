@@ -69,18 +69,10 @@ def do_print_options(
     noprint: str="",
     printfirst: str="",
     printhead: str="",
-    all_print_off: str="",
     tst_prnt_all: bool=False,
 ) -> None:
     global headline_only_preferences, main_output_preferences, print_put_preferences, test_logging_preferences
     if headline_only_preferences:
-        main_output_preferences[1] = False
-        print_put_preferences[1] = False
-        test_logging_preferences[1] = False
-        return
-
-    if all_print_off:
-        headline_only_preferences = False
         main_output_preferences[1] = False
         print_put_preferences[1] = False
         test_logging_preferences[1] = False

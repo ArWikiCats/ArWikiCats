@@ -23,7 +23,7 @@ class PrintConfig:
 @dataclass(frozen=True)
 class Config:
     print: PrintConfig = PrintConfig(
-        disable_all_printing=one_req("ALL_PRINT_OFF"),
+        disable_all_printing=one_req("ALL_PRINT_OFF") or one_req("NOPRINT"),
         force_all_printing=one_req("PRINTALL"),
         headline_only_preferences=one_req("PRINTHEAD"),
         enable_print_put=one_req("PRINT_PUT"),
@@ -33,6 +33,7 @@ class Config:
     enable_wikidata = not one_req("nowikidata")
     enable_kooora = not one_req("nokooora")
     start_yementest = one_req("yementest")
+    find_stubs = one_req("-stubs")
 
 
 settings = Config()

@@ -8,9 +8,8 @@ from ..ma_bots import event2bot
 
 
 import re
-import sys
 
-from ... import printe
+from ... import printe, settings
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ..bots import tmp_bot
@@ -22,8 +21,6 @@ from .lab_seoo_bot import event_Lab_seoo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 event2_cash = {}
-
-Find_stubs = {1: "-stubs" in sys.argv}
 
 
 def event2_d2(cat3: str, category3_not_lower: str) -> str:
@@ -164,7 +161,7 @@ def dodo(category_r: str) -> str:
     if not category.lower().startswith("category:"):
         category = f"Category:{category}"
 
-    if category.endswith(" stubs") and Find_stubs[1]:
+    if category.endswith(" stubs") and settings.find_stubs:
         list_of_cat = "بذرة {}"
         category = category.replace(" stubs", "", 1)
 
