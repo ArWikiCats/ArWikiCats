@@ -9,7 +9,6 @@ from ...helps.log import logger
 from ...helps.print_bot import print_put
 from ...ma_lists import Sports_Keys_For_Jobs
 from . import team_work
-from ..o_bots.parties_bot import get_parties_lab
 from ..o_bots.utils import resolve_suffix_template
 
 LANGUAGE_CACHE: Dict[str, str] = {}
@@ -28,9 +27,9 @@ def get_teams_new(team_name: str) -> str:
     # إيجاد لاحقات التسميات الرياضية
 
     # قبل تطبيق الوظيفة
-    # sports.py: len:"Teams_new":  685955
+    # sports.py: len:"Teams new":  685955
     # بعد تطبيق الوظيفة
-    # sports.py: len:"Teams_new":  114691
+    # sports.py: len:"Teams new":  114691
 
     normalized_team = team_name.strip()
     print_put(f'get_teams_new team:"{normalized_team}"')
@@ -46,11 +45,6 @@ def get_teams_new(team_name: str) -> str:
         )
         if team_label:
             print_put(f'team_label:"{team_label}" from sports suffix lookup')
-
-    if not team_label:
-        team_label = get_parties_lab(normalized_team)
-        if team_label:
-            print_put(f'team_label:"{team_label}" from parties lookup')
 
     return team_label
 
