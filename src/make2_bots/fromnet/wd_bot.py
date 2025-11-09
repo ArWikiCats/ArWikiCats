@@ -6,7 +6,7 @@ import sys
 from typing import Dict
 
 from .wd import find_name_from_wikidata
-from ... import settings
+from ... import app_settings
 from ...helps.print_bot import print_put
 from ...ma_lists import New_P17_Finall
 from ...ma_lists import Ambassadors_tab
@@ -40,7 +40,7 @@ def find_wikidata(country: str) -> str:
     if resolved_label:
         return resolved_label
 
-    if not settings.enable_wikidata:
+    if not app_settings.enable_wikidata:
         return ""
 
     wikidata_matches = find_name_from_wikidata(country, "en")

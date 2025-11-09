@@ -9,7 +9,7 @@ from ..ma_bots import event2bot
 
 import re
 
-from ... import printe, settings
+from ... import printe, app_settings
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ..bots import tmp_bot
@@ -161,7 +161,7 @@ def dodo(category_r: str) -> str:
     if not category.lower().startswith("category:"):
         category = f"Category:{category}"
 
-    if category.endswith(" stubs") and settings.find_stubs:
+    if category.endswith(" stubs") and app_settings.find_stubs:
         list_of_cat = "بذرة {}"
         category = category.replace(" stubs", "", 1)
 

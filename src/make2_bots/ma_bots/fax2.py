@@ -7,7 +7,7 @@ from . import fax2
 from typing import Dict, Any, Tuple
 from ...helps.print_bot import print_put
 from .fax2_bots.squad_title_bot import get_squad_title
-from ... import settings
+from ... import app_settings
 
 to_get_endswith: Dict[str, Dict[str, Any]] = {
     "squad navigational boxes": {
@@ -289,7 +289,7 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
         elif category3.endswith(" templates"):
             list_of_cat, category3 = get_templates_fo(category3)
 
-        elif category3.endswith(" stubs") and settings.find_stubs:
+        elif category3.endswith(" stubs") and app_settings.find_stubs:
             list_of_cat = "بذرة {}"
             category3 = category3.replace(" stubs", "", 1)
 

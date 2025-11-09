@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from .config import settings
+from . import config
+from .config import settings, print_settings, app_settings
 from .bot import event
 from .event_processing import EventProcessor, EventProcessorConfig, new_func_lab, new_func_lab_final_label
 from . import printe
@@ -8,7 +9,10 @@ from .memory import print_memory
 from .helps.log import logger, config_logger
 
 __all__ = [
+    "config",
     "settings",
+    "print_settings",
+    "app_settings",
     "printe",
     "logger",
     "config_logger",

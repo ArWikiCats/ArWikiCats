@@ -35,7 +35,7 @@ def open_url_json(
         data = response.json()
         return data
     except Exception as e:
-        logger.error("open_url_json : %s", e)
+        logger.error(f"open_url_json : {e}")
 
     return {}
 
@@ -46,6 +46,6 @@ def open_url_text(url: str, timeout: int=5) -> str:
         response.raise_for_status()
         return response.text
     except Exception as e:
-        logger.error("open_url_text : %s", e)
+        logger.error(f"open_url_text : {e}")
 
     return ""

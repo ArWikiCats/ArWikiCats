@@ -12,7 +12,7 @@ from .make2_bots.format_bots import change_cat
 from .helps.print_bot import output_test
 from .make2_bots.ma_bots import event2bot, event_lab_bot, ye_ts_bot
 from .make2_bots.matables_bots.bot import cash_2022, set_table_sink
-from . import settings
+from . import app_settings
 
 LABEL_PREFIX = "تصنيف"
 _SHARED_EVENT_CACHE: Dict[str, str] = {}
@@ -28,7 +28,7 @@ def get_shared_event_cache() -> Dict[str, str]:
 class EventProcessorConfig:
     """Configuration bundle for :class:`EventProcessor`."""
 
-    start_yementest: bool = settings.start_yementest
+    start_yementest: bool = app_settings.start_yementest
 
     make_tab: bool = False
     event_cache: Optional[Dict[str, str]] = None

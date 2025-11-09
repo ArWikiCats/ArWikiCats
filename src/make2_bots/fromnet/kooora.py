@@ -8,7 +8,7 @@ from typing import Dict
 
 from .open_url import open_url_text
 from ...helps.log import logger
-from ... import settings, printe
+from ... import app_settings, printe
 
 TEAM_LOOKUP_CACHE: Dict[str, str] = {}
 
@@ -23,7 +23,7 @@ def kooora_player(english_name: str) -> str:
     # eee = "https://www.kooora.com/?searchplayer=%s&showplayers=true" % EnName2
     eee = f"https://kooora.com/?searchplayer={encoded_name}&showplayers=true"
     # ---
-    if english_name == "" or not settings.enable_kooora:
+    if english_name == "" or not app_settings.enable_kooora:
         return ""
     # ---
     lowercase_name = english_name.lower()
@@ -83,7 +83,7 @@ def kooora_team(english_name: str) -> str:
     eee = f"https://kooora.com/?searchteam={encoded_name}&searchcountry=&showteams=3"
     eee = f"https://goalzz.com/?searchteam={encoded_name}&searchcountry=&showteams=3"
     # ---
-    if english_name == "" or not settings.enable_kooora:
+    if english_name == "" or not app_settings.enable_kooora:
         return ""
     # ---
     lowercase_name = english_name.lower()

@@ -18,7 +18,7 @@ import json
 from typing import Iterable, Mapping
 from .printe_helper import make_str
 from humanize import naturalsize
-from ..config import settings
+from ..config import print_settings
 from .log import logger
 
 all_len = {}
@@ -92,12 +92,12 @@ def lenth_pri(
     all_len.setdefault(bot, {})
     all_len[bot].update(data)
 
-    if not settings.print.PRINT_MEMORY_USAGE or settings.print.noprint:
+    if not print_settings.print_memory_usage or print_settings.noprint:
         return
 
     text = _lenth_pri(bot, tab, Max, lens)
 
-    if settings.print.PRINT_MEMORY_USAGE:
+    if print_settings.print_memory_usage:
         print(make_str(text))
     else:
         logger.debug(text)

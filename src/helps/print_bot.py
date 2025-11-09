@@ -3,12 +3,12 @@
 
 """
 from .. import printe
-from ..config import settings
+from ..config import print_settings
 
-disable_all_printing = settings.print.disable_all_printing
-force_all_printing = settings.print.force_all_printing
-headline_only_preferences = settings.print.headline_only_preferences
-enable_print_put = settings.print.enable_print_put
+disable_all_printing = print_settings.disable_all_printing
+force_all_printing = print_settings.force_all_printing
+headline_only_preferences = print_settings.headline_only_preferences
+enable_print_put = print_settings.enable_print_put
 
 main_output_preferences = {1: False}
 print_put_preferences = {1: False}

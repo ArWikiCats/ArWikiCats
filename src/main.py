@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List
 from tqdm import tqdm
 
-from . import settings
+from . import print_settings
 from . import printe
 from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
 from .helps.print_bot import do_print_options, print_put
@@ -19,7 +19,7 @@ Dir_ma = Path(__file__).parent.parent
 
 
 def _iterable_with_progress(categories: Iterable[str]) -> Iterable[str]:
-    if not settings.print.disable_all_printing:
+    if not print_settings.disable_all_printing:
         return tqdm(categories)
     return categories
 

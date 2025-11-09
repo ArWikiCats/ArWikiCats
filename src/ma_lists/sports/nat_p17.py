@@ -9,7 +9,7 @@ import sys
 # ---
 from ...helps import len_print
 from .Sport_key import Sports_Keys_For_Team
-from ... import settings
+from ... import app_settings
 nat_p17_oioi = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---
 Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
@@ -102,7 +102,7 @@ def make_tab() -> dict[str, str]:
     return SP17
 
 
-if settings.load_p17nat:
+if app_settings.load_p17nat:
     sport_formts_for_p17 = make_tab()
 
 # ---
