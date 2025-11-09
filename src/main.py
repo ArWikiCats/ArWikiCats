@@ -6,12 +6,11 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 """
 
-import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
-
 from tqdm import tqdm
 
+from . import print_settings
 from . import printe
 from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
 from .helps.print_bot import do_print_options, print_put
@@ -20,7 +19,7 @@ Dir_ma = Path(__file__).parent.parent
 
 
 def _iterable_with_progress(categories: Iterable[str]) -> Iterable[str]:
-    if "all_print_off" in sys.argv:
+    if not print_settings.disable_all_printing:
         return tqdm(categories)
     return categories
 
@@ -54,11 +53,9 @@ def event(
     NewList: Iterable[str],
     noprint: str="",
     maketab: bool=False,
-    Use_main_s: bool=False,
     printfirst: bool = False,
     Local: bool = False,
     printhead: bool = False,
-    all_print_off: bool = False,
     tst_prnt_all: bool | None=None,
     return_no_labs: bool = False,
 ) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
@@ -71,19 +68,12 @@ def event(
     if Local:
         config.find_from_wikidata = False
 
-    if Use_main_s:
-        config.use_main_s = True
-
     do_print_options(
         noprint=noprint,
         printfirst=printfirst,
         printhead=printhead,
-        all_print_off=all_print_off,
         tst_prnt_all=tst_prnt_all,
     )
-
-    if Use_main_s:
-        printe.output("<<lightblue>>  Use_main_s ")
 
     preview = ""
     try:

@@ -33,7 +33,7 @@ def make_by_label(category: str) -> str:
     """
 
     normalized = category.strip()
-    logger.info("Resolving by-label", extra={"category": normalized})
+    logger.info(f"Resolving by-label, category: {normalized}")
     logger.info(f"<<lightred>>>> vvvvvvvvvvvv make_by_label start, cate:{category} vvvvvvvvvvvv ")
     resolved = ""
     if normalized.lower().startswith("by "):
@@ -41,13 +41,13 @@ def make_by_label(category: str) -> str:
         film_label = test_films(candidate)
         if film_label:
             resolved = f"بواسطة {film_label}"
-            logger.debug("Matched film label", extra={"category": normalized, "label": resolved})
+            logger.debug(f"Matched film label, category: {normalized}, label: {resolved}")
 
         if not resolved:
             nationality_label = find_nat_others(candidate)
             if nationality_label:
                 resolved = f"بواسطة {nationality_label}"
-                logger.debug("Matched nationality label", extra={"category": normalized, "label": resolved})
+                logger.debug(f"Matched nationality label, category: {normalized}, label: {resolved}")
     if not resolved:
         match = re.match(r"^by (.*?) and (.*?)$", normalized, flags=re.IGNORECASE)
         if match:
@@ -119,7 +119,7 @@ def get_and_label(category: str) -> str:
 
     label = ""
     logger.info(f"<<lightyellow>>>>get_and_label {category}")
-    logger.info("Resolving get_and_label", extra={"category": category})
+    logger.info(f"Resolving get_and_label, category: {category}")
     match = re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE)
     if not match:
         return ""

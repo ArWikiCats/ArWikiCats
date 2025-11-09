@@ -76,9 +76,9 @@ def work_peoples(name: str) -> str:
 
         label = resolve_suffix_template(name, Pp_Priffix, _lookup)
         if label:
-            logger.debug("Resolved work_peoples", extra={"name": name, "label": label})
+            logger.debug(f"Resolved work_peoples: name:{name}, label:{label}")
         else:
-            logger.debug("Failed to resolve work_peoples", extra={"name": name})
+            logger.debug(f"Failed to resolve work_peoples: name:{name}")
         return label
 
     return get_or_set(WORK_PEOPLES_CACHE, cache_key, _resolve)

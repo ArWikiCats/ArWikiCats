@@ -12,8 +12,7 @@ lab = contry2_bot.Get_contry2()
 
 """
 
-import sys
-from typing import Dict, List
+from typing import Dict
 from . import contry2_lab
 
 from . import ye_ts_bot
@@ -26,9 +25,6 @@ from ...helps.print_bot import print_def_head, print_put, output_test
 from ..fromnet.wd_bot import find_wikidata
 
 GET_COUNTRY_CACHE: Dict[str, str] = {}
-USE_MAIN_COUNTRY_DONE: List[str] = []
-
-USE_MAIN_FLAGS: Dict[int, bool] = {1: "usemains" in sys.argv or "use_main_s" in sys.argv}
 
 
 def Get_contry2(country: str, orginal: str = "", With_Years: bool = True) -> str:
@@ -73,13 +69,11 @@ def Get_contry2(country: str, orginal: str = "", With_Years: bool = True) -> str
         break
 
     if not resolved_label:
-        if normalized_country in USE_MAIN_COUNTRY_DONE:
-            if USE_MAIN_FLAGS[1]:
-                USE_MAIN_COUNTRY_DONE.append(normalized_country)
-                resolved_label = find_wikidata(normalized_country)
+        resolved_label = find_wikidata(normalized_country)
 
-        elif pop_All_2018.get(normalized_country.lower(), "") != "":
-            resolved_label = pop_All_2018.get(normalized_country.lower(), "")
+    if not resolved_label:
+        resolved_label = pop_All_2018.get(normalized_country.lower(), "")
+
     if resolved_label:
         GET_COUNTRY_CACHE[country] = resolved_label
         print_put(f'>> Get_ scontry2 "{normalized_country}": cnt_la: {resolved_label}')

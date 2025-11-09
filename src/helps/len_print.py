@@ -4,8 +4,6 @@
 Usage:
 from .helps import len_print
 # ---
-# len_print.lenth_pri_text = False
-# ---
 Lentha = {
     "New_P17_Finall": sys.getsizeof(New_P17_Finall),
     "opop": sys.getsizeof(opop),
@@ -17,14 +15,43 @@ len_print.lenth_pri("Labels_Contry.py", Lentha)
 """
 
 import json
-import sys
 from typing import Iterable, Mapping
-from .. import printe
+from .printe_helper import make_str
 from humanize import naturalsize
-
-lenth_pri_text = True
+from ..config import print_settings
+from .log import logger
 
 all_len = {}
+
+
+def format_size(key: str, value: int | float, lens) -> str:
+    if key in lens:
+        return value
+    return naturalsize(value, binary=True)
+
+
+def _lenth_pri(
+    bot: str,
+    tab: Mapping[str, int | float],
+    Max: int=10000,
+    lens: Iterable[str] | None=None,
+) -> str:
+    """
+    Print formatted information based on the provided parameters.
+    """
+    formatted_entries = ", ".join(
+        [
+            # f"<<lightpurple>>{x}<<default>>: {tab[x]}"
+            f"<<lightpurple>>{x}<<default>>: {format_size(x, tab[x], lens)}"
+            for x in tab
+            if tab[x] > Max
+        ]
+    )
+    if not formatted_entries:
+        return ""
+
+    text = f"{bot}:".ljust(20) + formatted_entries
+    return text
 
 
 def lenth_pri(
@@ -54,33 +81,26 @@ def lenth_pri(
         None: This function does not return a value; it prints output directly.
     """
 
-    def format_size(key: str, value: int | float) -> str:
-        if key in lens:
-            return value
-        return naturalsize(value, binary=True)
+    data = {
+        x: format_size(x, tab[x], lens)
+        for x in tab
+    }
+
+    if not data:
+        return
 
     all_len.setdefault(bot, {})
+    all_len[bot].update(data)
 
-    all_len[bot].update({
-        x: format_size(x, tab[x])
-        for x in tab
-    })
-
-    if not lenth_pri_text:
-        return
-    if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
+    if not print_settings.print_memory_usage or print_settings.noprint:
         return
 
-    formatted_entries = ", ".join(
-        [
-            # f"<<lightpurple>>{x}<<default>>: {tab[x]}"
-            f"<<lightpurple>>{x}<<default>>: {format_size(x, tab[x])}"
-            for x in tab
-            if tab[x] > Max
-        ]
-    )
-    if formatted_entries:
-        printe.output(f"{bot}:".ljust(20) + formatted_entries)
+    text = _lenth_pri(bot, tab, Max, lens)
+
+    if print_settings.print_memory_usage:
+        print(make_str(text))
+    else:
+        logger.debug(text)
 
 
 def dump_all_len(file):

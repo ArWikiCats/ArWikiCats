@@ -34,7 +34,7 @@ def get_teams_new(team_name: str) -> str:
 
     normalized_team = team_name.strip()
     print_put(f'get_teams_new team:"{normalized_team}"')
-    logger.info("Resolving team label", extra={"team": normalized_team})
+    logger.info(f"Resolving team label, team: {normalized_team}")
 
     team_label = sport_lab.Get_New_team_xo(normalized_team)
 

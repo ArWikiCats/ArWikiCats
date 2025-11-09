@@ -393,7 +393,6 @@ Lenth = {}
 Lenth["All_P17"] = sys.getsizeof(All_P17)
 Lenth["pop_of_in"] = sys.getsizeof(pop_of_in)
 Lenth["pop_new"] = sys.getsizeof(pop_new)
-Lenth["pop_All_2018"] = sys.getsizeof(pop_All_2018)
 Lenth["typetable"] = sys.getsizeof(typeTable)
 Lenth["kingdom"] = len_Kingdom[1]
 # ---

@@ -41,7 +41,7 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
         for prefix in filter(None, [english_prefix, english_without_article_prefix, localised_prefix]):
             if category.startswith(prefix):
                 suffix = category[len(prefix) :].strip()
-                logger.debug("Matched country prefix", extra={"category": category, "prefix": prefix.strip()})
+                logger.debug(f"Matched country prefix, category: {category}, prefix: {prefix}")
                 return suffix, women_label, men_label
 
     return "", "", ""
@@ -58,10 +58,7 @@ def _resolve_women_without_article_prefix(category: str) -> str:
         suffix_key = category[len(prefix_with_space) :].strip()
         country_label = All_contry_with_nat_keys_is_en.get(suffix_key, {}).get("women", "")
         if country_label:
-            logger.debug(
-                "Resolved women without article prefix",
-                extra={"prefix": prefix_without_article, "country": suffix_key},
-            )
+            logger.debug(f"Resolved women without article prefix, prefix: {prefix_without_article}, category: {suffix_key}")
             return template.format(nat=country_label)
 
     return ""
@@ -75,7 +72,7 @@ def _resolve_women_suffix(category_suffix: str, women_label: str) -> str:
 
     template = military_format_women_without_al.get(category_suffix, "")
     if template:
-        logger.debug("Resolved women suffix", extra={"suffix": category_suffix})
+        logger.debug(f"Resolved women suffix, suffix: {category_suffix}")
         return template.format(nat=women_label)
     return ""
 
@@ -94,10 +91,7 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
         suffix_template = military_format_women.get(base_suffix, "")
         if suffix_template:
             women_with_article = apply_arabic_article(women_label)
-            logger.debug(
-                "Resolved women extended suffix",
-                extra={"base_suffix": base_suffix, "suffix": suffix},
-            )
+            logger.debug(f"Resolved women extended suffix, suffix: {suffix}, base_suffix: {base_suffix}")
             resolved_label = suffix_template.format(nat=women_with_article)
             return prefix_template.format(resolved_label)
 
@@ -113,7 +107,7 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
     template = military_format_men.get(category_suffix, "")
     if template:
         men_with_article = apply_arabic_article(men_label)
-        logger.debug("Resolved men suffix", extra={"suffix": category_suffix})
+        logger.debug(f"Resolved men suffix, suffix: {category_suffix}")
         return template.format(nat=men_with_article)
     return ""
 
@@ -127,7 +121,7 @@ def _resolve_sport_suffix(category_suffix: str, men_label: str) -> str:
     template = sport_formts_en_p17_ar_nat.get(category_suffix, "")
     if template:
         men_with_article = apply_arabic_article(men_label)
-        logger.debug("Resolved sports suffix", extra={"suffix": category_suffix, "template": template})
+        logger.debug(f"Resolved sports suffix, suffix: {category_suffix}, template: {template}")
         return template.format(nat=men_with_article)
     return ""
 
@@ -151,10 +145,7 @@ def test_army(category: str) -> str:
         return cached
 
     def _resolve() -> str:
-        logger.info(
-            "Starting army label resolution",
-            extra={"category": normalized_category},
-        )
+        logger.info(f"Starting army label resolution, category: {normalized_category}")
 
         suffix, women_label, men_label = _match_country_prefix(normalized_category)
 
@@ -184,10 +175,7 @@ def test_army(category: str) -> str:
         return ""
 
     resolved_value = get_or_set(TEST_ARMY_CACHE, normalized_category, _resolve)
-    logger.info(
-        "Finished army label resolution",
-        extra={"category": normalized_category, "label": resolved_value},
-    )
+    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_value}")
     return resolved_value
 
 

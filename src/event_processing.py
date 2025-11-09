@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import re
-import sys
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Optional, Iterator
@@ -13,6 +12,7 @@ from .make2_bots.format_bots import change_cat
 from .helps.print_bot import output_test
 from .make2_bots.ma_bots import event2bot, event_lab_bot, ye_ts_bot
 from .make2_bots.matables_bots.bot import cash_2022, set_table_sink
+from . import app_settings
 
 LABEL_PREFIX = "تصنيف"
 _SHARED_EVENT_CACHE: Dict[str, str] = {}
@@ -28,9 +28,8 @@ def get_shared_event_cache() -> Dict[str, str]:
 class EventProcessorConfig:
     """Configuration bundle for :class:`EventProcessor`."""
 
-    start_yementest: bool = "yementest" in sys.argv
-    use_main_s: bool = "usemains" in sys.argv or "use_main_s" in sys.argv
-    find_from_wikidata: bool = "nowikidata" not in sys.argv
+    start_yementest: bool = app_settings.start_yementest
+
     make_tab: bool = False
     event_cache: Optional[Dict[str, str]] = None
 
@@ -182,7 +181,7 @@ class EventProcessor:
             if not category_lab:
                 category_lab = event2bot.event2(changed_cat)
 
-            if not category_lab and self.config.find_from_wikidata:
+            if not category_lab:
                 category_lab = event_lab_bot.event_Lab(changed_cat)
 
         if category_lab:

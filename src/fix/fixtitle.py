@@ -8,15 +8,13 @@ localized for Arabic Wikipedia labels and rely on the constants defined in
 
 from __future__ import annotations
 
-import logging
 import re
 from typing import Iterable, Mapping
 
 from .fixlists import ENDING_REPLACEMENTS, REPLACEMENTS, STARTING_REPLACEMENTS, YEAR_CATEGORY_LABELS
 from ..make2_bots.reg_lines import YEARS_REGEX
 from .mv_years import move_years
-
-logger = logging.getLogger(__name__)
+from ..helps.log import logger
 
 
 def _apply_regex_replacements(text: str, replacements: Mapping[str, str]) -> str:

@@ -1,22 +1,12 @@
 #!/usr/bin/python3
 """
-محاولة إيجاد تسميات من ويكي بيانات
 """
 
 import re
-import sys
 from typing import Dict
 
 from ... import printe
 from .open_url import open_url_json
-
-PRINT_PREFERENCES = {1: False}
-
-
-def debug_print(text: str) -> None:
-    if PRINT_PREFERENCES[1]:
-        printe.output(text)
-
 
 WIKIDATA_CACHE: Dict[str, Dict[str, str]] = {}
 # ---
@@ -26,10 +16,7 @@ ENGLISH_LETTER_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
 ARABIC_LETTER_PATTERN = "[ابتثجحخدذرزسشصضطظعغفقكلمنهوية]"
 
 
-def find_name_from_wikidata(text: str, lang: str, local_only: bool=False) -> Dict[str, str]:
-    # ---
-    if "nowikidata" in sys.argv or "local" in sys.argv or local_only:
-        return {}
+def find_name_from_wikidata(text: str, lang: str) -> Dict[str, str]:
     # ---
     if text in WIKIDATA_CACHE:
         return {text: WIKIDATA_CACHE[text]}

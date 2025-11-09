@@ -4,9 +4,6 @@ from .arlabel_bots.bot_con_lab import get_con_lab
 
 """
 
-import sys
-from typing import Dict
-
 from ....helps.print_bot import print_put
 from ....ma_lists import New_female_keys, New_P17_Finall, pf_keys2
 from ...bots import tmp_bot
@@ -21,7 +18,6 @@ from ...p17_bots import nats
 from ...sports_bots import team_work
 from ..contry_bot import Get_c_t_lab, Get_contry
 from .. import contry2_lab
-Find_f_wikidata: Dict[int, bool] = {1: "nowikidata" not in sys.argv}
 
 
 def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, contry: str, contry_lower: str) -> str:
@@ -83,8 +79,9 @@ def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, contry: str, contry
 
     if not con_lab:
         con_lab = find_wikidata(contry_lower)
+
     if not con_lab:
-        con_lab = kooora.kooora_team(contry_lower, Local=Find_f_wikidata[1])
+        con_lab = kooora.kooora_team(contry_lower)
 
     print_put(f"?????? get_con_lab: {contry_lower=}, {con_lab=}")
 
