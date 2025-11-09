@@ -1,53 +1,41 @@
-#!/usr/bin/python3
+"""Build comprehensive gendered job label dictionaries.
+
+This module historically assembled several large dictionaries describing job
+labels in Arabic.  The original implementation relied on implicit global state
+and mutating logic that made the data construction difficult to follow.
+
+The refactor below keeps the exported data identical while restructuring the
+pipeline into typed helper functions with clear documentation.  Each helper
+focuses on a single transformation—loading JSON data, combining gendered labels,
+adding derived sport or film variants, or flattening the output for historic
+exports.  The end result is a deterministic data set that is easier to maintain
+and safe to import in other modules.
 """
 
-الأسطر المخفية تبدأ بـ
-#o
+from __future__ import annotations
 
-SELECT DISTINCT #?item ?humanLabel
-#?ar
-#?page_en ?page_ar
-(concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-WHERE {
- # ?human wdt:P31 ?cc.
-  #?cc wdt:P31 wd:Q31629.
-  #?cc wdt:P31 wd:Q151885.
- { ?human wdt:P31 wd:Q28640. } UNION { ?human wdt:P31 wd:Q12737077.}#مهنة
-  FILTER NOT EXISTS {?human wdt:P31 wd:Q31629. }
-  FILTER NOT EXISTS {?human wdt:P31 wd:Q188451. }
-  FILTER NOT EXISTS {?human wdt:P31 wd:Q1968435. }
-  ?human wdt:P910 ?item .
-  ?item wdt:P301 ?human.
-  ?article schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-  ?article2 schema:about ?item ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar .
-  #FILTER NOT EXISTS {?article schema:about ?item ; schema:isPartOf <https://ar.wikipedia.org/> . }.
-  SERVICE wikibase:label {
-    bd:serviceParam wikibase:language "ar,en" .
-  }
-  ?item rdfs:label ?ar .  FILTER((LANG(?ar)) = "ar")
-
-    }
-#LIMIT 100
-
-"""
-
+import logging
 import sys
-from ...helps import len_print
-from ..utils.json_dir import open_json
+from dataclasses import dataclass
+from typing import Dict, List, Mapping, MutableMapping
 
-# ---
-from ..nats.Nationality import Nat_mens
-from ..sports.cycling import new2019_cycling
+from ...helps import len_print
+from ..companies import companies_to_jobs
+from ..utils.json_dir import open_json
 from ..mixed.all_keys2 import Books_table
+from ..mixed.male_keys import religious_female_keys
+from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
-# from ..by_type import Music_By_table
+from ..sports.cycling import new2019_cycling
 from ..tv.films_mslslat import Films_key_For_Jobs
 from .Jobs2 import Jobs_2
-from ..mixed.male_keys import religious_female_keys
-from ..companies import companies_to_jobs
-from .jobs_singers import MEN_WOMENS_SINGERS, FILMS_TYPE
-from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
+from .jobs_players_list import (
+    Female_Jobs_to,
+    Football_Keys_players,
+    players_to_Men_Womens_Jobs,
+)
+from .jobs_singers import MEN_WOMENS_SINGERS, FILMS_TYPE
 
 Jobs_new = {}
 # ---
