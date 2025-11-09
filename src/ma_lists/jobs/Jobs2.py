@@ -18,9 +18,8 @@ from .jobs_defs import GenderedLabel, GenderedLabelMap, gendered_label, load_gen
 from ..utils.json_dir import open_json
 LOGGER = logging.getLogger(__name__)
 
-jobs_primary = open_json("jobs/jobs_primary.json")
-jobs_additional = open_json("jobs/jobs_additional.json")
-
+jobs_primary = open_json("jobs/Jobs_22.json")
+jobs_additional = open_json("jobs/jobs_3.json")
 # ---------------------------------------------------------------------------
 # Static configuration
 
