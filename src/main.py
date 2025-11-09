@@ -33,7 +33,7 @@ def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
             print(f"     {formatted} : \"{cat_lab}\",")
 
 
-def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[Any]) -> List[Any]:
+def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]) -> List[str]:
     if not no_labels:
         return no_labels
     labelled_set = set(labels.keys())
@@ -49,7 +49,7 @@ def event(
     printhead: bool = False,
     tst_prnt_all: Optional[bool]=None,
     return_no_labs: bool = False,
-) -> Dict[str, str]:
+) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
     """Process a list of categories and generate corresponding labels."""
 
     config = EventProcessorConfig(
