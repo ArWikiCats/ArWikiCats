@@ -5,10 +5,9 @@
 import sys
 from ...helps import len_print
 
-from .sports_lists import AFTER_KEYS, nat_menstt33, PPP_Keys, New_Tato_nat
+from .sports_lists import nat_menstt33, PPP_Keys, New_Tato_nat
 from ..sports_formats_teams.team_job import sf_en_ar_is_p17
-from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs, Sports_Keys_For_olympic
-from ..jobs.jobs_players_list import Football_Keys_players
+from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs
 
 sport_formts_male_nat = {}  # الإنجليزي جنسية والعربي جنسية
 sport_formts_female_nat = {}  # الإنجليزي جنسية والعربي جنسية
@@ -16,34 +15,11 @@ sport_formts_en_p17_ar_nat = {}  # الإنجليزي إسم البلد والع
 sport_formts_en_ar_is_p17 = {}  # الإنجليزي إسم البلد والعربي يكون اسم البلد
 sport_formts_new_kkk = {}  # الإنجليزي جنسية والعربي اسم البلد
 # ---
-New_With_Women = {}
 sport_formts_enar_p17_team = {}
 # ---
 # مستخدمة في ملفات أخرى عبر هذا الملف
 # ---
 sport_formts_en_ar_is_p17.update(sf_en_ar_is_p17)
-# ---
-Teams_new = {
-    "current seasons": "مواسم حالية",
-    "international races": "سباقات دولية",
-    "national championships": "بطولات وطنية",
-    "national champions": "أبطال بطولات وطنية",
-    "world competitions": "منافسات عالمية",
-    "military competitions": "منافسات عسكرية",
-    "men's teams": "فرق رجالية",
-    "world championships competitors": "منافسون في بطولات العالم",
-    "world championships medalists": "فائزون بميداليات بطولات العالم",
-    "women's teams": "فرق نسائية",
-    "world championships": "بطولة العالم",
-    "international women's competitions": "منافسات نسائية دولية",
-    "international men's competitions": "منافسات رجالية دولية",
-    "international competitions": "منافسات دولية",
-    "national team results": "نتائج منتخبات وطنية",
-    "national teams": "منتخبات وطنية",
-    "national youth teams": "منتخبات وطنية شبابية",
-    "national men's teams": "منتخبات وطنية رجالية",
-    "national women's teams": "منتخبات وطنية نسائية",
-}
 # ---
 Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
@@ -55,66 +31,22 @@ Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # ---
 # Sports_Keys_For_Jobs["judo"] = "جودو"
 # ---
-# for typee in PPP_Keys:
-# Teams_new["{} sports".format(typee) ] = "رياضات {}".format( PPP_Keys[typee])
-# ---
-for hg, hga in Sports_Keys_For_Jobs.items():
-    # Teams_new[hg] = hga
-    Teams_new[f"{hg} managers"] = f"مدربو {hga}"
-    Teams_new[f"{hg} coaches"] = f"مدربو {hga}"
-    Teams_new[f"{hg} people"] = f"أعلام {hga}"
-    Teams_new[f"{hg} playerss"] = f"لاعبو {hga}"
-    Teams_new[f"{hg} players"] = f"لاعبو {hga}"
-    Teams_new[f"{hg} referees"] = f"حكام {hga}"
-# ---
 # Years_List = [18]
 # Sports_Keys_For_Jobs = {}
 # Sports_Keys_For_Jobs["association football"] = "هوكي جليد"
 # ---
-lightred = '<<lightred>> Teams_new[%s]: "%s"'
-# ---
-for year in Years_List:
-    Teams_new[f"under-{year} sport"] = "رياضة تحت %d سنة" % year
-# ---
-lightgreen = '<<lightgreen>> Teams_new[%s]: "%s"'
-# فرق الجنسية
-# ---
-numb = 0
-# ---
 Sports_Keys_For_Jobs["sports"] = "رياضية"
 # ---
-for team in Sports_Keys_For_Jobs:
-    # ---
-    numb += 1
-    job_label = Sports_Keys_For_Jobs[team]
-    # ---
-    New_With_Women[team] = job_label
-    # ---
-    # print(f"[{team}]:{job_label}")
+New_With_Women = dict(Sports_Keys_For_Jobs)
+# ---
+for team, job_label in Sports_Keys_For_Jobs.items():
     # ---
     for PP in PPP_Keys:
         LPPPo = f"{job_label} {PPP_Keys[PP]}"
-        New_With_Women[f"{PP} {team}"] = LPPPo
-        # print(f"[{PP} {team}]:{LPPPo}")
-    # ---
-    # replaced py get_teams_new()
+        New_With_Women[f"{PP} {team}"] = f"{job_label} {PPP_Keys[PP]}"
 # ---
 # sport_formts_en_ar_is_p17#Sports_Format_en_is_P17_ar_P17
-# Teams_new
 # sport_formts_female_nat
-# ---
-# ---
-Teams_new["national youth sports teams of"] = "منتخبات رياضية وطنية شبابية في"
-Teams_new["national sports teams of"] = "منتخبات رياضية وطنية في"
-Teams_new["national sports teams"] = "منتخبات رياضية وطنية"
-# Teams_new["men's national sports teams"] = "منتخبات رياضية وطنية رجالية"
-# Teams_new["men's national sports teams of"] = "منتخبات رياضية وطنية رجالية في"
-Teams_new["national men's sports teams"] = "منتخبات رياضية وطنية رجالية"
-Teams_new["national men's sports teams of"] = "منتخبات رياضية وطنية رجالية في"
-Teams_new["national women's sports teams"] = "منتخبات رياضية وطنية نسائية"
-# Teams_new["women's national sports teams"] = "منتخبات رياضية وطنية نسائية"
-Teams_new["national women's sports teams of"] = "منتخبات رياضية وطنية نسائية في"
-# Teams_new["women's national sports teams of"] = "منتخبات رياضية وطنية نسائية في"
 # ---
 Teams = {
     "national sports teams": "منتخبات رياضية وطنية",
@@ -154,28 +86,6 @@ menstts = {
 }
 # ---
 for mem, labe in Sports_Keys_For_Label.items():
-    Teams_new[f"youth {mem}"] = f"{labe} للشباب"
-    Teams_new[f"{mem} mass media"] = f"إعلام {labe}"
-    Teams_new[f"{mem} non-playing staff"] = f"طاقم {labe} غير اللاعبين"
-    for jjj in menstts:
-        Teams_new[f"{jjj.strip()} {mem}"] = f"{labe} {menstts[jjj].strip()}"
-    # ---
-    # Teams_new["{} video games".format(mem) ] = "ألعاب فيديو {}".format(labe)
-    # ---
-    labes = f"{Sports_Keys_For_Label[mem]} أولمبية"
-    # ---
-    if mem in Sports_Keys_For_olympic:
-        labes = Sports_Keys_For_olympic[mem]
-    # ---
-    Teams_new[f"{mem} olympic champions"] = "أبطال " + labes
-    Teams_new[f"{mem} olympics"] = labes
-    Teams_new[f"{mem} olympic"] = labes
-    Teams_new[f"olympic {mem}"] = labes
-    Teams_new[f"olympics mens {mem}"] = labes
-    Teams_new[f"international {mem}"] = labes.replace("أولمبي", "دولي")
-    # ---
-    Teams_new[f"olympics men's {mem}"] = labes + " للرجال"
-    Teams_new[f"olympics women's {mem}"] = labes + " للسيدات"
     # ---
     # sport_formts_female_nat["%s tour" % mem.lower()] = "بطولة %s {nat}" % labe
     # sport_formts_female_nat["%s tournament" % mem.lower()] = "بطولة %s {nat}" % labe
@@ -287,47 +197,21 @@ for team2 in Sports_Keys_For_Team:
     # ---
 # sport_formts_female_nat["competitors"] = "منافسون {nat}"
 
-Teams_new["international competitions"] = "منافسات دولية"
-# ---
 sport_formts_en_ar_is_p17["international rally"] = "رالي {} الدولي"
 # ---
-for sport in New_With_Women:
-    LAAP = New_With_Women[sport]
-    # ---
-    for after in AFTER_KEYS:
-        llab = AFTER_KEYS[after]
-        Teams_new[f"{sport} {after}"] = f"{llab} {LAAP}"
-    # ---
-    for after in Football_Keys_players:
-        PP_o = f"{sport} {after}"
-        # ---
-        llab = Football_Keys_players[after]["mens"]
-        if PP_o.find("women's") != -1:
-            llab = Football_Keys_players[after]["womens"]
-        # ---
-        LP_PP_o = f"{llab} {LAAP}"
-        Teams_new[PP_o] = LP_PP_o
-        # men's association football players:لاعبو كرة قدم رجالية
-        # men's football players:لاعبو كرة قدم رجالية
-        # if PP_o.find('football') != -1 and LP_PP_o.find('لاعبو كرة قدم رجالية') != -1:
-        # printe.output(f'<<yellow>> {PP_o}:{LP_PP_o}')
-# ---
-Teams_new["men's footballers"] = "لاعبو كرة قدم رجالية"
-# ---
 Lenth1 = {
-    "sport_formts_en_ar_is_p17": sys.getsizeof(sport_formts_en_ar_is_p17),
-    "sport_formts_enar_p17_team": sys.getsizeof(sport_formts_enar_p17_team),
-    "Teams_new": sys.getsizeof(Teams_new),
-    "sport_formts_female_nat": sys.getsizeof(sport_formts_female_nat),
-    "sport_formts_male_nat": sys.getsizeof(sport_formts_male_nat),
-    "sport_formts_new_kkk": sys.getsizeof(sport_formts_new_kkk),
-    "sport_formts_en_p17_ar_nat": sys.getsizeof(sport_formts_en_p17_ar_nat),
-    "nat_menstt33": sys.getsizeof(nat_menstt33),
-    "New_Tato_nat": sys.getsizeof(New_Tato_nat),
-    "New_With_Women": sys.getsizeof(New_With_Women),
+    "sport_formts_en_ar_is_p17": sport_formts_en_ar_is_p17,
+    "sport_formts_enar_p17_team": sport_formts_enar_p17_team,
+    "sport_formts_female_nat": sport_formts_female_nat,
+    "sport_formts_male_nat": sport_formts_male_nat,
+    "sport_formts_new_kkk": sport_formts_new_kkk,
+    "sport_formts_en_p17_ar_nat": sport_formts_en_p17_ar_nat,
+    "nat_menstt33": nat_menstt33,
+    "New_Tato_nat": New_Tato_nat,
+    "New_With_Women": New_With_Women,
 }
 # ---
-len_print.lenth_pri("sports.py", Lenth1)
+len_print.data_len("sports.py", Lenth1)
 # sport_formts_female_nat["road cycling"] = "سباقات {nat} للدراجات على الطريق"
 # ---
 Facos = [
@@ -341,7 +225,6 @@ Facos = [
 # Nat_Womens#Nat_mens
 
 __all__ = [
-    "Teams_new",
     "sport_formts_en_ar_is_p17",
     "sport_formts_en_p17_ar_nat",
     "sport_formts_enar_p17_team",

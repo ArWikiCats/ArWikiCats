@@ -487,12 +487,12 @@ for job_key in Jobs_key.keys():
 # ---
 Lenth = {
     "Len_of_Films_Jobs": Len_of_Films_Jobs,
-    "Jobs_key": sys.getsizeof(Jobs_key),
-    "Jobs_new": sys.getsizeof(Jobs_new),
-    "Jobs_key_mens": sys.getsizeof(Jobs_key_mens),
-    "Jobs_key_womens": sys.getsizeof(Jobs_key_womens),
-    "Men_Womens_Jobs": sys.getsizeof(Men_Womens_Jobs),
+    "Jobs_key": Jobs_key,
+    "Jobs_new": Jobs_new,
+    "Jobs_key_mens": Jobs_key_mens,
+    "Jobs_key_womens": Jobs_key_womens,
+    "Men_Womens_Jobs": Men_Womens_Jobs,
 }
 # ---
 
-len_print.lenth_pri("jobs.py", Lenth)
+len_print.data_len("jobs.py", Lenth)

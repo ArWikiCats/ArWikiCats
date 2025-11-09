@@ -311,7 +311,7 @@ def main():
             printe.output('   ,"%s":"%s"' %   (k , ""))
 """
 # ---
-BY_TABLE_MEMORY_STATS = {"by_table": sys.getsizeof(By_table)}
+BY_TABLE_MEMORY_STATS = {"by_table": By_table}
 # ---
 
-len_print.lenth_pri("by_table.py", BY_TABLE_MEMORY_STATS)
+len_print.data_len("by_table.py", BY_TABLE_MEMORY_STATS)

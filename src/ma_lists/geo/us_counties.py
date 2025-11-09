@@ -291,7 +291,7 @@ for ccgc in US_State_Keys :
 printe.output("all_keys2.py : len:uS_State_Keys %d" % len(US_State_Keys) )
 """
 # ---
-length_stats = {"Counties": sys.getsizeof(Counties)}
+length_stats = {"Counties": Counties}
 # ---
-len_print.lenth_pri("us_counties.py", length_stats)
+len_print.data_len("us_counties.py", length_stats)
 # ---

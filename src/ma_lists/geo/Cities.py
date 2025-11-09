@@ -47,11 +47,11 @@ CITY_TRANSLATIONS_LOWER = {x.lower(): xar for x, xar in CITY_TRANSLATIONS.items(
 #     json.dump(CITY_TRANSLATIONS, f, indent=2, ensure_ascii=False)
 # ---
 memory_sizes = {
-    "CITY_TRANSLATIONS": sys.getsizeof(CITY_TRANSLATIONS),
-    "CITY_LABEL_PATCHES": sys.getsizeof(CITY_LABEL_PATCHES),
+    "CITY_TRANSLATIONS": CITY_TRANSLATIONS,
+    "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,
 }
 # ---
-len_print.lenth_pri("cities.py", memory_sizes, Max=100)
+len_print.data_len("cities.py", memory_sizes)
 
 __all__ = [
     "CITY_TRANSLATIONS",

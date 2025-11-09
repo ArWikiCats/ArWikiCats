@@ -12,8 +12,8 @@ from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_
 # ,"sledding":{"label":"الكليات", "team":"للكليات", "jobs":"كليات"}
 # ,"athletics indoor":{"label":"ألعاب القوى داخل الصالات", "team":"لألعاب القوى داخل الصالات", "jobs":"ألعاب قوى داخل صالات"}
 # ---
-import sys
 from ..utils.json_dir import open_json_file
+from ...helps import len_print
 
 Sports_Keys_New2 = {}
 # ---
@@ -130,14 +130,11 @@ for x in faor :
 # ---
 # python3 core8/pwb.py make/Sport_key
 # ---
-Lenth1 = {
-    "Sports_Keys_New": sys.getsizeof(Sports_Keys_New),
-    "All_Nat Sports_Keys_For_Jobs": sys.getsizeof(Sports_Keys_For_Jobs),
-}
-# ---
-from ...helps import len_print
 
-len_print.lenth_pri("Sport_key.py", Lenth1)
+len_print.data_len("Sport_key.py", {
+    "Sports_Keys_New": Sports_Keys_New,
+    "All_Nat Sports_Keys_For_Jobs": Sports_Keys_For_Jobs,
+})
 # ---
 del Sports_Keys_New
 # ---

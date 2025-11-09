@@ -334,7 +334,7 @@ Ta_s = {
 for ta in Ta_s:
     pop_final6[f"{ta} occupations"] = f"مهن {Ta_s[ta]}"
 # ---
-lenthe = {"pop_final6": sys.getsizeof(pop_final6)}
+lenthe = {"pop_final6": pop_final6}
 # ---
-len_print.lenth_pri("newkey.py", lenthe)
+len_print.data_len("newkey.py", lenthe)
 # ---
