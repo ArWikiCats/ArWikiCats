@@ -11,6 +11,7 @@ from .src import (
 )
 
 from .src.helps.log import config_logger
+from .src.helps.len_print import dump_all_len
 
 __all__ = [
     "printe",
@@ -21,4 +22,5 @@ __all__ = [
     "EventProcessorConfig",
     "do_print_options",
     "print_memory",
+    "dump_all_len",
 ]

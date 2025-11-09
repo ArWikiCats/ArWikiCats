@@ -37,8 +37,8 @@ from .jobs_players_list import (
 from .jobs_singers import (
     FILMS_TYPE,
     MEN_WOMENS_SINGERS,
-    Men_Womens_Singers,
-    films_type,
+    MEN_WOMENS_SINGERS,
+    FILMS_TYPE,
 )
 
 __all__ = [
@@ -69,8 +69,6 @@ __all__ = [
     "Jobs_players",
     "players_to_Men_Womens_Jobs",
     # Singer utilities
-    "FILMS_TYPE",
     "MEN_WOMENS_SINGERS",
-    "Men_Womens_Singers",
-    "films_type",
+    "FILMS_TYPE",
 ]

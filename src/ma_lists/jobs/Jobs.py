@@ -45,7 +45,7 @@ from ..tv.films_mslslat import Films_key_For_Jobs
 from .Jobs2 import Jobs_2
 from ..mixed.male_keys import religious_female_keys
 from ..companies import companies_to_jobs
-from .jobs_singers import Men_Womens_Singers, films_type
+from .jobs_singers import MEN_WOMENS_SINGERS, FILMS_TYPE
 from .jobs_players_list import Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
 from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
 
@@ -305,7 +305,7 @@ for cycling_event_key, cycling_event_label in new2019_cycling.items():
 # ---
 Female_Jobs2 = {}
 # ---
-for film_category, film_gender_labels in films_type.items():
+for film_category, film_gender_labels in FILMS_TYPE.items():
     Female_Jobs2[f"{film_category} actresses"] = f"ممثلات {film_gender_labels['womens']}"
 Female_Jobs2["sportswomen"] = "رياضيات"
 # ---
@@ -411,17 +411,17 @@ for job_category, job_titles in jobs_people.items():
             }
         # ---
 # ---
-for singer_category, singer_labels in Men_Womens_Singers.items():
+for singer_category, singer_labels in MEN_WOMENS_SINGERS.items():
     Men_Womens_Jobs[singer_category] = singer_labels
     # Men_Womens_Jobs["classical {}".format(put)] = {
-    # "mens": "{} كلاسيكيون".format(Men_Womens_Singers[put]["mens"])
-    # ,"womens": "{} كلاسيكيات".format(Men_Womens_Singers[put]["womens"])
+    # "mens": "{} كلاسيكيون".format(MEN_WOMENS_SINGERS[put]["mens"])
+    # ,"womens": "{} كلاسيكيات".format(MEN_WOMENS_SINGERS[put]["womens"])
     # }
     # ---
     for style_key, style_labels in typi.items():
         Men_Womens_Jobs[f"{style_key} {singer_category}"] = {
-            "mens": f"{Men_Womens_Singers[singer_category]['mens']} {style_labels['mens']}",
-            "womens": f"{Men_Womens_Singers[singer_category]['womens']} {style_labels['womens']}",
+            "mens": f"{MEN_WOMENS_SINGERS[singer_category]['mens']} {style_labels['mens']}",
+            "womens": f"{MEN_WOMENS_SINGERS[singer_category]['womens']} {style_labels['womens']}",
         }
     # printe.output(put2o)
     # printe.output({"mens": put_m ,"womens": put_f }    )

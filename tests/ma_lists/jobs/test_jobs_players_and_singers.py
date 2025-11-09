@@ -7,7 +7,7 @@ from src.ma_lists.jobs.jobs_players_list import (
     FOOTBALL_KEYS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,
 )
-from src.ma_lists.jobs.jobs_singers import Men_Womens_Singers
+from src.ma_lists.jobs.jobs_singers import MEN_WOMENS_SINGERS
 
 
 def test_players_dataset_includes_core_sports_roles() -> None:
@@ -31,7 +31,7 @@ def test_football_key_players_are_registered() -> None:
 def test_singer_dataset_contains_common_genres() -> None:
     """Singer datasets should expose popular genre categories."""
 
-    assert "pop singers" in Men_Womens_Singers
-    labels = Men_Womens_Singers["pop singers"]
+    assert "pop singers" in MEN_WOMENS_SINGERS
+    labels = MEN_WOMENS_SINGERS["pop singers"]
     assert labels["mens"].startswith("مغنو")
     assert labels["womens"].startswith("مغنيات")
