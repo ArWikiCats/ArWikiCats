@@ -34,6 +34,8 @@ class Config:
     enable_kooora = not one_req("nokooora")
     start_yementest = one_req("yementest")
     find_stubs = one_req("-stubs")
+    makeerr = one_req("makeerr")
+    load_p17nat = one_req("load_p17nat")
 
 
 settings = Config()

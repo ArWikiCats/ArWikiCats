@@ -10,7 +10,6 @@ from ..ma_bots import contry_bot
 lab = contry_bot.Get_contry()
 
 """
-import sys
 import re
 from typing import Dict
 from . import ye_ts_bot
@@ -36,7 +35,7 @@ from ...ma_lists import pop_of_without_in
 from ...ma_lists import Jobs_key
 from ..matables_bots.bot_2018 import pop_All_2018
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
-
+from ... import settings
 Get_contry_done: Dict[str, str] = {}
 
 
@@ -177,7 +176,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
     """Retrieve the corresponding label for a given country or term."""
 
     print_put(f'Get_c_t_lab Type:"{Type}", tito:"{tito}", c_ct_lower:"{c_t_lower}" ')
-    if "makeerr" in sys.argv:
+    if settings.makeerr:
         do_Get_contry2 = True
 
     test_3 = re.sub(r"\d+", "", c_t_lower.strip())

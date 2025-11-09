@@ -148,6 +148,6 @@ olympicss["fis nordic world ski championships medalists"] = "فائزون بمي
 for olmp, olmp_lab in olympicss.items():
     pop_All_2018[olmp] = olmp_lab
 
-Lenth: Dict[str, int] = {}
-Lenth["pop_All_2018"] = sys.getsizeof(pop_All_2018)
-len_print.lenth_pri("make2_bots.matables_bots/bot_2018.py", Lenth, Max=10)
+len_print.lenth_pri("make2_bots.matables_bots/bot_2018.py", {
+    "pop_All_2018" : sys.getsizeof(pop_All_2018)
+}, Max=10)
