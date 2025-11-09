@@ -15,7 +15,7 @@ len_print.lenth_pri("Labels_Contry.py", Lentha)
 """
 
 import json
-from typing import Iterable, Mapping
+from typing import Any, List, Optional, Union, Iterable, Mapping
 from .printe_helper import make_str
 from humanize import naturalsize
 from ..config import print_settings
@@ -24,7 +24,7 @@ from .log import logger
 all_len = {}
 
 
-def format_size(key: str, value: int | float, lens) -> str:
+def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> str:
     if key in lens:
         return value
     return naturalsize(value, binary=True)
