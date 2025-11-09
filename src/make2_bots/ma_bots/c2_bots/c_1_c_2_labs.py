@@ -15,7 +15,8 @@ from ...matables_bots.bot_2018 import pop_All_2018
 from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
 from ...media_bots.films_bot import test_films
-from ...o_bots import bys, teams_new_bot, parties_bot
+from ...o_bots import bys, parties_bot
+from ...sports_bots import teams_new_bot
 from ...p17_bots import nats
 from ...sports_bots import team_work
 from .. import contry2_lab, contry_bot
