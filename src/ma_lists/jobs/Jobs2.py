@@ -11,9 +11,9 @@ explains the intent of each transformation.
 from __future__ import annotations
 
 import logging
-from typing import Iterable, Mapping, Tuple
+from typing import Mapping
 
-from .jobs_defs import GenderedLabel, GenderedLabelMap, gendered_label, load_gendered_label_map
+from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 from ..utils.json_dir import open_json
 LOGGER = logging.getLogger(__name__)
