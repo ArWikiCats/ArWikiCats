@@ -348,7 +348,7 @@ def _merge_maps(*maps: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
 
 FOOTBALL_KEYS_PLAYERS: GenderedLabelMap = open_json("jobs/jobs_Football_Keys_players.json") or {}
 
-JOBS_PLAYERS: GenderedLabelMap = open_json("jobs/JOBS_PLAYERS.json") or {}
+JOBS_PLAYERS: GenderedLabelMap = open_json("jobs/Jobs_players.json") or {}
 
 JOBS_PLAYERS.setdefault("freestyle swimmers", {"mens": "سباحو تزلج حر", "womens": "سباحات تزلج حر"})
 
