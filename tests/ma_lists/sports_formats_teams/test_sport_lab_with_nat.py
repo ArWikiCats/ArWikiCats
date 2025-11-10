@@ -33,7 +33,7 @@ def test_2() -> None:
 
 @pytest.mark.skip
 def test_3() -> None:
-    template_label1, sport_label1 = match_nat_new_team_xo_team_labels("Yemeni national xoxo teams", "softball")
+    template_label1, sport_label1 = match_nat_new_team_xo_team_labels("yemeni national xoxo teams", "softball")
     assert sport_label1 == "للكرة اللينة"
     assert template_label1 == "New team xoxo with nat"
 

@@ -4,7 +4,7 @@
 
 """
 import pytest
-from src.ma_lists.sports_formats_teams.sport_lab import Get_New_team_xo, Get_New_team_xo_normal
+from src.ma_lists.sports_formats_teams.sport_lab import Get_New_team_xo, Get_New_team_xo_normal, Get_Sport_Format_xo_en_ar_is_P17
 
 
 @pytest.mark.fast
@@ -76,3 +76,10 @@ def test_all():
     for category, expected_key in data.items():
         result = Get_New_team_xo(category)
         assert result.strip() == expected_key, f"Mismatch for {category}"
+
+
+@pytest.mark.fast
+def test_Get_Sport_Format_xo_en_ar_is_P17() -> None:
+
+    label = Get_Sport_Format_xo_en_ar_is_P17("winter olympics softball")
+    assert label.strip() == "كرة لينة {} في الألعاب الأولمبية الشتوية"
