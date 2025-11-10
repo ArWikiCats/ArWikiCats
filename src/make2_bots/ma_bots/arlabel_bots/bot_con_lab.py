@@ -11,7 +11,7 @@ from ...date_bots import year_lab
 from ...format_bots import for_table
 from ...fromnet import kooora
 from ...fromnet.wd_bot import find_wikidata
-from ...matables_bots.bot_2018 import get_pop_All_18
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...media_bots.films_bot import test_films
 from ...o_bots import bys
 from ...p17_bots import nats

@@ -11,7 +11,7 @@ from typing import Callable, List
 from ....helps.print_bot import print_put, output_test
 from ...date_bots import with_years_bot
 from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
-from ...matables_bots.bot_2018 import get_pop_All_18
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
 from ...media_bots.films_bot import test_films

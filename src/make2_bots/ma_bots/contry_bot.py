@@ -33,7 +33,7 @@ from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.centries_bot import centries_years_dec
 from ...ma_lists import pop_of_without_in
 from ...ma_lists import Jobs_key
-from ..matables_bots.bot_2018 import get_pop_All_18
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ... import app_settings
 Get_contry_done: Dict[str, str] = {}

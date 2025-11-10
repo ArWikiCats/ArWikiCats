@@ -9,7 +9,7 @@ python3 core8/pwb.py make/make2_bots.ma_bots/contry2_bot
 from typing import Any
 
 from ...helps.print_bot import print_put
-from ..matables_bots.bot_2018 import get_pop_All_18
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import test_films

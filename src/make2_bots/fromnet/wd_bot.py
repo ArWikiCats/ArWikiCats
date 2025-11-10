@@ -10,7 +10,7 @@ from ...helps.print_bot import print_put
 from ...ma_lists import New_P17_Finall
 from ...ma_lists import Ambassadors_tab
 from ..matables_bots.centries_bot import centries_years_dec
-from ..matables_bots.bot_2018 import Add_to_pop_All_18, get_pop_All_18
+from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18, get_pop_All_18
 
 WIKIDATA_CACHE: Dict[str, str] = {}
 

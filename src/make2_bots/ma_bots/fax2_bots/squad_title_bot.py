@@ -12,7 +12,7 @@ from ....ma_lists import New_P17_Finall
 from ...fromnet.wd_bot import find_wikidata
 
 from ...matables_bots.bot import All_P17
-from ...matables_bots.bot_2018 import get_pop_All_18
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
 
 from ....helps.print_bot import print_def_head, print_put
 

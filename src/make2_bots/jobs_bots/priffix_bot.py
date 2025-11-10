@@ -13,7 +13,7 @@ from ...ma_lists import (
 from ...ma_lists import By_table
 from ...ma_lists import replace_labels_2022, change_male_to_female, Mens_suffix, Mens_priffix, Women_s_priffix
 
-from ..matables_bots.bot_2018 import get_pop_All_18
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import output_test4
 
 priffix_Mens_work_cash: Dict[str, str] = {}

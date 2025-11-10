@@ -6,7 +6,7 @@ from ...matables_bots.table1_bot import table1get, get_KAKO
 """
 import functools
 from typing import Dict
-from .bot_2018 import pop_All_2018
+from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ...helps.print_bot import output_test
 from .bot import Films_O_TT, New_players
 

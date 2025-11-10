@@ -14,7 +14,7 @@ from ..date_bots import year_lab
 from ..format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..fromnet import kooora
 from ..fromnet.wd_bot import find_wikidata
-from ..matables_bots.bot_2018 import get_pop_All_18
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..o_bots import univer
 
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'

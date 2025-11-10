@@ -11,7 +11,7 @@ from ...ma_lists import pop_of_without_in
 
 from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 
-from ..matables_bots.bot_2018 import get_pop_All_18
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import (
     New_players,
     Table_for_frist_word,

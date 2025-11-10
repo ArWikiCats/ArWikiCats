@@ -11,7 +11,7 @@ lab = ye_ts_bot.translate_general_category()
 
 import re
 from ...fix import fixtitle
-from ..matables_bots.bot_2018 import get_pop_All_18
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put
 from ..format_bots import Tit_ose_Nmaes
 from ..date_bots import year_lab
