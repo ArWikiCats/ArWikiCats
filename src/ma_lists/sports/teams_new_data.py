@@ -2,11 +2,9 @@
 """
 
 """
-import sys
-
-from .sports_lists import AFTER_KEYS, PPP_Keys
+from .sports_lists import AFTER_KEYS
 from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Jobs, Sports_Keys_For_olympic
-from ..jobs.jobs_players_list import Football_Keys_players
+from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ...helps import len_print
 
 Teams_new = {
@@ -40,9 +38,6 @@ Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # sports.py: len:"sport_formts_female_nat":  559982  , len:"sport_formts_en_ar_is_p17":  564640  , len:"Teams_new":  696189
 # ---
 # Sports_Keys_For_Jobs["judo"] = "جودو"
-# ---
-# for typee in PPP_Keys:
-# Teams_new["{} sports".format(typee) ] = "رياضات {}".format( PPP_Keys[typee])
 # ---
 for hg, hga in Sports_Keys_For_Jobs.items():
     # Teams_new[hg] = hga
@@ -116,7 +111,17 @@ for mem, labe in Sports_Keys_For_Label.items():
 # ---
 Teams_new["international competitions"] = "منافسات دولية"
 # ---
-New_With_Women = dict(Sports_Keys_For_Jobs)
+PPP_Keys = {
+    "men's": "رجالية",  # للرجال
+    "women's": "نسائية",  # للسيدات
+    "youth": "شبابية",  # للشباب
+    "men's youth": "للشباب",  # للشابات
+    "women's youth": "للشابات",  # للشابات
+    "amateur": "للهواة",  # للهواة
+}
+# ---
+# New_With_Women = dict(Sports_Keys_For_Jobs)
+New_With_Women = {}
 # ---
 for team, job_label in Sports_Keys_For_Jobs.items():
     # ---
@@ -129,12 +134,12 @@ for sport, LAAP in New_With_Women.items():
         llab = AFTER_KEYS[after]
         Teams_new[f"{sport} {after}"] = f"{llab} {LAAP}"
     # ---
-    for after in Football_Keys_players:
+    for after in FOOTBALL_KEYS_PLAYERS:
         PP_o = f"{sport} {after}"
         # ---
-        llab = Football_Keys_players[after]["mens"]
+        llab = FOOTBALL_KEYS_PLAYERS[after]["mens"]
         if PP_o.find("women's") != -1:
-            llab = Football_Keys_players[after]["womens"]
+            llab = FOOTBALL_KEYS_PLAYERS[after]["womens"]
         # ---
         Teams_new[PP_o] = f"{llab} {LAAP}"
 # ---
@@ -142,6 +147,7 @@ Teams_new["men's footballers"] = "لاعبو كرة قدم رجالية"
 # ---
 len_print.data_len("sports.py", {
     "Teams_new": Teams_new,
+    "New_With_Women": New_With_Women,
 })
 # ---
 __all__ = [

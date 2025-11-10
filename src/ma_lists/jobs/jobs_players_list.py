@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-from .jobs_players_list import Jobs_players, Football_Keys_players, players_to_Men_Womens_Jobs, Female_Jobs_to
+from .jobs_players_list import Jobs_players, FOOTBALL_KEYS_PLAYERS, players_to_Men_Womens_Jobs, Female_Jobs_to
 
 """
 from ..utils.json_dir import open_json
@@ -17,9 +17,8 @@ from ..sports.Sport_key import (
 Female_Jobs_to = {}
 players_to_Men_Womens_Jobs = {}
 # ---
-Football_Keys_players = open_json("jobs/jobs_Football_Keys_players.json") or {}
+FOOTBALL_KEYS_PLAYERS = open_json("jobs/jobs_Football_Keys_players.json") or {}
 # ---
-Football_Keys_players_x = {}
 # "punters": {"mens":"", "womens":""},
 # "return specialists": {"mens":"", "womens":""},
 # "long snappers": {"mens":"", "womens":""},
@@ -257,7 +256,7 @@ for sop, spor_lab in Sports_Keys_For_Jobs.items():
     # ---
     # players_to_Men_Womens_Jobs[ f"{sop2} champions"  ] = { "mens":"أبطال %s " % spor_lab ,"womens":""}
     # ---
-    for ty, ty_la in Football_Keys_players.items():
+    for ty, ty_la in FOOTBALL_KEYS_PLAYERS.items():
         y_mens = ty_la["mens"]
         y_womens = ty_la["womens"]
         # ---
@@ -300,7 +299,7 @@ for sop, spor_lab in Sports_Keys_For_Jobs.items():
     # players_to_Men_Womens_Jobs["men's {} players".format(sop2)] = {"mens":"لاعبو {} رجالية".format(spor_lab) ,"womens":"لاعبات {} رجالية".format(spor_lab)}
     # Female_Jobs2["women's {} players".format(sop2)] = "لاعبات {} نسائية".format(spor_lab)
     # ---
-    for ko, ko_tab in Football_Keys_players.items():
+    for ko, ko_tab in FOOTBALL_KEYS_PLAYERS.items():
         mens = ko_tab["mens"]
         womens = ko_tab["womens"]
         ko2 = ko.lower()
@@ -311,6 +310,5 @@ for sop, spor_lab in Sports_Keys_For_Jobs.items():
         players_to_Men_Womens_Jobs[hghg]["womens"] = f"{womens} {spor_lab}"
 
 FEMALE_JOBS_TO = Female_Jobs_to
-FOOTBALL_KEYS_PLAYERS = Football_Keys_players
 JOBS_PLAYERS = Jobs_players
 PLAYERS_TO_MEN_WOMENS_JOBS= players_to_Men_Womens_Jobs
