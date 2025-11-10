@@ -268,6 +268,7 @@ P17_fdd = {}
 
 memory_stats = {
     "COUNTRY_LABEL_INDEX": COUNTRY_LABEL_INDEX,
+    "New_P17_Finall": COUNTRY_LABEL_INDEX,
     "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
     "the_keys": the_keys,
 }

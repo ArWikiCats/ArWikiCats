@@ -22,7 +22,7 @@ from ...matables_bots.bot import (
 from .dodo_2019 import work_2019
 from .mk2 import new_func_mk2
 from ..contry_bot import Get_contry
-from ...matables_bots.bot_2018 import pop_All_2018
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
 from ....helps.print_bot import print_put, output_test
 
@@ -114,7 +114,7 @@ def make_lab_dodo(
     country_label = ""
 
     if contry:
-        country_label = pop_All_2018.get(contry, "")
+        country_label = get_pop_All_18(contry, "")
 
         if not country_label:
             country_label = Get_contry(contry_not_lower)

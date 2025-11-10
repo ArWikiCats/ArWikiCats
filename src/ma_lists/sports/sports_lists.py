@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from .sports_lists import levels, AFTER_KEYS, AFTER_KEYS_TEAM, AFTER_KEYS_NAT, menstt333, nat_menstt33, PPP_Keys, New_Tato_nat
+!
 """
 
 # ---
@@ -56,15 +56,6 @@ for template_key, template_label in nat_menstt33.items():
         New_Tato_nat[english_key] = arabic_label
 # ---
 # =================
-# ---
-PPP_Keys = {
-    "men's": "رجالية",  # للرجال
-    "women's": "نسائية",  # للسيدات
-    "youth": "شبابية",  # للشباب
-    "men's youth": "للشباب",  # للشابات
-    "women's youth": "للشابات",  # للشابات
-    "amateur": "للهواة",  # للهواة
-}
 # ---
 levels = {
     "premier": "الدرجة الممتازة",

@@ -5,9 +5,6 @@ from ..ma_bots import event_lab_bot
 
 """
 
-import re
-import sys
-
 from ... import malists_sport_lab as sport_lab
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
@@ -17,7 +14,7 @@ from ..date_bots import year_lab
 from ..format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..fromnet import kooora
 from ..fromnet.wd_bot import find_wikidata
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..o_bots import univer
 
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
@@ -25,8 +22,6 @@ from ..o_bots import univer
 from . import fax2, list_cat_format, ye_ts_bot
 from .contry2_bot import Get_contry2
 from .lab_seoo_bot import event_Lab_seoo
-
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def event_Lab(cate_r: str) -> str:
@@ -75,7 +70,7 @@ def event_Lab(cate_r: str) -> str:
         category_lab = sport_lab.Get_New_team_xo(category3)
 
     if category_lab == "" and Find_wd:
-        category_lab = pop_All_2018.get(category3, "")
+        category_lab = get_pop_All_18(category3, "")
 
     if list_of_cat == "" and category_lab == "":
         # print("translate_general_category 10")
@@ -86,8 +81,6 @@ def event_Lab(cate_r: str) -> str:
 
     if category_lab == "" and Find_ko:
         category_lab = kooora.kooora_team(category3)
-        if category_lab and category_lab and re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
-            pop_All_2018.get({category3.lower(): category_lab})
 
     if category_lab == "" and Find_wd:
         category_lab = find_wikidata(category3)

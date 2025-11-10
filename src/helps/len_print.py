@@ -43,9 +43,10 @@ def dump_all_len(file):
     }
     for x, v in all_len.items():
         for var, tab in v.items():
-            all_len_save["by_count"].setdefault(var, tab["count"])
+            # all_len_save["by_count"].setdefault(var, tab["count"])
+            all_len_save["by_count"].setdefault(var, f"{tab['count']:,}")
 
-    all_len_save["by_count"] = dict(sorted(all_len_save["by_count"].items(), key=lambda item: item[1], reverse=True))
+    all_len_save["by_count"] = dict(sorted(all_len_save["by_count"].items(), key=lambda item: int(item[1].replace(",","")), reverse=True))
 
     with open(file, "w", encoding="utf-8") as f:
         json.dump(all_len_save, f, ensure_ascii=False, indent=4)

@@ -14,7 +14,7 @@ from ...ma_lists import Clubs_key_2
 from ...ma_lists import Inter_Feds_lower
 from ...ma_lists import pop_of_football_lower
 from ..jobs_bots import test_4
-from ..matables_bots.bot_2018 import Add_to_pop_All_18
+from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
 
 # from ...ma_lists import pop_of_football_lower
 # ---

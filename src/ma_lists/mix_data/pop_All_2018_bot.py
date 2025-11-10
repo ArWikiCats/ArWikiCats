@@ -3,6 +3,7 @@
 pop_All_2018
 """
 # ---
+from typing import Dict
 from ..utils.json_dir import open_json_file
 from ..sports.olympics_data import olympics
 from ..mixed.all_keys2 import pf_keys2
@@ -14,53 +15,24 @@ from ..by_type import By_table
 from ..sports.teams_new_data import Teams_new
 
 
-def load_pop_All_2018() -> None:
+def load_pop_All_2018() -> Dict[str, str]:
+    # result: 524266 item
+    data = open_json_file("pop_All_2018") or {}     # 161
 
-    data = open_json_file("data") or {}
-
-    for gg, gg_lab in pf_keys2.items():
-        gg2 = gg.lower()
-        if not data.get(gg2):
-            data[gg2] = gg_lab
-
-    for pla in Jobs_new:
-        pla2 = pla.lower()
-        if Jobs_new[pla]:
-            if not data.get(pla2):
-                data[pla2] = Jobs_new[pla]
-    for pla in Jobs_key:
-        pla2 = pla.lower()
-        if Jobs_key[pla]:
-            if not data.get(pla2):
-                data[pla2] = Jobs_key[pla]
-
-    for cyi in films_mslslat_tab:
-        cyi2 = cyi.lower()
-        if not data.get(cyi2):
-            data[cyi2] = films_mslslat_tab[cyi]
-
-    for by in By_table:
-        by2 = by.lower()
-        if By_table[by]:
-            if not data.get(by2):
-                data[by2] = By_table[by]
-
-    for paa, taba in Teams_new.items():
-        paa2 = paa.lower()
-        if taba:
-            if not data.get(paa2):
-                data[paa2] = taba
-
-    for xo in list(New_P17_Finall):
-        xo2 = xo.lower()
-        if not data.get(xo2):
-            data[xo2] = New_P17_Finall[xo]
-
-    for paa in Sports_Keys_For_Label:
-        paa2 = paa.lower()
-        if Sports_Keys_For_Label[paa]:
-            if not data.get(paa2):
-                data[paa2] = Sports_Keys_For_Label[paa]
+    sources = [
+        pf_keys2,               # 26,557
+        Jobs_new,               # 134,421
+        Jobs_key,               # 132,864
+        films_mslslat_tab,      # 2,480
+        By_table,               # 15,899
+        Teams_new,              # 373,927
+        New_P17_Finall,         # 62,671
+        Sports_Keys_For_Label,  # 687
+    ]
+    for source in sources:
+        for pla, value in source.items():
+            if value:
+                data.setdefault(pla.lower(), value)
 
     # data["conflicts"] = "نزاعات"
     data["by country"] = "حسب البلد"

@@ -32,7 +32,7 @@ from .Jobs2 import Jobs_2
 from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
 from .jobs_players_list import (
     Female_Jobs_to,
-    Football_Keys_players,
+    FOOTBALL_KEYS_PLAYERS,
     players_to_Men_Womens_Jobs,
 )
 from .jobs_singers import MEN_WOMENS_SINGERS, FILMS_TYPE
@@ -158,7 +158,7 @@ for job_name, gender_labels in Jobs_2020.items():
         if job_name.lower() not in MenWomensJobsPP:
             MenWomensJobsPP[job_name.lower()] = gender_labels
 # ---
-for player_category, player_labels in Football_Keys_players.items():
+for player_category, player_labels in FOOTBALL_KEYS_PLAYERS.items():
     if player_category.lower() not in MenWomensJobsPP:
         MenWomensJobsPP[player_category.lower()] = player_labels
 # ---

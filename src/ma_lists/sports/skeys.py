@@ -2,10 +2,8 @@
 """
 
 """
-import sys
 from ...helps import len_print
-
-from .sports_lists import nat_menstt33, PPP_Keys, New_Tato_nat
+from .sports_lists import nat_menstt33, New_Tato_nat
 from ..sports_formats_teams.team_job import sf_en_ar_is_p17
 from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs
 
@@ -36,14 +34,6 @@ Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # Sports_Keys_For_Jobs["association football"] = "هوكي جليد"
 # ---
 Sports_Keys_For_Jobs["sports"] = "رياضية"
-# ---
-New_With_Women = dict(Sports_Keys_For_Jobs)
-# ---
-for team, job_label in Sports_Keys_For_Jobs.items():
-    # ---
-    for PP in PPP_Keys:
-        LPPPo = f"{job_label} {PPP_Keys[PP]}"
-        New_With_Women[f"{PP} {team}"] = f"{job_label} {PPP_Keys[PP]}"
 # ---
 # sport_formts_en_ar_is_p17#Sports_Format_en_is_P17_ar_P17
 # sport_formts_female_nat
@@ -208,7 +198,6 @@ Lenth1 = {
     "sport_formts_en_p17_ar_nat": sport_formts_en_p17_ar_nat,
     "nat_menstt33": nat_menstt33,
     "New_Tato_nat": New_Tato_nat,
-    "New_With_Women": New_With_Women,
 }
 # ---
 len_print.data_len("sports.py", Lenth1)

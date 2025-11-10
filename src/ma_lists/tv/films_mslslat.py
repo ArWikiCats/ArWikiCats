@@ -535,7 +535,10 @@ for en, tab in Films_keys_male_female.items():
         # ---
         Films_keys_both_new[new_key] = {"male": new_lab_male, "female": new_lab_female}
 
+
 len_print.data_len("films_mslslat.py", {
+    "Films_key_For_nat": Films_key_For_nat,
+    "films_mslslat_tab": films_mslslat_tab,
     "third_Films_key_CAO": third_Films_key_CAO,
     "ss_Films_key_CAO": ss_Films_key_CAO,
     "vfvfv": vfvfv,

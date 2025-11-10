@@ -2,7 +2,6 @@
 from  make.make2_bots.fromnet.wd_bot import find_wikidata
 """
 
-import sys
 from typing import Dict
 
 from .wd import find_name_from_wikidata
@@ -11,8 +10,7 @@ from ...helps.print_bot import print_put
 from ...ma_lists import New_P17_Finall
 from ...ma_lists import Ambassadors_tab
 from ..matables_bots.centries_bot import centries_years_dec
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..matables_bots.bot_2018 import Add_to_pop_All_18  # Add_to_pop_All_18(tab)
+from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18, get_pop_All_18
 
 WIKIDATA_CACHE: Dict[str, str] = {}
 
@@ -32,7 +30,7 @@ def find_wikidata(country: str) -> str:
         resolved_label = Ambassadors_tab.get(normalized_country, "")
 
     if not resolved_label:
-        resolved_label = pop_All_2018.get(normalized_country, "")
+        resolved_label = get_pop_All_18(normalized_country, "")
 
     if not resolved_label:
         resolved_label = centries_years_dec.get(normalized_country, "")

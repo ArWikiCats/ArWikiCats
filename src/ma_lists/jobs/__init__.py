@@ -30,15 +30,12 @@ from .jobs_players_list import (
     JOBS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,
     Female_Jobs_to,
-    Football_Keys_players,
     Jobs_players,
     players_to_Men_Womens_Jobs,
 )
 from .jobs_singers import (
     FILMS_TYPE,
     MEN_WOMENS_SINGERS,
-    MEN_WOMENS_SINGERS,
-    FILMS_TYPE,
 )
 
 __all__ = [
@@ -65,7 +62,6 @@ __all__ = [
     "JOBS_PLAYERS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "Female_Jobs_to",
-    "Football_Keys_players",
     "Jobs_players",
     "players_to_Men_Womens_Jobs",
     # Singer utilities

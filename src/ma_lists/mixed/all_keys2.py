@@ -16,6 +16,7 @@ from ..languages import languages_key, cccccc_m
 from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
 from ..jobs.jobs_singers import SINGERS_TAB
+from ...helps import len_print
 
 # ---
 query1 = """
@@ -583,3 +584,21 @@ mmmm = [
 # ---
 del pop_final_3
 del keys2_py
+
+len_print.data_len("all_keys2.py", {
+    "pf_keys2": pf_keys2,
+    "pop_of_without_in": pop_of_without_in,
+    "pop_of_football_lower": pop_of_football_lower,
+    "Word_After_Years": Word_After_Years,
+    "Books_table": Books_table,
+    "Books_type": Books_type,
+})
+
+__all__ = [
+    "pf_keys2",
+    "pop_of_without_in",
+    "pop_of_football_lower",
+    "Word_After_Years",
+    "Books_table",
+    "Books_type",
+]
