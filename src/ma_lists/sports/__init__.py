@@ -13,7 +13,7 @@ from .skeys import (
     sport_formts_female_nat,
 )
 
-from .Sport_key import fanco_line, Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
+from .Sport_key import Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
 from .olympics_data import olympics
 
 __all__ = [
@@ -28,7 +28,6 @@ __all__ = [
     "sport_formts_for_p17",
     "nat_p17_oioi",
     "summer_winter_games",
-    "fanco_line",
     "Sports_Keys_For_Team",
     "Sports_Keys_For_Label",
     "Sports_Keys_For_Jobs",

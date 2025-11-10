@@ -1,5 +1,5 @@
 """
-from .te3 import sport_formts_enar_p17_team, New_team_xo_team
+from .te3 import sport_formts_enar_p17_team, New_team_xo_team_labels
 """
 
 import re
@@ -10,7 +10,7 @@ from ..sports.sports_lists import AFTER_KEYS_TEAM, menstt333
 
 # ---
 sport_formts_enar_p17_team = {}
-New_team_xo_team = {}
+New_team_xo_team_labels = {}
 # ---
 # sf_en_ar_is_p17 لدمجها مع sport_formts_en_ar_is_p17 في sports.py
 sf_en_ar_is_p17 = {}
@@ -38,66 +38,66 @@ team2 = "xoxo"
 team2_lab = "xoxo"
 # ---
 if True:
-    New_team_xo_team["natar xoxo championships"] = "بطولة natar xoxo"
-    New_team_xo_team["ladies natar xoxo championships"] = "بطولة natar xoxo للسيدات"
-    New_team_xo_team["natar xoxo tour"] = "بطولة natar xoxo"
-    New_team_xo_team["natar xoxo tour"] = "بطولة natar xoxo"
-    New_team_xo_team["women's natar xoxo tour"] = "بطولة natar xoxo للسيدات"
-    New_team_xo_team["ladies natar xoxo tour"] = "بطولة natar xoxo للسيدات"
+    New_team_xo_team_labels["natar xoxo championships"] = "بطولة natar xoxo"
+    New_team_xo_team_labels["ladies natar xoxo championships"] = "بطولة natar xoxo للسيدات"
+    New_team_xo_team_labels["natar xoxo tour"] = "بطولة natar xoxo"
+    New_team_xo_team_labels["natar xoxo tour"] = "بطولة natar xoxo"
+    New_team_xo_team_labels["women's natar xoxo tour"] = "بطولة natar xoxo للسيدات"
+    New_team_xo_team_labels["ladies natar xoxo tour"] = "بطولة natar xoxo للسيدات"
     # ---
-    # New_team_xo_team["asian xoxo tour"] =  "بطولة آسيا xoxo"
-    # New_team_xo_team["women's asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
-    # New_team_xo_team["ladies asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
+    # New_team_xo_team_labels["asian xoxo tour"] =  "بطولة آسيا xoxo"
+    # New_team_xo_team_labels["women's asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
+    # New_team_xo_team_labels["ladies asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
     # ---
     sport_formts_enar_p17_team["xoxo league"] = "دوري {} xoxo "
     sport_formts_enar_p17_team["professional xoxo league"] = "دوري {} xoxo للمحترفين"
     # ---tournaments
-    New_team_xo_team["world champion national xoxo teams"] = "أبطال بطولة العالم xoxo"
+    New_team_xo_team_labels["world champion national xoxo teams"] = "أبطال بطولة العالم xoxo"
     # ---
     for ioi in ["championships", "championship"]:
-        New_team_xo_team[f"world xoxo {ioi} competitors"] = "منافسو بطولة العالم xoxo"
-        New_team_xo_team[f"world xoxo {ioi} medalists"] = "فائزون بميداليات بطولة العالم xoxo"
+        New_team_xo_team_labels[f"world xoxo {ioi} competitors"] = "منافسو بطولة العالم xoxo"
+        New_team_xo_team_labels[f"world xoxo {ioi} medalists"] = "فائزون بميداليات بطولة العالم xoxo"
         # outdoor
-        New_team_xo_team[f"world wheelchair xoxo {ioi}"] = "بطولة العالم xoxo على الكراسي المتحركة"
-        New_team_xo_team[f"world xoxo {ioi}"] = "بطولة العالم xoxo"
+        New_team_xo_team_labels[f"world wheelchair xoxo {ioi}"] = "بطولة العالم xoxo على الكراسي المتحركة"
+        New_team_xo_team_labels[f"world xoxo {ioi}"] = "بطولة العالم xoxo"
 
-        New_team_xo_team[f"xoxo world {ioi}"] = "بطولة العالم xoxo"
+        New_team_xo_team_labels[f"xoxo world {ioi}"] = "بطولة العالم xoxo"
 
-        New_team_xo_team[f"world junior xoxo {ioi}"] = "بطولة العالم %s xoxo للناشئين"
-        New_team_xo_team[f"world xoxo junior {ioi}"] = "بطولة العالم %s xoxo للناشئين"
-        New_team_xo_team[f"xoxo world junior {ioi}"] = "بطولة العالم %s xoxo للناشئين"
-        New_team_xo_team[f"xoxo junior world {ioi}"] = "بطولة العالم %s xoxo للناشئين"
+        New_team_xo_team_labels[f"world junior xoxo {ioi}"] = "بطولة العالم %s xoxo للناشئين"
+        New_team_xo_team_labels[f"world xoxo junior {ioi}"] = "بطولة العالم %s xoxo للناشئين"
+        New_team_xo_team_labels[f"xoxo world junior {ioi}"] = "بطولة العالم %s xoxo للناشئين"
+        New_team_xo_team_labels[f"xoxo junior world {ioi}"] = "بطولة العالم %s xoxo للناشئين"
 
-        New_team_xo_team[f"world outdoor xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
-        New_team_xo_team[f"outdoor world xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
+        New_team_xo_team_labels[f"world outdoor xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
+        New_team_xo_team_labels[f"outdoor world xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
 
-        New_team_xo_team[f"world amateur xoxo {ioi}"] = "بطولة العالم xoxo للهواة"
-        New_team_xo_team[f"world xoxo amateur {ioi}"] = "بطولة العالم xoxo للهواة"
-        New_team_xo_team[f"xoxo world amateur {ioi}"] = "بطولة العالم xoxo للهواة"
-        New_team_xo_team[f"xoxo amateur world {ioi}"] = "بطولة العالم xoxo للهواة"
+        New_team_xo_team_labels[f"world amateur xoxo {ioi}"] = "بطولة العالم xoxo للهواة"
+        New_team_xo_team_labels[f"world xoxo amateur {ioi}"] = "بطولة العالم xoxo للهواة"
+        New_team_xo_team_labels[f"xoxo world amateur {ioi}"] = "بطولة العالم xoxo للهواة"
+        New_team_xo_team_labels[f"xoxo amateur world {ioi}"] = "بطولة العالم xoxo للهواة"
 
-        New_team_xo_team[f"world youth xoxo {ioi}"] = "بطولة العالم xoxo للشباب"
-        New_team_xo_team[f"world xoxo youth {ioi}"] = "بطولة العالم xoxo للشباب"
-        New_team_xo_team[f"xoxo world youth {ioi}"] = "بطولة العالم xoxo للشباب"
-        New_team_xo_team[f"xoxo youth world {ioi}"] = "بطولة العالم xoxo للشباب"
+        New_team_xo_team_labels[f"world youth xoxo {ioi}"] = "بطولة العالم xoxo للشباب"
+        New_team_xo_team_labels[f"world xoxo youth {ioi}"] = "بطولة العالم xoxo للشباب"
+        New_team_xo_team_labels[f"xoxo world youth {ioi}"] = "بطولة العالم xoxo للشباب"
+        New_team_xo_team_labels[f"xoxo youth world {ioi}"] = "بطولة العالم xoxo للشباب"
 
-        New_team_xo_team[f"men's xoxo {ioi}"] = "بطولة xoxo للرجال"
-        New_team_xo_team[f"women's xoxo {ioi}"] = "بطولة %s xoxo للسيدات"
+        New_team_xo_team_labels[f"men's xoxo {ioi}"] = "بطولة xoxo للرجال"
+        New_team_xo_team_labels[f"women's xoxo {ioi}"] = "بطولة %s xoxo للسيدات"
 
-        New_team_xo_team[f"men's xoxo world {ioi}"] = "بطولة العالم xoxo للرجال"
-        New_team_xo_team[f"women's xoxo world {ioi}"] = "بطولة العالم %s xoxo للسيدات"
+        New_team_xo_team_labels[f"men's xoxo world {ioi}"] = "بطولة العالم xoxo للرجال"
+        New_team_xo_team_labels[f"women's xoxo world {ioi}"] = "بطولة العالم %s xoxo للسيدات"
 
     # ---World champion national
-    New_team_xo_team["international xoxo council"] = "المجلس الدولي xoxo"
-    New_team_xo_team["xoxo world cup"] = "كأس العالم xoxo"
-    New_team_xo_team["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
+    New_team_xo_team_labels["international xoxo council"] = "المجلس الدولي xoxo"
+    New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
+    New_team_xo_team_labels["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
 
-    New_team_xo_team["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
-    New_team_xo_team["youth xoxo world cup"] = "كأس العالم xoxo للشباب"
-    New_team_xo_team["men's xoxo world cup"] = "كأس العالم xoxo للرجال"
+    New_team_xo_team_labels["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
+    New_team_xo_team_labels["youth xoxo world cup"] = "كأس العالم xoxo للشباب"
+    New_team_xo_team_labels["men's xoxo world cup"] = "كأس العالم xoxo للرجال"
 
-    New_team_xo_team["women's xoxo world cup"] = "كأس العالم %s xoxo للسيدات"
-    New_team_xo_team["women's xoxo world cup tournaments"] = "بطولات كأس العالم %s xoxo للسيدات"
+    New_team_xo_team_labels["women's xoxo world cup"] = "كأس العالم %s xoxo للسيدات"
+    New_team_xo_team_labels["women's xoxo world cup tournaments"] = "بطولات كأس العالم %s xoxo للسيدات"
     # ---
     sport_formts_enar_p17_team["amateur xoxo cup"] = "كأس {} xoxo للهواة"
     sport_formts_enar_p17_team["youth xoxo cup"] = "كأس {} xoxo للشباب"
@@ -187,5 +187,5 @@ if True:
 
 len_print.data_len("te3.py", {
     "sport_formts_enar_p17_team": sport_formts_enar_p17_team,
-    "New_team_xo_team": New_team_xo_team,
+    "New_team_xo_team_labels": New_team_xo_team_labels,
 })

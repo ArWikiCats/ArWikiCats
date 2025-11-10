@@ -18,8 +18,6 @@ from ....helps.print_bot import print_def_head, print_put
 
 
 def get_squad_title(tit: str) -> str:
-    lab = ""
-
     lab = sport_lab.Get_New_team_xo(tit)
 
     if not lab:

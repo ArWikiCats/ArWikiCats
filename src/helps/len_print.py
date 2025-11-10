@@ -22,6 +22,8 @@ def save_data(bot, tab):
     bot_path.mkdir(parents=True, exist_ok=True)
 
     for name, data in tab.items():
+        if not data:
+            continue
         if isinstance(data, dict) or isinstance(data, list):
             # sort data by key
             # ---

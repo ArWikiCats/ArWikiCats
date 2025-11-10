@@ -2,9 +2,11 @@
 
 """
 
+from .utils.match_sport_keys import match_sport_key
 from .sports.olympics_data import olympics
-from .sports import Teams_new, sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
-from .sports.Sport_key import fanco_line, Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
+from .sports.teams_new_data import Teams_new
+from .sports import sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
+from .sports.Sport_key import Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
 from .sports.nat_p17 import sport_formts_for_p17, nat_p17_oioi
 
 from .sports.games_labs import summer_winter_games
@@ -61,6 +63,7 @@ from .mixed.test_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_
 from .utils.json_dir import open_json_file
 
 __all__ = [
+    "match_sport_key",
     "olympics",
     "open_json_file",
     "en_nats_to_ar_label",
@@ -95,7 +98,6 @@ __all__ = [
     "ar_Nat_men",
     "nats_to_add",
     #
-    "fanco_line",
     "Sports_Keys_For_Team",
     "Sports_Keys_For_Label",
     "Sports_Keys_For_Jobs",

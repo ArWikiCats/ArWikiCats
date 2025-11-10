@@ -23,9 +23,9 @@ Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
 # ---
 # قبل تعديل national
-# sports.py: len:"sport_formts_female_nat":  1359170  , len:"sport_formts_en_ar_is_p17":  1359224  , len:"Teams_new":  1496011
+# sports.py: len:"sport_formts_female_nat":  1359170  , len:"sport_formts_en_ar_is_p17":  1359224  , len:"Teams new":  1496011
 # بعد التعديل
-# sports.py: len:"sport_formts_female_nat":  559982  , len:"sport_formts_en_ar_is_p17":  564640  , len:"Teams_new":  696189
+# sports.py: len:"sport_formts_female_nat":  559982  , len:"sport_formts_en_ar_is_p17":  564640  , len:"Teams new":  696189
 # ---
 # Sports_Keys_For_Jobs["judo"] = "جودو"
 # ---
