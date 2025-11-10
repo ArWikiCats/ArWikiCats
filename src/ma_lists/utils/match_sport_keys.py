@@ -56,6 +56,5 @@ def match_sport_key(category: str):
 
 
 __all__ = [
-    "load_keys_to_pattern",
     "match_sport_key",
 ]
