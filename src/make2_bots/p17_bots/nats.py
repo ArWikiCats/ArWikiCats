@@ -3,8 +3,8 @@ from ..p17_bots import nats
 """
 
 import re
-from ...ma_lists import sport_formts_for_p17, nat_p17_oioi
-from ...ma_lists import fanco_line, Sports_Keys_For_Team
+from ...ma_lists import sport_formts_for_p17, nat_p17_oioi, match_sport_key
+from ...ma_lists import Sports_Keys_For_Team
 from ..matables_bots.bot import New_players, Add_to_main2_tab  # Add_to_main2_tab()
 from ... import malists_sport_lab as sport_lab
 from ...ma_lists import All_Nat, Nat_women
@@ -26,11 +26,12 @@ def make_sport_formats_p17(category_key: str) -> str:
         return cached_label
 
     resolved_label = ""
-    sport_match = re.match(fanco_line, category_key, flags=re.IGNORECASE)
-    if not sport_match:
+    # ---
+    sport_key = match_sport_key(category_key)
+    # ---
+    if not sport_key:
         return ""
 
-    sport_key = sport_match.group(1)
     sport_label = ""
     placeholder_template = ""
 

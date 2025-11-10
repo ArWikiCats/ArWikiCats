@@ -23,6 +23,7 @@ import functools
 from typing import Dict
 from ...helps import len_print
 from ...ma_lists import pop_All_2018_bot
+from .teamsnew_bot import get_teams_new
 
 
 @functools.lru_cache(maxsize=1)
@@ -37,9 +38,18 @@ def Add_to_pop_All_18(tab: Dict[str, str]) -> None:
 
 
 @functools.lru_cache(maxsize=None)
-def get_pop_All_18(key: str, default: str = "") -> str:
+def _get_pop_All_18(key: str, default: str = "") -> str:
     pop_All_2018 = lazy_load()
-    return pop_All_2018.get(key, default)
+    result = pop_All_2018.get(key, default)
+    return result
+
+
+@functools.lru_cache(maxsize=None)
+def get_pop_All_18(key: str, default: str = "") -> str:
+    # ---
+    result = _get_pop_All_18(key, default) or get_teams_new(key, default)
+    # ---
+    return result
 
 
 pop_All_2018 = {}  # 524266

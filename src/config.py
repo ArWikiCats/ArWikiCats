@@ -5,7 +5,7 @@ from dataclasses import dataclass
 argv_lower = [x.lower() for x in sys.argv]
 
 
-all_params = []
+all_params = ["NOKOOORA", "NOWIKIDATA"]
 
 
 def one_req(name: str) -> bool:
@@ -50,8 +50,8 @@ settings = Config(
         noprint=noprint_flag,
     ),
     app=AppConfig(
-        enable_wikidata=not one_req("NOWIKIDATA"),
-        enable_kooora=not one_req("NOKOOORA"),
+        enable_wikidata=one_req("ENABLE_WIKIDATA"),
+        enable_kooora=one_req("ENABLE_KOOORA"),
         start_yementest=one_req("YEMENTEST"),
         find_stubs=one_req("-STUBS"),
         makeerr=one_req("MAKEERR"),
