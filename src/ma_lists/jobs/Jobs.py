@@ -31,9 +31,9 @@ from ..tv.films_mslslat import Films_key_For_Jobs
 from .Jobs2 import Jobs_2
 from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
 from .jobs_players_list import (
-    Female_Jobs_to,
+    FEMALE_JOBS_TO,
     FOOTBALL_KEYS_PLAYERS,
-    players_to_Men_Womens_Jobs,
+    PLAYERS_TO_MEN_WOMENS_JOBS,
 )
 from .jobs_singers import MEN_WOMENS_SINGERS, FILMS_TYPE
 
@@ -301,9 +301,9 @@ Female_Jobs2["sportswomen"] = "رياضيات"
 # migrations    الهجرة
 # emigration  النزوح
 # ---
-for sports_category, sports_labels in players_to_Men_Womens_Jobs.items():
+for sports_category, sports_labels in PLAYERS_TO_MEN_WOMENS_JOBS.items():
     Men_Womens_Jobs[sports_category] = sports_labels
-for female_job_key, female_job_label in Female_Jobs_to.items():
+for female_job_key, female_job_label in FEMALE_JOBS_TO.items():
     Female_Jobs2[female_job_key] = female_job_label
 # ---
 typi = {

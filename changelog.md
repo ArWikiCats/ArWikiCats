@@ -1,4 +1,7 @@
 
+## [#44](https://github.com/MrIbrahem/make2_new/pull/44) - 2025-11-10
+* **Refactor [jobs_players_list.py](src/ma_lists/jobs/jobs_players_list.py)**
+
 ## [#42](https://github.com/MrIbrahem/make2_new/pull/42) - 2025-11-10
 
 * **Refactor**
