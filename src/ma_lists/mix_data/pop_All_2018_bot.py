@@ -12,7 +12,7 @@ from ..tv.films_mslslat import films_mslslat_tab
 from ..jobs.Jobs import Jobs_new, Jobs_key
 from ..sports.Sport_key import Sports_Keys_For_Label
 from ..by_type import By_table
-from ..sports.teams_new_data import Teams_new
+# from ..sports.teams_new_data import Teams_new
 
 
 def load_pop_All_2018() -> Dict[str, str]:
@@ -25,7 +25,7 @@ def load_pop_All_2018() -> Dict[str, str]:
         Jobs_key,               # 132,864
         films_mslslat_tab,      # 2,480
         By_table,               # 15,899
-        Teams_new,              # 373,927
+        # Teams_new,              # 373,927
         New_P17_Finall,         # 62,671
         Sports_Keys_For_Label,  # 687
     ]
