@@ -7,73 +7,33 @@ import re
 import pytest
 from typing import Dict, Optional, Tuple
 
-TEMPLATES_TEAMS: Dict[str, str] = {}
 
-# Base data
-BASE_FORMATS = {
-    "world cup": "كأس العالم",
-    "world championship": "بطولة العالم",
-    "asian championship": "بطولة آسيا",
-    "league": "دوري",
-    "cup": "كأس",
+TEMPLATES_TEAMS: Dict[str, str] = {
+"men's xoxo world cup": "كأس العالم للرجال في {sport_ar}",
+"women's xoxo world cup": "كأس العالم للسيدات في {sport_ar}",
+"xoxo world cup": "كأس العالم في {sport_ar}",
+"men's xoxo world championship": "بطولة العالم للرجال في {sport_ar}",
+"women's xoxo world championship": "بطولة العالم للسيدات في {sport_ar}",
+"xoxo world championship": "بطولة العالم في {sport_ar}",
+"men's xoxo asian championship": "بطولة آسيا للرجال في {sport_ar}",
+"women's xoxo asian championship": "بطولة آسيا للسيدات في {sport_ar}",
+"xoxo asian championship": "بطولة آسيا في {sport_ar}",
+"men's xoxo league": "دوري الرجال في {sport_ar}",
+"women's xoxo league": "دوري السيدات في {sport_ar}",
+"xoxo league": "الدوري في {sport_ar}",
+"men's xoxo cup": "كأس الرجال في {sport_ar}",
+"women's xoxo cup": "كأس السيدات في {sport_ar}",
+"xoxo cup": "الكأس في {sport_ar}",
+"u23 xoxo championship": "بطولة تحت 23 سنة في {sport_ar}",
+"u20 xoxo championship": "بطولة تحت 20 سنة في {sport_ar}",
+"u17 xoxo world cup": "كأس العالم تحت 17 سنة في {sport_ar}",
+"wheelchair xoxo world championship": "بطولة العالم للكراسي المتحركة في {sport_ar}",
+"wheelchair xoxo": "{sport_ar} على كراسي متحركة",
+"xoxo racing": "سباقات {sport_ar}",
+"men's national xoxo team": "منتخب {sport_ar} الوطني للرجال",
+"women's national xoxo team": "منتخب {sport_ar} الوطني للسيدات",
+"national xoxo team": "المنتخب الوطني في {sport_ar}",
 }
-
-GENDERS = {
-    "men's": "للرجال",
-    "women's": "للسيدات",
-    None: "",  # for neutral versions
-}
-
-AGE_LEVELS = {
-    "u23 championship": "بطولة تحت 23 سنة",
-    "u20 championship": "بطولة تحت 20 سنة",
-    "u17 world cup": "كأس العالم تحت 17 سنة",
-}
-
-SPECIALS = {
-    "wheelchair world championship": "بطولة العالم للكراسي المتحركة",
-    "wheelchair": "{sport_ar} على كراسي متحركة",
-    "racing": "سباقات {sport_ar}",
-    "national team men's": "منتخب {sport_ar} الوطني للرجال",
-    "national team women's": "منتخب {sport_ar} الوطني للسيدات",
-    "national team": "المنتخب الوطني في {sport_ar}",
-}
-
-# --- Generate templates from combinations ---
-
-# Regular gender × format templates
-for fmt_en, fmt_ar in BASE_FORMATS.items():
-    for gender_en, gender_ar in GENDERS.items():
-        gender_key = f"{gender_en + ' ' if gender_en else ''}".strip()
-        key = f"{gender_key}xoxo {fmt_en}"
-        if gender_en:
-            value = f"{fmt_ar} {gender_ar} في {{sport_ar}}"
-        else:
-            value = f"{fmt_ar} في {{sport_ar}}"
-        TEMPLATES_TEAMS[key] = value
-
-# Age-based templates
-for k, v in AGE_LEVELS.items():
-    TEMPLATES_TEAMS[f"{k.replace('championship','xoxo championship')}"] = f"{v} في {{sport_ar}}"
-
-# Special patterns
-for k, v in SPECIALS.items():
-    # Handle "wheelchair xoxo" case explicitly
-    if k == "wheelchair":
-        TEMPLATES_TEAMS["wheelchair xoxo"] = v
-    elif "national team" in k:
-        # reorder "national xoxo team"
-        if "men" in k:
-            TEMPLATES_TEAMS["men's national xoxo team"] = v
-        elif "women" in k:
-            TEMPLATES_TEAMS["women's national xoxo team"] = v
-        else:
-            TEMPLATES_TEAMS["national xoxo team"] = v
-    elif "racing" in k:
-        TEMPLATES_TEAMS["xoxo racing"] = v
-    else:
-        TEMPLATES_TEAMS[f"wheelchair xoxo world championship"] = v
-
 # ---------- team_job.py ----------
 SPORTS_EN_TO_AR: Dict[str, str] = {
     "association football": "كرة القدم",
