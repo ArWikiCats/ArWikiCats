@@ -1,4 +1,24 @@
 
+## [#42](https://github.com/MrIbrahem/make2_new/pull/42) - 2025-11-10
+
+* **Refactor**
+  * Optimized data loading performance through lazy initialization and caching mechanisms.
+  * Reorganized internal data structures and standardized naming conventions for consistency.
+  * Expanded public API to expose additional utility functions and data resources.
+
+* **Performance Improvements**
+  * Enhanced lookup efficiency with memoized function calls and cached data retrieval.
+
+* **Tests**
+  * Added slow-test markers for improved test categorization and execution management.
+
+## [#41](https://github.com/MrIbrahem/make2_new/pull/41) - 2025-11-09
+
+* **Refactor [pop_All_2018_bot.py](src/ma_lists/mix_data/pop_All_2018_bot.py)**
+  - Reorganized internal data-loading and resolution flows for consistency.
+  - Removed deprecated backward-compatibility aliases and an obsolete resolver.
+  - Consolidated imports and simplified name-resolution logic to improve maintainability.
+
 ## [#37](https://github.com/MrIbrahem/make2_new/pull/37) - 2025-11-09
 
 * **New Features**
