@@ -3,13 +3,14 @@
 After completing any modifications in this repository, run the test suite to verify stability.
 
 **Steps:**
-1. Execute the following command: ```
-   pytest```
+1. Execute the following command: ```bash pytest```
 2. Ensure that all tests pass and no failures are introduced by the new changes.
-3. If any issues are detected, identify their causes and fix them before merging or finalizing the work.
+3. If any issues are detected, attempt to fix them up to two times.
+4. If the errors persist after two attempts, stop debugging and suggest a separate task proposing a clear plan or solution to resolve the remaining issues.
 
 **Purpose:**
 1. To maintain code reliability and ensure that recent edits do not break existing functionality.
+2. To prevent excessive debugging in a single session and promote organized, trackable fixes.
 
 ## Reports Configuration
 
