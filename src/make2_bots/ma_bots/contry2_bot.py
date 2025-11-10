@@ -18,7 +18,7 @@ from . import contry2_lab
 from . import ye_ts_bot
 from .c2_bots.contry2_tit_bt import contry_2_tit
 
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import get_pop_All_18
 
 from ...helps.print_bot import print_def_head, print_put, output_test
 
@@ -72,7 +72,7 @@ def Get_contry2(country: str, orginal: str = "", With_Years: bool = True) -> str
         resolved_label = find_wikidata(normalized_country)
 
     if not resolved_label:
-        resolved_label = pop_All_2018.get(normalized_country.lower(), "")
+        resolved_label = get_pop_All_18(normalized_country.lower(), "")
 
     if resolved_label:
         GET_COUNTRY_CACHE[country] = resolved_label

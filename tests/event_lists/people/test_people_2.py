@@ -1,4 +1,5 @@
 #
+import pytest
 from load_one_data import ye_test_one_dataset_new, dump_diff
 
 
@@ -48,6 +49,7 @@ def test_people_labels_from():
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
+@pytest.mark.slow
 def test_people_labels_from_2():
     data = {
         "Category:Baseball players from Massachusetts": "تصنيف:لاعبو كرة قاعدة من ماساتشوستس",

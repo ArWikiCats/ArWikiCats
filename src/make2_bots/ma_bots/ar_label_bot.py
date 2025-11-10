@@ -11,7 +11,7 @@ from ...ma_lists import pop_of_without_in
 
 from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import (
     New_players,
     Table_for_frist_word,
@@ -99,7 +99,7 @@ def find_ar_label(
     Type_lower2 = Type_lower
     # ---
     if Add_in_lab:
-        ty_in18 = pop_All_2018.get(Type_lower)
+        ty_in18 = get_pop_All_18(Type_lower)
 
         if Type_lower not in Dont_Add_min:
             if Type_lower.endswith(" of") and ty_in18:
@@ -164,7 +164,7 @@ def find_ar_label(
                 tatl = ""
 
             if tito2 == "for" and contry_lower.startswith("for "):
-                p18lab = pop_All_2018.get(contry_lower)
+                p18lab = get_pop_All_18(contry_lower)
                 if p18lab and p18lab == con_lab:
                     tatl = ""
 

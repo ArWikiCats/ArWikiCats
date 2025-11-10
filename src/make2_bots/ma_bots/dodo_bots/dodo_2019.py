@@ -9,7 +9,7 @@ from .dodo_bots.dodo_2019 import work_2019
 import re
 from ...matables_bots.bot import New_players, Table_for_frist_word
 
-from ...matables_bots.bot_2018 import pop_All_2018
+from ...matables_bots.bot_2018 import get_pop_All_18
 from ....helps.print_bot import print_put
 from ..contry_bot import Get_contry
 
@@ -21,7 +21,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     cat_4 = re.sub(rf"{year}\s*(.*)$", r"\g<1>", category3)
     cat_4 = cat_4.strip()
     print_put(f'<<lightgreen>>>>>> 2019: NoLab and year, cat_4="{cat_4}"')
-    cat4_lab = pop_All_2018.get(cat_4, "")
+    cat4_lab = get_pop_All_18(cat_4, "")
     if not cat4_lab:
         cat4_lab = Get_contry(cat_4)
 

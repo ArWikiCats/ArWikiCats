@@ -13,7 +13,7 @@ from ...ma_lists import (
 from ...ma_lists import By_table
 from ...ma_lists import replace_labels_2022, change_male_to_female, Mens_suffix, Mens_priffix, Women_s_priffix
 
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import output_test4
 
 priffix_Mens_work_cash: Dict[str, str] = {}
@@ -121,7 +121,7 @@ def priffix_Mens_work(con_33: str) -> str:
         con_88_lab = Nat_mens.get(con_88, "")
         # ---
         if not con_88_lab:
-            con_88_lab = pop_All_2018.get(con_88) or pop_All_2018.get(con_8) or ""
+            con_88_lab = get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
         # ---
         if con_88_lab:
             output_test4(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), con_88_lab:"{con_88_lab}"')

@@ -66,6 +66,7 @@ def test_sports_3():
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
+@pytest.mark.slow
 def test_sports_4():
     data = {
         'Category:Water polo at the Summer Universiade': 'تصنيف:كرة الماء في الألعاب الجامعية الصيفية',

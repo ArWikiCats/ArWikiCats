@@ -9,7 +9,7 @@ python3 core8/pwb.py make/make2_bots.ma_bots/contry2_bot
 from typing import Any
 
 from ...helps.print_bot import print_put
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import test_films
@@ -28,7 +28,7 @@ def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) 
 
     contry2_no_lower = contry.strip()
     contry2 = contry.lower().strip()
-    resolved_label = pop_All_2018.get(contry2, "")
+    resolved_label = get_pop_All_18(contry2, "")
 
     if not resolved_label:
         resolved_label = test_films(contry2)
@@ -58,7 +58,7 @@ def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) 
         resolved_label = centries_years_dec.get(contry2, "")
 
     if not resolved_label and contry2.startswith("the "):
-        resolved_label = pop_All_2018.get(contry2[len("the ") :], "")
+        resolved_label = get_pop_All_18(contry2[len("the ") :], "")
 
     if not resolved_label and with_test_ye:
         resolved_label = ye_ts_bot.translate_general_category(contry2, do_Get_contry2=False)

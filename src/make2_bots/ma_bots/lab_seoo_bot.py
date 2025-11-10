@@ -12,7 +12,7 @@ from ..fromnet.wd_bot import find_wikidata
 from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 from ..jobs_bots.test_4 import Jobs_in_Multi_Sports
 from ..matables_bots.bot import New_Lan
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
 from ..media_bots.films_bot import test_films
 from ..o_bots import univer
@@ -83,7 +83,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     if not resolved_category_label:
         resolved_category_label = event2bot.event2(normalized_target_category)
     if not resolved_category_label:
-        resolved_category_label = pop_All_2018.get(normalized_target_category, "")
+        resolved_category_label = get_pop_All_18(normalized_target_category, "")
 
     if not resolved_category_label:
         resolved_category_label = centries_years_dec.get(normalized_target_category, "")

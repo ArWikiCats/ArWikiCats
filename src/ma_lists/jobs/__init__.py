@@ -37,8 +37,6 @@ from .jobs_players_list import (
 from .jobs_singers import (
     FILMS_TYPE,
     MEN_WOMENS_SINGERS,
-    MEN_WOMENS_SINGERS,
-    FILMS_TYPE,
 )
 
 __all__ = [

@@ -11,7 +11,7 @@ from ...date_bots import year_lab
 from ...format_bots import for_table
 from ...fromnet import kooora
 from ...fromnet.wd_bot import find_wikidata
-from ...matables_bots.bot_2018 import pop_All_2018
+from ...matables_bots.bot_2018 import get_pop_All_18
 from ...media_bots.films_bot import test_films
 from ...o_bots import bys
 from ...p17_bots import nats
@@ -30,14 +30,14 @@ def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, contry: str, contry
     if not con_lab:
         con_lab = pf_keys2.get(contry_lower, "")
     if not con_lab:
-        con_lab = pop_All_2018.get(contry_lower, "")
+        con_lab = get_pop_All_18(contry_lower, "")
     if not con_lab:
-        con_lab = pop_All_2018.get(contry_lower.replace("-", " "), "")
+        con_lab = get_pop_All_18(contry_lower.replace("-", " "), "")
     if not con_lab:
         con_lab = New_female_keys.get(contry_lower.replace("-", " "), "")
 
     if con_lab == "" and "kingdom-of" in contry_lower:
-        con_lab = pop_All_2018.get(contry_lower.replace("kingdom-of", "kingdom of"), "")
+        con_lab = get_pop_All_18(contry_lower.replace("kingdom-of", "kingdom of"), "")
 
     if con_lab == "" and contry_lower.startswith("by "):
         con_lab = bys.make_by_label(contry_lower)

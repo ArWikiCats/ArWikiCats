@@ -11,7 +11,7 @@ lab = ye_ts_bot.translate_general_category()
 
 import re
 from ...fix import fixtitle
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put
 from ..format_bots import Tit_ose_Nmaes
 from ..date_bots import year_lab
@@ -27,7 +27,7 @@ def find_lab(category: str, category_r: str) -> str:
     _lab = Films_O_TT.get(cate_low, "")
 
     if not _lab:
-        _lab = pop_All_2018.get(cate_low, "")
+        _lab = get_pop_All_18(cate_low, "")
 
     if not _lab:
         _lab = New_players.get(cate_low, "")
@@ -120,7 +120,7 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
 
     # Keep_Work = True
 
-    arlabel = pop_All_2018.get(category, "")
+    arlabel = get_pop_All_18(category, "")
 
     if not arlabel:
         arlabel = find_lab(category, category_r)

@@ -11,7 +11,7 @@ from typing import Callable, List
 from ....helps.print_bot import print_put, output_test
 from ...date_bots import with_years_bot
 from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
-from ...matables_bots.bot_2018 import pop_All_2018
+from ...matables_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
 from ...media_bots.films_bot import test_films
@@ -44,7 +44,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     con_1_no_lower = cone_1.strip()
     cone_1 = cone_1.strip().lower()
 
-    c_1_l = pop_All_2018.get(cone_1, "")
+    c_1_l = get_pop_All_18(cone_1, "")
 
     if not c_1_l:
         c_1_l = test_films(cone_1)
@@ -112,7 +112,7 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     con_2_no_lower = cone_2.strip()
     cone_2 = cone_2.strip().lower()
 
-    c_2_l = pop_All_2018.get(cone_2, "")
+    c_2_l = get_pop_All_18(cone_2, "")
     if c_2_l == "" and cone_2.find(" by ") != -1:
         c_2_l = bys.get_by_label(cone_2)
 

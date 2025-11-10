@@ -12,6 +12,8 @@ from ... import app_settings, printe
 
 TEAM_LOOKUP_CACHE: Dict[str, str] = {}
 
+en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+
 
 def kooora_player(english_name: str) -> str:
     encoded_name = english_name.replace(" ", "+")
@@ -87,9 +89,6 @@ def kooora_team(english_name: str) -> str:
         return ""
     # ---
     lowercase_name = english_name.lower()
-    if TEAM_LOOKUP_CACHE.get(lowercase_name):
-        return TEAM_LOOKUP_CACHE.get(lowercase_name, "")
-    # ---
     if lowercase_name in TEAM_LOOKUP_CACHE:
         return TEAM_LOOKUP_CACHE[lowercase_name]
     # ---
@@ -130,6 +129,9 @@ def kooora_team(english_name: str) -> str:
                 printe.output(f'*kooora_team arlabel:"{arabic_label}". ')
         else:
             logger.debug(len(team_fields))
+    # ---
+    if arabic_label and re.sub(en_literes, "", arabic_label, flags=re.IGNORECASE) != arabic_label:
+        return ""
     # ---
     TEAM_LOOKUP_CACHE[lowercase_name] = arabic_label
     # ---

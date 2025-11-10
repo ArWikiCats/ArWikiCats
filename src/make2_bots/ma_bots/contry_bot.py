@@ -33,7 +33,7 @@ from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.centries_bot import centries_years_dec
 from ...ma_lists import pop_of_without_in
 from ...ma_lists import Jobs_key
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..matables_bots.bot_2018 import get_pop_All_18
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ... import app_settings
 Get_contry_done: Dict[str, str] = {}
@@ -192,7 +192,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
             print_put(f'>>>> c_t_lower:"{c_t_lower}" startswith("the ")')
             LLL = c_t_lower[len("the ") :]
 
-            c_t_lab = pop_All_2018.get(LLL, "")
+            c_t_lab = get_pop_All_18(LLL, "")
 
             if not c_t_lab:
                 c_t_lab = Get_contry(LLL, do_Get_contry2=do_Get_contry2)
@@ -227,7 +227,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
                 print_put(f"Jobs_key:: add من to c_t_lab:{c_t_lab}, line:1583.")
 
             if not tto:
-                tto = pop_All_2018.get(tti, "")
+                tto = get_pop_All_18(tti, "")
 
             if not tto:
                 tto = Get_contry(tti, do_Get_contry2=do_Get_contry2)
@@ -241,7 +241,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
                     print_put(f"XX add في to c_t_lab:{c_t_lab}, line:1596.")
                 break
         if c_t_lab == "" and tito.strip() == "in":
-            c_t_lab = pop_All_2018.get(f"{c_t_lower} in", "")
+            c_t_lab = get_pop_All_18(f"{c_t_lower} in", "")
 
         if not c_t_lab:
             c_t_lab = Get_contry(c_t_lower, do_Get_contry2=do_Get_contry2)

@@ -5,6 +5,7 @@ from .make2_bots.jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 
 """
 
+import functools
 import re
 
 # ---
@@ -15,22 +16,23 @@ from ....ma_lists import (
     Nat_men,
     Jobs_key_mens,
     Jobs_key_womens,
+    en_is_nat_ar_is_man,
+    en_is_nat_ar_is_women,
+    change_male_to_female,
+    priffix_lab_for_2018,
+    Main_priffix,
+    Main_priffix_to,
 )
-from ....ma_lists import en_is_nat_ar_is_man, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to
-
-from ..get_helps import get_con_3
-
-# ---
-from ....helps.print_bot import output_test4, print_put
-from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
-from ..jobs_mainbot import Jobs  # , Jobs2
-
 from .relegin_jobs import try_relegins_jobs
 from .langs_w import Lang_work
 
-test4_2018_Jobs_cash = {}
+from ..get_helps import get_con_3
+from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ..jobs_mainbot import Jobs
+from ....helps.print_bot import output_test4, print_put
 
 
+@functools.lru_cache(maxsize=None)
 def test4_2018_Jobs(cate: str) -> str:
     """Retrieve job-related information based on the specified category.
 
@@ -47,18 +49,10 @@ def test4_2018_Jobs(cate: str) -> str:
     Returns:
         str: The job-related label corresponding to the input category.
     """
-
     # ---
     cate = re.sub(r"_", " ", cate)
     # ---
-    cach_key = cate.lower().strip()
-    # ---
-    if cach_key in test4_2018_Jobs_cash:
-        return test4_2018_Jobs_cash[cach_key]
-    # ---
     output_test4(f"<<lightyellow>>>> test4_2018_Jobs >> cate:({cate}) ")
-    # ---
-
     # ---
     cate2_no_lower = cate.lower()
     cate2 = cate.lower()
@@ -149,7 +143,5 @@ def test4_2018_Jobs(cate: str) -> str:
         contry_lab = try_relegins_jobs(cate)
     # ---
     output_test4(f'end test4_2018_Jobs "{cate}" , contry_lab:"{contry_lab}", cate2:{cate2}')
-    # ---
-    test4_2018_Jobs_cash[cach_key] = contry_lab
     # ---
     return contry_lab
