@@ -10,20 +10,10 @@ from .sport_lab_with_nat import Get_New_team_xo_with_nat
 from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs
 from .te3 import New_team_xo_team_labels
 from ..utils.match_sport_keys import match_sport_key
+from ..utils import apply_pattern_replacement
 from ..sports import sport_formts_enar_p17_team
 from ..sports.Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs
 from ...helps.print_bot import print_put, output_test
-
-
-def apply_pattern_replacement(template_label, sport_label, xoxo):
-    # ---
-    team_lab = ""
-    # ---
-    final_label = template_label.replace(xoxo, sport_label)
-    if final_label.find(xoxo) == -1:
-        team_lab = final_label
-    # ---
-    return team_lab
 
 
 def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
@@ -152,3 +142,10 @@ def Get_New_team_xo(team: str) -> str:
         print_put(f'Get_New_team_xo: team_lab:"{team_lab}"')
     # ---
     return team_lab
+
+
+__all__ = [
+    "Get_Sport_Format_xo_en_ar_is_P17",
+    "Get_New_team_xo_normal",
+    "Get_New_team_xo",
+]

@@ -4,58 +4,35 @@
 
 """
 import pytest
-
-from src.ma_lists.sports_formats_teams.sport_lab_with_nat import (
-    get_template_label,
-    match_nat_new_team_xo_team_labels,
-    match_nat_new_team_xo_team_labels_new,
-    Get_New_team_xo_with_nat,
-    apply_pattern_replacement,
-)
+from src.ma_lists.sports_formats_teams.sport_lab import Get_New_team_xo, Get_New_team_xo_normal
 
 
-@pytest.mark.skip
-def test_1() -> None:
-    label = Get_New_team_xo_with_nat("Yemeni national xoxo teams", "football")
-    assert label == "New team xoxo with nat"
+@pytest.mark.fast
+def test_Get_New_team_xo_normal() -> None:
+    data = {
+        "national youth women's under-14 xoxo leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",
+        "national youth women's under-14 xoxo teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
+        "national youth women's under-14 xoxo leagues trainers": "مدربو دوريات كرة لينة وطنية تحت 14 سنة للشابات",
+        "national youth women's under-14 xoxo teams scouts": "كشافة منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
+        "national youth women's under-14 xoxo leagues scouts": "كشافة دوريات كرة لينة وطنية تحت 14 سنة للشابات",
+        "national xoxo teams coaches": "مدربو منتخبات كرة لينة وطنية",
+    }
+    for x, v in data.items():
+        label = Get_New_team_xo_normal(x, "softball")
+        assert label.strip() == v
 
 
-@pytest.mark.skip
-def test_2() -> None:
-    template_label1, sport_label1 = match_nat_new_team_xo_team_labels_new("Yemeni national xoxo teams", "softball")
-    assert sport_label1 == "للكرة اللينة"
-    assert template_label1 == "New team xoxo with nat"
+@pytest.mark.fast
+def test_Get_New_team_xo() -> None:
 
-    template_label2, sport_label2 = match_nat_new_team_xo_team_labels_new("national xoxo teams of yemen", "softball")
-    assert sport_label2 == "للكرة اللينة"
-    assert template_label2 == "New team xoxo with nat"
+    label = Get_New_team_xo("national softball teams")
+    assert label =='منتخبات كرة لينة وطنية '
 
 
-@pytest.mark.skip
-def test_3() -> None:
-    template_label1, sport_label1 = match_nat_new_team_xo_team_labels("Yemeni national xoxo teams", "softball")
-    assert sport_label1 == "للكرة اللينة"
-    assert template_label1 == "New team xoxo with nat"
-
-    template_label2, sport_label2 = match_nat_new_team_xo_team_labels("national xoxo teams of yemen", "softball")
-    assert sport_label2 == "للكرة اللينة"
-    assert template_label2 == "New team xoxo with nat"
-
-
-def test_get_template_label() -> None:
-    template_label = get_template_label("Yemeni", "natar", "Yemeni national teams", {"natar national teams": "تجربة"})
-    assert template_label == "تجربة"
-
-
-def test_apply_pattern_replacement() -> None:
-    team_lab = apply_pattern_replacement("منتخب xoxo الوطني", "اليمن", "xoxo")
-    assert team_lab == "منتخب اليمن الوطني"
-
-
-@pytest.mark.skip
+@pytest.mark.fast
 def test_all():
 
-    data_old = {
+    data = {
         "national youth women's under-14 softball leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",
         "national youth women's under-14 softball teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
         "national youth women's under-14 softball leagues trainers": "مدربو دوريات كرة لينة وطنية تحت 14 سنة للشابات",
@@ -87,10 +64,8 @@ def test_all():
         "under-14 equestrian manager history": "تاريخ مدربو فرق فروسية تحت 14 سنة",
         "outdoor equestrian": "فروسية في الهواء الطلق",
 
-    }
-    data = {
-        "under-13 baseball leagues finals": "",
-        "Swiss under-13 baseball teams": "مراكز فرق كرة قاعدة تحت 13 سنة",
+        "under-13 baseball leagues finals": "نهائيات دوريات كرة قاعدة تحت 13 سنة",
+        "under-13 baseball teams positions": "مراكز فرق كرة قاعدة تحت 13 سنة",
         "under-13 baseball leagues positions": "مراكز دوريات كرة قاعدة تحت 13 سنة",
         "under-13 baseball teams tournaments": "بطولات فرق كرة قاعدة تحت 13 سنة",
         "under-13 baseball leagues tournaments": "بطولات دوريات كرة قاعدة تحت 13 سنة",
@@ -99,5 +74,5 @@ def test_all():
     }
 
     for category, expected_key in data.items():
-        result = Get_New_team_xo_with_nat(category, "baseball")
+        result = Get_New_team_xo(category)
         assert result.strip() == expected_key, f"Mismatch for {category}"

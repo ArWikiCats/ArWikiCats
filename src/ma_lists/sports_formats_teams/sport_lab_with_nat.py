@@ -10,24 +10,12 @@ from ..utils.match_nats_keys import match_nat_key
 from ..sports.Sport_key import Sports_Keys_For_Team
 from ..nats.Nationality import All_contry_with_nat_ar
 from ...helps.print_bot import output_test
-
-
-def apply_pattern_replacement(template_label, sport_label, xoxo):
-    # ---
-    team_lab = ""
-    # ---
-    final_label = template_label.replace(xoxo, sport_label)
-    if final_label.find(xoxo) == -1:
-        team_lab = final_label
-    # ---
-    return team_lab
+from ..utils import apply_pattern_replacement
 
 
 def get_template_label(key, key_placeholder, normalized_team, data):
     # ---
-    template_label = ""
-    # ---
-    normalized_key = re.sub(f"\b{key}\b", key_placeholder, f" {normalized_team.strip()} ", flags=re.IGNORECASE)
+    normalized_key = re.sub(rf"\b{key}\b", key_placeholder, f" {normalized_team.strip()} ", flags=re.IGNORECASE)
     # ---
     template_label = data.get(normalized_key.strip(), "")
     # ---
@@ -48,20 +36,15 @@ def match_nat_new_team_xo_team_labels(normalized_team: str, sport_key: str) -> s
         f" {nationality_key} ", " natar ", f" {normalized_team.strip()} ", flags=re.IGNORECASE
     )
     # ---
-    normalized_nat_key = normalized_nat_key.strip()
+    sport_label = Sports_Keys_For_Team.get(sport_key, "")
     # ---
-    if normalized_nat_key in New_team_xo_team_labels:
-        # TTTY = "team"
-        template_label = New_team_xo_team_labels.get(normalized_nat_key, "")
-        # ---
-        nationality_label = All_contry_with_nat_ar.get(nationality_key, {}).get("ar", "")
-        output_test(f'nat_lab:"{nationality_label}"')
-        # ---
-        sport_label = Sports_Keys_For_Team.get(sport_key, "")
-        output_test(f'sp_lab:"{sport_label}"')
-        # ---
-        if template_label and nationality_label:
-            template_label = template_label.replace("natar", nationality_label)
+    template_label = New_team_xo_team_labels.get(normalized_nat_key.strip(), "")
+    # ---
+    nationality_label = All_contry_with_nat_ar.get(nationality_key, {}).get("ar", "")
+    output_test(f'nat_lab:"{nationality_label}"')
+    # ---
+    if template_label and nationality_label:
+        template_label = template_label.replace("natar", nationality_label)
     # ---
     return template_label, sport_label
 
@@ -96,3 +79,11 @@ def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
         team_lab = apply_pattern_replacement(template_label, sport_label, "xoxo")
     # ---
     return team_lab
+
+
+__all__ = [
+    "get_template_label",
+    "match_nat_new_team_xo_team_labels",
+    "match_nat_new_team_xo_team_labels_new",
+    "Get_New_team_xo_with_nat",
+]
