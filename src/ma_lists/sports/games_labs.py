@@ -112,7 +112,7 @@ for game_key, game_label in seasonal_game_labels.items():
         category_entry_label = f"{category_label} {game_label}"
         summer_winter_tabs[category_entry_key] = category_entry_label
 
-# --- backwards compatibility -------------------------------------------------
-pop_Summer = seasonal_game_labels
-Params = BASE_GAME_LABELS
-Game_s = GAME_CATEGORY_LABELS
+__all__ = [
+    "summer_winter_tabs",
+    "summer_winter_games",
+]

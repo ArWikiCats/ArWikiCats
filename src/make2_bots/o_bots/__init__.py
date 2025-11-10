@@ -14,7 +14,7 @@ from __future__ import annotations
 from . import fax as fax_module
 from .army import test_army
 from .ethnic_bot import ethnic, ethnic_culture
-from .fax import get_teams_new, test_language
+from .fax import test_language
 from .parties_bot import get_parties_lab
 from .popl import work_peoples, make_people_lab
 from .rele import work_relations
@@ -29,7 +29,6 @@ __all__ = [
     "get_and_label",
     "get_by_label",
     "get_parties_lab",
-    "get_teams_new",
     "make_by_label",
     "make_people_lab",
     "test_army",

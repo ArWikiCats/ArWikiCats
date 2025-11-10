@@ -23,7 +23,7 @@ def clear_caches():
 # ---------- Structural tests for data dictionaries ----------
 
 
-@pytest.mark.slow
+@pytest.mark.fast
 @pytest.mark.parametrize("topic,template", ethnic_mod.en_is_nat_ar_is_women_2.items())
 def test_en_is_nat_ar_is_women_templates_have_single_placeholder(topic, template):
     """Each female-topic template must contain exactly one {} placeholder."""
@@ -31,7 +31,7 @@ def test_en_is_nat_ar_is_women_templates_have_single_placeholder(topic, template
     assert template.count("{}") == 1
 
 
-@pytest.mark.slow
+@pytest.mark.fast
 @pytest.mark.parametrize("topic,template", ethnic_mod.MALE_TOPIC_TABLE.items())
 def test_male_topic_table_templates_have_single_placeholder(topic, template):
     """Each male-topic template must contain exactly one {} placeholder."""
@@ -42,7 +42,7 @@ def test_male_topic_table_templates_have_single_placeholder(topic, template):
 # ---------- Tests for ethnic_culture() female-path using all topics ----------
 
 
-@pytest.mark.slow
+@pytest.mark.fast
 @pytest.mark.parametrize(
     "topic,template", sorted(ethnic_mod.en_is_nat_ar_is_women_2.items())
 )
@@ -66,7 +66,7 @@ def test_ethnic_culture_female_topics_cover_all_entries(topic, template):
 # ---------- Tests for ethnic_culture() male-path using all topics ----------
 
 
-@pytest.mark.slow
+@pytest.mark.fast
 @pytest.mark.parametrize(
     "topic,template", sorted(ethnic_mod.MALE_TOPIC_TABLE.items())
 )

@@ -2,7 +2,7 @@
 
 from .tennis import tennis_keys
 from .nat_p17 import sport_formts_for_p17, nat_p17_oioi
-from .teams_new_bot import Teams_new
+from .teams_new_data import Teams_new
 from .skeys import (
     sport_formts_en_ar_is_p17,
     sport_formts_en_p17_ar_nat,

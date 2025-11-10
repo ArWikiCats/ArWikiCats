@@ -101,7 +101,7 @@ def Get_New_team_xo(team: str) -> str:
     # print_put('Get_New_team_xo team:"%s"' % team)
     # ---
     # قبل تطبيق New_team_xo_jobs
-    # sports.py: len:"Teams_new":  695795
+    # sports.py: len:"Teams new":  695795
     # بعد تطبيق New_team_xo_jobs and New_team_xo_team
     # sports.py: len:"New_team_xo_jobs":  1462 , len:"New_team_xo_team":  21
     # ---

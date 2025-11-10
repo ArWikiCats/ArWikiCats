@@ -13,7 +13,8 @@ from ..matables_bots.bot_2018 import pop_All_2018
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import test_films
-from ..o_bots import fax, univer
+from ..sports_bots import teams_new_bot
+from ..o_bots import univer, parties_bot
 from ..o_bots.popl import work_peoples
 from ..o_bots.rele import work_relations
 from ..p17_bots import nats
@@ -33,8 +34,13 @@ def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) 
         resolved_label = test_films(contry2)
     if not resolved_label:
         resolved_label = nats.find_nat_others(contry2)
+
     if not resolved_label:
-        resolved_label = fax.get_teams_new(contry2)
+        resolved_label = teams_new_bot.get_teams_new(contry2)
+
+    if not resolved_label:
+        resolved_label = parties_bot.get_parties_lab(contry2)
+
     if not resolved_label:
         resolved_label = team_work.Get_team_work_Club(contry2_no_lower)
     if not resolved_label:

@@ -2,6 +2,7 @@
 
 """
 
+from .sports.olympics_data import olympics
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
 from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Nat_Before_Occ, Men_Womens_with_nato, Jobs_new, Jobs_key
@@ -14,7 +15,7 @@ from .sports.Sport_key import fanco_line, Sports_Keys_For_Team, Sports_Keys_For_
 
 from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
 
-from .geo.games_labs import summer_winter_games
+from .sports.games_labs import summer_winter_games
 
 from .mixed.all_keys3 import typeTable_7, albums_type, film_production_company, NN_table, Ambassadors_tab
 
@@ -45,7 +46,7 @@ from .numbers1 import change_numb_to_word
 
 from .others.peoples import People_key
 
-from .others.pop_2018 import pop_All_2018
+from .mix_data import pop_All_2018_bot
 
 from .sports import Teams_new, sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
 
@@ -62,6 +63,7 @@ from .sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo
 from .utils.json_dir import open_json_file
 
 __all__ = [
+    "olympics",
     "open_json_file",
     "en_nats_to_ar_label",
     "Get_New_team_xo",
@@ -159,7 +161,7 @@ __all__ = [
     #
     "People_key",
     #
-    "pop_All_2018",
+    "pop_All_2018_bot",
     #
     "Teams_new",
     "sport_formts_en_ar_is_p17",
