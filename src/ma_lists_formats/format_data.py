@@ -431,4 +431,4 @@ def format_data_sample():
     result = label == "سجلات وإحصائيات سنوكر للشباب"
 
     # Return the formatted label
-    return label
+    return result
