@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from src.ma_lists.jobs.jobs_data import NAT_BEFORE_OCC
 from src.ma_lists.jobs.Jobs import (
     Female_Jobs,
     Jobs_key,
@@ -10,7 +11,6 @@ from src.ma_lists.jobs.Jobs import (
     Jobs_new,
     Men_Womens_Jobs,
     Men_Womens_with_nato,
-    Nat_Before_Occ,
     womens_Jobs_2017,
 )
 from src.ma_lists.jobs.Jobs2 import JOBS_2, JOBS_3333
@@ -80,8 +80,8 @@ def test_men_womens_with_nato_matches_source_template() -> None:
 def test_nat_before_occ_includes_religious_expansions() -> None:
     """The nationality-before-occupation list should include religion keys."""
 
-    assert "anglican" in Nat_Before_Occ
-    assert "anglicans" in Nat_Before_Occ
+    assert "anglican" in NAT_BEFORE_OCC
+    assert "anglicans" in NAT_BEFORE_OCC
 
 
 def test_jobs2_contains_men_womens_jobs_entries() -> None:

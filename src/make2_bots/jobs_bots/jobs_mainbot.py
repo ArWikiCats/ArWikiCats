@@ -4,13 +4,13 @@
 from ..jobs_bots.jobs_mainbot import Jobs#, Jobs2
 
 """
-from typing import Dict, Optional, Any
+from typing import Dict, Optional
 from ...ma_lists import Nat_mens, Nat_Womens
 
 from ...ma_lists import (
     Jobs_key_mens,
     Jobs_key_womens,
-    Nat_Before_Occ,
+    NAT_BEFORE_OCC,
     Men_Womens_with_nato,
 )
 from ...helps.print_bot import output_test4
@@ -95,7 +95,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
                 country_lab = f"{mens_nat_lab} {con_3_lab}"
 
             # ---
-            if con_3.strip() in Nat_Before_Occ or con_4.strip() in Nat_Before_Occ:
+            if con_3.strip() in NAT_BEFORE_OCC or con_4.strip() in NAT_BEFORE_OCC:
                 country_lab = f"{mens_nat_lab} {con_3_lab}"
             # ---
             TAJO = Men_Womens_with_nato.get(con_3, {})

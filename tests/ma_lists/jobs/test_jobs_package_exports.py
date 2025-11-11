@@ -10,7 +10,6 @@ from src.ma_lists.jobs import (
     Jobs_new,
     Men_Womens_Jobs,
     Men_Womens_with_nato,
-    Nat_Before_Occ,
     jobs_defs,
     jobs_players_list,
     jobs_singers,
@@ -23,7 +22,6 @@ from src.ma_lists.jobs.Jobs import (
     Jobs_new as module_Jobs_new,
     Men_Womens_Jobs as module_Men_Womens_Jobs,
     Men_Womens_with_nato as module_Men_Womens_with_nato,
-    Nat_Before_Occ as module_Nat_Before_Occ,
 )
 
 
@@ -37,7 +35,6 @@ def test_package_exports_reference_underlying_modules() -> None:
     assert Jobs_key_womens is module_Jobs_key_womens
     assert Jobs_new is module_Jobs_new
     assert Men_Womens_with_nato is module_Men_Womens_with_nato
-    assert Nat_Before_Occ is module_Nat_Before_Occ
 
 
 def test_jobs_submodules_are_accessible() -> None:

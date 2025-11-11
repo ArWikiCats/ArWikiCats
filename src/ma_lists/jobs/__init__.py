@@ -16,12 +16,12 @@ from .Jobs import (
     Jobs_new,
     Men_Womens_Jobs,
     Men_Womens_with_nato,
-    Nat_Before_Occ,
     womens_Jobs_2017,
 )
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data import (
     MEN_WOMENS_JOBS_2,
+    NAT_BEFORE_OCC,
     RELIGIOUS_KEYS_PP,
 )
 from .jobs_players_list import (
@@ -49,7 +49,7 @@ __all__ = [
     "Jobs_new",
     "Men_Womens_Jobs",
     "Men_Womens_with_nato",
-    "Nat_Before_Occ",
+    "NAT_BEFORE_OCC",
     "womens_Jobs_2017",
     # Player utilities
     "FOOTBALL_KEYS_PLAYERS",

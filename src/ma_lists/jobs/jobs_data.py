@@ -4,7 +4,7 @@ jobs data
 
 from __future__ import annotations
 
-from typing import Dict, Mapping, Iterable
+from typing import Dict, Mapping, Iterable, List
 
 from .jobs_defs import (
     GenderedLabel,
@@ -168,6 +168,34 @@ RELIGIOUS_KEYS_PP: GenderedLabelMap = {
     "saints": {"mens": "قديسون", "womens": "قديسات"},
 }
 
+NAT_BEFORE_OCC_BASE: List[str] = [
+    "convicted-of-murder",
+    "murdered abroad",
+    "contemporary",
+    "tour de france stage winners",
+    "deafblind",
+    "deaf",
+    "blind",
+    "jews",
+    "women's rights activists",
+    "human rights activists",
+    "imprisoned",
+    "imprisoned abroad",
+    "conservationists",
+    "expatriate",
+    "defectors",
+    "scholars of islam",
+    "scholars-of-islam",
+    "amputees",
+    "expatriates",
+    "scholars of",
+    "executed abroad",
+    "emigrants",
+]
+
+NAT_BEFORE_OCC = list(NAT_BEFORE_OCC_BASE)
+NAT_BEFORE_OCC.extend(key for key in RELIGIOUS_KEYS_PP.keys())
+
 RELIGIOUS_ROLE_LABELS: GenderedLabelMap = {
     "christians": {"mens": "مسيحيون", "womens": "مسيحيات"},
     "venerated": {"mens": "مبجلون", "womens": "مبجلات"},
@@ -261,4 +289,5 @@ __all__ = [
     "PAINTER_STYLES",
     "RELIGIOUS_KEYS_PP",
     "RELIGIOUS_ROLE_LABELS",
+    "NAT_BEFORE_OCC",
 ]

@@ -15,7 +15,6 @@ and safe to import in other modules.
 from __future__ import annotations
 
 import logging
-import sys
 from dataclasses import dataclass
 from typing import Dict, List, Mapping, MutableMapping
 
@@ -35,7 +34,7 @@ from .jobs_defs import (
     copy_gendered_map,
     merge_gendered_maps,
 )
-from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
+from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC
 from .jobs_players_list import (
     FEMALE_JOBS_TO,
     FOOTBALL_KEYS_PLAYERS,
@@ -62,8 +61,6 @@ def _append_list_unique(sequence: List[str], value: str) -> None:
 # Static configuration
 # ---------------------------------------------------------------------------
 
-Jobs_new = {}
-
 JOBS_2020_BASE: GenderedLabelMap = {
     "ecosocialists": {"mens": "إيكولوجيون", "womens": "إيكولوجيات"},
     "wheelchair tennis players": {
@@ -89,31 +86,6 @@ EXECUTIVE_DOMAINS: Mapping[str, str] = {
     "radio": "مذياع",
     "television": "تلفاز",
 }
-
-NAT_BEFORE_OCC_BASE: List[str] = [
-    "convicted-of-murder",
-    "murdered abroad",
-    "contemporary",
-    "tour de france stage winners",
-    "deafblind",
-    "deaf",
-    "blind",
-    "jews",
-    "women's rights activists",
-    "human rights activists",
-    "imprisoned",
-    "imprisoned abroad",
-    "conservationists",
-    "expatriate",
-    "defectors",
-    "scholars of islam",
-    "scholars-of-islam",
-    "amputees",
-    "expatriates",
-    "scholars of",
-    "executed abroad",
-    "emigrants",
-]
 
 MEN_WOMENS_WITH_NATO: GenderedLabelMap = {
     "eugenicists": {
@@ -212,8 +184,6 @@ class JobsDataset:
     womens_jobs_2017: Dict[str, str]
     female_jobs: Dict[str, str]
     men_womens_jobs: GenderedLabelMap
-    nat_before_occ: List[str]
-    men_womens_with_nato: GenderedLabelMap
     jobs_new: Dict[str, str]
     jobs_key: Dict[str, str]
 
@@ -277,8 +247,8 @@ def _merge_jobs_sources() -> GenderedLabelMap:
 
     for category, labels in FOOTBALL_KEYS_PLAYERS.items():
         lowered = category.lower()
-        if category not in jobs_pp:
-            jobs_pp[category] = {"mens": labels["mens"], "womens": labels["womens"]}
+        if lowered not in jobs_pp:
+            jobs_pp[lowered] = {"mens": labels["mens"], "womens": labels["womens"]}
 
     jobs_pp["fashion journalists"] = {"mens": "صحفيو موضة", "womens": "صحفيات موضة"}
     jobs_pp["zionists"] = {"mens": "صهاينة", "womens": "صهيونيات"}
@@ -392,10 +362,9 @@ def _add_jobs_people_variants(men_womens_jobs: MutableMapping[str, GenderedLabel
             }
 
 
-def _add_film_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> int:
+def _add_film_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> None:
     """Create film-related job variants and return the number of generated entries."""
 
-    count = 0
     for film_key, film_label in Films_key_For_Jobs.items():
         lowered_film_key = film_key.lower()
         for role_key, role_labels in FILM_ROLE_LABELS.items():
@@ -405,8 +374,6 @@ def _add_film_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> i
                 "mens": f"{role_labels['mens']} {film_label}",
                 "womens": f"{role_labels['womens']} {film_label}"
             }
-            count += 1
-    return count
 
 
 def _add_singer_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> None:
@@ -461,25 +428,22 @@ def _build_jobs_new(
 def _finalise_jobs_dataset() -> JobsDataset:
     """Construct the full jobs dataset from individual builders."""
 
-    nat_before_occ = list(NAT_BEFORE_OCC_BASE)
-    nat_before_occ.extend(key for key in RELIGIOUS_KEYS_PP.keys())
-
     jobs_pp = _merge_jobs_sources()
     jobs_pp = _add_jobs_from_jobs2(jobs_pp)
 
     men_womens_jobs: GenderedLabelMap = {}
     merge_gendered_maps(men_womens_jobs, MEN_WOMENS_JOBS_2)
 
-    _load_activist_jobs(men_womens_jobs, nat_before_occ)
+    _load_activist_jobs(men_womens_jobs, NAT_BEFORE_OCC)
 
     for job_key, labels in jobs_pp.items():
         men_womens_jobs[job_key.lower()] = {"mens": labels["mens"], "womens": labels["womens"]}
 
     _add_sport_variants(men_womens_jobs, jobs_pp)
     merge_gendered_maps(men_womens_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)
-    _add_cycling_variants(men_womens_jobs, nat_before_occ)
+    _add_cycling_variants(men_womens_jobs, NAT_BEFORE_OCC)
     _add_jobs_people_variants(men_womens_jobs)
-    film_variant_count = _add_film_variants(men_womens_jobs)
+    _add_film_variants(men_womens_jobs)
     _add_singer_variants(men_womens_jobs)
 
     jobs_key_mens: Dict[str, str] = {}
@@ -507,8 +471,6 @@ def _finalise_jobs_dataset() -> JobsDataset:
         womens_jobs_2017=womens_jobs_2017,
         female_jobs=female_jobs,
         men_womens_jobs=men_womens_jobs,
-        nat_before_occ=nat_before_occ,
-        men_womens_with_nato=copy_gendered_map(MEN_WOMENS_WITH_NATO),
         jobs_new=jobs_new,
         jobs_key=jobs_key,
     )
@@ -521,18 +483,28 @@ Jobs_key_womens = _DATASET.jobs_key_womens
 womens_Jobs_2017 = _DATASET.womens_jobs_2017
 Female_Jobs = _DATASET.female_jobs
 Men_Womens_Jobs = _DATASET.men_womens_jobs
-Nat_Before_Occ = _DATASET.nat_before_occ
-Men_Womens_with_nato = _DATASET.men_womens_with_nato
 Jobs_new = _DATASET.jobs_new
 Jobs_key = _DATASET.jobs_key
 
+Men_Womens_with_nato = MEN_WOMENS_WITH_NATO
+
+_len_result = {
+    "Jobs_key_mens": {"count": 97797, "size": "3.7 MiB"},
+    "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},
+    "Jobs_new": {"count": 99104, "size": "3.7 MiB"},
+    "Jobs_key": {"count": 97784, "size": "3.7 MiB"},
+
+    "womens_Jobs_2017": {"count": 75244, "size": "1.8 MiB"},
+    "Jobs_key_womens": {"count": 468, "size": "12.8 KiB"},
+    "Female_Jobs": {"count": 468, "size": "12.8 KiB"},
+    "Men_Womens_with_nato": {"count": 3, "size": "184 Bytes"},
+}
 len_print.data_len("jobs.py", {
     "Jobs_key_mens": Jobs_key_mens,
     "Jobs_key_womens": Jobs_key_womens,
     "womens_Jobs_2017": womens_Jobs_2017,
     "Female_Jobs": Female_Jobs,
     "Men_Womens_Jobs": Men_Womens_Jobs,
-    "Nat_Before_Occ": Nat_Before_Occ,
     "Men_Womens_with_nato": Men_Womens_with_nato,
     "Jobs_new": Jobs_new,
     "Jobs_key": Jobs_key,
@@ -544,7 +516,6 @@ __all__ = [
     "womens_Jobs_2017",
     "Female_Jobs",
     "Men_Womens_Jobs",
-    "Nat_Before_Occ",
     "Men_Womens_with_nato",
     "Jobs_new",
     "Jobs_key"
