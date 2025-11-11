@@ -342,6 +342,7 @@ data = {
 }
 
 
+@pytest.mark.slow
 def test_wheelchair_1():
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
     # sort diff_result by value
@@ -351,6 +352,7 @@ def test_wheelchair_1():
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
+@pytest.mark.slow
 def test_wheelchair_2():
     data2 = {
         "Category:American men wheelchair racers": "تصنيف:متسابقو كراسي متحركة رجال أمريكيون",
@@ -445,6 +447,7 @@ def test_wheelchair_2():
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
+@pytest.mark.slow
 def test_wheelchair_3():
     data2 = {
         "Category:Olympic men wheelchair racers": "",
