@@ -5,7 +5,7 @@ Usage:
 import functools
 from typing import Dict
 from ...helps import len_print
-from ...ma_lists.mix_data.teams_new_data import load_teams_new
+from ...ma_lists.sports_formats_2025.teams_new_data import load_teams_new
 
 
 @functools.lru_cache(maxsize=1)
@@ -20,7 +20,8 @@ def get_teams_new(key: str, default: str = "") -> str:
 
 
 len_print.data_len("make2_bots.matables_bots/teamsnew_bot.py", {
-    "Teams_new" : 325907
+    "Teams_new" : lazy_load()
+    # "Teams_new" : 352946
 })
 
 __all__ = [
