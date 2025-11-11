@@ -13,3 +13,5 @@ src/make2_bots/o_bots/save.py
 _start.py
 *.sqlite3
 monkey.py
+src/ma_lists/jobs/Jobs_backup
+Jobs copy.old
