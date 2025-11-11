@@ -16,7 +16,7 @@ from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
 from ...media_bots.films_bot import test_films
 from ...o_bots import bys, parties_bot
-from ...sports_bots import teams_new_bot
+from ...sports_bots import sport_lab_suffixes
 from ...p17_bots import nats
 from ...sports_bots import team_work
 from .. import contry2_lab, contry_bot
@@ -28,7 +28,7 @@ def check_sources(cone_1: str) -> str:
     sources: List[Callable[[str], str]] = [
         test_films,
         nats.find_nat_others,
-        teams_new_bot.get_teams_new,
+        sport_lab_suffixes.get_teams_new,
         parties_bot.get_parties_lab,
     ]
     for source in sources:
@@ -51,7 +51,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     if not c_1_l:
         c_1_l = nats.find_nat_others(cone_1)
     if not c_1_l:
-        c_1_l = teams_new_bot.get_teams_new(cone_1)
+        c_1_l = sport_lab_suffixes.get_teams_new(cone_1)
 
     if not c_1_l:
         c_1_l = parties_bot.get_parties_lab(cone_1)
@@ -121,7 +121,7 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     if not c_2_l:
         c_2_l = nats.find_nat_others(cone_2)
     if not c_2_l:
-        c_2_l = teams_new_bot.get_teams_new(cone_2)
+        c_2_l = sport_lab_suffixes.get_teams_new(cone_2)
 
     if not c_2_l:
         c_2_l = parties_bot.get_parties_lab(cone_2)

@@ -66,15 +66,6 @@ def test_normalize_category(category, sport_key, expected, sample_data):
     assert result.lower() == expected.lower()
 
 
-def test_get_template_label(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
-    normalized = bot.normalize_category("men's football world cup", "football")
-    assert normalized == "men's xoxo world cup"
-    template_label = bot.get_template_label("football", "men's football world cup")
-    assert template_label == "كأس العالم للرجال في {sport_label}"
-
-
 @pytest.mark.parametrize("category,expected", [
     ("men's football world cup", "كأس العالم للرجال في كرة القدم"),
     ("women's basketball championship", "بطولة السيدات في كرة السلة"),
@@ -95,29 +86,38 @@ def test_search_no_sport_match(sample_data):
     assert bot.search("unrelated topic") == ""
 
 
-def test_empty_data_lists():
-    bot = FormatData({}, {}, key_placeholder="{k}", value_placeholder="{v}")
-    assert bot.match_key("any") == ""
-    assert bot.search("text") == ""
-    assert bot.keys_to_pattern().search("football") is None
-
-
-def test_case_insensitivity(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
-    result = bot.search("MEN'S FOOTBALL WORLD CUP")
-    assert result == "كأس العالم للرجال في كرة القدم"
-
-
-def test_case(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
-    result = bot.search("men's football world cup")
-    assert result == "كأس العالم للرجال في كرة القدم"
-
-
 def test_search_no_template_label(sample_data):
     formated_data, data_list = sample_data
     bot = FormatData(formated_data, data_list)
     bot.formated_data = {}  # remove templates
     assert bot.search("men's football world cup") == ""
+
+
+def test_case(sample_data):
+    formated_data, data_list = sample_data
+    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    result = bot.search("men's football world cup")
+    assert result == "كأس العالم للرجال في كرة القدم"
+
+
+def test_get_template_label(sample_data):
+    formated_data, data_list = sample_data
+    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    normalized = bot.normalize_category("men's football world cup", "football")
+    assert normalized == "men's {sport} world cup"
+    template_label = bot.get_template_label("football", "men's football world cup")
+    assert template_label == "كأس العالم للرجال في {sport_label}"
+
+
+def test_empty_data_lists():
+    bot = FormatData({}, {}, key_placeholder="{k}", value_placeholder="{v}")
+    assert bot.match_key("any") == ""
+    assert bot.search("text") == ""
+    assert bot.keys_to_pattern() is None
+
+
+def test_case_insensitivity(sample_data):
+    formated_data, data_list = sample_data
+    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    result = bot.search("MEN'S FOOTBALL WORLD CUP")
+    assert result == "كأس العالم للرجال في كرة القدم"

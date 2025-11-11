@@ -97,9 +97,9 @@ def load_class() -> FormatData:
 
 
 @functools.lru_cache(maxsize=None)
-def find_teams_2025(category: str) -> str:
+def find_teams_2025(category: str, default: str="") -> str:
     bot = load_class()
-    return bot.search(category)
+    return bot.search(category) or default
 
 
 len_print.data_len("sports/teams_new_data_2025.py", {
@@ -108,4 +108,5 @@ len_print.data_len("sports/teams_new_data_2025.py", {
 
 __all__ = [
     "find_teams_2025",
+    "load_data",
 ]

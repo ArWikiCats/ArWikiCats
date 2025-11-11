@@ -26,11 +26,14 @@ formated_data = {
     "{sport} organizations": "منظمات {sport_label}",
 }
 
-bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
-
 examples = {
     "snooker players": "لاعبو سنوكر"
 }
+
+
+@pytest.fixture
+def bot():
+    return FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 
 @pytest.mark.parametrize(
@@ -39,14 +42,14 @@ examples = {
     ids=[k for k in examples],
 )
 @pytest.mark.fast
-def test_format_data(category: str, expected_key: str):
+def test_format_data(bot, category: str, expected_key: str):
 
     result = bot.search(category)
 
     assert result == expected_key
 
 
-def test_1():
+def test_1(bot):
     result = bot.search("snooker players")
 
     assert result == "لاعبو سنوكر"

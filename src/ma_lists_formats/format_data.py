@@ -3,98 +3,88 @@
 
 """
 import re
-from typing import Dict
+from typing import Dict, Optional
 from ..helps.log import logger
 
 
 class FormatData:
     def __init__(
         self,
-            formated_data: Dict[str, str],
-            data_list: Dict[str, str],
-            key_placeholder: str="xoxo",
-            value_placeholder: str="xoxo",
+        formated_data: Dict[str, str],
+        data_list: Dict[str, str],
+        key_placeholder: str = "xoxo",
+        value_placeholder: str = "xoxo",
     ):
+        # Store originals
         self.formated_data = formated_data
+        self.data_list = data_list
+
+        # Case-insensitive mirrors
+        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formated_data.items()}
+        self.data_list_ci: Dict[str, str] = {k.lower(): v for k, v in data_list.items()}
+
         self.value_placeholder = value_placeholder
         self.key_placeholder = key_placeholder
-        self.data_list = data_list
         self.pattern = self.keys_to_pattern()
 
-    def keys_to_pattern(self) -> re.Pattern[str] | None:
-        if not self.data_list:
+    def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
+        """Build a case-insensitive regex over lowercased keys of data_list."""
+        if not self.data_list_ci:
             return None
-        # ---
-        data_List_sorted = sorted(self.data_list, key=lambda x: -x.count(" "))
-        # ---
-        data_pattern = r'\b(' + '|'.join(map(re.escape, [n.lower() for n in data_List_sorted])) + r')\b'
-        # ---
+        keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
+        data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
         return re.compile(data_pattern, re.I)
 
     def match_key(self, category: str) -> str:
+        """Return canonical lowercased key from data_list if found; else empty."""
         if not self.pattern:
             return ""
-        # ---
         match = self.pattern.search(f" {category} ")
-        # ---
-        if match:
-            return match.group(1)
-        # ---
-        return ""
+        return match.group(1).lower() if match else ""
 
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
-        # ---
-        team_lab = ""
-        # ---
+        """Replace value placeholder once template is chosen."""
         final_label = template_label.replace(self.value_placeholder, sport_label)
-        # ---
-        if final_label.find(self.value_placeholder) == -1:
-            team_lab = final_label
-        # ---
-        return team_lab
+
+        if self.value_placeholder not in final_label:
+            return final_label
+
+        return ""
 
     def normalize_category(self, category: str, sport_key: str) -> str:
+        """Replace the matched sport key with the key placeholder."""
         normalized = re.sub(
-            f" {sport_key} ",
+            f" {re.escape(sport_key)} ",
             f" {self.key_placeholder} ",
             f" {category.strip()} ",
-            flags=re.IGNORECASE
+            flags=re.IGNORECASE,
         )
         return normalized.strip()
 
-    def get_template_label(self, sport_key: str, category: str):
-        # ---
+    def get_template_label(self, sport_key: str, category: str) -> str:
+        """Lookup template in a case-insensitive dict."""
         normalized = self.normalize_category(category, sport_key)
-        # ---
         logger.debug(f"normalized: {normalized}")
-        # ---
-        template_label = self.formated_data.get(normalized, "")
-        # ---
-        return template_label
+        # Case-insensitive key lookup
+        return self.formated_data_ci.get(normalized.lower(), "")
 
     def search(self, category: str) -> str:
-        # ---
+        """End-to-end resolution."""
         sport_key = self.match_key(category)
-        # ---
         if not sport_key:
             logger.debug(f'No sport key matched for category: "{category}"')
             return ""
-        # ---
-        sport_label = self.data_list.get(sport_key)
-        # ---
+        sport_label = self.data_list_ci.get(sport_key)
         if not sport_label:
             logger.debug(f'No sport label matched for sport key: "{sport_key}"')
             return ""
-        # ---
         template_label = self.get_template_label(sport_key, category)
-        # ---
         if not template_label:
-            logger.debug(f'No template label matched for sport key: "{sport_key}" and category: "{category}"')
+            logger.debug(
+                f'No template label matched for sport key: "{sport_key}" and category: "{category}"'
+            )
             return ""
-        # ---
-        result = self.apply_pattern_replacement(template_label, sport_label)
-        # ---
-        return result
+        return self.apply_pattern_replacement(template_label, sport_label)
 
 
 def format_data_sample():
