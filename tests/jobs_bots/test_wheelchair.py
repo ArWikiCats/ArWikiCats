@@ -331,6 +331,8 @@ data = {
 
 def test_wheelchair_1():
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+    # sort diff_result by value
+    diff_result = dict(sorted(diff_result.items(), key=lambda x: x[1]))
 
     dump_diff(diff_result, "test_wheelchair_1")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
