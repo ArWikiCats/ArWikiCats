@@ -2,6 +2,7 @@
 """
 
 """
+import functools
 import re
 from typing import Dict, Optional
 from ..helps.log import logger
@@ -35,6 +36,7 @@ class FormatData:
         data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
         return re.compile(data_pattern, re.I)
 
+    @functools.lru_cache(maxsize=None)
     def match_key(self, category: str) -> str:
         """Return canonical lowercased key from data_list if found; else empty."""
         if not self.pattern:
@@ -42,6 +44,7 @@ class FormatData:
         match = self.pattern.search(f" {category} ")
         return match.group(1).lower() if match else ""
 
+    @functools.lru_cache(maxsize=None)
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
         """Replace value placeholder once template is chosen."""
         final_label = template_label.replace(self.value_placeholder, sport_label)
@@ -51,6 +54,7 @@ class FormatData:
 
         return ""
 
+    @functools.lru_cache(maxsize=None)
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
         normalized = re.sub(
@@ -68,6 +72,7 @@ class FormatData:
         # Case-insensitive key lookup
         return self.formated_data_ci.get(normalized.lower(), "")
 
+    @functools.lru_cache(maxsize=None)
     def search(self, category: str) -> str:
         """End-to-end resolution."""
         sport_key = self.match_key(category)

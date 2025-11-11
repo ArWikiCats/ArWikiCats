@@ -9,6 +9,7 @@ import re
 from .sport_lab_with_nat import Get_New_team_xo_with_nat
 from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs
 from .te3 import New_team_xo_team_labels
+from .sport_lab2 import wrap_team_xo_normal_2025
 from ..utils.match_sport_keys import match_sport_key
 from ..utils import apply_pattern_replacement
 from ..sports import sport_formts_enar_p17_team
@@ -125,21 +126,19 @@ def Get_New_team_xo(team: str) -> str:
     if not sport_key:
         return ""
     # ---
-    normalized_team = team
-    # ---
-    normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {normalized_team.strip()} ", flags=re.IGNORECASE).strip()
-    # ---
-    # team_xo = re.sub(sport_key , 'xoxo' , team_xo, flags=re.IGNORECASE)
-    # ---
-    print_put(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{normalized_team}"')
-    # ---
-    team_lab = Get_New_team_xo_normal(normalized_team, sport_key)
+    team_lab = wrap_team_xo_normal_2025(team)
     # ---
     if not team_lab:
-        team_lab = Get_New_team_xo_with_nat(normalized_team, sport_key)
-    # ---
-    if team_lab:
-        print_put(f'Get_New_team_xo: team_lab:"{team_lab}"')
+        normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {team.strip()} ", flags=re.IGNORECASE).strip()
+        # ---
+        # team_xo = re.sub(sport_key , 'xoxo' , team_xo, flags=re.IGNORECASE)
+        # ---
+        print_put(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{normalized_team}"')
+        # ---
+        # if not team_lab: team_lab = Get_New_team_xo_normal(normalized_team, sport_key)
+        # ---
+        if not team_lab:
+            team_lab = Get_New_team_xo_with_nat(normalized_team, sport_key)
     # ---
     return team_lab
 
