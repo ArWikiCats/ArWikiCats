@@ -512,9 +512,7 @@ def test_wheelchair_3():
 
 
 data3 = {
-    "Category:American men wheelchair racers": "",
-    "Category:American wheelchair javelin throwers": "",
-    "Category:American wheelchair racers": "",
+    "Category:American wheelchair racers": "تصنيف:متسابقو كراسي متحركة أمريكيون",
 }
 
 
