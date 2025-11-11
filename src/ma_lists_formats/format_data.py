@@ -28,7 +28,6 @@ class FormatData:
         self.key_placeholder = key_placeholder
         self.pattern = self.keys_to_pattern()
 
-    @functools.lru_cache(maxsize=None)
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
         if not self.data_list_ci:
