@@ -115,7 +115,7 @@ for ty_nat, tas in New_Tato_nat.items():
     # ---
     K_at_p = f"منتخبات xzxz وطنية {tas}"
     Ar_labs_3 = f"منتخبات xzxz وطنية {tasf}"
-    if ty_nat.find("national") == -1:
+    if "national" not in ty_nat:
         K_at_p = f"فرق xzxz {tas}"
         Ar_labs_3 = f"فرق xzxz {tasf}"
     # ---

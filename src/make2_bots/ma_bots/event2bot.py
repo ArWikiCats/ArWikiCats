@@ -42,16 +42,19 @@ def event2_d2(cat3: str, category3_not_lower: str) -> str:
         could be determined.
     """
 
-    category_lab = ""
+    # TODO: THIS NEED REVIEW
+    # Reject strings that contain common English prepositions
+    blocked = ("in", "of", "from", "by", "at")
+    if any(f" {word} " in cat3.lower() for word in blocked):
+        return ""
 
-    if cat3.find(" in ") == -1 and cat3.find(" of ") == -1 and cat3.find(" from ") == -1:
-        if cat3.find(" by ") == -1 and cat3.find(" at ") == -1:
-            if re.sub(r"^\d", "", cat3) == cat3:
-                category_lab = Get_contry(category3_not_lower)
-            else:
-                category_lab = with_years_bot.Try_With_Years(cat3)
-                if category_lab:
-                    category_lab = f"تصنيف:{category_lab}"
+    category_lab = ""
+    if re.sub(r"^\d", "", cat3) == cat3:
+        category_lab = Get_contry(category3_not_lower)
+    else:
+        category_lab = with_years_bot.Try_With_Years(cat3)
+        if category_lab:
+            category_lab = f"تصنيف:{category_lab}"
 
     return category_lab
 

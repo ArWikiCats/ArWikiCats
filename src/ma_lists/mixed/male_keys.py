@@ -110,7 +110,7 @@ for key, lab in religious_female_keys.items():
         lb3 = f"{female_keys[dd]} {lab}"
         New_female_keys[ky2] = lb3
         # ---
-        if dd.find("movements") > -1:
+        if "movements" in dd:
             New_female_keys[f"new {keys2} {dd}"] = lb3 + " جديدة"
         # ---
         # if lab == "دينية": print(f"[{ky2}]= '{lb3}'")

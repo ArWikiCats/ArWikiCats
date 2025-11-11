@@ -379,7 +379,7 @@ dpdpd = [
 
 fafr = ""
 for nna, fafa in All_Nat_o.items():
-    if fafa.get("women", "").find(" ") == -1:
+    if " " not in fafa.get("women", ""):
         fafr += f"{fafa.get('women', '')}|"
 printe.output(fafr)
 

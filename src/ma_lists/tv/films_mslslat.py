@@ -290,7 +290,7 @@ for x, da in Films_key_both.items():
     # ---
     if da["male"]:
         Films_key_man[x] = da["male"]
-        if not x.find("animated"):
+        if "animated" not in x:
             Films_key_man[f"animated {x}"] = f"{da['male']} رسوم متحركة"
         # Films_key_For_Jobs[x] = da["male"]
     # ---

@@ -43,7 +43,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
             # ---
             if template_label and sport_arabic_label:
                 resolved_label = template_label.replace("xzxz", sport_arabic_label)
-                if resolved_label.find("xzxz") == -1:
+                if "xzxz" not in resolved_label:
                     label = resolved_label
                     print_put(f'Get_Sport_Formats_For_nat female bbvb:"{label}"')
         else:

@@ -119,7 +119,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     if not resolved_category_label:
         resolved_category_label = test3(normalized_target_category)
 
-    if resolved_category_label == "" and normalized_target_category.strip().find(" ") == -1:
+    if resolved_category_label == "" and " " not in normalized_target_category.strip():
         resolved_category_label = find_wikidata(normalized_target_category)
 
     return resolved_category_label

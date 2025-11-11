@@ -43,7 +43,7 @@ ENTERTAINMENT_CASES = [
         'Category:Female comics writers': 'تصنيف:كاتبات قصص مصورة',
         'Category:Figure skating films': 'تصنيف:أفلام تزلج فني',
         'Category:Figure skating media': 'تصنيف:إعلام تزلج فني',
-        'Category:Figure skating on television': 'تصنيف:التزلج الفني على التلفاز',
+        'Category:Figure skating on television': 'تصنيف:التزلج الفني في التلفاز',
         'Category:Films about Olympic boxing': 'تصنيف:أفلام عن بوكسينغ أولمبي',
         'Category:Films about Olympic figure skating': 'تصنيف:أفلام عن تزلج فني أولمبي',
         'Category:Films about Olympic gymnastics': 'تصنيف:أفلام عن جمباز أولمبي',

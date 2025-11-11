@@ -130,7 +130,7 @@ def new_func_mk2(
                 Add_In = False
                 Add_In_Done = True
 
-            elif con_lab.strip().startswith("أعضاء ") and con_lab.find(" حسب ") == -1:
+            elif con_lab.strip().startswith("أعضاء ") and " حسب " not in con_lab:
                 print_put(">354 Add في to arlabel")
                 suf = " في "
                 Add_In = False

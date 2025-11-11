@@ -95,20 +95,20 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
     OKay = True
 
     if resolved_label == "" and OKay:
-        ti_toseslist = [
-            " by ",
-            " based in ",
-            " in ",
-            " about ",
-            "-of ",
-            " of ",
-            " from ",
-            " to ",
-            " at ",
-            " on ",
+        title_separators = [
+            "based in",
+            "in",
+            "by",
+            "about",
+            "to",
+            "of",
+            "-of ",  # special case
+            "from",
+            "at",
+            "on",
         ]
-
-        for ttt in ti_toseslist:
+        title_separators = [f" {sep} " if sep != "-of " else sep for sep in title_separators]
+        for ttt in title_separators:
             if ttt in contry:
                 OKay = False
                 break

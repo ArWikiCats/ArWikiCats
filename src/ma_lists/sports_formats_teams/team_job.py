@@ -171,7 +171,7 @@ if True:
         Ar_labs_3 = f"منتخبات xoxo وطنية {tas.format(nat='').strip()}"
         Ar_labs_league = f"دوريات xoxo وطنية {tas.format(nat='').strip()}"
         # ---
-        if ty_nat.find("national") == -1:
+        if "national" not in ty_nat:
             Ar_labs_3 = f"فرق xoxo {tas.format(nat='').strip()}"
             Ar_labs_league = f"دوريات xoxo {tas.format(nat='').strip()}"
         # ---
@@ -201,7 +201,7 @@ if True:
             Ar_labs2 = Ar_labs2 + " " + tas.format(nat="").strip()
             en_labs = f"{ty_nat.strip()} xoxo teams"
             en_labs = en_labs.strip()
-            if en_labs.find("national") == -1:
+            if "national" not in en_labs:
                 New_team_xo_jobs[en_labs] = Ar_labs2.strip()
                 sf_en_ar_is_p17[en_labs] = Ar_labs2.strip()
 

@@ -64,7 +64,6 @@ geography_in_4 = {
     "Category:Schools in Westchester County, New York": "تصنيف:مدارس في مقاطعة ويستتشستر (نيويورك)",
     "Category:Science and technology in the United States by state": "تصنيف:العلوم والتكنولوجيا في الولايات المتحدة حسب الولاية",
     "Category:Slavery in the United States by state": "تصنيف:العبودية في الولايات المتحدة حسب الولاية",
-    "Category:Sports in the United States by state": "تصنيف:الرياضة في الولايات المتحدة حسب الولاية",
 }
 
 geography_in_5 = {

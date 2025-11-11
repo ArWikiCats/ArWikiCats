@@ -1,26 +1,23 @@
 #!/usr/bin/python3
 """
-from .c2_bots.contry2_tit_bt import contry_2_tit
-
+!
 """
 
 import re
 from typing import Tuple
+
 from .... import printe
-
 from ...format_bots import Tit_ose_Nmaes
-
 from ....helps.print_bot import print_put, output_test
-
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 from .cn_lab import make_cnt_lab
 
 
-def make_conas(tat_o: str, contry: str) -> Tuple[str, str]:
+def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
     """Process a country name based on a specified separator."""
 
-    contry2_no_lower = contry.strip()
-    contry2 = contry.lower().strip()
+    contry2_no_lower = country.strip()
+    contry2 = country.lower().strip()
 
     con_1 = contry2.split(tat_o)[0]
     con_2 = contry2.split(tat_o)[1]
@@ -82,12 +79,12 @@ def make_sps(tat_o: str, c_1_l: str, cona_1: str) -> str:
     return sps
 
 
-def contry_2_tit(tat_o: str, contry: str, With_Years: bool = True) -> str:
+def contry_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     """Convert country name and generate labels based on input parameters."""
 
-    print_put(f'>>>> <<lightblue>> Get_contry2: <<lightyellow>> New Way to find lab for "{contry.lower().strip()}".')
+    print_put(f'>>>> <<lightblue>> Get_contry2: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
 
-    con_1, con_2 = make_conas(tat_o, contry)
+    con_1, con_2 = make_conas(tat_o, country)
 
     print_put(f'2060 con_1:"{con_1}",con_2:"{con_2}",tat_o:"{tat_o}"')
 
@@ -100,7 +97,7 @@ def contry_2_tit(tat_o: str, contry: str, With_Years: bool = True) -> str:
 
     fAAA = '>>>> XX--== <<lightgreen>> Ccon_1:"%s", lab"%s", cona_2:"%s", lab"%s", cnt_test: "%s"'
 
-    contry2 = contry.lower().strip()
+    contry2 = country.lower().strip()
     remaining_text = contry2
 
     if c_2_l == "" or c_1_l == "":
@@ -132,3 +129,38 @@ def contry_2_tit(tat_o: str, contry: str, With_Years: bool = True) -> str:
     resolved_label = make_cnt_lab(tat_o, contry2, c_2_l, c_1_l, cona_1, cona_2, sps)
 
     return resolved_label
+
+
+def country_2_title_work(country: str, With_Years: bool = True) -> str:
+
+    title_separators = [
+        "based in",
+        "in",
+        "by",
+        "about",
+        "to",
+        "of",
+        "-of ",  # special case
+        "from",
+        "at",
+        "on",
+    ]
+    resolved_label = ""
+
+    normalized_country = country.lower().strip()
+
+    for sep in title_separators:
+        separator = f" {sep} " if sep != "-of " else sep
+        if separator in normalized_country:
+            resolved_label = contry_2_tit(separator, country, With_Years=With_Years)
+            break
+
+    return resolved_label
+
+
+__all__ = [
+    "country_2_title_work",
+    "contry_2_tit",
+    "make_sps",
+    "make_conas",
+]
