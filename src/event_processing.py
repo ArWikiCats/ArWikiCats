@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import functools
 import re
 from contextlib import contextmanager
 from dataclasses import dataclass, field
@@ -157,6 +158,7 @@ class EventProcessor:
         category = re.sub(r"^\ufeff", "", category)
         return re.sub(r"_", " ", category)
 
+    @functools.lru_cache(maxsize=None)
     def _resolve_label(self, category: str) -> str:
         if category in self._event_done:
             cached = self._event_done[category]
@@ -168,15 +170,22 @@ class EventProcessor:
         if from_year:
             category_lab = from_year
 
-        if not category_lab and filter_en.filter_cat(category):
-            changed_cat = change_cat(category)
+        changed_cat = change_cat(category)
+        is_cat_okay = filter_en.filter_cat(category)
+
+        start_yementest_lab = ""
+
+        if not category_lab:
+            start_yementest_lab = ye_ts_bot.translate_general_category(changed_cat)
+
+        if not category_lab and is_cat_okay:
 
             category_lower = category.lower()
-            if not category_lab and category_lower in cash_2022:
-                category_lab = cash_2022[category_lower]
+            if not category_lab:
+                category_lab = cash_2022.get(category_lower, "")
 
             if not category_lab and self.config.start_yementest:
-                category_lab = ye_ts_bot.translate_general_category(changed_cat)
+                category_lab = start_yementest_lab
 
             if not category_lab:
                 category_lab = event2bot.event2(changed_cat)
@@ -184,13 +193,16 @@ class EventProcessor:
             if not category_lab:
                 category_lab = event_lab_bot.event_Lab(changed_cat)
 
+        if not category_lab and is_cat_okay:
+            category_lab = start_yementest_lab
+
         if category_lab:
             category_lab = fixtitle.fixlab(category_lab, en=category)
 
         if not from_year and cat_year:
             labs_years.lab_from_year_add(category, category_lab, cat_year)
 
-        self._event_done[category] = category_lab
+        # self._event_done[category] = category_lab
         return category_lab
 
     @staticmethod

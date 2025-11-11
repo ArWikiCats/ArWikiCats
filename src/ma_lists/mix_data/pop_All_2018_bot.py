@@ -11,6 +11,7 @@ from ..geo.Labels_Contry import New_P17_Finall
 from ..tv.films_mslslat import films_mslslat_tab
 from ..jobs.Jobs import Jobs_new, Jobs_key
 from ..sports.Sport_key import Sports_Keys_For_Label
+from ..sports.sub_teams_keys import sub_teams_new
 from ..by_type import By_table
 # from ..sports.teams_new_data import Teams_new
 
@@ -25,7 +26,8 @@ def load_pop_All_2018() -> Dict[str, str]:
         Jobs_key,               # 132,864
         films_mslslat_tab,      # 2,480
         By_table,               # 15,899
-        # Teams_new,              # 373,927
+        sub_teams_new,          # 12,806
+        # Teams_new,            # 352,946
         New_P17_Finall,         # 62,671
         Sports_Keys_For_Label,  # 687
     ]

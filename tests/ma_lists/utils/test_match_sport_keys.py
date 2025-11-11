@@ -51,7 +51,7 @@ CATEGORY_SAMPLES = {
 
 @pytest.mark.fast
 @pytest.mark.parametrize("category,expected_key", CATEGORY_SAMPLES.items())
-def test_match_sport_key_detects_all(category, expected_key):
+def test_match_sport_key_detects_all(category: str, expected_key: str):
     """Ensure every key in Sports_Keys_For_Jobs is detectable in sample categories."""
     result = match_sport_key(category)
     assert result.lower() == expected_key.lower(), f"Mismatch for {category}"

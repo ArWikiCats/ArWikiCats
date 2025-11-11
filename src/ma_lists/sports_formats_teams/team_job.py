@@ -14,7 +14,7 @@ sport_formts_enar_p17_jobs = {}
 # sf_en_ar_is_p17 لدمجها مع sport_formts_en_ar_is_p17 في sports.py
 sf_en_ar_is_p17 = {}
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 1343 مدخلة
 # ---
 team = "xoxo"
@@ -52,7 +52,7 @@ if True:
     New_team_xo_jobs["national men's xoxo manager history"] = "تاريخ مدربو منتخبات xoxo وطنية للرجال"
     New_team_xo_jobs["national xoxo manager history"] = "تاريخ مدربو منتخبات xoxo وطنية"
     # ---
-    for year in Years_List:
+    for year in YEARS_LIST:
         New_team_xo_jobs[f"under-{year} xoxo"] = f"xoxo تحت {year} سنة"
         # ---
         # Category:National under-17 football manager history navigational boxes
@@ -131,9 +131,9 @@ if True:
     mens_womens = {
         "men's": "للرجال",
         "women's": "للسيدات",
-        "men's youth ": " للشباب",
-        "women's youth ": " للشابات",
-        "youth ": " للشباب",
+        "men's youth": "للشباب",
+        "women's youth": "للشابات",
+        "youth": "للشباب",
     }
     # ---
     New_team_xo_jobs["international men's xoxo competitions"] = "منافسات xoxo رجالية دولية"

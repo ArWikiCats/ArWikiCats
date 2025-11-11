@@ -11,7 +11,7 @@ sport_formts_enar_p17_jobs = {}
 # sf_en_ar_is_p17 لدمجها مع sport_formts_en_ar_is_p17 في sports.py
 sf_en_ar_is_p17 = {}
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
 # ---
 team = "xzxz"

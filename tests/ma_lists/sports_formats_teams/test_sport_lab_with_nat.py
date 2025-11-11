@@ -55,7 +55,7 @@ def test_apply_pattern_replacement() -> None:
 @pytest.mark.skip
 def test_all():
 
-    data_old = {
+    _data_old = {
         "national youth women's under-14 softball leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",
         "national youth women's under-14 softball teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
         "national youth women's under-14 softball leagues trainers": "مدربو دوريات كرة لينة وطنية تحت 14 سنة للشابات",

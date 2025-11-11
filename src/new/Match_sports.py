@@ -4,35 +4,34 @@ Single-file test implementation for the 'xoxo' sports template resolver.
 """
 
 import re
-import pytest
 from typing import Dict, Optional, Tuple
 
 
 TEMPLATES_TEAMS: Dict[str, str] = {
-"men's xoxo world cup": "كأس العالم للرجال في {sport_ar}",
-"women's xoxo world cup": "كأس العالم للسيدات في {sport_ar}",
-"xoxo world cup": "كأس العالم في {sport_ar}",
-"men's xoxo world championship": "بطولة العالم للرجال في {sport_ar}",
-"women's xoxo world championship": "بطولة العالم للسيدات في {sport_ar}",
-"xoxo world championship": "بطولة العالم في {sport_ar}",
-"men's xoxo asian championship": "بطولة آسيا للرجال في {sport_ar}",
-"women's xoxo asian championship": "بطولة آسيا للسيدات في {sport_ar}",
-"xoxo asian championship": "بطولة آسيا في {sport_ar}",
-"men's xoxo league": "دوري الرجال في {sport_ar}",
-"women's xoxo league": "دوري السيدات في {sport_ar}",
-"xoxo league": "الدوري في {sport_ar}",
-"men's xoxo cup": "كأس الرجال في {sport_ar}",
-"women's xoxo cup": "كأس السيدات في {sport_ar}",
-"xoxo cup": "الكأس في {sport_ar}",
-"u23 xoxo championship": "بطولة تحت 23 سنة في {sport_ar}",
-"u20 xoxo championship": "بطولة تحت 20 سنة في {sport_ar}",
-"u17 xoxo world cup": "كأس العالم تحت 17 سنة في {sport_ar}",
-"wheelchair xoxo world championship": "بطولة العالم للكراسي المتحركة في {sport_ar}",
-"wheelchair xoxo": "{sport_ar} على كراسي متحركة",
-"xoxo racing": "سباقات {sport_ar}",
-"men's national xoxo team": "منتخب {sport_ar} الوطني للرجال",
-"women's national xoxo team": "منتخب {sport_ar} الوطني للسيدات",
-"national xoxo team": "المنتخب الوطني في {sport_ar}",
+    "men's xoxo world cup": "كأس العالم للرجال في {sport_ar}",
+    "women's xoxo world cup": "كأس العالم للسيدات في {sport_ar}",
+    "xoxo world cup": "كأس العالم في {sport_ar}",
+    "men's xoxo world championship": "بطولة العالم للرجال في {sport_ar}",
+    "women's xoxo world championship": "بطولة العالم للسيدات في {sport_ar}",
+    "xoxo world championship": "بطولة العالم في {sport_ar}",
+    "men's xoxo asian championship": "بطولة آسيا للرجال في {sport_ar}",
+    "women's xoxo asian championship": "بطولة آسيا للسيدات في {sport_ar}",
+    "xoxo asian championship": "بطولة آسيا في {sport_ar}",
+    "men's xoxo league": "دوري الرجال في {sport_ar}",
+    "women's xoxo league": "دوري السيدات في {sport_ar}",
+    "xoxo league": "الدوري في {sport_ar}",
+    "men's xoxo cup": "كأس الرجال في {sport_ar}",
+    "women's xoxo cup": "كأس السيدات في {sport_ar}",
+    "xoxo cup": "الكأس في {sport_ar}",
+    "u23 xoxo championship": "بطولة تحت 23 سنة في {sport_ar}",
+    "u20 xoxo championship": "بطولة تحت 20 سنة في {sport_ar}",
+    "u17 xoxo world cup": "كأس العالم تحت 17 سنة في {sport_ar}",
+    "wheelchair xoxo world championship": "بطولة العالم للكراسي المتحركة في {sport_ar}",
+    "wheelchair xoxo": "{sport_ar} على كراسي متحركة",
+    "xoxo racing": "سباقات {sport_ar}",
+    "men's national xoxo team": "منتخب {sport_ar} الوطني للرجال",
+    "women's national xoxo team": "منتخب {sport_ar} الوطني للسيدات",
+    "national xoxo team": "المنتخب الوطني في {sport_ar}",
 }
 # ---------- team_job.py ----------
 SPORTS_EN_TO_AR: Dict[str, str] = {
@@ -108,10 +107,13 @@ def resolve_team_label(title_en: str) -> str:
     if alt_key in TEMPLATES_TEAMS:
         return TEMPLATES_TEAMS[alt_key].format(sport_ar=sport_ar)
     return ""
+
+
 # -*- coding: utf-8 -*-
 """
 Manual test runner for resolve_team_label without pytest.
 """
+
 
 def manual_test_resolve_team_label():
     tests = [
@@ -153,5 +155,3 @@ def manual_test_resolve_team_label():
 # Run directly
 if __name__ == "__main__":
     manual_test_resolve_team_label()
-
-# ---------- tests ----------

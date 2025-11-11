@@ -58,6 +58,8 @@ for kk in Sports_Keys_New.keys():
 # ---
 Sports_Keys_For_Label = Table["label"]
 Sports_Keys_For_Jobs = Table["jobs"]
+Sports_Keys_For_Jobs["sports"] = "رياضية"
+
 Sports_Keys_For_Team = Table["team"]
 Sports_Keys_For_olympic = Table["olympic"]
 # ---

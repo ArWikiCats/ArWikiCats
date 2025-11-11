@@ -1,4 +1,14 @@
 
+## [#45](https://github.com/MrIbrahem/make2_new/pull/45) - 2025-11-11
+
+* **New Features**
+  * Improved organization and categorization of sports team-related data
+  * Enhanced support for sports category mappings and labels
+
+* **Chores**
+  * Reorganized internal data structures for better sports information management
+  * Updated code formatting and test annotations
+
 ## [#44](https://github.com/MrIbrahem/make2_new/pull/44) - 2025-11-10
 * **Refactor [jobs_players_list.py](src/ma_lists/jobs/jobs_players_list.py)**
 

@@ -9,7 +9,10 @@ lab = ye_ts_bot.translate_general_category()
 
 """
 
+import functools
 import re
+
+from ...helps.log import logger
 from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put
@@ -17,8 +20,6 @@ from ..format_bots import Tit_ose_Nmaes
 from ..date_bots import year_lab
 from ..matables_bots.bot import Films_O_TT, New_players
 from ..ma_bots.ar_label_bot import find_ar_label
-
-YTN_cash = {}
 
 
 def find_lab(category: str, category_r: str) -> str:
@@ -84,6 +85,7 @@ def work_titose_nmaes(
     return arlabel
 
 
+@functools.lru_cache(maxsize=None)
 def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> str:
     """Retrieve and process category names for the Yementest application.
 
@@ -104,11 +106,6 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
 
     category = re.sub(r"_", " ", category_r)
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
-
-    cash_key = category.lower().strip()
-
-    if cash_key in YTN_cash:
-        return YTN_cash[cash_key]
 
     print_def_head(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
 
@@ -134,7 +131,5 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
         print_put(f'>>>>>> <<lightyellow>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
     print_def_head("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
-
-    YTN_cash[cash_key] = arlabel
 
     return arlabel
