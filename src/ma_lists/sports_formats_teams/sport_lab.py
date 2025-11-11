@@ -133,6 +133,7 @@ def Get_New_team_xo(team: str) -> str:
     # ---
     print_put(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{normalized_team}"')
     # ---
+    team_lab = ""
     team_lab = Get_New_team_xo_normal(normalized_team, sport_key)
     # ---
     if not team_lab:
