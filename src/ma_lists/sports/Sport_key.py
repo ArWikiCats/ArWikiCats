@@ -37,8 +37,24 @@ for kk, labll in Sports_Keys_New.items():
             "olympic": f'سباق {labll["olympic"]}',
         }
     # ---
-    if not kk.startswith("wheelchair"):
-        Sports_Keys_New2[f"wheelchair {kk}"] = {
+# ---
+keys_to_wheelchair = [
+    "sports",
+    "basketball",
+    "rugby",
+    "tennis",
+    "handball",
+    "beach handball",
+    "curling",
+    "fencing",
+]
+# ---
+for key in keys_to_wheelchair:
+    # ---
+    labll = Sports_Keys_New.get(key)
+    # ---
+    if labll:
+        Sports_Keys_New2[f"wheelchair {key}"] = {
             "label": f'{labll["label"]} على الكراسي المتحركة',
             "team": f'{labll["label"]} على الكراسي المتحركة',
             "jobs": f'{labll["jobs"]} على كراسي متحركة',

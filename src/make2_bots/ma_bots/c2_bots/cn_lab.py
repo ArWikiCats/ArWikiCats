@@ -50,7 +50,7 @@ def make_cnt_lab(tat_o: str, contry2: str, c_2_l: str, c_1_l: str, cona_1: str, 
             print_put(f'<<lightblue>>>>>> cona_1 in pop_format2 "{pop_format2[cona_1]}":')
             resolved_label = pop_format2[cona_1].format(c_2_l)
 
-    print_put(f'<<lightpurple>> >>>> contry_2_tit "{contry2}": label: {resolved_label}')
+    print_put(f'<<lightpurple>> >>>> contry 2_tit "{contry2}": label: {resolved_label}')
     resolved_label = resolved_label.replace("  ", " ")
 
     maren = re.match(r"\d\d\d\d", cona_2)

@@ -81,7 +81,7 @@ for key in pop_key_4:
     structures_data[f"disused {key2} stations"] = f"محطات {lab} مهجورة"
     structures_data["disused " + (f"{key2} stations")] = f"محطات {lab} مهجورة"
     # ---
-    if lab.find("طاقة") == -1:
+    if "طاقة" not in lab:
         structures_data[f"{key2} energy"] = f"طاقة {lab}"
         structures_data[f"{key2} power plants"] = f"محطات طاقة {lab}"
         structures_data[f"{key2} power stations"] = f"محطات طاقة {lab}"

@@ -1,4 +1,25 @@
 
+## [#47](https://github.com/MrIbrahem/make2_new/pull/47) - 2025-11-11
+
+* **New Features**
+  * Added support for wheelchair racers and expanded wheelchair sport coverage (rugby, tennis, handball, curling, fencing) with localized labels and metadata.
+  * New country title processing aid to improve place/category labeling.
+
+* **Bug Fixes**
+  * Updated translations: discus throwers and figure skating on television.
+  * Removed an obsolete wheelchair basketball key from the sports index.
+
+* **Tests**
+  * Added comprehensive wheelchair labeling tests.
+
+* **Chores**
+  * Added changelog entry and general internal string-handling cleanups.
+
+## [#46](https://github.com/MrIbrahem/make2_new/pull/46) - 2025-11-11
+
+* **New Features [format_data.py](src/ma_lists_formats/format_data.py)**
+  * Introduces FormatData class with template-based string transformation logic, including regex pattern matching from sport keys, placeholder replacement, category normalization, and a unified search() method orchestrating the lookup pipeline. Includes a sample usage function.
+
 ## [#45](https://github.com/MrIbrahem/make2_new/pull/45) - 2025-11-11
 
 * **New Features**

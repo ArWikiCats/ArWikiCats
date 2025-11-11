@@ -36,7 +36,7 @@ def find_ar_label(
 
     CAO = True
 
-    print_put(f'<<lightblue>>>>>> yementest: category.find(tito:"{tito_name}":"{tito}") != -1 ')
+    print_put(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
     tito2 = tito.strip()
     Type, contry = get_type_country(category, tito)
 

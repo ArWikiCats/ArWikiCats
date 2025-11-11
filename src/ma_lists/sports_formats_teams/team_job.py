@@ -105,6 +105,9 @@ if True:
     New_team_xo_jobs["amateur xoxo championships"] = "بطولات xoxo للهواة"
     New_team_xo_jobs["international xoxo"] = "xoxo دولية"
     # ---
+    New_team_xo_jobs["xoxo league competitions"] = "منافسات دوري xoxo"
+    New_team_xo_jobs["xoxo league teams"] = "فرق دوري xoxo"
+    # ---
     New_team_xo_jobs["International xoxo competition tournaments"] = "بطولات منافسات xoxo دولية"
     New_team_xo_jobs["International xoxo competitions"] = "منافسات xoxo دولية"
     New_team_xo_jobs["International xoxo races"] = "سباقات xoxo دولية"
@@ -171,11 +174,11 @@ if True:
         Ar_labs_3 = f"منتخبات xoxo وطنية {tas.format(nat='').strip()}"
         Ar_labs_league = f"دوريات xoxo وطنية {tas.format(nat='').strip()}"
         # ---
-        if ty_nat.find("national") == -1:
+        if "national" not in ty_nat:
             Ar_labs_3 = f"فرق xoxo {tas.format(nat='').strip()}"
             Ar_labs_league = f"دوريات xoxo {tas.format(nat='').strip()}"
         # ---
-        elif ty_nat.find("multi-national") != -1:
+        elif "multi-national" in ty_nat:
             Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
             Ar_labs_league = Ar_labs_league.replace(" وطنية", "")
         # ---
@@ -183,10 +186,10 @@ if True:
         # ---
         for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():
             # ---
-            if (pr_e == "players" or pr_e == "playerss") and ty_nat.find("women's") != -1:
+            if (pr_e == "players" or pr_e == "playerss") and "women's" in ty_nat:
                 pr_e_Lab = "لاعبات {lab}"
             # ---
-            elif pr_e_Lab.find("لاعبو") != -1 and ty_nat.find("women's") != -1:
+            elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
             # ---
             Abteams = f"{ty_nat} xoxo teams {pr_e}".strip()
@@ -201,7 +204,7 @@ if True:
             Ar_labs2 = Ar_labs2 + " " + tas.format(nat="").strip()
             en_labs = f"{ty_nat.strip()} xoxo teams"
             en_labs = en_labs.strip()
-            if en_labs.find("national") == -1:
+            if "national" not in en_labs:
                 New_team_xo_jobs[en_labs] = Ar_labs2.strip()
                 sf_en_ar_is_p17[en_labs] = Ar_labs2.strip()
 

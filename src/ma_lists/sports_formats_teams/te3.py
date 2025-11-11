@@ -49,6 +49,14 @@ if True:
     # New_team_xo_team_labels["women's asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
     # New_team_xo_team_labels["ladies asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
     # ---
+    typies = {
+        "cups": "كؤوس",
+        "clubs": "أندية",
+        "competitions": "منافسات",
+        "leagues": "دوريات",
+        "coaches": "مدربو",  # Category:Indoor soccer coaches in the United States by club
+    }
+    # ---
     sport_formts_enar_p17_team["xoxo league"] = "دوري {} xoxo "
     sport_formts_enar_p17_team["professional xoxo league"] = "دوري {} xoxo للمحترفين"
     # ---tournaments
@@ -91,6 +99,10 @@ if True:
     New_team_xo_team_labels["international xoxo council"] = "المجلس الدولي xoxo"
     New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
     New_team_xo_team_labels["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
+
+    New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
+    New_team_xo_team_labels["xoxo league world cup"] = "كأس العالم لدوري xoxo"
+    New_team_xo_team_labels["xoxo league finals"] = "نهائيات دوري xoxo"
 
     New_team_xo_team_labels["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
     New_team_xo_team_labels["youth xoxo world cup"] = "كأس العالم xoxo للشباب"
@@ -135,10 +147,10 @@ if True:
             pre_lab2 = pre_lab.format(nat_Lab)
             Ab = f"{tyu} xoxo {pre}"
             # ---
-            if pre == "team players" and Ab.find("women's") != -1:
+            if pre == "team players" and "women's" in Ab:
                 pre_lab2 = re.sub(r"لاعبو ", "لاعبات ", pre_lab2)
             # ---
-            elif pre_lab2.find("لاعبو ") != -1 and Ab.find("women's") != -1:
+            elif "لاعبو " in pre_lab2 and "women's" in Ab:
                 pre_lab2 = re.sub(r"لاعبو ", "لاعبات ", pre_lab2)
             # ---
             printo = f"nat_Lab: [{Ab}] : " + pre_lab2

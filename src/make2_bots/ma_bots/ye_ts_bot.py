@@ -72,8 +72,8 @@ def work_titose_nmaes(
 
     for tito, tito_name in Tit_ose_Nmaes.items():
         tito = f" {tito} "
-        # if Keep_Work and category.find(tito) != -1:
-        if category.find(tito) == -1:
+        # if Keep_Work and tito in category:
+        if tito not in category:
             continue
         # ---
         arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, do_Get_contry2=do_Get_contry2)

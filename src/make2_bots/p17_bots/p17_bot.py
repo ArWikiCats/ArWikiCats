@@ -109,7 +109,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
             logger.debug(
                 f'<<lightblue>>>>>> {FOF} .startswith({contry_start}), con_3:"{con_3}"'
             )
-            if con_3_lab.find("{nat}") != -1:
+            if "{nat}" in con_3_lab:
                 resolved_label = con_3_lab.format(nat=contry_start_lab)
             else:
                 resolved_label = con_3_lab.format(contry_start_lab)
