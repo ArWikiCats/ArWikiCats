@@ -13,7 +13,7 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import test_films
-from ..sports_bots import teams_new_bot
+from ..sports_bots import sport_lab_suffixes
 from ..o_bots import univer, parties_bot
 from ..o_bots.popl import work_peoples
 from ..o_bots.rele import work_relations
@@ -36,7 +36,7 @@ def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) 
         resolved_label = nats.find_nat_others(contry2)
 
     if not resolved_label:
-        resolved_label = teams_new_bot.get_teams_new(contry2)
+        resolved_label = sport_lab_suffixes.get_teams_new(contry2)
 
     if not resolved_label:
         resolved_label = parties_bot.get_parties_lab(contry2)

@@ -1,29 +1,11 @@
 #!/usr/bin/python3
-r"""
-
-Usage:
-from ...matables_bots import bot_2018
-# bot_2018.pop_All_2018.get()
-
-
-from ...matables_bots.bot_2018 import pop_All_2018
-from ...matables_bots.bot_2018 import get_pop_All_18, Add_to_pop_All_18 # get_pop_All_18(key, "") #Add_to_pop_All_18(tab)
-
-
-# pop_All_2018\.get\((.*?), (.*?)\)
-# get_pop_All_18($1, $2)
-
-or
-
-# pop_All_2018\.get
-# get_pop_All_18
-
+"""
+!
 """
 import functools
 from typing import Dict
 from ...helps import len_print
-from ...ma_lists import pop_All_2018_bot
-from .teamsnew_bot import get_teams_new
+from ...ma_lists import pop_All_2018_bot, find_teams_2025  # , teams_new_founder
 
 
 @functools.lru_cache(maxsize=1)
@@ -47,7 +29,7 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
     # ---
-    result = _get_pop_All_18(key, default) or get_teams_new(key, default)
+    result = _get_pop_All_18(key, default) or find_teams_2025(key, default)
     # ---
     return result
 
@@ -56,5 +38,6 @@ pop_All_2018 = {}  # 524266
 
 
 len_print.data_len("make2_bots.matables_bots/bot_2018.py", {
-    "pop_All_2018" : 524266
+    # "pop_All_2018" : 524266
+    "pop_All_2018" : lazy_load()
 })

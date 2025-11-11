@@ -83,3 +83,17 @@ def test_Get_Sport_Format_xo_en_ar_is_P17() -> None:
 
     label = Get_Sport_Format_xo_en_ar_is_P17("winter olympics softball")
     assert label.strip() == "كرة لينة {} في الألعاب الأولمبية الشتوية"
+
+
+def test_get_teams_new_mens_softball_world_cup_regression() -> None:
+    """The resolver should correctly translate the softball world cup query."""
+
+    result = Get_New_team_xo("men's softball world cup")
+    assert result == "كأس العالم للكرة اللينة للرجال"
+
+
+def test_get_teams_new_returns_default_for_unknown_category() -> None:
+    """Unmapped categories should return the provided default value."""
+
+    assert Get_New_team_xo("mystery sport") == ""
+
