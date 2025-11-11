@@ -12,7 +12,7 @@ from .Sport_key import Sports_Keys_For_Team
 from ... import app_settings
 nat_p17_oioi = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 sport_formts_for_p17 = {}
 
 
@@ -34,7 +34,7 @@ def make_tab() -> dict[str, str]:
             SP17[f"outdoor {team2} {ioi}"] = f"بطولة {nat_f} {team2_lab} في الهواء الطلق"
             SP17[f"{team2} indoor {ioi}"] = f"بطولة {nat_f} {team2_lab} داخل الصالات"
         # ---
-        for yearr in Years_List:
+        for yearr in YEARS_LIST:
             kk1 = f"{team2} u{str(yearr)} championships"
             kk2 = f"{team2} u-{yearr} championships"
             SP17[kk1] = f"بطولة {nat_f} {team2_lab} تحت {yearr} سنة"
@@ -119,7 +119,7 @@ for ioi in ["championships", "championship"]:
     nat_p17_oioi[f"outdoor oioioi {ioi}"] = f"بطولة {nat_f} oioioi في الهواء الطلق"
     nat_p17_oioi[f"oioioi indoor {ioi}"] = f"بطولة {nat_f} oioioi داخل الصالات"
 # ---
-for yearr in Years_List:
+for yearr in YEARS_LIST:
     kk1 = f"oioioi u{str(yearr)} championships"
     kk2 = f"oioioi u-{yearr} championships"
     nat_p17_oioi[kk1] = f"بطولة {nat_f} oioioi تحت {yearr} سنة"

@@ -15,14 +15,14 @@ New_team_xo_team_labels = {}
 # sf_en_ar_is_p17 لدمجها مع sport_formts_en_ar_is_p17 في sports.py
 sf_en_ar_is_p17 = {}
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
 # ---
 New_Tato = {}
 # ---
 for mrr, mrr_lab in menstt333.items():
     New_Tato[mrr] = mrr_lab
-    for year in Years_List:
+    for year in YEARS_LIST:
         # or year in [23]:
         ylab = "تحت %d سنة" % year
         New_Tato[f"{mrr} under-{year}"] = mrr_lab.replace("{}", "{} %s " % ylab)

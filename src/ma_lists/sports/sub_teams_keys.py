@@ -26,57 +26,52 @@ sub_teams_new = {
     "national men's teams": "منتخبات وطنية رجالية",
     "national women's teams": "منتخبات وطنية نسائية",
     "men's footballers" : "لاعبو كرة قدم رجالية",
-}
-# ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-# ---
-for year in Years_List:
-    sub_teams_new[f"under-{year} sport"] = f"رياضة تحت {year} سنة"
-# ---
-sub_teams_new["national youth sports teams of"] = "منتخبات رياضية وطنية شبابية في"
-sub_teams_new["national sports teams of"] = "منتخبات رياضية وطنية في"
-sub_teams_new["national sports teams"] = "منتخبات رياضية وطنية"
-sub_teams_new["national men's sports teams"] = "منتخبات رياضية وطنية رجالية"
-sub_teams_new["national men's sports teams of"] = "منتخبات رياضية وطنية رجالية في"
-sub_teams_new["national women's sports teams"] = "منتخبات رياضية وطنية نسائية"
-sub_teams_new["national women's sports teams of"] = "منتخبات رياضية وطنية نسائية في"
-# ---
 
-menstts = {
-    "": "",
-    "men's a' ": " للرجال للمحليين",
-    "men's b ": " الرديف للرجال",
-    "men's ": " للرجال",
-    "women's ": " للسيدات",
-    "men's youth ": " للشباب",
-    "women's youth ": " للشابات",
-    # "professional " : " للمحترفين",
-    "amateur ": " للهواة",
-    "youth ": " للشباب",
+    "national youth sports teams of": "منتخبات رياضية وطنية شبابية في",
+    "national sports teams of": "منتخبات رياضية وطنية في",
+    "national sports teams": "منتخبات رياضية وطنية",
+    "national men's sports teams": "منتخبات رياضية وطنية رجالية",
+    "national men's sports teams of": "منتخبات رياضية وطنية رجالية في",
+    "national women's sports teams": "منتخبات رياضية وطنية نسائية",
+    "national women's sports teams of": "منتخبات رياضية وطنية نسائية في",
 }
 # ---
-for mem, labe in Sports_Keys_For_Label.items():
-    sub_teams_new[f"youth {mem}"] = f"{labe} للشباب"
-    sub_teams_new[f"{mem} mass media"] = f"إعلام {labe}"
-    sub_teams_new[f"{mem} non-playing staff"] = f"طاقم {labe} غير اللاعبين"
-    for jjj in menstts:
-        sub_teams_new[f"{jjj.strip()} {mem}"] = f"{labe} {menstts[jjj].strip()}"
-    # ---
-    labes = f"{Sports_Keys_For_Label[mem]} أولمبية"
-    # ---
-    if mem in Sports_Keys_For_olympic:
-        labes = Sports_Keys_For_olympic[mem]
-    # ---
-    sub_teams_new[f"{mem} olympic champions"] = f"أبطال {labes}"
-    sub_teams_new[f"{mem} olympics"] = labes
-    sub_teams_new[f"{mem} olympic"] = labes
-    sub_teams_new[f"olympic {mem}"] = labes
-    sub_teams_new[f"olympics mens {mem}"] = labes
-    sub_teams_new[f"international {mem}"] = labes.replace("أولمبي", "دولي")
-    # ---
-    sub_teams_new[f"olympics men's {mem}"] = labes + " للرجال"
-    sub_teams_new[f"olympics women's {mem}"] = labes + " للسيدات"
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # ---
+for year in YEARS_LIST:
+    sub_teams_new[f"under-{year} sport"] = f"رياضة تحت {year} سنة"
+
+sport_starts = {
+    "men's a'": "للرجال للمحليين",
+    "men's b": "الرديف للرجال",
+    "men's": "للرجال",
+    "women's": "للسيدات",
+    "men's youth": "للشباب",
+    "women's youth": "للشابات",
+    # "professional": "للمحترفين",
+    "amateur": "للهواة",
+    "youth": "للشباب",
+}
+# ---
+for sport, sport_label in Sports_Keys_For_Label.items():
+    sub_teams_new[f"youth {sport}"] = f"{sport_label} للشباب"
+    sub_teams_new[f"{sport} mass media"] = f"إعلام {sport_label}"
+    sub_teams_new[f"{sport} non-playing staff"] = f"طاقم {sport_label} غير اللاعبين"
+    # ---
+    for modifier, modifier_label in sport_starts.items():
+        sub_teams_new[f"{modifier} {sport}"] = f"{sport_label} {modifier_label}"
+    # ---
+    olympic_label = Sports_Keys_For_olympic.get(sport, f"{sport_label} أولمبية")
+    # ---
+    sub_teams_new[f"{sport} olympic champions"] = f"أبطال {olympic_label}"
+    sub_teams_new[f"{sport} olympics"] = olympic_label
+    sub_teams_new[f"{sport} olympic"] = olympic_label
+    sub_teams_new[f"olympic {sport}"] = olympic_label
+    sub_teams_new[f"olympics mens {sport}"] = olympic_label
+    sub_teams_new[f"international {sport}"] = olympic_label.replace("أولمبي", "دولي")
+    # ---
+    sub_teams_new[f"olympics men's {sport}"] = f"{olympic_label} للرجال"
+    sub_teams_new[f"olympics women's {sport}"] = f"{olympic_label} للسيدات"
 
 
 len_print.data_len("sports/sub_teams_keys.py", {

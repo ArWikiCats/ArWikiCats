@@ -4,7 +4,7 @@
 """
 
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # ---
 menstt333 = {
     "": "{}",
@@ -43,7 +43,7 @@ New_Tato_nat = {}
 for template_key, template_label in nat_menstt33.items():
     New_Tato_nat[template_key] = template_label
     # printe.output(lightred % (mr_nat , mr_nat_a) )
-    for year in Years_List:
+    for year in YEARS_LIST:
         # for ye# ---a in [23]:
         # ---
         # Category:Women's national under-20 association football teams

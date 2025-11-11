@@ -544,9 +544,9 @@ for me in Me_priffix:
     Mens_priffix[me] = Me_priffix[me]
     Mens_priffix[f"expatriate {me}"] = f"{Me_priffix[me]} مغتربون"
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # ---
-for year in Years_List:
+for year in YEARS_LIST:
     Mens_priffix[f"under-{year}"] = "{} تحت %d سنة" % year
     Mens_priffix[f"under–{year}"] = "{} تحت %d سنة" % year
 # ---

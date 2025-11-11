@@ -103,20 +103,81 @@ to_get_startswith: Dict[str, Dict[str, Any]] = {
         "Find_wd": False,
         "example": "Category:21st-century members of the Louisiana State Legislature",
     },
-    "20th century members of ": {"lab": "أعضاء {} في القرن 20", "Find_wd": False, "example": ""},
-    "19th century members of ": {"lab": "أعضاء {} في القرن 19", "Find_wd": False, "example": ""},
-    "18th century members of ": {"lab": "أعضاء {} في القرن 18", "Find_wd": False, "example": ""},
-    "17th century members of ": {"lab": "أعضاء {} في القرن 17", "Find_wd": False, "example": ""},
-    "21st century women members of ": {"lab": "عضوات {} في القرن 21", "Find_wd": False, "example": ""},
-    "20th century women members of ": {"lab": "عضوات {} في القرن 20", "Find_wd": False, "example": ""},
-    "19th century women members of ": {"lab": "عضوات {} في القرن 19", "Find_wd": False, "example": ""},
-    "18th century women members of ": {"lab": "عضوات {} في القرن 18", "Find_wd": False, "example": ""},
-    "17th century women members of ": {"lab": "عضوات {} في القرن 17", "Find_wd": False, "example": ""},
-    "presidents of ": {"lab": "رؤساء {}", "Find_wd": False, "example": ""},
-    "family of ": {"lab": "عائلة {}", "Find_wd": False, "example": ""},
-    "lists of ": {"lab": "قوائم {}", "Find_wd": False, "example": ""},
-    "children of ": {"lab": "أطفال {}", "Find_wd": False, "example": ""},
-    "discoveries by ": {"lab": "اكتشافات بواسطة {}", "Find_wd": True, "example": ""},
+    "20th century members of ": {
+        "lab": "أعضاء {} في القرن 20",
+        "Find_wd": False,
+        "example": ""
+    },
+    "19th century members of ": {
+        "lab": "أعضاء {} في القرن 19",
+        "Find_wd": False,
+        "example": ""
+    },
+    "18th century members of ": {
+        "lab": "أعضاء {} في القرن 18",
+        "Find_wd": False,
+        "example": ""
+    },
+    "17th century members of ": {
+        "lab": "أعضاء {} في القرن 17",
+        "Find_wd": False,
+        "example": ""
+    },
+    "21st century women members of ": {
+        "lab": "عضوات {} في القرن 21",
+        "Find_wd": False,
+        "example": ""
+    },
+    "20th century women members of ": {
+        "lab": "عضوات {} في القرن 20",
+        "Find_wd": False,
+        "example": ""
+    },
+    "19th century women members of ": {
+        "lab": "عضوات {} في القرن 19",
+        "Find_wd": False,
+        "example": ""
+    },
+    "18th century women members of ": {
+        "lab": "عضوات {} في القرن 18",
+        "Find_wd": False,
+        "example": ""
+    },
+    "17th century women members of ": {
+        "lab": "عضوات {} في القرن 17",
+        "Find_wd": False,
+        "example": ""
+    },
+    "presidents of ": {
+        "lab": "رؤساء {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "family of ": {
+        "lab": "عائلة {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "lists of ": {
+        "lab": "قوائم {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "children of ": {
+        "lab": "أطفال {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "discoveries by ": {
+        "lab": "اكتشافات بواسطة {}",
+        "Find_wd": True,
+        "example": ""
+    },
+    "__films about ": {
+        "lab": "أفلام عن {}",
+        "Find_wd": False,
+        "example": ""
+    },
 }
 
 
