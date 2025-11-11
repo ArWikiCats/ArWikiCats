@@ -8,7 +8,7 @@ from ..format_bots import Tit_ose_Nmaes, pop_format
 
 from ...ma_lists import sport_formts_en_ar_is_p17
 from ...ma_lists import en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_P17_ar_is_al_women
-from ...ma_lists import All_contry_with_nat_keys_is_en, contries_from_nat
+from ...ma_lists import all_country_with_nat_keys_is_en, contries_from_nat
 from ... import malists_sport_lab as sport_lab
 
 from ...helps.log import logger
@@ -32,7 +32,7 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
         if category.lower().endswith(suffix_key):
             country_prefix = category[: -len(suffix_key)].strip()
 
-            mens_label = All_contry_with_nat_keys_is_en.get(country_prefix, {}).get(
+            mens_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(
                 "mens", ""
             )
             if mens_label:
@@ -48,7 +48,7 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
             if category.lower().endswith(suffix_key):
                 country_prefix = category[: -len(suffix_key)].strip()
 
-                women_label = All_contry_with_nat_keys_is_en.get(country_prefix, {}).get(
+                women_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(
                     "women", ""
                 )
                 if women_label:
@@ -66,18 +66,18 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     resolved_label = ""
     con_3_lab = ""
     con_3 = ""
-    contry_start = ""
+    country_start = ""
     category = category.lower()
-    contry_start_lab = ""
-    con_3, contry_start = get_con_3(category, All_P17, "All_P17")
-    contry_start_lab = All_P17.get(contry_start, "")
+    country_start_lab = ""
+    con_3, country_start = get_con_3(category, All_P17, "All_P17")
+    country_start_lab = All_P17.get(country_start, "")
 
-    if con_3 == "" and contry_start == "":
-        con_3, contry_start = get_con_3(category, contries_from_nat, "contries_from_nat")
-        contry_start_lab = contries_from_nat.get(contry_start, "")
-    if con_3 and contry_start:
-        logger.debug(f'<<lightpurple>>>>>> contry_start_lab:"{contry_start_lab}"')
-        logger.debug(f'<<lightblue>> contry_start:"{contry_start}", con_3:"{con_3}"')
+    if con_3 == "" and country_start == "":
+        con_3, country_start = get_con_3(category, contries_from_nat, "contries_from_nat")
+        country_start_lab = contries_from_nat.get(country_start, "")
+    if con_3 and country_start:
+        logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
+        logger.debug(f'<<lightblue>> country_start:"{country_start}", con_3:"{con_3}"')
 
         FOF = ""
         if con_3 in Tit_ose_Nmaes:
@@ -107,17 +107,17 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
         if con_3_lab:
             logger.debug(
-                f'<<lightblue>>>>>> {FOF} .startswith({contry_start}), con_3:"{con_3}"'
+                f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"'
             )
             if "{nat}" in con_3_lab:
-                resolved_label = con_3_lab.format(nat=contry_start_lab)
+                resolved_label = con_3_lab.format(nat=country_start_lab)
             else:
-                resolved_label = con_3_lab.format(contry_start_lab)
-            Add_to_main2_tab(contry_start, contry_start_lab)
+                resolved_label = con_3_lab.format(country_start_lab)
+            Add_to_main2_tab(country_start, country_start_lab)
 
         if con_3_lab and resolved_label == "":
-            resolved_label = con_3_lab.format(contry_start_lab)
-            Add_to_main2_tab(contry_start, contry_start_lab)
+            resolved_label = con_3_lab.format(country_start_lab)
+            Add_to_main2_tab(country_start, country_start_lab)
         if con_3_lab:
             logger.debug(
                 f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" '
@@ -127,7 +127,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
         )
 
     else:
-        logger.info(f'<<lightred>>>>>> con_3: "{con_3}" or contry_start :"{contry_start}" == ""')
+        logger.info(f'<<lightred>>>>>> con_3: "{con_3}" or country_start :"{country_start}" == ""')
 
     if resolved_label:
         logger.info(f'<<lightblue>>>>>> Get_P17 cnt_la "{resolved_label}" ')

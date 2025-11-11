@@ -52,7 +52,7 @@ def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]
                 category_suffix = cate[len(prefix_candidate) :].strip()
                 output_test4(
                     f'<<lightyellow>>>>>> get_con_3 start_th key_:{option_index} "{prefix_candidate}", '
-                    f'fo_3:"{category_suffix}",contry_start:"{country_prefix}"'
+                    f'fo_3:"{category_suffix}",country_start:"{country_prefix}"'
                 )
                 break
 
@@ -60,7 +60,7 @@ def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]
 
     if category_suffix and country_prefix:
         output_test4(
-            f'<<lightpurple>>>>>> test_4.py contry_start:"{country_prefix}",' \
+            f'<<lightpurple>>>>>> test_4.py country_start:"{country_prefix}",' \
             f'get_con_3 fo_3:"{category_suffix}",Type:{category_type}'
         )
 

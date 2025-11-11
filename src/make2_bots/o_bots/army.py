@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import Dict, Mapping, Tuple
 from ...helps.log import logger
-from ...ma_lists import All_contry_with_nat, All_contry_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, sport_formts_en_p17_ar_nat
+from ...ma_lists import all_country_with_nat, all_country_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, sport_formts_en_p17_ar_nat
 from .utils import apply_arabic_article, get_or_set
 
 #: Cache storing resolved labels keyed by the normalised category name.
@@ -22,7 +22,7 @@ ENDS_WITH_TABLE: Mapping[str, str] = {
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
     """Return the suffix and gendered labels for the matched country prefix."""
 
-    for country, details in All_contry_with_nat.items():
+    for country, details in all_country_with_nat.items():
         english_country = details.get("en", "").lower()
         women_label = details.get("women", "")
         men_label = details.get("men", "")
@@ -56,7 +56,7 @@ def _resolve_women_without_article_prefix(category: str) -> str:
             continue
 
         suffix_key = category[len(prefix_with_space) :].strip()
-        country_label = All_contry_with_nat_keys_is_en.get(suffix_key, {}).get("women", "")
+        country_label = all_country_with_nat_keys_is_en.get(suffix_key, {}).get("women", "")
         if country_label:
             logger.debug(f"Resolved women without article prefix, prefix: {prefix_without_article}, category: {suffix_key}")
             return template.format(nat=country_label)

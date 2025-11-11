@@ -2,11 +2,11 @@ import pytest
 from unittest.mock import patch
 from src.make2_bots.o_bots.rele import work_relations  # افتراض اسم الموديول
 
-from src.make2_bots.o_bots.rele import All_contry_ar, All_contry_with_nat_keys_is_en, Nat_men, Nat_women
+from src.make2_bots.o_bots.rele import all_country_ar, all_country_with_nat_keys_is_en, Nat_men, Nat_women
 
 # بيانات اختبارية موسعة لدعم السيناريوهات المختلفة
 TEST_ALL_COUNTRY_AR = {
-    **All_contry_ar,
+    **all_country_ar,
     "canada": "كندا",
     "burma": "ميانمار",
     "nato": "الناتو",
@@ -37,7 +37,7 @@ TEST_NAT_WOMEN = {
 }
 
 TEST_ALL_COUNTRY_WITH_NAT = {
-    **All_contry_with_nat_keys_is_en,
+    **all_country_with_nat_keys_is_en,
     "nato": {"ar": "الناتو"},
     "pakistan": {
         "men": "باكستاني",
@@ -58,7 +58,7 @@ TEST_ALL_COUNTRY_WITH_NAT = {
 
 def test_female_relations_basic():
     """اختبار حالة أساسية للعلاقات النسائية مع دول موجودة في القاموس"""
-    with patch.dict('src.make2_bots.o_bots.rele.All_contry_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT), \
+    with patch.dict('src.make2_bots.o_bots.rele.all_country_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT), \
             patch.dict('src.make2_bots.o_bots.rele.Nat_women', TEST_NAT_WOMEN):
 
         result = work_relations("canada–burma military relations")
@@ -67,16 +67,16 @@ def test_female_relations_basic():
 
 def test_female_relations_special_nato():
     """اختبار حالة خاصة للناتو مع دولة موجودة"""
-    with patch.dict('src.make2_bots.o_bots.rele.All_contry_ar', TEST_ALL_COUNTRY_AR), \
-            patch.dict('src.make2_bots.o_bots.rele.All_contry_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT):
+    with patch.dict('src.make2_bots.o_bots.rele.all_country_ar', TEST_ALL_COUNTRY_AR), \
+            patch.dict('src.make2_bots.o_bots.rele.all_country_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT):
 
         result = work_relations("nato–canada relations")
         assert result == "علاقات الناتو وكندا"
 
 
 def test_female_relations_mixed_sources():
-    """اختبار دول من مصادر مختلفة (All_contry_with_nat و Nat_women)"""
-    with patch.dict('src.make2_bots.o_bots.rele.All_contry_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT), \
+    """اختبار دول من مصادر مختلفة (all_country_with_nat و Nat_women)"""
+    with patch.dict('src.make2_bots.o_bots.rele.all_country_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT), \
             patch.dict('src.make2_bots.o_bots.rele.Nat_women', TEST_NAT_WOMEN):
 
         result = work_relations("burma–zanzibari border crossings")
@@ -85,7 +85,7 @@ def test_female_relations_mixed_sources():
 
 def test_female_relations_unknown_country():
     """اختبار حالة وجود دولة غير موجودة في القواميس"""
-    with patch.dict('src.make2_bots.o_bots.rele.All_contry_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT), \
+    with patch.dict('src.make2_bots.o_bots.rele.all_country_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT), \
             patch.dict('src.make2_bots.o_bots.rele.Nat_women', TEST_NAT_WOMEN):
 
         result = work_relations("unknown–canada relations")
@@ -123,14 +123,14 @@ def test_male_relations_with_minus_sign():
 
 def test_p17_prefixes_basic():
     """اختبار حالة أساسية للبادئات"""
-    with patch.dict('src.make2_bots.o_bots.rele.All_contry_ar', TEST_ALL_COUNTRY_AR):
+    with patch.dict('src.make2_bots.o_bots.rele.all_country_ar', TEST_ALL_COUNTRY_AR):
         result = work_relations("afghanistan–pakistan proxy conflict")
         assert result == "صراع أفغانستان وباكستان بالوكالة"
 
 
 def test_p17_prefixes_unknown_country():
     """اختبار حالة وجود دولة غير معروفة في P17"""
-    with patch.dict('src.make2_bots.o_bots.rele.All_contry_ar', TEST_ALL_COUNTRY_AR):
+    with patch.dict('src.make2_bots.o_bots.rele.all_country_ar', TEST_ALL_COUNTRY_AR):
         result = work_relations("unknown–pakistan conflict")
         assert result == ""
 
@@ -141,8 +141,8 @@ def test_p17_prefixes_unknown_country():
 
 def test_special_nato_case_male():
     """اختبار حالة الناتو في العلاقات الذكورية (يتطلب معالجة خاصة)"""
-    with patch.dict('src.make2_bots.o_bots.rele.All_contry_ar', TEST_ALL_COUNTRY_AR), \
-            patch.dict('src.make2_bots.o_bots.rele.All_contry_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT):
+    with patch.dict('src.make2_bots.o_bots.rele.all_country_ar', TEST_ALL_COUNTRY_AR), \
+            patch.dict('src.make2_bots.o_bots.rele.all_country_with_nat_keys_is_en', TEST_ALL_COUNTRY_WITH_NAT):
 
         result = work_relations("nato–germany conflict")
         assert result == "صراع ألمانيا والناتو"

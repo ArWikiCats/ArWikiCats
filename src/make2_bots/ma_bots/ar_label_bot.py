@@ -30,7 +30,7 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def find_ar_label(
-    category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, do_Get_contry2: bool = True
+    category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, start_get_country2: bool = True
 ) -> str:
     """Find the Arabic label based on the provided parameters."""
 
@@ -38,21 +38,21 @@ def find_ar_label(
 
     print_put(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
     tito2 = tito.strip()
-    Type, contry = get_type_country(category, tito)
+    Type, country = get_type_country(category, tito)
 
     arlabel = ""
     Type_lower = Type.strip().lower()
-    contry_lower = contry.strip().lower()
+    country_lower = country.strip().lower()
 
-    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, contry_lower)
+    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
 
-    con_lab = get_con_lab(tito, do_Get_contry2, tito2, contry, contry_lower)
+    con_lab = get_con_lab(tito, start_get_country2, tito2, country, country_lower)
 
     if con_lab:
-        Cate_test = Cate_test.replace(contry_lower, "")
+        Cate_test = Cate_test.replace(country_lower, "")
 
     if not Type_lab:
         print_put('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
@@ -61,13 +61,13 @@ def find_ar_label(
         Cate_test = Cate_test.replace(Type_lower, "")
 
     if not con_lab:
-        print_put('>>>> contry_lower not in pop new "%s"' % contry_lower)
+        print_put('>>>> country_lower not in pop new "%s"' % country_lower)
         CAO = False
     else:
-        Cate_test = Cate_test.replace(contry_lower, "")
+        Cate_test = Cate_test.replace(country_lower, "")
 
     if Type_lab or con_lab:
-        print_put(f'<<lightgreen>>>>>> ------------- contry_lower:"{contry_lower}", con_lab:"{con_lab}"')
+        print_put(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
         print_put(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", Type_lab:"{Type_lab}"')
 
     if not CAO:
@@ -117,14 +117,14 @@ def find_ar_label(
             print_put('>>>> Type_lower "%s" in Dont_Add_min ' % Type_lower)
 
     # ---
-    contry_in_Table = False
+    country_in_Table = False
     Type_in_Table = False
 
     # ---
     for table, ta_t in Table_for_frist_word.items():
-        if contry_lower in ta_t:
-            contry_in_Table = True
-            print_put(f'>>>> X:<<lightpurple>> contry_lower "{contry_lower}" in {table}.')
+        if country_lower in ta_t:
+            country_in_Table = True
+            print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table}.')
 
         if Type_lower in ta_t:
             Type_in_Table = True
@@ -135,7 +135,7 @@ def find_ar_label(
     if tito2 == "in":
         sps = " في "
 
-    if contry_in_Table and Add_in_lab:
+    if country_in_Table and Add_in_lab:
         if (tito2 == "in" or tito2 == "at") and (" في" not in con_lab or Type_lower in Add_ar_in):
             sps = " في "
             print_put("ssps:%s" % sps)
@@ -150,7 +150,7 @@ def find_ar_label(
             tatl = Tit_ose_Nmaes[tito2]
             print_put(f">>>>> > ({tito2=}): tito2 in Tit_ose_Nmaes and tito2 not in tito_list_s, {tatl=}")
 
-            if tito2 == "for" and contry_lower.startswith("for "):
+            if tito2 == "for" and country_lower.startswith("for "):
                 if Type_lower.strip().endswith("competitors") and "competitors for" in category:
                     tatl = "من"
 
@@ -163,21 +163,21 @@ def find_ar_label(
             if con_lab == "لعضوية البرلمان":
                 tatl = ""
 
-            if tito2 == "for" and contry_lower.startswith("for "):
-                p18lab = get_pop_All_18(contry_lower)
+            if tito2 == "for" and country_lower.startswith("for "):
+                p18lab = get_pop_All_18(country_lower)
                 if p18lab and p18lab == con_lab:
                     tatl = ""
 
-            if contry_lower in for_table:
+            if country_lower in for_table:
                 tatl = ""
 
             sps = f" {tatl} "
             print_put("sps:%s" % sps)
             Cate_test = Cate_test.replace(tito, "")
 
-    if contry_lower in New_players and Type_lower in New_players:
+    if country_lower in New_players and Type_lower in New_players:
         print_put(">>>> ================ ")
-        print_put(">>>>> > X:<<lightred>> Type_lower and contry_lower in New_players.")
+        print_put(">>>>> > X:<<lightred>> Type_lower and country_lower in New_players.")
         print_put(">>>> ================ ")
 
     faa = Tit_ose_Nmaes.get(tito2.strip()) or Tit_ose_Nmaes.get(tito2.replace("-", " ").strip())
@@ -203,14 +203,14 @@ def find_ar_label(
         print_put('>>>>> > X:<<lightred>> keep_Type_first = True, t_to:"%s" in Keep_it_frist' % t_to)
         keep_Type_first = True
 
-    if Type_in_Table and contry_in_Table:
-        print_put(">>> > X:<<lightpurple>> Type_lower and contry_lower in Table_for_frist_word.")
-        if not keep_Type_first and contry_lower in New_players:
+    if Type_in_Table and country_in_Table:
+        print_put(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
+        if not keep_Type_first and country_lower in New_players:
             arlabel = con_lab + sps + Type_lab
         else:
             arlabel = Type_lab + sps + con_lab
     else:
-        if keep_Type_first and contry_in_Table:
+        if keep_Type_first and country_in_Table:
             arlabel = con_lab + sps + Type_lab
         else:
             arlabel = Type_lab + sps + con_lab
@@ -231,7 +231,7 @@ def find_ar_label(
 
     output_test('>>>> sps "%s"' % sps)
     output_test('>>>> arlabel "%s"' % arlabel)
-    vr = re.sub(contry_lower, "{}", category.lower())
+    vr = re.sub(country_lower, "{}", category.lower())
     if vr in pop_format2:
         print_put('<<lightblue>>>>>> vr in pop_format2 "%s":' % pop_format2[vr])
         print_put('<<lightblue>>>>>>> vr: "%s":' % vr)
@@ -248,9 +248,9 @@ def find_ar_label(
         arlabel = pop_format33[tito2].format(Type_lab, con_lab)
 
     arlabel = arlabel.replace("  ", " ")
-    maren = re.match(r"\d\d\d\d", contry_lower.strip())
-    if Type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {contry_lower}":
-        arlabel = f"حرب {contry_lower}"
+    maren = re.match(r"\d\d\d\d", country_lower.strip())
+    if Type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {country_lower}":
+        arlabel = f"حرب {country_lower}"
         print_put('<<lightpurple>> >>>> change arlabel to "%s".' % arlabel)
 
     if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:

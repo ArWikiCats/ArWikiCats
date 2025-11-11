@@ -4,7 +4,7 @@ from .arlabel_bots.bot_type_lab import get_Type_lab
 
 """
 from typing import Tuple
-from .. import contry2_lab
+from .. import country2_lab
 from ...o_bots.popl import make_people_lab
 from ...sports_bots import team_work
 
@@ -22,7 +22,7 @@ from ...format_bots import Tabl_with_in
 
 from ....helps.print_bot import print_put, output_test
 
-from ..contry_bot import Get_c_t_lab
+from ..country_bot import Get_c_t_lab
 
 
 def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:
@@ -97,7 +97,7 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         type_label = test4_2018_Jobs(type_lower)
 
     if not type_label:
-        type_label = contry2_lab.get_lab_for_contry2(type_lower)
+        type_label = country2_lab.get_lab_for_country2(type_lower)
 
     print_put(f"?????? get_Type_lab: {type_lower=}, {type_label=}")
 

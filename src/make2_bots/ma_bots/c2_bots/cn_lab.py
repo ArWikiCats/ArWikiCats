@@ -16,7 +16,7 @@ from ...matables_bots.bot import (
 from ....helps.print_bot import print_put
 
 
-def make_cnt_lab(tat_o: str, contry2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
+def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
     """Construct a formatted string based on various input parameters."""
 
     resolved_label = c_1_l + sps + c_2_l
@@ -30,7 +30,7 @@ def make_cnt_lab(tat_o: str, contry2: str, c_2_l: str, c_1_l: str, cona_1: str, 
                 print_put(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in New_players:')
                 resolved_label += " في "
         if cona_2 not in By_table:
-            Films_O_TT[contry2] = resolved_label
+            Films_O_TT[country2] = resolved_label
         else:
             print_put("<<lightblue>>>>>> cona_2 in By_table")
 
@@ -50,7 +50,7 @@ def make_cnt_lab(tat_o: str, contry2: str, c_2_l: str, c_1_l: str, cona_1: str, 
             print_put(f'<<lightblue>>>>>> cona_1 in pop_format2 "{pop_format2[cona_1]}":')
             resolved_label = pop_format2[cona_1].format(c_2_l)
 
-    print_put(f'<<lightpurple>> >>>> contry 2_tit "{contry2}": label: {resolved_label}')
+    print_put(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
     resolved_label = resolved_label.replace("  ", " ")
 
     maren = re.match(r"\d\d\d\d", cona_2)

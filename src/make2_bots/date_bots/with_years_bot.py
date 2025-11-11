@@ -13,7 +13,7 @@ from ..format_bots import ar_lab_before_year_to_add_in
 from ..matables_bots.bot import Add_in_table
 from ..matables_bots.table1_bot import get_KAKO
 
-from ..ma_bots import contry2_lab
+from ..ma_bots import country2_lab
 from ..ma_bots.ye_ts_bot import translate_general_category
 from ...helps.print_bot import output_test
 from ..reg_lines import re_sub_year, RE1_compile, RE2_compile, RE33_compile
@@ -34,7 +34,7 @@ def _handle_political_terms(category_text: str) -> str:
         body_label = known_bodies[body_key]
         ordinal_label = change_numb_to_word.get(ordinal_number, f"الـ{ordinal_number}")
         label = f"{body_label} {ordinal_label}"
-        output_test(f">>> _handle_political_terms lab ({label}), contry: ({category_text})")
+        output_test(f">>> _handle_political_terms lab ({label}), country: ({category_text})")
         return label
     return ""
 
@@ -61,7 +61,7 @@ def _handle_year_at_start(category_text: str) -> str:
         remainder_label = translate_general_category(remainder)
 
     if not remainder_label:
-        remainder_label = contry2_lab.get_lab_for_contry2(remainder)
+        remainder_label = country2_lab.get_lab_for_country2(remainder)
 
     if not remainder_label:
         return ""
@@ -97,7 +97,7 @@ def _handle_year_at_end(
         year_at_end_label = compiled_range_pattern.sub(r"\g<1>", category_text.strip())
 
     # if RE4:
-    # year2 = "موسم " + RE4_compile.sub(r"\g<1>", contry.strip())
+    # year2 = "موسم " + RE4_compile.sub(r"\g<1>", country.strip())
 
     if year_at_end_label == category_text or not year_at_end_label:
         return ""
@@ -110,7 +110,7 @@ def _handle_year_at_end(
     remainder_label = translate_general_category(remainder)
 
     if not remainder_label:
-        remainder_label = contry2_lab.get_lab_for_contry2(remainder)
+        remainder_label = country2_lab.get_lab_for_country2(remainder)
 
     if "–present" in formatted_year_label:
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")
@@ -145,7 +145,7 @@ def Try_With_Years(category_text: str) -> str:
     """
 
     # ---
-    output_test(f">>> Try With Years contry ({category_text})")
+    output_test(f">>> Try With Years country ({category_text})")
     # pop_final_Without_Years
 
     label = ""

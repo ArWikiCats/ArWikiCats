@@ -21,17 +21,17 @@ def try_relegins_jobs(cate: str) -> str:
     # ---
     output_test4(f"\t xx start: <<lightred>>try_relegins_jobs >> <<lightpurple>> cate:{cate}")
     # ---
-    contry_lab = ""
+    country_lab = ""
     # ---
     job_example, nat = get_con_3(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
     # ---
     Tab = RELIGIOUS_KEYS_PP.get(nat, {})
     # ---
     if job_example:
-        contry_lab = Jobs(cate, nat, job_example, Type="rel", tab=Tab)
+        country_lab = Jobs(cate, nat, job_example, Type="rel", tab=Tab)
     # ---
-    output_test4(f"\t xx end: <<lightred>>try_relegins_jobs <<lightpurple>> cate:{cate}, contry_lab:{contry_lab} ")
+    output_test4(f"\t xx end: <<lightred>>try_relegins_jobs <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
     # ---
-    try_relegins_jobs_cash[cach_key] = contry_lab
+    try_relegins_jobs_cash[cach_key] = country_lab
     # ---
-    return contry_lab
+    return country_lab

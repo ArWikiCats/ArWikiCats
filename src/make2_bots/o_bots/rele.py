@@ -7,10 +7,10 @@ from typing import Mapping, Tuple
 
 from ... import printe
 from ...helps.print_bot import print_put
-from ...ma_lists import All_contry_ar, All_contry_with_nat_keys_is_en, Nat_men, Nat_women
+from ...ma_lists import all_country_ar, all_country_with_nat_keys_is_en, Nat_men, Nat_women
 from .utils import apply_arabic_article
 
-All_contry_ar["nato"] = "الناتو"
+all_country_ar["nato"] = "الناتو"
 
 P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
@@ -55,7 +55,7 @@ def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str
         return ""
 
     if gender_key:
-        details = All_contry_with_nat_keys_is_en.get(normalized, {})
+        details = all_country_with_nat_keys_is_en.get(normalized, {})
         label = details.get(gender_key, "")
         if label:
             return label
@@ -105,7 +105,7 @@ def _resolve_relations(
 
         if suffix == " relations" and "nato" in {first_key, second_key}:
             counterpart = first_key if second_key == "nato" else second_key
-            counterpart_label = All_contry_ar.get(counterpart, "")
+            counterpart_label = all_country_ar.get(counterpart, "")
             if counterpart_label:
                 template = f"علاقات {template}" if "علاقات" not in template else template
                 sorted_labels = sorted(["الناتو", counterpart_label])
@@ -156,7 +156,7 @@ def work_relations(value: str) -> str:
         normalized,
         P17_PREFIXES,
         "",
-        All_contry_ar,
+        all_country_ar,
         add_article=False,
         joiner=" و",
     )

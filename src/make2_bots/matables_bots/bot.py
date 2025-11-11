@@ -22,7 +22,7 @@ from ...ma_lists import (
     By_table,
     Add_in_table2,
     People_key,
-    All_contry_with_nat,
+    all_country_with_nat,
 )
 
 from ..format_bots import Tit_ose_Nmaes
@@ -57,7 +57,7 @@ _current_table_sink: Optional[Callable[[str, str], None]] = None
 
 # ---
 New_Lan = {}
-All_contry_with_nat_lower = {}
+all_country_with_nat_lower = {}
 Kingdom = {}
 # KAKO4 = {}
 
@@ -179,8 +179,8 @@ typeTable = {
 # ---
 LOG = {1: False}
 # ---
-# split form start contry[len("fasa "):])
-# split form end  contry[:-len("fm")])
+# split form start country[len("fasa "):])
+# split form end  country[:-len("fm")])
 # ---
 Pp_Priffix = {
     " memorials": "نصب {} التذكارية",
@@ -246,13 +246,13 @@ t_start = r"Category\:(" + pop_new_ke + ").*"
 t_tits = r"Category\:(" + pop_new_ke + "|)(" + P17_new_keys + "|)"
 t_other = f"({P17_new_keys}|)"
 # ---
-add_in_to_contry = ["solar eclipses"]
+add_in_to_country = ["solar eclipses"]
 # ---
 army_line = "|".join(military_format_women.keys())
 army_line = f"{army_line}|{'|'.join(military_format_men.keys())}"
 # ---
-for x in All_contry_with_nat:
-    All_contry_with_nat_lower[x.lower()] = All_contry_with_nat[x]
+for x in all_country_with_nat:
+    all_country_with_nat_lower[x.lower()] = all_country_with_nat[x]
 # ---
 Lang_line = f"{'|'.join(languages_pop.keys())}|"
 
@@ -304,7 +304,7 @@ New_players["people"] = "أشخاص"
 # MONTHSTR = '(January|February|March|April|May|June|July|August|September|October|November|December)'
 MONTHSTR = "(January|February|March|April|May|June|July|August|September|October|November|December|)"
 
-type_after_contry = ["non-combat"]
+type_after_country = ["non-combat"]
 
 # Add_ar_in = [ "mediterranean games medalists",]
 Add_ar_in = copy.deepcopy(olympics)

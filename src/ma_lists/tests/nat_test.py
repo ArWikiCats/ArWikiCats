@@ -3,7 +3,7 @@
 
 """
 
-from ..nats.Nationality import All_Nat, All_contry_with_nat_ar, A_Nat, All_Nat_o
+from ..nats.Nationality import All_Nat, all_country_with_nat_ar, A_Nat, All_Nat_o
 from ... import printe
 
 fasenor = {
@@ -385,7 +385,7 @@ printe.output(fafr)
 
 
 def main() -> None:
-    for cd in All_contry_with_nat_ar:
+    for cd in all_country_with_nat_ar:
         if All_Nat[cd]["ar"] not in dpdpd:
             printe.output(f"\"{All_Nat[cd]['ar']}\" : {All_Nat[cd]['women']}")
     """

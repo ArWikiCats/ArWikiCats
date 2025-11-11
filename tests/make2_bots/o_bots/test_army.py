@@ -14,8 +14,8 @@ def reset_army_cache() -> None:
 
 
 def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(army, "All_contry_with_nat", {}, raising=False)
-    monkeypatch.setattr(army, "All_contry_with_nat_keys_is_en", {}, raising=False)
+    monkeypatch.setattr(army, "all_country_with_nat", {}, raising=False)
+    monkeypatch.setattr(army, "all_country_with_nat_keys_is_en", {}, raising=False)
     monkeypatch.setattr(army, "military_format_men", {}, raising=False)
     monkeypatch.setattr(army, "military_format_women", {}, raising=False)
     monkeypatch.setattr(army, "military_format_women_without_al", {}, raising=False)
@@ -33,7 +33,7 @@ def test_test_army_resolves_women_without_article_prefix(monkeypatch: pytest.Mon
     monkeypatch.setattr(army, "military_format_women_without_al_from_end", {"women of": "{nat} بدون ال"}, raising=False)
     monkeypatch.setattr(
         army,
-        "All_contry_with_nat_keys_is_en",
+        "all_country_with_nat_keys_is_en",
         {"canada": {"women": "كنديات"}},
         raising=False,
     )
@@ -46,7 +46,7 @@ def test_test_army_resolves_women_without_article_prefix(monkeypatch: pytest.Mon
 def test_test_army_resolves_men_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         army,
-        "All_contry_with_nat",
+        "all_country_with_nat",
         {"France": {"en": "France", "men": "فرنسي"}},
         raising=False,
     )
@@ -60,14 +60,14 @@ def test_test_army_resolves_men_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
 def test_test_army_returns_cached_value(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         army,
-        "All_contry_with_nat",
+        "all_country_with_nat",
         {"France": {"en": "France", "men": "فرنسي"}},
         raising=False,
     )
     monkeypatch.setattr(army, "military_format_men", {"army": "{nat} العسكري"}, raising=False)
 
     first = army.test_army("France army")
-    monkeypatch.setattr(army, "All_contry_with_nat", {}, raising=False)
+    monkeypatch.setattr(army, "all_country_with_nat", {}, raising=False)
     second = army.test_army("France army")
 
     assert first == "الفرنسي العسكري"

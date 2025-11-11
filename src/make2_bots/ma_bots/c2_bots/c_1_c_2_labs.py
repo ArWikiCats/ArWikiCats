@@ -19,7 +19,7 @@ from ...o_bots import bys, parties_bot
 from ...sports_bots import sport_lab_suffixes
 from ...p17_bots import nats
 from ...sports_bots import team_work
-from .. import contry2_lab, contry_bot
+from .. import country2_lab, country_bot
 
 
 def check_sources(cone_1: str) -> str:
@@ -83,7 +83,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
             if cone_1.startswith(pri_ss):
                 U_c = cone_1[len(pri_ss) :]
                 print_put(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", tat_o:"{tat_o}" ')
-                U_lab = contry2_lab.get_lab_for_contry2(U_c)
+                U_lab = country2_lab.get_lab_for_country2(U_c)
 
                 if U_lab == "" and With_Years:
                     U_lab = with_years_bot.Try_With_Years(U_c)
@@ -97,7 +97,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
         c_1_l = pop_format[cone_1]
 
     if not c_1_l:
-        c_1_l = contry_bot.Get_c_t_lab(cone_1, "", Type="Type_lab")
+        c_1_l = country_bot.Get_c_t_lab(cone_1, "", Type="Type_lab")
     if not c_1_l:
         c_1_l = get_KAKO(cone_1)
 
@@ -149,6 +149,6 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     if c_2_l == "" and With_Years:
         c_2_l = with_years_bot.Try_With_Years(cone_2)
     if not c_2_l:
-        c_2_l = contry_bot.Get_c_t_lab(cone_2, "")
+        c_2_l = country_bot.Get_c_t_lab(cone_2, "")
 
     return c_2_l

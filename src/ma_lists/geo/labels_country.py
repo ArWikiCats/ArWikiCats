@@ -17,7 +17,7 @@ from ..mixed.all_keys2 import pf_keys2
 from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
 from .Cities import CITY_TRANSLATIONS, CITY_LABEL_PATCHES
-from .Labels_Contry2 import P17_PP
+from .labels_country2 import P17_PP
 
 
 COUNTRY_LABEL_OVERRIDES = open_json_file("P17_2_final_ll") or {}
@@ -222,9 +222,9 @@ for indi, label in India_Main_Table.items():
 for vvvv, label in CITY_LABEL_PATCHES.items():
     COUNTRY_LABEL_INDEX[vvvv.lower()] = label
 
-for contry, label in pf_keys2.items():
+for country, label in pf_keys2.items():
     if label:
-        COUNTRY_LABEL_INDEX[contry.lower()] = label
+        COUNTRY_LABEL_INDEX[country.lower()] = label
 
 for company_name, company_label in New_Company.items():
     lower_company = company_name.lower()
@@ -273,7 +273,7 @@ memory_stats = {
     "the_keys": the_keys,
 }
 
-len_print.data_len("Labels_Contry.py", memory_stats)
+len_print.data_len("labels_country.py", memory_stats)
 
 del Counties
 del CITY_LABEL_PATCHES

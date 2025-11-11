@@ -15,7 +15,7 @@ from ...helps.print_bot import print_put
 from ..bots import tmp_bot
 from ..date_bots import with_years_bot
 from ..o_bots import univer  # univer.test_universities(cate)
-from .contry_bot import Get_contry
+from .country_bot import get_country
 from .dodo_bots.event2bot_dodo import make_lab_dodo
 from .lab_seoo_bot import event_Lab_seoo
 
@@ -50,7 +50,7 @@ def event2_d2(cat3: str, category3_not_lower: str) -> str:
 
     category_lab = ""
     if re.sub(r"^\d", "", cat3) == cat3:
-        category_lab = Get_contry(category3_not_lower)
+        category_lab = get_country(category3_not_lower)
     else:
         category_lab = with_years_bot.Try_With_Years(cat3)
         if category_lab:
