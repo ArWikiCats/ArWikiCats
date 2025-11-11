@@ -135,10 +135,10 @@ if True:
             pre_lab2 = pre_lab.format(nat_Lab)
             Ab = f"{tyu} xoxo {pre}"
             # ---
-            if pre == "team players" and Ab.find("women's") != -1:
+            if pre == "team players" and "women's" in Ab:
                 pre_lab2 = re.sub(r"لاعبو ", "لاعبات ", pre_lab2)
             # ---
-            elif pre_lab2.find("لاعبو ") != -1 and Ab.find("women's") != -1:
+            elif "لاعبو " in pre_lab2 and "women's" in Ab:
                 pre_lab2 = re.sub(r"لاعبو ", "لاعبات ", pre_lab2)
             # ---
             printo = f"nat_Lab: [{Ab}] : " + pre_lab2

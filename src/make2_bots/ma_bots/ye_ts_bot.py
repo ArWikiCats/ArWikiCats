@@ -72,7 +72,7 @@ def work_titose_nmaes(
 
     for tito, tito_name in Tit_ose_Nmaes.items():
         tito = f" {tito} "
-        # if Keep_Work and category.find(tito) != -1:
+        # if Keep_Work and tito in category:
         if category.find(tito) == -1:
             continue
         # ---

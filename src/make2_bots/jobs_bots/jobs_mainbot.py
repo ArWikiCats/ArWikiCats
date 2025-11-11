@@ -99,7 +99,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
                 contry_lab = f"{mens_nat_lab} {con_3_lab}"
             # ---
             TAJO = Men_Womens_with_nato.get(con_3, {})
-            if TAJO and TAJO.get("mens", "").find("{nato}") != -1:
+            if TAJO and "{nato}" in TAJO.get("mens", ""):
                 contry_lab = TAJO["mens"].format(nato=mens_nat_lab)
                 output_test4('<<lightblue>> TAJO["mens"]: has {nato} "%s"' % TAJO["mens"])
             # ---

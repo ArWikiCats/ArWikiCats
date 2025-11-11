@@ -76,7 +76,7 @@ def make_str(textm: str) -> str:
         return textm
 
     # If the text does not contain any color tags, print it as is and return
-    if textm.find("\03") == -1 and textm.find("<<") == -1:
+    if "\03" not in textm and "<<" not in textm:
         return textm
 
     # Split the text into parts based on the color tags

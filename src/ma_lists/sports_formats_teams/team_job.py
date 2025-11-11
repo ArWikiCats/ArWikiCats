@@ -175,7 +175,7 @@ if True:
             Ar_labs_3 = f"فرق xoxo {tas.format(nat='').strip()}"
             Ar_labs_league = f"دوريات xoxo {tas.format(nat='').strip()}"
         # ---
-        elif ty_nat.find("multi-national") != -1:
+        elif "multi-national" in ty_nat:
             Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
             Ar_labs_league = Ar_labs_league.replace(" وطنية", "")
         # ---
@@ -183,10 +183,10 @@ if True:
         # ---
         for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():
             # ---
-            if (pr_e == "players" or pr_e == "playerss") and ty_nat.find("women's") != -1:
+            if (pr_e == "players" or pr_e == "playerss") and "women's" in ty_nat:
                 pr_e_Lab = "لاعبات {lab}"
             # ---
-            elif pr_e_Lab.find("لاعبو") != -1 and ty_nat.find("women's") != -1:
+            elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
             # ---
             Abteams = f"{ty_nat} xoxo teams {pr_e}".strip()

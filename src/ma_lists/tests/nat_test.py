@@ -461,6 +461,6 @@ if __name__ == "__main_3_":
     for kkk, kkk_la in A_Nat.items():
         num += 1
         if num < Max:
-            # if All_Nat[kkk]["men"].find(" ") != -1:
+            # if " " in All_Nat[kkk]["men"]:
             printe.output(f',"{kkk}": "{kkk_la}"')
 # ---

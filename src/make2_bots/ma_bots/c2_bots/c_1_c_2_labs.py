@@ -113,7 +113,7 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     cone_2 = cone_2.strip().lower()
 
     c_2_l = get_pop_All_18(cone_2, "")
-    if c_2_l == "" and cone_2.find(" by ") != -1:
+    if c_2_l == "" and " by " in cone_2:
         c_2_l = bys.get_by_label(cone_2)
 
     if not c_2_l:
@@ -126,7 +126,7 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     if not c_2_l:
         c_2_l = parties_bot.get_parties_lab(cone_2)
 
-    if c_2_l == "" and cone_2.find(" and ") != -1:
+    if c_2_l == "" and " and " in cone_2:
         c_2_l = bys.get_and_label(cone_2)
     if not c_2_l:
         c_2_l = team_work.Get_team_work_Club(con_2_no_lower)
