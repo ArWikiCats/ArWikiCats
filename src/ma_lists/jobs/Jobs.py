@@ -267,9 +267,9 @@ for base_job_key, base_job_labels in MenWomensJobsPP.items():
     Men_Womens_Jobs[f"professional {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} محترفون"
     Men_Womens_Jobs[f"professional {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} محترفات"
     # ---
-    # Men_Womens_Jobs[f"wheelchair {lowered_job_key}"] = {}
-    # Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} على الكراسي المتحركة"
-    # Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} على الكراسي المتحركة"
+    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"] = {}
+    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} على الكراسي المتحركة"
+    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} على الكراسي المتحركة"
 # ---
 # "skaters": {"mens":"متزلجون على اللوح", "womens":"متزلجات على اللوح"},#تزلج على اللوح
 # "skiers":  {"mens":"متزلجون على الثلج", "womens":"متزلجات على الثلج"},#تزحلق على الثلج
