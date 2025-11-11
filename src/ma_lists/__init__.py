@@ -20,7 +20,7 @@ from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
 from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Nat_Before_Occ, Men_Womens_with_nato, Jobs_new, Jobs_key
 
-from .geo.Labels_Contry import New_P17_Finall
+from .geo.labels_country import New_P17_Finall
 
 from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
 

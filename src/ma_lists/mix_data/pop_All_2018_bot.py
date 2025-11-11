@@ -7,7 +7,7 @@ from typing import Dict
 from ..utils.json_dir import open_json_file
 from ..sports.olympics_data import olympics
 from ..mixed.all_keys2 import pf_keys2
-from ..geo.Labels_Contry import New_P17_Finall
+from ..geo.labels_country import New_P17_Finall
 from ..tv.films_mslslat import films_mslslat_tab
 from ..jobs.Jobs import Jobs_new, Jobs_key
 from ..sports.Sport_key import Sports_Keys_For_Label
