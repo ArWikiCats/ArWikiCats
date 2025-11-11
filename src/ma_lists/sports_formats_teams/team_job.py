@@ -105,6 +105,9 @@ if True:
     New_team_xo_jobs["amateur xoxo championships"] = "بطولات xoxo للهواة"
     New_team_xo_jobs["international xoxo"] = "xoxo دولية"
     # ---
+    New_team_xo_jobs["xoxo league competitions"] = "منافسات دوري xoxo"
+    New_team_xo_jobs["xoxo league teams"] = "فرق دوري xoxo"
+    # ---
     New_team_xo_jobs["International xoxo competition tournaments"] = "بطولات منافسات xoxo دولية"
     New_team_xo_jobs["International xoxo competitions"] = "منافسات xoxo دولية"
     New_team_xo_jobs["International xoxo races"] = "سباقات xoxo دولية"

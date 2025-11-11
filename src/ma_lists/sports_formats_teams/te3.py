@@ -49,6 +49,14 @@ if True:
     # New_team_xo_team_labels["women's asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
     # New_team_xo_team_labels["ladies asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
     # ---
+    typies = {
+        "cups": "كؤوس",
+        "clubs": "أندية",
+        "competitions": "منافسات",
+        "leagues": "دوريات",
+        "coaches": "مدربو",  # Category:Indoor soccer coaches in the United States by club
+    }
+    # ---
     sport_formts_enar_p17_team["xoxo league"] = "دوري {} xoxo "
     sport_formts_enar_p17_team["professional xoxo league"] = "دوري {} xoxo للمحترفين"
     # ---tournaments
@@ -91,6 +99,9 @@ if True:
     New_team_xo_team_labels["international xoxo council"] = "المجلس الدولي xoxo"
     New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
     New_team_xo_team_labels["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
+
+    New_team_xo_team_labels["xoxo league world cup"] = "كأس العالم لدوري xoxo"
+    New_team_xo_team_labels["xoxo league finals"] = "نهائيات دوري xoxo"
 
     New_team_xo_team_labels["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
     New_team_xo_team_labels["youth xoxo world cup"] = "كأس العالم xoxo للشباب"

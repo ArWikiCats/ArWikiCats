@@ -32,18 +32,20 @@ for kk, labll in Sports_Keys_New.items():
     if not kk.endswith("racing"):
         Sports_Keys_New2[f"{kk} racing"] = {
             "label": f'سباق {labll["label"]}',
-            "team": f'لسباق {labll["label"]}',
+            "team": f'لسباق {labll["team"]}',
             "jobs": f'سباق {labll["jobs"]}',
             "olympic": f'سباق {labll["olympic"]}',
         }
     # ---
+    """
     if not kk.startswith("wheelchair"):
         Sports_Keys_New2[f"wheelchair {kk}"] = {
             "label": f'{labll["label"]} على الكراسي المتحركة',
-            "team": f'{labll["label"]} على الكراسي المتحركة',
+            "team": f'{labll["team"]} على الكراسي المتحركة',
             "jobs": f'{labll["jobs"]} على كراسي متحركة',
             "olympic": f'{labll["olympic"]} على كراسي متحركة',
         }
+    """
 # ---
 Sports_Keys_New.update(dict(Sports_Keys_New2))
 # ---
