@@ -33,8 +33,6 @@ Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # Sports_Keys_For_Jobs = {}
 # Sports_Keys_For_Jobs["association football"] = "هوكي جليد"
 # ---
-Sports_Keys_For_Jobs["sports"] = "رياضية"
-# ---
 # sport_formts_en_ar_is_p17#Sports_Format_en_is_P17_ar_P17
 # sport_formts_female_nat
 # ---
