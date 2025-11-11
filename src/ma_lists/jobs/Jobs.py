@@ -28,7 +28,7 @@ from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..sports.cycling import new2019_cycling
 from ..tv.films_mslslat import Films_key_For_Jobs
-from .Jobs2 import Jobs_2
+from .Jobs2 import JOBS_2
 from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
 from .jobs_players_list import (
     FEMALE_JOBS_TO,
@@ -240,14 +240,14 @@ for fff in Books_table.keys():
 printe.output("for fff in jobs_type.keys(): ")
 """
 
-# printe.output('jobs in Jobs_2: ')
-for job_key in Jobs_2:
+# printe.output('jobs in JOBS_2: ')
+for job_key in JOBS_2:
     lowered_job_key = job_key.lower()
     if job_key not in MenWomensJobsPP and lowered_job_key not in MenWomensJobsPP:
-        if Jobs_2[job_key]["mens"] or Jobs_2[job_key]["womens"]:
-            MenWomensJobsPP[lowered_job_key] = Jobs_2[job_key]
+        if JOBS_2[job_key]["mens"] or JOBS_2[job_key]["womens"]:
+            MenWomensJobsPP[lowered_job_key] = JOBS_2[job_key]
     # else:
-    # printe.output('jobs: "%s" : { "mens": "%s" ,"womens":  "%s" },' %  (ioi , Jobs_2[ioi]["mens"],Jobs_2[ioi]["womens"]) )
+    # printe.output('jobs: "%s" : { "mens": "%s" ,"womens":  "%s" },' %  (ioi , JOBS_2[ioi]["mens"],JOBS_2[ioi]["womens"]) )
 
 for job_key, gender_labels in MenWomensJobsPP.items():
     Men_Womens_Jobs[job_key.lower()] = gender_labels
