@@ -20,7 +20,7 @@ from ..o_bots import univer
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
 #  (most likely due to a circular import) (make2_bots.ma_bots\ye_ts_bot.py)
 from . import fax2, list_cat_format, ye_ts_bot
-from .country2_bot import Get_contry2
+from .country2_bot import Get_country2
 from .lab_seoo_bot import event_Lab_seoo
 
 
@@ -56,7 +56,7 @@ def event_Lab(cate_r: str) -> str:
     # ---
     # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون
     if category_lab == "" and list_of_cat == "لاعبو {}":
-        category_lab = Get_contry2(orginal_category3)
+        category_lab = Get_country2(orginal_category3)
         if category_lab:
             list_of_cat = ""
 
@@ -77,7 +77,7 @@ def event_Lab(cate_r: str) -> str:
         category_lab = ye_ts_bot.translate_general_category(category)
 
     if not category_lab:
-        category_lab = Get_contry2(category3)
+        category_lab = Get_country2(category3)
 
     if category_lab == "" and Find_ko:
         category_lab = kooora.kooora_team(category3)

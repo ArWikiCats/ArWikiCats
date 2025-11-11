@@ -16,11 +16,11 @@ from ...media_bots.films_bot import test_films
 from ...o_bots import bys
 from ...p17_bots import nats
 from ...sports_bots import team_work
-from ..country_bot import Get_c_t_lab, Get_contry
+from ..country_bot import Get_c_t_lab, get_country
 from .. import country2_lab
 
 
-def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, country: str, contry_lower: str) -> str:
+def get_con_lab(tito: str, start_get_country2: bool, tito2: str, country: str, contry_lower: str) -> str:
     """Retrieve the corresponding label for a given country."""
 
     con_lab = ""
@@ -51,10 +51,10 @@ def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, country: str, contr
     if con_lab == "" and contry_lower.strip().startswith("in "):
         cco2 = contry_lower.strip()[len("in ") :].strip()
 
-        cco2_ = Get_contry(cco2)
+        cco2_ = get_country(cco2)
 
         if not cco2_:
-            cco2_ = country2_lab.get_lab_for_contry2(cco2)
+            cco2_ = country2_lab.get_lab_for_country2(cco2)
 
         if cco2_:
             con_lab = f"في {cco2_}"
@@ -69,13 +69,13 @@ def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, country: str, contr
         con_lab = team_work.Get_team_work_Club(country.strip())
 
     if not con_lab:
-        con_lab = Get_c_t_lab(contry_lower, tito, do_Get_contry2=do_Get_contry2)
+        con_lab = Get_c_t_lab(contry_lower, tito, start_get_country2=start_get_country2)
 
     if not con_lab:
         con_lab = tmp_bot.Work_Templates(contry_lower)
 
     if not con_lab:
-        con_lab = country2_lab.get_lab_for_contry2(contry_lower)
+        con_lab = country2_lab.get_lab_for_country2(contry_lower)
 
     if not con_lab:
         con_lab = find_wikidata(contry_lower)

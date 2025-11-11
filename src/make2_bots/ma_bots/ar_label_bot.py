@@ -30,7 +30,7 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def find_ar_label(
-    category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, do_Get_contry2: bool = True
+    category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, start_get_country2: bool = True
 ) -> str:
     """Find the Arabic label based on the provided parameters."""
 
@@ -49,7 +49,7 @@ def find_ar_label(
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
 
-    con_lab = get_con_lab(tito, do_Get_contry2, tito2, country, contry_lower)
+    con_lab = get_con_lab(tito, start_get_country2, tito2, country, contry_lower)
 
     if con_lab:
         Cate_test = Cate_test.replace(contry_lower, "")

@@ -83,7 +83,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
             if cone_1.startswith(pri_ss):
                 U_c = cone_1[len(pri_ss) :]
                 print_put(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", tat_o:"{tat_o}" ')
-                U_lab = country2_lab.get_lab_for_contry2(U_c)
+                U_lab = country2_lab.get_lab_for_country2(U_c)
 
                 if U_lab == "" and With_Years:
                     U_lab = with_years_bot.Try_With_Years(U_c)

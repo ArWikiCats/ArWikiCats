@@ -273,7 +273,7 @@ memory_stats = {
     "the_keys": the_keys,
 }
 
-len_print.data_len("Labels_Contry.py", memory_stats)
+len_print.data_len("labels_country.py", memory_stats)
 
 del Counties
 del CITY_LABEL_PATCHES

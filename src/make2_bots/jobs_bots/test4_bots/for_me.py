@@ -9,7 +9,7 @@ from ....ma_lists import NN_table
 from ....ma_lists import (
     Nat_women,
     Nat_men,
-    All_contry_with_nat_ar,
+    all_country_with_nat_ar,
 )
 from ....ma_lists import New_female_keys, New_male_keys
 
@@ -94,8 +94,8 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
     # الإنجليزي جنسية والعربي اسم البلد
     if not con_3_lab and not contry_lab:
         con_3_lab = en_is_nat_ar_is_P17.get(con_3.strip(), "")
-        if nat.strip() in All_contry_with_nat_ar:
-            cco_lab = All_contry_with_nat_ar[nat.strip()].get("ar", "")
+        if nat.strip() in all_country_with_nat_ar:
+            cco_lab = all_country_with_nat_ar[nat.strip()].get("ar", "")
         # ---
         if con_3_lab:
             output_test4(f'<<lightblue>> Work_for_me:con_3_lab: "{con_3_lab}" ')

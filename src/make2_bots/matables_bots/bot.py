@@ -22,7 +22,7 @@ from ...ma_lists import (
     By_table,
     Add_in_table2,
     People_key,
-    All_contry_with_nat,
+    all_country_with_nat,
 )
 
 from ..format_bots import Tit_ose_Nmaes
@@ -57,7 +57,7 @@ _current_table_sink: Optional[Callable[[str, str], None]] = None
 
 # ---
 New_Lan = {}
-All_contry_with_nat_lower = {}
+all_country_with_nat_lower = {}
 Kingdom = {}
 # KAKO4 = {}
 
@@ -251,8 +251,8 @@ add_in_to_contry = ["solar eclipses"]
 army_line = "|".join(military_format_women.keys())
 army_line = f"{army_line}|{'|'.join(military_format_men.keys())}"
 # ---
-for x in All_contry_with_nat:
-    All_contry_with_nat_lower[x.lower()] = All_contry_with_nat[x]
+for x in all_country_with_nat:
+    all_country_with_nat_lower[x.lower()] = all_country_with_nat[x]
 # ---
 Lang_line = f"{'|'.join(languages_pop.keys())}|"
 

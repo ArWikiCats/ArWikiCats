@@ -61,7 +61,7 @@ def _handle_year_at_start(category_text: str) -> str:
         remainder_label = translate_general_category(remainder)
 
     if not remainder_label:
-        remainder_label = country2_lab.get_lab_for_contry2(remainder)
+        remainder_label = country2_lab.get_lab_for_country2(remainder)
 
     if not remainder_label:
         return ""
@@ -110,7 +110,7 @@ def _handle_year_at_end(
     remainder_label = translate_general_category(remainder)
 
     if not remainder_label:
-        remainder_label = country2_lab.get_lab_for_contry2(remainder)
+        remainder_label = country2_lab.get_lab_for_country2(remainder)
 
     if "–present" in formatted_year_label:
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")

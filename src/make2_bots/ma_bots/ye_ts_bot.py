@@ -46,7 +46,7 @@ def find_lab(category: str, category_r: str) -> str:
 
 def work_titose_nmaes(
     category_r: str,
-    do_Get_contry2: bool,
+    start_get_country2: bool,
     category: str,
     Cate_test: str,
 ) -> str:
@@ -60,7 +60,7 @@ def work_titose_nmaes(
 
     Args:
         category_r (type): Description of category_r parameter.
-        do_Get_contry2 (type): Description of do_Get_contry2 parameter.
+        start_get_country2 (type): Description of start_get_country2 parameter.
         category (str): The category string to search for titose names.
         Cate_test (type): Description of Cate_test parameter.
 
@@ -76,7 +76,7 @@ def work_titose_nmaes(
         if tito not in category:
             continue
         # ---
-        arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, do_Get_contry2=do_Get_contry2)
+        arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, start_get_country2=start_get_country2)
         # ---
         if arlabel:
             print_put(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
@@ -86,7 +86,7 @@ def work_titose_nmaes(
 
 
 @functools.lru_cache(maxsize=None)
-def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> str:
+def translate_general_category(category_r: str, start_get_country2: bool=True) -> str:
     """Retrieve and process category names for the Yementest application.
 
     This function takes a category string, processes it to standardize the
@@ -97,7 +97,7 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
 
     Args:
         category_r (str): The input category string that needs to be processed.
-        do_Get_contry2 (bool): A flag indicating whether to retrieve country-related data.
+        start_get_country2 (bool): A flag indicating whether to retrieve country-related data.
             Defaults to True.
 
     Returns:
@@ -123,7 +123,7 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
-        arlabel = work_titose_nmaes(category_r, do_Get_contry2, category, Cate_test)
+        arlabel = work_titose_nmaes(category_r, start_get_country2, category, Cate_test)
 
     if arlabel:
         arlabel = fixtitle.fixlab(arlabel, en=category_r)

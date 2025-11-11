@@ -97,7 +97,7 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         type_label = test4_2018_Jobs(type_lower)
 
     if not type_label:
-        type_label = country2_lab.get_lab_for_contry2(type_lower)
+        type_label = country2_lab.get_lab_for_country2(type_lower)
 
     print_put(f"?????? get_Type_lab: {type_lower=}, {type_label=}")
 

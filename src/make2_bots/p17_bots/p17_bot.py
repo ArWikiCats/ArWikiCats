@@ -8,7 +8,7 @@ from ..format_bots import Tit_ose_Nmaes, pop_format
 
 from ...ma_lists import sport_formts_en_ar_is_p17
 from ...ma_lists import en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_P17_ar_is_al_women
-from ...ma_lists import All_contry_with_nat_keys_is_en, contries_from_nat
+from ...ma_lists import all_country_with_nat_keys_is_en, contries_from_nat
 from ... import malists_sport_lab as sport_lab
 
 from ...helps.log import logger
@@ -32,7 +32,7 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
         if category.lower().endswith(suffix_key):
             country_prefix = category[: -len(suffix_key)].strip()
 
-            mens_label = All_contry_with_nat_keys_is_en.get(country_prefix, {}).get(
+            mens_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(
                 "mens", ""
             )
             if mens_label:
@@ -48,7 +48,7 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
             if category.lower().endswith(suffix_key):
                 country_prefix = category[: -len(suffix_key)].strip()
 
-                women_label = All_contry_with_nat_keys_is_en.get(country_prefix, {}).get(
+                women_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(
                     "women", ""
                 )
                 if women_label:

@@ -14,7 +14,7 @@ def _norm(text: str) -> str:
 
 @pytest.mark.unit
 def test_basic_conflict_uses_p17_prefixes_with_countries_from_all_country_ar():
-    """Plain 'conflict' using All_contry_ar and P17_PREFIXES."""
+    """Plain 'conflict' using all_country_ar and P17_PREFIXES."""
     value = "east germany-west germany conflict"
     result = work_relations(value)
     # ألمانيا الشرقية + ألمانيا الغربية
@@ -59,7 +59,7 @@ def test_p17_prefix_not_matched_returns_empty():
 
 @pytest.mark.unit
 def test_p17_with_unknown_country_returns_empty():
-    """Unknown country key in All_contry_ar should result in empty label."""
+    """Unknown country key in all_country_ar should result in empty label."""
     value = "unknownland-west germany conflict"
     result = work_relations(value)
     assert result == ""

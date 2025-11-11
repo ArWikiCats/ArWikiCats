@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
 
-# from ..ma_bots.contry_bot import Get_contry, Get_c_t_lab
+# from ..ma_bots.contry_bot import get_country, Get_c_t_lab
 
 
 from ..ma_bots import contry_bot
 
 
-lab = contry_bot.Get_contry()
+lab = contry_bot.get_country()
 
 """
 import re
@@ -36,20 +36,20 @@ from ...ma_lists import Jobs_key
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ... import app_settings
-Get_contry_done: Dict[str, str] = {}
+get_country_done: Dict[str, str] = {}
 
 
-def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
+def get_country(country: str, start_get_country2: bool = True) -> str:
     """Retrieve the label for a given country name."""
 
     contry_no_lower = country
     country = country.lower()
 
-    if country in Get_contry_done:
-        output_test(f'>>>> Get_contry: "{country}" in Get_contry_done, lab:"{Get_contry_done[country]}"')
-        return Get_contry_done[country]
+    if country in get_country_done:
+        output_test(f'>>>> get_country: "{country}" in get_country_done, lab:"{get_country_done[country]}"')
+        return get_country_done[country]
 
-    output_test(">> ----------------- Get_contry start ----------------- ")
+    output_test(">> ----------------- get_country start ----------------- ")
     print_put(f'>>>> Get country for "{country}"')
     resolved_label = country if country.strip().isdigit() else ""
     if not resolved_label:
@@ -61,8 +61,8 @@ def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
     if not resolved_label:
         resolved_label = team_work.Get_team_work_Club(contry_no_lower)
 
-    if resolved_label == "" and do_Get_contry2:
-        resolved_label = country2_bot.Get_contry2(country)
+    if resolved_label == "" and start_get_country2:
+        resolved_label = country2_bot.Get_country2(country)
 
     if not resolved_label:
         prefix_labels = {
@@ -78,10 +78,10 @@ def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
             print(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :]
             Add_to_main2_tab(prefix, prefix_label)
-            remainder_label = country2_bot.Get_contry2(remainder)
+            remainder_label = country2_bot.Get_country2(remainder)
 
             if remainder_label == "":
-                remainder_label = country2_lab.get_lab_for_contry2(remainder)
+                remainder_label = country2_lab.get_lab_for_country2(remainder)
 
             if remainder_label == "":
                 remainder_label = ye_ts_bot.translate_general_category(remainder)
@@ -123,10 +123,10 @@ def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
                 continue
             print(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :]
-            remainder_label = country2_bot.Get_contry2(remainder)
+            remainder_label = country2_bot.Get_country2(remainder)
 
             if remainder_label == "":
-                remainder_label = country2_lab.get_lab_for_contry2(remainder)
+                remainder_label = country2_lab.get_lab_for_country2(remainder)
 
             if remainder_label == "":
                 remainder_label = ye_ts_bot.translate_general_category(remainder)
@@ -161,23 +161,23 @@ def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
         resolved_label = Nat_mens.get(country2, "")
         if resolved_label:
             resolved_label = f"{resolved_label} أعضاء في  "
-            print_put(f"a<<lightblue>>>2021 Get_contry lab = {resolved_label}")
+            print_put(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
 
     if not resolved_label:
         resolved_label = Sports_Keys_For_Label.get(country, "")
 
-    Get_contry_done[country] = resolved_label
+    get_country_done[country] = resolved_label
     output_test(f'>>>> Get country "{resolved_label}"')
-    output_test(">> ----------------- end Get_contry ----------------- ")
+    output_test(">> ----------------- end get_country ----------------- ")
     return resolved_label
 
 
-def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool = True) -> str:
+def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", start_get_country2: bool = True) -> str:
     """Retrieve the corresponding label for a given country or term."""
 
     print_put(f'Get_c_t_lab Type:"{Type}", tito:"{tito}", c_ct_lower:"{c_t_lower}" ')
     if app_settings.makeerr:
-        do_Get_contry2 = True
+        start_get_country2 = True
 
     test_3 = re.sub(r"\d+", "", c_t_lower.strip())
     test3_results = ["", "-", "–", "−"]
@@ -195,7 +195,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
             c_t_lab = get_pop_All_18(LLL, "")
 
             if not c_t_lab:
-                c_t_lab = Get_contry(LLL, do_Get_contry2=do_Get_contry2)
+                c_t_lab = get_country(LLL, start_get_country2=start_get_country2)
 
     if not c_t_lab:
         if re.sub(r"\d+", "", c_t_lower) == "":
@@ -204,7 +204,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
             c_t_lab = centries_years_dec.get(c_t_lower, "")
 
     if c_t_lab == "":
-        c_t_lab = Get_contry(c_t_lower, do_Get_contry2=do_Get_contry2)
+        c_t_lab = get_country(c_t_lower, start_get_country2=start_get_country2)
 
     if c_t_lab == "" and Type == "Type_lab":
         tatos = [" of", " in", " at"]
@@ -230,7 +230,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
                 tto = get_pop_All_18(tti, "")
 
             if not tto:
-                tto = Get_contry(tti, do_Get_contry2=do_Get_contry2)
+                tto = get_country(tti, start_get_country2=start_get_country2)
 
             if c_t_lab == "" and tto:
                 if c_t_lower in pop_of_without_in:
@@ -244,7 +244,7 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", do_Get_contry2: bool 
             c_t_lab = get_pop_All_18(f"{c_t_lower} in", "")
 
         if not c_t_lab:
-            c_t_lab = Get_contry(c_t_lower, do_Get_contry2=do_Get_contry2)
+            c_t_lab = get_country(c_t_lower, start_get_country2=start_get_country2)
 
     if not c_t_lab:
         c_t_lab = find_wikidata(c_t_lower)

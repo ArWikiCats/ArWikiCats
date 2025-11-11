@@ -67,15 +67,15 @@ def new_func_mk2(
     cat_test = cat_test.replace(country, "")
     arlabel = re.sub(r" ", " ", arlabel)
     con_lab = country_label
-    Contry_In_Table = False
+    in_table = False
     for table in Table_for_frist_word.keys():
         if country in Table_for_frist_word[table]:
-            Contry_In_Table = True
-            output_test(f'>> >> dX:<<lightpurple>> Contry_In_Table "{country}" in {table}.')
+            in_table = True
+            output_test(f'>> >> dX:<<lightpurple>> in_table "{country}" in {table}.')
 
     if country in contry_before_year:
-        Contry_In_Table = True
-        output_test(f'>> >> X:<<lightpurple>> Contry_In_Table "{country}" in contry_before_year.')
+        in_table = True
+        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in contry_before_year.')
 
     if suf:
         suf = f" {suf.strip()} "
@@ -84,7 +84,7 @@ def new_func_mk2(
 
     arlabel2 = arlabel
 
-    if Contry_In_Table and typeo not in Keep_it_frist:
+    if in_table and typeo not in Keep_it_frist:
         if (In.strip() == "in" or In.strip() == "at") or (country.lower() in New_players) and not con_lab.startswith("حسب"):
             if year_labe:
                 con_lab = f"{con_lab} في "

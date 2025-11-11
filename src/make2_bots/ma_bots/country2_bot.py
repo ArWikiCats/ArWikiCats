@@ -15,26 +15,26 @@ from ..fromnet.wd_bot import find_wikidata
 GET_COUNTRY_CACHE: Dict[str, str] = {}
 
 
-def Get_contry2(country: str, With_Years: bool = True) -> str:
+def Get_country2(country: str, With_Years: bool = True) -> str:
     """Retrieve information related to a specified country."""
 
     if country in GET_COUNTRY_CACHE:
         output_test(
-            f'>>>> country: "{country}" in Get_contry2_done, lab:"{GET_COUNTRY_CACHE[country]}"'
+            f'>>>> country: "{country}" in Get_country2_done, lab:"{GET_COUNTRY_CACHE[country]}"'
         )
         return GET_COUNTRY_CACHE[country]
 
     normalized_country = country.lower().strip()
-    print_def_head(f'>> Get_contry2 "{normalized_country}":')
+    print_def_head(f'>> Get_country2 "{normalized_country}":')
 
     resolved_label = ""
 
     if not resolved_label:
-        resolved_label = country2_lab.get_lab_for_contry2(country, with_test_ye=False)
+        resolved_label = country2_lab.get_lab_for_country2(country, with_test_ye=False)
 
     if not resolved_label:
         resolved_label = ye_ts_bot.translate_general_category(
-            normalized_country, do_Get_contry2=False
+            normalized_country, start_get_country2=False
         )
 
     if not resolved_label:
@@ -48,7 +48,7 @@ def Get_contry2(country: str, With_Years: bool = True) -> str:
 
     if resolved_label:
         GET_COUNTRY_CACHE[country] = resolved_label
-        print_put(f'>> Get_ scontry2 "{normalized_country}": cnt_la: {resolved_label}')
+        print_put(f'>> Get_ scountry2 "{normalized_country}": cnt_la: {resolved_label}')
         return resolved_label
 
     GET_COUNTRY_CACHE[country] = resolved_label

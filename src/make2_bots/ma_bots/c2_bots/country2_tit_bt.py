@@ -16,7 +16,7 @@ from .cn_lab import make_cnt_lab
 def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
     """Process a country name based on a specified separator."""
 
-    contry2_no_lower = country.strip()
+    country2_no_lower = country.strip()
     country2 = country.lower().strip()
 
     con_1 = country2.split(tat_o)[0]
@@ -24,8 +24,8 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
 
     Mash = f"^(.*?)(?:{tat_o}?)(.*?)$"
 
-    Type_t = re.sub(Mash, r"\g<1>", contry2_no_lower, flags=re.IGNORECASE)
-    contry_t = re.sub(Mash, r"\g<2>", contry2_no_lower, flags=re.IGNORECASE)
+    Type_t = re.sub(Mash, r"\g<1>", country2_no_lower, flags=re.IGNORECASE)
+    contry_t = re.sub(Mash, r"\g<2>", country2_no_lower, flags=re.IGNORECASE)
 
     test_N = country2.lower().replace(con_1.strip().lower(), "")
 
@@ -82,7 +82,7 @@ def make_sps(tat_o: str, c_1_l: str, cona_1: str) -> str:
 def contry_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     """Convert country name and generate labels based on input parameters."""
 
-    print_put(f'>>>> <<lightblue>> Get_contry2: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
+    print_put(f'>>>> <<lightblue>> Get_country2: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
 
     con_1, con_2 = make_conas(tat_o, country)
 

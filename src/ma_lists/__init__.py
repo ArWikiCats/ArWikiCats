@@ -24,7 +24,7 @@ from .geo.labels_country import New_P17_Finall
 
 from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
 
-from .nats.Nationality import All_Nat, Nat_women, All_contry_ar, All_contry_with_nat, All_contry_with_nat_keys_is_en, All_contry_with_nat_ar, contries_from_nat, Nat_mens, Nat_Womens, Nat_men, ar_Nat_men, nats_to_add, en_nats_to_ar_label
+from .nats.Nationality import All_Nat, Nat_women, all_country_ar, all_country_with_nat, all_country_with_nat_keys_is_en, all_country_with_nat_ar, contries_from_nat, Nat_mens, Nat_Womens, Nat_men, ar_Nat_men, nats_to_add, en_nats_to_ar_label
 
 from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
 
@@ -90,10 +90,10 @@ __all__ = [
     "New_P17_Finall",
     "All_Nat",
     "Nat_women",
-    "All_contry_ar",
-    "All_contry_with_nat",
-    "All_contry_with_nat_keys_is_en",
-    "All_contry_with_nat_ar",
+    "all_country_ar",
+    "all_country_with_nat",
+    "all_country_with_nat_keys_is_en",
+    "all_country_with_nat_ar",
     "contries_from_nat",
     "Nat_mens",
     "Nat_Womens",

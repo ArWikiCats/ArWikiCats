@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-python3 core8/pwb.py make/lists/Labels_Contry2
+python3 core8/pwb.py make/lists/labels_country2
 
 """
 
@@ -247,7 +247,7 @@ Lenth1 = {
 }
 # ---
 
-len_print.data_len("Labels_Contry2.py", Lenth1)
+len_print.data_len("labels_country2.py", Lenth1)
 # ---
 # del New_Keys
 # ---

@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-python3 core8/pwb.py make/make2_bots.ma_bots/contry2_bot
+python3 core8/pwb.py make/make2_bots.ma_bots/country2_bot
 
-# from ..ma_bots.contry2_lab import get_lab_for_contry2
+# from ..ma_bots.country2_lab import get_lab_for_country2
 
 
 """
@@ -23,10 +23,10 @@ from ..sports_bots import team_work
 from . import ye_ts_bot
 
 
-def get_lab_for_contry2(country: str, with_test_ye: bool = False, **kwargs: Any) -> str:
+def get_lab_for_country2(country: str, with_test_ye: bool = False, **kwargs: Any) -> str:
     """Retrieve laboratory information for a specified country."""
 
-    contry2_no_lower = country.strip()
+    country2_no_lower = country.strip()
     country2 = country.lower().strip()
     resolved_label = get_pop_All_18(country2, "")
 
@@ -42,7 +42,7 @@ def get_lab_for_contry2(country: str, with_test_ye: bool = False, **kwargs: Any)
         resolved_label = parties_bot.get_parties_lab(country2)
 
     if not resolved_label:
-        resolved_label = team_work.Get_team_work_Club(contry2_no_lower)
+        resolved_label = team_work.Get_team_work_Club(country2_no_lower)
     if not resolved_label:
         resolved_label = work_relations(country2)
     if not resolved_label:
@@ -61,9 +61,9 @@ def get_lab_for_contry2(country: str, with_test_ye: bool = False, **kwargs: Any)
         resolved_label = get_pop_All_18(country2[len("the ") :], "")
 
     if not resolved_label and with_test_ye:
-        resolved_label = ye_ts_bot.translate_general_category(country2, do_Get_contry2=False)
+        resolved_label = ye_ts_bot.translate_general_category(country2, start_get_country2=False)
 
     if resolved_label:
-        print_put(f'>> get_lab_for_contry2 "{country2}": label: {resolved_label}')
+        print_put(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
 
     return resolved_label

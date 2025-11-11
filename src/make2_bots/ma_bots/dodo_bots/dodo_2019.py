@@ -11,7 +11,7 @@ from ...matables_bots.bot import New_players, Table_for_frist_word
 
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ....helps.print_bot import print_put
-from ..country_bot import Get_contry
+from ..country_bot import get_country
 
 
 def work_2019(category3: str, year: str, year_labe: str) -> str:
@@ -23,7 +23,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     print_put(f'<<lightgreen>>>>>> 2019: NoLab and year, cat_4="{cat_4}"')
     cat4_lab = get_pop_All_18(cat_4, "")
     if not cat4_lab:
-        cat4_lab = Get_contry(cat_4)
+        cat4_lab = get_country(cat_4)
 
     arlabel = ""
     if cat4_lab:
