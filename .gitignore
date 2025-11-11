@@ -11,7 +11,5 @@ categories.json
 /tests/event_lists/diff_data
 src/make2_bots/o_bots/save.py
 _start.py
-monkeytype.sqlite3
+*.sqlite3
 monkey.py
-Jobs copy.old
-src/ma_lists/jobs/Jobs_backup
