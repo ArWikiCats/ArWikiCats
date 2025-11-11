@@ -96,7 +96,7 @@ for year in YEARS_LIST:
 for modifier, modifier_label in sport_starts.items():
     # sport_formts_en_ar_is_p17["international footballers"] = "لاعبو منتخب {} لكرة القدم"
     # ---
-    start = "لاعبات منتخب" if modifier.find("women's") != -1 else "لاعبو منتخب"
+    start = "لاعبات منتخب" if "women's" in modifier else "لاعبو منتخب"
     # ---
     Lab = f"{start} {PLACE_HOLDER} لكرة القدم {modifier_label}"
     # ---

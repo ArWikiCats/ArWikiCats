@@ -55,7 +55,7 @@ def load_teams_new() -> Dict[str, str]:
                 PP_o = f"{key2} {after}"
                 # ---
                 llab = FOOTBALL_KEYS_PLAYERS[after]["mens"]
-                if PP_o.find("women's") != -1:
+                if "women's" in PP_o:
                     llab = FOOTBALL_KEYS_PLAYERS[after]["womens"]
                 # ---
                 data[PP_o] = f"{llab} {value2}"
