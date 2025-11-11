@@ -37,6 +37,14 @@ from .jobs_players_list import (
 )
 from .jobs_singers import MEN_WOMENS_SINGERS, FILMS_TYPE
 
+LOGGER = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Helper utilities
+# ---------------------------------------------------------------------------
+
+
 Jobs_new = {}
 
 JOBS_2020 = {
@@ -83,12 +91,6 @@ Men_Womens_with_nato = {
         "womens": "فنانات {nato} معاصرات",
     },
 }
-
-
-MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
-
-for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
-    JOBS_2020[minister_category] = minister_labels
 
 jobs_table_3 = {
     "deaf": {"mens": "صم", "womens": "صم"},
@@ -170,6 +172,12 @@ womens_Jobs_2017 = {}
 Men_Womens_Jobs = {}
 
 Men_Womens_Jobs.update(MEN_WOMENS_JOBS_2)
+
+
+MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
+
+for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
+    JOBS_2020[minister_category] = minister_labels
 
 for religious_key, gendered_titles in RELIGIOUS_KEYS_PP.items():
     MenWomensJobsPP[religious_key] = gendered_titles
