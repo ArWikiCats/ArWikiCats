@@ -44,6 +44,7 @@ keys_to_wheelchair = [
     "rugby",
     "tennis",
     "handball",
+    "beach handball",
     "curling",
     "fencing",
 ]

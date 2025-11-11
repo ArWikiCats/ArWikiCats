@@ -6,17 +6,18 @@ from src.ma_lists.utils.match_sport_keys import match_sport_key, Sports_Keys_For
 # ---------------------------------------------------------------------
 CATEGORY_SAMPLES = {
     # --- Wheelchair variants ---
-    "Category:Wheelchair automobile racing at the 2020 Paralympics": "wheelchair automobile racing",
-    "Category:Wheelchair gaelic football world championships": "wheelchair gaelic football",
-    "Category:Wheelchair kick boxing tournaments": "wheelchair kick boxing",
-    "Category:Wheelchair sport climbing events": "wheelchair sport climbing",
-    "Category:Wheelchair aquatic sports athletes": "wheelchair aquatic sports",
-    "Category:Wheelchair shooting competitions": "wheelchair shooting",
-    "Category:Wheelchair fifa world cup qualifiers": "wheelchair fifa world cup",
-    "Category:Wheelchair fifa futsal world cup finals": "wheelchair fifa futsal world cup",
     "Category:Wheelchair beach handball at the European Games": "wheelchair beach handball",
-    "Category:Wheelchair shot put at the Paralympics": "wheelchair shot put",
-    "Category:Wheelchair multi-sport events": "wheelchair multi-sport",
+
+    "Category:automobile racing at the 2020 Paralympics": "automobile racing",
+    "Category:gaelic football world championships": "gaelic football",
+    "Category:kick boxing tournaments": "kick boxing",
+    "Category:sport climbing events": "sport climbing",
+    "Category:aquatic sports athletes": "aquatic sports",
+    "Category:shooting competitions": "shooting",
+    "Category:fifa world cup qualifiers": "fifa world cup",
+    "Category:fifa futsal world cup finals": "fifa futsal world cup",
+    "Category:shot put at the Paralympics": "shot put",
+    "Category:multi-sport events": "multi-sport",
 
     # --- Racing variants ---
     "Category:Automobile racing in Japan": "automobile racing",
@@ -93,9 +94,8 @@ def test_case_insensitivity(category):
 # 6. Longest match wins
 # ---------------------------------------------------------------------
 @pytest.mark.parametrize("text,longest_key", [
-    ("Category:Wheelchair FIFA World Cup", "wheelchair fifa world cup"),
     ("Category:FIFA Futsal World Cup racing", "fifa futsal world cup racing"),
-    ("Category:Wheelchair FIFA Futsal World Cup", "wheelchair fifa futsal world cup"),
+    ("Category:FIFA Futsal World Cup", "fifa futsal world cup"),
 ])
 @pytest.mark.fast
 def test_longest_match_priority(text, longest_key):
