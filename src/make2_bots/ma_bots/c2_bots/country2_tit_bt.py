@@ -25,7 +25,7 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
     Mash = f"^(.*?)(?:{tat_o}?)(.*?)$"
 
     Type_t = re.sub(Mash, r"\g<1>", country2_no_lower, flags=re.IGNORECASE)
-    contry_t = re.sub(Mash, r"\g<2>", country2_no_lower, flags=re.IGNORECASE)
+    country_t = re.sub(Mash, r"\g<2>", country2_no_lower, flags=re.IGNORECASE)
 
     test_N = country2.lower().replace(con_1.strip().lower(), "")
 
@@ -38,7 +38,7 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
 
     if tat_o.strip() == "by":
         con_2 = f"by {con_2}"
-        contry_t = f"by {contry_t}"
+        country_t = f"by {country_t}"
 
     if tat_o.strip() in ["of", "-of"]:
         Type_t = f"{Type_t} of"
@@ -47,9 +47,9 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
     print_put(f'>>>> con_1:"{con_1.strip()}",test_N:"{test_N.strip()}",con 2:"{con_2.strip()}"')
 
     if test_N and test_N.strip() != tat_o.strip():
-        print_put(f'>>>> <<lightblue>> test_N != "",Type_t:"{Type_t}",tat_o:"{tat_o}",contry_t:"{contry_t}"')
+        print_put(f'>>>> <<lightblue>> test_N != "",Type_t:"{Type_t}",tat_o:"{tat_o}",country_t:"{country_t}"')
         con_1 = Type_t
-        con_2 = contry_t
+        con_2 = country_t
 
     return con_1, con_2
 
@@ -79,7 +79,7 @@ def make_sps(tat_o: str, c_1_l: str, cona_1: str) -> str:
     return sps
 
 
-def contry_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
+def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     """Convert country name and generate labels based on input parameters."""
 
     print_put(f'>>>> <<lightblue>> Get_country2: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
@@ -152,7 +152,7 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
     for sep in title_separators:
         separator = f" {sep} " if sep != "-of " else sep
         if separator in normalized_country:
-            resolved_label = contry_2_tit(separator, country, With_Years=With_Years)
+            resolved_label = country_2_tit(separator, country, With_Years=With_Years)
             break
 
     return resolved_label
@@ -160,7 +160,7 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
 
 __all__ = [
     "country_2_title_work",
-    "contry_2_tit",
+    "country_2_tit",
     "make_sps",
     "make_conas",
 ]

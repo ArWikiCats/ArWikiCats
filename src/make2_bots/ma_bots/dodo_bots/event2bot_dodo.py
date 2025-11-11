@@ -17,7 +17,7 @@ from ...matables_bots.bot import (
     Films_O_TT,
     New_players,
     typeTable,
-    type_after_contry,
+    type_after_country,
 )
 from .dodo_2019 import work_2019
 from .mk2 import new_func_mk2
@@ -86,7 +86,7 @@ def make_lab_dodo(
     if In.strip() == "by":
         country = f"by {country}"
 
-    contry_not_lower = country
+    country_not_lower = country
     country = country.lower()
     print_put(f'>>>> year:"{year}", typeo:"{typeo}", In:"{In}", country:"{country}"')
     arlabel = ""
@@ -117,7 +117,7 @@ def make_lab_dodo(
         country_label = get_pop_All_18(country, "")
 
         if not country_label:
-            country_label = get_country(contry_not_lower)
+            country_label = get_country(country_not_lower)
 
         if country_label == "" and category3 == year + " " + country:
             country_label = Nat_mens.get(country, "")
@@ -193,7 +193,7 @@ def make_lab_dodo(
 
     if NoLab and cat_test == "":
         if country_label and typeo_lab and year == "" and In == "":
-            if typeo in type_after_contry:
+            if typeo in type_after_country:
                 ar = f"{country_label} {typeo_lab}"
             elif (typeo in typeTable) or (typeo in Films_O_TT) or (typeo.lower() in New_players):
                 ar = f"{typeo_lab} {country_label}"

@@ -8,7 +8,7 @@ from .mk2 import new_func_mk2
 
 import re
 
-from ...format_bots import ar_lab_before_year_to_add_in, contry_before_year
+from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
 from ...matables_bots.bot import (
     Add_to_main2_tab,
     Films_O_TT,
@@ -16,7 +16,7 @@ from ...matables_bots.bot import (
     Table_for_frist_word,
     Add_in_table,
     Keep_it_frist,
-    add_in_to_contry,
+    add_in_to_country,
 )
 from ....helps.print_bot import print_put, output_test
 
@@ -73,9 +73,9 @@ def new_func_mk2(
             in_table = True
             output_test(f'>> >> dX:<<lightpurple>> in_table "{country}" in {table}.')
 
-    if country in contry_before_year:
+    if country in country_before_year:
         in_table = True
-        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in contry_before_year.')
+        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
 
     if suf:
         suf = f" {suf.strip()} "
@@ -118,7 +118,7 @@ def new_func_mk2(
 
     if (typeo == "" and In == "") and (country and year != ""):
         print_put("a<<lightblue>>>>>> Add year before")
-        if (suf.strip() == "" and con_lab.startswith("ال")) or country in Add_in_table or (country and year and In == "" and typeo == "" and country in add_in_to_contry) or country in Films_O_TT:
+        if (suf.strip() == "" and con_lab.startswith("ال")) or country in Add_in_table or (country and year and In == "" and typeo == "" and country in add_in_to_country) or country in Films_O_TT:
             suf = " في "
             print_put("a<<lightblue>>>>>> Add في to suf")
         print_put(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')

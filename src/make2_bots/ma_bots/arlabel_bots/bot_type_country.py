@@ -33,7 +33,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     country = country.lower()
     Mash = f"^(.*?)(?:{tito}?)(.*?)$"
     Type_t = re.sub(Mash, r"\g<1>", category.lower())
-    contry_t = re.sub(Mash, r"\g<2>", category.lower())
+    country_t = re.sub(Mash, r"\g<2>", category.lower())
 
     test_N = category.lower()
     try:
@@ -65,18 +65,18 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     print_def_head(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", tito: "{tito}" ')
 
     if test_N and test_N != tito2:
-        print_put(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", contry_t:"{contry_t}" ')
+        print_put(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", country_t:"{country_t}" ')
 
         if tito2 == "of" and not Type_t.endswith(titoends):
             Type_t = f"{Type_t} of"
-        elif tito2 == "by" and not contry_t.startswith(titostarts):
-            contry_t = f"by {contry_t}"
-        elif tito2 == "for" and not contry_t.startswith(titostarts):
-            contry_t = f"for {contry_t}"
+        elif tito2 == "by" and not country_t.startswith(titostarts):
+            country_t = f"by {country_t}"
+        elif tito2 == "for" and not country_t.startswith(titostarts):
+            country_t = f"for {country_t}"
         Type = Type_t
-        country = contry_t
+        country = country_t
 
-        print_put(f'>>>> yementest: Type_t:"{Type_t}", contry_t:"{contry_t}"')
+        print_put(f'>>>> yementest: Type_t:"{Type_t}", country_t:"{country_t}"')
     else:
         print_put(f'>>>> test_N:"{test_N}" == tito')
 

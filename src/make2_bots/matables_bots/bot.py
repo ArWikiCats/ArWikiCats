@@ -246,7 +246,7 @@ t_start = r"Category\:(" + pop_new_ke + ").*"
 t_tits = r"Category\:(" + pop_new_ke + "|)(" + P17_new_keys + "|)"
 t_other = f"({P17_new_keys}|)"
 # ---
-add_in_to_contry = ["solar eclipses"]
+add_in_to_country = ["solar eclipses"]
 # ---
 army_line = "|".join(military_format_women.keys())
 army_line = f"{army_line}|{'|'.join(military_format_men.keys())}"
@@ -304,7 +304,7 @@ New_players["people"] = "أشخاص"
 # MONTHSTR = '(January|February|March|April|May|June|July|August|September|October|November|December)'
 MONTHSTR = "(January|February|March|April|May|June|July|August|September|October|November|December|)"
 
-type_after_contry = ["non-combat"]
+type_after_country = ["non-combat"]
 
 # Add_ar_in = [ "mediterranean games medalists",]
 Add_ar_in = copy.deepcopy(olympics)

@@ -78,70 +78,70 @@ def test4_2018_Jobs(cate: str) -> str:
     # ---
     if cate != cate2:
         output_test4(f'<<lightblue>> test4_2018_Jobs cate:"{cate}",cate2:"{cate2}",Main_Ss:"{Main_Ss}". ')
-    contry_lab = "أشخاص" if cate == "people" else ""
+    country_lab = "أشخاص" if cate == "people" else ""
     # ---
     if Main_Ss.strip() == "fictional" and cate.strip().startswith("female"):
         Main_lab = "{} خياليات"
         print_put("{} خياليات")
     # ---
-    if not contry_lab:
-        contry_lab = People_key.get(cate, "")
-    if not contry_lab:
-        contry_lab = Jobs_key_womens.get(cate, "")
+    if not country_lab:
+        country_lab = People_key.get(cate, "")
+    if not country_lab:
+        country_lab = Jobs_key_womens.get(cate, "")
     # ---
-    if not contry_lab:
-        contry_lab = Lang_work(cate)
+    if not country_lab:
+        country_lab = Lang_work(cate)
     # ---
-    if not contry_lab:
-        contry_lab = Jobs_key_mens.get(cate, "")
+    if not country_lab:
+        country_lab = Jobs_key_mens.get(cate, "")
     # ---
     nat = ""
     job_example = ""
     # ---
-    if not contry_lab:
+    if not country_lab:
         job_example, nat = get_con_3(cate, All_Nat, "nat")
     # ---
     job_example_lab = ""
     # ---
     # priffix_lab_for_2018
-    if job_example and (Main_Ss in priffix_lab_for_2018) and contry_lab == "":
+    if job_example and (Main_Ss in priffix_lab_for_2018) and country_lab == "":
         # ---
         # en_is_nat_ar_is_women
         job_example_lab = en_is_nat_ar_is_women.get(job_example.strip(), "")
         if job_example_lab:
-            contry_lab = job_example_lab.format(Nat_women[nat])
-            output_test4(f'<<lightblue>> test_4, new contry_lab "{contry_lab}" ')
+            country_lab = job_example_lab.format(Nat_women[nat])
+            output_test4(f'<<lightblue>> test_4, new country_lab "{country_lab}" ')
             Main_lab = priffix_lab_for_2018[Main_Ss]["women"]
         # ---
         # en_is_nat_ar_is_man
-        if not contry_lab:
+        if not country_lab:
             job_example_lab = en_is_nat_ar_is_man.get(job_example.strip(), "")
             if job_example_lab:
-                contry_lab = job_example_lab.format(Nat_men[nat])
-                output_test4(f'<<lightblue>> test_4, new contry_lab "{contry_lab}" ')
+                country_lab = job_example_lab.format(Nat_men[nat])
+                output_test4(f'<<lightblue>> test_4, new country_lab "{country_lab}" ')
                 Main_lab = priffix_lab_for_2018[Main_Ss]["men"]
     # ---
-    if job_example and contry_lab == "":
-        contry_lab = Jobs(cate, nat, job_example, Type="nat")
+    if job_example and country_lab == "":
+        country_lab = Jobs(cate, nat, job_example, Type="nat")
     # ---
-    if not contry_lab:
-        contry_lab = Women_s_priffix_work(cate)
+    if not country_lab:
+        country_lab = Women_s_priffix_work(cate)
     # ---
-    if not contry_lab:
-        contry_lab = priffix_Mens_work(cate)
+    if not country_lab:
+        country_lab = priffix_Mens_work(cate)
     # ---
     # Try with Jobs
     # ---
-    if Main_Ss and Main_lab and contry_lab:
-        contry_lab = Main_lab.format(contry_lab)
+    if Main_Ss and Main_lab and country_lab:
+        country_lab = Main_lab.format(country_lab)
         # ---
         if Main_Ss in Main_priffix_to and job_example_lab:
             job_example_lab = job_example_lab.format("").strip()
-            contry_lab = Main_priffix_to[Main_Ss].format(nat=Nat_women[nat], t=job_example_lab)
+            country_lab = Main_priffix_to[Main_Ss].format(nat=Nat_women[nat], t=job_example_lab)
     # ---
-    if not contry_lab:
-        contry_lab = try_relegins_jobs(cate)
+    if not country_lab:
+        country_lab = try_relegins_jobs(cate)
     # ---
-    output_test4(f'end test4_2018_Jobs "{cate}" , contry_lab:"{contry_lab}", cate2:{cate2}')
+    output_test4(f'end test4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate2}')
     # ---
-    return contry_lab
+    return country_lab

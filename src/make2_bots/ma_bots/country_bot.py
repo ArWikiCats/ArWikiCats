@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
 
-# from ..ma_bots.contry_bot import get_country, Get_c_t_lab
+# from ..ma_bots.country_bot import get_country, Get_c_t_lab
 
 
-from ..ma_bots import contry_bot
+from ..ma_bots import country_bot
 
 
-lab = contry_bot.get_country()
+lab = country_bot.get_country()
 
 """
 import re
@@ -42,7 +42,7 @@ get_country_done: Dict[str, str] = {}
 def get_country(country: str, start_get_country2: bool = True) -> str:
     """Retrieve the label for a given country name."""
 
-    contry_no_lower = country
+    country_no_lower = country
     country = country.lower()
 
     if country in get_country_done:
@@ -55,11 +55,11 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     if not resolved_label:
         resolved_label = New_female_keys.get(country, "")
     if not resolved_label:
-        resolved_label = test_films(contry_no_lower)
+        resolved_label = test_films(country_no_lower)
     if not resolved_label:
-        resolved_label = nats.find_nat_others(contry_no_lower)
+        resolved_label = nats.find_nat_others(country_no_lower)
     if not resolved_label:
-        resolved_label = team_work.Get_team_work_Club(contry_no_lower)
+        resolved_label = team_work.Get_team_work_Club(country_no_lower)
 
     if resolved_label == "" and start_get_country2:
         resolved_label = country2_bot.Get_country2(country)
