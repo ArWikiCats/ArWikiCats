@@ -134,7 +134,7 @@ if True:
     number_xo = 0
     # ---
     for tyu, tyu_lab in New_Tato.items():
-        logger.debug(" ========= contry =========== ")
+        logger.debug(" ========= country =========== ")
         K_at_p = tyu_lab.format("xoxo")
         number_xo += 1
         # if team2 == "road cycling":

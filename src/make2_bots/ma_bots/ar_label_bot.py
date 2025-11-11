@@ -38,18 +38,18 @@ def find_ar_label(
 
     print_put(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
     tito2 = tito.strip()
-    Type, contry = get_type_country(category, tito)
+    Type, country = get_type_country(category, tito)
 
     arlabel = ""
     Type_lower = Type.strip().lower()
-    contry_lower = contry.strip().lower()
+    contry_lower = country.strip().lower()
 
     Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, contry_lower)
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
 
-    con_lab = get_con_lab(tito, do_Get_contry2, tito2, contry, contry_lower)
+    con_lab = get_con_lab(tito, do_Get_contry2, tito2, country, contry_lower)
 
     if con_lab:
         Cate_test = Cate_test.replace(contry_lower, "")

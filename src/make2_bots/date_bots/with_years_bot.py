@@ -34,7 +34,7 @@ def _handle_political_terms(category_text: str) -> str:
         body_label = known_bodies[body_key]
         ordinal_label = change_numb_to_word.get(ordinal_number, f"الـ{ordinal_number}")
         label = f"{body_label} {ordinal_label}"
-        output_test(f">>> _handle_political_terms lab ({label}), contry: ({category_text})")
+        output_test(f">>> _handle_political_terms lab ({label}), country: ({category_text})")
         return label
     return ""
 
@@ -97,7 +97,7 @@ def _handle_year_at_end(
         year_at_end_label = compiled_range_pattern.sub(r"\g<1>", category_text.strip())
 
     # if RE4:
-    # year2 = "موسم " + RE4_compile.sub(r"\g<1>", contry.strip())
+    # year2 = "موسم " + RE4_compile.sub(r"\g<1>", country.strip())
 
     if year_at_end_label == category_text or not year_at_end_label:
         return ""
@@ -145,7 +145,7 @@ def Try_With_Years(category_text: str) -> str:
     """
 
     # ---
-    output_test(f">>> Try With Years contry ({category_text})")
+    output_test(f">>> Try With Years country ({category_text})")
     # pop_final_Without_Years
 
     label = ""

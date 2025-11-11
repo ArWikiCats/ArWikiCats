@@ -179,8 +179,8 @@ typeTable = {
 # ---
 LOG = {1: False}
 # ---
-# split form start contry[len("fasa "):])
-# split form end  contry[:-len("fm")])
+# split form start country[len("fasa "):])
+# split form end  country[:-len("fm")])
 # ---
 Pp_Priffix = {
     " memorials": "نصب {} التذكارية",

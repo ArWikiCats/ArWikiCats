@@ -29,8 +29,8 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     """
 
     Type = category.split(tito)[0]
-    contry = category.split(tito)[1]
-    contry = contry.lower()
+    country = category.split(tito)[1]
+    country = country.lower()
     Mash = f"^(.*?)(?:{tito}?)(.*?)$"
     Type_t = re.sub(Mash, r"\g<1>", category.lower())
     contry_t = re.sub(Mash, r"\g<2>", category.lower())
@@ -38,7 +38,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     test_N = category.lower()
     try:
         test_N = re.sub(Type.lower(), "", test_N)
-        test_N = re.sub(contry.lower(), "", test_N)
+        test_N = re.sub(country.lower(), "", test_N)
 
     except Exception:
         print_put("<<lightred>>>>>> except test_N ")
@@ -57,12 +57,12 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     elif tito2 == "spies for" and not Type.endswith(" spies"):
         Type = f"{Type} spies"
 
-    elif tito2 == "by" and not contry.startswith(titostarts):
-        contry = f"by {contry}"
-    elif tito2 == "for" and not contry.startswith(titostarts):
-        contry = f"for {contry}"
+    elif tito2 == "by" and not country.startswith(titostarts):
+        country = f"by {country}"
+    elif tito2 == "for" and not country.startswith(titostarts):
+        country = f"for {country}"
 
-    print_def_head(f'>xx>>> Type: "{Type.strip()}", contry: "{contry.strip()}", tito: "{tito}" ')
+    print_def_head(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", tito: "{tito}" ')
 
     if test_N and test_N != tito2:
         print_put(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", contry_t:"{contry_t}" ')
@@ -74,10 +74,10 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
         elif tito2 == "for" and not contry_t.startswith(titostarts):
             contry_t = f"for {contry_t}"
         Type = Type_t
-        contry = contry_t
+        country = contry_t
 
         print_put(f'>>>> yementest: Type_t:"{Type_t}", contry_t:"{contry_t}"')
     else:
         print_put(f'>>>> test_N:"{test_N}" == tito')
 
-    return Type, contry
+    return Type, country

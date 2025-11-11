@@ -23,47 +23,47 @@ from ..sports_bots import team_work
 from . import ye_ts_bot
 
 
-def get_lab_for_contry2(contry: str, with_test_ye: bool = False, **kwargs: Any) -> str:
+def get_lab_for_contry2(country: str, with_test_ye: bool = False, **kwargs: Any) -> str:
     """Retrieve laboratory information for a specified country."""
 
-    contry2_no_lower = contry.strip()
-    contry2 = contry.lower().strip()
-    resolved_label = get_pop_All_18(contry2, "")
+    contry2_no_lower = country.strip()
+    country2 = country.lower().strip()
+    resolved_label = get_pop_All_18(country2, "")
 
     if not resolved_label:
-        resolved_label = test_films(contry2)
+        resolved_label = test_films(country2)
     if not resolved_label:
-        resolved_label = nats.find_nat_others(contry2)
+        resolved_label = nats.find_nat_others(country2)
 
     if not resolved_label:
-        resolved_label = sport_lab_suffixes.get_teams_new(contry2)
+        resolved_label = sport_lab_suffixes.get_teams_new(country2)
 
     if not resolved_label:
-        resolved_label = parties_bot.get_parties_lab(contry2)
+        resolved_label = parties_bot.get_parties_lab(country2)
 
     if not resolved_label:
         resolved_label = team_work.Get_team_work_Club(contry2_no_lower)
     if not resolved_label:
-        resolved_label = work_relations(contry2)
+        resolved_label = work_relations(country2)
     if not resolved_label:
-        resolved_label = univer.test_universities(contry2)
+        resolved_label = univer.test_universities(country2)
     if not resolved_label:
-        resolved_label = Work_US_State(contry2)
+        resolved_label = Work_US_State(country2)
     if not resolved_label:
-        resolved_label = work_peoples(contry2)
+        resolved_label = work_peoples(country2)
     if not resolved_label:
-        resolved_label = get_KAKO(contry2)
+        resolved_label = get_KAKO(country2)
 
     if not resolved_label:
-        resolved_label = centries_years_dec.get(contry2, "")
+        resolved_label = centries_years_dec.get(country2, "")
 
-    if not resolved_label and contry2.startswith("the "):
-        resolved_label = get_pop_All_18(contry2[len("the ") :], "")
+    if not resolved_label and country2.startswith("the "):
+        resolved_label = get_pop_All_18(country2[len("the ") :], "")
 
     if not resolved_label and with_test_ye:
-        resolved_label = ye_ts_bot.translate_general_category(contry2, do_Get_contry2=False)
+        resolved_label = ye_ts_bot.translate_general_category(country2, do_Get_contry2=False)
 
     if resolved_label:
-        print_put(f'>> get_lab_for_contry2 "{contry2}": label: {resolved_label}')
+        print_put(f'>> get_lab_for_contry2 "{country2}": label: {resolved_label}')
 
     return resolved_label

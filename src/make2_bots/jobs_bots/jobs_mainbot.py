@@ -21,14 +21,14 @@ Jobs_cash: Dict[str, str] = {}
 
 def Jobs2(cate: str, Start: str, con_3: str) -> str:
     # ---
-    contry: str = Start
+    country: str = Start
     contry_lab: str = ""
     # ---
     con_3_lab = Jobs_key_mens.get(con_3, "")
     if con_3_lab:
-        if Nat_mens.get(contry, "") != "":
+        if Nat_mens.get(country, "") != "":
             # output_test4('<<lightblue>> cate.startswith("%s"), con_3:"%s"' % (cate , con_3))
-            contry_lab = f"{con_3_lab} {Nat_mens.get(contry, '')}"
+            contry_lab = f"{con_3_lab} {Nat_mens.get(country, '')}"
             output_test4(f'<<lightblue>> test Jobs: new contry_lab  "{contry_lab}" ')
     # ---
     return contry_lab
@@ -66,7 +66,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
         return Jobs_cash[cash_key]
     # ---
     output_test4(f'<<lightblue>> test_4.py Jobs: cate: "{cate}", Start: "{Start}", con_3: "{con_3}" ')
-    contry = Start
+    country = Start
     contry_lab = ""
     # ---
     con_3_lab = Jobs_key_mens.get(con_3, "")
@@ -78,7 +78,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
     pkjn = [" مغتربون", " مغتربات"]
     # ---
     # mens Jobs
-    mens_nat_lab = tab.get("mens") or Nat_mens.get(contry, "")
+    mens_nat_lab = tab.get("mens") or Nat_mens.get(country, "")
     # ---
     if mens_nat_lab:
         # ---
@@ -114,7 +114,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
     # Womens Jobs
     # ---
     if not contry_lab:
-        women_nat_lab = tab.get("womens") or Nat_Womens.get(contry, "")
+        women_nat_lab = tab.get("womens") or Nat_Womens.get(country, "")
         if women_nat_lab:
             # ---
             if con_3.strip() in ["women", "female", "women's"]:

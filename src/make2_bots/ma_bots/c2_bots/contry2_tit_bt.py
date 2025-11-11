@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-!
+This module provides functions for processing and generating labels for country names based on separators.
 """
 
 import re
@@ -17,17 +17,17 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
     """Process a country name based on a specified separator."""
 
     contry2_no_lower = country.strip()
-    contry2 = country.lower().strip()
+    country2 = country.lower().strip()
 
-    con_1 = contry2.split(tat_o)[0]
-    con_2 = contry2.split(tat_o)[1]
+    con_1 = country2.split(tat_o)[0]
+    con_2 = country2.split(tat_o)[1]
 
     Mash = f"^(.*?)(?:{tat_o}?)(.*?)$"
 
     Type_t = re.sub(Mash, r"\g<1>", contry2_no_lower, flags=re.IGNORECASE)
     contry_t = re.sub(Mash, r"\g<2>", contry2_no_lower, flags=re.IGNORECASE)
 
-    test_N = contry2.lower().replace(con_1.strip().lower(), "")
+    test_N = country2.lower().replace(con_1.strip().lower(), "")
 
     try:
         test_N = test_N.strip().replace(con_2.strip().lower(), "")
@@ -97,8 +97,8 @@ def contry_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
 
     fAAA = '>>>> XX--== <<lightgreen>> Ccon_1:"%s", lab"%s", cona_2:"%s", lab"%s", cnt_test: "%s"'
 
-    contry2 = country.lower().strip()
-    remaining_text = contry2
+    country2 = country.lower().strip()
+    remaining_text = country2
 
     if c_2_l == "" or c_1_l == "":
         print_put(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
@@ -126,7 +126,7 @@ def contry_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     if remaining_text:
         print_put(f'>>>> cnt_test:"{remaining_text}" != "" ')
 
-    resolved_label = make_cnt_lab(tat_o, contry2, c_2_l, c_1_l, cona_1, cona_2, sps)
+    resolved_label = make_cnt_lab(tat_o, country2, c_2_l, c_1_l, cona_1, cona_2, sps)
 
     return resolved_label
 

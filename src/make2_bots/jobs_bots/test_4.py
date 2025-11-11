@@ -176,8 +176,8 @@ def test4_2018_with_nat(
     # ---
     if country_label:
         if con_3:
-            contry2 = ""
-            output_test4(f'<<lightblue>> test4_2018_with_nat startswith({contry2}),con_3:"{con_3}"')
+            country2 = ""
+            output_test4(f'<<lightblue>> test4_2018_with_nat startswith({country2}),con_3:"{con_3}"')
         output_test4(f'<<lightblue>> test_4: test4_2018_with_nat :: "{country_label}" ')
     # ---
     # Try with Jobs

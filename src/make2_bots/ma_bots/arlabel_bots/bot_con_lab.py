@@ -20,7 +20,7 @@ from ..contry_bot import Get_c_t_lab, Get_contry
 from .. import contry2_lab
 
 
-def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, contry: str, contry_lower: str) -> str:
+def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, country: str, contry_lower: str) -> str:
     """Retrieve the corresponding label for a given country."""
 
     con_lab = ""
@@ -62,11 +62,11 @@ def get_con_lab(tito: str, do_Get_contry2: bool, tito2: str, contry: str, contry
     if not con_lab:
         con_lab = year_lab.make_month_lab(contry_lower)
     if not con_lab:
-        con_lab = test_films(contry)
+        con_lab = test_films(country)
     if not con_lab:
-        con_lab = nats.find_nat_others(contry)
+        con_lab = nats.find_nat_others(country)
     if not con_lab:
-        con_lab = team_work.Get_team_work_Club(contry.strip())
+        con_lab = team_work.Get_team_work_Club(country.strip())
 
     if not con_lab:
         con_lab = Get_c_t_lab(contry_lower, tito, do_Get_contry2=do_Get_contry2)

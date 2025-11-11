@@ -2,7 +2,7 @@
 """
 Usage:
 from .mk2 import new_func_mk2
-# cat_test, arlabel = new_func_mk2(category, cat_test, year, typeo, In, contry, arlabel, year_labe, suf, Add_In, country_label, Add_In_Done)
+# cat_test, arlabel = new_func_mk2(category, cat_test, year, typeo, In, country, arlabel, year_labe, suf, Add_In, country_label, Add_In_Done)
 
 """
 
@@ -27,7 +27,7 @@ def new_func_mk2(
     year: str,
     typeo: str,
     In: str,
-    contry: str,
+    country: str,
     arlabel: str,
     year_labe: str,
     suf: str,
@@ -51,7 +51,7 @@ def new_func_mk2(
         year (str): The year associated with the category.
         typeo (str): The type of input being processed.
         In (str): A string indicating location (e.g., "in", "at").
-        contry (str): The country name to be checked.
+        country (str): The country name to be checked.
         arlabel (str): The Arabic label to be modified.
         year_labe (str): The label for the year.
         suf (str): A suffix to be added to the label.
@@ -63,19 +63,19 @@ def new_func_mk2(
         tuple: A tuple containing the modified `cat_test` and `arlabel`.
     """
 
-    Add_to_main2_tab(contry, country_label)
-    cat_test = cat_test.replace(contry, "")
+    Add_to_main2_tab(country, country_label)
+    cat_test = cat_test.replace(country, "")
     arlabel = re.sub(r" ", " ", arlabel)
     con_lab = country_label
     Contry_In_Table = False
     for table in Table_for_frist_word.keys():
-        if contry in Table_for_frist_word[table]:
+        if country in Table_for_frist_word[table]:
             Contry_In_Table = True
-            output_test(f'>> >> dX:<<lightpurple>> Contry_In_Table "{contry}" in {table}.')
+            output_test(f'>> >> dX:<<lightpurple>> Contry_In_Table "{country}" in {table}.')
 
-    if contry in contry_before_year:
+    if country in contry_before_year:
         Contry_In_Table = True
-        output_test(f'>> >> X:<<lightpurple>> Contry_In_Table "{contry}" in contry_before_year.')
+        output_test(f'>> >> X:<<lightpurple>> Contry_In_Table "{country}" in contry_before_year.')
 
     if suf:
         suf = f" {suf.strip()} "
@@ -85,7 +85,7 @@ def new_func_mk2(
     arlabel2 = arlabel
 
     if Contry_In_Table and typeo not in Keep_it_frist:
-        if (In.strip() == "in" or In.strip() == "at") or (contry.lower() in New_players) and not con_lab.startswith("حسب"):
+        if (In.strip() == "in" or In.strip() == "at") or (country.lower() in New_players) and not con_lab.startswith("حسب"):
             if year_labe:
                 con_lab = f"{con_lab} في "
                 Add_In_Done = True
@@ -112,13 +112,13 @@ def new_func_mk2(
         # ---
         print_put(f">3252 arlabel: {arlabel}")
 
-        # if (typeo == '" and In == "') and (contry and year != ""):
+        # if (typeo == '" and In == "') and (country and year != ""):
 
     print_put(f"{year_labe=}, {arlabel2=}")
 
-    if (typeo == "" and In == "") and (contry and year != ""):
+    if (typeo == "" and In == "") and (country and year != ""):
         print_put("a<<lightblue>>>>>> Add year before")
-        if (suf.strip() == "" and con_lab.startswith("ال")) or contry in Add_in_table or (contry and year and In == "" and typeo == "" and contry in add_in_to_contry) or contry in Films_O_TT:
+        if (suf.strip() == "" and con_lab.startswith("ال")) or country in Add_in_table or (country and year and In == "" and typeo == "" and country in add_in_to_contry) or country in Films_O_TT:
             suf = " في "
             print_put("a<<lightblue>>>>>> Add في to suf")
         print_put(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')

@@ -39,21 +39,21 @@ from ... import app_settings
 Get_contry_done: Dict[str, str] = {}
 
 
-def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
+def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
     """Retrieve the label for a given country name."""
 
-    contry_no_lower = contry
-    contry = contry.lower()
+    contry_no_lower = country
+    country = country.lower()
 
-    if contry in Get_contry_done:
-        output_test(f'>>>> Get_contry: "{contry}" in Get_contry_done, lab:"{Get_contry_done[contry]}"')
-        return Get_contry_done[contry]
+    if country in Get_contry_done:
+        output_test(f'>>>> Get_contry: "{country}" in Get_contry_done, lab:"{Get_contry_done[country]}"')
+        return Get_contry_done[country]
 
     output_test(">> ----------------- Get_contry start ----------------- ")
-    print_put(f'>>>> Get contry for "{contry}"')
-    resolved_label = contry if contry.strip().isdigit() else ""
+    print_put(f'>>>> Get country for "{country}"')
+    resolved_label = country if country.strip().isdigit() else ""
     if not resolved_label:
-        resolved_label = New_female_keys.get(contry, "")
+        resolved_label = New_female_keys.get(country, "")
     if not resolved_label:
         resolved_label = test_films(contry_no_lower)
     if not resolved_label:
@@ -62,7 +62,7 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
         resolved_label = team_work.Get_team_work_Club(contry_no_lower)
 
     if resolved_label == "" and do_Get_contry2:
-        resolved_label = contry2_bot.Get_contry2(contry)
+        resolved_label = contry2_bot.Get_contry2(country)
 
     if not resolved_label:
         prefix_labels = {
@@ -73,10 +73,10 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
         }
 
         for prefix, prefix_label in prefix_labels.items():
-            if not contry.startswith(prefix):
+            if not country.startswith(prefix):
                 continue
-            print(f">>> contry.startswith({prefix})")
-            remainder = contry[len(prefix) :]
+            print(f">>> country.startswith({prefix})")
+            remainder = country[len(prefix) :]
             Add_to_main2_tab(prefix, prefix_label)
             remainder_label = contry2_bot.Get_contry2(remainder)
 
@@ -109,7 +109,7 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
         ]
         title_separators = [f" {sep} " if sep != "-of " else sep for sep in title_separators]
         for ttt in title_separators:
-            if ttt in contry:
+            if ttt in country:
                 OKay = False
                 break
 
@@ -119,10 +119,10 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
         }
 
         for prefix, prefix_template in historical_prefixes.items():
-            if not contry.startswith(prefix):
+            if not country.startswith(prefix):
                 continue
-            print(f">>> contry.startswith({prefix})")
-            remainder = contry[len(prefix) :]
+            print(f">>> country.startswith({prefix})")
+            remainder = country[len(prefix) :]
             remainder_label = contry2_bot.Get_contry2(remainder)
 
             if remainder_label == "":
@@ -149,25 +149,25 @@ def Get_contry(contry: str, do_Get_contry2: bool = True) -> str:
             )
 
     if not resolved_label:
-        RE1 = RE1_compile.match(contry)
-        RE2 = RE2_compile.match(contry)
-        RE3 = RE3_compile.match(contry)
+        RE1 = RE1_compile.match(country)
+        RE2 = RE2_compile.match(country)
+        RE3 = RE3_compile.match(country)
 
         if RE1 or RE2 or RE3:
-            resolved_label = with_years_bot.Try_With_Years(contry)
+            resolved_label = with_years_bot.Try_With_Years(country)
 
-    if resolved_label == "" and contry.endswith(" members of"):
-        contry2 = contry.replace(" members of", "")
-        resolved_label = Nat_mens.get(contry2, "")
+    if resolved_label == "" and country.endswith(" members of"):
+        country2 = country.replace(" members of", "")
+        resolved_label = Nat_mens.get(country2, "")
         if resolved_label:
             resolved_label = f"{resolved_label} أعضاء في  "
             print_put(f"a<<lightblue>>>2021 Get_contry lab = {resolved_label}")
 
     if not resolved_label:
-        resolved_label = Sports_Keys_For_Label.get(contry, "")
+        resolved_label = Sports_Keys_For_Label.get(country, "")
 
-    Get_contry_done[contry] = resolved_label
-    output_test(f'>>>> Get contry "{resolved_label}"')
+    Get_contry_done[country] = resolved_label
+    output_test(f'>>>> Get country "{resolved_label}"')
     output_test(">> ----------------- end Get_contry ----------------- ")
     return resolved_label
 

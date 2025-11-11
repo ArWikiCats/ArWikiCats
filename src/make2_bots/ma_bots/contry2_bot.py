@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-!
+This module is responsible for retrieving localized information for a specified country.
 """
 
 from typing import Dict
@@ -20,7 +20,7 @@ def Get_contry2(country: str, With_Years: bool = True) -> str:
 
     if country in GET_COUNTRY_CACHE:
         output_test(
-            f'>>>> contry: "{country}" in Get_contry2_done, lab:"{GET_COUNTRY_CACHE[country]}"'
+            f'>>>> country: "{country}" in Get_contry2_done, lab:"{GET_COUNTRY_CACHE[country]}"'
         )
         return GET_COUNTRY_CACHE[country]
 
