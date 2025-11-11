@@ -65,17 +65,6 @@ JOBS_2020.update({x: v for x, v in jobs_data["JOBS_2020"].items() if v.get("mens
 JOBS_PEOPLE.update({x: v for x, v in jobs_data["JOBS_PEOPLE"].items() if v.get("mens") and v.get("womens")})
 JOBS_TYPE.update({x: v for x, v in jobs_data["JOBS_TYPE"].items() if v})  # v is string
 
-for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
-    JOBS_2020[minister_category] = minister_labels
-
-Jobs_key_mens = {}
-Jobs_key_womens = {}
-womens_Jobs_2017 = {}
-
-Men_Womens_Jobs = {}
-
-Men_Womens_Jobs.update(MEN_WOMENS_JOBS_2)
-
 Jobs_key_Format = {
     "{} people in health professions": "عاملون {} بمهن صحية",
     "{} eugenicists": "علماء {nato} متخصصون في تحسين النسل",
@@ -98,14 +87,8 @@ Men_Womens_with_nato = {
 
 MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
 
-for religious_key, gendered_titles in RELIGIOUS_KEYS_PP.items():
-    MenWomensJobsPP[religious_key] = gendered_titles
-
-    MenWomensJobsPP[f"{religious_key} activists"] = {
-        "mens": f"ناشطون {gendered_titles['mens']}",
-        "womens": f"ناشطات {gendered_titles['womens']}",
-    }
-
+for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
+    JOBS_2020[minister_category] = minister_labels
 
 jobs_table_3 = {
     "deaf": {"mens": "صم", "womens": "صم"},
@@ -125,25 +108,6 @@ executives = {
     "television": "تلفاز",
     "media5": "",
 }
-
-for industry_key, industry_label in executives.items():
-    jobs_table_3[f"{industry_key} executives"] = {
-        "mens": f"مدراء {industry_label}",
-        "womens": f"مديرات {industry_label}",
-    }
-
-for disability_key, disability_labels in jobs_table_3.items():
-    MenWomensJobsPP[disability_key] = disability_labels
-
-for job_name, gender_labels in JOBS_2020.items():
-    if gender_labels["mens"] and gender_labels["womens"]:
-        if job_name.lower() not in MenWomensJobsPP:
-            MenWomensJobsPP[job_name.lower()] = gender_labels
-
-for player_category, player_labels in FOOTBALL_KEYS_PLAYERS.items():
-    if player_category.lower() not in MenWomensJobsPP:
-        MenWomensJobsPP[player_category.lower()] = player_labels
-
 
 Nat_Before_Occ = [
     "convicted-of-murder",
@@ -169,6 +133,71 @@ Nat_Before_Occ = [
     "executed abroad",
     "emigrants",
 ]
+
+typi = {
+    "classical": {"mens": "كلاسيكيون", "womens": "كلاسيكيات"},
+    "historical": {"mens": "تاريخيون", "womens": "تاريخيات"},
+}
+
+Female_Jobs = {
+    "nuns": "راهبات",
+    "deafblind actresses": "ممثلات صم ومكفوفات",
+    "deaf actresses": "ممثلات صم",
+    "actresses": "ممثلات",
+    "princesses": "أميرات",
+    "video game actresses": "ممثلات ألعاب فيديو",
+    "musical theatre actresses": "ممثلات مسرحيات موسيقية",
+    "television actresses": "ممثلات تلفزيون",
+    "stage actresses": "ممثلات مسرح",
+    "voice actresses": "ممثلات أداء صوتي",
+}
+NNN_Keys_Films = {
+    "filmmakers": {"mens": "صانعو أفلام", "womens": "صانعات أفلام"},
+    "film editors": {"mens": "محررو أفلام", "womens": "محررات أفلام"},
+    "film directors": {"mens": "مخرجو أفلام", "womens": "مخرجات أفلام"},
+    "film producers": {"mens": "منتجو أفلام", "womens": "منتجات أفلام"},
+    "film critics": {"mens": "نقاد أفلام", "womens": "ناقدات أفلام"},
+    "film historians": {"mens": "مؤرخو أفلام", "womens": "مؤرخات أفلام"},
+    "cinema editors": {"mens": "محررون سينمائون", "womens": "محررات سينمائيات"},
+    "cinema directors": {"mens": "مخرجون سينمائون", "womens": "مخرجات سينمائيات"},
+    "cinema producers": {"mens": "منتجون سينمائون", "womens": "منتجات سينمائيات"},
+}
+
+Jobs_key_mens = {}
+Jobs_key_womens = {}
+womens_Jobs_2017 = {}
+
+Men_Womens_Jobs = {}
+
+Men_Womens_Jobs.update(MEN_WOMENS_JOBS_2)
+
+for religious_key, gendered_titles in RELIGIOUS_KEYS_PP.items():
+    MenWomensJobsPP[religious_key] = gendered_titles
+
+    MenWomensJobsPP[f"{religious_key} activists"] = {
+        "mens": f"ناشطون {gendered_titles['mens']}",
+        "womens": f"ناشطات {gendered_titles['womens']}",
+    }
+
+
+for industry_key, industry_label in executives.items():
+    jobs_table_3[f"{industry_key} executives"] = {
+        "mens": f"مدراء {industry_label}",
+        "womens": f"مديرات {industry_label}",
+    }
+
+for disability_key, disability_labels in jobs_table_3.items():
+    MenWomensJobsPP[disability_key] = disability_labels
+
+for job_name, gender_labels in JOBS_2020.items():
+    if gender_labels["mens"] and gender_labels["womens"]:
+        if job_name.lower() not in MenWomensJobsPP:
+            MenWomensJobsPP[job_name.lower()] = gender_labels
+
+for player_category, player_labels in FOOTBALL_KEYS_PLAYERS.items():
+    if player_category.lower() not in MenWomensJobsPP:
+        MenWomensJobsPP[player_category.lower()] = player_labels
+
 
 activists_keys = open_json("jobs/activists_keys.json")
 
@@ -204,17 +233,6 @@ MenWomensJobsPP["prison escapees"] = {
 }
 MenWomensJobsPP["missionaries"] = {"mens": "مبشرون", "womens": "مبشرات"}
 MenWomensJobsPP["venerated"] = {"mens": "مبجلون", "womens": "مبجلات"}
-
-"""
-booook = {}
-for tg in JOBS_TYPE.keys():
-    booook[ tg.lower() ] = JOBS_TYPE[ tg ]
-
-for fff in Books_table.keys():
-    if fff.lower() in booook.keys():
-        printe.output("fff:%s in JOBS_TYPE and in Books_table."  % fff)
-printe.output("for fff in JOBS_TYPE.keys(): ")
-"""
 
 for job_key in JOBS_2:
     lowered_job_key = job_key.lower()
@@ -272,51 +290,12 @@ for sports_category, sports_labels in PLAYERS_TO_MEN_WOMENS_JOBS.items():
 for female_job_key, female_job_label in FEMALE_JOBS_TO.items():
     Female_Jobs2[female_job_key] = female_job_label
 
-typi = {
-    "classical": {"mens": "كلاسيكيون", "womens": "كلاسيكيات"},
-    "historical": {"mens": "تاريخيون", "womens": "تاريخيات"},
-}
-
-fffff = []
-
-"""
-gogo = [ x for x in Men_Womens_Jobs]
-gogo.sort()
-for papa in gogo:
-    kaka = '\t,"%s":  {\n\t\t"mens": "%s"\t,"womens": "%s"}'% (papa.lower() , Men_Womens_Jobs[papa]["mens"] , Men_Womens_Jobs[papa]["womens"])
-    printe.output(kaka)
-"""
-
-Female_Jobs = {
-    "nuns": "راهبات",
-    "deafblind actresses": "ممثلات صم ومكفوفات",
-    "deaf actresses": "ممثلات صم",
-            "actresses": "ممثلات",
-    "princesses": "أميرات",
-    "video game actresses": "ممثلات ألعاب فيديو",
-    "musical theatre actresses": "ممثلات مسرحيات موسيقية",
-    "television actresses": "ممثلات تلفزيون",
-    "stage actresses": "ممثلات مسرح",
-    "voice actresses": "ممثلات أداء صوتي",
-}
 
 Female_Jobs["women in business"] = "سيدات أعمال"
 Female_Jobs["women in politics"] = "سياسيات"
 Female_Jobs["lesbians"] = "سحاقيات"
 Female_Jobs["businesswomen"] = "سيدات أعمال"
 Jobs_key = {}
-
-NNN_Keys_Films = {
-    "filmmakers": {"mens": "صانعو أفلام", "womens": "صانعات أفلام"},
-    "film editors": {"mens": "محررو أفلام", "womens": "محررات أفلام"},
-    "film directors": {"mens": "مخرجو أفلام", "womens": "مخرجات أفلام"},
-    "film producers": {"mens": "منتجو أفلام", "womens": "منتجات أفلام"},
-    "film critics": {"mens": "نقاد أفلام", "womens": "ناقدات أفلام"},
-    "film historians": {"mens": "مؤرخو أفلام", "womens": "مؤرخات أفلام"},
-    "cinema editors": {"mens": "محررون سينمائون", "womens": "محررات سينمائيات"},
-    "cinema directors": {"mens": "مخرجون سينمائون", "womens": "مخرجات سينمائيات"},
-    "cinema producers": {"mens": "منتجون سينمائون", "womens": "منتجات سينمائيات"},
-}
 
 for film, film_lab in Films_key_For_Jobs.items():
 
