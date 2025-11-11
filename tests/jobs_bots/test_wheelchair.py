@@ -4,10 +4,15 @@ from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
+    "Category:World Wheelchair Rugby Championships": "تصنيف:بطولة العالم الرجبي على الكراسي المتحركة",
+    "Category:World Wheelchair Curling Championship": "تصنيف:بطولة العالم الكيرلنغ على الكراسي المتحركة",
+    "Category:National wheelchair rugby league teams": "تصنيف:فرق دوريات رجبي على كراسي متحركة وطنية",
+    "Category:Wheelchair rugby league templates": "تصنيف:قوالب دوري الرجبي على الكراسي المتحركة",
+    "Category:Wheelchair rugby league players": "تصنيف:لاعبو دوري الرجبي على الكراسي المتحركة",
+    "Category:Wheelchair Rugby League finals": "تصنيف:نهائيات دوري الرجبي على الكراسي المتحركة",
+
     "Category:Wheelchair discus throwers": "تصنيف:رماة قرص على الكراسي المتحركة",
     "Category:American wheelchair discus throwers": "تصنيف:رماة قرص على الكراسي المتحركة أمريكيون",
-    "Category:Wheelchair rugby league players": "تصنيف:لاعبو دوري رجبي على كراسي متحركة",
-    "Category:Wheelchair rugby league templates": "تصنيف:قوالب دوري رجبي على كراسي متحركة",
     "Category:Wheelchair rugby league": "تصنيف:دوري الرجبي على الكراسي المتحركة",
     "Category:Wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
 
@@ -81,7 +86,6 @@ data = {
     "Category:National men's wheelchair basketball teams": "تصنيف:منتخبات كرة سلة على كراسي متحركة وطنية للرجال",
     "Category:National wheelchair basketball teams": "تصنيف:منتخبات كرة سلة على كراسي متحركة وطنية",
     "Category:National wheelchair handball teams": "تصنيف:منتخبات كرة يد على كراسي متحركة وطنية",
-    "Category:National wheelchair rugby league teams": "تصنيف:منتخبات دوري رجبي على كراسي متحركة وطنية",
     "Category:National wheelchair rugby teams": "تصنيف:منتخبات رجبي على كراسي متحركة وطنية",
     "Category:National women's wheelchair basketball teams": "تصنيف:منتخبات كرة سلة على كراسي متحركة وطنية للسيدات",
     "Category:Norwegian wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة نرويجيون",
@@ -221,8 +225,7 @@ data = {
     "Category:Welsh wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة ويلزيون",
     "Category:Wheelchair Basketball World Championship": "تصنيف:بطولة العالم لكرة السلة على الكراسي المتحركة",
     "Category:Wheelchair Handball World Championship": "تصنيف:بطولة العالم كرة اليد على الكراسي المتحركة",
-    "Category:Wheelchair Rugby League World Cup": "تصنيف:كأس العالم دوري الرجبي على الكراسي المتحركة",
-    "Category:Wheelchair Rugby League finals": "تصنيف:نهائيات دوري رجبي على كراسي متحركة",
+    "Category:Wheelchair Rugby League World Cup": "تصنيف:كأس العالم لدوري الرجبي على الكراسي المتحركة",
     "Category:Wheelchair basketball at multi-sport events": "تصنيف:أحداث كرة السلة على الكراسي المتحركة في رياضية متعددة",
     "Category:Wheelchair basketball at the 2020 Parapan American Games": "تصنيف:كرة السلة على الكراسي المتحركة في ألعاب بارابان الأمريكية 2020",
     "Category:Wheelchair basketball at the 2020 Summer Paralympics": "تصنيف:كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الصيفية 2020",
@@ -322,8 +325,6 @@ data = {
     "Category:Wheelchair tennis": "تصنيف:كرة المضرب على الكراسي المتحركة",
     "Category:Women's wheelchair basketball players by nationality": "تصنيف:لاعبات كرة سلة على كراسي متحركة نسائية حسب الجنسية",
     "Category:Women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة نسائية",
-    "Category:World Wheelchair Curling Championship": "تصنيف:بطولة العالم للكيرلنغ على الكراسي المتحركة",
-    "Category:World Wheelchair Rugby Championships": "تصنيف:بطولة العالم للرجبي على الكراسي المتحركة",
     "Category:World wheelchair curling champions": "تصنيف:أبطال العالم الكيرلنغ على الكراسي المتحركة",
     "Category:Years in wheelchair rugby": "تصنيف:سنوات في الرجبي على الكراسي المتحركة",
 }

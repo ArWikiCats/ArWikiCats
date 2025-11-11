@@ -32,7 +32,7 @@ for kk, labll in Sports_Keys_New.items():
     if not kk.endswith("racing"):
         Sports_Keys_New2[f"{kk} racing"] = {
             "label": f'سباق {labll["label"]}',
-            "team": f'لسباق {labll["team"]}',
+            "team": f'لسباق {labll["label"]}',
             "jobs": f'سباق {labll["jobs"]}',
             "olympic": f'سباق {labll["olympic"]}',
         }
@@ -55,7 +55,7 @@ for key in keys_to_wheelchair:
     if labll:
         Sports_Keys_New2[f"wheelchair {key}"] = {
             "label": f'{labll["label"]} على الكراسي المتحركة',
-            "team": f'{labll["team"]} على الكراسي المتحركة',
+            "team": f'{labll["label"]} على الكراسي المتحركة',
             "jobs": f'{labll["jobs"]} على كراسي متحركة',
             "olympic": f'{labll["olympic"]} على كراسي متحركة',
         }

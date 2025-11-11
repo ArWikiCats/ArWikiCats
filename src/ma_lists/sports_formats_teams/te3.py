@@ -100,6 +100,7 @@ if True:
     New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
     New_team_xo_team_labels["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
 
+    New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
     New_team_xo_team_labels["xoxo league world cup"] = "كأس العالم لدوري xoxo"
     New_team_xo_team_labels["xoxo league finals"] = "نهائيات دوري xoxo"
 
