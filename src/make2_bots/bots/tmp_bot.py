@@ -9,7 +9,7 @@ from ...helps.print_bot import print_put
 
 from ..date_bots import with_years_bot
 
-from ..ma_bots import contry2_lab
+from ..ma_bots import country2_lab
 from ..ma_bots import ye_ts_bot
 
 WORK_TEMPLATES_CACHE = {}
@@ -55,7 +55,7 @@ def Work_Templates(input_label: str) -> str:
         base_label = input_label[:-len(suffix)]
         print_put(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), base_label:"{base_label}"')
 
-        resolved_label = contry2_lab.get_lab_for_contry2(base_label)
+        resolved_label = country2_lab.get_lab_for_contry2(base_label)
         if not resolved_label:
             resolved_label = with_years_bot.Try_With_Years(base_label)
 
@@ -83,7 +83,7 @@ def Work_Templates(input_label: str) -> str:
             continue
         remaining_label = input_label[len(prefix):]
 
-        resolved_label = contry2_lab.get_lab_for_contry2(remaining_label)
+        resolved_label = country2_lab.get_lab_for_contry2(remaining_label)
 
         if not resolved_label:
             resolved_label = with_years_bot.Try_With_Years(remaining_label)

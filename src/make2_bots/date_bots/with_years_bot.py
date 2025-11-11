@@ -13,7 +13,7 @@ from ..format_bots import ar_lab_before_year_to_add_in
 from ..matables_bots.bot import Add_in_table
 from ..matables_bots.table1_bot import get_KAKO
 
-from ..ma_bots import contry2_lab
+from ..ma_bots import country2_lab
 from ..ma_bots.ye_ts_bot import translate_general_category
 from ...helps.print_bot import output_test
 from ..reg_lines import re_sub_year, RE1_compile, RE2_compile, RE33_compile
@@ -61,7 +61,7 @@ def _handle_year_at_start(category_text: str) -> str:
         remainder_label = translate_general_category(remainder)
 
     if not remainder_label:
-        remainder_label = contry2_lab.get_lab_for_contry2(remainder)
+        remainder_label = country2_lab.get_lab_for_contry2(remainder)
 
     if not remainder_label:
         return ""
@@ -110,7 +110,7 @@ def _handle_year_at_end(
     remainder_label = translate_general_category(remainder)
 
     if not remainder_label:
-        remainder_label = contry2_lab.get_lab_for_contry2(remainder)
+        remainder_label = country2_lab.get_lab_for_contry2(remainder)
 
     if "–present" in formatted_year_label:
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")

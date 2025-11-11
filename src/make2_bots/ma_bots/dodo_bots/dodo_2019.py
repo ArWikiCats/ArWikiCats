@@ -11,7 +11,7 @@ from ...matables_bots.bot import New_players, Table_for_frist_word
 
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ....helps.print_bot import print_put
-from ..contry_bot import Get_contry
+from ..country_bot import Get_contry
 
 
 def work_2019(category3: str, year: str, year_labe: str) -> str:

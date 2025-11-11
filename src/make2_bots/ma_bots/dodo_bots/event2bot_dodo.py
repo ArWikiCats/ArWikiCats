@@ -21,7 +21,7 @@ from ...matables_bots.bot import (
 )
 from .dodo_2019 import work_2019
 from .mk2 import new_func_mk2
-from ..contry_bot import Get_contry
+from ..country_bot import Get_contry
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
 from ....helps.print_bot import print_put, output_test

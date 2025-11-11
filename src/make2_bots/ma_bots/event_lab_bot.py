@@ -20,7 +20,7 @@ from ..o_bots import univer
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
 #  (most likely due to a circular import) (make2_bots.ma_bots\ye_ts_bot.py)
 from . import fax2, list_cat_format, ye_ts_bot
-from .contry2_bot import Get_contry2
+from .country2_bot import Get_contry2
 from .lab_seoo_bot import event_Lab_seoo
 
 

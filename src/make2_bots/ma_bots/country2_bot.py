@@ -5,7 +5,7 @@ This module is responsible for retrieving localized information for a specified 
 
 from typing import Dict
 
-from . import contry2_lab
+from . import country2_lab
 from . import ye_ts_bot
 from .c2_bots.contry2_tit_bt import country_2_title_work
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -30,7 +30,7 @@ def Get_contry2(country: str, With_Years: bool = True) -> str:
     resolved_label = ""
 
     if not resolved_label:
-        resolved_label = contry2_lab.get_lab_for_contry2(country, with_test_ye=False)
+        resolved_label = country2_lab.get_lab_for_contry2(country, with_test_ye=False)
 
     if not resolved_label:
         resolved_label = ye_ts_bot.translate_general_category(

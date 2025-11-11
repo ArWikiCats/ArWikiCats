@@ -20,8 +20,8 @@ from ..sports_bots import team_work
 
 from ..media_bots.films_bot import test_films
 
-from . import contry2_bot
-from . import contry2_lab
+from . import country2_bot
+from . import country2_lab
 from ...ma_lists import Sports_Keys_For_Label
 from ...ma_lists import Nat_mens
 from ...ma_lists import New_female_keys
@@ -62,7 +62,7 @@ def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
         resolved_label = team_work.Get_team_work_Club(contry_no_lower)
 
     if resolved_label == "" and do_Get_contry2:
-        resolved_label = contry2_bot.Get_contry2(country)
+        resolved_label = country2_bot.Get_contry2(country)
 
     if not resolved_label:
         prefix_labels = {
@@ -78,10 +78,10 @@ def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
             print(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :]
             Add_to_main2_tab(prefix, prefix_label)
-            remainder_label = contry2_bot.Get_contry2(remainder)
+            remainder_label = country2_bot.Get_contry2(remainder)
 
             if remainder_label == "":
-                remainder_label = contry2_lab.get_lab_for_contry2(remainder)
+                remainder_label = country2_lab.get_lab_for_contry2(remainder)
 
             if remainder_label == "":
                 remainder_label = ye_ts_bot.translate_general_category(remainder)
@@ -123,10 +123,10 @@ def Get_contry(country: str, do_Get_contry2: bool = True) -> str:
                 continue
             print(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :]
-            remainder_label = contry2_bot.Get_contry2(remainder)
+            remainder_label = country2_bot.Get_contry2(remainder)
 
             if remainder_label == "":
-                remainder_label = contry2_lab.get_lab_for_contry2(remainder)
+                remainder_label = country2_lab.get_lab_for_contry2(remainder)
 
             if remainder_label == "":
                 remainder_label = ye_ts_bot.translate_general_category(remainder)
