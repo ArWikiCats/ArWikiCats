@@ -32,7 +32,7 @@ from ...helps.print_bot import print_put, output_test
 from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.centries_bot import centries_years_dec
 from ...ma_lists import pop_of_without_in
-from ...ma_lists import Jobs_key
+from ...ma_lists import Jobs_key_mens
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ... import app_settings
@@ -218,13 +218,13 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", start_get_country2: b
 
             tti = c_t_lower[: -len(tat)]
 
-            tto = Jobs_key.get(tti, "")
+            tto = Jobs_key_mens.get(tti, "")
 
             print_put(f'tti:"{tti}", tto:"{tto}", c_t_lower:"{c_t_lower}" ')
 
             if c_t_lab == "" and tto:
                 c_t_lab = f"{tto} من "
-                print_put(f"Jobs_key:: add من to c_t_lab:{c_t_lab}, line:1583.")
+                print_put(f"Jobs_key_mens:: add من to c_t_lab:{c_t_lab}, line:1583.")
 
             if not tto:
                 tto = get_pop_All_18(tti, "")

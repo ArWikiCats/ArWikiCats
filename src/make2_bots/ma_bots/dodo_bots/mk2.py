@@ -12,13 +12,18 @@ from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
 from ...matables_bots.bot import (
     Add_to_main2_tab,
     Films_O_TT,
-    New_players,
+    players_new_keys,
     Table_for_frist_word,
     Add_in_table,
     Keep_it_frist,
     add_in_to_country,
 )
+from ....ma_lists import (
+    Jobs_new,           # to be removed from players_new_keys
+    Jobs_key_mens,      # to be  removed from players_new_keys
+)
 from ....helps.print_bot import print_put, output_test
+from ....utils import check_key_in_tables
 
 
 def new_func_mk2(
@@ -85,7 +90,9 @@ def new_func_mk2(
     arlabel2 = arlabel
 
     if in_table and typeo not in Keep_it_frist:
-        if (In.strip() == "in" or In.strip() == "at") or (country.lower() in New_players) and not con_lab.startswith("حسب"):
+        in_tables = check_key_in_tables(country.lower(), [players_new_keys, Jobs_new, Jobs_key_mens])
+
+        if (In.strip() == "in" or In.strip() == "at") or (in_tables) and not con_lab.startswith("حسب"):
             if year_labe:
                 con_lab = f"{con_lab} في "
                 Add_In_Done = True

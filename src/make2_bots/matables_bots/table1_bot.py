@@ -8,10 +8,17 @@ import functools
 from typing import Dict
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ...helps.print_bot import output_test
-from .bot import Films_O_TT, New_players
+from .bot import Films_O_TT, players_new_keys
 
 from .bot import All_P17
-from ...ma_lists import pf_keys2, Music_By_table, Films_key_man, By_table
+from ...ma_lists import (
+    pf_keys2,
+    Music_By_table,
+    Films_key_man,
+    By_table,
+    Jobs_new,           # to be removed from players_new_keys
+    Jobs_key_mens,      # to be  removed from players_new_keys
+)
 
 KAKO: Dict[str, Dict[str, str]] = {
     "pf_keys2": pf_keys2,
@@ -21,7 +28,9 @@ KAKO: Dict[str, Dict[str, str]] = {
     "All_P17": All_P17,
     "By_table": By_table,
     "Films_O_TT": Films_O_TT,
-    "New_players": New_players,
+    "players_new_keys": players_new_keys,
+    "Jobs_key_mens": Jobs_key_mens,
+    "Jobs_new": Jobs_new,
 }
 
 

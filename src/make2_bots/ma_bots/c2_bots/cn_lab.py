@@ -10,24 +10,36 @@ from ...format_bots import pop_format, pop_format2
 
 from ...matables_bots.bot import (
     Films_O_TT,
-    New_players,
+    players_new_keys,
     typeTable,
 )
 from ....helps.print_bot import print_put
+
+from ....utils import check_key_in_tables
+from ....ma_lists import (
+    Jobs_new,           # to be removed from players_new_keys
+    Jobs_key_mens,      # to be  removed from players_new_keys
+)
 
 
 def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
     """Construct a formatted string based on various input parameters."""
 
     resolved_label = c_1_l + sps + c_2_l
-
-    if cona_1 in typeTable or cona_1 in Films_O_TT or cona_1.lower() in New_players:
-        if cona_1.lower() in New_players:
+    # ---
+    in_tables_no_lower = check_key_in_tables(cona_1, [typeTable, Films_O_TT])
+    in_tables_lowers = check_key_in_tables(cona_1.lower(), [players_new_keys, Jobs_new, Jobs_key_mens])
+    # ---
+    # if cona_1 in typeTable or cona_1 in Films_O_TT or cona_1.lower() in players_new_keys:
+    #     if cona_1.lower() in players_new_keys:
+    # ---
+    if in_tables_no_lower or in_tables_lowers:
+        if in_tables_lowers:
             if c_2_l.startswith("أصل "):
-                print_put(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in New_players:')
+                print_put(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in players_new_keys:')
                 resolved_label = f"{(c_1_l + sps)}من {c_2_l}"
             else:
-                print_put(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in New_players:')
+                print_put(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in players_new_keys:')
                 resolved_label += " في "
         if cona_2 not in By_table:
             Films_O_TT[country2] = resolved_label

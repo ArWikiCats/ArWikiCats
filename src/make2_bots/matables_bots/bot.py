@@ -18,6 +18,7 @@ from ...ma_lists import (
     albums_type,
     film_production_company,
     Jobs_new,
+    Jobs_key_mens,
     Sports_Keys_For_Label,
     By_table,
     Add_in_table2,
@@ -71,7 +72,7 @@ pop_type = {}
 All_P17 = {}
 Films_O_TT = {}
 
-New_players = {}
+players_keys = {}
 # ---
 typeTable = {
     # 'winter' : {"ar":"الشتاء", "Q":""},
@@ -269,7 +270,7 @@ for uh in film_production_company:  #
 
 len_Kingdom = {1: 0}
 
-New_players["women"] = "المرأة"
+players_keys["women"] = "المرأة"
 
 # for le in Lenth:
 
@@ -279,16 +280,17 @@ safo = "|".join(list(typeTable))
 
 Films_O_TT.update({x.lower(): v for x, v in Films_TT.items() if v})
 # ---
-New_players.update({x.lower(): v for x, v in Jobs_new.items() if v})
+players_keys.update({x.lower(): v for x, v in Jobs_key_mens.items() if v})
+players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
 # del Jobs_new
 # ---
 
 # all_keys3
-New_players.update({x.lower(): {"ar": v, "Q": ""} for x, v in typeTable_7.items()})
+players_keys.update({x.lower(): {"ar": v, "Q": ""} for x, v in typeTable_7.items()})
 
 typeTable.update({x.lower(): v for x, v in typeTable_4.items() if v})
 # ---
-# KAKO3 = [All_P17 ]#Films_key_man , Music_By_table , By_table , pop_new , New_players , Films_O_TT , pop_of_in]
+# KAKO3 = [All_P17 ]#Films_key_man , Music_By_table , By_table , pop_new , players_keys , Films_O_TT , pop_of_in]
 
 Log_Work = {1: True}
 
@@ -298,8 +300,8 @@ tita_Q = {
     "establishments": {"Q": "Q3406134", "priff": "تأسيسات"},
 }
 
-New_players["national sports teams"] = "منتخبات رياضية وطنية"
-New_players["people"] = "أشخاص"
+players_keys["national sports teams"] = "منتخبات رياضية وطنية"
+players_keys["people"] = "أشخاص"
 
 # MONTHSTR = '(January|February|March|April|May|June|July|August|September|October|November|December)'
 MONTHSTR = "(January|February|March|April|May|June|July|August|September|October|November|December|)"
@@ -311,7 +313,7 @@ Add_ar_in = copy.deepcopy(olympics)
 
 for olmp, olmp_lab in Add_ar_in.items():
     typeTable[f"{olmp} for"] = {"ar": f"{olmp_lab} من", "Q": ""}
-    New_players[olmp] = olmp_lab
+    players_keys[olmp] = olmp_lab
 
 type_Table_oo = {
     "prisoners sentenced to life imprisonment by": "سجناء حكم عليهم بالحبس المؤبد من قبل",
@@ -333,7 +335,7 @@ for tt_ype in list(type_Table_oo):
 Table_for_frist_word = {
     "typetable": typeTable,
     "Films_O_TT": Films_O_TT,
-    "New_players": New_players,
+    "New_players": players_keys,
 }
 
 
@@ -353,11 +355,23 @@ def Add_to_main2_tab(en: str, ar: str) -> None:
         _current_table_sink(en, ar)
 
 
-Lenth = {}
-Lenth["All_P17"] = All_P17
-Lenth["pop_of_in"] = pop_of_in
-Lenth["pop_new"] = pop_new
-Lenth["typetable"] = typeTable
-# ---
+players_new_keys = players_keys
 
-len_print.data_len("make2_bots.matables_bots/bot.py", Lenth)
+
+def add_to_new_players(en: str, ar: str) -> None:
+    if not en or not ar:
+        return
+    players_new_keys[en] = ar
+
+
+len_print.data_len("make2_bots.matables_bots/bot.py", {
+    "players_new_keys": players_new_keys,
+    "All_P17": All_P17,
+    "pop_of_in": pop_of_in,
+    "pop_new": pop_new,
+    "typeTable": typeTable,
+})
+
+__all__ = [
+    "players_new_keys",
+]

@@ -147,11 +147,10 @@ FILM_ROLE_LABELS: Mapping[str, GenderedLabel] = {
 class JobsDataset:
     """Aggregate all exported job dictionaries."""
 
-    jobs_key_mens: Dict[str, str]
+    jobs_keys_mens: Dict[str, str]
     womens_jobs_2017: Dict[str, str]
     men_womens_jobs: GenderedLabelMap
     jobs_new: Dict[str, str]
-    jobs_key: Dict[str, str]
 
 
 # ---------------------------------------------------------------------------
@@ -401,49 +400,71 @@ def _finalise_jobs_dataset() -> JobsDataset:
     _add_film_variants(men_womens_jobs)
     _add_singer_variants(men_womens_jobs)
 
-    jobs_key_mens: Dict[str, str] = {}
+    jobs_keys_mens: Dict[str, str] = {}
     womens_jobs_2017: Dict[str, str] = {}
     for job_key, labels in men_womens_jobs.items():
-        jobs_key_mens[job_key] = labels["mens"]
+        jobs_keys_mens[job_key] = labels["mens"]
         if labels["womens"]:
             womens_jobs_2017[job_key] = labels["womens"]
 
-    jobs_key_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
+    jobs_keys_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
 
-    jobs_key: Dict[str, str] = {key: label for key, label in jobs_key_mens.items() if label}
+    jobs_keys_mens: Dict[str, str] = {key: label for key, label in jobs_keys_mens.items() if label}
 
-    jobs_new = _build_jobs_new(jobs_key, Female_Jobs)
+    jobs_new = _build_jobs_new(jobs_keys_mens, Female_Jobs)
 
     return JobsDataset(
-        jobs_key_mens=jobs_key_mens,
+        jobs_keys_mens=jobs_keys_mens,
         womens_jobs_2017=womens_jobs_2017,
         men_womens_jobs=men_womens_jobs,
         jobs_new=jobs_new,
-        jobs_key=jobs_key,
     )
 
 
 _DATASET = _finalise_jobs_dataset()
 
-Jobs_key_mens = _DATASET.jobs_key_mens
+Jobs_key_mens = _DATASET.jobs_keys_mens
+
 womens_Jobs_2017 = _DATASET.womens_jobs_2017
 Men_Womens_Jobs = _DATASET.men_womens_jobs
 Jobs_new = _DATASET.jobs_new
-Jobs_key = _DATASET.jobs_key
 
 _len_result = {
-    "Jobs_key_mens": {"count": 97797, "size": "3.7 MiB"},
-    "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},
-    "Jobs_new": {"count": 99104, "size": "3.7 MiB"},
-    "Jobs_key": {"count": 97784, "size": "3.7 MiB"},
+    "Jobs_key_mens": {"count": 97797, "size": "3.7 MiB"},   # "zoologists": "علماء حيوانات"
+    "Jobs_key": {"count": 97784, "size": "3.7 MiB"},        # "zoologists": "علماء حيوانات"
+    "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"}, # "zoologists": { "mens": "علماء حيوانات", "womens": "عالمات حيوانات" }
+
+    "Jobs_new": {"count": 99104, "size": "3.7 MiB"},        # same as Jobs_key +
     "womens_Jobs_2017": {"count": 75244, "size": "1.8 MiB"},
 }
+"""
+Jobs_new: same as Jobs_key + (1320 jobs):
+
+- mens jobs like (890):
+    "american people": "أمريكيون",
+    "american-american people": "أمريكيون أمريكيون",
+    "americans people": "أمريكيون",
+    "americans-american people": "أمريكيون أمريكيون",
+
+- some womens jobs like:
+    "businesswomen": "سيدات أعمال",
+    "actresses": "ممثلات",
+    "deafblind actresses": "ممثلات صم ومكفوفات",
+    "film actresses": "ممثلات أفلام",
+    "lesbians": "سحاقيات",
+    "musical theatre actresses": "ممثلات مسرحيات موسيقية",
+    "nuns": "راهبات",
+    "princesses": "أميرات",
+    "women's acrobatic gymnastics racing players": "لاعبات سباق الجمباز الاكروباتيكي نسائية",
+    "women's aerobics players": "لاعبات جمباز أيروبيكس نسائية",
+
+
+"""
 len_print.data_len("jobs.py", {
     "Jobs_key_mens": Jobs_key_mens,
     "womens_Jobs_2017": womens_Jobs_2017,
     "Men_Womens_Jobs": Men_Womens_Jobs,
     "Jobs_new": Jobs_new,
-    "Jobs_key": Jobs_key,
 })
 
 __all__ = [
@@ -451,5 +472,4 @@ __all__ = [
     "womens_Jobs_2017",
     "Men_Womens_Jobs",
     "Jobs_new",
-    "Jobs_key"
 ]

@@ -5,7 +5,7 @@ from ..p17_bots import nats
 import re
 from ...ma_lists import sport_formts_for_p17, nat_p17_oioi, match_sport_key
 from ...ma_lists import Sports_Keys_For_Team
-from ..matables_bots.bot import New_players, Add_to_main2_tab  # Add_to_main2_tab()
+from ..matables_bots.bot import add_to_new_players, Add_to_main2_tab  # Add_to_main2_tab()
 from ... import malists_sport_lab as sport_lab
 from ...ma_lists import All_Nat, Nat_women
 from ..jobs_bots.get_helps import get_con_3
@@ -99,7 +99,7 @@ def find_nat_others(category: str, reference_category: str="") -> str:
             logger.debug(
                 f'<<lightblue>>>>>> sport_formts_for_p17: new category_label  "{category_label}"'
             )
-            New_players[category] = category_label
+            add_to_new_players(category, category_label)
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ find_nat_others end ^^^^^^^^^ ")
 

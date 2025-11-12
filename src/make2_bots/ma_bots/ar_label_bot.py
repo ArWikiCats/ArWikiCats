@@ -5,7 +5,6 @@ from ..ma_bots.ar_label_bot import find_ar_label
 """
 
 import re
-from typing import Dict, Any, List, Tuple
 from ...fix import fixtitle
 from ...ma_lists import pop_of_without_in
 
@@ -13,13 +12,18 @@ from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, po
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import (
-    New_players,
+    players_new_keys,
     Table_for_frist_word,
     Add_ar_in,
     Keep_it_last,
     Keep_it_frist,
 )
 
+from ...ma_lists import (
+    Jobs_new,           # to be removed from players_new_keys
+    Jobs_key_mens,      # to be  removed from players_new_keys
+)
+from ...utils import check_key_in_tables
 from ...helps.print_bot import print_put, output_test
 
 from .arlabel_bots.bot_type_country import get_type_country
@@ -27,6 +31,32 @@ from .arlabel_bots.bot_type_lab import get_Type_lab
 from .arlabel_bots.bot_con_lab import get_con_lab
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+
+
+def add_in_tab(Type_lab, Type_lower, tito2):
+    # ---
+    ty_in18 = get_pop_All_18(Type_lower)
+    # ---
+    if tito2 == "from":
+        if not Type_lab.strip().endswith(" من"):
+            print_put(f">>>> nAdd من to Type_lab '{Type_lab}' line:44")
+            Type_lab = f"{Type_lab} من "
+        # ---
+        return Type_lab
+    # ---
+    if not ty_in18 or not Type_lower.endswith(" of") or " في" in Type_lab:
+        return Type_lab
+    # ---
+    Type_lower2 = Type_lower[: -len(" of")]
+    # ---
+    in_tables = check_key_in_tables(Type_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
+    in_tables2 = check_key_in_tables(Type_lower2, [players_new_keys, Jobs_new, Jobs_key_mens])
+    # ---
+    if in_tables or in_tables2:
+        print_put(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
+        Type_lab = f"{Type_lab} من "
+    # ---
+    return Type_lab
 
 
 def find_ar_label(
@@ -96,26 +126,11 @@ def find_ar_label(
             print_put('>>>> Add في to Type_lab:at"%s"' % Type_lab)
             Type_lab = Type_lab + " في"
     # ---
-    Type_lower2 = Type_lower
-    # ---
     if Add_in_lab:
-        ty_in18 = get_pop_All_18(Type_lower)
-
-        if Type_lower not in Dont_Add_min:
-            if Type_lower.endswith(" of") and ty_in18:
-                Type_lower2 = Type_lower[: -len(" of")]
-                if " في" not in Type_lab:
-                    if (Type_lower in New_players) or (Type_lower2 in New_players):
-                        print_put('>>>> nAdd من to Type_lab"%s" line:1853' % Type_lab)
-                        Type_lab = Type_lab + " من "
-
-            elif tito2 == "from":
-                if not Type_lab.strip().endswith(" من"):
-                    print_put('>>>> nAdd من to Type_lab:from"%s" line:1858' % Type_lab)
-                    Type_lab = Type_lab + " من "
+        if Type_lower in Dont_Add_min:
+            print_put(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
         else:
-            print_put('>>>> Type_lower "%s" in Dont_Add_min ' % Type_lower)
-
+            Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
     # ---
     country_in_Table = False
     Type_in_Table = False
@@ -175,9 +190,12 @@ def find_ar_label(
             print_put("sps:%s" % sps)
             Cate_test = Cate_test.replace(tito, "")
 
-    if country_lower in New_players and Type_lower in New_players:
+    in_tables_1 = check_key_in_tables(country_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
+    in_tables_2 = check_key_in_tables(Type_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
+
+    if in_tables_1 and in_tables_2:
         print_put(">>>> ================ ")
-        print_put(">>>>> > X:<<lightred>> Type_lower and country_lower in New_players.")
+        print_put(">>>>> > X:<<lightred>> Type_lower and country_lower in players_new_keys.")
         print_put(">>>> ================ ")
 
     faa = Tit_ose_Nmaes.get(tito2.strip()) or Tit_ose_Nmaes.get(tito2.replace("-", " ").strip())
@@ -205,7 +223,10 @@ def find_ar_label(
 
     if Type_in_Table and country_in_Table:
         print_put(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
-        if not keep_Type_first and country_lower in New_players:
+        # ---
+        in_tables = check_key_in_tables(country_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
+        # ---
+        if not keep_Type_first and in_tables:
             arlabel = con_lab + sps + Type_lab
         else:
             arlabel = Type_lab + sps + con_lab

@@ -9,7 +9,7 @@ from ..sports.olympics_data import olympics
 from ..mixed.all_keys2 import pf_keys2
 from ..geo.labels_country import New_P17_Finall
 from ..tv.films_mslslat import films_mslslat_tab
-from ..jobs.Jobs import Jobs_new, Jobs_key
+from ..jobs.Jobs import Jobs_new, Jobs_key_mens
 from ..sports.Sport_key import Sports_Keys_For_Label
 from ..sports.sub_teams_keys import sub_teams_new
 from ..by_type import By_table
@@ -24,7 +24,7 @@ def load_pop_All_2018() -> Dict[str, str]:
     sources = [
         pf_keys2,               # 26,557
         Jobs_new,               # 132,174
-        Jobs_key,               # 130,632
+        Jobs_key_mens,          # 130,632
         films_mslslat_tab,      # 2,480
         By_table,               # 15,899
         sub_teams_new,          # 12,134
