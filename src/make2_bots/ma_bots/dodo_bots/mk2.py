@@ -12,18 +12,33 @@ from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
 from ...matables_bots.bot import (
     Add_to_main2_tab,
     Films_O_TT,
-    players_new_keys,
     Table_for_frist_word,
     Add_in_table,
     Keep_it_frist,
     add_in_to_country,
 )
-from ....ma_lists import (
-    Jobs_new,           # to be removed from players_new_keys
-    Jobs_key_mens,      # to be  removed from players_new_keys
-)
+from ....utils import check_key_in_tables_return_tuple
 from ....helps.print_bot import print_put, output_test
-from ....utils import check_key_in_tables
+from ...matables_bots.check_bot import check_key_new_players
+
+
+def check_country_in_tables(country):
+
+    if country in country_before_year:
+        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
+        return True
+
+    table_name, in_table = check_key_in_tables_return_tuple(country, Table_for_frist_word)
+    if in_table:
+        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in {table_name}.')
+        return True
+
+    # for table, tab in Table_for_frist_word.items():
+    #     if country in tab:
+    #         output_test(f'>> >> dX:<<lightpurple>> in_table "{country}" in {table}.')
+    #         return True
+
+    return False
 
 
 def new_func_mk2(
@@ -72,25 +87,15 @@ def new_func_mk2(
     cat_test = cat_test.replace(country, "")
     arlabel = re.sub(r" ", " ", arlabel)
     con_lab = country_label
-    in_table = False
-    for table in Table_for_frist_word.keys():
-        if country in Table_for_frist_word[table]:
-            in_table = True
-            output_test(f'>> >> dX:<<lightpurple>> in_table "{country}" in {table}.')
 
-    if country in country_before_year:
-        in_table = True
-        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
+    in_table = check_country_in_tables(country)
 
-    if suf:
-        suf = f" {suf.strip()} "
-    else:
-        suf = " "
+    suf = f" {suf.strip()} " if suf else " "
 
     arlabel2 = arlabel
 
     if in_table and typeo not in Keep_it_frist:
-        in_tables = check_key_in_tables(country.lower(), [players_new_keys, Jobs_new, Jobs_key_mens])
+        in_tables = check_key_new_players(country.lower())
 
         if (In.strip() == "in" or In.strip() == "at") or (in_tables) and not con_lab.startswith("حسب"):
             if year_labe:

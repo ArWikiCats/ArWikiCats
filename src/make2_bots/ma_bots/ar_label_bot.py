@@ -12,19 +12,15 @@ from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, po
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import (
-    players_new_keys,
     Table_for_frist_word,
     Add_ar_in,
     Keep_it_last,
     Keep_it_frist,
 )
 
-from ...ma_lists import (
-    Jobs_new,           # to be removed from players_new_keys
-    Jobs_key_mens,      # to be  removed from players_new_keys
-)
-from ...utils import check_key_in_tables
+from ..matables_bots.check_bot import check_key_new_players
 from ...helps.print_bot import print_put, output_test
+from ...utils import check_key_in_tables_return_tuple
 
 from .arlabel_bots.bot_type_country import get_type_country
 from .arlabel_bots.bot_type_lab import get_Type_lab
@@ -49,14 +45,44 @@ def add_in_tab(Type_lab, Type_lower, tito2):
     # ---
     Type_lower2 = Type_lower[: -len(" of")]
     # ---
-    in_tables = check_key_in_tables(Type_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
-    in_tables2 = check_key_in_tables(Type_lower2, [players_new_keys, Jobs_new, Jobs_key_mens])
+    in_tables = check_key_new_players(Type_lower)
+    in_tables2 = check_key_new_players(Type_lower2)
     # ---
     if in_tables or in_tables2:
         print_put(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
         Type_lab = f"{Type_lab} من "
     # ---
     return Type_lab
+
+
+def _check_in_tables_new(country_lower, Type_lower):
+    table1, country_in_Table = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
+    table2, Type_in_Table = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
+    # ---
+    if country_in_Table:
+        print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table1}.')
+
+    if Type_in_Table:
+        print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table2}.')
+    # ---
+    return country_in_Table, Type_in_Table
+
+
+def _check_in_tables(country_lower, Type_lower):
+    # ---
+    country_in_Table = False
+    Type_in_Table = False
+    # ---
+    for table_name, ta_t in Table_for_frist_word.items():
+        if country_lower in ta_t:
+            country_in_Table = True
+            print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table_name}.')
+
+        if Type_lower in ta_t:
+            Type_in_Table = True
+            print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table_name}.')
+    # ---
+    return country_in_Table, Type_in_Table
 
 
 def find_ar_label(
@@ -132,19 +158,7 @@ def find_ar_label(
         else:
             Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
     # ---
-    country_in_Table = False
-    Type_in_Table = False
-
-    # ---
-    for table, ta_t in Table_for_frist_word.items():
-        if country_lower in ta_t:
-            country_in_Table = True
-            print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table}.')
-
-        if Type_lower in ta_t:
-            Type_in_Table = True
-            print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table}.')
-
+    country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
     # ---
     sps = " "
     if tito2 == "in":
@@ -190,8 +204,8 @@ def find_ar_label(
             print_put("sps:%s" % sps)
             Cate_test = Cate_test.replace(tito, "")
 
-    in_tables_1 = check_key_in_tables(country_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
-    in_tables_2 = check_key_in_tables(Type_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
+    in_tables_1 = check_key_new_players(country_lower)
+    in_tables_2 = check_key_new_players(Type_lower)
 
     if in_tables_1 and in_tables_2:
         print_put(">>>> ================ ")
@@ -224,7 +238,7 @@ def find_ar_label(
     if Type_in_Table and country_in_Table:
         print_put(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
         # ---
-        in_tables = check_key_in_tables(country_lower, [players_new_keys, Jobs_new, Jobs_key_mens])
+        in_tables = check_key_new_players(country_lower)
         # ---
         if not keep_Type_first and in_tables:
             arlabel = con_lab + sps + Type_lab

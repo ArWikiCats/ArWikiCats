@@ -15,14 +15,10 @@ from ...matables_bots.bot import Add_to_main2_tab
 from ...matables_bots.bot import (
     New_Lan,
     Films_O_TT,
-    players_new_keys,
     typeTable,
     type_after_country,
 )
-from ....ma_lists import (
-    Jobs_new,           # to be removed from players_new_keys
-    Jobs_key_mens,      # to be  removed from players_new_keys
-)
+from ...matables_bots.check_bot import check_key_new_players
 from .dodo_2019 import work_2019
 from .mk2 import new_func_mk2
 from ..country_bot import get_country
@@ -199,7 +195,7 @@ def make_lab_dodo(
     if NoLab and cat_test == "":
         if country_label and typeo_lab and year == "" and In == "":
             # ---
-            in_tables_lowers = check_key_in_tables(typeo.lower(), [players_new_keys, Jobs_new, Jobs_key_mens])
+            in_tables_lowers = check_key_new_players(typeo.lower())
             in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
             # ---
             if typeo in type_after_country:

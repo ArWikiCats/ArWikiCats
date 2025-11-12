@@ -10,16 +10,11 @@ from ...format_bots import pop_format, pop_format2
 
 from ...matables_bots.bot import (
     Films_O_TT,
-    players_new_keys,
     typeTable,
 )
-from ....helps.print_bot import print_put
-
+from ...matables_bots.check_bot import check_key_new_players
 from ....utils import check_key_in_tables
-from ....ma_lists import (
-    Jobs_new,           # to be removed from players_new_keys
-    Jobs_key_mens,      # to be  removed from players_new_keys
-)
+from ....helps.print_bot import print_put
 
 
 def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
@@ -28,7 +23,7 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
     resolved_label = c_1_l + sps + c_2_l
     # ---
     in_tables_no_lower = check_key_in_tables(cona_1, [typeTable, Films_O_TT])
-    in_tables_lowers = check_key_in_tables(cona_1.lower(), [players_new_keys, Jobs_new, Jobs_key_mens])
+    in_tables_lowers = check_key_new_players(cona_1.lower())
     # ---
     # if cona_1 in typeTable or cona_1 in Films_O_TT or cona_1.lower() in players_new_keys:
     #     if cona_1.lower() in players_new_keys:
