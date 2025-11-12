@@ -18,7 +18,7 @@ from ...ma_lists import (
     albums_type,
     film_production_company,
     Jobs_new,
-    Jobs_key_mens,
+    jobs_mens_data,
     Sports_Keys_For_Label,
     By_table,
     Add_in_table2,
@@ -280,9 +280,10 @@ safo = "|".join(list(typeTable))
 
 Films_O_TT.update({x.lower(): v for x, v in Films_TT.items() if v})
 # ---
-players_keys.update({x.lower(): v for x, v in Jobs_key_mens.items() if v})
-players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
-# del Jobs_new
+# with jobs_mens_data Jobs_new, len of players_keys = 99517
+# without, len = 415
+# players_keys.update({x.lower(): v for x, v in jobs_mens_data.items() if v})
+# players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
 # ---
 
 # all_keys3
@@ -370,7 +371,7 @@ def add_to_new_players(en: str, ar: str) -> None:
 
 
 len_print.data_len("make2_bots.matables_bots/bot.py", {
-    "players_new_keys": players_new_keys,
+    "players_new_keys": players_new_keys,   # 99517
     "All_P17": All_P17,
     "pop_of_in": pop_of_in,
     "pop_new": pop_new,

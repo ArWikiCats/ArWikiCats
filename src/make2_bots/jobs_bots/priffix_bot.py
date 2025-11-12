@@ -5,9 +5,9 @@ from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 import functools
 from ...ma_lists import (
     Nat_mens,
-    Jobs_key_mens,
-    Jobs_key_womens,
-    womens_Jobs_2017,
+    jobs_mens_data,
+    short_womens_jobs,
+    jobs_womens_data,
     Female_Jobs,
     By_table,
     replace_labels_2022,
@@ -51,9 +51,9 @@ def priffix_Mens_work(con_33: str) -> str:
             return con_33_lab
     # ---
     if not con_33_lab:
-        con_33_lab = Jobs_key_mens.get(con_33, "")
+        con_33_lab = jobs_mens_data.get(con_33, "")
         if con_33_lab:
-            output_test4(f'<<lightblue>> Jobs_key_mens: con_33_lab:"{con_33_lab}"')
+            output_test4(f'<<lightblue>> jobs_mens_data: con_33_lab:"{con_33_lab}"')
     # ---
     for priff, priff_lab in Mens_priffix.items():
         if con_33_lab:
@@ -77,7 +77,7 @@ def priffix_Mens_work(con_33: str) -> str:
         # ---
         output_test4(f'<<lightblue>> con_33.startswith pri ("{pri}"), con_88:"{con_88}"')
         # ---
-        con_8_lab = Jobs_key_mens.get(con_88, "")
+        con_8_lab = jobs_mens_data.get(con_88, "")
         if not con_8_lab:
             con_8_lab = Nat_mens.get(con_88, "")
         # ---
@@ -152,7 +152,7 @@ def Women_s_priffix_work(con_3: str) -> str:
     f_lab = ""
     # ---
     if not f_lab:
-        f_lab = Jobs_key_womens.get(con_3, "")
+        f_lab = short_womens_jobs.get(con_3, "")
     # ---
     con_33 = con_3
     if con_3.endswith(" women"):
@@ -166,7 +166,7 @@ def Women_s_priffix_work(con_3: str) -> str:
             Wriff2 = "women's-"
         if con_33.startswith(Wriff2):
             con_4 = con_33[len(Wriff2) :]
-            con_8_Wb = womens_Jobs_2017.get(con_4, "")
+            con_8_Wb = jobs_womens_data.get(con_4, "")
             output_test4(f'<<lightblue>> con_33.startswith_Wriff2("{Wriff2}"),con_4:"{con_4}", con_8_Wb:"{con_8_Wb}"')
             if con_8_Wb:
                 f_lab = wrifflab.format(con_8_Wb)

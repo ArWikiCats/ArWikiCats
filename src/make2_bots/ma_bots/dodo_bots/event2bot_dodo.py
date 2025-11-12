@@ -20,7 +20,7 @@ from ...matables_bots.bot import (
 )
 from ...matables_bots.check_bot import check_key_new_players
 from .dodo_2019 import work_2019
-from .mk2 import new_func_mk2
+from .mk3 import new_func_mk2
 from ..country_bot import get_country
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...reg_lines import tita, tita_year, ddd, tita_year_no_month

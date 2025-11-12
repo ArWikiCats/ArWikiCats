@@ -26,8 +26,8 @@ from ...ma_lists import (
     Multi_sport_for_Jobs,
     All_Nat,
     Nat_mens,
-    Jobs_key_mens,
-    Jobs_key_womens,
+    jobs_mens_data,
+    short_womens_jobs,
 )
 
 from ..media_bots.film_keys_bot import Films
@@ -139,10 +139,10 @@ def test4_2018_with_nat(
         return TEST4_2018_WITH_NAT_CACHE[normalized_category]
     # ---
     if not country_label:
-        country_label = Jobs_key_womens.get(normalized_category, "")
+        country_label = short_womens_jobs.get(normalized_category, "")
     # ---
     if not country_label:
-        country_label = Jobs_key_mens.get(normalized_category, "")
+        country_label = jobs_mens_data.get(normalized_category, "")
     # ---
     con_3, nat = get_con_3(normalized_category, All_Nat, "nat")
     # ---
@@ -241,7 +241,7 @@ def Jobs_in_Multi_Sports(
     # ---
     if not job_label and job_key:
         job_label = test4_2018_Jobs(job_key)
-        # job_lab = Jobs_key_womens.get(job , "")
+        # job_lab = short_womens_jobs.get(job , "")
     # ---
     if job_key and game_label and job_label:
         primary_label = f"{job_label} في {game_label}"

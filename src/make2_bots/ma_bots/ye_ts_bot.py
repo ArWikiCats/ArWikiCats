@@ -22,7 +22,7 @@ from ..ma_bots.ar_label_bot import find_ar_label
 
 from ...ma_lists import (
     Jobs_new,           # to be removed from players_new_keys
-    Jobs_key_mens,      # to be  removed from players_new_keys
+    jobs_mens_data,      # to be  removed from players_new_keys
 )
 from ...utils import get_value_from_any_table
 
@@ -36,7 +36,7 @@ def find_lab(category: str, category_r: str) -> str:
         _lab = get_pop_All_18(cate_low, "")
 
     if not _lab:
-        _lab = get_value_from_any_table(cate_low, [players_new_keys, Jobs_key_mens, Jobs_new])
+        _lab = get_value_from_any_table(cate_low, [players_new_keys, jobs_mens_data, Jobs_new])
 
     if not _lab:
         _lab = year_lab.make_year_lab(cate_low)

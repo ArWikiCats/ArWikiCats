@@ -17,7 +17,7 @@ from ...ma_lists import (
     Films_key_man,
     By_table,
     Jobs_new,           # to be removed from players_new_keys
-    Jobs_key_mens,      # to be  removed from players_new_keys
+    jobs_mens_data,      # to be  removed from players_new_keys
 )
 
 KAKO: Dict[str, Dict[str, str]] = {
@@ -29,7 +29,7 @@ KAKO: Dict[str, Dict[str, str]] = {
     "By_table": By_table,
     "Films_O_TT": Films_O_TT,
     "players_new_keys": players_new_keys,
-    "Jobs_key_mens": Jobs_key_mens,
+    "jobs_mens_data": jobs_mens_data,
     "Jobs_new": Jobs_new,
 }
 

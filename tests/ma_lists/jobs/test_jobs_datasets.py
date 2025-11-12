@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from src.ma_lists.jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO
 from src.ma_lists.jobs.Jobs import (
-    Jobs_key_mens,
+    jobs_mens_data,
     Jobs_new,
 )
 from src.ma_lists.jobs.Jobs2 import JOBS_2, JOBS_3333
@@ -13,7 +13,7 @@ def test_jobs_new_contains_female_and_general_entries() -> None:
     """Flattened mapping should expose lowercase keys for combined datasets."""
 
     assert "film actresses" in Jobs_new
-    assert "footballers" in Jobs_key_mens
+    assert "footballers" in jobs_mens_data
 
 
 def test_men_womens_with_nato_matches_source_template() -> None:
