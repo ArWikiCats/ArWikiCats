@@ -22,7 +22,7 @@ from ...helps import len_print
 from ..companies import companies_to_jobs
 from ..utils.json_dir import open_json
 from ..mixed.all_keys2 import BOOK_CATEGORIES
-from ..mixed.male_keys import religious_female_keys
+from ..mixed.male_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..sports.cycling import new2019_cycling
@@ -218,7 +218,7 @@ def _merge_jobs_sources() -> GenderedLabelMap:
 
     merge_gendered_maps(jobs_pp, companies_to_jobs)
 
-    for religion_key, feminine_label in religious_female_keys.items():
+    for religion_key, feminine_label in RELIGIOUS_FEMALE_KEYS.items():
         founder_key = f"{religion_key} founders"
         jobs_pp[founder_key] = {
             "mens": f"مؤسسو {feminine_label}",

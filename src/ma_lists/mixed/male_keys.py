@@ -1,18 +1,10 @@
-#!/usr/bin/python3
-
-"""
-"""
-
-import sys
+"""Mappings for gender specific mixed keys."""
 from ...helps import len_print
-from ..tv.films_mslslat import Films_keys_male_female
 from ..companies import companies_data
 from ..structures import structures_data
-# ---
-New_female_keys = {}
-New_male_keys = {}
-# ---
-religious_female_keys = {
+from ..utils.json_dir import open_json_file
+
+RELIGIOUS_FEMALE_KEYS: dict[str, str] = {
     "masonic": "ماسونية",
     "islamic": "إسلامية",
     "neopagan religious": "وثنية جديدة",
@@ -31,11 +23,10 @@ religious_female_keys = {
     "christian": "مسيحية",
     "religious": "دينية",
     "zoroastrian": "زرادشتية",
-    # "creationist":"",
     "bahá'í": "بهائية",
 }
-# ---
-female_keys = {
+
+FEMALE_SUFFIXES: dict[str, str] = {
     "academies": "أكاديميات",
     "agencies": "وكالات",
     "associations": "جمعيات",
@@ -96,45 +87,9 @@ female_keys = {
     "women's organizations": "منظمات نسائية",
     "youth organizations": "منظمات شبابية",
 }
-# ---
-for key, lab in religious_female_keys.items():
-    # ---
-    keys2 = key.lower()
-    # ---
-    # so = f"{keys2} %s"
-    # ---
-    New_female_keys[f"{keys2} companies of"] = f"شركات {lab} في"
-    # ---
-    for dd in female_keys:
-        ky2 = f"{keys2} {dd}"
-        lb3 = f"{female_keys[dd]} {lab}"
-        New_female_keys[ky2] = lb3
-        # ---
-        if "movements" in dd:
-            New_female_keys[f"new {keys2} {dd}"] = lb3 + " جديدة"
-        # ---
-        # if lab == "دينية": print(f"[{ky2}]= '{lb3}'")
-    # ---
-    New_female_keys[f"{keys2} founders"] = f"مؤسسو {lab}"
-    New_female_keys[f"{keys2} rights"] = f"حقوق {lab}"
-    New_female_keys[f"{keys2} underground culture"] = f"ثقافة باطنية {lab}"
-    New_female_keys[f"{keys2} culture"] = f"ثقافة {lab}"
 
-    New_female_keys[f"{keys2} think tanks"] = f"مؤسسات فكر ورأي {lab}"
 
-    New_female_keys[f"{keys2} temples"] = f"معابد {lab}"
-    New_female_keys[f"{keys2} research"] = f"أبحاث {lab}"
-    New_female_keys[f"{keys2} industry"] = f"صناعة {lab}"
-    New_female_keys[f"{keys2} technology"] = f"تقنيات {lab}"
-
-    New_female_keys[f"{keys2} disasters"] = f"كوارث {lab}"
-    New_female_keys[f"{keys2} politics"] = f"سياسة {lab}"
-    New_female_keys[f"{keys2} banks"] = f"بنوك {lab}"
-    New_female_keys[f"{keys2} buildings"] = f"مبان {lab}"
-    New_female_keys[f"{keys2} buildings and structures"] = f"مبان ومنشآت {lab}"
-    New_female_keys[f"{keys2} building and structure"] = f"مبان ومنشآت {lab}"
-# ---
-All_pop3_keys = {
+POP3_KEYS: dict[str, dict[str, str]] = {
     "healthcare": {"male": "", "female": "رعاية صحية"},
     "school": {"male": "", "female": "مدارس"},
     "theatres": {"male": "", "female": "مسارح"},
@@ -201,18 +156,50 @@ All_pop3_keys = {
     "college": {"male": "", "female": "كليات"},
     "colleges": {"male": "", "female": "كليات"},
 }
-# ---
+
+New_female_keys = {}
+New_male_keys = {}
+
+for key, lab in RELIGIOUS_FEMALE_KEYS.items():
+    keys2 = key.lower()
+    New_female_keys[f"{keys2} companies of"] = f"شركات {lab} في"
+
+    for dd in FEMALE_SUFFIXES:
+        ky2 = f"{keys2} {dd}"
+        lb3 = f"{FEMALE_SUFFIXES[dd]} {lab}"
+        New_female_keys[ky2] = lb3
+
+        if "movements" in dd:
+            New_female_keys[f"new {keys2} {dd}"] = lb3 + " جديدة"
+
+    New_female_keys[f"{keys2} founders"] = f"مؤسسو {lab}"
+    New_female_keys[f"{keys2} rights"] = f"حقوق {lab}"
+    New_female_keys[f"{keys2} underground culture"] = f"ثقافة باطنية {lab}"
+    New_female_keys[f"{keys2} culture"] = f"ثقافة {lab}"
+
+    New_female_keys[f"{keys2} think tanks"] = f"مؤسسات فكر ورأي {lab}"
+
+    New_female_keys[f"{keys2} temples"] = f"معابد {lab}"
+    New_female_keys[f"{keys2} research"] = f"أبحاث {lab}"
+    New_female_keys[f"{keys2} industry"] = f"صناعة {lab}"
+    New_female_keys[f"{keys2} technology"] = f"تقنيات {lab}"
+
+    New_female_keys[f"{keys2} disasters"] = f"كوارث {lab}"
+    New_female_keys[f"{keys2} politics"] = f"سياسة {lab}"
+    New_female_keys[f"{keys2} banks"] = f"بنوك {lab}"
+    New_female_keys[f"{keys2} buildings"] = f"مبان {lab}"
+    New_female_keys[f"{keys2} buildings and structures"] = f"مبان ومنشآت {lab}"
+    New_female_keys[f"{keys2} building and structure"] = f"مبان ومنشآت {lab}"
+
 pop_key3_male = {}
 pop_key3_female = {}
-# ---
-for ui, uu in All_pop3_keys.items():
+
+for ui, uu in POP3_KEYS.items():
     if uu["male"]:
         pop_key3_male[ui] = uu["male"]
     if uu["female"]:
         pop_key3_female[ui] = uu["female"]
-# ---
-# "military logistics":"لوجستية عسكرية",
-# ---#
+
 for keyt in pop_key3_male:
     key2c = keyt.lower()
     labe = pop_key3_male[keyt]
@@ -230,12 +217,11 @@ for keyt in pop_key3_male:
     New_male_keys[sod % "fiction"] = f"خيال {labe}"
     New_male_keys[sod % "union"] = f"اتحاد {labe}"
     New_male_keys[sod % "violence"] = f"عنف {labe}"
-# ---
+
 for key in pop_key3_female:
     keys2 = key.lower()
     lab = pop_key3_female[key]
-    # so = f"{keys2} %s"
-    # ---
+
     New_female_keys[f"defunct {keys2} stations"] = f"محطات {lab} سابقة"
     New_female_keys[f"{keys2} ttelevision networks"] = f"شبكات تلفزيونية {lab}"
     New_female_keys[f"{keys2} television stations"] = f"محطات تلفزيونية {lab}"
@@ -245,13 +231,13 @@ for key in pop_key3_female:
     New_female_keys[f"{keys2} censorship"] = f"رقابة {lab}"
     New_female_keys[f"{keys2} communications"] = f"اتصالات {lab}"
     New_female_keys[f"{keys2} animals"] = f"حيوانات {lab}"
-    # ---
+
     New_female_keys[f"{keys2} philosophy"] = f"فلسفة {lab}"
     New_female_keys[f"{keys2} migration"] = f"هجرة {lab}"
-    # ---
+
     New_female_keys[f"{keys2} think tanks"] = f"مؤسسات فكر ورأي {lab}"
     New_female_keys[f"{keys2} positions"] = f"مراكز {lab}"
-    # ---
+
     New_female_keys[f"{keys2} accidents-and-incidents"] = f"حوادث {lab}"
     New_female_keys[f"{keys2} accidents and incidents"] = f"حوادث {lab}"
     New_female_keys[f"{keys2} accidents or incidents"] = f"حوادث {lab}"
@@ -259,7 +245,7 @@ for key in pop_key3_female:
     New_female_keys[f"{keys2} incidents"] = f"حوادث {lab}"
     New_female_keys[f"{keys2} software"] = f"برمجيات {lab}"
     New_female_keys[f"{keys2} databases"] = f"قواعد بيانات {lab}"
-    # ---
+
     New_female_keys[f"{keys2} controversies"] = f"خلافات {lab}"
     New_female_keys[f"{keys2} agencies"] = f"وكالات {lab}"
     New_female_keys[f"{keys2} units and formations"] = f"وحدات وتشكيلات {lab}"
@@ -271,12 +257,12 @@ for key in pop_key3_female:
     New_female_keys[f"{keys2} organization"] = f"منظمات {lab}"
     New_female_keys[f"{keys2} facilities"] = f"مرافق {lab}"
     New_female_keys[f"{keys2} bunkers"] = f"مخابئ {lab}"
-    # ---
+
     New_female_keys[f"{keys2} research facilities"] = f"مرافق بحثية {lab}"
     New_female_keys[f"{keys2} training facilities"] = f"مرافق تدريب {lab}"
     New_female_keys[f"{keys2} industrial facilities"] = f"مرافق صناعية {lab}"
     New_female_keys[f"{keys2} warfare facilities"] = f"مرافق حربية {lab}"
-    # ---
+
     New_female_keys[f"{keys2} logistics"] = f"لوجستية {lab}"
     New_female_keys[f"{keys2} research"] = f"أبحاث {lab}"
     New_female_keys[f"{keys2} industry"] = f"صناعة {lab}"
@@ -291,14 +277,12 @@ for key in pop_key3_female:
     New_female_keys[f"{keys2} culture"] = f"ثقافة {lab}"
     New_female_keys[f"{keys2} underground culture"] = f"ثقافة باطنية {lab}"
 
-    # New_male_keys[f"{keys2} economics"] = "اقتصاد {}".format(lab)
-    # ---
     New_female_keys[f"{keys2} companies of"] = f"شركات {lab} في"
     New_female_keys[f"{keys2} companies"] = f"شركات {lab}"
     New_female_keys[f"{keys2} firms of"] = f"شركات {lab} في"
     New_female_keys[f"{keys2} firms"] = f"شركات {lab}"
     New_female_keys[f"{keys2} museums"] = f"متاحف {lab}"
-    # ---
+
     New_female_keys[f"{keys2} politics"] = f"سياسة {lab}"
     New_female_keys[f"{keys2} banks"] = f"بنوك {lab}"
     New_female_keys[f"{keys2} buildings"] = f"مبان {lab}"
@@ -306,15 +290,15 @@ for key in pop_key3_female:
     New_female_keys[f"{keys2} installations"] = f"منشآت {lab}"
     New_female_keys[f"{keys2} building and structure"] = f"مبان ومنشآت {lab}"
     New_female_keys[f"{keys2} buildings and structures"] = f"مبان ومنشآت {lab}"
-# ---
+
+Films_keys_male_female = open_json_file("Films_keys_male_female") or {}
+
 for ttt in Films_keys_male_female:
-    # ---
+
     lab = Films_keys_male_female[ttt].get("female", "")
-    # ---
+
     if lab:
         ttt2 = ttt.lower()
-        # so = f"{ttt2} %s"
-        # ---
         New_female_keys[f"{ttt2} agencies"] = f"وكالات {lab}"
         New_female_keys[f"{ttt2} occupations"] = f"مهن {lab}"
         New_female_keys[f"{ttt2} organisations"] = f"منظمات {lab}"
@@ -327,26 +311,24 @@ for ttt in Films_keys_male_female:
         New_female_keys[f"{ttt2} issues"] = f"قضايا {lab}"
         New_female_keys[f"{ttt2} culture"] = f"ثقافة {lab}"
         New_female_keys[f"{ttt2} companies"] = f"شركات {lab}"
-# ---
+
 New_female_keys.update(structures_data)
-# ---
-# New_male_keys[f"{key2} buildings on the national register of historic places in"] = "مباني {} في السجل الوطني للأماكن التاريخية في".format(lab)
-# New_male_keys[f"{key2} buildings on the national register of historic places"] = "مباني {} في السجل الوطني للأماكن التاريخية".format(lab)
-# ---
+
 New_female_keys.update(companies_data)
-# ---
-for d_d in female_keys:
-    # New_female_keys[d_d] = female_keys[d_d]
-    New_female_keys[f"lgbt {d_d}"] = f"{female_keys[d_d]} مثلية"
-    New_female_keys[f"secessionist {d_d}"] = f"{female_keys[d_d]} انفصالية"
-    New_female_keys[f"defunct secessionist {d_d}"] = f"{female_keys[d_d]} انفصالية سابقة"
-# ---
-Lenth1 = {
+
+for d_d in FEMALE_SUFFIXES:
+    New_female_keys[f"lgbt {d_d}"] = f"{FEMALE_SUFFIXES[d_d]} مثلية"
+    New_female_keys[f"secessionist {d_d}"] = f"{FEMALE_SUFFIXES[d_d]} انفصالية"
+    New_female_keys[f"defunct secessionist {d_d}"] = f"{FEMALE_SUFFIXES[d_d]} انفصالية سابقة"
+
+
+len_print.data_len("male_keys.py", {
     "New_female_keys": New_female_keys,
     "All_Nat New_male_keys": New_male_keys,
-}
-# ---
+})
 
-len_print.data_len("male_keys.py", Lenth1)
-# ---
-del Films_keys_male_female
+__all__ = [
+    "New_female_keys",
+    "New_male_keys",
+    "RELIGIOUS_FEMALE_KEYS",
+]
