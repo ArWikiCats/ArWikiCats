@@ -123,8 +123,6 @@ Awards = {
     # ---
     "robert": "روبرت",
     "emmy": "إيمي",
-    "grammy": "غرامي",
-    "golden globe": "غولدن غلوب",
     "independent spirit": "الروح المستقلة",
     "national board of review": "المجلس الوطني للمراجعة",
     "toronto international film festival": "مهرجان تورونتو السينمائي الدولي",
@@ -140,7 +138,6 @@ Awards = {
     "teen choice": "اختيار المراهقين",
     "claude jutra": "كلود جوترا",
     "robert-bresson": "روبرت بريسون",
-    "robert": "روبرت",
     "golden reel": "الذهبية بكرة",
     "first steps": "الخطوات الأولى",
     "herbert strate": "إستراتيجيات هربرت",
@@ -150,7 +147,7 @@ for award in Awards:
     pop_final6[f"{award.lower()} award"] = f"جائزة {Awards[award]}"
     pop_final6[f"{award.lower()} awards"] = f"جوائز {Awards[award]}"
 # ---
-After_type_female = {
+AFTER_TYPE_FEMALE = {
     # ---
     # "discipline" : "تخصص",
     # "literature" : "أدب",
@@ -321,9 +318,9 @@ for first in Frist_type_female:
     # ---
     pop_final6[f"{first} parties"] = f"أحزاب {Frist_type_female[first]}"
     # ---
-    for secound in After_type_female:
+    for secound in AFTER_TYPE_FEMALE:
         keyy = f"{first.lower()} {secound.lower()}"
-        opo = f"{After_type_female[secound]} {Frist_type_female[first]}"
+        opo = f"{AFTER_TYPE_FEMALE[secound]} {Frist_type_female[first]}"
         pop_final6[keyy] = opo
         # printe.output('pop_final6[%s] = "%s" ' % (keyy , opo))
 # ---
