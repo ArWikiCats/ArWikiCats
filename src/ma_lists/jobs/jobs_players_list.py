@@ -263,7 +263,6 @@ def _build_sports_job_variants(
     """Create commentators, announcers, and other job variants."""
 
     result: GenderedLabelMap = {}
-    female_aliases: Dict[str, str] = {}
 
     for job_key, arabic_label in sport_jobs.items():
         # ---
@@ -303,9 +302,6 @@ def _build_sports_job_variants(
             "womens": f"رياضيات {arabic_label}",
         }
 
-        # Provide a category entry for women's players to preserve the legacy API.
-        female_aliases[f"women's {lowered_job_key} players"] = f"لاعبات {arabic_label} نسائية"
-
         # ---
         for football_key, football_labels in football_roles.items():
             # ---
@@ -331,7 +327,7 @@ def _build_sports_job_variants(
                 "womens": f"{football_labels["womens"]} {arabic_label}"
             }
 
-    return result, female_aliases
+    return result
 
 
 def _merge_maps(*maps: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
@@ -366,7 +362,7 @@ SKATING_LABELS = {x: v for x, v in SKATING_LABELS.items() if x not in BASE_PLAYE
 GENERAL_SCOPE_LABELS = _build_general_scope_labels(GENERAL_SPORT_ROLES, SPORT_SCOPE_ROLES)
 CHAMPION_LABELS = _build_champion_labels(Sports_Keys_For_Label)
 WORLD_CHAMPION_LABELS = _build_world_champion_labels(Sports_Keys_For_Team)
-SPORT_JOB_VARIANTS, FEMALE_JOBS_TO = _build_sports_job_variants(
+SPORT_JOB_VARIANTS = _build_sports_job_variants(
     Sports_Keys_For_Jobs,
     FOOTBALL_KEYS_PLAYERS,
 )
@@ -387,10 +383,8 @@ PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
 # Backwards compatible exports
 
 Football_Keys_players: GenderedLabelMap=FOOTBALL_KEYS_PLAYERS
-FEMALE_JOBS_TO: Dict[str, str]=FEMALE_JOBS_TO
 
 __all__=[
-    "FEMALE_JOBS_TO",
     "FOOTBALL_KEYS_PLAYERS",
     "JOBS_PLAYERS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",

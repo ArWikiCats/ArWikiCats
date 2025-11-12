@@ -8,11 +8,11 @@ pulling in individual module internals.
 
 from __future__ import annotations
 
+from .jobs_womens import Female_Jobs, Jobs_key_womens, FEMALE_JOBS_TO
+
 from .Jobs import (
-    Female_Jobs,
     Jobs_key,
     Jobs_key_mens,
-    Jobs_key_womens,
     Jobs_new,
     Men_Womens_Jobs,
     womens_Jobs_2017,
@@ -28,7 +28,6 @@ from .jobs_players_list import (
     FOOTBALL_KEYS_PLAYERS,
     JOBS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,
-    FEMALE_JOBS_TO,
 )
 from .jobs_singers import (
     FILMS_TYPE,
