@@ -167,10 +167,14 @@ def new_func_mk2(
             if Add_In and con_lab.strip() in ar_lab_before_year_to_add_in:
                 print_put("ar_lab_before_year_to_add_in Add في to arlabel")
                 suf = " في "
+                Add_In = False
+                Add_In_Done = True
 
             elif con_lab.strip().startswith("أعضاء ") and con_lab.find(" حسب ") == -1:
                 print_put(">354 Add في to arlabel")
                 suf = " في "
+                Add_In = False
+                Add_In_Done = True
 
         arlabel = con_lab + suf + arlabel2
 
