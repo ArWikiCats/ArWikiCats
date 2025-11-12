@@ -40,6 +40,9 @@ BASE_LABELS: dict[str, str] = {
     "the israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
     "israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
     "israel–hamas war protests": "احتجاجات الحرب الفلسطينية الإسرائيلية",
+    "navy of": "بحرية",
+    "gulf of": "خليج",
+    "acts of": "أفعال",
 }
 
 DIRECTIONS: dict[str, str] = {
@@ -350,126 +353,178 @@ def _update_lowercase(data, mapping: Mapping[str, str], skip_existing: bool = Fa
         })
 
 
-pop_of_football = open_json_file("pop_of_football") or {}
+def _build_book_entries(data) -> None:
+    """Add literature related entries, including film/tv variants."""
 
-pf_keys2 = {}
+    for category_key, category_label in BOOK_CATEGORIES.items():
+        data[category_key] = category_label
+        data[f"defunct {category_key}"] = f"{category_label} سابقة"
+        data[f"{category_key} publications"] = f"منشورات {category_label}"
+        lower_category = category_key.lower()
+        for key, key_label in film_Keys_For_female.items():
+            data[f"{key.lower()} {lower_category}"] = f"{category_label} {key_label}"
 
-pf_keys2.update(pop_of_football)
+        for book_type, book_label in BOOK_TYPES.items():
+            data[f"{book_type.lower()} {lower_category}"] = f"{category_label} {book_label}"
 
-pf_keys2.update(keys2_py)
-pf_keys2.update(BASE_LABELS)
+    data["musical compositions"] = "مؤلفات موسيقية"
 
-for direction_key, direction_label in DIRECTIONS.items():
-    for region_key, region_label in REGIONS.items():
-        arabic_label = f"{direction_label} {region_label}"
-        combined_key = f"{direction_key} {region_key}"
-        pf_keys2[combined_key] = arabic_label
-# ---
-pop_of_football_lower = {x.lower(): y for x, y in pop_of_football.items()}
-# ---
-for competition_key, competition_label in pop_of_football.items():
-    pf_keys2[f"{competition_key} medalists"] = f"فائزون بميداليات {competition_label}"
-# ---
-pop_of_with_in = open_json_file("pop_of_with_in") or {}
-# ---
-pf_keys2.update(pop_of_with_in)
-# ---
-for population_key, population_label in pop_of_with_in.items():
-    pf_keys2[f"{population_key} of"] = f"{population_label} في"
-# ---
-for school_category, school_template in SCHOOL_LABELS.items():
-    pf_keys2[f"private {school_category}"] = school_template.format("خاصة")
-    pf_keys2[f"public {school_category}"] = school_template.format("عامة")
+    for singers_key, singer_label in SINGERS_TAB.items():
+        key_lower = singers_key.lower()
+        if key_lower not in data and singer_label:
+            data[key_lower] = singer_label
+            data[f"{key_lower} albums"] = f"ألبومات {singer_label}"
+            data[f"{key_lower} songs"] = f"أغاني {singer_label}"
+            data[f"{key_lower} groups"] = f"فرق {singer_label}"
+            data[f"{key_lower} duos"] = f"فرق {singer_label} ثنائية"
 
-pop_of_without_in = open_json_file("pop_of_without_in") or {}
-# ---
-pf_keys2.update({key.lower(): value for key, value in pop_of_without_in.items() if key.lower() not in pf_keys2})
-pf_keys2.update({f"{key.lower()} of": value for key, value in pop_of_without_in.items()})
-# ---
-pf_keys2["navy of"] = "بحرية"
-pf_keys2["gulf of"] = "خليج"
-# ---
+            data[f"{singers_key} video albums"] = f"ألبومات فيديو {singer_label}"
 
-pf_keys2.update({x.lower(): v for x, v in WORD_AFTER_YEARS.items()})
-# ---
-
-for tt, tt_lab in TOWNS_COMMUNITIES.items():
-    pf_keys2[f"{tt} communities"] = f"مجتمعات {tt_lab}"
-    pf_keys2[f"{tt} towns"] = f"بلدات {tt_lab}"
-    pf_keys2[f"{tt} villages"] = f"قرى {tt_lab}"
-    pf_keys2[f"{tt} cities"] = f"مدن {tt_lab}"
-
-pf_keys2.update({x.lower(): v for x, v in ART_MOVEMENTS.items()})
-
-Tato_type = open_json_file("Tato_type") or {}
-
-pf_keys2.update({x.lower(): v for x, v in Tato_type.items()})
-
-for x, x_lab in WEAPON_CLASSIFICATIONS.items():
-    for mis, mis_lab in WEAPON_EVENTS.items():
-        pf_keys2[f"{x} {mis}"] = f"{mis_lab} {x_lab}"
-        pf_keys2[f"{x} {mis} of"] = f"{mis_lab} {x_lab} في"
-
-pop_of_without_in.update(ministrees_keysse)
-
-pf_keys2.update(minister_keyse)
-
-for po_3 in pop_final_3:
-    poh = po_3.lower()
-    if poh not in pf_keys2 and pop_final_3[po_3]:
-        pf_keys2[poh] = pop_final_3[po_3]
+            for album_type, album_label in ALBUMS_TYPE.items():
+                data[f"{singers_key} {album_type} albums"] = f"ألبومات {album_label} {singer_label}"
+    return data
 
 
-for bo, bo_lab in BOOK_CATEGORIES.items():
-    pf_keys2[bo] = bo_lab
-    pf_keys2[f"defunct {bo}"] = f"{bo_lab} سابقة"
-    pf_keys2[f"{bo} publications"] = f"منشورات {bo_lab}"
+def _build_weapon_entries() -> None:
+    """Expand weapon classifications with related events."""
+    data = {}
+    for w_class, w_class_label in WEAPON_CLASSIFICATIONS.items():
+        for event_key, event_label in WEAPON_EVENTS.items():
+            data[f"{w_class} {event_key}"] = f"{event_label} {w_class_label}"
 
-    bo2 = bo.lower()
-
-    for ke, ke_lab in film_Keys_For_female.items():
-        pf_keys2[f"{ke.lower()} {bo2}"] = f"{bo_lab} {ke_lab}"
-
-    for fyy, fyy_lab in BOOK_TYPES.items():
-        pf_keys2[f"{fyy.lower()} {bo2}"] = f"{bo_lab} {fyy_lab}"
-
-pf_keys2["musical compositions"] = "مؤلفات موسيقية"
+    return data
 
 
-for nos, nos_lab in LITERATURE_AREAS.items():
-    nos2 = nos.lower()
-    pf_keys2[f"children's {nos}"] = f"{nos_lab} الأطفال"
+def _build_direction_region_entries() -> None:
+    """Add entries that combine geographic directions with regions."""
+    data = {}
+    for direction_key, direction_label in DIRECTIONS.items():
+        for region_key, region_label in REGIONS.items():
+            data[f"{direction_key} {region_key}"] = f"{direction_label} {region_label}"
+    return data
 
-    for ke, ke_lab in film_Keys_For_male.items():
-        pf_keys2[f"{ke.lower()} {nos2}"] = f"{nos_lab} {ke_lab}"
 
-for key, keylab in CINEMA_CATEGORIES.items():
-    pf_keys2[key] = keylab
-    pf_keys2[f"{key} set"] = f"{keylab} تقع أحداثها"
-    pf_keys2[f"{key} produced"] = f"{keylab} أنتجت"
-    pf_keys2[f"{key} filmed"] = f"{keylab} صورت"
-    pf_keys2[f"{key} basedon"] = f"{keylab} مبنية على"
-    # pf_keys2["{} based on".format(key)] = "{} مبنية على".format(keylab)
-    pf_keys2[f"{key} based"] = f"{keylab} مبنية"
-    pf_keys2[f"{key} shot"] = f"{keylab} مصورة"
+def _build_towns_entries(data) -> None:
+    """Add town and community variants for different descriptors."""
 
-for xfxx, xfxx_lab in SINGERS_TAB.items():  # all_keys3
-    xc2 = xfxx.lower()
-    if xc2 not in pf_keys2 and xfxx_lab:
-        pf_keys2[xc2] = xfxx_lab
-        pf_keys2[f"{xc2} albums"] = f"ألبومات {xfxx_lab}"
-        pf_keys2[f"{xc2} songs"] = f"أغاني {xfxx_lab}"
-        pf_keys2[f"{xc2} groups"] = f"فرق {xfxx_lab}"
-        pf_keys2[f"{xc2} duos"] = f"فرق {xfxx_lab} ثنائية"
+    for category, label in TOWNS_COMMUNITIES.items():
+        data[f"{category} communities"] = f"مجتمعات {label}"
+        data[f"{category} towns"] = f"بلدات {label}"
+        data[f"{category} villages"] = f"قرى {label}"
+        data[f"{category} cities"] = f"مدن {label}"
 
-        pf_keys2[f"{xfxx} video albums"] = f"ألبومات فيديو {xfxx_lab}"
 
-        for ty, ty_lab in ALBUMS_TYPE.items():
-            pf_keys2[f"{xfxx} {ty} albums"] = f"ألبومات {ty_lab} {xfxx_lab}"
+def _build_of_variants(data, data_list, data_list2) -> None:
+    for tab in data_list:
+        for key, value in tab.items():
+            new_key = f"{key.lower()} of"
+            if data.get(new_key) or key.endswith(" of"):
+                continue
+            data[new_key] = value
 
-_update_lowercase(pf_keys2, [tennis_keys, pop_final6, cccccc_m], skip_existing=True)
+    for tab2 in data_list2:
+        for key2, value2 in tab2.items():
+            new_key2 = f"{key2} of"
+            if data.get(new_key2) or key2.endswith(" of"):
+                continue
+            data[new_key2] = f"{value2} في"
 
-_update_lowercase(pf_keys2, [languages_key, People_key, new2019, NEW_2023], skip_existing=False)
+    return data
+
+
+def _build_literature_area_entries(data) -> None:
+    """Add entries for literature and arts areas linked with film keys."""
+
+    for area, area_label in LITERATURE_AREAS.items():
+        data[f"children's {area}"] = f"{area_label} الأطفال"
+        for key, key_label in film_Keys_For_male.items():
+            data[f"{key.lower()} {area.lower()}"] = f"{area_label} {key_label}"
+
+
+def _build_cinema_entries(data) -> None:
+    """Add mappings for cinema and television related categories."""
+
+    for key, label in CINEMA_CATEGORIES.items():
+        data[key] = label
+        data[f"{key} set"] = f"{label} تقع أحداثها"
+        data[f"{key} produced"] = f"{label} أنتجت"
+        data[f"{key} filmed"] = f"{label} صورت"
+        data[f"{key} basedon"] = f"{label} مبنية على"
+        # data[f"{key} based on"] = f"{label} مبنية على"
+        data[f"{key} based"] = f"{label} مبنية"
+        data[f"{key} shot"] = f"{label} مصورة"
+
+
+def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[str, str]:
+    """Build the master mapping used across the ``ma_lists`` package."""
+
+    data = {}
+
+    data.update(pop_of_football)
+
+    for competition_key, competition_label in pop_of_football.items():
+        data[f"{competition_key} medalists"] = f"فائزون بميداليات {competition_label}"
+
+    data.update(keys2_py)
+    data.update(BASE_LABELS)
+    data.update(_build_direction_region_entries())
+    # ---
+    data.update(pop_of_with_in)
+
+    _update_lowercase(data, [pop_of_without_in], skip_existing=True)
+
+    _build_of_variants(data, [pop_of_without_in], [pop_of_with_in])
+
+    for school_category, school_template in SCHOOL_LABELS.items():
+        data[f"private {school_category}"] = school_template.format("خاصة")
+        data[f"public {school_category}"] = school_template.format("عامة")
+
+    _update_lowercase(data, [WORD_AFTER_YEARS], skip_existing=False)
+
+    _build_towns_entries(data)
+
+    data.update({key.lower(): value for key, value in ART_MOVEMENTS.items()})
+
+    tato_type = open_json_file("Tato_type") or {}
+    data.update({key.lower(): value for key, value in tato_type.items()})
+
+    weapon_data = _build_weapon_entries()
+    data.update(weapon_data)
+
+    _build_of_variants(data, [], [weapon_data])
+
+    data.update(minister_keyse)
+
+    for key, value in pop_final_3.items():
+        lower_key = key.lower()
+        if lower_key not in data and value:
+            data[lower_key] = value
+
+    _build_book_entries(data)
+    _build_literature_area_entries(data)
+    _build_cinema_entries(data)
+
+    return data
+
+
+def wrap_build_pf_keys2():
+
+    pop_of_football = open_json_file("pop_of_football") or {}
+    pop_of_without_in = open_json_file("pop_of_without_in") or {}
+    pop_of_with_in = open_json_file("pop_of_with_in") or {}
+
+    pf_keys2: dict[str, str] = build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in)
+
+    _update_lowercase(pf_keys2, [tennis_keys, pop_final6, cccccc_m], skip_existing=True)
+    _update_lowercase(pf_keys2, [languages_key, People_key, new2019, NEW_2023], skip_existing=False)
+
+    pop_of_without_in.update(ministrees_keysse)
+    pop_of_football_lower = {key.lower(): value for key, value in pop_of_football.items()}
+
+    return pf_keys2, pop_of_without_in, pop_of_football_lower
+
+
+pf_keys2, pop_of_without_in, pop_of_football_lower = wrap_build_pf_keys2()
 
 len_print.data_len("all_keys2.py", {
     "pf_keys2": pf_keys2,
