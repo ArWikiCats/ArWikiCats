@@ -135,7 +135,7 @@ pf_keys2.update({f"{key.lower()} of": value for key, value in pop_of_without_in.
 pf_keys2["navy of"] = "بحرية"
 pf_keys2["gulf of"] = "خليج"
 # ---
-Word_After_Years = {
+WORD_AFTER_YEARS = {
     "YouTube channels": "قنوات يوتيوب",
     "births": "مواليد",
     "space probes": "مسبارات فضائية",
@@ -159,7 +159,7 @@ Word_After_Years = {
     "beginnings": "بدايات",
 }
 # ---
-pf_keys2.update({x.lower(): v for x, v in Word_After_Years.items()})
+pf_keys2.update({x.lower(): v for x, v in WORD_AFTER_YEARS.items()})
 # ---
 TOWNS_COMMUNITIES = {
     "muslim": "إسلامية",
@@ -543,7 +543,7 @@ len_print.data_len("all_keys2.py", {
     "pf_keys2": pf_keys2,
     "pop_of_without_in": pop_of_without_in,
     "pop_of_football_lower": pop_of_football_lower,
-    "Word_After_Years": Word_After_Years,
+    "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
     "Books_table": Books_table,
     "Books_type": Books_type,
 })
@@ -552,7 +552,7 @@ __all__ = [
     "pf_keys2",
     "pop_of_without_in",
     "pop_of_football_lower",
-    "Word_After_Years",
+    "WORD_AFTER_YEARS",
     "Books_table",
     "Books_type",
 ]
