@@ -46,7 +46,7 @@ from .nats.Nationality import (
 
 from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, WORD_AFTER_YEARS
 
-from .mixed.all_keys3 import typeTable_7, albums_type, film_production_company, NN_table, Ambassadors_tab
+from .mixed.all_keys3 import typeTable_7, ALBUMS_TYPE, FILM_PRODUCTION_COMPANY, NN_table, Ambassadors_tab
 
 from .mixed.all_keys4 import Inter_Feds_lower
 
@@ -163,8 +163,8 @@ __all__ = [
     "WORD_AFTER_YEARS",
     #
     "typeTable_7",
-    "albums_type",
-    "film_production_company",
+    "ALBUMS_TYPE",
+    "FILM_PRODUCTION_COMPANY",
     "NN_table",
     "Ambassadors_tab",
     "summer_winter_games",

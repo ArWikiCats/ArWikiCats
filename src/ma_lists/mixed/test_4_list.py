@@ -5,7 +5,7 @@ from .test_4_list import replace_labels_2022, en_is_P17_ar_is_mens, en_is_P17_ar
 """
 import copy
 from .keys_23 import afc_keys
-from .all_keys3 import businesspeoples
+from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..sports.games_labs import summer_winter_games
 
@@ -452,9 +452,9 @@ for sx in SINGERS_TAB.keys():
     en_is_nat_ar_is_women[f"{sx} groups"] = "فرق %s {}" % SINGERS_TAB[sx]
     en_is_nat_ar_is_women[f"{sx} musical groups"] = "فرق موسيقى %s {}" % SINGERS_TAB[sx]
 # ---
-for iu in businesspeoples:
-    en_is_nat_ar_is_women[f"{iu} businesspeople"] = "شخصيات أعمال {} في %s" % businesspeoples[iu]
-    en_is_nat_ar_is_women[f"{iu} industry businesspeople"] = "شخصيات أعمال {} في صناعة %s" % businesspeoples[iu]
+for iu in BUSINESSPEOPLE_INDUSTRIES:
+    en_is_nat_ar_is_women[f"{iu} businesspeople"] = "شخصيات أعمال {} في %s" % BUSINESSPEOPLE_INDUSTRIES[iu]
+    en_is_nat_ar_is_women[f"{iu} industry businesspeople"] = "شخصيات أعمال {} في صناعة %s" % BUSINESSPEOPLE_INDUSTRIES[iu]
 # ---
 en_is_nat_ar_is_women_2 = copy.deepcopy(en_is_nat_ar_is_women)
 # ---

@@ -1,33 +1,13 @@
-#!/usr/bin/python3
-r"""
-\s*['"]\{\} \{\}['"]\.format\(\s*(.*?)\s*,\s*(.*?)\s*\)
-f"{$1} {$2}"
+"""Additional key-label mappings for companies, media and professions."""
 
+from __future__ import annotations
 
-['"]\{\} \{\}['"]\.format\(\s*([\w\d]+)\s*,\s*([\w\d]+)\s*\)
-f"{$1} {$2}"
-
-"""
-
-
-# ---
+from ..companies import companies_keys3, typeTable_update
+from ..sports.games_labs import summer_winter_tabs
+from ..structures import tab2, pop_final_3_update
 from ..utils.json_dir import open_json_file
 
-from ..sports.games_labs import summer_winter_tabs
-from ..companies import companies_keys3, typeTable_update
-from ..structures import tab2, pop_final_3_update
-# ---
-pop_final_3 = open_json_file("pop_final_3") or {}
-# ---
-# 'extradited people': "أشخاص تم تسليمهم",
-# 'people extradited': "أشخاص تم تسليمهم",
-# 'programs\xe2\x80\x8e': "برامج",
-# "the louvre":"متحف اللوفر",
-# "the paralympics":"الألعاب البارالمبية",
-# "heavy metal musical groups":"فرق موسيقى هيفي ميتال",
-# "black metal musical groups":"فرق موسيقى بلاك ميتال" ,
-# ---
-typeTable_7 = {
+TYPE_TABLE_7_BASE: dict[str, str] = {
     "air force": "قوات جوية",
     "people executed by": "أشخاص أعدموا من قبل",
     "executions": "إعدامات",
@@ -40,10 +20,8 @@ typeTable_7 = {
     "people executed-by-decapitation": "أشخاص أعدموا بقطع الرأس",
     "people executed-by-firearm": "أشخاص أعدموا بسلاح ناري",
 }
-# ---
-typeTable_7.update(typeTable_update)
-# ---
-albums_type = {
+
+ALBUMS_TYPE: dict[str, str] = {
     "folktronica": "فولكترونيكا",
     "concept": "مفاهيمية",
     "surprise": "مفاجئة",
@@ -58,8 +36,8 @@ albums_type = {
     "eps": "أسطوانة مطولة",
     "folk": "فولك",
 }
-# ---
-businesspeoples = {
+
+BUSINESSPEOPLE_INDUSTRIES: dict[str, str] = {
     "video game": "ألعاب الفيديو",
     "real estate": "العقارات",
     "financial": "المالية",
@@ -69,12 +47,8 @@ businesspeoples = {
     "computer": "كمبيوتر",
     "cosmetics": "مستحضرات التجميل",
 }
-# ---
-for iu in businesspeoples:
-    pop_final_3[f"{iu} businesspeople"] = f"شخصيات أعمال في {businesspeoples[iu]}"
-    pop_final_3[f"{iu} industry businesspeople"] = f"شخصيات أعمال في صناعة {businesspeoples[iu]}"
-# ---
-film_production_company = {
+
+FILM_PRODUCTION_COMPANY: dict[str, str] = {
     "Yash Raj": "ياش راج",
     "Illumination Entertainment": "إليمونيشن للترفيه",
     "Walt Disney Animation Studios": "استديوهات والت ديزني للرسوم المتحركة",
@@ -112,20 +86,8 @@ film_production_company = {
     "HBO": "هوم بوكس أوفيس",
     "Warner Bros.": "وارنر برذرز",
 }
-for production, pro_lab in film_production_company.items():
-    pop_final_3[production] = pro_lab
-    pop_final_3[f"{production} films"] = f"أفلام {pro_lab}"
 
-
-pop_final_3.update(summer_winter_tabs)
-pop_final_3.update(companies_keys3)
-pop_final_3.update(tab2)
-pop_final_3.update(pop_final_3_update)
-# ---
-Ambassadors_tab = {}
-
-NN_table = {}
-NN_table2 = {
+NN_TABLE_GENDERED: dict[str, dict[str, str]] = {
     "south african": {"men": "جنوب إفريقي", "women": "جنوب إفريقية"},
     "democratic republic of the congo": {
         "men": "كونغوي الديمقراطي",
@@ -141,3 +103,73 @@ NN_table2 = {
     "south korean": {"men": "كوري الجنوبي", "women": "كورية الجنوبية"},
     "north korean": {"men": "كوري الشمالي", "women": "كورية الشمالية"},
 }
+
+
+def _build_businesspeople_entries(registry: KeyRegistry) -> None:
+    """Add industry specific businesspeople mappings."""
+
+    for industry, label in BUSINESSPEOPLE_INDUSTRIES.items():
+        registry.data[f"{industry} businesspeople"] = f"شخصيات أعمال في {label}"
+        registry.data[f"{industry} industry businesspeople"] = f"شخصيات أعمال في صناعة {label}"
+
+
+def _build_film_company_entries(registry: KeyRegistry) -> None:
+    """Add film production companies and their film catalogues."""
+
+    for company, label in FILM_PRODUCTION_COMPANY.items():
+        registry.data[company] = label
+        registry.data[f"{company} films"] = f"أفلام {label}"
+
+
+def build_pop_final_3() -> dict[str, str]:
+    """Build the main mapping used for pop culture categories."""
+
+    base_mapping = open_json_file("pop_final_3") or {}
+    registry = KeyRegistry(base_mapping)
+
+    _build_businesspeople_entries(registry)
+    _build_film_company_entries(registry)
+
+    registry.update(summer_winter_tabs)
+    registry.update(companies_keys3)
+    registry.update(tab2)
+    registry.update(pop_final_3_update)
+
+    return registry.data
+
+
+pop_final_3 = open_json_file("pop_final_3") or {}
+
+typeTable_7: dict[str, str] = {**TYPE_TABLE_7_BASE, **typeTable_update}
+
+
+for iu in BUSINESSPEOPLE_INDUSTRIES:
+    pop_final_3[f"{iu} businesspeople"] = f"شخصيات أعمال في {BUSINESSPEOPLE_INDUSTRIES[iu]}"
+    pop_final_3[f"{iu} industry businesspeople"] = f"شخصيات أعمال في صناعة {BUSINESSPEOPLE_INDUSTRIES[iu]}"
+
+for production, pro_lab in FILM_PRODUCTION_COMPANY.items():
+    pop_final_3[production] = pro_lab
+    pop_final_3[f"{production} films"] = f"أفلام {pro_lab}"
+
+
+pop_final_3.update(summer_winter_tabs)
+pop_final_3.update(companies_keys3)
+pop_final_3.update(tab2)
+pop_final_3.update(pop_final_3_update)
+
+Ambassadors_tab: dict[str, str] = {}
+
+NN_table: dict[str, str] = {}
+
+NN_table2: dict[str, dict[str, str]] = dict(NN_TABLE_GENDERED)
+
+__all__ = [
+    "pop_final_3",
+    "typeTable_7",
+    "ALBUMS_TYPE",
+    "FILM_PRODUCTION_COMPANY",
+    "Ambassadors_tab",
+    "NN_table",
+    "NN_table2",
+    "BUSINESSPEOPLE_INDUSTRIES",
+]

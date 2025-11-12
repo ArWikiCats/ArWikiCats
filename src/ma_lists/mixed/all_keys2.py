@@ -11,7 +11,7 @@ from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
 from ..sports import tennis_keys
 from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
-from .all_keys3 import albums_type, pop_final_3
+from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
 from .keys2 import keys2_py
 from .keys_23 import new_2023
@@ -336,14 +336,6 @@ CINEMA_CATEGORIES: dict[str, str] = {
     "marvel comics": "مارفال كومكس",
 }
 
-albums_type1 = {
-    "comedy": "كوميدية",
-    "mixtape": "ميكستايب",
-    "remix": "ريمكس",
-    "animation": "رسوم متحركة",
-    "compilation": "تجميعية",
-    "live": "مباشرة",
-}
 
 for direction_key, direction_label in DIRECTIONS.items():
     for region_key, region_label in REGIONS.items():
@@ -450,7 +442,7 @@ for xfxx, xfxx_lab in SINGERS_TAB.items():  # all_keys3
 
         pf_keys2[f"{xfxx} video albums"] = f"ألبومات فيديو {xfxx_lab}"
 
-        for ty, ty_lab in albums_type.items():
+        for ty, ty_lab in ALBUMS_TYPE.items():
             pf_keys2[f"{xfxx} {ty} albums"] = f"ألبومات {ty_lab} {xfxx_lab}"
 
 pf_keys2.update({k.lower(): v.strip() for k, v in tennis_keys.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
