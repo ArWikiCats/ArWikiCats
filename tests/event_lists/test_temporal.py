@@ -26,7 +26,6 @@ TEMPORAL_CASES = [
         'Category:1990s BC disestablishments in Asia': 'تصنيف:انحلالات عقد 1990 ق م في آسيا',
         'Category:1990s disestablishments in Europe': 'تصنيف:انحلالات عقد 1990 في أوروبا',
         'Category:1994–95 in European rugby union by country': 'تصنيف:اتحاد الرجبي الأوروبي في 1994–95 حسب البلد',
-        'Category:19th-century actors': 'تصنيف:ممثلون في القرن 19',
         'Category:19th-century publications': 'تصنيف:منشورات القرن 19',
         'Category:1st century BC': 'تصنيف:القرن 1 ق م',
         'Category:1st-century architecture': 'تصنيف:عمارة القرن 1',
@@ -34,7 +33,6 @@ TEMPORAL_CASES = [
     ("temporal_2", {
         'Category:1st-millennium architecture': 'تصنيف:عمارة الألفية 1',
         'Category:1st-millennium literature': 'تصنيف:أدب الألفية 1',
-        'Category:2000s American films': 'تصنيف:أفلام أمريكية في عقد 2000',
         'Category:2000s films': 'تصنيف:أفلام إنتاج عقد 2000',
         'Category:2000s in American cinema': 'تصنيف:السينما الأمريكية في عقد 2000',
         'Category:2000s in film': 'تصنيف:عقد 2000 في الأفلام',

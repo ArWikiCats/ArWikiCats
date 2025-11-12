@@ -9,7 +9,7 @@ from typing import Dict, Optional
 from ...ma_lists import (
     Nat_mens,
     Nat_Womens,
-    Jobs_key_mens,
+    jobs_mens_data,
     short_womens_jobs,
     NAT_BEFORE_OCC,
     MEN_WOMENS_WITH_NATO,
@@ -25,7 +25,7 @@ def Jobs2(cate: str, Start: str, con_3: str) -> str:
     country: str = Start
     country_lab: str = ""
     # ---
-    con_3_lab = Jobs_key_mens.get(con_3, "")
+    con_3_lab = jobs_mens_data.get(con_3, "")
     if con_3_lab:
         if Nat_mens.get(country, "") != "":
             # output_test4('<<lightblue>> cate.startswith("%s"), con_3:"%s"' % (cate , con_3))
@@ -70,7 +70,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
     country = Start
     country_lab = ""
     # ---
-    con_3_lab = Jobs_key_mens.get(con_3, "")
+    con_3_lab = jobs_mens_data.get(con_3, "")
     # ---
     con_4 = con_3
     if con_3.startswith("people "):

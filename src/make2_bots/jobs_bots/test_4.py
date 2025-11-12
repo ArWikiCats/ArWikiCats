@@ -26,7 +26,7 @@ from ...ma_lists import (
     Multi_sport_for_Jobs,
     All_Nat,
     Nat_mens,
-    Jobs_key_mens,
+    jobs_mens_data,
     short_womens_jobs,
 )
 
@@ -142,7 +142,7 @@ def test4_2018_with_nat(
         country_label = short_womens_jobs.get(normalized_category, "")
     # ---
     if not country_label:
-        country_label = Jobs_key_mens.get(normalized_category, "")
+        country_label = jobs_mens_data.get(normalized_category, "")
     # ---
     con_3, nat = get_con_3(normalized_category, All_Nat, "nat")
     # ---

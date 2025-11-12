@@ -404,7 +404,7 @@ def _finalise_jobs_dataset() -> JobsDataset:
 
     jobs_keys_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
 
-    jobs_keys_mens: Dict[str, str] = {key: label for key, label in jobs_keys_mens.items() if label}
+    jobs_keys_mens = {key: label for key, label in jobs_keys_mens.items() if label}
 
     return JobsDataset(
         jobs_keys_mens=jobs_keys_mens,
@@ -414,28 +414,28 @@ def _finalise_jobs_dataset() -> JobsDataset:
 
 _DATASET = _finalise_jobs_dataset()
 
-Jobs_key_mens = _DATASET.jobs_keys_mens
+jobs_mens_data = _DATASET.jobs_keys_mens
 
-womens_Jobs_2017 = _DATASET.w_jobs_2017
+jobs_womens_data = _DATASET.w_jobs_2017
 
 Jobs_new = _build_jobs_new(Female_Jobs)
 
 _len_result = {
-    "Jobs_key_mens": {"count": 97797, "size": "3.7 MiB"},   # "zoologists": "علماء حيوانات"
+    "jobs_mens_data": {"count": 97797, "size": "3.7 MiB"},   # "zoologists": "علماء حيوانات"
     "Jobs_key": {"count": 97784, "size": "3.7 MiB"},        # "zoologists": "علماء حيوانات"
     "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},  # "zoologists": { "mens": "علماء حيوانات", "womens": "عالمات حيوانات" }
 
     "Jobs_new": {"count": 99104, "size": "3.7 MiB"},        # same as Jobs_key +
-    "womens_Jobs_2017": {"count": 75244, "size": "1.8 MiB"},
+    "jobs_womens_data": {"count": 75244, "size": "1.8 MiB"},
 }
 len_print.data_len("jobs.py", {
-    "Jobs_key_mens": Jobs_key_mens,
-    "womens_Jobs_2017": womens_Jobs_2017,
+    "jobs_mens_data": jobs_mens_data,
+    "jobs_womens_data": jobs_womens_data,
     "Jobs_new": Jobs_new,
 })
 
 __all__ = [
-    "Jobs_key_mens",
-    "womens_Jobs_2017",
+    "jobs_mens_data",
+    "jobs_womens_data",
     "Jobs_new",
 ]
