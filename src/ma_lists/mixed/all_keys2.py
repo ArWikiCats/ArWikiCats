@@ -14,7 +14,7 @@ from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
 from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
 from .keys2 import keys2_py
-from .keys_23 import new_2023
+from .keys_23 import NEW_2023
 from .Newkey import pop_final6
 from ...helps import len_print
 
@@ -457,7 +457,7 @@ pf_keys2.update({k.lower(): v.strip() for k, v in People_key.items() if k.strip(
 
 pf_keys2.update({k.lower(): v.strip() for k, v in new2019.items() if k.strip() and v.strip()})
 
-pf_keys2.update({k22.lower(): v22.strip() for k22, v22 in new_2023.items() if k22.strip() and v22.strip()})
+pf_keys2.update({k22.lower(): v22.strip() for k22, v22 in NEW_2023.items() if k22.strip() and v22.strip()})
 
 pf_keys2["law"] = "قانون"
 pf_keys2["books"] = "كتب"

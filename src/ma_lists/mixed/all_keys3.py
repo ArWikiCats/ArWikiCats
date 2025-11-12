@@ -106,56 +106,28 @@ NN_TABLE_GENDERED: dict[str, dict[str, str]] = {
 }
 
 
-def _build_businesspeople_entries(registry: KeyRegistry) -> None:
-    """Add industry specific businesspeople mappings."""
-
-    for industry, label in BUSINESSPEOPLE_INDUSTRIES.items():
-        registry.data[f"{industry} businesspeople"] = f"شخصيات أعمال في {label}"
-        registry.data[f"{industry} industry businesspeople"] = f"شخصيات أعمال في صناعة {label}"
-
-
-def _build_film_company_entries(registry: KeyRegistry) -> None:
-    """Add film production companies and their film catalogues."""
-
-    for company, label in FILM_PRODUCTION_COMPANY.items():
-        registry.data[company] = label
-        registry.data[f"{company} films"] = f"أفلام {label}"
-
-
 def build_pop_final_3() -> dict[str, str]:
     """Build the main mapping used for pop culture categories."""
 
-    base_mapping = open_json_file("pop_final_3") or {}
-    registry = KeyRegistry(base_mapping)
+    registry = open_json_file("pop_final_3") or {}
 
-    _build_businesspeople_entries(registry)
-    _build_film_company_entries(registry)
+    for industry, label in BUSINESSPEOPLE_INDUSTRIES.items():
+        registry[f"{industry} businesspeople"] = f"شخصيات أعمال في {label}"
+        registry[f"{industry} industry businesspeople"] = f"شخصيات أعمال في صناعة {label}"
+
+    for company, label in FILM_PRODUCTION_COMPANY.items():
+        registry[company] = label
+        registry[f"{company} films"] = f"أفلام {label}"
 
     registry.update(summer_winter_tabs)
     registry.update(companies_keys3)
     registry.update(tab2)
     registry.update(pop_final_3_update)
 
-    return registry.data
+    return registry
 
 
-pop_final_3: dict[str, str] = open_json_file("pop_final_3") or {}
-
-
-for iu in BUSINESSPEOPLE_INDUSTRIES:
-    pop_final_3[f"{iu} businesspeople"] = f"شخصيات أعمال في {BUSINESSPEOPLE_INDUSTRIES[iu]}"
-    pop_final_3[f"{iu} industry businesspeople"] = f"شخصيات أعمال في صناعة {BUSINESSPEOPLE_INDUSTRIES[iu]}"
-
-for production, pro_lab in FILM_PRODUCTION_COMPANY.items():
-    pop_final_3[production] = pro_lab
-    pop_final_3[f"{production} films"] = f"أفلام {pro_lab}"
-
-
-pop_final_3.update(summer_winter_tabs)
-pop_final_3.update(companies_keys3)
-pop_final_3.update(tab2)
-pop_final_3.update(pop_final_3_update)
-
+pop_final_3: dict[str, str] = build_pop_final_3()
 typeTable_7: dict[str, str] = {**TYPE_TABLE_7_BASE, **typeTable_update}
 
 Ambassadors_tab: dict[str, str] = {}

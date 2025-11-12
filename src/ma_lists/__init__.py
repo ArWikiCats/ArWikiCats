@@ -69,8 +69,8 @@ from .tv.films_mslslat import (
     Films_keys_both_new,
 )
 
-from .mixed.keys2 import Add_in_table2
-from .mixed.keys2 import Parties
+from .mixed.keys2 import ADD_IN_TABLE2
+from .mixed.keys2 import PARTIES
 
 from .languages import languages_pop, lang_ttty, languages_key, lang_key_m
 
@@ -193,8 +193,8 @@ __all__ = [
     #
     "RELIGIOUS_KEYS_PP",
     #
-    "Add_in_table2",
-    "Parties",
+    "ADD_IN_TABLE2",
+    "PARTIES",
     #
     "languages_pop",
     "lang_ttty",

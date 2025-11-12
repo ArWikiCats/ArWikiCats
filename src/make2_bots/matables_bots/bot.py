@@ -21,7 +21,7 @@ from ...ma_lists import (
     jobs_mens_data,
     Sports_Keys_For_Label,
     By_table,
-    Add_in_table2,
+    ADD_IN_TABLE2,
     People_key,
     all_country_with_nat,
 )
@@ -233,7 +233,7 @@ Add_in_table = [
     "biblical manuscripts",
 ]
 # ---
-Add_in_table += Add_in_table2
+Add_in_table += ADD_IN_TABLE2
 # ---
 # P17_keys = [x for x in pop_new]
 P17_keys = [x for x in list(pop_All_2018)]

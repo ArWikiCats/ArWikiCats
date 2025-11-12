@@ -12,7 +12,7 @@ from .us_counties import Counties
 from ..others.tax_table import Taxons_table
 from ...helps import len_print
 from ..companies import New_Company
-from ..mixed.all_keys5 import pop_final_5
+from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..mixed.all_keys2 import pf_keys2
 from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
@@ -258,7 +258,7 @@ for ta2, taxon_label in Taxons_table.items():
     if lower_taxon not in COUNTRY_LABEL_INDEX and taxon_label:
         COUNTRY_LABEL_INDEX[lower_taxon] = taxon_label
 
-for po_5, poll in pop_final_5.items():
+for po_5, poll in BASE_POP_FINAL_5.items():
     if poll:
         lower_population_key = po_5.lower()
         if lower_population_key not in COUNTRY_LABEL_INDEX:

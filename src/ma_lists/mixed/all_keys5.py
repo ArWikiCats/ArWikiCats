@@ -1,96 +1,14 @@
-#!/usr/bin/python3
+"""Mappings for club-related categories and miscellaneous concepts."""
 
+from __future__ import annotations
 
-"""
-SELECT DISTINCT #?item ?humanLabel
-#?ar
-#?page_en ?page_ar
-(concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-WHERE {
-  ?human wdt:P31 ?cc.
-  #?cc wdt:P31 wd:Q31629. # رياضة
-  ?cc wdt:P31 wd:Q151885.#مفهووم
- FILTER NOT EXISTS{ ?human wdt:P31 wd:Q28640. } #مهن
-  FILTER NOT EXISTS { ?human wdt:P31 wd:Q12737077.}#مهنة
-  FILTER NOT EXISTS {?human wdt:P31 wd:Q31629. }
-  FILTER NOT EXISTS {?human wdt:P31 wd:Q188451. }
-  FILTER NOT EXISTS {?human wdt:P31 wd:Q1968435. }
-  ?human wdt:P910 ?item .
-  ?item wdt:P301 ?human.
-  ?article schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-  ?article2 schema:about ?item ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar .
-  #FILTER NOT EXISTS {?article schema:about ?item ; schema:isPartOf <https://ar.wikipedia.org/> . }.
-  SERVICE wikibase:label {
-    bd:serviceParam wikibase:language "ar,en" .
-  }
-  ?item rdfs:label ?ar .  FILTER((LANG(?ar)) = "ar")
+from typing import Tuple
 
-    }
-#LIMIT 100
-"""
-
-# from .all_keys5 import Clubs_key_2, pop_final_5
-# ---
-import sys
-
+from ...helps import len_print
+from .male_keys import New_male_keys
 from ..utils.json_dir import open_json_file
 
-from .male_keys import New_male_keys
-from ...helps import len_print
-
-# ---
-clubs_query = """
-    # تصانيف الأندية
-    SELECT DISTINCT #?cat
-    #?ar  ?humanLabel
-    #?page_en ?page_ar
-    #(concat('   "' , ?page_en , '":"' , ?ar  , '",')  as ?itemscds)
-    (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-    WHERE {
-    #?human wdt:P31 wd:Q5.#
-    ?human wdt:P31 wd:Q476028.
-    #?human wdt:P31/wdt:P279* wd:Q515.#
-    #?human wdt:P31/wdt:P279* wd:Q486972.
-    ?human wdt:P910 ?cat .
-    #?cat wdt:P301 ?human.
-    {?cat rdfs:label ?page_ar .  FILTER((LANG(?page_ar)) = "ar") } UNION
-    { ?article2 schema:about ?cat ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar . }
-    #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:isPartOf <https://ar.wikipedia.org/> }
-    #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:inLanguage "ar" }
-    # but select items with no such article
-    #FILTER (!BOUND(?sitelink))
-    ?article schema:about ?cat ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-    SERVICE wikibase:label {
-        bd:serviceParam wikibase:language "ar,en" .
-    }
-        }
-    LIMIT 1000
-"""
-# ---
-opvf = """
-    # فرق غير كرة القدم وغير المنتخبات
-    SELECT DISTINCT #?cat
-    (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-    WHERE {
-    ?human wdt:P31/wdt:P279* wd:Q847017.
-    FILTER NOT EXISTS {?human wdt:P31 wd:Q476028.} .
-    FILTER NOT EXISTS {?human wdt:P31/wdt:P279* wd:Q1194951.} .
-
-    ?human wdt:P910 ?cat .
-    {?cat rdfs:label ?page_ar .  FILTER((LANG(?page_ar)) = "ar") } UNION
-    { ?article2 schema:about ?cat ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar . }
-    ?article schema:about ?cat ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-        }
-    #LIMIT 10
-"""
-# ---
-Clubs_key = {}
-# ---
-Clubs_key = open_json_file("Clubs_key") or {}
-# ---
-# "christian saints":"قديسون",
-# ---
-pop_final_5 = {
+BASE_POP_FINAL_5: dict[str, str] = {
     "trustees of": "أمناء",
     "members of": "أعضاء",
     "independent members": "أعضاء مستقلون",
@@ -226,80 +144,9 @@ pop_final_5 = {
     "ulm": "أولم",
     "amberg": "آمبرغ",
     "metaphors": "استعارات",
-    # ---
 }
-# ---
-"""
-    # تصانيف الأندية
-    SELECT DISTINCT #?cat
-    #?ar  ?humanLabel
-    #?page_en ?page_ar
-    #(concat('   "' , ?page_en , '":"' , ?ar  , '",')  as ?itemscds)
-    (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-    WHERE {
-    #?human wdt:P31 wd:Q5.#
-    ?human wdt:P31 wd:Q476028.
-    #?human wdt:P31/wdt:P279* wd:Q515.#
-    #?human wdt:P31/wdt:P279* wd:Q486972.
-    ?human wdt:P910 ?cat .
-    #?cat wdt:P301 ?human.
-    {?cat rdfs:label ?page_ar .  FILTER((LANG(?page_ar)) = "ar") } UNION
-    { ?article2 schema:about ?cat ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar . }
-    #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:isPartOf <https://ar.wikipedia.org/> }
-    #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:inLanguage "ar" }
-    # but select items with no such article
-    #FILTER (!BOUND(?sitelink))
-    ?article schema:about ?cat ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-    SERVICE wikibase:label {
-        bd:serviceParam wikibase:language "ar,en" .
-    }
-        }
-    LIMIT 1000
-"""
-opvf = """
-    # فرق غير كرة القدم وغير المنتخبات
-    SELECT DISTINCT #?cat
-    (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-    WHERE {
-    ?human wdt:P31/wdt:P279* wd:Q847017.
-    FILTER NOT EXISTS {?human wdt:P31 wd:Q476028.} .
-    FILTER NOT EXISTS {?human wdt:P31/wdt:P279* wd:Q1194951.} .
 
-    ?human wdt:P910 ?cat .
-    {?cat rdfs:label ?page_ar .  FILTER((LANG(?page_ar)) = "ar") } UNION
-    { ?article2 schema:about ?cat ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar . }
-    ?article schema:about ?cat ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-        }
-    #LIMIT 10
-"""
-# ---
-Clubs_key_2 = {}
-# ---
-for club, lab in Clubs_key.items():
-    # ---
-    club2 = club.lower()
-    # ---
-    """
-    pop_final_5[f"{club2} players"] = f"لاعبو {lab}"
-    pop_final_5[f"{club2} seasons"] = f"مواسم {lab}"
-    pop_final_5[f"{club2} songs"] = f"أغاني {lab}"
-    pop_final_5[f"{club2} chairmen and investors"] = f"رؤساء ومسيرو {lab}"
-    pop_final_5[f"{club2} non-playing staff"] = "طاقم %s غير اللاعبين" % lab
-    pop_final_5[f"{club2} matches"] = f"مباريات {lab}"
-    pop_final_5[f"{club2} managers"] = f"مدربو {lab}"
-    pop_final_5[f"{club2} templates"] = f"قوالب {lab}"
-    """
-    # ---
-    if club and lab:
-        pop_final_5[club2] = lab
-        Clubs_key_2[club2] = lab
-# ---
-# pop_final_5[so % "buildings on the national register of historic places in"] = "مباني {} في السجل الوطني للأماكن التاريخية في".format(lab)
-# pop_final_5[so % "buildings on the national register of historic places"] = "مباني {} في السجل الوطني للأماكن التاريخية".format(lab)
-# ---
-# "illegal logging":"",
-# "people associated with":"أشخاص مرتبطين مع",
-OPOPOP = {
+RESOURCE_LABELS: dict[str, str] = {
     "bauxite": "البوكسيت",
     "coal gas-fired power stations": "محطات توليد الطاقة تعمل بغاز الفحم",
     "coal": "الفحم",
@@ -360,16 +207,37 @@ OPOPOP = {
     "water transportation": "النقل المائي",
     "wind power": "طاقة الرياح",
 }
-# ---
-for key in OPOPOP:
-    key2 = key.lower()
-    pop_final_5[key2] = OPOPOP[key]
-# ---
-for cdf in New_male_keys:
-    pop_final_5[cdf] = New_male_keys[cdf]
-# ---
-Lenth1 = {"pop_final_5": pop_final_5}
-# ---
-len_print.data_len("all_keys5.py", Lenth1)
-# ---
-del Clubs_key
+
+
+def build_pop_final_5() -> Tuple[dict[str, str], dict[str, str]]:
+    """Build the club and miscellaneous concept mappings."""
+
+    registry = dict(BASE_POP_FINAL_5)
+    clubs = open_json_file("Clubs_key") or {}
+
+    clubs_index: dict[str, str] = {}
+    for club, label in clubs.items():
+        if not club or not label:
+            continue
+        club_lower = club.lower()
+        registry[club_lower] = label
+        clubs_index[club_lower] = label
+
+    for key, label in RESOURCE_LABELS.items():
+        registry[key.lower()] = label
+
+    registry.update(New_male_keys)
+    return registry, clubs_index
+
+
+pop_final_5, Clubs_key_2 = build_pop_final_5()
+
+len_print.data_len("all_keys5.py", {
+    "pop_final_5": pop_final_5,
+    "Clubs_key_2": Clubs_key_2,
+})
+
+__all__ = [
+    "pop_final_5",
+    "Clubs_key_2"
+]

@@ -4,7 +4,7 @@ from .test_4_list import replace_labels_2022, en_is_P17_ar_is_mens, en_is_P17_ar
 
 """
 import copy
-from .keys_23 import afc_keys
+from .keys_23 import AFC_KEYS
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..sports.games_labs import summer_winter_games
@@ -629,4 +629,4 @@ Multi_sport_for_Jobs = {
 }
 
 Multi_sport_for_Jobs.update(summer_winter_games)
-Multi_sport_for_Jobs.update(afc_keys)
+Multi_sport_for_Jobs.update(AFC_KEYS)
