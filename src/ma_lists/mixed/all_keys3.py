@@ -6,6 +6,7 @@ from ..companies import companies_keys3, typeTable_update
 from ..sports.games_labs import summer_winter_tabs
 from ..structures import tab2, pop_final_3_update
 from ..utils.json_dir import open_json_file
+from ...helps import len_print
 
 TYPE_TABLE_7_BASE: dict[str, str] = {
     "air force": "قوات جوية",
@@ -138,9 +139,7 @@ def build_pop_final_3() -> dict[str, str]:
     return registry.data
 
 
-pop_final_3 = open_json_file("pop_final_3") or {}
-
-typeTable_7: dict[str, str] = {**TYPE_TABLE_7_BASE, **typeTable_update}
+pop_final_3: dict[str, str] = open_json_file("pop_final_3") or {}
 
 
 for iu in BUSINESSPEOPLE_INDUSTRIES:
@@ -157,11 +156,22 @@ pop_final_3.update(companies_keys3)
 pop_final_3.update(tab2)
 pop_final_3.update(pop_final_3_update)
 
+typeTable_7: dict[str, str] = {**TYPE_TABLE_7_BASE, **typeTable_update}
+
 Ambassadors_tab: dict[str, str] = {}
 
 NN_table: dict[str, str] = {}
 
 NN_table2: dict[str, dict[str, str]] = dict(NN_TABLE_GENDERED)
+
+len_print.data_len("all_keys3.py", {
+    "pop_final_3": pop_final_3,
+    "typeTable_7": typeTable_7,
+    "ALBUMS_TYPE": ALBUMS_TYPE,
+    "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
+    "NN_table2": NN_table2,
+    "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
+})
 
 __all__ = [
     "pop_final_3",
