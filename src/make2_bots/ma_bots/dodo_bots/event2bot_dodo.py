@@ -15,16 +15,17 @@ from ...matables_bots.bot import Add_to_main2_tab
 from ...matables_bots.bot import (
     New_Lan,
     Films_O_TT,
-    New_players,
     typeTable,
     type_after_country,
 )
+from ...matables_bots.check_bot import check_key_new_players
 from .dodo_2019 import work_2019
 from .mk2 import new_func_mk2
 from ..country_bot import get_country
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
 from ....helps.print_bot import print_put, output_test
+from ....utils import check_key_in_tables
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -193,12 +194,17 @@ def make_lab_dodo(
 
     if NoLab and cat_test == "":
         if country_label and typeo_lab and year == "" and In == "":
+            # ---
+            in_tables_lowers = check_key_new_players(typeo.lower())
+            in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
+            # ---
             if typeo in type_after_country:
                 ar = f"{country_label} {typeo_lab}"
-            elif (typeo in typeTable) or (typeo in Films_O_TT) or (typeo.lower() in New_players):
+            elif in_tables or in_tables_lowers:
                 ar = f"{typeo_lab} {country_label}"
             else:
                 ar = f"{country_label} {typeo_lab}"
+            # ---
             New_Lan[category_r] = ar
             print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
             print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')

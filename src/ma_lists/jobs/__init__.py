@@ -8,14 +8,11 @@ pulling in individual module internals.
 
 from __future__ import annotations
 
+from .jobs_womens import Female_Jobs, Jobs_key_womens
+
 from .Jobs import (
-    Female_Jobs,
-    Jobs_key,
     Jobs_key_mens,
-    Jobs_key_womens,
     Jobs_new,
-    Men_Womens_Jobs,
-    womens_Jobs_2017,
 )
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data import (
@@ -28,7 +25,6 @@ from .jobs_players_list import (
     FOOTBALL_KEYS_PLAYERS,
     JOBS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,
-    FEMALE_JOBS_TO,
 )
 from .jobs_singers import (
     FILMS_TYPE,
@@ -43,19 +39,15 @@ __all__ = [
     "JOBS_2",
     # Primary job dictionaries
     "Female_Jobs",
-    "Jobs_key",
     "Jobs_key_mens",
     "Jobs_key_womens",
     "Jobs_new",
-    "Men_Womens_Jobs",
     "MEN_WOMENS_WITH_NATO",
     "NAT_BEFORE_OCC",
-    "womens_Jobs_2017",
     # Player utilities
     "FOOTBALL_KEYS_PLAYERS",
     "JOBS_PLAYERS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
-    "FEMALE_JOBS_TO",
     # Singer utilities
     "MEN_WOMENS_SINGERS",
     "FILMS_TYPE",

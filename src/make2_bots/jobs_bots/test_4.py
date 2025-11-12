@@ -20,7 +20,6 @@ $1
 """
 
 import re
-import sys
 
 # ---
 from ...ma_lists import (

@@ -7,8 +7,7 @@ from .dodo_bots.dodo_2019 import work_2019
 """
 
 import re
-from ...matables_bots.bot import New_players, Table_for_frist_word
-
+from ...matables_bots.check_bot import check_key_new_players
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ....helps.print_bot import print_put
 from ..country_bot import get_country
@@ -28,13 +27,10 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     arlabel = ""
     if cat4_lab:
         print_put(f'<<lightgreen>>>>>> cat4_lab = "{cat4_lab}"')
-        # cat_4_in_Table = False
-        for table, ta_t in Table_for_frist_word.items():
-            if cat_4 in ta_t:
-                # cat_4_in_Table = True
-                print_put(f'X:<<lightpurple>>>>>> cat_4 "{cat_4}" in {table}.')
-
-        if cat_4 in New_players:
+        # ---
+        in_tables = check_key_new_players(cat_4)
+        # ---
+        if in_tables:
             arlabel = f"{cat4_lab} في {year_labe}"
         elif cat4_lab.endswith(" في"):
             arlabel = f"{cat4_lab} {year_labe}"

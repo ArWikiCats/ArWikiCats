@@ -20,13 +20,29 @@ from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
 from .jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO, RELIGIOUS_KEYS_PP
 
-from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Jobs_new, Jobs_key
+from .jobs.Jobs import Jobs_key_mens, womens_Jobs_2017, Jobs_new
+
+from .jobs.jobs_womens import Female_Jobs, Jobs_key_womens
 
 from .geo.labels_country import New_P17_Finall
 
 from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
 
-from .nats.Nationality import All_Nat, Nat_women, all_country_ar, all_country_with_nat, all_country_with_nat_keys_is_en, all_country_with_nat_ar, contries_from_nat, Nat_mens, Nat_Womens, Nat_men, ar_Nat_men, nats_to_add, en_nats_to_ar_label
+from .nats.Nationality import (
+    All_Nat,
+    Nat_women,
+    all_country_ar,
+    all_country_with_nat,
+    all_country_with_nat_keys_is_en,
+    all_country_with_nat_ar,
+    contries_from_nat,
+    Nat_mens,
+    Nat_Womens,
+    Nat_men,
+    ar_Nat_men,
+    nats_to_add,
+    en_nats_to_ar_label,
+)
 
 from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
 
@@ -38,7 +54,20 @@ from .mixed.all_keys5 import Clubs_key_2
 
 from .by_type import By_table, By_orginal2, By_table_orginal, Music_By_table
 
-from .tv.films_mslslat import Films_TT, typeTable_4, Films_key_CAO, Films_key_For_nat, Films_key_CAO_new_format, television_keys_female, Films_key_333, Films_key_man, film_key_women_2, films_mslslat_tab, film_Keys_For_female, Films_keys_both_new
+from .tv.films_mslslat import (
+    Films_TT,
+    typeTable_4,
+    Films_key_CAO,
+    Films_key_For_nat,
+    Films_key_CAO_new_format,
+    television_keys_female,
+    Films_key_333,
+    Films_key_man,
+    film_key_women_2,
+    films_mslslat_tab,
+    film_Keys_For_female,
+    Films_keys_both_new,
+)
 
 from .mixed.keys2 import Add_in_table2
 from .mixed.keys2 import Parties
@@ -49,7 +78,12 @@ from .mixed.male_keys import New_female_keys, New_male_keys
 
 from .companies import New_Company
 
-from .politics.military_keys import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
+from .politics.military_keys import (
+    military_format_women_without_al_from_end,
+    military_format_women_without_al,
+    military_format_women,
+    military_format_men
+)
 
 from .politics.ministers import ministrs_tab_for_pop_format
 
@@ -59,7 +93,26 @@ from .others.peoples import People_key
 
 from .mix_data import pop_All_2018_bot
 
-from .mixed.test_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to, Multi_sport_for_Jobs, en_is_nat_ar_is_women_2, en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, replace_labels_2022, Mens_suffix, Mens_priffix, Women_s_priffix, en_is_P17_ar_is_al_women
+from .mixed.test_4_list import (
+    en_is_nat_ar_is_P17,
+    en_is_nat_ar_is_al_mens,
+    en_is_nat_ar_is_man,
+    en_is_nat_ar_is_al_women,
+    en_is_nat_ar_is_women,
+    change_male_to_female,
+    priffix_lab_for_2018,
+    Main_priffix,
+    Main_priffix_to,
+    Multi_sport_for_Jobs,
+    en_is_nat_ar_is_women_2,
+    en_is_P17_ar_is_mens,
+    en_is_P17_ar_is_P17,
+    replace_labels_2022,
+    Mens_suffix,
+    Mens_priffix,
+    Women_s_priffix,
+    en_is_P17_ar_is_al_women
+)
 
 from .utils.json_dir import open_json_file
 
@@ -81,11 +134,9 @@ __all__ = [
     "Jobs_key_womens",
     "womens_Jobs_2017",
     "Female_Jobs",
-    "Men_Womens_Jobs",
     "NAT_BEFORE_OCC",
     "MEN_WOMENS_WITH_NATO",
     "Jobs_new",
-    "Jobs_key",
     #
     "New_P17_Finall",
     "All_Nat",

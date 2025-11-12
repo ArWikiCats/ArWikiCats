@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from src.ma_lists.jobs.jobs_players_list import (
-    FEMALE_JOBS_TO,
     FOOTBALL_KEYS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,
 )
@@ -16,9 +15,6 @@ def test_players_dataset_includes_core_sports_roles() -> None:
     football_labels = PLAYERS_TO_MEN_WOMENS_JOBS["footballers"]
     assert football_labels["mens"] == "لاعبو كرة قدم"
     assert football_labels["womens"] == "لاعبات كرة قدم"
-
-    assert "women's football players" in FEMALE_JOBS_TO
-    assert FEMALE_JOBS_TO["women's football players"].startswith("لاعبات كرة قدم")
 
 
 def test_football_key_players_are_registered() -> None:
