@@ -355,7 +355,6 @@ def _add_singer_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) ->
 
 
 def _build_jobs_new(
-    jobs_key: Mapping[str, str],
     female_jobs: Mapping[str, str],
 ) -> Dict[str, str]:
     """Build the flattened ``Jobs_new`` mapping used by legacy bots."""
@@ -372,10 +371,7 @@ def _build_jobs_new(
             jobs_new[f"{nationality_key.lower()} people"] = nationality_label
 
     jobs_new["people of the ottoman empire"] = "عثمانيون"
-    for job_key, job_label in jobs_key.items():
-        lowered = job_key.lower()
-        if job_label:
-            jobs_new[lowered] = job_label
+
     return jobs_new
 
 
@@ -411,7 +407,7 @@ def _finalise_jobs_dataset() -> JobsDataset:
 
     jobs_keys_mens: Dict[str, str] = {key: label for key, label in jobs_keys_mens.items() if label}
 
-    jobs_new = _build_jobs_new(jobs_keys_mens, Female_Jobs)
+    jobs_new = _build_jobs_new(Female_Jobs)
 
     return JobsDataset(
         jobs_keys_mens=jobs_keys_mens,
@@ -432,7 +428,7 @@ Jobs_new = _DATASET.jobs_new
 _len_result = {
     "Jobs_key_mens": {"count": 97797, "size": "3.7 MiB"},   # "zoologists": "علماء حيوانات"
     "Jobs_key": {"count": 97784, "size": "3.7 MiB"},        # "zoologists": "علماء حيوانات"
-    "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"}, # "zoologists": { "mens": "علماء حيوانات", "womens": "عالمات حيوانات" }
+    "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},  # "zoologists": { "mens": "علماء حيوانات", "womens": "عالمات حيوانات" }
 
     "Jobs_new": {"count": 99104, "size": "3.7 MiB"},        # same as Jobs_key +
     "womens_Jobs_2017": {"count": 75244, "size": "1.8 MiB"},

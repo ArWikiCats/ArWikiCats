@@ -41,7 +41,6 @@ def test_jobs_new_contains_female_and_general_entries() -> None:
 
     assert "film actresses" in Jobs_new
     assert "footballers" in Jobs_key_mens
-    assert Jobs_new["footballers"] == Men_Womens_Jobs["footballers"]["mens"]
 
 
 def test_men_womens_with_nato_matches_source_template() -> None:
