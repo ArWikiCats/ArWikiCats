@@ -1,6 +1,4 @@
-#!/usr/bin/python3
-"""
-"""
+"""Additional mixed keys introduced in 2023."""
 
 from ...helps import len_print
 
@@ -191,14 +189,23 @@ AFC_KEYS: dict[str, str] = {
     "afc futsal club championship": "بطولة آسيا لكرة الصالات للأندية",
 }
 
-NEW_2023 = dict(BASE_NEW_2023)
-for k, lab in ANTI_KEYS.items():  # Category:Anti-war protests in France
-    k2 = k.lower()
-    # ---
-    for en, ar in ANTI_SUFFIXES.items():
-        NEW_2023[f"{k2} {en}"] = f"{ar} {lab}"
-# ---
-NEW_2023.update({x.lower(): v for x, v in AFC_KEYS.items()})
+
+def build_new_2023() -> dict[str, str]:
+    """Return the mapping that augments the historical ``NEW_2023`` dictionary."""
+
+    data = dict(BASE_NEW_2023)
+
+    for prefix, prefix_label in ANTI_KEYS.items():  # Category:Anti-war protests in France
+        lowered = prefix.lower()
+        for suffix, suffix_label in ANTI_SUFFIXES.items():
+            data[f"{lowered} {suffix}"] = f"{suffix_label} {prefix_label}"
+
+    data.update({x.lower(): v for x, v in AFC_KEYS.items()})
+
+    return data
+
+
+NEW_2023: dict[str, str] = build_new_2023()
 
 
 len_print.data_len("keys_23.py", {
