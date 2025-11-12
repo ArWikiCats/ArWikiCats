@@ -45,47 +45,6 @@ def check_country_in_tables(country):
     return False
 
 
-def add_the_in(country, arlabel, suf, In, typeo, year_labe, con_lab, cat_test):
-    Add_In_Done = False
-    arlabel2 = arlabel
-
-    in_table = check_country_in_tables(country)
-
-    if in_table and typeo not in Keep_it_frist:
-        in_tables = check_key_new_players(country.lower())
-        print_put(f"{in_tables=}")
-        if not con_lab.startswith("حسب") and year_labe:
-            if (In.strip() == "in" or In.strip() == "at") or in_tables:
-                con_lab = f"{con_lab} في "
-                Add_In_Done = True
-                print_put(">>> Add في line: 79")
-                cat_test = cat_test.replace(In, "")
-
-        arlabel = con_lab + suf + arlabel
-        if arlabel.startswith("حسب"):
-            arlabel = arlabel2 + suf + con_lab
-        Add_to_main2_tab(In.strip(), "في")
-    else:
-        if In.strip() == "in" or In.strip() == "at":
-            con_lab = f"في {con_lab}"
-
-            cat_test = cat_test.replace(In, "")
-            Add_to_main2_tab(In.strip(), "في")
-            Add_In_Done = True
-            print_put(">>> Add في line: 92")
-
-        arlabel = arlabel + suf + con_lab
-        # ---
-        arlabel = re.sub(r"\s+", " ", arlabel)
-        # ---
-        arlabel = arlabel.replace(" في في ", " في ")
-        # ---
-        print_put(f">3252 arlabel: {arlabel}")
-
-        # if (typeo == '" and In == "') and (country and year != ""):
-    return Add_In_Done, arlabel, cat_test
-
-
 def new_func_mk2(
     category: str,
     cat_test: str,
@@ -147,9 +106,37 @@ def new_func_mk2(
     """
     arlabel2 = arlabel
 
-    print_put(f"{country=}, {Add_In_Done=}, {Add_In=}")
+    in_table = check_country_in_tables(country)
 
-    Add_In_Done, arlabel, cat_test = add_the_in(country, arlabel, suf, In, typeo, year_labe, con_lab, cat_test)
+    if in_table and typeo not in Keep_it_frist:
+        if (In.strip() == "in" or In.strip() == "at") or check_key_new_players(country.lower()) and not con_lab.startswith("حسب"):
+            if year_labe:
+                con_lab = f"{con_lab} في "
+                Add_In_Done = True
+                output_test(">>> Add في line: 1010")
+                cat_test = cat_test.replace(In, "")
+
+        arlabel = con_lab + suf + arlabel
+        if arlabel.startswith("حسب"):
+            arlabel = arlabel2 + suf + con_lab
+        Add_to_main2_tab(In.strip(), "في")
+    else:
+        if In.strip() == "in" or In.strip() == "at":
+            con_lab = f"في {con_lab}"
+
+            cat_test = cat_test.replace(In, "")
+            Add_to_main2_tab(In.strip(), "في")
+            Add_In_Done = True
+
+        arlabel = arlabel + suf + con_lab
+        # ---
+        arlabel = re.sub(r"\s+", " ", arlabel)
+        # ---
+        arlabel = arlabel.replace(" في في ", " في ")
+        # ---
+        print_put(f">3252 arlabel: {arlabel}")
+
+        # if (typeo == '" and In == "') and (country and year != ""):
 
     print_put(f"{year_labe=}, {arlabel2=}")
 
