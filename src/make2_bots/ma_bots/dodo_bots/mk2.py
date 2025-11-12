@@ -6,6 +6,7 @@ Usage:
 import re
 
 from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
+from ...matables_bots.check_bot import check_key_new_players
 from ...matables_bots.bot import (
     Add_to_main2_tab,
     Films_O_TT,
@@ -16,7 +17,6 @@ from ...matables_bots.bot import (
 )
 from ....utils import check_key_in_tables_return_tuple, check_key_in_tables
 from ....helps.print_bot import print_put, output_test
-from ...matables_bots.check_bot import check_key_new_players
 
 
 to_check_them = [
