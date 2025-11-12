@@ -3,7 +3,8 @@ Key-label mappings for generic mixed categories.
 """
 
 from __future__ import annotations
-from ..utils.json_dir import open_json_file
+
+from collections.abc import Mapping
 
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
@@ -14,6 +15,7 @@ from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
 from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
 from .keys2 import keys2_py
+from ..utils.json_dir import open_json_file
 from .keys_23 import NEW_2023
 from .Newkey import pop_final6
 from ...helps import len_print
@@ -32,6 +34,9 @@ BASE_LABELS: dict[str, str] = {
     "temple mount and al-aqsa": "جبل الهيكل والأقصى",
     "sexual violence": "عنف جنسي",
     "hamas": "حماس",
+    "law": "قانون",
+    "books": "كتب",
+    "military": "عسكرية",
     "the israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
     "israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
     "israel–hamas war protests": "احتجاجات الحرب الفلسطينية الإسرائيلية",
@@ -330,6 +335,21 @@ CINEMA_CATEGORIES: dict[str, str] = {
 }
 
 
+def _update_lowercase(data, mapping: Mapping[str, str], skip_existing: bool = False) -> None:
+    def check_skip_existing(key):
+        if skip_existing:
+            return data.get(key.lower()) is None
+        return True
+
+    for table in mapping:
+        data.update({
+            key.lower(): v.strip()
+            for key, v in table.items()
+            if key.strip() and v.strip()
+            and check_skip_existing(key)
+        })
+
+
 pop_of_football = open_json_file("pop_of_football") or {}
 
 pf_keys2 = {}
@@ -447,26 +467,9 @@ for xfxx, xfxx_lab in SINGERS_TAB.items():  # all_keys3
         for ty, ty_lab in ALBUMS_TYPE.items():
             pf_keys2[f"{xfxx} {ty} albums"] = f"ألبومات {ty_lab} {xfxx_lab}"
 
-pf_keys2.update({k.lower(): v.strip() for k, v in tennis_keys.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
+_update_lowercase(pf_keys2, [tennis_keys, pop_final6, cccccc_m], skip_existing=True)
 
-pf_keys2.update({k.lower(): v.strip() for k, v in pop_final6.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
-
-pf_keys2.update({k.lower(): v.strip() for k, v in cccccc_m.items() if k.strip() and v.strip() and not pf_keys2.get(k.lower())})
-
-pf_keys2.update({k.lower(): v.strip() for k, v in languages_key.items() if k.strip() and v.strip()})
-
-pf_keys2.update({k.lower(): v.strip() for k, v in People_key.items() if k.strip() and v.strip()})
-
-pf_keys2.update({k.lower(): v.strip() for k, v in new2019.items() if k.strip() and v.strip()})
-
-pf_keys2.update({k22.lower(): v22.strip() for k22, v22 in NEW_2023.items() if k22.strip() and v22.strip()})
-
-pf_keys2["law"] = "قانون"
-pf_keys2["books"] = "كتب"
-pf_keys2["military"] = "عسكرية"
-
-del pop_final_3
-del keys2_py
+_update_lowercase(pf_keys2, [languages_key, People_key, new2019, NEW_2023], skip_existing=False)
 
 len_print.data_len("all_keys2.py", {
     "pf_keys2": pf_keys2,
