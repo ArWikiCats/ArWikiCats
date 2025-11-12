@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from src.ma_lists.jobs.jobs_womens import (
-    Jobs_key_womens,
+    short_womens_jobs,
     FEMALE_JOBS_TO,
     Female_Jobs,
 )
@@ -25,10 +25,10 @@ def test_female_jobs_include_film_and_sport_variants() -> None:
     assert Female_Jobs["film actresses"].startswith("ممثلات")
 
 
-def test_jobs_key_womens_mirrors_female_jobs() -> None:
+def test_short_womens_jobs_mirrors_female_jobs() -> None:
     """Female job lookups should align with the lower-case key mapping."""
 
-    assert Jobs_key_womens
-    for key, label in Jobs_key_womens.items():
+    assert short_womens_jobs
+    for key, label in short_womens_jobs.items():
         assert key in Female_Jobs
         assert Female_Jobs[key] == label

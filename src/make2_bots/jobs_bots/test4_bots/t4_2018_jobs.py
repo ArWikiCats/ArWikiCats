@@ -15,7 +15,7 @@ from ....ma_lists import (
     Nat_women,
     Nat_men,
     Jobs_key_mens,
-    Jobs_key_womens,
+    short_womens_jobs,
     en_is_nat_ar_is_man,
     en_is_nat_ar_is_women,
     change_male_to_female,
@@ -87,7 +87,7 @@ def test4_2018_Jobs(cate: str) -> str:
     if not country_lab:
         country_lab = People_key.get(cate, "")
     if not country_lab:
-        country_lab = Jobs_key_womens.get(cate, "")
+        country_lab = short_womens_jobs.get(cate, "")
     # ---
     if not country_lab:
         country_lab = Lang_work(cate)

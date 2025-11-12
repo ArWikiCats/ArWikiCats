@@ -10,7 +10,7 @@ from ...ma_lists import (
     Nat_mens,
     Nat_Womens,
     Jobs_key_mens,
-    Jobs_key_womens,
+    short_womens_jobs,
     NAT_BEFORE_OCC,
     MEN_WOMENS_WITH_NATO,
 )
@@ -122,7 +122,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
                 country_lab = women_nat_lab
             # ---
             if not country_lab:
-                f_lab = Jobs_key_womens.get(con_3, "")
+                f_lab = short_womens_jobs.get(con_3, "")
                 # ---
                 if not f_lab:
                     f_lab = Women_s_priffix_work(con_3)

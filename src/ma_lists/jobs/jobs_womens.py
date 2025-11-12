@@ -51,7 +51,7 @@ def _build_female_jobs() -> Dict[str, str]:
 
 
 Female_Jobs = _build_female_jobs()
-Jobs_key_womens = Female_Jobs
+short_womens_jobs = Female_Jobs
 
 _len_result = {
     "Female_Jobs": {"count": 468, "size": "12.8 KiB"},
@@ -62,6 +62,6 @@ len_print.data_len("jobs_womens.py", {
 
 __all__ = [
     "Female_Jobs",
-    "Jobs_key_womens",
+    "short_womens_jobs",
     "FEMALE_JOBS_TO",
 ]

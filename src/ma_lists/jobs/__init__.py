@@ -8,7 +8,7 @@ pulling in individual module internals.
 
 from __future__ import annotations
 
-from .jobs_womens import Female_Jobs, Jobs_key_womens
+from .jobs_womens import Female_Jobs, short_womens_jobs
 
 from .Jobs import (
     Jobs_key_mens,
@@ -40,7 +40,7 @@ __all__ = [
     # Primary job dictionaries
     "Female_Jobs",
     "Jobs_key_mens",
-    "Jobs_key_womens",
+    "short_womens_jobs",
     "Jobs_new",
     "MEN_WOMENS_WITH_NATO",
     "NAT_BEFORE_OCC",

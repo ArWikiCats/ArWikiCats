@@ -6,7 +6,7 @@ import functools
 from ...ma_lists import (
     Nat_mens,
     Jobs_key_mens,
-    Jobs_key_womens,
+    short_womens_jobs,
     womens_Jobs_2017,
     Female_Jobs,
     By_table,
@@ -152,7 +152,7 @@ def Women_s_priffix_work(con_3: str) -> str:
     f_lab = ""
     # ---
     if not f_lab:
-        f_lab = Jobs_key_womens.get(con_3, "")
+        f_lab = short_womens_jobs.get(con_3, "")
     # ---
     con_33 = con_3
     if con_3.endswith(" women"):
