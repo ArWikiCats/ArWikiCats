@@ -454,6 +454,14 @@ def _extend_sport_mappings() -> None:
     for key, value in sport_formts_new_kkk.items():
         en_is_nat_ar_is_P17[key] = value
 
+    # TODO
+    for key, value in sport_formts_male_nat.items():
+        en_is_nat_ar_is_al_mens[key] = value
+
+    # TODO
+    for category, label in baston_men.items():
+        en_is_nat_ar_is_al_mens[category.lower()] = f"{label} {{}}"
+
 
 def _extend_singer_and_business_entries() -> None:
     """Populate singer and businessperson derived mappings."""
