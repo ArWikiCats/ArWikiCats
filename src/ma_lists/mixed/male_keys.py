@@ -324,7 +324,7 @@ for d_d in FEMALE_SUFFIXES:
 
 len_print.data_len("male_keys.py", {
     "New_female_keys": New_female_keys,
-    "All_Nat New_male_keys": New_male_keys,
+    "New_male_keys": New_male_keys,
 })
 
 __all__ = [
