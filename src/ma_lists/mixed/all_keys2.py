@@ -18,14 +18,7 @@ from .keys_23 import NEW_2023
 from .Newkey import pop_final6
 from ...helps import len_print
 
-pop_of_football = open_json_file("pop_of_football") or {}
-
-pf_keys2 = {}
-
-pf_keys2.update(pop_of_football)
-
-pf_keys2.update(keys2_py)
-pf_keys2.update({
+BASE_LABELS: dict[str, str] = {
     "international reactions": "ردود فعل دولية",
     "domestic reactions": "ردود فعل محلية",
     "foreign involvement": "التدخل الأجنبي",
@@ -42,7 +35,7 @@ pf_keys2.update({
     "the israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
     "israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
     "israel–hamas war protests": "احتجاجات الحرب الفلسطينية الإسرائيلية",
-})
+}
 
 DIRECTIONS: dict[str, str] = {
     "southeast": "جنوب شرق",
@@ -337,6 +330,15 @@ CINEMA_CATEGORIES: dict[str, str] = {
 }
 
 
+pop_of_football = open_json_file("pop_of_football") or {}
+
+pf_keys2 = {}
+
+pf_keys2.update(pop_of_football)
+
+pf_keys2.update(keys2_py)
+pf_keys2.update(BASE_LABELS)
+
 for direction_key, direction_label in DIRECTIONS.items():
     for region_key, region_label in REGIONS.items():
         arabic_label = f"{direction_label} {region_label}"
@@ -401,7 +403,7 @@ for po_3 in pop_final_3:
 for bo, bo_lab in BOOK_CATEGORIES.items():
     pf_keys2[bo] = bo_lab
     pf_keys2[f"defunct {bo}"] = f"{bo_lab} سابقة"
-    pf_keys2[f"{bo} publications"] = f"منشوات {bo_lab}"
+    pf_keys2[f"{bo} publications"] = f"منشورات {bo_lab}"
 
     bo2 = bo.lower()
 
@@ -462,26 +464,6 @@ pf_keys2.update({k22.lower(): v22.strip() for k22, v22 in NEW_2023.items() if k2
 pf_keys2["law"] = "قانون"
 pf_keys2["books"] = "كتب"
 pf_keys2["military"] = "عسكرية"
-
-mmmm = [
-    "gymnastics",
-    "polo",
-    "cycle",
-    "running",
-    "football",
-    "rugby",
-    "shooting",
-    "racing",
-    "tennis",
-    "handball",
-    "volleyball",
-    "sailing",
-    "wrestling",
-    "skiing",
-    "surfing",
-    "motor",
-    "rally",
-]
 
 del pop_final_3
 del keys2_py
