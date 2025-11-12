@@ -1,67 +1,22 @@
-#!/usr/bin/python3
+"""
+Key-label mappings for generic mixed categories.
 """
 
-"""
+from __future__ import annotations
 from ..utils.json_dir import open_json_file
 
-# ---
-from .keys_23 import new_2023
-from .keys2 import keys2_py
-from .all_keys4 import new2019
-from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
-from ..sports import tennis_keys
-from .all_keys3 import albums_type, pop_final_3
-from .Newkey import pop_final6
-from ..languages import languages_key, cccccc_m
+from ..jobs.jobs_singers import SINGERS_TAB
+from ..languages import cccccc_m, languages_key
 from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
-from ..jobs.jobs_singers import SINGERS_TAB
+from ..sports import tennis_keys
+from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
+from .all_keys3 import albums_type, pop_final_3
+from .all_keys4 import new2019
+from .keys2 import keys2_py
+from .keys_23 import new_2023
+from .Newkey import pop_final6
 from ...helps import len_print
-
-# ---
-query1 = """
-    SELECT DISTINCT #?cat
-        #?ar  ?humanLabel
-        #?page_en ?page_ar
-        #(concat('   "' , ?page_en , '":"' , ?ar  , '",')  as ?itemscds)
-        (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-        WHERE {
-        #?human wdt:P31 wd:Q15401699.#
-        {
-        ?human wdt:P31/wdt:P279* wd:Q15401699. } UNION {
-        ?human wdt:P31/wdt:P279* wd:Q968159. } UNION {
-        ?human wdt:P31/wdt:P279* wd:Q32880. }
-        ?human wdt:P910 ?cat .
-        #?cat wdt:P301 ?human.
-        #{?cat rdfs:label ?page_ar .  FILTER((LANG(?page_ar)) = "ar") }
-        {?article2 schema:about ?cat ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar . }
-        #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:isPartOf <https://ar.wikipedia.org/> }
-        #OPTIONAL { ?sitelink schema:about ?cat . ?sitelink schema:inLanguage "ar" }
-        # but select items with no such article
-        #FILTER (!BOUND(?sitelink))
-        ?article schema:about ?cat ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-        SERVICE wikibase:label {
-            bd:serviceParam wikibase:language "ar,en" .
-        }
-        }
-    LIMIT 10000
-"""
-# ---
-query2 = """
-    SELECT DISTINCT #?cat
-    (concat('   "' , ?page_en , '":"' , ?page_ar  , '",')  as ?itemscds)
-    WHERE {
-    ?human wdt:P31 wd:Q13027888.
-    ?human rdfs:label ?page_ar filter (lang(?page_ar) = "ar") .
-    FILTER NOT EXISTS
-    {?article2 schema:about ?human ; schema:isPartOf <https://ar.wikipedia.org/> ; schema:name ?page_ar3 . }
-    ?article schema:about ?human ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?page_en .
-    SERVICE wikibase:label {
-        bd:serviceParam wikibase:language "ar,en" .
-    }
-        }
-    LIMIT 10000
-"""
 
 pop_of_football = open_json_file("pop_of_football") or {}
 # ---
@@ -70,22 +25,23 @@ pf_keys2 = {}
 pf_keys2.update(pop_of_football)
 # ---
 pf_keys2.update(keys2_py)
-pf_keys2["international reactions"] = "ردود فعل دولية"
-pf_keys2["domestic reactions"] = "ردود فعل محلية"
-pf_keys2["foreign involvement"] = "التدخل الأجنبي"
-pf_keys2["hostage crisis"] = "أزمة الرهائن"
-pf_keys2["violations of medical neutrality"] = "انتهاكات الحياد الطبي"
-pf_keys2["misinformation"] = "معلومات مضللة"
-pf_keys2["reactions"] = "ردود فعل"
-pf_keys2["israeli–palestinian conflict"] = "الصراع الإسرائيلي الفلسطيني"
-pf_keys2["legal issues"] = "قضايا قانونية"
-pf_keys2["stone-throwing"] = "رمي الحجارة"
-pf_keys2["temple mount and al-aqsa"] = "جبل الهيكل والأقصى"
-pf_keys2["sexual violence"] = "عنف جنسي"
-pf_keys2["hamas"] = "حماس"
-pf_keys2["the israel–hamas war"] = "الحرب الفلسطينية الإسرائيلية"
-pf_keys2["israel–hamas war"] = "الحرب الفلسطينية الإسرائيلية"
-pf_keys2["israel–hamas war protests"] = "احتجاجات الحرب الفلسطينية الإسرائيلية"
+pf_keys2.update({"international reactions": "ردود فعل دولية",
+    "domestic reactions": "ردود فعل محلية",
+    "foreign involvement": "التدخل الأجنبي",
+    "hostage crisis": "أزمة الرهائن",
+    "violations of medical neutrality": "انتهاكات الحياد الطبي",
+    "misinformation": "معلومات مضللة",
+    "reactions": "ردود فعل",
+    "israeli–palestinian conflict": "الصراع الإسرائيلي الفلسطيني",
+    "legal issues": "قضايا قانونية",
+    "stone-throwing": "رمي الحجارة",
+    "temple mount and al-aqsa": "جبل الهيكل والأقصى",
+    "sexual violence": "عنف جنسي",
+    "hamas": "حماس",
+    "the israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
+    "israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
+    "israel–hamas war protests": "احتجاجات الحرب الفلسطينية الإسرائيلية",
+})
 # ---
 DIRECTIONS = {
     "southeast": "جنوب شرق",
@@ -189,7 +145,6 @@ Word_After_Years = {
     "clashes": "اشتباكات",
     "endings": "نهايات",
     "fires": "حرائق",
-    # "wildfires":"حرائق الغابات",
     "tsunamis": "أمواج تسونامي",
     "landslides": "انهيارات أرضية",
     "floods": "فيضانات",
@@ -200,14 +155,13 @@ Word_After_Years = {
     "contests": "منافسات",
     "ballot measures": "إجراءات اقتراع",
     "ballot propositions": "اقتراحات اقتراع",
-    # "ballot measures":"استفتاءات عامة",
     "referendums": "استفتاءات",
     "beginnings": "بدايات",
 }
 # ---
 pf_keys2.update({x.lower(): v for x, v in Word_After_Years.items()})
 # ---
-towns_communities = {
+TOWNS_COMMUNITIES = {
     "muslim": "إسلامية",
     "fishing": "صيد",
     "mining": "تعدين",
@@ -215,13 +169,13 @@ towns_communities = {
     "ghost": "أشباح",
 }
 # ---
-for tt, tt_lab in towns_communities.items():
+for tt, tt_lab in TOWNS_COMMUNITIES.items():
     pf_keys2[f"{tt} communities"] = f"مجتمعات {tt_lab}"
     pf_keys2[f"{tt} towns"] = f"بلدات {tt_lab}"
     pf_keys2[f"{tt} villages"] = f"قرى {tt_lab}"
     pf_keys2[f"{tt} cities"] = f"مدن {tt_lab}"
 # ---
-aerasee = {
+ART_MOVEMENTS = {
     "renaissance": "عصر النهضة",
     "bronze age": "عصر برونزي",
     "stone age": "عصر حجري",
@@ -284,7 +238,7 @@ aerasee = {
     "modernismo": "الحداثة (الأدب باللغة الإسبانية)",
 }
 # ---
-pf_keys2.update({x.lower(): v for x, v in aerasee.items()})
+pf_keys2.update({x.lower(): v for x, v in ART_MOVEMENTS.items()})
 # ---
 Tato_type = open_json_file("Tato_type") or {}
 # ---
