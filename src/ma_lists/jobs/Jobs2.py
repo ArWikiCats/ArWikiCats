@@ -1,19 +1,13 @@
-"""Assemble gendered Arabic labels for general job categories.
-
-This module historically populated two large dictionaries: ``Jobs_2`` and
-``Jobs_3333``.  The original implementation performed a series of untyped
-mutations, loaded JSON documents directly into globals, and printed diagnostic
-information on import.  The refactor recreates the same data while providing
-type hints, reusable helpers, structured logging, and inline documentation that
-explains the intent of each transformation.
+"""
+Assemble gendered Arabic labels for general job categories.
 """
 
 from __future__ import annotations
 
 import logging
-from typing import Mapping
+from typing import Mapping, Tuple
 
-from .jobs_defs import GenderedLabel, GenderedLabelMap
+from .jobs_defs import GenderedLabelMap
 
 from ..utils.json_dir import open_json
 LOGGER = logging.getLogger(__name__)
@@ -150,80 +144,71 @@ LEGACY_EXPECTED_MENS_LABELS: Mapping[str, str] = {
     "women writers": "كاتبات",
 }
 
-
-# ---
-Jobs_2 = {}
-Jobs_3333 = {}
-# ---
-
-for sci in SCIENTIST_DISCIPLINES:
-    lab = SCIENTIST_DISCIPLINES[sci]
-    Jobs_2[sci.lower()] = {"mens": f"علماء {lab}", "womens": f"عالمات {lab}"}
-# ---
-for sci in SCHOLAR_DISCIPLINES:
-    lab = SCHOLAR_DISCIPLINES[sci]
-    Jobs_2[f"{sci.lower()} scholars"] = {"mens": f"علماء {lab}", "womens": f"عالمات {lab}"}
-# ---
-for joj in jobs_additional.keys():
-    Jobs_3333[joj.lower()] = jobs_additional[joj]
-    if joj.lower() not in Jobs_2 and jobs_additional[joj]["mens"]:
-        Jobs_2[joj.lower()] = jobs_additional[joj]
-# ---
-nano = 0
-for jowj in jobs_primary.keys():
-    if jowj.lower() in Jobs_3333:
-        # printe.output('jobs2: "%s" : { "mens": "%s" ,"womens": "%s" },' %  (jowj , jobs_primary[jowj]["mens"],jobs_primary[jowj]["womens"]))
-        nano += 1
-    # else:
-    if jowj.lower() not in Jobs_2:
-        if jobs_primary[jowj]["mens"] or jobs_primary[jowj]["womens"]:
-            Jobs_2[jowj.lower()] = jobs_primary[jowj]
-# ---
-
-"""
-lal = 'jobs2: "%s" : { "mens": "%s" ,"womens": "%s" },'
-# ---
-same = 0
-notsame = 0
-notin = 0
-for c in LEGACY_EXPECTED_MENS_LABELS:
-    if c.lower() in Jobs_2 :
-        if LEGACY_EXPECTED_MENS_LABELS[c] != Jobs_2[c.lower()]["mens"] :
-            #printe.output('"%s" : { "LEGACY_EXPECTED_MENS_LABELS": "%s" ,"Jobs_2": "%s" },' % (c , LEGACY_EXPECTED_MENS_LABELS[c] , Jobs_2[c.lower()]["mens"])   )
-            #printe.output('"%s" : "%s",' % (c , LEGACY_EXPECTED_MENS_LABELS[c])   )
-            notsame += 1
-        else:
-            same += 1
-    else:
-        #printe.output('"%s" : "%s",' % (c , LEGACY_EXPECTED_MENS_LABELS[c]) )
-        notin += 1
-        #printe.output(lal % (c , LEGACY_EXPECTED_MENS_LABELS[c] , "")   )
-printe.output("jobs2: same:%d" % same)
-printe.output("jobs2: notsame:%d" % notsame)
-"""
-# ---
-del jobs_primary
-del SCIENTIST_DISCIPLINES
-del SCHOLAR_DISCIPLINES
-del jobs_additional
-del LEGACY_EXPECTED_MENS_LABELS
-
-
 # ---------------------------------------------------------------------------
-# Public API
+# Helper functions
 
 
-JOBS_2 = Jobs_2
-JOBS_3333 = Jobs_3333
+def _build_scientist_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
+    """Create gendered labels for scientist categories.
 
-# Backwards compatible exports -------------------------------------------------
-Jobs_2: GenderedLabelMap = JOBS_2
-Jobs_3333: GenderedLabelMap = JOBS_3333
+    Args:
+        disciplines: Mapping of role names to the Arabic specialisation.
+
+    Returns:
+        A dictionary containing entries such as ``"anatomists"`` whose values
+        include the masculine and feminine Arabic forms.
+    """
+
+    scientist_roles: GenderedLabelMap = {}
+    for role_key, subject in disciplines.items():
+        scientist_roles[role_key.lower()] = {
+            "mens": f"علماء {subject}",
+            "womens": f"عالمات {subject}"
+        }
+    return scientist_roles
+
+
+def _build_scholar_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
+    """Create gendered labels for scholar categories."""
+
+    scholar_roles: GenderedLabelMap = {}
+    for discipline, subject in disciplines.items():
+        scholar_roles[f"{discipline.lower()} scholars"] = {
+            "mens": f"علماء {subject}",
+            "womens": f"عالمات {subject}"
+        }
+    return scholar_roles
+
+
+def _build_jobs_datasets() -> Tuple[GenderedLabelMap, GenderedLabelMap]:
+    """Construct the ``JOBS_2`` and ``JOBS_3333`` datasets.
+
+    Returns:
+        A tuple where the first item represents ``JOBS_2`` and the second item
+        represents ``JOBS_3333`` from the legacy implementation.
+    """
+
+    scientist_jobs = _build_scientist_roles(SCIENTIST_DISCIPLINES)
+    scholar_jobs = _build_scholar_roles(SCHOLAR_DISCIPLINES)
+
+    lowercase_additional = {key.lower(): value for key, value in jobs_additional.items()}
+    lowercase_primary = {key.lower(): value for key, value in jobs_primary.items()}
+
+    combined_jobs = {**scientist_jobs, **scholar_jobs}
+
+    for source in (lowercase_additional, lowercase_primary):
+        for job_key, labels in source.items():
+            if job_key in combined_jobs:
+                continue
+            if labels["mens"] or labels["womens"]:
+                combined_jobs[job_key] = labels
+
+    return combined_jobs, lowercase_additional
+
+
+JOBS_2, JOBS_3333 = _build_jobs_datasets()
 
 __all__ = [
     "JOBS_2",
     "JOBS_3333",
-    "Jobs_2",
-    "Jobs_3333", "GenderedLabel",
-    "GenderedLabelMap"
 ]

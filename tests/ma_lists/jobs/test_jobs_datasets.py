@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from src.ma_lists.jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO
 from src.ma_lists.jobs.Jobs import (
     Female_Jobs,
     Jobs_key,
@@ -9,8 +10,6 @@ from src.ma_lists.jobs.Jobs import (
     Jobs_key_womens,
     Jobs_new,
     Men_Womens_Jobs,
-    Men_Womens_with_nato,
-    Nat_Before_Occ,
     womens_Jobs_2017,
 )
 from src.ma_lists.jobs.Jobs2 import JOBS_2, JOBS_3333
@@ -71,8 +70,8 @@ def test_jobs_key_womens_mirrors_female_jobs() -> None:
 def test_men_womens_with_nato_matches_source_template() -> None:
     """NATO-labelled entries should retain the placeholder for substitution."""
 
-    assert Men_Womens_with_nato
-    for labels in Men_Womens_with_nato.values():
+    assert MEN_WOMENS_WITH_NATO
+    for labels in MEN_WOMENS_WITH_NATO.values():
         assert "{nato}" in labels["mens"]
         assert "{nato}" in labels["womens"]
 
@@ -80,8 +79,8 @@ def test_men_womens_with_nato_matches_source_template() -> None:
 def test_nat_before_occ_includes_religious_expansions() -> None:
     """The nationality-before-occupation list should include religion keys."""
 
-    assert "anglican" in Nat_Before_Occ
-    assert "anglicans" in Nat_Before_Occ
+    assert "anglican" in NAT_BEFORE_OCC
+    assert "anglicans" in NAT_BEFORE_OCC
 
 
 def test_jobs2_contains_men_womens_jobs_entries() -> None:

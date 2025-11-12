@@ -27,10 +27,10 @@ def save_data(bot, tab):
         if isinstance(data, dict) or isinstance(data, list):
             # sort data by key
             # ---
-            # if isinstance(data, dict):
-            #     data = dict(sorted(data.items(), key=lambda item: item[0].lower()))
-            # elif isinstance(data, list):
-            #     data = sorted(data)
+            if isinstance(data, dict):
+                data = dict(sorted(data.items(), key=lambda item: item[0].lower()))
+            elif isinstance(data, list):
+                data = sorted(set(data))
             # ---
             with open(bot_path / f"{name}.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)

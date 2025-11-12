@@ -1,5 +1,5 @@
 {
-    "Jobs_2020": {
+    "JOBS_2020": {
         "bridge players": {
             "mens": "",
             "womens": ""
@@ -153,7 +153,7 @@
             "womens": "لاعبات كرة مضرب على الكراسي المتحركة"
         }
     },
-    "jobs_people": {
+    "JOBS_PEOPLE": {
         "bloggers": {
             "mens": "مدونو",
             "womens": "مدونات"
@@ -219,7 +219,7 @@
             "womens": "مبتكرات"
         }
     },
-    "jobs_type": {
+    "JOBS_TYPE": {
         "adventure": "مغامرة",
         "alternate history": "تاريخ بديل",
         "animated": "رسوم متحركة",

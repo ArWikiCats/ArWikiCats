@@ -15,22 +15,11 @@ def test_join_terms_trims_and_skips_empty_strings() -> None:
     result = jobs_defs.join_terms("  leading", "", "middle  ", " trailing ")
     assert result == "leading middle trailing"
 
-
-def test_gendered_label_returns_new_mapping_each_time() -> None:
-    """Each call to ``gendered_label`` should create an independent mapping."""
-
-    first = jobs_defs.gendered_label("مدرب", "مدربة")
-    second = jobs_defs.gendered_label("مدرب", "مدربة")
-    first["mens"] = "اختبار"
-    assert second["mens"] == "مدرب"
-    assert second["womens"] == "مدربة"
-
-
 def test_combine_gendered_labels_respects_require_base_womens() -> None:
     """When ``require_base_womens`` is set the feminine label may remain blank."""
 
-    base = jobs_defs.gendered_label("راهب", "")
-    suffix = jobs_defs.gendered_label("كاثوليكي", "كاثوليكية")
+    base = {"mens": "راهب", "womens": ""}
+    suffix = {"mens": "كاثوليكي", "womens": "كاثوليكية"}
     combined = jobs_defs.combine_gendered_labels(base, suffix, require_base_womens=True)
     assert combined == {"mens": "راهب كاثوليكي", "womens": ""}
 
@@ -38,8 +27,8 @@ def test_combine_gendered_labels_respects_require_base_womens() -> None:
 def test_merge_gendered_maps_copies_source_values() -> None:
     """Merged mappings should copy the source entries to avoid shared state."""
 
-    target = {"key": jobs_defs.gendered_label("أ", "ب")}
-    source_value = jobs_defs.gendered_label("ج", "د")
+    target = {"key": {"mens": "أ", "womens": "ب"}}
+    source_value = {"mens": "ج", "womens": "د"}
     source = {"key": source_value}
 
     jobs_defs.merge_gendered_maps(target, source)

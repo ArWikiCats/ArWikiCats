@@ -22,22 +22,6 @@ class GenderedLabel(TypedDict):
 GenderedLabelMap = Dict[str, GenderedLabel]
 
 
-def gendered_label(mens: str, womens: str) -> GenderedLabel:
-    """Return a :class:`GenderedLabel` mapping.
-
-    Args:
-        mens: Masculine Arabic label.
-        womens: Feminine Arabic label.
-
-    Returns:
-        A dictionary containing the masculine and feminine label pair.  Keeping
-        this helper centralised avoids repeated inline dictionary literals and
-        makes future validation changes easier to implement in one place.
-    """
-
-    return {"mens": mens, "womens": womens}
-
-
 def join_terms(*terms: str) -> str:
     """Join non-empty terms with a single space.
 
@@ -80,7 +64,7 @@ def load_gendered_label_map(filename: str) -> GenderedLabelMap:
 
 
 def copy_gendered_map(source: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
-    """Return a deep copy of ``source`` using :func:`gendered_label`."""
+    """Return a deep copy of ``source``."""
 
     return {key: {"mens": value["mens"], "womens": value["womens"]} for key, value in source.items()}
 
@@ -146,7 +130,6 @@ __all__ = [
     "combine_gendered_labels",
     "copy_gendered_map",
     "ensure_gendered_label",
-    "gendered_label",
     "join_terms",
     "load_gendered_label_map",
     "merge_gendered_maps",

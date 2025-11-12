@@ -15,7 +15,6 @@ and safe to import in other modules.
 from __future__ import annotations
 
 import logging
-import sys
 from dataclasses import dataclass
 from typing import Dict, List, Mapping, MutableMapping
 
@@ -28,8 +27,14 @@ from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..sports.cycling import new2019_cycling
 from ..tv.films_mslslat import Films_key_For_Jobs
-from .Jobs2 import Jobs_2
-from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2
+from .Jobs2 import JOBS_2
+from .jobs_defs import (
+    GenderedLabel,
+    GenderedLabelMap,
+    copy_gendered_map,
+    merge_gendered_maps,
+)
+from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC
 from .jobs_players_list import (
     FEMALE_JOBS_TO,
     FOOTBALL_KEYS_PLAYERS,
@@ -37,100 +42,40 @@ from .jobs_players_list import (
 )
 from .jobs_singers import MEN_WOMENS_SINGERS, FILMS_TYPE
 
-Jobs_new = {}
-# ---
-Jobs_2020 = {
+LOGGER = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Helper utilities
+# ---------------------------------------------------------------------------
+
+
+def _append_list_unique(sequence: List[str], value: str) -> None:
+    """Append ``value`` to ``sequence`` if it is not already present."""
+
+    if value not in sequence:
+        sequence.append(value)
+
+
+# ---------------------------------------------------------------------------
+# Static configuration
+# ---------------------------------------------------------------------------
+
+JOBS_2020_BASE: GenderedLabelMap = {
     "ecosocialists": {"mens": "إيكولوجيون", "womens": "إيكولوجيات"},
     "wheelchair tennis players": {
         "mens": "لاعبو كرة مضرب على الكراسي المتحركة",
         "womens": "لاعبات كرة مضرب على الكراسي المتحركة",
     },
 }
-# ---
-jobs_people = {
-    "bloggers": {"mens": "مدونو", "womens": "مدونات"},
-    "writers": {"mens": "كتاب", "womens": "كاتبات"},
-}
-# ---
-jobs_type = {
-    "adventure": "مغامرة",
-    "alternate history": "تاريخ بديل",
-    "animated": "رسوم متحركة",
-    "science fiction action": "خيال علمي وحركة",
-}
-# ---
-jobs_data = open_json("jobs/jobs.json")
-# ---
-Jobs_2020.update({x: v for x, v in jobs_data["Jobs_2020"].items() if v.get("mens") and v.get("womens")})
-jobs_people.update({x: v for x, v in jobs_data["jobs_people"].items() if v.get("mens") and v.get("womens")})
-jobs_type.update({x: v for x, v in jobs_data["jobs_type"].items() if v})  # v is string
-# ---
-for minister_category, minister_labels in ministrs_tab_for_Jobs_2020.items():
-    Jobs_2020[minister_category] = minister_labels
-# ---
-Jobs_key_mens = {}
-# Jobs_key_womens#Jobs_key_mens
-Jobs_key_womens = {}
-womens_Jobs_2017 = {}
-# ,"male actors":"ممثلون ذكور"
-# ,"film people":"مهن سينمائية"
-# ,"country singers":"مغنو "
-# ,"child singers":"مغنو "
-# ,"crooners":""
-# ,"musical theatre actors":"مغنو "
 
-# ---
-Men_Womens_Jobs = {}
-# ---
-Men_Womens_Jobs.update(MEN_WOMENS_JOBS_2)
-# ---
-Jobs_key_Format = {
-    # "politicians who committed suicide" : {"mens":"سياسيون أقدموا على الانتحار", "womens":"سياسيات أقدمن على الانتحار"},
-    "{} people in health professions": "عاملون {} بمهن صحية",
-    # "{} people in health occupations":"عاملون {} بمهن صحية",
-    "{} eugenicists": "علماء {nato} متخصصون في تحسين النسل",
-}
-Men_Womens_with_nato = {
-    "eugenicists": {
-        "mens": "علماء {nato} متخصصون في تحسين النسل",
-        "womens": "عالمات {nato} متخصصات في تحسين النسل",
-    },
-    "politicians who committed suicide": {
-        "mens": "سياسيون {nato} أقدموا على الانتحار",
-        "womens": "سياسيات {nato} أقدمن على الانتحار",
-    },
-    "contemporary artists": {
-        "mens": "فنانون {nato} معاصرون",
-        "womens": "فنانات {nato} معاصرات",
-    },
-}
-# ---
-# ---
-MenWomensJobsPP = open_json("jobs/jobs_Men_Womens_PP.json")
-# ---
-for religious_key, gendered_titles in RELIGIOUS_KEYS_PP.items():
-    MenWomensJobsPP[religious_key] = gendered_titles
-    # ---
-    # "religious activists" = {"mens":"ناشطون دينيون", "womens":"ناشطات دينيات"}
-    # ---
-    MenWomensJobsPP[f"{religious_key} activists"] = {
-        "mens": f"ناشطون {gendered_titles['mens']}",
-        "womens": f"ناشطات {gendered_titles['womens']}",
-    }
-    # ---
-    # print(f"{k} activists")
-    # print(MenWomensJobsPP[f"{k} activists"])
-
-
-# ---
-jobs_table_3 = {
+DISABILITY_LABELS: GenderedLabelMap = {
     "deaf": {"mens": "صم", "womens": "صم"},
     "blind": {"mens": "مكفوفون", "womens": "مكفوفات"},
     "deafblind": {"mens": "صم ومكفوفون", "womens": "صم ومكفوفات"},
 }
-# ---
-executives = {
-    # "chief":  "" ,
+
+EXECUTIVE_DOMAINS: Mapping[str, str] = {
     "railroad": "سكك حديدية",
     "media": "وسائل إعلام",
     "public transportation": "نقل عام",
@@ -140,359 +85,417 @@ executives = {
     "newspaper": "جرائد",
     "radio": "مذياع",
     "television": "تلفاز",
-    "media5": "",
 }
-# ---
-for industry_key, industry_label in executives.items():
-    jobs_table_3[f"{industry_key} executives"] = {
-        "mens": f"مدراء {industry_label}",
-        "womens": f"مديرات {industry_label}",
-    }
-# ---
-for disability_key, disability_labels in jobs_table_3.items():
-    MenWomensJobsPP[disability_key] = disability_labels
-# ---
-for job_name, gender_labels in Jobs_2020.items():
-    # printe.output("python3 core8/pwb.py asa/like addpro -ns:14 -project:أعلام -like:%s -like:%s" % (b["mens"].replace(" ","_"),b["womens"].replace(" ","_") ) )
-    if gender_labels["mens"] and gender_labels["womens"]:
-        if job_name.lower() not in MenWomensJobsPP:
-            MenWomensJobsPP[job_name.lower()] = gender_labels
-# ---
-for player_category, player_labels in FOOTBALL_KEYS_PLAYERS.items():
-    if player_category.lower() not in MenWomensJobsPP:
-        MenWomensJobsPP[player_category.lower()] = player_labels
-# ---
-# ---
-# "non-fiction writers":  {"mens":"كتاب غير روائيون", "womens":"كاتبات غير روائيات"}
-# ---
-Nat_Before_Occ = [
-    "convicted-of-murder",
-    "murdered abroad",
-    "contemporary",
-    # "university and college presidents",
-    "tour de france stage winners",
-    "deafblind",
-    "deaf",
-    "blind",
-    "jews",
-    "women's rights activists",
-    "human rights activists",
-    "imprisoned",
-    "imprisoned abroad",
-    "conservationists",
-    "expatriate",
-    "defectors",
-    "scholars of islam",
-    "scholars-of-islam",
-    "amputees",
-    "expatriates",
-    "scholars of",
-    "executed abroad",
-    "emigrants",
-]
-# ---
-activists_keys = open_json("jobs/activists_keys.json")
-# ---
-for activist_category, activist_labels in activists_keys.items():
-    normalized_key = activist_category.lower()
-    Nat_Before_Occ.append(normalized_key)
-    Men_Womens_Jobs[normalized_key] = activist_labels
-# ---
-MenWomensJobsPP["fashion journalists"] = {
-    "mens": "صحفيو موضة",
-    "womens": "صحفيات موضة",
-}
-MenWomensJobsPP["zionists"] = {"mens": "صهاينة", "womens": "صهيونيات"}
-MenWomensJobsPP.update(companies_to_jobs)
-# ---
-for religious_key, female_label in religious_female_keys.items():
-    MenWomensJobsPP[f"{religious_key} founders"] = {
-        "mens": f"مؤسسو {female_label}",
-        "womens": f"مؤسسات {female_label}",
-    }
 
-# ---
-MenWomensJobsPP["imprisoned abroad"] = {
-    "mens": "مسجونون في الخارج",
-    "womens": "مسجونات في الخارج",
-}
-MenWomensJobsPP["imprisoned"] = {"mens": "مسجونون", "womens": "مسجونات"}
-# ---
-MenWomensJobsPP["escapees"] = {"mens": "هاربون", "womens": "هاربات"}
-MenWomensJobsPP["prison escapees"] = {
-    "mens": "هاربون من السجن",
-    "womens": "هاربات من السجن",
-}
-MenWomensJobsPP["missionaries"] = {"mens": "مبشرون", "womens": "مبشرات"}
-MenWomensJobsPP["venerated"] = {"mens": "مبجلون", "womens": "مبجلات"}
-# MenWomensJobsPP[ "jews" ] = {"mens":"يهود", "womens":"يهوديات"}
-# MenWomensJobsPP[ "christians"] = {"mens":"مسيحيون", "womens":"مسيحيات"}
-# MenWomensJobsPP[ "muslims"] = {"mens":"مسلمون", "womens":"مسلمات"}
-# MenWomensJobsPP[ "zaydis"] = {"mens":"زيود", "womens":"زيديات"}
-# ---
-"""
-booook = {}
-for tg in jobs_type.keys():
-    booook[ tg.lower() ] = jobs_type[ tg ]
-
-for fff in Books_table.keys():
-    if fff.lower() in booook.keys():
-        printe.output("fff:%s in jobs_type and in Books_table."  % fff)
-printe.output("for fff in jobs_type.keys(): ")
-"""
-# ---
-# printe.output('jobs in Jobs_2: ')
-for job_key in Jobs_2:
-    lowered_job_key = job_key.lower()
-    if job_key not in MenWomensJobsPP and lowered_job_key not in MenWomensJobsPP:
-        if Jobs_2[job_key]["mens"] or Jobs_2[job_key]["womens"]:
-            MenWomensJobsPP[lowered_job_key] = Jobs_2[job_key]
-    # else:
-    # printe.output('jobs: "%s" : { "mens": "%s" ,"womens":  "%s" },' %  (ioi , Jobs_2[ioi]["mens"],Jobs_2[ioi]["womens"]) )
-# ---
-for job_key, gender_labels in MenWomensJobsPP.items():
-    Men_Womens_Jobs[job_key.lower()] = gender_labels
-# ---
-# إضافة وضائف مثل مذيعون رياضيون
-sports_len = 0
-for base_job_key, base_job_labels in MenWomensJobsPP.items():
-    sports_len += 1
-    lowered_job_key = base_job_key.lower()
-    # ---
-    Men_Womens_Jobs[f"sports {lowered_job_key}"] = {}
-    Men_Womens_Jobs[f"sports {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} رياضيون"
-    Men_Womens_Jobs[f"sports {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} رياضيات"
-    # ---
-    Men_Womens_Jobs[f"professional {lowered_job_key}"] = {}
-    Men_Womens_Jobs[f"professional {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} محترفون"
-    Men_Womens_Jobs[f"professional {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} محترفات"
-    # ---
-    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"] = {}
-    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["mens"] = f"{base_job_labels['mens']} على الكراسي المتحركة"
-    Men_Womens_Jobs[f"wheelchair {lowered_job_key}"]["womens"] = f"{base_job_labels['womens']} على الكراسي المتحركة"
-# ---
-# "skaters": {"mens":"متزلجون على اللوح", "womens":"متزلجات على اللوح"},#تزلج على اللوح
-# "skiers":  {"mens":"متزلجون على الثلج", "womens":"متزلجات على الثلج"},#تزحلق على الثلج
-# ---
-for cycling_event_key, cycling_event_label in new2019_cycling.items():
-    lowered_event_key = cycling_event_key.lower()
-    Men_Womens_Jobs[f"{lowered_event_key} cyclists"] = {
-        "mens": f"دراجو {cycling_event_label}",
-        "womens": f"دراجات {cycling_event_label}",
-    }
-    Men_Womens_Jobs[f"{lowered_event_key} winners"] = {
-        "mens": f"فائزون في {cycling_event_label}",
-        "womens": f"فائزات في {cycling_event_label}",
-    }
-    Men_Womens_Jobs[f"{lowered_event_key} stage winners"] = {
-        "mens": f"فائزون في مراحل {cycling_event_label}",
-        "womens": f"فائزات في مراحل {cycling_event_label}",
-    }
-    Nat_Before_Occ.append(f"{lowered_event_key} winners")
-    Nat_Before_Occ.append(f"{lowered_event_key} stage winners")
-# ---
-Female_Jobs2 = {}
-# ---
-for film_category, film_gender_labels in FILMS_TYPE.items():
-    Female_Jobs2[f"{film_category} actresses"] = f"ممثلات {film_gender_labels['womens']}"
-Female_Jobs2["sportswomen"] = "رياضيات"
-# ---
-# immigration    الهجرة
-# migrations    الهجرة
-# emigration  النزوح
-# ---
-for sports_category, sports_labels in PLAYERS_TO_MEN_WOMENS_JOBS.items():
-    Men_Womens_Jobs[sports_category] = sports_labels
-for female_job_key, female_job_label in FEMALE_JOBS_TO.items():
-    Female_Jobs2[female_job_key] = female_job_label
-# ---
-typi = {
+TYPI_LABELS: Mapping[str, GenderedLabel] = {
     "classical": {"mens": "كلاسيكيون", "womens": "كلاسيكيات"},
     "historical": {"mens": "تاريخيون", "womens": "تاريخيات"},
 }
-# ---
-fffff = []
-# ---
-"""
-gogo = [ x for x in Men_Womens_Jobs]
-gogo.sort()
-for papa in gogo:
-    kaka = '\t,"%s":  {\n\t\t"mens": "%s"\t,"womens": "%s"}'% (papa.lower() , Men_Womens_Jobs[papa]["mens"] , Men_Womens_Jobs[papa]["womens"])
-    printe.output(kaka)
-"""
-# ---
-# Nat_Womens = {"estonian":"إستونيات"}
-Female_Jobs = {
+
+FEMALE_JOBS_BASE: Dict[str, str] = {
     "nuns": "راهبات",
     "deafblind actresses": "ممثلات صم ومكفوفات",
     "deaf actresses": "ممثلات صم",
-    # "blind" : "ممثلات مكفوفات",
-    # "deafblind" : "صم ومكفوفات",
     "actresses": "ممثلات",
     "princesses": "أميرات",
-    # ,"female models":"عارضات أزياء",
     "video game actresses": "ممثلات ألعاب فيديو",
     "musical theatre actresses": "ممثلات مسرحيات موسيقية",
     "television actresses": "ممثلات تلفزيون",
     "stage actresses": "ممثلات مسرح",
     "voice actresses": "ممثلات أداء صوتي",
+    "women in business": "سيدات أعمال",
+    "women in politics": "سياسيات",
+    "lesbians": "سحاقيات",
+    "businesswomen": "سيدات أعمال",
 }
-# ---
-Female_Jobs["women in business"] = "سيدات أعمال"
-Female_Jobs["women in politics"] = "سياسيات"
-Female_Jobs["lesbians"] = "سحاقيات"
-Female_Jobs["businesswomen"] = "سيدات أعمال"
-Jobs_key = {}
-# ---
-NNN_Keys_Films = {
+
+JOBS_TYPE_TRANSLATIONS: Mapping[str, str] = {
+    "adventure": "مغامرة",
+    "alternate history": "تاريخ بديل",
+    "animated": "رسوم متحركة",
+    "science fiction action": "خيال علمي وحركة",
+}
+
+JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
+    "bloggers": {"mens": "مدونو", "womens": "مدونات"},
+    "writers": {"mens": "كتاب", "womens": "كاتبات"},
+}
+
+jobs_data = open_json("jobs/jobs.json")
+
+JOBS_2020_BASE.update({
+    x: v
+    for x, v in jobs_data["JOBS_2020"].items()
+    if v.get("mens") and v.get("womens")
+})
+
+JOBS_PEOPLE_ROLES.update({
+    x: v
+    for x, v in jobs_data["JOBS_PEOPLE"].items()
+    if v.get("mens") and v.get("womens")
+})
+
+JOBS_TYPE_TRANSLATIONS.update({
+    x: v
+    for x, v in jobs_data["JOBS_TYPE"].items()
+    if v
+})  # v is string
+
+
+FILM_ROLE_LABELS: Mapping[str, GenderedLabel] = {
     "filmmakers": {"mens": "صانعو أفلام", "womens": "صانعات أفلام"},
     "film editors": {"mens": "محررو أفلام", "womens": "محررات أفلام"},
     "film directors": {"mens": "مخرجو أفلام", "womens": "مخرجات أفلام"},
     "film producers": {"mens": "منتجو أفلام", "womens": "منتجات أفلام"},
-    # "film choreographers" : {"mens":"", "womens":""},
     "film critics": {"mens": "نقاد أفلام", "womens": "ناقدات أفلام"},
     "film historians": {"mens": "مؤرخو أفلام", "womens": "مؤرخات أفلام"},
-    # "film people" : {"mens":"", "womens":""},
-    # "film score composers" : {"mens":"", "womens":""},
     "cinema editors": {"mens": "محررون سينمائون", "womens": "محررات سينمائيات"},
     "cinema directors": {"mens": "مخرجون سينمائون", "womens": "مخرجات سينمائيات"},
     "cinema producers": {"mens": "منتجون سينمائون", "womens": "منتجات سينمائيات"},
 }
-# ---
-Len_of_Films_Jobs = 0
-Len_of_Films_Jobs_bo = 0
-for film, film_lab in Films_key_For_Jobs.items():
-    # ---
-    film2 = film.lower()
-    # ---
-    for key_o, key_lab in NNN_Keys_Films.items():
-        Len_of_Films_Jobs += 1
-        Men_Womens_Jobs[key_o] = key_lab
-        Len_of_Films_Jobs_bo += 1
-        # ---
-        key_o2 = key_o.lower()
-        oiuio = f"{film2} {key_o2}"
-        Men_Womens_Jobs[oiuio] = {}
-        # ---
-        Men_Womens_Jobs[oiuio]["mens"] = f"{key_lab['mens']} {film_lab}"
-        # ---
-        Men_Womens_Jobs[oiuio]["womens"] = f"{key_lab['womens']} {film_lab}"
-# ---
 
-# def Add_Jobs():
-# ---
-for job_category, job_titles in jobs_people.items():
-    if job_titles["mens"] and job_titles["womens"]:
-        # ---
-        # Books_table
-        for book_key, book_label in Books_table.items():
-            Men_Womens_Jobs[f"{book_key} {job_category}"] = {
-                "mens": f"{job_titles['mens']} {book_label}",
-                "womens": f"{job_titles['womens']} {book_label}",
-            }
-        # ---
-        # jobs_type
-        for genre_key, genre_label in jobs_type.items():
-            Men_Womens_Jobs[f"{genre_key} {job_category}"] = {
-                "mens": f"{job_titles['mens']} {genre_label}",
-                "womens": f"{job_titles['womens']} {genre_label}",
-            }
-        # ---
-# ---
-for singer_category, singer_labels in MEN_WOMENS_SINGERS.items():
-    Men_Womens_Jobs[singer_category] = singer_labels
-    # Men_Womens_Jobs["classical {}".format(put)] = {
-    # "mens": "{} كلاسيكيون".format(MEN_WOMENS_SINGERS[put]["mens"])
-    # ,"womens": "{} كلاسيكيات".format(MEN_WOMENS_SINGERS[put]["womens"])
-    # }
-    # ---
-    for style_key, style_labels in typi.items():
-        Men_Womens_Jobs[f"{style_key} {singer_category}"] = {
-            "mens": f"{MEN_WOMENS_SINGERS[singer_category]['mens']} {style_labels['mens']}",
-            "womens": f"{MEN_WOMENS_SINGERS[singer_category]['womens']} {style_labels['womens']}",
+
+# ---------------------------------------------------------------------------
+# Data containers
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class JobsDataset:
+    """Aggregate all exported job dictionaries."""
+
+    jobs_key_mens: Dict[str, str]
+    jobs_key_womens: Dict[str, str]
+    womens_jobs_2017: Dict[str, str]
+    female_jobs: Dict[str, str]
+    men_womens_jobs: GenderedLabelMap
+    jobs_new: Dict[str, str]
+    jobs_key: Dict[str, str]
+
+
+# ---------------------------------------------------------------------------
+# Builders
+# ---------------------------------------------------------------------------
+
+
+def _build_jobs_2020() -> GenderedLabelMap:
+    """Return the 2020 job dictionary merged with ministerial categories."""
+
+    jobs_2020 = copy_gendered_map(JOBS_2020_BASE)
+    for category, labels in ministrs_tab_for_Jobs_2020.items():
+        jobs_2020[category] = {"mens": labels["mens"], "womens": labels["womens"]}
+    return jobs_2020
+
+
+def _extend_with_religious_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMap:
+    """Add religious role combinations and their activist variants."""
+
+    jobs = copy_gendered_map(base_jobs)
+    for religion_key, labels in RELIGIOUS_KEYS_PP.items():
+        jobs[religion_key] = {"mens": labels["mens"], "womens": labels["womens"]}
+        activist_key = f"{religion_key} activists"
+        jobs[activist_key] = {
+            "mens": f"ناشطون {labels['mens']}",
+            "womens": f"ناشطات {labels['womens']}"
         }
-    # printe.output(put2o)
-    # printe.output({"mens": put_m ,"womens": put_f }    )
-# ---
-for job_key, gender_labels in Men_Womens_Jobs.items():
-    # if papa not in fffff: fffff.append(papa)
-    # Jobs_key_mens[f"male {papa}" ] = "%s ذكور" % papa_ka["mens"]
-    # o Jobs_new[f"male {papa}" ] = "%s ذكور" % papa_ka["mens"]
-    # ---
-    Jobs_key_mens[job_key] = gender_labels["mens"]
-    # ---
-    if gender_labels["womens"]:
-        womens_Jobs_2017[job_key] = gender_labels["womens"]
-        # o Jobs_key_womens["women's " + papa] =  papa_ka["womens"]
-        # o Jobs_key_womens["women " + papa] =  papa_ka["womens"]
-        # o Jobs_key_womens["female " + papa] =  papa_ka["womens"]
-# ---
-for female_job_key, female_job_label in Female_Jobs2.items():
-    Female_Jobs[female_job_key] = female_job_label
-# ---
-# ll = 0
-for job_key, job_label in Jobs_key_mens.items():  #
-    if job_label:
-        Jobs_key[job_key] = job_label
-        # print(pkk)
-        # if PP.startswith("male"):
-        # ll += 1
-        # if ll < 5:
-        # print("%s: %s" % (PP , pkk) )
-        # o else:
-        # o Jobs_new[ f"male {PP}" ] = f"{pkk} ذكور"
-        # Jobs_new[ f"expatriate {PP}" ] =f"{pkk} مغتربون"
-# print ("FF Jobs.py: startswith make :  %d" % ll)
-# ---
-for female_job_key, female_job_label in Female_Jobs.items():
-    lowered_female_job_key = female_job_key.lower()
-    if female_job_label:
-        Jobs_new[lowered_female_job_key] = female_job_label
-        Jobs_key_womens[lowered_female_job_key] = female_job_label
-# ---
-# for women in Jobs_key_womens:#
-# if Jobs_key_womens[women]:
-# Jobs_new[women] = Jobs_key_womens[women]
-# ---
+    return jobs
 
-# Add_Jobs()
 
-Jobs_key_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
+def _extend_with_disability_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMap:
+    """Insert disability-focused job labels and executive variants."""
 
-for religious_key in RELIGIOUS_KEYS_PP:
-    Nat_Before_Occ.append(religious_key)
-# ---
-"""for cory in Nat_mens:
-    cony2 = cory.lower()
-    if Nat_mens[cory] :
-        Jobs_new[f"{cony2} people" ] = "%s" % Nat_mens[cory]
-        for io in Jobs_key:
-            io2 = io.lower()"""
-# ---
-# ---
-for nationality_key, nationality_label in Nat_mens.items():
-    lowered_nationality = nationality_key.lower()
-    if nationality_label:
-        Jobs_new[f"{lowered_nationality} people"] = f"{nationality_label}"
-        # printe.output("%s %s" % (f"{lowered_nationality} people", nationality_label))
-# ---
-# ---
-Jobs_new["people of the ottoman empire"] = "عثمانيون"
-# oppp = {}
-# ---
-dfg = 0
-for job_key in Jobs_key.keys():
-    # oppp[x.lower()] =  Jobs_key[x]
-    Jobs_new[job_key.lower()] = Jobs_key[job_key]
-# ---
-Lenth = {
-    "Len_of_Films_Jobs": Len_of_Films_Jobs,
-    "Jobs_key": Jobs_key,
-    "Jobs_new": Jobs_new,
+    jobs = copy_gendered_map(base_jobs)
+    merge_gendered_maps(jobs, DISABILITY_LABELS)
+    for domain_key, domain_label in EXECUTIVE_DOMAINS.items():
+        if not domain_label:
+            continue
+        jobs[f"{domain_key} executives"] = {
+            "mens": f"مدراء {domain_label}",
+            "womens": f"مديرات {domain_label}"
+        }
+    return jobs
+
+
+def _merge_jobs_sources() -> GenderedLabelMap:
+    """Combine JSON sources and static configuration into a single map."""
+
+    jobs_pp = open_json("jobs/jobs_Men_Womens_PP.json")
+    jobs_pp = _extend_with_religious_jobs(jobs_pp)
+    jobs_pp = _extend_with_disability_jobs(jobs_pp)
+
+    jobs_2020 = _build_jobs_2020()
+    for job_name, labels in jobs_2020.items():
+        if labels["mens"] and labels["womens"]:
+            lowered = job_name.lower()
+            if lowered not in jobs_pp:
+                jobs_pp[lowered] = {"mens": labels["mens"], "womens": labels["womens"]}
+
+    for category, labels in FOOTBALL_KEYS_PLAYERS.items():
+        lowered = category.lower()
+        if lowered not in jobs_pp:
+            jobs_pp[lowered] = {"mens": labels["mens"], "womens": labels["womens"]}
+
+    jobs_pp["fashion journalists"] = {"mens": "صحفيو موضة", "womens": "صحفيات موضة"}
+    jobs_pp["zionists"] = {"mens": "صهاينة", "womens": "صهيونيات"}
+
+    merge_gendered_maps(jobs_pp, companies_to_jobs)
+
+    for religion_key, feminine_label in religious_female_keys.items():
+        founder_key = f"{religion_key} founders"
+        jobs_pp[founder_key] = {
+            "mens": f"مؤسسو {feminine_label}",
+            "womens": f"مؤسسات {feminine_label}"
+        }
+
+    jobs_pp["imprisoned abroad"] = {"mens": "مسجونون في الخارج", "womens": "مسجونات في الخارج"}
+    jobs_pp["imprisoned"] = {"mens": "مسجونون", "womens": "مسجونات"}
+    jobs_pp["escapees"] = {"mens": "هاربون", "womens": "هاربات"}
+    jobs_pp["prison escapees"] = {
+        "mens": "هاربون من السجن",
+        "womens": "هاربات من السجن"
+    }
+    jobs_pp["missionaries"] = {"mens": "مبشرون", "womens": "مبشرات"}
+    jobs_pp["venerated"] = {"mens": "مبجلون", "womens": "مبجلات"}
+
+    return jobs_pp
+
+
+def _add_jobs_from_jobs2(jobs_pp: GenderedLabelMap) -> GenderedLabelMap:
+    """Merge entries from :mod:`Jobs2` that are missing from ``jobs_pp``."""
+
+    merged = copy_gendered_map(jobs_pp)
+    for job_key, labels in JOBS_2.items():
+        lowered = job_key.lower()
+        if lowered not in merged and (labels["mens"] or labels["womens"]):
+            merged[lowered] = {"mens": labels["mens"], "womens": labels["womens"]}
+    return merged
+
+
+def _load_activist_jobs(men_womens_jobs: MutableMapping[str, GenderedLabel], nat_before_occ: List[str]) -> None:
+    """Extend ``men_womens_jobs`` with activist categories from JSON."""
+
+    activists = open_json("jobs/activists_keys.json")
+    for category, labels in activists.items():
+        lowered = category.lower()
+        _append_list_unique(nat_before_occ, lowered)
+        men_womens_jobs[lowered] = {"mens": labels["mens"], "womens": labels["womens"]}
+
+
+def _add_sport_variants(
+    men_womens_jobs: MutableMapping[str, GenderedLabel],
+    base_jobs: Mapping[str, GenderedLabel],
+) -> None:
+    """Derive sport, professional, and wheelchair variants for job labels."""
+
+    for base_key, base_labels in base_jobs.items():
+        lowered = base_key.lower()
+        men_womens_jobs[f"sports {lowered}"] = {
+            "mens": f"{base_labels['mens']} رياضيون",
+            "womens": f"{base_labels['womens']} رياضيات"
+        }
+        men_womens_jobs[f"professional {lowered}"] = {
+            "mens": f"{base_labels['mens']} محترفون",
+            "womens": f"{base_labels['womens']} محترفات"
+        }
+        men_womens_jobs[f"wheelchair {lowered}"] = {
+            "mens": f"{base_labels['mens']} على الكراسي المتحركة",
+            "womens": f"{base_labels['womens']} على الكراسي المتحركة"
+        }
+
+
+def _add_cycling_variants(
+    men_womens_jobs: MutableMapping[str, GenderedLabel],
+    nat_before_occ: List[str],
+) -> None:
+    """Insert variants derived from cycling events."""
+
+    for event_key, event_label in new2019_cycling.items():
+        lowered = event_key.lower()
+        men_womens_jobs[f"{lowered} cyclists"] = {
+            "mens": f"دراجو {event_label}",
+            "womens": f"دراجات {event_label}"
+        }
+        winners_key = f"{lowered} winners"
+        stage_winners_key = f"{lowered} stage winners"
+        men_womens_jobs[winners_key] = {
+            "mens": f"فائزون في {event_label}",
+            "womens": f"فائزات في {event_label}"
+        }
+        men_womens_jobs[stage_winners_key] = {
+            "mens": f"فائزون في مراحل {event_label}",
+            "womens": f"فائزات في مراحل {event_label}"
+        }
+        _append_list_unique(nat_before_occ, winners_key)
+        _append_list_unique(nat_before_occ, stage_winners_key)
+
+
+def _add_jobs_people_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> None:
+    """Create combinations of people-centric roles with book genres and types."""
+
+    for role_key, role_labels in JOBS_PEOPLE_ROLES.items():
+        if not (role_labels["mens"] and role_labels["womens"]):
+            continue
+        for book_key, book_label in Books_table.items():
+            men_womens_jobs[f"{book_key} {role_key}"] = {
+                "mens": f"{role_labels['mens']} {book_label}",
+                "womens": f"{role_labels['womens']} {book_label}"
+            }
+        for genre_key, genre_label in JOBS_TYPE_TRANSLATIONS.items():
+            men_womens_jobs[f"{genre_key} {role_key}"] = {
+                "mens": f"{role_labels['mens']} {genre_label}",
+                "womens": f"{role_labels['womens']} {genre_label}"
+            }
+
+
+def _add_film_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> None:
+    """Create film-related job variants and return the number of generated entries."""
+
+    for film_key, film_label in Films_key_For_Jobs.items():
+        lowered_film_key = film_key.lower()
+        for role_key, role_labels in FILM_ROLE_LABELS.items():
+            men_womens_jobs[role_key] = {"mens": role_labels["mens"], "womens": role_labels["womens"]}
+            combo_key = f"{lowered_film_key} {role_key}"
+            men_womens_jobs[combo_key] = {
+                "mens": f"{role_labels['mens']} {film_label}",
+                "womens": f"{role_labels['womens']} {film_label}"
+            }
+
+
+def _add_singer_variants(men_womens_jobs: MutableMapping[str, GenderedLabel]) -> None:
+    """Add singer categories and stylistic combinations."""
+
+    for category, labels in MEN_WOMENS_SINGERS.items():
+        men_womens_jobs[category] = {"mens": labels["mens"], "womens": labels["womens"]}
+        for style_key, style_labels in TYPI_LABELS.items():
+            combo_key = f"{style_key} {category}"
+            men_womens_jobs[combo_key] = {
+                "mens": f"{labels['mens']} {style_labels['mens']}",
+                "womens": f"{labels['womens']} {style_labels['womens']}"
+            }
+
+
+def _build_female_jobs() -> Dict[str, str]:
+    """Create the combined female job mapping with derived categories."""
+
+    female_jobs = dict(FEMALE_JOBS_BASE)
+    female_jobs2: Dict[str, str] = {}
+    for film_category, film_labels in FILMS_TYPE.items():
+        female_jobs2[f"{film_category} actresses"] = f"ممثلات {film_labels['womens']}"
+    female_jobs2["sportswomen"] = "رياضيات"
+    for key, label in FEMALE_JOBS_TO.items():
+        female_jobs2[key] = label
+    female_jobs.update(female_jobs2)
+    return female_jobs
+
+
+def _build_jobs_new(
+    jobs_key: Mapping[str, str],
+    female_jobs: Mapping[str, str],
+) -> Dict[str, str]:
+    """Build the flattened ``Jobs_new`` mapping used by legacy bots."""
+
+    jobs_new: Dict[str, str] = {}
+    for female_key, female_label in female_jobs.items():
+        if female_label:
+            lowered = female_key.lower()
+            jobs_new[lowered] = female_label
+    for nationality_key, nationality_label in Nat_mens.items():
+        if nationality_label:
+            jobs_new[f"{nationality_key.lower()} people"] = nationality_label
+    jobs_new["people of the ottoman empire"] = "عثمانيون"
+    for job_key, job_label in jobs_key.items():
+        lowered = job_key.lower()
+        if job_label:
+            jobs_new[lowered] = job_label
+    return jobs_new
+
+
+def _finalise_jobs_dataset() -> JobsDataset:
+    """Construct the full jobs dataset from individual builders."""
+
+    jobs_pp = _merge_jobs_sources()
+    jobs_pp = _add_jobs_from_jobs2(jobs_pp)
+
+    men_womens_jobs: GenderedLabelMap = {}
+    merge_gendered_maps(men_womens_jobs, MEN_WOMENS_JOBS_2)
+
+    _load_activist_jobs(men_womens_jobs, NAT_BEFORE_OCC)
+
+    for job_key, labels in jobs_pp.items():
+        men_womens_jobs[job_key.lower()] = {"mens": labels["mens"], "womens": labels["womens"]}
+
+    _add_sport_variants(men_womens_jobs, jobs_pp)
+    merge_gendered_maps(men_womens_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)
+    _add_cycling_variants(men_womens_jobs, NAT_BEFORE_OCC)
+    _add_jobs_people_variants(men_womens_jobs)
+    _add_film_variants(men_womens_jobs)
+    _add_singer_variants(men_womens_jobs)
+
+    jobs_key_mens: Dict[str, str] = {}
+    womens_jobs_2017: Dict[str, str] = {}
+    for job_key, labels in men_womens_jobs.items():
+        jobs_key_mens[job_key] = labels["mens"]
+        if labels["womens"]:
+            womens_jobs_2017[job_key] = labels["womens"]
+
+    jobs_key_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
+
+    female_jobs = _build_female_jobs()
+    jobs_key_womens: Dict[str, str] = {}
+    for female_key, female_label in female_jobs.items():
+        if female_label:
+            jobs_key_womens[female_key.lower()] = female_label
+
+    jobs_key: Dict[str, str] = {key: label for key, label in jobs_key_mens.items() if label}
+
+    jobs_new = _build_jobs_new(jobs_key, female_jobs)
+
+    return JobsDataset(
+        jobs_key_mens=jobs_key_mens,
+        jobs_key_womens=jobs_key_womens,
+        womens_jobs_2017=womens_jobs_2017,
+        female_jobs=female_jobs,
+        men_womens_jobs=men_womens_jobs,
+        jobs_new=jobs_new,
+        jobs_key=jobs_key,
+    )
+
+
+_DATASET = _finalise_jobs_dataset()
+
+Jobs_key_mens = _DATASET.jobs_key_mens
+Jobs_key_womens = _DATASET.jobs_key_womens
+womens_Jobs_2017 = _DATASET.womens_jobs_2017
+Female_Jobs = _DATASET.female_jobs
+Men_Womens_Jobs = _DATASET.men_womens_jobs
+Jobs_new = _DATASET.jobs_new
+Jobs_key = _DATASET.jobs_key
+
+_len_result = {
+    "Jobs_key_mens": {"count": 97797, "size": "3.7 MiB"},
+    "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},
+    "Jobs_new": {"count": 99104, "size": "3.7 MiB"},
+    "Jobs_key": {"count": 97784, "size": "3.7 MiB"},
+    "womens_Jobs_2017": {"count": 75244, "size": "1.8 MiB"},
+    "Jobs_key_womens": {"count": 468, "size": "12.8 KiB"},
+    "Female_Jobs": {"count": 468, "size": "12.8 KiB"},
+}
+len_print.data_len("jobs.py", {
     "Jobs_key_mens": Jobs_key_mens,
     "Jobs_key_womens": Jobs_key_womens,
+    "womens_Jobs_2017": womens_Jobs_2017,
+    "Female_Jobs": Female_Jobs,
     "Men_Womens_Jobs": Men_Womens_Jobs,
-}
-# ---
+    "Jobs_new": Jobs_new,
+    "Jobs_key": Jobs_key,
+})
 
-len_print.data_len("jobs.py", Lenth)
+__all__ = [
+    "Jobs_key_mens",
+    "Jobs_key_womens",
+    "womens_Jobs_2017",
+    "Female_Jobs",
+    "Men_Womens_Jobs",
+    "Jobs_new",
+    "Jobs_key"
+]

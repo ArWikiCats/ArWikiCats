@@ -15,17 +15,16 @@ from .Jobs import (
     Jobs_key_womens,
     Jobs_new,
     Men_Womens_Jobs,
-    Men_Womens_with_nato,
-    Nat_Before_Occ,
     womens_Jobs_2017,
 )
-from .Jobs2 import JOBS_2, JOBS_3333, Jobs_2, Jobs_3333
+from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data import (
     MEN_WOMENS_JOBS_2,
+    NAT_BEFORE_OCC,
     RELIGIOUS_KEYS_PP,
+    MEN_WOMENS_WITH_NATO,
 )
 from .jobs_players_list import (
-    FEMALE_JOBS_TO,
     FOOTBALL_KEYS_PLAYERS,
     JOBS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,
@@ -40,10 +39,8 @@ __all__ = [
     # Core types and shared datasets
     "MEN_WOMENS_JOBS_2",
     "RELIGIOUS_KEYS_PP",
-    "JOBS_2",
     "JOBS_3333",
-    "Jobs_2",
-    "Jobs_3333",
+    "JOBS_2",
     # Primary job dictionaries
     "Female_Jobs",
     "Jobs_key",
@@ -51,11 +48,10 @@ __all__ = [
     "Jobs_key_womens",
     "Jobs_new",
     "Men_Womens_Jobs",
-    "Men_Womens_with_nato",
-    "Nat_Before_Occ",
+    "MEN_WOMENS_WITH_NATO",
+    "NAT_BEFORE_OCC",
     "womens_Jobs_2017",
     # Player utilities
-    "FEMALE_JOBS_TO",
     "FOOTBALL_KEYS_PLAYERS",
     "JOBS_PLAYERS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",

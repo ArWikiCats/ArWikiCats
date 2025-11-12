@@ -18,7 +18,9 @@ from .sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo
 
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
-from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Nat_Before_Occ, Men_Womens_with_nato, Jobs_new, Jobs_key
+from .jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO, RELIGIOUS_KEYS_PP
+
+from .jobs.Jobs import Jobs_key_mens, Jobs_key_womens, womens_Jobs_2017, Female_Jobs, Men_Womens_Jobs, Jobs_new, Jobs_key
 
 from .geo.labels_country import New_P17_Finall
 
@@ -37,8 +39,6 @@ from .mixed.all_keys5 import Clubs_key_2
 from .by_type import By_table, By_orginal2, By_table_orginal, Music_By_table
 
 from .tv.films_mslslat import Films_TT, typeTable_4, Films_key_CAO, Films_key_For_nat, Films_key_CAO_new_format, television_keys_female, Films_key_333, Films_key_man, film_key_women_2, films_mslslat_tab, film_Keys_For_female, Films_keys_both_new
-
-from .jobs.jobs_data import RELIGIOUS_KEYS_PP
 
 from .mixed.keys2 import Add_in_table2
 from .mixed.keys2 import Parties
@@ -82,8 +82,8 @@ __all__ = [
     "womens_Jobs_2017",
     "Female_Jobs",
     "Men_Womens_Jobs",
-    "Nat_Before_Occ",
-    "Men_Womens_with_nato",
+    "NAT_BEFORE_OCC",
+    "MEN_WOMENS_WITH_NATO",
     "Jobs_new",
     "Jobs_key",
     #

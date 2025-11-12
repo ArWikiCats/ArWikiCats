@@ -1,4 +1,10 @@
 
+## [#50](https://github.com/MrIbrahem/make2_new/pull/50) - 2025-11-23
+
+* **Refactor [Jobs.py](src/ma_lists/jobs/Jobs.py)**
+  * Updated job data API naming conventions and restructured internal data assembly pipeline for improved maintainability and consistency.
+  * Enhanced data normalization for automatic sorting and deduplication of lists and dictionaries.
+
 ## [#47](https://github.com/MrIbrahem/make2_new/pull/47) - 2025-11-11
 
 * **New Features**

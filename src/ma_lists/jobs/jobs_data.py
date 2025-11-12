@@ -4,7 +4,7 @@ jobs data
 
 from __future__ import annotations
 
-from typing import Dict, Mapping, Iterable
+from typing import Dict, Mapping, Iterable, List
 
 from .jobs_defs import (
     GenderedLabel,
@@ -132,6 +132,22 @@ def _build_military_job_labels(
     return combined_roles
 
 
+MEN_WOMENS_WITH_NATO: GenderedLabelMap = {
+    "eugenicists": {
+        "mens": "علماء {nato} متخصصون في تحسين النسل",
+        "womens": "عالمات {nato} متخصصات في تحسين النسل",
+    },
+    "politicians who committed suicide": {
+        "mens": "سياسيون {nato} أقدموا على الانتحار",
+        "womens": "سياسيات {nato} أقدمن على الانتحار",
+    },
+    "contemporary artists": {
+        "mens": "فنانون {nato} معاصرون",
+        "womens": "فنانات {nato} معاصرات",
+    },
+}
+
+
 # --- Religious role definitions -------------------------------------------------
 RELIGIOUS_KEYS_PP: GenderedLabelMap = {
     "bahá'ís": {"mens": "بهائيون", "womens": "بهائيات"},
@@ -167,6 +183,34 @@ RELIGIOUS_KEYS_PP: GenderedLabelMap = {
     "venerated": {"mens": "مبجلون", "womens": "مبجلات"},
     "saints": {"mens": "قديسون", "womens": "قديسات"},
 }
+
+NAT_BEFORE_OCC_BASE: List[str] = [
+    "convicted-of-murder",
+    "murdered abroad",
+    "contemporary",
+    "tour de france stage winners",
+    "deafblind",
+    "deaf",
+    "blind",
+    "jews",
+    "women's rights activists",
+    "human rights activists",
+    "imprisoned",
+    "imprisoned abroad",
+    "conservationists",
+    "expatriate",
+    "defectors",
+    "scholars of islam",
+    "scholars-of-islam",
+    "amputees",
+    "expatriates",
+    "scholars of",
+    "executed abroad",
+    "emigrants",
+]
+
+NAT_BEFORE_OCC = list(NAT_BEFORE_OCC_BASE)
+NAT_BEFORE_OCC.extend(key for key in RELIGIOUS_KEYS_PP.keys())
 
 RELIGIOUS_ROLE_LABELS: GenderedLabelMap = {
     "christians": {"mens": "مسيحيون", "womens": "مسيحيات"},
@@ -261,4 +305,6 @@ __all__ = [
     "PAINTER_STYLES",
     "RELIGIOUS_KEYS_PP",
     "RELIGIOUS_ROLE_LABELS",
+    "NAT_BEFORE_OCC",
+    "MEN_WOMENS_WITH_NATO",
 ]
