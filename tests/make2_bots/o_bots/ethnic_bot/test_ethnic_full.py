@@ -24,67 +24,63 @@ def clear_caches():
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("topic,template", ethnic_mod.en_is_nat_ar_is_women_2.items())
-def test_en_is_nat_ar_is_women_templates_have_single_placeholder(topic, template):
+def test_en_is_nat_ar_is_women_templates_have_single_placeholder():
     """Each female-topic template must contain exactly one {} placeholder."""
-    assert "{}" in template
-    assert template.count("{}") == 1
+    for template in ethnic_mod.en_is_nat_ar_is_women_2.values():
+        assert "{}" in template
+        assert template.count("{}") == 1
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("topic,template", ethnic_mod.MALE_TOPIC_TABLE.items())
-def test_male_topic_table_templates_have_single_placeholder(topic, template):
+def test_male_topic_table_templates_have_single_placeholder():
     """Each male-topic template must contain exactly one {} placeholder."""
-    assert "{}" in template
-    assert template.count("{}") == 1
+    for template in ethnic_mod.MALE_TOPIC_TABLE.values():
+        assert "{}" in template
+        assert template.count("{}") == 1
 
 
 # ---------- Tests for ethnic_culture() female-path using all topics ----------
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize(
-    "topic,template", sorted(ethnic_mod.en_is_nat_ar_is_women_2.items())
-)
-def test_ethnic_culture_female_topics_cover_all_entries(topic, template):
+def test_ethnic_culture_female_topics_cover_all_entries():
     """
     For every female-topic mapping, ethnic_culture should build a formatted label
     when given a known female nationality.
     """
-    start = "zanzibari-american"
-    base_label = ethnic_mod.Nat_women[start]
-    suffix = f"{start} {topic}"
+    for topic, template in ethnic_mod.en_is_nat_ar_is_women_2.items():
+        start = "zanzibari-american"
+        base_label = ethnic_mod.Nat_women[start]
+        suffix = f"{start} {topic}"
 
-    result = ethnic_culture("Category:Test", start, suffix)
+        result = ethnic_culture("Category:Test", start, suffix)
 
-    expected_inner = f"{base_label} {base_label}"
-    expected = template.format(expected_inner)
+        expected_inner = f"{base_label} {base_label}"
+        expected = template.format(expected_inner)
 
-    assert result == expected
+        assert result == expected
 
 
 # ---------- Tests for ethnic_culture() male-path using all topics ----------
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize(
-    "topic,template", sorted(ethnic_mod.MALE_TOPIC_TABLE.items())
-)
-def test_ethnic_culture_male_topics_cover_all_entries(topic, template):
+def test_ethnic_culture_male_topics_cover_all_entries():
     """
     For every male-topic mapping, ethnic_culture should build a formatted label
     when given a known male nationality.
     """
-    start = "afghan"
-    base_label = ethnic_mod.Nat_men[start]
-    suffix = f"{start} {topic}"
+    for topic, template in ethnic_mod.MALE_TOPIC_TABLE.items():
+        start = "afghan"
+        base_label = ethnic_mod.Nat_men[start]
+        suffix = f"{start} {topic}"
 
-    result = ethnic_culture("Category:Test", start, suffix)
+        result = ethnic_culture("Category:Test", start, suffix)
 
-    expected_inner = f"{base_label} {base_label}"
-    expected = template.format(expected_inner)
+        expected_inner = f"{base_label} {base_label}"
+        expected = template.format(expected_inner)
 
-    assert result == expected
+        assert result == expected
 
 
 # ---------- Edge cases for ethnic_culture() ----------

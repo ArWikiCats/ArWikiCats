@@ -117,29 +117,33 @@ def test_ethnic_culture_male_examples(category, start, suffix, expected_ar):
     assert result == expected_ar
 
 
+ethnic_culture_female_examples = [
+    # FEMALE path using en_is_nat_ar_is_women_2["music"] == "موسيقى {}"
+    # Nat_women["zanzibari-american"] == "أمريكية زنجبارية"
+    # inner string: "أمريكية زنجبارية أمريكية زنجبارية"
+    (
+        "Category:Zanzibari-American music",
+        "zanzibari-american",
+        "zanzibari-american music",
+        "موسيقى أمريكية زنجبارية أمريكية زنجبارية",
+    ),
+    # FEMALE path using en_is_nat_ar_is_women_2["movies"] == "أفلام {}"
+    # Nat_women["afghan-american"] == "أمريكية أفغانية"
+    # inner string: "أمريكية أفغانية أمريكية أفغانية"
+    (
+        "Category:Afghan-American movies",
+        "afghan-american",
+        "afghan-american movies",
+        "أفلام أمريكية أفغانية أمريكية أفغانية",
+    ),
+]
+
+
 @pytest.mark.unit
 @pytest.mark.parametrize(
     "category,start,suffix,expected_ar",
-    [
-        # FEMALE path using en_is_nat_ar_is_women_2["music"] == "موسيقى {}"
-        # Nat_women["zanzibari-american"] == "أمريكية زنجبارية"
-        # inner string: "أمريكية زنجبارية أمريكية زنجبارية"
-        (
-            "Category:Zanzibari-American music",
-            "zanzibari-american",
-            "zanzibari-american music",
-            "موسيقى أمريكية زنجبارية أمريكية زنجبارية",
-        ),
-        # FEMALE path using en_is_nat_ar_is_women_2["movies"] == "أفلام {}"
-        # Nat_women["afghan-american"] == "أمريكية أفغانية"
-        # inner string: "أمريكية أفغانية أمريكية أفغانية"
-        (
-            "Category:Afghan-American movies",
-            "afghan-american",
-            "afghan-american movies",
-            "أفلام أمريكية أفغانية أمريكية أفغانية",
-        ),
-    ],
+    ethnic_culture_female_examples,
+    ids=[x[0] for x in ethnic_culture_female_examples],
 )
 def test_ethnic_culture_female_examples(category, start, suffix, expected_ar):
     """Check a few culture-like categories for female topics."""
