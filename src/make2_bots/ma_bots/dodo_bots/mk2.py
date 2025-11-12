@@ -168,7 +168,13 @@ def new_func_mk2(
         print(f"{co_in_tables=}")
         # ---
         # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
-        if (suf.strip() == "" and con_lab.startswith("ال")) or country in Add_in_table or (country and year and In == "" and typeo == "" and country in add_in_to_country) or country in Films_O_TT or co_in_tables:
+        if (
+            (suf.strip() == "" and con_lab.startswith("ال"))
+            or country in Add_in_table
+            or (country and year and In == "" and typeo == "" and country in add_in_to_country)
+            or country in Films_O_TT
+            or co_in_tables
+        ):
             suf = " في "
             print_put("a<<lightblue>>>>>> Add في to suf")
         print_put(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')
