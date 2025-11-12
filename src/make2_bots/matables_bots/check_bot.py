@@ -8,7 +8,14 @@ from ...utils import check_key_in_tables
 from .bot import players_new_keys
 from ...ma_lists import Jobs_new, Jobs_key_mens
 
+# set_tables = [ players_new_keys, Jobs_new, Jobs_key_mens ]
+set_tables = [
+    set(players_new_keys.keys()),
+    set(Jobs_new.keys()),
+    set(Jobs_key_mens.keys()),
+]
+
 
 def check_key_new_players(key: str) -> bool:
 
-    return check_key_in_tables(key, [players_new_keys, Jobs_new, Jobs_key_mens])
+    return check_key_in_tables(key, set_tables)

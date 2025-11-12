@@ -332,10 +332,15 @@ for tt_ype in list(type_Table_oo):
 # safo = 'crimes|attacks|events|sports events|sports|establishments|disestablishments'
 
 # ---
+# Table_for_frist_word = {
+#     "typetable": typeTable,
+#     "Films_O_TT": Films_O_TT,
+#     "New_players": players_keys,
+# }
 Table_for_frist_word = {
-    "typetable": typeTable,
-    "Films_O_TT": Films_O_TT,
-    "New_players": players_keys,
+    "typetable": set(typeTable.keys()),
+    "Films_O_TT": set(Films_O_TT.keys()),
+    "players_keys": set(players_keys.keys()),
 }
 
 

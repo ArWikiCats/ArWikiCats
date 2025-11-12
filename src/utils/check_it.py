@@ -1,15 +1,15 @@
 
-from typing import List, Dict
+from typing import List, Dict, Set
 
 
-def check_key_in_tables(key: str, tables: List[Dict[str, str] | List[str]]) -> bool:
+def check_key_in_tables(key: str, tables: List[Dict[str, str] | List[str] | Set[str]]) -> bool:
     for table in tables:
         if key in table:
             return True
     return False
 
 
-def check_key_in_tables_return_tuple(key: str, tables: Dict[str, Dict[str, str]]) -> bool:
+def check_key_in_tables_return_tuple(key: str, tables: Dict[str, Dict[str, str] | Set[str]]) -> bool:
     for name, table in tables.items():
         if key in table:
             return True, name
