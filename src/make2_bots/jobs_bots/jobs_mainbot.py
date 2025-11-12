@@ -11,7 +11,7 @@ from ...ma_lists import (
     Jobs_key_mens,
     Jobs_key_womens,
     NAT_BEFORE_OCC,
-    Men_Womens_with_nato,
+    MEN_WOMENS_WITH_NATO,
 )
 from ...helps.print_bot import output_test4
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
@@ -98,7 +98,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
             if con_3.strip() in NAT_BEFORE_OCC or con_4.strip() in NAT_BEFORE_OCC:
                 country_lab = f"{mens_nat_lab} {con_3_lab}"
             # ---
-            TAJO = Men_Womens_with_nato.get(con_3, {})
+            TAJO = MEN_WOMENS_WITH_NATO.get(con_3, {})
             if TAJO and "{nato}" in TAJO.get("mens", ""):
                 country_lab = TAJO["mens"].format(nato=mens_nat_lab)
                 output_test4('<<lightblue>> TAJO["mens"]: has {nato} "%s"' % TAJO["mens"])
