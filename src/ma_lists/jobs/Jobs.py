@@ -87,21 +87,6 @@ EXECUTIVE_DOMAINS: Mapping[str, str] = {
     "television": "تلفاز",
 }
 
-MEN_WOMENS_WITH_NATO: GenderedLabelMap = {
-    "eugenicists": {
-        "mens": "علماء {nato} متخصصون في تحسين النسل",
-        "womens": "عالمات {nato} متخصصات في تحسين النسل",
-    },
-    "politicians who committed suicide": {
-        "mens": "سياسيون {nato} أقدموا على الانتحار",
-        "womens": "سياسيات {nato} أقدمن على الانتحار",
-    },
-    "contemporary artists": {
-        "mens": "فنانون {nato} معاصرون",
-        "womens": "فنانات {nato} معاصرات",
-    },
-}
-
 TYPI_LABELS: Mapping[str, GenderedLabel] = {
     "classical": {"mens": "كلاسيكيون", "womens": "كلاسيكيات"},
     "historical": {"mens": "تاريخيون", "womens": "تاريخيات"},
@@ -486,18 +471,14 @@ Men_Womens_Jobs = _DATASET.men_womens_jobs
 Jobs_new = _DATASET.jobs_new
 Jobs_key = _DATASET.jobs_key
 
-Men_Womens_with_nato = MEN_WOMENS_WITH_NATO
-
 _len_result = {
     "Jobs_key_mens": {"count": 97797, "size": "3.7 MiB"},
     "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},
     "Jobs_new": {"count": 99104, "size": "3.7 MiB"},
     "Jobs_key": {"count": 97784, "size": "3.7 MiB"},
-
     "womens_Jobs_2017": {"count": 75244, "size": "1.8 MiB"},
     "Jobs_key_womens": {"count": 468, "size": "12.8 KiB"},
     "Female_Jobs": {"count": 468, "size": "12.8 KiB"},
-    "Men_Womens_with_nato": {"count": 3, "size": "184 Bytes"},
 }
 len_print.data_len("jobs.py", {
     "Jobs_key_mens": Jobs_key_mens,
@@ -505,7 +486,6 @@ len_print.data_len("jobs.py", {
     "womens_Jobs_2017": womens_Jobs_2017,
     "Female_Jobs": Female_Jobs,
     "Men_Womens_Jobs": Men_Womens_Jobs,
-    "Men_Womens_with_nato": Men_Womens_with_nato,
     "Jobs_new": Jobs_new,
     "Jobs_key": Jobs_key,
 })
@@ -516,7 +496,6 @@ __all__ = [
     "womens_Jobs_2017",
     "Female_Jobs",
     "Men_Womens_Jobs",
-    "Men_Womens_with_nato",
     "Jobs_new",
     "Jobs_key"
 ]
