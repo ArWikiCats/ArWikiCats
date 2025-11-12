@@ -9,7 +9,6 @@ from src.ma_lists.jobs import (
     Jobs_key_womens,
     Jobs_new,
     Men_Womens_Jobs,
-    Men_Womens_with_nato,
     jobs_defs,
     jobs_players_list,
     jobs_singers,
@@ -21,7 +20,6 @@ from src.ma_lists.jobs.Jobs import (
     Jobs_key_womens as module_Jobs_key_womens,
     Jobs_new as module_Jobs_new,
     Men_Womens_Jobs as module_Men_Womens_Jobs,
-    Men_Womens_with_nato as module_Men_Womens_with_nato,
 )
 
 
@@ -34,7 +32,6 @@ def test_package_exports_reference_underlying_modules() -> None:
     assert Jobs_key_mens is module_Jobs_key_mens
     assert Jobs_key_womens is module_Jobs_key_womens
     assert Jobs_new is module_Jobs_new
-    assert Men_Womens_with_nato is module_Men_Womens_with_nato
 
 
 def test_jobs_submodules_are_accessible() -> None:
