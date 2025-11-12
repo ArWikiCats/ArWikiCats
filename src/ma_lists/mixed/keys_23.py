@@ -191,7 +191,7 @@ AFC_KEYS: dict[str, str] = {
     "afc futsal club championship": "بطولة آسيا لكرة الصالات للأندية",
 }
 
-NEW_2023 = {}
+NEW_2023 = dict(BASE_NEW_2023)
 for k, lab in ANTI_KEYS.items():  # Category:Anti-war protests in France
     k2 = k.lower()
     # ---
