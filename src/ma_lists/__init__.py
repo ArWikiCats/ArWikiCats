@@ -44,9 +44,9 @@ from .nats.Nationality import (
     en_nats_to_ar_label,
 )
 
-from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, Word_After_Years
+from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, WORD_AFTER_YEARS
 
-from .mixed.all_keys3 import typeTable_7, albums_type, film_production_company, NN_table, Ambassadors_tab
+from .mixed.all_keys3 import typeTable_7, ALBUMS_TYPE, FILM_PRODUCTION_COMPANY, NN_table, Ambassadors_tab
 
 from .mixed.all_keys4 import Inter_Feds_lower
 
@@ -69,8 +69,8 @@ from .tv.films_mslslat import (
     Films_keys_both_new,
 )
 
-from .mixed.keys2 import Add_in_table2
-from .mixed.keys2 import Parties
+from .mixed.keys2 import ADD_IN_TABLE2
+from .mixed.keys2 import PARTIES
 
 from .languages import languages_pop, lang_ttty, languages_key, lang_key_m
 
@@ -160,11 +160,11 @@ __all__ = [
     "pf_keys2",
     "pop_of_without_in",
     "pop_of_football_lower",
-    "Word_After_Years",
+    "WORD_AFTER_YEARS",
     #
     "typeTable_7",
-    "albums_type",
-    "film_production_company",
+    "ALBUMS_TYPE",
+    "FILM_PRODUCTION_COMPANY",
     "NN_table",
     "Ambassadors_tab",
     "summer_winter_games",
@@ -193,8 +193,8 @@ __all__ = [
     #
     "RELIGIOUS_KEYS_PP",
     #
-    "Add_in_table2",
-    "Parties",
+    "ADD_IN_TABLE2",
+    "PARTIES",
     #
     "languages_pop",
     "lang_ttty",

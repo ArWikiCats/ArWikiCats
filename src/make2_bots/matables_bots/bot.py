@@ -15,13 +15,13 @@ from ...ma_lists import (
     Films_TT,
     typeTable_4,
     typeTable_7,
-    albums_type,
-    film_production_company,
+    ALBUMS_TYPE,
+    FILM_PRODUCTION_COMPANY,
     Jobs_new,
     jobs_mens_data,
     Sports_Keys_For_Label,
     By_table,
-    Add_in_table2,
+    ADD_IN_TABLE2,
     People_key,
     all_country_with_nat,
 )
@@ -192,8 +192,8 @@ Pp_Priffix = {
     " administration personnel": "موظفو إدارة {}",
     " executive office": "مكتب {} التنفيذي",
 }
-for io in albums_type:
-    Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % albums_type[io]
+for io in ALBUMS_TYPE:
+    Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % ALBUMS_TYPE[io]
 
 # ---
 # titttto = "disestablished in |hosted by |established in |produced in |based in |based on |set in |in |at |to "
@@ -233,7 +233,7 @@ Add_in_table = [
     "biblical manuscripts",
 ]
 # ---
-Add_in_table += Add_in_table2
+Add_in_table += ADD_IN_TABLE2
 # ---
 # P17_keys = [x for x in pop_new]
 P17_keys = [x for x in list(pop_All_2018)]
@@ -265,8 +265,8 @@ for ss in Sports_Keys_For_Label:  #
 for uh in People_key:  #
     By_table[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"
 
-for uh in film_production_company:  #
-    By_table[f"by {uh.lower()}"] = f"بواسطة {film_production_company[uh]}"
+for uh in FILM_PRODUCTION_COMPANY:  #
+    By_table[f"by {uh.lower()}"] = f"بواسطة {FILM_PRODUCTION_COMPANY[uh]}"
 
 len_Kingdom = {1: 0}
 

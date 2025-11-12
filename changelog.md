@@ -1,5 +1,20 @@
 
-## [#50](https://github.com/MrIbrahem/make2_new/pull/50) - 2025-11-23
+## [#53](https://github.com/MrIbrahem/make2_new/pull/53) - 2025-11-13
+
+* **Bug Fixes**
+  * Corrected Arabic translations for sports categories, publications, and cultural topics.
+  * Improved consistency of multilingual mappings across datasets.
+
+* **Tests**
+  * Added comprehensive test coverage for wheelchair sports categories and classifications.
+  * Expanded validation for cultural and ethnic category translations.
+  * Implemented regression tests for Arabic label accuracy.
+
+* **Chores**
+  * Refactored internal data structure organization for improved maintainability.
+  * Standardized naming conventions across core mappings.
+
+## [#50](https://github.com/MrIbrahem/make2_new/pull/50) - 2025-11-12
 
 * **Refactor [Jobs.py](src/ma_lists/jobs/Jobs.py)**
   * Updated job data API naming conventions and restructured internal data assembly pipeline for improved maintainability and consistency.

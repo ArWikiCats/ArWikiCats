@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from ...helps.log import logger
-from ...ma_lists import Parties, party_end_keys
+from ...ma_lists import PARTIES, party_end_keys
 from .utils import resolve_suffix_template
 
 
@@ -26,7 +26,7 @@ def get_parties_lab_old(party: str) -> str:
         if party.endswith(suffix_with_space) and party_label == "":
             party_key = party[: -len(suffix_with_space)]
             logger.debug(f'party_uu:"{party_key}", tat:"{suffix}" ')
-            label = Parties.get(party_key, "")
+            label = PARTIES.get(party_key, "")
             if label:
                 party_label = (
                     suffix_template % label
@@ -55,7 +55,7 @@ def get_parties_lab(party: str) -> str:
     logger.info(f'get_parties_lab party:"{party}"')
 
     def _lookup(prefix: str) -> str:
-        return Parties.get(prefix, "")
+        return PARTIES.get(prefix, "")
 
     party_label = resolve_suffix_template(normalized_party, party_end_keys, _lookup)
 

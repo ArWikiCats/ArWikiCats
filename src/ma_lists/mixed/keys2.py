@@ -1,25 +1,16 @@
 """
+Helper utilities and datasets for the mixed key collections.
 """
-
-#
-#
-# ---
-from ..utils.json_dir import open_json_file
 from ...helps import len_print
 from ..geo.us_counties import USA_newkeys
 from ..medical.deaths import medical_keys
+from ..utils.json_dir import open_json_file
 
-new_2019 = open_json_file("keys2") or {}
-# ---
-keys2_py = open_json_file("keys2_py") or {}
-# ---
-keys2_py.update(medical_keys)
-# ---
-Add_in_table2 = [
+ADD_IN_TABLE2: list[str] = [
     "censuses",  # تعداد السكان
 ]
-# ---
-Parties = {
+
+PARTIES: dict[str, str] = {
     "libertarian party of canada": "الحزب التحرري الكندي",
     "libertarian party-of-canada": "الحزب التحرري الكندي",
     "green party-of-quebec": "حزب الخضر في كيبيك",
@@ -88,51 +79,40 @@ Parties = {
     "socialist party of albania": "الحزب الإشتراكي (ألبانيا)",
     "socialist party-of albania": "الحزب الإشتراكي (ألبانيا)",
 }
-# ---
-for x in Parties:
-    new_2019[x] = Parties[x]
-# ---
-for xg, xg_lab in USA_newkeys.items():
-    new_2019[xg.lower()] = xg_lab
-# ---
-# "united states senate elections" "انتخابات مجلس الشيوخ الأمريكي",
-# ,"cultural depictions":"التصوير الثقافي"
-# ,"hot springs of":"ينابيع حارة في"
-# ,"youth wings":"أجنحة شبابية"
-# ,"cultural history of":"تاريخ ثقافي"
-# ,"military history of":"تاريخ عسكري"
-# ,"natural history":"تاريخ طبيعي"
-# ,"social history":"تاريخ اجتماعي"
-# ,"scheduled tribes":"قبائل"
-# ,"cabinets":"مجالس"
-# ,"biographies":"سير ذاتية"
-# ,"targeted killings":"عمليات القتل المستهدف"
-# Category:Aviators_killed_in_aviation_accidents_or_incidents_in_the_United_States
-# ,"buenos aires grand prix"  :"جائزة بوينس آيرس الكبرى"
-# ,"bilateral military relations of":"العلاقات الثنائية العسكرية ل"
-# ,"the british army":"الجيش البريطاني"
-# ,"lists oxf":"قوائم"
-# ,"women's sport":"رياضة نسوية"
-# , "alpine skiing":"التزلج على المنحدرات الثلجية"
-# ,"floristry":""
-# ,"summer":"الصيف"
-# ,"youth olympic games":"ألعاب أولمبية للشباب"
-# ,"recurring sporting events established":"أحداث رياضية دورية أسست"
-# ,"sports":"رياضة"
-# ,"track and field athletes":"ألعاب قوى المضمار والميدان"
-# ,"ballot measures":"استفتاءات عامة"
-# ,"establishments":"تأسيسات"
-# ,"establishments":"تأسيسات"
-# ,"disestablishments":"انحلالات"
-# ,"aquaria":"أحواض السمك"
-# ,"sports":"رياضات"
-# ,"sport":"الرياضة"
-# ,"organizations based":"منظمات أنشئت"
-# ,"women's organizations":"منظمات نسائية"
-# ,"women's organizations based":"منظمات نسائية مقرها"
-# ,"sports governing bodies":"مجالس إدارية رياضية"
-# ---
-Lenth1 = {"keys2_py": keys2_py}
-# ---
-len_print.data_len("keys2.py", Lenth1)
-# ---
+
+
+def build_keys2_mapping() -> dict[str, str]:
+    """Return the base mapping historically stored in ``new_2019``."""
+
+    data = open_json_file("keys2") or {}
+    data.update(PARTIES)
+
+    for xg, xg_lab in USA_newkeys.items():
+        data[xg.lower()] = xg_lab
+
+    return data
+
+
+def build_keys2_py_mapping() -> dict[str, str]:
+    """Return the mapping previously stored in ``keys2_py``."""
+
+    data = open_json_file("keys2_py") or {}
+    data.update(medical_keys)
+
+    return data
+
+
+new_2019: dict[str, str] = build_keys2_mapping()
+keys2_py: dict[str, str] = build_keys2_py_mapping()
+
+len_print.data_len("keys2.py", {
+    "keys2_py": keys2_py
+})
+
+__all__ = [
+    "ADD_IN_TABLE2",
+    "ADD_IN_TABLE2",
+    "PARTIES",
+    "keys2_py",
+    "new_2019",
+]

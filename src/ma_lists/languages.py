@@ -6,7 +6,7 @@
 
 # import re
 # ---
-from .mixed.all_keys3 import albums_type
+from .mixed.all_keys3 import ALBUMS_TYPE
 
 # ---
 language_key_translations = {}
@@ -368,8 +368,8 @@ MEDIA_CATEGORY_TRANSLATIONS = {
     # "tirukkural translations" : "",
 }
 # ---
-for album_type in albums_type:
-    MEDIA_CATEGORY_TRANSLATIONS[f"{album_type} albums"] = f"ألبومات {albums_type[album_type]}"
+for album_type in ALBUMS_TYPE:
+    MEDIA_CATEGORY_TRANSLATIONS[f"{album_type} albums"] = f"ألبومات {ALBUMS_TYPE[album_type]}"
 # ---
 for media_key, media_label in MEDIA_CATEGORY_TRANSLATIONS.items():
     LANGUAGE_TOPIC_FORMATS[media_key.lower()] = "%s ب{}" % media_label

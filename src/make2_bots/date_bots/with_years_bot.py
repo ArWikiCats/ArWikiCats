@@ -8,7 +8,7 @@ from typing import Pattern
 
 # ---
 from ...ma_lists import change_numb_to_word
-from ...ma_lists import Word_After_Years
+from ...ma_lists import WORD_AFTER_YEARS
 from ..format_bots import ar_lab_before_year_to_add_in
 from ..matables_bots.bot import Add_in_table
 from ..matables_bots.table1_bot import get_KAKO
@@ -50,8 +50,8 @@ def _handle_year_at_start(category_text: str) -> str:
     output_test(f">>> _handle_year_at_start: year:{year}, con_3:{remainder}")
 
     remainder_label = ""
-    if remainder in Word_After_Years:
-        remainder_label = Word_After_Years[remainder]
+    if remainder in WORD_AFTER_YEARS:
+        remainder_label = WORD_AFTER_YEARS[remainder]
 
     if not remainder_label:
         remainder_label = get_KAKO(remainder.strip().lower())
