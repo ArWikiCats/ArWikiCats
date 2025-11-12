@@ -1,8 +1,7 @@
 """
-from .test_4_list import replace_labels_2022, en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, baston_men, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, baston_women, en_is_nat_ar_is_women, Wo_priffix, Me_priffix, change_male_to_female, people_priffix, Mens_suffix, priffix_lab_for_2018, Mens_priffix, Women_s_priffix, en_is_nat_ar_is_women_2, Main_priffix, Main_priffix_to, ttk, ttk2, Multi_sport_for_Jobs
-
-
+Rich lookup tables for gendered and national prefix/suffix mappings.
 """
+
 import copy
 from .keys_23 import AFC_KEYS
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
@@ -17,16 +16,16 @@ from ..sports import (
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .Newkey import pop_final6
 
-# ---
-replace_labels_2022 = {
+
+replace_labels_2022: dict[str, str] = {
     "مجندون أطفال": "أطفال مجندون",
 }
-# ---
+
 # الإنجليزية اسم البلد والعربية نساء
 # tab[Category:United States navy] = "تصنيف:البحرية الأمريكية"
 # tab[Category:syria air force] = "تصنيف:القوات الجوية السورية
-# ---
-en_is_P17_ar_is_al_women = {
+
+en_is_P17_ar_is_al_women: dict[str, str] = {
     "civil war": "الحرب الأهلية {}",
     "royal air force": "القوات الجوية الملكية {}",
     "air force": "القوات الجوية {}",
@@ -36,18 +35,18 @@ en_is_P17_ar_is_al_women = {
     "naval force": "البحرية {}",
     "naval forces": "البحرية {}",
 }
-# ---
+
 # الإنجليزية اسم البلد والعربية رجال
 # tab[Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
-# ---
-en_is_P17_ar_is_mens = {
+
+en_is_P17_ar_is_mens: dict[str, str] = {
     "government officials": "مسؤولون حكوميون {}",
 }
-# ---
+
 # الإنجليزية والعربية اسم البلد
 # tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
-# ---
-en_is_P17_ar_is_P17 = {
+
+en_is_P17_ar_is_P17: dict[str, str] = {
     "board members": "أعضاء مجلس {}",
     "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
     "afc asian cup squad": "تشكيلات {} في كأس آسيا",
@@ -72,10 +71,10 @@ en_is_P17_ar_is_P17 = {
     "responses": "استجابات {}",
     #    "courts" : "محاكم {}"
 }
-# ---
+
 # الإنجليزي جنسية والعربي اسم البلد
 # tab[Category:Bahraini King's Cup] = "تصنيف:كأس ملك البحرين"
-en_is_nat_ar_is_P17 = {
+en_is_nat_ar_is_P17: dict[str, str] = {
     "king's cup": "كأس ملك {}",  # Bahraini King's Cup
     "cup": "كأس {}",
     "independence": "استقلال {}",
@@ -86,15 +85,14 @@ en_is_nat_ar_is_P17 = {
     "national university alumni": "خريجو جامعة {} الوطنية",
     # "open (tennis)" : "{} المفتوحة للتنس",
 }
-# ---
-for hy in sport_formts_new_kkk.keys():
-    en_is_nat_ar_is_P17[hy] = sport_formts_new_kkk[hy]
-# ---
+
+
 # الانجليزية جنسية
 # رجالية بألف ولام التعريف
 # tab[Category:Yemeni president cup] = "تصنيف:كأس الرئيس اليمني"
-# ---
-en_is_nat_ar_is_al_mens = {
+
+
+en_is_nat_ar_is_al_mens: dict[str, str] = {
     "president cup": "كأس الرئيس {}",
     "federation cup": "كأس الاتحاد {}",
     "fa cup": "كأس الاتحاد {}",
@@ -126,11 +124,11 @@ en_is_nat_ar_is_al_mens = {
     "presidential pardons": "العفو الرئاسي {}",
     "pardons": "العفو {}",
 }
-# ---
+
 # العربي جنسية مثل : Yemeni > اليمني
 # tab[Category:syrian invasion] = "تصنيف:الغزو السوري"
-# ---
-baston_men = {
+
+baston_men: dict[str, str] = {
     "solidarity movement": "حركة التضامن",
     "invasion": "الغزو",
     "league": "الدوري",
@@ -139,20 +137,11 @@ baston_men = {
     "military": "الجيش",
     "army": "الجيش",
 }
-# ---
-# Russian Professional Football League
-# دوري كرة القدم الروسي للمحترفين
-# ---
-for er in sport_formts_male_nat:
-    en_is_nat_ar_is_al_mens[er] = sport_formts_male_nat[er]
-# ---
-for cdc in baston_men:
-    en_is_nat_ar_is_al_mens[cdc.lower()] = "%s {}" % baston_men[cdc]
-# ---
+
 # رجالية بدون ألف ولام التعريف
 # tab[Category:syrian descent] = "تصنيف:أصل سوري"
-# ---
-en_is_nat_ar_is_man = {
+
+en_is_nat_ar_is_man: dict[str, str] = {
     "descent": "أصل {}",
     "military occupations": "احتلال عسكري {}",
     "integration": "تكامل {}",
@@ -176,12 +165,12 @@ en_is_nat_ar_is_man = {
     # "literary critics" : "نقد أدبي {}",
     "television": "تلفاز {}",
 }
-# ---
+
 # نسائية بألف ولام التعريف
 # الانجليزية والعربية جنسية
 # tab[Category:Yemeni navy] = "تصنيف:البحرية اليمنية"
 # tab[Category:syrian air force] = "تصنيف:القوات الجوية السورية"
-en_is_nat_ar_is_al_women = {
+en_is_nat_ar_is_al_women: dict[str, str] = {
     "royal air force": "القوات الجوية الملكية {}",
     "air force": "القوات الجوية {}",
     "royal defence force": "قوات الدفاع الملكية {}",
@@ -207,7 +196,7 @@ en_is_nat_ar_is_al_women = {
     "games silver medalists": "فائزون بميداليات فضية في الألعاب {}",
     "games bronze medalists": "فائزون بميداليات برونزية في الألعاب {}",
     "television people": "شخصيات التلفزة {}",
-    # ---
+
     "presidential primaries": "الانتخابات الرئاسية التمهيدية {}",
     "legislative election": "الانتخابات التشريعية {}",
     "parliamentary election": "الانتخابات البرلمانية {}",
@@ -216,15 +205,12 @@ en_is_nat_ar_is_al_women = {
     "vice-presidential election": "انتخابات نائب الرئاسة {}",
     "presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
     "presidential election": "انتخابات الرئاسة {}",
-    # ---
+
 }
-# ---
-for uuy, oio in sport_formts_female_nat.items():
-    # if uuy in ["road cycling"] : continue
-    en_is_nat_ar_is_al_women[uuy] = oio
-# ---
+
+
 # [Category:myanmarian movement] = "تصنيف:الحركة الميانمارية"
-baston_women = {
+baston_women: dict[str, str] = {
     "movement": "الحركة",
     "unity cup": "كأس الوحدة",
     "rail": "السكك الحديدية",
@@ -243,14 +229,28 @@ baston_women = {
     "politics": "السياسة",
     # "sports" : "الرياضة",
 }
-# ---
-for cdc in baston_women:
-    en_is_nat_ar_is_al_women[cdc.lower()] = "%s {}" % baston_women[cdc]
-# ---
+
+
+def _extend_female_sport_mappings() -> None:
+    """
+    Populate sport related mappings for female categories.
+
+    # Russian Professional Football League
+    # دوري كرة القدم الروسي للمحترفين
+
+    """
+    data = {}
+    for key, value in sport_formts_female_nat.items():
+        data[key] = value
+    for category, label in baston_women.items():
+        data[category.lower()] = f"{label} {{}}"
+    return data
+
+
 # جنسية عربي وإنجليزي
 # نسائية بدون ألف ولام التعريف
 # tab[Category:myanmarian crimes] = "تصنيف:جرائم ميانمارية"
-en_is_nat_ar_is_women = {
+en_is_nat_ar_is_women: dict[str, str] = {
     "phonologies": "تصريفات صوتية {}",
     "crimes": "جرائم {}",
     "crimes against humanity": "جرائم ضد الإنسانية {}",
@@ -444,36 +444,54 @@ en_is_nat_ar_is_women = {
     # "books" : "كتب {}",
     # "cinema" : "سينما {}",
     # "dukes" : "دوقات {}",
-    # ---
+
 }
-# ---
-for sx in SINGERS_TAB.keys():
-    en_is_nat_ar_is_man[sx] = "%s {}" % SINGERS_TAB[sx]
-    en_is_nat_ar_is_women[f"{sx} groups"] = "فرق %s {}" % SINGERS_TAB[sx]
-    en_is_nat_ar_is_women[f"{sx} musical groups"] = "فرق موسيقى %s {}" % SINGERS_TAB[sx]
-# ---
-for iu in BUSINESSPEOPLE_INDUSTRIES:
-    en_is_nat_ar_is_women[f"{iu} businesspeople"] = "شخصيات أعمال {} في %s" % BUSINESSPEOPLE_INDUSTRIES[iu]
-    en_is_nat_ar_is_women[f"{iu} industry businesspeople"] = "شخصيات أعمال {} في صناعة %s" % BUSINESSPEOPLE_INDUSTRIES[iu]
-# ---
-en_is_nat_ar_is_women_2 = copy.deepcopy(en_is_nat_ar_is_women)
-# ---
-for bo, bo_la in BOOK_CATEGORIES.items():
-    en_is_nat_ar_is_women[bo.lower()] = "%s {}" % bo_la
-    # ---
-    for fyy in BOOK_TYPES:
-        kk = f"{fyy.lower()} {bo.lower()}"
-        en_is_nat_ar_is_women[kk] = f"{bo_la} {BOOK_TYPES[fyy]} {{}}"
-    # ---
-    en_is_nat_ar_is_women[f"non fiction {bo.lower()}"] = "%s {} غير خيالية" % bo_la
-    en_is_nat_ar_is_women[f"non-fiction {bo.lower()}"] = "%s {} غير خيالية" % bo_la
-    en_is_nat_ar_is_women[f"online {bo.lower()}"] = "%s إنترنت {}" % bo_la
-# ---
-for bo in pop_final6:
-    en_is_nat_ar_is_women[bo.lower()] = "%s {}" % pop_final6[bo]
-# ---
-Women_s_priffix = {}
-Wo_priffix = {
+
+
+def _extend_sport_mappings() -> None:
+    """Populate sport related mappings for both genders."""
+
+    for key, value in sport_formts_new_kkk.items():
+        en_is_nat_ar_is_P17[key] = value
+
+
+def _extend_singer_and_business_entries() -> None:
+    """Populate singer and businessperson derived mappings."""
+
+    for key, label in SINGERS_TAB.items():
+        en_is_nat_ar_is_man[key] = f"{label} {{}}"
+        en_is_nat_ar_is_women[f"{key} groups"] = f"فرق {label} {{}}"
+        en_is_nat_ar_is_women[f"{key} musical groups"] = f"فرق موسيقى {label} {{}}"
+
+    for key, label in BUSINESSPEOPLE_INDUSTRIES.items():
+        en_is_nat_ar_is_women[f"{key} businesspeople"] = f"شخصيات أعمال {{}} في {label}"
+
+        en_is_nat_ar_is_women[f"{key} industry businesspeople"] = f"شخصيات أعمال {{}} في صناعة {label}"
+
+
+en_is_nat_ar_is_women_2: dict[str, str] = copy.deepcopy(en_is_nat_ar_is_women)
+
+
+def _extend_book_entries() -> None:
+    """Populate mappings derived from book categories."""
+
+    for key, label in BOOK_CATEGORIES.items():
+        lowered = key.lower()
+        en_is_nat_ar_is_women[lowered] = f"{label} {{}}"
+        for book_type, book_label in BOOK_TYPES.items():
+            composite = f"{book_type.lower()} {lowered}"
+            en_is_nat_ar_is_women[composite] = f"{label} {book_label} {{}}"
+
+        en_is_nat_ar_is_women[f"non fiction {lowered}"] = f"{label} {{}} غير خيالية"
+        en_is_nat_ar_is_women[f"non-fiction {lowered}"] = f"{label} {{}} غير خيالية"
+        en_is_nat_ar_is_women[f"online {lowered}"] = f"{label} إنترنت {{}}"
+
+    for key, label in pop_final6.items():
+        en_is_nat_ar_is_women[key.lower()] = f"{label} {{}}"
+
+
+Women_s_priffix: dict[str, str] = {}
+Wo_priffix: dict[str, str] = {
     # "women of" : "{}",
     # "non-" : "غير {}",
     "women": "{}",
@@ -486,16 +504,22 @@ Wo_priffix = {
     # "expatriate female" : "{} مغتربات",
     # "expatriate women" : "{} مغتربات",
 }
-for wom in Wo_priffix:
-    Women_s_priffix[wom] = Wo_priffix[wom]
-    Women_s_priffix[f"expatriate {wom}"] = f"{Wo_priffix[wom]} مغتربات"
-    # Women_s_priffix["executed {}".format(wom)] = "%s معدومات" % Wo_priffix[wom]
-    Women_s_priffix[f"kidnapped {wom}"] = f"{Wo_priffix[wom]} مختطفات"
-# Women_s_priffix["executed"] = "معدومات"
-# ---
-Mens_priffix = {}  # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
-# ---
-Me_priffix = {
+
+
+def _extend_women_prefixes() -> None:
+    """Populate prefix variants used for female categories."""
+
+    for prefix, template in Wo_priffix.items():
+        Women_s_priffix[prefix] = template
+        Women_s_priffix[f"expatriate {prefix}"] = f"{template} مغتربات"
+        # Women_s_priffix["executed {}".format(wom)] = "%s معدومات" % Wo_priffix[wom]
+        Women_s_priffix[f"kidnapped {prefix}"] = f"{template} مختطفات"
+        # Women_s_priffix["executed"] = "معدومات"
+
+
+Mens_priffix: dict[str, str] = {}  # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
+
+Me_priffix: dict[str, str] = {
     "amputee": "{} مبتورو أحد الأطراف",
     "blind": "{} مكفوفون",
     "child": "{} أطفال",
@@ -521,8 +545,8 @@ Me_priffix = {
     "romantic": "{} رومانسيون",
     # "male" : "ذكور {}",
 }
-# ---
-change_male_to_female = {
+
+change_male_to_female: dict[str, str] = {
     "{} مغتربون": "{} مغتربات",
     "{} مختطفون": "{} مختطفات",
     "{} معدمون": "{} معدمات",
@@ -539,27 +563,30 @@ change_male_to_female = {
     "{} رومانسيون": "{} رومانسيات",
     "{} دينيون": "{} دينيات",
 }
-# ---
-for me in Me_priffix:
-    Mens_priffix[me] = Me_priffix[me]
-    Mens_priffix[f"expatriate {me}"] = f"{Me_priffix[me]} مغتربون"
-# ---
-YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-# ---
-for year in YEARS_LIST:
-    Mens_priffix[f"under-{year}"] = "{} تحت %d سنة" % year
-    Mens_priffix[f"under–{year}"] = "{} تحت %d سنة" % year
-# ---
-Mens_priffix["kidnapped"] = "{} مختطفون"
-Mens_priffix["expatriate"] = "{} مغتربون"
-Mens_priffix["renaissance"] = "{} عصر النهضة"
-Mens_priffix["murdered"] = "{} قتلوا"
-Mens_priffix["under-19"] = "{} تحت 19 سنة"
-Mens_priffix["assassinated"] = "{} مغتالون"
-Mens_priffix["sunni muslim"] = "{} مسلمون سنة"
-# ---
-people_priffix = {
-    # ---
+
+YEARS_LIST: list[int] = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+
+
+def _extend_men_prefixes() -> None:
+    """Populate prefix variants used for male categories."""
+
+    for prefix, template in Me_priffix.items():
+        Mens_priffix[prefix] = template
+        Mens_priffix[f"expatriate {prefix}"] = f"{template} مغتربون"
+    for year in YEARS_LIST:
+        Mens_priffix[f"under-{year}"] = f"{{}} تحت {year} سنة"
+        Mens_priffix[f"under–{year}"] = f"{{}} تحت {year} سنة"
+    Mens_priffix["kidnapped"] = "{} مختطفون"
+    Mens_priffix["expatriate"] = "{} مغتربون"
+    Mens_priffix["renaissance"] = "{} عصر النهضة"
+    Mens_priffix["murdered"] = "{} قتلوا"
+    Mens_priffix["under-19"] = "{} تحت 19 سنة"
+    Mens_priffix["assassinated"] = "{} مغتالون"
+    Mens_priffix["sunni muslim"] = "{} مسلمون سنة"
+
+
+people_priffix: dict[str, str] = {
+
     "assassinated": "{} مغتالون",
     "fictional": "{} خياليون",
     "native": "{} أصليون",
@@ -568,8 +595,8 @@ people_priffix = {
     "contemporary": "{} معاصرون",
     "ancient": "{} قدماء",
 }
-# ---
-Mens_suffix = {
+
+Mens_suffix: dict[str, str] = {
     "male deaf": "{} صم ذكور",
     "blind": "{} مكفوفون",
     "deafblind": "{} صم ومكفوفون",
@@ -580,17 +607,17 @@ Mens_suffix = {
     "killed in action": "{} قتلوا في عمليات قتالية",
     "murdered abroad": "{} قتلوا في الخارج",
 }
-# ---
-priffix_lab_for_2018 = {
-    # ---
+
+priffix_lab_for_2018: dict[str, dict[str, str]] = {
+
     "fictional": {"men": "{} خيالي", "women": "{} خيالية"},
     "native": {"men": "{} أصلي", "women": "{} أصلية"},
     "contemporary": {"men": "{} معاصر", "women": "{} معاصرة"},
     "ancient": {"men": "{} قديم", "women": "{} قديمة"},
 }
-# ---
-Main_priffix = {
-    # ---
+
+Main_priffix: dict[str, str] = {
+
     "assassinated": "{} مغتالون",
     "fictional": "{} خياليون",
     "native": "{} أصليون",
@@ -598,7 +625,7 @@ Main_priffix = {
     "killed": "{} قتلوا",
     "contemporary": "{} معاصرون",
     "ancient": "{} قدماء",
-    # ---
+
     "cultural depictions of": "تصوير ثقافي عن {}",
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",
@@ -606,23 +633,23 @@ Main_priffix = {
     "non": "{} غير",
     # "non" : "غير {}",
 }
-Main_priffix_to = {
+Main_priffix_to: dict[str, str] = {
     "non": "{t} غير {nat}",
 }
 
-ttk = {
+ttk: dict[str, str] = {
     "cultural depictions of": "التصوير الثقافي ل{}",
     "fictional depictions of": "التصوير الخيالي ل{}",
     "depictions of": "تصوير عن {}",
 }
 
-ttk2 = {
+ttk2: dict[str, str] = {
     "cultural depictions of": "تصوير ثقافي عن {}",
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",
 }
 
-Multi_sport_for_Jobs = {
+Multi_sport_for_Jobs: dict[str, str] = {
     "afc asian cup": "كأس آسيا",
     "afc cup": "كأس الاتحاد الآسيوي",
     "fifa futsal world cup": "كأس العالم لكرة الصالات",
@@ -630,3 +657,39 @@ Multi_sport_for_Jobs = {
 
 Multi_sport_for_Jobs.update(summer_winter_games)
 Multi_sport_for_Jobs.update(AFC_KEYS)
+
+_extend_sport_mappings()
+
+en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
+
+_extend_singer_and_business_entries()
+_extend_book_entries()
+_extend_women_prefixes()
+_extend_men_prefixes()
+
+__all__ = [
+    "replace_labels_2022",
+    "en_is_P17_ar_is_mens",
+    "en_is_P17_ar_is_P17",
+    "en_is_nat_ar_is_P17",
+    "en_is_nat_ar_is_al_mens",
+    "baston_men",
+    "en_is_nat_ar_is_man",
+    "en_is_nat_ar_is_al_women",
+    "baston_women",
+    "en_is_nat_ar_is_women",
+    "Wo_priffix",
+    "Me_priffix",
+    "change_male_to_female",
+    "people_priffix",
+    "Mens_suffix",
+    "priffix_lab_for_2018",
+    "Mens_priffix",
+    "Women_s_priffix",
+    "en_is_nat_ar_is_women_2",
+    "Main_priffix",
+    "Main_priffix_to",
+    "ttk",
+    "ttk2",
+    "Multi_sport_for_Jobs",
+]
