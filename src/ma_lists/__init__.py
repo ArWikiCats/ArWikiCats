@@ -48,7 +48,7 @@ from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower,
 
 from .mixed.all_keys3 import typeTable_7, ALBUMS_TYPE, FILM_PRODUCTION_COMPANY, NN_table, Ambassadors_tab
 
-from .mixed.all_keys4 import Inter_Feds_lower
+from .mixed.all_keys4 import INTER_FEDS_LOWER
 
 from .mixed.all_keys5 import Clubs_key_2
 
@@ -169,7 +169,7 @@ __all__ = [
     "Ambassadors_tab",
     "summer_winter_games",
     #
-    "Inter_Feds_lower",
+    "INTER_FEDS_LOWER",
     #
     "Clubs_key_2",
     #

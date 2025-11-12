@@ -454,11 +454,9 @@ def _extend_sport_mappings() -> None:
     for key, value in sport_formts_new_kkk.items():
         en_is_nat_ar_is_P17[key] = value
 
-    # TODO
     for key, value in sport_formts_male_nat.items():
         en_is_nat_ar_is_al_mens[key] = value
 
-    # TODO
     for category, label in baston_men.items():
         en_is_nat_ar_is_al_mens[category.lower()] = f"{label} {{}}"
 
@@ -676,28 +674,22 @@ _extend_women_prefixes()
 _extend_men_prefixes()
 
 __all__ = [
-    "replace_labels_2022",
-    "en_is_P17_ar_is_mens",
-    "en_is_P17_ar_is_P17",
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
-    "baston_men",
     "en_is_nat_ar_is_man",
     "en_is_nat_ar_is_al_women",
-    "baston_women",
     "en_is_nat_ar_is_women",
-    "Wo_priffix",
-    "Me_priffix",
     "change_male_to_female",
-    "people_priffix",
-    "Mens_suffix",
     "priffix_lab_for_2018",
-    "Mens_priffix",
-    "Women_s_priffix",
-    "en_is_nat_ar_is_women_2",
     "Main_priffix",
     "Main_priffix_to",
-    "ttk",
-    "ttk2",
     "Multi_sport_for_Jobs",
+    "en_is_nat_ar_is_women_2",
+    "en_is_P17_ar_is_mens",
+    "en_is_P17_ar_is_P17",
+    "replace_labels_2022",
+    "Mens_suffix",
+    "Mens_priffix",
+    "Women_s_priffix",
+    "en_is_P17_ar_is_al_women",
 ]

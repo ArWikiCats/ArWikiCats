@@ -111,7 +111,6 @@ len_print.data_len("keys2.py", {
 
 __all__ = [
     "ADD_IN_TABLE2",
-    "ADD_IN_TABLE2",
     "PARTIES",
     "keys2_py",
     "new_2019",
