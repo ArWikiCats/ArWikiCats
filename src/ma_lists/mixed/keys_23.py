@@ -2,50 +2,50 @@
 """
 """
 
-new_2023 = {
-    "Continental Indoor Soccer League": "الدوري القاري لكرة القدم داخل الصالات",
-    "Western Indoor Soccer League": "الدوري الغربي لكرة القدم داخل الصالات",
-    "World Indoor Soccer League": "الدوري العالمي لكرة القدم داخل الصالات",
-    "Major Indoor Soccer League": "الدوري الرئيسي لكرة القدم داخل الصالات",
-    "eastern Indoor Soccer League": "الدوري الشرقي لكرة القدم داخل الصالات",
+from ...helps import len_print
+
+BASE_NEW_2023: dict[str, str] = {
+    "continental indoor soccer league": "الدوري القاري لكرة القدم داخل الصالات",
+    "western indoor soccer league": "الدوري الغربي لكرة القدم داخل الصالات",
+    "world indoor soccer league": "الدوري العالمي لكرة القدم داخل الصالات",
+    "major indoor soccer league": "الدوري الرئيسي لكرة القدم داخل الصالات",
+    "eastern indoor soccer league": "الدوري الشرقي لكرة القدم داخل الصالات",
     "game-of-thrones": "صراع العروش",
     "game of thrones": "صراع العروش",
     "statistics": "إحصائيات",
     "records": "سجلات",
     "records and statistics": "سجلات وإحصائيات",
-    "Literary characters": "شخصيات أدبية",
+    "literary characters": "شخصيات أدبية",
     "audiovisual introductions": "استحداثات سمعية بصرية",
     "amusement rides": "ألعاب ملاهي",
-    "Amusement rides": "ألعاب الملاهي",
-    "Amusement ride introductions": "استحداثات ألعاب ملاهي",
-    "Amusement rides introductions": "استحداثات ألعاب ملاهي",
+    "amusement ride introductions": "استحداثات ألعاب ملاهي",
+    "amusement rides introductions": "استحداثات ألعاب ملاهي",
     "amusement parks": "متنزهات ملاهي",
-    "Amusement park": "متنزهات ملاهي",
-    "Amusement park introductions": "استحداثات متنزهات ملاهي",
-    "Amusement parks introductions": "استحداثات متنزهات ملاهي",
-    "Amusement ride attractions": "ألعاب ملاهي جاذبة",
-    "Amusement rides attractions": "ألعاب ملاهي جاذبة",
+    "amusement park": "متنزهات ملاهي",
+    "amusement park introductions": "استحداثات متنزهات ملاهي",
+    "amusement parks introductions": "استحداثات متنزهات ملاهي",
+    "amusement ride attractions": "ألعاب ملاهي جاذبة",
+    "amusement rides attractions": "ألعاب ملاهي جاذبة",
     "amusement park attraction introductions": "استحداثات متنزهات ملاهي جاذبة",
-    "Amusement park attractions": "متنزهات ملاهي جاذبة",
-    "Amusement attractions": "ملاهي جاذبة",
+    "amusement park attractions": "متنزهات ملاهي جاذبة",
+    "amusement attractions": "ملاهي جاذبة",
     "visitor attractions": "معالم سياحية",
     "tourist attractions": "مواقع جذب سياحي",
     "roadside attractions": "مناطق جذب على جانب الطريق",
-    "Dubailand": "دبي لاند",
+    "dubailand": "دبي لاند",
     "freethought": "فكر حر",
-    "Changyi": "تشانجي",
-    "Cattle": "الماشية",
+    "changyi": "تشانجي",
+    "cattle": "الماشية",
     "blindness": "العمى",
-    # "lgbt rights in cuba": "حقوق المثليين في كوبا",
     "lgbt rights": "حقوق المثليين",
     "capes": "رؤوس",
     "stalls": "الانهيار",
     "privately held companies": "شركات خاصة",
     "charter-airlines": "طيران عارض",
     "charter airlines": "طيران عارض",
-    "Defunct charter-airlines": "طيران عارض سابق",
-    "Psychotherapy": "علاج نفسي",
-    "Healthcare reform": "إصلاح الرعاية الصحية",
+    "defunct charter-airlines": "طيران عارض سابق",
+    "psychotherapy": "علاج نفسي",
+    "healthcare reform": "إصلاح الرعاية الصحية",
     "pseudonymous writers": "كتاب بأسماء مستعارة",
     "1st millennium": "الألفية الأولى",
     "2nd millennium": "الألفية الثانية",
@@ -57,20 +57,21 @@ new_2023 = {
     "8th millennium": "الألفية الثامنة",
     "9th millennium": "الألفية الرابعة",
     "10th millennium": "الألفية الخامسة",
-    "1st millennium BC": "الألفية الأولى ق م",
-    "2nd millennium BC": "الألفية الثانية ق م",
-    "3rd millennium BC": "الألفية الثالثة ق م",
-    "4th millennium BC": "الألفية الرابعة ق م",
-    "5th millennium BC": "الألفية الخامسة ق م",
-    "6th millennium BC": "الألفية السادسة ق م",
-    "7th millennium BC": "الألفية السابعة ق م",
-    "8th millennium BC": "الألفية الثامنة ق م",
-    "9th millennium BC": "الألفية التاسعة ق م",
-    "10th millennium BC": "الألفية العاشرة ق م",
-    "11th millennium BC": "الألفية 11 ق م",
+    "1st millennium bc": "الألفية الأولى ق م",
+    "2nd millennium bc": "الألفية الثانية ق م",
+    "3rd millennium bc": "الألفية الثالثة ق م",
+    "4th millennium bc": "الألفية الرابعة ق م",
+    "5th millennium bc": "الألفية الخامسة ق م",
+    "6th millennium bc": "الألفية السادسة ق م",
+    "7th millennium bc": "الألفية السابعة ق م",
+    "8th millennium bc": "الألفية الثامنة ق م",
+    "9th millennium bc": "الألفية التاسعة ق م",
+    "10th millennium bc": "الألفية العاشرة ق م",
+    "11th millennium bc": "الألفية 11 ق م",
 }
-# ---
-anti_keys = {
+
+
+ANTI_KEYS: dict[str, str] = {
     "anti-war": "مناهضة للحرب",
     "anti-revisionist": "مناهضة للتحريفية",
     "anti-communism": "مناهضة للشيوعية",
@@ -78,7 +79,7 @@ anti_keys = {
     "anti-islam": "مناهضة للإسلام",
     "anti-zionist": "مناهضة للصهيونية",
     "anti-jewish": "مناهضة لليهودية",
-    "anti-Monopoly": "مناهضة للإحتكار",
+    "anti-monopoly": "مناهضة للإحتكار",
     "anti-masonic": "مناهضة للماسونية",
     "anti-smoking": "مناهضة للتدخين",
     "anti-obesity": "مناهضة للسمنة",
@@ -89,8 +90,9 @@ anti_keys = {
     "anti-liquor": "مناهضة للخمور",
     "anti-abortion": "مناهضة للإجهاض",
 }
-# ---
-anti_suffix = {
+
+
+ANTI_SUFFIXES: dict[str, str] = {
     "company": "شركات",
     "protests": "احتجاجات",
     "organizations": "منظمات",
@@ -132,21 +134,15 @@ anti_suffix = {
     "webcomics": "ويب كومكس",
     "websites": "مواقع ويب",
 }
-# ---
-for k, lab in anti_keys.items():  # Category:Anti-war protests in France
-    k2 = k.lower()
-    # ---
-    for en, ar in anti_suffix.items():
-        new_2023[f"{k2} {en}"] = f"{ar} {lab}"
-# ---
-afc_keys = {
+
+
+AFC_KEYS: dict[str, str] = {
     "afc asian cup qualification": "تصفيات كأس آسيا",
     "fifa world cup qualification (caf)": "تصفيات كأس العالم لكرة القدم (إفريقيا)",
     "fifa world cup qualification (afc)": "تصفيات كأس العالم لكرة القدم (آسيا)",
     "fifa futsal world cup qualification": "تصفيات كأس العالم لكرة الصالات",
     "fifa futsal world cup qualification (afc)": "تصفيات كأس العالم لكرة الصالات (آسيا)",
     "fifa futsal world cup qualification (caf)": "تصفيات كأس العالم لكرة الصالات (إفريقيا)",
-
     "afc challenge league": "دوري التحدي الآسيوي",
     "association football afc": "كرة القدم في الاتحاد الآسيوي لكرة القدم",
     "association-football afc": "كرة القدم في الاتحاد الآسيوي لكرة القدم",
@@ -194,6 +190,22 @@ afc_keys = {
     "afc futsal asian cup": "كأس آسيا لكرة الصالات",
     "afc futsal club championship": "بطولة آسيا لكرة الصالات للأندية",
 }
+
+NEW_2023 = {}
+for k, lab in ANTI_KEYS.items():  # Category:Anti-war protests in France
+    k2 = k.lower()
+    # ---
+    for en, ar in ANTI_SUFFIXES.items():
+        NEW_2023[f"{k2} {en}"] = f"{ar} {lab}"
 # ---
-new_2023.update({x.lower(): v for x, v in afc_keys.items()})
-# ---
+NEW_2023.update({x.lower(): v for x, v in AFC_KEYS.items()})
+
+
+len_print.data_len("keys_23.py", {
+    "AFC_KEYS": AFC_KEYS,
+    "NEW_2023": NEW_2023,
+})
+__all__ = [
+    "AFC_KEYS",
+    "NEW_2023"
+]
