@@ -56,8 +56,8 @@ def add_in_tab(Type_lab, Type_lower, tito2):
 
 
 def _check_in_tables_new(country_lower, Type_lower):
-    table1, country_in_Table = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
-    table2, Type_in_Table = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
+    country_in_Table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
+    Type_in_Table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
     # ---
     if country_in_Table:
         print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table1}.')
