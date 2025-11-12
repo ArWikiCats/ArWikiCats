@@ -14,7 +14,7 @@ from ..sports import (
     sport_formts_male_nat,
     sport_formts_female_nat,
 )
-from .all_keys2 import Books_table, Books_type
+from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .Newkey import pop_final6
 
 # ---
@@ -458,12 +458,12 @@ for iu in businesspeoples:
 # ---
 en_is_nat_ar_is_women_2 = copy.deepcopy(en_is_nat_ar_is_women)
 # ---
-for bo, bo_la in Books_table.items():
+for bo, bo_la in BOOK_CATEGORIES.items():
     en_is_nat_ar_is_women[bo.lower()] = "%s {}" % bo_la
     # ---
-    for fyy in Books_type:
+    for fyy in BOOK_TYPES:
         kk = f"{fyy.lower()} {bo.lower()}"
-        en_is_nat_ar_is_women[kk] = f"{bo_la} {Books_type[fyy]} {{}}"
+        en_is_nat_ar_is_women[kk] = f"{bo_la} {BOOK_TYPES[fyy]} {{}}"
     # ---
     en_is_nat_ar_is_women[f"non fiction {bo.lower()}"] = "%s {} غير خيالية" % bo_la
     en_is_nat_ar_is_women[f"non-fiction {bo.lower()}"] = "%s {} غير خيالية" % bo_la

@@ -21,7 +21,7 @@ from typing import Dict, List, Mapping, MutableMapping
 from ...helps import len_print
 from ..companies import companies_to_jobs
 from ..utils.json_dir import open_json
-from ..mixed.all_keys2 import Books_table
+from ..mixed.all_keys2 import BOOK_CATEGORIES
 from ..mixed.male_keys import religious_female_keys
 from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
@@ -313,7 +313,7 @@ def _add_jobs_people_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> N
     for role_key, role_labels in JOBS_PEOPLE_ROLES.items():
         if not (role_labels["mens"] and role_labels["womens"]):
             continue
-        for book_key, book_label in Books_table.items():
+        for book_key, book_label in BOOK_CATEGORIES.items():
             m_w_jobs[f"{book_key} {role_key}"] = {
                 "mens": f"{role_labels['mens']} {book_label}",
                 "womens": f"{role_labels['womens']} {book_label}"

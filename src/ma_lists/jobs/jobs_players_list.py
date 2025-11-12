@@ -8,7 +8,7 @@ being easier to reason about and test.
 
 from __future__ import annotations
 
-from typing import Dict, Final, Mapping
+from typing import Dict, Mapping
 from ..utils.json_dir import open_json
 
 from ..sports.Sport_key import (
@@ -51,7 +51,7 @@ BOXING_WEIGHT_TRANSLATIONS: Mapping[str, str] = {
     "super cruiserweight": "وزن الطراد سوبر",
 }
 
-WORLD_BOXING_CHAMPION_PREFIX: Final[GenderedLabel] = {"mens": "أبطال العالم للملاكمة فئة", "womens": ""}
+WORLD_BOXING_CHAMPION_PREFIX: GenderedLabel = {"mens": "أبطال العالم للملاكمة فئة", "womens": ""}
 # Prefix applied to boxing world champion descriptors.
 
 SKATING_DISCIPLINE_LABELS: Mapping[str, GenderedLabel] = {

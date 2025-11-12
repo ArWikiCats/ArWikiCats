@@ -475,7 +475,7 @@ for ke in Films_key_both:
 # for CO in Films_key_CAO:
 # type_Table_no[CO] =Films_key_CAO[CO]
 # ---
-# from .all_keys2 import Books_table
+# from .all_keys2 import BOOK_CATEGORIES
 # ---
 # Films_key_CAO["films"] = "أفلام"
 # Films_key_CAO["video games"] = "ألعاب فيديو"
