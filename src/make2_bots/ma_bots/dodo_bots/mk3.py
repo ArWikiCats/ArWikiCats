@@ -78,6 +78,46 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
     return Add_In_Done, arlabel, cat_test
 
 
+def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
+    print_put("a<<lightblue>>>>>> Add year before")
+    # ---
+    co_in_tables = check_key_in_tables(country, to_check_them)
+    # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
+    # ---
+    # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
+    if (
+        (suf.strip() == "" and con_lab.startswith("ال"))
+        or co_in_tables
+        or check_key_new_players(country.lower())
+    ):
+        suf = " في "
+        print_put("a<<lightblue>>>>>> Add في to suf")
+
+    print_put(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')
+
+    Add_In_Done = False
+
+    if suf.strip() == "" and year_labe.strip() == arlabel2.strip():
+        if Add_In and con_lab.strip() in ar_lab_before_year_to_add_in:
+            print_put("ar_lab_before_year_to_add_in Add في to arlabel")
+            suf = " في "
+            Add_In = False
+            Add_In_Done = True
+
+        elif con_lab.strip().startswith("أعضاء ") and con_lab.find(" حسب ") == -1:
+            print_put(">354 Add في to arlabel")
+            suf = " في "
+            Add_In = False
+            Add_In_Done = True
+
+    arlabel = con_lab + suf + arlabel2
+
+    print_put("a<<lightblue>>>3265>>>arlabel = con_lab + suf +  arlabel2")
+    print_put(f"a<<lightblue>>>3265>>>{arlabel}")
+
+    return arlabel, Add_In, Add_In_Done
+
+
 def new_func_mk2(
     category: str,
     cat_test: str,
@@ -154,39 +194,7 @@ def new_func_mk2(
         return cat_test, arlabel
 
     if typeo == "" and In == "" and country and year:
-        print_put("a<<lightblue>>>>>> Add year before")
-        # ---
-        co_in_tables = check_key_in_tables(country, to_check_them)
-        # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
-        # ---
-        # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
-        if (
-            (suf.strip() == "" and con_lab.startswith("ال"))
-            or co_in_tables
-            or check_key_new_players(country.lower())
-        ):
-            suf = " في "
-            print_put("a<<lightblue>>>>>> Add في to suf")
-        print_put(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')
-
-        if suf.strip() == "" and year_labe.strip() == arlabel2.strip():
-            if Add_In and con_lab.strip() in ar_lab_before_year_to_add_in:
-                print_put("ar_lab_before_year_to_add_in Add في to arlabel")
-                suf = " في "
-                Add_In = False
-                Add_In_Done = True
-
-            elif con_lab.strip().startswith("أعضاء ") and con_lab.find(" حسب ") == -1:
-                print_put(">354 Add في to arlabel")
-                suf = " في "
-                Add_In = False
-                Add_In_Done = True
-
-        arlabel = con_lab + suf + arlabel2
-
-        print_put("a<<lightblue>>>3265>>>arlabel = con_lab + suf +  arlabel2")
-        print_put(f"a<<lightblue>>>3265>>>{arlabel}")
-
+        arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2)
     print_put('------- end --------')
     print_put(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
     print_put(f'a<<lightblue>>>>>> arlabel "{arlabel}"')
