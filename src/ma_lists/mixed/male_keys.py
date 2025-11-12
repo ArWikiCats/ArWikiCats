@@ -157,170 +157,188 @@ POP3_KEYS: dict[str, dict[str, str]] = {
     "colleges": {"male": "", "female": "كليات"},
 }
 
-New_female_keys = {}
-New_male_keys = {}
+MALE_SUFFIXES: dict[str, str] = {
+    "riots": "شغب",
+    "food": "طعام",
+    "impact": "أثر",
+    "broadcasting": "بث لاسلكي",
+    "science": "علم",
+    "medicine": "طب",
+    "outbreaks": "تفشي",
+    "exchange": "تبادل",
+    "repression": "قمع",
+    "orientation": "توجه",
+    "fiction": "خيال",
+    "union": "اتحاد",
+    "violence": "عنف",
+}
 
-for key, lab in RELIGIOUS_FEMALE_KEYS.items():
-    keys2 = key.lower()
-    New_female_keys[f"{keys2} companies of"] = f"شركات {lab} في"
+FEMALE_EXPANSIONS: dict[str, str] = {
+    "defunct {base} stations": "محطات {label} سابقة",
+    "{base} ttelevision networks": "شبكات تلفزيونية {label}",
+    "{base} television stations": "محطات تلفزيونية {label}",
+    "{base} superfund sites": "مواقع استجابة بيئية شاملة {label}",
+    "{base} stations": "محطات {label}",
+    "{base} responses": "استجابات {label}",
+    "{base} censorship": "رقابة {label}",
+    "{base} communications": "اتصالات {label}",
+    "{base} animals": "حيوانات {label}",
 
-    for dd in FEMALE_SUFFIXES:
-        ky2 = f"{keys2} {dd}"
-        lb3 = f"{FEMALE_SUFFIXES[dd]} {lab}"
-        New_female_keys[ky2] = lb3
+    "{base} philosophy": "فلسفة {label}",
+    "{base} migration": "هجرة {label}",
 
-        if "movements" in dd:
-            New_female_keys[f"new {keys2} {dd}"] = lb3 + " جديدة"
+    "{base} think tanks": "مؤسسات فكر ورأي {label}",
+    "{base} positions": "مراكز {label}",
 
-    New_female_keys[f"{keys2} founders"] = f"مؤسسو {lab}"
-    New_female_keys[f"{keys2} rights"] = f"حقوق {lab}"
-    New_female_keys[f"{keys2} underground culture"] = f"ثقافة باطنية {lab}"
-    New_female_keys[f"{keys2} culture"] = f"ثقافة {lab}"
+    "{base} accidents-and-incidents": "حوادث {label}",
+    "{base} accidents and incidents": "حوادث {label}",
+    "{base} accidents or incidents": "حوادث {label}",
+    "{base} accidents": "حوادث {label}",
+    "{base} incidents": "حوادث {label}",
+    "{base} software": "برمجيات {label}",
+    "{base} databases": "قواعد بيانات {label}",
 
-    New_female_keys[f"{keys2} think tanks"] = f"مؤسسات فكر ورأي {lab}"
+    "{base} controversies": "خلافات {label}",
+    "{base} agencies": "وكالات {label}",
+    "{base} units and formations": "وحدات وتشكيلات {label}",
+    "{base} squadrons‎": "أسراب {label}",
+    "{base} ideologies": "أيديولوجيات {label}",
+    "{base} occupations": "مهن {label}",
+    "{base} organisations": "منظمات {label}",
+    "{base} organizations": "منظمات {label}",
+    "{base} organization": "منظمات {label}",
+    "{base} facilities": "مرافق {label}",
+    "{base} bunkers": "مخابئ {label}",
 
-    New_female_keys[f"{keys2} temples"] = f"معابد {lab}"
-    New_female_keys[f"{keys2} research"] = f"أبحاث {lab}"
-    New_female_keys[f"{keys2} industry"] = f"صناعة {lab}"
-    New_female_keys[f"{keys2} technology"] = f"تقنيات {lab}"
+    "{base} research facilities": "مرافق بحثية {label}",
+    "{base} training facilities": "مرافق تدريب {label}",
+    "{base} industrial facilities": "مرافق صناعية {label}",
+    "{base} warfare facilities": "مرافق حربية {label}",
 
-    New_female_keys[f"{keys2} disasters"] = f"كوارث {lab}"
-    New_female_keys[f"{keys2} politics"] = f"سياسة {lab}"
-    New_female_keys[f"{keys2} banks"] = f"بنوك {lab}"
-    New_female_keys[f"{keys2} buildings"] = f"مبان {lab}"
-    New_female_keys[f"{keys2} buildings and structures"] = f"مبان ومنشآت {lab}"
-    New_female_keys[f"{keys2} building and structure"] = f"مبان ومنشآت {lab}"
+    "{base} logistics": "لوجستية {label}",
+    "{base} research": "أبحاث {label}",
+    "{base} industry": "صناعة {label}",
+    "{base} technology": "تقنيات {label}",
 
-pop_key3_male = {}
-pop_key3_female = {}
+    "{base} disasters": "كوارث {label}",
+    "{base} writing": "كتابات {label}",
+    "{base} issues": "قضايا {label}",
 
-for ui, uu in POP3_KEYS.items():
-    if uu["male"]:
-        pop_key3_male[ui] = uu["male"]
-    if uu["female"]:
-        pop_key3_female[ui] = uu["female"]
+    "{base} rights": "حقوق {label}",
+    "{base} communities": "مجتمعات {label}",
+    "{base} culture": "ثقافة {label}",
+    "{base} underground culture": "ثقافة باطنية {label}",
 
-for keyt in pop_key3_male:
-    key2c = keyt.lower()
-    labe = pop_key3_male[keyt]
-    sod = f"{key2c} %s"
-    New_male_keys[sod % "riots"] = f"شغب {labe}"
-    New_male_keys[sod % "food"] = f"طعام {labe}"
-    New_male_keys[sod % "impact"] = f"أثر {labe}"
-    New_male_keys[sod % "broadcasting"] = f"بث لاسلكي {labe}"
-    New_male_keys[sod % "science"] = f"علم {labe}"
-    New_male_keys[sod % "medicine"] = f"طب {labe}"
-    New_male_keys[sod % "outbreaks"] = f"تفشي {labe}"
-    New_male_keys[sod % "exchange"] = f"تبادل {labe}"
-    New_male_keys[sod % "repression"] = f"قمع {labe}"
-    New_male_keys[sod % "orientation"] = f"توجه {labe}"
-    New_male_keys[sod % "fiction"] = f"خيال {labe}"
-    New_male_keys[sod % "union"] = f"اتحاد {labe}"
-    New_male_keys[sod % "violence"] = f"عنف {labe}"
+    "{base} companies of": "شركات {label} في",
+    "{base} companies": "شركات {label}",
+    "{base} firms of": "شركات {label} في",
+    "{base} firms": "شركات {label}",
+    "{base} museums": "متاحف {label}",
 
-for key in pop_key3_female:
-    keys2 = key.lower()
-    lab = pop_key3_female[key]
+    "{base} politics": "سياسة {label}",
+    "{base} banks": "بنوك {label}",
+    "{base} buildings": "مبان {label}",
+    "{base} structures": "منشآت {label}",
+    "{base} installations": "منشآت {label}",
+    "{base} building and structure": "مبان ومنشآت {label}",
+    "{base} buildings and structures": "مبان ومنشآت {label}",
+}
 
-    New_female_keys[f"defunct {keys2} stations"] = f"محطات {lab} سابقة"
-    New_female_keys[f"{keys2} ttelevision networks"] = f"شبكات تلفزيونية {lab}"
-    New_female_keys[f"{keys2} television stations"] = f"محطات تلفزيونية {lab}"
-    New_female_keys[f"{keys2} superfund sites"] = f"مواقع استجابة بيئية شاملة {lab}"
-    New_female_keys[f"{keys2} stations"] = f"محطات {lab}"
-    New_female_keys[f"{keys2} responses"] = f"استجابات {lab}"
-    New_female_keys[f"{keys2} censorship"] = f"رقابة {lab}"
-    New_female_keys[f"{keys2} communications"] = f"اتصالات {lab}"
-    New_female_keys[f"{keys2} animals"] = f"حيوانات {lab}"
 
-    New_female_keys[f"{keys2} philosophy"] = f"فلسفة {lab}"
-    New_female_keys[f"{keys2} migration"] = f"هجرة {lab}"
+def _add_religious_entries() -> None:
+    """Expand the registry with religion related suffixes."""
+    data = {}
+    for base, label in RELIGIOUS_FEMALE_KEYS.items():
+        lowered = base.lower()
+        data[f"{lowered} companies of"] = f"شركات {label} في"
+        for suffix, suffix_label in FEMALE_SUFFIXES.items():
+            key = f"{lowered} {suffix}"
+            data[key] = f"{suffix_label} {label}"
+            if "movements" in suffix:
+                data[f"new {lowered} {suffix}"] = f"{suffix_label} {label} جديدة"
+        data[f"{lowered} founders"] = f"مؤسسو {label}"
+        data[f"{lowered} rights"] = f"حقوق {label}"
+        data[f"{lowered} underground culture"] = f"ثقافة باطنية {label}"
+        data[f"{lowered} culture"] = f"ثقافة {label}"
+        data[f"{lowered} think tanks"] = f"مؤسسات فكر ورأي {label}"
+        data[f"{lowered} temples"] = f"معابد {label}"
+        data[f"{lowered} research"] = f"أبحاث {label}"
+        data[f"{lowered} industry"] = f"صناعة {label}"
+        data[f"{lowered} technology"] = f"تقنيات {label}"
+        data[f"{lowered} disasters"] = f"كوارث {label}"
+        data[f"{lowered} politics"] = f"سياسة {label}"
+        data[f"{lowered} banks"] = f"بنوك {label}"
+        data[f"{lowered} buildings"] = f"مبان {label}"
+        data[f"{lowered} buildings and structures"] = f"مبان ومنشآت {label}"
+        data[f"{lowered} building and structure"] = f"مبان ومنشآت {label}"
+    return data
 
-    New_female_keys[f"{keys2} think tanks"] = f"مؤسسات فكر ورأي {lab}"
-    New_female_keys[f"{keys2} positions"] = f"مراكز {lab}"
 
-    New_female_keys[f"{keys2} accidents-and-incidents"] = f"حوادث {lab}"
-    New_female_keys[f"{keys2} accidents and incidents"] = f"حوادث {lab}"
-    New_female_keys[f"{keys2} accidents or incidents"] = f"حوادث {lab}"
-    New_female_keys[f"{keys2} accidents"] = f"حوادث {lab}"
-    New_female_keys[f"{keys2} incidents"] = f"حوادث {lab}"
-    New_female_keys[f"{keys2} software"] = f"برمجيات {lab}"
-    New_female_keys[f"{keys2} databases"] = f"قواعد بيانات {lab}"
+def _add_film_entries() -> None:
+    """Update the registry with film-based female categories."""
 
-    New_female_keys[f"{keys2} controversies"] = f"خلافات {lab}"
-    New_female_keys[f"{keys2} agencies"] = f"وكالات {lab}"
-    New_female_keys[f"{keys2} units and formations"] = f"وحدات وتشكيلات {lab}"
-    New_female_keys[f"{keys2} squadrons‎"] = f"أسراب {lab}"
-    New_female_keys[f"{keys2} ideologies"] = f"أيديولوجيات {lab}"
-    New_female_keys[f"{keys2} occupations"] = f"مهن {lab}"
-    New_female_keys[f"{keys2} organisations"] = f"منظمات {lab}"
-    New_female_keys[f"{keys2} organizations"] = f"منظمات {lab}"
-    New_female_keys[f"{keys2} organization"] = f"منظمات {lab}"
-    New_female_keys[f"{keys2} facilities"] = f"مرافق {lab}"
-    New_female_keys[f"{keys2} bunkers"] = f"مخابئ {lab}"
+    Films_keys_male_female = open_json_file("Films_keys_male_female") or {}
+    data = {}
+    for key, labels in Films_keys_male_female.items():
+        label = labels.get("female", "")
+        if not label:
+            continue
+        lowered = key.lower()
+        data[f"{lowered} agencies"] = f"وكالات {label}"
+        data[f"{lowered} occupations"] = f"مهن {label}"
+        data[f"{lowered} organisations"] = f"منظمات {label}"
+        data[f"{lowered} organizations"] = f"منظمات {label}"
+        data[f"{lowered} organization"] = f"منظمات {label}"
+        data[f"{lowered} research"] = f"أبحاث {label}"
+        data[f"{lowered} industry"] = f"صناعة {label}"
+        data[f"{lowered} technology"] = f"تقنيات {label}"
+        data[f"{lowered} disasters"] = f"كوارث {label}"
+        data[f"{lowered} issues"] = f"قضايا {label}"
+        data[f"{lowered} culture"] = f"ثقافة {label}"
+        data[f"{lowered} companies"] = f"شركات {label}"
+    return data
 
-    New_female_keys[f"{keys2} research facilities"] = f"مرافق بحثية {lab}"
-    New_female_keys[f"{keys2} training facilities"] = f"مرافق تدريب {lab}"
-    New_female_keys[f"{keys2} industrial facilities"] = f"مرافق صناعية {lab}"
-    New_female_keys[f"{keys2} warfare facilities"] = f"مرافق حربية {lab}"
 
-    New_female_keys[f"{keys2} logistics"] = f"لوجستية {lab}"
-    New_female_keys[f"{keys2} research"] = f"أبحاث {lab}"
-    New_female_keys[f"{keys2} industry"] = f"صناعة {lab}"
-    New_female_keys[f"{keys2} technology"] = f"تقنيات {lab}"
+def build_female_keys() -> dict[str, str]:
+    """Return the expanded mapping used for female-labelled categories."""
 
-    New_female_keys[f"{keys2} disasters"] = f"كوارث {lab}"
-    New_female_keys[f"{keys2} writing"] = f"كتابات {lab}"
-    New_female_keys[f"{keys2} issues"] = f"قضايا {lab}"
+    data = _add_religious_entries()
 
-    New_female_keys[f"{keys2} rights"] = f"حقوق {lab}"
-    New_female_keys[f"{keys2} communities"] = f"مجتمعات {lab}"
-    New_female_keys[f"{keys2} culture"] = f"ثقافة {lab}"
-    New_female_keys[f"{keys2} underground culture"] = f"ثقافة باطنية {lab}"
+    for base, labels in POP3_KEYS.items():
+        if labels.get("female"):
+            lowered = base.lower()
+            for template, translation in FEMALE_EXPANSIONS.items():
+                data[template.format(base=lowered)] = translation.format(label=labels.get("female"))
 
-    New_female_keys[f"{keys2} companies of"] = f"شركات {lab} في"
-    New_female_keys[f"{keys2} companies"] = f"شركات {lab}"
-    New_female_keys[f"{keys2} firms of"] = f"شركات {lab} في"
-    New_female_keys[f"{keys2} firms"] = f"شركات {lab}"
-    New_female_keys[f"{keys2} museums"] = f"متاحف {lab}"
+    films_data = _add_film_entries()
+    data.update(films_data)
+    data.update(structures_data)
+    data.update(companies_data)
 
-    New_female_keys[f"{keys2} politics"] = f"سياسة {lab}"
-    New_female_keys[f"{keys2} banks"] = f"بنوك {lab}"
-    New_female_keys[f"{keys2} buildings"] = f"مبان {lab}"
-    New_female_keys[f"{keys2} structures"] = f"منشآت {lab}"
-    New_female_keys[f"{keys2} installations"] = f"منشآت {lab}"
-    New_female_keys[f"{keys2} building and structure"] = f"مبان ومنشآت {lab}"
-    New_female_keys[f"{keys2} buildings and structures"] = f"مبان ومنشآت {lab}"
+    for suffix, translation in FEMALE_SUFFIXES.items():
+        data[f"lgbt {suffix}"] = f"{translation} مثلية"
+        data[f"secessionist {suffix}"] = f"{translation} انفصالية"
+        data[f"defunct secessionist {suffix}"] = f"{translation} انفصالية سابقة"
 
-Films_keys_male_female = open_json_file("Films_keys_male_female") or {}
+    return data
 
-for ttt in Films_keys_male_female:
 
-    lab = Films_keys_male_female[ttt].get("female", "")
+def build_male_keys() -> dict[str, str]:
+    """Return the expanded mapping used for male-labelled categories."""
 
-    if lab:
-        ttt2 = ttt.lower()
-        New_female_keys[f"{ttt2} agencies"] = f"وكالات {lab}"
-        New_female_keys[f"{ttt2} occupations"] = f"مهن {lab}"
-        New_female_keys[f"{ttt2} organisations"] = f"منظمات {lab}"
-        New_female_keys[f"{ttt2} organizations"] = f"منظمات {lab}"
-        New_female_keys[f"{ttt2} organization"] = f"منظمات {lab}"
-        New_female_keys[f"{ttt2} research"] = f"أبحاث {lab}"
-        New_female_keys[f"{ttt2} industry"] = f"صناعة {lab}"
-        New_female_keys[f"{ttt2} technology"] = f"تقنيات {lab}"
-        New_female_keys[f"{ttt2} disasters"] = f"كوارث {lab}"
-        New_female_keys[f"{ttt2} issues"] = f"قضايا {lab}"
-        New_female_keys[f"{ttt2} culture"] = f"ثقافة {lab}"
-        New_female_keys[f"{ttt2} companies"] = f"شركات {lab}"
+    data = {}
 
-New_female_keys.update(structures_data)
+    for base, labels in POP3_KEYS.items():
+        lowered = base.lower()
+        if labels.get("male"):
+            for suffix, suffix_label in MALE_SUFFIXES.items():
+                data[f"{lowered} {suffix}"] = f"{suffix_label} {labels.get("male")}"
 
-New_female_keys.update(companies_data)
+    return data
 
-for d_d in FEMALE_SUFFIXES:
-    New_female_keys[f"lgbt {d_d}"] = f"{FEMALE_SUFFIXES[d_d]} مثلية"
-    New_female_keys[f"secessionist {d_d}"] = f"{FEMALE_SUFFIXES[d_d]} انفصالية"
-    New_female_keys[f"defunct secessionist {d_d}"] = f"{FEMALE_SUFFIXES[d_d]} انفصالية سابقة"
 
+New_female_keys: dict[str, str] = build_female_keys()
+New_male_keys: dict[str, str] = build_male_keys()
 
 len_print.data_len("male_keys.py", {
     "New_female_keys": New_female_keys,
