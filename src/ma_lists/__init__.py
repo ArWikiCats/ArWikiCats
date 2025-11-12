@@ -20,7 +20,7 @@ from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
 from .jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO, RELIGIOUS_KEYS_PP
 
-from .jobs.Jobs import Jobs_key_mens, womens_Jobs_2017, Men_Womens_Jobs, Jobs_new
+from .jobs.Jobs import Jobs_key_mens, womens_Jobs_2017, Jobs_new
 
 from .jobs.jobs_womens import Female_Jobs, Jobs_key_womens
 
@@ -134,7 +134,6 @@ __all__ = [
     "Jobs_key_womens",
     "womens_Jobs_2017",
     "Female_Jobs",
-    "Men_Womens_Jobs",
     "NAT_BEFORE_OCC",
     "MEN_WOMENS_WITH_NATO",
     "Jobs_new",

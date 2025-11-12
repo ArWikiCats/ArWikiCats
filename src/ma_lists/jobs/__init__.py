@@ -13,7 +13,6 @@ from .jobs_womens import Female_Jobs, Jobs_key_womens, FEMALE_JOBS_TO
 from .Jobs import (
     Jobs_key_mens,
     Jobs_new,
-    Men_Womens_Jobs,
     womens_Jobs_2017,
 )
 from .Jobs2 import JOBS_2, JOBS_3333
@@ -44,7 +43,6 @@ __all__ = [
     "Jobs_key_mens",
     "Jobs_key_womens",
     "Jobs_new",
-    "Men_Womens_Jobs",
     "MEN_WOMENS_WITH_NATO",
     "NAT_BEFORE_OCC",
     "womens_Jobs_2017",

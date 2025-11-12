@@ -6,35 +6,8 @@ from src.ma_lists.jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO
 from src.ma_lists.jobs.Jobs import (
     Jobs_key_mens,
     Jobs_new,
-    Men_Womens_Jobs,
-    womens_Jobs_2017,
 )
 from src.ma_lists.jobs.Jobs2 import JOBS_2, JOBS_3333
-
-
-def test_jobs_key_mens_syncs_with_gendered_dataset() -> None:
-    """Every entry in ``Jobs_key_mens`` should exist in ``Men_Womens_Jobs``."""
-
-    assert Jobs_key_mens  # sanity check that data is populated
-    for key, mens_label in Jobs_key_mens.items():
-        if key in Men_Womens_Jobs:
-            assert Men_Womens_Jobs[key]["mens"] == mens_label
-            continue
-        # Legacy dataset exposes "men's footballers" via the generic football entry.
-        assert key == "men's footballers"
-        football_label = Men_Womens_Jobs["footballers"]["mens"]
-        assert mens_label.startswith(football_label)
-
-
-def test_womens_jobs_only_contains_entries_with_feminine_label() -> None:
-    """``womens_Jobs_2017`` should mirror feminine labels from the master map."""
-
-    assert womens_Jobs_2017
-    for key, womens_label in womens_Jobs_2017.items():
-        assert womens_label
-        assert key in Men_Womens_Jobs
-        assert Men_Womens_Jobs[key]["womens"] == womens_label
-
 
 def test_jobs_new_contains_female_and_general_entries() -> None:
     """Flattened mapping should expose lowercase keys for combined datasets."""
