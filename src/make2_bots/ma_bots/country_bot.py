@@ -26,7 +26,6 @@ from ...ma_lists import Sports_Keys_For_Label
 from ...ma_lists import Nat_mens
 from ...ma_lists import New_female_keys
 
-from ..matables_bots.bot import Add_to_main2_tab
 from ...helps.print_bot import print_put, output_test
 
 from ..fromnet.wd_bot import find_wikidata
@@ -77,7 +76,6 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
                 continue
             print(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :]
-            Add_to_main2_tab(prefix, prefix_label)
             remainder_label = country2_bot.Get_country2(remainder)
 
             if remainder_label == "":
@@ -87,7 +85,6 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
                 remainder_label = ye_ts_bot.translate_general_category(remainder)
 
             if remainder_label:
-                Add_to_main2_tab(remainder, remainder_label)
                 resolved_label = f"{remainder_label} {prefix_label}"
                 print_put(f'>>>>>> xxx new cnt_la  "{resolved_label}" ')
                 break
@@ -132,7 +129,6 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
                 remainder_label = ye_ts_bot.translate_general_category(remainder)
 
             if remainder_label:
-                Add_to_main2_tab(remainder, remainder_label)
                 resolved_label = prefix_template.format(remainder_label)
                 if (
                     remainder_label.strip().endswith(" في")

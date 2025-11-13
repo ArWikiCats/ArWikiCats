@@ -7,7 +7,7 @@ from typing import Dict
 from ...helps.print_bot import output_test, print_def_head
 from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 from ..jobs_bots.test_4 import Jobs_in_Multi_Sports, nat_match, test4_2018_with_nat
-from ..matables_bots.bot import Add_to_main2_tab, Films_O_TT, add_to_new_players
+from ..matables_bots.bot import Films_O_TT, add_to_new_players
 from ..media_bots.film_keys_bot import get_Films_key_CAO
 from ..o_bots import fax
 from ..o_bots.army import test_army
@@ -36,26 +36,22 @@ def test_films(category: str, reference_category: str = "") -> str:
         resolved_label = Jobs_in_Multi_Sports(normalized_category)
         if resolved_label:
             add_to_new_players(normalized_category, resolved_label)
-            Add_to_main2_tab(normalized_category, resolved_label)
             output_test(f'>>>> Jobs_in_Multi Sports: add_to_new_players[{normalized_category}] ="{resolved_label}"')
 
     if not resolved_label:
         resolved_label = test4_2018_with_nat(normalized_category, reference_category=reference_category)
         if resolved_label:
-            Add_to_main2_tab(normalized_category, resolved_label)
             Films_O_TT[normalized_category] = resolved_label
 
     if not resolved_label:
         resolved_label = test4_2018_Jobs(normalized_category)
         if resolved_label:
             add_to_new_players(normalized_category, resolved_label)
-            Add_to_main2_tab(normalized_category, resolved_label)
             output_test(f'>>>> test_4 2018 Jobs: add_to_new_players[{normalized_category}] ="{resolved_label}"')
 
     if not resolved_label:
         resolved_label = nat_match(normalized_category)
         if resolved_label:
-            Add_to_main2_tab(normalized_category, resolved_label)
             output_test(f'>>>> nat_match: [{normalized_category}] ="{resolved_label}"')
     if not resolved_label:
         resolved_label = p17_bot.Get_P17(normalized_category)

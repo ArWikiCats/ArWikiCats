@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pytest to validate all title lists using fixlab()."""
 
-from pathlib import Path
 from src.fix.fixtitle import fixlab
-
-Dir = Path(__file__).parent
 
 
 def load_test_fixlab_data(data):

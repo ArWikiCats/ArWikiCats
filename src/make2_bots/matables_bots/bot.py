@@ -52,9 +52,6 @@ cash_2022 = {
 }
 # ---
 Work_With_Change_key = {1: False}
-make_tab = {1: False}
-main2_tab = {1: {"title": "", "lab": {}, "nolab": {}}}
-_current_table_sink: Optional[Callable[[str, str], None]] = None
 
 # ---
 New_Lan = {}
@@ -343,24 +340,6 @@ Table_for_frist_word = {
 #     "Films_O_TT": set(Films_O_TT.keys()),
 #     "players_keys": set(players_keys.keys()),
 # }
-
-
-def set_table_sink(sink: Optional[Callable[[str, str], None]]) -> None:
-    """Register a table sink used by the new event processor."""
-
-    global _current_table_sink
-    _current_table_sink = sink
-    make_tab[1] = sink is not None
-    main2_tab[1] = {"title": "", "lab": {}, "nolab": {}}
-
-
-def Add_to_main2_tab(en: str, ar: str) -> None:
-    if not en or not ar:
-        return
-    if _current_table_sink is not None:
-        _current_table_sink(en, ar)
-
-
 players_new_keys = players_keys
 
 

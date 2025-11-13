@@ -10,7 +10,7 @@ from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
 from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
-from ..sports import tennis_keys
+from ..sports import TENNIS_KEYS
 from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
 from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
@@ -516,7 +516,7 @@ def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str
 
     pf_keys2: dict[str, str] = build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in)
 
-    _update_lowercase(pf_keys2, [tennis_keys, pop_final6, cccccc_m], skip_existing=True)
+    _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, cccccc_m], skip_existing=True)
     _update_lowercase(pf_keys2, [languages_key, People_key, new2019, NEW_2023], skip_existing=False)
 
     pop_of_without_in.update(ministrees_keysse)

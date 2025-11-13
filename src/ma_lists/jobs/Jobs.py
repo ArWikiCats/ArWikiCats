@@ -25,7 +25,7 @@ from ..mixed.all_keys2 import BOOK_CATEGORIES
 from ..mixed.male_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
-from ..sports.cycling import new2019_cycling
+from ..sports.cycling import BASE_CYCLING_EVENTS
 from ..tv.films_mslslat import Films_key_For_Jobs
 from .Jobs2 import JOBS_2
 from .jobs_defs import (
@@ -287,7 +287,7 @@ def _add_cycling_variants(
 ) -> None:
     """Insert variants derived from cycling events."""
 
-    for event_key, event_label in new2019_cycling.items():
+    for event_key, event_label in BASE_CYCLING_EVENTS.items():
         lowered = event_key.lower()
         m_w_jobs[f"{lowered} cyclists"] = {
             "mens": f"دراجو {event_label}",
