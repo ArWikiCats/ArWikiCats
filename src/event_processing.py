@@ -34,6 +34,48 @@ class EventProcessingResult:
     no_labels: List[str] = field(default_factory=list)
 
 
+@functools.lru_cache(maxsize=None)
+def resolve_label(category: str) -> str:
+    """Resolve the label using multi-step logic."""
+    changed_cat = change_cat(category)
+    is_cat_okay = filter_en.filter_cat(category)
+
+    category_lab = ""
+    cat_year, from_year = labs_years.lab_from_year(category)
+
+    if from_year:
+        category_lab = from_year
+
+    start_yementest_lab = ""
+
+    if not category_lab:
+        start_yementest_lab = ye_ts_bot.translate_general_category(changed_cat)
+
+    if not category_lab and is_cat_okay:
+        category_lower = category.lower()
+        category_lab = cash_2022.get(category_lower, "")
+
+        if not category_lab and app_settings.start_yementest:
+            category_lab = start_yementest_lab
+
+        if not category_lab:
+            category_lab = event2bot.event2(changed_cat)
+
+        if not category_lab:
+            category_lab = event_lab_bot.event_Lab(changed_cat)
+
+    if not category_lab and is_cat_okay:
+        category_lab = start_yementest_lab
+
+    if category_lab:
+        category_lab = fixtitle.fixlab(category_lab, en=category)
+
+    if not from_year and cat_year:
+        labs_years.lab_from_year_add(category, category_lab, cat_year)
+
+    return category_lab
+
+
 class EventProcessor:
     """Fast, pure processing engine for categories."""
 
@@ -46,47 +88,6 @@ class EventProcessor:
         if category.startswith("\ufeff"):
             category = category[1:]
         return category.replace("_", " ")
-
-    @functools.lru_cache(maxsize=None)
-    def _resolve_label(self, category: str) -> str:
-        """Resolve the label using multi-step logic."""
-        changed_cat = change_cat(category)
-        is_cat_okay = filter_en.filter_cat(category)
-
-        category_lab = ""
-        cat_year, from_year = labs_years.lab_from_year(category)
-
-        if from_year:
-            category_lab = from_year
-
-        start_yementest_lab = ""
-
-        if not category_lab:
-            start_yementest_lab = ye_ts_bot.translate_general_category(changed_cat)
-
-        if not category_lab and is_cat_okay:
-            category_lower = category.lower()
-            category_lab = cash_2022.get(category_lower, "")
-
-            if not category_lab and app_settings.start_yementest:
-                category_lab = start_yementest_lab
-
-            if not category_lab:
-                category_lab = event2bot.event2(changed_cat)
-
-            if not category_lab:
-                category_lab = event_lab_bot.event_Lab(changed_cat)
-
-        if not category_lab and is_cat_okay:
-            category_lab = start_yementest_lab
-
-        if category_lab:
-            category_lab = fixtitle.fixlab(category_lab, en=category)
-
-        if not from_year and cat_year:
-            labs_years.lab_from_year_add(category, category_lab, cat_year)
-
-        return category_lab
 
     @staticmethod
     def _prefix_label(raw_label: str) -> str:
@@ -113,7 +114,7 @@ class EventProcessor:
 
             normalized = self._normalize_category(original)
 
-            raw_label = self._resolve_label(normalized)
+            raw_label = resolve_label(normalized)
 
             final_label = self._prefix_label(raw_label)
             has_label = bool(final_label)
@@ -160,7 +161,7 @@ def new_func_lab_final_label(category_r: str) -> str:
 
 def event_result(
     NewList: List[str],
-) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
+) ->EventProcessingResult:
 
     processor = EventProcessor()
     result = processor.process(NewList)
