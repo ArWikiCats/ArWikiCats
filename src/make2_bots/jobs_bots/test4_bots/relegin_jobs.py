@@ -10,12 +10,9 @@ from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
 import functools
 
+
 @functools.lru_cache(maxsize=None)
 def try_relegins_jobs(cate: str) -> str:
-    # ---
-    cach_key = cate.lower().strip()
-    # ---
-    # Note: Cache logic removed as we're using @functools.lru_cache decorator
     # ---
     output_test4(f"\t xx start: <<lightred>>try_relegins_jobs >> <<lightpurple>> cate:{cate}")
     # ---

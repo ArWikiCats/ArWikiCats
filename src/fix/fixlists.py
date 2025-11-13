@@ -1,8 +1,5 @@
-"""Mappings used to normalize Arabic category labels.
-
-The module centralizes the string and regular expression replacements used by
-:mod:`src.fix.fixtitle`. Each constant is typed to improve static analysis and
-is named in uppercase for clarity and compliance with project conventions.
+"""
+Mappings used to normalize Arabic category labels.
 """
 
 from __future__ import annotations
@@ -16,8 +13,6 @@ __all__ = [
     "YEAR_CATEGORY_LABELS",
 ]
 
-# NOTE: the dictionaries intentionally preserve insertion order so that later
-# replacements can depend on previous substitutions.
 REPLACEMENTS: Dict[str, str] = {
     "المكان المأهول واحتلال": "المكان المأهول والمهنة",
     "حقوق المثليين": "معاملة المثليين",

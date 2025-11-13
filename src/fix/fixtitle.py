@@ -1,9 +1,5 @@
-"""Helpers for normalizing Arabic category titles.
-
-The module exposes the :func:`fixlab` entry point that performs a sequence of
-regular-expression driven transformations. The transformations are heavily
-localized for Arabic Wikipedia labels and rely on the constants defined in
-:mod:`src.fix.fixlists`.
+"""
+Helpers for normalizing Arabic category titles.
 """
 
 from __future__ import annotations
