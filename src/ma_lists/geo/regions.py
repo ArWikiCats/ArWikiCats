@@ -1,21 +1,7 @@
 #!/usr/bin/python3
 """
-SELECT #?item ?itemLabel ?en ?value
-(concat('  "', ?en , '" : "', ?value , '", ')  as ?ss)
-
-WHERE {
-  ?item wdt:P31 wd:Q843886.
-  ?item rdfs:label ?value filter (lang(?value) = "ar") .
-  #?item rdfs:label ?en filter (lang(?en) = "en") .
-  ?article schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?en .
-  SERVICE wikibase:label {
-    bd:serviceParam wikibase:language "en,ar" .
-  }
-
-    }
-#LIMIT 10000
 """
-# ---
+
 PRIMARY_REGION_TRANSLATIONS = {
     # ---
     "limburg (belgium)": "ليمبورغ (بلجيكا)",
@@ -730,3 +716,15 @@ del (
 )
 
 Main_Table = PRIMARY_REGION_TRANSLATIONS
+
+__all__ = [
+    "PRIMARY_REGION_TRANSLATIONS",
+    "PERU_REGION_TRANSLATIONS",
+    "UK_COUNTY_TRANSLATIONS",
+    "SRI_LANKA_DISTRICT_TRANSLATIONS",
+    "ALGERIA_PROVINCE_TRANSLATIONS",
+    "VENEZUELA_STATE_TRANSLATIONS",
+    "ECUADOR_PROVINCE_TRANSLATIONS",
+    "LEGACY_UK_COUNTY_TRANSLATIONS",
+    "Main_Table",
+]
