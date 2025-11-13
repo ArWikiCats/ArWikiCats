@@ -201,3 +201,15 @@ def test_attacks_on_context_changes_preposition():
     ar = "هجمات في باريس"
     en = "attacks on Paris"
     assert apply_category_specific_normalizations(ar, en) == "هجمات على باريس"
+
+
+@pytest.mark.parametrize("ar_label, en_label, expected", [
+    ("أفلام بواسطة ستيفن سبيلبرغ", "films by", "أفلام ستيفن سبيلبرغ"),
+    ("وفيات بواسطة ضربات جوية", "deaths by airstrikes", "وفيات بضربات جوية"),
+    ("قصص قصيرة 1613", "short stories 1613", "قصص قصيرة كتبت سنة 1613"),
+    ("ردود فعل إلى القرار", "reactions to", "ردود فعل على القرار")
+],
+    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
+)
+def test_apply_category_specific_normalizations(ar_label, en_label, expected):
+    assert apply_category_specific_normalizations(ar_label, en_label) == expected

@@ -6,13 +6,6 @@ from __future__ import annotations
 
 from typing import Dict, Set
 
-__all__ = [
-    "REPLACEMENTS",
-    "STARTING_REPLACEMENTS",
-    "ENDING_REPLACEMENTS",
-    "YEAR_CATEGORY_LABELS",
-]
-
 REPLACEMENTS: Dict[str, str] = {
     "المكان المأهول واحتلال": "المكان المأهول والمهنة",
     "حقوق المثليين": "معاملة المثليين",
@@ -114,3 +107,10 @@ YEAR_CATEGORY_LABELS: Set[str] = {
     "كوارث طبية",
 }
 """Labels that require inserting the preposition 'في' before year values."""
+
+__all__ = [
+    "REPLACEMENTS",
+    "STARTING_REPLACEMENTS",
+    "ENDING_REPLACEMENTS",
+    "YEAR_CATEGORY_LABELS",
+]

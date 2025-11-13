@@ -1,5 +1,9 @@
-"""
-Helpers for normalizing Arabic category titles.
+"""Helpers for normalizing Arabic category titles.
+
+The module exposes the :func:`fixlab` entry point that performs a sequence of
+regular-expression driven transformations. The transformations are heavily
+localized for Arabic Wikipedia labels and rely on the constants defined in
+:mod:`src.fix.fixlists`.
 """
 
 from __future__ import annotations
@@ -127,6 +131,13 @@ def _normalize_sub_regions(text: str) -> str:
     return text
 
 
+def fix_formula(ar_label: str, en_label: str) -> str:
+
+    ar_label = re.sub(r"\bفورمولا 1\s*([12]\d+)", r"فورمولا 1 في سنة \g<1>", ar_label)
+
+    return ar_label
+
+
 def fix_it(ar_label: str, en_label: str) -> str:
     """Normalize an Arabic label based on heuristics and English context.
 
@@ -165,7 +176,6 @@ def fix_it(ar_label: str, en_label: str) -> str:
     ar_label = re.sub(r" من حسب ", " حسب ", ar_label)
     # ar_label = re.sub(r"لاعبو في " , "لاعبو ", ar_label)
     # ar_label = re.sub(r"لاعبو من " , "لاعبو " , ar_label)
-
     ar_label = apply_category_specific_normalizations(ar_label, normalized_en)
     ar_label = ar_label.strip()
 
