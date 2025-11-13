@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import functools
 from dataclasses import dataclass, field
-from typing import Dict, Iterable, List, Any
+from typing import Dict, Iterable, List
 
 from .make2_bots.co_bots import filter_en
 from .make2_bots.date_bots import labs_years
