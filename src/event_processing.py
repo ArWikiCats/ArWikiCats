@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import functools
 from dataclasses import dataclass, field
-from typing import Dict, Iterable, List
+from typing import Dict, Iterable, List, Any
 
 from .make2_bots.co_bots import filter_en
 from .make2_bots.date_bots import labs_years
@@ -156,3 +156,13 @@ def new_func_lab(category_r: str) -> str:
 def new_func_lab_final_label(category_r: str) -> str:
     """Return final AR label with prefix."""
     return _get_processed_category(category_r).final_label
+
+
+def event_result(
+    NewList: List[str],
+) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
+
+    processor = EventProcessor()
+    result = processor.process(NewList)
+
+    return result

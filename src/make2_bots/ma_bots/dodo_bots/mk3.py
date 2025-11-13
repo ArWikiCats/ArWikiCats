@@ -8,7 +8,6 @@ import re
 from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
 from ...matables_bots.check_bot import check_key_new_players
 from ...matables_bots.bot import (
-    Add_to_main2_tab,
     Films_O_TT,
     Table_for_frist_word,
     Add_in_table,
@@ -56,13 +55,11 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
         arlabel = con_lab + suf + arlabel
         if arlabel.startswith("حسب"):
             arlabel = arlabel2 + suf + con_lab
-        Add_to_main2_tab(In.strip(), "في")
     else:
         if In.strip() == "in" or In.strip() == "at":
             con_lab = f"في {con_lab}"
 
             cat_test = cat_test.replace(In, "")
-            Add_to_main2_tab(In.strip(), "في")
             Add_In_Done = True
             print_put(">>> Add في line: 92")
 
@@ -160,7 +157,6 @@ def new_func_mk2(
         tuple: A tuple containing the modified `cat_test` and `arlabel`.
     """
 
-    Add_to_main2_tab(country, country_label)
     cat_test = cat_test.replace(country, "")
     arlabel = re.sub(r" ", " ", arlabel)
     con_lab = country_label

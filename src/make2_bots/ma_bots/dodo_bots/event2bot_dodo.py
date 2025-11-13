@@ -11,7 +11,6 @@ from ....fix import fixtitle
 from ...date_bots import year_lab
 from ...format_bots import Tit_ose_Nmaes, NewFormat
 from ....ma_lists import Nat_mens
-from ...matables_bots.bot import Add_to_main2_tab
 from ...matables_bots.bot import (
     New_Lan,
     Films_O_TT,
@@ -104,7 +103,6 @@ def make_lab_dodo(
             if (typeo == "sports events" or typeo == "sorts-events") and year:
                 typeo_lab = "أحداث"
             arlabel = arlabel + typeo_lab
-            Add_to_main2_tab(typeo, typeo_lab)
 
             print_put("a<<lightblue>>>typeo_lab : %s" % typeo_lab)
             if "s" in typeTable[typeo]:
@@ -127,7 +125,6 @@ def make_lab_dodo(
                 print_put("a<<lightblue>>>2021 cnt_la == %s" % country_label)
 
         if country_label:
-            Add_to_main2_tab(country, country_label)
             cat_test = cat_test.lower()
             cat_test = cat_test.replace(country.lower(), "")
             print_put("a<<lightblue>>>cnt_la : %s" % country_label)
@@ -135,7 +132,6 @@ def make_lab_dodo(
     if year:
         year_labe = year_lab.make_year_lab(year)
         if year_labe:
-            Add_to_main2_tab(year, year_labe)
             cat_test = cat_test.lower().replace(year.lower(), "")
             arlabel = arlabel + " " + year_labe
             print_put(f'252: year != ""({year}) arlabel:"{arlabel}",In.strip() == "{In.strip()}"')

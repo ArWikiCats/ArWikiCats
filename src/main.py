@@ -6,13 +6,10 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 """
 
-from pathlib import Path
 from typing import Optional, Any, Dict, List
 from . import printe
 from .helps.print_bot import do_print_options, print_put
-from .event_processing import EventProcessor, new_func_lab
-
-Dir_ma = Path(__file__).parent.parent
+from .event_processing import new_func_lab, event_result
 
 
 def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
@@ -33,21 +30,10 @@ def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]
     return [cat for cat in no_labels if cat not in labelled_set]
 
 
-def event_result(
-    NewList: List[str],
-) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
-
-    processor = EventProcessor()
-    result = processor.process(NewList)
-
-    return result
-
-
 def event(
     NewList: List[str],
     noprint: str="",
     printfirst: bool = False,
-    Local: bool = False,
     printhead: bool = False,
     tst_prnt_all: Optional[bool]=None,
     return_no_labs: bool = False,
@@ -73,14 +59,6 @@ def event(
 
     if total == 0:
         total = len(result.processed)
-
-    for index, item in enumerate(result.processed, start=1):
-        toout = f'<<lightyellow>>> event ===  {index} / {total}  category_r:"{item.normalized}" === '
-
-        if printfirst:
-            printe.output(toout)
-        else:
-            print_put(toout)
 
     labels = result.labels
     no_labels = _remove_labelled_from_no_labels(labels, result.no_labels)

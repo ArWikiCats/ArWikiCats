@@ -340,13 +340,6 @@ Table_for_frist_word = {
 #     "Films_O_TT": set(Films_O_TT.keys()),
 #     "players_keys": set(players_keys.keys()),
 # }
-
-
-def Add_to_main2_tab(en: str, ar: str) -> None:
-    if not en or not ar:
-        return
-
-
 players_new_keys = players_keys
 
 

@@ -3,7 +3,7 @@
 """
 import re
 from ..jobs_bots.get_helps import get_con_3
-from ..matables_bots.bot import All_P17, Add_to_main2_tab
+from ..matables_bots.bot import All_P17
 from ..format_bots import Tit_ose_Nmaes, pop_format
 
 from ...ma_lists import sport_formts_en_ar_is_p17
@@ -97,12 +97,10 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
         if con_3_lab:
             FOF = "<<lightgreen>>sport_formts_en_ar_is_p17<<lightblue>>"
-            Add_to_main2_tab(con_3, con_3_lab)
 
         if not con_3_lab:
             con_3_lab = pop_format.get(con_3, "")
             if con_3_lab:
-                Add_to_main2_tab(con_3, con_3_lab)
                 FOF = "<<lightgreen>>pop_format<<lightblue>>"
 
         if con_3_lab:
@@ -113,11 +111,9 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
                 resolved_label = con_3_lab.format(nat=country_start_lab)
             else:
                 resolved_label = con_3_lab.format(country_start_lab)
-            Add_to_main2_tab(country_start, country_start_lab)
 
         if con_3_lab and resolved_label == "":
             resolved_label = con_3_lab.format(country_start_lab)
-            Add_to_main2_tab(country_start, country_start_lab)
         if con_3_lab:
             logger.debug(
                 f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" '
