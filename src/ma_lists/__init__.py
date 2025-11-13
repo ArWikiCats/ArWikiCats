@@ -10,7 +10,7 @@ from .sports import sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
 from .sports.Sport_key import Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
 from .sports.nat_p17 import sport_formts_for_p17, nat_p17_oioi
 
-from .sports.games_labs import summer_winter_games
+from .sports.games_labs import SUMMER_WINTER_GAMES
 
 from .sports_formats_national.sport_lab_nat import Get_sport_formts_female_nat
 
@@ -48,7 +48,7 @@ from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower,
 
 from .mixed.all_keys3 import typeTable_7, ALBUMS_TYPE, FILM_PRODUCTION_COMPANY, NN_table, Ambassadors_tab
 
-from .mixed.all_keys4 import Inter_Feds_lower
+from .mixed.all_keys4 import INTER_FEDS_LOWER
 
 from .mixed.all_keys5 import Clubs_key_2
 
@@ -167,9 +167,9 @@ __all__ = [
     "FILM_PRODUCTION_COMPANY",
     "NN_table",
     "Ambassadors_tab",
-    "summer_winter_games",
+    "SUMMER_WINTER_GAMES",
     #
-    "Inter_Feds_lower",
+    "INTER_FEDS_LOWER",
     #
     "Clubs_key_2",
     #
