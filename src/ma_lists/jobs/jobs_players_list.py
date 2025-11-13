@@ -12,9 +12,9 @@ from typing import Dict, Mapping
 from ..utils.json_dir import open_json
 
 from ..sports.Sport_key import (
-    Sports_Keys_For_Jobs,
-    Sports_Keys_For_Label,
-    Sports_Keys_For_Team,
+    SPORTS_KEYS_FOR_JOBS,
+    SPORTS_KEYS_FOR_LABEL,
+    SPORTS_KEYS_FOR_TEAM,
 )
 from .jobs_defs import (
     GenderedLabel,
@@ -360,10 +360,10 @@ SKATING_LABELS = _build_skating_labels(SKATING_DISCIPLINE_LABELS)
 SKATING_LABELS = {x: v for x, v in SKATING_LABELS.items() if x not in BASE_PLAYER_VARIANTS}
 
 GENERAL_SCOPE_LABELS = _build_general_scope_labels(GENERAL_SPORT_ROLES, SPORT_SCOPE_ROLES)
-CHAMPION_LABELS = _build_champion_labels(Sports_Keys_For_Label)
-WORLD_CHAMPION_LABELS = _build_world_champion_labels(Sports_Keys_For_Team)
+CHAMPION_LABELS = _build_champion_labels(SPORTS_KEYS_FOR_LABEL)
+WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
 SPORT_JOB_VARIANTS = _build_sports_job_variants(
-    Sports_Keys_For_Jobs,
+    SPORTS_KEYS_FOR_JOBS,
     FOOTBALL_KEYS_PLAYERS,
 )
 

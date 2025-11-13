@@ -22,7 +22,7 @@ from ..media_bots.films_bot import test_films
 
 from . import country2_bot
 from . import country2_lab
-from ...ma_lists import Sports_Keys_For_Label
+from ...ma_lists import SPORTS_KEYS_FOR_LABEL
 from ...ma_lists import Nat_mens
 from ...ma_lists import New_female_keys
 
@@ -160,7 +160,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
             print_put(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
 
     if not resolved_label:
-        resolved_label = Sports_Keys_For_Label.get(country, "")
+        resolved_label = SPORTS_KEYS_FOR_LABEL.get(country, "")
 
     get_country_done[country] = resolved_label
     output_test(f'>>>> Get country "{resolved_label}"')

@@ -15,7 +15,7 @@ from .skeys import (
     SPORT_FORMTS_FEMALE_NAT,
 )
 
-from .Sport_key import Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
+from .Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_JOBS
 from .olympics_data import olympics
 
 __all__ = [
@@ -29,8 +29,8 @@ __all__ = [
     "SPORT_FORMATS_FOR_P17",
     "NAT_P17_OIOI",
     "SUMMER_WINTER_GAMES",
-    "Sports_Keys_For_Team",
-    "Sports_Keys_For_Label",
-    "Sports_Keys_For_Jobs",
+    "SPORTS_KEYS_FOR_TEAM",
+    "SPORTS_KEYS_FOR_LABEL",
+    "SPORTS_KEYS_FOR_JOBS",
     "olympics",
 ]

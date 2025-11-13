@@ -72,25 +72,26 @@ for kk in Sports_Keys_New.keys():
         if Sports_Keys_New[kk][key]:
             Table[key][kk.lower()] = Sports_Keys_New[kk][key]
 # ---
-Sports_Keys_For_Label = Table["label"]
-Sports_Keys_For_Jobs = Table["jobs"]
-Sports_Keys_For_Jobs["sports"] = "رياضية"
+SPORTS_KEYS_FOR_LABEL = Table["label"]
+SPORTS_KEYS_FOR_JOBS = Table["jobs"]
+SPORTS_KEYS_FOR_JOBS["sports"] = "رياضية"
 
-Sports_Keys_For_Team = Table["team"]
-Sports_Keys_For_olympic = Table["olympic"]
+SPORTS_KEYS_FOR_TEAM = Table["team"]
+SPORTS_KEYS_FOR_OLYMPIC = Table["olympic"]
 # ---
 len_print.data_len("Sport_key.py", {
     "Sports_Keys_New2": Sports_Keys_New2,
     "Sports_Keys_New": Sports_Keys_New,
-    "Sports_Keys_For_Jobs": Sports_Keys_For_Jobs,
-    "Sports_Keys_For_Team": Sports_Keys_For_Team,
-    "Sports_Keys_For_Label": Sports_Keys_For_Label,
+    "SPORTS_KEYS_FOR_JOBS": SPORTS_KEYS_FOR_JOBS,
+    "SPORTS_KEYS_FOR_TEAM": SPORTS_KEYS_FOR_TEAM,
+    "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
 })
 # ---
 del Sports_Keys_New
 
 __all__ = [
-    "Sports_Keys_For_Jobs",
-    "Sports_Keys_For_Team",
-    "Sports_Keys_For_Label",
+    "SPORTS_KEYS_FOR_LABEL",
+    "SPORTS_KEYS_FOR_JOBS",
+    "SPORTS_KEYS_FOR_TEAM",
+    "SPORTS_KEYS_FOR_OLYMPIC",
 ]

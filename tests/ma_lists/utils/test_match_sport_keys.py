@@ -1,5 +1,5 @@
 import pytest
-from src.ma_lists.utils.match_sport_keys import match_sport_key, Sports_Keys_For_Jobs
+from src.ma_lists.utils.match_sport_keys import match_sport_key, SPORTS_KEYS_FOR_JOBS
 
 # ---------------------------------------------------------------------
 # 1. Realistic category samples per sport key
@@ -53,7 +53,7 @@ CATEGORY_SAMPLES = {
 @pytest.mark.fast
 @pytest.mark.parametrize("category,expected_key", CATEGORY_SAMPLES.items())
 def test_match_sport_key_detects_all(category: str, expected_key: str):
-    """Ensure every key in Sports_Keys_For_Jobs is detectable in sample categories."""
+    """Ensure every key in SPORTS_KEYS_FOR_JOBS is detectable in sample categories."""
     result = match_sport_key(category)
     assert result.lower() == expected_key.lower(), f"Mismatch for {category}"
 
@@ -109,8 +109,8 @@ def test_longest_match_priority(text, longest_key):
 # ---------------------------------------------------------------------
 @pytest.mark.fast
 def test_all_defined_keys_detectable():
-    """Ensure every key in Sports_Keys_For_Jobs dictionary is matchable."""
-    for key in Sports_Keys_For_Jobs:
+    """Ensure every key in SPORTS_KEYS_FOR_JOBS dictionary is matchable."""
+    for key in SPORTS_KEYS_FOR_JOBS:
         sample = f"Category:{key.title()} Event"
         assert match_sport_key(sample), f"Key not matched: {key}"
 

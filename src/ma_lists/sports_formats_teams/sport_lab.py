@@ -13,7 +13,7 @@ from .sport_lab2 import wrap_team_xo_normal_2025
 from ..utils.match_sport_keys import match_sport_key
 from ..utils import apply_pattern_replacement
 from ..sports import SPORT_FORMTS_ENAR_P17_TEAM
-from ..sports.Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs
+from ..sports.Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_JOBS
 from ...helps.print_bot import print_put, output_test
 
 
@@ -40,11 +40,11 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p1
     print_put(f'Get_SFxo_en_ar_is P17: con_3:"{con_3}", sport_key:"{sport_key}", team_xoxo:"{normalized_key}"')
     # ---
     if normalized_key in sport_formts_enar_p17_jobs:
-        sport_label = Sports_Keys_For_Jobs[sport_key]
+        sport_label = SPORTS_KEYS_FOR_JOBS[sport_key]
         template_label = sport_formts_enar_p17_jobs.get(normalized_key, "")
     # ---
     elif normalized_key in SPORT_FORMTS_ENAR_P17_TEAM:
-        sport_label = Sports_Keys_For_Team[sport_key]
+        sport_label = SPORTS_KEYS_FOR_TEAM[sport_key]
         template_label = SPORT_FORMTS_ENAR_P17_TEAM.get(normalized_key, "")
     # ---
     else:
@@ -77,20 +77,20 @@ def Get_New_team_xo_normal(normalized_team: str, sport_key: str) -> str:
     if normalized_team in New_team_xo_team_labels:
         # TTTY = "team"
         template_label = New_team_xo_team_labels.get(normalized_team, "")
-        # sport_label = Sports_Keys_For_Team.get(sport_key , "")
-        sport_label_source = Sports_Keys_For_Team
+        # sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key , "")
+        sport_label_source = SPORTS_KEYS_FOR_TEAM
     # ---
     elif normalized_team in New_team_xo_jobs:
         # TTTY = "jobs"
         template_label = New_team_xo_jobs.get(normalized_team, "")
-        # sport_label = Sports_Keys_For_Jobs.get(sport_key , "")
-        sport_label_source = Sports_Keys_For_Jobs
+        # sport_label = SPORTS_KEYS_FOR_JOBS.get(sport_key , "")
+        sport_label_source = SPORTS_KEYS_FOR_JOBS
     # ---
     elif normalized_team in New_team_xo_labels:
         # TTTY = "labels"
         template_label = New_team_xo_labels.get(normalized_team, "")
-        # sport_label = Sports_Keys_For_Label.get(sport_key , "")
-        sport_label_source = Sports_Keys_For_Label
+        # sport_label = SPORTS_KEYS_FOR_LABEL.get(sport_key , "")
+        sport_label_source = SPORTS_KEYS_FOR_LABEL
     # ---
     if not sport_label_source:
         return ""

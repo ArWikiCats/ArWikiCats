@@ -3,7 +3,7 @@
 
 """
 import re
-from ..sports.Sport_key import Sports_Keys_For_Jobs
+from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from .patterns import load_keys_to_pattern
 
 Sports_Keys_For_Jobs_simple = {
@@ -40,7 +40,7 @@ Sports_Keys_For_Jobs_simple = {
     "wheelchair shot put": "دفع ثقل على كراسي متحركة",
 }
 
-new_pattern = load_keys_to_pattern(Sports_Keys_For_Jobs)
+new_pattern = load_keys_to_pattern(SPORTS_KEYS_FOR_JOBS)
 
 RE_KEYS_NEW = re.compile(new_pattern, re.I)
 

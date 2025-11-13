@@ -7,7 +7,7 @@
 import re
 from .te3 import New_team_xo_team_labels
 from ..utils.match_nats_keys import match_nat_key
-from ..sports.Sport_key import Sports_Keys_For_Team
+from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 from ..nats.Nationality import all_country_with_nat_ar
 from ...helps.print_bot import output_test
 from ..utils import apply_pattern_replacement
@@ -36,7 +36,7 @@ def match_nat_new_team_xo_team_labels(normalized_team: str, sport_key: str) -> s
         f" {nationality_key} ", " natar ", f" {normalized_team.strip()} ", flags=re.IGNORECASE
     )
     # ---
-    sport_label = Sports_Keys_For_Team.get(sport_key, "")
+    sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
     # ---
     template_label = New_team_xo_team_labels.get(normalized_nat_key.strip(), "")
     # ---
@@ -58,7 +58,7 @@ def match_nat_new_team_xo_team_labels_new(normalized_team: str, sport_key: str) 
     # ---
     nationality_label = all_country_with_nat_ar.get(nationality_key, {}).get("ar", "")
     # ---
-    sport_label = Sports_Keys_For_Team.get(sport_key, "")
+    sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
     # ---
     output_test(f'nationality_key:"{str(nationality_key)}"')
     # ---

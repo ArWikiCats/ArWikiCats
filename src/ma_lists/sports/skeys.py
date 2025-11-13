@@ -5,7 +5,7 @@
 from ...helps import len_print
 from .sports_lists import nat_menstt33, New_Tato_nat
 from ..sports_formats_teams.team_job import sf_en_ar_is_p17
-from .Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team
+from .Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 
 SPORT_FORMTS_MALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 SPORT_FORMTS_FEMALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
@@ -71,14 +71,14 @@ sport_starts = {
 # ---
 PLACE_HOLDER = "{}"
 # ---
-for sport, label in Sports_Keys_For_Label.items():
+for sport, label in SPORTS_KEYS_FOR_LABEL.items():
     # ---
     # SPORT_FORMTS_FEMALE_NAT["%s tour" % sport.lower()] = "بطولة %s {nat}" % label
     # SPORT_FORMTS_FEMALE_NAT["%s tournament" % sport.lower()] = "بطولة %s {nat}" % label
     # ---
     SPORT_FORMTS_MALE_NAT[f"{sport.lower()} super league"] = f"دوري السوبر {label} {PLACE_HOLDER}"
     # ---
-    # 12 سطر x 666 len(Sports_Keys_For_Label) = 7,992
+    # 12 سطر x 666 len(SPORTS_KEYS_FOR_LABEL) = 7,992
     # ---
     # tab[Category:yemeni professional Soccer League] = "تصنيف:دوري كرة القدم اليمني للمحترفين"
     SPORT_FORMTS_MALE_NAT[f"professional {sport.lower()} league"] = f"دوري {label} {PLACE_HOLDER} للمحترفين"
@@ -129,11 +129,11 @@ SPORT_FORMTS_EN_AR_IS_P17["national teams"] = "منتخبات {} الوطنية"
 SPORT_FORMTS_EN_AR_IS_P17["national football team managers"] = "مدربو منتخب {} لكرة القدم"
 # ---
 # فرق دول وطنية
-# Sports_Keys_For_Team = {}
-# Sports_Keys_For_Team["association football"] = "لكرة القدم"
+# SPORTS_KEYS_FOR_TEAM = {}
+# SPORTS_KEYS_FOR_TEAM["association football"] = "لكرة القدم"
 # ---
-for team2 in Sports_Keys_For_Team:
-    team2_lab = Sports_Keys_For_Team[team2]
+for team2 in SPORTS_KEYS_FOR_TEAM:
+    team2_lab = SPORTS_KEYS_FOR_TEAM[team2]
     # ---
     nat_f = "{nat}"
     # ---

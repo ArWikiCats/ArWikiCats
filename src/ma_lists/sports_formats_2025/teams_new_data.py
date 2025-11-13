@@ -5,7 +5,7 @@
 from typing import Dict
 from ..sports.sports_lists import AFTER_KEYS
 from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
-from ..sports.Sport_key import Sports_Keys_For_Jobs
+from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 # from ...helps import len_print
 
 PPP_Keys = {
@@ -28,9 +28,9 @@ def load_teams_new() -> Dict[str, str]:
     # ---
     data = {}
     # ---
-    # 526 item per Sports_Keys_For_Jobs items
+    # 526 item per SPORTS_KEYS_FOR_JOBS items
     # ---
-    for sport, sport_label in Sports_Keys_For_Jobs.items():
+    for sport, sport_label in SPORTS_KEYS_FOR_JOBS.items():
         # ---
         data.update({
             f"{sport}" : f"{sport_label}",

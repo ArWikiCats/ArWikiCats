@@ -7,7 +7,7 @@ from typing import Dict
 from ... import malists_sport_lab as sport_lab
 from ...helps.log import logger
 from ...helps.print_bot import print_put
-from ...ma_lists import Sports_Keys_For_Jobs
+from ...ma_lists import SPORTS_KEYS_FOR_JOBS
 from . import team_work
 from ..o_bots.utils import resolve_suffix_template
 
@@ -41,7 +41,7 @@ def get_teams_new(team_name: str) -> str:
         team_label = resolve_suffix_template(
             normalized_team,
             team_work.Teams_new_end_keys,
-            lambda prefix: Sports_Keys_For_Jobs.get(prefix, ""),
+            lambda prefix: SPORTS_KEYS_FOR_JOBS.get(prefix, ""),
         )
         if team_label:
             print_put(f'team_label:"{team_label}" from sports suffix lookup')

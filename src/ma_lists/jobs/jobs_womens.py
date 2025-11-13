@@ -7,13 +7,13 @@ from typing import Dict
 
 from ...helps import len_print
 
-from ..sports.Sport_key import Sports_Keys_For_Jobs
+from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from .jobs_singers import FILMS_TYPE
 
 
 FEMALE_JOBS_TO: Dict[str, str] = {}
 
-for job_key, arabic_label in Sports_Keys_For_Jobs.items():
+for job_key, arabic_label in SPORTS_KEYS_FOR_JOBS.items():
     # Provide a category entry for women's players to preserve the legacy API.
     FEMALE_JOBS_TO[f"women's {job_key.lower()} players"] = f"لاعبات {arabic_label} نسائية"
 

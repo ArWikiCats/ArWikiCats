@@ -1,7 +1,7 @@
 import pytest
 import re
 from src.ma_lists_formats.format_data import FormatData
-from src.ma_lists import Sports_Keys_For_Jobs
+from src.ma_lists import SPORTS_KEYS_FOR_JOBS
 from src.ma_lists.sports_formats_2025.match_labs import load_data
 
 # --- Fixtures ---------------------------------------------------------
@@ -14,7 +14,7 @@ def formated_data():
 
 @pytest.fixture(scope="session")
 def data_list():
-    return Sports_Keys_For_Jobs
+    return SPORTS_KEYS_FOR_JOBS
 
 
 @pytest.fixture

@@ -8,7 +8,7 @@ import sys
 
 # ---
 from ...helps import len_print
-from .Sport_key import Sports_Keys_For_Team
+from .Sport_key import SPORTS_KEYS_FOR_TEAM
 from ... import app_settings
 NAT_P17_OIOI = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---
@@ -21,7 +21,7 @@ SPORT_FORMATS_FOR_P17 = {}
 # ---
 def make_tab() -> dict[str, str]:
     SP17 = {}
-    for team2, team2_lab in Sports_Keys_For_Team.items():
+    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
         # ---
         nat_f = "{nat}"
         # ---

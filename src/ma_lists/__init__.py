@@ -7,7 +7,7 @@ from .utils.match_sport_keys import match_sport_key
 from .sports.olympics_data import olympics
 # from .sports.teams_new_data import TEAMS_NEW
 from .sports import SPORT_FORMTS_EN_AR_IS_P17, SPORT_FORMTS_EN_P17_AR_NAT
-from .sports.Sport_key import Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
+from .sports.Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_JOBS
 from .sports.nat_p17 import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI
 
 from .sports.games_labs import SUMMER_WINTER_GAMES
@@ -153,9 +153,9 @@ __all__ = [
     "ar_Nat_men",
     "nats_to_add",
     #
-    "Sports_Keys_For_Team",
-    "Sports_Keys_For_Label",
-    "Sports_Keys_For_Jobs",
+    "SPORTS_KEYS_FOR_TEAM",
+    "SPORTS_KEYS_FOR_LABEL",
+    "SPORTS_KEYS_FOR_JOBS",
     #
     "pf_keys2",
     "pop_of_without_in",
