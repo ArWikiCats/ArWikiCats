@@ -7,7 +7,7 @@ from src.ma_lists.sports import games_labs
 
 
 @pytest.mark.unit
-def test_seasonal_labels_include_variants(self):
+def test_seasonal_labels_include_variants():
     labels = games_labs.SEASONAL_GAME_LABELS
 
     assert labels["olympic games"] == "الألعاب الأولمبية"

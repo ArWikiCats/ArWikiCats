@@ -338,7 +338,7 @@ CINEMA_CATEGORIES: dict[str, str] = {
 }
 
 
-def _update_lowercase(data, mapping: Mapping[str, str], skip_existing: bool = False) -> None:
+def _update_lowercase(data: dict[str, str], mapping: list[Mapping[str, str]], skip_existing: bool = False) -> None:
     def check_skip_existing(key):
         if skip_existing:
             return data.get(key.lower()) is None
@@ -353,7 +353,7 @@ def _update_lowercase(data, mapping: Mapping[str, str], skip_existing: bool = Fa
         })
 
 
-def _build_book_entries(data) -> None:
+def _build_book_entries(data: dict[str, str]) -> None:
     """Add literature related entries, including film/tv variants."""
 
     for category_key, category_label in BOOK_CATEGORIES.items():
@@ -385,7 +385,7 @@ def _build_book_entries(data) -> None:
     return data
 
 
-def _build_weapon_entries() -> None:
+def _build_weapon_entries() -> dict[str, str]:
     """Expand weapon classifications with related events."""
     data = {}
     for w_class, w_class_label in WEAPON_CLASSIFICATIONS.items():
@@ -395,7 +395,7 @@ def _build_weapon_entries() -> None:
     return data
 
 
-def _build_direction_region_entries() -> None:
+def _build_direction_region_entries() -> dict[str, str]:
     """Add entries that combine geographic directions with regions."""
     data = {}
     for direction_key, direction_label in DIRECTIONS.items():
@@ -414,7 +414,7 @@ def _build_towns_entries(data) -> None:
         data[f"{category} cities"] = f"مدن {label}"
 
 
-def _build_of_variants(data, data_list, data_list2) -> None:
+def _build_of_variants(data, data_list, data_list2) -> dict[str, str]:
     for tab in data_list:
         for key, value in tab.items():
             new_key = f"{key.lower()} of"
@@ -507,7 +507,8 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
     return data
 
 
-def wrap_build_pf_keys2():
+def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str]]:
+    """Wrap the ``build_pf_keys2`` function with additional data loading."""
 
     pop_of_football = open_json_file("pop_of_football") or {}
     pop_of_without_in = open_json_file("pop_of_without_in") or {}
