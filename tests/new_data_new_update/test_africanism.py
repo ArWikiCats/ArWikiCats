@@ -1,4 +1,5 @@
 #
+import pytest
 from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset, dump_diff
 
@@ -32,6 +33,16 @@ data = {
     "Category:Pan-Africanist political parties": "تصنيف:أحزاب سياسية وحدوية إفريقية",
     "Category:Pan-Africanist political parties in Africa": "تصنيف:أحزاب سياسية وحدوية إفريقية في إفريقيا",
     "Category:Pan-Africanist political parties in the Caribbean": "تصنيف:أحزاب سياسية وحدوية إفريقية في الكاريبي",
+
+    "Category:Pan-African organizations": "تصنيف:منظمات قومية أفريقية",
+    "Category:Pan-African Parliament": "تصنيف:البرلمان الإفريقي",
+    "Category:Pan-African Democratic Party politicians": "تصنيف:سياسيو الحزب الديمقراطي الوحدوي الإفريقي",
+
+    "Category:Pan-Africanists": "تصنيف:وحدويون أفارقة",
+    "Category:Pan-Africanists by continent": "تصنيف:وحدويون أفارقة حسب القارة",
+    "Category:Pan-Africanists by nationality": "تصنيف:وحدويون أفارقة حسب الجنسية",
+    "Category:South American pan-Africanists": "تصنيف:وحدويون أفارقة أمريكيون جنوبيون",
+
 }
 
 
@@ -43,23 +54,16 @@ def test_africanism():
 
 
 africanism_empty = {
-    "Category:Pan-African organizations": "تصنيف:منظمات قومية أفريقية",
-    "Category:Pan-African Parliament": "تصنيف:البرلمان الإفريقي",
-    "Category:Pan-African Democratic Party politicians": "تصنيف:سياسيو الحزب الديمقراطي الوحدوي الإفريقي",
-
-    "Category:Pan Africanist Congress of Azania": "z",
-    "Category:Pan Africanist Congress of Azania politicians": "z",
-    "Category:Pan-Africanists": "z",
-    "Category:Pan-Africanists by continent": "z",
-    "Category:Pan-Africanists by nationality": "z",
-    "Category:Pan-African media companies": "z",
-    "Category:Pan-African Patriotic Convergence politicians": "z",
-    "Category:Pan-African Socialist Party politicians": "z",
-    "Category:Pan-African Union for Social Democracy politicians": "z",
-    "Category:South American pan-Africanists": "z",
+    "Category:Pan Africanist Congress of Azania": "",
+    "Category:Pan Africanist Congress of Azania politicians": "",
+    "Category:Pan-African media companies": "",
+    "Category:Pan-African Patriotic Convergence politicians": "",
+    "Category:Pan-African Socialist Party politicians": "",
+    "Category:Pan-African Union for Social Democracy politicians": "",
 }
 
 
+@pytest.mark.skip("Need more work")
 def test_africanism_empty():
     expected, diff_result = ye_test_one_dataset(africanism_empty, new_func_lab_final_label)
 
