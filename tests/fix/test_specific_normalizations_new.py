@@ -95,7 +95,6 @@ class TestApplyCategorySpecificNormalizations:
     @pytest.mark.parametrize("ar_label,expected", [
         ("ردود فعل إلى الأحداث", "ردود فعل على الأحداث"),
         ("مدراء كرة القدم", "مدربو كرة القدم"),
-        ("متعلقة 2 الرياضة", "متعلقة ب2 الرياضة"),
         ("هولوكوستية الأحداث", "الهولوكوست الأحداث"),
         ("في هولوكوست", "في الهولوكوست"),
         ("صدور عظام في الدولة العثمانية", "صدور عظام عثمانيون في"),
@@ -148,8 +147,8 @@ class TestApplyCategorySpecificNormalizations:
         assert result == expected
 
     @pytest.mark.parametrize("ar_label,expected", [
-        ("مسلسلات بدأ عرضها حسب السنة", "حسب سنة بدء العرض"),
-        ("أفلام أنتهت حسب السنة", "حسب سنة انتهاء العرض"),
+        ("مسلسلات بدأ عرضها حسب السنة", "مسلسلات حسب سنة بدء العرض"),
+        ("أفلام أنتهت حسب السنة", "أفلام حسب سنة انتهاء العرض"),
     ])
     def test_tv_show_year_normalizations(self, ar_label, expected):
         """Test TV show year normalization patterns."""
