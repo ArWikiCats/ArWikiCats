@@ -12,18 +12,18 @@ from .te3 import New_team_xo_team_labels
 from .sport_lab2 import wrap_team_xo_normal_2025
 from ..utils.match_sport_keys import match_sport_key
 from ..utils import apply_pattern_replacement
-from ..sports import sport_formts_enar_p17_team
+from ..sports import SPORT_FORMTS_ENAR_P17_TEAM
 from ..sports.Sport_key import Sports_Keys_For_Label, Sports_Keys_For_Team, Sports_Keys_For_Jobs
 from ...helps.print_bot import print_put, output_test
 
 
 def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
     # ---
-    # len:"sport_formts_en_ar_is_p17":  572927 قبل بدء الوظيفة
+    # len:"SPORT_FORMTS_EN_AR_IS_P17":  572927 قبل بدء الوظيفة
     # ---
-    # sports.py: len:"sport_formts_en_ar_is_p17":  175  , len:"sport_formts_enar_p17_team":  1434  , len:"sport_formts_enar_p17_jobs":  27
+    # sports.py: len:"SPORT_FORMTS_EN_AR_IS_P17":  175  , len:"SPORT_FORMTS_ENAR_P17_TEAM":  1434  , len:"sport_formts_enar_p17_jobs":  27
     # ---
-    # labs = sport_formts_female_nat.get(con_3 , "")
+    # labs = SPORT_FORMTS_FEMALE_NAT.get(con_3 , "")
     con_3_label = ""
     # ---
     sport_key = match_sport_key(con_3)
@@ -43,12 +43,12 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p1
         sport_label = Sports_Keys_For_Jobs[sport_key]
         template_label = sport_formts_enar_p17_jobs.get(normalized_key, "")
     # ---
-    elif normalized_key in sport_formts_enar_p17_team:
+    elif normalized_key in SPORT_FORMTS_ENAR_P17_TEAM:
         sport_label = Sports_Keys_For_Team[sport_key]
-        template_label = sport_formts_enar_p17_team.get(normalized_key, "")
+        template_label = SPORT_FORMTS_ENAR_P17_TEAM.get(normalized_key, "")
     # ---
     else:
-        print_put(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs or sport_formts_enar_p17_team')
+        print_put(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs or SPORT_FORMTS_ENAR_P17_TEAM')
     # ---
     if template_label and sport_label:
         con_3_label = apply_pattern_replacement(template_label, sport_label, "xoxo")

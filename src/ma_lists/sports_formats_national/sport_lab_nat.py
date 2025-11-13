@@ -15,10 +15,10 @@ from ..utils.match_sport_keys import match_sport_key
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
     # ---
     # قبل تطبيق الوظيفة
-    # sports.py: len:"sport_formts_female_nat":  549000
+    # sports.py: len:"SPORT_FORMTS_FEMALE_NAT":  549000
     # ---
     # بعد تطبيق الوظيفة
-    # sports.py: len:"New_For_nat_female_xo_team":  1528  , len:"sport_formts_female_nat":  0
+    # sports.py: len:"New_For_nat_female_xo_team":  1528  , len:"SPORT_FORMTS_FEMALE_NAT":  0
     # ---
     label = ""
     sport_key = match_sport_key(con_77)
