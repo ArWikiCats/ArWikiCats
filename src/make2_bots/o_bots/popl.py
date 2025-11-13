@@ -1,37 +1,43 @@
-"""
+"""Population and people helpers."""
 
-from ..bots.popl import Work_peoples, make_people_lab
-
-"""
+from __future__ import annotations
 
 import re
-from ...ma_lists import film_key_women_2
-from ...ma_lists import nats_to_add
+from typing import Dict
+
+from ...helps.log import logger
 from ...helps.print_bot import print_put
+from ...ma_lists import People_key, film_key_women_2, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
-from ...ma_lists import People_key
+from .utils import build_cache_key, get_or_set, resolve_suffix_template
 
-# ---
-Work_peoples_cash = {}
+WORK_PEOPLES_CACHE: Dict[str, str] = {}
 
 
-def Work_peoples(SUUS: str) -> str:
+def work_peoples_old(name: str) -> str:
+    """Return the label for ``name`` based on the population prefixes table.
+
+    Args:
+        name: The category name that may contain a known population suffix.
+
+    Returns:
+        The resolved Arabic label or an empty string when no mapping exists.
+    """
+
+    cache_key = build_cache_key(name)
+    if cache_key in WORK_PEOPLES_CACHE:
+        return WORK_PEOPLES_CACHE[cache_key]
     # ---
-    cash_key = SUUS.lower().strip()
-    # ---
-    if cash_key in Work_peoples_cash:
-        return Work_peoples_cash[cash_key]
-    # ---
-    print_put(f"<<lightpurple>> >Work_peoples:> len People_key: {len(People_key)} ")
+    print_put(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
     PpP_lab = ""
     person = ""
     pri = ""
     for pri_ff in Pp_Priffix:
         if not person:
-            if SUUS.endswith(pri_ff):
-                print_put(f'>>>><<lightblue>> Work_peoples :"{SUUS}"')
+            if name.endswith(pri_ff):
+                print_put(f'>>>><<lightblue>> work_peoples :"{name}"')
                 pri = pri_ff
-                person = SUUS[: -len(pri_ff)]
+                person = name[: -len(pri_ff)]
                 break
 
     personlab = People_key.get(person, "")
@@ -41,34 +47,72 @@ def Work_peoples(SUUS: str) -> str:
     if person and personlab:
         print_put(f'>>>><<lightblue>> person :"{person}", personlab : "{personlab}"')
         PpP_lab = Pp_Priffix[pri].format(personlab)
-        print_put(f'>>>><<lightblue>> SUUS.endswith pri("{pri}"), PpP_lab:"{PpP_lab}"')
+        print_put(f'>>>><<lightblue>> name.endswith pri("{pri}"), PpP_lab:"{PpP_lab}"')
     # ---
-    Work_peoples_cash[cash_key] = PpP_lab
+    WORK_PEOPLES_CACHE[cache_key] = PpP_lab
     # ---
     return PpP_lab
 
 
-def make_people_lab(type_lower: str) -> str:
-    type_lower = type_lower.strip()
+def work_peoples(name: str) -> str:
+    """Return the label for ``name`` based on the population prefixes table.
 
-    newlab = nats_to_add.get(type_lower, "")
+    Args:
+        name: The category name that may contain a known population suffix.
 
-    if not newlab:
-        ty2 = re.sub(r"people$", "", type_lower)
+    Returns:
+        The resolved Arabic label or an empty string when no mapping exists.
+    """
 
-        lab2 = film_key_women_2.get(ty2, "")
+    cache_key = build_cache_key(name)
+    if cache_key in WORK_PEOPLES_CACHE:
+        return WORK_PEOPLES_CACHE[cache_key]
 
-        if lab2:
-            newlab = f"أعلام {lab2}"
+    def _resolve() -> str:
+        print_put(f"<<lightpurple>> work_peoples lookup for '{name}'")
 
-    if newlab:
-        print(">>>>>>>>>>>>")
-        print(">>>>>>>>>>>>")
-        print(">>>>>>>>>>>>")
-        print(">>>>>>>>>>>>")
-        print(">>>>>>>>>>>>")
-        print(">>>>>>>>>>>>")
-        print(">>>>>>>>>>>>")
-        print(f">> make_people_lab type_lower: {type_lower}, newlab: {newlab}")
+        def _lookup(prefix: str) -> str:
+            return People_key.get(prefix, "")
 
-    return newlab
+        label = resolve_suffix_template(name, Pp_Priffix, _lookup)
+        if label:
+            logger.debug(f"Resolved work_peoples: name:{name}, label:{label}")
+        else:
+            logger.debug(f"Failed to resolve work_peoples: name:{name}")
+        return label
+
+    return get_or_set(WORK_PEOPLES_CACHE, cache_key, _resolve)
+
+
+def make_people_lab(normalized_value: str) -> str:
+    """Return a label for general ``people`` categories.
+
+    Args:
+        value: Category type describing a people group.
+
+    Returns:
+        The formatted Arabic label or an empty string if the value is not
+        recognised.
+    """
+
+    normalized_value = normalized_value.strip()
+
+    new_label = nats_to_add.get(normalized_value, "")
+
+    if not new_label:
+        base_value = re.sub(r"people$", "", normalized_value)
+        film_label = film_key_women_2.get(base_value, "")
+        if film_label:
+            new_label = f"أعلام {film_label}"
+
+    if new_label:
+        logger.debug(">>>>>>>>>>>>")
+        logger.debug(f">> make_people_lab normalized_value: {normalized_value}, new_label: {new_label}")
+
+    return new_label
+
+
+__all__ = [
+    "work_peoples",
+    "make_people_lab",
+]

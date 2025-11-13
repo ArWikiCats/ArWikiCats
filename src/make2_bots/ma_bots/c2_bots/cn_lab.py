@@ -10,27 +10,34 @@ from ...format_bots import pop_format, pop_format2
 
 from ...matables_bots.bot import (
     Films_O_TT,
-    New_players,
     typeTable,
 )
+from ...matables_bots.check_bot import check_key_new_players
+from ....utils import check_key_in_tables
 from ....helps.print_bot import print_put
 
 
-def make_cnt_lab(tat_o: str, contry2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
+def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
     """Construct a formatted string based on various input parameters."""
 
     resolved_label = c_1_l + sps + c_2_l
-
-    if cona_1 in typeTable or cona_1 in Films_O_TT or cona_1.lower() in New_players:
-        if cona_1.lower() in New_players:
+    # ---
+    in_tables_no_lower = check_key_in_tables(cona_1, [typeTable, Films_O_TT])
+    in_tables_lowers = check_key_new_players(cona_1.lower())
+    # ---
+    # if cona_1 in typeTable or cona_1 in Films_O_TT or cona_1.lower() in players_new_keys:
+    #     if cona_1.lower() in players_new_keys:
+    # ---
+    if in_tables_no_lower or in_tables_lowers:
+        if in_tables_lowers:
             if c_2_l.startswith("أصل "):
-                print_put(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in New_players:')
+                print_put(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in players_new_keys:')
                 resolved_label = f"{(c_1_l + sps)}من {c_2_l}"
             else:
-                print_put(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in New_players:')
+                print_put(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in players_new_keys:')
                 resolved_label += " في "
         if cona_2 not in By_table:
-            Films_O_TT[contry2] = resolved_label
+            Films_O_TT[country2] = resolved_label
         else:
             print_put("<<lightblue>>>>>> cona_2 in By_table")
 
@@ -50,7 +57,7 @@ def make_cnt_lab(tat_o: str, contry2: str, c_2_l: str, c_1_l: str, cona_1: str, 
             print_put(f'<<lightblue>>>>>> cona_1 in pop_format2 "{pop_format2[cona_1]}":')
             resolved_label = pop_format2[cona_1].format(c_2_l)
 
-    print_put(f'<<lightpurple>> >>>> contry_2_tit "{contry2}": label: {resolved_label}')
+    print_put(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
     resolved_label = resolved_label.replace("  ", " ")
 
     maren = re.match(r"\d\d\d\d", cona_2)

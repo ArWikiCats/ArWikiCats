@@ -2,7 +2,6 @@
 from .te2 import New_For_nat_female_xo_team
 """
 
-import sys
 import re
 from ...helps import len_print
 from ..sports.sports_lists import levels, AFTER_KEYS_NAT, New_Tato_nat
@@ -12,7 +11,7 @@ sport_formts_enar_p17_jobs = {}
 # sf_en_ar_is_p17 لدمجها مع sport_formts_en_ar_is_p17 في sports.py
 sf_en_ar_is_p17 = {}
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
 # ---
 team = "xzxz"
@@ -116,20 +115,20 @@ for ty_nat, tas in New_Tato_nat.items():
     # ---
     K_at_p = f"منتخبات xzxz وطنية {tas}"
     Ar_labs_3 = f"منتخبات xzxz وطنية {tasf}"
-    if ty_nat.find("national") == -1:
+    if "national" not in ty_nat:
         K_at_p = f"فرق xzxz {tas}"
         Ar_labs_3 = f"فرق xzxz {tasf}"
     # ---
-    elif ty_nat.find("multi-national") != -1:
+    elif "multi-national" in ty_nat:
         Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
     # ---
     Ar_labs = K_at_p.format(nat="{nat}")
     # ---
     for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():
         # ---
-        if pr_e in ["players", "playerss"] and ty_nat.find("women's") != -1:
+        if pr_e in ["players", "playerss"] and "women's" in ty_nat:
             pr_e_Lab = "لاعبات {lab}"
-        elif pr_e_Lab.find("لاعبو") != -1 and ty_nat.find("women's") != -1:
+        elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
             pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
         # ---
         Ab = f"{ty_nat} xzxz teams {pr_e}"
@@ -138,8 +137,6 @@ for ty_nat, tas in New_Tato_nat.items():
         New_For_nat_female_xo_team[Ab] = pr_e_Lab.format(lab=Ar_labs)
     New_For_nat_female_xo_team[f"{ty_nat} teams"] = Att2
 
-Lenthtab = {
-    "New_For_nat_female_xo_team": sys.getsizeof(New_For_nat_female_xo_team),
-}
-
-len_print.lenth_pri("sports_formats_national/te2.py", Lenthtab)
+len_print.data_len("sports_formats_national/te2.py", {
+    "New_For_nat_female_xo_team": New_For_nat_female_xo_team,
+})

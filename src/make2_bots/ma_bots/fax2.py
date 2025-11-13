@@ -4,12 +4,10 @@ from . import fax2
 
 """
 
-import sys
 from typing import Dict, Any, Tuple
 from ...helps.print_bot import print_put
 from .fax2_bots.squad_title_bot import get_squad_title
-
-Find_stubs: Dict[int, bool] = {1: "-stubs" in sys.argv}
+from ... import app_settings
 
 to_get_endswith: Dict[str, Dict[str, Any]] = {
     "squad navigational boxes": {
@@ -105,20 +103,81 @@ to_get_startswith: Dict[str, Dict[str, Any]] = {
         "Find_wd": False,
         "example": "Category:21st-century members of the Louisiana State Legislature",
     },
-    "20th century members of ": {"lab": "أعضاء {} في القرن 20", "Find_wd": False, "example": ""},
-    "19th century members of ": {"lab": "أعضاء {} في القرن 19", "Find_wd": False, "example": ""},
-    "18th century members of ": {"lab": "أعضاء {} في القرن 18", "Find_wd": False, "example": ""},
-    "17th century members of ": {"lab": "أعضاء {} في القرن 17", "Find_wd": False, "example": ""},
-    "21st century women members of ": {"lab": "عضوات {} في القرن 21", "Find_wd": False, "example": ""},
-    "20th century women members of ": {"lab": "عضوات {} في القرن 20", "Find_wd": False, "example": ""},
-    "19th century women members of ": {"lab": "عضوات {} في القرن 19", "Find_wd": False, "example": ""},
-    "18th century women members of ": {"lab": "عضوات {} في القرن 18", "Find_wd": False, "example": ""},
-    "17th century women members of ": {"lab": "عضوات {} في القرن 17", "Find_wd": False, "example": ""},
-    "presidents of ": {"lab": "رؤساء {}", "Find_wd": False, "example": ""},
-    "family of ": {"lab": "عائلة {}", "Find_wd": False, "example": ""},
-    "lists of ": {"lab": "قوائم {}", "Find_wd": False, "example": ""},
-    "children of ": {"lab": "أطفال {}", "Find_wd": False, "example": ""},
-    "discoveries by ": {"lab": "اكتشافات بواسطة {}", "Find_wd": True, "example": ""},
+    "20th century members of ": {
+        "lab": "أعضاء {} في القرن 20",
+        "Find_wd": False,
+        "example": ""
+    },
+    "19th century members of ": {
+        "lab": "أعضاء {} في القرن 19",
+        "Find_wd": False,
+        "example": ""
+    },
+    "18th century members of ": {
+        "lab": "أعضاء {} في القرن 18",
+        "Find_wd": False,
+        "example": ""
+    },
+    "17th century members of ": {
+        "lab": "أعضاء {} في القرن 17",
+        "Find_wd": False,
+        "example": ""
+    },
+    "21st century women members of ": {
+        "lab": "عضوات {} في القرن 21",
+        "Find_wd": False,
+        "example": ""
+    },
+    "20th century women members of ": {
+        "lab": "عضوات {} في القرن 20",
+        "Find_wd": False,
+        "example": ""
+    },
+    "19th century women members of ": {
+        "lab": "عضوات {} في القرن 19",
+        "Find_wd": False,
+        "example": ""
+    },
+    "18th century women members of ": {
+        "lab": "عضوات {} في القرن 18",
+        "Find_wd": False,
+        "example": ""
+    },
+    "17th century women members of ": {
+        "lab": "عضوات {} في القرن 17",
+        "Find_wd": False,
+        "example": ""
+    },
+    "presidents of ": {
+        "lab": "رؤساء {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "family of ": {
+        "lab": "عائلة {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "lists of ": {
+        "lab": "قوائم {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "children of ": {
+        "lab": "أطفال {}",
+        "Find_wd": False,
+        "example": ""
+    },
+    "discoveries by ": {
+        "lab": "اكتشافات بواسطة {}",
+        "Find_wd": True,
+        "example": ""
+    },
+    "__films about ": {
+        "lab": "أفلام عن {}",
+        "Find_wd": False,
+        "example": ""
+    },
 }
 
 
@@ -291,7 +350,7 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
         elif category3.endswith(" templates"):
             list_of_cat, category3 = get_templates_fo(category3)
 
-        elif category3.endswith(" stubs") and Find_stubs[1]:
+        elif category3.endswith(" stubs") and app_settings.find_stubs:
             list_of_cat = "بذرة {}"
             category3 = category3.replace(" stubs", "", 1)
 

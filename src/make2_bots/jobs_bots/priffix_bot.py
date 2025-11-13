@@ -2,24 +2,25 @@
 """
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 """
-from typing import Dict
-from ...ma_lists import Nat_mens
+import functools
 from ...ma_lists import (
-    Jobs_key_mens,
-    Jobs_key_womens,
-    womens_Jobs_2017,
+    Nat_mens,
+    jobs_mens_data,
+    short_womens_jobs,
+    jobs_womens_data,
     Female_Jobs,
+    By_table,
+    replace_labels_2022,
+    change_male_to_female,
+    Mens_suffix,
+    Mens_priffix,
+    Women_s_priffix
 )
-from ...ma_lists import By_table
-from ...ma_lists import replace_labels_2022, change_male_to_female, Mens_suffix, Mens_priffix, Women_s_priffix
-
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import output_test4
 
-priffix_Mens_work_cash: Dict[str, str] = {}
-priffix_woMens_work_cash: Dict[str, str] = {}
 
-
+@functools.lru_cache(maxsize=None)
 def priffix_Mens_work(con_33: str) -> str:
     """Process and retrieve the appropriate label for a given input string.
 
@@ -40,25 +41,19 @@ def priffix_Mens_work(con_33: str) -> str:
     """
 
     # ---
-    cash_key = con_33.lower().strip()
-    # ---
-    if cash_key in priffix_Mens_work_cash:
-        return priffix_Mens_work_cash[cash_key]
-    # ---
     output_test4(f'<<lightblue>> --- start: priffix_Mens_work :"{con_33}"')
     con_33_lab = ""
     # ---
     if not con_33_lab:
         con_33_lab = By_table.get(con_33, "")
         if con_33_lab:
-            priffix_Mens_work_cash[cash_key] = con_33_lab
             # ---
             return con_33_lab
     # ---
     if not con_33_lab:
-        con_33_lab = Jobs_key_mens.get(con_33, "")
+        con_33_lab = jobs_mens_data.get(con_33, "")
         if con_33_lab:
-            output_test4(f'<<lightblue>> Jobs_key_mens: con_33_lab:"{con_33_lab}"')
+            output_test4(f'<<lightblue>> jobs_mens_data: con_33_lab:"{con_33_lab}"')
     # ---
     for priff, priff_lab in Mens_priffix.items():
         if con_33_lab:
@@ -82,7 +77,7 @@ def priffix_Mens_work(con_33: str) -> str:
         # ---
         output_test4(f'<<lightblue>> con_33.startswith pri ("{pri}"), con_88:"{con_88}"')
         # ---
-        con_8_lab = Jobs_key_mens.get(con_88, "")
+        con_8_lab = jobs_mens_data.get(con_88, "")
         if not con_8_lab:
             con_8_lab = Nat_mens.get(con_88, "")
         # ---
@@ -121,7 +116,7 @@ def priffix_Mens_work(con_33: str) -> str:
         con_88_lab = Nat_mens.get(con_88, "")
         # ---
         if not con_88_lab:
-            con_88_lab = pop_All_2018.get(con_88) or pop_All_2018.get(con_8) or ""
+            con_88_lab = get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
         # ---
         if con_88_lab:
             output_test4(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), con_88_lab:"{con_88_lab}"')
@@ -131,11 +126,10 @@ def priffix_Mens_work(con_33: str) -> str:
     # ---
     output_test4(f'<<lightblue>> ----- end: priffix_Mens_work :con_33_lab:"{con_33_lab}",con_33:"{con_33}"..')
     # ---
-    priffix_Mens_work_cash[cash_key] = con_33_lab
-    # ---
     return con_33_lab
 
 
+@functools.lru_cache(maxsize=None)
 def Women_s_priffix_work(con_3: str) -> str:
     """Retrieve the women's prefix work label based on the input string.
 
@@ -155,15 +149,10 @@ def Women_s_priffix_work(con_3: str) -> str:
     """
 
     # ---
-    cash_key = con_3.lower().strip()
-    # ---
-    if cash_key in priffix_woMens_work_cash:
-        return priffix_woMens_work_cash[cash_key]
-    # ---
     f_lab = ""
     # ---
     if not f_lab:
-        f_lab = Jobs_key_womens.get(con_3, "")
+        f_lab = short_womens_jobs.get(con_3, "")
     # ---
     con_33 = con_3
     if con_3.endswith(" women"):
@@ -177,11 +166,9 @@ def Women_s_priffix_work(con_3: str) -> str:
             Wriff2 = "women's-"
         if con_33.startswith(Wriff2):
             con_4 = con_33[len(Wriff2) :]
-            con_8_Wb = womens_Jobs_2017.get(con_4, "")
+            con_8_Wb = jobs_womens_data.get(con_4, "")
             output_test4(f'<<lightblue>> con_33.startswith_Wriff2("{Wriff2}"),con_4:"{con_4}", con_8_Wb:"{con_8_Wb}"')
             if con_8_Wb:
                 f_lab = wrifflab.format(con_8_Wb)
-    # ---
-    priffix_woMens_work_cash[cash_key] = f_lab
     # ---
     return f_lab

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from ..format_bots import Dont_Add_min, NewFormat, Tabl_with_in, Tit_ose_Nmaes, ar_lab_before_year_to_add_in, change_cat, contry_before_year, for_table, pop_format, pop_format2, pop_format33, pp_ends_with, pp_ends_with_pase, pp_start_with, pp_start_with2, tito_list_s
+from ..format_bots import Dont_Add_min, NewFormat, Tabl_with_in, Tit_ose_Nmaes, ar_lab_before_year_to_add_in, change_cat, country_before_year, for_table, pop_format, pop_format2, pop_format33, pp_ends_with, pp_ends_with_pase, pp_start_with, pp_start_with2, tito_list_s
 
 """
 
@@ -188,7 +188,7 @@ ar_lab_before_year_to_add_in = [
     "بطولات اتحاد رغبي للمنتخبات الوطنية",
 ]
 # ---
-contry_before_year = [
+country_before_year = [
     "men's road cycling",
     "women's road cycling",
     "track cycling",
@@ -548,9 +548,7 @@ def change_cat(cat_orginal: str) -> str:
     return category
 
 
-Lenth1 = {"Change_key": sys.getsizeof(Change_key), "Change_key2": sys.getsizeof(Change_key2)}
-
-len_print.lenth_pri("pop_format.py", Lenth1)
+len_print.data_len("pop_format.py", {"Change_key": Change_key, "Change_key2": Change_key2})
 
 __all__ = [
     "Dont_Add_min",
@@ -559,7 +557,7 @@ __all__ = [
     "Tit_ose_Nmaes",
     "ar_lab_before_year_to_add_in",
     "change_cat",
-    "contry_before_year",
+    "country_before_year",
     "for_table",
     "pop_format",
     "pop_format2",

@@ -2,64 +2,29 @@
 """
 python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 
-Usage:
-from ...matables_bots.bot import Add_to_main2_tab  # Add_to_main2_tab()
-from ...matables_bots.bot import (
-    MONTH_table,
-    Work_With_Change_key,
-    All_contry_with_nat_lower,
-    Kingdom,
-    years_Baco,
-    Baco_decades,
-    pop_of_in,
-    pop_new,
-    pop_type,
-    LOG,
-    Pp_Priffix,
-    len_Kingdom,
-    Log_Work,
-    tita_Q,
-    medalists_type,
-    type_Table_oo,
-    cash_2022,
-    make_tab,
-    main2_tab,
-    New_Lan,
-    All_P17,
-    Films_O_TT,
-    New_players,
-    typeTable,
-    Table_for_frist_word,
-    Add_in_table,
-    Add_ar_in,
-    Keep_it_last,
-    Keep_it_frist,
-    safo,
-    titttto,
-    add_in_to_contry,
-    type_after_contry,
-    army_line,
-    Lang_line,
-)
 """
-import sys
 import copy
-from typing import Dict, Any, Callable, List, Optional, Set
-from .bot_2018 import pop_All_2018, olympicss
+from typing import Callable, Optional
+from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ...helps import len_print
-from ...ma_lists import military_format_women, military_format_men
-
-from ...ma_lists import languages_pop
-from ...ma_lists import Films_TT, typeTable_4
-from ...ma_lists import typeTable_7, albums_type, film_production_company
-from ...ma_lists import Jobs_new
-from ...ma_lists import Sports_Keys_For_Label
-from ...ma_lists import By_table
-
-from ...ma_lists import Add_in_table2
-
-from ...ma_lists import People_key
-from ...ma_lists import All_contry_with_nat
+from ...ma_lists import (
+    military_format_women,
+    military_format_men,
+    olympics,
+    languages_pop,
+    Films_TT,
+    typeTable_4,
+    typeTable_7,
+    ALBUMS_TYPE,
+    FILM_PRODUCTION_COMPANY,
+    Jobs_new,
+    jobs_mens_data,
+    Sports_Keys_For_Label,
+    By_table,
+    ADD_IN_TABLE2,
+    People_key,
+    all_country_with_nat,
+)
 
 from ..format_bots import Tit_ose_Nmaes
 
@@ -87,13 +52,10 @@ cash_2022 = {
 }
 # ---
 Work_With_Change_key = {1: False}
-make_tab = {1: False}
-main2_tab = {1: {"title": "", "lab": {}, "nolab": {}}}
-_current_table_sink: Optional[Callable[[str, str], None]] = None
 
 # ---
 New_Lan = {}
-All_contry_with_nat_lower = {}
+all_country_with_nat_lower = {}
 Kingdom = {}
 # KAKO4 = {}
 
@@ -107,7 +69,7 @@ pop_type = {}
 All_P17 = {}
 Films_O_TT = {}
 
-New_players = {}
+players_keys = {}
 # ---
 typeTable = {
     # 'winter' : {"ar":"الشتاء", "Q":""},
@@ -215,8 +177,8 @@ typeTable = {
 # ---
 LOG = {1: False}
 # ---
-# split form start contry[len("fasa "):])
-# split form end  contry[:-len("fm")])
+# split form start country[len("fasa "):])
+# split form end  country[:-len("fm")])
 # ---
 Pp_Priffix = {
     " memorials": "نصب {} التذكارية",
@@ -227,8 +189,8 @@ Pp_Priffix = {
     " administration personnel": "موظفو إدارة {}",
     " executive office": "مكتب {} التنفيذي",
 }
-for io in albums_type:
-    Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % albums_type[io]
+for io in ALBUMS_TYPE:
+    Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % ALBUMS_TYPE[io]
 
 # ---
 # titttto = "disestablished in |hosted by |established in |produced in |based in |based on |set in |in |at |to "
@@ -268,7 +230,7 @@ Add_in_table = [
     "biblical manuscripts",
 ]
 # ---
-Add_in_table += Add_in_table2
+Add_in_table += ADD_IN_TABLE2
 # ---
 # P17_keys = [x for x in pop_new]
 P17_keys = [x for x in list(pop_All_2018)]
@@ -282,13 +244,13 @@ t_start = r"Category\:(" + pop_new_ke + ").*"
 t_tits = r"Category\:(" + pop_new_ke + "|)(" + P17_new_keys + "|)"
 t_other = f"({P17_new_keys}|)"
 # ---
-add_in_to_contry = ["solar eclipses"]
+add_in_to_country = ["solar eclipses"]
 # ---
 army_line = "|".join(military_format_women.keys())
 army_line = f"{army_line}|{'|'.join(military_format_men.keys())}"
 # ---
-for x in All_contry_with_nat:
-    All_contry_with_nat_lower[x.lower()] = All_contry_with_nat[x]
+for x in all_country_with_nat:
+    all_country_with_nat_lower[x.lower()] = all_country_with_nat[x]
 # ---
 Lang_line = f"{'|'.join(languages_pop.keys())}|"
 
@@ -300,12 +262,12 @@ for ss in Sports_Keys_For_Label:  #
 for uh in People_key:  #
     By_table[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"
 
-for uh in film_production_company:  #
-    By_table[f"by {uh.lower()}"] = f"بواسطة {film_production_company[uh]}"
+for uh in FILM_PRODUCTION_COMPANY:  #
+    By_table[f"by {uh.lower()}"] = f"بواسطة {FILM_PRODUCTION_COMPANY[uh]}"
 
 len_Kingdom = {1: 0}
 
-New_players["women"] = "المرأة"
+players_keys["women"] = "المرأة"
 
 # for le in Lenth:
 
@@ -315,16 +277,18 @@ safo = "|".join(list(typeTable))
 
 Films_O_TT.update({x.lower(): v for x, v in Films_TT.items() if v})
 # ---
-New_players.update({x.lower(): v for x, v in Jobs_new.items() if v})
-# del Jobs_new
+# with jobs_mens_data Jobs_new, len of players_keys = 99517
+# without, len = 415
+# players_keys.update({x.lower(): v for x, v in jobs_mens_data.items() if v})
+# players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
 # ---
 
 # all_keys3
-New_players.update({x.lower(): {"ar": v, "Q": ""} for x, v in typeTable_7.items()})
+players_keys.update({x.lower(): {"ar": v, "Q": ""} for x, v in typeTable_7.items()})
 
 typeTable.update({x.lower(): v for x, v in typeTable_4.items() if v})
 # ---
-# KAKO3 = [All_P17 ]#Films_key_man , Music_By_table , By_table , pop_new , New_players , Films_O_TT , pop_of_in]
+# KAKO3 = [All_P17 ]#Films_key_man , Music_By_table , By_table , pop_new , players_keys , Films_O_TT , pop_of_in]
 
 Log_Work = {1: True}
 
@@ -334,20 +298,20 @@ tita_Q = {
     "establishments": {"Q": "Q3406134", "priff": "تأسيسات"},
 }
 
-New_players["national sports teams"] = "منتخبات رياضية وطنية"
-New_players["people"] = "أشخاص"
+players_keys["national sports teams"] = "منتخبات رياضية وطنية"
+players_keys["people"] = "أشخاص"
 
 # MONTHSTR = '(January|February|March|April|May|June|July|August|September|October|November|December)'
 MONTHSTR = "(January|February|March|April|May|June|July|August|September|October|November|December|)"
 
-type_after_contry = ["non-combat"]
+type_after_country = ["non-combat"]
 
 # Add_ar_in = [ "mediterranean games medalists",]
-Add_ar_in = copy.deepcopy(olympicss)
+Add_ar_in = copy.deepcopy(olympics)
 
 for olmp, olmp_lab in Add_ar_in.items():
     typeTable[f"{olmp} for"] = {"ar": f"{olmp_lab} من", "Q": ""}
-    New_players[olmp] = olmp_lab
+    players_keys[olmp] = olmp_lab
 
 type_Table_oo = {
     "prisoners sentenced to life imprisonment by": "سجناء حكم عليهم بالحبس المؤبد من قبل",
@@ -369,33 +333,30 @@ for tt_ype in list(type_Table_oo):
 Table_for_frist_word = {
     "typetable": typeTable,
     "Films_O_TT": Films_O_TT,
-    "New_players": New_players,
+    "New_players": players_keys,
 }
+# Table_for_frist_word_o = {
+#     "typetable": set(typeTable.keys()),
+#     "Films_O_TT": set(Films_O_TT.keys()),
+#     "players_keys": set(players_keys.keys()),
+# }
+players_new_keys = players_keys
 
 
-def set_table_sink(sink: Optional[Callable[[str, str], None]]) -> None:
-    """Register a table sink used by the new event processor."""
-
-    global _current_table_sink
-    _current_table_sink = sink
-    make_tab[1] = sink is not None
-    main2_tab[1] = {"title": "", "lab": {}, "nolab": {}}
-
-
-def Add_to_main2_tab(en: str, ar: str) -> None:
+def add_to_new_players(en: str, ar: str) -> None:
     if not en or not ar:
         return
-    if _current_table_sink is not None:
-        _current_table_sink(en, ar)
+    players_new_keys[en] = ar
 
 
-Lenth = {}
-Lenth["All_P17"] = sys.getsizeof(All_P17)
-Lenth["pop_of_in"] = sys.getsizeof(pop_of_in)
-Lenth["pop_new"] = sys.getsizeof(pop_new)
-Lenth["pop_All_2018"] = sys.getsizeof(pop_All_2018)
-Lenth["typetable"] = sys.getsizeof(typeTable)
-Lenth["kingdom"] = len_Kingdom[1]
-# ---
+len_print.data_len("make2_bots.matables_bots/bot.py", {
+    "players_new_keys": players_new_keys,   # 99517
+    "All_P17": All_P17,
+    "pop_of_in": pop_of_in,
+    "pop_new": pop_new,
+    "typeTable": typeTable,
+})
 
-len_print.lenth_pri("make2_bots.matables_bots/bot.py", Lenth, lens=["kingdom"], Max=10)
+__all__ = [
+    "players_new_keys",
+]

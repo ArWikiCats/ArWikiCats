@@ -12,7 +12,7 @@ from ....ma_lists import (
     film_Keys_For_female,
     Films_key_CAO,
     Films_key_For_nat,
-    Jobs_key_mens,
+    jobs_mens_data,
     languages_key,
     lang_key_m,
 )
@@ -92,13 +92,13 @@ def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang2: str) -> str:
     language_lab = languages_key[lang]
     # ---
     con_8 = con_3[len(lang2) :]
-    con_78_lab = Jobs_key_mens.get(con_8, "")
+    con_78_lab = jobs_mens_data.get(con_8, "")
     # ---
     it_lab = ""
     # ---
     if con_78_lab:
         it_lab = f"{con_78_lab} ب{language_lab}"
-        output_test4(f'<<lightblue>> Jobs_key_mens({con_8}): con_3.startswith_priff2("{lang2}"), it_lab:"{it_lab}"')
+        output_test4(f'<<lightblue>> jobs_mens_data({con_8}): con_3.startswith_priff2("{lang2}"), it_lab:"{it_lab}"')
     # ---
     if not it_lab:
         con_78_lab = lang_key_m.get(con_8, "")

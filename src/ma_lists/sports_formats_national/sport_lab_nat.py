@@ -7,8 +7,9 @@
 import re
 # ---
 from .te2 import New_For_nat_female_xo_team
-from ..sports.Sport_key import Sports_Keys_For_Jobs, fanco_line
+from ..sports.Sport_key import Sports_Keys_For_Jobs
 from ...helps.print_bot import print_put
+from ..utils.match_sport_keys import match_sport_key
 
 
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
@@ -20,10 +21,9 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
     # sports.py: len:"New_For_nat_female_xo_team":  1528  , len:"sport_formts_female_nat":  0
     # ---
     label = ""
-    faev = re.match(fanco_line, con_77, flags=re.IGNORECASE)
+    sport_key = match_sport_key(con_77)
     # ---
-    if faev:
-        sport_key = faev.group(1)
+    if sport_key:
         sport_arabic_label = ""
         template_label = ""
         # ---
@@ -43,7 +43,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
             # ---
             if template_label and sport_arabic_label:
                 resolved_label = template_label.replace("xzxz", sport_arabic_label)
-                if resolved_label.find("xzxz") == -1:
+                if "xzxz" not in resolved_label:
                     label = resolved_label
                     print_put(f'Get_Sport_Formats_For_nat female bbvb:"{label}"')
         else:

@@ -171,7 +171,6 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
     By_table[f"by photographing {context_key} "] = f"حسب {context_label} التصوير"
 
     By_table[f"by {context_key} of completion"] = f"حسب {context_label} الانتهاء"
-    # By_table["by {} of completion".format(cc) ] = "حسب {} الاكتمال".format(Contry_cite_el[cc])
 
     By_table[f"by {context_key} of opening"] = f"حسب {context_label} الافتتاح"
     By_table[f"by opening {context_key} "] = f"حسب {context_label} الافتتاح"
@@ -311,7 +310,7 @@ def main():
             printe.output('   ,"%s":"%s"' %   (k , ""))
 """
 # ---
-BY_TABLE_MEMORY_STATS = {"by_table": sys.getsizeof(By_table)}
+BY_TABLE_MEMORY_STATS = {"by_table": By_table}
 # ---
 
-len_print.lenth_pri("by_table.py", BY_TABLE_MEMORY_STATS)
+len_print.data_len("by_table.py", BY_TABLE_MEMORY_STATS)

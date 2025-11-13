@@ -3,7 +3,7 @@
 
 """
 
-from ..nats.Nationality import All_Nat, All_contry_with_nat_ar, A_Nat, All_Nat_o
+from ..nats.Nationality import All_Nat, all_country_with_nat_ar, A_Nat, All_Nat_o
 from ... import printe
 
 fasenor = {
@@ -379,13 +379,13 @@ dpdpd = [
 
 fafr = ""
 for nna, fafa in All_Nat_o.items():
-    if fafa.get("women", "").find(" ") == -1:
+    if " " not in fafa.get("women", ""):
         fafr += f"{fafa.get('women', '')}|"
 printe.output(fafr)
 
 
 def main() -> None:
-    for cd in All_contry_with_nat_ar:
+    for cd in all_country_with_nat_ar:
         if All_Nat[cd]["ar"] not in dpdpd:
             printe.output(f"\"{All_Nat[cd]['ar']}\" : {All_Nat[cd]['women']}")
     """
@@ -461,6 +461,6 @@ if __name__ == "__main_3_":
     for kkk, kkk_la in A_Nat.items():
         num += 1
         if num < Max:
-            # if All_Nat[kkk]["men"].find(" ") != -1:
+            # if " " in All_Nat[kkk]["men"]:
             printe.output(f',"{kkk}": "{kkk_la}"')
 # ---

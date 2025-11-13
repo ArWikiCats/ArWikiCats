@@ -1,19 +1,12 @@
-#!/usr/bin/python3
 """
-python3 core8/pwb.py make/m test Category:People executed by the International Military Tribunal in Nuremberg
-
+Derived key mappings shared by the mixed key modules.
 """
 
 
-import sys
 from ...helps import len_print
 
-#
-# ---
-pop_final6 = {
-    # ---
+POP_FINAL6_BASE: dict[str, str] = {
     "gulf war": "حرب الخليج الثانية",
-    # ---
     "robert award": "جائزة روبرت",
     "emmy award": "جائزة إيمي",
     "grammy award": "جائزة غرامي",
@@ -21,7 +14,6 @@ pop_final6 = {
     "independent spirit award": "جائزة الروح المستقلة",
     "national board of review award": "جائزة المجلس الوطني للمراجعة",
     "toronto international film festival award": "جائزة مهرجان تورونتو السينمائي الدولي",
-    # ---
     "hollywood film awards": "جوائز هوليوود للأفلام",
     "hong kong film awards": "جوائز مهرجان هونج كونج السينمائي",
     "empire awards": "جوائز إمباير",
@@ -54,12 +46,10 @@ pop_final6 = {
     "tp de oro": "تي بي دي أورو",
     "bayard d'or": "بايارد الذهبية",
     "golden bear": "الدب الذهبي",
-    # ---
     "for best male playback singer": "لأفضل مغني أفلام",
     "for best female playback singer": "لأفضل مغنية أفلام",
     "for best male singer": "لأفضل مغني",
     "for best female  singer": "لأفضل مغنية",
-    # ---
     "for best first feature": "لأفضل أول فيلم",
     "for best historical album": "لأفضل ألبوم تاريخي",
     "for best rock album": "لأفضل ألبوم روك",
@@ -101,34 +91,22 @@ pop_final6 = {
     "for album of the year": "لألبوم السنة",
     "for new star of the year – actor": "للنجم الصاعد",
     "for new star of the year – actress": "للنجمة الصاعدة",
-    # ---
 }
-# ---
-male_types = {
+
+MALE_TYPES: dict[str, str] = {
     "science": "علم",
     "literature": "أدب",
-    # ---
 }
-# ---
-for ma in male_types:
-    pop_final6[f"fictional {ma}"] = f"{male_types[ma]} خيالي"
-    pop_final6[f"{ma} themes"] = f"مواضيع {male_types[ma]}"
-# ---
-Awards = {
-    # ---
+
+AWARDS: dict[str, str] = {
     "grammy": "غرامي",
     "golden globe": "غولدن غلوب",
-    # ---
     "filmfare": "فيلم فير",
-    # ---
     "robert": "روبرت",
     "emmy": "إيمي",
-    "grammy": "غرامي",
-    "golden globe": "غولدن غلوب",
     "independent spirit": "الروح المستقلة",
     "national board of review": "المجلس الوطني للمراجعة",
     "toronto international film festival": "مهرجان تورونتو السينمائي الدولي",
-    # ---
     "hollywood film": "هوليوود للأفلام",
     "hong kong film": "مهرجان هونج كونج السينمائي",
     "empire": "إمباير",
@@ -140,21 +118,12 @@ Awards = {
     "teen choice": "اختيار المراهقين",
     "claude jutra": "كلود جوترا",
     "robert-bresson": "روبرت بريسون",
-    "robert": "روبرت",
     "golden reel": "الذهبية بكرة",
     "first steps": "الخطوات الأولى",
     "herbert strate": "إستراتيجيات هربرت",
 }
-# ---
-for award in Awards:
-    pop_final6[f"{award.lower()} award"] = f"جائزة {Awards[award]}"
-    pop_final6[f"{award.lower()} awards"] = f"جوائز {Awards[award]}"
-# ---
-After_type_female = {
-    # ---
-    # "discipline" : "تخصص",
-    # "literature" : "أدب",
-    # ---
+
+AFTER_TYPE_FEMALE: dict[str, str] = {
     "universities and colleges": "جامعات وكليات",
     "schools": "مدارس",
     "awards": "جوائز",
@@ -180,30 +149,22 @@ After_type_female = {
     "learned and professional societies": "جمعيات علمية ومهنية",
     "documents": "وثائق",
     "publishing": "منشورات",
-    # ---
     "companies": "شركات",
     "disciplines": "تخصصات",
     "terrorist incidents": "حوادث إرهابية",
-    # ---
     "parties": "أحزاب",
     "political parties": "أحزاب سياسية",
     "politics": "سياسة",
-    # ---
     "crises": "أزمات",
 }
-# ---
-# "cruise ships" : "سفن سياحية",
-# ---
-Frist_type_female = {
-    # ---
-    # ---
+
+
+FIRST_TYPE_FEMALE: dict[str, str] = {
     "paleolibertarianism": "ليبرتارية أصلية",
     "libertarian": "ليبرتارية",
-    # ---
     "liberal": "ليبرالية",
     "classical conservative": "ليبرالية كلاسيكية",
     "liberal conservative": "ليبرالية محافظة",
-    # ---
     "structural": "هيكلية",
     "agricultural": "زراعية",
     "astronomical": "فلكية",
@@ -223,8 +184,6 @@ Frist_type_female = {
     "musical": "موسيقية",
     "nautical": "بحرية",
     "residential": "سكنية",
-    # ---
-    "environmental": "بيئية",
     "eurosceptic": "شكوكية أوروبية",
     "anti-revisionist": "مناهضة للتحريفية",
     "anti-capitalist": "مناهضة للرأسمالية",
@@ -234,12 +193,9 @@ Frist_type_female = {
     "biological": "بيولوجية",
     "cruise": "سياحية",
     "defunct": "سابقة",
-    "chemical": "كيميائية",
     "military nuclear": "نووية عسكرية",
     "nuclear": "نووية",
     "military and war": "عسكرية وحربية",
-    # ---
-    # "library" : "مكتبات",
     "military": "عسكرية",
     "training": "تدريبية",
     "consultative": "إستشارية",
@@ -248,48 +204,35 @@ Frist_type_female = {
     "political": "سياسية",
     "warfare": "حربية",
     "diplomatic": "دبلوماسية",
-    # ---
     "publicly traded": "تداول عام",
     "computer": "حوسبة",
     "multi-national": "متعددة الجنسيات",
     "multinational": "متعددة الجنسيات",
     "power": "طاقة",
     "office": "إدارية",
-    # ---
-    "international": "دولية",
     "sports": "رياضية",
     "music": "موسيقى",
     "private": "خاصة",
     "independent": "مستقلة",
     "drama": "درامية",
     "law": "قانون",
-    "commercial": "تجارية",
-    # "trade" : "تجارية",
     "bank": "بنوك",
     "academic": "أكاديمية",
     "academic and learned": "أكاديمية وعلمية",
-    # ---
     "horticultural": "بستنة",
     "islamic": "إسلامية",
     "fictional": "خيالية",
     "criminal": "إجرامية",
-    # ---
     "history": "تاريخ",
     "cycling": "ركوب الدراجات",
     "architecture": "عمارة",
     "transportation": "النقل",
-    # ---
     "science": "علمية",
-    "sports": "رياضية",
     "ethnic": "عرقية",
     "professional": "تخصصية",
     "financial": "مالية",
     "public": "عمومية",
     "archaeological": "أثرية",
-    "historical": "تاريخية",
-    # ---
-    # ---
-    # "provincial":"",
     "interventionist": "تدخلية",
     "non-interventionist": "غير تدخلية",
     "banned": "محظورة",
@@ -298,7 +241,6 @@ Frist_type_female = {
     "anti-zionist": "معادية للصهيونية",
     "monarchist": "ملكية",
     "classical": "كلاسيكية",
-    "defunct": "سابقة",
     "far-left": "يسارية متطرفة",
     "far-right": "يمينية متطرفة",
     "social": "اجتماعية",
@@ -314,27 +256,46 @@ Frist_type_female = {
     "muslim": "إسلامية",
     "right-wing": "يمينية",
     "left-wing": "يسارية",
-    # ---
 }
-# ---
-for first in Frist_type_female:
-    # ---
-    pop_final6[f"{first} parties"] = f"أحزاب {Frist_type_female[first]}"
-    # ---
-    for secound in After_type_female:
-        keyy = f"{first.lower()} {secound.lower()}"
-        opo = f"{After_type_female[secound]} {Frist_type_female[first]}"
-        pop_final6[keyy] = opo
-        # printe.output('pop_final6[%s] = "%s" ' % (keyy , opo))
-# ---
-Ta_s = {
+
+
+TA_CATEGORIES: dict[str, str] = {
     "arts": "فنية",
 }
-# ---
-for ta in Ta_s:
-    pop_final6[f"{ta} occupations"] = f"مهن {Ta_s[ta]}"
-# ---
-lenthe = {"pop_final6": sys.getsizeof(pop_final6)}
-# ---
-len_print.lenth_pri("newkey.py", lenthe)
-# ---
+
+
+def build_pop_final6() -> dict[str, str]:
+    """Return the fully expanded mapping used by ``all_keys2``."""
+
+    data = dict(POP_FINAL6_BASE)
+
+    for category, label in MALE_TYPES.items():
+        data[f"fictional {category}"] = f"{label} خيالي"
+        data[f"{category} themes"] = f"مواضيع {label}"
+
+    for award, label in AWARDS.items():
+        key = award.lower()
+        data[f"{key} award"] = f"جائزة {label}"
+        data[f"{key} awards"] = f"جوائز {label}"
+
+    for first, first_label in FIRST_TYPE_FEMALE.items():
+        data[f"{first} parties"] = f"أحزاب {first_label}"
+        for second, second_label in AFTER_TYPE_FEMALE.items():
+            key = f"{first.lower()} {second.lower()}"
+            data[key] = f"{second_label} {first_label}"
+
+    for key, label in TA_CATEGORIES.items():
+        data[f"{key} occupations"] = f"مهن {label}"
+
+    return data
+
+
+pop_final6: dict[str, str] = build_pop_final6()
+
+len_print.data_len("newkey.py", {
+    "pop_final6": pop_final6
+})
+
+__all__ = [
+    "pop_final6"
+]

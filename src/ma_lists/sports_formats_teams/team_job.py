@@ -2,7 +2,6 @@
 from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs, sf_en_ar_is_p17
 """
 
-import sys
 import re
 from ...helps import len_print
 from ..sports.sports_lists import levels, AFTER_KEYS_NAT, New_Tato_nat
@@ -15,10 +14,8 @@ sport_formts_enar_p17_jobs = {}
 # sf_en_ar_is_p17 لدمجها مع sport_formts_en_ar_is_p17 في sports.py
 sf_en_ar_is_p17 = {}
 # ---
-Years_List = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-# السنة الواحدة تساوي 45,560 مدخلة
-# ---
-
+YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+# السنة الواحدة تساوي 1343 مدخلة
 # ---
 team = "xoxo"
 job_label = "xoxo"
@@ -55,7 +52,7 @@ if True:
     New_team_xo_jobs["national men's xoxo manager history"] = "تاريخ مدربو منتخبات xoxo وطنية للرجال"
     New_team_xo_jobs["national xoxo manager history"] = "تاريخ مدربو منتخبات xoxo وطنية"
     # ---
-    for year in Years_List:
+    for year in YEARS_LIST:
         New_team_xo_jobs[f"under-{year} xoxo"] = f"xoxo تحت {year} سنة"
         # ---
         # Category:National under-17 football manager history navigational boxes
@@ -90,7 +87,6 @@ if True:
     # ---
     New_team_xo_jobs["xoxo super leagues"] = "دوريات سوبر xoxo"
     # ---
-    # ---
     New_team_xo_jobs["first-class xoxo"] = "xoxo من الدرجة الأولى"
     New_team_xo_jobs["first-class xoxo competitions"] = "منافسات xoxo من الدرجة الأولى"
     New_team_xo_jobs["first-class xoxo matches"] = "مباريات xoxo من الدرجة الأولى"
@@ -104,68 +100,73 @@ if True:
     # ---
     New_team_xo_jobs["military xoxo"] = "xoxo عسكرية"
 
-    New_team_xo_jobs["men's xoxo"] = "xoxo رجالية"
-    New_team_xo_jobs["women's xoxo"] = "xoxo نسائية"
-    # ---
     New_team_xo_jobs["multi-national xoxo championships"] = "بطولات xoxo متعددة الجنسيات"
     # ---
     New_team_xo_jobs["amateur xoxo championships"] = "بطولات xoxo للهواة"
-    New_team_xo_jobs["national xoxo championships"] = "بطولات xoxo وطنية"
-    New_team_xo_jobs["national xoxo champions"] = "أبطال بطولات xoxo وطنية"
+    New_team_xo_jobs["international xoxo"] = "xoxo دولية"
     # ---
+    New_team_xo_jobs["xoxo league competitions"] = "منافسات دوري xoxo"
+    New_team_xo_jobs["xoxo league teams"] = "فرق دوري xoxo"
     # ---
-    New_team_xo_jobs["military xoxo competitions"] = "منافسات xoxo عسكرية"
-    # ---
-    New_team_xo_jobs["men's xoxo teams"] = "فرق xoxo رجالية"
-    New_team_xo_jobs["women's xoxo teams"] = "فرق xoxo نسائية"
-    # ---كرة قدم وطنية"
-    New_team_xo_jobs["national xoxo team results"] = "نتائج منتخبات xoxo وطنية"
-
-    New_team_xo_jobs["national xoxo teams"] = "منتخبات xoxo وطنية"
-
-    New_team_xo_jobs["national junior xoxo teams"] = "منتخبات xoxo وطنية للناشئين"
-    New_team_xo_jobs["national junior men's xoxo teams"] = "منتخبات xoxo وطنية للناشئين"
-    New_team_xo_jobs["national youth xoxo teams"] = "منتخبات xoxo وطنية شبابية"
-    New_team_xo_jobs["national men's xoxo teams"] = "منتخبات xoxo وطنية رجالية"
-    # ---
-    New_team_xo_jobs["national women's xoxo teams"] = "منتخبات xoxo وطنية نسائية"
-    New_team_xo_jobs["national women's xoxo teams of"] = "منتخبات وطنية نسائية xoxo في"
-    # ---
-    New_team_xo_jobs["International xoxo records and statistics"] = "سجلات وإحصائيات xoxo دولية"
-    New_team_xo_jobs["International xoxo tournaments"] = "بطولات xoxo دولية"
     New_team_xo_jobs["International xoxo competition tournaments"] = "بطولات منافسات xoxo دولية"
     New_team_xo_jobs["International xoxo competitions"] = "منافسات xoxo دولية"
-    New_team_xo_jobs["xoxo races"] = "سباقات xoxo"
     New_team_xo_jobs["International xoxo races"] = "سباقات xoxo دولية"
-    # ---
-    if "international xoxo" not in New_team_xo_jobs:
-        New_team_xo_jobs["international xoxo"] = "xoxo دولية"
+    New_team_xo_jobs["International xoxo records and statistics"] = "سجلات وإحصائيات xoxo دولية"
+    New_team_xo_jobs["International xoxo tournaments"] = "بطولات xoxo دولية"
     # ---
     New_team_xo_jobs["international xoxo managers"] = "مدربو xoxo دوليون"
-    New_team_xo_jobs["international xoxo playerss"] = "لاعبو xoxo دوليون"
     New_team_xo_jobs["international xoxo players"] = "لاعبو xoxo دوليون"
-    New_team_xo_jobs["international men's xoxo playerss"] = "لاعبو xoxo دوليون"
+    New_team_xo_jobs["international xoxo playerss"] = "لاعبو xoxo دوليون"
+    # ---
+    New_team_xo_jobs["military xoxo competitions"] = "منافسات xoxo عسكرية"
+    New_team_xo_jobs["xoxo races"] = "سباقات xoxo"
+    New_team_xo_jobs["national xoxo champions"] = "أبطال بطولات xoxo وطنية"
+    New_team_xo_jobs["national xoxo championships"] = "بطولات xoxo وطنية"
+    New_team_xo_jobs["national xoxo team results"] = "نتائج منتخبات xoxo وطنية"
+    New_team_xo_jobs["national xoxo teams"] = "منتخبات xoxo وطنية"
+    # ---
+    New_team_xo_jobs["national junior xoxo teams"] = "منتخبات xoxo وطنية للناشئين"
+    New_team_xo_jobs["national junior men's xoxo teams"] = "منتخبات xoxo وطنية للناشئين"
+    # ---
+    New_team_xo_jobs["men's xoxo"] = "xoxo رجالية"
+    New_team_xo_jobs["women's xoxo"] = "xoxo نسائية"
+    # ---
+    mens_womens = {
+        "men's": "للرجال",
+        "women's": "للسيدات",
+        "men's youth": "للشباب",
+        "women's youth": "للشابات",
+        "youth": "للشباب",
+    }
+    # ---
+    New_team_xo_jobs["international men's xoxo competitions"] = "منافسات xoxo رجالية دولية"
     New_team_xo_jobs["international men's xoxo players"] = "لاعبو xoxo دوليون"
-    New_team_xo_jobs["men's international xoxo players"] = "لاعبو xoxo دوليون"
-    New_team_xo_jobs["men's international xoxo playerss"] = "لاعبو xoxo دوليون"
-    # ---
-    New_team_xo_jobs["international women's xoxo playerss"] = "لاعبات xoxo دوليات"
-    New_team_xo_jobs["women's international xoxo playerss"] = "لاعبات xoxo دوليات"
-    New_team_xo_jobs["international women's xoxo players"] = "لاعبات xoxo دوليات"
-    New_team_xo_jobs["women's international xoxo players"] = "لاعبات xoxo دوليات"
-    # ---
-    New_team_xo_jobs["youth xoxo"] = "xoxo شبابية"
-    New_team_xo_jobs["youth international xoxo"] = "xoxo دولية شبابية"
-    New_team_xo_jobs["men's international xoxo"] = "xoxo دولية للرجال"
+    New_team_xo_jobs["international men's xoxo playerss"] = "لاعبو xoxo دوليون"
     New_team_xo_jobs["international men's xoxo"] = "xoxo دولية للرجال"
-    New_team_xo_jobs["women's international xoxo"] = "xoxo دولية للسيدات"
+    # --
+    New_team_xo_jobs["international women's xoxo competitions"] = "منافسات xoxo نسائية دولية"
+    New_team_xo_jobs["international women's xoxo players"] = "لاعبات xoxo دوليات"
+    New_team_xo_jobs["international women's xoxo playerss"] = "لاعبات xoxo دوليات"
     New_team_xo_jobs["international women's xoxo"] = "xoxo دولية للسيدات"
     # ---
-    New_team_xo_jobs["youth xoxo competitions"] = "منافسات xoxo شبابية"
-    New_team_xo_jobs["international xoxo competitions"] = "منافسات xoxo دولية"
+    New_team_xo_jobs["national women's xoxo teams"] = "منتخبات xoxo وطنية نسائية"
+    New_team_xo_jobs["women's international xoxo players"] = "لاعبات xoxo دوليات"
+    New_team_xo_jobs["women's international xoxo playerss"] = "لاعبات xoxo دوليات"
+    New_team_xo_jobs["women's international xoxo"] = "xoxo دولية للسيدات"
+    New_team_xo_jobs["women's xoxo teams"] = "فرق xoxo نسائية"
+    # ---
     New_team_xo_jobs["international youth xoxo competitions"] = "منافسات xoxo شبابية دولية"
-    New_team_xo_jobs["international women's xoxo competitions"] = "منافسات xoxo نسائية دولية"
-    New_team_xo_jobs["international men's xoxo competitions"] = "منافسات xoxo رجالية دولية"
+    New_team_xo_jobs["national youth xoxo teams"] = "منتخبات xoxo وطنية شبابية"
+    New_team_xo_jobs["youth international xoxo"] = "xoxo دولية شبابية"
+    New_team_xo_jobs["youth xoxo competitions"] = "منافسات xoxo شبابية"
+    New_team_xo_jobs["youth xoxo"] = "xoxo شبابية"
+    # ---
+    New_team_xo_jobs["men's international xoxo players"] = "لاعبو xoxo دوليون"
+    New_team_xo_jobs["men's international xoxo playerss"] = "لاعبو xoxo دوليون"
+    New_team_xo_jobs["men's international xoxo"] = "xoxo دولية للرجال"
+    # ---
+    New_team_xo_jobs["men's xoxo teams"] = "فرق xoxo رجالية"
+    New_team_xo_jobs["national men's xoxo teams"] = "منتخبات xoxo وطنية رجالية"
     # ---
     for ty_nat, tas in New_Tato_nat.items():
         tas = tas.strip()
@@ -173,11 +174,11 @@ if True:
         Ar_labs_3 = f"منتخبات xoxo وطنية {tas.format(nat='').strip()}"
         Ar_labs_league = f"دوريات xoxo وطنية {tas.format(nat='').strip()}"
         # ---
-        if ty_nat.find("national") == -1:
+        if "national" not in ty_nat:
             Ar_labs_3 = f"فرق xoxo {tas.format(nat='').strip()}"
             Ar_labs_league = f"دوريات xoxo {tas.format(nat='').strip()}"
         # ---
-        elif ty_nat.find("multi-national") != -1:
+        elif "multi-national" in ty_nat:
             Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
             Ar_labs_league = Ar_labs_league.replace(" وطنية", "")
         # ---
@@ -185,10 +186,10 @@ if True:
         # ---
         for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():
             # ---
-            if (pr_e == "players" or pr_e == "playerss") and ty_nat.find("women's") != -1:
+            if (pr_e == "players" or pr_e == "playerss") and "women's" in ty_nat:
                 pr_e_Lab = "لاعبات {lab}"
             # ---
-            elif pr_e_Lab.find("لاعبو") != -1 and ty_nat.find("women's") != -1:
+            elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
             # ---
             Abteams = f"{ty_nat} xoxo teams {pr_e}".strip()
@@ -203,11 +204,10 @@ if True:
             Ar_labs2 = Ar_labs2 + " " + tas.format(nat="").strip()
             en_labs = f"{ty_nat.strip()} xoxo teams"
             en_labs = en_labs.strip()
-            if en_labs.find("national") == -1:
+            if "national" not in en_labs:
                 New_team_xo_jobs[en_labs] = Ar_labs2.strip()
                 sf_en_ar_is_p17[en_labs] = Ar_labs2.strip()
 
-    # ---
     # ---
     for level, lvl_lab in levels.items():
         New_team_xo_jobs[f"national xoxo {level} league"] = f"دوريات xoxo وطنية من {lvl_lab}"
@@ -273,10 +273,8 @@ if True:
     # ---
 # sport_formts_enar_p17_jobs["international rally"] =  "رالي {} الدولي"
 # ---
-Lenthtab = {
-    "sport_formts_enar_p17_jobs": sys.getsizeof(sport_formts_enar_p17_jobs),
-    "New_team_xo_labels": sys.getsizeof(New_team_xo_labels),
-    "New_team_xo_jobs": sys.getsizeof(New_team_xo_jobs),
-}
-# ---
-len_print.lenth_pri("sports_formats_teams/team_job.py", Lenthtab)
+len_print.data_len("sports_formats_teams/team_job.py", {
+    "sport_formts_enar_p17_jobs": sport_formts_enar_p17_jobs,
+    "New_team_xo_labels": New_team_xo_labels,
+    "New_team_xo_jobs": New_team_xo_jobs,
+})

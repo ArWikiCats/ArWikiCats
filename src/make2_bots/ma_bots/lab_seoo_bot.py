@@ -4,29 +4,27 @@ from  make.make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
 
 """
 import re
-from ...fix import fixtitle
 
-from ..p17_bots.us_stat import Work_US_State
-from ..o_bots.popl import Work_peoples
+from ...fix import fixtitle
+from ...helps.print_bot import print_put
+from ...ma_lists import Ambassadors_tab, New_P17_Finall
+from ..fromnet.wd_bot import find_wikidata
+from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
+from ..jobs_bots.test_4 import Jobs_in_Multi_Sports
+from ..matables_bots.bot import New_Lan
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
+from ..matables_bots.centries_bot import centries_years_dec
+from ..media_bots.films_bot import test_films
+from ..o_bots import univer
+from ..o_bots.popl import work_peoples
 
 # from ..bots import tmp_bot
 from ..p17_bots import nats
-from ..o_bots import univer
+from ..p17_bots.us_stat import Work_US_State
 from ..sports_bots import team_work
-from ..jobs_bots.test_4 import Jobs_in_Multi_Sports
-from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
 
 # ---
-from . import ye_ts_bot
-from ..media_bots.films_bot import test_films
-from . import event2bot
-from ...ma_lists import New_P17_Finall
-from ...ma_lists import Ambassadors_tab
-from ..fromnet.wd_bot import find_wikidata
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..matables_bots.centries_bot import centries_years_dec
-from ..matables_bots.bot import New_Lan
-from ...helps.print_bot import print_put, main_output_preferences
+from . import event2bot, ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -41,9 +39,7 @@ def test3(category_key: str) -> str:
         if existing_label is not None:
             if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:
                 normalized_label = f"تصنيف:{fixtitle.fixlab(existing_label, en=category_key)}"
-                print_put(
-                    f'>>>>>> <<lightyellow>> test3: cat:"{category_key}", labs:"{normalized_label}"'
-                )
+                print_put(f'>>>>>> <<lightyellow>> test3: cat:"{category_key}", labs:"{normalized_label}"')
                 print_put("<<lightblue>>>> ^^^^^^^^^ test3 end ^^^^^^^^^ ")
                 return normalized_label
     return arabic_label
@@ -87,36 +83,28 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     if not resolved_category_label:
         resolved_category_label = event2bot.event2(normalized_target_category)
     if not resolved_category_label:
-        resolved_category_label = pop_All_2018.get(normalized_target_category, "")
+        resolved_category_label = get_pop_All_18(normalized_target_category, "")
 
     if not resolved_category_label:
         resolved_category_label = centries_years_dec.get(normalized_target_category, "")
 
     if not resolved_category_label:
-        resolved_category_label = test4_2018_Jobs(
-            normalized_target_category, out=main_output_preferences[1]
-        )
+        resolved_category_label = test4_2018_Jobs(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = Jobs_in_Multi_Sports(
-            target_category_original_case, out=main_output_preferences[1]
-        )
+        resolved_category_label = Jobs_in_Multi_Sports(target_category_original_case)
 
     # if not category_lab:
     #     category_lab = tmp_bot.Work_Templates(category3)
 
     if not resolved_category_label:
-        resolved_category_label = univer.test_Universities(normalized_target_category)
+        resolved_category_label = univer.test_universities(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = test_films(
-            normalized_target_category, reference_category=reference_category
-        )
+        resolved_category_label = test_films(normalized_target_category, reference_category=reference_category)
 
     if not resolved_category_label:
-        resolved_category_label = nats.find_nat_others(
-            normalized_target_category, reference_category=reference_category
-        )
+        resolved_category_label = nats.find_nat_others(normalized_target_category, reference_category=reference_category)
 
     if not resolved_category_label:
         # print("translate_general_category 12")
@@ -126,12 +114,12 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = Work_US_State(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = Work_peoples(normalized_target_category)
+        resolved_category_label = work_peoples(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = test3(normalized_target_category)
 
-    if resolved_category_label == "" and normalized_target_category.strip().find(" ") == -1:
+    if resolved_category_label == "" and " " not in normalized_target_category.strip():
         resolved_category_label = find_wikidata(normalized_target_category)
 
     return resolved_category_label

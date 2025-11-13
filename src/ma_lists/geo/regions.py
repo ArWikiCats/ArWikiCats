@@ -1,21 +1,9 @@
-#!/usr/bin/python3
-"""
-SELECT #?item ?itemLabel ?en ?value
-(concat('  "', ?en , '" : "', ?value , '", ')  as ?ss)
+"""Regional translation tables used across the geo modules."""
 
-WHERE {
-  ?item wdt:P31 wd:Q843886.
-  ?item rdfs:label ?value filter (lang(?value) = "ar") .
-  #?item rdfs:label ?en filter (lang(?en) = "en") .
-  ?article schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?en .
-  SERVICE wikibase:label {
-    bd:serviceParam wikibase:language "en,ar" .
-  }
+from __future__ import annotations
 
-    }
-#LIMIT 10000
-"""
-# ---
+from ._shared import apply_suffix_templates, log_mapping_stats, update_with_lowercased
+
 PRIMARY_REGION_TRANSLATIONS = {
     # ---
     "limburg (belgium)": "ليمبورغ (بلجيكا)",
@@ -672,61 +660,68 @@ LEGACY_UK_COUNTY_TRANSLATIONS = {
     "yorkshire": "يوركشاير",
 }
 # ---
-for county_name, county_label in LEGACY_UK_COUNTY_TRANSLATIONS.items():
-    PRIMARY_REGION_TRANSLATIONS[county_name.lower()] = county_label
-# ---
-for county_name, county_label in UK_COUNTY_TRANSLATIONS.items():
-    PRIMARY_REGION_TRANSLATIONS[county_name.lower()] = county_label
-# ---
-for region_name, region_label in PERU_REGION_TRANSLATIONS.items():
-    normalized_name = region_name.lower()
-    PRIMARY_REGION_TRANSLATIONS[normalized_name] = region_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = (
-        f"إقليم {region_label}"
-    )
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"مقاطعة {region_label}"
-    )
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
-        f"مديرية {region_label}"
-    )
-# ---
-for district_name, district_label in SRI_LANKA_DISTRICT_TRANSLATIONS.items():
-    normalized_name = district_name.lower()
-    PRIMARY_REGION_TRANSLATIONS[normalized_name] = district_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
-        f"مديرية {district_label}"
-    )
-# ---
-for province_name, province_label in ALGERIA_PROVINCE_TRANSLATIONS.items():
-    normalized_name = province_name.lower()
-    PRIMARY_REGION_TRANSLATIONS[normalized_name] = province_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"ولاية {province_label}"
-    )
-# ---
-for state_name, state_label in VENEZUELA_STATE_TRANSLATIONS.items():
-    normalized_name = state_name.lower()
-    PRIMARY_REGION_TRANSLATIONS[normalized_name] = state_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} (state)"] = (
-        f"ولاية {state_label}"
-    )
-# ---
-for province_name, province_label in ECUADOR_PROVINCE_TRANSLATIONS.items():
-    normalized_name = province_name.lower()
-    PRIMARY_REGION_TRANSLATIONS[normalized_name] = province_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"مقاطعة {province_label}"
-    )
-# ---
-del (
+update_with_lowercased(PRIMARY_REGION_TRANSLATIONS, LEGACY_UK_COUNTY_TRANSLATIONS)
+update_with_lowercased(PRIMARY_REGION_TRANSLATIONS, UK_COUNTY_TRANSLATIONS)
+
+update_with_lowercased(PRIMARY_REGION_TRANSLATIONS, PERU_REGION_TRANSLATIONS)
+apply_suffix_templates(
+    PRIMARY_REGION_TRANSLATIONS,
     PERU_REGION_TRANSLATIONS,
-    UK_COUNTY_TRANSLATIONS,
-    SRI_LANKA_DISTRICT_TRANSLATIONS,
-    ALGERIA_PROVINCE_TRANSLATIONS,
-    VENEZUELA_STATE_TRANSLATIONS,
-    ECUADOR_PROVINCE_TRANSLATIONS,
-    LEGACY_UK_COUNTY_TRANSLATIONS,
+    (
+        (" region", "إقليم %s"),
+        (" province", "مقاطعة %s"),
+        (" district", "مديرية %s"),
+    ),
 )
 
+update_with_lowercased(PRIMARY_REGION_TRANSLATIONS, SRI_LANKA_DISTRICT_TRANSLATIONS)
+apply_suffix_templates(
+    PRIMARY_REGION_TRANSLATIONS,
+    SRI_LANKA_DISTRICT_TRANSLATIONS,
+    ((" district", "مديرية %s"),),
+)
+
+update_with_lowercased(PRIMARY_REGION_TRANSLATIONS, ALGERIA_PROVINCE_TRANSLATIONS)
+apply_suffix_templates(
+    PRIMARY_REGION_TRANSLATIONS,
+    ALGERIA_PROVINCE_TRANSLATIONS,
+    ((" province", "ولاية %s"),),
+)
+
+update_with_lowercased(PRIMARY_REGION_TRANSLATIONS, VENEZUELA_STATE_TRANSLATIONS)
+apply_suffix_templates(
+    PRIMARY_REGION_TRANSLATIONS,
+    VENEZUELA_STATE_TRANSLATIONS,
+    ((" (state)", "ولاية %s"),),
+)
+
+update_with_lowercased(PRIMARY_REGION_TRANSLATIONS, ECUADOR_PROVINCE_TRANSLATIONS)
+apply_suffix_templates(
+    PRIMARY_REGION_TRANSLATIONS,
+    ECUADOR_PROVINCE_TRANSLATIONS,
+    ((" province", "مقاطعة %s"),),
+)
+
+log_mapping_stats("regions", primary_regions=PRIMARY_REGION_TRANSLATIONS)
+
+
+def get_primary_region_translations() -> dict[str, str]:
+    """Return a copy of the primary region translation table."""
+
+    return dict(PRIMARY_REGION_TRANSLATIONS)
+
+
 Main_Table = PRIMARY_REGION_TRANSLATIONS
+
+__all__ = [
+    "PRIMARY_REGION_TRANSLATIONS",
+    "PERU_REGION_TRANSLATIONS",
+    "UK_COUNTY_TRANSLATIONS",
+    "SRI_LANKA_DISTRICT_TRANSLATIONS",
+    "ALGERIA_PROVINCE_TRANSLATIONS",
+    "VENEZUELA_STATE_TRANSLATIONS",
+    "ECUADOR_PROVINCE_TRANSLATIONS",
+    "LEGACY_UK_COUNTY_TRANSLATIONS",
+    "get_primary_region_translations",
+    "Main_Table",
+]

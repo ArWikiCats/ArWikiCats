@@ -20,15 +20,14 @@ $1
 """
 
 import re
-import sys
 
 # ---
 from ...ma_lists import (
     Multi_sport_for_Jobs,
     All_Nat,
     Nat_mens,
-    Jobs_key_mens,
-    Jobs_key_womens,
+    jobs_mens_data,
+    short_womens_jobs,
 )
 
 from ..media_bots.film_keys_bot import Films
@@ -36,7 +35,7 @@ from ..jobs_bots.get_helps import get_con_3
 
 # ---
 from ..o_bots import ethnic_bot
-from ...helps.print_bot import output_test4, print_put
+from ...helps.print_bot import output_test4
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 from .test4_bots.for_me import Work_for_me
@@ -50,9 +49,6 @@ TEST4_2018_WITH_NAT_CACHE = {}
 
 def nat_match(
     category: str,
-    out: bool=False,
-    reference_category: str="",
-    tab: dict[str, str] | None=None,
 ) -> str:
     """Match a category string to a localized sentiment label.
 
@@ -66,16 +62,12 @@ def nat_match(
         category (str): The category string to be matched.
         out (bool?): A flag to control output behavior. Defaults to False.
         reference_category (str?): An additional parameter for future use. Defaults to an empty string.
-        tab (dict?): A dictionary for additional context. Defaults to None.
 
     Returns:
         str: The localized sentiment label corresponding to the input category,
             or an empty string if no match is found.
     """
 
-    # ---
-    if not tab:
-        tab = {}
     # ---
     category_lower = category.lower().replace("category:", "")
     matched_country_key = ""
@@ -125,13 +117,8 @@ def nat_match(
 
 def test4_2018_with_nat(
     category: str,
-    out: bool=False,
     reference_category: str="",
-    tab: dict[str, str] | None=None,
 ) -> str:
-    # ---
-    if not tab:
-        tab = {}
     # ---
     if category in TEST4_2018_WITH_NAT_CACHE:
         return TEST4_2018_WITH_NAT_CACHE[category]
@@ -152,10 +139,10 @@ def test4_2018_with_nat(
         return TEST4_2018_WITH_NAT_CACHE[normalized_category]
     # ---
     if not country_label:
-        country_label = Jobs_key_womens.get(normalized_category, "")
+        country_label = short_womens_jobs.get(normalized_category, "")
     # ---
     if not country_label:
-        country_label = Jobs_key_mens.get(normalized_category, "")
+        country_label = jobs_mens_data.get(normalized_category, "")
     # ---
     con_3, nat = get_con_3(normalized_category, All_Nat, "nat")
     # ---
@@ -170,10 +157,10 @@ def test4_2018_with_nat(
             )
         # ---
         if not country_label:
-            country_label = ethnic_bot.Ethnic(normalized_category, nat, con_3)
+            country_label = ethnic_bot.ethnic(normalized_category, nat, con_3)
         # ---
         if not country_label:
-            country_label = nat_match(normalized_category, nat, con_3)
+            country_label = nat_match(normalized_category)
     # ---
     if not country_label:
         country_label = priffix_Mens_work(normalized_category)
@@ -188,8 +175,8 @@ def test4_2018_with_nat(
     # ---
     if country_label:
         if con_3:
-            contry2 = ""
-            output_test4(f'<<lightblue>> test4_2018_with_nat startswith({contry2}),con_3:"{con_3}"')
+            country2 = ""
+            output_test4(f'<<lightblue>> test4_2018_with_nat startswith({country2}),con_3:"{con_3}"')
         output_test4(f'<<lightblue>> test_4: test4_2018_with_nat :: "{country_label}" ')
     # ---
     # Try with Jobs
@@ -201,8 +188,6 @@ def test4_2018_with_nat(
 
 def Jobs_in_Multi_Sports(
     category: str,
-    out: bool=False,
-    tab: dict[str, str] | None=None,
 ) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
@@ -216,16 +201,12 @@ def Jobs_in_Multi_Sports(
     Args:
         category (str): The category string representing the sport or job type.
         out (bool?): A flag to control output behavior. Defaults to False.
-        tab (dict?): A dictionary for additional parameters. Defaults to None.
 
     Returns:
         str: A formatted string representing the job information related to the
             specified category.
     """
 
-    # ---
-    if not tab:
-        tab = {}
     # ---
     if category in JOBS_IN_MULTI_SPORTS_CACHE:
         return JOBS_IN_MULTI_SPORTS_CACHE[category]
@@ -260,7 +241,7 @@ def Jobs_in_Multi_Sports(
     # ---
     if not job_label and job_key:
         job_label = test4_2018_Jobs(job_key)
-        # job_lab = Jobs_key_womens.get(job , "")
+        # job_lab = short_womens_jobs.get(job , "")
     # ---
     if job_key and game_label and job_label:
         primary_label = f"{job_label} في {game_label}"

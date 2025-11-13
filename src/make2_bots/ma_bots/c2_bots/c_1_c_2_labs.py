@@ -7,24 +7,19 @@ from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 
 import re
 from typing import Callable, List
-from ...o_bots import fax
-from ...media_bots.films_bot import test_films
-from .. import contry2_lab
-
-from .. import contry_bot
-from ...sports_bots import team_work
-from ...o_bots import bys
-from ...p17_bots import nats
-from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
-
-from ...matables_bots.centries_bot import centries_years_dec
-
-from ...matables_bots.bot_2018 import pop_All_2018
-from ...matables_bots.table1_bot import get_KAKO
 
 from ....helps.print_bot import print_put, output_test
-
 from ...date_bots import with_years_bot
+from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
+from ...matables_bots.centries_bot import centries_years_dec
+from ...matables_bots.table1_bot import get_KAKO
+from ...media_bots.films_bot import test_films
+from ...o_bots import bys, parties_bot
+from ...sports_bots import sport_lab_suffixes
+from ...p17_bots import nats
+from ...sports_bots import team_work
+from .. import country2_lab, country_bot
 
 
 def check_sources(cone_1: str) -> str:
@@ -33,7 +28,8 @@ def check_sources(cone_1: str) -> str:
     sources: List[Callable[[str], str]] = [
         test_films,
         nats.find_nat_others,
-        fax.Get_Teams_new,
+        sport_lab_suffixes.get_teams_new,
+        parties_bot.get_parties_lab,
     ]
     for source in sources:
         result = source(cone_1)
@@ -48,14 +44,18 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     con_1_no_lower = cone_1.strip()
     cone_1 = cone_1.strip().lower()
 
-    c_1_l = pop_All_2018.get(cone_1, "")
+    c_1_l = get_pop_All_18(cone_1, "")
 
     if not c_1_l:
         c_1_l = test_films(cone_1)
     if not c_1_l:
         c_1_l = nats.find_nat_others(cone_1)
     if not c_1_l:
-        c_1_l = fax.Get_Teams_new(cone_1)
+        c_1_l = sport_lab_suffixes.get_teams_new(cone_1)
+
+    if not c_1_l:
+        c_1_l = parties_bot.get_parties_lab(cone_1)
+
     if not c_1_l:
         c_1_l = team_work.Get_team_work_Club(con_1_no_lower)
 
@@ -83,7 +83,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
             if cone_1.startswith(pri_ss):
                 U_c = cone_1[len(pri_ss) :]
                 print_put(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", tat_o:"{tat_o}" ')
-                U_lab = contry2_lab.get_lab_for_contry2(U_c)
+                U_lab = country2_lab.get_lab_for_country2(U_c)
 
                 if U_lab == "" and With_Years:
                     U_lab = with_years_bot.Try_With_Years(U_c)
@@ -97,7 +97,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
         c_1_l = pop_format[cone_1]
 
     if not c_1_l:
-        c_1_l = contry_bot.Get_c_t_lab(cone_1, "", Type="Type_lab")
+        c_1_l = country_bot.Get_c_t_lab(cone_1, "", Type="Type_lab")
     if not c_1_l:
         c_1_l = get_KAKO(cone_1)
 
@@ -112,18 +112,22 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     con_2_no_lower = cone_2.strip()
     cone_2 = cone_2.strip().lower()
 
-    c_2_l = pop_All_2018.get(cone_2, "")
-    if c_2_l == "" and cone_2.find(" by ") != -1:
-        c_2_l = bys.Get_by_label(cone_2)
+    c_2_l = get_pop_All_18(cone_2, "")
+    if c_2_l == "" and " by " in cone_2:
+        c_2_l = bys.get_by_label(cone_2)
 
     if not c_2_l:
         c_2_l = test_films(cone_2)
     if not c_2_l:
         c_2_l = nats.find_nat_others(cone_2)
     if not c_2_l:
-        c_2_l = fax.Get_Teams_new(cone_2)
-    if c_2_l == "" and cone_2.find(" and ") != -1:
-        c_2_l = bys.Get_and_label(cone_2)
+        c_2_l = sport_lab_suffixes.get_teams_new(cone_2)
+
+    if not c_2_l:
+        c_2_l = parties_bot.get_parties_lab(cone_2)
+
+    if c_2_l == "" and " and " in cone_2:
+        c_2_l = bys.get_and_label(cone_2)
     if not c_2_l:
         c_2_l = team_work.Get_team_work_Club(con_2_no_lower)
 
@@ -145,6 +149,6 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     if c_2_l == "" and With_Years:
         c_2_l = with_years_bot.Try_With_Years(cone_2)
     if not c_2_l:
-        c_2_l = contry_bot.Get_c_t_lab(cone_2, "")
+        c_2_l = country_bot.Get_c_t_lab(cone_2, "")
 
     return c_2_l

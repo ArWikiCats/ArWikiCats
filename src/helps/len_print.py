@@ -1,86 +1,74 @@
 #!/usr/bin/python3
 """
-
-Usage:
-from .helps import len_print
-# ---
-# len_print.lenth_pri_text = False
-# ---
-Lentha = {
-    "New_P17_Finall": sys.getsizeof(New_P17_Finall),
-    "opop": sys.getsizeof(opop),
-    "the_keys": the_keys,
-}
-# ---
-len_print.lenth_pri("Labels_Contry.py", Lentha)
-
+!
 """
-
-import importlib.util
 import sys
-from typing import Iterable, Mapping
+import json
+from typing import Any, List, Union, Mapping
+from humanize import naturalsize
+from pathlib import Path
 
-from .. import printe
-
-if importlib.util.find_spec("humanize") is not None:
-    from humanize import naturalsize  # type: ignore
-else:
-
-    def naturalsize(value: int | float | str, binary: bool=True) -> str:
-        """Minimal replacement for :func:`humanize.naturalsize`."""
-
-        try:
-            size = float(value)
-        except (TypeError, ValueError):
-            return str(value)
-
-        base = 1024.0 if binary else 1000.0
-        suffixes = [
-            "B",
-            "KiB" if binary else "KB",
-            "MiB" if binary else "MB",
-            "GiB" if binary else "GB",
-            "TiB" if binary else "TB",
-            "PiB" if binary else "PB",
-        ]
-
-        index = 0
-        while size >= base and index < len(suffixes) - 1:
-            size /= base
-            index += 1
-
-        if index == 0:
-            return f"{int(size)} {suffixes[index]}"
-        return f"{size:.1f} {suffixes[index]}"
-
-lenth_pri_text = True
+all_len = {}
 
 
-def lenth_pri(
+def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> str:
+    if key in lens:
+        return value
+    return naturalsize(value, binary=True)
+
+
+def save_data(bot, tab):
+    bot_path = Path("D:/categories_bot/len_data") / bot
+    bot_path.mkdir(parents=True, exist_ok=True)
+
+    for name, data in tab.items():
+        if not data:
+            continue
+        if isinstance(data, dict) or isinstance(data, list):
+            # sort data by key
+            # ---
+            if isinstance(data, dict):
+                data = dict(sorted(data.items(), key=lambda item: item[0].lower()))
+            elif isinstance(data, list):
+                data = sorted(set(data))
+            # ---
+            with open(bot_path / f"{name}.json", "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
+
+
+def data_len(
     bot: str,
     tab: Mapping[str, int | float],
-    Max: int=10000,
-    lens: Iterable[str] | None=None,
 ) -> None:
-    if lens is None:
-        lens = []
-    if not lenth_pri_text:
-        return
-    if "printhead" in sys.argv or "lenth_pri_text" in sys.argv:
+    data = {
+        x: {
+            "count": len(v) if not isinstance(v, int) else v,
+            "size": format_size(x, sys.getsizeof(v), {})
+        }
+        for x, v in tab.items()
+    }
+
+    save_data(bot, tab)
+
+    if not data:
         return
 
-    def format_size(key: str, value: int | float) -> str:
-        if key in lens:
-            return value
-        return naturalsize(value, binary=True)
+    all_len.setdefault(bot, {})
+    all_len[bot].update(data)
 
-    formatted_entries = ", ".join(
-        [
-            # f"<<lightpurple>>{x}<<default>>: {tab[x]}"
-            f"<<lightpurple>>{x}<<default>>: {format_size(x, tab[x])}"
-            for x in tab
-            if tab[x] > Max
-        ]
-    )
-    if formatted_entries:
-        printe.output(f"{bot}:".ljust(20) + formatted_entries)
+
+def dump_all_len(file):
+    # sort all_len by keys ignore case
+    all_len_save = {
+        "by_count": {},
+        "all": dict(sorted(all_len.items(), key=lambda item: item[0].lower())),
+    }
+    for _, v in all_len.items():
+        for var, tab in v.items():
+            all_len_save["by_count"].setdefault(var, tab["count"])
+
+    sorted_items = sorted(all_len_save["by_count"].items(), key=lambda item: item[1], reverse=True)
+    all_len_save["by_count"] = {k: f"{v:,}" for k, v in sorted_items}
+
+    with open(file, "w", encoding="utf-8") as f:
+        json.dump(all_len_save, f, ensure_ascii=False, indent=4)

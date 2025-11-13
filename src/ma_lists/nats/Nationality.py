@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from .Nationality import nats_to_add, NATdd, CON_NAT, The_Nat_women, All_Nat, All_Nat_o, Nat_men, Nat_mens, Nat_women, Nat_Womens, contries_from_nat, All_contry_with_nat, All_contry_ar, All_contry_with_nat_ar, All_contry_with_nat_keys_is_en, ar_Nat_men, wsss_Womens, A_Nat, en_nats_to_ar_label
+from .Nationality import nats_to_add, NATdd, CON_NAT, The_Nat_women, All_Nat, All_Nat_o, Nat_men, Nat_mens, Nat_women, Nat_Womens, contries_from_nat, all_country_with_nat, all_country_ar, all_country_with_nat_ar, all_country_with_nat_keys_is_en, ar_Nat_men, wsss_Womens, A_Nat, en_nats_to_ar_label
 
 # العرقيات
 SELECT DISTINCT
@@ -159,12 +159,12 @@ Nat_mens = {}
 Nat_women = {}
 Nat_Womens = {}
 contries_from_nat = {}
-All_contry_with_nat = {}
-All_contry_ar = {}  # عربي وانجليزي اسم البلد
-All_contry_with_nat_ar = {}
+all_country_with_nat = {}
+all_country_ar = {}  # عربي وانجليزي اسم البلد
+all_country_with_nat_ar = {}
 # ---
-All_contry_with_nat_keys_is_en = {}
-All_contry_with_nat_keys_is_en["islamic republic of iran"] = All_Nat_o["iranian"]
+all_country_with_nat_keys_is_en = {}
+all_country_with_nat_keys_is_en["islamic republic of iran"] = All_Nat_o["iranian"]
 # ---
 All_Nat_o["georgia (country)"] = All_Nat_o["georgian"]
 All_Nat_o["georgia (country)"]["en"] = "georgia (country)"
@@ -237,17 +237,17 @@ for papa, papa_tab in All_Nat.items():
         Nat_Womens[papa2] = papa_tab["womens"]
     # ---
     if papa_tab["ar"] and papa_tab["en"]:
-        All_contry_ar[en_ll2] = papa_tab["ar"]
+        all_country_ar[en_ll2] = papa_tab["ar"]
     # ---
     if papa_tab["ar"]:
-        All_contry_with_nat_ar[papa2] = papa_tab
+        all_country_with_nat_ar[papa2] = papa_tab
         en_nats_to_ar_label[papa2] = papa_tab["ar"]
     # ---
     if papa_tab["en"]:
-        All_contry_with_nat[papa] = papa_tab
-        # All_contry_with_nat_keys_is_en[en_ll] = papa_tab
+        all_country_with_nat[papa] = papa_tab
+        # all_country_with_nat_keys_is_en[en_ll] = papa_tab
         # print("ssssssssssssssssssssssss : " + en_ll2)
-        All_contry_with_nat_keys_is_en[en_ll2.lower()] = papa_tab
+        all_country_with_nat_keys_is_en[en_ll2.lower()] = papa_tab
     # ---
     # contries_from_nat["yemen"] = "اليمن"
     if papa_tab["en"] and papa_tab["ar"]:
@@ -292,14 +292,14 @@ for pa1 in All_Nat.keys():
                 A_Nat[f"{pa1} {pa2}" ] = "{} {}".format(All_Nat2[pa2]["mens"] , All_Nat2[pa1]["mens"]) """
 # ---
 Lenth = {
-    "All_Nat": sys.getsizeof(All_Nat),
-    "All_Nat with ar name": sys.getsizeof(All_contry_with_nat_ar),
-    "All_Nat with en name": sys.getsizeof(All_contry_with_nat),
+    "All_Nat": All_Nat,
+    "All_Nat with ar name": all_country_with_nat_ar,
+    "All_Nat with en name": all_country_with_nat,
     "American_nat": American_nat,
     "men_women": men_women,
 }
 # ---
-len_print.lenth_pri("nationality.py", Lenth)
+len_print.data_len("nationality.py", Lenth)
 # ---
 del uu_nats
 del Sub_Nat

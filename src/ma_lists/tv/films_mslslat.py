@@ -290,7 +290,7 @@ for x, da in Films_key_both.items():
     # ---
     if da["male"]:
         Films_key_man[x] = da["male"]
-        if not x.find("animated"):
+        if "animated" not in x:
             Films_key_man[f"animated {x}"] = f"{da['male']} رسوم متحركة"
         # Films_key_For_Jobs[x] = da["male"]
     # ---
@@ -475,7 +475,7 @@ for ke in Films_key_both:
 # for CO in Films_key_CAO:
 # type_Table_no[CO] =Films_key_CAO[CO]
 # ---
-# from .all_keys2 import Books_table
+# from .all_keys2 import BOOK_CATEGORIES
 # ---
 # Films_key_CAO["films"] = "أفلام"
 # Films_key_CAO["video games"] = "ألعاب فيديو"
@@ -534,16 +534,16 @@ for en, tab in Films_keys_male_female.items():
         # if new_key == "historical romance": print("(historical romance)\n" * 10)
         # ---
         Films_keys_both_new[new_key] = {"male": new_lab_male, "female": new_lab_female}
-# ---
-Lenth_oo = {
+
+
+len_print.data_len("films_mslslat.py", {
+    "Films_key_For_nat": Films_key_For_nat,
+    "films_mslslat_tab": films_mslslat_tab,
     "third_Films_key_CAO": third_Films_key_CAO,
     "ss_Films_key_CAO": ss_Films_key_CAO,
     "vfvfv": vfvfv,
-    "Films_key_333": sys.getsizeof(Films_key_333),
-    "Films_TT": sys.getsizeof(Films_TT),
-    "Films_key_CAO": sys.getsizeof(Films_key_CAO),
-    "Films_keys_both_new": sys.getsizeof(Films_keys_both_new),
-}
-# ---
-
-len_print.lenth_pri("films_mslslat.py", Lenth_oo)
+    "Films_key_333": Films_key_333,
+    "Films_TT": Films_TT,
+    "Films_key_CAO": Films_key_CAO,
+    "Films_keys_both_new": Films_keys_both_new,
+})

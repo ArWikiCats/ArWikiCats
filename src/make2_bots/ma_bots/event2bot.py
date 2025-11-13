@@ -8,23 +8,19 @@ from ..ma_bots import event2bot
 
 
 import re
-import sys
 
-from ... import printe
+from ... import printe, app_settings
 from ...fix import fixtitle
+from ...helps.print_bot import print_put
 from ..bots import tmp_bot
 from ..date_bots import with_years_bot
-from .lab_seoo_bot import event_Lab_seoo
-from ..o_bots import univer  # univer.test_Universities(cate)
-
-from ...helps.print_bot import print_put
-from .contry_bot import Get_contry
+from ..o_bots import univer  # univer.test_universities(cate)
+from .country_bot import get_country
 from .dodo_bots.event2bot_dodo import make_lab_dodo
+from .lab_seoo_bot import event_Lab_seoo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 event2_cash = {}
-
-Find_stubs = {1: "-stubs" in sys.argv}
 
 
 def event2_d2(cat3: str, category3_not_lower: str) -> str:
@@ -46,16 +42,19 @@ def event2_d2(cat3: str, category3_not_lower: str) -> str:
         could be determined.
     """
 
-    category_lab = ""
+    # TODO: THIS NEED REVIEW
+    # Reject strings that contain common English prepositions
+    blocked = ("in", "of", "from", "by", "at")
+    if any(f" {word} " in cat3.lower() for word in blocked):
+        return ""
 
-    if cat3.find(" in ") == -1 and cat3.find(" of ") == -1 and cat3.find(" from ") == -1:
-        if cat3.find(" by ") == -1 and cat3.find(" at ") == -1:
-            if re.sub(r"^\d", "", cat3) == cat3:
-                category_lab = Get_contry(category3_not_lower)
-            else:
-                category_lab = with_years_bot.Try_With_Years(cat3)
-                if category_lab:
-                    category_lab = f"تصنيف:{category_lab}"
+    category_lab = ""
+    if re.sub(r"^\d", "", cat3) == cat3:
+        category_lab = get_country(category3_not_lower)
+    else:
+        category_lab = with_years_bot.Try_With_Years(cat3)
+        if category_lab:
+            category_lab = f"تصنيف:{category_lab}"
 
     return category_lab
 
@@ -92,7 +91,7 @@ def event2(category_r: str) -> str:
     # tit = {}
 
     ar_label = ""
-    ar_label = univer.test_Universities(category_r)
+    ar_label = univer.test_universities(category_r)
     # ---
     if not ar_label:
         category = category_r
@@ -165,7 +164,7 @@ def dodo(category_r: str) -> str:
     if not category.lower().startswith("category:"):
         category = f"Category:{category}"
 
-    if category.endswith(" stubs") and Find_stubs[1]:
+    if category.endswith(" stubs") and app_settings.find_stubs:
         list_of_cat = "بذرة {}"
         category = category.replace(" stubs", "", 1)
 

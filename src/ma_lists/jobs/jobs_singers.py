@@ -1,39 +1,127 @@
 #!/usr/bin/python3
 """
-# نوع موسيقي
-SELECT DISTINCT #?en ?ar
-(CONCAT('"' , ?en , '":') as ?aaa8ujua)
-(CONCAT('"' , ?ar , '",') as ?aaaa)
-
-WHERE {
-  ?item wdt:P31 wd:Q188451.
-   ?item rdfs:label ?ar filter (lang(?ar) = "ar") .
-   ?item rdfs:label ?en filter (lang(?en) = "en") .
-    }
-#LIMIT 100
-
-# ---
-from .jobs_singers import singers_tab
-from .jobs_singers import Men_Womens_Singers, films_type
+Utilities for assembling singer-related gendered job labels.
 """
-from ..utils.json_dir import open_json_file
 
-# ---
-Men_Womens_Singers = {}
-# ---
-Men_Womens_Singers = open_json_file("jobs_Men_Womens_Singers") or {}
-# ---
-singers_tab = {}
-# "electronic dance":"الرقص الإلكترونية",
-# "contemporary r&b":"آر إن بي",
-# "electronic":"إلكترونيون",
-# "salsa music":"موسيقى صلصة","a cappella":"أكابيلا",
-# "march":"مارش",
-# "performing":"الشعبي",
-# ---
-singers_tab = open_json_file("singers_tab") or {}
-# ---
-films_type = {
+from __future__ import annotations
+import sys
+from typing import Dict, Mapping
+
+from ...helps import len_print
+from ..utils.json_dir import open_json
+from .jobs_defs import (
+    GenderedLabel,
+    GenderedLabelMap,
+)
+
+# ---------------------------------------------------------------------------
+# Helper functions
+
+
+def _build_category_role_labels(
+    categories: Mapping[str, str],
+    roles: Mapping[str, GenderedLabel],
+) -> GenderedLabelMap:
+    """Combine singer categories with job role templates.
+
+    Args:
+        categories: Mapping of English category identifiers to Arabic
+            descriptors (e.g. ``"song" -> "أغاني"``).
+        roles: Mapping of role names to gendered Arabic labels.
+
+    Returns:
+        A dictionary containing entries like ``"song singers"`` with fully
+        assembled masculine and feminine Arabic labels.
+    """
+
+    combined: GenderedLabelMap = {}
+
+    for category_key, category_label in categories.items():
+        for role_key, role_labels in roles.items():
+            composite_key = f"{category_key} {role_key}"
+            combined[composite_key] = {
+                "mens": f"{role_labels['mens']} {category_label}",
+                "womens": f"{role_labels['womens']} {category_label}"
+            }
+        # ---
+        # combined[ f"{category_key} singers" ] = { "mens": f"مغنو {category_label}" ,"womens": f"مغنيات {category_label}" }
+        # combined[ f"{category_key} writers" ] = { "mens": f"كتاب {category_label}" ,"womens": f"كاتبات {category_label}" }
+        # combined[ f"{category_key} authors" ] = { "mens": f"مؤلفو {category_label}" ,"womens": f"مؤلفات {category_label}" }
+        # combined[ f"{category_key} journalists" ] = { "mens": f"صحفيو {category_label}" ,"womens": f"صحفيات {category_label}" }
+        # combined[ f"{category_key} bandleaders" ] = { "mens": f"قادة فرق {category_label}" ,"womens": f"قائدات فرق {category_label}" }
+        # combined[ f"{category_key} cheerleaders" ] = { "mens": f"قادة تشجيع {category_label}" ,"womens": f"قائدات تشجيع {category_label}" }
+
+    return combined
+
+
+def _build_non_fiction_variants(
+    topics: Mapping[str, GenderedLabel],
+) -> GenderedLabelMap:
+    """Create job labels for non-fiction authors and historians.
+
+    Args:
+        topics: Mapping whose values describe the subject area.
+
+    Returns:
+        Gendered role labels covering historians, authors, bloggers, writers,
+        journalists, and specialised "non-fiction" writers for every topic.
+    """
+
+    variants: GenderedLabelMap = {}
+
+    roles = {
+        "historian": {"mens": "مؤرخو", "womens": "مؤرخات"},
+        "authors": {"mens": "مؤلفو", "womens": "مؤلفات"},
+        "bloggers": {"mens": "مدونو", "womens": "مدونات"},
+        "writers": {"mens": "كتاب", "womens": "كاتبات"},
+        "journalists": {"mens": "صحفيو", "womens": "صحفيات"},
+    }
+
+    for topic_key, topic_labels in topics.items():
+        mens_topic = topic_labels["mens"]
+        womens_topic = topic_labels["womens"]
+
+        for role_key, role_labels in roles.items():
+            variants[f"{topic_key} {role_key}"] = {
+                "mens": f"{role_labels['mens']} {mens_topic}",
+                "womens": f"{role_labels['womens']} {womens_topic}",
+            }
+
+        variants[f"non-fiction {topic_key} writers"] = {
+            "mens": f"كتاب {mens_topic} غير روائيون",
+            "womens": f"كاتبات {womens_topic} غير روائيات",
+        }
+    return variants
+
+
+def _build_actor_labels(film_types: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
+    """Create actor job labels for every film medium.
+
+    Args:
+        film_types: Mapping of medium names to their Arabic descriptors.
+
+    Returns:
+        A mapping with keys like ``"film actors"``.  The feminine forms remain
+        empty to preserve the behaviour from the legacy dataset, which relied on
+        downstream fallbacks when feminine labels were missing.
+    """
+
+    actors: GenderedLabelMap = {}
+
+    for film_key, film_labels in film_types.items():
+        actors[f"{film_key} actors"] = {
+            "mens": f"ممثلو {film_labels['mens']}",
+            "womens": ""
+        }
+
+    return actors
+
+
+# ---------------------------------------------------------------------------
+# Static configuration
+
+
+FILMS_TYPE: Mapping[str, GenderedLabel] = {
     "film": {"mens": "أفلام", "womens": "أفلام"},
     "silent film": {"mens": "أفلام صامتة", "womens": "أفلام صامتة"},
     "pornographic film": {"mens": "أفلام إباحية", "womens": "أفلام إباحية"},
@@ -43,12 +131,11 @@ films_type = {
     "radio": {"mens": "راديو", "womens": "راديو"},
     "voice": {"mens": "أداء صوتي", "womens": "أداء صوتي"},
     "video game": {"mens": "ألعاب فيديو", "womens": "ألعاب فيديو"},
-    # "voice":       {"mens":"أداء صوتي", "womens":"أداء صوتي"},
 }
-# ---
-# ,"classical violinists":  {"mens":"عازفو كمان كلاسيكيون", "womens":"عازفات كمان كلاسيكيات"}
-# ---
-singers_main_tab = {
+"""Media categories used when constructing actor related job labels."""
+
+
+SINGERS_MAIN_CATEGORIES: Dict[str, str] = {
     "song": "أغاني",
     "albums": "ألبومات",
     "comedy": "كوميديا",
@@ -62,9 +149,6 @@ singers_main_tab = {
     "classical": "كلاسيكية",
     "electronic": "إلكترونية",
     "electronica": "إلكترونيكا",
-}
-# ---
-singers3_tab = {
     "abidat rma": "عبيدات الرما",
     "algerian chaabi": "الشعبي",
     "algerian hip hop": "هيب هوب جزائري",
@@ -76,7 +160,6 @@ singers3_tab = {
     "country music": "كانتري",
     "electro": "موسيقى كهربائية",
     "electroacoustic music": "إليكتروكوستيك",
-    "electronica": "إلكترونيكا",
     "french hip hop": "هيب هوب فرنسي",
     "gharnati music": "طرب غرناطي",
     "glitch": "موسيقى الخلل",
@@ -99,12 +182,11 @@ singers3_tab = {
     "technical death metal": "ديث ميتال الفني",
     "trap music": "تراب",
 }
-# ---
-for sx, sx_l in singers_tab.items():
-    singers_main_tab[sx] = sx_l
-# ---
-# # "educators" : {"mens":"مربون", "womens":"مربيات"},
-singers_after = {
+
+"""Seed mapping of singer categories to their Arabic descriptions."""
+
+
+SINGERS_AFTER_ROLES: Mapping[str, GenderedLabel] = {
     "record producers": {"mens": "منتجو تسجيلات", "womens": "منتجات تسجيلات"},
     "musicians": {"mens": "موسيقيو", "womens": "موسيقيات"},
     "singers": {"mens": "مغنو", "womens": "مغنيات"},
@@ -130,44 +212,22 @@ singers_after = {
     "bandleaders": {"mens": "قادة فرق", "womens": "قائدات فرق"},
     "cheerleaders": {"mens": "قادة تشجيع", "womens": "قائدات تشجيع"},
 }
-# ---
-for sx, llab in singers_main_tab.items():
-    kjab = f"{sx} %s"
-    for sim, sim_t in singers_after.items():
-        lale = kjab % sim
-        Men_Womens_Singers[lale] = {}
-        vfvfv = f"{sim_t['mens']} {llab}"
-        Men_Womens_Singers[lale]["mens"] = vfvfv
-        # print('lale : "%s"' % lale)
-        # print('vfvfv : "%s"' % vfvfv)
-        Men_Womens_Singers[lale]["womens"] = f"{sim_t['womens']} {llab}"
-        # MenWomensJobsPP[lale] = Men_Womens_Singers[lale]
-    # ---
-    # Men_Womens_Singers[ f"{sx} singers" ] = { "mens": "مغنو %s"  % llab ,"womens": f"مغنيات {llab}" }
-    # Men_Womens_Singers[ f"{sx} writers" ] = { "mens": "كتاب %s"  % llab ,"womens": f"كاتبات {llab}" }
-    # Men_Womens_Singers[ f"{sx} authors" ] = { "mens": "مؤلفو %s"  % llab ,"womens": f"مؤلفات {llab}" }
-    # Men_Womens_Singers[ f"{sx} journalists" ] = { "mens": "صحفيو %s"  % llab ,"womens": f"صحفيات {llab}" }
-    # Men_Womens_Singers[ f"{sx} bandleaders" ] = { "mens": "قادة فرق %s"  % llab ,"womens": f"قائدات فرق {llab}" }
-    # Men_Womens_Singers[ f"{sx} cheerleaders" ] = { "mens": "قادة تشجيع %s"  % llab ,"womens": f"قائدات تشجيع {llab}" }
-# ---
-# non_fiction_tab = {
-# "garden":  {"mens": " , "womens": "},
-# "health and wellness":  {"mens": " , "womens": "},
-# "self-help":  {"mens": " , "womens": "},
 
-non_fiction_tab = {
+"""Roles that can be combined with the singer categories above."""
+
+NON_FICTION_BASE_TOPICS: Mapping[str, GenderedLabel] = {
     "non-fiction": {"mens": "غير روائيون", "womens": "غير روائيات"},
-    "non-fiction environmental": {
-        "mens": "بيئة غير روائيون",
-        "womens": "بيئة غير روائيات",
-    },
+    "non-fiction environmental": {"mens": "بيئة غير روائيون", "womens": "بيئة غير روائيات", },
     "detective": {"mens": "بوليسيون", "womens": "بوليسيات"},
     "military": {"mens": "عسكريون", "womens": "عسكريات"},
     "nautical": {"mens": "بحريون", "womens": "بحريات"},
     "maritime": {"mens": "بحريون", "womens": "بحريات"},
 }
-# ---
-non_fiction_keys = {
+
+"""Seed topics that receive dedicated non-fiction role variants."""
+
+
+NON_FICTION_ADDITIONAL_TOPICS: Mapping[str, str] = {
     "environmental": "بيئة",
     "economics": "إقتصاد",
     "hymn": "ترانيم",
@@ -191,38 +251,54 @@ non_fiction_keys = {
     "technology": "تقنية",
     "comedy": "كوميدي",
 }
-# ---
-for en, ar in non_fiction_keys.items():
-    non_fiction_tab[en] = {"mens": ar, "womens": ar}
-# ---
-for sx, labs in non_fiction_tab.items():
-    Men = labs["mens"]
-    Women = labs["womens"]
-    # ---
-    Men_Womens_Singers[f"{sx} historian"] = {
-        "mens": f"مؤرخو {Men}",
-        "womens": f"مؤرخات {Women}",
-    }
-    Men_Womens_Singers[f"{sx} authors"] = {
-        "mens": f"مؤلفو {Men}",
-        "womens": f"مؤلفات {Women}",
-    }
-    Men_Womens_Singers[f"{sx} bloggers"] = {
-        "mens": f"مدونو {Men}",
-        "womens": f"مدونات {Women}",
-    }
-    Men_Womens_Singers[f"{sx} writers"] = {
-        "mens": f"كتاب {Men}",
-        "womens": f"كاتبات {Women}",
-    }
-    Men_Womens_Singers["non-fiction %s writers" % sx] = {
-        "mens": "كتاب %s غير روائيون" % Men,
-        "womens": "كاتبات %s غير روائيات" % Women,
-    }
-    Men_Womens_Singers[f"{sx} journalists"] = {
-        "mens": f"صحفيو {Men}",
-        "womens": f"صحفيات {Women}",
-    }
-# ---
-for fop, fop_a in films_type.items():
-    Men_Womens_Singers[f"{fop} actors"] = {"mens": "ممثلو " + fop_a["mens"], "womens": ""}
+
+"""Topics duplicated for both masculine and feminine forms when generating variants."""
+
+
+# ---------------------------------------------------------------------------
+# Aggregate data assembly
+
+SINGERS_TAB: Dict[str, str] = open_json("jobs/singers_tab.json") or {}
+
+SINGER_CATEGORY_LABELS: Dict[str, str] = dict(SINGERS_MAIN_CATEGORIES)
+SINGER_CATEGORY_LABELS.update(SINGERS_TAB)
+"""Complete mapping of singer categories combining static and JSON sources."""
+
+NON_FICTION_TOPICS: Dict[str, GenderedLabel] = dict(NON_FICTION_BASE_TOPICS)
+
+for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
+    NON_FICTION_TOPICS[topic_key] = {"mens": topic_label, "womens": topic_label}
+
+"""Expanded non-fiction topics covering both static and dynamically generated entries."""
+
+MEN_WOMENS_SINGERS: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Singers.json") or {}
+
+MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
+
+MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
+
+MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
+
+len_print.data_len("jobs_singers.py", {
+    "FILMS_TYPE": FILMS_TYPE,
+    "NON_FICTION_ADDITIONAL_TOPICS": NON_FICTION_ADDITIONAL_TOPICS,
+    "NON_FICTION_BASE_TOPICS": NON_FICTION_BASE_TOPICS,
+    "NON_FICTION_TOPICS": NON_FICTION_TOPICS,
+    "SINGER_CATEGORY_LABELS": SINGER_CATEGORY_LABELS,
+    "SINGERS_AFTER_ROLES": SINGERS_AFTER_ROLES,
+    "SINGERS_MAIN_CATEGORIES": SINGERS_MAIN_CATEGORIES,
+    "MEN_WOMENS_SINGERS": MEN_WOMENS_SINGERS,
+    "SINGERS_TAB": SINGERS_TAB,
+})
+
+__all__ = [
+    "FILMS_TYPE",
+    "NON_FICTION_ADDITIONAL_TOPICS",
+    "NON_FICTION_BASE_TOPICS",
+    "NON_FICTION_TOPICS",
+    "SINGER_CATEGORY_LABELS",
+    "SINGERS_AFTER_ROLES",
+    "SINGERS_MAIN_CATEGORIES",
+    "MEN_WOMENS_SINGERS",
+    "SINGERS_TAB",
+]

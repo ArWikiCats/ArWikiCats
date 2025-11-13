@@ -5,34 +5,23 @@ from ..ma_bots import event_lab_bot
 
 """
 
-import sys
-import re
-
-from . import fax2
-from . import list_cat_format
-
 from ... import malists_sport_lab as sport_lab
-
+from ...fix import fixtitle
 from ...helps.print_bot import print_put
-from ..date_bots import year_lab
-from ..o_bots import univer
 from ...ma_lists import New_P17_Finall
+from ..bots import tmp_bot
+from ..date_bots import year_lab
+from ..format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..fromnet import kooora
 from ..fromnet.wd_bot import find_wikidata
-from ..format_bots import pp_ends_with, pp_ends_with_pase, change_cat
-from ...fix import fixtitle
-from ..matables_bots.bot_2018 import pop_All_2018
-from ..bots import tmp_bot
-
-from .lab_seoo_bot import event_Lab_seoo
-from .contry2_bot import Get_contry2
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
+from ..o_bots import univer
 
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
 #  (most likely due to a circular import) (make2_bots.ma_bots\ye_ts_bot.py)
-from . import ye_ts_bot
-
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-Find_f_wikidata = {1: "nowikidata" not in sys.argv}
+from . import fax2, list_cat_format, ye_ts_bot
+from .country2_bot import Get_country2
+from .lab_seoo_bot import event_Lab_seoo
 
 
 def event_Lab(cate_r: str) -> str:
@@ -67,12 +56,12 @@ def event_Lab(cate_r: str) -> str:
     # ---
     # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون
     if category_lab == "" and list_of_cat == "لاعبو {}":
-        category_lab = Get_contry2(orginal_category3)
+        category_lab = Get_country2(orginal_category3)
         if category_lab:
             list_of_cat = ""
 
     if not category_lab:
-        category_lab = univer.test_Universities(category3)
+        category_lab = univer.test_universities(category3)
 
     if not category_lab:
         category_lab = year_lab.make_year_lab(category3)
@@ -81,19 +70,17 @@ def event_Lab(cate_r: str) -> str:
         category_lab = sport_lab.Get_New_team_xo(category3)
 
     if category_lab == "" and Find_wd:
-        category_lab = pop_All_2018.get(category3, "")
+        category_lab = get_pop_All_18(category3, "")
 
     if list_of_cat == "" and category_lab == "":
         # print("translate_general_category 10")
         category_lab = ye_ts_bot.translate_general_category(category)
 
     if not category_lab:
-        category_lab = Get_contry2(category3)
+        category_lab = Get_country2(category3)
 
     if category_lab == "" and Find_ko:
-        category_lab = kooora.kooora_team(category3, Local=Find_f_wikidata[1])
-        if category_lab and category_lab and re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
-            pop_All_2018.get({category3.lower(): category_lab})
+        category_lab = kooora.kooora_team(category3)
 
     if category_lab == "" and Find_wd:
         category_lab = find_wikidata(category3)

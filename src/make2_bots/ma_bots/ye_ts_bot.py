@@ -9,20 +9,22 @@ lab = ye_ts_bot.translate_general_category()
 
 """
 
+import functools
 import re
-import sys
+
 from ...fix import fixtitle
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put
 from ..format_bots import Tit_ose_Nmaes
 from ..date_bots import year_lab
-
+from ..matables_bots.bot import Films_O_TT, players_new_keys
 from ..ma_bots.ar_label_bot import find_ar_label
 
-Find_f_wikidata = {1: "nowikidata" not in sys.argv}
-
-YTN_cash = {}
-from ..matables_bots.bot import Films_O_TT, New_players
+from ...ma_lists import (
+    Jobs_new,           # to be removed from players_new_keys
+    jobs_mens_data,      # to be  removed from players_new_keys
+)
+from ...utils import get_value_from_any_table
 
 
 def find_lab(category: str, category_r: str) -> str:
@@ -31,10 +33,11 @@ def find_lab(category: str, category_r: str) -> str:
     _lab = Films_O_TT.get(cate_low, "")
 
     if not _lab:
-        _lab = pop_All_2018.get(cate_low, "")
+        _lab = get_pop_All_18(cate_low, "")
 
     if not _lab:
-        _lab = New_players.get(cate_low, "")
+        _lab = get_value_from_any_table(cate_low, [players_new_keys, jobs_mens_data, Jobs_new])
+
     if not _lab:
         _lab = year_lab.make_year_lab(cate_low)
 
@@ -49,7 +52,7 @@ def find_lab(category: str, category_r: str) -> str:
 
 def work_titose_nmaes(
     category_r: str,
-    do_Get_contry2: bool,
+    start_get_country2: bool,
     category: str,
     Cate_test: str,
 ) -> str:
@@ -63,7 +66,7 @@ def work_titose_nmaes(
 
     Args:
         category_r (type): Description of category_r parameter.
-        do_Get_contry2 (type): Description of do_Get_contry2 parameter.
+        start_get_country2 (type): Description of start_get_country2 parameter.
         category (str): The category string to search for titose names.
         Cate_test (type): Description of Cate_test parameter.
 
@@ -75,11 +78,11 @@ def work_titose_nmaes(
 
     for tito, tito_name in Tit_ose_Nmaes.items():
         tito = f" {tito} "
-        # if Keep_Work and category.find(tito) != -1:
-        if category.find(tito) == -1:
+        # if Keep_Work and tito in category:
+        if tito not in category:
             continue
         # ---
-        arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, do_Get_contry2=do_Get_contry2)
+        arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, start_get_country2=start_get_country2)
         # ---
         if arlabel:
             print_put(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
@@ -88,7 +91,8 @@ def work_titose_nmaes(
     return arlabel
 
 
-def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> str:
+@functools.lru_cache(maxsize=None)
+def translate_general_category(category_r: str, start_get_country2: bool=True) -> str:
     """Retrieve and process category names for the Yementest application.
 
     This function takes a category string, processes it to standardize the
@@ -99,7 +103,7 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
 
     Args:
         category_r (str): The input category string that needs to be processed.
-        do_Get_contry2 (bool): A flag indicating whether to retrieve country-related data.
+        start_get_country2 (bool): A flag indicating whether to retrieve country-related data.
             Defaults to True.
 
     Returns:
@@ -108,11 +112,6 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
 
     category = re.sub(r"_", " ", category_r)
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
-
-    cash_key = category.lower().strip()
-
-    if cash_key in YTN_cash:
-        return YTN_cash[cash_key]
 
     print_def_head(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
 
@@ -124,13 +123,13 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
 
     # Keep_Work = True
 
-    arlabel = pop_All_2018.get(category, "")
+    arlabel = get_pop_All_18(category, "")
 
     if not arlabel:
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
-        arlabel = work_titose_nmaes(category_r, do_Get_contry2, category, Cate_test)
+        arlabel = work_titose_nmaes(category_r, start_get_country2, category, Cate_test)
 
     if arlabel:
         arlabel = fixtitle.fixlab(arlabel, en=category_r)
@@ -138,7 +137,5 @@ def translate_general_category(category_r: str, do_Get_contry2: bool=True) -> st
         print_put(f'>>>>>> <<lightyellow>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
     print_def_head("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
-
-    YTN_cash[cash_key] = arlabel
 
     return arlabel

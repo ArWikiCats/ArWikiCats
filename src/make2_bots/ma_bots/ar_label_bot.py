@@ -5,22 +5,22 @@ from ..ma_bots.ar_label_bot import find_ar_label
 """
 
 import re
-from typing import Dict, Any, List, Tuple
 from ...fix import fixtitle
 from ...ma_lists import pop_of_without_in
 
 from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 
-from ..matables_bots.bot_2018 import pop_All_2018
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import (
-    New_players,
     Table_for_frist_word,
     Add_ar_in,
     Keep_it_last,
     Keep_it_frist,
 )
 
+from ..matables_bots.check_bot import check_key_new_players
 from ...helps.print_bot import print_put, output_test
+from ...utils import check_key_in_tables_return_tuple
 
 from .arlabel_bots.bot_type_country import get_type_country
 from .arlabel_bots.bot_type_lab import get_Type_lab
@@ -29,30 +29,86 @@ from .arlabel_bots.bot_con_lab import get_con_lab
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
+def add_in_tab(Type_lab, Type_lower, tito2):
+    # ---
+    ty_in18 = get_pop_All_18(Type_lower)
+    # ---
+    if tito2 == "from":
+        if not Type_lab.strip().endswith(" من"):
+            print_put(f">>>> nAdd من to Type_lab '{Type_lab}' line:44")
+            Type_lab = f"{Type_lab} من "
+        # ---
+        return Type_lab
+    # ---
+    if not ty_in18 or not Type_lower.endswith(" of") or " في" in Type_lab:
+        return Type_lab
+    # ---
+    Type_lower2 = Type_lower[: -len(" of")]
+    # ---
+    in_tables = check_key_new_players(Type_lower)
+    in_tables2 = check_key_new_players(Type_lower2)
+    # ---
+    if in_tables or in_tables2:
+        print_put(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
+        Type_lab = f"{Type_lab} من "
+    # ---
+    return Type_lab
+
+
+def _check_in_tables_new(country_lower, Type_lower):
+    country_in_Table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
+    Type_in_Table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
+    # ---
+    if country_in_Table:
+        print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table1}.')
+
+    if Type_in_Table:
+        print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table2}.')
+    # ---
+    return country_in_Table, Type_in_Table
+
+
+def _check_in_tables(country_lower, Type_lower):
+    # ---
+    country_in_Table = False
+    Type_in_Table = False
+    # ---
+    for table_name, ta_t in Table_for_frist_word.items():
+        if country_lower in ta_t:
+            country_in_Table = True
+            print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table_name}.')
+
+        if Type_lower in ta_t:
+            Type_in_Table = True
+            print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table_name}.')
+    # ---
+    return country_in_Table, Type_in_Table
+
+
 def find_ar_label(
-    category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, do_Get_contry2: bool = True
+    category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, start_get_country2: bool = True
 ) -> str:
     """Find the Arabic label based on the provided parameters."""
 
     CAO = True
 
-    print_put(f'<<lightblue>>>>>> yementest: category.find(tito:"{tito_name}":"{tito}") != -1 ')
+    print_put(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
     tito2 = tito.strip()
-    Type, contry = get_type_country(category, tito)
+    Type, country = get_type_country(category, tito)
 
     arlabel = ""
     Type_lower = Type.strip().lower()
-    contry_lower = contry.strip().lower()
+    country_lower = country.strip().lower()
 
-    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, contry_lower)
+    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
 
-    con_lab = get_con_lab(tito, do_Get_contry2, tito2, contry, contry_lower)
+    con_lab = get_con_lab(tito, start_get_country2, tito2, country, country_lower)
 
     if con_lab:
-        Cate_test = Cate_test.replace(contry_lower, "")
+        Cate_test = Cate_test.replace(country_lower, "")
 
     if not Type_lab:
         print_put('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
@@ -61,13 +117,13 @@ def find_ar_label(
         Cate_test = Cate_test.replace(Type_lower, "")
 
     if not con_lab:
-        print_put('>>>> contry_lower not in pop new "%s"' % contry_lower)
+        print_put('>>>> country_lower not in pop new "%s"' % country_lower)
         CAO = False
     else:
-        Cate_test = Cate_test.replace(contry_lower, "")
+        Cate_test = Cate_test.replace(country_lower, "")
 
     if Type_lab or con_lab:
-        print_put(f'<<lightgreen>>>>>> ------------- contry_lower:"{contry_lower}", con_lab:"{con_lab}"')
+        print_put(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
         print_put(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", Type_lab:"{Type_lab}"')
 
     if not CAO:
@@ -96,46 +152,19 @@ def find_ar_label(
             print_put('>>>> Add في to Type_lab:at"%s"' % Type_lab)
             Type_lab = Type_lab + " في"
     # ---
-    Type_lower2 = Type_lower
-    # ---
     if Add_in_lab:
-        ty_in18 = pop_All_2018.get(Type_lower)
-
-        if Type_lower not in Dont_Add_min:
-            if Type_lower.endswith(" of") and ty_in18:
-                Type_lower2 = Type_lower[: -len(" of")]
-                if " في" not in Type_lab:
-                    if (Type_lower in New_players) or (Type_lower2 in New_players):
-                        print_put('>>>> nAdd من to Type_lab"%s" line:1853' % Type_lab)
-                        Type_lab = Type_lab + " من "
-
-            elif tito2 == "from":
-                if not Type_lab.strip().endswith(" من"):
-                    print_put('>>>> nAdd من to Type_lab:from"%s" line:1858' % Type_lab)
-                    Type_lab = Type_lab + " من "
+        if Type_lower in Dont_Add_min:
+            print_put(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
         else:
-            print_put('>>>> Type_lower "%s" in Dont_Add_min ' % Type_lower)
-
+            Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
     # ---
-    contry_in_Table = False
-    Type_in_Table = False
-
-    # ---
-    for table, ta_t in Table_for_frist_word.items():
-        if contry_lower in ta_t:
-            contry_in_Table = True
-            print_put(f'>>>> X:<<lightpurple>> contry_lower "{contry_lower}" in {table}.')
-
-        if Type_lower in ta_t:
-            Type_in_Table = True
-            print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table}.')
-
+    country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
     # ---
     sps = " "
     if tito2 == "in":
         sps = " في "
 
-    if contry_in_Table and Add_in_lab:
+    if country_in_Table and Add_in_lab:
         if (tito2 == "in" or tito2 == "at") and (" في" not in con_lab or Type_lower in Add_ar_in):
             sps = " في "
             print_put("ssps:%s" % sps)
@@ -150,7 +179,7 @@ def find_ar_label(
             tatl = Tit_ose_Nmaes[tito2]
             print_put(f">>>>> > ({tito2=}): tito2 in Tit_ose_Nmaes and tito2 not in tito_list_s, {tatl=}")
 
-            if tito2 == "for" and contry_lower.startswith("for "):
+            if tito2 == "for" and country_lower.startswith("for "):
                 if Type_lower.strip().endswith("competitors") and "competitors for" in category:
                     tatl = "من"
 
@@ -163,21 +192,24 @@ def find_ar_label(
             if con_lab == "لعضوية البرلمان":
                 tatl = ""
 
-            if tito2 == "for" and contry_lower.startswith("for "):
-                p18lab = pop_All_2018.get(contry_lower)
+            if tito2 == "for" and country_lower.startswith("for "):
+                p18lab = get_pop_All_18(country_lower)
                 if p18lab and p18lab == con_lab:
                     tatl = ""
 
-            if contry_lower in for_table:
+            if country_lower in for_table:
                 tatl = ""
 
             sps = f" {tatl} "
             print_put("sps:%s" % sps)
             Cate_test = Cate_test.replace(tito, "")
 
-    if contry_lower in New_players and Type_lower in New_players:
+    in_tables_1 = check_key_new_players(country_lower)
+    in_tables_2 = check_key_new_players(Type_lower)
+
+    if in_tables_1 and in_tables_2:
         print_put(">>>> ================ ")
-        print_put(">>>>> > X:<<lightred>> Type_lower and contry_lower in New_players.")
+        print_put(">>>>> > X:<<lightred>> Type_lower and country_lower in players_new_keys.")
         print_put(">>>> ================ ")
 
     faa = Tit_ose_Nmaes.get(tito2.strip()) or Tit_ose_Nmaes.get(tito2.replace("-", " ").strip())
@@ -203,14 +235,17 @@ def find_ar_label(
         print_put('>>>>> > X:<<lightred>> keep_Type_first = True, t_to:"%s" in Keep_it_frist' % t_to)
         keep_Type_first = True
 
-    if Type_in_Table and contry_in_Table:
-        print_put(">>> > X:<<lightpurple>> Type_lower and contry_lower in Table_for_frist_word.")
-        if not keep_Type_first and contry_lower in New_players:
+    if Type_in_Table and country_in_Table:
+        print_put(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
+        # ---
+        in_tables = check_key_new_players(country_lower)
+        # ---
+        if not keep_Type_first and in_tables:
             arlabel = con_lab + sps + Type_lab
         else:
             arlabel = Type_lab + sps + con_lab
     else:
-        if keep_Type_first and contry_in_Table:
+        if keep_Type_first and country_in_Table:
             arlabel = con_lab + sps + Type_lab
         else:
             arlabel = Type_lab + sps + con_lab
@@ -231,7 +266,7 @@ def find_ar_label(
 
     output_test('>>>> sps "%s"' % sps)
     output_test('>>>> arlabel "%s"' % arlabel)
-    vr = re.sub(contry_lower, "{}", category.lower())
+    vr = re.sub(country_lower, "{}", category.lower())
     if vr in pop_format2:
         print_put('<<lightblue>>>>>> vr in pop_format2 "%s":' % pop_format2[vr])
         print_put('<<lightblue>>>>>>> vr: "%s":' % vr)
@@ -248,9 +283,9 @@ def find_ar_label(
         arlabel = pop_format33[tito2].format(Type_lab, con_lab)
 
     arlabel = arlabel.replace("  ", " ")
-    maren = re.match(r"\d\d\d\d", contry_lower.strip())
-    if Type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {contry_lower}":
-        arlabel = f"حرب {contry_lower}"
+    maren = re.match(r"\d\d\d\d", country_lower.strip())
+    if Type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {country_lower}":
+        arlabel = f"حرب {country_lower}"
         print_put('<<lightpurple>> >>>> change arlabel to "%s".' % arlabel)
 
     if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:
