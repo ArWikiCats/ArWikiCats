@@ -1,0 +1,107 @@
+#
+from src import new_func_lab_final_label
+from load_one_data import ye_test_one_dataset, dump_diff
+
+data = {
+    "Category:Pan-Africanism": "تصنيف:وحدة أفريقية",
+    "Category:Pan-Africanism by continent": "تصنيف:وحدة أفريقية حسب القارة",
+    "Category:Pan-Africanism by country": "تصنيف:وحدة أفريقية حسب البلد",
+    "Category:Pan-Africanism in Africa": "تصنيف:وحدة أفريقية في إفريقيا",
+    "Category:Pan-Africanism in Burkina Faso": "تصنيف:وحدة أفريقية في بوركينا فاسو",
+    "Category:Pan-Africanism in Europe": "تصنيف:وحدة أفريقية في أوروبا",
+    "Category:Pan-Africanism in Ghana": "تصنيف:وحدة أفريقية في غانا",
+    "Category:Pan-Africanism in Ivory Coast": "تصنيف:وحدة أفريقية في ساحل العاج",
+    "Category:Pan-Africanism in Kenya": "تصنيف:وحدة أفريقية في كينيا",
+    "Category:Pan-Africanism in Lesotho": "تصنيف:وحدة أفريقية في ليسوتو",
+    "Category:Pan-Africanism in Liberia": "تصنيف:وحدة أفريقية في ليبيريا",
+    "Category:Pan-Africanism in Mali": "تصنيف:وحدة أفريقية في مالي",
+    "Category:Pan-Africanism in Nigeria": "تصنيف:وحدة أفريقية في نيجيريا",
+    "Category:Pan-Africanism in North America": "تصنيف:وحدة أفريقية في أمريكا الشمالية",
+    "Category:Pan-Africanism in South Africa": "تصنيف:وحدة أفريقية في جنوب إفريقيا",
+    "Category:Pan-Africanism in South America": "تصنيف:وحدة أفريقية في أمريكا الجنوبية",
+    "Category:Pan-Africanism in the Caribbean": "تصنيف:وحدة أفريقية في الكاريبي",
+    "Category:Pan-Africanism in the United Kingdom": "تصنيف:وحدة أفريقية في المملكة المتحدة",
+    "Category:Pan-Africanism in the United States": "تصنيف:وحدة أفريقية في الولايات المتحدة",
+    "Category:Pan-Africanism in Togo": "تصنيف:وحدة أفريقية في توغو",
+    "Category:Pan-Africanism in Zimbabwe": "تصنيف:وحدة أفريقية في زيمبابوي",
+
+    "Category:Pan-Africanist organisations in the Caribbean": "تصنيف:منظمات وحدوية أفريقية في الكاريبي",
+    "Category:Pan-Africanist organizations": "تصنيف:منظمات وحدوية أفريقية",
+    "Category:Pan-Africanist organizations in Africa": "تصنيف:منظمات وحدوية أفريقية في إفريقيا",
+    "Category:Pan-Africanist organizations in Europe": "تصنيف:منظمات وحدوية أفريقية في أوروبا",
+    "Category:Pan-Africanist political parties": "تصنيف:أحزاب سياسية وحدوية إفريقية",
+    "Category:Pan-Africanist political parties in Africa": "تصنيف:أحزاب سياسية وحدوية إفريقية في إفريقيا",
+    "Category:Pan-Africanist political parties in the Caribbean": "تصنيف:أحزاب سياسية وحدوية إفريقية في الكاريبي",
+}
+
+
+def test_africanism():
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+
+    dump_diff(diff_result, "test_africanism")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+
+africanism_empty = {
+    "Category:Pan-African Democratic Party politicians": "",
+    "Category:Pan Africanist Congress of Azania": "",
+    "Category:Pan Africanist Congress of Azania politicians": "",
+    "Category:Pan-Africanists": "",
+    "Category:Pan-Africanists by continent": "",
+    "Category:Pan-Africanists by nationality": "",
+    "Category:Pan-African media companies": "",
+    "Category:Pan-African organizations": "",
+    "Category:Pan-African Parliament": "",
+    "Category:Pan-African Patriotic Convergence politicians": "",
+    "Category:Pan-African Socialist Party politicians": "",
+    "Category:Pan-African Union for Social Democracy politicians": "",
+    "Category:South American pan-Africanists": "",
+    "": "z",
+    "Category:Members of the Pan-African Parliament": "z",
+    "Category:Members of the Pan-African Parliament from Algeria": "z",
+    "Category:Members of the Pan-African Parliament from Angola": "z",
+    "Category:Members of the Pan-African Parliament from Benin": "z",
+    "Category:Members of the Pan-African Parliament from Botswana": "z",
+    "Category:Members of the Pan-African Parliament from Burkina Faso": "z",
+    "Category:Members of the Pan-African Parliament from Burundi": "z",
+    "Category:Members of the Pan-African Parliament from Cameroon": "z",
+    "Category:Members of the Pan-African Parliament from Cape Verde": "z",
+    "Category:Members of the Pan-African Parliament from Chad": "z",
+    "Category:Members of the Pan-African Parliament from Djibouti": "z",
+    "Category:Members of the Pan-African Parliament from Egypt": "z",
+    "Category:Members of the Pan-African Parliament from Equatorial Guinea": "z",
+    "Category:Members of the Pan-African Parliament from Eswatini": "z",
+    "Category:Members of the Pan-African Parliament from Gabon": "z",
+    "Category:Members of the Pan-African Parliament from Ghana": "z",
+    "Category:Members of the Pan-African Parliament from Lesotho": "z",
+    "Category:Members of the Pan-African Parliament from Libya": "z",
+    "Category:Members of the Pan-African Parliament from Malawi": "z",
+    "Category:Members of the Pan-African Parliament from Mali": "z",
+    "Category:Members of the Pan-African Parliament from Mozambique": "z",
+    "Category:Members of the Pan-African Parliament from Namibia": "z",
+    "Category:Members of the Pan-African Parliament from Niger": "z",
+    "Category:Members of the Pan-African Parliament from Nigeria": "z",
+    "Category:Members of the Pan-African Parliament from Rwanda": "z",
+    "Category:Members of the Pan-African Parliament from Senegal": "z",
+    "Category:Members of the Pan-African Parliament from Sierra Leone": "z",
+    "Category:Members of the Pan-African Parliament from South Africa": "z",
+    "Category:Members of the Pan-African Parliament from South Sudan": "z",
+    "Category:Members of the Pan-African Parliament from Sudan": "z",
+    "Category:Members of the Pan-African Parliament from Tanzania": "z",
+    "Category:Members of the Pan-African Parliament from the Central African Republic": "z",
+    "Category:Members of the Pan-African Parliament from the Gambia": "z",
+    "Category:Members of the Pan-African Parliament from the Republic of the Congo": "z",
+    "Category:Members of the Pan-African Parliament from the Sahrawi Arab Democratic Republic": "z",
+    "Category:Members of the Pan-African Parliament from Togo": "z",
+    "Category:Members of the Pan-African Parliament from Tunisia": "z",
+    "Category:Members of the Pan-African Parliament from Uganda": "z",
+    "Category:Members of the Pan-African Parliament from Zambia": "z",
+    "Category:Members of the Pan-African Parliament from Zimbabwe": "z",
+}
+
+
+def test_africanism_empty():
+    expected, diff_result = ye_test_one_dataset(africanism_empty, new_func_lab_final_label)
+
+    dump_diff(diff_result, "test_africanism_empty")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

@@ -78,6 +78,14 @@ PARTIES: dict[str, str] = {
     "federalist party": "الحزب الفيدرالي الأمريكي",
     "socialist party of albania": "الحزب الإشتراكي (ألبانيا)",
     "socialist party-of albania": "الحزب الإشتراكي (ألبانيا)",
+    "anti-islam political parties": "أحزاب سياسية معادية للإسلام",
+    "anti-zionist political parties": "أحزاب سياسية معادية للصهيونية",
+    "youth wings of political parties": "أجنحة شبابية لأحزاب سياسية",
+    "far-right political parties": "أحزاب اليمين المتطرف",
+    "defunct political parties": "أحزاب سياسية سابقة",
+    "Pan-Africanist political parties": "أحزاب سياسية وحدوية إفريقية",
+    "Pan Africanist political parties": "أحزاب سياسية وحدوية إفريقية",
+    "banned political parties": "أحزاب سياسية محظورة",
 }
 
 
