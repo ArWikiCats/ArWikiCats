@@ -1,4 +1,15 @@
 
+## [#58](https://github.com/MrIbrahem/make2_new/pull/58) - 2025-11-14
+* Refactor [fixtitle.py](src/fix/fixtitle.py)
+* **New Features**
+  * Added comprehensive Arabic text normalization with improved handling of formulas, prepositions, time expressions, and category-specific replacements.
+
+* **Performance Improvements**
+  * Implemented function-level caching across multiple modules to enhance response times.
+
+* **API Updates**
+  * Standardized naming convention for exported constants to uppercase format for consistency.
+
 ## [#54](https://github.com/MrIbrahem/make2_new/pull/54) - 2025-11-13
 * **Refactor [all_keys2.py](src/ma_lists/mixed/all_keys2.py)**
   * Restructured internal data mapping generation for improved maintainability and scalability of data definitions.

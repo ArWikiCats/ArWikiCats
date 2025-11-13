@@ -42,9 +42,7 @@ def simple_replace(ar_label: str) -> str:
         r"محررات من منشورات": "محررات منشورات",
         r"قديسون صوفيون": "أولياء صوفيون",
         r"مدربو رياضية": "مدربو رياضة",
-        r"أدينوا ب\s+": "أدينوا ب",
         r"العسكري القرن": "العسكري في القرن",
-        r"ق\.م": "ق م",
         r"أحداث رياضية الرياضية": "أحداث رياضية",
         r"سفراء إلى": "سفراء لدى",
         r"أشخاص أصل": "أشخاص من أصل",
@@ -52,6 +50,7 @@ def simple_replace(ar_label: str) -> str:
     for old, new in data.items():
         ar_label = re.sub(fr"\b{old}\b", new, ar_label)
 
+    ar_label = re.sub(r"\bأدينوا ب\s+", "أدينوا ب", ar_label)
     ar_label = re.sub("مغتربون ال", "مغتربون من ال", ar_label)
 
     return ar_label
@@ -118,7 +117,6 @@ def preposition_fixes(ar_label):
         r"من قبل البلد": "حسب البلد",
         r"حسب بواسطة": "بواسطة",
         r"في رياضة في": "في الرياضة في",
-        r"العسكري القرن": "العسكري في القرن",
     }
     for pattern, replacement in patterns.items():
         ar_label = re.sub(fr"\b{pattern}\b", replacement, ar_label)
