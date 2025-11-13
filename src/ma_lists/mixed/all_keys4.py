@@ -2,7 +2,7 @@
 Supplementary mappings for educational, sporting and political contexts.
 """
 
-from ..sports.cycling import new_cy
+from ..sports.cycling import CYCLING_TEMPLATES
 from .keys2 import new_2019
 
 CAMBRIDGE_COLLEGES: dict[str, str] = {
@@ -327,7 +327,7 @@ def build_new2019() -> dict[str, str]:
             data[f"{base_key} catholic"] = f"{labels['singular']} الكاثوليكية"
             data[f"{base_key} catholic eparchies"] = f"أبرشيات {plural} كاثوليكية"
 
-    data.update(new_cy)
+    data.update(CYCLING_TEMPLATES)
 
     for key, label in UNITED_STATES_POLITICAL.items():
         base_key = key.lower()
