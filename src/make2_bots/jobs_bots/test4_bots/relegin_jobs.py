@@ -8,16 +8,14 @@ from ..jobs_mainbot import Jobs
 from ....ma_lists import RELIGIOUS_KEYS_PP
 from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
+import functools
 
-try_relegins_jobs_cash: Dict[str, str] = {}
-
-
+@functools.lru_cache(maxsize=None)
 def try_relegins_jobs(cate: str) -> str:
     # ---
     cach_key = cate.lower().strip()
     # ---
-    if cach_key in try_relegins_jobs_cash:
-        return try_relegins_jobs_cash[cach_key]
+    # Note: Cache logic removed as we're using @functools.lru_cache decorator
     # ---
     output_test4(f"\t xx start: <<lightred>>try_relegins_jobs >> <<lightpurple>> cate:{cate}")
     # ---
@@ -32,6 +30,6 @@ def try_relegins_jobs(cate: str) -> str:
     # ---
     output_test4(f"\t xx end: <<lightred>>try_relegins_jobs <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
     # ---
-    try_relegins_jobs_cash[cach_key] = country_lab
+
     # ---
     return country_lab

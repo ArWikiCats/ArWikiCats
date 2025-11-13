@@ -8,6 +8,7 @@ from ..ma_bots import event2bot
 
 
 import re
+import functools
 
 from ... import printe, app_settings
 from ...fix import fixtitle
@@ -20,7 +21,6 @@ from .dodo_bots.event2bot_dodo import make_lab_dodo
 from .lab_seoo_bot import event_Lab_seoo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-event2_cash = {}
 
 
 def event2_d2(cat3: str, category3_not_lower: str) -> str:
@@ -59,6 +59,7 @@ def event2_d2(cat3: str, category3_not_lower: str) -> str:
     return category_lab
 
 
+@functools.lru_cache(maxsize=None)
 def event2(category_r: str) -> str:
     """Process a category string and return a corresponding label.
 
@@ -66,7 +67,7 @@ def event2(category_r: str) -> str:
     relevant information, and attempts to generate a label based on
     predefined patterns and rules. It utilizes regular expressions to
     identify various time periods, such as centuries and millennia, and
-    checks against existing labels in a cache. If no label can be generated,
+    uses @functools.lru_cache for performance optimization. If no label can be generated,
     it defaults to a fallback mechanism.
 
     Args:
@@ -78,13 +79,9 @@ def event2(category_r: str) -> str:
     """
 
     NoLab_list = {}
-    cash_key = category_r.replace("category:", "").lower().strip()
 
     if not category_r:
         return ""
-
-    if cash_key in event2_cash:
-        return event2_cash[cash_key]
 
     print_put("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
     print_put(f'<<lightyellow>>>>>> event2 :"{category_r}"')
@@ -119,7 +116,6 @@ def event2(category_r: str) -> str:
                 category_lab = fixtitle.fixlab(category_lab, en=category_r)
                 print_put(f'>>>> <<lightyellow>> cat:"{_category_}", category_lab "{category_lab}"')
                 print_put("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
-                event2_cash[cash_key] = category_lab
                 return category_lab
         # ---
         ar_label = make_lab_dodo(_category_, category3, category, cat_test, category_r)
@@ -131,7 +127,6 @@ def event2(category_r: str) -> str:
         NoLab_list[category_r] = ""
 
     print_put("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
-    event2_cash[cash_key] = ar_label
 
     return ar_label
 

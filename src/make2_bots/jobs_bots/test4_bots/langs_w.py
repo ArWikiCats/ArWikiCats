@@ -17,10 +17,10 @@ from ....ma_lists import (
     lang_key_m,
 )
 from ....helps.print_bot import output_test4, print_put
+import functools
 
-Lang_work_cash: Dict[str, str] = {}
 
-
+@functools.lru_cache(maxsize=None)
 def Lang_work(con_3: str) -> str:
     """Process and retrieve language-related information based on input.
 
@@ -40,11 +40,6 @@ def Lang_work(con_3: str) -> str:
 
     output_test4(f'<<lightblue>> Lang_work :"{con_3}"')
     lang_lab = ""
-    # ---
-    cash_key = con_3.lower().strip()
-    # ---
-    if cash_key in Lang_work_cash:
-        return Lang_work_cash[cash_key]
     # ---
     if not lang_lab:
         lang_lab = languages_key.get(con_3, "")
@@ -77,7 +72,7 @@ def Lang_work(con_3: str) -> str:
             # ---
             lang_lab = lab_from_lang_keys(con_3, lang, l_lab, lang2)
     # ---
-    Lang_work_cash[cash_key] = lang_lab
+
     # ---
     return lang_lab
 

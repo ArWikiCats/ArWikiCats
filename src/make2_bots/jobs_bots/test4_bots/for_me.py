@@ -4,6 +4,7 @@ from .test4_bots.for_me import Work_for_me
 """
 
 import re
+import functools
 from typing import Dict
 from ....ma_lists import NN_table
 from ....ma_lists import (
@@ -19,10 +20,8 @@ from ....ma_lists import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat
 from ...o_bots import ethnic_bot
 from ....helps.print_bot import output_test4
 
-wo_2018_cash: Dict[str, str] = {}
-Work_for_me_cash: Dict[str, str] = {}
 
-
+@functools.lru_cache(maxsize=None)
 def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
     """Retrieve country label for men based on category, nationality, and a
     specific key.
@@ -43,12 +42,6 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
         str: The formatted country label for men based on the inputs.
     """
 
-    # ---
-    cash_key = f"{cate}, {nat}, {con_3}".lower().strip()
-    # ---
-    if cash_key in wo_2018_cash:
-        return wo_2018_cash[cash_key]
-    # ---
     men_nat_lab = Nat_men.get(nat, "")
     # ---
     country_lab = ""
@@ -66,22 +59,16 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
             country_lab = con_3_lab.format(men_nat_lab)
             output_test4(f'<<lightblue>> test_4:en_is_nat_ar_is_al_mens new country_lab  "{country_lab}" ')
     # ---
-    wo_2018_cash[cash_key] = country_lab
+
     # ---
     return country_lab
 
 
+@functools.lru_cache(maxsize=None)
 def Work_for_me(cate: str, nat: str, con_3: str) -> str:
     """Retrieve a country label based on category, nationality, and a third
     parameter.
     """
-
-    # ---
-    cash_key = f"{cate}, {nat}, {con_3}".lower().strip()
-    # ---
-    if cash_key in Work_for_me_cash:
-        return Work_for_me_cash[cash_key]
-    # ---
     women_nat_lab = Nat_women.get(nat, "")
     men_nat_lab = Nat_men.get(nat, "")
     nat_lab = Nat_women[nat]
@@ -153,8 +140,6 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
     # رجالية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
         country_lab = Work_for_New_2018_men_Keys_with_all(cate, nat, con_3)
-    # ---
-    Work_for_me_cash[cash_key] = country_lab
     # ---
     return country_lab
 
