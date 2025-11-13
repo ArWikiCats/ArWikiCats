@@ -1,10 +1,8 @@
-"""Static translations used for tennis and tournament related keys."""
+"""
+Static translations used for tennis and tournament related keys.
+"""
 
-from __future__ import annotations
-
-from typing import Final
-
-TENNIS_KEYS: Final[dict[str, str]] = {
+TENNIS_KEYS: dict[str, str] = {
     "european athletics championships": "بطولة أوروبا لألعاب القوى",
     "deaflympics": "ديفلمبياد",
     "badminton in the summer olympics": "تنس الريشة في الألعاب الأولمبية الصيفية",
@@ -116,6 +114,4 @@ TENNIS_KEYS: Final[dict[str, str]] = {
     "itf women's world tennis tour": "الجولة العالمية لتنس السيدات",
 }
 
-tennis_keys = TENNIS_KEYS
-
-__all__ = ["TENNIS_KEYS", "tennis_keys"]
+__all__ = ["TENNIS_KEYS"]

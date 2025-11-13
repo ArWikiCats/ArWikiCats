@@ -1,10 +1,8 @@
-"""Cycling specific lookup tables used by the sports translation modules."""
+"""
+Cycling specific lookup tables used by the sports translation modules.
+"""
 
-from __future__ import annotations
-
-from typing import Final
-
-BASE_CYCLING_EVENTS: Final[dict[str, str]] = {
+BASE_CYCLING_EVENTS: dict[str, str] = {
     "tour de france": "سباق طواف فرنسا",
     "grand tour": "الطوافات الكبرى",
     "grand tour (cycling)": "الطوافات الكبرى",
@@ -40,19 +38,10 @@ def build_cycling_templates() -> dict[str, str]:
     return templates
 
 
-CYCLING_TEMPLATES: Final[dict[str, str]] = build_cycling_templates()
-
-# Backwards-compatible exports -------------------------------------------------
-
-# NOTE: Older callers import ``CYCLING_TEMPLATES`` and ``CYCLING_TEMPLATES`` directly from this
-# module.  They expect a mapping identical to ``CYCLING_TEMPLATES``.  Expose both
-# aliases so the refactor remains a drop-in replacement for those consumers.
-CYCLING_TEMPLATES: Final[dict[str, str]] = CYCLING_TEMPLATES
+CYCLING_TEMPLATES: dict[str, str] = build_cycling_templates()
 
 __all__ = [
     "BASE_CYCLING_EVENTS",
     "CYCLING_TEMPLATES",
     "build_cycling_templates",
-    "CYCLING_TEMPLATES",
-    "CYCLING_TEMPLATES",
 ]
