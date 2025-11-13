@@ -16,10 +16,10 @@ from ...ma_lists import (
 )
 from ...helps.print_bot import output_test4
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+import functools
 
-Jobs_cash: Dict[str, str] = {}
 
-
+@functools.lru_cache(maxsize=None)
 def Jobs2(cate: str, Start: str, con_3: str) -> str:
     # ---
     country: str = Start
@@ -35,12 +35,13 @@ def Jobs2(cate: str, Start: str, con_3: str) -> str:
     return country_lab
 
 
+@functools.lru_cache(maxsize=None)
 def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[str, str]] = None) -> str:
     """Retrieve job labels based on category and country.
 
     This function generates job labels for both men and women based on the
-    provided category, starting country, and additional context. It checks
-    cached results to improve performance and utilizes various mappings to
+    provided category, starting country, and additional context. It uses
+    @functools.lru_cache for performance optimization and utilizes various mappings to
     determine the appropriate labels. The function handles different cases
     for men's and women's jobs, including specific prefixes and country-
     specific labels.
@@ -60,12 +61,6 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
     # ---
     if not tab:
         tab = {}
-    # ---
-    cash_key = f"{cate}, {Start}, {Type}, {con_3}".lower().strip()
-    # ---
-    if cash_key in Jobs_cash:
-        return Jobs_cash[cash_key]
-    # ---
     output_test4(f'<<lightblue>> test_4.py Jobs: cate: "{cate}", Start: "{Start}", con_3: "{con_3}" ')
     country = Start
     country_lab = ""
@@ -142,6 +137,6 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
         # ---
         output_test4(f'\t<<lightblue>> test Womens Jobs: new lab: "{country_lab}" ')
     # ---
-    Jobs_cash[cash_key] = country_lab
+
     # ---
     return country_lab

@@ -13,11 +13,11 @@ from ..jobs.Jobs import Jobs_new, jobs_mens_data
 from ..sports.Sport_key import Sports_Keys_For_Label
 from ..sports.sub_teams_keys import sub_teams_new
 from ..by_type import By_table
-# from ..sports.teams_new_data import Teams_new
+# from ..sports.teams_new_data import TEAMS_NEW
 
 
 def load_pop_All_2018() -> Dict[str, str]:
-    # result: 524266 item with Teams_new
+    # result: 524266 item with TEAMS_NEW
     # result: 226,093 item
     data = open_json_file("pop_All_2018") or {}     # 161
 
@@ -28,7 +28,7 @@ def load_pop_All_2018() -> Dict[str, str]:
         films_mslslat_tab,      # 2,480
         By_table,               # 15,899
         sub_teams_new,          # 12,134
-        # Teams_new,            # 352,946
+        # TEAMS_NEW,            # 352,946
         New_P17_Finall,         # 62,671
         Sports_Keys_For_Label,  # 672
     ]

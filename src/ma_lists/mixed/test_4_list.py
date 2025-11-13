@@ -9,9 +9,9 @@ from ..jobs.jobs_singers import SINGERS_TAB
 from ..sports.games_labs import SUMMER_WINTER_GAMES
 
 from ..sports import (
-    sport_formts_new_kkk,
-    sport_formts_male_nat,
-    sport_formts_female_nat,
+    SPORT_FORMTS_NEW_KKK,
+    SPORT_FORMTS_MALE_NAT,
+    SPORT_FORMTS_FEMALE_NAT,
 )
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .Newkey import pop_final6
@@ -240,7 +240,7 @@ def _extend_female_sport_mappings() -> None:
 
     """
     data = {}
-    for key, value in sport_formts_female_nat.items():
+    for key, value in SPORT_FORMTS_FEMALE_NAT.items():
         data[key] = value
     for category, label in baston_women.items():
         data[category.lower()] = f"{label} {{}}"
@@ -451,10 +451,10 @@ en_is_nat_ar_is_women: dict[str, str] = {
 def _extend_sport_mappings() -> None:
     """Populate sport related mappings for both genders."""
 
-    for key, value in sport_formts_new_kkk.items():
+    for key, value in SPORT_FORMTS_NEW_KKK.items():
         en_is_nat_ar_is_P17[key] = value
 
-    for key, value in sport_formts_male_nat.items():
+    for key, value in SPORT_FORMTS_MALE_NAT.items():
         en_is_nat_ar_is_al_mens[key] = value
 
     for category, label in baston_men.items():

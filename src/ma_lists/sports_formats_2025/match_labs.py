@@ -44,7 +44,7 @@ PPP_Keys = {
 @functools.lru_cache(maxsize=1)
 def load_data() -> Dict[str, str]:
     """
-    lazy load Teams_new
+    lazy load TEAMS_NEW
 
     # result length: "count": 325907, "size": "7.3 MiB" ( Sports_Keys_New*1425  (223*1425))
     """
@@ -103,7 +103,7 @@ def find_teams_2025(category: str, default: str="") -> str:
 
 
 len_print.data_len("sports/teams_new_data_2025.py", {
-    "teams_2025" : 533  # teams_2025: 533 <> "Teams_new": "352,946",
+    "teams_2025" : 533  # teams_2025: 533 <> "TEAMS_NEW": "352,946",
 })
 
 __all__ = [

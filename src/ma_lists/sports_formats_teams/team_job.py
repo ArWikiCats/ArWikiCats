@@ -11,7 +11,7 @@ New_team_xo_jobs = {}
 New_team_xo_labels = {}
 sport_formts_enar_p17_jobs = {}
 # ---
-# sf_en_ar_is_p17 لدمجها مع sport_formts_en_ar_is_p17 في sports.py
+# sf_en_ar_is_p17 لدمجها مع SPORT_FORMTS_EN_AR_IS_P17 في sports.py
 sf_en_ar_is_p17 = {}
 # ---
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
@@ -69,7 +69,7 @@ if True:
     sport_formts_enar_p17_jobs["men's international xoxo players"] = "لاعبو xoxo دوليون من {}"
     sport_formts_enar_p17_jobs["international xoxo players"] = "لاعبو xoxo دوليون من {}"
     # ---
-    # ---sport_formts_enar_p17_team
+    # ---SPORT_FORMTS_ENAR_P17_TEAM
     New_team_xo_labels["olympics xoxo"] = "xoxo في الألعاب الأولمبية"
     New_team_xo_labels["summer olympics xoxo"] = "xoxo في الألعاب الأولمبية الصيفية"
     New_team_xo_labels["winter olympics xoxo"] = "xoxo في الألعاب الأولمبية الشتوية"

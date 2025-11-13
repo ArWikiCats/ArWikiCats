@@ -19,7 +19,7 @@ def teams_new_founder(key: str, default: str = "") -> str:
     return data.get(key, default)
 
 
-# len_print.data_len("make2_bots.matables_bots/teamsnew_bot.py", { "Teams_new" : lazy_load() }) # "Teams_new" : 352946
+# len_print.data_len("make2_bots.matables_bots/teamsnew_bot.py", { "TEAMS_NEW" : lazy_load() }) # "TEAMS_NEW" : 352946
 
 __all__ = [
     "teams_new_founder"

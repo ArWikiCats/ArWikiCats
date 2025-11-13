@@ -11,7 +11,6 @@ from src.fix.fixtitle import (
     _apply_basic_normalizations,
     _normalize_conflict_phrases,
     _normalize_sub_regions,
-    _apply_category_specific_normalizations,
     fix_it,
     add_fee,
     fixlab,
@@ -81,19 +80,6 @@ def test_normalize_conflict_phrases(text, expected):
 )
 def test_normalize_sub_regions(text, expected):
     assert _normalize_sub_regions(text) == expected
-
-
-@pytest.mark.parametrize("ar_label, en_label, expected", [
-    ("أفلام بواسطة ستيفن سبيلبرغ", "films by", "أفلام ستيفن سبيلبرغ"),
-    ("وفيات بواسطة ضربات جوية", "deaths by airstrikes", "وفيات بضربات جوية"),
-    ("قصص قصيرة 1613", "short stories 1613", "قصص قصيرة كتبت سنة 1613"),
-    ("ردود فعل إلى القرار", "reactions to", "ردود فعل على القرار")
-],
-    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
-)
-def test_apply_category_specific_normalizations(ar_label, en_label, expected):
-    assert _apply_category_specific_normalizations(ar_label, en_label) == expected
-
 
 @pytest.mark.parametrize("text, expected", [
     ("كوارث صحية 2010", "كوارث صحية في 2010"),

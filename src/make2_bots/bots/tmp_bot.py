@@ -4,6 +4,8 @@ if not sub_ar_label:
     sub_ar_label = tmp_bot.Work_Templates(category)
 """
 
+import functools
+
 from ..format_bots import pp_start_with, pp_ends_with, pp_ends_with_pase
 from ...helps.print_bot import print_put
 
@@ -12,9 +14,8 @@ from ..date_bots import with_years_bot
 from ..ma_bots import country2_lab
 from ..ma_bots import ye_ts_bot
 
-WORK_TEMPLATES_CACHE = {}
 
-
+@functools.lru_cache(maxsize=None)
 def Work_Templates(input_label: str) -> str:
     """Generate work templates based on the provided input string.
 
@@ -34,11 +35,8 @@ def Work_Templates(input_label: str) -> str:
         if no matching template is found.
     """
 
-    # ---
-    cache_key = input_label.lower().strip()
-    # ---
-    if cache_key in WORK_TEMPLATES_CACHE:
-        return WORK_TEMPLATES_CACHE[cache_key]
+    # Normalize input for consistent caching
+    input_label = input_label.lower().strip()
     # ---
     print_put(f">> ----------------- start Work_ Templates ----------------- input_label:{input_label}")
     template_label = ""
@@ -69,8 +67,6 @@ def Work_Templates(input_label: str) -> str:
             print_put(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), resolved_label:"{resolved_label}"')
             template_label = format_template.format(resolved_label)
             print_put(f'>>>> template_label:"{template_label}"')
-            # ---
-            WORK_TEMPLATES_CACHE[cache_key] = template_label
             break
 
     # pp_ends_with
@@ -97,8 +93,6 @@ def Work_Templates(input_label: str) -> str:
             print_put(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), resolved_label:"{resolved_label}"')
             template_label = format_template.format(resolved_label)
             print_put(f'>>>> template_label:"{template_label}"')
-            # ---
-            WORK_TEMPLATES_CACHE[cache_key] = template_label
             break
 
     print_put(">> ----------------- end Work_ Templates ----------------- ")
