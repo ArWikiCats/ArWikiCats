@@ -6,7 +6,7 @@ import copy
 from .keys_23 import AFC_KEYS
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..sports.games_labs import summer_winter_games
+from ..sports.games_labs import SUMMER_WINTER_GAMES
 
 from ..sports import (
     sport_formts_new_kkk,
@@ -661,7 +661,7 @@ Multi_sport_for_Jobs: dict[str, str] = {
     "fifa futsal world cup": "كأس العالم لكرة الصالات",
 }
 
-Multi_sport_for_Jobs.update(summer_winter_games)
+Multi_sport_for_Jobs.update(SUMMER_WINTER_GAMES)
 Multi_sport_for_Jobs.update(AFC_KEYS)
 
 _extend_sport_mappings()

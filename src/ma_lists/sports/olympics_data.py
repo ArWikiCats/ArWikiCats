@@ -5,7 +5,7 @@
 
 from typing import Dict
 from ...helps import len_print
-from .games_labs import summer_winter_games
+from .games_labs import SUMMER_WINTER_GAMES
 
 olympics: Dict[str, str] = {
     "universiade competitors": "منافسون في الألعاب الجامعية",
@@ -36,7 +36,7 @@ medalists_type: Dict[str, str] = {
 }
 
 for tty, tty_lab in medalists_type.items():
-    for k, v in summer_winter_games.items():
+    for k, v in SUMMER_WINTER_GAMES.items():
         olympics[tty % k] = tty_lab % v
     olympics[tty % "world athletics indoor championships"] = tty_lab % "بطولة العالم لألعاب القوى داخل الصالات"
     olympics[tty % "olympics"] = tty_lab % "أولمبية"

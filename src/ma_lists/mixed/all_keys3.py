@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from ..companies import companies_keys3, typeTable_update
-from ..sports.games_labs import summer_winter_tabs
+from ..sports.games_labs import SUMMER_WINTER_TABS
 from ..structures import tab2, pop_final_3_update
 from ..utils.json_dir import open_json_file
 from ...helps import len_print
@@ -119,7 +119,7 @@ def build_pop_final_3() -> dict[str, str]:
         registry[company] = label
         registry[f"{company} films"] = f"أفلام {label}"
 
-    registry.update(summer_winter_tabs)
+    registry.update(SUMMER_WINTER_TABS)
     registry.update(companies_keys3)
     registry.update(tab2)
     registry.update(pop_final_3_update)

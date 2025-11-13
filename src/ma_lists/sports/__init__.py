@@ -2,7 +2,7 @@
 
 from .tennis import tennis_keys
 from .nat_p17 import sport_formts_for_p17, nat_p17_oioi
-from .games_labs import summer_winter_games
+from .games_labs import SUMMER_WINTER_GAMES
 from .skeys import (
     sport_formts_en_ar_is_p17,
     sport_formts_en_p17_ar_nat,
@@ -25,7 +25,7 @@ __all__ = [
     "sport_formts_female_nat",
     "sport_formts_for_p17",
     "nat_p17_oioi",
-    "summer_winter_games",
+    "SUMMER_WINTER_GAMES",
     "Sports_Keys_For_Team",
     "Sports_Keys_For_Label",
     "Sports_Keys_For_Jobs",
