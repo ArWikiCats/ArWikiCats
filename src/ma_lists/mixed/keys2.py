@@ -83,9 +83,10 @@ PARTIES: dict[str, str] = {
     "youth wings of political parties": "أجنحة شبابية لأحزاب سياسية",
     "far-right political parties": "أحزاب اليمين المتطرف",
     "defunct political parties": "أحزاب سياسية سابقة",
-    "Pan-Africanist political parties": "أحزاب سياسية وحدوية إفريقية",
-    "Pan Africanist political parties": "أحزاب سياسية وحدوية إفريقية",
+    "pan-africanist political parties": "أحزاب سياسية وحدوية إفريقية",
+    "pan africanist political parties": "أحزاب سياسية وحدوية إفريقية",
     "banned political parties": "أحزاب سياسية محظورة",
+    "pan-african democratic party": "الحزب الديمقراطي الوحدوي الإفريقي",
 }
 
 

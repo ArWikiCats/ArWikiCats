@@ -43,19 +43,20 @@ def test_africanism():
 
 
 africanism_empty = {
-    "Category:Pan-African Democratic Party politicians": "",
-    "Category:Pan Africanist Congress of Azania": "",
-    "Category:Pan Africanist Congress of Azania politicians": "",
-    "Category:Pan-Africanists": "",
-    "Category:Pan-Africanists by continent": "",
-    "Category:Pan-Africanists by nationality": "",
-    "Category:Pan-African media companies": "",
-    "Category:Pan-African organizations": "",
-    "Category:Pan-African Parliament": "",
-    "Category:Pan-African Patriotic Convergence politicians": "",
-    "Category:Pan-African Socialist Party politicians": "",
-    "Category:Pan-African Union for Social Democracy politicians": "",
-    "Category:South American pan-Africanists": "",
+    "Category:Pan-African organizations": "تصنيف:منظمات قومية أفريقية",
+    "Category:Pan-African Parliament": "تصنيف:البرلمان الإفريقي",
+    "Category:Pan-African Democratic Party politicians": "تصنيف:سياسيو الحزب الديمقراطي الوحدوي الإفريقي",
+
+    "Category:Pan Africanist Congress of Azania": "z",
+    "Category:Pan Africanist Congress of Azania politicians": "z",
+    "Category:Pan-Africanists": "z",
+    "Category:Pan-Africanists by continent": "z",
+    "Category:Pan-Africanists by nationality": "z",
+    "Category:Pan-African media companies": "z",
+    "Category:Pan-African Patriotic Convergence politicians": "z",
+    "Category:Pan-African Socialist Party politicians": "z",
+    "Category:Pan-African Union for Social Democracy politicians": "z",
+    "Category:South American pan-Africanists": "z",
 }
 
 
