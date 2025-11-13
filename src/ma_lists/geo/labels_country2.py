@@ -1,0 +1,279 @@
+"""Regional translation helpers for administrative areas."""
+
+from __future__ import annotations
+
+import logging
+
+from ._shared import apply_suffix_templates, load_json_mapping, log_mapping_stats, normalize_to_lower, update_with_lowercased
+
+LOGGER = logging.getLogger(__name__)
+
+COUNTRY_ADMIN_LABELS = load_json_mapping("P17_PP")
+ADDITIONAL_REGION_KEYS = load_json_mapping("New_Keys")
+SWISS_CANTON_LABELS = {
+    "aarga": "أرجاو",
+    "aargau": "أرجاو",
+    "appenzell ausserrhoden": "أبينزيل أوسيرهودن",
+    "appenzell innerrhoden": "أبينزيل إينرهودن",
+    "basel-landschaft": "ريف بازل",
+    "basel-land": "ريف بازل",
+    "basel-stadt": "مدينة بازل",
+    "bern": "برن",
+    "fribourg": "فريبورغ",
+    "geneva": "جنيف",
+    "glarus": "غلاروس",
+    "graubünden": "غراوبوندن",
+    "grisons": "غراوبوندن",
+    "jura": "جورا",
+    "lucerne": "لوسيرن",
+    "neuchâtel": "نيوشاتل",
+    "nidwalden": "نيدفالدن",
+    "obwalden": "أوبفالدن",
+    "schaffhausen": "شافهوزن",
+    "schwyz": "شفيتس",
+    "solothurn": "سولوتورن",
+    "st. gallen": "سانت غالن",
+    "thurga": "تورغاو",
+    "thurgau": "تورغاو",
+    "ticino": "تيسينو",
+    "uri": "أوري",
+    "valais": "فاليز",
+    "vaud": "فود",
+    "zug": "تسوغ",
+    "zürich": "زيورخ",
+}
+# ---
+update_with_lowercased(COUNTRY_ADMIN_LABELS, SWISS_CANTON_LABELS)
+# ---
+for canton, value in SWISS_CANTON_LABELS.items():
+    COUNTRY_ADMIN_LABELS[f"canton-of {canton.lower()}"] = f"كانتون {value}"
+# ---
+update_with_lowercased(COUNTRY_ADMIN_LABELS, ADDITIONAL_REGION_KEYS)
+# ---
+PROVINCE_LABEL_OVERRIDES = {
+    # ---
+    "quintana roo": "ولاية كينتانا رو",
+    "tamaulipas": "ولاية تاماوليباس",
+    "campeche": "ولاية كامبيتشي",
+    "helmand": "ولاية هلمند",
+    "nuristan": "ولاية نورستان",
+    "badghis": "ولاية بادغيس",
+    "badakhshan": "ولاية بدخشان",
+    "kapisa": "ولاية كابيسا",
+    "baghlan": "ولاية بغلان",
+    "daykundi": "ولاية دايكندي",
+    "kandahar": "ولاية قندهار",
+    "bamyan": "ولاية باميان",
+    "nangarhar": "ولاية ننكرهار",
+    "aklan": "ولاية أكلان",
+    "zacatecas": "ولاية زاكاتيكاس",
+    "zabul": "ولاية زابل",
+    "balkh": "ولاية بلخ",
+    "tlaxcala": "ولاية تلاكسكالا",
+    "sinaloa": "ولاية سينالوا",
+    # ---
+    "nam định": "محافظة نام دنه",
+    "malampa": "محافظة مالامبا",
+    "đắk lắk": "محافظة داك لاك",
+    "lâm đồng": "محافظة لام دونغ",
+    "điện biên": "محافظة دين بين",
+    # ---
+    "northern province": "المحافظة الشمالية (زامبيا)",
+    "central java province": "جاوة الوسطى",
+    "south hwanghae province": "جنوب مقاطعة هوانغاي",
+    "north sumatra province": "سومطرة الشمالية",
+    "sancti spíritus province": "سانكتي سبيريتوس",
+    "formosa province": "فورموسا",
+    "orientale province": "أوريونتال",
+    "western province": "المحافظة الغربية (زامبيا)",
+    "papua province": "بابوا",
+    "jambi province": "جمبي",
+    "east nusa tenggara province": "نوسا تنقارا الشرقية",
+    "southeast sulawesi province": "سولاوسي الجنوبية الشرقية",
+    "chagang province": "تشاغانغ",
+    "gorontalo province": "غورونتالو",
+    "riau province": "رياو",
+    "chaco province": "شاكو",
+    "jujuy province": "خوخوي",
+    "holguín province": "هولغوين",
+    "north maluku province": "مالوكو الشمالية",
+    "central province": "المحافظة الوسطى (زامبيا)",
+    "central sulawesi province": "سولاوسي الوسطى",
+    "southern province": "المحافظة الجنوبية (زامبيا)",
+    "west papua province": "بابوا الغربية",
+    "copperbelt province": "كوبربيلت",
+    "granma province": "غرانما",
+    "cienfuegos province": "سينفويغوس",
+    "santiago de cuba province": "سانتياغو دي كوبا",
+    "salavan province": "سالافان",
+    "équateur province": "إكواتور",
+    "entre ríos province": "إنتري ريوس",
+    "north pyongan province": "بيونغان الشمالية",
+    "west java province": "جاوة الغربية",
+    "eastern province": "المحافظة الشرقية (زامبيا)",
+    "north hwanghae province": "هوانغهاي الشمالية",
+    "northwestern province": "المحافظة الشمالية الغربية (زامبيا)",
+    "córdoba province": "كوردوبا",
+    "matanzas": "ماتنزاس",
+    "matanzas province": "مقاطعة ماتنزاس",
+    "north sulawesi province": "سولاوسي الشمالية",
+    # ---
+    "osh region": "أوش أوبلاستي",
+    "puno region": "بونو",
+    "flemish region": "الإقليم الفلامندي",
+    "zanzibar urban/west region": "زنجبار الحضرية / المقاطعة الغربية",
+    "talas region": "طلاس أوبلاستي",
+    "tansift region": "جهة تانسيفت",
+    "central region": "الجهة الوسطى",
+    "northwestern region": "الجهة الشمالية الغربية",
+    "cajamarca region": "كاخاماركا",
+    # ---
+    "sacatepéquez department": "ساكاتيبيكيز",
+    "escuintla department": "إسكوينتلا",
+    # ---
+    "prevalje municipality": "بريفالجه",
+    "moravče municipality": "مورافسكه (مورافسكه)",
+    "vraneštica municipality": "فرانيستيكا (كيسيفو)",
+    "vasilevo municipality": "فاسيليفو",
+    "šentjernej municipality": "شينتيرني",
+    # ---
+}
+# ---
+update_with_lowercased(COUNTRY_ADMIN_LABELS, PROVINCE_LABEL_OVERRIDES)
+# ---
+REGION_SUFFIXES_EN = [
+    " province",
+    " district",
+    " state",
+    " region",
+    " division",
+    " county",
+    " department",
+    " municipality",
+    " governorate",
+    " voivodeship",
+]
+REGION_PREFIXES_AR = [
+    "ولاية ",
+    "الشعبة ",
+    "شعبة ",
+    "القسم ",
+    "قسم ",
+    "منطقة ",
+    "محافظة ",
+    "مقاطعة ",
+    "إدارة ",
+    "بلدية ",
+    "إقليم ",
+    "اقليم ",
+]
+# ---
+region_suffix_matches = 0
+# ---
+for cc, lab in ADDITIONAL_REGION_KEYS.items():
+    should_update = True
+    cc2 = cc.lower()
+    for en_k in REGION_SUFFIXES_EN:
+        for ar_k in REGION_PREFIXES_AR:
+            if should_update and cc2.endswith(en_k) and lab.startswith(ar_k):
+                should_update = False
+                # ---
+                cc3 = cc2[: -len(en_k)]
+                lab_2 = lab[len(ar_k) :]
+                # ---
+                COUNTRY_ADMIN_LABELS[cc3] = lab_2
+                region_suffix_matches += 1
+
+# ---
+# ,"mountain" : "ماونتين"
+PROVINCE_LABELS = {
+    "antananarivo": "فيانارانتسوا",
+    "antsiranana": "أنتسيرانانا",
+    "artemisa": "أرتيميسا",
+    "bandundu": "بانداندو",
+    "banten": "بنتن",
+    "bas-congo": "الكونغو الوسطى",
+    "bengkulu": "بنغكولو",
+    "bengo": "بنغو",
+    "benguela": "بنغيلا",
+    "bié": "بيي",
+    "buenos aires": "بوينس آيرس",
+    "cabinda": "كابيندا",
+    "camagüey": "كاماغوي",
+    "cuando cubango": "كواندو كوبانغو",
+    "cuanza norte": "كوانزا نورت",
+    "cunene": "كونيني",
+    "fianarantsoa": "فيانارانتسوا",
+    "guantánamo": "غوانتانامو",
+    "huambo": "هوامبو",
+    "kangwon": "كانغوون",
+    "katanga": "كاتانغا",
+    "lampung": "لامبونغ",
+    "las tunas": "لاس توناس",
+    "luanda": "لواندا",
+    "lunda norte": "لوندا نورتي",
+    "lunda sul": "لوندا سول",
+    "lusaka": "لوساكا",
+    "mahajanga": "ماهاجانجا",
+    "malanje": "مالانجي",
+    "maluku": "مالوكو",
+    "moxico": "موكسيكو",
+    "namibe": "ناميبي",
+    "ogooué-lolo": "أوغووي-لولو",
+    "ogooué-maritime": "أوغووي - البحرية",
+    "ryanggang": "ريانغانغ",
+    "south pyongan": "بيونغان الجنوبية",
+    "toamasina": "تواماسينا",
+    "toliara": "توليارا",
+    "uíge": "أوجي",
+    "woleu-ntem": "وليو-نتم",
+    "zaire": "زائير",
+}
+# ---
+update_with_lowercased(COUNTRY_ADMIN_LABELS, PROVINCE_LABELS)
+apply_suffix_templates(
+    COUNTRY_ADMIN_LABELS,
+    PROVINCE_LABELS,
+    (
+        (" province", "مقاطعة %s"),
+        (" (province)", "مقاطعة %s"),
+    ),
+)
+# ---
+LOGGER.debug("Normalised %d region suffix combinations", region_suffix_matches)
+
+COUNTRY_ADMIN_LABELS_LOWER = normalize_to_lower(COUNTRY_ADMIN_LABELS)
+
+log_mapping_stats(
+    "labels_country2",
+    admin_labels=COUNTRY_ADMIN_LABELS,
+    admin_labels_lower=COUNTRY_ADMIN_LABELS_LOWER,
+)
+
+
+def get_country_admin_labels() -> dict[str, str]:
+    """Return a copy of the country administrative label mapping."""
+
+    return dict(COUNTRY_ADMIN_LABELS)
+
+
+def get_country_admin_labels_lower() -> dict[str, str]:
+    """Return a copy of the lower-cased admin label mapping."""
+
+    return dict(COUNTRY_ADMIN_LABELS_LOWER)
+
+
+# Backwards compatible alias
+P17_PP = COUNTRY_ADMIN_LABELS
+
+__all__ = [
+    "COUNTRY_ADMIN_LABELS",
+    "COUNTRY_ADMIN_LABELS_LOWER",
+    "ADDITIONAL_REGION_KEYS",
+    "SWISS_CANTON_LABELS",
+    "PROVINCE_LABEL_OVERRIDES",
+    "PROVINCE_LABELS",
+    "get_country_admin_labels",
+    "get_country_admin_labels_lower",
+    "P17_PP",
+]
