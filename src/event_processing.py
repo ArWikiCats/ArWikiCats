@@ -16,13 +16,6 @@ from .make2_bots.matables_bots.bot import cash_2022, set_table_sink
 from . import app_settings
 
 LABEL_PREFIX = "تصنيف"
-_SHARED_EVENT_CACHE: Dict[str, str] = {}
-
-
-def get_shared_event_cache() -> Dict[str, str]:
-    """Expose the cache used to memoise event processing results."""
-
-    return _SHARED_EVENT_CACHE
 
 
 @dataclass
@@ -32,14 +25,6 @@ class EventProcessorConfig:
     start_yementest: bool = app_settings.start_yementest
 
     make_tab: bool = False
-    event_cache: Optional[Dict[str, str]] = None
-
-    def resolved_event_cache(self) -> Dict[str, str]:
-        """Return the cache backing this configuration."""
-
-        if self.event_cache is None:
-            return _SHARED_EVENT_CACHE
-        return self.event_cache
 
 
 @dataclass
@@ -106,7 +91,6 @@ class EventProcessor:
 
     def __init__(self, config: Optional[EventProcessorConfig] = None) -> None:
         self.config = config or EventProcessorConfig()
-        self._event_done = self.config.resolved_event_cache()
 
     def process(self, categories: Iterable[str]) -> EventProcessingResult:
         result = EventProcessingResult()
@@ -160,11 +144,6 @@ class EventProcessor:
 
     @functools.lru_cache(maxsize=None)
     def _resolve_label(self, category: str) -> str:
-        if category in self._event_done:
-            cached = self._event_done[category]
-            output_test(f'>>>> category_r: "{category}" in event_done, lab:"{cached}"')
-            return cached
-
         category_lab = ""
         cat_year, from_year = labs_years.lab_from_year(category)
         if from_year:
@@ -202,7 +181,6 @@ class EventProcessor:
         if not from_year and cat_year:
             labs_years.lab_from_year_add(category, category_lab, cat_year)
 
-        # self._event_done[category] = category_lab
         return category_lab
 
     @staticmethod

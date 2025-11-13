@@ -9,17 +9,10 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 from pathlib import Path
 from typing import Optional, Any, Dict, List
 from . import printe
-from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
 from .helps.print_bot import do_print_options, print_put
+from .event_processing import EventProcessor, EventProcessorConfig, new_func_lab
 
 Dir_ma = Path(__file__).parent.parent
-
-
-def _append_printfirst_entry(category: str) -> None:
-    err_file = Dir_ma / "textfiles" / "make2-err.txt"
-    err_file.parent.mkdir(parents=True, exist_ok=True)
-    with err_file.open("a", encoding="utf-8") as handle:
-        handle.write(f"{category}\n")
 
 
 def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
@@ -54,7 +47,6 @@ def event(
 
     config = EventProcessorConfig(
         make_tab=maketab is True,
-        event_cache=get_shared_event_cache(),
     )
     if Local:
         config.find_from_wikidata = False
@@ -92,7 +84,6 @@ def event(
 
         if printfirst:
             printe.output(toout)
-            _append_printfirst_entry(item.normalized)
         else:
             print_put(toout)
 
@@ -118,4 +109,7 @@ def event(
     return labels
 
 
-__all__ = ["event", "new_func_lab"]
+__all__ = [
+    "event",
+    "new_func_lab"
+]

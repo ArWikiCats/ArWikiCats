@@ -1,17 +1,7 @@
 from __future__ import annotations
 
 import pytest
-
 import src.main as main_module
-from src.event_processing import get_shared_event_cache
-
-
-@pytest.fixture(autouse=True)
-def clear_event_cache():
-    cache = get_shared_event_cache()
-    cache.clear()
-    yield
-    cache.clear()
 
 
 def test_event_with_maketab(monkeypatch, tmp_path):
