@@ -117,7 +117,7 @@ def _build_tab_labels(SEASONAL_GAME_LABELS) -> dict[str, str]:
 
 SEASONAL_GAME_LABELS = _build_seasonal_labels()
 
-SUMMER_WINTER_TABS = _build_tab_labels()
+SUMMER_WINTER_TABS = _build_tab_labels(SEASONAL_GAME_LABELS)
 
 __all__ = [
     "SEASONAL_GAME_LABELS",
