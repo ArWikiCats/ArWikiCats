@@ -3,7 +3,6 @@
 from .src import (
     config,
     EventProcessor,
-    EventProcessorConfig,
     event,
     new_func_lab,
     printe,
@@ -21,7 +20,6 @@ __all__ = [
     "event",
     "new_func_lab",
     "EventProcessor",
-    "EventProcessorConfig",
     "do_print_options",
     "print_memory",
     "dump_all_len",

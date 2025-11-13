@@ -1,35 +1,24 @@
+#
 from __future__ import annotations
 
 import functools
-import re
-from contextlib import contextmanager
 from dataclasses import dataclass, field
-from typing import Any, Dict, Iterable, List, Optional, Iterator
+from typing import Dict, Iterable, List
 
 from .make2_bots.co_bots import filter_en
 from .make2_bots.date_bots import labs_years
 from .fix import fixtitle
 from .make2_bots.format_bots import change_cat
 from .make2_bots.ma_bots import event2bot, event_lab_bot, ye_ts_bot
-from .make2_bots.matables_bots.bot import cash_2022, set_table_sink
+from .make2_bots.matables_bots.bot import cash_2022
 from . import app_settings
 
 LABEL_PREFIX = "تصنيف"
 
 
 @dataclass
-class EventProcessorConfig:
-    """Configuration bundle for :class:`EventProcessor`."""
-
-    start_yementest: bool = app_settings.start_yementest
-
-    make_tab: bool = False
-
-
-@dataclass
 class ProcessedCategory:
-    """Details captured for every processed category."""
-
+    """Data structure representing each processed category."""
     original: str
     normalized: str
     raw_label: str
@@ -39,117 +28,36 @@ class ProcessedCategory:
 
 @dataclass
 class EventProcessingResult:
-    """Structured result returned after processing a batch of categories."""
-
+    """Structured results for a batch."""
     processed: List[ProcessedCategory] = field(default_factory=list)
     labels: Dict[str, str] = field(default_factory=dict)
     no_labels: List[str] = field(default_factory=list)
-    tables: Dict[str, Dict[str, Any]] = field(default_factory=dict)
-
-
-class _TableCollector:
-    """Capture data emitted through ``Add_to_main2_tab``."""
-
-    def __init__(self, title: str) -> None:
-        self.title = title
-        self.ar = ""
-        self.lab: Dict[str, str] = {}
-        self.nolab: Dict[str, str] = {}
-
-    def add_label(self, en: str, ar: str) -> None:
-        if not en or not ar:
-            return
-        self.lab[en] = ar
-
-    def set_result(self, ar: str) -> None:
-        self.ar = ar
-
-    def snapshot(self) -> Dict[str, Any]:
-        return {
-            "title": self.title,
-            "ar": self.ar,
-            "lab": dict(self.lab),
-            "nolab": dict(self.nolab),
-        }
-
-
-@contextmanager
-def _table_sink_context(collector: Optional[_TableCollector]) -> Iterator[None]:
-    if not collector:
-        yield
-        return
-    set_table_sink(collector.add_label)
-    try:
-        yield
-    finally:
-        set_table_sink(None)
 
 
 class EventProcessor:
-    """Pure processing core for category → label resolution."""
+    """Fast, pure processing engine for categories."""
 
-    def __init__(self, config: Optional[EventProcessorConfig] = None) -> None:
-        self.config = config or EventProcessorConfig()
-
-    def process(self, categories: Iterable[str]) -> EventProcessingResult:
-        result = EventProcessingResult()
-
-        for original in categories:
-            if not original:
-                continue
-
-            normalized = self._normalize_category(original)
-            collector: Optional[_TableCollector] = None
-            if self.config.make_tab:
-                collector = _TableCollector(normalized)
-
-            with _table_sink_context(collector):
-                raw_label = self._resolve_label(normalized)
-
-            final_label = self._prefix_label(raw_label)
-            has_label = bool(final_label)
-
-            if has_label:
-                result.labels[normalized] = final_label
-            else:
-                result.no_labels.append(normalized)
-
-            if collector:
-                collector.set_result(final_label)
-                result.tables[normalized] = collector.snapshot()
-
-            result.processed.append(
-                ProcessedCategory(
-                    original=original,
-                    normalized=normalized,
-                    raw_label=raw_label,
-                    final_label=final_label,
-                    has_label=has_label,
-                )
-            )
-
-        return result
-
-    def process_single(self, category: str) -> ProcessedCategory:
-        processed = self.process([category]).processed
-        if not processed:
-            return ProcessedCategory(category, category, "", "", False)
-        return processed[0]
+    def __init__(self) -> None:
+        self.config = None
 
     @staticmethod
     def _normalize_category(category: str) -> str:
-        category = re.sub(r"^\ufeff", "", category)
-        return re.sub(r"_", " ", category)
+        """Normalize the input category string quickly."""
+        if category.startswith("\ufeff"):
+            category = category[1:]
+        return category.replace("_", " ")
 
     @functools.lru_cache(maxsize=None)
     def _resolve_label(self, category: str) -> str:
-        category_lab = ""
-        cat_year, from_year = labs_years.lab_from_year(category)
-        if from_year:
-            category_lab = from_year
-
+        """Resolve the label using multi-step logic."""
         changed_cat = change_cat(category)
         is_cat_okay = filter_en.filter_cat(category)
+
+        category_lab = ""
+        cat_year, from_year = labs_years.lab_from_year(category)
+
+        if from_year:
+            category_lab = from_year
 
         start_yementest_lab = ""
 
@@ -157,12 +65,10 @@ class EventProcessor:
             start_yementest_lab = ye_ts_bot.translate_general_category(changed_cat)
 
         if not category_lab and is_cat_okay:
-
             category_lower = category.lower()
-            if not category_lab:
-                category_lab = cash_2022.get(category_lower, "")
+            category_lab = cash_2022.get(category_lower, "")
 
-            if not category_lab and self.config.start_yementest:
+            if not category_lab and app_settings.start_yementest:
                 category_lab = start_yementest_lab
 
             if not category_lab:
@@ -184,6 +90,7 @@ class EventProcessor:
 
     @staticmethod
     def _prefix_label(raw_label: str) -> str:
+        """Add prefix only when needed."""
         if not raw_label:
             return ""
 
@@ -193,18 +100,59 @@ class EventProcessor:
 
         if stripped.startswith(LABEL_PREFIX):
             return stripped
+
         return f"{LABEL_PREFIX}:{raw_label}"
+
+    def process(self, categories: Iterable[str]) -> EventProcessingResult:
+        """Process a batch of categories."""
+        result = EventProcessingResult()
+
+        for original in categories:
+            if not original:
+                continue
+
+            normalized = self._normalize_category(original)
+
+            raw_label = self._resolve_label(normalized)
+
+            final_label = self._prefix_label(raw_label)
+            has_label = bool(final_label)
+
+            if has_label:
+                result.labels[normalized] = final_label
+            else:
+                result.no_labels.append(normalized)
+
+            result.processed.append(
+                ProcessedCategory(
+                    original=original,
+                    normalized=normalized,
+                    raw_label=raw_label,
+                    final_label=final_label,
+                    has_label=has_label,
+                )
+            )
+
+        return result
+
+    def process_single(self, category: str) -> ProcessedCategory:
+        processed = self.process([category]).processed
+        if not processed:
+            return ProcessedCategory(category, category, "", "", False)
+        return processed[0]
 
 
 def _get_processed_category(category_r: str) -> ProcessedCategory:
     """Helper to process a single category with a default processor."""
-    processor = EventProcessor(EventProcessorConfig(make_tab=False))
+    processor = EventProcessor()
     return processor.process_single(category_r)
 
 
 def new_func_lab(category_r: str) -> str:
+    """Return raw AR label."""
     return _get_processed_category(category_r).raw_label
 
 
 def new_func_lab_final_label(category_r: str) -> str:
+    """Return final AR label with prefix."""
     return _get_processed_category(category_r).final_label
