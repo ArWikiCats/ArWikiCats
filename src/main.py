@@ -33,6 +33,17 @@ def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]
     return [cat for cat in no_labels if cat not in labelled_set]
 
 
+def event_result(
+    NewList: List[str],
+    config,
+) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
+
+    processor = EventProcessor(config)
+    result = processor.process(NewList)
+
+    return result
+
+
 def event(
     NewList: List[str],
     noprint: str="",
@@ -58,23 +69,15 @@ def event(
         tst_prnt_all=tst_prnt_all,
     )
 
-    preview = ""
-    try:
-        if len(NewList) < 10:
-            preview = ",".join(NewList)
-    except TypeError:
-        pass
-
     try:
         total = len(NewList)
     except TypeError:
         total = 0
 
     print_put("<<lightred>> vvvvvvvvvvvv event start vvvvvvvvvvvv ")
-    print_put(f"<<lightblue>> event work with >  {total} cats. {preview} ")
+    print_put(f"<<lightblue>> event work with >  {total} cats. ")
 
-    processor = EventProcessor(config)
-    result = processor.process(NewList)
+    result = event_result(NewList, config)
 
     if total == 0:
         total = len(result.processed)
