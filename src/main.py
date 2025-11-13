@@ -6,20 +6,10 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 """
 
-from pathlib import Path
 from typing import Optional, Any, Dict, List
 from . import printe
-from .event_processing import EventProcessor, EventProcessorConfig, get_shared_event_cache, new_func_lab
 from .helps.print_bot import do_print_options, print_put
-
-Dir_ma = Path(__file__).parent.parent
-
-
-def _append_printfirst_entry(category: str) -> None:
-    err_file = Dir_ma / "textfiles" / "make2-err.txt"
-    err_file.parent.mkdir(parents=True, exist_ok=True)
-    with err_file.open("a", encoding="utf-8") as handle:
-        handle.write(f"{category}\n")
+from .event_processing import new_func_lab, event_result
 
 
 def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
@@ -43,21 +33,12 @@ def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]
 def event(
     NewList: List[str],
     noprint: str="",
-    maketab: bool=False,
     printfirst: bool = False,
-    Local: bool = False,
     printhead: bool = False,
     tst_prnt_all: Optional[bool]=None,
     return_no_labs: bool = False,
 ) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
     """Process a list of categories and generate corresponding labels."""
-
-    config = EventProcessorConfig(
-        make_tab=maketab is True,
-        event_cache=get_shared_event_cache(),
-    )
-    if Local:
-        config.find_from_wikidata = False
 
     do_print_options(
         noprint=noprint,
@@ -66,42 +47,21 @@ def event(
         tst_prnt_all=tst_prnt_all,
     )
 
-    preview = ""
-    try:
-        if len(NewList) < 10:
-            preview = ",".join(NewList)
-    except TypeError:
-        pass
-
     try:
         total = len(NewList)
     except TypeError:
         total = 0
 
     print_put("<<lightred>> vvvvvvvvvvvv event start vvvvvvvvvvvv ")
-    print_put(f"<<lightblue>> event work with >  {total} cats. {preview} ")
+    print_put(f"<<lightblue>> event work with >  {total} cats. ")
 
-    processor = EventProcessor(config)
-    result = processor.process(NewList)
+    result = event_result(NewList)
 
     if total == 0:
         total = len(result.processed)
 
-    for index, item in enumerate(result.processed, start=1):
-        toout = f'<<lightyellow>>> event ===  {index} / {total}  category_r:"{item.normalized}" === '
-
-        if printfirst:
-            printe.output(toout)
-            _append_printfirst_entry(item.normalized)
-        else:
-            print_put(toout)
-
     labels = result.labels
     no_labels = _remove_labelled_from_no_labels(labels, result.no_labels)
-
-    if config.make_tab:
-        print_put("<<lightred>>> ^^^^^^^^^ event end ^^^^^^^^^ ")
-        return result.tables
 
     _summarise_labels(labels, printfirst)
 
@@ -118,4 +78,7 @@ def event(
     return labels
 
 
-__all__ = ["event", "new_func_lab"]
+__all__ = [
+    "event",
+    "new_func_lab"
+]
