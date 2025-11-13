@@ -3,7 +3,7 @@ from ..p17_bots import nats
 """
 
 import re
-from ...ma_lists import sport_formts_for_p17, nat_p17_oioi, match_sport_key
+from ...ma_lists import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key
 from ...ma_lists import Sports_Keys_For_Team
 from ..matables_bots.bot import add_to_new_players
 from ... import malists_sport_lab as sport_lab
@@ -20,9 +20,9 @@ def make_sport_formats_p17(category_key: str) -> str:
 
     logger.info(f'<<lightblue>>>>>> make_sport_formats_p17: category_key:"{category_key}"')
 
-    cached_label = sport_formts_for_p17.get(category_key, "")
+    cached_label = SPORT_FORMATS_FOR_P17.get(category_key, "")
     if cached_label:
-        logger.debug(f"\tfind lab in sport_formts_for_p17: {cached_label}")
+        logger.debug(f"\tfind lab in SPORT_FORMATS_FOR_P17: {cached_label}")
         return cached_label
 
     resolved_label = ""
@@ -42,11 +42,11 @@ def make_sport_formats_p17(category_key: str) -> str:
         f'sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"'
     )
 
-    if placeholder_key in nat_p17_oioi:
+    if placeholder_key in NAT_P17_OIOI:
         sport_label = Sports_Keys_For_Team.get(sport_key, "")
         if not sport_label:
             logger.debug(f' sport_key:"{sport_key}" not in Sports_Keys_For_Team ')
-        placeholder_template = nat_p17_oioi[placeholder_key]
+        placeholder_template = NAT_P17_OIOI[placeholder_key]
         if placeholder_template and sport_label:
             formatted_label = placeholder_template.replace("oioioi", sport_label)
             if "oioioi" not in formatted_label:
@@ -56,7 +56,7 @@ def make_sport_formats_p17(category_key: str) -> str:
                 )
     else:
         logger.debug(
-            f'make_sport_formats_p17 placeholder_key:"{placeholder_key}" not in nat_p17_oioi'
+            f'make_sport_formats_p17 placeholder_key:"{placeholder_key}" not in NAT_P17_OIOI'
         )
 
     if resolved_label:
@@ -85,7 +85,7 @@ def find_nat_others(category: str, reference_category: str="") -> str:
         if sport_format_label:
             category_label = sport_format_label.format(nat=Nat_women[country_start])
             logger.debug(
-                f'<<lightblue>>xxx sport_formts_female_nat: new category_label  "{category_label}"'
+                f'<<lightblue>>xxx SPORT_FORMTS_FEMALE_NAT: new category_label  "{category_label}"'
             )
 
     if sport_format_key and country_start and category_label == "":
@@ -95,7 +95,7 @@ def find_nat_others(category: str, reference_category: str="") -> str:
 
             category_label = sport_format_label.format(nat=country_label)
             logger.debug(
-                f'<<lightblue>>>>>> sport_formts_for_p17: new category_label  "{category_label}"'
+                f'<<lightblue>>>>>> SPORT_FORMATS_FOR_P17: new category_label  "{category_label}"'
             )
             add_to_new_players(category, category_label)
 

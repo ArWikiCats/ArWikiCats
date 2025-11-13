@@ -20,7 +20,7 @@ def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(army, "military_format_women", {}, raising=False)
     monkeypatch.setattr(army, "military_format_women_without_al", {}, raising=False)
     monkeypatch.setattr(army, "military_format_women_without_al_from_end", {}, raising=False)
-    monkeypatch.setattr(army, "sport_formts_en_p17_ar_nat", {}, raising=False)
+    monkeypatch.setattr(army, "SPORT_FORMTS_EN_P17_AR_NAT", {}, raising=False)
 
 
 @pytest.fixture

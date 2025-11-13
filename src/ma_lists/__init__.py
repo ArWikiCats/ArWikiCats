@@ -5,10 +5,10 @@ from .sports_formats_2025.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .utils.match_sport_keys import match_sport_key
 from .sports.olympics_data import olympics
-# from .sports.teams_new_data import Teams_new
-from .sports import sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
+# from .sports.teams_new_data import TEAMS_NEW
+from .sports import SPORT_FORMTS_EN_AR_IS_P17, SPORT_FORMTS_EN_P17_AR_NAT
 from .sports.Sport_key import Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
-from .sports.nat_p17 import sport_formts_for_p17, nat_p17_oioi
+from .sports.nat_p17 import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI
 
 from .sports.games_labs import SUMMER_WINTER_GAMES
 
@@ -218,12 +218,12 @@ __all__ = [
     #
     "pop_All_2018_bot",
     #
-    # "Teams_new",
-    "sport_formts_en_ar_is_p17",
-    "sport_formts_en_p17_ar_nat",
+    # "TEAMS_NEW",
+    "SPORT_FORMTS_EN_AR_IS_P17",
+    "SPORT_FORMTS_EN_P17_AR_NAT",
     #
-    "sport_formts_for_p17",
-    "nat_p17_oioi",
+    "SPORT_FORMATS_FOR_P17",
+    "NAT_P17_OIOI",
     #
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",

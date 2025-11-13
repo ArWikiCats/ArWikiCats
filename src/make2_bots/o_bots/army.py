@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import Dict, Mapping, Tuple
 from ...helps.log import logger
-from ...ma_lists import all_country_with_nat, all_country_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, sport_formts_en_p17_ar_nat
+from ...ma_lists import all_country_with_nat, all_country_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, SPORT_FORMTS_EN_P17_AR_NAT
 from .utils import apply_arabic_article, get_or_set
 
 #: Cache storing resolved labels keyed by the normalised category name.
@@ -118,7 +118,7 @@ def _resolve_sport_suffix(category_suffix: str, men_label: str) -> str:
     if not category_suffix or not men_label:
         return ""
 
-    template = sport_formts_en_p17_ar_nat.get(category_suffix, "")
+    template = SPORT_FORMTS_EN_P17_AR_NAT.get(category_suffix, "")
     if template:
         men_with_article = apply_arabic_article(men_label)
         logger.debug(f"Resolved sports suffix, suffix: {category_suffix}, template: {template}")
