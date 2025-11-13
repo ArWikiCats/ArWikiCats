@@ -5,7 +5,7 @@ from .sports_formats_2025.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .utils.match_sport_keys import match_sport_key
 from .sports.olympics_data import olympics
-# from .sports.teams_new_data import Teams_new
+# from .sports.teams_new_data import TEAMS_NEW
 from .sports import sport_formts_en_ar_is_p17, sport_formts_en_p17_ar_nat
 from .sports.Sport_key import Sports_Keys_For_Team, Sports_Keys_For_Label, Sports_Keys_For_Jobs
 from .sports.nat_p17 import sport_formts_for_p17, nat_p17_oioi
@@ -218,7 +218,7 @@ __all__ = [
     #
     "pop_All_2018_bot",
     #
-    # "Teams_new",
+    # "TEAMS_NEW",
     "sport_formts_en_ar_is_p17",
     "sport_formts_en_p17_ar_nat",
     #

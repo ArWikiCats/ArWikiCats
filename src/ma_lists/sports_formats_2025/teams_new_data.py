@@ -21,7 +21,7 @@ PPP_Keys = {
 
 def load_teams_new() -> Dict[str, str]:
     """
-    lazy load Teams_new
+    lazy load TEAMS_NEW
 
     # result length: "count": 325907, "size": "7.3 MiB" ( Sports_Keys_New*1425  (223*1425))
     """
