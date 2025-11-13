@@ -196,11 +196,11 @@ class TestApplyCategorySpecificNormalizations:
         # Empty string
         result = apply_category_specific_normalizations("", "")
         assert result == ""
-        
+
         # String with only whitespace
         result = apply_category_specific_normalizations("   ", "")
         assert result == "   "
-        
+
         # String with mixed Arabic and Latin
         result = apply_category_specific_normalizations("أفلام بواسطة directors", "")
         assert result == "أفلام directors"
