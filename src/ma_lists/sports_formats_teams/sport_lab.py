@@ -11,7 +11,7 @@ from .team_job import sport_formts_enar_p17_jobs
 from .sport_lab2 import wrap_team_xo_normal_2025_for_tests
 from ..utils.match_sport_keys import match_sport_key
 from ..utils import apply_pattern_replacement
-from ..sports import SPORT_FORMTS_ENAR_P17_TEAM
+from ..sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_JOBS
 from ...helps.print_bot import print_put
 

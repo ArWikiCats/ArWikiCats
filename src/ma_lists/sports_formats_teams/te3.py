@@ -3,12 +3,10 @@ from .te3 import SPORT_FORMTS_ENAR_P17_TEAM, New_team_xo_team_labels
 """
 
 import re
-import sys
 from ...helps import len_print
 from ...helps.log import logger
 from ..sports.sports_lists import AFTER_KEYS_TEAM, menstt333
 
-# ---
 SPORT_FORMTS_ENAR_P17_TEAM = {}
 New_team_xo_team_labels = {}
 # ---
@@ -31,12 +29,6 @@ New_Tato["men's under-23 national"] = "{} تحت 23 سنة للرجال"
 New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
 New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
 
-# ---
-
-# ---
-team2 = "xoxo"
-team2_lab = "xoxo"
-# ---
 if True:
     New_team_xo_team_labels["natar xoxo championships"] = "بطولة natar xoxo"
     New_team_xo_team_labels["ladies natar xoxo championships"] = "بطولة natar xoxo للسيدات"
@@ -57,8 +49,6 @@ if True:
         "coaches": "مدربو",  # Category:Indoor soccer coaches in the United States by club
     }
     # ---
-    SPORT_FORMTS_ENAR_P17_TEAM["xoxo league"] = "دوري {} xoxo "
-    SPORT_FORMTS_ENAR_P17_TEAM["professional xoxo league"] = "دوري {} xoxo للمحترفين"
     # ---tournaments
     New_team_xo_team_labels["world champion national xoxo teams"] = "أبطال بطولة العالم xoxo"
     # ---
@@ -71,10 +61,10 @@ if True:
 
         New_team_xo_team_labels[f"xoxo world {ioi}"] = "بطولة العالم xoxo"
 
-        New_team_xo_team_labels[f"world junior xoxo {ioi}"] = "بطولة العالم %s xoxo للناشئين"
-        New_team_xo_team_labels[f"world xoxo junior {ioi}"] = "بطولة العالم %s xoxo للناشئين"
-        New_team_xo_team_labels[f"xoxo world junior {ioi}"] = "بطولة العالم %s xoxo للناشئين"
-        New_team_xo_team_labels[f"xoxo junior world {ioi}"] = "بطولة العالم %s xoxo للناشئين"
+        New_team_xo_team_labels[f"world junior xoxo {ioi}"] = "بطولة العالم xoxo للناشئين"
+        New_team_xo_team_labels[f"world xoxo junior {ioi}"] = "بطولة العالم xoxo للناشئين"
+        New_team_xo_team_labels[f"xoxo world junior {ioi}"] = "بطولة العالم xoxo للناشئين"
+        New_team_xo_team_labels[f"xoxo junior world {ioi}"] = "بطولة العالم xoxo للناشئين"
 
         New_team_xo_team_labels[f"world outdoor xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
         New_team_xo_team_labels[f"outdoor world xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
@@ -90,57 +80,61 @@ if True:
         New_team_xo_team_labels[f"xoxo youth world {ioi}"] = "بطولة العالم xoxo للشباب"
 
         New_team_xo_team_labels[f"men's xoxo {ioi}"] = "بطولة xoxo للرجال"
-        New_team_xo_team_labels[f"women's xoxo {ioi}"] = "بطولة %s xoxo للسيدات"
+        New_team_xo_team_labels[f"women's xoxo {ioi}"] = "بطولة xoxo للسيدات"
 
         New_team_xo_team_labels[f"men's xoxo world {ioi}"] = "بطولة العالم xoxo للرجال"
-        New_team_xo_team_labels[f"women's xoxo world {ioi}"] = "بطولة العالم %s xoxo للسيدات"
+        New_team_xo_team_labels[f"women's xoxo world {ioi}"] = "بطولة العالم xoxo للسيدات"
 
     # ---World champion national
     New_team_xo_team_labels["international xoxo council"] = "المجلس الدولي xoxo"
     New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
     New_team_xo_team_labels["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
 
-    New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
-    New_team_xo_team_labels["xoxo league world cup"] = "كأس العالم لدوري xoxo"
-    New_team_xo_team_labels["xoxo league finals"] = "نهائيات دوري xoxo"
+    # New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
+    # New_team_xo_team_labels["xoxo league world cup"] = "كأس العالم لدوري xoxo"
+    # New_team_xo_team_labels["xoxo league finals"] = "نهائيات دوري xoxo"
 
     New_team_xo_team_labels["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
     New_team_xo_team_labels["youth xoxo world cup"] = "كأس العالم xoxo للشباب"
     New_team_xo_team_labels["men's xoxo world cup"] = "كأس العالم xoxo للرجال"
 
-    New_team_xo_team_labels["women's xoxo world cup"] = "كأس العالم %s xoxo للسيدات"
-    New_team_xo_team_labels["women's xoxo world cup tournaments"] = "بطولات كأس العالم %s xoxo للسيدات"
-    # ---
-    SPORT_FORMTS_ENAR_P17_TEAM["amateur xoxo cup"] = "كأس {} xoxo للهواة"
-    SPORT_FORMTS_ENAR_P17_TEAM["youth xoxo cup"] = "كأس {} xoxo للشباب"
-    SPORT_FORMTS_ENAR_P17_TEAM["men's xoxo cup"] = "كأس {} xoxo للرجال"
-    SPORT_FORMTS_ENAR_P17_TEAM["women's xoxo cup"] = "كأس {} %s xoxo للسيدات"
-    # ---
-    SPORT_FORMTS_ENAR_P17_TEAM["amateur xoxo championships"] = "بطولة {} xoxo للهواة"
-    SPORT_FORMTS_ENAR_P17_TEAM["youth xoxo championships"] = "بطولة {} xoxo للشباب"
-    SPORT_FORMTS_ENAR_P17_TEAM["men's xoxo championships"] = "بطولة {} xoxo للرجال"
-    SPORT_FORMTS_ENAR_P17_TEAM["women's xoxo championships"] = "بطولة {} %s xoxo للسيدات"
-    # ---
-    SPORT_FORMTS_ENAR_P17_TEAM["amateur xoxo championship"] = "بطولة {} xoxo للهواة"
-    SPORT_FORMTS_ENAR_P17_TEAM["youth xoxo championship"] = "بطولة {} xoxo للشباب"
-    SPORT_FORMTS_ENAR_P17_TEAM["men's xoxo championship"] = "بطولة {} xoxo للرجال"
-    SPORT_FORMTS_ENAR_P17_TEAM["women's xoxo championship"] = "بطولة {} %s xoxo للسيدات"
-    # ---
-    SPORT_FORMTS_ENAR_P17_TEAM["xoxo cup"] = "كأس {} xoxo"
-    SPORT_FORMTS_ENAR_P17_TEAM["xoxo cup"] = "كأس {} xoxo"
+    New_team_xo_team_labels["women's xoxo world cup"] = "كأس العالم xoxo للسيدات"
+    New_team_xo_team_labels["women's xoxo world cup tournaments"] = "بطولات كأس العالم xoxo للسيدات"
 
-# ---
-if True:
+
+def _build_nat_formats_for_p17():
+    data = {}
+    # ---
+    NAT_PLACE_HOLDER = "{}"
+    # ---
+    data["xoxo league"] = "دوري {} xoxo "
+    data["professional xoxo league"] = "دوري {} xoxo للمحترفين"
+    # ---
+    data["amateur xoxo cup"] = "كأس {} xoxo للهواة"
+    data["youth xoxo cup"] = "كأس {} xoxo للشباب"
+    data["men's xoxo cup"] = "كأس {} xoxo للرجال"
+    data["women's xoxo cup"] = "كأس {} xoxo للسيدات"
+    # ---
+    data["amateur xoxo championships"] = "بطولة {} xoxo للهواة"
+    data["youth xoxo championships"] = "بطولة {} xoxo للشباب"
+    data["men's xoxo championships"] = "بطولة {} xoxo للرجال"
+    data["women's xoxo championships"] = "بطولة {} xoxo للسيدات"
+    # ---
+    data["amateur xoxo championship"] = "بطولة {} xoxo للهواة"
+    data["youth xoxo championship"] = "بطولة {} xoxo للشباب"
+    data["men's xoxo championship"] = "بطولة {} xoxo للرجال"
+    data["women's xoxo championship"] = "بطولة {} xoxo للسيدات"
+    # ---
+    data["xoxo cup"] = "كأس {} xoxo"
+    data["xoxo cup"] = "كأس {} xoxo"
+
     number_xo = 0
     # ---
     for tyu, tyu_lab in New_Tato.items():
         logger.debug(" ========= country =========== ")
         K_at_p = tyu_lab.format("xoxo")
         number_xo += 1
-        # if team2 == "road cycling":
-        # print("tyu: %s" % (tyu_lab) )
         # ---
-        # nat_Lab = "منتخب {} الوطني " + K_at_p
         nat_Lab = "منتخب {} " + K_at_p
         for pre, pre_lab in AFTER_KEYS_TEAM.items():
             number_xo += 1
@@ -157,45 +151,45 @@ if True:
             # if team2 == "road cycling"and pre == "team":
             # print("%d: %s" % (number_xo , printo) )
             logger.debug("%d: %s" % (number_xo, printo))
-            SPORT_FORMTS_ENAR_P17_TEAM[Ab] = pre_lab2
-    # ---
-    _format_ = "{}"
+            data[Ab] = pre_lab2
     # ---national youth handball team
-    SPORT_FORMTS_ENAR_P17_TEAM["xoxo national team"] = f"منتخب {_format_} xoxo"
-    SPORT_FORMTS_ENAR_P17_TEAM["national xoxo team"] = f"منتخب {_format_} xoxo"
+    data["xoxo national team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo"
+    data["national xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo"
     # ---
     # Category:Denmark national football team staff
-    SPORT_FORMTS_ENAR_P17_TEAM["xoxo national team staff"] = f"طاقم منتخب {_format_} xoxo"
+    data["xoxo national team staff"] = f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo"
     # ---
     # Category:Denmark national football team non-playing staff
-    SPORT_FORMTS_ENAR_P17_TEAM["xoxo national team non-playing staff"] = f"طاقم منتخب {_format_} xoxo غير اللاعبين"
-    # ---
-    Fap = f"منتخب {_format_} xoxo"
+    data["xoxo national team non-playing staff"] = f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo غير اللاعبين"
     # ---
     # Polish men's volleyball national team national junior men's
-    SPORT_FORMTS_ENAR_P17_TEAM["national junior men's xoxo team"] = f"منتخب {_format_} xoxo للناشئين"
-    SPORT_FORMTS_ENAR_P17_TEAM["national junior xoxo team"] = f"منتخب {_format_} xoxo للناشئين"
-    SPORT_FORMTS_ENAR_P17_TEAM["national women's xoxo team"] = f"منتخب {_format_} xoxo للسيدات"
-    SPORT_FORMTS_ENAR_P17_TEAM["mennnn's national xoxo team"] = f"منتخب {_format_} xoxo للرجال"
-    SPORT_FORMTS_ENAR_P17_TEAM["men's xoxo national team"] = f"منتخب {_format_} xoxo للرجال"
-    SPORT_FORMTS_ENAR_P17_TEAM["national men's xoxo team"] = f"منتخب {_format_} xoxo للرجال"
+    data["national junior men's xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين"
+    data["national junior xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين"
+    data["national women's xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
+    data["mennnn's national xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال"
+    data["men's xoxo national team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال"
+    data["national men's xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال"
     # ---
     # Australian men's U23 national road cycling team
-    SPORT_FORMTS_ENAR_P17_TEAM["men's u23 national xoxo team"] = f"منتخب {_format_} xoxo تحت 23 سنة للرجال"
+    data["men's u23 national xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo تحت 23 سنة للرجال"
     # ---
-    SPORT_FORMTS_ENAR_P17_TEAM["xoxo league"] = f"دوري {_format_} xoxo"
-    SPORT_FORMTS_ENAR_P17_TEAM["professional xoxo league"] = f"دوري {_format_} xoxo للمحترفين"
+    data["xoxo league"] = f"دوري {NAT_PLACE_HOLDER} xoxo"
+    data["professional xoxo league"] = f"دوري {NAT_PLACE_HOLDER} xoxo للمحترفين"
     # ---
-    SPORT_FORMTS_ENAR_P17_TEAM["national youth xoxo team"] = f"منتخب {_format_} xoxo للشباب"
+    data["national youth xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للشباب"
 
-    SPORT_FORMTS_ENAR_P17_TEAM["national women's xoxo team managers"] = f"مدربو منتخب {_format_} xoxo للسيدات"
-    SPORT_FORMTS_ENAR_P17_TEAM["national xoxo team managers"] = f"مدربو منتخب {_format_} xoxo"
+    data["national women's xoxo team managers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
+    data["national xoxo team managers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo"
 
-    SPORT_FORMTS_ENAR_P17_TEAM["national women's xoxo team coaches"] = f"مدربو منتخب {_format_} xoxo للسيدات"
-    SPORT_FORMTS_ENAR_P17_TEAM["national xoxo team coaches"] = f"مدربو منتخب {_format_} xoxo"
+    data["national women's xoxo team coaches"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
+    data["national xoxo team coaches"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo"
 
-    SPORT_FORMTS_ENAR_P17_TEAM["national women's xoxo team trainers"] = f"مدربو منتخب {_format_} xoxo للسيدات"
-    SPORT_FORMTS_ENAR_P17_TEAM["national xoxo team trainers"] = f"مدربو منتخب {_format_} xoxo"
+    data["national women's xoxo team trainers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
+    data["national xoxo team trainers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo"
+    return data
+
+
+SPORT_FORMTS_ENAR_P17_TEAM = _build_nat_formats_for_p17()
 
 len_print.data_len("te3.py", {
     "SPORT_FORMTS_ENAR_P17_TEAM": SPORT_FORMTS_ENAR_P17_TEAM,

@@ -17,8 +17,6 @@ SPORT_FORMTS_EN_P17_AR_NAT = {}  # الإنجليزي إسم البلد والع
 SPORT_FORMTS_EN_AR_IS_P17 = {}  # الإنجليزي إسم البلد والعربي يكون اسم البلد
 SPORT_FORMTS_NEW_KKK = {}  # الإنجليزي جنسية والعربي اسم البلد
 
-SPORT_FORMTS_ENAR_P17_TEAM = {}
-
 # مستخدمة في ملفات أخرى عبر هذا الملف
 
 SPORT_FORMTS_EN_AR_IS_P17.update(sf_en_ar_is_p17)
@@ -180,7 +178,6 @@ SPORT_FORMTS_EN_AR_IS_P17["international rally"] = f"رالي {COUNTRY_PLACEHOLD
 
 len_print.data_len("sports/skeys.py", {
     "SPORT_FORMTS_EN_AR_IS_P17": SPORT_FORMTS_EN_AR_IS_P17,
-    "SPORT_FORMTS_ENAR_P17_TEAM": SPORT_FORMTS_ENAR_P17_TEAM,
     "SPORT_FORMTS_FEMALE_NAT": SPORT_FORMTS_FEMALE_NAT,
     "SPORT_FORMTS_MALE_NAT": SPORT_FORMTS_MALE_NAT,
     "SPORT_FORMTS_NEW_KKK": SPORT_FORMTS_NEW_KKK,
@@ -190,7 +187,6 @@ len_print.data_len("sports/skeys.py", {
 __all__ = [
     "SPORT_FORMTS_EN_AR_IS_P17",
     "SPORT_FORMTS_EN_P17_AR_NAT",
-    "SPORT_FORMTS_ENAR_P17_TEAM",
     "SPORT_FORMTS_FEMALE_NAT",
     "SPORT_FORMTS_MALE_NAT",
     "SPORT_FORMTS_NEW_KKK",
