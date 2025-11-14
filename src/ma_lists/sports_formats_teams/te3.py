@@ -27,13 +27,6 @@ New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
 New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
 
 if True:
-    New_team_xo_team_labels["natar xoxo championships"] = "بطولة natar xoxo"
-    New_team_xo_team_labels["ladies natar xoxo championships"] = "بطولة natar xoxo للسيدات"
-    New_team_xo_team_labels["natar xoxo tour"] = "بطولة natar xoxo"
-    New_team_xo_team_labels["natar xoxo tour"] = "بطولة natar xoxo"
-    New_team_xo_team_labels["women's natar xoxo tour"] = "بطولة natar xoxo للسيدات"
-    New_team_xo_team_labels["ladies natar xoxo tour"] = "بطولة natar xoxo للسيدات"
-    # ---
     # New_team_xo_team_labels["asian xoxo tour"] =  "بطولة آسيا xoxo"
     # New_team_xo_team_labels["women's asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
     # New_team_xo_team_labels["ladies asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"

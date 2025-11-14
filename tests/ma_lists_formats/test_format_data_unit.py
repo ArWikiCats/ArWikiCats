@@ -106,7 +106,7 @@ def test_case(sample_data):
     assert result == "كأس العالم للرجال في كرة القدم"
 
 
-def test_get_template_label(sample_data):
+def test_get_template(sample_data):
     formated_data, data_list = sample_data
     bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
     normalized = bot.normalize_category("men's football world cup", "football")
