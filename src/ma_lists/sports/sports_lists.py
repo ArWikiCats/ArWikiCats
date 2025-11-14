@@ -1,63 +1,47 @@
-#!/usr/bin/python3
 """
-!
+Static lookup tables used by multiple sports modules.
 """
 
-# ---
-YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-# ---
-menstt333 = {
-    "": "{}",
-    "national": "{}",
-    # "youth national" : "{} للشباب",
-    "national youth": "{} للشباب",
-    # "amateur national" : "{} للهواة",
-    "national amateur": "{} للهواة",
-    "national junior men's": "{} للناشئين",
-    # "national men's junior" : "{} للناشئين",
-    # "men's junior national" : "{} للناشئين",
-    # "men's national junior" : "{} للناشئين",
-    "national junior women's": "{} للناشئات",
-    # "national women's junior" : "{} للناشئات",
-    # "women's junior national" : "{} للناشئات",
-    # "women's national junior" : "{} للناشئات",
-    "national men's": "{} للرجال",
-    # "men's national" : "{} للرجال",
-    "national women's": "{} للسيدات",
-    "multi-national women's": "{} متعددة الجنسيات للسيدات",
-    # "women's national" : "{} للسيدات",
-    # "national women's youth" : "{} للشابات",
-    # "women's youth national" : "{} للشابات",
-    # "women's national youth" : "{} للشابات",
-    "national youth women's": "{} للشابات",
-}
-NAT_MENSTT33 = {fafo: menstt333[fafo].replace("{}", "{nat}") for fafo in menstt333}
-# ---
-# =================
-# ---
-NEW_TATO_NAT = {}
-# ---
-# Category:National junior women's goalball teams
-# tab[Category:Women's national under-20 association football teams] = "تصنيف:منتخبات كرة قدم وطنية نسائية تحت 20 سنة"
-# ---
-for template_key, template_label in NAT_MENSTT33.items():
-    NEW_TATO_NAT[template_key] = template_label
-    # printe.output(lightred % (mr_nat , mr_nat_a) )
-    for year in YEARS_LIST:
-        # for ye# ---a in [23]:
-        # ---
-        # Category:Women's national under-20 association football teams
-        # تصنيف:منتخبات كرة قدم وطنية تحت 20 سنة للسيدات
-        # ---
-        arabic_label = template_label.replace("{nat}", "{nat} تحت %d سنة" % year)
-        english_key = f"{template_key} under-{year}"
-        # printe.output(english_key)
-        # printe.output(arabic_label)
-        NEW_TATO_NAT[english_key] = arabic_label
-# ---
-# =================
-# ---
-levels = {
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Final
+
+from ._helpers import extend_with_templates, extend_with_year_templates
+
+
+def _build_new_tato_nat() -> dict[str, str]:
+    """Construct the ``NEW_TATO_NAT`` dictionary.
+
+    The data expands ``NAT_MENSTT33`` by adding templates for different age
+    categories.  ``{nat}`` remains a placeholder in the resulting strings.
+    """
+    YEARS = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+
+    NAT_MENSTT33: dict[str, str] = {
+        "": "{nat}",
+        "national": "{nat}",
+        "national youth": "{nat} للشباب",
+        "national amateur": "{nat} للهواة",
+        "national junior men's": "{nat} للناشئين",
+        "national junior women's": "{nat} للناشئات",
+        "national men's": "{nat} للرجال",
+        "national women's": "{nat} للسيدات",
+        "multi-national women's": "{nat} متعددة الجنسيات للسيدات",
+        "national youth women's": "{nat} للشابات",
+    }
+
+    result: dict[str, str] = {}
+    for template_key, template_label in NAT_MENSTT33.items():
+        result[template_key] = template_label
+        for year in YEARS:
+            result[f"{template_key} under-{year}"] = template_label.format(nat=f"{{nat}} تحت {year} سنة")
+    return result
+
+
+NEW_TATO_NAT: Final[dict[str, str]] = _build_new_tato_nat()
+
+LEVELS: Final[dict[str, str]] = {
     "premier": "الدرجة الممتازة",
     "top level": "الدرجة الأولى",
     "first level": "الدرجة الأولى",
@@ -75,8 +59,9 @@ levels = {
     "seventh level": "الدرجة السابعة",
     "seventh tier": "الدرجة السابعة",
 }
-# ---
-AFTER_KEYS = {
+
+# Keys appended after a base sport name when generating extended templates.
+AFTER_KEYS: Final[dict[str, str]] = {
     "squads": "تشكيلات",
     "finals": "نهائيات",
     "positions": "مراكز",
@@ -115,28 +100,43 @@ AFTER_KEYS = {
     "records and statistics": "سجلات وإحصائيات",
     "manager history": "تاريخ مدربو",
 }
-# ---
-AFTER_KEYS_TEAM = {
-    "team": "{}",
-    "team umpires": "حكام {}",
-    "team trainers": "مدربو {}",
-    "team scouts": "كشافة {}",
-}
-# ---
-AFTER_KEYS_NAT = {
-    "": "{lab}",
-    "second level leagues": "دوريات {lab} من الدرجة الثانية",
-    "second tier leagues": "دوريات {lab} من الدرجة الثانية",
-}
-# ---
-# نسخ AFTER_KEYS إلى AFTER_KEYS_TEAM وإلى AFTER_KEYS
-for suffix_key, suffix_label in AFTER_KEYS.items():
-    # ---
-    AFTER_KEYS_TEAM[f"team {suffix_key}"] = suffix_label + " {}"
-    # ---
-    AFTER_KEYS_NAT[f"{suffix_key}"] = suffix_label + " {lab}"
-# ---
-for level_key, level_label in levels.items():
-    AFTER_KEYS_NAT[f"{level_key} league"] = "دوريات {lab} من %s" % level_label
-    AFTER_KEYS_NAT[f"{level_key} leagues"] = "دوريات {lab} من %s" % level_label
-# ---
+
+
+def _extend_suffix_mappings() -> tuple[dict[str, str], dict[str, str]]:
+    """Populate ``AFTER_KEYS_TEAM`` and ``AFTER_KEYS_NAT`` with variants."""
+
+    # Templates used when building team specific suffixes.
+    AFTER_KEYS_TEAM: dict[str, str] = {
+        "team": "{}",
+        "team umpires": "حكام {}",
+        "team trainers": "مدربو {}",
+        "team scouts": "كشافة {}",
+    }
+
+    AFTER_KEYS_NAT: dict[str, str] = {
+        "": "{lab}",
+        "second level leagues": "دوريات {lab} من الدرجة الثانية",
+        "second tier leagues": "دوريات {lab} من الدرجة الثانية",
+    }
+
+    for suffix_key, suffix_label in AFTER_KEYS.items():
+        AFTER_KEYS_TEAM[f"team {suffix_key}"] = f"{suffix_label} {{}}"
+        AFTER_KEYS_NAT[suffix_key] = f"{suffix_label} {{lab}}"
+
+    for level_key, level_label in LEVELS.items():
+        AFTER_KEYS_NAT[f"{level_key} league"] = f"دوريات {{lab}} من {level_label}"
+        AFTER_KEYS_NAT[f"{level_key} leagues"] = f"دوريات {{lab}} من {level_label}"
+
+    return AFTER_KEYS_TEAM, AFTER_KEYS_NAT
+
+
+AFTER_KEYS_TEAM, AFTER_KEYS_NAT = _extend_suffix_mappings()
+
+
+__all__ = [
+    "AFTER_KEYS",
+    "AFTER_KEYS_NAT",
+    "AFTER_KEYS_TEAM",
+    "LEVELS",
+    "NEW_TATO_NAT",
+]

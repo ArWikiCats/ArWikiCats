@@ -5,7 +5,7 @@ from .te3 import SPORT_FORMTS_ENAR_P17_TEAM, New_team_xo_team_labels
 import re
 from ...helps import len_print
 from ...helps.log import logger
-from ..sports.sports_lists import AFTER_KEYS_TEAM, menstt333
+from ..sports.sports_lists import AFTER_KEYS_TEAM
 
 SPORT_FORMTS_ENAR_P17_TEAM = {}
 New_team_xo_team_labels = {}
@@ -14,13 +14,22 @@ YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
 # ---
 New_Tato = {}
-# ---
-for mrr, mrr_lab in menstt333.items():
+
+national_keys: dict[str, str] = {
+    "national": "{}",
+    "national youth": "{} للشباب",
+    "national amateur": "{} للهواة",
+    "national junior men's": "{} للناشئين",
+    "national junior women's": "{} للناشئات",
+    "national men's": "{} للرجال",
+    "national women's": "{} للسيدات",
+    "multi-national women's": "{} متعددة الجنسيات للسيدات",
+    "national youth women's": "{} للشابات",
+}
+for mrr, mrr_lab in national_keys.items():
     New_Tato[mrr] = mrr_lab
     for year in YEARS_LIST:
-        # or year in [23]:
-        ylab = "تحت %d سنة" % year
-        New_Tato[f"{mrr} under-{year}"] = mrr_lab.replace("{}", "{} %s " % ylab)
+        New_Tato[f"{mrr} under-{year}"] = mrr_lab.format(f"{{}} تحت {year} سنة")
 # ---
 New_Tato["men's under-23 national"] = "{} تحت 23 سنة للرجال"
 New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
