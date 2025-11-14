@@ -15,8 +15,8 @@ class SportKeyRecord(TypedDict, total=False):
     """Typed representation of a single sport key translation."""
 
     label: str
-    jobs: str
     team: str
+    jobs: str
     olympic: str
 
 
@@ -60,7 +60,7 @@ def _coerce_record(raw: Mapping[str, object]) -> SportKeyRecord:
 def _load_base_records() -> dict[str, SportKeyRecord]:
     """Load sports key definitions from the JSON configuration file."""
 
-    data = open_json_file("SPORT_KEY_RECORDS") or {}
+    data = open_json_file("Sports_Keys_New") or {}
     records: dict[str, SportKeyRecord] = {}
 
     if not isinstance(data, Mapping):
@@ -153,16 +153,16 @@ def _build_tables(records: Mapping[str, SportKeyRecord]) -> SportKeyTables:
 
     tables: dict[str, dict[str, str]] = {
         "label": {},
-        "jobs": {},
         "team": {},
+        "jobs": {},
         "olympic": {},
     }
 
     for sport, record in records.items():
-        for field, mapping in tables.items():
+        for field in tables.keys():
             value = record.get(field, "")
             if value:
-                mapping[sport.lower()] = value
+                tables[field][sport.lower()] = value
 
     return SportKeyTables(
         label=tables["label"],
