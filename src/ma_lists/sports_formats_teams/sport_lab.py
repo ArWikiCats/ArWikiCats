@@ -8,7 +8,7 @@ import re
 
 from .sport_lab_with_nat import Get_New_team_xo_with_nat
 from .team_job import sport_formts_enar_p17_jobs
-from .sport_lab2 import wrap_team_xo_normal_2025_for_tests
+from .sport_lab2 import wrap_team_xo_normal_2025
 from ..utils.match_sport_keys import match_sport_key
 from ..utils import apply_pattern_replacement
 from ..sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
@@ -81,7 +81,7 @@ def Get_New_team_xo(team: str) -> str:
     if not sport_key:
         return ""
     # ---
-    team_lab = wrap_team_xo_normal_2025_for_tests(team)
+    team_lab = wrap_team_xo_normal_2025(team)
     # ---
     if not team_lab:
         normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {team.strip()} ", flags=re.IGNORECASE).strip()

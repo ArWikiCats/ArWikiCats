@@ -4,7 +4,7 @@
 
 """
 import pytest
-from src.ma_lists.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025_for_tests
+from src.ma_lists.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
@@ -56,7 +56,7 @@ data = {
 
 def test_New_team_xo_team_labels():
     print(f"len of data: {len(data)}")
-    expected, diff_result = ye_test_one_dataset(data, wrap_team_xo_normal_2025_for_tests)
+    expected, diff_result = ye_test_one_dataset(data, wrap_team_xo_normal_2025)
 
     dump_diff(diff_result, "test_New_team_xo_team_labels")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
@@ -73,5 +73,5 @@ def test_wrap_team_xo_normal_2025() -> None:
         "national softball teams coaches": "مدربو منتخبات كرة لينة وطنية",
     }
     for x, v in data.items():
-        label = wrap_team_xo_normal_2025_for_tests(x)
+        label = wrap_team_xo_normal_2025(x)
         assert label.strip() == v

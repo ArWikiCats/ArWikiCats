@@ -173,7 +173,7 @@ def _build_tables(records: Mapping[str, SportKeyRecord]) -> SportKeyTables:
     )
 
 
-def _initialise_tables() -> tuple[SportKeyTables, dict[str, SportKeyRecord], str]:
+def _initialise_tables() -> tuple[SportKeyTables, dict[str, SportKeyRecord]]:
     """Load data, expand aliases and variants, and build helper tables."""
 
     records = _load_base_records()

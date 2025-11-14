@@ -31,7 +31,7 @@ def find_jobs_bot(category: str, default: str="") -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def wrap_team_xo_normal_2025_for_tests(team: str):
+def wrap_team_xo_normal_2025(team: str):
     # ---
     team = team.lower().replace("category:", "")
     # ---
@@ -41,5 +41,5 @@ def wrap_team_xo_normal_2025_for_tests(team: str):
 
 
 __all__ = [
-    "wrap_team_xo_normal_2025_for_tests",
+    "wrap_team_xo_normal_2025",
 ]
