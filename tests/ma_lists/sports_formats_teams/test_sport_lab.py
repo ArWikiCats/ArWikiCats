@@ -11,7 +11,7 @@ from src.ma_lists.sports_formats_teams.sport_lab import Get_New_team_xo, Get_Spo
 def test_Get_New_team_xo() -> None:
 
     label = Get_New_team_xo("national softball teams")
-    assert label =='منتخبات كرة لينة وطنية '
+    assert label == 'منتخبات كرة لينة وطنية'
 
 
 @pytest.mark.fast
