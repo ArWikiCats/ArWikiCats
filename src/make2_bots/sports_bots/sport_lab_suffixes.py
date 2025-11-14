@@ -33,7 +33,7 @@ def get_teams_new(team_name: str) -> str:
 
     normalized_team = team_name.strip()
     print_put(f'get_teams_new team:"{normalized_team}"')
-    logger.info(f"Resolving team label, team: {normalized_team}")
+    logger.info(f"get_teams_new: Resolving team label, team: {normalized_team}")
 
     team_label = sport_lab.Get_New_team_xo(normalized_team)
 
@@ -44,7 +44,7 @@ def get_teams_new(team_name: str) -> str:
             lambda prefix: SPORTS_KEYS_FOR_JOBS.get(prefix, ""),
         )
         if team_label:
-            print_put(f'team_label:"{team_label}" from sports suffix lookup')
+            print_put(f'get_teams_new: team_label:"{team_label}" from sports suffix lookup')
 
     return team_label
 
