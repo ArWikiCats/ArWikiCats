@@ -10,9 +10,6 @@ from ..sports.sports_lists import AFTER_KEYS_TEAM, menstt333
 SPORT_FORMTS_ENAR_P17_TEAM = {}
 New_team_xo_team_labels = {}
 # ---
-# sf_en_ar_is_p17 لدمجها مع SPORT_FORMTS_EN_AR_IS_P17 في sports.py
-sf_en_ar_is_p17 = {}
-# ---
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
 # ---
@@ -90,9 +87,16 @@ if True:
     New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
     New_team_xo_team_labels["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
 
+    # 'Wheelchair Rugby League World Cup': 'كأس العالم لدوري الرجبي على الكراسي المتحركة'
     # New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
     # New_team_xo_team_labels["xoxo league world cup"] = "كأس العالم لدوري xoxo"
     # New_team_xo_team_labels["xoxo league finals"] = "نهائيات دوري xoxo"
+
+    # 'football league': 'دوري لكرة القدم',
+    # New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
+
+    # 'Wheelchair Rugby League World Cup': 'كأس العالم لدوري الرجبي على الكراسي المتحركة'
+    New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
 
     New_team_xo_team_labels["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
     New_team_xo_team_labels["youth xoxo world cup"] = "كأس العالم xoxo للشباب"

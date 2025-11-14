@@ -4,7 +4,6 @@ Comprehensive sport template dictionaries used throughout the project.
 """
 from typing import Final
 from ...helps import len_print
-from ..sports_formats_teams.team_job import sf_en_ar_is_p17
 from .Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 
 
@@ -16,10 +15,6 @@ SPORT_FORMTS_FEMALE_NAT = {}  # الإنجليزي جنسية والعربي ج�
 SPORT_FORMTS_EN_P17_AR_NAT = {}  # الإنجليزي إسم البلد والعربي جنسية
 SPORT_FORMTS_EN_AR_IS_P17 = {}  # الإنجليزي إسم البلد والعربي يكون اسم البلد
 SPORT_FORMTS_NEW_KKK = {}  # الإنجليزي جنسية والعربي اسم البلد
-
-# مستخدمة في ملفات أخرى عبر هذا الملف
-
-SPORT_FORMTS_EN_AR_IS_P17.update(sf_en_ar_is_p17)
 
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة

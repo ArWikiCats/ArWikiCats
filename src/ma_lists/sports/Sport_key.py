@@ -112,6 +112,7 @@ def _generate_variants(records: Mapping[str, SportKeyRecord]) -> dict[str, Sport
     keys_to_wheelchair = [
         "sports",
         "basketball",
+        "rugby league",
         "rugby",
         "tennis",
         "handball",
