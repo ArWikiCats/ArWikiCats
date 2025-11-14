@@ -1,247 +1,198 @@
 {
     "zombie comedy": {
         "male": "كوميديا الزومبي",
-        "female": "كوميديا الزومبي",
-        "Q": "Q1747837"
+        "female": "كوميديا الزومبي"
     },
     "political cinema": {
         "male": "سينمائي سياسي",
-        "female": "سينما سياسية",
-        "Q": ""
+        "female": "سينما سياسية"
     },
     "comic science fiction": {
         "male": "خيال علمي كوميدي",
-        "female": "خيالية علمية كوميدية",
-        "Q": ""
+        "female": "خيالية علمية كوميدية"
     },
     "legal thriller": {
         "male": "إثارة قانوني",
-        "female": "إثارة قانونية",
-        "Q": "Q2490520"
+        "female": "إثارة قانونية"
     },
     "detective fiction": {
         "male": "خيال بوليسي",
-        "female": "خيالية بوليسية",
-        "Q": "Q186424"
+        "female": "خيالية بوليسية"
     },
     "legal drama": {
         "male": "دراما قانوني",
-        "female": "دراما قانونية",
-        "Q": "Q643873"
+        "female": "دراما قانونية"
     },
     "magical girl": {
         "male": "فتاة ساحرة",
-        "female": "فتاة ساحرة",
-        "Q": ""
+        "female": "فتاة ساحرة"
     },
     "animated short": {
         "male": "رسوم متحركة قصير",
-        "female": "رسوم متحركة قصيرة",
-        "Q": "Q17517379"
+        "female": "رسوم متحركة قصيرة"
     },
     "travel documentary": {
         "male": "وثائقي سفر",
-        "female": "وثائقي سفر",
-        "Q": "Q2670855"
+        "female": "وثائقي سفر"
     },
     "supernatural drama": {
         "male": "دراما خارقة للطبيعة",
-        "female": "دراما خارقة للطبيعة",
-        "Q": "Q3634883"
+        "female": "دراما خارقة للطبيعة"
     },
     "speculative fiction": {
         "male": "خيال تأملي",
-        "female": "خيالية تأملية",
-        "Q": "Q2973181"
+        "female": "خيالية تأملية"
     },
     "science fantasy": {
         "male": "فنتازيا علمي",
-        "female": "فنتازيا علمية",
-        "Q": ""
+        "female": "فنتازيا علمية"
     },
     "science fiction": {
         "male": "خيال علمي",
-        "female": "خيال علمي",
-        "Q": "Q471839"
+        "female": "خيال علمي"
     },
     "science fiction action": {
         "male": "خيال علمي وحركة",
-        "female": "خيال علمي وحركة",
-        "Q": "Q20656232"
+        "female": "خيال علمي وحركة"
     },
     "political thriller": {
         "male": "إثارة سياسي",
-        "female": "إثارة سياسية",
-        "Q": "Q622291"
+        "female": "إثارة سياسية"
     },
     "political fiction": {
         "male": "خيال سياسي",
-        "female": "خيالية سياسية",
-        "Q": "Q2254211"
+        "female": "خيالية سياسية"
     },
     "criminal comedy": {
         "male": "كوميديا الجريمة",
-        "female": "كوميديا الجريمة",
-        "Q": ""
+        "female": "كوميديا الجريمة"
     },
     "romantic comedy": {
         "male": "كوميديا رومانسي",
-        "female": "كوميديا رومانسية",
-        "Q": "Q860626"
+        "female": "كوميديا رومانسية"
     },
     "musical comedy": {
         "male": "كوميديا موسيقي",
-        "female": "كوميديا موسيقية",
-        "Q": "Q1548170"
+        "female": "كوميديا موسيقية"
     },
     "european art cinema": {
         "male": "السينما الفنية الأوروبية",
-        "female": "السينما الفنية الأوروبية",
-        "Q": "Q5413472"
+        "female": "السينما الفنية الأوروبية"
     },
     "comedy drama": {
         "male": "كوميديا درامية",
-        "female": "كوميديا درامية",
-        "Q": "Q859369"
+        "female": "كوميديا درامية"
     },
     "comedy fiction": {
         "male": "كوميديا خيال",
-        "female": "كوميديا خيالية",
-        "Q": ""
+        "female": "كوميديا خيالية"
     },
     "comedy thriller": {
         "male": "كوميديا إثارة",
-        "female": "كوميديا إثارة",
-        "Q": "Q16950433"
+        "female": "كوميديا إثارة"
     },
     "comedy horror": {
         "male": "كوميدي رعب",
-        "female": "كوميدية رعب",
-        "Q": "Q224700"
+        "female": "كوميدية رعب"
     },
     "action comedy": {
         "male": "حركي كوميدي",
-        "female": "حركة كوميدية",
-        "Q": "Q2678111"
+        "female": "حركة كوميدية"
     },
     "japanese horror": {
         "male": "رعب ياباني",
-        "female": "رعب يابانية",
-        "Q": "Q2584671"
+        "female": "رعب يابانية"
     },
     "martial arts": {
         "male": "فنون قتالية",
-        "female": "فنون قتالية",
-        "Q": "Q1033891"
+        "female": "فنون قتالية"
     },
     "magic realism": {
         "male": "واقعية سحرية",
-        "female": "واقعية سحرية",
-        "Q": "Q147516"
+        "female": "واقعية سحرية"
     },
     "nature documentary": {
         "male": "وثائقي بري",
-        "female": "وثائقية برية",
-        "Q": "Q1760864"
+        "female": "وثائقية برية"
     },
     "psychological thriller": {
         "male": "إثارة نفسية",
-        "female": "إثارة نفسية",
-        "Q": "Q590103"
+        "female": "إثارة نفسية"
     },
     "crime-comedy": {
         "male": "جنائي كوميدي",
-        "female": "جنائية كوميدية",
-        "Q": "Q1788980"
+        "female": "جنائية كوميدية"
     },
     "crime comedy": {
         "male": "جنائي كوميدي",
-        "female": "جنائية كوميدية",
-        "Q": "Q1788980"
+        "female": "جنائية كوميدية"
     },
     "crime thriller": {
         "male": "إثارة وجريمة",
-        "female": "إثارة وجريمة",
-        "Q": "Q19367312"
+        "female": "إثارة وجريمة"
     },
     "psychological horror": {
         "male": "رعب نفسي",
-        "female": "رعب نفسي",
-        "Q": ""
+        "female": "رعب نفسي"
     },
     "action thriller": {
         "male": "إثارة حركي",
-        "female": "إثارة حركة",
-        "Q": "Q3990883"
+        "female": "إثارة حركة"
     },
     "erotic thriller": {
         "male": "إثارة جنسي",
-        "female": "إثارة جنسية",
-        "Q": "Q2439025"
+        "female": "إثارة جنسية"
     },
     "silent short": {
         "male": "قصير صامت",
-        "female": "قصيرة صامته",
-        "Q": "Q20667187"
+        "female": "قصيرة صامته"
     },
     "animated feature": {
         "male": "",
-        "female": "",
-        "Q": "Q29168811"
+        "female": ""
     },
     "blaxploitation horror": {
         "male": "",
-        "female": "",
-        "Q": "Q4925568"
+        "female": ""
     },
     "computer-animated": {
         "male": "حركي حاسوبي",
-        "female": "حركة حاسوبية",
-        "Q": "Q28968258"
+        "female": "حركة حاسوبية"
     },
     "finnish horror": {
         "male": "",
-        "female": "",
-        "Q": "Q23044991"
+        "female": ""
     },
     "gothic horror": {
         "male": "",
-        "female": "",
-        "Q": "Q5769663"
+        "female": ""
     },
     "live-action/animated": {
         "male": "",
-        "female": "",
-        "Q": "Q25110269"
+        "female": ""
     },
     "mafia comedy": {
         "male": "",
-        "female": "",
-        "Q": "Q6729489"
+        "female": ""
     },
     "popular-science": {
         "male": "",
-        "female": "",
-        "Q": "Q3648909"
+        "female": ""
     },
     "screwball comedy": {
         "male": "",
-        "female": "",
-        "Q": "Q248583"
+        "female": ""
     },
     "sex report": {
         "male": "",
-        "female": "",
-        "Q": "Q2145099"
+        "female": ""
     },
     "stop-motion animated": {
         "male": "",
-        "female": "",
-        "Q": "Q18089587"
+        "female": ""
     },
     "traditionally animated": {
         "male": "",
-        "female": "",
-        "Q": "Q28968511"
+        "female": ""
     }
 }
