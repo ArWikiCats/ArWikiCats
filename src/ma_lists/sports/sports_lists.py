@@ -102,7 +102,7 @@ AFTER_KEYS: Final[dict[str, str]] = {
 }
 
 
-def _extend_suffix_mappings() -> None:
+def _extend_suffix_mappings() -> tuple[dict[str, str], dict[str, str]]:
     """Populate ``AFTER_KEYS_TEAM`` and ``AFTER_KEYS_NAT`` with variants."""
 
     # Templates used when building team specific suffixes.
