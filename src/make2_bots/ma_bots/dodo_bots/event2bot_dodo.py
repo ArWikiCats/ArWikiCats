@@ -6,28 +6,24 @@ from .event2bot_dodo import make_lab_dodo
 """
 
 import re
-from ...matables_bots.bot import safo, titttto
 from ....fix import fixtitle
 from ...date_bots import year_lab
-from ...format_bots import Tit_ose_Nmaes, NewFormat
-from ....ma_lists import Nat_mens
+from ...format_bots import Tit_ose_Nmaes
+from ....ma_lists import Nat_mens, typeTable
 from ...matables_bots.bot import (
     New_Lan,
     Films_O_TT,
-    typeTable,
 )
 from ...matables_bots.check_bot import check_key_new_players
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from ..country_bot import get_country
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
 from ....helps.print_bot import print_put, output_test
 from ....utils import check_key_in_tables
+from .reg_result import get_reg_result
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-
-tita_other = r"\s*(" + safo + r"|)\s*(" + titttto + r"|)\s*(.*|).*"
 
 type_after_country = ["non-combat"]
 
@@ -36,7 +32,6 @@ def make_lab_dodo(
     _category_: str,
     category3: str,
     category: str,
-    cat_test: str,
     category_r: str,
 ) -> str:
     """
@@ -44,54 +39,22 @@ def make_lab_dodo(
     and years.
     """
     # ---
-    Tita_year = tita_year
+    cat_test = category3
     # ---
-    test_month = re.sub(ddd, "", category.lower())
+    result = get_reg_result(category, _category_, category3, cat_test)
     # ---
-    if test_month == category:
-        Tita_year = tita_year_no_month
+    year = result.year
+    typeo = result.typeo
+    In = result.In
+    country = result.country
+    cat_test = result.cat_test
     # ---
-    Add_In_Done = False
-    NoLab = False
-    # ---
-    reg_line_1 = tita + tita_other
-    reg_line_1 = reg_line_1.lower()
-    # ---
-    category2 = category.lower()
-    if category2.startswith("category:"):
-        category2 = category2[len("category:") :]
-    # ---
-    year = re.sub(Tita_year, r"\g<1>\g<2>", _category_)
-    typeo = re.sub(reg_line_1, r"\g<3>", _category_)
-    # ---
-    if year == _category_ or year == category3:
-        year = ""
-    elif year and _category_.startswith("category:" + year):
-        cat_test = cat_test.replace(year.lower(), "")
-        tita_n = "category:" + year + tita_other
-        typeo = re.sub(tita_n, r"\g<1>", _category_)
-
-    if typeo == _category_ or typeo == category3:
-        typeo = ""
-    # ---
-    In = re.sub(reg_line_1, r"\g<4>", _category_)
-    # ---
-    if In == _category_ or In == category3:
-        In = ""
-    # ---
-    country = re.sub(reg_line_1, r"\g<5>", _category_)
-    # ---
-    if country == _category_ or country == category3:
-        country = ""
-
-    if In.strip() == "by":
-        country = f"by {country}"
-
     country_not_lower = country
-    country = country.lower()
-    print_put(f'>>>> year:"{year}", typeo:"{typeo}", In:"{In}", country:"{country}"')
+    country_lower = country.lower()
+    # ---
+    print_put(f'>>>> year:"{year}", typeo:"{typeo}", In:"{In}", country_lower:"{country_lower}"')
+    # ---
     arlabel = ""
-    year_labe = ""
     suf = ""
     typeo_lab = ""
 
@@ -113,23 +76,25 @@ def make_lab_dodo(
 
     country_label = ""
 
-    if country:
-        country_label = get_pop_All_18(country, "")
+    if country_lower:
+        country_label = get_pop_All_18(country_lower, "")
 
         if not country_label:
             country_label = get_country(country_not_lower)
 
-        if country_label == "" and category3 == year + " " + country:
-            country_label = Nat_mens.get(country, "")
+        if country_label == "" and category3 == year + " " + country_lower:
+            country_label = Nat_mens.get(country_lower, "")
             if country_label:
                 country_label = country_label + " في"
                 print_put("a<<lightblue>>>2021 cnt_la == %s" % country_label)
 
         if country_label:
             cat_test = cat_test.lower()
-            cat_test = cat_test.replace(country.lower(), "")
+            cat_test = cat_test.replace(country_lower.lower(), "")
             print_put("a<<lightblue>>>cnt_la : %s" % country_label)
 
+    Add_In_Done = False
+    year_labe = ""
     if year:
         year_labe = year_lab.make_year_lab(year)
         if year_labe:
@@ -143,7 +108,7 @@ def make_lab_dodo(
                 Add_In = False
                 Add_In_Done = True
 
-    if not (country != "" and country_label == "") and not (year != "" and year_labe == ""):
+    if not (country_lower != "" and country_label == "") and not (year != "" and year_labe == ""):
         if not (typeo != "" and typeo_lab == ""):
             if In.strip():
                 if In.strip() in Tit_ose_Nmaes and Tit_ose_Nmaes[In.strip()].strip() in arlabel:
@@ -157,17 +122,19 @@ def make_lab_dodo(
     output_test('<<lightblue>>>>>> cat_test, : "%s" ' % cat_test)
     cat_test3 = cat_test
 
+    NoLab = False
+    # ---
     if (year == "" or year_labe == "") and cat_test.strip():
         NoLab = True
         print_put("year == " ' or year_labe == ""')
-    elif country == "" and In == "":
-        print_put('a<<lightblue>>>>>> country == "" and In ==  "" ')
+    elif country_lower == "" and In == "":
+        print_put('a<<lightblue>>>>>> country_lower == "" and In ==  "" ')
         arlabel = re.sub(r" ", " ", arlabel)
         if suf:
             arlabel = arlabel + " " + suf
         arlabel = re.sub(r"\s+", " ", arlabel)
-        output_test("a<<lightblue>>>>>> No country.")
-    elif country:
+        output_test("a<<lightblue>>>>>> No country_lower.")
+    elif country_lower:
         if country_label:
             cat_test, arlabel = new_func_mk2(
                 category,
@@ -175,7 +142,7 @@ def make_lab_dodo(
                 year,
                 typeo,
                 In,
-                country,
+                country_lower,
                 arlabel,
                 year_labe,
                 suf,
@@ -184,7 +151,7 @@ def make_lab_dodo(
                 Add_In_Done,
             )
         else:
-            print_put('a<<lightblue>>>>>> Cant id country : "%s" ' % country)
+            print_put('a<<lightblue>>>>>> Cant id country_lower : "%s" ' % country_lower)
     else:
         print_put("a<<lightblue>>>>>> No label.")
         NoLab = True
@@ -206,14 +173,17 @@ def make_lab_dodo(
             print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
             print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
+    category2 = category[len("category:") :] if category.lower().startswith("category:") else category
+    category2 = category2.lower()
+
     if cat_test != cat_test3:
         output_test('<<lightgreen>>>>>> cat_test : "%s" ' % cat_test)
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
     if not cat_test.strip():
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
-    elif cat_test == country.lower() or (cat_test == "in " + country.lower()):
+    elif cat_test == country_lower or (cat_test == "in " + country_lower):
         output_test("<<lightgreen>>>>>> cat_test False.. ")
-        output_test('<<lightblue>>>>>> cat_test = country : "%s" ' % country)
+        output_test('<<lightblue>>>>>> cat_test = country_lower : "%s" ' % country_lower)
         NoLab = True
     elif cat_test.lower() == category2.lower():
         output_test("<<lightblue>>>>>> cat_test = category2 ")
@@ -223,19 +193,10 @@ def make_lab_dodo(
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
         NoLab = True
 
+    cat4_lab = work_2019(category3, year, year_labe) if year and year_labe else ""
+
     if NoLab and year and year_labe:
-        formatt = category.lower()
-        formatt = re.sub(r"category:", "", formatt)
-        formatt = re.sub(r"_", " ", formatt)
-        formatt = re.sub(year, "###", formatt)
-
-        if formatt in NewFormat:
-            print_put('<<lightgreen>>>>>> formatt:"%s" in NewFormat. ' % formatt)
-            NoLab = False
-            arlabel = re.sub(r"###", year_labe, NewFormat[formatt])
-            print_put('<<lightgreen>>>>>> New formatt lab :"%s" ' % arlabel)
-
-        cat4_lab = work_2019(category3, year, year_labe)
+        # cat4_lab = work_2019(category3, year, year_labe)
         if cat4_lab:
             New_Lan[category_r] = cat4_lab
 

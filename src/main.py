@@ -66,7 +66,7 @@ def event(
     _summarise_labels(labels, printfirst)
 
     if no_labels and not return_no_labs:
-        printe.output(f"a<<lightred>>> {len(no_labels)} cat in NoLab_list ")
+        printe.output(f"a<<lightred>>> {len(no_labels)} cat in no_labels ")
         for idx, cat in enumerate(no_labels, start=1):
             printe.output(f'  {idx}:  "{cat}" : "",')
 

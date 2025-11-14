@@ -5,7 +5,6 @@ from .dodo_bots.dodo_2019 import work_2019
 # cat4_lab = work_2019(category3, year, year_labe)
 
 """
-
 import re
 from ...matables_bots.check_bot import check_key_new_players
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
@@ -14,17 +13,31 @@ from ..country_bot import get_country
 
 
 def work_2019(category3: str, year: str, year_labe: str) -> str:
-    """Process category data for the year 2019."""
-
+    """
+    Process category data.
+    example:
+        input:
+            category3: "18th century dutch explorers
+            year: "18th century
+            year_labe: "القرن 18
+        result:
+            "مستكشفون هولنديون في القرن 18
+    """
+    # ---
     print_put(f'<<lightyellow>>>> ============ start work_2019 :"{category3}", year:"{year}" ============ ')
+    # ---
     cat_4 = re.sub(rf"{year}\s*(.*)$", r"\g<1>", category3)
+    # ---
     cat_4 = cat_4.strip()
+    # ---
     print_put(f'<<lightgreen>>>>>> 2019: NoLab and year, cat_4="{cat_4}"')
     cat4_lab = get_pop_All_18(cat_4, "")
+    # ---
     if not cat4_lab:
         cat4_lab = get_country(cat_4)
-
+    # ---
     arlabel = ""
+    # ---
     if cat4_lab:
         print_put(f'<<lightgreen>>>>>> cat4_lab = "{cat4_lab}"')
         # ---

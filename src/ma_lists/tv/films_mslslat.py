@@ -57,18 +57,6 @@ Films_TT = {}
 Films_key_multi = {}
 Films_key_both = {}
 # ---
-type_Table_no = {}
-type_Table_no["cycling race winners"] = "فائزون في سباق الدراجات"
-type_Table_no["films"] = "أفلام"
-type_Table_no["short films"] = "أفلام قصيرة"
-# ---
-typeTable_4 = {
-    "interactive fiction": {"ar": "الخيال التفاعلي", "Q": ""},
-    "american comedy television series": {"ar": "مسلسلات تلفزيونية أمريكية", "Q": ""},
-    "american television series": {"ar": "مسلسلات تلفزيونية أمريكية كوميدية", "Q": ""},
-    "comedy television series": {"ar": "مسلسلات تلفزيونية كوميدية", "Q": ""},
-}
-# ---
 Films_Key_for_mat2 = {
     "television-series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
     "television-series endings": "مسلسلات تلفزيونية {} انتهت في",
@@ -78,9 +66,6 @@ Films_Key_for_mat2 = {
     "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
     "television series endings": "مسلسلات تلفزيونية {} انتهت في",
 }
-# ---
-# for x2a in typeTable_4:
-# Films_TT[x2a] =typeTable_4[x2a]["ar"]
 # ---
 film_key_women_2 = {
     "video games": "ألعاب فيديو",
@@ -166,19 +151,12 @@ Films_key_For_nat["remakes of {} films"] = f"أفلام {nat_key_f} معاد إ�
 for ff in television_keys:
     la_b = television_keys[ff]
     Films_key_CAO[ff] = la_b
-    type_Table_no[f"{ff} debuts"] = f"{la_b} بدأ عرضها في"
-    type_Table_no[f"{ff} revived after cancellation"] = f"{la_b} أعيدت بعد إلغائها"
-    type_Table_no[f"{ff} endings"] = f"{la_b} انتهت في"
     Films_key_CAO[f"{ff} characters"] = f"شخصيات {la_b}"
 
     Films_key_CAO[f"{ff} title cards"] = f"بطاقات عنوان {la_b}"
     Films_key_CAO[f"{ff} video covers"] = f"أغلفة فيديو {la_b}"
     Films_key_CAO[f"{ff} posters"] = f"ملصقات {la_b}"
     Films_key_CAO[f"{ff} images"] = f"صور {la_b}"
-    # ---
-    if ff.lower() in debuts_endings_key:
-        type_Table_no[f"{ff}-debuts"] = f"{la_b} بدأ عرضها في"
-        type_Table_no[f"{ff}-endings"] = f"{la_b} انتهت في"
 # ---
 for ke, ke_lab in film_Keys_For_female.items():
     # ---
@@ -281,10 +259,6 @@ Films_key_CAO["lgbtqrelated films"] = "أفلام {} متعلقة بإل جي ب
 Films_key_CAO_new_format = {}
 Films_key_CAO_new_format["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO_new_format["lgbtqrelated films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
-# ---
-for uu, uu_tab in type_Table_no.items():
-    if uu_tab:
-        typeTable_4[uu] = {"ar": uu_tab, "Q": ""}
 # ---
 tabe_2 = copy.deepcopy(Films_keys_male_female)
 # ---
