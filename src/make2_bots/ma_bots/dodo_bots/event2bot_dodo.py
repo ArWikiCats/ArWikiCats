@@ -29,9 +29,6 @@ type_after_country = ["non-combat"]
 
 
 def make_lab_dodo(
-    _category_: str,
-    category3: str,
-    category: str,
     category_r: str,
 ) -> str:
     """
@@ -39,6 +36,18 @@ def make_lab_dodo(
     and years.
     """
     # ---
+    # ---
+    category = category_r.replace("−century", " century").replace("–century", " century")
+    # ---
+    if not category.lower().startswith("category:"):
+        category = f"Category:{category}"
+
+    _category_ = category
+    _category_ = re.sub(r"-century", " century", _category_)
+    _category_ = re.sub(r"-millennium", " millennium", _category_)
+    _category_ = _category_.lower()
+    category3 = re.sub(r"category:", "", _category_, flags=re.IGNORECASE)
+
     cat_test = category3
     # ---
     result = get_reg_result(category, _category_, category3, cat_test)
