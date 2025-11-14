@@ -15,7 +15,6 @@ from ...matables_bots.bot import (
     New_Lan,
     Films_O_TT,
     typeTable,
-    type_after_country,
 )
 from ...matables_bots.check_bot import check_key_new_players
 from .dodo_2019 import work_2019
@@ -29,6 +28,8 @@ from ....utils import check_key_in_tables
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 tita_other = r"\s*(" + safo + r"|)\s*(" + titttto + r"|)\s*(.*|).*"
+
+type_after_country = ["non-combat"]
 
 
 def make_lab_dodo(
