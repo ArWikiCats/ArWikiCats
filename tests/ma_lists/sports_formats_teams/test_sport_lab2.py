@@ -20,10 +20,27 @@ data = {
 
     "Wheelchair rugby league competitions": "منافسات دوري رجبي على كراسي متحركة",
     "Wheelchair rugby league teams": "فرق دوري رجبي على كراسي متحركة",
-
     "Wheelchair Rugby League World Cup": "كأس العالم لدوري الرجبي على الكراسي المتحركة",
     "Wheelchair Rugby League finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
     "Wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
+
+    "rugby league competitions": "منافسات دوري رجبي",
+    "rugby league teams": "فرق دوري رجبي",
+    "Rugby League World Cup": "كأس العالم لدوري الرجبي",
+    "Rugby League finals": "نهائيات دوري الرجبي",
+    "rugby league league": "دوري دوري الرجبي",
+
+    "rugby competitions": "منافسات رجبي",
+    "rugby teams": "فرق رجبي",
+    "Rugby World Cup": "كأس العالم للرجبي",
+    "Rugby finals": "نهائيات الرجبي",
+    "rugby": "الرجبي",
+
+    "Wheelchair rugby competitions": "منافسات رجبي على كراسي متحركة",
+    "Wheelchair rugby teams": "فرق رجبي على كراسي متحركة",
+    "Wheelchair Rugby World Cup": "كأس العالم للرجبي على الكراسي المتحركة",
+    "Wheelchair Rugby finals": "نهائيات الرجبي على الكراسي المتحركة",
+
     "world junior rugby championships": "بطولة العالم للرجبي للناشئين",
     "world junior basketball championships": "بطولة العالم لكرة السلة للناشئين",
     "world Handball junior championship": "بطولة العالم لكرة اليد للناشئين",

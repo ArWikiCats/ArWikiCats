@@ -41,6 +41,9 @@ def test_keys_to_pattern_empty():
     ("men's football players", "football"),
     ("women's basketball coaches", "basketball"),
     ("youth snooker records", "snooker"),
+    ("rugby league World Cup", "rugby league"),
+    ("wheelchair rugby league World Cup", "wheelchair rugby league"),
+    ("rugby league World Cup", "rugby league"),
     ("unknown sport category", ""),
 ])
 def test_match_key(bot, category, expected):
@@ -63,14 +66,14 @@ def test_normalize_category(bot, category, sport_key, expected):
     assert normalized == expected
 
 
-# --- get_template_label -----------------------------------------------
-def test_get_template_label_found(bot):
-    label = bot.get_template_label("football", "men's football players")
+# --- get_template -----------------------------------------------
+def test_get_template_found(bot):
+    label = bot.get_template("football", "men's football players")
     assert "لاعبو كرة قدم رجالية" in label or label != ""
 
 
-def test_get_template_label_not_found(bot):
-    label = bot.get_template_label("football", "unrelated term")
+def test_get_template_not_found(bot):
+    label = bot.get_template("football", "unrelated term")
     assert label == ""
 
 

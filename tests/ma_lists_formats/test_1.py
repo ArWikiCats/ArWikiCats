@@ -76,18 +76,18 @@ def test_normalize_category(category, sport_key, expected, sample_data):
     assert bot.normalize_category(category, sport_key).lower() == expected.lower()
 
 
-# --- get_template_label ----------------------------------------------
-def test_get_template_label_found(sample_data):
+# --- get_template ----------------------------------------------
+def test_get_template_found(sample_data):
     formated_data, data_list = sample_data
     bot = FormatData(formated_data, data_list)
-    label = bot.get_template_label("football", "men's football world cup")
+    label = bot.get_template("football", "men's football world cup")
     assert label == "كأس العالم للرجال في xoxo"
 
 
-def test_get_template_label_not_found(sample_data):
+def test_get_template_not_found(sample_data):
     formated_data, data_list = sample_data
     bot = FormatData(formated_data, data_list)
-    assert bot.get_template_label("football", "unknown text") == ""
+    assert bot.get_template("football", "unknown text") == ""
 
 
 # --- search ----------------------------------------------------------
