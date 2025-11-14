@@ -31,15 +31,15 @@ def find_jobs_bot(category: str, default: str="") -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def wrap_team_xo_normal_2025(team: str):
+def wrap_team_xo_normal_2025_for_tests(team: str):
     # ---
     team = team.lower().replace("category:", "")
     # ---
     result = find_labels_bot(team) or find_teams_bot(team) or find_jobs_bot(team) or ""
     # ---
-    return result
+    return result.strip()
 
 
 __all__ = [
-    "wrap_team_xo_normal_2025",
+    "wrap_team_xo_normal_2025_for_tests",
 ]

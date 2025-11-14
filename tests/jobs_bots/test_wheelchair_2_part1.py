@@ -50,10 +50,7 @@ data = {
     "Category:Japanese wheelchair tennis players": "تصنيف:لاعبو كرة مضرب على كراسي متحركة يابانيون",
     "Category:Kuwaiti wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة كويتيون",
     "Category:Latvian wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة لاتفيون",
-    "Category:National wheelchair basketball teams": "تصنيف:منتخبات كرة سلة على كراسي متحركة وطنية",
-    "Category:National wheelchair handball teams": "تصنيف:منتخبات كرة يد على كراسي متحركة وطنية",
     "Category:National wheelchair rugby league teams": "تصنيف:فرق دوريات رجبي على كراسي متحركة وطنية",
-    "Category:National wheelchair rugby teams": "تصنيف:منتخبات رجبي على كراسي متحركة وطنية",
     "Category:Norwegian wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة نرويجيون",
 }
 
@@ -117,8 +114,6 @@ mens_womens = {
     "Category:Kuwaiti men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة رجالية كويتيون",
     "Category:Men's wheelchair basketball players by nationality": "تصنيف:لاعبو كرة سلة على كراسي متحركة رجالية حسب الجنسية",
     "Category:Men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة رجالية",
-    "Category:National men's wheelchair basketball teams": "تصنيف:منتخبات كرة سلة على كراسي متحركة وطنية للرجال",
-    "Category:National women's wheelchair basketball teams": "تصنيف:منتخبات كرة سلة على كراسي متحركة وطنية للسيدات",
 }
 
 

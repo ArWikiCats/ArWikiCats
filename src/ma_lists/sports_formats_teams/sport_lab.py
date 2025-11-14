@@ -7,14 +7,13 @@
 import re
 
 from .sport_lab_with_nat import Get_New_team_xo_with_nat
-from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs
-from .te3 import New_team_xo_team_labels
-from .sport_lab2 import wrap_team_xo_normal_2025
+from .team_job import sport_formts_enar_p17_jobs
+from .sport_lab2 import wrap_team_xo_normal_2025_for_tests
 from ..utils.match_sport_keys import match_sport_key
 from ..utils import apply_pattern_replacement
 from ..sports import SPORT_FORMTS_ENAR_P17_TEAM
-from ..sports.Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_JOBS
-from ...helps.print_bot import print_put, output_test
+from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_JOBS
+from ...helps.print_bot import print_put
 
 
 def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
@@ -62,50 +61,6 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p1
     return con_3_label
 
 
-def Get_New_team_xo_normal(normalized_team: str, sport_key: str) -> str:
-    # ---
-    team_lab = ""
-    # ---
-    # team_xo = re.sub(sport_key , 'xoxo' , team_xo, flags=re.IGNORECASE)
-    # ---
-    print_put(f'Get_Sport Get_New_team_xo_normal P17, sport_key:"{sport_key}", team_xo:"{normalized_team}"')
-    # ---
-    sport_label = ""
-    template_label = ""
-    sport_label_source = {}
-    # ---
-    if normalized_team in New_team_xo_team_labels:
-        # TTTY = "team"
-        template_label = New_team_xo_team_labels.get(normalized_team, "")
-        # sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key , "")
-        sport_label_source = SPORTS_KEYS_FOR_TEAM
-    # ---
-    elif normalized_team in New_team_xo_jobs:
-        # TTTY = "jobs"
-        template_label = New_team_xo_jobs.get(normalized_team, "")
-        # sport_label = SPORTS_KEYS_FOR_JOBS.get(sport_key , "")
-        sport_label_source = SPORTS_KEYS_FOR_JOBS
-    # ---
-    elif normalized_team in New_team_xo_labels:
-        # TTTY = "labels"
-        template_label = New_team_xo_labels.get(normalized_team, "")
-        # sport_label = SPORTS_KEYS_FOR_LABEL.get(sport_key , "")
-        sport_label_source = SPORTS_KEYS_FOR_LABEL
-    # ---
-    if not sport_label_source:
-        return ""
-    # ---
-    sport_label = sport_label_source.get(sport_key, "")
-    # ---
-    if not sport_label:
-        output_test(f'Get_New_team_xo sp_lab == "" , for sport_key "{sport_key}" ')
-    # ---
-    if template_label and sport_label:
-        team_lab = apply_pattern_replacement(template_label, sport_label, "xoxo")
-    # ---
-    return team_lab
-
-
 def Get_New_team_xo(team: str) -> str:
     # ---
     # إيجاد تسميات نصوص رياضية مثل
@@ -126,7 +81,7 @@ def Get_New_team_xo(team: str) -> str:
     if not sport_key:
         return ""
     # ---
-    team_lab = wrap_team_xo_normal_2025(team)
+    team_lab = wrap_team_xo_normal_2025_for_tests(team)
     # ---
     if not team_lab:
         normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {team.strip()} ", flags=re.IGNORECASE).strip()
@@ -134,8 +89,6 @@ def Get_New_team_xo(team: str) -> str:
         # team_xo = re.sub(sport_key , 'xoxo' , team_xo, flags=re.IGNORECASE)
         # ---
         print_put(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{normalized_team}"')
-        # ---
-        # if not team_lab: team_lab = Get_New_team_xo_normal(normalized_team, sport_key)
         # ---
         if not team_lab:
             team_lab = Get_New_team_xo_with_nat(normalized_team, sport_key)
@@ -145,6 +98,5 @@ def Get_New_team_xo(team: str) -> str:
 
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
-    "Get_New_team_xo_normal",
     "Get_New_team_xo",
 ]
