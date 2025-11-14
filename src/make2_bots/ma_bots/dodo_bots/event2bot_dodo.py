@@ -36,7 +36,6 @@ def make_lab_dodo(
     and years.
     """
     # ---
-    # ---
     category = category_r.replace("−century", " century").replace("–century", " century")
     # ---
     if not category.lower().startswith("category:"):
