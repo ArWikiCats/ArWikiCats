@@ -163,7 +163,7 @@ wheelchair_sports = {
     "Category:Wheelchair tennis": "تصنيف:كرة المضرب على الكراسي المتحركة",
     "Category:Women's wheelchair basketball players by nationality": "تصنيف:لاعبات كرة سلة على كراسي متحركة نسائية حسب الجنسية",
     "Category:Women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة نسائية",
-    "Category:World wheelchair curling champions": "تصنيف:أبطال العالم الكيرلنغ على الكراسي المتحركة",
+    "Category:World wheelchair curling champions": "تصنيف:أبطال العالم للكيرلنغ على الكراسي المتحركة",
     "Category:Years in wheelchair rugby": "تصنيف:سنوات في الرجبي على الكراسي المتحركة",
 }
 

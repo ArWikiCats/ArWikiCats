@@ -81,6 +81,7 @@ if True:
 
         New_team_xo_team_labels[f"men's xoxo world {ioi}"] = "بطولة العالم xoxo للرجال"
         New_team_xo_team_labels[f"women's xoxo world {ioi}"] = "بطولة العالم xoxo للسيدات"
+        New_team_xo_team_labels[f"women's world xoxo {ioi}"] = "بطولة العالم xoxo للسيدات"
 
     # ---World champion national
     New_team_xo_team_labels["international xoxo council"] = "المجلس الدولي xoxo"
