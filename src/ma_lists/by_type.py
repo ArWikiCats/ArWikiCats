@@ -294,10 +294,10 @@ By_orginal2 = {
 }
 # ---
 """
-from .Sport_key import Sports_Keys_For_Label
-for ss in Sports_Keys_For_Label:#
+from .Sport_key import SPORTS_KEYS_FOR_LABEL
+for ss in SPORTS_KEYS_FOR_LABEL:#
     cd = "by %s team" % ss.lower()
-    By_table[cd] = f"حسب فريق {Sports_Keys_For_Label[ss]}"
+    By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
 # ---
 from .peoples import People_key
 for uh in People_key:#

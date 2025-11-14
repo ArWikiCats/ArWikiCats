@@ -10,7 +10,7 @@ from ..mixed.all_keys2 import pf_keys2
 from ..geo.labels_country import New_P17_Finall
 from ..tv.films_mslslat import films_mslslat_tab
 from ..jobs.Jobs import Jobs_new, jobs_mens_data
-from ..sports.Sport_key import Sports_Keys_For_Label
+from ..sports.Sport_key import SPORTS_KEYS_FOR_LABEL
 from ..sports.sub_teams_keys import sub_teams_new
 from ..by_type import By_table
 # from ..sports.teams_new_data import TEAMS_NEW
@@ -30,7 +30,7 @@ def load_pop_All_2018() -> Dict[str, str]:
         sub_teams_new,          # 12,134
         # TEAMS_NEW,            # 352,946
         New_P17_Finall,         # 62,671
-        Sports_Keys_For_Label,  # 672
+        SPORTS_KEYS_FOR_LABEL,  # 672
     ]
     for source in sources:
         for pla, value in source.items():

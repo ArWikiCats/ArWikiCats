@@ -30,17 +30,6 @@ def match_nat_key(category: str):
     return ""
 
 
-def match_nat_key_old(category: str):
-    # ---
-    match = RE_KEYS_OLD.search(f" {category} ")
-    # ---
-    if match:
-        return match.group(1)
-    # ---
-    return ""
-
-
 __all__ = [
-    "match_nat_key_old",
     "match_nat_key",
 ]

@@ -4,7 +4,7 @@
 """
 import functools
 from typing import Dict
-from ..sports.Sport_key import Sports_Keys_For_Jobs
+from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..sports.sports_lists import AFTER_KEYS
 from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ...ma_lists_formats.format_data import FormatData
@@ -46,12 +46,12 @@ def load_data() -> Dict[str, str]:
     """
     lazy load TEAMS_NEW
 
-    # result length: "count": 325907, "size": "7.3 MiB" ( Sports_Keys_New*1425  (223*1425))
+    # result length: "count": 325907, "size": "7.3 MiB" ( SPORT_KEY_RECORDS*1425  (223*1425))
     """
     # ---
     data = {}
     # ---
-    # 526 item per Sports_Keys_For_Jobs items
+    # 526 item per SPORTS_KEYS_FOR_JOBS items
     # ---
     sport = "{sport}"
     sport_label = "{sport_label}"
@@ -91,7 +91,7 @@ def load_data() -> Dict[str, str]:
 def load_class() -> FormatData:
     teams_2025 = load_data()
 
-    bot = FormatData(teams_2025, Sports_Keys_For_Jobs, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    bot = FormatData(teams_2025, SPORTS_KEYS_FOR_JOBS, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     return bot
 

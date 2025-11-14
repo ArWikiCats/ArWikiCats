@@ -1,18 +1,24 @@
 """
-from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs, sf_en_ar_is_p17
+from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs
 """
 
 import re
 from ...helps import len_print
-from ..sports.sports_lists import levels, AFTER_KEYS_NAT, New_Tato_nat
+from ..sports.sports_lists import levels, AFTER_KEYS_NAT, NEW_TATO_NAT
 
 # ---
-New_team_xo_jobs = {}
-New_team_xo_labels = {}
-sport_formts_enar_p17_jobs = {}
+New_team_xo_labels = {
+    "xoxo": "xoxo",
+    "xoxo league": "دوري xoxo",
+    "xoxo finals": "نهائيات xoxo",
+    "xoxo champions": "أبطال xoxo",
+    "olympics xoxo": "xoxo في الألعاب الأولمبية",
+    "summer olympics xoxo": "xoxo في الألعاب الأولمبية الصيفية",
+    "winter olympics xoxo": "xoxo في الألعاب الأولمبية الشتوية",
+}
 # ---
-# sf_en_ar_is_p17 لدمجها مع SPORT_FORMTS_EN_AR_IS_P17 في sports.py
-sf_en_ar_is_p17 = {}
+New_team_xo_jobs = {}
+sport_formts_enar_p17_jobs = {}
 # ---
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 1343 مدخلة
@@ -43,7 +49,6 @@ if True:
     sport_formts_enar_p17_jobs["winter olympics xoxo"] = "xoxo {} في الألعاب الأولمبية الشتوية"
     # ---
     sport_formts_enar_p17_jobs["xoxo manager history"] = "تاريخ مدربو xoxo {}"
-    # sf_en_ar_is_p17 replace by sport_formts_enar_p17_jobs :
     # ---
     # ---
     # tab[Category:Women's national football manager history navigational boxes] = "تصنيف:صناديق تصفح تاريخ مدربو منتخبات كرة قدم وطنية للسيدات"
@@ -68,11 +73,6 @@ if True:
     sport_formts_enar_p17_jobs["international men's xoxo players"] = "لاعبو xoxo دوليون من {}"
     sport_formts_enar_p17_jobs["men's international xoxo players"] = "لاعبو xoxo دوليون من {}"
     sport_formts_enar_p17_jobs["international xoxo players"] = "لاعبو xoxo دوليون من {}"
-    # ---
-    # ---SPORT_FORMTS_ENAR_P17_TEAM
-    New_team_xo_labels["olympics xoxo"] = "xoxo في الألعاب الأولمبية"
-    New_team_xo_labels["summer olympics xoxo"] = "xoxo في الألعاب الأولمبية الصيفية"
-    New_team_xo_labels["winter olympics xoxo"] = "xoxo في الألعاب الأولمبية الشتوية"
     # ---
     New_team_xo_jobs["grand slam (xoxo) tournaments"] = "بطولات xoxo كبرى"
     New_team_xo_jobs["grand slam (xoxo) tournament champions"] = "أبطال بطولات xoxo كبرى"
@@ -168,7 +168,7 @@ if True:
     New_team_xo_jobs["men's xoxo teams"] = "فرق xoxo رجالية"
     New_team_xo_jobs["national men's xoxo teams"] = "منتخبات xoxo وطنية رجالية"
     # ---
-    for ty_nat, tas in New_Tato_nat.items():
+    for ty_nat, tas in NEW_TATO_NAT.items():
         tas = tas.strip()
         # ---
         Ar_labs_3 = f"منتخبات xoxo وطنية {tas.format(nat='').strip()}"
@@ -192,21 +192,12 @@ if True:
             elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
             # ---
-            Abteams = f"{ty_nat} xoxo teams {pr_e}".strip()
-            Ab_ar2 = pr_e_Lab.format(lab=Ar_labs_3)
-            New_team_xo_jobs[Abteams] = Ab_ar2
+            New_team_xo_jobs[f"{ty_nat} xoxo teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs_3)
             # ---
-            Ableague = f"{ty_nat} xoxo leagues {pr_e}".strip()
-            Ab_arleague = pr_e_Lab.format(lab=Ar_labs_league)
-            New_team_xo_jobs[Ableague] = Ab_arleague
+            New_team_xo_jobs[f"{ty_nat} xoxo leagues {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs_league)
             # ---
-            Ar_labs2 = "فرق xoxo"  # .strip()
-            Ar_labs2 = Ar_labs2 + " " + tas.format(nat="").strip()
-            en_labs = f"{ty_nat.strip()} xoxo teams"
-            en_labs = en_labs.strip()
-            if "national" not in en_labs:
-                New_team_xo_jobs[en_labs] = Ar_labs2.strip()
-                sf_en_ar_is_p17[en_labs] = Ar_labs2.strip()
+            if "national" not in ty_nat:
+                New_team_xo_jobs[f"{ty_nat.strip()} xoxo teams"] = "فرق xoxo " + tas.format(nat="").strip()
 
     # ---
     for level, lvl_lab in levels.items():

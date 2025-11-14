@@ -4,7 +4,7 @@ from ..p17_bots import nats
 
 import re
 from ...ma_lists import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key
-from ...ma_lists import Sports_Keys_For_Team
+from ...ma_lists import SPORTS_KEYS_FOR_TEAM
 from ..matables_bots.bot import add_to_new_players
 from ... import malists_sport_lab as sport_lab
 from ...ma_lists import All_Nat, Nat_women
@@ -43,9 +43,9 @@ def make_sport_formats_p17(category_key: str) -> str:
     )
 
     if placeholder_key in NAT_P17_OIOI:
-        sport_label = Sports_Keys_For_Team.get(sport_key, "")
+        sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
         if not sport_label:
-            logger.debug(f' sport_key:"{sport_key}" not in Sports_Keys_For_Team ')
+            logger.debug(f' sport_key:"{sport_key}" not in SPORTS_KEYS_FOR_TEAM ')
         placeholder_template = NAT_P17_OIOI[placeholder_key]
         if placeholder_template and sport_label:
             formatted_label = placeholder_template.replace("oioioi", sport_label)

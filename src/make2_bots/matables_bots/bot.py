@@ -19,7 +19,7 @@ from ...ma_lists import (
     FILM_PRODUCTION_COMPANY,
     Jobs_new,
     jobs_mens_data,
-    Sports_Keys_For_Label,
+    SPORTS_KEYS_FOR_LABEL,
     By_table,
     ADD_IN_TABLE2,
     People_key,
@@ -255,9 +255,9 @@ for x in all_country_with_nat:
 Lang_line = f"{'|'.join(languages_pop.keys())}|"
 
 # ---
-for ss in Sports_Keys_For_Label:  #
+for ss in SPORTS_KEYS_FOR_LABEL:  #
     cd = f"by {ss.lower()} team"
-    By_table[cd] = f"حسب فريق {Sports_Keys_For_Label[ss]}"
+    By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
 
 for uh in People_key:  #
     By_table[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"

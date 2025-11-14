@@ -1,96 +1,215 @@
 #!/usr/bin/python3
 """
-
-Usage:
+Build lookup tables for translating sport related keys.
 """
 
-# ---
+from dataclasses import dataclass
+from typing import Final, Mapping, MutableMapping, TypedDict
+
 from ..utils.json_dir import open_json_file
 from ...helps import len_print
+from ...helps.log import logger
 
-Sports_Keys_New = open_json_file("Sports_Keys_New") or {}
-# ---
-Sports_Keys_New = {x: v for x, v in Sports_Keys_New.items() if not v.get("ignore")}
-# ---
-Sports_Keys_New["kick boxing"] = Sports_Keys_New["kickboxing"]
-Sports_Keys_New["sport climbing"] = Sports_Keys_New["climbing"]
-Sports_Keys_New["aquatic sports"] = Sports_Keys_New["aquatics"]
-Sports_Keys_New["shooting"] = Sports_Keys_New["shooting sport"]
-Sports_Keys_New["motorsports"] = Sports_Keys_New["motorsport"]
-Sports_Keys_New["road race"] = Sports_Keys_New["road cycling"]
-Sports_Keys_New["cycling road race"] = Sports_Keys_New["road cycling"]
-Sports_Keys_New["road bicycle racing"] = Sports_Keys_New["road cycling"]
-Sports_Keys_New["auto racing"] = Sports_Keys_New["automobile racing"]
-Sports_Keys_New["bmx racing"] = Sports_Keys_New["bmx"]
-Sports_Keys_New["equestrianism"] = Sports_Keys_New["equestrian"]
-Sports_Keys_New["mountain bike racing"] = Sports_Keys_New["mountain bike"]
-# ---
-Sports_Keys_New2 = {}
-# ---
-for kk, labll in Sports_Keys_New.items():
-    # ---
-    if not kk.endswith("racing"):
-        Sports_Keys_New2[f"{kk} racing"] = {
-            "label": f'سباق {labll["label"]}',
-            "team": f'لسباق {labll["label"]}',
-            "jobs": f'سباق {labll["jobs"]}',
-            "olympic": f'سباق {labll["olympic"]}',
-        }
-    # ---
-# ---
-keys_to_wheelchair = [
-    "sports",
-    "basketball",
-    "rugby",
-    "tennis",
-    "handball",
-    "beach handball",
-    "curling",
-    "fencing",
-]
-# ---
-for key in keys_to_wheelchair:
-    # ---
-    labll = Sports_Keys_New.get(key)
-    # ---
-    if labll:
-        Sports_Keys_New2[f"wheelchair {key}"] = {
-            "label": f'{labll["label"]} على الكراسي المتحركة',
-            "team": f'{labll["label"]} على الكراسي المتحركة',
-            "jobs": f'{labll["jobs"]} على كراسي متحركة',
-            "olympic": f'{labll["olympic"]} على كراسي متحركة',
-        }
-# ---
-Sports_Keys_New.update(dict(Sports_Keys_New2))
-# ---
-Table = {"label": {}, "jobs": {}, "team": {}, "olympic": {}}
-# ---
-for kk in Sports_Keys_New.keys():
-    for key in Sports_Keys_New[kk]:
-        if key not in Table:
-            Table[key] = {}
-        if Sports_Keys_New[kk][key]:
-            Table[key][kk.lower()] = Sports_Keys_New[kk][key]
-# ---
-Sports_Keys_For_Label = Table["label"]
-Sports_Keys_For_Jobs = Table["jobs"]
-Sports_Keys_For_Jobs["sports"] = "رياضية"
 
-Sports_Keys_For_Team = Table["team"]
-Sports_Keys_For_olympic = Table["olympic"]
-# ---
+class SportKeyRecord(TypedDict, total=False):
+    """Typed representation of a single sport key translation."""
+
+    label: str
+    team: str
+    jobs: str
+    olympic: str
+
+
+ALIASES: Final[Mapping[str, str]] = {
+    "kick boxing": "kickboxing",
+    "sport climbing": "climbing",
+    "aquatic sports": "aquatics",
+    "shooting": "shooting sport",
+    "motorsports": "motorsport",
+    "road race": "road cycling",
+    "cycling road race": "road cycling",
+    "road bicycle racing": "road cycling",
+    "auto racing": "automobile racing",
+    "bmx racing": "bmx",
+    "equestrianism": "equestrian",
+    "mountain bike racing": "mountain bike",
+}
+
+
+@dataclass(frozen=True)
+class SportKeyTables:
+    """Container with convenience accessors for specific dictionaries."""
+
+    label: dict[str, str]
+    jobs: dict[str, str]
+    team: dict[str, str]
+    olympic: dict[str, str]
+
+
+def _coerce_record(raw: Mapping[str, object]) -> SportKeyRecord:
+    """Convert a raw JSON entry into a :class:`SportKeyRecord`."""
+
+    return SportKeyRecord(
+        label=str(raw.get("label", "")),
+        jobs=str(raw.get("jobs", "")),
+        team=str(raw.get("team", "")),
+        olympic=str(raw.get("olympic", "")),
+    )
+
+
+def _load_base_records() -> dict[str, SportKeyRecord]:
+    """Load sports key definitions from the JSON configuration file."""
+
+    data = open_json_file("Sports_Keys_New") or {}
+    records: dict[str, SportKeyRecord] = {}
+
+    if not isinstance(data, Mapping):
+        logger.warning("Unexpected sports key payload type: %s", type(data))
+        return records
+
+    for key, value in data.items():
+        if isinstance(key, str) and isinstance(value, Mapping):
+            if value.get("ignore"):
+                continue
+            records[key] = _coerce_record(value)
+        else:  # pragma: no cover - defensive branch
+            logger.debug("Skipping malformed sports key entry: %s", key)
+
+    return records
+
+
+def _copy_record(record: SportKeyRecord, **overrides: str) -> SportKeyRecord:
+    """Return a shallow copy of ``record`` applying ``overrides``."""
+
+    updated: SportKeyRecord = SportKeyRecord(
+        label=record.get("label", ""),
+        jobs=record.get("jobs", ""),
+        team=record.get("team", ""),
+        olympic=record.get("olympic", ""),
+    )
+
+    for field, value in overrides.items():
+        if value:
+            updated[field] = value
+
+    return updated
+
+
+def _apply_aliases(records: MutableMapping[str, SportKeyRecord]) -> None:
+    """Populate alias keys by copying the values from the canonical entry."""
+
+    for alias, source in ALIASES.items():
+        record = records.get(source)
+        if record is None:
+            logger.debug("Missing source record for alias: %s -> %s", alias, source)
+            continue
+        records[alias] = _copy_record(record)
+
+
+def _generate_variants(records: Mapping[str, SportKeyRecord]) -> dict[str, SportKeyRecord]:
+    """Create derived entries such as ``"{sport} racing"`` and wheelchair keys."""
+
+    keys_to_wheelchair = [
+        "sports",
+        "basketball",
+        "rugby league",
+        "rugby",
+        "tennis",
+        "handball",
+        "beach handball",
+        "curling",
+        "fencing",
+    ]
+
+    variants: dict[str, SportKeyRecord] = {}
+    for sport, record in records.items():
+        label = record.get("label", "")
+        jobs = record.get("jobs", "")
+        olympic = record.get("olympic", "")
+        team = record.get("team", "")
+
+        if not sport.endswith("racing"):
+            variants[f"{sport} racing"] = _copy_record(
+                record,
+                label=f"سباق {label}",
+                team=f"لسباق {label}",
+                jobs=f"سباق {jobs}",
+                olympic=f"سباق {olympic}",
+            )
+
+        if sport in keys_to_wheelchair:
+            variants[f"wheelchair {sport}"] = _copy_record(
+                record,
+                label=f"{label} على الكراسي المتحركة",
+                team=f"{team} على الكراسي المتحركة",
+                jobs=f"{jobs} على كراسي متحركة",
+                olympic=f"{olympic} على كراسي متحركة",
+            )
+
+    return variants
+
+
+def _build_tables(records: Mapping[str, SportKeyRecord]) -> SportKeyTables:
+    """Create lookups for each translation category."""
+
+    tables: dict[str, dict[str, str]] = {
+        "label": {},
+        "team": {},
+        "jobs": {},
+        "olympic": {},
+    }
+
+    for sport, record in records.items():
+        for field in tables.keys():
+            value = record.get(field, "")
+            if value:
+                tables[field][sport.lower()] = value
+
+    return SportKeyTables(
+        label=tables["label"],
+        jobs=tables["jobs"],
+        team=tables["team"],
+        olympic=tables["olympic"],
+    )
+
+
+def _initialise_tables() -> tuple[SportKeyTables, dict[str, SportKeyRecord]]:
+    """Load data, expand aliases and variants, and build helper tables."""
+
+    records = _load_base_records()
+    _apply_aliases(records)
+
+    # Variants are created in a separate dictionary to avoid modifying the
+    # collection while iterating over it.
+    records.update(_generate_variants(records))
+
+    tables = _build_tables(records)
+
+    return tables, records
+
+
+SPORT_KEY_TABLES, SPORT_KEY_RECORDS = _initialise_tables()
+
+SPORTS_KEYS_FOR_LABEL: Final[dict[str, str]] = SPORT_KEY_TABLES.label
+SPORTS_KEYS_FOR_TEAM: Final[dict[str, str]] = SPORT_KEY_TABLES.team
+SPORTS_KEYS_FOR_OLYMPIC: Final[dict[str, str]] = SPORT_KEY_TABLES.olympic
+
+SPORTS_KEYS_FOR_JOBS: Final[dict[str, str]] = SPORT_KEY_TABLES.jobs
+SPORTS_KEYS_FOR_JOBS["sports"] = "رياضية"
+
 len_print.data_len("Sport_key.py", {
-    "Sports_Keys_New2": Sports_Keys_New2,
-    "Sports_Keys_New": Sports_Keys_New,
-    "Sports_Keys_For_Jobs": Sports_Keys_For_Jobs,
-    "Sports_Keys_For_Team": Sports_Keys_For_Team,
-    "Sports_Keys_For_Label": Sports_Keys_For_Label,
+    "SPORT_KEY_RECORDS": SPORT_KEY_RECORDS,
+    "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
+    "SPORTS_KEYS_FOR_JOBS": SPORTS_KEYS_FOR_JOBS,
+    "SPORTS_KEYS_FOR_TEAM": SPORTS_KEYS_FOR_TEAM,
+    "SPORTS_KEYS_FOR_OLYMPIC": SPORTS_KEYS_FOR_OLYMPIC,
 })
-# ---
-del Sports_Keys_New
 
 __all__ = [
-    "Sports_Keys_For_Jobs",
-    "Sports_Keys_For_Team",
-    "Sports_Keys_For_Label",
+    "SPORT_KEY_RECORDS",
+    "SPORT_KEY_TABLES",
+    "SPORTS_KEYS_FOR_LABEL",
+    "SPORTS_KEYS_FOR_JOBS",
+    "SPORTS_KEYS_FOR_OLYMPIC",
+    "SPORTS_KEYS_FOR_TEAM",
 ]

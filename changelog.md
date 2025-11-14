@@ -1,4 +1,20 @@
 
+## [#59](https://github.com/MrIbrahem/make2_new/pull/59) - 2025-11-14
+* **Refactor [Sport_key.py](src/ma_lists/sports/Sport_key.py)**
+  * Restructured sport key data handling into a modular pipeline with validation and alias expansion for improved maintainability.
+  * Standardized constant naming conventions across the codebase for consistency.
+
+* **New Features**
+  * Added template rendering utilities for generating sport labels with year-based and formatted variants.
+
+* **Bug Fixes**
+  * Removed deprecated method from sports formatting module.
+  * Updated test fixtures to reflect current data requirements.
+
+* **Tests**
+  * Removed obsolete test file for normalization logic.
+  * Updated test coverage to align with refactored APIs and new data structure.
+
 ## [#58](https://github.com/MrIbrahem/make2_new/pull/58) - 2025-11-14
 * Refactor [fixtitle.py](src/fix/fixtitle.py)
 * **New Features**

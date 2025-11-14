@@ -8,27 +8,57 @@ from src.ma_lists.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_202
 from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
-    "Category:World Wheelchair Rugby Championships": "بطولة العالم الرجبي على الكراسي المتحركة",
-    "Category:World Wheelchair Curling Championship": "بطولة العالم الكيرلنغ على الكراسي المتحركة",
-    "Category:Wheelchair Rugby League finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
-    "Category:Wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
-    "Category:National men's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للرجال",
-    "Category:National wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية ",
-    "Category:National wheelchair handball teams": "منتخبات كرة يد على كراسي متحركة وطنية ",
-    "Category:National wheelchair rugby teams": "منتخبات رجبي على كراسي متحركة وطنية ",
-    "Category:National women's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للسيدات",
-    "Category:Wheelchair Handball World Championship": "بطولة العالم كرة اليد على الكراسي المتحركة",
-    "Category:Wheelchair Rugby League World Cup": "كأس العالم لدوري الرجبي على الكراسي المتحركة",
-    "Category:Wheelchair rugby league competitions": "منافسات دوري رجبي على كراسي متحركة",
-    "Category:Wheelchair rugby league teams": "فرق دوري رجبي على كراسي متحركة",
+    "National men's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للرجال",
+    "National women's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للسيدات",
+    "National wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية",
+    "National wheelchair handball teams": "منتخبات كرة يد على كراسي متحركة وطنية",
+    "National wheelchair rugby teams": "منتخبات رجبي على كراسي متحركة وطنية",
+
+    "World Wheelchair Rugby Championships": "بطولة العالم للرجبي على الكراسي المتحركة",
+    "World Wheelchair Curling Championship": "بطولة العالم للكيرلنغ على الكراسي المتحركة",
+    "Wheelchair Handball World Championship": "بطولة العالم لكرة اليد على الكراسي المتحركة",
+
+    "Wheelchair rugby league competitions": "منافسات دوري رجبي على كراسي متحركة",
+    "Wheelchair rugby league teams": "فرق دوري رجبي على كراسي متحركة",
+    "Wheelchair Rugby League World Cup": "كأس العالم لدوري الرجبي على الكراسي المتحركة",
+    "Wheelchair Rugby League finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
+    "Wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
+
+    "rugby league competitions": "منافسات دوري رجبي",
+    "rugby league teams": "فرق دوري رجبي",
+    "Rugby League World Cup": "كأس العالم لدوري الرجبي",
+    "Rugby League finals": "نهائيات دوري الرجبي",
+    "rugby league league": "دوري دوري الرجبي",
+
+    "rugby competitions": "منافسات رجبي",
+    "rugby teams": "فرق رجبي",
+    "Rugby World Cup": "كأس العالم للرجبي",
+    "Rugby finals": "نهائيات الرجبي",
+    "rugby": "الرجبي",
+
+    "Wheelchair rugby competitions": "منافسات رجبي على كراسي متحركة",
+    "Wheelchair rugby teams": "فرق رجبي على كراسي متحركة",
+    "Wheelchair Rugby World Cup": "كأس العالم للرجبي على الكراسي المتحركة",
+    "Wheelchair Rugby finals": "نهائيات الرجبي على الكراسي المتحركة",
+
+    "world junior rugby championships": "بطولة العالم للرجبي للناشئين",
+    "world junior basketball championships": "بطولة العالم لكرة السلة للناشئين",
+    "world Handball junior championship": "بطولة العالم لكرة اليد للناشئين",
+    "rugby world junior championship": "بطولة العالم للرجبي للناشئين",
+    "basketball junior world championships": "بطولة العالم لكرة السلة للناشئين",
+    "women's basketball world championships": "بطولة العالم لكرة السلة للسيدات",
+    "international basketball council": "المجلس الدولي لكرة السلة",
+    "international volleyball council": "المجلس الدولي لكرة الطائرة",
+    "international snowboarding council": "المجلس الدولي للتزلج على الثلوج",
+
 }
 
 
-def test_normal():
+def test_New_team_xo_team_labels():
     print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, wrap_team_xo_normal_2025)
 
-    dump_diff(diff_result, "test_normal")
+    dump_diff(diff_result, "test_New_team_xo_team_labels")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 

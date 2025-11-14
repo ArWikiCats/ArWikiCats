@@ -11,12 +11,15 @@ def sample_data():
         "men's {sport} world cup": "كأس العالم للرجال في {sport_label}",
         "women's {sport} championship": "بطولة السيدات في {sport_label}",
         "{sport} records": "سجلات {sport_label}",
+        "{sport} league": "دوري {sport_label}",
     }
 
     data_list = {
         "football": "كرة القدم",
         "basketball": "كرة السلة",
         "snooker": "سنوكر",
+        "rugby league": "دوري الرجبي",
+        "rugby": "الرجبي",
     }
 
     return formated_data, data_list
@@ -34,6 +37,7 @@ def test_keys_to_pattern(sample_data):
 @pytest.mark.parametrize("category,expected", [
     ("men's football world cup", "football"),
     ("women's basketball championship", "basketball"),
+    ("women's rugby league championship", "rugby league"),
     ("random text", ""),
 ])
 def test_match_key(category, expected, sample_data):
@@ -69,10 +73,12 @@ def test_normalize_category(category, sport_key, expected, sample_data):
 @pytest.mark.parametrize("category,expected", [
     ("men's football world cup", "كأس العالم للرجال في كرة القدم"),
     ("women's basketball championship", "بطولة السيدات في كرة السلة"),
+    ("women's Rugby championship", "بطولة السيدات في الرجبي"),
+    ("women's Rugby League championship", "بطولة السيدات في دوري الرجبي"),
     ("snooker records", "سجلات سنوكر"),
     ("unknown category", ""),
 ],
-    ids=[k for k in range(4)],
+    ids=[k for k in range(6)],
 )
 def test_search(sample_data, category, expected):
     formated_data, data_list = sample_data
@@ -100,12 +106,12 @@ def test_case(sample_data):
     assert result == "كأس العالم للرجال في كرة القدم"
 
 
-def test_get_template_label(sample_data):
+def test_get_template(sample_data):
     formated_data, data_list = sample_data
     bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
     normalized = bot.normalize_category("men's football world cup", "football")
     assert normalized == "men's {sport} world cup"
-    template_label = bot.get_template_label("football", "men's football world cup")
+    template_label = bot.get_template("football", "men's football world cup")
     assert template_label == "كأس العالم للرجال في {sport_label}"
 
 

@@ -4,29 +4,14 @@
 
 """
 import pytest
-from src.ma_lists.sports_formats_teams.sport_lab import Get_New_team_xo, Get_New_team_xo_normal, Get_Sport_Format_xo_en_ar_is_P17
-
-
-@pytest.mark.fast
-def test_Get_New_team_xo_normal() -> None:
-    data = {
-        "national youth women's under-14 xoxo leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",
-        "national youth women's under-14 xoxo teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
-        "national youth women's under-14 xoxo leagues trainers": "مدربو دوريات كرة لينة وطنية تحت 14 سنة للشابات",
-        "national youth women's under-14 xoxo teams scouts": "كشافة منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
-        "national youth women's under-14 xoxo leagues scouts": "كشافة دوريات كرة لينة وطنية تحت 14 سنة للشابات",
-        "national xoxo teams coaches": "مدربو منتخبات كرة لينة وطنية",
-    }
-    for x, v in data.items():
-        label = Get_New_team_xo_normal(x, "softball")
-        assert label.strip() == v
+from src.ma_lists.sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
 
 
 @pytest.mark.fast
 def test_Get_New_team_xo() -> None:
 
     label = Get_New_team_xo("national softball teams")
-    assert label =='منتخبات كرة لينة وطنية '
+    assert label == 'منتخبات كرة لينة وطنية'
 
 
 @pytest.mark.fast
@@ -96,4 +81,3 @@ def test_get_teams_new_returns_default_for_unknown_category() -> None:
     """Unmapped categories should return the provided default value."""
 
     assert Get_New_team_xo("mystery sport") == ""
-

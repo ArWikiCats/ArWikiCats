@@ -5,10 +5,10 @@
 """
 import pytest
 
-from src.ma_lists.sports_formats_teams.sport_lab_with_nat import (
+from src.ma_lists.sports_formats_nats.sport_lab_with_nat import (
     get_template_label,
-    match_nat_new_team_xo_team_labels,
-    match_nat_new_team_xo_team_labels_new,
+    match_sports_labels_with_nat,
+    match_sports_labels_with_nat_new,
     Get_New_team_xo_with_nat,
     apply_pattern_replacement,
 )
@@ -22,24 +22,20 @@ def test_1() -> None:
 
 @pytest.mark.skip
 def test_2() -> None:
-    template_label1, sport_label1 = match_nat_new_team_xo_team_labels_new("Yemeni national xoxo teams", "softball")
-    assert sport_label1 == "للكرة اللينة"
-    assert template_label1 == "New team xoxo with nat"
+    template_label1 = match_sports_labels_with_nat_new("Yemeni national xoxo teams", "softball")
+    assert template_label1 == 'منتخبات xoxo وطنية natar'
 
-    template_label2, sport_label2 = match_nat_new_team_xo_team_labels_new("national xoxo teams of yemen", "softball")
-    assert sport_label2 == "للكرة اللينة"
-    assert template_label2 == "New team xoxo with nat"
+    template_label2 = match_sports_labels_with_nat_new("national xoxo teams of yemen", "softball")
+    assert template_label2 == ""
 
 
 @pytest.mark.skip
 def test_3() -> None:
-    template_label1, sport_label1 = match_nat_new_team_xo_team_labels("yemeni national xoxo teams", "softball")
-    assert sport_label1 == "للكرة اللينة"
-    assert template_label1 == "New team xoxo with nat"
+    template_label1 = match_sports_labels_with_nat("yemeni national xoxo teams", "softball")
+    assert template_label1 == 'منتخبات xoxo وطنية natar'
 
-    template_label2, sport_label2 = match_nat_new_team_xo_team_labels("national xoxo teams of yemen", "softball")
-    assert sport_label2 == "للكرة اللينة"
-    assert template_label2 == "New team xoxo with nat"
+    template_label2 = match_sports_labels_with_nat("national xoxo teams of yemen", "softball")
+    assert template_label2 == ""
 
 
 def test_get_template_label() -> None:

@@ -4,12 +4,9 @@ from .te2 import New_For_nat_female_xo_team
 
 import re
 from ...helps import len_print
-from ..sports.sports_lists import levels, AFTER_KEYS_NAT, New_Tato_nat
+from ..sports.sports_lists import levels, AFTER_KEYS_NAT, NEW_TATO_NAT
 
 sport_formts_enar_p17_jobs = {}
-# ---
-# sf_en_ar_is_p17 لدمجها مع SPORT_FORMTS_EN_AR_IS_P17 في sports.py
-sf_en_ar_is_p17 = {}
 # ---
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
@@ -108,7 +105,7 @@ New_For_nat_female_xo_team["national b xzxz teams"] = "منتخبات xzxz رد�
 New_For_nat_female_xo_team["national reserve xzxz teams"] = "منتخبات xzxz وطنية احتياطية {nat}"
 # ---
 Att2 = "فرق xzxz {nat}"
-for ty_nat, tas in New_Tato_nat.items():
+for ty_nat, tas in NEW_TATO_NAT.items():
     tas = tas.strip()
     # ---
     tasf = tas.format(nat="").strip()
