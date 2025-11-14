@@ -23,7 +23,7 @@ def load_teams_new() -> Dict[str, str]:
     """
     lazy load TEAMS_NEW
 
-    # result length: "count": 325907, "size": "7.3 MiB" ( Sports_Keys_New*1425  (223*1425))
+    # result length: "count": 325907, "size": "7.3 MiB" ( SPORT_KEY_RECORDS*1425  (223*1425))
     """
     # ---
     data = {}

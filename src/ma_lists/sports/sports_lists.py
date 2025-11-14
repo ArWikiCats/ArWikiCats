@@ -31,17 +31,17 @@ menstt333 = {
     # "women's national youth" : "{} للشابات",
     "national youth women's": "{} للشابات",
 }
-nat_menstt33 = {fafo: menstt333[fafo].replace("{}", "{nat}") for fafo in menstt333}
+NAT_MENSTT33 = {fafo: menstt333[fafo].replace("{}", "{nat}") for fafo in menstt333}
 # ---
 # =================
 # ---
-New_Tato_nat = {}
+NEW_TATO_NAT = {}
 # ---
 # Category:National junior women's goalball teams
 # tab[Category:Women's national under-20 association football teams] = "تصنيف:منتخبات كرة قدم وطنية نسائية تحت 20 سنة"
 # ---
-for template_key, template_label in nat_menstt33.items():
-    New_Tato_nat[template_key] = template_label
+for template_key, template_label in NAT_MENSTT33.items():
+    NEW_TATO_NAT[template_key] = template_label
     # printe.output(lightred % (mr_nat , mr_nat_a) )
     for year in YEARS_LIST:
         # for ye# ---a in [23]:
@@ -53,7 +53,7 @@ for template_key, template_label in nat_menstt33.items():
         english_key = f"{template_key} under-{year}"
         # printe.output(english_key)
         # printe.output(arabic_label)
-        New_Tato_nat[english_key] = arabic_label
+        NEW_TATO_NAT[english_key] = arabic_label
 # ---
 # =================
 # ---
