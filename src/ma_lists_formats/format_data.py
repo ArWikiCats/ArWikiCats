@@ -72,6 +72,9 @@ class FormatData:
         # Case-insensitive key lookup
         return self.formated_data_ci.get(normalized.lower(), "")
 
+    def get_key_label(self, sport_key: str) -> str:
+        return self.data_list_ci.get(sport_key)
+
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
         logger.debug('++++++++ start FormatData ++++++++ ')
@@ -79,7 +82,7 @@ class FormatData:
         if not sport_key:
             logger.debug(f'No sport key matched for category: "{category}"')
             return ""
-        sport_label = self.data_list_ci.get(sport_key)
+        sport_label = self.get_key_label(sport_key)
         if not sport_label:
             logger.debug(f'No sport label matched for sport key: "{sport_key}"')
             return ""

@@ -6,7 +6,7 @@
 
 import re
 
-from .sport_lab_with_nat import Get_New_team_xo_with_nat
+from ..sports_formats_nats.sport_lab_with_nat import Get_New_team_xo_with_nat
 from .team_job import sport_formts_enar_p17_jobs
 from .sport_lab2 import wrap_team_xo_normal_2025
 from ..utils.match_sport_keys import match_sport_key
@@ -14,6 +14,7 @@ from ..utils import apply_pattern_replacement
 from ..sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_JOBS
 from ...helps.print_bot import print_put
+from ..sports_formats_nats.new import create_label
 
 
 def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
@@ -96,7 +97,18 @@ def Get_New_team_xo(team: str) -> str:
     return team_lab
 
 
+def Get_New_team_xo_2026(team: str) -> str:
+    # ---
+    team_lab = wrap_team_xo_normal_2025(team)
+    # ---
+    if not team_lab:
+        team_lab = create_label(team)
+    # ---
+    return team_lab
+
+
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
+    "Get_New_team_xo_2026",
     "Get_New_team_xo",
 ]
