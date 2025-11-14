@@ -35,7 +35,7 @@ def _build_new_tato_nat() -> dict[str, str]:
     for template_key, template_label in NAT_MENSTT33.items():
         result[template_key] = template_label
         for year in YEARS:
-            result[f"{template_key} under-{year}"] = template_label.foamat(nat=f"{{nat}} تحت {year} سنة")
+            result[f"{template_key} under-{year}"] = template_label.format(nat=f"{{nat}} تحت {year} سنة")
     return result
 
 
