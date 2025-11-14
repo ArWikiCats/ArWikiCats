@@ -65,16 +65,16 @@ class FormatData:
         )
         return normalized.strip()
 
-    def get_template_label(self, sport_key: str, category: str) -> str:
+    def get_template(self, sport_key: str, category: str) -> str:
         """Lookup template in a case-insensitive dict."""
         normalized = self.normalize_category(category, sport_key)
-        logger.debug(f"normalized: {normalized}")
+        logger.debug(f"normalized xoxo : {normalized}")
         # Case-insensitive key lookup
         return self.formated_data_ci.get(normalized.lower(), "")
 
-    @functools.lru_cache(maxsize=None)
-    def search(self, category: str) -> str:
+    def _search(self, category: str) -> str:
         """End-to-end resolution."""
+        logger.debug('++++++++ start FormatData ++++++++ ')
         sport_key = self.match_key(category)
         if not sport_key:
             logger.debug(f'No sport key matched for category: "{category}"')
@@ -83,13 +83,20 @@ class FormatData:
         if not sport_label:
             logger.debug(f'No sport label matched for sport key: "{sport_key}"')
             return ""
-        template_label = self.get_template_label(sport_key, category)
+        template_label = self.get_template(sport_key, category)
         if not template_label:
             logger.debug(
                 f'No template label matched for sport key: "{sport_key}" and category: "{category}"'
             )
             return ""
-        return self.apply_pattern_replacement(template_label, sport_label)
+        result = self.apply_pattern_replacement(template_label, sport_label)
+        logger.debug(f'result: {result}')
+        logger.debug('++++++++ end FormatData ++++++++ ')
+        return result
+
+    @functools.lru_cache(maxsize=None)
+    def search(self, category: str) -> str:
+        return self._search(category)
 
 
 def format_data_sample():
