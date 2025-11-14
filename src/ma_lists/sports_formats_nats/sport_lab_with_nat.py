@@ -8,7 +8,7 @@ import re
 from ..utils.match_nats_keys import match_nat_key
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 from ..nats.Nationality import en_nats_to_ar_label
-from ...helps.logger.debug_bot import output_test
+from ...helps.print_bot import output_test
 from ..utils import apply_pattern_replacement
 from ...helps.log import logger
 from ...ma_lists_formats.format_data import FormatData
