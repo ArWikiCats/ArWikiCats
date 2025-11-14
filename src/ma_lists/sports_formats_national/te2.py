@@ -4,7 +4,7 @@ from .te2 import New_For_nat_female_xo_team
 
 import re
 from ...helps import len_print
-from ..sports.sports_lists import levels, AFTER_KEYS_NAT, NEW_TATO_NAT
+from ..sports.sports_lists import LEVELS, AFTER_KEYS_NAT, NEW_TATO_NAT
 
 sport_formts_enar_p17_jobs = {}
 # ---
@@ -32,7 +32,7 @@ New_For_nat_female_xo_team = {
 # New_For_nat_female_xo_team["women's xzxz championships"] =  "بطولة {nat} xzxz للسيدات"
 # ---
 # ---
-for level, lvl_lab in levels.items():
+for level, lvl_lab in LEVELS.items():
     New_For_nat_female_xo_team[f"national xzxz {level} league"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"
     New_For_nat_female_xo_team[f"national xzxz {level} leagues"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"
 

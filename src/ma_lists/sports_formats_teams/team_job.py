@@ -4,7 +4,7 @@ from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p1
 
 import re
 from ...helps import len_print
-from ..sports.sports_lists import levels, AFTER_KEYS_NAT, NEW_TATO_NAT
+from ..sports.sports_lists import LEVELS, AFTER_KEYS_NAT, NEW_TATO_NAT
 
 # ---
 New_team_xo_labels = {
@@ -200,7 +200,7 @@ if True:
                 New_team_xo_jobs[f"{ty_nat.strip()} xoxo teams"] = "فرق xoxo " + tas.format(nat="").strip()
 
     # ---
-    for level, lvl_lab in levels.items():
+    for level, lvl_lab in LEVELS.items():
         New_team_xo_jobs[f"national xoxo {level} league"] = f"دوريات xoxo وطنية من {lvl_lab}"
         New_team_xo_jobs[f"national xoxo {level} leagues"] = f"دوريات xoxo وطنية من {lvl_lab}"
 
