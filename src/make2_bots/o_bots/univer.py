@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import functools
 from typing import Dict
 
 from ...helps.print_bot import print_put
@@ -56,8 +57,6 @@ for major, arabic_label in MAJORS.items():
     UNIVERSITIES_TABLES[f"university-of-{normalized_major}"] = template
     UNIVERSITIES_TABLES[f"university of the {normalized_major}"] = template
     UNIVERSITIES_TABLES[f"university-of-the-{normalized_major}"] = template
-
-UNIVERSITIES_CACHE: Dict[str, str] = {}
 
 
 def _normalise_category(category: str) -> str:
@@ -116,6 +115,7 @@ def _resolve(normalized_category: str) -> str:
     return ""
 
 
+@functools.lru_cache(maxsize=None)
 def te_universities(category: str) -> str:
     """Return the Arabic label for university-related categories.
 
@@ -128,12 +128,7 @@ def te_universities(category: str) -> str:
 
     normalized_category = _normalise_category(category)
 
-    if normalized_category in UNIVERSITIES_CACHE:
-        return UNIVERSITIES_CACHE[normalized_category]
-
-    UNIVERSITIES_CACHE[normalized_category] = _resolve(normalized_category)
-
-    return UNIVERSITIES_CACHE[normalized_category]
+    return _resolve(normalized_category)
 
 
 __all__ = [
