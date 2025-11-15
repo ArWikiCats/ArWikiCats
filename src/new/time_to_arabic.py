@@ -88,7 +88,7 @@ def convert_time_to_arabic(en_year: str) -> str:
     m = re.match(r"^(\d+)(?:st|nd|rd|th)(?:[- ])millennium( BC| BCE)?$", en_year, re.I)
     if m:
         num = int(m.group(1))
-        bc = " ق م" if m.group(2)  else ""
+        bc = " ق م" if m.group(2) else ""
         return f"الألفية {num}{bc}"
 
     # --- Numeric range ---
@@ -113,3 +113,10 @@ def convert_time_to_arabic(en_year: str) -> str:
 
     # --- Fallback ---
     return en_year
+
+
+def match_en_return_ar(category: str) -> dict[str, str]:
+    """Convert an English time expression into its Arabic equivalent."""
+    en_years = match_time_en(category)
+    data = {year: convert_time_to_arabic(year) for year in en_years}
+    return data
