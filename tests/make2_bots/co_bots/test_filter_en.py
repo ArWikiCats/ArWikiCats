@@ -10,11 +10,11 @@ def test_filter_cat():
     result_allowed = filter_cat("Football players")
     assert result_allowed is True
 
-    # Test with blacklisted category
+    # Test with blacklisted category (using correct spelling with "i")
     result_disambig = filter_cat("Disambiguation")
     assert result_disambig is False
 
-    # Test with blacklisted prefix
+    # Test with another blacklisted prefix
     result_cleanup = filter_cat("Cleanup")
     assert result_cleanup is False
 

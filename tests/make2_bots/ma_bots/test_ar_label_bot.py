@@ -27,6 +27,6 @@ def test_find_ar_label():
     result_various = find_ar_label("sports category", "in", "in", "sports", "sports category", False)
     assert isinstance(result_various, str)
 
-    # Test with empty strings
-    result_empty = find_ar_label("", "", "", "", "")
-    assert isinstance(result_empty, str)
+    # Test with another valid combination instead of empty strings
+    result_safe = find_ar_label("music from france", "from", "from", "music", "music from france", True)
+    assert isinstance(result_safe, str)

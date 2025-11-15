@@ -19,14 +19,14 @@ def test_get_films_key_cao():
     assert isinstance(result_various, str)
 
 def test_films():
-    # Test with basic parameters
-    result = Films("action films", "us", "people")
+    # Test with basic parameters using valid country codes
+    result = Films("action films", "united states", "people")
     assert isinstance(result, str)
 
     # Test with empty parameters
     result_empty = Films("", "", "")
     assert isinstance(result_empty, str)
 
-    # Test with different parameters
-    result_various = Films("drama", "uk", "movies", "reference")
+    # Test with different parameters using valid country codes
+    result_various = Films("drama", "united kingdom", "movies", "reference")
     assert isinstance(result_various, str)

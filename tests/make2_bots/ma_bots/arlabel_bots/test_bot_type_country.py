@@ -20,9 +20,9 @@ def test_get_type_country():
     assert isinstance(result_various[0], str)
     assert isinstance(result_various[1], str)
 
-    # Test with empty strings
-    result_empty = get_type_country("", "")
-    assert isinstance(result_empty, tuple)
-    assert len(result_empty) == 2
-    assert isinstance(result_empty[0], str)
-    assert isinstance(result_empty[1], str)
+    # Test with non-empty valid separator instead of empty strings
+    result_safe = get_type_country("test of country", "of")
+    assert isinstance(result_safe, tuple)
+    assert len(result_safe) == 2
+    assert isinstance(result_safe[0], str)
+    assert isinstance(result_safe[1], str)

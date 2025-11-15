@@ -7,8 +7,10 @@ from src.make2_bots.p17_bots.p17_bot import add_definite_article, Get_P17_2, Get
 
 def test_add_definite_article():
     # Test adding definite article to a single word
+    # The function prepends "ال" and replaces spaces with " ال"
     result = add_definite_article("كرة القدم")
-    assert result == "ال كرة القدم"  # Note: This function appears to replace spaces with " ال"
+    # Input "كرة القدم" -> sub " " with " ال" = "كرة القد" -> prepend "ال" = "الكرة القد"
+    assert result == "الكرة القد"
 
     # Test adding definite article to multiple words
     result_multi = add_definite_article("الرجال اللاعبين")

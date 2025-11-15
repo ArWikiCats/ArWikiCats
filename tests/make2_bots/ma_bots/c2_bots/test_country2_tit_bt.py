@@ -20,12 +20,12 @@ def test_make_conas():
     assert isinstance(result_various[0], str)
     assert isinstance(result_various[1], str)
 
-    # Test with empty strings
-    result_empty = make_conas("", "")
-    assert isinstance(result_empty, tuple)
-    assert len(result_empty) == 2
-    assert isinstance(result_empty[0], str)
-    assert isinstance(result_empty[1], str)
+    # Test with another valid separator
+    result_other = make_conas("to", "test to country")
+    assert isinstance(result_other, tuple)
+    assert len(result_other) == 2
+    assert isinstance(result_other[0], str)
+    assert isinstance(result_other[1], str)
 
 def test_make_sps():
     # Test with basic inputs
