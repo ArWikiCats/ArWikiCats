@@ -9,17 +9,6 @@ import src.make2_bots.o_bots.ethnic_bot as ethnic_mod  # e.g. src.ethnic or src.
 ethnic = ethnic_mod.ethnic
 ethnic_culture = ethnic_mod.ethnic_culture
 
-
-@pytest.fixture(autouse=True)
-def clear_caches():
-    """Ensure caches are clean before and after each test."""
-    ethnic_mod.ETHNIC_CACHE.clear()
-    ethnic_mod.ETHNIC_CULTURE_CACHE.clear()
-    yield
-    ethnic_mod.ETHNIC_CACHE.clear()
-    ethnic_mod.ETHNIC_CULTURE_CACHE.clear()
-
-
 # ---------- Structural tests for data dictionaries ----------
 
 
@@ -90,28 +79,6 @@ def test_ethnic_culture_unknown_nationality_returns_empty():
     """When nationality is not found in Nat_men or Nat_women, result must be empty."""
     result = ethnic_culture("Category:Unknown", "unknown-nat", "unknown-nat history")
     assert result == ""
-
-
-def test_ethnic_culture_uses_cache():
-    """ethnic_culture must reuse cached result for identical inputs."""
-    category = "Category:CacheTest"
-    start = "afghan"
-    suffix = "afghan history"
-
-    first = ethnic_culture(category, start, suffix)
-    assert first != ""
-
-    cache_size_before = len(ethnic_mod.ETHNIC_CULTURE_CACHE)
-
-    # Mutate underlying data to detect correct cache usage
-    original = ethnic_mod.Nat_men["afghan"]
-    ethnic_mod.Nat_men["afghan"] = "MODIFIED"
-    try:
-        second = ethnic_culture(category, start, suffix)
-        assert second == first
-        assert len(ethnic_mod.ETHNIC_CULTURE_CACHE) == cache_size_before
-    finally:
-        ethnic_mod.Nat_men["afghan"] = original
 
 
 # ---------- Core tests for ethnic() direct -mens composition path ----------
@@ -185,30 +152,6 @@ def test_ethnic_unknown_everything_returns_empty():
     result = ethnic(category, start, suffix)
 
     assert result == ""
-
-
-# ---------- Cache behavior for ethnic() ----------
-
-
-def test_ethnic_cache_is_used_for_repeated_calls():
-    """ethnic() must reuse cached result when called with same parameters."""
-    category = "Category:CacheTestEthnic"
-    start = "yemeni"
-    suffix = "zanzibari people"
-
-    first = ethnic(category, start, suffix)
-    assert first != ""
-
-    cache_size_before = len(ethnic_mod.ETHNIC_CACHE)
-
-    original = ethnic_mod.Nat_mens["zanzibari"]
-    ethnic_mod.Nat_mens["zanzibari"] = "MODIFIED"
-    try:
-        second = ethnic(category, start, suffix)
-        assert second == first
-        assert len(ethnic_mod.ETHNIC_CACHE) == cache_size_before
-    finally:
-        ethnic_mod.Nat_mens["zanzibari"] = original
 
 
 # ---------- Integration-style sanity checks ----------

@@ -8,11 +8,6 @@ import pytest
 from src.make2_bots.o_bots import army
 
 
-@pytest.fixture(autouse=True)
-def reset_army_cache() -> None:
-    army.te_army_CACHE.clear()
-
-
 def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(army, "all_country_with_nat", {}, raising=False)
     monkeypatch.setattr(army, "all_country_with_nat_keys_is_en", {}, raising=False)
