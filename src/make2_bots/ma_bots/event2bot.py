@@ -27,13 +27,8 @@ def event2_d2(category_r) -> str:
     """
     Determine the category label based on the input string.
     """
-    category = category_r.replace("−century", " century").replace("–century", " century")
     # ---
-    cate_gory = category
-    cate_gory = re.sub(r"-century", " century", cate_gory)
-    cate_gory = re.sub(r"-millennium", " millennium", cate_gory)
-
-    cat3 = cate_gory.lower()
+    cat3 = category_r.lower()
 
     print_put(f'<<lightred>>>>>> category33:"{cat3}" ')
 
@@ -76,7 +71,7 @@ def dodo(category_r: str) -> str:
     sub_ar_label = ""
     list_of_cat = ""
 
-    category = category_r.replace("−century", " century").replace("–century", " century").lower()
+    category = category_r.lower()
 
     if category.endswith(" stubs") and app_settings.find_stubs:
         list_of_cat = "بذرة {}"

@@ -21,7 +21,7 @@ from ..country_bot import get_country
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ....helps.print_bot import print_put, output_test
 from ....utils import check_key_in_tables
-from .reg_result import get_reg_result
+from .reg_result import get_reg_result, get_cats
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -36,16 +36,11 @@ def make_lab_dodo(
     and years.
     """
     # ---
-    cate = category_r
-    cate_gory = cate
+    cate, cate3 = get_cats(category_r)
     # ---
-    if not cate.lower().startswith("category:"):
-        cate = f"Category:{cate}"
+    cat_test = cate3
     # ---
-    cate_gory = cate_gory.lower()
-    cate3 = cate_gory
-    # ---
-    result = get_reg_result(cate, cate_gory, cate3)
+    result = get_reg_result(category_r)
     # ---
     year = result.year
     typeo = result.typeo

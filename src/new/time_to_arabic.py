@@ -9,7 +9,7 @@ and Arabic, and a conversion function to translate English expressions.
 """
 import re
 
-century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[- ])(century|millennium)\s*(BCE|BC)?"
+century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
 
 REG_YEAR_EN = re.compile(
@@ -104,7 +104,7 @@ def convert_time_to_arabic(en_year: str) -> str:
 
     # --- Month + Year + BC ---
     month_str = "|".join(month_map.keys())
-    m = re.match(rf"^({month_str})\s*(\d{1,4})\s*(BCE|BC)$", en_year, re.I)
+    m = re.match(rf"^({month_str})\s*(\d{1, 4})\s*(BCE|BC)$", en_year, re.I)
     if m:
         month = month_map[m.group(1).lower()]
         bc = " ق م"
@@ -129,7 +129,7 @@ def convert_time_to_arabic(en_year: str) -> str:
         ty = "القرن" if m.group(2) == "century" else "الألفية"
         return f"{ty} {num}{bc}"
 
-    if re.search(r"^\d+[-−–]\d+", en_year, re.I):
+    if re.search(r"^\d+[−–-]\d+", en_year, re.I):
         # --- (no expansion wanted) ---
         # return expand_range(en_year)
         return en_year
