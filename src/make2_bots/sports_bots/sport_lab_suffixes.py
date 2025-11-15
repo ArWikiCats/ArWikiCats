@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Dict
+import functools
 
 from ... import malists_sport_lab as sport_lab
 from ...helps.log import logger
@@ -10,8 +11,6 @@ from ...helps.print_bot import print_put
 from ...ma_lists import SPORTS_KEYS_FOR_JOBS
 from . import team_work
 from ..o_bots.utils import resolve_suffix_template
-
-LANGUAGE_CACHE: Dict[str, str] = {}
 
 
 def get_teams_new(team_name: str) -> str:
