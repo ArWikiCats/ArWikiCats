@@ -2,6 +2,7 @@
 from  make.make2_bots.fromnet.wd_bot import find_wikidata
 """
 
+import functools
 from typing import Dict
 
 from .wd import find_name_from_wikidata
@@ -12,14 +13,10 @@ from ...ma_lists import Ambassadors_tab
 from ..matables_bots.centries_bot import centries_years_dec
 from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18, get_pop_All_18
 
-WIKIDATA_CACHE: Dict[str, str] = {}
 
-
+@functools.lru_cache(maxsize=None)
 def find_wikidata(country: str) -> str:
     normalized_country = country.lower().strip()
-
-    if WIKIDATA_CACHE.get(normalized_country, False):
-        return WIKIDATA_CACHE.get(normalized_country, "")
 
     resolved_label = ""
 
@@ -53,7 +50,5 @@ def find_wikidata(country: str) -> str:
 
     if not resolved_label:
         print_put(f"<<lightpurple>> >no lab in wikidata len({len(wikidata_matches)}):> ")
-
-    WIKIDATA_CACHE[normalized_country] = resolved_label
 
     return resolved_label
