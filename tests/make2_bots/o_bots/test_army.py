@@ -10,7 +10,7 @@ from src.make2_bots.o_bots import army
 
 @pytest.fixture(autouse=True)
 def reset_army_cache() -> None:
-    army.TEST_ARMY_CACHE.clear()
+    army.te_army_CACHE.clear()
 
 
 def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:
