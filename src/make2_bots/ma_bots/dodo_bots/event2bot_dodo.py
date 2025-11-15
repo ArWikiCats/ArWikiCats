@@ -49,7 +49,7 @@ def make_lab_dodo(
 
     cat_test = category3
     # ---
-    result = get_reg_result(category, _category_, category3, cat_test)
+    result = get_reg_result(category, _category_, category3)
     # ---
     year = result.year
     typeo = result.typeo

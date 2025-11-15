@@ -3,15 +3,15 @@ import re
 from ..matables_bots.bot import MONTH_table
 from ...helps.log import logger
 from ..reg_lines import regex_make_year_lab
-# from ...new.time_to_arabic import convert_time_to_arabic
+from ...new.time_to_arabic import convert_time_to_arabic
 
 ENGLISH_LETTERS_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
 
-# make_year_lab = convert_time_to_arabic
-# make_month_lab = convert_time_to_arabic
+make_year_lab = convert_time_to_arabic
+make_month_lab = convert_time_to_arabic
 
 
-def make_year_lab(year: str) -> str:  # 21st century
+def _make_year_lab(year: str) -> str:  # 21st century
     year = year.strip()
     # ---
     if year.isdigit():
@@ -58,7 +58,7 @@ def make_year_lab(year: str) -> str:  # 21st century
     return year_label
 
 
-def make_month_lab(year: str) -> str:  # 21st century
+def _make_month_lab(year: str) -> str:  # 21st century
     year = year.strip()
     if year.isdigit():
         return year
