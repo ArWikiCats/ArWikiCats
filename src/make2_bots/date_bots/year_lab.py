@@ -8,12 +8,15 @@ ENGLISH_LETTERS_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def make_year_lab(year: str) -> str:  # 21st century
+    year = year.strip()
     # ---
+    if year.isdigit():
+        return year
 
     suffix = ""
     normalized_year = re.sub(regex_make_year_lab.lower(), r"\g<1>", year)
 
-    if " bc" in year or " bce" in year:
+    if " bc" in f" {year} " or " bce" in f" {year} ":
         suffix = " ق م "
 
     year_without_suffix = year.split(" bce")[0].split(" bc")[0]
@@ -52,8 +55,9 @@ def make_year_lab(year: str) -> str:  # 21st century
 
 
 def make_month_lab(year: str) -> str:  # 21st century
-    if re.match(r"^\d+$", year.strip()):
-        return year.strip()
+    year = year.strip()
+    if year.isdigit():
+        return year
 
     year_label = ""
 
