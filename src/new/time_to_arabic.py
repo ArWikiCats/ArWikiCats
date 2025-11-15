@@ -110,6 +110,11 @@ def convert_time_to_arabic(en_year: str) -> str:
         bc = " ق م"
         return f"{month} {m.group(2)}{bc}"
 
+    # --- Year + BC ---
+    m = re.match(r"^(\d+)\s*(BCE|BC)$", en_year, re.I)
+    if m:
+        return f"{m.group(1)} ق م"
+
     # --- Decade (with optional BC/BCE) ---
     m = re.match(rf"^{decade_regex}$", en_year, re.I)
     if m:

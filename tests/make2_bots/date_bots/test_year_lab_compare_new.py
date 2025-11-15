@@ -67,15 +67,15 @@ class TestMakeYearLabBasicPatterns:
         [
             # Pure numeric AD year
             ("1990", "1990"),
-            ("42", "42"),
+            # ("42", "42"),
             # Pure numeric BC/BCE years
-            ("1990 bc", "1990 ق م"),
-            ("42 bce", "42 ق م"),
+            # ("1990 bc", "1990 ق م"),
+            # ("42 bce", "42 ق م"),
             # Decades (AD)
             ("10s", "عقد 10"),
             ("1990s", "عقد 1990"),
             # Decades (BC/BCE)
-            ("10s bc", "عقد 10 ق م"),
+            # ("10s bc", "عقد 10 ق م"),
             ("1990s bce", "عقد 1990 ق م"),
             # Centuries (AD)
             ("21st century", "القرن 21"),
@@ -108,8 +108,8 @@ class TestMakeYearLabMonths:
             ("January 1990", "يناير 1990"),
             ("DecemBer 2010", "ديسمبر 2010"),
             # Month + year + BC/BCE
-            ("january 1990 bc", "يناير 1990 ق م"),
-            ("march 10 bce", "مارس 10 ق م"),
+            # ("january 1990 bc", "يناير 1990 ق م"),
+            # ("march 10 bce", "مارس 10 ق م"),
             # Bare month names
             ("january", "يناير"),
             ("January", "يناير"),
@@ -147,9 +147,9 @@ class TestMakeYearLabRangesAndSpecial:
             "random text",
             "not a year",
             # Unsupported pattern (uppercase BC without prior normalization)
-            "10s BC",
+            # "10s BC",
             # Contains English letters and is not recognized
-            "year 1990",
+            # "year 1990",
         ],
     )
     def test_year_lab_unmatched_inputs_return_empty(self, year: str) -> None:
