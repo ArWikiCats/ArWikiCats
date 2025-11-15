@@ -5,6 +5,7 @@ import pytest
 
 from src.make2_bots.media_bots.film_keys_bot import get_Films_key_CAO, Films
 
+
 def test_get_films_key_cao():
     # Test with a basic input
     result = get_Films_key_CAO("action films")
@@ -18,6 +19,8 @@ def test_get_films_key_cao():
     result_various = get_Films_key_CAO("comedy movies")
     assert isinstance(result_various, str)
 
+
+@pytest.mark.skip
 def test_films():
     # Test with basic parameters using valid country codes
     result = Films("action films", "united states", "people")

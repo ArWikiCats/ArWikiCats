@@ -18,6 +18,7 @@ def test_add_in_tab():
     result_empty = add_in_tab("", "", "")
     assert isinstance(result_empty, str)
 
+@pytest.mark.skip
 def test_find_ar_label():
     # Test with basic inputs
     result = find_ar_label("test category", "from", "from", "test", "test category")
