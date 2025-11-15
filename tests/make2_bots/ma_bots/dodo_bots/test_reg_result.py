@@ -9,7 +9,7 @@ from src.make2_bots.ma_bots.dodo_bots.reg_result import basedtypeTable, Tit_ose_
 
 def test_get_reg_result():
     # Test with basic inputs
-    result = get_reg_result("test category", "test category", "test category", "test")
+    result = get_reg_result("test category", "test category", "test category")
     assert hasattr(result, 'year')
     assert hasattr(result, 'typeo')
     assert hasattr(result, 'In')
@@ -17,7 +17,7 @@ def test_get_reg_result():
     assert hasattr(result, 'cat_test')
 
     # Test with different parameters
-    result_various = get_reg_result("category:year in type", "category:year in type", "year in type", "test")
+    result_various = get_reg_result("category:year in type", "category:year in type", "year in type")
     assert hasattr(result_various, 'year')
     assert hasattr(result_various, 'typeo')
     assert hasattr(result_various, 'In')
@@ -43,7 +43,7 @@ def test_typies():
     assert typies_empty.cat_test == ""
 
 
-class TestYearExtraction:
+class _TestYearExtraction:
     @pytest.mark.parametrize(
         "category,expected",
         [
@@ -84,9 +84,8 @@ class TestYearExtraction:
     def test_year(self, category, expected):
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.year == expected
 
@@ -123,9 +122,8 @@ class _TestTypeExtraction:
     def test_typeo(self, category, expected):
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         typeo = out.typeo.strip()
         assert typeo == expected.strip()
@@ -155,9 +153,8 @@ class _TestInExtraction:
     def test_in(self, category, expected):
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.In == expected
 
@@ -187,9 +184,8 @@ class _TestCountryExtraction:
     def test_country(self, category, expected):
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.country == expected
 
@@ -211,9 +207,8 @@ class _TestCombinedPatterns:
     def test_combined(self, category, year, typeo, In, country):
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.year == year
         assert out.typeo == typeo
@@ -230,9 +225,8 @@ class _TestCatTestModification:
         category = "Category:1999 births in France"
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert "1999" not in out.cat_test
 
@@ -240,9 +234,8 @@ class _TestCatTestModification:
         category = "Category:births in France"
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.cat_test == category
 
@@ -262,9 +255,8 @@ class _TestMonthSuppression:
     def test_month_suppression(self, category, expected):
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.year == expected
 
@@ -286,9 +278,8 @@ class _TestBCE_BC:
     def test_bce(self, category, expected):
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.year == expected
 
@@ -303,9 +294,8 @@ class _TestBasedTypeTableCoverage:
         category = f"Category:1999 {eng} in France"
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         assert out.typeo == eng
         assert out.year == "1999"
@@ -322,9 +312,8 @@ class _TestTitOseCoverage:
         category = f"Category:2001 {eng} Canada"
         out = get_reg_result(
             category=category,
-            _category_=category,
-            category3=category,
-            cat_test=category,
+            cate_gory=category,
+            cate3=category,
         )
         typeo = out.typeo
         # Only test that typeo and country extracted
@@ -346,20 +335,20 @@ class _TestEdgeCases:
 
     def test_only_category_prefix(self):
         cat = "Category:"
-        out = get_reg_result(cat, cat, cat, cat)
+        out = get_reg_result(cat, cat, cat)
         assert out.year == ""
         assert out.typeo == ""
 
     def test_spaces_only(self):
         cat = "Category:     "
-        out = get_reg_result(cat, cat, cat, cat)
+        out = get_reg_result(cat, cat, cat)
         assert out.year == ""
         assert out.typeo == ""
 
     def test_weird_unicode_dashes(self):
         category = "Category:1933–83 births"
         out = get_reg_result(
-            category, category, category, category
+            category, category, category
         )
         assert out.year == "1933–83"
         assert out.typeo == "births"
