@@ -29,11 +29,11 @@ def event2_d2(category_r) -> str:
     """
     category = category_r.replace("−century", " century").replace("–century", " century")
     # ---
-    _category_ = category
-    _category_ = re.sub(r"-century", " century", _category_)
-    _category_ = re.sub(r"-millennium", " millennium", _category_)
+    cate_gory = category
+    cate_gory = re.sub(r"-century", " century", cate_gory)
+    cate_gory = re.sub(r"-millennium", " millennium", cate_gory)
 
-    cat3 = _category_.lower()
+    cat3 = cate_gory.lower()
 
     print_put(f'<<lightred>>>>>> category33:"{cat3}" ')
 
