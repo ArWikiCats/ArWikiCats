@@ -23,7 +23,9 @@ class Typies:
     cat_test: str
 
 
-def get_reg_result(category: str, cate_gory: str, cate3: str, cat_test: str) -> Typies:
+def get_reg_result(category: str, cate_gory: str, cate3: str, cat_test: str="") -> Typies:
+    # ---
+    cat_test = cate3
     # ---
     Tita_year = tita_year
     # ---
