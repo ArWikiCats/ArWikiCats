@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 """
-
 import re
+import functools
 from typing import Dict
 
 from ... import printe
@@ -15,6 +15,7 @@ ENGLISH_LETTER_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
 ARABIC_LETTER_PATTERN = "[ابتثجحخدذرزسشصضطظعغفقكلمنهوية]"
 
 
+@functools.lru_cache(maxsize=None)
 def find_name_from_wikidata(text: str, lang: str) -> Dict[str, str]:
     # ---
     params = {
