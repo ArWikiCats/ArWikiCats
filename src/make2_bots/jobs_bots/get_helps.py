@@ -5,8 +5,10 @@ from typing import Dict, Tuple, List
 
 from ...helps.print_bot import output_test4
 
+# TypeError: unhashable type: 'dict'
+# @functools.lru_cache(maxsize=None)
 
-@functools.lru_cache(maxsize=None)
+
 def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]:
     """Retrieve country information based on category and keys.
 
