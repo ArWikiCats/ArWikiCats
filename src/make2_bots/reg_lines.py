@@ -31,7 +31,7 @@ yy = (
     r"|\d+ century|\d+ millennium|\d+s BCE|\d+ BCE"
     r"|\d+s BC|\d+ BC"
     r"|\d+s"
-    r"|\d+[−–-]\d+"
+    r"|\d+[−–\-]\d+"
     r"|\d+"
 )
 

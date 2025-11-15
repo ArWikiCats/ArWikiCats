@@ -475,10 +475,10 @@ def change_cat(cat_orginal: str) -> str:
     category = cat_orginal
     category = re.sub(r"[\s\t]+", " ", category, flags=re.IGNORECASE)
     # ---
-    category = re.sub(r"[−–-]century", " century", category, flags=re.IGNORECASE)
-    category = re.sub(r"[−–-]millennium", " millennium", category, flags=re.IGNORECASE)
+    category = re.sub(r"[−–\-]century", " century", category, flags=re.IGNORECASE)
+    category = re.sub(r"[−–\-]millennium", " millennium", category, flags=re.IGNORECASE)
     # ---
-    category = re.sub(r"[−–-](millennium|century)", r" \g<1>", category, flags=re.I)
+    category = re.sub(r"[−–\-](millennium|century)", r" \g<1>", category, flags=re.I)
     # ---
     category = re.sub(r"royal (.*?) defence force", r"\g<1> royal defence force", category, flags=re.IGNORECASE)
     category = re.sub(r"royal (.*?) naval force", r"\g<1> royal naval force", category, flags=re.IGNORECASE)

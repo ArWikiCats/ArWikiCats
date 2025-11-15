@@ -9,14 +9,14 @@ and Arabic, and a conversion function to translate English expressions.
 """
 import re
 
-century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–- ])(century|millennium)\s*(BCE|BC)?"
+century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–\- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
 
 REG_YEAR_EN = re.compile(
     r"\b"
     r"(?:January|February|March|April|May|June|July|August|September|October|November|December)?\s*"
     r"("
-    r"\d+[−–-]\d+"
+    r"\d+[−–\-]\d+"
     rf"|{decade_regex}"
     r"|\d{1,4}\s*(?:BCE|BC)?"
     r")"
@@ -33,7 +33,7 @@ REG_YEAR_AR = re.compile(
     r"\b"
     r"(?:يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر)?\s*"
     r"("
-    r"\d+[−–-]\d+"
+    r"\d+[−–\-]\d+"
     r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
     r"|(?:القرن|الألفية)? \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
     r")"
@@ -129,7 +129,7 @@ def convert_time_to_arabic(en_year: str) -> str:
         ty = "القرن" if m.group(2) == "century" else "الألفية"
         return f"{ty} {num}{bc}"
 
-    if re.search(r"^\d+[−–-]\d+", en_year, re.I):
+    if re.search(r"^\d+[−–\-]\d+", en_year, re.I):
         # --- (no expansion wanted) ---
         # return expand_range(en_year)
         return en_year
