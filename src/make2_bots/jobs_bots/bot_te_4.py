@@ -41,7 +41,7 @@ from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from .test4_bots.for_me import Work_for_me
 
 # from .test4_bots.relegin_jobs import try_relegins_jobs
-from .test4_bots.t4_2018_jobs import test4_2018_Jobs
+from .test4_bots.t4_2018_jobs import te4_2018_Jobs
 
 JOBS_IN_MULTI_SPORTS_CACHE = {}
 TEST4_2018_WITH_NAT_CACHE = {}
@@ -73,7 +73,7 @@ def nat_match(
     matched_country_key = ""
     country_label_template = ""
     # ---
-    output_test4(f'<<lightblue>> test_4: nat_match normalized_category :: "{category_lower}" ')
+    output_test4(f'<<lightblue>> bot_te_4: nat_match normalized_category :: "{category_lower}" ')
     # ---
     country_templates = {
         r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
@@ -93,13 +93,13 @@ def nat_match(
         if category_lower.startswith("anti-"):
             sentiment_category = category_lower[5:]
     output_test4(
-        '<<lightblue>> test_4: nat_match sentiment_category :: "%s" ' % sentiment_category
+        '<<lightblue>> bot_te_4: nat_match sentiment_category :: "%s" ' % sentiment_category
     )
     """
     # ---
     if matched_country_key:
         output_test4(
-            f'<<lightblue>> test_4: nat_match country_key :: "{matched_country_key}" '
+            f'<<lightblue>> bot_te_4: nat_match country_key :: "{matched_country_key}" '
         )
     # ---
     country_label_key = Nat_mens.get(matched_country_key, "")
@@ -110,7 +110,7 @@ def nat_match(
     )
     # ---
     if country_label:
-        output_test4(f'<<lightblue>> test_4: nat_match country_label :: "{country_label}" ')
+        output_test4(f'<<lightblue>> bot_te_4: nat_match country_label :: "{country_label}" ')
     # ---
     return country_label
 
@@ -177,7 +177,7 @@ def test4_2018_with_nat(
         if con_3:
             country2 = ""
             output_test4(f'<<lightblue>> test4_2018_with_nat startswith({country2}),con_3:"{con_3}"')
-        output_test4(f'<<lightblue>> test_4: test4_2018_with_nat :: "{country_label}" ')
+        output_test4(f'<<lightblue>> bot_te_4: test4_2018_with_nat :: "{country_label}" ')
     # ---
     # Try with Jobs
     # ---
@@ -211,7 +211,7 @@ def Jobs_in_Multi_Sports(
     if category in JOBS_IN_MULTI_SPORTS_CACHE:
         return JOBS_IN_MULTI_SPORTS_CACHE[category]
     # ---
-    # python3 core8/pwb.py make/test_4 Asian_Games_wrestlers
+    # python3 core8/pwb.py make/bot_te_4 Asian_Games_wrestlers
     # ---
     output_test4(f"<<lightyellow>>>> Jobs_in_Multi_Sports >> category:({category}) ")
     # ---
@@ -240,7 +240,7 @@ def Jobs_in_Multi_Sports(
             break
     # ---
     if not job_label and job_key:
-        job_label = test4_2018_Jobs(job_key)
+        job_label = te4_2018_Jobs(job_key)
         # job_lab = short_womens_jobs.get(job , "")
     # ---
     if job_key and game_label and job_label:

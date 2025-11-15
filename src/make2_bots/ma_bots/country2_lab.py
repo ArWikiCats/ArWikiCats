@@ -12,7 +12,7 @@ from ...helps.print_bot import print_put
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
-from ..media_bots.films_bot import test_films
+from ..media_bots.films_bot import te_films
 from ..sports_bots import sport_lab_suffixes
 from ..o_bots import univer, parties_bot
 from ..o_bots.popl import work_peoples
@@ -31,7 +31,7 @@ def get_lab_for_country2(country: str, with_test_ye: bool = False, **kwargs: Any
     resolved_label = get_pop_All_18(country2, "")
 
     if not resolved_label:
-        resolved_label = test_films(country2)
+        resolved_label = te_films(country2)
     if not resolved_label:
         resolved_label = nats.find_nat_others(country2)
 
@@ -46,7 +46,7 @@ def get_lab_for_country2(country: str, with_test_ye: bool = False, **kwargs: Any
     if not resolved_label:
         resolved_label = work_relations(country2)
     if not resolved_label:
-        resolved_label = univer.test_universities(country2)
+        resolved_label = univer.te_universities(country2)
     if not resolved_label:
         resolved_label = Work_US_State(country2)
     if not resolved_label:

@@ -61,7 +61,7 @@ def Films(category: str, country_start: str, country_code: str, reference_catego
         if country_code_label:
             country_label = country_code_label.format(country_name)
             output_test4(
-                f'<<lightblue>> test_4:Films: new country_label  "{country_label}" '
+                f'<<lightblue>> bot_te_4:Films: new country_label  "{country_label}" '
             )
         if not country_label:
             country_code_label = Films_key_CAO.get(country_code, get_Films_key_CAO(country_code))
@@ -70,7 +70,7 @@ def Films(category: str, country_start: str, country_code: str, reference_catego
                 if country_code in Films_key_CAO_new_format:
                     country_label = Films_key_CAO_new_format[country_code].format(country_name)
                 output_test4(
-                    f'<<lightblue>> test_4:Films: new country_label "{country_label}" , country_code:{country_code} '
+                    f'<<lightblue>> bot_te_4:Films: new country_label "{country_label}" , country_code:{country_code} '
                 )
         if not country_label:
             country_code_label = Films_key_For_nat.get(country_code, "")

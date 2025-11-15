@@ -9,7 +9,7 @@ from ...ma_lists import all_country_with_nat, all_country_with_nat_keys_is_en, m
 from .utils import apply_arabic_article, get_or_set
 
 #: Cache storing resolved labels keyed by the normalised category name.
-TEST_ARMY_CACHE: Dict[str, str] = {}
+te_army_CACHE: Dict[str, str] = {}
 
 #: Mapping of suffixes that require adding a prefix around the formatted label.
 ENDS_WITH_TABLE: Mapping[str, str] = {
@@ -126,7 +126,7 @@ def _resolve_sport_suffix(category_suffix: str, men_label: str) -> str:
     return ""
 
 
-def test_army(category: str) -> str:
+def te_army(category: str) -> str:
     """Resolve the Arabic label for a military-related category.
 
     Args:
@@ -138,8 +138,8 @@ def test_army(category: str) -> str:
 
     normalized_category = category.lower().strip()
 
-    if normalized_category in TEST_ARMY_CACHE:
-        cached = TEST_ARMY_CACHE[normalized_category]
+    if normalized_category in te_army_CACHE:
+        cached = te_army_CACHE[normalized_category]
         if cached:
             logger.debug(f"<<lightblue>>>> ============== Cache hit for army label : {cached}")
         return cached
@@ -174,11 +174,11 @@ def test_army(category: str) -> str:
 
         return ""
 
-    resolved_value = get_or_set(TEST_ARMY_CACHE, normalized_category, _resolve)
+    resolved_value = get_or_set(te_army_CACHE, normalized_category, _resolve)
     logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_value}")
     return resolved_value
 
 
 __all__ = [
-    "test_army"
+    "te_army"
 ]

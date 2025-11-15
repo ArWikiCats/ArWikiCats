@@ -12,7 +12,7 @@ from ...format_bots import for_table
 from ...fromnet import kooora
 from ...fromnet.wd_bot import find_wikidata
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...media_bots.films_bot import test_films
+from ...media_bots.films_bot import te_films
 from ...o_bots import bys
 from ...p17_bots import nats
 from ...sports_bots import team_work
@@ -62,7 +62,7 @@ def get_con_lab(tito: str, start_get_country2: bool, tito2: str, country: str, c
     if not con_lab:
         con_lab = year_lab.make_month_lab(country_lower)
     if not con_lab:
-        con_lab = test_films(country)
+        con_lab = te_films(country)
     if not con_lab:
         con_lab = nats.find_nat_others(country)
     if not con_lab:

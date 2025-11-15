@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 
-from .make2_bots.jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
+from .make2_bots.jobs_bots.test4_bots.t4_2018_jobs import te4_2018_Jobs
 
 """
 
@@ -33,7 +33,7 @@ from ....helps.print_bot import output_test4, print_put
 
 
 @functools.lru_cache(maxsize=None)
-def test4_2018_Jobs(cate: str) -> str:
+def te4_2018_Jobs(cate: str) -> str:
     """Retrieve job-related information based on the specified category.
 
     This function processes the input category to determine the appropriate
@@ -52,7 +52,7 @@ def test4_2018_Jobs(cate: str) -> str:
     # ---
     cate = re.sub(r"_", " ", cate)
     # ---
-    output_test4(f"<<lightyellow>>>> test4_2018_Jobs >> cate:({cate}) ")
+    output_test4(f"<<lightyellow>>>> te4_2018_Jobs >> cate:({cate}) ")
     # ---
     cate2_no_lower = cate.lower()
     cate2 = cate.lower()
@@ -71,13 +71,13 @@ def test4_2018_Jobs(cate: str) -> str:
                 if Main_lab in change_male_to_female:
                     Main_lab = change_male_to_female[Main_lab]
             # ---
-            output_test4(f'<<lightblue>> test4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{cate}",Main_lab:"{Main_lab}". ')
+            output_test4(f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{cate}",Main_lab:"{Main_lab}". ')
     # ---
     cate2_no_lower = cate
     cate = cate.lower()
     # ---
     if cate != cate2:
-        output_test4(f'<<lightblue>> test4_2018_Jobs cate:"{cate}",cate2:"{cate2}",Main_Ss:"{Main_Ss}". ')
+        output_test4(f'<<lightblue>> te4_2018_Jobs cate:"{cate}",cate2:"{cate2}",Main_Ss:"{Main_Ss}". ')
     country_lab = "أشخاص" if cate == "people" else ""
     # ---
     if Main_Ss.strip() == "fictional" and cate.strip().startswith("female"):
@@ -110,7 +110,7 @@ def test4_2018_Jobs(cate: str) -> str:
         job_example_lab = en_is_nat_ar_is_women.get(job_example.strip(), "")
         if job_example_lab:
             country_lab = job_example_lab.format(Nat_women[nat])
-            output_test4(f'<<lightblue>> test_4, new country_lab "{country_lab}" ')
+            output_test4(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
             Main_lab = priffix_lab_for_2018[Main_Ss]["women"]
         # ---
         # en_is_nat_ar_is_man
@@ -118,7 +118,7 @@ def test4_2018_Jobs(cate: str) -> str:
             job_example_lab = en_is_nat_ar_is_man.get(job_example.strip(), "")
             if job_example_lab:
                 country_lab = job_example_lab.format(Nat_men[nat])
-                output_test4(f'<<lightblue>> test_4, new country_lab "{country_lab}" ')
+                output_test4(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
                 Main_lab = priffix_lab_for_2018[Main_Ss]["men"]
     # ---
     if job_example and country_lab == "":
@@ -142,6 +142,6 @@ def test4_2018_Jobs(cate: str) -> str:
     if not country_lab:
         country_lab = try_relegins_jobs(cate)
     # ---
-    output_test4(f'end test4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate2}')
+    output_test4(f'end te4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate2}')
     # ---
     return country_lab

@@ -93,7 +93,7 @@ from .others.peoples import People_key
 
 from .mix_data import pop_All_2018_bot
 
-from .mixed.test_4_list import (
+from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_man,

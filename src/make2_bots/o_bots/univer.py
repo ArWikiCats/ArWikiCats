@@ -70,7 +70,7 @@ def _normalise_category(category: str) -> str:
 
 
 def _resolve(normalized_category: str) -> str:
-    print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
+    print_put(f"<<lightblue>>>> vvvvvvvvvvvv te_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
 
     city_key = ""
     university_template = ""
@@ -108,15 +108,15 @@ def _resolve(normalized_category: str) -> str:
     city_label = CITY_TRANSLATIONS_LOWER.get(city_key, "") if city_key else ""
     if city_label and university_template:
         university_label = university_template.format(city_label)
-        print_put(f'<<lightblue>>>>>> test_universities: new university_label  "{university_label}" ')
-        print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
+        print_put(f'<<lightblue>>>>>> te_universities: new university_label  "{university_label}" ')
+        print_put("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
         return university_label
 
-    print_put("<<lightblue>>>> ^^^^^^^^^ test_universities end ^^^^^^^^^ ")
+    print_put("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
     return ""
 
 
-def test_universities(category: str) -> str:
+def te_universities(category: str) -> str:
     """Return the Arabic label for university-related categories.
 
     Args:
@@ -137,5 +137,5 @@ def test_universities(category: str) -> str:
 
 
 __all__ = [
-    "test_universities"
+    "te_universities"
 ]

@@ -18,7 +18,7 @@ from ..date_bots import with_years_bot
 from ..p17_bots import nats
 from ..sports_bots import team_work
 
-from ..media_bots.films_bot import test_films
+from ..media_bots.films_bot import te_films
 
 from . import country2_bot
 from . import country2_lab
@@ -53,7 +53,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     if not resolved_label:
         resolved_label = New_female_keys.get(country, "")
     if not resolved_label:
-        resolved_label = test_films(country)
+        resolved_label = te_films(country)
     if not resolved_label:
         resolved_label = nats.find_nat_others(country)
     if not resolved_label:

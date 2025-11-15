@@ -9,12 +9,12 @@ from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ...ma_lists import Ambassadors_tab, New_P17_Finall
 from ..fromnet.wd_bot import find_wikidata
-from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
+from ..jobs_bots.test4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..matables_bots.bot import New_Lan
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
-from ..media_bots.films_bot import test_films
+from ..media_bots.films_bot import te_films
 from ..o_bots import univer
 from ..o_bots.popl import work_peoples
 
@@ -89,7 +89,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = centries_years_dec.get(normalized_target_category, "")
 
     if not resolved_category_label:
-        resolved_category_label = test4_2018_Jobs(normalized_target_category)
+        resolved_category_label = te4_2018_Jobs(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = Jobs_in_Multi_Sports(target_category_original_case)
@@ -98,10 +98,10 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     #     category_lab = tmp_bot.Work_Templates(category3)
 
     if not resolved_category_label:
-        resolved_category_label = univer.test_universities(normalized_target_category)
+        resolved_category_label = univer.te_universities(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = test_films(normalized_target_category, reference_category=reference_category)
+        resolved_category_label = te_films(normalized_target_category, reference_category=reference_category)
 
     if not resolved_category_label:
         resolved_category_label = nats.find_nat_others(normalized_target_category, reference_category=reference_category)

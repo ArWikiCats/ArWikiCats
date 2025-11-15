@@ -17,7 +17,7 @@ def reset_bys_tables(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 def test_make_by_label_prefers_film_labels(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(bys, "test_films", lambda name: "فيلم" if name == "The Matrix" else "", raising=False)
+    monkeypatch.setattr(bys, "te_films", lambda name: "فيلم" if name == "The Matrix" else "", raising=False)
     monkeypatch.setattr(bys, "find_nat_others", lambda name: "", raising=False)
 
     result = bys.make_by_label("by The Matrix")
@@ -25,7 +25,7 @@ def test_make_by_label_prefers_film_labels(monkeypatch: pytest.MonkeyPatch) -> N
 
 
 def test_make_by_label_falls_back_to_nationality(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(bys, "test_films", lambda name: "", raising=False)
+    monkeypatch.setattr(bys, "te_films", lambda name: "", raising=False)
     monkeypatch.setattr(bys, "find_nat_others", lambda name: "مصري" if name == "Ali" else "", raising=False)
 
     result = bys.make_by_label("by Ali")
@@ -33,7 +33,7 @@ def test_make_by_label_falls_back_to_nationality(monkeypatch: pytest.MonkeyPatch
 
 
 def test_make_by_label_supports_dual_categories(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(bys, "test_films", lambda name: "", raising=False)
+    monkeypatch.setattr(bys, "te_films", lambda name: "", raising=False)
     monkeypatch.setattr(bys, "find_nat_others", lambda name: "", raising=False)
     monkeypatch.setattr(bys, "By_orginal2", {"alpha": "ألفا", "beta": "بيتا"}, raising=False)
 

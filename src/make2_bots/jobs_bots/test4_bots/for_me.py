@@ -57,7 +57,7 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
             men_nat_lab_no_al = re.sub(r" ", " ال", men_nat_lab)
             men_nat_lab = f"ال{men_nat_lab_no_al}"
             country_lab = con_3_lab.format(men_nat_lab)
-            output_test4(f'<<lightblue>> test_4:en_is_nat_ar_is_al_mens new country_lab  "{country_lab}" ')
+            output_test4(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_mens new country_lab  "{country_lab}" ')
     # ---
 
     # ---
@@ -88,7 +88,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
             output_test4(f'<<lightblue>> Work_for_me:con_3_lab: "{con_3_lab}" ')
             if cco_lab:
                 country_lab = con_3_lab.format(cco_lab)
-                output_test4(f'<<lightblue>> test_4:en_is_nat_ar_is_women new country_lab   "{country_lab}" ')
+                output_test4(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_women new country_lab   "{country_lab}" ')
     # ---
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
@@ -122,7 +122,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
             else:
                 country_lab = con_3_lab.format(women_nat_lab)
             # ---
-            output_test4(f'<<lightblue>> test_4:en_is_nat_ar_is_al_women new country_lab  "{country_lab}" ')
+            output_test4(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new country_lab  "{country_lab}" ')
     # ---
     # رجالية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
@@ -135,7 +135,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
         # ---
         if con_3_lab:
             country_lab = con_3_lab.format(men_nat_lab)
-            output_test4(f'<<lightblue>> test_4:en_is_nat_ar_is_man new country_lab    "{country_lab}" ')
+            output_test4(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_man new country_lab    "{country_lab}" ')
     # ---
     # رجالية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":

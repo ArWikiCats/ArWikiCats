@@ -46,17 +46,17 @@ def resolve_label(category: str) -> str:
     if from_year:
         category_lab = from_year
 
-    start_yementest_lab = ""
+    start_ylab = ""
 
     if not category_lab:
-        start_yementest_lab = ye_ts_bot.translate_general_category(changed_cat)
+        start_ylab = ye_ts_bot.translate_general_category(changed_cat)
 
     if not category_lab and is_cat_okay:
         category_lower = category.lower()
         category_lab = cash_2022.get(category_lower, "")
 
         if not category_lab and app_settings.start_yementest:
-            category_lab = start_yementest_lab
+            category_lab = start_ylab
 
         if not category_lab:
             category_lab = event2bot.event2(changed_cat)
@@ -65,7 +65,7 @@ def resolve_label(category: str) -> str:
             category_lab = event_lab_bot.event_Lab(changed_cat)
 
     if not category_lab and is_cat_okay:
-        category_lab = start_yementest_lab
+        category_lab = start_ylab
 
     if category_lab:
         category_lab = fixtitle.fixlab(category_lab, en=category)

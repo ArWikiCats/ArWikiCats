@@ -15,7 +15,7 @@ from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ..bots import tmp_bot
 from ..date_bots import with_years_bot
-from ..o_bots import univer  # univer.test_universities(cate)
+from ..o_bots import univer  # univer.te_universities(cate)
 from .country_bot import get_country
 from .dodo_bots.event2bot_dodo import make_lab_dodo
 from .lab_seoo_bot import event_Lab_seoo
@@ -121,7 +121,7 @@ def event2(category_r: str) -> str:
     # ---
     category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
     # ---
-    ar_label = univer.test_universities(category_r)
+    ar_label = univer.te_universities(category_r)
     # ---
     if ar_label:
         return ar_label
