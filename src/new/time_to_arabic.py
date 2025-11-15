@@ -9,30 +9,32 @@ and Arabic, and a conversion function to translate English expressions.
 """
 import re
 
+century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[- ])(century|millennium)\s*(BCE|BC)?"
+decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
+
 REG_YEAR_EN = re.compile(
     r"\b"
-    r"(?:January|February|March|April|May|June|July|August|September|October|November|December|)\s*"
+    r"(?:January|February|March|April|May|June|July|August|September|October|November|December)?\s*"
     r"("
     r"\d+[−–-]\d+"
-    r"|\d{1,4}s(?: BC| BCE|)?"
+    rf"|{decade_regex}"
     r"|\d{4}"
     r")"
     r"\b",
     re.I
 )
 
-
 REG_CENTURY_EN = re.compile(
-    r"\b\d+((?:st|nd|rd|th)(?:[- ])(?:century|millennium)(?: BCE| BC|))\b",
+    rf"\b{century_millennium_regex}\b",
     re.I
 )
 
 REG_YEAR_AR = re.compile(
     r"\b"
-    r"(?:يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر|)\s*"
+    r"(?:يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر)?\s*"
     r"("
     r"\d+[−–-]\d+"
-    r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد|)"
+    r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
     r"|\d{4}"
     r")"
     r"\b",
@@ -40,9 +42,28 @@ REG_YEAR_AR = re.compile(
 )
 
 REG_CENTURY_AR = re.compile(
-    r"\bب*(?:القرن|الألفية) \d+ *(?:ق\.م|ق م|قبل الميلاد|)\b",
+    r"\bب*(?:القرن|الألفية) \d+ *(?:ق\.م|ق م|قبل الميلاد)?\b",
     re.I
 )
+
+# --- Numeric range ---
+
+
+def expand_range(year_text: str) -> str:
+    parts = year_text.split("-")
+    if len(parts) == 1:
+        return year_text
+    try:
+        first = int(parts[0].rstrip("s"))
+        second = parts[1].rstrip("s")
+        if len(second) == 2:
+            prefix = str(first)[:len(str(first)) - 2]
+            second = int(prefix + second)
+        else:
+            second = int(second)
+        return f"{first}-{second}"
+    except ValueError:
+        return year_text
 
 
 def match_time_ar(ar_value: str) -> list[str]:
@@ -59,7 +80,8 @@ def match_time_en(en_key: str) -> list[str]:
 
 def convert_time_to_arabic(en_year: str) -> str:
     """Convert an English time expression into its Arabic equivalent."""
-    en_year = en_year.strip().replace("–", "-").replace("−", "-")
+    en_year = en_year.strip()  # .replace("–", "-").replace("−", "-")
+
     month_map = {
         "january": "يناير", "february": "فبراير", "march": "مارس", "april": "أبريل",
         "may": "مايو", "june": "يونيو", "july": "يوليو", "august": "أغسطس",
@@ -72,44 +94,24 @@ def convert_time_to_arabic(en_year: str) -> str:
         month = month_map[m.group(1).lower()]
         return f"{month} {m.group(2)}"
 
-    # --- Decade ---
-    m = re.match(r"^(\d{1,4})s$", en_year)
+    # --- Decade (with optional BC/BCE) ---
+    m = re.match(rf"^{decade_regex}$", en_year, re.I)
     if m:
-        return f"عقد {m.group(1)}"
+        bc = " ق م" if m.group(2) else ""
+        return f"عقد {m.group(1)}{bc}"
 
-    # --- Century ---
-    m = re.match(r"^(\d+)(?:st|nd|rd|th)(?:[- ])century( BC| BCE)?$", en_year, re.I)
+    # --- Century/Millennium ---
+    m = re.match(rf"^{century_millennium_regex}$", en_year, re.I)
     if m:
         num = int(m.group(1))
-        bc = " ق م" if m.group(2) else ""
-        return f"القرن {num}{bc}"
+        bc = " ق م" if m.group(3) else ""
+        ty = "القرن" if m.group(2) == "century" else "الألفية"
+        return f"{ty} {num}{bc}"
 
-    # --- Millennium ---
-    m = re.match(r"^(\d+)(?:st|nd|rd|th)(?:[- ])millennium( BC| BCE)?$", en_year, re.I)
-    if m:
-        num = int(m.group(1))
-        bc = " ق م" if m.group(2) else ""
-        return f"الألفية {num}{bc}"
-
-    # --- Numeric range ---
-    def expand_range(year_text: str) -> str:
-        parts = year_text.split("-")
-        if len(parts) == 1:
-            return year_text
-        try:
-            first = int(parts[0].rstrip("s"))
-            second = parts[1].rstrip("s")
-            if len(second) == 2:
-                prefix = str(first)[:len(str(first)) - 2]
-                second = int(prefix + second)
-            else:
-                second = int(second)
-            return f"{first}-{second}"
-        except ValueError:
-            return year_text
-
-    if re.search(r"^\d+[-−–]\d+", en_year):
-        return expand_range(en_year)
+    if re.search(r"^\d+[-−–]\d+", en_year, re.I):
+        # --- (no expansion wanted) ---
+        # return expand_range(en_year)
+        return en_year
 
     # --- Fallback ---
     return en_year

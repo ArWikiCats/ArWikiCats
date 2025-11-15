@@ -11,6 +11,7 @@ from ...matables_bots.check_bot import check_key_new_players
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ....helps.print_bot import print_put
 from ..country_bot import get_country
+from ....new.time_to_arabic import match_en_return_ar
 
 
 def work_2019(category3: str, year: str, year_labe: str) -> str:
@@ -18,7 +19,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     Process category data.
     example:
         input:
-            category3: "18th century dutch explorers
+            category3: "18th century dutch explorers"
             year: "18th century
             year_labe: "القرن 18
         result:
@@ -61,7 +62,25 @@ def match_year(category):
     ...
 
 
-def work_2019_wrap(category):
+def work_2019_wrap_old(category):
     year = match_year(category)
     year_label = year_lab.make_year_lab(year)
+    return work_2019(category, year, year_label)
+
+
+def work_2019_wrap(category):
+    year_data = match_en_return_ar(category)
+    if not year_data:
+        return ""
+
+    year, year_label = "", ""
+
+    for x, v in year_data.items():
+        year = x
+        year_label = v
+        break
+
+    if year == year_label and not year.isdigit():
+        return ""
+
     return work_2019(category, year, year_label)

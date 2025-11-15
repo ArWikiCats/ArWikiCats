@@ -1,77 +1,7 @@
 # test_convert_time_to_arabic.py
 # -*- coding: utf-8 -*-
 import pytest
-from src.new.time_to_arabic import convert_time_to_arabic, match_en_return_ar
-
-
-@pytest.mark.parametrize("en_text, expected", [
-    # --- Months ---
-    ("March 1917", "مارس 1917"),
-    ("August 2025", "أغسطس 2025"),
-    ("December 1999", "ديسمبر 1999"),
-
-    # --- Decades ---
-    ("2020s", "عقد 2020"),
-    ("1990s", "عقد 1990"),
-    ("10s", "عقد 10"),
-    # ("10s BC", "عقد 10 ق م"),
-
-    # --- Centuries ---
-    ("19th century", "القرن 19"),
-    ("2nd century BC", "القرن 2 ق م"),
-    ("4th-century BCE", "القرن 4 ق م"),
-    ("4th-century BC", "القرن 4 ق م"),
-    ("21st century BCE", "القرن 21 ق م"),
-    ("1st century", "القرن 1"),
-
-    # --- Millennia ---
-    ("2nd millennium", "الألفية 2"),
-    ("1st millennium BC", "الألفية 1 ق م"),
-    ("2nd millennium BC", "الألفية 2 ق م"),
-    ("1st millennium BCE", "الألفية 1 ق م"),
-
-    # --- Numeric ranges ---
-    ("2012–13", "2012-2013"),
-    ("2012-2013", "2012-2013"),
-    ("1990–91", "1990-1991"),
-    ("1990-1991", "1990-1991"),
-    ("1800-1899", "1800-1899"),
-
-    # --- Misc / fallback ---
-    ("1000", "1000"),
-    ("1234", "1234"),
-    ("Late 20th century", "Late 20th century"),  # no pattern
-    ("year 2000", "year 2000"),  # should not alter arbitrary text
-],
-)
-def test_convert_time_to_arabic_basic(en_text, expected):
-    """Test various English time expressions for correct Arabic conversion."""
-    result = convert_time_to_arabic(en_text)
-    assert result == expected, f"{en_text} → {result}, expected {expected}"
-
-
-def test_trim_and_dash_normalization():
-    """Ensure spaces and en dash normalization work."""
-    result = convert_time_to_arabic("  March 1917 ")
-    assert result == "مارس 1917"
-
-    result = convert_time_to_arabic("2012–13")
-    assert result == "2012-2013"
-
-
-def test_nonstandard_inputs():
-    """Edge cases and nonstandard input should not crash."""
-    assert convert_time_to_arabic("") == ""
-    assert convert_time_to_arabic("unknown") == "unknown"
-    assert convert_time_to_arabic("123abc") == "123abc"
-    assert convert_time_to_arabic("20th-century architecture") == "20th-century architecture"
-
-
-def test_century_and_millennium_bc_equivalence():
-    """Verify BC and BCE handled identically."""
-    assert convert_time_to_arabic("2nd century BC") == convert_time_to_arabic("2nd century BCE")
-    assert convert_time_to_arabic("1st millennium BC") == convert_time_to_arabic("1st millennium BCE")
-
+from src.new.time_to_arabic import match_en_return_ar
 
 en_return_ar = {
     "Category:2020s in Yemen": {"2020s": "عقد 2020"},
@@ -88,7 +18,7 @@ en_return_ar = {
     },
 
     "1990–91 in football": {
-        "1990–91": "1990-91"
+        "1990–91": "1990–91"
     },
 
     "events from 2020 to 2025": {
@@ -101,7 +31,7 @@ en_return_ar = {
     },
 
     "2012-13 in football": {
-        "2012-13": "2012-2013"
+        "2012-13": "2012-13"
     },
 
     "Category:10s": {
@@ -206,7 +136,12 @@ en_return_ar = {
 
     "Category:21st-century Afghan monarchs": {
         "21st-century": "القرن 21"
-    }
+    },
+
+    "Category:7th centuryBC Afghan monarchs": {
+        "7th centuryBC": "القرن 7 ق م"
+    },
+    "Category:January events": {},
 }
 
 
@@ -215,7 +150,7 @@ en_return_ar = {
     en_return_ar.items(),
     ids=[x for x in en_return_ar.keys()]
 )
-def _test_match_en_return_ar(en_text, expected):
+def test_match_en_return_ar(en_text, expected):
     """Test various English time expressions for correct Arabic conversion."""
     result = match_en_return_ar(en_text)
     assert result == expected, f"{en_text} → {result}, expected {expected}"
