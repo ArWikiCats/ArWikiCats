@@ -8,7 +8,6 @@ from typing import Dict
 from ... import printe
 from .open_url import open_url_json
 
-WIKIDATA_CACHE: Dict[str, Dict[str, str]] = {}
 # ---
 api_url = "https://www.wikidata.org/w/api.php"
 # ---
@@ -17,9 +16,6 @@ ARABIC_LETTER_PATTERN = "[ابتثجحخدذرزسشصضطظعغفقكلمنهو
 
 
 def find_name_from_wikidata(text: str, lang: str) -> Dict[str, str]:
-    # ---
-    if text in WIKIDATA_CACHE:
-        return {text: WIKIDATA_CACHE[text]}
     # ---
     params = {
         "action": "wbsearchentities",
@@ -47,8 +43,6 @@ def find_name_from_wikidata(text: str, lang: str) -> Dict[str, str]:
     # ---
     if label_map:
         printe.output(label_map)
-    # ---
-    WIKIDATA_CACHE[text] = label_map
     # ---
     arabic_labels = {}
     # ---
