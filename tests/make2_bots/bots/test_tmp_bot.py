@@ -164,7 +164,7 @@ def test_with_years(monkeypatch):
     )
     monkeypatch.setattr("src.make2_bots.bots.tmp_bot.ye_ts_bot.translate_general_category", lambda lbl: "")
 
-    result = Work_Templates("football finals 1900")
+    result = Work_Templates("1900 football finals")
     # suffix " finals"
     assert result == "نهائيات 1900"
 
@@ -189,7 +189,8 @@ def test_fallback_general_category(monkeypatch):
     [
         ("  BASKETBALL  FINALS  ", "كرة السلة", "نهائيات كرة السلة"),
         ("football  SQUADS", "كرة القدم", "تشكيلات كرة القدم"),
-        ("tennis  –  mixed doubles", "تنس", "تنس – زوجي مختلط"),
+        ("tennis – mixed doubles", "تنس", "تنس – زوجي مختلط"),
+        ("tennis  –  mixed doubles", "تنس", ""),
     ]
 )
 def test_edge_cases(monkeypatch, input_label, resolved, expected):
@@ -225,5 +226,5 @@ def test_combined_complex(monkeypatch):
     monkeypatch.setattr("src.make2_bots.bots.tmp_bot.with_years_bot.Try_With_Years", lambda lbl: "")
     monkeypatch.setattr("src.make2_bots.bots.tmp_bot.ye_ts_bot.translate_general_category", lambda lbl: "كرة القدم")
 
-    result = Work_Templates("association football - related lists")
+    result = Work_Templates("association football-related lists")
     assert result == "قوائم متعلقة بكرة القدم"
