@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 """
 """
-
 import re
+import functools
 from typing import Dict
 
 from ... import printe
 from .open_url import open_url_json
 
-WIKIDATA_CACHE: Dict[str, Dict[str, str]] = {}
 # ---
 api_url = "https://www.wikidata.org/w/api.php"
 # ---
@@ -16,10 +15,8 @@ ENGLISH_LETTER_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
 ARABIC_LETTER_PATTERN = "[ابتثجحخدذرزسشصضطظعغفقكلمنهوية]"
 
 
+@functools.lru_cache(maxsize=None)
 def find_name_from_wikidata(text: str, lang: str) -> Dict[str, str]:
-    # ---
-    if text in WIKIDATA_CACHE:
-        return {text: WIKIDATA_CACHE[text]}
     # ---
     params = {
         "action": "wbsearchentities",
@@ -47,8 +44,6 @@ def find_name_from_wikidata(text: str, lang: str) -> Dict[str, str]:
     # ---
     if label_map:
         printe.output(label_map)
-    # ---
-    WIKIDATA_CACHE[text] = label_map
     # ---
     arabic_labels = {}
     # ---

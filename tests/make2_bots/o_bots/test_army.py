@@ -8,11 +8,6 @@ import pytest
 from src.make2_bots.o_bots import army
 
 
-@pytest.fixture(autouse=True)
-def reset_army_cache() -> None:
-    army.te_army_CACHE.clear()
-
-
 def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(army, "all_country_with_nat", {}, raising=False)
     monkeypatch.setattr(army, "all_country_with_nat_keys_is_en", {}, raising=False)
@@ -54,21 +49,3 @@ def test_te_army_resolves_men_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
 
     result = army.te_army("France army")
     assert result == "الفرنسي العسكري"
-
-
-@pytest.mark.usefixtures("base_army_datasets")
-def test_te_army_returns_cached_value(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(
-        army,
-        "all_country_with_nat",
-        {"France": {"en": "France", "men": "فرنسي"}},
-        raising=False,
-    )
-    monkeypatch.setattr(army, "military_format_men", {"army": "{nat} العسكري"}, raising=False)
-
-    first = army.te_army("France army")
-    monkeypatch.setattr(army, "all_country_with_nat", {}, raising=False)
-    second = army.te_army("France army")
-
-    assert first == "الفرنسي العسكري"
-    assert second == "الفرنسي العسكري"

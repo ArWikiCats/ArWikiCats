@@ -3,36 +3,9 @@
 from __future__ import annotations
 
 import re
-from typing import Callable, Mapping, MutableMapping, Optional, Sequence, Tuple
+from typing import Callable, Mapping, Optional, Sequence, Tuple
 
-CacheMapping = MutableMapping[str, str]
 ValueLookup = Callable[[str], str]
-
-
-def build_cache_key(*parts: str) -> str:
-    """Return a normalised cache key composed from ``parts``.
-
-    Args:
-        *parts: Text fragments that should uniquely identify a cached value.
-
-    Returns:
-        The concatenated key where each part has been stripped and lowered.  The
-        separator is a comma and a single space to keep the key readable while
-        remaining deterministic.
-    """
-
-    normalised_parts = [part.strip().lower() for part in parts if part]
-    return ", ".join(normalised_parts)
-
-
-def get_or_set(cache: CacheMapping, key: str, factory: Callable[[], str]) -> str:
-    """Return ``cache[key]`` or compute and store it using ``factory``."""
-
-    if key in cache:
-        return cache[key]
-
-    cache[key] = factory()
-    return cache[key]
 
 
 def match_suffix_template(name: str, suffixes: Mapping[str, str]) -> Optional[Tuple[str, str]]:

@@ -2,18 +2,12 @@
 
 from __future__ import annotations
 
+import functools
 from typing import Dict
 
 from ...helps.log import logger
 from ...helps.print_bot import output_test4
 from ...ma_lists import Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2
-from .utils import build_cache_key, get_or_set
-
-#: Cache for :func:`ethnic_culture` results keyed by the important parameters.
-ETHNIC_CULTURE_CACHE: Dict[str, str] = {}
-
-#: Cache for :func:`ethnic` results keyed by the important parameters.
-ETHNIC_CACHE: Dict[str, str] = {}
 
 MALE_TOPIC_TABLE: Dict[str, str] = {
     "history": "تاريخ {}",
@@ -29,6 +23,7 @@ MALE_TOPIC_TABLE: Dict[str, str] = {
 }
 
 
+@functools.lru_cache(maxsize=None)
 def ethnic_culture(category: str, start: str, suffix: str) -> str:
     """Return the cultural label for ``suffix`` relative to ``start``.
 
@@ -41,84 +36,71 @@ def ethnic_culture(category: str, start: str, suffix: str) -> str:
         The resolved label or an empty string.
     """
 
-    cache_key = build_cache_key(category, start, suffix)
-    if cache_key in ETHNIC_CULTURE_CACHE:
-        return ETHNIC_CULTURE_CACHE[cache_key]
+    logger.info(f"Resolving ethnic culture, category={category}, start={start}, suffix={suffix}")
 
-    def _resolve() -> str:
-        logger.info(f"Resolving ethnic culture, category={category}, start={start}, suffix={suffix}")
+    if not Nat_women.get(start, "") and not Nat_men.get(start, ""):
+        return ""
 
-        if not Nat_women.get(start, "") and not Nat_men.get(start, ""):
-            return ""
+    topic_label = ""
+    group_label = ""
+    start_label = ""
 
-        topic_label = ""
-        group_label = ""
-        start_label = ""
+    # Try to resolve using women-centric templates first.
+    start_women_label = Nat_women.get(start, "")
+    if start_women_label:
+        for key, template in en_is_nat_ar_is_women_2.items():
+            candidate_suffix = f" {key}"
+            if suffix.endswith(candidate_suffix):
+                base_key = suffix[: -len(candidate_suffix)].strip()
+                group_label = Nat_women.get(base_key, "")
+                if group_label:
+                    topic_label = template
+                    start_label = start_women_label
+                    break
 
-        # Try to resolve using women-centric templates first.
-        start_women_label = Nat_women.get(start, "")
-        if start_women_label:
-            for key, template in en_is_nat_ar_is_women_2.items():
+    # Fallback to male templates when the women-specific search fails.
+    if not topic_label:
+        start_men_label = Nat_men.get(start, "")
+        if start_men_label:
+            for key, template in MALE_TOPIC_TABLE.items():
                 candidate_suffix = f" {key}"
                 if suffix.endswith(candidate_suffix):
                     base_key = suffix[: -len(candidate_suffix)].strip()
-                    group_label = Nat_women.get(base_key, "")
+                    group_label = Nat_men.get(base_key, "")
                     if group_label:
                         topic_label = template
-                        start_label = start_women_label
+                        start_label = start_men_label
                         break
 
-        # Fallback to male templates when the women-specific search fails.
-        if not topic_label:
-            start_men_label = Nat_men.get(start, "")
-            if start_men_label:
-                for key, template in MALE_TOPIC_TABLE.items():
-                    candidate_suffix = f" {key}"
-                    if suffix.endswith(candidate_suffix):
-                        base_key = suffix[: -len(candidate_suffix)].strip()
-                        group_label = Nat_men.get(base_key, "")
-                        if group_label:
-                            topic_label = template
-                            start_label = start_men_label
-                            break
+    if topic_label and group_label and start_label:
+        combined = f"{group_label} {start_label}"
+        resolved = topic_label.format(combined)
+        output_test4(f'<<lightblue>> ethnic_culture resolved label "{resolved}" for "{category}"')
+        return resolved
 
-        if topic_label and group_label and start_label:
-            combined = f"{group_label} {start_label}"
-            resolved = topic_label.format(combined)
-            output_test4(f'<<lightblue>> ethnic_culture resolved label "{resolved}" for "{category}"')
-            return resolved
-
-        return ""
-
-    return get_or_set(ETHNIC_CULTURE_CACHE, cache_key, _resolve)
+    return ""
 
 
+@functools.lru_cache(maxsize=None)
 def ethnic(category: str, start: str, suffix: str) -> str:
     """Return the ethnic label for ``category``."""
 
-    cache_key = build_cache_key(category, start, suffix)
-    if cache_key in ETHNIC_CACHE:
-        return ETHNIC_CACHE[cache_key]
+    logger.info(f"Resolving ethnic label, category={category}, start={start}, suffix={suffix}")
 
-    def _resolve() -> str:
-        logger.info(f"Resolving ethnic label, category={category}, start={start}, suffix={suffix}")
+    normalized_suffix = suffix
+    if suffix.endswith(" people"):
+        candidate = suffix[: -len(" people")]
+        if Nat_mens.get(candidate, ""):
+            normalized_suffix = candidate
 
-        normalized_suffix = suffix
-        if suffix.endswith(" people"):
-            candidate = suffix[: -len(" people")]
-            if Nat_mens.get(candidate, ""):
-                normalized_suffix = candidate
+    group_label = Nat_mens.get(normalized_suffix, "")
+    start_label = Nat_mens.get(start, "")
+    if group_label and start_label:
+        resolved = f"{group_label} {start_label}"
+        output_test4(f'<<lightblue>> ethnic resolved label "{resolved}" for "{category}"')
+        return resolved
 
-        group_label = Nat_mens.get(normalized_suffix, "")
-        start_label = Nat_mens.get(start, "")
-        if group_label and start_label:
-            resolved = f"{group_label} {start_label}"
-            output_test4(f'<<lightblue>> ethnic resolved label "{resolved}" for "{category}"')
-            return resolved
-
-        return ethnic_culture(category, start, normalized_suffix)
-
-    return get_or_set(ETHNIC_CACHE, cache_key, _resolve)
+    return ethnic_culture(category, start, normalized_suffix)
 
 
 __all__ = [

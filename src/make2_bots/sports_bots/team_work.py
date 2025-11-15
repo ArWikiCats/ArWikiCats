@@ -7,6 +7,7 @@ Category:Sports_commentators_by_sport
 
 
 import re
+import functools
 from ...helps.log import logger
 
 # ---
@@ -92,24 +93,20 @@ Teams_new_end_keys = {
     "matches": "مباريات {}",
     "rivalries": "دربيات {}",
     "champions": "أبطال {}",
-    # ---
 }
-# ---
-GET_CLUB_CACHE = {}
 
 
+
+
+@functools.lru_cache(maxsize=None)
 def Get_Club(
     category: str,
-    out: bool = False,
     return_tab: bool = False,
 ) -> str | dict[str, str | dict[str, str]]:
     # ---
     new_entries = {}
     # ---
     normalized_category = category.lower()
-    # ---
-    if normalized_category in GET_CLUB_CACHE:
-        return GET_CLUB_CACHE[normalized_category]
     # ---
     category_label = ""
     # ---
@@ -153,8 +150,6 @@ def Get_Club(
     # ---
     if category_label:
         logger.debug(f'Get_Club cate:"{normalized_category}", catelab:"{category_label}"')
-    # ---
-    GET_CLUB_CACHE[normalized_category] = category_label
     # ---
     result["lab"] = category_label
     # ---

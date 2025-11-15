@@ -3,6 +3,7 @@
 
 """
 
+import functools
 import re
 from typing import Dict
 
@@ -10,11 +11,10 @@ from .open_url import open_url_text
 from ...helps.log import logger
 from ... import app_settings, printe
 
-TEAM_LOOKUP_CACHE: Dict[str, str] = {}
-
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
+@functools.lru_cache(maxsize=None)
 def kooora_player(english_name: str) -> str:
     encoded_name = english_name.replace(" ", "+")
     # ---
@@ -27,10 +27,6 @@ def kooora_player(english_name: str) -> str:
     # ---
     if english_name == "" or not app_settings.enable_kooora:
         return ""
-    # ---
-    lowercase_name = english_name.lower()
-    if lowercase_name in TEAM_LOOKUP_CACHE:
-        return TEAM_LOOKUP_CACHE[lowercase_name]
     # ---
     printe.output(f'*kooora_player EnName : "{english_name}" ')
     response_text = open_url_text(eee)
@@ -54,7 +50,7 @@ def kooora_player(english_name: str) -> str:
                 # ---
                 matched_name = team_fields[4]
                 # ---
-                if lowercase_name.replace(".", "") == matched_name.lower().replace(".", ""):
+                if english_name.lower().replace(".", "") == matched_name.lower().replace(".", ""):
                     arabic_label = team_fields[5]
                 else:
                     printe.output(
@@ -69,11 +65,11 @@ def kooora_player(english_name: str) -> str:
                     printe.output(f'*kooora_player arlabel:"{arabic_label}". ')
             else:
                 logger.debug(len(team_fields))
-    TEAM_LOOKUP_CACHE[lowercase_name] = arabic_label
     # ---
     return arabic_label
 
 
+@functools.lru_cache(maxsize=None)
 def kooora_team(english_name: str) -> str:
     # ---
     encoded_name = english_name.replace(" ", "+")
@@ -87,10 +83,6 @@ def kooora_team(english_name: str) -> str:
     # ---
     if english_name == "" or not app_settings.enable_kooora:
         return ""
-    # ---
-    lowercase_name = english_name.lower()
-    if lowercase_name in TEAM_LOOKUP_CACHE:
-        return TEAM_LOOKUP_CACHE[lowercase_name]
     # ---
     logger.debug(f'*kooora_team EnName : "{english_name}" ')
     # ---
@@ -115,7 +107,7 @@ def kooora_team(english_name: str) -> str:
             # ---
             matched_name = team_fields[4]
             # ---
-            if lowercase_name == matched_name.lower():
+            if english_name.lower() == matched_name.lower():
                 arabic_label = team_fields[5]
             else:
                 printe.output(
@@ -133,6 +125,5 @@ def kooora_team(english_name: str) -> str:
     if arabic_label and re.sub(en_literes, "", arabic_label, flags=re.IGNORECASE) != arabic_label:
         return ""
     # ---
-    TEAM_LOOKUP_CACHE[lowercase_name] = arabic_label
     # ---
     return arabic_label

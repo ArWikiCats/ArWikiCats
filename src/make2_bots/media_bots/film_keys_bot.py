@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Helper utilities for resolving film- and media-related categories."""
 
+import functools
 from typing import Dict
 
 from ...ma_lists import en_is_nat_ar_is_women
@@ -15,15 +16,9 @@ from ...ma_lists import (Nat_women, Nat_mens)
 from ...helps.print_bot import output_test4
 
 
-FILM_KEY_CAO_CACHE: Dict[str, str] = {}
-FILMS_CACHE: Dict[str, str] = {}
-
-
+@functools.lru_cache(maxsize=None)
 def get_Films_key_CAO(country_identifier: str) -> str:
     """Resolve labels for composite television keys used in film lookups."""
-
-    if country_identifier in FILM_KEY_CAO_CACHE:
-        return FILM_KEY_CAO_CACHE[country_identifier]
 
     output_test4(f'<<lightblue>> get_Films_key_CAO : country_identifier "{country_identifier}" ')
     normalized_identifier = country_identifier.lower().strip()
@@ -43,16 +38,12 @@ def get_Films_key_CAO(country_identifier: str) -> str:
                     f'<<lightblue>> get_Films_key_CAO: new resolved_label "{resolved_label}" '
                 )
 
-    FILM_KEY_CAO_CACHE[country_identifier] = resolved_label
     return resolved_label
 
 
+@functools.lru_cache(maxsize=None)
 def Films(category: str, country_start: str, country_code: str, reference_category: str = "") -> str:
     """Resolve the Arabic label for a given film category."""
-
-    cache_key = f"{category}, {country_start}, {country_code}".lower().strip()
-    if cache_key in FILMS_CACHE:
-        return FILMS_CACHE[cache_key]
 
     country_label = ""
     if country_code:
@@ -91,5 +82,4 @@ def Films(category: str, country_start: str, country_code: str, reference_catego
         if country_label:
             output_test4(f'<<lightblue>> test Films: new country_label "{country_label}" ')
 
-    FILMS_CACHE[cache_key] = country_label
     return country_label

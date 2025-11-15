@@ -9,28 +9,6 @@ import pytest
 from src.make2_bots.o_bots import utils
 
 
-def test_build_cache_key_normalises_and_joins_parts() -> None:
-    result = utils.build_cache_key("  Foo  ", "Bar", "", "Baz")
-    assert result == "foo, bar, baz"
-
-
-def test_get_or_set_returns_cached_value() -> None:
-    cache: Dict[str, str] = {}
-    calls = 0
-
-    def factory() -> str:
-        nonlocal calls
-        calls += 1
-        return "value"
-
-    first = utils.get_or_set(cache, "key", factory)
-    second = utils.get_or_set(cache, "key", factory)
-
-    assert first == "value"
-    assert second == "value"
-    assert calls == 1
-
-
 @pytest.mark.parametrize(
     "name,suffixes,expected",
     [

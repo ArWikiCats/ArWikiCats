@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """Utility helpers for extracting country labels from category names."""
-
+import functools
 from typing import Dict, Tuple, List
 
 from ...helps.print_bot import output_test4
 
-
-GET_COUNTRY_CACHE: Dict[Tuple[str, str], Tuple[str, str]] = {}
+# TypeError: unhashable type: 'dict'
+# @functools.lru_cache(maxsize=None)
 
 
 def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]:
@@ -21,11 +21,6 @@ def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]
         A tuple containing the remaining category string and the detected
         country prefix. Empty strings are returned if nothing matches.
     """
-
-    cache_key = (cate, category_type)
-    if cache_key in GET_COUNTRY_CACHE:
-        return GET_COUNTRY_CACHE[cache_key]
-
     category_suffix: str = ""
     country_prefix: str = ""
 
@@ -56,11 +51,9 @@ def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]
                 )
                 break
 
-    GET_COUNTRY_CACHE[cache_key] = (category_suffix, country_prefix)
-
     if category_suffix and country_prefix:
         output_test4(
-            f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",' \
+            f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",'
             f'get_con_3 fo_3:"{category_suffix}",Type:{category_type}'
         )
 

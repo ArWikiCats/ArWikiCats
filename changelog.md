@@ -1,4 +1,12 @@
 
+## [#62](https://github.com/MrIbrahem/make2_new/pull/62) - 2025-11-15
+
+* **Refactor**
+  * Modernized internal caching mechanisms across the application to use Python's built-in caching utilities instead of manual implementations, improving code maintainability and performance consistency.
+
+* **Tests**
+  * Added skeleton test files across multiple modules to establish testing infrastructure and improve code coverage foundation.
+
 ## [#59](https://github.com/MrIbrahem/make2_new/pull/59) - 2025-11-14
 * **Refactor [Sport_key.py](src/ma_lists/sports/Sport_key.py)**
   * Restructured sport key data handling into a modular pipeline with validation and alias expansion for improved maintainability.

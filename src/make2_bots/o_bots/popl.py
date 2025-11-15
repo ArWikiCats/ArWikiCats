@@ -2,16 +2,14 @@
 
 from __future__ import annotations
 
+import functools
 import re
-from typing import Dict
 
 from ...helps.log import logger
 from ...helps.print_bot import print_put
 from ...ma_lists import People_key, film_key_women_2, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
-from .utils import build_cache_key, get_or_set, resolve_suffix_template
-
-WORK_PEOPLES_CACHE: Dict[str, str] = {}
+from .utils import resolve_suffix_template
 
 
 def work_peoples_old(name: str) -> str:
@@ -24,9 +22,6 @@ def work_peoples_old(name: str) -> str:
         The resolved Arabic label or an empty string when no mapping exists.
     """
 
-    cache_key = build_cache_key(name)
-    if cache_key in WORK_PEOPLES_CACHE:
-        return WORK_PEOPLES_CACHE[cache_key]
     # ---
     print_put(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
     PpP_lab = ""
@@ -49,11 +44,10 @@ def work_peoples_old(name: str) -> str:
         PpP_lab = Pp_Priffix[pri].format(personlab)
         print_put(f'>>>><<lightblue>> name.endswith pri("{pri}"), PpP_lab:"{PpP_lab}"')
     # ---
-    WORK_PEOPLES_CACHE[cache_key] = PpP_lab
-    # ---
     return PpP_lab
 
 
+@functools.lru_cache(maxsize=None)
 def work_peoples(name: str) -> str:
     """Return the label for ``name`` based on the population prefixes table.
 
@@ -64,24 +58,17 @@ def work_peoples(name: str) -> str:
         The resolved Arabic label or an empty string when no mapping exists.
     """
 
-    cache_key = build_cache_key(name)
-    if cache_key in WORK_PEOPLES_CACHE:
-        return WORK_PEOPLES_CACHE[cache_key]
+    print_put(f"<<lightpurple>> work_peoples lookup for '{name}'")
 
-    def _resolve() -> str:
-        print_put(f"<<lightpurple>> work_peoples lookup for '{name}'")
+    def _lookup(prefix: str) -> str:
+        return People_key.get(prefix, "")
 
-        def _lookup(prefix: str) -> str:
-            return People_key.get(prefix, "")
-
-        label = resolve_suffix_template(name, Pp_Priffix, _lookup)
-        if label:
-            logger.debug(f"Resolved work_peoples: name:{name}, label:{label}")
-        else:
-            logger.debug(f"Failed to resolve work_peoples: name:{name}")
-        return label
-
-    return get_or_set(WORK_PEOPLES_CACHE, cache_key, _resolve)
+    label = resolve_suffix_template(name, Pp_Priffix, _lookup)
+    if label:
+        logger.debug(f"Resolved work_peoples: name:{name}, label:{label}")
+    else:
+        logger.debug(f"Failed to resolve work_peoples: name:{name}")
+    return label
 
 
 def make_people_lab(normalized_value: str) -> str:

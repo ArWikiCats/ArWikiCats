@@ -2,14 +2,12 @@
 
 from __future__ import annotations
 
+import functools
 import re
 from typing import Dict, Mapping, Tuple
 from ...helps.log import logger
 from ...ma_lists import all_country_with_nat, all_country_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, SPORT_FORMTS_EN_P17_AR_NAT
-from .utils import apply_arabic_article, get_or_set
-
-#: Cache storing resolved labels keyed by the normalised category name.
-te_army_CACHE: Dict[str, str] = {}
+from .utils import apply_arabic_article
 
 #: Mapping of suffixes that require adding a prefix around the formatted label.
 ENDS_WITH_TABLE: Mapping[str, str] = {
@@ -126,6 +124,7 @@ def _resolve_sport_suffix(category_suffix: str, men_label: str) -> str:
     return ""
 
 
+@functools.lru_cache(maxsize=None)
 def te_army(category: str) -> str:
     """Resolve the Arabic label for a military-related category.
 
@@ -138,45 +137,33 @@ def te_army(category: str) -> str:
 
     normalized_category = category.lower().strip()
 
-    if normalized_category in te_army_CACHE:
-        cached = te_army_CACHE[normalized_category]
-        if cached:
-            logger.debug(f"<<lightblue>>>> ============== Cache hit for army label : {cached}")
-        return cached
+    logger.info(f"Starting army label resolution, category: {normalized_category}")
 
-    def _resolve() -> str:
-        logger.info(f"Starting army label resolution, category: {normalized_category}")
+    suffix, women_label, men_label = _match_country_prefix(normalized_category)
 
-        suffix, women_label, men_label = _match_country_prefix(normalized_category)
+    if not suffix:
+        resolved = _resolve_women_without_article_prefix(normalized_category)
+        if resolved:
+            return resolved
 
-        if not suffix:
-            resolved = _resolve_women_without_article_prefix(normalized_category)
-            if resolved:
-                return resolved
+    # Attempt to resolve using women-focused templates first.
+    resolved_label = _resolve_women_suffix(suffix, women_label)
+    if resolved_label:
+        return resolved_label
 
-        # Attempt to resolve using women-focused templates first.
-        resolved_label = _resolve_women_suffix(suffix, women_label)
-        if resolved_label:
-            return resolved_label
+    resolved_label = _resolve_women_extended_suffix(suffix, women_label)
+    if resolved_label:
+        return resolved_label
 
-        resolved_label = _resolve_women_extended_suffix(suffix, women_label)
-        if resolved_label:
-            return resolved_label
+    # Fall back to men-specific and sport-specific templates.
+    resolved_label = _resolve_men_suffix(suffix, men_label)
+    if resolved_label:
+        return resolved_label
 
-        # Fall back to men-specific and sport-specific templates.
-        resolved_label = _resolve_men_suffix(suffix, men_label)
-        if resolved_label:
-            return resolved_label
+    resolved_label = _resolve_sport_suffix(suffix, men_label)
 
-        resolved_label = _resolve_sport_suffix(suffix, men_label)
-        if resolved_label:
-            return resolved_label
-
-        return ""
-
-    resolved_value = get_or_set(te_army_CACHE, normalized_category, _resolve)
-    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_value}")
-    return resolved_value
+    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
+    return resolved_label
 
 
 __all__ = [

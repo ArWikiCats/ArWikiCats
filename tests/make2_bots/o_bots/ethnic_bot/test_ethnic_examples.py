@@ -4,20 +4,6 @@ import src.make2_bots.o_bots.ethnic_bot as ethnic_mod
 
 ethnic = ethnic_mod.ethnic
 ethnic_culture = ethnic_mod.ethnic_culture
-ETHNIC_CACHE = ethnic_mod.ETHNIC_CACHE
-ETHNIC_CULTURE_CACHE = ethnic_mod.ETHNIC_CULTURE_CACHE
-
-
-@pytest.fixture(autouse=True)
-def clear_caches():
-    """Clear caches before and after each test."""
-    ETHNIC_CACHE.clear()
-    ETHNIC_CULTURE_CACHE.clear()
-    yield
-    ETHNIC_CACHE.clear()
-    ETHNIC_CULTURE_CACHE.clear()
-
-
 # -------------------------------------------------
 # Sample comparisons for ethnic()  (people → شعوب)
 # -------------------------------------------------
