@@ -24,7 +24,8 @@ class Typies:
 
 
 def get_cats(category_r):
-    cate = re.sub(r"[−–\-](millennium|century)", r" \g<1>", category_r, flags=re.I)
+    # cate = re.sub(r"[−–\-](millennium|century)", r" \g<1>", category_r, flags=re.I)
+    cate = category_r
     # ---
     cate3 = re.sub(r"category:", "", cate.lower(), flags=re.IGNORECASE)
     # ---

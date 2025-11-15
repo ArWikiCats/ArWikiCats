@@ -493,7 +493,6 @@ def change_cat(cat_orginal: str) -> str:
     category = re.sub(r"the kingdom of", " kingdom of", category, flags=re.IGNORECASE)
     category = re.sub(r"austria-hungary", "austria hungary", category, flags=re.IGNORECASE)
     category = re.sub(r"austria hungary", "austria hungary", category, flags=re.IGNORECASE)
-    category = re.sub(r"-millennium", " millennium", category, flags=re.IGNORECASE)
     # ---
     category = re.sub(r"unmanned military aircraft of", "unmanned military aircraft-oof", category, flags=re.IGNORECASE)
     category = re.sub(r"unmanned aerial vehicles of", "unmanned aerial vehicles-oof", category, flags=re.IGNORECASE)

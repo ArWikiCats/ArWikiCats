@@ -7,11 +7,11 @@ from ...new.time_to_arabic import convert_time_to_arabic
 
 ENGLISH_LETTERS_PATTERN = "[abcdefghijklmnopqrstuvwxyz]"
 
-make_year_lab = convert_time_to_arabic
-make_month_lab = convert_time_to_arabic
+# make_year_lab = convert_time_to_arabic
+# make_month_lab = convert_time_to_arabic
 
 
-def _make_year_lab(year: str) -> str:  # 21st century
+def make_year_lab(year: str) -> str:  # 21st century
     year = year.strip()
     # ---
     if year.isdigit():
@@ -23,7 +23,7 @@ def _make_year_lab(year: str) -> str:  # 21st century
     if " bc" in f" {year} " or " bce" in f" {year} ":
         suffix = " ق م "
 
-    year_without_suffix = year.split(" bce")[0].split(" bc")[0]
+    year_without_suffix = year.lower().split(" bce")[0].split(" bc")[0]
     non_numeric_part = re.sub(r"\d+", "", year_without_suffix).strip()
 
     year_label = ""
@@ -58,7 +58,7 @@ def _make_year_lab(year: str) -> str:  # 21st century
     return year_label
 
 
-def _make_month_lab(year: str) -> str:  # 21st century
+def make_month_lab(year: str) -> str:  # 21st century
     year = year.strip()
     if year.isdigit():
         return year

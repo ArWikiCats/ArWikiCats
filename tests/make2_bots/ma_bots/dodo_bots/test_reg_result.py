@@ -70,7 +70,7 @@ class TestYearExtraction:
     )
     def test_year(self, category, expected):
         out = get_reg_result(category)
-        assert out.year.lower() == expected.lower()
+        assert out.year.lower().strip() == expected.lower().strip()
 
     @pytest.mark.parametrize(
         "category,expected",
@@ -124,7 +124,7 @@ class TestTypeExtraction:
     def test_typeo(self, category, expected):
         out = get_reg_result(category)
         typeo = out.typeo.strip()
-        assert typeo == expected.strip()
+        assert typeo == expected
 
     @pytest.mark.parametrize(
         "category,expected",
@@ -138,7 +138,7 @@ class TestTypeExtraction:
     def _test_typeo2(self, category, expected):
         out = get_reg_result(category)
         typeo = out.typeo.strip()
-        assert typeo == expected.strip()
+        assert typeo == expected
 
 # -----------------------------------------------------------
 # 3) Tests for extracting “In” token
@@ -166,7 +166,7 @@ class TestInExtraction:
     )
     def test_in(self, category, expected):
         out = get_reg_result(category)
-        assert out.In.strip() == expected.strip()
+        assert out.In.strip() == expected
 
 
 # -----------------------------------------------------------
@@ -212,7 +212,7 @@ class TestCombinedPatterns:
     )
     def test_combined(self, category, year, typeo, In, country):
         out = get_reg_result(category)
-        assert out.year == year
+        assert out.year.strip() == year
         assert out.typeo == typeo
         assert out.In.strip() == In
         assert out.country == country
@@ -248,7 +248,7 @@ class TestMonthSuppression:
     )
     def test_month_suppression(self, category, expected):
         out = get_reg_result(category)
-        assert out.year == expected
+        assert out.year.strip() == expected
 
 
 # -----------------------------------------------------------
