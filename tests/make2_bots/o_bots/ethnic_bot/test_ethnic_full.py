@@ -12,6 +12,13 @@ ethnic_culture = ethnic_mod.ethnic_culture
 # ---------- Structural tests for data dictionaries ----------
 
 
+@pytest.fixture(autouse=True)
+def clear_lru_caches():
+    """Clear caches before each test."""
+    ethnic_mod.ethnic.cache_clear()
+    ethnic_mod.ethnic_culture.cache_clear()
+
+
 @pytest.mark.fast
 def test_en_is_nat_ar_is_women_templates_have_single_placeholder():
     """Each female-topic template must contain exactly one {} placeholder."""

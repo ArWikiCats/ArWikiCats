@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """Utility helpers for extracting country labels from category names."""
-
+import functools
 from typing import Dict, Tuple, List
 
 from ...helps.print_bot import output_test4
 
 
+@functools.lru_cache(maxsize=None)
 def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]:
     """Retrieve country information based on category and keys.
 

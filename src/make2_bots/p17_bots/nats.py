@@ -14,6 +14,7 @@ from ..jobs_bots.get_helps import get_con_3
 from ...helps.log import logger
 
 
+@functools.lru_cache(maxsize=None)
 def make_sport_formats_p17(category_key: str) -> str:
     """Resolve a sport format label for P17 lookups."""
 
