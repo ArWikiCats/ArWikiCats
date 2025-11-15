@@ -31,12 +31,12 @@ from ...ma_lists import (
 )
 
 from ..media_bots.film_keys_bot import Films
-from ..jobs_bots.get_helps import get_con_3
+from .get_helps import get_con_3
 
 # ---
 from ..o_bots import ethnic_bot
 from ...helps.print_bot import output_test4
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 from .test4_bots.for_me import Work_for_me
 

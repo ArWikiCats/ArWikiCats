@@ -10,7 +10,7 @@ from ...helps.print_bot import print_put
 from ...ma_lists import Ambassadors_tab, New_P17_Finall
 from ..fromnet.wd_bot import find_wikidata
 from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
-from ..jobs_bots.test_4 import Jobs_in_Multi_Sports
+from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..matables_bots.bot import New_Lan
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
