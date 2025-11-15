@@ -35,7 +35,7 @@ REG_YEAR_AR = re.compile(
     r"("
     r"\d+[−–-]\d+"
     r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
-    r"|\d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
+    r"|(?:القرن|الألفية)? \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
     r")"
     r"\b",
     re.I
@@ -68,7 +68,7 @@ def expand_range(year_text: str) -> str:
 
 def match_time_ar(ar_value: str) -> list[str]:
     ar_matches = [m.group().strip() for m in REG_YEAR_AR.finditer(f" {ar_value} ")]
-    ar_matches.extend([m.group().strip() for m in REG_CENTURY_AR.finditer(f" {ar_value} ")])
+    # ar_matches.extend([m.group().strip() for m in REG_CENTURY_AR.finditer(f" {ar_value} ")])
     return ar_matches
 
 
@@ -104,7 +104,7 @@ def convert_time_to_arabic(en_year: str) -> str:
 
     # --- Month + Year + BC ---
     month_str = "|".join(month_map.keys())
-    m = re.match(rf"^({month_str})\s*(\d{1, 4})\s*(BCE|BC)$", en_year, re.I)
+    m = re.match(rf"^({month_str})\s*(\d{1,4})\s*(BCE|BC)$", en_year, re.I)
     if m:
         month = month_map[m.group(1).lower()]
         bc = " ق م"
