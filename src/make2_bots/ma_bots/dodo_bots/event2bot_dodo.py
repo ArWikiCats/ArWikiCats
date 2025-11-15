@@ -36,20 +36,16 @@ def make_lab_dodo(
     and years.
     """
     # ---
-    category = category_r.replace("−century", " century").replace("–century", " century")
+    cate = category_r
+    cate_gory = cate
     # ---
-    if not category.lower().startswith("category:"):
-        category = f"Category:{category}"
-
-    _category_ = category
-    _category_ = re.sub(r"-century", " century", _category_)
-    _category_ = re.sub(r"-millennium", " millennium", _category_)
-    _category_ = _category_.lower()
-    category3 = re.sub(r"category:", "", _category_, flags=re.IGNORECASE)
-
-    cat_test = category3
+    if not cate.lower().startswith("category:"):
+        cate = f"Category:{cate}"
     # ---
-    result = get_reg_result(category, _category_, category3)
+    cate_gory = cate_gory.lower()
+    cate3 = cate_gory
+    # ---
+    result = get_reg_result(cate, cate_gory, cate3)
     # ---
     year = result.year
     typeo = result.typeo
@@ -90,7 +86,7 @@ def make_lab_dodo(
         if not country_label:
             country_label = get_country(country_not_lower)
 
-        if country_label == "" and category3 == year + " " + country_lower:
+        if country_label == "" and cate3 == year + " " + country_lower:
             country_label = Nat_mens.get(country_lower, "")
             if country_label:
                 country_label = country_label + " في"
@@ -145,7 +141,7 @@ def make_lab_dodo(
     elif country_lower:
         if country_label:
             cat_test, arlabel = new_func_mk2(
-                category,
+                cate,
                 cat_test,
                 year,
                 typeo,
@@ -181,7 +177,7 @@ def make_lab_dodo(
             print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
             print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
-    category2 = category[len("category:") :] if category.lower().startswith("category:") else category
+    category2 = cate[len("category:") :] if cate.lower().startswith("category:") else cate
     category2 = category2.lower()
 
     if cat_test != cat_test3:
@@ -201,10 +197,10 @@ def make_lab_dodo(
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
         NoLab = True
 
-    cat4_lab = work_2019(category3, year, year_labe) if year and year_labe else ""
+    cat4_lab = work_2019(cate3, year, year_labe) if year and year_labe else ""
 
     if NoLab and year and year_labe:
-        # cat4_lab = work_2019(category3, year, year_labe)
+        # cat4_lab = work_2019(cate3, year, year_labe)
         if cat4_lab:
             New_Lan[category_r] = cat4_lab
 
