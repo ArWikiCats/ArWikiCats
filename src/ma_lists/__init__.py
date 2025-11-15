@@ -1,6 +1,7 @@
 """
 
 """
+from .type_tables import typeTable
 from .sports_formats_2025.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .utils.match_sport_keys import match_sport_key
@@ -56,7 +57,6 @@ from .by_type import By_table, By_orginal2, By_table_orginal, Music_By_table
 
 from .tv.films_mslslat import (
     Films_TT,
-    typeTable_4,
     Films_key_CAO,
     Films_key_For_nat,
     Films_key_CAO_new_format,
@@ -93,7 +93,7 @@ from .others.peoples import People_key
 
 from .mix_data import pop_All_2018_bot
 
-from .mixed.test_4_list import (
+from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_man,
@@ -117,6 +117,7 @@ from .mixed.test_4_list import (
 from .utils.json_dir import open_json_file
 
 __all__ = [
+    "typeTable",
     "teams_new_founder",
     "find_teams_2025",
     "match_sport_key",
@@ -179,7 +180,6 @@ __all__ = [
     "Music_By_table",
     #
     "Films_TT",
-    "typeTable_4",
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_CAO_new_format",

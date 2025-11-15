@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 """
-from ..format_bots import Dont_Add_min, NewFormat, Tabl_with_in, Tit_ose_Nmaes, ar_lab_before_year_to_add_in, change_cat, country_before_year, for_table, pop_format, pop_format2, pop_format33, pp_ends_with, pp_ends_with_pase, pp_start_with, pp_start_with2, tito_list_s
-
+!
 """
 
 import re
-import sys
 from ...helps import len_print
 from ...ma_lists import ministrs_tab_for_pop_format
 from ...ma_lists import New_Company
@@ -210,11 +208,6 @@ country_before_year = [
 # ---Tour de
 # category = re.sub(r" {}".format(chk) , " {}".format(chk_lab) , category )
 # category = re.sub(r"{} ".format(chk) , "{} ".format(chk_lab) , category )
-# ---
-NewFormat = {
-    "### in american motorsport": "رياضة محركات في الولايات المتحدة في ###",
-    "###_in_American_motorsport": "رياضة محركات في الولايات المتحدة في ###",
-}
 # ---
 Tabl_with_in = {
     "sport in": "الرياضة في",
@@ -552,7 +545,6 @@ len_print.data_len("pop_format.py", {"Change_key": Change_key, "Change_key2": Ch
 
 __all__ = [
     "Dont_Add_min",
-    "NewFormat",
     "Tabl_with_in",
     "Tit_ose_Nmaes",
     "ar_lab_before_year_to_add_in",

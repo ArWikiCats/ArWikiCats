@@ -60,7 +60,7 @@ def get_con_3(cate: str, keys: List[str], category_type: str) -> Tuple[str, str]
 
     if category_suffix and country_prefix:
         output_test4(
-            f'<<lightpurple>>>>>> test_4.py country_start:"{country_prefix}",' \
+            f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",' \
             f'get_con_3 fo_3:"{category_suffix}",Type:{category_type}'
         )
 

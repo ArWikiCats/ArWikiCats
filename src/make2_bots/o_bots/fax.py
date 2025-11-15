@@ -10,7 +10,7 @@ from .utils import get_or_set
 LANGUAGE_CACHE: Dict[str, str] = {}
 
 
-def test_language(category: str) -> str:
+def te_language(category: str) -> str:
     """Return the label for a language-related category.
 
     Args:
@@ -26,7 +26,7 @@ def test_language(category: str) -> str:
     if normalized_category in LANGUAGE_CACHE:
         cached = LANGUAGE_CACHE[normalized_category]
         if cached:
-            print_put(f"<<lightblue>>>> ============== test_language cache hit : {cached}")
+            print_put(f"<<lightblue>>>> ============== te_language cache hit : {cached}")
         return cached
 
     def _resolve() -> str:
@@ -48,9 +48,9 @@ def test_language(category: str) -> str:
                 resolved_label = suffix_template % language_label if "%s" in suffix_template else suffix_template.format(language_label)
 
         if resolved_label:
-            print_put(f"<<lightblue>>>> vvvvvvvvvvvv test_language cate:{normalized_category} vvvvvvvvvvvv ")
-            print_put(f'<<lightblue>>>>>> test_language: new_lab  "{resolved_label}" ')
-            print_put("<<lightblue>>>> ^^^^^^^^^ test_language end ^^^^^^^^^ ")
+            print_put(f"<<lightblue>>>> vvvvvvvvvvvv te_language cate:{normalized_category} vvvvvvvvvvvv ")
+            print_put(f'<<lightblue>>>>>> te_language: new_lab  "{resolved_label}" ')
+            print_put("<<lightblue>>>> ^^^^^^^^^ te_language end ^^^^^^^^^ ")
 
         return resolved_label
 
@@ -58,5 +58,5 @@ def test_language(category: str) -> str:
 
 
 __all__ = [
-    "test_language",
+    "te_language",
 ]

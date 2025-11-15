@@ -15,7 +15,7 @@ from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ..bots import tmp_bot
 from ..date_bots import with_years_bot
-from ..o_bots import univer  # univer.test_universities(cate)
+from ..o_bots import univer  # univer.te_universities(cate)
 from .country_bot import get_country
 from .dodo_bots.event2bot_dodo import make_lab_dodo
 from .lab_seoo_bot import event_Lab_seoo
@@ -23,24 +23,19 @@ from .lab_seoo_bot import event_Lab_seoo
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
-def event2_d2(cat3: str, category3_not_lower: str) -> str:
-    """Determine the category label based on the input string.
-
-    This function analyzes the input string `cat3` to determine a
-    corresponding category label. It checks for specific keywords to decide
-    how to process the input. If none of the keywords are found, it attempts
-    to derive the category label using a helper function based on whether
-    the input starts with a digit or not. The resulting category label is
-    prefixed with "تصنيف:" if it is successfully determined.
-
-    Args:
-        cat3 (str): The input string representing a category.
-        category3_not_lower (str): A string used for country determination.
-
-    Returns:
-        str: The determined category label, or an empty string if no category
-        could be determined.
+def event2_d2(category_r) -> str:
     """
+    Determine the category label based on the input string.
+    """
+    category = category_r.replace("−century", " century").replace("–century", " century")
+    # ---
+    _category_ = category
+    _category_ = re.sub(r"-century", " century", _category_)
+    _category_ = re.sub(r"-millennium", " millennium", _category_)
+
+    cat3 = _category_.lower()
+
+    print_put(f'<<lightred>>>>>> category33:"{cat3}" ')
 
     # TODO: THIS NEED REVIEW
     # Reject strings that contain common English prepositions
@@ -50,85 +45,13 @@ def event2_d2(cat3: str, category3_not_lower: str) -> str:
 
     category_lab = ""
     if re.sub(r"^\d", "", cat3) == cat3:
-        category_lab = get_country(category3_not_lower)
+        category_lab = get_country(cat3)
     else:
         category_lab = with_years_bot.Try_With_Years(cat3)
         if category_lab:
             category_lab = f"تصنيف:{category_lab}"
 
     return category_lab
-
-
-@functools.lru_cache(maxsize=None)
-def event2(category_r: str) -> str:
-    """Process a category string and return a corresponding label.
-
-    This function takes a category string as input, processes it to extract
-    relevant information, and attempts to generate a label based on
-    predefined patterns and rules. It utilizes regular expressions to
-    identify various time periods, such as centuries and millennia, and
-    uses @functools.lru_cache for performance optimization. If no label can be generated,
-    it defaults to a fallback mechanism.
-
-    Args:
-        category_r (str): The category string to be processed.
-
-    Returns:
-        str: The generated label corresponding to the input category string, or an
-            empty string if no label could be determined.
-    """
-
-    NoLab_list = {}
-
-    if not category_r:
-        return ""
-
-    print_put("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
-    print_put(f'<<lightyellow>>>>>> event2 :"{category_r}"')
-    # tit = {}
-
-    ar_label = ""
-    ar_label = univer.test_universities(category_r)
-    # ---
-    if not ar_label:
-        category = category_r
-        category = category.replace("−century", " century")
-        category = category.replace("–century", " century")
-        if not category.lower().startswith("category:"):
-            category = f"Category:{category}"
-
-        _category_ = category
-        _category_ = re.sub(r"-century", " century", _category_)
-        _category_ = re.sub(r"-millennium", " millennium", _category_)
-
-        category3_not_lower = re.sub(r"category:", "", _category_, flags=re.IGNORECASE)
-
-        _category_ = _category_.lower()
-        category3 = re.sub(r"category:", "", _category_, flags=re.IGNORECASE)
-        cat_test = category3
-
-        print_put(f'<<lightred>>>>>> category33:"{category3}" ')
-
-        category_lab = event2_d2(category3, category3_not_lower)
-
-        if category_lab:
-            if re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
-                category_lab = fixtitle.fixlab(category_lab, en=category_r)
-                print_put(f'>>>> <<lightyellow>> cat:"{_category_}", category_lab "{category_lab}"')
-                print_put("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
-                return category_lab
-        # ---
-        ar_label = make_lab_dodo(_category_, category3, category, cat_test, category_r)
-    # ---
-    if not ar_label:
-        ar_label = dodo(category_r)
-    # ---
-    if not ar_label:
-        NoLab_list[category_r] = ""
-
-    print_put("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
-
-    return ar_label
 
 
 def dodo(category_r: str) -> str:
@@ -153,11 +76,7 @@ def dodo(category_r: str) -> str:
     sub_ar_label = ""
     list_of_cat = ""
 
-    category = category_r
-    category = category.replace("−century", " century")
-    category = category.replace("–century", " century")
-    if not category.lower().startswith("category:"):
-        category = f"Category:{category}"
+    category = category_r.replace("−century", " century").replace("–century", " century").lower()
 
     if category.endswith(" stubs") and app_settings.find_stubs:
         list_of_cat = "بذرة {}"
@@ -171,5 +90,56 @@ def dodo(category_r: str) -> str:
         if sub_ar_label and list_of_cat:
             ar_label = list_of_cat.format(sub_ar_label)
             printe.output(f'<<lightblue>> event2 add list_of_cat, ar_label:"{ar_label}", category:{category} ')
+
+    return ar_label
+
+
+@functools.lru_cache(maxsize=None)
+def event2(category_r: str) -> str:
+    """Process a category string and return a corresponding label.
+
+    This function takes a category string as input, processes it to extract
+    relevant information, and attempts to generate a label based on
+    predefined patterns and rules. It utilizes regular expressions to
+    identify various time periods, such as centuries and millennia, and
+    uses @functools.lru_cache for performance optimization. If no label can be generated,
+    it defaults to a fallback mechanism.
+
+    Args:
+        category_r (str): The category string to be processed.
+
+    Returns:
+        str: The generated label corresponding to the input category string, or an
+            empty string if no label could be determined.
+    """
+
+    if not category_r:
+        return ""
+
+    print_put("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
+    print_put(f'<<lightyellow>>>>>> event2 :"{category_r}"')
+    # ---
+    category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
+    # ---
+    ar_label = univer.te_universities(category_r)
+    # ---
+    if ar_label:
+        return ar_label
+    # ---
+    category_lab = event2_d2(category_r)
+
+    if category_lab:
+        if re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
+            category_lab = fixtitle.fixlab(category_lab, en=category_r)
+            print_put(f'>>>> <<lightyellow>> cat:"{category_r}", category_lab "{category_lab}"')
+            print_put("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
+            return category_lab
+
+    ar_label = make_lab_dodo(category_r)
+
+    if not ar_label:
+        ar_label = dodo(category_r)
+
+    print_put("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 
     return ar_label

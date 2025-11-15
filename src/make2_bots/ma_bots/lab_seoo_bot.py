@@ -9,12 +9,12 @@ from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ...ma_lists import Ambassadors_tab, New_P17_Finall
 from ..fromnet.wd_bot import find_wikidata
-from ..jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
-from ..jobs_bots.test_4 import Jobs_in_Multi_Sports
+from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
+from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..matables_bots.bot import New_Lan
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
-from ..media_bots.films_bot import test_films
+from ..media_bots.films_bot import te_films
 from ..o_bots import univer
 from ..o_bots.popl import work_peoples
 
@@ -29,18 +29,18 @@ from . import event2bot, ye_ts_bot
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
-def test3(category_key: str) -> str:
+def te_bot_3(category_key: str) -> str:
     arabic_label = ""
 
     if category_key in New_Lan:
-        print_put("<<lightblue>>>> vvvvvvvvvvvv test3 start vvvvvvvvvvvv ")
+        print_put("<<lightblue>>>> vvvvvvvvvvvv te_bot_3 start vvvvvvvvvvvv ")
         existing_label = New_Lan[category_key]
         print_put(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
         if existing_label is not None:
             if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:
                 normalized_label = f"تصنيف:{fixtitle.fixlab(existing_label, en=category_key)}"
-                print_put(f'>>>>>> <<lightyellow>> test3: cat:"{category_key}", labs:"{normalized_label}"')
-                print_put("<<lightblue>>>> ^^^^^^^^^ test3 end ^^^^^^^^^ ")
+                print_put(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
+                print_put("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
                 return normalized_label
     return arabic_label
 
@@ -89,7 +89,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = centries_years_dec.get(normalized_target_category, "")
 
     if not resolved_category_label:
-        resolved_category_label = test4_2018_Jobs(normalized_target_category)
+        resolved_category_label = te4_2018_Jobs(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = Jobs_in_Multi_Sports(target_category_original_case)
@@ -98,10 +98,10 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     #     category_lab = tmp_bot.Work_Templates(category3)
 
     if not resolved_category_label:
-        resolved_category_label = univer.test_universities(normalized_target_category)
+        resolved_category_label = univer.te_universities(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = test_films(normalized_target_category, reference_category=reference_category)
+        resolved_category_label = te_films(normalized_target_category, reference_category=reference_category)
 
     if not resolved_category_label:
         resolved_category_label = nats.find_nat_others(normalized_target_category, reference_category=reference_category)
@@ -117,7 +117,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = work_peoples(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = test3(normalized_target_category)
+        resolved_category_label = te_bot_3(normalized_target_category)
 
     if resolved_category_label == "" and " " not in normalized_target_category.strip():
         resolved_category_label = find_wikidata(normalized_target_category)

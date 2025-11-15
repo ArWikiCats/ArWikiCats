@@ -14,7 +14,7 @@ from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
-from ...media_bots.films_bot import test_films
+from ...media_bots.films_bot import te_films
 from ...o_bots import bys, parties_bot
 from ...sports_bots import sport_lab_suffixes
 from ...p17_bots import nats
@@ -26,7 +26,7 @@ def check_sources(cone_1: str) -> str:
     """Check multiple sources for a result based on the provided input."""
 
     sources: List[Callable[[str], str]] = [
-        test_films,
+        te_films,
         nats.find_nat_others,
         sport_lab_suffixes.get_teams_new,
         parties_bot.get_parties_lab,
@@ -47,7 +47,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     c_1_l = get_pop_All_18(cone_1, "")
 
     if not c_1_l:
-        c_1_l = test_films(cone_1)
+        c_1_l = te_films(cone_1)
     if not c_1_l:
         c_1_l = nats.find_nat_others(cone_1)
     if not c_1_l:
@@ -117,7 +117,7 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
         c_2_l = bys.get_by_label(cone_2)
 
     if not c_2_l:
-        c_2_l = test_films(cone_2)
+        c_2_l = te_films(cone_2)
     if not c_2_l:
         c_2_l = nats.find_nat_others(cone_2)
     if not c_2_l:
@@ -141,7 +141,7 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
             c_2_l = cone_2
 
     if not c_2_l:
-        c_2_l = test_films(cone_2)
+        c_2_l = te_films(cone_2)
     if not c_2_l:
         c_2_l = nats.find_nat_others(cone_2)
     if not c_2_l:

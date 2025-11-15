@@ -2,43 +2,9 @@
 """
 
 """
-
-
-import sys
-
 from ..helps import len_print
 from .utils.json_dir import open_json_file
 
-# ---
-# from .by_table import By_table
-# ---
-# "by painter":"",
-# "by order":"",
-# "by function":"",
-# "by district":"",
-# "by province":"حسب المقاطعة",
-# "by firing squad":"رمياً بالرصاص",
-# "by stabbing":"طعناً",
-# "by hanging":"شنقاً",
-# "by continent":"حسب القارة",
-# "by men's junior or schools national team" : "حسب ",
-# "by men's wartime national team" : "",
-# "by women's national team":"حسب المنتخب الوطني للنساء",
-# "by men's national team":"حسب المنتخب الوطني للرجال",
-# "by common content":"",
-# "by continent":"حسب القارة",
-# "by filmation":"حسب الفيلمية",
-# "by order of fresnel lens":"",
-# "by period":"حسب العصر",
-# "by style":"",
-# "by subnational entity":"",
-# "by type and year of completion":"حسب الفئة وسنة الانتهاء", #a  الاكتمال
-# "by type":"حسب النوع",
-# "by wikipedia article importance":"",
-# "by wikipedia article quality":"حسب جودة مقالة ويكيبيديا",
-# "female rower":"",
-# "male rower":"",
-# ---
 By_table = {}
 # ---
 By_table = open_json_file("By_table") or {}
@@ -66,43 +32,7 @@ Music_By_table = {
     "by nationality": "حسب الجنسية",
 }
 # ---
-By_table_Q = {  # \u200e #by decade
-    "by city": "Q18683478",  # حسب المدينة
-    "by country": "Q19360703",  # حسب البلد
-    "by continent": "Q19360700",  # حسب القارة
-    "by century": "Q24571878",  # حسب القرن
-    "by name": "Q24571879",  # حسب الإسم
-    "by sea": "Q24571876",  # حسب البحر
-    "by shape": "Q24572115",  # حسب الشكل
-    "by wikipedia article quality": "Q24575823",  # حسب جودة مقالة ويكيبيديا
-    "by year": "Q29053180",  # حسب السنة
-    "by language": "Q30432875",  # حسب اللغة
-    "by nationality": "Q30905655",  # حسب الجنسية
-    "by genre": "Q42903116",  # حسب النوع الفني
-    "by subnational entity": "Q19588365",
-    "by year of completion": "Q24571882",
-    "by heritage register": "Q24571881",
-    "by body of water": "Q24571884",
-    "by height": "Q24571891",
-    "by range": "Q24571895",
-    "by order of fresnel lens": "Q24571898",
-    "by builder": "Q24571904",
-    "by condition": "Q24571908",
-    "by material": "Q24572019",
-    "by style": "Q24572752",
-    "by lake": "Q24572867",
-    "by period of time": "Q24572874",
-    "by wikipedia article importance": "Q24575841",
-    "by topic": "Q37765851",
-    "by month": "Q38515061",
-}
 
-# ---
-# "by men's under-20 national team" : "حسب ",
-# "by men's under-21 national team" : "حسب ",
-# "by men's under-23 national team" : "حسب ",
-# by women's under-17 national team
-# "by under-20 national team":"حسب المنتخب الوطني",
 for year in [16, 17, 18, 19, 20, 21, 23]:
     # By_table["by under-%d national team" % year] = "المنتخب الوطني تحت %d سنة"  % year
     By_table[f"by under-{year} national team"] = f"حسب المنتخب الوطني تحت {year} سنة"
@@ -288,29 +218,10 @@ for by, value in Music_By_table.items():  #
         By_table[by.lower()] = value
 # ---
 By_table_orginal = By_table
+
 By_orginal2 = {
     entry.replace("by ", "", 1).lower(): By_table_orginal[entry].replace("حسب ", "", 1)
     for entry in By_table_orginal
 }
-# ---
-"""
-from .Sport_key import SPORTS_KEYS_FOR_LABEL
-for ss in SPORTS_KEYS_FOR_LABEL:#
-    cd = "by %s team" % ss.lower()
-    By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
-# ---
-from .peoples import People_key
-for uh in People_key:#
-    By_table[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"
 
-
-def main():
-    for k in poo:
-        if k not in By_table:
-            printe.output('   ,"%s":"%s"' %   (k , ""))
-"""
-# ---
-BY_TABLE_MEMORY_STATS = {"by_table": By_table}
-# ---
-
-len_print.data_len("by_table.py", BY_TABLE_MEMORY_STATS)
+len_print.data_len("by_table.py", {"by_table": By_table})

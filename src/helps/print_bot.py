@@ -12,7 +12,7 @@ enable_print_put = print_settings.enable_print_put
 
 main_output_preferences = {1: False}
 print_put_preferences = {1: False}
-test_logging_preferences = {1: False}
+te_logging_preferences = {1: False}
 
 
 def output_test4(text: str) -> None:
@@ -71,32 +71,32 @@ def do_print_options(
     printhead: str="",
     tst_prnt_all: bool=False,
 ) -> None:
-    global headline_only_preferences, main_output_preferences, print_put_preferences, test_logging_preferences
+    global headline_only_preferences, main_output_preferences, print_put_preferences, te_logging_preferences
     if headline_only_preferences:
         main_output_preferences[1] = False
         print_put_preferences[1] = False
-        test_logging_preferences[1] = False
+        te_logging_preferences[1] = False
         return
 
     if tst_prnt_all:
         headline_only_preferences = False
         main_output_preferences[1] = True
         print_put_preferences[1] = True
-        test_logging_preferences[1] = True
+        te_logging_preferences[1] = True
         return
 
     if printfirst:
         headline_only_preferences = False
         main_output_preferences[1] = False
         print_put_preferences[1] = False
-        test_logging_preferences[1] = False
+        te_logging_preferences[1] = False
         return
 
     if headline_only_preferences or printhead:
         headline_only_preferences = True
         main_output_preferences[1] = False
         print_put_preferences[1] = False
-        test_logging_preferences[1] = False
+        te_logging_preferences[1] = False
         return
 
     if noprint is True or noprint == "so":
@@ -104,7 +104,7 @@ def do_print_options(
         main_output_preferences[1] = True
         headline_only_preferences = False
         print_put_preferences[1] = False
-        test_logging_preferences[1] = False
+        te_logging_preferences[1] = False
         return
 
     if noprint is False:
@@ -112,7 +112,7 @@ def do_print_options(
         main_output_preferences[1] = True
         headline_only_preferences = True
         print_put_preferences[1] = True
-        test_logging_preferences[1] = True
+        te_logging_preferences[1] = True
         return
 
     if noprint == "so":

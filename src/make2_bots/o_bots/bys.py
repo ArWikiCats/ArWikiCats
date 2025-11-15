@@ -8,7 +8,7 @@ from typing import Callable, Dict
 from ...helps.log import logger
 from ...ma_lists import By_orginal2, By_table, By_table_orginal, New_P17_Finall
 from ..lazy_data_bots.bot_2018 import pop_All_2018
-from ..media_bots.films_bot import test_films
+from ..media_bots.films_bot import te_films
 from ..p17_bots.nats import find_nat_others
 from .utils import first_non_empty
 
@@ -38,7 +38,7 @@ def make_by_label(category: str) -> str:
     resolved = ""
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
-        film_label = test_films(candidate)
+        film_label = te_films(candidate)
         if film_label:
             resolved = f"بواسطة {film_label}"
             logger.debug(f"Matched film label, category: {normalized}, label: {resolved}")

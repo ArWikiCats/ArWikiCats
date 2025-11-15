@@ -250,7 +250,7 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_tab_for_pop_format[f"secretaries of {normalized_ministry} of"] = "وزراء %s {}" % short_label
     ministrs_tab_for_pop_format[f"secretaries-of {normalized_ministry} of"] = "وزراء %s {}" % short_label
 # ---
-ministrs_for_military_format_men = {}  # used in test_4.py
+ministrs_for_military_format_men = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
@@ -266,7 +266,7 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_for_military_format_men[f"deputy secretary of {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
     ministrs_for_military_format_men[f"deputy secretary of the {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
 # ---
-ministrs_for_military_format_women = {}  # used in test_4.py
+ministrs_for_military_format_women = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
@@ -278,7 +278,7 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_for_military_format_women[f"department of {normalized_ministry}"] = "وزارة %s {nat}" % ministry_labels["al"]
     ministrs_for_military_format_women[f"department of the {normalized_ministry}"] = "وزارة %s {nat}" % ministry_labels["al"]
 # ---
-ministrs_for_en_is_P17_ar_is_mens = {}  # used in test_4.py
+ministrs_for_en_is_P17_ar_is_mens = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()

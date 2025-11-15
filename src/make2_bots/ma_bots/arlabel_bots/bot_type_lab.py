@@ -10,8 +10,8 @@ from ...sports_bots import team_work
 
 from ...bots import tmp_bot
 from ...p17_bots import nats
-from ...jobs_bots.test4_bots.t4_2018_jobs import test4_2018_Jobs
-from ...media_bots.films_bot import test_films
+from ...jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
+from ...media_bots.films_bot import te_films
 from .. import event2bot
 
 from ....ma_lists import New_P17_Finall
@@ -79,7 +79,7 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     if not type_label:
         type_label = New_female_keys.get(type_lower, "")
     if not type_label:
-        type_label = test_films(type_lower)
+        type_label = te_films(type_lower)
     if not type_label:
         type_label = nats.find_nat_others(type_lower)
     if not type_label:
@@ -94,7 +94,7 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     if not type_label:
         type_label = event2bot.event2(type_lower)
     if not type_label:
-        type_label = test4_2018_Jobs(type_lower)
+        type_label = te4_2018_Jobs(type_lower)
 
     if not type_label:
         type_label = country2_lab.get_lab_for_country2(type_lower)

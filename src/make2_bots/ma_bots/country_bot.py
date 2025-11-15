@@ -18,7 +18,7 @@ from ..date_bots import with_years_bot
 from ..p17_bots import nats
 from ..sports_bots import team_work
 
-from ..media_bots.films_bot import test_films
+from ..media_bots.films_bot import te_films
 
 from . import country2_bot
 from . import country2_lab
@@ -41,7 +41,6 @@ get_country_done: Dict[str, str] = {}
 def get_country(country: str, start_get_country2: bool = True) -> str:
     """Retrieve the label for a given country name."""
 
-    country_no_lower = country
     country = country.lower()
 
     if country in get_country_done:
@@ -54,11 +53,11 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     if not resolved_label:
         resolved_label = New_female_keys.get(country, "")
     if not resolved_label:
-        resolved_label = test_films(country_no_lower)
+        resolved_label = te_films(country)
     if not resolved_label:
-        resolved_label = nats.find_nat_others(country_no_lower)
+        resolved_label = nats.find_nat_others(country)
     if not resolved_label:
-        resolved_label = team_work.Get_team_work_Club(country_no_lower)
+        resolved_label = team_work.Get_team_work_Club(country)
 
     if resolved_label == "" and start_get_country2:
         resolved_label = country2_bot.Get_country2(country)

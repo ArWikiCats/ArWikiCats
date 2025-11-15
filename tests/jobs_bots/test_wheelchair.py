@@ -118,7 +118,7 @@ def test_wheelchair_3():
         "Category:American wheelchair shot putters": "",
         "Category:American wheelchair sports competitors": "",
         "Category:American wheelchair track and field athletes": "",
-        "Category:Australia women's national wheelchair basketball team": "",
+        "Category:Australia women's national wheelchair basketball team": "تصنيف:منتخب أستراليا لكرة السلة على الكراسي المتحركة للسيدات",
         "Category:Australian Open by year – Wheelchair events": "",
         "Category:IWBF U23 World Wheelchair Basketball Championship": "",
         "Category:Olympic women wheelchair racers": "",

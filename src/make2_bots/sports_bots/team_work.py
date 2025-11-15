@@ -13,7 +13,7 @@ from ...helps.log import logger
 from ...ma_lists import Clubs_key_2
 from ...ma_lists import INTER_FEDS_LOWER
 from ...ma_lists import pop_of_football_lower
-from ..jobs_bots import test_4
+from ..jobs_bots import bot_te_4
 from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
 
 # from ...ma_lists import pop_of_football_lower
@@ -136,7 +136,7 @@ def Get_Club(
             )
             # ---
             if not club_lab:
-                club_lab = test_4.test4_2018_with_nat(club_key)
+                club_lab = bot_te_4.te_2018_with_nat(club_key)
             # ---
             if not club_lab:
                 club_lab = kooora.kooora_team(club_key)
