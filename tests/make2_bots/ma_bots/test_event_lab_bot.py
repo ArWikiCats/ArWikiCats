@@ -5,7 +5,15 @@ import pytest
 
 from src.make2_bots.ma_bots.event_lab_bot import event_Lab
 
-@pytest.mark.skip(reason="Pending write")
 def test_event_lab():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = event_Lab("test event")
+    assert isinstance(result, str)
+
+    # Test with different input
+    result_various = event_Lab("sports event")
+    assert isinstance(result_various, str)
+
+    # Test with empty string
+    result_empty = event_Lab("")
+    assert isinstance(result_empty, str)

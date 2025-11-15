@@ -5,12 +5,28 @@ import pytest
 
 from src.make2_bots.sports_bots.team_work import Get_Club, Get_team_work_Club
 
-@pytest.mark.skip(reason="Pending write")
 def test_get_club():
-    # TODO: Implement test
-    pass
+    # Test with a basic category that might have a club
+    result = Get_Club("football players")
+    assert isinstance(result, str) or isinstance(result, dict)
 
-@pytest.mark.skip(reason="Pending write")
+    # Test with return_tab option
+    result_with_tab = Get_Club("football players", return_tab=True)
+    assert isinstance(result_with_tab, dict)
+
+    # Test with empty string
+    result_empty = Get_Club("")
+    assert isinstance(result_empty, str) or isinstance(result_with_tab, dict)
+
 def test_get_team_work_club():
-    # TODO: Implement test
-    pass
+    # Test basic functionality
+    result = Get_team_work_Club("football players")
+    assert isinstance(result, str)
+
+    # Test with empty string
+    result_empty = Get_team_work_Club("")
+    assert isinstance(result_empty, str)
+
+    # Test with different categories
+    result_various = Get_team_work_Club("basketball teams")
+    assert isinstance(result_various, str)

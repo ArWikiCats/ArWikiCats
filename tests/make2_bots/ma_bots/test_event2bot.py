@@ -5,17 +5,41 @@ import pytest
 
 from src.make2_bots.ma_bots.event2bot import event2_d2, dodo, event2
 
-@pytest.mark.skip(reason="Pending write")
 def test_event2_d2():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = event2_d2("test category")
+    assert isinstance(result, str)
 
-@pytest.mark.skip(reason="Pending write")
+    # Test with century format
+    result_century = event2_d2("21st century")
+    assert isinstance(result_century, str)
+
+    # Test with empty string
+    result_empty = event2_d2("")
+    assert isinstance(result_empty, str)
+
 def test_dodo():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = dodo("test category")
+    assert isinstance(result, str)
 
-@pytest.mark.skip(reason="Pending write")
+    # Test with stubs format
+    result_stubs = dodo("test stubs")
+    assert isinstance(result_stubs, str)
+
+    # Test with empty string
+    result_empty = dodo("")
+    assert isinstance(result_empty, str)
+
 def test_event2():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = event2("test category")
+    assert isinstance(result, str)
+
+    # Test with different input
+    result_various = event2("sports event")
+    assert isinstance(result_various, str)
+
+    # Test with empty string
+    result_empty = event2("")
+    assert isinstance(result_empty, str)

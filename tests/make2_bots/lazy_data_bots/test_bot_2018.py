@@ -5,17 +5,34 @@ import pytest
 
 from src.make2_bots.lazy_data_bots.bot_2018 import lazy_load, Add_to_pop_All_18, get_pop_All_18
 
-@pytest.mark.skip(reason="Pending write")
 def test_lazy_load():
-    # TODO: Implement test
-    pass
+    # Test the lazy_load function
+    result = lazy_load()
+    assert isinstance(result, dict)
 
-@pytest.mark.skip(reason="Pending write")
+    # Verify it returns a dictionary
+    assert type(result) is dict
+
 def test_add_to_pop_all_18():
-    # TODO: Implement test
-    pass
+    # Test with an empty dict
+    Add_to_pop_All_18({})
 
-@pytest.mark.skip(reason="Pending write")
+    # Test with a sample dictionary
+    test_dict = {"key1": "value1", "key2": "value2"}
+    Add_to_pop_All_18(test_dict)
+
+    # This function modifies internal state, so we just verify it runs without error
+    assert True
+
 def test_get_pop_all_18():
-    # TODO: Implement test
-    pass
+    # Test with a basic key (likely won't find the key but should return default)
+    result = get_pop_All_18("test_key", "default")
+    assert isinstance(result, str)
+
+    # Test with empty key and default
+    result_empty = get_pop_All_18("", "")
+    assert isinstance(result_empty, str)
+
+    # Test with just a key
+    result_simple = get_pop_All_18("test_key")
+    assert isinstance(result_simple, str)

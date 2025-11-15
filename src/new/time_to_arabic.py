@@ -18,7 +18,7 @@ REG_YEAR_EN = re.compile(
     r"("
     r"\d+[−–-]\d+"
     rf"|{decade_regex}"
-    r"|\d{4}"
+    r"|\d{1,4}\s*(?:BCE|BC)?"
     r")"
     r"\b",
     re.I
@@ -35,7 +35,7 @@ REG_YEAR_AR = re.compile(
     r"("
     r"\d+[−–-]\d+"
     r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
-    r"|\d{4}"
+    r"|(?:القرن|الألفية)? \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
     r")"
     r"\b",
     re.I
@@ -68,7 +68,7 @@ def expand_range(year_text: str) -> str:
 
 def match_time_ar(ar_value: str) -> list[str]:
     ar_matches = [m.group().strip() for m in REG_YEAR_AR.finditer(f" {ar_value} ")]
-    ar_matches.extend([m.group().strip() for m in REG_CENTURY_AR.finditer(f" {ar_value} ")])
+    # ar_matches.extend([m.group().strip() for m in REG_CENTURY_AR.finditer(f" {ar_value} ")])
     return ar_matches
 
 
@@ -87,12 +87,33 @@ def convert_time_to_arabic(en_year: str) -> str:
         "may": "مايو", "june": "يونيو", "july": "يوليو", "august": "أغسطس",
         "september": "سبتمبر", "october": "أكتوبر", "november": "نوفمبر", "december": "ديسمبر",
     }
+    # ---
+    if en_year.isdigit():
+        return en_year
+
+    # --- Month ---
+    if month_map.get(en_year.lower()):
+        return month_map[en_year.lower()]
 
     # --- Month + Year ---
-    m = re.match(r"^(%s)\s*(\d{4})" % "|".join(month_map.keys()), en_year, re.I)
+    month_str = "|".join(month_map.keys())
+    m = re.match(rf"^({month_str})\s*(\d+)\s*$", en_year, re.I)
     if m:
         month = month_map[m.group(1).lower()]
         return f"{month} {m.group(2)}"
+
+    # --- Month + Year + BC ---
+    month_str = "|".join(month_map.keys())
+    m = re.match(rf"^({month_str})\s*(\d{1,4})\s*(BCE|BC)$", en_year, re.I)
+    if m:
+        month = month_map[m.group(1).lower()]
+        bc = " ق م"
+        return f"{month} {m.group(2)}{bc}"
+
+    # --- Year + BC ---
+    m = re.match(r"^(\d+)\s*(BCE|BC)$", en_year, re.I)
+    if m:
+        return f"{m.group(1)} ق م"
 
     # --- Decade (with optional BC/BCE) ---
     m = re.match(rf"^{decade_regex}$", en_year, re.I)
@@ -114,7 +135,7 @@ def convert_time_to_arabic(en_year: str) -> str:
         return en_year
 
     # --- Fallback ---
-    return en_year
+    return ""
 
 
 def match_en_return_ar(category: str) -> dict[str, str]:
