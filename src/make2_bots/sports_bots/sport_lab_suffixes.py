@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Dict
 import functools
 
 from ... import malists_sport_lab as sport_lab
@@ -13,6 +12,7 @@ from . import team_work
 from ..o_bots.utils import resolve_suffix_template
 
 
+@functools.lru_cache(maxsize=10000)
 def get_teams_new(team_name: str) -> str:
     """Return the label for ``team_name`` using multiple heuristics.
 
