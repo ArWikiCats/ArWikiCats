@@ -92,15 +92,13 @@ Teams_new_end_keys = {
     "matches": "مباريات {}",
     "rivalries": "دربيات {}",
     "champions": "أبطال {}",
-    # ---
 }
-# ---
+
 GET_CLUB_CACHE = {}
 
 
 def Get_Club(
     category: str,
-    out: bool = False,
     return_tab: bool = False,
 ) -> str | dict[str, str | dict[str, str]]:
     # ---
