@@ -136,7 +136,7 @@ def Get_Club(
             )
             # ---
             if not club_lab:
-                club_lab = bot_te_4.test4_2018_with_nat(club_key)
+                club_lab = bot_te_4.te_2018_with_nat(club_key)
             # ---
             if not club_lab:
                 club_lab = kooora.kooora_team(club_key)

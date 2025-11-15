@@ -29,18 +29,18 @@ from . import event2bot, ye_ts_bot
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
-def test3(category_key: str) -> str:
+def te_bot_3(category_key: str) -> str:
     arabic_label = ""
 
     if category_key in New_Lan:
-        print_put("<<lightblue>>>> vvvvvvvvvvvv test3 start vvvvvvvvvvvv ")
+        print_put("<<lightblue>>>> vvvvvvvvvvvv te_bot_3 start vvvvvvvvvvvv ")
         existing_label = New_Lan[category_key]
         print_put(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
         if existing_label is not None:
             if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:
                 normalized_label = f"تصنيف:{fixtitle.fixlab(existing_label, en=category_key)}"
-                print_put(f'>>>>>> <<lightyellow>> test3: cat:"{category_key}", labs:"{normalized_label}"')
-                print_put("<<lightblue>>>> ^^^^^^^^^ test3 end ^^^^^^^^^ ")
+                print_put(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
+                print_put("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
                 return normalized_label
     return arabic_label
 
@@ -117,7 +117,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = work_peoples(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = test3(normalized_target_category)
+        resolved_category_label = te_bot_3(normalized_target_category)
 
     if resolved_category_label == "" and " " not in normalized_target_category.strip():
         resolved_category_label = find_wikidata(normalized_target_category)

@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.jobs_bots.bot_te_4 import nat_match, test4_2018_with_nat, Jobs_in_Multi_Sports
+from src.make2_bots.jobs_bots.bot_te_4 import nat_match, te_2018_with_nat, Jobs_in_Multi_Sports
 
 @pytest.mark.skip(reason="Pending write")
 def test_nat_match():
@@ -11,7 +11,7 @@ def test_nat_match():
     pass
 
 @pytest.mark.skip(reason="Pending write")
-def test_test4_2018_with_nat():
+def test_te_2018_with_nat():
     # TODO: Implement test
     pass
 

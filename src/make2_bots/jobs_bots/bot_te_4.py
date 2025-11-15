@@ -44,7 +44,7 @@ from .test4_bots.for_me import Work_for_me
 from .test4_bots.t4_2018_jobs import te4_2018_Jobs
 
 JOBS_IN_MULTI_SPORTS_CACHE = {}
-TEST4_2018_WITH_NAT_CACHE = {}
+te_2018_with_nat_CACHE = {}
 
 
 def nat_match(
@@ -115,28 +115,28 @@ def nat_match(
     return country_label
 
 
-def test4_2018_with_nat(
+def te_2018_with_nat(
     category: str,
     reference_category: str="",
 ) -> str:
     # ---
-    if category in TEST4_2018_WITH_NAT_CACHE:
-        return TEST4_2018_WITH_NAT_CACHE[category]
+    if category in te_2018_with_nat_CACHE:
+        return te_2018_with_nat_CACHE[category]
     # ---
 
     # ---
     output_test4(
-        f"<<lightyellow>>>> test4_2018_with_nat >> category:({category}), reference_category:{reference_category}.."
+        f"<<lightyellow>>>> te_2018_with_nat >> category:({category}), reference_category:{reference_category}.."
     )
     country_label = ""
     # ---
-    # output_test4('test4_2018_with_nat "%s"' % category)
+    # output_test4('te_2018_with_nat "%s"' % category)
     # ---
     normalized_category = re.sub(r"_", " ", category.lower())
     normalized_category = re.sub(r"-", " ", normalized_category)
 
-    if normalized_category in TEST4_2018_WITH_NAT_CACHE:
-        return TEST4_2018_WITH_NAT_CACHE[normalized_category]
+    if normalized_category in te_2018_with_nat_CACHE:
+        return te_2018_with_nat_CACHE[normalized_category]
     # ---
     if not country_label:
         country_label = short_womens_jobs.get(normalized_category, "")
@@ -176,12 +176,12 @@ def test4_2018_with_nat(
     if country_label:
         if con_3:
             country2 = ""
-            output_test4(f'<<lightblue>> test4_2018_with_nat startswith({country2}),con_3:"{con_3}"')
-        output_test4(f'<<lightblue>> bot_te_4: test4_2018_with_nat :: "{country_label}" ')
+            output_test4(f'<<lightblue>> te_2018_with_nat startswith({country2}),con_3:"{con_3}"')
+        output_test4(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     # ---
     # Try with Jobs
     # ---
-    TEST4_2018_WITH_NAT_CACHE[normalized_category] = country_label
+    te_2018_with_nat_CACHE[normalized_category] = country_label
     # ---
     return country_label
 
