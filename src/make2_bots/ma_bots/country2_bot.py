@@ -3,6 +3,7 @@
 This module is responsible for retrieving localized information for a specified country.
 """
 
+import functools
 from typing import Dict
 
 from . import country2_lab
@@ -12,17 +13,10 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put, output_test
 from ..fromnet.wd_bot import find_wikidata
 
-GET_COUNTRY_CACHE: Dict[str, str] = {}
 
-
+@functools.lru_cache(maxsize=None)
 def Get_country2(country: str, With_Years: bool = True) -> str:
     """Retrieve information related to a specified country."""
-
-    if country in GET_COUNTRY_CACHE:
-        output_test(
-            f'>>>> country: "{country}" in Get_country2_done, lab:"{GET_COUNTRY_CACHE[country]}"'
-        )
-        return GET_COUNTRY_CACHE[country]
 
     normalized_country = country.lower().strip()
     print_def_head(f'>> Get_country2 "{normalized_country}":')
@@ -47,9 +41,7 @@ def Get_country2(country: str, With_Years: bool = True) -> str:
         resolved_label = get_pop_All_18(normalized_country.lower(), "")
 
     if resolved_label:
-        GET_COUNTRY_CACHE[country] = resolved_label
         print_put(f'>> Get_ scountry2 "{normalized_country}": cnt_la: {resolved_label}')
         return resolved_label
 
-    GET_COUNTRY_CACHE[country] = resolved_label
     return resolved_label
