@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Resolve media-related categories to their Arabic labels."""
 
+import functools
 import re
 from typing import Dict
 
@@ -13,16 +14,10 @@ from ..o_bots import fax
 from ..o_bots.army import te_army
 from ..p17_bots import p17_bot
 
-RESOLVED_CATEGORY_CACHE: Dict[str, str] = {}
 
-
+@functools.lru_cache(maxsize=None)
 def te_films(category: str, reference_category: str = "") -> str:
     normalized_category = category.lower()
-    if normalized_category in RESOLVED_CATEGORY_CACHE:
-        cached_label = RESOLVED_CATEGORY_CACHE[normalized_category]
-        output_test(f'>>>> normalized_category: "{normalized_category}" already resolved, label:"{cached_label}"')
-        return cached_label
-
     print_def_head(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")
     resolved_label = ""
 
@@ -68,6 +63,5 @@ def te_films(category: str, reference_category: str = "") -> str:
     if not resolved_label:
         resolved_label = te4_2018_Jobs(normalized_category)
 
-    RESOLVED_CATEGORY_CACHE[normalized_category] = resolved_label
     print_def_head(f"<<lightblue>>>> xxxxxxxxx te_films end xxxxxxxxxxx resolved_label:{resolved_label}")
     return resolved_label
