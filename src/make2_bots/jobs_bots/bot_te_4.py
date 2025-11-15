@@ -20,6 +20,7 @@ $1
 """
 
 import re
+import functools
 
 # ---
 from ...ma_lists import (
@@ -42,9 +43,6 @@ from .te4_bots.for_me import Work_for_me
 
 # from .te4_bots.relegin_jobs import try_relegins_jobs
 from .te4_bots.t4_2018_jobs import te4_2018_Jobs
-
-JOBS_IN_MULTI_SPORTS_CACHE = {}
-te_2018_with_nat_CACHE = {}
 
 
 def nat_match(
@@ -115,13 +113,11 @@ def nat_match(
     return country_label
 
 
+@functools.lru_cache(maxsize=None)
 def te_2018_with_nat(
     category: str,
     reference_category: str="",
 ) -> str:
-    # ---
-    if category in te_2018_with_nat_CACHE:
-        return te_2018_with_nat_CACHE[category]
     # ---
 
     # ---
@@ -135,8 +131,6 @@ def te_2018_with_nat(
     normalized_category = re.sub(r"_", " ", category.lower())
     normalized_category = re.sub(r"-", " ", normalized_category)
 
-    if normalized_category in te_2018_with_nat_CACHE:
-        return te_2018_with_nat_CACHE[normalized_category]
     # ---
     if not country_label:
         country_label = short_womens_jobs.get(normalized_category, "")
@@ -181,35 +175,28 @@ def te_2018_with_nat(
     # ---
     # Try with Jobs
     # ---
-    te_2018_with_nat_CACHE[normalized_category] = country_label
-    # ---
     return country_label
 
 
+@functools.lru_cache(maxsize=None)
 def Jobs_in_Multi_Sports(
     category: str,
 ) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
 
-    This function checks if the provided category exists in a cached
-    dictionary of job information. If the category is not found, it
-    processes the category to determine the relevant job and game labels.
+    This function processes the category to determine the relevant job and game labels.
     The function formats the output to provide a meaningful representation
     of the job in relation to the sport.
 
     Args:
         category (str): The category string representing the sport or job type.
-        out (bool?): A flag to control output behavior. Defaults to False.
 
     Returns:
         str: A formatted string representing the job information related to the
             specified category.
     """
 
-    # ---
-    if category in JOBS_IN_MULTI_SPORTS_CACHE:
-        return JOBS_IN_MULTI_SPORTS_CACHE[category]
     # ---
     # python3 core8/pwb.py make/bot_te_4 Asian_Games_wrestlers
     # ---
@@ -219,8 +206,6 @@ def Jobs_in_Multi_Sports(
     # ---
     category = re.sub(r"_", " ", category)
 
-    if category in JOBS_IN_MULTI_SPORTS_CACHE:
-        return JOBS_IN_MULTI_SPORTS_CACHE[category]
     # ---
     # cate2_no_lower = cate
     category_lower = category.lower()
@@ -247,7 +232,5 @@ def Jobs_in_Multi_Sports(
         primary_label = f"{job_label} في {game_label}"
     # ---
     output_test4(f'end Jobs_in_Multi_Sports "{category}" , primary_label:"{primary_label}"')
-    # ---
-    JOBS_IN_MULTI_SPORTS_CACHE[category] = primary_label
     # ---
     return primary_label

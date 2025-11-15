@@ -1,18 +1,14 @@
 """
 """
 
+import functools
 from ...ma_lists import US_State_lower, kk_end_US_State
 from ...helps.print_bot import print_put
 
-# ---
-WORK_US_STATE_CACHE = {}
 
-
+@functools.lru_cache(maxsize=None)
 def Work_US_State(state_identifier: str) -> str:
     normalized_state = state_identifier.lower().strip()
-    # ---
-    if normalized_state in WORK_US_STATE_CACHE:
-        return WORK_US_STATE_CACHE[normalized_state]
     # ---
     print_put(
         f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", '
@@ -53,7 +49,5 @@ def Work_US_State(state_identifier: str) -> str:
 
     label = label.replace("ولاية واشنطن العاصمة", "واشنطن العاصمة")
     label = label.replace(" ولاية ولاية ", " ولاية ")
-    # ---
-    WORK_US_STATE_CACHE[normalized_state] = label
     # ---
     return label

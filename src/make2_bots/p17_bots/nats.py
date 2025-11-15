@@ -3,6 +3,7 @@ from ..p17_bots import nats
 """
 
 import re
+import functools
 from ...ma_lists import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key
 from ...ma_lists import SPORTS_KEYS_FOR_TEAM
 from ..matables_bots.bot import add_to_new_players
@@ -11,8 +12,6 @@ from ...ma_lists import All_Nat, Nat_women
 from ..jobs_bots.get_helps import get_con_3
 
 from ...helps.log import logger
-
-NAT_OTHERS_CACHE = {}
 
 
 def make_sport_formats_p17(category_key: str) -> str:
@@ -67,10 +66,9 @@ def make_sport_formats_p17(category_key: str) -> str:
     return resolved_label
 
 
+@functools.lru_cache(maxsize=None)
 def find_nat_others(category: str, reference_category: str="") -> str:
     """Resolve fallback national labels for sport categories."""
-    if category in NAT_OTHERS_CACHE:
-        return NAT_OTHERS_CACHE[category]
 
     logger.info(f"<<lightblue>>>> vvvvvvvvvvvv find_nat_others category:{category} vvvvvvvvvvvv ")
 
@@ -100,7 +98,5 @@ def find_nat_others(category: str, reference_category: str="") -> str:
             add_to_new_players(category, category_label)
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ find_nat_others end ^^^^^^^^^ ")
-
-    NAT_OTHERS_CACHE[category] = category_label
 
     return category_label
