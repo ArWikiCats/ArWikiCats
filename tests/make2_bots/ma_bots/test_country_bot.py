@@ -5,12 +5,28 @@ import pytest
 
 from src.make2_bots.ma_bots.country_bot import get_country, Get_c_t_lab
 
-@pytest.mark.skip(reason="Pending write")
 def test_get_country():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = get_country("test country")
+    assert isinstance(result, str)
 
-@pytest.mark.skip(reason="Pending write")
+    # Test with different parameter
+    result_with_country2 = get_country("test country", False)
+    assert isinstance(result_with_country2, str)
+
+    # Test with empty string
+    result_empty = get_country("")
+    assert isinstance(result_empty, str)
+
 def test_get_c_t_lab():
-    # TODO: Implement test
-    pass
+    # Test with basic inputs
+    result = get_c_t_lab("test country", "in")
+    assert isinstance(result, str)
+
+    # Test with different parameters
+    result_various = get_c_t_lab("test country", "from", "Type_lab", False)
+    assert isinstance(result_various, str)
+
+    # Test with empty strings
+    result_empty = get_c_t_lab("", "")
+    assert isinstance(result_empty, str)

@@ -5,12 +5,28 @@ import pytest
 
 from src.make2_bots.media_bots.film_keys_bot import get_Films_key_CAO, Films
 
-@pytest.mark.skip(reason="Pending write")
 def test_get_films_key_cao():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = get_Films_key_CAO("action films")
+    assert isinstance(result, str)
 
-@pytest.mark.skip(reason="Pending write")
-def te_films():
-    # TODO: Implement test
-    pass
+    # Test with empty string
+    result_empty = get_Films_key_CAO("")
+    assert isinstance(result_empty, str)
+
+    # Test with various inputs
+    result_various = get_Films_key_CAO("comedy movies")
+    assert isinstance(result_various, str)
+
+def test_films():
+    # Test with basic parameters
+    result = Films("action films", "us", "people")
+    assert isinstance(result, str)
+
+    # Test with empty parameters
+    result_empty = Films("", "", "")
+    assert isinstance(result_empty, str)
+
+    # Test with different parameters
+    result_various = Films("drama", "uk", "movies", "reference")
+    assert isinstance(result_various, str)

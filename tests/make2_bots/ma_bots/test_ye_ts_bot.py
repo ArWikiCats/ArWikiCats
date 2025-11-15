@@ -5,17 +5,41 @@ import pytest
 
 from src.make2_bots.ma_bots.ye_ts_bot import find_lab, work_titose_nmaes, translate_general_category
 
-@pytest.mark.skip(reason="Pending write")
 def test_find_lab():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = find_lab("test category", "test_category")
+    assert isinstance(result, str)
 
-@pytest.mark.skip(reason="Pending write")
+    # Test with empty strings
+    result_empty = find_lab("", "")
+    assert isinstance(result_empty, str)
+
+    # Test with various inputs
+    result_various = find_lab("sports category", "sports_category")
+    assert isinstance(result_various, str)
+
 def test_work_titose_nmaes():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = work_titose_nmaes("test category", True, "test category", "test_category")
+    assert isinstance(result, str)
 
-@pytest.mark.skip(reason="Pending write")
+    # Test with empty strings and False flag
+    result_empty = work_titose_nmaes("", False, "", "")
+    assert isinstance(result_empty, str)
+
+    # Test with various inputs
+    result_various = work_titose_nmaes("sports", True, "sports category", "sports_category")
+    assert isinstance(result_various, str)
+
 def test_translate_general_category():
-    # TODO: Implement test
-    pass
+    # Test with a basic input
+    result = translate_general_category("test category")
+    assert isinstance(result, str)
+
+    # Test with empty string
+    result_empty = translate_general_category("")
+    assert isinstance(result_empty, str)
+
+    # Test with various inputs
+    result_various = translate_general_category("sports category", False)
+    assert isinstance(result_various, str)
