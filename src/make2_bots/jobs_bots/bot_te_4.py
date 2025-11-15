@@ -38,10 +38,10 @@ from ..o_bots import ethnic_bot
 from ...helps.print_bot import output_test4
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
-from .test4_bots.for_me import Work_for_me
+from .te4_bots.for_me import Work_for_me
 
-# from .test4_bots.relegin_jobs import try_relegins_jobs
-from .test4_bots.t4_2018_jobs import te4_2018_Jobs
+# from .te4_bots.relegin_jobs import try_relegins_jobs
+from .te4_bots.t4_2018_jobs import te4_2018_Jobs
 
 JOBS_IN_MULTI_SPORTS_CACHE = {}
 te_2018_with_nat_CACHE = {}

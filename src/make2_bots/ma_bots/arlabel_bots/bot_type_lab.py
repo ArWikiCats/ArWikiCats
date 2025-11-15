@@ -10,7 +10,7 @@ from ...sports_bots import team_work
 
 from ...bots import tmp_bot
 from ...p17_bots import nats
-from ...jobs_bots.test4_bots.t4_2018_jobs import te4_2018_Jobs
+from ...jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ...media_bots.films_bot import te_films
 from .. import event2bot
 

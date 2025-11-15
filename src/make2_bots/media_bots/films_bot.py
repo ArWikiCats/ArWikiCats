@@ -5,7 +5,7 @@ import re
 from typing import Dict
 
 from ...helps.print_bot import output_test, print_def_head
-from ..jobs_bots.test4_bots.t4_2018_jobs import te4_2018_Jobs
+from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import Films_O_TT, add_to_new_players
 from ..media_bots.film_keys_bot import get_Films_key_CAO
