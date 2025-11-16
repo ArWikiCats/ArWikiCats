@@ -28,6 +28,24 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 type_after_country = ["non-combat"]
 
 
+def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
+    country_label = ""
+
+    if country_lower:
+        country_label = get_pop_All_18(country_lower, "")
+
+        if not country_label:
+            country_label = get_country(country_not_lower)
+
+        if country_label == "" and cate3 == compare_lab:
+            country_label = Nat_mens.get(country_lower, "")
+            if country_label:
+                country_label = country_label + " في"
+                print_put("a<<lightblue>>>2021 cnt_la == %s" % country_label)
+
+    return country_label
+
+
 def do_ar(typeo, country_label, typeo_lab, category_r):
     # ---
     in_tables_lowers = check_key_new_players(typeo.lower())
@@ -44,6 +62,11 @@ def do_ar(typeo, country_label, typeo_lab, category_r):
     # ---
     print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
     print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
+
+
+def replace_cat_test(cat_test, text):
+    cat_test = cat_test.lower().replace(text.lower().strip(), "")
+    return cat_test
 
 
 def make_lab_dodo(
@@ -81,7 +104,8 @@ def make_lab_dodo(
     if typeo:
         if typeo in typeTable:
             print_put('a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(typeo, typeTable[typeo]["ar"]))
-            cat_test = cat_test.replace(typeo.lower(), "")
+            cat_test = replace_cat_test(cat_test, typeo)
+
             typeo_lab = typeTable[typeo]["ar"]
             if (typeo == "sports events" or typeo == "sorts-events") and year_at_first:
                 typeo_lab = "أحداث"
@@ -93,37 +117,24 @@ def make_lab_dodo(
         else:
             print_put('a<<lightblue>>>>>> typeo "%s" not in typeTable' % typeo)
 
-    country_label = ""
+    country_label = get_country_label(country_lower, country_not_lower, cate3, year_at_first + " " + country_lower)
 
-    if country_lower:
-        country_label = get_pop_All_18(country_lower, "")
-
-        if not country_label:
-            country_label = get_country(country_not_lower)
-
-        if country_label == "" and cate3 == year_at_first + " " + country_lower:
-            country_label = Nat_mens.get(country_lower, "")
-            if country_label:
-                country_label = country_label + " في"
-                print_put("a<<lightblue>>>2021 cnt_la == %s" % country_label)
-
-        if country_label:
-            cat_test = cat_test.lower()
-            cat_test = cat_test.replace(country_lower.lower(), "")
-            print_put("a<<lightblue>>>cnt_la : %s" % country_label)
+    if country_label:
+        cat_test = replace_cat_test(cat_test, country_lower)
+        print_put("a<<lightblue>>>cnt_la : %s" % country_label)
 
     Add_In_Done = False
     year_labe = ""
     if year_at_first:
         year_labe = year_lab.make_year_lab(year_at_first)
         if year_labe:
-            cat_test = cat_test.lower().replace(year_at_first.lower(), "")
+            cat_test = replace_cat_test(cat_test, year_at_first)
             arlabel = arlabel + " " + year_labe
             print_put(f'252: year_at_first({year_at_first}) != "" arlabel:"{arlabel}",In.strip() == "{In.strip()}"')
             if (In.strip() == "in" or In.strip() == "at") and suf.strip() == "":
                 print_put('Add في to arlabel:in,at"%s"' % arlabel)
                 arlabel = arlabel + " في "
-                cat_test = cat_test.replace(In, "")
+                cat_test = replace_cat_test(cat_test, In)
                 Add_In = False
                 Add_In_Done = True
 
@@ -131,11 +142,11 @@ def make_lab_dodo(
         if not (typeo != "" and typeo_lab == ""):
             if In.strip():
                 if In.strip() in Tit_ose_Nmaes and Tit_ose_Nmaes[In.strip()].strip() in arlabel:
-                    cat_test = cat_test.replace(In.strip(), "")
+                    cat_test = replace_cat_test(cat_test, In)
                 else:
                     print_put('<<lightred>>>>>> In in Tit_ose_Nmaes, and arlabel wothout "%s" ' % Tit_ose_Nmaes[In.strip()])
             else:
-                cat_test = cat_test.replace(In.strip(), "")
+                cat_test = replace_cat_test(cat_test, In)
 
     cat_test = re.sub(r"category:", "", cat_test)
     output_test('<<lightblue>>>>>> cat_test, : "%s" ' % cat_test)
