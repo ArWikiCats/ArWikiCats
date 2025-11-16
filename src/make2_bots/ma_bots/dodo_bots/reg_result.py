@@ -92,7 +92,7 @@ def get_reg_result(category_r: str) -> Typies:
     # ---
     # Category:january 2025 disasters during Covid-19
     # year_at_first='january 2025 ', typeo='disasters', In='during ', country='covid-19', cat_test='january 2025 disasters during covid-19'
-    print(f"{year_at_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
+    # print(f"{year_at_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
     # ---
     return Typies(
         year_at_first=year_at_first,

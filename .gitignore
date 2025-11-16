@@ -16,3 +16,4 @@ monkey.py
 /.claude
 src/make2_bots/ma_bots/dodo_bots/work_2019_examples.jsonl
 **/old/**
+src/make2_bots/ma_bots/dodo_bots/event2bot_dodo_backup.py

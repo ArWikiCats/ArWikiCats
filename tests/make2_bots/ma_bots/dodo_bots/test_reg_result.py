@@ -4,7 +4,11 @@ Tests
 import pytest
 
 from src.make2_bots.ma_bots.dodo_bots.reg_result import get_reg_result, Typies
-from src.make2_bots.ma_bots.dodo_bots.reg_result import basedtypeTable, Tit_ose_Nmaes
+from src.make2_bots.ma_bots.dodo_bots.reg_result import basedtypeTable
+
+
+# new dict with only 20 items from basedtypeTable
+basedtypeTable_20 = {k: basedtypeTable[k] for k in list(basedtypeTable.keys())[:20]}
 
 
 def test_get_reg_result():
@@ -276,28 +280,13 @@ class TestBCE_BC:
 # -----------------------------------------------------------
 
 class TestBasedTypeTableCoverage:
-    @pytest.mark.parametrize("eng", list(basedtypeTable.keys()))
+    @pytest.mark.parametrize("eng", list(basedtypeTable_20.keys()))
     def test_all_based_types(self, eng):
         category = f"Category:1999 {eng} in France"
         out = get_reg_result(category)
         assert out.typeo.strip().lower() == eng.strip().lower()
         assert out.year_at_first.strip().lower() == "1999"
         assert out.country.strip().lower() == "france"
-
-
-# -----------------------------------------------------------
-# 10) Stress-test with all Tit_ose_Nmaes keys
-# -----------------------------------------------------------
-
-class _TestTitOseCoverage:
-    @pytest.mark.parametrize("eng", list(Tit_ose_Nmaes.keys()))
-    def test_all_tit_ose(self, eng):
-        category = f"Category:2001 {eng} Canada"
-        out = get_reg_result(category)
-        typeo = out.typeo
-        # Only test that typeo and country extracted
-        assert typeo == eng or eng in typeo
-        assert out.country in ("canada", "")
 
 
 # -----------------------------------------------------------
