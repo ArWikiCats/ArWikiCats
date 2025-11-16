@@ -22,7 +22,7 @@ from ..matables_bots.check_bot import check_key_new_players
 from ...helps.print_bot import print_put, output_test
 from ...utils import check_key_in_tables_return_tuple
 
-from .arlabel_bots.bot_type_country import get_type_country
+from ..ma_bots_new.bot_type_country import get_type_country
 from .arlabel_bots.bot_type_lab import get_Type_lab
 from .arlabel_bots.bot_con_lab import get_con_lab
 
@@ -56,6 +56,7 @@ def add_in_tab(Type_lab, Type_lower, tito2):
 
 
 def _check_in_tables_new(country_lower, Type_lower):
+    # ---
     country_in_Table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
     Type_in_Table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
     # ---
@@ -64,23 +65,6 @@ def _check_in_tables_new(country_lower, Type_lower):
 
     if Type_in_Table:
         print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table2}.')
-    # ---
-    return country_in_Table, Type_in_Table
-
-
-def _check_in_tables(country_lower, Type_lower):
-    # ---
-    country_in_Table = False
-    Type_in_Table = False
-    # ---
-    for table_name, ta_t in Table_for_frist_word.items():
-        if country_lower in ta_t:
-            country_in_Table = True
-            print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table_name}.')
-
-        if Type_lower in ta_t:
-            Type_in_Table = True
-            print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table_name}.')
     # ---
     return country_in_Table, Type_in_Table
 
