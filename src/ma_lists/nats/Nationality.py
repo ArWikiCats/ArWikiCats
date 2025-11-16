@@ -1,36 +1,30 @@
 #!/usr/bin/python3
 """
-from .Nationality import nats_to_add, NATdd, CON_NAT, The_Nat_women, All_Nat, All_Nat_o, Nat_men, Nat_mens, Nat_women, Nat_Womens, contries_from_nat, all_country_with_nat, all_country_ar, all_country_with_nat_ar, all_country_with_nat_keys_is_en, ar_Nat_men, wsss_Womens, A_Nat, en_nats_to_ar_label
-
-# العرقيات
-SELECT DISTINCT
-(concat(', "' , ?itee ,'" :')  as ?ss)
-(concat('"' , ?itema ,'"')  as ?ss2)
-
-WHERE {
-
-  ?item wdt:P31 wd:Q41710.
-  ?item rdfs:label ?itema filter (lang(?itema) = "ar") .
-  ?item rdfs:label ?itee filter (lang(?itee) = "en") .
-    FILTER(CONTAINS(LCASE(?itee), "people"))
-
-    }
-LIMIT 1000
+Refactored nationality mapping module.
+All comments are in English as requested.
 """
 
 from ..utils.json_dir import open_json_file
 from ...helps import len_print
 
-# ---
+
+# ----------------------------------------------------------------------
+# Section 1: Load JSON sources and initial dictionaries
+# ----------------------------------------------------------------------
+
+# Load basic nationality dictionaries from JSON
 All_Nat_o = open_json_file("All_Nat_o") or {}
 uu_nats = open_json_file("uu_nats") or {}
 Sub_Nat = open_json_file("Sub_Nat") or {}
-# ---
+
+# This will collect missing nationalities to add
 nats_to_add = {}
-# ---
+
+# Normalize hindustani → hindustan
 if uu_nats.get("hindustani"):
     uu_nats["hindustan"] = uu_nats["hindustani"]
-# ---
+
+# Base nationalities mapped to country labels
 NATdd = {
     "afghan": "afghanistan",
     "albanian": "albania",
@@ -52,80 +46,74 @@ NATdd = {
     "beninese": "benin",
     "zimbabwean": "zimbabwe",
 }
-# ---
-CON_NAT = {}
-for nationality_key, country_label in NATdd.items():
-    CON_NAT[nationality_key.lower()] = country_label
-# ---
-# Category:Trinidad_and_Tobago_people
-# Category:Yoruba_people
-# ---
-# ---
-The_Nat_women = {
-    "cape verdean": "رأس أخضرية",
-    "south sudanese": "جنوب سودانية",
-    "southern european": "أوروبية جنوبية",
-    "south african": "جنوب إفريقية",
-    "south american": "أمريكية جنوبية",
-    "south korean": "كورية جنوبية",
+
+# Build country lookup from nationality → country
+CON_NAT = {key.lower(): value for key, value in NATdd.items()}
+
+
+# ----------------------------------------------------------------------
+# Section 2: Merge and expand All_Nat_o with various sources
+# ----------------------------------------------------------------------
+
+# Merge sources into All_Nat_o
+for key, val in uu_nats.items():
+    All_Nat_o[key] = val
+
+for key, val in Sub_Nat.items():
+    All_Nat_o[key] = val
+
+# Add known aliases or corrections
+ALIASES = {
+    "equatorial guinean": "equatoguinean",
+    "south ossetian": "ossetian",
+    "republic-of-the-congo": "the republic of the congo",
+    "republic of the congo": "the republic of the congo",
+    "democratic republic of the congo": "democratic republic of the congo",
+    "democratic-republic-of-the-congo": "democratic republic of the congo",
+    "dominican republic": "dominican republic",
+    "caribbean": "caribbeans",
+    "russians": "russian",
+    "bangladesh": "bangladeshi",
+    "yemenite": "yemeni",
+    "arabian": "arab",
+    "jewish": "jews",
+    "bosnia and herzegovina": "bosnian",
+    "turkish cypriot": "northern cypriot",
+    "somali": "somalian",
+    "saudi": "saudiarabian",
+    "canadians": "canadian",
+    "salvadoran": "salvadorean",
+    "ivoirian": "ivorian",
+    "the republic-of ireland": "irish",
+    "trinidadian": "trinidad and tobago",
+    "trinidadians": "trinidad and tobago",
+    "comoran": "comorian",
+    "slovakian": "slovak",
+    "emirian": "emirati",
+    "austro-hungarian": "austrianhungarian",
+    "emiri": "emirati",
+    "roman": "romanian",
+    "ancient-roman": "ancient-romans",
+    "ancient romans": "ancient-romans",
+    "mosotho": "lesotho",
+    "singapore": "singaporean",
+    "luxembourg": "luxembourgish",
+    "kosovar": "kosovan",
+    "argentinean": "argentine",
+    "argentinian": "argentine",
+    "lao": "laotian",
+    "israeli": "israeli11111",
+    "slovene": "slovenian",
+    "vietnamesei": "vietnamese",
+    "nepali": "nepalese",
 }
-# ---
-All_Nat = {}
-# ---
-for nationality_key, nationality_labels in uu_nats.items():
-    All_Nat_o[nationality_key] = nationality_labels
-for nationality_key, nationality_labels in Sub_Nat.items():
-    All_Nat_o[nationality_key] = nationality_labels
-# ---
-All_Nat_o["equatorial guinean"] = All_Nat_o["equatoguinean"]  # غينيا الاستوائية
-All_Nat_o["south ossetian"] = All_Nat_o["ossetian"]  # غينيا الاستوائية
-# ---
-All_Nat_o["republic-of-the-congo"] = All_Nat_o["the republic of the congo"]
-All_Nat_o["republic of the congo"] = All_Nat_o["the republic of the congo"]
 
-All_Nat_o["democratic republic of the congo"] = All_Nat_o["democratic republic of the congo"]
-All_Nat_o["democratic-republic-of-the-congo"] = All_Nat_o["democratic republic of the congo"]
+# Apply alias mapping
+for alias, target in ALIASES.items():
+    if target in All_Nat_o:
+        All_Nat_o[alias] = All_Nat_o[target]
 
-All_Nat_o["dominican republic"] = All_Nat_o["dominican republic"]
-All_Nat_o["caribbean"] = All_Nat_o["caribbeans"]
-All_Nat_o["russians"] = All_Nat_o["russian"]
-All_Nat_o["bangladesh"] = All_Nat_o["bangladeshi"]
-All_Nat_o["yemenite"] = All_Nat_o["yemeni"]
-# All_Nat_o["americans"] = All_Nat_o["american"]
-All_Nat_o["arabian"] = All_Nat_o["arab"]
-All_Nat_o["jewish"] = All_Nat_o["jews"]
-All_Nat_o["bosnia and herzegovina"] = All_Nat_o["bosnian"]
-All_Nat_o["turkish cypriot"] = All_Nat_o["northern cypriot"]
-All_Nat_o["somali"] = All_Nat_o["somalian"]
-All_Nat_o["saudi"] = All_Nat_o["saudiarabian"]  # saudi arabian
-All_Nat_o["canadians"] = All_Nat_o["canadian"]
-All_Nat_o["salvadoran"] = All_Nat_o["salvadorean"]
-All_Nat_o["ivoirian"] = All_Nat_o["ivorian"]
-All_Nat_o["the republic-of ireland"] = All_Nat_o["irish"]
-# All_Nat_o["eritrean"] = All_Nat_o["eritrean"]
-# ---
-All_Nat_o["trinidadian"] = All_Nat_o["trinidad and tobago"]
-All_Nat_o["trinidadians"] = All_Nat_o["trinidad and tobago"]
-All_Nat_o["comoran"] = All_Nat_o["comorian"]  # قمري
-All_Nat_o["slovakian"] = All_Nat_o["slovak"]  #
-All_Nat_o["emirian"] = All_Nat_o["emirati"]  # إماراتي
-All_Nat_o["austro-hungarian"] = All_Nat_o["austrianhungarian"]
-All_Nat_o["emiri"] = All_Nat_o["emirati"]  # إماراتي
-All_Nat_o["roman"] = All_Nat_o["romanian"]  #
-All_Nat_o["ancient-roman"] = All_Nat_o["ancient-romans"]  #
-All_Nat_o["ancient romans"] = All_Nat_o["ancient-romans"]  #
-All_Nat_o["mosotho"] = All_Nat_o["lesotho"]  # ليسوثوي
-All_Nat_o["singapore"] = All_Nat_o["singaporean"]  # سنغافوري
-All_Nat_o["luxembourg"] = All_Nat_o["luxembourgish"]  # لوكسمبورغي
-All_Nat_o["kosovar"] = All_Nat_o["kosovan"]  # كوسوفي
-All_Nat_o["argentinean"] = All_Nat_o["argentine"]  # أرجنتيني
-All_Nat_o["argentinian"] = All_Nat_o["argentine"]  # أرجنتيني
-All_Nat_o["lao"] = All_Nat_o["laotian"]  # لاوسي
-All_Nat_o["israeli"] = All_Nat_o["israeli11111"]  # إسرائيلي
-All_Nat_o["slovene"] = All_Nat_o["slovenian"]  # سلوفيني
-All_Nat_o["vietnamesei"] = All_Nat_o["vietnamese"]  # فيتنامي
-
-All_Nat_o["nepali"] = All_Nat_o["nepalese"]  # نيبالي
+# Special explicit definition
 All_Nat_o["papua new guinean x "] = {
     "men": "غيني",
     "mens": "غينيون",
@@ -134,23 +122,13 @@ All_Nat_o["papua new guinean x "] = {
     "en": "papua new guinea",
     "ar": "بابوا غينيا الجديدة",
 }
-# ---
-Nat_men = {}
-Nat_mens = {}
-Nat_women = {}
-Nat_Womens = {}
-contries_from_nat = {}
-all_country_with_nat = {}
-all_country_ar = {}  # عربي وانجليزي اسم البلد
-all_country_with_nat_ar = {}
-# ---
-all_country_with_nat_keys_is_en = {}
-all_country_with_nat_keys_is_en["islamic republic of iran"] = All_Nat_o["iranian"]
-# ---
-All_Nat_o["georgia (country)"] = All_Nat_o["georgian"]
-All_Nat_o["georgia (country)"]["en"] = "georgia (country)"
 
-# ---
+# Add country disambiguation for Georgia
+if "georgian" in All_Nat_o:
+    All_Nat_o["georgia (country)"] = All_Nat_o["georgian"]
+    All_Nat_o["georgia (country)"]["en"] = "georgia (country)"
+
+# Add custom southwest asian entry
 All_Nat_o["southwest asian"] = {
     "men": "جنوب غرب آسيوي",
     "mens": "جنوبيون غربيون آسيويين",
@@ -160,88 +138,126 @@ All_Nat_o["southwest asian"] = {
     "ar": "جنوب غرب آسيا",
 }
 
-# ---
-for nationality_key, nationality_labels in All_Nat_o.items():
-    All_Nat[nationality_key.lower()] = nationality_labels
-# ---
+# Rebuild All_Nat as lower-case indexed dictionary
+All_Nat = {key.lower(): value for key, value in All_Nat_o.items()}
+
+
+# ----------------------------------------------------------------------
+# Section 3: Derive nationality categories including American hybrids
+# ----------------------------------------------------------------------
+
+Nat_men = {}
+Nat_mens = {}
+Nat_women = {}
+Nat_Womens = {}
+
+contries_from_nat = {}
+all_country_with_nat = {}
+all_country_with_nat_ar = {}
+all_country_ar = {}
+all_country_with_nat_keys_is_en = {}
+
 ar_Nat_men = {}
-# ---
-American_nat = 0
-# ---
-for nationality_key in All_Nat_o.keys():
-    kb = {"men": "", "mens": "", "women": "", "womens": "", "en": "", "ar": ""}
-    rog = False
-    # ---
-    if All_Nat_o[nationality_key].get("men", "") != "":
-        kb["men"] = f"أمريكي {All_Nat_o[nationality_key]['men']}"
-        rog = True
-    # ---
-    if All_Nat_o[nationality_key]["mens"]:
-        kb["mens"] = f"أمريكيون {All_Nat_o[nationality_key]['mens']}"
-        rog = True
-    # ---
-    if All_Nat_o[nationality_key]["women"]:
-        kb["women"] = f"أمريكية {All_Nat_o[nationality_key]['women']}"
-        rog = True
-    # ---
-    if All_Nat_o[nationality_key]["womens"]:
-        kb["womens"] = f"أمريكيات {All_Nat_o[nationality_key]['womens']}"
-        rog = True
-    # ---
-    if rog:
-        American_nat += 1
-        All_Nat[f"{nationality_key.lower()}-American"] = kb
-        if nationality_key.lower() == "jewish":
-            All_Nat[f"{nationality_key.lower()} american"] = kb
-# ---
 en_nats_to_ar_label = {}
-# ---
-for papa, papa_tab in All_Nat.items():
-    papa2 = papa.lower()
-    # ---
-    en_ll = papa_tab["en"].lower()
-    en_ll2 = en_ll
-    if en_ll.startswith("the "):
-        en_ll2 = en_ll[len("the ") :]
-    # ---
-    if papa_tab.get("men", "") != "":
-        ar_Nat_men[papa_tab["men"]] = papa
-        Nat_men[papa2] = papa_tab["men"]
-    # ---
-    if papa_tab["mens"]:
-        Nat_mens[papa2] = papa_tab["mens"]
-    # ---
-    if papa_tab["women"]:
-        Nat_women[papa2] = papa_tab["women"]
-    # ---
-    if papa_tab["womens"]:
-        Nat_Womens[papa2] = papa_tab["womens"]
-    # ---
-    if papa_tab["ar"] and papa_tab["en"]:
-        all_country_ar[en_ll2] = papa_tab["ar"]
-    # ---
-    if papa_tab["ar"]:
-        all_country_with_nat_ar[papa2] = papa_tab
-        en_nats_to_ar_label[papa2] = papa_tab["ar"]
-    # ---
-    if papa_tab["en"]:
-        all_country_with_nat[papa] = papa_tab
-        all_country_with_nat_keys_is_en[en_ll2.lower()] = papa_tab
-    # ---
-    # contries_from_nat["yemen"] = "اليمن"
-    if papa_tab["en"] and papa_tab["ar"]:
-        en_name = papa_tab["en"].lower()
-        contries_from_nat[en_name] = papa_tab["ar"]
-        if en_name.startswith("the "):
-            en_name2 = en_name[len("the ") :]
-            contries_from_nat[en_name2.lower()] = papa_tab["ar"]
-# ---
+
+# Count the number of American-extended entries
+American_nat = 0
+
+# Build "-American" forms where possible
+for nationality_key, labels in All_Nat_o.items():
+
+    new_block = {
+        "men": "",
+        "mens": "",
+        "women": "",
+        "womens": "",
+        "en": "",
+        "ar": ""
+    }
+
+    inserted = False
+
+    if labels.get("men"):
+        new_block["men"] = f"أمريكي {labels['men']}"
+        inserted = True
+    if labels.get("mens"):
+        new_block["mens"] = f"أمريكيون {labels['mens']}"
+        inserted = True
+    if labels.get("women"):
+        new_block["women"] = f"أمريكية {labels['women']}"
+        inserted = True
+    if labels.get("womens"):
+        new_block["womens"] = f"أمريكيات {labels['womens']}"
+        inserted = True
+
+    if inserted:
+        American_nat += 1
+        key_lower = nationality_key.lower()
+        All_Nat[f"{key_lower}-american"] = new_block
+
+        if key_lower == "jewish":
+            All_Nat[f"{key_lower} american"] = new_block
+
+
+# ----------------------------------------------------------------------
+# Section 4: Build final lookup tables
+# ----------------------------------------------------------------------
+
+for nat_key, nat_tab in All_Nat.items():
+
+    en_key = nat_tab.get("en", "").lower()
+    ar_val = nat_tab.get("ar", "")
+
+    # Normalize English key removing leading "the "
+    en_key_norm = en_key[4:] if en_key.startswith("the ") else en_key
+
+    # Build gender mappings
+    if nat_tab.get("men"):
+        ar_Nat_men[nat_tab["men"]] = nat_key
+        Nat_men[nat_key] = nat_tab["men"]
+
+    if nat_tab.get("mens"):
+        Nat_mens[nat_key] = nat_tab["mens"]
+
+    if nat_tab.get("women"):
+        Nat_women[nat_key] = nat_tab["women"]
+
+    if nat_tab.get("womens"):
+        Nat_Womens[nat_key] = nat_tab["womens"]
+
+    # English–Arabic country mapping
+    if ar_val and en_key:
+        all_country_ar[en_key_norm] = ar_val
+        contries_from_nat[en_key_norm] = ar_val
+        if en_key_norm.startswith("the "):
+            contries_from_nat[en_key_norm[4:]] = ar_val
+
+    # Full nationality dictionaries
+    if ar_val:
+        all_country_with_nat_ar[nat_key] = nat_tab
+        en_nats_to_ar_label[nat_key] = ar_val
+
+    if en_key:
+        all_country_with_nat[nat_key] = nat_tab
+        all_country_with_nat_keys_is_en[en_key_norm] = nat_tab
+
+
+# Add special entry for Iran
+if "iranian" in All_Nat:
+    all_country_with_nat_keys_is_en["islamic republic of iran"] = All_Nat["iranian"]
+
+
+# ----------------------------------------------------------------------
+# Section 5: Print statistics
+# ----------------------------------------------------------------------
+
 len_print.data_len("nationality.py", {
     "All_Nat": All_Nat,
     "All_Nat with ar name": all_country_with_nat_ar,
     "All_Nat with en name": all_country_with_nat,
     "American_nat": American_nat,
 })
-# ---
+
+# Cleanup
 del uu_nats
 del Sub_Nat
