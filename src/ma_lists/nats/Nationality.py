@@ -18,37 +18,18 @@ WHERE {
 LIMIT 1000
 """
 
-import sys
-
 from ..utils.json_dir import open_json_file
 from ...helps import len_print
-from ... import printe
 
 # ---
 All_Nat_o = open_json_file("All_Nat_o") or {}
+uu_nats = open_json_file("uu_nats") or {}
 # ---
 nats_to_add = {}
-# ---
-uu_nats = open_json_file("uu_nats") or {}
 # ---
 if uu_nats.get("hindustani"):
     uu_nats["hindustan"] = uu_nats["hindustani"]
 # ---
-"""
-for x in nats_to_add:
-    uu_nats[x] = {}
-    lab = nats_to_add[x] + ' '
-    uu_nats[x]["men"]    = lab.replace('يون ', 'ي ')
-    uu_nats[x]["mens"]   = lab
-    uu_nats[x]["women"]  = lab.replace('يون ', 'ية ')
-    uu_nats[x]["womens"] = lab.replace('يون ', 'يات ')
-    uu_nats[x]["en"] = ""
-    uu_nats[x]["ar"] = ""
-# ---
-print(json.dumps(tab, indent=2, ensure_ascii=False))
-"""
-# ---
-# Category:Fictional Germanic people
 NATdd = {
     "afghan": "afghanistan",
     "albanian": "albania",
@@ -245,8 +226,6 @@ for papa, papa_tab in All_Nat.items():
     # ---
     if papa_tab["en"]:
         all_country_with_nat[papa] = papa_tab
-        # all_country_with_nat_keys_is_en[en_ll] = papa_tab
-        # print("ssssssssssssssssssssssss : " + en_ll2)
         all_country_with_nat_keys_is_en[en_ll2.lower()] = papa_tab
     # ---
     # contries_from_nat["yemen"] = "اليمن"
@@ -256,50 +235,13 @@ for papa, papa_tab in All_Nat.items():
         if en_name.startswith("the "):
             en_name2 = en_name[len("the ") :]
             contries_from_nat[en_name2.lower()] = papa_tab["ar"]
-            # printe.output('contries_from_nat["%s"] = "%s"' % (en_name2 , papa_tab["ar"] ) )
 # ---
-men_women = 0
-# ---
-for pod, pod_a in Nat_women.items():
-    if pod_a.endswith("ه"):
-        printe.output(f'"{pod}" : {pod_a}')
-# ---
-for menn, menn_lab in Nat_men.items():
-    if menn in Nat_women:
-        women_lab = Nat_women[menn]
-        men_lab = menn_lab.replace(" ", "ة ")
-        men_lab = f"{men_lab}ة"
-        if women_lab == men_lab:
-            men_women += 1
-        # else:
-        # printe.output('women_lab:"%s",men_lab : %s' %   (women_lab , men_lab))
-# ---
-wsss_Womens = {
-    "afghan": "أفغانيات",
-    "albanian": "ألبانيات",
-    "algerian": "جزائريات",
-    "american": "أمريكيات",
-}
-
-# ---
-A_Nat = {}
-"""
-All_Nat2 = All_Nat
-for pa1 in All_Nat.keys():
-    if All_Nat[pa1]["mens"] :
-        for pa2 in All_Nat2.keys():
-            if All_Nat[pa2]["mens"] :
-                A_Nat[f"{pa1} {pa2}" ] = "{} {}".format(All_Nat2[pa2]["mens"] , All_Nat2[pa1]["mens"]) """
-# ---
-Lenth = {
+len_print.data_len("nationality.py", {
     "All_Nat": All_Nat,
     "All_Nat with ar name": all_country_with_nat_ar,
     "All_Nat with en name": all_country_with_nat,
     "American_nat": American_nat,
-    "men_women": men_women,
-}
-# ---
-len_print.data_len("nationality.py", Lenth)
+})
 # ---
 del uu_nats
 del Sub_Nat
