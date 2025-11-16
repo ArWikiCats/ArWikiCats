@@ -48,6 +48,10 @@ def make_lab_dodo(
     country = result.country
     cat_test = result.cat_test
     # ---
+    # Paralympic competitors for Cape Verde (no year_at_first)
+    if not year_at_first and not typeo:# and not country:
+        return ""
+    # ---
     country_not_lower = country
     country_lower = country.lower()
     # ---
