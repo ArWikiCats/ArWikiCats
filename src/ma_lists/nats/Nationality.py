@@ -24,6 +24,7 @@ from ...helps import len_print
 # ---
 All_Nat_o = open_json_file("All_Nat_o") or {}
 uu_nats = open_json_file("uu_nats") or {}
+Sub_Nat = open_json_file("Sub_Nat") or {}
 # ---
 nats_to_add = {}
 # ---
@@ -59,7 +60,6 @@ for nationality_key, country_label in NATdd.items():
 # Category:Trinidad_and_Tobago_people
 # Category:Yoruba_people
 # ---
-Sub_Nat = open_json_file("Sub_Nat") or {}
 # ---
 The_Nat_women = {
     "cape verdean": "رأس أخضرية",
