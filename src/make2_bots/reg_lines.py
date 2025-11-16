@@ -60,7 +60,6 @@ __all__ = [
     "YEARS_REGEX",
     "regex_make_year_lab",
     "ddd",
-    "tita_year_no_month",
     "RE1_compile",
     "RE2_compile",
     "RE3_compile",
