@@ -159,8 +159,3 @@ def get_tens_labels() -> dict[int, str]:
     }
 
     return tens_mapping
-
-# ---
-
-
-dd = get_tens_labels
