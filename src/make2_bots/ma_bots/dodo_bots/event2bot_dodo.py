@@ -23,8 +23,6 @@ from ....helps.log import logger
 from ....utils import check_key_in_tables
 from .reg_result import get_reg_result, get_cats
 
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-
 type_after_country = ["non-combat"]
 
 
@@ -219,7 +217,7 @@ def make_lab_dodo(category_r: str) -> str:
 
     # --- Step 9: Return final result ---
     if not NoLab:
-        if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) == arlabel:
+        if re.sub("[abcdefghijklmnopqrstuvwxyz]", "", arlabel, flags=re.IGNORECASE) == arlabel:
             arlabel = fixtitle.fixlab(arlabel, en=category_r)
             logger.info("a<<lightred>>>>>> arlabel ppoi:%s" % arlabel)
             logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", category_lab "{arlabel}"')
