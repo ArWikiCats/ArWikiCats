@@ -133,8 +133,8 @@ def translate_general_category(category_r: str, start_get_country2: bool=True) -
 
     if arlabel:
         arlabel = fixtitle.fixlab(arlabel, en=category_r)
-        print_put(f'xxxxx <<lightyellow>>Cate_test: "{Cate_test}" ')
-        print_put(f'>>>>>> <<lightyellow>>test: cat "{category_r}", arlabel:"{arlabel}"')
+        print_put(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
+        print_put(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
     print_def_head("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
 

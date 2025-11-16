@@ -34,40 +34,9 @@ regex_make_year_lab_old = (
     r")"
 )
 
-yy = (
-    r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?"
-    r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?"
-    r"|\d+[−–\-]\d+"
-    r"|\d+s\s*(?:BCE*)?"
-    r"|\d+\s*(?:BCE*)?"
-)
-
-yy_old = (
-    r"\d+th century BCE|\d+th millennium BCE|\d+th century BC|\d+th millennium BC|\d+th century|\d+th millennium"
-    r"|\d+st century BCE|\d+st millennium BCE|\d+st century BC|\d+st millennium BC|\d+st century|\d+st millennium"
-    r"|\d+rd century BCE|\d+rd millennium BCE|\d+rd century BC|\d+rd millennium BC|\d+rd century|\d+rd millennium"
-    r"|\d+nd century BCE|\d+nd millennium BCE|\d+nd century BC|\d+nd millennium BC|\d+nd century|\d+nd millennium"
-    r"|\d+ century BCE|\d+ millennium BCE|\d+ century BC|\d+ millennium BC"
-    r"|\d+ century|\d+ millennium|\d+s BCE|\d+ BCE"
-    r"|\d+s BC|\d+ BC"
-    r"|\d+s"
-    r"|\d+[−–\-]\d+"
-    r"|\d+"
-)
-
 # yyx = r"(\w+\s*\d+|\d+(th|st|rd)|\d+s\s*|\d+|)(\s*BCE|\s*BC|)(\s*century|\s*millennium)"
 
-MONTHSTR2 = "(january |february |march |april |may |june |july |august |september |october |november |december |)"
-tita_year = r"Category\:" + MONTHSTR2 + "(" + yy + "|).*"
-tita_year = tita_year.lower()
-
-tita = r"Category\:" + MONTHSTR2 + "(" + yy.lower() + "|)"
-
 ddd = r"category\:(january|february|march|april|may|june|july|august|september|october|november|december|)\s*"
-
-tita_year_no_month = r"category\:(|)\s*(" + yy + ").*"
-
-tita_year_no_month = tita_year_no_month.lower()
 
 # ----------------------------
 
@@ -90,9 +59,6 @@ RE33_compile = re.compile(r"^.*?\s*(\((?:\d\d\d\d|\d+\-\d+|\d+\–\d+|\d+\–pre
 __all__ = [
     "YEARS_REGEX",
     "regex_make_year_lab",
-    "yy",
-    "tita_year",
-    "tita",
     "ddd",
     "tita_year_no_month",
     "RE1_compile",

@@ -9,8 +9,9 @@ from src.make2_bots.ma_bots.dodo_bots.reg_result import basedtypeTable, Tit_ose_
 
 def test_get_reg_result():
     # Test with basic inputs
-    result = get_reg_result("test category")
-    assert hasattr(result, 'year')
+    result = get_reg_result("Category:2025 in fishes")
+    assert hasattr(result, 'year_at_first')
+    assert result.year_at_first == "2025 "
     assert hasattr(result, 'typeo')
     assert hasattr(result, 'In')
     assert hasattr(result, 'country')
@@ -18,7 +19,7 @@ def test_get_reg_result():
 
     # Test with different parameters
     result_various = get_reg_result("category:year in type")
-    assert hasattr(result_various, 'year')
+    assert hasattr(result_various, 'year_at_first')
     assert hasattr(result_various, 'typeo')
     assert hasattr(result_various, 'In')
     assert hasattr(result_various, 'country')
@@ -27,16 +28,16 @@ def test_get_reg_result():
 
 def test_typies():
     # Test that Typies class can be instantiated
-    typies_instance = Typies(year="2020", typeo="test", In="in", country="us", cat_test="test")
-    assert typies_instance.year == "2020"
+    typies_instance = Typies(year_at_first="2020", typeo="test", In="in", country="us", cat_test="test")
+    assert typies_instance.year_at_first == "2020"
     assert typies_instance.typeo == "test"
     assert typies_instance.In == "in"
     assert typies_instance.country == "us"
     assert typies_instance.cat_test == "test"
 
     # Test with empty values
-    typies_empty = Typies(year="", typeo="", In="", country="", cat_test="")
-    assert typies_empty.year == ""
+    typies_empty = Typies(year_at_first="", typeo="", In="", country="", cat_test="")
+    assert typies_empty.year_at_first == ""
     assert typies_empty.typeo == ""
     assert typies_empty.In == ""
     assert typies_empty.country == ""
@@ -70,7 +71,7 @@ class TestYearExtraction:
     )
     def test_year(self, category, expected):
         out = get_reg_result(category)
-        assert out.year.lower().strip() == expected.lower().strip()
+        assert out.year_at_first.lower().strip() == expected.lower().strip()
 
     @pytest.mark.parametrize(
         "category,expected",
@@ -94,7 +95,7 @@ class TestYearExtraction:
     )
     def _test_year2(self, category, expected):
         out = get_reg_result(category)
-        assert out.year.lower() == expected.lower()
+        assert out.year_at_first.lower() == expected.lower()
 
 
 # -----------------------------------------------------------
@@ -212,7 +213,7 @@ class TestCombinedPatterns:
     )
     def test_combined(self, category, year, typeo, In, country):
         out = get_reg_result(category)
-        assert out.year.strip() == year
+        assert out.year_at_first.strip() == year
         assert out.typeo == typeo
         assert out.In.strip() == In
         assert out.country == country
@@ -248,7 +249,7 @@ class TestMonthSuppression:
     )
     def test_month_suppression(self, category, expected):
         out = get_reg_result(category)
-        assert out.year.strip() == expected
+        assert out.year_at_first.strip() == expected
 
 
 # -----------------------------------------------------------
@@ -267,7 +268,7 @@ class TestBCE_BC:
     )
     def test_bce(self, category, expected):
         out = get_reg_result(category)
-        assert out.year.lower() == expected.lower()
+        assert out.year_at_first.lower() == expected.lower()
 
 
 # -----------------------------------------------------------
@@ -280,7 +281,7 @@ class TestBasedTypeTableCoverage:
         category = f"Category:1999 {eng} in France"
         out = get_reg_result(category)
         assert out.typeo.strip().lower() == eng.strip().lower()
-        assert out.year.strip().lower() == "1999"
+        assert out.year_at_first.strip().lower() == "1999"
         assert out.country.strip().lower() == "france"
 
 
@@ -306,7 +307,7 @@ class _TestTitOseCoverage:
 class TestEdgeCases:
     def test_empty_category(self):
         out = get_reg_result("")
-        assert out.year == ""
+        assert out.year_at_first == ""
         assert out.typeo == ""
         assert out.In == ""
         assert out.country == ""
@@ -314,17 +315,17 @@ class TestEdgeCases:
     def test_only_category_prefix(self):
         cat = "Category:"
         out = get_reg_result(cat)
-        assert out.year == ""
+        assert out.year_at_first == ""
         assert out.typeo == ""
 
     def test_spaces_only(self):
         cat = "Category:     "
         out = get_reg_result(cat)
-        assert out.year == ""
+        assert out.year_at_first == ""
         assert out.typeo == ""
 
     def test_weird_unicode_dashes(self):
         category = "Category:1933–83 births"
         out = get_reg_result(category)
-        assert out.year == "1933–83"
+        assert out.year_at_first == "1933–83"
         assert out.typeo == "births"

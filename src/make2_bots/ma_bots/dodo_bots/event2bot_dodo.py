@@ -42,7 +42,7 @@ def make_lab_dodo(
     # ---
     result = get_reg_result(category_r)
     # ---
-    year = result.year
+    year_at_first = result.year_at_first
     typeo = result.typeo
     In = result.In
     country = result.country
@@ -51,7 +51,7 @@ def make_lab_dodo(
     country_not_lower = country
     country_lower = country.lower()
     # ---
-    print_put(f'>>>> year:"{year}", typeo:"{typeo}", In:"{In}", country_lower:"{country_lower}"')
+    print_put(f'>>>> year_at_first:"{year_at_first}", typeo:"{typeo}", In:"{In}", country_lower:"{country_lower}"')
     # ---
     arlabel = ""
     suf = ""
@@ -63,7 +63,7 @@ def make_lab_dodo(
             print_put('a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(typeo, typeTable[typeo]["ar"]))
             cat_test = cat_test.replace(typeo.lower(), "")
             typeo_lab = typeTable[typeo]["ar"]
-            if (typeo == "sports events" or typeo == "sorts-events") and year:
+            if (typeo == "sports events" or typeo == "sorts-events") and year_at_first:
                 typeo_lab = "أحداث"
             arlabel = arlabel + typeo_lab
 
@@ -81,7 +81,7 @@ def make_lab_dodo(
         if not country_label:
             country_label = get_country(country_not_lower)
 
-        if country_label == "" and cate3 == year + " " + country_lower:
+        if country_label == "" and cate3 == year_at_first + " " + country_lower:
             country_label = Nat_mens.get(country_lower, "")
             if country_label:
                 country_label = country_label + " في"
@@ -94,12 +94,12 @@ def make_lab_dodo(
 
     Add_In_Done = False
     year_labe = ""
-    if year:
-        year_labe = year_lab.make_year_lab(year)
+    if year_at_first:
+        year_labe = year_lab.make_year_lab(year_at_first)
         if year_labe:
-            cat_test = cat_test.lower().replace(year.lower(), "")
+            cat_test = cat_test.lower().replace(year_at_first.lower(), "")
             arlabel = arlabel + " " + year_labe
-            print_put(f'252: year != ""({year}) arlabel:"{arlabel}",In.strip() == "{In.strip()}"')
+            print_put(f'252: year_at_first({year_at_first}) != "" arlabel:"{arlabel}",In.strip() == "{In.strip()}"')
             if (In.strip() == "in" or In.strip() == "at") and suf.strip() == "":
                 print_put('Add في to arlabel:in,at"%s"' % arlabel)
                 arlabel = arlabel + " في "
@@ -107,7 +107,7 @@ def make_lab_dodo(
                 Add_In = False
                 Add_In_Done = True
 
-    if not (country_lower != "" and country_label == "") and not (year != "" and year_labe == ""):
+    if not (country_lower != "" and country_label == "") and not (year_at_first != "" and year_labe == ""):
         if not (typeo != "" and typeo_lab == ""):
             if In.strip():
                 if In.strip() in Tit_ose_Nmaes and Tit_ose_Nmaes[In.strip()].strip() in arlabel:
@@ -123,9 +123,9 @@ def make_lab_dodo(
 
     NoLab = False
     # ---
-    if (year == "" or year_labe == "") and cat_test.strip():
+    if (year_at_first == "" or year_labe == "") and cat_test.strip():
         NoLab = True
-        print_put("year == " ' or year_labe == ""')
+        print_put("year_at_first == " ' or year_labe == ""')
     elif country_lower == "" and In == "":
         print_put('a<<lightblue>>>>>> country_lower == "" and In ==  "" ')
         arlabel = re.sub(r" ", " ", arlabel)
@@ -138,7 +138,7 @@ def make_lab_dodo(
             cat_test, arlabel = new_func_mk2(
                 cate,
                 cat_test,
-                year,
+                year_at_first,
                 typeo,
                 In,
                 country_lower,
@@ -156,7 +156,7 @@ def make_lab_dodo(
         NoLab = True
 
     if NoLab and cat_test == "":
-        if country_label and typeo_lab and year == "" and In == "":
+        if country_label and typeo_lab and year_at_first == "" and In == "":
             # ---
             in_tables_lowers = check_key_new_players(typeo.lower())
             in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
@@ -192,10 +192,10 @@ def make_lab_dodo(
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
         NoLab = True
 
-    cat4_lab = work_2019(cate3, year, year_labe) if year and year_labe else ""
+    cat4_lab = work_2019(cate3, year_at_first, year_labe) if year_at_first and year_labe else ""
 
-    if NoLab and year and year_labe:
-        # cat4_lab = work_2019(cate3, year, year_labe)
+    if NoLab and year_at_first and year_labe:
+        # cat4_lab = work_2019(cate3, year_at_first, year_labe)
         if cat4_lab:
             New_Lan[category_r.lower()] = cat4_lab
 
