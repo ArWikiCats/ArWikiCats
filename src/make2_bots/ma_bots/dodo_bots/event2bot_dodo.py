@@ -47,19 +47,19 @@ def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
 
 
 def do_ar(typeo, country_label, typeo_lab, category_r):
-    # ---
+
     in_tables_lowers = check_key_new_players(typeo.lower())
     in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
-    # ---
+
     if typeo in type_after_country:
         ar = f"{country_label} {typeo_lab}"
     elif in_tables or in_tables_lowers:
         ar = f"{typeo_lab} {country_label}"
     else:
         ar = f"{country_label} {typeo_lab}"
-    # ---
+
     New_Lan[category_r.lower()] = ar
-    # ---
+
     print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
     print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
@@ -69,97 +69,105 @@ def replace_cat_test(cat_test, text):
     return cat_test
 
 
-def make_lab_dodo(
-    category_r: str,
-) -> str:
+def make_lab_dodo(category_r: str) -> str:
     """
-    Generate a label based on various input parameters related to categories
-    and years.
+    Generate a label based on various input parameters related to categories and years.
     """
-    # ---
+
+    # --- Step 0: Extract parsing results ---
     cate, cate3 = get_cats(category_r)
-    # ---
     result = get_reg_result(category_r)
-    # ---
+
     year_at_first = result.year_at_first
     typeo = result.typeo
     In = result.In
     country = result.country
     cat_test = result.cat_test
-    # ---
+
     # Paralympic competitors for Cape Verde (no year_at_first)
     if not year_at_first and not typeo:  # and not country:
         return ""
-    # ---
-    country_not_lower = country
+
     country_lower = country.lower()
-    # ---
+    country_not_lower = country
+
     print_put(f'>>>> year_at_first:"{year_at_first}", typeo:"{typeo}", In:"{In}", country_lower:"{country_lower}"')
-    # ---
+
+    # Working variables
     arlabel = ""
     suf = ""
     typeo_lab = ""
-
     Add_In = True
+    Add_In_Done = False
+
+    # --- Step 1: Handle type label ---
     if typeo:
         if typeo in typeTable:
+            typeo_lab = typeTable[typeo]["ar"]
             print_put('a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(typeo, typeTable[typeo]["ar"]))
             cat_test = replace_cat_test(cat_test, typeo)
 
-            typeo_lab = typeTable[typeo]["ar"]
-            if (typeo == "sports events" or typeo == "sorts-events") and year_at_first:
+            # Fix special case for sports events
+            if typeo in ("sports events", "sorts-events") and year_at_first:
                 typeo_lab = "أحداث"
-            arlabel = arlabel + typeo_lab
+            arlabel += typeo_lab
 
             print_put("a<<lightblue>>>typeo_lab : %s" % typeo_lab)
             if "s" in typeTable[typeo]:
                 suf = typeTable[typeo]["s"]
         else:
-            print_put('a<<lightblue>>>>>> typeo "%s" not in typeTable' % typeo)
+            print_put(f'a<<lightblue>>>>>> typeo "{typeo}" not in typeTable')
 
-    country_label = get_country_label(country_lower, country_not_lower, cate3, year_at_first + " " + country_lower)
+    # --- Step 2: Country label ---
+    country_label = get_country_label(
+        country_lower,
+        country_not_lower,
+        cate3,
+        year_at_first + " " + country_lower
+    )
 
     if country_label:
         cat_test = replace_cat_test(cat_test, country_lower)
         print_put("a<<lightblue>>>cnt_la : %s" % country_label)
 
-    Add_In_Done = False
+    # --- Step 3: Year label ---
     year_labe = ""
     if year_at_first:
         year_labe = year_lab.make_year_lab(year_at_first)
+
         if year_labe:
             cat_test = replace_cat_test(cat_test, year_at_first)
-            arlabel = arlabel + " " + year_labe
+            arlabel += " " + year_labe
             print_put(f'252: year_at_first({year_at_first}) != "" arlabel:"{arlabel}",In.strip() == "{In.strip()}"')
-            if (In.strip() == "in" or In.strip() == "at") and suf.strip() == "":
+
+            # If In is 'in' or 'at' and no suffix
+            if (In.strip() in ("in", "at")) and not suf.strip():
                 print_put('Add في to arlabel:in,at"%s"' % arlabel)
-                arlabel = arlabel + " في "
+                arlabel += " في "
                 cat_test = replace_cat_test(cat_test, In)
                 Add_In = False
                 Add_In_Done = True
 
-    if not (country_lower != "" and country_label == "") and not (year_at_first != "" and year_labe == ""):
-        if not (typeo != "" and typeo_lab == ""):
-            if In.strip():
-                if In.strip() in Tit_ose_Nmaes and Tit_ose_Nmaes[In.strip()].strip() in arlabel:
-                    cat_test = replace_cat_test(cat_test, In)
-                else:
-                    print_put('<<lightred>>>>>> In in Tit_ose_Nmaes, and arlabel wothout "%s" ' % Tit_ose_Nmaes[In.strip()])
-            else:
+    # --- Step 4: Validate cat_test for Tit_ose_Nmaes ---
+    if In.strip():
+        if In.strip() in Tit_ose_Nmaes:
+            if Tit_ose_Nmaes[In.strip()].strip() in arlabel:
                 cat_test = replace_cat_test(cat_test, In)
+        else:
+            cat_test = replace_cat_test(cat_test, In)
 
     cat_test = re.sub(r"category:", "", cat_test)
-    output_test('<<lightblue>>>>>> cat_test, : "%s" ' % cat_test)
-    cat_test3 = cat_test
+    output_test(f'<<lightblue>>>>>> cat_test: "{cat_test}" ')
 
+    # cat_test_original = cat_test
     NoLab = False
-    # ---
-    if (year_at_first == "" or year_labe == "") and cat_test.strip():
+
+    # --- Step 5: Labeling rules ---
+    if (not year_at_first or not year_labe) and cat_test.strip():
         NoLab = True
         print_put("year_at_first == " ' or year_labe == ""')
-    elif country_lower == "" and In == "":
+    elif not country_lower and not In:
         print_put('a<<lightblue>>>>>> country_lower == "" and In ==  "" ')
-        arlabel = re.sub(r" ", " ", arlabel)
         if suf:
             arlabel = arlabel + " " + suf
         arlabel = re.sub(r"\s+", " ", arlabel)
@@ -167,38 +175,28 @@ def make_lab_dodo(
     elif country_lower:
         if country_label:
             cat_test, arlabel = new_func_mk2(
-                cate,
-                cat_test,
-                year_at_first,
-                typeo,
-                In,
-                country_lower,
-                arlabel,
-                year_labe,
-                suf,
-                Add_In,
-                country_label,
-                Add_In_Done,
+                cate, cat_test, year_at_first, typeo, In,
+                country_lower, arlabel, year_labe, suf,
+                Add_In, country_label, Add_In_Done
             )
         else:
             print_put('a<<lightblue>>>>>> Cant id country_lower : "%s" ' % country_lower)
+            NoLab = True
     else:
         print_put("a<<lightblue>>>>>> No label.")
         NoLab = True
 
+    # --- Step 6: Fallback rule ---
     if NoLab and cat_test == "":
-        if country_label and typeo_lab and year_at_first == "" and In == "":
+        if country_label and typeo_lab and not year_at_first and In == "":
             do_ar(typeo, country_label, typeo_lab, category_r)
 
-    category2 = cate[len("category:") :] if cate.lower().startswith("category:") else cate
-    category2 = category2.lower()
-
-    if cat_test != cat_test3:
-        output_test('<<lightgreen>>>>>> cat_test : "%s" ' % cat_test)
+    # --- Step 7: Final cleanup ---
+    category2 = cate[len("category:"):].lower() if cate.lower().startswith("category:") else cate.lower()
 
     if not cat_test.strip():
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
-    elif cat_test == country_lower or (cat_test == "in " + country_lower):
+    elif cat_test == country_lower or cat_test == ("in " + country_lower):
         output_test("<<lightgreen>>>>>> cat_test False.. ")
         output_test('<<lightblue>>>>>> cat_test = country_lower : "%s" ' % country_lower)
         NoLab = True
@@ -212,13 +210,14 @@ def make_lab_dodo(
 
     output_test("<<lightgreen>>>>>> arlabel " + arlabel)
 
+    # --- Step 8: Special 2019 handler ---
     cat4_lab = work_2019(cate3, year_at_first, year_labe) if year_at_first and year_labe else ""
 
     if NoLab and year_at_first and year_labe:
-        # cat4_lab = work_2019(cate3, year_at_first, year_labe)
         if cat4_lab:
             New_Lan[category_r.lower()] = cat4_lab
 
+    # --- Step 9: Return final result ---
     if not NoLab:
         if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) == arlabel:
             arlabel = fixtitle.fixlab(arlabel, en=category_r)
@@ -226,4 +225,5 @@ def make_lab_dodo(
             print_put(f'>>>> <<lightyellow>> cat:"{category_r}", category_lab "{arlabel}"')
             print_put("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
             return arlabel
+
     return ""
