@@ -5,10 +5,10 @@ from ...format_bots import Tit_ose_Nmaes
 from ....ma_lists.type_tables import basedtypeTable
 
 
-def load_keys_to_pattern(data_List, by="|"):
+def load_keys_to_pattern(data_List, by="|", sort_keys=False):
     # return by.join(x.strip() for x in data_List)
     # ---
-    data_List_sorted = data_List  # sorted(data_List, key=lambda x: -x.count(" "))
+    data_List_sorted = sorted(data_List, key=lambda x: -x.count(" ")) if sort_keys else data_List
     # ---
     data_pattern = by.join(map(re.escape, [n.lower() for n in data_List_sorted]))
     # ---
@@ -23,20 +23,17 @@ yy = (
     r"|\d+\s*(?:BCE*)?"
 ).lower()
 
-MONTHSTR2 = "(?:january|february|march|april|may|june|july|august|september|october|november|december) *"
+MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
 
-# safo = "|".join(x.strip() for x in basedtypeTable.keys())
-# titttto = " |".join(x.strip() for x in Tit_ose_Nmaes.keys())
+typeo_pattern = load_keys_to_pattern(list(basedtypeTable))
+in_pattern = load_keys_to_pattern(Tit_ose_Nmaes.keys(), by=" |")
 
-safo = load_keys_to_pattern(list(basedtypeTable))
-titttto = load_keys_to_pattern(Tit_ose_Nmaes.keys(), by=" |")
-
-category_start = r"Category\:"
-category_start = ""
-
-tita_other_match = r"\s*(?P<typeo>" + safo.lower() + r"|)\s*(?P<in>" + titttto.lower() + r"|)\s*(?P<country>.*|).*"
-
-reg_line_1_match = rf"{category_start}(?P<month>" + MONTHSTR2 + "|)(?P<year>" + yy + "|)" + tita_other_match
+reg_line_1_match = (
+    rf"(?P<monthyear>{MONTHSTR3}(?:{yy})|)\s*"
+    r"(?P<typeo>" + typeo_pattern.lower() + r"|)\s*"
+    r"(?P<in>" + in_pattern.lower() + r"|)\s*"
+    r"(?P<country>.*|).*"
+)
 
 
 @dataclass
@@ -49,15 +46,9 @@ class Typies:
 
 
 def get_cats(category_r):
-    # cate = re.sub(r"[−–\-](millennium|century)", r" \g<1>", category_r, flags=re.I)
-    cate = category_r
-    # ---
-    # cate = re.sub(r"[−–\-](millennium|century)", r" \g<1>", cate, flags=re.I)
-    cate = re.sub(r"[−–\-](millennium|century)", r"-\g<1>", cate, flags=re.I)
+    cate = re.sub(r"[−–\-](millennium|century)", r"-\g<1>", category_r, flags=re.I)
     # ---
     cate3 = re.sub(r"category:", "", cate.lower(), flags=re.IGNORECASE)
-    # ---
-    # if not cate.lower().startswith("category:"): cate = f"Category:{cate}"
     # ---
     return cate, cate3
 
@@ -66,11 +57,7 @@ def get_reg_result(category_r: str) -> Typies:
     # ---
     cate, cate3 = get_cats(category_r)
     # ---
-    if category_start:
-        if not cate.lower().startswith("category:"):
-            cate = f"Category:{cate}"
-    else:
-        cate = re.sub(r"category:", "", cate, flags=re.IGNORECASE)
+    cate = re.sub(r"category:", "", cate, flags=re.IGNORECASE)
     # ---
     cate_gory = cate.lower()
     # ---
@@ -78,19 +65,22 @@ def get_reg_result(category_r: str) -> Typies:
     # ---
     match_it = re.search(reg_line_1_match, cate_gory, flags=re.I)
     # ---
-    year_at_first = f"{match_it.group('month')}{match_it.group('year')}" if match_it else ""
+    year_at_first = ""
+    typeo = ""
+    country = ""
+    In = ""
     # ---
-    typeo = match_it.group("typeo") if match_it else ""
+    if match_it:
+        year_at_first = match_it.group('monthyear')
+        typeo = match_it.group("typeo")
+        country = match_it.group("country")
+        In = match_it.group("in")
     # ---
-    if year_at_first and cate_gory.startswith(category_start + year_at_first):
+    if year_at_first and cate_gory.startswith(year_at_first):
         cat_test = cat_test.replace(year_at_first.lower(), "")
-    # ---
-    In = match_it.group("in") if match_it else ""
     # ---
     if In == cate_gory or In == cate3:
         In = ""
-    # ---
-    country = match_it.group("country") if match_it else ""
     # ---
     if In.strip() == "by":
         country = f"by {country}"

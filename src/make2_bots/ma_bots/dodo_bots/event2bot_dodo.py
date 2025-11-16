@@ -38,8 +38,6 @@ def make_lab_dodo(
     # ---
     cate, cate3 = get_cats(category_r)
     # ---
-    cat_test = cate3
-    # ---
     result = get_reg_result(category_r)
     # ---
     year_at_first = result.year_at_first
