@@ -3,57 +3,44 @@ import re
 from dataclasses import dataclass
 from ...format_bots import Tit_ose_Nmaes
 from ....ma_lists.type_tables import basedtypeTable
-from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
-from ....new.time_to_arabic import match_time_en_first  # , convert_time_to_arabic, match_time_ar
+
+
+def load_keys_to_pattern(data_List):
+    data_List_sorted = sorted(data_List, key=lambda x: -x.count(" "))
+    # ---
+    data_pattern = '|'.join(map(re.escape, [n.lower() for n in data_List_sorted]))
+    # ---
+    return data_pattern
+
+
+yy = (
+    r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?"
+    r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?"
+    r"|\d+[−–\-]\d+"
+    r"|\d+s\s*(?:BCE*)?"
+    r"|\d+\s*(?:BCE*)?"
+).lower()
+
+MONTHSTR2 = "(?:january|february|march|april|may|june|july|august|september|october|november|december) *"
 
 safo = "|".join(list(basedtypeTable))
-
 titttto = " |".join(x.strip() for x in Tit_ose_Nmaes.keys())
-# for titf in Tit_ose_Nmaes.keys(): titttto += f"{titf.strip()} |"
 
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-tita_other = r"\s*(" + safo + r"|)\s*(" + titttto + r"|)\s*(.*|).*"
+category_start = r"Category\:"
+category_start = ""
 
-reg_line_1 = tita.lower() + tita_other.lower()
+tita_other_match = r"\s*(?P<typeo>" + safo.lower() + r"|)\s*(?P<in>" + titttto.lower() + r"|)\s*(?P<country>.*|).*"
+
+reg_line_1_match = rf"{category_start}(?P<month>" + MONTHSTR2 + "|)(?P<year>" + yy + "|)" + tita_other_match
 
 
 @dataclass
 class Typies:
-    year: str
+    year_at_first: str
     typeo: str
     In: str
     country: str
     cat_test: str
-
-
-def match_year(category):
-    # ---
-    Tita_year = tita_year
-    # ---
-    test_month = re.sub(ddd, "", category, flags=re.I)
-    if test_month.lower() == category.lower():
-        Tita_year = tita_year_no_month
-    # ---
-    year = re.sub(Tita_year, r"\g<1>\g<2>", category, flags=re.I)
-    # ---
-    if year.lower() == category.lower():
-        year = ""
-    # ---
-    return year
-
-
-def match_typeo(cate_gory, year):
-    # ---
-    typeo = re.sub(reg_line_1, r"\g<3>", cate_gory, flags=re.I)
-    # ---
-    if year and cate_gory.startswith("category:" + year):
-        tita_n = "category:" + year + tita_other
-        typeo = re.sub(tita_n, r"\g<1>", cate_gory, flags=re.I)
-    # ---
-    if typeo.lower() == cate_gory.lower():
-        typeo = ""
-    # ---
-    return typeo
 
 
 def get_cats(category_r):
@@ -74,36 +61,46 @@ def get_reg_result(category_r: str) -> Typies:
     # ---
     cate, cate3 = get_cats(category_r)
     # ---
-    if not cate.lower().startswith("category:"):
-        cate = f"Category:{cate}"
+    if category_start:
+        if not cate.lower().startswith("category:"):
+            cate = f"Category:{cate}"
+    else:
+        cate = re.sub(r"category:", "", cate, flags=re.IGNORECASE)
     # ---
     cate_gory = cate.lower()
     # ---
     cat_test = cate3
     # ---
-    year = match_year(cate_gory)
-    # year = match_time_en_first(cate)
+    match_it = re.search(reg_line_1_match, cate_gory, flags=re.I)
     # ---
-    typeo = match_typeo(cate_gory, year)
+    year_at_first = f"{match_it.group('month')}{match_it.group('year')}" if match_it else ""
     # ---
-    if year and cate_gory.startswith("category:" + year):
-        cat_test = cat_test.replace(year.lower(), "")
+    typeo = match_it.group("typeo") if match_it else ""
     # ---
-    In = re.sub(reg_line_1, r"\g<4>", cate_gory, flags=re.I)
+    if year_at_first and cate_gory.startswith(category_start + year_at_first):
+        cat_test = cat_test.replace(year_at_first.lower(), "")
+    # ---
+    In = match_it.group("in") if match_it else ""
     # ---
     if In == cate_gory or In == cate3:
         In = ""
     # ---
-    country = re.sub(reg_line_1, r"\g<5>", cate_gory, flags=re.I)
-    # ---
-    if country == cate_gory or country == cate3:
-        country = ""
+    country = match_it.group("country") if match_it else ""
     # ---
     if In.strip() == "by":
         country = f"by {country}"
     # ---
+    if not year_at_first and not typeo:
+        country = ""
+    # ---
+    # if country.lower() == cate_gory.lower().replace("category:", ""): country = ""
+    # ---
+    # Category:january 2025 disasters during Covid-19
+    # year_at_first='january 2025 ', typeo='disasters', In='during ', country='covid-19', cat_test='january 2025 disasters during covid-19'
+    print(f"{year_at_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
+    # ---
     return Typies(
-        year=year,
+        year_at_first=year_at_first,
         typeo=typeo,
         In=In,
         country=country,
