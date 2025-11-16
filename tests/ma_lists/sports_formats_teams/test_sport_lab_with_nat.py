@@ -5,7 +5,7 @@
 """
 import pytest
 
-from src.ma_lists.sports_formats_nats.sport_lab_with_nat import (
+from src.translations.sports_formats_nats.sport_lab_with_nat import (
     get_template_label,
     match_sports_labels_with_nat,
     match_sports_labels_with_nat_new,

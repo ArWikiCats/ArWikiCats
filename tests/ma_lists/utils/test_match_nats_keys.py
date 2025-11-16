@@ -1,6 +1,6 @@
 
 import pytest
-from src.ma_lists.utils.match_nats_keys import match_nat_key
+from src.translations.utils.match_nats_keys import match_nat_key
 
 
 @pytest.mark.fast

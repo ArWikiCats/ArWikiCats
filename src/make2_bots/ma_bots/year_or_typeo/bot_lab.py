@@ -8,7 +8,7 @@ from .bot_lab import label_for_startwith_year_or_typeo
 import re
 from ....fix import fixtitle
 from ....helps.log import logger
-from ....ma_lists import Nat_mens, typeTable
+from ....translations import Nat_mens, typeTable
 from ....utils import check_key_in_tables
 from ...date_bots import year_lab
 from ...format_bots import category_relation_mapping

@@ -4,7 +4,7 @@
 
 """
 import pytest
-from src.ma_lists.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
+from src.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {

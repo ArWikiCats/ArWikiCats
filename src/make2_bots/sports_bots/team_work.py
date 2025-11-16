@@ -11,13 +11,13 @@ import functools
 from ...helps.log import logger
 
 # ---
-from ...ma_lists import Clubs_key_2
-from ...ma_lists import INTER_FEDS_LOWER
-from ...ma_lists import pop_of_football_lower
+from ...translations import Clubs_key_2
+from ...translations import INTER_FEDS_LOWER
+from ...translations import pop_of_football_lower
 from ..jobs_bots import bot_te_4
 from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
 
-# from ...ma_lists import pop_of_football_lower
+# from ...translations import pop_of_football_lower
 # ---
 from ..fromnet import kooora
 

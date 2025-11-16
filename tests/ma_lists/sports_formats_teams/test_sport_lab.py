@@ -4,7 +4,7 @@
 
 """
 import pytest
-from src.ma_lists.sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
+from src.translations.sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
 
 
 @pytest.mark.fast

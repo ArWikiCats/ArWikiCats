@@ -1,7 +1,7 @@
 
 ## [#65](https://github.com/MrIbrahem/make2_new/pull/65) - 2025-11-16
 
-* **Refactor [Nationality.py](src/ma_lists/nats/Nationality.py)**
+* **Refactor [Nationality.py](src/translations/nats/Nationality.py)**
   * Reorganized labeling engine and moved label construction into a focused start-with-year/type workflow; simplified mapping usage and renamed a public category mapping for clarity.
   * Overhauled nationality data and normalization to improve country/name lookups and translations.
 
@@ -41,7 +41,7 @@
   * Added skeleton test files across multiple modules to establish testing infrastructure and improve code coverage foundation.
 
 ## [#59](https://github.com/MrIbrahem/make2_new/pull/59) - 2025-11-14
-* **Refactor [Sport_key.py](src/ma_lists/sports/Sport_key.py)**
+* **Refactor [Sport_key.py](src/translations/sports/Sport_key.py)**
   * Restructured sport key data handling into a modular pipeline with validation and alias expansion for improved maintainability.
   * Standardized constant naming conventions across the codebase for consistency.
 
@@ -68,7 +68,7 @@
   * Standardized naming convention for exported constants to uppercase format for consistency.
 
 ## [#54](https://github.com/MrIbrahem/make2_new/pull/54) - 2025-11-13
-* **Refactor [all_keys2.py](src/ma_lists/mixed/all_keys2.py)**
+* **Refactor [all_keys2.py](src/translations/mixed/all_keys2.py)**
   * Restructured internal data mapping generation for improved maintainability and scalability of data definitions.
 
 * **New Features**
@@ -94,7 +94,7 @@
 
 ## [#50](https://github.com/MrIbrahem/make2_new/pull/50) - 2025-11-12
 
-* **Refactor [Jobs.py](src/ma_lists/jobs/Jobs.py)**
+* **Refactor [Jobs.py](src/translations/jobs/Jobs.py)**
   * Updated job data API naming conventions and restructured internal data assembly pipeline for improved maintainability and consistency.
   * Enhanced data normalization for automatic sorting and deduplication of lists and dictionaries.
 
@@ -130,7 +130,7 @@
   * Updated code formatting and test annotations
 
 ## [#44](https://github.com/MrIbrahem/make2_new/pull/44) - 2025-11-10
-* **Refactor [jobs_players_list.py](src/ma_lists/jobs/jobs_players_list.py)**
+* **Refactor [jobs_players_list.py](src/translations/jobs/jobs_players_list.py)**
 
 ## [#42](https://github.com/MrIbrahem/make2_new/pull/42) - 2025-11-10
 
@@ -147,7 +147,7 @@
 
 ## [#41](https://github.com/MrIbrahem/make2_new/pull/41) - 2025-11-09
 
-* **Refactor [pop_All_2018_bot.py](src/ma_lists/mix_data/pop_All_2018_bot.py)**
+* **Refactor [pop_All_2018_bot.py](src/translations/mix_data/pop_All_2018_bot.py)**
   - Reorganized internal data-loading and resolution flows for consistency.
   - Removed deprecated backward-compatibility aliases and an obsolete resolver.
   - Consolidated imports and simplified name-resolution logic to improve maintainability.
@@ -167,7 +167,7 @@
 
 ## [#36](https://github.com/MrIbrahem/make2_new/pull/36) - 2025-11-09
 
-* **Refactor [jobs_singers.py](src/ma_lists/jobs/jobs_singers.py)**
+* **Refactor [jobs_singers.py](src/translations/jobs/jobs_singers.py)**
   * Updated public constant names to follow Python naming conventions (MEN_WOMENS_SINGERS, FILMS_TYPE, SINGERS_TAB)
   * Reorganized data generation with modular helper functions
   * Consolidated internal data mappings and improved code organization
@@ -180,7 +180,7 @@
 * **New Features**
   * Expanded job and place name datasets with additional job categories and extensive place-name translations for improved Arabic localization.
 
-* **Refactor  [Cities.py](src/ma_lists/geo/Cities.py), [jobs_defs.py](src/ma_lists/jobs/jobs_defs.py)**
+* **Refactor  [Cities.py](src/translations/geo/Cities.py), [jobs_defs.py](src/translations/jobs/jobs_defs.py)**
   * Switched to centralized data-driven loading for geographic names and job labels to simplify updates and reduce hardcoded entries.
 
 * **Chores**
@@ -290,7 +290,7 @@ This update improves label processing accuracy and restructures the test archite
 
 ## Pull Request 2
 
-* Removed the old `ma_lists_bots` module and updated various modules to use the new submodules under `ma_lists`.
+* Removed the old `ma_lists_bots` module and updated various modules to use the new submodules under `translations`.
 * Unified JSON file loading via the `open_json_file` function, reorganized public exports, and adjusted relative imports.
 * Added a new logger and HTTP helper utilities, updating dependent modules accordingly.
 * Removed old scripts and tools from the `others` directory and reorganized import tests.

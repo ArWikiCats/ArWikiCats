@@ -1,5 +1,5 @@
 import pytest
-from src.ma_lists.utils.match_sport_keys import match_sport_key, SPORTS_KEYS_FOR_JOBS
+from src.translations.utils.match_sport_keys import match_sport_key, SPORTS_KEYS_FOR_JOBS
 
 # ---------------------------------------------------------------------
 # 1. Realistic category samples per sport key

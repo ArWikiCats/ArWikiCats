@@ -14,9 +14,9 @@ from ...jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ...media_bots.films_bot import te_films
 from .. import event2bot
 
-from ....ma_lists import New_P17_Finall
-from ....ma_lists import RELIGIOUS_KEYS_PP
-from ....ma_lists import New_female_keys
+from ....translations import New_P17_Finall
+from ....translations import RELIGIOUS_KEYS_PP
+from ....translations import New_female_keys
 
 from ...format_bots import Tabl_with_in
 

@@ -2,7 +2,7 @@
 
 This package aggregates the typed datasets exposed across the refactored job
 modules and publishes a stable import surface for downstream callers.  Importers
-can rely on :mod:`ma_lists.jobs` to retrieve commonly used mappings without
+can rely on :mod:`translations.jobs` to retrieve commonly used mappings without
 pulling in individual module internals.
 """
 

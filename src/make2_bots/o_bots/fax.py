@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 from typing import Dict
 from ...helps.print_bot import print_put
-from ...ma_lists import lang_ttty, languages_pop
+from ...translations import lang_ttty, languages_pop
 
 
 @functools.lru_cache(maxsize=None)

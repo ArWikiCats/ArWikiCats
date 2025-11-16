@@ -6,7 +6,7 @@ import functools
 from typing import Dict
 
 from ...helps.print_bot import print_put
-from ...ma_lists import CITY_TRANSLATIONS_LOWER
+from ...translations import CITY_TRANSLATIONS_LOWER
 
 MAJORS: Dict[str, str] = {
     "medical sciences": "للعلوم الطبية",

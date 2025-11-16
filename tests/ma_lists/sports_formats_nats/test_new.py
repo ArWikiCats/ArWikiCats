@@ -1,7 +1,7 @@
 
 import pytest
 # from src.ma_lists.sports_formats_nats.new import create_label
-from src.ma_lists.sports_formats_nats.new import (
+from src.translations.sports_formats_nats.new import (
     normalize_nat_label,
     get_template_label_new,
     create_nat_label,

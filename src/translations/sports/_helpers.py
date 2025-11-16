@@ -1,4 +1,4 @@
-"""Utility helpers shared across the :mod:`ma_lists.sports` package.
+"""Utility helpers shared across the :mod:`translations.sports` package.
 
 The original sports modules relied on ad-hoc loops to generate large
 collections of translated sports labels.  The helpers in this module

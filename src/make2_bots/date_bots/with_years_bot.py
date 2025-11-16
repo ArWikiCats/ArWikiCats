@@ -7,8 +7,8 @@ import re
 from typing import Pattern
 
 # ---
-from ...ma_lists import change_numb_to_word
-from ...ma_lists import WORD_AFTER_YEARS
+from ...translations import change_numb_to_word
+from ...translations import WORD_AFTER_YEARS
 from ..format_bots import ar_lab_before_year_to_add_in
 from ..matables_bots.bot import Add_in_table
 from ..matables_bots.table1_bot import get_KAKO

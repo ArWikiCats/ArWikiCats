@@ -4,10 +4,10 @@ from ..p17_bots import nats
 
 import re
 import functools
-from ...ma_lists import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key, Get_sport_formts_female_nat
-from ...ma_lists import SPORTS_KEYS_FOR_TEAM
+from ...translations import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key, Get_sport_formts_female_nat
+from ...translations import SPORTS_KEYS_FOR_TEAM
 from ..matables_bots.bot import add_to_new_players
-from ...ma_lists import All_Nat, Nat_women
+from ...translations import All_Nat, Nat_women
 from ..jobs_bots.get_helps import get_con_3
 
 from ...helps.log import logger

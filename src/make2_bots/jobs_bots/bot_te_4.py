@@ -23,7 +23,7 @@ import re
 import functools
 
 # ---
-from ...ma_lists import (
+from ...translations import (
     Multi_sport_for_Jobs,
     All_Nat,
     Nat_mens,

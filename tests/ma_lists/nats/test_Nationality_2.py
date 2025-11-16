@@ -2,7 +2,7 @@
 import pytest
 
 from typing import Dict
-from src.ma_lists.nats.Nationality import (
+from src.translations.nats.Nationality import (
     load_sources,
     normalize_aliases,
     build_american_forms,

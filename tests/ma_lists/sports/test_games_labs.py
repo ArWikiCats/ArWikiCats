@@ -3,7 +3,7 @@
 
 """
 import pytest
-from src.ma_lists.sports import games_labs
+from src.translations.sports import games_labs
 
 
 @pytest.mark.unit

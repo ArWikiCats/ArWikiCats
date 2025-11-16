@@ -456,7 +456,7 @@ def _build_cinema_entries(data) -> None:
 
 
 def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[str, str]:
-    """Build the master mapping used across the ``ma_lists`` package."""
+    """Build the master mapping used across the ``translations`` package."""
 
     data = {}
 

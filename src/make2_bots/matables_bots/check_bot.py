@@ -6,7 +6,7 @@ check_key_new_players(key)
 """
 from ...utils import check_key_in_tables
 from .bot import players_new_keys
-from ...ma_lists import Jobs_new, jobs_mens_data
+from ...translations import Jobs_new, jobs_mens_data
 
 set_tables = [players_new_keys, Jobs_new, jobs_mens_data]
 

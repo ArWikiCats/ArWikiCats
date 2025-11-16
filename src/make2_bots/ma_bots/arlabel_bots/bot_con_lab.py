@@ -5,7 +5,7 @@ from .arlabel_bots.bot_con_lab import get_con_lab
 """
 
 from ....helps.print_bot import print_put
-from ....ma_lists import New_female_keys, New_P17_Finall, pf_keys2
+from ....translations import New_female_keys, New_P17_Finall, pf_keys2
 from ...bots import tmp_bot
 from ...date_bots import year_lab
 from ...format_bots import for_table

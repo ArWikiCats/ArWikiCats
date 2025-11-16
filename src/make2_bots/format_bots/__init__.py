@@ -5,8 +5,8 @@
 
 import re
 from ...helps import len_print
-from ...ma_lists import ministrs_tab_for_pop_format
-from ...ma_lists import New_Company
+from ...translations import ministrs_tab_for_pop_format
+from ...translations import New_Company
 from ...helps.print_bot import output_main
 from .pf_keys import Change_key, Change_key2
 

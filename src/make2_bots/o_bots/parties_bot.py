@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from ...helps.log import logger
-from ...ma_lists import PARTIES, party_end_keys
+from ...translations import PARTIES, party_end_keys
 from .utils import resolve_suffix_template
 
 

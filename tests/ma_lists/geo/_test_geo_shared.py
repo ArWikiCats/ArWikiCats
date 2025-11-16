@@ -2,7 +2,7 @@ import logging
 
 import pytest
 
-from src.ma_lists.geo import _shared
+from src.translations.geo import _shared
 
 
 def test_load_json_mapping_filters_and_normalizes(monkeypatch):

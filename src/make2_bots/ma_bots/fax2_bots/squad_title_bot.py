@@ -6,8 +6,8 @@ from ..ma_bots.squad_title_bot import get_squad_title
 """
 
 from ...date_bots import with_years_bot
-from ....ma_lists import pop_of_football_lower, Get_New_team_xo
-from ....ma_lists import New_P17_Finall
+from ....translations import pop_of_football_lower, Get_New_team_xo
+from ....translations import New_P17_Finall
 from ...fromnet.wd_bot import find_wikidata
 
 from ...matables_bots.bot import All_P17

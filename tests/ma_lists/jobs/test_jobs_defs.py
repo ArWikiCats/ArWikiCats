@@ -6,7 +6,7 @@ from typing import Any, Mapping
 
 import pytest
 
-from src.ma_lists.jobs import jobs_defs
+from src.translations.jobs import jobs_defs
 
 
 def test_join_terms_trims_and_skips_empty_strings() -> None:

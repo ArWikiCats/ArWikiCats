@@ -9,7 +9,7 @@ import functools
 import re
 
 # ---
-from ....ma_lists import (
+from ....translations import (
     People_key,
     All_Nat,
     Nat_women,

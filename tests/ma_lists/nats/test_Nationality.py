@@ -1,6 +1,6 @@
 
 import pytest
-from src.ma_lists.nats.Nationality import load_sources, build_american_forms, normalize_aliases, build_lookup_tables
+from src.translations.nats.Nationality import load_sources, build_american_forms, normalize_aliases, build_lookup_tables
 
 
 def test_load_sources_return_type():

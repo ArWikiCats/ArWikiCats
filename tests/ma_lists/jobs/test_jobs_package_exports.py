@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from src.ma_lists.jobs import (
+from src.translations.jobs import (
     jobs_mens_data,
     Jobs_new,
     jobs_players_list,
     jobs_singers,
 )
-from src.ma_lists.jobs.Jobs import (
+from src.translations.jobs.Jobs import (
     jobs_mens_data as module_jobs_mens_data,
     Jobs_new as module_Jobs_new,
 )

@@ -5,9 +5,9 @@ import sys
 
 import pytest
 
-from src.ma_lists.sports import _helpers
-from src.ma_lists.sports import cycling
-from src.ma_lists.sports import sports_lists
+from src.translations.sports import _helpers
+from src.translations.sports import cycling
+from src.translations.sports import sports_lists
 
 
 def test_extend_with_templates_preserves_positional_placeholders() -> None:

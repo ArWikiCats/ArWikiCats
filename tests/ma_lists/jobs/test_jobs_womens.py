@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from src.ma_lists.jobs.jobs_womens import (
+from src.translations.jobs.jobs_womens import (
     short_womens_jobs,
     FEMALE_JOBS_TO,
     Female_Jobs,
