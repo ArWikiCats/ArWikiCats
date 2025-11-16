@@ -10,7 +10,9 @@ from ..ma_bots import event2bot
 import re
 import functools
 
-from ... import printe, app_settings
+from ...helps import printe
+
+from ... import app_settings
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ..bots import tmp_bot

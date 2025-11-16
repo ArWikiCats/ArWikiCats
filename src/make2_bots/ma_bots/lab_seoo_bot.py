@@ -7,7 +7,7 @@ import re
 
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
-from ...ma_lists import Ambassadors_tab, New_P17_Finall
+from ...translations import Ambassadors_tab, New_P17_Finall
 from ..fromnet.wd_bot import find_wikidata
 from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports

@@ -6,7 +6,7 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 import copy
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ...helps import len_print
-from ...ma_lists import (
+from ...translations import (
     typeTable,
     military_format_women,
     military_format_men,

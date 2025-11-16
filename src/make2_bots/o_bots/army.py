@@ -6,7 +6,7 @@ import functools
 import re
 from typing import Dict, Mapping, Tuple
 from ...helps.log import logger
-from ...ma_lists import all_country_with_nat, all_country_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, SPORT_FORMTS_EN_P17_AR_NAT
+from ...translations import all_country_with_nat, all_country_with_nat_keys_is_en, military_format_men, military_format_women, military_format_women_without_al, military_format_women_without_al_from_end, SPORT_FORMTS_EN_P17_AR_NAT
 from .utils import apply_arabic_article
 
 #: Mapping of suffixes that require adding a prefix around the formatted label.

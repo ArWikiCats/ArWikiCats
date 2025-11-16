@@ -1,4 +1,4 @@
-"""Tests for :mod:`src.ma_lists.mixed.key_registry`."""
+"""Tests for :mod:`src.translations.mixed.key_registry`."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from typing import Iterable
 
 import pytest
 
-from src.ma_lists.mixed.key_registry import KeyRegistry, load_json_mapping
+from src.translations.mixed.key_registry import KeyRegistry, load_json_mapping
 
 
 class DummyIterable(Iterable[tuple[str, str]]):
@@ -38,7 +38,7 @@ def test_load_json_mapping_filters_empty_entries(monkeypatch: pytest.MonkeyPatch
             "none": None,
         }
 
-    monkeypatch.setattr("src.ma_lists.mixed.key_registry.open_json_file", fake_open)
+    monkeypatch.setattr("src.translations.mixed.key_registry.open_json_file", fake_open)
 
     data = load_json_mapping("demo")
 

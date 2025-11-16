@@ -7,9 +7,11 @@ import functools
 import re
 from typing import Dict
 
+from ...helps import printe
+
 from .open_url import open_url_text
 from ...helps.log import logger
-from ... import app_settings, printe
+from ... import app_settings
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

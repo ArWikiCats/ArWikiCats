@@ -7,7 +7,7 @@ import re
 
 from ...helps.log import logger
 from ...helps.print_bot import print_put
-from ...ma_lists import People_key, film_key_women_2, nats_to_add
+from ...translations import People_key, film_key_women_2, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
 from .utils import resolve_suffix_template
 

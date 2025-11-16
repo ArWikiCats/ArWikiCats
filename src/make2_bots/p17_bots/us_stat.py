@@ -2,7 +2,7 @@
 """
 
 import functools
-from ...ma_lists import US_State_lower, kk_end_US_State
+from ...translations import US_State_lower, kk_end_US_State
 from ...helps.print_bot import print_put
 
 

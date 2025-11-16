@@ -1,5 +1,5 @@
 import re
-from ... import printe
+from ...helps import printe
 
 CATEGORY_BLACKLIST: list[str] = [
     "Disambiguation",

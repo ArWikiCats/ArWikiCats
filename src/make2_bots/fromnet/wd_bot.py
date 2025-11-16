@@ -8,8 +8,8 @@ from typing import Dict
 from .wd import find_name_from_wikidata
 from ... import app_settings
 from ...helps.print_bot import print_put
-from ...ma_lists import New_P17_Finall
-from ...ma_lists import Ambassadors_tab
+from ...translations import New_P17_Finall
+from ...translations import Ambassadors_tab
 from ..matables_bots.centries_bot import centries_years_dec
 from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18, get_pop_All_18
 

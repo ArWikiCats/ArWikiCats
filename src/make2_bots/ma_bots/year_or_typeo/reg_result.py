@@ -2,7 +2,7 @@
 import re
 from dataclasses import dataclass
 from ...format_bots import category_relation_mapping
-from ....ma_lists.type_tables import basedtypeTable
+from ....translations.type_tables import basedtypeTable
 
 
 def load_keys_to_pattern(data_List, by="|", sort_keys=True):

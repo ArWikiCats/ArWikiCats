@@ -11,7 +11,7 @@ from ...helps.print_bot import output_test
 from .bot import Films_O_TT, players_new_keys
 
 from .bot import All_P17
-from ...ma_lists import (
+from ...translations import (
     pf_keys2,
     Music_By_table,
     Films_key_man,

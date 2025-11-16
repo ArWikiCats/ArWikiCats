@@ -24,14 +24,14 @@ def test_add_definite_article():
 
 
 def test_get_p17_2():
-    # Test with a known category pattern (would require proper setup of ma_lists)
+    # Test with a known category pattern (would require proper setup of translations)
     # For now, test that it returns a string
     result = Get_P17_2("united states government officials")
     assert isinstance(result, str)
 
 
 def test_get_p17():
-    # Test with a known category pattern (would require proper setup of ma_lists)
+    # Test with a known category pattern (would require proper setup of translations)
     # For now, test that it returns a string
     result = Get_P17("American athletes")
     assert isinstance(result, str)

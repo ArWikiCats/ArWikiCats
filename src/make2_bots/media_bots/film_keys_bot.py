@@ -4,15 +4,15 @@
 import functools
 from typing import Dict
 
-from ...ma_lists import en_is_nat_ar_is_women
-from ...ma_lists import (
+from ...translations import en_is_nat_ar_is_women
+from ...translations import (
     Films_key_CAO,
     Films_key_For_nat,
     Films_key_CAO_new_format,
     television_keys_female,
     Films_key_333,
 )
-from ...ma_lists import (Nat_women, Nat_mens)
+from ...translations import (Nat_women, Nat_mens)
 from ...helps.print_bot import output_test4
 
 

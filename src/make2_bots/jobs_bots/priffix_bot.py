@@ -3,7 +3,7 @@
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 """
 import functools
-from ...ma_lists import (
+from ...translations import (
     Nat_mens,
     jobs_mens_data,
     short_womens_jobs,

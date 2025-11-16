@@ -6,7 +6,7 @@ from ..jobs_bots.jobs_mainbot import Jobs#, Jobs2
 """
 from typing import Dict, Optional
 
-from ...ma_lists import (
+from ...translations import (
     Nat_mens,
     Nat_Womens,
     jobs_mens_data,

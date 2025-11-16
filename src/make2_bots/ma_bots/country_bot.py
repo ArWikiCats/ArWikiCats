@@ -22,16 +22,16 @@ from ..media_bots.films_bot import te_films
 
 from . import country2_bot
 from . import country2_lab
-from ...ma_lists import SPORTS_KEYS_FOR_LABEL
-from ...ma_lists import Nat_mens
-from ...ma_lists import New_female_keys
+from ...translations import SPORTS_KEYS_FOR_LABEL
+from ...translations import Nat_mens
+from ...translations import New_female_keys
 
 from ...helps.print_bot import print_put, output_test
 
 from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.centries_bot import centries_years_dec
-from ...ma_lists import pop_of_without_in
-from ...ma_lists import jobs_mens_data
+from ...translations import pop_of_without_in
+from ...translations import jobs_mens_data
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ... import app_settings

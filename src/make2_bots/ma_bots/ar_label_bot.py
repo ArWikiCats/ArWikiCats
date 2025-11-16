@@ -6,7 +6,7 @@ from ..ma_bots.ar_label_bot import find_ar_label
 
 import re
 from ...fix import fixtitle
-from ...ma_lists import pop_of_without_in
+from ...translations import pop_of_without_in
 
 from ..format_bots import category_relation_mapping, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 

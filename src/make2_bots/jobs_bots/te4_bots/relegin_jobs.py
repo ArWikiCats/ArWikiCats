@@ -5,7 +5,7 @@ from .te4_bots.relegin_jobs import try_relegins_jobs
 """
 from typing import Dict
 from ..jobs_mainbot import Jobs
-from ....ma_lists import RELIGIOUS_KEYS_PP
+from ....translations import RELIGIOUS_KEYS_PP
 from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
 import functools
