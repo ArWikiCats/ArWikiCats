@@ -5,18 +5,18 @@ from typing import Sequence
 from _pytest.mark.structures import ParameterSet
 import pytest
 
-from src.make2_bots.ma_bots.dodo_bots.reg_result import get_reg_result
-from src.make2_bots.ma_bots.dodo_bots.reg_result import Tit_ose_Nmaes
+from src.make2_bots.ma_bots.year_or_typeo.reg_result import get_reg_result
+from src.make2_bots.ma_bots.year_or_typeo.reg_result import category_relation_mapping
 
 # -----------------------------------------------------------
-# 10) Stress-test with all Tit_ose_Nmaes keys
+# 10) Stress-test with all category_relation_mapping keys
 # -----------------------------------------------------------
 
-# new dict with only 20 items from Tit_ose_Nmaes
-Tit_ose_Nmaes_20 = {k: Tit_ose_Nmaes[k] for k in list(Tit_ose_Nmaes.keys())[:20]}
+# new dict with only 20 items from category_relation_mapping
+category_relation_mapping_20 = {k: category_relation_mapping[k] for k in list(category_relation_mapping.keys())[:20]}
 
 
-@pytest.mark.parametrize("eng", list(Tit_ose_Nmaes_20.keys()))
+@pytest.mark.parametrize("eng", list(category_relation_mapping_20.keys()))
 def test_in(eng: ParameterSet | Sequence[object] | object):
     # [Category:2025 in Canada]: Typies(year_at_first='2025 ', typeo='', In='in ', country='canada', cat_test='in canada')
     # [Category:2025 by Canada]: Typies(year_at_first='2025 ', typeo='', In='by ', country='by canada', cat_test='by canada'

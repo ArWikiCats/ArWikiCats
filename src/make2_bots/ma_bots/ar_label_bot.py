@@ -8,7 +8,7 @@ import re
 from ...fix import fixtitle
 from ...ma_lists import pop_of_without_in
 
-from ..format_bots import Tit_ose_Nmaes, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
+from ..format_bots import category_relation_mapping, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import (
@@ -175,9 +175,9 @@ def find_ar_label(
     # ---
     if Add_in_lab:
         print_put(f">>>>> > Add_in_lab ({tito2=})")
-        if tito2 in Tit_ose_Nmaes and tito2 not in tito_list_s:
-            tatl = Tit_ose_Nmaes[tito2]
-            print_put(f">>>>> > ({tito2=}): tito2 in Tit_ose_Nmaes and tito2 not in tito_list_s, {tatl=}")
+        if tito2 in category_relation_mapping and tito2 not in tito_list_s:
+            tatl = category_relation_mapping[tito2]
+            print_put(f">>>>> > ({tito2=}): tito2 in category_relation_mapping and tito2 not in tito_list_s, {tatl=}")
 
             if tito2 == "for" and country_lower.startswith("for "):
                 if Type_lower.strip().endswith("competitors") and "competitors for" in category:
@@ -212,7 +212,7 @@ def find_ar_label(
         print_put(">>>>> > X:<<lightred>> Type_lower and country_lower in players_new_keys.")
         print_put(">>>> ================ ")
 
-    faa = Tit_ose_Nmaes.get(tito2.strip()) or Tit_ose_Nmaes.get(tito2.replace("-", " ").strip())
+    faa = category_relation_mapping.get(tito2.strip()) or category_relation_mapping.get(tito2.replace("-", " ").strip())
     # print(f"{tito2=}, {faa=}, {sps=}")
 
     if not sps.strip() and faa:

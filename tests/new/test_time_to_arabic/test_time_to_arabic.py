@@ -161,6 +161,10 @@ def test_ranges_all_dash_forms(en_text):
     ("Category:1st millennium BC", ["1st millennium BC"]),
     ("Category:5th century BCE", ["5th century BCE"]),
     ("10th century bc", ["10th century bc"]),
+
+    # Four-digit year inside parentheses
+    ("Category:American Soccer League (1933)", ["1933"]),
+    ("Category:American Soccer League (1933–83)", ["1933–83"]),
 ])
 def test_match_time_en(text, expected):
     assert match_time_en(text) == expected

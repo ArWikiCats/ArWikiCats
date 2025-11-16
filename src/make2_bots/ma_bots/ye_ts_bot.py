@@ -15,7 +15,7 @@ import re
 from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put
-from ..format_bots import Tit_ose_Nmaes
+from ..format_bots import category_relation_mapping
 from ..date_bots import year_lab
 from ..matables_bots.bot import Films_O_TT, players_new_keys
 from ..ma_bots.ar_label_bot import find_ar_label
@@ -76,7 +76,7 @@ def work_titose_nmaes(
 
     arlabel = ""
 
-    for tito, tito_name in Tit_ose_Nmaes.items():
+    for tito, tito_name in category_relation_mapping.items():
         tito = f" {tito} "
         # if Keep_Work and tito in category:
         if tito not in category:

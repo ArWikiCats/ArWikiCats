@@ -11,7 +11,7 @@ from ...helps.print_bot import output_main
 from .pf_keys import Change_key, Change_key2
 
 # ---
-Tit_ose_Nmaes = {
+category_relation_mapping = {
     "for-the-deaf": "للصم",
     "for-the-deafblind": "للصم وللمكفوفون",
     "for-the-blind": "للمكفوفون",
@@ -549,7 +549,7 @@ len_print.data_len("pop_format.py", {"Change_key": Change_key, "Change_key2": Ch
 __all__ = [
     "Dont_Add_min",
     "Tabl_with_in",
-    "Tit_ose_Nmaes",
+    "category_relation_mapping",
     "ar_lab_before_year_to_add_in",
     "change_cat",
     "country_before_year",

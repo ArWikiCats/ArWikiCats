@@ -7,7 +7,7 @@ import re
 from typing import Tuple
 
 from .... import printe
-from ...format_bots import Tit_ose_Nmaes
+from ...format_bots import category_relation_mapping
 from ....helps.print_bot import print_put, output_test
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 from .cn_lab import make_cnt_lab
@@ -67,9 +67,9 @@ def make_sps(tat_o: str, c_1_l: str, cona_1: str) -> str:
         sps = " على "
     elif tat_o.strip() == "about":
         sps = " عن "
-    elif tat_o.strip() in Tit_ose_Nmaes:
+    elif tat_o.strip() in category_relation_mapping:
         if tat_o.strip() != "by":
-            sps = f" {Tit_ose_Nmaes[tat_o.strip()]} "
+            sps = f" {category_relation_mapping[tat_o.strip()]} "
     elif tat_o.strip() == "based in":
         sps = " مقرها في "
 

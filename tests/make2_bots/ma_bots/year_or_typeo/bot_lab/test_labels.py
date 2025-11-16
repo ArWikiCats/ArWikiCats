@@ -1,6 +1,6 @@
 
 import pytest
-from src.make2_bots.ma_bots.dodo_bots.event2bot_dodo import make_lab_dodo
+from src.make2_bots.ma_bots.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from load_one_data import ye_test_one_dataset, dump_diff
 
 examples = {
@@ -28,10 +28,10 @@ examples = {
 }
 
 
-def test_make_lab_dodo():
-    expected, diff_result = ye_test_one_dataset(examples, make_lab_dodo)
+def test_label_for_startwith_year_or_typeo():
+    expected, diff_result = ye_test_one_dataset(examples, label_for_startwith_year_or_typeo)
 
-    dump_diff(diff_result, "test_make_lab_dodo")
+    dump_diff(diff_result, "test_label_for_startwith_year_or_typeo")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
@@ -57,8 +57,8 @@ examples_century = {
 }
 
 
-def test_make_lab_dodo_centuries():
-    expected, diff_result = ye_test_one_dataset(examples_century, make_lab_dodo)
+def test_label_for_startwith_year_or_typeo_centuries():
+    expected, diff_result = ye_test_one_dataset(examples_century, label_for_startwith_year_or_typeo)
 
-    dump_diff(diff_result, "test_make_lab_dodo_centuries")
+    dump_diff(diff_result, "test_label_for_startwith_year_or_typeo_centuries")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
