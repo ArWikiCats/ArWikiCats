@@ -5,10 +5,12 @@ from ...format_bots import Tit_ose_Nmaes
 from ....ma_lists.type_tables import basedtypeTable
 
 
-def load_keys_to_pattern(data_List):
-    data_List_sorted = sorted(data_List, key=lambda x: -x.count(" "))
+def load_keys_to_pattern(data_List, by="|"):
+    # return by.join(x.strip() for x in data_List)
     # ---
-    data_pattern = '|'.join(map(re.escape, [n.lower() for n in data_List_sorted]))
+    data_List_sorted = data_List  # sorted(data_List, key=lambda x: -x.count(" "))
+    # ---
+    data_pattern = by.join(map(re.escape, [n.lower() for n in data_List_sorted]))
     # ---
     return data_pattern
 
@@ -23,8 +25,11 @@ yy = (
 
 MONTHSTR2 = "(?:january|february|march|april|may|june|july|august|september|october|november|december) *"
 
-safo = "|".join(list(basedtypeTable))
-titttto = " |".join(x.strip() for x in Tit_ose_Nmaes.keys())
+# safo = "|".join(x.strip() for x in basedtypeTable.keys())
+# titttto = " |".join(x.strip() for x in Tit_ose_Nmaes.keys())
+
+safo = load_keys_to_pattern(list(basedtypeTable))
+titttto = load_keys_to_pattern(Tit_ose_Nmaes.keys(), by=" |")
 
 category_start = r"Category\:"
 category_start = ""
