@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-
-from .json_dir import open_json_file# open_json_file(file="")
-
+!
 """
 
 from pathlib import Path

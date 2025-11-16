@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+!
 """
 import functools
 from ...translations import (

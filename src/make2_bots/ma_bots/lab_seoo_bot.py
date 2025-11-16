@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-from  make.make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
-
+!
 """
 import re
 

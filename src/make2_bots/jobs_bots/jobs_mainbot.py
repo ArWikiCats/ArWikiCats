@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-
-from ..jobs_bots.jobs_mainbot import Jobs#, Jobs2
-
+!
 """
 from typing import Dict, Optional
 

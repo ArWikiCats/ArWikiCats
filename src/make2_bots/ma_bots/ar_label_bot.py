@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-from ..ma_bots.ar_label_bot import find_ar_label
-
+!
 """
 
 import re

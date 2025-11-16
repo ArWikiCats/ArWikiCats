@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-from .te4_bots.relegin_jobs import try_relegins_jobs
-
+!
 """
 from typing import Dict
 from ..jobs_mainbot import Jobs

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-from .arlabel_bots.bot_type_country import get_type_country
-
+!
 """
 
 

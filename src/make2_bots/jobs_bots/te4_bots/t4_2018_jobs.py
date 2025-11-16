@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-
-from .make2_bots.jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
-
+!
 """
 
 import functools
