@@ -24,7 +24,7 @@ class BlockedWordsRule(Rule):
             An empty string if a blocked word is found, otherwise None.
         """
         category_lower = category.lower()
-        if any(f" {word} " in category_lower for word in self.BLOCKED_WORDS):
+        if any(f" {word} " in category_lower.split(" ") for word in self.BLOCKED_WORDS):
             return ""
         return None
 

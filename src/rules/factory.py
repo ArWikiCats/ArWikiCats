@@ -5,6 +5,8 @@ from .university_rules import UniversityRule
 from .general_rules import BlockedWordsRule, StubsRule
 from .country_rules import CountryRule
 from .year_rules import YearsRule, StartWithYearOrTypoRule
+from .sports_rules import YearSportsEventsRule, MultiSportEventsRule
+from .empire_rules import CenturyDutchEmpireRule
 
 
 def create_event2_rule_engine() -> RuleEngine:
@@ -16,5 +18,8 @@ def create_event2_rule_engine() -> RuleEngine:
         YearsRule(),
         StartWithYearOrTypoRule(),
         StubsRule(),
+        YearSportsEventsRule(),
+        MultiSportEventsRule(),
+        CenturyDutchEmpireRule(),
     ]
     return RuleEngine(rules)
