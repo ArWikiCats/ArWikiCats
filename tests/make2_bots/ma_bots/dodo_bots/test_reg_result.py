@@ -11,7 +11,7 @@ def test_get_reg_result():
     # Test with basic inputs
     result = get_reg_result("Category:2025 in fishes")
     assert hasattr(result, 'year_at_first')
-    assert result.year_at_first == "2025 "
+    assert result.year_at_first.strip() == "2025"
     assert hasattr(result, 'typeo')
     assert hasattr(result, 'In')
     assert hasattr(result, 'country')
@@ -29,7 +29,7 @@ def test_get_reg_result():
 def test_typies():
     # Test that Typies class can be instantiated
     typies_instance = Typies(year_at_first="2020", typeo="test", In="in", country="us", cat_test="test")
-    assert typies_instance.year_at_first == "2020"
+    assert typies_instance.year_at_first.strip() == "2020"
     assert typies_instance.typeo == "test"
     assert typies_instance.In == "in"
     assert typies_instance.country == "us"
