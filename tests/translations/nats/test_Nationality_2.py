@@ -57,7 +57,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch):
         return {}
 
     # Patch open_json_file used inside load_sources
-    monkeypatch.setattr("src.ma_lists.nats.Nationality.open_json_file", fake_open_json_file)
+    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", fake_open_json_file)
 
     data = load_sources()
 
@@ -87,7 +87,7 @@ def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch):
             return {}
         return {}
 
-    monkeypatch.setattr("src.ma_lists.nats.Nationality.open_json_file", fake_open_json_file)
+    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", fake_open_json_file)
 
     data = load_sources()
     assert "hindustan" in data
@@ -107,7 +107,7 @@ def test_load_sources_merge_all_sources(monkeypatch):
             return {"c": {"en": "C", "ar": "ج"}}
         return {}
 
-    monkeypatch.setattr("src.ma_lists.nats.Nationality.open_json_file", fake_open_json_file)
+    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", fake_open_json_file)
 
     data = load_sources()
     assert set(data.keys()) == {"a", "b", "c"}

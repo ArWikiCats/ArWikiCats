@@ -12,13 +12,13 @@ def test_load_sources_return_type():
 
 
 def test_sources_are_merged(monkeypatch):
-    monkeypatch.setattr("src.ma_lists.nats.Nationality.open_json_file", lambda name: {"x": {"en": "test", "ar": "اختبار"}})
+    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"x": {"en": "test", "ar": "اختبار"}})
     data = load_sources()
     assert "x" in data
 
 
 def test_hindustani_normalized(monkeypatch):
-    monkeypatch.setattr("src.ma_lists.nats.Nationality.open_json_file", lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name=="uu_nats" else {})
+    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name=="uu_nats" else {})
     data = load_sources()
     assert "hindustan" in data
 

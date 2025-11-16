@@ -1,4 +1,4 @@
-"""Unit tests for :mod:`src.ma_lists.jobs.jobs_defs`."""
+"""Unit tests for :mod:`src.translations.jobs.jobs_defs`."""
 
 from __future__ import annotations
 
