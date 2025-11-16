@@ -28,6 +28,24 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 type_after_country = ["non-combat"]
 
 
+def do_ar(typeo, country_label, typeo_lab, category_r):
+    # ---
+    in_tables_lowers = check_key_new_players(typeo.lower())
+    in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
+    # ---
+    if typeo in type_after_country:
+        ar = f"{country_label} {typeo_lab}"
+    elif in_tables or in_tables_lowers:
+        ar = f"{typeo_lab} {country_label}"
+    else:
+        ar = f"{country_label} {typeo_lab}"
+    # ---
+    New_Lan[category_r.lower()] = ar
+    # ---
+    print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
+    print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
+
+
 def make_lab_dodo(
     category_r: str,
 ) -> str:
@@ -47,7 +65,7 @@ def make_lab_dodo(
     cat_test = result.cat_test
     # ---
     # Paralympic competitors for Cape Verde (no year_at_first)
-    if not year_at_first and not typeo:# and not country:
+    if not year_at_first and not typeo:  # and not country:
         return ""
     # ---
     country_not_lower = country
@@ -159,27 +177,14 @@ def make_lab_dodo(
 
     if NoLab and cat_test == "":
         if country_label and typeo_lab and year_at_first == "" and In == "":
-            # ---
-            in_tables_lowers = check_key_new_players(typeo.lower())
-            in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
-            # ---
-            if typeo in type_after_country:
-                ar = f"{country_label} {typeo_lab}"
-            elif in_tables or in_tables_lowers:
-                ar = f"{typeo_lab} {country_label}"
-            else:
-                ar = f"{country_label} {typeo_lab}"
-            # ---
-            New_Lan[category_r.lower()] = ar
-            print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
-            print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
+            do_ar(typeo, country_label, typeo_lab, category_r)
 
     category2 = cate[len("category:") :] if cate.lower().startswith("category:") else cate
     category2 = category2.lower()
 
     if cat_test != cat_test3:
         output_test('<<lightgreen>>>>>> cat_test : "%s" ' % cat_test)
-        output_test("<<lightgreen>>>>>> arlabel " + arlabel)
+
     if not cat_test.strip():
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
     elif cat_test == country_lower or (cat_test == "in " + country_lower):
@@ -189,10 +194,12 @@ def make_lab_dodo(
     elif cat_test.lower() == category2.lower():
         output_test("<<lightblue>>>>>> cat_test = category2 ")
     else:
-        output_test("<<lightgreen>>>> >> cat_test False.. ")
+        output_test("<<lightgreen>>>> >> cat_test False result.. ")
         output_test(' cat_test : "%s" ' % cat_test)
         output_test("<<lightgreen>>>>>> arlabel " + arlabel)
         NoLab = True
+
+    output_test("<<lightgreen>>>>>> arlabel " + arlabel)
 
     cat4_lab = work_2019(cate3, year_at_first, year_labe) if year_at_first and year_labe else ""
 
