@@ -1,4 +1,16 @@
 
+## [#65](https://github.com/MrIbrahem/make2_new/pull/65) - 2025-11-16
+
+* **Refactor [Nationality.py](src/ma_lists/nats/Nationality.py)**
+  * Reorganized labeling engine and moved label construction into a focused start-with-year/type workflow; simplified mapping usage and renamed a public category mapping for clarity.
+  * Overhauled nationality data and normalization to improve country/name lookups and translations.
+
+* **Bug Fixes**
+  * Fixed month+year/BC regex in time-to-Arabic conversion.
+
+* **Tests**
+  * Updated, added, and relocated tests to cover the new labeling flow and time parsing; removed obsolete test harnesses.
+
 ## [#64](https://github.com/MrIbrahem/make2_new/pull/64) - 2025-11-16
 
 * **New Features**

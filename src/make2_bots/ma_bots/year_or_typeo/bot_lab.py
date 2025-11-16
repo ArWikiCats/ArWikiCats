@@ -160,7 +160,7 @@ class LabelForStartWithYearOrTypeo:
 
         cmp = self.year_at_first + " " + self.country_lower
 
-        self.country_label = self.get_country_label(
+        self.country_label = get_country_label(
             self.country_lower,
             self.country_not_lower,
             self.cate3,
