@@ -5,10 +5,9 @@ from ..ma_bots import event_lab_bot
 
 """
 
-from ... import malists_sport_lab as sport_lab
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
-from ...ma_lists import New_P17_Finall
+from ...ma_lists import New_P17_Finall, Get_New_team_xo
 from ..bots import tmp_bot
 from ..date_bots import year_lab
 from ..format_bots import change_cat, pp_ends_with, pp_ends_with_pase
@@ -67,7 +66,7 @@ def event_Lab(cate_r: str) -> str:
         category_lab = year_lab.make_year_lab(category3)
 
     if not category_lab:
-        category_lab = sport_lab.Get_New_team_xo(category3)
+        category_lab = Get_New_team_xo(category3)
 
     if category_lab == "" and Find_wd:
         category_lab = get_pop_All_18(category3, "")
