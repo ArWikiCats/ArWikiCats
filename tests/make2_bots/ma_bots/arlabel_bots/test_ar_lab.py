@@ -3,7 +3,8 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.ar_label_bot import add_in_tab, find_ar_label
+from src.make2_bots.ma_bots.arlabel_bots.ar_lab import add_in_tab, find_ar_label
+
 
 def test_add_in_tab():
     # Test with basic inputs
@@ -17,6 +18,7 @@ def test_add_in_tab():
     # Test with empty strings
     result_empty = add_in_tab("", "", "")
     assert isinstance(result_empty, str)
+
 
 @pytest.mark.skip
 def test_find_ar_label():

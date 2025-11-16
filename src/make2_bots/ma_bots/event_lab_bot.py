@@ -5,6 +5,7 @@ from ..ma_bots import event_lab_bot
 
 """
 
+from .end_start_bots import fax2
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ...translations import New_P17_Finall, Get_New_team_xo
@@ -18,7 +19,7 @@ from ..o_bots import univer
 
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
 #  (most likely due to a circular import) (make2_bots.ma_bots\ye_ts_bot.py)
-from . import fax2, list_cat_format, ye_ts_bot
+from . import list_cat_format, ye_ts_bot
 from .country2_bot import Get_country2
 from .lab_seoo_bot import event_Lab_seoo
 

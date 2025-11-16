@@ -6,16 +6,16 @@
 from typing import Tuple
 from .. import country2_lab
 from .. import event2bot
-from ..country_bot import Get_c_t_lab
-from ...o_bots.popl import make_people_lab
-from ...sports_bots import team_work
+from ....helps.print_bot import print_put, output_test
+from ....translations import New_P17_Finall, RELIGIOUS_KEYS_PP, New_female_keys
 from ...bots import tmp_bot
-from ...p17_bots import nats
+from ...format_bots import Tabl_with_in
 from ...jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ...media_bots.films_bot import te_films
-from ....translations import New_P17_Finall, RELIGIOUS_KEYS_PP, New_female_keys
-from ...format_bots import Tabl_with_in
-from ....helps.print_bot import print_put, output_test
+from ...o_bots.popl import make_people_lab
+from ...p17_bots import nats
+from ...sports_bots import team_work
+from ..country_bot import Get_c_t_lab
 
 
 def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:

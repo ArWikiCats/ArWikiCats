@@ -4,6 +4,7 @@
 
 """
 
+from .. import country2_lab
 from ....helps.print_bot import print_put
 from ....translations import New_female_keys, New_P17_Finall, pf_keys2
 from ...bots import tmp_bot
@@ -17,10 +18,9 @@ from ...o_bots import bys
 from ...p17_bots import nats
 from ...sports_bots import team_work
 from ..country_bot import Get_c_t_lab, get_country
-from .. import country2_lab
 
 
-def get_con_lab(tito: str, start_get_country2: bool, tito2: str, country: str, country_lower: str) -> str:
+def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, start_get_country2: bool) -> str:
     """Retrieve the corresponding label for a given country."""
 
     label = ""
@@ -69,7 +69,7 @@ def get_con_lab(tito: str, start_get_country2: bool, tito2: str, country: str, c
         label = team_work.Get_team_work_Club(country.strip())
 
     if not label:
-        label = Get_c_t_lab(country_lower, tito, start_get_country2=start_get_country2)
+        label = Get_c_t_lab(country_lower, preposition, start_get_country2=start_get_country2)
 
     if not label:
         label = tmp_bot.Work_Templates(country_lower)

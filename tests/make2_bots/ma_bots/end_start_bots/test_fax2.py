@@ -3,23 +3,27 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.fax2 import get_episodes, get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3_with_lab2, get_list_of_and_cat3
+from src.make2_bots.ma_bots.end_start_bots.fax2 import get_episodes, get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3_with_lab2, get_list_of_and_cat3
 
-def test_get_episodes():
-    # Test with a basic episode category
-    list_of_cat, category3 = get_episodes("2016 american television episodes", "2016 American television episodes")
+data = [
+    ("2016 American television", "2016 American television", "حلقات {}"),
+    ("Game of Thrones (season 1)", "Game of Thrones", "حلقات {} الموسم 1"),
+    ("", "", "حلقات {}"),
+]
+
+
+@pytest.mark.parametrize(
+    "text, expected1, expected2",
+    data,
+    ids=[x[0] for x in data],
+)
+def test_get_episodes(text, expected1, expected2):
+    list_of_cat, category3 = get_episodes(f"{text} episodes")
     assert isinstance(list_of_cat, str)
     assert isinstance(category3, str)
+    assert category3 == expected1
+    assert list_of_cat == expected2
 
-    # Test with season episodes
-    list_of_cat2, category3_2 = get_episodes("game of thrones (season 1) episodes", "Game of Thrones (season 1) episodes")
-    assert isinstance(list_of_cat2, str)
-    assert isinstance(category3_2, str)
-
-    # Test with empty string
-    list_of_cat_empty, category3_empty = get_episodes("", "")
-    assert isinstance(list_of_cat_empty, str)
-    assert isinstance(category3_empty, str)
 
 def test_get_from_starts_dict():
     # Test with a basic input that starts with a known key
@@ -34,6 +38,7 @@ def test_get_from_starts_dict():
     assert isinstance(list_of_cat_empty, str)
     assert isinstance(Find_wd_empty, bool)
 
+
 def test_get_from_endswith_dict():
     # Test with a basic input that ends with a known key
     category3, list_of_cat, Find_wd = get_from_endswith_dict("test squad navigational boxes")
@@ -46,6 +51,7 @@ def test_get_from_endswith_dict():
     assert isinstance(category3_empty, str)
     assert isinstance(list_of_cat_empty, str)
     assert isinstance(Find_wd_empty, bool)
+
 
 def test_get_templates_fo():
     # Test with a templates category
@@ -63,6 +69,7 @@ def test_get_templates_fo():
     assert isinstance(list_of_cat_empty, str)
     assert isinstance(category3_empty, str)
 
+
 def test_get_list_of_and_cat3_with_lab2():
     # Test with a basic input
     result = get_list_of_and_cat3_with_lab2("test category", "Test Category")
@@ -75,6 +82,7 @@ def test_get_list_of_and_cat3_with_lab2():
     # Test with empty strings
     result_empty = get_list_of_and_cat3_with_lab2("", "")
     assert isinstance(result_empty, str)
+
 
 def test_get_list_of_and_cat3():
     # Test with a basic input

@@ -1,7 +1,7 @@
+#!/usr/bin/python3
 """
-from .te3 import SPORT_FORMTS_ENAR_P17_TEAM, New_team_xo_team_labels
+!
 """
-
 import re
 from ...helps import len_print
 from ...helps.log import logger

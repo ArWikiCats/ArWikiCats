@@ -18,7 +18,7 @@ from ...helps.print_bot import print_def_head, print_put
 from ..format_bots import category_relation_mapping
 from ..date_bots import year_lab
 from ..matables_bots.bot import Films_O_TT, players_new_keys
-from ..ma_bots.ar_label_bot import find_ar_label
+from ..ma_bots.arlabel_bots.ar_lab import find_ar_label
 
 from ...translations import (
     Jobs_new,           # to be removed from players_new_keys

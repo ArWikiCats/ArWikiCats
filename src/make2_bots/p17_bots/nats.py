@@ -1,7 +1,7 @@
+#!/usr/bin/python3
 """
-from ..p17_bots import nats
+!
 """
-
 import re
 import functools
 from ...translations import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key, Get_sport_formts_female_nat

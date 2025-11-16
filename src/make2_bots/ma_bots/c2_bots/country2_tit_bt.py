@@ -82,7 +82,7 @@ def make_sps(tat_o: str, c_1_l: str, cona_1: str) -> str:
 def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     """Convert country name and generate labels based on input parameters."""
 
-    print_put(f'>>>> <<lightblue>> Get_country2: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
+    print_put(f'>>>> <<lightblue>> country_2_tit: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
 
     con_1, con_2 = make_conas(tat_o, country)
 

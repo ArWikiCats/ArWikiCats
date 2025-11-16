@@ -4,26 +4,26 @@
 """
 
 import re
-from ...fix import fixtitle
-from ...translations import pop_of_without_in
+from ....fix import fixtitle
+from ....translations import pop_of_without_in
 
-from ..format_bots import category_relation_mapping, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
+from ...format_bots import category_relation_mapping, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
 
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.bot import (
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
+from ...matables_bots.bot import (
     Table_for_frist_word,
     Add_ar_in,
     Keep_it_last,
     Keep_it_frist,
 )
 
-from ..matables_bots.check_bot import check_key_new_players
-from ...helps.print_bot import print_put, output_test
-from ...utils import check_key_in_tables_return_tuple
+from ...matables_bots.check_bot import check_key_new_players
+from ....helps.print_bot import print_put, output_test
+from ....utils import check_key_in_tables_return_tuple
 
-from ..ma_bots_new.bot_type_country import get_type_country
-from .arlabel_bots.bot_type_lab import get_Type_lab
-from .arlabel_bots.bot_con_lab import get_con_lab
+from ...ma_bots_new.bot_type_country import get_type_country
+from .bot_type_lab import get_Type_lab
+from .bot_con_lab import get_con_lab
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -69,7 +69,12 @@ def _check_in_tables_new(country_lower, Type_lower):
 
 
 def find_ar_label(
-    category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, start_get_country2: bool = True
+    category: str,
+    tito: str,
+    tito_name: str,
+    Cate_test: str,
+    category_r: str,
+    start_get_country2: bool = True
 ) -> str:
     """Find the Arabic label based on the provided parameters."""
 
@@ -88,7 +93,7 @@ def find_ar_label(
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
 
-    con_lab = get_con_lab(tito, start_get_country2, tito2, country, country_lower)
+    con_lab = get_con_lab(tito, tito2, country, country_lower, start_get_country2)
 
     if con_lab:
         Cate_test = Cate_test.replace(country_lower, "")
@@ -277,6 +282,12 @@ def find_ar_label(
     arlabel = fixtitle.fixlab(arlabel, en=category_r)
     print_put('>>>>>> <<lightyellow>>Cate_test: "%s" ' % Cate_test)
     print_put(f'>>>>>> <<lightyellow>>test: cat "{category_r}", arlabel:"{arlabel}"')
-
     print_put('>>>> <<lightblue>>Cate_test :"%s"' % Cate_test)
+    # ---
     return arlabel
+
+
+__all__ = [
+    "find_ar_label",
+    "add_in_tab",
+]
