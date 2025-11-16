@@ -9,7 +9,7 @@ from ...helps.log import logger
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head
 from ..fromnet.wd_bot import find_wikidata
-from .c2_bots.country2_tit_bt import country_2_title_work
+from .country2_bots.country2_tit_bt import country_2_title_work
 from . import country2_lab
 from . import ye_ts_bot
 

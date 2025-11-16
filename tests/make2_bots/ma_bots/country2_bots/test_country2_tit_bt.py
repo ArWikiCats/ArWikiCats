@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.c2_bots.country2_tit_bt import make_conas, make_sps, country_2_tit, country_2_title_work
+from src.make2_bots.ma_bots.country2_bots.country2_tit_bt import make_conas, make_sps, country_2_tit, country_2_title_work
 
 def test_make_conas():
     # Test with basic inputs

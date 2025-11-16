@@ -11,6 +11,7 @@ from ...format_bots import category_relation_mapping
 from ....helps.print_bot import print_put, output_test
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 from .cn_lab import make_cnt_lab
+from .. import country_bot
 
 
 def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
@@ -89,8 +90,13 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     print_put(f'2060 con_1:"{con_1}",con_2:"{con_2}",tat_o:"{tat_o}"')
 
     c_2_l = c_2_1_lab(With_Years, con_2)
-
     c_1_l = c_1_1_lab(tat_o, With_Years, con_1)
+
+    if not c_2_l:
+        c_2_l = country_bot.Get_c_t_lab(con_2, "")
+
+    if not c_1_l:
+        c_1_l = country_bot.Get_c_t_lab(con_1, "", Type="Type_lab")
 
     cona_1 = con_1.strip().lower()
     cona_2 = con_2.strip().lower()
