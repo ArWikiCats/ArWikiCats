@@ -146,10 +146,9 @@ def format_data_sample():
     bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     # Search for a specific pattern and get its localized version
-    label = bot.search("men's youth snooker records and statistics")
-
+    label = bot.search("american football players")
     # Verify if the result matches the expected output
-    result = label == "سجلات وإحصائيات سنوكر للشباب"
+    result = label == "لاعبو كرة قدم أمريكية"
 
     # Return the formatted label
     return result
