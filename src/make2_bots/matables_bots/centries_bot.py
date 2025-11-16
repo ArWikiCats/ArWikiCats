@@ -64,6 +64,7 @@ for elff, tabe in elfffff.items():
         centries_years_dec[centry_t] = centry_lab
         centries_years_dec[f"{centry}{th}−century"] = centry_lab
         centries_years_dec[f"{centry}{th}–century"] = centry_lab
+        centries_years_dec[f"{centry}{th}-century"] = centry_lab
 
         centry_lab_bc = f"القرن {centry} ق م"
         centry_t_bc = f"the {centry}{th} century bc"

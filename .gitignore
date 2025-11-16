@@ -4,7 +4,6 @@
 /.vscode
 *.txt
 make_tests
-/old
 /.codex
 categories.json
 /tests/event_lists/diff_data
@@ -15,4 +14,5 @@ monkey.py
 *.old
 *_backup
 /.claude
+**/old/**
 src/make2_bots/ma_bots/dodo_bots/work_2019_examples.jsonl

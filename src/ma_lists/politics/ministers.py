@@ -22,11 +22,6 @@ Category:Economy ministers of Latvia
 Category:Religious affairs ministers of Yemen
 Category:Ministers of Religious Affairs of the Netherlands
 
-
-Category\:Ministers of \w+ of \w+$
-Category\:(\w+|\w+ \w+) Ministers of \w+
-
-
 Category:Women government ministers of Latvia
 Category:Women's ministers of Fiji
 

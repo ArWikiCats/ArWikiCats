@@ -1,7 +1,7 @@
 # test_convert_time_to_arabic.py
 # -*- coding: utf-8 -*-
 import pytest
-from src.new.time_to_arabic import convert_time_to_arabic, match_time_ar, match_time_en
+from src.new.time_to_arabic import convert_time_to_arabic, match_time_ar, match_time_en, match_time_en_first
 
 
 @pytest.mark.parametrize("en_text, expected", [
@@ -157,9 +157,14 @@ def test_ranges_all_dash_forms(en_text):
     ("From March 1917 to August 2020", ["March 1917", "August 2020"]),
     ("Bridges built in the 4th century BC", ["4th century BC"]),
     ("In the 1st millennium BCE", ["1st millennium BCE"]),
+    ("Category:2nd millennium BCE", ["2nd millennium BCE"]),
+    ("Category:1st millennium BC", ["1st millennium BC"]),
+    ("Category:5th century BCE", ["5th century BCE"]),
+    ("10th century bc", ["10th century bc"]),
 ])
 def test_match_time_en(text, expected):
     assert match_time_en(text) == expected
+    assert match_time_en_first(text) == expected[0]
 
 
 @pytest.mark.parametrize("text, expected", [

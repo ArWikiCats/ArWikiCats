@@ -1,4 +1,25 @@
 
+## [#64](https://github.com/MrIbrahem/make2_new/pull/64) - 2025-11-16
+
+* **New Features**
+  * Added modular event labeling with improved country and type processing
+  * New time-matching utility for first-match retrieval
+  * Added century labeling variant support
+
+* **Bug Fixes**
+  * Updated regex patterns for consistent dash character handling
+  * Improved category normalization logic
+
+* **Refactors [bot_lab.py](src/make2_bots/ma_bots/year_or_typeo/bot_lab.py)**
+  * Refactored event labeling into modular helper functions
+  * Simplified category normalization
+  * Replaced legacy parsing functions with efficient aliases
+
+* **Tests**
+  * Added unit tests for event labeling with century-focused coverage
+  * Expanded pattern matching test coverage
+  * Added slow test markers for performance-intensive tests
+
 ## [#62](https://github.com/MrIbrahem/make2_new/pull/62) - 2025-11-15
 
 * **Refactor**
@@ -251,7 +272,7 @@ This update improves label processing accuracy and restructures the test archite
 
 ### Changed
 *   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
-*   Simplified the event labeling flow in `src/make2_bots/ma_bots/dodo_bots/event2bot_dodo.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
+*   Simplified the event labeling flow in `src/make2_bots/ma_bots/year_or_typeo/bot_lab.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
 
 ---
 

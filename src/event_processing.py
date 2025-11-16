@@ -38,6 +38,7 @@ class EventProcessingResult:
 def resolve_label(category: str) -> str:
     """Resolve the label using multi-step logic."""
     changed_cat = change_cat(category)
+
     is_cat_okay = filter_en.filter_cat(category)
 
     category_lab = ""

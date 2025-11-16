@@ -8,15 +8,16 @@ It includes regular expressions for matching time expressions in both English
 and Arabic, and a conversion function to translate English expressions.
 """
 import re
+from textwrap import fill
 
-century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[- ])(century|millennium)\s*(BCE|BC)?"
+century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–\- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
 
 REG_YEAR_EN = re.compile(
     r"\b"
     r"(?:January|February|March|April|May|June|July|August|September|October|November|December)?\s*"
     r"("
-    r"\d+[−–-]\d+"
+    r"\d+[−–\-]\d+"
     rf"|{decade_regex}"
     r"|\d{1,4}\s*(?:BCE|BC)?"
     r")"
@@ -33,7 +34,7 @@ REG_YEAR_AR = re.compile(
     r"\b"
     r"(?:يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر)?\s*"
     r"("
-    r"\d+[−–-]\d+"
+    r"\d+[−–\-]\d+"
     r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
     r"|(?:القرن|الألفية)? \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
     r")"
@@ -73,9 +74,15 @@ def match_time_ar(ar_value: str) -> list[str]:
 
 
 def match_time_en(en_key: str) -> list[str]:
+    en_key = re.sub(r"^Category:", "", en_key, flags=re.I)
     en_matches = [m.group().strip() for m in REG_YEAR_EN.finditer(f" {en_key} ")]
     en_matches.extend([m.group().strip() for m in REG_CENTURY_EN.finditer(f" {en_key} ")])
     return en_matches
+
+
+def match_time_en_first(en_key: str) -> list[str]:
+    en_matches = match_time_en(en_key)
+    return en_matches[0] if en_matches else ""
 
 
 def convert_time_to_arabic(en_year: str) -> str:
@@ -104,7 +111,7 @@ def convert_time_to_arabic(en_year: str) -> str:
 
     # --- Month + Year + BC ---
     month_str = "|".join(month_map.keys())
-    m = re.match(rf"^({month_str})\s*(\d{1,4})\s*(BCE|BC)$", en_year, re.I)
+    m = re.match(rf"^({month_str})\s*(\d{1, 4})\s*(BCE|BC)$", en_year, re.I)
     if m:
         month = month_map[m.group(1).lower()]
         bc = " ق م"
@@ -129,7 +136,7 @@ def convert_time_to_arabic(en_year: str) -> str:
         ty = "القرن" if m.group(2) == "century" else "الألفية"
         return f"{ty} {num}{bc}"
 
-    if re.search(r"^\d+[-−–]\d+", en_year, re.I):
+    if re.search(r"^\d+[−–\-]\d+", en_year, re.I):
         # --- (no expansion wanted) ---
         # return expand_range(en_year)
         return en_year
@@ -143,3 +150,12 @@ def match_en_return_ar(category: str) -> dict[str, str]:
     en_years = match_time_en(category)
     data = {year: convert_time_to_arabic(year) for year in en_years}
     return data
+
+
+__all__ = [
+    "match_time_ar",
+    "match_time_en",
+    "match_time_en_first",
+    "convert_time_to_arabic",
+    "match_en_return_ar",
+]

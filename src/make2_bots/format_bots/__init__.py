@@ -468,12 +468,17 @@ replaces = {
 
 def change_cat(cat_orginal: str) -> str:
     cat_orginal = cat_orginal.lower().strip()
+    # ---
     # Category:Basketball at the 2007 All-Africa Games – Women's tournament
     # output_main('change_cat :"%s" ' % cat_orginal )
+    # ---
     category = cat_orginal
-
     category = re.sub(r"[\s\t]+", " ", category, flags=re.IGNORECASE)
-
+    # ---
+    category = re.sub(r"[−–\-]century", " century", category, flags=re.IGNORECASE)
+    category = re.sub(r"[−–\-]millennium", " millennium", category, flags=re.IGNORECASE)
+    # ---
+    category = re.sub(r"[−–\-](millennium|century)", r" \g<1>", category, flags=re.I)
     # ---
     category = re.sub(r"royal (.*?) defence force", r"\g<1> royal defence force", category, flags=re.IGNORECASE)
     category = re.sub(r"royal (.*?) naval force", r"\g<1> royal naval force", category, flags=re.IGNORECASE)
@@ -486,10 +491,8 @@ def change_cat(cat_orginal: str) -> str:
     # ---
     category = re.sub(r"rus'", "rus", category, flags=re.IGNORECASE)
     category = re.sub(r"the kingdom of", " kingdom of", category, flags=re.IGNORECASE)
-    category = re.sub(r"-century", " century", category, flags=re.IGNORECASE)
     category = re.sub(r"austria-hungary", "austria hungary", category, flags=re.IGNORECASE)
     category = re.sub(r"austria hungary", "austria hungary", category, flags=re.IGNORECASE)
-    category = re.sub(r"-millennium", " millennium", category, flags=re.IGNORECASE)
     # ---
     category = re.sub(r"unmanned military aircraft of", "unmanned military aircraft-oof", category, flags=re.IGNORECASE)
     category = re.sub(r"unmanned aerial vehicles of", "unmanned aerial vehicles-oof", category, flags=re.IGNORECASE)

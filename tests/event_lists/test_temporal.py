@@ -56,7 +56,45 @@ TEMPORAL_CASES = [
         'Category:Airlines by year of establishment': 'تصنيف:شركات طيران حسب سنة التأسيس',
         'Category:American cinema by decade': 'تصنيف:السينما الأمريكية حسب العقد',
     }),
-    ("temporal_3", {
+]
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+def test_temporal(name, data):
+    print(f"len of data: {len(data)}")
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+@pytest.mark.slow
+def test_temporal_2():
+    data = {
+        "Category:10th millennium in fiction": "تصنيف:الخيال في الألفية 10",
+        "Category:1270s in the Holy Roman Empire": "تصنيف:الإمبراطورية الرومانية المقدسة في عقد 1270",
+        "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
+        "Category:19th-century actors by religion": "تصنيف:ممثلون في القرن 19 حسب الدين",
+        "Category:19th-century people by religion": "تصنيف:أشخاص في القرن 19 حسب الدين",
+        "Category:2000s in the United States by state": "تصنيف:الولايات المتحدة في عقد 2000 حسب الولاية",
+        "Category:20th-century railway accidents": "تصنيف:حوادث سكك حديد في القرن 20",
+        "Category:21st century in the Czech Republic": "تصنيف:التشيك في القرن 21",
+        "Category:21st-century in Qatar": "تصنيف:قطر في القرن 21",
+        "Category:April 1983 sports events": "تصنيف:أحداث أبريل 1983 الرياضية",
+        "Category:Manufacturing companies established in the 2nd millennium": "تصنيف:شركات تصنيع أسست في الألفية الثانية",
+        "Category:Soviet Union at multi-sport events": "تصنيف:أحداث الاتحاد السوفيتي في رياضية متعددة",
+        "Category:Swaziland at multi-sport events": "تصنيف:أحداث سوازيلاند في رياضية متعددة"
+    }
+
+    print(f"len of data: {len(data)}")
+    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+
+    dump_diff(diff_result, "test_temporal_2")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+
+@pytest.mark.slow
+def test_temporal_22():
+    data = {
         'Category:Animals by year of formal description': 'تصنيف:حيوانات حسب سنة الوصف',
         'Category:April 1983 events in Europe': 'تصنيف:أحداث أبريل 1983 في أوروبا',
         'Category:Comics set in the 1st century BC': 'تصنيف:قصص مصورة تقع أحداثها في القرن 1 ق م',
@@ -79,38 +117,10 @@ TEMPORAL_CASES = [
         'Category:Years in north korean television': 'تصنيف:سنوات في التلفزة الكورية الشمالية',
         'Category:Years in the United States by state': 'تصنيف:سنوات في الولايات المتحدة حسب الولاية',
         'Category:multi-sport events at Yemen': 'تصنيف:أحداث رياضية متعددة في اليمن',
-    }),
-]
-
-
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
-def test_temporal(name, data):
-    print(f"len of data: {len(data)}")
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
-
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
-def test_temporal_2():
-    data = {
-        "Category:10th millennium in fiction": "تصنيف:الخيال في الألفية 10",
-        "Category:1270s in the Holy Roman Empire": "تصنيف:الإمبراطورية الرومانية المقدسة في عقد 1270",
-        "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
-        "Category:19th-century actors by religion": "تصنيف:ممثلون في القرن 19 حسب الدين",
-        "Category:19th-century people by religion": "تصنيف:أشخاص في القرن 19 حسب الدين",
-        "Category:2000s in the United States by state": "تصنيف:الولايات المتحدة في عقد 2000 حسب الولاية",
-        "Category:20th-century railway accidents": "تصنيف:حوادث سكك حديد في القرن 20",
-        "Category:21st century in the Czech Republic": "تصنيف:التشيك في القرن 21",
-        "Category:21st-century in Qatar": "تصنيف:قطر في القرن 21",
-        "Category:April 1983 sports events": "تصنيف:أحداث أبريل 1983 الرياضية",
-        "Category:Manufacturing companies established in the 2nd millennium": "تصنيف:شركات تصنيع أسست في الألفية الثانية",
-        "Category:Soviet Union at multi-sport events": "تصنيف:أحداث الاتحاد السوفيتي في رياضية متعددة",
-        "Category:Swaziland at multi-sport events": "تصنيف:أحداث سوازيلاند في رياضية متعددة"
     }
 
     print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff_result, "test_temporal_2")
+    dump_diff(diff_result, "test_temporal_22")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
