@@ -5,7 +5,7 @@ from ...format_bots import category_relation_mapping
 from ....ma_lists.type_tables import basedtypeTable
 
 
-def load_keys_to_pattern(data_List, by="|", sort_keys=False):
+def load_keys_to_pattern(data_List, by="|", sort_keys=True):
     # return by.join(x.strip() for x in data_List)
     # ---
     data_List_sorted = sorted(data_List, key=lambda x: -x.count(" ")) if sort_keys else data_List
