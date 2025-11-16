@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Integration tests for :mod:`teamsnew_bot` lazy resolver."""
 import pytest
-from src.ma_lists_formats.format_data import FormatData
+from src.translations_formats.format_data import FormatData
 
 data_list = {
     "snooker": "سنوكر"

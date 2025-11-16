@@ -7,7 +7,7 @@ from typing import Dict
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..sports.sports_lists import AFTER_KEYS
 from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
-from ...ma_lists_formats.format_data import FormatData
+from ...translations_formats.format_data import FormatData
 from ...helps import len_print
 
 

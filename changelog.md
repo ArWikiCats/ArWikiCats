@@ -116,7 +116,7 @@
 
 ## [#46](https://github.com/MrIbrahem/make2_new/pull/46) - 2025-11-11
 
-* **New Features [format_data.py](src/ma_lists_formats/format_data.py)**
+* **New Features [format_data.py](src/translations_formats/format_data.py)**
   * Introduces FormatData class with template-based string transformation logic, including regex pattern matching from sport keys, placeholder replacement, category normalization, and a unified search() method orchestrating the lookup pipeline. Includes a sample usage function.
 
 ## [#45](https://github.com/MrIbrahem/make2_new/pull/45) - 2025-11-11

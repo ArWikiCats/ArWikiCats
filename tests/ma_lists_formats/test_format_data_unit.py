@@ -2,7 +2,7 @@
 """Integration tests for :mod:`teamsnew_bot` lazy resolver."""
 import pytest
 import re
-from src.ma_lists_formats.format_data import FormatData
+from src.translations_formats.format_data import FormatData
 
 
 @pytest.fixture

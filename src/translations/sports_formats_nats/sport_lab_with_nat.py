@@ -11,7 +11,7 @@ from ..nats.Nationality import en_nats_to_ar_label
 from ...helps.print_bot import output_test
 from ..utils import apply_pattern_replacement
 from ...helps.log import logger
-from ...ma_lists_formats.format_data import FormatData
+from ...translations_formats.format_data import FormatData
 
 format_labels_with_nat = {
     "natar national xoxo teams": "منتخبات xoxo وطنية natar",

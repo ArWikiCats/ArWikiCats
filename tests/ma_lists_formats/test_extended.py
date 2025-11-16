@@ -1,6 +1,6 @@
 import pytest
 import re
-from src.ma_lists_formats.format_data import FormatData
+from src.translations_formats.format_data import FormatData
 from src.translations import SPORTS_KEYS_FOR_JOBS
 from src.translations.sports_formats_2025.match_labs import load_data
 

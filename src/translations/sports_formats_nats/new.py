@@ -6,7 +6,7 @@
 
 from ..nats.Nationality import en_nats_to_ar_label
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
-from ...ma_lists_formats.format_data import FormatData
+from ...translations_formats.format_data import FormatData
 
 format_labels_with_nat = {
     "natar national xoxo teams": "منتخبات xoxo وطنية natar",
