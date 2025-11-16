@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from ...format_bots import Tit_ose_Nmaes
 from ....ma_lists.type_tables import basedtypeTable
 from ...reg_lines import tita, tita_year, ddd, tita_year_no_month
+from ....new.time_to_arabic import match_time_en_first  # , convert_time_to_arabic, match_time_ar
 
 safo = "|".join(list(basedtypeTable))
 
@@ -12,6 +13,8 @@ titttto = " |".join(x.strip() for x in Tit_ose_Nmaes.keys())
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 tita_other = r"\s*(" + safo + r"|)\s*(" + titttto + r"|)\s*(.*|).*"
+
+reg_line_1 = tita.lower() + tita_other.lower()
 
 
 @dataclass
@@ -23,16 +26,46 @@ class Typies:
     cat_test: str
 
 
+def match_year(category):
+    # ---
+    Tita_year = tita_year
+    # ---
+    test_month = re.sub(ddd, "", category, flags=re.I)
+    if test_month.lower() == category.lower():
+        Tita_year = tita_year_no_month
+    # ---
+    year = re.sub(Tita_year, r"\g<1>\g<2>", category, flags=re.I)
+    # ---
+    if year.lower() == category.lower():
+        year = ""
+    # ---
+    return year
+
+
+def match_typeo(cate_gory, year):
+    # ---
+    typeo = re.sub(reg_line_1, r"\g<3>", cate_gory, flags=re.I)
+    # ---
+    if year and cate_gory.startswith("category:" + year):
+        tita_n = "category:" + year + tita_other
+        typeo = re.sub(tita_n, r"\g<1>", cate_gory, flags=re.I)
+    # ---
+    if typeo.lower() == cate_gory.lower():
+        typeo = ""
+    # ---
+    return typeo
+
+
 def get_cats(category_r):
     # cate = re.sub(r"[−–\-](millennium|century)", r" \g<1>", category_r, flags=re.I)
     cate = category_r
     # ---
-    cate = re.sub(r"[−–\-](millennium|century)", r" \g<1>", cate, flags=re.I)
+    # cate = re.sub(r"[−–\-](millennium|century)", r" \g<1>", cate, flags=re.I)
+    cate = re.sub(r"[−–\-](millennium|century)", r"-\g<1>", cate, flags=re.I)
     # ---
     cate3 = re.sub(r"category:", "", cate.lower(), flags=re.IGNORECASE)
     # ---
-    if not cate.lower().startswith("category:"):
-        cate = f"Category:{cate}"
+    # if not cate.lower().startswith("category:"): cate = f"Category:{cate}"
     # ---
     return cate, cate3
 
@@ -41,34 +74,20 @@ def get_reg_result(category_r: str) -> Typies:
     # ---
     cate, cate3 = get_cats(category_r)
     # ---
+    if not cate.lower().startswith("category:"):
+        cate = f"Category:{cate}"
+    # ---
     cate_gory = cate.lower()
     # ---
     cat_test = cate3
     # ---
-    Tita_year = tita_year
+    year = match_year(cate_gory)
+    # year = match_time_en_first(cate)
     # ---
-    test_month = re.sub(ddd, "", cate.lower(), flags=re.I)
+    typeo = match_typeo(cate_gory, year)
     # ---
-    if test_month == cate:
-        Tita_year = tita_year_no_month
-    # ---
-    reg_line_1 = tita + tita_other
-    reg_line_1 = reg_line_1.lower()
-    # ---
-    year = re.sub(Tita_year, r"\g<1>\g<2>", cate_gory, flags=re.I)
-    # year = match_time_en(cate_gory)
-    # ---
-    typeo = re.sub(reg_line_1, r"\g<3>", cate_gory, flags=re.I)
-    # ---
-    if year == cate_gory or year == cate3:
-        year = ""
-    elif year and cate_gory.startswith("category:" + year):
+    if year and cate_gory.startswith("category:" + year):
         cat_test = cat_test.replace(year.lower(), "")
-        tita_n = "category:" + year + tita_other
-        typeo = re.sub(tita_n, r"\g<1>", cate_gory, flags=re.I)
-
-    if typeo == cate_gory or typeo == cate3:
-        typeo = ""
     # ---
     In = re.sub(reg_line_1, r"\g<4>", cate_gory, flags=re.I)
     # ---
