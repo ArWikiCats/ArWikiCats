@@ -1,26 +1,23 @@
 #!/usr/bin/python3
 """
 Usage:
-from .event2bot_dodo import make_lab_dodo
+from .bot_lab import label_for_startwith_year_or_typeo
 
 """
 
 import re
 from ....fix import fixtitle
-from ...date_bots import year_lab
-from ...format_bots import Tit_ose_Nmaes
+from ....helps.log import logger
 from ....ma_lists import Nat_mens, typeTable
-from ...matables_bots.bot import (
-    New_Lan,
-    Films_O_TT,
-)
+from ....utils import check_key_in_tables
+from ...date_bots import year_lab
+from ...format_bots import category_relation_mapping
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
+from ...matables_bots.bot import New_Lan, Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
+from ..country_bot import get_country
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
-from ..country_bot import get_country
-from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ....helps.log import logger
-from ....utils import check_key_in_tables
 from .reg_result import get_reg_result, get_cats
 
 type_after_country = ["non-combat"]
@@ -67,7 +64,7 @@ def replace_cat_test(cat_test, text):
     return cat_test
 
 
-def make_lab_dodo(category_r: str) -> str:
+def label_for_startwith_year_or_typeo(category_r: str) -> str:
     """
     Generate a label based on various input parameters related to categories and years.
     """
@@ -146,10 +143,10 @@ def make_lab_dodo(category_r: str) -> str:
                 Add_In = False
                 Add_In_Done = True
 
-    # --- Step 4: Validate cat_test for Tit_ose_Nmaes ---
+    # --- Step 4: Validate cat_test for category_relation_mapping ---
     if In.strip():
-        if In.strip() in Tit_ose_Nmaes:
-            if Tit_ose_Nmaes[In.strip()].strip() in arlabel:
+        if In.strip() in category_relation_mapping:
+            if category_relation_mapping[In.strip()].strip() in arlabel:
                 cat_test = replace_cat_test(cat_test, In)
         else:
             cat_test = replace_cat_test(cat_test, In)

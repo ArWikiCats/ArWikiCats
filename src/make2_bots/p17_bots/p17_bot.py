@@ -4,7 +4,7 @@
 import re
 from ..jobs_bots.get_helps import get_con_3
 from ..matables_bots.bot import All_P17
-from ..format_bots import Tit_ose_Nmaes, pop_format
+from ..format_bots import category_relation_mapping, pop_format
 
 from ...ma_lists import SPORT_FORMTS_EN_AR_IS_P17
 from ...ma_lists import en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_P17_ar_is_al_women
@@ -80,11 +80,11 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
         logger.debug(f'<<lightblue>> country_start:"{country_start}", con_3:"{con_3}"')
 
         FOF = ""
-        if con_3 in Tit_ose_Nmaes:
-            codd = Tit_ose_Nmaes[con_3]
+        if con_3 in category_relation_mapping:
+            codd = category_relation_mapping[con_3]
             if codd.startswith("لل"):
                 con_3_lab = "{} " + codd
-                logger.debug(f'get lab from Tit_ose_Nmaes con_3_lab:"{con_3_lab}"')
+                logger.debug(f'get lab from category_relation_mapping con_3_lab:"{con_3_lab}"')
 
         if not con_3_lab:
             con_3_lab = SPORT_FORMTS_EN_AR_IS_P17.get(con_3.strip(), "")

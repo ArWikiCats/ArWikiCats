@@ -17,7 +17,7 @@ from ..bots import tmp_bot
 from ..date_bots import with_years_bot
 from ..o_bots import univer  # univer.te_universities(cate)
 from .country_bot import get_country
-from .dodo_bots.event2bot_dodo import make_lab_dodo
+from .year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from .lab_seoo_bot import event_Lab_seoo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -130,7 +130,7 @@ def event2(category_r: str) -> str:
             print_put("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
             return category_lab
 
-    ar_label = make_lab_dodo(category_r)
+    ar_label = label_for_startwith_year_or_typeo(category_r)
 
     if not ar_label:
         ar_label = dodo(category_r)

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Usage:
-from .dodo_bots.dodo_2019 import work_2019
+from .year_or_typeo.dodo_2019 import work_2019
 # cat4_lab = work_2019(category3, year, year_labe)
 
 """

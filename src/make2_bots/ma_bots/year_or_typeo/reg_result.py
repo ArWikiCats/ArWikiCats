@@ -1,7 +1,7 @@
 
 import re
 from dataclasses import dataclass
-from ...format_bots import Tit_ose_Nmaes
+from ...format_bots import category_relation_mapping
 from ....ma_lists.type_tables import basedtypeTable
 
 
@@ -26,7 +26,7 @@ yy = (
 MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
 
 typeo_pattern = load_keys_to_pattern(list(basedtypeTable))
-in_pattern = load_keys_to_pattern(Tit_ose_Nmaes.keys(), by=" |")
+in_pattern = load_keys_to_pattern(category_relation_mapping.keys(), by=" |")
 
 reg_line_1_match = (
     rf"(?P<monthyear>{MONTHSTR3}(?:{yy})|)\s*"
