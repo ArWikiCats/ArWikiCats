@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 from ..helps.print_bot import output_test
-from ..make2_bots.reg_lines import YEARS_REGEX
+from ..make2_bots.reg_lines import YEARS_REGEX_AR
 
 
 def move_by_in(text_str: str) -> str:
@@ -22,7 +22,7 @@ def move_by_in(text_str: str) -> str:
     # تصنيف:اتحاد الرجبي حسب البلد في 1989
     text_str = text_str.replace("_", " ")
     new_text = text_str
-    pattern = rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX})$"
+    pattern = rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX_AR})$"
     if result := re.search(pattern, text_str):
         # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
         # ---
@@ -52,7 +52,7 @@ def move_years_first(text_str: str) -> str:
     """
 
     new_text = text_str
-    pattern = rf"^(?P<first_part>{YEARS_REGEX})\sفي\s(?P<second_part>[^0-9]*)$"
+    pattern = rf"^(?P<first_part>{YEARS_REGEX_AR})\sفي\s(?P<second_part>[^0-9]*)$"
     if match := re.match(pattern, text_str):
         first_part = match.group("first_part").strip()
         second_part = match.group("second_part").strip()

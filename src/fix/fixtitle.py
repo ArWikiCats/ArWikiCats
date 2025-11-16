@@ -12,7 +12,7 @@ import re
 from typing import Iterable, Mapping
 
 from .fixlists import ENDING_REPLACEMENTS, REPLACEMENTS, STARTING_REPLACEMENTS, YEAR_CATEGORY_LABELS
-from ..make2_bots.reg_lines import YEARS_REGEX
+from ..make2_bots.reg_lines import YEARS_REGEX_AR
 from .mv_years import move_years
 from ..helps.log import logger
 from .specific_normalizations import apply_category_specific_normalizations
@@ -238,7 +238,7 @@ def add_fee(text: str) -> str:
         "الولاية",
     ]
     categories_expression = "|".join(categories)
-    text = re.sub(rf" حسب\s({categories_expression}) ({YEARS_REGEX})$", r" حسب \1 في \2", text)
+    text = re.sub(rf" حسب\s({categories_expression}) ({YEARS_REGEX_AR})$", r" حسب \1 في \2", text)
     return text
 
 
