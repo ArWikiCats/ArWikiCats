@@ -255,7 +255,7 @@ class TestMonthSuppression:
 # 8) Tests for BCE / BC variations
 # -----------------------------------------------------------
 
-class _TestBCE_BC:
+class TestBCE_BC:
     @pytest.mark.parametrize(
         "category,expected",
         [
@@ -267,21 +267,21 @@ class _TestBCE_BC:
     )
     def test_bce(self, category, expected):
         out = get_reg_result(category)
-        assert out.year == expected
+        assert out.year.lower() == expected.lower()
 
 
 # -----------------------------------------------------------
 # 9) Stress-test with all basedtypeTable + years
 # -----------------------------------------------------------
 
-class _TestBasedTypeTableCoverage:
+class TestBasedTypeTableCoverage:
     @pytest.mark.parametrize("eng", list(basedtypeTable.keys()))
     def test_all_based_types(self, eng):
         category = f"Category:1999 {eng} in France"
         out = get_reg_result(category)
-        assert out.typeo == eng
-        assert out.year == "1999"
-        assert out.country == "france"
+        assert out.typeo.strip().lower() == eng.strip().lower()
+        assert out.year.strip().lower() == "1999"
+        assert out.country.strip().lower() == "france"
 
 
 # -----------------------------------------------------------

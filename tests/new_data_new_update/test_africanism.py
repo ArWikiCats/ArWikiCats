@@ -46,6 +46,7 @@ data = {
 }
 
 
+@pytest.mark.slow
 def test_africanism():
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 

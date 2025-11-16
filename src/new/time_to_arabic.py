@@ -8,6 +8,7 @@ It includes regular expressions for matching time expressions in both English
 and Arabic, and a conversion function to translate English expressions.
 """
 import re
+from textwrap import fill
 
 century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–\- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
@@ -73,9 +74,15 @@ def match_time_ar(ar_value: str) -> list[str]:
 
 
 def match_time_en(en_key: str) -> list[str]:
+    en_key = re.sub(r"^Category:", "", en_key, flags=re.I)
     en_matches = [m.group().strip() for m in REG_YEAR_EN.finditer(f" {en_key} ")]
     en_matches.extend([m.group().strip() for m in REG_CENTURY_EN.finditer(f" {en_key} ")])
     return en_matches
+
+
+def match_time_en_first(en_key: str) -> list[str]:
+    en_matches = match_time_en(en_key)
+    return en_matches[0] if en_matches else ""
 
 
 def convert_time_to_arabic(en_year: str) -> str:
@@ -143,3 +150,12 @@ def match_en_return_ar(category: str) -> dict[str, str]:
     en_years = match_time_en(category)
     data = {year: convert_time_to_arabic(year) for year in en_years}
     return data
+
+
+__all__ = [
+    "match_time_ar",
+    "match_time_en",
+    "match_time_en_first",
+    "convert_time_to_arabic",
+    "match_en_return_ar",
+]
