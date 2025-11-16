@@ -6,10 +6,9 @@ from ..jobs_bots.get_helps import get_con_3
 from ..matables_bots.bot import All_P17
 from ..format_bots import category_relation_mapping, pop_format
 
-from ...ma_lists import SPORT_FORMTS_EN_AR_IS_P17
+from ...ma_lists import SPORT_FORMTS_EN_AR_IS_P17, Get_Sport_Format_xo_en_ar_is_P17
 from ...ma_lists import en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_P17_ar_is_al_women
 from ...ma_lists import all_country_with_nat_keys_is_en, contries_from_nat
-from ... import malists_sport_lab as sport_lab
 
 from ...helps.log import logger
 
@@ -93,7 +92,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
             con_3_lab = en_is_P17_ar_is_P17.get(con_3.strip(), "")
 
         if not con_3_lab:
-            con_3_lab = sport_lab.Get_Sport_Format_xo_en_ar_is_P17(con_3.strip())
+            con_3_lab = Get_Sport_Format_xo_en_ar_is_P17(con_3.strip())
 
         if con_3_lab:
             FOF = "<<lightgreen>>SPORT_FORMTS_EN_AR_IS_P17<<lightblue>>"

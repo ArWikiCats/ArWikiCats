@@ -4,10 +4,9 @@ from __future__ import annotations
 
 import functools
 
-from ... import malists_sport_lab as sport_lab
 from ...helps.log import logger
 from ...helps.print_bot import print_put
-from ...ma_lists import SPORTS_KEYS_FOR_JOBS
+from ...ma_lists import SPORTS_KEYS_FOR_JOBS, Get_New_team_xo
 from . import team_work
 from ..o_bots.utils import resolve_suffix_template
 
@@ -34,7 +33,7 @@ def get_teams_new(team_name: str) -> str:
     print_put(f'get_teams_new team:"{normalized_team}"')
     logger.info(f"get_teams_new: Resolving team label, team: {normalized_team}")
 
-    team_label = sport_lab.Get_New_team_xo(normalized_team)
+    team_label = Get_New_team_xo(normalized_team)
 
     if not team_label:
         team_label = resolve_suffix_template(

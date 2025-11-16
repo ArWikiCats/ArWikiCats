@@ -7,7 +7,7 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 """
 
 from typing import Optional, Any, Dict, List
-from . import printe
+from .helps import printe
 from .helps.print_bot import do_print_options, print_put
 from .event_processing import new_func_lab, event_result
 

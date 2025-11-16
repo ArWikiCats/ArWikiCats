@@ -4,10 +4,9 @@ from ..p17_bots import nats
 
 import re
 import functools
-from ...ma_lists import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key
+from ...ma_lists import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key, Get_sport_formts_female_nat
 from ...ma_lists import SPORTS_KEYS_FOR_TEAM
 from ..matables_bots.bot import add_to_new_players
-from ... import malists_sport_lab as sport_lab
 from ...ma_lists import All_Nat, Nat_women
 from ..jobs_bots.get_helps import get_con_3
 
@@ -80,7 +79,7 @@ def find_nat_others(category: str, reference_category: str="") -> str:
     sport_format_key, country_start = get_con_3(normalized_category, Nat_women, "nat")
 
     if sport_format_key and country_start:
-        sport_format_label = sport_lab.Get_sport_formts_female_nat(sport_format_key)
+        sport_format_label = Get_sport_formts_female_nat(sport_format_key)
         if sport_format_label:
             category_label = sport_format_label.format(nat=Nat_women[country_start])
             logger.debug(

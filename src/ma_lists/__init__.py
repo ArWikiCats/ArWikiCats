@@ -1,22 +1,18 @@
 """
 
 """
-from .type_tables import typeTable
 from .sports_formats_2025.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .utils.match_sport_keys import match_sport_key
+from .sports_formats_national.sport_lab_nat import Get_sport_formts_female_nat
+from .sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
+
+from .type_tables import typeTable
 from .sports.olympics_data import olympics
-# from .sports.teams_new_data import TEAMS_NEW
 from .sports import SPORT_FORMTS_EN_AR_IS_P17, SPORT_FORMTS_EN_P17_AR_NAT
 from .sports.Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_JOBS
 from .sports.nat_p17 import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI
-
 from .sports.games_labs import SUMMER_WINTER_GAMES
-
-from .sports_formats_national.sport_lab_nat import Get_sport_formts_female_nat
-
-from .sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
-
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
 from .jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO, RELIGIOUS_KEYS_PP
@@ -114,7 +110,6 @@ from .mixed.bot_te_4_list import (
     en_is_P17_ar_is_al_women
 )
 
-from .utils.json_dir import open_json_file
 
 __all__ = [
     "typeTable",
@@ -122,7 +117,6 @@ __all__ = [
     "find_teams_2025",
     "match_sport_key",
     "olympics",
-    "open_json_file",
     "en_nats_to_ar_label",
     "Get_New_team_xo",
 

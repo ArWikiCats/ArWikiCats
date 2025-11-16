@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import Mapping, Tuple
 
-from ... import printe
+from ...helps import printe
 from ...helps.print_bot import print_put
 from ...ma_lists import all_country_ar, all_country_with_nat_keys_is_en, Nat_men, Nat_women
 from .utils import apply_arabic_article

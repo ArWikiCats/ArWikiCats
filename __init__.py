@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from .src.helps import printe
 from .src import (
     config,
     EventProcessor,
     event,
     event_result,
     new_func_lab,
-    printe,
     do_print_options,
     print_memory,
 )

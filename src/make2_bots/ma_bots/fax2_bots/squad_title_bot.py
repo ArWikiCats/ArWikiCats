@@ -6,8 +6,7 @@ from ..ma_bots.squad_title_bot import get_squad_title
 """
 
 from ...date_bots import with_years_bot
-from .... import malists_sport_lab as sport_lab
-from ....ma_lists import pop_of_football_lower
+from ....ma_lists import pop_of_football_lower, Get_New_team_xo
 from ....ma_lists import New_P17_Finall
 from ...fromnet.wd_bot import find_wikidata
 
@@ -18,7 +17,7 @@ from ....helps.print_bot import print_def_head, print_put
 
 
 def get_squad_title(tit: str) -> str:
-    lab = sport_lab.Get_New_team_xo(tit)
+    lab = Get_New_team_xo(tit)
 
     if not lab:
         lab = with_years_bot.Try_With_Years(tit)

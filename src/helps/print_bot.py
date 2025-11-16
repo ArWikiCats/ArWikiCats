@@ -2,7 +2,7 @@
 """
 
 """
-from .. import printe
+from . import printe
 from ..config import print_settings
 
 disable_all_printing = print_settings.disable_all_printing
