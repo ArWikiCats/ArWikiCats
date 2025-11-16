@@ -32,9 +32,9 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 def te_bot_3(category_key: str) -> str:
     arabic_label = ""
 
-    if category_key in New_Lan:
+    if category_key.lower() in New_Lan:
         print_put("<<lightblue>>>> vvvvvvvvvvvv te_bot_3 start vvvvvvvvvvvv ")
-        existing_label = New_Lan[category_key]
+        existing_label = New_Lan[category_key.lower()]
         print_put(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
         if existing_label is not None:
             if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:

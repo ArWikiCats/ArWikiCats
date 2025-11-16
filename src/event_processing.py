@@ -12,6 +12,7 @@ from .make2_bots.format_bots import change_cat
 from .make2_bots.ma_bots import event2bot, event_lab_bot, ye_ts_bot
 from .make2_bots.matables_bots.bot import cash_2022
 from . import app_settings
+# from .make2_bots.ma_bots.dodo_bots.event2bot_dodo import make_lab_dodo
 
 LABEL_PREFIX = "تصنيف"
 
@@ -38,6 +39,7 @@ class EventProcessingResult:
 def resolve_label(category: str) -> str:
     """Resolve the label using multi-step logic."""
     changed_cat = change_cat(category)
+
     is_cat_okay = filter_en.filter_cat(category)
 
     category_lab = ""

@@ -168,7 +168,7 @@ def make_lab_dodo(
             else:
                 ar = f"{country_label} {typeo_lab}"
             # ---
-            New_Lan[category_r] = ar
+            New_Lan[category_r.lower()] = ar
             print_put(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
             print_put(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
@@ -197,7 +197,7 @@ def make_lab_dodo(
     if NoLab and year and year_labe:
         # cat4_lab = work_2019(cate3, year, year_labe)
         if cat4_lab:
-            New_Lan[category_r] = cat4_lab
+            New_Lan[category_r.lower()] = cat4_lab
 
     if not NoLab:
         if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) == arlabel:

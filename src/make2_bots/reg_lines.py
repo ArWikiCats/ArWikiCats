@@ -12,7 +12,19 @@ YEARS_REGEX = (
 )
 
 regex_make_year_lab = (
-    r"(\d+)("
+    r"(\d+[−–\-]\d+|\d+)("
+    r"th century BCE|th millennium BCE|th century BC|th millennium BC|th century|th millennium"
+    r"|st century BCE|st millennium BCE|st century BC|st millennium BC|st century|st millennium"
+    r"|rd century BCE|rd millennium BCE|rd century BC|rd millennium BC|rd century|rd millennium"
+    r"|nd century BCE|nd millennium BCE|nd century BC|nd millennium BC|nd century|nd millennium"
+    r"| century BCE| millennium BCE| century BC| millennium BC| century| millennium|s BCE| BCE"
+    r"|s BC| BC|s"
+    r")"
+)
+
+
+regex_make_year_lab_old = (
+    r"(\d+[−–\-]\d+|\d+)("
     r"th century BCE|th millennium BCE|th century BC|th millennium BC|th century|th millennium"
     r"|st century BCE|st millennium BCE|st century BC|st millennium BC|st century|st millennium"
     r"|rd century BCE|rd millennium BCE|rd century BC|rd millennium BC|rd century|rd millennium"
@@ -23,6 +35,14 @@ regex_make_year_lab = (
 )
 
 yy = (
+    r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?"
+    r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?"
+    r"|\d+[−–\-]\d+"
+    r"|\d+s\s*(?:BCE*)?"
+    r"|\d+\s*(?:BCE*)?"
+)
+
+yy_old = (
     r"\d+th century BCE|\d+th millennium BCE|\d+th century BC|\d+th millennium BC|\d+th century|\d+th millennium"
     r"|\d+st century BCE|\d+st millennium BCE|\d+st century BC|\d+st millennium BC|\d+st century|\d+st millennium"
     r"|\d+rd century BCE|\d+rd millennium BCE|\d+rd century BC|\d+rd millennium BC|\d+rd century|\d+rd millennium"
