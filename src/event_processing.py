@@ -9,7 +9,8 @@ from .make2_bots.co_bots import filter_en
 from .make2_bots.date_bots import labs_years
 from .fix import fixtitle
 from .make2_bots.format_bots import change_cat
-from .make2_bots.ma_bots import event2bot, event_lab_bot, ye_ts_bot
+from .make2_bots.ma_bots import event_lab_bot, ye_ts_bot
+from .rules.factory import create_event2_rule_engine
 from .make2_bots.matables_bots.bot import cash_2022
 from . import app_settings
 
@@ -60,7 +61,10 @@ def resolve_label(category: str) -> str:
             category_lab = start_ylab
 
         if not category_lab:
-            category_lab = event2bot.event2(changed_cat)
+            rule_engine = create_event2_rule_engine()
+            label = rule_engine.apply(changed_cat)
+            if label is not None:
+                category_lab = label
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)
