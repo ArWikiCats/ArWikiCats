@@ -19,7 +19,7 @@ if not from_year and cat_year:
 """
 
 import re
-from ...helps.print_bot import output_main
+from ..helps.log import logger
 
 
 class LabsYears:
@@ -52,8 +52,8 @@ class LabsYears:
         if canonical_label:
             from_year = canonical_label.replace("2020", cat_year)
             self.lookup_count += 1
-            output_main(f"<<green>> lab_from_year: {self.lookup_count}")
-            output_main(f"\t<<green>> {category_r=} , {from_year=}")
+            logger.info(f"<<green>> lab_from_year: {self.lookup_count}")
+            logger.info(f"\t<<green>> {category_r=} , {from_year=}")
 
         return cat_year, from_year
 
@@ -73,8 +73,8 @@ class LabsYears:
         cat_key = category_r.replace(cat_year, "2020")
         lab_key = category_lab.replace(cat_year, "2020")
 
-        output_main("<<yellow>> lab_from_year_add:")
-        output_main(f"\t<<yellow>> {cat_key=} , {lab_key=}")
+        logger.info("<<yellow>> lab_from_year_add:")
+        logger.info(f"\t<<yellow>> {cat_key=} , {lab_key=}")
 
         self.category_templates[cat_key] = lab_key
 

@@ -15,7 +15,7 @@ from ...helps import printe
 from ... import app_settings
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
-from ..bots import tmp_bot
+from .. import tmp_bot
 from ..date_bots import with_years_bot
 from ..o_bots import univer  # univer.te_universities(cate)
 from .country_bot import get_country

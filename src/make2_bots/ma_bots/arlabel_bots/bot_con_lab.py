@@ -7,7 +7,7 @@
 from .. import country2_lab
 from ....helps.print_bot import print_put
 from ....translations import New_female_keys, New_P17_Finall, pf_keys2
-from ...bots import tmp_bot
+from ... import tmp_bot
 from ...date_bots import year_lab
 from ...format_bots import for_table
 from ...fromnet import kooora
@@ -31,9 +31,11 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
         label = pf_keys2.get(country_lower, "")
     if not label:
         label = get_pop_All_18(country_lower, "")
-    if not label:
+
+    if not label and "-" in country_lower:
         label = get_pop_All_18(country_lower.replace("-", " "), "")
-    if not label:
+
+    if not label and "-" in country_lower:
         label = New_female_keys.get(country_lower.replace("-", " "), "")
 
     if label == "" and "kingdom-of" in country_lower:

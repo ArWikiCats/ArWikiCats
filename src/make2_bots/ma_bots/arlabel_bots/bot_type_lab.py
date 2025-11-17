@@ -8,7 +8,7 @@ from .. import country2_lab
 from .. import event2bot
 from ....helps.print_bot import print_put, output_test
 from ....translations import New_P17_Finall, RELIGIOUS_KEYS_PP, New_female_keys
-from ...bots import tmp_bot
+from ... import tmp_bot
 from ...format_bots import Tabl_with_in
 from ...jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ...media_bots.films_bot import te_films

@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.date_bots.labs_years import LabsYears
+from src.make2_bots.labs_years import LabsYears
 
 
 def test_labsyears():

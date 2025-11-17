@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.event_lab_bot import event_Lab
+from src.main_processers.event_lab_bot import event_Lab
 
 def test_event_lab():
     # Test with a basic input
