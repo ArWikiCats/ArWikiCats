@@ -3,7 +3,7 @@ from . import fax2
 """
 
 from typing import Tuple
-from ....helps.log import logger
+from ...helps.log import logger
 
 from .end_start_match import to_get_startswith, to_get_endswith, footballers_get_endswith
 from .utils import get_from_starts_dict, get_from_endswith_dict

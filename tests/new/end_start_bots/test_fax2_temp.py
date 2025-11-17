@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.end_start_bots.fax2_temp import get_templates_fo
+from src.new.end_start_bots.fax2_temp import get_templates_fo
 
 
 @pytest.mark.fast

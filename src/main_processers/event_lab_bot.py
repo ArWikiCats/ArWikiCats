@@ -2,9 +2,9 @@
 !
 """
 
-from ..make2_bots.ma_bots.end_start_bots import fax2
-from ..make2_bots.ma_bots.end_start_bots.fax2_temp import get_templates_fo
-from ..make2_bots.ma_bots.end_start_bots.fax2_episodes import get_episodes
+from ..new.end_start_bots import fax2
+from ..new.end_start_bots.fax2_temp import get_templates_fo
+from ..new.end_start_bots.fax2_episodes import get_episodes
 
 from ..make2_bots.ma_bots.squad_title_bot import get_squad_title
 from ..fix import fixtitle
