@@ -51,7 +51,7 @@ def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
 
     if category_lab:
         logger.debug(f'<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}')
-        print(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
+        logger.debug(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
 
     return category_lab
 
@@ -112,7 +112,7 @@ def event_Lab(cate_r: str) -> str:
         category_lab = get_pop_All_18(category3, "")
 
     if list_of_cat == "" and category_lab == "":
-        # print("translate_general_category 10")
+        # logger.debug("translate_general_category 10")
         category_lab = ye_ts_bot.translate_general_category(category)
 
     if not category_lab:
@@ -124,19 +124,14 @@ def event_Lab(cate_r: str) -> str:
     if category_lab == "" and Find_wd:
         category_lab = find_wikidata(category3)
 
-    for pri_ff, vas in pp_ends_with_pase.items():
-        if list_of_cat == "" and category_lab == "":
-            if category3.endswith(pri_ff.lower()):
+    for data in [pp_ends_with_pase, pp_ends_with]:
+        for pri_ff, vas in data.items():
+            suffix = pri_ff.lower()
+            if category3.endswith(suffix):
                 logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
                 list_of_cat = vas
-                category3 = category3[: -len(pri_ff)].strip()
-
-    for pri_ff, vasv in pp_ends_with.items():
-        if list_of_cat == "" and category_lab == "":
-            if category3.endswith(pri_ff.lower()):
-                logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
-                list_of_cat = vasv
-                category3 = category3[: -len(pri_ff)].strip()
+                category3 = category3[: -len(suffix)].strip()
+                break
 
     # work with list_of_cat
     if not category_lab:
@@ -156,7 +151,7 @@ def event_Lab(cate_r: str) -> str:
         category_lab = tmp_bot.Work_Templates(orginal_category3)
     # ---
     if not category_lab:
-        # print("translate_general_category 11")
+        # logger.debug("translate_general_category 11")
         category_lab = ye_ts_bot.translate_general_category(orginal_category3)
 
     if not category_lab:

@@ -21,7 +21,7 @@ def get_templates_fo(category3: str) -> Tuple[str, str]:
         "squad templates": "قوالب تشكيلات {}",
     }
 
-    for key, lab in dict_temps.items():
+    for key, lab in sorted(dict_temps.items(), key=lambda item: len(item[0]), reverse=True):
         if category3.endswith(key):
             list_of_cat = lab
             # remove the key ONLY from the end
