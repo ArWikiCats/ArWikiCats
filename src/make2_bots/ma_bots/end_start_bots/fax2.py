@@ -10,8 +10,6 @@ from .... import app_settings
 
 from .end_start_match import to_get_startswith, to_get_endswith, footballers_get_endswith
 from .utils import get_from_starts_dict, get_from_endswith_dict
-from .fax2_temp import get_templates_fo
-from .fax2_episodes import get_episodes
 
 
 def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=app_settings.find_stubs) -> Tuple[str, bool, bool, bool, str]:
@@ -34,16 +32,9 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=app_
             list_of_cat = "عضوات {}"
             category3 = category3[len("women members of "):]
 
-        elif category3.endswith(" episodes"):
-            Find_wd = True
-            list_of_cat, category3 = get_episodes(category3, category3_nolower)
-
         elif category3.endswith(" footballers"):
             foot_ballers = True
             category3, list_of_cat, Find_wd, Find_ko = get_from_endswith_dict(category3, footballers_get_endswith)
-
-        elif category3.endswith(" templates"):
-            list_of_cat, category3 = get_templates_fo(category3)
 
         elif category3.endswith(" stubs") and find_stubs:
             list_of_cat = "بذرة {}"

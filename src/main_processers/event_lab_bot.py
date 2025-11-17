@@ -3,6 +3,9 @@
 """
 
 from ..make2_bots.ma_bots.end_start_bots import fax2
+from ..make2_bots.ma_bots.end_start_bots.fax2_temp import get_templates_fo
+from ..make2_bots.ma_bots.end_start_bots.fax2_episodes import get_episodes
+
 from ..make2_bots.ma_bots.end_start_bots.squad_title_bot import get_squad_title
 from ..fix import fixtitle
 from ..helps.log import logger
@@ -77,7 +80,15 @@ def event_Lab(cate_r: str) -> str:
     Find_wd, Find_ko = False, False
     # ---
     if not category_lab:
-        list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = fax2.get_list_of_and_cat3(category3, category3_nolower)
+        if category3.endswith(" episodes"):
+            Find_wd = True
+            list_of_cat, category3 = get_episodes(category3, category3_nolower)
+
+        elif category3.endswith(" templates"):
+            list_of_cat, category3 = get_templates_fo(category3)
+
+        else:
+            list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = fax2.get_list_of_and_cat3(category3, category3_nolower)
     # ---
     # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون
     if category_lab == "" and list_of_cat == "لاعبو {}":
