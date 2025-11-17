@@ -1,4 +1,15 @@
 
+## [#74](https://github.com/MrIbrahem/make2_new/pull/74) - 2025-11-17
+
+* **Bug Fixes**
+  * Enhanced input validation and type-checking across modules to prevent processing of invalid data.
+  * Fixed caching issue with dictionary-type parameters.
+
+* **Refactor**
+  * Streamlined country data resolution pipeline with centralized logic.
+  * Optimized data structure handling for improved performance.
+
+
 ## [#73](https://github.com/MrIbrahem/make2_new/pull/73) - 2025-11-17
 
 * **Refactor**
