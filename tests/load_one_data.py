@@ -8,16 +8,18 @@ from src import new_func_lab_final_label
 
 
 def dump_diff(data, file_name):
+    if not data:
+        return
+
     diff_data_path = Path(__file__).parent / "diff_data"
     diff_data_path.mkdir(exist_ok=True, parents=True)
     file_path = diff_data_path / f"{file_name}.json"
 
-    if data or file_path.exists():
-        try:
-            with open(file_path, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=4)
-        except Exception as e:
-            print(f"Error writing diff data: {e}")
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Error writing diff data: {e}")
 
 
 def ye_test_one_dataset(dataset: dict, callback : Callable[[str], str]):
