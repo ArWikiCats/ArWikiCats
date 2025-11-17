@@ -1,18 +1,15 @@
 """
 from . import fax2
-# list_of_cat, Find_wd, Find_ko, foot_ballers, category_lab = fax2.get_list_of_and_cat3(category3, category3_nolower)
-
 """
 
 from typing import Tuple
 from ....helps.log import logger
-from .... import app_settings
 
 from .end_start_match import to_get_startswith, to_get_endswith, footballers_get_endswith
 from .utils import get_from_starts_dict, get_from_endswith_dict
 
 
-def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=app_settings.find_stubs) -> Tuple[str, bool, bool, bool, str]:
+def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=False) -> Tuple[str, bool, bool, bool, str]:
     foot_ballers = False
     Find_wd = False
     Find_ko = False

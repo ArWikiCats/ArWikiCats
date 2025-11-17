@@ -23,6 +23,7 @@ from ..make2_bots.o_bots import univer
 from ..make2_bots.ma_bots import list_cat_format, ye_ts_bot
 from ..make2_bots.ma_bots.country2_bot import Get_country2
 from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
+from ..config import app_settings
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
@@ -88,7 +89,7 @@ def event_Lab(cate_r: str) -> str:
             list_of_cat, category3 = get_templates_fo(category3)
 
         else:
-            list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = fax2.get_list_of_and_cat3(category3, category3_nolower)
+            list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = fax2.get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
     # ---
     # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون
     if category_lab == "" and list_of_cat == "لاعبو {}":
