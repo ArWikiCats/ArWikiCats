@@ -63,6 +63,7 @@ def test_geography_by_3():
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
+@pytest.mark.slow
 def test_geography_by_4():
     data = {
         "Category:Multi-sport clubs by country": "تصنيف:أندية متعددة الرياضات حسب البلد",

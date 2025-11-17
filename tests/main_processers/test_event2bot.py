@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.main_processers.event2bot import event2_d2, dodo, event2
+from src.main_processers.event2bot import event2_d2, stubs_label, event2
 
 def test_event2_d2():
     # Test with a basic input
@@ -18,17 +18,17 @@ def test_event2_d2():
     result_empty = event2_d2("")
     assert isinstance(result_empty, str)
 
-def test_dodo():
+def test_stubs_label():
     # Test with a basic input
-    result = dodo("test category")
+    result = stubs_label("test category")
     assert isinstance(result, str)
 
     # Test with stubs format
-    result_stubs = dodo("test stubs")
+    result_stubs = stubs_label("test stubs")
     assert isinstance(result_stubs, str)
 
     # Test with empty string
-    result_empty = dodo("")
+    result_empty = stubs_label("")
     assert isinstance(result_empty, str)
 
 def test_event2():
