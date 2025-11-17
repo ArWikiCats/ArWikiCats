@@ -1,7 +1,6 @@
 """
-!
+EventLab Bot - A class-based implementation to handle category labeling
 """
-
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new.end_start_bots.fax2_episodes import get_episodes
@@ -25,10 +24,18 @@ from ..config import app_settings
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
+    """
+    Process squad-related category labels.
+
+    Args:
+        category3_o (str): The original category string
+
+    Returns:
+        str: The processed category label or empty string
+    """
     category_lab = ""
     list_of_cat = ""
-    category3 = category3_o
-    category3 = category3.strip()
+    category3 = category3_o.strip()
 
     if category3.endswith(" squad templates"):
         list_of_cat = "قوالب تشكيلات {}"
@@ -51,105 +58,204 @@ def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
     return category_lab
 
 
-def event_Lab(cate_r: str) -> str:
-    category_lab = ""
-    category = cate_r.lower()
-    category = category.replace("_", " ")
-    if not category.startswith("category:"):
-        category = f"category:{category}"
-    category = change_cat(category)
+class EventLabResolver:
+    """
+    A class to handle event labelling functionality.
+    Processes category titles and generates appropriate Arabic labels.
+    """
 
-    category3_nolower = cate_r
-    if category3_nolower.startswith("Category:"):
-        category3_nolower = category3_nolower.split("Category:")[1]
+    def __init__(self):
+        """Initialize the EventLabResolver with default values."""
+        self.find_wd = False
+        self.find_ko = False
+        self.foot_ballers = False
 
-    category3 = category.lower()
-    if category3.startswith("category:"):
-        category3 = category3.split("category:")[1]
+    def _process_category_formatting(self, cate_r: str) -> tuple[str, str, str]:
+        """
+        Process and format the input category string.
 
-    orginal_category3 = category3
-    # ---
-    if not category_lab:
-        category_lab = get_list_of_and_cat3_with_lab2(category3)
-    # ---
-    Find_wd, Find_ko, foot_ballers = False, False, False
-    # ---
-    list_of_cat = ""
-    # ---
-    if not category_lab:
+        Args:
+            cate_r (str): The raw category string
+
+        Returns:
+            tuple: Formatted category, lowercase version without prefix, original without prefix
+        """
+        category = cate_r.lower()
+        category = category.replace("_", " ")
+        if not category.startswith("category:"):
+            category = f"category:{category}"
+        category = change_cat(category)
+
+        category3_nolower = cate_r
+        if category3_nolower.startswith("Category:"):
+            category3_nolower = category3_nolower.split("Category:")[1]
+
+        category3 = category.lower()
+        if category3.startswith("category:"):
+            category3 = category3.split("category:")[1]
+
+        return category, category3_nolower, category3
+
+    def _handle_special_suffixes(self, category3: str, category3_nolower: str) -> tuple[str, str, bool]:
+        """
+        Handle categories with special suffixes like episodes or templates.
+
+        Args:
+            category3 (str): The lowercase category string
+            category3_nolower (str): The original category string without prefix
+
+        Returns:
+            tuple: List of category, updated category3, and whether Wikidata was found
+        """
+        list_of_cat = ""
+        find_wd = False
+
         if category3.endswith(" episodes"):
-            Find_wd = True
+            find_wd = True
             list_of_cat, category3 = get_episodes(category3, category3_nolower)
 
         elif category3.endswith(" templates"):
             list_of_cat, category3 = get_templates_fo(category3)
 
         else:
-            # list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = fax2.get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
-            list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
-    # ---
-    # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون
-    if category_lab == "" and list_of_cat == "لاعبو {}":
-        category_lab = Get_country2(orginal_category3)
-        if category_lab:
-            list_of_cat = ""
+            # Process with the main category processing function
+            list_of_cat, find_wd, self.find_ko, self.foot_ballers, category3 = get_list_of_and_cat3(
+                category3,
+                category3_nolower,
+                app_settings.find_stubs
+            )
 
-    if not category_lab:
+        return list_of_cat, category3, find_wd
+
+    def _get_country_based_label(self, original_category3: str, list_of_cat: str) -> tuple[str, str]:
+        """
+        Get country-based labels for specific categories like basketball players.
+
+        Args:
+            original_category3 (str): The original category string
+            list_of_cat (str): Current list of category value
+
+        Returns:
+            tuple: Updated category label and list of category
+        """
+        category_lab = ""
+
+        # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
+        if list_of_cat == "لاعبو {}":
+            category_lab = Get_country2(original_category3)
+            if category_lab:
+                list_of_cat = ""
+
+        return category_lab, list_of_cat
+
+    def _apply_general_label_functions(self, category3: str, find_wd: bool, find_ko: bool) -> str:
+        """
+        Apply various general label functions in sequence.
+
+        Args:
+            category3 (str): The category string to process
+            find_wd (bool): Whether Wikidata was found
+            find_ko (bool): Whether Kooora was found
+
+        Returns:
+            str: The processed category label or empty string
+        """
+        # Try different label functions in sequence
         category_lab = univer.te_universities(category3)
+        if category_lab:
+            return category_lab
 
-    if not category_lab:
         category_lab = year_lab.make_year_lab(category3)
+        if category_lab:
+            return category_lab
 
-    if not category_lab:
         category_lab = Get_New_team_xo(category3)
+        if category_lab:
+            return category_lab
 
-    if category_lab == "" and Find_wd:
-        category_lab = get_pop_All_18(category3, "")
+        if find_wd:
+            category_lab = get_pop_All_18(category3, "")
+            if category_lab:
+                return category_lab
 
-    if list_of_cat == "" and category_lab == "":
-        # logger.debug("translate_general_category 10")
-        category_lab = ye_ts_bot.translate_general_category(category)
+        # If no label found yet, try general translation
+        if not category_lab:
+            category_lab = ye_ts_bot.translate_general_category(f"category:{category3}")
+        if category_lab:
+            return category_lab
 
-    if not category_lab:
         category_lab = Get_country2(category3)
+        if category_lab:
+            return category_lab
 
-    if category_lab == "" and Find_ko:
-        category_lab = kooora.kooora_team(category3)
+        if find_ko:
+            category_lab = kooora.kooora_team(category3)
+            if category_lab:
+                return category_lab
 
-    if category_lab == "" and Find_wd:
-        category_lab = find_wikidata(category3)
+        if find_wd:
+            category_lab = find_wikidata(category3)
 
-    for data in [pp_ends_with_pase, pp_ends_with]:
-        for pri_ff, vas in data.items():
-            suffix = pri_ff.lower()
-            if category3.endswith(suffix):
-                logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
-                list_of_cat = vas
-                category3 = category3[: -len(suffix)].strip()
+        return category_lab
+
+    def _handle_suffix_patterns(self, category3: str) -> tuple[str, str]:
+        """
+        Handle categories that match predefined suffix patterns.
+
+        Args:
+            category3 (str): The category string to process
+
+        Returns:
+            tuple: List of category and updated category string
+        """
+        list_of_cat = ""
+
+        for data in [pp_ends_with_pase, pp_ends_with]:
+            for pri_ff, vas in data.items():
+                suffix = pri_ff.lower()
+                if category3.endswith(suffix):
+                    logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
+                    list_of_cat = vas
+                    category3 = category3[: -len(suffix)].strip()
+                    break
+            if list_of_cat:
                 break
 
-    # work with list_of_cat
-    if not category_lab:
-        category_lab = event_Lab_seoo("", category3)
+        return list_of_cat, category3
 
-    if list_of_cat and category_lab:
-        category_lab, list_of_cat = list_cat_format.list_of_cat_func(cate_r, category_lab, list_of_cat, foot_ballers)
+    def _process_list_category(self, cate_r: str, category_lab: str, list_of_cat: str) -> str:
+        """
+        Process list categories and format them appropriately.
 
-    # ---
-    # dont work with list_of_cat
-    if list_of_cat and not category_lab:
-        list_of_cat = ""
-        category_lab = event_Lab_seoo(cate_r, orginal_category3)
+        Args:
+            cate_r (str): Original category string
+            category_lab (str): Current category label
+            list_of_cat (str): List of category template
 
-    # ---
-    if not category_lab:
-        category_lab = tmp_bot.Work_Templates(orginal_category3)
-    # ---
-    if not category_lab:
-        # logger.debug("translate_general_category 11")
-        category_lab = ye_ts_bot.translate_general_category(orginal_category3)
+        Returns:
+            str: Updated category label
+        """
+        if list_of_cat and category_lab:
+            category_lab, list_of_cat = list_cat_format.list_of_cat_func(
+                cate_r,
+                category_lab,
+                list_of_cat,
+                self.foot_ballers
+            )
 
-    if not category_lab:
+        return category_lab
+
+    def _handle_cricketer_categories(self, category3: str, category3_nolower: str) -> str:
+        """
+        Handle special cricket player categories.
+
+        Args:
+            category3 (str): The lowercase category string
+            category3_nolower (str): The original category string without prefix
+
+        Returns:
+            str: The processed category label or empty string
+        """
         category32 = ""
         list_of_cat2 = ""
 
@@ -162,14 +268,120 @@ def event_Lab(cate_r: str) -> str:
 
         if list_of_cat2 and category32:
             category3_lab = New_P17_Finall.get(category32.lower(), "")
-
             if category3_lab:
-                category_lab = list_of_cat2.format(category3_lab)
+                return list_of_cat2.format(category3_lab)
 
-    if category_lab:
-        # category_lab = "تصنيف:" + fixlab(category_lab, en=cate_r)
-        fixed = fixtitle.fixlab(category_lab, en=cate_r)
-        category_lab = f"تصنيف:{fixed}"
-        # save(Path(__file__).parent / "event_Lab_examples.json", [{cate_r: category_lab}])
+        return ""
 
-    return category_lab
+    def _finalize_category_label(self, category_lab: str, cate_r: str) -> str:
+        """
+        Finalize the category label by applying final formatting.
+
+        Args:
+            category_lab (str): The current category label
+            cate_r (str): Original category string
+
+        Returns:
+            str: The final formatted category label
+        """
+        if category_lab:
+            # Apply final formatting and prefix
+            fixed = fixtitle.fixlab(category_lab, en=cate_r)
+            category_lab = f"تصنيف:{fixed}"
+
+        return category_lab
+
+    def process_category(self, cate_r: str) -> str:
+        """
+        Main method to process a category and return its Arabic label.
+
+        Args:
+            cate_r (str): The raw category string to process
+
+        Returns:
+            str: The Arabic label for the category
+        """
+        # Process and format the category
+        category, category3_nolower, category3 = self._process_category_formatting(cate_r)
+        original_category3 = category3
+
+        # First, try to get squad-related labels
+        category_lab = get_list_of_and_cat3_with_lab2(category3)
+
+        # Initialize flags
+        self.find_wd = False
+        self.find_ko = False
+        self.foot_ballers = False
+        list_of_cat = ""
+
+        # Handle special suffixes
+        if not category_lab:
+            list_of_cat, category3, self.find_wd = self._handle_special_suffixes(
+                category3,
+                category3_nolower
+            )
+
+        # Handle country-based labels (e.g., basketball players from a country)
+        if not category_lab and list_of_cat:
+            country_lab, list_of_cat = self._get_country_based_label(original_category3, list_of_cat)
+            if country_lab:
+                category_lab = country_lab
+
+        # Apply various general label functions
+        if not category_lab:
+            category_lab = self._apply_general_label_functions(category3, self.find_wd, self.find_ko)
+
+        # Handle categories that match predefined suffix patterns
+        if not category_lab and not list_of_cat:
+            list_of_cat, category3 = self._handle_suffix_patterns(category3)
+
+        # Process with event_Lab_seoo if no label found yet
+        if not category_lab:
+            category_lab = event_Lab_seoo("", category3)
+
+        # Process list categories if both exist
+        if list_of_cat and category_lab:
+            category_lab = self._process_list_category(cate_r, category_lab, list_of_cat)
+
+        # Handle case where list exists but no label
+        if list_of_cat and not category_lab:
+            list_of_cat = ""
+            category_lab = event_Lab_seoo(cate_r, original_category3)
+
+        # Try template processing if no label yet
+        if not category_lab:
+            category_lab = tmp_bot.Work_Templates(original_category3)
+
+        # Try general translation again if still no label
+        if not category_lab:
+            category_lab = ye_ts_bot.translate_general_category(original_category3)
+
+        # Handle cricket player categories
+        if not category_lab:
+            cricket_label = self._handle_cricketer_categories(category3, category3_nolower)
+            if cricket_label:
+                category_lab = cricket_label
+
+        # Finalize the label
+        category_lab = self._finalize_category_label(category_lab, cate_r)
+
+        return category_lab
+
+
+# Create global instance for backward compatibility
+
+
+resolver = EventLabResolver()
+
+
+def event_Lab(cate_r: str) -> str:
+    """
+    Backward compatibility function that wraps the EventLabResolver class.
+
+    Args:
+        cate_r (str): The raw category string to process
+
+    Returns:
+        str: The Arabic label for the category
+    """
+    return resolver.process_category(cate_r)
