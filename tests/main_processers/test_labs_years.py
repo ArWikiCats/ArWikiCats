@@ -40,7 +40,7 @@ def test_lab_from_year_no_year():
 def test_lab_from_year_year_detected_but_no_template():
     """Should extract the year but return empty second value if template not found."""
     bot = LabsYears()
-    result = bot.lab_from_year("Category:Films in 1999")
+    result = bot.lab_from_year("Category:Works in 1999")
     assert result == ("1999", "")
 
 
@@ -98,6 +98,7 @@ def test_lab_from_year_template_exists_with_different_year():
 def test_lab_from_year_add_missing_real_year():
     """Should do nothing if cat_year is not inside category_lab."""
     bot = LabsYears()
+    bot.category_templates = {}
 
     bot.lab_from_year_add(
         category_r="Category:Something in 2015",

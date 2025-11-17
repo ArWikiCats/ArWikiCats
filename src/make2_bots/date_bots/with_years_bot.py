@@ -150,6 +150,10 @@ def Try_With_Years(category_text: str) -> str:
 
     label = ""
     category_text = category_text.strip()
+
+    if category_text.isdigit():
+        return category_text
+
     category_text = category_text.replace("−", "-")
 
     if label := _handle_political_terms(category_text):

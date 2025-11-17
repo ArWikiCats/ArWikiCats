@@ -150,6 +150,7 @@ en_return_ar = {
     en_return_ar.items(),
     ids=[x for x in en_return_ar.keys()]
 )
+@pytest.mark.fast
 def test_match_en_return_ar(en_text, expected):
     """Test various English time expressions for correct Arabic conversion."""
     result = match_en_return_ar(en_text)

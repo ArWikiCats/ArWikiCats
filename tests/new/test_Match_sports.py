@@ -33,6 +33,7 @@ examples = [
     examples,
     ids=[k[0] for k in examples],
 )
+@pytest.mark.fast
 def test_resolve_team_label(category: str, expected: str) -> None:
 
     assert resolve_team_label(category) == expected

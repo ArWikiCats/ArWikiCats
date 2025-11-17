@@ -1,4 +1,17 @@
 
+## [#69](https://github.com/MrIbrahem/make2_new/pull/69) - 2025-11-17
+
+* **New Features**
+  - Streamlined event/category processing pipeline with batch label helpers
+  - New parsing utilities for templates, episodes, and footballer/player suffixes
+
+* **Improvements**
+  - More consistent category normalization and standardized label prefixing
+  - Reduced logging verbosity for test/output flows
+  - Expanded translation entries for several cities/clubs
+
+* **Tests**
+  - Added and reorganized unit tests covering parsing, episodes, templates, and label resolution
 ## [#68](https://github.com/MrIbrahem/make2_new/pull/68) - 2025-11-17
 
 * **Refactor**
