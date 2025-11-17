@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from .nat_p17 import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI
+!
 """
 
 

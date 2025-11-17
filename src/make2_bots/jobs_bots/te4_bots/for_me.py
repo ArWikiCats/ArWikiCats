@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from .te4_bots.for_me import Work_for_me
+!
 """
 
 import re

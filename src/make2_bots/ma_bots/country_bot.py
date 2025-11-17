@@ -66,7 +66,6 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
         prefix_labels = {
             "women's ": "نسائية",
             "men's ": "رجالية",
-            "fasa ": "فاسااا",
             "non-combat ": "غير قتالية",
         }
 

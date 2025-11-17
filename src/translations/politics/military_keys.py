@@ -1,8 +1,7 @@
+#!/usr/bin/python3
 """
-from .military_keys import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
-
+!
 """
-
 from .ministers import (
     ministrs_for_military_format_men,
     ministrs_for_en_is_P17_ar_is_mens,

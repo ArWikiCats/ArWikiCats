@@ -1,5 +1,6 @@
+#!/usr/bin/python3
 """
-from  make.make2_bots.fromnet.wd_bot import find_wikidata
+!
 """
 
 import functools

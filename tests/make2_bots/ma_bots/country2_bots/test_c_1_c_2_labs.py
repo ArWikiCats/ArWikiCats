@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.c2_bots.c_1_c_2_labs import check_sources, c_1_1_lab, c_2_1_lab
+from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import check_sources, c_1_1_lab, c_2_1_lab
 
 def test_check_sources():
     # Test with a basic input

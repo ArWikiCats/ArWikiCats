@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-from .cn_lab import make_cnt_lab
-
+!
 """
 
 import re

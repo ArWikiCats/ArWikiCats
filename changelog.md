@@ -1,4 +1,23 @@
 
+## [#68](https://github.com/MrIbrahem/make2_new/pull/68) - 2025-11-17
+
+* **Refactor**
+  * Reorganized internal module structure for better code maintainability and clarity.
+  * Consolidated category labeling logic into streamlined components.
+  * Simplified API signatures to improve consistency across bot modules.
+  * Improved logging infrastructure for better system monitoring.
+
+* **Bug Fixes**
+  * Removed erroneous internal imports that could cause module initialization issues.
+
+## [#67](https://github.com/MrIbrahem/make2_new/pull/67) - 2025-11-17
+
+* **Refactor**
+  * Large internal reorganization: many modules and tests now reference a consolidated "translations" package and a new "translations_formats" area.
+  * Formatting utility relocated into the translations_formats package; legacy formatting module removed.
+  * Helper imports consolidated under a helps area.
+  * No changes to public APIs or end-user behavior; functionality and external interfaces remain the same.
+
 ## [#65](https://github.com/MrIbrahem/make2_new/pull/65) - 2025-11-16
 
 * **Refactor [Nationality.py](src/translations/nats/Nationality.py)**

@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.c2_bots.cn_lab import make_cnt_lab
+from src.make2_bots.ma_bots.country2_bots.cn_lab import make_cnt_lab
 
 def test_make_cnt_lab():
     # Test with basic inputs

@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-
-from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
-
+!
 """
 
 import re
@@ -19,7 +17,7 @@ from ...o_bots import bys, parties_bot
 from ...sports_bots import sport_lab_suffixes
 from ...p17_bots import nats
 from ...sports_bots import team_work
-from .. import country2_lab, country_bot
+from .. import country2_lab
 
 
 def check_sources(cone_1: str) -> str:
@@ -41,7 +39,6 @@ def check_sources(cone_1: str) -> str:
 def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     """Retrieve a label based on the given parameters."""
 
-    con_1_no_lower = cone_1.strip()
     cone_1 = cone_1.strip().lower()
 
     c_1_l = get_pop_All_18(cone_1, "")
@@ -57,7 +54,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
         c_1_l = parties_bot.get_parties_lab(cone_1)
 
     if not c_1_l:
-        c_1_l = team_work.Get_team_work_Club(con_1_no_lower)
+        c_1_l = team_work.Get_team_work_Club(cone_1)
 
     if cone_1 == "women" and tat_o.strip() == "from":
         c_1_l = "نساء"
@@ -97,8 +94,6 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
         c_1_l = pop_format[cone_1]
 
     if not c_1_l:
-        c_1_l = country_bot.Get_c_t_lab(cone_1, "", Type="Type_lab")
-    if not c_1_l:
         c_1_l = get_KAKO(cone_1)
 
     if not c_1_l:
@@ -109,7 +104,6 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
 def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     """Retrieve a label based on the provided cone identifier."""
 
-    con_2_no_lower = cone_2.strip()
     cone_2 = cone_2.strip().lower()
 
     c_2_l = get_pop_All_18(cone_2, "")
@@ -129,7 +123,7 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
     if c_2_l == "" and " and " in cone_2:
         c_2_l = bys.get_and_label(cone_2)
     if not c_2_l:
-        c_2_l = team_work.Get_team_work_Club(con_2_no_lower)
+        c_2_l = team_work.Get_team_work_Club(cone_2)
 
     if not c_2_l:
         c_2_l = get_KAKO(cone_2)
@@ -148,7 +142,5 @@ def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
         c_2_l = centries_years_dec.get(cone_2, "")
     if c_2_l == "" and With_Years:
         c_2_l = with_years_bot.Try_With_Years(cone_2)
-    if not c_2_l:
-        c_2_l = country_bot.Get_c_t_lab(cone_2, "")
 
     return c_2_l

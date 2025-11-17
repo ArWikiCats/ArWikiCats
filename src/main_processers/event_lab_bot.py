@@ -1,26 +1,24 @@
 """
-Usage:
-from ..ma_bots import event_lab_bot
-# category_lab = event_lab_bot.event_Lab(cate_r)
-
+!
 """
 
-from ...fix import fixtitle
-from ...helps.print_bot import print_put
-from ...translations import New_P17_Finall, Get_New_team_xo
-from ..bots import tmp_bot
-from ..date_bots import year_lab
-from ..format_bots import change_cat, pp_ends_with, pp_ends_with_pase
-from ..fromnet import kooora
-from ..fromnet.wd_bot import find_wikidata
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..o_bots import univer
+from ..make2_bots.ma_bots.end_start_bots import fax2
+from ..fix import fixtitle
+from ..helps.print_bot import print_put
+from ..translations import New_P17_Finall, Get_New_team_xo
+from ..make2_bots import tmp_bot
+from ..make2_bots.date_bots import year_lab
+from ..make2_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
+from ..make2_bots.fromnet import kooora
+from ..make2_bots.fromnet.wd_bot import find_wikidata
+from ..make2_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make2_bots.o_bots import univer
 
 # ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
 #  (most likely due to a circular import) (make2_bots.ma_bots\ye_ts_bot.py)
-from . import fax2, list_cat_format, ye_ts_bot
-from .country2_bot import Get_country2
-from .lab_seoo_bot import event_Lab_seoo
+from ..make2_bots.ma_bots import list_cat_format, ye_ts_bot
+from ..make2_bots.ma_bots.country2_bot import Get_country2
+from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
 
 
 def event_Lab(cate_r: str) -> str:

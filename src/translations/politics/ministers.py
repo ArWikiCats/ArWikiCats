@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-from .ministers import keyses_without_in, minister_keyse, ministrees_keysse, ministrs_for_en_is_P17_ar_is_mens, ministrs_for_military_format_men, ministrs_for_military_format_women, ministrs_keys, ministrs_tab_for_Jobs_2020, ministrs_tab_for_pop_format
+!
 """
 
 

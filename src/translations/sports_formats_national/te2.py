@@ -1,7 +1,7 @@
+#!/usr/bin/python3
 """
-from .te2 import New_For_nat_female_xo_team
+!
 """
-
 import re
 from ...helps import len_print
 from ..sports.sports_lists import LEVELS, AFTER_KEYS_NAT, NEW_TATO_NAT

@@ -1,18 +1,16 @@
 """
-from .bots import tmp_bot
-if not sub_ar_label:
-    sub_ar_label = tmp_bot.Work_Templates(category)
+
 """
 
 import functools
 
-from ..format_bots import pp_start_with, pp_ends_with, pp_ends_with_pase
-from ...helps.print_bot import print_put
+from .format_bots import pp_start_with, pp_ends_with, pp_ends_with_pase
+from ..helps.print_bot import print_put
 
-from ..date_bots import with_years_bot
+from .date_bots import with_years_bot
 
-from ..ma_bots import country2_lab
-from ..ma_bots import ye_ts_bot
+from .ma_bots import country2_lab
+from .ma_bots import ye_ts_bot
 
 
 @functools.lru_cache(maxsize=None)

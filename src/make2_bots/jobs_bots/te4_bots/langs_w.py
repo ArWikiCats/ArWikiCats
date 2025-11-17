@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-
-from .langs_w import Lang_work
-
+!
 """
 from typing import Dict
 from ....translations import (

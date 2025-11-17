@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.arlabel_bots.bot_type_country import get_type_country
+from src.make2_bots.ma_bots_new.bot_type_country import get_type_country
 
 def test_get_type_country():
     # Test with basic inputs

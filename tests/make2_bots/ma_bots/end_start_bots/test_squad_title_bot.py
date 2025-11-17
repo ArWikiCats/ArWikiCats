@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.fax2_bots.squad_title_bot import get_squad_title
+from src.make2_bots.ma_bots.end_start_bots.squad_title_bot import get_squad_title
 
 def test_get_squad_title():
     # Test with a basic input

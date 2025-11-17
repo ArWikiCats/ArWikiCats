@@ -1,7 +1,7 @@
+#!/usr/bin/python3
 """
-from .team_job import New_team_xo_jobs, New_team_xo_labels, sport_formts_enar_p17_jobs
+!
 """
-
 import re
 from ...helps import len_print
 from ..sports.sports_lists import LEVELS, AFTER_KEYS_NAT, NEW_TATO_NAT
