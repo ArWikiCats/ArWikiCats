@@ -3,6 +3,7 @@
 !
 """
 import functools
+from pathlib import Path
 from ...translations import (
     Nat_mens,
     Nat_Womens,
@@ -13,6 +14,7 @@ from ...translations import (
 )
 from ...helps.log import logger
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ...helps.jsonl_dump import save
 
 
 @functools.lru_cache(maxsize=None)
@@ -110,5 +112,8 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
                         break
         # ---
         logger.debug(f'\t<<lightblue>> test Womens Jobs: new lab: "{country_lab}" ')
+    # ---
+    if country_lab:
+        save(Path(__file__).parent / "jobs_mainbot.jsonl", [{"cate": cate, "country_prefix": country_prefix, "category_suffix": category_suffix, "mens": mens, "womens": womens, "country_lab": country_lab}])
     # ---
     return country_lab

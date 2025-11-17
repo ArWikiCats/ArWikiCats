@@ -31,6 +31,4 @@ def try_relegins_jobs(cate: str) -> str:
     # ---
     output_test4(f"\t xx end: <<lightred>>try_relegins_jobs <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
     # ---
-
-    # ---
     return country_lab
