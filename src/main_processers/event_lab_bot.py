@@ -1,6 +1,7 @@
 """
 EventLab Bot - A class-based implementation to handle category labeling
 """
+from typing import Tuple
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new.end_start_bots.fax2_episodes import get_episodes
@@ -64,13 +65,13 @@ class EventLabResolver:
     Processes category titles and generates appropriate Arabic labels.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the EventLabResolver with default values."""
-        self.find_wd = False
-        self.find_ko = False
-        self.foot_ballers = False
+        self.find_wd: bool = False
+        self.find_ko: bool = False
+        self.foot_ballers: bool = False
 
-    def _process_category_formatting(self, cate_r: str) -> tuple[str, str, str]:
+    def _process_category_formatting(self, cate_r: str) -> Tuple[str, str, str]:
         """
         Process and format the input category string.
 
@@ -78,25 +79,25 @@ class EventLabResolver:
             cate_r (str): The raw category string
 
         Returns:
-            tuple: Formatted category, lowercase version without prefix, original without prefix
+            Tuple[str, str, str]: Formatted category, lowercase version without prefix, original without prefix
         """
-        category = cate_r.lower()
+        category: str = cate_r.lower()
         category = category.replace("_", " ")
         if not category.startswith("category:"):
             category = f"category:{category}"
         category = change_cat(category)
 
-        category3_nolower = cate_r
+        category3_nolower: str = cate_r
         if category3_nolower.startswith("Category:"):
             category3_nolower = category3_nolower.split("Category:")[1]
 
-        category3 = category.lower()
+        category3: str = category.lower()
         if category3.startswith("category:"):
             category3 = category3.split("category:")[1]
 
         return category, category3_nolower, category3
 
-    def _handle_special_suffixes(self, category3: str, category3_nolower: str) -> tuple[str, str, bool]:
+    def _handle_special_suffixes(self, category3: str, category3_nolower: str) -> Tuple[str, str, bool]:
         """
         Handle categories with special suffixes like episodes or templates.
 
@@ -105,10 +106,10 @@ class EventLabResolver:
             category3_nolower (str): The original category string without prefix
 
         Returns:
-            tuple: List of category, updated category3, and whether Wikidata was found
+            Tuple[str, str, bool]: List of category, updated category3, and whether Wikidata was found
         """
-        list_of_cat = ""
-        find_wd = False
+        list_of_cat: str = ""
+        find_wd: bool = False
 
         if category3.endswith(" episodes"):
             find_wd = True
@@ -127,7 +128,7 @@ class EventLabResolver:
 
         return list_of_cat, category3, find_wd
 
-    def _get_country_based_label(self, original_category3: str, list_of_cat: str) -> tuple[str, str]:
+    def _get_country_based_label(self, original_category3: str, list_of_cat: str) -> Tuple[str, str]:
         """
         Get country-based labels for specific categories like basketball players.
 
@@ -136,9 +137,9 @@ class EventLabResolver:
             list_of_cat (str): Current list of category value
 
         Returns:
-            tuple: Updated category label and list of category
+            Tuple[str, str]: Updated category label and list of category
         """
-        category_lab = ""
+        category_lab: str = ""
 
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
         if list_of_cat == "لاعبو {}":
@@ -161,7 +162,7 @@ class EventLabResolver:
             str: The processed category label or empty string
         """
         # Try different label functions in sequence
-        category_lab = univer.te_universities(category3)
+        category_lab: str = univer.te_universities(category3)
         if category_lab:
             return category_lab
 
@@ -198,7 +199,7 @@ class EventLabResolver:
 
         return category_lab
 
-    def _handle_suffix_patterns(self, category3: str) -> tuple[str, str]:
+    def _handle_suffix_patterns(self, category3: str) -> Tuple[str, str]:
         """
         Handle categories that match predefined suffix patterns.
 
@@ -206,9 +207,9 @@ class EventLabResolver:
             category3 (str): The category string to process
 
         Returns:
-            tuple: List of category and updated category string
+            Tuple[str, str]: List of category and updated category string
         """
-        list_of_cat = ""
+        list_of_cat: str = ""
 
         for data in [pp_ends_with_pase, pp_ends_with]:
             for pri_ff, vas in data.items():
@@ -256,8 +257,8 @@ class EventLabResolver:
         Returns:
             str: The processed category label or empty string
         """
-        category32 = ""
-        list_of_cat2 = ""
+        category32: str = ""
+        list_of_cat2: str = ""
 
         if category3.endswith(" cricketers"):
             list_of_cat2 = "لاعبو كريكت من {}"
