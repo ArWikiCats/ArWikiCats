@@ -10,46 +10,7 @@ from .... import app_settings
 
 from .squad_title_bot import get_squad_title
 from .end_start_match import to_get_startswith, to_get_endswith, footballers_get_endswith
-
-
-def get_from_starts_dict(category3: str) -> Tuple[str, str, bool]:
-    list_of_cat = ""
-    Find_wd = False
-
-    for key, tab in to_get_startswith.items():
-        lab = tab["lab"]
-
-        if category3.startswith(key):
-            list_of_cat = lab
-            category3 = category3.replace(key, "", 1)
-            if tab.get("Find_wd") is True:
-                Find_wd = True
-            break
-
-    return category3, list_of_cat, Find_wd
-
-
-def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]] = {}) -> Tuple[str, str, bool, bool]:
-    list_of_cat = ""
-    Find_wd = False
-    Find_ko = False
-
-    if not data:
-        data = to_get_endswith
-
-    category3_original = category3
-    for key, tab in data.items():
-        if category3.endswith(key):
-            list_of_cat = tab["lab"]
-
-            # precise removal
-            remove_key = tab.get("remove", key)
-            category3 = category3_original.replace(remove_key, "", 1)
-            Find_wd = tab.get("Find_wd") is True
-            Find_ko = tab.get("Find_ko") is True
-            break
-
-    return category3, list_of_cat, Find_wd, Find_ko
+from .utils import get_from_starts_dict, get_from_endswith_dict
 
 
 def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
@@ -151,7 +112,7 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
 
     # print(f"get_list_of_and_cat3: {category3=}\n" * 10)
 
-    category3, list_of_cat, Find_wd = get_from_starts_dict(category3)
+    category3, list_of_cat, Find_wd = get_from_starts_dict(category3, to_get_startswith)
 
     if not list_of_cat:
         if category3.startswith("women members of "):
@@ -165,28 +126,6 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
         elif category3.endswith(" footballers"):
             foot_ballers = True
             category3, list_of_cat, Find_wd, Find_ko = get_from_endswith_dict(category3, footballers_get_endswith)
-            if category3.endswith(" women's footballers"):
-                Find_wd = True
-                Find_ko = True
-                list_of_cat = "لاعبات {}"
-                category3 = category3_nolower.replace(" women's footballers", "", 1)
-
-            elif category3.endswith(" female footballers"):
-                Find_wd = True
-                Find_ko = True
-                list_of_cat = "لاعبات {}"
-                category3 = category3_nolower.replace(" female footballers", "", 1)
-
-            elif category3.endswith("c. footballers"):
-                Find_wd = True
-                list_of_cat = "لاعبو {}"
-                category3 = category3_nolower.replace(" footballers", "", 1)
-
-            elif category3.endswith(" footballers"):
-                Find_wd = True
-                Find_ko = True
-                list_of_cat = "لاعبو {}"
-                category3 = category3_nolower.replace(" footballers", "", 1)
 
         elif category3.endswith(" templates"):
             list_of_cat, category3 = get_templates_fo(category3)

@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.end_start_bots.fax2 import get_episodes, get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3_with_lab2, get_list_of_and_cat3, to_get_endswith
+from src.make2_bots.ma_bots.end_start_bots.fax2 import get_episodes, get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3_with_lab2, get_list_of_and_cat3, to_get_endswith, to_get_startswith
 
 data = [
     ("2016 American television", "2016 American television", "حلقات {}"),
@@ -27,13 +27,13 @@ def test_get_episodes(text, expected1, expected2):
 
 def test_get_from_starts_dict():
     # Test with a basic input that starts with a known key
-    category3, list_of_cat, Find_wd = get_from_starts_dict("21st century members of test")
+    category3, list_of_cat, Find_wd = get_from_starts_dict("21st century members of test", to_get_startswith)
     assert isinstance(category3, str)
     assert isinstance(list_of_cat, str)
     assert isinstance(Find_wd, bool)
 
     # Test with empty string
-    category3_empty, list_of_cat_empty, Find_wd_empty = get_from_starts_dict("")
+    category3_empty, list_of_cat_empty, Find_wd_empty = get_from_starts_dict("", to_get_startswith)
     assert isinstance(category3_empty, str)
     assert isinstance(list_of_cat_empty, str)
     assert isinstance(Find_wd_empty, bool)
