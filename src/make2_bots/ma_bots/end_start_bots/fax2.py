@@ -25,7 +25,8 @@ def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
     list_of_cat = ""
     if not category3_nolower:
         category3_nolower = category3
-
+    category3_nolower = category3_nolower.strip()
+    category3 = category3.strip()
     # Generate episode patterns for seasons 1–10
     for i in range(1, 11):
         label = f"حلقات {{}} الموسم {i}"
@@ -44,7 +45,8 @@ def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
                 return list_of_cat, category3
 
     list_of_cat = "حلقات {}"
-    category3 = category3_nolower[: -len("episodes")].strip()
+    if category3.lower().endswith("episodes"):
+        category3 = category3_nolower[: -len("episodes")].strip()
 
     return list_of_cat, category3
 
@@ -53,6 +55,7 @@ def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
     category_lab = ""
     list_of_cat = ""
     category3 = category3_o
+    category3 = category3.strip()
 
     if category3.endswith(" squad templates"):
         list_of_cat = "قوالب تشكيلات {}"
@@ -84,6 +87,8 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
     if not category3_nolower:
         category3_nolower = category3
 
+    category3_nolower = category3_nolower.strip()
+    category3 = category3.strip()
     # print(f"get_list_of_and_cat3: {category3=}\n" * 10)
 
     category3, list_of_cat, Find_wd = get_from_starts_dict(category3, to_get_startswith)

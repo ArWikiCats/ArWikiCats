@@ -26,11 +26,11 @@ def get_templates_fo(category3: str) -> Tuple[str, str]:
             list_of_cat = lab
             # remove the key ONLY from the end
             category3 = category3[: -len(key)].strip()
-            break
+            return list_of_cat, category3
 
-    if not list_of_cat:
-        list_of_cat = "قوالب {}"
-        if category3.endswith(" templates"):
-            category3 = category3[: -len(" templates")].strip()
+    list_of_cat = "قوالب {}"
+
+    if category3.endswith(" templates"):
+        category3 = category3[: -len(" templates")].strip()
 
     return list_of_cat, category3
