@@ -19,37 +19,52 @@ from ..p17_bots import nats
 from ..p17_bots.us_stat import Work_US_State
 from ..sports_bots import team_work
 
+# Dictionary of resolvers mapped to their callable functions
+resolvers = {
+    "get_pop_All_18": get_pop_All_18,
+    "te_films": te_films,
+    "nats.find_nat_others": nats.find_nat_others,
+    "sport_lab_suffixes.get_teams_new": sport_lab_suffixes.get_teams_new,
+    "parties_bot.get_parties_lab": parties_bot.get_parties_lab,
+    "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
+    "work_relations": work_relations,
+    "univer.te_universities": univer.te_universities,
+    "Work_US_State": Work_US_State,
+    "work_peoples": work_peoples,
+    "get_KAKO": get_KAKO,
+}
+
+
+def resolve_all(country2):
+    """
+    Iterate through all resolver functions. Return the first valid string.
+    If any resolver returns a dict, raise an error showing exactly which resolver failed.
+    """
+    for name, func in resolvers.items():
+        result = func(country2)
+
+        # If empty or None → skip
+        if not result:
+            continue
+
+        # If not a string → also an error
+        if not isinstance(result, str):
+            raise TypeError(
+                f"Resolver '{name}' returned non-string type {type(result)}: {result}"
+            )
+
+        # Valid str → return
+        return result
+
+    # No resolver succeeded
+    return ""
+
 
 def get_lab_for_country2(country: str) -> str:
     """Retrieve laboratory information for a specified country."""
 
-    country2_no_lower = country.strip()
     country2 = country.lower().strip()
-    resolved_label = get_pop_All_18(country2, "")
-
-    if not resolved_label:
-        resolved_label = te_films(country2)
-    if not resolved_label:
-        resolved_label = nats.find_nat_others(country2)
-
-    if not resolved_label:
-        resolved_label = sport_lab_suffixes.get_teams_new(country2)
-
-    if not resolved_label:
-        resolved_label = parties_bot.get_parties_lab(country2)
-
-    if not resolved_label:
-        resolved_label = team_work.Get_team_work_Club(country2_no_lower)
-    if not resolved_label:
-        resolved_label = work_relations(country2)
-    if not resolved_label:
-        resolved_label = univer.te_universities(country2)
-    if not resolved_label:
-        resolved_label = Work_US_State(country2)
-    if not resolved_label:
-        resolved_label = work_peoples(country2)
-    if not resolved_label:
-        resolved_label = get_KAKO(country2)
+    resolved_label = resolve_all(country2)
 
     if not resolved_label:
         resolved_label = centries_years_dec.get(country2, "")
