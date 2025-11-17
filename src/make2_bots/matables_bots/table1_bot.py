@@ -38,7 +38,17 @@ KAKO: Dict[str, Dict[str, str]] = {
 def get_KAKO(text: str) -> str:
     for table_name, table_data in KAKO.items():
         resolved_label = table_data.get(text, "")
-        if resolved_label:
-            output_test(f'>> get_KAKO_({table_name}) for ["{text}"] = "{resolved_label}"')
-            return resolved_label
+        if not resolved_label:
+            continue
+
+        # If not a string → also an error
+        if not isinstance(resolved_label, str):
+            raise TypeError(
+                f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}"
+            )
+
+        output_test(f'>> get_KAKO_({table_name}) for ["{text}"] = "{resolved_label}"')
+
+        return resolved_label
+
     return ""

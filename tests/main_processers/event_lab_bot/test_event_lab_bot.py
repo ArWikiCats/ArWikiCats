@@ -7,6 +7,7 @@ from src.main_processers.event_lab_bot import event_Lab
 
 
 data = {
+    "category:air force navigational boxes": "تصنيف:صناديق تصفح قوات جوية",
     "category:action films by genre": "تصنيف:أفلام حركة حسب النوع الفني",
     "category:africanamerican history by state": "تصنيف:تاريخ أمريكي إفريقي حسب الولاية",
     "category:airlines by dependent territory": "تصنيف:شركات طيران حسب الأقاليم التابعة",

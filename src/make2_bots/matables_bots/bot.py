@@ -148,7 +148,7 @@ players_keys["women"] = "المرأة"
 
 Films_O_TT.update({x.lower(): v for x, v in Films_TT.items() if v})
 
-players_keys.update({x.lower(): {"ar": v} for x, v in typeTable_7.items()})
+players_keys.update({x.lower(): v for x, v in typeTable_7.items()})
 
 players_keys["national sports teams"] = "منتخبات رياضية وطنية"
 players_keys["people"] = "أشخاص"
@@ -170,6 +170,8 @@ players_new_keys = players_keys
 
 def add_to_new_players(en: str, ar: str) -> None:
     if not en or not ar:
+        return
+    if not isinstance(en, str) or not isinstance(ar, str):
         return
     players_new_keys[en] = ar
 

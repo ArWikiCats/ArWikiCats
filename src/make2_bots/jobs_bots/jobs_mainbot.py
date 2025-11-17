@@ -32,8 +32,8 @@ def Jobs2(cate: str, Start: str, con_3: str) -> str:
     # ---
     return country_lab
 
-
-@functools.lru_cache(maxsize=None)
+# TypeError: unhashable type: 'dict'
+# @functools.lru_cache(maxsize=None)
 def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[str, str]] = None) -> str:
     """Retrieve job labels based on category and country.
 
