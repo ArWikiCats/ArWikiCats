@@ -6,6 +6,13 @@ import re
 from ..helps.log import logger
 from ..make2_bots.reg_lines import YEARS_REGEX_AR
 
+# Precompiled Regex Patterns
+REGEX_BY_DATE_PATTERN = re.compile(rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX_AR})$", re.IGNORECASE)
+REGEX_WHITESPACE = re.compile(r"\s+", re.IGNORECASE)
+REGEX_QM = re.compile(r"\bق\.م\b", re.IGNORECASE)
+REGEX_YEAR_IN_SECOND_PART = re.compile(r"^(?P<subject>.*)\sحسب\s(?P<by>[\s\w]+)$", re.IGNORECASE)
+REGEX_YEAR_FIRST_PATTERN = re.compile(rf"^(?P<first_part>{YEARS_REGEX_AR})\sفي\s(?P<second_part>[^0-9]*)$", re.IGNORECASE)
+
 
 def move_by_in(text_str: str) -> str:
     """
@@ -22,8 +29,7 @@ def move_by_in(text_str: str) -> str:
     # تصنيف:اتحاد الرجبي حسب البلد في 1989
     text_str = text_str.replace("_", " ")
     new_text = text_str
-    pattern = rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX_AR})$"
-    if result := re.search(pattern, text_str):
+    if result := REGEX_BY_DATE_PATTERN.search(text_str):
         # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
         # ---
         first_part = result.group("first_part")
@@ -35,8 +41,8 @@ def move_by_in(text_str: str) -> str:
         logger.debug(f"move_by_in: no match for {text_str}")
 
     if new_text != text_str:
-        new_text = re.sub(r"\s+", " ", new_text)
-        new_text = re.sub(r"\bق\.م\b", "ق م", new_text)
+        new_text = REGEX_WHITESPACE.sub(" ", new_text)
+        new_text = REGEX_QM.sub("ق م", new_text)
         new_text = new_text.replace(" في في ", " في ")
     return new_text
 
@@ -52,8 +58,7 @@ def move_years_first(text_str: str) -> str:
     """
 
     new_text = text_str
-    pattern = rf"^(?P<first_part>{YEARS_REGEX_AR})\sفي\s(?P<second_part>[^0-9]*)$"
-    if match := re.match(pattern, text_str):
+    if match := REGEX_YEAR_FIRST_PATTERN.match(text_str):
         first_part = match.group("first_part").strip()
         second_part = match.group("second_part").strip()
         logger.debug(f"move_years_first: first_part={first_part} second_part={second_part}")
@@ -68,7 +73,7 @@ def move_years_first(text_str: str) -> str:
             return text_str
 
         new_text = f"{second_part} في {first_part}"
-        if result := re.search(r"^(?P<subject>.*)\sحسب\s(?P<by>[\s\w]+)$", second_part):
+        if result := REGEX_YEAR_IN_SECOND_PART.search(second_part):
             logger.debug("move_years_first: found حسب clause")
             subject = result.group("subject")
             by_part = result.group("by")
@@ -77,8 +82,8 @@ def move_years_first(text_str: str) -> str:
         logger.debug(f'move_years_first: no match for "{text_str}"')
 
     if new_text != text_str:
-        new_text = re.sub(r"\s+", " ", new_text)
-        new_text = re.sub(r"\bق\.م\b", "ق م", new_text)
+        new_text = REGEX_WHITESPACE.sub(" ", new_text)
+        new_text = REGEX_QM.sub("ق م", new_text)
         new_text = new_text.replace(" في في ", " في ")
     return new_text
 

@@ -46,6 +46,18 @@ REG_CENTURY_AR = re.compile(
     re.I
 )
 
+# Additional precompiled regex patterns
+REG_SUB_CATEGORY = re.compile(r"^Category:", re.I)
+REG_YEAR_BC_PATTERN = re.compile(r"^(\d+)\s*(BCE|BC)$", re.I)
+REG_YEAR_RANGE_PATTERN = re.compile(r"^\d+[−–\-]\d+", re.I)
+
+# Month-related patterns
+MONTH_STR = "|".join(["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"])
+REG_MONTH_YEAR = re.compile(rf"^({MONTH_STR})\s*(\d+)\s*$", re.I)
+REG_MONTH_YEAR_BC = re.compile(rf"^({MONTH_STR})\s*" + r"(\d{1,4})\s*(BCE|BC)$", re.I)
+REG_DECADE = re.compile(rf"^{decade_regex}$", re.I)
+REG_CENTURY_MILLENNIUM = re.compile(rf"^{century_millennium_regex}$", re.I)
+
 # --- Numeric range ---
 
 
@@ -73,7 +85,7 @@ def match_time_ar(ar_value: str) -> list[str]:
 
 
 def match_time_en(en_key: str) -> list[str]:
-    en_key = re.sub(r"^Category:", "", en_key, flags=re.I)
+    en_key = REG_SUB_CATEGORY.sub("", en_key)
     en_matches = [m.group().strip() for m in REG_YEAR_EN.finditer(f" {en_key} ")]
     en_matches.extend([m.group().strip() for m in REG_CENTURY_EN.finditer(f" {en_key} ")])
     return en_matches
@@ -102,40 +114,38 @@ def convert_time_to_arabic(en_year: str) -> str:
         return month_map[en_year.lower()]
 
     # --- Month + Year ---
-    month_str = "|".join(month_map.keys())
-    m = re.match(rf"^({month_str})\s*(\d+)\s*$", en_year, re.I)
+    m = REG_MONTH_YEAR.match(en_year)
     if m:
         month = month_map[m.group(1).lower()]
         return f"{month} {m.group(2)}"
 
     # --- Month + Year + BC ---
-    month_str = "|".join(month_map.keys())
-    m = re.match(rf"^({month_str})\s*" + r"(\d{1,4})\s*(BCE|BC)$", en_year, re.I)
+    m = REG_MONTH_YEAR_BC.match(en_year)
     if m:
         month = month_map[m.group(1).lower()]
         bc = " ق م"
         return f"{month} {m.group(2)}{bc}"
 
     # --- Year + BC ---
-    m = re.match(r"^(\d+)\s*(BCE|BC)$", en_year, re.I)
+    m = REG_YEAR_BC_PATTERN.match(en_year)
     if m:
         return f"{m.group(1)} ق م"
 
     # --- Decade (with optional BC/BCE) ---
-    m = re.match(rf"^{decade_regex}$", en_year, re.I)
+    m = REG_DECADE.match(en_year)
     if m:
         bc = " ق م" if m.group(2) else ""
         return f"عقد {m.group(1)}{bc}"
 
     # --- Century/Millennium ---
-    m = re.match(rf"^{century_millennium_regex}$", en_year, re.I)
+    m = REG_CENTURY_MILLENNIUM.match(en_year)
     if m:
         num = int(m.group(1))
         bc = " ق م" if m.group(3) else ""
         ty = "القرن" if m.group(2) == "century" else "الألفية"
         return f"{ty} {num}{bc}"
 
-    if re.search(r"^\d+[−–\-]\d+", en_year, re.I):
+    if REG_YEAR_RANGE_PATTERN.search(en_year):
         # --- (no expansion wanted) ---
         # return expand_range(en_year)
         return en_year

@@ -3,7 +3,7 @@
 After completing any modifications in this repository, run the test suite to verify stability.
 
 **Steps:**
-1. Execute the following command: ```bash pytest -m "not slow"```
+1. Execute the following command: ```bash pytest```
 2. Ensure that all tests pass and no failures are introduced by the new changes.
 3. If any issues are detected, attempt to fix them up to two times.
 4. If the errors persist after two attempts, stop debugging and suggest a separate task proposing a clear plan or solution to resolve the remaining issues.
