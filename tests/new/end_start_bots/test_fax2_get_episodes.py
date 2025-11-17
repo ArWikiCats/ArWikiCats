@@ -14,13 +14,13 @@ data = [
 
 # --- 1. Basic known test cases ---
 
-
-@pytest.mark.fast
 @pytest.mark.parametrize(
     "text, expected_cat, expected_label",
     data,
     ids=[x[0] for x in data],
 )
+
+@pytest.mark.fast
 def test_basic_cases(text, expected_cat, expected_label):
     list_of_cat, category3 = get_episodes(text)
     assert list_of_cat == expected_label

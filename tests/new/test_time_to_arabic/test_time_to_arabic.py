@@ -57,12 +57,14 @@ def test_convert_time_to_arabic_basic(en_text, expected):
     ("1899–01", "1899–01"),
 ],
 )
+@pytest.mark.fast
 def test_ranges(en_text, expected):
     """Test various English time expressions for correct Arabic conversion."""
     result = convert_time_to_arabic(en_text)
     assert result == expected, f"{en_text} → {result}, expected {expected}"
 
 
+@pytest.mark.fast
 def test_trim_and_dash_normalization():
     """Ensure spaces and en dash normalization work."""
     result = convert_time_to_arabic("  March 1917 ")
@@ -72,6 +74,7 @@ def test_trim_and_dash_normalization():
     assert result == "2012–13"
 
 
+@pytest.mark.fast
 def test_nonstandard_inputs():
     """Edge cases and nonstandard input should not crash."""
     assert convert_time_to_arabic("") == ""
@@ -80,17 +83,20 @@ def test_nonstandard_inputs():
     assert convert_time_to_arabic("20th-century architecture") == ""
 
 
+@pytest.mark.fast
 def test_century_and_millennium_bc_equivalence():
     """Verify BC and BCE handled identically."""
     assert convert_time_to_arabic("2nd century BC") == convert_time_to_arabic("2nd century BCE")
     assert convert_time_to_arabic("1st millennium BC") == convert_time_to_arabic("1st millennium BCE")
 
 
+@pytest.mark.fast
 def test_convert_time_to_arabic_decade_bc():
     # 10s BC should be mapped to عقد 10 ق م
     assert convert_time_to_arabic("10s BC") == "عقد 10 ق م"
 
 
+@pytest.mark.fast
 def test_convert_time_to_arabic_decade_normal():
     # 1990s should be mapped to عقد 1990
     assert convert_time_to_arabic("1990s") == "عقد 1990"
@@ -102,6 +108,7 @@ def test_convert_time_to_arabic_decade_normal():
     ("April    2020", "أبريل 2020"),
     ("July  0099", "يوليو 0099"),
 ])
+@pytest.mark.fast
 def test_month_variants(en_text, expected):
     assert convert_time_to_arabic(en_text) == expected
 
@@ -116,6 +123,7 @@ def test_month_variants(en_text, expected):
     ("1990S", "عقد 1990"),    # case insensitive
     ("1990S BC", "عقد 1990 ق م"),
 ])
+@pytest.mark.fast
 def test_decade_all_variants(en_text, expected):
     assert convert_time_to_arabic(en_text) == expected
 
@@ -128,6 +136,7 @@ def test_decade_all_variants(en_text, expected):
     ("1st-century BCE", "القرن 1 ق م"),
     ("25th century", "القرن 25"),      # للتأكد من أرقام كبيرة
 ])
+@pytest.mark.fast
 def test_century_extended(en_text, expected):
     assert convert_time_to_arabic(en_text) == expected
 
@@ -137,6 +146,7 @@ def test_century_extended(en_text, expected):
     ("1st-millennium BC", "الألفية 1 ق م"),
     ("10th millennium", "الألفية 10"),
 ])
+@pytest.mark.fast
 def test_millennium_extended(en_text, expected):
     assert convert_time_to_arabic(en_text) == expected
 
@@ -148,6 +158,7 @@ def test_millennium_extended(en_text, expected):
     "1990-91",
     "1990-91",  # non-breaking hyphen
 ])
+@pytest.mark.fast
 def test_ranges_all_dash_forms(en_text):
     assert convert_time_to_arabic(en_text) == en_text
 
@@ -166,6 +177,7 @@ def test_ranges_all_dash_forms(en_text):
     ("Category:American Soccer League (1933)", ["1933"]),
     ("Category:American Soccer League (1933–83)", ["1933–83"]),
 ])
+@pytest.mark.fast
 def test_match_time_en(text, expected):
     assert match_time_en(text) == expected
     assert match_time_en_first(text) == expected[0]
@@ -177,6 +189,7 @@ def test_match_time_en(text, expected):
     ("القرن 5", ["القرن 5"]),
     ("الألفية 2 ق م", ["الألفية 2 ق م"]),
 ])
+@pytest.mark.fast
 def test_match_time_ar(text, expected):
     assert match_time_ar(text) == expected
 
@@ -188,5 +201,6 @@ def test_match_time_ar(text, expected):
     "late 1990s music",
     "about 2000 people",
 ])
+@pytest.mark.fast
 def test_fallback(text):
     assert convert_time_to_arabic(text) == ""

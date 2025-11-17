@@ -18,6 +18,12 @@ def resolve_label(category: str) -> str:
     """Resolve the label using multi-step logic."""
     changed_cat = change_cat(category)
 
+    if category.isdigit():
+        return category
+
+    if changed_cat.isdigit():
+        return changed_cat
+
     is_cat_okay = filter_en.filter_cat(category)
 
     category_lab = ""
