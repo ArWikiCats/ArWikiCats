@@ -9,6 +9,8 @@ from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
 import functools
 
+RELIGIOUS_KEYS = list(RELIGIOUS_KEYS_PP.keys())
+
 
 @functools.lru_cache(maxsize=None)
 def try_relegins_jobs(cate: str) -> str:
@@ -17,7 +19,7 @@ def try_relegins_jobs(cate: str) -> str:
     # ---
     country_lab = ""
     # ---
-    job_example, nat = get_con_3(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
+    job_example, nat = get_con_3(cate, RELIGIOUS_KEYS, "religions")
     # ---
     Tab = RELIGIOUS_KEYS_PP.get(nat, {})
     # ---
