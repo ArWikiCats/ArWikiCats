@@ -90,34 +90,34 @@ def te4_2018_Jobs(cate: str) -> str:
     if not country_lab:
         country_lab = jobs_mens_data.get(cate, "")
     # ---
-    nat = ""
-    job_example = ""
+    country_prefix = ""
+    category_suffix = ""
     # ---
     if not country_lab:
-        job_example, nat = get_con_3(cate, "nat")
+        category_suffix, country_prefix = get_con_3(cate, "nat")
     # ---
     job_example_lab = ""
     # ---
     # priffix_lab_for_2018
-    if job_example and (Main_Ss in priffix_lab_for_2018) and country_lab == "":
+    if category_suffix and (Main_Ss in priffix_lab_for_2018) and country_lab == "":
         # ---
         # en_is_nat_ar_is_women
-        job_example_lab = en_is_nat_ar_is_women.get(job_example.strip(), "")
+        job_example_lab = en_is_nat_ar_is_women.get(category_suffix.strip(), "")
         if job_example_lab:
-            country_lab = job_example_lab.format(Nat_women[nat])
+            country_lab = job_example_lab.format(Nat_women[country_prefix])
             output_test4(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
             Main_lab = priffix_lab_for_2018[Main_Ss]["women"]
         # ---
         # en_is_nat_ar_is_man
         if not country_lab:
-            job_example_lab = en_is_nat_ar_is_man.get(job_example.strip(), "")
+            job_example_lab = en_is_nat_ar_is_man.get(category_suffix.strip(), "")
             if job_example_lab:
-                country_lab = job_example_lab.format(Nat_men[nat])
+                country_lab = job_example_lab.format(Nat_men[country_prefix])
                 output_test4(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
                 Main_lab = priffix_lab_for_2018[Main_Ss]["men"]
     # ---
-    if job_example and country_lab == "":
-        country_lab = Jobs(cate, nat, job_example, Type="nat")
+    if category_suffix and country_lab == "":
+        country_lab = Jobs(cate, country_prefix, category_suffix)
     # ---
     if not country_lab:
         country_lab = Women_s_priffix_work(cate)
@@ -132,7 +132,7 @@ def te4_2018_Jobs(cate: str) -> str:
         # ---
         if Main_Ss in Main_priffix_to and job_example_lab:
             job_example_lab = job_example_lab.format("").strip()
-            country_lab = Main_priffix_to[Main_Ss].format(nat=Nat_women[nat], t=job_example_lab)
+            country_lab = Main_priffix_to[Main_Ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
     # ---
     if not country_lab:
         country_lab = try_relegins_jobs(cate)

@@ -2,8 +2,6 @@
 """
 !
 """
-from typing import Dict, Optional
-
 from ...translations import (
     Nat_mens,
     Nat_Womens,
@@ -32,9 +30,9 @@ def Jobs2(cate: str, Start: str, con_3: str) -> str:
     # ---
     return country_lab
 
-# TypeError: unhashable type: 'dict'
-# @functools.lru_cache(maxsize=None)
-def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[str, str]] = None) -> str:
+
+@functools.lru_cache(maxsize=None)
+def Jobs(cate: str, Start: str, con_3: str, mens: str="", womens: str="") -> str:
     """Retrieve job labels based on category and country.
 
     This function generates job labels for both men and women based on the
@@ -48,17 +46,12 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
         cate (str): The category of the job.
         Start (str): The starting country for the job label.
         con_3 (str): Additional context for the job label.
-        Type (str?): An optional type parameter. Defaults to an empty string.
-        tab (dict?): A dictionary containing additional labels for men and women.
-            Defaults to None.
 
     Returns:
         str: The generated job label based on the input parameters.
     """
 
     # ---
-    if not tab:
-        tab = {}
     output_test4(f'<<lightblue>> bot_te_4.py Jobs: cate: "{cate}", Start: "{Start}", con_3: "{con_3}" ')
     country = Start
     country_lab = ""
@@ -72,7 +65,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
     pkjn = [" مغتربون", " مغتربات"]
     # ---
     # mens Jobs
-    mens_nat_lab = tab.get("mens") or Nat_mens.get(country, "")
+    mens_nat_lab = mens or Nat_mens.get(country, "")
     # ---
     if mens_nat_lab:
         # ---
@@ -108,7 +101,7 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
     # Womens Jobs
     # ---
     if not country_lab:
-        women_nat_lab = tab.get("womens") or Nat_Womens.get(country, "")
+        women_nat_lab = womens or Nat_Womens.get(country, "")
         if women_nat_lab:
             # ---
             if con_3.strip() in ["women", "female", "women's"]:

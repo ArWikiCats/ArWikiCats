@@ -31,12 +31,12 @@ def test_jobs():
     assert isinstance(result_empty, str)
 
     # Test with type parameter
-    result_with_type = Jobs("sports", "france", "athletes", "type")
+    result_with_type = Jobs("sports", "france", "athletes")
     assert isinstance(result_with_type, str)
 
     # Test with tab parameter - avoid the error by testing parameters individually
-    result_with_mens_tab = Jobs("category", "united states", "workers", "type", {"mens": "men"})
+    result_with_mens_tab = Jobs("category", "united states", "workers", "men")
     assert isinstance(result_with_mens_tab, str)
 
-    result_with_womens_tab = Jobs("category", "united states", "workers", "type", {"womens": "women"})
+    result_with_womens_tab = Jobs("category", "united states", "workers", "women")
     assert isinstance(result_with_womens_tab, str)
