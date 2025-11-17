@@ -2,7 +2,8 @@
 !
 """
 
-from ..new.end_start_bots import fax2
+# from ..new.end_start_bots import fax2
+from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new.end_start_bots.fax2_episodes import get_episodes
 
@@ -87,7 +88,8 @@ def event_Lab(cate_r: str) -> str:
             list_of_cat, category3 = get_templates_fo(category3)
 
         else:
-            list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = fax2.get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
+            # list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = fax2.get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
+            list_of_cat, Find_wd, Find_ko, foot_ballers, category3 = get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
     # ---
     # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون
     if category_lab == "" and list_of_cat == "لاعبو {}":
