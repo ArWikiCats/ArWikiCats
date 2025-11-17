@@ -2,7 +2,6 @@
 !
 """
 
-# from ..new.end_start_bots import fax2
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new.end_start_bots.fax2_episodes import get_episodes
