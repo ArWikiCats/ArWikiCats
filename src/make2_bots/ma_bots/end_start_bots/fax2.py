@@ -8,41 +8,13 @@ from typing import Tuple
 from ....helps.log import logger
 from .... import app_settings
 
-from .squad_title_bot import get_squad_title
 from .end_start_match import to_get_startswith, to_get_endswith, footballers_get_endswith
 from .utils import get_from_starts_dict, get_from_endswith_dict
 from .fax2_temp import get_templates_fo
 from .fax2_episodes import get_episodes
 
 
-def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
-    category_lab = ""
-    list_of_cat = ""
-    category3 = category3_o
-    category3 = category3.strip()
-
-    if category3.endswith(" squad templates"):
-        list_of_cat = "قوالب تشكيلات {}"
-        category3 = category3[: -len(" squad templates")]
-        cate_labs = get_squad_title(category3)
-        if cate_labs:
-            category_lab = f"قوالب {cate_labs}"
-
-    elif category3.endswith(" squad navigational boxes"):
-        list_of_cat = "صناديق تصفح تشكيلات {}"
-        category3 = category3[: -len(" squad navigational boxes")]
-        cate_labs = get_squad_title(category3)
-        if cate_labs:
-            category_lab = f"صناديق تصفح {cate_labs}"
-
-    if category_lab:
-        logger.debug(f'<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}')
-        print(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
-
-    return category_lab
-
-
-def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, bool, bool, bool, str]:
+def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=app_settings.find_stubs) -> Tuple[str, bool, bool, bool, str]:
     foot_ballers = False
     Find_wd = False
     Find_ko = False
@@ -73,7 +45,7 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
         elif category3.endswith(" templates"):
             list_of_cat, category3 = get_templates_fo(category3)
 
-        elif category3.endswith(" stubs") and app_settings.find_stubs:
+        elif category3.endswith(" stubs") and find_stubs:
             list_of_cat = "بذرة {}"
             category3 = category3[: -len(" stubs")]
 

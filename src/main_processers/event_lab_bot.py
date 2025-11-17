@@ -3,8 +3,9 @@
 """
 
 from ..make2_bots.ma_bots.end_start_bots import fax2
+from ..make2_bots.ma_bots.end_start_bots.squad_title_bot import get_squad_title
 from ..fix import fixtitle
-from ..helps.print_bot import print_put
+from ..helps.log import logger
 from ..translations import New_P17_Finall, Get_New_team_xo
 from ..make2_bots import tmp_bot
 from ..make2_bots.date_bots import year_lab
@@ -19,6 +20,33 @@ from ..make2_bots.o_bots import univer
 from ..make2_bots.ma_bots import list_cat_format, ye_ts_bot
 from ..make2_bots.ma_bots.country2_bot import Get_country2
 from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
+
+
+def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
+    category_lab = ""
+    list_of_cat = ""
+    category3 = category3_o
+    category3 = category3.strip()
+
+    if category3.endswith(" squad templates"):
+        list_of_cat = "قوالب تشكيلات {}"
+        category3 = category3[: -len(" squad templates")]
+        cate_labs = get_squad_title(category3)
+        if cate_labs:
+            category_lab = f"قوالب {cate_labs}"
+
+    elif category3.endswith(" squad navigational boxes"):
+        list_of_cat = "صناديق تصفح تشكيلات {}"
+        category3 = category3[: -len(" squad navigational boxes")]
+        cate_labs = get_squad_title(category3)
+        if cate_labs:
+            category_lab = f"صناديق تصفح {cate_labs}"
+
+    if category_lab:
+        logger.debug(f'<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}')
+        print(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
+
+    return category_lab
 
 
 def event_Lab(cate_r: str) -> str:
@@ -42,7 +70,7 @@ def event_Lab(cate_r: str) -> str:
     orginal_category3 = category3
     # ---
     if not category_lab:
-        category_lab = fax2.get_list_of_and_cat3_with_lab2(category3)
+        category_lab = get_list_of_and_cat3_with_lab2(category3)
     # ---
     foot_ballers = False
     # ---
@@ -85,14 +113,14 @@ def event_Lab(cate_r: str) -> str:
     for pri_ff, vas in pp_ends_with_pase.items():
         if list_of_cat == "" and category_lab == "":
             if category3.endswith(pri_ff.lower()):
-                print_put(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
+                logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
                 list_of_cat = vas
                 category3 = category3[: -len(pri_ff)].strip()
 
     for pri_ff, vasv in pp_ends_with.items():
         if list_of_cat == "" and category_lab == "":
             if category3.endswith(pri_ff.lower()):
-                print_put(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
+                logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
                 list_of_cat = vasv
                 category3 = category3[: -len(pri_ff)].strip()
 

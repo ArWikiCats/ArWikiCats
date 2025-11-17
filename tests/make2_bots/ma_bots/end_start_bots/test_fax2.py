@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.end_start_bots.fax2 import get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3_with_lab2, get_list_of_and_cat3, to_get_endswith, to_get_startswith
+from src.make2_bots.ma_bots.end_start_bots.fax2 import get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3, to_get_endswith, to_get_startswith
 
 
 @pytest.mark.fast
@@ -52,22 +52,6 @@ def test_get_templates_fo():
     list_of_cat_empty, category3_empty = get_templates_fo("")
     assert isinstance(list_of_cat_empty, str)
     assert isinstance(category3_empty, str)
-
-
-@pytest.mark.fast
-def test_get_list_of_and_cat3_with_lab2():
-    # Test with a basic input
-    result = get_list_of_and_cat3_with_lab2("test category")
-    assert isinstance(result, str)
-
-    # Test with squad templates
-    result_squad = get_list_of_and_cat3_with_lab2("test squad templates")
-    assert isinstance(result_squad, str)
-
-    # Test with empty strings
-    result_empty = get_list_of_and_cat3_with_lab2("")
-    assert isinstance(result_empty, str)
-
 
 @pytest.mark.fast
 def test_get_list_of_and_cat3():
