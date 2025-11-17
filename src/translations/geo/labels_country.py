@@ -3,9 +3,6 @@
 
 """
 
-import sys
-import copy
-
 from ..utils.json_dir import open_json_file
 
 from .us_counties import Counties
@@ -244,7 +241,7 @@ for vg, county_label in Counties.items():
 
 the_keys = 0
 
-for ase, z in copy.deepcopy(COUNTRY_LABEL_INDEX).items():
+for ase, z in dict(COUNTRY_LABEL_INDEX).items():
     if z:
         ase3 = ase.lower()
 

@@ -48,7 +48,7 @@ def te4_2018_Jobs(cate: str) -> str:
         str: The job-related label corresponding to the input category.
     """
     # ---
-    cate = re.sub(r"_", " ", cate)
+    cate = cate.replace("_", " ")
     # ---
     output_test4(f"<<lightyellow>>>> te4_2018_Jobs >> cate:({cate}) ")
     # ---
