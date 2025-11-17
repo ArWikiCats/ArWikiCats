@@ -3,7 +3,7 @@ import re
 from dataclasses import dataclass
 from ...format_bots import category_relation_mapping
 from ....translations.type_tables import basedtypeTable
-from ....translations.utils.patterns import load_keys_to_pattern
+from ....translations.utils.patterns import load_keys_to_pattern_new
 
 # These patterns depend on dynamically generated values and are compiled at runtime
 yy = (
@@ -16,8 +16,8 @@ yy = (
 
 MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
 
-typeo_pattern = load_keys_to_pattern(list(basedtypeTable))
-in_pattern = load_keys_to_pattern(category_relation_mapping.keys(), by=" |")
+typeo_pattern = load_keys_to_pattern_new(list(basedtypeTable))
+in_pattern = load_keys_to_pattern_new(category_relation_mapping.keys(), by=" |")
 
 reg_line_1_match = (
     rf"(?P<monthyear>{MONTHSTR3}(?:{yy})|)\s*"
