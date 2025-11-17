@@ -3,18 +3,9 @@ import re
 from dataclasses import dataclass
 from ...format_bots import category_relation_mapping
 from ....translations.type_tables import basedtypeTable
+from ....translations.utils.patterns import load_keys_to_pattern
 
-
-def load_keys_to_pattern(data_List, by="|", sort_keys=True):
-    # return by.join(x.strip() for x in data_List)
-    # ---
-    data_List_sorted = sorted(data_List, key=lambda x: -x.count(" ")) if sort_keys else data_List
-    # ---
-    data_pattern = by.join(map(re.escape, [n.lower() for n in data_List_sorted]))
-    # ---
-    return data_pattern
-
-
+# These patterns depend on dynamically generated values and are compiled at runtime
 yy = (
     r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?"
     r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?"
@@ -35,6 +26,12 @@ reg_line_1_match = (
     r"(?P<country>.*|).*"
 )
 
+REGEX_SEARCH_REG_LINE_1 = re.compile(reg_line_1_match, re.I)
+
+# Precompiled Regex Patterns
+REGEX_SUB_MILLENNIUM_CENTURY = re.compile(r"[−–\-](millennium|century)", re.I)
+REGEX_SUB_CATEGORY_LOWERCASE = re.compile(r"category:", re.IGNORECASE)
+
 
 @dataclass
 class Typies:
@@ -46,9 +43,9 @@ class Typies:
 
 
 def get_cats(category_r):
-    cate = re.sub(r"[−–\-](millennium|century)", r"-\g<1>", category_r, flags=re.I)
+    cate = REGEX_SUB_MILLENNIUM_CENTURY.sub(r"-\g<1>", category_r)
     # ---
-    cate3 = re.sub(r"category:", "", cate.lower(), flags=re.IGNORECASE)
+    cate3 = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate.lower())
     # ---
     return cate, cate3
 
@@ -57,13 +54,13 @@ def get_reg_result(category_r: str) -> Typies:
     # ---
     cate, cate3 = get_cats(category_r)
     # ---
-    cate = re.sub(r"category:", "", cate, flags=re.IGNORECASE)
+    cate = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate)
     # ---
     cate_gory = cate.lower()
     # ---
     cat_test = cate3
     # ---
-    match_it = re.search(reg_line_1_match, cate_gory, flags=re.I)
+    match_it = REGEX_SEARCH_REG_LINE_1.search(cate_gory)
     # ---
     year_at_first = ""
     typeo = ""
