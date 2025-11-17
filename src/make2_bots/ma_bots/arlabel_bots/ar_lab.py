@@ -24,6 +24,7 @@ from ....utils import check_key_in_tables_return_tuple
 from ...ma_bots_new.bot_type_country import get_type_country
 from .bot_type_lab import get_Type_lab
 from .bot_con_lab import get_con_lab
+from .. import event2bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -89,6 +90,9 @@ def find_ar_label(
     country_lower = country.strip().lower()
 
     Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
+
+    if not Type_lab:
+        Type_lab = event2bot.event2(Type_lower)
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")

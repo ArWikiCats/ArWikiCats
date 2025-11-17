@@ -3,9 +3,10 @@ Tests
 """
 import pytest
 
-from src.make2_bots.labs_years import LabsYears
+from src.main_processers.labs_years import LabsYears
 
 
+@pytest.mark.fast
 def test_labsyears():
     # Test the LabsYears class functionality
     labs_years_bot = LabsYears()

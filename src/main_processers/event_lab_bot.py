@@ -1,8 +1,5 @@
 """
-Usage:
-from ..ma_bots import event_lab_bot
-# category_lab = event_lab_bot.event_Lab(cate_r)
-
+!
 """
 
 from ..make2_bots.ma_bots.end_start_bots import fax2

@@ -5,7 +5,6 @@
 """
 from typing import Tuple
 from .. import country2_lab
-from .. import event2bot
 from ....helps.print_bot import print_put, output_test
 from ....translations import New_P17_Finall, RELIGIOUS_KEYS_PP, New_female_keys
 from ... import tmp_bot
@@ -84,8 +83,6 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     if not label:
         label = Get_c_t_lab(type_lower, preposition, Type="Type_lab")
 
-    if not label:
-        label = event2bot.event2(type_lower)
     if not label:
         label = te4_2018_Jobs(type_lower)
 

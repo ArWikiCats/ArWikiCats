@@ -6,9 +6,9 @@ from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
 
 from .main_processers import event_lab_bot
+from .main_processers import labs_years
 
 from .fix import fixtitle
-from .make2_bots import labs_years
 from .make2_bots.co_bots import filter_en
 from .make2_bots.format_bots import change_cat
 from .make2_bots.ma_bots import event2bot, ye_ts_bot

@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 """
-Usage:
-from ..ma_bots import event2bot
-# category_lab = event2bot.event2(category_r)
-
+!
 """
 
 
