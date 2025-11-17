@@ -263,7 +263,7 @@ def fixlab(label_old: str, out: bool = False, en: str = "") -> str:
         return ""
 
     label_old = label_old.strip()
-    label_old = re.sub(r"_", " ", label_old)
+    label_old = label_old.replace("_", " ")
     label_old = re.sub(r"تصنيف\:\s*", "", label_old)
     label_old = re.sub(r"تصنيف:", "", label_old)
 

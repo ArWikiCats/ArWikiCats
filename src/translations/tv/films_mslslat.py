@@ -21,9 +21,6 @@ SELECT DISTINCT (CONCAT("\"", ?en, "\"") AS ?ss) (CONCAT(":") AS ?ss2) (CONCAT("
   }
 }
 """
-#
-import copy
-
 from ..utils.json_dir import open_json_file
 
 from ...helps import len_print
@@ -260,7 +257,7 @@ Films_key_CAO_new_format = {}
 Films_key_CAO_new_format["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO_new_format["lgbtqrelated films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
 # ---
-tabe_2 = copy.deepcopy(Films_keys_male_female)
+tabe_2 = dict(Films_keys_male_female)
 # ---
 for en, tab in Films_keys_male_female.items():
     for en2, tab2 in tabe_2.items():

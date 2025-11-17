@@ -128,8 +128,7 @@ def te_2018_with_nat(
     # ---
     # output_test4('te_2018_with_nat "%s"' % category)
     # ---
-    normalized_category = re.sub(r"_", " ", category.lower())
-    normalized_category = re.sub(r"-", " ", normalized_category)
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
     # ---
     if not country_label:
@@ -204,7 +203,7 @@ def Jobs_in_Multi_Sports(
     # ---
     primary_label = ""
     # ---
-    category = re.sub(r"_", " ", category)
+    category = category.replace("_", " ")
 
     # ---
     # cate2_no_lower = cate

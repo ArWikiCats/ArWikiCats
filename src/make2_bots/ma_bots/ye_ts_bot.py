@@ -108,7 +108,7 @@ def translate_general_category(category_r: str, start_get_country2: bool=True) -
         str: The processed label associated with the input category.
     """
 
-    category = re.sub(r"_", " ", category_r)
+    category = category_r.replace("_", " ")
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
     print_def_head(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")

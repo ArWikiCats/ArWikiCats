@@ -3,7 +3,6 @@
 python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 
 """
-import copy
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ...helps import len_print
 from ...translations import (
@@ -154,7 +153,7 @@ players_keys.update({x.lower(): {"ar": v} for x, v in typeTable_7.items()})
 players_keys["national sports teams"] = "منتخبات رياضية وطنية"
 players_keys["people"] = "أشخاص"
 
-Add_ar_in = copy.deepcopy(olympics)
+Add_ar_in = dict(olympics)
 
 for olmp, olmp_lab in Add_ar_in.items():
     players_keys[olmp] = olmp_lab

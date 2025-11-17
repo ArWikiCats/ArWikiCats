@@ -2,7 +2,6 @@
 Rich lookup tables for gendered and national prefix/suffix mappings.
 """
 
-import copy
 from .keys_23 import AFC_KEYS
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from ..jobs.jobs_singers import SINGERS_TAB
@@ -475,7 +474,7 @@ def _extend_singer_and_business_entries() -> None:
         en_is_nat_ar_is_women[f"{key} industry businesspeople"] = f"شخصيات أعمال {{}} في صناعة {label}"
 
 
-en_is_nat_ar_is_women_2: dict[str, str] = copy.deepcopy(en_is_nat_ar_is_women)
+en_is_nat_ar_is_women_2: dict[str, str] = dict(en_is_nat_ar_is_women)
 
 
 def _extend_book_entries() -> None:

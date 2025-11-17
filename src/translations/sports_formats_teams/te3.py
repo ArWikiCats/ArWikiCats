@@ -149,10 +149,10 @@ def _build_nat_formats_for_p17():
             Ab = f"{tyu} xoxo {pre}"
             # ---
             if pre == "team players" and "women's" in Ab:
-                pre_lab2 = re.sub(r"لاعبو ", "لاعبات ", pre_lab2)
+                pre_lab2 = pre_lab2.replace(r"لاعبو ", "لاعبات ")
             # ---
             elif "لاعبو " in pre_lab2 and "women's" in Ab:
-                pre_lab2 = re.sub(r"لاعبو ", "لاعبات ", pre_lab2)
+                pre_lab2 = pre_lab2.replace(r"لاعبو ", "لاعبات ")
             # ---
             printo = f"nat_Lab: [{Ab}] : " + pre_lab2
             # if team2 == "road cycling"and pre == "team":
