@@ -55,15 +55,13 @@ def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
 
 def event_Lab(cate_r: str) -> str:
     category_lab = ""
-    list_of_cat = ""
-    cate_r2 = cate_r
     category = cate_r.lower()
     category = category.replace("_", " ")
     if not category.startswith("category:"):
         category = f"category:{category}"
     category = change_cat(category)
 
-    category3_nolower = cate_r2
+    category3_nolower = cate_r
     if category3_nolower.startswith("Category:"):
         category3_nolower = category3_nolower.split("Category:")[1]
 
@@ -76,9 +74,9 @@ def event_Lab(cate_r: str) -> str:
     if not category_lab:
         category_lab = get_list_of_and_cat3_with_lab2(category3)
     # ---
-    foot_ballers = False
+    Find_wd, Find_ko, foot_ballers = False, False, False
     # ---
-    Find_wd, Find_ko = False, False
+    list_of_cat = ""
     # ---
     if not category_lab:
         if category3.endswith(" episodes"):
@@ -136,9 +134,7 @@ def event_Lab(cate_r: str) -> str:
                 list_of_cat = vasv
                 category3 = category3[: -len(pri_ff)].strip()
 
-    # العمل مع list_of_cat
-
-    # إيجاد تعريب للعمل مع list_of_cat
+    # work with list_of_cat
     if not category_lab:
         category_lab = event_Lab_seoo("", category3)
 
@@ -146,7 +142,7 @@ def event_Lab(cate_r: str) -> str:
         category_lab, list_of_cat = list_cat_format.list_of_cat_func(cate_r, category_lab, list_of_cat, foot_ballers)
 
     # ---
-    # عند عدم وجود تعريب إلغاء العمل مع list_of_cat
+    # dont work with list_of_cat
     if list_of_cat and not category_lab:
         list_of_cat = ""
         category_lab = event_Lab_seoo(cate_r, orginal_category3)

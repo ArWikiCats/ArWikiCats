@@ -25,6 +25,7 @@ from ..helps.log import logger
 class LabsYears:
     def __init__(self) -> None:
         self.lookup_count = 0
+        # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/YEAR.json
         self.category_templates = {
             "Category:Films in 2020": "تصنيف:أفلام في 2020",
             "Category:2020 Films": "تصنيف:أفلام إنتاج 2020",
