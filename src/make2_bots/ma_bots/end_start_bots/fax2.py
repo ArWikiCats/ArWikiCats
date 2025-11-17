@@ -40,11 +40,11 @@ def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
             # Use lower() once for comparison
             if category3.lower().endswith(key.lower()):
                 list_of_cat = label
-                category3 = category3_nolower.replace(key, "", 1).strip()
+                category3 = category3_nolower[: -len(key)].strip()
                 return list_of_cat, category3
 
     list_of_cat = "حلقات {}"
-    category3 = category3_nolower.replace("episodes", "", 1).strip()
+    category3 = category3_nolower[: -len("episodes")].strip()
 
     return list_of_cat, category3
 
@@ -56,14 +56,14 @@ def get_list_of_and_cat3_with_lab2(category3_o: str, category3_nolower: str) -> 
 
     if category3.endswith(" squad templates"):
         list_of_cat = "قوالب تشكيلات {}"
-        category3 = category3.replace(" squad templates", "", 1)
+        category3 = category3[: -len(" squad templates")]
         cate_labs = get_squad_title(category3)
         if cate_labs:
             category_lab = f"قوالب {cate_labs}"
 
     elif category3.endswith(" squad navigational boxes"):
         list_of_cat = "صناديق تصفح تشكيلات {}"
-        category3 = category3.replace(" squad navigational boxes", "", 1)
+        category3 = category3[: -len(" squad navigational boxes")]
         cate_labs = get_squad_title(category3)
         if cate_labs:
             category_lab = f"صناديق تصفح {cate_labs}"
@@ -81,6 +81,9 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
     Find_ko = False
     list_of_cat = ""
 
+    if not category3_nolower:
+        category3_nolower = category3
+
     # print(f"get_list_of_and_cat3: {category3=}\n" * 10)
 
     category3, list_of_cat, Find_wd = get_from_starts_dict(category3, to_get_startswith)
@@ -88,7 +91,7 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
     if not list_of_cat:
         if category3.startswith("women members of "):
             list_of_cat = "عضوات {}"
-            category3 = category3.replace("women members of ", "", 1)
+            category3 = category3[: -len("women members of ")]
 
         elif category3.endswith(" episodes"):
             Find_wd = True
@@ -103,7 +106,7 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
 
         elif category3.endswith(" stubs") and app_settings.find_stubs:
             list_of_cat = "بذرة {}"
-            category3 = category3.replace(" stubs", "", 1)
+            category3 = category3[: -len(" stubs")]
 
         elif category3.endswith(" players") or category3.endswith(" playerss"):
             Find_wd = True
@@ -111,19 +114,19 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
             list_of_cat = "لاعبو {}"
 
             if category3.endswith("c. playerss"):
-                category3 = category3_nolower.replace(" playerss", "", 1)
+                category3 = category3_nolower[: -len(" playerss")]
 
             elif category3.endswith("c. players"):
                 list_of_cat = "لاعبو {}"
-                category3 = category3_nolower.replace(" players", "", 1)
+                category3 = category3_nolower[: -len(" players")]
 
             elif category3.endswith(" playerss"):
                 list_of_cat = "لاعبو {}"
-                category3 = category3_nolower.replace(" playerss", "", 1)
+                category3 = category3_nolower[: -len(" playerss")]
 
             elif category3.endswith(" players"):
                 list_of_cat = "لاعبو {}"
-                category3 = category3_nolower.replace(" players", "", 1)
+                category3 = category3_nolower[: -len(" players")]
 
     if not list_of_cat:
         category3, list_of_cat, Find_wd, Find_ko = get_from_endswith_dict(category3, to_get_endswith)

@@ -74,7 +74,7 @@ def dodo(category_r: str) -> str:
 
     if category.endswith(" stubs") and app_settings.find_stubs:
         list_of_cat = "بذرة {}"
-        category = category.replace(" stubs", "", 1)
+        category = category[: -len(" stubs")]
 
         sub_ar_label = event_Lab_seoo("", category)
 

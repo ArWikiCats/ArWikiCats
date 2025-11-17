@@ -87,14 +87,14 @@ def event_Lab(cate_r: str) -> str:
             if category3.endswith(pri_ff.lower()):
                 print_put(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
                 list_of_cat = vas
-                category3 = category3.replace(pri_ff.lower(), "", 1).strip()
+                category3 = category3[: -len(pri_ff)].strip()
 
     for pri_ff, vasv in pp_ends_with.items():
         if list_of_cat == "" and category_lab == "":
             if category3.endswith(pri_ff.lower()):
                 print_put(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
                 list_of_cat = vasv
-                category3 = category3.replace(pri_ff.lower(), "", 1).strip()
+                category3 = category3[: -len(pri_ff)].strip()
 
     # العمل مع list_of_cat
 
@@ -125,10 +125,10 @@ def event_Lab(cate_r: str) -> str:
 
         if category3.endswith(" cricketers"):
             list_of_cat2 = "لاعبو كريكت من {}"
-            category32 = category3_nolower.replace(" cricketers", "", 1)
+            category32 = category3_nolower[: -len(" cricketers")]
         elif category3.endswith(" cricket captains"):
             list_of_cat2 = "قادة كريكت من {}"
-            category32 = category3_nolower.replace(" cricket captains", "", 1)
+            category32 = category3_nolower[: -len(" cricket captains")]
 
         if list_of_cat2 and category32:
             category3_lab = New_P17_Finall.get(category32.lower(), "")

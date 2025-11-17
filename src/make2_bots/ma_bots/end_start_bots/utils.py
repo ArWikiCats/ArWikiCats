@@ -23,7 +23,6 @@ def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tup
         if category3_original.startswith(remove_key):
             list_of_cat = tab["lab"]
 
-            # category3 = category3.replace(remove_key, "", 1)
             category3 = category3_original[len(remove_key):]  # .lstrip()
 
             Find_wd = tab.get("Find_wd") is True
@@ -52,7 +51,7 @@ def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> T
             # precise removal
             remove_key = tab.get("remove", key)
 
-            category3 = category3_original[: -len(remove_key)].strip()
+            category3 = category3_original[: -len(remove_key)]#.strip()
 
             Find_wd = tab.get("Find_wd") is True
             Find_ko = tab.get("Find_ko") is True
