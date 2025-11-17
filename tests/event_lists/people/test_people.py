@@ -1,7 +1,8 @@
-#
+import pytest
 from load_one_data import ye_test_one_dataset_new, dump_diff
 
 
+@pytest.mark.slow
 def test_people_1():
 
     data = {

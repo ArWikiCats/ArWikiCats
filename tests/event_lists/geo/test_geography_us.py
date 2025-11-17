@@ -71,6 +71,7 @@ test_data = [
 
 
 @pytest.mark.parametrize("name,data", test_data)
+@pytest.mark.slow
 def test_geography_us(name, data):
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 

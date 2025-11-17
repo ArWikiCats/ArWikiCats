@@ -24,6 +24,7 @@ def test_people_labels_2():
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
+@pytest.mark.slow
 def test_people_labels_from():
     data = {
         "Category:Mixed martial artists from Massachusetts": "تصنيف:مقاتلو فنون قتالية مختلطة من ماساتشوستس",
