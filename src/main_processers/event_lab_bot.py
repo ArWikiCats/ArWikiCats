@@ -25,8 +25,8 @@ from ..make2_bots.ma_bots import list_cat_format, ye_ts_bot
 from ..make2_bots.ma_bots.country2_bot import Get_country2
 from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
 from ..config import app_settings
-from ..helps.jsonl_dump import save
-from pathlib import Path
+# from ..helps.jsonl_dump import save
+# from pathlib import Path
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
@@ -180,6 +180,6 @@ def event_Lab(cate_r: str) -> str:
         # category_lab = "تصنيف:" + fixlab(category_lab, en=cate_r)
         fixed = fixtitle.fixlab(category_lab, en=cate_r)
         category_lab = f"تصنيف:{fixed}"
-        save(Path(__file__).parent / "event_Lab_examples.json", [{cate_r: category_lab}])
+        # save(Path(__file__).parent / "event_Lab_examples.json", [{cate_r: category_lab}])
 
     return category_lab
