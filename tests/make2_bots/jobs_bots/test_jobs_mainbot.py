@@ -30,27 +30,7 @@ def test_jobs():
 
     result_with_womens_tab = Jobs("category", "united states", "workers", "سيدات")
     assert isinstance(result_with_womens_tab, str)
-    assert result_with_womens_tab == " عمال سيدات"
-
-
-def priffix_Mens_work_stub(key: str) -> str:
-    """Return simple predictable outputs for testing prefix logic."""
-    table = {
-        "sailors": "بحارة",
-        "writers": "كتاب",
-        "expatriates": "مغتربون",
-    }
-    return table.get(key, "")
-
-
-def women_priffix_stub(key: str) -> str:
-    """Stub prefix for women."""
-    table = {
-        "actresses2": "ممثلات",
-        "sailors2": "بحارات",
-        "expatriates": "مغتربات",
-    }
-    return table.get(key, "")
+    assert result_with_womens_tab == "عمال سيدات"
 
 
 # =========================================================
@@ -82,9 +62,19 @@ def test_mens_nat_before_occ():
     assert result == "يمنيون مغتربون"
 
 
-def test_mens_nato_format():
+def test_mens_nato():
     result = Jobs("", "yemeni", "eugenicists")
-    assert result == "علماء يمنيون متخصصون"
+    assert result == "علماء يمنيون متخصصون في تحسين النسل"
+
+
+def test_womens_nato():
+    result = Jobs("", "yemeni", "female eugenicists", womens="يمنيات")
+    assert result == "عالمات متخصصات في تحسين النسل يمنيات"
+
+
+def test_womens_no_nat():
+    result2 = Jobs("", "", "female eugenicists", womens="")
+    assert result2 == ""
 
 
 def test_mens_with_pkjn_suffix():
@@ -103,18 +93,15 @@ def test_womens_short_jobs():
 
 
 def test_womens_prefix_fallback():
-    result = Jobs("", "egyptian", "sailors2")
+    result = Jobs("", "egyptian", "women sailors")
+    assert result == "بحارات مصريات"
+    result = Jobs("", "egyptian", "female sailors")
     assert result == "بحارات مصريات"
 
 
 def test_womens_direct_word_women_keyword():
     result = Jobs("", "egyptian", "women")
     assert result == "مصريات"
-
-
-def test_womens_nato_format():
-    result = Jobs("", "yemeni", "eugenicists")
-    assert result == "عالمات يمنيات متخصصات"
 
 
 # =========================================================
@@ -149,8 +136,9 @@ def test_no_mens_no_women_return_empty():
 # =========================================================
 
 def test_con_3_starts_with_people_space():
-    result = Jobs("", "yemeni", "people writers")
+    result = Jobs("", "yemeni", "writers")
     assert "يمنيون" in result
+    assert result == "كتاب يمنيون"
 
 
 def test_empty_con_3():

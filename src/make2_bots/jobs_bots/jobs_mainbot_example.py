@@ -174,7 +174,6 @@ RELIGIOUS_KEYS_PP = {
 
 NAT_BEFORE_OCC.extend(key for key in RELIGIOUS_KEYS_PP.keys())
 
-
 MEN_WOMENS_WITH_NATO = {
     "eugenicists": {
         "mens": "علماء {nato} متخصصون في تحسين النسل",
