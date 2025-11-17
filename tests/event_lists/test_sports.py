@@ -30,7 +30,7 @@ def test_sports_2():
         "Category:Argentina women's international footballers": "تصنيف:لاعبات منتخب الأرجنتين لكرة القدم للسيدات",
         "Category:Association football players by women's national team": "تصنيف:لاعبو كرة قدم حسب منتخب السيدات الوطني",
         "Category:Belgian athletics coaches": "تصنيف:مدربو ألعاب قوى بلجيكيون",
-        "Category:Coaches of national cricket teams": "تصنيف:مدربو من منتخبات كريكت وطنية",
+        "Category:Coaches of national cricket teams": "تصنيف:مدربو منتخبات كريكت وطنية",
         "Category:International women's basketball competitions hosted by Cuba": "تصنيف:منافسات كرة سلة نسائية دولية استضافتها كوبا",
         "Category:Paralympic competitors for Cape Verde": "تصنيف:منافسون في الألعاب البارالمبية من الرأس الأخضر",
         "Category:Spanish sports broadcasters": "تصنيف:مذيعو رياضية إسبانية",
