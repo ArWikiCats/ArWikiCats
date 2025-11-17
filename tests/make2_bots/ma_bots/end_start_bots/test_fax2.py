@@ -57,15 +57,15 @@ def test_get_templates_fo():
 @pytest.mark.fast
 def test_get_list_of_and_cat3_with_lab2():
     # Test with a basic input
-    result = get_list_of_and_cat3_with_lab2("test category", "Test Category")
+    result = get_list_of_and_cat3_with_lab2("test category")
     assert isinstance(result, str)
 
     # Test with squad templates
-    result_squad = get_list_of_and_cat3_with_lab2("test squad templates", "Test Squad Templates")
+    result_squad = get_list_of_and_cat3_with_lab2("test squad templates")
     assert isinstance(result_squad, str)
 
     # Test with empty strings
-    result_empty = get_list_of_and_cat3_with_lab2("", "")
+    result_empty = get_list_of_and_cat3_with_lab2("")
     assert isinstance(result_empty, str)
 
 

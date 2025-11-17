@@ -11,7 +11,7 @@ def get_templates_fo(category3: str) -> Tuple[str, str]:
     Category:Game of Thrones (season 1) episodes
     Category:Game of Thrones season 1 episodes
     """
-
+    category3 = category3.strip()
     list_of_cat = ""
 
     dict_temps: Dict[str, str] = {

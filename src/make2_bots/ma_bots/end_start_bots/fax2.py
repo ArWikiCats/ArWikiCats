@@ -49,7 +49,7 @@ def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
     return list_of_cat, category3
 
 
-def get_list_of_and_cat3_with_lab2(category3_o: str, category3_nolower: str) -> str:
+def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
     category_lab = ""
     list_of_cat = ""
     category3 = category3_o
@@ -113,19 +113,10 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str) -> Tuple[str, b
             Find_ko = True
             list_of_cat = "لاعبو {}"
 
-            if category3.endswith("c. playerss"):
+            if category3.endswith("c. playerss") or category3.endswith(" playerss"):
                 category3 = category3_nolower[: -len(" playerss")]
 
-            elif category3.endswith("c. players"):
-                list_of_cat = "لاعبو {}"
-                category3 = category3_nolower[: -len(" players")]
-
-            elif category3.endswith(" playerss"):
-                list_of_cat = "لاعبو {}"
-                category3 = category3_nolower[: -len(" playerss")]
-
-            elif category3.endswith(" players"):
-                list_of_cat = "لاعبو {}"
+            elif category3.endswith("c. players") or category3.endswith(" players"):
                 category3 = category3_nolower[: -len(" players")]
 
     if not list_of_cat:

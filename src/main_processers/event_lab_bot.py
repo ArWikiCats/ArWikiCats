@@ -42,7 +42,7 @@ def event_Lab(cate_r: str) -> str:
     orginal_category3 = category3
     # ---
     if not category_lab:
-        category_lab = fax2.get_list_of_and_cat3_with_lab2(category3, category3_nolower)
+        category_lab = fax2.get_list_of_and_cat3_with_lab2(category3)
     # ---
     foot_ballers = False
     # ---
