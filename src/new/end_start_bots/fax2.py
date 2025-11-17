@@ -25,7 +25,11 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=Fals
     category3, list_of_cat, Find_wd = get_from_starts_dict(category3, to_get_startswith)
 
     if not list_of_cat:
-        if category3.startswith("women members of "):
+        if category3.startswith("coaches of "):
+            list_of_cat = "مدربو {}"
+            category3 = category3[len("coaches of "):]
+
+        elif category3.startswith("women members of "):
             list_of_cat = "عضوات {}"
             category3 = category3[len("women members of "):]
 
