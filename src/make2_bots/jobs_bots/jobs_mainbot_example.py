@@ -1,62 +1,27 @@
-Nat_mens = {
-    "abkhaz": "أبخاز",
-    "abkhazian": "أبخازيون",
-    "acehnese": "أتشيهيون",
-    "afghan": "أفغان",
-    "african": "أفارقة",
-    "albanian": "ألبان",
-    "aleut": "أليوطيون",
-    "algerian": "جزائريون",
-    "algonquian": "غونكيانيون",
-    "ancient romans": "رومان قدماء",
-    "ancient-greek": "يونانيون قدماء",
-    "ancient-macedonian": "مقدونيون قدماء",
-    "ancient-roman": "رومان قدماء",
-    "ancient-romans": "رومان قدماء",
-    "andalusian": "أندلسيون",
-    "andorran": "أندوريون",
-    "anglo-irish": "أنجلو إيرلنديون",
-    "angolan": "أنغوليون",
-    "anguillan": "أنغويلانيون",
-    "antillean": "أنتيليون",
-    "appalachian": "أبلاشيون",
-    "arab": "عرب",
-    "arabian": "عرب",
-    "arawak": "أرواكيون",
-    "argentine": "أرجنتينيون",
-    "argentinean": "أرجنتينيون",
-    "argentinian": "أرجنتينيون",
-}
-Nat_Womens = {
-    "abkhaz": "أبخازيات",
-    "abkhazian": "أبخازيات",
-    "acehnese": "أتشيهيات",
-    "afghan": "أفغانيات",
-    "african": "إفريقيات",
-    "albanian": "ألبانيات",
-    "aleut": "أليوطيات",
-    "algerian": "جزائريات",
-    "algonquian": "غونكيانيات",
-    "ancient romans": "رومانيات قديمات",
-    "ancient-greek": "يونانيات قديمات",
-    "ancient-macedonian": "مقدونيات قديمات",
-    "ancient-roman": "رومانيات قديمات",
-    "ancient-romans": "رومانيات قديمات",
-    "andalusian": "أندلسيات",
-    "andorran": "أندوريات",
-    "anglo-irish": "أنجلو إيرلنديات",
-    "angolan": "أنغوليات",
-    "anguillan": "أنغويلانيات",
-    "antillean": "أنتيليات",
-    "appalachian": "أبلاشيات",
-    "arab": "عربيات",
-    "arabian": "عربيات",
-    "arawak": "أرواكيات",
-    "argentine": "أرجنتينيات",
-    "argentinean": "أرجنتينيات"
+nats = {
+    "abkhaz": {"mens": "أبخاز", "womens": "أبخازيات"},
+    "abkhazian": {"mens": "أبخازيون", "womens": "أبخازيات"},
+    "zanzibari": {"mens": "زنجباريون", "womens": "زنجباريات"},
+    "anguillan": {"mens": "أنغويلانيون", "womens": "أنغويلانيات"},
+    "afghan": {"mens": "أفغان", "womens": "أفغانيات"},
+    "french guianan": {"mens": "غويانيون فرنسيون", "womens": "غويانيات فرنسيات"},
+    "bissau-guinean": {"mens": "غينيون بيساويون", "womens": "غينيات بيساويات"},
+    "zaïrean": {"mens": "زائيريون", "womens": "زائيريات"},
+    "turkmenistan": {"mens": "تركمانيون", "womens": "تركمانيات"},
+    "democratic republic of the congo": {"mens": "كونغويون ديمقراطيون", "womens": "كونغويات ديمقراطيات"},
+    "prussian": {"mens": "بروسيون", "womens": "بروسيات"},
+    "north yemeni": {"mens": "يمنيون شماليون", "womens": "يمنيات شماليات"},
+    "south yemeni": {"mens": "يمنيون جنوبيون", "womens": "يمنيات جنوبيات"}
 }
 
+
+Nat_mens = {x: v["mens"] for x, v in nats.items()}
+Nat_Womens = {x: v["womens"] for x, v in nats.items()}
+
 jobs_mens_data = {
+    "scholars of islam": "باحثون عن الإسلام",
+    "women's rights activists": "ناشطون في حقوق المرأة",
+    "convicted-of-murder": "أدينوا بالقتل",
     "classical europop cheerleaders": "قادة تشجيع يوروبوب كلاسيكيون",
     "classical europop composers": "ملحنو يوروبوب كلاسيكيون",
     "abidat rma pianists": "عازفو بيانو عبيدات الرما",
@@ -77,7 +42,10 @@ jobs_mens_data = {
     "abidat rma saxophonists": "عازفو سكسفون عبيدات الرما",
     "abidat rma singer-songwriters": "مغنون وكتاب أغاني عبيدات الرما",
 }
+
 short_womens_jobs = {
+    "scholars of islam": "باحثات عن الإسلام",
+    "women's rights activists": "ناشطات في حقوق المرأة",
     "actresses": "ممثلات",
     "businesswomen": "سيدات أعمال",
     "deaf actresses": "ممثلات صم",
@@ -137,6 +105,7 @@ NAT_BEFORE_OCC = [
     "executed abroad",
     "emigrants",
 ]
+
 RELIGIOUS_KEYS_PP = {
     "bahá'ís": {"mens": "بهائيون", "womens": "بهائيات"},
     "yazidis": {"mens": "يزيديون", "womens": "يزيديات"},

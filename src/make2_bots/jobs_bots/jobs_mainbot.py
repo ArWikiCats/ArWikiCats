@@ -51,7 +51,7 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     pkjn = [" مغتربون", " مغتربات"]
     # ---
     # mens Jobs
-    mens_nat_lab = mens or Nat_mens.get(country, "")
+    mens_nat_lab: str = mens or Nat_mens.get(country, "")
     # ---
     if mens_nat_lab:
         # ---
@@ -85,8 +85,9 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     # ---
     # Womens Jobs
     # ---
+    women_nat_lab: str = womens or Nat_Womens.get(country, "")
+    # ---
     if not country_lab:
-        women_nat_lab = womens or Nat_Womens.get(country, "")
         if women_nat_lab:
             # ---
             if category_suffix.strip() in ["women", "female", "women's"]:
@@ -98,8 +99,15 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
                 if not f_lab:
                     f_lab = Women_s_priffix_work(category_suffix)
                 # ---
+                if not f_lab:
+                    # TODO: NEW TO CHECK
+                    # Check for {nato} in women's path as well, assuming f_lab can come from MEN_WOMENS_WITH_NATO
+                    TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
+                    if TAJO and "{nato}" in TAJO.get("womens", ""):
+                        country_lab = TAJO["womens"].format(nato=women_nat_lab)
+                        logger.debug('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % TAJO["womens"])
+                # ---
                 if f_lab:
-                    # logger.debug('<<lightblue>> cate.startswith("%s"), category_suffix:"%s"' % (cate , category_suffix))
                     country_lab = f"{f_lab} {women_nat_lab}"
                     # ---
                     if "{nato}" in f_lab:

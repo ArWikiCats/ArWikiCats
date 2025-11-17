@@ -38,12 +38,16 @@ def test_jobs():
 # =========================================================
 
 def test_mens_direct_job_from_jobs_mens_data():
-    result = Jobs(
-        "",
-        "yemeni",
-        "writers",
-    )
+    result = Jobs("", "yemeni", "writers")
     assert result == "كتاب يمنيون"
+
+
+def test_womens_jobs_prefix():
+    result = Jobs("", "african", "women's rights activists")
+    assert result == "أفارقة ناشطون في حقوق المرأة"
+
+    result = Jobs("", "african", "female women's rights activists")
+    assert result == "ناشطات في حقوق المرأة إفريقيات"
 
 
 def test_mens_prefix_fallback_when_no_jobs_data():
