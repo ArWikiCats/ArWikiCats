@@ -4,12 +4,9 @@
 """
 
 import functools
-import re
 
-# ---
 from ....translations import (
     People_key,
-    All_Nat,
     Nat_women,
     Nat_men,
     jobs_mens_data,
@@ -97,7 +94,7 @@ def te4_2018_Jobs(cate: str) -> str:
     job_example = ""
     # ---
     if not country_lab:
-        job_example, nat = get_con_3(cate, All_Nat, "nat")
+        job_example, nat = get_con_3(cate, "nat")
     # ---
     job_example_lab = ""
     # ---

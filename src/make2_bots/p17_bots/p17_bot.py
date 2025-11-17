@@ -68,11 +68,11 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     country_start = ""
     category = category.lower()
     country_start_lab = ""
-    con_3, country_start = get_con_3(category, All_P17, "All_P17")
+    con_3, country_start = get_con_3(category, "All_P17")
     country_start_lab = All_P17.get(country_start, "")
 
     if con_3 == "" and country_start == "":
-        con_3, country_start = get_con_3(category, contries_from_nat, "contries_from_nat")
+        con_3, country_start = get_con_3(category, "contries_from_nat")
         country_start_lab = contries_from_nat.get(country_start, "")
     if con_3 and country_start:
         logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')

@@ -76,7 +76,7 @@ def find_nat_others(category: str, reference_category: str="") -> str:
 
     normalized_category = category.lower()
 
-    sport_format_key, country_start = get_con_3(normalized_category, Nat_women, "nat")
+    sport_format_key, country_start = get_con_3(normalized_category, "nat")
 
     if sport_format_key and country_start:
         sport_format_label = Get_sport_formts_female_nat(sport_format_key)
