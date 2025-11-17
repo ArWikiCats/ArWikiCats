@@ -5,15 +5,15 @@ from ..ma_bots.squad_title_bot import get_squad_title
 
 """
 
-from ...date_bots import with_years_bot
-from ....translations import pop_of_football_lower, Get_New_team_xo
-from ....translations import New_P17_Finall
-from ...fromnet.wd_bot import find_wikidata
+from ..date_bots import with_years_bot
+from ...translations import pop_of_football_lower, Get_New_team_xo
+from ...translations import New_P17_Finall
+from ..fromnet.wd_bot import find_wikidata
 
-from ...matables_bots.bot import All_P17
-from ...lazy_data_bots.bot_2018 import get_pop_All_18
+from ..matables_bots.bot import All_P17
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
-from ....helps.print_bot import print_def_head, print_put
+from ...helps.print_bot import print_def_head, print_put
 
 
 def get_squad_title(tit: str) -> str:

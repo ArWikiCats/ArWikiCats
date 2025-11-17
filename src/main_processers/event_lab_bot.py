@@ -6,7 +6,7 @@ from ..make2_bots.ma_bots.end_start_bots import fax2
 from ..make2_bots.ma_bots.end_start_bots.fax2_temp import get_templates_fo
 from ..make2_bots.ma_bots.end_start_bots.fax2_episodes import get_episodes
 
-from ..make2_bots.ma_bots.end_start_bots.squad_title_bot import get_squad_title
+from ..make2_bots.ma_bots.squad_title_bot import get_squad_title
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..translations import New_P17_Finall, Get_New_team_xo
