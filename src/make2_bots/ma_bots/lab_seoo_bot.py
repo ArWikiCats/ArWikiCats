@@ -4,6 +4,8 @@
 """
 import re
 
+from ...main_processers import event2bot
+
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ...translations import Ambassadors_tab, New_P17_Finall
@@ -23,7 +25,7 @@ from ..p17_bots.us_stat import Work_US_State
 from ..sports_bots import team_work
 
 # ---
-from . import event2bot, ye_ts_bot
+from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -81,6 +83,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
 
     if not resolved_category_label:
         resolved_category_label = event2bot.event2(normalized_target_category)
+
     if not resolved_category_label:
         resolved_category_label = get_pop_All_18(normalized_target_category, "")
 

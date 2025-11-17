@@ -6,8 +6,6 @@ python3 core8/pwb.py make/make2_bots.ma_bots/country2_bot
 
 
 """
-from typing import Any
-
 from ...helps.print_bot import print_put
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
@@ -20,10 +18,9 @@ from ..o_bots.rele import work_relations
 from ..p17_bots import nats
 from ..p17_bots.us_stat import Work_US_State
 from ..sports_bots import team_work
-from . import ye_ts_bot
 
 
-def get_lab_for_country2(country: str, with_test_ye: bool = False, **kwargs: Any) -> str:
+def get_lab_for_country2(country: str) -> str:
     """Retrieve laboratory information for a specified country."""
 
     country2_no_lower = country.strip()
@@ -59,9 +56,6 @@ def get_lab_for_country2(country: str, with_test_ye: bool = False, **kwargs: Any
 
     if not resolved_label and country2.startswith("the "):
         resolved_label = get_pop_All_18(country2[len("the ") :], "")
-
-    if not resolved_label and with_test_ye:
-        resolved_label = ye_ts_bot.translate_general_category(country2, start_get_country2=False)
 
     if resolved_label:
         print_put(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')

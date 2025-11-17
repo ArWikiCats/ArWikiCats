@@ -12,7 +12,7 @@ lab = ye_ts_bot.translate_general_category()
 import functools
 import re
 
-from ...fix import fixtitle
+# from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put
 from ..format_bots import category_relation_mapping
@@ -42,11 +42,9 @@ def find_lab(category: str, category_r: str) -> str:
         _lab = year_lab.make_year_lab(cate_low)
 
     if _lab:
-        _lab = fixtitle.fixlab(_lab, en=category_r)
-
         print_put(f'>>>> <<lightyellow>>test: cat "{category_r}", _lab:"{_lab}"')
-        # NoLabb = False
         print_put(f'>>>> <<lightyellow>> cat:"{category_r}", _lab "{_lab}"')
+
     return _lab
 
 
@@ -132,7 +130,7 @@ def translate_general_category(category_r: str, start_get_country2: bool=True) -
         arlabel = work_titose_nmaes(category_r, start_get_country2, category, Cate_test)
 
     if arlabel:
-        arlabel = fixtitle.fixlab(arlabel, en=category_r)
+        # arlabel = fixtitle.fixlab(arlabel, en=category_r)
         print_put(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
         print_put(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 

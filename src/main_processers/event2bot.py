@@ -7,17 +7,17 @@
 import re
 import functools
 
-from ...helps import printe
+from ..helps import printe
 
-from ... import app_settings
-from ...fix import fixtitle
-from ...helps.print_bot import print_put
-from .. import tmp_bot
-from ..date_bots import with_years_bot
-from ..o_bots import univer  # univer.te_universities(cate)
-from .country_bot import get_country
-from .year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
-from .lab_seoo_bot import event_Lab_seoo
+from .. import app_settings
+from ..fix import fixtitle
+from ..helps.print_bot import print_put
+from ..make2_bots import tmp_bot
+from ..make2_bots.date_bots import with_years_bot
+from ..make2_bots.o_bots import univer  # univer.te_universities(cate)
+from ..make2_bots.ma_bots.country_bot import get_country
+from ..make2_bots.ma_bots.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
+from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

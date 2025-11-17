@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.event2bot import event2_d2, dodo, event2
+from src.main_processers.event2bot import event2_d2, dodo, event2
 
 def test_event2_d2():
     # Test with a basic input

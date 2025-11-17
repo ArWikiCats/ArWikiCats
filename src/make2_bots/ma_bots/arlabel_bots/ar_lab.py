@@ -24,7 +24,7 @@ from ....utils import check_key_in_tables_return_tuple
 from ...ma_bots_new.bot_type_country import get_type_country
 from .bot_type_lab import get_Type_lab
 from .bot_con_lab import get_con_lab
-from .. import event2bot
+from ....main_processers import event2bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
