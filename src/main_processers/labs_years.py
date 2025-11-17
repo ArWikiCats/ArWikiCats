@@ -25,7 +25,10 @@ from ..helps.log import logger
 class LabsYears:
     def __init__(self) -> None:
         self.lookup_count = 0
-        self.category_templates = {}
+        self.category_templates = {
+            "Category:Films in 2020": "تصنيف:أفلام في 2020",
+            "Category:2020 Films": "تصنيف:أفلام إنتاج 2020",
+        }
 
     def lab_from_year(self, category_r: str) -> tuple:
         """

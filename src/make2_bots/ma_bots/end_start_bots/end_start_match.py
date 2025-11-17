@@ -1,6 +1,37 @@
 
 
-from typing import Dict, Any, Tuple
+from typing import Dict, Any
+
+footballers_get_endswith: Dict[str, Dict[str, Any]] = {
+    " women's footballers": {
+        "lab": "لاعبات {}",
+        "Find_wd": True,
+        "Find_ko": True,
+        "remove": " women's footballers",
+        "example": "Category:Spanish women's footballers",
+    },
+    " female footballers": {
+        "lab": "لاعبات {}",
+        "Find_wd": True,
+        "Find_ko": True,
+        "remove": " female footballers",
+        "example": "Category:Brazilian female footballers",
+    },
+    "c. footballers": {
+        "lab": "لاعبو {}",
+        "Find_wd": True,
+        "Find_ko": False,
+        "remove": " footballers",  # كما كان في الكود اليدوي
+        "example": "Category:19c. footballers",
+    },
+    " footballers": {
+        "lab": "لاعبو {}",
+        "Find_wd": True,
+        "Find_ko": True,
+        "remove": " footballers",
+        "example": "Category:German footballers",
+    },
+}
 
 to_get_endswith: Dict[str, Dict[str, Any]] = {
     "squad navigational boxes": {
@@ -172,37 +203,3 @@ to_get_startswith: Dict[str, Dict[str, Any]] = {
         "example": ""
     },
 }
-
-
-def get_from_starts_dict(category3: str) -> Tuple[str, str, bool]:
-    list_of_cat = ""
-    Find_wd = False
-
-    for key, tab in to_get_startswith.items():
-        lab = tab["lab"]
-
-        if category3.startswith(key):
-            list_of_cat = lab
-            category3 = category3.replace(key, "", 1)
-            if tab.get("Find_wd") is True:
-                Find_wd = True
-            break
-
-    return category3, list_of_cat, Find_wd
-
-
-def get_from_endswith_dict(category3: str) -> Tuple[str, str, bool]:
-    list_of_cat = ""
-    Find_wd = False
-
-    for key, tab in to_get_endswith.items():
-        lab = tab["lab"]
-
-        if category3.endswith(key):
-            list_of_cat = lab
-            category3 = category3.replace(key, "", 1)
-            if tab.get("Find_wd") is True:
-                Find_wd = True
-            break
-
-    return category3, list_of_cat, Find_wd

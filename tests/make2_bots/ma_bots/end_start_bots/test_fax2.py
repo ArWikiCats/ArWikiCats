@@ -3,7 +3,7 @@ Tests
 """
 import pytest
 
-from src.make2_bots.ma_bots.end_start_bots.fax2 import get_episodes, get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3_with_lab2, get_list_of_and_cat3
+from src.make2_bots.ma_bots.end_start_bots.fax2 import get_episodes, get_from_starts_dict, get_from_endswith_dict, get_templates_fo, get_list_of_and_cat3_with_lab2, get_list_of_and_cat3, to_get_endswith
 
 data = [
     ("2016 American television", "2016 American television", "حلقات {}"),
@@ -41,13 +41,13 @@ def test_get_from_starts_dict():
 
 def test_get_from_endswith_dict():
     # Test with a basic input that ends with a known key
-    category3, list_of_cat, Find_wd = get_from_endswith_dict("test squad navigational boxes")
+    category3, list_of_cat, Find_wd, _ = get_from_endswith_dict("test squad navigational boxes", to_get_endswith)
     assert isinstance(category3, str)
     assert isinstance(list_of_cat, str)
     assert isinstance(Find_wd, bool)
 
     # Test with empty string
-    category3_empty, list_of_cat_empty, Find_wd_empty = get_from_endswith_dict("")
+    category3_empty, list_of_cat_empty, Find_wd_empty, _ = get_from_endswith_dict("", to_get_endswith)
     assert isinstance(category3_empty, str)
     assert isinstance(list_of_cat_empty, str)
     assert isinstance(Find_wd_empty, bool)
