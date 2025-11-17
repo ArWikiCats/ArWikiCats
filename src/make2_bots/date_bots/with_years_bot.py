@@ -18,17 +18,24 @@ from ..ma_bots.ye_ts_bot import translate_general_category
 from ...helps.print_bot import output_test
 from ..reg_lines import re_sub_year, RE1_compile, RE2_compile, RE33_compile
 
+# Precompiled Regex Patterns
+REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)
+
+known_bodies = {
+    # "term of the Iranian Majlis" : "المجلس الإيراني",
+    "iranian majlis": "المجلس الإيراني",
+    "united states congress": "الكونغرس الأمريكي",
+}
+
+pattern_str = r"^(\d+)(th|nd|st|rd) (%s)$" % "|".join(known_bodies.keys())
+_political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
+
 
 def _handle_political_terms(category_text: str) -> str:
     """Handles political terms like 'united states congress'."""
     # كونغرس
     # cs = re.match(r"^(\d+)(th|nd|st|rd) united states congress", category_text)
-    known_bodies = {
-        # "term of the Iranian Majlis" : "المجلس الإيراني",
-        "iranian majlis": "المجلس الإيراني",
-        "united states congress": "الكونغرس الأمريكي",
-    }
-    if match := re.match(r"^(\d+)(th|nd|st|rd) (%s)$" % "|".join(known_bodies.keys()), category_text):
+    if match := _political_terms_pattern.match(category_text):
         ordinal_number = match.group(1)
         body_key = match.group(3)
         body_label = known_bodies[body_key]
@@ -42,7 +49,7 @@ def _handle_political_terms(category_text: str) -> str:
 def _handle_year_at_start(category_text: str) -> str:
     """Handles cases where the year is at the start of the string."""
     label = ""
-    year = re.sub(re_sub_year, r"\g<1>", category_text)
+    year = REGEX_SUB_YEAR.sub(r"\g<1>", category_text)
     if year == category_text or not year:
         return ""
 

@@ -10,6 +10,39 @@ from ...translations import New_Company
 from ...helps.print_bot import output_main
 from .pf_keys import Change_key, Change_key2
 
+# Precompiled Regex Patterns
+REGEX_SUB_WHITESPACE = re.compile(r"[\s\t]+", re.IGNORECASE)
+REGEX_SUB_CENTURY = re.compile(r"[−–\-]century", re.IGNORECASE)
+REGEX_SUB_MILLENNIUM = re.compile(r"[−–\-]millennium", re.IGNORECASE)
+REGEX_SUB_MILLENNIUM_CENTURY = re.compile(r"[−–\-](millennium|century)", re.I)
+REGEX_SUB_ROYAL_DEFENCE_FORCE = re.compile(r"royal (.*?) defence force", re.IGNORECASE)
+REGEX_SUB_ROYAL_NAVAL_FORCE = re.compile(r"royal (.*?) naval force", re.IGNORECASE)
+REGEX_SUB_ROYAL_NAVY = re.compile(r"royal (.*?) navy", re.IGNORECASE)
+REGEX_SUB_ROYAL_AIR_FORCE = re.compile(r"royal (.*?) air force", re.IGNORECASE)
+REGEX_SUB_EXPATRIATE_PEOPLE = re.compile(r"(\w+) expatriate (\w+) people in ", re.IGNORECASE)
+REGEX_SUB_ORGANISATIONS = re.compile(r"organisations", re.IGNORECASE)
+REGEX_SUB_RUS = re.compile(r"rus'", re.IGNORECASE)
+REGEX_SUB_THE_KINGDOM_OF = re.compile(r"the kingdom of", re.IGNORECASE)
+REGEX_SUB_AUSTRIA_HUNGARY = re.compile(r"austria-hungary", re.IGNORECASE)
+REGEX_SUB_AUSTRIA_HUNGARY_2 = re.compile(r"austria hungary", re.IGNORECASE)
+REGEX_SUB_UNMANNED_MILITARY_AIRCRAFT = re.compile(r"unmanned military aircraft of", re.IGNORECASE)
+REGEX_SUB_UNMANNED_AERIAL_VEHICLES = re.compile(r"unmanned aerial vehicles of", re.IGNORECASE)
+REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO = re.compile(r"democratic republic of the congo", re.IGNORECASE)
+REGEX_SUB_REPUBLIC_CONGO = re.compile(r"republic of the congo", re.IGNORECASE)
+REGEX_SUB_ATHLETICS = re.compile(r"athletics \(track and field\)", re.IGNORECASE)
+REGEX_SUB_TWIN_PEOPLE = re.compile(r"twin people", re.IGNORECASE)
+REGEX_SUB_PERCENT27 = re.compile(r"\%27", re.IGNORECASE)
+REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNORECASE)
+REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
+REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
+
+# Precompiled regex patterns for Change_key and Change_key2 will be created in change_cat function
+# since they depend on imported dictionaries that may not be fully populated at module level
+
+# Cache for compiled regex patterns
+_change_key_compiled = {}
+_change_key2_compiled = {}
+
 # ---
 category_relation_mapping = {
     "for-the-deaf": "للصم",
@@ -473,34 +506,34 @@ def change_cat(cat_orginal: str) -> str:
     # output_main('change_cat :"%s" ' % cat_orginal )
     # ---
     category = cat_orginal
-    category = re.sub(r"[\s\t]+", " ", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_WHITESPACE.sub(" ", category)
     # ---
-    category = re.sub(r"[−–\-]century", " century", category, flags=re.IGNORECASE)
-    category = re.sub(r"[−–\-]millennium", " millennium", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_CENTURY.sub(" century", category)
+    category = REGEX_SUB_MILLENNIUM.sub(" millennium", category)
     # ---
-    category = re.sub(r"[−–\-](millennium|century)", r" \g<1>", category, flags=re.I)
+    category = REGEX_SUB_MILLENNIUM_CENTURY.sub(r" \g<1>", category)
     # ---
-    category = re.sub(r"royal (.*?) defence force", r"\g<1> royal defence force", category, flags=re.IGNORECASE)
-    category = re.sub(r"royal (.*?) naval force", r"\g<1> royal naval force", category, flags=re.IGNORECASE)
-    category = re.sub(r"royal (.*?) navy", r"\g<1> royal navy", category, flags=re.IGNORECASE)
-    category = re.sub(r"royal (.*?) air force", r"\g<1> royal air force", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_ROYAL_DEFENCE_FORCE.sub(r"\g<1> royal defence force", category)
+    category = REGEX_SUB_ROYAL_NAVAL_FORCE.sub(r"\g<1> royal naval force", category)
+    category = REGEX_SUB_ROYAL_NAVY.sub(r"\g<1> royal navy", category)
+    category = REGEX_SUB_ROYAL_AIR_FORCE.sub(r"\g<1> royal air force", category)
 
-    category = re.sub(r"(\w+) expatriate (\w+) people in ", r"\g<1> expatriate \g<2> peoplee in ", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_EXPATRIATE_PEOPLE.sub(r"\g<1> expatriate \g<2> peoplee in ", category)
     # category = re.sub(r" deaf people" , " deaf-peopl" , category, flags = re.IGNORECASE)
-    category = re.sub(r"organisations", "organizations", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_ORGANISATIONS.sub("organizations", category)
     # ---
-    category = re.sub(r"rus'", "rus", category, flags=re.IGNORECASE)
-    category = re.sub(r"the kingdom of", " kingdom of", category, flags=re.IGNORECASE)
-    category = re.sub(r"austria-hungary", "austria hungary", category, flags=re.IGNORECASE)
-    category = re.sub(r"austria hungary", "austria hungary", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_RUS.sub("rus", category)
+    category = REGEX_SUB_THE_KINGDOM_OF.sub(" kingdom of", category)
+    category = REGEX_SUB_AUSTRIA_HUNGARY.sub("austria hungary", category)
+    category = REGEX_SUB_AUSTRIA_HUNGARY_2.sub("austria hungary", category)
     # ---
-    category = re.sub(r"unmanned military aircraft of", "unmanned military aircraft-oof", category, flags=re.IGNORECASE)
-    category = re.sub(r"unmanned aerial vehicles of", "unmanned aerial vehicles-oof", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_UNMANNED_MILITARY_AIRCRAFT.sub("unmanned military aircraft-oof", category)
+    category = REGEX_SUB_UNMANNED_AERIAL_VEHICLES.sub("unmanned aerial vehicles-oof", category)
     # ---
-    category = re.sub(r"democratic republic of the congo", "democratic-republic-of-the-congo", category, flags=re.IGNORECASE)
-    category = re.sub(r"republic of the congo", "republic-of-the-congo", category, flags=re.IGNORECASE)
-    category = re.sub(r"athletics \(track and field\)", "track-and-field athletics", category, flags=re.IGNORECASE)
-    category = re.sub(r"twin people", "twinpeople", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO.sub("democratic-republic-of-the-congo", category)
+    category = REGEX_SUB_REPUBLIC_CONGO.sub("republic-of-the-congo", category)
+    category = REGEX_SUB_ATHLETICS.sub("track-and-field athletics", category)
+    category = REGEX_SUB_TWIN_PEOPLE.sub("twinpeople", category)
     # ---
     # category = re.sub(r"\–" , "-" , category, flags = re.IGNORECASE)
     # category = re.sub(r"–" , "-" , category, flags = re.IGNORECASE)
@@ -512,7 +545,7 @@ def change_cat(cat_orginal: str) -> str:
     # ---
     category = category.replace("roller hockey (quad)", "roller hockey")
     category = category.replace("victoria (australia)", "victoria-australia")
-    category = re.sub(r"\%27", "'", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_PERCENT27.sub("'", category)
 
     # category = re.sub(r"assassinated (.*) people" , r"\g<1> assassinated people" , category, flags = re.IGNORECASE)
     # category = re.sub(r"'" , " " , category, flags = re.IGNORECASE)
@@ -520,23 +553,39 @@ def change_cat(cat_orginal: str) -> str:
     for x, d in replaces.items():
         category = category.replace(x, d)
     # ---
+    # Use cached compiled regex patterns for Change_key2
     for chk2, chk2_lab in Change_key2.items():
-        category = re.sub(chk2, chk2_lab, category, flags=re.IGNORECASE)
+        if chk2 not in _change_key2_compiled:
+            _change_key2_compiled[chk2] = re.compile(chk2, flags=re.IGNORECASE)
+        category = _change_key2_compiled[chk2].sub(chk2_lab, category)
     # ---
+    # Use cached compiled regex patterns for Change_key items
     for chk, chk_lab in Change_key.items():
-        category = re.sub(rf"^category\:{chk} ", f"category:{chk_lab} ", category, flags=re.IGNORECASE)
-        category = re.sub(rf"^{chk} ", f"{chk_lab} ", category, flags=re.IGNORECASE)
-        category = re.sub(rf" {chk} ", f" {chk_lab} ", category, flags=re.IGNORECASE)
-        category = re.sub(rf" {chk}$", f" {chk_lab}", category, flags=re.IGNORECASE)
-        category = re.sub(rf"category\:{chk} ", f"category:{chk_lab} ", category, flags=re.IGNORECASE)
+        # Create and cache 5 different patterns for each chk
+        key = (chk, chk_lab)
+        if key not in _change_key_compiled:
+            _change_key_compiled[key] = [
+                re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE),
+                re.compile(rf"^{chk} ", flags=re.IGNORECASE),
+                re.compile(rf" {chk} ", flags=re.IGNORECASE),
+                re.compile(rf" {chk}$", flags=re.IGNORECASE),
+                re.compile(rf"category\:{chk} ", flags=re.IGNORECASE)
+            ]
+
+        patterns = _change_key_compiled[key]
+        category = patterns[0].sub(f"category:{chk_lab} ", category)
+        category = patterns[1].sub(f"{chk_lab} ", category)
+        category = patterns[2].sub(f" {chk_lab} ", category)
+        category = patterns[3].sub(f" {chk_lab}", category)
+        category = patterns[4].sub(f"category:{chk_lab} ", category)
     # ---
-    category = re.sub(r"category\:ministers of ", "category:ministers-of ", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_CATEGORY_MINISTERS.sub("category:ministers-of ", category)
     # ---
     category = category.replace("party of ", "party-of ")
     category = category.replace(" uu-16 ", " u-16 ")
     # ---
-    category = re.sub(r"association football afc", "association-football afc", category, flags=re.IGNORECASE)
-    category = re.sub(r"association football", "football", category, flags=re.IGNORECASE)
+    category = REGEX_SUB_ASSOCIATION_FOOTBALL_AFC.sub("association-football afc", category)
+    category = REGEX_SUB_ASSOCIATION_FOOTBALL.sub("football", category)
     # ---
     if category != cat_orginal:
         output_main(f'change_cat to :"{category}", orginal: {cat_orginal}.')
