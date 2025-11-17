@@ -1,5 +1,7 @@
 tqdm
 humanize
 psutil
+
 requests
 libcst
+pydeps
