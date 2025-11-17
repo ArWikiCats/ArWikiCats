@@ -342,6 +342,10 @@ class EventLabResolver:
 
         # Process list categories if both exist
         if list_of_cat and category_lab:
+            # Debug before calling list_of_cat_func
+            if isinstance(category_lab, dict):
+                logger.error(f"[BUG] category_lab is dict for cate_r={cate_r} value={category_lab}")
+
             category_lab = self._process_list_category(cate_r, category_lab, list_of_cat)
 
         # Handle case where list exists but no label

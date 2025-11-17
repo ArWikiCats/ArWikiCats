@@ -35,6 +35,8 @@ from ...translations import jobs_mens_data
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ... import app_settings
+from ...helps.log import logger
+
 get_country_done: Dict[str, str] = {}
 
 
@@ -72,7 +74,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
         for prefix, prefix_label in prefix_labels.items():
             if not country.startswith(prefix):
                 continue
-            print(f">>> country.startswith({prefix})")
+            logger.debug(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :]
             remainder_label = country2_bot.Get_country2(remainder)
 
@@ -116,7 +118,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
         for prefix, prefix_template in historical_prefixes.items():
             if not country.startswith(prefix):
                 continue
-            print(f">>> country.startswith({prefix})")
+            logger.debug(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :]
             remainder_label = country2_bot.Get_country2(remainder)
 

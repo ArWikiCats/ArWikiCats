@@ -117,6 +117,11 @@ to_get_endswith: Dict[str, Dict[str, Any]] = {
 }
 
 to_get_startswith: Dict[str, Dict[str, Any]] = {
+    "academic staff of": {
+        "lab": "أعضاء هيئة تدريس {}",
+        "Find_wd": True,
+        "example": "",
+    },
     "association football matches navigational boxes by teams:": {
         "lab": "صناديق تصفح مباريات كرة قدم حسب الفرق:{}",
         "Find_wd": False,
