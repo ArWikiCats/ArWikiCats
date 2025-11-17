@@ -13,8 +13,6 @@ from ..translations import New_P17_Finall, Get_New_team_xo
 from ..make2_bots import tmp_bot
 from ..make2_bots.date_bots import year_lab
 from ..make2_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
-from ..make2_bots.fromnet import kooora
-from ..make2_bots.fromnet.wd_bot import find_wikidata
 from ..make2_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make2_bots.o_bots import univer
 
@@ -67,8 +65,6 @@ class EventLabResolver:
 
     def __init__(self) -> None:
         """Initialize the EventLabResolver with default values."""
-        self.find_wd: bool = False
-        self.find_ko: bool = False
         self.foot_ballers: bool = False
 
     def _process_category_formatting(self, cate_r: str) -> Tuple[str, str, str]:
@@ -109,10 +105,8 @@ class EventLabResolver:
             Tuple[str, str, bool]: List of category, updated category3, and whether Wikidata was found
         """
         list_of_cat: str = ""
-        find_wd: bool = False
 
         if category3.endswith(" episodes"):
-            find_wd = True
             list_of_cat, category3 = get_episodes(category3, category3_nolower)
 
         elif category3.endswith(" templates"):
@@ -120,13 +114,13 @@ class EventLabResolver:
 
         else:
             # Process with the main category processing function
-            list_of_cat, find_wd, self.find_ko, self.foot_ballers, category3 = get_list_of_and_cat3(
+            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(
                 category3,
                 category3_nolower,
                 app_settings.find_stubs
             )
 
-        return list_of_cat, category3, find_wd
+        return list_of_cat, category3
 
     def _get_country_based_label(self, original_category3: str, list_of_cat: str) -> Tuple[str, str]:
         """
@@ -149,14 +143,12 @@ class EventLabResolver:
 
         return category_lab, list_of_cat
 
-    def _apply_general_label_functions(self, category3: str, find_wd: bool, find_ko: bool) -> str:
+    def _apply_general_label_functions(self, category3: str) -> str:
         """
         Apply various general label functions in sequence.
 
         Args:
             category3 (str): The category string to process
-            find_wd (bool): Whether Wikidata was found
-            find_ko (bool): Whether Kooora was found
 
         Returns:
             str: The processed category label or empty string
@@ -174,10 +166,9 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        if find_wd:
-            category_lab = get_pop_All_18(category3, "")
-            if category_lab:
-                return category_lab
+        category_lab = get_pop_All_18(category3, "")
+        if category_lab:
+            return category_lab
 
         # If no label found yet, try general translation
         if not category_lab:
@@ -188,14 +179,6 @@ class EventLabResolver:
         category_lab = Get_country2(category3)
         if category_lab:
             return category_lab
-
-        if find_ko:
-            category_lab = kooora.kooora_team(category3)
-            if category_lab:
-                return category_lab
-
-        if find_wd:
-            category_lab = find_wikidata(category3)
 
         return category_lab
 
@@ -310,14 +293,12 @@ class EventLabResolver:
         category_lab = get_list_of_and_cat3_with_lab2(category3)
 
         # Initialize flags
-        self.find_wd = False
-        self.find_ko = False
         self.foot_ballers = False
         list_of_cat = ""
 
         # Handle special suffixes
         if not category_lab:
-            list_of_cat, category3, self.find_wd = self._handle_special_suffixes(
+            list_of_cat, category3 = self._handle_special_suffixes(
                 category3,
                 category3_nolower
             )
@@ -330,7 +311,7 @@ class EventLabResolver:
 
         # Apply various general label functions
         if not category_lab:
-            category_lab = self._apply_general_label_functions(category3, self.find_wd, self.find_ko)
+            category_lab = self._apply_general_label_functions(category3)
 
         # Handle categories that match predefined suffix patterns
         if not category_lab and not list_of_cat:

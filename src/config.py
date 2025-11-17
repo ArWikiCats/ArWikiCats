@@ -31,6 +31,7 @@ class AppConfig:
     find_stubs: bool
     makeerr: bool
     load_p17nat: bool
+    save_data_path: str
 
 
 @dataclass(frozen=True)
@@ -56,6 +57,7 @@ settings = Config(
         find_stubs=one_req("-STUBS"),
         makeerr=one_req("MAKEERR"),
         load_p17nat=one_req("LOAD_P17NAT"),
+        save_data_path=os.getenv("SAVE_DATA_PATH", ""),
     ),
 )
 print_settings = settings.print

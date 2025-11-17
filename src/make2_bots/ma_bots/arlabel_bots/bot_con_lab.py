@@ -10,8 +10,6 @@ from ....translations import New_female_keys, New_P17_Finall, pf_keys2
 from ... import tmp_bot
 from ...date_bots import year_lab
 from ...format_bots import for_table
-from ...fromnet import kooora
-from ...fromnet.wd_bot import find_wikidata
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...media_bots.films_bot import te_films
 from ...o_bots import bys
@@ -78,12 +76,6 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
 
     if not label:
         label = country2_lab.get_lab_for_country2(country_lower)
-
-    if not label:
-        label = find_wikidata(country_lower)
-
-    if not label:
-        label = kooora.kooora_team(country_lower)
 
     print_put(f"?????? get_con_lab: {country_lower=}, {label=}")
 

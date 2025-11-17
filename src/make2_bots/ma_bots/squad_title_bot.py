@@ -8,7 +8,6 @@ from ..ma_bots.squad_title_bot import get_squad_title
 from ..date_bots import with_years_bot
 from ...translations import pop_of_football_lower, Get_New_team_xo
 from ...translations import New_P17_Finall
-from ..fromnet.wd_bot import find_wikidata
 
 from ..matables_bots.bot import All_P17
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -32,8 +31,6 @@ def get_squad_title(tit: str) -> str:
                 tit2 = tit2.strip()
                 print_put(f'<<lightblue>> get_squad_title tit.startswith("{oo}"), tit2:({tit2}) ')
                 falab = get_pop_All_18(tit2) or pop_of_football_lower.get(tit2) or New_P17_Finall.get(tit2) or ""
-                if not falab:
-                    falab = find_wikidata(tit2)
                 if falab:
                     lab = f"تشكيلات {oo_lab} في {falab}"
                     break

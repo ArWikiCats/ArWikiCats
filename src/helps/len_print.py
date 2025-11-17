@@ -7,7 +7,8 @@ import json
 from typing import Any, List, Union, Mapping
 from humanize import naturalsize
 from pathlib import Path
-
+from ..config import app_settings
+from ..helps.log import logger
 all_len = {}
 
 
@@ -18,22 +19,28 @@ def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> st
 
 
 def save_data(bot, tab):
-    bot_path = Path("D:/categories_bot/len_data") / bot
-    bot_path.mkdir(parents=True, exist_ok=True)
+    if not app_settings.save_data_path:
+        return
 
-    for name, data in tab.items():
-        if not data:
-            continue
-        if isinstance(data, dict) or isinstance(data, list):
-            # sort data by key
-            # ---
-            if isinstance(data, dict):
-                data = dict(sorted(data.items(), key=lambda item: item[0].lower()))
-            elif isinstance(data, list):
-                data = sorted(set(data))
-            # ---
-            with open(bot_path / f"{name}.json", "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=4)
+    bot_path = Path(app_settings.save_data_path) / bot
+    try:
+        bot_path.mkdir(parents=True, exist_ok=True)
+
+        for name, data in tab.items():
+            if not data:
+                continue
+            if isinstance(data, dict) or isinstance(data, list):
+                # sort data by key
+                # ---
+                if isinstance(data, dict):
+                    data = dict(sorted(data.items(), key=lambda item: item[0].lower()))
+                elif isinstance(data, list):
+                    data = sorted(set(data))
+                # ---
+                with open(bot_path / f"{name}.json", "w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=4)
+    except Exception:
+        logger.error("Error saving data")
 
 
 def data_len(
@@ -47,8 +54,8 @@ def data_len(
         }
         for x, v in tab.items()
     }
-
-    save_data(bot, tab)
+    if app_settings.save_data_path:
+        save_data(bot, tab)
 
     if not data:
         return
