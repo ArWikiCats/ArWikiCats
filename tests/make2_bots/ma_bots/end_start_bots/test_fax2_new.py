@@ -1,30 +1,15 @@
 # test_fax2_get_list_of_and_cat3.py
 import pytest
-from types import SimpleNamespace
 
 from src.make2_bots.ma_bots.end_start_bots import fax2
-
-
-@pytest.fixture(autouse=True)
-def stub_logger_and_settings(monkeypatch):
-    """Provide minimal logger and app_settings for all tests."""
-    class DummyLogger:
-        def __init__(self) -> None:
-            self.messages = []
-
-        def info(self, msg: str) -> None:
-            # Just store messages so tests can assert on them if needed
-            self.messages.append(msg)
-
-    # Stub logger
-    monkeypatch.setattr(fax2, "logger", DummyLogger(), raising=False)
 
 # ---------------------------------------------------------------------------
 # 1) Patterns handled by to_get_startswith عبر get_from_starts_dict
 # ---------------------------------------------------------------------------
 
 
-def test_get_list_of_and_cat3_all_startswith_patterns(monkeypatch):
+@pytest.mark.fast
+def test_get_list_of_and_cat3_all_startswith_patterns():
     """Each key in to_get_startswith should be matched and produce expected label."""
     for key, tab in fax2.to_get_startswith.items():
         # Build a synthetic category that starts with the key
@@ -47,6 +32,7 @@ def test_get_list_of_and_cat3_all_startswith_patterns(monkeypatch):
 # 2) women members of ... (fallback بعد startswith)
 # ---------------------------------------------------------------------------
 
+@pytest.mark.fast
 def test_get_list_of_and_cat3_women_members_fallback():
     """The 'women members of ' fallback should be applied when no startswith pattern matches."""
     category3 = "women members of Parliament of the United Kingdom"
@@ -96,6 +82,7 @@ def test_get_list_of_and_cat3_women_members_fallback():
         ),
     ],
 )
+@pytest.mark.fast
 def test_get_list_of_and_cat3_footballers_variants(
     category3, expected_label, expected_rest, expected_find_ko
 ):
@@ -152,6 +139,7 @@ def test_get_list_of_and_cat3_footballers_variants(
         ),
     ],
 )
+@pytest.mark.fast
 def test_get_list_of_and_cat3_players_variants(
     category3, category3_nolower, expected_rest
 ):
@@ -171,6 +159,7 @@ def test_get_list_of_and_cat3_players_variants(
 # 5) stubs branch (app_settings.find_stubs)
 # ---------------------------------------------------------------------------
 
+@pytest.mark.fast
 def test_get_list_of_and_cat3_stubs_respected_when_enabled():
 
     category3 = "Physics stubs"
@@ -187,6 +176,7 @@ def test_get_list_of_and_cat3_stubs_respected_when_enabled():
     assert rest == "Physics"
 
 
+@pytest.mark.fast
 def test_get_list_of_and_cat3_stubs_ignored_when_disabled():
 
     category3 = "Physics stubs"
@@ -209,6 +199,7 @@ def test_get_list_of_and_cat3_stubs_ignored_when_disabled():
 # 6) Patterns handled by to_get_endswith عبر get_from_endswith_dict
 # ---------------------------------------------------------------------------
 
+@pytest.mark.fast
 def test_get_list_of_and_cat3_all_endswith_patterns():
     """Each key in to_get_endswith should be matched and produce expected label."""
     for key, tab in fax2.to_get_endswith.items():
@@ -246,6 +237,7 @@ def test_get_list_of_and_cat3_all_endswith_patterns():
             assert rest.strip() == expected_rest.strip()
 
 
+@pytest.mark.fast
 def test_get_list_of_and_cat3_navigational_boxes_specificity():
     """More specific 'squad/sports navigational boxes' should win over plain 'navigational boxes'."""
     # sports navigational boxes
@@ -269,8 +261,10 @@ def test_get_list_of_and_cat3_navigational_boxes_specificity():
 # 7) لا يوجد أي تطابق مع أي نمط
 # ---------------------------------------------------------------------------
 
+@pytest.mark.fast
 def test_get_list_of_and_cat3_no_match_returns_defaults():
-    """If no startswith/footballers/stubs/players/endswith patterns match, defaults should be returned."""
+    """If no startswith/footballers/stubs/players/endswith patterns match, @pytest.mark.fast
+defaults should be returned."""
     category3 = "Completely unmatched category"
     category3_nolower = category3
 
@@ -290,6 +284,7 @@ def test_get_list_of_and_cat3_no_match_returns_defaults():
 # 8) التأكد من إزالة الفراغات والتعامل مع category3_nolower الفارغ
 # ---------------------------------------------------------------------------
 
+@pytest.mark.fast
 def test_get_list_of_and_cat3_strips_whitespace_and_handles_empty_nolower():
     """Whitespace should be stripped and empty category3_nolower handled gracefully."""
     category3 = "  Spanish players  "
