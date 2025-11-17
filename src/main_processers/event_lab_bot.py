@@ -19,14 +19,10 @@ from ..make2_bots.fromnet.wd_bot import find_wikidata
 from ..make2_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make2_bots.o_bots import univer
 
-# ImportError: cannot import name 'translate_general_category' from partially initialized module 'make2.make2_bots.ma_bots.ye_ts_bot'
-#  (most likely due to a circular import) (make2_bots.ma_bots\ye_ts_bot.py)
 from ..make2_bots.ma_bots import list_cat_format, ye_ts_bot
 from ..make2_bots.ma_bots.country2_bot import Get_country2
 from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
 from ..config import app_settings
-# from ..helps.jsonl_dump import save
-# from pathlib import Path
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
