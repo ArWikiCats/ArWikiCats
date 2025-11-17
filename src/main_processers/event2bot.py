@@ -48,7 +48,7 @@ def event2_d2(category_r) -> str:
     return category_lab
 
 
-def dodo(category_r: str) -> str:
+def stubs_label(category_r: str) -> str:
     """Generate an Arabic label for a given category.
 
     This function processes a category string to generate an Arabic label,
@@ -132,7 +132,7 @@ def event2(category_r: str) -> str:
     ar_label = label_for_startwith_year_or_typeo(category_r)
 
     if not ar_label:
-        ar_label = dodo(category_r)
+        ar_label = stubs_label(category_r)
 
     print_put("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 
