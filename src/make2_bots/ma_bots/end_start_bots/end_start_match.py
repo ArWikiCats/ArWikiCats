@@ -21,8 +21,8 @@ footballers_get_endswith: Dict[str, Dict[str, Any]] = {
         "lab": "لاعبو {}",
         "Find_wd": True,
         "Find_ko": False,
-        "remove": " footballers",  # كما كان في الكود اليدوي
-        "example": "Category:19c. footballers",
+        "remove": " footballers",
+        "example": "Category:Heartland F.C. footballers",
     },
     " footballers": {
         "lab": "لاعبو {}",

@@ -4,13 +4,14 @@ from . import fax2
 
 """
 
-from typing import Dict, Tuple
+from typing import Tuple
 from ....helps.log import logger
 from .... import app_settings
 
 from .squad_title_bot import get_squad_title
 from .end_start_match import to_get_startswith, to_get_endswith, footballers_get_endswith
 from .utils import get_from_starts_dict, get_from_endswith_dict
+from .fax2_temp import get_templates_fo
 
 
 def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
@@ -44,36 +45,6 @@ def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
 
     list_of_cat = "حلقات {}"
     category3 = category3_nolower.replace("episodes", "", 1).strip()
-
-    return list_of_cat, category3
-
-
-def get_templates_fo(category3: str) -> Tuple[str, str]:
-    """
-    examples:
-    Category:2016 American television episodes
-    Category:Game of Thrones (season 1) episodes
-    Category:Game of Thrones season 1 episodes
-    """
-
-    list_of_cat = ""
-
-    dict_temps: Dict[str, str] = {
-        "sidebar templates": "قوالب اشرطة جانبية {}",
-        "politics and government templates": "قوالب سياسة وحكومة {}",
-        "infobox templates": "قوالب معلومات {}",
-        "squad templates": "قوالب تشكيلات {}",
-    }
-
-    for key, lab in dict_temps.items():
-        if category3.endswith(key):
-            list_of_cat = lab
-            category3 = category3.replace(key, "", 1).strip()
-            break
-
-    if not list_of_cat:
-        list_of_cat = "قوالب {}"
-        category3 = category3.replace(" templates", "", 1).strip()
 
     return list_of_cat, category3
 

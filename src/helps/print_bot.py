@@ -18,7 +18,7 @@ te_logging_preferences = {1: False}
 def output_test4(text: str) -> None:
     if disable_all_printing:
         return
-    printe.info(text)
+    printe.debug(text)
 
 
 def output_main(text: str) -> str | None:
@@ -62,7 +62,7 @@ def output_test(text: str) -> str | None:
         return
     if headline_only_preferences:
         return ""
-    printe.info(text)
+    printe.debug(text)
 
 
 def do_print_options(

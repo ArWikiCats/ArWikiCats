@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from ..helps.print_bot import output_test
+from ..helps.log import logger
 from ..make2_bots.reg_lines import YEARS_REGEX_AR
 
 
@@ -30,9 +30,9 @@ def move_by_in(text_str: str) -> str:
         by_part = result.group("by_part")
         date = result.group("date")
         new_text = f"{first_part} في {date} حسب {by_part}"
-        output_test(f"move_by_in: new_text: {new_text}")
+        logger.debug(f"move_by_in: new_text: {new_text}")
     else:
-        output_test(f"move_by_in: no match for {text_str}")
+        logger.debug(f"move_by_in: no match for {text_str}")
 
     if new_text != text_str:
         new_text = re.sub(r"\s+", " ", new_text)
@@ -56,7 +56,7 @@ def move_years_first(text_str: str) -> str:
     if match := re.match(pattern, text_str):
         first_part = match.group("first_part").strip()
         second_part = match.group("second_part").strip()
-        output_test(f"move_years_first: first_part={first_part} second_part={second_part}")
+        logger.debug(f"move_years_first: first_part={first_part} second_part={second_part}")
         skip_it = [
             "أفلام",
             "الأفلام",
@@ -64,17 +64,17 @@ def move_years_first(text_str: str) -> str:
         if second_part in skip_it:
             return text_str
         if " في x" in second_part:
-            output_test("move_years_first: skipping due to nested preposition")
+            logger.debug("move_years_first: skipping due to nested preposition")
             return text_str
 
         new_text = f"{second_part} في {first_part}"
         if result := re.search(r"^(?P<subject>.*)\sحسب\s(?P<by>[\s\w]+)$", second_part):
-            output_test("move_years_first: found حسب clause")
+            logger.debug("move_years_first: found حسب clause")
             subject = result.group("subject")
             by_part = result.group("by")
             new_text = f"{subject} في {first_part} حسب {by_part}"
     else:
-        output_test(f'move_years_first: no match for "{text_str}"')
+        logger.debug(f'move_years_first: no match for "{text_str}"')
 
     if new_text != text_str:
         new_text = re.sub(r"\s+", " ", new_text)
