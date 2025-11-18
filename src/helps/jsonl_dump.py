@@ -37,7 +37,7 @@ def save_data(filename: str, input_keys: list = None):
             output = func(*args, **kwargs)
 
             if not SAVE_ENABLE:
-                return
+                return output
 
             if not output:
                 return output
