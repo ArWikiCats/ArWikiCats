@@ -15,7 +15,7 @@ from .Jobs import (
     Jobs_new,
 )
 from .Jobs2 import JOBS_2, JOBS_3333
-from .jobs_data import (
+from .jobs_data_basic import (
     MEN_WOMENS_JOBS_2,
     NAT_BEFORE_OCC,
     RELIGIOUS_KEYS_PP,

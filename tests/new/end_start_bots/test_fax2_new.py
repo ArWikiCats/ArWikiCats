@@ -17,13 +17,11 @@ def test_get_list_of_and_cat3_all_startswith_patterns():
         category3 = f"{key}{suffix}"
         category3_nolower = category3
 
-        list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+        list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
             category3, category3_nolower
         )
 
         assert list_of_cat == tab["lab"]
-        assert find_wd is bool(tab.get("Find_wd"))
-        assert find_ko is False
         assert foot_ballers is False
         assert rest == suffix  # Remainder after removing prefix
 
@@ -38,13 +36,11 @@ def test_get_list_of_and_cat3_women_members_fallback():
     category3 = "women members of Parliament of the United Kingdom"
     category3_nolower = category3
 
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3_nolower
     )
 
     assert list_of_cat == "عضوات {}"
-    assert find_wd is False
-    assert find_ko is False
     assert foot_ballers is False
     assert rest == "Parliament of the United Kingdom"
 
@@ -54,50 +50,44 @@ def test_get_list_of_and_cat3_women_members_fallback():
 # ---------------------------------------------------------------------------
 
 @pytest.mark.parametrize(
-    "category3, expected_label, expected_rest, expected_find_ko",
+    "category3, expected_label, expected_rest",
     [
         (
             "Spanish women's footballers",
             "لاعبات {}",
             "Spanish",
-            True,
         ),
         (
             "Brazilian female footballers",
             "لاعبات {}",
             "Brazilian",
-            True,
         ),
         (
             "Heartland F.C. footballers",
             "لاعبو {}",
             "Heartland F.C.",
-            False,  # For "c. footballers" mapping
         ),
         (
             "German footballers",
             "لاعبو {}",
             "German",
-            True,
         ),
     ],
 )
 @pytest.mark.fast
 def test_get_list_of_and_cat3_footballers_variants(
-    category3, expected_label, expected_rest, expected_find_ko
+    category3, expected_label, expected_rest
 ):
     """All footballers variants should be handled via footballers_get_endswith."""
     category3_nolower = category3
 
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3_nolower
     )
 
     assert list_of_cat == expected_label
-    assert find_wd is True
     assert foot_ballers is True
     assert rest == expected_rest
-    # assert find_ko is expected_find_ko
 
 
 # ---------------------------------------------------------------------------
@@ -144,13 +134,11 @@ def test_get_list_of_and_cat3_players_variants(
     category3, category3_nolower, expected_rest
 ):
     """All 'players' / 'playerss' endings should set label and strip suffix correctly."""
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3_nolower
     )
 
     assert list_of_cat == "لاعبو {}"
-    assert find_wd is True
-    assert find_ko is True
     assert foot_ballers is False
     assert rest == expected_rest
 
@@ -165,13 +153,11 @@ def test_get_list_of_and_cat3_stubs_respected_when_enabled():
     category3 = "Physics stubs"
     category3_nolower = category3
 
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3_nolower, True
     )
 
     assert list_of_cat == "بذرة {}"
-    assert find_wd is False
-    assert find_ko is False
     assert foot_ballers is False
     assert rest == "Physics"
 
@@ -182,14 +168,12 @@ def test_get_list_of_and_cat3_stubs_ignored_when_disabled():
     category3 = "Physics stubs"
     category3_nolower = category3
 
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3_nolower, False
     )
 
     # No mapping in to_get_endswith, so no label
     assert list_of_cat == ""
-    assert find_wd is False
-    assert find_ko is False
     assert foot_ballers is False
     # Only whitespace stripping should be applied
     assert rest == "Physics stubs"
@@ -217,14 +201,12 @@ def test_get_list_of_and_cat3_all_endswith_patterns():
 
         category3_nolower = category3
 
-        list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+        list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
             category3, category3_nolower
         )
 
         assert list_of_cat.strip() == tab["lab"]
-        assert find_ko is False
         assert foot_ballers is False
-        assert find_wd is bool(tab.get("Find_wd"))
 
         # Check the stripped remainder where we control the format
         if not tab.get("example"):
@@ -242,7 +224,7 @@ def test_get_list_of_and_cat3_navigational_boxes_specificity():
     """More specific 'squad/sports navigational boxes' should win over plain 'navigational boxes'."""
     # sports navigational boxes
     category3 = "Yemen sports navigational boxes"
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3
     )
     assert list_of_cat.strip() == fax2.to_get_endswith["sports navigational boxes"]["lab"]
@@ -250,7 +232,7 @@ def test_get_list_of_and_cat3_navigational_boxes_specificity():
 
     # squad navigational boxes
     category3 = "1996 Basketball Olympic squad navigational boxes"
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3
     )
     assert list_of_cat.strip() == fax2.to_get_endswith["squad navigational boxes"]["lab"].strip()
@@ -268,13 +250,11 @@ defaults should be returned."""
     category3 = "Completely unmatched category"
     category3_nolower = category3
 
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3_nolower
     )
 
     assert list_of_cat == ""
-    assert find_wd is False
-    assert find_ko is False
     assert foot_ballers is False
     # Leading/trailing whitespace is stripped only
     assert rest == "Completely unmatched category"
@@ -290,13 +270,11 @@ def test_get_list_of_and_cat3_strips_whitespace_and_handles_empty_nolower():
     category3 = "  Spanish players  "
     category3_nolower = ""
 
-    list_of_cat, find_wd, find_ko, foot_ballers, rest = fax2.get_list_of_and_cat3(
+    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(
         category3, category3_nolower
     )
 
     assert list_of_cat == "لاعبو {}"
-    assert find_wd is True
-    assert find_ko is True
     assert foot_ballers is False
     # Whitespace stripped from both ends
     assert rest == "Spanish"

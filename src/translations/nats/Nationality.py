@@ -322,6 +322,8 @@ nats_to_add = {}
 len_print.data_len(
     "nationality.py",
     {
+        "Nat_mens": Nat_mens,
+        "Nat_Womens": Nat_Womens,
         "All_Nat": All_Nat,
         "All_Nat with ar name": all_country_with_nat_ar,
         "All_Nat with en name": all_country_with_nat,

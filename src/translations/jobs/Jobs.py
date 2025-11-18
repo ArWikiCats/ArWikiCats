@@ -1,15 +1,5 @@
-"""Build comprehensive gendered job label dictionaries.
-
-This module historically assembled several large dictionaries describing job
-labels in Arabic.  The original implementation relied on implicit global state
-and mutating logic that made the data construction difficult to follow.
-
-The refactor below keeps the exported data identical while restructuring the
-pipeline into typed helper functions with clear documentation.  Each helper
-focuses on a single transformation—loading JSON data, combining gendered labels,
-adding derived sport or film variants, or flattening the output for historic
-exports.  The end result is a deterministic data set that is easier to maintain
-and safe to import in other modules.
+"""
+Build comprehensive gendered job label dictionaries.
 """
 
 from __future__ import annotations
@@ -34,7 +24,7 @@ from .jobs_defs import (
     copy_gendered_map,
     merge_gendered_maps,
 )
-from .jobs_data import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC
+from .jobs_data_basic import RELIGIOUS_KEYS_PP, MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC
 from .jobs_players_list import (
     FOOTBALL_KEYS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,

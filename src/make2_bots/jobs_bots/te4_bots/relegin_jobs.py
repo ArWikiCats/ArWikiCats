@@ -2,14 +2,11 @@
 """
 !
 """
-from typing import Dict
-from ..jobs_mainbot import Jobs
+from ..jobs_mainbot import jobs_with_nat_prefix
 from ....translations import RELIGIOUS_KEYS_PP
 from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
 import functools
-
-RELIGIOUS_KEYS = list(RELIGIOUS_KEYS_PP.keys())
 
 
 @functools.lru_cache(maxsize=None)
@@ -19,15 +16,19 @@ def try_relegins_jobs(cate: str) -> str:
     # ---
     country_lab = ""
     # ---
-    job_example, nat = get_con_3(cate, RELIGIOUS_KEYS, "religions")
+    category_suffix, country_prefix = get_con_3(cate, "religions")
     # ---
-    Tab = RELIGIOUS_KEYS_PP.get(nat, {})
+    Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
     # ---
-    if job_example:
-        country_lab = Jobs(cate, nat, job_example, Type="rel", tab=Tab)
+    if category_suffix:
+        country_lab = jobs_with_nat_prefix(
+            cate,
+            country_prefix,
+            category_suffix,
+            mens=Tab.get("mens"),
+            womens=Tab.get("womens")
+        )
     # ---
     output_test4(f"\t xx end: <<lightred>>try_relegins_jobs <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
-    # ---
-
     # ---
     return country_lab

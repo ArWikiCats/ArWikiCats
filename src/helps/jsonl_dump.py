@@ -8,6 +8,10 @@ from pathlib import Path
 
 def save(path, data) -> str:
     path = Path(path)
+    # ---
+    if isinstance(data, dict):
+        data = [data]
+    # ---
     if not path.parent.exists():
         path.parent.mkdir(parents=True)
         with jsonlines.open(path, mode='w') as writer:

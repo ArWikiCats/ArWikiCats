@@ -2,8 +2,8 @@
 """
 !
 """
-from typing import Dict, Optional
-
+import functools
+from pathlib import Path
 from ...translations import (
     Nat_mens,
     Nat_Womens,
@@ -12,29 +12,70 @@ from ...translations import (
     NAT_BEFORE_OCC,
     MEN_WOMENS_WITH_NATO,
 )
-from ...helps.print_bot import output_test4
+from ...helps.log import logger
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
-import functools
+from ...helps.jsonl_dump import save
 
 
-@functools.lru_cache(maxsize=None)
-def Jobs2(cate: str, Start: str, con_3: str) -> str:
+def country_lab_womens(category_suffix, nat_lab, pkjn, con_lab):
     # ---
-    country: str = Start
-    country_lab: str = ""
+    jender_key = "womens"
     # ---
-    con_3_lab = jobs_mens_data.get(con_3, "")
-    if con_3_lab:
-        if Nat_mens.get(country, "") != "":
-            # output_test4('<<lightblue>> cate.startswith("%s"), con_3:"%s"' % (cate , con_3))
-            country_lab = f"{con_3_lab} {Nat_mens.get(country, '')}"
-            output_test4(f'<<lightblue>> test Jobs: new country_lab  "{country_lab}" ')
+    # TODO: NEW TO CHECK
+    TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
+    if TAJO and "{nato}" in TAJO.get(jender_key, ""):
+        country_lab = TAJO[jender_key].format(nato=nat_lab)
+        logger.debug('<<lightblue>> TAJO[jender_key]: has {nato} "%s"' % TAJO[jender_key])
+    # ---
+    if not con_lab:
+        return ""
+    # ---
+    country_lab = f"{con_lab} {nat_lab}"
+    # ---
+    if "{nato}" in con_lab:
+        country_lab = con_lab.format(nato=nat_lab)
+        logger.debug(f'<<lightblue>> TAJO[{jender_key}]: has {{nato}} "con_lab"')
+    # ---
+    for kjn in pkjn:
+        if con_lab.endswith(kjn):
+            country_lab = f"{con_lab[:-len(kjn)]} {nat_lab}{kjn}"
+            break
+    # ---
+    logger.debug(f'\t<<lightblue>> test Womens Jobs: new lab: "{country_lab}" ')
     # ---
     return country_lab
 
-# TypeError: unhashable type: 'dict'
-# @functools.lru_cache(maxsize=None)
-def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[str, str]] = None) -> str:
+
+def country_lab_mens(category_suffix, nat_lab, pkjn, con_lab):
+    # ---
+    if not con_lab:
+        return ""
+    # ---
+    country_lab = f"{con_lab} {nat_lab}"
+    # ---
+    if con_lab.startswith("حسب"):
+        country_lab = f"{nat_lab} {con_lab}"
+    # ---
+    if category_suffix in NAT_BEFORE_OCC:
+        country_lab = f"{nat_lab} {con_lab}"
+    # ---
+    TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
+    if TAJO and "{nato}" in TAJO.get("mens", ""):
+        country_lab = TAJO["mens"].format(nato=nat_lab)
+        logger.debug('<<lightblue>> TAJO["mens"]: has {nato} "%s"' % TAJO["mens"])
+    # ---
+    for kjn in pkjn:
+        if con_lab.endswith(kjn):
+            country_lab = f"{con_lab[:-len(kjn)]} {nat_lab}{kjn}"
+            break
+    # ---
+    logger.debug(f'\t<<lightblue>> test mens Jobs: new lab: "{country_lab}" ')
+    # ---
+    return country_lab
+
+
+@functools.lru_cache(maxsize=None)
+def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="", save_result=True) -> str:
     """Retrieve job labels based on category and country.
 
     This function generates job labels for both men and women based on the
@@ -46,95 +87,44 @@ def Jobs(cate: str, Start: str, con_3: str, Type: str = "", tab: Optional[Dict[s
 
     Args:
         cate (str): The category of the job.
-        Start (str): The starting country for the job label.
-        con_3 (str): Additional context for the job label.
-        Type (str?): An optional type parameter. Defaults to an empty string.
-        tab (dict?): A dictionary containing additional labels for men and women.
-            Defaults to None.
+        country_prefix (str): The starting country for the job label.
+        category_suffix (str): Additional context for the job label.
 
     Returns:
         str: The generated job label based on the input parameters.
     """
-
     # ---
-    if not tab:
-        tab = {}
-    output_test4(f'<<lightblue>> bot_te_4.py Jobs: cate: "{cate}", Start: "{Start}", con_3: "{con_3}" ')
-    country = Start
+    category_suffix = category_suffix.strip().lower()
+    # ---
+    logger.debug(f'<<lightblue>> jobs_mainbot.py jobs_with_nat_prefix: {cate=}, {country_prefix=}, {category_suffix=}.')
+    # ---
+    country = country_prefix
+    # ---
     country_lab = ""
     # ---
-    con_3_lab = jobs_mens_data.get(con_3, "")
-    # ---
-    con_4 = con_3
-    if con_3.startswith("people "):
-        con_4 = con_3[len("people ") :]
+    category_suffix = category_suffix[len("people ") :] if category_suffix.startswith("people ") else category_suffix
     # ---
     pkjn = [" مغتربون", " مغتربات"]
     # ---
-    # mens Jobs
-    mens_nat_lab = tab.get("mens") or Nat_mens.get(country, "")
+    mens_nat_lab: str = mens or Nat_mens.get(country, "")
     # ---
     if mens_nat_lab:
-        # ---
-        if con_3.strip() == "people":
+        if category_suffix == "people":
             country_lab = mens_nat_lab
-        # ---
-        if not country_lab:
-            con_3_lab = priffix_Mens_work(con_3)
-        # ---
-        if con_3_lab:
-            # ---
-            country_lab = f"{con_3_lab} {mens_nat_lab}"
-            if con_3_lab.startswith("حسب"):
-                country_lab = f"{mens_nat_lab} {con_3_lab}"
-
-            # ---
-            if con_3.strip() in NAT_BEFORE_OCC or con_4.strip() in NAT_BEFORE_OCC:
-                country_lab = f"{mens_nat_lab} {con_3_lab}"
-            # ---
-            TAJO = MEN_WOMENS_WITH_NATO.get(con_3, {})
-            if TAJO and "{nato}" in TAJO.get("mens", ""):
-                country_lab = TAJO["mens"].format(nato=mens_nat_lab)
-                output_test4('<<lightblue>> TAJO["mens"]: has {nato} "%s"' % TAJO["mens"])
-            # ---
-            for kjn in pkjn:
-                if con_3_lab.endswith(kjn):
-                    country_lab = f"{con_3_lab[:-len(kjn)]} {mens_nat_lab}{kjn}"
-                    break
-            # ---
-            output_test4(f'\t<<lightblue>> con_3: "{con_3}" ')
-            output_test4(f'\t<<lightblue>> test mens Jobs: new lab: "{country_lab}" ')
-    # ---#
-    # Womens Jobs
+        else:
+            con_lab = jobs_mens_data.get(category_suffix, "") or priffix_Mens_work(category_suffix)
+            country_lab = country_lab_mens(category_suffix, mens_nat_lab, pkjn, con_lab)
     # ---
-    if not country_lab:
-        women_nat_lab = tab.get("womens") or Nat_Womens.get(country, "")
-        if women_nat_lab:
-            # ---
-            if con_3.strip() in ["women", "female", "women's"]:
-                country_lab = women_nat_lab
-            # ---
-            if not country_lab:
-                f_lab = short_womens_jobs.get(con_3, "")
-                # ---
-                if not f_lab:
-                    f_lab = Women_s_priffix_work(con_3)
-                # ---
-                if f_lab:
-                    # output_test4('<<lightblue>> cate.startswith("%s"), con_3:"%s"' % (cate , con_3))
-                    country_lab = f"{f_lab} {women_nat_lab}"
-                    # ---
-                    if "{nato}" in f_lab:
-                        country_lab = f_lab.format(nato=women_nat_lab)
-                        output_test4('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % f_lab)
-                # ---
-                for kjn in pkjn:
-                    if f_lab.endswith(kjn):
-                        country_lab = f"{f_lab[:-len(kjn)]} {women_nat_lab}{kjn}"
-                        break
-        # ---
-        output_test4(f'\t<<lightblue>> test Womens Jobs: new lab: "{country_lab}" ')
+    women_nat_lab: str = womens or Nat_Womens.get(country, "")
     # ---
-
+    if not country_lab and women_nat_lab:
+        if category_suffix in ["women", "female", "women's"]:
+            country_lab = women_nat_lab
+        else:
+            con_lab = short_womens_jobs.get(category_suffix, "") or Women_s_priffix_work(category_suffix)
+            country_lab = country_lab_womens(category_suffix, women_nat_lab, pkjn, con_lab)
+    # ---
+    if country_lab and save_result:
+        save(Path(__file__).parent / "jobs_mainbot.jsonl", [{"cate": cate, "country_prefix": country_prefix, "category_suffix": category_suffix, "mens": mens, "womens": womens, "country_lab": country_lab}])
     # ---
     return country_lab

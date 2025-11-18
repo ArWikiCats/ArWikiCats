@@ -28,7 +28,6 @@ from ...translations import New_female_keys
 
 from ...helps.print_bot import print_put, output_test
 
-from ..fromnet.wd_bot import find_wikidata
 from ..matables_bots.centries_bot import centries_years_dec
 from ...translations import pop_of_without_in
 from ...translations import jobs_mens_data
@@ -241,9 +240,6 @@ def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", start_get_country2: b
 
         if not c_t_lab:
             c_t_lab = get_country(c_t_lower, start_get_country2=start_get_country2)
-
-    if not c_t_lab:
-        c_t_lab = find_wikidata(c_t_lower)
 
     if c_t_lab:
         print_put(f'Get_c_t_lab c_t_lab:"{c_t_lab}" ')

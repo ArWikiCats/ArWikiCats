@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from src.translations.jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO
+from src.translations.jobs.jobs_data_basic import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO
 from src.translations.jobs.Jobs import (
     jobs_mens_data,
     Jobs_new,

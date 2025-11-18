@@ -15,7 +15,7 @@ from .sports.nat_p17 import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
-from .jobs.jobs_data import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO, RELIGIOUS_KEYS_PP
+from .jobs.jobs_data_basic import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO, RELIGIOUS_KEYS_PP
 
 from .jobs.Jobs import jobs_mens_data, jobs_womens_data, Jobs_new
 

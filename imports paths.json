@@ -1,0 +1,3827 @@
+{
+    "command": "pydeps src --debug --show-deps",
+    "__main__": {
+        "bacon": 0,
+        "imports": [
+            "make2_new",
+            "make2_new._start",
+            "make2_new.monkey",
+            "make2_new.run",
+            "make2_new.src",
+            "make2_new.src.bot",
+            "make2_new.src.config",
+            "make2_new.src.event_processing",
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixlists",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.fix.mv_years",
+            "make2_new.src.fix.specific_normalizations",
+            "make2_new.src.helps",
+            "make2_new.src.helps.jsonl_dump",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.memory",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.helps.printe",
+            "make2_new.src.helps.printe_helper",
+            "make2_new.src.main",
+            "make2_new.src.main_processers",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.labs_years",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.co_bots",
+            "make2_new.src.make2_bots.co_bots.filter_en",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.format_bots.pf_keys",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.open_url",
+            "make2_new.src.make2_bots.fromnet.wd",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.langs_w",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.country_bots",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.list_cat_format",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+            "make2_new.src.make2_bots.ma_bots_new",
+            "make2_new.src.make2_bots.ma_bots_new.bot_type_country",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.centries_bot",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.film_keys_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.army",
+            "make2_new.src.make2_bots.o_bots.bys",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.make2_bots.o_bots.fax",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.rele",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.o_bots.utils",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot",
+            "make2_new.src.make2_bots.p17_bots.us_stat",
+            "make2_new.src.make2_bots.reg_lines",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.make2_bots.tmp_bot",
+            "make2_new.src.new",
+            "make2_new.src.new.Match_sports",
+            "make2_new.src.new.end_start_bots",
+            "make2_new.src.new.end_start_bots.end_start_match",
+            "make2_new.src.new.end_start_bots.fax2",
+            "make2_new.src.new.end_start_bots.fax2_episodes",
+            "make2_new.src.new.end_start_bots.fax2_temp",
+            "make2_new.src.new.end_start_bots.utils",
+            "make2_new.src.new.time_to_arabic",
+            "make2_new.src.translations",
+            "make2_new.src.translations.by_type",
+            "make2_new.src.translations.companies",
+            "make2_new.src.translations.entertainments",
+            "make2_new.src.translations.geo",
+            "make2_new.src.translations.geo.Cities",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.geo.labels_country2",
+            "make2_new.src.translations.geo.regions",
+            "make2_new.src.translations.geo.regions2",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.Jobs2",
+            "make2_new.src.translations.jobs.jobs_data",
+            "make2_new.src.translations.jobs.jobs_defs",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.languages",
+            "make2_new.src.translations.medical",
+            "make2_new.src.translations.medical.deaths",
+            "make2_new.src.translations.mix_data",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.Newkey",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys4",
+            "make2_new.src.translations.mixed.all_keys5",
+            "make2_new.src.translations.mixed.bot_te_4_list",
+            "make2_new.src.translations.mixed.key_registry",
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.mixed.keys_23",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.nats",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.numbers1",
+            "make2_new.src.translations.others",
+            "make2_new.src.translations.others.peoples",
+            "make2_new.src.translations.others.tax_table",
+            "make2_new.src.translations.politics",
+            "make2_new.src.translations.politics.military_keys",
+            "make2_new.src.translations.politics.ministers",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports._helpers",
+            "make2_new.src.translations.sports.cycling",
+            "make2_new.src.translations.sports.games_labs",
+            "make2_new.src.translations.sports.nat_p17",
+            "make2_new.src.translations.sports.olympics_data",
+            "make2_new.src.translations.sports.skeys",
+            "make2_new.src.translations.sports.sports_lists",
+            "make2_new.src.translations.sports.sub_teams_keys",
+            "make2_new.src.translations.sports.tennis",
+            "make2_new.src.translations.sports_formats_2025",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_2025.teams_new_data",
+            "make2_new.src.translations.sports_formats_2025.teamsnew_bot",
+            "make2_new.src.translations.sports_formats_national",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_national.te2",
+            "make2_new.src.translations.sports_formats_teams",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations.sports_formats_teams.team_job",
+            "make2_new.src.translations.structures",
+            "make2_new.src.translations.tv",
+            "make2_new.src.translations.tv.films_mslslat",
+            "make2_new.src.translations.type_tables",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir",
+            "make2_new.src.translations.utils.match_nats_keys",
+            "make2_new.src.translations.utils.match_sport_keys",
+            "make2_new.src.translations.utils.patterns",
+            "make2_new.src.translations_formats",
+            "make2_new.src.translations_formats.format_data",
+            "make2_new.src.utils",
+            "make2_new.src.utils.check_it"
+        ],
+        "name": "__main__",
+        "path": null
+    },
+    "humanize": {
+        "bacon": 2,
+        "imported_by": [
+            "humanize",
+            "make2_new.src.helps.len_print"
+        ],
+        "imports": [
+            "humanize"
+        ],
+        "name": "humanize",
+        "path": "C:\\Program Files\\Python313\\Lib\\site-packages\\humanize\\__init__.py"
+    },
+    "jsonlines": {
+        "bacon": 2,
+        "imported_by": [
+            "make2_new.src.helps.jsonl_dump"
+        ],
+        "name": "jsonlines",
+        "path": "C:\\Program Files\\Python313\\Lib\\site-packages\\jsonlines\\__init__.py"
+    },
+    "make2_new": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src",
+            "make2_new.src.bot",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.translations.sports.nat_p17"
+        ],
+        "imports": [
+            "make2_new.src",
+            "make2_new.src.config",
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.printe"
+        ],
+        "name": "make2_new",
+        "path": "D:\\categories_bot\\make2_new\\__init__.py"
+    },
+    "make2_new._start": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "name": "make2_new._start",
+        "path": "D:\\categories_bot\\make2_new\\_start.py"
+    },
+    "make2_new.monkey": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "imports": [
+            "tqdm"
+        ],
+        "name": "make2_new.monkey",
+        "path": "D:\\categories_bot\\make2_new\\monkey.py"
+    },
+    "make2_new.run": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "name": "make2_new.run",
+        "path": "D:\\categories_bot\\make2_new\\run.py"
+    },
+    "make2_new.src": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.bot",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.translations.sports.nat_p17"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.bot",
+            "make2_new.src.config",
+            "make2_new.src.event_processing",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.memory",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.helps.printe"
+        ],
+        "name": "make2_new.src",
+        "path": "D:\\categories_bot\\make2_new\\src\\__init__.py"
+    },
+    "make2_new.src.bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.main",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot"
+        ],
+        "name": "make2_new.src.bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\bot.py"
+    },
+    "make2_new.src.config": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "name": "make2_new.src.config",
+        "path": "D:\\categories_bot\\make2_new\\src\\config.py"
+    },
+    "make2_new.src.event_processing": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src",
+            "make2_new.src.main"
+        ],
+        "imports": [
+            "make2_new.src.main_processers"
+        ],
+        "name": "make2_new.src.event_processing",
+        "path": "D:\\categories_bot\\make2_new\\src\\event_processing.py"
+    },
+    "make2_new.src.fix": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab"
+        ],
+        "imports": [
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.fix.mv_years"
+        ],
+        "name": "make2_new.src.fix",
+        "path": "D:\\categories_bot\\make2_new\\src\\fix\\__init__.py"
+    },
+    "make2_new.src.fix.fixlists": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.fix.fixtitle"
+        ],
+        "name": "make2_new.src.fix.fixlists",
+        "path": "D:\\categories_bot\\make2_new\\src\\fix\\fixlists.py"
+    },
+    "make2_new.src.fix.fixtitle": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.fix",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab"
+        ],
+        "imports": [
+            "make2_new.src.fix.fixlists",
+            "make2_new.src.fix.mv_years",
+            "make2_new.src.fix.specific_normalizations",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.reg_lines"
+        ],
+        "name": "make2_new.src.fix.fixtitle",
+        "path": "D:\\categories_bot\\make2_new\\src\\fix\\fixtitle.py"
+    },
+    "make2_new.src.fix.mv_years": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixtitle"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.reg_lines"
+        ],
+        "name": "make2_new.src.fix.mv_years",
+        "path": "D:\\categories_bot\\make2_new\\src\\fix\\mv_years.py"
+    },
+    "make2_new.src.fix.specific_normalizations": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.fix.fixtitle"
+        ],
+        "name": "make2_new.src.fix.specific_normalizations",
+        "path": "D:\\categories_bot\\make2_new\\src\\fix\\specific_normalizations.py"
+    },
+    "make2_new.src.helps": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.fix.mv_years",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.main",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.labs_years",
+            "make2_new.src.make2_bots.co_bots.filter_en",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.open_url",
+            "make2_new.src.make2_bots.fromnet.wd",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.langs_w",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.list_cat_format",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.ma_bots_new.bot_type_country",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.media_bots.film_keys_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots.army",
+            "make2_new.src.make2_bots.o_bots.bys",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.make2_bots.o_bots.fax",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.rele",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot",
+            "make2_new.src.make2_bots.p17_bots.us_stat",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.make2_bots.tmp_bot",
+            "make2_new.src.new.end_start_bots.fax2",
+            "make2_new.src.translations.by_type",
+            "make2_new.src.translations.geo.Cities",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.geo.labels_country2",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.medical.deaths",
+            "make2_new.src.translations.mixed.Newkey",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys5",
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.mixed.keys_23",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.others.peoples",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports.nat_p17",
+            "make2_new.src.translations.sports.olympics_data",
+            "make2_new.src.translations.sports.skeys",
+            "make2_new.src.translations.sports.sub_teams_keys",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_national.te2",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations.sports_formats_teams.team_job",
+            "make2_new.src.translations.tv.films_mslslat",
+            "make2_new.src.translations_formats.format_data"
+        ],
+        "name": "make2_new.src.helps",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\__init__.py"
+    },
+    "make2_new.src.helps.jsonl_dump": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "imports": [
+            "jsonlines"
+        ],
+        "name": "make2_new.src.helps.jsonl_dump",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\jsonl_dump.py"
+    },
+    "make2_new.src.helps.len_print": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.translations.by_type",
+            "make2_new.src.translations.geo.Cities",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.geo.labels_country2",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.medical.deaths",
+            "make2_new.src.translations.mixed.Newkey",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys5",
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.mixed.keys_23",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.others.peoples",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports.nat_p17",
+            "make2_new.src.translations.sports.olympics_data",
+            "make2_new.src.translations.sports.skeys",
+            "make2_new.src.translations.sports.sub_teams_keys",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_national.te2",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations.sports_formats_teams.team_job",
+            "make2_new.src.translations.tv.films_mslslat"
+        ],
+        "imports": [
+            "humanize"
+        ],
+        "name": "make2_new.src.helps.len_print",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\len_print.py"
+    },
+    "make2_new.src.helps.log": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.fix.mv_years",
+            "make2_new.src.helps.printe",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.labs_years",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.open_url",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.o_bots.army",
+            "make2_new.src.make2_bots.o_bots.bys",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.new.end_start_bots.fax2",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations_formats.format_data"
+        ],
+        "imports": [
+            "make2_new.src.config",
+            "make2_new.src.helps",
+            "make2_new.src.helps.printe_helper"
+        ],
+        "name": "make2_new.src.helps.log",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\log.py"
+    },
+    "make2_new.src.helps.memory": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src"
+        ],
+        "imports": [
+            "psutil"
+        ],
+        "name": "make2_new.src.helps.memory",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\memory.py"
+    },
+    "make2_new.src.helps.print_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src",
+            "make2_new.src.main",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.langs_w",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.list_cat_format",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.ma_bots_new.bot_type_country",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.media_bots.film_keys_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.make2_bots.o_bots.fax",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.rele",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.p17_bots.us_stat",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.make2_bots.tmp_bot",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_teams.sport_lab"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.config",
+            "make2_new.src.helps",
+            "make2_new.src.helps.printe"
+        ],
+        "name": "make2_new.src.helps.print_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\print_bot.py"
+    },
+    "make2_new.src.helps.printe": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.main",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.make2_bots.co_bots.filter_en",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.wd",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.o_bots.rele"
+        ],
+        "imports": [
+            "make2_new.src.helps.log"
+        ],
+        "name": "make2_new.src.helps.printe",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\printe.py"
+    },
+    "make2_new.src.helps.printe_helper": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.helps.log"
+        ],
+        "name": "make2_new.src.helps.printe_helper",
+        "path": "D:\\categories_bot\\make2_new\\src\\helps\\printe_helper.py"
+    },
+    "make2_new.src.main": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.bot"
+        ],
+        "imports": [
+            "make2_new.src.event_processing",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.helps.printe"
+        ],
+        "name": "make2_new.src.main",
+        "path": "D:\\categories_bot\\make2_new\\src\\main.py"
+    },
+    "make2_new.src.main_processers": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.event_processing",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot"
+        ],
+        "imports": [
+            "make2_new.src.main_processers.main_resolve"
+        ],
+        "name": "make2_new.src.main_processers",
+        "path": "D:\\categories_bot\\make2_new\\src\\main_processers\\__init__.py"
+    },
+    "make2_new.src.main_processers.event2bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.helps.printe",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.tmp_bot"
+        ],
+        "name": "make2_new.src.main_processers.event2bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\main_processers\\event2bot.py"
+    },
+    "make2_new.src.main_processers.event_lab_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.main_resolve"
+        ],
+        "imports": [
+            "make2_new.src.config",
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.list_cat_format",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.tmp_bot",
+            "make2_new.src.new",
+            "make2_new.src.new.end_start_bots",
+            "make2_new.src.new.end_start_bots.fax2",
+            "make2_new.src.new.end_start_bots.fax2_episodes",
+            "make2_new.src.new.end_start_bots.fax2_temp",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.main_processers.event_lab_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\main_processers\\event_lab_bot.py"
+    },
+    "make2_new.src.main_processers.labs_years": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.main_resolve"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log"
+        ],
+        "name": "make2_new.src.main_processers.labs_years",
+        "path": "D:\\categories_bot\\make2_new\\src\\main_processers\\labs_years.py"
+    },
+    "make2_new.src.main_processers.main_resolve": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.main_processers",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.labs_years",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.co_bots",
+            "make2_new.src.make2_bots.co_bots.filter_en",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot"
+        ],
+        "name": "make2_new.src.main_processers.main_resolve",
+        "path": "D:\\categories_bot\\make2_new\\src\\main_processers\\main_resolve.py"
+    },
+    "make2_new.src.make2_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.bot",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.fix.mv_years",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes"
+        ],
+        "name": "make2_new.src.make2_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.co_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.main_resolve"
+        ],
+        "name": "make2_new.src.make2_bots.co_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\co_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.co_bots.filter_en": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.main_resolve"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.printe"
+        ],
+        "name": "make2_new.src.make2_bots.co_bots.filter_en",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\co_bots\\filter_en.py"
+    },
+    "make2_new.src.make2_bots.date_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+            "make2_new.src.make2_bots.tmp_bot"
+        ],
+        "name": "make2_new.src.make2_bots.date_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\date_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.date_bots.with_years_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.tmp_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.reg_lines",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.date_bots.with_years_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\date_bots\\with_years_bot.py"
+    },
+    "make2_new.src.make2_bots.date_bots.year_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019"
+        ],
+        "imports": [
+            "make2_new.src.new",
+            "make2_new.src.new.time_to_arabic"
+        ],
+        "name": "make2_new.src.make2_bots.date_bots.year_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\date_bots\\year_lab.py"
+    },
+    "make2_new.src.make2_bots.format_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+            "make2_new.src.make2_bots.p17_bots.p17_bot",
+            "make2_new.src.make2_bots.tmp_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.format_bots.pf_keys",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.format_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\format_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.format_bots.pf_keys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.format_bots"
+        ],
+        "name": "make2_new.src.make2_bots.format_bots.pf_keys",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\format_bots\\pf_keys.py"
+    },
+    "make2_new.src.make2_bots.fromnet": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.sports_bots.team_work"
+        ],
+        "imports": [
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.wd_bot"
+        ],
+        "name": "make2_new.src.make2_bots.fromnet",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\fromnet\\__init__.py"
+    },
+    "make2_new.src.make2_bots.fromnet.kooora": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.sports_bots.team_work"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.printe",
+            "make2_new.src.make2_bots.fromnet.open_url"
+        ],
+        "name": "make2_new.src.make2_bots.fromnet.kooora",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\fromnet\\kooora.py"
+    },
+    "make2_new.src.make2_bots.fromnet.open_url": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.wd"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "requests"
+        ],
+        "name": "make2_new.src.make2_bots.fromnet.open_url",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\fromnet\\open_url.py"
+    },
+    "make2_new.src.make2_bots.fromnet.wd": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.fromnet.wd_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.printe",
+            "make2_new.src.make2_bots.fromnet.open_url"
+        ],
+        "name": "make2_new.src.make2_bots.fromnet.wd",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\fromnet\\wd.py"
+    },
+    "make2_new.src.make2_bots.fromnet.wd_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.fromnet.wd",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.centries_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.fromnet.wd_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\fromnet\\wd_bot.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot",
+            "make2_new.src.make2_bots.sports_bots.team_work"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.bot_te_4": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.sports_bots.team_work"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.film_keys_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\bot_te_4.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.get_helps": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.get_helps",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\get_helps.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.jobs_mainbot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\jobs_mainbot.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.priffix_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\priffix_bot.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.te4_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.te4_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\te4_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\te4_bots\\for_me.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.te4_bots.langs_w": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.te4_bots.langs_w",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\te4_bots\\langs_w.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\te4_bots\\relegin_jobs.py"
+    },
+    "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.langs_w",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\jobs_bots\\te4_bots\\t4_2018_jobs.py"
+    },
+    "make2_new.src.make2_bots.ma_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.tmp_bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.arlabel_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.arlabel_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\arlabel_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot"
+        ],
+        "imports": [
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.main_processers",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots_new",
+            "make2_new.src.make2_bots.ma_bots_new.bot_type_country",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.translations",
+            "make2_new.src.utils"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\arlabel_bots\\ar_lab.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.bys",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.make2_bots.tmp_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\arlabel_bots\\bot_con_lab.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.make2_bots.tmp_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\arlabel_bots\\bot_type_lab.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country2_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.ma_bots.country_bot"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country2_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country2_bot.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country2_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country2_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country2_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.centries_bot",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.bys",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.make2_bots.sports_bots.team_work"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country2_bots\\c_1_c_2_labs.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.translations",
+            "make2_new.src.utils"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country2_bots\\cn_lab.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_bot"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.helps.printe",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country2_bots\\country2_tit_bt.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country2_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.tmp_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.centries_bot",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.rele",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.us_stat",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.make2_bots.sports_bots.team_work"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country2_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country2_lab.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.country2_tit_bt",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.centries_bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.reg_lines",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country_bot.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.country_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.country_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\country_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.lab_seoo_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.main_processers",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.centries_bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.us_stat",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\lab_seoo_bot.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.list_cat_format": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.list_cat_format",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\list_cat_format.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.squad_title_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\squad_title_bot.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.ye_ts_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bot",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.tmp_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.translations",
+            "make2_new.src.utils"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\ye_ts_bot.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.year_or_typeo": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.year_or_typeo",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\year_or_typeo\\__init__.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot"
+        ],
+        "imports": [
+            "make2_new.src.fix",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.translations",
+            "make2_new.src.utils"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\year_or_typeo\\bot_lab.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.new",
+            "make2_new.src.new.time_to_arabic"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\year_or_typeo\\dodo_2019.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.utils"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\year_or_typeo\\mk3.py"
+    },
+    "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab"
+        ],
+        "imports": [
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.translations",
+            "make2_new.src.translations.type_tables",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.patterns"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots\\year_or_typeo\\reg_result.py"
+    },
+    "make2_new.src.make2_bots.ma_bots_new": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots_new",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots_new\\__init__.py"
+    },
+    "make2_new.src.make2_bots.ma_bots_new.bot_type_country": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot"
+        ],
+        "name": "make2_new.src.make2_bots.ma_bots_new.bot_type_country",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\ma_bots_new\\bot_type_country.py"
+    },
+    "make2_new.src.make2_bots.matables_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot"
+        ],
+        "name": "make2_new.src.make2_bots.matables_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\matables_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.matables_bots.bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.main_resolve",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.matables_bots.bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\matables_bots\\bot.py"
+    },
+    "make2_new.src.make2_bots.matables_bots.centries_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot"
+        ],
+        "name": "make2_new.src.make2_bots.matables_bots.centries_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\matables_bots\\centries_bot.py"
+    },
+    "make2_new.src.make2_bots.matables_bots.check_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3"
+        ],
+        "imports": [
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.translations",
+            "make2_new.src.utils"
+        ],
+        "name": "make2_new.src.make2_bots.matables_bots.check_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\matables_bots\\check_bot.py"
+    },
+    "make2_new.src.make2_bots.matables_bots.table1_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.matables_bots.table1_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\matables_bots\\table1_bot.py"
+    },
+    "make2_new.src.make2_bots.media_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.bot",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots.bys"
+        ],
+        "name": "make2_new.src.make2_bots.media_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\media_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.media_bots.film_keys_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.media_bots.films_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.media_bots.film_keys_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\media_bots\\film_keys_bot.py"
+    },
+    "make2_new.src.make2_bots.media_bots.films_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.o_bots.bys"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.film_keys_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.army",
+            "make2_new.src.make2_bots.o_bots.fax",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.p17_bot"
+        ],
+        "name": "make2_new.src.make2_bots.media_bots.films_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\media_bots\\films_bot.py"
+    },
+    "make2_new.src.make2_bots.o_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.army",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.make2_bots.o_bots.fax",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.rele",
+            "make2_new.src.make2_bots.o_bots.univer"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.o_bots.army": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots.o_bots.utils",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.army",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\army.py"
+    },
+    "make2_new.src.make2_bots.o_bots.bys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots.media_bots",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots.utils",
+            "make2_new.src.make2_bots.p17_bots",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.bys",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\bys.py"
+    },
+    "make2_new.src.make2_bots.o_bots.ethnic_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+            "make2_new.src.make2_bots.o_bots"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.ethnic_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\ethnic_bot.py"
+    },
+    "make2_new.src.make2_bots.o_bots.fax": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.fax",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\fax.py"
+    },
+    "make2_new.src.make2_bots.o_bots.parties_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.o_bots"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots.o_bots.utils",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.parties_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\parties_bot.py"
+    },
+    "make2_new.src.make2_bots.o_bots.popl": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.o_bots"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.o_bots.utils",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.popl",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\popl.py"
+    },
+    "make2_new.src.make2_bots.o_bots.rele": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.o_bots"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.helps.printe",
+            "make2_new.src.make2_bots.o_bots.utils",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.rele",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\rele.py"
+    },
+    "make2_new.src.make2_bots.o_bots.univer": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.o_bots"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.univer",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\univer.py"
+    },
+    "make2_new.src.make2_bots.o_bots.utils": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.o_bots.army",
+            "make2_new.src.make2_bots.o_bots.bys",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.rele",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes"
+        ],
+        "name": "make2_new.src.make2_bots.o_bots.utils",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\o_bots\\utils.py"
+    },
+    "make2_new.src.make2_bots.p17_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.media_bots.films_bot",
+            "make2_new.src.make2_bots.o_bots.bys"
+        ],
+        "name": "make2_new.src.make2_bots.p17_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\p17_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.p17_bots.nats": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.o_bots.bys"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.p17_bots.nats",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\p17_bots\\nats.py"
+    },
+    "make2_new.src.make2_bots.p17_bots.p17_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.media_bots.films_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.get_helps",
+            "make2_new.src.make2_bots.matables_bots",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.p17_bots.p17_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\p17_bots\\p17_bot.py"
+    },
+    "make2_new.src.make2_bots.p17_bots.us_stat": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.p17_bots.us_stat",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\p17_bots\\us_stat.py"
+    },
+    "make2_new.src.make2_bots.reg_lines": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.fix.fixtitle",
+            "make2_new.src.fix.mv_years",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.ma_bots.country_bot"
+        ],
+        "name": "make2_new.src.make2_bots.reg_lines",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\reg_lines.py"
+    },
+    "make2_new.src.make2_bots.sports_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes"
+        ],
+        "name": "make2_new.src.make2_bots.sports_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\sports_bots\\__init__.py"
+    },
+    "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots",
+            "make2_new.src.make2_bots.o_bots",
+            "make2_new.src.make2_bots.o_bots.utils",
+            "make2_new.src.make2_bots.sports_bots",
+            "make2_new.src.make2_bots.sports_bots.team_work",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\sports_bots\\sport_lab_suffixes.py"
+    },
+    "make2_new.src.make2_bots.sports_bots.team_work": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.make2_bots.fromnet",
+            "make2_new.src.make2_bots.fromnet.kooora",
+            "make2_new.src.make2_bots.jobs_bots",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.make2_bots.sports_bots.team_work",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\sports_bots\\team_work.py"
+    },
+    "make2_new.src.make2_bots.tmp_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event2bot",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.make2_bots.date_bots",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.ma_bots",
+            "make2_new.src.make2_bots.ma_bots.country2_lab",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot"
+        ],
+        "name": "make2_new.src.make2_bots.tmp_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\make2_bots\\tmp_bot.py"
+    },
+    "make2_new.src.new": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019"
+        ],
+        "name": "make2_new.src.new",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\__init__.py"
+    },
+    "make2_new.src.new.Match_sports": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "name": "make2_new.src.new.Match_sports",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\Match_sports.py"
+    },
+    "make2_new.src.new.end_start_bots": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "name": "make2_new.src.new.end_start_bots",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\end_start_bots\\__init__.py"
+    },
+    "make2_new.src.new.end_start_bots.end_start_match": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.new.end_start_bots.fax2"
+        ],
+        "name": "make2_new.src.new.end_start_bots.end_start_match",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\end_start_bots\\end_start_match.py"
+    },
+    "make2_new.src.new.end_start_bots.fax2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log",
+            "make2_new.src.new.end_start_bots.end_start_match",
+            "make2_new.src.new.end_start_bots.utils"
+        ],
+        "name": "make2_new.src.new.end_start_bots.fax2",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\end_start_bots\\fax2.py"
+    },
+    "make2_new.src.new.end_start_bots.fax2_episodes": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "name": "make2_new.src.new.end_start_bots.fax2_episodes",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\end_start_bots\\fax2_episodes.py"
+    },
+    "make2_new.src.new.end_start_bots.fax2_temp": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot"
+        ],
+        "name": "make2_new.src.new.end_start_bots.fax2_temp",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\end_start_bots\\fax2_temp.py"
+    },
+    "make2_new.src.new.end_start_bots.utils": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.new.end_start_bots.fax2"
+        ],
+        "name": "make2_new.src.new.end_start_bots.utils",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\end_start_bots\\utils.py"
+    },
+    "make2_new.src.new.time_to_arabic": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.date_bots.year_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.dodo_2019"
+        ],
+        "name": "make2_new.src.new.time_to_arabic",
+        "path": "D:\\categories_bot\\make2_new\\src\\new\\time_to_arabic.py"
+    },
+    "make2_new.src.translations": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.main_processers.event_lab_bot",
+            "make2_new.src.make2_bots.date_bots.with_years_bot",
+            "make2_new.src.make2_bots.format_bots",
+            "make2_new.src.make2_bots.fromnet.wd_bot",
+            "make2_new.src.make2_bots.jobs_bots.bot_te_4",
+            "make2_new.src.make2_bots.jobs_bots.jobs_mainbot",
+            "make2_new.src.make2_bots.jobs_bots.priffix_bot",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.for_me",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.langs_w",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.relegin_jobs",
+            "make2_new.src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_con_lab",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.bot_type_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.country_bot",
+            "make2_new.src.make2_bots.ma_bots.lab_seoo_bot",
+            "make2_new.src.make2_bots.ma_bots.squad_title_bot",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+            "make2_new.src.make2_bots.matables_bots.bot",
+            "make2_new.src.make2_bots.matables_bots.check_bot",
+            "make2_new.src.make2_bots.matables_bots.table1_bot",
+            "make2_new.src.make2_bots.media_bots.film_keys_bot",
+            "make2_new.src.make2_bots.o_bots.army",
+            "make2_new.src.make2_bots.o_bots.bys",
+            "make2_new.src.make2_bots.o_bots.ethnic_bot",
+            "make2_new.src.make2_bots.o_bots.fax",
+            "make2_new.src.make2_bots.o_bots.parties_bot",
+            "make2_new.src.make2_bots.o_bots.popl",
+            "make2_new.src.make2_bots.o_bots.rele",
+            "make2_new.src.make2_bots.o_bots.univer",
+            "make2_new.src.make2_bots.p17_bots.nats",
+            "make2_new.src.make2_bots.p17_bots.p17_bot",
+            "make2_new.src.make2_bots.p17_bots.us_stat",
+            "make2_new.src.make2_bots.sports_bots.sport_lab_suffixes",
+            "make2_new.src.make2_bots.sports_bots.team_work"
+        ],
+        "imports": [
+            "make2_new.src.translations.by_type",
+            "make2_new.src.translations.companies",
+            "make2_new.src.translations.geo",
+            "make2_new.src.translations.geo.Cities",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.jobs_data",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.languages",
+            "make2_new.src.translations.mix_data",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys4",
+            "make2_new.src.translations.mixed.all_keys5",
+            "make2_new.src.translations.mixed.bot_te_4_list",
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.nats",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.numbers1",
+            "make2_new.src.translations.others",
+            "make2_new.src.translations.others.peoples",
+            "make2_new.src.translations.politics",
+            "make2_new.src.translations.politics.military_keys",
+            "make2_new.src.translations.politics.ministers",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports.games_labs",
+            "make2_new.src.translations.sports.nat_p17",
+            "make2_new.src.translations.sports.olympics_data",
+            "make2_new.src.translations.sports_formats_2025",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_2025.teamsnew_bot",
+            "make2_new.src.translations.sports_formats_national",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_teams",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.tv",
+            "make2_new.src.translations.tv.films_mslslat",
+            "make2_new.src.translations.type_tables",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.match_sport_keys"
+        ],
+        "name": "make2_new.src.translations",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\__init__.py"
+    },
+    "make2_new.src.translations.by_type": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.by_type",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\by_type.py"
+    },
+    "make2_new.src.translations.companies": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.male_keys"
+        ],
+        "name": "make2_new.src.translations.companies",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\companies.py"
+    },
+    "make2_new.src.translations.entertainments": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "name": "make2_new.src.translations.entertainments",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\entertainments\\__init__.py"
+    },
+    "make2_new.src.translations.geo": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed.keys2"
+        ],
+        "name": "make2_new.src.translations.geo",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\geo\\__init__.py"
+    },
+    "make2_new.src.translations.geo.Cities": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.geo.labels_country"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.geo.Cities",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\geo\\Cities.py"
+    },
+    "make2_new.src.translations.geo.labels_country": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.companies",
+            "make2_new.src.translations.geo.Cities",
+            "make2_new.src.translations.geo.labels_country2",
+            "make2_new.src.translations.geo.regions",
+            "make2_new.src.translations.geo.regions2",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys5",
+            "make2_new.src.translations.others",
+            "make2_new.src.translations.others.tax_table",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.geo.labels_country",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\geo\\labels_country.py"
+    },
+    "make2_new.src.translations.geo.labels_country2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.geo.labels_country"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.geo.labels_country2",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\geo\\labels_country2.py"
+    },
+    "make2_new.src.translations.geo.regions": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.geo.labels_country"
+        ],
+        "name": "make2_new.src.translations.geo.regions",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\geo\\regions.py"
+    },
+    "make2_new.src.translations.geo.regions2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.geo.labels_country"
+        ],
+        "imports": [
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.geo.regions2",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\geo\\regions2.py"
+    },
+    "make2_new.src.translations.geo.us_counties": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.mixed.keys2"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.geo.us_counties",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\geo\\us_counties.py"
+    },
+    "make2_new.src.translations.jobs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.bot_te_4_list",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_2025.teams_new_data"
+        ],
+        "imports": [
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.Jobs2",
+            "make2_new.src.translations.jobs.jobs_data",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.jobs.jobs_womens"
+        ],
+        "name": "make2_new.src.translations.jobs",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\__init__.py"
+    },
+    "make2_new.src.translations.jobs.Jobs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.companies",
+            "make2_new.src.translations.jobs.Jobs2",
+            "make2_new.src.translations.jobs.jobs_data",
+            "make2_new.src.translations.jobs.jobs_defs",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.nats",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.politics",
+            "make2_new.src.translations.politics.ministers",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.cycling",
+            "make2_new.src.translations.tv",
+            "make2_new.src.translations.tv.films_mslslat",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.jobs.Jobs",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\Jobs.py"
+    },
+    "make2_new.src.translations.jobs.Jobs2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs"
+        ],
+        "imports": [
+            "make2_new.src.translations.jobs.jobs_defs",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.jobs.Jobs2",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\Jobs2.py"
+    },
+    "make2_new.src.translations.jobs.jobs_data": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs"
+        ],
+        "imports": [
+            "make2_new.src.translations.jobs.jobs_defs"
+        ],
+        "name": "make2_new.src.translations.jobs.jobs_data",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\jobs_data.py"
+    },
+    "make2_new.src.translations.jobs.jobs_defs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.Jobs2",
+            "make2_new.src.translations.jobs.jobs_data",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_singers"
+        ],
+        "imports": [
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.jobs.jobs_defs",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\jobs_defs.py"
+    },
+    "make2_new.src.translations.jobs.jobs_players_list": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_2025.teams_new_data"
+        ],
+        "imports": [
+            "make2_new.src.translations.jobs.jobs_defs",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.jobs.jobs_players_list",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\jobs_players_list.py"
+    },
+    "make2_new.src.translations.jobs.jobs_singers": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.bot_te_4_list"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.jobs.jobs_defs",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.jobs.jobs_singers",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\jobs_singers.py"
+    },
+    "make2_new.src.translations.jobs.jobs_womens": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key"
+        ],
+        "name": "make2_new.src.translations.jobs.jobs_womens",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\jobs\\jobs_womens.py"
+    },
+    "make2_new.src.translations.languages": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mixed.all_keys2"
+        ],
+        "imports": [
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.all_keys3"
+        ],
+        "name": "make2_new.src.translations.languages",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\languages.py"
+    },
+    "make2_new.src.translations.medical": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.mixed.keys2"
+        ],
+        "name": "make2_new.src.translations.medical",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\medical\\__init__.py"
+    },
+    "make2_new.src.translations.medical.deaths": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.mixed.keys2"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print"
+        ],
+        "name": "make2_new.src.translations.medical.deaths",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\medical\\deaths.py"
+    },
+    "make2_new.src.translations.mix_data": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.translations.mix_data",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mix_data\\__init__.py"
+    },
+    "make2_new.src.translations.mix_data.pop_All_2018_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.translations.by_type",
+            "make2_new.src.translations.geo",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports.olympics_data",
+            "make2_new.src.translations.sports.sub_teams_keys",
+            "make2_new.src.translations.tv",
+            "make2_new.src.translations.tv.films_mslslat",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.mix_data.pop_All_2018_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mix_data\\pop_All_2018_bot.py"
+    },
+    "make2_new.src.translations.mixed": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.languages",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot"
+        ],
+        "imports": [
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys4",
+            "make2_new.src.translations.mixed.all_keys5"
+        ],
+        "name": "make2_new.src.translations.mixed",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\__init__.py"
+    },
+    "make2_new.src.translations.mixed.Newkey": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.bot_te_4_list"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print"
+        ],
+        "name": "make2_new.src.translations.mixed.Newkey",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\Newkey.py"
+    },
+    "make2_new.src.translations.mixed.all_keys2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.bot_te_4_list"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.languages",
+            "make2_new.src.translations.mixed.Newkey",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys4",
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.mixed.keys_23",
+            "make2_new.src.translations.others",
+            "make2_new.src.translations.others.peoples",
+            "make2_new.src.translations.politics",
+            "make2_new.src.translations.politics.ministers",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.tv",
+            "make2_new.src.translations.tv.films_mslslat",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.mixed.all_keys2",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\all_keys2.py"
+    },
+    "make2_new.src.translations.mixed.all_keys3": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.languages",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.bot_te_4_list"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.companies",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.games_labs",
+            "make2_new.src.translations.structures",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.mixed.all_keys3",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\all_keys3.py"
+    },
+    "make2_new.src.translations.mixed.all_keys4": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mixed",
+            "make2_new.src.translations.mixed.all_keys2"
+        ],
+        "imports": [
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.cycling"
+        ],
+        "name": "make2_new.src.translations.mixed.all_keys4",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\all_keys4.py"
+    },
+    "make2_new.src.translations.mixed.all_keys5": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.mixed"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.mixed.all_keys5",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\all_keys5.py"
+    },
+    "make2_new.src.translations.mixed.bot_te_4_list": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.mixed.Newkey",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.keys_23",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.games_labs"
+        ],
+        "name": "make2_new.src.translations.mixed.bot_te_4_list",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\bot_te_4_list.py"
+    },
+    "make2_new.src.translations.mixed.key_registry": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "imports": [
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.mixed.key_registry",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\key_registry.py"
+    },
+    "make2_new.src.translations.mixed.keys2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys4"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.geo",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.medical",
+            "make2_new.src.translations.medical.deaths",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.mixed.keys2",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\keys2.py"
+    },
+    "make2_new.src.translations.mixed.keys_23": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.bot_te_4_list"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print"
+        ],
+        "name": "make2_new.src.translations.mixed.keys_23",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\keys_23.py"
+    },
+    "make2_new.src.translations.mixed.male_keys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mixed.all_keys5"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.companies",
+            "make2_new.src.translations.structures",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.mixed.male_keys",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\mixed\\male_keys.py"
+    },
+    "make2_new.src.translations.nats": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.utils.match_nats_keys"
+        ],
+        "name": "make2_new.src.translations.nats",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\nats\\__init__.py"
+    },
+    "make2_new.src.translations.nats.Nationality": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.utils.match_nats_keys"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.nats.Nationality",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\nats\\Nationality.py"
+    },
+    "make2_new.src.translations.numbers1": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.translations.numbers1",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\numbers1.py"
+    },
+    "make2_new.src.translations.others": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.mixed.all_keys2"
+        ],
+        "name": "make2_new.src.translations.others",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\others\\__init__.py"
+    },
+    "make2_new.src.translations.others.peoples": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mixed.all_keys2"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.others.peoples",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\others\\peoples.py"
+    },
+    "make2_new.src.translations.others.tax_table": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.geo.labels_country"
+        ],
+        "imports": [
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.others.tax_table",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\others\\tax_table.py"
+    },
+    "make2_new.src.translations.politics": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mixed.all_keys2"
+        ],
+        "name": "make2_new.src.translations.politics",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\politics\\__init__.py"
+    },
+    "make2_new.src.translations.politics.military_keys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.translations.politics.ministers"
+        ],
+        "name": "make2_new.src.translations.politics.military_keys",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\politics\\military_keys.py"
+    },
+    "make2_new.src.translations.politics.ministers": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.politics.military_keys"
+        ],
+        "name": "make2_new.src.translations.politics.ministers",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\politics\\ministers.py"
+    },
+    "make2_new.src.translations.sports": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys4",
+            "make2_new.src.translations.mixed.bot_te_4_list",
+            "make2_new.src.translations.sports.sub_teams_keys",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_2025.teams_new_data",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_national.te2",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations.sports_formats_teams.team_job",
+            "make2_new.src.translations.type_tables",
+            "make2_new.src.translations.utils.match_sport_keys"
+        ],
+        "imports": [
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports.games_labs",
+            "make2_new.src.translations.sports.nat_p17",
+            "make2_new.src.translations.sports.olympics_data",
+            "make2_new.src.translations.sports.skeys",
+            "make2_new.src.translations.sports.tennis"
+        ],
+        "name": "make2_new.src.translations.sports",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\__init__.py"
+    },
+    "make2_new.src.translations.sports.Sport_key": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_womens",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.nat_p17",
+            "make2_new.src.translations.sports.skeys",
+            "make2_new.src.translations.sports.sub_teams_keys",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_2025.teams_new_data",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2",
+            "make2_new.src.translations.utils.match_sport_keys"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.helps.log",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.sports.Sport_key",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\Sport_key.py"
+    },
+    "make2_new.src.translations.sports._helpers": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports.sports_lists"
+        ],
+        "name": "make2_new.src.translations.sports._helpers",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\_helpers.py"
+    },
+    "make2_new.src.translations.sports.cycling": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mixed.all_keys4"
+        ],
+        "name": "make2_new.src.translations.sports.cycling",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\cycling.py"
+    },
+    "make2_new.src.translations.sports.games_labs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.bot_te_4_list",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.olympics_data"
+        ],
+        "name": "make2_new.src.translations.sports.games_labs",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\games_labs.py"
+    },
+    "make2_new.src.translations.sports.nat_p17": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.sports"
+        ],
+        "imports": [
+            "make2_new",
+            "make2_new.src",
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.sports.Sport_key"
+        ],
+        "name": "make2_new.src.translations.sports.nat_p17",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\nat_p17.py"
+    },
+    "make2_new.src.translations.sports.olympics_data": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.type_tables"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.sports.games_labs"
+        ],
+        "name": "make2_new.src.translations.sports.olympics_data",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\olympics_data.py"
+    },
+    "make2_new.src.translations.sports.skeys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.sports.Sport_key"
+        ],
+        "name": "make2_new.src.translations.sports.skeys",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\skeys.py"
+    },
+    "make2_new.src.translations.sports.sports_lists": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_2025.teams_new_data",
+            "make2_new.src.translations.sports_formats_national.te2",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations.sports_formats_teams.team_job"
+        ],
+        "imports": [
+            "make2_new.src.translations.sports._helpers"
+        ],
+        "name": "make2_new.src.translations.sports.sports_lists",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\sports_lists.py"
+    },
+    "make2_new.src.translations.sports.sub_teams_keys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key"
+        ],
+        "name": "make2_new.src.translations.sports.sub_teams_keys",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\sub_teams_keys.py"
+    },
+    "make2_new.src.translations.sports.tennis": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports"
+        ],
+        "name": "make2_new.src.translations.sports.tennis",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports\\tennis.py"
+    },
+    "make2_new.src.translations.sports_formats_2025": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.translations.sports_formats_2025",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_2025\\__init__.py"
+    },
+    "make2_new.src.translations.sports_formats_2025.match_labs": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports.sports_lists",
+            "make2_new.src.translations_formats",
+            "make2_new.src.translations_formats.format_data"
+        ],
+        "name": "make2_new.src.translations.sports_formats_2025.match_labs",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_2025\\match_labs.py"
+    },
+    "make2_new.src.translations.sports_formats_2025.teams_new_data": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_2025.teamsnew_bot"
+        ],
+        "imports": [
+            "make2_new.src.translations.jobs",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports.sports_lists"
+        ],
+        "name": "make2_new.src.translations.sports_formats_2025.teams_new_data",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_2025\\teams_new_data.py"
+    },
+    "make2_new.src.translations.sports_formats_2025.teamsnew_bot": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.translations.sports_formats_2025.teams_new_data"
+        ],
+        "name": "make2_new.src.translations.sports_formats_2025.teamsnew_bot",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_2025\\teamsnew_bot.py"
+    },
+    "make2_new.src.translations.sports_formats_national": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "name": "make2_new.src.translations.sports_formats_national",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_national\\__init__.py"
+    },
+    "make2_new.src.translations.sports_formats_national.sport_lab_nat": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports_formats_national.te2",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.match_sport_keys"
+        ],
+        "name": "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_national\\sport_lab_nat.py"
+    },
+    "make2_new.src.translations.sports_formats_national.te2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.sports_lists"
+        ],
+        "name": "make2_new.src.translations.sports_formats_national.te2",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_national\\te2.py"
+    },
+    "make2_new.src.translations.sports_formats_teams": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.sports_formats_teams.sport_lab"
+        ],
+        "name": "make2_new.src.translations.sports_formats_teams",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_teams\\__init__.py"
+    },
+    "make2_new.src.translations.sports_formats_teams.sport_lab": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.print_bot",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports_formats_teams",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations.sports_formats_teams.team_job",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.match_sport_keys"
+        ],
+        "name": "make2_new.src.translations.sports_formats_teams.sport_lab",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_teams\\sport_lab.py"
+    },
+    "make2_new.src.translations.sports_formats_teams.sport_lab2": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_teams.sport_lab"
+        ],
+        "imports": [
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports_formats_teams.te3",
+            "make2_new.src.translations.sports_formats_teams.team_job",
+            "make2_new.src.translations_formats",
+            "make2_new.src.translations_formats.format_data"
+        ],
+        "name": "make2_new.src.translations.sports_formats_teams.sport_lab2",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_teams\\sport_lab2.py"
+    },
+    "make2_new.src.translations.sports_formats_teams.te3": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.helps.log",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.sports_lists"
+        ],
+        "name": "make2_new.src.translations.sports_formats_teams.te3",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_teams\\te3.py"
+    },
+    "make2_new.src.translations.sports_formats_teams.team_job": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.sports_lists"
+        ],
+        "name": "make2_new.src.translations.sports_formats_teams.team_job",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\sports_formats_teams\\team_job.py"
+    },
+    "make2_new.src.translations.structures": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.male_keys"
+        ],
+        "name": "make2_new.src.translations.structures",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\structures.py"
+    },
+    "make2_new.src.translations.tv": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.type_tables"
+        ],
+        "name": "make2_new.src.translations.tv",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\tv\\__init__.py"
+    },
+    "make2_new.src.translations.tv.films_mslslat": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.type_tables"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.len_print",
+            "make2_new.src.translations.utils",
+            "make2_new.src.translations.utils.json_dir"
+        ],
+        "name": "make2_new.src.translations.tv.films_mslslat",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\tv\\films_mslslat.py"
+    },
+    "make2_new.src.translations.type_tables": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+            "make2_new.src.translations"
+        ],
+        "imports": [
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.olympics_data",
+            "make2_new.src.translations.tv",
+            "make2_new.src.translations.tv.films_mslslat"
+        ],
+        "name": "make2_new.src.translations.type_tables",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\type_tables.py"
+    },
+    "make2_new.src.translations.utils": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+            "make2_new.src.translations",
+            "make2_new.src.translations.by_type",
+            "make2_new.src.translations.geo.Cities",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.geo.labels_country2",
+            "make2_new.src.translations.geo.regions2",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.Jobs2",
+            "make2_new.src.translations.jobs.jobs_defs",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys5",
+            "make2_new.src.translations.mixed.key_registry",
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.others.peoples",
+            "make2_new.src.translations.others.tax_table",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_teams.sport_lab",
+            "make2_new.src.translations.tv.films_mslslat"
+        ],
+        "name": "make2_new.src.translations.utils",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\utils\\__init__.py"
+    },
+    "make2_new.src.translations.utils.json_dir": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.by_type",
+            "make2_new.src.translations.geo.Cities",
+            "make2_new.src.translations.geo.labels_country",
+            "make2_new.src.translations.geo.labels_country2",
+            "make2_new.src.translations.geo.regions2",
+            "make2_new.src.translations.geo.us_counties",
+            "make2_new.src.translations.jobs.Jobs",
+            "make2_new.src.translations.jobs.Jobs2",
+            "make2_new.src.translations.jobs.jobs_defs",
+            "make2_new.src.translations.jobs.jobs_players_list",
+            "make2_new.src.translations.jobs.jobs_singers",
+            "make2_new.src.translations.mix_data.pop_All_2018_bot",
+            "make2_new.src.translations.mixed.all_keys2",
+            "make2_new.src.translations.mixed.all_keys3",
+            "make2_new.src.translations.mixed.all_keys5",
+            "make2_new.src.translations.mixed.key_registry",
+            "make2_new.src.translations.mixed.keys2",
+            "make2_new.src.translations.mixed.male_keys",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.others.peoples",
+            "make2_new.src.translations.others.tax_table",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.tv.films_mslslat"
+        ],
+        "name": "make2_new.src.translations.utils.json_dir",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\utils\\json_dir.py"
+    },
+    "make2_new.src.translations.utils.match_nats_keys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "imports": [
+            "make2_new.src.translations.nats",
+            "make2_new.src.translations.nats.Nationality",
+            "make2_new.src.translations.utils.patterns"
+        ],
+        "name": "make2_new.src.translations.utils.match_nats_keys",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\utils\\match_nats_keys.py"
+    },
+    "make2_new.src.translations.utils.match_sport_keys": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations",
+            "make2_new.src.translations.sports_formats_national.sport_lab_nat",
+            "make2_new.src.translations.sports_formats_teams.sport_lab"
+        ],
+        "imports": [
+            "make2_new.src.translations.sports",
+            "make2_new.src.translations.sports.Sport_key",
+            "make2_new.src.translations.utils.patterns"
+        ],
+        "name": "make2_new.src.translations.utils.match_sport_keys",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\utils\\match_sport_keys.py"
+    },
+    "make2_new.src.translations.utils.patterns": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.reg_result",
+            "make2_new.src.translations.utils.match_nats_keys",
+            "make2_new.src.translations.utils.match_sport_keys"
+        ],
+        "name": "make2_new.src.translations.utils.patterns",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations\\utils\\patterns.py"
+    },
+    "make2_new.src.translations_formats": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2"
+        ],
+        "name": "make2_new.src.translations_formats",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations_formats\\__init__.py"
+    },
+    "make2_new.src.translations_formats.format_data": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.translations.sports_formats_2025.match_labs",
+            "make2_new.src.translations.sports_formats_teams.sport_lab2"
+        ],
+        "imports": [
+            "make2_new.src.helps",
+            "make2_new.src.helps.log"
+        ],
+        "name": "make2_new.src.translations_formats.format_data",
+        "path": "D:\\categories_bot\\make2_new\\src\\translations_formats\\format_data.py"
+    },
+    "make2_new.src.utils": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.make2_bots.ma_bots.arlabel_bots.ar_lab",
+            "make2_new.src.make2_bots.ma_bots.country2_bots.cn_lab",
+            "make2_new.src.make2_bots.ma_bots.ye_ts_bot",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.bot_lab",
+            "make2_new.src.make2_bots.ma_bots.year_or_typeo.mk3",
+            "make2_new.src.make2_bots.matables_bots.check_bot"
+        ],
+        "imports": [
+            "make2_new.src.utils.check_it"
+        ],
+        "name": "make2_new.src.utils",
+        "path": "D:\\categories_bot\\make2_new\\src\\utils\\__init__.py"
+    },
+    "make2_new.src.utils.check_it": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "make2_new.src.utils"
+        ],
+        "name": "make2_new.src.utils.check_it",
+        "path": "D:\\categories_bot\\make2_new\\src\\utils\\check_it.py"
+    },
+    "psutil": {
+        "bacon": 2,
+        "imported_by": [
+            "make2_new.src.helps.memory",
+            "psutil"
+        ],
+        "imports": [
+            "psutil"
+        ],
+        "name": "psutil",
+        "path": "C:\\Program Files\\Python313\\Lib\\site-packages\\psutil\\__init__.py"
+    },
+    "requests": {
+        "bacon": 2,
+        "imported_by": [
+            "make2_new.src.make2_bots.fromnet.open_url",
+            "requests"
+        ],
+        "imports": [
+            "requests"
+        ],
+        "name": "requests",
+        "path": "C:\\Program Files\\Python313\\Lib\\site-packages\\requests\\__init__.py"
+    },
+    "tqdm": {
+        "bacon": 2,
+        "imported_by": [
+            "make2_new.monkey"
+        ],
+        "name": "tqdm",
+        "path": "C:\\Program Files\\Python313\\Lib\\site-packages\\tqdm\\__init__.py"
+    }
+}

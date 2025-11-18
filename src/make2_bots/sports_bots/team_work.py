@@ -17,11 +17,6 @@ from ...translations import pop_of_football_lower
 from ..jobs_bots import bot_te_4
 from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
 
-# from ...translations import pop_of_football_lower
-# ---
-from ..fromnet import kooora
-
-# ---
 Teams_new_end_keys = {
     # ---
     # "drafts" : " {}",
@@ -134,15 +129,6 @@ def Get_Club(
             # ---
             if not club_lab:
                 club_lab = bot_te_4.te_2018_with_nat(club_key)
-            # ---
-            if not club_lab:
-                club_lab = kooora.kooora_team(club_key)
-                # ---
-                if club_lab:
-                    c_test = re.sub(r"[abcdefghijklmnopqrstuvwxyz]", "", club_lab, flags=re.IGNORECASE)
-                    if c_test == club_lab:
-                        result["add"][club_key.lower()] = club_lab
-                        new_entries[club_key.lower()] = club_lab
             # ---
             if club_lab:
                 category_label = suffix_template.format(club_lab)

@@ -9,7 +9,6 @@ from ...main_processers import event2bot
 from ...fix import fixtitle
 from ...helps.print_bot import print_put
 from ...translations import Ambassadors_tab, New_P17_Finall
-from ..fromnet.wd_bot import find_wikidata
 from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..matables_bots.bot import New_Lan
@@ -120,8 +119,5 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
 
     if not resolved_category_label:
         resolved_category_label = te_bot_3(normalized_target_category)
-
-    if resolved_category_label == "" and " " not in normalized_target_category.strip():
-        resolved_category_label = find_wikidata(normalized_target_category)
 
     return resolved_category_label

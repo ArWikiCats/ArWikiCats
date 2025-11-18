@@ -25,7 +25,6 @@ import functools
 # ---
 from ...translations import (
     Multi_sport_for_Jobs,
-    All_Nat,
     Nat_mens,
     jobs_mens_data,
     short_womens_jobs,
@@ -137,7 +136,7 @@ def te_2018_with_nat(
     if not country_label:
         country_label = jobs_mens_data.get(normalized_category, "")
     # ---
-    con_3, nat = get_con_3(normalized_category, All_Nat, "nat")
+    con_3, nat = get_con_3(normalized_category, "nat")
     # ---
     if con_3:
         # ---
