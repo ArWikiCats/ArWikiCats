@@ -39,7 +39,10 @@ def save_data(filename: str, input_keys: list = None):
         def wrapper(*args, **kwargs):
             # Execute the wrapped function
             output = func(*args, **kwargs)
-
+            if not output:
+                return output
+            if isinstance(output, (list, tuple)) and not any(output):
+                return output
             arg_names = func.__code__.co_varnames
             data = {}
 
