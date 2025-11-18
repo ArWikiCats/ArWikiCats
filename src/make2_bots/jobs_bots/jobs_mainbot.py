@@ -17,28 +17,28 @@ from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ...helps.jsonl_dump import save
 
 
-def country_lab_womens(category_suffix, women_nat_lab, pkjn, con_lab):
+def country_lab_womens(category_suffix, nat_lab, pkjn, con_lab):
     # ---
-    country_lab = ""
+    jender_key = "womens"
+    # ---
+    # TODO: NEW TO CHECK
+    TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
+    if TAJO and "{nato}" in TAJO.get(jender_key, ""):
+        country_lab = TAJO[jender_key].format(nato=nat_lab)
+        logger.debug('<<lightblue>> TAJO[jender_key]: has {nato} "%s"' % TAJO[jender_key])
     # ---
     if not con_lab:
-        # TODO: NEW TO CHECK
-        # Check for {nato} in women's path as well, assuming con_lab can come from MEN_WOMENS_WITH_NATO
-        TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
-        if TAJO and "{nato}" in TAJO.get("womens", ""):
-            country_lab = TAJO["womens"].format(nato=women_nat_lab)
-            logger.debug('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % TAJO["womens"])
+        return ""
     # ---
-    if con_lab:
-        country_lab = f"{con_lab} {women_nat_lab}"
-        # ---
-        if "{nato}" in con_lab:
-            country_lab = con_lab.format(nato=women_nat_lab)
-            logger.debug('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % con_lab)
+    country_lab = f"{con_lab} {nat_lab}"
+    # ---
+    if "{nato}" in con_lab:
+        country_lab = con_lab.format(nato=nat_lab)
+        logger.debug(f'<<lightblue>> TAJO[{jender_key}]: has {{nato}} "con_lab"')
     # ---
     for kjn in pkjn:
         if con_lab.endswith(kjn):
-            country_lab = f"{con_lab[:-len(kjn)]} {women_nat_lab}{kjn}"
+            country_lab = f"{con_lab[:-len(kjn)]} {nat_lab}{kjn}"
             break
     # ---
     logger.debug(f'\t<<lightblue>> test Womens Jobs: new lab: "{country_lab}" ')
@@ -46,27 +46,27 @@ def country_lab_womens(category_suffix, women_nat_lab, pkjn, con_lab):
     return country_lab
 
 
-def country_lab_mens(category_suffix, mens_nat_lab, pkjn, con_lab):
+def country_lab_mens(category_suffix, nat_lab, pkjn, con_lab):
     # ---
     if not con_lab:
         return ""
     # ---
-    country_lab = f"{con_lab} {mens_nat_lab}"
+    country_lab = f"{con_lab} {nat_lab}"
     # ---
     if con_lab.startswith("حسب"):
-        country_lab = f"{mens_nat_lab} {con_lab}"
+        country_lab = f"{nat_lab} {con_lab}"
     # ---
     if category_suffix in NAT_BEFORE_OCC:
-        country_lab = f"{mens_nat_lab} {con_lab}"
+        country_lab = f"{nat_lab} {con_lab}"
     # ---
     TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
     if TAJO and "{nato}" in TAJO.get("mens", ""):
-        country_lab = TAJO["mens"].format(nato=mens_nat_lab)
+        country_lab = TAJO["mens"].format(nato=nat_lab)
         logger.debug('<<lightblue>> TAJO["mens"]: has {nato} "%s"' % TAJO["mens"])
     # ---
     for kjn in pkjn:
         if con_lab.endswith(kjn):
-            country_lab = f"{con_lab[:-len(kjn)]} {mens_nat_lab}{kjn}"
+            country_lab = f"{con_lab[:-len(kjn)]} {nat_lab}{kjn}"
             break
     # ---
     logger.debug(f'\t<<lightblue>> test mens Jobs: new lab: "{country_lab}" ')
