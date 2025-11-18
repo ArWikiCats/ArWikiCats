@@ -2,7 +2,7 @@
 """
 !
 """
-from ..jobs_mainbot import Jobs
+from ..jobs_mainbot import jobs_with_nat_prefix
 from ....translations import RELIGIOUS_KEYS_PP
 from ....helps.print_bot import output_test4
 from ..get_helps import get_con_3
@@ -21,7 +21,7 @@ def try_relegins_jobs(cate: str) -> str:
     Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
     # ---
     if category_suffix:
-        country_lab = Jobs(
+        country_lab = jobs_with_nat_prefix(
             cate,
             country_prefix,
             category_suffix,

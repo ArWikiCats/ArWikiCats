@@ -18,7 +18,7 @@ from ...helps.jsonl_dump import save
 
 
 @functools.lru_cache(maxsize=None)
-def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="", save_result=True) -> str:
+def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="", save_result=True) -> str:
     """Retrieve job labels based on category and country.
 
     This function generates job labels for both men and women based on the
@@ -39,7 +39,7 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     # ---
     category_suffix = category_suffix.strip().lower()
     # ---
-    logger.debug(f'<<lightblue>> jobs_mainbot.py Jobs: {cate=}, {country_prefix=}, {category_suffix=}.')
+    logger.debug(f'<<lightblue>> jobs_mainbot.py jobs_with_nat_prefix: {cate=}, {country_prefix=}, {category_suffix=}.')
     # ---
     country = country_prefix
     # ---

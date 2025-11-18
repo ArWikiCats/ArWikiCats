@@ -23,7 +23,7 @@ from .langs_w import Lang_work
 
 from ..get_helps import get_con_3
 from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
-from ..jobs_mainbot import Jobs
+from ..jobs_mainbot import jobs_with_nat_prefix
 from ....helps.print_bot import output_test4, print_put
 
 
@@ -117,7 +117,7 @@ def te4_2018_Jobs(cate: str) -> str:
                 Main_lab = priffix_lab_for_2018[Main_Ss]["men"]
     # ---
     if category_suffix and country_lab == "":
-        country_lab = Jobs(cate, country_prefix, category_suffix)
+        country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix)
     # ---
     if not country_lab:
         country_lab = Women_s_priffix_work(cate)
@@ -125,7 +125,7 @@ def te4_2018_Jobs(cate: str) -> str:
     if not country_lab:
         country_lab = priffix_Mens_work(cate)
     # ---
-    # Try with Jobs
+    # Try with jobs_with_nat_prefix
     # ---
     if Main_Ss and Main_lab and country_lab:
         country_lab = Main_lab.format(country_lab)

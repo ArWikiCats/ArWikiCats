@@ -3,7 +3,7 @@ import pytest
 import jsonlines
 
 
-from src.make2_bots.jobs_bots.jobs_mainbot import Jobs
+from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
 
 def load_examples():
@@ -40,7 +40,7 @@ EXAMPLES = load_examples()
 )
 def test_jobs_real_examples(item):
     """
-    Validate Jobs() results using REAL data proven correct in production.
+    Validate jobs_with_nat_prefix() results using REAL data proven correct in production.
 
     Each JSON line example includes:
        cate
@@ -61,9 +61,9 @@ def test_jobs_real_examples(item):
     expected = item.get("country_lab", "")
 
     # Ensure clean cache per test
-    Jobs.cache_clear()
+    jobs_with_nat_prefix.cache_clear()
 
-    result = Jobs(cate, start, con_3, mens=mens, womens=womens)
+    result = jobs_with_nat_prefix(cate, start, con_3, mens=mens, womens=womens)
 
     assert result == expected, (
         "\n\n"
