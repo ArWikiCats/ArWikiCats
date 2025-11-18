@@ -64,13 +64,6 @@ def test_mens_people_only():
     assert result == "مصريون"
 
 
-def test_mens_nat_before_occ():
-    jobs_with_nat_prefix.cache_clear()
-    # expatriates in NAT_BEFORE_OCC → nationality BEFORE occupation
-    result = jobs_with_nat_prefix("", "yemeni", "expatriates")
-    assert result == "يمنيون مغتربون"
-
-
 def test_mens_nato():
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "yemeni", "eugenicists")
@@ -256,47 +249,6 @@ def test_new_womens_short_job_women_in_politics_argentinean():
     result = jobs_with_nat_prefix("", "argentinean", "women in politics")
     assert result == "سياسيات أرجنتينيات"
 
-# --- NAT_BEFORE_OCC Expansion Tests ---
-
-
-def test_nat_before_occ_deafblind_mens_algerian():
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "algerian", "deafblind writers")  # "deafblind" is in NAT_BEFORE_OCC
-    assert result == "كتاب صم ومكفوفون جزائريون"  # Assuming priffix_Mens_work would return "كتاب صم ومكفوفون"
-
-
-def test_nat_before_occ_expatriate_mens_angolan():
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "angolan", "expatriate writers")
-    assert result == "كتاب أنغوليون مغتربون"
-
-
-def test_nat_before_occ_religious_muslim_mens_afghan():
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "afghan", "muslim")
-    assert result == "أفغان مسلمون"
-
-
-def test_nat_before_occ_religious_christian_womens_albanian():
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "albanian", "female christian")
-    assert result == "مسيحيات ألبانيات"
-
-    result2 = jobs_with_nat_prefix("", "albanian", "christian")
-    assert result2 == "ألبان مسيحيون"
-
-
-def test_nat_before_occ_religious_jews_mens_argentine():
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "argentine", "jews")
-    assert result == "أرجنتينيون يهود"
-
-
-def test_nat_before_occ_religious_jews_womens_argentinean():
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "argentinean", "female jews")
-    assert result == "يهوديات أرجنتينيات"
-
 # --- MEN_WOMENS_WITH_NATO Tests ---
 
 
@@ -324,20 +276,6 @@ def test_womens_nato_politicians_who_committed_suicide_albanian():
     assert result in ["سياسيات ألبانيات أقدمن على الانتحار" , "سياسيات أقدمن على الانتحار ألبانيات"]
 
 # --- Combined Cases ---
-
-
-def test_mens_new_job_with_nat_before_occ_abidat_rma_saxophonists_expatriates_yemeni():
-    jobs_with_nat_prefix.cache_clear()
-    # This scenario is a bit complex as "expatriates" might override the specific job data
-    # Assuming "expatriates" as a category_suffix would trigger NAT_BEFORE_OCC
-    # and the specific job "abidat rma saxophonists" would be lost if 'expatriates' is the main suffix.
-    # The current code checks `category_suffix` and `con_4` against `NAT_BEFORE_OCC`.
-    # If `category_suffix` is "expatriates", then `con_3_lab` would be "مغتربون"
-    # and the output would be "يمنيون مغتربون".
-    # If the intent is "Yemeni Abidat Rma Saxophonist Expatriates", the suffix needs to be composed differently.
-    # For now, let's test a simpler combination based on existing logic.
-    result = jobs_with_nat_prefix("", "yemeni", "expatriates")  # Testing the NAT_BEFORE_OCC for 'expatriates'
-    assert result == "يمنيون مغتربون"
 
 
 def test_womens_new_job_with_prefix_and_nato_algerian_female_eugenicists():

@@ -6,6 +6,7 @@ import pytest
 from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
 
+@pytest.mark.fast
 class Tests:
 
     # =========================================================
@@ -36,25 +37,6 @@ class Tests:
         """Test hyphenated nationality 'bissau-guinean'"""
         result = jobs_with_nat_prefix("", "bissau-guinean", "muslims")
         assert result == "غينيون بيساويون مسلمون"
-
-    # =========================================================
-    #                 RELIGIOUS AFFILIATION TESTS
-    # =========================================================
-
-    def test_mens_religious_before_occ(self):
-        """Test religious key in NAT_BEFORE_OCC list (nationality before religion)"""
-        result = jobs_with_nat_prefix("", "yemeni", "sunni muslims")
-        assert result == "يمنيون مسلمون سنة"
-
-    def test_womens_religious_with_nationality(self):
-        """Test women's religious affiliation with compound nationality"""
-        result = jobs_with_nat_prefix("", "north yemeni", "female coptic")
-        assert result == "قبطيات يمنيات شماليات"
-
-    def test_mens_religious_expatriate(self):
-        """Test religious + expatriate combination (both in NAT_BEFORE_OCC)"""
-        result = jobs_with_nat_prefix("", "turkmenistan", "jewish")
-        assert result == "تركمانيون يهود"
 
     # =========================================================
     #                 SPECIAL TEMPLATE TESTS

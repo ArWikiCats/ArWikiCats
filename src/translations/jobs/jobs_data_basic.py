@@ -204,7 +204,6 @@ NAT_BEFORE_OCC_BASE: List[str] = [
     "scholars-of-islam",
     "amputees",
     "expatriates",
-    "scholars of",
     "executed abroad",
     "emigrants",
 ]

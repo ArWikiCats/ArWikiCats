@@ -16,6 +16,7 @@ from src.translations.mixed import Newkey, all_keys2, all_keys4, bot_te_4_list, 
         pytest.param(keys_23.ANTI_SUFFIXES, "short stories", "قصص قصيرة", id="keys23_short_stories"),
     ],
 )
+@pytest.mark.dict
 def test_corrected_arabic_translations(mapping: dict[str, str], key: str, expected: str) -> None:
     """Verify that key translations use the corrected Arabic phrases."""
 

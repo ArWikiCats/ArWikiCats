@@ -38,6 +38,7 @@ EXAMPLES = load_examples()
     EXAMPLES,
     ids=[x.get("cate") for x in EXAMPLES]
 )
+@pytest.mark.dict
 def test_jobs_real_examples(item):
     """
     Validate jobs_with_nat_prefix() results using REAL data proven correct in production.

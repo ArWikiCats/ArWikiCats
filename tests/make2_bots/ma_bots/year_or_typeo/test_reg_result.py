@@ -275,14 +275,14 @@ class TestBCE_BC:
 # 9) Stress-test with all basedtypeTable + years
 # -----------------------------------------------------------
 
-class TestBasedTypeTableCoverage:
-    @pytest.mark.parametrize("eng", list(basedtypeTable_20.keys()))
-    def test_all_based_types(self, eng):
-        category = f"Category:1999 {eng} in France"
-        out = get_reg_result(category)
-        assert out.typeo.strip().lower() == eng.strip().lower()
-        assert out.year_at_first.strip().lower() == "1999"
-        assert out.country.strip().lower() == "france"
+@pytest.mark.parametrize("eng", list(basedtypeTable_20.keys()))
+@pytest.mark.dict
+def test_all_based_types(eng):
+    category = f"Category:1999 {eng} in France"
+    out = get_reg_result(category)
+    assert out.typeo.strip().lower() == eng.strip().lower()
+    assert out.year_at_first.strip().lower() == "1999"
+    assert out.country.strip().lower() == "france"
 
 
 # -----------------------------------------------------------
