@@ -32,13 +32,6 @@ jobs_mens_data = {
     "men's sailing (sport) quarterbacks": "أظهرة رباعيون رياضة إبحار رجالية",
     "men's sailing (sport) racing centers": "لاعبو وسط سباق رياضة إبحار رجالية",
     "ski-orienteering quarterbacks": "أظهرة رباعيون سباق تزلج موجه",
-    "ski-orienteering racing announcers": "مذيعو سباق سباق تزلج موجه",
-    "ski-orienteering racing biography": "أعلام سباق سباق تزلج موجه",
-    "ski-orienteering racing centers": "لاعبو وسط سباق سباق تزلج موجه",
-    "time trial racing placekickers": "مسددو سباق سباق دراجات ضد الساعة",
-    "time trial racing players": "لاعبو سباق سباق دراجات ضد الساعة",
-    "time trial racing point guards": "لاعبو هجوم خلفي سباق سباق دراجات ضد الساعة",
-    "time trial racing power forwards": "مهاجمون أقوياء الجسم سباق سباق دراجات ضد الساعة",
     "abidat rma saxophonists": "عازفو سكسفون عبيدات الرما",
     "abidat rma singer-songwriters": "مغنون وكتاب أغاني عبيدات الرما",
 }

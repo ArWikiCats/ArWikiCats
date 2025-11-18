@@ -64,7 +64,7 @@ def data_len(
     all_len[bot].update(data)
 
 
-def dump_all_len(file):
+def dump_all_len():
     # sort all_len by keys ignore case
     all_len_save = {
         "by_count": {},
@@ -77,5 +77,4 @@ def dump_all_len(file):
     sorted_items = sorted(all_len_save["by_count"].items(), key=lambda item: item[1], reverse=True)
     all_len_save["by_count"] = {k: f"{v:,}" for k, v in sorted_items}
 
-    with open(file, "w", encoding="utf-8") as f:
-        json.dump(all_len_save, f, ensure_ascii=False, indent=4)
+    return all_len_save

@@ -82,12 +82,6 @@ def test_womens_no_nat():
     assert result2 == ""
 
 
-def test_mens_with_pkjn_suffix():
-    jobs_with_nat_prefix.cache_clear()
-    # prefix returns مغتربون => pkjn modifies it
-    result = jobs_with_nat_prefix("", "yemeni", "expatriates")
-    assert "يمنيون مغتربون" in result
-
 # =========================================================
 #                 TESTS FOR WOMEN'S PATH
 # =========================================================

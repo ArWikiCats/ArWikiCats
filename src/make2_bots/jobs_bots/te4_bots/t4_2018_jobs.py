@@ -18,7 +18,7 @@ from ....translations import (
     Main_priffix,
     Main_priffix_to,
 )
-from .relegin_jobs import try_relegins_jobs
+from .relegin_jobs import try_relegins_jobs_with_suffix
 from .langs_w import Lang_work
 
 from ..get_helps import get_con_3
@@ -120,10 +120,7 @@ def te4_2018_Jobs(cate: str) -> str:
         country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix)
     # ---
     if not country_lab:
-        country_lab = Women_s_priffix_work(cate)
-    # ---
-    if not country_lab:
-        country_lab = priffix_Mens_work(cate)
+        country_lab = Women_s_priffix_work(cate) or priffix_Mens_work(cate)
     # ---
     # Try with jobs_with_nat_prefix
     # ---
@@ -135,7 +132,7 @@ def te4_2018_Jobs(cate: str) -> str:
             country_lab = Main_priffix_to[Main_Ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
     # ---
     if not country_lab:
-        country_lab = try_relegins_jobs(cate)
+        country_lab = try_relegins_jobs_with_suffix(cate)
     # ---
     output_test4(f'end te4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate2}')
     # ---

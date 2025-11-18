@@ -128,7 +128,7 @@ def _generate_variants(records: Mapping[str, SportKeyRecord]) -> dict[str, Sport
         olympic = record.get("olympic", "")
         team = record.get("team", "")
 
-        if not sport.endswith("racing"):
+        if not sport.endswith("racing") and not label.startswith("سباق") and not jobs.startswith("سباق"):
             variants[f"{sport} racing"] = _copy_record(
                 record,
                 label=f"سباق {label}",

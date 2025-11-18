@@ -19,7 +19,6 @@ from .jobs_data_basic import (
     MEN_WOMENS_JOBS_2,
     NAT_BEFORE_OCC,
     RELIGIOUS_KEYS_PP,
-    MEN_WOMENS_WITH_NATO,
 )
 from .jobs_players_list import (
     FOOTBALL_KEYS_PLAYERS,
@@ -42,7 +41,6 @@ __all__ = [
     "jobs_mens_data",
     "short_womens_jobs",
     "Jobs_new",
-    "MEN_WOMENS_WITH_NATO",
     "NAT_BEFORE_OCC",
     # Player utilities
     "FOOTBALL_KEYS_PLAYERS",

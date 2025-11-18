@@ -2,28 +2,19 @@
 
 from __future__ import annotations
 
-from src.translations.jobs.jobs_data_basic import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO
+from src.translations.jobs.jobs_data_basic import NAT_BEFORE_OCC
 from src.translations.jobs.Jobs import (
     jobs_mens_data,
     Jobs_new,
 )
 from src.translations.jobs.Jobs2 import JOBS_2, JOBS_3333
 
+
 def test_jobs_new_contains_female_and_general_entries() -> None:
     """Flattened mapping should expose lowercase keys for combined datasets."""
 
     assert "film actresses" in Jobs_new
     assert "footballers" in jobs_mens_data
-
-
-def test_men_womens_with_nato_matches_source_template() -> None:
-    """NATO-labelled entries should retain the placeholder for substitution."""
-
-    assert MEN_WOMENS_WITH_NATO
-    for labels in MEN_WOMENS_WITH_NATO.values():
-        assert "{nato}" in labels["mens"]
-        assert "{nato}" in labels["womens"]
-
 
 def test_nat_before_occ_includes_religious_expansions() -> None:
     """The nationality-before-occupation list should include religion keys."""

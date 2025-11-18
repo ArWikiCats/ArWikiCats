@@ -3,13 +3,12 @@ Tests
 """
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
+from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix, MEN_WOMENS_WITH_NATO
 from src.translations import (
     Nat_mens,
     Nat_Womens,
     jobs_mens_data,
     short_womens_jobs,
-    MEN_WOMENS_WITH_NATO,
 )
 
 Nat_mens = {k: Nat_mens[k] for k in list(Nat_mens.keys())[:30]}
@@ -110,3 +109,15 @@ def test_mens_nato_templates_are_applied_for_all_men_keys(
 
     expected = template["mens"].format(nato=mens_nat)
     assert result == expected
+
+
+def test_mens_religious_expatriate():
+    """Test religious + expatriate combination (both in NAT_BEFORE_OCC)"""
+    result = jobs_with_nat_prefix("", "turkmenistan", "jewish")
+    assert result == "تركمانيون يهود"
+
+
+def test_mens_new_job_with_nat_before_occ_abidat_rma_saxophonists_yemeni():
+    jobs_with_nat_prefix.cache_clear()
+    result = jobs_with_nat_prefix("", "yemeni", "abidat rma saxophonists")
+    assert result == "عازفو سكسفون عبيدات الرما يمنيون"
