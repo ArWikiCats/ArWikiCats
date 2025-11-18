@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 """Utility helpers for extracting country labels from category names."""
 import functools
-from typing import Dict, Tuple, List
+from typing import Dict, Tuple
 
 from ...helps.print_bot import output_test4
-
-
 from ...translations import All_Nat, RELIGIOUS_KEYS_PP, Nat_women, contries_from_nat
 
 keys_data = {
