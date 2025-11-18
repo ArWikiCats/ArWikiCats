@@ -5,8 +5,13 @@ import functools
 from ...translations import US_State_lower, kk_end_US_State
 from ...helps.print_bot import print_put
 
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
 
-@functools.lru_cache(maxsize=None)
+# @functools.lru_cache(maxsize=None)
+
+
+@save_data(Path(__file__).parent / "Work_US_State.jsonl", ["state_identifier"])
 def Work_US_State(state_identifier: str) -> str:
     normalized_state = state_identifier.lower().strip()
     # ---

@@ -27,7 +27,13 @@ from ..jobs_mainbot import jobs_with_nat_prefix
 from ....helps.print_bot import output_test4, print_put
 
 
-@functools.lru_cache(maxsize=None)
+from pathlib import Path
+from ....helps.jsonl_dump import save_data
+
+# @functools.lru_cache(maxsize=None)
+
+
+@save_data(Path(__file__).parent / "te4_2018_Jobs.jsonl", ["cate"])
 def te4_2018_Jobs(cate: str) -> str:
     """Retrieve job-related information based on the specified category.
 

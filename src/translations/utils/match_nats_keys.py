@@ -20,6 +20,13 @@ RE_KEYS_NEW = re.compile(new_pattern, re.I)
 RE_KEYS_OLD = re.compile(nat_reg_line, re.I)
 
 
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
+
+# @functools.lru_cache(maxsize=None)
+
+
+@save_data(Path(__file__).parent / "match_nat_key.jsonl", ["category"])
 def match_nat_key(category: str):
     # ---
     match = RE_KEYS_NEW.search(f" {category} ")

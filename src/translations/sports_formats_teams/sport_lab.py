@@ -17,6 +17,11 @@ from ...helps.print_bot import print_put
 from ..sports_formats_nats.new import create_label
 
 
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
+
+
+@save_data(Path(__file__).parent / "Get_Sport_Format_xo_en_ar_is_P17.jsonl", ["con_3"])
 def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
     # ---
     # len:"SPORT_FORMTS_EN_AR_IS_P17":  572927 قبل بدء الوظيفة
@@ -61,7 +66,10 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p1
     # ---
     return con_3_label
 
+# @functools.lru_cache(maxsize=None)
 
+
+@save_data(Path(__file__).parent / "Get_New_team_xo.jsonl", ["team"])
 def Get_New_team_xo(team: str) -> str:
     # ---
     # إيجاد تسميات نصوص رياضية مثل
@@ -97,6 +105,7 @@ def Get_New_team_xo(team: str) -> str:
     return team_lab
 
 
+@save_data(Path(__file__).parent / "Get_New_team_xo_2026.jsonl", ["team"])
 def Get_New_team_xo_2026(team: str) -> str:
     # ---
     team_lab = wrap_team_xo_normal_2025(team)

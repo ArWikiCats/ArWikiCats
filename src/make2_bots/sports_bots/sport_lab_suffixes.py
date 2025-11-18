@@ -11,7 +11,13 @@ from . import team_work
 from ..o_bots.utils import resolve_suffix_template
 
 
-@functools.lru_cache(maxsize=10000)
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
+
+# @functools.lru_cache(maxsize=None)
+
+
+@save_data(Path(__file__).parent / "get_teams_new.jsonl", ["team_name"])
 def get_teams_new(team_name: str) -> str:
     """Return the label for ``team_name`` using multiple heuristics.
 

@@ -13,6 +13,13 @@ from ....utils import check_key_in_tables
 from ....helps.print_bot import print_put
 
 
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
+
+# @functools.lru_cache(maxsize=None)
+
+
+@save_data(Path(__file__).parent / "make_cnt_lab.jsonl", ["tat_o", "country2", "c_2_l", "c_1_l", "cona_1", "cona_2", "sps"])
 def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
     """Construct a formatted string based on various input parameters."""
 

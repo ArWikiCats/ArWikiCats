@@ -26,9 +26,14 @@ from ..sports_bots import team_work
 # ---
 from . import ye_ts_bot
 
+
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
+
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
+@save_data(Path(__file__).parent / "te_bot_3.jsonl", ["category_key"])
 def te_bot_3(category_key: str) -> str:
     arabic_label = ""
 
@@ -44,7 +49,10 @@ def te_bot_3(category_key: str) -> str:
                 return normalized_label
     return arabic_label
 
+# @functools.lru_cache(maxsize=None)
 
+
+@save_data(Path(__file__).parent / "event_Lab_seoo.jsonl", ["reference_category", "target_category"])
 def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     """Retrieve category lab information based on the provided category.
 
