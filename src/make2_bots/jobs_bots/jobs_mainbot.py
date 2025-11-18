@@ -76,7 +76,8 @@ def country_lab_mens_womens(jender_key, category_suffix, nat_lab, con_lab):
 
 
 @functools.lru_cache(maxsize=None)
-def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="", save_result=True) -> str:
+def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="",
+                         save_result=True, find_nats=True) -> str:
     """
     Retrieve job labels based on category and country.
     """
@@ -89,7 +90,7 @@ def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, m
     # ---
     category_suffix = category_suffix[len("people ") :] if category_suffix.startswith("people ") else category_suffix
     # ---
-    mens_nat_lab: str = mens or Nat_mens.get(country_prefix, "")
+    mens_nat_lab: str = mens or (Nat_mens.get(country_prefix, "") if find_nats else "")
     # ---
     if mens_nat_lab:
         if category_suffix == "people":
@@ -98,7 +99,7 @@ def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, m
             con_lab = jobs_mens_data.get(category_suffix, "") or priffix_Mens_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, con_lab)
     # ---
-    women_nat_lab: str = womens or Nat_Womens.get(country_prefix, "")
+    women_nat_lab: str = womens or (Nat_Womens.get(country_prefix, "") if find_nats else "")
     # ---
     if not country_lab and women_nat_lab:
         if category_suffix in ["women", "female", "women's"]:
