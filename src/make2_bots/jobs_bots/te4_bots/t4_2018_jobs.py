@@ -55,8 +55,6 @@ def te4_2018_Jobs(cate: str) -> str:
     Main_Ss = ""
     Main_lab = ""
     # ---
-    country_lab = try_relegins_jobs_with_suffix(cate)
-    # ---
     for me, melab in Main_priffix.items():
         me2 = f"{me} "
         if cate.lower().startswith(me2.lower()):

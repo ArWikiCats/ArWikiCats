@@ -49,14 +49,12 @@ def priffix_Mens_work(con_33: str) -> str:
     if label:
         return label
     # ---
-    if not label:
-        label = jobs_mens_data.get(con_33, "")
-        if label:
-            logger.debug(f'<<lightblue>> jobs_mens_data: label:"{label}"')
+    label = jobs_mens_data.get(con_33, "")
+    if label:
+        logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+        return label
     # ---
     for priff, priff_lab in Mens_priffix.items():
-        if label:
-            break
         # ---
         pri = f"{priff} "
         # ---
@@ -83,19 +81,21 @@ def priffix_Mens_work(con_33: str) -> str:
         if con_88 in Female_Jobs and priff_lab in change_male_to_female:
             priff_lab = change_male_to_female[priff_lab]
         # ---
-        if con_8_lab:
-            logger.debug(f'<<lightblue>> priffix_Mens_work: pri("{pri}"), con_88:{con_88}, con_8_lab:"{con_8_lab}"')
-            label = priff_lab.format(con_8_lab)
-            # ---
-            if label in replace_labels_2022:
-                label = replace_labels_2022[label]
-                logger.debug(f'<<lightgreen>> change label to "{label}" replace_labels_2022.')
-            # ---
-            logger.debug(f'<<lightblue>> label: "{label}"')
+        if not con_8_lab:
+            continue
+        # ---
+        logger.debug(f'<<lightblue>> priffix_Mens_work: pri("{pri}"), con_88:{con_88}, con_8_lab:"{con_8_lab}"')
+        label = priff_lab.format(con_8_lab)
+        # ---
+        if label in replace_labels_2022:
+            label = replace_labels_2022[label]
+            logger.debug(f'<<lightgreen>> change label to "{label}" replace_labels_2022.')
+        # ---
+        if label.strip():
+            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+            return label
     # ---
     for suffix, suf_lab in Mens_suffix.items():
-        if label:
-            break
         # ---
         suffix2 = f" {suffix}"
         if not con_33.endswith(suffix2):
@@ -120,12 +120,12 @@ def priffix_Mens_work(con_33: str) -> str:
         if con_88_lab:
             logger.debug(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), con_88_lab:"{con_88_lab}"')
             label = suf_lab.format(con_88_lab)
-            # ---
-            logger.debug(f'<<lightblue>> label "{label}"')
+        # ---
+        if label.strip():
+            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+            return label
     # ---
-    logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
-    # ---
-    return label
+    return ""
 
 
 @functools.lru_cache(maxsize=None)

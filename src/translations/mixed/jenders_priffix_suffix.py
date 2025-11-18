@@ -25,38 +25,54 @@ Mens_suffix: dict[str, str] = {
 }
 
 
+Me_priffix: dict[str, str] = {
+    "amputee": "{} مبتورو أحد الأطراف",
+    "blind": "{} مكفوفون",
+    "child": "{} أطفال",
+    "children": "{} أطفال",
+    "contemporary": "{} معاصرون",
+    "deaf": "{} صم",
+    "deafblind": "{} صم ومكفوفون",
+    "disabled": "{} معاقون",
+    "executed": "{} معدمون",
+    "fictional": "{} خياليون",
+    "latin": "{} لاتينيون",
+    "lgbt male": "{} مثليون ذكور",
+    "lgbt": "{} مثليون",
+    "male child": "{} أطفال ذكور",
+    "male deaf": "{} صم ذكور",
+    "male": "{} ذكور",
+    "men": "{} رجال",
+    "military": "{} عسكريون",
+    "mythological": "{} أسطوريون",
+    "nautical": "{} بحريون",
+    "political": "{} سياسيون",
+    "religious": "{} دينيون",
+    "romantic": "{} رومانسيون",
+    # "male" : "ذكور {}",
+}
+
+
+Wo_priffix: dict[str, str] = {
+    # "women of" : "{}",
+    # "non-" : "غير {}",
+    "women": "{}",
+    "female": "{}",
+    "women's": "{}",
+    "blind": "{} مكفوفات",
+    "deafblind": "{} صم ومكفوفات",
+    "deaf": "{} صم",
+    # "expatriate women's" : "{} مغتربات",
+    # "expatriate female" : "{} مغتربات",
+    # "expatriate women" : "{} مغتربات",
+}
+
+
 def _extend_men_prefixes() -> dict[str, str]:
     """
     Populate prefix variants used for male categories.
     # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
     # """
-
-    Me_priffix: dict[str, str] = {
-        "amputee": "{} مبتورو أحد الأطراف",
-        "blind": "{} مكفوفون",
-        "child": "{} أطفال",
-        "children": "{} أطفال",
-        "contemporary": "{} معاصرون",
-        "deaf": "{} صم",
-        "deafblind": "{} صم ومكفوفون",
-        "disabled": "{} معاقون",
-        "executed": "{} معدمون",
-        "fictional": "{} خياليون",
-        "latin": "{} لاتينيون",
-        "lgbt male": "{} مثليون ذكور",
-        "lgbt": "{} مثليون",
-        "male child": "{} أطفال ذكور",
-        "male deaf": "{} صم ذكور",
-        "male": "{} ذكور",
-        "men": "{} رجال",
-        "military": "{} عسكريون",
-        "mythological": "{} أسطوريون",
-        "nautical": "{} بحريون",
-        "political": "{} سياسيون",
-        "religious": "{} دينيون",
-        "romantic": "{} رومانسيون",
-        # "male" : "ذكور {}",
-    }
 
     data = {
         "kidnapped": "{} مختطفون",
@@ -80,20 +96,6 @@ def _extend_men_prefixes() -> dict[str, str]:
 def _extend_women_prefixes() -> dict[str, str]:
     """Populate prefix variants used for female categories."""
 
-    Wo_priffix: dict[str, str] = {
-        # "women of" : "{}",
-        # "non-" : "غير {}",
-        "women": "{}",
-        "female": "{}",
-        "women's": "{}",
-        "blind": "{} مكفوفات",
-        "deafblind": "{} صم ومكفوفات",
-        "deaf": "{} صم",
-        # "expatriate women's" : "{} مغتربات",
-        # "expatriate female" : "{} مغتربات",
-        # "expatriate women" : "{} مغتربات",
-    }
-
     data = {}
 
     for prefix, template in Wo_priffix.items():
@@ -113,6 +115,5 @@ Mens_priffix: dict[str, str] = _extend_men_prefixes()
 __all__ = [
     "Mens_priffix",
     "Women_s_priffix",
-
     "Mens_suffix",
 ]

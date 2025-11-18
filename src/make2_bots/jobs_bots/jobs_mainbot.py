@@ -87,6 +87,25 @@ def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, m
                          save_result=True, find_nats=True) -> str:
     """
     Retrieve job labels based on category and country.
+
+    This function generates job labels for both men and women based on the
+    provided category, starting country, and additional context. It uses
+    @functools.lru_cache for performance optimization and utilizes various mappings to
+    determine the appropriate labels. The function handles different cases
+    for men's and women's jobs, including specific prefixes and country-
+    specific labels.
+
+    Args:
+        cate (str): The category of the job.
+        country_prefix (str): The starting country for the job label.
+        category_suffix (str): Additional context for the job label.
+        mens (str): Manual override for men's nationality label.
+        womens (str): Manual override for women's nationality label.
+        save_result (bool): Whether to save the result to a file.
+        find_nats (bool): Whether to look up nationality labels.
+
+    Returns:
+        str: The generated job label based on the input parameters.
     """
     # ---
     category_suffix = category_suffix.strip().lower()
