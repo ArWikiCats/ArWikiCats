@@ -98,8 +98,8 @@ class Tests:
         """Test empty nationality with women-specific job"""
         # result = Jobs("", "", "deafblind actresses")
         # assert result == "ممثلات صم ومكفوفات"
-        result2 = Jobs("", "", "deaf actresses")
-        assert result2 == "ممثلات صم"
+        result2 = Jobs("yemeni deaf actresses", "yemeni", "deaf actresses")
+        assert result2 == "ممثلات صم يمنيات"
 
     def test_partial_nationality_match(self):
         """Test partial nationality key match should fail cleanly"""

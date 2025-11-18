@@ -39,8 +39,10 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     # ---
     category_suffix = category_suffix.strip().lower()
     # ---
-    logger.debug(f'<<lightblue>> bot_te_4.py Jobs: cate: "{cate}", country_prefix: "{country_prefix}", category_suffix: "{category_suffix}" ')
+    logger.debug(f'<<lightblue>> jobs_mainbot.py Jobs: {cate=}, {country_prefix=}, {category_suffix=}.')
+    # ---
     country = country_prefix
+    # ---
     country_lab = ""
     # ---
     category_suffix = category_suffix[len("people ") :] if category_suffix.startswith("people ") else category_suffix
