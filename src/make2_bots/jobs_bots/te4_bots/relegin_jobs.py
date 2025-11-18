@@ -4,10 +4,9 @@
 """
 import functools
 from pathlib import Path
-
 from ....translations import RELIGIOUS_KEYS_PP
 from ....helps.print_bot import output_test4
-from ....helps.jsonl_dump import save
+# from ....helps.jsonl_dump import save
 from ..get_helps import get_con_3
 from ..jobs_mainbot import jobs_with_nat_prefix
 
@@ -60,7 +59,7 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
     # ---
     output_test4(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
     # ---
-    if country_lab:
-        save(Path(__file__).parent / "relegin_jobs.jsonl", [{"cate": cate, "country_prefix": country_prefix, "category_suffix": category_suffix, "mens": mens, "womens": womens, "country_lab": country_lab}])
+    # if country_lab:
+    # save(Path(__file__).parent / "relegin_jobs.jsonl", [{"cate": cate, "country_prefix": country_prefix, "category_suffix": category_suffix, "mens": mens, "womens": womens, "country_lab": country_lab}])
     # ---
     return country_lab

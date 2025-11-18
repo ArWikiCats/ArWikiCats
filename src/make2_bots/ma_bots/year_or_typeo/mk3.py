@@ -4,6 +4,7 @@ Usage:
 """
 
 import re
+from pathlib import Path
 
 from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
 from ...matables_bots.check_bot import check_key_new_players
@@ -16,6 +17,7 @@ from ...matables_bots.bot import (
 )
 from ....utils import check_key_in_tables_return_tuple, check_key_in_tables
 from ....helps.print_bot import print_put, output_test
+from ....helps.jsonl_dump import save_data
 
 to_check_them = [
     Add_in_table,
@@ -115,6 +117,7 @@ def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
     return arlabel, Add_In, Add_In_Done
 
 
+@save_data(Path(__file__).parent / "new_func_mk2.jsonl", ["category", "cat_test", "year", "typeo", "In", "country", "arlabel", "year_labe", "suf", "Add_In", "country_label", "Add_In_Done"])
 def new_func_mk2(
     category: str,
     cat_test: str,
