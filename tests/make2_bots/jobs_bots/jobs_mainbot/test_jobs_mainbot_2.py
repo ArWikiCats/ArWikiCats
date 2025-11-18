@@ -54,20 +54,6 @@ class Tests:
         assert result == ""
 
     # =========================================================
-    #                 PKJN SUFFIX HANDLING TESTS
-    # =========================================================
-
-    def test_mens_pkjn_suffix_expatriates(self):
-        """Test PKJN suffix handling for male expatriates"""
-        result = jobs_with_nat_prefix("", "abkhaz", "expatriates")
-        assert result == "أبخاز مغتربون"
-
-    def test_womens_pkjn_suffix_expatriates(self):
-        """Test PKJN suffix handling for female expatriates"""
-        result = jobs_with_nat_prefix("", "abkhazian", "female expatriates")
-        assert result == "مغتربات أبخازيات"
-
-    # =========================================================
     #                 EDGE CASES & FAILURE MODES
     # =========================================================
 

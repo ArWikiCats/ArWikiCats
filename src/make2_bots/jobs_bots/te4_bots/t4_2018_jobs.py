@@ -120,10 +120,7 @@ def te4_2018_Jobs(cate: str) -> str:
         country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix)
     # ---
     if not country_lab:
-        country_lab = Women_s_priffix_work(cate)
-    # ---
-    if not country_lab:
-        country_lab = priffix_Mens_work(cate)
+        country_lab = Women_s_priffix_work(cate) or priffix_Mens_work(cate)
     # ---
     # Try with jobs_with_nat_prefix
     # ---

@@ -132,22 +132,6 @@ def _build_military_job_labels(
     return combined_roles
 
 
-MEN_WOMENS_WITH_NATO: GenderedLabelMap = {
-    "eugenicists": {
-        "mens": "علماء {nato} متخصصون في تحسين النسل",
-        "womens": "عالمات {nato} متخصصات في تحسين النسل",
-    },
-    "politicians who committed suicide": {
-        "mens": "سياسيون {nato} أقدموا على الانتحار",
-        "womens": "سياسيات {nato} أقدمن على الانتحار",
-    },
-    "contemporary artists": {
-        "mens": "فنانون {nato} معاصرون",
-        "womens": "فنانات {nato} معاصرات",
-    },
-}
-
-
 # --- Religious role definitions -------------------------------------------------
 RELIGIOUS_KEYS_PP: GenderedLabelMap = {
     "bahá'ís": {"mens": "بهائيون", "womens": "بهائيات"},
@@ -305,5 +289,4 @@ __all__ = [
     "RELIGIOUS_KEYS_PP",
     "RELIGIOUS_ROLE_LABELS",
     "NAT_BEFORE_OCC",
-    "MEN_WOMENS_WITH_NATO",
 ]

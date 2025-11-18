@@ -15,7 +15,7 @@ from .sports.nat_p17 import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 
-from .jobs.jobs_data_basic import NAT_BEFORE_OCC, MEN_WOMENS_WITH_NATO, RELIGIOUS_KEYS_PP
+from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 
 from .jobs.Jobs import jobs_mens_data, jobs_womens_data, Jobs_new
 
@@ -104,12 +104,13 @@ from .mixed.bot_te_4_list import (
     en_is_P17_ar_is_mens,
     en_is_P17_ar_is_P17,
     replace_labels_2022,
-    Mens_suffix,
-    Mens_priffix,
-    Women_s_priffix,
     en_is_P17_ar_is_al_women
 )
-
+from .mixed.jenders_priffix_suffix import (
+    Women_s_priffix,
+    Mens_priffix,
+    Mens_suffix,
+)
 
 __all__ = [
     "typeTable",
@@ -131,7 +132,6 @@ __all__ = [
     "short_womens_jobs",
     "Female_Jobs",
     "NAT_BEFORE_OCC",
-    "MEN_WOMENS_WITH_NATO",
     "Jobs_new",
     #
     "New_P17_Finall",

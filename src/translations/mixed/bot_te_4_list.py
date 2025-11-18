@@ -495,62 +495,6 @@ def _extend_book_entries() -> None:
         en_is_nat_ar_is_women[key.lower()] = f"{label} {{}}"
 
 
-Women_s_priffix: dict[str, str] = {}
-Wo_priffix: dict[str, str] = {
-    # "women of" : "{}",
-    # "non-" : "غير {}",
-    "women": "{}",
-    "female": "{}",
-    "women's": "{}",
-    "blind": "{} مكفوفات",
-    "deafblind": "{} صم ومكفوفات",
-    "deaf": "{} صم",
-    # "expatriate women's" : "{} مغتربات",
-    # "expatriate female" : "{} مغتربات",
-    # "expatriate women" : "{} مغتربات",
-}
-
-
-def _extend_women_prefixes() -> None:
-    """Populate prefix variants used for female categories."""
-
-    for prefix, template in Wo_priffix.items():
-        Women_s_priffix[prefix] = template
-        Women_s_priffix[f"expatriate {prefix}"] = f"{template} مغتربات"
-        # Women_s_priffix["executed {}".format(wom)] = "%s معدومات" % Wo_priffix[wom]
-        Women_s_priffix[f"kidnapped {prefix}"] = f"{template} مختطفات"
-        # Women_s_priffix["executed"] = "معدومات"
-
-
-Mens_priffix: dict[str, str] = {}  # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
-
-Me_priffix: dict[str, str] = {
-    "amputee": "{} مبتورو أحد الأطراف",
-    "blind": "{} مكفوفون",
-    "child": "{} أطفال",
-    "children": "{} أطفال",
-    "contemporary": "{} معاصرون",
-    "deaf": "{} صم",
-    "deafblind": "{} صم ومكفوفون",
-    "disabled": "{} معاقون",
-    "executed": "{} معدمون",
-    "fictional": "{} خياليون",
-    "latin": "{} لاتينيون",
-    "lgbt male": "{} مثليون ذكور",
-    "lgbt": "{} مثليون",
-    "male child": "{} أطفال ذكور",
-    "male deaf": "{} صم ذكور",
-    "male": "{} ذكور",
-    "men": "{} رجال",
-    "military": "{} عسكريون",
-    "mythological": "{} أسطوريون",
-    "nautical": "{} بحريون",
-    "political": "{} سياسيون",
-    "religious": "{} دينيون",
-    "romantic": "{} رومانسيون",
-    # "male" : "ذكور {}",
-}
-
 change_male_to_female: dict[str, str] = {
     "{} مغتربون": "{} مغتربات",
     "{} مختطفون": "{} مختطفات",
@@ -567,50 +511,6 @@ change_male_to_female: dict[str, str] = {
     "{} لاتينيون": "{} لاتينيات",
     "{} رومانسيون": "{} رومانسيات",
     "{} دينيون": "{} دينيات",
-}
-
-YEARS_LIST: list[int] = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-
-
-def _extend_men_prefixes() -> None:
-    """Populate prefix variants used for male categories."""
-
-    for prefix, template in Me_priffix.items():
-        Mens_priffix[prefix] = template
-        Mens_priffix[f"expatriate {prefix}"] = f"{template} مغتربون"
-    for year in YEARS_LIST:
-        Mens_priffix[f"under-{year}"] = f"{{}} تحت {year} سنة"
-        Mens_priffix[f"under–{year}"] = f"{{}} تحت {year} سنة"
-    Mens_priffix["kidnapped"] = "{} مختطفون"
-    Mens_priffix["expatriate"] = "{} مغتربون"
-    Mens_priffix["renaissance"] = "{} عصر النهضة"
-    Mens_priffix["murdered"] = "{} قتلوا"
-    Mens_priffix["under-19"] = "{} تحت 19 سنة"
-    Mens_priffix["assassinated"] = "{} مغتالون"
-    Mens_priffix["sunni muslim"] = "{} مسلمون سنة"
-
-
-people_priffix: dict[str, str] = {
-
-    "assassinated": "{} مغتالون",
-    "fictional": "{} خياليون",
-    "native": "{} أصليون",
-    "murdered": "{} قتلوا",
-    "killed": "{} قتلوا",
-    "contemporary": "{} معاصرون",
-    "ancient": "{} قدماء",
-}
-
-Mens_suffix: dict[str, str] = {
-    "male deaf": "{} صم ذكور",
-    "blind": "{} مكفوفون",
-    "deafblind": "{} صم ومكفوفون",
-    "deaf": "{} صم",
-    "missing-in-action": "{} فقدوا في عمليات قتالية",
-    "missing in action": "{} فقدوا في عمليات قتالية",
-    "killed-in-action": "{} قتلوا في عمليات قتالية",
-    "killed in action": "{} قتلوا في عمليات قتالية",
-    "murdered abroad": "{} قتلوا في الخارج",
 }
 
 priffix_lab_for_2018: dict[str, dict[str, str]] = {
@@ -669,8 +569,6 @@ en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
 
 _extend_singer_and_business_entries()
 _extend_book_entries()
-_extend_women_prefixes()
-_extend_men_prefixes()
 
 __all__ = [
     "en_is_nat_ar_is_P17",
@@ -687,8 +585,5 @@ __all__ = [
     "en_is_P17_ar_is_mens",
     "en_is_P17_ar_is_P17",
     "replace_labels_2022",
-    "Mens_suffix",
-    "Mens_priffix",
-    "Women_s_priffix",
     "en_is_P17_ar_is_al_women",
 ]
