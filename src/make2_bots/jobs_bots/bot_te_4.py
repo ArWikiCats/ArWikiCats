@@ -40,7 +40,6 @@ from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 from .te4_bots.for_me import Work_for_me
 
-# from .te4_bots.relegin_jobs import try_relegins_jobs
 from .te4_bots.t4_2018_jobs import te4_2018_Jobs
 
 
