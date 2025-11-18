@@ -39,8 +39,8 @@ def save_data(bot, tab):
                 # ---
                 with open(bot_path / f"{name}.json", "w", encoding="utf-8") as f:
                     json.dump(data, f, ensure_ascii=False, indent=4)
-    except Exception:
-        logger.error("Error saving data")
+    except Exception as e:
+        logger.error(f"Error saving data to {bot_path}: {e}", exc_info=True)
 
 
 def data_len(
