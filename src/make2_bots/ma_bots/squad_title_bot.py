@@ -14,7 +14,11 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
 from ...helps.print_bot import print_def_head, print_put
 
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
 
+
+@save_data(Path(__file__).parent / "get_squad_title.jsonl", ["tit"])
 def get_squad_title(tit: str) -> str:
     lab = Get_New_team_xo(tit)
 
