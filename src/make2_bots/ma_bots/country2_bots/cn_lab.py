@@ -32,7 +32,7 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
         if in_tables_lowers:
             if c_2_l.startswith("أصل "):
                 print_put(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in players_new_keys:')
-                resolved_label = f"{(c_1_l + sps)}من {c_2_l}"
+                resolved_label = f"{c_1_l}{sps}من {c_2_l}"
             else:
                 print_put(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in players_new_keys:')
                 resolved_label += " في "
