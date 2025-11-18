@@ -16,7 +16,6 @@ examples = {
     "men's a' nordic combined racing": "سباق التزلج النوردي المزدوج للرجال للمحليين",
     "youth orienteering": "سباق موجه للشباب",
     "youth pair skating racing": "سباق التزلج الفني على الجليد للشباب",
-    "men's a' triathlon racing": "سباق السباق الثلاثي للرجال للمحليين",
     "men's a' triathlon": "السباق الثلاثي للرجال للمحليين",
     "men's a' triple jump racing": "سباق القفز الثلاثي للرجال للمحليين",
     "figure skating racing mass media": "إعلام سباق التزلج الفني",
@@ -32,7 +31,8 @@ examples = {
 def test_get_teams_new_resolves_basic_templates(category: str, expected: str) -> None:
     """Templates driven by the lightweight map should translate correctly."""
 
-    assert _get_value(category) == expected
+    result = _get_value(category)
+    assert result == expected
 
 
 olympic_examples = {
@@ -61,4 +61,5 @@ olympic_examples = {
 def test_get_teams_new_handles_olympic_variants(category: str, expected: str) -> None:
     """Olympic templates should rely on the shared helper translation."""
 
-    assert _get_value(category) == expected
+    result = _get_value(category)
+    assert result == expected

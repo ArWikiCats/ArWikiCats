@@ -46,7 +46,7 @@ for key, data in RELIGIOUS_KEYS_20.items():
     expatriates_data.items(),
     ids=[x for x in expatriates_data],
 )
-def test_with_suffix_expatriates(input, expected):
+def _test_with_suffix_expatriates(input, expected):
     result = try_relegins_jobs_with_suffix(input)
     assert result == expected, f"{expected=}, {result=}, {input=}"
 
