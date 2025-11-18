@@ -6,6 +6,8 @@ import functools
 import jsonlines
 from pathlib import Path
 
+SAVE_ENABLE = False
+
 
 def save(path, data) -> str:
     path = Path(path)
@@ -38,6 +40,9 @@ def save_data(filename: str, input_keys: list = None):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             # Execute the wrapped function
+            if not SAVE_ENABLE:
+                return
+
             output = func(*args, **kwargs)
             if not output:
                 return output
