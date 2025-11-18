@@ -24,7 +24,7 @@ from ....helps.jsonl_dump import save_data
 # @functools.lru_cache(maxsize=None)
 
 
-@save_data(Path(__file__).parent / "get_teams_new.jsonl", ["preposition", "tito2", "country", "country_lower", "start_get_country2"])
+@save_data(Path(__file__).parent / "get_con_lab.jsonl", ["preposition", "tito2", "country"])
 def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, start_get_country2: bool) -> str:
     """Retrieve the corresponding label for a given country."""
 
