@@ -30,24 +30,27 @@ def save_data(filename: str, input_keys: list = None):
 
     If input_keys is empty or None, all inputs (args + kwargs) are saved.
     """
-    # path = Path(__file__).parent / filename
-    path = Path(filename)
-
-    if not SAVE_ENABLE:
-        return
-
-    if not path.exists():
-        path.touch()
-
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             # Execute the wrapped function
             output = func(*args, **kwargs)
+
+            if not SAVE_ENABLE:
+                return
+
             if not output:
                 return output
+
             if isinstance(output, (list, tuple)) and not any(output):
                 return output
+
+            # path = Path(__file__).parent / filename
+            path = Path(filename)
+
+            if not path.exists():
+                path.touch()
+
             arg_names = func.__code__.co_varnames
             data = {}
 
