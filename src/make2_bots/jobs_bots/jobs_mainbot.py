@@ -50,6 +50,16 @@ def fix_expatriates(country_lab, con_lab, nat_lab):
     return country_lab
 
 
+def create_country_lab(con_lab, nat_lab, category_suffix):
+    # ---
+    country_lab = f"{con_lab} {nat_lab}"
+    # ---
+    if con_lab.startswith("حسب") or category_suffix in NAT_BEFORE_OCC:
+        country_lab = f"{nat_lab} {con_lab}"
+    # ---
+    return country_lab
+
+
 def country_lab_mens_womens(jender_key, category_suffix, nat_lab, con_lab):
     # ---
     # TODO: NEW TO CHECK
@@ -63,10 +73,7 @@ def country_lab_mens_womens(jender_key, category_suffix, nat_lab, con_lab):
     if not con_lab:
         return ""
     # ---
-    country_lab = f"{con_lab} {nat_lab}"
-    # ---
-    if con_lab.startswith("حسب") or category_suffix in NAT_BEFORE_OCC:
-        country_lab = f"{nat_lab} {con_lab}"
+    country_lab = create_country_lab(con_lab, nat_lab, category_suffix)
     # ---
     country_lab = fix_expatriates(country_lab, con_lab, nat_lab)
     # ---

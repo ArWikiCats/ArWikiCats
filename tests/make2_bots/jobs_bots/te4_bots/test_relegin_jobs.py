@@ -10,46 +10,6 @@ from src.translations import RELIGIOUS_KEYS_PP
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
 
-jobs_mens_data = {
-    "scholars of islam": "باحثون عن الإسلام",
-    "women's rights activists": "ناشطون في حقوق المرأة",
-    "convicted-of-murder": "أدينوا بالقتل",
-    "classical europop cheerleaders": "قادة تشجيع يوروبوب كلاسيكيون",
-    "classical europop composers": "ملحنو يوروبوب كلاسيكيون",
-    "abidat rma pianists": "عازفو بيانو عبيدات الرما",
-    "abidat rma record producers": "منتجو تسجيلات عبيدات الرما",
-    "historical objectivists": "موضوعيون تاريخيون",
-    "historical opera authors": "مؤلفو أوبرا تاريخيون",
-    "men's sailing (sport) power forwards": "مهاجمون أقوياء الجسم رياضة إبحار رجالية",
-    "men's sailing (sport) quarterbacks": "أظهرة رباعيون رياضة إبحار رجالية",
-    "men's sailing (sport) racing centers": "لاعبو وسط سباق رياضة إبحار رجالية",
-    "ski-orienteering quarterbacks": "أظهرة رباعيون سباق تزلج موجه",
-    "abidat rma saxophonists": "عازفو سكسفون عبيدات الرما",
-    "abidat rma singer-songwriters": "مغنون وكتاب أغاني عبيدات الرما",
-    "expatriates": "مغتربون",
-}
-
-expatriates_data = {
-    f"{key} expatriates": f"{data['mens']} مغتربون"
-    for key, data in RELIGIOUS_KEYS_20.items()
-    if data.get("mens")
-}
-for key, data in RELIGIOUS_KEYS_20.items():
-    mens_label = data.get("mens", "")
-    if mens_label:
-        for job_key, job_label in jobs_mens_data.items():
-            expatriates_data[f"{key} {job_key}"] = f"{job_label} {mens_label}"
-
-
-@pytest.mark.parametrize(
-    "input,expected",
-    expatriates_data.items(),
-    ids=[x for x in expatriates_data],
-)
-def _test_with_suffix_expatriates(input, expected):
-    result = try_relegins_jobs_with_suffix(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
-
 
 @pytest.mark.parametrize(
     "key,data",
@@ -101,3 +61,12 @@ def test_no_suffix(input, expected):
     input2 = f"people {input}"
     result2 = relegins_jobs(input)
     assert result2 == expected, f"{expected=}, {result2=}, {input2=}"
+
+
+def test_one():
+    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "womens": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
+    input = "bahá'ís classical europop composers"
+    expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
+
+    result = try_relegins_jobs_with_suffix(input)
+    assert result == expected, f"{expected=}, {result=}, {input=}"
