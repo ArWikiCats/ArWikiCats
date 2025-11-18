@@ -1,4 +1,19 @@
 
+## [#77](https://github.com/MrIbrahem/make2_new/pull/77) - 2025-11-18
+
+* **New Features**
+  * Enhanced job categorization with richer nationality and gendered labels and example data export.
+
+* **Bug Fixes**
+  * Normalized single-item serialization and safer file I/O with error handling.
+
+* **Refactor**
+  * Streamlined label-resolution flow; removed several external fallback lookups and redundant boolean flags.
+
+* **Tests**
+  * Extensive new unit and integration tests covering job-label logic and real examples.
+
+
 ## [#74](https://github.com/MrIbrahem/make2_new/pull/74) - 2025-11-17
 
 * **Bug Fixes**
