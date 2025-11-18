@@ -21,19 +21,21 @@ def try_relegins_jobs(cate: str) -> str:
     # ---
     category_suffix, country_prefix = get_con_3(cate, "religions")
     # ---
+    if not category_suffix:
+        return ""
+    # ---
     Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
     # ---
     mens = Tab.get("mens")
     womens = Tab.get("womens")
     # ---
-    if category_suffix:
-        country_lab = jobs_with_nat_prefix(
-            cate,
-            country_prefix,
-            category_suffix,
-            mens=mens,
-            womens=womens
-        )
+    country_lab = jobs_with_nat_prefix(
+        cate,
+        country_prefix,
+        category_suffix,
+        mens=mens,
+        womens=womens
+    )
     # ---
     output_test4(f"\t xx end: <<lightred>>try_relegins_jobs <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
     # ---
