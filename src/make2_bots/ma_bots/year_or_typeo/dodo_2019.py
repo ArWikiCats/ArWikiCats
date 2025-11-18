@@ -6,7 +6,8 @@ from .year_or_typeo.dodo_2019 import work_2019
 
 """
 import re
-from ...date_bots import year_lab
+# from pathlib import Path
+# from ....helps.jsonl_dump import save_data
 from ...matables_bots.check_bot import check_key_new_players
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ....helps.print_bot import print_put
@@ -14,6 +15,7 @@ from ..country_bot import get_country
 from ....new.time_to_arabic import match_en_return_ar
 
 
+# @save_data(Path(__file__).parent / "work_2019.jsonl", ["category3", "year", "year_labe"])
 def work_2019(category3: str, year: str, year_labe: str) -> str:
     """
     Process category data.
@@ -56,16 +58,6 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
         print_put("<<lightyellow>>>> ^^^^^^^^^ end work_2019 ^^^^^^^^^ ")
     # ---
     return arlabel
-
-
-def match_year(category):
-    ...
-
-
-def work_2019_wrap_old(category):
-    year = match_year(category)
-    year_label = year_lab.make_year_lab(year)
-    return work_2019(category, year, year_label)
 
 
 def work_2019_wrap(category):

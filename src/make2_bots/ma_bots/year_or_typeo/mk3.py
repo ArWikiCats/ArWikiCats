@@ -117,7 +117,7 @@ def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
     return arlabel, Add_In, Add_In_Done
 
 
-@save_data(Path(__file__).parent / "new_func_mk2.jsonl", ["category", "cat_test", "year", "typeo", "In", "country", "arlabel", "year_labe", "suf", "Add_In", "country_label", "Add_In_Done"])
+# @save_data(Path(__file__).parent / "new_func_mk2.jsonl", ["category", "cat_test", "year", "typeo", "In", "country", "arlabel", "year_labe", "suf", "Add_In", "country_label", "Add_In_Done"])
 def new_func_mk2(
     category: str,
     cat_test: str,
