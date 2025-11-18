@@ -36,17 +36,16 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     Returns:
         str: The generated job label based on the input parameters.
     """
-
+    # ---
+    category_suffix = category_suffix.strip()
     # ---
     logger.debug(f'<<lightblue>> bot_te_4.py Jobs: cate: "{cate}", country_prefix: "{country_prefix}", category_suffix: "{category_suffix}" ')
     country = country_prefix
     country_lab = ""
     # ---
-    con_3_lab = jobs_mens_data.get(category_suffix, "")
+    category_suffix = category_suffix[len("people ") :] if category_suffix.startswith("people ") else category_suffix
     # ---
-    con_4 = category_suffix
-    if category_suffix.startswith("people "):
-        con_4 = category_suffix[len("people ") :]
+    con_3_lab = jobs_mens_data.get(category_suffix, "")
     # ---
     pkjn = [" مغتربون", " مغتربات"]
     # ---
@@ -55,7 +54,7 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     # ---
     if mens_nat_lab:
         # ---
-        if category_suffix.strip() == "people":
+        if category_suffix == "people":
             country_lab = mens_nat_lab
         # ---
         if not country_lab:
@@ -67,7 +66,7 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
             if con_3_lab.startswith("حسب"):
                 country_lab = f"{mens_nat_lab} {con_3_lab}"
             # ---
-            if category_suffix.strip() in NAT_BEFORE_OCC or con_4.strip() in NAT_BEFORE_OCC:
+            if category_suffix in NAT_BEFORE_OCC:
                 country_lab = f"{mens_nat_lab} {con_3_lab}"
             # ---
             TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
@@ -90,7 +89,7 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     if not country_lab:
         if women_nat_lab:
             # ---
-            if category_suffix.strip() in ["women", "female", "women's"]:
+            if category_suffix in ["women", "female", "women's"]:
                 country_lab = women_nat_lab
             # ---
             if not country_lab:
