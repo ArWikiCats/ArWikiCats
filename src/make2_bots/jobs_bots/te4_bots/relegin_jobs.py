@@ -41,9 +41,8 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
     # ---
     category_suffix, country_prefix = get_con_3(cate, "religions")
     # ---
-    print(f"{category_suffix=}, {country_prefix=}")
-    # ---
-    # if not category_suffix: return ""
+    if not category_suffix:
+        return ""
     # ---
     Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
     # ---

@@ -146,21 +146,19 @@ def test_entertainment(name, data):
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
+data2 = {
+    "Category:documentary filmmakers by nationality": "تصنيف:صانعو أفلام وثائقية حسب الجنسية",
+    "Category:yemeni war filmmakers": "تصنيف:صانعو أفلام حربية يمنيون",
+    "Category:Peruvian documentary film directors": "تصنيف:مخرجو أفلام وثائقية بيروفيون",
+    "Category:Lists of action television characters by series": "تصنيف:قوائم شخصيات تلفزيونية حركة حسب السلسلة",
+    "Category:Holocaust literature": "تصنيف:أدب هولوكوست",
+    "Category:Drama television characters by series": "تصنيف:شخصيات تلفزيونية درامية حسب السلسلة",
+    "Category:Fantasy television characters by series": "تصنيف:شخصيات تلفزيونية فانتازيا حسب السلسلة"
+}
+
+
+@pytest.mark.parametrize("input,expected", data2.items(), ids=[x for x in data2])
 @pytest.mark.skip("Need to fix")
-def test_entertainment_2():
-    data2 = {
-        "Category:documentary filmmakers by nationality": "تصنيف:صانعو أفلام وثائقية حسب الجنسية",
-        "Category:yemeni war filmmakers": "تصنيف:صانعو أفلام حربية يمنيون",
-        "Category:Peruvian documentary film directors": "تصنيف:مخرجو أفلام وثائقية بيروفيون",
-        "Category:Lists of action television characters by series": "تصنيف:قوائم شخصيات تلفزيونية حركة حسب السلسلة",
-        "Category:Holocaust literature": "تصنيف:أدب هولوكوست",
-        "Category:Drama television characters by series": "تصنيف:شخصيات تلفزيونية درامية حسب السلسلة",
-        "Category:Fantasy television characters by series": "تصنيف:شخصيات تلفزيونية فانتازيا حسب السلسلة"
-    }
-
-    print(f"len of data: {len(data2)}")
-    expected, diff_result = ye_test_one_dataset(data2, new_func_lab_final_label)
-
-    dump_diff(diff_result, "entertainment2")
-
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+def test_entertainment_2(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
