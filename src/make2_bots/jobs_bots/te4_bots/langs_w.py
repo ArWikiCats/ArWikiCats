@@ -18,6 +18,11 @@ from ....helps.print_bot import output_test4, print_put
 import functools
 
 
+from pathlib import Path
+from ....helps.jsonl_dump import save_data
+
+
+@save_data(Path(__file__).parent / "Lang_work.jsonl", ["con_3"])
 @functools.lru_cache(maxsize=None)
 def Lang_work(con_3: str) -> str:
     """Process and retrieve language-related information based on input.
