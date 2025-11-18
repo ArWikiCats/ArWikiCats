@@ -18,7 +18,7 @@ from ...helps.jsonl_dump import save
 
 
 @functools.lru_cache(maxsize=None)
-def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="", save_result=False) -> str:
+def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="", save_result=True) -> str:
     """Retrieve job labels based on category and country.
 
     This function generates job labels for both men and women based on the
@@ -37,15 +37,13 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
         str: The generated job label based on the input parameters.
     """
     # ---
-    category_suffix = category_suffix.strip()
+    category_suffix = category_suffix.strip().lower()
     # ---
     logger.debug(f'<<lightblue>> bot_te_4.py Jobs: cate: "{cate}", country_prefix: "{country_prefix}", category_suffix: "{category_suffix}" ')
     country = country_prefix
     country_lab = ""
     # ---
     category_suffix = category_suffix[len("people ") :] if category_suffix.startswith("people ") else category_suffix
-    # ---
-    con_3_lab = jobs_mens_data.get(category_suffix, "")
     # ---
     pkjn = [" مغتربون", " مغتربات"]
     # ---
@@ -57,17 +55,19 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
         if category_suffix == "people":
             country_lab = mens_nat_lab
         # ---
-        if not country_lab:
-            con_3_lab = priffix_Mens_work(category_suffix)
+        con_lab = ""
         # ---
-        if con_3_lab:
+        if not country_lab:
+            con_lab = jobs_mens_data.get(category_suffix, "") or priffix_Mens_work(category_suffix)
+        # ---
+        if con_lab:
             # ---
-            country_lab = f"{con_3_lab} {mens_nat_lab}"
-            if con_3_lab.startswith("حسب"):
-                country_lab = f"{mens_nat_lab} {con_3_lab}"
+            country_lab = f"{con_lab} {mens_nat_lab}"
+            if con_lab.startswith("حسب"):
+                country_lab = f"{mens_nat_lab} {con_lab}"
             # ---
             if category_suffix in NAT_BEFORE_OCC:
-                country_lab = f"{mens_nat_lab} {con_3_lab}"
+                country_lab = f"{mens_nat_lab} {con_lab}"
             # ---
             TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
             if TAJO and "{nato}" in TAJO.get("mens", ""):
@@ -75,8 +75,8 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
                 logger.debug('<<lightblue>> TAJO["mens"]: has {nato} "%s"' % TAJO["mens"])
             # ---
             for kjn in pkjn:
-                if con_3_lab.endswith(kjn):
-                    country_lab = f"{con_3_lab[:-len(kjn)]} {mens_nat_lab}{kjn}"
+                if con_lab.endswith(kjn):
+                    country_lab = f"{con_lab[:-len(kjn)]} {mens_nat_lab}{kjn}"
                     break
             # ---
             logger.debug(f'\t<<lightblue>> category_suffix: "{category_suffix}" ')
@@ -86,37 +86,33 @@ def Jobs(cate: str, country_prefix: str, category_suffix: str, mens: str="", wom
     # ---
     women_nat_lab: str = womens or Nat_Womens.get(country, "")
     # ---
-    if not country_lab:
-        if women_nat_lab:
+    if not country_lab and women_nat_lab:
+        # ---
+        if category_suffix in ["women", "female", "women's"]:
+            country_lab = women_nat_lab
+        # ---
+        if not country_lab:
+            con_lab = short_womens_jobs.get(category_suffix, "") or Women_s_priffix_work(category_suffix)
             # ---
-            if category_suffix in ["women", "female", "women's"]:
-                country_lab = women_nat_lab
+            if not con_lab:
+                # TODO: NEW TO CHECK
+                # Check for {nato} in women's path as well, assuming con_lab can come from MEN_WOMENS_WITH_NATO
+                TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
+                if TAJO and "{nato}" in TAJO.get("womens", ""):
+                    country_lab = TAJO["womens"].format(nato=women_nat_lab)
+                    logger.debug('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % TAJO["womens"])
             # ---
-            if not country_lab:
-                f_lab = short_womens_jobs.get(category_suffix, "")
+            if con_lab:
+                country_lab = f"{con_lab} {women_nat_lab}"
                 # ---
-                if not f_lab:
-                    f_lab = Women_s_priffix_work(category_suffix)
-                # ---
-                if not f_lab:
-                    # TODO: NEW TO CHECK
-                    # Check for {nato} in women's path as well, assuming f_lab can come from MEN_WOMENS_WITH_NATO
-                    TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {})
-                    if TAJO and "{nato}" in TAJO.get("womens", ""):
-                        country_lab = TAJO["womens"].format(nato=women_nat_lab)
-                        logger.debug('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % TAJO["womens"])
-                # ---
-                if f_lab:
-                    country_lab = f"{f_lab} {women_nat_lab}"
-                    # ---
-                    if "{nato}" in f_lab:
-                        country_lab = f_lab.format(nato=women_nat_lab)
-                        logger.debug('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % f_lab)
-                # ---
-                for kjn in pkjn:
-                    if f_lab.endswith(kjn):
-                        country_lab = f"{f_lab[:-len(kjn)]} {women_nat_lab}{kjn}"
-                        break
+                if "{nato}" in con_lab:
+                    country_lab = con_lab.format(nato=women_nat_lab)
+                    logger.debug('<<lightblue>> TAJO["womens"]: has {nato} "%s"' % con_lab)
+            # ---
+            for kjn in pkjn:
+                if con_lab.endswith(kjn):
+                    country_lab = f"{con_lab[:-len(kjn)]} {women_nat_lab}{kjn}"
+                    break
         # ---
         logger.debug(f'\t<<lightblue>> test Womens Jobs: new lab: "{country_lab}" ')
     # ---
