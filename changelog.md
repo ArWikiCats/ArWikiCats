@@ -2,13 +2,16 @@
 ## [#78](https://github.com/MrIbrahem/make2_new/pull/78) - 2025-11-18
 
 * **New Features**
-  * Expanded gendered prefix/suffix translation set and year-based variants; improved suffix-aware matching for religion/expatriate labels and added selective result persistence.
+  * Expanded gendered prefix/suffix translations, year-based variants, and improved suffix-aware nationality/religion labeling with optional persistence.
 
 * **Refactor**
-  * Reorganized translation exports and consolidated label-generation logic; unified logging and centralized label handling.
+  * Reorganized translation exports, consolidated label-generation logic, and standardized logging/label handling.
+
+* **Bug Fixes**
+  * Prevent duplicate "racing" variants by adding guarded generation rules.
 
 * **Tests**
-  * Added many parameterized tests for expatriate/suffix scenarios; removed several legacy tests.
+  * Added many parameterized tests for suffix/expatriate scenarios and removed several legacy tests.
 
 ## [#77](https://github.com/MrIbrahem/make2_new/pull/77) - 2025-11-18
 
