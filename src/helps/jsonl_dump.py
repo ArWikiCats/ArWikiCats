@@ -33,6 +33,9 @@ def save_data(filename: str, input_keys: list = None):
     # path = Path(__file__).parent / filename
     path = Path(filename)
 
+    if not SAVE_ENABLE:
+        return
+
     if not path.exists():
         path.touch()
 
@@ -40,9 +43,6 @@ def save_data(filename: str, input_keys: list = None):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             # Execute the wrapped function
-            if not SAVE_ENABLE:
-                return
-
             output = func(*args, **kwargs)
             if not output:
                 return output
