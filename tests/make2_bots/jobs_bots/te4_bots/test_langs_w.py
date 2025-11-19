@@ -5,7 +5,7 @@ import pytest
 
 from src.make2_bots.jobs_bots.te4_bots.langs_w import Lang_work, lab_from_lang_keys, languages_key
 
-languages_key = {k: languages_key[k] for k in list(languages_key.keys())[:15]}
+languages_key_subset = {k: languages_key[k] for k in list(languages_key.keys())[:15]}
 
 data = {
     "abkhazian films": "أفلام باللغة الأبخازية",
@@ -178,13 +178,13 @@ def test_lab_from_lang_keys():
     assert isinstance(result_safe_empty, str)
 
 # -----------------------------------------------------------
-# 1) Parametrize: test direct keys from languages_key
+# 1) Parametrize: test direct keys from languages_key_subset
 # -----------------------------------------------------------
 
 
 @pytest.mark.parametrize(
     "key, expected",
-    [(k, v) for k, v in languages_key.items()],
+    [(k, v) for k, v in languages_key_subset.items()],
     ids=lambda x: x,
 )
 def test_lang_work_direct(key, expected):
@@ -203,8 +203,8 @@ def test_lang_work_direct(key, expected):
 @pytest.mark.parametrize(
     "key, expected",
     [
-        (k, f"لغة {languages_key[k]}")
-        for k in languages_key
+        (k, f"لغة {languages_key_subset[k]}")
+        for k in languages_key_subset
         if not k.endswith(" language")
     ],
     ids=lambda x: x[0],
@@ -214,9 +214,9 @@ def test_lang_work_language_suffix(key, expected):
     candidate = f"{key} language"
     result = Lang_work(candidate)
 
-    if candidate in languages_key:
+    if candidate in languages_key_subset:
         # Must exactly match mapping
-        assert result == languages_key[candidate]
+        assert result == languages_key_subset[candidate]
     else:
         # If our synthesized key does not exist, result may be empty or valid
         assert result is not None
@@ -227,7 +227,7 @@ def test_lang_work_language_suffix(key, expected):
 # -----------------------------------------------------------
 @pytest.mark.parametrize(
     "key, arabic",
-    [(k, v) for k, v in languages_key.items()],
+    [(k, v) for k, v in languages_key_subset.items()],
     ids=lambda x: x[0],
 )
 def test_lang_work_films_suffix(key, arabic):
@@ -257,7 +257,7 @@ TOPIC_SUFFIXES = [
 
 @pytest.mark.parametrize(
     "key, suffix",
-    [(k, suf) for k in languages_key for suf in TOPIC_SUFFIXES],
+    [(k, suf) for k in languages_key_subset for suf in TOPIC_SUFFIXES],
     ids=lambda x: f"{x[0]}-{x[1]}",
 )
 def test_lang_work_topics(key, suffix):
@@ -268,4 +268,4 @@ def test_lang_work_topics(key, suffix):
     assert result is not None
     if result:
         # Must contain Arabic name at least
-        assert languages_key[key] in result
+        assert languages_key_subset[key] in result

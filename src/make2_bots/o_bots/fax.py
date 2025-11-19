@@ -3,17 +3,11 @@
 from __future__ import annotations
 
 import functools
-from typing import Dict
 from ...helps.print_bot import print_put
 from ...translations import lang_ttty, languages_pop
 
-from pathlib import Path
-from ...helps.jsonl_dump import save_data
 
-# @functools.lru_cache(maxsize=None)
-
-
-@save_data(Path(__file__).parent / "te_language.jsonl", ["category"])
+@functools.lru_cache(maxsize=None)
 def te_language(category: str) -> str:
     """Return the label for a language-related category.
 

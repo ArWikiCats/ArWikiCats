@@ -3,6 +3,7 @@
 !
 """
 import re
+import functools
 
 from ...main_processers import event2bot
 
@@ -44,7 +45,7 @@ def te_bot_3(category_key: str) -> str:
                 return normalized_label
     return arabic_label
 
-
+@functools.lru_cache(maxsize=None)
 def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     """Retrieve category lab information based on the provided category.
 
