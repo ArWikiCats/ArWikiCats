@@ -416,4 +416,6 @@ def find_ar_label(category: str, tito: str, tito_name: str, Cate_test: str, cate
 __all__ = [
     "find_ar_label",
     "add_in_tab",
+    "get_Type_lab",
+    "get_con_lab",
 ]
