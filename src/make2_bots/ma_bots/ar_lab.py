@@ -46,8 +46,14 @@ from ..p17_bots import nats
 from ..sports_bots import team_work
 from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
+from ...helps.jsonl_dump import save_data
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+
+
+@save_data(enable=True)
+def wrap_event2(category: str) -> str:
+    return event2bot.event2(category)
 
 
 def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:
@@ -231,7 +237,7 @@ def find_ar_label(category: str, tito: str, tito_name: str, Cate_test: str, cate
     Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
 
     if not Type_lab:
-        Type_lab = event2bot.event2(Type_lower)
+        Type_lab = wrap_event2(Type_lower)
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")

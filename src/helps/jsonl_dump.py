@@ -25,7 +25,7 @@ def save(path, data) -> str:
         writer.write(data)
 
 
-def save_data(filename: str = "", input_keys: list = None):
+def save_data(filename: str = "", input_keys: list = None, enable: bool = False):
     """
     Decorator to save function inputs and output into a JSONL file.
 
@@ -38,7 +38,7 @@ def save_data(filename: str = "", input_keys: list = None):
             # Execute the wrapped function
             output = func(*args, **kwargs)
 
-            if not SAVE_ENABLE:
+            if not SAVE_ENABLE and not enable:
                 return output
 
             if not output:

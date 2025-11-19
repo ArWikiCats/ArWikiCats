@@ -104,7 +104,6 @@ data = [
     {"tito2": "named after", "country": "populated places in portugal", "output": "أماكن مأهولة في البرتغال"},
     {"tito2": "named after", "country": "religious organizations", "output": "منظمات دينية"},
     {"tito2": "named after", "country": "slovak musicians", "output": "موسيقيون سلوفاكيون"},
-    {"tito2": "of", "country": "11th government of turkey", "output": "حكومة تركيا"},
     {"tito2": "of", "country": "1420 films", "output": "أفلام 1420"},
     {"tito2": "of", "country": "british television series characters", "output": "شخصيات مسلسلات تلفزيونية بريطانية"},
     {"tito2": "of", "country": "ottoman–persian wars", "output": "الحروب العثمانية الفارسية"},
