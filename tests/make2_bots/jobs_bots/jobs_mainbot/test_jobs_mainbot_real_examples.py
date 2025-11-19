@@ -1,38 +1,235 @@
-import os
+
 import pytest
-import jsonlines
-
-
 from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
+EXAMPLES = [
+    {"prefix": "afghan", "suffix": "competitors", "expected": "منافسون أفغان"},
+    {"prefix": "afghan", "suffix": "diplomats", "expected": "دبلوماسيون أفغان"},
+    {"prefix": "afghan", "suffix": "emigrants", "expected": "أفغان مهاجرون"},
+    {"prefix": "afghan", "suffix": "expatriates", "expected": "أفغان مغتربون"},
+    {"prefix": "albanian", "suffix": "sports coaches", "expected": "مدربو رياضية ألبان"},
+    {"prefix": "american", "suffix": "award winners", "expected": "حائزو جوائز أمريكيون"},
+    {"prefix": "american", "suffix": "basketball coaches", "expected": "مدربو كرة سلة أمريكيون"},
+    {"prefix": "american", "suffix": "basketball players", "expected": "لاعبو كرة سلة أمريكيون"},
+    {"prefix": "american", "suffix": "cinema editors", "expected": "محررون سينمائون أمريكيون"},
+    {"prefix": "american", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال أمريكيون"},
+    {"prefix": "american", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية أمريكيون"},
+    {"prefix": "american", "suffix": "nuclear medicine physicians", "expected": "أطباء طب نووي أمريكيون"},
+    {"prefix": "american", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة أمريكيون"},
+    {"prefix": "american", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة أمريكيون"},
+    {"prefix": "american", "suffix": "wheelchair curling champions", "expected": "أبطال الكيرلنغ على الكراسي المتحركة أمريكيون"},
+    {"prefix": "american", "suffix": "wheelchair discus throwers", "expected": "رماة قرص على الكراسي المتحركة أمريكيون"},
+    {"prefix": "american", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة أمريكيون"},
+    {"prefix": "american", "suffix": "wheelchair rugby players", "expected": "لاعبو رجبي على كراسي متحركة أمريكيون"},
+    {"prefix": "american", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة أمريكيون"},
+    {"prefix": "american", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة أمريكيات"},
+    {"prefix": "american", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية أمريكيات"},
+    {"prefix": "argentine", "suffix": "multi-instrumentalists", "expected": "عازفون على عدة آلات أرجنتينيون"},
+    {"prefix": "argentine", "suffix": "songwriters", "expected": "كتاب أغان أرجنتينيون"},
+    {"prefix": "australian", "suffix": "internet celebrities", "expected": "مشاهير إنترنت أستراليون"},
+    {"prefix": "australian", "suffix": "male sprinters", "expected": "عداؤون سريعون ذكور أستراليون"},
+    {"prefix": "australian", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال أستراليون"},
+    {"prefix": "australian", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية أستراليون"},
+    {"prefix": "australian", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة أستراليون"},
+    {"prefix": "australian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة أستراليون"},
+    {"prefix": "australian", "suffix": "wheelchair rugby players", "expected": "لاعبو رجبي على كراسي متحركة أستراليون"},
+    {"prefix": "australian", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة أستراليون"},
+    {"prefix": "australian", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة أستراليات"},
+    {"prefix": "australian", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية أستراليات"},
+    {"prefix": "austrian", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال نمساويون"},
+    {"prefix": "austrian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة نمساويون"},
+    {"prefix": "belgian", "suffix": "athletics coaches", "expected": "مدربو ألعاب قوى بلجيكيون"},
+    {"prefix": "belgian", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال بلجيكيون"},
+    {"prefix": "belgian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة بلجيكيون"},
+    {"prefix": "belgian", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة بلجيكيات"},
+    {"prefix": "brazilian", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال برازيليون"},
+    {"prefix": "brazilian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة برازيليون"},
+    {"prefix": "brazilian", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة برازيليات"},
+    {"prefix": "british", "suffix": "editorial cartoonists", "expected": "محررون كارتونيون بريطانيون"},
+    {"prefix": "british", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال بريطانيون"},
+    {"prefix": "british", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية بريطانيون"},
+    {"prefix": "british", "suffix": "television chefs", "expected": "طباخو تلفاز بريطانيون"},
+    {"prefix": "british", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة بريطانيون"},
+    {"prefix": "british", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة بريطانيون"},
+    {"prefix": "british", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة بريطانيون"},
+    {"prefix": "british", "suffix": "wheelchair rugby players", "expected": "لاعبو رجبي على كراسي متحركة بريطانيون"},
+    {"prefix": "british", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة بريطانيون"},
+    {"prefix": "british", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة بريطانيات"},
+    {"prefix": "british", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية بريطانيات"},
+    {"prefix": "cameroonian", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية كاميرونيون"},
+    {"prefix": "cameroonian", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة كاميرونيون"},
+    {"prefix": "canadian", "suffix": "male wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة ذكور كنديون"},
+    {"prefix": "canadian", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال كنديون"},
+    {"prefix": "canadian", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية كنديون"},
+    {"prefix": "canadian", "suffix": "nuclear medicine physicians", "expected": "أطباء طب نووي كنديون"},
+    {"prefix": "canadian", "suffix": "sports businesspeople", "expected": "شخصيات أعمال رياضيون كنديون"},
+    {"prefix": "canadian", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة كنديون"},
+    {"prefix": "canadian", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة كنديون"},
+    {"prefix": "canadian", "suffix": "wheelchair curling champions", "expected": "أبطال الكيرلنغ على الكراسي المتحركة كنديون"},
+    {"prefix": "canadian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة كنديون"},
+    {"prefix": "canadian", "suffix": "wheelchair rugby players", "expected": "لاعبو رجبي على كراسي متحركة كنديون"},
+    {"prefix": "canadian", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة كنديات"},
+    {"prefix": "canadian", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية كنديات"},
+    {"prefix": "cape verdean", "suffix": "football managers", "expected": "مدراء كرة قدم أخضريون"},
+    {"prefix": "chinese", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال صينيون"},
+    {"prefix": "chinese", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة صينيون"},
+    {"prefix": "chinese", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة صينيون"},
+    {"prefix": "chinese", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة صينيات"},
+    {"prefix": "croatian", "suffix": "nuclear medicine physicians", "expected": "أطباء طب نووي كروات"},
+    {"prefix": "czech", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة تشيكيون"},
+    {"prefix": "danish", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة دنماركيون"},
+    {"prefix": "danish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة دنماركيون"},
+    {"prefix": "dutch", "suffix": "explorers", "expected": "مستكشفون هولنديون"},
+    {"prefix": "dutch", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال هولنديون"},
+    {"prefix": "dutch", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية هولنديون"},
+    {"prefix": "dutch", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة هولنديون"},
+    {"prefix": "dutch", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة هولنديون"},
+    {"prefix": "dutch", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة هولنديون"},
+    {"prefix": "dutch", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة هولنديات"},
+    {"prefix": "dutch", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية هولنديات"},
+    {"prefix": "egyptian", "suffix": "female sport shooters", "expected": "لاعبات رماية مصريات"},
+    {"prefix": "egyptian", "suffix": "male sport shooters", "expected": "لاعبو رماية ذكور مصريون"},
+    {"prefix": "egyptian", "suffix": "oncologists", "expected": "أطباء أورام مصريون"},
+    {"prefix": "egyptian", "suffix": "sport shooters", "expected": "لاعبو رماية مصريون"},
+    {"prefix": "emirati", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة إماراتيون"},
+    {"prefix": "english", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال إنجليز"},
+    {"prefix": "english", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة إنجليز"},
+    {"prefix": "english", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة إنجليز"},
+    {"prefix": "english", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة إنجليزيات"},
+    {"prefix": "equatoguinean", "suffix": "female footballers", "expected": "لاعبات كرة قدم غينيات استوائيات"},
+    {"prefix": "ethiopian", "suffix": "basketball players", "expected": "لاعبو كرة سلة إثيوبيون"},
+    {"prefix": "european", "suffix": "women", "expected": "أوروبيات"},
+    {"prefix": "finnish", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال فنلنديون"},
+    {"prefix": "finnish", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة فنلنديون"},
+    {"prefix": "finnish", "suffix": "wheelchair curling champions", "expected": "أبطال الكيرلنغ على الكراسي المتحركة فنلنديون"},
+    {"prefix": "finnish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة فنلنديون"},
+    {"prefix": "finnish", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة فنلنديات"},
+    {"prefix": "french", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال فرنسيون"},
+    {"prefix": "french", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية فرنسيون"},
+    {"prefix": "french", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة فرنسيون"},
+    {"prefix": "french", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة فرنسيون"},
+    {"prefix": "french", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة فرنسيون"},
+    {"prefix": "french", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية فرنسيات"},
+    {"prefix": "gabonese", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال غابونيون"},
+    {"prefix": "gabonese", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة غابونيون"},
+    {"prefix": "german", "suffix": "footballers", "expected": "لاعبو كرة قدم ألمان"},
+    {"prefix": "german", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال ألمان"},
+    {"prefix": "german", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية ألمان"},
+    {"prefix": "german", "suffix": "nuclear medicine physicians", "expected": "أطباء طب نووي ألمان"},
+    {"prefix": "german", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة ألمان"},
+    {"prefix": "german", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة ألمان"},
+    {"prefix": "german", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة ألمان"},
+    {"prefix": "german", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة ألمان"},
+    {"prefix": "german", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية ألمانيات"},
+    {"prefix": "icelandic", "suffix": "male athletes", "expected": "لاعبو قوى ذكور آيسلنديون"},
+    {"prefix": "icelandic", "suffix": "male runners", "expected": "عداؤون ذكور آيسلنديون"},
+    {"prefix": "icelandic", "suffix": "male steeplechase runners", "expected": "عداؤو موانع ذكور آيسلنديون"},
+    {"prefix": "indian", "suffix": "cricketers", "expected": "لاعبو كريكت هنود"},
+    {"prefix": "iranian", "suffix": "nuclear medicine physicians", "expected": "أطباء طب نووي إيرانيون"},
+    {"prefix": "irish", "suffix": "football managers", "expected": "مدراء كرة قدم أيرلنديون"},
+    {"prefix": "irish", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال أيرلنديون"},
+    {"prefix": "irish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة أيرلنديون"},
+    {"prefix": "irish", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة أيرلنديات"},
+    {"prefix": "israeli", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال إسرائيليون"},
+    {"prefix": "israeli", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية إسرائيليون"},
+    {"prefix": "israeli", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة إسرائيليون"},
+    {"prefix": "israeli", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة إسرائيليون"},
+    {"prefix": "israeli", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة إسرائيليون"},
+    {"prefix": "israeli", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية إسرائيليات"},
+    {"prefix": "italian", "suffix": "defectors", "expected": "إيطاليون منشقون"},
+    {"prefix": "italian", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة إيطاليون"},
+    {"prefix": "italian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة إيطاليون"},
+    {"prefix": "ivorian", "suffix": "emigrants", "expected": "إيفواريون مهاجرون"},
+    {"prefix": "ivorian", "suffix": "expatriates", "expected": "إيفواريون مغتربون"},
+    {"prefix": "japanese", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال يابانيون"},
+    {"prefix": "japanese", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية يابانيون"},
+    {"prefix": "japanese", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة يابانيون"},
+    {"prefix": "japanese", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة يابانيون"},
+    {"prefix": "japanese", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة يابانيون"},
+    {"prefix": "japanese", "suffix": "wheelchair rugby players", "expected": "لاعبو رجبي على كراسي متحركة يابانيون"},
+    {"prefix": "japanese", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة يابانيون"},
+    {"prefix": "japanese", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة يابانيات"},
+    {"prefix": "kuwaiti", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية كويتيون"},
+    {"prefix": "kuwaiti", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة كويتيون"},
+    {"prefix": "kuwaiti", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة كويتيون"},
+    {"prefix": "latvian", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة لاتفيون"},
+    {"prefix": "lithuanian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة ليتوانيون"},
+    {"prefix": "macedonian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة مقدونيون"},
+    {"prefix": "mexican", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال مكسيكيون"},
+    {"prefix": "mexican", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة مكسيكيون"},
+    {"prefix": "mexican", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة مكسيكيات"},
+    {"prefix": "moroccan", "suffix": "competitors", "expected": "منافسون مغاربة"},
+    {"prefix": "moroccan", "suffix": "male middle-distance runners", "expected": "عداؤو مسافات متوسطة ذكور مغاربة"},
+    {"prefix": "norwegian", "suffix": "figure skaters", "expected": "متزلجون فنيون نرويجيون"},
+    {"prefix": "norwegian", "suffix": "male pair skaters", "expected": "متزلجون فنيون على الجليد ذكور نرويجيون"},
+    {"prefix": "norwegian", "suffix": "male single skaters", "expected": "متزلجون فرديون ذكور نرويجيون"},
+    {"prefix": "norwegian", "suffix": "pair skaters", "expected": "متزلجون فنيون على الجليد نرويجيون"},
+    {"prefix": "norwegian", "suffix": "short track speed skaters", "expected": "متزلجون على مسار قصير نرويجيون"},
+    {"prefix": "norwegian", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة نرويجيون"},
+    {"prefix": "norwegian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة نرويجيون"},
+    {"prefix": "pakistani", "suffix": "psychiatrists", "expected": "أطباء نفسيون باكستانيون"},
+    {"prefix": "peruvian", "suffix": "television actors", "expected": "ممثلو تلفزيون بيرويون"},
+    {"prefix": "polish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة بولنديون"},
+    {"prefix": "polish", "suffix": "women", "expected": "بولنديات"},
+    {"prefix": "portuguese", "suffix": "healthcare managers", "expected": "مدراء رعاية صحية برتغاليون"},
+    {"prefix": "russian", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة روس"},
+    {"prefix": "russian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة روس"},
+    {"prefix": "sammarinese", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة سان مارينيون"},
+    {"prefix": "scottish", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة إسكتلنديون"},
+    {"prefix": "scottish", "suffix": "wheelchair curling champions", "expected": "أبطال الكيرلنغ على الكراسي المتحركة إسكتلنديون"},
+    {"prefix": "scottish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة إسكتلنديون"},
+    {"prefix": "scottish", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة إسكتلنديات"},
+    {"prefix": "slovak", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة سلوفاكيون"},
+    {"prefix": "south african", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال جنوب إفريقيون"},
+    {"prefix": "south african", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة جنوب إفريقيون"},
+    {"prefix": "south african", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة جنوب إفريقيون"},
+    {"prefix": "south american", "suffix": "pan-africanists", "expected": "وحدويون أفارقة أمريكيون جنوبيون"},
+    {"prefix": "south korean", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة كوريون جنوبيون"},
+    {"prefix": "south korean", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة كوريون جنوبيون"},
+    {"prefix": "spanish", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية إسبان"},
+    {"prefix": "spanish", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة إسبان"},
+    {"prefix": "spanish", "suffix": "wheelchair fencers", "expected": "مبارزون على الكراسي المتحركة إسبان"},
+    {"prefix": "spanish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة إسبان"},
+    {"prefix": "spanish", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة إسبان"},
+    {"prefix": "swedish", "suffix": "oncologists", "expected": "أطباء أورام سويديون"},
+    {"prefix": "swedish", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة سويديون"},
+    {"prefix": "swedish", "suffix": "wheelchair curling champions", "expected": "أبطال الكيرلنغ على الكراسي المتحركة سويديون"},
+    {"prefix": "swedish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة سويديون"},
+    {"prefix": "swedish", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة سويديون"},
+    {"prefix": "swiss", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال سويسريون"},
+    {"prefix": "swiss", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية سويسريون"},
+    {"prefix": "swiss", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة سويسريون"},
+    {"prefix": "swiss", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة سويسريون"},
+    {"prefix": "swiss", "suffix": "wheelchair curling champions", "expected": "أبطال الكيرلنغ على الكراسي المتحركة سويسريون"},
+    {"prefix": "swiss", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة سويسريون"},
+    {"prefix": "swiss", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة سويسريون"},
+    {"prefix": "swiss", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة سويسريات"},
+    {"prefix": "thai", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة تايلنديون"},
+    {"prefix": "thai", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة تايلنديون"},
+    {"prefix": "the republic-of ireland", "suffix": "football managers", "expected": "مدراء كرة قدم أيرلنديون"},
+    {"prefix": "tunisian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة تونسيون"},
+    {"prefix": "turkish", "suffix": "expatriate sprtspeople", "expected": "رياضيون أتراك مغتربون"},
+    {"prefix": "turkish", "suffix": "men's wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية أتراك"},
+    {"prefix": "turkish", "suffix": "wheelchair basketball players", "expected": "لاعبو كرة سلة على كراسي متحركة أتراك"},
+    {"prefix": "turkish", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة أتراك"},
+    {"prefix": "turkish", "suffix": "wheelchair tennis players", "expected": "لاعبو كرة مضرب على كراسي متحركة أتراك"},
+    {"prefix": "turkish", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة تركيات"},
+    {"prefix": "turkish", "suffix": "women's wheelchair basketball players", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية تركيات"},
+    {"prefix": "welsh", "suffix": "men wheelchair racers", "expected": "متسابقو كراسي متحركة رجال ويلزيون"},
+    {"prefix": "welsh", "suffix": "wheelchair curlers", "expected": "لاعبو كيرلنغ على الكراسي المتحركة ويلزيون"},
+    {"prefix": "welsh", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة ويلزيون"},
+    {"prefix": "welsh", "suffix": "women wheelchair racers", "expected": "متسابقات كراسي متحركة ويلزيات"},
+    {"prefix": "zambian", "suffix": "wheelchair racers", "expected": "متسابقو كراسي متحركة زامبيون"},
+]
 
-def load_examples():
-    """
-    Load all real production examples from test_jobs_main_bot.jsonl
-    and return them as a list of dicts.
-    """
-
-    # IMPORTANT:
-    # Adjust path relative to repository structure
-    root = os.path.dirname(__file__)
-    path = os.path.join(root, "test_jobs_main_bot.jsonl")
-
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"test_jobs_main_bot.jsonl not found at: {path}")
-
-    examples = []
-    with jsonlines.open(path) as reader:
-        for item in reader.iter(skip_empty=True):
-            examples.append(item)
-    return examples
-
-
-EXAMPLES = load_examples()
-
+for x in EXAMPLES:
+    x["cate"] = f"{x['prefix']} {x['suffix']}"
 
 # -------------------------------------------------------
 #  MAIN TEST — one test per real example
 # -------------------------------------------------------
+
+
 @pytest.mark.parametrize(
     "item",
     EXAMPLES,
@@ -41,39 +238,25 @@ EXAMPLES = load_examples()
 @pytest.mark.dict
 def test_jobs_real_examples(item):
     """
-    Validate jobs_with_nat_prefix() results using REAL data proven correct in production.
-
-    Each JSON line example includes:
-       cate
-       country_prefix
-       category_suffix
-       mens
-       womens
-       country_lab   <-- expected output
-
-    This ensures regression safety for any future refactoring.
     """
 
+    country_prefix = item.get("prefix", "")
+    category_suffix = item.get("suffix", "")
+    expected = item.get("expected", "")
+
     cate = item.get("cate", "")
-    start = item.get("country_prefix", "")
-    con_3 = item.get("category_suffix", "")
-    mens = item.get("mens", "")
-    womens = item.get("womens", "")
-    expected = item.get("country_lab", "")
 
     # Ensure clean cache per test
     jobs_with_nat_prefix.cache_clear()
 
-    result = jobs_with_nat_prefix(cate, start, con_3, mens=mens, womens=womens)
+    result = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens="", womens="")
 
     assert result == expected, (
         "\n\n"
         "------------------ FAILED CASE ------------------\n"
-        f"Input cate:            {cate}\n"
-        f"Input Start(country):  {start}\n"
-        f"Input con_3:           {con_3}\n"
-        f"Input mens override:   {mens}\n"
-        f"Input womens override: {womens}\n"
+        f"Input cate:               {cate}\n"
+        f"Input Start(country):     {country_prefix}\n"
+        f"Input category_suffix:    {category_suffix}\n"
         "-------------------------------------------------\n"
         f"Expected Output:\n{expected}\n\n"
         f"Actual Output:\n{result}\n"
