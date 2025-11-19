@@ -282,5 +282,5 @@ data_2018_with_nat = {
 @pytest.mark.fast
 def test_te_2018_with_nat(category, expected) -> None:
 
-    label = nat_match(category)
+    label = te_2018_with_nat(category)
     assert label.strip() == expected
