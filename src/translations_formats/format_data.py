@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ """
+
 import functools
 import re
 from typing import Dict, Optional

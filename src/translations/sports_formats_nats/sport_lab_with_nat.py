@@ -21,7 +21,6 @@ format_labels_with_nat = {
 
 
 def normalize_category(category):
-
     bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
     key = bot.match_key(category)
     result = ""

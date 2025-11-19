@@ -4,8 +4,11 @@ Tests
 
 import pytest
 
-from src.make2_bots.lazy_data_bots.bot_2018 import (Add_to_pop_All_18,
-                                                    get_pop_All_18, lazy_load)
+from src.make2_bots.lazy_data_bots.bot_2018 import (
+    Add_to_pop_All_18,
+    get_pop_All_18,
+    lazy_load,
+)
 
 
 def test_lazy_load():

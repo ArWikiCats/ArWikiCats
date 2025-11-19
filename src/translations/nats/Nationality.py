@@ -65,7 +65,6 @@ def load_sources() -> Dict[str, NationalityEntry]:
     normalized: Dict[str, NationalityEntry] = {}
 
     for key, val in raw_all_nat_o.items():
-
         # Build guaranteed structure
         entry: NationalityEntry = {
             "men": val.get("men", "") if isinstance(val, dict) else "",
@@ -191,7 +190,6 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
     count_added: int = 0
 
     for nat_key, entry in all_nat_o.items():
-
         men, mens = entry["men"], entry["mens"]
         women, womens = entry["women"], entry["womens"]
 
@@ -243,7 +241,6 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
     en_nats_to_ar_label: LookupTable = {}
 
     for nat_key, entry in all_nat.items():
-
         en: str = entry["en"].lower()
         ar: str = entry["ar"]
         en_norm: str = en[4:] if en.startswith("the ") else en

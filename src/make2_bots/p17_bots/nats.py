@@ -5,6 +5,7 @@ P17 nationality processing utilities.
 This module handles nationality-based category translations,
 particularly for sports-related categories using P17 (country) property.
 """
+
 import functools
 import re
 
@@ -54,7 +55,7 @@ def make_sport_formats_p17(category_key: str) -> str:
 
     placeholder_key = category_key.replace(sport_key, SPORT_PLACEHOLDER)
     placeholder_key = re.sub(sport_key, SPORT_PLACEHOLDER, placeholder_key, flags=re.IGNORECASE)
-    logger.debug(f'make_sport_formats_p17 category_key:"{category_key}", ' f'sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"')
+    logger.debug(f'make_sport_formats_p17 category_key:"{category_key}", sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"')
 
     if placeholder_key in NAT_P17_OIOI:
         sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
@@ -105,7 +106,6 @@ def find_nat_others(category: str, reference_category: str = "") -> str:
         sport_format_label = make_sport_formats_p17(sport_format_key)
         country_label = All_Nat[country_start].get("ar", "")
         if sport_format_label and country_label:
-
             category_label = sport_format_label.format(nat=country_label)
             logger.debug(f'<<lightblue>>>>>> SPORT_FORMATS_FOR_P17: new category_label  "{category_label}"')
             add_to_new_players(category, category_label)

@@ -4,8 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import (c_1_1_lab,
-                                                               c_2_1_lab)
+from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 
 fast_data_c_1_1_lab = [
     {"tat_o": " about ", "cone_1": "american documentary television series", "output": "مسلسلات تلفزيونية وثائقية أمريكية"},
@@ -302,7 +301,6 @@ fast_data_c_1_1_lab = [
 @pytest.mark.parametrize("data", fast_data_c_1_1_lab, ids=lambda x: x["cone_1"])
 @pytest.mark.fast
 def test_c_1_1_lab(data) -> None:
-
     label = c_1_1_lab(data["tat_o"], data["cone_1"], With_Years=False)
     assert label == data["output"]
 
@@ -623,6 +621,5 @@ fast_data_c_2_1_lab = {
 @pytest.mark.parametrize("category, expected", fast_data_c_2_1_lab.items(), ids=list(fast_data_c_2_1_lab.keys()))
 @pytest.mark.fast
 def test_c_2_1_lab(category, expected) -> None:
-
     label = c_2_1_lab(category, With_Years=True)
     assert label == expected

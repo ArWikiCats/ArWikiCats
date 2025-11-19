@@ -21,6 +21,7 @@ SELECT DISTINCT (CONCAT("\"", ?en, "\"") AS ?ss) (CONCAT(":") AS ?ss2) (CONCAT("
   }
 }
 """
+
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 

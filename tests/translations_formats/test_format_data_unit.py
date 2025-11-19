@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Integration tests for :mod:`teamsnew_bot` lazy resolver."""
+
 import re
 
 import pytest

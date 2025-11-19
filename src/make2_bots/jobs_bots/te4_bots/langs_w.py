@@ -2,6 +2,7 @@
 """
 Language processing utilities for category translation.
 """
+
 import functools
 
 from ....helps.log import logger

@@ -141,7 +141,6 @@ def test_get_list_of_and_cat3_players_variants(category3, category3_nolower, exp
 
 @pytest.mark.fast
 def test_get_list_of_and_cat3_stubs_respected_when_enabled():
-
     category3 = "Physics stubs"
     category3_nolower = category3
 
@@ -154,7 +153,6 @@ def test_get_list_of_and_cat3_stubs_respected_when_enabled():
 
 @pytest.mark.fast
 def test_get_list_of_and_cat3_stubs_ignored_when_disabled():
-
     category3 = "Physics stubs"
     category3_nolower = category3
 

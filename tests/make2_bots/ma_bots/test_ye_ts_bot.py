@@ -4,9 +4,11 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.ye_ts_bot import (find_lab,
-                                              translate_general_category,
-                                              work_titose_nmaes)
+from src.make2_bots.ma_bots.ye_ts_bot import (
+    find_lab,
+    translate_general_category,
+    work_titose_nmaes,
+)
 
 fast_data = {}
 
@@ -14,7 +16,6 @@ fast_data = {}
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_fast_data(category, expected) -> None:
-
     label = translate_general_category(category)
     assert label.strip() == expected
 

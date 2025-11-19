@@ -102,7 +102,6 @@ Work_US_State_data = {
 @pytest.mark.parametrize("category, expected_key", Work_US_State_data.items(), ids=list(Work_US_State_data.keys()))
 @pytest.mark.slow
 def test_Work_US_State_data(category, expected_key) -> None:
-
     label = Work_US_State(category)
     assert label.strip() == expected_key
 
@@ -191,7 +190,6 @@ fast_data = {
 @pytest.mark.parametrize("category, expected_key", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_fast_data(category, expected_key) -> None:
-
     label = Work_US_State(category)
     assert label.strip() == expected_key
 

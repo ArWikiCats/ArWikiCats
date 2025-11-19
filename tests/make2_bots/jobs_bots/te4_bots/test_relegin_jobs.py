@@ -6,7 +6,9 @@
 import pytest
 
 from src.make2_bots.jobs_bots.te4_bots.relegin_jobs import (
-    relegins_jobs, try_relegins_jobs_with_suffix)
+    relegins_jobs,
+    try_relegins_jobs_with_suffix,
+)
 from src.translations import RELIGIOUS_KEYS_PP
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP

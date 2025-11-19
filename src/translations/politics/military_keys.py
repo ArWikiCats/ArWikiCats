@@ -2,6 +2,7 @@
 """
 !
 """
+
 from .ministers import (
     ministrs_for_en_is_P17_ar_is_mens,
     ministrs_for_military_format_men,

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ """
+
 from typing import Dict
 
 from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS

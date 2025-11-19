@@ -21,7 +21,6 @@ to_check_them = [Add_in_table, add_in_to_country, Films_O_TT]
 
 
 def check_country_in_tables(country):
-
     if country in country_before_year:
         logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
         return True

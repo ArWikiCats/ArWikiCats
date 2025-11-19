@@ -4,8 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.priffix_bot import (Women_s_priffix_work,
-                                                  priffix_Mens_work)
+from src.make2_bots.jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 test_mens_data = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
@@ -356,7 +355,6 @@ test_mens_data = {
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=list(test_mens_data.keys()))
 @pytest.mark.fast
 def test_priffix_Mens_work(category, expected) -> None:
-
     label = priffix_Mens_work(category)
     assert label == expected
 
@@ -602,7 +600,6 @@ test_womens_data = {
 @pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
 @pytest.mark.fast
 def test_Women_s_priffix_work(category, expected) -> None:
-
     label = Women_s_priffix_work(category)
     assert label == expected
 

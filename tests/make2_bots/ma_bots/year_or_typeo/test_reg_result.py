@@ -4,9 +4,11 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.year_or_typeo.reg_result import (Typies,
-                                                             basedtypeTable,
-                                                             get_reg_result)
+from src.make2_bots.ma_bots.year_or_typeo.reg_result import (
+    Typies,
+    basedtypeTable,
+    get_reg_result,
+)
 
 # new dict with only 20 items from basedtypeTable
 basedtypeTable_20 = {k: basedtypeTable[k] for k in list(basedtypeTable.keys())[:20]}

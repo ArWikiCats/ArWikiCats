@@ -2,8 +2,14 @@ from __future__ import annotations
 
 import pytest
 
-from src.translations.geo import (Cities, labels_country, labels_country2,
-                                  regions, regions2, us_counties)
+from src.translations.geo import (
+    Cities,
+    labels_country,
+    labels_country2,
+    regions,
+    regions2,
+    us_counties,
+)
 
 
 @pytest.mark.unit
@@ -103,9 +109,7 @@ class TestUSCountiesHelpers:
         assert mappings["texas state house of representatives"] == "مجلس نواب ولاية تكساس"
 
     def test_get_state_name_translations_returns_copy(self):
-
         assert us_counties.STATE_NAME_TRANSLATIONS["ohio"] == "أوهايو"
 
     def test_get_party_labels_returns_copy(self):
-
         assert us_counties.USA_PARTY_LABELS["democratic party"] == "الحزب الديمقراطي"

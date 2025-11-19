@@ -4,8 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.o_bots.parties_bot import (get_parties_lab,
-                                               get_parties_lab_old)
+from src.make2_bots.o_bots.parties_bot import get_parties_lab, get_parties_lab_old
 
 fast_data = {}
 
@@ -13,7 +12,6 @@ fast_data = {}
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_fast_data(category, expected) -> None:
-
     label = get_parties_lab(category)
     assert label.strip() == expected
 

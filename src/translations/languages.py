@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ """
 
-
 # import re
 # ---
 from .mixed.all_keys3 import ALBUMS_TYPE

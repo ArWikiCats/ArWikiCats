@@ -1,8 +1,9 @@
 import pytest
 from load_one_data import dump_diff, ye_test_one_dataset
 
-from src.make2_bots.ma_bots.year_or_typeo.bot_lab import \
-    label_for_startwith_year_or_typeo
+from src.make2_bots.ma_bots.year_or_typeo.bot_lab import (
+    label_for_startwith_year_or_typeo,
+)
 
 examples = {
     "2000s American films": "أفلام أمريكية في عقد 2000",

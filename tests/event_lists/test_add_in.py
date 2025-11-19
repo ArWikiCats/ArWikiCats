@@ -37,5 +37,4 @@ def _test_temporal(name, data):
     ids=[k for k in examples],
 )
 def test_add_in(category: str, expected: str) -> None:
-
     assert new_func_lab_final_label(category) == expected

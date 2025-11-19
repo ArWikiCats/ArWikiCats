@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Integration tests for :mod:`teamsnew_bot` lazy resolver."""
+
 import pytest
 
 from src.translations_formats.format_data import FormatData
@@ -40,7 +41,6 @@ def bot():
 )
 @pytest.mark.fast
 def test_format_data(bot, category: str, expected_key: str):
-
     result = bot.search(category)
 
     assert result == expected_key

@@ -126,7 +126,6 @@ def test_suffix_pp_ends(input_label, resolved, expected):
     ],
 )
 def test_prefix_pp_start(input_label, resolved, expected):
-
     assert Work_Templates(input_label) == expected
 
 
@@ -162,7 +161,6 @@ def test_fallback_general_category():
     ],
 )
 def test_edge_cases(input_label, resolved, expected):
-
     assert Work_Templates(input_label) == expected
 
 

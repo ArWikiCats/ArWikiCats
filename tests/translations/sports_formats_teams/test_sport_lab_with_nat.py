@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 """ """
+
 import pytest
 
 from src.translations.sports_formats_nats.sport_lab_with_nat import (
-    Get_New_team_xo_with_nat, apply_pattern_replacement, get_template_label,
-    match_sports_labels_with_nat, match_sports_labels_with_nat_new)
+    Get_New_team_xo_with_nat,
+    apply_pattern_replacement,
+    get_template_label,
+    match_sports_labels_with_nat,
+    match_sports_labels_with_nat_new,
+)
 
 
 @pytest.mark.skip
@@ -43,7 +48,6 @@ def test_apply_pattern_replacement() -> None:
 
 @pytest.mark.skip
 def test_all():
-
     _data_old = {
         "national youth women's under-14 softball leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",
         "national youth women's under-14 softball teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",

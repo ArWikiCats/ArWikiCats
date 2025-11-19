@@ -4,13 +4,18 @@ from __future__ import annotations
 
 import pytest
 
-from src.fix.fixtitle import (_apply_basic_normalizations,
-                              _apply_prefix_replacements,
-                              _apply_regex_replacements,
-                              _apply_suffix_replacements,
-                              _insert_year_preposition,
-                              _normalize_conflict_phrases,
-                              _normalize_sub_regions, add_fee, fix_it, fixlab)
+from src.fix.fixtitle import (
+    _apply_basic_normalizations,
+    _apply_prefix_replacements,
+    _apply_regex_replacements,
+    _apply_suffix_replacements,
+    _insert_year_preposition,
+    _normalize_conflict_phrases,
+    _normalize_sub_regions,
+    add_fee,
+    fix_it,
+    fixlab,
+)
 
 
 @pytest.mark.parametrize(

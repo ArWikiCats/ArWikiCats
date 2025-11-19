@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """ """
+
 import pytest
 
 from src.translations.sports.sub_teams_keys import sub_teams_new
 
 
 def _get_value(category: str) -> None:
-
     return sub_teams_new.get(category)
 
 

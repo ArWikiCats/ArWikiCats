@@ -4,8 +4,11 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.bot_te_4 import (Jobs_in_Multi_Sports, nat_match,
-                                               te_2018_with_nat)
+from src.make2_bots.jobs_bots.bot_te_4 import (
+    Jobs_in_Multi_Sports,
+    nat_match,
+    te_2018_with_nat,
+)
 
 fast_data = {
     "anti-haitian sentiment": "مشاعر معادية للهايتيون",
@@ -25,7 +28,6 @@ fast_data = {
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_nat_match(category, expected) -> None:
-
     label = nat_match(category)
     assert label.strip() == expected
 
@@ -105,7 +107,6 @@ Multi_Sports_data = {
 @pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=list(Multi_Sports_data.keys()))
 @pytest.mark.fast
 def test_Jobs_in_Multi_Sports(category, expected) -> None:
-
     label = Jobs_in_Multi_Sports(category)
     assert label.strip() == expected
 
@@ -281,6 +282,5 @@ data_2018_with_nat = {
 @pytest.mark.parametrize("category, expected", data_2018_with_nat.items(), ids=list(data_2018_with_nat.keys()))
 @pytest.mark.fast
 def test_te_2018_with_nat(category, expected) -> None:
-
     label = te_2018_with_nat(category)
     assert label.strip() == expected

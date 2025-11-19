@@ -4,9 +4,11 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import (MEN_WOMENS_WITH_NATO,
-                                                   Nat_mens,
-                                                   jobs_with_nat_prefix)
+from src.make2_bots.jobs_bots.jobs_mainbot import (
+    MEN_WOMENS_WITH_NATO,
+    Nat_mens,
+    jobs_with_nat_prefix,
+)
 from src.translations import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 
 # =========================================================

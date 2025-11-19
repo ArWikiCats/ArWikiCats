@@ -10,6 +10,7 @@ from ..ma_bots import country_bot
 lab = country_bot.get_country()
 
 """
+
 import re
 from typing import Dict
 
@@ -125,7 +126,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
             if remainder_label:
                 resolved_label = prefix_template.format(remainder_label)
                 if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
-                    resolved_label = f'{remainder_label.strip()[:-len(" في")]} سابقة في'
+                    resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
                 logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
                 break
 

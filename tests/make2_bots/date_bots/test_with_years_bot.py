@@ -132,19 +132,16 @@ def test_year_at_start_with_range_and_dash_variants():
 
 
 def test_year_at_end_simple_year_uses_translate():
-
     result = Try_With_Years("earthquakes 1999")
     assert result == "زلازل 1999"
 
 
 def test_year_at_end_range_uses_translate():
-
     result = Try_With_Years("earthquakes 1999-2000")
     assert result == "زلازل 1999-2000"
 
 
 def test_year_at_end_uses_country2_when_translate_empty():
-
     result = Try_With_Years("floods 2001")
     assert result == "فيضانات 2001"
 
@@ -160,14 +157,12 @@ def test_year_at_end_parentheses_range():
 
 
 def test_year_at_end_parentheses_with_present():
-
     result = Try_With_Years("American Soccer League (1933–present)")
     # "–present" should be converted to "–الآن"
     assert result == "دوري كرة القدم الأمريكية (1933–الآن)"
 
 
 def test_year_at_end_parentheses_with_hyphen_variants():
-
     # Normal hyphen inside parentheses
     result_hyphen = Try_With_Years("American Soccer League (1933-83)")
     assert result_hyphen == "دوري كرة القدم الأمريكية (1933-83)"

@@ -323,7 +323,7 @@ def build_male_keys() -> dict[str, str]:
         lowered = base.lower()
         if labels.get("male"):
             for suffix, suffix_label in MALE_SUFFIXES.items():
-                data[f"{lowered} {suffix}"] = f"{suffix_label} {labels.get("male")}"
+                data[f"{lowered} {suffix}"] = f"{suffix_label} {labels.get('male')}"
 
     return data
 

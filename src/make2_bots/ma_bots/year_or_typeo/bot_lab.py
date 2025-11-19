@@ -43,7 +43,6 @@ def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
 
 
 def do_ar(typeo, country_label, typeo_lab, category_r):
-
     in_tables_lowers = check_key_new_players(typeo.lower())
     in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
 
@@ -61,7 +60,6 @@ def do_ar(typeo, country_label, typeo_lab, category_r):
 
 
 class LabelForStartWithYearOrTypeo:
-
     def __init__(self):
         self.cate = ""
         self.cate3 = ""
@@ -97,7 +95,6 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def parse_input(self, category_r):
-
         self.category_r = category_r
 
         self.cate, self.cate3 = get_cats(category_r)
@@ -112,19 +109,17 @@ class LabelForStartWithYearOrTypeo:
         self.country_lower = self.country.lower()
         self.country_not_lower = self.country
 
-        logger.info(f'>>>> year_at_first:"{self.year_at_first}", ' f'typeo:"{self.typeo}", In:"{self.In}", country_lower:"{self.country_lower}"')
+        logger.info(f'>>>> year_at_first:"{self.year_at_first}", typeo:"{self.typeo}", In:"{self.In}", country_lower:"{self.country_lower}"')
 
     # ----------------------------------------------------
     # 2 — HANDLE TYPEO
     # ----------------------------------------------------
 
     def handle_typeo(self):
-
         if not self.typeo:
             return
 
         if self.typeo in typeTable:
-
             logger.info('a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(self.typeo, typeTable[self.typeo]["ar"]))
 
             self.typeo_lab = typeTable[self.typeo]["ar"]
@@ -148,7 +143,6 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def handle_country(self):
-
         if not self.country_lower:
             return
 
@@ -165,7 +159,6 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def handle_year(self):
-
         if not self.year_at_first:
             return
 
@@ -177,7 +170,7 @@ class LabelForStartWithYearOrTypeo:
         self.cat_test = self.replace_cat_test(self.cat_test, self.year_at_first)
         self.arlabel += " " + self.year_labe
 
-        logger.info(f'252: year_at_first({self.year_at_first}) != "" ' f'arlabel:"{self.arlabel}",In.strip() == "{self.In.strip()}"')
+        logger.info(f'252: year_at_first({self.year_at_first}) != "" arlabel:"{self.arlabel}",In.strip() == "{self.In.strip()}"')
 
         if (self.In.strip() in ("in", "at")) and not self.suf.strip():
             logger.info('Add في to arlabel:in,at"%s"' % self.arlabel)
@@ -192,7 +185,6 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def handle_relation_mapping(self):
-
         if not self.In.strip():
             return
 
@@ -211,10 +203,9 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def apply_label_rules(self):
-
         if (not self.year_at_first or not self.year_labe) and self.cat_test.strip():
             self.NoLab = True
-            logger.info("year_at_first == " ' or year_labe == ""')
+            logger.info('year_at_first ==  or year_labe == ""')
             return
 
         if not self.country_lower and not self.In:
@@ -226,7 +217,6 @@ class LabelForStartWithYearOrTypeo:
             return
 
         if self.country_lower:
-
             if self.country_label:
                 self.cat_test, self.arlabel = new_func_mk2(self.cate, self.cat_test, self.year_at_first, self.typeo, self.In, self.country_lower, self.arlabel, self.year_labe, self.suf, self.Add_In, self.country_label, self.Add_In_Done)
                 return
@@ -243,7 +233,6 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def apply_fallbacks(self):
-
         if self.NoLab and self.cat_test == "":
             if self.country_label and self.typeo_lab and not self.year_at_first and self.In == "":
                 do_ar(self.typeo, self.country_label, self.typeo_lab, self.category_r)
@@ -253,7 +242,6 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def finalize(self):
-
         category2 = self.cate[len("category:") :].lower() if self.cate.lower().startswith("category:") else self.cate.lower()
 
         if not self.cat_test.strip():
@@ -283,11 +271,10 @@ class LabelForStartWithYearOrTypeo:
 
         if not self.NoLab:
             if re.sub("[abcdefghijklmnopqrstuvwxyz]", "", self.arlabel, flags=re.IGNORECASE) == self.arlabel:
-
                 self.arlabel = fixtitle.fixlab(self.arlabel, en=self.category_r)
 
                 logger.info("a<<lightred>>>>>> arlabel ppoi:%s" % self.arlabel)
-                logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", ' f'category_lab "{self.arlabel}"')
+                logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')
                 logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 
                 return self.arlabel
@@ -299,7 +286,6 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def build(self, category_r: str) -> str:
-
         self.parse_input(category_r)
 
         if not self.year_at_first and not self.typeo:
@@ -316,7 +302,6 @@ class LabelForStartWithYearOrTypeo:
 
 
 def label_for_startwith_year_or_typeo(category_r: str) -> str:
-
     builder = LabelForStartWithYearOrTypeo()
 
     return builder.build(category_r)

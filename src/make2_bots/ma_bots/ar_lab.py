@@ -4,14 +4,24 @@
 """
 
 import re
+from typing import Tuple
 
-from ....fix import fixtitle
-from ....helps.log import logger
-from ....main_processers import event2bot
-from ....translations import pop_of_without_in
-from ....utils import check_key_in_tables_return_tuple
-from ...format_bots import (
+from ...fix import fixtitle
+from ...helps.log import logger
+from ...main_processers import event2bot
+from ...translations import (
+    RELIGIOUS_KEYS_PP,
+    New_female_keys,
+    New_P17_Finall,
+    pf_keys2,
+    pop_of_without_in,
+)
+from ...utils import check_key_in_tables_return_tuple
+from .. import tmp_bot
+from ..date_bots import year_lab
+from ..format_bots import (
     Dont_Add_min,
+    Tabl_with_in,
     category_relation_mapping,
     for_table,
     pop_format,
@@ -19,19 +29,161 @@ from ...format_bots import (
     pop_format33,
     tito_list_s,
 )
-from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...ma_bots_new.bot_type_country import get_type_country
-from ...matables_bots.bot import (
+from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
+from ..ma_bots_new.bot_type_country import get_type_country
+from ..matables_bots.bot import (
     Add_ar_in,
     Keep_it_frist,
     Keep_it_last,
     Table_for_frist_word,
 )
-from ...matables_bots.check_bot import check_key_new_players
-from .bot_con_lab import get_con_lab
-from .bot_type_lab import get_Type_lab
+from ..matables_bots.check_bot import check_key_new_players
+from ..media_bots.films_bot import te_films
+from ..o_bots import bys
+from ..o_bots.popl import make_people_lab
+from ..p17_bots import nats
+from ..sports_bots import team_work
+from . import country2_lab
+from .country_bot import Get_c_t_lab, get_country
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+
+
+def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:
+    """Determine the type label based on input parameters."""
+
+    normalized_preposition = preposition.strip()
+
+    label = ""
+    if type_lower == "women" and normalized_preposition == "from":
+        label = "نساء"
+        logger.info(f'>> >> >> Make label "{label}".')
+
+    elif type_lower == "women of":
+        label = "نساء من"
+        logger.info(f'>> >> >> Make label "{label}".')
+
+    should_append_in_label = True
+    type_lower_with_preposition = type_lower.strip()
+
+    if not type_lower_with_preposition.endswith(f" {normalized_preposition}"):
+        type_lower_with_preposition = f"{type_lower.strip()} {normalized_preposition}"
+
+    if not label:
+        label = Tabl_with_in.get(type_lower_with_preposition, "")
+        if label:
+            should_append_in_label = False
+            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
+
+    if not label:
+        label = New_P17_Finall.get(type_lower, "")
+        if label:
+            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
+
+    if label == "" and type_lower.startswith("the "):
+        type_lower_without_article = type_lower[len("the ") :]
+
+        label = New_P17_Finall.get(type_lower_without_article, "")
+        if label:
+            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
+    if type_lower == "sport" and country_lower.startswith("by "):
+        label = "رياضة"
+
+    if label == "" and type_lower.strip().endswith(" people"):
+        label = make_people_lab(type_lower)
+
+    if not label:
+        label = RELIGIOUS_KEYS_PP.get(type_lower, {}).get("mens", "")
+    if not label:
+        label = New_female_keys.get(type_lower, "")
+    if not label:
+        label = te_films(type_lower)
+    if not label:
+        label = nats.find_nat_others(type_lower)
+    if not label:
+        label = team_work.Get_team_work_Club(type_value.strip())
+
+    if not label:
+        label = tmp_bot.Work_Templates(type_lower)
+
+    if not label:
+        label = Get_c_t_lab(type_lower, preposition, Type="Type_lab")
+
+    if not label:
+        label = te4_2018_Jobs(type_lower)
+
+    if not label:
+        label = country2_lab.get_lab_for_country2(type_lower)
+
+    logger.info(f"?????? get_Type_lab: {type_lower=}, {label=}")
+
+    return label, should_append_in_label
+
+
+def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, start_get_country2: bool) -> str:
+    """Retrieve the corresponding label for a given country."""
+
+    label = ""
+
+    country_lower_no_dash = country_lower.replace("-", " ")
+    if not label:
+        label = New_P17_Finall.get(country_lower, "")
+    if not label:
+        label = pf_keys2.get(country_lower, "")
+    if not label:
+        label = get_pop_All_18(country_lower, "")
+
+    if not label and "-" in country_lower:
+        label = get_pop_All_18(country_lower_no_dash, "")
+
+        if not label:
+            label = New_female_keys.get(country_lower_no_dash, "")
+
+    if label == "" and "kingdom-of" in country_lower:
+        label = get_pop_All_18(country_lower.replace("kingdom-of", "kingdom of"), "")
+
+    if label == "" and country_lower.startswith("by "):
+        label = bys.make_by_label(country_lower)
+
+    if label == "" and " by " in country_lower:
+        label = bys.get_by_label(country_lower)
+
+    if tito2 == "for":
+        label = for_table.get(country_lower, "")
+
+    if label == "" and country_lower.strip().startswith("in "):
+        cco2 = country_lower.strip()[len("in ") :].strip()
+
+        cco2_ = get_country(cco2)
+
+        if not cco2_:
+            cco2_ = country2_lab.get_lab_for_country2(cco2)
+
+        if cco2_:
+            label = f"في {cco2_}"
+
+    if not label:
+        label = year_lab.make_month_lab(country_lower)
+    if not label:
+        label = te_films(country)
+    if not label:
+        label = nats.find_nat_others(country)
+    if not label:
+        label = team_work.Get_team_work_Club(country.strip())
+
+    if not label:
+        label = Get_c_t_lab(country_lower, preposition, start_get_country2=start_get_country2)
+
+    if not label:
+        label = tmp_bot.Work_Templates(country_lower)
+
+    if not label:
+        label = country2_lab.get_lab_for_country2(country_lower)
+
+    logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
+
+    return label
 
 
 def add_in_tab(Type_lab, Type_lower, tito2):
@@ -269,4 +421,6 @@ def find_ar_label(category: str, tito: str, tito_name: str, Cate_test: str, cate
 __all__ = [
     "find_ar_label",
     "add_in_tab",
+    "get_Type_lab",
+    "get_con_lab",
 ]

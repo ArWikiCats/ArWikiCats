@@ -108,7 +108,6 @@ event_Lab_seoo_data = {
 @pytest.mark.parametrize("category, expected_key", event_Lab_seoo_data.items(), ids=list(event_Lab_seoo_data.keys()))
 @pytest.mark.fast
 def test_event_Lab_seoo_data(category, expected_key) -> None:
-
     label = event_Lab_seoo("", category)
     assert label.strip() == expected_key
 
@@ -148,6 +147,5 @@ te_bot_3_data = {
 @pytest.mark.parametrize("category, expected_key", te_bot_3_data.items(), ids=list(te_bot_3_data.keys()))
 @pytest.mark.skip("need more work")
 def test_te_bot_3_data(category, expected_key) -> None:
-
     label = te_bot_3(category)
     assert label.strip() == expected_key

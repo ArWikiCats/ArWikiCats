@@ -2,10 +2,13 @@ from typing import Dict
 
 import pytest
 
-from src.translations.nats.Nationality import (NationalityEntry,
-                                               build_american_forms,
-                                               build_lookup_tables,
-                                               load_sources, normalize_aliases)
+from src.translations.nats.Nationality import (
+    NationalityEntry,
+    build_american_forms,
+    build_lookup_tables,
+    load_sources,
+    normalize_aliases,
+)
 
 # -------------------------------------------------------------------
 # Helpers

@@ -281,16 +281,16 @@ def _build_sports_job_variants(
             lowered_football_key = football_key.lower()
             olympic_key = f"olympic {lowered_job_key} {lowered_football_key}"
             result[olympic_key] = {
-                "mens": f"{football_labels["mens"]} {arabic_label} أولمبيون",
-                "womens": f"{football_labels["womens"]} {arabic_label} أولمبيات",
+                "mens": f"{football_labels['mens']} {arabic_label} أولمبيون",
+                "womens": f"{football_labels['womens']} {arabic_label} أولمبيات",
             }
             mens_key = f"men's {lowered_job_key} {lowered_football_key}"
             result[mens_key] = {
-                "mens": f"{football_labels["mens"]} {arabic_label} رجالية",
+                "mens": f"{football_labels['mens']} {arabic_label} رجالية",
                 "womens": "",
             }
             composite_key = f"{lowered_job_key} {lowered_football_key}"
-            result[composite_key] = {"mens": f"{football_labels["mens"]} {arabic_label}", "womens": f"{football_labels["womens"]} {arabic_label}"}
+            result[composite_key] = {"mens": f"{football_labels['mens']} {arabic_label}", "womens": f"{football_labels['womens']} {arabic_label}"}
 
     return result
 

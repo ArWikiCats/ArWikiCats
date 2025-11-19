@@ -2,6 +2,7 @@
 """
 !
 """
+
 import json
 import sys
 from pathlib import Path
@@ -48,7 +49,13 @@ def data_len(
     bot: str,
     tab: Mapping[str, int | float],
 ) -> None:
-    data = {x: {"count": len(v) if not isinstance(v, int) else v, "size": format_size(x, sys.getsizeof(v), {})} for x, v in tab.items()}
+    data = {
+        x: {
+            "count": len(v) if not isinstance(v, int) else v,
+            "size": format_size(x, sys.getsizeof(v), {}),
+        }
+        for x, v in tab.items()
+    }
     if app_settings.save_data_path:
         save_data(bot, tab)
 

@@ -5,7 +5,10 @@ Tests
 import pytest
 
 from src.make2_bots.jobs_bots.te4_bots.for_me import (
-    Work_for_me, Work_for_New_2018_men_Keys_with_all, add_all)
+    Work_for_me,
+    Work_for_New_2018_men_Keys_with_all,
+    add_all,
+)
 
 fast_data = [
     {"cate": "asian games bronze medalists", "nat": "asian", "con_3": "games bronze medalists", "output": "فائزون بميداليات برونزية في الألعاب الآسيوية"},
@@ -330,7 +333,6 @@ fast_data = [
 @pytest.mark.parametrize("data", fast_data, ids=lambda x: x["cate"])
 @pytest.mark.fast
 def test_fast_data(data) -> None:
-
     label = Work_for_me(data["cate"], data["nat"], data["con_3"])
     assert label == data["output"]
 
@@ -478,7 +480,6 @@ with_all_data = [
 @pytest.mark.parametrize("data", with_all_data, ids=lambda x: x["cate"])
 @pytest.mark.fast
 def test_work_for_new_2018_men_keys_with_all(data) -> None:
-
     label = Work_for_New_2018_men_Keys_with_all(data["cate"], data["nat"], data["con_3"])
     assert label == data["output"]
 

@@ -42,12 +42,10 @@ def normalize_both(category):
 
 
 def get_template_label_new(key, category):
-
     return nat_bot.get_template(key, category)
 
 
 def create_nat_label(category):
-
     return nat_bot.search(category)
 
 

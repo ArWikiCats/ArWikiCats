@@ -2,6 +2,7 @@
 """
 test runner for resolve_team_label.
 """
+
 import pytest
 
 from src.new.Match_sports import resolve_team_label
@@ -35,5 +36,4 @@ examples = [
 )
 @pytest.mark.fast
 def test_resolve_team_label(category: str, expected: str) -> None:
-
     assert resolve_team_label(category) == expected

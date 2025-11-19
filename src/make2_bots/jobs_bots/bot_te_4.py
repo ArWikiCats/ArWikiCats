@@ -135,7 +135,7 @@ def Jobs_in_Multi_Sports(category: str) -> str:
         game_prefix = f"{sport_prefix} "
         if category.startswith(game_prefix):
             job_key = category_lower[len(game_prefix) :]
-            logger.debug(f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") ' f'game_label:"{game_label}",job:"{job_key}". ')
+            logger.debug(f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") game_label:"{game_label}",job:"{job_key}". ')
             break
     if not job_label and job_key:
         job_label = te4_2018_Jobs(job_key)

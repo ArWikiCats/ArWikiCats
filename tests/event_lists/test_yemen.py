@@ -25,7 +25,6 @@ def test_yemen():
 
 @pytest.mark.skip("Need to be fixed")
 def test_yemen2():
-
     data = {
         "Category:Yemen national football team": "تصنيف:منتخب اليمن لكرة القدم",
         "Category:Yemen national football team managers": "تصنيف:مدربو منتخب اليمن لكرة القدم",

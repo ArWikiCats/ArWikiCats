@@ -13,7 +13,19 @@ def error_show(item, result):
     expected = item.get("expected", "")
     cate = item.get("cate", "")
 
-    return "\n\n" "------------------ FAILED CASE ------------------\n" f"Input cate:               {cate}\n" f"Input Start(country):     {country_prefix}\n" f"Input category_suffix:    {category_suffix}\n" "-------------------------------------------------\n" f"Expected Output:\n{expected}\n\n" f"Actual Output:\n{result}\n" "-------------------------------------------------\n"
+    return f"""
+        ------------------ FAILED CASE ------------------
+        Input cate:               {cate}
+        Input Start(country):     {country_prefix}
+        Input category_suffix:    {category_suffix}
+        -------------------------------------------------
+        Expected Output:
+        {expected}
+
+        Actual Output:
+        {result}
+        -------------------------------------------------
+    """
 
 
 EXAMPLES = [
@@ -144,7 +156,6 @@ women_examples = [
 @pytest.mark.parametrize("item", women_examples, ids=lambda x: make_cate(x))
 @pytest.mark.dict
 def test_womens(item):
-
     item["cate"] = f"{item['prefix']} {item['suffix']}"
 
     # Ensure clean cache per test

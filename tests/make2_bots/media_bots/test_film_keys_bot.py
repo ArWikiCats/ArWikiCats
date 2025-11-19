@@ -261,7 +261,6 @@ fast_data = [
 @pytest.mark.parametrize("data", fast_data, ids=lambda x: x["category"])
 @pytest.mark.fast
 def test_fast_data(data) -> None:
-
     label = Films(data["category"], data["country_start"], data["country_code"], "")
     assert label.strip() == data["output"]
 
@@ -362,6 +361,5 @@ fast_data2 = {
 @pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
 @pytest.mark.fast
 def test_get_Films_key_CAO(category, expected) -> None:
-
     label = get_Films_key_CAO(category)
     assert label.strip() == expected
