@@ -1,4 +1,15 @@
 
+## [#79](https://github.com/MrIbrahem/make2_new/pull/79) - 2025-11-19
+* **New Features**
+  * Optional JSONL data capture decorator added; enabled for one title extraction function to persist inputs/outputs.
+
+* **Tests**
+  * Vastly expanded parameterized test coverage and datasets across many modules to improve translation and mapping validations.
+
+* **Chores**
+  * Safer file creation and write behavior for persistence.
+  * Several automated persistence hooks disabled/commented out to reduce runtime writes.
+
 ## [#78](https://github.com/MrIbrahem/make2_new/pull/78) - 2025-11-18
 
 * **New Features**
