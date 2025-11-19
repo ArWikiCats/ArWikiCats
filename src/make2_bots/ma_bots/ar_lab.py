@@ -4,14 +4,24 @@
 """
 
 import re
+from typing import Tuple
 
 from ...fix import fixtitle
 from ...helps.log import logger
 from ...main_processers import event2bot
-from ...translations import pop_of_without_in
+from ...translations import (
+    RELIGIOUS_KEYS_PP,
+    New_female_keys,
+    New_P17_Finall,
+    pf_keys2,
+    pop_of_without_in,
+)
 from ...utils import check_key_in_tables_return_tuple
+from .. import tmp_bot
+from ..date_bots import year_lab
 from ..format_bots import (
     Dont_Add_min,
+    Tabl_with_in,
     category_relation_mapping,
     for_table,
     pop_format,
@@ -19,6 +29,7 @@ from ..format_bots import (
     pop_format33,
     tito_list_s,
 )
+from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..ma_bots_new.bot_type_country import get_type_country
 from ..matables_bots.bot import (
@@ -28,20 +39,13 @@ from ..matables_bots.bot import (
     Table_for_frist_word,
 )
 from ..matables_bots.check_bot import check_key_new_players
-
-from typing import Tuple
-from ...translations import New_female_keys, New_P17_Finall, pf_keys2, RELIGIOUS_KEYS_PP
-from .. import tmp_bot
-from ..date_bots import year_lab
 from ..media_bots.films_bot import te_films
 from ..o_bots import bys
+from ..o_bots.popl import make_people_lab
 from ..p17_bots import nats
 from ..sports_bots import team_work
 from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
-from ..format_bots import Tabl_with_in
-from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
-from ..o_bots.popl import make_people_lab
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

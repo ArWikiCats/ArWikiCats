@@ -21,8 +21,8 @@ from ..format_bots import category_relation_mapping
 
 # from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from .ar_lab import find_ar_label
 from ..matables_bots.bot import Films_O_TT, players_new_keys
+from .ar_lab import find_ar_label
 
 
 def find_lab(category: str, category_r: str) -> str:
