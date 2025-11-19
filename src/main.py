@@ -8,7 +8,8 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 from typing import Optional, Any, Dict, List
 from .helps import printe
-from .helps.print_bot import do_print_options, print_put
+from .helps.log import logger
+from .helps.print_bot import do_print_options
 from .event_processing import new_func_lab, event_result
 
 
@@ -52,8 +53,8 @@ def event(
     except TypeError:
         total = 0
 
-    print_put("<<lightred>> vvvvvvvvvvvv event start vvvvvvvvvvvv ")
-    print_put(f"<<lightblue>> event work with >  {total} cats. ")
+    logger.info("<<lightred>> vvvvvvvvvvvv event start vvvvvvvvvvvv ")
+    logger.info(f"<<lightblue>> event work with >  {total} cats. ")
 
     result = event_result(NewList)
 
@@ -70,7 +71,7 @@ def event(
         for idx, cat in enumerate(no_labels, start=1):
             printe.output(f'  {idx}:  "{cat}" : "",')
 
-    print_put("<<lightred>>> ^^^^^^^^^ event end ^^^^^^^^^ ")
+    logger.info("<<lightred>>> ^^^^^^^^^ event end ^^^^^^^^^ ")
 
     if return_no_labs:
         return labels, no_labels
