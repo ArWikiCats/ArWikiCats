@@ -5,6 +5,7 @@
 import re
 from ...helps import len_print
 from ..sports.sports_lists import LEVELS, AFTER_KEYS_NAT, NEW_TATO_NAT
+
 New_team_xo_labels = {
     "xoxo": "xoxo",
     "xoxo league": "دوري xoxo",
@@ -208,8 +209,11 @@ if True:
     New_team_xo_jobs["outdoor xoxo"] = "xoxo في الهواء الطلق"
 # sport_formts_enar_p17_jobs["international rally"] =  "رالي {} الدولي"
 # ---
-len_print.data_len("sports_formats_teams/team_job.py", {
-    "sport_formts_enar_p17_jobs": sport_formts_enar_p17_jobs,
-    "New_team_xo_labels": New_team_xo_labels,
-    "New_team_xo_jobs": New_team_xo_jobs,
-})
+len_print.data_len(
+    "sports_formats_teams/team_job.py",
+    {
+        "sport_formts_enar_p17_jobs": sport_formts_enar_p17_jobs,
+        "New_team_xo_labels": New_team_xo_labels,
+        "New_team_xo_jobs": New_team_xo_jobs,
+    },
+)

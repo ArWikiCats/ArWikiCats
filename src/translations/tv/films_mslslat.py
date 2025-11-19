@@ -24,6 +24,7 @@ SELECT DISTINCT (CONCAT("\"", ?en, "\"") AS ?ss) (CONCAT(":") AS ?ss2) (CONCAT("
 from ..utils.json_dir import open_json_file
 
 from ...helps import len_print
+
 Films_keys_both_new = {}
 Films_keys_male_female = {}
 television_keys = {}
@@ -251,14 +252,17 @@ for en, tab in Films_keys_male_female.items():
         Films_keys_both_new[new_key] = {"male": new_lab_male, "female": new_lab_female}
 
 
-len_print.data_len("films_mslslat.py", {
-    "Films_key_For_nat": Films_key_For_nat,
-    "films_mslslat_tab": films_mslslat_tab,
-    "third_Films_key_CAO": third_Films_key_CAO,
-    "ss_Films_key_CAO": ss_Films_key_CAO,
-    "vfvfv": vfvfv,
-    "Films_key_333": Films_key_333,
-    "Films_TT": Films_TT,
-    "Films_key_CAO": Films_key_CAO,
-    "Films_keys_both_new": Films_keys_both_new,
-})
+len_print.data_len(
+    "films_mslslat.py",
+    {
+        "Films_key_For_nat": Films_key_For_nat,
+        "films_mslslat_tab": films_mslslat_tab,
+        "third_Films_key_CAO": third_Films_key_CAO,
+        "ss_Films_key_CAO": ss_Films_key_CAO,
+        "vfvfv": vfvfv,
+        "Films_key_333": Films_key_333,
+        "Films_TT": Films_TT,
+        "Films_key_CAO": Films_key_CAO,
+        "Films_keys_both_new": Films_keys_both_new,
+    },
+)

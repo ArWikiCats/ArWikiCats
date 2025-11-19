@@ -1,5 +1,3 @@
-
-
 from typing import Dict, Any
 
 footballers_get_endswith: Dict[str, Dict[str, Any]] = {
@@ -40,27 +38,22 @@ to_get_endswith: Dict[str, Dict[str, Any]] = {
     },
     "leagues seasons": {
         "lab": "مواسم دوريات {}",
-
         "example": "",
     },
     "alumni": {
         "lab": "خريجو {}",
-
         "example": "",
     },
     "board members": {
         "lab": "أعضاء مجلس {}",
-
         "example": "",
     },
     "faculty": {
         "lab": "أعضاء هيئة تدريس {}",
-
         "example": "",
     },
     "trustees": {
         "lab": "أمناء {}",
-
         "example": "",
     },
     "award winners": {
@@ -100,7 +93,6 @@ to_get_endswith: Dict[str, Dict[str, Any]] = {
 to_get_startswith: Dict[str, Dict[str, Any]] = {
     "academic staff of": {
         "lab": "أعضاء هيئة تدريس {}",
-
         "example": "",
     },
     "association football matches navigational boxes by teams:": {
@@ -111,65 +103,19 @@ to_get_startswith: Dict[str, Dict[str, Any]] = {
         "lab": "أعضاء {} في القرن 21",
         "example": "Category:21st-century members of the Louisiana State Legislature",
     },
-    "20th century members of ": {
-        "lab": "أعضاء {} في القرن 20",
-        "example": ""
-    },
-    "19th century members of ": {
-        "lab": "أعضاء {} في القرن 19",
-        "example": ""
-    },
-    "18th century members of ": {
-        "lab": "أعضاء {} في القرن 18",
-        "example": ""
-    },
-    "17th century members of ": {
-        "lab": "أعضاء {} في القرن 17",
-        "example": ""
-    },
-    "21st century women members of ": {
-        "lab": "عضوات {} في القرن 21",
-        "example": ""
-    },
-    "20th century women members of ": {
-        "lab": "عضوات {} في القرن 20",
-        "example": ""
-    },
-    "19th century women members of ": {
-        "lab": "عضوات {} في القرن 19",
-        "example": ""
-    },
-    "18th century women members of ": {
-        "lab": "عضوات {} في القرن 18",
-        "example": ""
-    },
-    "17th century women members of ": {
-        "lab": "عضوات {} في القرن 17",
-        "example": ""
-    },
-    "presidents of ": {
-        "lab": "رؤساء {}",
-        "example": ""
-    },
-    "family of ": {
-        "lab": "عائلة {}",
-        "example": ""
-    },
-    "lists of ": {
-        "lab": "قوائم {}",
-        "example": ""
-    },
-    "children of ": {
-        "lab": "أطفال {}",
-        "example": ""
-    },
-    "discoveries by ": {
-        "lab": "اكتشافات بواسطة {}",
-
-        "example": ""
-    },
-    "__films about ": {
-        "lab": "أفلام عن {}",
-        "example": ""
-    },
+    "20th century members of ": {"lab": "أعضاء {} في القرن 20", "example": ""},
+    "19th century members of ": {"lab": "أعضاء {} في القرن 19", "example": ""},
+    "18th century members of ": {"lab": "أعضاء {} في القرن 18", "example": ""},
+    "17th century members of ": {"lab": "أعضاء {} في القرن 17", "example": ""},
+    "21st century women members of ": {"lab": "عضوات {} في القرن 21", "example": ""},
+    "20th century women members of ": {"lab": "عضوات {} في القرن 20", "example": ""},
+    "19th century women members of ": {"lab": "عضوات {} في القرن 19", "example": ""},
+    "18th century women members of ": {"lab": "عضوات {} في القرن 18", "example": ""},
+    "17th century women members of ": {"lab": "عضوات {} في القرن 17", "example": ""},
+    "presidents of ": {"lab": "رؤساء {}", "example": ""},
+    "family of ": {"lab": "عائلة {}", "example": ""},
+    "lists of ": {"lab": "قوائم {}", "example": ""},
+    "children of ": {"lab": "أطفال {}", "example": ""},
+    "discoveries by ": {"lab": "اكتشافات بواسطة {}", "example": ""},
+    "__films about ": {"lab": "أفلام عن {}", "example": ""},
 }

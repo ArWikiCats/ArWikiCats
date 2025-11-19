@@ -12,8 +12,9 @@ from ...translations import (
     television_keys_female,
     Films_key_333,
 )
-from ...translations import (Nat_women, Nat_mens)
+from ...translations import Nat_women, Nat_mens
 from ...helps.log import logger
+
 
 @functools.lru_cache(maxsize=None)
 def get_Films_key_CAO(country_identifier: str) -> str:
@@ -33,9 +34,7 @@ def get_Films_key_CAO(country_identifier: str) -> str:
                     resolved_label = prefix_label.format(tyty=suffix_translation)
                 else:
                     resolved_label = f"{suffix_translation} {prefix_label}"
-                logger.debug(
-                    f'<<lightblue>> get_Films_key_CAO: new resolved_label "{resolved_label}" '
-                )
+                logger.debug(f'<<lightblue>> get_Films_key_CAO: new resolved_label "{resolved_label}" ')
 
     return resolved_label
 
@@ -50,25 +49,19 @@ def Films(category: str, country_start: str, country_code: str, reference_catego
         country_code_label = en_is_nat_ar_is_women.get(country_code.strip(), "")
         if country_code_label:
             country_label = country_code_label.format(country_name)
-            logger.debug(
-                f'<<lightblue>> bot_te_4:Films: new country_label  "{country_label}" '
-            )
+            logger.debug(f'<<lightblue>> bot_te_4:Films: new country_label  "{country_label}" ')
         if not country_label:
             country_code_label = Films_key_CAO.get(country_code, get_Films_key_CAO(country_code))
             if country_code_label:
                 country_label = f"{country_code_label} {country_name}"
                 if country_code in Films_key_CAO_new_format:
                     country_label = Films_key_CAO_new_format[country_code].format(country_name)
-                logger.debug(
-                    f'<<lightblue>> bot_te_4:Films: new country_label "{country_label}" , country_code:{country_code} '
-                )
+                logger.debug(f'<<lightblue>> bot_te_4:Films: new country_label "{country_label}" , country_code:{country_code} ')
         if not country_label:
             country_code_label = Films_key_For_nat.get(country_code, "")
             if country_code_label:
                 country_label = country_code_label.format(country_name)
-                logger.debug(
-                    f'<<lightblue>> Films_key_For_nat:Films: new country_label  "{country_label}" '
-                )
+                logger.debug(f'<<lightblue>> Films_key_For_nat:Films: new country_label  "{country_label}" ')
 
     if not country_label:
         category_label = Films_key_CAO.get(category, "")

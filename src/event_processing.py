@@ -12,6 +12,7 @@ LABEL_PREFIX = "تصنيف"
 @dataclass
 class ProcessedCategory:
     """Data structure representing each processed category."""
+
     original: str
     normalized: str
     raw_label: str
@@ -22,6 +23,7 @@ class ProcessedCategory:
 @dataclass
 class EventProcessingResult:
     """Structured results for a batch."""
+
     processed: List[ProcessedCategory] = field(default_factory=list)
     labels: Dict[str, str] = field(default_factory=dict)
     no_labels: List[str] = field(default_factory=list)
@@ -112,7 +114,7 @@ def new_func_lab_final_label(category_r: str) -> str:
 
 def event_result(
     NewList: List[str],
-) ->EventProcessingResult:
+) -> EventProcessingResult:
 
     processor = EventProcessor()
     result = processor.process(NewList)

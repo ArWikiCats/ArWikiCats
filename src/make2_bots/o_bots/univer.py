@@ -131,6 +131,4 @@ def te_universities(category: str) -> str:
     return _resolve(normalized_category)
 
 
-__all__ = [
-    "te_universities"
-]
+__all__ = ["te_universities"]

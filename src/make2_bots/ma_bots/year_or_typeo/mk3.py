@@ -17,11 +17,7 @@ from ...matables_bots.bot import (
 from ....utils import check_key_in_tables_return_tuple, check_key_in_tables
 from ....helps.log import logger
 
-to_check_them = [
-    Add_in_table,
-    add_in_to_country,
-    Films_O_TT
-]
+to_check_them = [Add_in_table, add_in_to_country, Films_O_TT]
 
 
 def check_country_in_tables(country):
@@ -77,11 +73,7 @@ def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
     co_in_tables = check_key_in_tables(country, to_check_them)
     # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
     # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
-    if (
-        (suf.strip() == "" and con_lab.startswith("ال"))
-        or co_in_tables
-        or check_key_new_players(country.lower())
-    ):
+    if (suf.strip() == "" and con_lab.startswith("ال")) or co_in_tables or check_key_new_players(country.lower()):
         suf = " في "
         logger.info("a<<lightblue>>>>>> Add في to suf")
 
@@ -179,14 +171,14 @@ def new_func_mk2(
     logger.info(f"{year_labe=}, {arlabel2=}")
 
     if Add_In_Done:
-        logger.info('------- end --------')
+        logger.info("------- end --------")
         logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
         logger.info(f'a<<lightblue>>>>>> arlabel  "{arlabel}"')
         return cat_test, arlabel
 
     if typeo == "" and In == "" and country and year:
         arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2)
-    logger.info('------- end --------')
+    logger.info("------- end --------")
     logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
     logger.info(f'a<<lightblue>>>>>> arlabel "{arlabel}"')
 

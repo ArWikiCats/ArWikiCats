@@ -20,7 +20,7 @@ def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
     for cat, cat_lab in labels.items():
         if printfirst:
             formatted = f'"{cat}"'.ljust(60)
-            print(f"     {formatted} : \"{cat_lab}\",")
+            print(f'     {formatted} : "{cat_lab}",')
 
 
 def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]) -> List[str]:
@@ -32,10 +32,10 @@ def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]
 
 def event(
     NewList: List[str],
-    noprint: str="",
+    noprint: str = "",
     printfirst: bool = False,
     printhead: bool = False,
-    tst_prnt_all: Optional[bool]=None,
+    tst_prnt_all: Optional[bool] = None,
     return_no_labs: bool = False,
 ) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
     """Process a list of categories and generate corresponding labels."""
@@ -71,7 +71,4 @@ def event(
     return labels
 
 
-__all__ = [
-    "event",
-    "new_func_lab"
-]
+__all__ = ["event", "new_func_lab"]

@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 import re
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from .patterns import load_keys_to_pattern

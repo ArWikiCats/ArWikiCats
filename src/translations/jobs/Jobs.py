@@ -96,23 +96,11 @@ JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
 
 jobs_data = open_json("jobs/jobs.json")
 
-JOBS_2020_BASE.update({
-    x: v
-    for x, v in jobs_data["JOBS_2020"].items()
-    if v.get("mens") and v.get("womens")
-})
+JOBS_2020_BASE.update({x: v for x, v in jobs_data["JOBS_2020"].items() if v.get("mens") and v.get("womens")})
 
-JOBS_PEOPLE_ROLES.update({
-    x: v
-    for x, v in jobs_data["JOBS_PEOPLE"].items()
-    if v.get("mens") and v.get("womens")
-})
+JOBS_PEOPLE_ROLES.update({x: v for x, v in jobs_data["JOBS_PEOPLE"].items() if v.get("mens") and v.get("womens")})
 
-JOBS_TYPE_TRANSLATIONS.update({
-    x: v
-    for x, v in jobs_data["JOBS_TYPE"].items()
-    if v
-})  # v is string
+JOBS_TYPE_TRANSLATIONS.update({x: v for x, v in jobs_data["JOBS_TYPE"].items() if v})  # v is string
 
 
 FILM_ROLE_LABELS: Mapping[str, GenderedLabel] = {
@@ -162,10 +150,7 @@ def _extend_with_religious_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMap
     for religion_key, labels in RELIGIOUS_KEYS_PP.items():
         jobs[religion_key] = {"mens": labels["mens"], "womens": labels["womens"]}
         activist_key = f"{religion_key} activists"
-        jobs[activist_key] = {
-            "mens": f"ناشطون {labels['mens']}",
-            "womens": f"ناشطات {labels['womens']}"
-        }
+        jobs[activist_key] = {"mens": f"ناشطون {labels['mens']}", "womens": f"ناشطات {labels['womens']}"}
     return jobs
 
 
@@ -177,10 +162,7 @@ def _extend_with_disability_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMa
     for domain_key, domain_label in EXECUTIVE_DOMAINS.items():
         if not domain_label:
             continue
-        jobs[f"{domain_key} executives"] = {
-            "mens": f"مدراء {domain_label}",
-            "womens": f"مديرات {domain_label}"
-        }
+        jobs[f"{domain_key} executives"] = {"mens": f"مدراء {domain_label}", "womens": f"مديرات {domain_label}"}
     return jobs
 
 
@@ -210,18 +192,12 @@ def _merge_jobs_sources() -> GenderedLabelMap:
 
     for religion_key, feminine_label in RELIGIOUS_FEMALE_KEYS.items():
         founder_key = f"{religion_key} founders"
-        jobs_pp[founder_key] = {
-            "mens": f"مؤسسو {feminine_label}",
-            "womens": f"مؤسسات {feminine_label}"
-        }
+        jobs_pp[founder_key] = {"mens": f"مؤسسو {feminine_label}", "womens": f"مؤسسات {feminine_label}"}
 
     jobs_pp["imprisoned abroad"] = {"mens": "مسجونون في الخارج", "womens": "مسجونات في الخارج"}
     jobs_pp["imprisoned"] = {"mens": "مسجونون", "womens": "مسجونات"}
     jobs_pp["escapees"] = {"mens": "هاربون", "womens": "هاربات"}
-    jobs_pp["prison escapees"] = {
-        "mens": "هاربون من السجن",
-        "womens": "هاربات من السجن"
-    }
+    jobs_pp["prison escapees"] = {"mens": "هاربون من السجن", "womens": "هاربات من السجن"}
     jobs_pp["missionaries"] = {"mens": "مبشرون", "womens": "مبشرات"}
     jobs_pp["venerated"] = {"mens": "مبجلون", "womens": "مبجلات"}
 
@@ -257,18 +233,9 @@ def _add_sport_variants(
 
     for base_key, base_labels in base_jobs.items():
         lowered = base_key.lower()
-        m_w_jobs[f"sports {lowered}"] = {
-            "mens": f"{base_labels['mens']} رياضيون",
-            "womens": f"{base_labels['womens']} رياضيات"
-        }
-        m_w_jobs[f"professional {lowered}"] = {
-            "mens": f"{base_labels['mens']} محترفون",
-            "womens": f"{base_labels['womens']} محترفات"
-        }
-        m_w_jobs[f"wheelchair {lowered}"] = {
-            "mens": f"{base_labels['mens']} على الكراسي المتحركة",
-            "womens": f"{base_labels['womens']} على الكراسي المتحركة"
-        }
+        m_w_jobs[f"sports {lowered}"] = {"mens": f"{base_labels['mens']} رياضيون", "womens": f"{base_labels['womens']} رياضيات"}
+        m_w_jobs[f"professional {lowered}"] = {"mens": f"{base_labels['mens']} محترفون", "womens": f"{base_labels['womens']} محترفات"}
+        m_w_jobs[f"wheelchair {lowered}"] = {"mens": f"{base_labels['mens']} على الكراسي المتحركة", "womens": f"{base_labels['womens']} على الكراسي المتحركة"}
 
 
 def _add_cycling_variants(
@@ -279,20 +246,11 @@ def _add_cycling_variants(
 
     for event_key, event_label in BASE_CYCLING_EVENTS.items():
         lowered = event_key.lower()
-        m_w_jobs[f"{lowered} cyclists"] = {
-            "mens": f"دراجو {event_label}",
-            "womens": f"دراجات {event_label}"
-        }
+        m_w_jobs[f"{lowered} cyclists"] = {"mens": f"دراجو {event_label}", "womens": f"دراجات {event_label}"}
         winners_key = f"{lowered} winners"
         stage_winners_key = f"{lowered} stage winners"
-        m_w_jobs[winners_key] = {
-            "mens": f"فائزون في {event_label}",
-            "womens": f"فائزات في {event_label}"
-        }
-        m_w_jobs[stage_winners_key] = {
-            "mens": f"فائزون في مراحل {event_label}",
-            "womens": f"فائزات في مراحل {event_label}"
-        }
+        m_w_jobs[winners_key] = {"mens": f"فائزون في {event_label}", "womens": f"فائزات في {event_label}"}
+        m_w_jobs[stage_winners_key] = {"mens": f"فائزون في مراحل {event_label}", "womens": f"فائزات في مراحل {event_label}"}
         _append_list_unique(nat_before_occ, winners_key)
         _append_list_unique(nat_before_occ, stage_winners_key)
 
@@ -304,15 +262,9 @@ def _add_jobs_people_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> N
         if not (role_labels["mens"] and role_labels["womens"]):
             continue
         for book_key, book_label in BOOK_CATEGORIES.items():
-            m_w_jobs[f"{book_key} {role_key}"] = {
-                "mens": f"{role_labels['mens']} {book_label}",
-                "womens": f"{role_labels['womens']} {book_label}"
-            }
+            m_w_jobs[f"{book_key} {role_key}"] = {"mens": f"{role_labels['mens']} {book_label}", "womens": f"{role_labels['womens']} {book_label}"}
         for genre_key, genre_label in JOBS_TYPE_TRANSLATIONS.items():
-            m_w_jobs[f"{genre_key} {role_key}"] = {
-                "mens": f"{role_labels['mens']} {genre_label}",
-                "womens": f"{role_labels['womens']} {genre_label}"
-            }
+            m_w_jobs[f"{genre_key} {role_key}"] = {"mens": f"{role_labels['mens']} {genre_label}", "womens": f"{role_labels['womens']} {genre_label}"}
 
 
 def _add_film_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
@@ -323,10 +275,7 @@ def _add_film_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
         for role_key, role_labels in FILM_ROLE_LABELS.items():
             m_w_jobs[role_key] = {"mens": role_labels["mens"], "womens": role_labels["womens"]}
             combo_key = f"{lowered_film_key} {role_key}"
-            m_w_jobs[combo_key] = {
-                "mens": f"{role_labels['mens']} {film_label}",
-                "womens": f"{role_labels['womens']} {film_label}"
-            }
+            m_w_jobs[combo_key] = {"mens": f"{role_labels['mens']} {film_label}", "womens": f"{role_labels['womens']} {film_label}"}
 
 
 def _add_singer_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
@@ -336,10 +285,7 @@ def _add_singer_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
         m_w_jobs[category] = {"mens": labels["mens"], "womens": labels["womens"]}
         for style_key, style_labels in TYPI_LABELS.items():
             combo_key = f"{style_key} {category}"
-            m_w_jobs[combo_key] = {
-                "mens": f"{labels['mens']} {style_labels['mens']}",
-                "womens": f"{labels['womens']} {style_labels['womens']}"
-            }
+            m_w_jobs[combo_key] = {"mens": f"{labels['mens']} {style_labels['mens']}", "womens": f"{labels['womens']} {style_labels['womens']}"}
 
 
 def _build_jobs_new(
@@ -411,18 +357,20 @@ jobs_womens_data = _DATASET.w_jobs_2017
 Jobs_new = _build_jobs_new(Female_Jobs)
 
 _len_result = {
-    "jobs_mens_data": {"count": 97797, "size": "3.7 MiB"},   # "zoologists": "علماء حيوانات"
-    "Jobs_key": {"count": 97784, "size": "3.7 MiB"},        # "zoologists": "علماء حيوانات"
+    "jobs_mens_data": {"count": 97797, "size": "3.7 MiB"},  # "zoologists": "علماء حيوانات"
+    "Jobs_key": {"count": 97784, "size": "3.7 MiB"},  # "zoologists": "علماء حيوانات"
     "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},  # "zoologists": { "mens": "علماء حيوانات", "womens": "عالمات حيوانات" }
-
-    "Jobs_new": {"count": 99104, "size": "3.7 MiB"},        # same as Jobs_key +
+    "Jobs_new": {"count": 99104, "size": "3.7 MiB"},  # same as Jobs_key +
     "jobs_womens_data": {"count": 75244, "size": "1.8 MiB"},
 }
-len_print.data_len("jobs.py", {
-    "jobs_mens_data": jobs_mens_data,
-    "jobs_womens_data": jobs_womens_data,
-    "Jobs_new": Jobs_new,
-})
+len_print.data_len(
+    "jobs.py",
+    {
+        "jobs_mens_data": jobs_mens_data,
+        "jobs_womens_data": jobs_womens_data,
+        "Jobs_new": Jobs_new,
+    },
+)
 
 __all__ = [
     "jobs_mens_data",

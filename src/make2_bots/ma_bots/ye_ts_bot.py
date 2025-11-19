@@ -21,8 +21,8 @@ from ..ma_bots.arlabel_bots.ar_lab import find_ar_label
 from ...helps.log import logger
 
 from ...translations import (
-    Jobs_new,           # to be removed from players_new_keys
-    jobs_mens_data,      # to be  removed from players_new_keys
+    Jobs_new,  # to be removed from players_new_keys
+    jobs_mens_data,  # to be  removed from players_new_keys
 )
 from ...utils import get_value_from_any_table
 
@@ -87,7 +87,7 @@ def work_titose_nmaes(
 
 
 @functools.lru_cache(maxsize=None)
-def translate_general_category(category_r: str, start_get_country2: bool=True) -> str:
+def translate_general_category(category_r: str, start_get_country2: bool = True) -> str:
     """Retrieve and process category names for the Yementest application.
 
     This function takes a category string, processes it to standardize the

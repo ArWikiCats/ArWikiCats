@@ -1,6 +1,5 @@
-"""
+""" """
 
-"""
 from .sports_formats_2025.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .utils.match_sport_keys import match_sport_key
@@ -74,12 +73,7 @@ from .mixed.male_keys import New_female_keys, New_male_keys
 
 from .companies import New_Company
 
-from .politics.military_keys import (
-    military_format_women_without_al_from_end,
-    military_format_women_without_al,
-    military_format_women,
-    military_format_men
-)
+from .politics.military_keys import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
 
 from .politics.ministers import ministrs_tab_for_pop_format
 
@@ -89,23 +83,7 @@ from .others.peoples import People_key
 
 from .mix_data import pop_All_2018_bot
 
-from .mixed.bot_te_4_list import (
-    en_is_nat_ar_is_P17,
-    en_is_nat_ar_is_al_mens,
-    en_is_nat_ar_is_man,
-    en_is_nat_ar_is_al_women,
-    en_is_nat_ar_is_women,
-    change_male_to_female,
-    priffix_lab_for_2018,
-    Main_priffix,
-    Main_priffix_to,
-    Multi_sport_for_Jobs,
-    en_is_nat_ar_is_women_2,
-    en_is_P17_ar_is_mens,
-    en_is_P17_ar_is_P17,
-    replace_labels_2022,
-    en_is_P17_ar_is_al_women
-)
+from .mixed.bot_te_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to, Multi_sport_for_Jobs, en_is_nat_ar_is_women_2, en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, replace_labels_2022, en_is_P17_ar_is_al_women
 from .mixed.jenders_priffix_suffix import (
     Women_s_priffix,
     Mens_priffix,
@@ -120,15 +98,12 @@ __all__ = [
     "olympics",
     "en_nats_to_ar_label",
     "Get_New_team_xo",
-
     "Get_sport_formts_female_nat",
     "Get_Sport_Format_xo_en_ar_is_P17",
-
     "CITY_TRANSLATIONS_LOWER",
     #
     "jobs_mens_data",
     "jobs_womens_data",
-
     "short_womens_jobs",
     "Female_Jobs",
     "NAT_BEFORE_OCC",

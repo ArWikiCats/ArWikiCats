@@ -4,6 +4,7 @@ Usage:
 """
 import functools
 from typing import Dict
+
 # from ...helps import len_print
 from .teams_new_data import load_teams_new
 
@@ -21,6 +22,4 @@ def teams_new_founder(key: str, default: str = "") -> str:
 
 # len_print.data_len("make2_bots.matables_bots/teamsnew_bot.py", { "TEAMS_NEW" : lazy_load() }) # "TEAMS_NEW" : 352946
 
-__all__ = [
-    "teams_new_founder"
-]
+__all__ = ["teams_new_founder"]

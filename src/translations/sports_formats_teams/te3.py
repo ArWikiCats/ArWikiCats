@@ -178,7 +178,10 @@ def _build_nat_formats_for_p17():
 
 SPORT_FORMTS_ENAR_P17_TEAM = _build_nat_formats_for_p17()
 
-len_print.data_len("te3.py", {
-    "SPORT_FORMTS_ENAR_P17_TEAM": SPORT_FORMTS_ENAR_P17_TEAM,
-    "New_team_xo_team_labels": New_team_xo_team_labels,
-})
+len_print.data_len(
+    "te3.py",
+    {
+        "SPORT_FORMTS_ENAR_P17_TEAM": SPORT_FORMTS_ENAR_P17_TEAM,
+        "New_team_xo_team_labels": New_team_xo_team_labels,
+    },
+)

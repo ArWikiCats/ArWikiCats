@@ -136,14 +136,17 @@ NN_table: dict[str, str] = {}
 
 NN_table2: dict[str, dict[str, str]] = dict(NN_TABLE_GENDERED)
 
-len_print.data_len("all_keys3.py", {
-    "pop_final_3": pop_final_3,
-    "typeTable_7": typeTable_7,
-    "ALBUMS_TYPE": ALBUMS_TYPE,
-    "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
-    "NN_table2": NN_table2,
-    "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
-})
+len_print.data_len(
+    "all_keys3.py",
+    {
+        "pop_final_3": pop_final_3,
+        "typeTable_7": typeTable_7,
+        "ALBUMS_TYPE": ALBUMS_TYPE,
+        "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
+        "NN_table2": NN_table2,
+        "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
+    },
+)
 
 __all__ = [
     "pop_final_3",

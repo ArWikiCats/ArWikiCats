@@ -7,6 +7,7 @@ from .ministers import (
     ministrs_for_en_is_P17_ar_is_mens,
     ministrs_for_military_format_women,
 )
+
 # الإنجليزية اسم البلد والعربية جنسية مؤنث بدون ألف ولام التعريف
 military_format_women_without_al_from_end = {
     # Category:Unmanned_aerial_vehicles_of_Jordan > طائرات بدون طيار أردنية

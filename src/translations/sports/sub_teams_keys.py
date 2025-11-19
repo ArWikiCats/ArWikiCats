@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 from ...helps import len_print
 from ..sports.Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_OLYMPIC
 
@@ -25,8 +23,7 @@ sub_teams_new = {
     "national youth teams": "منتخبات وطنية شبابية",
     "national men's teams": "منتخبات وطنية رجالية",
     "national women's teams": "منتخبات وطنية نسائية",
-    "men's footballers" : "لاعبو كرة قدم رجالية",
-
+    "men's footballers": "لاعبو كرة قدم رجالية",
     "national youth sports teams of": "منتخبات رياضية وطنية شبابية في",
     "national sports teams of": "منتخبات رياضية وطنية في",
     "national sports teams": "منتخبات رياضية وطنية",
@@ -70,6 +67,4 @@ for sport, sport_label in SPORTS_KEYS_FOR_LABEL.items():
     sub_teams_new[f"olympics women's {sport}"] = f"{olympic_label} للسيدات"
 
 
-len_print.data_len("sports/sub_teams_keys.py", {
-    "sub_teams_new" : sub_teams_new     # 12,806
-})
+len_print.data_len("sports/sub_teams_keys.py", {"sub_teams_new": sub_teams_new})  # 12,806

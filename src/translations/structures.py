@@ -161,20 +161,16 @@ buildings_keys = {
     "Outdoor sculptures": "منحوتات خارجية",
     "medical education": "تعليم طبي",
     "islamic education": "تعليم إسلامي",
-
     "places of worship": "أماكن عبادة",
     "skyscrapers": "ناطحات سحاب",
     "skyscraper hotels": "فنادق ناطحات سحاب",
     "transportation": "وسائل نقل",
     "memorials and cemeteries": "نصب تذكارية ومقابر",
-
     "universities and colleges": "جامعات وكليات",
     "schools": "مدارس",
-
     # "state universities": "جامعات ولايات",
     "public universities": "جامعات حكومية",
     "national universities": "جامعات وطنية",
-
     "state universities and colleges": "جامعات وكليات ولايات",
     "islamic universities and colleges": "جامعات وكليات إسلامية",
     "national universities and colleges": "جامعات وكليات وطنية",
@@ -190,9 +186,9 @@ sub_buildings_keys = {
 }
 
 tab2 = {
-    "Standardized tests" : "اختبارات قياسية",
-    "distance education" : "التعليم عن بعد",
-    "education controversies" : "خلافات متعلقة بالتعليم",
+    "Standardized tests": "اختبارات قياسية",
+    "distance education": "التعليم عن بعد",
+    "education controversies": "خلافات متعلقة بالتعليم",
 }
 
 for en1, ar1 in sub_buildings_keys.items():

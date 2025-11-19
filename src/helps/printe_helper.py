@@ -1,5 +1,5 @@
-"""
-"""
+""" """
+
 import re
 
 
@@ -32,7 +32,7 @@ def get_color_table() -> dict[str, str]:
         "lightblack": 108,
         "bold": 1,
     }
-    color_table = {x : f"\033[{v}m%s\033[00m" for x, v in color_numbers.items()}
+    color_table = {x: f"\033[{v}m%s\033[00m" for x, v in color_numbers.items()}
 
     # Add light versions of the colors to the color table
     for color in ["purple", "yellow", "blue", "red", "green", "cyan", "gray"]:

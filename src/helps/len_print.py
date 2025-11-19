@@ -9,6 +9,7 @@ from humanize import naturalsize
 from pathlib import Path
 from ..config import app_settings
 from ..helps.log import logger
+
 all_len = {}
 
 
@@ -45,13 +46,7 @@ def data_len(
     bot: str,
     tab: Mapping[str, int | float],
 ) -> None:
-    data = {
-        x: {
-            "count": len(v) if not isinstance(v, int) else v,
-            "size": format_size(x, sys.getsizeof(v), {})
-        }
-        for x, v in tab.items()
-    }
+    data = {x: {"count": len(v) if not isinstance(v, int) else v, "size": format_size(x, sys.getsizeof(v), {})} for x, v in tab.items()}
     if app_settings.save_data_path:
         save_data(bot, tab)
 

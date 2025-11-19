@@ -163,6 +163,4 @@ def work_relations(value: str) -> str:
     return resolved
 
 
-__all__ = [
-    "work_relations"
-]
+__all__ = ["work_relations"]

@@ -63,25 +63,17 @@ def nat_match(category: str) -> str:
     )
     """
     if matched_country_key:
-        logger.debug(
-            f'<<lightblue>> bot_te_4: nat_match country_key :: "{matched_country_key}" '
-        )
+        logger.debug(f'<<lightblue>> bot_te_4: nat_match country_key :: "{matched_country_key}" ')
     country_label_key = Nat_mens.get(matched_country_key, "")
-    country_label = (
-        country_label_template % country_label_key
-        if country_label_template and country_label_key
-        else ""
-    )
+    country_label = country_label_template % country_label_key if country_label_template and country_label_key else ""
     if country_label:
         logger.debug(f'<<lightblue>> bot_te_4: nat_match country_label :: "{country_label}" ')
     return country_label
 
 
 @functools.lru_cache(maxsize=None)
-def te_2018_with_nat(category: str, reference_category: str="") -> str:
-    logger.debug(
-        f"<<lightyellow>>>> te_2018_with_nat >> category:({category}), reference_category:{reference_category}.."
-    )
+def te_2018_with_nat(category: str, reference_category: str = "") -> str:
+    logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category}), reference_category:{reference_category}..")
     country_label = ""
     # logger.debug('te_2018_with_nat "%s"' % category)
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
@@ -94,9 +86,7 @@ def te_2018_with_nat(category: str, reference_category: str="") -> str:
         if not country_label:
             country_label = Work_for_me(normalized_category, nat, con_3)
         if not country_label:
-            country_label = Films(
-                normalized_category, nat, con_3, reference_category=reference_category
-            )
+            country_label = Films(normalized_category, nat, con_3, reference_category=reference_category)
         if not country_label:
             country_label = ethnic_bot.ethnic(normalized_category, nat, con_3)
         if not country_label:
@@ -106,9 +96,7 @@ def te_2018_with_nat(category: str, reference_category: str="") -> str:
     if not country_label:
         country_label = Women_s_priffix_work(normalized_category)
     if country_label == "" and con_3 == "":
-        country_label = Films(
-            normalized_category, "", "", reference_category=reference_category
-        )
+        country_label = Films(normalized_category, "", "", reference_category=reference_category)
     if country_label:
         if con_3:
             country2 = ""
@@ -147,10 +135,7 @@ def Jobs_in_Multi_Sports(category: str) -> str:
         game_prefix = f"{sport_prefix} "
         if category.startswith(game_prefix):
             job_key = category_lower[len(game_prefix) :]
-            logger.debug(
-                f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") '
-                f'game_label:"{game_label}",job:"{job_key}". '
-            )
+            logger.debug(f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") ' f'game_label:"{game_label}",job:"{job_key}". ')
             break
     if not job_label and job_key:
         job_label = te4_2018_Jobs(job_key)

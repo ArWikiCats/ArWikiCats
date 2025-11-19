@@ -1,6 +1,5 @@
-"""
+""" """
 
-"""
 import re
 from ..jobs_bots.get_helps import get_con_3
 from ..matables_bots.bot import All_P17
@@ -91,21 +90,15 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
         if con_3_lab:
             if FOF:
-                logger.debug(
-                    f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"'
-                )
+                logger.debug(f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"')
             if "{nat}" in con_3_lab:
                 resolved_label = con_3_lab.format(nat=country_start_lab)
             else:
                 resolved_label = con_3_lab.format(country_start_lab)
 
-            logger.debug(
-                f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" '
-            )
+            logger.debug(f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" ')
 
-        logger.debug(
-            f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{resolved_label}" == ""'
-        )
+        logger.debug(f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{resolved_label}" == ""')
 
     else:
         logger.info(f'<<lightred>>>>>> con_3: "{con_3}" or country_start :"{country_start}" == ""')

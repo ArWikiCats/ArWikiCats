@@ -1,6 +1,7 @@
 """
 EventLab Bot - A class-based implementation to handle category labeling
 """
+
 from typing import Tuple
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_temp import get_templates_fo
@@ -51,7 +52,7 @@ def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
             category_lab = f"صناديق تصفح {cate_labs}"
 
     if category_lab:
-        logger.debug(f'<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}')
+        logger.debug(f"<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}")
         logger.debug(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
 
     return category_lab
@@ -114,11 +115,7 @@ class EventLabResolver:
 
         else:
             # Process with the main category processing function
-            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(
-                category3,
-                category3_nolower,
-                app_settings.find_stubs
-            )
+            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
 
         return list_of_cat, category3
 
@@ -220,12 +217,7 @@ class EventLabResolver:
             str: Updated category label
         """
         if list_of_cat and category_lab:
-            category_lab, list_of_cat = list_cat_format.list_of_cat_func(
-                cate_r,
-                category_lab,
-                list_of_cat,
-                self.foot_ballers
-            )
+            category_lab, list_of_cat = list_cat_format.list_of_cat_func(cate_r, category_lab, list_of_cat, self.foot_ballers)
 
         return category_lab
 
@@ -298,10 +290,7 @@ class EventLabResolver:
 
         # Handle special suffixes
         if not category_lab:
-            list_of_cat, category3 = self._handle_special_suffixes(
-                category3,
-                category3_nolower
-            )
+            list_of_cat, category3 = self._handle_special_suffixes(category3, category3_nolower)
 
         # Handle country-based labels (e.g., basketball players from a country)
         if not category_lab and list_of_cat:

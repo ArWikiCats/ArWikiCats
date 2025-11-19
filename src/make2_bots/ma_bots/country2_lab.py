@@ -49,9 +49,7 @@ def resolve_all(country2):
 
         # If not a string → also an error
         if not isinstance(result, str):
-            raise TypeError(
-                f"Resolver '{name}' returned non-string type {type(result)}: {result}"
-            )
+            raise TypeError(f"Resolver '{name}' returned non-string type {type(result)}: {result}")
 
         # Valid str → return
         return result

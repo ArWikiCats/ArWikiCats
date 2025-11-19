@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 
 from ..nats.Nationality import en_nats_to_ar_label
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM

@@ -342,7 +342,4 @@ def build_new2019() -> dict[str, str]:
 
 new2019: dict[str, str] = build_new2019()
 
-__all__ = [
-    "new2019",
-    "INTER_FEDS_LOWER"
-]
+__all__ = ["new2019", "INTER_FEDS_LOWER"]

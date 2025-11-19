@@ -3,19 +3,7 @@
 !
 """
 import functools
-from ...translations import (
-    Nat_mens,
-    jobs_mens_data,
-    short_womens_jobs,
-    jobs_womens_data,
-    Female_Jobs,
-    By_table,
-    replace_labels_2022,
-    change_male_to_female,
-    Mens_suffix,
-    Mens_priffix,
-    Women_s_priffix
-)
+from ...translations import Nat_mens, jobs_mens_data, short_womens_jobs, jobs_womens_data, Female_Jobs, By_table, replace_labels_2022, change_male_to_female, Mens_suffix, Mens_priffix, Women_s_priffix
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.log import logger

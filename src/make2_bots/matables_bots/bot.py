@@ -21,6 +21,7 @@ from ...translations import (
     People_key,
     all_country_with_nat,
 )
+
 MONTH_table = {
     "january": "يناير",
     "february": "فبراير",
@@ -166,12 +167,15 @@ def add_to_new_players(en: str, ar: str) -> None:
     players_new_keys[en] = ar
 
 
-len_print.data_len("make2_bots.matables_bots/bot.py", {
-    "players_new_keys": players_new_keys,   # 99517
-    "All_P17": All_P17,
-    "pop_of_in": pop_of_in,
-    "pop_new": pop_new,
-})
+len_print.data_len(
+    "make2_bots.matables_bots/bot.py",
+    {
+        "players_new_keys": players_new_keys,  # 99517
+        "All_P17": All_P17,
+        "pop_of_in": pop_of_in,
+        "pop_new": pop_new,
+    },
+)
 
 __all__ = [
     "players_new_keys",

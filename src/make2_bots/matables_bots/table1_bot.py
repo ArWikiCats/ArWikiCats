@@ -4,6 +4,7 @@ Usage:
 from ...matables_bots.table1_bot import table1get, get_KAKO
 
 """
+
 import functools
 from typing import Dict
 from ..lazy_data_bots.bot_2018 import pop_All_2018
@@ -16,8 +17,8 @@ from ...translations import (
     Music_By_table,
     Films_key_man,
     By_table,
-    Jobs_new,           # to be removed from players_new_keys
-    jobs_mens_data,      # to be  removed from players_new_keys
+    Jobs_new,  # to be removed from players_new_keys
+    jobs_mens_data,  # to be  removed from players_new_keys
 )
 
 KAKO: Dict[str, Dict[str, str]] = {
@@ -47,9 +48,7 @@ def get_KAKO(text: str) -> str:
 
         # If not a string → also an error
         if not isinstance(resolved_label, str):
-            raise TypeError(
-                f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}"
-            )
+            raise TypeError(f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}")
 
         logger.debug(f'>> get_KAKO_({table_name}) for ["{text}"] = "{resolved_label}"')
 

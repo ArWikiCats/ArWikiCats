@@ -5,7 +5,7 @@
 from typing import Tuple
 
 
-def get_episodes(category3: str, category3_nolower: str="") -> Tuple[str, str]:
+def get_episodes(category3: str, category3_nolower: str = "") -> Tuple[str, str]:
     """
     examples:
     Category:2016 American television episodes

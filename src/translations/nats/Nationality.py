@@ -15,8 +15,10 @@ from ...helps import len_print
 # Type aliases
 # =====================================================================
 
+
 class NationalityEntry(TypedDict):
     """Represents one nationality block with all fields always present as strings."""
+
     men: str
     mens: str
     women: str
@@ -32,6 +34,7 @@ LookupTable = Dict[str, str]
 # =====================================================================
 # Section 1: Load and prepare JSON sources
 # =====================================================================
+
 
 def load_sources() -> Dict[str, NationalityEntry]:
     """
@@ -81,6 +84,7 @@ def load_sources() -> Dict[str, NationalityEntry]:
 # =====================================================================
 # Section 2: Normalize aliases
 # =====================================================================
+
 
 def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, NationalityEntry]:
     """
@@ -177,6 +181,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
 # Section 3: Build American forms
 # =====================================================================
 
+
 def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEntry]) -> Tuple[AllNatDict, int]:
     """
     Build '-american' and 'x american' nationality forms.
@@ -217,10 +222,8 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
 # Section 4: Build lookup tables
 # =====================================================================
 
-def build_lookup_tables(
-    all_nat: AllNatDict,
-    all_nat_o: Dict[str, NationalityEntry]
-) -> Dict[str, Any]:
+
+def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Any]:
     """
     Build all nationality lookup tables used throughout the system.
     """
@@ -328,5 +331,5 @@ len_print.data_len(
         "All_Nat with ar name": all_country_with_nat_ar,
         "All_Nat with en name": all_country_with_nat,
         "American_nat": American_nat,
-    }
+    },
 )

@@ -10,6 +10,9 @@ from ...helps import len_print
 
 People_key = open_json("peoples.json") or {}
 
-len_print.data_len("peoples.py", {
-    "People_key": People_key,
-})
+len_print.data_len(
+    "peoples.py",
+    {
+        "People_key": People_key,
+    },
+)

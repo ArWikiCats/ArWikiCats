@@ -58,14 +58,7 @@ def _check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-def find_ar_label(
-    category: str,
-    tito: str,
-    tito_name: str,
-    Cate_test: str,
-    category_r: str,
-    start_get_country2: bool = True
-) -> str:
+def find_ar_label(category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, start_get_country2: bool = True) -> str:
     """Find the Arabic label based on the provided parameters."""
 
     CAO = True

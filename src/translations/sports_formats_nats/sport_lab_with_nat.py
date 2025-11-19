@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 
 import re
 from ..utils.match_nats_keys import match_nat_key
@@ -47,9 +44,7 @@ def match_sports_labels_with_nat(normalized_team: str) -> str:
         return template_label
     logger.debug(f"{nationality_key=}")
     logger.debug(f'nationality_key:"{str(nationality_key)}"')
-    normalized_nat_key = re.sub(
-        f" {nationality_key} ", " natar ", f" {normalized_team.strip()} ", flags=re.IGNORECASE
-    )
+    normalized_nat_key = re.sub(f" {nationality_key} ", " natar ", f" {normalized_team.strip()} ", flags=re.IGNORECASE)
     logger.debug(f"{normalized_nat_key=}")
     template_label = format_labels_with_nat.get(normalized_nat_key.strip(), "")
     nationality_label = en_nats_to_ar_label.get(nationality_key.lower(), "")

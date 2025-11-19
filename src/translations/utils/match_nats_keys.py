@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 import re
 from .patterns import load_keys_to_pattern
 from ..nats.Nationality import all_country_with_nat_ar

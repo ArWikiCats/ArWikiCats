@@ -35,11 +35,11 @@ def fix_expatriates(country_lab, con_lab, nat_lab):
     pkjn = ["مغتربون", "مغتربات"]
     for kjn in pkjn:
         if con_lab.endswith(f" {kjn}"):
-            striped = con_lab[:-len(kjn)].strip()
+            striped = con_lab[: -len(kjn)].strip()
             country_lab = f"{striped} {nat_lab} {kjn}"
             break
         if country_lab.endswith(f" {kjn}"):
-            striped = country_lab[:-len(kjn)].strip()
+            striped = country_lab[: -len(kjn)].strip()
             country_lab = f"{striped} {kjn}"
             break
     return country_lab
@@ -68,8 +68,7 @@ def country_lab_mens_womens(jender_key, category_suffix, nat_lab, con_lab):
 
 
 @functools.lru_cache(maxsize=None)
-def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="",
-                         save_result=True, find_nats=True) -> str:
+def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str = "", womens: str = "", save_result=True, find_nats=True) -> str:
     """
     Retrieve job labels based on category and country.
 
@@ -93,7 +92,7 @@ def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, m
         str: The generated job label based on the input parameters.
     """
     category_suffix = category_suffix.strip().lower()
-    logger.debug(f'<<lightblue>> jobs_mainbot.py jobs_with_nat_prefix: {cate=}, {country_prefix=}, {category_suffix=}.')
+    logger.debug(f"<<lightblue>> jobs_mainbot.py jobs_with_nat_prefix: {cate=}, {country_prefix=}, {category_suffix=}.")
     country_lab = ""
     category_suffix = category_suffix[len("people ") :] if category_suffix.startswith("people ") else category_suffix
     mens_nat_lab: str = mens or (Nat_mens.get(country_prefix, "") if find_nats else "")

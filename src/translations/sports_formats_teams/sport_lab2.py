@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 import functools
 from .team_job import New_team_xo_jobs, New_team_xo_labels
 from .te3 import New_team_xo_team_labels
@@ -16,17 +13,17 @@ jobs_bot = FormatData(New_team_xo_jobs, SPORTS_KEYS_FOR_JOBS, key_placeholder="x
 
 
 @functools.lru_cache(maxsize=None)
-def find_labels_bot(category: str, default: str="") -> str:
+def find_labels_bot(category: str, default: str = "") -> str:
     return labels_bot.search(category) or default
 
 
 @functools.lru_cache(maxsize=None)
-def find_teams_bot(category: str, default: str="") -> str:
+def find_teams_bot(category: str, default: str = "") -> str:
     return teams_bot.search(category) or default
 
 
 @functools.lru_cache(maxsize=None)
-def find_jobs_bot(category: str, default: str="") -> str:
+def find_jobs_bot(category: str, default: str = "") -> str:
     return jobs_bot.search(category) or default
 
 

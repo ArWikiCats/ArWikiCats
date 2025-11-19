@@ -14,6 +14,7 @@ from .make2_bots.media_bots import films_bot  # te_films
 
 new_func_lab = main.new_func_lab
 
+
 def event(tab: Dict[str, Any], return_no_labs: bool = False, **kwargs: Any) -> List[str]:
     return main.event(tab, return_no_labs=return_no_labs, **kwargs)
 

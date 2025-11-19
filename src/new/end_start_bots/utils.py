@@ -1,6 +1,4 @@
-"""
-
-"""
+""" """
 
 from typing import Dict, Tuple, Any
 
@@ -22,7 +20,7 @@ def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tup
         if category3_original.startswith(remove_key):
             list_of_cat = tab["lab"]
 
-            category3 = category3_original[len(remove_key):]  # .lstrip()
+            category3 = category3_original[len(remove_key) :]  # .lstrip()
 
             break
 

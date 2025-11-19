@@ -345,12 +345,7 @@ def _update_lowercase(data: dict[str, str], mapping: list[Mapping[str, str]], sk
         return True
 
     for table in mapping:
-        data.update({
-            key.lower(): v.strip()
-            for key, v in table.items()
-            if key.strip() and v.strip()
-            and check_skip_existing(key)
-        })
+        data.update({key.lower(): v.strip() for key, v in table.items() if key.strip() and v.strip() and check_skip_existing(key)})
 
 
 def _build_book_entries(data: dict[str, str]) -> None:
@@ -526,14 +521,17 @@ def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str
 
 pf_keys2, pop_of_without_in, pop_of_football_lower = wrap_build_pf_keys2()
 
-len_print.data_len("all_keys2.py", {
-    "pf_keys2": pf_keys2,
-    "pop_of_without_in": pop_of_without_in,
-    "pop_of_football_lower": pop_of_football_lower,
-    "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
-    "BOOK_CATEGORIES": BOOK_CATEGORIES,
-    "BOOK_TYPES": BOOK_TYPES,
-})
+len_print.data_len(
+    "all_keys2.py",
+    {
+        "pf_keys2": pf_keys2,
+        "pop_of_without_in": pop_of_without_in,
+        "pop_of_football_lower": pop_of_football_lower,
+        "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
+        "BOOK_CATEGORIES": BOOK_CATEGORIES,
+        "BOOK_TYPES": BOOK_TYPES,
+    },
+)
 
 __all__ = [
     "pf_keys2",

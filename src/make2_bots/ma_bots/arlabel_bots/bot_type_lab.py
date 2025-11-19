@@ -41,25 +41,19 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         label = Tabl_with_in.get(type_lower_with_preposition, "")
         if label:
             should_append_in_label = False
-            logger.info(
-                f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
-            )
+            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if not label:
         label = New_P17_Finall.get(type_lower, "")
         if label:
-            logger.debug(
-                f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
-            )
+            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if label == "" and type_lower.startswith("the "):
         type_lower_without_article = type_lower[len("the ") :]
 
         label = New_P17_Finall.get(type_lower_without_article, "")
         if label:
-            logger.debug(
-                f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
-            )
+            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
     if type_lower == "sport" and country_lower.startswith("by "):
         label = "رياضة"
 

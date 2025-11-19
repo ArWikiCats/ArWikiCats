@@ -31,7 +31,7 @@ def _try_romanization(con_3: str) -> str:
 
     for prefix, template in romanization_patterns.items():
         if con_3.startswith(prefix):
-            suffix = con_3[len(prefix):].strip()
+            suffix = con_3[len(prefix) :].strip()
             lang_label = languages_key.get(f"{suffix} language", "")
             logger.info(suffix)
             if lang_label:
@@ -50,7 +50,7 @@ def _try_films_pattern(con_3: str, lang: str, l_lab: str) -> str:
     Returns:
         Formatted films label or empty string
     """
-    lang_without_suffix = lang.replace('-language', '')
+    lang_without_suffix = lang.replace("-language", "")
     films_pattern = f"{lang_without_suffix} films"
 
     if films_pattern == con_3:
@@ -71,7 +71,7 @@ def _try_films_suffix(suffix: str, language_lab: str) -> str:
     if not suffix.endswith(" films"):
         return ""
 
-    prefix = suffix[:-len("films")].strip().lower()
+    prefix = suffix[: -len("films")].strip().lower()
     film_label = Films_keys_both_new.get(prefix, {}).get("female", "")
 
     if film_label:
@@ -175,7 +175,7 @@ def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang_prefix: str) -> s
         return ""
 
     language_lab = languages_key[lang]
-    suffix = con_3[len(lang_prefix):]
+    suffix = con_3[len(lang_prefix) :]
 
     # Try jobs_mens_data lookup
     label = jobs_mens_data.get(suffix, "")

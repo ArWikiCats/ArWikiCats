@@ -195,7 +195,6 @@ en_is_nat_ar_is_al_women: dict[str, str] = {
     "games silver medalists": "فائزون بميداليات فضية في الألعاب {}",
     "games bronze medalists": "فائزون بميداليات برونزية في الألعاب {}",
     "television people": "شخصيات التلفزة {}",
-
     "presidential primaries": "الانتخابات الرئاسية التمهيدية {}",
     "legislative election": "الانتخابات التشريعية {}",
     "parliamentary election": "الانتخابات البرلمانية {}",
@@ -204,7 +203,6 @@ en_is_nat_ar_is_al_women: dict[str, str] = {
     "vice-presidential election": "انتخابات نائب الرئاسة {}",
     "presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
     "presidential election": "انتخابات الرئاسة {}",
-
 }
 
 
@@ -443,7 +441,6 @@ en_is_nat_ar_is_women: dict[str, str] = {
     # "books" : "كتب {}",
     # "cinema" : "سينما {}",
     # "dukes" : "دوقات {}",
-
 }
 
 
@@ -514,7 +511,6 @@ change_male_to_female: dict[str, str] = {
 }
 
 priffix_lab_for_2018: dict[str, dict[str, str]] = {
-
     "fictional": {"men": "{} خيالي", "women": "{} خيالية"},
     "native": {"men": "{} أصلي", "women": "{} أصلية"},
     "contemporary": {"men": "{} معاصر", "women": "{} معاصرة"},
@@ -522,7 +518,6 @@ priffix_lab_for_2018: dict[str, dict[str, str]] = {
 }
 
 Main_priffix: dict[str, str] = {
-
     "assassinated": "{} مغتالون",
     "fictional": "{} خياليون",
     "native": "{} أصليون",
@@ -530,7 +525,6 @@ Main_priffix: dict[str, str] = {
     "killed": "{} قتلوا",
     "contemporary": "{} معاصرون",
     "ancient": "{} قدماء",
-
     "cultural depictions of": "تصوير ثقافي عن {}",
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",

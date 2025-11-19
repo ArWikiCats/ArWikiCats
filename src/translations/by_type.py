@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 from ..helps import len_print
 from .utils.json_dir import open_json_file
 
@@ -213,9 +211,6 @@ for by, value in Music_By_table.items():  #
 # ---
 By_table_orginal = By_table
 
-By_orginal2 = {
-    entry.replace("by ", "", 1).lower(): By_table_orginal[entry].replace("حسب ", "", 1)
-    for entry in By_table_orginal
-}
+By_orginal2 = {entry.replace("by ", "", 1).lower(): By_table_orginal[entry].replace("حسب ", "", 1) for entry in By_table_orginal}
 
 len_print.data_len("by_table.py", {"by_table": By_table})

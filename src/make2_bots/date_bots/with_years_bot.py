@@ -51,7 +51,7 @@ def _handle_year_at_start(category_text: str) -> str:
     if year == category_text or not year:
         return ""
 
-    remainder = category_text[len(year):].strip()
+    remainder = category_text[len(year) :].strip()
     logger.debug(f">>> _handle_year_at_start: year:{year}, con_3:{remainder}")
 
     remainder_label = ""

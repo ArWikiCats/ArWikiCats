@@ -111,10 +111,7 @@ class LabelForStartWithYearOrTypeo:
         self.country_lower = self.country.lower()
         self.country_not_lower = self.country
 
-        logger.info(
-            f'>>>> year_at_first:"{self.year_at_first}", '
-            f'typeo:"{self.typeo}", In:"{self.In}", country_lower:"{self.country_lower}"'
-        )
+        logger.info(f'>>>> year_at_first:"{self.year_at_first}", ' f'typeo:"{self.typeo}", In:"{self.In}", country_lower:"{self.country_lower}"')
 
     # ----------------------------------------------------
     # 2 — HANDLE TYPEO
@@ -127,11 +124,7 @@ class LabelForStartWithYearOrTypeo:
 
         if self.typeo in typeTable:
 
-            logger.info(
-                'a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(
-                    self.typeo, typeTable[self.typeo]["ar"]
-                )
-            )
+            logger.info('a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(self.typeo, typeTable[self.typeo]["ar"]))
 
             self.typeo_lab = typeTable[self.typeo]["ar"]
             self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
@@ -160,12 +153,7 @@ class LabelForStartWithYearOrTypeo:
 
         cmp = self.year_at_first + " " + self.country_lower
 
-        self.country_label = get_country_label(
-            self.country_lower,
-            self.country_not_lower,
-            self.cate3,
-            cmp
-        )
+        self.country_label = get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
 
         if self.country_label:
             self.cat_test = self.replace_cat_test(self.cat_test, self.country_lower)
@@ -188,10 +176,7 @@ class LabelForStartWithYearOrTypeo:
         self.cat_test = self.replace_cat_test(self.cat_test, self.year_at_first)
         self.arlabel += " " + self.year_labe
 
-        logger.info(
-            f'252: year_at_first({self.year_at_first}) != "" '
-            f'arlabel:"{self.arlabel}",In.strip() == "{self.In.strip()}"'
-        )
+        logger.info(f'252: year_at_first({self.year_at_first}) != "" ' f'arlabel:"{self.arlabel}",In.strip() == "{self.In.strip()}"')
 
         if (self.In.strip() in ("in", "at")) and not self.suf.strip():
             logger.info('Add في to arlabel:in,at"%s"' % self.arlabel)
@@ -242,11 +227,7 @@ class LabelForStartWithYearOrTypeo:
         if self.country_lower:
 
             if self.country_label:
-                self.cat_test, self.arlabel = new_func_mk2(
-                    self.cate, self.cat_test, self.year_at_first, self.typeo, self.In,
-                    self.country_lower, self.arlabel, self.year_labe, self.suf,
-                    self.Add_In, self.country_label, self.Add_In_Done
-                )
+                self.cat_test, self.arlabel = new_func_mk2(self.cate, self.cat_test, self.year_at_first, self.typeo, self.In, self.country_lower, self.arlabel, self.year_labe, self.suf, self.Add_In, self.country_label, self.Add_In_Done)
                 return
 
             logger.info('a<<lightblue>>>>>> Cant id country_lower : "%s" ' % self.country_lower)
@@ -263,16 +244,8 @@ class LabelForStartWithYearOrTypeo:
     def apply_fallbacks(self):
 
         if self.NoLab and self.cat_test == "":
-            if (
-                self.country_label and self.typeo_lab
-                and not self.year_at_first and self.In == ""
-            ):
-                do_ar(
-                    self.typeo,
-                    self.country_label,
-                    self.typeo_lab,
-                    self.category_r
-                )
+            if self.country_label and self.typeo_lab and not self.year_at_first and self.In == "":
+                do_ar(self.typeo, self.country_label, self.typeo_lab, self.category_r)
 
     # ----------------------------------------------------
     # 8 — FINALIZE
@@ -280,20 +253,14 @@ class LabelForStartWithYearOrTypeo:
 
     def finalize(self):
 
-        category2 = (
-            self.cate[len("category:"):].lower()
-            if self.cate.lower().startswith("category:")
-            else self.cate.lower()
-        )
+        category2 = self.cate[len("category:") :].lower() if self.cate.lower().startswith("category:") else self.cate.lower()
 
         if not self.cat_test.strip():
             logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
 
         elif self.cat_test == self.country_lower or self.cat_test == ("in " + self.country_lower):
             logger.debug("<<lightgreen>>>>>> cat_test False.. ")
-            logger.debug(
-                '<<lightblue>>>>>> cat_test = country_lower : "%s" ' % self.country_lower
-            )
+            logger.debug('<<lightblue>>>>>> cat_test = country_lower : "%s" ' % self.country_lower)
             self.NoLab = True
 
         elif self.cat_test.lower() == category2.lower():
@@ -319,10 +286,7 @@ class LabelForStartWithYearOrTypeo:
                 self.arlabel = fixtitle.fixlab(self.arlabel, en=self.category_r)
 
                 logger.info("a<<lightred>>>>>> arlabel ppoi:%s" % self.arlabel)
-                logger.info(
-                    f'>>>> <<lightyellow>> cat:"{self.category_r}", '
-                    f'category_lab "{self.arlabel}"'
-                )
+                logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", ' f'category_lab "{self.arlabel}"')
                 logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 
                 return self.arlabel

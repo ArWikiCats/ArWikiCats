@@ -110,12 +110,7 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
         logger.info(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
         return ""
 
-    remaining_text = (
-        remaining_text.replace(cona_1, "")
-        .replace(cona_2, "")
-        .replace(tat_o.strip(), "")
-        .strip()
-    )
+    remaining_text = remaining_text.replace(cona_1, "").replace(cona_2, "").replace(tat_o.strip(), "").strip()
 
     if (tat_o.strip() == "in" or cona_1.endswith(" in")) and (not cona_1.endswith(" في")):
         logger.debug(f'>>>> Add في to c_1_l : "{c_1_l}"')

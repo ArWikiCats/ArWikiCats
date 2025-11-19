@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 import functools
 from typing import Dict
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
@@ -53,13 +51,13 @@ def load_data() -> Dict[str, str]:
     sport = "{sport}"
     sport_label = "{sport_label}"
     data = {
-        f"{sport}" : f"{sport_label}",
-        f"{sport} managers" : f"مدراء {sport_label}",
-        f"{sport} coaches" : f"مدربو {sport_label}",
-        f"{sport} people" : f"أعلام {sport_label}",
-        f"{sport} playerss" : f"لاعبو {sport_label}",
-        f"{sport} players" : f"لاعبو {sport_label}",
-        f"{sport} referees" : f"حكام {sport_label}",
+        f"{sport}": f"{sport_label}",
+        f"{sport} managers": f"مدراء {sport_label}",
+        f"{sport} coaches": f"مدربو {sport_label}",
+        f"{sport} people": f"أعلام {sport_label}",
+        f"{sport} playerss": f"لاعبو {sport_label}",
+        f"{sport} players": f"لاعبو {sport_label}",
+        f"{sport} referees": f"حكام {sport_label}",
     }
 
     for PP in PPP_Keys:
@@ -88,14 +86,12 @@ def load_class() -> FormatData:
 
 
 @functools.lru_cache(maxsize=None)
-def find_teams_2025(category: str, default: str="") -> str:
+def find_teams_2025(category: str, default: str = "") -> str:
     bot = load_class()
     return bot.search(category) or default
 
 
-len_print.data_len("sports/teams_new_data_2025.py", {
-    "teams_2025" : 533  # teams_2025: 533 <> "TEAMS_NEW": "352,946",
-})
+len_print.data_len("sports/teams_new_data_2025.py", {"teams_2025": 533})  # teams_2025: 533 <> "TEAMS_NEW": "352,946",
 
 __all__ = [
     "find_teams_2025",

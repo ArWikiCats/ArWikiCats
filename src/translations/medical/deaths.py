@@ -1,5 +1,5 @@
-"""
-"""
+""" """
+
 # ---
 from ...helps import len_print
 

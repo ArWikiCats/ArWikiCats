@@ -4,6 +4,7 @@ from ..ma_bots.squad_title_bot import get_squad_title
 # label = get_squad_title(tit)
 
 """
+
 import functools
 from ..date_bots import with_years_bot
 from ...translations import pop_of_football_lower, Get_New_team_xo

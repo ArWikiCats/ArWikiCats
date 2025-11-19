@@ -3,6 +3,7 @@
 Group of regex expressions used in the bot for later improvements
 
 """
+
 import re
 
 YEARS_REGEX_AR = (

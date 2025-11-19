@@ -39,7 +39,7 @@ def check_sources(cone_1: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
+def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool = False) -> str:
     """Retrieve a label based on the given parameters."""
 
     cone_1 = cone_1.strip().lower()
@@ -95,7 +95,7 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_2_1_lab(cone_2: str, With_Years: bool=False) -> str:
+def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
     """Retrieve a label based on the provided cone identifier."""
 
     cone_2 = cone_2.strip().lower()

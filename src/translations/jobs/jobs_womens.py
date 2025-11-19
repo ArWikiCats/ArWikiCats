@@ -56,9 +56,12 @@ short_womens_jobs = Female_Jobs
 _len_result = {
     "Female_Jobs": {"count": 468, "size": "12.8 KiB"},
 }
-len_print.data_len("jobs_womens.py", {
-    "Female_Jobs": Female_Jobs,
-})
+len_print.data_len(
+    "jobs_womens.py",
+    {
+        "Female_Jobs": Female_Jobs,
+    },
+)
 
 __all__ = [
     "Female_Jobs",

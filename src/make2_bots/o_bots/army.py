@@ -166,6 +166,4 @@ def te_army(category: str) -> str:
     return resolved_label
 
 
-__all__ = [
-    "te_army"
-]
+__all__ = ["te_army"]

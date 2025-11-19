@@ -8,6 +8,7 @@ import sys
 from ...helps import len_print
 from .Sport_key import SPORTS_KEYS_FOR_TEAM
 from ... import app_settings
+
 NAT_P17_OIOI = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]

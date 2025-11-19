@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 
-"""
-"""
+""" """
 # from .numbers1 import change_numb_to_word, change_numb
 # ---
 change_numb_to_word = {

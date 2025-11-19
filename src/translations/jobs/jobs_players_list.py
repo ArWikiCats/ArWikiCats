@@ -140,14 +140,8 @@ def _build_boxing_labels(weights: Mapping[str, str]) -> GenderedLabelMap:
         if not arabic_label:
             continue
         weight_boxers_key = f"{weight_key} boxers"
-        result[weight_boxers_key] = {
-            "mens": f"ملاكمو {arabic_label}",
-            "womens": f"ملاكمات {arabic_label}"
-        }
-        result[f"world {weight_key} boxing champions"] = {
-            "mens": f"أبطال العالم للملاكمة فئة {arabic_label}",
-            "womens": ""
-        }
+        result[weight_boxers_key] = {"mens": f"ملاكمو {arabic_label}", "womens": f"ملاكمات {arabic_label}"}
+        result[f"world {weight_key} boxing champions"] = {"mens": f"أبطال العالم للملاكمة فئة {arabic_label}", "womens": ""}
     return result
 
 
@@ -198,14 +192,8 @@ def _build_jobs_player_variants(players: Mapping[str, GenderedLabel]) -> Gendere
         lowered_key = english_key.lower()
         result[lowered_key] = {"mens": mens_label, "womens": womens_label}
 
-        result[f"olympic {lowered_key}"] = {
-            "mens": f"{mens_label} أولمبيون",
-            "womens": f"{womens_label} أولمبيات"
-        }
-        result[f"international {lowered_key}"] = {
-            "mens": f"{mens_label} دوليون",
-            "womens": f"{womens_label} دوليات"
-        }
+        result[f"olympic {lowered_key}"] = {"mens": f"{mens_label} أولمبيون", "womens": f"{womens_label} أولمبيات"}
+        result[f"international {lowered_key}"] = {"mens": f"{mens_label} دوليون", "womens": f"{womens_label} دوليات"}
 
     return result
 
@@ -220,10 +208,7 @@ def _build_general_scope_labels(
     for role_key, role_labels in roles.items():
         for scope_key, scope_labels in scopes.items():
             composite_key = f"{scope_key} {role_key}".lower()
-            result[composite_key] = {
-                "mens": f"{role_labels['mens']} {scope_labels['mens']}",
-                "womens": f"{role_labels['womens']} {scope_labels['womens']}"
-            }
+            result[composite_key] = {"mens": f"{role_labels['mens']} {scope_labels['mens']}", "womens": f"{role_labels['womens']} {scope_labels['womens']}"}
     return result
 
 
@@ -308,10 +293,7 @@ def _build_sports_job_variants(
                 "womens": "",
             }
             composite_key = f"{lowered_job_key} {lowered_football_key}"
-            result[composite_key] = {
-                "mens": f"{football_labels["mens"]} {arabic_label}",
-                "womens": f"{football_labels["womens"]} {arabic_label}"
-            }
+            result[composite_key] = {"mens": f"{football_labels["mens"]} {arabic_label}", "womens": f"{football_labels["womens"]} {arabic_label}"}
 
     return result
 
@@ -353,24 +335,14 @@ SPORT_JOB_VARIANTS = _build_sports_job_variants(
     FOOTBALL_KEYS_PLAYERS,
 )
 
-PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
-    STATIC_PLAYER_LABELS,
-    TEAM_SPORT_LABELS,
-    SKATING_LABELS,
-    BOXING_LABELS,
-    GENERAL_SCOPE_LABELS,
-    CHAMPION_LABELS,
-    WORLD_CHAMPION_LABELS,
-    SPORT_JOB_VARIANTS,
-    BASE_PLAYER_VARIANTS
-)
+PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(STATIC_PLAYER_LABELS, TEAM_SPORT_LABELS, SKATING_LABELS, BOXING_LABELS, GENERAL_SCOPE_LABELS, CHAMPION_LABELS, WORLD_CHAMPION_LABELS, SPORT_JOB_VARIANTS, BASE_PLAYER_VARIANTS)
 
 # ---------------------------------------------------------------------------
 # Backwards compatible exports
 
-Football_Keys_players: GenderedLabelMap=FOOTBALL_KEYS_PLAYERS
+Football_Keys_players: GenderedLabelMap = FOOTBALL_KEYS_PLAYERS
 
-__all__=[
+__all__ = [
     "FOOTBALL_KEYS_PLAYERS",
     "JOBS_PLAYERS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
