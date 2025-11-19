@@ -7,7 +7,7 @@
 import functools
 import re
 
-from .. import app_settings
+from ..config import app_settings
 from ..fix import fixtitle
 from ..helps import printe
 from ..helps.log import logger

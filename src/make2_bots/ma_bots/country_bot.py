@@ -13,7 +13,7 @@ lab = country_bot.get_country()
 import re
 from typing import Dict
 
-from ... import app_settings
+from ...config import app_settings
 from ...helps.log import logger
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,

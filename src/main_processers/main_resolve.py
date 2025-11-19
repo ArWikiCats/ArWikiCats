@@ -10,7 +10,7 @@ from ..make2_bots.co_bots import filter_en
 from ..make2_bots.format_bots import change_cat
 from ..make2_bots.ma_bots import ye_ts_bot
 from ..make2_bots.matables_bots.bot import cash_2022
-from .. import app_settings
+from ..config import app_settings
 
 
 @functools.lru_cache(maxsize=None)
