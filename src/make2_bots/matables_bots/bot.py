@@ -21,8 +21,6 @@ from ...translations import (
     People_key,
     all_country_with_nat,
 )
-
-# ---
 MONTH_table = {
     "january": "يناير",
     "february": "فبراير",
@@ -46,8 +44,6 @@ cash_2022 = {
 }
 # ---
 Work_With_Change_key = {1: False}
-
-# ---
 New_Lan = {}
 all_country_with_nat_lower = {}
 Kingdom = {}
@@ -76,8 +72,6 @@ Pp_Priffix = {
 }
 for io in ALBUMS_TYPE:
     Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % ALBUMS_TYPE[io]
-
-# ---
 Keep_it_last = ["remakes of"]
 # ---
 Keep_it_frist = [
@@ -132,8 +126,6 @@ for x in all_country_with_nat:
     all_country_with_nat_lower[x.lower()] = all_country_with_nat[x]
 # ---
 Lang_line = f"{'|'.join(languages_pop.keys())}|"
-
-# ---
 for ss in SPORTS_KEYS_FOR_LABEL:  #
     cd = f"by {ss.lower()} team"
     By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
@@ -157,8 +149,6 @@ Add_ar_in = dict(olympics)
 
 for olmp, olmp_lab in Add_ar_in.items():
     players_keys[olmp] = olmp_lab
-
-# ---
 Table_for_frist_word = {
     "typetable": typeTable,
     "Films_O_TT": Films_O_TT,

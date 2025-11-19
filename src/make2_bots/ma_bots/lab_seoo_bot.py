@@ -23,8 +23,6 @@ from ..o_bots.popl import work_peoples
 from ..p17_bots import nats
 from ..p17_bots.us_stat import Work_US_State
 from ..sports_bots import team_work
-
-# ---
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -44,6 +42,7 @@ def te_bot_3(category_key: str) -> str:
                 print_put("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
                 return normalized_label
     return arabic_label
+
 
 @functools.lru_cache(maxsize=None)
 def event_Lab_seoo(reference_category: str, target_category: str) -> str:

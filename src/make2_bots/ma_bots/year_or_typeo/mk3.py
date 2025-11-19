@@ -64,11 +64,8 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
             print_put(">>> Add في line: 92")
 
         arlabel = arlabel + suf + con_lab
-        # ---
         arlabel = re.sub(r"\s+", " ", arlabel)
-        # ---
         arlabel = arlabel.replace(" في في ", " في ")
-        # ---
         print_put(f">3252 arlabel: {arlabel}")
 
         # if (typeo == '" and In == "') and (country and year != ""):
@@ -77,10 +74,8 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
 
 def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
     print_put("a<<lightblue>>>>>> Add year before")
-    # ---
     co_in_tables = check_key_in_tables(country, to_check_them)
     # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
-    # ---
     # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
     if (
         (suf.strip() == "" and con_lab.startswith("ال"))

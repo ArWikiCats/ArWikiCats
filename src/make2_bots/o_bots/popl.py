@@ -21,8 +21,6 @@ def work_peoples_old(name: str) -> str:
     Returns:
         The resolved Arabic label or an empty string when no mapping exists.
     """
-
-    # ---
     print_put(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
     PpP_lab = ""
     person = ""
@@ -43,7 +41,6 @@ def work_peoples_old(name: str) -> str:
         print_put(f'>>>><<lightblue>> person :"{person}", personlab : "{personlab}"')
         PpP_lab = Pp_Priffix[pri].format(personlab)
         print_put(f'>>>><<lightblue>> name.endswith pri("{pri}"), PpP_lab:"{PpP_lab}"')
-    # ---
     return PpP_lab
 
 

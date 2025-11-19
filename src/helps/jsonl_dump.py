@@ -13,15 +13,12 @@ SAVE_ENABLE = False
 
 def save(path, data) -> str:
     path = Path(path)
-    # ---
     if isinstance(data, dict):
         data = [data]
-    # ---
     if not path.exists():
         path.parent.mkdir(parents=True, exist_ok=True)
         with jsonlines.open(path, mode='w') as writer:
             writer.write({})
-    # ---
     with jsonlines.open(path, mode='a') as writer:
         writer.write(data)
 

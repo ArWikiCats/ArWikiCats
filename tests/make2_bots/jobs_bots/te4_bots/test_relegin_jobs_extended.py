@@ -33,9 +33,7 @@ for key, data in RELIGIOUS_KEYS_10.items():
     mens_label = data.get("mens", "")
     if mens_label:
         for job_key, job_label in jobs_mens_data.items():
-            # ---
             label = create_country_lab(job_label, mens_label, job_key)
-            # ---
             expatriates_data[f"{key} {job_key}"] = label
 
 

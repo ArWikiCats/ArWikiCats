@@ -7,17 +7,11 @@
 import sys
 
 from ..utils.json_dir import open_json_file
-
-
-# ---
 from ...helps import len_print
-
-# ---
 COUNTY_TRANSLATIONS = open_json_file("us_counties") or {}
 Counties = COUNTY_TRANSLATIONS
 # ---
 STATE_NAME_TRANSLATIONS = {
-    # ---
     "ohio": "أوهايو",
     "louisiana": "لويزيانا",
     "new mexico": "نيومكسيكو",
@@ -275,7 +269,6 @@ for Stat in US_State:
     for na in nan :
         US_State_Keys[f"{na} house of representatives"] = kak % US_State[Stat]
         US_State_Keys[f"{na} house-of-representatives"] = kak % US_State[Stat]
-        # ---
         US_State_Keys[f"{na} politics"] = f"سياسة {US_State[Stat]}"
         US_State_Keys[f"{na} law"] = f"قانون {US_State[Stat]}"
         US_State_Keys[f"{na} city councils"] = f"مجالس مدن {US_State[Stat]}"

@@ -44,7 +44,6 @@ def scan_json_files(folder_path: os.PathLike[str] | str) -> None:
         except Exception as e:
             print(f"Unexpected error in {filename}: {str(e)}")
             errors.append(str(file_path))
-    # ---
     for file in errors:
         # print error message
         # print(f"Error: {file}")

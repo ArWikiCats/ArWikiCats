@@ -33,7 +33,6 @@ BOXING_WEIGHT_TRANSLATIONS: Mapping[str, str] = {
     "light middleweight": "وزن خفيف متوسط",
     "middleweight": "وزن متوسط",
     "super heavyweight": "وزن ثقيل سوبر",
-    # ---
     "heavyweight": "وزن ثقيل",
     "welterweight": "وزن الويلتر",
     "flyweight": "وزن الذبابة",
@@ -225,7 +224,6 @@ def _build_general_scope_labels(
                 "mens": f"{role_labels['mens']} {scope_labels['mens']}",
                 "womens": f"{role_labels['womens']} {scope_labels['womens']}"
             }
-    # ---
     return result
 
 
@@ -252,7 +250,6 @@ def _build_world_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
             "mens": f"أبطال العالم {arabic_label} ",
             "womens": "",
         }
-    # ---
     return result
 
 
@@ -265,9 +262,7 @@ def _build_sports_job_variants(
     result: GenderedLabelMap = {}
 
     for job_key, arabic_label in sport_jobs.items():
-        # ---
         lowered_job_key = job_key.lower()
-        # ---
         result[f"{lowered_job_key} biography"] = {
             "mens": f"أعلام {arabic_label}",
             "womens": "",
@@ -280,7 +275,6 @@ def _build_sports_job_variants(
             "mens": f"مذيعو {arabic_label}",
             "womens": f"مذيعات {arabic_label}",
         }
-        # ---
         result[f"{lowered_job_key} stage winners"] = {
             "mens": f"فائزون في مراحل {arabic_label}",
             "womens": f"فائزات في مراحل {arabic_label}",
@@ -301,27 +295,19 @@ def _build_sports_job_variants(
             "mens": f"رياضيو {arabic_label}",
             "womens": f"رياضيات {arabic_label}",
         }
-
-        # ---
         for football_key, football_labels in football_roles.items():
-            # ---
             lowered_football_key = football_key.lower()
-            # ---
             olympic_key = f"olympic {lowered_job_key} {lowered_football_key}"
-            # ---
             result[olympic_key] = {
                 "mens": f"{football_labels["mens"]} {arabic_label} أولمبيون",
                 "womens": f"{football_labels["womens"]} {arabic_label} أولمبيات",
             }
-            # ---
             mens_key = f"men's {lowered_job_key} {lowered_football_key}"
             result[mens_key] = {
                 "mens": f"{football_labels["mens"]} {arabic_label} رجالية",
                 "womens": "",
             }
-            # ---
             composite_key = f"{lowered_job_key} {lowered_football_key}"
-            # ---
             result[composite_key] = {
                 "mens": f"{football_labels["mens"]} {arabic_label}",
                 "womens": f"{football_labels["womens"]} {arabic_label}"

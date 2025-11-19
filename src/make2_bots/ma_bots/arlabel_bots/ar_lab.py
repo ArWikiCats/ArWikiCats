@@ -30,42 +30,31 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def add_in_tab(Type_lab, Type_lower, tito2):
-    # ---
     ty_in18 = get_pop_All_18(Type_lower)
-    # ---
     if tito2 == "from":
         if not Type_lab.strip().endswith(" من"):
             print_put(f">>>> nAdd من to Type_lab '{Type_lab}' line:44")
             Type_lab = f"{Type_lab} من "
-        # ---
         return Type_lab
-    # ---
     if not ty_in18 or not Type_lower.endswith(" of") or " في" in Type_lab:
         return Type_lab
-    # ---
     Type_lower2 = Type_lower[: -len(" of")]
-    # ---
     in_tables = check_key_new_players(Type_lower)
     in_tables2 = check_key_new_players(Type_lower2)
-    # ---
     if in_tables or in_tables2:
         print_put(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
         Type_lab = f"{Type_lab} من "
-    # ---
     return Type_lab
 
 
 def _check_in_tables_new(country_lower, Type_lower):
-    # ---
     country_in_Table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
     Type_in_Table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
-    # ---
     if country_in_Table:
         print_put(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table1}.')
 
     if Type_in_Table:
         print_put(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table2}.')
-    # ---
     return country_in_Table, Type_in_Table
 
 
@@ -120,12 +109,9 @@ def find_ar_label(
 
     if not CAO:
         return ""
-    # ---
     print_put('<<lightblue>> CAO: cat:"%s":' % category)
-    # ---
     if not Type_lab or not con_lab:
         return ""
-    # ---
     if tito2 in tito_list_s and Add_in_lab:
         if tito2 == "in" or " in" in Type_lower:
             if Type_lower in pop_of_without_in:
@@ -143,15 +129,12 @@ def find_ar_label(
         elif (tito2 == "at" or " at" in Type_lower) and (" في" not in Type_lab):
             print_put('>>>> Add في to Type_lab:at"%s"' % Type_lab)
             Type_lab = Type_lab + " في"
-    # ---
     if Add_in_lab:
         if Type_lower in Dont_Add_min:
             print_put(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
         else:
             Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
-    # ---
     country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
-    # ---
     sps = " "
     if tito2 == "in":
         sps = " في "
@@ -163,8 +146,6 @@ def find_ar_label(
     else:
         if (tito2 == "in" or tito2 == "at") and (" في" not in Type_lab or Type_lower in Add_ar_in):
             Type_lab = Type_lab + " في"
-
-    # ---
     if Add_in_lab:
         print_put(f">>>>> > Add_in_lab ({tito2=})")
         if tito2 in category_relation_mapping and tito2 not in tito_list_s:
@@ -229,9 +210,7 @@ def find_ar_label(
 
     if Type_in_Table and country_in_Table:
         print_put(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
-        # ---
         in_tables = check_key_new_players(country_lower)
-        # ---
         if not keep_Type_first and in_tables:
             arlabel = con_lab + sps + Type_lab
         else:
@@ -282,12 +261,10 @@ def find_ar_label(
 
     if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:
         return ""
-    # ---
     arlabel = fixtitle.fixlab(arlabel, en=category_r)
     print_put('>>>>>> <<lightyellow>>Cate_test: "%s" ' % Cate_test)
     print_put(f'>>>>>> <<lightyellow>>test: cat "{category_r}", arlabel:"{arlabel}"')
     print_put('>>>> <<lightblue>>Cate_test :"%s"' % Cate_test)
-    # ---
     return arlabel
 
 

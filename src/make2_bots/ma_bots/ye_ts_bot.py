@@ -26,6 +26,7 @@ from ...translations import (
 )
 from ...utils import get_value_from_any_table
 
+
 def find_lab(category: str, category_r: str) -> str:
     cate_low = category.lower()
 
@@ -78,12 +79,9 @@ def work_titose_nmaes(
         # if Keep_Work and tito in category:
         if tito not in category:
             continue
-        # ---
         arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, start_get_country2=start_get_country2)
-        # ---
         if arlabel:
             print_put(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
-        # ---
         break
     return arlabel
 

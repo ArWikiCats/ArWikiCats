@@ -26,7 +26,6 @@ def event2_d2(category_r) -> str:
     """
     Determine the category label based on the input string.
     """
-    # ---
     cat3 = category_r.lower()
 
     print_put(f'<<lightred>>>>>> category33:"{cat3}" ')
@@ -112,14 +111,10 @@ def event2(category_r: str) -> str:
 
     print_put("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
     print_put(f'<<lightyellow>>>>>> event2 :"{category_r}"')
-    # ---
     category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
-    # ---
     ar_label = univer.te_universities(category_r)
-    # ---
     if ar_label:
         return ar_label
-    # ---
     category_lab = event2_d2(category_r)
 
     if category_lab:

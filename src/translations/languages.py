@@ -7,8 +7,6 @@
 # import re
 # ---
 from .mixed.all_keys3 import ALBUMS_TYPE
-
-# ---
 language_key_translations = {}
 # "spanish" : "إسبانية",
 # "arabic" : "عربية",
@@ -294,7 +292,6 @@ LANGUAGE_TOPIC_FORMATS = {
     "surnames": "ألقاب {}",
     "masculine given names": "أسماء ذكور ب{}",
     "given names": "أسماء شخصية {}",
-    # ---
     "varieties and styles": "أصناف وأساليب {}",
     "literature": "أدب {}",
     "culture": "ثقافة {}",

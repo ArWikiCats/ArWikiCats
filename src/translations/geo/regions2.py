@@ -17,14 +17,11 @@ india_district_labels = open_json_file("India_dd") or {}
 for district_name, district_label in india_district_labels.items():
     normalized_name = district_name.lower()
     INDIA_REGION_TRANSLATIONS[normalized_name] = district_label
-    # ---
     # India_districts[f"{normalized_name} district"] = f"مقاطعة {district_label}"
     # India_Citiese[district_name] = district_label
-    # ---
     INDIA_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
         f"مقاطعة {district_label}"
     )
-    # ---
 # ---
 del india_district_labels
 # ---

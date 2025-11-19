@@ -105,7 +105,6 @@ def convert_time_to_arabic(en_year: str) -> str:
         "may": "مايو", "june": "يونيو", "july": "يوليو", "august": "أغسطس",
         "september": "سبتمبر", "october": "أكتوبر", "november": "نوفمبر", "december": "ديسمبر",
     }
-    # ---
     if en_year.isdigit():
         return en_year
 

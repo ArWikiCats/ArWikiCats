@@ -42,8 +42,6 @@ REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECA
 # Cache for compiled regex patterns
 _change_key_compiled = {}
 _change_key2_compiled = {}
-
-# ---
 category_relation_mapping = {
     "for-the-deaf": "للصم",
     "for-the-deafblind": "للصم وللمكفوفون",
@@ -271,20 +269,16 @@ pp_ends_with_pase = {
     "with disabilities": "{} بإعاقات",
     " mens tournament": "{} - مسابقة الرجال",
     " - telugu": "{} - تيلوغوي",
-    # ---
     "first division": "{} الدرجة الأولى",
     "second division": "{} الدرجة الثانية",
     "third division": "{} الدرجة الثالثة",
     "forth division": "{} الدرجة الرابعة",
-    # ---
     "candidates": "مرشحو {}",
     "candidates for": "مرشحو {} في",
-    # ---
     "squad": "تشكيلة {}",
     "squads": "تشكيلات {}",
     "final tournaments": "نهائيات مسابقات {}",
     "finals": "نهائيات {}",
-    # ---
     " - kannada": "{} - كنادي",
     " - tamil": "{} - تاميلي",
     " - qualifying": "{} - التصفيات",  # – Mixed Doubles
@@ -293,7 +287,6 @@ pp_ends_with_pase = {
     " - women's tournament": "{} - مسابقة السيدات",
     " - men's qualification": "{} - تصفيات الرجال",
     " - women's qualification": "{} - تصفيات السيدات",
-    # ---
     " – kannada": "{} – كنادي",
     " – tamil": "{} – تاميلي",
     " – qualifying": "{} – التصفيات",  # – Mixed Doubles
@@ -329,7 +322,6 @@ key_2_3 = {
     "ladies": "سيدات",
     "mens": "رجال",
     "men's": "رجال",
-    # ---
 }
 fix_o = {
     # "squad navigational boxes": "صناديق تصفح تشكيلات",
@@ -474,22 +466,18 @@ replaces = {
     "women's national youth" : "national youth women's",
     "youth national women's" : "national youth women's",
     "youth women's national" : "national youth women's",
-    # ---
     "national women's junior" : "national junior women's",
     "national junior women's" : "national junior women's",
     "women's junior national" : "national junior women's",
     "women's national junior" : "national junior women's",
     "junior women's national" : "national junior women's",
-    # ---
     "national men's junior" : "national junior men's",
     "national junior men's" : "national junior men's",
     "men's junior national" : "national junior men's",
     "men's national junior" : "national junior men's",
     "junior men's national" : "national junior men's",
-    # ---
     " men's national" : " national men's",
     "women's national" : "national women's",
-    # ---
     "junior national" : "national junior",
     "youth national" : "national youth",
     "amateur national" : "national amateur",

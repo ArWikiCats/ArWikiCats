@@ -35,7 +35,6 @@ def Work_Templates(input_label: str) -> str:
 
     # Normalize input for consistent caching
     input_label = input_label.lower().strip()
-    # ---
     print_put(f">> ----------------- start Work_ Templates ----------------- input_label:{input_label}")
     template_label = ""
     # pp_ends_with =  in pop_format
@@ -60,7 +59,6 @@ def Work_Templates(input_label: str) -> str:
             resolved_label = ye_ts_bot.translate_general_category(base_label)
 
         print_put(f'>>>><<lightblue>> Work_ Templates :"{input_label}", base_label :"{base_label}"')
-        # ---
         if resolved_label:
             print_put(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), resolved_label:"{resolved_label}"')
             template_label = format_template.format(resolved_label)
@@ -94,5 +92,4 @@ def Work_Templates(input_label: str) -> str:
             break
 
     print_put(">> ----------------- end Work_ Templates ----------------- ")
-    # ---
     return template_label

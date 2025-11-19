@@ -17,10 +17,8 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
     """Construct a formatted string based on various input parameters."""
 
     resolved_label = c_1_l + sps + c_2_l
-    # ---
     in_tables_no_lower = check_key_in_tables(cona_1, [typeTable, Films_O_TT])
     in_tables_lowers = check_key_new_players(cona_1.lower())
-    # ---
     if in_tables_no_lower or in_tables_lowers:
         if in_tables_lowers:
             if c_2_l.startswith("أصل "):

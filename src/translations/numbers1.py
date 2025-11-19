@@ -3,8 +3,6 @@
 
 """
 """
-
-# ---
 # from .numbers1 import change_numb_to_word, change_numb
 # ---
 change_numb_to_word = {
@@ -117,32 +115,24 @@ change_numb = {
 # ---
 for number_key, arabic_label in change_numb.items():
     change_numb_to_word[number_key] = arabic_label
-    # ---
     extended_hundreds_key = number_key
-    # ---
     if len(number_key) == 1:
         extended_hundreds_key = f"10{number_key}"
     if len(number_key) == 2:
         extended_hundreds_key = f"1{number_key}"
-    # ---
     change_numb_to_word[extended_hundreds_key] = f"{arabic_label} بعد المئة"
     # print('dt1:%s' % dt1 )
-    # ---
     extended_two_hundred_key = number_key
     if len(number_key) == 1:
         extended_two_hundred_key = f"20{number_key}"
     if len(number_key) == 2:
         extended_two_hundred_key = f"2{number_key}"
-    # ---
     change_numb_to_word[extended_two_hundred_key] = f"{arabic_label} بعد المائتين"
-    # ---
-    # ---
     extended_three_hundred_key = number_key
     if len(number_key) == 1:
         extended_three_hundred_key = f"30{number_key}"
     if len(number_key) == 2:
         extended_three_hundred_key = f"3{number_key}"
-    # ---
     change_numb_to_word[extended_three_hundred_key] = f"{arabic_label} بعد الثلاثمائة"
 
 

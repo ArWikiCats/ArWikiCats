@@ -25,9 +25,7 @@ def make_sport_formats_p17(category_key: str) -> str:
         return cached_label
 
     resolved_label = ""
-    # ---
     sport_key = match_sport_key(category_key)
-    # ---
     if not sport_key:
         return ""
 

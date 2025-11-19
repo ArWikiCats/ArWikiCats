@@ -59,8 +59,6 @@ New_For_nat_female_xo_team["women's xzxz"] = f"xzxz {nat_f} نسائية"
 New_For_nat_female_xo_team["xzxz chairmen and investors"] = f"رؤساء ومسيرو xzxz {nat_f}"
 New_For_nat_female_xo_team["defunct xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f} سابقة"
 New_For_nat_female_xo_team["xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f}"
-
-# ---
 New_For_nat_female_xo_team["domestic xzxz cup"] = f"كؤوس xzxz {nat_f} محلية"
 New_For_nat_female_xo_team["current xzxz seasons"] = f"مواسم xzxz {nat_f} حالية"
 # ---
@@ -92,8 +90,6 @@ for en, ar in typies.items():
 New_For_nat_female_xo_team["domestic xzxz"] = f"xzxz {nat_f} محلية"
 New_For_nat_female_xo_team["indoor xzxz"] = f"xzxz {nat_f} داخل الصالات"
 New_For_nat_female_xo_team["outdoor xzxz"] = f"xzxz {nat_f} في الهواء الطلق"
-
-# ---
 New_For_nat_female_xo_team["national women's xzxz teams"] = "منتخبات xzxz وطنية نسائية {nat}"
 New_For_nat_female_xo_team["national xzxz teams"] = "منتخبات xzxz وطنية {nat}"
 # ---
@@ -107,30 +103,22 @@ New_For_nat_female_xo_team["national reserve xzxz teams"] = "منتخبات xzxz
 Att2 = "فرق xzxz {nat}"
 for ty_nat, tas in NEW_TATO_NAT.items():
     tas = tas.strip()
-    # ---
     tasf = tas.format(nat="").strip()
-    # ---
     K_at_p = f"منتخبات xzxz وطنية {tas}"
     Ar_labs_3 = f"منتخبات xzxz وطنية {tasf}"
     if "national" not in ty_nat:
         K_at_p = f"فرق xzxz {tas}"
         Ar_labs_3 = f"فرق xzxz {tasf}"
-    # ---
     elif "multi-national" in ty_nat:
         Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
-    # ---
     Ar_labs = K_at_p.format(nat="{nat}")
-    # ---
     for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():
-        # ---
         if pr_e in ["players", "playerss"] and "women's" in ty_nat:
             pr_e_Lab = "لاعبات {lab}"
         elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
             pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
-        # ---
         Ab = f"{ty_nat} xzxz teams {pr_e}"
         Ab = Ab.strip()
-        # ---
         New_For_nat_female_xo_team[Ab] = pr_e_Lab.format(lab=Ar_labs)
     New_For_nat_female_xo_team[f"{ty_nat} teams"] = Att2
 

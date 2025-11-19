@@ -5,8 +5,6 @@
 import functools
 import re
 from typing import Pattern
-
-# ---
 from ...translations import change_numb_to_word
 from ...translations import WORD_AFTER_YEARS
 from ..format_bots import ar_lab_before_year_to_add_in
@@ -150,8 +148,6 @@ def Try_With_Years(category_text: str) -> str:
             information,
         or an empty string if no valid information is found.
     """
-
-    # ---
     output_test(f">>> Try With Years country ({category_text})")
     # pop_final_Without_Years
 
@@ -173,7 +169,6 @@ def Try_With_Years(category_text: str) -> str:
     # RE4 = RE4_compile.match(category_text)
 
     if not year_at_start and not year_at_end and not year_at_end2:  # and not RE4
-        # ---
         return ""
 
     label = _handle_year_at_start(category_text)

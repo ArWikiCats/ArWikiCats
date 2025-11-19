@@ -24,14 +24,11 @@ def move_by_in(text_str: str) -> str:
     Returns:
     - str: The modified string if a match is found, otherwise the original string.
     """
-
-    # ---
     # تصنيف:اتحاد الرجبي حسب البلد في 1989
     text_str = text_str.replace("_", " ")
     new_text = text_str
     if result := REGEX_BY_DATE_PATTERN.search(text_str):
         # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
-        # ---
         first_part = result.group("first_part")
         by_part = result.group("by_part")
         date = result.group("date")

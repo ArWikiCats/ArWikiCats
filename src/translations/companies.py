@@ -140,7 +140,6 @@ for company_type, arabic_label in COMPANY_TYPE_TRANSLATIONS.items():  # Media co
     company_type_lower = company_type.lower()
     # so = f"{company_type_lower} %s"
     companies_data[f"{company_type_lower} company"] = f"شركات {arabic_label}"
-    # ---
     companies_data[f"{company_type_lower} offices"] = f"مكاتب {arabic_label}"
 
     companies_data[f"{company_type_lower} companies of"] = f"شركات {arabic_label} في"
@@ -152,7 +151,6 @@ for company_type, arabic_label in COMPANY_TYPE_TRANSLATIONS.items():  # Media co
     companies_data[f"{company_type_lower} services"] = f"خدمات {arabic_label}"
     companies_data[f"{company_type_lower} firms"] = f"شركات {arabic_label}"
     companies_data[f"{company_type_lower} franchises"] = f"امتيازات {arabic_label}"
-    # ---
     companies_data[f"{company_type_lower} accidents-and-incidents"] = f"حوادث {arabic_label}"
     companies_data[f"{company_type_lower} accidents and incidents"] = f"حوادث {arabic_label}"
     companies_data[f"{company_type_lower} accidents or incidents"] = f"حوادث {arabic_label}"
@@ -160,7 +158,6 @@ for company_type, arabic_label in COMPANY_TYPE_TRANSLATIONS.items():  # Media co
     companies_data[f"{company_type_lower} incidents"] = f"حوادث {arabic_label}"
     companies_data[f"{company_type_lower} software"] = f"برمجيات {arabic_label}"
     companies_data[f"{company_type_lower} databases"] = f"قواعد بيانات {arabic_label}"
-    # ---
     companies_data[f"{company_type_lower} agencies"] = f"وكالات {arabic_label}"
     companies_data[f"{company_type_lower} disciplines"] = f"تخصصات {arabic_label}"
     companies_data[f"{company_type_lower} museums"] = f"متاحف {arabic_label}"
