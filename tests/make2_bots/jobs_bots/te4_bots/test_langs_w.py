@@ -154,7 +154,6 @@ def test_lang_work():
     result = Lang_work("test language")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = Lang_work("")
     assert isinstance(result_empty, str)
 

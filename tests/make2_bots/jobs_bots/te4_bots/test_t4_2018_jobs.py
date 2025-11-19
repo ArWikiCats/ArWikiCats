@@ -680,7 +680,6 @@ def test_te4_2018_Jobs():
     result = te4_2018_Jobs("test job")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = te4_2018_Jobs("")
     assert isinstance(result_empty, str)
 

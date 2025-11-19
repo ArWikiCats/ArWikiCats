@@ -10,7 +10,6 @@ def test_make_sport_formats_p17():
     result = make_sport_formats_p17("basketball")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = make_sport_formats_p17("")
     assert isinstance(result_empty, str)
 
@@ -23,7 +22,6 @@ def test_find_nat_others():
     result = find_nat_others("American basketball players")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = find_nat_others("")
     assert isinstance(result_empty, str)
 

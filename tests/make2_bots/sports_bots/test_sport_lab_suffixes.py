@@ -236,7 +236,6 @@ def test_get_teams_new():
     result = get_teams_new("football team")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = get_teams_new("")
     assert isinstance(result_empty, str)
 

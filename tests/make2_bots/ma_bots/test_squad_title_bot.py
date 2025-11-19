@@ -73,7 +73,6 @@ def test_get_squad_title():
     result = get_squad_title("test squad")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = get_squad_title("")
     assert isinstance(result_empty, str)
 

@@ -675,7 +675,6 @@ def test_get_country2():
     result = Get_country2("test country")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = Get_country2("")
     assert isinstance(result_empty, str)
 

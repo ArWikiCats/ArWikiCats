@@ -203,6 +203,5 @@ def test_empty():
     result = get_lab_for_country2("test country")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = get_lab_for_country2("")
     assert isinstance(result_empty, str)
