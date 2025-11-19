@@ -26,7 +26,11 @@ from ...translations import (
 )
 from ...utils import get_value_from_any_table
 
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
 
+
+# @save_data(Path(__file__).parent / "find_lab.jsonl")
 def find_lab(category: str, category_r: str) -> str:
     cate_low = category.lower()
 
@@ -48,6 +52,7 @@ def find_lab(category: str, category_r: str) -> str:
     return _lab
 
 
+# @save_data(Path(__file__).parent / "work_titose_nmaes.jsonl")
 def work_titose_nmaes(
     category_r: str,
     start_get_country2: bool,
@@ -90,6 +95,7 @@ def work_titose_nmaes(
 
 
 @functools.lru_cache(maxsize=None)
+# @save_data(Path(__file__).parent / "translate_general_category.jsonl")
 def translate_general_category(category_r: str, start_get_country2: bool=True) -> str:
     """Retrieve and process category names for the Yementest application.
 

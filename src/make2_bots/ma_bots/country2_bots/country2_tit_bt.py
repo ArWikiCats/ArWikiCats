@@ -89,8 +89,8 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
 
     print_put(f'2060 con_1:"{con_1}",con_2:"{con_2}",tat_o:"{tat_o}"')
 
-    c_2_l = c_2_1_lab(With_Years, con_2)
-    c_1_l = c_1_1_lab(tat_o, With_Years, con_1)
+    c_2_l = c_2_1_lab(con_2, With_Years=With_Years)
+    c_1_l = c_1_1_lab(tat_o, con_1, With_Years=With_Years)
 
     if not c_2_l:
         c_2_l = country_bot.Get_c_t_lab(con_2, "")

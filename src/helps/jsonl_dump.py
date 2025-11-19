@@ -26,7 +26,7 @@ def save(path, data) -> str:
         writer.write(data)
 
 
-def save_data(filename: str, input_keys: list = None):
+def save_data(filename: str="", input_keys: list = None):
     """
     Decorator to save function inputs and output into a JSONL file.
 
@@ -47,8 +47,8 @@ def save_data(filename: str, input_keys: list = None):
             if isinstance(output, (list, tuple)) and not any(output):
                 return output
 
-            # path = Path(__file__).parent / filename
-            path = Path(filename)
+            path = Path(__file__).parent / f"{func.__name__}.jsonl"
+            # path = Path(filename)
 
             # if not path.exists(): path.touch()
 
