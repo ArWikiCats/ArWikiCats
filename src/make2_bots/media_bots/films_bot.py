@@ -12,13 +12,8 @@ from ..o_bots import fax
 from ..o_bots.army import te_army
 from ..p17_bots import p17_bot
 
-from pathlib import Path
-from ...helps.jsonl_dump import save_data
 
-# @functools.lru_cache(maxsize=None)
-
-
-@save_data(Path(__file__).parent / "te_films.jsonl", ["category", "reference_category"])
+@functools.lru_cache(maxsize=None)
 def te_films(category: str, reference_category: str = "") -> str:
     normalized_category = category.lower()
     print_def_head(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")

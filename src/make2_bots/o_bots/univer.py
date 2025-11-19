@@ -115,13 +115,7 @@ def _resolve(normalized_category: str) -> str:
     return ""
 
 
-from pathlib import Path
-from ...helps.jsonl_dump import save_data
-
-# @functools.lru_cache(maxsize=None)
-
-
-@save_data(Path(__file__).parent / "te_universities.jsonl", ["category"])
+@functools.lru_cache(maxsize=None)
 def te_universities(category: str) -> str:
     """Return the Arabic label for university-related categories.
 

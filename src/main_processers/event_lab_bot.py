@@ -22,13 +22,6 @@ from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
 from ..config import app_settings
 
 
-from pathlib import Path
-from ..helps.jsonl_dump import save_data
-
-# @functools.lru_cache(maxsize=None)
-
-
-@save_data(Path(__file__).parent / "get_list_of_and_cat3_with_lab2.jsonl", ["category3_o"])
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
     """
     Process squad-related category labels.

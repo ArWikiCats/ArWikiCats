@@ -13,13 +13,7 @@ from . import country2_lab
 from . import ye_ts_bot
 
 
-from pathlib import Path
-from ...helps.jsonl_dump import save_data
-
-# @functools.lru_cache(maxsize=None)
-
-
-@save_data(Path(__file__).parent / "Get_country2.jsonl", ["country", "With_Years"])
+@functools.lru_cache(maxsize=None)
 def Get_country2(country: str, With_Years: bool = True) -> str:
     """Retrieve information related to a specified country."""
 
