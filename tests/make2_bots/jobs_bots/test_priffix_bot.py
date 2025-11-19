@@ -5,13 +5,25 @@ import pytest
 
 from src.make2_bots.jobs_bots.priffix_bot import priffix_Mens_work, Women_s_priffix_work
 
-fast_data = {
+test_mens_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=list(test_mens_data.keys()))
 @pytest.mark.fast
-def test_fast_data(category, expected) -> None:
+def test_priffix_Mens_work(category, expected) -> None:
+
+    label = priffix_Mens_work(category)
+    assert label.strip() == expected
+
+
+test_womens_data = {
+}
+
+
+@pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
+@pytest.mark.fast
+def test_Women_s_priffix_work(category, expected) -> None:
 
     label = priffix_Mens_work(category)
     assert label.strip() == expected
