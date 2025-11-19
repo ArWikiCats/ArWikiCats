@@ -78,7 +78,7 @@ te_universities_data = {
 
 @pytest.mark.parametrize("category, expected_key", te_universities_data.items(), ids=list(te_universities_data.keys()))
 @pytest.mark.fast
-def test_event_Lab_seoo_data(category, expected_key) -> None:
+def test_universities_data(category, expected_key) -> None:
 
     label = te_universities(category)
     assert label.strip() == expected_key

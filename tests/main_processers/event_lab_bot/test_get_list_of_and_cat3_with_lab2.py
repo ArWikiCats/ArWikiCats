@@ -58,6 +58,8 @@ list_data = {
     "1880 women's rugby world cup squad templates": "قوالب تشكيلات كأس العالم للرجبي للسيدات 1880",
     "1880 world men's handball championship squad templates": "قوالب تشكيلات بطولة العالم لكرة اليد للرجال 1880",
     "1880 world women's handball championship squad templates": "قوالب تشكيلات بطولة العالم لكرة اليد للسيدات 1880",
+    "2004 summer olympics football squad navigational boxes": "صناديق تصفح تشكيلات كرة القدم في الألعاب الأولمبية الصيفية 2004",
+
 }
 
 

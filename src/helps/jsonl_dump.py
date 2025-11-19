@@ -6,7 +6,8 @@ import functools
 import jsonlines
 from pathlib import Path
 
-SAVE_ENABLE = False
+SAVE_ENABLE = True
+# SAVE_ENABLE = False
 
 
 def save(path, data) -> str:
