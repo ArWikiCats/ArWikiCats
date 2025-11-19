@@ -6,51 +6,281 @@ import pytest
 from src.make2_bots.jobs_bots.bot_te_4 import nat_match, te_2018_with_nat, Jobs_in_Multi_Sports
 
 fast_data = {
+    "anti-haitian sentiment": "مشاعر معادية للهايتيون",
+    "anti-palestinian sentiment": "مشاعر معادية للفلسطينيون",
+    "anti-turkish sentiment": "مشاعر معادية للأتراك",
+    "anti-american sentiment": "مشاعر معادية للأمريكيون",
+    "anti-czech sentiment": "مشاعر معادية للتشيكيون",
+    "anti-japanese sentiment": "مشاعر معادية لليابانيون",
+    "anti-asian sentiment": "مشاعر معادية للآسيويين",
+    "anti-slovene sentiment": "مشاعر معادية للسلوفينيون",
+    "anti-ukrainian sentiment": "مشاعر معادية للأوكرانيون",
+    "anti-chechen sentiment": "مشاعر معادية للشيشانيون",
+    "anti-mexican sentiment": "مشاعر معادية للمكسيكيون",
 }
 
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
-def test_fast_data(category, expected) -> None:
+def test_nat_match(category, expected) -> None:
 
     label = nat_match(category)
     assert label.strip() == expected
 
 
-def test_nat_match():
-    # Test with a basic input
-    result = nat_match("anti-us sentiment")
-    assert isinstance(result, str)
+Multi_Sports_data = {
+    "african games competitors": "منافسون في الألعاب الإفريقية",
+    "african games taekwondo practitioners": "لاعبو تايكوندو في الألعاب الإفريقية",
+    "asian games alpine skiers": "متزحلقو منحدرات ثلجية في الألعاب الآسيوية",
+    "asian games badminton players": "لاعبو تنس ريشة في الألعاب الآسيوية",
+    "asian games boxers": "ملاكمون في الألعاب الآسيوية",
+    "asian games competitors": "منافسون في الألعاب الآسيوية",
+    "asian games footballers": "لاعبو كرة قدم في الألعاب الآسيوية",
+    "asian games golfers": "لاعبو غولف في الألعاب الآسيوية",
+    "asian games judoka": "لاعبو جودو في الألعاب الآسيوية",
+    "asian games shooters": "رماة في الألعاب الآسيوية",
+    "asian games ski-orienteers": "متسابقو تزلج موجه في الألعاب الآسيوية",
+    "asian games sport climbers": "متسلقون في الألعاب الآسيوية",
+    "asian games table tennis players": "لاعبو كرة طاولة في الألعاب الآسيوية",
+    "asian games tennis players": "لاعبو كرة مضرب في الألعاب الآسيوية",
+    "asian games volleyball players": "لاعبو كرة طائرة في الألعاب الآسيوية",
+    "asian games weightlifters": "رباعون في الألعاب الآسيوية",
+    "asian games wrestlers": "مصارعون في الألعاب الآسيوية",
+    "commonwealth games athletes": "لاعبو قوى في ألعاب الكومنولث",
+    "commonwealth games badminton players": "لاعبو تنس ريشة في ألعاب الكومنولث",
+    "commonwealth games boxers": "ملاكمون في ألعاب الكومنولث",
+    "commonwealth games competitors": "منافسون في ألعاب الكومنولث",
+    "commonwealth games fencers": "مبارزون في ألعاب الكومنولث",
+    "commonwealth games swimmers": "سباحون في ألعاب الكومنولث",
+    "european games competitors": "منافسون في الألعاب الأوروبية",
+    "european games sambo practitioners": "ممارسو سامبو في الألعاب الأوروبية",
+    "islamic solidarity games competitors": "منافسون في ألعاب التضامن الإسلامي",
+    "islamic solidarity games swimmers": "سباحون في ألعاب التضامن الإسلامي",
+    "maccabiah games competitors": "منافسون في الألعاب المكابيه",
+    "maccabiah games rugby union players": "لاعبو اتحاد رجبي في الألعاب المكابيه",
+    "pan american games archers": "نبالون في دورة الألعاب الأمريكية",
+    "pan american games bowlers": "لاعبو بولينج في دورة الألعاب الأمريكية",
+    "pan american games competitors": "منافسون في دورة الألعاب الأمريكية",
+    "pan american games cyclists": "دراجون في دورة الألعاب الأمريكية",
+    "pan american games field hockey players": "لاعبو هوكي ميدان في دورة الألعاب الأمريكية",
+    "pan american games footballers": "لاعبو كرة قدم في دورة الألعاب الأمريكية",
+    "pan american games gymnasts": "لاعبو جمباز في دورة الألعاب الأمريكية",
+    "pan american games handball players": "لاعبو كرة يد في دورة الألعاب الأمريكية",
+    "pan american games rugby sevens players": "لاعبو سباعيات رجبي في دورة الألعاب الأمريكية",
+    "pan american games sailors": "بحارة في دورة الألعاب الأمريكية",
+    "pan american games volleyball players": "لاعبو كرة طائرة في دورة الألعاب الأمريكية",
+    "pan american games weightlifters": "رباعون في دورة الألعاب الأمريكية",
+    "paralympic alpine skiers": "متزحلقو منحدرات ثلجية في الألعاب البارالمبية",
+    "paralympic archers": "نبالون في الألعاب البارالمبية",
+    "paralympic athletes": "لاعبو قوى في الألعاب البارالمبية",
+    "paralympic badminton players": "لاعبو تنس ريشة في الألعاب البارالمبية",
+    "paralympic biathletes": "لاعبو بياثلون في الألعاب البارالمبية",
+    "paralympic boccia players": "لاعبو بوتشيا في الألعاب البارالمبية",
+    "paralympic coaches": "مدربون في الألعاب البارالمبية",
+    "paralympic competitors": "منافسون في الألعاب البارالمبية",
+    "paralympic cyclists": "دراجون في الألعاب البارالمبية",
+    "paralympic equestrians": "فرسان خيول في الألعاب البارالمبية",
+    "paralympic judoka": "لاعبو جودو في الألعاب البارالمبية",
+    "paralympic rowers": "مجدفون في الألعاب البارالمبية",
+    "paralympic shooters": "رماة في الألعاب البارالمبية",
+    "paralympic snowboarders": "متزلجون على الثلج في الألعاب البارالمبية",
+    "paralympic swimmers": "سباحون في الألعاب البارالمبية",
+    "paralympic track and field athletes": "رياضيو المسار والميدان في الألعاب البارالمبية",
+    "paralympic volleyball players": "لاعبو كرة طائرة في الألعاب البارالمبية",
+    "paralympic wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة في الألعاب البارالمبية",
+    "paralympic wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة في الألعاب البارالمبية",
+    "paralympic wheelchair fencers": "مبارزون على الكراسي المتحركة في الألعاب البارالمبية",
+    "paralympic wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة في الألعاب البارالمبية",
+    "paralympics people": "أشخاص في الألعاب البارالمبية",
+    "sea games competitors": "منافسون في ألعاب البحر",
+    "summer olympics competitors": "منافسون في الألعاب الأولمبية الصيفية",
+    "summer world university games competitors": "منافسون في ألعاب الجامعات العالمية الصيفية",
+    "winter olympics competitors": "منافسون في الألعاب الأولمبية الشتوية",
+    "youth olympics biathletes": "لاعبو بياثلون في الألعاب الأولمبية الشبابية",
+}
 
-    result_empty = nat_match("")
-    assert isinstance(result_empty, str)
 
-    # Test with various inputs
-    result_various = nat_match("category:anti-uk sentiment")
-    assert isinstance(result_various, str)
+@pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=list(Multi_Sports_data.keys()))
+@pytest.mark.fast
+def test_Jobs_in_Multi_Sports(category, expected) -> None:
 
-
-def test_te_2018_with_nat():
-    # Test with basic input
-    result = te_2018_with_nat("test category")
-    assert isinstance(result, str)
-
-    result_empty = te_2018_with_nat("")
-    assert isinstance(result_empty, str)
-
-    # Test with reference category
-    result_with_ref = te_2018_with_nat("sports category", "reference")
-    assert isinstance(result_with_ref, str)
+    label = Jobs_in_Multi_Sports(category)
+    assert label.strip() == expected
 
 
-def test_jobs_in_multi_sports():
-    # Test with a basic input
-    result = Jobs_in_Multi_Sports("football players")
-    assert isinstance(result, str)
+data_2018_with_nat = {
+    "filipino sports commentators": "معلقو {} رياضية فلبينية",
+    "spanish commentators": "معلقو {} إسبانية",
 
-    result_empty = Jobs_in_Multi_Sports("")
-    assert isinstance(result_empty, str)
+    "scottish islands": "جزر إسكتلندية",
+    "nigerian football": "كرة القدم النيجيرية",
+    "south korean tennis": "كرة مضرب كورية جنوبية",
+    "polish epic films": "أفلام ملحمية بولندية",
+    "indian companies": "شركات هندية",
+    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
+    "bangladeshi films": "أفلام بنغلاديشية",
+    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
+    "slovenian sport": "رياضة سلوفينية",
+    "soviet war crimes": "جرائم حرب سوفيتية",
+    "belgian companies": "شركات بلجيكية",
+    "yemeni sport": "رياضة يمنية",
+    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
+    "romanian sport": "رياضة رومانية",
+    "male sport shooters": "لاعبو رماية ذكور",
+    "chinese hip-hop groups": "فرق هيب هوب صينية",
+    "assassinated politicians": "سياسيون مغتالون",
+    "chinese lgbtq people": "أعلام إل جي بي تي كيو صينية",
+    "finnish descent": "أصل فنلندي",
+    "emirati sport": "رياضة إماراتية",
+    "canadian music": "موسيقى كندية",
+    "olympic nordic combined skiers": "متزحلقو تزلج نوردي مزدوج أولمبيون",
+    "peruvian descent": "أصل بيروي",
+    "voice actresses": "ممثلات أداء صوتي",
+    "chinese music": "موسيقى صينية",
+    "male models": "عارضو أزياء ذكور",
+    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
+    "italian black metal musical groups": "فرق موسيقى بلاك ميتال إيطالية",
+    "nepali television": "التلفزة النيبالية",
+    "british open": "المملكة المتحدة المفتوحة",
+    "european american culture": "ثقافة أمريكية أوروبية",
+    "by raphael": "بواسطة رافاييل",
+    "yemeni civil war": "الحرب الأهلية اليمنية",
+    "olympic judoka": "لاعبو جودو أولمبيون",
+    "austrian descent": "أصل نمساوي",
+    "british mystery television series": "مسلسلات تلفزيونية غموض بريطانية",
+    "portuguese tennis": "كرة مضرب برتغالية",
+    "jewish scottish history": "تاريخ إسكتلندي يهودي",
+    "vietnamese sport": "رياضة فيتنامية",
+    "philippine football": "كرة القدم الفلبينية",
+    "chilean law": "قانون تشيلي",
+    "japanese martial arts terminology": "مصطلحات فنون قتالية يابانية",
+    "hungarian sport": "رياضة مجرية",
+    "central american football": "كرة القدم الأمريكية الأوسطية",
+    "french rugby union leagues": "اتحاد دوري الرجبي الفرنسي",
+    "yugoslav romantic drama films": "أفلام دراما رومانسية يوغوسلافية",
+    "argentine tennis": "كرة مضرب أرجنتينية",
+    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
+    "gothic architecture": "عمارة قوطية",
+    "british women's sport": "رياضة بريطانية نسائية",
+    "romanian restaurants": "مطاعم رومانية",
+    "zulu history": "تاريخ زولي",
+    "thai television": "التلفزة التايلندية",
+    "kyrgyzstani sport": "رياضة قيرغيزستانية",
+    "maltese lgbtq people": "أعلام إل جي بي تي كيو مالطية",
+    "danish books": "كتب دنماركية",
+    "kazakh presidential election": "انتخابات الرئاسة الكازاخية",
+    "zimbabwean musical groups": "مجموعات موسيقية زيمبابوية",
+    "electro musicians": "موسيقيو موسيقى كهربائية",
+    "american zombie novels": "روايات زومبي أمريكية",
+    "danish adventure television series": "مسلسلات تلفزيونية مغامرات دنماركية",
+    "portuguese fantasy films": "أفلام فانتازيا برتغالية",
+    "olympic handball players": "لاعبو كرة يد أولمبيون",
+    "spanish films": "أفلام إسبانية",
+    "iraqi diaspora": "شتات عراقي",
+    "greek television series": "مسلسلات تلفزيونية يونانية",
+    "european-argentine culture": "ثقافة أرجنتينية أوروبية",
+    "malian people": "أعلام ماليون",
+    "malawian websites": "مواقع ويب ملاوية",
+    "czech thrash metal musical groups": "فرق موسيقى ثراش ميتال تشيكية",
+    "olympic divers": "غواصون أولمبيون",
+    "armenian television": "التلفزة الأرمينية",
+    "asian-american people": "أمريكيون آسيويين",
+    "maldivian people": "أعلام مالديفيون",
+    "moroccan television series": "مسلسلات تلفزيونية مغربية",
+    "irish paintings": "لوحات أيرلندية",
+    "brazilian football club seasons": "مواسم أندية كرة قدم برازيلية",
+    "irish league": "الدوري الأيرلندي",
+    "south african jews": "يهود جنوب إفريقيون",
+    "trinidad and tobago football": "كرة القدم الترنيدادية",
+    "philippine television commercials": "إعلانات تجارية تلفزيونية فلبينية",
+    "fictional australian rules footballers": "لاعبو كرة قدم أسترالية خياليون",
+    "hungarian diaspora": "شتات مجري",
+    "polo players": "لاعبو بولو",
+    "olympic beach volleyball players": "لاعبو كرة طائرة شاطئية أولمبيون",
+    "chinese sports executives": "مدراء رياضية صينية",
+    "canadian films": "أفلام كندية",
+    "by james cameron": "بواسطة جيمس كاميرون",
+    "ivorian companies": "شركات إيفوارية",
+    "yemeni executions": "إعدامات يمنية",
+    "music journalists": "صحفيو موسيقى",
+    "ukrainian-jewish descent": "أصل يهودي أوكراني",
+    "dutch television-seasons": "مواسم تلفزيونية هولندية",
+    "philippine presidential election": "انتخابات الرئاسة الفلبينية",
+    "swedish motorsport": "رياضة محركات سويدية",
+    "slovak eurodance groups": "فرق يورودانس سلوفاكية",
+    "film editors": "محررو أفلام",
+    "russian politics": "السياسة الروسية",
+    "mexican-american culture": "ثقافة أمريكية مكسيكية",
+    "by benjamin britten": "بواسطة بنجامين بريتن",
+    "hungarian websites": "مواقع ويب مجرية",
+    "austrian rock": "روك نمساوي",
+    "yoruba names": "أسماء يوروبية",
+    "japanese lgbtq people": "أعلام إل جي بي تي كيو يابانية",
+    "austrian television series": "مسلسلات تلفزيونية نمساوية",
+    "lebanese television series": "مسلسلات تلفزيونية لبنانية",
+    "swedish tennis": "كرة مضرب سويدية",
+    "eritrean premier league": "الدوري الإريتري الممتاز",
+    "canadian labour law": "قانون العمل الكندي",
+    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
+    "pakistani football": "كرة القدم الباكستانية",
+    "israeli architecture awards": "جوائز عمارة إسرائيلية",
+    "norwegian folk music groups": "فرق موسيقى تقليدية نرويجية",
+    "norwegian jews": "يهود نرويجيون",
+    "croatian diaspora": "شتات كرواتي",
+    "turkish cookbooks": "كتب طبخ تركية",
+    "saudi super cup": "كأس السوبر السعودي",
+    "christian saints": "قديسون",
+    "explorers of": "مستكشفو",
+    "german literature": "أدب ألماني",
+    "swiss businesspeople": "شخصيات أعمال سويسرية",
+    "norwegian comedy-drama films": "أفلام كوميديا درامية نرويجية",
+    "irish universities": "جامعات أيرلندية",
+    "polish crime thriller films": "أفلام إثارة وجريمة بولندية",
+    "by vaikom muhammad basheer": "بواسطة محمد بشير",
+    "byzantine titles": "ألقاب بيزنطية",
+    "burmese names": "أسماء بورمية",
+    "indonesian online encyclopedias": "موسوعات إنترنت إندونيسية",
+    "armenian world music groups": "فرق موسيقى العالم أرمينية",
+    "english country music": "كانتري إنجليزي",
+    "croatian music": "موسيقى كرواتية",
+    "austrian musical groups": "مجموعات موسيقية نمساوية",
+    "japanese war crimes": "جرائم حرب يابانية",
+    "bhutanese sport": "رياضة بوتانية",
+    "swedish air force": "القوات الجوية السويدية",
+    "north korean literature": "أدب كوري شمالي",
+    "christian texts": "نصوص مسيحية",
+    "romanian clothing": "ملابس رومانية",
+    "samoan diaspora": "شتات ساموي",
+    "lithuanian films": "أفلام ليتوانية",
+    "american culture": "ثقافة أمريكية",
+    "coptic calendar": "تقويم قبطي",
+    "czech women's sport": "رياضة تشيكية نسائية",
+    "south african provinces": "مقاطعات جنوبية إفريقية",
+    "dutch tennis": "كرة مضرب هولندية",
+    "filipino-american culture": "ثقافة أمريكية فلبينية",
+    "bangladeshi politics": "السياسة البنغلاديشية",
+    "argentine grand prix": "جائزة الأرجنتين الكبرى",
+    "east german sport": "رياضة ألمانية شرقية",
+    "ivorian people": "أعلام إيفواريون",
+    "surinamese sport": "رياضة سورينامية",
+    "croatian ice hockey league": "الدوري الكرواتي لهوكي الجليد",
+    "polish television-seasons": "مواسم تلفزيونية بولندية",
+    "javanese diaspora": "شتات جاوي",
+    "spanish jews": "يهود إسبان",
+    "ukrainian descent": "أصل أوكراني",
+    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
+    "traditional pop music singers": "مغنو موسيقى بوب تقليدية",
+    "japanese folklore": "فلكور ياباني",
+    "arab lgbtq people": "أعلام إل جي بي تي كيو عربية",
+    "syrian websites": "مواقع ويب سورية",
+    "serbian crime television series": "مسلسلات تلفزيونية جريمة صربية",
 
-    # Test with various inputs
-    result_various = Jobs_in_Multi_Sports("basketball coaches")
-    assert isinstance(result_various, str)
+}
+
+
+@pytest.mark.parametrize("category, expected", data_2018_with_nat.items(), ids=list(data_2018_with_nat.keys()))
+@pytest.mark.fast
+def test_te_2018_with_nat(category, expected) -> None:
+
+    label = nat_match(category)
+    assert label.strip() == expected

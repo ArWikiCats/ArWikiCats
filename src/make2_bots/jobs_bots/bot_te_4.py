@@ -20,11 +20,6 @@ from .te4_bots.for_me import Work_for_me
 from .te4_bots.t4_2018_jobs import te4_2018_Jobs
 from .get_helps import get_con_3
 
-from pathlib import Path
-from ...helps.jsonl_dump import save_data
-
-
-@save_data(Path(__file__).parent / "nat_match.jsonl")
 def nat_match(category: str) -> str:
     """Match a category string to a localized sentiment label.
 
@@ -92,7 +87,6 @@ def nat_match(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@save_data(Path(__file__).parent / "te_2018_with_nat.jsonl")
 def te_2018_with_nat(category: str, reference_category: str="") -> str:
     # ---
 
@@ -154,7 +148,6 @@ def te_2018_with_nat(category: str, reference_category: str="") -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@save_data(Path(__file__).parent / "Jobs_in_Multi_Sports.jsonl")
 def Jobs_in_Multi_Sports(category: str) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
