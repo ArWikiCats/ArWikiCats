@@ -61,7 +61,6 @@ get_teams_new_data = {
 @pytest.mark.parametrize("category, expected_key", get_teams_new_data.items(), ids=list(get_teams_new_data.keys()))
 @pytest.mark.fast
 def test_get_teams_new_data(category, expected_key) -> None:
-
     label = get_teams_new(category)
     assert label.strip() == expected_key
 
@@ -227,7 +226,6 @@ data_slow = {
 @pytest.mark.parametrize("category, expected_key", data_slow.items(), ids=list(data_slow.keys()))
 @pytest.mark.slow
 def test_data_slow(category, expected_key) -> None:
-
     label = get_teams_new(category)
     assert label.strip() == expected_key
 

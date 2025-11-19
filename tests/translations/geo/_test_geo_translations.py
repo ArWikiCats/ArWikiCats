@@ -109,9 +109,7 @@ class TestUSCountiesHelpers:
         assert mappings["texas state house of representatives"] == "مجلس نواب ولاية تكساس"
 
     def test_get_state_name_translations_returns_copy(self):
-
         assert us_counties.STATE_NAME_TRANSLATIONS["ohio"] == "أوهايو"
 
     def test_get_party_labels_returns_copy(self):
-
         assert us_counties.USA_PARTY_LABELS["democratic party"] == "الحزب الديمقراطي"
