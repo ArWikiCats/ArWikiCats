@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.ma_bots.arlabel_bots.bot_con_lab import get_con_lab
@@ -143,13 +144,7 @@ data = [
 @pytest.mark.fast
 def test_get_con_lab_data(tab) -> None:
 
-    label = get_con_lab(
-        preposition=f" {tab['tito2']} ",
-        tito2=tab["tito2"],
-        country=tab["country"],
-        country_lower=tab["country"].lower(),
-        start_get_country2=True
-    )
+    label = get_con_lab(preposition=f" {tab['tito2']} ", tito2=tab["tito2"], country=tab["country"], country_lower=tab["country"].lower(), start_get_country2=True)
     assert label.strip() == tab["output"]
 
 

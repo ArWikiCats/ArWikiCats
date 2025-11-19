@@ -1,20 +1,17 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 
 import re
 
-from ..sports_formats_nats.sport_lab_with_nat import Get_New_team_xo_with_nat
-from .team_job import sport_formts_enar_p17_jobs
-from .sport_lab2 import wrap_team_xo_normal_2025
-from ..utils.match_sport_keys import match_sport_key
-from ..utils import apply_pattern_replacement
-from ..sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
-from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_JOBS
 from ...helps.log import logger
+from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS, SPORTS_KEYS_FOR_TEAM
 from ..sports_formats_nats.new import create_label
+from ..sports_formats_nats.sport_lab_with_nat import Get_New_team_xo_with_nat
+from ..sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
+from ..utils import apply_pattern_replacement
+from ..utils.match_sport_keys import match_sport_key
+from .sport_lab2 import wrap_team_xo_normal_2025
+from .team_job import sport_formts_enar_p17_jobs
 
 
 def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs

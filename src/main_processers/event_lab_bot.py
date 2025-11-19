@@ -1,25 +1,25 @@
 """
 EventLab Bot - A class-based implementation to handle category labeling
 """
-from typing import Tuple
-from ..new.end_start_bots.fax2 import get_list_of_and_cat3
-from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..new.end_start_bots.fax2_episodes import get_episodes
 
-from ..make2_bots.ma_bots.squad_title_bot import get_squad_title
+from typing import Tuple
+
+from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
-from ..translations import New_P17_Finall, Get_New_team_xo
 from ..make2_bots import tmp_bot
 from ..make2_bots.date_bots import year_lab
 from ..make2_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..make2_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ..make2_bots.o_bots import univer
-
 from ..make2_bots.ma_bots import list_cat_format, ye_ts_bot
 from ..make2_bots.ma_bots.country2_bot import Get_country2
 from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
-from ..config import app_settings
+from ..make2_bots.ma_bots.squad_title_bot import get_squad_title
+from ..make2_bots.o_bots import univer
+from ..new.end_start_bots.fax2 import get_list_of_and_cat3
+from ..new.end_start_bots.fax2_episodes import get_episodes
+from ..new.end_start_bots.fax2_temp import get_templates_fo
+from ..translations import Get_New_team_xo, New_P17_Finall
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
@@ -51,7 +51,7 @@ def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
             category_lab = f"صناديق تصفح {cate_labs}"
 
     if category_lab:
-        logger.debug(f'<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}')
+        logger.debug(f"<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}")
         logger.debug(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
 
     return category_lab
@@ -114,11 +114,7 @@ class EventLabResolver:
 
         else:
             # Process with the main category processing function
-            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(
-                category3,
-                category3_nolower,
-                app_settings.find_stubs
-            )
+            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(category3, category3_nolower, app_settings.find_stubs)
 
         return list_of_cat, category3
 
@@ -220,12 +216,7 @@ class EventLabResolver:
             str: Updated category label
         """
         if list_of_cat and category_lab:
-            category_lab, list_of_cat = list_cat_format.list_of_cat_func(
-                cate_r,
-                category_lab,
-                list_of_cat,
-                self.foot_ballers
-            )
+            category_lab, list_of_cat = list_cat_format.list_of_cat_func(cate_r, category_lab, list_of_cat, self.foot_ballers)
 
         return category_lab
 
@@ -298,10 +289,7 @@ class EventLabResolver:
 
         # Handle special suffixes
         if not category_lab:
-            list_of_cat, category3 = self._handle_special_suffixes(
-                category3,
-                category3_nolower
-            )
+            list_of_cat, category3 = self._handle_special_suffixes(category3, category3_nolower)
 
         # Handle country-based labels (e.g., basketball players from a country)
         if not category_lab and list_of_cat:

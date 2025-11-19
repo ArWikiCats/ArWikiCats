@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 import functools
 import re
 from typing import Dict, Optional
+
 from ..helps.log import logger
 
 
@@ -77,7 +76,7 @@ class FormatData:
 
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
-        logger.debug('++++++++ start FormatData ++++++++ ')
+        logger.debug("++++++++ start FormatData ++++++++ ")
         sport_key = self.match_key(category)
         if not sport_key:
             logger.debug(f'No sport key matched for category: "{category}"')
@@ -88,13 +87,11 @@ class FormatData:
             return ""
         template_label = self.get_template(sport_key, category)
         if not template_label:
-            logger.debug(
-                f'No template label matched for sport key: "{sport_key}" and category: "{category}"'
-            )
+            logger.debug(f'No template label matched for sport key: "{sport_key}" and category: "{category}"')
             return ""
         result = self.apply_pattern_replacement(template_label, sport_label)
-        logger.debug(f'result: {result}')
-        logger.debug('++++++++ end FormatData ++++++++ ')
+        logger.debug(f"result: {result}")
+        logger.debug("++++++++ end FormatData ++++++++ ")
         return result
 
     @functools.lru_cache(maxsize=None)
@@ -139,7 +136,7 @@ def format_data_sample():
         "wheelchair gaelic football": "كرة قدم غالية على كراسي متحركة",
         "kick boxing racing": "سباق كيك بوكسينغ",
         "wheelchair cycling road race": "سباق دراجات على الطريق على كراسي متحركة",
-        "wheelchair auto racing": "سباق سيارات على كراسي متحركة"
+        "wheelchair auto racing": "سباق سيارات على كراسي متحركة",
     }
 
     # Create a FormatData instance with the defined patterns and mappings

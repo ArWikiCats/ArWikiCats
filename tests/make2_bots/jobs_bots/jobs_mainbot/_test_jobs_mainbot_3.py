@@ -1,15 +1,13 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix, MEN_WOMENS_WITH_NATO
-from src.translations import (
-    Nat_mens,
-    Nat_Womens,
-    jobs_mens_data,
-    short_womens_jobs,
-)
+from src.make2_bots.jobs_bots.jobs_mainbot import (MEN_WOMENS_WITH_NATO,
+                                                   jobs_with_nat_prefix)
+from src.translations import (Nat_mens, Nat_Womens, jobs_mens_data,
+                              short_womens_jobs)
 
 Nat_mens = {k: Nat_mens[k] for k in list(Nat_mens.keys())[:30]}
 Nat_Womens = {k: Nat_Womens[k] for k in list(Nat_Womens.keys())[:30]}
@@ -47,6 +45,7 @@ def test_nat_womens_women_uses_full_mapping_for_intersection(country_key: str) -
 #           NEW TESTS – jobs_mens_data INTEGRATION
 # =========================================================
 
+
 @pytest.mark.parametrize("suffix, job_label", jobs_mens_data.items())
 @pytest.mark.dict
 def test_jobs_mens_data_combined_with_nationality_yemeni(suffix: str, job_label: str) -> None:
@@ -69,6 +68,7 @@ def test_jobs_mens_data_combined_with_nationality_yemeni(suffix: str, job_label:
 #       NEW TESTS – short_womens_jobs INTEGRATION
 # =========================================================
 
+
 @pytest.mark.parametrize("suffix, short_label", short_womens_jobs.items())
 @pytest.mark.dict
 def test_short_womens_jobs_combined_with_nationality_egyptian(
@@ -86,6 +86,7 @@ def test_short_womens_jobs_combined_with_nationality_egyptian(
 
     assert result != ""
     assert result == f"{short_label} {women_nat}"
+
 
 # =========================================================
 #   NEW TESTS – MEN_WOMENS_WITH_NATO TEMPLATE BEHAVIOR

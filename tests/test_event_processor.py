@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pytest
+
 import src.main as main_module
 
 

@@ -8,13 +8,10 @@ on suffixes and prefixes.
 
 import functools
 
-from .format_bots import pp_start_with, pp_ends_with, pp_ends_with_pase
 from ..helps.log import logger
-
 from .date_bots import with_years_bot
-
-from .ma_bots import country2_lab
-from .ma_bots import ye_ts_bot
+from .format_bots import pp_ends_with, pp_ends_with_pase, pp_start_with
+from .ma_bots import country2_lab, ye_ts_bot
 
 
 def _resolve_label(label: str) -> str:
@@ -66,7 +63,7 @@ def Work_Templates(input_label: str) -> str:
         if not input_label.lower().endswith(suffix.lower()):
             continue
 
-        base_label = input_label[:-len(suffix)]
+        base_label = input_label[: -len(suffix)]
         logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), base_label:"{base_label}"')
 
         resolved_label = _resolve_label(base_label)
@@ -87,7 +84,7 @@ def Work_Templates(input_label: str) -> str:
         if not input_label.startswith(prefix):
             continue
 
-        remaining_label = input_label[len(prefix):]
+        remaining_label = input_label[len(prefix) :]
 
         resolved_label = _resolve_label(remaining_label)
 

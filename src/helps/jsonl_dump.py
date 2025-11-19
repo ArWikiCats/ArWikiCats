@@ -3,9 +3,10 @@
 !
 """
 import functools
-import jsonlines
-from pathlib import Path
 import inspect
+from pathlib import Path
+
+import jsonlines
 
 SAVE_ENABLE = True
 SAVE_ENABLE = False
@@ -17,18 +18,19 @@ def save(path, data) -> str:
         data = [data]
     if not path.exists():
         path.parent.mkdir(parents=True, exist_ok=True)
-        with jsonlines.open(path, mode='w') as writer:
+        with jsonlines.open(path, mode="w") as writer:
             writer.write({})
-    with jsonlines.open(path, mode='a') as writer:
+    with jsonlines.open(path, mode="a") as writer:
         writer.write(data)
 
 
-def save_data(filename: str="", input_keys: list = None):
+def save_data(filename: str = "", input_keys: list = None):
     """
     Decorator to save function inputs and output into a JSONL file.
 
     If input_keys is empty or None, all inputs (args + kwargs) are saved.
     """
+
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):

@@ -1,5 +1,7 @@
 import pytest
-from src.fix.specific_normalizations import fix_formula, apply_category_specific_normalizations
+
+from src.fix.specific_normalizations import (
+    apply_category_specific_normalizations, fix_formula)
 
 
 class TestFixFormula:
@@ -19,12 +21,15 @@ class TestFixFormula:
         result = fix_formula(ar_label, en_label)
         assert result == "فورمولا 1 في سنة 2019"
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("فورمولا 1 1995", "فورمولا 1 في سنة 1995"),
-        ("فورمولا 1 2005", "فورمولا 1 في سنة 2005"),
-        ("فورمولا 1 1999", "فورمولا 1 في سنة 1999"),
-        ("فورمولا 1 2010", "فورمولا 1 في سنة 2010"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("فورمولا 1 1995", "فورمولا 1 في سنة 1995"),
+            ("فورمولا 1 2005", "فورمولا 1 في سنة 2005"),
+            ("فورمولا 1 1999", "فورمولا 1 في سنة 1999"),
+            ("فورمولا 1 2010", "فورمولا 1 في سنة 2010"),
+        ],
+    )
     def test_formula_1_with_different_years(self, ar_label, expected):
         """Test Formula 1 with different years."""
         en_label = f"Formula 1 {ar_label.split()[-1]}"
@@ -49,37 +54,46 @@ class TestFixFormula:
 class TestApplyCategorySpecificNormalizations:
     """Test the apply_category_specific_normalizations function."""
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("أفلام بواسطة مخرجين", "أفلام مخرجين"),
-        ("أعمال بواسطة فنانين", "أعمال فنانين"),
-        ("اختراعات بواسطة علماء", "اختراعات علماء"),
-        ("لوحات بواسطة رسامين", "لوحات رسامين"),
-        ("شعر بواسطة شعراء", "شعر شعراء"),
-        ("مسرحيات بواسطة كتاب", "مسرحيات كتاب"),
-        ("روايات بواسطة مؤلفين", "روايات مؤلفين"),
-        ("كتب بواسطة مؤلفين", "كتب مؤلفين"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("أفلام بواسطة مخرجين", "أفلام مخرجين"),
+            ("أعمال بواسطة فنانين", "أعمال فنانين"),
+            ("اختراعات بواسطة علماء", "اختراعات علماء"),
+            ("لوحات بواسطة رسامين", "لوحات رسامين"),
+            ("شعر بواسطة شعراء", "شعر شعراء"),
+            ("مسرحيات بواسطة كتاب", "مسرحيات كتاب"),
+            ("روايات بواسطة مؤلفين", "روايات مؤلفين"),
+            ("كتب بواسطة مؤلفين", "كتب مؤلفين"),
+        ],
+    )
     def test_fix_bys_replacements(self, ar_label, expected):
         """Test removal of 'بواسطة' after certain words."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("وفيات بواسطة ضربات القلب", "وفيات بضربات القلب"),
-        ("ضربات جوية نفذت بواسطة الطائرات", "ضربات جوية نفذتها الطائرات"),
-        ("أفلام أنتجت بواسطة شركات", "أفلام أنتجها شركات"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("وفيات بواسطة ضربات القلب", "وفيات بضربات القلب"),
+            ("ضربات جوية نفذت بواسطة الطائرات", "ضربات جوية نفذتها الطائرات"),
+            ("أفلام أنتجت بواسطة شركات", "أفلام أنتجها شركات"),
+        ],
+    )
     def test_specific_bys_replacements(self, ar_label, expected):
         """Test specific 'بواسطة' replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("كاميرات اخترعت في القرن 20", "كاميرات عرضت في القرن 20"),
-        ("هواتف محمولة اخترعت حديثا", "هواتف محمولة عرضت حديثا"),
-        ("مركبات اخترعت مستقبلا", "مركبات عرضت مستقبلا"),
-        ("منتجات اخترعت الآن", "منتجات عرضت الآن"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("كاميرات اخترعت في القرن 20", "كاميرات عرضت في القرن 20"),
+            ("هواتف محمولة اخترعت حديثا", "هواتف محمولة عرضت حديثا"),
+            ("مركبات اخترعت مستقبلا", "مركبات عرضت مستقبلا"),
+            ("منتجات اخترعت الآن", "منتجات عرضت الآن"),
+        ],
+    )
     def test_invention_replacements(self, ar_label, expected):
         """Test replacement of 'اخترعت' with 'عرضت'."""
         result = apply_category_specific_normalizations(ar_label, "")
@@ -92,64 +106,76 @@ class TestApplyCategorySpecificNormalizations:
         result = apply_category_specific_normalizations(ar_label, en_label)
         assert result == "قصص قصيرة كتبت سنة 1613"
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("ردود فعل إلى الأحداث", "ردود فعل على الأحداث"),
-        ("مدراء كرة القدم", "مدربو كرة القدم"),
-        ("هولوكوستية الأحداث", "الهولوكوست الأحداث"),
-        ("في هولوكوست", "في الهولوكوست"),
-        ("صدور عظام في الدولة العثمانية", "صدور عظام عثمانيون في"),
-        ("أعمال بواسطة الفنان", "أعمال الفنان"),
-        ("في فائزون الأولمبي", "فائزون الأولمبي"),
-        ("في منافسون السباق", "منافسون السباق"),
-        ("على السجل الوطني للأماكن", "في السجل الوطني للأماكن"),
-        ("من قبل البلد", "حسب البلد"),
-        ("حكم عليهم الموت", "حكم عليهم بالإعدام"),
-        ("محررون من منشورات علمية", "محررو منشورات علمية"),
-        ("محررات من منشورات أدبية", "محررات منشورات أدبية"),
-        ("قديسون صوفيون في الإسلام", "أولياء صوفيون في الإسلام"),
-        ("مدربو رياضية مختلفة", "مدربو رياضة مختلفة"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("ردود فعل إلى الأحداث", "ردود فعل على الأحداث"),
+            ("مدراء كرة القدم", "مدربو كرة القدم"),
+            ("هولوكوستية الأحداث", "الهولوكوست الأحداث"),
+            ("في هولوكوست", "في الهولوكوست"),
+            ("صدور عظام في الدولة العثمانية", "صدور عظام عثمانيون في"),
+            ("أعمال بواسطة الفنان", "أعمال الفنان"),
+            ("في فائزون الأولمبي", "فائزون الأولمبي"),
+            ("في منافسون السباق", "منافسون السباق"),
+            ("على السجل الوطني للأماكن", "في السجل الوطني للأماكن"),
+            ("من قبل البلد", "حسب البلد"),
+            ("حكم عليهم الموت", "حكم عليهم بالإعدام"),
+            ("محررون من منشورات علمية", "محررو منشورات علمية"),
+            ("محررات من منشورات أدبية", "محررات منشورات أدبية"),
+            ("قديسون صوفيون في الإسلام", "أولياء صوفيون في الإسلام"),
+            ("مدربو رياضية مختلفة", "مدربو رياضة مختلفة"),
+        ],
+    )
     def test_general_replacements(self, ar_label, expected):
         """Test general text replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("من من المنزل", "من المنزل"),
-        ("حسب حسب البلد", "حسب البلد"),
-        ("حسب بواسطة الحكومة", "بواسطة الحكومة"),
-        ("في في المدرسة", "في المدرسة"),
-        ("في من الكتاب", "من الكتاب"),
-        ("من في الحديقة", "في الحديقة"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("من من المنزل", "من المنزل"),
+            ("حسب حسب البلد", "حسب البلد"),
+            ("حسب بواسطة الحكومة", "بواسطة الحكومة"),
+            ("في في المدرسة", "في المدرسة"),
+            ("في من الكتاب", "من الكتاب"),
+            ("من في الحديقة", "في الحديقة"),
+        ],
+    )
     def test_duplicate_words_removal(self, ar_label, expected):
         """Test removal of duplicate prepositions."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("العسكري القرن 20", "العسكري في القرن 20"),
-        ("ق.م الساعة", "ق م الساعة"),
-        ("أحداث رياضية الرياضية", "أحداث رياضية"),
-        ("من القرن 19", "في القرن 19"),
-        ("من حروب العالم", "في حروب العالم"),
-        ("من الحروب النابليونية", "في الحروب النابليونية"),
-        ("من حرب الخليج", "في حرب الخليج"),
-        ("من الحرب العالمية", "في الحرب العالمية"),
-        ("من الثورة الفرنسية", "في الثورة الفرنسية"),
-        ("مغتربون الولايات المتحدة", "مغتربون من الولايات المتحدة"),
-        ("سفراء إلى فرنسا", "سفراء لدى فرنسا"),
-        ("أشخاص أصل عربي", "أشخاص من أصل عربي"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("العسكري القرن 20", "العسكري في القرن 20"),
+            ("ق.م الساعة", "ق م الساعة"),
+            ("أحداث رياضية الرياضية", "أحداث رياضية"),
+            ("من القرن 19", "في القرن 19"),
+            ("من حروب العالم", "في حروب العالم"),
+            ("من الحروب النابليونية", "في الحروب النابليونية"),
+            ("من حرب الخليج", "في حرب الخليج"),
+            ("من الحرب العالمية", "في الحرب العالمية"),
+            ("من الثورة الفرنسية", "في الثورة الفرنسية"),
+            ("مغتربون الولايات المتحدة", "مغتربون من الولايات المتحدة"),
+            ("سفراء إلى فرنسا", "سفراء لدى فرنسا"),
+            ("أشخاص أصل عربي", "أشخاص من أصل عربي"),
+        ],
+    )
     def test_specific_phrase_replacements(self, ar_label, expected):
         """Test specific phrase replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
 
-    @pytest.mark.parametrize("ar_label,expected", [
-        ("مسلسلات بدأ عرضها حسب السنة", "مسلسلات حسب سنة بدء العرض"),
-        ("أفلام أنتهت حسب السنة", "أفلام حسب سنة انتهاء العرض"),
-    ])
+    @pytest.mark.parametrize(
+        "ar_label,expected",
+        [
+            ("مسلسلات بدأ عرضها حسب السنة", "مسلسلات حسب سنة بدء العرض"),
+            ("أفلام أنتهت حسب السنة", "أفلام حسب سنة انتهاء العرض"),
+        ],
+    )
     def test_tv_show_year_normalizations(self, ar_label, expected):
         """Test TV show year normalization patterns."""
         result = apply_category_specific_normalizations(ar_label, "")

@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Integration tests for :mod:`teamsnew_bot` lazy resolver."""
-import pytest
 import re
+
+import pytest
+
 from src.translations_formats.format_data import FormatData
 
 
@@ -34,23 +36,28 @@ def test_keys_to_pattern(sample_data):
     assert pattern.search("snooker") is not None
 
 
-@pytest.mark.parametrize("category,expected", [
-    ("men's football world cup", "football"),
-    ("women's basketball championship", "basketball"),
-    ("women's rugby league championship", "rugby league"),
-    ("random text", ""),
-])
+@pytest.mark.parametrize(
+    "category,expected",
+    [
+        ("men's football world cup", "football"),
+        ("women's basketball championship", "basketball"),
+        ("women's rugby league championship", "rugby league"),
+        ("random text", ""),
+    ],
+)
 def test_match_key(category, expected, sample_data):
     formated_data, data_list = sample_data
     bot = FormatData(formated_data, data_list, "{sport}", "{sport_label}")
     assert bot.match_key(category) == expected
 
 
-@pytest.mark.parametrize("template_label,sport_label,expected", [
-    ("كأس العالم في xoxo", "كرة القدم", "كأس العالم في كرة القدم"),
-    ("xoxo بطولة", "كرة السلة", "كرة السلة بطولة"),
-    ("", "كرة الطائرة", ""),  # placeholder not found
-],
+@pytest.mark.parametrize(
+    "template_label,sport_label,expected",
+    [
+        ("كأس العالم في xoxo", "كرة القدم", "كأس العالم في كرة القدم"),
+        ("xoxo بطولة", "كرة السلة", "كرة السلة بطولة"),
+        ("", "كرة الطائرة", ""),  # placeholder not found
+    ],
     ids=[k for k in range(3)],
 )
 def test_apply_pattern_replacement(template_label, sport_label, expected, sample_data):
@@ -59,10 +66,13 @@ def test_apply_pattern_replacement(template_label, sport_label, expected, sample
     assert bot.apply_pattern_replacement(template_label, sport_label) == expected
 
 
-@pytest.mark.parametrize("category,sport_key,expected", [
-    ("men's football world cup", "football", "men's xoxo world cup"),
-    ("women's basketball championship", "basketball", "women's xoxo championship"),
-])
+@pytest.mark.parametrize(
+    "category,sport_key,expected",
+    [
+        ("men's football world cup", "football", "men's xoxo world cup"),
+        ("women's basketball championship", "basketball", "women's xoxo championship"),
+    ],
+)
 def test_normalize_category(category, sport_key, expected, sample_data):
     formated_data, data_list = sample_data
     bot = FormatData(formated_data, data_list)
@@ -70,14 +80,16 @@ def test_normalize_category(category, sport_key, expected, sample_data):
     assert result.lower() == expected.lower()
 
 
-@pytest.mark.parametrize("category,expected", [
-    ("men's football world cup", "كأس العالم للرجال في كرة القدم"),
-    ("women's basketball championship", "بطولة السيدات في كرة السلة"),
-    ("women's Rugby championship", "بطولة السيدات في الرجبي"),
-    ("women's Rugby League championship", "بطولة السيدات في دوري الرجبي"),
-    ("snooker records", "سجلات سنوكر"),
-    ("unknown category", ""),
-],
+@pytest.mark.parametrize(
+    "category,expected",
+    [
+        ("men's football world cup", "كأس العالم للرجال في كرة القدم"),
+        ("women's basketball championship", "بطولة السيدات في كرة السلة"),
+        ("women's Rugby championship", "بطولة السيدات في الرجبي"),
+        ("women's Rugby League championship", "بطولة السيدات في دوري الرجبي"),
+        ("snooker records", "سجلات سنوكر"),
+        ("unknown category", ""),
+    ],
     ids=[k for k in range(6)],
 )
 def test_search(sample_data, category, expected):

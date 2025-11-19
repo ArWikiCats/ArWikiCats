@@ -3,10 +3,14 @@ from . import fax2
 """
 
 from typing import Tuple
-from ...helps.log import logger
 
-from .end_start_match import to_get_startswith, to_get_endswith, footballers_get_endswith
-from .utils import get_from_starts_dict, get_from_endswith_dict
+from ...helps.log import logger
+from .end_start_match import (
+    footballers_get_endswith,
+    to_get_endswith,
+    to_get_startswith,
+)
+from .utils import get_from_endswith_dict, get_from_starts_dict
 
 
 def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=False) -> Tuple[str, bool, bool, bool, str]:
@@ -20,20 +24,20 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=Fals
     category3 = category3.strip()
     # print(f"get_list_of_and_cat3: {category3=}\n" * 10)
 
-    category3, list_of_cat= get_from_starts_dict(category3, to_get_startswith)
+    category3, list_of_cat = get_from_starts_dict(category3, to_get_startswith)
 
     if not list_of_cat:
         if category3.startswith("coaches of "):
             list_of_cat = "مدربو {}"
-            category3 = category3[len("coaches of "):]
+            category3 = category3[len("coaches of ") :]
 
         elif category3.startswith("women members of "):
             list_of_cat = "عضوات {}"
-            category3 = category3[len("women members of "):]
+            category3 = category3[len("women members of ") :]
 
         elif category3.endswith(" footballers"):
             foot_ballers = True
-            category3, list_of_cat= get_from_endswith_dict(category3, footballers_get_endswith)
+            category3, list_of_cat = get_from_endswith_dict(category3, footballers_get_endswith)
 
         elif category3.endswith(" stubs") and find_stubs:
             list_of_cat = "بذرة {}"
@@ -49,7 +53,7 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=Fals
                 category3 = category3_nolower[: -len(" players")]
 
     if not list_of_cat:
-        category3, list_of_cat= get_from_endswith_dict(category3, to_get_endswith)
+        category3, list_of_cat = get_from_endswith_dict(category3, to_get_endswith)
 
     if list_of_cat:
         logger.info(f'<<lightblue>> list_of_cat:"{list_of_cat}", category3:"{category3}"')

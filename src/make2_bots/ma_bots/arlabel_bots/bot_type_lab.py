@@ -4,9 +4,9 @@
 
 """
 from typing import Tuple
-from .. import country2_lab
+
 from ....helps.log import logger
-from ....translations import New_P17_Finall, RELIGIOUS_KEYS_PP, New_female_keys
+from ....translations import RELIGIOUS_KEYS_PP, New_female_keys, New_P17_Finall
 from ... import tmp_bot
 from ...format_bots import Tabl_with_in
 from ...jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
@@ -14,6 +14,7 @@ from ...media_bots.films_bot import te_films
 from ...o_bots.popl import make_people_lab
 from ...p17_bots import nats
 from ...sports_bots import team_work
+from .. import country2_lab
 from ..country_bot import Get_c_t_lab
 
 
@@ -41,25 +42,19 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         label = Tabl_with_in.get(type_lower_with_preposition, "")
         if label:
             should_append_in_label = False
-            logger.info(
-                f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
-            )
+            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if not label:
         label = New_P17_Finall.get(type_lower, "")
         if label:
-            logger.debug(
-                f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
-            )
+            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if label == "" and type_lower.startswith("the "):
         type_lower_without_article = type_lower[len("the ") :]
 
         label = New_P17_Finall.get(type_lower_without_article, "")
         if label:
-            logger.debug(
-                f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
-            )
+            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
     if type_lower == "sport" and country_lower.startswith("by "):
         label = "رياضة"
 

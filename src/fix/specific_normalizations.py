@@ -1,4 +1,3 @@
-
 import re
 
 
@@ -48,7 +47,7 @@ def simple_replace(ar_label: str) -> str:
         r"أشخاص أصل": "أشخاص من أصل",
     }
     for old, new in data.items():
-        ar_label = re.sub(fr"\b{old}\b", new, ar_label)
+        ar_label = re.sub(rf"\b{old}\b", new, ar_label)
 
     ar_label = re.sub(r"\bأدينوا ب\s+", "أدينوا ب", ar_label)
     ar_label = re.sub("مغتربون ال", "مغتربون من ال", ar_label)
@@ -69,7 +68,7 @@ def media_expressions(ar_label: str) -> str:
         "أنتهت حسب السنة": "حسب سنة انتهاء العرض",
     }
     for old, new in data.items():
-        ar_label = re.sub(fr"\b{old}\b", new, ar_label)
+        ar_label = re.sub(rf"\b{old}\b", new, ar_label)
 
     return ar_label
 
@@ -84,7 +83,7 @@ def time_expressions(ar_label: str) -> str:
         r"من الثورة": "في الثورة",
     }
     for old, new in data.items():
-        ar_label = re.sub(fr"\b{old}\b", new, ar_label)
+        ar_label = re.sub(rf"\b{old}\b", new, ar_label)
 
     return ar_label
 
@@ -102,7 +101,7 @@ def duplicate_cleanup(ar_label):
         "من حسب": "حسب",
     }
     for pattern, replacement in patterns.items():
-        ar_label = re.sub(fr"\b{pattern}\b", replacement, ar_label)
+        ar_label = re.sub(rf"\b{pattern}\b", replacement, ar_label)
 
     return ar_label
 
@@ -119,7 +118,7 @@ def preposition_fixes(ar_label):
         r"في رياضة في": "في الرياضة في",
     }
     for pattern, replacement in patterns.items():
-        ar_label = re.sub(fr"\b{pattern}\b", replacement, ar_label)
+        ar_label = re.sub(rf"\b{pattern}\b", replacement, ar_label)
 
     return ar_label
 
@@ -131,7 +130,7 @@ def apply_category_specific_normalizations(ar_label: str, en_label: str) -> str:
     # مبان ومنشآت بواسطة > to > مبان ومنشآت صممها أو خططها ...
     # ألبومات ... بواسطة ... > ألبومات ... ل.....
     # لاعبو كرة بواسطة > لاعبو كرة حسب
-    # """
+    #"""
     ar_label = by_removal(ar_label)
     ar_label = simple_replace(ar_label)
     ar_label = invention_to_exhibition(ar_label)

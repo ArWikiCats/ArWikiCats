@@ -1,6 +1,7 @@
 #
+from load_one_data import dump_diff, ye_test_one_dataset
+
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
     "Category:Gymnastics organizations": "تصنيف:منظمات جمباز",
@@ -8,7 +9,7 @@ data = {
     "Category:Publications disestablished in 1946": "تصنيف:منشورات انحلت في 1946",
     "Category:Subfields by academic discipline": "تصنيف:حقول فرعية حسب التخصص الأكاديمي",
     "Category:Women's organizations based in Cuba": "تصنيف:منظمات نسائية مقرها في كوبا",
-    "Category:Women's universities and colleges in India": "تصنيف:جامعات نسائية وكليات في الهند"
+    "Category:Women's universities and colleges in India": "تصنيف:جامعات نسائية وكليات في الهند",
 }
 
 

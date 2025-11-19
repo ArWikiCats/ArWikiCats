@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from ...helps import len_print
 from ..companies import companies_keys3, typeTable_update
 from ..sports.games_labs import SUMMER_WINTER_TABS
-from ..structures import tab2, pop_final_3_update
+from ..structures import pop_final_3_update, tab2
 from ..utils.json_dir import open_json_file
-from ...helps import len_print
 
 TYPE_TABLE_7_BASE: dict[str, str] = {
     "air force": "قوات جوية",
@@ -136,14 +136,17 @@ NN_table: dict[str, str] = {}
 
 NN_table2: dict[str, dict[str, str]] = dict(NN_TABLE_GENDERED)
 
-len_print.data_len("all_keys3.py", {
-    "pop_final_3": pop_final_3,
-    "typeTable_7": typeTable_7,
-    "ALBUMS_TYPE": ALBUMS_TYPE,
-    "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
-    "NN_table2": NN_table2,
-    "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
-})
+len_print.data_len(
+    "all_keys3.py",
+    {
+        "pop_final_3": pop_final_3,
+        "typeTable_7": typeTable_7,
+        "ALBUMS_TYPE": ALBUMS_TYPE,
+        "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
+        "NN_table2": NN_table2,
+        "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
+    },
+)
 
 __all__ = [
     "pop_final_3",

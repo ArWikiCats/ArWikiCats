@@ -1,9 +1,11 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.ma_bots.country_bot import get_country, Get_c_t_lab
+from src.make2_bots.ma_bots.country_bot import Get_c_t_lab, get_country
+
 
 def test_get_country():
     # Test with a basic input
@@ -17,6 +19,7 @@ def test_get_country():
     # Test with empty string
     result_empty = get_country("")
     assert isinstance(result_empty, str)
+
 
 def test_get_c_t_lab():
     # Test with basic inputs

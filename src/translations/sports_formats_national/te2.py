@@ -3,8 +3,9 @@
 !
 """
 import re
+
 from ...helps import len_print
-from ..sports.sports_lists import LEVELS, AFTER_KEYS_NAT, NEW_TATO_NAT
+from ..sports.sports_lists import AFTER_KEYS_NAT, LEVELS, NEW_TATO_NAT
 
 sport_formts_enar_p17_jobs = {}
 # ---
@@ -122,6 +123,9 @@ for ty_nat, tas in NEW_TATO_NAT.items():
         New_For_nat_female_xo_team[Ab] = pr_e_Lab.format(lab=Ar_labs)
     New_For_nat_female_xo_team[f"{ty_nat} teams"] = Att2
 
-len_print.data_len("sports_formats_national/te2.py", {
-    "New_For_nat_female_xo_team": New_For_nat_female_xo_team,
-})
+len_print.data_len(
+    "sports_formats_national/te2.py",
+    {
+        "New_For_nat_female_xo_team": New_For_nat_female_xo_team,
+    },
+)

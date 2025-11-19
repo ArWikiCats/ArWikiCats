@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 import functools
-from ...helps.log import logger
-from ...translations import lang_ttty, languages_pop
-
 
 from ...helps.jsonl_dump import save_data
+from ...helps.log import logger
+from ...translations import lang_ttty, languages_pop
 
 
 @save_data()

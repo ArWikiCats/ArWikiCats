@@ -6,19 +6,19 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
+from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
 from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
 from ..sports import TENNIS_KEYS
-from ..tv.films_mslslat import film_Keys_For_male, film_Keys_For_female
+from ..tv.films_mslslat import film_Keys_For_female, film_Keys_For_male
+from ..utils.json_dir import open_json_file
 from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
 from .keys2 import keys2_py
-from ..utils.json_dir import open_json_file
 from .keys_23 import NEW_2023
 from .Newkey import pop_final6
-from ...helps import len_print
 
 BASE_LABELS: dict[str, str] = {
     "international reactions": "ردود فعل دولية",
@@ -345,12 +345,7 @@ def _update_lowercase(data: dict[str, str], mapping: list[Mapping[str, str]], sk
         return True
 
     for table in mapping:
-        data.update({
-            key.lower(): v.strip()
-            for key, v in table.items()
-            if key.strip() and v.strip()
-            and check_skip_existing(key)
-        })
+        data.update({key.lower(): v.strip() for key, v in table.items() if key.strip() and v.strip() and check_skip_existing(key)})
 
 
 def _build_book_entries(data: dict[str, str]) -> None:
@@ -526,14 +521,17 @@ def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str
 
 pf_keys2, pop_of_without_in, pop_of_football_lower = wrap_build_pf_keys2()
 
-len_print.data_len("all_keys2.py", {
-    "pf_keys2": pf_keys2,
-    "pop_of_without_in": pop_of_without_in,
-    "pop_of_football_lower": pop_of_football_lower,
-    "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
-    "BOOK_CATEGORIES": BOOK_CATEGORIES,
-    "BOOK_TYPES": BOOK_TYPES,
-})
+len_print.data_len(
+    "all_keys2.py",
+    {
+        "pf_keys2": pf_keys2,
+        "pop_of_without_in": pop_of_without_in,
+        "pop_of_football_lower": pop_of_football_lower,
+        "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
+        "BOOK_CATEGORIES": BOOK_CATEGORIES,
+        "BOOK_TYPES": BOOK_TYPES,
+    },
+)
 
 __all__ = [
     "pf_keys2",

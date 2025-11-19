@@ -11,13 +11,12 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import te_films
-from ..sports_bots import sport_lab_suffixes
-from ..o_bots import univer, parties_bot
+from ..o_bots import parties_bot, univer
 from ..o_bots.popl import work_peoples
 from ..o_bots.rele import work_relations
 from ..p17_bots import nats
 from ..p17_bots.us_stat import Work_US_State
-from ..sports_bots import team_work
+from ..sports_bots import sport_lab_suffixes, team_work
 
 # Dictionary of resolvers mapped to their callable functions
 resolvers = {
@@ -49,9 +48,7 @@ def resolve_all(country2):
 
         # If not a string → also an error
         if not isinstance(result, str):
-            raise TypeError(
-                f"Resolver '{name}' returned non-string type {type(result)}: {result}"
-            )
+            raise TypeError(f"Resolver '{name}' returned non-string type {type(result)}: {result}")
 
         # Valid str → return
         return result

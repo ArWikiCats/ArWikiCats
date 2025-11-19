@@ -15,6 +15,7 @@ def test_join_terms_trims_and_skips_empty_strings() -> None:
     result = jobs_defs.join_terms("  leading", "", "middle  ", " trailing ")
     assert result == "leading middle trailing"
 
+
 def test_combine_gendered_labels_respects_require_base_womens() -> None:
     """When ``require_base_womens`` is set the feminine label may remain blank."""
 

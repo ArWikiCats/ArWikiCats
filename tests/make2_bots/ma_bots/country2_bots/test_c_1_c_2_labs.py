@@ -1,10 +1,11 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import c_1_1_lab, c_2_1_lab
-
+from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import (c_1_1_lab,
+                                                               c_2_1_lab)
 
 fast_data_c_1_1_lab = [
     {"tat_o": " about ", "cone_1": "american documentary television series", "output": "مسلسلات تلفزيونية وثائقية أمريكية"},
@@ -307,7 +308,6 @@ def test_c_1_1_lab(data) -> None:
 
 
 fast_data_c_2_1_lab = {
-
     "12th iranian majlis": "المجلس الإيراني الثاني عشر",
     "13th iranian majlis": "المجلس الإيراني الثالث عشر",
     "15th iranian majlis": "المجلس الإيراني الخامس عشر",

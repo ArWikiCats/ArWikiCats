@@ -2,19 +2,17 @@
 Rich lookup tables for gendered and national prefix/suffix mappings.
 """
 
-from .keys_23 import AFC_KEYS
-from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..sports.games_labs import SUMMER_WINTER_GAMES
-
 from ..sports import (
-    SPORT_FORMTS_NEW_KKK,
-    SPORT_FORMTS_MALE_NAT,
     SPORT_FORMTS_FEMALE_NAT,
+    SPORT_FORMTS_MALE_NAT,
+    SPORT_FORMTS_NEW_KKK,
 )
+from ..sports.games_labs import SUMMER_WINTER_GAMES
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
+from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
+from .keys_23 import AFC_KEYS
 from .Newkey import pop_final6
-
 
 replace_labels_2022: dict[str, str] = {
     "مجندون أطفال": "أطفال مجندون",
@@ -195,7 +193,6 @@ en_is_nat_ar_is_al_women: dict[str, str] = {
     "games silver medalists": "فائزون بميداليات فضية في الألعاب {}",
     "games bronze medalists": "فائزون بميداليات برونزية في الألعاب {}",
     "television people": "شخصيات التلفزة {}",
-
     "presidential primaries": "الانتخابات الرئاسية التمهيدية {}",
     "legislative election": "الانتخابات التشريعية {}",
     "parliamentary election": "الانتخابات البرلمانية {}",
@@ -204,7 +201,6 @@ en_is_nat_ar_is_al_women: dict[str, str] = {
     "vice-presidential election": "انتخابات نائب الرئاسة {}",
     "presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
     "presidential election": "انتخابات الرئاسة {}",
-
 }
 
 
@@ -443,7 +439,6 @@ en_is_nat_ar_is_women: dict[str, str] = {
     # "books" : "كتب {}",
     # "cinema" : "سينما {}",
     # "dukes" : "دوقات {}",
-
 }
 
 
@@ -514,7 +509,6 @@ change_male_to_female: dict[str, str] = {
 }
 
 priffix_lab_for_2018: dict[str, dict[str, str]] = {
-
     "fictional": {"men": "{} خيالي", "women": "{} خيالية"},
     "native": {"men": "{} أصلي", "women": "{} أصلية"},
     "contemporary": {"men": "{} معاصر", "women": "{} معاصرة"},
@@ -522,7 +516,6 @@ priffix_lab_for_2018: dict[str, dict[str, str]] = {
 }
 
 Main_priffix: dict[str, str] = {
-
     "assassinated": "{} مغتالون",
     "fictional": "{} خياليون",
     "native": "{} أصليون",
@@ -530,7 +523,6 @@ Main_priffix: dict[str, str] = {
     "killed": "{} قتلوا",
     "contemporary": "{} معاصرون",
     "ancient": "{} قدماء",
-
     "cultural depictions of": "تصوير ثقافي عن {}",
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",

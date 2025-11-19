@@ -12,39 +12,13 @@ import re
 century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–\- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
 
-REG_YEAR_EN = re.compile(
-    r"\b"
-    r"(?:January|February|March|April|May|June|July|August|September|October|November|December)?\s*"
-    r"("
-    r"\d+[−–\-]\d+"
-    rf"|{decade_regex}"
-    r"|\d{1,4}\s*(?:BCE|BC)?"
-    r")"
-    r"\b",
-    re.I
-)
+REG_YEAR_EN = re.compile(r"\b" r"(?:January|February|March|April|May|June|July|August|September|October|November|December)?\s*" r"(" r"\d+[−–\-]\d+" rf"|{decade_regex}" r"|\d{1,4}\s*(?:BCE|BC)?" r")" r"\b", re.I)
 
-REG_CENTURY_EN = re.compile(
-    rf"\b{century_millennium_regex}\b",
-    re.I
-)
+REG_CENTURY_EN = re.compile(rf"\b{century_millennium_regex}\b", re.I)
 
-REG_YEAR_AR = re.compile(
-    r"\b"
-    r"(?:يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر)?\s*"
-    r"("
-    r"\d+[−–\-]\d+"
-    r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
-    r"|(?:القرن|الألفية)? \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?"
-    r")"
-    r"\b",
-    re.I
-)
+REG_YEAR_AR = re.compile(r"\b" r"(?:يناير|فبراير|مارس|أبريل|مايو|يونيو|يوليو|أغسطس|سبتمبر|أكتوبر|نوفمبر|ديسمبر)?\s*" r"(" r"\d+[−–\-]\d+" r"|عقد \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?" r"|(?:القرن|الألفية)? \d{1,4} *(?:ق\.م|ق م|قبل الميلاد)?" r")" r"\b", re.I)
 
-REG_CENTURY_AR = re.compile(
-    r"\bب*(?:القرن|الألفية) \d+ *(?:ق\.م|ق م|قبل الميلاد)?\b",
-    re.I
-)
+REG_CENTURY_AR = re.compile(r"\bب*(?:القرن|الألفية) \d+ *(?:ق\.م|ق م|قبل الميلاد)?\b", re.I)
 
 # Additional precompiled regex patterns
 REG_SUB_CATEGORY = re.compile(r"^Category:", re.I)
@@ -69,7 +43,7 @@ def expand_range(year_text: str) -> str:
         first = int(parts[0].rstrip("s"))
         second = parts[1].rstrip("s")
         if len(second) == 2:
-            prefix = str(first)[:len(str(first)) - 2]
+            prefix = str(first)[: len(str(first)) - 2]
             second = int(prefix + second)
         else:
             second = int(second)
@@ -101,9 +75,18 @@ def convert_time_to_arabic(en_year: str) -> str:
     en_year = en_year.strip()  # .replace("–", "-").replace("−", "-")
 
     month_map = {
-        "january": "يناير", "february": "فبراير", "march": "مارس", "april": "أبريل",
-        "may": "مايو", "june": "يونيو", "july": "يوليو", "august": "أغسطس",
-        "september": "سبتمبر", "october": "أكتوبر", "november": "نوفمبر", "december": "ديسمبر",
+        "january": "يناير",
+        "february": "فبراير",
+        "march": "مارس",
+        "april": "أبريل",
+        "may": "مايو",
+        "june": "يونيو",
+        "july": "يوليو",
+        "august": "أغسطس",
+        "september": "سبتمبر",
+        "october": "أكتوبر",
+        "november": "نوفمبر",
+        "december": "ديسمبر",
     }
     if en_year.isdigit():
         return en_year

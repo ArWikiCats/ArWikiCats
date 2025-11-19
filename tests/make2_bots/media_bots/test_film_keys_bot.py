@@ -1,10 +1,10 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.media_bots.film_keys_bot import get_Films_key_CAO, Films
-
+from src.make2_bots.media_bots.film_keys_bot import Films, get_Films_key_CAO
 
 fast_data = [
     {"category": "american animated films", "country_start": "american", "country_code": "animated films", "output": "أفلام رسوم متحركة أمريكية"},
@@ -255,7 +255,6 @@ fast_data = [
     {"category": "mexican people", "country_start": "mexican", "country_code": "people", "output": "أعلام مكسيكيون"},
     {"category": "swedish people", "country_start": "swedish", "country_code": "people", "output": "أعلام سويديون"},
     {"category": "italian comedy films", "country_start": "italian", "country_code": "comedy films", "output": "أفلام كوميدية إيطالية"},
-
 ]
 
 

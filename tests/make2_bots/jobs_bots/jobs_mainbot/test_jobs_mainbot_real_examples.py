@@ -1,5 +1,5 @@
-
 import pytest
+
 from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
 
@@ -13,17 +13,7 @@ def error_show(item, result):
     expected = item.get("expected", "")
     cate = item.get("cate", "")
 
-    return (
-        "\n\n"
-        "------------------ FAILED CASE ------------------\n"
-        f"Input cate:               {cate}\n"
-        f"Input Start(country):     {country_prefix}\n"
-        f"Input category_suffix:    {category_suffix}\n"
-        "-------------------------------------------------\n"
-        f"Expected Output:\n{expected}\n\n"
-        f"Actual Output:\n{result}\n"
-        "-------------------------------------------------\n"
-    )
+    return "\n\n" "------------------ FAILED CASE ------------------\n" f"Input cate:               {cate}\n" f"Input Start(country):     {country_prefix}\n" f"Input category_suffix:    {category_suffix}\n" "-------------------------------------------------\n" f"Expected Output:\n{expected}\n\n" f"Actual Output:\n{result}\n" "-------------------------------------------------\n"
 
 
 EXAMPLES = [
@@ -61,15 +51,12 @@ EXAMPLES = [
     {"suffix": "male sprinters", "prefix": "australian", "expected": "عداؤون سريعون ذكور أستراليون"},
     {"suffix": "male steeplechase runners", "prefix": "icelandic", "expected": "عداؤو موانع ذكور آيسلنديون"},
     {"suffix": "male wheelchair basketball players", "prefix": "canadian", "expected": "لاعبو كرة سلة على كراسي متحركة ذكور كنديون"},
-
     {"suffix": "men wheelchair racers", "prefix": "south african", "expected": "متسابقو كراسي متحركة رجال جنوب إفريقيون"},
     {"suffix": "men wheelchair racers", "prefix": "swiss", "expected": "متسابقو كراسي متحركة رجال سويسريون"},
     {"suffix": "men wheelchair racers", "prefix": "welsh", "expected": "متسابقو كراسي متحركة رجال ويلزيون"},
-
     {"suffix": "men's wheelchair basketball players", "prefix": "american", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية أمريكيون"},
     {"suffix": "men's wheelchair basketball players", "prefix": "australian", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية أستراليون"},
     {"suffix": "men's wheelchair basketball players", "prefix": "japanese", "expected": "لاعبو كرة سلة على كراسي متحركة رجالية يابانيون"},
-
     {"suffix": "multi-instrumentalists", "prefix": "argentine", "expected": "عازفون على عدة آلات أرجنتينيون"},
     {"suffix": "nuclear medicine physicians", "prefix": "american", "expected": "أطباء طب نووي أمريكيون"},
     {"suffix": "nuclear medicine physicians", "prefix": "canadian", "expected": "أطباء طب نووي كنديون"},
@@ -85,17 +72,14 @@ EXAMPLES = [
     {"suffix": "sports coaches", "prefix": "albanian", "expected": "مدربو رياضية ألبان"},
     {"suffix": "television actors", "prefix": "peruvian", "expected": "ممثلو تلفزيون بيرويون"},
     {"suffix": "television chefs", "prefix": "british", "expected": "طباخو تلفاز بريطانيون"},
-
     {"suffix": "wheelchair basketball players", "prefix": "american", "expected": "لاعبو كرة سلة على كراسي متحركة أمريكيون"},
     {"suffix": "wheelchair basketball players", "prefix": "australian", "expected": "لاعبو كرة سلة على كراسي متحركة أستراليون"},
-
     {"suffix": "wheelchair curlers", "prefix": "american", "expected": "لاعبو كيرلنغ على الكراسي المتحركة أمريكيون"},
     {"suffix": "wheelchair curlers", "prefix": "british", "expected": "لاعبو كيرلنغ على الكراسي المتحركة بريطانيون"},
     {"suffix": "wheelchair curlers", "prefix": "canadian", "expected": "لاعبو كيرلنغ على الكراسي المتحركة كنديون"},
     {"suffix": "wheelchair curlers", "prefix": "chinese", "expected": "لاعبو كيرلنغ على الكراسي المتحركة صينيون"},
     {"suffix": "wheelchair curlers", "prefix": "danish", "expected": "لاعبو كيرلنغ على الكراسي المتحركة دنماركيون"},
     {"suffix": "wheelchair curlers", "prefix": "english", "expected": "لاعبو كيرلنغ على الكراسي المتحركة إنجليز"},
-
     {"suffix": "wheelchair curling champions", "prefix": "american", "expected": "أبطال الكيرلنغ على الكراسي المتحركة أمريكيون"},
     {"suffix": "wheelchair curling champions", "prefix": "canadian", "expected": "أبطال الكيرلنغ على الكراسي المتحركة كنديون"},
     {"suffix": "wheelchair discus throwers", "prefix": "american", "expected": "رماة قرص على الكراسي المتحركة أمريكيون"},
@@ -103,20 +87,14 @@ EXAMPLES = [
     {"suffix": "wheelchair racers", "prefix": "american", "expected": "متسابقو كراسي متحركة أمريكيون"},
     {"suffix": "wheelchair racers", "prefix": "australian", "expected": "متسابقو كراسي متحركة أستراليون"},
     {"suffix": "wheelchair racers", "prefix": "french", "expected": "متسابقو كراسي متحركة فرنسيون"},
-
     {"suffix": "wheelchair rugby players", "prefix": "american", "expected": "لاعبو رجبي على كراسي متحركة أمريكيون"},
     {"suffix": "wheelchair rugby players", "prefix": "australian", "expected": "لاعبو رجبي على كراسي متحركة أستراليون"},
-
     {"suffix": "wheelchair tennis players", "prefix": "british", "expected": "لاعبو كرة مضرب على كراسي متحركة بريطانيون"},
     {"suffix": "wheelchair tennis players", "prefix": "turkish", "expected": "لاعبو كرة مضرب على كراسي متحركة أتراك"},
 ]
 
 
-@pytest.mark.parametrize(
-    "item",
-    EXAMPLES,
-    ids=lambda x: make_cate(x)
-)
+@pytest.mark.parametrize("item", EXAMPLES, ids=lambda x: make_cate(x))
 @pytest.mark.dict
 def test_jobs_real_examples(item):
     item["cate"] = f"{item['prefix']} {item['suffix']}"
@@ -124,11 +102,7 @@ def test_jobs_real_examples(item):
     # Ensure clean cache per test
     jobs_with_nat_prefix.cache_clear()
 
-    result = jobs_with_nat_prefix(
-        item["cate"],
-        item.get("prefix", ""),
-        item.get("suffix", "")
-    )
+    result = jobs_with_nat_prefix(item["cate"], item.get("prefix", ""), item.get("suffix", ""))
 
     assert result == item.get("expected", ""), error_show(item, result)
 
@@ -136,7 +110,6 @@ def test_jobs_real_examples(item):
 women_examples = [
     {"suffix": "female footballers", "prefix": "equatoguinean", "expected": "لاعبات كرة قدم غينيات استوائيات"},
     {"suffix": "female sport shooters", "prefix": "egyptian", "expected": "لاعبات رماية مصريات"},
-
     {"suffix": "women wheelchair racers", "prefix": "american", "expected": "متسابقات كراسي متحركة أمريكيات"},
     {"suffix": "women wheelchair racers", "prefix": "australian", "expected": "متسابقات كراسي متحركة أستراليات"},
     {"suffix": "women wheelchair racers", "prefix": "belgian", "expected": "متسابقات كراسي متحركة بلجيكيات"},
@@ -154,7 +127,6 @@ women_examples = [
     {"suffix": "women wheelchair racers", "prefix": "swiss", "expected": "متسابقات كراسي متحركة سويسريات"},
     {"suffix": "women wheelchair racers", "prefix": "turkish", "expected": "متسابقات كراسي متحركة تركيات"},
     {"suffix": "women wheelchair racers", "prefix": "welsh", "expected": "متسابقات كراسي متحركة ويلزيات"},
-
     {"suffix": "women", "prefix": "european", "expected": "أوروبيات"},
     {"suffix": "women", "prefix": "polish", "expected": "بولنديات"},
     {"suffix": "women's wheelchair basketball players", "prefix": "american", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية أمريكيات"},
@@ -166,15 +138,10 @@ women_examples = [
     {"suffix": "women's wheelchair basketball players", "prefix": "german", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية ألمانيات"},
     {"suffix": "women's wheelchair basketball players", "prefix": "israeli", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية إسرائيليات"},
     {"suffix": "women's wheelchair basketball players", "prefix": "turkish", "expected": "لاعبات كرة سلة على كراسي متحركة نسائية تركيات"},
-
 ]
 
 
-@pytest.mark.parametrize(
-    "item",
-    women_examples,
-    ids=lambda x: make_cate(x)
-)
+@pytest.mark.parametrize("item", women_examples, ids=lambda x: make_cate(x))
 @pytest.mark.dict
 def test_womens(item):
 
@@ -183,10 +150,6 @@ def test_womens(item):
     # Ensure clean cache per test
     jobs_with_nat_prefix.cache_clear()
 
-    result = jobs_with_nat_prefix(
-        item["cate"],
-        item.get("prefix", ""),
-        item.get("suffix", "")
-    )
+    result = jobs_with_nat_prefix(item["cate"], item.get("prefix", ""), item.get("suffix", ""))
 
     assert result == item.get("expected", ""), error_show(item, result)

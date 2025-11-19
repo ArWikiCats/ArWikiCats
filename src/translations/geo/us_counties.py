@@ -1,13 +1,12 @@
-"""
-
-"""
+""" """
 
 # from .us_counties import US_State, Counties, US_State_lower, US_State_Keys, kk_end_US_State, usa_parties, USA_newkeys, party_end_keys
 # ---
 import sys
 
-from ..utils.json_dir import open_json_file
 from ...helps import len_print
+from ..utils.json_dir import open_json_file
+
 COUNTY_TRANSLATIONS = open_json_file("us_counties") or {}
 Counties = COUNTY_TRANSLATIONS
 # ---
@@ -68,9 +67,7 @@ STATE_NAME_TRANSLATIONS = {
     "vermont": "فيرمونت",
 }
 US_State = STATE_NAME_TRANSLATIONS
-STATE_NAME_TRANSLATIONS_LOWER = {
-    english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()
-}
+STATE_NAME_TRANSLATIONS_LOWER = {english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()}
 US_State_lower = STATE_NAME_TRANSLATIONS_LOWER
 # ---
 STATE_SUFFIX_TEMPLATES = {
@@ -215,46 +212,24 @@ for party_name, party_label in USA_PARTY_LABELS.items():
     USA_PARTY_DERIVED_KEYS[f"{normalized_party_name}s (united states)"] = party_label
 
     # USA_PARTY_DERIVED_KEYS[ '%s members of the united states congress' % normalized_party_name ] = 'أعضاء الكونغرس الأمريكي من %s' % party_label
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} united states senators"
-    ] = f"أعضاء مجلس الشيوخ الأمريكي من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} united states senators"] = f"أعضاء مجلس الشيوخ الأمريكي من {party_label}"
     USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} members"] = f"أعضاء {party_label}"
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} members of the united states house of representatives"
-    ] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} members of the united states house-of-representatives"
-    ] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} members of the united states house of representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} members of the united states house-of-representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
 
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} presidential nominees"
-    ] = f"مرشحون لمنصب الرئيس من {party_label}"
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} vice presidential nominees"
-    ] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
 
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} (united states) vice presidential nominees"
-    ] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} (united states) presidential nominees"
-    ] = f"مرشحون لمنصب الرئيس من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} (united states) vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} (united states) presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
 
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} (united states) politicians"
-    ] = f"سياسيو {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} (united states) politicians"] = f"سياسيو {party_label}"
     USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} politicians"] = f"سياسيو {party_label}"
 
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} vice presidents of the united states"
-    ] = f"نواب رئيس الولايات المتحدة من {party_label}"
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} presidents of the united states"
-    ] = f"رؤساء الولايات المتحدة من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} vice presidents of the united states"] = f"نواب رئيس الولايات المتحدة من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} presidents of the united states"] = f"رؤساء الولايات المتحدة من {party_label}"
     USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} state governors"] = f"حكام ولايات من {party_label}"
-    USA_PARTY_DERIVED_KEYS[
-        f"{normalized_party_name} state governors of the united states"
-    ] = f"حكام ولايات أمريكية من {party_label}"
+    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} state governors of the united states"] = f"حكام ولايات أمريكية من {party_label}"
 # ---
 STATE_NAME_KEY_MAPPINGS = {}
 US_State_Keys = STATE_NAME_KEY_MAPPINGS

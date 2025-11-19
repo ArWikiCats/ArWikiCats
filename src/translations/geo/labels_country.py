@@ -1,21 +1,16 @@
-"""
+""" """
 
-
-"""
-
-from ..utils.json_dir import open_json_file
-
-from .us_counties import Counties
-from ..others.tax_table import Taxons_table
 from ...helps import len_print
 from ..companies import New_Company
-from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..mixed.all_keys2 import pf_keys2
+from ..mixed.all_keys5 import BASE_POP_FINAL_5
+from ..others.tax_table import Taxons_table
+from ..utils.json_dir import open_json_file
+from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS
+from .labels_country2 import P17_PP
 from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
-from .Cities import CITY_TRANSLATIONS, CITY_LABEL_PATCHES
-from .labels_country2 import P17_PP
-
+from .us_counties import Counties
 
 COUNTRY_LABEL_OVERRIDES = open_json_file("P17_2_final_ll") or {}
 # ---

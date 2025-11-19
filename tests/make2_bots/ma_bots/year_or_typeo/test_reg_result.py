@@ -1,11 +1,12 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.ma_bots.year_or_typeo.reg_result import get_reg_result, Typies
-from src.make2_bots.ma_bots.year_or_typeo.reg_result import basedtypeTable
-
+from src.make2_bots.ma_bots.year_or_typeo.reg_result import (Typies,
+                                                             basedtypeTable,
+                                                             get_reg_result)
 
 # new dict with only 20 items from basedtypeTable
 basedtypeTable_20 = {k: basedtypeTable[k] for k in list(basedtypeTable.keys())[:20]}
@@ -14,20 +15,20 @@ basedtypeTable_20 = {k: basedtypeTable[k] for k in list(basedtypeTable.keys())[:
 def test_get_reg_result():
     # Test with basic inputs
     result = get_reg_result("Category:2025 in fishes")
-    assert hasattr(result, 'year_at_first')
+    assert hasattr(result, "year_at_first")
     assert result.year_at_first.strip() == "2025"
-    assert hasattr(result, 'typeo')
-    assert hasattr(result, 'In')
-    assert hasattr(result, 'country')
-    assert hasattr(result, 'cat_test')
+    assert hasattr(result, "typeo")
+    assert hasattr(result, "In")
+    assert hasattr(result, "country")
+    assert hasattr(result, "cat_test")
 
     # Test with different parameters
     result_various = get_reg_result("category:year in type")
-    assert hasattr(result_various, 'year_at_first')
-    assert hasattr(result_various, 'typeo')
-    assert hasattr(result_various, 'In')
-    assert hasattr(result_various, 'country')
-    assert hasattr(result_various, 'cat_test')
+    assert hasattr(result_various, "year_at_first")
+    assert hasattr(result_various, "typeo")
+    assert hasattr(result_various, "In")
+    assert hasattr(result_various, "country")
+    assert hasattr(result_various, "cat_test")
 
 
 def test_typies():
@@ -55,23 +56,19 @@ class TestYearExtraction:
             # Basic year
             ("Category:1999 events in France", "1999"),
             ("Category:2020 births", "2020"),
-
             # Year range
             ("Category:1933–83 American Soccer League", "1933–83"),
             ("Category:1933-83 American Soccer League", "1933-83"),
             ("Category:1933−83 American Soccer League", "1933−83"),
-
             # Decade with s
             ("Category:1990s in music", "1990s"),
-
             # No year → should be empty
             ("Category:Animals of North America", ""),
             ("Category:Sports in Europe", ""),
-
             # Month test (month should remain ignored)
             ("Category:January 1999 events", "January 1999"),
             ("Category:February 2021 disasters", "february 2021"),
-        ]
+        ],
     )
     def test_year(self, category, expected):
         out = get_reg_result(category)
@@ -84,14 +81,11 @@ class TestYearExtraction:
             ("Category:2nd century BC", "2nd century BC"),
             ("Category:5th century BCE", "5th century BCE"),
             ("Category:1st millennium BC", "1st millennium BC"),
-
             # Plain century
             ("Category:20th century", "20th century"),
-
             # Decade with s
             ("Category:10s BC", "10s BC"),
-
-        ]
+        ],
     )
     def test_year2(self, category, expected):
         out = get_reg_result(category)
@@ -111,16 +105,14 @@ class TestTypeExtraction:
             ("Category:18th century BC conflicts", "conflicts"),
             ("Category:1990s establishments in Japan", "establishments"),
             ("Category:3rd millennium BCE architecture", "architecture"),
-
             # basedtypeTable
             ("Category:1999 television series", "television series"),
             ("Category:2000 video games", "video games"),
             ("Category:1999 sports events", "sports events"),
-
             # No type → empty
             ("Category:1999 France", ""),
             ("Category:2020 Japan", ""),
-        ]
+        ],
     )
     def test_typeo(self, category, expected):
         out = get_reg_result(category)
@@ -134,12 +126,13 @@ class TestTypeExtraction:
             ("Category:1999 manufactured by Toyota", "manufactured by"),
             ("Category:2001 written by John", "written by"),
             ("Category:2001 launched in USA", "launched in"),
-        ]
+        ],
     )
     def _test_typeo2(self, category, expected):
         out = get_reg_result(category)
         typeo = out.typeo.strip()
         assert typeo == expected
+
 
 # -----------------------------------------------------------
 # 3) Tests for extracting “In” token
@@ -154,16 +147,14 @@ class TestInExtraction:
             ("Category:1999 births in France", "in"),
             ("Category:2020 elections in Spain", "in"),
             ("Category:19th century architecture in Germany", "in"),
-
             # should work with variations from category_relation_mapping
             ("Category:1999 written in Canada", "written"),
             ("Category:1999 written by Canada", "written by"),
             ("Category:2001 launched in USA", "launched in"),
-
             # Test if In is empty
             ("Category:1999 births", ""),
             ("Category:2020 deaths", ""),
-        ]
+        ],
     )
     def test_in(self, category, expected):
         out = get_reg_result(category)
@@ -181,16 +172,14 @@ class TestCountryExtraction:
             ("Category:1999 births in France", "France"),
             ("Category:2020 elections in Spain", "Spain"),
             ("Category:19th century architecture in Germany", "Germany"),
-
             # with category_relation_mapping patterns
             ("Category:1999 manufactured in Italy", "Italy"),
             ("Category:1999 written by John", "John"),
             ("Category:1999 launched in USA", "USA"),
-
             # No country
             ("Category:1999 births", ""),
             ("Category:20th century architecture", ""),
-        ]
+        ],
     )
     def test_country(self, category, expected):
         out = get_reg_result(category)
@@ -209,7 +198,7 @@ class TestCombinedPatterns:
             # ("Category:2020 deaths by cancer in Japan", "2020", "deaths", "in", "japan"),
             ("Category:19th century architecture in Egypt", "19th century", "architecture", "in", "egypt"),
             # ("Category:1933–83 American Soccer League (USA)", "1933–83", "american soccer league", "", ""),
-        ]
+        ],
     )
     def test_combined(self, category, year, typeo, In, country):
         out = get_reg_result(category)
@@ -245,7 +234,7 @@ class TestMonthSuppression:
         [
             ("Category:January 1999 events", "january 1999"),
             ("Category:December 2020 births", "december 2020"),
-        ]
+        ],
     )
     def test_month_suppression(self, category, expected):
         out = get_reg_result(category)
@@ -256,6 +245,7 @@ class TestMonthSuppression:
 # 8) Tests for BCE / BC variations
 # -----------------------------------------------------------
 
+
 class TestBCE_BC:
     @pytest.mark.parametrize(
         "category,expected",
@@ -264,7 +254,7 @@ class TestBCE_BC:
             ("Category:5th century BCE", "5th century BCE"),
             ("Category:1st millennium BC", "1st millennium BC"),
             ("Category:2nd millennium BCE", "2nd millennium BCE"),
-        ]
+        ],
     )
     def test_bce(self, category, expected):
         out = get_reg_result(category)
@@ -274,6 +264,7 @@ class TestBCE_BC:
 # -----------------------------------------------------------
 # 9) Stress-test with all basedtypeTable + years
 # -----------------------------------------------------------
+
 
 @pytest.mark.parametrize("eng", list(basedtypeTable_20.keys()))
 @pytest.mark.dict

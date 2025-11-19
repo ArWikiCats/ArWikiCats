@@ -1,12 +1,14 @@
 """
 Tests
 """
-from typing import Sequence
-from _pytest.mark.structures import ParameterSet
-import pytest
 
-from src.make2_bots.ma_bots.year_or_typeo.reg_result import get_reg_result
-from src.make2_bots.ma_bots.year_or_typeo.reg_result import category_relation_mapping
+from typing import Sequence
+
+import pytest
+from _pytest.mark.structures import ParameterSet
+
+from src.make2_bots.ma_bots.year_or_typeo.reg_result import (
+    category_relation_mapping, get_reg_result)
 
 # -----------------------------------------------------------
 # 10) Stress-test with all category_relation_mapping keys
@@ -27,7 +29,7 @@ def test_in(eng: ParameterSet | Sequence[object] | object):
     In = out.In.lower().strip()
     country = out.country.lower()
     country_expected = "by canada" if In.strip() == "by" else "canada"
-    assert out.year_at_first == '2025 ', f"[{category}]: {str(out)}"
+    assert out.year_at_first == "2025 ", f"[{category}]: {str(out)}"
     # assert typeo == "", f"[{category}]: {str(out)}"
     # assert In == eng.lower().strip(), f"[{category}]: {str(out)}"
 

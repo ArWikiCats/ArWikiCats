@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import pytest
@@ -133,6 +132,7 @@ def test_ethnic_direct_mens_composition_requires_both_nationalities():
 
 
 # ---------- Tests for ethnic() fallback to ethnic_culture() ----------
+
 
 def test_ethnic_falls_back_to_ethnic_culture():
     """

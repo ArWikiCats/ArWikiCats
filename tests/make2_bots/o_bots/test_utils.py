@@ -17,9 +17,7 @@ from src.make2_bots.o_bots import utils
         ("Gamma", {"beta": "template"}, None),
     ],
 )
-def test_match_suffix_template_matches_expected_suffix(
-    name: str, suffixes: Dict[str, str], expected: tuple[str, str] | None
-) -> None:
+def test_match_suffix_template_matches_expected_suffix(name: str, suffixes: Dict[str, str], expected: tuple[str, str] | None) -> None:
     assert utils.match_suffix_template(name, suffixes) == expected
 
 

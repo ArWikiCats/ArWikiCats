@@ -3,15 +3,14 @@
 !
 """
 
+import json
 from pathlib import Path
 from typing import Any
-
-import json
 
 Dir2 = Path(__file__).parent.parent
 
 
-def open_json_file(file: str="") -> dict[str, Any] | list[Any]:
+def open_json_file(file: str = "") -> dict[str, Any] | list[Any]:
     if not file:
         return {}
     file_path = Dir2 / f"jsons/{file}.json"
@@ -26,7 +25,7 @@ def open_json_file(file: str="") -> dict[str, Any] | list[Any]:
     return {}
 
 
-def open_json(file_path: str="") -> dict[str, Any] | list[Any]:
+def open_json(file_path: str = "") -> dict[str, Any] | list[Any]:
     if not file_path:
         return {}
     file_path = Dir2 / "jsons" / file_path

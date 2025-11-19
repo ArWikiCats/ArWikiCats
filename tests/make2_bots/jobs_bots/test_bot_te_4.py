@@ -1,9 +1,11 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.jobs_bots.bot_te_4 import nat_match, te_2018_with_nat, Jobs_in_Multi_Sports
+from src.make2_bots.jobs_bots.bot_te_4 import (Jobs_in_Multi_Sports, nat_match,
+                                               te_2018_with_nat)
 
 fast_data = {
     "anti-haitian sentiment": "مشاعر معادية للهايتيون",
@@ -111,7 +113,6 @@ def test_Jobs_in_Multi_Sports(category, expected) -> None:
 data_2018_with_nat = {
     "filipino sports commentators": "معلقو {} رياضية فلبينية",
     "spanish commentators": "معلقو {} إسبانية",
-
     "scottish islands": "جزر إسكتلندية",
     "nigerian football": "كرة القدم النيجيرية",
     "south korean tennis": "كرة مضرب كورية جنوبية",
@@ -274,7 +275,6 @@ data_2018_with_nat = {
     "arab lgbtq people": "أعلام إل جي بي تي كيو عربية",
     "syrian websites": "مواقع ويب سورية",
     "serbian crime television series": "مسلسلات تلفزيونية جريمة صربية",
-
 }
 
 

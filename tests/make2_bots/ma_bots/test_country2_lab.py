@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.ma_bots.country2_lab import get_lab_for_country2
@@ -188,11 +189,7 @@ data = {
 }
 
 
-@pytest.mark.parametrize(
-    "category, expected",
-    data.items(),
-    ids=lambda x: x[0]
-)
+@pytest.mark.parametrize("category, expected", data.items(), ids=lambda x: x[0])
 def test_get_lab_for_country2(category, expected):
     result = get_lab_for_country2(category)
     assert result == expected

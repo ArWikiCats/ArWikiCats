@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+from ...helps.jsonl_dump import save_data
 from ...helps.log import logger
 from ...translations import PARTIES, party_end_keys
 from .utils import resolve_suffix_template
-from ...helps.jsonl_dump import save_data
 
 
 @save_data()
@@ -30,11 +30,7 @@ def get_parties_lab_old(party: str) -> str:
             logger.debug(f'party_uu:"{party_key}", tat:"{suffix}" ')
             label = PARTIES.get(party_key, "")
             if label:
-                party_label = (
-                    suffix_template % label
-                    if "%s" in suffix_template
-                    else suffix_template.format(label)
-                )
+                party_label = suffix_template % label if "%s" in suffix_template else suffix_template.format(label)
                 break
 
     if party_label:
@@ -68,6 +64,4 @@ def get_parties_lab(party: str) -> str:
     return party_label
 
 
-__all__ = [
-    "get_parties_lab"
-]
+__all__ = ["get_parties_lab"]

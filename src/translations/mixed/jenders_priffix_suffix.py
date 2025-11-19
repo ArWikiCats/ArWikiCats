@@ -1,5 +1,3 @@
-
-
 YEARS_LIST: list[int] = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 
 people_priffix: dict[str, str] = {
@@ -72,7 +70,7 @@ def _extend_men_prefixes() -> dict[str, str]:
     """
     Populate prefix variants used for male categories.
     # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
-    # """
+    #"""
 
     data = {
         "kidnapped": "{} مختطفون",

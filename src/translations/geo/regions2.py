@@ -4,6 +4,7 @@
 
 """
 from ..utils.json_dir import open_json_file
+
 # ---
 india_district_labels = {}
 raw_region_overrides = {}
@@ -19,9 +20,7 @@ for district_name, district_label in india_district_labels.items():
     INDIA_REGION_TRANSLATIONS[normalized_name] = district_label
     # India_districts[f"{normalized_name} district"] = f"مقاطعة {district_label}"
     # India_Citiese[district_name] = district_label
-    INDIA_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
-        f"مقاطعة {district_label}"
-    )
+    INDIA_REGION_TRANSLATIONS[f"{normalized_name} district"] = f"مقاطعة {district_label}"
 # ---
 del india_district_labels
 # ---
@@ -136,37 +135,27 @@ for region_key, region_label in raw_region_overrides.items():
 for governorate_name, governorate_label in EGYPT_GOVERNORATE_TRANSLATIONS.items():
     normalized_name = governorate_name.lower()
     SECONDARY_REGION_TRANSLATIONS[normalized_name] = governorate_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} governorate"] = (
-        f"محافظة {governorate_label}"
-    )
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} governorate"] = f"محافظة {governorate_label}"
 # ---
 for region_name, region_label in DJIBOUTI_REGION_TRANSLATIONS.items():
     normalized_name = region_name.lower()
     SECONDARY_REGION_TRANSLATIONS[normalized_name] = region_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = (
-        f"منطقة {region_label}"
-    )
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = f"منطقة {region_label}"
 # ---
 for department_name, department_label in GUATEMALA_DEPARTMENT_TRANSLATIONS.items():
     normalized_name = department_name.lower()
     SECONDARY_REGION_TRANSLATIONS[normalized_name] = department_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} department"] = (
-        f"إدارة {department_label}"
-    )
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} department"] = f"إدارة {department_label}"
 # ---
 for province_name, province_label in MONGOLIA_PROVINCE_TRANSLATIONS.items():
     normalized_name = province_name.lower()
     SECONDARY_REGION_TRANSLATIONS[normalized_name] = province_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"محافظة {province_label}"
-    )
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"محافظة {province_label}"
 # ---
 for prefecture_name, prefecture_label in CAR_PREFECTURE_TRANSLATIONS.items():
     normalized_name = prefecture_name.lower()
     SECONDARY_REGION_TRANSLATIONS[normalized_name] = prefecture_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} prefecture"] = (
-        f"محافظة {prefecture_label}"
-    )
+    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} prefecture"] = f"محافظة {prefecture_label}"
 # ---
 del (
     raw_region_overrides,

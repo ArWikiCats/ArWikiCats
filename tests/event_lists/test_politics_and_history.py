@@ -1,8 +1,9 @@
 #
-from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset, dump_diff
+from load_one_data import dump_diff, ye_test_one_dataset
 
-data ={
+from src import new_func_lab_final_label
+
+data = {
     "Category:Afghan criminal law": "تصنيف:القانون الجنائي الأفغاني",
     "Category:Archaeology of Europe by period": "تصنيف:علم الآثار في أوروبا حسب الحقبة",
     "Category:Award winners by nationality": "تصنيف:حائزو جوائز حسب الجنسية",
@@ -30,10 +31,7 @@ def test_politics_and_history():
 
 
 def test_politics_and_history():
-    data = {
-        "Category:American award winners": "تصنيف:حائزو جوائز أمريكيون",
-        "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"
-    }
+    data = {"Category:American award winners": "تصنيف:حائزو جوائز أمريكيون", "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"}
     print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 

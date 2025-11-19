@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """Integration tests for :mod:`teamsnew_bot` lazy resolver."""
 import pytest
+
 from src.translations_formats.format_data import FormatData
 
-data_list = {
-    "snooker": "سنوكر"
-}
+data_list = {"snooker": "سنوكر"}
 
 formated_data = {
     "{sport}": "{sport_label}",
@@ -26,9 +25,7 @@ formated_data = {
     "{sport} organizations": "منظمات {sport_label}",
 }
 
-examples = {
-    "snooker players": "لاعبو سنوكر"
-}
+examples = {"snooker players": "لاعبو سنوكر"}
 
 
 @pytest.fixture

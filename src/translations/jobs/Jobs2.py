@@ -7,9 +7,9 @@ from __future__ import annotations
 import logging
 from typing import Mapping, Tuple
 
+from ..utils.json_dir import open_json
 from .jobs_defs import GenderedLabelMap
 
-from ..utils.json_dir import open_json
 LOGGER = logging.getLogger(__name__)
 
 jobs_primary = open_json("jobs/Jobs_22.json")
@@ -161,10 +161,7 @@ def _build_scientist_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
 
     scientist_roles: GenderedLabelMap = {}
     for role_key, subject in disciplines.items():
-        scientist_roles[role_key.lower()] = {
-            "mens": f"علماء {subject}",
-            "womens": f"عالمات {subject}"
-        }
+        scientist_roles[role_key.lower()] = {"mens": f"علماء {subject}", "womens": f"عالمات {subject}"}
     return scientist_roles
 
 
@@ -173,10 +170,7 @@ def _build_scholar_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
 
     scholar_roles: GenderedLabelMap = {}
     for discipline, subject in disciplines.items():
-        scholar_roles[f"{discipline.lower()} scholars"] = {
-            "mens": f"علماء {subject}",
-            "womens": f"عالمات {subject}"
-        }
+        scholar_roles[f"{discipline.lower()} scholars"] = {"mens": f"علماء {subject}", "womens": f"عالمات {subject}"}
     return scholar_roles
 
 

@@ -1,9 +1,10 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.ma_bots.lab_seoo_bot import te_bot_3, event_Lab_seoo
+from src.make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo, te_bot_3
 
 event_Lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",
@@ -141,7 +142,6 @@ te_bot_3_data = {
     "20th century television series-endings": "مسلسلات تلفزيونية انتهت في القرن 20",
     "21st century television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في القرن 21",
     "21st century television series-endings": "مسلسلات تلفزيونية انتهت في القرن 21",
-
 }
 
 

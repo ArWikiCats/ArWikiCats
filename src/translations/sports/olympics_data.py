@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 
 from typing import Dict
+
 from ...helps import len_print
 from .games_labs import SUMMER_WINTER_GAMES
 
@@ -46,6 +45,4 @@ for tty, tty_lab in medalists_type.items():
 
 olympics["fis nordic world ski championships medalists"] = "فائزون بميداليات بطولة العالم للتزلج النوردي على الثلج"
 
-len_print.data_len("sports/olympicss_data.py", {
-    "olympics" : olympics
-})
+len_print.data_len("sports/olympicss_data.py", {"olympics": olympics})

@@ -4,15 +4,13 @@ Utilities for assembling singer-related gendered job labels.
 """
 
 from __future__ import annotations
+
 import sys
 from typing import Dict, Mapping
 
 from ...helps import len_print
 from ..utils.json_dir import open_json
-from .jobs_defs import (
-    GenderedLabel,
-    GenderedLabelMap,
-)
+from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 # ---------------------------------------------------------------------------
 # Helper functions
@@ -39,10 +37,7 @@ def _build_category_role_labels(
     for category_key, category_label in categories.items():
         for role_key, role_labels in roles.items():
             composite_key = f"{category_key} {role_key}"
-            combined[composite_key] = {
-                "mens": f"{role_labels['mens']} {category_label}",
-                "womens": f"{role_labels['womens']} {category_label}"
-            }
+            combined[composite_key] = {"mens": f"{role_labels['mens']} {category_label}", "womens": f"{role_labels['womens']} {category_label}"}
         # combined[ f"{category_key} singers" ] = { "mens": f"مغنو {category_label}" ,"womens": f"مغنيات {category_label}" }
         # combined[ f"{category_key} writers" ] = { "mens": f"كتاب {category_label}" ,"womens": f"كاتبات {category_label}" }
         # combined[ f"{category_key} authors" ] = { "mens": f"مؤلفو {category_label}" ,"womens": f"مؤلفات {category_label}" }
@@ -108,10 +103,7 @@ def _build_actor_labels(film_types: Mapping[str, GenderedLabel]) -> GenderedLabe
     actors: GenderedLabelMap = {}
 
     for film_key, film_labels in film_types.items():
-        actors[f"{film_key} actors"] = {
-            "mens": f"ممثلو {film_labels['mens']}",
-            "womens": ""
-        }
+        actors[f"{film_key} actors"] = {"mens": f"ممثلو {film_labels['mens']}", "womens": ""}
 
     return actors
 
@@ -216,7 +208,10 @@ SINGERS_AFTER_ROLES: Mapping[str, GenderedLabel] = {
 
 NON_FICTION_BASE_TOPICS: Mapping[str, GenderedLabel] = {
     "non-fiction": {"mens": "غير روائيون", "womens": "غير روائيات"},
-    "non-fiction environmental": {"mens": "بيئة غير روائيون", "womens": "بيئة غير روائيات", },
+    "non-fiction environmental": {
+        "mens": "بيئة غير روائيون",
+        "womens": "بيئة غير روائيات",
+    },
     "detective": {"mens": "بوليسيون", "womens": "بوليسيات"},
     "military": {"mens": "عسكريون", "womens": "عسكريات"},
     "nautical": {"mens": "بحريون", "womens": "بحريات"},
@@ -278,17 +273,20 @@ MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
 
 MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
 
-len_print.data_len("jobs_singers.py", {
-    "FILMS_TYPE": FILMS_TYPE,
-    "NON_FICTION_ADDITIONAL_TOPICS": NON_FICTION_ADDITIONAL_TOPICS,
-    "NON_FICTION_BASE_TOPICS": NON_FICTION_BASE_TOPICS,
-    "NON_FICTION_TOPICS": NON_FICTION_TOPICS,
-    "SINGER_CATEGORY_LABELS": SINGER_CATEGORY_LABELS,
-    "SINGERS_AFTER_ROLES": SINGERS_AFTER_ROLES,
-    "SINGERS_MAIN_CATEGORIES": SINGERS_MAIN_CATEGORIES,
-    "MEN_WOMENS_SINGERS": MEN_WOMENS_SINGERS,
-    "SINGERS_TAB": SINGERS_TAB,
-})
+len_print.data_len(
+    "jobs_singers.py",
+    {
+        "FILMS_TYPE": FILMS_TYPE,
+        "NON_FICTION_ADDITIONAL_TOPICS": NON_FICTION_ADDITIONAL_TOPICS,
+        "NON_FICTION_BASE_TOPICS": NON_FICTION_BASE_TOPICS,
+        "NON_FICTION_TOPICS": NON_FICTION_TOPICS,
+        "SINGER_CATEGORY_LABELS": SINGER_CATEGORY_LABELS,
+        "SINGERS_AFTER_ROLES": SINGERS_AFTER_ROLES,
+        "SINGERS_MAIN_CATEGORIES": SINGERS_MAIN_CATEGORIES,
+        "MEN_WOMENS_SINGERS": MEN_WOMENS_SINGERS,
+        "SINGERS_TAB": SINGERS_TAB,
+    },
+)
 
 __all__ = [
     "FILMS_TYPE",

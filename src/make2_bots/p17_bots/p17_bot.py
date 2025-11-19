@@ -1,16 +1,20 @@
-"""
+""" """
 
-"""
 import re
-from ..jobs_bots.get_helps import get_con_3
-from ..matables_bots.bot import All_P17
-from ..format_bots import category_relation_mapping, pop_format
-
-from ...translations import SPORT_FORMTS_EN_AR_IS_P17, Get_Sport_Format_xo_en_ar_is_P17
-from ...translations import en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, en_is_P17_ar_is_al_women
-from ...translations import all_country_with_nat_keys_is_en, contries_from_nat
 
 from ...helps.log import logger
+from ...translations import (
+    SPORT_FORMTS_EN_AR_IS_P17,
+    Get_Sport_Format_xo_en_ar_is_P17,
+    all_country_with_nat_keys_is_en,
+    contries_from_nat,
+    en_is_P17_ar_is_al_women,
+    en_is_P17_ar_is_mens,
+    en_is_P17_ar_is_P17,
+)
+from ..format_bots import category_relation_mapping, pop_format
+from ..jobs_bots.get_helps import get_con_3
+from ..matables_bots.bot import All_P17
 
 
 def add_definite_article(label: str) -> str:
@@ -91,21 +95,15 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
         if con_3_lab:
             if FOF:
-                logger.debug(
-                    f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"'
-                )
+                logger.debug(f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"')
             if "{nat}" in con_3_lab:
                 resolved_label = con_3_lab.format(nat=country_start_lab)
             else:
                 resolved_label = con_3_lab.format(country_start_lab)
 
-            logger.debug(
-                f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" '
-            )
+            logger.debug(f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" ')
 
-        logger.debug(
-            f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{resolved_label}" == ""'
-        )
+        logger.debug(f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{resolved_label}" == ""')
 
     else:
         logger.info(f'<<lightred>>>>>> con_3: "{con_3}" or country_start :"{country_start}" == ""')

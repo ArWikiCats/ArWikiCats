@@ -1,9 +1,12 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.lazy_data_bots.bot_2018 import lazy_load, Add_to_pop_All_18, get_pop_All_18
+from src.make2_bots.lazy_data_bots.bot_2018 import (Add_to_pop_All_18,
+                                                    get_pop_All_18, lazy_load)
+
 
 def test_lazy_load():
     # Test the lazy_load function
@@ -12,6 +15,7 @@ def test_lazy_load():
 
     # Verify it returns a dictionary
     assert type(result) is dict
+
 
 def test_add_to_pop_all_18():
     # Test with an empty dict
@@ -23,6 +27,7 @@ def test_add_to_pop_all_18():
 
     # This function modifies internal state, so we just verify it runs without error
     assert True
+
 
 def test_get_pop_all_18():
     # Test with a basic key (likely won't find the key but should return default)

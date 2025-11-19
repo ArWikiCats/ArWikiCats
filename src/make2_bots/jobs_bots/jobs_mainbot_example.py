@@ -11,7 +11,7 @@ nats = {
     "democratic republic of the congo": {"mens": "كونغويون ديمقراطيون", "womens": "كونغويات ديمقراطيات"},
     "prussian": {"mens": "بروسيون", "womens": "بروسيات"},
     "north yemeni": {"mens": "يمنيون شماليون", "womens": "يمنيات شماليات"},
-    "south yemeni": {"mens": "يمنيون جنوبيون", "womens": "يمنيات جنوبيات"}
+    "south yemeni": {"mens": "يمنيون جنوبيون", "womens": "يمنيات جنوبيات"},
 }
 
 
@@ -71,7 +71,7 @@ short_womens_jobs = {
     "women's wushu racing players": "لاعبات سباق ووشو نسائية",
     "women's xiangqi players": "لاعبات شطرنج صيني نسائية",
     "women's xiangqi racing players": "لاعبات سباق شطرنج صيني نسائية",
-    "women's yacht racing players": "لاعبات سباقات يخوت نسائية"
+    "women's yacht racing players": "لاعبات سباقات يخوت نسائية",
 }
 
 NAT_BEFORE_OCC = [

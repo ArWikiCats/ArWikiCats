@@ -1,9 +1,12 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.jobs_bots.te4_bots.langs_w import Lang_work, lab_from_lang_keys, languages_key
+from src.make2_bots.jobs_bots.te4_bots.langs_w import (Lang_work,
+                                                       lab_from_lang_keys,
+                                                       languages_key)
 
 languages_key_subset = {k: languages_key[k] for k in list(languages_key.keys())[:15]}
 
@@ -114,7 +117,6 @@ data = {
     "pali-language surnames": "ألقاب باللغة البالية",
     "pali-language writing system": "نظام كتابة اللغة البالية",
     "pali-language": "اللغة البالية",
-
     "arabic films": "أفلام باللغة العربية",
     "arabic language dialects": "لهجات لغة عربية",
     "arabic language films": "أفلام بلغة عربية",
@@ -139,11 +141,7 @@ data = {
 }
 
 
-@pytest.mark.parametrize(
-    "category, expected",
-    data.items(),
-    ids=lambda x: x[0]
-)
+@pytest.mark.parametrize("category, expected", data.items(), ids=lambda x: x[0])
 def test_Lang_work_main(category, expected):
     result = Lang_work(category)
     assert result == expected
@@ -176,6 +174,7 @@ def test_lab_from_lang_keys():
     result_safe_empty = lab_from_lang_keys("", "english language", "الإنجليزية", "english ")
     assert isinstance(result_safe_empty, str)
 
+
 # -----------------------------------------------------------
 # 1) Parametrize: test direct keys from languages_key_subset
 # -----------------------------------------------------------
@@ -201,11 +200,7 @@ def test_lang_work_direct(key, expected):
 # -----------------------------------------------------------
 @pytest.mark.parametrize(
     "key, expected",
-    [
-        (k, f"لغة {languages_key_subset[k]}")
-        for k in languages_key_subset
-        if not k.endswith(" language")
-    ],
+    [(k, f"لغة {languages_key_subset[k]}") for k in languages_key_subset if not k.endswith(" language")],
     ids=lambda x: x[0],
 )
 def test_lang_work_language_suffix(key, expected):

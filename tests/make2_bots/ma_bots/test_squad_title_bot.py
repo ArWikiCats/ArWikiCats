@@ -1,12 +1,12 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.ma_bots.squad_title_bot import get_squad_title
 
 get_squad_title_data = {
-
     "1970 afc asian cup": "تشكيلات كأس آسيا 1970",
     "1970 afc women's asian cup": "تشكيلات كأس الأمم الآسيوية لكرة القدم للسيدات 1970",
     "1970 afc women's championship": "تشكيلات بطولة آسيا للسيدات 1970",

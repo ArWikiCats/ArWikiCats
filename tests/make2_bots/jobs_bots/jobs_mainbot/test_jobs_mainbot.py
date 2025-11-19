@@ -1,9 +1,11 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix, Nat_Womens
+from src.make2_bots.jobs_bots.jobs_mainbot import (Nat_Womens,
+                                                   jobs_with_nat_prefix)
 
 
 @pytest.mark.fast
@@ -36,6 +38,7 @@ def test_jobs():
 # =========================================================
 #                 TESTS FOR MEN'S PATH
 # =========================================================
+
 
 def test_mens_direct_job_from_jobs_mens_data():
     jobs_with_nat_prefix.cache_clear()
@@ -107,6 +110,7 @@ def test_womens_direct_word_women_keyword():
     result = jobs_with_nat_prefix("", "egyptian", "women")
     assert result == "مصريات"
 
+
 # =========================================================
 #                 MIXED CASES
 # =========================================================
@@ -141,6 +145,7 @@ def test_no_mens_no_women_return_empty():
 # =========================================================
 #                 EDGE CASES
 # =========================================================
+
 
 def test_con_3_starts_with_people_space():
     jobs_with_nat_prefix.cache_clear()
@@ -203,6 +208,7 @@ def test_new_womens_nationality_argentine_female_sailors():
     result = jobs_with_nat_prefix("", "argentine", "female sailors")
     assert result == "بحارات أرجنتينيات"
 
+
 # --- New Men's Jobs Data Tests ---
 
 
@@ -223,6 +229,7 @@ def test_new_mens_job_historical_objectivists_ancient_roman():
     result = jobs_with_nat_prefix("", "ancient-roman", "historical objectivists")
     assert result == "موضوعيون تاريخيون رومان قدماء"
 
+
 # --- New Women's Short Jobs Data Tests ---
 
 
@@ -242,6 +249,7 @@ def test_new_womens_short_job_women_in_politics_argentinean():
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "argentinean", "women in politics")
     assert result == "سياسيات أرجنتينيات"
+
 
 # --- MEN_WOMENS_WITH_NATO Tests ---
 
@@ -267,7 +275,8 @@ def test_mens_nato_politicians_who_committed_suicide_albanian():
 def test_womens_nato_politicians_who_committed_suicide_albanian():
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "albanian", "female politicians who committed suicide", womens=Nat_Womens["albanian"])
-    assert result in ["سياسيات ألبانيات أقدمن على الانتحار" , "سياسيات أقدمن على الانتحار ألبانيات"]
+    assert result in ["سياسيات ألبانيات أقدمن على الانتحار", "سياسيات أقدمن على الانتحار ألبانيات"]
+
 
 # --- Combined Cases ---
 
@@ -276,6 +285,7 @@ def test_womens_new_job_with_prefix_and_nato_algerian_female_eugenicists():
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "algerian", "female eugenicists")
     assert result == "عالمات متخصصات في تحسين النسل جزائريات"
+
 
 # Test for a nationality that is in both mens and womens, defaulting to mens
 

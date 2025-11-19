@@ -1,15 +1,14 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 
 import re
+
+from ...helps.log import logger
+from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ..utils.match_sport_keys import match_sport_key
+
 # ---
 from .te2 import New_For_nat_female_xo_team
-from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from ...helps.log import logger
-from ..utils.match_sport_keys import match_sport_key
 
 
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
@@ -24,9 +23,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
         template_label = ""
         normalized_team_key = con_77.replace(sport_key, "xzxz")
         normalized_team_key = re.sub(sport_key, "xzxz", normalized_team_key, flags=re.IGNORECASE)
-        logger.info(
-            f'Get_Sport_Formats_For_nat female con_77:"{con_77}", sport_key:"{sport_key}", team_xz:"{normalized_team_key}"'
-        )
+        logger.info(f'Get_Sport_Formats_For_nat female con_77:"{con_77}", sport_key:"{sport_key}", team_xz:"{normalized_team_key}"')
         if normalized_team_key in New_For_nat_female_xo_team:
             sport_arabic_label = SPORTS_KEYS_FOR_JOBS.get(sport_key, "")
             if not sport_arabic_label:
@@ -38,9 +35,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
                     label = resolved_label
                     logger.info(f'Get_Sport_Formats_For_nat female bbvb:"{label}"')
         else:
-            logger.info(
-                f'Get_Sport_Formats_For_nat female team_xz:"{normalized_team_key}" not in New_For_nat_female_xo_team'
-            )
+            logger.info(f'Get_Sport_Formats_For_nat female team_xz:"{normalized_team_key}" not in New_For_nat_female_xo_team')
     if label:
         logger.info(f'Get_Sport_Formats_For_nat female con_77:"{con_77}", label:"{label}"')
     return label

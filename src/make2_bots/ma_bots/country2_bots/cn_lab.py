@@ -4,13 +4,13 @@
 """
 
 import re
-from ....translations import By_table, typeTable
-from ...format_bots import pop_format, pop_format2
 
+from ....helps.log import logger
+from ....translations import By_table, typeTable
+from ....utils import check_key_in_tables
+from ...format_bots import pop_format, pop_format2
 from ...matables_bots.bot import Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
-from ....utils import check_key_in_tables
-from ....helps.log import logger
 
 
 def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:

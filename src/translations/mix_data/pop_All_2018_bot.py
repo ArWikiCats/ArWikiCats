@@ -4,32 +4,34 @@ pop_All_2018
 """
 # ---
 from typing import Dict
-from ..utils.json_dir import open_json_file
-from ..sports.olympics_data import olympics
-from ..mixed.all_keys2 import pf_keys2
+
+from ..by_type import By_table
 from ..geo.labels_country import New_P17_Finall
-from ..tv.films_mslslat import films_mslslat_tab
 from ..jobs.Jobs import Jobs_new, jobs_mens_data
+from ..mixed.all_keys2 import pf_keys2
+from ..sports.olympics_data import olympics
 from ..sports.Sport_key import SPORTS_KEYS_FOR_LABEL
 from ..sports.sub_teams_keys import sub_teams_new
-from ..by_type import By_table
+from ..tv.films_mslslat import films_mslslat_tab
+from ..utils.json_dir import open_json_file
+
 # from ..sports.teams_new_data import TEAMS_NEW
 
 
 def load_pop_All_2018() -> Dict[str, str]:
     # result: 524266 item with TEAMS_NEW
     # result: 226,093 item
-    data = open_json_file("pop_All_2018") or {}     # 161
+    data = open_json_file("pop_All_2018") or {}  # 161
 
     sources = [
-        pf_keys2,               # 26,557
-        Jobs_new,               # 132,174
-        jobs_mens_data,          # 130,632
-        films_mslslat_tab,      # 2,480
-        By_table,               # 15,899
-        sub_teams_new,          # 12,134
+        pf_keys2,  # 26,557
+        Jobs_new,  # 132,174
+        jobs_mens_data,  # 130,632
+        films_mslslat_tab,  # 2,480
+        By_table,  # 15,899
+        sub_teams_new,  # 12,134
         # TEAMS_NEW,            # 352,946
-        New_P17_Finall,         # 62,671
+        New_P17_Finall,  # 62,671
         SPORTS_KEYS_FOR_LABEL,  # 672
     ]
     for source in sources:

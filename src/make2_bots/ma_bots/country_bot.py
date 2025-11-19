@@ -12,26 +12,24 @@ lab = country_bot.get_country()
 """
 import re
 from typing import Dict
-from . import ye_ts_bot
 
-from ..date_bots import with_years_bot
-from ..p17_bots import nats
-from ..sports_bots import team_work
-
-from ..media_bots.films_bot import te_films
-
-from . import country2_bot
-from . import country2_lab
-from ...translations import SPORTS_KEYS_FOR_LABEL
-from ...translations import Nat_mens
-from ...translations import New_female_keys
-from ..matables_bots.centries_bot import centries_years_dec
-from ...translations import pop_of_without_in
-from ...translations import jobs_mens_data
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
-from ... import app_settings
+from ...config import app_settings
 from ...helps.log import logger
+from ...translations import (
+    SPORTS_KEYS_FOR_LABEL,
+    Nat_mens,
+    New_female_keys,
+    jobs_mens_data,
+    pop_of_without_in,
+)
+from ..date_bots import with_years_bot
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
+from ..matables_bots.centries_bot import centries_years_dec
+from ..media_bots.films_bot import te_films
+from ..p17_bots import nats
+from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
+from ..sports_bots import team_work
+from . import country2_bot, country2_lab, ye_ts_bot
 
 get_country_done: Dict[str, str] = {}
 
@@ -126,19 +124,14 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
 
             if remainder_label:
                 resolved_label = prefix_template.format(remainder_label)
-                if (
-                    remainder_label.strip().endswith(" في")
-                    and prefix.startswith("defunct ")
-                ):
+                if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
                     resolved_label = f'{remainder_label.strip()[:-len(" في")]} سابقة في'
                 logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
                 break
 
     if resolved_label:
         if "سنوات في القرن" in resolved_label:
-            resolved_label = re.sub(
-                r"سنوات في القرن", "سنوات القرن", resolved_label
-            )
+            resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
     if not resolved_label:
         RE1 = RE1_compile.match(country)

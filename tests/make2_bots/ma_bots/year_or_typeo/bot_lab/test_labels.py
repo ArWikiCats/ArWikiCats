@@ -1,14 +1,15 @@
-
 import pytest
-from src.make2_bots.ma_bots.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
-from load_one_data import ye_test_one_dataset, dump_diff
+from load_one_data import dump_diff, ye_test_one_dataset
+
+from src.make2_bots.ma_bots.year_or_typeo.bot_lab import \
+    label_for_startwith_year_or_typeo
 
 examples = {
-    '2000s American films': 'أفلام أمريكية في عقد 2000',
-    '2017 American television series debuts': 'مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017',
-    '2017 American television series endings': 'مسلسلات تلفزيونية أمريكية انتهت في 2017',
+    "2000s American films": "أفلام أمريكية في عقد 2000",
+    "2017 American television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
+    "2017 American television series endings": "مسلسلات تلفزيونية أمريكية انتهت في 2017",
     "Paralympic competitors for Cape Verde": "منافسون في الألعاب البارالمبية من الرأس الأخضر",
-    '1980 sports events in Europe': 'أحداث 1980 الرياضية في أوروبا',
+    "1980 sports events in Europe": "أحداث 1980 الرياضية في أوروبا",
     "April 1983 sports events": "أحداث أبريل 1983 الرياضية",
     "April 1983 events in Europe": "أحداث أبريل 1983 في أوروبا",
     "July 2018 events by continent": "أحداث يوليو 2018 حسب القارة",
@@ -38,10 +39,9 @@ def test_label_for_startwith_year_or_typeo():
 examples_century = {
     "1st-millennium architecture": "عمارة الألفية 1",
     "1st-millennium literature": "أدب الألفية 1",
-
-    '18th-century Dutch explorers': 'مستكشفون هولنديون في القرن 18',
+    "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
     "20th-century Albanian sports coaches": "مدربو رياضة ألبان في القرن 20",
-    '19th-century actors': 'ممثلون في القرن 19',
+    "19th-century actors": "ممثلون في القرن 19",
     "19th-century actors by religion": "ممثلون في القرن 19 حسب الدين",
     "19th-century people by religion": "أشخاص في القرن 19 حسب الدين",
     "20th-century railway accidents": "حوادث سكك حديد في القرن 20",
@@ -53,7 +53,6 @@ examples_century = {
     "14th-century establishments in India": "تأسيسات القرن 14 في الهند",
     "19th-century publications": "منشورات القرن 19",
     "1st-century architecture": "عمارة القرن 1",
-
 }
 
 

@@ -2,7 +2,6 @@
 Utility tables for translating multi-season sporting competitions.
 """
 
-
 BASE_GAME_LABELS = {
     "african games": "الألعاب الإفريقية",
     "all-africa games": "ألعاب عموم إفريقيا",

@@ -1,9 +1,8 @@
-
 import logging
-from typing import Optional, Union, Any
+from typing import Any, Optional, Union
 
-from ..helps.printe_helper import make_str
 from ..config import print_settings
+from ..helps.printe_helper import make_str
 
 
 class LoggerWrap:
@@ -50,12 +49,12 @@ logger = LoggerWrap(__name__)
 
 def config_logger(level: Optional[Union[int, str]] = None) -> None:
     _levels = [
-        'CRITICAL',
-        'ERROR',
-        'WARNING',
-        'INFO',
-        'DEBUG',
-        'NOTSET',
+        "CRITICAL",
+        "ERROR",
+        "WARNING",
+        "INFO",
+        "DEBUG",
+        "NOTSET",
     ]
 
     if not level:
@@ -64,12 +63,12 @@ def config_logger(level: Optional[Union[int, str]] = None) -> None:
     logging.basicConfig(
         level=level,
         # format='%(asctime)s - %(levelname)s - %(message)s',
-        format='%(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
+        format="%(levelname)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
     )
 
 
 __all__ = [
-    'logger',
-    'config_logger',
+    "logger",
+    "config_logger",
 ]

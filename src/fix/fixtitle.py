@@ -11,10 +11,15 @@ from __future__ import annotations
 import re
 from typing import Iterable, Mapping
 
-from .fixlists import ENDING_REPLACEMENTS, REPLACEMENTS, STARTING_REPLACEMENTS, YEAR_CATEGORY_LABELS
-from ..make2_bots.reg_lines import YEARS_REGEX_AR
-from .mv_years import move_years
 from ..helps.log import logger
+from ..make2_bots.reg_lines import YEARS_REGEX_AR
+from .fixlists import (
+    ENDING_REPLACEMENTS,
+    REPLACEMENTS,
+    STARTING_REPLACEMENTS,
+    YEAR_CATEGORY_LABELS,
+)
+from .mv_years import move_years
 from .specific_normalizations import apply_category_specific_normalizations
 
 

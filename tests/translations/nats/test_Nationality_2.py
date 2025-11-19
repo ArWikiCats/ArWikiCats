@@ -1,19 +1,16 @@
+from typing import Dict
 
 import pytest
 
-from typing import Dict
-from src.translations.nats.Nationality import (
-    load_sources,
-    normalize_aliases,
-    build_american_forms,
-    build_lookup_tables,
-    NationalityEntry,
-)
-
+from src.translations.nats.Nationality import (NationalityEntry,
+                                               build_american_forms,
+                                               build_lookup_tables,
+                                               load_sources, normalize_aliases)
 
 # -------------------------------------------------------------------
 # Helpers
 # -------------------------------------------------------------------
+
 
 def make_entry(
     men: str = "",
@@ -37,6 +34,7 @@ def make_entry(
 # -------------------------------------------------------------------
 # Tests for load_sources
 # -------------------------------------------------------------------
+
 
 def test_load_sources_returns_normalized_entries(monkeypatch):
     """load_sources should return dict of NationalityEntry with all keys present and string values."""
@@ -117,6 +115,7 @@ def test_load_sources_merge_all_sources(monkeypatch):
 # Tests for normalize_aliases
 # -------------------------------------------------------------------
 
+
 def test_normalize_aliases_alias_copy():
     """Alias keys (e.g. russians) should reuse target entry (russian)."""
 
@@ -144,11 +143,7 @@ def test_normalize_aliases_adds_southwest_asian():
 def test_normalize_aliases_georgia_country_copy():
     """georgia (country) should be derived from georgian entry and override 'en'."""
 
-    base = {
-        "georgian": make_entry(
-            men="جورجي", en="georgia", ar="جورجي"
-        )
-    }
+    base = {"georgian": make_entry(men="جورجي", en="georgia", ar="جورجي")}
 
     out = normalize_aliases(base)
     assert "georgia (country)" in out
@@ -171,6 +166,7 @@ def test_normalize_aliases_papua_new_guinean_added():
 # -------------------------------------------------------------------
 # Tests for build_american_forms
 # -------------------------------------------------------------------
+
 
 def test_build_american_forms_basic():
     """build_american_forms should create '-american' keys when there is at least one gendered form."""
@@ -222,6 +218,7 @@ def test_build_american_forms_jewish_special_case():
 # -------------------------------------------------------------------
 # Tests for build_lookup_tables
 # -------------------------------------------------------------------
+
 
 def test_build_lookup_tables_nat_men_and_country():
     """build_lookup_tables should fill Nat_men and contries_from_nat correctly."""
@@ -297,6 +294,7 @@ def test_build_lookup_tables_iranian_special_case():
 # -------------------------------------------------------------------
 # Integration tests
 # -------------------------------------------------------------------
+
 
 def test_full_pipeline_minimal():
     """End-to-end integration: from raw data → All_Nat → american forms → lookup tables."""

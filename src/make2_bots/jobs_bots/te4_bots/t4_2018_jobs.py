@@ -5,26 +5,25 @@
 
 import functools
 
+from ....helps.log import logger
 from ....translations import (
-    People_key,
-    Nat_women,
-    Nat_men,
-    jobs_mens_data,
-    short_womens_jobs,
-    en_is_nat_ar_is_man,
-    en_is_nat_ar_is_women,
-    change_male_to_female,
-    priffix_lab_for_2018,
     Main_priffix,
     Main_priffix_to,
+    Nat_men,
+    Nat_women,
+    People_key,
+    change_male_to_female,
+    en_is_nat_ar_is_man,
+    en_is_nat_ar_is_women,
+    jobs_mens_data,
+    priffix_lab_for_2018,
+    short_womens_jobs,
 )
-from .relegin_jobs import try_relegins_jobs_with_suffix
-from .langs_w import Lang_work
-
 from ..get_helps import get_con_3
-from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ..jobs_mainbot import jobs_with_nat_prefix
-from ....helps.log import logger
+from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from .langs_w import Lang_work
+from .relegin_jobs import try_relegins_jobs_with_suffix
 
 
 @functools.lru_cache(maxsize=None)
@@ -54,7 +53,7 @@ def te4_2018_Jobs(cate: str) -> str:
         me2 = f"{me} "
         if cate.lower().startswith(me2.lower()):
             Main_Ss = me
-            cate = cate2_no_lower[len(me2):]
+            cate = cate2_no_lower[len(me2) :]
             Main_lab = melab
             if cate.endswith("women") or cate.endswith("women's"):
                 if Main_lab in change_male_to_female:

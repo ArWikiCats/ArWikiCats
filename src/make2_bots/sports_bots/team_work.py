@@ -12,15 +12,12 @@ Example usage:
 """
 
 import functools
-from ...helps.log import logger
-
-from ...translations import Clubs_key_2
-from ...translations import INTER_FEDS_LOWER
-from ...translations import pop_of_football_lower
-from ..jobs_bots import bot_te_4
-from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
 
 from ...helps.jsonl_dump import save_data
+from ...helps.log import logger
+from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
+from ..jobs_bots import bot_te_4
+from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
 
 Teams_new_end_keys = {
     "fan clubs": "أندية معجبي {}",
@@ -98,11 +95,11 @@ def _extract_club_key(category: str, suffix: str) -> str:
     """
     team_suffix = f" team {suffix}"
     if category.endswith(team_suffix):
-        return category[:-len(team_suffix)]
+        return category[: -len(team_suffix)]
 
     simple_suffix = f" {suffix}"
     if category.endswith(simple_suffix):
-        return category[:-len(simple_suffix)]
+        return category[: -len(simple_suffix)]
 
     return ""
 
@@ -116,12 +113,7 @@ def _resolve_club_label(club_key: str) -> str:
     Returns:
         Resolved club label or empty string
     """
-    club_lab = (
-        Clubs_key_2.get(club_key)
-        or pop_of_football_lower.get(club_key)
-        or INTER_FEDS_LOWER.get(club_key)
-        or ""
-    )
+    club_lab = Clubs_key_2.get(club_key) or pop_of_football_lower.get(club_key) or INTER_FEDS_LOWER.get(club_key) or ""
 
     if not club_lab:
         club_lab = bot_te_4.te_2018_with_nat(club_key)

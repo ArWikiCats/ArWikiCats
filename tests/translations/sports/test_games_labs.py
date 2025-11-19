@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 import pytest
+
 from src.translations.sports import games_labs
 
 

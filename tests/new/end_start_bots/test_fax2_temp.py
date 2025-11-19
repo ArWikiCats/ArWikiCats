@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.new.end_start_bots.fax2_temp import get_templates_fo

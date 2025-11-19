@@ -1,4 +1,5 @@
 """Mappings for gender specific mixed keys."""
+
 from ...helps import len_print
 from ..companies import companies_data
 from ..structures import structures_data
@@ -183,13 +184,10 @@ FEMALE_EXPANSIONS: dict[str, str] = {
     "{base} censorship": "رقابة {label}",
     "{base} communications": "اتصالات {label}",
     "{base} animals": "حيوانات {label}",
-
     "{base} philosophy": "فلسفة {label}",
     "{base} migration": "هجرة {label}",
-
     "{base} think tanks": "مؤسسات فكر ورأي {label}",
     "{base} positions": "مراكز {label}",
-
     "{base} accidents-and-incidents": "حوادث {label}",
     "{base} accidents and incidents": "حوادث {label}",
     "{base} accidents or incidents": "حوادث {label}",
@@ -197,7 +195,6 @@ FEMALE_EXPANSIONS: dict[str, str] = {
     "{base} incidents": "حوادث {label}",
     "{base} software": "برمجيات {label}",
     "{base} databases": "قواعد بيانات {label}",
-
     "{base} controversies": "خلافات {label}",
     "{base} agencies": "وكالات {label}",
     "{base} units and formations": "وحدات وتشكيلات {label}",
@@ -209,32 +206,26 @@ FEMALE_EXPANSIONS: dict[str, str] = {
     "{base} organization": "منظمات {label}",
     "{base} facilities": "مرافق {label}",
     "{base} bunkers": "مخابئ {label}",
-
     "{base} research facilities": "مرافق بحثية {label}",
     "{base} training facilities": "مرافق تدريب {label}",
     "{base} industrial facilities": "مرافق صناعية {label}",
     "{base} warfare facilities": "مرافق حربية {label}",
-
     "{base} logistics": "لوجستية {label}",
     "{base} research": "أبحاث {label}",
     "{base} industry": "صناعة {label}",
     "{base} technology": "تقنيات {label}",
-
     "{base} disasters": "كوارث {label}",
     "{base} writing": "كتابات {label}",
     "{base} issues": "قضايا {label}",
-
     "{base} rights": "حقوق {label}",
     "{base} communities": "مجتمعات {label}",
     "{base} culture": "ثقافة {label}",
     "{base} underground culture": "ثقافة باطنية {label}",
-
     "{base} companies of": "شركات {label} في",
     "{base} companies": "شركات {label}",
     "{base} firms of": "شركات {label} في",
     "{base} firms": "شركات {label}",
     "{base} museums": "متاحف {label}",
-
     "{base} politics": "سياسة {label}",
     "{base} banks": "بنوك {label}",
     "{base} buildings": "مبان {label}",
@@ -340,10 +331,13 @@ def build_male_keys() -> dict[str, str]:
 New_female_keys: dict[str, str] = build_female_keys()
 New_male_keys: dict[str, str] = build_male_keys()
 
-len_print.data_len("male_keys.py", {
-    "New_female_keys": New_female_keys,
-    "New_male_keys": New_male_keys,
-})
+len_print.data_len(
+    "male_keys.py",
+    {
+        "New_female_keys": New_female_keys,
+        "New_male_keys": New_male_keys,
+    },
+)
 
 __all__ = [
     "New_female_keys",

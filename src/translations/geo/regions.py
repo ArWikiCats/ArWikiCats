@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-"""
+""" """
 
 PRIMARY_REGION_TRANSLATIONS = {
     "limburg (belgium)": "ليمبورغ (بلجيكا)",
@@ -658,43 +657,29 @@ for county_name, county_label in UK_COUNTY_TRANSLATIONS.items():
 for region_name, region_label in PERU_REGION_TRANSLATIONS.items():
     normalized_name = region_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = region_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = (
-        f"إقليم {region_label}"
-    )
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"مقاطعة {region_label}"
-    )
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
-        f"مديرية {region_label}"
-    )
+    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = f"إقليم {region_label}"
+    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"مقاطعة {region_label}"
+    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = f"مديرية {region_label}"
 # ---
 for district_name, district_label in SRI_LANKA_DISTRICT_TRANSLATIONS.items():
     normalized_name = district_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = district_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = (
-        f"مديرية {district_label}"
-    )
+    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = f"مديرية {district_label}"
 # ---
 for province_name, province_label in ALGERIA_PROVINCE_TRANSLATIONS.items():
     normalized_name = province_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = province_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"ولاية {province_label}"
-    )
+    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"ولاية {province_label}"
 # ---
 for state_name, state_label in VENEZUELA_STATE_TRANSLATIONS.items():
     normalized_name = state_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = state_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} (state)"] = (
-        f"ولاية {state_label}"
-    )
+    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} (state)"] = f"ولاية {state_label}"
 # ---
 for province_name, province_label in ECUADOR_PROVINCE_TRANSLATIONS.items():
     normalized_name = province_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = province_label
-    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = (
-        f"مقاطعة {province_label}"
-    )
+    PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"مقاطعة {province_label}"
 # ---
 del (
     PERU_REGION_TRANSLATIONS,

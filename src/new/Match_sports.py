@@ -6,7 +6,6 @@ Single-file test implementation for the 'xoxo' sports template resolver.
 import re
 from typing import Dict, Optional, Tuple
 
-
 TEMPLATES_TEAMS: Dict[str, str] = {
     "men's xoxo world cup": "كأس العالم للرجال في {sport_ar}",
     "women's xoxo world cup": "كأس العالم للسيدات في {sport_ar}",

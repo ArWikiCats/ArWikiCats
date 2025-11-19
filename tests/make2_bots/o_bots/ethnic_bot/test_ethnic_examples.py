@@ -8,6 +8,7 @@ ethnic_culture = ethnic_mod.ethnic_culture
 # Sample comparisons for ethnic()  (people → شعوب)
 # -------------------------------------------------
 
+
 @pytest.mark.unit
 @pytest.mark.parametrize(
     "category,start,suffix,expected_ar",
@@ -73,6 +74,7 @@ def test_ethnic_unknown_returns_empty():
 # -------------------------------------------------
 # Sample comparisons for ethnic_culture()
 # -------------------------------------------------
+
 
 @pytest.mark.unit
 @pytest.mark.parametrize(

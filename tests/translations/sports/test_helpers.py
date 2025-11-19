@@ -5,9 +5,7 @@ import sys
 
 import pytest
 
-from src.translations.sports import _helpers
-from src.translations.sports import cycling
-from src.translations.sports import sports_lists
+from src.translations.sports import _helpers, cycling, sports_lists
 
 
 def test_extend_with_templates_preserves_positional_placeholders() -> None:
@@ -48,4 +46,3 @@ def test_new_tato_nat_includes_year_templates() -> None:
     assert result[" under-17"] == "{nat} تحت 17 سنة"
     assert result["national under-17"] == "{nat} تحت 17 سنة"
     assert result[""] == "{nat}"
-

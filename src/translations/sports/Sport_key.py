@@ -6,9 +6,9 @@ Build lookup tables for translating sport related keys.
 from dataclasses import dataclass
 from typing import Final, Mapping, MutableMapping, TypedDict
 
-from ..utils.json_dir import open_json_file
 from ...helps import len_print
 from ...helps.log import logger
+from ..utils.json_dir import open_json_file
 
 
 class SportKeyRecord(TypedDict, total=False):
@@ -197,13 +197,16 @@ SPORTS_KEYS_FOR_OLYMPIC: Final[dict[str, str]] = SPORT_KEY_TABLES.olympic
 SPORTS_KEYS_FOR_JOBS: Final[dict[str, str]] = SPORT_KEY_TABLES.jobs
 SPORTS_KEYS_FOR_JOBS["sports"] = "رياضية"
 
-len_print.data_len("Sport_key.py", {
-    "SPORT_KEY_RECORDS": SPORT_KEY_RECORDS,
-    "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
-    "SPORTS_KEYS_FOR_JOBS": SPORTS_KEYS_FOR_JOBS,
-    "SPORTS_KEYS_FOR_TEAM": SPORTS_KEYS_FOR_TEAM,
-    "SPORTS_KEYS_FOR_OLYMPIC": SPORTS_KEYS_FOR_OLYMPIC,
-})
+len_print.data_len(
+    "Sport_key.py",
+    {
+        "SPORT_KEY_RECORDS": SPORT_KEY_RECORDS,
+        "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
+        "SPORTS_KEYS_FOR_JOBS": SPORTS_KEYS_FOR_JOBS,
+        "SPORTS_KEYS_FOR_TEAM": SPORTS_KEYS_FOR_TEAM,
+        "SPORTS_KEYS_FOR_OLYMPIC": SPORTS_KEYS_FOR_OLYMPIC,
+    },
+)
 
 __all__ = [
     "SPORT_KEY_RECORDS",

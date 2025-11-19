@@ -1,11 +1,13 @@
 """
 Tests
 """
+
 import pytest
 
-from src.translations import RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC
-from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix, Nat_mens, MEN_WOMENS_WITH_NATO
-
+from src.make2_bots.jobs_bots.jobs_mainbot import (MEN_WOMENS_WITH_NATO,
+                                                   Nat_mens,
+                                                   jobs_with_nat_prefix)
+from src.translations import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 
 # =========================================================
 #   NEW TESTS – NAT_BEFORE_OCC VIA RELIGIOUS_KEYS_PP EXTENSION
@@ -48,8 +50,7 @@ def test_religious_keys_use_nat_and_religious_forms(suffix: str, forms: dict) ->
 @pytest.mark.parametrize("suffix", NAT_BEFORE_OCC)
 @pytest.mark.dict
 def test_NAT_BEFORE_OCC(suffix: str) -> None:
-    """
-    """
+    """ """
     mens_nat = Nat_mens.get("yemeni") or "يمني"
 
     jobs_with_nat_prefix.cache_clear()
@@ -57,6 +58,7 @@ def test_NAT_BEFORE_OCC(suffix: str) -> None:
 
     assert result != "", f"suffix {suffix}"
     assert mens_nat in result, f"suffix {suffix}"
+
 
 # --- NAT_BEFORE_OCC Expansion Tests ---
 

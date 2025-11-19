@@ -1,4 +1,3 @@
-
 """Tests for :mod:`make2_bots.o_bots.army`."""
 
 from __future__ import annotations

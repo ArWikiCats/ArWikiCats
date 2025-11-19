@@ -1,9 +1,10 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.date_bots.year_lab import make_year_lab, make_month_lab
+from src.make2_bots.date_bots.year_lab import make_month_lab, make_year_lab
 
 
 def test_make_year_lab():
@@ -134,9 +135,7 @@ class TestMakeYearLabRangesAndSpecial:
             ("−", "−"),
         ],
     )
-    def test_year_lab_ranges_and_allowed_suffixes(
-        self, year: str, expected: str
-    ) -> None:
+    def test_year_lab_ranges_and_allowed_suffixes(self, year: str, expected: str) -> None:
         assert make_year_lab(year) == expected
 
     @pytest.mark.parametrize(
@@ -203,9 +202,7 @@ class TestMakeMonthLabRangesAndSpecial:
             ("−", "−"),
         ],
     )
-    def test_month_lab_ranges_and_allowed_suffixes(
-        self, year: str, expected: str
-    ) -> None:
+    def test_month_lab_ranges_and_allowed_suffixes(self, year: str, expected: str) -> None:
         assert make_month_lab(year) == expected
 
     @pytest.mark.parametrize(

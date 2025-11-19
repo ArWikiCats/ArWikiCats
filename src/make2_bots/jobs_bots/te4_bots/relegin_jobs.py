@@ -4,8 +4,10 @@
 """
 import functools
 from pathlib import Path
-from ....translations import RELIGIOUS_KEYS_PP
+
 from ....helps.log import logger
+from ....translations import RELIGIOUS_KEYS_PP
+
 # from ....helps.jsonl_dump import save
 from ..get_helps import get_con_3
 from ..jobs_mainbot import jobs_with_nat_prefix
@@ -20,7 +22,7 @@ def relegins_jobs(cate: str) -> str:
         return data.get("mens")
     for x in ["female ", "womens ", "women's "]:
         if cate_lower.startswith(x):
-            cate_lower_2 = cate_lower[len(x):]
+            cate_lower_2 = cate_lower[len(x) :]
             data = RELIGIOUS_KEYS_PP.get(cate_lower_2, {})
             if data:
                 return data.get("womens")
@@ -36,14 +38,7 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
     Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
     mens = Tab.get("mens")
     womens = Tab.get("womens")
-    country_lab = jobs_with_nat_prefix(
-        cate,
-        country_prefix,
-        category_suffix,
-        mens=mens,
-        womens=womens,
-        find_nats=False
-    )
+    country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, womens=womens, find_nats=False)
     logger.debug(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
     # if country_lab:
     # save(Path(__file__).parent / "relegin_jobs.jsonl", [{"cate": cate, "country_prefix": country_prefix, "category_suffix": category_suffix, "mens": mens, "womens": womens, "country_lab": country_lab}])

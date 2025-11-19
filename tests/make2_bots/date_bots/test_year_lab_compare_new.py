@@ -1,9 +1,10 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.date_bots.year_lab import make_year_lab, make_month_lab
+from src.make2_bots.date_bots.year_lab import make_month_lab, make_year_lab
 from src.new.time_to_arabic import convert_time_to_arabic
 
 
@@ -134,9 +135,7 @@ class TestMakeYearLabRangesAndSpecial:
             ("1990−1999", "1990−1999"),  # minus sign
         ],
     )
-    def test_year_lab_ranges_and_allowed_suffixes(
-        self, year: str, expected: str
-    ) -> None:
+    def test_year_lab_ranges_and_allowed_suffixes(self, year: str, expected: str) -> None:
         assert make_year_lab(year) == expected
         assert convert_time_to_arabic(year) == expected
 
@@ -202,9 +201,7 @@ class TestMakeMonthLabRangesAndSpecial:
             ("1990−1999", "1990−1999"),
         ],
     )
-    def test_month_lab_ranges_and_allowed_suffixes(
-        self, year: str, expected: str
-    ) -> None:
+    def test_month_lab_ranges_and_allowed_suffixes(self, year: str, expected: str) -> None:
         assert make_month_lab(year) == expected
         assert convert_time_to_arabic(year) == expected
 

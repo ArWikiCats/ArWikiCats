@@ -2,8 +2,9 @@
 """Utility helpers for extracting country labels from category names."""
 import functools
 from typing import Dict, Tuple
+
 from ...helps.log import logger
-from ...translations import All_Nat, RELIGIOUS_KEYS_PP, Nat_women, contries_from_nat
+from ...translations import RELIGIOUS_KEYS_PP, All_Nat, Nat_women, contries_from_nat
 
 keys_data = {
     "nat": All_Nat,
@@ -63,21 +64,14 @@ def get_con_3(cate: str, category_type: str) -> Tuple[str, str]:
 
             if cate_lower.startswith(prefix_candidate):
                 country_prefix = key
-                category_suffix = cate[len(prefix_candidate):].strip()
+                category_suffix = cate[len(prefix_candidate) :].strip()
 
-                logger.debug(
-                    f'<<lightyellow>>>>>> get_con_3 start_th key_:{option_index} '
-                    f'"{prefix_candidate}", fo_3:"{category_suffix}",'
-                    f'country_start:"{country_prefix}"'
-                )
+                logger.debug(f"<<lightyellow>>>>>> get_con_3 start_th key_:{option_index} " f'"{prefix_candidate}", fo_3:"{category_suffix}",' f'country_start:"{country_prefix}"')
 
                 break
 
     # Logging final result if match found
     if category_suffix and country_prefix:
-        logger.debug(
-            f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",'
-            f'get_con_3 fo_3:"{category_suffix}",Type:{category_type}'
-        )
+        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",' f'get_con_3 fo_3:"{category_suffix}",Type:{category_type}')
 
     return category_suffix, country_prefix

@@ -4,15 +4,14 @@ from ..ma_bots.squad_title_bot import get_squad_title
 # label = get_squad_title(tit)
 
 """
-import functools
-from ..date_bots import with_years_bot
-from ...translations import pop_of_football_lower, Get_New_team_xo
-from ...translations import New_P17_Finall
 
-from ..matables_bots.bot import All_P17
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
+import functools
 
 from ...helps.log import logger
+from ...translations import Get_New_team_xo, New_P17_Finall, pop_of_football_lower
+from ..date_bots import with_years_bot
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
+from ..matables_bots.bot import All_P17
 
 
 @functools.lru_cache(maxsize=None)

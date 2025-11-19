@@ -1,5 +1,5 @@
 import pytest
-from load_one_data import ye_test_one_dataset_new, dump_diff
+from load_one_data import dump_diff, ye_test_one_dataset_new
 
 
 @pytest.mark.slow
@@ -15,7 +15,7 @@ def test_people_1():
         "Category:Prisons in Afghanistan": "تصنيف:سجون في أفغانستان",
         "Category:Scholars by subfield": "تصنيف:دارسون حسب الحقل الفرعي",
         "Category:Women in business by nationality": "تصنيف:سيدات أعمال حسب الجنسية",
-        "Category:women in business": "تصنيف:سيدات أعمال"
+        "Category:women in business": "تصنيف:سيدات أعمال",
     }
 
     print(f"len of data: {len(data)}")

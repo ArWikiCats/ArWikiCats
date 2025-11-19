@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.co_bots.filter_en import filter_cat
@@ -40,26 +41,15 @@ def test_filter_cat():
         "sockpuppets investigation",
         "Category:Images for deletion requests",
         "Something without a source",
-        "WikiProject Movies"
-    ]
+        "WikiProject Movies",
+    ],
 )
 def test_filter_cat_blacklist(cat):
     """Should return False when any blacklist fragment exists in the category."""
     assert filter_cat(cat) is False
 
 
-@pytest.mark.parametrize(
-    "cat",
-    [
-        "Category:Cleanup articles",
-        "Category:Uncategorized pages",
-        "Wikipedia articles about something",
-        "Articles lacking sources",
-        "use x-template something",
-        "User pages for bots",
-        "Userspace sandbox"
-    ]
-)
+@pytest.mark.parametrize("cat", ["Category:Cleanup articles", "Category:Uncategorized pages", "Wikipedia articles about something", "Articles lacking sources", "use x-template something", "User pages for bots", "Userspace sandbox"])
 def test_filter_cat_prefix_blacklist(cat):
     """Should return False when the category starts with a blocked prefix."""
     assert filter_cat(cat) is False
@@ -71,23 +61,14 @@ def test_filter_cat_prefix_blacklist(cat):
         "Category:Events from January 2020",
         "Category:something from february 1999",
         "Category:history from march 5",
-    ]
+    ],
 )
 def test_filter_cat_blocked_month_patterns(cat):
     """Should return False when category ends with 'from <month> <year>'."""
     assert filter_cat(cat) is False
 
 
-@pytest.mark.parametrize(
-    "cat",
-    [
-        "Category:Football players",
-        "Category:Cities in Yemen",
-        "Category:Films of 2020",
-        "My page without issues",
-        "Something random"
-    ]
-)
+@pytest.mark.parametrize("cat", ["Category:Football players", "Category:Cities in Yemen", "Category:Films of 2020", "My page without issues", "Something random"])
 def test_filter_cat_allowed(cat):
     """Should return True when the category does not match any blocked rule."""
     assert filter_cat(cat) is True

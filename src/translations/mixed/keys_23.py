@@ -208,11 +208,11 @@ def build_new_2023() -> dict[str, str]:
 NEW_2023: dict[str, str] = build_new_2023()
 
 
-len_print.data_len("keys_23.py", {
-    "AFC_KEYS": AFC_KEYS,
-    "NEW_2023": NEW_2023,
-})
-__all__ = [
-    "AFC_KEYS",
-    "NEW_2023"
-]
+len_print.data_len(
+    "keys_23.py",
+    {
+        "AFC_KEYS": AFC_KEYS,
+        "NEW_2023": NEW_2023,
+    },
+)
+__all__ = ["AFC_KEYS", "NEW_2023"]

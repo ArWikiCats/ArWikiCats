@@ -1,10 +1,10 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.ma_bots.country2_bot import Get_country2
-
 
 data_fast = {
     " kingdom-of italy": "مملكة إيطاليا",
@@ -657,7 +657,7 @@ data_slow = {
     "youth olympic gold medalists": "فائزون بميداليات ذهبية الألعاب الأولمبية الشبابية",
     "youth sports competitions": "منافسات رياضية شبابية",
     "zambian emigrants to sweden": "زامبيون مهاجرون إلى السويد",
-    "zürich eprix": "زيورخ إي بريكس"
+    "zürich eprix": "زيورخ إي بريكس",
 }
 
 

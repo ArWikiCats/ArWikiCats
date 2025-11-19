@@ -5,8 +5,8 @@ from __future__ import annotations
 from typing import Tuple
 
 from ...helps import len_print
-from .male_keys import New_male_keys
 from ..utils.json_dir import open_json_file
+from .male_keys import New_male_keys
 
 BASE_POP_FINAL_5: dict[str, str] = {
     "trustees of": "أمناء",
@@ -232,12 +232,12 @@ def build_pop_final_5() -> Tuple[dict[str, str], dict[str, str]]:
 
 pop_final_5, Clubs_key_2 = build_pop_final_5()
 
-len_print.data_len("all_keys5.py", {
-    "pop_final_5": pop_final_5,
-    "Clubs_key_2": Clubs_key_2,
-})
+len_print.data_len(
+    "all_keys5.py",
+    {
+        "pop_final_5": pop_final_5,
+        "Clubs_key_2": Clubs_key_2,
+    },
+)
 
-__all__ = [
-    "pop_final_5",
-    "Clubs_key_2"
-]
+__all__ = ["pop_final_5", "Clubs_key_2"]

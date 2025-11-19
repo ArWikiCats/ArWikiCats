@@ -1,8 +1,8 @@
 #
 import pytest
-from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset, dump_diff
+from load_one_data import dump_diff, ye_test_one_dataset
 
+from src import new_func_lab_final_label
 
 pan_arican = {
     "Category:Members of the Pan-African Parliament": "تصنيف:أعضاء البرلمان الإفريقي",
@@ -44,7 +44,7 @@ pan_arican = {
     "Category:Members of the Pan-African Parliament from Tunisia": "تصنيف:أعضاء البرلمان الإفريقي من تونس",
     "Category:Members of the Pan-African Parliament from Uganda": "تصنيف:أعضاء البرلمان الإفريقي من أوغندا",
     "Category:Members of the Pan-African Parliament from Zambia": "تصنيف:أعضاء البرلمان الإفريقي من زامبيا",
-    "Category:Members of the Pan-African Parliament from Zimbabwe": "تصنيف:أعضاء البرلمان الإفريقي من زيمبابوي"
+    "Category:Members of the Pan-African Parliament from Zimbabwe": "تصنيف:أعضاء البرلمان الإفريقي من زيمبابوي",
 }
 
 

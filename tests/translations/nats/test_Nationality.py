@@ -1,6 +1,8 @@
-
 import pytest
-from src.translations.nats.Nationality import load_sources, build_american_forms, normalize_aliases, build_lookup_tables
+
+from src.translations.nats.Nationality import (build_american_forms,
+                                               build_lookup_tables,
+                                               load_sources, normalize_aliases)
 
 
 def test_load_sources_return_type():
@@ -18,7 +20,7 @@ def test_sources_are_merged(monkeypatch):
 
 
 def test_hindustani_normalized(monkeypatch):
-    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name=="uu_nats" else {})
+    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name == "uu_nats" else {})
     data = load_sources()
     assert "hindustan" in data
 
@@ -43,9 +45,7 @@ def test_georgia_country_copy():
 
 
 def test_american_form_created():
-    src = {
-        "yemeni": {"men": "يمني", "mens": "", "women": "", "womens": "", "en": "yemen", "ar": "يمني"}
-    }
+    src = {"yemeni": {"men": "يمني", "mens": "", "women": "", "womens": "", "en": "yemen", "ar": "يمني"}}
     out, count = build_american_forms({}, src)
     assert "yemeni-american" in out
     assert count == 1
@@ -84,9 +84,7 @@ def test_the_country_normalization():
 
 
 def test_full_pipeline():
-    raw = {
-        "yemeni": {"men": "يمني", "mens": "", "women": "يمنية", "womens": "", "en": "yemen", "ar": "اليمن"}
-    }
+    raw = {"yemeni": {"men": "يمني", "mens": "", "women": "يمنية", "womens": "", "en": "yemen", "ar": "اليمن"}}
 
     all_nat = {k.lower(): v for k, v in raw.items()}
     all_nat, cnt = build_american_forms(all_nat, raw)

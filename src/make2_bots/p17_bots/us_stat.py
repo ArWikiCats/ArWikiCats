@@ -1,18 +1,15 @@
-"""
-"""
+""" """
 
 import functools
-from ...translations import US_State_lower, kk_end_US_State
+
 from ...helps.log import logger
+from ...translations import US_State_lower, kk_end_US_State
 
 
 @functools.lru_cache(maxsize=None)
 def Work_US_State(state_identifier: str) -> str:
     normalized_state = state_identifier.lower().strip()
-    logger.info(
-        f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", '
-        f'SUUS : "{normalized_state}"'
-    )
+    logger.info(f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", ' f'SUUS : "{normalized_state}"')
     label = ""
     state_key = ""
     suffix_key = ""
@@ -39,9 +36,7 @@ def Work_US_State(state_identifier: str) -> str:
         if state_label:
             logger.info(f'>>>><<lightblue>> State_key :"{state_key}", Statelabel : "{state_label}"')
             resolved_label = kk_end_US_State[suffix_key] % state_label
-            logger.info(
-                f'>>>><<lightblue>> SUUS.endswith pri("{suffix_key}"), uuu_lab:"{resolved_label}"'
-            )
+            logger.info(f'>>>><<lightblue>> SUUS.endswith pri("{suffix_key}"), uuu_lab:"{resolved_label}"')
             label = resolved_label
         else:
             logger.info(f'>>>><<lightblue>> cant find Statelabel for:"{state_key}"')

@@ -1,4 +1,3 @@
-
 COMPANY_TYPE_TRANSLATIONS = {
     "privately held": "خاصة",
     "airliner": "طائرات",

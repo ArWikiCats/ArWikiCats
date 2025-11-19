@@ -49,10 +49,7 @@ def test_update_respects_skip_existing(registry: KeyRegistry) -> None:
     """Updating with ``skip_existing`` preserves original entries."""
 
     registry.update(
-        {
-            "existing": "new value",
-            " fresh ": " spaced "
-        },
+        {"existing": "new value", " fresh ": " spaced "},
         transform=lambda key, value: (key.strip(), value.strip()),
         skip_existing=True,
     )

@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 import pytest
-from src.translations.sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
 
+from src.translations.sports_formats_teams.sport_lab import (
+    Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17)
 
 Get_New_team_xo_data = {
     "acrobatic gymnastics junior world championships": "بطولة العالم الجمباز الاكروباتيكي للناشئين",
@@ -77,7 +75,7 @@ def test_Get_New_team_xo_data(category, expected) -> None:
 def test_Get_New_team_xo() -> None:
 
     label = Get_New_team_xo("national softball teams")
-    assert label == 'منتخبات كرة لينة وطنية'
+    assert label == "منتخبات كرة لينة وطنية"
 
 
 data = {
@@ -87,7 +85,6 @@ data = {
     "national youth women's under-14 softball teams scouts": "كشافة منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball leagues scouts": "كشافة دوريات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball teams coaches": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
-
     "football seventh tier leagues": "دوريات كرة قدم من الدرجة السابعة",
     "football chairmen and investors": "رؤساء ومسيرو كرة قدم",
     "defunct football cup competitions": "منافسات كؤوس كرة قدم سابقة",
@@ -100,7 +97,6 @@ data = {
     "domestic football": "كرة قدم محلية",
     "indoor football": "كرة قدم داخل الصالات",
     "defunct football clubs": "أندية كرة قدم سابقة",
-
     "national women's equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية للسيدات",
     "national men's equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية للرجال",
     "national equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية",
@@ -111,7 +107,6 @@ data = {
     "national under-14 equestrian manager history": "تاريخ مدربو منتخبات فروسية تحت 14 سنة",
     "under-14 equestrian manager history": "تاريخ مدربو فرق فروسية تحت 14 سنة",
     "outdoor equestrian": "فروسية في الهواء الطلق",
-
     "under-13 baseball leagues finals": "نهائيات دوريات كرة قاعدة تحت 13 سنة",
     "under-13 baseball teams positions": "مراكز فرق كرة قاعدة تحت 13 سنة",
     "under-13 baseball leagues positions": "مراكز دوريات كرة قاعدة تحت 13 سنة",

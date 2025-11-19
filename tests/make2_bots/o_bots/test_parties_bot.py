@@ -1,12 +1,13 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.o_bots.parties_bot import get_parties_lab_old, get_parties_lab
+from src.make2_bots.o_bots.parties_bot import (get_parties_lab,
+                                               get_parties_lab_old)
 
-fast_data = {
-}
+fast_data = {}
 
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
@@ -28,6 +29,7 @@ def test_get_parties_lab_old():
     # Test with various inputs
     result_various = get_parties_lab_old("some party")
     assert isinstance(result_various, str)
+
 
 def test_get_parties_lab():
     # Test with a basic input

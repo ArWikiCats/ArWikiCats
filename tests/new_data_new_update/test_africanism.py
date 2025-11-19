@@ -1,7 +1,8 @@
 #
 import pytest
+from load_one_data import dump_diff, ye_test_one_dataset
+
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
     "Category:Pan-Africanism": "تصنيف:وحدة أفريقية",
@@ -25,7 +26,6 @@ data = {
     "Category:Pan-Africanism in the United States": "تصنيف:وحدة أفريقية في الولايات المتحدة",
     "Category:Pan-Africanism in Togo": "تصنيف:وحدة أفريقية في توغو",
     "Category:Pan-Africanism in Zimbabwe": "تصنيف:وحدة أفريقية في زيمبابوي",
-
     "Category:Pan-Africanist organisations in the Caribbean": "تصنيف:منظمات وحدوية أفريقية في الكاريبي",
     "Category:Pan-Africanist organizations": "تصنيف:منظمات وحدوية أفريقية",
     "Category:Pan-Africanist organizations in Africa": "تصنيف:منظمات وحدوية أفريقية في إفريقيا",
@@ -33,16 +33,13 @@ data = {
     "Category:Pan-Africanist political parties": "تصنيف:أحزاب سياسية وحدوية إفريقية",
     "Category:Pan-Africanist political parties in Africa": "تصنيف:أحزاب سياسية وحدوية إفريقية في إفريقيا",
     "Category:Pan-Africanist political parties in the Caribbean": "تصنيف:أحزاب سياسية وحدوية إفريقية في الكاريبي",
-
     "Category:Pan-African organizations": "تصنيف:منظمات قومية أفريقية",
     "Category:Pan-African Parliament": "تصنيف:البرلمان الإفريقي",
     "Category:Pan-African Democratic Party politicians": "تصنيف:سياسيو الحزب الديمقراطي الوحدوي الإفريقي",
-
     "Category:Pan-Africanists": "تصنيف:وحدويون أفارقة",
     "Category:Pan-Africanists by continent": "تصنيف:وحدويون أفارقة حسب القارة",
     "Category:Pan-Africanists by nationality": "تصنيف:وحدويون أفارقة حسب الجنسية",
     "Category:South American pan-Africanists": "تصنيف:وحدويون أفارقة أمريكيون جنوبيون",
-
 }
 
 

@@ -1,17 +1,10 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 import pytest
 
 from src.translations.sports_formats_nats.sport_lab_with_nat import (
-    get_template_label,
-    match_sports_labels_with_nat,
-    match_sports_labels_with_nat_new,
-    Get_New_team_xo_with_nat,
-    apply_pattern_replacement,
-)
+    Get_New_team_xo_with_nat, apply_pattern_replacement, get_template_label,
+    match_sports_labels_with_nat, match_sports_labels_with_nat_new)
 
 
 @pytest.mark.skip
@@ -23,7 +16,7 @@ def test_1() -> None:
 @pytest.mark.skip
 def test_2() -> None:
     template_label1 = match_sports_labels_with_nat_new("Yemeni national xoxo teams", "softball")
-    assert template_label1 == 'منتخبات xoxo وطنية natar'
+    assert template_label1 == "منتخبات xoxo وطنية natar"
 
     template_label2 = match_sports_labels_with_nat_new("national xoxo teams of yemen", "softball")
     assert template_label2 == ""
@@ -32,7 +25,7 @@ def test_2() -> None:
 @pytest.mark.skip
 def test_3() -> None:
     template_label1 = match_sports_labels_with_nat("yemeni national xoxo teams", "softball")
-    assert template_label1 == 'منتخبات xoxo وطنية natar'
+    assert template_label1 == "منتخبات xoxo وطنية natar"
 
     template_label2 = match_sports_labels_with_nat("national xoxo teams of yemen", "softball")
     assert template_label2 == ""
@@ -58,7 +51,6 @@ def test_all():
         "national youth women's under-14 softball teams scouts": "كشافة منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
         "national youth women's under-14 softball leagues scouts": "كشافة دوريات كرة لينة وطنية تحت 14 سنة للشابات",
         "national youth women's under-14 softball teams coaches": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
-
         "football seventh tier leagues": "دوريات كرة قدم من الدرجة السابعة",
         "football chairmen and investors": "رؤساء ومسيرو كرة قدم",
         "defunct football cup competitions": "منافسات كؤوس كرة قدم سابقة",
@@ -71,7 +63,6 @@ def test_all():
         "domestic football": "كرة قدم محلية",
         "indoor football": "كرة قدم داخل الصالات",
         "defunct football clubs": "أندية كرة قدم سابقة",
-
         "national women's equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية للسيدات",
         "national men's equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية للرجال",
         "national equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية",
@@ -82,7 +73,6 @@ def test_all():
         "national under-14 equestrian manager history": "تاريخ مدربو منتخبات فروسية تحت 14 سنة",
         "under-14 equestrian manager history": "تاريخ مدربو فرق فروسية تحت 14 سنة",
         "outdoor equestrian": "فروسية في الهواء الطلق",
-
     }
     data = {
         "under-13 baseball leagues finals": "",

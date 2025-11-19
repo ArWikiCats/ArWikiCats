@@ -3,44 +3,37 @@
 from __future__ import annotations
 
 import pytest
-from src.fix.fixtitle import (
-    _apply_regex_replacements,
-    _apply_prefix_replacements,
-    _apply_suffix_replacements,
-    _insert_year_preposition,
-    _apply_basic_normalizations,
-    _normalize_conflict_phrases,
-    _normalize_sub_regions,
-    fix_it,
-    add_fee,
-    fixlab,
-)
+
+from src.fix.fixtitle import (_apply_basic_normalizations,
+                              _apply_prefix_replacements,
+                              _apply_regex_replacements,
+                              _apply_suffix_replacements,
+                              _insert_year_preposition,
+                              _normalize_conflict_phrases,
+                              _normalize_sub_regions, add_fee, fix_it, fixlab)
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("المكان المأهول واحتلال", "المكان المأهول والمهنة"),
-    ("قضاة من مصر", "قضاة في مصر")
-],
+@pytest.mark.parametrize(
+    "text, expected",
+    [("المكان المأهول واحتلال", "المكان المأهول والمهنة"), ("قضاة من مصر", "قضاة في مصر")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_apply_regex_replacements(text, expected):
     assert _apply_regex_replacements(text, {"المكان المأهول واحتلال": "المكان المأهول والمهنة", "قضاة من ": "قضاة في "}) == expected
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("هجمات ضد المدنيين", "هجمات على المدنيين"),
-    ("تعليم في اليمن", "التعليم في اليمن")
-],
+@pytest.mark.parametrize(
+    "text, expected",
+    [("هجمات ضد المدنيين", "هجمات على المدنيين"), ("تعليم في اليمن", "التعليم في اليمن")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_apply_prefix_replacements(text, expected):
     assert _apply_prefix_replacements(text, {"هجمات ضد": "هجمات على", "تعليم في ": "التعليم في "}) == expected
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("صناعة إعلامية", "صناعة الإعلام"),
-    ("انتهت في", "انتهت")
-],
+@pytest.mark.parametrize(
+    "text, expected",
+    [("صناعة إعلامية", "صناعة الإعلام"), ("انتهت في", "انتهت")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_apply_suffix_replacements(text, expected):
@@ -59,53 +52,45 @@ def test_insert_year_preposition(text, expected):
     assert _insert_year_preposition(text, ["كوارث صحية", "كوارث طبيعية"]) == expected
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("الغزو الأمريكي في العراق", "الغزو الأمريكي للعراق"),
-    ("الحرب العالمية في أوروبا", "الحرب العالمية في أوروبا"),
-    ("الغزو الفرنسي في الجزائر", "الغزو الفرنسي للجزائر")
-],
+@pytest.mark.parametrize(
+    "text, expected",
+    [("الغزو الأمريكي في العراق", "الغزو الأمريكي للعراق"), ("الحرب العالمية في أوروبا", "الحرب العالمية في أوروبا"), ("الغزو الفرنسي في الجزائر", "الغزو الفرنسي للجزائر")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_normalize_conflict_phrases(text, expected):
     assert _normalize_conflict_phrases(text) == expected
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("اليابان حسب الولاية", "اليابان حسب المحافظة"),
-    ("في سريلانكا الإقليم", "في سريلانكا المقاطعة"),
-    ("مديريات تركيا", "أقضية تركيا"),
-    ("مديريات جزائر", "دوائر جزائر")
-],
+@pytest.mark.parametrize(
+    "text, expected",
+    [("اليابان حسب الولاية", "اليابان حسب المحافظة"), ("في سريلانكا الإقليم", "في سريلانكا المقاطعة"), ("مديريات تركيا", "أقضية تركيا"), ("مديريات جزائر", "دوائر جزائر")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_normalize_sub_regions(text, expected):
     assert _normalize_sub_regions(text) == expected
 
-@pytest.mark.parametrize("text, expected", [
-    ("كوارث صحية 2010", "كوارث صحية في 2010"),
-    ("تاريخ التعليم في مصر", "تاريخ التعليم في مصر")
-],
+
+@pytest.mark.parametrize(
+    "text, expected",
+    [("كوارث صحية 2010", "كوارث صحية في 2010"), ("تاريخ التعليم في مصر", "تاريخ التعليم في مصر")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_basic_normalizations(text, expected):
     assert _apply_basic_normalizations(text) == expected
 
 
-@pytest.mark.parametrize("text, expected", [
-    ("البلد حسب السنة 2020", "البلد حسب السنة في 2020"),
-    ("المدينة حسب العقد 1990", "المدينة حسب العقد في 1990")
-],
+@pytest.mark.parametrize(
+    "text, expected",
+    [("البلد حسب السنة 2020", "البلد حسب السنة في 2020"), ("المدينة حسب العقد 1990", "المدينة حسب العقد في 1990")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_add_fee(text, expected):
     assert add_fee(text) == expected
 
 
-@pytest.mark.parametrize("ar_label, en_label, expected", [
-    ("كأس العالم لكرة القدم 2022", "World Cup", "كأس العالم 2022"),
-    ("تأسيسات 1990", "establishments", "تأسيسات سنة 1990"),
-    ("انحلالات 1985", "disestablishments", "انحلالات سنة 1985")
-],
+@pytest.mark.parametrize(
+    "ar_label, en_label, expected",
+    [("كأس العالم لكرة القدم 2022", "World Cup", "كأس العالم 2022"), ("تأسيسات 1990", "establishments", "تأسيسات سنة 1990"), ("انحلالات 1985", "disestablishments", "انحلالات سنة 1985")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fix_it_common(ar_label, en_label, expected):
@@ -113,32 +98,27 @@ def test_fix_it_common(ar_label, en_label, expected):
     assert expected in result
 
 
-@pytest.mark.parametrize("label_old, expected", [
-    ("تصنيف:كوارث طبيعية 2010", "كوارث طبيعية في 2010"),
-    ("كأس العالم لكرة القدم 2018", "كأس العالم 2018")
-],
+@pytest.mark.parametrize(
+    "label_old, expected",
+    [("تصنيف:كوارث طبيعية 2010", "كوارث طبيعية في 2010"), ("كأس العالم لكرة القدم 2018", "كأس العالم 2018")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fixlab_integration(label_old, expected):
     assert fixlab(label_old) == expected
 
 
-@pytest.mark.parametrize("label_old", [
-    "مشاعر معادية للإسرائيليون",
-    "abc_english"
-],
+@pytest.mark.parametrize(
+    "label_old",
+    ["مشاعر معادية للإسرائيليون", "abc_english"],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fixlab_rejected(label_old):
     assert fixlab(label_old) == ""
 
 
-@pytest.mark.parametrize("ar_label, en_label", [
-    ("أحداث رياضية الرياضية", "sports events"),
-    ("من القرن 19", "19th century"),
-    ("من الحروب", "wars"),
-    ("من الثورة", "revolutions")
-],
+@pytest.mark.parametrize(
+    "ar_label, en_label",
+    [("أحداث رياضية الرياضية", "sports events"), ("من القرن 19", "19th century"), ("من الحروب", "wars"), ("من الثورة", "revolutions")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fix_it_expanded_patterns(ar_label, en_label):
@@ -147,10 +127,9 @@ def test_fix_it_expanded_patterns(ar_label, en_label):
     assert result != ""
 
 
-@pytest.mark.parametrize("ar_label, en_label", [
-    ("فورمولا 1 2020", "Formula 1 2020"),
-    ("فورمولا 1 1990", "Formula 1 1990")
-],
+@pytest.mark.parametrize(
+    "ar_label, en_label",
+    [("فورمولا 1 2020", "Formula 1 2020"), ("فورمولا 1 1990", "Formula 1 1990")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fix_it_formula_patterns(ar_label, en_label):

@@ -1,9 +1,12 @@
 """
 Tests
 """
+
 import pytest
 
-from src.make2_bots.p17_bots.nats import make_sport_formats_p17, find_nat_others
+from src.make2_bots.p17_bots.nats import (find_nat_others,
+                                          make_sport_formats_p17)
+
 
 def test_make_sport_formats_p17():
     # Test with a known category key (may return empty string if key not in cache)
@@ -16,6 +19,7 @@ def test_make_sport_formats_p17():
     # Test with a typical sport category format
     result_example = make_sport_formats_p17("football_players")
     assert isinstance(result_example, str)
+
 
 def test_find_nat_others():
     # Test with a basic category string

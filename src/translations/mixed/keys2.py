@@ -1,6 +1,7 @@
 """
 Helper utilities and datasets for the mixed key collections.
 """
+
 from ...helps import len_print
 from ..geo.us_counties import USA_newkeys
 from ..medical.deaths import medical_keys
@@ -114,9 +115,7 @@ def build_keys2_py_mapping() -> dict[str, str]:
 new_2019: dict[str, str] = build_keys2_mapping()
 keys2_py: dict[str, str] = build_keys2_py_mapping()
 
-len_print.data_len("keys2.py", {
-    "keys2_py": keys2_py
-})
+len_print.data_len("keys2.py", {"keys2_py": keys2_py})
 
 __all__ = [
     "ADD_IN_TABLE2",

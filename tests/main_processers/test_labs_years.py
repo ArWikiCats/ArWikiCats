@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.main_processers.labs_years import LabsYears

@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.sports_bots.team_work import Get_Club, Get_team_work_Club
@@ -120,7 +121,6 @@ fast_data = {
     "webcomic logos": "شعارات ويب كومكس",
     "western sydney wanderers fc players": "لاعبو نادي وسترن سيدني واندررز",
     "wta tour seasons": "مواسم رابطة محترفات التنس",
-
 }
 
 

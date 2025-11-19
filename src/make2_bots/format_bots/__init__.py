@@ -4,10 +4,10 @@
 """
 
 import re
+
 from ...helps import len_print
 from ...helps.log import logger
-from ...translations import ministrs_tab_for_pop_format
-from ...translations import New_Company
+from ...translations import New_Company, ministrs_tab_for_pop_format
 from .pf_keys import Change_key, Change_key2
 
 # Precompiled Regex Patterns
@@ -53,10 +53,8 @@ category_relation_mapping = {
     "published by": "نشرتها",
     "published in": "نشرت في",
     "launched in": "أطلقت في",
-
     "imprisoned-in": "مسجونون في",
     "imprisoned in": "مسجونون في",
-
     "launched-in": "أطلقت في",
     "launched by": "أطلقتها",
     "launched-by": "أطلقتها",
@@ -460,29 +458,29 @@ for x in New_Company:
     Change_key[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
 replaces = {
-    "national women's youth" : "national youth women's",
-    "national youth women's" : "national youth women's",
-    "women's youth national" : "national youth women's",
-    "women's national youth" : "national youth women's",
-    "youth national women's" : "national youth women's",
-    "youth women's national" : "national youth women's",
-    "national women's junior" : "national junior women's",
-    "national junior women's" : "national junior women's",
-    "women's junior national" : "national junior women's",
-    "women's national junior" : "national junior women's",
-    "junior women's national" : "national junior women's",
-    "national men's junior" : "national junior men's",
-    "national junior men's" : "national junior men's",
-    "men's junior national" : "national junior men's",
-    "men's national junior" : "national junior men's",
-    "junior men's national" : "national junior men's",
-    " men's national" : " national men's",
-    "women's national" : "national women's",
-    "junior national" : "national junior",
-    "youth national" : "national youth",
-    "amateur national" : "national amateur",
-    "heads of mission " : "heads-of-mission ",
-    "house of commons of canada" : "house-of-commons-of-canada",
+    "national women's youth": "national youth women's",
+    "national youth women's": "national youth women's",
+    "women's youth national": "national youth women's",
+    "women's national youth": "national youth women's",
+    "youth national women's": "national youth women's",
+    "youth women's national": "national youth women's",
+    "national women's junior": "national junior women's",
+    "national junior women's": "national junior women's",
+    "women's junior national": "national junior women's",
+    "women's national junior": "national junior women's",
+    "junior women's national": "national junior women's",
+    "national men's junior": "national junior men's",
+    "national junior men's": "national junior men's",
+    "men's junior national": "national junior men's",
+    "men's national junior": "national junior men's",
+    "junior men's national": "national junior men's",
+    " men's national": " national men's",
+    "women's national": "national women's",
+    "junior national": "national junior",
+    "youth national": "national youth",
+    "amateur national": "national amateur",
+    "heads of mission ": "heads-of-mission ",
+    "house of commons of canada": "house-of-commons-of-canada",
 }
 # ---
 
@@ -554,13 +552,7 @@ def change_cat(cat_orginal: str) -> str:
     for chk, chk_lab in Change_key.items():
         key = (chk, chk_lab)
         if key not in _change_key_compiled:
-            _change_key_compiled[key] = [
-                re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE),
-                re.compile(rf"^{chk} ", flags=re.IGNORECASE),
-                re.compile(rf" {chk} ", flags=re.IGNORECASE),
-                re.compile(rf" {chk}$", flags=re.IGNORECASE),
-                re.compile(rf"category\:{chk} ", flags=re.IGNORECASE)
-            ]
+            _change_key_compiled[key] = [re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE), re.compile(rf"^{chk} ", flags=re.IGNORECASE), re.compile(rf" {chk} ", flags=re.IGNORECASE), re.compile(rf" {chk}$", flags=re.IGNORECASE), re.compile(rf"category\:{chk} ", flags=re.IGNORECASE)]
 
         patterns = _change_key_compiled[key]
         category = patterns[0].sub(f"category:{chk_lab} ", category)
@@ -583,20 +575,4 @@ def change_cat(cat_orginal: str) -> str:
 
 len_print.data_len("pop_format.py", {"Change_key": Change_key, "Change_key2": Change_key2})
 
-__all__ = [
-    "Dont_Add_min",
-    "Tabl_with_in",
-    "category_relation_mapping",
-    "ar_lab_before_year_to_add_in",
-    "change_cat",
-    "country_before_year",
-    "for_table",
-    "pop_format",
-    "pop_format2",
-    "pop_format33",
-    "pp_ends_with",
-    "pp_ends_with_pase",
-    "pp_start_with",
-    "pp_start_with2",
-    "tito_list_s"
-]
+__all__ = ["Dont_Add_min", "Tabl_with_in", "category_relation_mapping", "ar_lab_before_year_to_add_in", "change_cat", "country_before_year", "for_table", "pop_format", "pop_format2", "pop_format33", "pp_ends_with", "pp_ends_with_pase", "pp_start_with", "pp_start_with2", "tito_list_s"]
