@@ -1,10 +1,14 @@
-#
+"""
+
+from . import labs_years, event2bot, event_lab_bot  # isort:skip
+from ..config import app_settings  # isort:skip
+
+"""
 from __future__ import annotations
 
 import functools
 
 from . import labs_years, event2bot, event_lab_bot  # isort:skip
-
 from ..config import app_settings  # isort:skip
 from ..fix import fixtitle
 from ..make2_bots.co_bots import filter_en

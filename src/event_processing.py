@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
 
 from .main_processers.main_resolve import resolve_label
+from .helps.log import logger
 
 LABEL_PREFIX = "تصنيف"
 

@@ -1,16 +1,19 @@
 import logging
-from typing import Any, Optional, Union
+from typing import Optional, Union
 
 from ..config import print_settings
 from ..helps.printe_helper import make_str
 
 
 class LoggerWrap:
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str, disable_log=False) -> None:
         self._logger = logging.getLogger(name)
 
-        if print_settings.disable_all_printing or print_settings.noprint:
+        if disable_log:
             self._logger.disabled = True
+
+    def disable_logger(self, Bool: bool) -> None:
+        self._logger.disabled = Bool
 
     def logger(self) -> logging.Logger:
         return self._logger
@@ -44,7 +47,7 @@ class LoggerWrap:
         self._logger.log(level, make_str(msg), *args, **kwargs)
 
 
-logger = LoggerWrap(__name__)
+logger = LoggerWrap(__name__, print_settings.disable_all_printing or print_settings.noprint)
 
 
 def config_logger(level: Optional[Union[int, str]] = None) -> None:
@@ -70,5 +73,6 @@ def config_logger(level: Optional[Union[int, str]] = None) -> None:
 
 __all__ = [
     "logger",
+    "LoggerWrap",
     "config_logger",
 ]

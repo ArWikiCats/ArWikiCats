@@ -10,10 +10,11 @@ from . import bot as MA_MAIN # MA_MAIN.event(tab, **kwargs)
 
 from typing import Any, Dict, List
 
+from .event_processing import event_result, new_func_lab as _new_func_lab
 from . import main
 from .make2_bots.media_bots import films_bot  # te_films
 
-new_func_lab = main.new_func_lab
+new_func_lab = _new_func_lab
 
 
 def event(tab: Dict[str, Any], return_no_labs: bool = False, **kwargs: Any) -> List[str]:
