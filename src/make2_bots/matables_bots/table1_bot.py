@@ -7,7 +7,7 @@ from ...matables_bots.table1_bot import table1get, get_KAKO
 import functools
 from typing import Dict
 from ..lazy_data_bots.bot_2018 import pop_All_2018
-from ...helps.print_bot import output_test
+from ...helps.log import logger
 from .bot import Films_O_TT, players_new_keys
 
 from .bot import All_P17
@@ -51,7 +51,7 @@ def get_KAKO(text: str) -> str:
                 f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}"
             )
 
-        output_test(f'>> get_KAKO_({table_name}) for ["{text}"] = "{resolved_label}"')
+        logger.debug(f'>> get_KAKO_({table_name}) for ["{text}"] = "{resolved_label}"')
 
         return resolved_label
 

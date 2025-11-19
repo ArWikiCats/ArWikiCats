@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import functools
 from ...helps.log import logger
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 from ...translations import SPORTS_KEYS_FOR_JOBS, Get_New_team_xo
 from . import team_work
 from ..o_bots.utils import resolve_suffix_template
@@ -29,7 +29,7 @@ def get_teams_new(team_name: str) -> str:
     # sports.py: len:"Teams new":  114691
 
     normalized_team = team_name.strip()
-    print_put(f'get_teams_new team:"{normalized_team}"')
+    logger.info(f'get_teams_new team:"{normalized_team}"')
     logger.info(f"get_teams_new: Resolving team label, team: {normalized_team}")
 
     team_label = Get_New_team_xo(normalized_team)
@@ -41,7 +41,7 @@ def get_teams_new(team_name: str) -> str:
             lambda prefix: SPORTS_KEYS_FOR_JOBS.get(prefix, ""),
         )
         if team_label:
-            print_put(f'get_teams_new: team_label:"{team_label}" from sports suffix lookup')
+            logger.info(f'get_teams_new: team_label:"{team_label}" from sports suffix lookup')
 
     return team_label
 

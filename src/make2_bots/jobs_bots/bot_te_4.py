@@ -12,7 +12,7 @@ from ...translations import (
     short_womens_jobs,
 )
 
-from ...helps.print_bot import output_test4
+from ...helps.log import logger
 from ..media_bots.film_keys_bot import Films
 from ..o_bots import ethnic_bot
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
@@ -42,7 +42,7 @@ def nat_match(category: str) -> str:
     category_lower = category.lower().replace("category:", "")
     matched_country_key = ""
     country_label_template = ""
-    output_test4(f'<<lightblue>> bot_te_4: nat_match normalized_category :: "{category_lower}" ')
+    logger.debug(f'<<lightblue>> bot_te_4: nat_match normalized_category :: "{category_lower}" ')
     country_templates = {
         r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
         # r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
@@ -58,12 +58,12 @@ def nat_match(category: str) -> str:
         sentiment_category = sentiment_category[: -len(" sentiment")]
         if category_lower.startswith("anti-"):
             sentiment_category = category_lower[5:]
-    output_test4(
+    logger.debug(
         '<<lightblue>> bot_te_4: nat_match sentiment_category :: "%s" ' % sentiment_category
     )
     """
     if matched_country_key:
-        output_test4(
+        logger.debug(
             f'<<lightblue>> bot_te_4: nat_match country_key :: "{matched_country_key}" '
         )
     country_label_key = Nat_mens.get(matched_country_key, "")
@@ -73,17 +73,17 @@ def nat_match(category: str) -> str:
         else ""
     )
     if country_label:
-        output_test4(f'<<lightblue>> bot_te_4: nat_match country_label :: "{country_label}" ')
+        logger.debug(f'<<lightblue>> bot_te_4: nat_match country_label :: "{country_label}" ')
     return country_label
 
 
 @functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str, reference_category: str="") -> str:
-    output_test4(
+    logger.debug(
         f"<<lightyellow>>>> te_2018_with_nat >> category:({category}), reference_category:{reference_category}.."
     )
     country_label = ""
-    # output_test4('te_2018_with_nat "%s"' % category)
+    # logger.debug('te_2018_with_nat "%s"' % category)
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
     if not country_label:
         country_label = short_womens_jobs.get(normalized_category, "")
@@ -112,8 +112,8 @@ def te_2018_with_nat(category: str, reference_category: str="") -> str:
     if country_label:
         if con_3:
             country2 = ""
-            output_test4(f'<<lightblue>> te_2018_with_nat startswith({country2}),con_3:"{con_3}"')
-        output_test4(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
+            logger.debug(f'<<lightblue>> te_2018_with_nat startswith({country2}),con_3:"{con_3}"')
+        logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     # Try with Jobs
     return country_label
 
@@ -135,7 +135,7 @@ def Jobs_in_Multi_Sports(category: str) -> str:
             specified category.
     """
     # python3 core8/pwb.py make/bot_te_4 Asian_Games_wrestlers
-    output_test4(f"<<lightyellow>>>> Jobs_in_Multi_Sports >> category:({category}) ")
+    logger.debug(f"<<lightyellow>>>> Jobs_in_Multi_Sports >> category:({category}) ")
     primary_label = ""
     category = category.replace("_", " ")
     # cate2_no_lower = cate
@@ -147,7 +147,7 @@ def Jobs_in_Multi_Sports(category: str) -> str:
         game_prefix = f"{sport_prefix} "
         if category.startswith(game_prefix):
             job_key = category_lower[len(game_prefix) :]
-            output_test4(
+            logger.debug(
                 f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") '
                 f'game_label:"{game_label}",job:"{job_key}". '
             )
@@ -157,5 +157,5 @@ def Jobs_in_Multi_Sports(category: str) -> str:
         # job_lab = short_womens_jobs.get(job , "")
     if job_key and game_label and job_label:
         primary_label = f"{job_label} في {game_label}"
-    output_test4(f'end Jobs_in_Multi_Sports "{category}" , primary_label:"{primary_label}"')
+    logger.debug(f'end Jobs_in_Multi_Sports "{category}" , primary_label:"{primary_label}"')
     return primary_label

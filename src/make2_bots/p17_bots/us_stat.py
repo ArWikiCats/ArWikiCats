@@ -3,13 +3,13 @@
 
 import functools
 from ...translations import US_State_lower, kk_end_US_State
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 
 
 @functools.lru_cache(maxsize=None)
 def Work_US_State(state_identifier: str) -> str:
     normalized_state = state_identifier.lower().strip()
-    print_put(
+    logger.info(
         f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", '
         f'SUUS : "{normalized_state}"'
     )
@@ -24,27 +24,27 @@ def Work_US_State(state_identifier: str) -> str:
         if normalized_state.endswith(lower_suffix):
             suffix_key = suffix
             state_key = normalized_state[: -len(lower_suffix)]
-            print_put(f'>>>><<lightblue>> Work_US_State :"{normalized_state}" (matched suffix: "{lower_suffix}")')
+            logger.info(f'>>>><<lightblue>> Work_US_State :"{normalized_state}" (matched suffix: "{lower_suffix}")')
             break
         elif normalized_state.endswith(state_suffix_variant):
             suffix_key = suffix
             state_key = normalized_state[: -len(state_suffix_variant)]
-            print_put(f'>>>><<lightblue>> Work_US_State :"{normalized_state}" (matched suffix variant: "{state_suffix_variant}")')
+            logger.info(f'>>>><<lightblue>> Work_US_State :"{normalized_state}" (matched suffix variant: "{state_suffix_variant}")')
             break
 
     if suffix_key and state_key:
-        print_put(f'>>>><<lightblue>> Work_US_State pri:"{suffix_key}"')
+        logger.info(f'>>>><<lightblue>> Work_US_State pri:"{suffix_key}"')
         state_label = US_State_lower.get(state_key)
 
         if state_label:
-            print_put(f'>>>><<lightblue>> State_key :"{state_key}", Statelabel : "{state_label}"')
+            logger.info(f'>>>><<lightblue>> State_key :"{state_key}", Statelabel : "{state_label}"')
             resolved_label = kk_end_US_State[suffix_key] % state_label
-            print_put(
+            logger.info(
                 f'>>>><<lightblue>> SUUS.endswith pri("{suffix_key}"), uuu_lab:"{resolved_label}"'
             )
             label = resolved_label
         else:
-            print_put(f'>>>><<lightblue>> cant find Statelabel for:"{state_key}"')
+            logger.info(f'>>>><<lightblue>> cant find Statelabel for:"{state_key}"')
 
     label = label.replace("ولاية واشنطن العاصمة", "واشنطن العاصمة")
     label = label.replace(" ولاية ولاية ", " ولاية ")

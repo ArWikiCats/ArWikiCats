@@ -6,7 +6,7 @@ python3 core8/pwb.py make/make2_bots.ma_bots/country2_bot
 
 
 """
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
@@ -73,6 +73,6 @@ def get_lab_for_country2(country: str) -> str:
         resolved_label = get_pop_All_18(country2[len("the ") :], "")
 
     if resolved_label:
-        print_put(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
+        logger.info(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
 
     return resolved_label

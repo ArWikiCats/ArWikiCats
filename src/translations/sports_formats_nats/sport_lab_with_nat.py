@@ -8,9 +8,8 @@ import re
 from ..utils.match_nats_keys import match_nat_key
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 from ..nats.Nationality import en_nats_to_ar_label
-from ...helps.print_bot import output_test
-from ..utils import apply_pattern_replacement
 from ...helps.log import logger
+from ..utils import apply_pattern_replacement
 from ...translations_formats.format_data import FormatData
 
 format_labels_with_nat = {
@@ -47,14 +46,14 @@ def match_sports_labels_with_nat(normalized_team: str) -> str:
         logger.debug("nationality_key not found")
         return template_label
     logger.debug(f"{nationality_key=}")
-    output_test(f'nationality_key:"{str(nationality_key)}"')
+    logger.debug(f'nationality_key:"{str(nationality_key)}"')
     normalized_nat_key = re.sub(
         f" {nationality_key} ", " natar ", f" {normalized_team.strip()} ", flags=re.IGNORECASE
     )
     logger.debug(f"{normalized_nat_key=}")
     template_label = format_labels_with_nat.get(normalized_nat_key.strip(), "")
     nationality_label = en_nats_to_ar_label.get(nationality_key.lower(), "")
-    output_test(f'nat_lab:"{nationality_label}"')
+    logger.debug(f'nat_lab:"{nationality_label}"')
     if template_label and nationality_label:
         template_label = template_label.replace("natar", nationality_label)
     logger.debug(f"{template_label=}, {nationality_label=}, {nationality_key=}")
@@ -70,7 +69,7 @@ def match_sports_labels_with_nat_new(normalized_team: str) -> str:
         logger.debug("nationality_key not found")
         return ""
     logger.debug(f"{nationality_key=}")
-    output_test(f'nationality_key:"{str(nationality_key)}"')
+    logger.debug(f'nationality_key:"{str(nationality_key)}"')
     template_label = get_template_label(nationality_key, "natar", normalized_team, format_labels_with_nat)
     nationality_label = en_nats_to_ar_label.get(nationality_key.lower(), "")
     if template_label and nationality_label:

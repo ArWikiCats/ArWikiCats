@@ -14,7 +14,7 @@ from ....translations import (
     lang_key_m,
 )
 from ....helps.log import logger
-from ....helps.print_bot import print_put
+from ....helps.log import logger
 import functools
 
 
@@ -33,7 +33,7 @@ def _try_romanization(con_3: str) -> str:
         if con_3.startswith(prefix):
             suffix = con_3[len(prefix):].strip()
             lang_label = languages_key.get(f"{suffix} language", "")
-            print_put(suffix)
+            logger.info(suffix)
             if lang_label:
                 return template.format(lang_label)
     return ""

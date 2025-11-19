@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import functools
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 from ...translations import lang_ttty, languages_pop
 
 
@@ -43,9 +43,9 @@ def te_language(category: str) -> str:
             resolved_label = suffix_template % language_label if "%s" in suffix_template else suffix_template.format(language_label)
 
     if resolved_label:
-        print_put(f"<<lightblue>>>> vvvvvvvvvvvv te_language cate:{normalized_category} vvvvvvvvvvvv ")
-        print_put(f'<<lightblue>>>>>> te_language: new_lab  "{resolved_label}" ')
-        print_put("<<lightblue>>>> ^^^^^^^^^ te_language end ^^^^^^^^^ ")
+        logger.info(f"<<lightblue>>>> vvvvvvvvvvvv te_language cate:{normalized_category} vvvvvvvvvvvv ")
+        logger.info(f'<<lightblue>>>>>> te_language: new_lab  "{resolved_label}" ')
+        logger.info("<<lightblue>>>> ^^^^^^^^^ te_language end ^^^^^^^^^ ")
 
     return resolved_label
 

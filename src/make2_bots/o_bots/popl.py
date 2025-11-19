@@ -6,7 +6,7 @@ import functools
 import re
 
 from ...helps.log import logger
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 from ...translations import People_key, film_key_women_2, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
 from .utils import resolve_suffix_template
@@ -21,26 +21,26 @@ def work_peoples_old(name: str) -> str:
     Returns:
         The resolved Arabic label or an empty string when no mapping exists.
     """
-    print_put(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
+    logger.info(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
     PpP_lab = ""
     person = ""
     pri = ""
     for pri_ff in Pp_Priffix:
         if not person:
             if name.endswith(pri_ff):
-                print_put(f'>>>><<lightblue>> work_peoples :"{name}"')
+                logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
                 pri = pri_ff
                 person = name[: -len(pri_ff)]
                 break
 
     personlab = People_key.get(person, "")
     if not personlab:
-        print_put(f'>>>><<lightblue>> cant find personlab for:"{person}"')
+        logger.info(f'>>>><<lightblue>> cant find personlab for:"{person}"')
 
     if person and personlab:
-        print_put(f'>>>><<lightblue>> person :"{person}", personlab : "{personlab}"')
+        logger.info(f'>>>><<lightblue>> person :"{person}", personlab : "{personlab}"')
         PpP_lab = Pp_Priffix[pri].format(personlab)
-        print_put(f'>>>><<lightblue>> name.endswith pri("{pri}"), PpP_lab:"{PpP_lab}"')
+        logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), PpP_lab:"{PpP_lab}"')
     return PpP_lab
 
 
@@ -55,7 +55,7 @@ def work_peoples(name: str) -> str:
         The resolved Arabic label or an empty string when no mapping exists.
     """
 
-    print_put(f"<<lightpurple>> work_peoples lookup for '{name}'")
+    logger.info(f"<<lightpurple>> work_peoples lookup for '{name}'")
 
     def _lookup(prefix: str) -> str:
         return People_key.get(prefix, "")

@@ -5,7 +5,7 @@
 """
 from typing import Tuple
 from .. import country2_lab
-from ....helps.print_bot import print_put, output_test
+from ....helps.log import logger
 from ....translations import New_P17_Finall, RELIGIOUS_KEYS_PP, New_female_keys
 from ... import tmp_bot
 from ...format_bots import Tabl_with_in
@@ -25,11 +25,11 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     label = ""
     if type_lower == "women" and normalized_preposition == "from":
         label = "نساء"
-        print_put(f'>> >> >> Make label "{label}".')
+        logger.info(f'>> >> >> Make label "{label}".')
 
     elif type_lower == "women of":
         label = "نساء من"
-        print_put(f'>> >> >> Make label "{label}".')
+        logger.info(f'>> >> >> Make label "{label}".')
 
     should_append_in_label = True
     type_lower_with_preposition = type_lower.strip()
@@ -41,14 +41,14 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         label = Tabl_with_in.get(type_lower_with_preposition, "")
         if label:
             should_append_in_label = False
-            print_put(
+            logger.info(
                 f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
             )
 
     if not label:
         label = New_P17_Finall.get(type_lower, "")
         if label:
-            output_test(
+            logger.debug(
                 f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
             )
 
@@ -57,7 +57,7 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
 
         label = New_P17_Finall.get(type_lower_without_article, "")
         if label:
-            output_test(
+            logger.debug(
                 f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"'
             )
     if type_lower == "sport" and country_lower.startswith("by "):
@@ -89,6 +89,6 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     if not label:
         label = country2_lab.get_lab_for_country2(type_lower)
 
-    print_put(f"?????? get_Type_lab: {type_lower=}, {label=}")
+    logger.info(f"?????? get_Type_lab: {type_lower=}, {label=}")
 
     return label, should_append_in_label

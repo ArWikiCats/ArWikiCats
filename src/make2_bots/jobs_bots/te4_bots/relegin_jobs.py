@@ -5,7 +5,7 @@
 import functools
 from pathlib import Path
 from ....translations import RELIGIOUS_KEYS_PP
-from ....helps.print_bot import output_test4
+from ....helps.log import logger
 # from ....helps.jsonl_dump import save
 from ..get_helps import get_con_3
 from ..jobs_mainbot import jobs_with_nat_prefix
@@ -13,7 +13,7 @@ from ..jobs_mainbot import jobs_with_nat_prefix
 
 @functools.lru_cache(maxsize=None)
 def relegins_jobs(cate: str) -> str:
-    output_test4(f"\t xx start: <<lightred>>relegins_jobs >> <<lightpurple>> cate:{cate}")
+    logger.debug(f"\t xx start: <<lightred>>relegins_jobs >> <<lightpurple>> cate:{cate}")
     cate_lower = cate.lower().strip()
     data = RELIGIOUS_KEYS_PP.get(cate_lower, {})
     if data:
@@ -29,7 +29,7 @@ def relegins_jobs(cate: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def try_relegins_jobs_with_suffix(cate: str) -> str:
-    output_test4(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> cate:{cate}")
+    logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> cate:{cate}")
     category_suffix, country_prefix = get_con_3(cate, "religions")
     if not category_suffix:
         return ""
@@ -44,7 +44,7 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
         womens=womens,
         find_nats=False
     )
-    output_test4(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
+    logger.debug(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
     # if country_lab:
     # save(Path(__file__).parent / "relegin_jobs.jsonl", [{"cate": cate, "country_prefix": country_prefix, "category_suffix": category_suffix, "mens": mens, "womens": womens, "country_lab": country_lab}])
     return country_lab

@@ -3,7 +3,8 @@
 
 import functools
 import re
-from ...helps.print_bot import output_test, print_def_head
+from ...helps.log import logger
+from ...helps.print_bot import print_def_head
 from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import Films_O_TT, add_to_new_players
@@ -33,7 +34,7 @@ def te_films(category: str, reference_category: str = "") -> str:
         resolved_label = Jobs_in_Multi_Sports(normalized_category)
         if resolved_label:
             add_to_new_players(normalized_category, resolved_label)
-            output_test(f'>>>> Jobs_in_Multi Sports: add_to_new_players[{normalized_category}] ="{resolved_label}"')
+            logger.debug(f'>>>> Jobs_in_Multi Sports: add_to_new_players[{normalized_category}] ="{resolved_label}"')
 
     if not resolved_label:
         resolved_label = te_2018_with_nat(normalized_category, reference_category=reference_category)
@@ -44,12 +45,12 @@ def te_films(category: str, reference_category: str = "") -> str:
         resolved_label = te4_2018_Jobs(normalized_category)
         if resolved_label:
             add_to_new_players(normalized_category, resolved_label)
-            output_test(f'>>>> bot_te_4 2018 Jobs: add_to_new_players[{normalized_category}] ="{resolved_label}"')
+            logger.debug(f'>>>> bot_te_4 2018 Jobs: add_to_new_players[{normalized_category}] ="{resolved_label}"')
 
     if not resolved_label:
         resolved_label = nat_match(normalized_category)
         if resolved_label:
-            output_test(f'>>>> nat_match: [{normalized_category}] ="{resolved_label}"')
+            logger.debug(f'>>>> nat_match: [{normalized_category}] ="{resolved_label}"')
     if not resolved_label:
         resolved_label = p17_bot.Get_P17(normalized_category)
 

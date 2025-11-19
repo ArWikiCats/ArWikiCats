@@ -6,7 +6,7 @@ import functools
 from typing import Dict
 
 from ...helps.log import logger
-from ...helps.print_bot import output_test4
+from ...helps.log import logger
 from ...translations import Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2
 
 MALE_TOPIC_TABLE: Dict[str, str] = {
@@ -75,7 +75,7 @@ def ethnic_culture(category: str, start: str, suffix: str) -> str:
     if topic_label and group_label and start_label:
         combined = f"{group_label} {start_label}"
         resolved = topic_label.format(combined)
-        output_test4(f'<<lightblue>> ethnic_culture resolved label "{resolved}" for "{category}"')
+        logger.debug(f'<<lightblue>> ethnic_culture resolved label "{resolved}" for "{category}"')
         return resolved
 
     return ""
@@ -97,7 +97,7 @@ def ethnic(category: str, start: str, suffix: str) -> str:
     start_label = Nat_mens.get(start, "")
     if group_label and start_label:
         resolved = f"{group_label} {start_label}"
-        output_test4(f'<<lightblue>> ethnic resolved label "{resolved}" for "{category}"')
+        logger.debug(f'<<lightblue>> ethnic resolved label "{resolved}" for "{category}"')
         return resolved
 
     return ethnic_culture(category, start, normalized_suffix)

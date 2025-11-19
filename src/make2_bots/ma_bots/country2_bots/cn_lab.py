@@ -10,7 +10,7 @@ from ...format_bots import pop_format, pop_format2
 from ...matables_bots.bot import Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
 from ....utils import check_key_in_tables
-from ....helps.print_bot import print_put
+from ....helps.log import logger
 
 
 def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str, cona_2: str, sps: str) -> str:
@@ -22,15 +22,15 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
     if in_tables_no_lower or in_tables_lowers:
         if in_tables_lowers:
             if c_2_l.startswith("أصل "):
-                print_put(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in players_new_keys:')
+                logger.info(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in players_new_keys:')
                 resolved_label = f"{c_1_l}{sps}من {c_2_l}"
             else:
-                print_put(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in players_new_keys:')
+                logger.info(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in players_new_keys:')
                 resolved_label += " في "
         if cona_2 not in By_table:
             Films_O_TT[country2] = resolved_label
         else:
-            print_put("<<lightblue>>>>>> cona_2 in By_table")
+            logger.info("<<lightblue>>>>>> cona_2 in By_table")
 
     if c_2_l:
         faxos = ""
@@ -41,14 +41,14 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
             elif tashr in pop_format:
                 faxos = pop_format[tashr]
             if faxos:
-                print_put(f'<<lightblue>>>>>> cona_1 in pop_format "{faxos}":')
+                logger.info(f'<<lightblue>>>>>> cona_1 in pop_format "{faxos}":')
                 resolved_label = faxos.format(c_2_l)
 
         if cona_1 in pop_format2:
-            print_put(f'<<lightblue>>>>>> cona_1 in pop_format2 "{pop_format2[cona_1]}":')
+            logger.info(f'<<lightblue>>>>>> cona_1 in pop_format2 "{pop_format2[cona_1]}":')
             resolved_label = pop_format2[cona_1].format(c_2_l)
 
-    print_put(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
+    logger.info(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
     resolved_label = resolved_label.replace("  ", " ")
 
     maren = re.match(r"\d\d\d\d", cona_2)
@@ -56,7 +56,7 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
     if maren:
         if cona_1 == "war of" and resolved_label == f"الحرب في {cona_2}":
             resolved_label = f"حرب {cona_2}"
-            print_put(f'<<lightpurple>> >>>> change cnt_la to "{resolved_label}".')
+            logger.info(f'<<lightpurple>> >>>> change cnt_la to "{resolved_label}".')
 
     if resolved_label.endswith(" في "):
         resolved_label = resolved_label[: -len(" في ")]

@@ -8,7 +8,7 @@ from typing import Tuple
 
 from ....helps import printe
 from ...format_bots import category_relation_mapping
-from ....helps.print_bot import print_put, output_test
+from ....helps.log import logger
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 from .cn_lab import make_cnt_lab
 from .. import country_bot
@@ -45,10 +45,10 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
         Type_t = f"{Type_t} of"
         con_1 = f"{con_1} of"
 
-    print_put(f'>>>> con_1:"{con_1.strip()}",test_N:"{test_N.strip()}",con 2:"{con_2.strip()}"')
+    logger.info(f'>>>> con_1:"{con_1.strip()}",test_N:"{test_N.strip()}",con 2:"{con_2.strip()}"')
 
     if test_N and test_N.strip() != tat_o.strip():
-        print_put(f'>>>> <<lightblue>> test_N != "",Type_t:"{Type_t}",tat_o:"{tat_o}",country_t:"{country_t}"')
+        logger.info(f'>>>> <<lightblue>> test_N != "",Type_t:"{Type_t}",tat_o:"{tat_o}",country_t:"{country_t}"')
         con_1 = Type_t
         con_2 = country_t
 
@@ -83,11 +83,11 @@ def make_sps(tat_o: str, c_1_l: str, cona_1: str) -> str:
 def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     """Convert country name and generate labels based on input parameters."""
 
-    print_put(f'>>>> <<lightblue>> country_2_tit: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
+    logger.info(f'>>>> <<lightblue>> country_2_tit: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".')
 
     con_1, con_2 = make_conas(tat_o, country)
 
-    print_put(f'2060 con_1:"{con_1}",con_2:"{con_2}",tat_o:"{tat_o}"')
+    logger.info(f'2060 con_1:"{con_1}",con_2:"{con_2}",tat_o:"{tat_o}"')
 
     c_2_l = c_2_1_lab(con_2, With_Years=With_Years)
     c_1_l = c_1_1_lab(tat_o, con_1, With_Years=With_Years)
@@ -107,7 +107,7 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     remaining_text = country2
 
     if c_2_l == "" or c_1_l == "":
-        print_put(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
+        logger.info(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
         return ""
 
     remaining_text = (
@@ -118,19 +118,19 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
     )
 
     if (tat_o.strip() == "in" or cona_1.endswith(" in")) and (not cona_1.endswith(" في")):
-        output_test(f'>>>> Add في to c_1_l : "{c_1_l}"')
+        logger.debug(f'>>>> Add في to c_1_l : "{c_1_l}"')
         c_1_l = f"{c_1_l} في"
 
     elif (tat_o.strip() == "from" or cona_2.endswith(" from")) and (not c_2_l.endswith(" من")):
-        output_test(f'>>>> Add من to c_2_l : "{c_2_l}"')
+        logger.debug(f'>>>> Add من to c_2_l : "{c_2_l}"')
         c_2_l = f"من {c_2_l}"
 
-    print_put(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
+    logger.info(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
 
     sps = make_sps(tat_o, c_1_l, cona_1)
 
     if remaining_text:
-        print_put(f'>>>> cnt_test:"{remaining_text}" != "" ')
+        logger.info(f'>>>> cnt_test:"{remaining_text}" != "" ')
 
     resolved_label = make_cnt_lab(tat_o, country2, c_2_l, c_1_l, cona_1, cona_2, sps)
 
