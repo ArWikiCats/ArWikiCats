@@ -17,9 +17,6 @@ def one_req(name: str) -> bool:
 @dataclass(frozen=True)
 class PrintConfig:
     disable_all_printing: bool
-    force_all_printing: bool
-    headline_only_preferences: bool
-    enable_print_put: bool
     noprint: bool
 
 
@@ -45,9 +42,6 @@ noprint_flag = one_req("NOPRINT")
 settings = Config(
     print=PrintConfig(
         disable_all_printing=one_req("ALL_PRINT_OFF") or noprint_flag,
-        force_all_printing=one_req("PRINTALL"),
-        headline_only_preferences=one_req("PRINTHEAD"),
-        enable_print_put=one_req("PRINT_PUT"),
         noprint=noprint_flag,
     ),
     app=AppConfig(

@@ -9,7 +9,6 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 from typing import Optional, Any, Dict, List
 from .helps import printe
 from .helps.log import logger
-from .helps.print_bot import do_print_options
 from .event_processing import new_func_lab, event_result
 
 
@@ -40,13 +39,6 @@ def event(
     return_no_labs: bool = False,
 ) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
     """Process a list of categories and generate corresponding labels."""
-
-    do_print_options(
-        noprint=noprint,
-        printfirst=printfirst,
-        printhead=printhead,
-        tst_prnt_all=tst_prnt_all,
-    )
 
     try:
         total = len(NewList)
