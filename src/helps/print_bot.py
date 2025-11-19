@@ -15,22 +15,6 @@ print_put_preferences = {1: False}
 te_logging_preferences = {1: False}
 
 
-def output_test4(text: str) -> None:
-    if disable_all_printing:
-        return
-    printe.debug(text)
-
-
-def output_main(text: str) -> str | None:
-    if force_all_printing:
-        printe.output(text)
-        return
-    if disable_all_printing or headline_only_preferences:
-        return ""
-    if main_output_preferences[1]:
-        printe.output(text)
-
-
 def print_def_head(text: str) -> None:
     if force_all_printing:
         printe.output(text)
@@ -55,14 +39,6 @@ def print_put(text: str) -> str | None:
             return ""
         if print_put_preferences[1]:
             printe.output(text)
-
-
-def output_test(text: str) -> str | None:
-    if disable_all_printing:
-        return
-    if headline_only_preferences:
-        return ""
-    printe.debug(text)
 
 
 def do_print_options(

@@ -7,7 +7,6 @@ import functools
 from ...helps.log import logger
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ...helps.print_bot import print_def_head
 from .country2_bots.country2_tit_bt import country_2_title_work
 from . import country2_lab
 from . import ye_ts_bot
@@ -18,7 +17,7 @@ def Get_country2(country: str, With_Years: bool = True) -> str:
     """Retrieve information related to a specified country."""
 
     normalized_country = country.lower().strip()
-    print_def_head(f'>> Get_country2 "{normalized_country}":')
+    logger.info(f'>> Get_country2 "{normalized_country}":')
 
     resolved_label = ""
 

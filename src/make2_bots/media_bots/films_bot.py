@@ -4,7 +4,6 @@
 import functools
 import re
 from ...helps.log import logger
-from ...helps.print_bot import print_def_head
 from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import Films_O_TT, add_to_new_players
@@ -21,7 +20,7 @@ from ...helps.jsonl_dump import save_data
 @functools.lru_cache(maxsize=None)
 def te_films(category: str, reference_category: str = "") -> str:
     normalized_category = category.lower()
-    print_def_head(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")
+    logger.info(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")
     resolved_label = ""
 
     if re.match(r"^\d+$", normalized_category.strip()):
@@ -66,5 +65,5 @@ def te_films(category: str, reference_category: str = "") -> str:
     if not resolved_label:
         resolved_label = te4_2018_Jobs(normalized_category)
 
-    print_def_head(f"<<lightblue>>>> xxxxxxxxx te_films end xxxxxxxxxxx resolved_label:{resolved_label}")
+    logger.info(f"<<lightblue>>>> xxxxxxxxx te_films end xxxxxxxxxxx resolved_label:{resolved_label}")
     return resolved_label

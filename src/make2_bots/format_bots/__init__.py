@@ -5,9 +5,9 @@
 
 import re
 from ...helps import len_print
+from ...helps.log import logger
 from ...translations import ministrs_tab_for_pop_format
 from ...translations import New_Company
-from ...helps.print_bot import output_main
 from .pf_keys import Change_key, Change_key2
 
 # Precompiled Regex Patterns
@@ -576,7 +576,7 @@ def change_cat(cat_orginal: str) -> str:
 
     # Log changes if any
     if category != cat_orginal:
-        output_main(f'change_cat to :"{category}", orginal: {cat_orginal}.')
+        logger.info(f'change_cat to :"{category}", orginal: {cat_orginal}.')
 
     return category
 

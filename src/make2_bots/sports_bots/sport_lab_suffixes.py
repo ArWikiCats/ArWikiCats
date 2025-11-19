@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import functools
 from ...helps.log import logger
-from ...helps.log import logger
 from ...translations import SPORTS_KEYS_FOR_JOBS, Get_New_team_xo
 from . import team_work
 from ..o_bots.utils import resolve_suffix_template

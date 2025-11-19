@@ -6,7 +6,6 @@
 
 import re
 from typing import Tuple
-from ...helps.print_bot import print_def_head
 from ...helps.log import logger
 
 
@@ -62,7 +61,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     elif tito2 == "for" and not country.startswith(titostarts):
         country = f"for {country}"
 
-    print_def_head(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", {tito=} ')
+    logger.info(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", {tito=} ')
 
     if test_N and test_N != tito2:
         logger.info(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", country_t:"{country_t}" ')
