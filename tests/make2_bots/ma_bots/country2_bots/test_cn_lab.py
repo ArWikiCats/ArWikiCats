@@ -23,7 +23,6 @@ make_cnt_lab_data = {
 @pytest.mark.parametrize("category, ar", make_cnt_lab_data.items(), ids=list(make_cnt_lab_data.keys()))
 @pytest.mark.fast
 def test_make_cnt_lab_data(category, ar) -> None:
-
     label = make_cnt_lab(tat_o="-of ", country2=f"kingdom-of {category}", c_2_l=ar, c_1_l="مملكة", cona_1="kingdom of", cona_2=category, sps=" ")
     assert label.strip() == f"مملكة {ar}"
 
@@ -40,7 +39,6 @@ party_data = {
 @pytest.mark.parametrize("country2, c_2_l, expected", party_data.values(), ids=list(party_data.keys()))
 @pytest.mark.fast
 def test_make_cnt_lab_communist_party(country2, c_2_l, expected):
-
     label = make_cnt_lab(tat_o="-of ", country2=country2, c_2_l=c_2_l, c_1_l="الحزب الشيوعي في ", cona_1="communist party of", cona_2=country2.replace("communist party-of ", ""), sps=" ")
 
     assert label.strip() == expected

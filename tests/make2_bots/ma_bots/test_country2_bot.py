@@ -73,7 +73,6 @@ data_fast = {
 @pytest.mark.parametrize("category, expected", data_fast.items(), ids=list(data_fast.keys()))
 @pytest.mark.fast
 def test_Get_country2_fast(category, expected) -> None:
-
     label = Get_country2(category)
     assert label.strip() == expected
 
@@ -664,7 +663,6 @@ data_slow = {
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=list(data_slow.keys()))
 @pytest.mark.slow
 def test_Get_country2_slow(category, expected) -> None:
-
     label = Get_country2(category)
     assert label.strip() == expected
 
