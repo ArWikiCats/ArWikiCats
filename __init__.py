@@ -8,7 +8,7 @@ from .src.event_processing import (
     new_func_lab,
 )
 from .src.helps.len_print import dump_all_len
-from .src.helps.log import config_logger, logger, LoggerWrap
+from .src.helps.log import LoggerWrap, config_logger, logger
 
 __all__ = [
     "config",
