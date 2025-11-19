@@ -19,44 +19,32 @@ def add_definite_article(label: str) -> str:
     return new_label
 
 
-def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
-    logger.info(
-        f'<<lightblue>>>>>> Get_P17_2 "{category}" '
-    )  # "united states government officials"
-
-    # Category:United States government officials
-    resolved_label = ""
-    for suffix, template in en_is_P17_ar_is_mens.items():
+def _resolve_p17_2_label(category: str, templates: dict, nat_key: str, add_article: bool = False) -> str:
+    for suffix, template in templates.items():
         suffix_key = f" {suffix.strip().lower()}"
         if category.lower().endswith(suffix_key):
             country_prefix = category[: -len(suffix_key)].strip()
 
-            mens_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(
-                "mens", ""
-            )
-            if mens_label:
-                logger.debug(f'<<lightblue>>>>>> mens: "{mens_label}" ')
-                resolved_label = template.format(mens_label)
-                logger.debug(
-                    f'<<lightblue>>>>>> en_is_P17_ar_is_mens: new cnt_la  "{resolved_label}" '
-                )
-    # ---
-    if not resolved_label:
-        for suffix, template in en_is_P17_ar_is_al_women.items():
-            suffix_key = f" {suffix.strip().lower()}"
-            if category.lower().endswith(suffix_key):
-                country_prefix = category[: -len(suffix_key)].strip()
+            nat_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(nat_key, "")
 
-                women_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(
-                    "women", ""
-                )
-                if women_label:
-                    women_label = add_definite_article(women_label)
-                    logger.debug(f'<<lightblue>>>>>> women: "{women_label}" ')
-                    resolved_label = template.format(women_label)
-                    logger.debug(
-                        f'<<lightblue>>>>>> en_is_P17_ar_is_al_women: new cnt_la  "{resolved_label}" '
-                    )
+            if nat_label:
+                if add_article:
+                    nat_label = add_definite_article(nat_label)
+
+                logger.debug(f'<<lightblue>>>>>> {nat_key}: "{nat_label}" ')
+                resolved_label = template.format(nat_label)
+                logger.debug(f'<<lightblue>>>>>> {nat_key} template match: new cnt_la "{resolved_label}" ')
+                return resolved_label
+    return ""
+
+
+def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
+    logger.info(f'<<lightblue>>>>>> Get_P17_2 "{category}" ')  # "united states government officials"
+
+    resolved_label = _resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens")
+
+    if not resolved_label:
+        resolved_label = _resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", add_article=True)
 
     return resolved_label
 
@@ -64,16 +52,16 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
 def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
     resolved_label = ""
     con_3_lab = ""
-    con_3 = ""
-    country_start = ""
-    category = category.lower()
     country_start_lab = ""
+    category = category.lower()
+
     con_3, country_start = get_con_3(category, "All_P17")
     country_start_lab = All_P17.get(country_start, "")
 
-    if con_3 == "" and country_start == "":
+    if not con_3 and not country_start:
         con_3, country_start = get_con_3(category, "contries_from_nat")
         country_start_lab = contries_from_nat.get(country_start, "")
+
     if con_3 and country_start:
         logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
         logger.debug(f'<<lightblue>> country_start:"{country_start}", con_3:"{con_3}"')
@@ -87,6 +75,8 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
         if not con_3_lab:
             con_3_lab = SPORT_FORMTS_EN_AR_IS_P17.get(con_3.strip(), "")
+            if con_3_lab:
+                FOF = "<<lightgreen>>SPORT_FORMTS_EN_AR_IS_P17<<lightblue>>"
 
         if not con_3_lab:
             con_3_lab = en_is_P17_ar_is_P17.get(con_3.strip(), "")
@@ -94,29 +84,25 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
         if not con_3_lab:
             con_3_lab = Get_Sport_Format_xo_en_ar_is_P17(con_3.strip())
 
-        if con_3_lab:
-            FOF = "<<lightgreen>>SPORT_FORMTS_EN_AR_IS_P17<<lightblue>>"
-
         if not con_3_lab:
             con_3_lab = pop_format.get(con_3, "")
             if con_3_lab:
                 FOF = "<<lightgreen>>pop_format<<lightblue>>"
 
         if con_3_lab:
-            logger.debug(
-                f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"'
-            )
+            if FOF:
+                logger.debug(
+                    f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"'
+                )
             if "{nat}" in con_3_lab:
                 resolved_label = con_3_lab.format(nat=country_start_lab)
             else:
                 resolved_label = con_3_lab.format(country_start_lab)
 
-        if con_3_lab and resolved_label == "":
-            resolved_label = con_3_lab.format(country_start_lab)
-        if con_3_lab:
             logger.debug(
                 f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" '
             )
+
         logger.debug(
             f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{resolved_label}" == ""'
         )
