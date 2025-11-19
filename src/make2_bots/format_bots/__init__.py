@@ -552,7 +552,13 @@ def change_cat(cat_orginal: str) -> str:
     for chk, chk_lab in Change_key.items():
         key = (chk, chk_lab)
         if key not in _change_key_compiled:
-            _change_key_compiled[key] = [re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE), re.compile(rf"^{chk} ", flags=re.IGNORECASE), re.compile(rf" {chk} ", flags=re.IGNORECASE), re.compile(rf" {chk}$", flags=re.IGNORECASE), re.compile(rf"category\:{chk} ", flags=re.IGNORECASE)]
+            _change_key_compiled[key] = [
+                re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE),
+                re.compile(rf"^{chk} ", flags=re.IGNORECASE),
+                re.compile(rf" {chk} ", flags=re.IGNORECASE),
+                re.compile(rf" {chk}$", flags=re.IGNORECASE),
+                re.compile(rf"category\:{chk} ", flags=re.IGNORECASE)
+            ]
 
         patterns = _change_key_compiled[key]
         category = patterns[0].sub(f"category:{chk_lab} ", category)
