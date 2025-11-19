@@ -9,10 +9,10 @@ from ...translations import SPORTS_KEYS_FOR_JOBS, Get_New_team_xo
 from . import team_work
 from ..o_bots.utils import resolve_suffix_template
 from pathlib import Path
-from ...helps.jsonl_dump import save_data
+# from ...helps.jsonl_dump import save_data
 
 
-@save_data(Path(__file__).parent / "get_teams_new.jsonl", ["team_name"])
+# @save_data(Path(__file__).parent / "get_teams_new.jsonl", ["team_name"])
 @functools.lru_cache(maxsize=10000)
 def get_teams_new(team_name: str) -> str:
     """Return the label for ``team_name`` using multiple heuristics.
