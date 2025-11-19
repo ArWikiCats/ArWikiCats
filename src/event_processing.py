@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
 
-from .main_processers import resolve_label
+from .main_processers.main_resolve import resolve_label
 
 LABEL_PREFIX = "تصنيف"
 
