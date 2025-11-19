@@ -3,8 +3,12 @@
 import pytest
 
 from src.translations.sports_formats_nats.sport_lab_with_nat import (
-    Get_New_team_xo_with_nat, apply_pattern_replacement, get_template_label,
-    match_sports_labels_with_nat, match_sports_labels_with_nat_new)
+    Get_New_team_xo_with_nat,
+    apply_pattern_replacement,
+    get_template_label,
+    match_sports_labels_with_nat,
+    match_sports_labels_with_nat_new,
+)
 
 
 @pytest.mark.skip

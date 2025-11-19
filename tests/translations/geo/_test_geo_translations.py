@@ -2,8 +2,14 @@ from __future__ import annotations
 
 import pytest
 
-from src.translations.geo import (Cities, labels_country, labels_country2,
-                                  regions, regions2, us_counties)
+from src.translations.geo import (
+    Cities,
+    labels_country,
+    labels_country2,
+    regions,
+    regions2,
+    us_counties,
+)
 
 
 @pytest.mark.unit

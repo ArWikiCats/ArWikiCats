@@ -4,8 +4,11 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.bot_te_4 import (Jobs_in_Multi_Sports, nat_match,
-                                               te_2018_with_nat)
+from src.make2_bots.jobs_bots.bot_te_4 import (
+    Jobs_in_Multi_Sports,
+    nat_match,
+    te_2018_with_nat,
+)
 
 fast_data = {
     "anti-haitian sentiment": "مشاعر معادية للهايتيون",

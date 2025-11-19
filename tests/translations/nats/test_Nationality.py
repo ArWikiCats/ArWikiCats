@@ -1,8 +1,11 @@
 import pytest
 
-from src.translations.nats.Nationality import (build_american_forms,
-                                               build_lookup_tables,
-                                               load_sources, normalize_aliases)
+from src.translations.nats.Nationality import (
+    build_american_forms,
+    build_lookup_tables,
+    load_sources,
+    normalize_aliases,
+)
 
 
 def test_load_sources_return_type():

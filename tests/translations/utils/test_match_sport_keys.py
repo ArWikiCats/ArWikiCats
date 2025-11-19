@@ -1,7 +1,9 @@
 import pytest
 
-from src.translations.utils.match_sport_keys import (SPORTS_KEYS_FOR_JOBS,
-                                                     match_sport_key)
+from src.translations.utils.match_sport_keys import (
+    SPORTS_KEYS_FOR_JOBS,
+    match_sport_key,
+)
 
 # ---------------------------------------------------------------------
 # 1. Realistic category samples per sport key

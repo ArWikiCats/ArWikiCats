@@ -3,8 +3,12 @@ from unittest.mock import patch
 import pytest
 
 from src.make2_bots.o_bots.rele import work_relations  # افتراض اسم الموديول
-from src.make2_bots.o_bots.rele import (Nat_men, Nat_women, all_country_ar,
-                                        all_country_with_nat_keys_is_en)
+from src.make2_bots.o_bots.rele import (
+    Nat_men,
+    Nat_women,
+    all_country_ar,
+    all_country_with_nat_keys_is_en,
+)
 
 # بيانات اختبارية موسعة لدعم السيناريوهات المختلفة
 TEST_ALL_COUNTRY_AR = {**all_country_ar, "canada": "كندا", "burma": "ميانمار", "nato": "الناتو", "pakistan": "باكستان", "india": "الهند", "germany": "ألمانيا", "poland": "بولندا"}

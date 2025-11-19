@@ -4,8 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.o_bots.popl import (make_people_lab, work_peoples,
-                                        work_peoples_old)
+from src.make2_bots.o_bots.popl import make_people_lab, work_peoples, work_peoples_old
 
 fast_data = {
     "andrew johnson administration cabinet members": "أعضاء مجلس وزراء إدارة أندرو جونسون",

@@ -4,8 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.ar_lab import (add_in_tab,
-                                           find_ar_label)
+from src.make2_bots.ma_bots.ar_lab import add_in_tab, find_ar_label
 
 
 def test_add_in_tab():

@@ -1,11 +1,13 @@
 import pytest
 
 # from src.translations.sports_formats_nats.new import create_label
-from src.translations.sports_formats_nats.new import (create_label,
-                                                      create_nat_label,
-                                                      get_template_label_new,
-                                                      normalize_both,
-                                                      normalize_nat_label)
+from src.translations.sports_formats_nats.new import (
+    create_label,
+    create_nat_label,
+    get_template_label_new,
+    normalize_both,
+    normalize_nat_label,
+)
 
 
 @pytest.mark.fast

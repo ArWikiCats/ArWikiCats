@@ -5,7 +5,10 @@ Tests
 import pytest
 
 from src.make2_bots.jobs_bots.te4_bots.for_me import (
-    Work_for_me, Work_for_New_2018_men_Keys_with_all, add_all)
+    Work_for_me,
+    Work_for_New_2018_men_Keys_with_all,
+    add_all,
+)
 
 fast_data = [
     {"cate": "asian games bronze medalists", "nat": "asian", "con_3": "games bronze medalists", "output": "فائزون بميداليات برونزية في الألعاب الآسيوية"},

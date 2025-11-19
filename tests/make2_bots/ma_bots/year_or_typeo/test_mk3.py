@@ -1,8 +1,11 @@
 import pytest
 
-from src.make2_bots.ma_bots.year_or_typeo.mk3 import (add_the_in, added_in_new,
-                                                      check_country_in_tables,
-                                                      new_func_mk2)
+from src.make2_bots.ma_bots.year_or_typeo.mk3 import (
+    add_the_in,
+    added_in_new,
+    check_country_in_tables,
+    new_func_mk2,
+)
 
 EXAMPLES = [
     {

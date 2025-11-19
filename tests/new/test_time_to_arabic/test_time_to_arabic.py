@@ -2,8 +2,12 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from src.new.time_to_arabic import (convert_time_to_arabic, match_time_ar,
-                                    match_time_en, match_time_en_first)
+from src.new.time_to_arabic import (
+    convert_time_to_arabic,
+    match_time_ar,
+    match_time_en,
+    match_time_en_first,
+)
 
 
 @pytest.mark.parametrize(

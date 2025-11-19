@@ -1,7 +1,9 @@
 import pytest
 
 from src.fix.specific_normalizations import (
-    apply_category_specific_normalizations, fix_formula)
+    apply_category_specific_normalizations,
+    fix_formula,
+)
 
 
 # -----------------------------
