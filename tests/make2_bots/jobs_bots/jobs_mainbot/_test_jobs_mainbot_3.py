@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix, MEN_WOMENS_WITH_NATO
@@ -47,6 +48,7 @@ def test_nat_womens_women_uses_full_mapping_for_intersection(country_key: str) -
 #           NEW TESTS – jobs_mens_data INTEGRATION
 # =========================================================
 
+
 @pytest.mark.parametrize("suffix, job_label", jobs_mens_data.items())
 @pytest.mark.dict
 def test_jobs_mens_data_combined_with_nationality_yemeni(suffix: str, job_label: str) -> None:
@@ -69,6 +71,7 @@ def test_jobs_mens_data_combined_with_nationality_yemeni(suffix: str, job_label:
 #       NEW TESTS – short_womens_jobs INTEGRATION
 # =========================================================
 
+
 @pytest.mark.parametrize("suffix, short_label", short_womens_jobs.items())
 @pytest.mark.dict
 def test_short_womens_jobs_combined_with_nationality_egyptian(
@@ -86,6 +89,7 @@ def test_short_womens_jobs_combined_with_nationality_egyptian(
 
     assert result != ""
     assert result == f"{short_label} {women_nat}"
+
 
 # =========================================================
 #   NEW TESTS – MEN_WOMENS_WITH_NATO TEMPLATE BEHAVIOR

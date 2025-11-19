@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.jobs_bots.te4_bots.for_me import Work_for_New_2018_men_Keys_with_all, Work_for_me, add_all
@@ -326,11 +327,7 @@ fast_data = [
 ]
 
 
-@pytest.mark.parametrize(
-    "data",
-    fast_data,
-    ids=lambda x: x["cate"]
-)
+@pytest.mark.parametrize("data", fast_data, ids=lambda x: x["cate"])
 @pytest.mark.fast
 def test_fast_data(data) -> None:
 
@@ -478,11 +475,7 @@ with_all_data = [
 ]
 
 
-@pytest.mark.parametrize(
-    "data",
-    with_all_data,
-    ids=lambda x: x["cate"]
-)
+@pytest.mark.parametrize("data", with_all_data, ids=lambda x: x["cate"])
 @pytest.mark.fast
 def test_work_for_new_2018_men_keys_with_all(data) -> None:
 

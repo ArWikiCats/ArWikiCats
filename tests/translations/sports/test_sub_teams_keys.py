@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 import pytest
 from src.translations.sports.sub_teams_keys import sub_teams_new
 

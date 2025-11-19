@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.main_processers.event_lab_bot import event_Lab
@@ -33,7 +34,6 @@ data = {
     "category:lgbtrelated films by genre": "تصنيف:أفلام متعلقة بإل جي بي تي حسب النوع الفني",
     "category:multi-sport events in yemen": "تصنيف:أحداث رياضية متعددة في اليمن",
     "category:parks in the roman empire": "تصنيف:متنزهات في الإمبراطورية الرومانية",
-
 }
 
 
@@ -61,6 +61,7 @@ def test_event_lab():
     result_empty = event_Lab("")
     assert isinstance(result_empty, str)
 
+
 # ---------------------------------------------------------------------------
 # 1) Direct label via get_list_of_and_cat3_with_lab2
 # ---------------------------------------------------------------------------
@@ -77,6 +78,7 @@ def test_event_lab_direct_lab2():
 # 2) Episodes branch + SEO fallback (list_of_cat used, no other labels)
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.fast
 def test_event_lab_episodes_branch_with_seo_fallback():
 
@@ -87,6 +89,7 @@ def test_event_lab_episodes_branch_with_seo_fallback():
 # ---------------------------------------------------------------------------
 # 3) Templates branch + SEO fallback
 # ---------------------------------------------------------------------------
+
 
 @pytest.mark.fast
 def test_event_lab_templates_branch_with_seo_fallback():
@@ -100,6 +103,7 @@ def test_event_lab_templates_branch_with_seo_fallback():
 # 4) get_list_of_and_cat3 footballers + Get_country2 special branch
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.fast
 def test_event_lab_footballers_country_special_case():
 
@@ -112,6 +116,7 @@ def test_event_lab_footballers_country_special_case():
 # 5) General translation fallback via ye_ts_bot.translate_general_category
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.fast
 def test_event_lab_general_translate_category_fallback():
 
@@ -123,6 +128,7 @@ def test_event_lab_general_translate_category_fallback():
 # ---------------------------------------------------------------------------
 # 6) Cricketers / cricket captains branch with New_P17_Finall
 # ---------------------------------------------------------------------------
+
 
 @pytest.mark.fast
 def test_event_lab_cricketers_country_mapping():

@@ -1,9 +1,11 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.date_bots.with_years_bot import Try_With_Years
+
 # from src.make2_bots.date_bots import with_years_bot
 
 
@@ -27,6 +29,7 @@ def test_try_with_years():
     # Test with no year pattern
     result_no_year = Try_With_Years("random category")
     assert isinstance(result_no_year, str)
+
 
 # ---------------------------------------------------------------------------
 # Political terms: _handle_political_terms

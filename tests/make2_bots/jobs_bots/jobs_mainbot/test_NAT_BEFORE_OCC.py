@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.translations import RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC
@@ -48,8 +49,7 @@ def test_religious_keys_use_nat_and_religious_forms(suffix: str, forms: dict) ->
 @pytest.mark.parametrize("suffix", NAT_BEFORE_OCC)
 @pytest.mark.dict
 def test_NAT_BEFORE_OCC(suffix: str) -> None:
-    """
-    """
+    """ """
     mens_nat = Nat_mens.get("yemeni") or "يمني"
 
     jobs_with_nat_prefix.cache_clear()
@@ -57,6 +57,7 @@ def test_NAT_BEFORE_OCC(suffix: str) -> None:
 
     assert result != "", f"suffix {suffix}"
     assert mens_nat in result, f"suffix {suffix}"
+
 
 # --- NAT_BEFORE_OCC Expansion Tests ---
 

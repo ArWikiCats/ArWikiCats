@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.main_processers.event_lab_bot import get_list_of_and_cat3_with_lab2
@@ -59,7 +60,6 @@ list_data = {
     "1880 world men's handball championship squad templates": "قوالب تشكيلات بطولة العالم لكرة اليد للرجال 1880",
     "1880 world women's handball championship squad templates": "قوالب تشكيلات بطولة العالم لكرة اليد للسيدات 1880",
     "2004 summer olympics football squad navigational boxes": "صناديق تصفح تشكيلات كرة القدم في الألعاب الأولمبية الصيفية 2004",
-
 }
 
 

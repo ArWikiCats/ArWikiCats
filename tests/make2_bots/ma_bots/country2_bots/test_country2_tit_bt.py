@@ -1,9 +1,11 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.ma_bots.country2_bots.country2_tit_bt import make_conas, make_sps, country_2_tit, country_2_title_work
+
 
 def test_make_conas():
     # Test with basic inputs
@@ -27,6 +29,7 @@ def test_make_conas():
     assert isinstance(result_other[0], str)
     assert isinstance(result_other[1], str)
 
+
 def test_make_sps():
     # Test with basic inputs
     result = make_sps("to", "test label", "ambassadors of")
@@ -40,6 +43,7 @@ def test_make_sps():
     result_empty = make_sps("", "", "")
     assert isinstance(result_empty, str)
 
+
 def test_country_2_tit():
     # Test with basic inputs
     result = country_2_tit("in", "test in country")
@@ -52,6 +56,7 @@ def test_country_2_tit():
     # Test with years disabled
     result_without_years = country_2_tit("to", "test to country", False)
     assert isinstance(result_without_years, str)
+
 
 def test_country_2_title_work():
     # Test with basic input

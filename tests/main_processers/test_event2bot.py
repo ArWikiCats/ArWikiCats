@@ -1,9 +1,11 @@
 """
 Tests
 """
+
 import pytest
 
 from src.main_processers.event2bot import event2_d2, stubs_label, event2
+
 
 def test_event2_d2():
     # Test with a basic input
@@ -18,6 +20,7 @@ def test_event2_d2():
     result_empty = event2_d2("")
     assert isinstance(result_empty, str)
 
+
 def test_stubs_label():
     # Test with a basic input
     result = stubs_label("test category")
@@ -30,6 +33,7 @@ def test_stubs_label():
     # Test with empty string
     result_empty = stubs_label("")
     assert isinstance(result_empty, str)
+
 
 def test_event2():
     # Test with a basic input

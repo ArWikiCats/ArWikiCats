@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 """Pytest move_years"""
 
@@ -20,9 +19,7 @@ def load_test_move_years(data):
 
     if len_diff_list:
         diff_details = "\n".join(str(entry) for entry in diff_list)
-        raise AssertionError(
-            f"Found {len_diff_list} transformation mismatches: {diff_details}"
-        )
+        raise AssertionError(f"Found {len_diff_list} transformation mismatches: {diff_details}")
 
 
 def test_fixlab_group_1():

@@ -2,6 +2,7 @@
 {"cate": "shi'a muslims expatriates", "country_prefix": "shi'a muslims", "category_suffix": "expatriates", "mens": "مسلمون شيعة", "womens": "مسلمات شيعيات", "country_lab": "مسلمون شيعة مغتربون"}
 
 """
+
 import pytest
 
 from src.make2_bots.jobs_bots.te4_bots.relegin_jobs import relegins_jobs, try_relegins_jobs_with_suffix
@@ -31,12 +32,12 @@ def test_with_suffix(key, data):
 )
 def test_no_suffix_female(key, data):
     input = f"female {key}"
-    expected = data['womens']
+    expected = data["womens"]
 
     result = relegins_jobs(input)
     assert result == expected, f"{expected=}, {result=}, {input=}"
 
-    expected_mens = data['mens']
+    expected_mens = data["mens"]
     result_mens = relegins_jobs(key)
     assert result_mens == expected_mens, f"{expected_mens=}, {result_mens=}, {key=}"
 

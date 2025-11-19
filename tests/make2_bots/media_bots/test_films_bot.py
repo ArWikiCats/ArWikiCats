@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.media_bots.films_bot import te_films

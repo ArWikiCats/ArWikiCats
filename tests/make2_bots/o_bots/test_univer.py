@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.o_bots.univer import te_universities

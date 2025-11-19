@@ -1,12 +1,12 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.ma_bots.ye_ts_bot import find_lab, work_titose_nmaes, translate_general_category
 
-fast_data = {
-}
+fast_data = {}
 
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))

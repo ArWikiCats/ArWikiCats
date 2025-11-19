@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.o_bots.popl import work_peoples, make_people_lab, work_peoples_old

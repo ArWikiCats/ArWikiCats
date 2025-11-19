@@ -16,6 +16,7 @@ def test_jobs_new_contains_female_and_general_entries() -> None:
     assert "film actresses" in Jobs_new
     assert "footballers" in jobs_mens_data
 
+
 def test_nat_before_occ_includes_religious_expansions() -> None:
     """The nationality-before-occupation list should include religion keys."""
 

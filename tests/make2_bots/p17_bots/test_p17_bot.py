@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.p17_bots.p17_bot import add_definite_article, Get_P17_2, Get_P17

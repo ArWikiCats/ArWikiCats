@@ -44,7 +44,7 @@ pan_arican = {
     "Category:Members of the Pan-African Parliament from Tunisia": "تصنيف:أعضاء البرلمان الإفريقي من تونس",
     "Category:Members of the Pan-African Parliament from Uganda": "تصنيف:أعضاء البرلمان الإفريقي من أوغندا",
     "Category:Members of the Pan-African Parliament from Zambia": "تصنيف:أعضاء البرلمان الإفريقي من زامبيا",
-    "Category:Members of the Pan-African Parliament from Zimbabwe": "تصنيف:أعضاء البرلمان الإفريقي من زيمبابوي"
+    "Category:Members of the Pan-African Parliament from Zimbabwe": "تصنيف:أعضاء البرلمان الإفريقي من زيمبابوي",
 }
 
 

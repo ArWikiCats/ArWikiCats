@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
@@ -605,7 +606,6 @@ te4_2018_Jobs_data = {
     "football players": "لاعبو كرة قدم",
     "pan-africanists": "وحدويون أفارقة",
     "south american pan-africanists": "وحدويون أفارقة أمريكيون جنوبيون",
-
 }
 
 

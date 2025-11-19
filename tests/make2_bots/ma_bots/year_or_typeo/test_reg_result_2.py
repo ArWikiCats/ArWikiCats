@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 from typing import Sequence
 from _pytest.mark.structures import ParameterSet
 import pytest
@@ -27,7 +28,7 @@ def test_in(eng: ParameterSet | Sequence[object] | object):
     In = out.In.lower().strip()
     country = out.country.lower()
     country_expected = "by canada" if In.strip() == "by" else "canada"
-    assert out.year_at_first == '2025 ', f"[{category}]: {str(out)}"
+    assert out.year_at_first == "2025 ", f"[{category}]: {str(out)}"
     # assert typeo == "", f"[{category}]: {str(out)}"
     # assert In == eng.lower().strip(), f"[{category}]: {str(out)}"
 

@@ -1,4 +1,3 @@
-
 import pytest
 from src.translations.utils.match_nats_keys import match_nat_key
 

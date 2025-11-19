@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.new.end_start_bots.fax2_episodes import get_episodes
@@ -14,12 +15,12 @@ data = [
 
 # --- 1. Basic known test cases ---
 
+
 @pytest.mark.parametrize(
     "text, expected_cat, expected_label",
     data,
     ids=[x[0] for x in data],
 )
-
 @pytest.mark.fast
 def test_basic_cases(text, expected_cat, expected_label):
     list_of_cat, category3 = get_episodes(text)

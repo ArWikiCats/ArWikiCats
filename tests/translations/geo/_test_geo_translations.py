@@ -80,27 +80,21 @@ class TestRegionLabels:
 @pytest.mark.unit
 class TestUSCountiesHelpers:
     def test_extend_state_suffix_templates_adds_party_variants(self):
-        result = us_counties._extend_state_suffix_templates(
-            {" base": "template %s"}, {"Democratic Party": "الحزب الديمقراطي"}
-        )
+        result = us_counties._extend_state_suffix_templates({" base": "template %s"}, {"Democratic Party": "الحزب الديمقراطي"})
 
         assert result[" base"] == "template %s"
         assert result[" democratic partys"] == "أعضاء الحزب الديمقراطي في %s"
         assert result[" democratics"] == "أعضاء الحزب الديمقراطي في %s"
 
     def test_build_party_derived_keys_skips_blank_labels(self):
-        derived = us_counties._build_party_derived_keys(
-            {"Democratic Party": "الحزب الديمقراطي", "Blank Party": " "}
-        )
+        derived = us_counties._build_party_derived_keys({"Democratic Party": "الحزب الديمقراطي", "Blank Party": " "})
 
         assert "democratic party" in derived
         assert derived["democratic party members"] == "أعضاء الحزب الديمقراطي"
         assert "blank party" not in derived
 
     def test_build_state_key_mappings_handles_templates(self):
-        mappings = us_counties._build_state_key_mappings(
-            {"California": "كاليفورنيا", "Texas": "ولاية تكساس"}
-        )
+        mappings = us_counties._build_state_key_mappings({"California": "كاليفورنيا", "Texas": "ولاية تكساس"})
 
         assert mappings["california"] == "كاليفورنيا"
         assert mappings["california house of representatives"] == "مجلس نواب ولاية كاليفورنيا"

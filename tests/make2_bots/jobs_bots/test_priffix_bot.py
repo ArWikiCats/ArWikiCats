@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.jobs_bots.priffix_bot import priffix_Mens_work, Women_s_priffix_work

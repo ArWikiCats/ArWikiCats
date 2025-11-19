@@ -1,4 +1,5 @@
 """Unit tests"""
+
 import pytest
 from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset, dump_diff
@@ -79,7 +80,8 @@ fencers_rugby = {
     "Category:Paralympic wheelchair rugby players for Japan": "تصنيف:لاعبو رجبي على كراسي متحركة في الألعاب البارالمبية في اليابان",
     "Category:Paralympic wheelchair rugby players for New Zealand": "تصنيف:لاعبو رجبي على كراسي متحركة في الألعاب البارالمبية في نيوزيلندا",
     "Category:Paralympic wheelchair rugby players for the United States": "تصنيف:لاعبو رجبي على كراسي متحركة في الألعاب البارالمبية في الولايات المتحدة",
-    "Category:Paralympic wheelchair rugby players": "تصنيف:لاعبو رجبي على كراسي متحركة في الألعاب البارالمبية", }
+    "Category:Paralympic wheelchair rugby players": "تصنيف:لاعبو رجبي على كراسي متحركة في الألعاب البارالمبية",
+}
 
 
 @pytest.mark.slow

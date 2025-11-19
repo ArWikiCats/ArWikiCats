@@ -8,7 +8,7 @@ data = {
     "Category:Ethnic groups of the Dominican Republic": "تصنيف:مجموعات عرقية في جمهورية الدومينيكان",
     "Category:Russian folklore characters": "تصنيف:شخصيات فلكلورية روسية",
     "Category:Scottish popular culture": "تصنيف:ثقافة شعبية إسكتلندية",
-    "Category:Scottish traditions": "تصنيف:تراث إسكتلندي"
+    "Category:Scottish traditions": "تصنيف:تراث إسكتلندي",
 }
 
 

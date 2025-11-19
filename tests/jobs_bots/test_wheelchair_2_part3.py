@@ -1,4 +1,5 @@
 """Unit tests"""
+
 import pytest
 from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset, dump_diff
@@ -95,7 +96,6 @@ def test_wheelchair_basketball():
 
 
 wheelchair_sports = {
-
     "Category:Wheelchair basketball leagues in Australia": "تصنيف:دوريات كرة السلة على الكراسي المتحركة في أستراليا",
     "Category:Wheelchair basketball leagues in Europe": "تصنيف:دوريات كرة السلة على الكراسي المتحركة في أوروبا",
     "Category:Wheelchair basketball leagues": "تصنيف:دوريات كرة سلة على كراسي متحركة",

@@ -1,11 +1,11 @@
-"""
+""" """
 
-"""
 import pytest
 
 from src.make2_bots.jobs_bots.jobs_mainbot import create_country_lab
 from src.make2_bots.jobs_bots.te4_bots.relegin_jobs import try_relegins_jobs_with_suffix
 from src.translations import RELIGIOUS_KEYS_PP
+
 # new dict with only 10 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_10 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:10]}
 

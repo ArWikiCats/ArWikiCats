@@ -2,14 +2,7 @@
 from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset, dump_diff
 
-data ={
-    "Category:Egyptian oncologists": "تصنيف:أطباء أورام مصريون",
-    "Category:Fish described in 1995": "تصنيف:أسماك وصفت في 1995",
-    "Category:Mammals described in 2017": "تصنيف:ثدييات وصفت في 2017",
-    "Category:Pakistani psychiatrists": "تصنيف:أطباء نفسيون باكستانيون",
-    "Category:Research institutes established in 1900": "تصنيف:معاهد أبحاث أسست في 1900",
-    "Category:Swedish oncologists": "تصنيف:أطباء أورام سويديون"
-}
+data = {"Category:Egyptian oncologists": "تصنيف:أطباء أورام مصريون", "Category:Fish described in 1995": "تصنيف:أسماك وصفت في 1995", "Category:Mammals described in 2017": "تصنيف:ثدييات وصفت في 2017", "Category:Pakistani psychiatrists": "تصنيف:أطباء نفسيون باكستانيون", "Category:Research institutes established in 1900": "تصنيف:معاهد أبحاث أسست في 1900", "Category:Swedish oncologists": "تصنيف:أطباء أورام سويديون"}
 
 
 def test_science_and_medicine():

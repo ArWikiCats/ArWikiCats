@@ -48,4 +48,3 @@ def test_new_tato_nat_includes_year_templates() -> None:
     assert result[" under-17"] == "{nat} تحت 17 سنة"
     assert result["national under-17"] == "{nat} تحت 17 سنة"
     assert result[""] == "{nat}"
-

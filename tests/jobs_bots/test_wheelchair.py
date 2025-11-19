@@ -1,4 +1,5 @@
 """Unit tests"""
+
 import pytest
 from src import new_func_lab_final_label
 from load_one_data import ye_test_one_dataset, dump_diff
@@ -87,8 +88,7 @@ wheelchair_racers_by_nat = {
     "Category:Wheelchair racers by nationality": "تصنيف:متسابقو كراسي متحركة حسب الجنسية",
     "Category:Wheelchair racers": "تصنيف:متسابقو كراسي متحركة",
     "Category:Women wheelchair racers": "تصنيف:متسابقات كراسي متحركة",
-    "Category:Zambian wheelchair racers": "تصنيف:متسابقو كراسي متحركة زامبيون"
-
+    "Category:Zambian wheelchair racers": "تصنيف:متسابقو كراسي متحركة زامبيون",
 }
 
 

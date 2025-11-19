@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.jobs_bots.get_helps import get_con_3
@@ -19,15 +20,11 @@ data_contries_from_nat = {
     "new zealand wheelchair rugby": ("wheelchair rugby", "new zealand"),
     "south africa international soccer players": ("international soccer players", "south africa"),
     "united kingdom from aden": ("from aden", "united kingdom"),
-    "united states by state": ("by state", "united states")
+    "united states by state": ("by state", "united states"),
 }
 
 
-@pytest.mark.parametrize(
-    "category, expected",
-    data_contries_from_nat.items(),
-    ids=lambda x: x[0]
-)
+@pytest.mark.parametrize("category, expected", data_contries_from_nat.items(), ids=lambda x: x[0])
 def test_contries_from_nat(category, expected):
     # Test with a valid category and nat
     result = get_con_3(category, "contries_from_nat")
@@ -44,7 +41,6 @@ def test_get_con_3():
 
 
 data_religions = {
-
     "anglican abidat rma pianists": ("abidat rma pianists", "anglican"),
     "anglican abidat rma record producers": ("abidat rma record producers", "anglican"),
     "anglican abidat rma saxophonists": ("abidat rma saxophonists", "anglican"),
@@ -229,11 +225,7 @@ data_religions = {
 }
 
 
-@pytest.mark.parametrize(
-    "category, expected",
-    data_religions.items(),
-    ids=lambda x: x[0]
-)
+@pytest.mark.parametrize("category, expected", data_religions.items(), ids=lambda x: x[0])
 def test_religions(category, expected):
     # Test with a valid category and nat
     result = get_con_3(category, "religions")
@@ -286,7 +278,6 @@ data_nat = {
     "american wheelchair track": ("wheelchair track", "american"),
     "american women wheelchair racers": ("women wheelchair racers", "american"),
     "american women's wheelchair basketball players": ("women's wheelchair basketball players", "american"),
-
     "argentine multi instrumentalists": ("multi instrumentalists", "argentine"),
     "argentine multi-instrumentalists": ("multi-instrumentalists", "argentine"),
     "argentine songwriters": ("songwriters", "argentine"),
@@ -547,11 +538,7 @@ data_nat = {
 }
 
 
-@pytest.mark.parametrize(
-    "category, expected",
-    data_nat.items(),
-    ids=lambda x: x[0]
-)
+@pytest.mark.parametrize("category, expected", data_nat.items(), ids=lambda x: x[0])
 def test_nat(category, expected):
     # Test with a valid category and nat
     result = get_con_3(category, "nat")

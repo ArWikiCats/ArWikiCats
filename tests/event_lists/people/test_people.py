@@ -15,7 +15,7 @@ def test_people_1():
         "Category:Prisons in Afghanistan": "تصنيف:سجون في أفغانستان",
         "Category:Scholars by subfield": "تصنيف:دارسون حسب الحقل الفرعي",
         "Category:Women in business by nationality": "تصنيف:سيدات أعمال حسب الجنسية",
-        "Category:women in business": "تصنيف:سيدات أعمال"
+        "Category:women in business": "تصنيف:سيدات أعمال",
     }
 
     print(f"len of data: {len(data)}")

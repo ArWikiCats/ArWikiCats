@@ -1,6 +1,7 @@
 """
 Tests
 """
+
 import pytest
 
 from src.make2_bots.tmp_bot import Work_Templates
@@ -53,7 +54,7 @@ def test_work_templates():
             "كرة المضرب",
             "{} - تصفيات السيدات".format("كرة المضرب"),
         ),
-    ]
+    ],
 )
 def test_suffix_pase(input_label, suffix, resolved, expected):
     """Test suffix mapping inside pp_ends_with_pase."""
@@ -93,7 +94,7 @@ def test_suffix_pase(input_label, suffix, resolved, expected):
             "أمريكيون لاتينيون",
             "أشكال أمريكيون لاتينيون",
         ),
-    ]
+    ],
 )
 def test_suffix_pp_ends(input_label, resolved, expected):
     """Test full pp_ends_with suffix dictionary."""
@@ -122,7 +123,7 @@ def test_suffix_pp_ends(input_label, resolved, expected):
             "قطر",
             "{} مقررة".format("قطر"),
         ),
-    ]
+    ],
 )
 def test_prefix_pp_start(input_label, resolved, expected):
 
@@ -158,7 +159,7 @@ def test_fallback_general_category():
         ("football  SQUADS", "كرة القدم", "تشكيلات كرة القدم"),
         ("tennis – mixed doubles", "كرة المضرب", "كرة المضرب – زوجي مختلط"),
         ("tennis  –  mixed doubles", "كرة المضرب", ""),
-    ]
+    ],
 )
 def test_edge_cases(input_label, resolved, expected):
 

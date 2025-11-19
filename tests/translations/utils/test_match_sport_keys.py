@@ -7,7 +7,6 @@ from src.translations.utils.match_sport_keys import match_sport_key, SPORTS_KEYS
 CATEGORY_SAMPLES = {
     # --- Wheelchair variants ---
     "Category:Wheelchair beach handball at the European Games": "wheelchair beach handball",
-
     "Category:automobile racing at the 2020 Paralympics": "automobile racing",
     "Category:gaelic football world championships": "gaelic football",
     "Category:kick boxing tournaments": "kick boxing",
@@ -18,7 +17,6 @@ CATEGORY_SAMPLES = {
     "Category:fifa futsal world cup finals": "fifa futsal world cup",
     "Category:shot put at the Paralympics": "shot put",
     "Category:multi-sport events": "multi-sport",
-
     # --- Racing variants ---
     "Category:Automobile racing in Japan": "automobile racing",
     "Category:Gaelic football racing cup": "gaelic football racing",
@@ -32,7 +30,6 @@ CATEGORY_SAMPLES = {
     "Category:Multi-sport racing competition": "multi-sport racing",
     "Category:Beach handball racing contest": "beach handball racing",
     "Category:Shot put racing in national games": "shot put racing",
-
     # --- Non-racing base forms ---
     "Category:Futsal players from Spain": "futsal",
     "Category:Darts competitions in 2022": "darts",
@@ -61,29 +58,36 @@ def test_match_sport_key_detects_all(category: str, expected_key: str):
 # ---------------------------------------------------------------------
 # 3. Non-sport unrelated categories
 # ---------------------------------------------------------------------
-@pytest.mark.parametrize("category", [
-    "Category:Ancient history of Rome",
-    "Category:Political systems by region",
-    "Category:Musical instruments of Africa",
-    "Category:Environmental laws in Canada",
-    "Category:Writers from Yemen",
-])
+@pytest.mark.parametrize(
+    "category",
+    [
+        "Category:Ancient history of Rome",
+        "Category:Political systems by region",
+        "Category:Musical instruments of Africa",
+        "Category:Environmental laws in Canada",
+        "Category:Writers from Yemen",
+    ],
+)
 @pytest.mark.fast
 def test_match_sport_key_returns_empty_for_irrelevant(category):
     """Return empty string for non-sport categories."""
     assert match_sport_key(category) == ""
+
 
 # ---------------------------------------------------------------------
 # 5. Case insensitivity
 # ---------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("category", [
-    "category:WHEELCHAIR AUTOMOBILE RACING",
-    "Category:GAELIC FOOTBALL RACING",
-    "CATEGORY:SPORT CLIMBING RACING",
-    "Category:ESPORTS world finals",
-])
+@pytest.mark.parametrize(
+    "category",
+    [
+        "category:WHEELCHAIR AUTOMOBILE RACING",
+        "Category:GAELIC FOOTBALL RACING",
+        "CATEGORY:SPORT CLIMBING RACING",
+        "Category:ESPORTS world finals",
+    ],
+)
 @pytest.mark.fast
 def test_case_insensitivity(category):
     """Matching should ignore capitalization."""
@@ -93,10 +97,13 @@ def test_case_insensitivity(category):
 # ---------------------------------------------------------------------
 # 6. Longest match wins
 # ---------------------------------------------------------------------
-@pytest.mark.parametrize("text,longest_key", [
-    ("Category:FIFA Futsal World Cup racing", "fifa futsal world cup racing"),
-    ("Category:FIFA Futsal World Cup", "fifa futsal world cup"),
-])
+@pytest.mark.parametrize(
+    "text,longest_key",
+    [
+        ("Category:FIFA Futsal World Cup racing", "fifa futsal world cup racing"),
+        ("Category:FIFA Futsal World Cup", "fifa futsal world cup"),
+    ],
+)
 @pytest.mark.fast
 def test_longest_match_priority(text, longest_key):
     """When overlap exists, prefer longest key."""
@@ -118,11 +125,14 @@ def test_all_defined_keys_detectable():
 # ---------------------------------------------------------------------
 # 8. Edge cases with punctuation or spacing
 # ---------------------------------------------------------------------
-@pytest.mark.parametrize("category", [
-    "Category:Sport climbing, at the 2023 European Games",
-    "Category:FIFA Futsal World Cup - qualifiers",
-    "Category:Wheelchair Kick Boxing (Asia Championships)",
-])
+@pytest.mark.parametrize(
+    "category",
+    [
+        "Category:Sport climbing, at the 2023 European Games",
+        "Category:FIFA Futsal World Cup - qualifiers",
+        "Category:Wheelchair Kick Boxing (Asia Championships)",
+    ],
+)
 @pytest.mark.fast
 def test_tolerates_punctuation(category):
     """Pattern should still detect keywords with punctuation nearby."""
@@ -132,11 +142,14 @@ def test_tolerates_punctuation(category):
 # ---------------------------------------------------------------------
 # 9. Mixed-language and noise tolerance
 # ---------------------------------------------------------------------
-@pytest.mark.parametrize("category", [
-    "تصنيف:FIFA futsal world cup",
-    "FIFA Futsal WORLD CUP - نسخة 2016",
-    "بطولة Wheelchair Sport Climbing",
-])
+@pytest.mark.parametrize(
+    "category",
+    [
+        "تصنيف:FIFA futsal world cup",
+        "FIFA Futsal WORLD CUP - نسخة 2016",
+        "بطولة Wheelchair Sport Climbing",
+    ],
+)
 @pytest.mark.fast
 def test_mixed_language_input(category):
     """Mixed Arabic-English text should not break detection."""
@@ -146,12 +159,15 @@ def test_mixed_language_input(category):
 # ---------------------------------------------------------------------
 # 10. Sanity check: no false positives on random text
 # ---------------------------------------------------------------------
-@pytest.mark.parametrize("category", [
-    "Category:Poetry readings in Europe",
-    "Category:Film directors by nationality",
-    "Category:Hospitals in Yemen",
-    "Category:Climate change effects",
-])
+@pytest.mark.parametrize(
+    "category",
+    [
+        "Category:Poetry readings in Europe",
+        "Category:Film directors by nationality",
+        "Category:Hospitals in Yemen",
+        "Category:Climate change effects",
+    ],
+)
 @pytest.mark.fast
 def test_no_false_positive(category):
     """Ensure non-related text never matches any sport key."""
