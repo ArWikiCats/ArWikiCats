@@ -8,7 +8,6 @@ from src.make2_bots.o_bots.popl import work_peoples, make_people_lab, work_peopl
 fast_data = {
     "andrew johnson administration cabinet members": "أعضاء مجلس وزراء إدارة أندرو جونسون",
     "andrew johnson administration personnel": "موظفو إدارة أندرو جونسون",
-    "arthur administration cabinet members": "أعضاء مجلس وزراء إدارة آرثر",
     "william henry harrison administration cabinet members": "أعضاء مجلس وزراء إدارة ويليام هنري هاريسون",
     "william henry harrison administration personnel": "موظفو إدارة ويليام هنري هاريسون",
     "woodrow wilson administration cabinet members": "أعضاء مجلس وزراء إدارة وودرو ويلسون",
@@ -37,14 +36,13 @@ fast_data = {
     "a. r. rahman albums": "ألبومات أي.أر. رحمان",
     "george h. w. bush administration cabinet members": "أعضاء مجلس وزراء إدارة جورج بوش الأب",
     "george h. w. bush administration personnel": "موظفو إدارة جورج بوش الأب",
-    "george w. bush administration cabinet members": "أعضاء مجلس وزراء إدارة جورج دبليو بوش",
-    "george w. bush administration personnel": "موظفو إدارة جورج دبليو بوش",
+    "george w. bush administration cabinet members": "أعضاء مجلس وزراء إدارة جورج بوش الابن",
+    "george w. bush administration personnel": "موظفو إدارة جورج بوش الابن",
     "john quincy adams administration cabinet members": "أعضاء مجلس وزراء إدارة جون كوينسي آدامز",
     "john quincy adams administration personnel": "موظفو إدارة جون كوينسي آدامز",
     "lyndon b. johnson administration cabinet members": "أعضاء مجلس وزراء إدارة ليندون جونسون",
     "lyndon b. johnson administration personnel": "موظفو إدارة ليندون جونسون",
     "nusrat fateh ali khan albums": "ألبومات نصرت فتح علي خان",
-    "pope john paul ii albums": "ألبومات يوحنا بولس الثاني",
 }
 
 
