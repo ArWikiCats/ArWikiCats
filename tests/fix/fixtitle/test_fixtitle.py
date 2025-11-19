@@ -5,20 +5,15 @@ from src.fix.fixtitle import fixlab
 
 
 def load_test_fixlab_data(data):
-    # ---
     expected_list = []
     diff_list = []
-    # ---
     same = 0
     for title, expected in data.items():
         result = fixlab(title)
-        # ---
         # result = result.replace("جرائم قتل", "جرائم قتل في")
 
         if result != expected:
-            # ---
             diff_list.append({"en": title, "ar": result})
-            # ---
             expected_list.append({"en": title, "ar": expected})
         else:
             assert result == expected
@@ -45,7 +40,6 @@ def test_fixlab_group_1():
         "عقد 2010 في جنوب إفريقيا": "جنوب إفريقيا في عقد 2010",
         "عقد 2010 ق م في جنوب إفريقيا": "جنوب إفريقيا في عقد 2010 ق م",
     }
-    # ---
     load_test_fixlab_data(data)
 
 
@@ -57,7 +51,6 @@ def test_fixlab_group_2():
         "فنانون ذكور حسب الجنسية القرن 20": "فنانون ذكور في القرن 20 حسب الجنسية",
         "ملكيون حسب البلد القرن 20": "ملكيون في القرن 20 حسب البلد"
     }
-    # ---
     load_test_fixlab_data(data)
 
 
@@ -76,7 +69,6 @@ def test_fixlab_group_3():
         "أشخاص حسب الجنسية والمهنة القرن 3": "أشخاص في القرن 3 حسب الجنسية والمهنة",
         "أشخاص حسب الجنسية والمهنة القرن 5": "أشخاص في القرن 5 حسب الجنسية والمهنة",
     }
-    # ---
     load_test_fixlab_data(data)
 
 
@@ -94,7 +86,6 @@ def test_fixlab_group_4():
 
         "رجال حسب المهنة والجنسية القرن 18": "رجال في القرن 18 حسب المهنة والجنسية",
     }
-    # ---
     load_test_fixlab_data(data)
 
 
@@ -108,5 +99,4 @@ def test_fixlab_group_5():
         "قوائم أفلام حسب البلد أو اللغة 1936": "قوائم أفلام في 1936 حسب البلد أو اللغة",
         "قوائم أفلام حسب البلد أو اللغة 1950": "قوائم أفلام في 1950 حسب البلد أو اللغة",
     }
-    # ---
     load_test_fixlab_data(data)

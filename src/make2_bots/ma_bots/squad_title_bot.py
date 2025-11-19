@@ -12,7 +12,7 @@ from ...translations import New_P17_Finall
 from ..matables_bots.bot import All_P17
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
-from ...helps.print_bot import print_def_head, print_put
+from ...helps.log import logger
 
 
 @functools.lru_cache(maxsize=None)
@@ -30,12 +30,12 @@ def get_squad_title(tit: str) -> str:
             if tit.lower().startswith(f"{oo.lower()} "):
                 tit2 = tit[len(f"{oo} ") :]
                 tit2 = tit2.strip()
-                print_put(f'<<lightblue>> get_squad_title tit.startswith("{oo}"), tit2:({tit2}) ')
+                logger.info(f'<<lightblue>> get_squad_title tit.startswith("{oo}"), tit2:({tit2}) ')
                 falab = get_pop_All_18(tit2) or pop_of_football_lower.get(tit2) or New_P17_Finall.get(tit2) or ""
                 if falab:
                     lab = f"تشكيلات {oo_lab} في {falab}"
                     break
 
-    print_def_head(f'<<lightblue>> get_squad_title:"{tit}", lab:"{lab}" ')
+    logger.info(f'<<lightblue>> get_squad_title:"{tit}", lab:"{lab}" ')
 
     return lab

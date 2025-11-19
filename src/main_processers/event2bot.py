@@ -11,7 +11,7 @@ from ..helps import printe
 
 from .. import app_settings
 from ..fix import fixtitle
-from ..helps.print_bot import print_put
+from ..helps.log import logger
 from ..make2_bots import tmp_bot
 from ..make2_bots.date_bots import with_years_bot
 from ..make2_bots.o_bots import univer  # univer.te_universities(cate)
@@ -26,10 +26,9 @@ def event2_d2(category_r) -> str:
     """
     Determine the category label based on the input string.
     """
-    # ---
     cat3 = category_r.lower()
 
-    print_put(f'<<lightred>>>>>> category33:"{cat3}" ')
+    logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
 
     # TODO: THIS NEED REVIEW
     # Reject strings that contain common English prepositions
@@ -110,23 +109,19 @@ def event2(category_r: str) -> str:
     if not category_r:
         return ""
 
-    print_put("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
-    print_put(f'<<lightyellow>>>>>> event2 :"{category_r}"')
-    # ---
+    logger.info("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
+    logger.info(f'<<lightyellow>>>>>> event2 :"{category_r}"')
     category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
-    # ---
     ar_label = univer.te_universities(category_r)
-    # ---
     if ar_label:
         return ar_label
-    # ---
     category_lab = event2_d2(category_r)
 
     if category_lab:
         if re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
             category_lab = fixtitle.fixlab(category_lab, en=category_r)
-            print_put(f'>>>> <<lightyellow>> cat:"{category_r}", category_lab "{category_lab}"')
-            print_put("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
+            logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", category_lab "{category_lab}"')
+            logger.info("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
             return category_lab
 
     ar_label = label_for_startwith_year_or_typeo(category_r)
@@ -134,6 +129,6 @@ def event2(category_r: str) -> str:
     if not ar_label:
         ar_label = stubs_label(category_r)
 
-    print_put("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 
     return ar_label

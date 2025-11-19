@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 from ...translations import CITY_TRANSLATIONS_LOWER
 
 MAJORS: Dict[str, str] = {
@@ -69,7 +69,7 @@ def _normalise_category(category: str) -> str:
 
 
 def _resolve(normalized_category: str) -> str:
-    print_put(f"<<lightblue>>>> vvvvvvvvvvvv te_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
+    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv te_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
 
     city_key = ""
     university_template = ""
@@ -107,11 +107,11 @@ def _resolve(normalized_category: str) -> str:
     city_label = CITY_TRANSLATIONS_LOWER.get(city_key, "") if city_key else ""
     if city_label and university_template:
         university_label = university_template.format(city_label)
-        print_put(f'<<lightblue>>>>>> te_universities: new university_label  "{university_label}" ')
-        print_put("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
+        logger.info(f'<<lightblue>>>>>> te_universities: new university_label  "{university_label}" ')
+        logger.info("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
         return university_label
 
-    print_put("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
     return ""
 
 

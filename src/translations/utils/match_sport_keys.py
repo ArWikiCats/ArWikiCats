@@ -46,12 +46,9 @@ RE_KEYS_NEW = re.compile(new_pattern, re.I)
 
 
 def match_sport_key(category: str):
-    # ---
     match = RE_KEYS_NEW.search(f" {category} ")
-    # ---
     if match:
         return match.group(1)
-    # ---
     return ""
 
 

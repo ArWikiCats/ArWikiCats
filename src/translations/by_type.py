@@ -59,7 +59,6 @@ COMPETITION_CATEGORY_LABELS = {
     "ladies": "سيدات",
     "mens": "رجال",
     "men's": "رجال",
-    # ---
 }
 # ---
 for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
@@ -85,7 +84,6 @@ CONTEXT_FIELD_LABELS = {
     "century": "قرن",
 }
 for context_key, context_label in CONTEXT_FIELD_LABELS.items():
-    # ---
     By_table[f"by {context_key} of shooting location"] = f"حسب {context_label} التصوير"
     By_table[f"by {context_key} of developer"] = f"حسب {context_label} التطوير"
     By_table[f"by {context_key} of location"] = f"حسب {context_label} الموقع"
@@ -104,8 +102,6 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
 
     By_table[f"by {context_key} of opening"] = f"حسب {context_label} الافتتاح"
     By_table[f"by opening {context_key} "] = f"حسب {context_label} الافتتاح"
-
-# ---
 PRIMARY_BY_COMPONENTS = {
     "city": "المدينة",
     "rank": "الرتبة",
@@ -190,12 +186,10 @@ for component_key, component_label in PRIMARY_BY_COMPONENTS.items():
             combined_label = f"حسب {component_label} و{secondary_label}"
             By_table[combined_key] = combined_label
             # print("{} : {}".format(by_by , ar_ar))
-            # ---
             either_key = f"by {component_key} or {secondary_key}"
             either_label = f"حسب {component_label} أو {secondary_label}"
             By_table[either_key] = either_label
             # print("{} : {}".format(by_by , ar_ar))
-            # ---
             chained_key = f"by {component_key} by {secondary_key}"
             chained_label = f"حسب {component_label} حسب {secondary_label}"
             By_table[chained_key] = chained_label

@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-!
+P17 nationality processing utilities.
+
+This module handles nationality-based category translations,
+particularly for sports-related categories using P17 (country) property.
 """
 import re
 import functools
@@ -12,10 +15,20 @@ from ..jobs_bots.get_helps import get_con_3
 
 from ...helps.log import logger
 
+# Placeholder used for sport key substitution in templates
+SPORT_PLACEHOLDER = "oioioi"
+
 
 @functools.lru_cache(maxsize=None)
 def make_sport_formats_p17(category_key: str) -> str:
-    """Resolve a sport format label for P17 lookups."""
+    """Resolve a sport format label for P17 lookups.
+
+    Args:
+        category_key: The category key to resolve
+
+    Returns:
+        Resolved sport format label or empty string
+    """
 
     logger.info(f'<<lightblue>>>>>> make_sport_formats_p17: category_key:"{category_key}"')
 
@@ -25,17 +38,16 @@ def make_sport_formats_p17(category_key: str) -> str:
         return cached_label
 
     resolved_label = ""
-    # ---
     sport_key = match_sport_key(category_key)
-    # ---
+
     if not sport_key:
         return ""
 
     sport_label = ""
     placeholder_template = ""
 
-    placeholder_key = category_key.replace(sport_key, "oioioi")
-    placeholder_key = re.sub(sport_key, "oioioi", placeholder_key, flags=re.IGNORECASE)
+    placeholder_key = category_key.replace(sport_key, SPORT_PLACEHOLDER)
+    placeholder_key = re.sub(sport_key, SPORT_PLACEHOLDER, placeholder_key, flags=re.IGNORECASE)
     logger.debug(
         f'make_sport_formats_p17 category_key:"{category_key}", '
         f'sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"'
@@ -47,8 +59,8 @@ def make_sport_formats_p17(category_key: str) -> str:
             logger.debug(f' sport_key:"{sport_key}" not in SPORTS_KEYS_FOR_TEAM ')
         placeholder_template = NAT_P17_OIOI[placeholder_key]
         if placeholder_template and sport_label:
-            formatted_label = placeholder_template.replace("oioioi", sport_label)
-            if "oioioi" not in formatted_label:
+            formatted_label = placeholder_template.replace(SPORT_PLACEHOLDER, sport_label)
+            if SPORT_PLACEHOLDER not in formatted_label:
                 resolved_label = formatted_label
                 logger.debug(
                     f'make_sport_formats_p17 formatted_label:"{resolved_label}"'
@@ -67,8 +79,16 @@ def make_sport_formats_p17(category_key: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def find_nat_others(category: str, reference_category: str="") -> str:
-    """Resolve fallback national labels for sport categories."""
+def find_nat_others(category: str, reference_category: str = "") -> str:
+    """Resolve fallback national labels for sport categories.
+
+    Args:
+        category: The category to resolve
+        reference_category: Optional reference category (unused, kept for compatibility)
+
+    Returns:
+        Resolved category label or empty string
+    """
 
     logger.info(f"<<lightblue>>>> vvvvvvvvvvvv find_nat_others category:{category} vvvvvvvvvvvv ")
 

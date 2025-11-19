@@ -5,7 +5,7 @@
 """
 
 from .. import country2_lab
-from ....helps.print_bot import print_put
+from ....helps.log import logger
 from ....translations import New_female_keys, New_P17_Finall, pf_keys2
 from ... import tmp_bot
 from ...date_bots import year_lab
@@ -77,6 +77,6 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
     if not label:
         label = country2_lab.get_lab_for_country2(country_lower)
 
-    print_put(f"?????? get_con_lab: {country_lower=}, {label=}")
+    logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
 
     return label

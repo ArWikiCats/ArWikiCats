@@ -7,7 +7,7 @@ import re
 import functools
 from typing import Callable, List
 
-from ....helps.print_bot import print_put, output_test
+from ....helps.log import logger
 from ...date_bots import with_years_bot
 from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
@@ -51,13 +51,13 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
 
     if cone_1 == "women" and tat_o.strip() == "from":
         c_1_l = "نساء"
-        print_put(f'>> >> >> Make cone_1 "{cone_1}".')
+        logger.info(f'>> >> >> Make cone_1 "{cone_1}".')
 
     con_1_in = f"{cone_1.strip()} {tat_o.strip()}"
     if not c_1_l:
         c_1_l = Tabl_with_in.get(con_1_in, "")
         if c_1_l:
-            print_put(f'<<<< con_1_in "{con_1_in}", c_1_l : "{c_1_l}"')
+            logger.info(f'<<<< con_1_in "{con_1_in}", c_1_l : "{c_1_l}"')
 
     if not c_1_l:
         c_1_l = centries_years_dec.get(cone_1, "")
@@ -72,16 +72,16 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
         if not c_1_l:
             if cone_1.startswith(pri_ss):
                 U_c = cone_1[len(pri_ss) :]
-                print_put(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", tat_o:"{tat_o}" ')
+                logger.info(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", tat_o:"{tat_o}" ')
                 U_lab = country2_lab.get_lab_for_country2(U_c)
 
                 if U_lab == "" and With_Years:
                     U_lab = with_years_bot.Try_With_Years(U_c)
 
                 if U_lab:
-                    print_put(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"),U_c:"{U_c}", U_lab:"{U_lab}"')
+                    logger.info(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"),U_c:"{U_c}", U_lab:"{U_lab}"')
                     c_1_l = pri_lab.format(U_lab)
-                    print_put(f'>>>> c_1_l:"{c_1_l}"')
+                    logger.info(f'>>>> c_1_l:"{c_1_l}"')
 
     if cone_1 in pop_format:
         c_1_l = pop_format[cone_1]
@@ -90,7 +90,7 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
         c_1_l = get_KAKO(cone_1)
 
     if not c_1_l:
-        output_test(f'>>>> XX--== c_1_l =  "{c_1_l}" cone_1:"{cone_1}" not in pop_new')
+        logger.debug(f'>>>> XX--== c_1_l =  "{c_1_l}" cone_1:"{cone_1}" not in pop_new')
     return c_1_l
 
 

@@ -28,9 +28,7 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
 
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
-    # ---
     result = _get_pop_All_18(key, default) or find_teams_2025(key, default)
-    # ---
     return result
 
 

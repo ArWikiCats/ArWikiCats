@@ -15,7 +15,7 @@ from ...matables_bots.bot import (
     add_in_to_country,
 )
 from ....utils import check_key_in_tables_return_tuple, check_key_in_tables
-from ....helps.print_bot import print_put, output_test
+from ....helps.log import logger
 
 to_check_them = [
     Add_in_table,
@@ -27,12 +27,12 @@ to_check_them = [
 def check_country_in_tables(country):
 
     if country in country_before_year:
-        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
+        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
         return True
 
     in_table, table_name = check_key_in_tables_return_tuple(country, Table_for_frist_word)
     if in_table:
-        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in {table_name}.')
+        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in {table_name}.')
         return True
 
     return False
@@ -44,12 +44,12 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
 
     if in_table and typeo not in Keep_it_frist:
         in_tables = check_key_new_players(country.lower())
-        print_put(f"{in_tables=}")
+        logger.info(f"{in_tables=}")
         if not con_lab.startswith("حسب") and year_labe:
             if (In.strip() == "in" or In.strip() == "at") or in_tables:
                 con_lab = f"{con_lab} في "
                 Add_In_Done = True
-                print_put(">>> Add في line: 79")
+                logger.info(">>> Add في line: 79")
                 cat_test = cat_test.replace(In, "")
 
         arlabel = con_lab + suf + arlabel
@@ -61,26 +61,21 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
 
             cat_test = cat_test.replace(In, "")
             Add_In_Done = True
-            print_put(">>> Add في line: 92")
+            logger.info(">>> Add في line: 92")
 
         arlabel = arlabel + suf + con_lab
-        # ---
         arlabel = re.sub(r"\s+", " ", arlabel)
-        # ---
         arlabel = arlabel.replace(" في في ", " في ")
-        # ---
-        print_put(f">3252 arlabel: {arlabel}")
+        logger.info(f">3252 arlabel: {arlabel}")
 
         # if (typeo == '" and In == "') and (country and year != ""):
     return Add_In_Done, arlabel, cat_test
 
 
 def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
-    print_put("a<<lightblue>>>>>> Add year before")
-    # ---
+    logger.info("a<<lightblue>>>>>> Add year before")
     co_in_tables = check_key_in_tables(country, to_check_them)
     # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
-    # ---
     # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
     if (
         (suf.strip() == "" and con_lab.startswith("ال"))
@@ -88,29 +83,29 @@ def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
         or check_key_new_players(country.lower())
     ):
         suf = " في "
-        print_put("a<<lightblue>>>>>> Add في to suf")
+        logger.info("a<<lightblue>>>>>> Add في to suf")
 
-    print_put(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')
+    logger.info(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')
 
     Add_In_Done = False
 
     if suf.strip() == "" and year_labe.strip() == arlabel2.strip():
         if Add_In and con_lab.strip() in ar_lab_before_year_to_add_in:
-            print_put("ar_lab_before_year_to_add_in Add في to arlabel")
+            logger.info("ar_lab_before_year_to_add_in Add في to arlabel")
             suf = " في "
             Add_In = False
             Add_In_Done = True
 
         elif con_lab.strip().startswith("أعضاء ") and con_lab.find(" حسب ") == -1:
-            print_put(">354 Add في to arlabel")
+            logger.info(">354 Add في to arlabel")
             suf = " في "
             Add_In = False
             Add_In_Done = True
 
     arlabel = con_lab + suf + arlabel2
 
-    print_put("a<<lightblue>>>3265>>>arlabel = con_lab + suf +  arlabel2")
-    print_put(f"a<<lightblue>>>3265>>>{arlabel}")
+    logger.info("a<<lightblue>>>3265>>>arlabel = con_lab + suf +  arlabel2")
+    logger.info(f"a<<lightblue>>>3265>>>{arlabel}")
 
     return arlabel, Add_In, Add_In_Done
 
@@ -167,32 +162,32 @@ def new_func_mk2(
     for table in Table_for_frist_word.keys():
         if country in Table_for_frist_word[table]:
             in_table = True
-            output_test(f'>> >> dX:<<lightpurple>> in_table "{country}" in {table}.')
+            logger.debug(f'>> >> dX:<<lightpurple>> in_table "{country}" in {table}.')
 
     if country in country_before_year:
         in_table = True
-        output_test(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
+        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
     """
     arlabel2 = arlabel
 
-    print_put(f"{country=}, {Add_In_Done=}, {Add_In=}")
+    logger.info(f"{country=}, {Add_In_Done=}, {Add_In=}")
 
     in_table = check_country_in_tables(country)
 
     Add_In_Done, arlabel, cat_test = add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, cat_test)
 
-    print_put(f"{year_labe=}, {arlabel2=}")
+    logger.info(f"{year_labe=}, {arlabel2=}")
 
     if Add_In_Done:
-        print_put('------- end --------')
-        print_put(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
-        print_put(f'a<<lightblue>>>>>> arlabel  "{arlabel}"')
+        logger.info('------- end --------')
+        logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
+        logger.info(f'a<<lightblue>>>>>> arlabel  "{arlabel}"')
         return cat_test, arlabel
 
     if typeo == "" and In == "" and country and year:
         arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2)
-    print_put('------- end --------')
-    print_put(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
-    print_put(f'a<<lightblue>>>>>> arlabel "{arlabel}"')
+    logger.info('------- end --------')
+    logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
+    logger.info(f'a<<lightblue>>>>>> arlabel "{arlabel}"')
 
     return cat_test, arlabel

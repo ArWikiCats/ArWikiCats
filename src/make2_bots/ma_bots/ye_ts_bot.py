@@ -14,17 +14,18 @@ import re
 
 # from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ...helps.print_bot import print_def_head, print_put
 from ..format_bots import category_relation_mapping
 from ..date_bots import year_lab
 from ..matables_bots.bot import Films_O_TT, players_new_keys
 from ..ma_bots.arlabel_bots.ar_lab import find_ar_label
+from ...helps.log import logger
 
 from ...translations import (
     Jobs_new,           # to be removed from players_new_keys
     jobs_mens_data,      # to be  removed from players_new_keys
 )
 from ...utils import get_value_from_any_table
+
 
 def find_lab(category: str, category_r: str) -> str:
     cate_low = category.lower()
@@ -41,8 +42,8 @@ def find_lab(category: str, category_r: str) -> str:
         _lab = year_lab.make_year_lab(cate_low)
 
     if _lab:
-        print_put(f'>>>> <<lightyellow>>test: cat "{category_r}", _lab:"{_lab}"')
-        print_put(f'>>>> <<lightyellow>> cat:"{category_r}", _lab "{_lab}"')
+        logger.info(f'>>>> <<lightyellow>>test: cat "{category_r}", _lab:"{_lab}"')
+        logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", _lab "{_lab}"')
 
     return _lab
 
@@ -78,12 +79,9 @@ def work_titose_nmaes(
         # if Keep_Work and tito in category:
         if tito not in category:
             continue
-        # ---
         arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, start_get_country2=start_get_country2)
-        # ---
         if arlabel:
-            print_put(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
-        # ---
+            logger.info(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
         break
     return arlabel
 
@@ -110,12 +108,12 @@ def translate_general_category(category_r: str, start_get_country2: bool=True) -
     category = category_r.replace("_", " ")
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
-    print_def_head(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
+    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
 
     # if category == "women's universities and colleges":
     #     print(dadas)
 
-    print_def_head(f'<<lightyellow>>>>>> yementest, category_r:"{category_r}", category:"{category}"')
+    logger.info(f'<<lightyellow>>>>>> yementest, category_r:"{category_r}", category:"{category}"')
     Cate_test = category.lower()
 
     # Keep_Work = True
@@ -130,9 +128,9 @@ def translate_general_category(category_r: str, start_get_country2: bool=True) -
 
     if arlabel:
         # arlabel = fixtitle.fixlab(arlabel, en=category_r)
-        print_put(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
-        print_put(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
+        logger.info(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
+        logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
-    print_def_head("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
+    logger.info("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
 
     return arlabel

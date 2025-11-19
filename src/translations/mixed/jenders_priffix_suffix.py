@@ -102,7 +102,6 @@ def _extend_women_prefixes() -> dict[str, str]:
         data[prefix] = template
         data[f"expatriate {prefix}"] = f"{template} مغتربات"
         data[f"kidnapped {prefix}"] = f"{template} مختطفات"
-        # ---
         # data["executed"] = "معدومات"
         # data["executed {}".format(prefix)] = "{template} معدومات"
     return data

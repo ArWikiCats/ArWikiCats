@@ -7,8 +7,6 @@ python3 core8/pwb.py make/lists/labels_country2
 
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
-
-# ---
 COUNTRY_ADMIN_LABELS = open_json_file("P17_PP") or {}
 # ---
 ADDITIONAL_REGION_KEYS = open_json_file("New_Keys") or {}
@@ -54,7 +52,6 @@ for canton, value in SWISS_CANTON_LABELS.items():
 COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.items()})
 # ---
 PROVINCE_LABEL_OVERRIDES = {
-    # ---
     "quintana roo": "ولاية كينتانا رو",
     "tamaulipas": "ولاية تاماوليباس",
     "campeche": "ولاية كامبيتشي",
@@ -74,13 +71,11 @@ PROVINCE_LABEL_OVERRIDES = {
     "balkh": "ولاية بلخ",
     "tlaxcala": "ولاية تلاكسكالا",
     "sinaloa": "ولاية سينالوا",
-    # ---
     "nam định": "محافظة نام دنه",
     "malampa": "محافظة مالامبا",
     "đắk lắk": "محافظة داك لاك",
     "lâm đồng": "محافظة لام دونغ",
     "điện biên": "محافظة دين بين",
-    # ---
     "northern province": "المحافظة الشمالية (زامبيا)",
     "central java province": "جاوة الوسطى",
     "south hwanghae province": "جنوب مقاطعة هوانغاي",
@@ -120,7 +115,6 @@ PROVINCE_LABEL_OVERRIDES = {
     "matanzas": "ماتنزاس",
     "matanzas province": "مقاطعة ماتنزاس",
     "north sulawesi province": "سولاوسي الشمالية",
-    # ---
     "osh region": "أوش أوبلاستي",
     "puno region": "بونو",
     "flemish region": "الإقليم الفلامندي",
@@ -130,16 +124,13 @@ PROVINCE_LABEL_OVERRIDES = {
     "central region": "الجهة الوسطى",
     "northwestern region": "الجهة الشمالية الغربية",
     "cajamarca region": "كاخاماركا",
-    # ---
     "sacatepéquez department": "ساكاتيبيكيز",
     "escuintla department": "إسكوينتلا",
-    # ---
     "prevalje municipality": "بريفالجه",
     "moravče municipality": "مورافسكه (مورافسكه)",
     "vraneštica municipality": "فرانيستيكا (كيسيفو)",
     "vasilevo municipality": "فاسيليفو",
     "šentjernej municipality": "شينتيرني",
-    # ---
 }
 # ---
 COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
@@ -180,14 +171,10 @@ for cc, lab in ADDITIONAL_REGION_KEYS.items():
         for ar_k in REGION_PREFIXES_AR:
             if should_update and cc2.endswith(en_k) and lab.startswith(ar_k):
                 should_update = False
-                # ---
                 cc3 = cc2[: -len(en_k)]
                 lab_2 = lab[len(ar_k) :]
-                # ---
                 COUNTRY_ADMIN_LABELS[cc3] = lab_2
                 region_suffix_matches += 1
-
-# ---
 # "mountain" : "ماونتين",
 PROVINCE_LABELS = {
     "antananarivo": "فيانارانتسوا",

@@ -5,9 +5,9 @@
 
 import re
 from ...helps import len_print
+from ...helps.log import logger
 from ...translations import ministrs_tab_for_pop_format
 from ...translations import New_Company
-from ...helps.print_bot import output_main
 from .pf_keys import Change_key, Change_key2
 
 # Precompiled Regex Patterns
@@ -42,8 +42,6 @@ REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECA
 # Cache for compiled regex patterns
 _change_key_compiled = {}
 _change_key2_compiled = {}
-
-# ---
 category_relation_mapping = {
     "for-the-deaf": "للصم",
     "for-the-deafblind": "للصم وللمكفوفون",
@@ -271,20 +269,16 @@ pp_ends_with_pase = {
     "with disabilities": "{} بإعاقات",
     " mens tournament": "{} - مسابقة الرجال",
     " - telugu": "{} - تيلوغوي",
-    # ---
     "first division": "{} الدرجة الأولى",
     "second division": "{} الدرجة الثانية",
     "third division": "{} الدرجة الثالثة",
     "forth division": "{} الدرجة الرابعة",
-    # ---
     "candidates": "مرشحو {}",
     "candidates for": "مرشحو {} في",
-    # ---
     "squad": "تشكيلة {}",
     "squads": "تشكيلات {}",
     "final tournaments": "نهائيات مسابقات {}",
     "finals": "نهائيات {}",
-    # ---
     " - kannada": "{} - كنادي",
     " - tamil": "{} - تاميلي",
     " - qualifying": "{} - التصفيات",  # – Mixed Doubles
@@ -293,7 +287,6 @@ pp_ends_with_pase = {
     " - women's tournament": "{} - مسابقة السيدات",
     " - men's qualification": "{} - تصفيات الرجال",
     " - women's qualification": "{} - تصفيات السيدات",
-    # ---
     " – kannada": "{} – كنادي",
     " – tamil": "{} – تاميلي",
     " – qualifying": "{} – التصفيات",  # – Mixed Doubles
@@ -329,7 +322,6 @@ key_2_3 = {
     "ladies": "سيدات",
     "mens": "رجال",
     "men's": "رجال",
-    # ---
 }
 fix_o = {
     # "squad navigational boxes": "صناديق تصفح تشكيلات",
@@ -474,22 +466,18 @@ replaces = {
     "women's national youth" : "national youth women's",
     "youth national women's" : "national youth women's",
     "youth women's national" : "national youth women's",
-    # ---
     "national women's junior" : "national junior women's",
     "national junior women's" : "national junior women's",
     "women's junior national" : "national junior women's",
     "women's national junior" : "national junior women's",
     "junior women's national" : "national junior women's",
-    # ---
     "national men's junior" : "national junior men's",
     "national junior men's" : "national junior men's",
     "men's junior national" : "national junior men's",
     "men's national junior" : "national junior men's",
     "junior men's national" : "national junior men's",
-    # ---
     " men's national" : " national men's",
     "women's national" : "national women's",
-    # ---
     "junior national" : "national junior",
     "youth national" : "national youth",
     "amateur national" : "national amateur",
@@ -500,68 +488,70 @@ replaces = {
 
 
 def change_cat(cat_orginal: str) -> str:
+    """
+    Transform and normalize category names by applying various regex patterns and replacements.
+
+    Args:
+        cat_orginal: Original category string to transform
+
+    Returns:
+        Transformed category string
+    """
     cat_orginal = cat_orginal.lower().strip()
-    # ---
-    # Category:Basketball at the 2007 All-Africa Games – Women's tournament
-    # output_main('change_cat :"%s" ' % cat_orginal )
-    # ---
     category = cat_orginal
+
+    # Normalize whitespace
     category = REGEX_SUB_WHITESPACE.sub(" ", category)
-    # ---
+
+    # Normalize century and millennium formatting
     category = REGEX_SUB_CENTURY.sub(" century", category)
     category = REGEX_SUB_MILLENNIUM.sub(" millennium", category)
-    # ---
     category = REGEX_SUB_MILLENNIUM_CENTURY.sub(r" \g<1>", category)
-    # ---
+
+    # Reorder royal military force names
     category = REGEX_SUB_ROYAL_DEFENCE_FORCE.sub(r"\g<1> royal defence force", category)
     category = REGEX_SUB_ROYAL_NAVAL_FORCE.sub(r"\g<1> royal naval force", category)
     category = REGEX_SUB_ROYAL_NAVY.sub(r"\g<1> royal navy", category)
     category = REGEX_SUB_ROYAL_AIR_FORCE.sub(r"\g<1> royal air force", category)
 
+    # Apply various normalization patterns
     category = REGEX_SUB_EXPATRIATE_PEOPLE.sub(r"\g<1> expatriate \g<2> peoplee in ", category)
-    # category = re.sub(r" deaf people" , " deaf-peopl" , category, flags = re.IGNORECASE)
     category = REGEX_SUB_ORGANISATIONS.sub("organizations", category)
-    # ---
     category = REGEX_SUB_RUS.sub("rus", category)
     category = REGEX_SUB_THE_KINGDOM_OF.sub(" kingdom of", category)
     category = REGEX_SUB_AUSTRIA_HUNGARY.sub("austria hungary", category)
     category = REGEX_SUB_AUSTRIA_HUNGARY_2.sub("austria hungary", category)
-    # ---
     category = REGEX_SUB_UNMANNED_MILITARY_AIRCRAFT.sub("unmanned military aircraft-oof", category)
     category = REGEX_SUB_UNMANNED_AERIAL_VEHICLES.sub("unmanned aerial vehicles-oof", category)
-    # ---
     category = REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO.sub("democratic-republic-of-the-congo", category)
     category = REGEX_SUB_REPUBLIC_CONGO.sub("republic-of-the-congo", category)
     category = REGEX_SUB_ATHLETICS.sub("track-and-field athletics", category)
     category = REGEX_SUB_TWIN_PEOPLE.sub("twinpeople", category)
-    # ---
-    # category = re.sub(r"\–" , "-" , category, flags = re.IGNORECASE)
-    # category = re.sub(r"–" , "-" , category, flags = re.IGNORECASE)
-    # category = category.replace("–" , "-")
-    # ---
-    # category = category.replace("^signers of " , "signers on ")
-    # ---
-    category = category.replace("secretaries of ", "secretaries-of ")
-    # ---
-    category = category.replace("roller hockey (quad)", "roller hockey")
-    category = category.replace("victoria (australia)", "victoria-australia")
     category = REGEX_SUB_PERCENT27.sub("'", category)
 
-    # category = re.sub(r"assassinated (.*) people" , r"\g<1> assassinated people" , category, flags = re.IGNORECASE)
-    # category = re.sub(r"'" , " " , category, flags = re.IGNORECASE)
-    # ---
+    # Apply simple string replacements
+    simple_replacements = {
+        "secretaries of ": "secretaries-of ",
+        "roller hockey (quad)": "roller hockey",
+        "victoria (australia)": "victoria-australia",
+        "party of ": "party-of ",
+        " uu-16 ": " u-16 ",
+    }
+    for old, new in simple_replacements.items():
+        category = category.replace(old, new)
+
+    # Apply replaces dictionary
     for x, d in replaces.items():
         category = category.replace(x, d)
-    # ---
-    # Use cached compiled regex patterns for Change_key2
+
+    # Apply Change_key2 regex patterns (cached)
     for chk2, chk2_lab in Change_key2.items():
         if chk2 not in _change_key2_compiled:
             _change_key2_compiled[chk2] = re.compile(chk2, flags=re.IGNORECASE)
         category = _change_key2_compiled[chk2].sub(chk2_lab, category)
-    # ---
-    # Use cached compiled regex patterns for Change_key items
+
+    # Apply Change_key regex patterns (cached)
     for chk, chk_lab in Change_key.items():
-        # Create and cache 5 different patterns for each chk
         key = (chk, chk_lab)
         if key not in _change_key_compiled:
             _change_key_compiled[key] = [
@@ -578,18 +568,16 @@ def change_cat(cat_orginal: str) -> str:
         category = patterns[2].sub(f" {chk_lab} ", category)
         category = patterns[3].sub(f" {chk_lab}", category)
         category = patterns[4].sub(f"category:{chk_lab} ", category)
-    # ---
+
+    # Final transformations
     category = REGEX_SUB_CATEGORY_MINISTERS.sub("category:ministers-of ", category)
-    # ---
-    category = category.replace("party of ", "party-of ")
-    category = category.replace(" uu-16 ", " u-16 ")
-    # ---
     category = REGEX_SUB_ASSOCIATION_FOOTBALL_AFC.sub("association-football afc", category)
     category = REGEX_SUB_ASSOCIATION_FOOTBALL.sub("football", category)
-    # ---
+
+    # Log changes if any
     if category != cat_orginal:
-        output_main(f'change_cat to :"{category}", orginal: {cat_orginal}.')
-    # ---
+        logger.info(f'change_cat to :"{category}", orginal: {cat_orginal}.')
+
     return category
 
 

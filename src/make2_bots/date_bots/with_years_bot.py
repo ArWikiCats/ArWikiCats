@@ -5,8 +5,6 @@
 import functools
 import re
 from typing import Pattern
-
-# ---
 from ...translations import change_numb_to_word
 from ...translations import WORD_AFTER_YEARS
 from ..format_bots import ar_lab_before_year_to_add_in
@@ -15,7 +13,7 @@ from ..matables_bots.table1_bot import get_KAKO
 
 from ..ma_bots import country2_lab
 from ..ma_bots.ye_ts_bot import translate_general_category
-from ...helps.print_bot import output_test
+from ...helps.log import logger
 from ..reg_lines import re_sub_year, RE1_compile, RE2_compile, RE33_compile
 
 # Precompiled Regex Patterns
@@ -41,7 +39,7 @@ def _handle_political_terms(category_text: str) -> str:
         body_label = known_bodies[body_key]
         ordinal_label = change_numb_to_word.get(ordinal_number, f"الـ{ordinal_number}")
         label = f"{body_label} {ordinal_label}"
-        output_test(f">>> _handle_political_terms lab ({label}), country: ({category_text})")
+        logger.debug(f">>> _handle_political_terms lab ({label}), country: ({category_text})")
         return label
     return ""
 
@@ -54,7 +52,7 @@ def _handle_year_at_start(category_text: str) -> str:
         return ""
 
     remainder = category_text[len(year):].strip()
-    output_test(f">>> _handle_year_at_start: year:{year}, con_3:{remainder}")
+    logger.debug(f">>> _handle_year_at_start: year:{year}, con_3:{remainder}")
 
     remainder_label = ""
     if remainder in WORD_AFTER_YEARS:
@@ -62,7 +60,7 @@ def _handle_year_at_start(category_text: str) -> str:
 
     if not remainder_label:
         remainder_label = get_KAKO(remainder.strip().lower())
-        output_test(f">>> _handle_year_at_start get_KAKO con_3_lab:{remainder_label}")
+        logger.debug(f">>> _handle_year_at_start get_KAKO con_3_lab:{remainder_label}")
 
     if not remainder_label:
         remainder_label = translate_general_category(remainder)
@@ -76,15 +74,15 @@ def _handle_year_at_start(category_text: str) -> str:
     separator = " "
 
     if remainder_label.strip() in ar_lab_before_year_to_add_in:
-        output_test("ar_lab_before_year_to_add_in Add في to arlabel sus.")
+        logger.debug("ar_lab_before_year_to_add_in Add في to arlabel sus.")
         separator = " في "
 
     elif remainder in Add_in_table:
-        output_test("a<<lightblue>>>>>> Add في to suf")
+        logger.debug("a<<lightblue>>>>>> Add في to suf")
         separator = " في "
 
     label = remainder_label + separator + year
-    output_test(f'>>>>>> Try With Years new lab2  "{label}" ')
+    logger.debug(f'>>>>>> Try With Years new lab2  "{label}" ')
 
     return label
 
@@ -110,7 +108,7 @@ def _handle_year_at_end(
         return ""
 
     formatted_year_label = year_at_end_label
-    output_test(f">>> _handle_year_at_end: year2:{year_at_end_label}")
+    logger.debug(f">>> _handle_year_at_end: year2:{year_at_end_label}")
     remainder = category_text[: -len(year_at_end_label)]
 
     # print("translate_general_category 5")
@@ -124,7 +122,7 @@ def _handle_year_at_end(
 
     if remainder_label:
         label = f"{remainder_label} {formatted_year_label}"
-        output_test(f'>>>>>> Try With Years new lab4  "{label}" ')
+        logger.debug(f'>>>>>> Try With Years new lab4  "{label}" ')
         return label
     return ""
 
@@ -150,9 +148,7 @@ def Try_With_Years(category_text: str) -> str:
             information,
         or an empty string if no valid information is found.
     """
-
-    # ---
-    output_test(f">>> Try With Years country ({category_text})")
+    logger.debug(f">>> Try With Years country ({category_text})")
     # pop_final_Without_Years
 
     label = ""
@@ -173,7 +169,6 @@ def Try_With_Years(category_text: str) -> str:
     # RE4 = RE4_compile.match(category_text)
 
     if not year_at_start and not year_at_end and not year_at_end2:  # and not RE4
-        # ---
         return ""
 
     label = _handle_year_at_start(category_text)
@@ -182,6 +177,6 @@ def Try_With_Years(category_text: str) -> str:
         label = _handle_year_at_end(category_text, RE2_compile, RE33_compile)
 
     if label:
-        output_test(f'>>>>>> Try With Years lab2 "{label}" ')
+        logger.debug(f'>>>>>> Try With Years lab2 "{label}" ')
 
     return label

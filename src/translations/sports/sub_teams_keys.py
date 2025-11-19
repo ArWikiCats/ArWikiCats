@@ -57,19 +57,15 @@ for sport, sport_label in SPORTS_KEYS_FOR_LABEL.items():
     sub_teams_new[f"youth {sport}"] = f"{sport_label} للشباب"
     sub_teams_new[f"{sport} mass media"] = f"إعلام {sport_label}"
     sub_teams_new[f"{sport} non-playing staff"] = f"طاقم {sport_label} غير اللاعبين"
-    # ---
     for modifier, modifier_label in sport_starts.items():
         sub_teams_new[f"{modifier} {sport}"] = f"{sport_label} {modifier_label}"
-    # ---
     olympic_label = SPORTS_KEYS_FOR_OLYMPIC.get(sport, f"{sport_label} أولمبية")
-    # ---
     sub_teams_new[f"{sport} olympic champions"] = f"أبطال {olympic_label}"
     sub_teams_new[f"{sport} olympics"] = olympic_label
     sub_teams_new[f"{sport} olympic"] = olympic_label
     sub_teams_new[f"olympic {sport}"] = olympic_label
     sub_teams_new[f"olympics mens {sport}"] = olympic_label
     sub_teams_new[f"international {sport}"] = olympic_label.replace("أولمبي", "دولي")
-    # ---
     sub_teams_new[f"olympics men's {sport}"] = f"{olympic_label} للرجال"
     sub_teams_new[f"olympics women's {sport}"] = f"{olympic_label} للسيدات"
 

@@ -7,7 +7,6 @@ from .src import (
     event,
     event_result,
     new_func_lab,
-    do_print_options,
     print_memory,
 )
 
@@ -23,6 +22,5 @@ __all__ = [
     "new_func_lab",
     "EventProcessor",
     "do_print_options",
-    "print_memory",
     "dump_all_len",
 ]

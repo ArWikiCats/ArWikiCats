@@ -24,8 +24,6 @@ SELECT DISTINCT (CONCAT("\"", ?en, "\"") AS ?ss) (CONCAT(":") AS ?ss2) (CONCAT("
 from ..utils.json_dir import open_json_file
 
 from ...helps import len_print
-
-# ---
 Films_keys_both_new = {}
 Films_keys_male_female = {}
 television_keys = {}
@@ -103,16 +101,13 @@ film_Keys_For_male = {}
 film_Keys_For_female = {}
 # ---
 for x, da in Films_key_both.items():
-    # ---
     if da["male"]:
         Films_key_man[x] = da["male"]
         if "animated" not in x:
             Films_key_man[f"animated {x}"] = f"{da['male']} رسوم متحركة"
         # Films_key_For_Jobs[x] = da["male"]
-    # ---
     if da["male"]:
         film_Keys_For_male[x] = da["male"]
-    # ---
     if da["female"]:
         film_Keys_For_female[x] = da["female"]
 # ---
@@ -131,12 +126,10 @@ for tt, tt_lab in film_key_women_2.items():
     Films_key_For_nat[f"{tt} debuts"] = f"%s {nat_key_f} بدأ عرضها في" % tt_lab
     Films_key_For_nat[f"{tt} endings"] = f"%s {nat_key_f} انتهت في" % tt_lab
     Films_key_For_nat[f"{tt} revived after cancellation"] = f"%s {nat_key_f} أعيدت بعد إلغائها" % tt_lab
-    # ---
     films_mslslat_tab[tt] = tt_lab
     films_mslslat_tab[f"{tt} revived after cancellation"] = f"{tt_lab} أعيدت بعد إلغائها"
     films_mslslat_tab[f"{tt} debuts"] = f"{tt_lab} بدأ عرضها في"
     films_mslslat_tab[f"{tt} endings"] = f"{tt_lab} انتهت في"
-    # ---
     if tt.lower() in debuts_endings_key:
         films_mslslat_tab[f"{tt}-debuts"] = f"{tt_lab} بدأ عرضها في"
         films_mslslat_tab[f"{tt}-endings"] = f"{tt_lab} انتهت في"
@@ -156,24 +149,20 @@ for ff in television_keys:
     Films_key_CAO[f"{ff} images"] = f"صور {la_b}"
 # ---
 for ke, ke_lab in film_Keys_For_female.items():
-    # ---
     for tt, tt_lab in film_key_women_2.items():
         Films_key_For_nat[f"{ke} {tt}"] = f"{tt_lab} {ke_lab} {nat_key_f}"
         Films_key_For_nat[f"{ke} {tt} revived after cancellation"] = f"{tt_lab} {ke_lab} {nat_key_f} أعيدت بعد إلغائها"
         Films_key_For_nat[f"{ke} {tt} debuts"] = f"{tt_lab} {ke_lab} {nat_key_f} بدأ عرضها في"
         Films_key_For_nat[f"{ke} {tt} endings"] = f"{tt_lab} {ke_lab} {nat_key_f} انتهت في"
-        # ---
         films_mslslat_tab[f"{ke} {tt}"] = f"{tt_lab} {ke_lab}"
         films_mslslat_tab[f"{ke} {tt} revived after cancellation"] = f"{tt_lab} {ke_lab} {nat_key_f} أعيدت بعد إلغائها"
         films_mslslat_tab[f"{ke} {tt} debuts"] = f"{tt_lab} {ke_lab} بدأ عرضها في"
         films_mslslat_tab[f"{ke} {tt} endings"] = f"{tt_lab} {ke_lab} انتهت في"
-        # ---
         if tt.lower() in debuts_endings_key:
             films_mslslat_tab[f"{ke} {tt}-debuts"] = f"{tt_lab} {ke_lab} بدأ عرضها في"
             films_mslslat_tab[f"{ke} {tt}-endings"] = f"{tt_lab} {ke_lab} انتهت في"
             Films_key_For_nat[f"{ke} {tt}-debuts"] = f"{tt_lab} {ke_lab} {nat_key_f} بدأ عرضها في"
             Films_key_For_nat[f"{ke} {tt}-endings"] = f"{tt_lab} {ke_lab} {nat_key_f} انتهت في"
-        # ---
         # "television-series endings" : "مسلسلات تلفزيونية {} انتهت في",
 # ---
 for cd, ff in Films_key_O_multi.items():
@@ -204,40 +193,31 @@ for ke, ke_lab in film_Keys_For_female.items():
     Films_key_CAO[f"{ke} novellas"] = f"روايات قصيرة {ke_lab}"
     Films_key_CAO[f"{ke} novels"] = f"روايات {ke_lab}"
     Films_key_CAO[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
-    # ---
     Films_key_For_Jobs[ke] = ke_lab
     # Films_key_For_Jobs_both[ke] = ke_lab
     F_k = f"{ke} films"
     Films_key_CAO[F_k] = f"أفلام {ke_lab}"
-    # ---
     for fao in television_keys:
         ss_Films_key_CAO += 1
         rr = f"{ke} {fao}"
         Films_key_CAO[rr] = f"{television_keys[fao]} {ke_lab}"
         # printe.output("vv : %s:%s " % (rr , "%s %s" % (television_keys[fao] , ke_lab)) )
-    # ---
     ke_lower = ke.lower()
-    # ---
     tyty = "{tyty}"
-    # ---
     for ke2, ke2_lab in Films_key2.items():
         vfvfv += 1
         ke22 = ke2.lower()
         if ke22 != ke_lower:
-            # ---
             Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
             Paop_2 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
-            # ---
             if ke_lower in Films_Frist:
                 Paop_1 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
                 Paop_2 = Paop_1
                 # print(Paop_1)
-            # ---
             elif ke22 in Films_Frist:
                 Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
                 Paop_2 = Paop_1
                 # print(Paop_1)
-            # ---
             k1 = f"{ke} {ke2}"
             if k1 not in Films_key_333:
                 Films_key_333[k1] = Paop_1
@@ -246,8 +226,6 @@ for ke, ke_lab in film_Keys_For_female.items():
             if k2 not in Films_key_333:
                 Films_key_333[k2] = Paop_2
                 # print(f"{k2} : {Paop_2}")
-
-# ---
 Films_key_CAO["lgbt-related films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO["lgbtq-related films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
@@ -263,18 +241,13 @@ for en, tab in Films_keys_male_female.items():
     for en2, tab2 in tabe_2.items():
         if en == en2:
             continue
-        # ---
         new_lab_male = ""
         new_lab_female = ""
-        # ---
         if tab["female"] and tab2["female"]:
             new_lab_female = f"{tab['female']} {tab2['female']}"
-        # ---
         if tab["male"] and tab2["male"]:
             new_lab_male = f"{tab['male']} {tab2['male']}"
-        # ---
         new_key = f"{en} {en2}".lower()
-        # ---
         Films_keys_both_new[new_key] = {"male": new_lab_male, "female": new_lab_female}
 
 

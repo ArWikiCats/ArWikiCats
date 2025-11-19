@@ -6,7 +6,7 @@ import re
 from typing import Mapping, Tuple
 
 from ...helps import printe
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 from ...translations import all_country_ar, all_country_with_nat_keys_is_en, Nat_men, Nat_women
 from .utils import apply_arabic_article
 
@@ -130,7 +130,7 @@ def work_relations(value: str) -> str:
     """
 
     normalized = value.lower().strip()
-    print_put(f"start work_relations: value:{normalized}")
+    logger.info(f"start work_relations: value:{normalized}")
 
     resolved = _resolve_relations(
         normalized,

@@ -1,7 +1,5 @@
 """
 """
-
-# ---
 import re
 
 
@@ -92,7 +90,6 @@ def make_str(textm: str) -> str:
     for _, (text, next_color) in enu:
         # Get the current color from the color stack
         # print(f"i: {index}, text: {text}, next_color: {next_color}")
-        # ---
         current_color = color_stack[-1]
 
         # If the next color is 'previous', pop the color stack to get the previous color

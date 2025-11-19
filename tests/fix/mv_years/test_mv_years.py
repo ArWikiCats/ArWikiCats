@@ -6,15 +6,11 @@ from src.fix.mv_years import move_years
 
 
 def load_test_move_years(data):
-    # ---
     diff_list = []
-    # ---
     same = 0
     for title, expected in data.items():
         result = move_years(title)
-        # ---
         if result != expected:
-            # ---
             diff_list.append({"input": title, "actual": result, "expected": expected})
         else:
             assert result == expected
@@ -39,7 +35,6 @@ def test_fixlab_group_1():
         "2020 في الرياضة في يوتا": "الرياضة في يوتا في 2020",
         "عقد 2010 في الرياضة في أوريغن": "الرياضة في أوريغن في عقد 2010",
     }
-    # ---
     load_test_move_years(data)
 
 
@@ -58,7 +53,6 @@ def test_fixlab_group_2():
         "القرن 20 في الرياضة في ويسكونسن": "الرياضة في ويسكونسن في القرن 20",
         "القرن 20 في الرياضة في يوتا": "الرياضة في يوتا في القرن 20",
     }
-    # ---
     load_test_move_years(data)
 
 
@@ -79,7 +73,6 @@ def test_fixlab_group_3():
         "عقد 2020 في الرياضة في كارولاينا الشمالية": "الرياضة في كارولاينا الشمالية في عقد 2020",
         "عقد 2020 في الرياضة في كاليفورنيا": "الرياضة في كاليفورنيا في عقد 2020",
     }
-    # ---
     load_test_move_years(data)
 
 
@@ -94,7 +87,6 @@ def test_fixlab_group_4():
         "عقد 2020 في مجتمع في مدريد حسب المدينة والبلد": "مجتمع في مدريد في عقد 2020 حسب المدينة والبلد",
         "عقد 2020 في مجتمع في مدريد": "مجتمع في مدريد في عقد 2020",
     }
-    # ---
     load_test_move_years(data)
 
 
@@ -146,5 +138,4 @@ def test_fixlab_group_5():
         "هجمات في كندا في عقد 2020": "هجمات في كندا في عقد 2020",
         "يونانيون حسب المهنة في القرن 9": "يونانيون في القرن 9 حسب المهنة",
     }
-    # ---
     load_test_move_years(data)

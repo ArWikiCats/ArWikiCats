@@ -8,7 +8,7 @@ import functools
 from ...main_processers import event2bot
 
 from ...fix import fixtitle
-from ...helps.print_bot import print_put
+from ...helps.log import logger
 from ...translations import Ambassadors_tab, New_P17_Finall
 from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
@@ -23,8 +23,6 @@ from ..o_bots.popl import work_peoples
 from ..p17_bots import nats
 from ..p17_bots.us_stat import Work_US_State
 from ..sports_bots import team_work
-
-# ---
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -34,16 +32,17 @@ def te_bot_3(category_key: str) -> str:
     arabic_label = ""
 
     if category_key.lower() in New_Lan:
-        print_put("<<lightblue>>>> vvvvvvvvvvvv te_bot_3 start vvvvvvvvvvvv ")
+        logger.info("<<lightblue>>>> vvvvvvvvvvvv te_bot_3 start vvvvvvvvvvvv ")
         existing_label = New_Lan[category_key.lower()]
-        print_put(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
+        logger.info(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
         if existing_label is not None:
             if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:
                 normalized_label = f"تصنيف:{fixtitle.fixlab(existing_label, en=category_key)}"
-                print_put(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
-                print_put("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
+                logger.info(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
+                logger.info("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
                 return normalized_label
     return arabic_label
+
 
 @functools.lru_cache(maxsize=None)
 def event_Lab_seoo(reference_category: str, target_category: str) -> str:
@@ -67,8 +66,8 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     target_category_original_case = target_category.strip()
     normalized_target_category = target_category.lower().strip()
 
-    print_put("<<lightblue>>>>event_Lab_seoo vvvvvvvvvvvv event_Lab_seoo start vvvvvvvvvvvv ")
-    print_put(f'<<lightyellow>>>>>> event_Lab_seoo, normalized_target_category:"{normalized_target_category}"')
+    logger.info("<<lightblue>>>>event_Lab_seoo vvvvvvvvvvvv event_Lab_seoo start vvvvvvvvvvvv ")
+    logger.info(f'<<lightyellow>>>>>> event_Lab_seoo, normalized_target_category:"{normalized_target_category}"')
 
     resolved_category_label = ""
 

@@ -6,7 +6,7 @@
 
 import re
 from typing import Tuple
-from ...helps.print_bot import print_def_head, print_put
+from ...helps.log import logger
 
 
 def get_type_country(category: str, tito: str) -> Tuple[str, str]:
@@ -40,7 +40,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
         test_N = re.sub(country.lower(), "", test_N)
 
     except Exception:
-        print_put("<<lightred>>>>>> except test_N ")
+        logger.info("<<lightred>>>>>> except test_N ")
     test_N = test_N.strip()
 
     tito2 = tito.strip()
@@ -61,10 +61,10 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     elif tito2 == "for" and not country.startswith(titostarts):
         country = f"for {country}"
 
-    print_def_head(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", {tito=} ')
+    logger.info(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", {tito=} ')
 
     if test_N and test_N != tito2:
-        print_put(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", country_t:"{country_t}" ')
+        logger.info(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", country_t:"{country_t}" ')
 
         if tito2 == "of" and not Type_t.endswith(titoends):
             Type_t = f"{Type_t} of"
@@ -75,8 +75,8 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
         Type = Type_t
         country = country_t
 
-        print_put(f'>>>> yementest: Type_t:"{Type_t}", country_t:"{country_t}"')
+        logger.info(f'>>>> yementest: Type_t:"{Type_t}", country_t:"{country_t}"')
     else:
-        print_put(f'>>>> test_N:"{test_N}" == tito')
+        logger.info(f'>>>> test_N:"{test_N}" == tito')
 
     return Type, country

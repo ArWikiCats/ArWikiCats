@@ -3,7 +3,6 @@
 """
 
 PRIMARY_REGION_TRANSLATIONS = {
-    # ---
     "limburg (belgium)": "ليمبورغ (بلجيكا)",
     "limburg": "ليمبورغ",
     "west flanders": "فلاندرز الغربية",
@@ -14,12 +13,10 @@ PRIMARY_REGION_TRANSLATIONS = {
     "walloon brabant": "برابانت والون",
     "namur": "نامور",
     "hainaut": "هينو",
-    # ---
     "namur (province)": "مقاطعة نامور",
     "liège (province)": "مقاطعة لياج",
     "hainaut (province)": "مقاطعة هينو",
     "antwerp (province)": "مقاطعة أنتفيرب",
-    # ---
     "gaza": "غزة",
     "cabo delgado": "كابو ديلغادو",
     "manica": "مانيكا",
@@ -30,7 +27,6 @@ PRIMARY_REGION_TRANSLATIONS = {
     "zambezia": "زامبيزيا",
     "jabalia": "جباليا",
     "tete": "تيتي",
-    # ---
     "gaza province": "محافظة غزة",
     "cabo delgado province": "محافظة كابو ديلغادو",
     "manica province": "محافظة مانيكا",
@@ -40,7 +36,6 @@ PRIMARY_REGION_TRANSLATIONS = {
     "sofala province": "محافظة سوفالا",
     "zambezia province": "محافظة زامبيزيا",
     "tete province": "محافظة تيتي",
-    # ---
     "bolívar province (ecuador)": "مقاطعة بوليفار",
     "central district (botswana)": "المقاطعة المركزية",
     "ghanzi district": "مقاطعة غانزي",
@@ -180,12 +175,10 @@ PERU_REGION_TRANSLATIONS = {
 }
 # ---
 UK_COUNTY_TRANSLATIONS = {
-    # ---
     "mascara, algeria": "معسكر (مدينة)",
     "barpeta": "باربتا",
     "djibouti city": "مدينة جيبوتي",
     "barpeta district": "مقاطعة باربتا",
-    # ---
     "central province, sri lanka": "المقاطعة الوسطى (سريلانكا)",
     "eastern province, sri lanka": "المقاطعة الشرقية (سريلانكا)",
     "north central province, sri lanka": "المقاطعة الشمالية الوسطى (سريلانكا)",
@@ -195,7 +188,6 @@ UK_COUNTY_TRANSLATIONS = {
     "southern province, sri lanka": "المقاطعة الجنوبية (سريلانكا)",
     "uva province": "مقاطعة يوفا",
     "western province, sri lanka": "المقاطعة الغربية (سريلانكا)",
-    # ---
     "leiden": "لايدن",
     "arnhem": "آرنم",
     "aalburg": "آلبورخ",
@@ -320,7 +312,6 @@ UK_COUNTY_TRANSLATIONS = {
     "heerenveen": "هيرينفين",
     "helmond": "هيلموند",
     "heemstede": "هيمستيده",
-    # ---
     "east midlands": "ميدلاند الشرقية",
     "east of england": "شرق إنجلترا",
     "greater london": "لندن الكبرى",

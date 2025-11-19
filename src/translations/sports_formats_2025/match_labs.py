@@ -48,14 +48,10 @@ def load_data() -> Dict[str, str]:
 
     # result length: "count": 325907, "size": "7.3 MiB" ( SPORT_KEY_RECORDS*1425  (223*1425))
     """
-    # ---
     data = {}
-    # ---
     # 526 item per SPORTS_KEYS_FOR_JOBS items
-    # ---
     sport = "{sport}"
     sport_label = "{sport_label}"
-    # ---
     data = {
         f"{sport}" : f"{sport_label}",
         f"{sport} managers" : f"مدراء {sport_label}",
@@ -69,19 +65,14 @@ def load_data() -> Dict[str, str]:
     for PP in PPP_Keys:
         key2 = f"{PP} {sport}".strip()
         value2 = f"{sport_label} {PPP_Keys[PP]}".strip()
-        # ---
         data[key2] = value2
-        # ---
         for after, after_label in AFTER_KEYS.items():
             data[f"{key2} {after}"] = f"{after_label} {value2}"
-        # ---
         for after in FOOTBALL_KEYS_PLAYERS:
             PP_o = f"{key2} {after}"
-            # ---
             llab = FOOTBALL_KEYS_PLAYERS[after]["mens"]
             if "women's" in PP_o:
                 llab = FOOTBALL_KEYS_PLAYERS[after]["womens"]
-            # ---
             data[PP_o] = f"{llab} {value2}"
 
     return data

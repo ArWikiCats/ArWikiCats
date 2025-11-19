@@ -1,7 +1,5 @@
 """
 """
-
-# ---
 from .log import logger
 
 error = logger.error_red

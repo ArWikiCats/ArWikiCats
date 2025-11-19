@@ -21,12 +21,9 @@ RE_KEYS_OLD = re.compile(nat_reg_line, re.I)
 
 
 def match_nat_key(category: str):
-    # ---
     match = RE_KEYS_NEW.search(f" {category} ")
-    # ---
     if match:
         return match.group(1)
-    # ---
     return ""
 
 

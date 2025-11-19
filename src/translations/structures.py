@@ -80,7 +80,6 @@ for key in pop_key_4:
     structures_data[f"defunct {key2} stations"] = f"محطات {lab} سابقة"
     structures_data[f"disused {key2} stations"] = f"محطات {lab} مهجورة"
     structures_data["disused " + (f"{key2} stations")] = f"محطات {lab} مهجورة"
-    # ---
     if "طاقة" not in lab:
         structures_data[f"{key2} energy"] = f"طاقة {lab}"
         structures_data[f"{key2} power plants"] = f"محطات طاقة {lab}"
@@ -223,5 +222,4 @@ for ke2, ke2_lab in buildings_keys.items():
         pop_final_3_update[f"{ke2} on national-register-of-historic-places in"] = zaz
         pop_final_3_update[f"{ke2} on the-national-register-of-historic-places in"] = zaz
         pop_final_3_update[ke_2] = ke2_lab
-        # ---
         pop_final_3_update[f"{ke2} disasters"] = f"كوارث {ke2_lab}"
