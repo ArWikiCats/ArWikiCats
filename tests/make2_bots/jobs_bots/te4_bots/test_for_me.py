@@ -484,7 +484,7 @@ def test_work_for_new_2018_men_keys_with_all(data) -> None:
     assert label == data["output"]
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_work_for_me():
     # Test with basic inputs using a valid country code
     result = Work_for_me("test category", "united states", "players")

@@ -173,7 +173,7 @@ data2 = {
 
 
 @pytest.mark.parametrize("input,expected", data2.items(), ids=[x for x in data2])
-@pytest.mark.skip("Need to fix")
+@pytest.mark.skip2("Need to fix")
 def test_entertainment_2(input, expected):
     result = new_func_lab_final_label(input)
     assert result == expected

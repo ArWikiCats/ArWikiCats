@@ -47,7 +47,7 @@ def test_sports_2():
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
-@pytest.mark.skip(reason="Test data incomplete")
+@pytest.mark.skip2(reason="Test data incomplete")
 def test_sports_3():
     data = {
         "Category:Afghanistan women's national football team coaches": "",

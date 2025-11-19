@@ -12,13 +12,13 @@ from src.translations.sports_formats_nats.sport_lab_with_nat import (
 )
 
 
-@pytest.mark.skip
+# @pytest.mark.skip2
 def test_1() -> None:
     label = Get_New_team_xo_with_nat("Yemeni national xoxo teams", "football")
-    assert label == "New team xoxo with nat"
+    assert label == "منتخبات لكرة القدم وطنية اليمن"
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_2() -> None:
     template_label1 = match_sports_labels_with_nat_new("Yemeni national xoxo teams", "softball")
     assert template_label1 == "منتخبات xoxo وطنية natar"
@@ -27,7 +27,7 @@ def test_2() -> None:
     assert template_label2 == ""
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_3() -> None:
     template_label1 = match_sports_labels_with_nat("yemeni national xoxo teams", "softball")
     assert template_label1 == "منتخبات xoxo وطنية natar"
@@ -46,7 +46,7 @@ def test_apply_pattern_replacement() -> None:
     assert team_lab == "منتخب اليمن الوطني"
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_all():
     _data_old = {
         "national youth women's under-14 softball leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",

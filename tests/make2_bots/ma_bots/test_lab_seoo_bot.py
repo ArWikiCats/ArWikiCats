@@ -145,7 +145,7 @@ te_bot_3_data = {
 
 
 @pytest.mark.parametrize("category, expected_key", te_bot_3_data.items(), ids=list(te_bot_3_data.keys()))
-@pytest.mark.skip("need more work")
+@pytest.mark.skip2("need more work")
 def test_te_bot_3_data(category, expected_key) -> None:
     label = te_bot_3(category)
     assert label.strip() == expected_key

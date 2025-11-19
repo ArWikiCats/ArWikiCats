@@ -49,7 +49,7 @@ def test_womens_pkjn_suffix():
     assert result == "مغتربات أبخازيات"
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_sportspeople():
     jobs_with_nat_prefix.cache_clear()
     # prefix returns مغتربون => pkjn modifies it
@@ -57,14 +57,14 @@ def test_sportspeople():
     assert result == "رياضيون مغتربون أتراك"
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_sportspeople2():
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "Turkish", "sportspeople")
     assert result == "رياضيون أتراك"
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_sprtspeople():
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "Turkish", "expatriates sprtspeople")
