@@ -8,11 +8,9 @@ pulling in individual module internals.
 
 from __future__ import annotations
 
-from .jobs_womens import Female_Jobs, short_womens_jobs
-
 from .Jobs import (
-    jobs_mens_data,
     Jobs_new,
+    jobs_mens_data,
 )
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data_basic import (
@@ -29,6 +27,7 @@ from .jobs_singers import (
     FILMS_TYPE,
     MEN_WOMENS_SINGERS,
 )
+from .jobs_womens import Female_Jobs, short_womens_jobs
 
 __all__ = [
     # Core types and shared datasets
