@@ -11,11 +11,7 @@ from ...translations import People_key, film_key_women_2, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
 from .utils import resolve_suffix_template
 
-from pathlib import Path
-from ...helps.jsonl_dump import save_data
 
-
-# @save_data(Path(__file__).parent / "work_peoples_old.jsonl", ["name"])
 def work_peoples_old(name: str) -> str:
     """Return the label for ``name`` based on the population prefixes table.
 
@@ -52,7 +48,6 @@ def work_peoples_old(name: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-# @save_data(Path(__file__).parent / "work_peoples.jsonl", ["name"])
 def work_peoples(name: str) -> str:
     """Return the label for ``name`` based on the population prefixes table.
 
@@ -76,7 +71,6 @@ def work_peoples(name: str) -> str:
     return label
 
 
-@save_data(Path(__file__).parent / "make_people_lab.jsonl", ["normalized_value"])
 def make_people_lab(normalized_value: str) -> str:
     """Return a label for general ``people`` categories.
 

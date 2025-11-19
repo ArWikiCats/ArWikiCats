@@ -411,7 +411,6 @@ te4_2018_Jobs_data = {
     "johann wolfgang von goethe": "يوهان فولفغانغ فون غوته",
     "jordanian equestrians": "فرسان خيول أردنيون",
     "jordanian expatriate sprtspeople": "رياضيون أردنيون مغتربون",
-    "juanes": "جيانز",
     "judoka": "لاعبو جودو",
     "kazakhstani artists": "فنانون كازاخستانيون",
     "kazakhstani expatriates": "كازاخستانيون مغتربون",
