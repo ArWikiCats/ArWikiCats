@@ -28,7 +28,7 @@ examples = {
     examples.items(),
     ids=[k for k in examples],
 )
-def test_get_teams_new_resolves_basic_templates(category: str, expected: str) -> None:
+def test_resolves_basic_templates(category: str, expected: str) -> None:
     """Templates driven by the lightweight map should translate correctly."""
 
     result = _get_value(category)
@@ -58,7 +58,7 @@ olympic_examples = {
     olympic_examples.items(),
     ids=[k for k in olympic_examples],
 )
-def test_get_teams_new_handles_olympic_variants(category: str, expected: str) -> None:
+def test_handles_olympic_variants(category: str, expected: str) -> None:
     """Olympic templates should rely on the shared helper translation."""
 
     result = _get_value(category)

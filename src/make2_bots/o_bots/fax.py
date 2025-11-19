@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import functools
-from typing import Dict
 from ...helps.print_bot import print_put
 from ...translations import lang_ttty, languages_pop
 

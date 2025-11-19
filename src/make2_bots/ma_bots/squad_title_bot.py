@@ -4,7 +4,7 @@ from ..ma_bots.squad_title_bot import get_squad_title
 # label = get_squad_title(tit)
 
 """
-
+import functools
 from ..date_bots import with_years_bot
 from ...translations import pop_of_football_lower, Get_New_team_xo
 from ...translations import New_P17_Finall
@@ -15,6 +15,7 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.print_bot import print_def_head, print_put
 
 
+@functools.lru_cache(maxsize=None)
 def get_squad_title(tit: str) -> str:
     lab = Get_New_team_xo(tit)
 

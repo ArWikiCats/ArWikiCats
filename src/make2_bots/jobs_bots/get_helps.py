@@ -2,10 +2,12 @@
 """Utility helpers for extracting country labels from category names."""
 import functools
 from typing import Dict, Tuple
+from pathlib import Path
 
 from ...helps.print_bot import output_test4
 from ...translations import All_Nat, RELIGIOUS_KEYS_PP, Nat_women, contries_from_nat
 
+from ...helps.jsonl_dump import save_data
 keys_data = {
     "nat": All_Nat,
     "Nat_women": Nat_women,
@@ -19,6 +21,7 @@ def get_keys(category_type):
     return keys_data.get(category_type, [])
 
 
+# @save_data(Path(__file__).parent / "get_con_3.jsonl", ["cate", "category_type"])
 @functools.lru_cache(maxsize=None)
 def get_con_3(cate: str, category_type: str) -> Tuple[str, str]:
     """Fast and optimized version of get_con_3.
