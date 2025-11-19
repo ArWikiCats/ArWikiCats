@@ -17,6 +17,8 @@ from ...translations import pop_of_football_lower
 from ..jobs_bots import bot_te_4
 from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
 
+from ...helps.jsonl_dump import save_data
+
 Teams_new_end_keys = {
     # ---
     # "drafts" : " {}",
@@ -91,8 +93,7 @@ Teams_new_end_keys = {
 }
 
 
-
-
+@save_data()
 @functools.lru_cache(maxsize=None)
 def Get_Club(
     category: str,

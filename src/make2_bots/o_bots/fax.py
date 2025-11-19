@@ -7,6 +7,10 @@ from ...helps.print_bot import print_put
 from ...translations import lang_ttty, languages_pop
 
 
+from ...helps.jsonl_dump import save_data
+
+
+@save_data()
 @functools.lru_cache(maxsize=None)
 def te_language(category: str) -> str:
     """Return the label for a language-related category.

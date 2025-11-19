@@ -15,7 +15,6 @@ from ...translations import (
 from ...translations import (Nat_women, Nat_mens)
 from ...helps.print_bot import output_test4
 
-
 @functools.lru_cache(maxsize=None)
 def get_Films_key_CAO(country_identifier: str) -> str:
     """Resolve labels for composite television keys used in film lookups."""

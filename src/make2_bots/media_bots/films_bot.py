@@ -13,6 +13,10 @@ from ..o_bots.army import te_army
 from ..p17_bots import p17_bot
 
 
+from ...helps.jsonl_dump import save_data
+
+
+@save_data()
 @functools.lru_cache(maxsize=None)
 def te_films(category: str, reference_category: str = "") -> str:
     normalized_category = category.lower()
