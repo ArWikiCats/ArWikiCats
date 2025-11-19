@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ """
+
 import pytest
 
 from src.translations.sports_formats_nats.new import create_label

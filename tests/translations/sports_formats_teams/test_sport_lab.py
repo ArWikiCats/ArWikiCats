@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ """
+
 import pytest
 
 from src.translations.sports_formats_teams.sport_lab import (
@@ -67,7 +68,6 @@ Get_New_team_xo_data = {
 @pytest.mark.parametrize("category, expected", Get_New_team_xo_data.items(), ids=list(Get_New_team_xo_data.keys()))
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category, expected) -> None:
-
     label = Get_New_team_xo(category)
     assert isinstance(label, str)
     assert label.strip() == expected
@@ -75,7 +75,6 @@ def test_Get_New_team_xo_data(category, expected) -> None:
 
 @pytest.mark.fast
 def test_Get_New_team_xo() -> None:
-
     label = Get_New_team_xo("national softball teams")
     assert label == "منتخبات كرة لينة وطنية"
 
@@ -135,7 +134,6 @@ data2 = {
 @pytest.mark.parametrize("category, expected_key", data2.items(), ids=list(data2.keys()))
 @pytest.mark.fast
 def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
-
     label = Get_Sport_Format_xo_en_ar_is_P17(category)
     assert label.strip() == expected_key
 
