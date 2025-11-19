@@ -8,17 +8,17 @@ from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
 def load_examples():
     """
-    Load all real production examples from jobs_mainbot.jsonl
+    Load all real production examples from test_jobs_main_bot.jsonl
     and return them as a list of dicts.
     """
 
     # IMPORTANT:
     # Adjust path relative to repository structure
     root = os.path.dirname(__file__)
-    path = os.path.join(root, "jobs_mainbot.jsonl")
+    path = os.path.join(root, "test_jobs_main_bot.jsonl")
 
     if not os.path.exists(path):
-        raise FileNotFoundError(f"jobs_mainbot.jsonl not found at: {path}")
+        raise FileNotFoundError(f"test_jobs_main_bot.jsonl not found at: {path}")
 
     examples = []
     with jsonlines.open(path) as reader:

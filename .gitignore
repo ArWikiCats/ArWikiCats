@@ -20,5 +20,4 @@ src/main_processers/event_lab_bot_backup.py
 *.prof
 profile.html
 profile.json
-src/make2_bots/jobs_bots/jobs_mainbot.jsonl
 src/make2_bots/jobs_bots/jobs_mainbot_example.py
