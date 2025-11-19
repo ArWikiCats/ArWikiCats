@@ -10,8 +10,9 @@ from . import bot as MA_MAIN # MA_MAIN.event(tab, **kwargs)
 
 from typing import Any, Dict, List
 
-from .event_processing import event_result, new_func_lab as _new_func_lab
 from . import main
+from .event_processing import event_result
+from .event_processing import new_func_lab as _new_func_lab
 from .make2_bots.media_bots import films_bot  # te_films
 
 new_func_lab = _new_func_lab
