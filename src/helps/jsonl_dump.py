@@ -50,8 +50,7 @@ def save_data(filename: str, input_keys: list = None):
             # path = Path(__file__).parent / filename
             path = Path(filename)
 
-            if not path.exists():
-                path.touch()
+            # if not path.exists(): path.touch()
 
             bound_args = inspect.signature(func).bind(*args, **kwargs)
             bound_args.apply_defaults()
