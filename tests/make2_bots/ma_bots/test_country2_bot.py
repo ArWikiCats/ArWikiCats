@@ -351,7 +351,6 @@ data_slow = {
     "men's football": "كرة القدم للرجال",
     "men's footballers in djibouti": "لاعبو كرة قدم رجالية في جيبوتي",
     "men's footballers in montenegro": "لاعبو كرة قدم رجالية في الجبل الأسود",
-    "men's international football by continent": "كرة قدم دولية رجالية حسب القارة",
     "men's soccer": "كرة القدم للرجال",
     "michigan legislature": "هيئة ميشيغان التشريعية",
     "michigan territory": "إقليم ميشيغان",
