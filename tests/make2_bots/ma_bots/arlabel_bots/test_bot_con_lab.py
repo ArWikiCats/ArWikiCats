@@ -143,7 +143,7 @@ data = [
 
 @pytest.mark.parametrize("tab", data, ids=lambda x: f"{x['tito2']} {x['country']}")
 @pytest.mark.fast
-def test_event_Lab_seoo_data(tab) -> None:
+def test_get_con_lab_data(tab) -> None:
 
     label = get_con_lab(
         preposition=f" {tab['tito2']} ",
