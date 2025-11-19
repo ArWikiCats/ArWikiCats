@@ -4,7 +4,6 @@
 """
 from typing import Dict
 
-
 CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # "people of the ottoman empire" :"people-of-the-ottoman-empire",
     # "sentenced to death" :"sentenced-to-death",

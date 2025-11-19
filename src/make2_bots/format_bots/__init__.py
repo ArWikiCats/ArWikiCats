@@ -4,10 +4,10 @@
 """
 
 import re
+
 from ...helps import len_print
 from ...helps.log import logger
-from ...translations import ministrs_tab_for_pop_format
-from ...translations import New_Company
+from ...translations import New_Company, ministrs_tab_for_pop_format
 from .pf_keys import Change_key, Change_key2
 
 # Precompiled Regex Patterns

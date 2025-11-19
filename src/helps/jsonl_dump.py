@@ -3,9 +3,10 @@
 !
 """
 import functools
-import jsonlines
-from pathlib import Path
 import inspect
+from pathlib import Path
+
+import jsonlines
 
 SAVE_ENABLE = True
 SAVE_ENABLE = False

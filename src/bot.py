@@ -8,7 +8,8 @@ from . import bot # bot.event(tab, **kwargs)
 from . import bot as MA_MAIN # MA_MAIN.event(tab, **kwargs)
 """
 
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
 from . import main
 from .make2_bots.media_bots import films_bot  # te_films
 
