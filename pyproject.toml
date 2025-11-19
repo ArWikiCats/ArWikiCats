@@ -37,13 +37,23 @@ use_parentheses = true
 force_grid_wrap = 0
 
 # OPTIONAL: You can add this to ensure isort does NOT collapse into one line
-ensure_newline_before_comments = True
+ensure_newline_before_comments = true
 
 # Project paths
-src_paths = src
-known_first_party = src
-
-skip = .env,env,.venv,venv,build,dist,__pycache__,.mypy_cache,.pytest_cache,.git
+src_paths = "src"
+known_first_party = "src"
+skip = [
+    ".env",
+    "env",
+    ".venv",
+    "venv",
+    "build",
+    "dist",
+    "__pycache__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".git",
+]
 
 # ============================================
 #                 RUFF
@@ -78,7 +88,6 @@ exclude = [
     "site-packages",
     "venv",
 ]
-
 line-length = 120
 target-version = "py313"
 
