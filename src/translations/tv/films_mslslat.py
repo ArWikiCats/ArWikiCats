@@ -21,9 +21,8 @@ SELECT DISTINCT (CONCAT("\"", ?en, "\"") AS ?ss) (CONCAT(":") AS ?ss2) (CONCAT("
   }
 }
 """
-from ..utils.json_dir import open_json_file
-
 from ...helps import len_print
+from ..utils.json_dir import open_json_file
 
 Films_keys_both_new = {}
 Films_keys_male_female = {}

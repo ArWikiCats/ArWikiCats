@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ """
 import re
-from .patterns import load_keys_to_pattern
+
 from ..nats.Nationality import all_country_with_nat_ar
+from .patterns import load_keys_to_pattern
 
 pp = [[len(xy.split(" ")), xy] for xy in all_country_with_nat_ar]
 pp.sort(reverse=True)

@@ -7,9 +7,8 @@ from __future__ import annotations
 import logging
 from typing import Mapping, Tuple
 
-from .jobs_defs import GenderedLabelMap
-
 from ..utils.json_dir import open_json
+from .jobs_defs import GenderedLabelMap
 
 LOGGER = logging.getLogger(__name__)
 

@@ -3,8 +3,9 @@
 !
 """
 import re
+
 from ...helps import len_print
-from ..sports.sports_lists import LEVELS, AFTER_KEYS_NAT, NEW_TATO_NAT
+from ..sports.sports_lists import AFTER_KEYS_NAT, LEVELS, NEW_TATO_NAT
 
 New_team_xo_labels = {
     "xoxo": "xoxo",

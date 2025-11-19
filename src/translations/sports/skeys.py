@@ -3,11 +3,9 @@
 Comprehensive sport template dictionaries used throughout the project.
 """
 from typing import Final
+
 from ...helps import len_print
-from .Sport_key import (
-    SPORTS_KEYS_FOR_LABEL,
-    SPORTS_KEYS_FOR_TEAM,
-)
+from .Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 
 COUNTRY_PLACEHOLDER: Final[str] = "{}"
 NAT_PLACEHOLDER: Final[str] = "{nat}"

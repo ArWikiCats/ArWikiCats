@@ -5,9 +5,10 @@
 
 
 import sys
+
+from ... import app_settings
 from ...helps import len_print
 from .Sport_key import SPORTS_KEYS_FOR_TEAM
-from ... import app_settings
 
 NAT_P17_OIOI = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---

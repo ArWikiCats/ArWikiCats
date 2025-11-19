@@ -4,15 +4,13 @@ Utilities for assembling singer-related gendered job labels.
 """
 
 from __future__ import annotations
+
 import sys
 from typing import Dict, Mapping
 
 from ...helps import len_print
 from ..utils.json_dir import open_json
-from .jobs_defs import (
-    GenderedLabel,
-    GenderedLabelMap,
-)
+from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 # ---------------------------------------------------------------------------
 # Helper functions

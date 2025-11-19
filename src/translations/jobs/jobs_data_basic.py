@@ -4,12 +4,9 @@ jobs data
 
 from __future__ import annotations
 
-from typing import Dict, Mapping, Iterable, List
+from typing import Dict, Iterable, List, Mapping
 
-from .jobs_defs import (
-    GenderedLabel,
-    GenderedLabelMap,
-)
+from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 
 def _build_religious_job_labels(

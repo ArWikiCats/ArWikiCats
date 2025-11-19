@@ -5,11 +5,11 @@ All comments are in English only.
 """
 
 from __future__ import annotations
-from typing import Dict, Any, Tuple, List, TypedDict
 
-from ..utils.json_dir import open_json_file
+from typing import Any, Dict, List, Tuple, TypedDict
+
 from ...helps import len_print
-
+from ..utils.json_dir import open_json_file
 
 # =====================================================================
 # Type aliases

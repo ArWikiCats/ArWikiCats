@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ """
 from typing import Dict
-from ..sports.sports_lists import AFTER_KEYS
+
 from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ..sports.sports_lists import AFTER_KEYS
 
 # from ...helps import len_print
 

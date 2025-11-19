@@ -6,9 +6,9 @@ Build lookup tables for translating sport related keys.
 from dataclasses import dataclass
 from typing import Final, Mapping, MutableMapping, TypedDict
 
-from ..utils.json_dir import open_json_file
 from ...helps import len_print
 from ...helps.log import logger
+from ..utils.json_dir import open_json_file
 
 
 class SportKeyRecord(TypedDict, total=False):

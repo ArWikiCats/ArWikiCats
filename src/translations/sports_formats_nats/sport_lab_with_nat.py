@@ -2,12 +2,13 @@
 """ """
 
 import re
-from ..utils.match_nats_keys import match_nat_key
-from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
-from ..nats.Nationality import en_nats_to_ar_label
+
 from ...helps.log import logger
-from ..utils import apply_pattern_replacement
 from ...translations_formats.format_data import FormatData
+from ..nats.Nationality import en_nats_to_ar_label
+from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
+from ..utils import apply_pattern_replacement
+from ..utils.match_nats_keys import match_nat_key
 
 format_labels_with_nat = {
     "natar national xoxo teams": "منتخبات xoxo وطنية natar",

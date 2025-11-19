@@ -5,8 +5,8 @@ from __future__ import annotations
 from typing import Tuple
 
 from ...helps import len_print
-from .male_keys import New_male_keys
 from ..utils.json_dir import open_json_file
+from .male_keys import New_male_keys
 
 BASE_POP_FINAL_5: dict[str, str] = {
     "trustees of": "أمناء",

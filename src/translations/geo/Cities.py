@@ -9,8 +9,8 @@ from __future__ import annotations
 
 import sys
 
-from ..utils.json_dir import open_json
 from ...helps import len_print
+from ..utils.json_dir import open_json
 
 CITY_TRANSLATIONS = open_json("geo/all_cities.json") or {}
 CITY_TRANSLATIONS_SUPPLEMENT = open_json("geo/Cities_tab2.json") or {}

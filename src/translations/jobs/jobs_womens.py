@@ -3,13 +3,12 @@ Build comprehensive gendered job label dictionaries.
 """
 
 from __future__ import annotations
+
 from typing import Dict
 
 from ...helps import len_print
-
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from .jobs_singers import FILMS_TYPE
-
 
 FEMALE_JOBS_TO: Dict[str, str] = {}
 

@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from ...helps import len_print
 from ..companies import companies_keys3, typeTable_update
 from ..sports.games_labs import SUMMER_WINTER_TABS
-from ..structures import tab2, pop_final_3_update
+from ..structures import pop_final_3_update, tab2
 from ..utils.json_dir import open_json_file
-from ...helps import len_print
 
 TYPE_TABLE_7_BASE: dict[str, str] = {
     "air force": "قوات جوية",

@@ -9,17 +9,11 @@ being easier to reason about and test.
 from __future__ import annotations
 
 from typing import Dict, Mapping
-from ..utils.json_dir import open_json
 
-from ..sports.Sport_key import (
-    SPORTS_KEYS_FOR_JOBS,
-    SPORTS_KEYS_FOR_LABEL,
-    SPORTS_KEYS_FOR_TEAM,
-)
-from .jobs_defs import (
-    GenderedLabel,
-    GenderedLabelMap,
-)
+from ..sports.Sport_key import (SPORTS_KEYS_FOR_JOBS, SPORTS_KEYS_FOR_LABEL,
+                                SPORTS_KEYS_FOR_TEAM)
+from ..utils.json_dir import open_json
+from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 # ---------------------------------------------------------------------------
 # Static configuration

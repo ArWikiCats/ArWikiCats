@@ -4,15 +4,16 @@ pop_All_2018
 """
 # ---
 from typing import Dict
-from ..utils.json_dir import open_json_file
-from ..sports.olympics_data import olympics
-from ..mixed.all_keys2 import pf_keys2
+
+from ..by_type import By_table
 from ..geo.labels_country import New_P17_Finall
-from ..tv.films_mslslat import films_mslslat_tab
 from ..jobs.Jobs import Jobs_new, jobs_mens_data
+from ..mixed.all_keys2 import pf_keys2
+from ..sports.olympics_data import olympics
 from ..sports.Sport_key import SPORTS_KEYS_FOR_LABEL
 from ..sports.sub_teams_keys import sub_teams_new
-from ..by_type import By_table
+from ..tv.films_mslslat import films_mslslat_tab
+from ..utils.json_dir import open_json_file
 
 # from ..sports.teams_new_data import TEAMS_NEW
 

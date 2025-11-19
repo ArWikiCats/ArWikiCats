@@ -3,10 +3,9 @@
 !
 """
 
+import json
 from pathlib import Path
 from typing import Any
-
-import json
 
 Dir2 = Path(__file__).parent.parent
 
