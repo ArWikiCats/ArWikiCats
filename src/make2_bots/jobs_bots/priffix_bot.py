@@ -20,12 +20,8 @@ from ...translations import (
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.log import logger
 
-from pathlib import Path
-from ...helps.jsonl_dump import save_data
 
-
-# @functools.lru_cache(maxsize=None)
-@save_data(Path(__file__).parent / "priffix_Mens_work.jsonl")
+@functools.lru_cache(maxsize=None)
 def priffix_Mens_work(con_33: str) -> str:
     """Process and retrieve the appropriate label for a given input string.
 
@@ -132,8 +128,7 @@ def priffix_Mens_work(con_33: str) -> str:
     return ""
 
 
-# @functools.lru_cache(maxsize=None)
-@save_data(Path(__file__).parent / "Women_s_priffix_work.jsonl")
+@functools.lru_cache(maxsize=None)
 def Women_s_priffix_work(con_3: str) -> str:
     """Retrieve the women's prefix work label based on the input string.
 
