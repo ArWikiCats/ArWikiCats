@@ -4,6 +4,7 @@
 """
 
 import re
+import functools
 from typing import Callable, List
 
 from ....helps.print_bot import print_put, output_test
@@ -18,8 +19,6 @@ from ...sports_bots import sport_lab_suffixes
 from ...p17_bots import nats
 from ...sports_bots import team_work
 from .. import country2_lab
-
-from ....helps.jsonl_dump import save_data
 
 
 def check_sources(cone_1: str) -> str:
@@ -39,7 +38,7 @@ def check_sources(cone_1: str) -> str:
     return ""
 
 
-@save_data()
+@functools.lru_cache(maxsize=10000)
 def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
     """Retrieve a label based on the given parameters."""
 
@@ -95,7 +94,7 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
     return c_1_l
 
 
-@save_data()
+@functools.lru_cache(maxsize=10000)
 def c_2_1_lab(cone_2: str, With_Years: bool=False) -> str:
     """Retrieve a label based on the provided cone identifier."""
 
