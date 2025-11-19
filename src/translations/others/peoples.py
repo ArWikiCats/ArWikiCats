@@ -27,23 +27,18 @@ WHERE {
 LIMIT 10000
 """
 # ---
-import sys
-
+from pathlib import Path
 from ..utils.json_dir import open_json_file
+from ..utils.patterns import load_keys_to_pattern_new
 from ...helps import len_print
 
-
-# ---
-People_key = {}
-# ---
 People_key = open_json_file("peoples") or {}
-# ---
-# json.dump(People_key, open(f"{Dir2}/jsons/peoples.json", "w", encoding="utf-8"), indent=2, ensure_ascii=False)
-# ---
-length_stats = {
-    "People_key": People_key,
-}
-# ---
 
-len_print.data_len("peoples.py", length_stats)
-# ---
+len_print.data_len("peoples.py", {
+    "People_key": People_key,
+})
+
+pattern = load_keys_to_pattern_new(People_key)
+
+with open(Path(__file__).parent / "peoples_pattern.md", "w", encoding="utf-8") as f:
+    f.write(pattern)

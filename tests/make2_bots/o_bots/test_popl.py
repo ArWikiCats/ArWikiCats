@@ -6,6 +6,8 @@ import pytest
 from src.make2_bots.o_bots.popl import work_peoples, make_people_lab
 
 fast_data = {
+    "christina aguilera video albums": "ألبومات فيديو كريستينا أغيليرا",
+    "ed sheeran albums": "ألبومات إد شيران",
 }
 
 
