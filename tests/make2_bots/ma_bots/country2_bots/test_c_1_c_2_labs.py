@@ -5,18 +5,31 @@ import pytest
 
 from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import check_sources, c_1_1_lab, c_2_1_lab
 
+
+fast_data = {
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_fast_data(category, expected) -> None:
+
+    label = check_sources(category)
+    assert label.strip() == expected
+
+
 def test_check_sources():
     # Test with a basic input
     result = check_sources("test input")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = check_sources("")
     assert isinstance(result_empty, str)
 
     # Test with various inputs
     result_various = check_sources("film category")
     assert isinstance(result_various, str)
+
 
 def test_c_1_1_lab():
     # Test with basic inputs
@@ -30,6 +43,7 @@ def test_c_1_1_lab():
     # Test with empty strings
     result_empty = c_1_1_lab("", False, "")
     assert isinstance(result_empty, str)
+
 
 def test_c_2_1_lab():
     # Test with basic inputs

@@ -5,12 +5,23 @@ import pytest
 
 from src.make2_bots.o_bots.parties_bot import get_parties_lab_old, get_parties_lab
 
+fast_data = {
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_fast_data(category, expected) -> None:
+
+    label = get_parties_lab(category)
+    assert label.strip() == expected
+
+
 def test_get_parties_lab_old():
     # Test with a basic input
     result = get_parties_lab_old("democratic party")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = get_parties_lab_old("")
     assert isinstance(result_empty, str)
 
@@ -23,7 +34,6 @@ def test_get_parties_lab():
     result = get_parties_lab("republican party")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = get_parties_lab("")
     assert isinstance(result_empty, str)
 

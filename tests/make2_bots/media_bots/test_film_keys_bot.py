@@ -6,12 +6,23 @@ import pytest
 from src.make2_bots.media_bots.film_keys_bot import get_Films_key_CAO, Films
 
 
+fast_data = {
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_fast_data(category, expected) -> None:
+
+    label = Films(category)
+    assert label.strip() == expected
+
+
 def test_get_films_key_cao():
     # Test with a basic input
     result = get_Films_key_CAO("action films")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = get_Films_key_CAO("")
     assert isinstance(result_empty, str)
 

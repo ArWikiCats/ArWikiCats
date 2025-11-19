@@ -6,12 +6,23 @@ import pytest
 from src.make2_bots.jobs_bots.te4_bots.for_me import Work_for_New_2018_men_Keys_with_all, Work_for_me, add_all
 
 
+fast_data = {
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_fast_data(category, expected) -> None:
+
+    label = add_all(category)
+    assert label.strip() == expected
+
+
 def test_work_for_new_2018_men_keys_with_all():
     # Test with basic inputs using a valid country code
     result = Work_for_New_2018_men_Keys_with_all("test category", "united states", "players")
     assert isinstance(result, str)
 
-    # Test with empty strings
     result_empty = Work_for_New_2018_men_Keys_with_all("", "", "")
     assert isinstance(result_empty, str)
 
@@ -26,7 +37,6 @@ def test_work_for_me():
     result = Work_for_me("test category", "united states", "players")
     assert isinstance(result, str)
 
-    # Test with empty strings
     result_empty = Work_for_me("", "", "")
     assert isinstance(result_empty, str)
 
