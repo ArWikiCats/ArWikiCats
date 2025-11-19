@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.arlabel_bots.bot_con_lab import get_con_lab
+from src.make2_bots.ma_bots.ar_lab import get_con_lab
 
 data = [
     {"tito2": "about", "country": "busan", "output": "بوسان"},
