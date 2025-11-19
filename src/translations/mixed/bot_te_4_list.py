@@ -3,8 +3,11 @@ Rich lookup tables for gendered and national prefix/suffix mappings.
 """
 
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..sports import (SPORT_FORMTS_FEMALE_NAT, SPORT_FORMTS_MALE_NAT,
-                      SPORT_FORMTS_NEW_KKK)
+from ..sports import (
+    SPORT_FORMTS_FEMALE_NAT,
+    SPORT_FORMTS_MALE_NAT,
+    SPORT_FORMTS_NEW_KKK,
+)
 from ..sports.games_labs import SUMMER_WINTER_GAMES
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES

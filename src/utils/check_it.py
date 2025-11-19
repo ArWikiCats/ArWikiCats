@@ -1,4 +1,4 @@
-from typing import List, Dict, Set
+from typing import Dict, List, Set
 
 
 def check_key_in_tables(key: str, tables: List[Dict[str, str] | List[str] | Set[str]]) -> bool:

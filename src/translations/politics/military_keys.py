@@ -2,9 +2,11 @@
 """
 !
 """
-from .ministers import (ministrs_for_en_is_P17_ar_is_mens,
-                        ministrs_for_military_format_men,
-                        ministrs_for_military_format_women)
+from .ministers import (
+    ministrs_for_en_is_P17_ar_is_mens,
+    ministrs_for_military_format_men,
+    ministrs_for_military_format_women,
+)
 
 # الإنجليزية اسم البلد والعربية جنسية مؤنث بدون ألف ولام التعريف
 military_format_women_without_al_from_end = {
