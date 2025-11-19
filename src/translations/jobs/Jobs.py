@@ -18,12 +18,14 @@ from ..sports.cycling import BASE_CYCLING_EVENTS
 from ..tv.films_mslslat import Films_key_For_Jobs
 from ..utils.json_dir import open_json
 from .Jobs2 import JOBS_2
-from .jobs_data_basic import (MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC,
-                              RELIGIOUS_KEYS_PP)
-from .jobs_defs import (GenderedLabel, GenderedLabelMap, copy_gendered_map,
-                        merge_gendered_maps)
-from .jobs_players_list import (FOOTBALL_KEYS_PLAYERS,
-                                PLAYERS_TO_MEN_WOMENS_JOBS)
+from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
+from .jobs_defs import (
+    GenderedLabel,
+    GenderedLabelMap,
+    copy_gendered_map,
+    merge_gendered_maps,
+)
+from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS
 from .jobs_singers import MEN_WOMENS_SINGERS
 from .jobs_womens import Female_Jobs
 

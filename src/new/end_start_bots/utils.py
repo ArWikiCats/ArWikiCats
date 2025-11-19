@@ -1,6 +1,6 @@
 """ """
 
-from typing import Dict, Tuple, Any
+from typing import Any, Dict, Tuple
 
 
 def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tuple[str, str, bool]:

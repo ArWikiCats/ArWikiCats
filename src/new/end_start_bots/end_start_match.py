@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Any, Dict
 
 footballers_get_endswith: Dict[str, Dict[str, Any]] = {
     " women's footballers": {
