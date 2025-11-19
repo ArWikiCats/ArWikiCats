@@ -8,7 +8,7 @@ from pathlib import Path
 import inspect
 
 SAVE_ENABLE = True
-# SAVE_ENABLE = False
+SAVE_ENABLE = False
 
 
 def save(path, data) -> str:
