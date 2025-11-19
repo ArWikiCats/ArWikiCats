@@ -14,6 +14,17 @@ from src.make2_bots.ma_bots.year_or_typeo.reg_result import (
 basedtypeTable_20 = {k: basedtypeTable[k] for k in list(basedtypeTable.keys())[:20]}
 
 
+def test_get_reg_result_1():
+    # Test with basic inputs
+    # >>>> self.year_at_first='19th ', self.typeo='', "self.In='', self.country='government of turkey', self.cat_test='government of turkey'
+    result = get_reg_result("Category:19th government of turkey")
+    assert result.year_at_first.strip() == "19th"
+    assert result.In == ""
+    assert result.typeo == ""
+    assert result.country == "government of turkey"
+    assert result.cat_test == "government of turkey"
+
+
 def test_get_reg_result():
     # Test with basic inputs
     result = get_reg_result("Category:2025 in fishes")

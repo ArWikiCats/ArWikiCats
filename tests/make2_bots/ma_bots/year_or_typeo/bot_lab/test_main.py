@@ -6,10 +6,23 @@ from src.make2_bots.ma_bots.year_or_typeo.bot_lab import (
 # from load_one_data import ye_test_one_dataset, dump_diff
 
 
+def test_basic():
+    result = label_for_startwith_year_or_typeo("19th government of turkey")
+    assert isinstance(result, str)
+    assert result == ""
+
+
+def test_basic_2():
+    result = label_for_startwith_year_or_typeo("19th-century government of turkey")
+    assert isinstance(result, str)
+    assert result == "حكومة تركيا القرن 19"
+
+
 def test_label_for_startwith_year_or_typeo_basic():
     result = label_for_startwith_year_or_typeo("sports events 2020 in Yemen")
     assert isinstance(result, str)
-    assert "2020" in result or "عام" in result
+    assert result == "أحداث رياضية اليمن في 2020"
+    assert "2020" in result
 
 
 def test_no_typeo():
@@ -19,11 +32,12 @@ def test_no_typeo():
 
 def test_no_year():
     res = label_for_startwith_year_or_typeo("sports events Yemen")
-    assert res != ""  # still can generate
+    assert res == "أحداث رياضية اليمن"
 
 
 def test_in_at_add_fi():
     res = label_for_startwith_year_or_typeo("sports events 2020 at Yemen")
+    # assert res == ""
     assert "في" in res
 
 
@@ -34,6 +48,7 @@ def test_unknown_country():
 
 def test_cat_test_removal():
     res = label_for_startwith_year_or_typeo("2020 films in Yemen")
+    assert res == "أفلام في اليمن 2020"
     assert "أفلام" in res
 
 

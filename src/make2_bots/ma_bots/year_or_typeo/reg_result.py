@@ -40,32 +40,41 @@ def get_cats(category_r):
 def get_reg_result(category_r: str) -> Typies:
     cate, cate3 = get_cats(category_r)
     cate = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate)
+
     cate_gory = cate.lower()
     cat_test = cate3
     match_it = REGEX_SEARCH_REG_LINE_1.search(cate_gory)
-    year_at_first = ""
+
+    year_first = ""
     typeo = ""
     country = ""
     In = ""
+
     if match_it:
-        year_at_first = match_it.group("monthyear")
+        year_first = match_it.group("monthyear")
         typeo = match_it.group("typeo")
         country = match_it.group("country")
         In = match_it.group("in")
-    if year_at_first and cate_gory.startswith(year_at_first):
-        cat_test = cat_test.replace(year_at_first.lower(), "")
+
+    if year_first and cate_gory.startswith(year_first):
+        cat_test = cat_test.replace(year_first.lower(), "")
+
     if In == cate_gory or In == cate3:
         In = ""
+
     if In.strip() == "by":
         country = f"by {country}"
-    if not year_at_first and not typeo:
+
+    if not year_first and not typeo:
         country = ""
+
     # if country.lower() == cate_gory.lower().replace("category:", ""): country = ""
     # Category:january 2025 disasters during Covid-19
-    # year_at_first='january 2025 ', typeo='disasters', In='during ', country='covid-19', cat_test='january 2025 disasters during covid-19'
-    # print(f"{year_at_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
+    # year_first='january 2025 ', typeo='disasters', In='during ', country='covid-19', cat_test='january 2025 disasters during covid-19'
+    # print(f"{year_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
+
     return Typies(
-        year_at_first=year_at_first,
+        year_at_first=year_first,
         typeo=typeo,
         In=In,
         country=country,

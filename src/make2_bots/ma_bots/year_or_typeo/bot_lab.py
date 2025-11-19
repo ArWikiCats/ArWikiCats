@@ -9,6 +9,7 @@ import re
 
 from ....fix import fixtitle
 from ....helps.log import logger
+# from ....helps.log import LoggerWrap
 from ....translations import Nat_mens, typeTable
 from ....utils import check_key_in_tables
 from ...date_bots import year_lab
@@ -20,6 +21,7 @@ from ..country_bot import get_country
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
+from ....helps.jsonl_dump import save_data
 
 type_after_country = ["non-combat"]
 
@@ -109,7 +111,7 @@ class LabelForStartWithYearOrTypeo:
         self.country_lower = self.country.lower()
         self.country_not_lower = self.country
 
-        logger.info(f'>>>> year_at_first:"{self.year_at_first}", typeo:"{self.typeo}", In:"{self.In}", country_lower:"{self.country_lower}"')
+        logger.info(f'>>>> {self.year_at_first=}, {self.typeo=}, "{self.In=}, {self.country=}, {self.cat_test=}')
 
     # ----------------------------------------------------
     # 2 — HANDLE TYPEO
@@ -146,13 +148,13 @@ class LabelForStartWithYearOrTypeo:
         if not self.country_lower:
             return
 
-        cmp = self.year_at_first + " " + self.country_lower
+        cmp = self.year_at_first.strip() + " " + self.country_lower
 
         self.country_label = get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
 
         if self.country_label:
             self.cat_test = self.replace_cat_test(self.cat_test, self.country_lower)
-            logger.info("a<<lightblue>>>cnt_la : %s" % self.country_label)
+            logger.info(f"a<<lightblue>>> {self.country_label=}, {self.cate3=}")
 
     # ----------------------------------------------------
     # 4 — HANDLE YEAR
@@ -165,6 +167,7 @@ class LabelForStartWithYearOrTypeo:
         self.year_labe = year_lab.make_year_lab(self.year_at_first)
 
         if not self.year_labe:
+            logger.info(f'No label for year_at_first({self.year_at_first}), {self.arlabel=}')
             return
 
         self.cat_test = self.replace_cat_test(self.cat_test, self.year_at_first)
@@ -203,6 +206,11 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def apply_label_rules(self):
+        if self.year_at_first and not self.year_labe:
+            self.NoLab = True
+            logger.info('year_labe = ""')
+            return
+
         if (not self.year_at_first or not self.year_labe) and self.cat_test.strip():
             self.NoLab = True
             logger.info('year_at_first ==  or year_labe == ""')
@@ -218,7 +226,11 @@ class LabelForStartWithYearOrTypeo:
 
         if self.country_lower:
             if self.country_label:
-                self.cat_test, self.arlabel = new_func_mk2(self.cate, self.cat_test, self.year_at_first, self.typeo, self.In, self.country_lower, self.arlabel, self.year_labe, self.suf, self.Add_In, self.country_label, self.Add_In_Done)
+                self.cat_test, self.arlabel = new_func_mk2(
+                    self.cate, self.cat_test, self.year_at_first, self.typeo, self.In,
+                    self.country_lower, self.arlabel, self.year_labe, self.suf, self.Add_In,
+                    self.country_label, self.Add_In_Done
+                )
                 return
 
             logger.info('a<<lightblue>>>>>> Cant id country_lower : "%s" ' % self.country_lower)
@@ -301,6 +313,7 @@ class LabelForStartWithYearOrTypeo:
         return self.finalize()
 
 
+@save_data(enable=True)
 def label_for_startwith_year_or_typeo(category_r: str) -> str:
     builder = LabelForStartWithYearOrTypeo()
 
