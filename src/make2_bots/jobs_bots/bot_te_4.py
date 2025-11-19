@@ -1,28 +1,10 @@
 #!/usr/bin/python3
-r"""
-# ---
-^(\s+),(".*?"\s*)$
-$1$2,
-# ---
-,("[^\[\]]+"\s*)(\s*#[^\[\]]+|)$
-,\s*("[^\[\]]+"\s*)(\s*#[^\[\]]+|)$
-
-$1,$2
-
-# ---
-^(\s+#*\s*),(\s*".*?")(\s*#.*?|)$
-$1$2,$3
-
-# ---
-(['"])\s+?$
-$1
-# ---
+"""
+!
 """
 
 import re
 import functools
-
-# ---
 from ...translations import (
     Multi_sport_for_Jobs,
     Nat_mens,
@@ -30,22 +12,20 @@ from ...translations import (
     short_womens_jobs,
 )
 
+from ...helps.print_bot import output_test4
 from ..media_bots.film_keys_bot import Films
+from ..o_bots import ethnic_bot
+from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from .te4_bots.for_me import Work_for_me
+from .te4_bots.t4_2018_jobs import te4_2018_Jobs
 from .get_helps import get_con_3
 
-# ---
-from ..o_bots import ethnic_bot
-from ...helps.print_bot import output_test4
-from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
-
-from .te4_bots.for_me import Work_for_me
-
-from .te4_bots.t4_2018_jobs import te4_2018_Jobs
+from pathlib import Path
+from ...helps.jsonl_dump import save_data
 
 
-def nat_match(
-    category: str,
-) -> str:
+@save_data(Path(__file__).parent / "nat_match.jsonl")
+def nat_match(category: str) -> str:
     """Match a category string to a localized sentiment label.
 
     This function takes a category string, processes it to identify if it
@@ -112,10 +92,8 @@ def nat_match(
 
 
 @functools.lru_cache(maxsize=None)
-def te_2018_with_nat(
-    category: str,
-    reference_category: str="",
-) -> str:
+@save_data(Path(__file__).parent / "te_2018_with_nat.jsonl")
+def te_2018_with_nat(category: str, reference_category: str="") -> str:
     # ---
 
     # ---
@@ -176,9 +154,8 @@ def te_2018_with_nat(
 
 
 @functools.lru_cache(maxsize=None)
-def Jobs_in_Multi_Sports(
-    category: str,
-) -> str:
+@save_data(Path(__file__).parent / "Jobs_in_Multi_Sports.jsonl")
+def Jobs_in_Multi_Sports(category: str) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
 
