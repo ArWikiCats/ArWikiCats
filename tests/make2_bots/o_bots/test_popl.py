@@ -6,6 +6,32 @@ import pytest
 from src.make2_bots.o_bots.popl import work_peoples, make_people_lab, work_peoples_old
 
 fast_data = {
+    "andrew johnson administration cabinet members": "أعضاء مجلس وزراء إدارة أندرو جونسون",
+    "andrew johnson administration personnel": "موظفو إدارة أندرو جونسون",
+    "arthur administration cabinet members": "أعضاء مجلس وزراء إدارة آرثر",
+    "william henry harrison administration cabinet members": "أعضاء مجلس وزراء إدارة ويليام هنري هاريسون",
+    "william henry harrison administration personnel": "موظفو إدارة ويليام هنري هاريسون",
+    "woodrow wilson administration cabinet members": "أعضاء مجلس وزراء إدارة وودرو ويلسون",
+    "woodrow wilson administration personnel": "موظفو إدارة وودرو ويلسون",
+    "adele video albums": "ألبومات فيديو أديل",
+    "adriano celentano albums": "ألبومات أدريانو تشيلنتانو",
+    "ai weiwei albums": "ألبومات آي ويوي",
+    "akon albums": "ألبومات إيكون",
+    "alanis morissette albums": "ألبومات ألانيس موريسيت",
+    "alanis morissette video albums": "ألبومات فيديو ألانيس موريسيت",
+    "aldous huxley albums": "ألبومات ألدوس هكسلي",
+    "alexandra stan albums": "ألبومات ألكسندرا ستان",
+    "alice cooper albums": "ألبومات أليس كوبر",
+    "james brown albums": "ألبومات جيمس براون",
+    "james taylor albums": "ألبومات جيمس تايلور",
+    "james taylor video albums": "ألبومات فيديو جيمس تايلور",
+    "jamie foxx albums": "ألبومات جيمي فوكس",
+    "janet jackson albums": "ألبومات جانيت جاكسون",
+    "janet jackson video albums": "ألبومات فيديو جانيت جاكسون",
+    "janis joplin albums": "ألبومات جانيس جوبلين",
+    "jason derulo albums": "ألبومات جيسون ديرولو",
+    "jason mraz albums": "ألبومات جيسون مراز",
+    "alicia keys albums": "ألبومات أليشيا كيز",
     "christina aguilera video albums": "ألبومات فيديو كريستينا أغيليرا",
     "ed sheeran albums": "ألبومات إد شيران",
     "a. r. rahman albums": "ألبومات أي.أر. رحمان",
@@ -19,8 +45,6 @@ fast_data = {
     "lyndon b. johnson administration personnel": "موظفو إدارة ليندون جونسون",
     "nusrat fateh ali khan albums": "ألبومات نصرت فتح علي خان",
     "pope john paul ii albums": "ألبومات يوحنا بولس الثاني",
-    "william henry harrison administration cabinet members": "أعضاء مجلس وزراء إدارة ويليام هنري هاريسون",
-    "william henry harrison administration personnel": "موظفو إدارة ويليام هنري هاريسون",
 }
 
 
