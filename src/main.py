@@ -6,10 +6,11 @@ python3 core8/pwb.py -m cProfile -s ncalls make2/main.py
 
 """
 
-from typing import Optional, Any, Dict, List
+from typing import Any, Dict, List, Optional
+
+from .event_processing import event_result, new_func_lab
 from .helps import printe
 from .helps.log import logger
-from .event_processing import new_func_lab, event_result
 
 
 def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
