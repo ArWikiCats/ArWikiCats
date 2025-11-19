@@ -89,7 +89,6 @@ def test_te_universities():
     result = te_universities("university of california")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = te_universities("")
     assert isinstance(result_empty, str)
 

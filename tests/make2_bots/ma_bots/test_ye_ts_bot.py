@@ -5,12 +5,23 @@ import pytest
 
 from src.make2_bots.ma_bots.ye_ts_bot import find_lab, work_titose_nmaes, translate_general_category
 
+fast_data = {
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_fast_data(category, expected) -> None:
+
+    label = translate_general_category(category)
+    assert label.strip() == expected
+
+
 def test_find_lab():
     # Test with a basic input
     result = find_lab("test category", "test_category")
     assert isinstance(result, str)
 
-    # Test with empty strings
     result_empty = find_lab("", "")
     assert isinstance(result_empty, str)
 
@@ -18,12 +29,12 @@ def test_find_lab():
     result_various = find_lab("sports category", "sports_category")
     assert isinstance(result_various, str)
 
+
 def test_work_titose_nmaes():
     # Test with a basic input
     result = work_titose_nmaes("test category", True, "test category", "test_category")
     assert isinstance(result, str)
 
-    # Test with empty strings and False flag
     result_empty = work_titose_nmaes("", False, "", "")
     assert isinstance(result_empty, str)
 
@@ -31,12 +42,12 @@ def test_work_titose_nmaes():
     result_various = work_titose_nmaes("sports", True, "sports category", "sports_category")
     assert isinstance(result_various, str)
 
+
 def test_translate_general_category():
     # Test with a basic input
     result = translate_general_category("test category")
     assert isinstance(result, str)
 
-    # Test with empty string
     result_empty = translate_general_category("")
     assert isinstance(result_empty, str)
 

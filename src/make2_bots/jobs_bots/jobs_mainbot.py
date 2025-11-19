@@ -83,7 +83,6 @@ def country_lab_mens_womens(jender_key, category_suffix, nat_lab, con_lab):
 
 
 @functools.lru_cache(maxsize=None)
-# @save_data(Path(__file__).parent / "jobs_mainbot.jsonl", ["cate", "country_prefix", "category_suffix", "mens", "womens"])
 def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str="", womens: str="",
                          save_result=True, find_nats=True) -> str:
     """
@@ -134,7 +133,5 @@ def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, m
         else:
             con_lab = short_womens_jobs.get(category_suffix, "") or Women_s_priffix_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("womens", category_suffix, women_nat_lab, con_lab)
-    # ---
-    # if country_lab and save_result: save(Path(__file__).parent / "jobs_mainbot.jsonl", [{"cate": cate, "country_prefix": country_prefix, "category_suffix": category_suffix, "mens": mens, "womens": womens, "country_lab": country_lab}])
     # ---
     return country_lab

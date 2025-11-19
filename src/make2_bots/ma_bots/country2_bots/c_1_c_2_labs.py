@@ -4,6 +4,7 @@
 """
 
 import re
+import functools
 from typing import Callable, List
 
 from ....helps.print_bot import print_put, output_test
@@ -28,6 +29,7 @@ def check_sources(cone_1: str) -> str:
         nats.find_nat_others,
         sport_lab_suffixes.get_teams_new,
         parties_bot.get_parties_lab,
+        team_work.Get_team_work_Club,
     ]
     for source in sources:
         result = source(cone_1)
@@ -36,7 +38,8 @@ def check_sources(cone_1: str) -> str:
     return ""
 
 
-def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
+@functools.lru_cache(maxsize=10000)
+def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool=False) -> str:
     """Retrieve a label based on the given parameters."""
 
     cone_1 = cone_1.strip().lower()
@@ -44,17 +47,7 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     c_1_l = get_pop_All_18(cone_1, "")
 
     if not c_1_l:
-        c_1_l = te_films(cone_1)
-    if not c_1_l:
-        c_1_l = nats.find_nat_others(cone_1)
-    if not c_1_l:
-        c_1_l = sport_lab_suffixes.get_teams_new(cone_1)
-
-    if not c_1_l:
-        c_1_l = parties_bot.get_parties_lab(cone_1)
-
-    if not c_1_l:
-        c_1_l = team_work.Get_team_work_Club(cone_1)
+        c_1_l = check_sources(cone_1)
 
     if cone_1 == "women" and tat_o.strip() == "from":
         c_1_l = "نساء"
@@ -101,7 +94,8 @@ def c_1_1_lab(tat_o: str, With_Years: bool, cone_1: str) -> str:
     return c_1_l
 
 
-def c_2_1_lab(With_Years: bool, cone_2: str) -> str:
+@functools.lru_cache(maxsize=10000)
+def c_2_1_lab(cone_2: str, With_Years: bool=False) -> str:
     """Retrieve a label based on the provided cone identifier."""
 
     cone_2 = cone_2.strip().lower()

@@ -188,7 +188,7 @@ for cc, lab in ADDITIONAL_REGION_KEYS.items():
                 region_suffix_matches += 1
 
 # ---
-# ,"mountain" : "ماونتين"
+# "mountain" : "ماونتين",
 PROVINCE_LABELS = {
     "antananarivo": "فيانارانتسوا",
     "antsiranana": "أنتسيرانانا",

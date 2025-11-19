@@ -5,17 +5,19 @@
 
 import re
 import functools
-from typing import Dict
-from ....translations import NN_table
 from ....translations import (
+    NN_table,
     Nat_women,
     Nat_men,
     all_country_with_nat_ar,
+    New_female_keys,
+    New_male_keys,
+    en_is_nat_ar_is_P17,
+    en_is_nat_ar_is_al_mens,
+    en_is_nat_ar_is_man,
+    en_is_nat_ar_is_al_women,
+    en_is_nat_ar_is_women
 )
-from ....translations import New_female_keys, New_male_keys
-
-from ....translations import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women
-
 # ---
 from ...o_bots import ethnic_bot
 from ....helps.print_bot import output_test4

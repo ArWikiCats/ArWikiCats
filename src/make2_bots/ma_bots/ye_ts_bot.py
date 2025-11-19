@@ -26,7 +26,6 @@ from ...translations import (
 )
 from ...utils import get_value_from_any_table
 
-
 def find_lab(category: str, category_r: str) -> str:
     cate_low = category.lower()
 
