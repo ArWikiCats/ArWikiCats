@@ -1,6 +1,7 @@
 #
+from load_one_data import dump_diff, ye_test_one_dataset
+
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset, dump_diff
 
 data = {
     "Category:Afghan criminal law": "تصنيف:القانون الجنائي الأفغاني",

@@ -3,11 +3,12 @@ Tests
 """
 
 from typing import Sequence
-from _pytest.mark.structures import ParameterSet
-import pytest
 
-from src.make2_bots.ma_bots.year_or_typeo.reg_result import get_reg_result
-from src.make2_bots.ma_bots.year_or_typeo.reg_result import category_relation_mapping
+import pytest
+from _pytest.mark.structures import ParameterSet
+
+from src.make2_bots.ma_bots.year_or_typeo.reg_result import (
+    category_relation_mapping, get_reg_result)
 
 # -----------------------------------------------------------
 # 10) Stress-test with all category_relation_mapping keys

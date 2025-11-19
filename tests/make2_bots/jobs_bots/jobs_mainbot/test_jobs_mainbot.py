@@ -4,7 +4,8 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix, Nat_Womens
+from src.make2_bots.jobs_bots.jobs_mainbot import (Nat_Womens,
+                                                   jobs_with_nat_prefix)
 
 
 @pytest.mark.fast

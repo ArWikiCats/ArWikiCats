@@ -4,7 +4,8 @@ Tests
 
 import pytest
 
-from src.make2_bots.p17_bots.nats import make_sport_formats_p17, find_nat_others
+from src.make2_bots.p17_bots.nats import (find_nat_others,
+                                          make_sport_formats_p17)
 
 
 def test_make_sport_formats_p17():

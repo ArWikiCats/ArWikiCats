@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Integration tests for :mod:`teamsnew_bot` lazy resolver."""
-import pytest
 import re
+
+import pytest
+
 from src.translations_formats.format_data import FormatData
 
 

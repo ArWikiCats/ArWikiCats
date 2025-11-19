@@ -4,13 +4,10 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix, MEN_WOMENS_WITH_NATO
-from src.translations import (
-    Nat_mens,
-    Nat_Womens,
-    jobs_mens_data,
-    short_womens_jobs,
-)
+from src.make2_bots.jobs_bots.jobs_mainbot import (MEN_WOMENS_WITH_NATO,
+                                                   jobs_with_nat_prefix)
+from src.translations import (Nat_mens, Nat_Womens, jobs_mens_data,
+                              short_womens_jobs)
 
 Nat_mens = {k: Nat_mens[k] for k in list(Nat_mens.keys())[:30]}
 Nat_Womens = {k: Nat_Womens[k] for k in list(Nat_Womens.keys())[:30]}

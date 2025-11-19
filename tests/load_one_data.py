@@ -1,8 +1,7 @@
 #
-from typing import Dict
 import json
-from typing import Callable
 from pathlib import Path
+from typing import Callable, Dict
 
 from src import new_func_lab_final_label
 

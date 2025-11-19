@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ """
 import pytest
-from src.translations.sports_formats_teams.sport_lab import Get_New_team_xo
+
 from src.translations.sports_formats_nats.new import create_label
+from src.translations.sports_formats_teams.sport_lab import Get_New_team_xo
 
 
 @pytest.mark.fast

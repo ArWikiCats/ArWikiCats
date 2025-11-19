@@ -2,16 +2,10 @@
 
 from __future__ import annotations
 
-from src.translations.jobs import (
-    jobs_mens_data,
-    Jobs_new,
-    jobs_players_list,
-    jobs_singers,
-)
-from src.translations.jobs.Jobs import (
-    jobs_mens_data as module_jobs_mens_data,
-    Jobs_new as module_Jobs_new,
-)
+from src.translations.jobs import (Jobs_new, jobs_mens_data, jobs_players_list,
+                                   jobs_singers)
+from src.translations.jobs.Jobs import Jobs_new as module_Jobs_new
+from src.translations.jobs.Jobs import jobs_mens_data as module_jobs_mens_data
 
 
 def test_package_exports_reference_underlying_modules() -> None:

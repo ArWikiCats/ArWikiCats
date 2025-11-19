@@ -4,7 +4,9 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.te4_bots.langs_w import Lang_work, lab_from_lang_keys, languages_key
+from src.make2_bots.jobs_bots.te4_bots.langs_w import (Lang_work,
+                                                       lab_from_lang_keys,
+                                                       languages_key)
 
 languages_key_subset = {k: languages_key[k] for k in list(languages_key.keys())[:15]}
 

@@ -1,5 +1,5 @@
 import pytest
-from load_one_data import ye_test_one_dataset_new, dump_diff
+from load_one_data import dump_diff, ye_test_one_dataset_new
 
 
 @pytest.mark.slow

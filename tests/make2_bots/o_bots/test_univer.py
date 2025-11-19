@@ -6,7 +6,6 @@ import pytest
 
 from src.make2_bots.o_bots.univer import te_universities
 
-
 te_universities_data = {
     "seoul national university": "جامعة سول الوطنية",
     "i̇zmir university of economics": "جامعة إزمير للاقتصاد",

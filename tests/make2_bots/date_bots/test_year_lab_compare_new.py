@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.date_bots.year_lab import make_year_lab, make_month_lab
+from src.make2_bots.date_bots.year_lab import make_month_lab, make_year_lab
 from src.new.time_to_arabic import convert_time_to_arabic
 
 

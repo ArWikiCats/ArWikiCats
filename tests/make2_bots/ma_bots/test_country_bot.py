@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.country_bot import get_country, Get_c_t_lab
+from src.make2_bots.ma_bots.country_bot import Get_c_t_lab, get_country
 
 
 def test_get_country():

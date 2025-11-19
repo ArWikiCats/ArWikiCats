@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.main_processers.event2bot import event2_d2, stubs_label, event2
+from src.main_processers.event2bot import event2, event2_d2, stubs_label
 
 
 def test_event2_d2():

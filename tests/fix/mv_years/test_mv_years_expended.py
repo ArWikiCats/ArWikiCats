@@ -1,7 +1,8 @@
 """Comprehensive pytest suite for move_years module."""
 
 import pytest
-from src.fix.mv_years import move_by_in, move_years_first, move_years
+
+from src.fix.mv_years import move_by_in, move_years, move_years_first
 
 
 @pytest.mark.parametrize(

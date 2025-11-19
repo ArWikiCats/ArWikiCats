@@ -6,7 +6,6 @@ import pytest
 
 from src.make2_bots.media_bots.films_bot import te_films
 
-
 fast_data = {
     "british films": "أفلام بريطانية",
     "american animated films": "أفلام رسوم متحركة أمريكية",

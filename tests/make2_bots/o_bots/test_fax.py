@@ -6,7 +6,6 @@ import pytest
 
 from src.make2_bots.o_bots.fax import te_language
 
-
 fast_data = {}
 
 

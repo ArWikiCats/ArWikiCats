@@ -1,6 +1,6 @@
 import pytest
-from src.translations.utils.match_nats_keys import match_nat_key
 
+from src.translations.utils.match_nats_keys import match_nat_key
 
 match_nat_key_data = {
     "100 metres in the african championships in xoxo": "african",

@@ -6,7 +6,6 @@ import pytest
 
 from src.make2_bots.ma_bots.country2_bot import Get_country2
 
-
 data_fast = {
     " kingdom-of italy": "مملكة إيطاليا",
     "11th century": "القرن 11",

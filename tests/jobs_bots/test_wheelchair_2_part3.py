@@ -1,8 +1,9 @@
 """Unit tests"""
 
 import pytest
+from load_one_data import dump_diff, ye_test_one_dataset
+
 from src import new_func_lab_final_label
-from load_one_data import ye_test_one_dataset, dump_diff
 
 wheelchair_by_nats = {
     "Category:Parapan American Games medalists in wheelchair basketball": "تصنيف:فائزون بميداليات ألعاب بارابان الأمريكية في كرة السلة على الكراسي المتحركة",

@@ -1,8 +1,10 @@
-import pytest
 import re
-from src.translations_formats.format_data import FormatData
+
+import pytest
+
 from src.translations import SPORTS_KEYS_FOR_JOBS
 from src.translations.sports_formats_2025.match_labs import load_data
+from src.translations_formats.format_data import FormatData
 
 # --- Fixtures ---------------------------------------------------------
 

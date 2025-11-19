@@ -2,11 +2,8 @@
 
 from __future__ import annotations
 
-from src.translations.jobs.jobs_womens import (
-    short_womens_jobs,
-    FEMALE_JOBS_TO,
-    Female_Jobs,
-)
+from src.translations.jobs.jobs_womens import (FEMALE_JOBS_TO, Female_Jobs,
+                                               short_womens_jobs)
 
 
 def test_players_dataset_includes_core_sports_roles() -> None:

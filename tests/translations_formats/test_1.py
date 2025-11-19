@@ -1,5 +1,7 @@
-import pytest
 import re
+
+import pytest
+
 from src.translations_formats.format_data import FormatData
 
 

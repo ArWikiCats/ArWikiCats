@@ -4,7 +4,9 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.ye_ts_bot import find_lab, work_titose_nmaes, translate_general_category
+from src.make2_bots.ma_bots.ye_ts_bot import (find_lab,
+                                              translate_general_category,
+                                              work_titose_nmaes)
 
 fast_data = {}
 

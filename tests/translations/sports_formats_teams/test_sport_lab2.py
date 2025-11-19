@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """ """
 import pytest
-from src.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
-from load_one_data import ye_test_one_dataset, dump_diff
+from load_one_data import dump_diff, ye_test_one_dataset
+
+from src.translations.sports_formats_teams.sport_lab2 import \
+    wrap_team_xo_normal_2025
 
 data = {
     "National men's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للرجال",
