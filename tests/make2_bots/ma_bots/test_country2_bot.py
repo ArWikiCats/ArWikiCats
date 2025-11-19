@@ -663,7 +663,7 @@ data_slow = {
 
 
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=list(data_slow.keys()))
-@pytest.mark.fast
+@pytest.mark.slow
 def test_Get_country2_slow(category, expected) -> None:
 
     label = Get_country2(category)
