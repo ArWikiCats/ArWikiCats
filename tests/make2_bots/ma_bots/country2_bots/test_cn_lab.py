@@ -136,7 +136,7 @@ congress_data = {
 }
 
 
-@pytest.mark.parametrize("category, ar", party_data.items(), ids=list(party_data.keys()))
+@pytest.mark.parametrize("category, ar", congress_data.items(), ids=list(congress_data.keys()))
 @pytest.mark.fast
 def test_congress_data(category, ar):
     label = f"الكونغرس الأمريكي {ar}"
@@ -151,52 +151,3 @@ def test_congress_data(category, ar):
     )
 
     assert result == f"أفعال {label}"
-
-
-universities_data = [
-    {
-        "tat_o": " of ",
-        "country2": "azerbaijan university of architecture and construction",
-        "c_2_l": "هندسة معمارية وبناء",
-        "c_1_l": "جامعة أذربيجان",
-        "cona_1": "azerbaijan university of",
-        "cona_2": "architecture and construction",
-        "output": "جامعة أذربيجان هندسة معمارية وبناء"
-    },
-    {
-        "tat_o": " of ",
-        "country2": "bangladesh university of engineering and technology",
-        "c_2_l": "هندسة والتقانة",
-        "c_1_l": "جامعة بنغلاديش",
-        "cona_1": "bangladesh university of",
-        "cona_2": "engineering and technology",
-        "output": "جامعة بنغلاديش هندسة والتقانة"
-    },
-    {
-        "tat_o": " of ",
-        "country2": "university of koblenz and landau",
-        "c_2_l": "كوبلنتس ولانداو إن در بفالتس",
-        "c_1_l": "جامعة {}",
-        "cona_1": "university of",
-        "cona_2": "koblenz and landau",
-        "output": "جامعة كوبلنتس ولانداو إن در بفالتس"
-    },
-    {
-        "tat_o": " of ",
-        "country2": "university of modena and reggio emilia",
-        "c_2_l": "مودينا وريدجو إميليا",
-        "c_1_l": "جامعة {}",
-        "cona_1": "university of",
-        "cona_2": "modena and reggio emilia",
-        "output": "جامعة مودينا وريدجو إميليا"
-    },
-    {
-        "tat_o": " of ",
-        "country2": "china university of mining and technology",
-        "c_2_l": "تعدين والتقانة",
-        "c_1_l": "جامعة الصين",
-        "cona_1": "china university of",
-        "cona_2": "mining and technology",
-        "output": "جامعة الصين تعدين والتقانة"
-    },
-]
