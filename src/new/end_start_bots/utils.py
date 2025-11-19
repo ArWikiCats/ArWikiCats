@@ -14,7 +14,6 @@ def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tup
         sorted_data = data.items()
 
     for key, tab in sorted_data:
-
         # precise removal
         remove_key = tab.get("remove", key)
         if category3_original.startswith(remove_key):
@@ -38,7 +37,6 @@ def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> T
         sorted_data = data.items()
 
     for key, tab in sorted_data:
-
         if category3_original.endswith(key):
             list_of_cat = tab["lab"]
 

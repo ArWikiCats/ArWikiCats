@@ -557,7 +557,7 @@ def change_cat(cat_orginal: str) -> str:
                 re.compile(rf"^{chk} ", flags=re.IGNORECASE),
                 re.compile(rf" {chk} ", flags=re.IGNORECASE),
                 re.compile(rf" {chk}$", flags=re.IGNORECASE),
-                re.compile(rf"category\:{chk} ", flags=re.IGNORECASE)
+                re.compile(rf"category\:{chk} ", flags=re.IGNORECASE),
             ]
 
         patterns = _change_key_compiled[key]

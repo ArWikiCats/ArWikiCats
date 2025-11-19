@@ -133,7 +133,6 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
 
 
 def country_2_title_work(country: str, With_Years: bool = True) -> str:
-
     title_separators = [
         "based in",
         "in",

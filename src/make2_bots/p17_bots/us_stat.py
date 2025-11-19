@@ -9,7 +9,7 @@ from ...translations import US_State_lower, kk_end_US_State
 @functools.lru_cache(maxsize=None)
 def Work_US_State(state_identifier: str) -> str:
     normalized_state = state_identifier.lower().strip()
-    logger.info(f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", ' f'SUUS : "{normalized_state}"')
+    logger.info(f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", SUUS : "{normalized_state}"')
     label = ""
     state_key = ""
     suffix_key = ""

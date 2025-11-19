@@ -68,7 +68,6 @@ def test_event_lab():
 
 @pytest.mark.fast
 def test_event_lab_direct_lab2():
-
     result = event_Lab("Category:German footballers")
     assert result == "تصنيف:لاعبو كرة قدم ألمان"
 
@@ -80,7 +79,6 @@ def test_event_lab_direct_lab2():
 
 @pytest.mark.fast
 def test_event_lab_episodes_branch_with_seo_fallback():
-
     result = event_Lab("Category:Game_of_Thrones_(season_1)_episodes")
     assert result == "تصنيف:حلقات صراع العروش الموسم 1"
 
@@ -92,7 +90,6 @@ def test_event_lab_episodes_branch_with_seo_fallback():
 
 @pytest.mark.fast
 def test_event_lab_templates_branch_with_seo_fallback():
-
     result = event_Lab("Category:Association_football_templates")
 
     assert result == "تصنيف:قوالب كرة القدم"
@@ -105,7 +102,6 @@ def test_event_lab_templates_branch_with_seo_fallback():
 
 @pytest.mark.fast
 def test_event_lab_footballers_country_special_case():
-
     result = event_Lab("Category:Ethiopian_basketball_players")
 
     assert result == "تصنيف:لاعبو كرة سلة إثيوبيون"
@@ -118,7 +114,6 @@ def test_event_lab_footballers_country_special_case():
 
 @pytest.mark.fast
 def test_event_lab_general_translate_category_fallback():
-
     result = event_Lab("Unknown Category For Testing")
 
     assert result == ""
@@ -131,7 +126,6 @@ def test_event_lab_general_translate_category_fallback():
 
 @pytest.mark.fast
 def test_event_lab_cricketers_country_mapping():
-
     result = event_Lab("Category:Indian cricketers")
 
     # Expected: "لاعبو كريكت من الهند" with تصنيف: prefix

@@ -2,6 +2,7 @@
 """
 Comprehensive sport template dictionaries used throughout the project.
 """
+
 from typing import Final
 
 from ...helps import len_print
@@ -67,7 +68,6 @@ sport_starts = {
 }
 
 for sport, label in SPORTS_KEYS_FOR_LABEL.items():
-
     # SPORT_FORMTS_FEMALE_NAT["%s tour" % sport.lower()] = "بطولة %s {nat}" % label
     # SPORT_FORMTS_FEMALE_NAT["%s tournament" % sport.lower()] = "بطولة %s {nat}" % label
 

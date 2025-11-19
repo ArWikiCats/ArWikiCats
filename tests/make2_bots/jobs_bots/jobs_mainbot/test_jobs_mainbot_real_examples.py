@@ -13,7 +13,17 @@ def error_show(item, result):
     expected = item.get("expected", "")
     cate = item.get("cate", "")
 
-    return "\n\n" "------------------ FAILED CASE ------------------\n" f"Input cate:               {cate}\n" f"Input Start(country):     {country_prefix}\n" f"Input category_suffix:    {category_suffix}\n" "-------------------------------------------------\n" f"Expected Output:\n{expected}\n\n" f"Actual Output:\n{result}\n" "-------------------------------------------------\n"
+    return (
+        "\n\n"
+        "------------------ FAILED CASE ------------------\n"
+        f"Input cate:               {cate}\n"
+        f"Input Start(country):     {country_prefix}\n"
+        f"Input category_suffix:    {category_suffix}\n"
+        "-------------------------------------------------\n"
+        f"Expected Output:\n{expected}\n\n"
+        f"Actual Output:\n{result}\n"
+        "-------------------------------------------------\n"
+    )
 
 
 EXAMPLES = [

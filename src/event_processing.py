@@ -115,7 +115,6 @@ def new_func_lab_final_label(category_r: str) -> str:
 def event_result(
     NewList: List[str],
 ) -> EventProcessingResult:
-
     processor = EventProcessor()
     result = processor.process(NewList)
 

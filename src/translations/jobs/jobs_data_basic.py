@@ -28,9 +28,9 @@ def _build_religious_job_labels(
     combined_roles: GenderedLabelMap = {}
     for religion_key, religion_labels in religions.items():
         for role_key, role_labels in roles.items():
-            womens_label = f'{role_labels["womens"]} {religion_labels["womens"]}' if role_labels["womens"] else ""
+            womens_label = f"{role_labels['womens']} {religion_labels['womens']}" if role_labels["womens"] else ""
             combined_roles[f"{religion_key} {role_key}"] = {
-                "mens": f'{role_labels["mens"]} {religion_labels["mens"]}',
+                "mens": f"{role_labels['mens']} {religion_labels['mens']}",
                 "womens": womens_label,
             }
 

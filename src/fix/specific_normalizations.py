@@ -2,7 +2,6 @@ import re
 
 
 def fix_formula(ar_label: str, en_label: str) -> str:
-
     ar_label = re.sub(r"\bفورمولا 1\s*([12]\d+)", r"فورمولا 1 في سنة \g<1>", ar_label)
 
     return ar_label
@@ -89,7 +88,6 @@ def time_expressions(ar_label: str) -> str:
 
 
 def duplicate_cleanup(ar_label):
-
     # Group patterns for better organization and maintainability
     patterns = {
         "من من": "من",
@@ -107,7 +105,6 @@ def duplicate_cleanup(ar_label):
 
 
 def preposition_fixes(ar_label):
-
     # Group patterns for better organization and maintainability
     patterns = {
         r"في فائزون": "فائزون",

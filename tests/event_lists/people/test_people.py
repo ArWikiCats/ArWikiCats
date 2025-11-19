@@ -4,7 +4,6 @@ from load_one_data import dump_diff, ye_test_one_dataset_new
 
 @pytest.mark.slow
 def test_people_1():
-
     data = {
         "Category:People executed by Afghanistan": "تصنيف:أشخاص أعدموا من قبل أفغانستان",
         "Category:People in arts occupations by nationality": "تصنيف:مهن أشخاص في الفنون حسب الجنسية",

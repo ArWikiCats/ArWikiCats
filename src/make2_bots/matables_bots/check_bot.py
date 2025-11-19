@@ -4,6 +4,7 @@
 from ..matables_bots.check_bot import check_key_new_players
 check_key_new_players(key)
 """
+
 from ...translations import Jobs_new, jobs_mens_data
 from ...utils import check_key_in_tables
 from .bot import players_new_keys
@@ -12,5 +13,4 @@ set_tables = [players_new_keys, Jobs_new, jobs_mens_data]
 
 
 def check_key_new_players(key: str) -> bool:
-
     return check_key_in_tables(key, set_tables) or check_key_in_tables(key.lower(), set_tables)

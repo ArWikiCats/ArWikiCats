@@ -3,7 +3,6 @@
 !
 """
 
-
 # import re
 #
 # ---
@@ -222,12 +221,12 @@ ministrs_tab_for_Jobs_2020 = {}  # used in Jobs.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_tab_for_Jobs_2020[f"secretaries-of {ministry_key}"] = {
-        "mens": f'وزراء {ministry_labels["s"]}',
-        "womens": f'وزيرات {ministry_labels["s"]}',
+        "mens": f"وزراء {ministry_labels['s']}",
+        "womens": f"وزيرات {ministry_labels['s']}",
     }
     ministrs_tab_for_Jobs_2020[f"secretaries of {ministry_key}"] = {
-        "mens": f'وزراء {ministry_labels["s"]}',
-        "womens": f'وزيرات {ministry_labels["s"]}',
+        "mens": f"وزراء {ministry_labels['s']}",
+        "womens": f"وزيرات {ministry_labels['s']}",
     }
 # ---
 ministrs_tab_for_pop_format = {}  # used in pop_format.py

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ """
+
 from ..utils.json_dir import open_json_file
 
 tax_q = """
