@@ -126,6 +126,7 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
 
     label = ""
 
+    country_lower_no_dash = country_lower.replace("-", " ")
     if not label:
         label = New_P17_Finall.get(country_lower, "")
     if not label:
@@ -134,10 +135,10 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
         label = get_pop_All_18(country_lower, "")
 
     if not label and "-" in country_lower:
-        label = get_pop_All_18(country_lower.replace("-", " "), "")
+        label = get_pop_All_18(country_lower_no_dash, "")
 
-    if not label and "-" in country_lower:
-        label = New_female_keys.get(country_lower.replace("-", " "), "")
+        if not label:
+            label = New_female_keys.get(country_lower_no_dash, "")
 
     if label == "" and "kingdom-of" in country_lower:
         label = get_pop_All_18(country_lower.replace("kingdom-of", "kingdom of"), "")
