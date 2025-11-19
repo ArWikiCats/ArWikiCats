@@ -1,4 +1,16 @@
 
+## [#81](https://github.com/MrIbrahem/make2_new/pull/81) - 2025-11-19
+
+* **New Features**
+  * Restructured and expanded data metadata with 50+ new keys for improved categorization of regions, sports, films, and people data.
+  * Added people data query integration.
+
+* **Tests**
+  * Expanded test coverage with parametrized data-driven tests across multiple modules.
+
+* **Refactor**
+  * Improved imports and removed unused code; transitioned to runtime data loading.
+
 ## [#79](https://github.com/MrIbrahem/make2_new/pull/79) - 2025-11-19
 * **New Features**
   * Optional JSONL data capture decorator added; enabled for one title extraction function to persist inputs/outputs.
