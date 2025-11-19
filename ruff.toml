@@ -1,0 +1,43 @@
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "old",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+# Same as Black.
+line-length = 120
+
+# Assume Python 3.10
+target-version = "py310"
+
+[format]
+# Allow Ruff/Black to maintain vertical list formatting
+skip-magic-trailing-comma = false
+
+[lint]
+ignore = ["E402", "E225", "E226", "E227", "E228", "E252", "E501", "F841", "E224", "E203", "F401"]
