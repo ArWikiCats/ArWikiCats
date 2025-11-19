@@ -1,94 +1,109 @@
 """ """
 
-from .sports_formats_2025.match_labs import find_teams_2025
-from .sports_formats_2025.teamsnew_bot import teams_new_founder
-from .utils.match_sport_keys import match_sport_key
-from .sports_formats_national.sport_lab_nat import Get_sport_formts_female_nat
-from .sports_formats_teams.sport_lab import Get_New_team_xo, Get_Sport_Format_xo_en_ar_is_P17
-
-from .type_tables import typeTable
-from .sports.olympics_data import olympics
-from .sports import SPORT_FORMTS_EN_AR_IS_P17, SPORT_FORMTS_EN_P17_AR_NAT
-from .sports.Sport_key import SPORTS_KEYS_FOR_TEAM, SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_JOBS
-from .sports.nat_p17 import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI
-from .sports.games_labs import SUMMER_WINTER_GAMES
-from .geo.Cities import CITY_TRANSLATIONS_LOWER
-
-from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
-
-from .jobs.Jobs import jobs_mens_data, jobs_womens_data, Jobs_new
-
-from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
-
-from .geo.labels_country import New_P17_Finall
-
-from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
-
-from .nats.Nationality import (
-    All_Nat,
-    Nat_women,
-    all_country_ar,
-    all_country_with_nat,
-    all_country_with_nat_keys_is_en,
-    all_country_with_nat_ar,
-    contries_from_nat,
-    Nat_mens,
-    Nat_Womens,
-    Nat_men,
-    ar_Nat_men,
-    nats_to_add,
-    en_nats_to_ar_label,
-)
-
-from .mixed.all_keys2 import pf_keys2, pop_of_without_in, pop_of_football_lower, WORD_AFTER_YEARS
-
-from .mixed.all_keys3 import typeTable_7, ALBUMS_TYPE, FILM_PRODUCTION_COMPANY, NN_table, Ambassadors_tab
-
-from .mixed.all_keys4 import INTER_FEDS_LOWER
-
-from .mixed.all_keys5 import Clubs_key_2
-
-from .by_type import By_table, By_orginal2, By_table_orginal, Music_By_table
-
-from .tv.films_mslslat import (
-    Films_TT,
-    Films_key_CAO,
-    Films_key_For_nat,
-    Films_key_CAO_new_format,
-    television_keys_female,
-    Films_key_333,
-    Films_key_man,
-    film_key_women_2,
-    films_mslslat_tab,
-    film_Keys_For_female,
-    Films_keys_both_new,
-)
-
-from .mixed.keys2 import ADD_IN_TABLE2
-from .mixed.keys2 import PARTIES
-
-from .languages import languages_pop, lang_ttty, languages_key, lang_key_m
-
-from .mixed.male_keys import New_female_keys, New_male_keys
-
+from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
-
-from .politics.military_keys import military_format_women_without_al_from_end, military_format_women_without_al, military_format_women, military_format_men
-
-from .politics.ministers import ministrs_tab_for_pop_format
-
-from .numbers1 import change_numb_to_word
-
-from .others.peoples import People_key
-
+from .geo.Cities import CITY_TRANSLATIONS_LOWER
+from .geo.labels_country import New_P17_Finall
+from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
+from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
+from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
+from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
+from .languages import lang_key_m, lang_ttty, languages_key, languages_pop
 from .mix_data import pop_All_2018_bot
-
-from .mixed.bot_te_4_list import en_is_nat_ar_is_P17, en_is_nat_ar_is_al_mens, en_is_nat_ar_is_man, en_is_nat_ar_is_al_women, en_is_nat_ar_is_women, change_male_to_female, priffix_lab_for_2018, Main_priffix, Main_priffix_to, Multi_sport_for_Jobs, en_is_nat_ar_is_women_2, en_is_P17_ar_is_mens, en_is_P17_ar_is_P17, replace_labels_2022, en_is_P17_ar_is_al_women
+from .mixed.all_keys2 import (
+    WORD_AFTER_YEARS,
+    pf_keys2,
+    pop_of_football_lower,
+    pop_of_without_in,
+)
+from .mixed.all_keys3 import (
+    ALBUMS_TYPE,
+    FILM_PRODUCTION_COMPANY,
+    Ambassadors_tab,
+    NN_table,
+    typeTable_7,
+)
+from .mixed.all_keys4 import INTER_FEDS_LOWER
+from .mixed.all_keys5 import Clubs_key_2
+from .mixed.bot_te_4_list import (
+    Main_priffix,
+    Main_priffix_to,
+    Multi_sport_for_Jobs,
+    change_male_to_female,
+    en_is_nat_ar_is_al_mens,
+    en_is_nat_ar_is_al_women,
+    en_is_nat_ar_is_man,
+    en_is_nat_ar_is_P17,
+    en_is_nat_ar_is_women,
+    en_is_nat_ar_is_women_2,
+    en_is_P17_ar_is_al_women,
+    en_is_P17_ar_is_mens,
+    en_is_P17_ar_is_P17,
+    priffix_lab_for_2018,
+    replace_labels_2022,
+)
 from .mixed.jenders_priffix_suffix import (
-    Women_s_priffix,
     Mens_priffix,
     Mens_suffix,
+    Women_s_priffix,
 )
+from .mixed.keys2 import ADD_IN_TABLE2, PARTIES
+from .mixed.male_keys import New_female_keys, New_male_keys
+from .nats.Nationality import (
+    All_Nat,
+    Nat_men,
+    Nat_mens,
+    Nat_women,
+    Nat_Womens,
+    all_country_ar,
+    all_country_with_nat,
+    all_country_with_nat_ar,
+    all_country_with_nat_keys_is_en,
+    ar_Nat_men,
+    contries_from_nat,
+    en_nats_to_ar_label,
+    nats_to_add,
+)
+from .numbers1 import change_numb_to_word
+from .others.peoples import People_key
+from .politics.military_keys import (
+    military_format_men,
+    military_format_women,
+    military_format_women_without_al,
+    military_format_women_without_al_from_end,
+)
+from .politics.ministers import ministrs_tab_for_pop_format
+from .sports import SPORT_FORMTS_EN_AR_IS_P17, SPORT_FORMTS_EN_P17_AR_NAT
+from .sports.games_labs import SUMMER_WINTER_GAMES
+from .sports.nat_p17 import NAT_P17_OIOI, SPORT_FORMATS_FOR_P17
+from .sports.olympics_data import olympics
+from .sports.Sport_key import (
+    SPORTS_KEYS_FOR_JOBS,
+    SPORTS_KEYS_FOR_LABEL,
+    SPORTS_KEYS_FOR_TEAM,
+)
+from .sports_formats_2025.match_labs import find_teams_2025
+from .sports_formats_2025.teamsnew_bot import teams_new_founder
+from .sports_formats_national.sport_lab_nat import Get_sport_formts_female_nat
+from .sports_formats_teams.sport_lab import (
+    Get_New_team_xo,
+    Get_Sport_Format_xo_en_ar_is_P17,
+)
+from .tv.films_mslslat import (
+    Films_key_333,
+    Films_key_CAO,
+    Films_key_CAO_new_format,
+    Films_key_For_nat,
+    Films_key_man,
+    Films_keys_both_new,
+    Films_TT,
+    film_key_women_2,
+    film_Keys_For_female,
+    films_mslslat_tab,
+    television_keys_female,
+)
+from .type_tables import typeTable
+from .utils.match_sport_keys import match_sport_key
 
 __all__ = [
     "typeTable",
