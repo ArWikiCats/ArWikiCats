@@ -1,8 +1,9 @@
 import re
 from dataclasses import dataclass
-from ...format_bots import category_relation_mapping
+
 from ....translations.type_tables import basedtypeTable
 from ....translations.utils.patterns import load_keys_to_pattern_new
+from ...format_bots import category_relation_mapping
 
 # These patterns depend on dynamically generated values and are compiled at runtime
 yy = (r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?" r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?" r"|\d+[−–\-]\d+" r"|\d+s\s*(?:BCE*)?" r"|\d+\s*(?:BCE*)?").lower()

@@ -12,19 +12,17 @@ lab = ye_ts_bot.translate_general_category()
 import functools
 import re
 
+from ...helps.log import logger
+from ...translations import Jobs_new  # to be removed from players_new_keys
+from ...translations import jobs_mens_data  # to be  removed from players_new_keys
+from ...utils import get_value_from_any_table
+from ..date_bots import year_lab
+from ..format_bots import category_relation_mapping
+
 # from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..format_bots import category_relation_mapping
-from ..date_bots import year_lab
-from ..matables_bots.bot import Films_O_TT, players_new_keys
 from ..ma_bots.arlabel_bots.ar_lab import find_ar_label
-from ...helps.log import logger
-
-from ...translations import (
-    Jobs_new,  # to be removed from players_new_keys
-    jobs_mens_data,  # to be  removed from players_new_keys
-)
-from ...utils import get_value_from_any_table
+from ..matables_bots.bot import Films_O_TT, players_new_keys
 
 
 def find_lab(category: str, category_r: str) -> str:

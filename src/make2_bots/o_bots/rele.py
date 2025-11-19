@@ -7,7 +7,12 @@ from typing import Mapping, Tuple
 
 from ...helps import printe
 from ...helps.log import logger
-from ...translations import all_country_ar, all_country_with_nat_keys_is_en, Nat_men, Nat_women
+from ...translations import (
+    Nat_men,
+    Nat_women,
+    all_country_ar,
+    all_country_with_nat_keys_is_en,
+)
 from .utils import apply_arabic_article
 
 all_country_ar["nato"] = "الناتو"

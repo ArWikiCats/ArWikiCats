@@ -4,8 +4,9 @@
 """
 import functools
 from typing import Dict
+
 from ...helps import len_print
-from ...translations import pop_All_2018_bot, find_teams_2025  # , teams_new_founder
+from ...translations import find_teams_2025, pop_All_2018_bot  # , teams_new_founder
 
 
 @functools.lru_cache(maxsize=1)

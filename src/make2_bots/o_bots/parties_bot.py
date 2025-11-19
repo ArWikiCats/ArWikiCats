@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+from ...helps.jsonl_dump import save_data
 from ...helps.log import logger
 from ...translations import PARTIES, party_end_keys
 from .utils import resolve_suffix_template
-from ...helps.jsonl_dump import save_data
 
 
 @save_data()

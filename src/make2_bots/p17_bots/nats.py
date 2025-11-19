@@ -5,15 +5,21 @@ P17 nationality processing utilities.
 This module handles nationality-based category translations,
 particularly for sports-related categories using P17 (country) property.
 """
-import re
 import functools
-from ...translations import SPORT_FORMATS_FOR_P17, NAT_P17_OIOI, match_sport_key, Get_sport_formts_female_nat
-from ...translations import SPORTS_KEYS_FOR_TEAM
-from ..matables_bots.bot import add_to_new_players
-from ...translations import All_Nat, Nat_women
-from ..jobs_bots.get_helps import get_con_3
+import re
 
 from ...helps.log import logger
+from ...translations import (
+    NAT_P17_OIOI,
+    SPORT_FORMATS_FOR_P17,
+    SPORTS_KEYS_FOR_TEAM,
+    All_Nat,
+    Get_sport_formts_female_nat,
+    Nat_women,
+    match_sport_key,
+)
+from ..jobs_bots.get_helps import get_con_3
+from ..matables_bots.bot import add_to_new_players
 
 # Placeholder used for sport key substitution in templates
 SPORT_PLACEHOLDER = "oioioi"

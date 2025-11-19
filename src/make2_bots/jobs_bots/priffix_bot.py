@@ -3,10 +3,22 @@
 !
 """
 import functools
-from ...translations import Nat_mens, jobs_mens_data, short_womens_jobs, jobs_womens_data, Female_Jobs, By_table, replace_labels_2022, change_male_to_female, Mens_suffix, Mens_priffix, Women_s_priffix
 
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ...helps.log import logger
+from ...translations import (
+    By_table,
+    Female_Jobs,
+    Mens_priffix,
+    Mens_suffix,
+    Nat_mens,
+    Women_s_priffix,
+    change_male_to_female,
+    jobs_mens_data,
+    jobs_womens_data,
+    replace_labels_2022,
+    short_womens_jobs,
+)
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
 
 @functools.lru_cache(maxsize=None)

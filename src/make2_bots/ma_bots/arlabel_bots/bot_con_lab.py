@@ -4,7 +4,6 @@
 
 """
 
-from .. import country2_lab
 from ....helps.log import logger
 from ....translations import New_female_keys, New_P17_Finall, pf_keys2
 from ... import tmp_bot
@@ -15,6 +14,7 @@ from ...media_bots.films_bot import te_films
 from ...o_bots import bys
 from ...p17_bots import nats
 from ...sports_bots import team_work
+from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
 
 

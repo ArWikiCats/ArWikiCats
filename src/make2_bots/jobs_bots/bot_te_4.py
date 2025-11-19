@@ -3,22 +3,22 @@
 !
 """
 
-import re
 import functools
+import re
+
+from ...helps.log import logger
 from ...translations import (
     Multi_sport_for_Jobs,
     Nat_mens,
     jobs_mens_data,
     short_womens_jobs,
 )
-
-from ...helps.log import logger
 from ..media_bots.film_keys_bot import Films
 from ..o_bots import ethnic_bot
+from .get_helps import get_con_3
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from .te4_bots.for_me import Work_for_me
 from .te4_bots.t4_2018_jobs import te4_2018_Jobs
-from .get_helps import get_con_3
 
 
 def nat_match(category: str) -> str:

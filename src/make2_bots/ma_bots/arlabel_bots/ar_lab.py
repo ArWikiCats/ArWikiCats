@@ -4,27 +4,32 @@
 """
 
 import re
+
 from ....fix import fixtitle
-from ....translations import pop_of_without_in
-
-from ...format_bots import category_relation_mapping, for_table, pop_format33, pop_format, pop_format2, tito_list_s, Dont_Add_min
-
-from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...matables_bots.bot import (
-    Table_for_frist_word,
-    Add_ar_in,
-    Keep_it_last,
-    Keep_it_frist,
-)
-
-from ...matables_bots.check_bot import check_key_new_players
 from ....helps.log import logger
-from ....utils import check_key_in_tables_return_tuple
-
-from ...ma_bots_new.bot_type_country import get_type_country
-from .bot_type_lab import get_Type_lab
-from .bot_con_lab import get_con_lab
 from ....main_processers import event2bot
+from ....translations import pop_of_without_in
+from ....utils import check_key_in_tables_return_tuple
+from ...format_bots import (
+    Dont_Add_min,
+    category_relation_mapping,
+    for_table,
+    pop_format,
+    pop_format2,
+    pop_format33,
+    tito_list_s,
+)
+from ...lazy_data_bots.bot_2018 import get_pop_All_18
+from ...ma_bots_new.bot_type_country import get_type_country
+from ...matables_bots.bot import (
+    Add_ar_in,
+    Keep_it_frist,
+    Keep_it_last,
+    Table_for_frist_word,
+)
+from ...matables_bots.check_bot import check_key_new_players
+from .bot_con_lab import get_con_lab
+from .bot_type_lab import get_Type_lab
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

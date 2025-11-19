@@ -3,21 +3,20 @@
 !
 """
 
-import re
 import functools
+import re
 from typing import Callable, List
 
 from ....helps.log import logger
 from ...date_bots import with_years_bot
-from ...format_bots import Tabl_with_in, pp_start_with2, pop_format
+from ...format_bots import Tabl_with_in, pop_format, pp_start_with2
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
 from ...media_bots.films_bot import te_films
 from ...o_bots import bys, parties_bot
-from ...sports_bots import sport_lab_suffixes
 from ...p17_bots import nats
-from ...sports_bots import team_work
+from ...sports_bots import sport_lab_suffixes, team_work
 from .. import country2_lab
 
 

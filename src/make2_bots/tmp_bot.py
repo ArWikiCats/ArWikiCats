@@ -8,13 +8,10 @@ on suffixes and prefixes.
 
 import functools
 
-from .format_bots import pp_start_with, pp_ends_with, pp_ends_with_pase
 from ..helps.log import logger
-
 from .date_bots import with_years_bot
-
-from .ma_bots import country2_lab
-from .ma_bots import ye_ts_bot
+from .format_bots import pp_ends_with, pp_ends_with_pase, pp_start_with
+from .ma_bots import country2_lab, ye_ts_bot
 
 
 def _resolve_label(label: str) -> str:

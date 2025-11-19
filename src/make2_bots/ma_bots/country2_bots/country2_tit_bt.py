@@ -7,11 +7,11 @@ import re
 from typing import Tuple
 
 from ....helps import printe
-from ...format_bots import category_relation_mapping
 from ....helps.log import logger
+from ...format_bots import category_relation_mapping
+from .. import country_bot
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 from .cn_lab import make_cnt_lab
-from .. import country_bot
 
 
 def make_conas(tat_o: str, country: str) -> Tuple[str, str]:

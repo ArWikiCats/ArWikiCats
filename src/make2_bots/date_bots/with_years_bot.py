@@ -5,16 +5,15 @@
 import functools
 import re
 from typing import Pattern
-from ...translations import change_numb_to_word
-from ...translations import WORD_AFTER_YEARS
-from ..format_bots import ar_lab_before_year_to_add_in
-from ..matables_bots.bot import Add_in_table
-from ..matables_bots.table1_bot import get_KAKO
 
+from ...helps.log import logger
+from ...translations import WORD_AFTER_YEARS, change_numb_to_word
+from ..format_bots import ar_lab_before_year_to_add_in
 from ..ma_bots import country2_lab
 from ..ma_bots.ye_ts_bot import translate_general_category
-from ...helps.log import logger
-from ..reg_lines import re_sub_year, RE1_compile, RE2_compile, RE33_compile
+from ..matables_bots.bot import Add_in_table
+from ..matables_bots.table1_bot import get_KAKO
+from ..reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)

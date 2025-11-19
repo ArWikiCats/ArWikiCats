@@ -2,20 +2,20 @@
 """
 Language processing utilities for category translation.
 """
+import functools
+
+from ....helps.log import logger
 from ....translations import (
     All_Nat,
-    Films_keys_both_new,
     Films_key_333,
-    film_Keys_For_female,
     Films_key_CAO,
     Films_key_For_nat,
+    Films_keys_both_new,
+    film_Keys_For_female,
     jobs_mens_data,
-    languages_key,
     lang_key_m,
+    languages_key,
 )
-from ....helps.log import logger
-from ....helps.log import logger
-import functools
 
 
 def _try_romanization(con_3: str) -> str:

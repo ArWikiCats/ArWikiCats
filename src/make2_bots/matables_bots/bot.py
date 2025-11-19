@@ -3,24 +3,24 @@
 python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 
 """
-from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ...helps import len_print
 from ...translations import (
-    typeTable,
-    military_format_women,
-    military_format_men,
-    olympics,
-    languages_pop,
-    Films_TT,
-    typeTable_7,
+    ADD_IN_TABLE2,
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
     SPORTS_KEYS_FOR_LABEL,
     By_table,
-    ADD_IN_TABLE2,
+    Films_TT,
     People_key,
     all_country_with_nat,
+    languages_pop,
+    military_format_men,
+    military_format_women,
+    olympics,
+    typeTable,
+    typeTable_7,
 )
+from ..lazy_data_bots.bot_2018 import pop_All_2018
 
 MONTH_table = {
     "january": "يناير",

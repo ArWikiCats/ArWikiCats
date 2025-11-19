@@ -4,16 +4,17 @@
 """
 import functools
 from pathlib import Path
+
+from ...helps.jsonl_dump import save_data
+from ...helps.log import logger
 from ...translations import (
+    NAT_BEFORE_OCC,
     Nat_mens,
     Nat_Womens,
     jobs_mens_data,
     short_womens_jobs,
-    NAT_BEFORE_OCC,
 )
-from ...helps.log import logger
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
-from ...helps.jsonl_dump import save_data
 
 MEN_WOMENS_WITH_NATO = {
     "eugenicists": {
