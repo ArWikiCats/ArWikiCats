@@ -26,133 +26,139 @@ from . import country2_bot, country2_lab, ye_ts_bot
 
 get_country_done: Dict[str, str] = {}
 
+if True:
 
-def get_country(country: str, start_get_country2: bool = True) -> str:
-    """Retrieve the label for a given country name."""
+    def _check_basic_lookups(country: str) -> str:
+        """Check basic lookup tables and functions."""
+        if country.strip().isdigit():
+            return country
 
-    country = country.lower()
+        label = New_female_keys.get(country, "")
+        if not label:
+            label = te_films(country)
+        if not label:
+            label = nats.find_nat_others(country)
+        if not label:
+            label = team_work.Get_team_work_Club(country)
+        return label
 
-    if country in get_country_done:
-        logger.debug(f'>>>> get_country: "{country}" in get_country_done, lab:"{get_country_done[country]}"')
-        return get_country_done[country]
+    def get_country(country: str, start_get_country2: bool = True) -> str:
+        """Retrieve the label for a given country name."""
 
-    logger.debug(">> ----------------- get_country start ----------------- ")
-    logger.info(f'>>>> Get country for "{country}"')
-    resolved_label = country if country.strip().isdigit() else ""
-    if not resolved_label:
-        resolved_label = New_female_keys.get(country, "")
-    if not resolved_label:
-        resolved_label = te_films(country)
-    if not resolved_label:
-        resolved_label = nats.find_nat_others(country)
-    if not resolved_label:
-        resolved_label = team_work.Get_team_work_Club(country)
+        country = country.lower()
 
-    if resolved_label == "" and start_get_country2:
-        resolved_label = country2_bot.Get_country2(country)
+        if country in get_country_done:
+            logger.debug(f'>>>> get_country: "{country}" in get_country_done, lab:"{get_country_done[country]}"')
+            return get_country_done[country]
 
-    if not resolved_label:
-        prefix_labels = {
-            "women's ": "نسائية",
-            "men's ": "رجالية",
-            "non-combat ": "غير قتالية",
-        }
+        logger.debug(">> ----------------- get_country start ----------------- ")
+        logger.info(f'>>>> Get country for "{country}"')
+        resolved_label = _check_basic_lookups(country)
 
-        for prefix, prefix_label in prefix_labels.items():
-            if not country.startswith(prefix):
-                continue
-            logger.debug(f">>> country.startswith({prefix})")
-            remainder = country[len(prefix) :]
-            remainder_label = country2_bot.Get_country2(remainder)
+        if resolved_label == "" and start_get_country2:
+            resolved_label = country2_bot.Get_country2(country)
 
-            if remainder_label == "":
-                remainder_label = country2_lab.get_lab_for_country2(remainder)
+        if not resolved_label:
+            prefix_labels = {
+                "women's ": "نسائية",
+                "men's ": "رجالية",
+                "non-combat ": "غير قتالية",
+            }
 
-            if remainder_label == "":
-                remainder_label = ye_ts_bot.translate_general_category(remainder)
+            for prefix, prefix_label in prefix_labels.items():
+                if not country.startswith(prefix):
+                    continue
+                logger.debug(f">>> country.startswith({prefix})")
+                remainder = country[len(prefix) :]
+                remainder_label = country2_bot.Get_country2(remainder)
 
-            if remainder_label:
-                resolved_label = f"{remainder_label} {prefix_label}"
-                logger.info(f'>>>>>> xxx new cnt_la  "{resolved_label}" ')
-                break
+                if remainder_label == "":
+                    remainder_label = country2_lab.get_lab_for_country2(remainder)
 
-    OKay = True
+                if remainder_label == "":
+                    remainder_label = ye_ts_bot.translate_general_category(remainder)
 
-    if resolved_label == "" and OKay:
-        separators = [
-            "based in",
-            "in",
-            "by",
-            "about",
-            "to",
-            "of",
-            "-of ",  # special case
-            "from",
-            "at",
-            "on",
-        ]
-        separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
-        for sep in separators:
-            if sep in country:
-                OKay = False
-                break
+                if remainder_label:
+                    resolved_label = f"{remainder_label} {prefix_label}"
+                    logger.info(f'>>>>>> xxx new cnt_la  "{resolved_label}" ')
+                    break
 
-    if resolved_label == "" and OKay:
-        historical_prefixes = {
-            "defunct national ": "{} وطنية سابقة",
-        }
+        OKay = True
 
-        for prefix, prefix_template in historical_prefixes.items():
-            if not country.startswith(prefix):
-                continue
-            logger.debug(f">>> country.startswith({prefix})")
-            remainder = country[len(prefix) :]
-            remainder_label = country2_bot.Get_country2(remainder)
+        if resolved_label == "" and OKay:
+            separators = [
+                "based in",
+                "in",
+                "by",
+                "about",
+                "to",
+                "of",
+                "-of ",  # special case
+                "from",
+                "at",
+                "on",
+            ]
+            separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
+            for sep in separators:
+                if sep in country:
+                    OKay = False
+                    break
 
-            if remainder_label == "":
-                remainder_label = country2_lab.get_lab_for_country2(remainder)
+        if resolved_label == "" and OKay:
+            historical_prefixes = {
+                "defunct national ": "{} وطنية سابقة",
+            }
 
-            if remainder_label == "":
-                remainder_label = ye_ts_bot.translate_general_category(remainder)
+            for prefix, prefix_template in historical_prefixes.items():
+                if not country.startswith(prefix):
+                    continue
+                logger.debug(f">>> country.startswith({prefix})")
+                remainder = country[len(prefix) :]
+                remainder_label = country2_bot.Get_country2(remainder)
 
-            if remainder_label:
-                resolved_label = prefix_template.format(remainder_label)
-                if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
-                    resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
-                logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
-                break
+                if remainder_label == "":
+                    remainder_label = country2_lab.get_lab_for_country2(remainder)
 
-    if resolved_label:
-        if "سنوات في القرن" in resolved_label:
-            resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
+                if remainder_label == "":
+                    remainder_label = ye_ts_bot.translate_general_category(remainder)
 
-    if not resolved_label:
-        RE1 = RE1_compile.match(country)
-        RE2 = RE2_compile.match(country)
-        RE3 = RE3_compile.match(country)
+                if remainder_label:
+                    resolved_label = prefix_template.format(remainder_label)
+                    if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
+                        resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
+                    logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
+                    break
 
-        if RE1 or RE2 or RE3:
-            resolved_label = with_years_bot.Try_With_Years(country)
-
-    if resolved_label == "" and country.endswith(" members of"):
-        country2 = country.replace(" members of", "")
-        resolved_label = Nat_mens.get(country2, "")
         if resolved_label:
-            resolved_label = f"{resolved_label} أعضاء في  "
-            logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
+            if "سنوات في القرن" in resolved_label:
+                resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
-    if not resolved_label:
-        resolved_label = SPORTS_KEYS_FOR_LABEL.get(country, "")
+        if not resolved_label:
+            RE1 = RE1_compile.match(country)
+            RE2 = RE2_compile.match(country)
+            RE3 = RE3_compile.match(country)
 
-    get_country_done[country] = resolved_label
-    logger.debug(f'>>>> Get country "{resolved_label}"')
-    logger.debug(">> ----------------- end get_country ----------------- ")
-    return resolved_label
+            if RE1 or RE2 or RE3:
+                resolved_label = with_years_bot.Try_With_Years(country)
 
+        if resolved_label == "" and country.endswith(" members of"):
+            country2 = country.replace(" members of", "")
+            resolved_label = Nat_mens.get(country2, "")
+            if resolved_label:
+                resolved_label = f"{resolved_label} أعضاء في  "
+                logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
 
-def Get_c_t_lab(term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
-    """Retrieve the corresponding label for a given country or term."""
-    if True:
+        if not resolved_label:
+            resolved_label = SPORTS_KEYS_FOR_LABEL.get(country, "")
+
+        get_country_done[country] = resolved_label
+        logger.debug(f'>>>> Get country "{resolved_label}"')
+        logger.debug(">> ----------------- end get_country ----------------- ")
+        return resolved_label
+
+    def Get_c_t_lab(term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+        """Retrieve the corresponding label for a given country or term."""
+
         logger.info(f'Get_c_t_lab lab_type:"{lab_type}", tito:"{tito}", c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
