@@ -46,10 +46,6 @@ from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
 from ...helps.jsonl_dump import dump_data, save
 
-
-# تم تحويلها إلى
-# اقتبست في
-# حولت إلى
 tito_list_s = [
     "in",
     "from",
@@ -142,10 +138,11 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     return Type, country
 
 
-def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:
+# @dump_data(enable=True)
+def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters."""
-
     normalized_preposition = preposition.strip()
+    type_lower = type_value.lower()
 
     label = ""
     if type_lower == "women" and normalized_preposition == "from":
@@ -179,8 +176,6 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         label = New_P17_Finall.get(type_lower_without_article, "")
         if label:
             logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
-    if type_lower == "sport" and country_lower.startswith("by "):
-        label = "رياضة"
 
     if label == "" and type_lower.strip().endswith(" people"):
         label = make_people_lab(type_lower)
@@ -194,13 +189,13 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     if not label:
         label = nats.find_nat_others(type_lower)
     if not label:
-        label = team_work.Get_team_work_Club(type_value.strip())
+        label = team_work.Get_team_work_Club(type_lower)
 
     if not label:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, preposition, Type="Type_lab")
+        label = Get_c_t_lab(type_lower, normalized_preposition, Type="Type_lab")
 
     if not label:
         label = te4_2018_Jobs(type_lower)
@@ -213,11 +208,12 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     return label, should_append_in_label
 
 
-def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, start_get_country2: bool) -> str:
+# @dump_data(enable=True)
+def get_con_lab(preposition: str, country: str, start_get_country2: bool=False) -> str:
     """Retrieve the corresponding label for a given country."""
-
+    preposition = preposition.strip()
+    country_lower = country.strip().lower()
     label = ""
-
     country_lower_no_dash = country_lower.replace("-", " ")
     if not label:
         label = New_P17_Finall.get(country_lower, "")
@@ -241,7 +237,7 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
     if label == "" and " by " in country_lower:
         label = bys.get_by_label(country_lower)
 
-    if tito2 == "for":
+    if preposition.lower() == "for":
         label = for_table.get(country_lower, "")
 
     if label == "" and country_lower.strip().startswith("in "):
@@ -280,19 +276,24 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
 
 def add_in_tab(Type_lab, Type_lower, tito2):
     ty_in18 = get_pop_All_18(Type_lower)
+
     if tito2 == "from":
         if not Type_lab.strip().endswith(" من"):
             logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:44")
             Type_lab = f"{Type_lab} من "
         return Type_lab
+
     if not ty_in18 or not Type_lower.endswith(" of") or " في" in Type_lab:
         return Type_lab
+
     Type_lower2 = Type_lower[: -len(" of")]
     in_tables = check_key_new_players(Type_lower)
     in_tables2 = check_key_new_players(Type_lower2)
+
     if in_tables or in_tables2:
         logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
         Type_lab = f"{Type_lab} من "
+
     return Type_lab
 
 
@@ -307,9 +308,12 @@ def _check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-def tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower):
-    # ---
-    if tito2 in tito_list_s and Add_in_lab:
+# @dump_data(enable=True, compare_with_output="Type_lab")
+def tito_list_s_fixing(Type_lab, tito2, Type_lower):
+    """
+    {"Type_lab": "منشآت عسكرية", "tito2": "in", "Type_lower": "military installations", "output": "منشآت عسكرية في"}
+    """
+    if tito2 in tito_list_s:
         if tito2 == "in" or " in" in Type_lower:
             if Type_lower in pop_of_without_in:
                 logger.info(f'>>-- Skip aAdd في to Type_lab:"{Type_lab}", "{Type_lower}"')
@@ -330,66 +334,8 @@ def tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower):
     return Type_lab
 
 
-@dump_data(["category", "tito"], True)
-@functools.lru_cache(maxsize=10000)
-def find_ar_label(
-    category: str,
-    tito: str,
-    Cate_test: str="",
-    start_get_country2: bool = True,
-    use_event2: bool = True
-) -> str:
-    """Find the Arabic label based on the provided parameters."""
-
-    CAO = True
-
-    logger.info(f'<<lightblue>>>>>> find_ar_label: {category=}, {tito=}')
-    tito2 = tito.strip()
-    Type, country = get_type_country(category, tito)
-
-    arlabel = ""
-    Type_lower = Type.strip().lower()
-    country_lower = country.strip().lower()
-
-    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
-
-    if not Type_lab and use_event2:
-        Type_lab = wrap_event2(Type_lower, tito)
-
-    if Type_lab:
-        Cate_test = Cate_test.replace(Type_lower, "")
-
-    con_lab = get_con_lab(tito, tito2, country, country_lower, start_get_country2)
-
-    if con_lab:
-        Cate_test = Cate_test.replace(country_lower, "")
-
-    if not Type_lab:
-        logger.info('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
-        CAO = False
-
-    if not con_lab:
-        logger.info('>>>> country_lower not in pop new "%s"' % country_lower)
-        CAO = False
-
-    if Type_lab or con_lab:
-        logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
-        logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", Type_lab:"{Type_lab}"')
-
-    if not CAO:
-        return ""
-    logger.info('<<lightblue>> CAO: cat:"%s":' % category)
-    if not Type_lab or not con_lab:
-        return ""
-
-    Type_lab = tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower)
+def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category):
     # ---
-    if Add_in_lab:
-        if Type_lower in Dont_Add_min:
-            logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
-        else:
-            Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
-    country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
     sps = " "
     if tito2 == "in":
         sps = " في "
@@ -447,10 +393,15 @@ def find_ar_label(
 
     if not sps.strip() and faa:
         sps = f" {faa} "
+    return sps, Cate_test
 
+
+def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps):
+    # ---
     Keep_Type_last = False
     keep_Type_first = False
 
+    arlabel = ""
     t_to = f"{Type_lower} {tito2}"
 
     if Type_lower in Keep_it_last:
@@ -516,7 +467,80 @@ def find_ar_label(
     if Type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {country_lower}":
         arlabel = f"حرب {country_lower}"
         logger.info('<<lightpurple>> >>>> change arlabel to "%s".' % arlabel)
+    return arlabel, Cate_test
 
+
+@dump_data(["category", "tito"])
+@functools.lru_cache(maxsize=10000)
+def find_ar_label(
+    category: str,
+    tito: str,
+    Cate_test: str="",
+    start_get_country2: bool = True,
+    use_event2: bool = True
+) -> str:
+    """Find the Arabic label based on the provided parameters."""
+
+    CAO = True
+
+    logger.info(f'<<lightblue>>>>>> find_ar_label: {category=}, {tito=}')
+    tito2 = tito.strip()
+    Type, country = get_type_country(category, tito)
+
+    Type_lower = Type.strip().lower()
+    country_lower = country.strip().lower()
+
+    Type_lab, Add_in_lab = get_Type_lab(tito, Type)
+
+    if Type_lower == "sport" and country_lower.startswith("by "):
+        Type_lab = "رياضة"
+
+    if not Type_lab and use_event2:
+        Type_lab = wrap_event2(Type_lower, tito)
+
+    if Type_lab:
+        Cate_test = Cate_test.replace(Type_lower, "")
+
+    con_lab = get_con_lab(tito, country, start_get_country2=start_get_country2)
+
+    if con_lab:
+        Cate_test = Cate_test.replace(country_lower, "")
+
+    if not Type_lab:
+        logger.info('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
+        CAO = False
+
+    if not con_lab:
+        logger.info('>>>> country_lower not in pop new "%s"' % country_lower)
+        CAO = False
+
+    if Type_lab or con_lab:
+        logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
+        logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", Type_lab:"{Type_lab}"')
+
+    if not CAO:
+        return ""
+    # ---
+    logger.info('<<lightblue>> CAO: cat:"%s":' % category)
+    # ---
+    if not Type_lab or not con_lab:
+        return ""
+    # ---
+    tito2 = tito.strip()
+    # ---
+    if Add_in_lab:
+        Type_lab = tito_list_s_fixing(Type_lab, tito2, Type_lower)
+        if Type_lower in Dont_Add_min:
+            logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
+        else:
+            Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
+    # ---
+    country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
+    # ---
+    sps, Cate_test = get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
+    # ---
+    arlabel, Cate_test = join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps)
+    # ---
     logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
     logger.info(f'>>>>>> <<lightyellow>>test: cat "{category}", arlabel:"{arlabel}"')
     logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')

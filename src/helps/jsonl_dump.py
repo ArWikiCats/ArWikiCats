@@ -25,7 +25,7 @@ def save(path, data) -> str:
         writer.write(data)
 
 
-def dump_data(input_keys: list = None, enable: bool = False):
+def dump_data(input_keys: list = None, enable: bool = False, compare_with_output: str=""):
     """
     Decorator to save function inputs and output into a JSONL file.
 
@@ -67,6 +67,9 @@ def dump_data(input_keys: list = None, enable: bool = False):
 
             # Add function output
             data["output"] = output
+
+            if compare_with_output and data.get(compare_with_output) == output:
+                return output
 
             # Write the JSON line using jsonlines
             with jsonlines.open(path, mode="a") as writer:
