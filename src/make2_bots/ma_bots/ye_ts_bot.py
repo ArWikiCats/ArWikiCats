@@ -12,10 +12,11 @@ lab = ye_ts_bot.translate_general_category()
 import functools
 import re
 
+from ...fix import fixtitle
 from ...helps.log import logger
 from ...translations import Jobs_new  # to be removed from players_new_keys
 from ...translations import jobs_mens_data  # to be  removed from players_new_keys
-from ...utils import get_value_from_any_table, get_relation_word, fix_minor
+from ...utils import get_value_from_any_table, get_relation_word
 from ..date_bots import year_lab
 from ..format_bots import category_relation_mapping
 
@@ -132,7 +133,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True)
         arlabel = work_titose_names(category, Cate_test, start_get_country2=start_get_country2)
 
     if arlabel:
-        arlabel = fix_minor(arlabel)
+        arlabel = fixtitle.fixlab(arlabel, en=category_r)
         logger.info(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
