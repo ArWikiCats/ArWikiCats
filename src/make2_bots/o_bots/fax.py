@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import functools
 
-from ...helps.jsonl_dump import save_data
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import lang_ttty, languages_pop
 
 
-@save_data()
+@dump_data()
 @functools.lru_cache(maxsize=None)
 def te_language(category: str) -> str:
     """Return the label for a language-related category.

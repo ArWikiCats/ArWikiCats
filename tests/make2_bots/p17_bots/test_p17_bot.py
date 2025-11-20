@@ -7,7 +7,7 @@ import pytest
 from src.make2_bots.p17_bots.p17_bot import Get_P17, Get_P17_2, add_definite_article
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_add_definite_article():
     # Test adding definite article to a single word
     # The function prepends "ال" and replaces spaces with " ال"

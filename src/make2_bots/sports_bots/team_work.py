@@ -13,7 +13,7 @@ Example usage:
 
 import functools
 
-from ...helps.jsonl_dump import save_data
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from ..jobs_bots import bot_te_4
@@ -121,7 +121,7 @@ def _resolve_club_label(club_key: str) -> str:
     return club_lab
 
 
-@save_data()
+@dump_data()
 @functools.lru_cache(maxsize=None)
 def Get_Club(
     category: str,

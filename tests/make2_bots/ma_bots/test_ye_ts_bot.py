@@ -7,7 +7,7 @@ import pytest
 from src.make2_bots.ma_bots.ye_ts_bot import (
     find_lab,
     translate_general_category,
-    work_titose_nmaes,
+    work_titose_names,
 )
 
 fast_data = {}
@@ -33,16 +33,16 @@ def test_find_lab():
     assert isinstance(result_various, str)
 
 
-def test_work_titose_nmaes():
+def test_work_titose_names():
     # Test with a basic input
-    result = work_titose_nmaes("test category", True, "test category", "test_category")
+    result = work_titose_names("test category", "test category", True)
     assert isinstance(result, str)
 
-    result_empty = work_titose_nmaes("", False, "", "")
+    result_empty = work_titose_names("", "", False)
     assert isinstance(result_empty, str)
 
     # Test with various inputs
-    result_various = work_titose_nmaes("sports", True, "sports category", "sports_category")
+    result_various = work_titose_names("sports", "sports category", True)
     assert isinstance(result_various, str)
 
 

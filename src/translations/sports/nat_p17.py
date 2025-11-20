@@ -12,15 +12,13 @@ from .Sport_key import SPORTS_KEYS_FOR_TEAM
 NAT_P17_OIOI = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-SPORT_FORMATS_FOR_P17 = {}
-# فرق دول وطنية
-# ---
 
 
 def make_tab() -> dict[str, str]:
     SP17 = {}
     for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
         nat_f = "{nat}"
+
         for ioi in ["championships", "championship"]:
             SP17[f"{team2} {ioi}"] = f"بطولة {nat_f} {team2_lab}"
             SP17[f"youth {team2} {ioi}"] = f"بطولة {nat_f} {team2_lab} للشباب"
@@ -29,11 +27,13 @@ def make_tab() -> dict[str, str]:
             SP17[f"amateur {team2} {ioi}"] = f"بطولة {nat_f} {team2_lab} للهواة"
             SP17[f"outdoor {team2} {ioi}"] = f"بطولة {nat_f} {team2_lab} في الهواء الطلق"
             SP17[f"{team2} indoor {ioi}"] = f"بطولة {nat_f} {team2_lab} داخل الصالات"
+
         for yearr in YEARS_LIST:
             kk1 = f"{team2} u{str(yearr)} championships"
             kk2 = f"{team2} u-{yearr} championships"
             SP17[kk1] = f"بطولة {nat_f} {team2_lab} تحت {yearr} سنة"
             SP17[kk2] = f"بطولة {nat_f} {team2_lab} تحت {yearr} سنة"
+
         SP17[f"{team2} junior championships"] = f"بطولة {nat_f} {team2_lab} للناشئين"
         SP17[f"championships ({team2})"] = f"بطولة {nat_f} {team2_lab}"
         SP17[f"championships {team2}"] = f"بطولة {nat_f} {team2_lab}"
@@ -86,8 +86,8 @@ def make_tab() -> dict[str, str]:
     return SP17
 
 
-if app_settings.load_p17nat:
-    SPORT_FORMATS_FOR_P17 = make_tab()
+SPORT_FORMATS_FOR_P17 = make_tab() if app_settings.load_p17nat else {}
+
 SPORT_FORMATS_FOR_P17["sports templates"] = "قوالب رياضة {nat}"
 # ---
 nat_f = "{nat}"
@@ -158,18 +158,15 @@ for en, ar in typies.items():
     NAT_P17_OIOI[f"defunct indoor oioioi {en}"] = f"{ar} oioioi {nat_f} داخل الصالات سابقة"
     NAT_P17_OIOI[f"defunct outdoor oioioi {en}"] = f"{ar} oioioi {nat_f} في الهواء الطلق سابقة"
 # ---
-# ---
 # indoor & outdoor
 NAT_P17_OIOI["domestic oioioi"] = f"oioioi {nat_f} محلية"
 NAT_P17_OIOI["indoor oioioi"] = f"oioioi {nat_f} داخل الصالات"
 NAT_P17_OIOI["outdoor oioioi"] = f"oioioi {nat_f} في الهواء الطلق"
 # ---
-Lenth1 = {
+len_print.data_len("sportsb/nat_p17.py", {
     "SPORT_FORMATS_FOR_P17": SPORT_FORMATS_FOR_P17,  #
     "NAT_P17_OIOI": NAT_P17_OIOI,  # nat_p17.py: NAT_P17_OIOI: 98
-}
-# ---
-len_print.data_len("sportsb/nat_p17.py", Lenth1)
+})
 
 __all__ = [
     "SPORT_FORMATS_FOR_P17",

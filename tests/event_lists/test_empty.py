@@ -67,7 +67,7 @@ data = {
 }
 
 
-@pytest.mark.skip
+@pytest.mark.skip2
 def test_empty_result():
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 

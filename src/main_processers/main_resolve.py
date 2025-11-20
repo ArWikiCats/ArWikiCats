@@ -1,16 +1,20 @@
-#
+"""
+
+from . import labs_years, event2bot, event_lab_bot  # isort:skip
+from ..config import app_settings  # isort:skip
+
+"""
 from __future__ import annotations
 
 import functools
 
-from . import labs_years, event2bot, event_lab_bot
-
+from . import labs_years, event2bot, event_lab_bot  # isort:skip
+from ..config import app_settings  # isort:skip
 from ..fix import fixtitle
 from ..make2_bots.co_bots import filter_en
 from ..make2_bots.format_bots import change_cat
 from ..make2_bots.ma_bots import ye_ts_bot
 from ..make2_bots.matables_bots.bot import cash_2022
-from ..config import app_settings
 
 
 @functools.lru_cache(maxsize=None)

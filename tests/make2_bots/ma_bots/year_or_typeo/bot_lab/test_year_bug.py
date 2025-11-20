@@ -27,6 +27,7 @@ examples = {
     "1980s criminal comedy films": "أفلام كوميديا الجريمة عقد 1980",
     "1990s BC disestablishments in Asia": "انحلالات عقد 1990 ق م في آسيا",
     "1990s disestablishments in Europe": "انحلالات عقد 1990 في أوروبا",
+    # "8th parliament of la rioja": "برلمان منطقة لا ريوخا الثامن",
 }
 
 

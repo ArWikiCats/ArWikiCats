@@ -9,7 +9,6 @@ from src.make2_bots.ma_bots.country2_bot import Get_country2
 data_fast = {
     " kingdom-of italy": "مملكة إيطاليا",
     "11th century": "القرن 11",
-    "11th government of turkey": "حكومة تركيا",
     "12th century": "القرن 12",
     "1330 at yemen": "اليمن في 1330",
     "1330 by country": "1330 حسب البلد",
@@ -30,9 +29,7 @@ data_fast = {
     "1330 in yemen": "اليمن في 1330",
     "1330 in youth football": "كرة القدم للشباب في 1330",
     "1330s in the united states": "الولايات المتحدة في عقد 1330",
-    "19th government of turkey": "حكومة تركيا",
     "24th century": "القرن 24",
-    "4th senate of spain": "مجلس شيوخ إسبانيا",
     "actors by religion": "ممثلون حسب الدين",
     "air force ": "قوات جوية",
     "al bayda governorate": "محافظة البيضاء (اليمن)",

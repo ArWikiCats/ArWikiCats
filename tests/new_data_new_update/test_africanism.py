@@ -61,7 +61,7 @@ africanism_empty = {
 }
 
 
-@pytest.mark.skip("Need more work")
+@pytest.mark.fast
 def test_africanism_empty():
     expected, diff_result = ye_test_one_dataset(africanism_empty, new_func_lab_final_label)
 

@@ -23,14 +23,6 @@ def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
             formatted = f'"{cat}"'.ljust(60)
             print(f'     {formatted} : "{cat_lab}",')
 
-
-def _remove_labelled_from_no_labels(labels: Dict[str, str], no_labels: List[str]) -> List[str]:
-    if not no_labels:
-        return no_labels
-    labelled_set = set(labels.keys())
-    return [cat for cat in no_labels if cat not in labelled_set]
-
-
 def event(
     NewList: List[str],
     noprint: str = "",
@@ -55,7 +47,7 @@ def event(
         total = len(result.processed)
 
     labels = result.labels
-    no_labels = _remove_labelled_from_no_labels(labels, result.no_labels)
+    no_labels = result.no_labels
 
     _summarise_labels(labels, printfirst)
 

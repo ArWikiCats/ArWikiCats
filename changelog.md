@@ -1,4 +1,51 @@
 
+## [#85](https://github.com/MrIbrahem/make2_new/pull/85) - 2025-11-20
+
+* **New Features**
+  * Added public utilities for text normalization and relation-word detection
+  * New configurable data-dump decorator that can be enabled per call
+  * Exposed additional helpers and logging wrapper to package API
+
+* **Improvements**
+  * Better runtime logging control with ability to disable printing
+  * Expanded translation data and conditional initialization for some datasets
+  * Centralized and tightened code-formatting/tooling settings
+
+* **Tests**
+  * Expanded test coverage and new fast/parametrized tests
+  * Updated test markers to a new default skip marker (skip2)
+
+## [#84](https://github.com/MrIbrahem/make2_new/pull/84) - 2025-11-20
+
+* **New Features**
+  * Expanded time parsing: BC/BCE, decades, centuries, month–year and range patterns.
+
+* **Refactors**
+  * Consolidated label-resolution logic and updated public exports to expose the revised label utilities.
+
+* **Bug Fixes**
+  * Fixed translation data quoting/syntax to ensure correct label generation.
+
+* **Style**
+  * Widespread formatting, import-style and logging-message cleanups.
+
+* **Tests**
+  * Many test import/style refinements, some test data scope reductions and a few altered test call sites.
+
+## [#82](https://github.com/MrIbrahem/make2_new/pull/82) - 2025-11-19
+
+* **New Features**
+  * Added data-saving decorators to key functions for improved performance.
+  * Enhanced helper functions for better code organization in language and team processing.
+
+* **Bug Fixes & Improvements**
+  * Migrated debugging output from print-based system to centralized logging for better diagnostics.
+  * Expanded test coverage with additional language and translation mappings.
+
+* **Code Cleanup**
+  * Removed print utility module and unused public exports.
+  * Cleaned up placeholder comments throughout the codebase.
+
 ## [#81](https://github.com/MrIbrahem/make2_new/pull/81) - 2025-11-19
 
 * **New Features**

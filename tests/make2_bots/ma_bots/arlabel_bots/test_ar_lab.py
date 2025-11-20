@@ -6,6 +6,22 @@ import pytest
 
 from src.make2_bots.ma_bots.ar_lab import add_in_tab, find_ar_label
 
+fast_data = {
+    "00s establishments in the Roman Empire": "تأسيسات عقد 00 في الإمبراطورية الرومانية",
+    "1000s disestablishments in Asia": "انحلالات عقد 1000 في آسيا",
+    # "1980 sports events in Europe": "أحداث 1980 الرياضية في أوروبا",
+    "1990s BC disestablishments in Asia": "انحلالات عقد 1990 ق م في آسيا",
+    "1990s disestablishments in Europe": "انحلالات عقد 1990 في أوروبا",
+    "April 1983 events in Europe": "أحداث أبريل 1983 في أوروبا",
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_find_ar_label_fast(category, expected) -> None:
+    label = find_ar_label(category, "in")
+    assert label == expected
+
 
 def test_add_in_tab():
     # Test with basic inputs
@@ -21,16 +37,30 @@ def test_add_in_tab():
     assert isinstance(result_empty, str)
 
 
-@pytest.mark.skip
+def test_add_in_tab_2():
+    # Test with basic inputs
+    result = add_in_tab("test label", "test", "from")
+    assert isinstance(result, str)
+
+    # Test with different tito value
+    result_other = add_in_tab("test label", "test of", "to")
+    assert isinstance(result_other, str)
+
+    # Test with empty strings
+    result_empty = add_in_tab("", "", "")
+    assert isinstance(result_empty, str)
+
+
+@pytest.mark.skip2
 def test_find_ar_label():
     # Test with basic inputs
-    result = find_ar_label("test category", "from", "from", "test", "test category")
+    result = find_ar_label("test category", "from")
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = find_ar_label("sports category", "in", "in", "sports", "sports category", False)
+    result_various = find_ar_label("sports category", "in")
     assert isinstance(result_various, str)
 
     # Test with another valid combination instead of empty strings
-    result_safe = find_ar_label("music from france", "from", "from", "music", "music from france", True)
+    result_safe = find_ar_label("music from france", "from")
     assert isinstance(result_safe, str)
