@@ -4,6 +4,7 @@ from load_one_data import dump_diff, ye_test_one_dataset
 from src import new_func_lab_final_label
 
 data = {
+    "Category:sieges of french invasion of egypt and syria": "تصنيف:حصارات الغزو الفرنسي لمصر وسوريا",
     "Category:2015 American television": "تصنيف:التلفزة الأمريكية 2015",
     "Category:2017 sports events": "تصنيف:أحداث رياضية 2017",
     "Category:2017 American television series": "تصنيف:مسلسلات تلفزيونية أمريكية 2017",
