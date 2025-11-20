@@ -68,7 +68,7 @@ def dump_data(input_keys: list = None, enable: bool = False, compare_with_output
             # Add function output
             data["output"] = output
 
-            if compare_with_output and data.get("compare_with_output") == output:
+            if compare_with_output and data.get(compare_with_output) == output:
                 return output
 
             # Write the JSON line using jsonlines

@@ -303,9 +303,11 @@ def _check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-@dump_data(enable=True, compare_with_output="Type_lab")
+# @dump_data(enable=True, compare_with_output="Type_lab")
 def tito_list_s_fixing(Type_lab, tito2, Type_lower):
-    # ---
+    """
+    {"Type_lab": "منشآت عسكرية", "tito2": "in", "Type_lower": "military installations", "output": "منشآت عسكرية في"}
+    """
     if tito2 in tito_list_s:
         if tito2 == "in" or " in" in Type_lower:
             if Type_lower in pop_of_without_in:
@@ -325,6 +327,68 @@ def tito_list_s_fixing(Type_lab, tito2, Type_lower):
             Type_lab = Type_lab + " في"
     # ---
     return Type_lab
+
+
+def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category):
+    # ---
+    sps = " "
+    if tito2 == "in":
+        sps = " في "
+
+    if country_in_Table and Add_in_lab:
+        if (tito2 == "in" or tito2 == "at") and (" في" not in con_lab or Type_lower in Add_ar_in):
+            sps = " في "
+            logger.info("ssps:%s" % sps)
+    else:
+        if (tito2 == "in" or tito2 == "at") and (" في" not in Type_lab or Type_lower in Add_ar_in):
+            Type_lab = Type_lab + " في"
+
+    if Add_in_lab:
+        logger.info(f">>>>> > Add_in_lab ({tito2=})")
+        tito2_lab = category_relation_mapping.get(tito2)
+        if tito2_lab not in tito_list_s:
+            tatl = tito2_lab
+            logger.info(f">>>>> > ({tito2=}): tito2 in category_relation_mapping and tito2 not in tito_list_s, {tatl=}")
+
+            if tito2 == "for" and country_lower.startswith("for "):
+                if Type_lower.strip().endswith("competitors") and "competitors for" in category:
+                    tatl = "من"
+
+                if Type_lower.strip().endswith("medalists") and "medalists for" in category:
+                    tatl = "من"
+
+            if tito2 == "to" and Type_lower.strip().startswith("ambassadors of"):
+                tatl = "لدى"
+
+            if con_lab == "لعضوية البرلمان":
+                tatl = ""
+
+            if tito2 == "for" and country_lower.startswith("for "):
+                p18lab = get_pop_All_18(country_lower)
+                if p18lab and p18lab == con_lab:
+                    tatl = ""
+
+            if country_lower in for_table:
+                tatl = ""
+
+            sps = f" {tatl} "
+            logger.info("sps:%s" % sps)
+            Cate_test = Cate_test.replace(tito, "")
+
+    in_tables_1 = check_key_new_players(country_lower)
+    in_tables_2 = check_key_new_players(Type_lower)
+
+    if in_tables_1 and in_tables_2:
+        logger.info(">>>> ================ ")
+        logger.info(">>>>> > X:<<lightred>> Type_lower and country_lower in players_new_keys.")
+        logger.info(">>>> ================ ")
+
+    faa = category_relation_mapping.get(tito2.strip()) or category_relation_mapping.get(tito2.replace("-", " ").strip())
+    # print(f"{tito2=}, {faa=}, {sps=}")
+
+    if not sps.strip() and faa:
+        sps = f" {faa} "
+    return sps, Cate_test
 
 
 @dump_data(["category", "tito"])
@@ -387,66 +451,11 @@ def find_ar_label(
             logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
         else:
             Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
+    # ---
     country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
     # ---
-    sps = " "
-    if tito2 == "in":
-        sps = " في "
-
-    if country_in_Table and Add_in_lab:
-        if (tito2 == "in" or tito2 == "at") and (" في" not in con_lab or Type_lower in Add_ar_in):
-            sps = " في "
-            logger.info("ssps:%s" % sps)
-    else:
-        if (tito2 == "in" or tito2 == "at") and (" في" not in Type_lab or Type_lower in Add_ar_in):
-            Type_lab = Type_lab + " في"
-
-    if Add_in_lab:
-        logger.info(f">>>>> > Add_in_lab ({tito2=})")
-        tito2_lab = category_relation_mapping.get(tito2)
-        if tito2_lab not in tito_list_s:
-            tatl = tito2_lab
-            logger.info(f">>>>> > ({tito2=}): tito2 in category_relation_mapping and tito2 not in tito_list_s, {tatl=}")
-
-            if tito2 == "for" and country_lower.startswith("for "):
-                if Type_lower.strip().endswith("competitors") and "competitors for" in category:
-                    tatl = "من"
-
-                if Type_lower.strip().endswith("medalists") and "medalists for" in category:
-                    tatl = "من"
-
-            if tito2 == "to" and Type_lower.strip().startswith("ambassadors of"):
-                tatl = "لدى"
-
-            if con_lab == "لعضوية البرلمان":
-                tatl = ""
-
-            if tito2 == "for" and country_lower.startswith("for "):
-                p18lab = get_pop_All_18(country_lower)
-                if p18lab and p18lab == con_lab:
-                    tatl = ""
-
-            if country_lower in for_table:
-                tatl = ""
-
-            sps = f" {tatl} "
-            logger.info("sps:%s" % sps)
-            Cate_test = Cate_test.replace(tito, "")
-
-    in_tables_1 = check_key_new_players(country_lower)
-    in_tables_2 = check_key_new_players(Type_lower)
-
-    if in_tables_1 and in_tables_2:
-        logger.info(">>>> ================ ")
-        logger.info(">>>>> > X:<<lightred>> Type_lower and country_lower in players_new_keys.")
-        logger.info(">>>> ================ ")
-
-    faa = category_relation_mapping.get(tito2.strip()) or category_relation_mapping.get(tito2.replace("-", " ").strip())
-    # print(f"{tito2=}, {faa=}, {sps=}")
-
-    if not sps.strip() and faa:
-        sps = f" {faa} "
-
+    sps, Cate_test = get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
+    # ---
     Keep_Type_last = False
     keep_Type_first = False
 
