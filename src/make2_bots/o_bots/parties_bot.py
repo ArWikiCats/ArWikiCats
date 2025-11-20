@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from ...helps.jsonl_dump import save_data
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import PARTIES, party_end_keys
 from .utils import resolve_suffix_template
 
 
-@save_data()
+@dump_data()
 def get_parties_lab_old(party: str) -> str:
     """Return the Arabic label for ``party`` using known suffixes.
 
@@ -39,7 +39,7 @@ def get_parties_lab_old(party: str) -> str:
     return party_label
 
 
-@save_data()
+@dump_data()
 def get_parties_lab(party: str) -> str:
     """Return the Arabic label for ``party`` using known suffixes.
 

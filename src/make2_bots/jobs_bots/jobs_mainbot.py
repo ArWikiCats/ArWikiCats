@@ -6,7 +6,7 @@
 import functools
 from pathlib import Path
 
-from ...helps.jsonl_dump import save_data
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import (
     NAT_BEFORE_OCC,

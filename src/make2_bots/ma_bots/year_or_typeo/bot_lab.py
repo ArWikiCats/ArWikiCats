@@ -21,7 +21,7 @@ from ..country_bot import get_country
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
-from ....helps.jsonl_dump import save_data
+from ....helps.jsonl_dump import dump_data
 
 type_after_country = ["non-combat"]
 
@@ -314,7 +314,7 @@ class LabelForStartWithYearOrTypeo:
         return self.finalize()
 
 
-@save_data()
+@dump_data()
 def label_for_startwith_year_or_typeo(category_r: str) -> str:
     builder = LabelForStartWithYearOrTypeo()
 

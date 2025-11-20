@@ -34,10 +34,10 @@ KAKO: Dict[str, Dict[str, str]] = {
 }
 
 
-from ...helps.jsonl_dump import save_data
+from ...helps.jsonl_dump import dump_data
 
 
-@save_data()
+@dump_data()
 @functools.lru_cache(maxsize=None)
 def get_KAKO(text: str) -> str:
     for table_name, table_data in KAKO.items():

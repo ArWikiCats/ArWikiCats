@@ -44,7 +44,7 @@ from ..p17_bots import nats
 from ..sports_bots import team_work
 from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
-from ...helps.jsonl_dump import save_data, save
+from ...helps.jsonl_dump import dump_data, save
 
 
 # تم تحويلها إلى
@@ -59,7 +59,7 @@ tito_list_s = [
 ]
 
 
-@save_data()
+@dump_data()
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, tito: str="") -> str:
     return event2bot.event2(category)
@@ -330,7 +330,7 @@ def tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower):
     return Type_lab
 
 
-@save_data()
+@dump_data()
 @functools.lru_cache(maxsize=10000)
 def find_ar_label(
     category: str,
@@ -353,10 +353,8 @@ def find_ar_label(
 
     Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
 
-    from_event2 = False
     if not Type_lab and use_event2:
         Type_lab = wrap_event2(Type_lower, tito)
-        from_event2 = Type_lab != ""
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")

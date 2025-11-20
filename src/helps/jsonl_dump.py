@@ -25,7 +25,7 @@ def save(path, data) -> str:
         writer.write(data)
 
 
-def save_data(filename: str = "", input_keys: list = None, enable: bool = False):
+def dump_data(input_keys: list = None, enable: bool = False):
     """
     Decorator to save function inputs and output into a JSONL file.
 
