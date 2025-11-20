@@ -58,6 +58,7 @@ TITO_LIST_S = [
 @dump_data()
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, tito: str = "") -> str:
+    """Wraps the event2bot.event2 function with caching."""
     return event2bot.event2(category)
 
 
@@ -86,21 +87,21 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     tito_escaped = re.escape(tito) if tito else ""
     mash_pattern = f"^(.*?)(?:{tito_escaped}?)(.*?)$"
 
-    test_n = category.lower()
-    type_t, country_t = "", ""
+    test_remainder = category.lower()
+    type_regex, country_regex = "", ""
 
     try:
-        type_t = re.sub(mash_pattern, r"\g<1>", category.lower())
-        country_t = re.sub(mash_pattern, r"\g<2>", category.lower())
+        type_regex = re.sub(mash_pattern, r"\g<1>", category.lower())
+        country_regex = re.sub(mash_pattern, r"\g<2>", category.lower())
 
         # Remove extracted parts from the test string to see what's left
-        test_n = re.sub(re.escape(category_type.lower()), "", test_n)
-        test_n = re.sub(re.escape(country.lower()), "", test_n)
+        test_remainder = re.sub(re.escape(category_type.lower()), "", test_remainder)
+        test_remainder = re.sub(re.escape(country.lower()), "", test_remainder)
 
     except Exception as e:
-        logger.info(f"<<lightred>>>>>> except test_N: {e}")
+        logger.info(f"<<lightred>>>>>> except test_remainder: {e}")
 
-    test_n = test_n.strip()
+    test_remainder = test_remainder.strip()
     tito_stripped = tito.strip()
 
     # Adjustments based on tito
@@ -122,29 +123,37 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
 
     logger.info(f'>xx>>> Type: "{category_type.strip()}", country: "{country.strip()}", {tito=} ')
 
-    if test_n and test_n != tito_stripped:
-        logger.info(f'>>>> test_N != "", Type_t:"{type_t}", tito:"{tito}", country_t:"{country_t}" ')
+    if test_remainder and test_remainder != tito_stripped:
+        logger.info(f'>>>> test_remainder != "", type_regex:"{type_regex}", tito:"{tito}", country_regex:"{country_regex}" ')
 
-        if tito_stripped == "of" and not type_t.endswith(tito_ends):
-            type_t = f"{type_t} of"
-        elif tito_stripped == "by" and not country_t.startswith(tito_starts):
-            country_t = f"by {country_t}"
-        elif tito_stripped == "for" and not country_t.startswith(tito_starts):
-            country_t = f"for {country_t}"
+        if tito_stripped == "of" and not type_regex.endswith(tito_ends):
+            type_regex = f"{type_regex} of"
+        elif tito_stripped == "by" and not country_regex.startswith(tito_starts):
+            country_regex = f"by {country_regex}"
+        elif tito_stripped == "for" and not country_regex.startswith(tito_starts):
+            country_regex = f"for {country_regex}"
 
-        category_type = type_t
-        country = country_t
+        category_type = type_regex
+        country = country_regex
 
-        logger.info(f'>>>> yementest: Type_t:"{type_t}", country_t:"{country_t}"')
+        logger.info(f'>>>> yementest: type_regex:"{type_regex}", country_regex:"{country_regex}"')
     else:
-        logger.info(f'>>>> test_N:"{test_n}" == tito')
+        logger.info(f'>>>> test_remainder:"{test_remainder}" == tito')
 
     return category_type, country
 
 
 # @dump_data(enable=True)
 def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
-    """Determine the type label based on input parameters."""
+    """Determine the type label based on input parameters.
+
+    Args:
+        preposition (str): The preposition/delimiter (tito).
+        type_value (str): The type part of the category.
+
+    Returns:
+        Tuple[str, bool]: The label and a boolean indicating if 'in' should be appended.
+    """
     normalized_preposition = preposition.strip()
     type_lower = type_value.lower()
 
@@ -213,7 +222,16 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
 
 # @dump_data(enable=True)
 def get_con_lab(preposition: str, country: str, start_get_country2: bool = False) -> str:
-    """Retrieve the corresponding label for a given country."""
+    """Retrieve the corresponding label for a given country.
+
+    Args:
+        preposition (str): The preposition/delimiter.
+        country (str): The country part of the category.
+        start_get_country2 (bool): Whether to use the secondary country lookup.
+
+    Returns:
+        str: The Arabic label for the country.
+    """
     preposition = preposition.strip()
     country_lower = country.strip().lower()
     label = ""
@@ -274,28 +292,37 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
     return label or ""
 
 
-def add_in_tab(Type_lab: str, Type_lower: str, tito2: str) -> str:
-    """Add 'من' (from) to the label if conditions are met."""
-    ty_in18 = get_pop_All_18(Type_lower)
+def add_in_tab(type_label: str, type_lower: str, tito2: str) -> str:
+    """Add 'من' (from) to the label if conditions are met.
+
+    Args:
+        type_label (str): The current Arabic label for the type.
+        type_lower (str): The lowercase type string.
+        tito2 (str): The stripped delimiter.
+
+    Returns:
+        str: The modified type label.
+    """
+    ty_in18 = get_pop_All_18(type_lower)
 
     if tito2 == "from":
-        if not Type_lab.strip().endswith(" من"):
-            logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:44")
-            Type_lab = f"{Type_lab} من "
-        return Type_lab
+        if not type_label.strip().endswith(" من"):
+            logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
+            type_label = f"{type_label} من "
+        return type_label
 
-    if not ty_in18 or not Type_lower.endswith(" of") or " في" in Type_lab:
-        return Type_lab
+    if not ty_in18 or not type_lower.endswith(" of") or " في" in type_label:
+        return type_label
 
-    Type_lower2 = Type_lower[: -len(" of")]
-    in_tables = check_key_new_players(Type_lower)
-    in_tables2 = check_key_new_players(Type_lower2)
+    type_lower_prefix = type_lower[: -len(" of")]
+    in_tables = check_key_new_players(type_lower)
+    in_tables2 = check_key_new_players(type_lower_prefix)
 
     if in_tables or in_tables2:
-        logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
-        Type_lab = f"{Type_lab} من "
+        logger.info(f">>>> nAdd من to type_label '{type_label}' line:59")
+        type_label = f"{type_label} من "
 
-    return Type_lab
+    return type_label
 
 
 class ArabicLabelBuilder:
