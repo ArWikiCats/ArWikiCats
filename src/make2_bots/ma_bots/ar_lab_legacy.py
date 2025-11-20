@@ -199,7 +199,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, normalized_preposition, Type="Type_lab")
+        label = Get_c_t_lab(type_lower, normalized_preposition, Type="type_label")
 
     if not label:
         label = te4_2018_Jobs(type_lower)
@@ -278,27 +278,27 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool=False) 
     return label or ""
 
 
-def add_in_tab(Type_lab, Type_lower, tito2):
+def add_in_tab(type_label, Type_lower, tito2):
     ty_in18 = get_pop_All_18(Type_lower)
 
     if tito2 == "from":
-        if not Type_lab.strip().endswith(" من"):
-            logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:44")
-            Type_lab = f"{Type_lab} من "
-        return Type_lab
+        if not type_label.strip().endswith(" من"):
+            logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
+            type_label = f"{type_label} من "
+        return type_label
 
-    if not ty_in18 or not Type_lower.endswith(" of") or " في" in Type_lab:
-        return Type_lab
+    if not ty_in18 or not Type_lower.endswith(" of") or " في" in type_label:
+        return type_label
 
     Type_lower2 = Type_lower[: -len(" of")]
     in_tables = check_key_new_players(Type_lower)
     in_tables2 = check_key_new_players(Type_lower2)
 
     if in_tables or in_tables2:
-        logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
-        Type_lab = f"{Type_lab} من "
+        logger.info(f">>>> nAdd من to type_label '{type_label}' line:59")
+        type_label = f"{type_label} من "
 
-    return Type_lab
+    return type_label
 
 
 def check_in_tables_new(country_lower, Type_lower):
@@ -312,33 +312,33 @@ def check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-# @dump_data(enable=True, compare_with_output="Type_lab")
-def tito_list_s_fixing(Type_lab, tito2, Type_lower):
+# @dump_data(enable=True, compare_with_output="type_label")
+def tito_list_s_fixing(type_label, tito2, Type_lower):
     """
-    {"Type_lab": "منشآت عسكرية", "tito2": "in", "Type_lower": "military installations", "output": "منشآت عسكرية في"}
+    {"type_label": "منشآت عسكرية", "tito2": "in", "Type_lower": "military installations", "output": "منشآت عسكرية في"}
     """
     if tito2 in TITO_LIST_S:
         if tito2 == "in" or " in" in Type_lower:
             if Type_lower in pop_of_without_in:
-                logger.info(f'>>-- Skip aAdd في to Type_lab:"{Type_lab}", "{Type_lower}"')
+                logger.info(f'>>-- Skip aAdd في to type_label:"{type_label}", "{Type_lower}"')
 
             else:
-                if " في" not in Type_lab and " in" in Type_lower:
-                    logger.info(f'>>-- aAdd في to Type_lab:in"{Type_lab}", for "{Type_lower}"')
-                    Type_lab = Type_lab + " في"
+                if " في" not in type_label and " in" in Type_lower:
+                    logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{Type_lower}"')
+                    type_label = type_label + " في"
 
                 elif tito2 == "in" and " in" in Type_lower:
-                    logger.info(f'>>>> aAdd في to Type_lab:in"{Type_lab}", for "{Type_lower}"')
-                    Type_lab = Type_lab + " في"
+                    logger.info(f'>>>> aAdd في to type_label:in"{type_label}", for "{Type_lower}"')
+                    type_label = type_label + " في"
 
-        elif (tito2 == "at" or " at" in Type_lower) and (" في" not in Type_lab):
-            logger.info('>>>> Add في to Type_lab:at"%s"' % Type_lab)
-            Type_lab = Type_lab + " في"
+        elif (tito2 == "at" or " at" in Type_lower) and (" في" not in type_label):
+            logger.info('>>>> Add في to type_label:at"%s"' % type_label)
+            type_label = type_label + " في"
     # ---
-    return Type_lab
+    return type_label
 
 
-def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category):
+def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category):
     # ---
     sps = " "
     if tito2 == "in":
@@ -349,8 +349,8 @@ def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, 
             sps = " في "
             logger.info("ssps:%s" % sps)
     else:
-        if (tito2 == "in" or tito2 == "at") and (" في" not in Type_lab or Type_lower in Add_ar_in):
-            Type_lab = Type_lab + " في"
+        if (tito2 == "in" or tito2 == "at") and (" في" not in type_label or Type_lower in Add_ar_in):
+            type_label = type_label + " في"
 
     if Add_in_lab:
         logger.info(f">>>>> > Add_in_lab ({tito2=})")
@@ -400,7 +400,7 @@ def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, 
     return sps, Cate_test
 
 
-def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps):
+def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps):
     # ---
     Keep_Type_last = False
     keep_Type_first = False
@@ -424,28 +424,28 @@ def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_
         logger.info(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
         in_tables = check_key_new_players(country_lower)
         if not keep_Type_first and in_tables:
-            arlabel = con_lab + sps + Type_lab
+            arlabel = con_lab + sps + type_label
         else:
-            arlabel = Type_lab + sps + con_lab
+            arlabel = type_label + sps + con_lab
     else:
         if keep_Type_first and country_in_Table:
-            arlabel = con_lab + sps + Type_lab
+            arlabel = con_lab + sps + type_label
         else:
-            arlabel = Type_lab + sps + con_lab
+            arlabel = type_label + sps + con_lab
 
     if Keep_Type_last:
         logger.info('>>>>> > X:<<lightred>> Keep_Type_last = True, Type_lower:"%s" in Keep_it_last' % Type_lower)
-        arlabel = con_lab + sps + Type_lab
+        arlabel = con_lab + sps + type_label
 
     elif keep_Type_first:
         logger.info('>>>>> > X:<<lightred>> keep_Type_first = True, Type_lower:"%s" in Keep_it_frist' % Type_lower)
-        arlabel = Type_lab + sps + con_lab
+        arlabel = type_label + sps + con_lab
 
     if tito2 == "about" or (tito2 not in TITO_LIST_S):
-        arlabel = Type_lab + sps + con_lab
+        arlabel = type_label + sps + con_lab
 
     if Type_lower == "years" and tito2 == "in":
-        arlabel = Type_lab + sps + con_lab
+        arlabel = type_label + sps + con_lab
 
     logger.debug(f">>>> {sps=}")
     logger.debug(f">>>> {arlabel=}")
@@ -464,7 +464,7 @@ def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_
 
     elif tito2 in pop_format33:
         logger.info('>>>> <<lightblue>> tito in pop_format33 "%s":' % pop_format33[tito2])
-        arlabel = pop_format33[tito2].format(Type_lab, con_lab)
+        arlabel = pop_format33[tito2].format(type_label, con_lab)
 
     arlabel = arlabel.replace("  ", " ")
     maren = re.match(r"\d\d\d\d", country_lower.strip())
@@ -494,15 +494,15 @@ def find_ar_label(
     Type_lower = Type.strip().lower()
     country_lower = country.strip().lower()
 
-    Type_lab, Add_in_lab = get_Type_lab(tito, Type)
+    type_label, Add_in_lab = get_Type_lab(tito, Type)
 
     if Type_lower == "sport" and country_lower.startswith("by "):
-        Type_lab = "رياضة"
+        type_label = "رياضة"
 
-    if not Type_lab and use_event2:
-        Type_lab = wrap_event2(Type_lower, tito)
+    if not type_label and use_event2:
+        type_label = wrap_event2(Type_lower, tito)
 
-    if Type_lab:
+    if type_label:
         Cate_test = Cate_test.replace(Type_lower, "")
 
     con_lab = get_con_lab(tito, country, start_get_country2=start_get_country2)
@@ -510,7 +510,7 @@ def find_ar_label(
     if con_lab:
         Cate_test = Cate_test.replace(country_lower, "")
 
-    if not Type_lab:
+    if not type_label:
         logger.info('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
         CAO = False
 
@@ -518,32 +518,32 @@ def find_ar_label(
         logger.info('>>>> country_lower not in pop new "%s"' % country_lower)
         CAO = False
 
-    if Type_lab or con_lab:
+    if type_label or con_lab:
         logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
-        logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", Type_lab:"{Type_lab}"')
+        logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", type_label:"{type_label}"')
 
     if not CAO:
         return ""
     # ---
     logger.info('<<lightblue>> CAO: cat:"%s":' % category)
     # ---
-    if not Type_lab or not con_lab:
+    if not type_label or not con_lab:
         return ""
     # ---
     tito2 = tito.strip()
     # ---
     if Add_in_lab:
-        Type_lab = tito_list_s_fixing(Type_lab, tito2, Type_lower)
+        type_label = tito_list_s_fixing(type_label, tito2, Type_lower)
         if Type_lower in Dont_Add_min:
             logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
         else:
-            Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
+            type_label = add_in_tab(type_label, Type_lower, tito2)
     # ---
     country_in_Table, Type_in_Table = check_in_tables_new(country_lower, Type_lower)
     # ---
-    sps, Cate_test = get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
+    sps, Cate_test = get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
     # ---
-    arlabel, Cate_test = join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps)
+    arlabel, Cate_test = join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps)
     # ---
     logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
     logger.info(f'>>>>>> <<lightyellow>>test: cat "{category}", arlabel:"{arlabel}"')

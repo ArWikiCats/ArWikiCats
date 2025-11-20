@@ -202,7 +202,7 @@ class CountryLabelRetriever:
         if not term_label:
             term_label = centries_years_dec.get(term_lower, "")
 
-        if term_label == "" and lab_type != "Type_lab":
+        if term_label == "" and lab_type != "type_label":
             if term_lower.startswith("the "):
                 logger.info(f'>>>> term_lower:"{term_lower}" startswith("the ")')
                 term_without_the = term_lower[len("the ") :]
@@ -219,7 +219,7 @@ class CountryLabelRetriever:
         if term_label == "":
             term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
-        if not term_label and lab_type == "Type_lab":
+        if not term_label and lab_type == "type_label":
             term_label = self._handle_type_lab_logic(term_lower, tito, start_get_country2)
 
         if term_label:
@@ -230,7 +230,7 @@ class CountryLabelRetriever:
         return term_label
 
     def _handle_type_lab_logic(self, term_lower: str, tito: str, start_get_country2: bool) -> str:
-        """Handle logic specific to Type_lab."""
+        """Handle logic specific to type_label."""
         suffixes = [" of", " in", " at"]
         term_label = ""
 

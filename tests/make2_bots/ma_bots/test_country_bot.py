@@ -27,7 +27,7 @@ def test_get_c_t_lab():
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = Get_c_t_lab("test country", "from", "Type_lab", False)
+    result_various = Get_c_t_lab("test country", "from", "type_label", False)
     assert isinstance(result_various, str)
 
     # Test with empty strings - avoid calling with empty strings as they might cause issues
