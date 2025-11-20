@@ -6,6 +6,13 @@ import pytest
 
 from src.make2_bots.ma_bots.ar_lab import get_con_lab
 
+
+@pytest.mark.fast
+def test_get_con_lab_data_one():
+    label = get_con_lab(preposition=" of ", country="11th government of turkey", start_get_country2=True)
+    assert label != "حكومة تركيا"
+
+
 data = [
     {"tito2": "about", "country": "busan", "output": "بوسان"},
     {"tito2": "about", "country": "chefs", "output": "طباخون"},

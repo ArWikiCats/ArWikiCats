@@ -18,7 +18,6 @@ data_fast = {
     "1330 in china": "الصين في 1330",
     "1330 in football": "كرة القدم في 1330",
     "1330 in men's football": "كرة القدم للرجال في 1330",
-    "1330 in men's international football": "كرة قدم دولية رجالية في 1330",
     "1330 in north america": "أمريكا الشمالية في 1330",
     "1330 in rugby union": "اتحاد الرجبي في 1330",
     "1330 in south american football": "كرة القدم الأمريكية الجنوبية في 1330",
