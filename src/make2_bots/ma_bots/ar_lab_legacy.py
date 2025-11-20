@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
 !
+Module for Arabic label generation.
 """
 
 import functools
+from dataclasses import dataclass
 import re
 from typing import Tuple
 
@@ -197,7 +199,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, normalized_preposition, lab_type="Type_lab")
+        label = Get_c_t_lab(type_lower, normalized_preposition, Type="Type_lab")
 
     if not label:
         label = te4_2018_Jobs(type_lower)
@@ -299,7 +301,7 @@ def add_in_tab(Type_lab, Type_lower, tito2):
     return Type_lab
 
 
-def _check_in_tables_new(country_lower, Type_lower):
+def check_in_tables_new(country_lower, Type_lower):
     country_in_Table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
     Type_in_Table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
     if country_in_Table:
@@ -477,7 +479,7 @@ def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_
 def find_ar_label(
     category: str,
     tito: str,
-    Cate_test: str="",
+    Cate_test: str = "",
     start_get_country2: bool = True,
     use_event2: bool = True,
 ) -> str:
@@ -537,7 +539,7 @@ def find_ar_label(
         else:
             Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
     # ---
-    country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
+    country_in_Table, Type_in_Table = check_in_tables_new(country_lower, Type_lower)
     # ---
     sps, Cate_test = get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
     # ---
