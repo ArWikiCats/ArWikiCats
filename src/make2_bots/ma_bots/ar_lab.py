@@ -138,6 +138,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     return Type, country
 
 
+@dump_data(enable=True)
 def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters."""
     normalized_preposition = preposition.strip()
@@ -207,11 +208,12 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     return label, should_append_in_label
 
 
-def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, start_get_country2: bool) -> str:
+@dump_data(enable=True)
+def get_con_lab(preposition: str, country: str, start_get_country2: bool=False) -> str:
     """Retrieve the corresponding label for a given country."""
 
+    country_lower = country.strip().lower()
     label = ""
-
     country_lower_no_dash = country_lower.replace("-", " ")
     if not label:
         label = New_P17_Finall.get(country_lower, "")
@@ -235,7 +237,7 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
     if label == "" and " by " in country_lower:
         label = bys.get_by_label(country_lower)
 
-    if tito2 == "for":
+    if preposition.strip().lower() == "for":
         label = for_table.get(country_lower, "")
 
     if label == "" and country_lower.strip().startswith("in "):
@@ -274,19 +276,24 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
 
 def add_in_tab(Type_lab, Type_lower, tito2):
     ty_in18 = get_pop_All_18(Type_lower)
+
     if tito2 == "from":
         if not Type_lab.strip().endswith(" من"):
             logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:44")
             Type_lab = f"{Type_lab} من "
         return Type_lab
+
     if not ty_in18 or not Type_lower.endswith(" of") or " في" in Type_lab:
         return Type_lab
+
     Type_lower2 = Type_lower[: -len(" of")]
     in_tables = check_key_new_players(Type_lower)
     in_tables2 = check_key_new_players(Type_lower2)
+
     if in_tables or in_tables2:
         logger.info(f">>>> nAdd من to Type_lab '{Type_lab}' line:59")
         Type_lab = f"{Type_lab} من "
+
     return Type_lab
 
 
@@ -494,7 +501,7 @@ def find_ar_label(
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
 
-    con_lab = get_con_lab(tito, tito2, country, country_lower, start_get_country2)
+    con_lab = get_con_lab(tito, country, start_get_country2=start_get_country2)
 
     if con_lab:
         Cate_test = Cate_test.replace(country_lower, "")
@@ -518,6 +525,8 @@ def find_ar_label(
     # ---
     if not Type_lab or not con_lab:
         return ""
+    # ---
+    tito2 = tito.strip()
     # ---
     if Add_in_lab:
         Type_lab = tito_list_s_fixing(Type_lab, tito2, Type_lower)
