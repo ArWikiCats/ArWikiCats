@@ -403,7 +403,7 @@ class ArabicLabelBuilder:
         # Validation
         cao = True
         if not self.type_label:
-            logger.info(f'>>>> Type_lower "{self.type_lower}" not in pop_of_in')
+            logger.info(f'>>>> type_lower "{self.type_lower}" not in pop_of_in')
             cao = False
 
         if not self.country_label:
@@ -411,8 +411,8 @@ class ArabicLabelBuilder:
             cao = False
 
         if self.type_label or self.country_label:
-            logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", con_lab:"{self.country_label}"')
-            logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{self.type_lower}", type_label:"{self.type_label}"')
+            logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", country_label:"{self.country_label}"')
+            logger.info(f'<<lightgreen>>>>>> ------------- type_lower:"{self.type_lower}", type_label:"{self.type_label}"')
 
         if not cao:
             return False
@@ -429,7 +429,7 @@ class ArabicLabelBuilder:
         if self.add_in_lab:
             self.type_label = self.tito_list_s_fixing(self.type_label, self.tito_stripped, self.type_lower)
             if self.type_lower in Dont_Add_min:
-                logger.info(f'>>>> Type_lower "{self.type_lower}" in Dont_Add_min ')
+                logger.info(f'>>>> type_lower "{self.type_lower}" in Dont_Add_min ')
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.tito_stripped)
 
@@ -464,14 +464,14 @@ class ArabicLabelBuilder:
         if self.country_in_table:
             logger.info(f'>>>> X:<<lightpurple>> country_lower "{self.country_lower}" in {table1}.')
         if self.type_in_table:
-            logger.info(f'>>>>xX:<<lightpurple>> Type_lower "{self.type_lower}" in {table2}.')
+            logger.info(f'>>>>xX:<<lightpurple>> type_lower "{self.type_lower}" in {table2}.')
 
         in_tables_1 = check_key_new_players(self.country_lower)
         in_tables_2 = check_key_new_players(self.type_lower)
 
         if in_tables_1 and in_tables_2:
             logger.info(">>>> ================ ")
-            logger.info(">>>>> > X:<<lightred>> Type_lower and country_lower in players_new_keys.")
+            logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
             logger.info(">>>> ================ ")
 
     def determine_separator(self) -> str:
@@ -536,20 +536,20 @@ class ArabicLabelBuilder:
         t_to = f"{self.type_lower} {self.tito_stripped}"
 
         if self.type_lower in Keep_it_last:
-            logger.info(f'>>>>> > X:<<lightred>> Keep_Type_last = True, Type_lower:"{self.type_lower}" in Keep_it_last')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
             keep_type_last = True
 
         elif self.type_lower in Keep_it_frist:
-            logger.info(f'>>>>> > X:<<lightred>> keep_Type_first = True, Type_lower:"{self.type_lower}" in Keep_it_frist')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist')
             keep_type_first = True
 
         elif t_to in Keep_it_frist:
-            logger.info(f'>>>>> > X:<<lightred>> keep_Type_first = True, t_to:"{t_to}" in Keep_it_frist')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, t_to:"{t_to}" in Keep_it_frist')
             keep_type_first = True
 
         # Determine order
         if self.type_in_table and self.country_in_table:
-            logger.info(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
+            logger.info(">>> > X:<<lightpurple>> type_lower and country_lower in Table_for_frist_word.")
             in_tables = check_key_new_players(self.country_lower)
             if not keep_type_first and in_tables:
                 arlabel = self.country_label + sps + self.type_label
@@ -562,11 +562,11 @@ class ArabicLabelBuilder:
                 arlabel = self.type_label + sps + self.country_label
 
         if keep_type_last:
-            logger.info(f'>>>>> > X:<<lightred>> Keep_Type_last = True, Type_lower:"{self.type_lower}" in Keep_it_last')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
             arlabel = self.country_label + sps + self.type_label
 
         elif keep_type_first:
-            logger.info(f'>>>>> > X:<<lightred>> keep_Type_first = True, Type_lower:"{self.type_lower}" in Keep_it_frist')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist')
             arlabel = self.type_label + sps + self.country_label
 
         if self.tito_stripped == "about" or (self.tito_stripped not in TITO_LIST_S):
@@ -586,10 +586,10 @@ class ArabicLabelBuilder:
             arlabel = pop_format2[vr].format(self.country_label)
         elif self.type_lower in pop_format:
             if not self.country_label.startswith("حسب"):
-                logger.info(f'>>>> <<lightblue>> Type_lower in pop_format "{pop_format[self.type_lower]}":')
+                logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}":')
                 arlabel = pop_format[self.type_lower].format(self.country_label)
             else:
-                logger.info(f'>>>> <<lightblue>> Type_lower in pop_format "{pop_format[self.type_lower]}" and con_lab.startswith("حسب") ')
+                logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}" and country_label.startswith("حسب") ')
 
         elif self.tito_stripped in pop_format33:
             logger.info(f'>>>> <<lightblue>> tito in pop_format33 "{pop_format33[self.tito_stripped]}":')

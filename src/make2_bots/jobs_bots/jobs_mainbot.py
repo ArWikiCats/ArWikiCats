@@ -33,11 +33,11 @@ MEN_WOMENS_WITH_NATO = {
 }
 
 
-def fix_expatriates(country_lab, con_lab, nat_lab):
+def fix_expatriates(country_lab, country_label, nat_lab):
     pkjn = ["مغتربون", "مغتربات"]
     for kjn in pkjn:
-        if con_lab.endswith(f" {kjn}"):
-            striped = con_lab[: -len(kjn)].strip()
+        if country_label.endswith(f" {kjn}"):
+            striped = country_label[: -len(kjn)].strip()
             country_lab = f"{striped} {nat_lab} {kjn}"
             break
         if country_lab.endswith(f" {kjn}"):
@@ -47,24 +47,24 @@ def fix_expatriates(country_lab, con_lab, nat_lab):
     return country_lab
 
 
-def create_country_lab(con_lab, nat_lab, category_suffix):
-    country_lab = f"{con_lab} {nat_lab}"
-    if con_lab.startswith("حسب") or category_suffix in NAT_BEFORE_OCC:
-        country_lab = f"{nat_lab} {con_lab}"
+def create_country_lab(country_label, nat_lab, category_suffix):
+    country_lab = f"{country_label} {nat_lab}"
+    if country_label.startswith("حسب") or category_suffix in NAT_BEFORE_OCC:
+        country_lab = f"{nat_lab} {country_label}"
     return country_lab
 
 
-def country_lab_mens_womens(jender_key, category_suffix, nat_lab, con_lab):
+def country_lab_mens_womens(jender_key, category_suffix, nat_lab, country_label):
     # TODO: NEW TO CHECK
     TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {}).get(jender_key, "")
     if "{nato}" in TAJO:
         country_lab = TAJO.format(nato=nat_lab)
         logger.debug(f"<<lightblue>> TAJO[{jender_key}]: has {{nato}} {TAJO}")
         return country_lab
-    if not con_lab:
+    if not country_label:
         return ""
-    country_lab = create_country_lab(con_lab, nat_lab, category_suffix)
-    country_lab = fix_expatriates(country_lab, con_lab, nat_lab)
+    country_lab = create_country_lab(country_label, nat_lab, category_suffix)
+    country_lab = fix_expatriates(country_lab, country_label, nat_lab)
     logger.debug(f'\t<<lightblue>> test {jender_key} Jobs: new lab: "{country_lab}" ')
     return country_lab
 
@@ -102,13 +102,13 @@ def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, m
         if category_suffix == "people":
             country_lab = mens_nat_lab
         else:
-            con_lab = jobs_mens_data.get(category_suffix, "") or priffix_Mens_work(category_suffix) or ""
-            country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, con_lab)
+            country_label = jobs_mens_data.get(category_suffix, "") or priffix_Mens_work(category_suffix) or ""
+            country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, country_label)
     women_nat_lab: str = womens or (Nat_Womens.get(country_prefix, "") if find_nats else "")
     if not country_lab and women_nat_lab:
         if category_suffix in ["women", "female", "women's"]:
             country_lab = women_nat_lab
         else:
-            con_lab = short_womens_jobs.get(category_suffix, "") or Women_s_priffix_work(category_suffix) or ""
-            country_lab = country_lab_mens_womens("womens", category_suffix, women_nat_lab, con_lab)
+            country_label = short_womens_jobs.get(category_suffix, "") or Women_s_priffix_work(category_suffix) or ""
+            country_lab = country_lab_mens_womens("womens", category_suffix, women_nat_lab, country_label)
     return country_lab
