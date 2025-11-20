@@ -206,11 +206,12 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def apply_label_rules(self):
+        """
         if self.year_at_first and not self.year_labe:
             self.NoLab = True
             logger.info('year_labe = ""')
             return
-
+        """
         if (not self.year_at_first or not self.year_labe) and self.cat_test.strip():
             self.NoLab = True
             logger.info('year_at_first ==  or year_labe == ""')

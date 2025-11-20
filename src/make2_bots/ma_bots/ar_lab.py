@@ -5,6 +5,7 @@
 
 import re
 from typing import Tuple
+from pathlib import Path
 
 from ...fix import fixtitle
 from ...helps.log import logger
@@ -46,12 +47,12 @@ from ..p17_bots import nats
 from ..sports_bots import team_work
 from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
-from ...helps.jsonl_dump import save_data
+from ...helps.jsonl_dump import save_data, save
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
-@save_data(enable=True)
+# @save_data(enable=True)
 def wrap_event2(category: str, tito: str="") -> str:
     return event2bot.event2(category)
 
@@ -237,9 +238,10 @@ def find_ar_label(category: str, tito: str, Cate_test: str="",
     country_lower = country.strip().lower()
 
     Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
-
+    from_event2 = False
     if not Type_lab:
         Type_lab = wrap_event2(Type_lower, tito)
+        from_event2 = Type_lab != ""
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")
@@ -423,6 +425,10 @@ def find_ar_label(category: str, tito: str, Cate_test: str="",
     logger.info('>>>>>> <<lightyellow>>Cate_test: "%s" ' % Cate_test)
     logger.info(f'>>>>>> <<lightyellow>>test: cat "{category_r}", arlabel:"{arlabel}"')
     logger.info('>>>> <<lightblue>>Cate_test :"%s"' % Cate_test)
+    # ---
+    if from_event2 and arlabel:
+        save(Path(__file__).parent / "find_ar_label.jsonl", [{"tito": tito, "category": category, "output": arlabel}])
+    # ---
     return arlabel
 
 
