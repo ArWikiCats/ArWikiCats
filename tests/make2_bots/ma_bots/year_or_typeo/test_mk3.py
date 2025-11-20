@@ -1,9 +1,6 @@
 import pytest
 
 from src.make2_bots.ma_bots.year_or_typeo.mk3 import (
-    add_the_in,
-    added_in_new,
-    check_country_in_tables,
     new_func_mk2,
 )
 
@@ -21,7 +18,7 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "حسب البلد",
         "Add_In_Done": False,
-        "output": [" ", "جوائز حسب البلد"],
+        "output": "جوائز حسب البلد",
     },
     {
         "category": "politics of united states by state",
@@ -36,7 +33,7 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "الولايات المتحدة حسب الولاية",
         "Add_In_Done": False,
-        "output": ["  ", "سياسة الولايات المتحدة حسب الولاية"],
+        "output": "سياسة الولايات المتحدة حسب الولاية",
     },
     {
         "category": "television series by city of location",
@@ -51,7 +48,7 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "حسب مدينة الموقع",
         "Add_In_Done": False,
-        "output": [" ", "مسلسلات تلفزيونية حسب مدينة الموقع"],
+        "output": "مسلسلات تلفزيونية حسب مدينة الموقع",
     },
     {
         "category": "19th century people",
@@ -66,7 +63,7 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "أشخاص",
         "Add_In_Done": False,
-        "output": ["", "أشخاص في   القرن 19"],
+        "output": "أشخاص في القرن 19",
     },
     {
         "category": "lists of football players by national team",
@@ -81,7 +78,7 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "لاعبو كرة قدم حسب المنتخب الوطني",
         "Add_In_Done": False,
-        "output": [" ", "قوائم لاعبو كرة قدم حسب المنتخب الوطني"],
+        "output": "قوائم لاعبو كرة قدم حسب المنتخب الوطني",
     },
     {
         "category": "1000 disestablishments by country",
@@ -96,7 +93,7 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "حسب البلد",
         "Add_In_Done": False,
-        "output": [" ", "انحلالات 1000 حسب البلد"],
+        "output": "انحلالات 1000 حسب البلد",
     },
     {
         "category": "1000 disestablishments in europe",
@@ -111,7 +108,7 @@ EXAMPLES = [
         "Add_In": False,
         "country_label": "أوروبا",
         "Add_In_Done": True,
-        "output": ["  ", "انحلالات 1000 في أوروبا"],
+        "output": "انحلالات 1000 في أوروبا",
     },
     {
         "category": "2000s films",
@@ -126,7 +123,7 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "أفلام",
         "Add_In_Done": False,
-        "output": ["", "أفلام  عقد 2000"],
+        "output": "أفلام عقد 2000",
     },
     {
         "category": "2020 films in Yemen",
@@ -141,14 +138,14 @@ EXAMPLES = [
         "Add_In": True,
         "country_label": "أفلام في اليمن",
         "Add_In_Done": False,
-        "output": ["", "أفلام في اليمن  2020"],
+        "output": "أفلام في اليمن 2020",
     },
 ]
 
 
 @pytest.mark.parametrize("example", EXAMPLES, ids=lambda e: e["category"])
 def test_new_func_mk2_subset(example):
-    result = new_func_mk2(
+    _, result = new_func_mk2(
         example["category"],
         example["cat_test"],
         example["year"],
@@ -163,5 +160,5 @@ def test_new_func_mk2_subset(example):
         example["Add_In_Done"],
     )
 
-    expected = (example["output"][0], example["output"][1])
+    expected = example["output"]
     assert result == expected

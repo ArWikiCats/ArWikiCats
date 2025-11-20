@@ -198,7 +198,7 @@ def fix_it(ar_label: str, en_label: str) -> str:
     ar_label = ar_label.replace("ب202", "بسنة 202")
     ar_label = ar_label.replace("على المريخ", "في المريخ")
 
-    ar_label = " ".join(ar_label.split())
+    ar_label = " ".join(ar_label.strip().split())
 
     ar_label = re.sub(r"^شغب (\d+)", r"شغب في \g<1>", ar_label)
     ar_label = re.sub(r"قوائممتعلقة", "قوائم متعلقة", ar_label)

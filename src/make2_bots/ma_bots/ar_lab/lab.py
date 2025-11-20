@@ -228,7 +228,7 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
 
     logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
 
-    label = " ".join(label.split())
+    label = " ".join(label.strip().split())
 
     return label, should_append_in_label
 

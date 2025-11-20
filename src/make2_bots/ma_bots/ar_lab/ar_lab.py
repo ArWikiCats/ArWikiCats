@@ -324,7 +324,7 @@ class LabelPipeline(Fixing):
             logger.info(f'>>>> <<lightblue>> tito in pop_format33 "{pop_format33[self.tito_stripped]}":')
             arlabel = pop_format33[self.tito_stripped].format(self.type_label, self.country_label)
 
-        arlabel = " ".join(arlabel.split())
+        arlabel = " ".join(arlabel.strip().split())
         maren = re.match(r"\d\d\d\d", self.country_lower.strip())
         if self.type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {self.country_lower}":
             arlabel = f"حرب {self.country_lower}"

@@ -372,7 +372,7 @@ class LabelBuilder(Fixing):
             logger.info(f'>>>> <<lightblue>> tito in pop_format33 "{pop_format33[tito_stripped]}":')
             arlabel = pop_format33[tito_stripped].format(type_label, country_label)
 
-        arlabel = " ".join(arlabel.split())
+        arlabel = " ".join(arlabel.strip().split())
         maren = re.match(r"\d\d\d\d", country_lower.strip())
         if type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {country_lower}":
             arlabel = f"حرب {country_lower}"
