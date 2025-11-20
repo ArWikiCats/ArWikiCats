@@ -35,6 +35,7 @@ def get_squad_title(tit: str) -> str:
                     lab = f"تشكيلات {oo_lab} في {falab}"
                     break
 
+    lab = lab.replace("  ", " ")
     logger.info(f'<<lightblue>> get_squad_title:"{tit}", lab:"{lab}" ')
 
     return lab
