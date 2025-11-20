@@ -86,12 +86,14 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
         Type = category
 
     country = country.lower()
+    Type_t, country_t = "", ""
+
     Mash = f"^(.*?)(?:{tito}?)(.*?)$"
-    Type_t = re.sub(Mash, r"\g<1>", category.lower())
-    country_t = re.sub(Mash, r"\g<2>", category.lower())
 
     test_N = category.lower()
     try:
+        Type_t = re.sub(Mash, r"\g<1>", category.lower())
+        country_t = re.sub(Mash, r"\g<2>", category.lower())
         test_N = re.sub(Type.lower(), "", test_N)
         test_N = re.sub(country.lower(), "", test_N)
 
