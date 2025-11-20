@@ -490,7 +490,7 @@ data_slow = {
     "rhodope mountains": "جبال رودوب",
     "riots and civil disorder in the united states": "شغب وعصيان مدني في الولايات المتحدة",
     "rivers of brazil": "أنهار البرازيل",
-    "road incident deaths in washington (state)": "وفيات حوادث الطرق في في ولاية واشنطن",
+    "road incident deaths in washington (state)": "وفيات حوادث الطرق في ولاية واشنطن",
     "roman catholic archbishops in austria": "رؤساء أساقفة رومان كاثوليك في النمسا",
     "roman catholic archbishops in ireland": "رؤساء أساقفة رومان كاثوليك في أيرلندا",
     "roman catholic archbishops in singapore": "رؤساء أساقفة رومان كاثوليك في سنغافورة",

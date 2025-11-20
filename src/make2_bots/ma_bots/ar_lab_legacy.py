@@ -559,4 +559,5 @@ __all__ = [
     "add_in_tab",
     "get_Type_lab",
     "get_con_lab",
+    "get_type_country",
 ]
