@@ -616,6 +616,7 @@ class LabelPipeline:
         self.check_tables()
 
         sps = self.determine_separator()
+        arlabel = self.join_labels(sps)
 
         logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
         logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", arlabel:"{arlabel}"')
