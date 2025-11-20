@@ -82,11 +82,13 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     Returns:
         tuple: A tuple containing the processed type (str) and country (str).
     """
-    if not tito.strip():
-        return "", ""
+    Type, country = "", ""
+    if tito and tito in category:
+        Type = category.split(tito)[0]
+        country = category.split(tito)[1]
+    else:
+        Type = category
 
-    Type = category.split(tito)[0]
-    country = category.split(tito)[1]
     country = country.lower()
     Mash = f"^(.*?)(?:{tito}?)(.*?)$"
     Type_t = re.sub(Mash, r"\g<1>", category.lower())

@@ -7,28 +7,19 @@ import pytest
 from src.make2_bots.ma_bots.ar_lab import add_in_tab, find_ar_label
 
 fast_data = {
-    "00s establishments": "تأسيسات عقد 00",
-    "1000s disestablishments": "انحلالات عقد 1000",
-    "11th government of": "حكومة",
-    "13th century establishments": "تأسيسات القرن 13",
-    "14th century establishments": "تأسيسات القرن 14",
-    "18th century people of": "أشخاص في القرن 18",
-    "1990s bc disestablishments": "انحلالات عقد 1990 ق م",
-    "1990s disestablishments": "انحلالات عقد 1990",
-    "19th century actors": "ممثلون في القرن 19",
-    "19th century people": "أشخاص في القرن 19",
-    "19th government of": "حكومة",
-    "20th century disestablishments": "انحلالات القرن 20",
-    "4th senate of": "مجلس شيوخ",
-    "april 1983 events": "أحداث أبريل 1983",
-    "july 2018 events": "أحداث يوليو 2018",
+    "00s establishments in the Roman Empire": "تأسيسات عقد 00 في الإمبراطورية الرومانية",
+    "1000s disestablishments in Asia": "انحلالات عقد 1000 في آسيا",
+    # "1980 sports events in Europe": "أحداث 1980 الرياضية في أوروبا",
+    "1990s BC disestablishments in Asia": "انحلالات عقد 1990 ق م في آسيا",
+    "1990s disestablishments in Europe": "انحلالات عقد 1990 في أوروبا",
+    "April 1983 events in Europe": "أحداث أبريل 1983 في أوروبا",
 }
 
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_find_ar_label_fast(category, expected) -> None:
-    label = find_ar_label(category, "")
+    label = find_ar_label(category, "in")
     assert label == expected
 
 

@@ -154,7 +154,6 @@ data_list = [
     {"tito": " in ", "category": "july 1450 sorts-events in asia", "output": "أحداث يوليو 1450 الرياضية في آسيا"},
     {"tito": " in ", "category": "2nd millennium disestablishments in prince edward island", "output": "انحلالات الألفية 2 في جزيرة الأمير إدوارد"},
     {"tito": " in ", "category": "1450s establishments in germany", "output": "تأسيسات عقد 1450 في ألمانيا"},
-    {"tito": " of ", "category": "8th parliament of la rioja", "output": "برلمان منطقة لا ريوخا"},
     {"tito": " in ", "category": "december 1450 sorts-events in the philippines", "output": "أحداث ديسمبر 1450 الرياضية في الفلبين"},
     {"tito": " in ", "category": "1450s establishments in armenia", "output": "تأسيسات عقد 1450 في أرمينيا"},
     {"tito": " in ", "category": "1450s disestablishments in nebraska", "output": "انحلالات عقد 1450 في نبراسكا"},

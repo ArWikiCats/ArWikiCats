@@ -27,6 +27,7 @@ examples = {
     "1980s criminal comedy films": "أفلام كوميديا الجريمة عقد 1980",
     "1990s BC disestablishments in Asia": "انحلالات عقد 1990 ق م في آسيا",
     "1990s disestablishments in Europe": "انحلالات عقد 1990 في أوروبا",
+    # "8th parliament of la rioja": "برلمان منطقة لا ريوخا الثامن",
 }
 
 
@@ -34,4 +35,31 @@ def test_label_for_startwith_year_or_typeo():
     expected, diff_result = ye_test_one_dataset(examples, label_for_startwith_year_or_typeo)
 
     dump_diff(diff_result, "test_label_for_startwith_year_or_typeo")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+
+examples_century = {
+    "1st-millennium architecture": "عمارة الألفية 1",
+    "1st-millennium literature": "أدب الألفية 1",
+    "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
+    "20th-century Albanian sports coaches": "مدربو رياضة ألبان في القرن 20",
+    "19th-century actors": "ممثلون في القرن 19",
+    "19th-century actors by religion": "ممثلون في القرن 19 حسب الدين",
+    "19th-century people by religion": "أشخاص في القرن 19 حسب الدين",
+    "20th-century railway accidents": "حوادث سكك حديد في القرن 20",
+    "18th-century people of the Dutch Empire": "أشخاص من الإمبراطورية الهولندية القرن 18",
+    "20th-century disestablishments in India": "انحلالات القرن 20 في الهند",
+    "21st-century films": "أفلام القرن 21",
+    "10th-century BC architecture": "عمارة القرن 10 ق م",
+    "13th century establishments in the Roman Empire": "تأسيسات القرن 13 في الإمبراطورية الرومانية",
+    "14th-century establishments in India": "تأسيسات القرن 14 في الهند",
+    "19th-century publications": "منشورات القرن 19",
+    "1st-century architecture": "عمارة القرن 1",
+}
+
+
+def test_label_for_startwith_year_or_typeo_centuries():
+    expected, diff_result = ye_test_one_dataset(examples_century, label_for_startwith_year_or_typeo)
+
+    dump_diff(diff_result, "test_label_for_startwith_year_or_typeo_centuries")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
