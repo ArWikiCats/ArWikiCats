@@ -48,7 +48,7 @@ from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
 from ...helps.jsonl_dump import dump_data, save
 
-tito_list_s = [
+TITO_LIST_S = [
     "in",
     "from",
     "at",
@@ -317,7 +317,7 @@ def tito_list_s_fixing(Type_lab, tito2, Type_lower):
     """
     {"Type_lab": "منشآت عسكرية", "tito2": "in", "Type_lower": "military installations", "output": "منشآت عسكرية في"}
     """
-    if tito2 in tito_list_s:
+    if tito2 in TITO_LIST_S:
         if tito2 == "in" or " in" in Type_lower:
             if Type_lower in pop_of_without_in:
                 logger.info(f'>>-- Skip aAdd في to Type_lab:"{Type_lab}", "{Type_lower}"')
@@ -355,9 +355,9 @@ def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, 
     if Add_in_lab:
         logger.info(f">>>>> > Add_in_lab ({tito2=})")
         tito2_lab = category_relation_mapping.get(tito2)
-        if tito2_lab not in tito_list_s:
+        if tito2_lab not in TITO_LIST_S:
             tatl = tito2_lab
-            logger.info(f">>>>> > ({tito2=}): tito2 in category_relation_mapping and tito2 not in tito_list_s, {tatl=}")
+            logger.info(f">>>>> > ({tito2=}): tito2 in category_relation_mapping and tito2 not in TITO_LIST_S, {tatl=}")
 
             if tito2 == "for" and country_lower.startswith("for "):
                 if Type_lower.strip().endswith("competitors") and "competitors for" in category:
@@ -441,7 +441,7 @@ def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_
         logger.info('>>>>> > X:<<lightred>> keep_Type_first = True, Type_lower:"%s" in Keep_it_frist' % Type_lower)
         arlabel = Type_lab + sps + con_lab
 
-    if tito2 == "about" or (tito2 not in tito_list_s):
+    if tito2 == "about" or (tito2 not in TITO_LIST_S):
         arlabel = Type_lab + sps + con_lab
 
     if Type_lower == "years" and tito2 == "in":
