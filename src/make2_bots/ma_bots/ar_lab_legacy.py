@@ -80,12 +80,12 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     Returns:
         tuple: A tuple containing the processed type (str) and country (str).
     """
-    Type, country = "", ""
+    lab_type, country = "", ""
     if tito and tito in category:
-        Type = category.split(tito)[0]
+        lab_type = category.split(tito)[0]
         country = category.split(tito)[1]
     else:
-        Type = category
+        lab_type = category
 
     country = country.lower()
     Type_t, country_t = "", ""
@@ -96,7 +96,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     try:
         Type_t = re.sub(Mash, r"\g<1>", category.lower())
         country_t = re.sub(Mash, r"\g<2>", category.lower())
-        test_N = re.sub(Type.lower(), "", test_N)
+        test_N = re.sub(lab_type.lower(), "", test_N)
         test_N = re.sub(country.lower(), "", test_N)
 
     except Exception:
@@ -105,23 +105,23 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
 
     tito2 = tito.strip()
 
-    if tito2 == "in" and Type.endswith(" playerss"):
-        Type = Type.replace(" playerss", " players")
+    if tito2 == "in" and lab_type.endswith(" playerss"):
+        lab_type = lab_type.replace(" playerss", " players")
 
     titoends = f" {tito2}"
     titostarts = f"{tito2} "
 
-    if tito2 == "of" and not Type.endswith(titoends):
-        Type = f"{Type} of"
-    elif tito2 == "spies for" and not Type.endswith(" spies"):
-        Type = f"{Type} spies"
+    if tito2 == "of" and not lab_type.endswith(titoends):
+        lab_type = f"{lab_type} of"
+    elif tito2 == "spies for" and not lab_type.endswith(" spies"):
+        lab_type = f"{lab_type} spies"
 
     elif tito2 == "by" and not country.startswith(titostarts):
         country = f"by {country}"
     elif tito2 == "for" and not country.startswith(titostarts):
         country = f"for {country}"
 
-    logger.info(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", {tito=} ')
+    logger.info(f'>xx>>> lab_type: "{lab_type.strip()}", country: "{country.strip()}", {tito=} ')
 
     if test_N and test_N != tito2:
         logger.info(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", country_t:"{country_t}" ')
@@ -132,14 +132,14 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
             country_t = f"by {country_t}"
         elif tito2 == "for" and not country_t.startswith(titostarts):
             country_t = f"for {country_t}"
-        Type = Type_t
+        lab_type = Type_t
         country = country_t
 
         logger.info(f'>>>> yementest: Type_t:"{Type_t}", country_t:"{country_t}"')
     else:
         logger.info(f'>>>> test_N:"{test_N}" == tito')
 
-    return Type, country
+    return lab_type, country
 
 
 # @dump_data(enable=True)
@@ -199,7 +199,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, normalized_preposition, Type="type_label")
+        label = Get_c_t_lab(type_lower, normalized_preposition, lab_type="type_label")
 
     if not label:
         label = te4_2018_Jobs(type_lower)
@@ -489,12 +489,12 @@ def find_ar_label(
 
     logger.info(f'<<lightblue>>>>>> find_ar_label: {category=}, {tito=}')
     tito2 = tito.strip()
-    Type, country = get_type_country(category, tito)
+    lab_type, country = get_type_country(category, tito)
 
-    Type_lower = Type.strip().lower()
+    Type_lower = lab_type.strip().lower()
     country_lower = country.strip().lower()
 
-    type_label, add_in_lab = get_Type_lab(tito, Type)
+    type_label, add_in_lab = get_Type_lab(tito, lab_type)
 
     if Type_lower == "sport" and country_lower.startswith("by "):
         type_label = "رياضة"
