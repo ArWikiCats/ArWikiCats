@@ -18,6 +18,7 @@ from ..p17_bots import p17_bot
 @dump_data()
 @functools.lru_cache(maxsize=None)
 def te_films(category: str, reference_category: str = "") -> str:
+    """Resolve a media category into an Arabic label using layered fallbacks."""
     normalized_category = category.lower()
     logger.info(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")
     resolved_label = ""

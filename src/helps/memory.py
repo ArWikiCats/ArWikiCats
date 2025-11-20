@@ -6,6 +6,7 @@ import sys
 
 
 def _resident_memory_bytes() -> int:
+    """Return the resident set size for the current process in bytes."""
     if importlib.util.find_spec("psutil") is not None:
         import psutil  # type: ignore
 
@@ -20,6 +21,7 @@ def _resident_memory_bytes() -> int:
 
 
 def print_memory() -> None:
+    """Print the current process memory usage to stdout."""
     yellow, purple = "\033[93m%s\033[00m", "\033[95m%s\033[00m"
 
     usage_mb = _resident_memory_bytes() / (1024 * 1024)

@@ -54,6 +54,7 @@ MONTH_NAMES = [
 
 
 def filter_cat(cat: str) -> bool:
+    """Return ``True`` when the English category is allowed for processing."""
     normalized_category = cat.lower()
     for blocked_fragment in CATEGORY_BLACKLIST:
         if blocked_fragment in normalized_category:

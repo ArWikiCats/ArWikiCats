@@ -338,6 +338,7 @@ class ArabicLabelBuilder:
         start_get_country2: bool = True,
         use_event2: bool = True,
     ):
+        """Initialize builder state from the incoming category context."""
         self.category = category
         self.tito = tito
         self.cate_test = cate_test

@@ -17,6 +17,7 @@ keys_data = {
 
 
 def get_keys(category_type):
+    """Return the lookup table associated with the requested category type."""
     return keys_data.get(category_type, [])
 
 

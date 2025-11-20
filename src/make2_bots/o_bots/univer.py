@@ -69,6 +69,7 @@ def _normalise_category(category: str) -> str:
 
 
 def _resolve(normalized_category: str) -> str:
+    """Resolve a university-related category to its Arabic label."""
     logger.info(f"<<lightblue>>>> vvvvvvvvvvvv te_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
 
     city_key = ""

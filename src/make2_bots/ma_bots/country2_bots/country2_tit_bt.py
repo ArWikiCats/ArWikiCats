@@ -133,6 +133,7 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
 
 
 def country_2_title_work(country: str, With_Years: bool = True) -> str:
+    """Derive a country title label by splitting on known separators."""
     title_separators = [
         "based in",
         "in",

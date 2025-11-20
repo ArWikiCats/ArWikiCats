@@ -27,6 +27,7 @@ type_after_country = ["non-combat"]
 
 
 def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
+    """Resolve a country label using population tables and fallbacks."""
     country_label = ""
 
     if country_lower:
@@ -45,6 +46,7 @@ def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
 
 
 def do_ar(typeo, country_label, typeo_lab, category_r):
+    """Store an Arabic label assembled from type and country components."""
     in_tables_lowers = check_key_new_players(typeo.lower())
     in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
 
@@ -63,6 +65,7 @@ def do_ar(typeo, country_label, typeo_lab, category_r):
 
 class LabelForStartWithYearOrTypeo:
     def __init__(self):
+        """Set up placeholders used while constructing category labels."""
         self.cate = ""
         self.cate3 = ""
         self.year_at_first = ""
@@ -90,6 +93,7 @@ class LabelForStartWithYearOrTypeo:
 
     @staticmethod
     def replace_cat_test(cat_test, text):
+        """Remove a substring from the category test helper in a case-insensitive way."""
         return cat_test.lower().replace(text.lower().strip(), "")
 
     # ----------------------------------------------------
@@ -97,6 +101,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def parse_input(self, category_r):
+        """Extract base components (year, type, country) from the category."""
         self.category_r = category_r
 
         self.cate, self.cate3 = get_cats(category_r)
@@ -118,6 +123,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def handle_typeo(self):
+        """Translate the type portion of the category when available."""
         if not self.typeo:
             return
 
@@ -145,6 +151,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def handle_country(self):
+        """Look up and store the country label derived from the category."""
         if not self.country_lower:
             return
 
@@ -161,6 +168,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def handle_year(self):
+        """Append year-based labels and mark prepositions when needed."""
         if not self.year_at_first:
             return
 
@@ -188,6 +196,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def handle_relation_mapping(self):
+        """Remove relation keywords that have already influenced the label."""
         if not self.In.strip():
             return
 
@@ -206,6 +215,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def apply_label_rules(self):
+        """Apply validation rules and build labels using available data."""
 
         if self.year_at_first and not self.year_labe:
             self.NoLab = True
@@ -246,6 +256,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def apply_fallbacks(self):
+        """Run backup labeling logic when primary processing fails."""
         if self.NoLab and self.cat_test == "":
             if self.country_label and self.typeo_lab and not self.year_at_first and self.In == "":
                 do_ar(self.typeo, self.country_label, self.typeo_lab, self.category_r)
@@ -255,6 +266,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def finalize(self):
+        """Perform final validation and return the completed label."""
         category2 = self.cate[len("category:") :].lower() if self.cate.lower().startswith("category:") else self.cate.lower()
 
         if not self.cat_test.strip():
@@ -299,6 +311,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def build(self, category_r: str) -> str:
+        """Construct the final label for categories starting with a year or type."""
         self.parse_input(category_r)
 
         if not self.year_at_first and not self.typeo:
@@ -316,6 +329,7 @@ class LabelForStartWithYearOrTypeo:
 
 @dump_data()
 def label_for_startwith_year_or_typeo(category_r: str) -> str:
+    """Return an Arabic label for categories that begin with years or types."""
     builder = LabelForStartWithYearOrTypeo()
 
     return builder.build(category_r)

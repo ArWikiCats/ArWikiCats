@@ -58,6 +58,7 @@ tito_list_s = [
 @dump_data()
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, tito: str="") -> str:
+    """Forward category processing to the legacy event bot."""
     return event2bot.event2(category)
 
 
@@ -277,6 +278,7 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool=False) 
 
 
 def add_in_tab(Type_lab, Type_lower, tito2):
+    """Adjust labels by inserting prepositions when table lookups require it."""
     ty_in18 = get_pop_All_18(Type_lower)
 
     if tito2 == "from":
@@ -300,6 +302,7 @@ def add_in_tab(Type_lab, Type_lower, tito2):
 
 
 def _check_in_tables_new(country_lower, Type_lower):
+    """Report whether the inputs exist in the primary lookup tables."""
     country_in_Table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
     Type_in_Table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
     if country_in_Table:
@@ -337,6 +340,7 @@ def tito_list_s_fixing(Type_lab, tito2, Type_lower):
 
 
 def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category):
+    """Choose the spacer between country and type parts based on context."""
     # ---
     sps = " "
     if tito2 == "in":
@@ -399,6 +403,7 @@ def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, 
 
 
 def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps):
+    """Combine type and country labels while honoring ordering heuristics."""
     # ---
     Keep_Type_last = False
     keep_Type_first = False

@@ -69,10 +69,12 @@ WHITESPACE_NORM = re.compile(r"\s+")
 
 
 def _normalize(text: str) -> str:
+    """Lowercase and collapse whitespace for consistent matching."""
     return WHITESPACE_NORM.sub(" ", text.lower()).strip()
 
 
 def find_sport(title_en: str) -> Optional[Tuple[str, str]]:
+    """Return the detected sport (EN and AR) from an English title."""
     m = SPORTS_PATTERN.search(_normalize(title_en))
     if not m:
         return None
@@ -81,12 +83,14 @@ def find_sport(title_en: str) -> Optional[Tuple[str, str]]:
 
 
 def make_template_key(title_en: str, sport_en: str) -> str:
+    """Build a normalized template key by replacing the sport name token."""
     text = re.sub(rf"(?i)\b{re.escape(sport_en)}\b", "xoxo", _normalize(title_en))
     text = text.replace("–", "-")
     return WHITESPACE_NORM.sub(" ", text).strip()
 
 
 def resolve_team_label(title_en: str) -> str:
+    """Resolve an Arabic team label for a sports title using templates."""
     found = find_sport(title_en)
     if not found:
         return ""

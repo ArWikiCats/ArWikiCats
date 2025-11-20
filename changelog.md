@@ -1,4 +1,15 @@
 
+## [Add comprehensive docstrings to project functions] - 2025-11-20
+
+* **Added**
+  * Docstrings across all functions to describe behavior, parameters, and return values for easier maintenance.
+* **Changed**
+  * Improved inline documentation throughout bots, translation helpers, and utilities to clarify processing flows.
+* **Fixed**
+  * Documented legacy helpers to reduce ambiguity in label resolution and normalization steps.
+* **Removed**
+  * No removals in this update.
+
 ## [#86](https://github.com/MrIbrahem/make2_new/pull/86) - 2025-11-20
 
 * **Tests**

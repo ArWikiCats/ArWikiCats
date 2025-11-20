@@ -21,6 +21,7 @@ to_check_them = [Add_in_table, add_in_to_country, Films_O_TT]
 
 
 def check_country_in_tables(country):
+    """Return True when the country appears in any configured lookup table."""
     if country in country_before_year:
         logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
         return True
@@ -34,6 +35,7 @@ def check_country_in_tables(country):
 
 
 def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, cat_test):
+    """Insert location prepositions into labels when table rules require them."""
     Add_In_Done = False
     arlabel2 = arlabel
 
@@ -68,6 +70,7 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
 
 
 def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
+    """Handle cases where a year prefix needs a linking preposition."""
     logger.info("a<<lightblue>>>>>> Add year before")
     co_in_tables = check_key_in_tables(country, to_check_them)
     # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT

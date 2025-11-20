@@ -29,6 +29,7 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 @functools.lru_cache(maxsize=None)
 def find_lab(category: str, category_r: str) -> str:
+    """Locate an Arabic label for the category using cached tables and heuristics."""
     cate_low = category.lower()
 
     _lab = Films_O_TT.get(cate_low, "")

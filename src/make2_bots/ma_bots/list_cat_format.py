@@ -10,6 +10,7 @@ from ...helps.log import logger
 
 
 def list_of_cat_func(category_r: str, category_lab: str, list_of_cat: str, foot_ballers: bool) -> Tuple[str, str]:
+    """Format category labels using list templates and football-specific tweaks."""
     category_lab_or = category_lab
     list_of_cat_x = list_of_cat.split("{}")[0].strip()
     logger.info(f"<<lightblue>> list_of_cat_func {list_of_cat=}, {list_of_cat_x=}")
