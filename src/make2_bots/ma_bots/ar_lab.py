@@ -223,7 +223,7 @@ def _check_in_tables_new(country_lower, Type_lower):
 
 
 def find_ar_label(category: str, tito: str, Cate_test: str="",
-                  category_r: str="", start_get_country2: bool = True
+                  category_r: str="", start_get_country2: bool = True, use_event2: bool = True
                   ) -> str:
     """Find the Arabic label based on the provided parameters."""
 
@@ -238,8 +238,9 @@ def find_ar_label(category: str, tito: str, Cate_test: str="",
     country_lower = country.strip().lower()
 
     Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
+
     from_event2 = False
-    if not Type_lab:
+    if not Type_lab and use_event2:
         Type_lab = wrap_event2(Type_lower, tito)
         from_event2 = Type_lab != ""
 
