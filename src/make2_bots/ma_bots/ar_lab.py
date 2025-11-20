@@ -16,7 +16,7 @@ from ...translations import (
     pf_keys2,
     pop_of_without_in,
 )
-from ...utils import check_key_in_tables_return_tuple
+from ...utils import check_key_in_tables_return_tuple, fix_minor
 from .. import tmp_bot
 from ..date_bots import year_lab
 from ..format_bots import (
@@ -27,7 +27,6 @@ from ..format_bots import (
     pop_format,
     pop_format2,
     pop_format33,
-    tito_list_s,
 )
 from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -46,6 +45,18 @@ from ..sports_bots import team_work
 from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
 from ...helps.jsonl_dump import save_data, save
+
+
+# تم تحويلها إلى
+# اقتبست في
+# حولت إلى
+tito_list_s = [
+    "in",
+    "from",
+    "at",
+    "by",
+    "of",
+]
 
 
 @save_data()
@@ -71,6 +82,8 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     Returns:
         tuple: A tuple containing the processed type (str) and country (str).
     """
+    if not tito.strip():
+        return "", ""
 
     Type = category.split(tito)[0]
     country = category.split(tito)[1]
@@ -260,7 +273,7 @@ def get_con_lab(preposition: str, tito2: str, country: str, country_lower: str, 
 
     logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
 
-    return label
+    return label or ""
 
 
 def add_in_tab(Type_lab, Type_lower, tito2):
@@ -290,6 +303,29 @@ def _check_in_tables_new(country_lower, Type_lower):
     if Type_in_Table:
         logger.info(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table2}.')
     return country_in_Table, Type_in_Table
+
+
+def tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower):
+    # ---
+    if tito2 in tito_list_s and Add_in_lab:
+        if tito2 == "in" or " in" in Type_lower:
+            if Type_lower in pop_of_without_in:
+                logger.info(f'>>-- Skip aAdd في to Type_lab:"{Type_lab}", "{Type_lower}"')
+
+            else:
+                if " في" not in Type_lab and " in" in Type_lower:
+                    logger.info(f'>>-- aAdd في to Type_lab:in"{Type_lab}", for "{Type_lower}"')
+                    Type_lab = Type_lab + " في"
+
+                elif tito2 == "in" and " in" in Type_lower:
+                    logger.info(f'>>>> aAdd في to Type_lab:in"{Type_lab}", for "{Type_lower}"')
+                    Type_lab = Type_lab + " في"
+
+        elif (tito2 == "at" or " at" in Type_lower) and (" في" not in Type_lab):
+            logger.info('>>>> Add في to Type_lab:at"%s"' % Type_lab)
+            Type_lab = Type_lab + " في"
+    # ---
+    return Type_lab
 
 
 @save_data()
@@ -345,23 +381,9 @@ def find_ar_label(
     logger.info('<<lightblue>> CAO: cat:"%s":' % category)
     if not Type_lab or not con_lab:
         return ""
-    if tito2 in tito_list_s and Add_in_lab:
-        if tito2 == "in" or " in" in Type_lower:
-            if Type_lower in pop_of_without_in:
-                logger.info(f'>>-- Skip aAdd في to Type_lab:"{Type_lab}", "{Type_lower}"')
 
-            else:
-                if " في" not in Type_lab and " in" in Type_lower:
-                    logger.info(f'>>-- aAdd في to Type_lab:in"{Type_lab}", for "{Type_lower}"')
-                    Type_lab = Type_lab + " في"
-
-                elif tito2 == "in" and " in" in Type_lower:
-                    logger.info(f'>>>> aAdd في to Type_lab:in"{Type_lab}", for "{Type_lower}"')
-                    Type_lab = Type_lab + " في"
-
-        elif (tito2 == "at" or " at" in Type_lower) and (" في" not in Type_lab):
-            logger.info('>>>> Add في to Type_lab:at"%s"' % Type_lab)
-            Type_lab = Type_lab + " في"
+    Type_lab = tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower)
+    # ---
     if Add_in_lab:
         if Type_lower in Dont_Add_min:
             logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
@@ -379,10 +401,12 @@ def find_ar_label(
     else:
         if (tito2 == "in" or tito2 == "at") and (" في" not in Type_lab or Type_lower in Add_ar_in):
             Type_lab = Type_lab + " في"
+
     if Add_in_lab:
         logger.info(f">>>>> > Add_in_lab ({tito2=})")
-        if tito2 in category_relation_mapping and tito2 not in tito_list_s:
-            tatl = category_relation_mapping[tito2]
+        tito2_lab = category_relation_mapping.get(tito2)
+        if tito2_lab not in tito_list_s:
+            tatl = tito2_lab
             logger.info(f">>>>> > ({tito2=}): tito2 in category_relation_mapping and tito2 not in tito_list_s, {tatl=}")
 
             if tito2 == "for" and country_lower.startswith("for "):
@@ -468,8 +492,9 @@ def find_ar_label(
     if Type_lower == "years" and tito2 == "in":
         arlabel = Type_lab + sps + con_lab
 
-    logger.debug('>>>> sps "%s"' % sps)
-    logger.debug('>>>> arlabel "%s"' % arlabel)
+    logger.debug(f">>>> {sps=}")
+    logger.debug(f">>>> {arlabel=}")
+
     vr = re.sub(country_lower, "{}", category.lower())
     if vr in pop_format2:
         logger.info('<<lightblue>>>>>> vr in pop_format2 "%s":' % pop_format2[vr])
@@ -498,7 +523,7 @@ def find_ar_label(
     # ---
     arlabel = arlabel.strip()
     # ---
-    # if from_event2 and arlabel: save(Path(__file__).parent / "find_ar_label.jsonl", [{"tito": tito, "category": category, "output": arlabel}])
+    arlabel = fix_minor(arlabel, sps)
     # ---
     return arlabel
 

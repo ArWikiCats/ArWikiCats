@@ -1,4 +1,5 @@
 #
+from .fixing import fix_minor
 from .match_relation_word import get_relation_word
 from .check_it import (
     check_key_in_tables,
@@ -7,6 +8,7 @@ from .check_it import (
 )
 
 __all__ = [
+    "fix_minor",
     "check_key_in_tables",
     "get_value_from_any_table",
     "check_key_in_tables_return_tuple",
