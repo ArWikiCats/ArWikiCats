@@ -48,7 +48,6 @@ def find_lab(category: str, category_r: str) -> str:
 
 
 def work_titose_names(
-    category_r: str,
     category: str,
     Cate_test: str="",
     start_get_country2: bool=False,
@@ -129,7 +128,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True)
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
-        arlabel = work_titose_names(category_r, start_get_country2, category, Cate_test)
+        arlabel = work_titose_names(category, Cate_test, start_get_country2=start_get_country2)
 
     if arlabel:
         logger.info(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
