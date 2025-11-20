@@ -1,4 +1,15 @@
 
+## [#86](https://github.com/MrIbrahem/make2_new/pull/86) - 2025-11-20
+
+* **Tests**
+  * Added extensive dataset-driven and parameterized tests covering Arabic label generation, event-driven differences, edge cases, and diff dumps for mismatches.
+
+* **Refactor**
+  * Modularized and simplified the label-generation flow, standardized input normalization, and added caching and diagnostics for more consistent, faster lookups.
+
+* **Chore**
+  * Enhanced dump utility to optionally skip writing when output matches a specified field to reduce redundant logs.
+
 ## [#85](https://github.com/MrIbrahem/make2_new/pull/85) - 2025-11-20
 
 * **New Features**
