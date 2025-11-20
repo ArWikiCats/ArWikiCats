@@ -19,10 +19,11 @@ from ...utils import get_value_from_any_table
 from ..date_bots import year_lab
 from ..format_bots import category_relation_mapping
 
-# from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import Films_O_TT, players_new_keys
 from .ar_lab import find_ar_label
+
+en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def find_lab(category: str, category_r: str) -> str:
@@ -46,11 +47,11 @@ def find_lab(category: str, category_r: str) -> str:
     return _lab
 
 
-def work_titose_nmaes(
+def work_titose_names(
     category_r: str,
-    start_get_country2: bool,
     category: str,
-    Cate_test: str,
+    Cate_test: str="",
+    start_get_country2: bool=False,
 ) -> str:
     """Work with titose names based on the provided category.
 
@@ -77,11 +78,12 @@ def work_titose_nmaes(
         # if Keep_Work and tito in category:
         if tito not in category:
             continue
-
+        # ---
         logger.info(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
         arlabel = find_ar_label(category, tito, Cate_test, category_r=category_r, start_get_country2=start_get_country2)
         if arlabel:
             logger.info(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
+        # ---
         break
     return arlabel
 
@@ -124,10 +126,9 @@ def translate_general_category(category_r: str, start_get_country2: bool = True)
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
-        arlabel = work_titose_nmaes(category_r, start_get_country2, category, Cate_test)
+        arlabel = work_titose_names(category_r, start_get_country2, category, Cate_test)
 
     if arlabel:
-        # arlabel = fixtitle.fixlab(arlabel, en=category_r)
         logger.info(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
