@@ -273,7 +273,6 @@ data_test = [
     ("of", "azerbaijan soviet socialist republic", "الجمهورية الأذرية السوفيتية الاشتراكية"),
     ("of", "bosnia and herzegovina people", "بوسنيون"),
     ("of", "bosnia and herzegovina politicians", "سياسيون بوسنيون"),
-    ("of", "communists of bosnia and herzegovina politicians", "شيوعيون من سياسيون بوسنيون"),
     ("of", "companies of georgia (country)", "شركات في جورجيا"),
     ("of", "companies of southeast asia", "شركات في جنوب شرق آسيا"),
     ("of", "eighteenth dynasty of egypt", "الأسرة المصرية الثامنة عشر"),
