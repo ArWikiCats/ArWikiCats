@@ -338,7 +338,7 @@ def tito_list_s_fixing(type_label, tito2, Type_lower):
     return type_label
 
 
-def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, Cate_test, for_table, country_lower, category):
+def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, cate_test, for_table, country_lower, category):
     # ---
     sps = " "
     if tito2 == "in":
@@ -382,7 +382,7 @@ def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab
 
             sps = f" {tatl} "
             logger.info("sps:%s" % sps)
-            Cate_test = Cate_test.replace(tito, "")
+            cate_test = cate_test.replace(tito, "")
 
     in_tables_1 = check_key_new_players(country_lower)
     in_tables_2 = check_key_new_players(Type_lower)
@@ -397,10 +397,10 @@ def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab
 
     if not sps.strip() and faa:
         sps = f" {faa} "
-    return sps, Cate_test
+    return sps, cate_test
 
 
-def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps):
+def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, cate_test, country_lower, category, sps):
     # ---
     Keep_Type_last = False
     keep_Type_first = False
@@ -471,7 +471,7 @@ def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_i
     if Type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {country_lower}":
         arlabel = f"حرب {country_lower}"
         logger.info('<<lightpurple>> >>>> change arlabel to "%s".' % arlabel)
-    return arlabel, Cate_test
+    return arlabel, cate_test
 
 
 @dump_data(["category", "tito"])
@@ -479,7 +479,7 @@ def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_i
 def find_ar_label(
     category: str,
     tito: str,
-    Cate_test: str = "",
+    cate_test: str = "",
     start_get_country2: bool = True,
     use_event2: bool = True,
 ) -> str:
@@ -503,12 +503,12 @@ def find_ar_label(
         type_label = wrap_event2(Type_lower, tito)
 
     if type_label:
-        Cate_test = Cate_test.replace(Type_lower, "")
+        cate_test = cate_test.replace(Type_lower, "")
 
     con_lab = get_con_lab(tito, country, start_get_country2=start_get_country2)
 
     if con_lab:
-        Cate_test = Cate_test.replace(country_lower, "")
+        cate_test = cate_test.replace(country_lower, "")
 
     if not type_label:
         logger.info('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
@@ -541,13 +541,13 @@ def find_ar_label(
     # ---
     country_in_Table, Type_in_Table = check_in_tables_new(country_lower, Type_lower)
     # ---
-    sps, Cate_test = get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, Cate_test, for_table, country_lower, category)
+    sps, cate_test = get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, cate_test, for_table, country_lower, category)
     # ---
-    arlabel, Cate_test = join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps)
+    arlabel, cate_test = join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, cate_test, country_lower, category, sps)
     # ---
-    logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
+    logger.info(f'>>>> <<lightblue>>cate_test :"{cate_test}"')
     logger.info(f'>>>>>> <<lightyellow>>test: cat "{category}", arlabel:"{arlabel}"')
-    logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
+    logger.info(f'>>>> <<lightblue>>cate_test :"{cate_test}"')
     # ---
     arlabel = arlabel.strip()
     # ---

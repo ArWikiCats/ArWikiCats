@@ -59,7 +59,7 @@ def find_lab(category: str, category_r: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def work_titose_names(
     category: str,
-    Cate_test: str = "",
+    cate_test: str = "",
     start_get_country2: bool = False,
 ) -> str:
     """Process categories that contain relational words (tito).
@@ -69,7 +69,7 @@ def work_titose_names(
 
     Args:
         category: The category string to process
-        Cate_test: Optional test category string
+        cate_test: Optional test category string
         start_get_country2: Whether to start country lookup
 
     Returns:
@@ -81,7 +81,7 @@ def work_titose_names(
         return ""
 
     logger.info(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
-    arlabel = find_ar_label(category, tito, Cate_test=Cate_test, start_get_country2=start_get_country2)
+    arlabel = find_ar_label(category, tito, cate_test=cate_test, start_get_country2=start_get_country2)
 
     if not arlabel:
         return ""
@@ -116,7 +116,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True)
     logger.info(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
 
     logger.info(f'<<lightyellow>>>>>> yementest, category_r:"{category_r}", category:"{category}"')
-    Cate_test = category.lower()
+    cate_test = category.lower()
 
     arlabel = get_pop_All_18(category, "")
 
@@ -124,11 +124,11 @@ def translate_general_category(category_r: str, start_get_country2: bool = True)
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
-        arlabel = work_titose_names(category, Cate_test, start_get_country2=start_get_country2)
+        arlabel = work_titose_names(category, cate_test, start_get_country2=start_get_country2)
 
     if arlabel:
         arlabel = fixtitle.fixlab(arlabel, en=category_r)
-        logger.info(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
+        logger.info(f'xxxxx <<green>>cate_test: "{cate_test}" ')
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
     logger.info("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")

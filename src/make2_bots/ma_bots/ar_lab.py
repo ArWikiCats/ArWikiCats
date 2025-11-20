@@ -607,7 +607,7 @@ class ArabicLabelBuilder:
         sps = self.determine_separator()
         arlabel = self.construct_final_label(sps)
 
-        logger.info(f'>>>> <<lightblue>>Cate_test :"{self.cate_test}"')
+        logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
         logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", arlabel:"{arlabel}"')
 
         arlabel = arlabel.strip()
@@ -621,7 +621,7 @@ class ArabicLabelBuilder:
 def find_ar_label(
     category: str,
     tito: str,
-    Cate_test: str = "",
+    cate_test: str = "",
     start_get_country2: bool = True,
     use_event2: bool = True,
 ) -> str:
@@ -632,7 +632,7 @@ def find_ar_label(
     builder = ArabicLabelBuilder(
         category=category,
         tito=tito,
-        cate_test=Cate_test,
+        cate_test=cate_test,
         start_get_country2=start_get_country2,
         use_event2=use_event2
     )
