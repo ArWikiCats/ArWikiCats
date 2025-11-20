@@ -173,27 +173,27 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         logger.info(f'>> >> >> Make label "{label}".')
 
     should_append_in_label = True
-    type_lower_with_prep = type_lower.strip()
+    type_lower_with_preposition = type_lower.strip()
 
-    if not type_lower_with_prep.endswith(f" {normalized_preposition}"):
-        type_lower_with_prep = f"{type_lower.strip()} {normalized_preposition}"
+    if not type_lower_with_preposition.endswith(f" {normalized_preposition}"):
+        type_lower_with_preposition = f"{type_lower.strip()} {normalized_preposition}"
 
     if not label:
-        label = Tabl_with_in.get(type_lower_with_prep, "")
+        label = Tabl_with_in.get(type_lower_with_preposition, "")
         if label:
             should_append_in_label = False
-            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_prep}", label : "{label}"')
+            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if not label:
         label = New_P17_Finall.get(type_lower, "")
         if label:
-            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_prep}", label : "{label}"')
+            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if label == "" and type_lower.startswith("the "):
         type_lower_no_article = type_lower[len("the ") :]
         label = New_P17_Finall.get(type_lower_no_article, "")
         if label:
-            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_prep}", label : "{label}"')
+            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if label == "" and type_lower.strip().endswith(" people"):
         label = make_people_lab(type_lower)
