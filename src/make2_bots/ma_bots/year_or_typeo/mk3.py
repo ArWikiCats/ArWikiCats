@@ -144,9 +144,7 @@ def new_func_mk2(
     """
 
     cat_test = cat_test.replace(country, "")
-    arlabel = re.sub(r" ", " ", arlabel)
-    country_label = country_label
-
+    arlabel = " ".join(arlabel.split())
     suf = f" {suf.strip()} " if suf else " "
     """
     in_table = False

@@ -3,7 +3,7 @@ import re
 
 def fix_minor(arlabel, sps=""):
     # ---
-    arlabel = arlabel.replace("  ", " ").replace("  ", " ").replace("  ", " ")
+    arlabel = " ".join(arlabel.split())
     # ---
     sps_list = [
         "من",
