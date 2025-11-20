@@ -338,13 +338,13 @@ def tito_list_s_fixing(type_label, tito2, Type_lower):
     return type_label
 
 
-def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category):
+def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, Cate_test, for_table, country_lower, category):
     # ---
     sps = " "
     if tito2 == "in":
         sps = " في "
 
-    if country_in_Table and Add_in_lab:
+    if country_in_Table and add_in_lab:
         if (tito2 == "in" or tito2 == "at") and (" في" not in con_lab or Type_lower in Add_ar_in):
             sps = " في "
             logger.info("ssps:%s" % sps)
@@ -352,8 +352,8 @@ def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, Add_in_lab
         if (tito2 == "in" or tito2 == "at") and (" في" not in type_label or Type_lower in Add_ar_in):
             type_label = type_label + " في"
 
-    if Add_in_lab:
-        logger.info(f">>>>> > Add_in_lab ({tito2=})")
+    if add_in_lab:
+        logger.info(f">>>>> > add_in_lab ({tito2=})")
         tito2_lab = category_relation_mapping.get(tito2)
         if tito2_lab not in TITO_LIST_S:
             tatl = tito2_lab
@@ -494,7 +494,7 @@ def find_ar_label(
     Type_lower = Type.strip().lower()
     country_lower = country.strip().lower()
 
-    type_label, Add_in_lab = get_Type_lab(tito, Type)
+    type_label, add_in_lab = get_Type_lab(tito, Type)
 
     if Type_lower == "sport" and country_lower.startswith("by "):
         type_label = "رياضة"
@@ -532,7 +532,7 @@ def find_ar_label(
     # ---
     tito2 = tito.strip()
     # ---
-    if Add_in_lab:
+    if add_in_lab:
         type_label = tito_list_s_fixing(type_label, tito2, Type_lower)
         if Type_lower in Dont_Add_min:
             logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
@@ -541,7 +541,7 @@ def find_ar_label(
     # ---
     country_in_Table, Type_in_Table = check_in_tables_new(country_lower, Type_lower)
     # ---
-    sps, Cate_test = get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
+    sps, Cate_test = get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, Cate_test, for_table, country_lower, category)
     # ---
     arlabel, Cate_test = join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps)
     # ---

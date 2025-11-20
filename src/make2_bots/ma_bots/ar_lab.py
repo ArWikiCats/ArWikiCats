@@ -298,20 +298,20 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
     return label or ""
 
 
-def add_in_tab(type_label: str, type_lower: str, tito2: str) -> str:
+def add_in_tab(type_label: str, type_lower: str, tito_stripped: str) -> str:
     """Add 'من' (from) to the label if conditions are met.
 
     Args:
         type_label (str): The current Arabic label for the type.
         type_lower (str): The lowercase type string.
-        tito2 (str): The stripped delimiter.
+        tito_stripped (str): The stripped delimiter.
 
     Returns:
         str: The modified type label.
     """
     ty_in18 = get_pop_All_18(type_lower)
 
-    if tito2 == "from":
+    if tito_stripped == "from":
         if not type_label.strip().endswith(" من"):
             logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
             type_label = f"{type_label} من "
@@ -359,7 +359,7 @@ class ArabicLabelBuilder:
         self.type_label = ""
         self.country_label = ""
         self.should_append_in_label = True
-        self.add_in_lab = True  # Renamed from Add_in_lab for consistency but keeping logic
+        self.add_in_lab = True  # Renamed from add_in_lab for consistency but keeping logic
 
         self.country_in_table = False
         self.type_in_table = False
@@ -423,26 +423,27 @@ class ArabicLabelBuilder:
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.tito_stripped)
 
-    def _tito_list_s_fixing(self, type_lab: str, tito2: str, type_lower: str) -> str:
+    def _tito_list_s_fixing(self, type_label: str, tito_stripped: str, type_lower: str) -> str:
         """
         Fixes 'in', 'at' prepositions in the label.
         """
-        if tito2 in TITO_LIST_S:
-            if tito2 == "in" or " in" in type_lower:
+        if tito_stripped in TITO_LIST_S:
+            if tito_stripped == "in" or " in" in type_lower:
                 if type_lower in pop_of_without_in:
-                    logger.info(f'>>-- Skip aAdd في to type_label:"{type_lab}", "{type_lower}"')
+                    logger.info(f'>>-- Skip aAdd في to type_label:"{type_label}", "{type_lower}"')
                 else:
-                    if " في" not in type_lab and " in" in type_lower:
-                        logger.info(f'>>-- aAdd في to type_label:in"{type_lab}", for "{type_lower}"')
-                        type_lab = type_lab + " في"
-                    elif tito2 == "in" and " in" in type_lower:
-                        logger.info(f'>>>> aAdd في to type_label:in"{type_lab}", for "{type_lower}"')
-                        type_lab = type_lab + " في"
+                    if " في" not in type_label and " in" in type_lower:
+                        logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{type_lower}"')
+                        type_label = type_label + " في"
+                    elif tito_stripped == "in" and " in" in type_lower:
+                        logger.info(f'>>>> aAdd في to type_label:in"{type_label}", for "{type_lower}"')
+                        type_label = type_label + " في"
 
-            elif (tito2 == "at" or " at" in type_lower) and (" في" not in type_lab):
-                logger.info('>>>> Add في to type_label:at"%s"' % type_lab)
-                type_lab = type_lab + " في"
-        return type_lab
+            elif (tito_stripped == "at" or " at" in type_lower) and (" في" not in type_label):
+                logger.info('>>>> Add في to type_label:at"%s"' % type_label)
+                type_label = type_label + " في"
+
+        return type_label
 
     def check_tables(self):
         """Checks if components are in specific tables."""
@@ -477,12 +478,12 @@ class ArabicLabelBuilder:
                 self.type_label = self.type_label + " في"
 
         if self.add_in_lab:
-            logger.info(f">>>>> > Add_in_lab ({self.tito_stripped=})")
+            logger.info(f">>>>> > add_in_lab ({self.tito_stripped=})")
             tito2_lab = category_relation_mapping.get(self.tito_stripped)
 
             if tito2_lab not in TITO_LIST_S:
                 tatl = tito2_lab
-                logger.info(f">>>>> > ({self.tito_stripped=}): tito2 in category_relation_mapping and tito2 not in tito_list_s, {tatl=}")
+                logger.info(f">>>>> > ({self.tito_stripped=}): tito_stripped in category_relation_mapping and tito_stripped not in TITO_LIST_S, {tatl=}")
 
                 if self.tito_stripped == "for" and self.country_lower.startswith("for "):
                     if self.type_lower.strip().endswith("competitors") and "competitors for" in self.category:
