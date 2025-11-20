@@ -6,7 +6,9 @@ import pytest
 
 from src.make2_bots.ma_bots.ar_lab import find_ar_label
 
-fast_data_list = [
+from src.make2_bots.ma_bots.ye_ts_bot import translate_general_category
+
+data_list = [
     {"tito": " in ", "category": "1450s disestablishments in arizona territory", "output": "انحلالات عقد 1450 في إقليم أريزونا"},
     {"tito": " in ", "category": "1450s disestablishments in the papal states", "output": "انحلالات عقد 1450 في الدولة البابوية"},
     {"tito": " in ", "category": "january 1450 sorts-events in north america", "output": "أحداث يناير 1450 الرياضية في أمريكا الشمالية"},
@@ -235,8 +237,40 @@ fast_data_list = [
 ]
 
 
+@pytest.mark.parametrize("tab", data_list, ids=lambda x: x["category"])
+def test_find_ar_label_and_event2(tab) -> None:
+    label_no_event2 = find_ar_label(tab["category"], tab["tito"], use_event2=False)
+    label_with_event2 = find_ar_label(tab["category"], tab["tito"], use_event2=True)
+    # ---
+    assert label_no_event2 != tab["output"]
+    assert label_with_event2 == tab["output"]
+
+
+@pytest.mark.parametrize("tab", data_list, ids=lambda x: x["category"])
+def test_translate_general_category_event2(tab) -> None:
+    label = translate_general_category(tab["category"])
+    # ---
+    assert label == tab["output"]
+
+
+fast_data_list = [
+    {"tito": " in ", "category": "1450s disestablishments in arizona territory", "output": "انحلالات عقد 1450 في إقليم أريزونا"},
+    {"tito": " in ", "category": "1450s disestablishments in the papal states", "output": "انحلالات عقد 1450 في الدولة البابوية"},
+    {"tito": " in ", "category": "january 1450 sorts-events in north america", "output": "أحداث يناير 1450 الرياضية في أمريكا الشمالية"},
+    {"tito": " in ", "category": "july 1450 sorts-events in china", "output": "أحداث يوليو 1450 الرياضية في الصين"},
+    {"tito": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
+    {"tito": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
+    {"tito": " in ", "category": "20th century synagogues in australia", "output": "كنس القرن 20 في أستراليا"},
+    {"tito": " in ", "category": "november 1450 sorts-events in germany", "output": "أحداث نوفمبر 1450 الرياضية في ألمانيا"},
+    {"tito": " in ", "category": "1450s establishments in england", "output": "تأسيسات عقد 1450 في إنجلترا"},
+    {"tito": " in ", "category": "may 1450 crimes in asia", "output": "جرائم مايو 1450 في آسيا"},
+    {"tito": " in ", "category": "november 1450 sorts-events in the united states", "output": "أحداث نوفمبر 1450 الرياضية في الولايات المتحدة"},
+]
+
+
 @pytest.mark.parametrize("tab", fast_data_list, ids=lambda x: x["category"])
 @pytest.mark.fast
-def test_find_ar_label_fast(tab) -> None:
-    label = find_ar_label(tab["category"], tab["tito"], use_event2=False)
+def test_translate_general_category_event2_fast(tab) -> None:
+    label = translate_general_category(tab["category"])
+    # ---
     assert label == tab["output"]

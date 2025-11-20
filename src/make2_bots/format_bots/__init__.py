@@ -195,7 +195,13 @@ category_relation_mapping = {
 # تم تحويلها إلى
 # اقتبست في
 # حولت إلى
-tito_list_s = ["in", "from", "at", "by", "of"]
+tito_list_s = [
+    "in",
+    "from",
+    "at",
+    "by",
+    "of",
+]
 # ---
 for_table = {
     "for national teams": "للمنتخبات الوطنية",
@@ -581,4 +587,20 @@ def change_cat(cat_orginal: str) -> str:
 
 len_print.data_len("pop_format.py", {"Change_key": Change_key, "Change_key2": Change_key2})
 
-__all__ = ["Dont_Add_min", "Tabl_with_in", "category_relation_mapping", "ar_lab_before_year_to_add_in", "change_cat", "country_before_year", "for_table", "pop_format", "pop_format2", "pop_format33", "pp_ends_with", "pp_ends_with_pase", "pp_start_with", "pp_start_with2", "tito_list_s"]
+__all__ = [
+    "Dont_Add_min",
+    "Tabl_with_in",
+    "category_relation_mapping",
+    "ar_lab_before_year_to_add_in",
+    "change_cat",
+    "country_before_year",
+    "for_table",
+    "pop_format",
+    "pop_format2",
+    "pop_format33",
+    "pp_ends_with",
+    "pp_ends_with_pase",
+    "pp_start_with",
+    "pp_start_with2",
+    "tito_list_s",
+]

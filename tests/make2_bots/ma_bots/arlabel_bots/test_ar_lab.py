@@ -28,7 +28,7 @@ fast_data = {
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_find_ar_label_fast(category, expected) -> None:
-    label = find_ar_label(category)
+    label = find_ar_label(category, "")
     assert label == expected
 
 
@@ -63,13 +63,13 @@ def test_add_in_tab_2():
 @pytest.mark.skip2
 def test_find_ar_label():
     # Test with basic inputs
-    result = find_ar_label("test category", "from", "test", "test category")
+    result = find_ar_label("test category", "from")
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = find_ar_label("sports category", "in", "sports", "sports category", False)
+    result_various = find_ar_label("sports category", "in")
     assert isinstance(result_various, str)
 
     # Test with another valid combination instead of empty strings
-    result_safe = find_ar_label("music from france", "from", "music", "music from france", True)
+    result_safe = find_ar_label("music from france", "from")
     assert isinstance(result_safe, str)

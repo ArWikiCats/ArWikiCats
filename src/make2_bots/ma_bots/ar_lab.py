@@ -3,11 +3,10 @@
 !
 """
 
+import functools
 import re
 from typing import Tuple
-from pathlib import Path
 
-from ...fix import fixtitle
 from ...helps.log import logger
 from ...main_processers import event2bot
 from ...translations import (
@@ -32,7 +31,6 @@ from ..format_bots import (
 )
 from ..jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..ma_bots_new.bot_type_country import get_type_country
 from ..matables_bots.bot import (
     Add_ar_in,
     Keep_it_frist,
@@ -49,12 +47,84 @@ from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
 from ...helps.jsonl_dump import save_data, save
 
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
-
-# @save_data(enable=True)
+@save_data()
+@functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, tito: str="") -> str:
     return event2bot.event2(category)
+
+
+def get_type_country(category: str, tito: str) -> Tuple[str, str]:
+    """Extract the type and country from a given category string.
+
+    This function takes a category string and a delimiter (tito) to split
+    the category into a type and a country. It processes the strings to
+    ensure proper formatting and handles specific cases based on the value
+    of tito. The function also performs some cleanup on the extracted
+    strings to remove any unwanted characters or formatting issues.
+
+    Args:
+        category (str): The category string containing type and country information.
+        tito (str): The delimiter used to separate the type and country in the category
+            string.
+
+    Returns:
+        tuple: A tuple containing the processed type (str) and country (str).
+    """
+
+    Type = category.split(tito)[0]
+    country = category.split(tito)[1]
+    country = country.lower()
+    Mash = f"^(.*?)(?:{tito}?)(.*?)$"
+    Type_t = re.sub(Mash, r"\g<1>", category.lower())
+    country_t = re.sub(Mash, r"\g<2>", category.lower())
+
+    test_N = category.lower()
+    try:
+        test_N = re.sub(Type.lower(), "", test_N)
+        test_N = re.sub(country.lower(), "", test_N)
+
+    except Exception:
+        logger.info("<<lightred>>>>>> except test_N ")
+    test_N = test_N.strip()
+
+    tito2 = tito.strip()
+
+    if tito2 == "in" and Type.endswith(" playerss"):
+        Type = Type.replace(" playerss", " players")
+
+    titoends = f" {tito2}"
+    titostarts = f"{tito2} "
+
+    if tito2 == "of" and not Type.endswith(titoends):
+        Type = f"{Type} of"
+    elif tito2 == "spies for" and not Type.endswith(" spies"):
+        Type = f"{Type} spies"
+
+    elif tito2 == "by" and not country.startswith(titostarts):
+        country = f"by {country}"
+    elif tito2 == "for" and not country.startswith(titostarts):
+        country = f"for {country}"
+
+    logger.info(f'>xx>>> Type: "{Type.strip()}", country: "{country.strip()}", {tito=} ')
+
+    if test_N and test_N != tito2:
+        logger.info(f'>>>> test_N != "", Type_t:"{Type_t}", tito:"{tito}", country_t:"{country_t}" ')
+
+        if tito2 == "of" and not Type_t.endswith(titoends):
+            Type_t = f"{Type_t} of"
+        elif tito2 == "by" and not country_t.startswith(titostarts):
+            country_t = f"by {country_t}"
+        elif tito2 == "for" and not country_t.startswith(titostarts):
+            country_t = f"for {country_t}"
+        Type = Type_t
+        country = country_t
+
+        logger.info(f'>>>> yementest: Type_t:"{Type_t}", country_t:"{country_t}"')
+    else:
+        logger.info(f'>>>> test_N:"{test_N}" == tito')
+
+    return Type, country
 
 
 def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:
@@ -222,9 +292,15 @@ def _check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-def find_ar_label(category: str, tito: str, Cate_test: str="",
-                  category_r: str="", start_get_country2: bool = True, use_event2: bool = True
-                  ) -> str:
+@save_data()
+@functools.lru_cache(maxsize=10000)
+def find_ar_label(
+    category: str,
+    tito: str,
+    Cate_test: str="",
+    start_get_country2: bool = True,
+    use_event2: bool = True
+) -> str:
     """Find the Arabic label based on the provided parameters."""
 
     CAO = True
@@ -255,14 +331,10 @@ def find_ar_label(category: str, tito: str, Cate_test: str="",
     if not Type_lab:
         logger.info('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
         CAO = False
-    else:
-        Cate_test = Cate_test.replace(Type_lower, "")
 
     if not con_lab:
         logger.info('>>>> country_lower not in pop new "%s"' % country_lower)
         CAO = False
-    else:
-        Cate_test = Cate_test.replace(country_lower, "")
 
     if Type_lab or con_lab:
         logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
@@ -420,15 +492,13 @@ def find_ar_label(category: str, tito: str, Cate_test: str="",
         arlabel = f"حرب {country_lower}"
         logger.info('<<lightpurple>> >>>> change arlabel to "%s".' % arlabel)
 
-    if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:
-        return ""
-    arlabel = fixtitle.fixlab(arlabel, en=category_r)
-    logger.info('>>>>>> <<lightyellow>>Cate_test: "%s" ' % Cate_test)
-    logger.info(f'>>>>>> <<lightyellow>>test: cat "{category_r}", arlabel:"{arlabel}"')
-    logger.info('>>>> <<lightblue>>Cate_test :"%s"' % Cate_test)
+    logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
+    logger.info(f'>>>>>> <<lightyellow>>test: cat "{category}", arlabel:"{arlabel}"')
+    logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
     # ---
-    if from_event2 and arlabel:
-        save(Path(__file__).parent / "find_ar_label.jsonl", [{"tito": tito, "category": category, "output": arlabel}])
+    arlabel = arlabel.strip()
+    # ---
+    # if from_event2 and arlabel: save(Path(__file__).parent / "find_ar_label.jsonl", [{"tito": tito, "category": category, "output": arlabel}])
     # ---
     return arlabel
 
