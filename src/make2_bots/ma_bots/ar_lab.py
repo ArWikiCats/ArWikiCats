@@ -207,7 +207,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, normalized_preposition, Type="Type_lab")
+        label = Get_c_t_lab(type_lower, normalized_preposition, lab_type="Type_lab")
 
     if not label:
         label = te4_2018_Jobs(type_lower)

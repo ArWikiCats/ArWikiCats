@@ -1,18 +1,10 @@
 #!/usr/bin/python3
 """
-
-# from ..ma_bots.country_bot import get_country, Get_c_t_lab
-
-
-from ..ma_bots import country_bot
-
-
-lab = country_bot.get_country()
-
+Country Label Bot Module
 """
 
 import re
-from typing import Dict
+from typing import Dict, Optional, List
 
 from ...config import app_settings
 from ...helps.log import logger
@@ -87,7 +79,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     OKay = True
 
     if resolved_label == "" and OKay:
-        title_separators = [
+        separators = [
             "based in",
             "in",
             "by",
@@ -99,9 +91,9 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
             "at",
             "on",
         ]
-        title_separators = [f" {sep} " if sep != "-of " else sep for sep in title_separators]
-        for ttt in title_separators:
-            if ttt in country:
+        separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
+        for sep in separators:
+            if sep in country:
                 OKay = False
                 break
 
@@ -158,87 +150,87 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     return resolved_label
 
 
-def Get_c_t_lab(c_t_lower: str, tito: str, Type: str = "", start_get_country2: bool = True) -> str:
+def Get_c_t_lab(term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
     """Retrieve the corresponding label for a given country or term."""
+    if True:
+        logger.info(f'Get_c_t_lab lab_type:"{lab_type}", tito:"{tito}", c_ct_lower:"{term_lower}" ')
 
-    logger.info(f'Get_c_t_lab Type:"{Type}", tito:"{tito}", c_ct_lower:"{c_t_lower}" ')
-    if app_settings.makeerr:
-        start_get_country2 = True
+        if app_settings.makeerr:
+            start_get_country2 = True
 
-    test_3 = re.sub(r"\d+", "", c_t_lower.strip())
-    test3_results = ["", "-", "–", "−"]
-    c_t_lab = c_t_lower if test_3 in test3_results else ""
-    if not c_t_lab:
-        c_t_lab = New_female_keys.get(c_t_lower, "")
-    if not c_t_lab:
-        c_t_lab = centries_years_dec.get(c_t_lower, "")
+        test_numeric = re.sub(r"\d+", "", term_lower.strip())
+        test3_results = ["", "-", "–", "−"]
+        term_label = term_lower if test_numeric in test3_results else ""
+        if not term_label:
+            term_label = New_female_keys.get(term_lower, "")
+        if not term_label:
+            term_label = centries_years_dec.get(term_lower, "")
 
-    if c_t_lab == "" and Type != "Type_lab":
-        if c_t_lower.startswith("the "):
-            logger.info(f'>>>> c_t_lower:"{c_t_lower}" startswith("the ")')
-            LLL = c_t_lower[len("the ") :]
+        if term_label == "" and lab_type != "Type_lab":
+            if term_lower.startswith("the "):
+                logger.info(f'>>>> term_lower:"{term_lower}" startswith("the ")')
+                LLL = term_lower[len("the ") :]
 
-            c_t_lab = get_pop_All_18(LLL, "")
+                term_label = get_pop_All_18(LLL, "")
 
-            if not c_t_lab:
-                c_t_lab = get_country(LLL, start_get_country2=start_get_country2)
+                if not term_label:
+                    term_label = get_country(LLL, start_get_country2=start_get_country2)
 
-    if not c_t_lab:
-        if re.sub(r"\d+", "", c_t_lower) == "":
-            c_t_lab = c_t_lower
-        else:
-            c_t_lab = centries_years_dec.get(c_t_lower, "")
+        if not term_label:
+            if re.sub(r"\d+", "", term_lower) == "":
+                term_label = term_lower
+            else:
+                term_label = centries_years_dec.get(term_lower, "")
 
-    if c_t_lab == "":
-        c_t_lab = get_country(c_t_lower, start_get_country2=start_get_country2)
+        if term_label == "":
+            term_label = get_country(term_lower, start_get_country2=start_get_country2)
 
-    if c_t_lab == "" and Type == "Type_lab":
-        tatos = [" of", " in", " at"]
+        if term_label == "" and lab_type == "Type_lab":
+            tatos = [" of", " in", " at"]
 
-        for tat in tatos:
-            if c_t_lab:
-                break
+            for suffix in tatos:
+                if term_label:
+                    break
 
-            if not c_t_lower.endswith(tat):
-                continue
+                if not term_lower.endswith(suffix):
+                    continue
 
-            tti = c_t_lower[: -len(tat)]
+                base_term = term_lower[: -len(suffix)]
+                translated_base = jobs_mens_data.get(base_term, "")
 
-            tto = jobs_mens_data.get(tti, "")
+                logger.info(f'base_term:"{base_term}", translated_base:"{translated_base}", term_lower:"{term_lower}" ')
 
-            logger.info(f'tti:"{tti}", tto:"{tto}", c_t_lower:"{c_t_lower}" ')
+                if term_label == "" and translated_base:
+                    term_label = f"{translated_base} من "
+                    logger.info(f"jobs_mens_data:: add من to term_label:{term_label}, line:1583.")
 
-            if c_t_lab == "" and tto:
-                c_t_lab = f"{tto} من "
-                logger.info(f"jobs_mens_data:: add من to c_t_lab:{c_t_lab}, line:1583.")
+                if not translated_base:
+                    translated_base = get_pop_All_18(base_term, "")
 
-            if not tto:
-                tto = get_pop_All_18(tti, "")
+                if not translated_base:
+                    translated_base = get_country(base_term, start_get_country2=start_get_country2)
 
-            if not tto:
-                tto = get_country(tti, start_get_country2=start_get_country2)
+                if term_label == "" and translated_base:
+                    if term_lower in pop_of_without_in:
+                        term_label = translated_base
+                        logger.info("skip add في to pop_of_without_in")
+                    else:
+                        term_label = f"{translated_base} في "
+                        logger.info(f"XX add في to term_label:{term_label}, line:1596.")
+                    break
+            if term_label == "" and tito.strip() == "in":
+                term_label = get_pop_All_18(f"{term_lower} in", "")
 
-            if c_t_lab == "" and tto:
-                if c_t_lower in pop_of_without_in:
-                    c_t_lab = tto
-                    logger.info("skip add في to pop_of_without_in")
-                else:
-                    c_t_lab = f"{tto} في "
-                    logger.info(f"XX add في to c_t_lab:{c_t_lab}, line:1596.")
-                break
-        if c_t_lab == "" and tito.strip() == "in":
-            c_t_lab = get_pop_All_18(f"{c_t_lower} in", "")
+            if not term_label:
+                term_label = get_country(term_lower, start_get_country2=start_get_country2)
 
-        if not c_t_lab:
-            c_t_lab = get_country(c_t_lower, start_get_country2=start_get_country2)
+        if term_label:
+            logger.info(f'Get_c_t_lab term_label:"{term_label}" ')
 
-    if c_t_lab:
-        logger.info(f'Get_c_t_lab c_t_lab:"{c_t_lab}" ')
+        elif tito.strip() == "for" and term_lower.startswith("for "):
+            return Get_c_t_lab(term_lower[len("for ") :], "", lab_type=lab_type)
 
-    elif tito.strip() == "for" and c_t_lower.startswith("for "):
-        return Get_c_t_lab(c_t_lower[len("for ") :], "", Type=Type)
-
-    return c_t_lab
+        return term_label
 
 
 __all__ = [

@@ -96,7 +96,7 @@ def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
         c_2_l = country_bot.Get_c_t_lab(con_2, "")
 
     if not c_1_l:
-        c_1_l = country_bot.Get_c_t_lab(con_1, "", Type="Type_lab")
+        c_1_l = country_bot.Get_c_t_lab(con_1, "", lab_type="Type_lab")
 
     cona_1 = con_1.strip().lower()
     cona_2 = con_2.strip().lower()
