@@ -52,30 +52,7 @@ class CountryLabelRetriever:
             resolved_label = country2_bot.Get_country2(country)
 
         if not resolved_label:
-            prefix_labels = {
-                "women's ": "نسائية",
-                "men's ": "رجالية",
-                "non-combat ": "غير قتالية",
-            }
-
-            for prefix, prefix_label in prefix_labels.items():
-                if not country.startswith(prefix):
-                    continue
-                logger.debug(f">>> country.startswith({prefix})")
-                remainder = country[len(prefix) :]
-                remainder_label = country2_bot.Get_country2(remainder)
-
-                if remainder_label == "":
-                    remainder_label = country2_lab.get_lab_for_country2(remainder)
-
-                if remainder_label == "":
-                    remainder_label = ye_ts_bot.translate_general_category(remainder)
-
-                if remainder_label:
-                    resolved_label = f"{remainder_label} {prefix_label}"
-                    logger.info(f'>>>>>> xxx new cnt_la  "{resolved_label}" ')
-                    break
-
+            resolved_label = self._check_prefixes(country)
         OKay = True
 
         if resolved_label == "" and OKay:
@@ -127,19 +104,10 @@ class CountryLabelRetriever:
                 resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
         if not resolved_label:
-            RE1 = RE1_compile.match(country)
-            RE2 = RE2_compile.match(country)
-            RE3 = RE3_compile.match(country)
+            resolved_label = self._check_regex_years(country)
 
-            if RE1 or RE2 or RE3:
-                resolved_label = with_years_bot.Try_With_Years(country)
-
-        if resolved_label == "" and country.endswith(" members of"):
-            country2 = country.replace(" members of", "")
-            resolved_label = Nat_mens.get(country2, "")
-            if resolved_label:
-                resolved_label = f"{resolved_label} أعضاء في  "
-                logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
+        if not resolved_label:
+            resolved_label = self._check_members(country)
 
         if not resolved_label:
             resolved_label = SPORTS_KEYS_FOR_LABEL.get(country, "")
@@ -172,28 +140,57 @@ class CountryLabelRetriever:
         }
 
         for prefix, prefix_label in prefix_labels.items():
-            if country.startswith(prefix):
-                logger.debug(f">>> country.startswith({prefix})")
-                remainder = country[len(prefix) :]
-                remainder_label = self._resolve_remainder(remainder)
+            if not country.startswith(prefix):
+                continue
+            logger.debug(f">>> country.startswith({prefix})")
+            remainder = country[len(prefix) :]
+            remainder_label = country2_bot.Get_country2(remainder)
 
-                if remainder_label:
-                    new_label = f"{remainder_label} {prefix_label}"
-                    logger.info(f'>>>>>> xxx new cnt_la  "{new_label}" ')
-                    return new_label
+            if remainder_label == "":
+                remainder_label = country2_lab.get_lab_for_country2(remainder)
+
+            if remainder_label == "":
+                remainder_label = ye_ts_bot.translate_general_category(remainder)
+
+            if remainder_label:
+                resolved_label = f"{remainder_label} {prefix_label}"
+                logger.info(f'>>>>>> xxx new cnt_la  "{resolved_label}" ')
+                break
+
+        return ""
+
+    def _check_regex_years(self, country: str) -> str:
+        """Check regex patterns for years."""
+        RE1 = RE1_compile.match(country)
+        RE2 = RE2_compile.match(country)
+        RE3 = RE3_compile.match(country)
+
+        if RE1 or RE2 or RE3:
+            return with_years_bot.Try_With_Years(country)
+        return ""
+
+    def _check_members(self, country: str) -> str:
+        """Check for 'members of' pattern."""
+        if country.endswith(" members of"):
+            country2 = country.replace(" members of", "")
+            resolved_label = Nat_mens.get(country2, "")
+            if resolved_label:
+                resolved_label = f"{resolved_label} أعضاء في  "
+                logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
+                return resolved_label
         return ""
 
     def get_term_label(self, term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
-        """Retrieve the corresponding label for a given country or term."""
-
+        """Retrieve the corresponding label for a given term."""
         logger.info(f'get_term_label lab_type:"{lab_type}", tito:"{tito}", c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
             start_get_country2 = True
 
+        # Check for numeric/empty terms
         test_numeric = re.sub(r"\d+", "", term_lower.strip())
-        test3_results = ["", "-", "–", "−"]
-        term_label = term_lower if test_numeric in test3_results else ""
+        test_numeric = ["", "-", "–", "−"]
+        term_label = term_lower if test_numeric in test_numeric else ""
         if not term_label:
             term_label = New_female_keys.get(term_lower, "")
         if not term_label:
@@ -202,12 +199,10 @@ class CountryLabelRetriever:
         if term_label == "" and lab_type != "Type_lab":
             if term_lower.startswith("the "):
                 logger.info(f'>>>> term_lower:"{term_lower}" startswith("the ")')
-                LLL = term_lower[len("the ") :]
-
-                term_label = get_pop_All_18(LLL, "")
-
+                term_without_the = term_lower[len("the ") :]
+                term_label = get_pop_All_18(term_without_the, "")
                 if not term_label:
-                    term_label = get_country(LLL, start_get_country2=start_get_country2)
+                    term_label = self.get_country_label(term_without_the, start_get_country2=start_get_country2)
 
         if not term_label:
             if re.sub(r"\d+", "", term_lower) == "":
@@ -216,7 +211,7 @@ class CountryLabelRetriever:
                 term_label = centries_years_dec.get(term_lower, "")
 
         if term_label == "":
-            term_label = get_country(term_lower, start_get_country2=start_get_country2)
+            term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
         if term_label == "" and lab_type == "Type_lab":
             tatos = [" of", " in", " at"]
@@ -275,9 +270,9 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     return _retriever.get_country_label(country, start_get_country2)
 
 
-def Get_c_t_lab(c_t_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+def Get_c_t_lab(term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
     """Retrieve the corresponding label for a given country or term."""
-    return _retriever.get_term_label(c_t_lower, tito, lab_type=lab_type, start_get_country2=start_get_country2)
+    return _retriever.get_term_label(term_lower, tito, lab_type=lab_type, start_get_country2=start_get_country2)
 
 
 __all__ = [
