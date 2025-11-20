@@ -7,6 +7,18 @@ import pytest
 from src.make2_bots.ma_bots.ar_lab import get_type_country
 
 
+data = [
+    ("1450s disestablishments in arizona territory", "in", ("1450s disestablishments ", " arizona territory")),
+]
+
+
+@pytest.mark.parametrize("category, tito, output", data, ids=[x[0] for x in data])
+@pytest.mark.fast
+def test_get_type_country_data(category, tito, output) -> None:
+    label = get_type_country(category, tito)
+    assert label == output
+
+
 def test_get_type_country():
     # Test with basic inputs
     result = get_type_country("test in country", "in")

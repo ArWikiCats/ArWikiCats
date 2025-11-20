@@ -138,10 +138,10 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     return Type, country
 
 
-def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_lower: str) -> Tuple[str, bool]:
+def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters."""
-
     normalized_preposition = preposition.strip()
+    type_lower = type_value.lower()
 
     label = ""
     if type_lower == "women" and normalized_preposition == "from":
@@ -175,8 +175,6 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
         label = New_P17_Finall.get(type_lower_without_article, "")
         if label:
             logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
-    if type_lower == "sport" and country_lower.startswith("by "):
-        label = "رياضة"
 
     if label == "" and type_lower.strip().endswith(" people"):
         label = make_people_lab(type_lower)
@@ -190,7 +188,7 @@ def get_Type_lab(preposition: str, type_value: str, type_lower: str, country_low
     if not label:
         label = nats.find_nat_others(type_lower)
     if not label:
-        label = team_work.Get_team_work_Club(type_value.strip())
+        label = team_work.Get_team_work_Club(type_lower)
 
     if not label:
         label = tmp_bot.Work_Templates(type_lower)
@@ -485,7 +483,10 @@ def find_ar_label(
     Type_lower = Type.strip().lower()
     country_lower = country.strip().lower()
 
-    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
+    Type_lab, Add_in_lab = get_Type_lab(tito, Type)
+
+    if Type_lower == "sport" and country_lower.startswith("by "):
+        Type_lab = "رياضة"
 
     if not Type_lab and use_event2:
         Type_lab = wrap_event2(Type_lower, tito)
