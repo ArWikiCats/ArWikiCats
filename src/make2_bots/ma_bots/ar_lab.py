@@ -341,7 +341,7 @@ def add_in_tab(type_label: str, type_lower: str, tito_stripped: str) -> str:
     return type_label
 
 
-class ArabicLabelBuilder:
+class LabelPipeline:
     """
     A class to handle the construction of Arabic labels from category strings.
     """
@@ -638,9 +638,9 @@ def find_ar_label(
 ) -> str:
     """Find the Arabic label based on the provided parameters.
 
-    This function now uses the ArabicLabelBuilder class to perform the logic.
+    This function now uses the LabelPipeline class to perform the logic.
     """
-    builder = ArabicLabelBuilder(
+    builder = LabelPipeline(
         category=category,
         tito=tito,
         cate_test=cate_test,
