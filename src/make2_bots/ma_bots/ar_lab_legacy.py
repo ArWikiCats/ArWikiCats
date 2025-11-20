@@ -143,7 +143,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
 
 
 # @dump_data(enable=True)
-def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
+def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters."""
     normalized_preposition = preposition.strip()
     type_lower = type_value.lower()
@@ -207,7 +207,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     if not label:
         label = country2_lab.get_lab_for_country2(type_lower)
 
-    logger.info(f"?????? get_Type_lab: {type_lower=}, {label=}")
+    logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
 
     return label, should_append_in_label
 
@@ -494,7 +494,7 @@ def find_ar_label(
     type_lower = lab_type.strip().lower()
     country_lower = country.strip().lower()
 
-    type_label, add_in_lab = get_Type_lab(tito, lab_type)
+    type_label, add_in_lab = get_type_lab(tito, lab_type)
 
     if type_lower == "sport" and country_lower.startswith("by "):
         type_label = "رياضة"
@@ -559,7 +559,7 @@ def find_ar_label(
 __all__ = [
     "find_ar_label",
     "add_in_tab",
-    "get_Type_lab",
+    "get_type_lab",
     "get_con_lab",
     "get_type_country",
 ]
