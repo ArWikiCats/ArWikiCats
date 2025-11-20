@@ -11,7 +11,7 @@ from src.make2_bots.ma_bots.country2_bot import Get_country2
 @pytest.mark.fast
 def test_get_con_lab_data_one():
     label = get_con_lab(preposition=" of ", tito2="of", country="11th government of turkey", country_lower="11th government of turkey", start_get_country2=True)
-    assert label.strip() != "حكومة تركيا"
+    assert label != "حكومة تركيا"
 
 
 data_fast = {

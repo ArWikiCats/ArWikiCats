@@ -64,7 +64,7 @@ get_squad_title_data = {
 @pytest.mark.fast
 def test_get_squad_title_data(category, expected_key) -> None:
     label = get_squad_title(category)
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 def test_get_squad_title():
