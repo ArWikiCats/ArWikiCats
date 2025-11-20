@@ -96,7 +96,7 @@ def test_year_at_start_uses_country2_lab():
     assert result == "أحداث في اليمن 1900"
 
 
-def test_year_at_start_add_in_table_separator():
+def test_year_at_start_add_in_tabl_separator():
     # remainder is in Add_in_table -> separator becomes " في "
 
     result = Try_With_Years("1900 historical documents")
