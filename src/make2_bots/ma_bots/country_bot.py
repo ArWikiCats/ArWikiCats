@@ -26,25 +26,17 @@ from . import country2_bot, country2_lab, ye_ts_bot
 
 get_country_done: Dict[str, str] = {}
 
-if True:
 
-    def _check_basic_lookups(country: str) -> str:
-        """Check basic lookup tables and functions."""
-        if country.strip().isdigit():
-            return country
+class CountryLabelRetriever:
+    """
+    A class to handle the retrieval of country labels and related terms.
+    """
 
-        label = New_female_keys.get(country, "")
-        if not label:
-            label = te_films(country)
-        if not label:
-            label = nats.find_nat_others(country)
-        if not label:
-            label = team_work.Get_team_work_Club(country)
-        return label
+    def __init__(self):
+        pass
 
-    def get_country(country: str, start_get_country2: bool = True) -> str:
+    def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
         """Retrieve the label for a given country name."""
-
         country = country.lower()
 
         if country in get_country_done:
@@ -53,7 +45,8 @@ if True:
 
         logger.debug(">> ----------------- get_country start ----------------- ")
         logger.info(f'>>>> Get country for "{country}"')
-        resolved_label = _check_basic_lookups(country)
+
+        resolved_label = self._check_basic_lookups(country)
 
         if resolved_label == "" and start_get_country2:
             resolved_label = country2_bot.Get_country2(country)
@@ -156,10 +149,44 @@ if True:
         logger.debug(">> ----------------- end get_country ----------------- ")
         return resolved_label
 
-    def Get_c_t_lab(term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+    def _check_basic_lookups(self, country: str) -> str:
+        """Check basic lookup tables and functions."""
+        if country.strip().isdigit():
+            return country
+
+        label = New_female_keys.get(country, "")
+        if not label:
+            label = te_films(country)
+        if not label:
+            label = nats.find_nat_others(country)
+        if not label:
+            label = team_work.Get_team_work_Club(country)
+        return label
+
+    def _check_prefixes(self, country: str) -> str:
+        """Check for specific prefixes like women's, men's, etc."""
+        prefix_labels = {
+            "women's ": "نسائية",
+            "men's ": "رجالية",
+            "non-combat ": "غير قتالية",
+        }
+
+        for prefix, prefix_label in prefix_labels.items():
+            if country.startswith(prefix):
+                logger.debug(f">>> country.startswith({prefix})")
+                remainder = country[len(prefix) :]
+                remainder_label = self._resolve_remainder(remainder)
+
+                if remainder_label:
+                    new_label = f"{remainder_label} {prefix_label}"
+                    logger.info(f'>>>>>> xxx new cnt_la  "{new_label}" ')
+                    return new_label
+        return ""
+
+    def get_term_label(self, term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
         """Retrieve the corresponding label for a given country or term."""
 
-        logger.info(f'Get_c_t_lab lab_type:"{lab_type}", tito:"{tito}", c_ct_lower:"{term_lower}" ')
+        logger.info(f'get_term_label lab_type:"{lab_type}", tito:"{tito}", c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
             start_get_country2 = True
@@ -228,15 +255,29 @@ if True:
                 term_label = get_pop_All_18(f"{term_lower} in", "")
 
             if not term_label:
-                term_label = get_country(term_lower, start_get_country2=start_get_country2)
+                term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
         if term_label:
-            logger.info(f'Get_c_t_lab term_label:"{term_label}" ')
+            logger.info(f'get_term_label term_label:"{term_label}" ')
 
         elif tito.strip() == "for" and term_lower.startswith("for "):
-            return Get_c_t_lab(term_lower[len("for ") :], "", lab_type=lab_type)
+            return self.get_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
 
         return term_label
+
+
+# Instantiate the retriever
+_retriever = CountryLabelRetriever()
+
+
+def get_country(country: str, start_get_country2: bool = True) -> str:
+    """Retrieve the label for a given country name."""
+    return _retriever.get_country_label(country, start_get_country2)
+
+
+def Get_c_t_lab(c_t_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+    """Retrieve the corresponding label for a given country or term."""
+    return _retriever.get_term_label(c_t_lower, tito, lab_type=lab_type, start_get_country2=start_get_country2)
 
 
 __all__ = [
