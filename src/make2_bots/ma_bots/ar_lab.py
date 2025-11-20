@@ -391,74 +391,12 @@ def get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, 
     return sps, Cate_test
 
 
-@dump_data(["category", "tito"])
-@functools.lru_cache(maxsize=10000)
-def find_ar_label(
-    category: str,
-    tito: str,
-    Cate_test: str="",
-    start_get_country2: bool = True,
-    use_event2: bool = True
-) -> str:
-    """Find the Arabic label based on the provided parameters."""
-
-    CAO = True
-
-    logger.info(f'<<lightblue>>>>>> find_ar_label: {category=}, {tito=}')
-    tito2 = tito.strip()
-    Type, country = get_type_country(category, tito)
-
-    arlabel = ""
-    Type_lower = Type.strip().lower()
-    country_lower = country.strip().lower()
-
-    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
-
-    if not Type_lab and use_event2:
-        Type_lab = wrap_event2(Type_lower, tito)
-
-    if Type_lab:
-        Cate_test = Cate_test.replace(Type_lower, "")
-
-    con_lab = get_con_lab(tito, tito2, country, country_lower, start_get_country2)
-
-    if con_lab:
-        Cate_test = Cate_test.replace(country_lower, "")
-
-    if not Type_lab:
-        logger.info('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
-        CAO = False
-
-    if not con_lab:
-        logger.info('>>>> country_lower not in pop new "%s"' % country_lower)
-        CAO = False
-
-    if Type_lab or con_lab:
-        logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
-        logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", Type_lab:"{Type_lab}"')
-
-    if not CAO:
-        return ""
-    # ---
-    logger.info('<<lightblue>> CAO: cat:"%s":' % category)
-    # ---
-    if not Type_lab or not con_lab:
-        return ""
-    # ---
-    if Add_in_lab:
-        Type_lab = tito_list_s_fixing(Type_lab, tito2, Type_lower)
-        if Type_lower in Dont_Add_min:
-            logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
-        else:
-            Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
-    # ---
-    country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
-    # ---
-    sps, Cate_test = get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
+def join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps):
     # ---
     Keep_Type_last = False
     keep_Type_first = False
 
+    arlabel = ""
     t_to = f"{Type_lower} {tito2}"
 
     if Type_lower in Keep_it_last:
@@ -524,7 +462,75 @@ def find_ar_label(
     if Type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {country_lower}":
         arlabel = f"حرب {country_lower}"
         logger.info('<<lightpurple>> >>>> change arlabel to "%s".' % arlabel)
+    return arlabel, Cate_test
 
+
+@dump_data(["category", "tito"])
+@functools.lru_cache(maxsize=10000)
+def find_ar_label(
+    category: str,
+    tito: str,
+    Cate_test: str="",
+    start_get_country2: bool = True,
+    use_event2: bool = True
+) -> str:
+    """Find the Arabic label based on the provided parameters."""
+
+    CAO = True
+
+    logger.info(f'<<lightblue>>>>>> find_ar_label: {category=}, {tito=}')
+    tito2 = tito.strip()
+    Type, country = get_type_country(category, tito)
+
+    Type_lower = Type.strip().lower()
+    country_lower = country.strip().lower()
+
+    Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
+
+    if not Type_lab and use_event2:
+        Type_lab = wrap_event2(Type_lower, tito)
+
+    if Type_lab:
+        Cate_test = Cate_test.replace(Type_lower, "")
+
+    con_lab = get_con_lab(tito, tito2, country, country_lower, start_get_country2)
+
+    if con_lab:
+        Cate_test = Cate_test.replace(country_lower, "")
+
+    if not Type_lab:
+        logger.info('>>>> Type_lower "%s" not in pop_of_in' % Type_lower)
+        CAO = False
+
+    if not con_lab:
+        logger.info('>>>> country_lower not in pop new "%s"' % country_lower)
+        CAO = False
+
+    if Type_lab or con_lab:
+        logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{country_lower}", con_lab:"{con_lab}"')
+        logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{Type_lower}", Type_lab:"{Type_lab}"')
+
+    if not CAO:
+        return ""
+    # ---
+    logger.info('<<lightblue>> CAO: cat:"%s":' % category)
+    # ---
+    if not Type_lab or not con_lab:
+        return ""
+    # ---
+    if Add_in_lab:
+        Type_lab = tito_list_s_fixing(Type_lab, tito2, Type_lower)
+        if Type_lower in Dont_Add_min:
+            logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
+        else:
+            Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
+    # ---
+    country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
+    # ---
+    sps, Cate_test = get_sps(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Add_in_lab, tito, Cate_test, for_table, country_lower, category)
+    # ---
+    arlabel, Cate_test = join_labels(tito2, con_lab, Type_lab, Type_lower, country_in_Table, Type_in_Table, Cate_test, country_lower, category, sps)
+    # ---
     logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
     logger.info(f'>>>>>> <<lightyellow>>test: cat "{category}", arlabel:"{arlabel}"')
     logger.info(f'>>>> <<lightblue>>Cate_test :"{Cate_test}"')
