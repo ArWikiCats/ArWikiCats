@@ -46,10 +46,6 @@ from . import country2_lab
 from .country_bot import Get_c_t_lab, get_country
 from ...helps.jsonl_dump import dump_data, save
 
-
-# تم تحويلها إلى
-# اقتبست في
-# حولت إلى
 tito_list_s = [
     "in",
     "from",
@@ -307,9 +303,10 @@ def _check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-def tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower):
+@dump_data(compare_with_output="Type_lab")
+def tito_list_s_fixing(Type_lab, tito2, Type_lower):
     # ---
-    if tito2 in tito_list_s and Add_in_lab:
+    if tito2 in tito_list_s:
         if tito2 == "in" or " in" in Type_lower:
             if Type_lower in pop_of_without_in:
                 logger.info(f'>>-- Skip aAdd في to Type_lab:"{Type_lab}", "{Type_lower}"')
@@ -378,18 +375,20 @@ def find_ar_label(
 
     if not CAO:
         return ""
+    # ---
     logger.info('<<lightblue>> CAO: cat:"%s":' % category)
+    # ---
     if not Type_lab or not con_lab:
         return ""
-
-    Type_lab = tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower)
     # ---
     if Add_in_lab:
+        Type_lab = tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower)
         if Type_lower in Dont_Add_min:
             logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
         else:
             Type_lab = add_in_tab(Type_lab, Type_lower, tito2)
     country_in_Table, Type_in_Table = _check_in_tables_new(country_lower, Type_lower)
+    # ---
     sps = " "
     if tito2 == "in":
         sps = " في "
