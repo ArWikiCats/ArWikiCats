@@ -138,7 +138,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     return Type, country
 
 
-@dump_data(enable=True)
+# @dump_data(enable=True)
 def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters."""
     normalized_preposition = preposition.strip()
@@ -195,7 +195,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, preposition, Type="Type_lab")
+        label = Get_c_t_lab(type_lower, normalized_preposition, Type="Type_lab")
 
     if not label:
         label = te4_2018_Jobs(type_lower)
@@ -211,7 +211,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
 @dump_data(enable=True)
 def get_con_lab(preposition: str, country: str, start_get_country2: bool=False) -> str:
     """Retrieve the corresponding label for a given country."""
-
+    preposition = preposition.strip()
     country_lower = country.strip().lower()
     label = ""
     country_lower_no_dash = country_lower.replace("-", " ")
@@ -237,7 +237,7 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool=False) 
     if label == "" and " by " in country_lower:
         label = bys.get_by_label(country_lower)
 
-    if preposition.strip().lower() == "for":
+    if preposition.lower() == "for":
         label = for_table.get(country_lower, "")
 
     if label == "" and country_lower.strip().startswith("in "):
