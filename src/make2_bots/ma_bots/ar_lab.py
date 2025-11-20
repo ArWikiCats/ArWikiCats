@@ -417,15 +417,16 @@ class ArabicLabelBuilder:
     def refine_type_label(self):
         """Refines the type label with prepositions."""
         if self.add_in_lab:
-            self.type_label = self._tito_list_s_fixing(self.type_label, self.tito_stripped, self.type_lower)
+            self.type_label = self.tito_list_s_fixing(self.type_label, self.tito_stripped, self.type_lower)
             if self.type_lower in Dont_Add_min:
                 logger.info(f'>>>> Type_lower "{self.type_lower}" in Dont_Add_min ')
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.tito_stripped)
 
-    def _tito_list_s_fixing(self, type_label: str, tito_stripped: str, type_lower: str) -> str:
+    # @dump_data(enable=True, compare_with_output="type_label")
+    def tito_list_s_fixing(self, type_label: str, tito_stripped: str, type_lower: str) -> str:
         """
-        Fixes 'in', 'at' prepositions in the label.
+        {"type_label": "منشآت عسكرية", "tito_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
         """
         if tito_stripped in TITO_LIST_S:
             if tito_stripped == "in" or " in" in type_lower:

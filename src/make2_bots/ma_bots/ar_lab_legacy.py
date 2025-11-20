@@ -302,14 +302,14 @@ def add_in_tab(type_label, Type_lower, tito2):
 
 
 def check_in_tables_new(country_lower, Type_lower):
-    country_in_Table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
-    Type_in_Table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
-    if country_in_Table:
+    country_in_table, table1 = check_key_in_tables_return_tuple(country_lower, Table_for_frist_word)
+    type_in_table, table2 = check_key_in_tables_return_tuple(Type_lower, Table_for_frist_word)
+    if country_in_table:
         logger.info(f'>>>> X:<<lightpurple>> country_lower "{country_lower}" in {table1}.')
 
-    if Type_in_Table:
+    if type_in_table:
         logger.info(f'>>>>xX:<<lightpurple>> Type_lower "{Type_lower}" in {table2}.')
-    return country_in_Table, Type_in_Table
+    return country_in_table, type_in_table
 
 
 # @dump_data(enable=True, compare_with_output="type_label")
@@ -338,13 +338,13 @@ def tito_list_s_fixing(type_label, tito2, Type_lower):
     return type_label
 
 
-def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, cate_test, for_table, country_lower, category):
+def get_sps(tito2, con_lab, type_label, Type_lower, country_in_table, add_in_lab, tito, cate_test, for_table, country_lower, category):
     # ---
     sps = " "
     if tito2 == "in":
         sps = " في "
 
-    if country_in_Table and add_in_lab:
+    if country_in_table and add_in_lab:
         if (tito2 == "in" or tito2 == "at") and (" في" not in con_lab or Type_lower in Add_ar_in):
             sps = " في "
             logger.info("ssps:%s" % sps)
@@ -400,7 +400,7 @@ def get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab
     return sps, cate_test
 
 
-def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, cate_test, country_lower, category, sps):
+def join_labels(tito2, con_lab, type_label, Type_lower, country_in_table, type_in_table, cate_test, country_lower, category, sps):
     # ---
     Keep_Type_last = False
     keep_Type_first = False
@@ -420,7 +420,7 @@ def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_i
         logger.info('>>>>> > X:<<lightred>> keep_Type_first = True, t_to:"%s" in Keep_it_frist' % t_to)
         keep_Type_first = True
 
-    if Type_in_Table and country_in_Table:
+    if type_in_table and country_in_table:
         logger.info(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
         in_tables = check_key_new_players(country_lower)
         if not keep_Type_first and in_tables:
@@ -428,7 +428,7 @@ def join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_i
         else:
             arlabel = type_label + sps + con_lab
     else:
-        if keep_Type_first and country_in_Table:
+        if keep_Type_first and country_in_table:
             arlabel = con_lab + sps + type_label
         else:
             arlabel = type_label + sps + con_lab
@@ -539,11 +539,11 @@ def find_ar_label(
         else:
             type_label = add_in_tab(type_label, Type_lower, tito2)
     # ---
-    country_in_Table, Type_in_Table = check_in_tables_new(country_lower, Type_lower)
+    country_in_table, type_in_table = check_in_tables_new(country_lower, Type_lower)
     # ---
-    sps, cate_test = get_sps(tito2, con_lab, type_label, Type_lower, country_in_Table, add_in_lab, tito, cate_test, for_table, country_lower, category)
+    sps, cate_test = get_sps(tito2, con_lab, type_label, Type_lower, country_in_table, add_in_lab, tito, cate_test, for_table, country_lower, category)
     # ---
-    arlabel, cate_test = join_labels(tito2, con_lab, type_label, Type_lower, country_in_Table, Type_in_Table, cate_test, country_lower, category, sps)
+    arlabel, cate_test = join_labels(tito2, con_lab, type_label, Type_lower, country_in_table, type_in_table, cate_test, country_lower, category, sps)
     # ---
     logger.info(f'>>>> <<lightblue>>cate_test :"{cate_test}"')
     logger.info(f'>>>>>> <<lightyellow>>test: cat "{category}", arlabel:"{arlabel}"')
