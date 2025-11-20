@@ -45,6 +45,13 @@ TITO_LIST_S = [
 ]
 
 
+@dump_data()
+@functools.lru_cache(maxsize=10000)
+def wrap_event2(category: str, tito: str = "") -> str:
+    """Wraps the event2bot.event2 function with caching."""
+    return event2bot.event2(category)
+
+
 @dataclass
 class ParsedCategory:
     """Represents a parsed category with its components."""
@@ -52,13 +59,6 @@ class ParsedCategory:
     tito: str
     type_value: str
     country: str
-
-
-@dump_data()
-@functools.lru_cache(maxsize=10000)
-def wrap_event2(category: str, tito: str = "") -> str:
-    """Wraps the event2bot.event2 function with caching."""
-    return event2bot.event2(category)
 
 
 class CountryResolver:
