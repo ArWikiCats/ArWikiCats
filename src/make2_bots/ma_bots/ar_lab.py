@@ -527,7 +527,7 @@ class LabelPipeline:
 
         return sps
 
-    def construct_final_label(self, sps: str) -> str:
+    def join_labels(self, sps: str) -> str:
         """Constructs the final Arabic label."""
         keep_type_last = False
         keep_type_first = False
@@ -616,7 +616,6 @@ class LabelPipeline:
         self.check_tables()
 
         sps = self.determine_separator()
-        arlabel = self.construct_final_label(sps)
 
         logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
         logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", arlabel:"{arlabel}"')
