@@ -303,7 +303,7 @@ def _check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-@dump_data(compare_with_output="Type_lab")
+@dump_data(enable=True, compare_with_output="Type_lab")
 def tito_list_s_fixing(Type_lab, tito2, Type_lower):
     # ---
     if tito2 in tito_list_s:
