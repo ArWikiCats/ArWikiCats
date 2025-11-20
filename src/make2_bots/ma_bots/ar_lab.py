@@ -382,7 +382,7 @@ def find_ar_label(
         return ""
     # ---
     if Add_in_lab:
-        Type_lab = tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower)
+        Type_lab = tito_list_s_fixing(Type_lab, tito2, Type_lower)
         if Type_lower in Dont_Add_min:
             logger.info(f'>>>> Type_lower "{Type_lower}" in Dont_Add_min ')
         else:
