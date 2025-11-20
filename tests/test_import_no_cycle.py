@@ -18,6 +18,7 @@ data_fast = {
     "4th senate of spain": "مجلس شيوخ إسبانيا",
     "19th government of turkey": "حكومة تركيا",
     "11th government of turkey": "حكومة تركيا",
+    "1330 in men's international football": "كرة قدم دولية رجالية في 1330",
 }
 
 

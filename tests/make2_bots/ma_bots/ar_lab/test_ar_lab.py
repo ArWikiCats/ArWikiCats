@@ -22,7 +22,6 @@ def test_find_ar_label_fast(category, expected) -> None:
     label = find_ar_label(category, "in")
     assert label == expected
 
-
 def test_add_in_tab():
     # Test with basic inputs
     result = add_in_tab("test label", "test", "from")

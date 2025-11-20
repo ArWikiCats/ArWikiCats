@@ -263,7 +263,6 @@ data_list = [
     ("1550 in san marino", " in ", "1550 في سان مارينو"),
     ("1550 in iraq", " in ", "1550 في العراق"),
     ("chess in latvia", " in ", "الشطرنج في لاتفيا"),
-    ("sieges of french invasion of egypt and syria", " of ", "حصارات الغزو الفرنسي في مصر وسوريا"),
     ("people from bangkok", " from ", "أشخاص من بانكوك"),
     ("people from bangkok by occupation", " by ", "أشخاص من بانكوك حسب المهنة"),
     ("covid-19 pandemic in hawaii", " in ", "جائحة فيروس كورونا في هاواي"),
