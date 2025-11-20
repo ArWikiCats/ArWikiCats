@@ -52,7 +52,7 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 @save_data(enable=True)
-def wrap_event2(category: str) -> str:
+def wrap_event2(category: str, tito: str="") -> str:
     return event2bot.event2(category)
 
 
@@ -221,12 +221,14 @@ def _check_in_tables_new(country_lower, Type_lower):
     return country_in_Table, Type_in_Table
 
 
-def find_ar_label(category: str, tito: str, tito_name: str, Cate_test: str, category_r: str, start_get_country2: bool = True) -> str:
+def find_ar_label(category: str, tito: str, Cate_test: str="",
+                  category_r: str="", start_get_country2: bool = True
+                  ) -> str:
     """Find the Arabic label based on the provided parameters."""
 
     CAO = True
 
-    logger.info(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
+    logger.info(f'<<lightblue>>>>>> find_ar_label: {category=}, {tito=}')
     tito2 = tito.strip()
     Type, country = get_type_country(category, tito)
 
@@ -237,7 +239,7 @@ def find_ar_label(category: str, tito: str, tito_name: str, Cate_test: str, cate
     Type_lab, Add_in_lab = get_Type_lab(tito, Type, Type_lower, country_lower)
 
     if not Type_lab:
-        Type_lab = wrap_event2(Type_lower)
+        Type_lab = wrap_event2(Type_lower, tito)
 
     if Type_lab:
         Cate_test = Cate_test.replace(Type_lower, "")

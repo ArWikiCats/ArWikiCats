@@ -77,7 +77,9 @@ def work_titose_nmaes(
         # if Keep_Work and tito in category:
         if tito not in category:
             continue
-        arlabel = find_ar_label(category, tito, tito_name, Cate_test, category_r, start_get_country2=start_get_country2)
+
+        logger.info(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
+        arlabel = find_ar_label(category, tito, Cate_test, category_r=category_r, start_get_country2=start_get_country2)
         if arlabel:
             logger.info(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
         break
