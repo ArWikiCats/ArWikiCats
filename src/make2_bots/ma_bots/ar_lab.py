@@ -208,7 +208,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     return label, should_append_in_label
 
 
-@dump_data(enable=True)
+# @dump_data(enable=True)
 def get_con_lab(preposition: str, country: str, start_get_country2: bool=False) -> str:
     """Retrieve the corresponding label for a given country."""
     preposition = preposition.strip()
