@@ -16,14 +16,11 @@ def one_req(name: str) -> bool:
 
 @dataclass(frozen=True)
 class PrintConfig:
-    disable_all_printing: bool
     noprint: bool
 
 
 @dataclass(frozen=True)
 class AppConfig:
-    enable_wikidata: bool
-    enable_kooora: bool
     start_yementest: bool
     find_stubs: bool
     makeerr: bool
@@ -37,16 +34,11 @@ class Config:
     app: AppConfig
 
 
-noprint_flag = one_req("NOPRINT")
-
 settings = Config(
     print=PrintConfig(
-        disable_all_printing=one_req("ALL_PRINT_OFF") or noprint_flag,
-        noprint=noprint_flag,
+        noprint=one_req("NOPRINT"),
     ),
     app=AppConfig(
-        enable_wikidata=one_req("ENABLE_WIKIDATA"),
-        enable_kooora=one_req("ENABLE_KOOORA"),
         start_yementest=one_req("YEMENTEST"),
         find_stubs=one_req("-STUBS"),
         makeerr=one_req("MAKEERR"),

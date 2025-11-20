@@ -1,4 +1,19 @@
 
+## [#94](https://github.com/MrIbrahem/make2_new/pull/94) - 2025-11-21
+
+* **Documentation**
+  * Added a new English README and updated the main README header/branding.
+
+* **New Features / Refactor**
+  * Reorganized Arabic label generation: new modular pipeline and public exports; legacy implementation removed.
+
+* **Bug Fixes**
+  * Strengthened whitespace normalization to collapse and trim spaces for more consistent labels.
+
+* **Tests**
+  * Updated tests to ignore surrounding whitespace during normalization.
+
+
 ## [#93](https://github.com/MrIbrahem/make2_new/pull/93) - 2025-11-21
 
 * **New Features**

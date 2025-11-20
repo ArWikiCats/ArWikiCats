@@ -65,7 +65,7 @@ Internally orchestrated by the core resolver:
 
 ## Installation
 ```bash
-git clone https://github.com/yourname/make2
+git clone https://github.com/MrIbrahem/make2_new make2
 cd make2
 
 python -m venv .venv
@@ -80,7 +80,7 @@ pip install -r requirements.in
 
 ### Single category
 ```python
-from src import new_func_lab_final_label
+from make2 import new_func_lab_final_label
 print(new_func_lab_final_label("Category:2015 American television"))
 ```
 
@@ -103,10 +103,7 @@ print(result.no_labels)
 ## Environment Flags
 Control behavior with:
 
-- `ENABLE_WIKIDATA=1`
-- `ENABLE_KOOORA=1`
 - `YEMENTEST=1`
-- `ALL_PRINT_OFF=1`
 - `NOPRINT=1`
 - `MAKEERR`, `STUBS`, etc.
 

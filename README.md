@@ -126,7 +126,7 @@
 ## 3.2 خطوات التثبيت
 
 ```bash
-git clone https://github.com/yourname/make2.git
+git clone https://github.com/MrIbrahem/make2_new.git make2
 cd make2
 
 python -m venv .venv
@@ -142,7 +142,7 @@ pip install -r requirements.in
 ## 4.1 معالجة تصنيف واحد
 
 ```python
-from src import new_func_lab_final_label
+from make2 import new_func_lab_final_label
 
 label = new_func_lab_final_label("Category:2015 American television")
 print(label)
@@ -183,13 +183,10 @@ python run.py
 
 يمكن تخصيص سلوك النظام باستخدام المتغيرات التالية:
 
-* `ENABLE_WIKIDATA=1`
-* `ENABLE_KOOORA=1`
 * `YEMENTEST=1`
 * `STUBS`
 * `MAKEERR`
 * `LOAD_P17NAT`
-* `ALL_PRINT_OFF=1`
 * `NOPRINT=1`
 
 توثيق هذه الخيارات موجود في `src/config.py`.
