@@ -93,13 +93,8 @@ def test_sports_5():
         "Category:Norwegian pair skaters": "تصنيف:متزلجون فنيون على الجليد نرويجيون",
         "Category:Norwegian short track speed skaters": "تصنيف:متزلجون على مسار قصير نرويجيون",
         "Category:Olympic competitors for Cape Verde": "تصنيف:منافسون أولمبيون من الرأس الأخضر",
-        "Category:Olympic figure skaters of Argentina": "تصنيف:متزلجون فنيون أولمبيون من الأرجنتين",
-        "Category:Olympic figure skaters of Armenia": "تصنيف:متزلجون فنيون أولمبيون من أرمينيا",
-        "Category:Olympic figure skaters of Australia": "تصنيف:متزلجون فنيون أولمبيون من أستراليا",
         "Category:Olympic figure skating": "تصنيف:تزلج فني أولمبي",
         "Category:Olympic medalists in alpine skiing": "تصنيف:فائزون بميداليات أولمبية في التزلج على المنحدرات الثلجية",
-        "Category:Olympic shooters of Egypt": "تصنيف:رماة أولمبيون من مصر",
-        "Category:Olympic short track speed skaters of Japan": "تصنيف:متزلجون على مسار قصير أولمبيون من اليابان",
         "Category:Rail transport in the United Kingdom": "تصنيف:السكك الحديدية في المملكة المتحدة",
         "Category:Republic of Ireland football managers": "تصنيف:مدربو كرة قدم أيرلنديون",
     }

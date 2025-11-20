@@ -4,6 +4,7 @@ Arabic Label Builder Module
 """
 
 import functools
+from dataclasses import dataclass
 import re
 from typing import Tuple
 
@@ -55,6 +56,15 @@ TITO_LIST_S = [
 ]
 
 
+@dataclass
+class ParsedCategory:
+    """Represents a parsed category with its components."""
+    category: str
+    tito: str
+    type_value: str
+    country: str
+
+
 @dump_data()
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, tito: str = "") -> str:
@@ -65,12 +75,19 @@ def wrap_event2(category: str, tito: str = "") -> str:
 def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     """Extract the type and country from a given category string.
 
+    This function takes a category string and a delimiter (tito) to split
+    the category into a type and a country. It processes the strings to
+    ensure proper formatting and handles specific cases based on the value
+    of tito. The function also performs some cleanup on the extracted
+    strings to remove any unwanted characters or formatting issues.
+
     Args:
         category (str): The category string containing type and country information.
-        tito (str): The delimiter used to separate the type and country.
+        tito (str): The delimiter used to separate the type and country in the category
+            string.
 
     Returns:
-        Tuple[str, str]: A tuple containing the processed type and country.
+        tuple: A tuple containing the processed type (str) and country (str).
     """
     category_type, country = "", ""
     if tito and tito in category:
@@ -121,7 +138,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     elif tito_stripped == "for" and not country.startswith(tito_starts):
         country = f"for {country}"
 
-    logger.info(f'>xx>>> Type: "{category_type.strip()}", country: "{country.strip()}", {tito=} ')
+    logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {tito=} ')
 
     if test_remainder and test_remainder != tito_stripped:
         logger.info(f'>>>> test_remainder != "", type_regex:"{type_regex}", tito:"{tito}", country_regex:"{country_regex}" ')
@@ -132,7 +149,6 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
             country_regex = f"by {country_regex}"
         elif tito_stripped == "for" and not country_regex.startswith(tito_starts):
             country_regex = f"for {country_regex}"
-
         category_type = type_regex
         country = country_regex
 
@@ -144,7 +160,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
 
 
 # @dump_data(enable=True)
-def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
+def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters.
 
     Args:
@@ -167,27 +183,27 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         logger.info(f'>> >> >> Make label "{label}".')
 
     should_append_in_label = True
-    type_lower_with_prep = type_lower.strip()
+    type_lower_with_preposition = type_lower.strip()
 
-    if not type_lower_with_prep.endswith(f" {normalized_preposition}"):
-        type_lower_with_prep = f"{type_lower.strip()} {normalized_preposition}"
+    if not type_lower_with_preposition.endswith(f" {normalized_preposition}"):
+        type_lower_with_preposition = f"{type_lower.strip()} {normalized_preposition}"
 
     if not label:
-        label = Tabl_with_in.get(type_lower_with_prep, "")
+        label = Tabl_with_in.get(type_lower_with_preposition, "")
         if label:
             should_append_in_label = False
-            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_prep}", label : "{label}"')
+            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if not label:
         label = New_P17_Finall.get(type_lower, "")
         if label:
-            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_prep}", label : "{label}"')
+            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if label == "" and type_lower.startswith("the "):
         type_lower_no_article = type_lower[len("the ") :]
         label = New_P17_Finall.get(type_lower_no_article, "")
         if label:
-            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_prep}", label : "{label}"')
+            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
 
     if label == "" and type_lower.strip().endswith(" people"):
         label = make_people_lab(type_lower)
@@ -207,7 +223,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, normalized_preposition, Type="Type_lab")
+        label = Get_c_t_lab(type_lower, normalized_preposition, lab_type="type_label")
 
     if not label:
         label = te4_2018_Jobs(type_lower)
@@ -215,8 +231,8 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     if not label:
         label = country2_lab.get_lab_for_country2(type_lower)
 
-    logger.info(f"?????? get_Type_lab: {type_lower=}, {label=}")
-
+    logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
+    label = label.replace("  ", " ").replace("  ", " ").replace("  ", " ")
     return label, should_append_in_label
 
 
@@ -292,20 +308,20 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
     return label or ""
 
 
-def add_in_tab(type_label: str, type_lower: str, tito2: str) -> str:
+def add_in_tab(type_label: str, type_lower: str, tito_stripped: str) -> str:
     """Add 'من' (from) to the label if conditions are met.
 
     Args:
         type_label (str): The current Arabic label for the type.
         type_lower (str): The lowercase type string.
-        tito2 (str): The stripped delimiter.
+        tito_stripped (str): The stripped delimiter.
 
     Returns:
         str: The modified type label.
     """
     ty_in18 = get_pop_All_18(type_lower)
 
-    if tito2 == "from":
+    if tito_stripped == "from":
         if not type_label.strip().endswith(" من"):
             logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
             type_label = f"{type_label} من "
@@ -325,7 +341,7 @@ def add_in_tab(type_label: str, type_lower: str, tito2: str) -> str:
     return type_label
 
 
-class ArabicLabelBuilder:
+class LabelPipeline:
     """
     A class to handle the construction of Arabic labels from category strings.
     """
@@ -353,7 +369,7 @@ class ArabicLabelBuilder:
         self.type_label = ""
         self.country_label = ""
         self.should_append_in_label = True
-        self.add_in_lab = True  # Renamed from Add_in_lab for consistency but keeping logic
+        self.add_in_lab = True  # Renamed from add_in_lab for consistency but keeping logic
 
         self.country_in_table = False
         self.type_in_table = False
@@ -366,7 +382,7 @@ class ArabicLabelBuilder:
 
     def resolve_labels(self) -> bool:
         """Resolves type and country labels. Returns False if resolution fails."""
-        self.type_label, self.add_in_lab = get_Type_lab(self.tito, self.category_type)
+        self.type_label, self.add_in_lab = get_type_lab(self.tito, self.category_type)
 
         if self.type_lower == "sport" and self.country_lower.startswith("by "):
             self.type_label = "رياضة"
@@ -387,7 +403,7 @@ class ArabicLabelBuilder:
         # Validation
         cao = True
         if not self.type_label:
-            logger.info(f'>>>> Type_lower "{self.type_lower}" not in pop_of_in')
+            logger.info(f'>>>> type_lower "{self.type_lower}" not in pop_of_in')
             cao = False
 
         if not self.country_label:
@@ -395,8 +411,8 @@ class ArabicLabelBuilder:
             cao = False
 
         if self.type_label or self.country_label:
-            logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", con_lab:"{self.country_label}"')
-            logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{self.type_lower}", Type_lab:"{self.type_label}"')
+            logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", country_label:"{self.country_label}"')
+            logger.info(f'<<lightgreen>>>>>> ------------- type_lower:"{self.type_lower}", type_label:"{self.type_label}"')
 
         if not cao:
             return False
@@ -411,32 +427,34 @@ class ArabicLabelBuilder:
     def refine_type_label(self):
         """Refines the type label with prepositions."""
         if self.add_in_lab:
-            self.type_label = self._tito_list_s_fixing(self.type_label, self.tito_stripped, self.type_lower)
+            self.type_label = self.tito_list_s_fixing(self.type_label, self.tito_stripped, self.type_lower)
             if self.type_lower in Dont_Add_min:
-                logger.info(f'>>>> Type_lower "{self.type_lower}" in Dont_Add_min ')
+                logger.info(f'>>>> type_lower "{self.type_lower}" in Dont_Add_min ')
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.tito_stripped)
 
-    def _tito_list_s_fixing(self, type_lab: str, tito2: str, type_lower: str) -> str:
+    # @dump_data(enable=True, compare_with_output="type_label")
+    def tito_list_s_fixing(self, type_label: str, tito_stripped: str, type_lower: str) -> str:
         """
-        Fixes 'in', 'at' prepositions in the label.
+        {"type_label": "منشآت عسكرية", "tito_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
         """
-        if tito2 in TITO_LIST_S:
-            if tito2 == "in" or " in" in type_lower:
+        if tito_stripped in TITO_LIST_S:
+            if tito_stripped == "in" or " in" in type_lower:
                 if type_lower in pop_of_without_in:
-                    logger.info(f'>>-- Skip aAdd في to Type_lab:"{type_lab}", "{type_lower}"')
+                    logger.info(f'>>-- Skip aAdd في to type_label:"{type_label}", "{type_lower}"')
                 else:
-                    if " في" not in type_lab and " in" in type_lower:
-                        logger.info(f'>>-- aAdd في to Type_lab:in"{type_lab}", for "{type_lower}"')
-                        type_lab = type_lab + " في"
-                    elif tito2 == "in" and " in" in type_lower:
-                        logger.info(f'>>>> aAdd في to Type_lab:in"{type_lab}", for "{type_lower}"')
-                        type_lab = type_lab + " في"
+                    if " في" not in type_label and " in" in type_lower:
+                        logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{type_lower}"')
+                        type_label = type_label + " في"
+                    elif tito_stripped == "in" and " in" in type_lower:
+                        logger.info(f'>>>> aAdd في to type_label:in"{type_label}", for "{type_lower}"')
+                        type_label = type_label + " في"
 
-            elif (tito2 == "at" or " at" in type_lower) and (" في" not in type_lab):
-                logger.info('>>>> Add في to Type_lab:at"%s"' % type_lab)
-                type_lab = type_lab + " في"
-        return type_lab
+            elif (tito_stripped == "at" or " at" in type_lower) and (" في" not in type_label):
+                logger.info('>>>> Add في to type_label:at"%s"' % type_label)
+                type_label = type_label + " في"
+
+        return type_label
 
     def check_tables(self):
         """Checks if components are in specific tables."""
@@ -446,15 +464,7 @@ class ArabicLabelBuilder:
         if self.country_in_table:
             logger.info(f'>>>> X:<<lightpurple>> country_lower "{self.country_lower}" in {table1}.')
         if self.type_in_table:
-            logger.info(f'>>>>xX:<<lightpurple>> Type_lower "{self.type_lower}" in {table2}.')
-
-        in_tables_1 = check_key_new_players(self.country_lower)
-        in_tables_2 = check_key_new_players(self.type_lower)
-
-        if in_tables_1 and in_tables_2:
-            logger.info(">>>> ================ ")
-            logger.info(">>>>> > X:<<lightred>> Type_lower and country_lower in players_new_keys.")
-            logger.info(">>>> ================ ")
+            logger.info(f'>>>>xX:<<lightpurple>> type_lower "{self.type_lower}" in {table2}.')
 
     def determine_separator(self) -> str:
         """Determines the separator string between labels."""
@@ -471,12 +481,12 @@ class ArabicLabelBuilder:
                 self.type_label = self.type_label + " في"
 
         if self.add_in_lab:
-            logger.info(f">>>>> > Add_in_lab ({self.tito_stripped=})")
+            logger.info(f">>>>> > add_in_lab ({self.tito_stripped=})")
             tito2_lab = category_relation_mapping.get(self.tito_stripped)
 
             if tito2_lab not in TITO_LIST_S:
                 tatl = tito2_lab
-                logger.info(f">>>>> > ({self.tito_stripped=}): tito2 in category_relation_mapping and tito2 not in tito_list_s, {tatl=}")
+                logger.info(f">>>>> > ({self.tito_stripped=}): tito_stripped in category_relation_mapping and tito_stripped not in TITO_LIST_S, {tatl=}")
 
                 if self.tito_stripped == "for" and self.country_lower.startswith("for "):
                     if self.type_lower.strip().endswith("competitors") and "competitors for" in self.category:
@@ -502,6 +512,14 @@ class ArabicLabelBuilder:
                 logger.info("sps:%s" % sps)
                 self.cate_test = self.cate_test.replace(self.tito, "")
 
+        # in_tables_1 = check_key_new_players(self.country_lower)
+        # in_tables_2 = check_key_new_players(self.type_lower)
+
+        # if in_tables_1 and in_tables_2:
+        logger.info(">>>> ================ ")
+        logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
+        logger.info(">>>> ================ ")
+
         faa = category_relation_mapping.get(self.tito_stripped) or category_relation_mapping.get(self.tito_stripped.replace("-", " ").strip())
 
         if not sps.strip() and faa:
@@ -509,7 +527,7 @@ class ArabicLabelBuilder:
 
         return sps
 
-    def construct_final_label(self, sps: str) -> str:
+    def join_labels(self, sps: str) -> str:
         """Constructs the final Arabic label."""
         keep_type_last = False
         keep_type_first = False
@@ -518,20 +536,20 @@ class ArabicLabelBuilder:
         t_to = f"{self.type_lower} {self.tito_stripped}"
 
         if self.type_lower in Keep_it_last:
-            logger.info(f'>>>>> > X:<<lightred>> Keep_Type_last = True, Type_lower:"{self.type_lower}" in Keep_it_last')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
             keep_type_last = True
 
         elif self.type_lower in Keep_it_frist:
-            logger.info(f'>>>>> > X:<<lightred>> keep_Type_first = True, Type_lower:"{self.type_lower}" in Keep_it_frist')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist')
             keep_type_first = True
 
         elif t_to in Keep_it_frist:
-            logger.info(f'>>>>> > X:<<lightred>> keep_Type_first = True, t_to:"{t_to}" in Keep_it_frist')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, t_to:"{t_to}" in Keep_it_frist')
             keep_type_first = True
 
         # Determine order
         if self.type_in_table and self.country_in_table:
-            logger.info(">>> > X:<<lightpurple>> Type_lower and country_lower in Table_for_frist_word.")
+            logger.info(">>> > X:<<lightpurple>> type_lower and country_lower in Table_for_frist_word.")
             in_tables = check_key_new_players(self.country_lower)
             if not keep_type_first and in_tables:
                 arlabel = self.country_label + sps + self.type_label
@@ -544,11 +562,11 @@ class ArabicLabelBuilder:
                 arlabel = self.type_label + sps + self.country_label
 
         if keep_type_last:
-            logger.info(f'>>>>> > X:<<lightred>> Keep_Type_last = True, Type_lower:"{self.type_lower}" in Keep_it_last')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
             arlabel = self.country_label + sps + self.type_label
 
         elif keep_type_first:
-            logger.info(f'>>>>> > X:<<lightred>> keep_Type_first = True, Type_lower:"{self.type_lower}" in Keep_it_frist')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist')
             arlabel = self.type_label + sps + self.country_label
 
         if self.tito_stripped == "about" or (self.tito_stripped not in TITO_LIST_S):
@@ -568,10 +586,10 @@ class ArabicLabelBuilder:
             arlabel = pop_format2[vr].format(self.country_label)
         elif self.type_lower in pop_format:
             if not self.country_label.startswith("حسب"):
-                logger.info(f'>>>> <<lightblue>> Type_lower in pop_format "{pop_format[self.type_lower]}":')
+                logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}":')
                 arlabel = pop_format[self.type_lower].format(self.country_label)
             else:
-                logger.info(f'>>>> <<lightblue>> Type_lower in pop_format "{pop_format[self.type_lower]}" and con_lab.startswith("حسب") ')
+                logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}" and country_label.startswith("حسب") ')
 
         elif self.tito_stripped in pop_format33:
             logger.info(f'>>>> <<lightblue>> tito in pop_format33 "{pop_format33[self.tito_stripped]}":')
@@ -598,9 +616,9 @@ class ArabicLabelBuilder:
         self.check_tables()
 
         sps = self.determine_separator()
-        arlabel = self.construct_final_label(sps)
+        arlabel = self.join_labels(sps)
 
-        logger.info(f'>>>> <<lightblue>>Cate_test :"{self.cate_test}"')
+        logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
         logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", arlabel:"{arlabel}"')
 
         arlabel = arlabel.strip()
@@ -614,18 +632,18 @@ class ArabicLabelBuilder:
 def find_ar_label(
     category: str,
     tito: str,
-    Cate_test: str = "",
+    cate_test: str = "",
     start_get_country2: bool = True,
     use_event2: bool = True,
 ) -> str:
     """Find the Arabic label based on the provided parameters.
 
-    This function now uses the ArabicLabelBuilder class to perform the logic.
+    This function now uses the LabelPipeline class to perform the logic.
     """
-    builder = ArabicLabelBuilder(
+    builder = LabelPipeline(
         category=category,
         tito=tito,
-        cate_test=Cate_test,
+        cate_test=cate_test,
         start_get_country2=start_get_country2,
         use_event2=use_event2
     )
@@ -635,7 +653,7 @@ def find_ar_label(
 __all__ = [
     "find_ar_label",
     "add_in_tab",
-    "get_Type_lab",
+    "get_type_lab",
     "get_con_lab",
     "get_type_country",
 ]

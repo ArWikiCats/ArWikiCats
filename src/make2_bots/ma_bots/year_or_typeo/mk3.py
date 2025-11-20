@@ -33,32 +33,32 @@ def check_country_in_tables(country):
     return False
 
 
-def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, cat_test):
+def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_label, cat_test):
     Add_In_Done = False
     arlabel2 = arlabel
 
     if in_table and typeo not in Keep_it_frist:
         in_tables = check_key_new_players(country.lower())
         logger.info(f"{in_tables=}")
-        if not con_lab.startswith("حسب") and year_labe:
+        if not country_label.startswith("حسب") and year_labe:
             if (In.strip() == "in" or In.strip() == "at") or in_tables:
-                con_lab = f"{con_lab} في "
+                country_label = f"{country_label} في "
                 Add_In_Done = True
                 logger.info(">>> Add في line: 79")
                 cat_test = cat_test.replace(In, "")
 
-        arlabel = con_lab + suf + arlabel
+        arlabel = country_label + suf + arlabel
         if arlabel.startswith("حسب"):
-            arlabel = arlabel2 + suf + con_lab
+            arlabel = arlabel2 + suf + country_label
     else:
         if In.strip() == "in" or In.strip() == "at":
-            con_lab = f"في {con_lab}"
+            country_label = f"في {country_label}"
 
             cat_test = cat_test.replace(In, "")
             Add_In_Done = True
             logger.info(">>> Add في line: 92")
 
-        arlabel = arlabel + suf + con_lab
+        arlabel = arlabel + suf + country_label
         arlabel = re.sub(r"\s+", " ", arlabel)
         arlabel = arlabel.replace(" في في ", " في ")
         logger.info(f">3252 arlabel: {arlabel}")
@@ -67,35 +67,35 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, c
     return Add_In_Done, arlabel, cat_test
 
 
-def added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2):
+def added_in_new(country, arlabel, suf, year_labe, country_label, Add_In, arlabel2):
     logger.info("a<<lightblue>>>>>> Add year before")
     co_in_tables = check_key_in_tables(country, to_check_them)
     # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
     # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
-    if (suf.strip() == "" and con_lab.startswith("ال")) or co_in_tables or check_key_new_players(country.lower()):
+    if (suf.strip() == "" and country_label.startswith("ال")) or co_in_tables or check_key_new_players(country.lower()):
         suf = " في "
         logger.info("a<<lightblue>>>>>> Add في to suf")
 
-    logger.info(f'a<<lightblue>>>>>> con_lab:{con_lab},suf:{suf}:,arlabel2:"{arlabel2}"')
+    logger.info(f'a<<lightblue>>>>>> country_label:{country_label},suf:{suf}:,arlabel2:"{arlabel2}"')
 
     Add_In_Done = False
 
     if suf.strip() == "" and year_labe.strip() == arlabel2.strip():
-        if Add_In and con_lab.strip() in ar_lab_before_year_to_add_in:
+        if Add_In and country_label.strip() in ar_lab_before_year_to_add_in:
             logger.info("ar_lab_before_year_to_add_in Add في to arlabel")
             suf = " في "
             Add_In = False
             Add_In_Done = True
 
-        elif con_lab.strip().startswith("أعضاء ") and con_lab.find(" حسب ") == -1:
+        elif country_label.strip().startswith("أعضاء ") and country_label.find(" حسب ") == -1:
             logger.info(">354 Add في to arlabel")
             suf = " في "
             Add_In = False
             Add_In_Done = True
 
-    arlabel = con_lab + suf + arlabel2
+    arlabel = country_label + suf + arlabel2
 
-    logger.info("a<<lightblue>>>3265>>>arlabel = con_lab + suf +  arlabel2")
+    logger.info("a<<lightblue>>>3265>>>arlabel = country_label + suf +  arlabel2")
     logger.info(f"a<<lightblue>>>3265>>>{arlabel}")
 
     return arlabel, Add_In, Add_In_Done
@@ -145,7 +145,7 @@ def new_func_mk2(
 
     cat_test = cat_test.replace(country, "")
     arlabel = re.sub(r" ", " ", arlabel)
-    con_lab = country_label
+    country_label = country_label
 
     suf = f" {suf.strip()} " if suf else " "
     """
@@ -165,7 +165,7 @@ def new_func_mk2(
 
     in_table = check_country_in_tables(country)
 
-    Add_In_Done, arlabel, cat_test = add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, con_lab, cat_test)
+    Add_In_Done, arlabel, cat_test = add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_label, cat_test)
 
     logger.info(f"{year_labe=}, {arlabel2=}")
 
@@ -176,7 +176,7 @@ def new_func_mk2(
         return cat_test, arlabel
 
     if typeo == "" and In == "" and country and year:
-        arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, con_lab, Add_In, arlabel2)
+        arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, country_label, Add_In, arlabel2)
     logger.info("------- end --------")
     logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
     logger.info(f'a<<lightblue>>>>>> arlabel "{arlabel}"')

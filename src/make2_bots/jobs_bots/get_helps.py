@@ -73,6 +73,6 @@ def get_con_3(cate: str, category_type: str) -> Tuple[str, str]:
 
     # Logging final result if match found
     if category_suffix and country_prefix:
-        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_con_3 fo_3:"{category_suffix}",Type:{category_type}')
+        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_con_3 fo_3:"{category_suffix}",lab_type:{category_type}')
 
     return category_suffix, country_prefix
