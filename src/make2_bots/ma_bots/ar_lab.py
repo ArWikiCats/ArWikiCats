@@ -4,6 +4,7 @@ Arabic Label Builder Module
 """
 
 import functools
+from dataclasses import dataclass
 import re
 from typing import Tuple
 
@@ -53,6 +54,15 @@ TITO_LIST_S = [
     "by",
     "of",
 ]
+
+
+@dataclass
+class ParsedCategory:
+    """Represents a parsed category with its components."""
+    category: str
+    tito: str
+    type_value: str
+    country: str
 
 
 @dump_data()
