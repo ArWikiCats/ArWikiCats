@@ -384,13 +384,13 @@ def determine_separator(tito_stripped, country_label, type_label, type_lower, co
             logger.info("sps:%s" % sps)
             cate_test = cate_test.replace(tito, "")
 
-    in_tables_1 = check_key_new_players(country_lower)
-    in_tables_2 = check_key_new_players(type_lower)
+    # in_tables_1 = check_key_new_players(country_lower)
+    # in_tables_2 = check_key_new_players(type_lower)
 
-    if in_tables_1 and in_tables_2:
-        logger.info(">>>> ================ ")
-        logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
-        logger.info(">>>> ================ ")
+    # if in_tables_1 and in_tables_2:
+    logger.info(">>>> ================ ")
+    logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
+    logger.info(">>>> ================ ")
 
     faa = category_relation_mapping.get(tito_stripped.strip()) or category_relation_mapping.get(tito_stripped.replace("-", " ").strip())
     # print(f"{tito_stripped=}, {faa=}, {sps=}")

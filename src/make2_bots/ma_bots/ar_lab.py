@@ -466,14 +466,6 @@ class ArabicLabelBuilder:
         if self.type_in_table:
             logger.info(f'>>>>xX:<<lightpurple>> type_lower "{self.type_lower}" in {table2}.')
 
-        in_tables_1 = check_key_new_players(self.country_lower)
-        in_tables_2 = check_key_new_players(self.type_lower)
-
-        if in_tables_1 and in_tables_2:
-            logger.info(">>>> ================ ")
-            logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
-            logger.info(">>>> ================ ")
-
     def determine_separator(self) -> str:
         """Determines the separator string between labels."""
         sps = " "
@@ -519,6 +511,14 @@ class ArabicLabelBuilder:
                 sps = f" {tatl} "
                 logger.info("sps:%s" % sps)
                 self.cate_test = self.cate_test.replace(self.tito, "")
+
+        # in_tables_1 = check_key_new_players(self.country_lower)
+        # in_tables_2 = check_key_new_players(self.type_lower)
+
+        # if in_tables_1 and in_tables_2:
+        logger.info(">>>> ================ ")
+        logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
+        logger.info(">>>> ================ ")
 
         faa = category_relation_mapping.get(self.tito_stripped) or category_relation_mapping.get(self.tito_stripped.replace("-", " ").strip())
 
