@@ -80,8 +80,11 @@ def work_titose_names(
             continue
         # ---
         logger.info(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
-        arlabel = find_ar_label(category, tito, Cate_test, category_r=category_r, start_get_country2=start_get_country2)
+        arlabel = find_ar_label(category, tito, Cate_test=Cate_test, start_get_country2=start_get_country2)
+        # ---
         if arlabel:
+            if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:
+                arlabel = ""
             logger.info(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
         # ---
         break
