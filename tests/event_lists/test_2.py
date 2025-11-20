@@ -57,3 +57,57 @@ def test_2_new():
 
     dump_diff(diff_result, "test_2_new")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+
+data_list_bad = {
+    "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا القرن 20",
+    "Category:20th century roman catholic archbishops in colombia": "تصنيف:رؤساء أساقفة رومان كاثوليك في كولومبيا القرن 20",
+    "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس القرن 20",
+    "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
+    "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
+    "Category:20th century members of maine legislature": "تصنيف:أعضاء هيئة مين التشريعية في القرن 20",
+    "Category:20th century prime ministers of japan": "تصنيف:رؤساء وزراء اليابان القرن 20",
+    "Category:september 1550 sorts-events in germany": "تصنيف:أحداث سبتمبر 1550 الرياضية في ألمانيا",
+    "Category:1550s disestablishments in yugoslavia": "تصنيف:انحلالات عقد 1550 في يوغوسلافيا",
+    "Category:20th century disestablishments in the united kingdom": "تصنيف:انحلالات القرن 20 في المملكة المتحدة",
+    "Category:november 1550 sorts-events in north america": "تصنيف:أحداث نوفمبر 1550 الرياضية في أمريكا الشمالية",
+    "Category:1550s establishments in wisconsin": "تصنيف:تأسيسات عقد 1550 في ويسكونسن",
+    "Category:20th century disestablishments in sri lanka": "تصنيف:انحلالات القرن 20 في سريلانكا",
+    "Category:3rd millennium disestablishments in england": "تصنيف:انحلالات الألفية 3 في إنجلترا",
+    "Category:may 1550 sorts-events in the united states": "تصنيف:أحداث مايو 1550 الرياضية في الولايات المتحدة",
+    "Category:december 1550 sorts-events in the united states": "تصنيف:أحداث ديسمبر 1550 الرياضية في الولايات المتحدة",
+    "Category:1550s crimes in pakistan": "تصنيف:جرائم عقد 1550 في باكستان",
+    "Category:2nd millennium establishments in rhode island": "تصنيف:تأسيسات الألفية 2 في رود آيلاند",
+    "Category:1550s establishments in chile": "تصنيف:تأسيسات عقد 1550 في تشيلي",
+    "Category:1550s disestablishments in southeast asia": "تصنيف:انحلالات عقد 1550 في جنوب شرق آسيا",
+    "Category:december 1550 sorts-events in the united kingdom": "تصنيف:أحداث ديسمبر 1550 الرياضية في المملكة المتحدة",
+    "Category:20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
+    "Category:1550s establishments in jamaica": "تصنيف:تأسيسات عقد 1550 في جامايكا",
+    "Category:march 1550 sorts-events in belgium": "تصنيف:أحداث مارس 1550 الرياضية في بلجيكا",
+    "Category:20th century disasters in afghanistan": "تصنيف:كوارث القرن 20 في أفغانستان",
+    "Category:april 1550 sorts-events in the united kingdom": "تصنيف:أحداث أبريل 1550 الرياضية في المملكة المتحدة",
+    "Category:1550s disestablishments in mississippi": "تصنيف:انحلالات عقد 1550 في مسيسيبي",
+    "Category:1550s establishments in maine": "تصنيف:تأسيسات عقد 1550 في مين",
+    "Category:1550s establishments in sweden": "تصنيف:تأسيسات عقد 1550 في السويد",
+    "Category:20th century disestablishments in newfoundland and labrador": "تصنيف:انحلالات القرن 20 في نيوفاوندلاند واللابرادور",
+    "Category:20th century disestablishments in the danish colonial empire": "تصنيف:انحلالات القرن 20 في الإمبراطورية الاستعمارية الدنماركية",
+    "Category:20th century establishments in french guiana": "تصنيف:تأسيسات القرن 20 في غويانا الفرنسية",
+    "Category:20th century establishments in ireland": "تصنيف:تأسيسات القرن 20 في أيرلندا",
+    "Category:20th century monarchs by country": "تصنيف:ملكيون في القرن 20 حسب البلد",
+    "Category:august 1550 sorts-events in france": "تصنيف:أحداث أغسطس 1550 الرياضية في فرنسا",
+    "Category:february 1550 sorts-events in germany": "تصنيف:أحداث فبراير 1550 الرياضية في ألمانيا",
+    "Category:july 1550 crimes by continent": "تصنيف:جرائم يوليو 1550 حسب القارة",
+    "Category:july 1550 sorts-events in north america": "تصنيف:أحداث يوليو 1550 الرياضية في أمريكا الشمالية",
+    "Category:june 1550 sorts-events in malaysia": "تصنيف:أحداث يونيو 1550 الرياضية في ماليزيا",
+    "Category:march 1550 sorts-events in thailand": "تصنيف:أحداث مارس 1550 الرياضية في تايلاند",
+    "Category:november 1550 sorts-events in europe": "تصنيف:أحداث نوفمبر 1550 الرياضية في أوروبا",
+    "Category:november 1550 sorts-events in the united kingdom": "تصنيف:أحداث نوفمبر 1550 الرياضية في المملكة المتحدة",
+    "Category:october 1550 sorts-events in oceania": "تصنيف:أحداث أكتوبر 1550 الرياضية في أوقيانوسيا",
+}
+
+
+def test_new_bug_check():
+    expected, diff_result = ye_test_one_dataset(data_list_bad, new_func_lab_final_label)
+
+    dump_diff(diff_result, "test_2_new_bug_check")
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
