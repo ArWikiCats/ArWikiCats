@@ -15,7 +15,7 @@ import re
 from ...helps.log import logger
 from ...translations import Jobs_new  # to be removed from players_new_keys
 from ...translations import jobs_mens_data  # to be  removed from players_new_keys
-from ...utils import get_value_from_any_table, get_relation_word
+from ...utils import get_value_from_any_table, get_relation_word, fix_minor
 from ..date_bots import year_lab
 from ..format_bots import category_relation_mapping
 
@@ -132,10 +132,10 @@ def translate_general_category(category_r: str, start_get_country2: bool = True)
         arlabel = work_titose_names(category, Cate_test, start_get_country2=start_get_country2)
 
     if arlabel:
+        arlabel = fix_minor(arlabel)
         logger.info(f'xxxxx <<green>>Cate_test: "{Cate_test}" ')
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
-    arlabel = arlabel.replace("  ", " ").replace("  ", " ").replace("  ", " ")
     logger.info("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
 
     return arlabel

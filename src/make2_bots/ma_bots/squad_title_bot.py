@@ -7,6 +7,7 @@ from ..ma_bots.squad_title_bot import get_squad_title
 
 import functools
 
+from ...utils import fix_minor
 from ...helps.log import logger
 from ...translations import Get_New_team_xo, New_P17_Finall, pop_of_football_lower
 from ..date_bots import with_years_bot
@@ -35,7 +36,7 @@ def get_squad_title(tit: str) -> str:
                     lab = f"تشكيلات {oo_lab} في {falab}"
                     break
 
-    lab = lab.replace("  ", " ")
+    lab = fix_minor(lab)
     logger.info(f'<<lightblue>> get_squad_title:"{tit}", lab:"{lab}" ')
 
     return lab
