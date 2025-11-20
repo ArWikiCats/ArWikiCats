@@ -1,4 +1,17 @@
 
+## [#87](https://github.com/MrIbrahem/make2_new/pull/87) - 2025-11-20
+
+* **New Features**
+  * Added enhanced Arabic labeling system with comprehensive category and type resolution capabilities.
+
+* **Tests**
+  * Expanded test coverage with new bug-check test cases for Arabic labeling validation.
+  * Added targeted test cases for label generation with edge-case data.
+
+* **Chores**
+  * Introduced refactoring plan document for system architecture improvements.
+  * Internal code restructuring for maintainability and modularity.
+
 ## [#86](https://github.com/MrIbrahem/make2_new/pull/86) - 2025-11-20
 
 * **Tests**
