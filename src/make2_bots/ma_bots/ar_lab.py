@@ -330,7 +330,7 @@ def tito_list_s_fixing(Type_lab, tito2, Add_in_lab, Type_lower):
     return Type_lab
 
 
-@dump_data()
+@dump_data(["category", "tito"], True)
 @functools.lru_cache(maxsize=10000)
 def find_ar_label(
     category: str,
