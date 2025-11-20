@@ -479,7 +479,7 @@ def find_ar_label(
     tito: str,
     Cate_test: str="",
     start_get_country2: bool = True,
-    use_event2: bool = True
+    use_event2: bool = True,
 ) -> str:
     """Find the Arabic label based on the provided parameters."""
 
