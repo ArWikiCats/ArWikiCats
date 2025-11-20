@@ -53,51 +53,13 @@ class CountryLabelRetriever:
 
         if not resolved_label:
             resolved_label = self._check_prefixes(country)
-        OKay = True
 
-        if resolved_label == "" and OKay:
-            separators = [
-                "based in",
-                "in",
-                "by",
-                "about",
-                "to",
-                "of",
-                "-of ",  # special case
-                "from",
-                "at",
-                "on",
-            ]
-            separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
-            for sep in separators:
-                if sep in country:
-                    OKay = False
-                    break
+        is_valid = True
+        if not resolved_label:
+            is_valid = self._validate_separators(country)
 
-        if resolved_label == "" and OKay:
-            historical_prefixes = {
-                "defunct national ": "{} وطنية سابقة",
-            }
-
-            for prefix, prefix_template in historical_prefixes.items():
-                if not country.startswith(prefix):
-                    continue
-                logger.debug(f">>> country.startswith({prefix})")
-                remainder = country[len(prefix) :]
-                remainder_label = country2_bot.Get_country2(remainder)
-
-                if remainder_label == "":
-                    remainder_label = country2_lab.get_lab_for_country2(remainder)
-
-                if remainder_label == "":
-                    remainder_label = ye_ts_bot.translate_general_category(remainder)
-
-                if remainder_label:
-                    resolved_label = prefix_template.format(remainder_label)
-                    if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
-                        resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
-                    logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
-                    break
+        if not resolved_label and is_valid:
+            resolved_label = self._check_historical_prefixes(country)
 
         if resolved_label:
             if "سنوات في القرن" in resolved_label:
@@ -159,6 +121,63 @@ class CountryLabelRetriever:
 
         return ""
 
+    def _resolve_remainder(self, remainder: str) -> str:
+        """Helper to resolve the label for the remainder of a string."""
+        label = country2_bot.Get_country2(remainder)
+        if not label:
+            label = country2_lab.get_lab_for_country2(remainder)
+        if not label:
+            label = ye_ts_bot.translate_general_category(remainder)
+        return label
+
+    def _validate_separators(self, country: str) -> bool:
+        """Check if the country string contains invalid separators."""
+        separators = [
+            "based in",
+            "in",
+            "by",
+            "about",
+            "to",
+            "of",
+            "-of ",  # special case
+            "from",
+            "at",
+            "on",
+        ]
+        separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
+        for sep in separators:
+            if sep in country:
+                return False
+        return True
+
+    def _check_historical_prefixes(self, country: str) -> str:
+        """Check for historical prefixes."""
+        historical_prefixes = {
+            "defunct national ": "{} وطنية سابقة",
+        }
+        resolved_label = ""
+        for prefix, prefix_template in historical_prefixes.items():
+            if not country.startswith(prefix):
+                continue
+            logger.debug(f">>> country.startswith({prefix})")
+            remainder = country[len(prefix) :]
+            remainder_label = country2_bot.Get_country2(remainder)
+
+            if remainder_label == "":
+                remainder_label = country2_lab.get_lab_for_country2(remainder)
+
+            if remainder_label == "":
+                remainder_label = ye_ts_bot.translate_general_category(remainder)
+
+            if remainder_label:
+                resolved_label = prefix_template.format(remainder_label)
+                if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
+                    resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
+                logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
+                break
+
+        return resolved_label
+
     def _check_regex_years(self, country: str) -> str:
         """Check regex patterns for years."""
         RE1 = RE1_compile.match(country)
@@ -189,10 +208,10 @@ class CountryLabelRetriever:
 
         # Check for numeric/empty terms
         test_numeric = re.sub(r"\d+", "", term_lower.strip())
-        test_numeric = ["", "-", "–", "−"]
-        term_label = term_lower if test_numeric in test_numeric else ""
-        if not term_label:
-            term_label = New_female_keys.get(term_lower, "")
+        if test_numeric in ["", "-", "–", "−"]:
+            return term_lower
+
+        term_label = New_female_keys.get(term_lower, "")
         if not term_label:
             term_label = centries_years_dec.get(term_lower, "")
 
@@ -213,50 +232,54 @@ class CountryLabelRetriever:
         if term_label == "":
             term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
-        if term_label == "" and lab_type == "Type_lab":
-            tatos = [" of", " in", " at"]
-
-            for suffix in tatos:
-                if term_label:
-                    break
-
-                if not term_lower.endswith(suffix):
-                    continue
-
-                base_term = term_lower[: -len(suffix)]
-                translated_base = jobs_mens_data.get(base_term, "")
-
-                logger.info(f'base_term:"{base_term}", translated_base:"{translated_base}", term_lower:"{term_lower}" ')
-
-                if term_label == "" and translated_base:
-                    term_label = f"{translated_base} من "
-                    logger.info(f"jobs_mens_data:: add من to term_label:{term_label}, line:1583.")
-
-                if not translated_base:
-                    translated_base = get_pop_All_18(base_term, "")
-
-                if not translated_base:
-                    translated_base = get_country(base_term, start_get_country2=start_get_country2)
-
-                if term_label == "" and translated_base:
-                    if term_lower in pop_of_without_in:
-                        term_label = translated_base
-                        logger.info("skip add في to pop_of_without_in")
-                    else:
-                        term_label = f"{translated_base} في "
-                        logger.info(f"XX add في to term_label:{term_label}, line:1596.")
-                    break
-            if term_label == "" and tito.strip() == "in":
-                term_label = get_pop_All_18(f"{term_lower} in", "")
-
-            if not term_label:
-                term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
+        if not term_label and lab_type == "Type_lab":
+            term_label = self._handle_type_lab_logic(term_lower, tito, start_get_country2)
 
         if term_label:
             logger.info(f'get_term_label term_label:"{term_label}" ')
-
         elif tito.strip() == "for" and term_lower.startswith("for "):
             return self.get_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
+
+        return term_label
+
+    def _handle_type_lab_logic(self, term_lower: str, tito: str, start_get_country2: bool) -> str:
+        """Handle logic specific to Type_lab."""
+        suffixes = [" of", " in", " at"]
+        term_label = ""
+
+        for suffix in suffixes:
+            if not term_lower.endswith(suffix):
+                continue
+
+            base_term = term_lower[: -len(suffix)]
+            translated_base = jobs_mens_data.get(base_term, "")
+
+            logger.info(f'base_term:"{base_term}", translated_base:"{translated_base}", term_lower:"{term_lower}" ')
+
+            if term_label == "" and translated_base:
+                term_label = f"{translated_base} من "
+                logger.info(f"jobs_mens_data:: add من to term_label:{term_label}, line:1583.")
+
+            if not translated_base:
+                translated_base = get_pop_All_18(base_term, "")
+
+            if not translated_base:
+                translated_base = self.get_country_label(base_term, start_get_country2=start_get_country2)
+
+            if term_label == "" and translated_base:
+                if term_lower in pop_of_without_in:
+                    term_label = translated_base
+                    logger.info("skip add في to pop_of_without_in")
+                else:
+                    term_label = f"{translated_base} في "
+                    logger.info(f"XX add في to term_label:{term_label}, line:1596.")
+                return term_label  # Return immediately if found
+
+        if term_label == "" and tito.strip() == "in":
+            term_label = get_pop_All_18(f"{term_lower} in", "")
+
+        if not term_label:
+            term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
         return term_label
 
