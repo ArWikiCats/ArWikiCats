@@ -1,3 +1,17 @@
+[#Organize translation JSON files by category] - 2025-11-20
+
+- **Added**
+  - Tests validating JSON loading from nested translation subdirectories.
+
+- **Changed**
+  - Reorganized translation JSON assets into domain-specific folders and updated loaders to resolve nested paths.
+  - Adjusted utilities and scripts to work with the new hierarchical layout.
+
+- **Fixed**
+  - Ensured recursive JSON scanning accounts for files inside nested directories.
+
+- **Removed**
+  - Deprecated flat JSON placements in favour of categorized subfolders.
 
 ## [#86](https://github.com/MrIbrahem/make2_new/pull/86) - 2025-11-20
 

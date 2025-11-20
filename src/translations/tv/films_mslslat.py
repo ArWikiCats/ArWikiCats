@@ -30,14 +30,14 @@ Films_keys_male_female = {}
 television_keys = {}
 Films_key_O_multi = {}
 # ---
-Films_keys_male_female = open_json_file("Films_keys_male_female") or {}
+Films_keys_male_female = open_json_file("media/Films_keys_male_female") or {}
 # ---
-television_keys = open_json_file("television_keys") or {}
+television_keys = open_json_file("media/television_keys") or {}
 # ---
-Films_key_O_multi = open_json_file("Films_key_O_multi") or {}
+Films_key_O_multi = open_json_file("media/Films_key_O_multi") or {}
 # ---
 Films_key_For_nat = {}
-Films_key_For_nat = open_json_file("Films_key_For_nat") or {}
+Films_key_For_nat = open_json_file("media/Films_key_For_nat") or {}
 # ---
 films_mslslat_tab = {}
 Films_key_For_Jobs = {}

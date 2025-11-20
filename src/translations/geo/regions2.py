@@ -14,7 +14,7 @@ INDIA_REGION_TRANSLATIONS = {}
 # India_districts = {}
 # India_Citiese = {}
 # ---
-india_district_labels = open_json_file("India_dd") or {}
+india_district_labels = open_json_file("geography/India_dd") or {}
 # ---
 for district_name, district_label in india_district_labels.items():
     normalized_name = district_name.lower()
@@ -25,7 +25,7 @@ for district_name, district_label in india_district_labels.items():
 # ---
 del india_district_labels
 # ---
-raw_region_overrides = open_json_file("popopo") or {}
+raw_region_overrides = open_json_file("geography/popopo") or {}
 # ---
 EGYPT_GOVERNORATE_TRANSLATIONS = {
     "alexandria": "الإسكندرية",

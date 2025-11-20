@@ -43,15 +43,15 @@ def test_load_sources_returns_normalized_entries(monkeypatch):
     """load_sources should return dict of NationalityEntry with all keys present and string values."""
 
     def fake_open_json_file(name: str):
-        if name == "All_Nat_o":
+        if name == "nationalities/All_Nat_o":
             return {
                 "yemeni": {"en": "yemen", "ar": "اليمن", "men": "يمني"},
             }
-        if name == "uu_nats":
+        if name == "nationalities/uu_nats":
             return {
                 "hindustani": {"en": "hindustani", "ar": "هندوستاني"},
             }
-        if name == "Sub_Nat":
+        if name == "nationalities/Sub_Nat":
             return {
                 "italian": {"men": "إيطالي", "en": "italy", "ar": "إيطاليا"},
             }
@@ -78,13 +78,13 @@ def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch):
     """hindustani should produce an additional key hindustan in the resulting dict."""
 
     def fake_open_json_file(name: str):
-        if name == "All_Nat_o":
+        if name == "nationalities/All_Nat_o":
             return {}
-        if name == "uu_nats":
+        if name == "nationalities/uu_nats":
             return {
                 "hindustani": {"en": "hindustani", "ar": "هندوستاني"},
             }
-        if name == "Sub_Nat":
+        if name == "nationalities/Sub_Nat":
             return {}
         return {}
 
@@ -100,11 +100,11 @@ def test_load_sources_merge_all_sources(monkeypatch):
     """All_Nat_o, uu_nats and Sub_Nat contents should be merged into a single dict."""
 
     def fake_open_json_file(name: str):
-        if name == "All_Nat_o":
+        if name == "nationalities/All_Nat_o":
             return {"a": {"en": "A", "ar": "أ"}}
-        if name == "uu_nats":
+        if name == "nationalities/uu_nats":
             return {"b": {"en": "B", "ar": "ب"}}
-        if name == "Sub_Nat":
+        if name == "nationalities/Sub_Nat":
             return {"c": {"en": "C", "ar": "ج"}}
         return {}
 

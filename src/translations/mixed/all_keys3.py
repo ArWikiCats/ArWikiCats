@@ -109,7 +109,7 @@ NN_TABLE_GENDERED: dict[str, dict[str, str]] = {
 def build_pop_final_3() -> dict[str, str]:
     """Build the main mapping used for pop culture categories."""
 
-    registry = open_json_file("pop_final_3") or {}
+    registry = open_json_file("population/pop_final_3") or {}
 
     for industry, label in BUSINESSPEOPLE_INDUSTRIES.items():
         registry[f"{industry} businesspeople"] = f"شخصيات أعمال في {label}"

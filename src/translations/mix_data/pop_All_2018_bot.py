@@ -22,7 +22,7 @@ from ..utils.json_dir import open_json_file
 def load_pop_All_2018() -> Dict[str, str]:
     # result: 524266 item with TEAMS_NEW
     # result: 226,093 item
-    data = open_json_file("pop_All_2018") or {}  # 161
+    data = open_json_file("population/pop_All_2018") or {}  # 161
 
     sources = [
         pf_keys2,  # 26,557

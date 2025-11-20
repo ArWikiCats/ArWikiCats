@@ -24,7 +24,8 @@ def load_json_mapping(filename: str) -> dict[str, str]:
     """Return the JSON mapping stored under *filename*.
 
     Args:
-        filename: Base name of the JSON file (without extension).
+        filename: Relative path to the JSON file under ``jsons`` (extension is
+            optional).
 
     Returns:
         A dictionary containing the parsed JSON mapping.  If the file does not

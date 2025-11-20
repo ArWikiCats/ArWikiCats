@@ -23,7 +23,7 @@ def test_sources_are_merged(monkeypatch):
 
 
 def test_hindustani_normalized(monkeypatch):
-    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name == "uu_nats" else {})
+    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name == "nationalities/uu_nats" else {})
     data = load_sources()
     assert "hindustan" in data
 

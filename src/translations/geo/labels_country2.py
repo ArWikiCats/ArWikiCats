@@ -8,9 +8,9 @@ python3 core8/pwb.py make/lists/labels_country2
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
-COUNTRY_ADMIN_LABELS = open_json_file("P17_PP") or {}
+COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP") or {}
 # ---
-ADDITIONAL_REGION_KEYS = open_json_file("New_Keys") or {}
+ADDITIONAL_REGION_KEYS = open_json_file("geography/New_Keys") or {}
 # ---
 SWISS_CANTON_LABELS = {
     "aarga": "أرجاو",

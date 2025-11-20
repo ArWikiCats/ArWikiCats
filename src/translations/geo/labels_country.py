@@ -12,9 +12,9 @@ from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
 from .us_counties import Counties
 
-COUNTRY_LABEL_OVERRIDES = open_json_file("P17_2_final_ll") or {}
+COUNTRY_LABEL_OVERRIDES = open_json_file("geography/P17_2_final_ll") or {}
 # ---
-POPULATION_OVERRIDES = open_json_file("opop") or {}
+POPULATION_OVERRIDES = open_json_file("geography/opop") or {}
 # ---
 JAPAN_REGIONAL_LABELS = {
     "gokishichidō": "",

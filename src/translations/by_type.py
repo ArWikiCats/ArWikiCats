@@ -6,7 +6,7 @@ from .utils.json_dir import open_json_file
 
 By_table = {}
 # ---
-By_table = open_json_file("By_table") or {}
+By_table = open_json_file("keys/By_table") or {}
 # ---
 Music_By_table = {
     "by city": "حسب المدينة",

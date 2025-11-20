@@ -213,7 +213,7 @@ def build_pop_final_5() -> Tuple[dict[str, str], dict[str, str]]:
     """Build the club and miscellaneous concept mappings."""
 
     registry = dict(BASE_POP_FINAL_5)
-    clubs = open_json_file("Clubs_key") or {}
+    clubs = open_json_file("sports/Clubs_key") or {}
 
     clubs_index: dict[str, str] = {}
     for club, label in clubs.items():
