@@ -5,6 +5,54 @@ import pytest
 from src.translations.geo import _shared
 
 
+def test_load_json_mapping_filters_empty_entries(monkeypatch: pytest.MonkeyPatch) -> None:
+    """``load_json_mapping`` drops empty keys/values and coerces to strings."""
+
+    def fake_open(filename: str) -> dict[object, object]:  # pragma: no cover - helper
+        assert filename == "demo"
+        return {
+            "": "ignored",
+            "valid": 123,
+            42: 3.14,
+            "none": None,
+        }
+
+    monkeypatch.setattr(_shared, "open_json_file", fake_open)
+
+    data = _shared.load_json_mapping("demo")
+
+    assert data == {"valid": "123", "42": "3.14"}
+
+
+def test_load_json_mapping_filters_and_normalizes(monkeypatch):
+    mock_data = {1: "value", "empty": "", "none": None}
+
+    def fake_open_json(file_key: str):
+        assert file_key == "example"
+        return mock_data
+
+    monkeypatch.setattr(_shared, "open_json_file", fake_open_json)
+
+    result = _shared.load_json_mapping("example")
+
+    assert result == {"1": "value"}
+    # Original dictionary should be unchanged by the loader.
+    assert mock_data[1] == "value"
+
+
+def test_load_json_mapping_logs_when_no_entries(monkeypatch, caplog):
+    def fake_open_json(file_key: str):
+        return {"empty": ""}
+
+    monkeypatch.setattr(_shared, "open_json_file", fake_open_json)
+
+    caplog.set_level(logging.DEBUG)
+    result = _shared.load_json_mapping("empty")
+
+    assert result == {}
+    assert "did not contain usable labels" in caplog.text
+
+
 def test_merge_mappings_prefers_later_entries():
     merged = _shared.merge_mappings({"a": "1"}, {"b": "2"}, {"a": "3"})
 

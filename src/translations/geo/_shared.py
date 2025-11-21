@@ -39,7 +39,7 @@ def load_json_mapping(file_key: str) -> dict[str, str]:
     cleaned_mapping: dict[str, str] = {}
 
     for key, value in raw_mapping.items():
-        if not value:
+        if not value or not key:
             continue
 
         cleaned_mapping[str(key)] = str(value)

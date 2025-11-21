@@ -11,30 +11,9 @@ from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass, field
-from typing import Final
-
-from ..utils.json_dir import open_json_file
 
 KeyValueTransform = Callable[[str, str], tuple[str, str]]
-
-_DEFAULT_SANITISER: Final[KeyValueTransform] = lambda key, value: (key, value)
-
-
-def load_json_mapping(filename: str) -> dict[str, str]:
-    """Return the JSON mapping stored under *filename*.
-
-    Args:
-        filename: Relative path to the JSON file under ``jsons`` (extension is
-            optional).
-
-    Returns:
-        A dictionary containing the parsed JSON mapping.  If the file does not
-        exist an empty dictionary is returned instead of ``None`` so callers
-        do not need to guard against ``None`` values.
-    """
-
-    data = open_json_file(filename) or {}
-    return {str(key): str(value) for key, value in data.items() if key and value}
+_DEFAULT_SANITISER: KeyValueTransform = lambda key, value: (key, value)
 
 
 @dataclass(slots=True)
@@ -154,4 +133,4 @@ class KeyRegistry:
                     self.data[key] = value
 
 
-__all__ = ["KeyRegistry", "KeyValueTransform", "load_json_mapping"]
+__all__ = ["KeyRegistry", "KeyValueTransform"]
