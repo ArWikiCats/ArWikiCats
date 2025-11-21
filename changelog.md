@@ -1,4 +1,9 @@
 
+## [#98](https://github.com/MrIbrahem/make2_new/pull/98) - 2025-11-22
+
+* **Chores**
+  * Updated Arabic transliterations for Minnesota-related terms across translation databases and tests, correcting the spelling from "مينيسوتا" to "منيسوتا" for improved accuracy in geographic names, sports teams, and related entries.
+
 ## [#96](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-21
 
 * **New Features**
