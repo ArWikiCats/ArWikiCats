@@ -267,14 +267,5 @@ memory_stats = {
 
 len_print.data_len("labels_country.py", memory_stats)
 
-del Counties
-del CITY_LABEL_PATCHES
-del COUNTRY_LABEL_OVERRIDES
-del CITY_TRANSLATIONS
-del POPULATION_OVERRIDES
-del Main_Table
-del Main_Table_2
-del P17_PP
-
 # Backwards compatible aliases
 New_P17_Finall = COUNTRY_LABEL_INDEX
