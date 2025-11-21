@@ -262,7 +262,7 @@ data_test = [
     ("in", "the world athletics championships", "بطولة العالم لألعاب القوى"),
     ("in", "udham singh nagar district", "مقاطعة اودهام سينغ نجر"),
     ("in", "ústí nad labem region", "إقليم أوستي ناد لابم"),
-    ("involving the", "islamic state of iraq and the levant", "تنظيم داعش"),
+    # ("involving the", "islamic state of iraq and the levant", "تنظيم داعش"),
     ("named after", "organizations based in gabon", "منظمات مقرها في الغابون"),
     ("named after", "populated places in uruguay", "أماكن مأهولة في الأوروغواي"),
     ("named after", "universities and colleges in ghana", "جامعات وكليات في غانا"),

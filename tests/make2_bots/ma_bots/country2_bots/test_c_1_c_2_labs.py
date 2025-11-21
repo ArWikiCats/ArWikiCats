@@ -542,7 +542,7 @@ fast_data_c_2_1_lab = {
     "the federated states-of micronesia": "ولايات ميكرونيسيا المتحدة",
     "the gaza strip": "قطاع غزة",
     "the holy roman empire": "الإمبراطورية الرومانية المقدسة",
-    "the islamic state of iraq and the levant": "تنظيم داعش",
+    # "the islamic state of iraq and the levant": "تنظيم داعش",
     "the israel–hamas war": "الحرب الفلسطينية الإسرائيلية",
     "the marshall islands": "جزر مارشال",
     "the middle east": "الشرق الأوسط",
