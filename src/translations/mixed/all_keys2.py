@@ -479,7 +479,7 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
 
     data.update({key.lower(): value for key, value in ART_MOVEMENTS.items()})
 
-    tato_type = open_json_file("taxonomy/Tato_type") or {}
+    tato_type = open_json_file("Tato_type") or {}
     data.update({key.lower(): value for key, value in tato_type.items()})
 
     weapon_data = _build_weapon_entries()
