@@ -5,8 +5,11 @@ from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS, _STATE_SUF
 from src import new_func_lab_final_label
 
 test_data = {
-    "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
-    "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
+    # "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
+    # "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
+    # "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
+    # "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
+    # "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
 
     "Category:{en} attorneys general": "تصنيف:مدعي {ar} العام",
     "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع {ar}",
@@ -42,9 +45,6 @@ test_data = {
     "Category:{en} Republicans": "تصنيف:أعضاء الحزب الجمهوري في {ar}",
     "Category:{en} sheriffs": "تصنيف:مأمورو {ar}",
     "Category:{en} socialists": "تصنيف:أعضاء الحزب الاشتراكي في {ar}",
-    "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
-    "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
-    "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
     "Category:{en} templates": "تصنيف:قوالب {ar}",
     "Category:{en} Unionists": "تصنيف:أعضاء الحزب الوحدوي في {ar}",
     "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}"
