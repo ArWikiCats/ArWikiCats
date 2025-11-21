@@ -1,61 +1,69 @@
 #
 import pytest
 from load_one_data import dump_diff, ye_test_one_dataset
-
+from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS
 from src import new_func_lab_final_label
 
-data = {
-    "Category:Georgia (U.S. state) attorneys general": "تصنيف:مدعي ولاية جورجيا العام",
-    "Category:Georgia (U.S. state) ballot measures": "تصنيف:إجراءات اقتراع ولاية جورجيا",
-    "Category:Georgia (U.S. state) city councils": "تصنيف:مجالس مدن ولاية جورجيا",
-    "Category:Georgia (U.S. state) counties": "تصنيف:مقاطعات ولاية جورجيا",
-    "Category:Georgia (U.S. state) Democratic-Republicans": "تصنيف:أعضاء الحزب الديمقراطي الجمهوري في ولاية جورجيا",
-    "Category:Georgia (U.S. state) Democrats": "تصنيف:ديمقراطيون من ولاية جورجيا",
-    "Category:Georgia (U.S. state) elections": "تصنيف:انتخابات ولاية جورجيا",
-    "Category:Georgia (U.S. state) elections by decade": "تصنيف:انتخابات ولاية جورجيا حسب العقد",
-    "Category:Georgia (U.S. state) elections by year": "تصنيف:انتخابات ولاية جورجيا حسب السنة",
-    "Category:Georgia (U.S. state) Federalists": "تصنيف:أعضاء الحزب الفيدرالي الأمريكي في ولاية جورجيا",
-    "Category:Georgia (U.S. state) Greenbacks": "تصنيف:أعضاء حزب الدولار الأمريكي في ولاية جورجيا",
-    "Category:Georgia (U.S. state) Greens": "تصنيف:أعضاء حزب الخضر في ولاية جورجيا",
-    "Category:Georgia (U.S. state) gubernatorial elections": "تصنيف:انتخابات حاكم ولاية جورجيا",
-    "Category:Georgia (U.S. state) independents": "تصنيف:أعضاء في ولاية جورجيا",
-    "Category:Georgia (U.S. state) in fiction": "تصنيف:ولاية جورجيا في الخيال",
-    "Category:Georgia (U.S. state) in fiction by city": "تصنيف:ولاية جورجيا في الخيال حسب المدينة",
-    "Category:Georgia (U.S. state) in the American Civil War": "تصنيف:ولاية جورجيا في الحرب الأهلية الأمريكية",
-    "Category:Georgia (U.S. state) in the American Revolution": "تصنيف:ولاية جورجيا في الثورة الأمريكية",
-    "Category:Georgia (U.S. state) in the War of 1812": "تصنيف:ولاية جورجيا في الحرب في 1812",
-    "Category:Georgia (U.S. state) Jacksonians": "تصنيف:أعضاء جاكسونيون في ولاية جورجيا",
-    "Category:Georgia (U.S. state) Know Nothings": "تصنيف:أعضاء حزب لا أدري في ولاية جورجيا",
-    "Category:Georgia (U.S. state) law": "تصنيف:قانون ولاية جورجيا",
-    "Category:Georgia (U.S. state) law-related lists": "تصنيف:قوائم متعلقة بقانون ولاية جورجيا",
-    "Category:Georgia (U.S. state) lawyers": "تصنيف:محامون من ولاية جورجيا",
-    "Category:Georgia (U.S. state) local politicians": "تصنيف:سياسيون محليون في ولاية جورجيا",
-    "Category:Georgia (U.S. state) navigational boxes": "تصنيف:صناديق تصفح ولاية جورجيا",
-    "Category:Georgia (U.S. state) politicians": "تصنيف:سياسيو ولاية جورجيا",
-    "Category:Georgia (U.S. state) politicians by century": "تصنيف:سياسيو ولاية جورجيا حسب القرن",
-    "Category:Georgia (U.S. state) politicians by party": "تصنيف:سياسيو ولاية جورجيا حسب الحزب",
-    "Category:Georgia (U.S. state) politicians by populated place": "تصنيف:سياسيو ولاية جورجيا حسب المكان المأهول",
-    "Category:Georgia (U.S. state) politicians convicted of crimes": "تصنيف:سياسيو ولاية جورجيا أدينوا بجرائم",
-    "Category:Georgia (U.S. state) politics-related lists": "تصنيف:قوائم متعلقة بسياسة ولاية جورجيا",
-    "Category:Georgia (U.S. state)-related lists": "تصنيف:قوائم متعلقة بولاية جورجيا",
-    "Category:Georgia (U.S. state) Republicans": "تصنيف:أعضاء الحزب الجمهوري في ولاية جورجيا",
-    "Category:Georgia (U.S. state) sheriffs": "تصنيف:مأمورو ولاية جورجيا",
-    "Category:Georgia (U.S. state) socialists": "تصنيف:أعضاء الحزب الاشتراكي في ولاية جورجيا",
-    "Category:Georgia (U.S. state) state court judges": "تصنيف:قضاة محكمة ولاية جورجيا",
-    "Category:Georgia (U.S. state) state courts": "تصنيف:محكمة ولاية جورجيا",
-    "Category:Georgia (U.S. state) state senators": "تصنيف:أعضاء مجلس شيوخ ولاية جورجيا",
-    "Category:Georgia (U.S. state) templates": "تصنيف:قوالب ولاية جورجيا",
-    "Category:Georgia (U.S. state) Unionists": "تصنيف:أعضاء الحزب الوحدوي في ولاية جورجيا",
-    "Category:Georgia (U.S. state) Whigs": "تصنيف:أعضاء حزب اليمين في ولاية جورجيا"
+test_data = {
+    "Category:{en} attorneys general": "تصنيف:مدعي ولاية {ar} العام",
+    "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع ولاية {ar}",
+    "Category:{en} city councils": "تصنيف:مجالس مدن ولاية {ar}",
+    "Category:{en} counties": "تصنيف:مقاطعات ولاية {ar}",
+    "Category:{en} Democratic-Republicans": "تصنيف:أعضاء الحزب الديمقراطي الجمهوري في ولاية {ar}",
+    "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
+    "Category:{en} elections": "تصنيف:انتخابات ولاية {ar}",
+    "Category:{en} elections by decade": "تصنيف:انتخابات ولاية {ar} حسب العقد",
+    "Category:{en} elections by year": "تصنيف:انتخابات ولاية {ar} حسب السنة",
+    "Category:{en} Federalists": "تصنيف:أعضاء الحزب الفيدرالي الأمريكي في ولاية {ar}",
+    "Category:{en} Greenbacks": "تصنيف:أعضاء حزب الدولار الأمريكي في ولاية {ar}",
+    "Category:{en} Greens": "تصنيف:أعضاء حزب الخضر في ولاية {ar}",
+    "Category:{en} gubernatorial elections": "تصنيف:انتخابات حاكم ولاية {ar}",
+    "Category:{en} independents": "تصنيف:أعضاء في ولاية {ar}",
+    "Category:{en} in fiction": "تصنيف:ولاية {ar} في الخيال",
+    "Category:{en} in fiction by city": "تصنيف:ولاية {ar} في الخيال حسب المدينة",
+    "Category:{en} in the American Civil War": "تصنيف:ولاية {ar} في الحرب الأهلية الأمريكية",
+    "Category:{en} in the American Revolution": "تصنيف:ولاية {ar} في الثورة الأمريكية",
+    "Category:{en} in the War of 1812": "تصنيف:ولاية {ar} في الحرب في 1812",
+    "Category:{en} Jacksonians": "تصنيف:أعضاء جاكسونيون في ولاية {ar}",
+    "Category:{en} Know Nothings": "تصنيف:أعضاء حزب لا أدري في ولاية {ar}",
+    "Category:{en} law": "تصنيف:قانون ولاية {ar}",
+    "Category:{en} law-related lists": "تصنيف:قوائم متعلقة بقانون ولاية {ar}",
+    "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
+    "Category:{en} local politicians": "تصنيف:سياسيون محليون في ولاية {ar}",
+    "Category:{en} navigational boxes": "تصنيف:صناديق تصفح ولاية {ar}",
+    "Category:{en} politicians": "تصنيف:سياسيو ولاية {ar}",
+    "Category:{en} politicians by century": "تصنيف:سياسيو ولاية {ar} حسب القرن",
+    "Category:{en} politicians by party": "تصنيف:سياسيو ولاية {ar} حسب الحزب",
+    "Category:{en} politicians by populated place": "تصنيف:سياسيو ولاية {ar} حسب المكان المأهول",
+    "Category:{en} politicians convicted of crimes": "تصنيف:سياسيو ولاية {ar} أدينوا بجرائم",
+    "Category:{en} politics-related lists": "تصنيف:قوائم متعلقة بسياسة ولاية {ar}",
+    "Category:{en}-related lists": "تصنيف:قوائم متعلقة بولاية {ar}",
+    "Category:{en} Republicans": "تصنيف:أعضاء الحزب الجمهوري في ولاية {ar}",
+    "Category:{en} sheriffs": "تصنيف:مأمورو ولاية {ar}",
+    "Category:{en} socialists": "تصنيف:أعضاء الحزب الاشتراكي في ولاية {ar}",
+    "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
+    "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
+    "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
+    "Category:{en} templates": "تصنيف:قوالب ولاية {ar}",
+    "Category:{en} Unionists": "تصنيف:أعضاء الحزب الوحدوي في ولاية {ar}",
+    "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في ولاية {ar}"
 
 }
 
+data_1 = []
+for en, ar in STATE_NAME_TRANSLATIONS.items():
+    one_data = {
+        x.format(en=en): v.format(ar=ar) for x, v in test_data.items()
+    }
+    data_1.append((en, one_data))
 
+
+@pytest.mark.parametrize("state_name, data", data_1)
 @pytest.mark.fast
-def test_us_counties():
+def test_us_counties(state_name, data):
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
-    dump_diff(diff_result, "test_us_counties")
+    dump_diff(diff_result, f"test_us_counties_{state_name}")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
@@ -120,7 +128,7 @@ empty_data = {
 
 @pytest.mark.fast
 def test_us_counties_empty():
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = ye_test_one_dataset(empty_data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
