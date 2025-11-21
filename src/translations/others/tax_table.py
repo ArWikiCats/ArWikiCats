@@ -55,7 +55,3 @@ for tax, taxlab in Taxons.items():
 for taxe, lab in Taxons2.items():
     # typeTable_7["{} described in".format(taxe)] = "{} وصفت في".format(lab)
     Taxons_table[f"{taxe} of"] = f"{lab} في"
-# ---
-del Taxons
-del Taxons2
-del Taxons3

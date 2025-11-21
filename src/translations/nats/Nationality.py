@@ -57,10 +57,6 @@ def load_sources() -> Dict[str, NationalityEntry]:
     for key, val in raw_sub_nat.items():
         raw_all_nat_o[key] = val
 
-    # Cleanup temporary JSON sources
-    del raw_uu_nats
-    del raw_sub_nat
-
     # Convert everything to NationalityEntry ensuring all fields exist
     normalized: Dict[str, NationalityEntry] = {}
 

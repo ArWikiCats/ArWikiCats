@@ -20,8 +20,6 @@ CITY_OVERRIDES_ADDITIONAL = open_json("geo/CITY_OVERRIDES.json") or {}
 # merge CITY_TRANSLATIONS and CITY_TRANSLATIONS_SUPPLEMENT
 CITY_TRANSLATIONS |= CITY_TRANSLATIONS_SUPPLEMENT
 
-del CITY_TRANSLATIONS_SUPPLEMENT
-
 CITY_OVERRIDES = {"Tubas": "طوباس", "Tulkarm": "طولكرم", "Nablus": "نابلس", "Zion": "صهيون", "Chords Bridge": "جسر القدس الصاري المعلق", "Charles Warren": "تشارلز وارن", "Burj al Luq Luq Community Centre and Society": "جمعية مركز برج اللقلق المجتمعية", "Bethlehem Association": "منظمة بيت لحم", "Beitar Jerusalem F.C.": "بيتار القدس", "Beitar Illit": "بيتار عيليت", "Hanunu": "هانونو"}
 
 CITY_OVERRIDES.update(CITY_OVERRIDES_ADDITIONAL)

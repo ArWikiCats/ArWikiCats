@@ -21,8 +21,6 @@ for district_name, district_label in india_district_labels.items():
     # India_Citiese[district_name] = district_label
     INDIA_REGION_TRANSLATIONS[f"{normalized_name} district"] = f"مقاطعة {district_label}"
 
-del india_district_labels
-
 raw_region_overrides = open_json_file("geography/popopo.json") or {}
 
 EGYPT_GOVERNORATE_TRANSLATIONS = {
@@ -155,15 +153,6 @@ for prefecture_name, prefecture_label in CAR_PREFECTURE_TRANSLATIONS.items():
     normalized_name = prefecture_name.lower()
     SECONDARY_REGION_TRANSLATIONS[normalized_name] = prefecture_label
     SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} prefecture"] = f"محافظة {prefecture_label}"
-
-del (
-    raw_region_overrides,
-    EGYPT_GOVERNORATE_TRANSLATIONS,
-    DJIBOUTI_REGION_TRANSLATIONS,
-    GUATEMALA_DEPARTMENT_TRANSLATIONS,
-    MONGOLIA_PROVINCE_TRANSLATIONS,
-    CAR_PREFECTURE_TRANSLATIONS,
-)
 
 Main_Table_2 = SECONDARY_REGION_TRANSLATIONS
 India_Main_Table = INDIA_REGION_TRANSLATIONS

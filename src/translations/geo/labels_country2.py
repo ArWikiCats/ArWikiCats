@@ -237,7 +237,5 @@ Lenth1 = {
 
 len_print.data_len("labels_country2.py", Lenth1)
 
-# del New_Keys
-
 # Backwards compatible alias
 P17_PP = COUNTRY_ADMIN_LABELS
