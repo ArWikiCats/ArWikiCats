@@ -26,7 +26,7 @@ from ....helps.jsonl_dump import dump_data
 type_after_country = ["non-combat"]
 
 
-def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
+def get_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str):
     """Resolve a country label using population tables and fallbacks."""
     country_label = ""
 
@@ -45,7 +45,7 @@ def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
     return country_label
 
 
-def do_ar(typeo, country_label, typeo_lab, category_r):
+def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str):
     """Store an Arabic label assembled from type and country components."""
     in_tables_lowers = check_key_new_players(typeo.lower())
     in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])

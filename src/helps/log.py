@@ -15,9 +15,9 @@ class LoggerWrap:
         if disable_log:
             self._logger.disabled = True
 
-    def disable_logger(self, Bool: bool) -> None:
+    def disable_logger(self, is_disabled: bool) -> None:
         """Enable or disable the underlying logger dynamically."""
-        self._logger.disabled = Bool
+        self._logger.disabled = is_disabled
 
     def logger(self) -> logging.Logger:
         """Expose the raw ``logging.Logger`` instance."""

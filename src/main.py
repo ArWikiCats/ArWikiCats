@@ -24,25 +24,24 @@ def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
             formatted = f'"{cat}"'.ljust(60)
             print(f'     {formatted} : "{cat_lab}",')
 
+
 def event(
-    NewList: List[str],
-    noprint: str = "",
+    new_list: List[str],
     printfirst: bool = False,
-    printhead: bool = False,
-    tst_prnt_all: Optional[bool] = None,
     return_no_labs: bool = False,
+    **kwargs: Any,
 ) -> Dict[str, str] | Dict[str, Dict[str, Any]] | tuple[Dict[str, str], List[str]]:
     """Process a list of categories and generate corresponding labels."""
 
     try:
-        total = len(NewList)
+        total = len(new_list)
     except TypeError:
         total = 0
 
     logger.info("<<lightred>> vvvvvvvvvvvv event start vvvvvvvvvvvv ")
     logger.info(f"<<lightblue>> event work with >  {total} cats. ")
 
-    result = event_result(NewList)
+    result = event_result(new_list)
 
     if total == 0:
         total = len(result.processed)

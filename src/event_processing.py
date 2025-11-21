@@ -116,10 +116,10 @@ def new_func_lab_final_label(category_r: str) -> str:
 
 
 def event_result(
-    NewList: List[str],
+    new_list: List[str],
 ) -> EventProcessingResult:
     """Run the event processor on the given list of categories."""
     processor = EventProcessor()
-    result = processor.process(NewList)
+    result = processor.process(new_list)
 
     return result

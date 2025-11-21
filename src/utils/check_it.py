@@ -9,7 +9,7 @@ def check_key_in_tables(key: str, tables: List[Dict[str, str] | List[str] | Set[
     return False
 
 
-def check_key_in_tables_return_tuple(key: str, tables: Dict[str, Dict[str, str] | Set[str]]) -> bool:
+def check_key_in_tables_return_tuple(key: str, tables: Dict[str, Dict[str, str] | Set[str]]) -> tuple[bool, str]:
     """Return presence flag and table name when ``key`` is found."""
     for name, table in tables.items():
         if key in table:

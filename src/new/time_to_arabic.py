@@ -88,7 +88,7 @@ def match_time_en(en_key: str) -> list[str]:
     return en_matches
 
 
-def match_time_en_first(en_key: str) -> list[str]:
+def match_time_en_first(en_key: str) -> str:
     """Return the first English time match or an empty string."""
     en_matches = match_time_en(en_key)
     return en_matches[0] if en_matches else ""
