@@ -5,8 +5,6 @@
 """
 
 from ..utils.json_dir import open_json_file
-
-# ---
 india_district_labels = {}
 raw_region_overrides = {}
 SECONDARY_REGION_TRANSLATIONS = {}

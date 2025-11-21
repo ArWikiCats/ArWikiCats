@@ -240,7 +240,7 @@ data_list = [
 def test_find_ar_label_and_event2(tab) -> None:
     label_no_event2 = find_ar_label(tab["category"], tab["tito"], use_event2=False)
     label_with_event2 = find_ar_label(tab["category"], tab["tito"], use_event2=True)
-    # ---
+
     assert label_no_event2 != tab["output"]
     assert label_with_event2 == tab["output"]
 
@@ -248,7 +248,7 @@ def test_find_ar_label_and_event2(tab) -> None:
 @pytest.mark.parametrize("tab", data_list, ids=lambda x: x["category"])
 def test_translate_general_category_event2(tab) -> None:
     label = translate_general_category(tab["category"])
-    # ---
+
     assert label == tab["output"]
 
 
@@ -271,7 +271,7 @@ fast_data_list = [
 @pytest.mark.fast
 def test_translate_general_category_event2_fast(tab) -> None:
     label = translate_general_category(tab["category"])
-    # ---
+
     assert label == tab["output"]
 
 

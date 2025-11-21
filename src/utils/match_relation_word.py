@@ -6,12 +6,12 @@ def get_relation_word_new(category: str, data: dict):
         (key for key in data if f" {key} " in category),
         None
     )
-    # ---
+
     if matched_tito:
         tito_name = data[matched_tito]
         tito = f" {matched_tito} "
         return tito, tito_name
-    # ---
+
     return "", ""
 
 
@@ -22,7 +22,7 @@ def get_relation_word(category: str, data: dict):
         # if Keep_Work and tito in category:
         if tito in category:
             return tito, tito_name
-    # ---
+
     return "", ""
 
 

@@ -20,8 +20,6 @@ from ....translations import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
 )
-
-# ---
 from ...o_bots import ethnic_bot
 
 

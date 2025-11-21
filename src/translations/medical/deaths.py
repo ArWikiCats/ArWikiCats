@@ -1,6 +1,4 @@
 """ """
-
-# ---
 from ...helps import len_print
 
 deaths_by = {

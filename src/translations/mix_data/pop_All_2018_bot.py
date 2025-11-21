@@ -2,8 +2,6 @@
 """
 pop_All_2018
 """
-
-# ---
 from typing import Dict
 
 from ..by_type import By_table
