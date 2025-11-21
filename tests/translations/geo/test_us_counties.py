@@ -50,9 +50,7 @@ test_data = {
     "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}"
 }
 
-test_data = {
-    f"{{en}} {x.strip()}": v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
-}
+# test_data = { f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items() }
 
 data_1 = []
 for en, ar in STATE_NAME_TRANSLATIONS.items():
