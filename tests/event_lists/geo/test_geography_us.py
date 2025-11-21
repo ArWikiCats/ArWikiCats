@@ -59,7 +59,7 @@ geography_us_3 = {
     "Category:Maryland": "تصنيف:ماريلند",
     "Category:Massachusetts": "تصنيف:ماساتشوستس",
     "Category:Michigan": "تصنيف:ميشيغان",
-    "Category:Minnesota": "تصنيف:مينيسوتا",
+    "Category:Minnesota": "تصنيف:منيسوتا",
     "Category:Mississippi": "تصنيف:مسيسيبي",
     "Category:Montana": "تصنيف:مونتانا",
 }

@@ -85,7 +85,7 @@ event_Lab_seoo_data = {
     "1830s maryland": "ماريلند عقد 1830",
     "1830s massachusetts": "ماساتشوستس عقد 1830",
     "1830s michigan": "ميشيغان عقد 1830",
-    "1830s minnesota territory": "إقليم مينيسوتا عقد 1830",
+    "1830s minnesota territory": "إقليم منيسوتا عقد 1830",
     "1830s mississippi territory": "إقليم مسيسيبي عقد 1830",
     "1830s mississippi": "مسيسيبي عقد 1830",
     "1830s missouri": "ميزوري عقد 1830",

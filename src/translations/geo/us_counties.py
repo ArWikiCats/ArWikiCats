@@ -40,7 +40,7 @@ STATE_NAME_TRANSLATIONS = {
     "colorado": "كولورادو",
     "south dakota": "داكوتا الجنوبية",
     "virginia": "فرجينيا",
-    "minnesota": "مينيسوتا",
+    "minnesota": "منيسوتا",
     "alabama": "ألاباما",
     "mississippi": "مسيسيبي",
     "north carolina": "كارولاينا الشمالية",

@@ -38,7 +38,7 @@ data_list = [
     {"tito": " in ", "category": "july 1450 sorts-events in austria", "output": "أحداث يوليو 1450 الرياضية في النمسا"},
     {"tito": " by ", "category": "15th century swiss people by occupation", "output": "سويسريون في القرن 15 حسب المهنة"},
     {"tito": " in ", "category": "1450s murders in sri lanka", "output": "جرائم قتل عقد 1450 في سريلانكا"},
-    {"tito": " in ", "category": "1450s disestablishments in minnesota", "output": "انحلالات عقد 1450 في مينيسوتا"},
+    {"tito": " in ", "category": "1450s disestablishments in minnesota", "output": "انحلالات عقد 1450 في منيسوتا"},
     {"tito": " in ", "category": "april 1450 sorts-events in north america", "output": "أحداث أبريل 1450 الرياضية في أمريكا الشمالية"},
     {"tito": " in ", "category": "21st century disestablishments in korea", "output": "انحلالات القرن 21 في كوريا"},
     {"tito": " in ", "category": "1450s establishments in the french colonial empire", "output": "تأسيسات عقد 1450 في الإمبراطورية الاستعمارية الفرنسية"},
