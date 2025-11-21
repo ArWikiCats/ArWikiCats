@@ -27,6 +27,7 @@ type_after_country = ["non-combat"]
 
 
 def get_country_label(country_lower, country_not_lower, cate3, compare_lab):
+    """Resolve a country label using population tables and fallbacks."""
     country_label = ""
 
     if country_lower:
