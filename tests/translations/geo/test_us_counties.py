@@ -47,7 +47,6 @@ test_data = {
     "Category:{en} templates": "تصنيف:قوالب ولاية {ar}",
     "Category:{en} Unionists": "تصنيف:أعضاء الحزب الوحدوي في ولاية {ar}",
     "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في ولاية {ar}"
-
 }
 
 data_1 = []
