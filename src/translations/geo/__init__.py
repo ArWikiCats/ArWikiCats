@@ -2,9 +2,9 @@
 
 from .Cities import CITY_LABEL_PATCHES, CITY_OVERRIDES, CITY_TRANSLATIONS, CITY_TRANSLATIONS_LOWER
 from .labels_country import COUNTRY_LABEL_INDEX, COUNTRY_LABEL_INDEX_LOWER, COUNTRY_LABEL_OVERRIDES, POPULATION_OVERRIDES, get_country_label_index, get_country_label_index_lower
-from .labels_country2 import COUNTRY_ADMIN_LABELS
-from .regions import PRIMARY_REGION_TRANSLATIONS
-from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
+from .labels_country2 import COUNTRY_ADMIN_LABELS, COUNTRY_ADMIN_LABELS_LOWER, get_country_admin_labels, get_country_admin_labels_lower
+from .regions import PRIMARY_REGION_TRANSLATIONS, get_primary_region_translations
+from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS, get_india_region_translations, get_secondary_region_translations
 from .us_counties import COUNTY_TRANSLATIONS, STATE_NAME_KEY_MAPPINGS, STATE_NAME_TRANSLATIONS, STATE_NAME_TRANSLATIONS_LOWER, STATE_SUFFIX_TEMPLATES, USA_PARTY_DERIVED_KEYS, USA_PARTY_LABELS
 
 __all__ = [
@@ -30,4 +30,9 @@ __all__ = [
     "USA_PARTY_LABELS",
     "get_country_label_index",
     "get_country_label_index_lower",
+    "get_country_admin_labels",
+    "get_country_admin_labels_lower",
+    "get_primary_region_translations",
+    "get_secondary_region_translations",
+    "get_india_region_translations",
 ]
