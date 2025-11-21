@@ -126,6 +126,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
 
 
 def add_all(lab: str) -> str:
+    """Insert the definite article into every word of the given label."""
     lab_no_al = re.sub(r" ", " ال", lab)
     new_lab = f"ال{lab_no_al}"
     return new_lab
