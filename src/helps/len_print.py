@@ -23,7 +23,7 @@ def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> st
     return naturalsize(value, binary=True)
 
 
-def save_data(bot, tab):
+def save_data(bot: str, tab: Mapping):
     """Persist bot data to JSON files when a save path is configured."""
     if not app_settings.save_data_path:
         return

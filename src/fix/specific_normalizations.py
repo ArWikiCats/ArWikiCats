@@ -93,7 +93,7 @@ def time_expressions(ar_label: str) -> str:
     return ar_label
 
 
-def duplicate_cleanup(ar_label):
+def duplicate_cleanup(ar_label: str):
     """Remove repeated prepositions and duplicated short phrases."""
     # Group patterns for better organization and maintainability
     patterns = {
@@ -111,7 +111,7 @@ def duplicate_cleanup(ar_label):
     return ar_label
 
 
-def preposition_fixes(ar_label):
+def preposition_fixes(ar_label: str) -> str:
     """Resolve awkward preposition combinations in labels."""
     # Group patterns for better organization and maintainability
     patterns = {

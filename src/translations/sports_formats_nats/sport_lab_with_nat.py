@@ -30,7 +30,7 @@ def normalize_category(category):
     return result
 
 
-def get_template_label(key, key_placeholder, normalized_team, data):
+def get_template_label(key: str, key_placeholder: str, normalized_team: str, data: dict) -> str:
     """Replace a nationality key with a placeholder and fetch the template label."""
     normalized_key = re.sub(rf"\b{key}\b", key_placeholder, f" {normalized_team.strip()} ", flags=re.IGNORECASE)
     logger.debug(f"{normalized_key=}")

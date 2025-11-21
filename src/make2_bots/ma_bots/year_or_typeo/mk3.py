@@ -20,7 +20,7 @@ from ...matables_bots.check_bot import check_key_new_players
 to_check_them = [Add_in_table, add_in_to_country, Films_O_TT]
 
 
-def check_country_in_tables(country):
+def check_country_in_tables(country: str) -> bool:
     """Return True when the country appears in any configured lookup table."""
     if country in country_before_year:
         logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
@@ -69,7 +69,7 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_la
     return Add_In_Done, arlabel, cat_test
 
 
-def added_in_new(country, arlabel, suf, year_labe, country_label, Add_In, arlabel2):
+def added_in_new(country: str, arlabel: str, suf: str, year_labe: str, country_label: str, Add_In: bool, arlabel2: str):
     """Handle cases where a year prefix needs a linking preposition."""
     logger.info("a<<lightblue>>>>>> Add year before")
     co_in_tables = check_key_in_tables(country, to_check_them)

@@ -92,7 +92,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     @staticmethod
-    def replace_cat_test(cat_test, text):
+    def replace_cat_test(cat_test: str, text: str):
         """Remove a substring from the category test helper in a case-insensitive way."""
         return cat_test.lower().replace(text.lower().strip(), "")
 
@@ -100,7 +100,7 @@ class LabelForStartWithYearOrTypeo:
     # 1 — PARSE
     # ----------------------------------------------------
 
-    def parse_input(self, category_r):
+    def parse_input(self, category_r: str) -> None:
         """Extract base components (year, type, country) from the category."""
         self.category_r = category_r
 

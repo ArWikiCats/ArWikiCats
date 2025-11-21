@@ -54,7 +54,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     return arlabel
 
 
-def work_2019_wrap(category):
+def work_2019_wrap(category: str) -> str:
     """Wrap ``work_2019`` with a quick lookup of year metadata from English text."""
     year_data = match_en_return_ar(category)
     if not year_data:

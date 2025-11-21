@@ -9,7 +9,7 @@ def load_keys_to_pattern(data_List):
     return data_pattern
 
 
-def load_keys_to_pattern_new(data_List, by="|", sort_keys=True):
+def load_keys_to_pattern_new(data_List: list[str], by: str = "|", sort_keys: bool = True):
     """Join escaped keys into a pattern string, optionally sorting by token count."""
     # return by.join(x.strip() for x in data_List)
     data_List_sorted = sorted(data_List, key=lambda x: -x.count(" ")) if sort_keys else data_List

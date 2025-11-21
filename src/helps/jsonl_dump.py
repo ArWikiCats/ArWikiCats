@@ -13,7 +13,7 @@ SAVE_ENABLE = True
 SAVE_ENABLE = False
 
 
-def save(path, data) -> str:
+def save(path: Path | str, data: dict | list) -> str:
     """Append data to the specified JSONL file, creating it if needed."""
     path = Path(path)
     if isinstance(data, dict):
