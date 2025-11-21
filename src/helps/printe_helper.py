@@ -4,6 +4,7 @@ import re
 
 
 def get_color_table() -> dict[str, str]:
+    """Build a mapping of color names to ANSI templates."""
     # new Define the color codes for different colors
     color_numbers = {
         # 'lightred': 101,

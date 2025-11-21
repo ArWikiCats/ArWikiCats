@@ -14,6 +14,7 @@ SAVE_ENABLE = False
 
 
 def save(path, data) -> str:
+    """Append data to the specified JSONL file, creating it if needed."""
     path = Path(path)
     if isinstance(data, dict):
         data = [data]
@@ -33,8 +34,10 @@ def dump_data(input_keys: list = None, enable: bool = False, compare_with_output
     """
 
     def decorator(func):
+        """Wrap a function so its inputs and outputs are written to JSONL."""
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
+            """Execute the wrapped function and persist call details when enabled."""
             # Execute the wrapped function
             output = func(*args, **kwargs)
 

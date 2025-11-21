@@ -14,6 +14,7 @@ from .helps.log import logger
 
 
 def _summarise_labels(labels: Dict[str, str], printfirst: bool) -> None:
+    """Print the collected labels for debugging or inspection."""
     if not labels:
         printe.output("<<lightyellow>>> event: Labels == None len = 0")
         return

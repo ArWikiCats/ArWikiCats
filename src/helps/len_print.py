@@ -17,12 +17,14 @@ all_len = {}
 
 
 def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> str:
+    """Format byte sizes unless the key should remain numeric."""
     if key in lens:
         return value
     return naturalsize(value, binary=True)
 
 
 def save_data(bot, tab):
+    """Persist bot data to JSON files when a save path is configured."""
     if not app_settings.save_data_path:
         return
 
@@ -49,6 +51,7 @@ def data_len(
     bot: str,
     tab: Mapping[str, int | float],
 ) -> None:
+    """Collect and optionally save size statistics for the given bot data."""
     data = {
         x: {
             "count": len(v) if not isinstance(v, int) else v,
@@ -67,6 +70,7 @@ def data_len(
 
 
 def dump_all_len():
+    """Return aggregated counts and sizes for all processed bots."""
     # sort all_len by keys ignore case
     all_len_save = {
         "by_count": {},
