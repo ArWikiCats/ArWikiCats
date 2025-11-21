@@ -1,15 +1,15 @@
 """ """
 
 # from .us_counties import US_State, Counties, US_State_lower, US_State_Keys, kk_end_US_State, usa_parties, USA_newkeys, party_end_keys
-# ---
+
 import sys
 
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
-COUNTY_TRANSLATIONS = open_json_file("us_counties") or {}
+COUNTY_TRANSLATIONS = open_json_file("geography/us_counties.json") or {}
 Counties = COUNTY_TRANSLATIONS
-# ---
+
 STATE_NAME_TRANSLATIONS = {
     "ohio": "أوهايو",
     "louisiana": "لويزيانا",
@@ -69,7 +69,7 @@ STATE_NAME_TRANSLATIONS = {
 US_State = STATE_NAME_TRANSLATIONS
 STATE_NAME_TRANSLATIONS_LOWER = {english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()}
 US_State_lower = STATE_NAME_TRANSLATIONS_LOWER
-# ---
+
 STATE_SUFFIX_TEMPLATES = {
     " senate": "مجلس شيوخ ولاية %s",
     " house-of-representatives elections": "انتخابات مجلس نواب ولاية %s",
@@ -120,7 +120,7 @@ STATE_SUFFIX_TEMPLATES = {
     " independents": "مستقلون من ولاية %s",
 }
 kk_end_US_State = STATE_SUFFIX_TEMPLATES
-# ---
+
 PARTY_ROLE_SUFFIXES = {
     "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
     "candidates for member-of-parliament": "مرشحو %s لعضوية البرلمان",
@@ -131,7 +131,7 @@ PARTY_ROLE_SUFFIXES = {
     "state governors": "حكام ولايات من %s",
 }
 party_end_keys = PARTY_ROLE_SUFFIXES
-# ---
+
 USA_PARTY_LABELS = {
     "democratic republican": "الحزب الديمقراطي الجمهوري",
     "democratic-republican": "الحزب الديمقراطي الجمهوري",
@@ -191,16 +191,16 @@ USA_PARTY_LABELS = {
     "Liberty Union Party": "حزب الحرية المتحد",
 }
 usa_parties = USA_PARTY_LABELS
-# ---
+
 for party_name, party_label in USA_PARTY_LABELS.items():
     normalized_party_name = party_name.lower()
     STATE_SUFFIX_TEMPLATES[f" {normalized_party_name}s"] = f"أعضاء {party_label} في %s"
     simplified_party_name = normalized_party_name.replace(" party", "")
     STATE_SUFFIX_TEMPLATES[f" {simplified_party_name}s"] = f"أعضاء {party_label} في %s"
-# ---
+
 USA_PARTY_DERIVED_KEYS = {}
 USA_newkeys = USA_PARTY_DERIVED_KEYS
-# ---
+
 for party_name, party_label in USA_PARTY_LABELS.items():
     normalized_party_name = party_name.lower()
 
@@ -230,10 +230,10 @@ for party_name, party_label in USA_PARTY_LABELS.items():
     USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} presidents of the united states"] = f"رؤساء الولايات المتحدة من {party_label}"
     USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} state governors"] = f"حكام ولايات من {party_label}"
     USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} state governors of the united states"] = f"حكام ولايات أمريكية من {party_label}"
-# ---
+
 STATE_NAME_KEY_MAPPINGS = {}
 US_State_Keys = STATE_NAME_KEY_MAPPINGS
-# ---
+
 """
 for Stat in US_State:
     US_State_Keys[Stat.lower()] = US_State[Stat]
@@ -253,13 +253,13 @@ for Stat in US_State:
         US_State_Keys[f"{na} general assembly"] = "جمعية %s العامة" % US_State[Stat]
         US_State_Keys[f"{na} general assembly"] = "جمعية %s العامة" % US_State[Stat]
         US_State_Keys[f"{na} local politicians"] = f"سياسيون محليون في {US_State[Stat]}"
-# ---
+
 for ccgc in US_State_Keys :
     pf_keys2[ccgc] = US_State_Keys[ccgc]
 printe.output("all_keys2.py : len:uS_State_Keys %d" % len(US_State_Keys) )
 """
-# ---
+
 length_stats = {"Counties": Counties}
-# ---
+
 len_print.data_len("us_counties.py", length_stats)
-# ---
+

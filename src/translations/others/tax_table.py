@@ -33,11 +33,11 @@ Taxons3 = {}
 # "waterbears":"دب الماء",
 # "asterids":"",
 # ---
-Taxons = open_json_file("Taxons") or {}
+Taxons = open_json_file("taxonomy/Taxons.json") or {}
 # ---
-Taxons2 = open_json_file("Taxons2") or {}
+Taxons2 = open_json_file("taxonomy/Taxons2.json") or {}
 # ---
-Taxons3 = open_json_file("Taxons3") or {}
+Taxons3 = open_json_file("taxonomy/Taxons3.json") or {}
 # ---
 Taxons.update(Taxons2)
 Taxons.update(Taxons3)
@@ -55,7 +55,3 @@ for tax, taxlab in Taxons.items():
 for taxe, lab in Taxons2.items():
     # typeTable_7["{} described in".format(taxe)] = "{} وصفت في".format(lab)
     Taxons_table[f"{taxe} of"] = f"{lab} في"
-# ---
-del Taxons
-del Taxons2
-del Taxons3

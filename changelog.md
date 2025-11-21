@@ -1,4 +1,21 @@
 
+## [#96](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-21
+
+* **New Features**
+  * Expanded geographic translation coverage with lowercased key variants and richer region/province labels.
+  * Added utilities to load and normalize JSON-based translation data for more consistent lookups.
+
+* **Refactor**
+  * Reorganized translation data into clearer subdirectories and consolidated redundant translation sets.
+  * Streamlined public translation exports and simplified composition of region mappings.
+
+* **Tests**
+  * Updated fixtures to match reorganized data paths and added tests for JSON loading/filtering.
+
+* **Chores**
+  * Minor formatting cleanups (removed extraneous comments/blank lines).
+
+
 ## [#94](https://github.com/MrIbrahem/make2_new/pull/94) - 2025-11-21
 
 * **Documentation**

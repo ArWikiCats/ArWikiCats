@@ -268,7 +268,7 @@ def _add_religious_entries() -> None:
 def _add_film_entries() -> None:
     """Update the registry with film-based female categories."""
 
-    Films_keys_male_female = open_json_file("Films_keys_male_female") or {}
+    Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
     data = {}
     for key, labels in Films_keys_male_female.items():
         label = labels.get("female", "")

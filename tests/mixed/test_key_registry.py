@@ -6,7 +6,7 @@ from typing import Iterable
 
 import pytest
 
-from src.translations.mixed.key_registry import KeyRegistry, load_json_mapping
+from src.translations.mixed.key_registry import KeyRegistry
 
 
 class DummyIterable(Iterable[tuple[str, str]]):
@@ -24,25 +24,6 @@ def registry() -> KeyRegistry:
     """Return a fresh registry for each test."""
 
     return KeyRegistry({"existing": "value"})
-
-
-def test_load_json_mapping_filters_empty_entries(monkeypatch: pytest.MonkeyPatch) -> None:
-    """``load_json_mapping`` drops empty keys/values and coerces to strings."""
-
-    def fake_open(filename: str) -> dict[object, object]:  # pragma: no cover - helper
-        assert filename == "demo"
-        return {
-            "": "ignored",
-            "valid": 123,
-            42: 3.14,
-            "none": None,
-        }
-
-    monkeypatch.setattr("src.translations.mixed.key_registry.open_json_file", fake_open)
-
-    data = load_json_mapping("demo")
-
-    assert data == {"valid": "123", "42": "3.14"}
 
 
 def test_update_respects_skip_existing(registry: KeyRegistry) -> None:

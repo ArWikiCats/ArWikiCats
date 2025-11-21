@@ -42,9 +42,9 @@ def load_sources() -> Dict[str, NationalityEntry]:
     Ensures all entries follow the NationalityEntry structure (string values only).
     """
 
-    raw_all_nat_o: Dict[str, Any] = open_json_file("All_Nat_o") or {}
-    raw_uu_nats: Dict[str, Any] = open_json_file("uu_nats") or {}
-    raw_sub_nat: Dict[str, Any] = open_json_file("Sub_Nat") or {}
+    raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
+    raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
+    raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
 
     # Fix hindustani
     if raw_uu_nats.get("hindustani"):
@@ -56,10 +56,6 @@ def load_sources() -> Dict[str, NationalityEntry]:
 
     for key, val in raw_sub_nat.items():
         raw_all_nat_o[key] = val
-
-    # Cleanup temporary JSON sources
-    del raw_uu_nats
-    del raw_sub_nat
 
     # Convert everything to NationalityEntry ensuring all fields exist
     normalized: Dict[str, NationalityEntry] = {}

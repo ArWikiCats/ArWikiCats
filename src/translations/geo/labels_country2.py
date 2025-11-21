@@ -8,10 +8,10 @@ python3 core8/pwb.py make/lists/labels_country2
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
-COUNTRY_ADMIN_LABELS = open_json_file("P17_PP") or {}
-# ---
-ADDITIONAL_REGION_KEYS = open_json_file("New_Keys") or {}
-# ---
+COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}
+
+ADDITIONAL_REGION_KEYS = open_json_file("geography/New_Keys.json") or {}
+
 SWISS_CANTON_LABELS = {
     "aarga": "أرجاو",
     "aargau": "أرجاو",
@@ -44,14 +44,14 @@ SWISS_CANTON_LABELS = {
     "zug": "تسوغ",
     "zürich": "زيورخ",
 }
-# ---
+
 COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in SWISS_CANTON_LABELS.items()})
-# ---
+
 for canton, value in SWISS_CANTON_LABELS.items():
     COUNTRY_ADMIN_LABELS[f"canton-of {canton.lower()}"] = f"كانتون {value}"
-# ---
+
 COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.items()})
-# ---
+
 PROVINCE_LABEL_OVERRIDES = {
     "quintana roo": "ولاية كينتانا رو",
     "tamaulipas": "ولاية تاماوليباس",
@@ -133,9 +133,9 @@ PROVINCE_LABEL_OVERRIDES = {
     "vasilevo municipality": "فاسيليفو",
     "šentjernej municipality": "شينتيرني",
 }
-# ---
+
 COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
-# ---
+
 REGION_SUFFIXES_EN = [
     " province",
     " district",
@@ -162,9 +162,9 @@ REGION_PREFIXES_AR = [
     "إقليم ",
     "اقليم ",
 ]
-# ---
+
 region_suffix_matches = 0
-# ---
+
 for cc, lab in ADDITIONAL_REGION_KEYS.items():
     should_update = True
     cc2 = cc.lower()
@@ -220,24 +220,22 @@ PROVINCE_LABELS = {
     "woleu-ntem": "وليو-نتم",
     "zaire": "زائير",
 }
-# ---
+
 for city, city_lab in PROVINCE_LABELS.items():
     city2 = city.lower()
     if city_lab:
         COUNTRY_ADMIN_LABELS[city2] = city_lab
         COUNTRY_ADMIN_LABELS[f"{city2} province"] = f"مقاطعة {city_lab}"
         COUNTRY_ADMIN_LABELS[f"{city2} (province)"] = f"مقاطعة {city_lab}"
-# ---
+
 Lenth1 = {
     "ADDITIONAL_REGION_KEYS": ADDITIONAL_REGION_KEYS,
     "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,
     "region_suffix_matches": region_suffix_matches,
 }
-# ---
+
 
 len_print.data_len("labels_country2.py", Lenth1)
-# ---
-# del New_Keys
-# ---
+
 # Backwards compatible alias
 P17_PP = COUNTRY_ADMIN_LABELS

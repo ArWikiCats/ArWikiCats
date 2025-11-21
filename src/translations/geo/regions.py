@@ -140,7 +140,7 @@ PRIMARY_REGION_TRANSLATIONS = {
     "mera": "ميرا",
     "huaquillas": "هواكويياس",
 }
-# ---
+
 PERU_REGION_TRANSLATIONS = {
     "amazonas": "أمازوناس",
     "callao": "كاياو",
@@ -172,7 +172,7 @@ PERU_REGION_TRANSLATIONS = {
     "tumbes": "تومبيس",
     "ucayali": "أوكايالي",
 }
-# ---
+
 UK_COUNTY_TRANSLATIONS = {
     "mascara, algeria": "معسكر (مدينة)",
     "barpeta": "باربتا",
@@ -321,7 +321,7 @@ UK_COUNTY_TRANSLATIONS = {
     "west midlands (region)": "منطقة مدلاند الغربية",
     "yorkshire and the humber": "يوركشاير والهمبر",
 }
-# ---
+
 SRI_LANKA_DISTRICT_TRANSLATIONS = {
     "anuradhapura": "انورادهابورا",
     "batticaloa": "باتيكالوا",
@@ -350,7 +350,7 @@ SRI_LANKA_DISTRICT_TRANSLATIONS = {
     "nuwara eliya": "نوارا إليا",
     "hambantota": "هامبانتوتا",
 }
-# ---
+
 ALGERIA_PROVINCE_TRANSLATIONS = {
     "ahal": "أهال",
     "balkan": "بلقان",
@@ -405,7 +405,7 @@ ALGERIA_PROVINCE_TRANSLATIONS = {
     "tlemcen": "تلمسان",
     "tébessa": "تبسة",
 }
-# ---
+
 VENEZUELA_STATE_TRANSLATIONS = {
     "táchira": "تاتشيرا",
     "apure": "أبوري",
@@ -432,7 +432,7 @@ VENEZUELA_STATE_TRANSLATIONS = {
     "vargas": "فارغاس",
     "kerċem": "كيرتشم",
 }
-# ---
+
 ECUADOR_PROVINCE_TRANSLATIONS = {
     "carchi": "كارتشي",
     "bolívar": "بوليفار",
@@ -459,7 +459,7 @@ ECUADOR_PROVINCE_TRANSLATIONS = {
     "tungurahua": "تونغوراهوا",
     "los ríos": "لوس ريوس",
 }
-# ---
+
 LEGACY_UK_COUNTY_TRANSLATIONS = {
     "bedfordshire": "بيدفوردشير",
     "berkshire": "بيركشير",
@@ -647,49 +647,39 @@ LEGACY_UK_COUNTY_TRANSLATIONS = {
     "lisburn": "ليسبورن",
     "yorkshire": "يوركشاير",
 }
-# ---
+
 for county_name, county_label in LEGACY_UK_COUNTY_TRANSLATIONS.items():
     PRIMARY_REGION_TRANSLATIONS[county_name.lower()] = county_label
-# ---
+
 for county_name, county_label in UK_COUNTY_TRANSLATIONS.items():
     PRIMARY_REGION_TRANSLATIONS[county_name.lower()] = county_label
-# ---
+
 for region_name, region_label in PERU_REGION_TRANSLATIONS.items():
     normalized_name = region_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = region_label
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = f"إقليم {region_label}"
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"مقاطعة {region_label}"
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = f"مديرية {region_label}"
-# ---
+
 for district_name, district_label in SRI_LANKA_DISTRICT_TRANSLATIONS.items():
     normalized_name = district_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = district_label
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} district"] = f"مديرية {district_label}"
-# ---
+
 for province_name, province_label in ALGERIA_PROVINCE_TRANSLATIONS.items():
     normalized_name = province_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = province_label
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"ولاية {province_label}"
-# ---
+
 for state_name, state_label in VENEZUELA_STATE_TRANSLATIONS.items():
     normalized_name = state_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = state_label
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} (state)"] = f"ولاية {state_label}"
-# ---
+
 for province_name, province_label in ECUADOR_PROVINCE_TRANSLATIONS.items():
     normalized_name = province_name.lower()
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = province_label
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"مقاطعة {province_label}"
-# ---
-del (
-    PERU_REGION_TRANSLATIONS,
-    UK_COUNTY_TRANSLATIONS,
-    SRI_LANKA_DISTRICT_TRANSLATIONS,
-    ALGERIA_PROVINCE_TRANSLATIONS,
-    VENEZUELA_STATE_TRANSLATIONS,
-    ECUADOR_PROVINCE_TRANSLATIONS,
-    LEGACY_UK_COUNTY_TRANSLATIONS,
-)
 
 Main_Table = PRIMARY_REGION_TRANSLATIONS
 

@@ -5,6 +5,25 @@ import pytest
 from src.translations.geo import _shared
 
 
+def test_load_json_mapping_filters_empty_entries(monkeypatch: pytest.MonkeyPatch) -> None:
+    """``load_json_mapping`` drops empty keys/values and coerces to strings."""
+
+    def fake_open(filename: str) -> dict[object, object]:  # pragma: no cover - helper
+        assert filename == "demo"
+        return {
+            "": "ignored",
+            "valid": 123,
+            42: 3.14,
+            "none": None,
+        }
+
+    monkeypatch.setattr(_shared, "open_json_file", fake_open)
+
+    data = _shared.load_json_mapping("demo")
+
+    assert data == {"valid": "123", "42": "3.14"}
+
+
 def test_load_json_mapping_filters_and_normalizes(monkeypatch):
     mock_data = {1: "value", "empty": "", "none": None}
 
