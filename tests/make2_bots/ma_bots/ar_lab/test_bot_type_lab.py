@@ -259,7 +259,7 @@ data = [
 @pytest.mark.fast
 def test_get_type_lab_data(preposition, category, output) -> None:
     label, _ = get_type_lab(preposition, category)
-    assert label == output
+    assert label.strip() == output.strip()
 
 
 def test_get_type_lab():

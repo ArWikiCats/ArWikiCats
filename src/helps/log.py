@@ -47,7 +47,7 @@ class LoggerWrap:
         self._logger.log(level, make_str(msg), *args, **kwargs)
 
 
-logger = LoggerWrap(__name__, print_settings.disable_all_printing or print_settings.noprint)
+logger = LoggerWrap(__name__, print_settings.noprint)
 
 
 def config_logger(level: Optional[Union[int, str]] = None) -> None:

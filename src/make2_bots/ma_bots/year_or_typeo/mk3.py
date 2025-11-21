@@ -144,9 +144,7 @@ def new_func_mk2(
     """
 
     cat_test = cat_test.replace(country, "")
-    arlabel = re.sub(r" ", " ", arlabel)
-    country_label = country_label
-
+    arlabel = " ".join(arlabel.strip().split())
     suf = f" {suf.strip()} " if suf else " "
     """
     in_table = False
@@ -169,16 +167,14 @@ def new_func_mk2(
 
     logger.info(f"{year_labe=}, {arlabel2=}")
 
-    if Add_In_Done:
-        logger.info("------- end --------")
-        logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
-        logger.info(f'a<<lightblue>>>>>> arlabel  "{arlabel}"')
-        return cat_test, arlabel
+    if not Add_In_Done:
+        if typeo == "" and In == "" and country and year:
+            arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, country_label, Add_In, arlabel2)
 
-    if typeo == "" and In == "" and country and year:
-        arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, country_label, Add_In, arlabel2)
+    arlabel = " ".join(arlabel.strip().split())
+
     logger.info("------- end --------")
     logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
-    logger.info(f'a<<lightblue>>>>>> arlabel "{arlabel}"')
+    logger.info(f'a<<lightblue>>>>>> arlabel  "{arlabel}"')
 
     return cat_test, arlabel

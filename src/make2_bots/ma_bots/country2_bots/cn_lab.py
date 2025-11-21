@@ -49,7 +49,7 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
             resolved_label = pop_format2[cona_1].format(c_2_l)
 
     logger.info(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
-    resolved_label = resolved_label.replace("  ", " ")
+    resolved_label = " ".join(resolved_label.strip().split())
 
     maren = re.match(r"\d\d\d\d", cona_2)
 
