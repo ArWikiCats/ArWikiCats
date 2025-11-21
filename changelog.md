@@ -4,6 +4,19 @@
 * **Chores**
   * Updated Arabic transliterations for Minnesota-related terms across translation databases and tests, correcting the spelling from "مينيسوتا" to "منيسوتا" for improved accuracy in geographic names, sports teams, and related entries.
 
+## [#97](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-97
+
+  * Expanded geographic lookup APIs: more country, admin-region and India/secondary-region translation variants and lowercased lookup support.
+  * More comprehensive US location variant mappings for states, parties and counties.
+
+* **Tests**
+  * Added dedicated US counties translation tests.
+  * Adjusted test data by removing specific deprecated entries.
+
+* **Chores**
+  * Consolidated and reorganized translation data and exports.
+  * Removed an obsolete translation entry.
+
 ## [#96](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-21
 
 * **New Features**
