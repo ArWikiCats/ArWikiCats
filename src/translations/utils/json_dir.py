@@ -25,6 +25,7 @@ def _build_json_path(relative_path: str) -> Path:
 
 
 def open_json_file(file: str = "") -> dict[str, Any] | list[Any]:
+    """Open a JSON resource from the bundled ``jsons`` directory by name."""
     if not file:
         return {}
     file_path = _build_json_path(file)
@@ -40,6 +41,7 @@ def open_json_file(file: str = "") -> dict[str, Any] | list[Any]:
 
 
 def open_json(file_path: str = "") -> dict[str, Any] | list[Any]:
+    """Open a JSON file given a relative path under the ``jsons`` directory."""
     if not file_path:
         return {}
     file_path = _build_json_path(file_path)

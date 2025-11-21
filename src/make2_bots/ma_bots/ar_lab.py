@@ -144,7 +144,7 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
 
 
 # @dump_data(enable=True)
-def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
+def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters.
 
     Args:
@@ -215,7 +215,7 @@ def get_Type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     if not label:
         label = country2_lab.get_lab_for_country2(type_lower)
 
-    logger.info(f"?????? get_Type_lab: {type_lower=}, {label=}")
+    logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
 
     return label, should_append_in_label
 
@@ -366,7 +366,7 @@ class ArabicLabelBuilder:
 
     def resolve_labels(self) -> bool:
         """Resolves type and country labels. Returns False if resolution fails."""
-        self.type_label, self.add_in_lab = get_Type_lab(self.tito, self.category_type)
+        self.type_label, self.add_in_lab = get_type_lab(self.tito, self.category_type)
 
         if self.type_lower == "sport" and self.country_lower.startswith("by "):
             self.type_label = "رياضة"
@@ -635,7 +635,7 @@ def find_ar_label(
 __all__ = [
     "find_ar_label",
     "add_in_tab",
-    "get_Type_lab",
+    "get_type_lab",
     "get_con_lab",
     "get_type_country",
 ]

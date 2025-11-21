@@ -2,8 +2,9 @@ import re
 
 
 def fix_minor(arlabel, sps=""):
+    """Clean up duplicate spaces and repeated prepositions in labels."""
     # ---
-    arlabel = arlabel.replace("  ", " ").replace("  ", " ").replace("  ", " ")
+    arlabel = " ".join(arlabel.strip().split())
     # ---
     sps_list = [
         "من",
@@ -20,5 +21,7 @@ def fix_minor(arlabel, sps=""):
         arlabel = re.sub(rf" {sps}\s+{sps} ", f" {sps} ", arlabel)
         if sps == "و":
             arlabel = re.sub(rf" {sps} ", f" {sps}", arlabel)
+    # ---
+    arlabel = " ".join(arlabel.strip().split())
     # ---
     return arlabel

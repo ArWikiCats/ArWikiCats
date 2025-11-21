@@ -2,6 +2,7 @@ from typing import Dict, List, Set
 
 
 def check_key_in_tables(key: str, tables: List[Dict[str, str] | List[str] | Set[str]]) -> bool:
+    """Return True if ``key`` exists in any container within ``tables``."""
     for table in tables:
         if key in table:
             return True
@@ -9,6 +10,7 @@ def check_key_in_tables(key: str, tables: List[Dict[str, str] | List[str] | Set[
 
 
 def check_key_in_tables_return_tuple(key: str, tables: Dict[str, Dict[str, str] | Set[str]]) -> bool:
+    """Return presence flag and table name when ``key`` is found."""
     for name, table in tables.items():
         if key in table:
             return True, name
@@ -16,6 +18,7 @@ def check_key_in_tables_return_tuple(key: str, tables: Dict[str, Dict[str, str] 
 
 
 def get_value_from_any_table(key: str, tables: List[Dict[str, str]]) -> str:
+    """Return the value for ``key`` from the first mapping that contains it."""
     for table in tables:
         if key in table:
             return table[key]

@@ -26,12 +26,12 @@ The AI agent will reorganize the logic into four primary domains:
 
 Responsible for extracting and normalizing:
 
-* `Type`
+* `lab_type`
 * `country`
 * `tito`
 * Lowercased representations
 
-### B. Type Resolution Layer
+### B. lab_type Resolution Layer
 
 Centralizes all type-related logic, including:
 
