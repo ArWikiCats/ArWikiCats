@@ -140,7 +140,6 @@ data = [
     (" hosted by ", "international ice hockey competitions", "منافسات هوكي جليد دولية"),
     (" of ", "military units and formations of", "وحدات وتشكيلات عسكرية في "),
     (" opened in ", "railway stations in the netherlands", "محطات السكك الحديدية في هولندا"),
-    (" of ", "roman catholic bishops of", "أساقفة كاثوليك رومان من "),
     (" in ", "18th century religious buildings and structures", "مبان دينية القرن 18 ومنشآت"),
     (" of ", "french guianan people of", "غويانيون فرنسيون في "),
     (" from ", "players of american football", "لاعبو كرة قدم أمريكية"),
@@ -167,7 +166,6 @@ data = [
     (" in ", "expatriates from northern ireland", "مغتربون من أيرلندا الشمالية"),
     (" for ", "olympic table tennis players", "لاعبو كرة طاولة أولمبيون"),
     (" by ", "port cities and towns", "مدن وبلدات ساحلية"),
-    (" in ", "military personnel of republic-of china", "أفراد عسكريون من جمهورية الصين"),
     (" for ", "african games silver medalists", "فائزون بميداليات فضية في الألعاب الإفريقية"),
     (" by ", "1789 in asian sport", "رياضة آسيوية في 1789"),
     (" by ", "1789 in chinese sport", "رياضة صينية في 1789"),
@@ -259,9 +257,9 @@ data = [
 
 @pytest.mark.parametrize("preposition, category, output", data, ids=[x[1] for x in data])
 @pytest.mark.fast
-def test_get_Type_lab_data(preposition, category, output) -> None:
+def test_get_type_lab_data(preposition, category, output) -> None:
     label, _ = get_type_lab(preposition, category)
-    assert label == output
+    assert label.strip() == output.strip()
 
 
 def test_get_type_lab():

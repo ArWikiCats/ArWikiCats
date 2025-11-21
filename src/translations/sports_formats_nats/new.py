@@ -20,6 +20,7 @@ sport_bot = FormatData({}, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_p
 
 
 def normalize_nat_label(category):
+    """Normalize nationality placeholders within a category string."""
     key = nat_bot.match_key(category)
     result = ""
     if key:
@@ -28,6 +29,7 @@ def normalize_nat_label(category):
 
 
 def normalize_sport_label(category):
+    """Normalize sport placeholders within a category string."""
     key = sport_bot.match_key(category)
     result = ""
     if key:
@@ -36,20 +38,24 @@ def normalize_sport_label(category):
 
 
 def normalize_both(category):
+    """Normalize both nationality and sport tokens in the category."""
     category = normalize_nat_label(category)
     category = normalize_sport_label(category)
     return category
 
 
 def get_template_label_new(key, category):
+    """Fetch the template label for the provided normalized key."""
     return nat_bot.get_template(key, category)
 
 
 def create_nat_label(category):
+    """Search for a nationality-aware label for the category."""
     return nat_bot.search(category)
 
 
 def create_label(category):
+    """Create a localized label by combining nationality and sport templates."""
     # category = Yemeni football championships
     template_label = normalize_both(category)
 

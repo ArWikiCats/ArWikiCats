@@ -339,7 +339,10 @@ CINEMA_CATEGORIES: dict[str, str] = {
 
 
 def _update_lowercase(data: dict[str, str], mapping: list[Mapping[str, str]], skip_existing: bool = False) -> None:
+    """Populate ``data`` with lowercase keys from the provided mappings."""
+
     def check_skip_existing(key):
+        """Determine whether a lowercase entry should overwrite existing data."""
         if skip_existing:
             return data.get(key.lower()) is None
         return True
@@ -410,6 +413,7 @@ def _build_towns_entries(data) -> None:
 
 
 def _build_of_variants(data, data_list, data_list2) -> dict[str, str]:
+    """Add "of" variants for categories and map them to Arabic labels."""
     for tab in data_list:
         for key, value in tab.items():
             new_key = f"{key.lower()} of"

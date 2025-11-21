@@ -15,6 +15,7 @@ YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 
 
 def make_tab() -> dict[str, str]:
+    """Generate nationality-sensitive sports templates for P17 mappings."""
     SP17 = {}
     for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
         nat_f = "{nat}"

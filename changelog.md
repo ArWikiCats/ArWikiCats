@@ -1,17 +1,44 @@
-[#Organize translation JSON files by category] - 2025-11-20
 
-- **Added**
-  - Tests validating JSON loading from nested translation subdirectories.
+## [#94](https://github.com/MrIbrahem/make2_new/pull/94) - 2025-11-21
 
-- **Changed**
-  - Reorganized translation JSON assets into domain-specific folders and updated loaders to resolve nested paths.
-  - Adjusted utilities and scripts to work with the new hierarchical layout.
+* **Documentation**
+  * Added a new English README and updated the main README header/branding.
 
-- **Fixed**
-  - Ensured recursive JSON scanning accounts for files inside nested directories.
+* **New Features / Refactor**
+  * Reorganized Arabic label generation: new modular pipeline and public exports; legacy implementation removed.
 
-- **Removed**
-  - Deprecated flat JSON placements in favour of categorized subfolders.
+* **Bug Fixes**
+  * Strengthened whitespace normalization to collapse and trim spaces for more consistent labels.
+
+* **Tests**
+  * Updated tests to ignore surrounding whitespace during normalization.
+
+
+## [#93](https://github.com/MrIbrahem/make2_new/pull/93) - 2025-11-21
+
+* **New Features**
+  * Enhanced Arabic labeling system with improved category and type resolution capabilities.
+
+* **Tests**
+  * Added comprehensive validation coverage for Arabic labeling edge cases and data quality checks.
+  * Updated test datasets with additional category mappings for validation.
+
+* **Chores**
+  * Optimized label caching performance with increased cache limits.
+  * Internal code restructuring and refactoring for improved maintainability.
+
+## [#87](https://github.com/MrIbrahem/make2_new/pull/87) - 2025-11-20
+
+* **New Features**
+  * Added enhanced Arabic labeling system with comprehensive category and type resolution capabilities.
+
+* **Tests**
+  * Expanded test coverage with new bug-check test cases for Arabic labeling validation.
+  * Added targeted test cases for label generation with edge-case data.
+
+* **Chores**
+  * Introduced refactoring plan document for system architecture improvements.
+  * Internal code restructuring for maintainability and modularity.
 
 ## [#86](https://github.com/MrIbrahem/make2_new/pull/86) - 2025-11-20
 

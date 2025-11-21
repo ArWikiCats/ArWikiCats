@@ -207,7 +207,7 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = tmp_bot.Work_Templates(type_lower)
 
     if not label:
-        label = Get_c_t_lab(type_lower, normalized_preposition, Type="Type_lab")
+        label = Get_c_t_lab(type_lower, normalized_preposition, Type="type_label")
 
     if not label:
         label = te4_2018_Jobs(type_lower)
@@ -338,6 +338,7 @@ class ArabicLabelBuilder:
         start_get_country2: bool = True,
         use_event2: bool = True,
     ):
+        """Initialize builder state from the incoming category context."""
         self.category = category
         self.tito = tito
         self.cate_test = cate_test
@@ -396,7 +397,7 @@ class ArabicLabelBuilder:
 
         if self.type_label or self.country_label:
             logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", con_lab:"{self.country_label}"')
-            logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{self.type_lower}", Type_lab:"{self.type_label}"')
+            logger.info(f'<<lightgreen>>>>>> ------------- Type_lower:"{self.type_lower}", type_label:"{self.type_label}"')
 
         if not cao:
             return False
@@ -424,17 +425,17 @@ class ArabicLabelBuilder:
         if tito2 in TITO_LIST_S:
             if tito2 == "in" or " in" in type_lower:
                 if type_lower in pop_of_without_in:
-                    logger.info(f'>>-- Skip aAdd في to Type_lab:"{type_lab}", "{type_lower}"')
+                    logger.info(f'>>-- Skip aAdd في to type_label:"{type_lab}", "{type_lower}"')
                 else:
                     if " في" not in type_lab and " in" in type_lower:
-                        logger.info(f'>>-- aAdd في to Type_lab:in"{type_lab}", for "{type_lower}"')
+                        logger.info(f'>>-- aAdd في to type_label:in"{type_lab}", for "{type_lower}"')
                         type_lab = type_lab + " في"
                     elif tito2 == "in" and " in" in type_lower:
-                        logger.info(f'>>>> aAdd في to Type_lab:in"{type_lab}", for "{type_lower}"')
+                        logger.info(f'>>>> aAdd في to type_label:in"{type_lab}", for "{type_lower}"')
                         type_lab = type_lab + " في"
 
             elif (tito2 == "at" or " at" in type_lower) and (" في" not in type_lab):
-                logger.info('>>>> Add في to Type_lab:at"%s"' % type_lab)
+                logger.info('>>>> Add في to type_label:at"%s"' % type_lab)
                 type_lab = type_lab + " في"
         return type_lab
 

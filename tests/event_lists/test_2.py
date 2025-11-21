@@ -18,6 +18,18 @@ data = {
     "Category:Figure skaters at the 2003 Asian Winter Games": "تصنيف:متزلجون فنيون في الألعاب الآسيوية الشتوية 2003",
     "Category:Figure skaters at the 2007 Winter Universiade": "تصنيف:متزلجون فنيون في الألعاب الجامعية الشتوية 2007",
     "Category:Nations at the 2010 Summer Youth Olympics": "تصنيف:بلدان في الألعاب الأولمبية الشبابية الصيفية 2010",
+    "Category:military personnel of republic-of china": "تصنيف:أفراد عسكريون من جمهورية الصين",
+    "Category:children of prime ministers of ukraine": "تصنيف:أطفال رؤساء وزراء أوكرانيا",
+    # "Category:roman catholic bishops of fulda": "تصنيف:",
+    "Category:men of poseidon": "تصنيف:رجال من بوسيدون",
+
+    "Category:Olympic shooters of Egypt": "تصنيف:رماة أولمبيون من مصر",
+    "Category:Olympic short track speed skaters of Japan": "تصنيف:متزلجون على مسار قصير أولمبيون من اليابان",
+    "Category:Olympic figure skaters of Argentina": "تصنيف:متزلجون فنيون أولمبيون من الأرجنتين",
+    "Category:Olympic figure skaters of Armenia": "تصنيف:متزلجون فنيون أولمبيون من أرمينيا",
+    "Category:Olympic figure skaters of Australia": "تصنيف:متزلجون فنيون أولمبيون من أستراليا",
+
+    # "Category:communists of bosnia and herzegovina politicians": "تصنيف:أحداث أكتوبر 1550 الرياضية في أوقيانوسيا",
 }
 
 

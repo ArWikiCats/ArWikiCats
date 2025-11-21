@@ -137,6 +137,7 @@ def _normalize_sub_regions(text: str) -> str:
 
 
 def fix_formula(ar_label: str, en_label: str) -> str:
+    """Standardize Arabic Formula 1 labels to the year-based format."""
     ar_label = re.sub(r"\bفورمولا 1\s*([12]\d+)", r"فورمولا 1 في سنة \g<1>", ar_label)
 
     return ar_label
@@ -197,7 +198,9 @@ def fix_it(ar_label: str, en_label: str) -> str:
     ar_label = ar_label.replace("ب201", "بسنة 201")
     ar_label = ar_label.replace("ب202", "بسنة 202")
     ar_label = ar_label.replace("على المريخ", "في المريخ")
-    ar_label = ar_label.replace("  ", " ")
+
+    ar_label = " ".join(ar_label.strip().split())
+
     ar_label = re.sub(r"^شغب (\d+)", r"شغب في \g<1>", ar_label)
     ar_label = re.sub(r"قوائممتعلقة", "قوائم متعلقة", ar_label)
     ar_label = re.sub(r" في أصل ", " من أصل ", ar_label)

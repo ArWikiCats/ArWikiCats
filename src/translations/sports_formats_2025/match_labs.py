@@ -79,6 +79,7 @@ def load_data() -> Dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def load_class() -> FormatData:
+    """Load and cache the formatter used for 2025 team categories."""
     teams_2025 = load_data()
 
     bot = FormatData(teams_2025, SPORTS_KEYS_FOR_JOBS, key_placeholder="{sport}", value_placeholder="{sport_label}")
@@ -88,6 +89,7 @@ def load_class() -> FormatData:
 
 @functools.lru_cache(maxsize=None)
 def find_teams_2025(category: str, default: str = "") -> str:
+    """Search for a 2025 team label, falling back to ``default`` when absent."""
     bot = load_class()
     return bot.search(category) or default
 

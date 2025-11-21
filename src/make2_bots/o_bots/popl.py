@@ -57,6 +57,7 @@ def work_peoples(name: str) -> str:
     logger.info(f"<<lightpurple>> work_peoples lookup for '{name}'")
 
     def _lookup(prefix: str) -> str:
+        """Fetch a people label using the given prefix key."""
         return People_key.get(prefix, "")
 
     label = resolve_suffix_template(name, Pp_Priffix, _lookup)

@@ -19,8 +19,10 @@ new_func_lab = _new_func_lab
 
 
 def event(tab: Dict[str, Any], return_no_labs: bool = False, **kwargs: Any) -> List[str]:
+    """Delegate event processing to the main module with optional extras."""
     return main.event(tab, return_no_labs=return_no_labs, **kwargs)
 
 
 def te_films(cate: str, reference_category: str = "") -> str:
+    """Resolve film category labels via the media bot helper."""
     return films_bot.te_films(cate, reference_category=reference_category)

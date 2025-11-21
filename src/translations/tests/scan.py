@@ -15,7 +15,7 @@ from colorama import Fore, Style
 
 from ..utils.json_dir import open_json_file
 
-Dir = Path(__file__).parents[1] / "jsons"
+Dir = Path(__file__).parent / "jsons"
 
 
 def scan_json_files(folder_path: os.PathLike[str] | str) -> None:
@@ -29,19 +29,21 @@ def scan_json_files(folder_path: os.PathLike[str] | str) -> None:
     """
     errors = []
     folder = Path(folder_path)
-    for file_path in folder.rglob("*.json"):
+    for filename in os.listdir(folder):
+        if not filename.endswith(".json"):
+            continue
+        file_path = folder / filename
         if file_path.is_dir():
             continue
         try:
-            relative_path = file_path.relative_to(folder)
-            result = open_json_file(str(relative_path))
+            result = open_json_file(file_path.stem)
             if result is False:
-                print(f"Failed to parse {relative_path}")
+                print(f"Failed to parse {filename}")
                 errors.append(str(file_path))
             else:
-                print(f"Successfully parsed {relative_path}")
+                print(f"Successfully parsed {filename}")
         except Exception as e:
-            print(f"Unexpected error in {file_path.name}: {str(e)}")
+            print(f"Unexpected error in {filename}: {str(e)}")
             errors.append(str(file_path))
     for file in errors:
         # print error message

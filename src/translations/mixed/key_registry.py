@@ -98,6 +98,7 @@ class KeyRegistry:
         """
 
         def _lowercase_transform(key: str, value: str) -> tuple[str, str]:
+            """Normalize a mapping entry by stripping and lowercasing the key."""
             if strip:
                 key = key.strip()
                 value = value.strip()
