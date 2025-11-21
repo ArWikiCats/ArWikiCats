@@ -13,9 +13,9 @@ from .regions2 import India_Main_Table, Main_Table_2
 from .us_counties import Counties
 
 COUNTRY_LABEL_OVERRIDES = open_json_file("geography/P17_2_final_ll.json") or {}
-# ---
+
 POPULATION_OVERRIDES = open_json_file("geography/opop.json") or {}
-# ---
+
 JAPAN_REGIONAL_LABELS = {
     "gokishichidō": "",
     "saitama": "سايتاما",
@@ -161,11 +161,11 @@ TURKEY_PROVINCE_LABELS = {
 population_without_years = {}
 country_labels_final = {}
 COUNTRY_LABEL_INDEX = {city1.lower(): CITY_TRANSLATIONS[city1] for city1 in CITY_TRANSLATIONS if CITY_TRANSLATIONS[city1] != ""}
-# ---
-# ---
+
+
 # 402.55859375 before del
 # 402.42578125 after del
-# ---
+
 for city, lal in JAPAN_REGIONAL_LABELS.items():
     city2 = city.lower()
     if lal:
@@ -275,6 +275,6 @@ del POPULATION_OVERRIDES
 del Main_Table
 del Main_Table_2
 del P17_PP
-# ---
+
 # Backwards compatible aliases
 New_P17_Finall = COUNTRY_LABEL_INDEX
