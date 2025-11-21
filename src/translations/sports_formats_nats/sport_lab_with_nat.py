@@ -21,6 +21,7 @@ format_labels_with_nat = {
 
 
 def normalize_category(category):
+    """Normalize categories using nationality-aware templates."""
     bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
     key = bot.match_key(category)
     result = ""
@@ -30,6 +31,7 @@ def normalize_category(category):
 
 
 def get_template_label(key, key_placeholder, normalized_team, data):
+    """Replace a nationality key with a placeholder and fetch the template label."""
     normalized_key = re.sub(rf"\b{key}\b", key_placeholder, f" {normalized_team.strip()} ", flags=re.IGNORECASE)
     logger.debug(f"{normalized_key=}")
     template_label = data.get(normalized_key.strip(), "")
@@ -37,6 +39,7 @@ def get_template_label(key, key_placeholder, normalized_team, data):
 
 
 def match_sports_labels_with_nat(normalized_team: str) -> str:
+    """Match sports labels that include nationality terms and replace them."""
     template_label = ""
     nationality_key = match_nat_key(normalized_team.strip())
     if not nationality_key:
@@ -58,6 +61,7 @@ def match_sports_labels_with_nat(normalized_team: str) -> str:
 
 
 def match_sports_labels_with_nat_new(normalized_team: str) -> str:
+    """Match sports labels using the newer placeholder-based approach."""
     template_label = ""
     nationality_key = match_nat_key(normalized_team.strip())
     if not nationality_key:
@@ -76,6 +80,7 @@ def match_sports_labels_with_nat_new(normalized_team: str) -> str:
 
 
 def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
+    """Construct a team label that merges sport and nationality templates."""
     team_lab = ""
     sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
     template_label = match_sports_labels_with_nat(normalized_team)

@@ -25,6 +25,7 @@ from ..helps.log import logger
 
 class LabsYears:
     def __init__(self) -> None:
+        """Prepare reusable lookup tables for year-based category labels."""
         self.lookup_count = 0
         # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/YEAR.json
         self.category_templates = {

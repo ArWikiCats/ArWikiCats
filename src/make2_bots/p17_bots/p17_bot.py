@@ -18,12 +18,14 @@ from ..matables_bots.bot import All_P17
 
 
 def add_definite_article(label: str) -> str:
+    """Prefix each word in ``label`` with the Arabic definite article."""
     label_without_article = re.sub(r" ", " ال", label)
     new_label = f"ال{label_without_article}"
     return new_label
 
 
 def _resolve_p17_2_label(category: str, templates: dict, nat_key: str, add_article: bool = False) -> str:
+    """Resolve gendered nationality templates for P17-style categories."""
     for suffix, template in templates.items():
         suffix_key = f" {suffix.strip().lower()}"
         if category.lower().endswith(suffix_key):
@@ -43,6 +45,7 @@ def _resolve_p17_2_label(category: str, templates: dict, nat_key: str, add_artic
 
 
 def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
+    """Return a nationality-based label for categories ending with country names."""
     logger.info(f'<<lightblue>>>>>> Get_P17_2 "{category}" ')  # "united states government officials"
 
     resolved_label = _resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens")
@@ -54,6 +57,7 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
 
 
 def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
+    """Resolve categories that start with nationality adjectives into country labels."""
     resolved_label = ""
     con_3_lab = ""
     country_start_lab = ""

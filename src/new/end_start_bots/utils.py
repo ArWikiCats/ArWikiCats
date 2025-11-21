@@ -4,6 +4,7 @@ from typing import Any, Dict, Tuple
 
 
 def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tuple[str, str, bool]:
+    """Strip matching prefixes from ``category3`` based on provided patterns."""
     list_of_cat = ""
 
     category3_original = category3
@@ -27,6 +28,7 @@ def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tup
 
 
 def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tuple[str, str, bool, bool]:
+    """Strip matching suffixes from ``category3`` based on provided patterns."""
     list_of_cat = ""
 
     category3_original = category3

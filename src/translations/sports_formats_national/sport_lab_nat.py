@@ -12,6 +12,7 @@ from .te2 import New_For_nat_female_xo_team
 
 
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
+    """Resolve female national sport formats into Arabic labels."""
     # قبل تطبيق الوظيفة
     # sports.py: len:"SPORT_FORMTS_FEMALE_NAT":  549000
     # بعد تطبيق الوظيفة

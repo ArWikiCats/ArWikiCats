@@ -109,6 +109,7 @@ if True:
 
 
 def _build_nat_formats_for_p17():
+    """Construct nationality placeholders used for P17 sports formats."""
     data = {}
     NAT_PLACE_HOLDER = "{}"
     data["xoxo league"] = "دوري {} xoxo "
