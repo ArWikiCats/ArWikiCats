@@ -1,14 +1,12 @@
-""" """
+"""Translation helpers for United States counties, states, and parties."""
 
-# from .us_counties import US_State, Counties, US_State_lower, US_State_Keys, kk_end_US_State, usa_parties, USA_newkeys, party_end_keys
+from __future__ import annotations
 
-import sys
+from collections.abc import Mapping
 
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
-
-COUNTY_TRANSLATIONS = open_json_file("geography/us_counties.json") or {}
-Counties = COUNTY_TRANSLATIONS
+from ._shared import load_json_mapping
 
 STATE_NAME_TRANSLATIONS = {
     "ohio": "أوهايو",
@@ -66,11 +64,9 @@ STATE_NAME_TRANSLATIONS = {
     "oklahoma": "أوكلاهوما",
     "vermont": "فيرمونت",
 }
-US_State = STATE_NAME_TRANSLATIONS
-STATE_NAME_TRANSLATIONS_LOWER = {english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()}
-US_State_lower = STATE_NAME_TRANSLATIONS_LOWER
 
-STATE_SUFFIX_TEMPLATES = {
+
+_STATE_SUFFIX_TEMPLATES_BASE = {
     " senate": "مجلس شيوخ ولاية %s",
     " house-of-representatives elections": "انتخابات مجلس نواب ولاية %s",
     " house-of-representatives": "مجلس نواب ولاية %s",
@@ -119,7 +115,6 @@ STATE_SUFFIX_TEMPLATES = {
     " democrats": "ديمقراطيون من ولاية %s",
     " independents": "مستقلون من ولاية %s",
 }
-kk_end_US_State = STATE_SUFFIX_TEMPLATES
 
 PARTY_ROLE_SUFFIXES = {
     "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
@@ -130,7 +125,6 @@ PARTY_ROLE_SUFFIXES = {
     "members": "أعضاء %s",
     "state governors": "حكام ولايات من %s",
 }
-party_end_keys = PARTY_ROLE_SUFFIXES
 
 USA_PARTY_LABELS = {
     "democratic republican": "الحزب الديمقراطي الجمهوري",
@@ -190,49 +184,103 @@ USA_PARTY_LABELS = {
     "Socialist Party": "الحزب الاشتراكي",
     "Liberty Union Party": "حزب الحرية المتحد",
 }
-usa_parties = USA_PARTY_LABELS
 
-for party_name, party_label in USA_PARTY_LABELS.items():
-    normalized_party_name = party_name.lower()
-    STATE_SUFFIX_TEMPLATES[f" {normalized_party_name}s"] = f"أعضاء {party_label} في %s"
-    simplified_party_name = normalized_party_name.replace(" party", "")
-    STATE_SUFFIX_TEMPLATES[f" {simplified_party_name}s"] = f"أعضاء {party_label} في %s"
 
-USA_PARTY_DERIVED_KEYS = {}
-USA_newkeys = USA_PARTY_DERIVED_KEYS
+def _extend_state_suffix_templates(base_templates: Mapping[str, str], party_labels: Mapping[str, str]) -> dict[str, str]:
+    extended_templates = dict(base_templates)
 
-for party_name, party_label in USA_PARTY_LABELS.items():
-    normalized_party_name = party_name.lower()
+    for party_name, party_label in party_labels.items():
+        normalized_party_name = party_name.lower()
+        extended_templates[f" {normalized_party_name}s"] = f"أعضاء {party_label} في %s"
+        simplified_party_name = normalized_party_name.replace(" party", "")
+        extended_templates[f" {simplified_party_name}s"] = f"أعضاء {party_label} في %s"
 
-    if not party_label.strip():
-        continue
+    return extended_templates
 
-    USA_PARTY_DERIVED_KEYS[normalized_party_name] = party_label
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} (united states)"] = party_label
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name}s (united states)"] = party_label
 
-    # USA_PARTY_DERIVED_KEYS[ '%s members of the united states congress' % normalized_party_name ] = 'أعضاء الكونغرس الأمريكي من %s' % party_label
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} united states senators"] = f"أعضاء مجلس الشيوخ الأمريكي من {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} members"] = f"أعضاء {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} members of the united states house of representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} members of the united states house-of-representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
+def _build_party_derived_keys(party_labels: Mapping[str, str]) -> dict[str, str]:
+    derived_keys: dict[str, str] = {}
 
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
+    for party_name, party_label in party_labels.items():
+        normalized_party_name = party_name.lower()
 
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} (united states) vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} (united states) presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
+        if not party_label.strip():
+            continue
 
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} (united states) politicians"] = f"سياسيو {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} politicians"] = f"سياسيو {party_label}"
+        derived_keys[normalized_party_name] = party_label
+        derived_keys[f"{normalized_party_name} (united states)"] = party_label
+        derived_keys[f"{normalized_party_name}s (united states)"] = party_label
 
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} vice presidents of the united states"] = f"نواب رئيس الولايات المتحدة من {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} presidents of the united states"] = f"رؤساء الولايات المتحدة من {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} state governors"] = f"حكام ولايات من {party_label}"
-    USA_PARTY_DERIVED_KEYS[f"{normalized_party_name} state governors of the united states"] = f"حكام ولايات أمريكية من {party_label}"
+        # derived_keys[ '%s members of the united states congress' % normalized_party_name ] = 'أعضاء الكونغرس الأمريكي من %s' % party_label
+        derived_keys[f"{normalized_party_name} united states senators"] = f"أعضاء مجلس الشيوخ الأمريكي من {party_label}"
+        derived_keys[f"{normalized_party_name} members"] = f"أعضاء {party_label}"
+        derived_keys[f"{normalized_party_name} members of the united states house of representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
+        derived_keys[f"{normalized_party_name} members of the united states house-of-representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
+
+        derived_keys[f"{normalized_party_name} presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
+        derived_keys[f"{normalized_party_name} vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
+
+        derived_keys[f"{normalized_party_name} (united states) vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
+        derived_keys[f"{normalized_party_name} (united states) presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
+
+        derived_keys[f"{normalized_party_name} (united states) politicians"] = f"سياسيو {party_label}"
+        derived_keys[f"{normalized_party_name} politicians"] = f"سياسيو {party_label}"
+
+        derived_keys[f"{normalized_party_name} vice presidents of the united states"] = f"نواب رئيس الولايات المتحدة من {party_label}"
+        derived_keys[f"{normalized_party_name} presidents of the united states"] = f"رؤساء الولايات المتحدة من {party_label}"
+        derived_keys[f"{normalized_party_name} state governors"] = f"حكام ولايات من {party_label}"
+        derived_keys[f"{normalized_party_name} state governors of the united states"] = f"حكام ولايات أمريكية من {party_label}"
+
+    return derived_keys
+
+
+def _build_state_key_mappings(state_labels: Mapping[str, str]) -> dict[str, str]:
+    state_keys: dict[str, str] = {}
+
+    for english_name, arabic_label in state_labels.items():
+        normalized_state = english_name.lower()
+        state_keys[normalized_state] = arabic_label
+
+        base_variants = [normalized_state, f"{normalized_state} state"]
+        house_template = "مجلس نواب ولاية %s"
+        if arabic_label.startswith("ولاية "):
+            house_template = "مجلس نواب %s"
+
+        for variant in base_variants:
+            state_keys[f"{variant} house of representatives"] = house_template % arabic_label
+            state_keys[f"{variant} house-of-representatives"] = house_template % arabic_label
+            state_keys[f"{variant} politics"] = f"سياسة {arabic_label}"
+            state_keys[f"{variant} law"] = f"قانون {arabic_label}"
+            state_keys[f"{variant} city councils"] = f"مجالس مدن {arabic_label}"
+            state_keys[f"{variant} councils"] = f"مجالس {arabic_label}"
+            state_keys[f"{variant} legislature"] = f"هيئة {arabic_label} التشريعية"
+            state_keys[f"{variant} legislative assembly"] = f"هيئة {arabic_label} التشريعية"
+            state_keys[f"{variant} general assembly"] = f"جمعية {arabic_label} العامة"
+            state_keys[f"{variant} local politicians"] = f"سياسيون محليون في {arabic_label}"
+
+    return state_keys
+
+
+# COUNTY_TRANSLATIONS = load_json_mapping("geography/us_counties.json")
+COUNTY_TRANSLATIONS = open_json_file("geography/us_counties.json") or {}
+
+STATE_SUFFIX_TEMPLATES = _extend_state_suffix_templates(_STATE_SUFFIX_TEMPLATES_BASE, USA_PARTY_LABELS)
 
 STATE_NAME_KEY_MAPPINGS = {}
-US_State_Keys = STATE_NAME_KEY_MAPPINGS
+# STATE_NAME_KEY_MAPPINGS = _build_state_key_mappings(STATE_NAME_TRANSLATIONS)
+
+USA_PARTY_DERIVED_KEYS = _build_party_derived_keys(USA_PARTY_LABELS)
+
+# Backwards compatible aliases ---------------------------------------
+STATE_NAME_TRANSLATIONS_LOWER = {english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()}
+
+US_State = STATE_NAME_TRANSLATIONS
+US_State_lower = STATE_NAME_TRANSLATIONS_LOWER
+kk_end_US_State = STATE_SUFFIX_TEMPLATES
+party_end_keys = PARTY_ROLE_SUFFIXES
+USA_newkeys = USA_PARTY_DERIVED_KEYS
+Counties = COUNTY_TRANSLATIONS
+usa_parties = USA_PARTY_LABELS
 
 len_print.data_len("us_counties.py", {"Counties": Counties})
 
