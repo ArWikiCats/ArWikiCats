@@ -234,32 +234,22 @@ for party_name, party_label in USA_PARTY_LABELS.items():
 STATE_NAME_KEY_MAPPINGS = {}
 US_State_Keys = STATE_NAME_KEY_MAPPINGS
 
-"""
-for Stat in US_State:
-    US_State_Keys[Stat.lower()] = US_State[Stat]
-    kak =  "مجلس نواب ولاية %s"
-    if US_State[Stat].startswith("ولاية ") :
-        kak =  "مجلس نواب %s"
-    nan = [Stat.lower() , "%s state" % Stat.lower()]
-    for na in nan :
-        US_State_Keys[f"{na} house of representatives"] = kak % US_State[Stat]
-        US_State_Keys[f"{na} house-of-representatives"] = kak % US_State[Stat]
-        US_State_Keys[f"{na} politics"] = f"سياسة {US_State[Stat]}"
-        US_State_Keys[f"{na} law"] = f"قانون {US_State[Stat]}"
-        US_State_Keys[f"{na} city councils"] = f"مجالس مدن {US_State[Stat]}"
-        US_State_Keys[f"{na} councils"] = f"مجالس {US_State[Stat]}"
-        US_State_Keys[f"{na} legislature"] = "هيئة %s التشريعية" % US_State[Stat]
-        US_State_Keys[f"{na} legislative assembly"] = "هيئة %s التشريعية" % US_State[Stat]
-        US_State_Keys[f"{na} general assembly"] = "جمعية %s العامة" % US_State[Stat]
-        US_State_Keys[f"{na} general assembly"] = "جمعية %s العامة" % US_State[Stat]
-        US_State_Keys[f"{na} local politicians"] = f"سياسيون محليون في {US_State[Stat]}"
+len_print.data_len("us_counties.py", {"Counties": Counties})
 
-for ccgc in US_State_Keys :
-    pf_keys2[ccgc] = US_State_Keys[ccgc]
-printe.output("all_keys2.py : len:uS_State_Keys %d" % len(US_State_Keys) )
-"""
-
-length_stats = {"Counties": Counties}
-
-len_print.data_len("us_counties.py", length_stats)
-
+__all__ = [
+    "COUNTY_TRANSLATIONS",
+    "STATE_NAME_TRANSLATIONS",
+    "STATE_NAME_TRANSLATIONS_LOWER",
+    "STATE_SUFFIX_TEMPLATES",
+    "PARTY_ROLE_SUFFIXES",
+    "USA_PARTY_LABELS",
+    "USA_PARTY_DERIVED_KEYS",
+    # Backwards-compatible exports
+    "US_State",
+    "US_State_lower",
+    "kk_end_US_State",
+    "party_end_keys",
+    "USA_newkeys",
+    "Counties",
+    "usa_parties",
+]
