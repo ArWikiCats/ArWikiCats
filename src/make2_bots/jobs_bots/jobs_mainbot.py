@@ -33,7 +33,8 @@ MEN_WOMENS_WITH_NATO = {
 }
 
 
-def fix_expatriates(country_lab, country_label, nat_lab):
+def fix_expatriates(country_lab: str, country_label: str, nat_lab: str):
+    """Normalize expatriate phrasing between country and nationality labels."""
     pkjn = ["مغتربون", "مغتربات"]
     for kjn in pkjn:
         if country_label.endswith(f" {kjn}"):
@@ -47,14 +48,16 @@ def fix_expatriates(country_lab, country_label, nat_lab):
     return country_lab
 
 
-def create_country_lab(country_label, nat_lab, category_suffix):
+def create_country_lab(country_label: str, nat_lab: str, category_suffix: str):
+    """Combine country and nationality fragments into a final label."""
     country_lab = f"{country_label} {nat_lab}"
     if country_label.startswith("حسب") or category_suffix in NAT_BEFORE_OCC:
         country_lab = f"{nat_lab} {country_label}"
     return country_lab
 
 
-def country_lab_mens_womens(jender_key, category_suffix, nat_lab, country_label):
+def country_lab_mens_womens(jender_key: str, category_suffix: str, nat_lab: str, country_label: str):
+    """Build gender-aware job labels using nationality data and templates."""
     # TODO: NEW TO CHECK
     TAJO = MEN_WOMENS_WITH_NATO.get(category_suffix, {}).get(jender_key, "")
     if "{nato}" in TAJO:

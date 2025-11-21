@@ -1,6 +1,6 @@
 
-
-def get_relation_word_new(category, data):
+def get_relation_word_new(category: str, data: dict):
+    """Find the first relation token present in ``category`` using comprehension."""
     # Find the first matching tito key in the category
     matched_tito = next(
         (key for key in data if f" {key} " in category),
@@ -15,7 +15,8 @@ def get_relation_word_new(category, data):
     return "", ""
 
 
-def get_relation_word(category, data):
+def get_relation_word(category: str, data: dict):
+    """Find a relation token by iterating the provided mapping order."""
     for tito, tito_name in data.items():
         tito = f" {tito} "
         # if Keep_Work and tito in category:

@@ -31,13 +31,15 @@ class Typies:
     cat_test: str
 
 
-def get_cats(category_r):
+def get_cats(category_r: str):
+    """Normalize category strings and return raw and lowercase variants."""
     cate = REGEX_SUB_MILLENNIUM_CENTURY.sub(r"-\g<1>", category_r)
     cate3 = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate.lower())
     return cate, cate3
 
 
 def get_reg_result(category_r: str) -> Typies:
+    """Extract structured pieces from categories that start with a year."""
     cate, cate3 = get_cats(category_r)
     cate = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate)
 

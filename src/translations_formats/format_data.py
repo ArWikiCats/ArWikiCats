@@ -16,6 +16,7 @@ class FormatData:
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
     ):
+        """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
         self.formated_data = formated_data
         self.data_list = data_list
@@ -73,6 +74,7 @@ class FormatData:
         return self.formated_data_ci.get(normalized.lower(), "")
 
     def get_key_label(self, sport_key: str) -> str:
+        """Return the Arabic label mapped to the provided key if present."""
         return self.data_list_ci.get(sport_key)
 
     def _search(self, category: str) -> str:
@@ -97,6 +99,7 @@ class FormatData:
 
     @functools.lru_cache(maxsize=None)
     def search(self, category: str) -> str:
+        """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 
 

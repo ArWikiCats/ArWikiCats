@@ -29,6 +29,7 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 def te_bot_3(category_key: str) -> str:
+    """Return cached category labels when available in ``New_Lan``."""
     arabic_label = ""
 
     if category_key.lower() in New_Lan:

@@ -34,6 +34,7 @@ class EventProcessor:
     """Fast, pure processing engine for categories."""
 
     def __init__(self) -> None:
+        """Create a processor with a placeholder for future configuration."""
         self.config = None
 
     @staticmethod
@@ -91,6 +92,7 @@ class EventProcessor:
         return result
 
     def process_single(self, category: str) -> ProcessedCategory:
+        """Process a single category and return the detailed record."""
         processed = self.process([category]).processed
         if not processed:
             return ProcessedCategory(category, category, "", "", False)
@@ -114,9 +116,10 @@ def new_func_lab_final_label(category_r: str) -> str:
 
 
 def event_result(
-    NewList: List[str],
+    new_list: List[str],
 ) -> EventProcessingResult:
+    """Run the event processor on the given list of categories."""
     processor = EventProcessor()
-    result = processor.process(NewList)
+    result = processor.process(new_list)
 
     return result

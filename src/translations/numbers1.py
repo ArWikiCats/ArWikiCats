@@ -137,6 +137,7 @@ for number_key, arabic_label in change_numb.items():
 
 
 def get_tens_labels() -> dict[int, str]:
+    """Return Arabic labels for tens (20–90) keyed by their leading digit."""
     tens_mapping = {
         2: "العشرون",
         3: "الثلاثون",

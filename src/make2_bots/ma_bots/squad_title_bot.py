@@ -17,6 +17,7 @@ from ..matables_bots.bot import All_P17
 
 @functools.lru_cache(maxsize=None)
 def get_squad_title(tit: str) -> str:
+    """Generate a squad title label using team, year, and country data."""
     lab = Get_New_team_xo(tit)
 
     if not lab:

@@ -56,6 +56,7 @@ REG_CENTURY_MILLENNIUM = re.compile(rf"^{century_millennium_regex}$", re.I)
 
 
 def expand_range(year_text: str) -> str:
+    """Expand shorthand year ranges like ``1990-92`` into full spans."""
     parts = year_text.split("-")
     if len(parts) == 1:
         return year_text
@@ -73,19 +74,22 @@ def expand_range(year_text: str) -> str:
 
 
 def match_time_ar(ar_value: str) -> list[str]:
+    """Find Arabic year-like expressions within a string."""
     ar_matches = [m.group().strip() for m in REG_YEAR_AR.finditer(f" {ar_value} ")]
     # ar_matches.extend([m.group().strip() for m in REG_CENTURY_AR.finditer(f" {ar_value} ")])
     return ar_matches
 
 
 def match_time_en(en_key: str) -> list[str]:
+    """Locate English year or century expressions within a string."""
     en_key = REG_SUB_CATEGORY.sub("", en_key)
     en_matches = [m.group().strip() for m in REG_YEAR_EN.finditer(f" {en_key} ")]
     en_matches.extend([m.group().strip() for m in REG_CENTURY_EN.finditer(f" {en_key} ")])
     return en_matches
 
 
-def match_time_en_first(en_key: str) -> list[str]:
+def match_time_en_first(en_key: str) -> str:
+    """Return the first English time match or an empty string."""
     en_matches = match_time_en(en_key)
     return en_matches[0] if en_matches else ""
 

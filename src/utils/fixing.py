@@ -1,7 +1,8 @@
 import re
 
 
-def fix_minor(arlabel, sps=""):
+def fix_minor(arlabel: str, sps: str = "") -> str:
+    """Clean up duplicate spaces and repeated prepositions in labels."""
     # ---
     arlabel = " ".join(arlabel.strip().split())
     # ---

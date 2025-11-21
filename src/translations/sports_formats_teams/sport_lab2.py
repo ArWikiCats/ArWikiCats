@@ -19,21 +19,25 @@ jobs_bot = FormatData(New_team_xo_jobs, SPORTS_KEYS_FOR_JOBS, key_placeholder="x
 
 @functools.lru_cache(maxsize=None)
 def find_labels_bot(category: str, default: str = "") -> str:
+    """Search for a generic sports label, returning ``default`` when missing."""
     return labels_bot.search(category) or default
 
 
 @functools.lru_cache(maxsize=None)
 def find_teams_bot(category: str, default: str = "") -> str:
+    """Search for a team-related label, returning ``default`` when missing."""
     return teams_bot.search(category) or default
 
 
 @functools.lru_cache(maxsize=None)
 def find_jobs_bot(category: str, default: str = "") -> str:
+    """Search for a job-related sports label, returning ``default`` when missing."""
     return jobs_bot.search(category) or default
 
 
 @functools.lru_cache(maxsize=None)
-def wrap_team_xo_normal_2025(team: str):
+def wrap_team_xo_normal_2025(team: str) -> str:
+    """Normalize a team string and resolve it via the available sports bots."""
     team = team.lower().replace("category:", "")
     result = find_labels_bot(team) or find_teams_bot(team) or find_jobs_bot(team) or ""
     return result.strip()

@@ -2,12 +2,14 @@ import re
 
 
 def fix_formula(ar_label: str, en_label: str) -> str:
+    """Adjust Formula 1 phrasing to highlight the event year."""
     ar_label = re.sub(r"\bفورمولا 1\s*([12]\d+)", r"فورمولا 1 في سنة \g<1>", ar_label)
 
     return ar_label
 
 
 def by_removal(ar_label: str) -> str:
+    """Remove misleading 'بواسطة' phrasing from creative works."""
     fix_bys = [
         "أفلام",
         "أعمال",
@@ -25,6 +27,7 @@ def by_removal(ar_label: str) -> str:
 
 
 def simple_replace(ar_label: str) -> str:
+    """Apply quick search-and-replace rules for frequent phrasing issues."""
     data = {
         r"وفيات بواسطة ضربات": "وفيات بضربات",
         r"ضربات جوية نفذت بواسطة": "ضربات جوية نفذتها",
@@ -55,6 +58,7 @@ def simple_replace(ar_label: str) -> str:
 
 
 def invention_to_exhibition(ar_label: str) -> str:
+    """Swap invention wording with exhibition phrasing for select items."""
     data = ["كاميرات", "هواتف محمولة", "مركبات", "منتجات"]
     for item in data:
         ar_label = re.sub(f"{item} اخترعت ", f"{item} عرضت ", ar_label)
@@ -62,6 +66,7 @@ def invention_to_exhibition(ar_label: str) -> str:
 
 
 def media_expressions(ar_label: str) -> str:
+    """Normalize phrases used for media start and end dates."""
     data = {
         "بدأ عرضها حسب السنة": "حسب سنة بدء العرض",
         "أنتهت حسب السنة": "حسب سنة انتهاء العرض",
@@ -73,6 +78,7 @@ def media_expressions(ar_label: str) -> str:
 
 
 def time_expressions(ar_label: str) -> str:
+    """Standardize prepositions used in time-related expressions."""
     data = {
         r"من القرن": "في القرن",
         r"من حروب": "في حروب",
@@ -87,7 +93,8 @@ def time_expressions(ar_label: str) -> str:
     return ar_label
 
 
-def duplicate_cleanup(ar_label):
+def duplicate_cleanup(ar_label: str):
+    """Remove repeated prepositions and duplicated short phrases."""
     # Group patterns for better organization and maintainability
     patterns = {
         "من من": "من",
@@ -104,7 +111,8 @@ def duplicate_cleanup(ar_label):
     return ar_label
 
 
-def preposition_fixes(ar_label):
+def preposition_fixes(ar_label: str) -> str:
+    """Resolve awkward preposition combinations in labels."""
     # Group patterns for better organization and maintainability
     patterns = {
         r"في فائزون": "فائزون",

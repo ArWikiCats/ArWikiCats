@@ -73,6 +73,7 @@ def nat_match(category: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str, reference_category: str = "") -> str:
+    """Return a localized job label for 2018 categories with nationality hints."""
     logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category}), reference_category:{reference_category}..")
     country_label = ""
     # logger.debug('te_2018_with_nat "%s"' % category)
