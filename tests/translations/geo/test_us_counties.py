@@ -5,12 +5,14 @@ from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS
 from src import new_func_lab_final_label
 
 test_data = {
+    "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
+    "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
+
     "Category:{en} attorneys general": "تصنيف:مدعي {ar} العام",
     "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع {ar}",
     "Category:{en} city councils": "تصنيف:مجالس مدن {ar}",
     "Category:{en} counties": "تصنيف:مقاطعات {ar}",
     "Category:{en} Democratic-Republicans": "تصنيف:أعضاء الحزب الديمقراطي الجمهوري في {ar}",
-    "Category:{en} Democrats": "تصنيف:ديمقراطيون من {ar}",
     "Category:{en} elections": "تصنيف:انتخابات {ar}",
     "Category:{en} elections by decade": "تصنيف:انتخابات {ar} حسب العقد",
     "Category:{en} elections by year": "تصنيف:انتخابات {ar} حسب السنة",
@@ -28,7 +30,6 @@ test_data = {
     "Category:{en} Know Nothings": "تصنيف:أعضاء حزب لا أدري في {ar}",
     "Category:{en} law": "تصنيف:قانون {ar}",
     "Category:{en} law-related lists": "تصنيف:قوائم متعلقة بقانون {ar}",
-    "Category:{en} lawyers": "تصنيف:محامون من {ar}",
     "Category:{en} local politicians": "تصنيف:سياسيون محليون في {ar}",
     "Category:{en} navigational boxes": "تصنيف:صناديق تصفح {ar}",
     "Category:{en} politicians": "تصنيف:سياسيو {ar}",
