@@ -1,7 +1,7 @@
 #
 import pytest
 from load_one_data import dump_diff, ye_test_one_dataset
-from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS
+from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS, _STATE_SUFFIX_TEMPLATES_BASE
 from src import new_func_lab_final_label
 
 test_data = {
@@ -48,6 +48,10 @@ test_data = {
     "Category:{en} templates": "تصنيف:قوالب {ar}",
     "Category:{en} Unionists": "تصنيف:أعضاء الحزب الوحدوي في {ar}",
     "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}"
+}
+
+test_data = {
+    f"{{en}} {x.strip()}": v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
 }
 
 data_1 = []
