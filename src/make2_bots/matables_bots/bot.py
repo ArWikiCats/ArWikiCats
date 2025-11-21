@@ -161,6 +161,7 @@ players_new_keys = players_keys
 
 
 def add_to_new_players(en: str, ar: str) -> None:
+    """Add a new English/Arabic player label pair to the cache."""
     if not en or not ar:
         return
     if not isinstance(en, str) or not isinstance(ar, str):

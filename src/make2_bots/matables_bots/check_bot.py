@@ -13,4 +13,5 @@ set_tables = [players_new_keys, Jobs_new, jobs_mens_data]
 
 
 def check_key_new_players(key: str) -> bool:
+    """Return True if the key exists in any player or job mapping table."""
     return check_key_in_tables(key, set_tables) or check_key_in_tables(key.lower(), set_tables)
