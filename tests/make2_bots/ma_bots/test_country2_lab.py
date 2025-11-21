@@ -60,7 +60,7 @@ data = {
     "maryland": "ماريلند",
     "massachusetts": "ماساتشوستس",
     "michigan": "ميشيغان",
-    "minnesota": "مينيسوتا",
+    "minnesota": "منيسوتا",
     "mississippi": "مسيسيبي",
     "montana": "مونتانا",
     "basketball people": "أعلام كرة سلة",
