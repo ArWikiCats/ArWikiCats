@@ -1,7 +1,7 @@
 """Convenience exports for geographic translation tables."""
 
 from .Cities import CITY_LABEL_PATCHES, CITY_OVERRIDES, CITY_TRANSLATIONS, CITY_TRANSLATIONS_LOWER
-from .labels_country import COUNTRY_LABEL_INDEX, COUNTRY_LABEL_OVERRIDES, POPULATION_OVERRIDES
+from .labels_country import COUNTRY_LABEL_INDEX, COUNTRY_LABEL_INDEX_LOWER, COUNTRY_LABEL_OVERRIDES, POPULATION_OVERRIDES, get_country_label_index, get_country_label_index_lower
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import PRIMARY_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
@@ -28,4 +28,6 @@ __all__ = [
     "STATE_SUFFIX_TEMPLATES",
     "USA_PARTY_DERIVED_KEYS",
     "USA_PARTY_LABELS",
+    "get_country_label_index",
+    "get_country_label_index_lower",
 ]
