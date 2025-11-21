@@ -1,5 +1,12 @@
 # make2 — نظام تعريب وتصنيف تلقائي لتصنيفات ويكيبيديا العربية
 
+[![License](https://img.shields.io/badge/license-MIT-green)]()
+[![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
+[![Status](https://img.shields.io/badge/status-Beta-orange)]()
+[![Tests](https://img.shields.io/badge/tests-Pytest-success)]()
+
+---
+
 مشروع **make2** هو محرك شامل لمعالجة أسماء التصنيفات (Categories) في ويكيبيديا، غالبًا باللغة الإنجليزية، وتحويلها إلى **تسميات عربية قياسية** بصيغة جاهزة للنشر مثل:
 **تصنيف:تأسيسات القرن 20 في أوقيانوسيا**
 

@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
-[![Status](https://img.shields.io/badge/status-Production%20Ready-brightgreen)]()
+[![Status](https://img.shields.io/badge/status-Beta-orange)]()
 [![Tests](https://img.shields.io/badge/tests-Pytest-success)]()
 
 ---
