@@ -60,7 +60,7 @@ def _coerce_record(raw: Mapping[str, object]) -> SportKeyRecord:
 def _load_base_records() -> dict[str, SportKeyRecord]:
     """Load sports key definitions from the JSON configuration file."""
 
-    data = open_json_file("Sports_Keys_New") or {}
+    data = open_json_file("sports/Sports_Keys_New.json") or {}
     records: dict[str, SportKeyRecord] = {}
 
     if not isinstance(data, Mapping):

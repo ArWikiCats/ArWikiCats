@@ -7,7 +7,7 @@ import sys
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
-COUNTY_TRANSLATIONS = open_json_file("us_counties") or {}
+COUNTY_TRANSLATIONS = open_json_file("geography/us_counties.json") or {}
 Counties = COUNTY_TRANSLATIONS
 # ---
 STATE_NAME_TRANSLATIONS = {

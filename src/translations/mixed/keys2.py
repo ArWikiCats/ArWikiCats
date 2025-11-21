@@ -94,7 +94,7 @@ PARTIES: dict[str, str] = {
 def build_keys2_mapping() -> dict[str, str]:
     """Return the base mapping historically stored in ``new_2019``."""
 
-    data = open_json_file("keys2") or {}
+    data = open_json_file("keys/keys2.json") or {}
     data.update(PARTIES)
 
     for xg, xg_lab in USA_newkeys.items():
@@ -106,7 +106,7 @@ def build_keys2_mapping() -> dict[str, str]:
 def build_keys2_py_mapping() -> dict[str, str]:
     """Return the mapping previously stored in ``keys2_py``."""
 
-    data = open_json_file("keys2_py") or {}
+    data = open_json_file("keys/keys2_py.json") or {}
     data.update(medical_keys)
 
     return data

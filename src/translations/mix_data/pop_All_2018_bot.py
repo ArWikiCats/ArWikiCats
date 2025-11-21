@@ -23,7 +23,7 @@ def load_pop_All_2018() -> Dict[str, str]:
     """Load and merge population-related label sources into a single mapping."""
     # result: 524266 item with TEAMS_NEW
     # result: 226,093 item
-    data = open_json_file("pop_All_2018") or {}  # 161
+    data = open_json_file("population/pop_All_2018.json") or {}  # 161
 
     sources = [
         pf_keys2,  # 26,557

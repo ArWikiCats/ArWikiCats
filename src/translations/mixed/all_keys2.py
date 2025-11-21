@@ -508,9 +508,9 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
 def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str]]:
     """Wrap the ``build_pf_keys2`` function with additional data loading."""
 
-    pop_of_football = open_json_file("pop_of_football") or {}
-    pop_of_without_in = open_json_file("pop_of_without_in") or {}
-    pop_of_with_in = open_json_file("pop_of_with_in") or {}
+    pop_of_football = open_json_file("population/pop_of_football.json") or {}
+    pop_of_without_in = open_json_file("population/pop_of_without_in.json") or {}
+    pop_of_with_in = open_json_file("population/pop_of_with_in.json") or {}
 
     pf_keys2: dict[str, str] = build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in)
 
