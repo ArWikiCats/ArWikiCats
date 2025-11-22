@@ -6,6 +6,7 @@ This module is responsible for retrieving localized information for a specified 
 import functools
 
 from ...helps.log import logger
+from ...fix import fixtitle
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from . import country2_lab, ye_ts_bot
 from .country2_bots.country2_tit_bt import country_2_title_work
@@ -32,9 +33,10 @@ def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
     if not resolved_label:
         resolved_label = get_pop_All_18(normalized_country.lower(), "")
 
-    if resolved_label:
-        logger.info(f'>> Get_ scountry2 "{normalized_country}": cnt_la: {resolved_label}')
-        return resolved_label
+    if resolved_label and fix_title:
+        resolved_label = fixtitle.fixlab(resolved_label)
 
+    logger.info(f'>> Get_ scountry2 "{normalized_country}": cnt_la: {resolved_label}')
     resolved_label = " ".join(resolved_label.strip().split())
+
     return resolved_label
