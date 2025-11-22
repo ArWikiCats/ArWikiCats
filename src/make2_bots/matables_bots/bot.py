@@ -7,6 +7,7 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 from ...helps import len_print
 from ...translations import (
     ALBUMS_TYPE,
+    Jobs_new,
     FILM_PRODUCTION_COMPANY,
     SPORTS_KEYS_FOR_LABEL,
     By_table,
@@ -139,6 +140,8 @@ for uh in FILM_PRODUCTION_COMPANY:  #
 players_keys["women"] = "المرأة"
 
 Films_O_TT.update({x.lower(): v for x, v in Films_TT.items() if v})
+
+players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
 
 players_keys.update({x.lower(): v for x, v in typeTable_7.items()})
 

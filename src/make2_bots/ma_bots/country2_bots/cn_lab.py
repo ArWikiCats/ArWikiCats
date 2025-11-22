@@ -25,21 +25,21 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
         "Films_O_TT": Films_O_TT,
     }
     co_in_tables, tab_name = check_key_in_tables_return_tuple(cona_1, to_check_them_tuble)
-    print(f"co_in_tables: {co_in_tables} tab_name:{tab_name}, cona_1: {cona_1}")
+    # print(f"\n\nco_in_tables: {co_in_tables} tab_name:{tab_name}, cona_1: {cona_1}\n\n")
 
-    # print(xx)
-    if cona_1 in typeTable or cona_1 in Films_O_TT or in_tables_lowers:
-        # if in_tables_no_lower or in_tables_lowers:
-        if in_tables_lowers:
+    # if cona_1 in typeTable or cona_1 in Films_O_TT or in_tables_lowers:
+    if co_in_tables or in_tables_lowers:
+        if in_tables_no_lower or in_tables_lowers:
+            # if in_tables_lowers:
             if c_2_l.startswith("أصل "):
-                logger.info(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in players_new_keys:')
+                logger.info(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in New_players:')
                 resolved_label = f"{c_1_l}{sps}من {c_2_l}"
             else:
-                logger.info(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in players_new_keys:')
+                logger.info(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in New_players:')
                 resolved_label += " في "
         if cona_2 not in By_table:
             Films_O_TT[country2] = resolved_label
-            print(f"cn_lab: {country2=}, {resolved_label=}\n"*10)
+            # print(f"cn_lab: {country2=}, {resolved_label=}\n"*10)
         else:
             logger.info("<<lightblue>>>>>> cona_2 in By_table")
 
@@ -68,6 +68,9 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
         if cona_1 == "war of" and resolved_label == f"الحرب في {cona_2}":
             resolved_label = f"حرب {cona_2}"
             logger.info(f'<<lightpurple>> >>>> change cnt_la to "{resolved_label}".')
+
+    # print(f"{resolved_label=}\n"*5)
+    # print(dd)
 
     if resolved_label.endswith(" في "):
         resolved_label = resolved_label[: -len(" في ")]
