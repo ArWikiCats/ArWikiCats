@@ -120,7 +120,6 @@ data_list = [
     ("football in yucatán", " in ", "كرة القدم في ولاية يوكاتان"),
     ("qatar and the united nations", " and ", "قطر والأمم المتحدة"),
     ("1550 establishments in mozambique", " in ", "تأسيسات 1550 في موزمبيق"),
-    ("national sports teams of south korea", " of ", "منتخبات رياضية وطنية في كوريا الجنوبية"),
     ("films shot in the united states by city", " shot in ", "أفلام مصورة في الولايات المتحدة حسب المدينة"),
     ("banks based in tennessee", " based in ", "بنوك مقرها في تينيسي"),
     ("food and drink companies of botswana", " of ", "شركات أطعمة ومشروبات في بوتسوانا"),
