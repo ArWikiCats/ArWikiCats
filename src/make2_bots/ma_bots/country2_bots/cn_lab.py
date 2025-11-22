@@ -7,7 +7,7 @@ import re
 
 from ....helps.log import logger
 from ....translations import By_table, typeTable
-from ....utils import check_key_in_tables
+from ....utils import check_key_in_tables, check_key_in_tables_return_tuple
 from ...format_bots import pop_format, pop_format2
 from ...matables_bots.bot import Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
@@ -19,7 +19,17 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
     resolved_label = c_1_l + sps + c_2_l
     in_tables_no_lower = check_key_in_tables(cona_1, [typeTable, Films_O_TT])
     in_tables_lowers = check_key_new_players(cona_1.lower())
-    if in_tables_no_lower or in_tables_lowers:
+
+    to_check_them_tuble = {
+        "typeTable": typeTable,
+        "Films_O_TT": Films_O_TT,
+    }
+    co_in_tables, tab_name = check_key_in_tables_return_tuple(cona_1, to_check_them_tuble)
+    print(f"co_in_tables: {co_in_tables} tab_name:{tab_name}, cona_1: {cona_1}")
+
+    # print(xx)
+    if cona_1 in typeTable or cona_1 in Films_O_TT or in_tables_lowers:
+        # if in_tables_no_lower or in_tables_lowers:
         if in_tables_lowers:
             if c_2_l.startswith("أصل "):
                 logger.info(f'>>>>>> Add من to cona_1:"{cona_1}" cona_1 in players_new_keys:')
@@ -29,6 +39,7 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
                 resolved_label += " في "
         if cona_2 not in By_table:
             Films_O_TT[country2] = resolved_label
+            print(f"cn_lab: {country2=}, {resolved_label=}\n"*10)
         else:
             logger.info("<<lightblue>>>>>> cona_2 in By_table")
 

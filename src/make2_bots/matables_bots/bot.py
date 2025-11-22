@@ -6,7 +6,6 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
 
 from ...helps import len_print
 from ...translations import (
-    ADD_IN_TABLE2,
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
     SPORTS_KEYS_FOR_LABEL,
@@ -103,9 +102,8 @@ Add_in_table = [
     "military alliances",
     "illuminated manuscripts",
     "biblical manuscripts",
+    "censuses",  # تعداد السكان
 ]
-# ---
-Add_in_table += ADD_IN_TABLE2
 # ---
 # P17_keys = [x for x in pop_new]
 P17_keys = [x for x in list(pop_All_2018)]

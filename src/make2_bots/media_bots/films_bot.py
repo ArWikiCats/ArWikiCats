@@ -15,7 +15,7 @@ from ..o_bots.army import te_army
 from ..p17_bots import p17_bot
 
 
-@dump_data()
+# @dump_data()
 @functools.lru_cache(maxsize=None)
 def te_films(category: str, reference_category: str = "") -> str:
     """Resolve a media category into an Arabic label using layered fallbacks."""
@@ -38,6 +38,7 @@ def te_films(category: str, reference_category: str = "") -> str:
     if not resolved_label:
         resolved_label = te_2018_with_nat(normalized_category, reference_category=reference_category)
         if resolved_label:
+            # print(f"{normalized_category=}, {resolved_label=}\n"*10)
             Films_O_TT[normalized_category] = resolved_label
 
     if not resolved_label:
