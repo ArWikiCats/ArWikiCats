@@ -3,7 +3,7 @@
 """
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/YEAR.json
 
-data = {
+YEAR_DATA = {
     "Category:{YEAR1}": "تصنيف:{YEAR1}",  # 2387
     "Category:{YEAR1} by country": "تصنيف:{YEAR1} حسب البلد",  # 1111
     "Category:{YEAR1} deaths": "تصنيف:وفيات {YEAR1}",  # 2045

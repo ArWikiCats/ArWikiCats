@@ -21,14 +21,14 @@ if not from_year and cat_year:
 import re
 
 from ..helps.log import logger
-from .categories_patterns.YEAR import data
+from .categories_patterns.YEAR import YEAR_DATA
 
 
 class LabsYears:
     def __init__(self) -> None:
         """Prepare reusable lookup tables for year-based category labels."""
         self.lookup_count = 0
-        self.category_templates = data
+        self.category_templates = YEAR_DATA
         self.category_templates.update(
             {
                 "Category:{YEAR1}": "تصنيف:{YEAR1}",
