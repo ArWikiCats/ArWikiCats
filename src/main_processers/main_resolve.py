@@ -1,20 +1,21 @@
 """
-
-from . import labs_years, event2bot, event_lab_bot  # isort:skip
-from ..config import app_settings  # isort:skip
-
+!
 """
 from __future__ import annotations
 
 import functools
 
-from . import labs_years, event2bot, event_lab_bot  # isort:skip
+from . import event2bot, event_lab_bot  # isort:skip
+from .labs_years import LabsYears  # isort:skip
 from ..config import app_settings  # isort:skip
 from ..fix import fixtitle
 from ..make2_bots.co_bots import filter_en
 from ..make2_bots.format_bots import change_cat
 from ..make2_bots.ma_bots import ye_ts_bot
 from ..make2_bots.matables_bots.bot import cash_2022
+
+
+labs_years_bot = LabsYears()
 
 
 @functools.lru_cache(maxsize=None)
@@ -31,7 +32,7 @@ def resolve_label(category: str) -> str:
     is_cat_okay = filter_en.filter_cat(category)
 
     category_lab = ""
-    cat_year, from_year = labs_years.lab_from_year(category)
+    cat_year, from_year = labs_years_bot.lab_from_year(category)
 
     if from_year:
         category_lab = from_year
@@ -61,6 +62,6 @@ def resolve_label(category: str) -> str:
         category_lab = fixtitle.fixlab(category_lab, en=category)
 
     if not from_year and cat_year:
-        labs_years.lab_from_year_add(category, category_lab, cat_year)
+        labs_years_bot.lab_from_year_add(category, category_lab, cat_year)
 
     return category_lab
