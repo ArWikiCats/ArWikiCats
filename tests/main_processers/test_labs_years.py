@@ -13,7 +13,7 @@ def test_labsyears():
     labs_years_bot = LabsYears()
 
     # Test with a category containing a year
-    cat_year, from_year = labs_years_bot.lab_from_year("events {YEAR1}")
+    cat_year, from_year = labs_years_bot.lab_from_year("events {year1}")
     assert isinstance(cat_year, str)
     assert isinstance(from_year, str)
 
@@ -46,7 +46,7 @@ def test_lab_from_year_year_detected_but_no_template():
 
 
 def test_lab_from_year_add_creates_template():
-    """Should correctly create the template key/value with year replaced by {YEAR1}."""
+    """Should correctly create the template key/value with year replaced by {year1}."""
     bot = LabsYears()
 
     bot.lab_from_year_add(
@@ -55,8 +55,8 @@ def test_lab_from_year_add_creates_template():
         cat_year="1999",
     )
 
-    assert "Category:Films in {YEAR1}" in bot.category_templates
-    assert bot.category_templates["Category:Films in {YEAR1}"] == "تصنيف:أفلام في {YEAR1}"
+    assert "category:films in {year1}" in bot.category_templates
+    assert bot.category_templates["category:films in {year1}"] == "تصنيف:أفلام في {year1}"
 
 
 def test_lab_from_year_successful_lookup_and_replacement():
@@ -78,10 +78,10 @@ def test_lab_from_year_successful_lookup_and_replacement():
 
 
 def test_lab_from_year_template_exists_with_different_year():
-    """Should correctly replace {YEAR1} back to real year even if category is different year."""
+    """Should correctly replace {year1} back to real year even if category is different year."""
     bot = LabsYears()
 
-    # Add template for {YEAR1}-base
+    # Add template for {year1}-base
     bot.lab_from_year_add(
         category_r="Category:Sports in 2022",
         category_lab="تصنيف:رياضة في 2022",

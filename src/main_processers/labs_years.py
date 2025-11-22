@@ -21,7 +21,7 @@ if not from_year and cat_year:
 import re
 
 from ..helps.log import logger
-from .categories_patterns.YEAR import YEAR_DATA
+from .categories_patterns.YEAR import YEAR_DATA, YEAR_PARAM
 
 
 class LabsYears:
@@ -49,19 +49,19 @@ class LabsYears:
         """
         from_year = ""
         cat_year = ""
-
+        category_r = category_r.lower()
         year_match = re.search(r"\d{4}", category_r)
 
         if not year_match:
             return cat_year, from_year
 
         cat_year = year_match.group()
-        cat_key = category_r.replace(cat_year, "{YEAR1}")
+        cat_key = category_r.replace(cat_year, YEAR_PARAM)
 
         canonical_label = self.category_templates.get(cat_key)
 
-        if canonical_label and "{YEAR1}" in canonical_label:
-            from_year = canonical_label.format(YEAR1=cat_year)
+        if canonical_label and YEAR_PARAM in canonical_label:
+            from_year = canonical_label.format(*{YEAR_PARAM: cat_year})
             self.lookup_count += 1
             logger.info(f"<<green>> lab_from_year: {self.lookup_count}")
             logger.info(f"\t<<green>> {category_r=} , {from_year=}")
@@ -70,7 +70,7 @@ class LabsYears:
 
     def lab_from_year_add(self, category_r: str, category_lab: str, cat_year: str) -> None:
         """
-        A function that converts the year in category_r and category_lab to "{YEAR1}" and updates the category_templates dictionary accordingly.
+        A function that converts the year in category_r and category_lab to YEAR_PARAM and updates the category_templates dictionary accordingly.
         Parameters:
             category_r (str): The category from which to update the year.
             category_lab (str): The category from which to update the year.
@@ -81,8 +81,8 @@ class LabsYears:
         if cat_year not in category_lab:
             return
 
-        cat_key = category_r.replace(cat_year, "{YEAR1}")
-        lab_key = category_lab.replace(cat_year, "{YEAR1}")
+        cat_key = category_r.replace(cat_year, YEAR_PARAM)
+        lab_key = category_lab.replace(cat_year, YEAR_PARAM)
 
         logger.info("<<yellow>> lab_from_year_add:")
         logger.info(f"\t<<yellow>> {cat_key=} , {lab_key=}")
