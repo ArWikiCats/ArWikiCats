@@ -74,7 +74,7 @@ def test_2_new():
 data_list_bad = {
     "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا القرن 20",
     "Category:20th century roman catholic archbishops in colombia": "تصنيف:رؤساء أساقفة رومان كاثوليك في كولومبيا القرن 20",
-    "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس القرن 20",
+    "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس في القرن 20",
     "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
     "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
     "Category:20th century members of maine legislature": "تصنيف:أعضاء هيئة مين التشريعية في القرن 20",

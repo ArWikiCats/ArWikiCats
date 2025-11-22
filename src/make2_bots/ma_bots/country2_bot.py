@@ -24,8 +24,9 @@ def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
     if not resolved_label:
         resolved_label = ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
 
-    if not resolved_label:
-        resolved_label = country_2_title_work(country, With_Years=With_Years)
+    _label = country_2_title_work(country, With_Years=With_Years)
+    if not resolved_label and _label:
+        resolved_label = _label
 
     if not resolved_label:
         resolved_label = get_pop_All_18(normalized_country.lower(), "")
