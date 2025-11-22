@@ -26,6 +26,8 @@ def test_sports_1():
 
 def test_sports_2():
     data = {
+        "Category:Spanish sports broadcasters": "تصنيف:مذيعون رياضيون إسبان",
+        "Category:Sports broadcasters by nationality": "تصنيف:مذيعون رياضيون حسب الجنسية",
         "Category:Afghanistan national football team managers": "تصنيف:مدربو منتخب أفغانستان لكرة القدم",
         "Category:African women's national association football teams": "تصنيف:منتخبات كرة قدم وطنية إفريقية للسيدات",
         "Category:Argentina women's international footballers": "تصنيف:لاعبات منتخب الأرجنتين لكرة القدم للسيدات",
@@ -34,8 +36,6 @@ def test_sports_2():
         "Category:Coaches of national cricket teams": "تصنيف:مدربو منتخبات كريكت وطنية",
         "Category:International women's basketball competitions hosted by Cuba": "تصنيف:منافسات كرة سلة نسائية دولية استضافتها كوبا",
         "Category:Paralympic competitors for Cape Verde": "تصنيف:منافسون في الألعاب البارالمبية من الرأس الأخضر",
-        "Category:Spanish sports broadcasters": "تصنيف:مذيعو رياضة إسبانية",
-        "Category:Sports broadcasters by nationality": "تصنيف:مذيعو رياضة حسب الجنسية",
         "Category:Sports coaches by nationality": "تصنيف:مدربو رياضة حسب الجنسية",
         "Category:Transport companies established in 1909": "تصنيف:شركات نقل أسست في 1909",
         "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
