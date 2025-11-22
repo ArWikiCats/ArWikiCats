@@ -7,7 +7,7 @@ data = {
     "Category:sieges of french invasion of egypt and syria": "تصنيف:حصارات الغزو الفرنسي لمصر وسوريا",
     "Category:1330 in men's international football": "تصنيف:كرة قدم دولية للرجال في 1330",
     "Category:2015 American television": "تصنيف:التلفزة الأمريكية 2015",
-    "Category:2017 sports events": "تصنيف:أحداث رياضية 2017",
+    "Category:2017 sports events": "تصنيف:أحداث 2017 الرياضية",
     "Category:2017 American television series": "تصنيف:مسلسلات تلفزيونية أمريكية 2017",
     "Category:Cross-country skiers at the 1992 Winter Paralympics": "تصنيف:متزحلقون ريفيون في الألعاب البارالمبية الشتوية 1992",
     "Category:2017 American television episodes": "تصنيف:حلقات تلفزيونية أمريكية 2017",

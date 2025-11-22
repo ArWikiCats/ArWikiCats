@@ -23,7 +23,7 @@ def test_places_and_structures():
 
 def test_places_and_structures_2():
     data = {
-        "Category:Airlines established in 1968": "تصنيف:شركات طيران أسست في 1968",
+        "Category:Airlines established in 1968": "تصنيف:شركات طيران أسست سنة 1968",
         "Category:Airlines of Afghanistan": "تصنيف:شركات طيران في أفغانستان",
         "Category:Cargo airlines of the Philippines": "تصنيف:شحن جوي في الفلبين",
         "Category:Vehicle manufacturing companies disestablished in 1904": "تصنيف:شركات تصنيع المركبات انحلت في 1904",

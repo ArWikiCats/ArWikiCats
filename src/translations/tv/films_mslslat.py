@@ -26,13 +26,16 @@ from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
 Films_keys_both_new = {}
-Films_keys_male_female = {}
-television_keys = {}
-Films_key_O_multi = {}
 # ---
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 # ---
 television_keys = open_json_file("media/television_keys.json") or {}
+# ---
+# television_keys.update({
+#     "broadcasters": "مذيعو {}",
+#     "commentators": "معلقو {}",
+#     "fan clubs": "أندية معجبي {}",
+# })
 # ---
 Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
 # ---
@@ -80,7 +83,7 @@ film_key_women_2 = {
     "television miniseries": "مسلسلات قصيرة",
 }
 # ---
-television_keys_female = television_keys
+television_keys_female = dict(television_keys)
 # ---
 for na4, na4_lab in Films_Key_for_mat2.items():
     Films_key_For_nat[na4] = na4_lab
