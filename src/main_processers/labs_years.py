@@ -21,8 +21,9 @@ if not from_year and cat_year:
 import re
 
 from ..helps.log import logger
-from .categories_patterns.YEAR import YEAR_DATA, YEAR_PARAM
+from .categories_patterns.YEAR import YEAR_DATA, YEAR_PARAM_NAME
 
+YEAR_PARAM = "{year1}"
 
 class LabsYears:
     def __init__(self) -> None:
@@ -61,7 +62,7 @@ class LabsYears:
         canonical_label = self.category_templates.get(cat_key)
 
         if canonical_label and YEAR_PARAM in canonical_label:
-            from_year = canonical_label.format(*{YEAR_PARAM: cat_year})
+            from_year = canonical_label.format_map({YEAR_PARAM_NAME: cat_year})
             self.lookup_count += 1
             logger.info(f"<<green>> lab_from_year: {self.lookup_count}")
             logger.info(f"\t<<green>> {category_r=} , {from_year=}")

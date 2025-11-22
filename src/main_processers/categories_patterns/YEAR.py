@@ -1,7 +1,7 @@
 """
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/YEAR.json"""
 
-YEAR_PARAM = "{year1}"
+YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA ={
     "category:{year1}": "تصنيف:{year1}",  # 2387
