@@ -25,6 +25,7 @@ from .categories_patterns.YEAR import YEAR_DATA, YEAR_PARAM_NAME
 
 YEAR_PARAM = "{year1}"
 
+
 class LabsYears:
     def __init__(self) -> None:
         """Prepare reusable lookup tables for year-based category labels."""
@@ -33,8 +34,8 @@ class LabsYears:
         self.category_templates.update(
             {
                 f"Category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
-                f"Category:Films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
-                f"Category:{YEAR_PARAM} Films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
+                f"Category:films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
+                f"Category:{YEAR_PARAM} films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
             }
         )
 
@@ -69,7 +70,7 @@ class LabsYears:
 
         return cat_year, from_year
 
-    def lab_from_year_add(self, category_r: str, category_lab: str, cat_year: str) -> None:
+    def lab_from_year_add(self, category_r: str, category_lab: str, en_year: str, ar_year: str="") -> None:
         """
         A function that converts the year in category_r and category_lab to YEAR_PARAM and updates the category_templates dictionary accordingly.
         Parameters:
@@ -79,13 +80,15 @@ class LabsYears:
         Returns:
             None
         """
-        if cat_year not in category_lab:
+        ar_year = ar_year or en_year
+
+        if not ar_year or ar_year not in category_lab:
             return
 
-        cat_key = category_r.replace(cat_year, YEAR_PARAM)
-        lab_key = category_lab.replace(cat_year, YEAR_PARAM)
+        cat_key = category_r.replace(en_year, YEAR_PARAM)
+        lab_key = category_lab.replace(ar_year, YEAR_PARAM)
 
         logger.info("<<yellow>> lab_from_year_add:")
         logger.info(f"\t<<yellow>> {cat_key=} , {lab_key=}")
 
-        self.category_templates[cat_key] = lab_key
+        self.category_templates[cat_key.lower()] = lab_key

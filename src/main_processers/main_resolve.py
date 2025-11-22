@@ -2,6 +2,7 @@
 !
 """
 from __future__ import annotations
+from dataclasses import dataclass
 
 import functools
 
@@ -18,8 +19,17 @@ from ..make2_bots.matables_bots.bot import cash_2022
 labs_years_bot = LabsYears()
 
 
+@dataclass
+class CategoryResult:
+    """Data structure representing each processed category."""
+
+    en: str
+    ar: str
+    from_match: str
+
+
 @functools.lru_cache(maxsize=None)
-def resolve_label(category: str) -> str:
+def resolve_label(category: str) -> CategoryResult:
     """Resolve the label using multi-step logic."""
     changed_cat = change_cat(category)
 
@@ -64,4 +74,8 @@ def resolve_label(category: str) -> str:
     if not from_year and cat_year:
         labs_years_bot.lab_from_year_add(category, category_lab, cat_year)
 
-    return category_lab
+    return CategoryResult(
+        en=category,
+        ar=category_lab,
+        from_match=cat_year,
+    )
