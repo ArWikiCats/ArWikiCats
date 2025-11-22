@@ -31,9 +31,9 @@ class LabsYears:
         self.category_templates = YEAR_DATA
         self.category_templates.update(
             {
-                "Category:{YEAR1}": "تصنيف:{YEAR1}",
-                "Category:Films in {YEAR1}": "تصنيف:أفلام في {YEAR1}",
-                "Category:{YEAR1} Films": "تصنيف:أفلام إنتاج {YEAR1}",
+                f"Category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
+                f"Category:Films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
+                f"Category:{YEAR_PARAM} Films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
             }
         )
 
