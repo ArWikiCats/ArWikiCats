@@ -7,7 +7,7 @@ from typing import Dict, Iterable, List
 from .helps.log import logger
 from .main_processers.main_resolve import resolve_label
 
-LABEL_PREFIX = "تصنيف"
+LABEL_PREFIX = "تصنيف:"
 
 
 @dataclass
@@ -57,7 +57,7 @@ class EventProcessor:
         if stripped.startswith(LABEL_PREFIX):
             return stripped
 
-        return f"{LABEL_PREFIX}:{raw_label}"
+        return f"{LABEL_PREFIX}{raw_label}"
 
     def process(self, categories: Iterable[str]) -> EventProcessingResult:
         """Process a batch of categories."""
