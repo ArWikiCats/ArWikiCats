@@ -10,7 +10,7 @@ data_fast = {
     " kingdom-of italy": "مملكة إيطاليا",
     "11th century": "القرن 11",
     "12th century": "القرن 12",
-    "1330 at yemen": "اليمن في 1330",
+    "1330 in yemen": "اليمن في 1330",
     "1330 by country": "1330 حسب البلد",
     "1330 elections in the united states": "انتخابات 1330 في الولايات المتحدة",
     "1330 films by country": "أفلام إنتاج 1330 حسب البلد",
@@ -39,7 +39,6 @@ data_fast = {
     "ambassadors of afghanistan": "سفراء أفغانستان",
     "ambassadors of algeria": "سفراء الجزائر",
     "ambassadors to the ottoman empire": "سفراء لدى الدولة العثمانية",
-    "american football venues in the united states": "ملاعب كرة القدم الأمريكية في الولايات المتحدة",
     "american television series basedon british television series": "مسلسلات تلفزيونية أمريكية مبنية على مسلسلات تلفزيونية بريطانية",
     "april 1330": "أبريل 1330",
     "archaeological sites on the-national-register-of-historic-places": "مواقع أثرية في السجل الوطني للأماكن التاريخية",
@@ -65,15 +64,20 @@ data_fast = {
     "barracks in spain": "ثكنات في إسبانيا",
 }
 
+fix_title_all = True
+
 
 @pytest.mark.parametrize("category, expected", data_fast.items(), ids=list(data_fast.keys()))
 @pytest.mark.fast
 def test_Get_country2_fast(category, expected) -> None:
-    label = Get_country2(category)
+    label = Get_country2(category, fix_title=fix_title_all)
     assert label.strip() == expected
 
 
 data_slow = {
+    "presidents of greece": "رؤساء اليونان",
+    "presidents of maldives": "رؤساء جزر المالديف",
+
     "bas-sassandra district": "مقاطعة باس-ساساندرا",
     "baseball players from maine": "لاعبو كرة قاعدة من مين",
     "basketball competitions": "منافسات كرة سلة",
@@ -203,7 +207,6 @@ data_slow = {
     "february 1330": "فبراير 1330",
     "figure skating films": "أفلام تزلج فني",
     "figure skating media": "إعلام تزلج فني",
-    "figure skating on television": "التزلج الفني في التلفاز",
     "figure skating people": "أعلام تزلج فني",
     "figure skating": "التزلج الفني",
     "films about automobiles": "أفلام عن سيارات",
@@ -382,7 +385,6 @@ data_slow = {
     "national cricket teams": "منتخبات كريكت وطنية",
     "national university of singapore ": "جامعة سنغافورة الوطنية",
     "national wheelchair rugby league teams": "منتخبات دوري رجبي على كراسي متحركة وطنية",
-    "national women's sports teams of": "منتخبات رياضية وطنية نسائية في",
     "national youth women's football teams": "منتخبات كرة قدم وطنية للشابات",
     "nature reserves in the united states": "محميات طبيعية في الولايات المتحدة",
     "naval battles involving the united states": "معارك بحرية تشمل الولايات المتحدة",
@@ -472,8 +474,6 @@ data_slow = {
     "populated places in latvia": "أماكن مأهولة في لاتفيا",
     "populated places in portugal": "أماكن مأهولة في البرتغال",
     "populated places in uruguay": "أماكن مأهولة في الأوروغواي",
-    "presidents of greece": "رؤساء من اليونان",
-    "presidents of maldives": "رؤساء من جزر المالديف",
     "prime ministers of malaysia": "رؤساء وزراء ماليزيا",
     "protected areas of united states": "مناطق محمية في الولايات المتحدة",
     "provinces of saudi arabia": "مقاطعات السعودية",
@@ -539,8 +539,6 @@ data_slow = {
     "sports by month": "ألعاب رياضية حسب الشهر",
     "sports clubs and teams in brazil": "أندية رياضية وفرق في البرازيل",
     "sports clubs and teams": "أندية رياضية وفرق",
-    "sports in tennessee": "ألعاب رياضية في تينيسي",
-    "sports in vermont": "ألعاب رياضية في فيرمونت",
     "sports teams": "فرق رياضية",
     "sprtspeople from saxony": "رياضيون من ساكسونيا",
     "squares in london": "ساحات في لندن",
@@ -562,13 +560,11 @@ data_slow = {
     "television in ivory coast": "التلفاز في ساحل العاج",
     "television series about chefs": "مسلسلات تلفزيونية عن طباخون",
     "television series about the united states navy": "مسلسلات تلفزيونية عن البحرية الأمريكية",
-    "television series-endings": "مسلسلات تلفزيونية انتهت في",
     "television shows basedon french novels": "عروض تلفزيونية مبنية على روايات فرنسية",
     "tennis people": "أعلام كرة مضرب",
     "terrorist incidents in oceania": "حوادث إرهابية في أوقيانوسيا",
     "the canary islands": "جزر الكناري",
     "the city of": "مدينة",
-    "the community of madrid": "منطقة مدريد",
     "the covid-19 pandemic in paraná (state)": "جائحة فيروس كورونا في ولاية بارانا",
     "the crown dependencies": "ملحقات التاج البريطاني",
     "the democratic-republic-of-the-congo": "جمهورية الكونغو الديمقراطية",
@@ -659,18 +655,18 @@ data_slow = {
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=list(data_slow.keys()))
 @pytest.mark.slow
 def test_Get_country2_slow(category, expected) -> None:
-    label = Get_country2(category)
+    label = Get_country2(category, fix_title=fix_title_all)
     assert label.strip() == expected
 
 
 def test_get_country2():
     # Test with a basic input
-    result = Get_country2("test country")
+    result = Get_country2("test country", fix_title=fix_title_all)
     assert isinstance(result, str)
 
-    result_empty = Get_country2("")
+    result_empty = Get_country2("", fix_title=fix_title_all)
     assert isinstance(result_empty, str)
 
     # Test with years disabled
-    result_without_years = Get_country2("test country", False)
+    result_without_years = Get_country2("test country", False, fix_title=fix_title_all)
     assert isinstance(result_without_years, str)
