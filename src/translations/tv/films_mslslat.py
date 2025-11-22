@@ -30,21 +30,11 @@ Films_keys_both_new = {}
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 # ---
 television_keys = open_json_file("media/television_keys.json") or {}
-# ---
-# television_keys.update({
-#     "broadcasters": "مذيعو {}",
-#     "commentators": "معلقو {}",
-#     "fan clubs": "أندية معجبي {}",
-# })
-# ---
 Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
-# ---
-Films_key_For_nat = {}
 Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
 # ---
 films_mslslat_tab = {}
 Films_key_For_Jobs = {}
-# Films_key_For_Jobs_both= {}
 # ---
 Films_key_333 = {}
 # ---
@@ -198,7 +188,7 @@ for ke, ke_lab in film_Keys_For_female.items():
     Films_key_CAO[f"{ke} novels"] = f"روايات {ke_lab}"
     Films_key_CAO[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
     Films_key_For_Jobs[ke] = ke_lab
-    # Films_key_For_Jobs_both[ke] = ke_lab
+
     F_k = f"{ke} films"
     Films_key_CAO[F_k] = f"أفلام {ke_lab}"
     for fao in television_keys:
