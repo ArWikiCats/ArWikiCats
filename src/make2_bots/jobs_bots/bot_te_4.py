@@ -134,7 +134,7 @@ def Jobs_in_Multi_Sports(category: str) -> str:
     game_label = ""
     for sport_prefix, game_label in Multi_sport_for_Jobs.items():
         game_prefix = f"{sport_prefix} "
-        if category.startswith(game_prefix):
+        if category_lower.startswith(game_prefix.lower()):
             job_key = category_lower[len(game_prefix) :]
             logger.debug(f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") game_label:"{game_label}",job:"{job_key}". ')
             break

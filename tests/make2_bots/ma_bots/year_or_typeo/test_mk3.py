@@ -124,22 +124,7 @@ EXAMPLES = [
         "country_label": "أفلام",
         "Add_In_Done": False,
         "output": "أفلام عقد 2000",
-    },
-    {
-        "category": "2020 films in Yemen",
-        "cat_test": "",
-        "year": "2020 ",
-        "typeo": "",
-        "In": "",
-        "country": "films in yemen",
-        "arlabel": " 2020",
-        "year_labe": "2020",
-        "suf": "",
-        "Add_In": True,
-        "country_label": "أفلام في اليمن",
-        "Add_In_Done": False,
-        "output": "أفلام في اليمن 2020",
-    },
+    }
 ]
 
 

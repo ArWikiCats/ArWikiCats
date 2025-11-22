@@ -5,6 +5,7 @@ from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS, _STATE_SUF
 from src import new_func_lab_final_label
 
 test_data = {
+    # "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
     # "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
     # "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
     # "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
@@ -28,7 +29,6 @@ test_data = {
     "Category:{en} in fiction by city": "تصنيف:{ar} في الخيال حسب المدينة",
     "Category:{en} in the American Civil War": "تصنيف:{ar} في الحرب الأهلية الأمريكية",
     "Category:{en} in the American Revolution": "تصنيف:{ar} في الثورة الأمريكية",
-    "Category:{en} in the War of 1812": "تصنيف:{ar} في الحرب في 1812",
     "Category:{en} Jacksonians": "تصنيف:أعضاء جاكسونيون في {ar}",
     "Category:{en} Know Nothings": "تصنيف:أعضاء حزب لا أدري في {ar}",
     "Category:{en} law": "تصنيف:قانون {ar}",

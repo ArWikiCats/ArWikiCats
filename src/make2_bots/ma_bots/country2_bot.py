@@ -19,22 +19,21 @@ def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
     normalized_country = country.lower().strip()
     logger.info(f'>> Get_country2 "{normalized_country}":')
 
-    resolved_label = ""
+    resolved_label = country2_lab.get_lab_for_country2(country)
 
     if not resolved_label:
-        resolved_label = country2_lab.get_lab_for_country2(country)
+        resolved_label = ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
 
-    if not resolved_label:
-        resolved_label = ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False)
-
-    if not resolved_label:
-        resolved_label = country_2_title_work(country, With_Years=With_Years)
+    _label = country_2_title_work(country, With_Years=With_Years)
+    # if not resolved_label and _label:
+    if _label:
+        resolved_label = _label
 
     if not resolved_label:
         resolved_label = get_pop_All_18(normalized_country.lower(), "")
 
     if resolved_label and fix_title:
-        resolved_label = fixtitle.fixlab(resolved_label)
+        resolved_label = fixtitle.fixlab(resolved_label, en=normalized_country)
 
     logger.info(f'>> Get_ scountry2 "{normalized_country}": cnt_la: {resolved_label}')
     resolved_label = " ".join(resolved_label.strip().split())

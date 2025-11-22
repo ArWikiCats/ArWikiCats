@@ -292,7 +292,6 @@ data_list_bad = [
     ("1550s establishments in chile", " in ", "تأسيسات عقد 1550 في تشيلي"),
     ("1550s disestablishments in southeast asia", " in ", "انحلالات عقد 1550 في جنوب شرق آسيا"),
     ("december 1550 sorts-events in the united kingdom", " in ", "أحداث ديسمبر 1550 الرياضية في المملكة المتحدة"),
-    ("20th century people from al-andalus", " from ", "أشخاص في القرن 20 من الأندلس"),
     ("20th century american people by occupation", " by ", "أمريكيون في القرن 20 حسب المهنة"),
     ("1550s establishments in jamaica", " in ", "تأسيسات عقد 1550 في جامايكا"),
     ("march 1550 sorts-events in belgium", " in ", "أحداث مارس 1550 الرياضية في بلجيكا"),

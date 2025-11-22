@@ -226,6 +226,7 @@ def test_match_time_ar(text, expected):
         "pre-20th century event",
         "late 1990s music",
         "about 2000 people",
+        "1948–49 in european football",
     ],
 )
 @pytest.mark.fast

@@ -17,7 +17,7 @@ def test_geography_by_1():
         "Category:American culture by state": "تصنيف:ثقافة أمريكية حسب الولاية",
         "Category:Awards by country": "تصنيف:جوائز حسب البلد",
         "Category:Books about politics by country": "تصنيف:كتب عن سياسة حسب البلد",
-        "Category:Categories by province of Saudi Arabia": "تصنيفات حسب الإقليم في السعودية",
+        "Category:Categories by province of Saudi Arabia": "تصنيف:تصنيفات حسب الإقليم في السعودية",
     }
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 

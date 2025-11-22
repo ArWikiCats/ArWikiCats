@@ -64,22 +64,18 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
             found.
     """
 
-    target_category_original_case = target_category.strip()
     normalized_target_category = target_category.lower().strip()
 
     logger.info("<<lightblue>>>>event_Lab_seoo vvvvvvvvvvvv event_Lab_seoo start vvvvvvvvvvvv ")
     logger.info(f'<<lightyellow>>>>>> event_Lab_seoo, normalized_target_category:"{normalized_target_category}"')
 
-    resolved_category_label = ""
-
-    if not resolved_category_label:
-        resolved_category_label = New_P17_Finall.get(normalized_target_category, "")
+    resolved_category_label = New_P17_Finall.get(normalized_target_category, "")
 
     if not resolved_category_label:
         resolved_category_label = Ambassadors_tab.get(normalized_target_category, "")
 
     if not resolved_category_label:
-        resolved_category_label = team_work.Get_team_work_Club(target_category_original_case)
+        resolved_category_label = team_work.Get_team_work_Club(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = event2bot.event2(normalized_target_category)
@@ -94,7 +90,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = te4_2018_Jobs(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = Jobs_in_Multi_Sports(target_category_original_case)
+        resolved_category_label = Jobs_in_Multi_Sports(normalized_target_category)
 
     # if not category_lab:
     #     category_lab = tmp_bot.Work_Templates(category3)
@@ -120,5 +116,7 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
 
     if not resolved_category_label:
         resolved_category_label = te_bot_3(normalized_target_category)
+
+    # print(f"{resolved_category_label=}")
 
     return resolved_category_label
