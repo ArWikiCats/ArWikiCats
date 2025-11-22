@@ -47,7 +47,7 @@ YEAR_DATA ={
     "category:{YEAR1} in christianity": "تصنيف:المسيحية في {YEAR1}",  # 369
     "category:states and territories disestablished in {YEAR1}": "تصنيف:دول وأقاليم انحلت في {YEAR1}",  # 406
     "category:organizations established in {YEAR1}": "تصنيف:منظمات أسست في {YEAR1}",  # 259
-    "Ccategory:airlines established in {YEAR1}": "تصنيف:شركات طيران أسست في {YEAR1}",  # 259
+    "category:airlines established in {YEAR1}": "تصنيف:شركات طيران أسست في {YEAR1}",  # 259
     "category:{YEAR1} in education": "تصنيف:التعليم في {YEAR1}",  # 258
     "category:{YEAR1} in association football": "تصنيف:كرة القدم في {YEAR1}",  # 350
     "category:{YEAR1} introductions": "تصنيف:استحداثات {YEAR1}",  # 275
@@ -157,5 +157,5 @@ YEAR_DATA ={
     "category:{YEAR1} in tennis": "تصنيف:كرة المضرب في {YEAR1}",  # 164
     "category:transport disasters in {YEAR1}": "تصنيف:كوارث نقل في {YEAR1}",  # 149
     "category:{YEAR1} in football": "تصنيف:{YEAR1} في كرة القدم",  # 163
-    "Category:Transport companies established in {YEAR1}": "تصنيف:شركات نقل أسست في {YEAR1}",
+    "category:Transport companies established in {YEAR1}": "تصنيف:شركات نقل أسست في {YEAR1}",
 }
