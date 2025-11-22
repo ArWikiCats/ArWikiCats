@@ -1,4 +1,19 @@
 
+## [#99](https://github.com/MrIbrahem/make2_new/pull/99) - 2025-11-22
+
+* **Chores**
+  * Expanded geographic lookup variants (more country/admin and India secondary regions), added lowercase lookup support, enhanced US state/party/county mappings, consolidated translation exports, removed an obsolete translation bundle and an older add-in table, and added new job-related entries including "censuses"
+  * Removed a verbose startup log file
+
+* **Tests**
+  * Added dedicated US counties translation tests and adjusted related expectations
+
+* **Bug Fixes**
+  * Improved case-insensitive key lookup behavior across translation tables
+
+* **Chores**
+  * Disabled several data-dump decorators to stop auxiliary data-dumping side effects
+
 ## [#98](https://github.com/MrIbrahem/make2_new/pull/98) - 2025-11-22
 
 * **Chores**

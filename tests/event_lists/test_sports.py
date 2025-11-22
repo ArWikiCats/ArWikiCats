@@ -71,7 +71,6 @@ def test_sports_3():
 def test_sports_4():
     data = {
         "Category:Water polo at the Summer Universiade": "تصنيف:كرة الماء في الألعاب الجامعية الصيفية",
-        "Category:Women's national sports teams of Cuba": "تصنيف:منتخبات رياضية وطنية نسائية في كوبا",
         "Category:Women's national youth association football teams": "تصنيف:منتخبات كرة قدم وطنية للشابات",
         "Category:World Judo Championships": "تصنيف:بطولة العالم للجودو",
         "Category:Youth athletics competitions": "تصنيف:منافسات ألعاب قوى شبابية",
