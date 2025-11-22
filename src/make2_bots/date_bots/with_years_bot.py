@@ -63,7 +63,7 @@ def _handle_year_at_start(category_text: str) -> str:
         logger.debug(f">>> _handle_year_at_start get_KAKO con_3_lab:{remainder_label}")
 
     if not remainder_label:
-        remainder_label = translate_general_category(remainder)
+        remainder_label = translate_general_category(remainder, fix_title=False)
 
     if not remainder_label:
         remainder_label = country2_lab.get_lab_for_country2(remainder)
@@ -78,7 +78,7 @@ def _handle_year_at_start(category_text: str) -> str:
         separator = " في "
 
     elif remainder in Add_in_table:
-        logger.debug("a<<lightblue>>>>>> Add في to suf")
+        logger.debug("a<<lightblue> > > > > > Add في to suf")
         separator = " في "
 
     label = remainder_label + separator + year
@@ -112,7 +112,7 @@ def _handle_year_at_end(
     remainder = category_text[: -len(year_at_end_label)]
 
     # print("translate_general_category 5")
-    remainder_label = translate_general_category(remainder)
+    remainder_label = translate_general_category(remainder, fix_title=False)
 
     if not remainder_label:
         remainder_label = country2_lab.get_lab_for_country2(remainder)

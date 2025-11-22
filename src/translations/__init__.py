@@ -47,7 +47,7 @@ from .mixed.jenders_priffix_suffix import (
     Mens_suffix,
     Women_s_priffix,
 )
-from .mixed.keys2 import ADD_IN_TABLE2, PARTIES
+from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
 from .nats.Nationality import (
     All_Nat,
@@ -177,7 +177,6 @@ __all__ = [
     #
     "RELIGIOUS_KEYS_PP",
     #
-    "ADD_IN_TABLE2",
     "PARTIES",
     #
     "languages_pop",

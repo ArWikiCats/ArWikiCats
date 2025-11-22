@@ -28,7 +28,7 @@ def _resolve_label(label: str) -> str:
     if not resolved_label:
         resolved_label = with_years_bot.Try_With_Years(label)
     if not resolved_label:
-        resolved_label = ye_ts_bot.translate_general_category(label)
+        resolved_label = ye_ts_bot.translate_general_category(label, fix_title=False)
     return resolved_label
 
 
