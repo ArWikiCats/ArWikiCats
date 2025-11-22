@@ -17,8 +17,6 @@ from ...matables_bots.bot import (
 )
 from ...matables_bots.check_bot import check_key_new_players
 
-to_check_them = [Add_in_table, add_in_to_country, Films_O_TT]
-
 
 def check_country_in_tables(country: str) -> bool:
     """Return True when the country appears in any configured lookup table."""
@@ -74,9 +72,17 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_la
 def added_in_new(country: str, arlabel: str, suf: str, year_labe: str, country_label: str, Add_In: bool, arlabel2: str):
     """Handle cases where a year prefix needs a linking preposition."""
     logger.info("a<<lightblue>>>>>> Add year before")
-    co_in_tables = check_key_in_tables(country, to_check_them)
+
+    to_check_them_tuble = {
+        "Add_in_table": Add_in_table,
+        "add_in_to_country": add_in_to_country,
+        "Films_O_TT": Films_O_TT,
+    }
+
+    co_in_tables, tab_name = check_key_in_tables_return_tuple(country, to_check_them_tuble)
     # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
     # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
+
     if (suf.strip() == "" and country_label.startswith("ال")) or co_in_tables or check_key_new_players(country.lower()):
         suf = " في "
         logger.info("a<<lightblue>>>>>> Add في to suf")
