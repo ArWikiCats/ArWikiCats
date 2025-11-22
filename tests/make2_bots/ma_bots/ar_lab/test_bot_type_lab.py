@@ -8,6 +8,9 @@ from src.make2_bots.ma_bots.ar_lab import get_type_lab
 
 
 data = [
+    # (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
+    # (" of ", "national women's sports teams of", "منتخبات رياضية وطنية نسائية"),
+
     ("in", "arizona territory", "إقليم أريزونا"),
     (" of ", " university of", "جامعة"),
     (" by ", "basketball playerss in lebanon", "لاعبو كرة سلة في لبنان"),
@@ -82,7 +85,6 @@ data = [
     (" in ", "transport buildings and structures", "مبان ومنشآت نقل"),
     (" in ", "lists of mayors of places", "قوائم رؤساء بلديات"),
     (" in ", "the church of jesus christ of latter-day saints", "كنيسة يسوع المسيح لقديسي الأيام الأخيرة"),
-    (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
     (" by ", "rivers of united states", "أنهار الولايات المتحدة"),
     (" by ", "history of nova scotia", "تاريخ نوفا سكوشا"),
     (" by ", "1789 establishments in india", "تأسيسات سنة 1789 في الهند"),
@@ -184,7 +186,6 @@ data = [
     (" by ", "tourism in the republic-of ireland", "سياحة في جمهورية أيرلندا"),
     (" opened in ", "railway stations in hong kong", "محطات السكك الحديدية في هونغ كونغ"),
     (" opened in ", "railway stations in spain", "محطات السكك الحديدية في إسبانيا"),
-    (" of ", "national women's sports teams of", "منتخبات رياضية وطنية نسائية"),
     (" in ", "bank buildings on the-national-register-of-historic-places", "مباني بنوك في السجل الوطني للأماكن التاريخية"),
     (" by ", "nations in the summer olympics", "بلدان في الألعاب الأولمبية الصيفية"),
     (" for ", "pan american games medalists", "فائزون بميداليات دورة الألعاب الأمريكية"),

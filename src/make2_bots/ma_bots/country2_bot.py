@@ -12,7 +12,7 @@ from .country2_bots.country2_tit_bt import country_2_title_work
 
 
 @functools.lru_cache(maxsize=None)
-def Get_country2(country: str, With_Years: bool = True) -> str:
+def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
     """Retrieve information related to a specified country."""
 
     normalized_country = country.lower().strip()
