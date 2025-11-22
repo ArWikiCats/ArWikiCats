@@ -96,7 +96,7 @@ def work_titose_names(
 
 
 @functools.lru_cache(maxsize=10000)
-def translate_general_category(category_r: str, start_get_country2: bool = True) -> str:
+def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool=True) -> str:
     """Translate an English category to Arabic label.
 
     This function processes a category string by normalizing the format
@@ -119,14 +119,13 @@ def translate_general_category(category_r: str, start_get_country2: bool = True)
     cate_test = category.lower()
 
     arlabel = get_pop_All_18(category, "")
-
     if not arlabel:
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
         arlabel = work_titose_names(category, cate_test, start_get_country2=start_get_country2)
 
-    if arlabel:
+    if arlabel and fix_title:
         arlabel = fixtitle.fixlab(arlabel, en=category_r)
         logger.info(f'xxxxx <<green>>cate_test: "{cate_test}" ')
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')

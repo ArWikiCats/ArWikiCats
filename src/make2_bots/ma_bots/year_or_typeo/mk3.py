@@ -17,8 +17,6 @@ from ...matables_bots.bot import (
 )
 from ...matables_bots.check_bot import check_key_new_players
 
-to_check_them = [Add_in_table, add_in_to_country, Films_O_TT]
-
 
 def check_country_in_tables(country: str) -> bool:
     """Return True when the country appears in any configured lookup table."""
@@ -40,13 +38,15 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_la
     arlabel2 = arlabel
 
     if in_table and typeo not in Keep_it_frist:
+        # in_tables = country.lower() in New_players
         in_tables = check_key_new_players(country.lower())
+        # ---
         logger.info(f"{in_tables=}")
         if not country_label.startswith("حسب") and year_labe:
             if (In.strip() == "in" or In.strip() == "at") or in_tables:
                 country_label = f"{country_label} في "
                 Add_In_Done = True
-                logger.info(">>> Add في line: 79")
+                logger.info(">>> Add في line: 49")
                 cat_test = cat_test.replace(In, "")
 
         arlabel = country_label + suf + arlabel
@@ -58,7 +58,7 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_la
 
             cat_test = cat_test.replace(In, "")
             Add_In_Done = True
-            logger.info(">>> Add في line: 92")
+            logger.info(">>> Add في line: 59")
 
         arlabel = arlabel + suf + country_label
         arlabel = re.sub(r"\s+", " ", arlabel)
@@ -72,9 +72,17 @@ def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_la
 def added_in_new(country: str, arlabel: str, suf: str, year_labe: str, country_label: str, Add_In: bool, arlabel2: str):
     """Handle cases where a year prefix needs a linking preposition."""
     logger.info("a<<lightblue>>>>>> Add year before")
-    co_in_tables = check_key_in_tables(country, to_check_them)
+
+    to_check_them_tuble = {
+        "Add_in_table": Add_in_table,
+        "add_in_to_country": add_in_to_country,
+        "Films_O_TT": Films_O_TT,
+    }
+
+    co_in_tables, tab_name = check_key_in_tables_return_tuple(country, to_check_them_tuble)
     # co_in_tables = country in Add_in_table or country in add_in_to_country or country in Films_O_TT
     # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
+
     if (suf.strip() == "" and country_label.startswith("ال")) or co_in_tables or check_key_new_players(country.lower()):
         suf = " في "
         logger.info("a<<lightblue>>>>>> Add في to suf")
@@ -147,29 +155,25 @@ def new_func_mk2(
     """
 
     cat_test = cat_test.replace(country, "")
+
     arlabel = " ".join(arlabel.strip().split())
     suf = f" {suf.strip()} " if suf else " "
-    """
-    in_table = False
-    for table in Table_for_frist_word.keys():
-        if country in Table_for_frist_word[table]:
-            in_table = True
-            logger.debug(f'>> >> dX:<<lightpurple>> in_table "{country}" in {table}.')
-
-    if country in country_before_year:
-        in_table = True
-        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
-    """
     arlabel2 = arlabel
 
     logger.info(f"{country=}, {Add_In_Done=}, {Add_In=}")
-
+    # ---------------------
+    # phase 1
+    # ---------------------
     in_table = check_country_in_tables(country)
 
     Add_In_Done, arlabel, cat_test = add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_label, cat_test)
 
     logger.info(f"{year_labe=}, {arlabel2=}")
 
+    # ---------------------
+    # phase 2
+    # ---------------------
+    # print(xx)
     if not Add_In_Done:
         if typeo == "" and In == "" and country and year:
             arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, country_label, Add_In, arlabel2)

@@ -327,7 +327,7 @@ class LabelForStartWithYearOrTypeo:
         return self.finalize()
 
 
-@dump_data()
+# @dump_data()
 def label_for_startwith_year_or_typeo(category_r: str) -> str:
     """Return an Arabic label for categories that begin with years or types."""
     builder = LabelForStartWithYearOrTypeo()

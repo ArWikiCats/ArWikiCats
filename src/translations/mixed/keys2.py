@@ -7,10 +7,6 @@ from ..geo.us_counties import USA_newkeys
 from ..medical.deaths import medical_keys
 from ..utils.json_dir import open_json_file
 
-ADD_IN_TABLE2: list[str] = [
-    "censuses",  # تعداد السكان
-]
-
 PARTIES: dict[str, str] = {
     "libertarian party of canada": "الحزب التحرري الكندي",
     "libertarian party-of-canada": "الحزب التحرري الكندي",
@@ -118,7 +114,6 @@ keys2_py: dict[str, str] = build_keys2_py_mapping()
 len_print.data_len("keys2.py", {"keys2_py": keys2_py})
 
 __all__ = [
-    "ADD_IN_TABLE2",
     "PARTIES",
     "keys2_py",
     "new_2019",

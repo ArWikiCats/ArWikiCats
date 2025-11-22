@@ -45,7 +45,7 @@ TITO_LIST_S = [
 ]
 
 
-@dump_data()
+# @dump_data()
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, tito: str = "") -> str:
     """Wraps the event2bot.event2 function with caching."""
@@ -356,7 +356,7 @@ class LabelPipeline(Fixing):
         return arlabel
 
 
-@dump_data(["category", "tito"])
+# @dump_data(["category", "tito"])
 @functools.lru_cache(maxsize=10000)
 def find_ar_label(
     category: str,

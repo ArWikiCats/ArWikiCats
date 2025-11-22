@@ -1,8 +1,36 @@
 
+## [#99](https://github.com/MrIbrahem/make2_new/pull/99) - 2025-11-22
+
+* **Chores**
+  * Expanded geographic lookup variants (more country/admin and India secondary regions), added lowercase lookup support, enhanced US state/party/county mappings, consolidated translation exports, removed an obsolete translation bundle and an older add-in table, and added new job-related entries including "censuses"
+  * Removed a verbose startup log file
+
+* **Tests**
+  * Added dedicated US counties translation tests and adjusted related expectations
+
+* **Bug Fixes**
+  * Improved case-insensitive key lookup behavior across translation tables
+
+* **Chores**
+  * Disabled several data-dump decorators to stop auxiliary data-dumping side effects
+
 ## [#98](https://github.com/MrIbrahem/make2_new/pull/98) - 2025-11-22
 
 * **Chores**
   * Updated Arabic transliterations for Minnesota-related terms across translation databases and tests, correcting the spelling from "مينيسوتا" to "منيسوتا" for improved accuracy in geographic names, sports teams, and related entries.
+
+## [#97](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-97
+
+  * Expanded geographic lookup APIs: more country, admin-region and India/secondary-region translation variants and lowercased lookup support.
+  * More comprehensive US location variant mappings for states, parties and counties.
+
+* **Tests**
+  * Added dedicated US counties translation tests.
+  * Adjusted test data by removing specific deprecated entries.
+
+* **Chores**
+  * Consolidated and reorganized translation data and exports.
+  * Removed an obsolete translation entry.
 
 ## [#96](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-21
 

@@ -47,7 +47,6 @@ class CountryLabelRetriever:
         logger.info(f'>>>> Get country for "{country}"')
 
         resolved_label = self._check_basic_lookups(country)
-
         if resolved_label == "" and start_get_country2:
             resolved_label = country2_bot.Get_country2(country)
 
@@ -122,7 +121,7 @@ class CountryLabelRetriever:
             label = country2_lab.get_lab_for_country2(remainder)
 
         if label == "":
-            label = ye_ts_bot.translate_general_category(remainder)
+            label = ye_ts_bot.translate_general_category(remainder, fix_title=False)
         return label
 
     def _validate_separators(self, country: str) -> bool:

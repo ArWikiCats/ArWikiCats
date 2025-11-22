@@ -121,7 +121,7 @@ def _resolve_club_label(club_key: str) -> str:
     return club_lab
 
 
-@dump_data()
+# @dump_data()
 @functools.lru_cache(maxsize=None)
 def Get_Club(
     category: str,

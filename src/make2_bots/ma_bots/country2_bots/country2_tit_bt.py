@@ -6,6 +6,7 @@ This module provides functions for processing and generating labels for country 
 import re
 from typing import Tuple
 
+from ....utils import fix_minor
 from ....helps import printe
 from ....helps.log import logger
 from ...format_bots import category_relation_mapping
@@ -153,6 +154,7 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
         separator = f" {sep} " if sep != "-of " else sep
         if separator in normalized_country:
             resolved_label = country_2_tit(separator, country, With_Years=With_Years)
+            resolved_label = fix_minor(resolved_label, separator)
             break
 
     return resolved_label
