@@ -117,6 +117,6 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     if not resolved_category_label:
         resolved_category_label = te_bot_3(normalized_target_category)
 
-    print(f"{resolved_category_label=}")
+    # print(f"{resolved_category_label=}")
 
     return resolved_category_label
