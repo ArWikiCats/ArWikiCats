@@ -157,4 +157,5 @@ YEAR_DATA ={
     "category:{YEAR1} in tennis": "تصنيف:كرة المضرب في {YEAR1}",  # 164
     "category:transport disasters in {YEAR1}": "تصنيف:كوارث نقل في {YEAR1}",  # 149
     "category:{YEAR1} in football": "تصنيف:{YEAR1} في كرة القدم",  # 163
+    "Category:Transport companies established in {YEAR1}": "تصنيف:شركات نقل أسست في {YEAR1}",
 }
