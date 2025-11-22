@@ -43,7 +43,7 @@ REG_CENTURY_AR = re.compile(r"\bب*(?:القرن|الألفية) \d+ *(?:ق\.م|
 # Additional precompiled regex patterns
 REG_SUB_CATEGORY = re.compile(r"^Category:", re.I)
 REG_YEAR_BC_PATTERN = re.compile(r"^(\d+)\s*(BCE|BC)$", re.I)
-REG_YEAR_RANGE_PATTERN = re.compile(r"^\d+[−–\-]\d+", re.I)
+REG_YEAR_RANGE_PATTERN = re.compile(r"^\d+[−–\-]\d+$", re.I)
 
 # Month-related patterns
 MONTH_STR = "|".join(["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"])
@@ -123,25 +123,29 @@ def convert_time_to_arabic(en_year: str) -> str:
     m = REG_MONTH_YEAR.match(en_year)
     if m:
         month = month_map[m.group(1).lower()]
-        return f"{month} {m.group(2)}"
+        result = f"{month} {m.group(2)}"
+        return result
 
     # --- Month + Year + BC ---
     m = REG_MONTH_YEAR_BC.match(en_year)
     if m:
         month = month_map[m.group(1).lower()]
         bc = " ق م"
-        return f"{month} {m.group(2)}{bc}"
+        result = f"{month} {m.group(2)}{bc}"
+        return result
 
     # --- Year + BC ---
     m = REG_YEAR_BC_PATTERN.match(en_year)
     if m:
-        return f"{m.group(1)} ق م"
+        result = f"{m.group(1)} ق م"
+        return result
 
     # --- Decade (with optional BC/BCE) ---
     m = REG_DECADE.match(en_year)
     if m:
         bc = " ق م" if m.group(2) else ""
-        return f"عقد {m.group(1)}{bc}"
+        result = f"عقد {m.group(1)}{bc}"
+        return result
 
     # --- Century/Millennium ---
     m = REG_CENTURY_MILLENNIUM.match(en_year)
@@ -149,9 +153,10 @@ def convert_time_to_arabic(en_year: str) -> str:
         num = int(m.group(1))
         bc = " ق م" if m.group(3) else ""
         ty = "القرن" if m.group(2) == "century" else "الألفية"
-        return f"{ty} {num}{bc}"
+        result = f"{ty} {num}{bc}"
+        return result
 
-    if REG_YEAR_RANGE_PATTERN.search(en_year):
+    if REG_YEAR_RANGE_PATTERN.match(en_year):
         # --- (no expansion wanted) ---
         # return expand_range(en_year)
         return en_year

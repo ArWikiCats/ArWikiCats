@@ -169,6 +169,7 @@ class EventLabResolver:
         # If no label found yet, try general translation
         if not category_lab:
             category_lab = ye_ts_bot.translate_general_category(f"category:{category3}", fix_title=False)
+
         if category_lab:
             return category_lab
 
@@ -359,4 +360,9 @@ def event_Lab(cate_r: str) -> str:
     Returns:
         str: The Arabic label for the category
     """
-    return resolver.process_category(cate_r)
+    result = resolver.process_category(cate_r)
+
+    if result == "تصنيف:":
+        return ""
+
+    return result
