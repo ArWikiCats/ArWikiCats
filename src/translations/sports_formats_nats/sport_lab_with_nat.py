@@ -14,6 +14,7 @@ from ..utils.match_sport_keys import match_sport_key
 
 format_labels_with_nat = {
     "natar national xoxo teams": "منتخبات xoxo وطنية natar",
+    "natar xoxo championshipszz": "بطولة natar xoxo",
     "natar xoxo championships": "بطولة natar xoxo",
     "ladies natar xoxo championships": "بطولة natar xoxo للسيدات",
     "natar xoxo tour": "بطولة natar xoxo",
@@ -21,13 +22,16 @@ format_labels_with_nat = {
     "ladies natar xoxo tour": "بطولة natar xoxo للسيدات",
 }
 
-
 nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
 
 
 @dump_data(enable=1)
-def match_sports_labels_with_nat(normalized_team: str) -> str:
-    """Match sports labels using the newer placeholder-based approach."""
+def normalize_nat_and_sport(normalized_team: str) -> str:
+    """
+    Match sports labels using the newer placeholder-based approach.
+
+    input: "british xoxo championshipszz", output: "بطولة المملكة المتحدة xoxo"
+    """
     template_label = ""
 
     nationality_key = match_nat_key(normalized_team.strip())
@@ -59,7 +63,7 @@ def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
     """Construct a team label that merges sport and nationality templates."""
     team_lab = ""
 
-    template_label = match_sports_labels_with_nat(normalized_team)
+    template_label = normalize_nat_and_sport(normalized_team)
 
     sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
 
@@ -74,6 +78,7 @@ def compare_to_create_label(team: str) -> str:
     sport_key = match_sport_key(team)
 
     if not sport_key:
+        print(f"compare_to_create_label(): no sport key in: {team=} ")
         return ""
 
     normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {team.strip()} ", flags=re.IGNORECASE).strip()
@@ -85,6 +90,6 @@ def compare_to_create_label(team: str) -> str:
 
 
 __all__ = [
-    "match_sports_labels_with_nat",
+    "normalize_nat_and_sport",
     "compare_to_create_label",
 ]

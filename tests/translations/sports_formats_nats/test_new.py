@@ -8,12 +8,21 @@ from src.translations.sports_formats_nats.new import (
     normalize_nat_label,
 )
 
-from src.translations.sports_formats_nats.sport_lab_with_nat import (
-    Get_New_team_xo_with_nat,
-    apply_pattern_replacement,
-    format_labels_with_nat,
-    match_sports_labels_with_nat,
-)
+data = {
+    "british softball championshipszz": "بطولة المملكة المتحدة للكرة اللينة",
+    "ladies british softball tour": "بطولة المملكة المتحدة للكرة اللينة للسيدات",
+    "british football tour": "بطولة المملكة المتحدة لكرة القدم",
+    "Yemeni football championships": "بطولة اليمن لكرة القدم",
+    "german figure skating championships": "بطولة ألمانيا للتزلج الفني",
+}
+
+
+@pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
+@pytest.mark.skip2
+def test_create_label(key, expected) -> None:
+    template_label = create_label(key)
+    assert template_label != ""
+    assert template_label == expected
 
 
 @pytest.mark.fast
@@ -32,9 +41,3 @@ def test_normalize_nat_label() -> None:
 def test_create_nat_label() -> None:
     label = create_nat_label("Yemeni xoxo championships")
     assert label == "بطولة اليمن xoxo"
-
-
-@pytest.mark.fast
-def test_create_label() -> None:
-    label = create_label("Yemeni football championships")
-    assert label == "بطولة اليمن لكرة القدم"

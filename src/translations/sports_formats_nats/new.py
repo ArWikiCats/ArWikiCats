@@ -10,6 +10,7 @@ from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 format_labels_with_nat = {
     "natar national xoxo teams": "منتخبات xoxo وطنية natar",
     "natar xoxo championshipszz": "بطولة natar xoxo",
+    "natar xoxo championships": "بطولة natar xoxo",
     "ladies natar xoxo championships": "بطولة natar xoxo للسيدات",
     "natar xoxo tour": "بطولة natar xoxo",
     "women's natar xoxo tour": "بطولة natar xoxo للسيدات",
@@ -38,11 +39,17 @@ def normalize_sport_label(category):
     return result
 
 
+@dump_data(enable=True)
 def normalize_both(category):
-    """Normalize both nationality and sport tokens in the category."""
-    category = normalize_nat_label(category)
-    category = normalize_sport_label(category)
-    return category
+    """
+    Normalize both nationality and sport tokens in the category.
+
+    input: "british softball championshipszz", output: "natar xoxo championshipszz"
+    """
+    new_category = normalize_nat_label(category)
+    new_category = normalize_sport_label(new_category)
+
+    return new_category
 
 
 def get_template_label_new(key, category):
@@ -57,7 +64,12 @@ def create_nat_label(category):
 
 @dump_data(enable=True)
 def create_label(category):
-    """Create a localized label by combining nationality and sport templates."""
+    """
+    Create a localized label by combining nationality and sport templates.
+
+    Example:
+        category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
+    """
     # category = Yemeni football championships
     template_label = normalize_both(category)
 

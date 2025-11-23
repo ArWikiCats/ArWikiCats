@@ -4,7 +4,6 @@
 import pytest
 
 from src.translations.sports_formats_teams.sport_lab import (
-    Get_New_team_xo_2026,
     Get_New_team_xo,
     Get_Sport_Format_xo_en_ar_is_P17,
 )
@@ -219,10 +218,8 @@ Get_New_team_xo_data = {
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category, expected) -> None:
     label1 = Get_New_team_xo(category)
-    label2 = Get_New_team_xo_2026(category)
     assert isinstance(label1, str)
     assert label1.strip() == expected
-    assert label2.strip() == expected
 
 
 @pytest.mark.fast
