@@ -107,52 +107,6 @@ def _lookup_in_dictionaries(suffix: str, language_lab: str) -> str:
     return ""
 
 
-@functools.lru_cache(maxsize=None)
-def Lang_work(con_3: str) -> str:
-    """Process and retrieve language-related information based on input.
-
-    This function takes a string input representing a language or a related
-    term, processes it to determine the appropriate language label, and
-    returns the corresponding label. It checks against predefined
-    dictionaries to find matches and formats the output accordingly. The
-    function also caches results for efficiency.
-
-    Args:
-        con_3: A string representing a language or related term.
-
-    Returns:
-        The corresponding language label or an empty string if no match is found.
-    """
-    logger.debug(f'<<lightblue>> Lang_work :"{con_3}"')
-
-    # Direct lookup in languages_key
-    lang_lab = languages_key.get(con_3, "")
-    if lang_lab:
-        return lang_lab
-
-    # Try romanization pattern
-    lang_lab = _try_romanization(con_3)
-    if lang_lab:
-        return lang_lab
-
-    # Try language prefix matching
-    for lang, l_lab in languages_key.items():
-        # Check films pattern
-        lang_lab = _try_films_pattern(con_3, lang, l_lab)
-        if lang_lab:
-            return lang_lab
-
-        # Check language prefix
-        lang_prefix = f"{lang} "
-        if con_3.startswith(lang_prefix):
-            logger.debug(f"<<lightblue>> con_3.startswith(lang:{lang_prefix})")
-            lang_lab = lab_from_lang_keys(con_3, lang, l_lab, lang_prefix)
-            if lang_lab:
-                return lang_lab
-
-    return ""
-
-
 def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang_prefix: str) -> str:
     """Extract and format label based on language prefix match.
 
@@ -209,5 +163,51 @@ def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang_prefix: str) -> s
     result = _lookup_in_dictionaries(suffix, language_lab)
     if result:
         return result
+
+    return ""
+
+
+@functools.lru_cache(maxsize=None)
+def Lang_work(con_3: str) -> str:
+    """Process and retrieve language-related information based on input.
+
+    This function takes a string input representing a language or a related
+    term, processes it to determine the appropriate language label, and
+    returns the corresponding label. It checks against predefined
+    dictionaries to find matches and formats the output accordingly. The
+    function also caches results for efficiency.
+
+    Args:
+        con_3: A string representing a language or related term.
+
+    Returns:
+        The corresponding language label or an empty string if no match is found.
+    """
+    logger.debug(f'<<lightblue>> Lang_work :"{con_3}"')
+
+    # Direct lookup in languages_key
+    lang_lab = languages_key.get(con_3, "")
+    if lang_lab:
+        return lang_lab
+
+    # Try romanization pattern
+    lang_lab = _try_romanization(con_3)
+    if lang_lab:
+        return lang_lab
+
+    # Try language prefix matching
+    for lang, l_lab in languages_key.items():
+        # Check films pattern
+        lang_lab = _try_films_pattern(con_3, lang, l_lab)
+        if lang_lab:
+            return lang_lab
+
+        # Check language prefix
+        lang_prefix = f"{lang} "
+        if con_3.startswith(lang_prefix):
+            logger.debug(f"<<lightblue>> con_3.startswith(lang:{lang_prefix})")
+            lang_lab = lab_from_lang_keys(con_3, lang, l_lab, lang_prefix)
+            if lang_lab:
+                return lang_lab
 
     return ""
