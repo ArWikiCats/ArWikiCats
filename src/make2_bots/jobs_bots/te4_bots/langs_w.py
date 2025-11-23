@@ -18,6 +18,24 @@ from ....translations import (
     languages_key,
 )
 
+_Films_key_For_nat = {
+    "action drama films": "أفلام حركة درامية {}",
+    "supernatural films": "أفلام خارقة للطبيعة {}",
+    "action films": "أفلام حركة {}",
+    "adventure drama films": "أفلام مغامرات درامية {}",
+    "adventure films": "أفلام مغامرات {}",
+    "speculative fiction films": "أفلام خيال تأملي {}",
+    "speculative films": "أفلام تأملية {}",
+    "sports drama films": "أفلام دراما رياضية {}",
+    "sports films": "أفلام رياضية {}",
+    "spy films": "أفلام تجسس {}",
+    "teen films": "أفلام مراهقة {}",
+    "television episodes": "حلقات تلفزيونية {}",
+    "television seasons": "مواسم تلفزيونية {}",
+    "television series": "مسلسلات تلفزيونية {}",
+    "film series": "سلاسل أفلام {}",
+}
+
 
 def _try_romanization(con_3: str) -> str:
     """Try to match romanization pattern and return formatted label.
@@ -211,3 +229,9 @@ def Lang_work(con_3: str) -> str:
                 return lang_lab
 
     return ""
+
+
+__all__ = [
+    "Lang_work",
+    "lab_from_lang_keys",
+]

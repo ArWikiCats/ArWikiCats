@@ -143,7 +143,7 @@ data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", data.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 def test_Lang_work_main(category, expected):
     result = Lang_work(category)
     assert result == expected
@@ -185,7 +185,7 @@ def test_lab_from_lang_keys():
 @pytest.mark.parametrize(
     "key, expected",
     [(k, v) for k, v in languages_key_subset.items()],
-    ids=lambda x: x,
+    ids=list(languages_key_subset.keys()),
 )
 def test_lang_work_direct(key, expected):
     """Test Lang_work for direct language keys."""
@@ -200,10 +200,13 @@ def test_lang_work_direct(key, expected):
 # -----------------------------------------------------------
 # 2) Parametrize: test "<key> language"
 # -----------------------------------------------------------
+data_2 = [(k, f"لغة {languages_key_subset[k]}") for k in languages_key_subset if not k.endswith(" language")]
+
+
 @pytest.mark.parametrize(
     "key, expected",
-    [(k, f"لغة {languages_key_subset[k]}") for k in languages_key_subset if not k.endswith(" language")],
-    ids=lambda x: x[0],
+    data_2,
+    ids=[x[0] for x in data_2],
 )
 def test_lang_work_language_suffix(key, expected):
     """Test '<lang> language' format."""
@@ -224,7 +227,7 @@ def test_lang_work_language_suffix(key, expected):
 @pytest.mark.parametrize(
     "key, arabic",
     [(k, v) for k, v in languages_key_subset.items()],
-    ids=lambda x: x[0],
+    ids=[k for k in languages_key_subset.keys()],
 )
 def test_lang_work_films_suffix(key, arabic):
     """Test '<lang> films' -> 'أفلام ب<ArabicLabel>'."""
@@ -250,11 +253,13 @@ TOPIC_SUFFIXES = [
     "given names",
 ]
 
+data_x = [(k, suf) for k in languages_key_subset for suf in TOPIC_SUFFIXES]
+
 
 @pytest.mark.parametrize(
     "key, suffix",
-    [(k, suf) for k in languages_key_subset for suf in TOPIC_SUFFIXES],
-    ids=lambda x: f"{x[0]}-{x[1]}",
+    data_x,
+    ids=[f"{x[0]}-{x[1]}" for x in data_x],
 )
 def test_lang_work_topics(key, suffix):
     """Test '<lang> grammar', '<lang> writing system', etc."""
