@@ -68,6 +68,7 @@ def test_lab_from_year_successful_lookup_and_replacement():
         category_r="Category:Events in 2010",
         category_lab="تصنيف:أحداث في 2010",
         en_year="2010",
+        ar_year="2010",
     )
 
     year, label = bot.lab_from_year("Category:Events in 2010")
@@ -86,6 +87,7 @@ def test_lab_from_year_template_exists_with_different_year():
         category_r="Category:Sports in 2022",
         category_lab="تصنيف:رياضة في 2022",
         en_year="2022",
+        ar_year="2022",
     )
 
     # Now query for another valid year template
@@ -105,12 +107,13 @@ def test_lab_from_year_add_missing_real_year():
         category_r="Category:Something in 2015",
         category_lab="تصنيف:شيء ما",  # Does NOT contain 2015
         en_year="2015",
+        ar_year="",
     )
 
     assert bot.category_templates == {}
 
 
-def _test_with_decade():
+def test_with_decade():
     bot = LabsYears()
 
     # Add template for {year1}-base
@@ -118,11 +121,15 @@ def _test_with_decade():
         category_r="Category:1990 works",
         category_lab="تصنيف:أعمال 1990",
         en_year="1990",
+        ar_year="1990",
     )
 
     # Now query for another valid year template
+    en_year = bot.match_en_time("Category:1990s works")
+    assert en_year == "1990s"
+
     year, label = bot.lab_from_year("Category:1990s works")
 
-    assert year == "1990s"
+    assert year == "1990"
     assert label == "تصنيف:أعمال عقد 1990"
     assert bot.lookup_count == 1

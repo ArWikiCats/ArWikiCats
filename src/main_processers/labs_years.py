@@ -26,16 +26,32 @@ from .categories_patterns.YEAR import YEAR_DATA, YEAR_PARAM_NAME
 YEAR_PARAM = "{year1}"
 
 
-class LabsYears:
+class MatchTimes:
+    def __init__(self) -> None:
+        pass
+
+    def match_en_time(self, text: str) -> str:
+        """Match English time in text."""
+        year_match = re.search(r"\d{4}", text)
+        if year_match:
+            return year_match.group()
+        return ""
+
+    def match_ar_time(self, text: str) -> str:
+        """Match Arabic time in text."""
+        return ""
+
+
+class LabsYears(MatchTimes):
     def __init__(self) -> None:
         """Prepare reusable lookup tables for year-based category labels."""
         self.lookup_count = 0
         self.category_templates = dict(YEAR_DATA)
         self.category_templates.update(
             {
-                f"Category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
-                f"Category:films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
-                f"Category:{YEAR_PARAM} films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
+                f"category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
+                f"category:films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
+                f"category:{YEAR_PARAM} films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
             }
         )
 
@@ -52,12 +68,12 @@ class LabsYears:
         from_year = ""
         cat_year = ""
         category_r = category_r.lower()
-        year_match = re.search(r"\d{4}", category_r)
+        year_match = self.match_en_time(category_r)
 
         if not year_match:
             return cat_year, from_year
 
-        cat_year = year_match.group()
+        cat_year = year_match
         cat_key = category_r.replace(cat_year, YEAR_PARAM)
 
         canonical_label = self.category_templates.get(cat_key)
@@ -80,7 +96,10 @@ class LabsYears:
         Returns:
             None
         """
-        ar_year = ar_year or en_year
+        ar_year = ar_year or self.match_ar_time(category_lab)
+
+        if en_year.isdigit() and not ar_year:
+            ar_year = en_year
 
         if not ar_year or ar_year not in category_lab:
             return
