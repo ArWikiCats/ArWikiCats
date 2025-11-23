@@ -10,6 +10,7 @@ from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 from ..utils import apply_pattern_replacement
 from ..utils.match_nats_keys import match_nat_key
 from ...translations_formats.format_data import FormatData
+from ..utils.match_sport_keys import match_sport_key
 
 format_labels_with_nat = {
     "natar national xoxo teams": "منتخبات xoxo وطنية natar",
@@ -71,7 +72,23 @@ def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
 
     return team_lab
 
+def compare_to_create_label(team: str) -> str:
+    """Resolve modern team labels using nationality and template data."""
+    sport_key = match_sport_key(team)
+
+    if not sport_key:
+        return ""
+
+    normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {team.strip()} ", flags=re.IGNORECASE).strip()
+    logger.info(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{normalized_team}"')
+
+    team_lab = Get_New_team_xo_with_nat(normalized_team, sport_key)
+
+    return team_lab
+
+
 
 __all__ = [
     "match_sports_labels_with_nat",
+    "compare_to_create_label",
 ]
