@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.te4_bots.langs_w import (
+from src.make2_bots.languages_bot.langs_w import (
     Lang_work,
     lab_from_lang_keys,
     languages_key,

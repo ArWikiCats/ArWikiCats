@@ -5,8 +5,8 @@ Language processing utilities for category translation.
 
 import functools
 
-from ....helps.log import logger
-from ....translations import (
+from ...helps.log import logger
+from ...translations import (
     All_Nat,
     Films_key_333,
     Films_key_CAO,
