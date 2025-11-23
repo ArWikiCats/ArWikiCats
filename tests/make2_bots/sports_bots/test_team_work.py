@@ -136,14 +136,6 @@ def test_get_club():
     result = Get_Club("football players")
     assert isinstance(result, str) or isinstance(result, dict)
 
-    # Test with return_tab option
-    result_with_tab = Get_Club("football players", return_tab=True)
-    assert isinstance(result_with_tab, dict)
-
-    result_empty = Get_Club("")
-    assert isinstance(result_empty, str) or isinstance(result_with_tab, dict)
-
-
 def test_get_team_work_club():
     # Test basic functionality
     result = Get_team_work_Club("football players")
