@@ -113,9 +113,8 @@ def test_sample_jobs_discuss_throw():
 
 
 def test_sample_films_key_for_nat():
-    # "action films": "أفلام حركة {}",
-    result = Lang_work("abkhazian-language action films")
-    assert result == "أفلام حركة باللغة الأبخازية"
+    result = Lang_work("arabic-language 3d anime films")
+    assert result == "أفلام ثلاثية الأبعاد أنمي باللغة العربية"
 
 
 def test_sample_films_drama():

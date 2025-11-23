@@ -17,6 +17,8 @@ from ...translations import (
     lang_key_m,
     languages_key,
 )
+
+
 def _try_romanization(con_3: str) -> str:
     """Try to match romanization pattern and return formatted label.
 
@@ -50,6 +52,9 @@ def _try_films_pattern(con_3: str, lang: str, l_lab: str) -> str:
 
     Returns:
         Formatted films label or empty string
+
+
+    arabic-language films -> "أفلام باللغة العربية"
     """
     lang_without_suffix = lang.replace("-language", "")
     films_pattern = f"{lang_without_suffix} films"
@@ -68,6 +73,8 @@ def _try_films_suffix(suffix: str, language_lab: str) -> str:
 
     Returns:
         Formatted label or empty string
+
+    arabic-language 3d anime films -> "أفلام ثلاثية الأبعاد أنمي باللغة العربية"
     """
     if not suffix.endswith(" films"):
         return ""
@@ -134,7 +141,7 @@ def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang_prefix: str) -> s
         return ""
 
     suffix = con_3[len(lang_prefix) :]
-
+    print(f"{suffix=} -> {con_3=}")
     # Try jobs_mens_data lookup
     label = jobs_mens_data.get(suffix, "")
     if label:
