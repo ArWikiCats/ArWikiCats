@@ -79,3 +79,13 @@ def create_label(category):
 
     print(f"{label=}")
     return label
+
+
+__all__ = [
+    "normalize_nat_label",
+    "normalize_sport_label",
+    "normalize_both",
+    "get_template_label_new",
+    "create_nat_label",
+    "create_label",
+]
