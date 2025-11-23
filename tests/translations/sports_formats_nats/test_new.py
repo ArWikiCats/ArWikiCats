@@ -9,6 +9,14 @@ from src.translations.sports_formats_nats.new import (
     normalize_nat_label,
 )
 
+from src.translations.sports_formats_nats.sport_lab_with_nat import (
+    Get_New_team_xo_with_nat,
+    apply_pattern_replacement,
+    get_template_label,
+    format_labels_with_nat,
+    match_sports_labels_with_nat,
+)
+
 
 @pytest.mark.fast
 def test_normalize_both() -> None:
@@ -24,8 +32,10 @@ def test_normalize_nat_label() -> None:
 
 @pytest.mark.fast
 def test_get_template_label_new() -> None:
-    template_label = get_template_label_new("Yemeni", "Yemeni xoxo championships")
-    assert template_label == "بطولة natar xoxo"
+    template_label1 = get_template_label_new("Yemeni", "Yemeni xoxo championships")
+    template_label2 = get_template_label("Yemeni", "natar", "Yemeni xoxo championships", format_labels_with_nat)
+    assert template_label1 == "بطولة natar xoxo"
+    assert template_label1 == template_label2
 
 
 @pytest.mark.fast
