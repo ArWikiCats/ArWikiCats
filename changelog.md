@@ -1,4 +1,15 @@
 
+## [#104](https://github.com/MrIbrahem/make2_new/pull/104) - 2025-11-23
+
+* **Refactor**
+  * Reorganized language and film-category label resolution for clearer, layered behavior.
+* **Behavioral Improvements**
+  * Improved year/time extraction and Arabic-year fallback so categories show more accurate year labels.
+* **Breaking Change / API**
+  * Year-handling call now supplies separate English and Arabic year values — callers and integrations may need minor updates.
+* **Tests**
+  * Updated tests to align with the revised year handling and resolver behavior.
+
 ## [#102](https://github.com/MrIbrahem/make2_new/pull/102) - 2025-11-23
 
 * **New Features**
