@@ -17,26 +17,6 @@ from ....translations import (
     lang_key_m,
     languages_key,
 )
-
-_Films_key_For_nat = {
-    "action drama films": "أفلام حركة درامية {}",
-    "supernatural films": "أفلام خارقة للطبيعة {}",
-    "action films": "أفلام حركة {}",
-    "adventure drama films": "أفلام مغامرات درامية {}",
-    "adventure films": "أفلام مغامرات {}",
-    "speculative fiction films": "أفلام خيال تأملي {}",
-    "speculative films": "أفلام تأملية {}",
-    "sports drama films": "أفلام دراما رياضية {}",
-    "sports films": "أفلام رياضية {}",
-    "spy films": "أفلام تجسس {}",
-    "teen films": "أفلام مراهقة {}",
-    "television episodes": "حلقات تلفزيونية {}",
-    "television seasons": "مواسم تلفزيونية {}",
-    "television series": "مسلسلات تلفزيونية {}",
-    "film series": "سلاسل أفلام {}",
-}
-
-
 def _try_romanization(con_3: str) -> str:
     """Try to match romanization pattern and return formatted label.
 
@@ -46,7 +26,9 @@ def _try_romanization(con_3: str) -> str:
     Returns:
         Formatted romanization label or empty string
     """
-    romanization_patterns = {"romanization of": "رومنة {}"}
+    romanization_patterns = {
+        "romanization of": "رومنة {}"
+    }
 
     for prefix, template in romanization_patterns.items():
         if con_3.startswith(prefix):
@@ -147,7 +129,10 @@ def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang_prefix: str) -> s
         logger.debug(f'<<lightred>> skip lang:"{lang}" in All_Nat, l_lab:"{l_lab}", nat_label:"{nat_label}" ')
         return ""
 
-    language_lab = languages_key[lang]
+    language_lab = languages_key.get(lang)
+    if not language_lab:
+        return ""
+
     suffix = con_3[len(lang_prefix) :]
 
     # Try jobs_mens_data lookup
