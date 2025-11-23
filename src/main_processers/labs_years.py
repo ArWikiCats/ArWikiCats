@@ -30,7 +30,7 @@ class LabsYears:
     def __init__(self) -> None:
         """Prepare reusable lookup tables for year-based category labels."""
         self.lookup_count = 0
-        self.category_templates = YEAR_DATA
+        self.category_templates = dict(YEAR_DATA)
         self.category_templates.update(
             {
                 f"Category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
