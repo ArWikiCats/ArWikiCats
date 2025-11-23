@@ -11,7 +11,7 @@ data = {
 
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
-def test_create_label(key, expected) -> None:
+def test_Get_sport_formts_female_nat(key, expected) -> None:
     template_label = Get_sport_formts_female_nat(key)
     assert template_label != ""
     assert template_label == expected
