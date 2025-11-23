@@ -22,20 +22,44 @@ import re
 
 from ..helps.log import logger
 from .categories_patterns.YEAR import YEAR_DATA, YEAR_PARAM_NAME
-
+from ..new.time_to_arabic import match_time_ar_first, match_time_en_first, convert_time_to_arabic
 YEAR_PARAM = "{year1}"
 
 
-class LabsYears:
+class MatchTimes:
+    def __init__(self) -> None:
+        pass
+
+    def match_en_time(self, text: str) -> str:
+        """Match English time in text."""
+        # year_match = re.search(r"\d{4}", text)
+        # if year_match: return year_match.group()
+        result = match_time_en_first(text)
+        logger.debug(f"match_en_time: {result=}")
+        return result
+
+    def match_ar_time(self, text: str) -> str:
+        """Match Arabic time in text."""
+        result = match_time_ar_first(text)
+        logger.debug(f"match_ar_time: {result=}")
+        return result
+
+    def fixing(self, text: str) -> str:
+        """Fix text."""
+        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن)", r"\g<1> \g<2>", text)
+        return text
+
+
+class LabsYears(MatchTimes):
     def __init__(self) -> None:
         """Prepare reusable lookup tables for year-based category labels."""
         self.lookup_count = 0
         self.category_templates = dict(YEAR_DATA)
         self.category_templates.update(
             {
-                f"Category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
-                f"Category:films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
-                f"Category:{YEAR_PARAM} films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
+                f"category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
+                f"category:films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
+                f"category:{YEAR_PARAM} films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
             }
         )
 
@@ -52,18 +76,25 @@ class LabsYears:
         from_year = ""
         cat_year = ""
         category_r = category_r.lower()
-        year_match = re.search(r"\d{4}", category_r)
+        year_match = self.match_en_time(category_r)
 
         if not year_match:
             return cat_year, from_year
 
-        cat_year = year_match.group()
+        cat_year = year_match
         cat_key = category_r.replace(cat_year, YEAR_PARAM)
+
+        cat_year_ar = ""
+        if cat_year.isdigit():
+            cat_year_ar = cat_year
+        else:
+            cat_year_ar = convert_time_to_arabic(cat_year)
 
         canonical_label = self.category_templates.get(cat_key)
 
-        if canonical_label and YEAR_PARAM in canonical_label:
-            from_year = canonical_label.format_map({YEAR_PARAM_NAME: cat_year})
+        if canonical_label and YEAR_PARAM in canonical_label and cat_year_ar:
+            from_year = canonical_label.format_map({YEAR_PARAM_NAME: cat_year_ar})
+            from_year = self.fixing(from_year)
             self.lookup_count += 1
             logger.info(f"<<green>> lab_from_year: {self.lookup_count}")
             logger.info(f"\t<<green>> {category_r=} , {from_year=}")
@@ -80,7 +111,11 @@ class LabsYears:
         Returns:
             None
         """
-        ar_year = ar_year or en_year
+        if not ar_year:
+            ar_year = self.match_ar_time(category_lab)
+
+        if en_year.isdigit() and not ar_year:
+            ar_year = en_year
 
         if not ar_year or ar_year not in category_lab:
             return

@@ -72,7 +72,7 @@ def resolve_label(category: str) -> CategoryResult:
         category_lab = fixtitle.fixlab(category_lab, en=category)
 
     if not from_year and cat_year:
-        labs_years_bot.lab_from_year_add(category, category_lab, cat_year)
+        labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
 
     return CategoryResult(
         en=category,
