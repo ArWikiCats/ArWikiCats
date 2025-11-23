@@ -6,7 +6,6 @@ import pytest
 from src.translations.sports_formats_nats.sport_lab_with_nat import (
     Get_New_team_xo_with_nat,
     apply_pattern_replacement,
-    get_template_label,
     match_sports_labels_with_nat,
 )
 
@@ -33,12 +32,6 @@ def test_3() -> None:
 
     template_label2 = match_sports_labels_with_nat("national xoxo teams of yemen", "softball")
     assert template_label2 == ""
-
-
-def test_get_template_label() -> None:
-    template_label = get_template_label("Yemeni", "natar", "Yemeni national teams", {"natar national teams": "تجربة"})
-    assert template_label == "تجربة"
-
 
 def test_apply_pattern_replacement() -> None:
     team_lab = apply_pattern_replacement("منتخب xoxo الوطني", "اليمن", "xoxo")

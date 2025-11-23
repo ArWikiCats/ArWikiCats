@@ -25,10 +25,6 @@ format_labels_with_nat = {
 nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
 
 
-def get_template_label(key: str, key_placeholder: str, normalized_team: str, data: dict) -> str:
-    return nat_bot.get_template(key, normalized_team)
-
-
 @dump_data(enable=1)
 def match_sports_labels_with_nat(normalized_team: str) -> str:
     """Match sports labels using the newer placeholder-based approach."""
@@ -42,7 +38,7 @@ def match_sports_labels_with_nat(normalized_team: str) -> str:
     logger.debug(f"{nationality_key=}")
     logger.debug(f'nationality_key:"{str(nationality_key)}"')
 
-    template_label = get_template_label(nationality_key, "natar", normalized_team, format_labels_with_nat)
+    template_label = nat_bot.get_template(nationality_key, normalized_team)
 
     nationality_label = en_nats_to_ar_label.get(nationality_key.lower(), "")
     logger.debug(f'nat_lab:"{nationality_label}"')
@@ -72,6 +68,7 @@ def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
 
     return team_lab
 
+
 def compare_to_create_label(team: str) -> str:
     """Resolve modern team labels using nationality and template data."""
     sport_key = match_sport_key(team)
@@ -85,7 +82,6 @@ def compare_to_create_label(team: str) -> str:
     team_lab = Get_New_team_xo_with_nat(normalized_team, sport_key)
 
     return team_lab
-
 
 
 __all__ = [
