@@ -21,6 +21,7 @@ nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholde
 sport_bot = FormatData({}, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_placeholder="xoxo")
 
 
+# @dump_data(enable=True)
 def normalize_nat_label(category):
     """Normalize nationality placeholders within a category string."""
     key = nat_bot.match_key(category)
@@ -39,7 +40,7 @@ def normalize_sport_label(category):
     return result
 
 
-@dump_data(enable=True)
+# @dump_data(enable=True)
 def normalize_both(category):
     """
     Normalize both nationality and sport tokens in the category.
@@ -62,7 +63,7 @@ def create_nat_label(category):
     return nat_bot.search(category)
 
 
-@dump_data(enable=True)
+# @dump_data(enable=True)
 def create_label(category):
     """
     Create a localized label by combining nationality and sport templates.

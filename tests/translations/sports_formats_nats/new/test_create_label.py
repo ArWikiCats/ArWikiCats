@@ -3,6 +3,7 @@ import pytest
 # from src.translations.sports_formats_nats.new import create_label
 from src.translations.sports_formats_nats.new import (
     create_label,
+    create_nat_label,
 )
 
 data = {
@@ -18,5 +19,18 @@ data = {
 @pytest.mark.fast
 def test_create_label(key, expected) -> None:
     template_label = create_label(key)
+    assert template_label != ""
+    assert template_label == expected
+
+
+data2 = {
+    "Yemeni xoxo championships": "بطولة اليمن xoxo",
+}
+
+
+@pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
+@pytest.mark.fast
+def test_create_nat_label(key, expected) -> None:
+    template_label = create_nat_label(key)
     assert template_label != ""
     assert template_label == expected

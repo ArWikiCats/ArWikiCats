@@ -1,6 +1,8 @@
 import pytest
 
 from src.translations.sports_formats_nats.new import (
+    normalize_nat_label,
+    normalize_sport_label,
     normalize_both,
 )
 
@@ -69,5 +71,37 @@ data = {
 @pytest.mark.fast
 def test_normalize_both(key, expected) -> None:
     template_label = normalize_both(key)
+    assert template_label != ""
+    assert template_label == expected
+
+
+data2 = {
+    "Yemeni national football teams": "natar national football teams",
+    "1970 european women's handball championship": "1970 natar women's handball championship",
+    "1970 south american women's football championship": "1970 natar women's football championship",
+    "american basketball players by ethnic or national origin": "natar basketball players by ethnic or national origin",
+}
+
+
+@pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
+@pytest.mark.fast
+def test_normalize_nat_label(key, expected) -> None:
+    template_label = normalize_nat_label(key)
+    assert template_label != ""
+    assert template_label == expected
+
+
+data3 = {
+    "Yemeni national football teams": "Yemeni national xoxo teams",
+    "1970 european women's handball championship": "1970 european women's xoxo championship",
+    "1970 south american women's football championship": "1970 south american women's xoxo championship",
+    "american basketball players by ethnic or national origin": "american xoxo players by ethnic or national origin",
+}
+
+
+@pytest.mark.parametrize("key,expected", data3.items(), ids=data3.keys())
+@pytest.mark.fast
+def test_normalize_sport_label(key, expected) -> None:
+    template_label = normalize_sport_label(key)
     assert template_label != ""
     assert template_label == expected
