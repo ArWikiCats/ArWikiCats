@@ -283,7 +283,7 @@ for language_key, arabic_name in COMPLEX_LANGUAGE_TRANSLATIONS.items():
 """
 # ---
 LANGUAGE_TOPIC_FORMATS = {
-    "grammar": "قواعد اللغة ال{}",
+    "grammar": "قواعد {}",
     "romanization": "رومنة {}",
     "writing system": "نظام كتابة {}",
     "dialects": "لهجات {}",
