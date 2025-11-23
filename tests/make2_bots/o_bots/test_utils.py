@@ -12,6 +12,7 @@ from src.make2_bots.o_bots import utils
 @pytest.mark.parametrize(
     "name,suffixes,expected",
     [
+        ("football governing bodies", {"bodies": "هيئات {}", "governing bodies": "هيئات تنظيم {}"}, ("football", "هيئات تنظيم {}")),
         ("Alpha beta", {"beta": "template"}, ("Alpha", "template")),
         ("Alpha beta", {" beta": "template"}, ("Alpha", "template")),
         ("Gamma", {"beta": "template"}, None),
