@@ -42,6 +42,9 @@ RELATIONS_MALE: Mapping[str, str] = {
     " football rivalry": "التنافس {} في كرة القدم",
 }
 
+RELATIONS_END_KEYS = list(P17_PREFIXES.keys()) + list(RELATIONS_FEMALE.keys()) + list(RELATIONS_MALE.keys())
+# ".*?–.*? (joint economic efforts|conflict video games|conflict legal issues|proxy conflict|military relations|border crossings|border towns|football rivalry|conflict|relations|relations|border|clashes|wars|war|conflict)"
+
 
 def _split_pair(expression: str) -> Tuple[str, str]:
     """Split ``expression`` into two country identifiers."""
@@ -168,4 +171,7 @@ def work_relations(value: str) -> str:
     return resolved
 
 
-__all__ = ["work_relations"]
+__all__ = [
+    "RELATIONS_END_KEYS",
+    "work_relations",
+]
