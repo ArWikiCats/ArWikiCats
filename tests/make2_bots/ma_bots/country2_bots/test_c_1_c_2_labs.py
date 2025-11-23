@@ -383,7 +383,6 @@ fast_data_c_2_1_lab = {
     "budapest by line": "بودابست حسب الخط",
     "buenos aires province": "مقاطعة بوينس آيرس",
     "business and economics": "أعمال والاقتصاد",
-    "oil and gas": "زيت الوقود وغاز",
     "oliveira de azeméis": "أوليفيرا دي ازميس",
     "orange free state": "دولة البرتقال الحرة",
     "osama bin laden": "أسامة بن لادن",
