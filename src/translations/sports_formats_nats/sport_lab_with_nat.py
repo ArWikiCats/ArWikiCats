@@ -42,8 +42,7 @@ def get_template_label(key: str, key_placeholder: str, normalized_team: str, dat
     return template_label
 
 
-@dump_data(enable=True)
-def match_sports_labels_with_nat(normalized_team: str) -> str:
+def match_sports_labels_with_nat_old(normalized_team: str) -> str:
     """
     Match sports labels that include nationality terms and replace them.
     TODO: replaced by match_sports_labels_with_nat_new
@@ -77,7 +76,8 @@ def match_sports_labels_with_nat(normalized_team: str) -> str:
     return template_label
 
 
-def match_sports_labels_with_nat_new(normalized_team: str) -> str:
+@dump_data(enable=1)
+def match_sports_labels_with_nat(normalized_team: str) -> str:
     """Match sports labels using the newer placeholder-based approach."""
     template_label = ""
 
@@ -105,6 +105,7 @@ def match_sports_labels_with_nat_new(normalized_team: str) -> str:
     return template_label
 
 
+@dump_data(enable=1)
 def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
     """Construct a team label that merges sport and nationality templates."""
     team_lab = ""
@@ -120,7 +121,7 @@ def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
 
 __all__ = [
     "get_template_label",
+    "match_sports_labels_with_nat_old",
     "match_sports_labels_with_nat",
-    "match_sports_labels_with_nat_new",
     "Get_New_team_xo_with_nat",
 ]

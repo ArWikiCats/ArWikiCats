@@ -8,7 +8,7 @@ from src.translations.sports_formats_nats.sport_lab_with_nat import (
     apply_pattern_replacement,
     get_template_label,
     match_sports_labels_with_nat,
-    match_sports_labels_with_nat_new,
+    match_sports_labels_with_nat_old,
 )
 
 
@@ -20,10 +20,10 @@ def test_1() -> None:
 
 @pytest.mark.skip2
 def test_2() -> None:
-    template_label1 = match_sports_labels_with_nat_new("Yemeni national xoxo teams", "softball")
+    template_label1 = match_sports_labels_with_nat_old("Yemeni national xoxo teams", "softball")
     assert template_label1 == "منتخبات xoxo وطنية natar"
 
-    template_label2 = match_sports_labels_with_nat_new("national xoxo teams of yemen", "softball")
+    template_label2 = match_sports_labels_with_nat_old("national xoxo teams of yemen", "softball")
     assert template_label2 == ""
 
 
