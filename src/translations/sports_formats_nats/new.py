@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ """
 
+from ...helps.jsonl_dump import dump_data
 from ...translations_formats.format_data import FormatData
 from ..nats.Nationality import en_nats_to_ar_label
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
@@ -54,6 +55,7 @@ def create_nat_label(category):
     return nat_bot.search(category)
 
 
+@dump_data(enable=True)
 def create_label(category):
     """Create a localized label by combining nationality and sport templates."""
     # category = Yemeni football championships
