@@ -225,5 +225,4 @@ def Lang_work(con_3: str) -> str:
 
 __all__ = [
     "Lang_work",
-    "lab_from_lang_keys",
 ]
