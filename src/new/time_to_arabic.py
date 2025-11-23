@@ -80,6 +80,12 @@ def match_time_ar(ar_value: str) -> list[str]:
     return ar_matches
 
 
+def match_time_ar_first(ar_key: str) -> str:
+    """Return the first English time match or an empty string."""
+    ar_matches = match_time_ar(ar_key)
+    return ar_matches[0] if ar_matches else ""
+
+
 def match_time_en(en_key: str) -> list[str]:
     """Locate English year or century expressions within a string."""
     en_key = REG_SUB_CATEGORY.sub("", en_key)
@@ -176,6 +182,7 @@ __all__ = [
     "match_time_ar",
     "match_time_en",
     "match_time_en_first",
+    "match_time_ar_first",
     "convert_time_to_arabic",
     "match_en_return_ar",
 ]

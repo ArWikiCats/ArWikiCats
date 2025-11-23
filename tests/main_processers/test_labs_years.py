@@ -113,7 +113,7 @@ def test_lab_from_year_add_missing_real_year():
     assert bot.category_templates == {}
 
 
-def _test_with_decade():
+def test_with_decade():
     bot = LabsYears()
 
     # Add template for {year1}-base
@@ -128,8 +128,8 @@ def _test_with_decade():
     en_year = bot.match_en_time("Category:1990s works")
     assert en_year == "1990s"
 
-    year, label = bot.lab_from_year("Category:1990s works")
+    en_year2, label = bot.lab_from_year("Category:1990s works")
 
-    assert year == "1990"
+    assert en_year2 == "1990s"
     assert label == "تصنيف:أعمال عقد 1990"
     assert bot.lookup_count == 1

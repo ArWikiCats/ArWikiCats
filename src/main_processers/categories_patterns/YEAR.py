@@ -18,6 +18,7 @@ YEAR_DATA ={
     "category:{year1} works": "تصنيف:أعمال في {year1}",  # 945
     "category:{year1} events by continent": "تصنيف:أحداث {year1} حسب القارة",  # 967
     "category:{year1} events by country": "تصنيف:أحداث {year1} حسب البلد",  # 956
+    "category:{year1}s disestablishments": "تصنيف:انحلالات عقد {year1}",  # 699
     "category:{year1} disestablishments": "تصنيف:انحلالات سنة {year1}",  # 699
     "category:{year1} establishments by country": "تصنيف:تأسيسات سنة {year1} حسب البلد",  # 731
     "category:conflicts in {year1}": "تصنيف:نزاعات في {year1}",  # 817
