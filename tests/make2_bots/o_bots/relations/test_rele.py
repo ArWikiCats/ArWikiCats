@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from src.make2_bots.o_bots.rele import work_relations  # افتراض اسم الموديول
+from src.make2_bots.o_bots.rele import work_relations
 from src.make2_bots.o_bots.rele import (
     Nat_men,
     Nat_women,
@@ -10,7 +10,7 @@ from src.make2_bots.o_bots.rele import (
     all_country_with_nat_keys_is_en,
 )
 
-# بيانات اختبارية موسعة لدعم السيناريوهات المختلفة
+#
 TEST_ALL_COUNTRY_AR = {**all_country_ar, "canada": "كندا", "burma": "ميانمار", "nato": "الناتو", "pakistan": "باكستان", "india": "الهند", "germany": "ألمانيا", "poland": "بولندا"}
 
 TEST_NAT_MEN = {**Nat_men, "canadian": "كندي", "burmese": "بورمي", "german": "ألماني", "polish": "بولندي", "pakistani": "باكستاني", "indian": "هندي"}
@@ -19,8 +19,24 @@ TEST_NAT_WOMEN = {**Nat_women, "canadian": "كندية", "burmese": "بورمي�
 
 TEST_ALL_COUNTRY_WITH_NAT = {**all_country_with_nat_keys_is_en, "nato": {"ar": "الناتو"}, "pakistan": {"men": "باكستاني", "women": "باكستانية", "ar": "باكستان"}, "india": {"men": "هندي", "women": "هندية", "ar": "الهند"}}
 
+fast_data = {
+    "Georgia (country)–Luxembourg relations": "العلاقات الجورجية اللوكسمبورغية",
+    "France–Papua New Guinea relations": "العلاقات الغينية الفرنسية",
+    "Democratic Republic of the Congo–Libya relations": "العلاقات الكونغوية الديمقراطية الليبية",
+    "democratic-republic-of-the-congo–libya relations": "العلاقات الكونغوية الديمقراطية الليبية",
+    "Democratic Republic of the Congo–Netherlands relations": "العلاقات الكونغوية الديمقراطية الهولندية",
+    "Democratic Republic of the Congo–Norway relations": "العلاقات الكونغوية الديمقراطية النرويجية",
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_work_relations(category, expected) -> None:
+    label = work_relations(category)
+    assert label.strip() == expected
+
 # ======================
-# اختبارات العلاقات النسائية
+# Basic tests
 # ======================
 
 
