@@ -14,9 +14,12 @@ def dump_diff(data, file_name):
     diff_data_path.mkdir(exist_ok=True, parents=True)
     file_path = diff_data_path / f"{file_name}.json"
 
+    data_sorted = {x: v for x, v in data.items() if v}
+    data_sorted.update({y: z for y, z in data.items() if not z})
+
     try:
         with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
+            json.dump(data_sorted, f, ensure_ascii=False, indent=4)
     except Exception as e:
         print(f"Error writing diff data: {e}")
 

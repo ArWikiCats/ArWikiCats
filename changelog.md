@@ -1,4 +1,23 @@
 
+## [#102](https://github.com/MrIbrahem/make2_new/pull/102) - 2025-11-23
+
+* **New Features**
+  * Enhanced relation processing with improved handling of various dash formats and logging.
+  * Updated sports-related data processing and labeling system.
+
+* **Bug Fixes**
+  * Fixed duplicate Arabic article generation in text processing.
+  * Corrected redundant nationality mappings.
+  * Resolved data independence issues to prevent unintended mutations.
+
+* **Data Updates**
+  * Updated population and employment statistics.
+  * Added proper English and Arabic names for Brunei nationality.
+
+* **Tests**
+  * Expanded test coverage for geopolitical relations and sports data scenarios.
+
+
 ## [#101](https://github.com/MrIbrahem/make2_new/pull/101) - 2025-11-23
 
 * **New Features**

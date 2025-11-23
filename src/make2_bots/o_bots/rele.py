@@ -5,7 +5,6 @@ from __future__ import annotations
 import re
 from typing import Mapping, Tuple
 
-from ...helps import printe
 from ...helps.log import logger
 from ...translations import (
     Nat_men,
@@ -25,6 +24,7 @@ P17_PREFIXES: Mapping[str, str] = {
 
 RELATIONS_FEMALE: Mapping[str, str] = {
     " military relations": "العلاقات {} العسكرية",
+    " sports relations": "العلاقات {} الرياضية",
     " joint economic efforts": "الجهود الاقتصادية المشتركة {}",
     " relations": "العلاقات {}",
     " border crossings": "معابر الحدود {}",
@@ -42,14 +42,22 @@ RELATIONS_MALE: Mapping[str, str] = {
     " football rivalry": "التنافس {} في كرة القدم",
 }
 
+RELATIONS_END_KEYS = list(P17_PREFIXES.keys()) + list(RELATIONS_FEMALE.keys()) + list(RELATIONS_MALE.keys())
+# ".*?–.*? (joint economic efforts|conflict video games|conflict legal issues|proxy conflict|military relations|border crossings|border towns|football rivalry|conflict|relations|relations|border|clashes|wars|war|conflict)"
+
 
 def _split_pair(expression: str) -> Tuple[str, str]:
     """Split ``expression`` into two country identifiers."""
 
-    match = re.match(r"^(.*?)(?:–|-|−)(.*)$", expression)
-    if not match:
-        return "", ""
-    return match.group(1).strip(), match.group(2).strip()
+    match = re.match(r"^(.*?)(?:–|−)(.*?)$", expression)
+    if match:
+        return match.group(1).strip(), match.group(2).strip()
+
+    match2 = re.match(r"^(.*?)-(.*?)$", expression)
+    if match2:
+        return match2.group(1).strip(), match2.group(2).strip()
+
+    return "", ""
 
 
 def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str]) -> str:
@@ -95,6 +103,8 @@ def _resolve_relations(
             continue
 
         prefix = normalized_value[: -len(suffix)].strip()
+        logger.debug(f'\t\t>>>>{suffix=} -> {prefix=}')
+
         first_key, second_key = _split_pair(prefix)
         if not first_key or not second_key:
             continue
@@ -102,8 +112,11 @@ def _resolve_relations(
         first_label = _lookup_country_label(first_key, gender_key, nat_table)
         second_label = _lookup_country_label(second_key, gender_key, nat_table)
 
+        logger.debug(f'\t\t>>>>{first_key=} -> {first_label=}')
+        logger.debug(f'\t\t>>>>{second_key=} -> {second_label=}')
+
         if not first_label or not second_label:
-            printe.output(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')
+            logger.info(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')
             continue
 
         combined = _combine_labels((first_label, second_label), add_article, joiner=joiner)
@@ -168,4 +181,7 @@ def work_relations(value: str) -> str:
     return resolved
 
 
-__all__ = ["work_relations"]
+__all__ = [
+    "RELATIONS_END_KEYS",
+    "work_relations",
+]

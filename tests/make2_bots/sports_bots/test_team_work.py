@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.sports_bots.team_work import Get_Club, Get_team_work_Club
+from src.make2_bots.sports_bots.team_work import Get_team_work_Club
 
 fast_data = {
     "ad alcorcón seasons": "مواسم نادي ألكوركون",
@@ -129,19 +129,6 @@ fast_data = {
 def test_fast_data(category, expected) -> None:
     label = Get_team_work_Club(category)
     assert label.strip() == expected
-
-
-def test_get_club():
-    # Test with a basic category that might have a club
-    result = Get_Club("football players")
-    assert isinstance(result, str) or isinstance(result, dict)
-
-    # Test with return_tab option
-    result_with_tab = Get_Club("football players", return_tab=True)
-    assert isinstance(result_with_tab, dict)
-
-    result_empty = Get_Club("")
-    assert isinstance(result_empty, str) or isinstance(result_with_tab, dict)
 
 
 def test_get_team_work_club():

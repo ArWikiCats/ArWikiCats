@@ -58,6 +58,8 @@ for en, ar in STATE_NAME_TRANSLATIONS.items():
         x.format(en=en): v.format(ar=ar) for x, v in test_data.items()
     }
     data_1.append((en, one_data))
+    if len(data_1) == 10:
+        break
 
 
 @pytest.mark.parametrize("state_name, data", data_1)

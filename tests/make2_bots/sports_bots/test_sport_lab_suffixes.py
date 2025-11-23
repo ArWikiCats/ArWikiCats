@@ -220,6 +220,7 @@ data_slow = {
     "wrestling world cup": "كأس العالم للمصارعة",
     "women's international futsal": "كرة صالات دولية للسيدات",
     "national under-20 basketball teams": "منتخبات كرة سلة وطنية تحت 20 سنة",
+    "football governing bodies": "هيئات تنظيم كرة قدم",
 }
 
 

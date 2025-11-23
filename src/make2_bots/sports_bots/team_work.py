@@ -1,14 +1,6 @@
 #!/usr/bin/python3
 """
 Sports team and club category processing.
-
-This module handles translation of sports-related categories,
-particularly for teams, clubs, and sports organizations.
-
-Example usage:
-    from make.bots import team_work
-    team_work.Get_Club(cate, out=False)
-    team_work.Teams_new_end_keys
 """
 
 import functools
@@ -17,7 +9,7 @@ from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from ..jobs_bots import bot_te_4
-from ..lazy_data_bots.bot_2018 import Add_to_pop_All_18
+from ..o_bots.utils import resolve_suffix_template
 
 Teams_new_end_keys = {
     "fan clubs": "أندية معجبي {}",
@@ -37,8 +29,8 @@ Teams_new_end_keys = {
     "terminology": "مصطلحات {}",
     "occupations": "مهن {}",
     "variants": "أشكال {}",
-    "bodies": "هيئات {}",
     "governing bodies": "هيئات تنظيم {}",
+    "bodies": "هيئات {}",
     "video games": "ألعاب فيديو {}",
     "chairmen and investors": "رؤساء ومسيرو {}",
     "comics": "قصص مصورة {}",
@@ -82,26 +74,8 @@ Teams_new_end_keys = {
     "champions": "أبطال {}",
 }
 
-
-def _extract_club_key(category: str, suffix: str) -> str:
-    """Extract club key from category with given suffix.
-
-    Args:
-        category: Normalized category string
-        suffix: The suffix to check for
-
-    Returns:
-        Club key if found, empty string otherwise
-    """
-    team_suffix = f" team {suffix}"
-    if category.endswith(team_suffix):
-        return category[: -len(team_suffix)]
-
-    simple_suffix = f" {suffix}"
-    if category.endswith(simple_suffix):
-        return category[: -len(simple_suffix)]
-
-    return ""
+# sorted by len of " " in key
+Teams_new_end_keys = dict(sorted(Teams_new_end_keys.items(), key=lambda x: x[0].count(" "), reverse=True))
 
 
 def _resolve_club_label(club_key: str) -> str:
@@ -120,65 +94,32 @@ def _resolve_club_label(club_key: str) -> str:
 
     return club_lab
 
-
 # @dump_data()
+
+
 @functools.lru_cache(maxsize=None)
-def Get_Club(
-    category: str,
-    return_tab: bool = False,
-) -> str | dict[str, str | dict[str, str]]:
-    """Get club/team category label.
+def Get_team_work_Club(category: str) -> str:
+    """Return the Arabic label for ``category`` using known suffixes.
 
     Args:
-        category: The category string to process
-        return_tab: If True, return dict with metadata; if False, return label string
+        category: The category name to resolve.
 
     Returns:
-        Either a string label or a dict with 'lab' and 'add' keys
+        The resolved Arabic label or an empty string if the suffix is unknown.
     """
-    new_entries = {}
-    normalized_category = category.lower()
-    category_label = ""
-    result = {"lab": "", "add": {}}
 
-    for suffix, suffix_template in Teams_new_end_keys.items():
-        club_key = _extract_club_key(normalized_category, suffix)
+    normalized = category.strip()
+    logger.info(f'get_parties_lab category:"{category}"')
 
-        if not club_key:
-            continue
-
-        logger.debug(f'club_uu:"{club_key}", tat:"{suffix}" ')
-        club_lab = _resolve_club_label(club_key)
-
-        if club_lab:
-            category_label = suffix_template.format(club_lab)
-            break
+    category_label = resolve_suffix_template(normalized, Teams_new_end_keys, _resolve_club_label)
 
     if category_label:
-        logger.debug(f'Get_Club cate:"{normalized_category}", catelab:"{category_label}"')
+        logger.info(f'get_parties_lab category:"{category}", category_label:"{category_label}"')
 
-    result["lab"] = category_label
-    Add_to_pop_All_18(new_entries)
-
-    return result if return_tab else category_label
+    return category_label
 
 
-def Get_team_work_Club(category: str) -> str:
-    """Get team work club label (convenience wrapper).
-
-    Args:
-        category: The category string to process
-
-    Returns:
-        Club label string
-    """
-    label = ""
-
-    slab = Get_Club(category, return_tab=True)
-
-    if isinstance(slab, str):
-        return slab
-
-    label = slab.get("lab", "")
-
-    return label
+__all__ = [
+    "Teams_new_end_keys",
+    "Get_team_work_Club",
+]

@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from src.make2_bots.o_bots.rele import work_relations  # افتراض اسم الموديول
+from src.make2_bots.o_bots.rele import work_relations
 from src.make2_bots.o_bots.rele import (
     Nat_men,
     Nat_women,
@@ -10,7 +10,7 @@ from src.make2_bots.o_bots.rele import (
     all_country_with_nat_keys_is_en,
 )
 
-# بيانات اختبارية موسعة لدعم السيناريوهات المختلفة
+#
 TEST_ALL_COUNTRY_AR = {**all_country_ar, "canada": "كندا", "burma": "ميانمار", "nato": "الناتو", "pakistan": "باكستان", "india": "الهند", "germany": "ألمانيا", "poland": "بولندا"}
 
 TEST_NAT_MEN = {**Nat_men, "canadian": "كندي", "burmese": "بورمي", "german": "ألماني", "polish": "بولندي", "pakistani": "باكستاني", "indian": "هندي"}
@@ -19,8 +19,79 @@ TEST_NAT_WOMEN = {**Nat_women, "canadian": "كندية", "burmese": "بورمي�
 
 TEST_ALL_COUNTRY_WITH_NAT = {**all_country_with_nat_keys_is_en, "nato": {"ar": "الناتو"}, "pakistan": {"men": "باكستاني", "women": "باكستانية", "ar": "باكستان"}, "india": {"men": "هندي", "women": "هندية", "ar": "الهند"}}
 
+fast_data = {
+    "Georgia (country)–Luxembourg relations": "العلاقات الجورجية اللوكسمبورغية",
+    "France–Papua New Guinea relations": "العلاقات الغينية الفرنسية",
+    "Democratic Republic of the Congo–Norway relations": "العلاقات الكونغوية الديمقراطية النرويجية",
+    "Albania–Democratic Republic of the Congo relations": "العلاقات الألبانية الكونغوية الديمقراطية",
+    "Algeria–Democratic Republic of the Congo relations": "العلاقات الجزائرية الكونغوية الديمقراطية",
+    "Angola–Democratic Republic of the Congo border": "الحدود الأنغولية الكونغوية الديمقراطية",
+    "Angola–Democratic Republic of the Congo relations": "العلاقات الأنغولية الكونغوية الديمقراطية",
+    "Angola–Guinea-Bissau relations": "العلاقات الأنغولية الغينية البيساوية",
+    "Angola–Republic of the Congo border": "الحدود الأنغولية الكونغوية",
+    "Argentina–Democratic Republic of the Congo relations": "العلاقات الأرجنتينية الكونغوية الديمقراطية",
+    "Australia–Democratic Republic of the Congo relations": "العلاقات الأسترالية الكونغوية الديمقراطية",
+    "Austria–Democratic Republic of the Congo relations": "العلاقات الكونغوية الديمقراطية النمساوية",
+    "Azerbaijan–Democratic Republic of the Congo relations": "العلاقات الأذربيجانية الكونغوية الديمقراطية",
+    "Azerbaijan–Guinea-Bissau relations": "العلاقات الأذربيجانية الغينية البيساوية",
+    "Bahrain–Democratic Republic of the Congo relations": "العلاقات البحرينية الكونغوية الديمقراطية",
+    "Belgium–Guinea-Bissau relations": "العلاقات البلجيكية الغينية البيساوية",
+    "Brazil–Guinea-Bissau relations": "العلاقات البرازيلية الغينية البيساوية",
+    "Bulgaria–Democratic Republic of the Congo relations": "العلاقات البلغارية الكونغوية الديمقراطية",
+    "Bulgaria–Guinea-Bissau relations": "العلاقات البلغارية الغينية البيساوية",
+    "Burkina Faso–Democratic Republic of the Congo relations": "العلاقات البوركينابية الكونغوية الديمقراطية",
+    "Burundi–Democratic Republic of the Congo border": "الحدود البوروندية الكونغوية الديمقراطية",
+    "Burundi–Democratic Republic of the Congo relations": "العلاقات البوروندية الكونغوية الديمقراطية",
+    "Canada–Democratic Republic of the Congo relations": "العلاقات الكندية الكونغوية الديمقراطية",
+    "Cape Verde–Democratic Republic of the Congo relations": "العلاقات الرأس الأخضرية الكونغوية الديمقراطية",
+    "Cape Verde–Guinea-Bissau relations": "العلاقات الرأس الأخضرية الغينية البيساوية",
+    "Central African Republic–Democratic Republic of the Congo relations": "العلاقات الإفريقية الأوسطية الكونغوية الديمقراطية",
+    "Chad–Democratic Republic of the Congo relations": "العلاقات التشادية الكونغوية الديمقراطية",
+    "China–Democratic Republic of the Congo relations": "العلاقات الصينية الكونغوية الديمقراطية",
+    "China–Guinea-Bissau relations": "العلاقات الصينية الغينية البيساوية",
+    "Croatia–Democratic Republic of the Congo relations": "العلاقات الكرواتية الكونغوية الديمقراطية",
+    "Cyprus–Democratic Republic of the Congo relations": "العلاقات القبرصية الكونغوية الديمقراطية",
+    "Cyprus–Guinea-Bissau relations": "العلاقات الغينية البيساوية القبرصية",
+    "Czech Republic–Democratic Republic of the Congo relations": "العلاقات التشيكية الكونغوية الديمقراطية",
+    "Democratic Republic of the Congo–Republic of the Congo border": "الحدود الكونغوية الكونغوية الديمقراطية",
+    "Democratic Republic of the Congo–Republic of the Congo border crossings": "معابر الحدود الكونغوية الكونغوية الديمقراطية",
+    "Egypt–Guinea-Bissau relations": "العلاقات الغينية البيساوية المصرية",
+    "Ethiopia–Guinea-Bissau relations": "العلاقات الإثيوبية الغينية البيساوية",
+    "Finland–Guinea-Bissau relations": "العلاقات الغينية البيساوية الفنلندية",
+    "France–Guinea-Bissau relations": "العلاقات الغينية البيساوية الفرنسية",
+    "Gabon–Republic of the Congo relations": "العلاقات الغابونية الكونغوية",
+    "Georgia (country)–Guinea-Bissau relations": "العلاقات الجورجية الغينية البيساوية",
+    "Greece–Guinea-Bissau relations": "العلاقات الغينية البيساوية اليونانية",
+    "Iran–Republic of the Congo relations": "العلاقات الإيرانية الكونغوية",
+    "Malta–Republic of the Congo relations": "العلاقات الكونغوية المالطية",
+    "Netherlands–Republic of the Congo relations": "العلاقات الكونغوية الهولندية",
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_work_relations(category, expected) -> None:
+    label = work_relations(category)
+    assert label.strip() == expected
+
+
+fast_data2 = {
+    "democratic-republic-of-the-congo–libya relations": "العلاقات الكونغوية الديمقراطية الليبية",
+    "democratic-republic-of-the-congo–netherlands relations": "العلاقات الكونغوية الديمقراطية الهولندية",
+    "Democratic Republic of the Congo–Libya relations": "العلاقات الكونغوية الديمقراطية الليبية",
+    "Democratic Republic of the Congo–Netherlands relations": "العلاقات الكونغوية الديمقراطية الهولندية",
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
+@pytest.mark.fast
+def test_relations_congo(category, expected) -> None:
+    label = work_relations(category)
+    assert label.strip() == expected
+
+
 # ======================
-# اختبارات العلاقات النسائية
+# Basic tests
 # ======================
 
 

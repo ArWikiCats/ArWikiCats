@@ -92,7 +92,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
         "south ossetian": "ossetian",
         "republic-of-the-congo": "the republic of the congo",
         "republic of the congo": "the republic of the congo",
-        "democratic republic of the congo": "democratic republic of the congo",
         "democratic-republic-of-the-congo": "democratic republic of the congo",
         "dominican republic": "dominican republic",
         "caribbean": "caribbeans",
@@ -134,8 +133,13 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
 
     # Apply simple alias redirection
     for alias, target in alias_map.items():
+        if alias == target:
+            continue  # skip self-aliases
+
         if target in all_nat_o:
             all_nat_o[alias] = all_nat_o[target]
+        else:
+            print(f"Alias({alias}) target ({target}) not found in nationality data")
 
     # Special defined nationality
     all_nat_o["papua new guinean x "] = {

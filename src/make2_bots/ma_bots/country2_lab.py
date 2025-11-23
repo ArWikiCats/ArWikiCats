@@ -27,7 +27,6 @@ resolvers = {
     "sport_lab_suffixes.get_teams_new": sport_lab_suffixes.get_teams_new,
     "parties_bot.get_parties_lab": parties_bot.get_parties_lab,
     "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
-    "work_relations": work_relations,
     "univer.te_universities": univer.te_universities,
     "Work_US_State": Work_US_State,
     "work_peoples": work_peoples,
@@ -62,7 +61,10 @@ def get_lab_for_country2(country: str) -> str:
     """Retrieve laboratory information for a specified country."""
 
     country2 = country.lower().strip()
-    resolved_label = resolve_all(country2)
+    resolved_label = work_relations(country2)
+
+    if not resolved_label:
+        resolved_label = resolve_all(country2)
 
     if not resolved_label:
         resolved_label = centries_years_dec.get(country2, "")

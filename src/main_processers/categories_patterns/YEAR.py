@@ -83,7 +83,7 @@ YEAR_DATA ={
     "category:{year1} plays": "تصنيف:مسرحيات {year1}",  # 257
     "category:churches completed in {year1}": "تصنيف:كنائس اكتملت في {year1}",  # 247
     "category:mammals described in {year1}": "تصنيف:ثدييات وصفت في {year1}",  # 247
-    "category:{year1} murders by continent": "تصنيف:جرائم قتل حسب القارة {year1}",  # 157
+    "category:{year1} murders by continent": "تصنيف:جرائم قتل في {year1} حسب القارة",  # 157
     "category:mosques completed in {year1}": "تصنيف:مساجد اكتملت في {year1}",  # 243
     "category:murder in {year1}": "تصنيف:قتل في {year1}",  # 241
     "category:astronomical objects discovered in {year1}": "تصنيف:أجرام فلكية اكتشفت في {year1}",  # 242
