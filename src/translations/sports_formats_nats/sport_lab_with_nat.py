@@ -105,7 +105,7 @@ def match_sports_labels_with_nat(normalized_team: str) -> str:
     return template_label
 
 
-@dump_data(enable=1)
+@dump_data(enable=True)
 def Get_New_team_xo_with_nat(normalized_team: str, sport_key: str) -> str:
     """Construct a team label that merges sport and nationality templates."""
     team_lab = ""
