@@ -196,8 +196,7 @@ class LanguageLabelResolver:
             return ""
 
         # 2) Ensure language label exists
-        language_label = self._languages.get(lang_key)
-        if not language_label:
+        if not lang_label:
             return ""
 
         suffix = con_3[len(lang_prefix) :]
@@ -209,7 +208,7 @@ class LanguageLabelResolver:
         # 3) jobs_mens_data lookup
         job_label = self._jobs_mens.get(suffix, "")
         if job_label:
-            result = f"{job_label} ب{language_label}"
+            result = f"{job_label} ب{lang_label}"
             logger.debug(
                 f'<<lightblue>> jobs_mens_data({suffix}): result:"{result}"'
             )
@@ -218,22 +217,21 @@ class LanguageLabelResolver:
         # 4) lang_key_m lookup with formatting
         template = self._lang_key_m.get(suffix, "")
         if template:
-            result = template.format(language_label)
+            result = template.format(lang_label)
             logger.debug(
                 f'<<lightblue>> lang_key_m({suffix}), template:"{template}", '
                 f'result:"{result}"'
             )
             return result
 
-        logger.debug(f"no match for suffix: ({suffix}), language_label={language_label}")
+        logger.debug(f"no match for suffix: ({suffix}), language_label={lang_label}")
 
         # 5) Delegate film-related suffix resolution to FilmCategoryLabelResolver
-        film_result = self._film_resolver.resolve_with_suffix(suffix, language_label)
+        film_result = self._film_resolver.resolve_with_suffix(suffix, lang_label)
         if film_result:
             return film_result
 
         return ""
-
     # ---------- Public API ----------
 
     def resolve(self, con_3: str) -> str:
