@@ -4,6 +4,7 @@
 import re
 
 from ...helps.log import logger
+from ...helps.jsonl_dump import dump_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS, SPORTS_KEYS_FOR_TEAM
 from ..sports_formats_nats.new import create_label
 from ..sports_formats_nats.sport_lab_with_nat import Get_New_team_xo_with_nat
@@ -46,6 +47,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p1
     return con_3_label
 
 
+@dump_data()
 def Get_New_team_xo(team: str) -> str:
     """Resolve modern team labels using nationality and template data."""
     # إيجاد تسميات نصوص رياضية مثل
@@ -70,6 +72,7 @@ def Get_New_team_xo(team: str) -> str:
     return team_lab
 
 
+@dump_data()
 def Get_New_team_xo_2026(team: str) -> str:
     """Resolve team labels with 2026-format templates and fallbacks."""
     team_lab = wrap_team_xo_normal_2025(team)

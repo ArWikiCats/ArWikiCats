@@ -3,6 +3,7 @@
 
 import re
 
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations_formats.format_data import FormatData
 from ..nats.Nationality import en_nats_to_ar_label
@@ -41,8 +42,12 @@ def get_template_label(key: str, key_placeholder: str, normalized_team: str, dat
     return template_label
 
 
+@dump_data()
 def match_sports_labels_with_nat(normalized_team: str) -> str:
-    """Match sports labels that include nationality terms and replace them."""
+    """
+    Match sports labels that include nationality terms and replace them.
+    TODO: replaced by match_sports_labels_with_nat_new
+    """
     template_label = ""
 
     nationality_key = match_nat_key(normalized_team.strip())
