@@ -4,6 +4,7 @@
 # import re
 # ---
 from .mixed.all_keys3 import ALBUMS_TYPE
+from ..helps import len_print
 
 language_key_translations = {}
 # "spanish" : "إسبانية",
@@ -282,7 +283,7 @@ for language_key, arabic_name in COMPLEX_LANGUAGE_TRANSLATIONS.items():
 """
 # ---
 LANGUAGE_TOPIC_FORMATS = {
-    "grammar": "قواعد اللغة ال{}",
+    "grammar": "قواعد {}",
     "romanization": "رومنة {}",
     "writing system": "نظام كتابة {}",
     "dialects": "لهجات {}",
@@ -377,8 +378,6 @@ LANGUAGE_RESOURCE_FORMATS = {
     "prose texts": "نصوص نثرية %s",
 }
 # ---
-
-
 languages_key = language_key_translations
 languages_pop = PRIMARY_LANGUAGE_TRANSLATIONS
 languages_pop2 = SUPPLEMENTARY_LANGUAGE_TRANSLATIONS
@@ -387,3 +386,14 @@ lang_type = LANGUAGE_SUFFIX_FORMATS
 lang_key_m = LANGUAGE_TOPIC_FORMATS
 lang_ttty = LANGUAGE_RESOURCE_FORMATS
 cccccc_m = MEDIA_CATEGORY_TRANSLATIONS
+
+len_print.data_len("languages.py", {
+    "languages_key": languages_key,
+    "languages_pop": languages_pop,
+    "languages_pop2": languages_pop2,
+    "languages_pop3": languages_pop3,
+    "lang_type": lang_type,
+    "lang_key_m": lang_key_m,
+    "lang_ttty": lang_ttty,
+    "cccccc_m": cccccc_m,
+})

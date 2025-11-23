@@ -24,7 +24,7 @@ from .mixed.all_keys3 import (
     typeTable_7,
 )
 from .mixed.all_keys4 import INTER_FEDS_LOWER
-from .mixed.all_keys5 import Clubs_key_2
+from .mixed.all_keys5 import Clubs_key_2, pop_final_5
 from .mixed.bot_te_4_list import (
     Main_priffix,
     Main_priffix_to,
@@ -156,6 +156,7 @@ __all__ = [
     #
     "INTER_FEDS_LOWER",
     #
+    "pop_final_5",
     "Clubs_key_2",
     #
     "By_table",

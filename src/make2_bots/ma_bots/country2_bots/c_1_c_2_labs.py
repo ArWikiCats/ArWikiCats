@@ -43,7 +43,8 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool = False) -> str:
 
     cone_1 = cone_1.strip().lower()
 
-    c_1_l = get_pop_All_18(cone_1, "")
+    c_1_l = get_pop_All_18(cone_1) or ""
+    logger.debug(f"{cone_1=} -> {c_1_l=}")
 
     if not c_1_l:
         c_1_l = check_sources(cone_1)
@@ -99,7 +100,9 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
 
     cone_2 = cone_2.strip().lower()
 
-    c_2_l = get_pop_All_18(cone_2, "")
+    c_2_l = get_pop_All_18(cone_2) or ""
+    logger.debug(f"{cone_2=} -> {c_2_l=}")
+
     if c_2_l == "" and " by " in cone_2:
         c_2_l = bys.get_by_label(cone_2)
 

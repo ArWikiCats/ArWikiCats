@@ -5,8 +5,8 @@ Language processing utilities for category translation.
 
 import functools
 
-from ....helps.log import logger
-from ....translations import (
+from ...helps.log import logger
+from ...translations import (
     All_Nat,
     Films_key_333,
     Films_key_CAO,
@@ -28,7 +28,9 @@ def _try_romanization(con_3: str) -> str:
     Returns:
         Formatted romanization label or empty string
     """
-    romanization_patterns = {"romanization of": "رومنة {}"}
+    romanization_patterns = {
+        "romanization of": "رومنة {}"
+    }
 
     for prefix, template in romanization_patterns.items():
         if con_3.startswith(prefix):
@@ -50,6 +52,9 @@ def _try_films_pattern(con_3: str, lang: str, l_lab: str) -> str:
 
     Returns:
         Formatted films label or empty string
+
+
+    arabic-language films -> "أفلام باللغة العربية"
     """
     lang_without_suffix = lang.replace("-language", "")
     films_pattern = f"{lang_without_suffix} films"
@@ -68,6 +73,8 @@ def _try_films_suffix(suffix: str, language_lab: str) -> str:
 
     Returns:
         Formatted label or empty string
+
+    arabic-language 3d anime films -> "أفلام ثلاثية الأبعاد أنمي باللغة العربية"
     """
     if not suffix.endswith(" films"):
         return ""
@@ -104,6 +111,69 @@ def _lookup_in_dictionaries(suffix: str, language_lab: str) -> str:
             result = f"{label} ب{language_lab}"
             logger.debug(f'<<lightblue>> _lookup_in_dictionaries {dict_name}. result:"{result}"')
             return result
+    return ""
+
+
+def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang_prefix: str) -> str:
+    """Extract and format label based on language prefix match.
+
+    This function processes a category string that starts with a language prefix
+    and attempts to find the appropriate Arabic translation by looking up the
+    suffix in various dictionaries.
+
+    Args:
+        con_3: The full category string
+        lang: The language key
+        l_lab: The language label (unused, kept for compatibility)
+        lang_prefix: The language prefix with trailing space
+
+    Returns:
+        Formatted Arabic label or empty string if no match found
+    """
+    # Skip if language is in nationality dictionary
+    if All_Nat.get(lang, False):
+        nat_label = All_Nat[lang]["mens"]
+        logger.debug(f'<<lightred>> skip lang:"{lang}" in All_Nat, l_lab:"{l_lab}", nat_label:"{nat_label}" ')
+        return ""
+
+    language_lab = languages_key.get(lang)
+    if not language_lab:
+        return ""
+
+    suffix = con_3[len(lang_prefix) :]
+    print(f"{suffix=} -> {con_3=}")
+    # Try jobs_mens_data lookup
+    label = jobs_mens_data.get(suffix, "")
+    if label:
+        result = f"{label} ب{language_lab}"
+        logger.debug(f'<<lightblue>> jobs_mens_data({suffix}): result:"{result}"')
+        return result
+
+    # Try lang_key_m lookup with formatting
+    template = lang_key_m.get(suffix, "")
+    if template:
+        result = template.format(language_lab)
+        logger.debug(f'<<lightblue>> lang_key_m({suffix}), template:"{template}"')
+        return result
+
+    # Try Films_key_For_nat lookup
+    logger.debug(f"no match for :({suffix}), {language_lab=}")
+    template = Films_key_For_nat.get(suffix)
+    if template:
+        result = template.format(f"ب{language_lab}")
+        logger.debug(f'<<lightblue>> Films_key_For_nat. result:"{result}"')
+        return result
+
+    # Try films suffix pattern
+    result = _try_films_suffix(suffix, language_lab)
+    if result:
+        return result
+
+    # Try multiple film dictionaries
+    result = _lookup_in_dictionaries(suffix, language_lab)
+    if result:
+        return result
+
     return ""
 
 
@@ -153,61 +223,7 @@ def Lang_work(con_3: str) -> str:
     return ""
 
 
-def lab_from_lang_keys(con_3: str, lang: str, l_lab: str, lang_prefix: str) -> str:
-    """Extract and format label based on language prefix match.
-
-    This function processes a category string that starts with a language prefix
-    and attempts to find the appropriate Arabic translation by looking up the
-    suffix in various dictionaries.
-
-    Args:
-        con_3: The full category string
-        lang: The language key
-        l_lab: The language label (unused, kept for compatibility)
-        lang_prefix: The language prefix with trailing space
-
-    Returns:
-        Formatted Arabic label or empty string if no match found
-    """
-    # Skip if language is in nationality dictionary
-    if All_Nat.get(lang, False):
-        nat_label = All_Nat[lang]["mens"]
-        logger.debug(f'<<lightred>> skip lang:"{lang}" in All_Nat, l_lab:"{l_lab}", nat_label:"{nat_label}" ')
-        return ""
-
-    language_lab = languages_key[lang]
-    suffix = con_3[len(lang_prefix) :]
-
-    # Try jobs_mens_data lookup
-    label = jobs_mens_data.get(suffix, "")
-    if label:
-        result = f"{label} ب{language_lab}"
-        logger.debug(f'<<lightblue>> jobs_mens_data({suffix}): result:"{result}"')
-        return result
-
-    # Try lang_key_m lookup with formatting
-    template = lang_key_m.get(suffix, "")
-    if template:
-        result = template.format(language_lab)
-        logger.debug(f'<<lightblue>> lang_key_m({suffix}), template:"{template}"')
-        return result
-
-    # Try Films_key_For_nat lookup
-    logger.debug(f"no match for :({suffix}), {language_lab=}")
-    template = Films_key_For_nat.get(suffix)
-    if template:
-        result = template.format(f"ب{language_lab}")
-        logger.debug(f'<<lightblue>> Films_key_For_nat. result:"{result}"')
-        return result
-
-    # Try films suffix pattern
-    result = _try_films_suffix(suffix, language_lab)
-    if result:
-        return result
-
-    # Try multiple film dictionaries
-    result = _lookup_in_dictionaries(suffix, language_lab)
-    if result:
-        return result
-
-    return ""
+__all__ = [
+    "Lang_work",
+    "lab_from_lang_keys",
+]

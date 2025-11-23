@@ -22,7 +22,7 @@ from ....translations import (
 from ..get_helps import get_con_3
 from ..jobs_mainbot import jobs_with_nat_prefix
 from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
-from .langs_w import Lang_work
+from ...languages_bot.langs_w import Lang_work
 from .relegin_jobs import try_relegins_jobs_with_suffix
 
 
