@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
 
 from .helps.log import logger
-from .main_processers.main_resolve import resolve_label
+from .main_processers.main_resolve import resolve_label, CategoryResult
 
 LABEL_PREFIX = "تصنيف:"
 
@@ -28,6 +28,7 @@ class EventProcessingResult:
     processed: List[ProcessedCategory] = field(default_factory=list)
     labels: Dict[str, str] = field(default_factory=dict)
     no_labels: List[str] = field(default_factory=list)
+    category_patterns: int = 0
 
 
 class EventProcessor:
@@ -69,13 +70,15 @@ class EventProcessor:
 
             normalized = self._normalize_category(original)
 
-            raw_label = resolve_label(normalized)
+            raw_label: CategoryResult = resolve_label(normalized)
 
-            final_label = self._prefix_label(raw_label)
+            final_label = self._prefix_label(raw_label.ar)
             has_label = bool(final_label)
 
             if has_label:
                 result.labels[normalized] = final_label
+                if raw_label.from_match:
+                    result.category_patterns += 1
             else:
                 result.no_labels.append(normalized)
 
@@ -83,7 +86,7 @@ class EventProcessor:
                 ProcessedCategory(
                     original=original,
                     normalized=normalized,
-                    raw_label=raw_label,
+                    raw_label=raw_label.ar,
                     final_label=final_label,
                     has_label=has_label,
                 )

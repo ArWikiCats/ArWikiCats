@@ -1,4 +1,20 @@
 
+## [#101](https://github.com/MrIbrahem/make2_new/pull/101) - 2025-11-23
+
+* **New Features**
+  * Added parameterized year- and country-based category translations to improve localization.
+
+* **Updates**
+  * Integrated larger translation datasets and switched several translation initializations to file-backed loads.
+  * Year-handling updated across labeling flows for consistent template lookup and replacement.
+  * Labeling now surfaces counts of pattern-derived category matches for better diagnostics.
+
+* **Removals**
+  * Deleted a few television translation keys and several commentator-related mappings.
+
+* **Tests**
+  * Updated tests to use parameterized placeholders and reflect dataset/reordering changes.
+
 ## [#99](https://github.com/MrIbrahem/make2_new/pull/99) - 2025-11-22
 
 * **Chores**

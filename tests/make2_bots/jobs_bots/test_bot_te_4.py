@@ -112,8 +112,6 @@ def test_Jobs_in_Multi_Sports(category, expected) -> None:
 
 
 data_2018_with_nat = {
-    "filipino sports commentators": "معلقو {} رياضية فلبينية",
-    "spanish commentators": "معلقو {} إسبانية",
     "scottish islands": "جزر إسكتلندية",
     "nigerian football": "كرة القدم النيجيرية",
     "south korean tennis": "كرة مضرب كورية جنوبية",

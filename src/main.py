@@ -46,6 +46,7 @@ def event(
     if total == 0:
         total = len(result.processed)
 
+    category_patterns = result.category_patterns
     labels = result.labels
     no_labels = result.no_labels
 
@@ -56,6 +57,7 @@ def event(
         for idx, cat in enumerate(no_labels, start=1):
             printe.output(f'  {idx}:  "{cat}" : "",')
 
+    logger.info(f"<<green>>> category_patterns: {category_patterns}")
     logger.info("<<lightred>>> ^^^^^^^^^ event end ^^^^^^^^^ ")
 
     if return_no_labs:
