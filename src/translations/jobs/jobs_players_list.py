@@ -249,7 +249,7 @@ def _build_sports_job_variants(
             "mens": f"أعلام {arabic_label}",
             "womens": "",
         }
-        result[f"{lowered_job_key} commentators"] = {
+        result[f"{lowered_job_key} commentators_"] = {  # TODO: remove this
             "mens": f"معلقو {arabic_label}",
             "womens": f"معلقات {arabic_label}",
         }
