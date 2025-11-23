@@ -25,6 +25,7 @@ P17_PREFIXES: Mapping[str, str] = {
 
 RELATIONS_FEMALE: Mapping[str, str] = {
     " military relations": "العلاقات {} العسكرية",
+    " sports relations": "العلاقات {} الرياضية",
     " joint economic efforts": "الجهود الاقتصادية المشتركة {}",
     " relations": "العلاقات {}",
     " border crossings": "معابر الحدود {}",
