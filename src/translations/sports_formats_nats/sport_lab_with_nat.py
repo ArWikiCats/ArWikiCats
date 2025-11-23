@@ -42,7 +42,7 @@ def get_template_label(key: str, key_placeholder: str, normalized_team: str, dat
     return template_label
 
 
-@dump_data()
+@dump_data(enable=True)
 def match_sports_labels_with_nat(normalized_team: str) -> str:
     """
     Match sports labels that include nationality terms and replace them.
