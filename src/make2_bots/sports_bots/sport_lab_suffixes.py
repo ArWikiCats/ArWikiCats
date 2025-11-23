@@ -41,7 +41,7 @@ def get_teams_new(team_name: str) -> str:
             lambda prefix: SPORTS_KEYS_FOR_JOBS.get(prefix, ""),
         )
 
-    logger.info(f'get_teams_new: team_label:"{team_label}" from sports suffix lookup')
+    logger.info(f'get_teams_new: team_label:"{team_label}" for normalized_team: ({normalized_team})')
 
     return team_label
 
