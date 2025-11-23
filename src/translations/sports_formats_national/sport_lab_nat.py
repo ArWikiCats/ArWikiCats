@@ -9,8 +9,13 @@ from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
 from .te2 import New_For_nat_female_xo_team
 
+from ...translations import (
+    Nat_women,
+)
+from ...make2_bots.jobs_bots.get_helps import get_con_3
 
-@dump_data(enable=True)
+
+# @dump_data(enable=True)
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
     """
     Resolve female national sport formats into Arabic labels.
@@ -50,3 +55,36 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
     logger.info(f'Get_sport_formts_female_nat female con_77:"{con_77}", result:"{result}"')
 
     return result
+
+
+@dump_data(enable=True)
+def sport_lab_nat_load(category: str) -> str:
+    """
+    Example:
+        category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"
+    """
+    normalized_category = category.lower()
+
+    sport_format_key, country_start = get_con_3(normalized_category, "nat")
+    if not country_start or not sport_format_key:
+        return ""
+
+    nat_lab = Nat_women.get(country_start, "")
+
+    if not nat_lab:
+        return ""
+
+    sport_format_label = Get_sport_formts_female_nat(sport_format_key)
+    if not sport_format_label:
+        return ""
+
+    category_label = sport_format_label.format(nat=nat_lab)
+    logger.debug(f'<<lightblue>>xxx sport_lab_nat_load: new category_label  "{category_label}"')
+
+    return category_label
+
+
+__all__ = [
+    "Get_sport_formts_female_nat",
+    "sport_lab_nat_load",
+]
