@@ -40,8 +40,8 @@ def get_teams_new(team_name: str) -> str:
             team_work.Teams_new_end_keys,
             lambda prefix: SPORTS_KEYS_FOR_JOBS.get(prefix, ""),
         )
-        if team_label:
-            logger.info(f'get_teams_new: team_label:"{team_label}" from sports suffix lookup')
+
+    logger.info(f'get_teams_new: team_label:"{team_label}" from sports suffix lookup')
 
     return team_label
 
