@@ -47,7 +47,6 @@ data = {
 
 
 def test_New_team_xo_team_labels():
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, wrap_team_xo_normal_2025)
 
     dump_diff(diff_result, "test_New_team_xo_team_labels")

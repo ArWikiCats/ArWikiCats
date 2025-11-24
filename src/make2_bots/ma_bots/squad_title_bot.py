@@ -9,7 +9,7 @@ import functools
 
 from ...utils import fix_minor
 from ...helps.log import logger
-from ...translations import Get_New_team_xo, New_P17_Finall, pop_of_football_lower
+from ...translations import get_new_team_xo, New_P17_Finall, pop_of_football_lower
 from ..date_bots import with_years_bot
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import All_P17
@@ -18,7 +18,7 @@ from ..matables_bots.bot import All_P17
 @functools.lru_cache(maxsize=None)
 def get_squad_title(tit: str) -> str:
     """Generate a squad title label using team, year, and country data."""
-    lab = Get_New_team_xo(tit)
+    lab = get_new_team_xo(tit)
 
     if not lab:
         lab = with_years_bot.Try_With_Years(tit)

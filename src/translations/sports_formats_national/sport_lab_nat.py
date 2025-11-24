@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-""" """
+"""
+
+TODO: Replaced by sport_lab_nat_new_2026.py
+
+"""
 
 import re
-
-from ...helps.jsonl_dump import dump_data
+import functools
 from ...helps.log import logger
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
@@ -15,13 +18,15 @@ from ...translations import (
 from ...make2_bots.jobs_bots.get_helps import get_con_3
 
 
-# @dump_data(enable=True)
+@functools.lru_cache(maxsize=None)
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
     """
     Resolve female national sport formats into Arabic labels.
-    TODO: use FormatData method
+    Example:
+        con_77: "under-13 baseball teams", result: "فرق كرة قاعدة {nat} تحت 13 سنة"
     """
     sport_key = match_sport_key(con_77)
+    logger.info(f"Get_sport_formts_female_nat {con_77=} sport_key:{sport_key=}")
 
     if not sport_key:
         return ""
@@ -57,15 +62,18 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
     return result
 
 
-@dump_data(enable=True)
-def sport_lab_nat_load(category: str) -> str:
+@functools.lru_cache(maxsize=None)
+def sport_lab_nat_load(category: str, check_the: bool=False) -> str:
     """
     Example:
         category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"
     """
     normalized_category = category.lower()
 
-    sport_format_key, country_start = get_con_3(normalized_category, "nat")
+    sport_format_key, country_start = get_con_3(normalized_category, "nat", check_the=check_the)
+
+    logger.debug(f"sport_lab_nat_load {normalized_category=}: {sport_format_key=} {country_start=}")
+
     if not country_start or not sport_format_key:
         return ""
 

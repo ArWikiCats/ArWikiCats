@@ -35,7 +35,6 @@ data = {
     "Category:Dutch wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة هولنديون",
     "Category:Dutch wheelchair tennis players": "تصنيف:لاعبو كرة مضرب على كراسي متحركة هولنديون",
     "Category:English wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة إنجليز",
-    "Category:European Wheelchair Basketball Championship": "تصنيف:بطولة أوروبا لكرة السلة على الكراسي المتحركة",
     "Category:Finnish wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة فنلنديون",
     "Category:Finnish wheelchair curling champions": "تصنيف:أبطال الكيرلنغ على الكراسي المتحركة فنلنديون",
     "Category:French wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة فرنسيون",

@@ -14,7 +14,6 @@ def test_places_and_structures():
         "Category:parks in the Roman Empire": "تصنيف:متنزهات في الإمبراطورية الرومانية",
     }
 
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_places_and_structures")
@@ -29,7 +28,6 @@ def test_places_and_structures_2():
         "Category:Vehicle manufacturing companies disestablished in 1904": "تصنيف:شركات تصنيع المركبات انحلت في 1904",
     }
 
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_places_and_structures")

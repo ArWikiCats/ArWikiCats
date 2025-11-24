@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-!
+TODO: refactor the code
 """
 
 import functools

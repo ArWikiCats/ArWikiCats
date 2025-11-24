@@ -17,7 +17,6 @@ def test_sports_1():
         "Category:Norwegian male pair skaters": "تصنيف:متزلجون فنيون على الجليد ذكور نرويجيون",
         "Category:Norwegian male single skaters": "تصنيف:متزلجون فرديون ذكور نرويجيون",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_1")
@@ -40,7 +39,6 @@ def test_sports_2():
         "Category:Transport companies established in 1909": "تصنيف:شركات نقل أسست في 1909",
         "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_2")
@@ -60,7 +58,6 @@ def test_sports_3():
         "Category:Women's national ice hockey teams": "",
         "Category:Women's national under-18 ice hockey teams": "",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_3")
@@ -80,7 +77,6 @@ def test_sports_4():
         "Category:nations at the universiade": "تصنيف:بلدان في الألعاب الجامعية",
         "Category:ugandan football": "تصنيف:كرة القدم الأوغندية",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports")
@@ -97,7 +93,6 @@ def test_sports_5():
         "Category:Rail transport in the United Kingdom": "تصنيف:السكك الحديدية في المملكة المتحدة",
         "Category:Republic of Ireland football managers": "تصنيف:مدربو كرة قدم أيرلنديون",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_5")
@@ -120,7 +115,6 @@ def test_sports_6():
         "Category:Universiade medalists by sport": "تصنيف:فائزون بميداليات الألعاب الجامعية حسب الرياضة",
         "Category:Universiade medalists in water polo": "تصنيف:فائزون بميداليات الألعاب الجامعية في كرة الماء",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_6")
@@ -140,7 +134,6 @@ def test_sports_7():
         "Category:IndyCar": "تصنيف:أندي كار",
         "Category:International sports competitions hosted by Mexico": "تصنيف:منافسات رياضية دولية استضافتها المكسيك",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_7")
@@ -160,7 +153,6 @@ def test_sports_8():
         "Category:Expatriate women's footballers by location": "تصنيف:لاعبات كرة قدم مغتربات حسب الموقع",
         "Category:Female association football managers": "تصنيف:مديرات كرة قدم",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_8")
@@ -180,7 +172,6 @@ def test_sports_9():
         "Category:Cape Verdean football managers": "تصنيف:مدربو كرة قدم أخضريون",
         "Category:Egyptian female sport shooters": "تصنيف:لاعبات رماية مصريات",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_9")
@@ -200,7 +191,6 @@ def test_sports_10():
         "Category:Association football players by youth national team": "تصنيف:لاعبو كرة قدم حسب المنتخب الوطني للشباب",
         "Category:Association football": "تصنيف:كرة القدم",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_sports_10")

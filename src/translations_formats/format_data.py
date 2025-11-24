@@ -15,11 +15,15 @@ class FormatData:
         data_list: Dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
+        text_after: str = "",
+        text_before: str = "",
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
         self.formated_data = formated_data
         self.data_list = data_list
+        self.text_after = text_after
+        self.text_before = text_before
 
         # Case-insensitive mirrors
         self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formated_data.items()}
@@ -34,7 +38,9 @@ class FormatData:
         if not self.data_list_ci:
             return None
         keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
+
         data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
+
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -58,12 +64,19 @@ class FormatData:
     @functools.lru_cache(maxsize=None)
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
+
         normalized = re.sub(
-            f" {re.escape(sport_key)} ",
+            fr" {re.escape(sport_key)} ",
             f" {self.key_placeholder} ",
             f" {category.strip()} ",
             flags=re.IGNORECASE,
         )
+        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
+            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
+
+        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
+            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+
         return normalized.strip()
 
     def get_template(self, sport_key: str, category: str) -> str:

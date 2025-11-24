@@ -17,7 +17,6 @@ def test_people_labels_2():
         "Category:Polish businesspeople": "تصنيف:شخصيات أعمال بولندية",
         "Category:Polish women in business": "تصنيف:بولنديات في الأعمال",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset_new(data)
 
     dump_diff(diff_result, "test_people_labels_2")
@@ -43,7 +42,6 @@ def test_people_labels_from():
         "Category:Sportspeople from Westchester County, New York": "تصنيف:رياضيون من مقاطعة ويستتشستر (نيويورك)",
         "Category:Sportswriters from Massachusetts": "تصنيف:كتاب رياضيون من ماساتشوستس",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset_new(data)
 
     dump_diff(diff_result, "test_people_labels_from")
@@ -69,7 +67,6 @@ def test_people_labels_from_2():
         "Category:Tennis people from Massachusetts": "تصنيف:أعلام كرة مضرب من ماساتشوستس",
         "Category:Track and field athletes from Massachusetts": "تصنيف:رياضيو المسار والميدان من ماساتشوستس",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset_new(data)
 
     dump_diff(diff_result, "test_people_labels_from_2")

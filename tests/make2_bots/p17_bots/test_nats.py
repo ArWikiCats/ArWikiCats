@@ -4,20 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.p17_bots.nats import find_nat_others, make_sport_formats_p17
-
-
-def test_make_sport_formats_p17():
-    # Test with a known category key (may return empty string if key not in cache)
-    result = make_sport_formats_p17("basketball")
-    assert isinstance(result, str)
-
-    result_empty = make_sport_formats_p17("")
-    assert isinstance(result_empty, str)
-
-    # Test with a typical sport category format
-    result_example = make_sport_formats_p17("football_players")
-    assert isinstance(result_example, str)
+from src.make2_bots.p17_bots.nats import find_nat_others
 
 
 def test_find_nat_others():
@@ -29,5 +16,5 @@ def test_find_nat_others():
     assert isinstance(result_empty, str)
 
     # Test with reference category
-    result_with_ref = find_nat_others("French tennis players", "sport")
+    result_with_ref = find_nat_others("French tennis players")
     assert isinstance(result_with_ref, str)

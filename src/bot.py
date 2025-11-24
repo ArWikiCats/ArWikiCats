@@ -25,4 +25,4 @@ def event(tab: Dict[str, Any], return_no_labs: bool = False, **kwargs: Any) -> L
 
 def te_films(cate: str, reference_category: str = "") -> str:
     """Resolve film category labels via the media bot helper."""
-    return films_bot.te_films(cate, reference_category=reference_category)
+    return films_bot.te_films(cate)

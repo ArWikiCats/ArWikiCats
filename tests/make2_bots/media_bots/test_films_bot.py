@@ -161,5 +161,5 @@ def test_test_films():
     assert isinstance(result_empty, str)
 
     # Test with reference category
-    result_with_ref = te_films("drama movies", "movies")
+    result_with_ref = te_films("drama movies")
     assert isinstance(result_with_ref, str)

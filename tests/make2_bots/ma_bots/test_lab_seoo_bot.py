@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo, te_bot_3
+from src.make2_bots.ma_bots.lab_seoo_bot import event_label_work, te_bot_3
 
 event_Lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",
@@ -108,7 +108,7 @@ event_Lab_seoo_data = {
 @pytest.mark.parametrize("category, expected_key", event_Lab_seoo_data.items(), ids=list(event_Lab_seoo_data.keys()))
 @pytest.mark.fast
 def test_event_Lab_seoo_data(category, expected_key) -> None:
-    label = event_Lab_seoo("", category)
+    label = event_label_work(category)
     assert label.strip() == expected_key
 
 

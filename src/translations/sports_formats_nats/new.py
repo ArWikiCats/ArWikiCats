@@ -4,6 +4,7 @@
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations_formats.format_data import FormatData
+from ...translations_formats.format_2_data import FormatMultiData
 from ..nats.Nationality import en_nats_to_ar_label
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
@@ -20,8 +21,19 @@ format_labels_with_nat = {
 nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
 sport_bot = FormatData({}, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_placeholder="xoxo")
 
+both_bot = FormatMultiData(
+    format_labels_with_nat,
+    en_nats_to_ar_label,
+    key_placeholder="natar",
+    value_placeholder="natar",
+    data_list2=SPORTS_KEYS_FOR_TEAM,
+    key2_placeholder="xoxo",
+    value2_placeholder="xoxo",
+)
 
 # @dump_data(enable=True)
+
+
 def normalize_nat_label(category):
     """Normalize nationality placeholders within a category string."""
     key = nat_bot.match_key(category)
@@ -70,6 +82,8 @@ def create_label(category):
 
     Example:
         category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
+
+    # TODO: Replaced by FormatMultiData
     """
     # category = Yemeni football championships
     template_label = normalize_both(category)

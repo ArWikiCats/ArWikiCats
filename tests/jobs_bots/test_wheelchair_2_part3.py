@@ -6,6 +6,9 @@ from load_one_data import dump_diff, ye_test_one_dataset
 from src import new_func_lab_final_label
 
 wheelchair_by_nats = {
+    "Category:Swiss Wheelchair Curling Championship": "تصنيف:بطولة سويسرا للكيرلنغ على الكراسي المتحركة",
+    "Category:European Wheelchair Basketball Championship": "تصنيف:بطولة أوروبا لكرة السلة على الكراسي المتحركة",
+
     "Category:Parapan American Games medalists in wheelchair basketball": "تصنيف:فائزون بميداليات ألعاب بارابان الأمريكية في كرة السلة على الكراسي المتحركة",
     "Category:Parapan American Games medalists in wheelchair tennis": "تصنيف:فائزون بميداليات ألعاب بارابان الأمريكية في كرة المضرب على الكراسي المتحركة",
     "Category:Parapan American Games wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة في ألعاب بارابان الأمريكية",
@@ -28,7 +31,6 @@ wheelchair_by_nats = {
     "Category:Swiss wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة سويسريون",
     "Category:Swiss wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة سويسريون",
     "Category:Swiss wheelchair curling champions": "تصنيف:أبطال الكيرلنغ على الكراسي المتحركة سويسريون",
-    "Category:Swiss Wheelchair Curling Championship": "تصنيف:بطولة سويسرا للكيرلنغ على الكراسي المتحركة",
     "Category:Swiss wheelchair tennis players": "تصنيف:لاعبو كرة مضرب على كراسي متحركة سويسريون",
     "Category:Thai wheelchair tennis players": "تصنيف:لاعبو كرة مضرب على كراسي متحركة تايلنديون",
     "Category:Turkish men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة رجالية أتراك",

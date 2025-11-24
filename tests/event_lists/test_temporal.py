@@ -67,7 +67,6 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 def test_temporal(name, data):
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, name)
@@ -92,7 +91,6 @@ def test_temporal_2():
         "Category:Swaziland at multi-sport events": "تصنيف:أحداث سوازيلاند في رياضية متعددة",
     }
 
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_temporal_2")
@@ -126,7 +124,6 @@ def test_temporal_22():
         "Category:multi-sport events at Yemen": "تصنيف:أحداث رياضية متعددة في اليمن",
     }
 
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_temporal_22")

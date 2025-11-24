@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Utility helpers for extracting country labels from category names."""
+"""
+Utility helpers for extracting country labels from category names.
+
+TODO: refactor the code
+"""
 
 import functools
 from typing import Dict, Tuple
@@ -22,7 +26,7 @@ def get_keys(category_type: str):
 
 
 @functools.lru_cache(maxsize=None)
-def get_con_3(cate: str, category_type: str) -> Tuple[str, str]:
+def get_con_3(cate: str, category_type: str, check_the: bool=False) -> Tuple[str, str]:
     """Fast and optimized version of get_con_3.
 
     This function identifies a matching prefix from the given keys and
@@ -35,6 +39,10 @@ def get_con_3(cate: str, category_type: str) -> Tuple[str, str]:
 
     category_suffix: str = ""
     country_prefix: str = ""
+
+    cate2 = cate[4:] if cate.startswith("the ") else cate
+
+    cate_lower2 = cate_lower[4:] if cate_lower.startswith("the ") else cate_lower
 
     for key in keys:
         if category_suffix:
@@ -59,7 +67,7 @@ def get_con_3(cate: str, category_type: str) -> Tuple[str, str]:
             candidate_prefixes[3] = key[4:].lower()
 
         # Try each prefix option in fixed order
-        for option_index in (1, 2, 3, 4):
+        for option_index in (1, 2, 3, 4, 5):
             prefix_candidate = candidate_prefixes.get(option_index)
             if not prefix_candidate:
                 continue
@@ -67,6 +75,14 @@ def get_con_3(cate: str, category_type: str) -> Tuple[str, str]:
             if cate_lower.startswith(prefix_candidate):
                 country_prefix = key
                 category_suffix = cate[len(prefix_candidate) :].strip()
+
+                logger.debug(f'<<lightyellow>>>>>> get_con_3 start_th key_:{option_index} "{prefix_candidate}", fo_3:"{category_suffix}",country_start:"{country_prefix}"')
+
+                break
+
+            if check_the and cate_lower2.startswith(prefix_candidate):
+                country_prefix = key
+                category_suffix = cate2[len(prefix_candidate) :].strip()
 
                 logger.debug(f'<<lightyellow>>>>>> get_con_3 start_th key_:{option_index} "{prefix_candidate}", fo_3:"{category_suffix}",country_start:"{country_prefix}"')
 

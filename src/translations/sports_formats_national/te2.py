@@ -33,7 +33,6 @@ New_For_nat_female_xo_team = {
 # New_For_nat_female_xo_team["men's xzxz championships"] =  "بطولة {nat} xzxz للرجال"
 # New_For_nat_female_xo_team["women's xzxz championships"] =  "بطولة {nat} xzxz للسيدات"
 # ---
-# ---
 for level, lvl_lab in LEVELS.items():
     New_For_nat_female_xo_team[f"national xzxz {level} league"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"
     New_For_nat_female_xo_team[f"national xzxz {level} leagues"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"

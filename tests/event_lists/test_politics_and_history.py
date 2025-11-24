@@ -23,7 +23,6 @@ data = {
 
 
 def test_politics_and_history():
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_politics_and_history")
@@ -32,7 +31,6 @@ def test_politics_and_history():
 
 def test_politics_and_history():
     data = {"Category:American award winners": "تصنيف:حائزو جوائز أمريكيون", "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"}
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_politics_and_history")
