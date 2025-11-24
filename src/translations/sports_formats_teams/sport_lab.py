@@ -6,7 +6,6 @@ import re
 from ...helps.log import logger
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS, SPORTS_KEYS_FOR_TEAM
 from ..sports_formats_nats.new import create_label
-from ..sports_formats_nats.sport_lab_with_nat import Get_New_team_xo_with_nat
 from ..sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
 from ..utils import apply_pattern_replacement
 from ..utils.match_sport_keys import match_sport_key
@@ -47,30 +46,6 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p1
 
 
 def Get_New_team_xo(team: str) -> str:
-    """Resolve modern team labels using nationality and template data."""
-    # إيجاد تسميات نصوص رياضية مثل
-    # world champion national football teams
-    # New_team_xo_team_labels["world champion national {} teams".format(team2)] =  f"أبطال بطولة العالم {team2_lab}"
-    # logger.info('Get_New_team_xo team:"%s"' % team)
-    # قبل تطبيق New_team_xo_jobs
-    # sports.py: len:"Teams new":  695795
-    # بعد تطبيق New_team_xo_jobs and New_team_xo_team_labels
-    # sports.py: len:"New_team_xo_jobs":  1462 , len:"New_team_xo_team_labels":  21
-    team_lab = ""
-    sport_key = match_sport_key(team)
-    if not sport_key:
-        return ""
-    team_lab = wrap_team_xo_normal_2025(team)
-    if not team_lab:
-        normalized_team = re.sub(f" {sport_key} ", " xoxo ", f" {team.strip()} ", flags=re.IGNORECASE).strip()
-        # team_xo = re.sub(sport_key , 'xoxo' , team_xo, flags=re.IGNORECASE)
-        logger.info(f'Get_Sport Get_New_team_xo P17: team:"{team}", sport_key:"{sport_key}", team_xo:"{normalized_team}"')
-        if not team_lab:
-            team_lab = Get_New_team_xo_with_nat(normalized_team, sport_key)
-    return team_lab
-
-
-def Get_New_team_xo_2026(team: str) -> str:
     """Resolve team labels with 2026-format templates and fallbacks."""
     team_lab = wrap_team_xo_normal_2025(team)
     if not team_lab:
@@ -80,6 +55,5 @@ def Get_New_team_xo_2026(team: str) -> str:
 
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
-    "Get_New_team_xo_2026",
     "Get_New_team_xo",
 ]

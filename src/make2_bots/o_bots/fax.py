@@ -9,7 +9,7 @@ from ...helps.log import logger
 from ...translations import lang_ttty, languages_pop
 
 
-# @dump_data()
+
 @functools.lru_cache(maxsize=None)
 def te_language(category: str) -> str:
     """Return the label for a language-related category.
