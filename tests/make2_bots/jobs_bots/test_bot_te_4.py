@@ -24,14 +24,6 @@ fast_data = {
     "anti-mexican sentiment": "مشاعر معادية للمكسيكيون",
 }
 
-
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
-@pytest.mark.fast
-def test_nat_match(category, expected) -> None:
-    label = nat_match(category)
-    assert label.strip() == expected
-
-
 Multi_Sports_data = {
     "african games competitors": "منافسون في الألعاب الإفريقية",
     "african games taekwondo practitioners": "لاعبو تايكوندو في الألعاب الإفريقية",
@@ -102,13 +94,6 @@ Multi_Sports_data = {
     "winter olympics competitors": "منافسون في الألعاب الأولمبية الشتوية",
     "youth olympics biathletes": "لاعبو بياثلون في الألعاب الأولمبية الشبابية",
 }
-
-
-@pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=list(Multi_Sports_data.keys()))
-@pytest.mark.fast
-def test_Jobs_in_Multi_Sports(category, expected) -> None:
-    label = Jobs_in_Multi_Sports(category)
-    assert label.strip() == expected
 
 
 data_2018_with_nat = {
@@ -275,6 +260,20 @@ data_2018_with_nat = {
     "syrian websites": "مواقع ويب سورية",
     "serbian crime television series": "مسلسلات تلفزيونية جريمة صربية",
 }
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.fast
+def test_nat_match(category, expected) -> None:
+    label = nat_match(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=list(Multi_Sports_data.keys()))
+@pytest.mark.fast
+def test_Jobs_in_Multi_Sports(category, expected) -> None:
+    label = Jobs_in_Multi_Sports(category)
+    assert label.strip() == expected
 
 
 @pytest.mark.parametrize("category, expected", data_2018_with_nat.items(), ids=list(data_2018_with_nat.keys()))
