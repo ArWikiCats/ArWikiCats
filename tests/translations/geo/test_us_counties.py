@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS, _STATE_SUFFIX_TEMPLATES_BASE
 from src import new_func_lab_final_label
 
@@ -65,7 +65,7 @@ for en, ar in STATE_NAME_TRANSLATIONS.items():
 @pytest.mark.parametrize("state_name, data", data_1)
 @pytest.mark.fast
 def test_us_counties(state_name, data):
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
 
     dump_diff(diff_result, f"test_us_counties_{state_name}")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
@@ -132,7 +132,7 @@ empty_data = {
 
 @pytest.mark.fast
 def test_us_counties_empty():
-    expected, diff_result = ye_test_one_dataset(empty_data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(empty_data, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

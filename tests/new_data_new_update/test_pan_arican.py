@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
@@ -50,7 +50,14 @@ pan_arican = {
 
 @pytest.mark.slow
 def test_pan_arican():
-    expected, diff_result = ye_test_one_dataset(pan_arican, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(pan_arican, new_func_lab_final_label)
 
     dump_diff(diff_result, "test_pan_arican")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+
+@pytest.mark.parametrize("category, expected", pan_arican.items(), ids=list(pan_arican.keys()))
+@pytest.mark.slow
+def test_pan_arican_dump(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected

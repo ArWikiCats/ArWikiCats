@@ -22,7 +22,7 @@ def dump_diff(data, file_name):
         print(f"Error writing diff data: {e}")
 
 
-def ye_test_one_dataset(dataset: dict, callback: Callable[[str], str]):
+def one_dump_test(dataset: dict, callback: Callable[[str], str]):
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
     diff = {}
@@ -34,4 +34,3 @@ def ye_test_one_dataset(dataset: dict, callback: Callable[[str], str]):
             diff[cat] = result
 
     return org, diff
-one_dump_test = ye_test_one_dataset

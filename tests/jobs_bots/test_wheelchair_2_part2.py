@@ -1,7 +1,7 @@
 """Unit tests"""
 
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
@@ -85,16 +85,6 @@ fencers_rugby = {
 }
 
 
-@pytest.mark.slow
-def test_wheelchair_fencers_rugby():
-    expected, diff_result = ye_test_one_dataset(fencers_rugby, new_func_lab_final_label)
-    # sort diff_result by value
-    diff_result = dict(sorted(diff_result.items(), key=lambda x: x[1]))
-
-    dump_diff(diff_result, "test_wheelchair_fencers_rugby")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 wheelchair_tennis = {
     "Category:Paralympic wheelchair tennis players by country": "تصنيف:لاعبو كرة مضرب على كراسي متحركة في الألعاب البارالمبية حسب البلد",
     "Category:Paralympic wheelchair tennis players by year": "تصنيف:لاعبو كرة مضرب على كراسي متحركة في الألعاب البارالمبية حسب السنة",
@@ -127,11 +117,30 @@ wheelchair_tennis = {
 }
 
 
-@pytest.mark.slow
-def test_wheelchair_tennis():
-    expected, diff_result = ye_test_one_dataset(wheelchair_tennis, new_func_lab_final_label)
-    # sort diff_result by value
-    diff_result = dict(sorted(diff_result.items(), key=lambda x: x[1]))
+test_data = [
+    ("test_wheelchair_fencers_rugby", fencers_rugby),
+    ("test_wheelchair_tennis", wheelchair_tennis),
+]
 
-    dump_diff(diff_result, "test_wheelchair_tennis")
+
+@pytest.mark.parametrize("category, expected", fencers_rugby.items(), ids=list(fencers_rugby.keys()))
+@pytest.mark.fast
+def test_wheelchair_fencers_rugby(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", wheelchair_tennis.items(), ids=list(wheelchair_tennis.keys()))
+@pytest.mark.fast
+def test_wheelchair_tennis(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.slow
+@pytest.mark.parametrize("name,data", test_data)
+def test_geography_all(name, data):
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+
+    dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
