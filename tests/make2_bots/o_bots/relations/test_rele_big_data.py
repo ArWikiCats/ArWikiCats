@@ -688,9 +688,16 @@ TEMPORAL_CASES = [
 ]
 
 
+@pytest.mark.parametrize("category, expected", big_data.items(), ids=list(big_data.keys()))
+@pytest.mark.fast
+def test_work_relations_big_data(category, expected) -> None:
+    label = work_relations(category)
+    assert label.strip() == expected
+
+
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.slow
-def test_work_relations_big_data(name, data):
+def test_all_dump(name, data):
     expected, diff_result = ye_test_one_dataset(data, work_relations)
 
     dump_diff(diff_result, f"test_work_relations_big_data_{name}")

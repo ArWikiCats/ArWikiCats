@@ -1,10 +1,10 @@
 #
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
-data = {
+data1 = {
     "Category:Pan-Africanism": "تصنيف:وحدة أفريقية",
     "Category:Pan-Africanism by continent": "تصنيف:وحدة أفريقية حسب القارة",
     "Category:Pan-Africanism by country": "تصنيف:وحدة أفريقية حسب البلد",
@@ -43,14 +43,6 @@ data = {
 }
 
 
-@pytest.mark.slow
-def test_africanism():
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_africanism")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 africanism_empty = {
     "Category:Pan Africanist Congress of Azania": "",
     "Category:Pan Africanist Congress of Azania politicians": "",
@@ -61,9 +53,30 @@ africanism_empty = {
 }
 
 
-@pytest.mark.fast
-def test_africanism_empty():
-    expected, diff_result = ye_test_one_dataset(africanism_empty, new_func_lab_final_label)
+TEMPORAL_CASES = [
+    ("test_africanism", data1),
+    ("test_africanism_empty", africanism_empty),
+]
 
-    dump_diff(diff_result, "test_africanism_empty")
+
+@pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
+@pytest.mark.fast
+def test_africanism(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", africanism_empty.items(), ids=list(africanism_empty.keys()))
+@pytest.mark.fast
+def test_africanism_empty(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.slow
+def test_all(name, data):
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+
+    dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

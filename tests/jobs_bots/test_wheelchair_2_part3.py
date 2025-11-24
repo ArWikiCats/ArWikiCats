@@ -1,7 +1,7 @@
 """Unit tests"""
 
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
@@ -41,16 +41,6 @@ wheelchair_by_nats = {
 }
 
 
-@pytest.mark.slow
-def test_wheelchair_by_nats():
-    expected, diff_result = ye_test_one_dataset(wheelchair_by_nats, new_func_lab_final_label)
-    # sort diff_result by value
-    diff_result = dict(sorted(diff_result.items(), key=lambda x: x[1]))
-
-    dump_diff(diff_result, "test_wheelchair_by_nats")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 wheelchair_basketball = {
     "Category:Wheelchair basketball at multi-sport events": "تصنيف:أحداث كرة السلة على الكراسي المتحركة في رياضية متعددة",
     "Category:Wheelchair basketball at the 2020 Parapan American Games": "تصنيف:كرة السلة على الكراسي المتحركة في ألعاب بارابان الأمريكية 2020",
@@ -86,16 +76,6 @@ wheelchair_basketball = {
     "Category:Wheelchair basketball in the United States": "تصنيف:كرة السلة على الكراسي المتحركة في الولايات المتحدة",
     "Category:Wheelchair basketball in Turkey": "تصنيف:كرة السلة على الكراسي المتحركة في تركيا",
 }
-
-
-@pytest.mark.slow
-def test_wheelchair_basketball():
-    expected, diff_result = ye_test_one_dataset(wheelchair_basketball, new_func_lab_final_label)
-    # sort diff_result by value
-    diff_result = dict(sorted(diff_result.items(), key=lambda x: x[1]))
-
-    dump_diff(diff_result, "test_wheelchair_basketball")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 wheelchair_sports = {
@@ -170,12 +150,38 @@ wheelchair_sports = {
     "Category:Years in wheelchair rugby": "تصنيف:سنوات في الرجبي على الكراسي المتحركة",
 }
 
+TEMPORAL_CASES = [
+    ("test_wheelchair_by_nats", wheelchair_by_nats),
+    ("test_wheelchair_basketball", wheelchair_basketball),
+    ("test_wheelchair_sports", wheelchair_sports),
+]
 
+
+@pytest.mark.parametrize("category, expected", wheelchair_by_nats.items(), ids=list(wheelchair_by_nats.keys()))
+@pytest.mark.fast
+def test_wheelchair_by_nats(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", wheelchair_basketball.items(), ids=list(wheelchair_basketball.keys()))
+@pytest.mark.fast
+def test_wheelchair_basketball(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", wheelchair_sports.items(), ids=list(wheelchair_sports.keys()))
+@pytest.mark.fast
+def test_wheelchair_sports(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.slow
-def test_wheelchair_sports():
-    expected, diff_result = ye_test_one_dataset(wheelchair_sports, new_func_lab_final_label)
-    # sort diff_result by value
-    diff_result = dict(sorted(diff_result.items(), key=lambda x: x[1]))
+def test_all(name, data):
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
 
-    dump_diff(diff_result, "test_wheelchair_sports")
+    dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
