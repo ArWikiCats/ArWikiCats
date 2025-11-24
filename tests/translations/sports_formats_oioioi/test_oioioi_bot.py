@@ -5,6 +5,7 @@ import pytest
 from load_one_data import dump_diff, ye_test_one_dataset
 from src.translations.sports_formats_oioioi.bot import (
     sport_lab_oioioi_load,
+    both_bot,
 )
 
 data = {
@@ -121,5 +122,7 @@ def test_sport_lab_oioioi_load():
 @pytest.mark.skip2
 def test_sport_lab_oioioi_load_data(category, expected) -> None:
     label1 = sport_lab_oioioi_load(category)
-    assert isinstance(label1, str)
-    assert label1.strip() == expected
+    label2 = both_bot.create_label(category)
+
+    assert label1 == expected
+    assert label2 == expected

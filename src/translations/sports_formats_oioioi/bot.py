@@ -12,20 +12,48 @@ from ..utils.match_sport_keys import match_sport_key
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 from ..nats.Nationality import en_nats_to_ar_label
 from .data import NAT_P17_OIOI
+from ...translations_formats.format_2_data import FormatMultiData
 
 # Placeholder used for sport key substitution in templates
 SPORT_PLACEHOLDER = "oioioi"
 LABEL_PLACEHOLDER = "ixix"
 
+NAT_P17_OIOI_ADD = {
+    "{nat} defunct oioioi coaches": "مدربو ixix {nat} سابقة",
+    "{nat} defunct oioioi competitions": "منافسات ixix {nat} سابقة",
+    "{nat} defunct oioioi cup competitions": "منافسات كؤوس ixix {nat} سابقة",
+    "{nat} oioioi championships": "بطولة {nat} ixix",
+    "{nat} oioioi clubs": "أندية ixix {nat}",
+    "{nat} oioioi coaches": "مدربو ixix {nat}",
+    "{nat} oioioi competitions": "منافسات ixix {nat}",
+    "{nat} oioioi cup competitions": "منافسات كؤوس ixix {nat}",
+    "{nat} oioioi cups": "كؤوس ixix {nat}",
+    "{nat} oioioi indoor championship": "بطولة {nat} ixix داخل الصالات",
+}
+
+NAT_P17_OIOI.update(NAT_P17_OIOI_ADD)
+
+both_bot = FormatMultiData(
+    NAT_P17_OIOI,
+    en_nats_to_ar_label,
+    key_placeholder="{nat}",
+    value_placeholder="{nat}",
+    data_list2=SPORTS_KEYS_FOR_TEAM,
+    key2_placeholder=SPORT_PLACEHOLDER,
+    value2_placeholder=LABEL_PLACEHOLDER,
+    # text_after=" people",
+    # text_before="the ",
+)
+
 
 @functools.lru_cache(maxsize=None)
 @dump_data(["cate"], enable=True)
 def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
-    """Fast and optimized version of get_start_p17.
+    """
+    Fast and optimized version of get_start_p17.
 
-    This function identifies a matching prefix from the given keys and
-    extracts the remaining suffix while preserving the original behavior.
-    All comments are in English only as required.
+    Example:
+        cate: "swiss wheelchair curling championship": result: ("{nat} wheelchair curling championship", "swiss"),
     """
     # Pre-lower cate once for speed
     cate_lower = cate.lower()
