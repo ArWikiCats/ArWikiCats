@@ -2,7 +2,6 @@
 """ """
 
 from ...helps.log import logger
-from ...helps.jsonl_dump import dump_data
 from ...translations_formats.format_data import FormatData
 from ...translations_formats.format_2_data import FormatMultiData
 from ..nats.Nationality import en_nats_to_ar_label
@@ -34,7 +33,7 @@ both_bot = FormatMultiData(
 # @dump_data(enable=True)
 
 
-def normalize_nat_label(category):
+def _normalize_nat_label(category):
     """Normalize nationality placeholders within a category string."""
     key = nat_bot.match_key(category)
     result = ""
@@ -43,7 +42,7 @@ def normalize_nat_label(category):
     return result
 
 
-def normalize_sport_label(category):
+def _normalize_sport_label(category):
     """
     Normalize sport placeholders within a category string.
 
@@ -58,7 +57,7 @@ def normalize_sport_label(category):
 
 
 # @dump_data(enable=True)
-def normalize_both(category):
+def _normalize_both(category):
     """
     Normalize both nationality and sport tokens in the category.
 
@@ -70,18 +69,12 @@ def normalize_both(category):
     return new_category
 
 
-def get_template_label_new(key, category):
-    """Fetch the template label for the provided normalized key."""
-    return nat_bot.get_template(key, category)
-
-
-def create_nat_label(category):
+def _create_nat_label(category):
     """Search for a nationality-aware label for the category."""
     return nat_bot.search(category)
 
 
-# @dump_data(enable=True)
-def create_label(category):
+def _create_label(category):
     """
     Create a localized label by combining nationality and sport templates.
 
@@ -115,11 +108,17 @@ def create_label(category):
     return label
 
 
+create_nat_label = both_bot.create_nat_label
+create_label = both_bot.create_label
+create_nat_label = both_bot.create_nat_label
+normalize_nat_label=both_bot.normalize_nat_label
+normalize_sport_label=both_bot.normalize_sport_label
+normalize_both= both_bot.normalize_both
+
 __all__ = [
     "normalize_nat_label",
     "normalize_sport_label",
     "normalize_both",
-    "get_template_label_new",
     "create_nat_label",
     "create_label",
 ]

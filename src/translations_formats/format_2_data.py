@@ -99,6 +99,10 @@ class FormatMultiData(ToCompare):
         return new_category
 
     @functools.lru_cache(maxsize=1000)
+    def create_nat_label(self, category):
+        return self.nat_bot.search(category)
+
+    @functools.lru_cache(maxsize=1000)
     def create_label(self, category):
         """
         Create a localized label by combining nationality and sport templates.
