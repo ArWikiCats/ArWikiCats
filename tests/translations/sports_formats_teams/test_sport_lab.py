@@ -4,7 +4,7 @@
 import pytest
 
 from src.translations.sports_formats_teams.sport_lab import (
-    Get_New_team_xo,
+    get_new_team_xo,
     Get_Sport_Format_xo_en_ar_is_P17,
 )
 
@@ -217,14 +217,14 @@ Get_New_team_xo_data = {
 @pytest.mark.parametrize("category, expected", Get_New_team_xo_data.items(), ids=list(Get_New_team_xo_data.keys()))
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category, expected) -> None:
-    label1 = Get_New_team_xo(category)
+    label1 = get_new_team_xo(category)
     assert isinstance(label1, str)
     assert label1.strip() == expected
 
 
 @pytest.mark.fast
 def test_Get_New_team_xo() -> None:
-    label = Get_New_team_xo("national softball teams")
+    label = get_new_team_xo("national softball teams")
     assert label == "منتخبات كرة لينة وطنية"
 
 
@@ -270,7 +270,7 @@ data = {
 @pytest.mark.fast
 @pytest.mark.parametrize("category, expected_key", data.items(), ids=list(data.keys()))
 def test_all(category, expected_key):
-    result = Get_New_team_xo(category)
+    result = get_new_team_xo(category)
     assert result.strip() == expected_key, f"Mismatch for {category}"
 
 
@@ -290,11 +290,11 @@ def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
 def test_mens_softball_world_cup_regression() -> None:
     """The resolver should correctly translate the softball world cup query."""
 
-    result = Get_New_team_xo("men's softball world cup")
+    result = get_new_team_xo("men's softball world cup")
     assert result == "كأس العالم للكرة اللينة للرجال"
 
 
 def test_returns_default_for_unknown_category() -> None:
     """Unmapped categories should return the provided default value."""
 
-    assert Get_New_team_xo("mystery sport") == ""
+    assert get_new_team_xo("mystery sport") == ""

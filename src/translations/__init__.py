@@ -86,7 +86,7 @@ from .sports_formats_2025.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .sports_formats_national.sport_lab_nat import Get_sport_formts_female_nat, sport_lab_nat_load
 from .sports_formats_teams.sport_lab import (
-    Get_New_team_xo,
+    get_new_team_xo,
     Get_Sport_Format_xo_en_ar_is_P17,
 )
 from .tv.films_mslslat import (
@@ -112,7 +112,7 @@ __all__ = [
     "match_sport_key",
     "olympics",
     "en_nats_to_ar_label",
-    "Get_New_team_xo",
+    "get_new_team_xo",
     "Get_sport_formts_female_nat",
     "sport_lab_nat_load",
     "Get_Sport_Format_xo_en_ar_is_P17",

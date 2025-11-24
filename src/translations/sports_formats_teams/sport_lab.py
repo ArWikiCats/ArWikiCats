@@ -45,7 +45,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p1
     return con_3_label
 
 
-def Get_New_team_xo(team: str) -> str:
+def get_new_team_xo(team: str) -> str:
     """Resolve team labels with 2026-format templates and fallbacks."""
     team_lab = wrap_team_xo_normal_2025(team)
     if not team_lab:
@@ -55,5 +55,5 @@ def Get_New_team_xo(team: str) -> str:
 
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
-    "Get_New_team_xo",
+    "get_new_team_xo",
 ]

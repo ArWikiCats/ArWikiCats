@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 
 from ...helps.log import logger
-from ...translations import SPORTS_KEYS_FOR_JOBS, Get_New_team_xo
+from ...translations import SPORTS_KEYS_FOR_JOBS, get_new_team_xo
 from ..o_bots.utils import resolve_suffix_template
 from . import team_work
 
@@ -32,7 +32,7 @@ def get_teams_new(team_name: str) -> str:
     logger.info(f'get_teams_new team:"{normalized_team}"')
     logger.info(f"get_teams_new: Resolving team label, team: {normalized_team}")
 
-    team_label = Get_New_team_xo(normalized_team)
+    team_label = get_new_team_xo(normalized_team)
 
     if not team_label:
         team_label = resolve_suffix_template(

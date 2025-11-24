@@ -19,7 +19,7 @@ from ..make2_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations import Get_New_team_xo, New_P17_Finall
+from ..translations import get_new_team_xo, New_P17_Finall
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
@@ -158,7 +158,7 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = Get_New_team_xo(category3)
+        category_lab = get_new_team_xo(category3)
         if category_lab:
             return category_lab
 
