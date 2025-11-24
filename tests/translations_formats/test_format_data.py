@@ -7,7 +7,7 @@ from src.translations_formats.format_data import FormatData
 
 data_list = {"snooker": "سنوكر"}
 
-formated_data = {
+formatted_data = {
     "{sport}": "{sport_label}",
     "{sport} managers": "مدراء {sport_label}",
     "{sport} coaches": "مدربو {sport_label}",
@@ -31,7 +31,7 @@ examples = {"snooker players": "لاعبو سنوكر"}
 
 @pytest.fixture
 def bot():
-    return FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    return FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 
 @pytest.mark.parametrize(

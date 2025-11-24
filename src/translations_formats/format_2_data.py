@@ -24,7 +24,7 @@ class FormatComparisonHelper:
 class FormatMultiData(FormatComparisonHelper):
     def __init__(
         self,
-        formated_data: Dict[str, str],
+        formatted_data: Dict[str, str],
         data_list: Dict[str, str],
         key_placeholder: str = "natar",
         value_placeholder: str = "natar",
@@ -37,7 +37,7 @@ class FormatMultiData(FormatComparisonHelper):
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
-        self.formated_data = formated_data
+        self.formatted_data = formatted_data
 
         self.value_placeholder = value_placeholder
         self.key_placeholder = key_placeholder
@@ -46,7 +46,7 @@ class FormatMultiData(FormatComparisonHelper):
         self.key2_placeholder = key2_placeholder
 
         self.nat_bot = FormatData(
-            self.formated_data,
+            self.formatted_data,
             data_list,
             key_placeholder=self.key_placeholder,
             value_placeholder=self.value_placeholder,
@@ -125,11 +125,11 @@ class FormatMultiData(FormatComparisonHelper):
 
         xoxo_key = self.sport_bot.match_key(category2)
 
-        if not self.formated_data.get(template_label):
+        if not self.formatted_data.get(template_label):
             return ""
 
         # cate = natar xoxo championships
-        template_ar = self.formated_data[template_label]
+        template_ar = self.formatted_data[template_label]
         logger.debug(f"{template_ar=}")
 
         sport_label = self.sport_bot.get_key_label(xoxo_key)

@@ -10,7 +10,7 @@ from src.translations_formats.format_data import FormatData
 
 @pytest.fixture
 def sample_data():
-    formated_data = {
+    formatted_data = {
         "men's {sport} world cup": "كأس العالم للرجال في {sport_label}",
         "women's {sport} championship": "بطولة السيدات في {sport_label}",
         "{sport} records": "سجلات {sport_label}",
@@ -25,12 +25,12 @@ def sample_data():
         "rugby": "الرجبي",
     }
 
-    return formated_data, data_list
+    return formatted_data, data_list
 
 
 def test_keys_to_pattern(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list, "{sport}", "{sport_label}")
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list, "{sport}", "{sport_label}")
     pattern = bot.keys_to_pattern()
     assert isinstance(pattern, re.Pattern)
     assert pattern.search("football") is not None
@@ -47,8 +47,8 @@ def test_keys_to_pattern(sample_data):
     ],
 )
 def test_match_key(category, expected, sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list, "{sport}", "{sport_label}")
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list, "{sport}", "{sport_label}")
     assert bot.match_key(category) == expected
 
 
@@ -62,8 +62,8 @@ def test_match_key(category, expected, sample_data):
     ids=[k for k in range(3)],
 )
 def test_apply_pattern_replacement(template_label, sport_label, expected, sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list, value_placeholder="xoxo")
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list, value_placeholder="xoxo")
     assert bot.apply_pattern_replacement(template_label, sport_label) == expected
 
 
@@ -75,8 +75,8 @@ def test_apply_pattern_replacement(template_label, sport_label, expected, sample
     ],
 )
 def test_normalize_category(category, sport_key, expected, sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list)
     result = bot.normalize_category(category, sport_key)
     assert result.lower() == expected.lower()
 
@@ -94,34 +94,34 @@ def test_normalize_category(category, sport_key, expected, sample_data):
     ids=[k for k in range(6)],
 )
 def test_search(sample_data, category, expected):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
     assert bot.search(category) == expected
 
 
 def test_search_no_sport_match(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list)
     assert bot.search("unrelated topic") == ""
 
 
 def test_search_no_template_label(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
-    bot.formated_data = {}  # remove templates
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list)
+    bot.formatted_data = {}  # remove templates
     assert bot.search("men's football world cup") == ""
 
 
 def test_case(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
     result = bot.search("men's football world cup")
     assert result == "كأس العالم للرجال في كرة القدم"
 
 
 def test_get_template(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
     normalized = bot.normalize_category("men's football world cup", "football")
     assert normalized == "men's {sport} world cup"
     template_label = bot.get_template("football", "men's football world cup")
@@ -136,7 +136,7 @@ def test_empty_data_lists():
 
 
 def test_case_insensitivity(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
     result = bot.search("MEN'S FOOTBALL WORLD CUP")
     assert result == "كأس العالم للرجال في كرة القدم"

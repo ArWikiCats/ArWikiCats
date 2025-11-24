@@ -7,7 +7,7 @@ from src.translations_formats.format_data import FormatData
 
 @pytest.fixture
 def sample_data():
-    formated_data = {
+    formatted_data = {
         "men's xoxo world cup": "كأس العالم للرجال في xoxo",
         "women's xoxo championship": "بطولة السيدات في xoxo",
         "xoxo records": "سجلات xoxo",
@@ -19,13 +19,13 @@ def sample_data():
         "snooker": "سنوكر",
     }
 
-    return formated_data, data_list
+    return formatted_data, data_list
 
 
 # --- keys_to_pattern -------------------------------------------------
 def test_keys_to_pattern_returns_pattern(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list)
     pattern = bot.keys_to_pattern()
     assert isinstance(pattern, re.Pattern)
     assert pattern.search("football")
@@ -48,8 +48,8 @@ def test_keys_to_pattern_empty_dict():
     ],
 )
 def test_match_key(category, expected, sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list)
     assert bot.match_key(category) == expected
 
 
@@ -88,15 +88,15 @@ def test_normalize_category(category, sport_key, expected, sample_data):
 
 # --- get_template ----------------------------------------------
 def test_get_template_found(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list)
     label = bot.get_template("football", "men's football world cup")
     assert label == "كأس العالم للرجال في xoxo"
 
 
 def test_get_template_not_found(sample_data):
-    formated_data, data_list = sample_data
-    bot = FormatData(formated_data, data_list)
+    formatted_data, data_list = sample_data
+    bot = FormatData(formatted_data, data_list)
     assert bot.get_template("football", "unknown text") == ""
 
 
@@ -123,15 +123,15 @@ def test_search_no_sport_match(sample_data):
 
 
 def test_search_missing_label(sample_data):
-    formated_data, data_list = sample_data
+    formatted_data, data_list = sample_data
     bot = FormatData({}, data_list)
     assert bot.search("men's football world cup") == ""
 
 
 def test_search_missing_sport_label(sample_data):
-    formated_data, data_list = sample_data
+    formatted_data, data_list = sample_data
     del data_list["football"]
-    bot = FormatData(formated_data, data_list)
+    bot = FormatData(formatted_data, data_list)
     assert bot.search("men's football world cup") == ""
 
 

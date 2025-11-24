@@ -23,7 +23,7 @@ sport_data = {
 }
 
 # Template data with both nationality and sport placeholders
-formated_data = {
+formatted_data = {
     "natar xoxo teams": "فرق {sport} {nationality}",
     "natar national xoxo teams": "منتخبات {nationality} ل{sport}",
     "natar xoxo championships": "بطولات {nationality} في {sport}",
@@ -37,7 +37,7 @@ formated_data = {
 def multi_bot():
     """Create a FormatMultiData instance for testing."""
     return FormatMultiData(
-        formated_data=formated_data,
+        formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="natar",
         value_placeholder="{nationality}",
@@ -66,7 +66,7 @@ class TestFormatMultiDataInitialization:
     def test_initialization_with_defaults(self):
         """Test that FormatMultiData initializes with default placeholders."""
         bot = FormatMultiData(
-            formated_data={},
+            formatted_data={},
             data_list=nationality_data,
         )
 
@@ -78,7 +78,7 @@ class TestFormatMultiDataInitialization:
     def test_initialization_with_custom_placeholders(self):
         """Test that FormatMultiData initializes with custom placeholders."""
         bot = FormatMultiData(
-            formated_data={},
+            formatted_data={},
             data_list=nationality_data,
             key_placeholder="COUNTRY",
             value_placeholder="{country}",
@@ -193,7 +193,7 @@ class TestCreateNatLabel:
         result = multi_bot.create_nat_label(category)
 
         # This should call nat_bot.search() which may return a result
-        # The exact result depends on whether the template exists in formated_data
+        # The exact result depends on whether the template exists in formatted_data
         assert isinstance(result, str)
 
     def test_create_nat_label_caching(self, multi_bot):
@@ -229,7 +229,7 @@ class TestCreateLabel:
         category = "yemeni football something"
         result = multi_bot.create_label(category)
 
-        # Template "natar xoxo something" doesn't exist in formated_data
+        # Template "natar xoxo something" doesn't exist in formatted_data
         assert result == ""
 
     @pytest.mark.parametrize("input_category,expected", [
@@ -311,7 +311,7 @@ class TestWithTextAfterAndBefore:
     def test_with_text_after(self):
         """Test FormatMultiData with text_after parameter."""
         bot = FormatMultiData(
-            formated_data={"natarian xoxo teams": "فرق {sport} {nationality}"},
+            formatted_data={"natarian xoxo teams": "فرق {sport} {nationality}"},
             data_list={"yemeni": "اليمن"},
             key_placeholder="natar",
             value_placeholder="{nationality}",
@@ -329,7 +329,7 @@ class TestWithTextAfterAndBefore:
     def test_with_text_before(self):
         """Test FormatMultiData with text_before parameter."""
         bot = FormatMultiData(
-            formated_data={"the natar xoxo teams": "فرق {sport} {nationality}"},
+            formatted_data={"the natar xoxo teams": "فرق {sport} {nationality}"},
             data_list={"yemeni": "اليمن"},
             key_placeholder="natar",
             value_placeholder="{nationality}",

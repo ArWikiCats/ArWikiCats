@@ -10,7 +10,7 @@ from src.translations_formats.format_data import FormatData
 
 
 @pytest.fixture(scope="session")
-def formated_data():
+def formatted_data():
     return load_data()
 
 
@@ -20,8 +20,8 @@ def data_list():
 
 
 @pytest.fixture
-def bot(formated_data, data_list):
-    return FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+def bot(formatted_data, data_list):
+    return FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 
 # --- keys_to_pattern --------------------------------------------------
@@ -125,15 +125,15 @@ def test_search_invalid(bot, category):
 
 
 # --- search edge cases -----------------------------------------------
-def test_search_missing_sport_label(formated_data, data_list):
+def test_search_missing_sport_label(formatted_data, data_list):
     # remove a key intentionally
     temp = dict(data_list)
     del temp["football"]
-    bot = FormatData(formated_data, temp)
+    bot = FormatData(formatted_data, temp)
     assert bot.search("men's football players") == ""
 
 
-def test_search_missing_template_label(formated_data, data_list):
+def test_search_missing_template_label(formatted_data, data_list):
     bot = FormatData({}, data_list)
     assert bot.search("men's football players") == ""
 
@@ -166,7 +166,7 @@ def test_all_templates_work(bot):
     """Randomly sample a few template keys and ensure no crash occurs."""
     import random
 
-    keys = random.sample(list(bot.formated_data.keys()), 50)
+    keys = random.sample(list(bot.formatted_data.keys()), 50)
     for k in keys:
         sample = k.replace("{sport}", "football")
         try:

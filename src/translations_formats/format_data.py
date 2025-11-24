@@ -11,7 +11,7 @@ from ..helps.log import logger
 class FormatData:
     def __init__(
         self,
-        formated_data: Dict[str, str],
+        formatted_data: Dict[str, str],
         data_list: Dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
@@ -20,13 +20,13 @@ class FormatData:
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
-        self.formated_data = formated_data
+        self.formatted_data = formatted_data
         self.data_list = data_list
         self.text_after = text_after
         self.text_before = text_before
 
         # Case-insensitive mirrors
-        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formated_data.items()}
+        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
         self.data_list_ci: Dict[str, str] = {k.lower(): v for k, v in data_list.items()}
 
         self.value_placeholder = value_placeholder
@@ -122,7 +122,7 @@ def format_data_sample():
     It creates a mapping of template patterns to their localized versions and applies them.
     """
     # Define a dictionary of formatted patterns with placeholders
-    formated_data = {
+    formatted_data = {
         "{sport}": "{sport_label}",
         "{sport} managers": "مدراء {sport_label}",
         "{sport} coaches": "مدربو {sport_label}",
@@ -157,7 +157,7 @@ def format_data_sample():
     }
 
     # Create a FormatData instance with the defined patterns and mappings
-    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     # Search for a specific pattern and get its localized version
     label = bot.search("american football players")
