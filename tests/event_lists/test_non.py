@@ -1686,14 +1686,14 @@ to_test = [
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
-@pytest.mark.skip2
+@pytest.mark.slow
 def test_non(category, expected) -> None:
     label = new_func_lab_final_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.slow
+@pytest.mark.skip2
 def test_non_dump(name, data):
 
     expected, diff_result = one_dump_test(data, new_func_lab_final_label)
