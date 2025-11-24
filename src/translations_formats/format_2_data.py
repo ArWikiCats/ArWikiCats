@@ -99,7 +99,10 @@ class FormatMultiData(FormatComparisonHelper):
         Example:
             input: "british softball championshipszz", output: "natar xoxo championshipszz"
         """
-        new_category = self.normalize_nat_label(category)
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+
+        new_category = self.normalize_nat_label(normalized_category)
         new_category = self.normalize_sport_label(new_category)
 
         return new_category

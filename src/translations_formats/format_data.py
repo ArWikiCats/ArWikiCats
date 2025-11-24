@@ -48,7 +48,9 @@ class FormatData:
         """Return canonical lowercased key from data_list if found; else empty."""
         if not self.pattern:
             return ""
-        match = self.pattern.search(f" {category} ")
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+        match = self.pattern.search(f" {normalized_category} ")
         return match.group(1).lower() if match else ""
 
     @functools.lru_cache(maxsize=None)
@@ -65,12 +67,16 @@ class FormatData:
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
 
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+
         normalized = re.sub(
             fr" {re.escape(sport_key)} ",
             f" {self.key_placeholder} ",
-            f" {category.strip()} ",
+            f" {normalized_category.strip()} ",
             flags=re.IGNORECASE,
         )
+
         if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
             normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
 

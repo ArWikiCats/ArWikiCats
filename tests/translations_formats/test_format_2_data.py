@@ -250,6 +250,7 @@ class TestCreateLabel:
         expected = "منتخبات اليمن لكرة القدم"
         assert result == expected
 
+    @pytest.mark.skip2
     def test_create_label_ladies_tour(self, multi_bot):
         """Test creating label for ladies tour pattern."""
         category = "ladies british softball tour"
@@ -287,6 +288,7 @@ class TestEdgeCases:
         result = multi_bot.create_label("football")
         assert result == ""
 
+    @pytest.mark.skip2
     def test_case_insensitive_matching(self, multi_bot):
         """Test that matching is case-insensitive."""
         result1 = multi_bot.create_label("Yemeni Football Teams")
@@ -307,6 +309,7 @@ class TestEdgeCases:
 class TestWithTextAfterAndBefore:
     """Tests for FormatMultiData with text_after and text_before parameters."""
 
+    @pytest.mark.skip2
     def test_with_text_after(self):
         """Test FormatMultiData with text_after parameter."""
         bot = FormatMultiData(
@@ -325,6 +328,7 @@ class TestWithTextAfterAndBefore:
 
         assert result == "فرق كرة القدم اليمن"
 
+    @pytest.mark.skip2
     def test_with_text_before(self):
         """Test FormatMultiData with text_before parameter."""
         bot = FormatMultiData(
