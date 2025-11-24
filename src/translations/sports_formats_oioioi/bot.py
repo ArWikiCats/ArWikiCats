@@ -15,6 +15,7 @@ from .data import NAT_P17_OIOI
 
 # Placeholder used for sport key substitution in templates
 SPORT_PLACEHOLDER = "oioioi"
+LABEL_PLACEHOLDER = "ixix"
 
 
 @functools.lru_cache(maxsize=None)
@@ -96,7 +97,7 @@ def make_sport_formats_p17(category_key: str) -> str:
     Returns:
         Resolved sport format label or empty string
     """
-    logger.info(f'<<lightblue>>>>>> sport_formats_p17: category_key:"{category_key}"')
+    logger.info(f'<<lightblue>>>>>> make_sport_formats_p17: category_key:"{category_key}"')
 
     resolved_label = ""
     sport_key = match_sport_key(category_key)
@@ -105,27 +106,30 @@ def make_sport_formats_p17(category_key: str) -> str:
         return ""
 
     sport_label = ""
-    placeholder_template = ""
 
     placeholder_key = category_key.replace(sport_key, SPORT_PLACEHOLDER)
     placeholder_key = re.sub(sport_key, SPORT_PLACEHOLDER, placeholder_key, flags=re.IGNORECASE)
-    logger.debug(f'sport_formats_p17 category_key:"{category_key}", sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"')
+    logger.debug(f'make_sport_formats_p17 category_key:"{category_key}", sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"')
 
-    if placeholder_key in NAT_P17_OIOI:
-        sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
-        if not sport_label:
-            logger.debug(f' sport_key:"{sport_key}" not in SPORTS_KEYS_FOR_TEAM ')
-        placeholder_template = NAT_P17_OIOI[placeholder_key]
-        if placeholder_template and sport_label:
-            formatted_label = placeholder_template.replace(SPORT_PLACEHOLDER, sport_label)
-            if SPORT_PLACEHOLDER not in formatted_label:
-                resolved_label = formatted_label
-                logger.debug(f'sport_formats_p17 formatted_label:"{resolved_label}"')
-    else:
-        logger.debug(f'sport_formats_p17 placeholder_key:"{placeholder_key}" not in NAT_P17_OIOI')
+    placeholder_template = NAT_P17_OIOI.get(placeholder_key, "")
 
-    if resolved_label:
-        logger.info(f'sport_formats_p17 category_key:"{category_key}", resolved_label:"{resolved_label}"')
+    if not placeholder_template:
+        logger.debug(f'make_sport_formats_p17 placeholder_key:"{placeholder_key}" not in NAT_P17_OIOI')
+        return ""
+
+    sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
+    if not sport_label:
+        logger.debug(f' sport_key:"{sport_key}" not in SPORTS_KEYS_FOR_TEAM ')
+
+    if not placeholder_template or not sport_label:
+        return ""
+
+    formatted_label = placeholder_template.replace(LABEL_PLACEHOLDER, sport_label)
+
+    if LABEL_PLACEHOLDER not in formatted_label:
+        resolved_label = formatted_label
+
+    logger.info(f'make_sport_formats_p17 category_key:"{category_key}", resolved_label:"{resolved_label}"')
 
     return resolved_label
 

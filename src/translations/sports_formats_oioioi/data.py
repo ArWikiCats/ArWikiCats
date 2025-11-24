@@ -12,39 +12,39 @@ nat_f = "{nat}"
 NAT_P17_DATA = {}  # الإنجليزي إسم البلد والعربي جنسية
 # ---
 for ioi in ["championships", "championship"]:
-    NAT_P17_DATA[f"oioioi {ioi}"] = f"بطولة {nat_f} oioioi"
-    NAT_P17_DATA[f"youth oioioi {ioi}"] = f"بطولة {nat_f} oioioi للشباب"
-    NAT_P17_DATA[f"men's oioioi {ioi}"] = f"بطولة {nat_f} oioioi للرجال"
-    NAT_P17_DATA[f"women's oioioi {ioi}"] = f"بطولة {nat_f} oioioi للسيدات"
-    NAT_P17_DATA[f"amateur oioioi {ioi}"] = f"بطولة {nat_f} oioioi للهواة"
-    NAT_P17_DATA[f"outdoor oioioi {ioi}"] = f"بطولة {nat_f} oioioi في الهواء الطلق"
-    NAT_P17_DATA[f"oioioi indoor {ioi}"] = f"بطولة {nat_f} oioioi داخل الصالات"
+    NAT_P17_DATA[f"oioioi {ioi}"] = f"بطولة {nat_f} ixix"
+    NAT_P17_DATA[f"youth oioioi {ioi}"] = f"بطولة {nat_f} ixix للشباب"
+    NAT_P17_DATA[f"men's oioioi {ioi}"] = f"بطولة {nat_f} ixix للرجال"
+    NAT_P17_DATA[f"women's oioioi {ioi}"] = f"بطولة {nat_f} ixix للسيدات"
+    NAT_P17_DATA[f"amateur oioioi {ioi}"] = f"بطولة {nat_f} ixix للهواة"
+    NAT_P17_DATA[f"outdoor oioioi {ioi}"] = f"بطولة {nat_f} ixix في الهواء الطلق"
+    NAT_P17_DATA[f"oioioi indoor {ioi}"] = f"بطولة {nat_f} ixix داخل الصالات"
 # ---
 for yearr in YEARS_LIST:
     kk1 = f"oioioi u{str(yearr)} championships"
     kk2 = f"oioioi u-{yearr} championships"
-    NAT_P17_DATA[kk1] = f"بطولة {nat_f} oioioi تحت {yearr} سنة"
-    NAT_P17_DATA[kk2] = f"بطولة {nat_f} oioioi تحت {yearr} سنة"
+    NAT_P17_DATA[kk1] = f"بطولة {nat_f} ixix تحت {yearr} سنة"
+    NAT_P17_DATA[kk2] = f"بطولة {nat_f} ixix تحت {yearr} سنة"
 # ---
-NAT_P17_DATA["oioioi junior championships"] = f"بطولة {nat_f} oioioi للناشئين"
-NAT_P17_DATA["championships (oioioi)"] = f"بطولة {nat_f} oioioi"
-NAT_P17_DATA["championships oioioi"] = f"بطولة {nat_f} oioioi"
-NAT_P17_DATA["open (oioioi)"] = f"{nat_f} المفتوحة oioioi"
-NAT_P17_DATA["open oioioi"] = f"{nat_f} المفتوحة oioioi"
+NAT_P17_DATA["oioioi junior championships"] = f"بطولة {nat_f} ixix للناشئين"
+NAT_P17_DATA["championships (oioioi)"] = f"بطولة {nat_f} ixix"
+NAT_P17_DATA["championships oioioi"] = f"بطولة {nat_f} ixix"
+NAT_P17_DATA["open (oioioi)"] = f"{nat_f} المفتوحة ixix"
+NAT_P17_DATA["open oioioi"] = f"{nat_f} المفتوحة ixix"
 # ---
 # Middle East Rally Championship بطولة الشرق الأوسط للراليات
 # ---
 # Category:Polish men's volleyball national team
-NAT_P17_DATA["oioioi national team"] = f"منتخب {nat_f} oioioi"
-NAT_P17_DATA["men's oioioi national team"] = f"منتخب {nat_f} oioioi للرجال"
-NAT_P17_DATA["men's u23 national oioioi team"] = f"منتخب {nat_f} oioioi تحت 23 سنة للرجال"
+NAT_P17_DATA["oioioi national team"] = f"منتخب {nat_f} ixix"
+NAT_P17_DATA["men's oioioi national team"] = f"منتخب {nat_f} ixix للرجال"
+NAT_P17_DATA["men's u23 national oioioi team"] = f"منتخب {nat_f} ixix تحت 23 سنة للرجال"
 # ---
-NAT_P17_DATA["women's oioioi"] = f"oioioi {nat_f} نسائية"
-NAT_P17_DATA["oioioi chairmen and investors"] = f"رؤساء ومسيرو oioioi {nat_f}"
-NAT_P17_DATA["defunct oioioi cup competitions"] = f"منافسات كؤوس oioioi {nat_f} سابقة"
-NAT_P17_DATA["oioioi cup competitions"] = f"منافسات كؤوس oioioi {nat_f}"
-NAT_P17_DATA["domestic oioioi cup"] = f"كؤوس oioioi {nat_f} محلية"
-NAT_P17_DATA["current oioioi seasons"] = f"مواسم oioioi {nat_f} حالية"
+NAT_P17_DATA["women's oioioi"] = f"ixix {nat_f} نسائية"
+NAT_P17_DATA["oioioi chairmen and investors"] = f"رؤساء ومسيرو ixix {nat_f}"
+NAT_P17_DATA["defunct oioioi cup competitions"] = f"منافسات كؤوس ixix {nat_f} سابقة"
+NAT_P17_DATA["oioioi cup competitions"] = f"منافسات كؤوس ixix {nat_f}"
+NAT_P17_DATA["domestic oioioi cup"] = f"كؤوس ixix {nat_f} محلية"
+NAT_P17_DATA["current oioioi seasons"] = f"مواسم ixix {nat_f} حالية"
 # ---
 
 typies = {
@@ -56,22 +56,22 @@ typies = {
 }
 
 for en, ar in typies.items():
-    NAT_P17_DATA[f"oioioi {en}"] = f"{ar} oioioi {nat_f}"
-    NAT_P17_DATA[f"professional oioioi {en}"] = f"{ar} oioioi {nat_f} للمحترفين"
-    NAT_P17_DATA[f"defunct oioioi {en}"] = f"{ar} oioioi {nat_f} سابقة"
-    NAT_P17_DATA[f"domestic oioioi {en}"] = f"{ar} oioioi محلية {nat_f}"
-    NAT_P17_DATA[f"domestic women's oioioi {en}"] = f"{ar} oioioi محلية {nat_f} للسيدات"
+    NAT_P17_DATA[f"oioioi {en}"] = f"{ar} ixix {nat_f}"
+    NAT_P17_DATA[f"professional oioioi {en}"] = f"{ar} ixix {nat_f} للمحترفين"
+    NAT_P17_DATA[f"defunct oioioi {en}"] = f"{ar} ixix {nat_f} سابقة"
+    NAT_P17_DATA[f"domestic oioioi {en}"] = f"{ar} ixix محلية {nat_f}"
+    NAT_P17_DATA[f"domestic women's oioioi {en}"] = f"{ar} ixix محلية {nat_f} للسيدات"
 
-    NAT_P17_DATA[f"domestic oioioi {en}"] = f"{ar} oioioi {nat_f} محلية"
-    NAT_P17_DATA[f"indoor oioioi {en}"] = f"{ar} oioioi {nat_f} داخل الصالات"
-    NAT_P17_DATA[f"outdoor oioioi {en}"] = f"{ar} oioioi {nat_f} في الهواء الطلق"
-    NAT_P17_DATA[f"defunct indoor oioioi {en}"] = f"{ar} oioioi {nat_f} داخل الصالات سابقة"
-    NAT_P17_DATA[f"defunct outdoor oioioi {en}"] = f"{ar} oioioi {nat_f} في الهواء الطلق سابقة"
+    NAT_P17_DATA[f"domestic oioioi {en}"] = f"{ar} ixix {nat_f} محلية"
+    NAT_P17_DATA[f"indoor oioioi {en}"] = f"{ar} ixix {nat_f} داخل الصالات"
+    NAT_P17_DATA[f"outdoor oioioi {en}"] = f"{ar} ixix {nat_f} في الهواء الطلق"
+    NAT_P17_DATA[f"defunct indoor oioioi {en}"] = f"{ar} ixix {nat_f} داخل الصالات سابقة"
+    NAT_P17_DATA[f"defunct outdoor oioioi {en}"] = f"{ar} ixix {nat_f} في الهواء الطلق سابقة"
 # ---
 # indoor & outdoor
-NAT_P17_DATA["domestic oioioi"] = f"oioioi {nat_f} محلية"
-NAT_P17_DATA["indoor oioioi"] = f"oioioi {nat_f} داخل الصالات"
-NAT_P17_DATA["outdoor oioioi"] = f"oioioi {nat_f} في الهواء الطلق"
+NAT_P17_DATA["domestic oioioi"] = f"ixix {nat_f} محلية"
+NAT_P17_DATA["indoor oioioi"] = f"ixix {nat_f} داخل الصالات"
+NAT_P17_DATA["outdoor oioioi"] = f"ixix {nat_f} في الهواء الطلق"
 # ---
 NAT_P17_OIOI = {f"{{nat}} {x}": v for x, v in NAT_P17_DATA.items()}
 # ---
