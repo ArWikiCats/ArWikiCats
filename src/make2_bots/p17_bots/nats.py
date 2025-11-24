@@ -12,8 +12,43 @@ from ...helps.log import logger
 from ...translations import (
     sport_lab_oioioi_load,
     sport_lab_nat_load,
+    SPORT_FORMATS_FOR_P17,
+    en_nats_to_ar_label,
 )
+
 from ...make2_bots.matables_bots.bot import add_to_new_players
+from ..jobs_bots.get_helps import get_con_3
+
+
+@functools.lru_cache(maxsize=None)
+def load_SPORT_FORMATS_FOR_P17(category: str, check_the: bool=False) -> str:
+    """
+    Example:
+        category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"
+    """
+    normalized_category = category.lower()
+
+    sport_format_key, country_start = get_con_3(normalized_category, "nat", check_the=check_the)
+
+    print(f"sport_lab_oioioi_load {normalized_category=}: {sport_format_key=} {country_start=}")
+
+    if not country_start or not sport_format_key:
+        return ""
+
+    country_label = en_nats_to_ar_label.get(country_start, "")
+
+    if not country_label:
+        return ""
+
+    sport_format_label = SPORT_FORMATS_FOR_P17.get(sport_format_key, "")
+
+    if not sport_format_label:
+        return ""
+
+    category_label = sport_format_label.format(nat=country_label)
+    logger.debug(f'<<lightblue>>xxx sport_lab_oioioi_load: new category_label  "{category_label}"')
+
+    return category_label
 
 
 @functools.lru_cache(maxsize=None)
@@ -33,6 +68,9 @@ def find_nat_others(category: str) -> str:
     normalized_category = category.lower()
 
     category_label = sport_lab_nat_load(normalized_category)
+
+    if category_label == "":
+        category_label = load_SPORT_FORMATS_FOR_P17(normalized_category)
 
     if category_label == "":
         category_label = sport_lab_oioioi_load(normalized_category)

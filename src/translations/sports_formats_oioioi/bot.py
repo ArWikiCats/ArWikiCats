@@ -9,9 +9,8 @@ from typing import Dict, Tuple
 
 from ...helps.log import logger
 from ..utils.match_sport_keys import match_sport_key
-from ..sports.nat_p17 import SPORT_FORMATS_FOR_P17
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
-from ..nats.Nationality import All_Nat
+from ..nats.Nationality import en_nats_to_ar_label
 from .data import NAT_P17_OIOI
 
 # Placeholder used for sport key substitution in templates
@@ -36,7 +35,7 @@ def get_con_3(cate: str, category_type: str, check_the: bool=False) -> Tuple[str
 
     cate_lower2 = cate_lower[4:] if cate_lower.startswith("the ") else cate_lower
 
-    for key in All_Nat:
+    for key in en_nats_to_ar_label:
         if category_suffix:
             # A match has already been found; exit early
             break
@@ -100,11 +99,6 @@ def make_sport_formats_p17(category_key: str) -> str:
 
     logger.info(f'<<lightblue>>>>>> sport_formats_p17: category_key:"{category_key}"')
 
-    cached_label = SPORT_FORMATS_FOR_P17.get(category_key, "")
-    if cached_label:
-        logger.debug(f"\tfind lab in SPORT_FORMATS_FOR_P17: {cached_label}")
-        return cached_label
-
     resolved_label = ""
     sport_key = match_sport_key(category_key)
 
@@ -152,7 +146,7 @@ def sport_lab_oioioi_load(category: str, check_the: bool=False) -> str:
     if not country_start or not sport_format_key:
         return ""
 
-    country_label = All_Nat.get(country_start, "")
+    country_label = en_nats_to_ar_label.get(country_start, "")
 
     if not country_label:
         return ""
