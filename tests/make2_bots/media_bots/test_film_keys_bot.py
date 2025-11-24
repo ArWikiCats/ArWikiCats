@@ -261,7 +261,7 @@ fast_data = [
 @pytest.mark.parametrize("data", fast_data, ids=lambda x: x["category"])
 @pytest.mark.fast
 def test_fast_data(data) -> None:
-    label = Films(data["category"], data["country_start"], data["country_code"], "")
+    label = Films(data["category"], data["country_start"], data["country_code"])
     assert label.strip() == data["output"]
 
 

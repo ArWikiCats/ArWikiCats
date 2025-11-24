@@ -13,7 +13,7 @@ from ..helps.log import logger
 from ..make2_bots import tmp_bot
 from ..make2_bots.date_bots import with_years_bot
 from ..make2_bots.ma_bots.country_bot import get_country
-from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
+from ..make2_bots.ma_bots.lab_seoo_bot import event_label_work
 from ..make2_bots.ma_bots.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ..make2_bots.o_bots import univer  # univer.te_universities(cate)
 
@@ -73,7 +73,7 @@ def stubs_label(category_r: str) -> str:
         list_of_cat = "بذرة {}"
         category = category[: -len(" stubs")]
 
-        sub_ar_label = event_Lab_seoo("", category)
+        sub_ar_label = event_label_work(category)
 
         if not sub_ar_label:
             sub_ar_label = tmp_bot.Work_Templates(category)

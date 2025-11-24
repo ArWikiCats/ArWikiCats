@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Utility helpers for extracting country labels from category names."""
+"""
+Utility helpers for extracting country labels from category names.
+
+TODO: refactor the code
+"""
 
 import functools
 from typing import Dict, Tuple

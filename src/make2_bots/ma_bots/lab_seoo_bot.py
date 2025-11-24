@@ -46,7 +46,7 @@ def te_bot_3(category_key: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def event_Lab_seoo(reference_category: str, target_category: str) -> str:
+def event_label_work(target_category: str) -> str:
     """Retrieve category lab information based on the provided category.
 
     This function attempts to find the corresponding category lab for a
@@ -56,7 +56,6 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     it attempts to find a wikidata entry based on the category string.
 
     Args:
-        reference_category (str): A reference category string used in some lookups.
         target_category (str): The category string for which the lab information is sought.
 
     Returns:
@@ -66,8 +65,8 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
 
     normalized_target_category = target_category.lower().strip()
 
-    logger.info("<<lightblue>>>>event_Lab_seoo vvvvvvvvvvvv event_Lab_seoo start vvvvvvvvvvvv ")
-    logger.info(f'<<lightyellow>>>>>> event_Lab_seoo, normalized_target_category:"{normalized_target_category}"')
+    logger.info("<<lightblue>>>> vvvvvvvvvvvv event_label_work start vvvvvvvvvvvv ")
+    logger.info(f'<<lightyellow>>>>>> normalized_target_category:"{normalized_target_category}"')
 
     resolved_category_label = New_P17_Finall.get(normalized_target_category, "")
 
@@ -99,10 +98,10 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
         resolved_category_label = univer.te_universities(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = te_films(normalized_target_category, reference_category=reference_category)
+        resolved_category_label = te_films(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = nats.find_nat_others(normalized_target_category, reference_category=reference_category)
+        resolved_category_label = nats.find_nat_others(normalized_target_category)
 
     if not resolved_category_label:
         # print("translate_general_category 12")
@@ -120,3 +119,8 @@ def event_Lab_seoo(reference_category: str, target_category: str) -> str:
     # print(f"{resolved_category_label=}")
 
     return resolved_category_label
+
+
+@functools.lru_cache(maxsize=None)
+def event_Lab_seoo(reference_category: str, target_category: str) -> str:
+    return event_label_work(target_category)

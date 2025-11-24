@@ -13,7 +13,7 @@ from ..make2_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..make2_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make2_bots.ma_bots import list_cat_format, ye_ts_bot
 from ..make2_bots.ma_bots.country2_bot import Get_country2
-from ..make2_bots.ma_bots.lab_seoo_bot import event_Lab_seoo
+from ..make2_bots.ma_bots.lab_seoo_bot import event_label_work
 from ..make2_bots.ma_bots.squad_title_bot import get_squad_title
 from ..make2_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
@@ -306,9 +306,9 @@ class EventLabResolver:
         if not category_lab and not list_of_cat:
             list_of_cat, category3 = self._handle_suffix_patterns(category3)
 
-        # Process with event_Lab_seoo if no label found yet
+        # Process with event_label_work if no label found yet
         if not category_lab:
-            category_lab = event_Lab_seoo("", category3)
+            category_lab = event_label_work(category3)
 
         # Process list categories if both exist
         if list_of_cat and category_lab:
@@ -322,7 +322,7 @@ class EventLabResolver:
         # Handle case where list exists but no label
         if list_of_cat and not category_lab:
             list_of_cat = ""
-            category_lab = event_Lab_seoo(cate_r, original_category3)
+            category_lab = event_label_work(original_category3)
 
         # Try template processing if no label yet
         if not category_lab:

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-!
+TODO: refactor the code
 """
 
 import functools
@@ -72,38 +72,38 @@ def nat_match(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def te_2018_with_nat(category: str, reference_category: str = "") -> str:
+def te_2018_with_nat(category: str) -> str:
     """Return a localized job label for 2018 categories with nationality hints."""
-    logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category}), reference_category:{reference_category}..")
-    country_label = ""
-    # logger.debug('te_2018_with_nat "%s"' % category)
+    logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category})")
+
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
-    if not country_label:
-        country_label = short_womens_jobs.get(normalized_category, "")
+    country_label = short_womens_jobs.get(normalized_category, "")
+
     if not country_label:
         country_label = jobs_mens_data.get(normalized_category, "")
+
     con_3, nat = get_con_3(normalized_category, "nat")
+
     if con_3:
         if not country_label:
             country_label = Work_for_me(normalized_category, nat, con_3)
         if not country_label:
-            country_label = Films(normalized_category, nat, con_3, reference_category=reference_category)
+            country_label = Films(normalized_category, nat, con_3)
         if not country_label:
             country_label = ethnic_bot.ethnic(normalized_category, nat, con_3)
         if not country_label:
             country_label = nat_match(normalized_category)
+
     if not country_label:
         country_label = priffix_Mens_work(normalized_category)
+
     if not country_label:
         country_label = Women_s_priffix_work(normalized_category)
+
     if country_label == "" and con_3 == "":
-        country_label = Films(normalized_category, "", "", reference_category=reference_category)
-    if country_label:
-        if con_3:
-            country2 = ""
-            logger.debug(f'<<lightblue>> te_2018_with_nat startswith({country2}),con_3:"{con_3}"')
-        logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
-    # Try with Jobs
+        country_label = Films(normalized_category, "", "")
+
+    logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     return country_label
 
 

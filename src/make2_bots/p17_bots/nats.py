@@ -78,7 +78,7 @@ def make_sport_formats_p17(category_key: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def find_nat_others(category: str, reference_category: str = "") -> str:
+def find_nat_others(category: str) -> str:
     """Resolve fallback national labels for sport categories.
 
     Args:
@@ -102,12 +102,6 @@ def find_nat_others(category: str, reference_category: str = "") -> str:
     if not country_start or not sport_format_key:
         return ""
 
-    if category_label == "":
-        sport_format_label = Get_sport_formts_female_nat(sport_format_key)
-        if sport_format_label:
-            category_label = sport_format_label.format(nat=Nat_women[country_start])
-            logger.debug(f'<<lightblue>>xxx SPORT_FORMTS_FEMALE_NAT: new category_label  "{category_label}"')
-    # ---
     if category_label == "":
         sport_format_label = make_sport_formats_p17(sport_format_key)
         country_label = All_Nat[country_start].get("ar", "")

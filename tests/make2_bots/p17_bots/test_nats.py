@@ -29,5 +29,5 @@ def test_find_nat_others():
     assert isinstance(result_empty, str)
 
     # Test with reference category
-    result_with_ref = find_nat_others("French tennis players", "sport")
+    result_with_ref = find_nat_others("French tennis players")
     assert isinstance(result_with_ref, str)
