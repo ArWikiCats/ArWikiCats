@@ -77,6 +77,48 @@ def test_iowa(input, expected):
     assert result == expected
 
 
+@pytest.mark.parametrize("input,expected", data_1["montana"].items(), ids=[x for x in data_1["montana"]])
+@pytest.mark.slow
+def test_montana(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
+
+
+@pytest.mark.parametrize("input,expected", data_1["georgia (u.s. state)"].items(), ids=[x for x in data_1["georgia (u.s. state)"]])
+@pytest.mark.slow
+def test_georgia(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
+
+
+@pytest.mark.parametrize("input,expected", data_1["nebraska"].items(), ids=[x for x in data_1["nebraska"]])
+@pytest.mark.slow
+def test_nebraska(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
+
+
+@pytest.mark.parametrize("input,expected", data_1["wisconsin"].items(), ids=[x for x in data_1["wisconsin"]])
+@pytest.mark.slow
+def test_wisconsin(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
+
+
+@pytest.mark.parametrize("input,expected", data_1["new mexico"].items(), ids=[x for x in data_1["new mexico"]])
+@pytest.mark.slow
+def test_new_mexico(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
+
+
+@pytest.mark.parametrize("input,expected", data_1["arizona"].items(), ids=[x for x in data_1["arizona"]])
+@pytest.mark.slow
+def test_arizona(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
+
+
 @pytest.mark.parametrize("name,data", data_1.items())
 @pytest.mark.slow
 def test_us_counties_dump(name, data):
