@@ -4,6 +4,7 @@ Supplementary mappings for educational, sporting and political contexts.
 
 from ..sports.cycling import CYCLING_TEMPLATES
 from .keys2 import new_2019
+from ...helps import len_print
 
 CAMBRIDGE_COLLEGES: dict[str, str] = {
     "christ's": "كريست",
@@ -342,4 +343,11 @@ def build_new2019() -> dict[str, str]:
 
 new2019: dict[str, str] = build_new2019()
 
+len_print.data_len(
+    "all_keys2.py",
+    {
+        "INTER_FEDS_LOWER": INTER_FEDS_LOWER,
+        "new2019": new2019,
+    },
+)
 __all__ = ["new2019", "INTER_FEDS_LOWER"]

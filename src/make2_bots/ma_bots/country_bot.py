@@ -74,7 +74,7 @@ class CountryLabelRetriever:
             resolved_label = SPORTS_KEYS_FOR_LABEL.get(country, "")
 
         get_country_done[country] = resolved_label
-        logger.debug(f'>>>> Get country "{resolved_label}"')
+        logger.debug(f'>>>> Get country "{resolved_label=}"')
         logger.debug(">> ----------------- end get_country ----------------- ")
         return resolved_label
 

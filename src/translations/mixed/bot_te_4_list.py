@@ -12,10 +12,20 @@ from ..sports.games_labs import SUMMER_WINTER_GAMES
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from .keys_23 import AFC_KEYS
+from ...helps import len_print
 from .Newkey import pop_final6
 
 replace_labels_2022: dict[str, str] = {
     "مجندون أطفال": "أطفال مجندون",
+}
+
+# الإنجليزية جنسية والعربية رجال
+# tab[Category:Austrian non-profit publishers] = "تصنيف:ناشرون غير ربحيون نمساويون"
+# tab[Category:Austrian non profit publishers] = "تصنيف:ناشرون غير ربحيون نمساويون"
+
+en_is_nat_ar_is_mens: dict[str, str] = {
+    "non profit publishers": "ناشرون غير ربحيون {}",
+    "non-profit publishers": "ناشرون غير ربحيون {}",
 }
 
 # الإنجليزية اسم البلد والعربية نساء
@@ -346,8 +356,11 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "names": "أسماء {}",
     "nationalism": "قومية {}",
     "newspapers": "صحف {}",
+
     "non-profit organizations": "منظمات غير ربحية {}",
-    "non-profit publishers": "ناشرون غير ربحيون {}",
+
+    "non profit organizations": "منظمات غير ربحية {}",
+
     "novels": "روايات {}",
     "online journalism": "صحافة إنترنت {}",
     "operas": "أوبيرات {}",
@@ -508,32 +521,6 @@ change_male_to_female: dict[str, str] = {
     "{} دينيون": "{} دينيات",
 }
 
-priffix_lab_for_2018: dict[str, dict[str, str]] = {
-    "fictional": {"men": "{} خيالي", "women": "{} خيالية"},
-    "native": {"men": "{} أصلي", "women": "{} أصلية"},
-    "contemporary": {"men": "{} معاصر", "women": "{} معاصرة"},
-    "ancient": {"men": "{} قديم", "women": "{} قديمة"},
-}
-
-Main_priffix: dict[str, str] = {
-    "assassinated": "{} مغتالون",
-    "fictional": "{} خياليون",
-    "native": "{} أصليون",
-    "murdered": "{} قتلوا",
-    "killed": "{} قتلوا",
-    "contemporary": "{} معاصرون",
-    "ancient": "{} قدماء",
-    "cultural depictions of": "تصوير ثقافي عن {}",
-    "fictional depictions of": "تصوير خيالي عن {}",
-    "depictions of": "تصوير عن {}",
-    # "medieval" : "{} من العصور الوسطى",
-    "non": "{} غير",
-    # "non" : "غير {}",
-}
-Main_priffix_to: dict[str, str] = {
-    "non": "{t} غير {nat}",
-}
-
 ttk: dict[str, str] = {
     "cultural depictions of": "التصوير الثقافي ل{}",
     "fictional depictions of": "التصوير الخيالي ل{}",
@@ -562,6 +549,7 @@ en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
 _extend_singer_and_business_entries()
 _extend_book_entries()
 
+
 __all__ = [
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
@@ -569,9 +557,6 @@ __all__ = [
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
     "change_male_to_female",
-    "priffix_lab_for_2018",
-    "Main_priffix",
-    "Main_priffix_to",
     "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_women_2",
     "en_is_P17_ar_is_mens",
@@ -579,3 +564,21 @@ __all__ = [
     "replace_labels_2022",
     "en_is_P17_ar_is_al_women",
 ]
+
+
+len_print.data_len(
+    "bot_te_4_list.py",
+    {
+        "en_is_nat_ar_is_P17": en_is_nat_ar_is_P17,
+        "en_is_nat_ar_is_al_mens": en_is_nat_ar_is_al_mens,
+        "en_is_nat_ar_is_man": en_is_nat_ar_is_man,
+        "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
+        "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
+        "change_male_to_female": change_male_to_female,
+        "Multi_sport_for_Jobs": Multi_sport_for_Jobs,
+        "en_is_nat_ar_is_women_2": en_is_nat_ar_is_women_2,
+        "en_is_P17_ar_is_mens": en_is_P17_ar_is_mens,
+        "en_is_P17_ar_is_P17": en_is_P17_ar_is_P17,
+        "en_is_P17_ar_is_al_women": en_is_P17_ar_is_al_women,
+    },
+)

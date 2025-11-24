@@ -26,8 +26,6 @@ from .mixed.all_keys3 import (
 from .mixed.all_keys4 import INTER_FEDS_LOWER
 from .mixed.all_keys5 import Clubs_key_2, pop_final_5
 from .mixed.bot_te_4_list import (
-    Main_priffix,
-    Main_priffix_to,
     Multi_sport_for_Jobs,
     change_male_to_female,
     en_is_nat_ar_is_al_mens,
@@ -39,7 +37,6 @@ from .mixed.bot_te_4_list import (
     en_is_P17_ar_is_al_women,
     en_is_P17_ar_is_mens,
     en_is_P17_ar_is_P17,
-    priffix_lab_for_2018,
     replace_labels_2022,
 )
 from .mixed.jenders_priffix_suffix import (
@@ -219,9 +216,6 @@ __all__ = [
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
     "change_male_to_female",
-    "priffix_lab_for_2018",
-    "Main_priffix",
-    "Main_priffix_to",
     "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_women_2",
     "en_is_P17_ar_is_mens",

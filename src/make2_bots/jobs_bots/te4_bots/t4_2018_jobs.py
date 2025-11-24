@@ -8,8 +8,6 @@ from typing import Tuple
 
 from ....helps.log import logger
 from ....translations import (
-    Main_priffix,
-    Main_priffix_to,
     Nat_men,
     Nat_women,
     People_key,
@@ -17,7 +15,6 @@ from ....translations import (
     en_is_nat_ar_is_man,
     en_is_nat_ar_is_women,
     jobs_mens_data,
-    priffix_lab_for_2018,
     short_womens_jobs,
 )
 from ..get_helps import get_con_3
@@ -25,6 +22,33 @@ from ..jobs_mainbot import jobs_with_nat_prefix
 from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ...languages_bot.langs_w import Lang_work
 from .relegin_jobs import try_relegins_jobs_with_suffix
+
+priffix_lab_for_2018: dict[str, dict[str, str]] = {
+    "fictional": {"men": "{} خيالي", "women": "{} خيالية"},
+    "native": {"men": "{} أصلي", "women": "{} أصلية"},
+    "contemporary": {"men": "{} معاصر", "women": "{} معاصرة"},
+    "ancient": {"men": "{} قديم", "women": "{} قديمة"},
+}
+
+Main_priffix: dict[str, str] = {
+    "assassinated": "{} مغتالون",
+    "fictional": "{} خياليون",
+    "native": "{} أصليون",
+    "murdered": "{} قتلوا",
+    "killed": "{} قتلوا",
+    "contemporary": "{} معاصرون",
+    "ancient": "{} قدماء",
+    "cultural depictions of": "تصوير ثقافي عن {}",
+    "fictional depictions of": "تصوير خيالي عن {}",
+    "depictions of": "تصوير عن {}",
+    # "medieval" : "{} من العصور الوسطى",
+    "non": "{} غير",
+    # "non" : "غير {}",
+}
+
+Main_priffix_to: dict[str, str] = {
+    "non": "{t} غير {nat}",
+}
 
 
 def _handle_main_prefix(category: str, category_original: str) -> Tuple[str, str, str]:
@@ -77,7 +101,6 @@ def _get_direct_lookup(category: str) -> str:
 def _handle_nationality_logic(
     category: str,
     main_ss: str,
-    country_lab: str
 ) -> Tuple[str, str, str, str, str]:
     """
     Handle nationality extraction and related job label logic.
@@ -85,15 +108,14 @@ def _handle_nationality_logic(
     Returns:
         tuple: (country_lab, country_prefix, category_suffix, job_example_lab, updated_main_lab)
     """
-    country_prefix = ""
-    category_suffix = ""
     job_example_lab = ""
     updated_main_lab = ""
+    country_lab = ""
 
-    if not country_lab:
-        category_suffix, country_prefix = get_con_3(category, "nat")
+    category_suffix, country_prefix = get_con_3(category, "nat")
 
     if category_suffix and (main_ss in priffix_lab_for_2018) and not country_lab:
+
         # en_is_nat_ar_is_women
         job_example_lab = en_is_nat_ar_is_women.get(category_suffix.strip(), "")
         if job_example_lab:
@@ -109,10 +131,7 @@ def _handle_nationality_logic(
                 logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
                 updated_main_lab = priffix_lab_for_2018[main_ss]["men"]
 
-    if category_suffix and not country_lab:
-        country_lab = jobs_with_nat_prefix(category, country_prefix, category_suffix)
-
-    return country_lab, country_prefix, category_suffix, job_example_lab, updated_main_lab
+    return country_lab, country_prefix, job_example_lab, updated_main_lab, category_suffix
 
 
 @functools.lru_cache(maxsize=None)
@@ -156,27 +175,36 @@ def te4_2018_Jobs(cate: str) -> str:
     # 3. Direct Lookups
     country_lab = _get_direct_lookup(cate_lower)
 
-    # 4. Nationality Logic
-    country_lab, country_prefix, category_suffix, job_example_lab, updated_main_lab = _handle_nationality_logic(
-        cate_lower, main_ss, country_lab
-    )
-
-    if updated_main_lab:
-        main_lab = updated_main_lab
-
-    # 5. Fallback Prefixes
     if not country_lab:
-        country_lab = Women_s_priffix_work(cate_lower) or priffix_Mens_work(cate_lower)
+        # 4. Nationality Logic
+        country_lab, country_prefix, job_example_lab, updated_main_lab, category_suffix = _handle_nationality_logic(
+            cate_lower, main_ss
+        )
 
-    # 6. Final Formatting
-    if main_ss and main_lab and country_lab:
-        country_lab = main_lab.format(country_lab)
-        if main_ss in Main_priffix_to and job_example_lab:
-            job_example_lab = job_example_lab.format("").strip()
-            country_lab = Main_priffix_to[main_ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
+        if category_suffix and not country_lab:
+            country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
+
+        if updated_main_lab:
+            main_lab = updated_main_lab
+
+        # 5. Fallback Prefixes
+        if not country_lab:
+            country_lab = Women_s_priffix_work(cate_lower) or priffix_Mens_work(cate_lower)
+
+        # 6. Final Formatting
+        if main_ss and main_lab and country_lab:
+            country_lab = main_lab.format(country_lab)
+            if main_ss in Main_priffix_to and job_example_lab:
+                job_example_lab = job_example_lab.format("").strip()
+                country_lab = Main_priffix_to[main_ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
 
     if not country_lab:
         country_lab = try_relegins_jobs_with_suffix(cate_lower)
 
     logger.debug(f'end te4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate_lower_original}')
     return country_lab
+
+
+__all__ = [
+    "te4_2018_Jobs"
+]
