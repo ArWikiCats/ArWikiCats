@@ -44,7 +44,12 @@ def normalize_nat_label(category):
 
 
 def normalize_sport_label(category):
-    """Normalize sport placeholders within a category string."""
+    """
+    Normalize sport placeholders within a category string.
+
+    Example:
+        category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
+    """
     key = sport_bot.match_key(category)
     result = ""
     if key:

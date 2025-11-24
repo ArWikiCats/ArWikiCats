@@ -8,7 +8,17 @@ from ..helps.log import logger
 from .format_data import FormatData
 
 
-class FormatMultiData:
+class ToCompare:
+    def __init__(self):
+        pass
+
+    def get_start_p17(self, cate):
+        new_category = self.normalize_nat_label(cate)
+        key = self.nat_bot.match_key(cate)
+        return new_category, key
+
+
+class FormatMultiData(ToCompare):
     def __init__(
         self,
         formated_data: Dict[str, str],
@@ -51,7 +61,12 @@ class FormatMultiData:
         # @dump_data(enable=True)
 
     def normalize_nat_label(self, category):
-        """Normalize nationality placeholders within a category string."""
+        """
+        Normalize nationality placeholders within a category string.
+
+        Example:
+            category:"Yemeni national football teams", result: "natar national football teams"
+        """
         key = self.nat_bot.match_key(category)
         result = ""
         if key:
@@ -59,7 +74,12 @@ class FormatMultiData:
         return result
 
     def normalize_sport_label(self, category):
-        """Normalize sport placeholders within a category string."""
+        """
+        Normalize sport placeholders within a category string.
+
+        Example:
+            category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
+        """
         key = self.sport_bot.match_key(category)
         result = ""
         if key:
@@ -70,7 +90,8 @@ class FormatMultiData:
         """
         Normalize both nationality and sport tokens in the category.
 
-        input: "british softball championshipszz", output: "natar xoxo championshipszz"
+        Example:
+            input: "british softball championshipszz", output: "natar xoxo championshipszz"
         """
         new_category = self.normalize_nat_label(category)
         new_category = self.normalize_sport_label(new_category)

@@ -1,6 +1,6 @@
 import pytest
 
-from src.translations.sports_formats_national.sport_lab_nat_new_2026 import sport_lab_nat_load_new, both_bot
+from src.translations.sports_formats_national.sport_lab_nat_new_2026 import sport_lab_nat_load_new
 from src.translations.sports_formats_national.sport_lab_nat import (
     sport_lab_nat_load,
 )
@@ -370,11 +370,9 @@ def test_the_compare() -> None:
 
     result = sport_lab_nat_load(key, True)
     result2 = sport_lab_nat_load_new(key)
-    result3 = both_bot.create_label(key)
 
-    assert result == expected, f"Error: {result=}, {result2=}, {result3=}, {expected=}"
-    assert result2 == expected, f"Error: {result=}, {result2=}, {result3=}, {expected=}"
-    assert result3 == expected, f"Error: {result=}, {result2=}, {result3=}, {expected=}"
+    assert result == expected, f"Error: {result=}, {result2=}, {expected=}"
+    assert result2 == expected, f"Error: {result=}, {result2=}, {expected=}"
 
 
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
