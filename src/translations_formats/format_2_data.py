@@ -8,9 +8,9 @@ from ..helps.log import logger
 from .format_data import FormatData
 
 
-class ToCompare:
+class FormatComparisonHelper:
     def __init__(self):
-        pass
+        ...
 
     def get_start_p17(self, cate):
         new_category = self.normalize_nat_label(cate)
@@ -18,7 +18,7 @@ class ToCompare:
         return new_category, key
 
 
-class FormatMultiData(ToCompare):
+class FormatMultiData(FormatComparisonHelper):
     def __init__(
         self,
         formated_data: Dict[str, str],
@@ -114,6 +114,10 @@ class FormatMultiData(ToCompare):
         template_label = self.normalize_both(category)
 
         nationality_key = self.nat_bot.match_key(category)
+
+        if not nationality_key:
+            return ""
+
         category2 = self.nat_bot.normalize_category(category, nationality_key)
 
         xoxo_key = self.sport_bot.match_key(category2)
