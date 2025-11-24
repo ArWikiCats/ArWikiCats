@@ -1,4 +1,22 @@
 
+## [#106](https://github.com/MrIbrahem/make2_new/pull/106) - 2025-11-24
+
+* **New Features**
+  * Enhanced category label resolution with consolidated lookup system for improved label consistency.
+  * Added new translation functions for sports category localization.
+  * Introduced dual-token normalization system for better multilingual support.
+
+* **Bug Fixes**
+  * Improved category matching with optional prefix handling.
+
+* **Refactoring**
+  * Simplified function signatures across translation modules.
+  * Reorganized translation data structures for better maintainability.
+
+* **Tests**
+  * Added comprehensive translation consistency tests.
+  * Cleaned up debug output from test suites.
+
 ## [#105](https://github.com/MrIbrahem/make2_new/pull/105) - 2025-11-24
 
 * **New Features**
