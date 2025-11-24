@@ -1,4 +1,18 @@
 
+## [#105](https://github.com/MrIbrahem/make2_new/pull/105) - 2025-11-24
+
+* **New Features**
+  * Added a loader for female national sport formats and expanded translation mappings for many sports/categories.
+
+* **Refactoring**
+  * Streamlined national-format resolution and removed an older nationality-aware labeling pipeline, simplifying label generation paths.
+
+* **Tests**
+  * Added multiple new test suites and expanded test data; also removed obsolete nationality-specific tests.
+
+* **Chores**
+  * General cleanup: removed extraneous commented markers and updated exports.
+
 ## [#104](https://github.com/MrIbrahem/make2_new/pull/104) - 2025-11-23
 
 * **Refactor**
