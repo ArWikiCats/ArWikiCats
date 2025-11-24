@@ -7,7 +7,14 @@ from src.translations.sports_formats_oioioi.bot import (
 )
 
 data = {
-    "swiss wheelchair curling championship": ("{nat} wheelchair curling championship", "swiss")
+    "swiss wheelchair curling championship": ("{nat} wheelchair curling championship", "swiss"),
+    "canadian open tennis": ("{nat} open tennis", "canadian"),
+    "caribbean handball championship": ("{nat} handball championship", "caribbean"),
+    "european motocross championship": ("{nat} motocross championship", "european"),
+    "central american women's handball championship": ("{nat} women's handball championship", "central american"),
+    "european athletics u23 championships": ("{nat} athletics u23 championships", "european"),
+    "european cricket championship": ("{nat} cricket championship", "european"),
+
 }
 
 

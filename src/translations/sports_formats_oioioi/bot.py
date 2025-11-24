@@ -19,7 +19,7 @@ LABEL_PLACEHOLDER = "ixix"
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(enable=True)
+@dump_data(["cate"], enable=True)
 def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
     """Fast and optimized version of get_start_p17.
 
@@ -82,8 +82,13 @@ def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
     if category_suffix and country_prefix:
         logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_start_p17 fo_3:"{category_suffix}"')
 
-    if not category_suffix.startswith("{nat}"):
+    if category_suffix and not category_suffix.startswith("{nat}"):
         category_suffix = f"{{nat}} {category_suffix}"
+
+    # TODO: Remove this
+    sport_format_label = make_sport_formats_p17(category_suffix)
+    if not sport_format_label:
+        return "", ""
 
     return category_suffix, country_prefix
 

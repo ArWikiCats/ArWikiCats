@@ -26,7 +26,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
         con_77: "under-13 baseball teams", result: "فرق كرة قاعدة {nat} تحت 13 سنة"
     """
     sport_key = match_sport_key(con_77)
-    print(f"Get_sport_formts_female_nat {con_77=} sport_key:{sport_key=}")
+    logger.info(f"Get_sport_formts_female_nat {con_77=} sport_key:{sport_key=}")
 
     if not sport_key:
         return ""
