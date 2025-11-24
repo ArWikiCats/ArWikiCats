@@ -608,14 +608,6 @@ te4_2018_Jobs_data = {
     "south american pan-africanists": "وحدويون أفارقة أمريكيون جنوبيون",
 }
 
-
-@pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=list(te4_2018_Jobs_data.keys()))
-@pytest.mark.slow
-def test_te4_2018_Jobs_data(category, expected_key) -> None:
-    label = te4_2018_Jobs(category)
-    assert label.strip() == expected_key
-
-
 data_fast = {
     "american basketball coaches": "مدربو كرة سلة أمريكيون",
     "polish women": "بولنديات",
@@ -665,21 +657,15 @@ data_fast = {
 }
 
 
+@pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=list(te4_2018_Jobs_data.keys()))
+@pytest.mark.slow
+def test_te4_2018_Jobs_data(category, expected_key) -> None:
+    label = te4_2018_Jobs(category)
+    assert label.strip() == expected_key
+
+
 @pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=list(data_fast.keys()))
 @pytest.mark.fast
 def test_data_fast(category, expected_key) -> None:
     label = te4_2018_Jobs(category)
     assert label.strip() == expected_key
-
-
-def test_te4_2018_Jobs():
-    # Test with a basic input
-    result = te4_2018_Jobs("test job")
-    assert isinstance(result, str)
-
-    result_empty = te4_2018_Jobs("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = te4_2018_Jobs("football players")
-    assert isinstance(result_various, str)

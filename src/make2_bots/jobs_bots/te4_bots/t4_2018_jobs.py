@@ -51,6 +51,7 @@ def te4_2018_Jobs(cate: str) -> str:
     cate2 = cate.lower()
     Main_Ss = ""
     Main_lab = ""
+
     for me, melab in Main_priffix.items():
         me2 = f"{me} "
         if cate.lower().startswith(me2.lower()):
@@ -61,14 +62,17 @@ def te4_2018_Jobs(cate: str) -> str:
                 if Main_lab in change_male_to_female:
                     Main_lab = change_male_to_female[Main_lab]
             logger.debug(f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{cate}",Main_lab:"{Main_lab}". ')
+
     cate2_no_lower = cate
     cate = cate.lower()
     if cate != cate2:
         logger.debug(f'<<lightblue>> te4_2018_Jobs cate:"{cate}",cate2:"{cate2}",Main_Ss:"{Main_Ss}". ')
+
     country_lab = "أشخاص" if cate == "people" else ""
     if Main_Ss.strip() == "fictional" and cate.strip().startswith("female"):
         Main_lab = "{} خياليات"
         logger.info("{} خياليات")
+
     if not country_lab:
         country_lab = People_key.get(cate, "")
     if not country_lab:
@@ -77,10 +81,13 @@ def te4_2018_Jobs(cate: str) -> str:
         country_lab = Lang_work(cate)
     if not country_lab:
         country_lab = jobs_mens_data.get(cate, "")
+
     country_prefix = ""
     category_suffix = ""
+
     if not country_lab:
         category_suffix, country_prefix = get_con_3(cate, "nat")
+
     job_example_lab = ""
     # priffix_lab_for_2018
     if category_suffix and (Main_Ss in priffix_lab_for_2018) and country_lab == "":
@@ -97,17 +104,21 @@ def te4_2018_Jobs(cate: str) -> str:
                 country_lab = job_example_lab.format(Nat_men[country_prefix])
                 logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
                 Main_lab = priffix_lab_for_2018[Main_Ss]["men"]
+
     if category_suffix and country_lab == "":
         country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix)
     if not country_lab:
         country_lab = Women_s_priffix_work(cate) or priffix_Mens_work(cate)
+
     # Try with jobs_with_nat_prefix
     if Main_Ss and Main_lab and country_lab:
         country_lab = Main_lab.format(country_lab)
         if Main_Ss in Main_priffix_to and job_example_lab:
             job_example_lab = job_example_lab.format("").strip()
             country_lab = Main_priffix_to[Main_Ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
+
     if not country_lab:
         country_lab = try_relegins_jobs_with_suffix(cate)
+
     logger.debug(f'end te4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate2}')
     return country_lab

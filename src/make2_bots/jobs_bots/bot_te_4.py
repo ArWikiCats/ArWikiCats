@@ -22,104 +22,106 @@ from .te4_bots.for_me import Work_for_me
 from .te4_bots.t4_2018_jobs import te4_2018_Jobs
 
 
+COUNTRY_TEMPLATES = {
+    r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
+}
+
+_Multi_sport_for_Jobs: dict[str, str] = {
+    "afc asian cup": "كأس آسيا",
+    "afc cup": "كأس الاتحاد الآسيوي",
+    "fifa futsal world cup": "كأس العالم لكرة الصالات",
+}
+
+
 def nat_match(category: str) -> str:
     """Match a category string to a localized sentiment label.
 
-    This function takes a category string, processes it to identify if it
-    matches any predefined sentiment patterns, and returns the corresponding
-    localized sentiment label. It uses regular expressions to match patterns
-    and replaces parts of the category string to generate the output label.
-    If no match is found, an empty string is returned.
-
     Args:
         category (str): The category string to be matched.
-        out (bool?): A flag to control output behavior. Defaults to False.
-        reference_category (str?): An additional parameter for future use. Defaults to an empty string.
 
     Returns:
         str: The localized sentiment label corresponding to the input category,
             or an empty string if no match is found.
+
+    Example:
+        category: anti-haitian sentiment, result: "مشاعر معادية للهايتيون"
     """
     category_lower = category.lower().replace("category:", "")
     matched_country_key = ""
     country_label_template = ""
+
     logger.debug(f'<<lightblue>> bot_te_4: nat_match normalized_category :: "{category_lower}" ')
-    country_templates = {
-        r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
-        # r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
-        # r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
-    }
-    for pattern, template in country_templates.items():
-        if re.match(pattern, category_lower):
-            matched_country_key = re.sub(pattern, r"\g<1>", category_lower)
+
+    for pattern, template in COUNTRY_TEMPLATES.items():
+        match = re.match(pattern, category_lower)
+        if match:
+            matched_country_key = match.group(1)
             country_label_template = template
-    """
-    sentiment_category = category_lower
-    if not country_label_template and sentiment_category.endswith(" sentiment"):
-        sentiment_category = sentiment_category[: -len(" sentiment")]
-        if category_lower.startswith("anti-"):
-            sentiment_category = category_lower[5:]
-    logger.debug(
-        '<<lightblue>> bot_te_4: nat_match sentiment_category :: "%s" ' % sentiment_category
-    )
-    """
+            break
+
     if matched_country_key:
         logger.debug(f'<<lightblue>> bot_te_4: nat_match country_key :: "{matched_country_key}" ')
+
     country_label_key = Nat_mens.get(matched_country_key, "")
-    country_label = country_label_template % country_label_key if country_label_template and country_label_key else ""
+    country_label = ""
+
+    if country_label_template and country_label_key:
+        country_label = country_label_template % country_label_key
+
     if country_label:
         logger.debug(f'<<lightblue>> bot_te_4: nat_match country_label :: "{country_label}" ')
+
     return country_label
 
 
 @functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str) -> str:
     """
-
     Return a localized job label for 2018 categories with nationality hints.
     TODO: use FormatData method
+
+    Example:
+        category: zimbabwean musical groups, result: "مجموعات موسيقية زيمبابوية"
     """
     logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category})")
 
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
-    country_label = short_womens_jobs.get(normalized_category, "")
+
+    # Try direct lookups first
+    country_label = short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
     if not country_label:
-        country_label = jobs_mens_data.get(normalized_category, "")
+        con_3, nat = get_con_3(normalized_category, "nat")
 
-    con_3, nat = get_con_3(normalized_category, "nat")
+        if con_3:
+            # Try various strategies if we have a country code
+            strategies = [
+                lambda: Work_for_me(normalized_category, nat, con_3),
+                lambda: Films(normalized_category, nat, con_3),
+                lambda: ethnic_bot.ethnic(normalized_category, nat, con_3),
+                lambda: nat_match(normalized_category),
+            ]
 
-    if con_3:
+            for strategy in strategies:
+                country_label = strategy()
+                if country_label:
+                    break
+
+        # Fallback strategies if still no label
         if not country_label:
-            country_label = Work_for_me(normalized_category, nat, con_3)
-        if not country_label:
-            country_label = Films(normalized_category, nat, con_3)
-        if not country_label:
-            country_label = ethnic_bot.ethnic(normalized_category, nat, con_3)
-        if not country_label:
-            country_label = nat_match(normalized_category)
+            country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
 
-    if not country_label:
-        country_label = priffix_Mens_work(normalized_category)
-
-    if not country_label:
-        country_label = Women_s_priffix_work(normalized_category)
-
-    if country_label == "" and con_3 == "":
-        country_label = Films(normalized_category, "", "")
+        # Special case for Films if everything else failed and no country code
+        if not country_label and not con_3:
+            country_label = Films(normalized_category, "", "")
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
-    return country_label
+    return country_label or ""
 
 
 @functools.lru_cache(maxsize=None)
 def Jobs_in_Multi_Sports(category: str) -> str:
-    """Retrieve job information related to multiple sports based on the
-    category.
-
-    This function processes the category to determine the relevant job and game labels.
-    The function formats the output to provide a meaningful representation
-    of the job in relation to the sport.
+    """Retrieve job information related to multiple sports based on the category.
 
     Args:
         category (str): The category string representing the sport or job type.
@@ -127,26 +129,30 @@ def Jobs_in_Multi_Sports(category: str) -> str:
     Returns:
         str: A formatted string representing the job information related to the
             specified category.
+    Example:
+        category: african games competitors, result: "منافسون في الألعاب الإفريقية"
     """
-    # python3 core8/pwb.py make/bot_te_4 Asian_Games_wrestlers
     logger.debug(f"<<lightyellow>>>> Jobs_in_Multi_Sports >> category:({category}) ")
-    primary_label = ""
-    category = category.replace("_", " ")
-    # cate2_no_lower = cate
-    category_lower = category.lower()
+
+    category_clean = category.replace("_", " ")
+    category_lower = category_clean.lower()
+
     job_key = ""
-    job_label = ""
     game_label = ""
-    for sport_prefix, game_label in Multi_sport_for_Jobs.items():
-        game_prefix = f"{sport_prefix} "
-        if category_lower.startswith(game_prefix.lower()):
-            job_key = category_lower[len(game_prefix) :]
-            logger.debug(f'Jobs_in_Multi_Sports category.startswith(game_prefix: "{game_prefix}") game_label:"{game_label}",job:"{job_key}". ')
+
+    for sport_prefix, label in Multi_sport_for_Jobs.items():
+        game_prefix = f"{sport_prefix} ".lower()
+        if category_lower.startswith(game_prefix):
+            job_key = category_lower[len(game_prefix):]
+            game_label = label
+            logger.debug(f'Jobs_in_Multi_Sports match: prefix="{game_prefix}", label="{game_label}", job="{job_key}"')
             break
-    if not job_label and job_key:
+
+    primary_label = ""
+    if job_key:
         job_label = te4_2018_Jobs(job_key)
-        # job_lab = short_womens_jobs.get(job , "")
-    if job_key and game_label and job_label:
-        primary_label = f"{job_label} في {game_label}"
-    logger.debug(f'end Jobs_in_Multi_Sports "{category}" , primary_label:"{primary_label}"')
+        if job_label and game_label:
+            primary_label = f"{job_label} في {game_label}"
+
+    logger.debug(f'end Jobs_in_Multi_Sports "{category_clean}" , primary_label:"{primary_label}"')
     return primary_label
