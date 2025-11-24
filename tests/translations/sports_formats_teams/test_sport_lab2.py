@@ -2,11 +2,11 @@
 """ """
 
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
-data = {
+data1 = {
     "National men's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للرجال",
     "National women's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للسيدات",
     "National wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية",
@@ -45,15 +45,7 @@ data = {
     "international snowboarding council": "المجلس الدولي للتزلج على الثلوج",
 }
 
-
-def test_New_team_xo_team_labels():
-    expected, diff_result = ye_test_one_dataset(data, wrap_team_xo_normal_2025)
-
-    dump_diff(diff_result, "test_New_team_xo_team_labels")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
-data = {
+data2 = {
     "national youth women's under-14 softball leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball leagues trainers": "مدربو دوريات كرة لينة وطنية تحت 14 سنة للشابات",
@@ -186,8 +178,30 @@ data = {
 }
 
 
-@pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
+@pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
 @pytest.mark.fast
-def test_wrap_team_xo_normal_2025(key, expected) -> None:
-    label = wrap_team_xo_normal_2025(key)
+def test_New_team_xo_team_labels(category, expected) -> None:
+    label = wrap_team_xo_normal_2025(category)
     assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", data2.items(), ids=list(data2.keys()))
+@pytest.mark.fast
+def test_New_team_xo_team_labels_2(category, expected) -> None:
+    label = wrap_team_xo_normal_2025(category)
+    assert label.strip() == expected
+
+
+TEMPORAL_CASES = [
+    ("test_New_team_xo_team_labels_1", data1),
+    ("test_New_team_xo_team_labels_2", data2),
+]
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.slow
+def test_all(name, data):
+    expected, diff_result = one_dump_test(data, wrap_team_xo_normal_2025)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
