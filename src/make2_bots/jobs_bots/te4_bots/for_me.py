@@ -47,6 +47,7 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
     men_nat_lab = Nat_men.get(nat, "")
     country_lab = ""
     con_3_lab = ""
+
     # رجالية بألف ولام التعريف
     if not con_3_lab and not country_lab:
         con_3_lab = en_is_nat_ar_is_al_mens.get(con_3.strip(), "")
@@ -57,6 +58,7 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
             men_nat_lab = f"ال{men_nat_lab_no_al}"
             country_lab = con_3_lab.format(men_nat_lab)
             logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_mens new country_lab  "{country_lab}" ')
+
     return country_lab
 
 
@@ -72,6 +74,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
     country_lab = ""
     con_3_lab = ""
     cco_lab = ""
+
     # الإنجليزي جنسية والعربي اسم البلد
     if not con_3_lab and not country_lab:
         con_3_lab = en_is_nat_ar_is_P17.get(con_3.strip(), "")
@@ -82,9 +85,11 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
             if cco_lab:
                 country_lab = con_3_lab.format(cco_lab)
                 logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_women new country_lab   "{country_lab}" ')
+
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
         country_lab = ethnic_bot.ethnic(cate, nat, con_3)
+
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
         con_3_lab = en_is_nat_ar_is_women.get(con_3.strip(), "")
@@ -95,6 +100,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
         if con_3_lab:
             country_lab = con_3_lab.format(women_nat_lab)
             logger.debug(f'<<lightblue>> test44:en_is_nat_ar_is_women new country_lab   "{country_lab}" ')
+
     # نسائية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
         con_3_lab = en_is_nat_ar_is_al_women.get(con_3.strip(), "")
@@ -107,6 +113,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
             else:
                 country_lab = con_3_lab.format(women_nat_lab)
             logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new country_lab  "{country_lab}" ')
+
     # رجالية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
         con_3_lab = en_is_nat_ar_is_man.get(con_3.strip(), "")
@@ -117,9 +124,11 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
         if con_3_lab:
             country_lab = con_3_lab.format(men_nat_lab)
             logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_man new country_lab    "{country_lab}" ')
+
     # رجالية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
         country_lab = Work_for_New_2018_men_Keys_with_all(cate, nat, con_3)
+
     return country_lab
 
 

@@ -158,6 +158,8 @@ en_is_nat_ar_is_man: dict[str, str] = {
     "art": "فن {}",
     "cuisine": "مطبخ {}",
     "calendar": "تقويم {}",
+    "non fiction literature": "أدب غير خيالي {}",
+    "non-fiction literature": "أدب غير خيالي {}",
     "literature": "أدب {}",
     "caste system": "نظام طبقي {}",
     "law": "قانون {}",
