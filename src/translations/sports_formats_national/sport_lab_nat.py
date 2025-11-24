@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" """
+"""
+
+TODO: Replaced by sport_lab_nat_new_2026.py
+
+"""
 
 import re
 import functools
@@ -18,7 +22,6 @@ from ...make2_bots.jobs_bots.get_helps import get_con_3
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
     """
     Resolve female national sport formats into Arabic labels.
-    TODO: use FormatData method
     Example:
         con_77: "under-13 baseball teams", result: "فرق كرة قاعدة {nat} تحت 13 سنة"
     """
