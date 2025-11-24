@@ -1,9 +1,7 @@
 #
 import json
 from pathlib import Path
-from typing import Callable, Dict
-
-from src import new_func_lab_final_label
+from typing import Callable
 
 
 def dump_diff(data, file_name):
@@ -36,17 +34,4 @@ def ye_test_one_dataset(dataset: dict, callback: Callable[[str], str]):
             diff[cat] = result
 
     return org, diff
-
-
-def ye_test_one_dataset_new(dataset: Dict):
-    print(f"len of dataset: {len(dataset)}")
-    org = {}
-    diff = {}
-    data = {x: v for x, v in dataset.items()}  # if v
-    for cat, ar in data.items():
-        result = new_func_lab_final_label(cat)
-        if result != ar:
-            org[cat] = ar
-            diff[cat] = result
-
-    return org, diff
+one_dump_test = ye_test_one_dataset
