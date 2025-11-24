@@ -19,7 +19,7 @@ LABEL_PLACEHOLDER = "ixix"
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data()
+@dump_data(enable=True)
 def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
     """Fast and optimized version of get_start_p17.
 
