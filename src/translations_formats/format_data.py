@@ -65,12 +65,8 @@ class FormatData:
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
 
-        to_search = re.escape(sport_key)
-        # if self.text_before: to_search = f"({self.text_before})?{to_search}"
-        # if self.text_after: to_search = f"{to_search}({self.text_after})?"
-
         normalized = re.sub(
-            f" {to_search} ",
+            fr" {re.escape(sport_key)} ",
             f" {self.key_placeholder} ",
             f" {category.strip()} ",
             flags=re.IGNORECASE,

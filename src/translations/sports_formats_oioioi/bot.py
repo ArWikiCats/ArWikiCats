@@ -6,7 +6,7 @@ TODO: use FormatData method
 import functools
 import re
 from typing import Dict, Tuple
-
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ..utils.match_sport_keys import match_sport_key
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
@@ -19,7 +19,8 @@ LABEL_PLACEHOLDER = "ixix"
 
 
 @functools.lru_cache(maxsize=None)
-def get_start_p17(cate: str, category_type: str, check_the: bool=False) -> Tuple[str, str]:
+@dump_data()
+def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
     """Fast and optimized version of get_start_p17.
 
     This function identifies a matching prefix from the given keys and
@@ -79,7 +80,7 @@ def get_start_p17(cate: str, category_type: str, check_the: bool=False) -> Tuple
 
     # Logging final result if match found
     if category_suffix and country_prefix:
-        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_start_p17 fo_3:"{category_suffix}",lab_type:{category_type}')
+        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_start_p17 fo_3:"{category_suffix}"')
 
     if not category_suffix.startswith("{nat}"):
         category_suffix = f"{{nat}} {category_suffix}"
@@ -142,9 +143,9 @@ def sport_lab_oioioi_load(category: str, check_the: bool=False) -> str:
     """
     normalized_category = category.lower()
 
-    sport_format_key, country_start = get_start_p17(normalized_category, "nat", check_the=check_the)
+    sport_format_key, country_start = get_start_p17(normalized_category, check_the=check_the)
 
-    print(f"sport_lab_oioioi_load {normalized_category=}: {sport_format_key=} {country_start=}")
+    logger.debug(f"sport_lab_oioioi_load {normalized_category=}: {sport_format_key=} {country_start=}")
 
     if not country_start or not sport_format_key:
         return ""
@@ -166,4 +167,5 @@ def sport_lab_oioioi_load(category: str, check_the: bool=False) -> str:
 
 __all__ = [
     "sport_lab_oioioi_load",
+    "get_start_p17",
 ]
