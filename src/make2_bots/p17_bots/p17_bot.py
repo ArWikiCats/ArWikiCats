@@ -57,7 +57,11 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
 
 
 def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
-    """Resolve categories that start with nationality adjectives into country labels."""
+    """
+    Resolve categories that start with nationality adjectives into country labels.
+
+    TODO: use FormatData method
+    """
     resolved_label = ""
     con_3_lab = ""
     country_start_lab = ""

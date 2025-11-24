@@ -42,6 +42,8 @@ def te4_2018_Jobs(cate: str) -> str:
 
     Returns:
         str: The job-related label corresponding to the input category.
+
+    TODO: use FormatData method
     """
     cate = cate.replace("_", " ")
     logger.debug(f"<<lightyellow>>>> te4_2018_Jobs >> cate:({cate}) ")

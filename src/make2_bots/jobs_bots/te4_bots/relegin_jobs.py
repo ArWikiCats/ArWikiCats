@@ -33,7 +33,10 @@ def relegins_jobs(cate: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def try_relegins_jobs_with_suffix(cate: str) -> str:
-    """Try to generate religion job labels using nationality-style suffix logic."""
+    """
+    Try to generate religion job labels using nationality-style suffix logic.
+    TODO: use FormatData method"""
+
     logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> cate:{cate}")
     category_suffix, country_prefix = get_con_3(cate, "religions")
     if not category_suffix:

@@ -73,7 +73,11 @@ def nat_match(category: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str) -> str:
-    """Return a localized job label for 2018 categories with nationality hints."""
+    """
+
+    Return a localized job label for 2018 categories with nationality hints.
+    TODO: use FormatData method
+    """
     logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category})")
 
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
