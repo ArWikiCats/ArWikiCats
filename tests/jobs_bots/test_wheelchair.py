@@ -1,7 +1,7 @@
 """Unit tests"""
 
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
@@ -93,92 +93,90 @@ wheelchair_racers_by_nat = {
 }
 
 
-@pytest.mark.slow
-def test_wheelchair_racers_by_nat():
-    expected, diff_result = ye_test_one_dataset(wheelchair_racers_by_nat, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_wheelchair_racers_by_nat")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
-@pytest.mark.slow
-def test_wheelchair_3():
-    data2 = {
-        "Category:Olympic men wheelchair racers": "",
-        "Category:New Zealand wheelchair racers": "",
-        "Category:New Zealand wheelchair rugby players": "",
-        "Category:European Wheelchair Handball Nations’ Tournament": "",
-        "Category:French Open by year – Wheelchair events": "",
-        "Category:College men's wheelchair basketball teams in the United States": "",
-        "Category:College women's wheelchair basketball teams in the United States": "",
-        "Category:Canadian wheelchair sports competitors": "",
-        "Category:British wheelchair shot putters": "",
-        "Category:British wheelchair sports competitors": "",
-        "Category:British wheelchair track and field athletes": "",
-        "Category:American wheelchair javelin throwers": "",
-        "Category:American wheelchair shot putters": "",
-        "Category:American wheelchair sports competitors": "",
-        "Category:American wheelchair track and field athletes": "",
-        "Category:Australia women's national wheelchair basketball team": "تصنيف:منتخب أستراليا لكرة السلة على الكراسي المتحركة للسيدات",
-        "Category:Australian Open by year – Wheelchair events": "",
-        "Category:IWBF U23 World Wheelchair Basketball Championship": "",
-        "Category:Olympic women wheelchair racers": "",
-        "Category:Pan American Wheelchair Handball Championship": "",
-        "Category:Paralympic wheelchair basketball squads": "",
-        "Category:Puerto Rican wheelchair sports competitors": "",
-        "Category:Puerto Rican wheelchair track and field athletes": "",
-        "Category:RFL Wheelchair Super League": "",
-        "Category:Women's National Wheelchair Basketball League": "",
-        "Category:Women's U25 Wheelchair Basketball World Championship": "",
-        "Category:World Wheelchair Mixed Doubles Curling Championship": "",
-        "Category:Wheelchair rugby Paralympic champions navigational boxes": "",
-        "Category:Wheelchair Tennis Masters": "",
-        "Category:Wheelchair basketball at the 2020 ASEAN Para Games": "",
-        "Category:Wheelchair basketball at the ASEAN Para Games": "",
-        "Category:Wheelchair fencing at the 2020 ASEAN Para Games": "",
-        "Category:Wheelchair fencing at the ASEAN Para Games": "",
-        "Category:Wheelchair javelin throwers": "",
-        "Category:Wheelchair manufacturers": "",
-        "Category:Wheelchair marathons": "",
-        "Category:Wheelchair organizations": "",
-        "Category:Wheelchair rugby biography stubs": "",
-        "Category:Wheelchair shot putters": "",
-        "Category:Wheelchair sports classifications": "",
-        "Category:Wheelchair sports competitors by nationality": "",
-        "Category:Wheelchair sports competitors": "",
-        "Category:Wheelchair tennis at the 2020 ASEAN Para Games": "",
-        "Category:Wheelchair tennis at the ASEAN Para Games": "",
-        "Category:Wheelchair track and field athletes by nationality": "",
-        "Category:Wheelchair track and field athletes": "",
-        "Category:Wheelchair users by nationality": "",
-        "Category:Wheelchair users from Georgia (country)": "",
-        "Category:Wheelchair-category Paralympic competitors": "",
-        "Category:Wheelchairs": "",
-        "Category:Wimbledon Championship by year – Wheelchair events": "",
-        "Category:Wimbledon Championship by year – Wheelchair men's doubles": "",
-        "Category:Wimbledon Championship by year – Wheelchair men's singles": "",
-        "Category:Wimbledon Championship by year – Wheelchair quad doubles": "",
-        "Category:Wimbledon Championship by year – Wheelchair quad singles": "",
-        "Category:Wimbledon Championship by year – Wheelchair women's doubles": "",
-        "Category:Wimbledon Championship by year – Wheelchair women's singles": "",
-    }
-    expected, diff_result = ye_test_one_dataset(data2, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_wheelchair_3")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
-data3 = {
-    "Category:American wheelchair racers": "تصنيف:متسابقو كراسي متحركة أمريكيون",
+data2 = {
+    "Category:Olympic men wheelchair racers": "",
+    "Category:New Zealand wheelchair racers": "",
+    "Category:New Zealand wheelchair rugby players": "",
+    "Category:European Wheelchair Handball Nations’ Tournament": "",
+    "Category:French Open by year – Wheelchair events": "",
+    "Category:College men's wheelchair basketball teams in the United States": "",
+    "Category:College women's wheelchair basketball teams in the United States": "",
+    "Category:Canadian wheelchair sports competitors": "",
+    "Category:British wheelchair shot putters": "",
+    "Category:British wheelchair sports competitors": "",
+    "Category:British wheelchair track and field athletes": "",
+    "Category:American wheelchair javelin throwers": "",
+    "Category:American wheelchair shot putters": "",
+    "Category:American wheelchair sports competitors": "",
+    "Category:American wheelchair track and field athletes": "",
+    "Category:Australia women's national wheelchair basketball team": "تصنيف:منتخب أستراليا لكرة السلة على الكراسي المتحركة للسيدات",
+    "Category:Australian Open by year – Wheelchair events": "",
+    "Category:IWBF U23 World Wheelchair Basketball Championship": "",
+    "Category:Olympic women wheelchair racers": "",
+    "Category:Pan American Wheelchair Handball Championship": "",
+    "Category:Paralympic wheelchair basketball squads": "",
+    "Category:Puerto Rican wheelchair sports competitors": "",
+    "Category:Puerto Rican wheelchair track and field athletes": "",
+    "Category:RFL Wheelchair Super League": "",
+    "Category:Women's National Wheelchair Basketball League": "",
+    "Category:Women's U25 Wheelchair Basketball World Championship": "",
+    "Category:World Wheelchair Mixed Doubles Curling Championship": "",
+    "Category:Wheelchair rugby Paralympic champions navigational boxes": "",
+    "Category:Wheelchair Tennis Masters": "",
+    "Category:Wheelchair basketball at the 2020 ASEAN Para Games": "",
+    "Category:Wheelchair basketball at the ASEAN Para Games": "",
+    "Category:Wheelchair fencing at the 2020 ASEAN Para Games": "",
+    "Category:Wheelchair fencing at the ASEAN Para Games": "",
+    "Category:Wheelchair javelin throwers": "",
+    "Category:Wheelchair manufacturers": "",
+    "Category:Wheelchair marathons": "",
+    "Category:Wheelchair organizations": "",
+    "Category:Wheelchair rugby biography stubs": "",
+    "Category:Wheelchair shot putters": "",
+    "Category:Wheelchair sports classifications": "",
+    "Category:Wheelchair sports competitors by nationality": "",
+    "Category:Wheelchair sports competitors": "",
+    "Category:Wheelchair tennis at the 2020 ASEAN Para Games": "",
+    "Category:Wheelchair tennis at the ASEAN Para Games": "",
+    "Category:Wheelchair track and field athletes by nationality": "",
+    "Category:Wheelchair track and field athletes": "",
+    "Category:Wheelchair users by nationality": "",
+    "Category:Wheelchair users from Georgia (country)": "",
+    "Category:Wheelchair-category Paralympic competitors": "",
+    "Category:Wheelchairs": "",
+    "Category:Wimbledon Championship by year – Wheelchair events": "",
+    "Category:Wimbledon Championship by year – Wheelchair men's doubles": "",
+    "Category:Wimbledon Championship by year – Wheelchair men's singles": "",
+    "Category:Wimbledon Championship by year – Wheelchair quad doubles": "",
+    "Category:Wimbledon Championship by year – Wheelchair quad singles": "",
+    "Category:Wimbledon Championship by year – Wheelchair women's doubles": "",
+    "Category:Wimbledon Championship by year – Wheelchair women's singles": "",
 }
 
+test_data = [
+    ("test_wheelchair_racers_by_nat", wheelchair_racers_by_nat),
+    ("test_wheelchair_3", data2),
+]
 
-@pytest.mark.parametrize(
-    "category,expected_key",
-    data3.items(),
-    ids=[k for k in data3],
-)
+
+@pytest.mark.parametrize("category, expected", wheelchair_racers_by_nat.items(), ids=list(wheelchair_racers_by_nat.keys()))
 @pytest.mark.fast
-def test_wheelchair_4(category: str, expected_key: str):
-    result = new_func_lab_final_label(category)
-    assert result == expected_key
+def test_wheelchair_racers_by_nat(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", data2.items(), ids=list(data2.keys()))
+@pytest.mark.fast
+def test_wheelchair_3(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.slow
+@pytest.mark.parametrize("name,data", test_data)
+def test_geography_all(name, data):
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

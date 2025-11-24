@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
@@ -65,16 +65,37 @@ geography_us_3 = {
 }
 
 test_data = [
-    ("geography_us_1", geography_us_1),
-    ("geography_us_2", geography_us_2),
-    ("geography_us_3", geography_us_3),
+    ("test_geography_us_1", geography_us_1),
+    ("test_geography_us_2", geography_us_2),
+    ("test_geography_us_3", geography_us_3),
 ]
+
+
+@pytest.mark.parametrize("category, expected", geography_us_1.items(), ids=list(geography_us_1.keys()))
+@pytest.mark.fast
+def test_geography_us_1(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", geography_us_2.items(), ids=list(geography_us_2.keys()))
+@pytest.mark.fast
+def test_geography_us_2(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", geography_us_3.items(), ids=list(geography_us_3.keys()))
+@pytest.mark.fast
+def test_geography_us_3(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
 
 
 @pytest.mark.parametrize("name,data", test_data)
 @pytest.mark.slow
 def test_geography_us(name, data):
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

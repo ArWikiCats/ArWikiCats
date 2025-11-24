@@ -8,7 +8,17 @@ from ..helps.log import logger
 from .format_data import FormatData
 
 
-class FormatMultiData:
+class FormatComparisonHelper:
+    def __init__(self):
+        ...
+
+    def get_start_p17(self, cate):
+        new_category = self.normalize_nat_label(cate)
+        key = self.nat_bot.match_key(cate)
+        return new_category, key
+
+
+class FormatMultiData(FormatComparisonHelper):
     def __init__(
         self,
         formated_data: Dict[str, str],
@@ -51,7 +61,12 @@ class FormatMultiData:
         # @dump_data(enable=True)
 
     def normalize_nat_label(self, category):
-        """Normalize nationality placeholders within a category string."""
+        """
+        Normalize nationality placeholders within a category string.
+
+        Example:
+            category:"Yemeni national football teams", result: "natar national football teams"
+        """
         key = self.nat_bot.match_key(category)
         result = ""
         if key:
@@ -59,7 +74,12 @@ class FormatMultiData:
         return result
 
     def normalize_sport_label(self, category):
-        """Normalize sport placeholders within a category string."""
+        """
+        Normalize sport placeholders within a category string.
+
+        Example:
+            category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
+        """
         key = self.sport_bot.match_key(category)
         result = ""
         if key:
@@ -70,12 +90,17 @@ class FormatMultiData:
         """
         Normalize both nationality and sport tokens in the category.
 
-        input: "british softball championshipszz", output: "natar xoxo championshipszz"
+        Example:
+            input: "british softball championshipszz", output: "natar xoxo championshipszz"
         """
         new_category = self.normalize_nat_label(category)
         new_category = self.normalize_sport_label(new_category)
 
         return new_category
+
+    @functools.lru_cache(maxsize=1000)
+    def create_nat_label(self, category):
+        return self.nat_bot.search(category)
 
     @functools.lru_cache(maxsize=1000)
     def create_label(self, category):
@@ -89,7 +114,13 @@ class FormatMultiData:
         template_label = self.normalize_both(category)
 
         nationality_key = self.nat_bot.match_key(category)
-        xoxo_key = self.sport_bot.match_key(category)
+
+        if not nationality_key:
+            return ""
+
+        category2 = self.nat_bot.normalize_category(category, nationality_key)
+
+        xoxo_key = self.sport_bot.match_key(category2)
 
         if not self.formated_data.get(template_label):
             return ""

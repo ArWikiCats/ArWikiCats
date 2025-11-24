@@ -2,9 +2,10 @@
 """ """
 
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 from src.translations.sports_formats_oioioi.bot import (
     sport_lab_oioioi_load,
+    both_bot,
 )
 
 data = {
@@ -111,7 +112,7 @@ data = {
 
 
 def test_sport_lab_oioioi_load():
-    expected, diff_result = ye_test_one_dataset(data, sport_lab_oioioi_load)
+    expected, diff_result = one_dump_test(data, sport_lab_oioioi_load)
 
     dump_diff(diff_result, "test_sport_lab_oioioi_load")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
@@ -121,5 +122,7 @@ def test_sport_lab_oioioi_load():
 @pytest.mark.skip2
 def test_sport_lab_oioioi_load_data(category, expected) -> None:
     label1 = sport_lab_oioioi_load(category)
-    assert isinstance(label1, str)
-    assert label1.strip() == expected
+    label2 = both_bot.create_label(category)
+
+    assert label1 == expected
+    assert label2 == expected

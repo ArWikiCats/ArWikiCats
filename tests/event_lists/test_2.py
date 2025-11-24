@@ -1,9 +1,9 @@
 #
-from load_one_data import dump_diff, ye_test_one_dataset
-
+import pytest
+from load_one_data import dump_diff, one_dump_test
 from src import new_func_lab_final_label
 
-data = {
+data1 = {
     "Category:sieges of french invasion of egypt and syria": "تصنيف:حصارات الغزو الفرنسي لمصر وسوريا",
     "Category:1330 in men's international football": "تصنيف:كرة قدم دولية للرجال في 1330",
     "Category:2015 American television": "تصنيف:التلفزة الأمريكية 2015",
@@ -32,14 +32,6 @@ data = {
     # "Category:communists of bosnia and herzegovina politicians": "تصنيف:أحداث أكتوبر 1550 الرياضية في أوقيانوسيا",
 }
 
-
-def test_2():
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_2")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 data_test2 = {
     "Category:Schools for the deaf in New York (state)": "تصنيف:مدارس للصم في ولاية نيويورك",
     "Category:Cabinets involving the Liberal Party (Norway)": "",
@@ -62,13 +54,6 @@ data_test2 = {
     "Category:People associated with former colleges of the University of London": "",
     "Category:People associated with Nazarene universities and colleges": ""
 }
-
-
-def test_2_new():
-    expected, diff_result = ye_test_one_dataset(data_test2, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_2_new")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 data_list_bad = {
@@ -118,8 +103,39 @@ data_list_bad = {
 }
 
 
-def test_new_bug_check():
-    expected, diff_result = ye_test_one_dataset(data_list_bad, new_func_lab_final_label)
+to_test = [
+    ("test_1", data1),
+    ("test_2", data_test2),
+    ("test_2_new_bug_check", data_list_bad),
+]
 
-    dump_diff(diff_result, "test_2_new_bug_check")
+
+@pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
+@pytest.mark.fast
+def test_1(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", data_test2.items(), ids=list(data_test2.keys()))
+@pytest.mark.fast
+def test_2(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", data_list_bad.items(), ids=list(data_list_bad.keys()))
+@pytest.mark.fast
+def test_2_new_bug_check(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.slow
+def test_peoples(name, data):
+
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+
+    dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

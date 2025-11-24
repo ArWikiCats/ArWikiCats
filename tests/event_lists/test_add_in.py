@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
@@ -24,7 +24,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 def _test_temporal(name, data):
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

@@ -1,6 +1,5 @@
 #
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
 
 from src import new_func_lab_final_label
 
@@ -67,9 +66,8 @@ data = {
 }
 
 
+@pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 @pytest.mark.skip2
-def test_empty_result():
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_empty_result")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+def test_empty(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected

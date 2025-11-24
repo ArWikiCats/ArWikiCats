@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
 
@@ -27,12 +27,16 @@ geography_in_1 = {
     "Category:Companies based in Westchester County, New York": "تصنيف:شركات مقرها في مقاطعة ويستتشستر (نيويورك)",
     "Category:Crime in Pennsylvania": "تصنيف:جريمة في بنسلفانيا",
     "Category:Crimes in Pennsylvania": "تصنيف:جرائم في بنسلفانيا",
-}
-
-geography_in_2 = {
     "Category:Crimes in the United States by state": "تصنيف:جرائم في الولايات المتحدة حسب الولاية",
     "Category:Disasters in the United States by state": "تصنيف:كوارث في الولايات المتحدة حسب الولاية",
     "Category:Education in the United States by state": "تصنيف:التعليم في الولايات المتحدة حسب الولاية",
+    "Category:Rail transport in Sri Lanka by province": "تصنيف:السكك الحديدية في سريلانكا حسب المقاطعة",
+    "Category:Riots and civil disorder in the United States by state": "تصنيف:شغب وعصيان مدني في الولايات المتحدة حسب الولاية",
+    "Category:Schools in Westchester County, New York": "تصنيف:مدارس في مقاطعة ويستتشستر (نيويورك)",
+    "Category:Science and technology in the United States by state": "تصنيف:العلوم والتكنولوجيا في الولايات المتحدة حسب الولاية",
+    "Category:Slavery in the United States by state": "تصنيف:العبودية في الولايات المتحدة حسب الولاية",
+    "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
+    "Category:Sports venues in Westchester County, New York": "تصنيف:ملاعب رياضية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Education in Westchester County, New York": "تصنيف:التعليم في مقاطعة ويستتشستر (نيويورك)",
     "Category:Films set in China by city": "تصنيف:أفلام تقع أحداثها في الصين حسب المدينة",
     "Category:Films set in Westchester County, New York": "تصنيف:أفلام تقع أحداثها في مقاطعة ويستتشستر (نيويورك)",
@@ -42,7 +46,7 @@ geography_in_2 = {
     "Category:Health in the United States by state": "تصنيف:الصحة في الولايات المتحدة حسب الولاية",
 }
 
-geography_in_3 = {
+geography_in_2 = {
     "Category:Historic districts in Westchester County, New York": "تصنيف:المناطق التاريخية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Historic sites in the United States by state": "تصنيف:مواقع تاريخية في الولايات المتحدة حسب الولاية",
     "Category:Historic trails and roads in the United States by state": "تصنيف:طرق وممرات تاريخية في الولايات المتحدة حسب الولاية",
@@ -53,23 +57,10 @@ geography_in_3 = {
     "Category:Museums in Westchester County, New York": "تصنيف:متاحف في مقاطعة ويستتشستر (نيويورك)",
     "Category:National Register of Historic Places in Westchester County, New York": "تصنيف:السجل الوطني للأماكن التاريخية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Nature reserves in the United States by state": "تصنيف:محميات طبيعية في الولايات المتحدة حسب الولاية",
-}
-
-geography_in_4 = {
     "Category:Olympic gold medalists for the United States in alpine skiing": "تصنيف:فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "Category:Parks in Westchester County, New York": "تصنيف:متنزهات في مقاطعة ويستتشستر (نيويورك)",
     "Category:People by state in the United States": "تصنيف:أشخاص حسب الولاية في الولايات المتحدة",
     "Category:Populated places in Westchester County, New York": "تصنيف:أماكن مأهولة في مقاطعة ويستتشستر (نيويورك)",
-    "Category:Rail transport in Sri Lanka by province": "تصنيف:السكك الحديدية في سريلانكا حسب المقاطعة",
-    "Category:Riots and civil disorder in the United States by state": "تصنيف:شغب وعصيان مدني في الولايات المتحدة حسب الولاية",
-    "Category:Schools in Westchester County, New York": "تصنيف:مدارس في مقاطعة ويستتشستر (نيويورك)",
-    "Category:Science and technology in the United States by state": "تصنيف:العلوم والتكنولوجيا في الولايات المتحدة حسب الولاية",
-    "Category:Slavery in the United States by state": "تصنيف:العبودية في الولايات المتحدة حسب الولاية",
-}
-
-geography_in_5 = {
-    "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
-    "Category:Sports venues in Westchester County, New York": "تصنيف:ملاعب رياضية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Television shows set in Australia by city": "تصنيف:عروض تلفزيونية تقع أحداثها في أستراليا حسب المدينة",
     "Category:Tourist attractions in the United States by state": "تصنيف:مواقع جذب سياحي في الولايات المتحدة حسب الولاية",
     "Category:Tourist attractions in Westchester County, New York": "تصنيف:مواقع جذب سياحي في مقاطعة ويستتشستر (نيويورك)",
@@ -81,19 +72,37 @@ geography_in_5 = {
 }
 
 test_data = [
-    ("geography", geography_data),
-    ("geography_in_1", geography_in_1),
-    ("geography_in_2", geography_in_2),
-    ("geography_in_3", geography_in_3),
-    ("geography_in_4", geography_in_4),
-    ("geography_in_5", geography_in_5),
+    ("test_geography", geography_data),
+    ("test_geography_in_1", geography_in_1),
+    ("test_geography_in_2", geography_in_2),
 ]
+
+
+@pytest.mark.parametrize("category, expected", geography_data.items(), ids=list(geography_data.keys()))
+@pytest.mark.fast
+def test_geography(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", geography_in_1.items(), ids=list(geography_in_1.keys()))
+@pytest.mark.fast
+def test_geography_in_1(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", geography_in_2.items(), ids=list(geography_in_2.keys()))
+@pytest.mark.fast
+def test_geography_in_2(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
 
 
 @pytest.mark.slow
 @pytest.mark.parametrize("name,data", test_data)
-def test_geography(name, data):
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
+def test_geography_all(name, data):
+    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

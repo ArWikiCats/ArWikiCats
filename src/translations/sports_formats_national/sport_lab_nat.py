@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
 
-TODO: Replaced by sport_lab_nat_new_2026.py
 
 """
 
@@ -11,11 +10,41 @@ from ...helps.log import logger
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
 from .te2 import New_For_nat_female_xo_team
-
-from ...translations import (
-    Nat_women,
-)
+from ...translations import Nat_women
 from ...make2_bots.jobs_bots.get_helps import get_con_3
+from ...translations_formats.format_2_data import FormatMultiData
+
+
+New_For_nat_female_xo_team_2 = {
+    "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball
+    "{nat} xzxz championships": "بطولات xzxz {nat}",
+    "{nat} national xzxz championships": "بطولات xzxz وطنية {nat}",
+    "{nat} national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
+    "{nat} amateur xzxz cup": "كأس {nat} xzxz للهواة",
+    "{nat} youth xzxz cup": "كأس {nat} xzxz للشباب",
+    "{nat} men's xzxz cup": "كأس {nat} xzxz للرجال",
+    "{nat} women's xzxz cup": "كأس {nat} xzxz للسيدات",
+    "{nat} xzxz super leagues": "دوريات سوبر xzxz {nat}",
+}
+
+New_For_nat_female_xo_team_2.update({
+    f"{{nat}} {x}" : v for x, v in New_For_nat_female_xo_team.items()
+})
+
+# remove "the " from the start of all Nat_women_2 keys
+Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}
+
+both_bot = FormatMultiData(
+    New_For_nat_female_xo_team_2,
+    Nat_women_2,
+    key_placeholder="{nat}",
+    value_placeholder="{nat}",
+    data_list2=SPORTS_KEYS_FOR_JOBS,
+    key2_placeholder="xzxz",
+    value2_placeholder="xzxz",
+    text_after=" people",
+    text_before="the ",
+)
 
 
 @functools.lru_cache(maxsize=None)
@@ -92,7 +121,13 @@ def sport_lab_nat_load(category: str, check_the: bool=False) -> str:
     return category_label
 
 
+@functools.lru_cache(maxsize=None)
+def sport_lab_nat_load_new(category):
+    return both_bot.create_label(category)
+
+
 __all__ = [
     "Get_sport_formts_female_nat",
     "sport_lab_nat_load",
+    "sport_lab_nat_load_new",
 ]

@@ -1,5 +1,5 @@
 import pytest
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 from src.make2_bots.ma_bots.year_or_typeo.bot_lab import (
     label_for_startwith_year_or_typeo,
@@ -30,14 +30,6 @@ examples = {
     # "8th parliament of la rioja": "برلمان منطقة لا ريوخا الثامن",
 }
 
-
-def test_label_for_startwith_year_or_typeo():
-    expected, diff_result = ye_test_one_dataset(examples, label_for_startwith_year_or_typeo)
-
-    dump_diff(diff_result, "test_label_for_startwith_year_or_typeo")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 examples_century = {
     "1st-millennium architecture": "عمارة الألفية 1",
     "1st-millennium literature": "أدب الألفية 1",
@@ -58,8 +50,30 @@ examples_century = {
 }
 
 
-def test_label_for_startwith_year_or_typeo_centuries():
-    expected, diff_result = ye_test_one_dataset(examples_century, label_for_startwith_year_or_typeo)
+TEMPORAL_CASES = [
+    ("test_label_for_startwith_year_or_typeo", examples),
+    ("test_label_for_startwith_year_or_typeo_centuries", examples_century),
+]
 
-    dump_diff(diff_result, "test_label_for_startwith_year_or_typeo_centuries")
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.slow
+def test_all(name, data):
+    expected, diff_result = one_dump_test(data, label_for_startwith_year_or_typeo)
+
+    dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+
+@pytest.mark.parametrize("category, expected", examples.items(), ids=list(examples.keys()))
+@pytest.mark.fast
+def test_label_for_startwith_year_or_typeo(category, expected) -> None:
+    label = label_for_startwith_year_or_typeo(category)
+    assert label.strip() == expected
+
+
+@pytest.mark.parametrize("category, expected", examples_century.items(), ids=list(examples_century.keys()))
+@pytest.mark.fast
+def test_label_for_startwith_year_or_typeo_centuries(category, expected) -> None:
+    label = label_for_startwith_year_or_typeo(category)
+    assert label.strip() == expected

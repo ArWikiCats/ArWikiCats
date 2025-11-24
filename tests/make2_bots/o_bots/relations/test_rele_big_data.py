@@ -1,7 +1,7 @@
 
 import pytest
 from src.make2_bots.o_bots.rele import work_relations
-from load_one_data import dump_diff, ye_test_one_dataset
+from load_one_data import dump_diff, one_dump_test
 
 big_data = {
     "Afghanistan–Australia sports relations": "العلاقات الأسترالية الأفغانية الرياضية",
@@ -688,10 +688,17 @@ TEMPORAL_CASES = [
 ]
 
 
+@pytest.mark.parametrize("category, expected", big_data.items(), ids=list(big_data.keys()))
+@pytest.mark.fast
+def test_work_relations_big_data(category, expected) -> None:
+    label = work_relations(category)
+    assert label.strip() == expected
+
+
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.slow
-def test_work_relations_big_data(name, data):
-    expected, diff_result = ye_test_one_dataset(data, work_relations)
+def test_all_dump(name, data):
+    expected, diff_result = one_dump_test(data, work_relations)
 
     dump_diff(diff_result, f"test_work_relations_big_data_{name}")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
