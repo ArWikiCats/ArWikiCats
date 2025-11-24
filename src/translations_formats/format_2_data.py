@@ -8,20 +8,18 @@ from typing import Dict, Optional
 from ..helps.log import logger
 
 
-class FormatData:
+class FormatMultiData:
     def __init__(
         self,
         formated_data: Dict[str, str],
         data_list: Dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
-        add_after_pattern: str = "",
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
         self.formated_data = formated_data
         self.data_list = data_list
-        self.add_after_pattern = add_after_pattern
 
         # Case-insensitive mirrors
         self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formated_data.items()}
@@ -36,9 +34,7 @@ class FormatData:
         if not self.data_list_ci:
             return None
         keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
-
         data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
-
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -62,9 +58,8 @@ class FormatData:
     @functools.lru_cache(maxsize=None)
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
-
         normalized = re.sub(
-            f" {re.escape(sport_key)}{self.add_after_pattern} ",
+            f" {re.escape(sport_key)} ",
             f" {self.key_placeholder} ",
             f" {category.strip()} ",
             flags=re.IGNORECASE,
@@ -149,7 +144,7 @@ def format_data_sample():
     }
 
     # Create a FormatData instance with the defined patterns and mappings
-    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    bot = FormatMultiData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     # Search for a specific pattern and get its localized version
     label = bot.search("american football players")

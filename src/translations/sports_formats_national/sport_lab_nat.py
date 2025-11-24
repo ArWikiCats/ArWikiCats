@@ -2,8 +2,7 @@
 """ """
 
 import re
-
-from ...helps.jsonl_dump import dump_data
+import functools
 from ...helps.log import logger
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
@@ -15,11 +14,13 @@ from ...translations import (
 from ...make2_bots.jobs_bots.get_helps import get_con_3
 
 
-# @dump_data(enable=True)
+@functools.lru_cache(maxsize=None)
 def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_team
     """
     Resolve female national sport formats into Arabic labels.
     TODO: use FormatData method
+    Example:
+        con_77: "under-13 baseball teams", result: "فرق كرة قاعدة {nat} تحت 13 سنة"
     """
     sport_key = match_sport_key(con_77)
 
@@ -57,7 +58,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
     return result
 
 
-@dump_data(enable=True)
+@functools.lru_cache(maxsize=None)
 def sport_lab_nat_load(category: str) -> str:
     """
     Example:
