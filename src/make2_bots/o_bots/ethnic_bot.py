@@ -35,10 +35,10 @@ def ethnic_culture(category: str, start: str, suffix: str) -> str:
         The resolved label or an empty string.
     """
 
-    logger.info(f"Resolving ethnic culture, category={category}, start={start}, suffix={suffix}")
-
     if not Nat_women.get(start, "") and not Nat_men.get(start, ""):
         return ""
+
+    logger.info(f"Resolving ethnic culture, category={category}, start={start}, suffix={suffix}")
 
     topic_label = ""
     group_label = ""

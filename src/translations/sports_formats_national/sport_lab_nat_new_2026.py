@@ -39,7 +39,12 @@ sport_bot = FormatData({}, SPORTS_KEYS_FOR_JOBS, key_placeholder="xzxz", value_p
 
 # @dump_data(enable=True)
 def normalize_nat_label(category):
-    """Normalize nationality placeholders within a category string."""
+    """
+    Normalize nationality placeholders within a category string.
+
+    Example:
+        category:"Yemeni national football teams", result: "natar national football teams"
+    """
     key = nat_bot.match_key(category)
     result = ""
     if key:
@@ -50,7 +55,12 @@ def normalize_nat_label(category):
 
 
 def normalize_sport_label(category):
-    """Normalize sport placeholders within a category string."""
+    """
+    Normalize sport placeholders within a category string.
+
+    Example:
+        category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
+    """
     key = sport_bot.match_key(category)
     result = ""
     if key:
@@ -63,6 +73,8 @@ def normalize_both(category):
     """
     Normalize both nationality and sport tokens in the category.
 
+    Example:
+        category:"Yemeni national football teams", result: "natar national xoxo teams"
     """
     new_category = normalize_nat_label(category)
     new_category = normalize_sport_label(new_category)
@@ -93,7 +105,17 @@ def sport_lab_nat_load_new(category):
     template_label = normalize_both(category)  # Normalize the category to create a template label
 
     nationality_key = nat_bot.match_key(category)
-    sport_key = sport_bot.match_key(category)
+    if not nationality_key:
+        return ""
+
+    category2 = nat_bot.normalize_category(category, nationality_key)
+
+    sport_key = sport_bot.match_key(category2)
+
+    print(f"sport_lab_nat_load_new {template_label=}: {nationality_key=} {sport_key=}")
+
+    if not sport_key:
+        return ""
 
     if not New_For_nat_female_xo_team_2.get(template_label):
         return ""

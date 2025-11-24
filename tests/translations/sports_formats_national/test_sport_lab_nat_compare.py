@@ -6,6 +6,10 @@ from src.translations.sports_formats_national.sport_lab_nat import (
 )
 
 data = {
+    "republic-of ireland football leagues": "دوريات كرة قدم أيرلندية",
+    "republic-of ireland national youth football teams": "منتخبات كرة قدم وطنية أيرلندية للشباب",
+    "republic-of ireland football": "كرة قدم أيرلندية",
+    "republic-of ireland football cups": "كؤوس كرة قدم أيرلندية",
     "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة",
     "Canadian women's ice hockey": "هوكي جليد كندية نسائية",
     "samoan women's football": "كرة قدم ساموية نسائية",
@@ -359,41 +363,6 @@ data = {
 }
 
 
-@pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
-@pytest.mark.fast
-def test_sport_lab_nat_load(key, expected) -> None:
-    result = sport_lab_nat_load(key)
-    result2 = sport_lab_nat_load_new(key)
-    assert result == expected
-    assert result2 == expected
-
-
-data2 = {
-    "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة",
-    "american football teams": "فرق كرة قدم أمريكية",
-    "canadian football teams": "فرق كرة قدم كندية",
-    "american football competitions": "منافسات كرة قدم أمريكية",
-    "north american football clubs": "أندية كرة قدم أمريكية شمالية",
-    "north american football leagues": "دوريات كرة قدم أمريكية شمالية",
-    "central american football leagues": "دوريات كرة قدم أمريكية أوسطية",
-    "south american football leagues": "دوريات كرة قدم أمريكية جنوبية",
-    "republic-of ireland football leagues": "دوريات كرة قدم أيرلندية",
-    "republic-of ireland national youth football teams": "منتخبات كرة قدم وطنية أيرلندية للشباب",
-    "republic-of ireland football": "كرة قدم أيرلندية",
-    "republic-of ireland football cups": "كؤوس كرة قدم أيرلندية",
-    "canadian football competitions": "منافسات كرة قدم كندية",
-}
-
-
-@pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
-@pytest.mark.fast
-def test_compare(key, expected) -> None:
-    result = sport_lab_nat_load(key)
-    result2 = sport_lab_nat_load_new(key)
-    assert result == expected
-    assert result2 == expected
-
-
 @pytest.mark.fast
 def test_the_compare() -> None:
     key = "the yemeni people under-13 baseball teams"
@@ -404,3 +373,40 @@ def test_the_compare() -> None:
 
     assert result == expected, f"Error: {result=}, {result2=}, {expected=}"
     assert result2 == expected, f"Error: {result=}, {result2=}, {expected=}"
+
+
+@pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load(key, expected) -> None:
+    result = sport_lab_nat_load(key)
+    result2 = sport_lab_nat_load_new(key)
+    assert result == expected
+    assert result2 == expected
+
+
+data2 = {
+    "russian football teams": "فرق كرة قدم روسية",
+    "canadian football teams": "فرق كرة قدم كندية",
+    "canadian football competitions": "منافسات كرة قدم كندية",
+    "american football teams": "فرق كرة قدم أمريكية",
+    "american football competitions": "منافسات كرة قدم أمريكية",
+    "north american football clubs": "أندية كرة قدم أمريكية شمالية",
+    "north american football leagues": "دوريات كرة قدم أمريكية شمالية",
+    "central american football leagues": "دوريات كرة قدم أمريكية أوسطية",
+    "south american football leagues": "دوريات كرة قدم أمريكية جنوبية",
+}
+
+
+@pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
+@pytest.mark.fast
+def test_compare(key, expected) -> None:
+    """
+    Important because keys like: (canadian football, american football) are in both Nationality and SPORTS_KEYS
+    """
+    # pytest tests/translations/sports_formats_national/test_sport_lab_nat_compare.py -m skip2
+
+    result = sport_lab_nat_load(key)
+    result2 = sport_lab_nat_load_new(key)
+
+    assert result == expected
+    assert result2 == expected
