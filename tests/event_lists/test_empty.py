@@ -67,7 +67,7 @@ data = {
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_empty(category, expected) -> None:
     label = new_func_lab_final_label(category)
     assert label.strip() == expected
