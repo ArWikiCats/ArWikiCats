@@ -15,6 +15,7 @@ from ...translations import (
     SPORT_FORMATS_FOR_P17,
     SPORTS_KEYS_FOR_TEAM,
     All_Nat,
+    sport_lab_nat_load,
     Get_sport_formts_female_nat,
     Nat_women,
     match_sport_key,
@@ -95,13 +96,15 @@ def find_nat_others(category: str, reference_category: str = "") -> str:
     normalized_category = category.lower()
 
     sport_format_key, country_start = get_con_3(normalized_category, "nat")
-
+    # ---
+    category_label = sport_lab_nat_load(normalized_category)
+    # ---
     if sport_format_key and country_start:
         sport_format_label = Get_sport_formts_female_nat(sport_format_key)
         if sport_format_label:
             category_label = sport_format_label.format(nat=Nat_women[country_start])
             logger.debug(f'<<lightblue>>xxx SPORT_FORMTS_FEMALE_NAT: new category_label  "{category_label}"')
-
+    # ---
     if sport_format_key and country_start and category_label == "":
         sport_format_label = make_sport_formats_p17(sport_format_key)
         country_label = All_Nat[country_start].get("ar", "")
