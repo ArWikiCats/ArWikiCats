@@ -11,7 +11,7 @@ from ..helps.log import logger
 class FormatData:
     def __init__(
         self,
-        formated_data: Dict[str, str],
+        formatted_data: Dict[str, str],
         data_list: Dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
@@ -20,13 +20,13 @@ class FormatData:
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
-        self.formated_data = formated_data
+        self.formatted_data = formatted_data
         self.data_list = data_list
         self.text_after = text_after
         self.text_before = text_before
 
         # Case-insensitive mirrors
-        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formated_data.items()}
+        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
         self.data_list_ci: Dict[str, str] = {k.lower(): v for k, v in data_list.items()}
 
         self.value_placeholder = value_placeholder
@@ -48,7 +48,9 @@ class FormatData:
         """Return canonical lowercased key from data_list if found; else empty."""
         if not self.pattern:
             return ""
-        match = self.pattern.search(f" {category} ")
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+        match = self.pattern.search(f" {normalized_category} ")
         return match.group(1).lower() if match else ""
 
     @functools.lru_cache(maxsize=None)
@@ -65,12 +67,16 @@ class FormatData:
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
 
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+
         normalized = re.sub(
             fr" {re.escape(sport_key)} ",
             f" {self.key_placeholder} ",
-            f" {category.strip()} ",
+            f" {normalized_category.strip()} ",
             flags=re.IGNORECASE,
         )
+
         if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
             normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
 
@@ -122,7 +128,7 @@ def format_data_sample():
     It creates a mapping of template patterns to their localized versions and applies them.
     """
     # Define a dictionary of formatted patterns with placeholders
-    formated_data = {
+    formatted_data = {
         "{sport}": "{sport_label}",
         "{sport} managers": "مدراء {sport_label}",
         "{sport} coaches": "مدربو {sport_label}",
@@ -157,7 +163,7 @@ def format_data_sample():
     }
 
     # Create a FormatData instance with the defined patterns and mappings
-    bot = FormatData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     # Search for a specific pattern and get its localized version
     label = bot.search("american football players")

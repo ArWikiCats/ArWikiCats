@@ -8,7 +8,7 @@ from src.translations_formats.format_data import FormatData
 
 @pytest.fixture
 def sample_data():
-    formated_data = {
+    formatted_data = {
         "{nat} cup": "كأس {nat}",
     }
 
@@ -16,13 +16,13 @@ def sample_data():
         "yemeni": "اليمن",
     }
 
-    return formated_data, data_list
+    return formatted_data, data_list
 
 
 def test_text_after(sample_data):
-    formated_data, data_list = sample_data
+    formatted_data, data_list = sample_data
 
-    bot = FormatData(formated_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}", text_after=" people",)
+    bot = FormatData(formatted_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}", text_after=" people",)
     key = bot.match_key("yemeni cup")
     assert key == "yemeni"
 
@@ -37,9 +37,9 @@ def test_text_after(sample_data):
 
 
 def test_text_before(sample_data):
-    formated_data, data_list = sample_data
+    formatted_data, data_list = sample_data
 
-    bot = FormatData(formated_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}", text_before="the ")
+    bot = FormatData(formatted_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}", text_before="the ")
 
     result3 = bot.search("the yemeni cup")
     assert result3 == "كأس اليمن"
@@ -49,9 +49,9 @@ def test_text_before(sample_data):
 
 
 def test_text_before_text_after(sample_data):
-    formated_data, data_list = sample_data
+    formatted_data, data_list = sample_data
 
-    bot = FormatData(formated_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}",
+    bot = FormatData(formatted_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}",
                      text_after=" people",
                      text_before="the "
                      )

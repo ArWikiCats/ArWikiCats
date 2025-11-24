@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-""" """
+"""
+Provides classes for formatting template-driven translation labels.
+- FormatMultiData: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
+- FormatComparisonHelper: A helper class for comparison operations.
+
+test at tests.translations_formats.test_format_2_data.py
+"""
 
 import functools
 from typing import Dict
@@ -21,7 +27,7 @@ class FormatComparisonHelper:
 class FormatMultiData(FormatComparisonHelper):
     def __init__(
         self,
-        formated_data: Dict[str, str],
+        formatted_data: Dict[str, str],
         data_list: Dict[str, str],
         key_placeholder: str = "natar",
         value_placeholder: str = "natar",
@@ -34,7 +40,7 @@ class FormatMultiData(FormatComparisonHelper):
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
-        self.formated_data = formated_data
+        self.formatted_data = formatted_data
 
         self.value_placeholder = value_placeholder
         self.key_placeholder = key_placeholder
@@ -43,7 +49,7 @@ class FormatMultiData(FormatComparisonHelper):
         self.key2_placeholder = key2_placeholder
 
         self.nat_bot = FormatData(
-            self.formated_data,
+            self.formatted_data,
             data_list,
             key_placeholder=self.key_placeholder,
             value_placeholder=self.value_placeholder,
@@ -93,7 +99,10 @@ class FormatMultiData(FormatComparisonHelper):
         Example:
             input: "british softball championshipszz", output: "natar xoxo championshipszz"
         """
-        new_category = self.normalize_nat_label(category)
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+
+        new_category = self.normalize_nat_label(normalized_category)
         new_category = self.normalize_sport_label(new_category)
 
         return new_category
@@ -122,11 +131,11 @@ class FormatMultiData(FormatComparisonHelper):
 
         xoxo_key = self.sport_bot.match_key(category2)
 
-        if not self.formated_data.get(template_label):
+        if not self.formatted_data.get(template_label):
             return ""
 
         # cate = natar xoxo championships
-        template_ar = self.formated_data[template_label]
+        template_ar = self.formatted_data[template_label]
         logger.debug(f"{template_ar=}")
 
         sport_label = self.sport_bot.get_key_label(xoxo_key)
