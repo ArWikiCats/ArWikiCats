@@ -6,6 +6,7 @@ TODO: refactor the code
 import functools
 import re
 
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import (
     Multi_sport_for_Jobs,
@@ -21,6 +22,7 @@ from .te4_bots.for_me import Work_for_me
 from .te4_bots.t4_2018_jobs import te4_2018_Jobs
 
 
+@dump_data(enable=True)
 def nat_match(category: str) -> str:
     """Match a category string to a localized sentiment label.
 
@@ -72,6 +74,7 @@ def nat_match(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(enable=True)
 def te_2018_with_nat(category: str) -> str:
     """
 
@@ -112,6 +115,7 @@ def te_2018_with_nat(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(enable=True)
 def Jobs_in_Multi_Sports(category: str) -> str:
     """Retrieve job information related to multiple sports based on the
     category.
