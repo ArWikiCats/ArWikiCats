@@ -191,10 +191,9 @@ class TestCreateNatLabel:
         """Test creating nationality label when match is found."""
         category = "yemeni football teams"
         result = multi_bot.create_nat_label(category)
-
-        # This should call nat_bot.search() which may return a result
-        # The exact result depends on whether the template exists in formatted_data
-        assert isinstance(result, str)
+        # With the current `formated_data`, `nat_bot` won't find a template
+        # and will return an empty string.
+        assert result == ""
 
     def test_create_nat_label_caching(self, multi_bot):
         """Test that create_nat_label uses LRU cache."""
