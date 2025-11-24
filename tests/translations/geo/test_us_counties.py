@@ -52,22 +52,36 @@ test_data = {
 
 # test_data = { f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items() }
 
-data_1 = []
-for en, ar in STATE_NAME_TRANSLATIONS.items():
-    one_data = {
-        x.format(en=en): v.format(ar=ar) for x, v in test_data.items()
-    }
-    data_1.append((en, one_data))
-    if len(data_1) == 10:
-        break
+data_1 = {
+    "iowa": {},
+    "montana": {},
+    "georgia (u.s. state)": {},
+    "nebraska": {},
+    "wisconsin": {},
+    "new mexico": {},
+    "arizona": {},
+
+}
+for en in data_1.keys():
+    if STATE_NAME_TRANSLATIONS.get(en):
+        ar = STATE_NAME_TRANSLATIONS.get(en)
+        data_1[en] = {
+            x.format(en=en): v.format(ar=ar) for x, v in test_data.items()
+        }
 
 
-@pytest.mark.parametrize("state_name, data", data_1)
-@pytest.mark.fast
-def test_us_counties(state_name, data):
+@pytest.mark.parametrize("input,expected", data_1["iowa"].items(), ids=[x for x in data_1["iowa"]])
+@pytest.mark.slow
+def test_iowa(input, expected):
+    result = new_func_lab_final_label(input)
+    assert result == expected
+
+
+@pytest.mark.parametrize("name,data", data_1.items())
+@pytest.mark.slow
+def test_us_counties_dump(name, data):
     expected, diff_result = one_dump_test(data, new_func_lab_final_label)
-
-    dump_diff(diff_result, f"test_us_counties_{state_name}")
+    dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
