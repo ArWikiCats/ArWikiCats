@@ -23,6 +23,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
         con_77: "under-13 baseball teams", result: "فرق كرة قاعدة {nat} تحت 13 سنة"
     """
     sport_key = match_sport_key(con_77)
+    print(f"Get_sport_formts_female_nat {con_77=} sport_key:{sport_key=}")
 
     if not sport_key:
         return ""
@@ -59,14 +60,17 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
 
 
 @functools.lru_cache(maxsize=None)
-def sport_lab_nat_load(category: str) -> str:
+def sport_lab_nat_load(category: str, check_the: bool=False) -> str:
     """
     Example:
         category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"
     """
     normalized_category = category.lower()
 
-    sport_format_key, country_start = get_con_3(normalized_category, "nat")
+    sport_format_key, country_start = get_con_3(normalized_category, "nat", check_the=check_the)
+
+    print(f"sport_lab_nat_load {normalized_category=}: {sport_format_key=} {country_start=}")
+
     if not country_start or not sport_format_key:
         return ""
 

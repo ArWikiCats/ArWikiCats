@@ -5,19 +5,6 @@ from src.translations.sports_formats_national.sport_lab_nat import (
     sport_lab_nat_load,
 )
 
-
-def test_the_compare() -> None:
-    key = "yemeni people under-13 baseball teams"
-    key = "yemeni under-13 baseball teams"
-    expected = "فرق كرة قاعدة يمنية تحت 13 سنة"
-
-    result = sport_lab_nat_load(key)
-    result2 = sport_lab_nat_load_new(key)
-
-    assert result == expected, f"Error: {result=}, {result2=}, {expected=}"
-    assert result2 == expected, f"Error: {result=}, {result2=}, {expected=}"
-
-
 data = {
     "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة",
     "Canadian women's ice hockey": "هوكي جليد كندية نسائية",
@@ -399,9 +386,21 @@ data2 = {
 
 
 @pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_compare(key, expected) -> None:
     result = sport_lab_nat_load(key)
     result2 = sport_lab_nat_load_new(key)
     assert result == expected
     assert result2 == expected
+
+
+@pytest.mark.fast
+def test_the_compare() -> None:
+    key = "the yemeni people under-13 baseball teams"
+    expected = "فرق كرة قاعدة يمنية تحت 13 سنة"
+
+    result = sport_lab_nat_load(key, True)
+    result2 = sport_lab_nat_load_new(key)
+
+    assert result == expected, f"Error: {result=}, {result2=}, {expected=}"
+    assert result2 == expected, f"Error: {result=}, {result2=}, {expected=}"

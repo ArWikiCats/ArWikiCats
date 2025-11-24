@@ -25,8 +25,15 @@ New_For_nat_female_xo_team_2.update({
     f"{{nat}} {x}" : v for x, v in New_For_nat_female_xo_team.items()
 })
 
-nat_bot = FormatData(New_For_nat_female_xo_team_2, Nat_women, key_placeholder="{nat}", value_placeholder="{nat}",
-                     add_after_pattern=" people")
+# remove "the " from the start of all Nat_women_2 keys
+Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}
+
+nat_bot = FormatData(
+    New_For_nat_female_xo_team_2, Nat_women_2, key_placeholder="{nat}", value_placeholder="{nat}",
+    text_after=" people",
+    text_before="the ",
+)
+
 sport_bot = FormatData({}, SPORTS_KEYS_FOR_JOBS, key_placeholder="xzxz", value_placeholder="xzxz")
 
 
@@ -37,6 +44,8 @@ def normalize_nat_label(category):
     result = ""
     if key:
         result = nat_bot.normalize_category(category, key)
+    print(f"normalize_nat_label: {result=}")
+
     return result
 
 
