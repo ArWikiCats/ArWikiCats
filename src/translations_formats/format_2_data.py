@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 """
+Provides classes for formatting template-driven translation labels.
+- FormatMultiData: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
+- FormatComparisonHelper: A helper class for comparison operations.
 
 test at tests.translations_formats.test_format_2_data.py
 """
