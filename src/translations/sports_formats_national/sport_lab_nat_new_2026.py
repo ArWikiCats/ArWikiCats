@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" """
+"""
+
+"""
 
 import functools
 from ...helps.log import logger
@@ -8,6 +10,7 @@ from .te2 import New_For_nat_female_xo_team
 
 from ...translations import Nat_women
 from ...translations_formats.format_data import FormatData
+from ...translations_formats.format_2_data import FormatMultiData
 
 New_For_nat_female_xo_team_2 = {
     "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball
@@ -35,6 +38,18 @@ nat_bot = FormatData(
 )
 
 sport_bot = FormatData({}, SPORTS_KEYS_FOR_JOBS, key_placeholder="xzxz", value_placeholder="xzxz")
+
+both_bot = FormatMultiData(
+    New_For_nat_female_xo_team_2,
+    Nat_women_2,
+    key_placeholder="{nat}",
+    value_placeholder="{nat}",
+    data_list2=SPORTS_KEYS_FOR_JOBS,
+    key2_placeholder="xzxz",
+    value2_placeholder="xzxz",
+    text_after=" people",
+    text_before="the ",
+)
 
 
 # @dump_data(enable=True)
@@ -98,8 +113,9 @@ def sport_lab_nat_load_new(category):
     """
     Example:
         category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"
-    This function appears to load and process a new sports category label in Arabic,
-    replacing placeholders with nationality and sport information.
+
+    # TODO: Replaced by FormatMultiData
+
     """
     # category = Yemeni football championships
     template_label = normalize_both(category)  # Normalize the category to create a template label

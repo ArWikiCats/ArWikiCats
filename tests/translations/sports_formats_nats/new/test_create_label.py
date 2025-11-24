@@ -2,6 +2,7 @@ import pytest
 
 # from src.translations.sports_formats_nats.new import create_label
 from src.translations.sports_formats_nats.new import (
+    # both_bot,
     create_label,
     create_nat_label,
 )
@@ -21,6 +22,9 @@ def test_create_label(key, expected) -> None:
     template_label = create_label(key)
     assert template_label != ""
     assert template_label == expected
+
+    # template_label2 = both_bot.create_label(key)
+    # assert template_label2 == expected
 
 
 data2 = {

@@ -2,10 +2,10 @@
 """ """
 
 import functools
-import re
-from typing import Dict, Optional
+from typing import Dict
 
 from ..helps.log import logger
+from .format_data import FormatData
 
 
 class FormatMultiData:
@@ -13,143 +13,99 @@ class FormatMultiData:
         self,
         formated_data: Dict[str, str],
         data_list: Dict[str, str],
-        key_placeholder: str = "xoxo",
-        value_placeholder: str = "xoxo",
-    ):
+        key_placeholder: str = "natar",
+        value_placeholder: str = "natar",
+        data_list2: Dict[str, str] = {},
+        key2_placeholder: str = "xoxo",
+        value2_placeholder: str = "xoxo",
+        text_after: str = "",
+        text_before: str = "",
+
+    ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
         self.formated_data = formated_data
-        self.data_list = data_list
-
-        # Case-insensitive mirrors
-        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formated_data.items()}
-        self.data_list_ci: Dict[str, str] = {k.lower(): v for k, v in data_list.items()}
 
         self.value_placeholder = value_placeholder
         self.key_placeholder = key_placeholder
-        self.pattern = self.keys_to_pattern()
 
-    def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
-        """Build a case-insensitive regex over lowercased keys of data_list."""
-        if not self.data_list_ci:
-            return None
-        keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
-        data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
-        return re.compile(data_pattern, re.I)
+        self.value2_placeholder = value2_placeholder
+        self.key2_placeholder = key2_placeholder
 
-    @functools.lru_cache(maxsize=None)
-    def match_key(self, category: str) -> str:
-        """Return canonical lowercased key from data_list if found; else empty."""
-        if not self.pattern:
-            return ""
-        match = self.pattern.search(f" {category} ")
-        return match.group(1).lower() if match else ""
-
-    @functools.lru_cache(maxsize=None)
-    def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
-        """Replace value placeholder once template is chosen."""
-        final_label = template_label.replace(self.value_placeholder, sport_label)
-
-        if self.value_placeholder not in final_label:
-            return final_label
-
-        return ""
-
-    @functools.lru_cache(maxsize=None)
-    def normalize_category(self, category: str, sport_key: str) -> str:
-        """Replace the matched sport key with the key placeholder."""
-        normalized = re.sub(
-            f" {re.escape(sport_key)} ",
-            f" {self.key_placeholder} ",
-            f" {category.strip()} ",
-            flags=re.IGNORECASE,
+        self.nat_bot = FormatData(
+            self.formated_data,
+            data_list,
+            key_placeholder=self.key_placeholder,
+            value_placeholder=self.value_placeholder,
+            text_after=text_after,
+            text_before=text_before
         )
-        return normalized.strip()
 
-    def get_template(self, sport_key: str, category: str) -> str:
-        """Lookup template in a case-insensitive dict."""
-        normalized = self.normalize_category(category, sport_key)
-        logger.debug(f"normalized xoxo : {normalized}")
-        # Case-insensitive key lookup
-        return self.formated_data_ci.get(normalized.lower(), "")
+        self.sport_bot = FormatData(
+            {},
+            data_list2,
+            key_placeholder=self.key2_placeholder,
+            value_placeholder=self.value2_placeholder
+        )
 
-    def get_key_label(self, sport_key: str) -> str:
-        """Return the Arabic label mapped to the provided key if present."""
-        return self.data_list_ci.get(sport_key)
+        # @dump_data(enable=True)
 
-    def _search(self, category: str) -> str:
-        """End-to-end resolution."""
-        logger.debug("++++++++ start FormatData ++++++++ ")
-        sport_key = self.match_key(category)
-        if not sport_key:
-            logger.debug(f'No sport key matched for category: "{category}"')
-            return ""
-        sport_label = self.get_key_label(sport_key)
-        if not sport_label:
-            logger.debug(f'No sport label matched for sport key: "{sport_key}"')
-            return ""
-        template_label = self.get_template(sport_key, category)
-        if not template_label:
-            logger.debug(f'No template label matched for sport key: "{sport_key}" and category: "{category}"')
-            return ""
-        result = self.apply_pattern_replacement(template_label, sport_label)
-        logger.debug(f"result: {result}")
-        logger.debug("++++++++ end FormatData ++++++++ ")
+    def normalize_nat_label(self, category):
+        """Normalize nationality placeholders within a category string."""
+        key = self.nat_bot.match_key(category)
+        result = ""
+        if key:
+            result = self.nat_bot.normalize_category(category, key)
         return result
 
-    @functools.lru_cache(maxsize=None)
-    def search(self, category: str) -> str:
-        """Public wrapper around ``_search`` with caching."""
-        return self._search(category)
+    def normalize_sport_label(self, category):
+        """Normalize sport placeholders within a category string."""
+        key = self.sport_bot.match_key(category)
+        result = ""
+        if key:
+            result = self.sport_bot.normalize_category(category, key)
+        return result
 
+    def normalize_both(self, category):
+        """
+        Normalize both nationality and sport tokens in the category.
 
-def format_data_sample():
-    """
-    This function demonstrates how to use the FormatData class to format and transform data.
-    It creates a mapping of template patterns to their localized versions and applies them.
-    """
-    # Define a dictionary of formatted patterns with placeholders
-    formated_data = {
-        "{sport}": "{sport_label}",
-        "{sport} managers": "مدراء {sport_label}",
-        "{sport} coaches": "مدربو {sport_label}",
-        "{sport} people": "أعلام {sport_label}",
-        "{sport} playerss": "لاعبو {sport_label}",
-        "{sport} players": "لاعبو {sport_label}",
-        "men's {sport} matches": "مباريات {sport_label} رجالية",
-        "men's {sport} navigational boxes": "صناديق تصفح {sport_label} رجالية",
-        "men's {sport} lists": "قوائم {sport_label} رجالية",
-        "amateur {sport} home stadiums": "ملاعب {sport_label} للهواة",
-        "amateur {sport} templates": "قوالب {sport_label} للهواة",
-        "amateur {sport} rivalries": "دربيات {sport_label} للهواة",
-        "amateur {sport} receivers": "مستقبلو {sport_label} للهواة",
-        "amateur {sport} wide receivers": "مستقبلون واسعون {sport_label} للهواة",
-        "amateur {sport} tackles": "مصطدمو {sport_label} للهواة",
-        "amateur {sport} utility players": "لاعبو مراكز متعددة {sport_label} للهواة",
-    }
+        input: "british softball championshipszz", output: "natar xoxo championshipszz"
+        """
+        new_category = self.normalize_nat_label(category)
+        new_category = self.normalize_sport_label(new_category)
 
-    # Define a dictionary with actual sport name mappings
-    data_list = {
-        "gridiron football": "كرة قدم أمريكية شمالية",
-        "american football": "كرة قدم أمريكية",
-        "canadian football": "كرة قدم كندية",
-        "wheelchair australian rules football": "كرة قدم أسترالية على كراسي متحركة",
-        "volleyball racing": "سباق كرة طائرة",
-        "wheelchair volleyball": "كرة طائرة على كراسي متحركة",
-        "middle-distance running racing": "سباق ركض مسافات متوسطة",
-        "wheelchair gaelic football": "كرة قدم غالية على كراسي متحركة",
-        "kick boxing racing": "سباق كيك بوكسينغ",
-        "wheelchair cycling road race": "سباق دراجات على الطريق على كراسي متحركة",
-        "wheelchair auto racing": "سباق سيارات على كراسي متحركة",
-    }
+        return new_category
 
-    # Create a FormatData instance with the defined patterns and mappings
-    bot = FormatMultiData(formated_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    @functools.lru_cache(maxsize=1000)
+    def create_label(self, category):
+        """
+        Create a localized label by combining nationality and sport templates.
 
-    # Search for a specific pattern and get its localized version
-    label = bot.search("american football players")
-    # Verify if the result matches the expected output
-    result = label == "لاعبو كرة قدم أمريكية"
+        Example:
+            category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
+        """
+        # category = Yemeni football championships
+        template_label = self.normalize_both(category)
 
-    # Return the formatted label
-    return result
+        nationality_key = self.nat_bot.match_key(category)
+        xoxo_key = self.sport_bot.match_key(category)
+
+        if not self.formated_data.get(template_label):
+            return ""
+
+        # cate = natar xoxo championships
+        template_ar = self.formated_data[template_label]
+        logger.debug(f"{template_ar=}")
+
+        sport_label = self.sport_bot.get_key_label(xoxo_key)
+        nationality_label = self.nat_bot.get_key_label(nationality_key)
+
+        if not nationality_label or not sport_label:
+            return ""
+
+        label = template_ar.replace(self.value_placeholder, nationality_label).replace(self.value2_placeholder, sport_label)
+
+        logger.debug(f"{label=}")
+
+        return label
