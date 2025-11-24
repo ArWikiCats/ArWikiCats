@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from .games_labs import SUMMER_WINTER_GAMES
-from .nat_p17 import (
+from ..sports_formats_oioioi.data import (
     NAT_P17_OIOI,
-    SPORT_FORMATS_FOR_P17,
 )
 from .olympics_data import olympics
 from .skeys import (
@@ -13,6 +12,7 @@ from .skeys import (
     SPORT_FORMTS_MALE_NAT,
     SPORT_FORMTS_NEW_KKK,
 )
+from .nat_p17 import SPORT_FORMATS_FOR_P17
 from .Sport_key import SPORTS_KEYS_FOR_JOBS, SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 from .tennis import TENNIS_KEYS
 

@@ -75,7 +75,9 @@ from .politics.military_keys import (
 from .politics.ministers import ministrs_tab_for_pop_format
 from .sports import SPORT_FORMTS_EN_AR_IS_P17, SPORT_FORMTS_EN_P17_AR_NAT
 from .sports.games_labs import SUMMER_WINTER_GAMES
-from .sports.nat_p17 import NAT_P17_OIOI, SPORT_FORMATS_FOR_P17
+from .sports.nat_p17 import SPORT_FORMATS_FOR_P17
+from .sports_formats_oioioi.data import NAT_P17_OIOI
+from .sports_formats_oioioi.bot import sport_lab_oioioi_load
 from .sports.olympics_data import olympics
 from .sports.Sport_key import (
     SPORTS_KEYS_FOR_JOBS,
@@ -207,6 +209,7 @@ __all__ = [
     "SPORT_FORMTS_EN_AR_IS_P17",
     "SPORT_FORMTS_EN_P17_AR_NAT",
     #
+    "sport_lab_oioioi_load",
     "SPORT_FORMATS_FOR_P17",
     "NAT_P17_OIOI",
     #
