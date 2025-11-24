@@ -1,6 +1,5 @@
 #
-from load_one_data import dump_diff, ye_test_one_dataset
-
+import pytest
 from src import new_func_lab_final_label
 
 data = {
@@ -19,19 +18,13 @@ data = {
     "Category:Military alliances involving Yemen": "تصنيف:تحالفات عسكرية تشمل اليمن",
     "Category:Penal system in Afghanistan": "تصنيف:قانون العقوبات في أفغانستان",
     "Category:Prehistory of Venezuela": "تصنيف:فنزويلا ما قبل التاريخ",
+    "Category:American award winners": "تصنيف:حائزو جوائز أمريكيون",
+    "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"
 }
 
 
-def test_politics_and_history():
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_politics_and_history")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
-def test_politics_and_history():
-    data = {"Category:American award winners": "تصنيف:حائزو جوائز أمريكيون", "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"}
-    expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
-
-    dump_diff(diff_result, "test_politics_and_history")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+@pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
+@pytest.mark.fast
+def test_politics_and_history(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
