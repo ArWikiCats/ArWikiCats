@@ -24,7 +24,6 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 def _test_temporal(name, data):
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
 
     dump_diff(diff_result, name)

@@ -17,7 +17,6 @@ def test_people_1():
         "Category:women in business": "تصنيف:سيدات أعمال",
     }
 
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset_new(data)
 
     dump_diff(diff_result, "test_people_1")
@@ -35,7 +34,6 @@ def test_people_2():
         "Category:Multi-instrumentalists": "تصنيف:عازفون على عدة آلات",
         "Category:People by nationality and status": "تصنيف:أشخاص حسب الجنسية والحالة",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset_new(data)
 
     dump_diff(diff_result, "test_people_2")
@@ -53,7 +51,6 @@ def test_people_3():
         "Category:Immigration to New Zealand": "تصنيف:الهجرة إلى نيوزيلندا",
         "Category:Internees at the Sheberghan Prison": "تصنيف:معتقلين في سجن شيبرغان",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset_new(data)
 
     dump_diff(diff_result, "test_people_3")
@@ -71,7 +68,6 @@ def test_people_4():
         "Category:Attacks on diplomatic missions": "تصنيف:هجمات على بعثات دبلوماسية",
         "Category:Australian Internet celebrities": "تصنيف:مشاهير إنترنت أستراليون",
     }
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset_new(data)
 
     dump_diff(diff_result, "test_people_4")

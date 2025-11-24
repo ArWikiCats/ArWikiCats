@@ -49,7 +49,7 @@ def normalize_nat_label(category):
     result = ""
     if key:
         result = nat_bot.normalize_category(category, key)
-    print(f"normalize_nat_label: {result=}")
+    logger.debug(f"normalize_nat_label: {result=}")
 
     return result
 
@@ -112,7 +112,7 @@ def sport_lab_nat_load_new(category):
 
     sport_key = sport_bot.match_key(category2)
 
-    print(f"sport_lab_nat_load_new {template_label=}: {nationality_key=} {sport_key=}")
+    logger.debug(f"sport_lab_nat_load_new {template_label=}: {nationality_key=} {sport_key=}")
 
     if not sport_key:
         return ""

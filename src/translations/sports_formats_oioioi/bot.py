@@ -18,8 +18,8 @@ SPORT_PLACEHOLDER = "oioioi"
 
 
 @functools.lru_cache(maxsize=None)
-def get_con_3(cate: str, category_type: str, check_the: bool=False) -> Tuple[str, str]:
-    """Fast and optimized version of get_con_3.
+def get_start_p17(cate: str, category_type: str, check_the: bool=False) -> Tuple[str, str]:
+    """Fast and optimized version of get_start_p17.
 
     This function identifies a matching prefix from the given keys and
     extracts the remaining suffix while preserving the original behavior.
@@ -46,19 +46,16 @@ def get_con_3(cate: str, category_type: str, check_the: bool=False) -> Tuple[str
         # Build minimal prefix options
         # Index meanings are kept exactly as original logic
         candidate_prefixes: Dict[int, str] = {
+            1: f"{key_lower} people",
             2: f"{key_lower} ",
         }
-
-        # Add "people" pattern only when category_type == "nat"
-        if category_type in ["nat", "Nat_women"]:
-            candidate_prefixes[1] = f"{key_lower} people "
 
         # Add the "the <country>" special case
         if key.startswith("the "):
             candidate_prefixes[3] = key[4:].lower()
 
         # Try each prefix option in fixed order
-        for option_index in (1, 2, 3, 4, 5):
+        for option_index in (1, 2, 3):
             prefix_candidate = candidate_prefixes.get(option_index)
             if not prefix_candidate:
                 continue
@@ -81,7 +78,10 @@ def get_con_3(cate: str, category_type: str, check_the: bool=False) -> Tuple[str
 
     # Logging final result if match found
     if category_suffix and country_prefix:
-        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_con_3 fo_3:"{category_suffix}",lab_type:{category_type}')
+        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_start_p17 fo_3:"{category_suffix}",lab_type:{category_type}')
+
+    if not category_suffix.startswith("{nat}"):
+        category_suffix = f"{{nat}} {category_suffix}"
 
     return category_suffix, country_prefix
 
@@ -96,7 +96,6 @@ def make_sport_formats_p17(category_key: str) -> str:
     Returns:
         Resolved sport format label or empty string
     """
-
     logger.info(f'<<lightblue>>>>>> sport_formats_p17: category_key:"{category_key}"')
 
     resolved_label = ""
@@ -139,7 +138,7 @@ def sport_lab_oioioi_load(category: str, check_the: bool=False) -> str:
     """
     normalized_category = category.lower()
 
-    sport_format_key, country_start = get_con_3(normalized_category, "nat", check_the=check_the)
+    sport_format_key, country_start = get_start_p17(normalized_category, "nat", check_the=check_the)
 
     print(f"sport_lab_oioioi_load {normalized_category=}: {sport_format_key=} {country_start=}")
 
@@ -162,6 +161,5 @@ def sport_lab_oioioi_load(category: str, check_the: bool=False) -> str:
 
 
 __all__ = [
-    "make_sport_formats_p17",
     "sport_lab_oioioi_load",
 ]

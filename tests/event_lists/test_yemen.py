@@ -19,7 +19,6 @@ data = {
 
 @pytest.mark.fast
 def test_yemen():
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
     assert diff_result == expected
 
@@ -34,6 +33,5 @@ def test_yemen2():
         "Category:United States national softball team managers": "تصنيف:مدربو منتخب الولايات المتحدة للكرة اللينة",
     }
 
-    print(f"len of data: {len(data)}")
     expected, diff_result = ye_test_one_dataset(data, new_func_lab_final_label)
     assert diff_result == expected

@@ -30,7 +30,7 @@ def load_SPORT_FORMATS_FOR_P17(category: str, check_the: bool=False) -> str:
 
     sport_format_key, country_start = get_con_3(normalized_category, "nat", check_the=check_the)
 
-    print(f"sport_lab_oioioi_load {normalized_category=}: {sport_format_key=} {country_start=}")
+    logger.debug(f"sport_lab_oioioi_load {normalized_category=}: {sport_format_key=} {country_start=}")
 
     if not country_start or not sport_format_key:
         return ""
