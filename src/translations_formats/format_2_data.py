@@ -110,7 +110,9 @@ class FormatMultiData(ToCompare):
         template_label = self.normalize_both(category)
 
         nationality_key = self.nat_bot.match_key(category)
-        xoxo_key = self.sport_bot.match_key(category)
+        category2 = self.nat_bot.normalize_category(category, nationality_key)
+
+        xoxo_key = self.sport_bot.match_key(category2)
 
         if not self.formated_data.get(template_label):
             return ""
