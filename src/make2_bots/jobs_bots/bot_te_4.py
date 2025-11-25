@@ -19,7 +19,7 @@ from ..o_bots import ethnic_bot
 from .get_helps import get_con_3
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from .te4_bots.for_me import Work_for_me
-from .te4_bots.t4_2018_jobs import te4_2018_Jobs
+from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 
 
 COUNTRY_TEMPLATES = {

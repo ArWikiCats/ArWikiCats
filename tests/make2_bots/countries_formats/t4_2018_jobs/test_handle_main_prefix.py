@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs import handle_main_prefix
+from src.make2_bots.countries_formats.t4_2018_jobs import handle_main_prefix
 
 data = {
     "fictional basic": {
