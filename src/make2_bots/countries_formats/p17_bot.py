@@ -13,7 +13,7 @@ from ...translations import (
     en_is_P17_ar_is_P17,
 )
 from ..format_bots import category_relation_mapping, pop_format
-from ..jobs_bots.get_helps import get_suffix
+from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..matables_bots.bot import All_P17
 
 
@@ -85,11 +85,11 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     country_start_lab = ""
     category = category.lower()
 
-    suffix, country_start = get_suffix(category, "All_P17")
+    suffix, country_start = get_suffix_with_keys(category, All_P17)
     country_start_lab = All_P17.get(country_start, "")
 
     if not suffix and not country_start:
-        suffix, country_start = get_suffix(category, "contries_from_nat")
+        suffix, country_start = get_suffix_with_keys(category, contries_from_nat)
         country_start_lab = contries_from_nat.get(country_start, "")
 
     if suffix and country_start:

@@ -25,8 +25,7 @@ def get_keys(category_type: str):
     return keys_data.get(category_type, [])
 
 
-@functools.lru_cache(maxsize=None)
-def get_suffix_with_keys(cate: str, category_type: str, keys: dict, check_the: bool = False) -> Tuple[str, str]:
+def get_suffix_with_keys(cate: str, data_keys, category_type: str="", check_the: bool = False) -> Tuple[str, str]:
     """Fast and optimized version of get_suffix.
 
     This function identifies a matching prefix from the given keys and
@@ -43,7 +42,7 @@ def get_suffix_with_keys(cate: str, category_type: str, keys: dict, check_the: b
 
     cate_lower2 = cate_lower[4:] if cate_lower.startswith("the ") else cate_lower
 
-    for key in keys:
+    for key in data_keys:
         if category_suffix:
             # A match has already been found; exit early
             break
@@ -97,4 +96,4 @@ def get_suffix_with_keys(cate: str, category_type: str, keys: dict, check_the: b
 @functools.lru_cache(maxsize=None)
 def get_suffix(cate: str, category_type: str, check_the: bool = False) -> Tuple[str, str]:
     keys = get_keys(category_type)
-    return get_suffix_with_keys(cate, category_type, keys, check_the)
+    return get_suffix_with_keys(cate, keys, category_type, check_the)
