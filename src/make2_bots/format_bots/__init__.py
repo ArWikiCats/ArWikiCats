@@ -101,11 +101,6 @@ pp_start_with = {
     # "defunct" : "{} سابقة",
 }
 # ---
-pp_start_with2 = {
-    "defunct": "{} سابقة",
-    "scheduled": "{} مقررة",
-}
-# ---
 pp_ends_with = {}
 pp_ends_with_pase = {
     "-related professional associations": "جمعيات تخصصية متعلقة ب{}",
@@ -442,5 +437,4 @@ __all__ = [
     "pp_ends_with",
     "pp_ends_with_pase",
     "pp_start_with",
-    "pp_start_with2",
 ]

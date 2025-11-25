@@ -9,7 +9,7 @@ from typing import Callable, List
 
 from ....helps.log import logger
 from ...date_bots import with_years_bot
-from ...format_bots import Tabl_with_in, pop_format, pp_start_with2
+from ...format_bots import Tabl_with_in, pop_format
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
@@ -18,6 +18,12 @@ from ...o_bots import bys, parties_bot
 from ...p17_bots import nats
 from ...sports_bots import sport_lab_suffixes, team_work
 from .. import country2_lab
+
+
+pp_start_with2 = {
+    "defunct": "{} سابقة",
+    "scheduled": "{} مقررة",
+}
 
 
 def check_sources(cone_1: str) -> str:
@@ -39,7 +45,11 @@ def check_sources(cone_1: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool = False) -> str:
-    """Retrieve a label based on the given parameters."""
+    """
+    Retrieve a label based on the given parameters.
+    Example:
+        {"tat_o": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
+    """
 
     cone_1 = cone_1.strip().lower()
 

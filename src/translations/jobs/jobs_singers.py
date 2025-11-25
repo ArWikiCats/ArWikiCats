@@ -85,6 +85,10 @@ def _build_non_fiction_variants(
             "mens": f"كتاب {mens_topic} غير روائيون",
             "womens": f"كاتبات {womens_topic} غير روائيات",
         }
+        variants[f"non fiction {topic_key} writers"] = {
+            "mens": f"كتاب {mens_topic} غير روائيون",
+            "womens": f"كاتبات {womens_topic} غير روائيات",
+        }
     return variants
 
 

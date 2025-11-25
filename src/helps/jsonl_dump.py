@@ -26,11 +26,15 @@ def save(path: Path | str, data: dict | list) -> str:
         writer.write(data)
 
 
+already_saved = {}
+
+
 def dump_data(input_keys: list = None, enable: bool = False, compare_with_output: str=""):
     """
     Decorator to save function inputs and output into a JSONL file.
 
     If input_keys is empty or None, all inputs (args + kwargs) are saved.
+    Only saves unique data entries (no duplicates).
     """
 
     def decorator(func):
@@ -51,9 +55,6 @@ def dump_data(input_keys: list = None, enable: bool = False, compare_with_output
                 return output
 
             path = Path(__file__).parent / f"{func.__name__}.jsonl"
-            # path = Path(filename)
-
-            # if not path.exists(): path.touch()
 
             bound_args = inspect.signature(func).bind(*args, **kwargs)
             bound_args.apply_defaults()
@@ -73,6 +74,21 @@ def dump_data(input_keys: list = None, enable: bool = False, compare_with_output
 
             if compare_with_output and data.get(compare_with_output) == output:
                 return output
+
+            # Create a unique key for this data entry to prevent duplicates
+            # Use frozenset for hashable representation of the data
+            try:
+                data_key = (func.__name__, str(sorted(data.items())))
+            except (TypeError, AttributeError):
+                # If data is not sortable/hashable, use string representation
+                data_key = (func.__name__, str(data))
+
+            # Check if this exact data has already been saved
+            if data_key in already_saved:
+                return output
+
+            # Mark as saved
+            already_saved[data_key] = True
 
             # Write the JSON line using jsonlines
             with jsonlines.open(path, mode="a") as writer:

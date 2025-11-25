@@ -123,7 +123,7 @@ class LabsYears(MatchTimes):
         cat_key = category_r.replace(en_year, YEAR_PARAM)
         lab_key = category_lab.replace(ar_year, YEAR_PARAM)
 
-        logger.info("<<yellow>> lab_from_year_add:")
-        logger.info(f"\t<<yellow>> {cat_key=} , {lab_key=}")
+        logger.debug("<<yellow>> lab_from_year_add:")
+        logger.debug(f"\t<<yellow>> {cat_key=} , {lab_key=}")
 
         self.category_templates[cat_key.lower()] = lab_key
