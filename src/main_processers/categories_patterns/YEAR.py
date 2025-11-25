@@ -9,7 +9,7 @@ YEAR_DATA ={
     "category:{year1} deaths": "تصنيف:وفيات {year1}",  # 2045
     "category:{year1} events": "تصنيف:أحداث {year1}",  # 2020
     "category:{year1} endings": "تصنيف:نهايات {year1}",  # 1970
-    "category:{year1} by continent": "تصنيف:أحداث {year1} حسب القارة",  # 1098
+    "category:{year1} by continent": "تصنيف:{year1} حسب القارة",  # 1098
     "category:{year1} beginnings": "تصنيف:بدايات {year1}",  # 1946
     "category:{year1} births": "تصنيف:مواليد {year1}",  # 1923
     "category:{year1} in sports": "تصنيف:أحداث {year1} الرياضية",  # 1295
