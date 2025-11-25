@@ -113,6 +113,8 @@ def _get_direct_lookup(category: str) -> str:
 def _handle_nationality_logic(
     category: str,
     main_ss: str,
+    category_suffix: str,
+    country_prefix: str,
 ) -> Tuple[str, str, str, str, str]:
     """
     Handle nationality extraction and related job label logic.
@@ -143,7 +145,7 @@ def _handle_nationality_logic(
                 logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
                 updated_main_lab = priffix_lab_for_2018[main_ss]["men"]
 
-    return country_lab, country_prefix, job_example_lab, updated_main_lab, category_suffix
+    return country_lab, job_example_lab, updated_main_lab
 
 
 @functools.lru_cache(maxsize=None)
@@ -182,10 +184,12 @@ def te4_2018_Jobs(cate: str) -> str:
     # 3. Direct Lookups
     country_lab = _get_direct_lookup(cate_lower)
 
+    category_suffix, country_prefix = get_con_3(cate_lower, "nat")
+
     if not country_lab:
         # 4. Nationality Logic
-        country_lab, country_prefix, job_example_lab, updated_main_lab, category_suffix = _handle_nationality_logic(
-            cate_lower, main_ss
+        country_lab, job_example_lab, updated_main_lab = _handle_nationality_logic(
+            cate_lower, main_ss, category_suffix, country_prefix
         )
 
         if category_suffix and not country_lab:
