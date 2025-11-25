@@ -30,19 +30,26 @@ def _resolve_p17_2_label(category: str, templates: dict, nat_key: str, add_artic
     """Resolve gendered nationality templates for P17-style categories."""
     for suffix1, template in templates.items():
         suffix_key = f" {suffix1.strip().lower()}"
-        if category.lower().endswith(suffix_key):
-            country_prefix = category[: -len(suffix_key)].strip()
 
-            nat_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(nat_key, "")
+        if not category.lower().endswith(suffix_key):
+            continue
 
-            if nat_label:
-                if add_article:
-                    nat_label = add_definite_article(nat_label)
+        country_prefix = category[: -len(suffix_key)].strip()
 
-                logger.debug(f'<<lightblue>>>>>> {nat_key}: "{nat_label}" ')
-                resolved_label = template.format(nat_label)
-                logger.debug(f'<<lightblue>>>>>> {nat_key} template match: new cnt_la "{resolved_label}" ')
-                return resolved_label
+        nat_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(nat_key, "")
+
+        if not nat_label:
+            continue
+
+        if add_article:
+            nat_label = add_definite_article(nat_label)
+
+        logger.debug(f'<<lightblue>>>>>> {nat_key}: "{nat_label}" ')
+        resolved_label = template.format(nat_label)
+
+        logger.debug(f'<<lightblue>>>>>> {nat_key} template match: new cnt_la "{resolved_label}" ')
+        return resolved_label
+
     return ""
 
 
