@@ -1,4 +1,20 @@
 
+## [#109](https://github.com/MrIbrahem/make2_new/pull/109) - 2025-11-25
+
+* **New Features**
+  * Large expansion of category and label datasets (many sports, events, nationality and organization entries).
+
+* **Improvements**
+  * Improved label resolution with additional fallback strategies for jobs, nationalities and multi-sport contexts.
+  * Added runtime deduplication to avoid duplicate exported records.
+  * Minor log-format refinement for clearer resolved-label messages.
+
+* **Tests**
+  * Expanded and reorganized tests covering prefixes, multi-sport mappings and job/nationality labeling.
+
+* **Breaking Changes**
+  * Removed several previously exported prefix/mapping symbols.
+
 ## [#106](https://github.com/MrIbrahem/make2_new/pull/106) - 2025-11-24
 
 * **New Features**
