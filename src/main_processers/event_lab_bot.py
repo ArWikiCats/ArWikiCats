@@ -19,7 +19,7 @@ from ..make2_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations import get_new_team_xo, New_P17_Finall
+from ..translations import New_P17_Finall, get_new_team_xo
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
