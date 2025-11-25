@@ -6,8 +6,8 @@
 import functools
 import re
 
-from ....helps.log import logger
-from ....translations import (
+from ...helps.log import logger
+from ...translations import (
     Nat_men,
     Nat_women,
     New_female_keys,
@@ -19,7 +19,7 @@ from ....translations import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
 )
-from ...o_bots import ethnic_bot
+from ..o_bots import ethnic_bot
 
 
 def add_all(lab: str) -> str:

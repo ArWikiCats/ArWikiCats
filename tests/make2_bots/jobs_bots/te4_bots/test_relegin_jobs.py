@@ -5,7 +5,7 @@
 
 import pytest
 
-from src.make2_bots.jobs_bots.te4_bots.relegin_jobs import (
+from src.make2_bots.jobs_bots.relegin_jobs import (
     relegins_jobs,
     try_relegins_jobs_with_suffix,
 )

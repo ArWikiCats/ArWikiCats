@@ -1,5 +1,6 @@
 """
 Rich lookup tables for gendered and national prefix/suffix mappings.
+(en_is_nat_ar_is_P17|en_is_nat_ar_is_al_mens|en_is_nat_ar_is_man|en_is_nat_ar_is_al_women|en_is_nat_ar_is_women|en_is_nat_ar_is_women_2|en_is_P17_ar_is_mens|en_is_P17_ar_is_P17|en_is_P17_ar_is_al_women)
 """
 
 from ..jobs.jobs_singers import SINGERS_TAB
@@ -553,17 +554,18 @@ _extend_book_entries()
 
 
 __all__ = [
+    "change_male_to_female",
+    "Multi_sport_for_Jobs",
+    "replace_labels_2022",
+
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_man",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
-    "change_male_to_female",
-    "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_women_2",
     "en_is_P17_ar_is_mens",
     "en_is_P17_ar_is_P17",
-    "replace_labels_2022",
     "en_is_P17_ar_is_al_women",
 ]
 

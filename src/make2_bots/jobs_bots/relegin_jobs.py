@@ -6,12 +6,12 @@
 import functools
 from pathlib import Path
 
-from ....helps.log import logger
-from ....translations import RELIGIOUS_KEYS_PP
+from ...helps.log import logger
+from ...translations import RELIGIOUS_KEYS_PP
 
 # from ....helps.jsonl_dump import save
-from ..get_helps import get_con_3
-from ..jobs_mainbot import jobs_with_nat_prefix
+from .get_helps import get_con_3
+from .jobs_mainbot import jobs_with_nat_prefix
 
 
 @functools.lru_cache(maxsize=None)
