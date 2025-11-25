@@ -1,5 +1,5 @@
+# black:skip_file
 """
-Tests
 """
 
 import pytest

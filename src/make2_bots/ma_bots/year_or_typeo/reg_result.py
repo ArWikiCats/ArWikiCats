@@ -6,14 +6,25 @@ from ....translations.utils.patterns import load_keys_to_pattern_new
 from ...format_bots import category_relation_mapping
 
 # These patterns depend on dynamically generated values and are compiled at runtime
-yy = (r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?" r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?" r"|\d+[−–\-]\d+" r"|\d+s\s*(?:BCE*)?" r"|\d+\s*(?:BCE*)?").lower()
+yy = (
+    r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?"
+    r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?"
+    r"|\d+[−–\-]\d+"
+    r"|\d+s\s*(?:BCE*)?"
+    r"|\d+\s*(?:BCE*)?"
+).lower()
 
 MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
 
 typeo_pattern = load_keys_to_pattern_new(list(basedtypeTable))
 in_pattern = load_keys_to_pattern_new(category_relation_mapping.keys(), by=" |")
 
-reg_line_1_match = rf"(?P<monthyear>{MONTHSTR3}(?:{yy})|)\s*" r"(?P<typeo>" + typeo_pattern.lower() + r"|)\s*" r"(?P<in>" + in_pattern.lower() + r"|)\s*" r"(?P<country>.*|).*"
+reg_line_1_match = (
+    rf"(?P<monthyear>{MONTHSTR3}(?:{yy})|)\s*"
+    r"(?P<typeo>" + typeo_pattern.lower() + r"|)\s*"
+    r"(?P<in>" + in_pattern.lower() + r"|)\s*"
+    r"(?P<country>.*|).*"
+)
 
 REGEX_SEARCH_REG_LINE_1 = re.compile(reg_line_1_match, re.I)
 

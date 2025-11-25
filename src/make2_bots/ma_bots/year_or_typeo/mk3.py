@@ -167,7 +167,9 @@ def new_func_mk2(
     # ---------------------
     in_table = check_country_in_tables(country)
 
-    Add_In_Done, arlabel, cat_test = add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_label, cat_test)
+    Add_In_Done, arlabel, cat_test = add_the_in(
+        in_table, country, arlabel, suf, In, typeo, year_labe, country_label, cat_test
+    )
 
     logger.info(f"{year_labe=}, {arlabel2=}")
 
@@ -177,7 +179,9 @@ def new_func_mk2(
     # print(xx)
     if not Add_In_Done:
         if typeo == "" and In == "" and country and year:
-            arlabel, Add_In, Add_In_Done = added_in_new(country, arlabel, suf, year_labe, country_label, Add_In, arlabel2)
+            arlabel, Add_In, Add_In_Done = added_in_new(
+                country, arlabel, suf, year_labe, country_label, Add_In, arlabel2
+            )
 
     arlabel = " ".join(arlabel.strip().split())
 

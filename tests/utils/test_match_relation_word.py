@@ -1,4 +1,3 @@
-
 import pytest
 
 from src.make2_bots.format_bots import category_relation_mapping
@@ -19,7 +18,6 @@ data_test2 = [
     ("People convicted of espionage in Indonesia", "convicted of espionage in", "أدينوا بالتجسس في"),
     ("People convicted of espionage in Iran", "convicted of espionage in", "أدينوا بالتجسس في"),
     ("People convicted of espionage in Pakistan", "convicted of espionage in", "أدينوا بالتجسس في"),
-
     # --- Additional logical examples ---
     ("Works published by Oxford University Press", "published by", "نشرتها"),
     ("Bridges built in 1885", "built in", "بنيت في"),
@@ -51,6 +49,7 @@ def test_single_relation_compare(category, expected_key, expected_value):
     assert key2 == key1
     assert value2 == value1
 
+
 # ===============================================
 # Test: Multiple relation words in the same line
 # ===============================================
@@ -63,24 +62,13 @@ def test_single_relation_compare(category, expected_key, expected_value):
         ("100 metres at the African Championships by Athletics", "by", "حسب"),
         ("100 metres at the IAAF World Youth Championships by Athletics", "by", "حسب"),
         ("100 metres at the World Para Athletics Championships", "at", ""),
-
-        ("Documentary films about the 2011 Tōhoku earthquake and tsunami",
-         "about", "عن"),
-
-        ("People charged with lèse majesté in Thailand",
-         "charged with", "أتهموا بتهمة"),
-
-        ("People associated with former colleges of the University of London",
-         "associated with", "مرتبطة مع"),
-
-        ("People associated with Nazarene universities and colleges",
-         "associated with", "مرتبطة مع"),
-
+        ("Documentary films about the 2011 Tōhoku earthquake and tsunami", "about", "عن"),
+        ("People charged with lèse majesté in Thailand", "charged with", "أتهموا بتهمة"),
+        ("People associated with former colleges of the University of London", "associated with", "مرتبطة مع"),
+        ("People associated with Nazarene universities and colleges", "associated with", "مرتبطة مع"),
         # --- Extra cases with two relation keys ---
-        ("Songs written by John Smith and produced in London",
-         "written by", "كتبها"),
-
-    ]
+        ("Songs written by John Smith and produced in London", "written by", "كتبها"),
+    ],
 )
 def test_multiple_relations_first_match(category, first_expected_key, first_expected_value):
     """Ensure that only the first matching relation word is returned."""
@@ -101,13 +89,14 @@ def test_multiple_relations():
 # Test: No relation found
 # ===============================================
 
+
 @pytest.mark.parametrize(
     "category",
     [
         "Random topic with no relation word here",
         "Mountain ranges of-the world",
         "Unclassified biological samples",
-    ]
+    ],
 )
 def test_no_relation(category):
     key, value = get_relation_word(category, category_relation_mapping)
@@ -120,13 +109,14 @@ def test_no_relation(category):
 # Should NOT match (because the function requires ' key ' with spaces)
 # ===============================================
 
+
 @pytest.mark.parametrize(
     "category, wrong_rel",
     [
         ("Schools forthedeaf USA", "for-the-deaf"),
         ("Bridges builtin London", "built in"),
         ("Items producedby students", "produced by"),
-    ]
+    ],
 )
 def test_relation_not_matched_without_spaces(category, wrong_rel):
     key, value = get_relation_word(category, category_relation_mapping)
@@ -138,6 +128,7 @@ def test_relation_not_matched_without_spaces(category, wrong_rel):
 # Test: Ensure the search is sensitive to ordering of dict
 # The first key in the dict that appears should win.
 # ===============================================
+
 
 def test_first_match_priority():
     """If both 'in' and 'involving' appear, 'involving' should match first only if it appears first in mapping."""

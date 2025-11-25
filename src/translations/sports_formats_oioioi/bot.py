@@ -48,7 +48,7 @@ both_bot = FormatMultiData(
 
 
 @functools.lru_cache(maxsize=None)
-def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
+def get_start_p17(cate: str, check_the: bool = False) -> Tuple[str, str]:
     """
     Fast and optimized version of get_start_p17.
 
@@ -94,7 +94,7 @@ def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
                 country_prefix = key
                 category_suffix = cate[len(prefix_candidate) :].strip()
 
-                logger.debug(f'<<lightyellow>>>>>> {prefix_candidate=}, {category_suffix=}, {country_prefix=}')
+                logger.debug(f"<<lightyellow>>>>>> {prefix_candidate=}, {category_suffix=}, {country_prefix=}")
 
                 break
 
@@ -102,13 +102,15 @@ def get_start_p17(cate: str, check_the: bool=False) -> Tuple[str, str]:
                 country_prefix = key
                 category_suffix = cate2[len(prefix_candidate) :].strip()
 
-                logger.debug(f'<<lightyellow>>>>>> {prefix_candidate=}, {category_suffix=}, {country_prefix=}')
+                logger.debug(f"<<lightyellow>>>>>> {prefix_candidate=}, {category_suffix=}, {country_prefix=}")
 
                 break
 
     # Logging final result if match found
     if category_suffix and country_prefix:
-        logger.debug(f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_start_p17 fo_3:"{category_suffix}"')
+        logger.debug(
+            f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_start_p17 fo_3:"{category_suffix}"'
+        )
 
     if category_suffix and not category_suffix.startswith("{nat}"):
         category_suffix = f"{{nat}} {category_suffix}"
@@ -143,7 +145,9 @@ def make_sport_formats_p17(category_key: str) -> str:
 
     placeholder_key = category_key.replace(sport_key, SPORT_PLACEHOLDER)
     placeholder_key = re.sub(sport_key, SPORT_PLACEHOLDER, placeholder_key, flags=re.IGNORECASE)
-    logger.debug(f'make_sport_formats_p17 category_key:"{category_key}", sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"')
+    logger.debug(
+        f'make_sport_formats_p17 category_key:"{category_key}", sport_key:"{sport_key}", placeholder_key:"{placeholder_key}"'
+    )
 
     placeholder_template = NAT_P17_OIOI.get(placeholder_key, "")
 
@@ -169,7 +173,7 @@ def make_sport_formats_p17(category_key: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def sport_lab_oioioi_load(category: str, check_the: bool=False) -> str:
+def sport_lab_oioioi_load(category: str, check_the: bool = False) -> str:
     """
     Example:
         category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"

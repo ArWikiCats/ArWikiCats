@@ -186,7 +186,9 @@ USA_PARTY_LABELS = {
 }
 
 
-def _extend_state_suffix_templates(base_templates: Mapping[str, str], party_labels: Mapping[str, str]) -> dict[str, str]:
+def _extend_state_suffix_templates(
+    base_templates: Mapping[str, str], party_labels: Mapping[str, str]
+) -> dict[str, str]:
     extended_templates = dict(base_templates)
 
     for party_name, party_label in party_labels.items():
@@ -214,22 +216,38 @@ def _build_party_derived_keys(party_labels: Mapping[str, str]) -> dict[str, str]
         # derived_keys[ '%s members of the united states congress' % normalized_party_name ] = 'أعضاء الكونغرس الأمريكي من %s' % party_label
         derived_keys[f"{normalized_party_name} united states senators"] = f"أعضاء مجلس الشيوخ الأمريكي من {party_label}"
         derived_keys[f"{normalized_party_name} members"] = f"أعضاء {party_label}"
-        derived_keys[f"{normalized_party_name} members of the united states house of representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
-        derived_keys[f"{normalized_party_name} members of the united states house-of-representatives"] = f"أعضاء مجلس النواب الأمريكي من {party_label}"
+        derived_keys[f"{normalized_party_name} members of the united states house of representatives"] = (
+            f"أعضاء مجلس النواب الأمريكي من {party_label}"
+        )
+        derived_keys[f"{normalized_party_name} members of the united states house-of-representatives"] = (
+            f"أعضاء مجلس النواب الأمريكي من {party_label}"
+        )
 
         derived_keys[f"{normalized_party_name} presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
-        derived_keys[f"{normalized_party_name} vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
+        derived_keys[f"{normalized_party_name} vice presidential nominees"] = (
+            f"مرشحون لمنصب نائب الرئيس من {party_label}"
+        )
 
-        derived_keys[f"{normalized_party_name} (united states) vice presidential nominees"] = f"مرشحون لمنصب نائب الرئيس من {party_label}"
-        derived_keys[f"{normalized_party_name} (united states) presidential nominees"] = f"مرشحون لمنصب الرئيس من {party_label}"
+        derived_keys[f"{normalized_party_name} (united states) vice presidential nominees"] = (
+            f"مرشحون لمنصب نائب الرئيس من {party_label}"
+        )
+        derived_keys[f"{normalized_party_name} (united states) presidential nominees"] = (
+            f"مرشحون لمنصب الرئيس من {party_label}"
+        )
 
         derived_keys[f"{normalized_party_name} (united states) politicians"] = f"سياسيو {party_label}"
         derived_keys[f"{normalized_party_name} politicians"] = f"سياسيو {party_label}"
 
-        derived_keys[f"{normalized_party_name} vice presidents of the united states"] = f"نواب رئيس الولايات المتحدة من {party_label}"
-        derived_keys[f"{normalized_party_name} presidents of the united states"] = f"رؤساء الولايات المتحدة من {party_label}"
+        derived_keys[f"{normalized_party_name} vice presidents of the united states"] = (
+            f"نواب رئيس الولايات المتحدة من {party_label}"
+        )
+        derived_keys[f"{normalized_party_name} presidents of the united states"] = (
+            f"رؤساء الولايات المتحدة من {party_label}"
+        )
         derived_keys[f"{normalized_party_name} state governors"] = f"حكام ولايات من {party_label}"
-        derived_keys[f"{normalized_party_name} state governors of the united states"] = f"حكام ولايات أمريكية من {party_label}"
+        derived_keys[f"{normalized_party_name} state governors of the united states"] = (
+            f"حكام ولايات أمريكية من {party_label}"
+        )
 
     return derived_keys
 
@@ -272,7 +290,9 @@ STATE_NAME_KEY_MAPPINGS = {}
 USA_PARTY_DERIVED_KEYS = _build_party_derived_keys(USA_PARTY_LABELS)
 
 # Backwards compatible aliases ---------------------------------------
-STATE_NAME_TRANSLATIONS_LOWER = {english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()}
+STATE_NAME_TRANSLATIONS_LOWER = {
+    english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()
+}
 
 US_State = STATE_NAME_TRANSLATIONS
 US_State_lower = STATE_NAME_TRANSLATIONS_LOWER

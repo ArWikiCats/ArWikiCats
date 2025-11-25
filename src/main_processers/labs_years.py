@@ -106,7 +106,7 @@ class LabsYears(MatchTimes):
 
         return cat_year, from_year
 
-    def lab_from_year_add(self, category_r: str, category_lab: str, en_year: str, ar_year: str="") -> None:
+    def lab_from_year_add(self, category_r: str, category_lab: str, en_year: str, ar_year: str = "") -> None:
         """
         A function that converts the year in category_r and category_lab to YEAR_PARAM and updates the category_templates dictionary accordingly.
         Parameters:

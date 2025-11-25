@@ -159,7 +159,9 @@ test_data = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", wheelchair_racers_by_nat.items(), ids=list(wheelchair_racers_by_nat.keys()))
+@pytest.mark.parametrize(
+    "category, expected", wheelchair_racers_by_nat.items(), ids=list(wheelchair_racers_by_nat.keys())
+)
 @pytest.mark.fast
 def test_wheelchair_racers_by_nat(category, expected) -> None:
     label = new_func_lab_final_label(category)

@@ -65,7 +65,9 @@ def _resolve_women_without_article_prefix(category: str) -> str:
         suffix_key = category[len(prefix_with_space) :].strip()
         country_label = all_country_with_nat_keys_is_en.get(suffix_key, {}).get("women", "")
         if country_label:
-            logger.debug(f"Resolved women without article prefix, prefix: {prefix_without_article}, category: {suffix_key}")
+            logger.debug(
+                f"Resolved women without article prefix, prefix: {prefix_without_article}, category: {suffix_key}"
+            )
             return template.format(nat=country_label)
 
     return ""

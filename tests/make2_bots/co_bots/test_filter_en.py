@@ -49,7 +49,18 @@ def test_filter_cat_blacklist(cat):
     assert filter_cat(cat) is False
 
 
-@pytest.mark.parametrize("cat", ["Category:Cleanup articles", "Category:Uncategorized pages", "Wikipedia articles about something", "Articles lacking sources", "use x-template something", "User pages for bots", "Userspace sandbox"])
+@pytest.mark.parametrize(
+    "cat",
+    [
+        "Category:Cleanup articles",
+        "Category:Uncategorized pages",
+        "Wikipedia articles about something",
+        "Articles lacking sources",
+        "use x-template something",
+        "User pages for bots",
+        "Userspace sandbox",
+    ],
+)
 def test_filter_cat_prefix_blacklist(cat):
     """Should return False when the category starts with a blocked prefix."""
     assert filter_cat(cat) is False
@@ -68,7 +79,16 @@ def test_filter_cat_blocked_month_patterns(cat):
     assert filter_cat(cat) is False
 
 
-@pytest.mark.parametrize("cat", ["Category:Football players", "Category:Cities in Yemen", "Category:Films of 2020", "My page without issues", "Something random"])
+@pytest.mark.parametrize(
+    "cat",
+    [
+        "Category:Football players",
+        "Category:Cities in Yemen",
+        "Category:Films of 2020",
+        "My page without issues",
+        "Something random",
+    ],
+)
 def test_filter_cat_allowed(cat):
     """Should return True when the category does not match any blocked rule."""
     assert filter_cat(cat) is True

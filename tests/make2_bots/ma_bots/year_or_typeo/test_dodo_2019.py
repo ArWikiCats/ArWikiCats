@@ -22,11 +22,36 @@ def test_work_2019(category: str, expected: str) -> None:
 
 
 examples2 = [
-    {"category3": "18th-century Dutch explorers", "year": "18th-century", "year_labe": "القرن 18", "output": "مستكشفون هولنديون في القرن 18"},
-    {"category3": "19th-century actors", "year": "19th-century", "year_labe": "القرن 19", "output": "ممثلون في القرن 19"},
-    {"category3": "2017 American television series debuts", "year": "2017", "year_labe": "2017", "output": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017"},
-    {"category3": "2017 American television series endings", "year": "2017", "year_labe": "2017", "output": "مسلسلات تلفزيونية أمريكية انتهت في 2017"},
-    {"category3": "20th-century railway accidents", "year": "20th-century", "year_labe": "القرن 20", "output": "حوادث سكك حديد في القرن 20"},
+    {
+        "category3": "18th-century Dutch explorers",
+        "year": "18th-century",
+        "year_labe": "القرن 18",
+        "output": "مستكشفون هولنديون في القرن 18",
+    },
+    {
+        "category3": "19th-century actors",
+        "year": "19th-century",
+        "year_labe": "القرن 19",
+        "output": "ممثلون في القرن 19",
+    },
+    {
+        "category3": "2017 American television series debuts",
+        "year": "2017",
+        "year_labe": "2017",
+        "output": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
+    },
+    {
+        "category3": "2017 American television series endings",
+        "year": "2017",
+        "year_labe": "2017",
+        "output": "مسلسلات تلفزيونية أمريكية انتهت في 2017",
+    },
+    {
+        "category3": "20th-century railway accidents",
+        "year": "20th-century",
+        "year_labe": "القرن 20",
+        "output": "حوادث سكك حديد في القرن 20",
+    },
 ]
 
 

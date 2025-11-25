@@ -74,7 +74,9 @@ def test_mens_nato():
 
 def test_womens_nato():
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "yemeni", "female eugenicists", womens="")  # Removed 'womens="يمنيات"' to test natural fallback
+    result = jobs_with_nat_prefix(
+        "", "yemeni", "female eugenicists", womens=""
+    )  # Removed 'womens="يمنيات"' to test natural fallback
     assert result == "عالمات متخصصات في تحسين النسل يمنيات"
 
 
@@ -273,7 +275,9 @@ def test_mens_nato_politicians_who_committed_suicide_albanian():
 
 def test_womens_nato_politicians_who_committed_suicide_albanian():
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "albanian", "female politicians who committed suicide", womens=Nat_Womens["albanian"])
+    result = jobs_with_nat_prefix(
+        "", "albanian", "female politicians who committed suicide", womens=Nat_Womens["albanian"]
+    )
     assert result in ["سياسيات ألبانيات أقدمن على الانتحار", "سياسيات أقدمن على الانتحار ألبانيات"]
 
 

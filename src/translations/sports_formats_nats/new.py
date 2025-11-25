@@ -111,9 +111,9 @@ def _create_label(category):
 create_nat_label = both_bot.create_nat_label
 create_label = both_bot.create_label
 create_nat_label = both_bot.create_nat_label
-normalize_nat_label=both_bot.normalize_nat_label
-normalize_sport_label=both_bot.normalize_sport_label
-normalize_both= both_bot.normalize_both
+normalize_nat_label = both_bot.normalize_nat_label
+normalize_sport_label = both_bot.normalize_sport_label
+normalize_both = both_bot.normalize_both
 
 __all__ = [
     "normalize_nat_label",

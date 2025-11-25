@@ -117,11 +117,14 @@ class TestNormalizeNatLabel:
 
         assert result == ""
 
-    @pytest.mark.parametrize("input_category,expected", [
-        ("british football teams", "natar football teams"),
-        ("american basketball players", "natar basketball players"),
-        ("egyptian volleyball coaches", "natar volleyball coaches"),
-    ])
+    @pytest.mark.parametrize(
+        "input_category,expected",
+        [
+            ("british football teams", "natar football teams"),
+            ("american basketball players", "natar basketball players"),
+            ("egyptian volleyball coaches", "natar volleyball coaches"),
+        ],
+    )
     def test_normalize_nat_label_various_nationalities(self, multi_bot, input_category, expected):
         """Test normalization with various nationalities."""
         result = multi_bot.normalize_nat_label(input_category)
@@ -145,11 +148,14 @@ class TestNormalizeSportLabel:
 
         assert result == ""
 
-    @pytest.mark.parametrize("input_category,expected", [
-        ("yemeni football teams", "yemeni xoxo teams"),
-        ("british basketball players", "british xoxo players"),
-        ("american volleyball coaches", "american xoxo coaches"),
-    ])
+    @pytest.mark.parametrize(
+        "input_category,expected",
+        [
+            ("yemeni football teams", "yemeni xoxo teams"),
+            ("british basketball players", "british xoxo players"),
+            ("american volleyball coaches", "american xoxo coaches"),
+        ],
+    )
     def test_normalize_sport_label_various_sports(self, multi_bot, input_category, expected):
         """Test normalization with various sports."""
         result = multi_bot.normalize_sport_label(input_category)
@@ -174,12 +180,15 @@ class TestNormalizeBoth:
         # Should normalize nationality first, then sport
         assert result == "natar xoxo teams"
 
-    @pytest.mark.parametrize("input_category,expected", [
-        ("british softball championships", "natar xoxo championships"),
-        ("yemeni football teams", "natar xoxo teams"),
-        ("american basketball players", "natar xoxo players"),
-        ("egyptian volleyball coaches", "natar xoxo coaches"),
-    ])
+    @pytest.mark.parametrize(
+        "input_category,expected",
+        [
+            ("british softball championships", "natar xoxo championships"),
+            ("yemeni football teams", "natar xoxo teams"),
+            ("american basketball players", "natar xoxo players"),
+            ("egyptian volleyball coaches", "natar xoxo coaches"),
+        ],
+    )
     def test_normalize_both_various_combinations(self, multi_bot, input_category, expected):
         """Test normalization with various nationality-sport combinations."""
         result = multi_bot.normalize_both(input_category)
@@ -233,12 +242,15 @@ class TestCreateLabel:
         # Template "natar xoxo something" doesn't exist in formatted_data
         assert result == ""
 
-    @pytest.mark.parametrize("input_category,expected", [
-        ("yemeni football teams", "فرق كرة القدم اليمن"),
-        ("british softball championships", "بطولات المملكة المتحدة في الكرة اللينة"),
-        ("american basketball players", "لاعبو كرة السلة من الولايات المتحدة"),
-        ("egyptian volleyball coaches", "مدربو الكرة الطائرة من مصر"),
-    ])
+    @pytest.mark.parametrize(
+        "input_category,expected",
+        [
+            ("yemeni football teams", "فرق كرة القدم اليمن"),
+            ("british softball championships", "بطولات المملكة المتحدة في الكرة اللينة"),
+            ("american basketball players", "لاعبو كرة السلة من الولايات المتحدة"),
+            ("egyptian volleyball coaches", "مدربو الكرة الطائرة من مصر"),
+        ],
+    )
     def test_create_label_various_combinations(self, multi_bot, input_category, expected):
         """Test creating labels with various nationality-sport combinations."""
         result = multi_bot.create_label(input_category)

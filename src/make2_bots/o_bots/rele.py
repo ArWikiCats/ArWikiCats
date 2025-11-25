@@ -103,7 +103,7 @@ def _resolve_relations(
             continue
 
         prefix = normalized_value[: -len(suffix)].strip()
-        logger.debug(f'\t\t>>>>{suffix=} -> {prefix=}')
+        logger.debug(f"\t\t>>>>{suffix=} -> {prefix=}")
 
         first_key, second_key = _split_pair(prefix)
         if not first_key or not second_key:
@@ -112,8 +112,8 @@ def _resolve_relations(
         first_label = _lookup_country_label(first_key, gender_key, nat_table)
         second_label = _lookup_country_label(second_key, gender_key, nat_table)
 
-        logger.debug(f'\t\t>>>>{first_key=} -> {first_label=}')
-        logger.debug(f'\t\t>>>>{second_key=} -> {second_label=}')
+        logger.debug(f"\t\t>>>>{first_key=} -> {first_label=}")
+        logger.debug(f"\t\t>>>>{second_key=} -> {second_label=}")
 
         if not first_label or not second_label:
             logger.info(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')

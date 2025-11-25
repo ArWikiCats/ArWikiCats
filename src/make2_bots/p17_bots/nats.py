@@ -20,7 +20,7 @@ from ..jobs_bots.get_helps import get_suffix
 
 
 @functools.lru_cache(maxsize=None)
-def load_SPORT_FORMATS_FOR_P17(category: str, check_the: bool=False) -> str:
+def load_SPORT_FORMATS_FOR_P17(category: str, check_the: bool = False) -> str:
     """
     TODO: use FormatData method
 

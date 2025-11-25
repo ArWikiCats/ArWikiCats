@@ -22,7 +22,13 @@ def sample_data():
 def test_text_after(sample_data):
     formatted_data, data_list = sample_data
 
-    bot = FormatData(formatted_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}", text_after=" people",)
+    bot = FormatData(
+        formatted_data,
+        data_list,
+        key_placeholder="{nat}",
+        value_placeholder="{nat}",
+        text_after=" people",
+    )
     key = bot.match_key("yemeni cup")
     assert key == "yemeni"
 
@@ -51,10 +57,14 @@ def test_text_before(sample_data):
 def test_text_before_text_after(sample_data):
     formatted_data, data_list = sample_data
 
-    bot = FormatData(formatted_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}",
-                     text_after=" people",
-                     text_before="the "
-                     )
+    bot = FormatData(
+        formatted_data,
+        data_list,
+        key_placeholder="{nat}",
+        value_placeholder="{nat}",
+        text_after=" people",
+        text_before="the ",
+    )
 
     normalize2 = bot.normalize_category("the yemeni people cup", "yemeni")
     assert normalize2 == "{nat} cup"

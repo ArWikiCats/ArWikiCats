@@ -388,13 +388,16 @@ lang_key_m = LANGUAGE_TOPIC_FORMATS
 lang_ttty = LANGUAGE_RESOURCE_FORMATS
 cccccc_m = MEDIA_CATEGORY_TRANSLATIONS
 
-len_print.data_len("languages.py", {
-    "languages_key": languages_key,
-    "languages_pop": languages_pop,
-    "languages_pop2": languages_pop2,
-    "languages_pop3": languages_pop3,
-    "lang_type": lang_type,
-    "lang_key_m": lang_key_m,
-    "lang_ttty": lang_ttty,
-    "cccccc_m": cccccc_m,
-})
+len_print.data_len(
+    "languages.py",
+    {
+        "languages_key": languages_key,
+        "languages_pop": languages_pop,
+        "languages_pop2": languages_pop2,
+        "languages_pop3": languages_pop3,
+        "lang_type": lang_type,
+        "lang_key_m": lang_key_m,
+        "lang_ttty": lang_ttty,
+        "cccccc_m": cccccc_m,
+    },
+)

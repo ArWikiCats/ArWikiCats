@@ -47,7 +47,9 @@ def get_KAKO(text: str) -> str:
 
         # If not a string → also an error
         if not isinstance(resolved_label, str):
-            raise TypeError(f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}")
+            raise TypeError(
+                f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}"
+            )
 
         logger.debug(f'>> get_KAKO_({table_name}) for ["{text}"] = "{resolved_label}"')
 

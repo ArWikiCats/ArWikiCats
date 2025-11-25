@@ -94,7 +94,7 @@ def work_titose_names(
 
 
 @functools.lru_cache(maxsize=10000)
-def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool=True) -> str:
+def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
     """Translate an English category to Arabic label.
 
     This function processes a category string by normalizing the format

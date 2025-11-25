@@ -8,11 +8,15 @@ from ..helps.log import logger
 from ..make2_bots.reg_lines import YEARS_REGEX_AR
 
 # Precompiled Regex Patterns
-REGEX_BY_DATE_PATTERN = re.compile(rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX_AR})$", re.IGNORECASE)
+REGEX_BY_DATE_PATTERN = re.compile(
+    rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX_AR})$", re.IGNORECASE
+)
 REGEX_WHITESPACE = re.compile(r"\s+", re.IGNORECASE)
 REGEX_QM = re.compile(r"\bق\.م\b", re.IGNORECASE)
 REGEX_YEAR_IN_SECOND_PART = re.compile(r"^(?P<subject>.*)\sحسب\s(?P<by>[\s\w]+)$", re.IGNORECASE)
-REGEX_YEAR_FIRST_PATTERN = re.compile(rf"^(?P<first_part>{YEARS_REGEX_AR})\sفي\s(?P<second_part>[^0-9]*)$", re.IGNORECASE)
+REGEX_YEAR_FIRST_PATTERN = re.compile(
+    rf"^(?P<first_part>{YEARS_REGEX_AR})\sفي\s(?P<second_part>[^0-9]*)$", re.IGNORECASE
+)
 
 
 def move_by_in(text_str: str) -> str:

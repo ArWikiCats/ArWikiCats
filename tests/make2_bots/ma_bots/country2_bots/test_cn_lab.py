@@ -23,13 +23,25 @@ make_cnt_lab_data = {
 @pytest.mark.parametrize("category, ar", make_cnt_lab_data.items(), ids=list(make_cnt_lab_data.keys()))
 @pytest.mark.fast
 def test_make_cnt_lab_data(category, ar) -> None:
-    label = make_cnt_lab(tat_o="-of ", country2=f"kingdom-of {category}", c_2_l=ar, c_1_l="مملكة", cona_1="kingdom of", cona_2=category, sps=" ")
+    label = make_cnt_lab(
+        tat_o="-of ",
+        country2=f"kingdom-of {category}",
+        c_2_l=ar,
+        c_1_l="مملكة",
+        cona_1="kingdom of",
+        cona_2=category,
+        sps=" ",
+    )
     assert label.strip() == f"مملكة {ar}"
 
 
 party_data = {
     "vietnam": ("communist party-of vietnam", "فيتنام", "الحزب الشيوعي في فيتنام"),
-    "bosnia and herzegovina": ("communist party-of bosnia and herzegovina", "البوسنة والهرسك", "الحزب الشيوعي في البوسنة والهرسك"),
+    "bosnia and herzegovina": (
+        "communist party-of bosnia and herzegovina",
+        "البوسنة والهرسك",
+        "الحزب الشيوعي في البوسنة والهرسك",
+    ),
     "cuba": ("communist party-of cuba", "كوبا", "الحزب الشيوعي في كوبا"),
     "soviet union": ("communist party-of soviet union", "الاتحاد السوفيتي", "الحزب الشيوعي في الاتحاد السوفيتي"),
     "yugoslavia": ("communist party-of yugoslavia", "يوغوسلافيا", "الحزب الشيوعي في يوغوسلافيا"),
@@ -39,17 +51,41 @@ party_data = {
 @pytest.mark.parametrize("country2, c_2_l, expected", party_data.values(), ids=list(party_data.keys()))
 @pytest.mark.fast
 def test_make_cnt_lab_communist_party(country2, c_2_l, expected):
-    label = make_cnt_lab(tat_o="-of ", country2=country2, c_2_l=c_2_l, c_1_l="الحزب الشيوعي في ", cona_1="communist party of", cona_2=country2.replace("communist party-of ", ""), sps=" ")
+    label = make_cnt_lab(
+        tat_o="-of ",
+        country2=country2,
+        c_2_l=c_2_l,
+        c_1_l="الحزب الشيوعي في ",
+        cona_1="communist party of",
+        cona_2=country2.replace("communist party-of ", ""),
+        sps=" ",
+    )
 
     assert label.strip() == expected
 
 
 def test_make_cnt_lab():
-    result1 = make_cnt_lab(tat_o=" in ", country2="university of arts in belgrade", c_2_l="بلغراد", c_1_l="جامعة {} للفنون في", cona_1="university of arts", cona_2="belgrade", sps=" في ")
+    result1 = make_cnt_lab(
+        tat_o=" in ",
+        country2="university of arts in belgrade",
+        c_2_l="بلغراد",
+        c_1_l="جامعة {} للفنون في",
+        cona_1="university of arts",
+        cona_2="belgrade",
+        sps=" في ",
+    )
     assert isinstance(result1, str)
     assert result1 == "جامعة بلغراد للفنون"
 
-    result1 = make_cnt_lab(tat_o=" of ", country2="by medium from insular areas of united states", c_2_l="الولايات المتحدة", c_1_l="حسب الوسط من المناطق المعزولة في ", cona_1="by medium from insular areas of", cona_2="united states", sps=" ")
+    result1 = make_cnt_lab(
+        tat_o=" of ",
+        country2="by medium from insular areas of united states",
+        c_2_l="الولايات المتحدة",
+        c_1_l="حسب الوسط من المناطق المعزولة في ",
+        cona_1="by medium from insular areas of",
+        cona_2="united states",
+        sps=" ",
+    )
     assert isinstance(result1, str)
     assert result1 == "حسب الوسط من المناطق المعزولة في الولايات المتحدة"
 
@@ -58,7 +94,9 @@ def test_make_cnt_lab():
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = make_cnt_lab("from", "test from country", "country label2", "test label2", "test2", "country2", " من ")
+    result_various = make_cnt_lab(
+        "from", "test from country", "country label2", "test label2", "test2", "country2", " من "
+    )
     assert isinstance(result_various, str)
 
     # Test with empty strings
@@ -103,6 +141,14 @@ congress_data = {
 @pytest.mark.fast
 def test_congress_data(category, ar):
     label = f"الكونغرس الأمريكي {ar}"
-    result = make_cnt_lab(tat_o=" of ", country2=f"acts of {category} united states congress", c_2_l=label, c_1_l="أفعال", cona_1="acts of", cona_2=f"{category} united states congress", sps=" ")
+    result = make_cnt_lab(
+        tat_o=" of ",
+        country2=f"acts of {category} united states congress",
+        c_2_l=label,
+        c_1_l="أفعال",
+        cona_1="acts of",
+        cona_2=f"{category} united states congress",
+        sps=" ",
+    )
 
     assert result == f"أفعال {label}"

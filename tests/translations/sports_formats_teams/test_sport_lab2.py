@@ -52,7 +52,6 @@ data2 = {
     "national youth women's under-14 softball teams scouts": "كشافة منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball leagues scouts": "كشافة دوريات كرة لينة وطنية تحت 14 سنة للشابات",
     "national softball teams coaches": "مدربو منتخبات كرة لينة وطنية",
-
     "defunct football competitions": "منافسات كرة قدم سابقة",
     "professional ice hockey leagues": "دوريات هوكي جليد للمحترفين",
     "national football team results ": "نتائج منتخبات كرة قدم وطنية",

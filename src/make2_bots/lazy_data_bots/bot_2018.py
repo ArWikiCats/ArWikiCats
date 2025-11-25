@@ -34,7 +34,13 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
-    result = _get_pop_All_18(key, default) or find_teams_2025(key, default) or Clubs_key_2.get(key) or pop_final_5.get(key) or default
+    result = (
+        _get_pop_All_18(key, default)
+        or find_teams_2025(key, default)
+        or Clubs_key_2.get(key)
+        or pop_final_5.get(key)
+        or default
+    )
     return result
 
 

@@ -95,8 +95,6 @@ def _resolve_club_label(club_key: str) -> str:
     return club_lab
 
 
-
-
 @functools.lru_cache(maxsize=None)
 def Get_team_work_Club(category: str) -> str:
     """Return the Arabic label for ``category`` using known suffixes.

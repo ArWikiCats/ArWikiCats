@@ -113,10 +113,8 @@ PROVINCE_LABEL_OVERRIDES = {
     "central region": "الجهة الوسطى",
     "northwestern region": "الجهة الشمالية الغربية",
     "cajamarca region": "كاخاماركا",
-
     "sacatepéquez department": "ساكاتيبيكيز",
     "escuintla department": "إسكوينتلا",
-
     "prevalje municipality": "بريفالجه",
     "moravče municipality": "مورافسكه (مورافسكه)",
     "vraneštica municipality": "فرانيستيكا (كيسيفو)",

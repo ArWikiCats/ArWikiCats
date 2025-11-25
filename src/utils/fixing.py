@@ -9,7 +9,7 @@ def fix_minor(arlabel: str, sps: str = "") -> str:
     sps_list = [
         "من",
         "في",
-        "و"
+        "و",
     ]
 
     sps = sps.strip()

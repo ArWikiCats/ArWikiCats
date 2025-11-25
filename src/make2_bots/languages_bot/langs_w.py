@@ -41,9 +41,7 @@ class FilmCategoryLabelResolver:
 
     # ---------- Direct "X-language films" pattern ----------
 
-    def resolve_direct_language_films(
-        self, suffix: str, lang_key: str, lang_label: str
-    ) -> str:
+    def resolve_direct_language_films(self, suffix: str, lang_key: str, lang_label: str) -> str:
         """Resolve patterns like 'arabic-language films'.
 
         Args:
@@ -81,10 +79,7 @@ class FilmCategoryLabelResolver:
 
         if film_label:
             result = f"أفلام {film_label} ب{language_label}"
-            logger.debug(
-                f'<<lightblue>> FilmCategoryLabelResolver._try_films_suffix_pattern '
-                f'result:"{result}"'
-            )
+            logger.debug(f"<<lightblue>> FilmCategoryLabelResolver._try_films_suffix_pattern " f'result:"{result}"')
             return result
         return ""
 
@@ -101,7 +96,7 @@ class FilmCategoryLabelResolver:
             if label:
                 result = f"{label} ب{language_label}"
                 logger.debug(
-                    f'<<lightblue>> FilmCategoryLabelResolver._lookup_in_film_dictionaries '
+                    f"<<lightblue>> FilmCategoryLabelResolver._lookup_in_film_dictionaries "
                     f'{dict_name}. result:"{result}"'
                 )
                 return result
@@ -123,7 +118,7 @@ class FilmCategoryLabelResolver:
         if template:
             result = template.format(f"ب{language_label}")
             logger.debug(
-                f'<<lightblue>> FilmCategoryLabelResolver.resolve_with_suffix '
+                f"<<lightblue>> FilmCategoryLabelResolver.resolve_with_suffix "
                 f'Films_key_For_nat({suffix}). result:"{result}"'
             )
             return result
@@ -201,7 +196,7 @@ class LanguageLabelResolver:
 
         suffix = con_3[len(lang_prefix) :]
         logger.debug(
-            f'LanguageLabelResolver._lab_from_lang_keys: '
+            f"LanguageLabelResolver._lab_from_lang_keys: "
             f'lang_prefix="{lang_prefix}", suffix="{suffix}", con_3="{con_3}"'
         )
 
@@ -209,19 +204,14 @@ class LanguageLabelResolver:
         job_label = self._jobs_mens.get(suffix, "")
         if job_label:
             result = f"{job_label} ب{lang_label}"
-            logger.debug(
-                f'<<lightblue>> jobs_mens_data({suffix}): result:"{result}"'
-            )
+            logger.debug(f'<<lightblue>> jobs_mens_data({suffix}): result:"{result}"')
             return result
 
         # 4) lang_key_m lookup with formatting
         template = self._lang_key_m.get(suffix, "")
         if template:
             result = template.format(lang_label)
-            logger.debug(
-                f'<<lightblue>> lang_key_m({suffix}), template:"{template}", '
-                f'result:"{result}"'
-            )
+            logger.debug(f'<<lightblue>> lang_key_m({suffix}), template:"{template}", ' f'result:"{result}"')
             return result
 
         logger.debug(f"no match for suffix: ({suffix}), language_label={lang_label}")
@@ -232,6 +222,7 @@ class LanguageLabelResolver:
             return film_result
 
         return ""
+
     # ---------- Public API ----------
 
     def resolve(self, suffix: str) -> str:
@@ -251,18 +242,14 @@ class LanguageLabelResolver:
         # 3) Language-based patterns
         for lang_key, lang_label in self._languages.items():
             # 3.a) Film pattern: "{lang_without_suffix} films"
-            films_label = self._film_resolver.resolve_direct_language_films(
-                suffix, lang_key, lang_label
-            )
+            films_label = self._film_resolver.resolve_direct_language_films(suffix, lang_key, lang_label)
             if films_label:
                 return films_label
 
             # 3.b) Generic "<lang_key> <suffix>" patterns
             lang_prefix = f"{lang_key} "
             if suffix.startswith(lang_prefix):
-                logger.debug(
-                    f'<<lightblue>> suffix.startswith(lang:"{lang_prefix}")'
-                )
+                logger.debug(f'<<lightblue>> suffix.startswith(lang:"{lang_prefix}")')
                 label = self._lab_from_lang_keys(
                     suffix,
                     lang_key,

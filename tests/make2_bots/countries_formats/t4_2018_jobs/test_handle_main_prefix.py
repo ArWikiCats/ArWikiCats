@@ -17,7 +17,7 @@ data = {
         "category_original": "native women",
         "expected_category": "women",
         "expected_main_ss": "native",
-        "expected_main_lab": "{} أصليات",   # بعد التحويل للمؤنث
+        "expected_main_lab": "{} أصليات",  # بعد التحويل للمؤنث
     },
     "no prefix": {
         "category_original": "random text",
@@ -54,17 +54,11 @@ def testhandle_main_prefix(case_key, case_data):
         category_original,
     )
 
-    assert result_category == case_data["expected_category"], (
-        f"Category mismatch in case: {case_key}"
-    )
+    assert result_category == case_data["expected_category"], f"Category mismatch in case: {case_key}"
 
-    assert main_ss == case_data["expected_main_ss"], (
-        f"main_ss mismatch in case: {case_key}"
-    )
+    assert main_ss == case_data["expected_main_ss"], f"main_ss mismatch in case: {case_key}"
 
-    assert main_lab == case_data["expected_main_lab"], (
-        f"main_lab mismatch in case: {case_key}"
-    )
+    assert main_lab == case_data["expected_main_lab"], f"main_lab mismatch in case: {case_key}"
 
 
 def test_simple_prefix_match():

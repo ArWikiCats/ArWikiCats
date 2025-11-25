@@ -71,7 +71,7 @@ class FormatData:
         normalized_category = " ".join(category.split())
 
         normalized = re.sub(
-            fr" {re.escape(sport_key)} ",
+            rf" {re.escape(sport_key)} ",
             f" {self.key_placeholder} ",
             f" {normalized_category.strip()} ",
             flags=re.IGNORECASE,

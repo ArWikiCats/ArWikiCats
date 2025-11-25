@@ -8,7 +8,6 @@ from src import new_func_lab_final_label
 wheelchair_by_nats = {
     "Category:Swiss Wheelchair Curling Championship": "تصنيف:بطولة سويسرا للكيرلنغ على الكراسي المتحركة",
     "Category:European Wheelchair Basketball Championship": "تصنيف:بطولة أوروبا لكرة السلة على الكراسي المتحركة",
-
     "Category:Parapan American Games medalists in wheelchair basketball": "تصنيف:فائزون بميداليات ألعاب بارابان الأمريكية في كرة السلة على الكراسي المتحركة",
     "Category:Parapan American Games medalists in wheelchair tennis": "تصنيف:فائزون بميداليات ألعاب بارابان الأمريكية في كرة المضرب على الكراسي المتحركة",
     "Category:Parapan American Games wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة في ألعاب بارابان الأمريكية",

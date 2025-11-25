@@ -54,6 +54,7 @@ def wrap_event2(category: str, tito: str = "") -> str:
 @dataclass
 class ParsedCategory:
     """Represents a parsed category with its components."""
+
     category: str
     tito: str
     type_value: str
@@ -103,11 +104,15 @@ class Fixing:
             sps = " في "
 
         if self.country_in_table and self.add_in_lab:
-            if (self.tito_stripped == "in" or self.tito_stripped == "at") and (" في" not in self.country_label or self.type_lower in Add_ar_in):
+            if (self.tito_stripped == "in" or self.tito_stripped == "at") and (
+                " في" not in self.country_label or self.type_lower in Add_ar_in
+            ):
                 sps = " في "
                 logger.info("ssps:%s" % sps)
         else:
-            if (self.tito_stripped == "in" or self.tito_stripped == "at") and (" في" not in self.type_label or self.type_lower in Add_ar_in):
+            if (self.tito_stripped == "in" or self.tito_stripped == "at") and (
+                " في" not in self.type_label or self.type_lower in Add_ar_in
+            ):
                 self.type_label = self.type_label + " في"
 
         if self.add_in_lab:
@@ -116,7 +121,9 @@ class Fixing:
 
             if tito2_lab not in TITO_LIST_S:
                 tatl = tito2_lab
-                logger.info(f">>>>> > ({self.tito_stripped=}): tito_stripped in category_relation_mapping and tito_stripped not in TITO_LIST_S, {tatl=}")
+                logger.info(
+                    f">>>>> > ({self.tito_stripped=}): tito_stripped in category_relation_mapping and tito_stripped not in TITO_LIST_S, {tatl=}"
+                )
 
                 if self.tito_stripped == "for" and self.country_lower.startswith("for "):
                     if self.type_lower.strip().endswith("competitors") and "competitors for" in self.category:
@@ -150,7 +157,9 @@ class Fixing:
         logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
         logger.info(">>>> ================ ")
 
-        faa = category_relation_mapping.get(self.tito_stripped) or category_relation_mapping.get(self.tito_stripped.replace("-", " ").strip())
+        faa = category_relation_mapping.get(self.tito_stripped) or category_relation_mapping.get(
+            self.tito_stripped.replace("-", " ").strip()
+        )
 
         if not sps.strip() and faa:
             sps = f" {faa} "
@@ -201,7 +210,9 @@ class LabelPipeline(Fixing):
         """Resolves type and country labels. Returns False if resolution fails."""
 
         # Resolve type
-        self.type_label, self.add_in_lab = TypeResolver.resolve(self.tito_stripped, self.category_type, self.country_lower, self.use_event2)
+        self.type_label, self.add_in_lab = TypeResolver.resolve(
+            self.tito_stripped, self.category_type, self.country_lower, self.use_event2
+        )
 
         if self.type_label:
             self.cate_test = self.cate_test.replace(self.type_lower, "")
@@ -223,8 +234,12 @@ class LabelPipeline(Fixing):
             cao = False
 
         if self.type_label or self.country_label:
-            logger.info(f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", country_label:"{self.country_label}"')
-            logger.info(f'<<lightgreen>>>>>> ------------- type_lower:"{self.type_lower}", type_label:"{self.type_label}"')
+            logger.info(
+                f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", country_label:"{self.country_label}"'
+            )
+            logger.info(
+                f'<<lightgreen>>>>>> ------------- type_lower:"{self.type_lower}", type_label:"{self.type_label}"'
+            )
 
         if not cao:
             return False
@@ -268,7 +283,9 @@ class LabelPipeline(Fixing):
             keep_type_last = True
 
         elif self.type_lower in Keep_it_frist:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist')
+            logger.info(
+                f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist'
+            )
             keep_type_first = True
 
         elif t_to in Keep_it_frist:
@@ -294,7 +311,9 @@ class LabelPipeline(Fixing):
             arlabel = self.country_label + sps + self.type_label
 
         elif keep_type_first:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist')
+            logger.info(
+                f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist'
+            )
             arlabel = self.type_label + sps + self.country_label
 
         if self.tito_stripped == "about" or (self.tito_stripped not in TITO_LIST_S):
@@ -317,7 +336,9 @@ class LabelPipeline(Fixing):
                 logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}":')
                 arlabel = pop_format[self.type_lower].format(self.country_label)
             else:
-                logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}" and country_label.startswith("حسب") ')
+                logger.info(
+                    f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}" and country_label.startswith("حسب") '
+                )
 
         elif self.tito_stripped in pop_format33:
             logger.info(f'>>>> <<lightblue>> tito in pop_format33 "{pop_format33[self.tito_stripped]}":')
@@ -373,7 +394,7 @@ def find_ar_label(
         tito=tito,
         cate_test=cate_test,
         start_get_country2=start_get_country2,
-        use_event2=use_event2
+        use_event2=use_event2,
     )
     return builder.build()
 

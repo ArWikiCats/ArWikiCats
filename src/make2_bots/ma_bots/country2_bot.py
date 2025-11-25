@@ -22,7 +22,9 @@ def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
     resolved_label = country2_lab.get_lab_for_country2(country)
 
     if not resolved_label:
-        resolved_label = ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
+        resolved_label = ye_ts_bot.translate_general_category(
+            normalized_country, start_get_country2=False, fix_title=False
+        )
 
     _label = country_2_title_work(country, With_Years=With_Years)
     # if not resolved_label and _label:

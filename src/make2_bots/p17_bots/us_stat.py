@@ -10,7 +10,9 @@ from ...translations import US_State_lower, kk_end_US_State
 def Work_US_State(state_identifier: str) -> str:
     """Return the Arabic label for a U.S. state-related category."""
     normalized_state = state_identifier.lower().strip()
-    logger.info(f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", SUUS : "{normalized_state}"')
+    logger.info(
+        f'<<lightpurple>> > Work_US_State:> len US_State_lower: "{len(US_State_lower)}", SUUS : "{normalized_state}"'
+    )
     label = ""
     state_key = ""
     suffix_key = ""
@@ -27,7 +29,9 @@ def Work_US_State(state_identifier: str) -> str:
         elif normalized_state.endswith(state_suffix_variant):
             suffix_key = suffix
             state_key = normalized_state[: -len(state_suffix_variant)]
-            logger.info(f'>>>><<lightblue>> Work_US_State :"{normalized_state}" (matched suffix variant: "{state_suffix_variant}")')
+            logger.info(
+                f'>>>><<lightblue>> Work_US_State :"{normalized_state}" (matched suffix variant: "{state_suffix_variant}")'
+            )
             break
 
     if suffix_key and state_key:

@@ -242,35 +242,69 @@ ministrs_for_military_format_men = {}  # used in bot_te_4.py
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
     # ministrs_for_military_format_men["secretary of the {}".format(mi2)] = 'وزير %s {nat}' % da['al']
-    ministrs_for_military_format_men[f"assistant secretaries of {normalized_ministry}"] = "مساعدو وزير %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_men[f"deputy secretaries of {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_men[f"deputy secretaries of the {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"assistant secretaries of {normalized_ministry}"] = (
+        "مساعدو وزير %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_men[f"deputy secretaries of {normalized_ministry}"] = (
+        "نواب وزير %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_men[f"deputy secretaries of the {normalized_ministry}"] = (
+        "نواب وزير %s {nat}" % ministry_labels["al"]
+    )
 
-    ministrs_for_military_format_men[f"assistant secretaries-of {normalized_ministry}"] = "مساعدو وزير %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_men[f"deputy secretaries-of {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_men[f"deputy secretaries-of the {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"assistant secretaries-of {normalized_ministry}"] = (
+        "مساعدو وزير %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_men[f"deputy secretaries-of {normalized_ministry}"] = (
+        "نواب وزير %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_men[f"deputy secretaries-of the {normalized_ministry}"] = (
+        "نواب وزير %s {nat}" % ministry_labels["al"]
+    )
 
-    ministrs_for_military_format_men[f"deputy secretary of {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_men[f"deputy secretary of the {normalized_ministry}"] = "نواب وزير %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_men[f"deputy secretary of {normalized_ministry}"] = (
+        "نواب وزير %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_men[f"deputy secretary of the {normalized_ministry}"] = (
+        "نواب وزير %s {nat}" % ministry_labels["al"]
+    )
 # ---
 ministrs_for_military_format_women = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
-    ministrs_for_military_format_women[f"department of {normalized_ministry} agencies"] = "وكالات وزارة %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_women[f"department of {normalized_ministry} facilities"] = "مرافق وزارة %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories"] = "مختبرات وزارة %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories personnel"] = "موظفو مختبرات وزارة %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_women[f"department of {normalized_ministry} officials"] = "مسؤولو وزارة %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_women[f"department of {normalized_ministry}"] = "وزارة %s {nat}" % ministry_labels["al"]
-    ministrs_for_military_format_women[f"department of the {normalized_ministry}"] = "وزارة %s {nat}" % ministry_labels["al"]
+    ministrs_for_military_format_women[f"department of {normalized_ministry} agencies"] = (
+        "وكالات وزارة %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_women[f"department of {normalized_ministry} facilities"] = (
+        "مرافق وزارة %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories"] = (
+        "مختبرات وزارة %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories personnel"] = (
+        "موظفو مختبرات وزارة %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_women[f"department of {normalized_ministry} officials"] = (
+        "مسؤولو وزارة %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_women[f"department of {normalized_ministry}"] = (
+        "وزارة %s {nat}" % ministry_labels["al"]
+    )
+    ministrs_for_military_format_women[f"department of the {normalized_ministry}"] = (
+        "وزارة %s {nat}" % ministry_labels["al"]
+    )
 # ---
 ministrs_for_en_is_P17_ar_is_mens = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of the {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of the {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of the {normalized_ministry}"] = (
+        "وزراء %s {}" % ministry_labels["s"]
+    )
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of the {normalized_ministry}"] = (
+        "وزراء %s {}" % ministry_labels["s"]
+    )
     ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
     ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
 # ---

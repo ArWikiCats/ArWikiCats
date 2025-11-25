@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-
-
-"""
+""" """
 
 import functools
 import re
@@ -27,9 +24,7 @@ New_For_nat_female_xo_team_2 = {
     "{nat} xzxz super leagues": "دوريات سوبر xzxz {nat}",
 }
 
-New_For_nat_female_xo_team_2.update({
-    f"{{nat}} {x}" : v for x, v in New_For_nat_female_xo_team.items()
-})
+New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in New_For_nat_female_xo_team.items()})
 
 # remove "the " from the start of all Nat_women_2 keys
 Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}
@@ -65,12 +60,16 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
     normalized_team_key = con_77.replace(sport_key, "xzxz")
     normalized_team_key = re.sub(sport_key, "xzxz", normalized_team_key, flags=re.IGNORECASE)
 
-    logger.info(f'Get_sport_formts_female_nat female con_77:"{con_77}", sport_key:"{sport_key}", team_xz:"{normalized_team_key}"')
+    logger.info(
+        f'Get_sport_formts_female_nat female con_77:"{con_77}", sport_key:"{sport_key}", team_xz:"{normalized_team_key}"'
+    )
 
     template_label = New_For_nat_female_xo_team.get(normalized_team_key, "")
 
     if not template_label:
-        logger.info(f'Get_sport_formts_female_nat female team_xz:"{normalized_team_key}" not in New_For_nat_female_xo_team')
+        logger.info(
+            f'Get_sport_formts_female_nat female team_xz:"{normalized_team_key}" not in New_For_nat_female_xo_team'
+        )
         return ""
 
     sport_arabic_label = SPORTS_KEYS_FOR_JOBS.get(sport_key, "")
@@ -92,7 +91,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
 
 
 @functools.lru_cache(maxsize=None)
-def sport_lab_nat_load(category: str, check_the: bool=False) -> str:
+def sport_lab_nat_load(category: str, check_the: bool = False) -> str:
     """
     Example:
         category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"

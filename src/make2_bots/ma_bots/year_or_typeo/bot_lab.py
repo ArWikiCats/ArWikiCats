@@ -129,7 +129,9 @@ class LabelForStartWithYearOrTypeo:
             return
 
         if self.typeo in typeTable:
-            logger.info('a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(self.typeo, typeTable[self.typeo]["ar"]))
+            logger.info(
+                'a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(self.typeo, typeTable[self.typeo]["ar"])
+            )
 
             self.typeo_lab = typeTable[self.typeo]["ar"]
             self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
@@ -176,13 +178,15 @@ class LabelForStartWithYearOrTypeo:
         self.year_labe = year_lab.make_year_lab(self.year_at_first)
 
         if not self.year_labe:
-            logger.info(f'No label for year_at_first({self.year_at_first}), {self.arlabel=}')
+            logger.info(f"No label for year_at_first({self.year_at_first}), {self.arlabel=}")
             return
 
         self.cat_test = self.replace_cat_test(self.cat_test, self.year_at_first)
         self.arlabel += " " + self.year_labe
 
-        logger.info(f'252: year_at_first({self.year_at_first}) != "" arlabel:"{self.arlabel}",In.strip() == "{self.In.strip()}"')
+        logger.info(
+            f'252: year_at_first({self.year_at_first}) != "" arlabel:"{self.arlabel}",In.strip() == "{self.In.strip()}"'
+        )
 
         if (self.In.strip() in ("in", "at")) and not self.suf.strip():
             logger.info('Add في to arlabel:in,at"%s"' % self.arlabel)
@@ -239,9 +243,18 @@ class LabelForStartWithYearOrTypeo:
         if self.country_lower:
             if self.country_label:
                 self.cat_test, self.arlabel = new_func_mk2(
-                    self.cate, self.cat_test, self.year_at_first, self.typeo, self.In,
-                    self.country_lower, self.arlabel, self.year_labe, self.suf, self.Add_In,
-                    self.country_label, self.Add_In_Done
+                    self.cate,
+                    self.cat_test,
+                    self.year_at_first,
+                    self.typeo,
+                    self.In,
+                    self.country_lower,
+                    self.arlabel,
+                    self.year_labe,
+                    self.suf,
+                    self.Add_In,
+                    self.country_label,
+                    self.Add_In_Done,
                 )
                 return
 
@@ -268,7 +281,9 @@ class LabelForStartWithYearOrTypeo:
 
     def finalize(self):
         """Perform final validation and return the completed label."""
-        category2 = self.cate[len("category:") :].lower() if self.cate.lower().startswith("category:") else self.cate.lower()
+        category2 = (
+            self.cate[len("category:") :].lower() if self.cate.lower().startswith("category:") else self.cate.lower()
+        )
 
         if not self.cat_test.strip():
             logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
@@ -326,7 +341,6 @@ class LabelForStartWithYearOrTypeo:
         self.apply_fallbacks()
 
         return self.finalize()
-
 
 
 def label_for_startwith_year_or_typeo(category_r: str) -> str:

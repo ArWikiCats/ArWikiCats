@@ -10,7 +10,10 @@ data_contries_from_nat = {
     "afghanistan national football team managers": ("national football team managers", "afghanistan"),
     "argentina women's international footballers": ("women's international footballers", "argentina"),
     "australia international soccer players": ("international soccer players", "australia"),
-    "australia national women's wheelchair basketball team": ("national women's wheelchair basketball team", "australia"),
+    "australia national women's wheelchair basketball team": (
+        "national women's wheelchair basketball team",
+        "australia",
+    ),
     "canada men's international soccer players": ("men's international soccer players", "canada"),
     "england amateur international footballers": ("amateur international footballers", "england"),
     "georgia (country)": ("(country)", "georgia"),
@@ -258,7 +261,10 @@ data_nat = {
     "american people": ("people", "american"),
     "american television episodes": ("television episodes", "american"),
     "american television seasons": ("television seasons", "american"),
-    "american television series basedon british television series": ("television series basedon british television series", "american"),
+    "american television series basedon british television series": (
+        "television series basedon british television series",
+        "american",
+    ),
     "american television series basedon british": ("television series basedon british", "american"),
     "american television series debuts": ("television series debuts", "american"),
     "american television series endings": ("television series endings", "american"),

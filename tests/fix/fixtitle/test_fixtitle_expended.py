@@ -24,7 +24,10 @@ from src.fix.fixtitle import (
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_apply_regex_replacements(text, expected):
-    assert _apply_regex_replacements(text, {"المكان المأهول واحتلال": "المكان المأهول والمهنة", "قضاة من ": "قضاة في "}) == expected
+    assert (
+        _apply_regex_replacements(text, {"المكان المأهول واحتلال": "المكان المأهول والمهنة", "قضاة من ": "قضاة في "})
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -59,7 +62,11 @@ def test_insert_year_preposition(text, expected):
 
 @pytest.mark.parametrize(
     "text, expected",
-    [("الغزو الأمريكي في العراق", "الغزو الأمريكي للعراق"), ("الحرب العالمية في أوروبا", "الحرب العالمية في أوروبا"), ("الغزو الفرنسي في الجزائر", "الغزو الفرنسي للجزائر")],
+    [
+        ("الغزو الأمريكي في العراق", "الغزو الأمريكي للعراق"),
+        ("الحرب العالمية في أوروبا", "الحرب العالمية في أوروبا"),
+        ("الغزو الفرنسي في الجزائر", "الغزو الفرنسي للجزائر"),
+    ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_normalize_conflict_phrases(text, expected):
@@ -68,7 +75,12 @@ def test_normalize_conflict_phrases(text, expected):
 
 @pytest.mark.parametrize(
     "text, expected",
-    [("اليابان حسب الولاية", "اليابان حسب المحافظة"), ("في سريلانكا الإقليم", "في سريلانكا المقاطعة"), ("مديريات تركيا", "أقضية تركيا"), ("مديريات جزائر", "دوائر جزائر")],
+    [
+        ("اليابان حسب الولاية", "اليابان حسب المحافظة"),
+        ("في سريلانكا الإقليم", "في سريلانكا المقاطعة"),
+        ("مديريات تركيا", "أقضية تركيا"),
+        ("مديريات جزائر", "دوائر جزائر"),
+    ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_normalize_sub_regions(text, expected):
@@ -95,7 +107,11 @@ def test_add_fee(text, expected):
 
 @pytest.mark.parametrize(
     "ar_label, en_label, expected",
-    [("كأس العالم لكرة القدم 2022", "World Cup", "كأس العالم 2022"), ("تأسيسات 1990", "establishments", "تأسيسات سنة 1990"), ("انحلالات 1985", "disestablishments", "انحلالات سنة 1985")],
+    [
+        ("كأس العالم لكرة القدم 2022", "World Cup", "كأس العالم 2022"),
+        ("تأسيسات 1990", "establishments", "تأسيسات سنة 1990"),
+        ("انحلالات 1985", "disestablishments", "انحلالات سنة 1985"),
+    ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fix_it_common(ar_label, en_label, expected):
@@ -123,7 +139,12 @@ def test_fixlab_rejected(label_old):
 
 @pytest.mark.parametrize(
     "ar_label, en_label",
-    [("أحداث رياضية الرياضية", "sports events"), ("من القرن 19", "19th century"), ("من الحروب", "wars"), ("من الثورة", "revolutions")],
+    [
+        ("أحداث رياضية الرياضية", "sports events"),
+        ("من القرن 19", "19th century"),
+        ("من الحروب", "wars"),
+        ("من الثورة", "revolutions"),
+    ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fix_it_expanded_patterns(ar_label, en_label):
