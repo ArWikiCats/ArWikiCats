@@ -12,7 +12,7 @@ from ..matables_bots.bot import Films_O_TT, add_to_new_players
 from ..media_bots.film_keys_bot import get_Films_key_CAO
 from ..o_bots import fax
 from ..o_bots.army import te_army
-from ..p17_bots import p17_bot
+from ..countries_formats import p17_bot
 
 
 @functools.lru_cache(maxsize=None)
