@@ -84,9 +84,15 @@ for sport, label in SPORTS_KEYS_FOR_LABEL.items():
 
 
 for year in YEARS_LIST:
-    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international managers"] = f"مدربو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international players"] = f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international playerss"] = f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international managers"] = (
+        f"مدربو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+    )
+    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international players"] = (
+        f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+    )
+    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international playerss"] = (
+        f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+    )
 
 for modifier, modifier_label in sport_starts.items():
     # SPORT_FORMTS_EN_AR_IS_P17["international footballers"] = "لاعبو منتخب {} لكرة القدم"
@@ -148,10 +154,14 @@ for team2 in SPORTS_KEYS_FOR_TEAM:
 
     # tab[Category:American Indoor Soccer League coaches] = "تصنيف:مدربو الدوري الأمريكي لكرة القدم داخل الصالات"
     SPORT_FORMTS_MALE_NAT[f"indoor {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
-    SPORT_FORMTS_MALE_NAT[f"outdoor {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} في الهواء الطلق"
+    SPORT_FORMTS_MALE_NAT[f"outdoor {team2.lower()} league"] = (
+        f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} في الهواء الطلق"
+    )
 
     # tab[Category:Canadian Major Indoor Soccer League seasons] = "تصنيف:مواسم الدوري الرئيسي الكندي لكرة القدم داخل الصالات"
-    SPORT_FORMTS_MALE_NAT[f"major indoor {team2.lower()} league"] = f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
+    SPORT_FORMTS_MALE_NAT[f"major indoor {team2.lower()} league"] = (
+        f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
+    )
 
     # Category:National junior women's goalball teams
 

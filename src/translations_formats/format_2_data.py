@@ -15,8 +15,7 @@ from .format_data import FormatData
 
 
 class FormatComparisonHelper:
-    def __init__(self):
-        ...
+    def __init__(self): ...
 
     def get_start_p17(self, cate):
         new_category = self.normalize_nat_label(cate)
@@ -36,7 +35,6 @@ class FormatMultiData(FormatComparisonHelper):
         value2_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
-
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
@@ -54,14 +52,14 @@ class FormatMultiData(FormatComparisonHelper):
             key_placeholder=self.key_placeholder,
             value_placeholder=self.value_placeholder,
             text_after=text_after,
-            text_before=text_before
+            text_before=text_before,
         )
 
         self.sport_bot = FormatData(
             {},
             data_list2,
             key_placeholder=self.key2_placeholder,
-            value_placeholder=self.value2_placeholder
+            value_placeholder=self.value2_placeholder,
         )
 
         # @dump_data(enable=True)
@@ -144,7 +142,9 @@ class FormatMultiData(FormatComparisonHelper):
         if not nationality_label or not sport_label:
             return ""
 
-        label = template_ar.replace(self.value_placeholder, nationality_label).replace(self.value2_placeholder, sport_label)
+        label = template_ar.replace(self.value_placeholder, nationality_label).replace(
+            self.value2_placeholder, sport_label
+        )
 
         logger.debug(f"{label=}")
 

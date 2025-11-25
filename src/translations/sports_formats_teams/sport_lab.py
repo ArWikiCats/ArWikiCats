@@ -36,7 +36,9 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
         sport_label = SPORTS_KEYS_FOR_TEAM[sport_key]
         template_label = SPORT_FORMTS_ENAR_P17_TEAM.get(normalized_key, "")
     else:
-        logger.info(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs or SPORT_FORMTS_ENAR_P17_TEAM')
+        logger.info(
+            f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs or SPORT_FORMTS_ENAR_P17_TEAM'
+        )
     if template_label and sport_label:
         con_3_label = apply_pattern_replacement(template_label, sport_label, "xoxo")
         logger.info(f'Get_SFxo_en_ar_is P17 blab:"{con_3_label}"')

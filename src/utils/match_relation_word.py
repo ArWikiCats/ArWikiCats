@@ -1,11 +1,7 @@
-
 def get_relation_word_new(category: str, data: dict):
     """Find the first relation token present in ``category`` using comprehension."""
     # Find the first matching tito key in the category
-    matched_tito = next(
-        (key for key in data if f" {key} " in category),
-        None
-    )
+    matched_tito = next((key for key in data if f" {key} " in category), None)
     # ---
     if matched_tito:
         tito_name = data[matched_tito]
