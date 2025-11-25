@@ -7,6 +7,8 @@ import pytest
 from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 
 fast_data_c_1_1_lab = [
+    {"tat_o": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
+
     {"tat_o": " about ", "cone_1": "american documentary television series", "output": "مسلسلات تلفزيونية وثائقية أمريكية"},
     {"tat_o": " about ", "cone_1": "american propaganda films", "output": "أفلام دعائية أمريكية"},
     {"tat_o": " about ", "cone_1": "animated television series", "output": "مسلسلات تلفزيونية رسوم متحركة"},
@@ -108,7 +110,6 @@ fast_data_c_1_1_lab = [
     {"tat_o": " in ", "cone_1": "canadian lgbtq people", "output": "أعلام إل جي بي تي كيو كندية"},
     {"tat_o": " in ", "cone_1": "cities and towns", "output": "مدن وبلدات"},
     {"tat_o": " in ", "cone_1": "clubs and societies", "output": "أندية وجمعيات"},
-    {"tat_o": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
     {"tat_o": " in ", "cone_1": "czech people executed", "output": "معدومون تشيكيون"},
     {"tat_o": " in ", "cone_1": "deaths due to animal attacks", "output": "وفيات ناجمة عن هجمات الحيوانات"},
     {"tat_o": " in ", "cone_1": "deaths from cancer", "output": "وفيات السرطان"},

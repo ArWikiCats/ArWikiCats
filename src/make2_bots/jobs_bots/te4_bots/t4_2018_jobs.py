@@ -30,6 +30,11 @@ priffix_lab_for_2018: dict[str, dict[str, str]] = {
     "ancient": {"men": "{} قديم", "women": "{} قديمة"},
 }
 
+Main_priffix_to: dict[str, str] = {
+    "non": "{t} غير {nat}",
+}
+
+
 Main_priffix: dict[str, str] = {
     "assassinated": "{} مغتالون",
     "fictional": "{} خياليون",
@@ -46,9 +51,8 @@ Main_priffix: dict[str, str] = {
     # "non" : "غير {}",
 }
 
-Main_priffix_to: dict[str, str] = {
-    "non": "{t} غير {nat}",
-}
+# sorted by len of " " in key
+Main_priffix = dict(sorted(Main_priffix.items(), key=lambda x: x[0].count(" "), reverse=True))
 
 
 def _handle_main_prefix(category: str, category_original: str) -> Tuple[str, str, str]:
