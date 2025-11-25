@@ -19,7 +19,6 @@ data = {
     "chinese boxing cup competitions": "منافسات كؤوس للبوكسينغ الصين",
     "chinese outdoor boxing": "للبوكسينغ الصين في الهواء الطلق",
     "chinese women's boxing": "للبوكسينغ الصين نسائية",
-
     "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
     "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
     "chinese championships (boxing)": "بطولة الصين للبوكسينغ",
@@ -108,7 +107,7 @@ data = {
     "chinese women's boxing championship": "بطولة الصين للبوكسينغ للسيدات",
     "chinese women's boxing championships": "بطولة الصين للبوكسينغ للسيدات",
     "chinese youth boxing championship": "بطولة الصين للبوكسينغ للشباب",
-    "chinese youth boxing championships": "بطولة الصين للبوكسينغ للشباب"
+    "chinese youth boxing championships": "بطولة الصين للبوكسينغ للشباب",
 }
 
 

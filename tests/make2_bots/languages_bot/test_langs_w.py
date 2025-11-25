@@ -18,7 +18,6 @@ data = {
     "abkhazian language grammar": "قواعد لغة أبخازية",
     "arabic language grammar": "قواعد لغة عربية",
     "pali language grammar": "قواعد لغة بالية",
-
     "abkhazian films": "أفلام باللغة الأبخازية",
     "abkhazian language dialects": "لهجات لغة أبخازية",
     "abkhazian language films": "أفلام بلغة أبخازية",
@@ -160,6 +159,7 @@ def test_lang_work():
     # Test with various inputs
     result_various = Lang_work("english language")
     assert isinstance(result_various, str)
+
 
 # -----------------------------------------------------------
 # 1) Parametrize: test direct keys from languages_key_subset

@@ -31,11 +31,7 @@ def testlang_key_m_patterns(suffix, template):
     # expected formatting
     expected = template.format(BASE_LANG_OUTPUT)
 
-    assert result == expected, (
-        f"lang_key_m mismatch for '{suffix}'\n"
-        f"Expected: {expected}\n"
-        f"Got:      {result}"
-    )
+    assert result == expected, f"lang_key_m mismatch for '{suffix}'\n" f"Expected: {expected}\n" f"Got:      {result}"
 
 
 @pytest.mark.parametrize("suffix,template", Films_key_For_nat.items())
@@ -47,9 +43,7 @@ def testFilms_key_For_nat_patterns(suffix, template):
     expected = template.format(f"ب{BASE_LANG_OUTPUT}")
 
     assert result == expected, (
-        f"Films_key_For_nat mismatch for '{suffix}'\n"
-        f"Expected: {expected}\n"
-        f"Got:      {result}"
+        f"Films_key_For_nat mismatch for '{suffix}'\n" f"Expected: {expected}\n" f"Got:      {result}"
     )
 
 
@@ -57,9 +51,7 @@ def testFilms_key_For_nat_patterns(suffix, template):
 def test_directlanguages_key_lookup(lang, expected):
     result = Lang_work(lang)
     assert result == expected, (
-        f"languages_key lookup mismatch for '{lang}'\n"
-        f"Expected: {expected}\n"
-        f"Got:      {result}"
+        f"languages_key lookup mismatch for '{lang}'\n" f"Expected: {expected}\n" f"Got:      {result}"
     )
 
 
@@ -71,9 +63,7 @@ def testjobs_mens_data_patterns(suffix, expected_label):
     expected = f"{expected_label} ب{BASE_LANG_OUTPUT}"
 
     assert result == expected, (
-        f"jobs_mens_data mismatch for '{suffix}'\n"
-        f"Expected: {expected}\n"
-        f"Got:      {result}"
+        f"jobs_mens_data mismatch for '{suffix}'\n" f"Expected: {expected}\n" f"Got:      {result}"
     )
 
 

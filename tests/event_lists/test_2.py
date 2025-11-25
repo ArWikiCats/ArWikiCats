@@ -8,7 +8,6 @@ data1 = {
     "Category:Adaptations of works by Greek writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب يونانيون",
     "Category:Adaptations of works by Irish writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب أيرلنديون",
     "Category:Adaptations of works by Italian writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب إيطاليون",
-
     "Category:sieges of french invasion of egypt and syria": "تصنيف:حصارات الغزو الفرنسي لمصر وسوريا",
     "Category:1330 in men's international football": "تصنيف:كرة قدم دولية للرجال في 1330",
     "Category:2015 American television": "تصنيف:التلفزة الأمريكية 2015",
@@ -27,13 +26,11 @@ data1 = {
     "Category:children of prime ministers of ukraine": "تصنيف:أطفال رؤساء وزراء أوكرانيا",
     # "Category:roman catholic bishops of fulda": "تصنيف:",
     "Category:men of poseidon": "تصنيف:رجال من بوسيدون",
-
     "Category:Olympic shooters of Egypt": "تصنيف:رماة أولمبيون من مصر",
     "Category:Olympic short track speed skaters of Japan": "تصنيف:متزلجون على مسار قصير أولمبيون من اليابان",
     "Category:Olympic figure skaters of Argentina": "تصنيف:متزلجون فنيون أولمبيون من الأرجنتين",
     "Category:Olympic figure skaters of Armenia": "تصنيف:متزلجون فنيون أولمبيون من أرمينيا",
     "Category:Olympic figure skaters of Australia": "تصنيف:متزلجون فنيون أولمبيون من أستراليا",
-
     # "Category:communists of bosnia and herzegovina politicians": "تصنيف:أحداث أكتوبر 1550 الرياضية في أوقيانوسيا",
 }
 
@@ -49,7 +46,6 @@ data_test2 = {
     "Category:People convicted of espionage in Indonesia": "تصنيف:مدانون بالتجسس في إندونيسيا",
     "Category:People convicted of espionage in Iran": "تصنيف:مدانون بالتجسس في إيران",
     "Category:People convicted of espionage in Pakistan": "تصنيف:مدانون بالتجسس في باكستان",
-
     "Category:100 metres at the African Championships in Athletics": "",
     "Category:100 metres at the IAAF World Youth Championships in Athletics": "",
     "Category:100 metres at the World Para Athletics Championships": "",
@@ -57,7 +53,7 @@ data_test2 = {
     "Category:People accused of lèse majesté in Thailand": "",
     "Category:People accused of lèse majesté in Thailand since 2020": "",
     "Category:People associated with former colleges of the University of London": "",
-    "Category:People associated with Nazarene universities and colleges": ""
+    "Category:People associated with Nazarene universities and colleges": "",
 }
 
 

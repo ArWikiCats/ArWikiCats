@@ -8,8 +8,11 @@ from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import c_1_1_lab, c_2_1_l
 
 fast_data_c_1_1_lab = [
     {"tat_o": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
-
-    {"tat_o": " about ", "cone_1": "american documentary television series", "output": "مسلسلات تلفزيونية وثائقية أمريكية"},
+    {
+        "tat_o": " about ",
+        "cone_1": "american documentary television series",
+        "output": "مسلسلات تلفزيونية وثائقية أمريكية",
+    },
     {"tat_o": " about ", "cone_1": "american propaganda films", "output": "أفلام دعائية أمريكية"},
     {"tat_o": " about ", "cone_1": "animated television series", "output": "مسلسلات تلفزيونية رسوم متحركة"},
     {"tat_o": " about ", "cone_1": "brazilian television shows", "output": "عروض تلفزيونية برازيلية"},
@@ -82,7 +85,11 @@ fast_data_c_1_1_lab = [
     {"tat_o": " by ", "cone_1": "the united arab emirates", "output": "الإمارات العربية المتحدة"},
     {"tat_o": " by ", "cone_1": "the united kingdom", "output": "المملكة المتحدة"},
     {"tat_o": " by ", "cone_1": "the united states", "output": "الولايات المتحدة"},
-    {"tat_o": " by ", "cone_1": "u.s. national championships tennis", "output": "البطولات الوطنية الأمريكية لكرة المضرب"},
+    {
+        "tat_o": " by ",
+        "cone_1": "u.s. national championships tennis",
+        "output": "البطولات الوطنية الأمريكية لكرة المضرب",
+    },
     {"tat_o": " by ", "cone_1": "united arab emirates", "output": "الإمارات العربية المتحدة"},
     {"tat_o": " by ", "cone_1": "us open tennis", "output": "بطولة أمريكا المفتوحة للتنس"},
     {"tat_o": " by ", "cone_1": "world heritage sites", "output": "مواقع التراث العالمي"},
@@ -141,7 +148,11 @@ fast_data_c_1_1_lab = [
     {"tat_o": " in ", "cone_1": "defunct mexican restaurants", "output": "مطاعم مكسيكية سابقة"},
     {"tat_o": " in ", "cone_1": "defunct middle schools", "output": "مدارس إعدادية سابقة"},
     {"tat_o": " in ", "cone_1": "defunct motorsport venues", "output": "ملاعب رياضة محركات سابقة"},
-    {"tat_o": " in ", "cone_1": "defunct multi-national basketball leagues", "output": "دوريات كرة سلة متعددة الجنسيات سابقة"},
+    {
+        "tat_o": " in ",
+        "cone_1": "defunct multi-national basketball leagues",
+        "output": "دوريات كرة سلة متعددة الجنسيات سابقة",
+    },
     {"tat_o": " in ", "cone_1": "defunct private schools", "output": "مدارس خاصة سابقة"},
     {"tat_o": " in ", "cone_1": "defunct private universities and colleges", "output": "جامعات وكليات خاصة سابقة"},
     {"tat_o": " in ", "cone_1": "defunct professional sports leagues", "output": "دوريات رياضية للمحترفين سابقة"},
@@ -197,7 +208,11 @@ fast_data_c_1_1_lab = [
     {"tat_o": " in ", "cone_1": "new democratic party candidates", "output": "مرشحو الحزب الديمقراطي الجديد"},
     {"tat_o": " in ", "cone_1": "north american competitors", "output": "منافسون أمريكيون شماليون"},
     {"tat_o": " in ", "cone_1": "olympic gold medalists", "output": "فائزون بميداليات ذهبية أولمبية"},
-    {"tat_o": " in ", "cone_1": "pan american games silver medalists", "output": "فائزون بميداليات فضية دورة الألعاب الأمريكية"},
+    {
+        "tat_o": " in ",
+        "cone_1": "pan american games silver medalists",
+        "output": "فائزون بميداليات فضية دورة الألعاب الأمريكية",
+    },
     {"tat_o": " in ", "cone_1": "papua new guinea", "output": "بابوا غينيا الجديدة"},
     {"tat_o": " in ", "cone_1": "parks and open spaces", "output": "متنزهات ومساحات مفتوحة"},
     {"tat_o": " in ", "cone_1": "places of worship", "output": "أماكن عبادة"},
@@ -225,7 +240,11 @@ fast_data_c_1_1_lab = [
     {"tat_o": " in ", "cone_1": "towns and villages", "output": "بلدات وقرى"},
     {"tat_o": " in ", "cone_1": "track and field athletes", "output": "رياضيو المسار والميدان"},
     {"tat_o": " in ", "cone_1": "transport buildings and structures", "output": "مبان ومنشآت نقل"},
-    {"tat_o": " in ", "cone_1": "united states house-of-representatives elections", "output": "انتخابات مجلس النواب الأمريكي"},
+    {
+        "tat_o": " in ",
+        "cone_1": "united states house-of-representatives elections",
+        "output": "انتخابات مجلس النواب الأمريكي",
+    },
     {"tat_o": " in ", "cone_1": "universities and colleges", "output": "جامعات وكليات"},
     {"tat_o": " in ", "cone_1": "university of tennessee", "output": "جامعة تينيسي"},
     {"tat_o": " in ", "cone_1": "video games set", "output": "ألعاب فيديو تقع أحداثها"},

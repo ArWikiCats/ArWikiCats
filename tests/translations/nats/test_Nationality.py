@@ -17,13 +17,18 @@ def test_load_sources_return_type():
 
 
 def test_sources_are_merged(monkeypatch):
-    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"x": {"en": "test", "ar": "اختبار"}})
+    monkeypatch.setattr(
+        "src.translations.nats.Nationality.open_json_file", lambda name: {"x": {"en": "test", "ar": "اختبار"}}
+    )
     data = load_sources()
     assert "x" in data
 
 
 def test_hindustani_normalized(monkeypatch):
-    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name == "nationalities/uu_nats.json" else {})
+    monkeypatch.setattr(
+        "src.translations.nats.Nationality.open_json_file",
+        lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name == "nationalities/uu_nats.json" else {},
+    )
     data = load_sources()
     assert "hindustan" in data
 
@@ -81,7 +86,9 @@ def test_country_mapping():
 
 
 def test_the_country_normalization():
-    nat = {"british": {"men": "بريطاني", "mens": "", "women": "", "womens": "", "en": "the uk", "ar": "المملكة المتحدة"}}
+    nat = {
+        "british": {"men": "بريطاني", "mens": "", "women": "", "womens": "", "en": "the uk", "ar": "المملكة المتحدة"}
+    }
     out = build_lookup_tables(nat, nat)
     assert out["contries_from_nat"]["uk"] == "المملكة المتحدة"
 

@@ -61,7 +61,11 @@ data = [
     {"tito_stripped": "discovered in", "country": "1420", "output": "1420"},
     {"tito_stripped": "disestablished in", "country": "1420 by country", "output": "1420 حسب البلد"},
     {"tito_stripped": "disestablished in", "country": "14th century bc", "output": "القرن 14 ق م"},
-    {"tito_stripped": "during", "country": "world-war-ii by nationality", "output": "الحرب العالمية الثانية حسب الجنسية"},
+    {
+        "tito_stripped": "during",
+        "country": "world-war-ii by nationality",
+        "output": "الحرب العالمية الثانية حسب الجنسية",
+    },
     {"tito_stripped": "during", "country": "world-war-ii", "output": "الحرب العالمية الثانية"},
     {"tito_stripped": "established in", "country": "1420s", "output": "عقد 1420"},
     {"tito_stripped": "established in", "country": "14th century", "output": "القرن 14"},
@@ -82,7 +86,11 @@ data = [
     {"tito_stripped": "from", "country": "ahrweiler (district)", "output": "أرفيلر"},
     {"tito_stripped": "from", "country": "georgia (country)", "output": "جورجيا"},
     {"tito_stripped": "from", "country": "georgia (u.s. state)", "output": "ولاية جورجيا"},
-    {"tito_stripped": "from", "country": "northern ireland of canadian descent", "output": "أيرلندا الشمالية من أصل كندي"},
+    {
+        "tito_stripped": "from",
+        "country": "northern ireland of canadian descent",
+        "output": "أيرلندا الشمالية من أصل كندي",
+    },
     {"tito_stripped": "hosted by", "country": "argentina", "output": "الأرجنتين"},
     {"tito_stripped": "imprisoned-in", "country": "germany", "output": "ألمانيا"},
     {"tito_stripped": "in", "country": "1420 all-africa games", "output": "ألعاب عموم إفريقيا 1420"},
@@ -99,9 +107,17 @@ data = [
     {"tito_stripped": "introduced in", "country": "21st century", "output": "القرن 21"},
     {"tito_stripped": "involving", "country": "north macedonia", "output": "مقدونيا الشمالية"},
     {"tito_stripped": "involving the", "country": "united states", "output": "الولايات المتحدة"},
-    {"tito_stripped": "killed in", "country": "the second italo-ethiopian war", "output": "الحرب الإيطالية الإثيوبية الثانية"},
+    {
+        "tito_stripped": "killed in",
+        "country": "the second italo-ethiopian war",
+        "output": "الحرب الإيطالية الإثيوبية الثانية",
+    },
     {"tito_stripped": "murdered in", "country": "1420", "output": "1420"},
-    {"tito_stripped": "murdered in", "country": "india by state or union territory", "output": "الهند حسب الولاية أو الإقليم الاتحادي"},
+    {
+        "tito_stripped": "murdered in",
+        "country": "india by state or union territory",
+        "output": "الهند حسب الولاية أو الإقليم الاتحادي",
+    },
     {"tito_stripped": "named after", "country": "american explorers", "output": "مستكشفون أمريكيون"},
     {"tito_stripped": "named after", "country": "american novelists", "output": "روائيون أمريكيون"},
     {"tito_stripped": "named after", "country": "canadian awards", "output": "جوائز كندية"},
@@ -111,14 +127,22 @@ data = [
     {"tito_stripped": "named after", "country": "religious organizations", "output": "منظمات دينية"},
     {"tito_stripped": "named after", "country": "slovak musicians", "output": "موسيقيون سلوفاكيون"},
     {"tito_stripped": "of", "country": "1420 films", "output": "أفلام 1420"},
-    {"tito_stripped": "of", "country": "british television series characters", "output": "شخصيات مسلسلات تلفزيونية بريطانية"},
+    {
+        "tito_stripped": "of",
+        "country": "british television series characters",
+        "output": "شخصيات مسلسلات تلفزيونية بريطانية",
+    },
     {"tito_stripped": "of", "country": "ottoman–persian wars", "output": "الحروب العثمانية الفارسية"},
     {"tito_stripped": "of", "country": "prime ministers of malaysia", "output": "رؤساء وزراء ماليزيا"},
     {"tito_stripped": "of", "country": "westchester county, new york", "output": "مقاطعة ويستتشستر (نيويورك)"},
     {"tito_stripped": "on", "country": "buildings and structures", "output": "مبان ومنشآت"},
     {"tito_stripped": "on", "country": "diplomatic missions", "output": "بعثات دبلوماسية"},
     {"tito_stripped": "on", "country": "the moon", "output": "القمر"},
-    {"tito_stripped": "on", "country": "the-national-register-of-historic-places", "output": "السجل الوطني للأماكن التاريخية"},
+    {
+        "tito_stripped": "on",
+        "country": "the-national-register-of-historic-places",
+        "output": "السجل الوطني للأماكن التاريخية",
+    },
     {"tito_stripped": "opened in", "country": "19th century", "output": "القرن 19"},
     {"tito_stripped": "originating in", "country": "turkey", "output": "تركيا"},
     {"tito_stripped": "produced by", "country": "brian wilson", "output": "بريان ويلسون"},
@@ -134,7 +158,11 @@ data = [
     {"tito_stripped": "shot in", "country": "china by city", "output": "الصين حسب المدينة"},
     {"tito_stripped": "to", "country": "american samoa", "output": "ساموا الأمريكية"},
     {"tito_stripped": "to", "country": "north korea", "output": "كوريا الشمالية"},
-    {"tito_stripped": "to", "country": "the united states house-of-representatives from missouri territory", "output": "مجلس النواب الأمريكي من إقليم ميزوري"},
+    {
+        "tito_stripped": "to",
+        "country": "the united states house-of-representatives from missouri territory",
+        "output": "مجلس النواب الأمريكي من إقليم ميزوري",
+    },
     {"tito_stripped": "to", "country": "the united states", "output": "الولايات المتحدة"},
     {"tito_stripped": "to", "country": "togo", "output": "توغو"},
     {"tito_stripped": "to", "country": "venezuela", "output": "فنزويلا"},
@@ -148,11 +176,7 @@ data = [
 @pytest.mark.parametrize("tab", data, ids=lambda x: f"{x['tito_stripped']} {x['country']}")
 # @pytest.mark.fast
 def test_get_con_lab_data(tab) -> None:
-    label = get_con_lab(
-        preposition=f" {tab['tito_stripped']} ",
-        country=tab["country"],
-        start_get_country2=True
-    )
+    label = get_con_lab(preposition=f" {tab['tito_stripped']} ", country=tab["country"], start_get_country2=True)
     assert label.strip() == tab["output"]
 
 
@@ -294,7 +318,11 @@ data_test = [
     ("of", "united states air force", "القوات الجوية الأمريكية"),
     ("of", "united states gubernatorial elections", "انتخابات حكام الولايات المتحدة"),
     ("of", "united states virgin islands", "جزر العذراء الأمريكية"),
-    ("of", "verkhovna rada of ukrainian soviet socialist republic", "المجلس الأعلى الأوكراني في جمهورية أوكرانيا السوفيتية الاشتراكية"),
+    (
+        "of",
+        "verkhovna rada of ukrainian soviet socialist republic",
+        "المجلس الأعلى الأوكراني في جمهورية أوكرانيا السوفيتية الاشتراكية",
+    ),
     ("of", "water of coquimbo region", "مياه في إقليم كوكيمبو"),
     ("of", "water of hambantota district", "مياه في مديرية هامبانتوتا"),
     ("of", "water of matale district", "مياه في مديرية ماتال"),
@@ -312,9 +340,5 @@ data_test = [
 @pytest.mark.parametrize("preposition, country, output", data_test, ids=[x[1] for x in data_test])
 @pytest.mark.fast
 def test_get_con_lab_data2(preposition, country, output) -> None:
-    label = get_con_lab(
-        preposition=preposition,
-        country=country,
-        start_get_country2=True
-    )
+    label = get_con_lab(preposition=preposition, country=country, start_get_country2=True)
     assert label == output

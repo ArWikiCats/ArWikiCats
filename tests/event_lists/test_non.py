@@ -1587,7 +1587,7 @@ non_fiction = {
     "Category:Transgender non-fiction books": "x",
     "Category:Urdu-language non-fiction literature": "x",
     "Category:Writers by non-fiction genre": "x",
-    "Category:Writers by non-fiction subject area": ""
+    "Category:Writers by non-fiction subject area": "",
 }
 
 data_series = {
@@ -1664,7 +1664,7 @@ data_series = {
     "Category:Tamil-language television series based on non-Tamil-language television series": "x",
     "Category:Turkish television series based on non-Turkish television series": "x",
     "Category:Uruguayan television series based on non-Uruguayan television series": "x",
-    "Category:Vietnamese television series based on non-Vietnamese television series": ""
+    "Category:Vietnamese television series based on non-Vietnamese television series": "",
 }
 
 to_test = [

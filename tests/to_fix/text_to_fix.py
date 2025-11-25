@@ -6,7 +6,6 @@ from src import new_func_lab_final_label
 
 data1 = {
     "Category:1988 executions of Iranian political prisoners": "تصنيف:إعدامات مسجونون سياسيون إيرانيون 1988",
-
     "Category:10th century in East Francia": "تصنيف:مملكة الفرنجة الشرقيين في القرن 10",
     "Category:10th century in West Francia": "تصنيف:مملكة الفرنجة الغربيين في القرن 10",
     "Category:10th-century kings of West Francia": "تصنيف:ملوك مملكة الفرنجة الغربيين القرن 10",

@@ -87,7 +87,9 @@ class TestRegionLabels:
 @pytest.mark.unit
 class TestUSCountiesHelpers:
     def test_extend_state_suffix_templates_adds_party_variants(self):
-        result = us_counties._extend_state_suffix_templates({" base": "template %s"}, {"Democratic Party": "الحزب الديمقراطي"})
+        result = us_counties._extend_state_suffix_templates(
+            {" base": "template %s"}, {"Democratic Party": "الحزب الديمقراطي"}
+        )
 
         assert result[" base"] == "template %s"
         assert result[" democratic partys"] == "أعضاء الحزب الديمقراطي في %s"

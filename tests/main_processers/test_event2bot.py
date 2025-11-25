@@ -8,7 +8,6 @@ from src.main_processers.event2bot import event2, event2_d2, stubs_label
 
 fast_data = {
     "1650s films": "أفلام إنتاج عقد 1650",
-
     "1650 central american": "أمريكيون أوسطيون في 1650",
     "1650s soviet": "سوفيت في عقد 1650",
     "20th century canadian violinists": "عازفو كمان كنديون في القرن 20",
@@ -19,7 +18,6 @@ fast_data = {
     "20th century polish dramatists": "دراميون بولنديون في القرن 20",
     "20th century religious buildings": "مبان دينية القرن 20",
     "20th century russian dramatists": "دراميون روس في القرن 20",
-
     "1650s establishments": "تأسيسات عقد 1650",
     "1650s disestablishments": "انحلالات عقد 1650",
     "1650s television series": "مسلسلات تلفزيونية عقد 1650",
@@ -34,14 +32,12 @@ fast_data = {
     "20th century romanian people": "رومانيون في القرن 20",
     "20th century women": "المرأة في القرن 20",
     "march 1650 crimes": "جرائم مارس 1650",
-
     "20th century clergy": "رجال دين في القرن 20",
     "20th century lawyers": "محامون في القرن 20",
     "20th century mathematicians": "رياضياتيون في القرن 20",
     "20th century philosophers": "فلاسفة في القرن 20",
     "20th century photographers": "مصورون في القرن 20",
     "20th century women musicians": "موسيقيات في القرن 20",
-
     "1650s establishments": "تأسيسات عقد 1650",
     "1650s disestablishments": "انحلالات عقد 1650",
     "1650s murders": "جرائم قتل عقد 1650",
@@ -56,7 +52,6 @@ fast_data = {
     "october 1650 sorts-events": "أحداث أكتوبر 1650 الرياضية",
     "september 1650 crimes": "جرائم سبتمبر 1650",
     "september 1650 sorts-events": "أحداث سبتمبر 1650 الرياضية",
-
     "20th century bc kings of": "ملوك القرن 20 ق م",
     "20th century bce kings of": "ملوك القرن 20 ق م",
     "20th century heads of": "قادة القرن 20",

@@ -77,7 +77,6 @@ def test_Get_country2_fast(category, expected) -> None:
 data_slow = {
     # "presidents of greece": "رؤساء اليونان",
     # "presidents of maldives": "رؤساء جزر المالديف",
-
     "bas-sassandra district": "مقاطعة باس-ساساندرا",
     "baseball players from maine": "لاعبو كرة قاعدة من مين",
     "basketball competitions": "منافسات كرة سلة",

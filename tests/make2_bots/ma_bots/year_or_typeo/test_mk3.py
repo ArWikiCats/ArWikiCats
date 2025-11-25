@@ -124,7 +124,7 @@ EXAMPLES = [
         "country_label": "أفلام",
         "Add_In_Done": False,
         "output": "أفلام عقد 2000",
-    }
+    },
 ]
 
 

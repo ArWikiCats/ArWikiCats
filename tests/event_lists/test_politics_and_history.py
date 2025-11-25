@@ -20,7 +20,7 @@ data = {
     "Category:Penal system in Afghanistan": "تصنيف:قانون العقوبات في أفغانستان",
     "Category:Prehistory of Venezuela": "تصنيف:فنزويلا ما قبل التاريخ",
     "Category:American award winners": "تصنيف:حائزو جوائز أمريكيون",
-    "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو"
+    "Category:Treaties extended to Curaçao": "تصنيف:اتفاقيات امتدت إلى كوراساو",
 }
 
 

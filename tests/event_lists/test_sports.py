@@ -116,7 +116,6 @@ to_test = [
     ("test_sports_1", data1),
     ("test_sports_2", data2),
     ("test_sports_3", data3),
-
 ]
 
 

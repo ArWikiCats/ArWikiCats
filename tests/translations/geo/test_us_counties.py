@@ -15,7 +15,6 @@ test_data = {
     # "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
     # "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
     # "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
-
     "Category:{en} attorneys general": "تصنيف:مدعي {ar} العام",
     "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع {ar}",
     "Category:{en} city councils": "تصنيف:مجالس مدن {ar}",
@@ -51,7 +50,7 @@ test_data = {
     "Category:{en} socialists": "تصنيف:أعضاء الحزب الاشتراكي في {ar}",
     "Category:{en} templates": "تصنيف:قوالب {ar}",
     "Category:{en} Unionists": "تصنيف:أعضاء الحزب الوحدوي في {ar}",
-    "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}"
+    "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}",
 }
 
 # test_data = { f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items() }
@@ -64,14 +63,11 @@ data_1 = {
     "wisconsin": {},
     "new mexico": {},
     "arizona": {},
-
 }
 for en in data_1.keys():
     if STATE_NAME_TRANSLATIONS.get(en):
         ar = STATE_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {
-            x.format(en=en): v.format(ar=ar) for x, v in test_data.items()
-        }
+        data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
 
 
 @pytest.mark.parametrize("input,expected", data_1["iowa"].items(), ids=[x for x in data_1["iowa"]])
@@ -88,7 +84,9 @@ def test_montana(input, expected):
     assert result == expected
 
 
-@pytest.mark.parametrize("input,expected", data_1["georgia (u.s. state)"].items(), ids=[x for x in data_1["georgia (u.s. state)"]])
+@pytest.mark.parametrize(
+    "input,expected", data_1["georgia (u.s. state)"].items(), ids=[x for x in data_1["georgia (u.s. state)"]]
+)
 @pytest.mark.slow
 def test_georgia(input, expected):
     result = new_func_lab_final_label(input)
@@ -132,7 +130,6 @@ def test_us_counties_dump(name, data):
 
 
 empty_data = {
-
     "Category:Georgia (U.S. state) Attorney General elections": "",
     "Category:Georgia (U.S. state) case law": "",
     "Category:Georgia (U.S. state) city council members": "",

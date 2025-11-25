@@ -1,4 +1,3 @@
-
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
@@ -680,7 +679,7 @@ big_data2 = {
     "Tonga–Vanuatu relations": "x",
     "Tunisia–European Union relations": "x",
     "Tuvalu–Vanuatu relations": "x",
-    "United Nations Security Council resolutions concerning the Eritrean–Ethiopian border conflict": "x"
+    "United Nations Security Council resolutions concerning the Eritrean–Ethiopian border conflict": "x",
 }
 
 TEMPORAL_CASES = [
