@@ -6,7 +6,11 @@ def fix_minor(arlabel: str, sps: str = "") -> str:
 
     arlabel = " ".join(arlabel.strip().split())
 
-    sps_list = ["من", "في", "و",]
+    sps_list = [
+        "من",
+        "في",
+        "و",
+    ]
 
     sps = sps.strip()
 

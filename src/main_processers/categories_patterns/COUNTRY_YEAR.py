@@ -1,13 +1,13 @@
 """
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/COUNTRY_YEAR.json"""
 
-COUNTRY_YEAR_PARAMS =[
+COUNTRY_YEAR_PARAMS = [
     "{YEAR1}",
     "{COUNTRY1}",
 ]
 
 
-COUNTRY_YEAR_DATA ={
+COUNTRY_YEAR_DATA = {
     "Category:{YEAR1} in {COUNTRY1}": "تصنيف:{COUNTRY1} في {YEAR1}",  # 34632
     "Category:{YEAR1} establishments in {COUNTRY1}": "تصنيف:تأسيسات سنة {YEAR1} في {COUNTRY1}",  # 19853
     "Category:{YEAR1} events in {COUNTRY1}": "تصنيف:أحداث {YEAR1} في {COUNTRY1}",  # 7413
@@ -85,4 +85,3 @@ COUNTRY_YEAR_DATA ={
     "Category:{YEAR1} members of {COUNTRY1} Legislature": "تصنيف:أعضاء هيئة {COUNTRY1} التشريعية في {YEAR1}",  # 54
     "Category:{YEAR1} {COUNTRY1} state court judges": "تصنيف:قضاة محكمة ولاية {COUNTRY1} في {YEAR1}",  # 54
 }
-

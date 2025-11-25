@@ -57,9 +57,7 @@ for year in YEARS_LIST:
     sport_formts_enar_p17_jobs[f"under-{year} international xoxo managers"] = (
         f"مدربو xoxo تحت {year} سنة دوليون من {{}}"
     )
-    sport_formts_enar_p17_jobs[f"under-{year} international xoxo players"] = (
-        f"لاعبو xoxo تحت {year} سنة دوليون من {{}}"
-    )
+    sport_formts_enar_p17_jobs[f"under-{year} international xoxo players"] = f"لاعبو xoxo تحت {year} سنة دوليون من {{}}"
 sport_formts_enar_p17_jobs["international women's xoxo players"] = "لاعبات xoxo دوليات من {}"
 sport_formts_enar_p17_jobs["women's international xoxo players"] = "لاعبات xoxo دوليات من {}"
 sport_formts_enar_p17_jobs["international men's xoxo players"] = "لاعبو xoxo دوليون من {}"
