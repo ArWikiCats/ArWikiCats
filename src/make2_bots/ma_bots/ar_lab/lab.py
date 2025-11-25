@@ -133,7 +133,9 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {tito=} ')
 
     if test_remainder and test_remainder != tito_stripped:
-        logger.info(f'>>>> test_remainder != "", type_regex:"{type_regex}", tito:"{tito}", country_regex:"{country_regex}" ')
+        logger.info(
+            f'>>>> test_remainder != "", type_regex:"{type_regex}", tito:"{tito}", country_regex:"{country_regex}" '
+        )
 
         if tito_stripped == "of" and not type_regex.endswith(tito_ends):
             type_regex = f"{type_regex} of"

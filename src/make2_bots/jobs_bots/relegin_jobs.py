@@ -51,5 +51,7 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
     womens = Tab.get("womens")
     country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, womens=womens, find_nats=False)
 
-    logger.debug(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> cate:{cate}, country_lab:{country_lab} ")
+    logger.debug(
+        f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> cate:{cate}, country_lab:{country_lab} "
+    )
     return country_lab

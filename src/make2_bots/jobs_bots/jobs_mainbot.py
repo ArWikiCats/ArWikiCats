@@ -73,7 +73,15 @@ def country_lab_mens_womens(jender_key: str, category_suffix: str, nat_lab: str,
 
 
 @functools.lru_cache(maxsize=None)
-def jobs_with_nat_prefix(cate: str, country_prefix: str, category_suffix: str, mens: str = "", womens: str = "", save_result=True, find_nats=True) -> str:
+def jobs_with_nat_prefix(
+    cate: str,
+    country_prefix: str,
+    category_suffix: str,
+    mens: str = "",
+    womens: str = "",
+    save_result=True,
+    find_nats=True,
+) -> str:
     """
     Retrieve job labels based on category and country.
 

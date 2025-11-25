@@ -30,7 +30,7 @@ def save(path: Path | str, data: dict | list) -> str:
 already_saved = {}
 
 
-def dump_data(input_keys: list = None, enable: bool = False, compare_with_output: str=""):
+def dump_data(input_keys: list = None, enable: bool = False, compare_with_output: str = ""):
     """
     Decorator to save function inputs and output into a JSONL file.
 
@@ -40,6 +40,7 @@ def dump_data(input_keys: list = None, enable: bool = False, compare_with_output
 
     def decorator(func):
         """Wrap a function so its inputs and outputs are written to JSONL."""
+
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             """Execute the wrapped function and persist call details when enabled."""

@@ -3,7 +3,7 @@
 
 COUNTRY_YEAR_PARAMS =[
     "{YEAR1}",
-    "{COUNTRY1}"
+    "{COUNTRY1}",
 ]
 
 

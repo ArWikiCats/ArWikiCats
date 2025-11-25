@@ -87,7 +87,9 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
         if main_lab in change_male_to_female:
             main_lab = change_male_to_female[main_lab]
 
-    logger.debug(f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{category}",Main_lab:"{main_lab}". ')
+    logger.debug(
+        f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{category}",Main_lab:"{main_lab}". '
+    )
 
     # Fictional Check
     if main_ss.strip() == "fictional" and category.strip().startswith("female"):
@@ -103,10 +105,10 @@ def _get_direct_lookup(category: str) -> str:
         return "أشخاص"
 
     return (
-        People_key.get(category, "") or
-        short_womens_jobs.get(category, "") or
-        Lang_work(category) or
-        jobs_mens_data.get(category, "")
+        People_key.get(category, "")
+        or short_womens_jobs.get(category, "")
+        or Lang_work(category)
+        or jobs_mens_data.get(category, "")
     )
 
 
