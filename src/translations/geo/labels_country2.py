@@ -228,12 +228,6 @@ for city, city_lab in PROVINCE_LABELS.items():
 
 COUNTRY_ADMIN_LABELS_LOWER = {k.lower(): v for k, v in COUNTRY_ADMIN_LABELS.items()}
 
-len_print.data_len("labels_country2.py", {
-    "ADDITIONAL_REGION_KEYS": ADDITIONAL_REGION_KEYS,
-    "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,
-    "region_suffix_matches": region_suffix_matches,
-})
-
 
 def get_country_admin_labels() -> dict[str, str]:
     """Return a copy of the country administrative label mapping."""
@@ -261,3 +255,15 @@ __all__ = [
     "get_country_admin_labels_lower",
     "P17_PP",
 ]
+
+len_print.data_len(
+    "labels_country2.py",
+    {
+        "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,
+        "P17_PP": P17_PP,
+        "ADDITIONAL_REGION_KEYS": ADDITIONAL_REGION_KEYS,
+        "SWISS_CANTON_LABELS": SWISS_CANTON_LABELS,
+        "PROVINCE_LABEL_OVERRIDES": PROVINCE_LABEL_OVERRIDES,
+        "PROVINCE_LABELS": PROVINCE_LABELS,
+    },
+)
