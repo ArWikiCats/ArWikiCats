@@ -55,7 +55,7 @@ Main_priffix: dict[str, str] = {
 Main_priffix = dict(sorted(Main_priffix.items(), key=lambda x: x[0].count(" "), reverse=True))
 
 
-def _handle_main_prefix(category: str, category_original: str) -> Tuple[str, str, str]:
+def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str, str, str]:
     """
     Handle Main_priffix logic to strip prefixes and determine main label.
 
@@ -68,6 +68,8 @@ def _handle_main_prefix(category: str, category_original: str) -> Tuple[str, str
     """
     main_ss = ""
     main_lab = ""
+    if not category_original:
+        category_original = category
 
     for me, melab in Main_priffix.items():
         me2 = f"{me} "
@@ -164,7 +166,7 @@ def te4_2018_Jobs(cate: str) -> str:
     cate_lower_original = cate.lower()
 
     # 1. Handle Prefix
-    cate, main_ss, main_lab = _handle_main_prefix(cate, cate_original)
+    cate, main_ss, main_lab = handle_main_prefix(cate, cate_original)
 
     if cate.lower() != cate_lower_original:
         logger.debug(f'<<lightblue>> te4_2018_Jobs cate:"{cate}",cate2:"{cate_lower_original}",Main_Ss:"{main_ss}". ')
@@ -211,4 +213,5 @@ def te4_2018_Jobs(cate: str) -> str:
 
 __all__ = [
     "te4_2018_Jobs"
+    "handle_main_prefix"
 ]

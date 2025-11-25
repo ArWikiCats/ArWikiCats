@@ -4,34 +4,67 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs import _handle_main_prefix
+from src.make2_bots.jobs_bots.te4_bots.t4_2018_jobs import handle_main_prefix
 
-# Dummy maps for testing (customized for test isolation)
-Main_priffix = {
-    "cultural depictions of": "تصوير ثقافي عن {}",
-    "fictional depictions of": "تصوير خيالي عن {}",
-    "depictions of": "تصوير عن {}",
-    "non": "{} غير",
-    "fictional": "{} خياليون",
-    "native": "{} أصليون",
+data = {
+    "fictional basic": {
+        "category_original": "fictional cats",
+        "expected_category": "cats",
+        "expected_main_ss": "fictional",
+        "expected_main_lab": "{} خياليون",
+    },
+    "native women": {
+        "category_original": "native women",
+        "expected_category": "women",
+        "expected_main_ss": "native",
+        "expected_main_lab": "{} أصليات",   # بعد التحويل للمؤنث
+    },
+    "no prefix": {
+        "category_original": "random text",
+        "expected_category": "random text",
+        "expected_main_ss": "",
+        "expected_main_lab": "",
+    },
+    "depictions prefix": {
+        "category_original": "depictions of lions",
+        "expected_category": "lions",
+        "expected_main_ss": "depictions of",
+        "expected_main_lab": "تصوير عن {}",
+    },
+    "multiword prefix": {
+        "category_original": "cultural depictions of lions",
+        "expected_category": "lions",
+        "expected_main_ss": "cultural depictions of",
+        "expected_main_lab": "تصوير ثقافي عن {}",
+    },
 }
 
-# Sorted as the real code does
-Main_priffix = dict(
-    sorted(Main_priffix.items(), key=lambda x: x[0].count(" "), reverse=True)
+
+@pytest.mark.parametrize(
+    "case_key, case_data",
+    data.items(),
+    ids=list(data.keys()),
 )
+@pytest.mark.fast
+def testhandle_main_prefix(case_key, case_data):
+    category_original = case_data["category_original"]
 
-change_male_to_female = {
-    "{} خياليون": "{} خياليات",
-    "{} أصليون": "{} أصليات",
-}
+    result_category, main_ss, main_lab = handle_main_prefix(
+        category_original,
+        category_original,
+    )
 
+    assert result_category == case_data["expected_category"], (
+        f"Category mismatch in case: {case_key}"
+    )
 
-@pytest.mark.parametrize("category, expected_key", data.items(), ids=list(data.keys()))
-@pytest.mark.slow
-def test_te4_2018_Jobs_data(category, expected_key) -> None:
-    label = _handle_main_prefix(category)
-    assert label.strip() == expected_key
+    assert main_ss == case_data["expected_main_ss"], (
+        f"main_ss mismatch in case: {case_key}"
+    )
+
+    assert main_lab == case_data["expected_main_lab"], (
+        f"main_lab mismatch in case: {case_key}"
+    )
 
 
 def test_simple_prefix_match():
@@ -39,7 +72,7 @@ def test_simple_prefix_match():
     category = "fictional cats"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert prefix == "fictional"
     assert new_cat == "cats"
@@ -51,7 +84,7 @@ def test_no_prefix_match():
     category = "random category"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert new_cat == category
     assert prefix == ""
@@ -66,7 +99,7 @@ def test_multi_word_prefix_priority():
     category = "fictional depictions of birds"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert prefix == "fictional depictions of"
     assert new_cat == "birds"
@@ -78,7 +111,7 @@ def test_prefix_with_women_singular():
     category = "fictional women"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert prefix == "fictional"
     assert new_cat == "women"
@@ -90,7 +123,7 @@ def test_prefix_with_women_apostrophe_s():
     category = "native women's"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert prefix == "native"
     assert new_cat == "women's"
@@ -102,7 +135,7 @@ def test_case_insensitive_prefix():
     category = "FiCtIoNaL cats"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert prefix.lower() == "fictional"
     assert new_cat == "cats"
@@ -113,7 +146,7 @@ def test_break_after_first_match():
     category = "fictional depictions of cats"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert prefix == "fictional depictions of"  # not "fictional"
     assert new_cat == "cats"
@@ -124,7 +157,7 @@ def test_non_prefix():
     category = "non mammals"
     category_original = category
 
-    new_cat, prefix, label = _handle_main_prefix(category, category_original)
+    new_cat, prefix, label = handle_main_prefix(category, category_original)
 
     assert prefix == "non"
     assert new_cat == "mammals"
