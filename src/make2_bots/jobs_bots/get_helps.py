@@ -97,3 +97,9 @@ def get_suffix_with_keys(cate: str, data_keys, category_type: str="", check_the:
 def get_suffix(cate: str, category_type: str, check_the: bool = False) -> Tuple[str, str]:
     keys = get_keys(category_type)
     return get_suffix_with_keys(cate, keys, category_type, check_the)
+
+
+__all__ = [
+    "get_suffix_with_keys",
+    "get_suffix",
+]
