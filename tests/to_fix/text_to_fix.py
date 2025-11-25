@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 from src import new_func_lab_final_label
 
 data1 = {
+    "Category:1988 executions of Iranian political prisoners": "تصنيف:إعدامات مسجونون سياسيون إيرانيون 1988",
+
     "Category:10th century in East Francia": "تصنيف:مملكة الفرنجة الشرقيين في القرن 10",
     "Category:10th century in West Francia": "تصنيف:مملكة الفرنجة الغربيين في القرن 10",
     "Category:10th-century kings of West Francia": "تصنيف:ملوك مملكة الفرنجة الغربيين القرن 10",
@@ -16,8 +18,6 @@ data1 = {
     "Category:18th-century wives of Ottoman sultans": "تصنيف:زوجات سلاطين عثمانيين في القرن 18",
     "Category:1948 Palestinian exodus": "تصنيف:تهجير الفلسطينيين 1948",
     "Category:1948 Palestinian expulsion and flight": "تصنيف:تهجير الفلسطينيين 1948",
-    "Category:1982 kidnapping of Iranian diplomats": "تصنيف:اختطاف الدبلوماسيين الإيرانيين (1982)",
-    "Category:1988 executions of Iranian political prisoners": "تصنيف:إعدام السجناء السياسيين في إيران 1988",
     "Category:1990s LGBT-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بالمثليين في عقد 1990",
     "Category:1990s LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بالمثليين في عقد 1990",
     "Category:19th-century wives of Ottoman sultans": "تصنيف:زوجات سلاطين عثمانيين في القرن 19",
