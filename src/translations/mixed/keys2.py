@@ -111,10 +111,17 @@ def build_keys2_py_mapping() -> dict[str, str]:
 new_2019: dict[str, str] = build_keys2_mapping()
 keys2_py: dict[str, str] = build_keys2_py_mapping()
 
-len_print.data_len("keys2.py", {"keys2_py": keys2_py})
-
 __all__ = [
     "PARTIES",
     "keys2_py",
     "new_2019",
 ]
+
+len_print.data_len(
+    "keys2.py",
+    {
+        "PARTIES": PARTIES,
+        "keys2_py": keys2_py,
+        "new_2019": new_2019,
+    },
+)

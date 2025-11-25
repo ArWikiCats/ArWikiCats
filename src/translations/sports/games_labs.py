@@ -1,6 +1,7 @@
 """
 Utility tables for translating multi-season sporting competitions.
 """
+from ...helps import len_print
 
 BASE_GAME_LABELS = {
     "african games": "الألعاب الإفريقية",
@@ -123,3 +124,12 @@ __all__ = [
     "SUMMER_WINTER_GAMES",
     "SUMMER_WINTER_TABS",
 ]
+
+len_print.data_len(
+    "games_labs.py",
+    {
+        "SEASONAL_GAME_LABELS": SEASONAL_GAME_LABELS,
+        "SUMMER_WINTER_GAMES": SUMMER_WINTER_GAMES,
+        "SUMMER_WINTER_TABS": SUMMER_WINTER_TABS,
+    },
+)

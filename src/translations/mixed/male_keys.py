@@ -331,16 +331,17 @@ def build_male_keys() -> dict[str, str]:
 New_female_keys: dict[str, str] = build_female_keys()
 New_male_keys: dict[str, str] = build_male_keys()
 
-len_print.data_len(
-    "male_keys.py",
-    {
-        "New_female_keys": New_female_keys,
-        "New_male_keys": New_male_keys,
-    },
-)
-
 __all__ = [
     "New_female_keys",
     "New_male_keys",
     "RELIGIOUS_FEMALE_KEYS",
 ]
+
+len_print.data_len(
+    "male_keys.py",
+    {
+        "New_female_keys": New_female_keys,
+        "New_male_keys": New_male_keys,
+        "RELIGIOUS_FEMALE_KEYS": RELIGIOUS_FEMALE_KEYS,
+    },
+)
