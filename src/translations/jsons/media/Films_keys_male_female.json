@@ -81,6 +81,8 @@
     "female buddy": { "male": "رفيقات", "female": "رفيقات"},
     "feminist": { "male": "نسوي", "female": "نسوية"},
     "fiction": { "male": "خيالي", "female": "خيالية"},
+    "non-fiction": { "male": "غير خيالي", "female": "غير خيالية"},
+    "non fiction": { "male": "غير خيالي", "female": "غير خيالية"},
     "final fantasy": { "male": "فاينل فانتازي", "female": "فاينل فانتازي"},
     "flashback": { "male": "استرجاع", "female": "استرجاع"},
     "found footage": { "male": "تسجيلات مكتشفة", "female": "تسجيلات مكتشفة"},

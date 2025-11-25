@@ -58,6 +58,7 @@ YEAR_DATA ={
     "category:{year1} in transport": "تصنيف:النقل في {year1}",  # 279
     "category:{year1} murders": "تصنيف:قتل في {year1}",  # 300
     "category:{year1} non-fiction books": "تصنيف:كتب غير خيالية {year1}",  # 312
+    "category:{year1} non fiction books": "تصنيف:كتب غير خيالية {year1}",  # 312
     "category:{year1} disasters": "تصنيف:كوارث {year1}",  # 322
     "category:{year1} novels": "تصنيف:روايات {year1}",  # 317
     "category:{year1} in the environment": "تصنيف:البيئة في {year1}",  # 283
