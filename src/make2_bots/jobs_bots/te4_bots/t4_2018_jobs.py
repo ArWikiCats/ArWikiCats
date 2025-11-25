@@ -36,6 +36,7 @@ Main_priffix_to: dict[str, str] = {
 
 
 Main_priffix: dict[str, str] = {
+    "assassinatedz": "{} مغتالون",  # TEST
     "assassinated": "{} مغتالون",
     "fictional": "{} خياليون",
     "native": "{} أصليون",
