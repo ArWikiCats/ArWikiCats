@@ -21,8 +21,13 @@ if not from_year and cat_year:
 import re
 
 from ..helps.log import logger
+from ..new.time_to_arabic import (
+    convert_time_to_arabic,
+    match_time_ar_first,
+    match_time_en_first,
+)
 from .categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
-from ..new.time_to_arabic import match_time_ar_first, match_time_en_first, convert_time_to_arabic
+
 YEAR_PARAM = "{year1}"
 
 

@@ -3,6 +3,7 @@ Rich lookup tables for gendered and national prefix/suffix mappings.
 (en_is_nat_ar_is_P17|en_is_nat_ar_is_al_mens|en_is_nat_ar_is_man|en_is_nat_ar_is_al_women|en_is_nat_ar_is_women|en_is_nat_ar_is_women_2|en_is_P17_ar_is_mens|en_is_P17_ar_is_P17|en_is_P17_ar_is_al_women)
 """
 
+from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..sports import (
     SPORT_FORMTS_FEMALE_NAT,
@@ -13,7 +14,6 @@ from ..sports.games_labs import SUMMER_WINTER_GAMES
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from .keys_23 import AFC_KEYS
-from ...helps import len_print
 from .Newkey import pop_final6
 
 replace_labels_2022: dict[str, str] = {

@@ -19,7 +19,6 @@ from ...p17_bots import nats
 from ...sports_bots import sport_lab_suffixes, team_work
 from .. import country2_lab
 
-
 pp_start_with2 = {
     "defunct": "{} سابقة",
     "scheduled": "{} مقررة",

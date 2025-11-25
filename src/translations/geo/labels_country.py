@@ -1,9 +1,10 @@
 """Aggregate translation tables for country and region labels."""
 
 from __future__ import annotations
-from ...helps import len_print
+
 from collections.abc import Mapping, MutableMapping
 
+from ...helps import len_print
 from ..companies import New_Company as COMPANY_LABELS
 from ..mixed.all_keys2 import pf_keys2 as ADDITIONAL_KEYS
 from ..mixed.all_keys5 import BASE_POP_FINAL_5  # , pop_final_5 as POPULATION_SUPPLEMENTS

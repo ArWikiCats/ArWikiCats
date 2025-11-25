@@ -8,7 +8,6 @@ import logging
 from typing import Mapping, Tuple
 
 from ...helps import len_print
-
 from ..utils.json_dir import open_json
 from .jobs_defs import GenderedLabelMap
 

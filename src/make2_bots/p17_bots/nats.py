@@ -9,14 +9,13 @@ particularly for sports-related categories using P17 (country) property.
 import functools
 
 from ...helps.log import logger
+from ...make2_bots.matables_bots.bot import add_to_new_players
 from ...translations import (
-    sport_lab_oioioi_load,
-    sport_lab_nat_load,
     SPORT_FORMATS_FOR_P17,
     en_nats_to_ar_label,
+    sport_lab_nat_load,
+    sport_lab_oioioi_load,
 )
-
-from ...make2_bots.matables_bots.bot import add_to_new_players
 from ..jobs_bots.get_helps import get_suffix
 
 

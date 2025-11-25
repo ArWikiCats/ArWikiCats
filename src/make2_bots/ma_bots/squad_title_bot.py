@@ -7,9 +7,9 @@ from ..ma_bots.squad_title_bot import get_squad_title
 
 import functools
 
-from ...utils import fix_minor
 from ...helps.log import logger
-from ...translations import get_new_team_xo, New_P17_Finall, pop_of_football_lower
+from ...translations import New_P17_Finall, get_new_team_xo, pop_of_football_lower
+from ...utils import fix_minor
 from ..date_bots import with_years_bot
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import All_P17

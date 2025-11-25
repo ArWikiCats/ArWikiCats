@@ -13,13 +13,12 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
+from ..countries_formats.for_me import Work_for_me
+from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..media_bots.film_keys_bot import Films
 from ..o_bots import ethnic_bot
 from .get_helps import get_suffix
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
-from ..countries_formats.for_me import Work_for_me
-from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
-
 
 COUNTRY_TEMPLATES = {
     r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",

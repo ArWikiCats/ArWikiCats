@@ -1,9 +1,8 @@
 """Regional translation tables used across the geo modules."""
 
 from __future__ import annotations
+
 from ...helps import len_print
-
-
 from ._shared import apply_suffix_templates, log_mapping_stats, update_with_lowercased
 
 PRIMARY_REGION_TRANSLATIONS = {

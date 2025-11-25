@@ -2,9 +2,9 @@
 Supplementary mappings for educational, sporting and political contexts.
 """
 
+from ...helps import len_print
 from ..sports.cycling import CYCLING_TEMPLATES
 from .keys2 import new_2019
-from ...helps import len_print
 
 CAMBRIDGE_COLLEGES: dict[str, str] = {
     "christ's": "كريست",

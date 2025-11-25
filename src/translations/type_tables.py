@@ -1,7 +1,6 @@
+from ..helps import len_print
 from .sports.olympics_data import olympics
 from .tv.films_mslslat import television_keys
-from ..helps import len_print
-
 
 basedtypeTable = {
     "youth sport": {"ar": "رياضة شبابية"},

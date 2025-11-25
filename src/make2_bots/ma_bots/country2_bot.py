@@ -5,8 +5,8 @@ This module is responsible for retrieving localized information for a specified 
 
 import functools
 
-from ...helps.log import logger
 from ...fix import fixtitle
+from ...helps.log import logger
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from . import country2_lab, ye_ts_bot
 from .country2_bots.country2_tit_bt import country_2_title_work

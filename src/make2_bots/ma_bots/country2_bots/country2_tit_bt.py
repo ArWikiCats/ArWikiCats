@@ -6,9 +6,9 @@ This module provides functions for processing and generating labels for country 
 import re
 from typing import Tuple
 
-from ....utils import fix_minor
 from ....helps import printe
 from ....helps.log import logger
+from ....utils import fix_minor
 from ...format_bots import category_relation_mapping
 from .. import country_bot
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
