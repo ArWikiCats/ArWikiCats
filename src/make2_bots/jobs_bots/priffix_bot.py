@@ -77,8 +77,8 @@ def priffix_Mens_work(con_33: str) -> str:
         if label.strip():
             logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
             return label
-    for suffix, suf_lab in Mens_suffix.items():
-        suffix2 = f" {suffix}"
+    for suffix1, suf_lab in Mens_suffix.items():
+        suffix2 = f" {suffix1}"
         if not con_33.endswith(suffix2):
             continue
         con_8 = con_33[: -len(suffix2)]
@@ -102,7 +102,7 @@ def priffix_Mens_work(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def Women_s_priffix_work(con_3: str) -> str:
+def Women_s_priffix_work(suffix: str) -> str:
     """Retrieve the women's prefix work label based on the input string.
 
     This function processes the input string to determine if it matches any
@@ -114,17 +114,17 @@ def Women_s_priffix_work(con_3: str) -> str:
     is cached for future reference.
 
     Args:
-        con_3 (str): The input string representing a job or title related to women.
+        suffix (str): The input string representing a job or title related to women.
 
     Returns:
         str: The corresponding job label or an empty string if no match is found.
     """
-    label = short_womens_jobs.get(con_3, "")
+    label = short_womens_jobs.get(suffix, "")
     if label:
         return label
-    con_33 = con_3
-    if con_3.endswith(" women"):
-        con_33 = con_3[: -len(" women")]
+    con_33 = suffix
+    if suffix.endswith(" women"):
+        con_33 = suffix[: -len(" women")]
     for wriff, wrifflab in Women_s_priffix.items():
         data = [f"{wriff} "]
         if wriff == "women's":

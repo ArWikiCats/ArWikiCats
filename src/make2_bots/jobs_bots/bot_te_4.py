@@ -90,14 +90,14 @@ def te_2018_with_nat(category: str) -> str:
     country_label = short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
     if not country_label:
-        con_3, nat = get_con_3(normalized_category, "nat")
+        suffix, nat = get_con_3(normalized_category, "nat")
 
-        if con_3:
+        if suffix:
             # Try various strategies if we have a country code
             strategies = [
-                lambda: Work_for_me(normalized_category, nat, con_3),
-                lambda: Films(normalized_category, nat, con_3),
-                lambda: ethnic_bot.ethnic_label(normalized_category, nat, con_3),
+                lambda: Work_for_me(normalized_category, nat, suffix),
+                lambda: Films(normalized_category, nat, suffix),
+                lambda: ethnic_bot.ethnic_label(normalized_category, nat, suffix),
                 lambda: nat_match(normalized_category),
             ]
 
@@ -111,7 +111,7 @@ def te_2018_with_nat(category: str) -> str:
             country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
 
         # Special case for Films if everything else failed and no country code
-        if not country_label and not con_3:
+        if not country_label and not suffix:
             country_label = Films(normalized_category, "", "")
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')

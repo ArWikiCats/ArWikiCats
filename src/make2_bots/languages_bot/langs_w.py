@@ -42,12 +42,12 @@ class FilmCategoryLabelResolver:
     # ---------- Direct "X-language films" pattern ----------
 
     def resolve_direct_language_films(
-        self, con_3: str, lang_key: str, lang_label: str
+        self, suffix: str, lang_key: str, lang_label: str
     ) -> str:
         """Resolve patterns like 'arabic-language films'.
 
         Args:
-            con_3: Full input category string.
+            suffix: Full input category string.
             lang_key: Language key (e.g. 'arabic-language').
             lang_label: Arabic label of the language.
 
@@ -60,7 +60,7 @@ class FilmCategoryLabelResolver:
         lang_without_suffix = lang_key.replace("-language", "")
         films_pattern = f"{lang_without_suffix} films"
 
-        if films_pattern == con_3:
+        if films_pattern == suffix:
             return f"أفلام ب{lang_label}"
         return ""
 
@@ -234,17 +234,17 @@ class LanguageLabelResolver:
         return ""
     # ---------- Public API ----------
 
-    def resolve(self, con_3: str) -> str:
+    def resolve(self, suffix: str) -> str:
         """Resolve and retrieve language-related label based on input."""
-        logger.debug(f'<<lightblue>> Lang_work/resolve :"{con_3}"')
+        logger.debug(f'<<lightblue>> Lang_work/resolve :"{suffix}"')
 
         # 1) Direct lookup in languages_key
-        lang_lab = self._languages.get(con_3, "")
+        lang_lab = self._languages.get(suffix, "")
         if lang_lab:
             return lang_lab
 
         # 2) Romanization pattern
-        lang_lab = self._try_romanization(con_3)
+        lang_lab = self._try_romanization(suffix)
         if lang_lab:
             return lang_lab
 
@@ -252,19 +252,19 @@ class LanguageLabelResolver:
         for lang_key, lang_label in self._languages.items():
             # 3.a) Film pattern: "{lang_without_suffix} films"
             films_label = self._film_resolver.resolve_direct_language_films(
-                con_3, lang_key, lang_label
+                suffix, lang_key, lang_label
             )
             if films_label:
                 return films_label
 
             # 3.b) Generic "<lang_key> <suffix>" patterns
             lang_prefix = f"{lang_key} "
-            if con_3.startswith(lang_prefix):
+            if suffix.startswith(lang_prefix):
                 logger.debug(
-                    f'<<lightblue>> con_3.startswith(lang:"{lang_prefix}")'
+                    f'<<lightblue>> suffix.startswith(lang:"{lang_prefix}")'
                 )
                 label = self._lab_from_lang_keys(
-                    con_3,
+                    suffix,
                     lang_key,
                     lang_label,
                     lang_prefix,
@@ -295,19 +295,19 @@ _default_resolver = LanguageLabelResolver(
 
 
 @functools.lru_cache(maxsize=None)
-def Lang_work(con_3: str) -> str:
+def Lang_work(suffix: str) -> str:
     """Process and retrieve language-related information based on input.
 
     This function provides backward compatibility by delegating to the
     LanguageProcessor class. It maintains the same interface as before.
 
     Args:
-        con_3: A string representing a language or related term.
+        suffix: A string representing a language or related term.
 
     Returns:
         The corresponding language label or an empty string if no match is found.
     """
-    return _default_resolver.resolve(con_3)
+    return _default_resolver.resolve(suffix)
 
 
 __all__ = [

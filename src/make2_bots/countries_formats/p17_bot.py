@@ -26,8 +26,8 @@ def add_definite_article(label: str) -> str:
 
 def _resolve_p17_2_label(category: str, templates: dict, nat_key: str, add_article: bool = False) -> str:
     """Resolve gendered nationality templates for P17-style categories."""
-    for suffix, template in templates.items():
-        suffix_key = f" {suffix.strip().lower()}"
+    for suffix1, template in templates.items():
+        suffix_key = f" {suffix1.strip().lower()}"
         if category.lower().endswith(suffix_key):
             country_prefix = category[: -len(suffix_key)].strip()
 
@@ -71,43 +71,43 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     country_start_lab = ""
     category = category.lower()
 
-    con_3, country_start = get_con_3(category, "All_P17")
+    suffix, country_start = get_con_3(category, "All_P17")
     country_start_lab = All_P17.get(country_start, "")
 
-    if not con_3 and not country_start:
-        con_3, country_start = get_con_3(category, "contries_from_nat")
+    if not suffix and not country_start:
+        suffix, country_start = get_con_3(category, "contries_from_nat")
         country_start_lab = contries_from_nat.get(country_start, "")
 
-    if con_3 and country_start:
+    if suffix and country_start:
         logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
-        logger.debug(f'<<lightblue>> country_start:"{country_start}", con_3:"{con_3}"')
+        logger.debug(f'<<lightblue>> country_start:"{country_start}", suffix:"{suffix}"')
 
         FOF = ""
-        if con_3 in category_relation_mapping:
-            codd = category_relation_mapping[con_3]
+        if suffix in category_relation_mapping:
+            codd = category_relation_mapping[suffix]
             if codd.startswith("لل"):
                 con_3_lab = "{} " + codd
                 logger.debug(f'get lab from category_relation_mapping con_3_lab:"{con_3_lab}"')
 
         if not con_3_lab:
-            con_3_lab = SPORT_FORMTS_EN_AR_IS_P17.get(con_3.strip(), "")
+            con_3_lab = SPORT_FORMTS_EN_AR_IS_P17.get(suffix.strip(), "")
             if con_3_lab:
                 FOF = "<<lightgreen>>SPORT_FORMTS_EN_AR_IS_P17<<lightblue>>"
 
         if not con_3_lab:
-            con_3_lab = en_is_P17_ar_is_P17.get(con_3.strip(), "")
+            con_3_lab = en_is_P17_ar_is_P17.get(suffix.strip(), "")
 
         if not con_3_lab:
-            con_3_lab = Get_Sport_Format_xo_en_ar_is_P17(con_3.strip())
+            con_3_lab = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 
         if not con_3_lab:
-            con_3_lab = pop_format.get(con_3, "")
+            con_3_lab = pop_format.get(suffix, "")
             if con_3_lab:
                 FOF = "<<lightgreen>>pop_format<<lightblue>>"
 
         if con_3_lab:
             if FOF:
-                logger.debug(f'<<lightblue>>>>>> {FOF} .startswith({country_start}), con_3:"{con_3}"')
+                logger.debug(f'<<lightblue>>>>>> {FOF} .startswith({country_start}), suffix:"{suffix}"')
             if "{nat}" in con_3_lab:
                 resolved_label = con_3_lab.format(nat=country_start_lab)
             else:
@@ -118,7 +118,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
         logger.debug(f'<<lightred>>>>>> con_3_lab: "{con_3_lab}", cnt_la :"{resolved_label}" == ""')
 
     else:
-        logger.info(f'<<lightred>>>>>> con_3: "{con_3}" or country_start :"{country_start}" == ""')
+        logger.info(f'<<lightred>>>>>> suffix: "{suffix}" or country_start :"{country_start}" == ""')
 
     if resolved_label:
         logger.info(f'<<lightblue>>>>>> Get_P17 cnt_la "{resolved_label}" ')

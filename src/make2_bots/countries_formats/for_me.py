@@ -30,7 +30,7 @@ def add_all(lab: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
+def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str:
     """Retrieve country label for men based on category, nationality, and a
     specific key.
 
@@ -44,7 +44,7 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
     Args:
         cate (str): The category of the work.
         nat (str): The nationality to be used for label generation.
-        con_3 (str): A specific key used to retrieve additional information.
+        suffix (str): A specific key used to retrieve additional information.
 
     Returns:
         str: The formatted country label for men based on the inputs.
@@ -56,7 +56,7 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
 
     # رجالية بألف ولام التعريف
     if not con_3_lab and not country_lab:
-        con_3_lab = en_is_nat_ar_is_al_mens.get(con_3.strip(), "")
+        con_3_lab = en_is_nat_ar_is_al_mens.get(suffix.strip(), "")
         if con_3_lab:
             men_nat_lab_no_al = re.sub(r" ", " ال", men_nat_lab)
             men_nat_lab = f"ال{men_nat_lab_no_al}"
@@ -67,21 +67,21 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def Work_for_me(cate: str, nat: str, con_3: str) -> str:
+def Work_for_me(cate: str, nat: str, suffix: str) -> str:
     """Retrieve a country label based on category, nationality, and a third
     parameter.
     """
     women_nat_lab = Nat_women.get(nat, "")
     men_nat_lab = Nat_men.get(nat, "")
     nat_lab = Nat_women[nat]
-    logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), con_3:"{con_3}", nat_lab:"{nat_lab}"')
+    logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), suffix:"{suffix}", nat_lab:"{nat_lab}"')
     country_lab = ""
     con_3_lab = ""
     cco_lab = ""
 
     # الإنجليزي جنسية والعربي اسم البلد
     if not con_3_lab and not country_lab:
-        con_3_lab = en_is_nat_ar_is_P17.get(con_3.strip(), "")
+        con_3_lab = en_is_nat_ar_is_P17.get(suffix.strip(), "")
         if nat.strip() in all_country_with_nat_ar:
             cco_lab = all_country_with_nat_ar[nat.strip()].get("ar", "")
         if con_3_lab:
@@ -92,13 +92,13 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
 
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
-        country_lab = ethnic_bot.ethnic_label(cate, nat, con_3)
+        country_lab = ethnic_bot.ethnic_label(cate, nat, suffix)
 
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
-        con_3_lab = en_is_nat_ar_is_women.get(con_3.strip(), "")
+        con_3_lab = en_is_nat_ar_is_women.get(suffix.strip(), "")
         if not con_3_lab:
-            con_3_lab = New_female_keys.get(con_3.strip(), "")
+            con_3_lab = New_female_keys.get(suffix.strip(), "")
             if con_3_lab:
                 con_3_lab += " {}"
         if con_3_lab:
@@ -107,7 +107,7 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
 
     # نسائية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
-        con_3_lab = en_is_nat_ar_is_al_women.get(con_3.strip(), "")
+        con_3_lab = en_is_nat_ar_is_al_women.get(suffix.strip(), "")
         if con_3_lab:
             women_nat_lab = add_all(women_nat_lab)
             if "{nat}" in con_3_lab:
@@ -118,9 +118,9 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
 
     # رجالية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
-        con_3_lab = en_is_nat_ar_is_man.get(con_3.strip(), "")
+        con_3_lab = en_is_nat_ar_is_man.get(suffix.strip(), "")
         if not con_3_lab:
-            con_3_lab = New_male_keys.get(con_3.strip(), "")
+            con_3_lab = New_male_keys.get(suffix.strip(), "")
             if con_3_lab:
                 con_3_lab += " {}"
         if con_3_lab:
@@ -129,6 +129,6 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
 
     # رجالية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
-        country_lab = Work_for_New_2018_men_Keys_with_all(cate, nat, con_3)
+        country_lab = Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
 
     return country_lab

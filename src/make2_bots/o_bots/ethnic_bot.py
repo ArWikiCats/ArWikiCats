@@ -98,13 +98,13 @@ def ethnic(category: str, start: str, suffix: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def ethnic_label(category: str, nat: str="", con_3: str="") -> str:
-    if not con_3 or not nat:
-        con_3, nat = get_con_3(category, "nat")
+def ethnic_label(category: str, nat: str="", suffix: str="") -> str:
+    if not suffix or not nat:
+        suffix, nat = get_con_3(category, "nat")
 
-    normalized_suffix = con_3
-    if con_3.endswith(" people"):
-        candidate = con_3[: -len(" people")]
+    normalized_suffix = suffix
+    if suffix.endswith(" people"):
+        candidate = suffix[: -len(" people")]
         if Nat_mens.get(candidate, ""):
             normalized_suffix = candidate
 
