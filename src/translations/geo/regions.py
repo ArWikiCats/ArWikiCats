@@ -1,6 +1,8 @@
 """Regional translation tables used across the geo modules."""
 
 from __future__ import annotations
+from ...helps import len_print
+
 
 from ._shared import apply_suffix_templates, log_mapping_stats, update_with_lowercased
 
@@ -705,3 +707,18 @@ __all__ = [
     "get_primary_region_translations",
     "Main_Table",
 ]
+
+len_print.data_len(
+    "regions.py",
+    {
+        "PRIMARY_REGION_TRANSLATIONS": PRIMARY_REGION_TRANSLATIONS,
+        "PERU_REGION_TRANSLATIONS": PERU_REGION_TRANSLATIONS,
+        "UK_COUNTY_TRANSLATIONS": UK_COUNTY_TRANSLATIONS,
+        "SRI_LANKA_DISTRICT_TRANSLATIONS": SRI_LANKA_DISTRICT_TRANSLATIONS,
+        "ALGERIA_PROVINCE_TRANSLATIONS": ALGERIA_PROVINCE_TRANSLATIONS,
+        "VENEZUELA_STATE_TRANSLATIONS": VENEZUELA_STATE_TRANSLATIONS,
+        "ECUADOR_PROVINCE_TRANSLATIONS": ECUADOR_PROVINCE_TRANSLATIONS,
+        "LEGACY_UK_COUNTY_TRANSLATIONS": LEGACY_UK_COUNTY_TRANSLATIONS,
+        "Main_Table": Main_Table,
+    },
+)
