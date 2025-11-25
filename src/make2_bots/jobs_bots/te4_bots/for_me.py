@@ -12,7 +12,7 @@ from ....translations import (
     Nat_women,
     New_female_keys,
     New_male_keys,
-    NN_table,
+    NN_table as NN_table2,
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
@@ -21,6 +21,13 @@ from ....translations import (
     en_is_nat_ar_is_women,
 )
 from ...o_bots import ethnic_bot
+
+
+def add_all(lab: str) -> str:
+    """Insert the definite article into every word of the given label."""
+    lab_no_al = re.sub(r" ", " ال", lab)
+    new_lab = f"ال{lab_no_al}"
+    return new_lab
 
 
 @functools.lru_cache(maxsize=None)
@@ -130,10 +137,3 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
         country_lab = Work_for_New_2018_men_Keys_with_all(cate, nat, con_3)
 
     return country_lab
-
-
-def add_all(lab: str) -> str:
-    """Insert the definite article into every word of the given label."""
-    lab_no_al = re.sub(r" ", " ال", lab)
-    new_lab = f"ال{lab_no_al}"
-    return new_lab
