@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.get_helps import get_con_3
+from src.make2_bots.jobs_bots.get_helps import get_suffix
 
 data_contries_from_nat = {
     "afghanistan national football team managers": ("national football team managers", "afghanistan"),
@@ -27,13 +27,13 @@ data_contries_from_nat = {
 @pytest.mark.parametrize("category, expected", data_contries_from_nat.items(), ids=lambda x: x[0])
 def test_contries_from_nat(category, expected):
     # Test with a valid category and nat
-    result = get_con_3(category, "contries_from_nat")
+    result = get_suffix(category, "contries_from_nat")
     assert result == expected
 
 
-def test_get_con_3():
+def test_get_suffix():
     # Test with an empty list of keys (should return empty tuple)
-    result = get_con_3("test category", "nat")
+    result = get_suffix("test category", "nat")
     assert isinstance(result, tuple)
     assert len(result) == 2
     assert isinstance(result[0], str)
@@ -228,7 +228,7 @@ data_religions = {
 @pytest.mark.parametrize("category, expected", data_religions.items(), ids=lambda x: x[0])
 def test_religions(category, expected):
     # Test with a valid category and nat
-    result = get_con_3(category, "religions")
+    result = get_suffix(category, "religions")
     assert result == expected
 
 
@@ -541,5 +541,5 @@ data_nat = {
 @pytest.mark.parametrize("category, expected", data_nat.items(), ids=lambda x: x[0])
 def test_nat(category, expected):
     # Test with a valid category and nat
-    result = get_con_3(category, "nat")
+    result = get_suffix(category, "nat")
     assert result == expected

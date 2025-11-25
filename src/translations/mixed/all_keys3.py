@@ -88,23 +88,6 @@ FILM_PRODUCTION_COMPANY: dict[str, str] = {
     "Warner Bros.": "وارنر برذرز",
 }
 
-NN_TABLE_GENDERED: dict[str, dict[str, str]] = {
-    "south african": {"men": "جنوب إفريقي", "women": "جنوب إفريقية"},
-    "democratic republic of the congo": {
-        "men": "كونغوي الديمقراطي",
-        "women": "كونغوية الديمقراطية",
-    },
-    "bissau-guinean": {"men": "غيني البيساوي", "women": "غينية البيساوية"},
-    "south american": {"men": "أمريكي الجنوبي", "women": "أمريكية الجنوبية"},
-    "north american": {"men": "أمريكي الشمالي", "women": "أمريكية الشمالية"},
-    "northern ireland": {"men": "أيرلندي الشمالي", "women": "أيرلندية الشمالية"},
-    "hong kong": {"men": "هونغ كونغي", "women": "هونغ كونغية"},
-    "equatoguinean": {"men": "غيني الاستوائي", "women": "غينية الاستوائية"},
-    "east timorese": {"men": "تيموري الشرقي", "women": "تيمورية الشرقية"},
-    "south korean": {"men": "كوري الجنوبي", "women": "كورية الجنوبية"},
-    "north korean": {"men": "كوري الشمالي", "women": "كورية الشمالية"},
-}
-
 
 def build_pop_final_3() -> dict[str, str]:
     """Build the main mapping used for pop culture categories."""
@@ -132,10 +115,6 @@ typeTable_7: dict[str, str] = {**TYPE_TABLE_7_BASE, **typeTable_update}
 
 Ambassadors_tab: dict[str, str] = {}
 
-NN_table: dict[str, str] = {}
-
-NN_table2: dict[str, dict[str, str]] = dict(NN_TABLE_GENDERED)
-
 len_print.data_len(
     "all_keys3.py",
     {
@@ -144,8 +123,6 @@ len_print.data_len(
         "ALBUMS_TYPE": ALBUMS_TYPE,
         "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
         "Ambassadors_tab": Ambassadors_tab,
-        "NN_table": NN_table,
-        "NN_table2": NN_table2,
         "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
     },
 )
@@ -156,7 +133,5 @@ __all__ = [
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
     "Ambassadors_tab",
-    "NN_table",
-    "NN_table2",
     "BUSINESSPEOPLE_INDUSTRIES",
 ]

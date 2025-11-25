@@ -6,6 +6,7 @@ import functools
 from typing import Dict
 
 from ...helps.log import logger
+from ..jobs_bots.get_helps import get_suffix
 from ...translations import Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2
 
 MALE_TOPIC_TABLE: Dict[str, str] = {
@@ -86,23 +87,37 @@ def ethnic(category: str, start: str, suffix: str) -> str:
 
     logger.info(f"Resolving ethnic label, category={category}, start={start}, suffix={suffix}")
 
-    normalized_suffix = suffix
-    if suffix.endswith(" people"):
-        candidate = suffix[: -len(" people")]
-        if Nat_mens.get(candidate, ""):
-            normalized_suffix = candidate
-
-    group_label = Nat_mens.get(normalized_suffix, "")
+    group_label = Nat_mens.get(suffix, "")
     start_label = Nat_mens.get(start, "")
     if group_label and start_label:
         resolved = f"{group_label} {start_label}"
         logger.debug(f'<<lightblue>> ethnic resolved label "{resolved}" for "{category}"')
         return resolved
 
-    return ethnic_culture(category, start, normalized_suffix)
+    return ""
+
+
+@functools.lru_cache(maxsize=None)
+def ethnic_label(category: str, nat: str="", suffix: str="") -> str:
+    if not suffix or not nat:
+        suffix, nat = get_suffix(category, "nat")
+
+    normalized_suffix = suffix
+    if suffix.endswith(" people"):
+        candidate = suffix[: -len(" people")]
+        if Nat_mens.get(candidate, ""):
+            normalized_suffix = candidate
+
+    result = ethnic(category, nat, normalized_suffix)
+
+    if not result:
+        result = ethnic_culture(category, nat, normalized_suffix)
+
+    return result
 
 
 __all__ = [
     "ethnic",
+    "ethnic_label",
     "ethnic_culture",
 ]

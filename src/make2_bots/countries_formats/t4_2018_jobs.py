@@ -6,8 +6,8 @@
 import functools
 from typing import Tuple
 
-from ....helps.log import logger
-from ....translations import (
+from ...helps.log import logger
+from ...translations import (
     Nat_men,
     Nat_women,
     People_key,
@@ -17,11 +17,11 @@ from ....translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..get_helps import get_con_3
-from ..jobs_mainbot import jobs_with_nat_prefix
-from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
-from ...languages_bot.langs_w import Lang_work
-from .relegin_jobs import try_relegins_jobs_with_suffix
+from ..jobs_bots.get_helps import get_suffix
+from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix
+from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ..languages_bot.langs_w import Lang_work
+from ..jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
 
 # TODO: fix typo to prefix_lab_for_2018
 priffix_lab_for_2018: dict[str, dict[str, str]] = {
@@ -113,7 +113,9 @@ def _get_direct_lookup(category: str) -> str:
 def _handle_nationality_logic(
     category: str,
     main_ss: str,
-) -> Tuple[str, str, str, str, str]:
+    category_suffix: str,
+    country_prefix: str,
+) -> Tuple[str, str, str]:
     """
     Handle nationality extraction and related job label logic.
 
@@ -124,7 +126,7 @@ def _handle_nationality_logic(
     updated_main_lab = ""
     country_lab = ""
 
-    category_suffix, country_prefix = get_con_3(category, "nat")
+    category_suffix, country_prefix = get_suffix(category, "nat")
 
     if category_suffix and (main_ss in priffix_lab_for_2018) and not country_lab:
 
@@ -143,7 +145,7 @@ def _handle_nationality_logic(
                 logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
                 updated_main_lab = priffix_lab_for_2018[main_ss]["men"]
 
-    return country_lab, country_prefix, job_example_lab, updated_main_lab, category_suffix
+    return country_lab, job_example_lab, updated_main_lab
 
 
 @functools.lru_cache(maxsize=None)
@@ -182,10 +184,12 @@ def te4_2018_Jobs(cate: str) -> str:
     # 3. Direct Lookups
     country_lab = _get_direct_lookup(cate_lower)
 
+    category_suffix, country_prefix = get_suffix(cate_lower, "nat")
+
     if not country_lab:
         # 4. Nationality Logic
-        country_lab, country_prefix, job_example_lab, updated_main_lab, category_suffix = _handle_nationality_logic(
-            cate_lower, main_ss
+        country_lab, job_example_lab, updated_main_lab = _handle_nationality_logic(
+            cate_lower, main_ss, category_suffix, country_prefix
         )
 
         if category_suffix and not country_lab:

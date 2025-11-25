@@ -19,7 +19,7 @@ from ...format_bots import (
     Tabl_with_in,
     for_table,
 )
-from ...jobs_bots.te4_bots.t4_2018_jobs import te4_2018_Jobs
+from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.check_bot import check_key_new_players
 from ...media_bots.films_bot import te_films
