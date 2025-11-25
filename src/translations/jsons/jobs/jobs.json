@@ -162,6 +162,10 @@
             "mens": "كتاب",
             "womens": "كاتبات"
         },
+        "non-fiction writers": {
+            "mens": "كتاب غير خياليون",
+            "womens": "كاتبات غير خياليات"
+        },
         "critics": {
             "mens": "نقاد",
             "womens": "ناقدات"
