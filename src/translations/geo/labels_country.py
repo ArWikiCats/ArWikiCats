@@ -240,12 +240,6 @@ def _build_country_label_index() -> dict[str, str]:
 COUNTRY_LABEL_INDEX = _build_country_label_index()
 COUNTRY_LABEL_INDEX_LOWER = normalize_to_lower(COUNTRY_LABEL_INDEX)
 
-len_print.data_len("labels_country.py", {
-    "COUNTRY_LABEL_INDEX": COUNTRY_LABEL_INDEX,
-    "New_P17_Finall": COUNTRY_LABEL_INDEX,
-    "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
-})
-
 
 def get_country_label_index() -> dict[str, str]:
     """Return a copy of the country label mapping."""
@@ -271,3 +265,14 @@ __all__ = [
     "get_country_label_index_lower",
     "New_P17_Finall",
 ]
+
+len_print.data_len(
+    "labels_country.py",
+    {
+        "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
+        "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
+        "COUNTRY_LABEL_INDEX": COUNTRY_LABEL_INDEX,
+        "COUNTRY_LABEL_INDEX_LOWER": COUNTRY_LABEL_INDEX_LOWER,
+        "New_P17_Finall": New_P17_Finall,
+    },
+)
