@@ -25,7 +25,7 @@ def get_keys(category_type: str):
     return keys_data.get(category_type, [])
 
 
-def get_suffix_with_keys(cate: str, data_keys, category_type: str="", check_the: bool = False) -> Tuple[str, str]:
+def get_suffix_with_keys(cate: str, data_keys, category_type: str = "", check_the: bool = False) -> Tuple[str, str]:
     """Fast and optimized version of get_suffix.
 
     This function identifies a matching prefix from the given keys and
@@ -74,7 +74,9 @@ def get_suffix_with_keys(cate: str, data_keys, category_type: str="", check_the:
                 country_prefix = key
                 category_suffix = cate[len(prefix_candidate) :].strip()
 
-                logger.debug(f'<<lightyellow>>>>>> get_suffix {prefix_candidate=}, {category_suffix=}, {country_prefix=}')
+                logger.debug(
+                    f"<<lightyellow>>>>>> get_suffix {prefix_candidate=}, {category_suffix=}, {country_prefix=}"
+                )
 
                 break
 
@@ -82,7 +84,9 @@ def get_suffix_with_keys(cate: str, data_keys, category_type: str="", check_the:
                 country_prefix = key
                 category_suffix = cate2[len(prefix_candidate) :].strip()
 
-                logger.debug(f'<<lightyellow>>>>>> get_suffix {prefix_candidate=}, {category_suffix=}, {country_prefix=}')
+                logger.debug(
+                    f"<<lightyellow>>>>>> get_suffix {prefix_candidate=}, {category_suffix=}, {country_prefix=}"
+                )
 
                 break
 
