@@ -98,7 +98,7 @@ def ethnic(category: str, start: str, suffix: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def ethnic_label(category: str, nat: str="", suffix: str="") -> str:
+def ethnic_label(category: str, nat: str = "", suffix: str = "") -> str:
     if not suffix or not nat:
         suffix, nat = get_suffix(category, "nat")
 

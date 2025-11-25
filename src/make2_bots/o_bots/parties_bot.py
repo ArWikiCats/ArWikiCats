@@ -38,7 +38,6 @@ def get_parties_lab_old(party: str) -> str:
     return party_label
 
 
-
 def get_parties_lab(party: str) -> str:
     """Return the Arabic label for ``party`` using known suffixes.
 

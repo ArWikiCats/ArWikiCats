@@ -38,7 +38,9 @@ def te_language(category: str) -> str:
     if not resolved_label:
         suffix_template = lang_ttty.get(language_suffix, "")
         if suffix_template and language_label:
-            resolved_label = suffix_template % language_label if "%s" in suffix_template else suffix_template.format(language_label)
+            resolved_label = (
+                suffix_template % language_label if "%s" in suffix_template else suffix_template.format(language_label)
+            )
 
     if resolved_label:
         logger.info(f"<<lightblue>>>> vvvvvvvvvvvv te_language cate:{normalized_category} vvvvvvvvvvvv ")

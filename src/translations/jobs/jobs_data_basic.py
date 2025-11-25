@@ -63,7 +63,10 @@ def _build_painter_job_labels(
     for style_key, style_labels in painter_styles.items():
         for role_key, role_labels in painter_roles.items():
             composite_key = f"{style_key} {role_key}"
-            combined_data[composite_key] = {"mens": f"{role_labels['mens']} {style_labels['mens']}", "womens": f"{role_labels['womens']} {style_labels['womens']}"}
+            combined_data[composite_key] = {
+                "mens": f"{role_labels['mens']} {style_labels['mens']}",
+                "womens": f"{role_labels['womens']} {style_labels['womens']}",
+            }
     for painter_category, category_label in painter_categories.items():
         combined_data[f"{painter_category} painters"] = {
             "mens": f"رسامو {category_label}",
@@ -98,12 +101,21 @@ def _build_military_job_labels(
 
     combined_roles: GenderedLabelMap = {role_key: role_labels for role_key, role_labels in military_roles.items()}
 
-    combined_roles.update({prefix_key: prefix_labels for prefix_key, prefix_labels in military_prefixes.items() if prefix_key not in excluded})
+    combined_roles.update(
+        {
+            prefix_key: prefix_labels
+            for prefix_key, prefix_labels in military_prefixes.items()
+            if prefix_key not in excluded
+        }
+    )
 
     for military_key, prefix_labels in military_prefixes.items():
         for role_key, role_labels in military_roles.items():
             composite_key = f"{military_key} {role_key}"
-            combined_roles[composite_key] = {"mens": f"{role_labels['mens']} {prefix_labels['mens']}", "womens": f"{role_labels['womens']} {prefix_labels['womens']}"}
+            combined_roles[composite_key] = {
+                "mens": f"{role_labels['mens']} {prefix_labels['mens']}",
+                "womens": f"{role_labels['womens']} {prefix_labels['womens']}",
+            }
 
     return combined_roles
 

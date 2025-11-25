@@ -37,7 +37,10 @@ def _build_category_role_labels(
     for category_key, category_label in categories.items():
         for role_key, role_labels in roles.items():
             composite_key = f"{category_key} {role_key}"
-            combined[composite_key] = {"mens": f"{role_labels['mens']} {category_label}", "womens": f"{role_labels['womens']} {category_label}"}
+            combined[composite_key] = {
+                "mens": f"{role_labels['mens']} {category_label}",
+                "womens": f"{role_labels['womens']} {category_label}",
+            }
         # combined[ f"{category_key} singers" ] = { "mens": f"مغنو {category_label}" ,"womens": f"مغنيات {category_label}" }
         # combined[ f"{category_key} writers" ] = { "mens": f"كتاب {category_label}" ,"womens": f"كاتبات {category_label}" }
         # combined[ f"{category_key} authors" ] = { "mens": f"مؤلفو {category_label}" ,"womens": f"مؤلفات {category_label}" }
