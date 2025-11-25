@@ -282,13 +282,6 @@ USA_newkeys = USA_PARTY_DERIVED_KEYS
 Counties = COUNTY_TRANSLATIONS
 usa_parties = USA_PARTY_LABELS
 
-len_print.data_len("us_counties.py", {
-    "kk_end_US_State": kk_end_US_State,
-    "party_end_keys": party_end_keys,
-    "Counties": Counties,
-    "usa_parties": usa_parties,
-})
-
 __all__ = [
     "COUNTY_TRANSLATIONS",
     "STATE_NAME_TRANSLATIONS",
@@ -306,3 +299,23 @@ __all__ = [
     "Counties",
     "usa_parties",
 ]
+
+len_print.data_len(
+    "us_counties.py",
+    {
+        "COUNTY_TRANSLATIONS": COUNTY_TRANSLATIONS,
+        "STATE_NAME_TRANSLATIONS": STATE_NAME_TRANSLATIONS,
+        "STATE_NAME_TRANSLATIONS_LOWER": STATE_NAME_TRANSLATIONS_LOWER,
+        "STATE_SUFFIX_TEMPLATES": STATE_SUFFIX_TEMPLATES,
+        "PARTY_ROLE_SUFFIXES": PARTY_ROLE_SUFFIXES,
+        "USA_PARTY_LABELS": USA_PARTY_LABELS,
+        "USA_PARTY_DERIVED_KEYS": USA_PARTY_DERIVED_KEYS,
+        "US_State": US_State,
+        "US_State_lower": US_State_lower,
+        "kk_end_US_State": kk_end_US_State,
+        "party_end_keys": party_end_keys,
+        "USA_newkeys": USA_newkeys,
+        "Counties": Counties,
+        "usa_parties": usa_parties,
+    },
+)

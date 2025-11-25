@@ -88,10 +88,13 @@ SPORT_FORMATS_FOR_P17 = make_tab() if app_settings.load_p17nat else {}
 
 SPORT_FORMATS_FOR_P17["sports templates"] = "قوالب رياضة {nat}"
 
-len_print.data_len("sportsb/nat_p17.py", {
-    "SPORT_FORMATS_FOR_P17": SPORT_FORMATS_FOR_P17,  # 42230
-})
-
 __all__ = [
     "SPORT_FORMATS_FOR_P17",
 ]
+
+len_print.data_len(
+    "nat_p17.py",
+    {
+        "SPORT_FORMATS_FOR_P17": SPORT_FORMATS_FOR_P17,
+    },
+)

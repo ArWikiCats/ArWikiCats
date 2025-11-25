@@ -4,6 +4,8 @@
 
 """
 
+from ...helps import len_print
+
 from ..utils.json_dir import open_json_file
 
 EGYPT_GOVERNORATE_TRANSLATIONS = {
@@ -173,3 +175,11 @@ __all__ = [
     "Main_Table_2",
     "India_Main_Table",
 ]
+
+len_print.data_len(
+    "regions2.py",
+    {
+        "Main_Table_2": Main_Table_2,
+        "India_Main_Table": India_Main_Table,
+    },
+)

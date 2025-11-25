@@ -232,6 +232,8 @@ def build_pop_final_5() -> Tuple[dict[str, str], dict[str, str]]:
 
 pop_final_5, Clubs_key_2 = build_pop_final_5()
 
+__all__ = ["pop_final_5", "Clubs_key_2"]
+
 len_print.data_len(
     "all_keys5.py",
     {
@@ -239,5 +241,3 @@ len_print.data_len(
         "Clubs_key_2": Clubs_key_2,
     },
 )
-
-__all__ = ["pop_final_5", "Clubs_key_2"]

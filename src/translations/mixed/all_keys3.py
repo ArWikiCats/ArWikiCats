@@ -143,6 +143,8 @@ len_print.data_len(
         "typeTable_7": typeTable_7,
         "ALBUMS_TYPE": ALBUMS_TYPE,
         "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
+        "Ambassadors_tab": Ambassadors_tab,
+        "NN_table": NN_table,
         "NN_table2": NN_table2,
         "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
     },

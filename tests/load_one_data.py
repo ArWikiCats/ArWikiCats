@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Callable
 
 
-def dump_diff(data, file_name):
+def dump_diff(data, file_name, _sort=True):
     if not data:
         return
 
@@ -12,8 +12,11 @@ def dump_diff(data, file_name):
     diff_data_path.mkdir(exist_ok=True, parents=True)
     file_path = diff_data_path / f"{file_name}.json"
 
-    data_sorted = {x: v for x, v in data.items() if v}
-    data_sorted.update({y: z for y, z in data.items() if not z})
+    if _sort:
+        data_sorted = {x: v for x, v in data.items() if v}
+        data_sorted.update({y: z for y, z in data.items() if not z})
+    else:
+        data_sorted = data
 
     try:
         with open(file_path, "w", encoding="utf-8") as f:

@@ -4,6 +4,10 @@ from load_one_data import dump_diff, one_dump_test
 from src import new_func_lab_final_label
 
 data1 = {
+    "Category:Adaptations of works by Greek writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب يونانيون",
+    "Category:Adaptations of works by Irish writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب أيرلنديون",
+    "Category:Adaptations of works by Italian writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب إيطاليون",
+
     "Category:sieges of french invasion of egypt and syria": "تصنيف:حصارات الغزو الفرنسي لمصر وسوريا",
     "Category:1330 in men's international football": "تصنيف:كرة قدم دولية للرجال في 1330",
     "Category:2015 American television": "تصنيف:التلفزة الأمريكية 2015",

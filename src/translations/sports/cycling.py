@@ -1,6 +1,7 @@
 """
 Cycling specific lookup tables used by the sports translation modules.
 """
+from ...helps import len_print
 
 BASE_CYCLING_EVENTS: dict[str, str] = {
     "tour de france": "سباق طواف فرنسا",
@@ -45,3 +46,10 @@ __all__ = [
     "CYCLING_TEMPLATES",
     "build_cycling_templates",
 ]
+
+len_print.data_len(
+    "cycling.py",
+    {
+        "CYCLING_TEMPLATES": CYCLING_TEMPLATES,
+    },
+)

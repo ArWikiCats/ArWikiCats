@@ -1,4 +1,14 @@
 
+## [#110](https://github.com/MrIbrahem/make2_new/pull/110) - 2025-11-25
+
+* **New Features**
+  * Added Arabic translations for several category terms and new occupational labels, including a "non-fiction writers" role and new population/occupation labels.
+* **Chores**
+  * Expanded translation datasets and reorganized translation/region mappings to improve coverage.
+  * Added runtime diagnostic reporting to many translation modules.
+* **Tests**
+  * Updated test data to reflect new category translations and removed one outdated case.
+
 ## [#109](https://github.com/MrIbrahem/make2_new/pull/109) - 2025-11-25
 
 * **New Features**

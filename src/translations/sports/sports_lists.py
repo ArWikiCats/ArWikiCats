@@ -6,6 +6,8 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from typing import Final
+from ...helps import len_print
+
 
 from ._helpers import extend_with_templates, extend_with_year_templates
 
@@ -140,3 +142,14 @@ __all__ = [
     "LEVELS",
     "NEW_TATO_NAT",
 ]
+
+len_print.data_len(
+    "sports_lists.py",
+    {
+        "AFTER_KEYS": AFTER_KEYS,
+        "AFTER_KEYS_NAT": AFTER_KEYS_NAT,
+        "AFTER_KEYS_TEAM": AFTER_KEYS_TEAM,
+        "LEVELS": LEVELS,
+        "NEW_TATO_NAT": NEW_TATO_NAT,
+    },
+)
