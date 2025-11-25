@@ -359,11 +359,8 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "names": "أسماء {}",
     "nationalism": "قومية {}",
     "newspapers": "صحف {}",
-
     "non-profit organizations": "منظمات غير ربحية {}",
-
     "non profit organizations": "منظمات غير ربحية {}",
-
     "novels": "روايات {}",
     "online journalism": "صحافة إنترنت {}",
     "operas": "أوبيرات {}",
@@ -557,7 +554,6 @@ __all__ = [
     "change_male_to_female",
     "Multi_sport_for_Jobs",
     "replace_labels_2022",
-
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_man",

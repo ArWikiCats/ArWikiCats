@@ -1,6 +1,7 @@
 """
 Cycling specific lookup tables used by the sports translation modules.
 """
+
 from ...helps import len_print
 
 BASE_CYCLING_EVENTS: dict[str, str] = {

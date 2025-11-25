@@ -349,7 +349,13 @@ def _update_lowercase(data: dict[str, str], mapping: list[Mapping[str, str]], sk
         return True
 
     for table in mapping:
-        data.update({key.lower(): v.strip() for key, v in table.items() if key.strip() and v.strip() and check_skip_existing(key)})
+        data.update(
+            {
+                key.lower(): v.strip()
+                for key, v in table.items()
+                if key.strip() and v.strip() and check_skip_existing(key)
+            }
+        )
 
 
 def _build_book_entries(data: dict[str, str]) -> None:
