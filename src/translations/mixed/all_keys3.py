@@ -132,7 +132,6 @@ typeTable_7: dict[str, str] = {**TYPE_TABLE_7_BASE, **typeTable_update}
 
 Ambassadors_tab: dict[str, str] = {}
 
-NN_table: dict[str, str] = {}
 
 NN_table2: dict[str, dict[str, str]] = dict(NN_TABLE_GENDERED)
 
@@ -144,7 +143,6 @@ len_print.data_len(
         "ALBUMS_TYPE": ALBUMS_TYPE,
         "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
         "Ambassadors_tab": Ambassadors_tab,
-        "NN_table": NN_table,
         "NN_table2": NN_table2,
         "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
     },
@@ -156,7 +154,6 @@ __all__ = [
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
     "Ambassadors_tab",
-    "NN_table",
     "NN_table2",
     "BUSINESSPEOPLE_INDUSTRIES",
 ]
