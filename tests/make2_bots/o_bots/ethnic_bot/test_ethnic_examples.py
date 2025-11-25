@@ -1,11 +1,9 @@
 import pytest
 
-import src.make2_bots.o_bots.ethnic_bot as ethnic_mod
+from src.make2_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
 
-ethnic = ethnic_mod.ethnic
-ethnic_culture = ethnic_mod.ethnic_culture
 # -------------------------------------------------
-# Sample comparisons for ethnic()  (people → شعوب)
+# Sample comparisons for ethnic_label()  (people → شعوب)
 # -------------------------------------------------
 
 
@@ -41,21 +39,21 @@ ethnic_culture = ethnic_mod.ethnic_culture
 )
 def test_ethnic_direct_mens_examples(category, start, suffix, expected_ar):
     """Check a few realistic <nat> people categories."""
-    result = ethnic(category, start, suffix)
+    result = ethnic_label(category, start, suffix)
     assert result == expected_ar
 
 
 @pytest.mark.unit
 def test_ethnic_fallback_to_ethnic_culture():
     """
-    Example where ethnic() cannot build mens-composition and falls back
+    Example where ethnic_label() cannot build mens-composition and falls back
     to ethnic_culture().
     """
     category = "Category:Afghan history"
     start = "afghan"
     suffix = "afghan history"
 
-    result = ethnic(category, start, suffix)
+    result = ethnic_label(category, start, suffix)
 
     # Nat_men["afghan"] == "أفغاني"
     # MALE_TOPIC_TABLE["history"] == "تاريخ {}"
@@ -67,7 +65,7 @@ def test_ethnic_fallback_to_ethnic_culture():
 @pytest.mark.unit
 def test_ethnic_unknown_returns_empty():
     """Unknown nationalities should return empty string."""
-    result = ethnic("Category:Unknown people", "unknown-nat", "unknown-nat people")
+    result = ethnic_label("Category:Unknown people", "unknown-nat", "unknown-nat people")
     assert result == ""
 
 

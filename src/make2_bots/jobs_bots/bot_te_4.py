@@ -97,7 +97,7 @@ def te_2018_with_nat(category: str) -> str:
             strategies = [
                 lambda: Work_for_me(normalized_category, nat, con_3),
                 lambda: Films(normalized_category, nat, con_3),
-                lambda: ethnic_bot.ethnic(normalized_category, nat, con_3),
+                lambda: ethnic_bot.ethnic_label(normalized_category, nat, con_3),
                 lambda: nat_match(normalized_category),
             ]
 

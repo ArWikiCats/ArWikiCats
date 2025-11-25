@@ -2,11 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-# Adjust this import to your real module path
-import src.make2_bots.o_bots.ethnic_bot as ethnic_mod  # e.g. src.ethnic or src.fix.ethnic_helpers
-
-ethnic = ethnic_mod.ethnic
-ethnic_culture = ethnic_mod.ethnic_culture
+import src.make2_bots.o_bots.ethnic_bot as ethnic_mod  # e.g. src.ethnic_label or src.fix.ethnic_helpers
+from src.make2_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
 
 # ---------- Structural tests for data dictionaries ----------
 
@@ -14,7 +11,7 @@ ethnic_culture = ethnic_mod.ethnic_culture
 @pytest.fixture(autouse=True)
 def clear_lru_caches():
     """Clear caches before each test."""
-    ethnic_mod.ethnic.cache_clear()
+    ethnic_mod.ethnic_label.cache_clear()
     ethnic_mod.ethnic_culture.cache_clear()
 
 
@@ -87,19 +84,19 @@ def test_ethnic_culture_unknown_nationality_returns_empty():
     assert result == ""
 
 
-# ---------- Core tests for ethnic() direct -mens composition path ----------
+# ---------- Core tests for ethnic_label() direct -mens composition path ----------
 
 
 def test_ethnic_direct_mens_composition_basic():
     """
     When suffix matches `<nat> people` and both start and suffix exist in Nat_mens,
-    ethnic() should combine plural nationalities.
+    ethnic_label() should combine plural nationalities.
     """
     category = "Category:People"
     start = "yemeni"
     suffix = "zanzibari people"
 
-    result = ethnic(category, start, suffix)
+    result = ethnic_label(category, start, suffix)
 
     expected = f"{ethnic_mod.Nat_mens['zanzibari']} {ethnic_mod.Nat_mens['yemeni']}"
     assert result == expected
@@ -111,7 +108,7 @@ def test_ethnic_direct_mens_composition_trims_people_suffix():
     start = "afghan"
     suffix = "afghan people"
 
-    result = ethnic(category, start, suffix)
+    result = ethnic_label(category, start, suffix)
 
     expected = f"{ethnic_mod.Nat_mens['afghan']} {ethnic_mod.Nat_mens['afghan']}"
     assert result == expected
@@ -126,24 +123,24 @@ def test_ethnic_direct_mens_composition_requires_both_nationalities():
     start = "unknown-yemeni"
     suffix = "yemeni people"
 
-    result = ethnic(category, start, suffix)
+    result = ethnic_label(category, start, suffix)
 
     assert result == ""
 
 
-# ---------- Tests for ethnic() fallback to ethnic_culture() ----------
+# ---------- Tests for ethnic_label() fallback to ethnic_culture() ----------
 
 
 def test_ethnic_falls_back_to_ethnic_culture():
     """
-    When direct mens-composition path does not produce a label, ethnic()
+    When direct mens-composition path does not produce a label, ethnic_label()
     must call ethnic_culture() and return its result.
     """
     category = "Category:History"
     start = "afghan"
     suffix = "afghan history"
 
-    direct = ethnic(category, start, suffix)
+    direct = ethnic_label(category, start, suffix)
     fallback = ethnic_culture(category, start, suffix)
 
     assert direct == fallback
@@ -156,7 +153,7 @@ def test_ethnic_unknown_everything_returns_empty():
     start = "unknown-nat"
     suffix = "unknown-nat people"
 
-    result = ethnic(category, start, suffix)
+    result = ethnic_label(category, start, suffix)
 
     assert result == ""
 
@@ -193,13 +190,13 @@ def test_ethnic_culture_male_example_history():
 def test_ethnic_prefers_direct_mens_over_culture_when_possible():
     """
     If both direct mens-composition and culture mapping are theoretically possible,
-    ethnic() should use the direct mens-composition path.
+    ethnic_label() should use the direct mens-composition path.
     """
     category = "Category:People"
     start = "yemeni"
     suffix = "zanzibari people"
 
-    result = ethnic(category, start, suffix)
+    result = ethnic_label(category, start, suffix)
 
     expected_direct = f"{ethnic_mod.Nat_mens['zanzibari']} {ethnic_mod.Nat_mens['yemeni']}"
     assert result == expected_direct
