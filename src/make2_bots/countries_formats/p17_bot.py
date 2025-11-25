@@ -3,7 +3,6 @@
 import re
 
 from ...helps.log import logger
-from ...helps.jsonl_dump import dump_data
 from ...translations import (
     SPORT_FORMTS_EN_AR_IS_P17,
     Get_Sport_Format_xo_en_ar_is_P17,
@@ -18,7 +17,6 @@ from ..jobs_bots.get_helps import get_suffix
 from ..matables_bots.bot import All_P17
 
 
-@dump_data(enable=True)
 def add_definite_article(label: str) -> str:
     """Prefix each word in ``label`` with the Arabic definite article."""
     label_without_article = re.sub(r" ", " ال", label)
@@ -53,15 +51,19 @@ def _resolve_p17_2_label(category: str, templates: dict, nat_key: str, add_artic
     return ""
 
 
-@dump_data(enable=True)
 def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
     """
+    Category input in english is country name, return arabic as mens nationality.
+
     Return a nationality-based label for categories ending with country names.
 
-    Example: united states government officials
+    Example:
+        mens: [Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
+        women: [Category:syria air force] = "تصنيف:القوات الجوية السورية
     """
     logger.info(f'<<lightblue>>>>>> Get_P17_2 "{category}" ')  # ""
 
+    # resolved mens:
     resolved_label = _resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens")
 
     if not resolved_label:
@@ -70,9 +72,10 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
     return resolved_label
 
 
-@dump_data(enable=True)
 def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
     """
+    Category input in english is nationality, return arabic as country name.
+
     Resolve categories that start with nationality adjectives into country labels.
 
     TODO: use FormatData method

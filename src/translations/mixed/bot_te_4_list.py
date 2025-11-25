@@ -54,6 +54,7 @@ en_is_P17_ar_is_mens: dict[str, str] = {
 # الإنجليزية والعربية اسم البلد
 # tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
 
+# "courts" : "محاكم {}",
 en_is_P17_ar_is_P17: dict[str, str] = {
     "board members": "أعضاء مجلس {}",
     "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
@@ -77,7 +78,6 @@ en_is_P17_ar_is_P17: dict[str, str] = {
     "conflict": "نزاع {}",
     "war": "حرب {}",
     "responses": "استجابات {}",
-    #    "courts" : "محاكم {}"
 }
 
 # الإنجليزي جنسية والعربي اسم البلد

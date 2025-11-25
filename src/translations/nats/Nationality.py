@@ -326,9 +326,11 @@ len_print.data_len(
         "Nat_mens": Nat_mens,
         "Nat_women": Nat_women,
         "Nat_Womens": Nat_Womens,
+        "contries_from_nat": contries_from_nat,
         "All_Nat": All_Nat,
-        "All_Nat with ar name": all_country_with_nat_ar,
-        "All_Nat with en name": all_country_with_nat,
+        "all_country_with_nat_ar": all_country_with_nat_ar,
+        "all_country_with_nat_keys_is_en": all_country_with_nat_keys_is_en,
+        "all_country_with_nat": all_country_with_nat,
         "American_nat": American_nat,
     },
 )
