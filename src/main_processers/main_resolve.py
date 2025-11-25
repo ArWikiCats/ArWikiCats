@@ -2,9 +2,9 @@
 !
 """
 from __future__ import annotations
-from dataclasses import dataclass
 
 import functools
+from dataclasses import dataclass
 
 from . import event2bot, event_lab_bot  # isort:skip
 from .labs_years import LabsYears  # isort:skip
