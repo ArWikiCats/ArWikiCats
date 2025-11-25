@@ -17,7 +17,7 @@ from ...translations import (
 )
 
 from ...make2_bots.matables_bots.bot import add_to_new_players
-from ..jobs_bots.get_helps import get_con_3
+from ..jobs_bots.get_helps import get_suffix
 
 
 @functools.lru_cache(maxsize=None)
@@ -30,7 +30,7 @@ def load_SPORT_FORMATS_FOR_P17(category: str, check_the: bool=False) -> str:
     """
     normalized_category = category.lower()
 
-    sport_format_key, country_start = get_con_3(normalized_category, "nat", check_the=check_the)
+    sport_format_key, country_start = get_suffix(normalized_category, "nat", check_the=check_the)
 
     logger.debug(f"sport_lab_oioioi_load {normalized_category=}: {sport_format_key=} {country_start=}")
 

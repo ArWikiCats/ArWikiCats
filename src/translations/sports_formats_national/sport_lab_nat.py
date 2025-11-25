@@ -11,7 +11,7 @@ from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
 from .te2 import New_For_nat_female_xo_team
 from ...translations import Nat_women
-from ...make2_bots.jobs_bots.get_helps import get_con_3
+from ...make2_bots.jobs_bots.get_helps import get_suffix
 from ...translations_formats.format_2_data import FormatMultiData
 
 
@@ -99,7 +99,7 @@ def sport_lab_nat_load(category: str, check_the: bool=False) -> str:
     """
     normalized_category = category.lower()
 
-    sport_format_key, country_start = get_con_3(normalized_category, "nat", check_the=check_the)
+    sport_format_key, country_start = get_suffix(normalized_category, "nat", check_the=check_the)
 
     logger.debug(f"sport_lab_nat_load {normalized_category=}: {sport_format_key=} {country_start=}")
 

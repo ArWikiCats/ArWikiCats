@@ -17,7 +17,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..jobs_bots.get_helps import get_con_3
+from ..jobs_bots.get_helps import get_suffix
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ..languages_bot.langs_w import Lang_work
@@ -126,7 +126,7 @@ def _handle_nationality_logic(
     updated_main_lab = ""
     country_lab = ""
 
-    category_suffix, country_prefix = get_con_3(category, "nat")
+    category_suffix, country_prefix = get_suffix(category, "nat")
 
     if category_suffix and (main_ss in priffix_lab_for_2018) and not country_lab:
 
@@ -184,7 +184,7 @@ def te4_2018_Jobs(cate: str) -> str:
     # 3. Direct Lookups
     country_lab = _get_direct_lookup(cate_lower)
 
-    category_suffix, country_prefix = get_con_3(cate_lower, "nat")
+    category_suffix, country_prefix = get_suffix(cate_lower, "nat")
 
     if not country_lab:
         # 4. Nationality Logic

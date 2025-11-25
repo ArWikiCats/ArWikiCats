@@ -15,7 +15,7 @@ from ...translations import (
 )
 from ..media_bots.film_keys_bot import Films
 from ..o_bots import ethnic_bot
-from .get_helps import get_con_3
+from .get_helps import get_suffix
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ..countries_formats.for_me import Work_for_me
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
@@ -90,7 +90,7 @@ def te_2018_with_nat(category: str) -> str:
     country_label = short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
     if not country_label:
-        suffix, nat = get_con_3(normalized_category, "nat")
+        suffix, nat = get_suffix(normalized_category, "nat")
 
         if suffix:
             # Try various strategies if we have a country code
