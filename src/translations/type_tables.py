@@ -1,5 +1,7 @@
 from .sports.olympics_data import olympics
 from .tv.films_mslslat import television_keys
+from ..helps import len_print
+
 
 basedtypeTable = {
     "youth sport": {"ar": "رياضة شبابية"},
@@ -129,3 +131,10 @@ for tt_ype in list(type_Table_oo):
 __all__ = [
     "typeTable",
 ]
+
+len_print.data_len(
+    "type_tables.py",
+    {
+        "typeTable": typeTable,
+    },
+)

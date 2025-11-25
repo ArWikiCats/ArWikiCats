@@ -172,13 +172,13 @@ for team2 in SPORTS_KEYS_FOR_TEAM:
 SPORT_FORMTS_EN_AR_IS_P17["international rally"] = f"رالي {COUNTRY_PLACEHOLDER} الدولي"
 
 len_print.data_len(
-    "sports/skeys.py",
+    "skeys.py",
     {
         "SPORT_FORMTS_EN_AR_IS_P17": SPORT_FORMTS_EN_AR_IS_P17,
+        "SPORT_FORMTS_EN_P17_AR_NAT": SPORT_FORMTS_EN_P17_AR_NAT,
         "SPORT_FORMTS_FEMALE_NAT": SPORT_FORMTS_FEMALE_NAT,
         "SPORT_FORMTS_MALE_NAT": SPORT_FORMTS_MALE_NAT,
         "SPORT_FORMTS_NEW_KKK": SPORT_FORMTS_NEW_KKK,
-        "SPORT_FORMTS_EN_P17_AR_NAT": SPORT_FORMTS_EN_P17_AR_NAT,
     },
 )
 

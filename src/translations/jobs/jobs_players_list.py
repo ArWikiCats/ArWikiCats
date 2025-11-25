@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from typing import Dict, Mapping
 
+from ...helps import len_print
+
 from ..sports.Sport_key import (
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,
@@ -344,3 +346,12 @@ __all__ = [
     "JOBS_PLAYERS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
 ]
+
+len_print.data_len(
+    "jobs_players_list.py",
+    {
+        "FOOTBALL_KEYS_PLAYERS": FOOTBALL_KEYS_PLAYERS,
+        "JOBS_PLAYERS": JOBS_PLAYERS,
+        "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,
+    },
+)

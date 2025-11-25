@@ -6,6 +6,8 @@ from __future__ import annotations
 
 from typing import Dict, Iterable, List, Mapping
 
+from ...helps import len_print
+
 from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 
@@ -263,3 +265,18 @@ __all__ = [
     "RELIGIOUS_ROLE_LABELS",
     "NAT_BEFORE_OCC",
 ]
+
+len_print.data_len(
+    "jobs_data_basic.py",
+    {
+        "MEN_WOMENS_JOBS_2": MEN_WOMENS_JOBS_2,
+        "MILITARY_PREFIXES": MILITARY_PREFIXES,
+        "MILITARY_ROLE_LABELS": MILITARY_ROLE_LABELS,
+        "PAINTER_CATEGORY_LABELS": PAINTER_CATEGORY_LABELS,
+        "PAINTER_ROLE_LABELS": PAINTER_ROLE_LABELS,
+        "PAINTER_STYLES": PAINTER_STYLES,
+        "RELIGIOUS_KEYS_PP": RELIGIOUS_KEYS_PP,
+        "RELIGIOUS_ROLE_LABELS": RELIGIOUS_ROLE_LABELS,
+        "NAT_BEFORE_OCC": NAT_BEFORE_OCC,
+    },
+)

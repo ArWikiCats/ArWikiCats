@@ -2,6 +2,8 @@
 Static translations used for tennis and tournament related keys.
 """
 
+from ...helps import len_print
+
 TENNIS_KEYS: dict[str, str] = {
     "european athletics championships": "بطولة أوروبا لألعاب القوى",
     "deaflympics": "ديفلمبياد",
@@ -115,3 +117,10 @@ TENNIS_KEYS: dict[str, str] = {
 }
 
 __all__ = ["TENNIS_KEYS"]
+
+len_print.data_len(
+    "tennis.py",
+    {
+        "TENNIS_KEYS": TENNIS_KEYS,
+    },
+)

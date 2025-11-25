@@ -7,6 +7,8 @@ from __future__ import annotations
 import logging
 from typing import Mapping, Tuple
 
+from ...helps import len_print
+
 from ..utils.json_dir import open_json
 from .jobs_defs import GenderedLabelMap
 
@@ -212,3 +214,11 @@ __all__ = [
     "JOBS_2",
     "JOBS_3333",
 ]
+
+len_print.data_len(
+    "Jobs2.py",
+    {
+        "JOBS_2": JOBS_2,
+        "JOBS_3333": JOBS_3333,
+    },
+)
