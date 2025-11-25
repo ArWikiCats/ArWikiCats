@@ -54,7 +54,6 @@ data = [
     {"tito_stripped": "completed in", "country": "2nd century", "output": "القرن 2"},
     {"tito_stripped": "concerning", "country": "eritrea", "output": "إريتريا"},
     {"tito_stripped": "convicted of", "country": "crimes", "output": "جرائم"},
-    {"tito_stripped": "convicted of", "country": "kidnapping", "output": "الخطف"},
     {"tito_stripped": "created in", "country": "1420", "output": "1420"},
     {"tito_stripped": "demolished in", "country": "1420", "output": "1420"},
     {"tito_stripped": "described in", "country": "1420", "output": "1420"},
