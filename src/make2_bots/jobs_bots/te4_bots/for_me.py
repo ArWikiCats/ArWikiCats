@@ -12,7 +12,6 @@ from ....translations import (
     Nat_women,
     New_female_keys,
     New_male_keys,
-    NN_table2 as NN_table,
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
@@ -59,8 +58,6 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, con_3: str) -> str:
     if not con_3_lab and not country_lab:
         con_3_lab = en_is_nat_ar_is_al_mens.get(con_3.strip(), "")
         if con_3_lab:
-            if nat in NN_table:
-                men_nat_lab = NN_table[nat]["men"]
             men_nat_lab_no_al = re.sub(r" ", " ال", men_nat_lab)
             men_nat_lab = f"ال{men_nat_lab_no_al}"
             country_lab = con_3_lab.format(men_nat_lab)
@@ -112,8 +109,6 @@ def Work_for_me(cate: str, nat: str, con_3: str) -> str:
     if con_3_lab == "" and country_lab == "":
         con_3_lab = en_is_nat_ar_is_al_women.get(con_3.strip(), "")
         if con_3_lab:
-            if nat in NN_table:
-                women_nat_lab = NN_table[nat]["women"]
             women_nat_lab = add_all(women_nat_lab)
             if "{nat}" in con_3_lab:
                 country_lab = con_3_lab.format(nat=women_nat_lab)

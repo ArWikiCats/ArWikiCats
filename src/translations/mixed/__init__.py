@@ -12,7 +12,6 @@ from .all_keys3 import (
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
     Ambassadors_tab,
-    NN_table2,
     pop_final_3,
     typeTable_7,
 )
@@ -29,7 +28,6 @@ __all__ = [
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
     "Ambassadors_tab",
-    "NN_table2",
     "new2019",
     "INTER_FEDS_LOWER",
     "pop_final_5",
