@@ -1,10 +1,10 @@
 import pytest
 
 from src.translations.sports_formats_nats.new import (
-    both_bot,
+    _normalize_both,
     _normalize_nat_label,
     _normalize_sport_label,
-    _normalize_both,
+    both_bot,
 )
 
 data = {

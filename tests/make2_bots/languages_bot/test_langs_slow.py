@@ -5,12 +5,13 @@ Tests
 import pytest
 
 from src.make2_bots.languages_bot.langs_w import (
-    Lang_work,
-    lang_key_m,
     Films_key_For_nat,
-    languages_key,
+    Lang_work,
     jobs_mens_data,
+    lang_key_m,
+    languages_key,
 )
+
 # only 10 items from jobs_mens_data
 jobs_mens_data = {k: jobs_mens_data[k] for k in list(jobs_mens_data.keys())[:10]}
 Films_key_For_nat = {k: Films_key_For_nat[k] for k in list(Films_key_For_nat.keys())[:10]}

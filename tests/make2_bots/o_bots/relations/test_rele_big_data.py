@@ -1,7 +1,8 @@
 
 import pytest
-from src.make2_bots.o_bots.rele import work_relations
 from load_one_data import dump_diff, one_dump_test
+
+from src.make2_bots.o_bots.rele import work_relations
 
 big_data = {
     "Afghanistan–Australia sports relations": "العلاقات الأسترالية الأفغانية الرياضية",

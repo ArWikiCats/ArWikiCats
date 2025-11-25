@@ -3,9 +3,10 @@
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
+
 from src.translations.sports_formats_oioioi.bot import (
-    sport_lab_oioioi_load,
     both_bot,
+    sport_lab_oioioi_load,
 )
 
 data = {

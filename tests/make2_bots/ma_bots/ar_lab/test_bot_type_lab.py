@@ -6,7 +6,6 @@ import pytest
 
 from src.make2_bots.ma_bots.ar_lab import get_type_lab
 
-
 data = [
     # (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
     # (" of ", "national women's sports teams of", "منتخبات رياضية وطنية نسائية"),

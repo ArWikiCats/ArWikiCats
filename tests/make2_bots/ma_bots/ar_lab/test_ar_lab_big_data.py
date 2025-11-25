@@ -4,6 +4,7 @@ Tests
 
 import pytest
 from load_one_data import dump_diff
+
 from src.make2_bots.ma_bots.ar_lab import find_ar_label
 
 simple_list = [

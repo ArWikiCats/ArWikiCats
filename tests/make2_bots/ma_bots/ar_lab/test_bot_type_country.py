@@ -6,7 +6,6 @@ import pytest
 
 from src.make2_bots.ma_bots.ar_lab import get_type_country
 
-
 data = [
     ("1450s disestablishments in arizona territory", "in", ("1450s disestablishments ", " arizona territory")),
 ]

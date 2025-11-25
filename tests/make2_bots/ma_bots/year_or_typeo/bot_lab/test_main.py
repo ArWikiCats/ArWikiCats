@@ -3,6 +3,7 @@ from src.make2_bots.ma_bots.year_or_typeo.bot_lab import (
     label_for_startwith_year_or_typeo,
 )
 
+
 def test_basic():
     result = label_for_startwith_year_or_typeo("19th government of turkey")
     assert isinstance(result, str)

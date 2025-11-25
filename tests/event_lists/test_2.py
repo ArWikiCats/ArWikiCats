@@ -1,6 +1,7 @@
 #
 import pytest
 from load_one_data import dump_diff, one_dump_test
+
 from src import new_func_lab_final_label
 
 data1 = {

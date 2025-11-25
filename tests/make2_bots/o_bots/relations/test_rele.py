@@ -2,12 +2,12 @@ from unittest.mock import patch
 
 import pytest
 
-from src.make2_bots.o_bots.rele import work_relations
 from src.make2_bots.o_bots.rele import (
     Nat_men,
     Nat_women,
     all_country_ar,
     all_country_with_nat_keys_is_en,
+    work_relations,
 )
 
 #

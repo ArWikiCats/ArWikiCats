@@ -4,8 +4,8 @@
 import pytest
 
 from src.translations.sports_formats_teams.sport_lab import (
-    get_new_team_xo,
     Get_Sport_Format_xo_en_ar_is_P17,
+    get_new_team_xo,
 )
 
 Get_New_team_xo_data = {
