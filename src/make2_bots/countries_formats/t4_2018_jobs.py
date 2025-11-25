@@ -115,7 +115,7 @@ def _handle_nationality_logic(
     main_ss: str,
     category_suffix: str,
     country_prefix: str,
-) -> Tuple[str, str, str, str, str]:
+) -> Tuple[str, str, str]:
     """
     Handle nationality extraction and related job label logic.
 
