@@ -3656,10 +3656,10 @@ def test_all_dump(name, data):
 
     expected, diff_result = one_dump_test(data, new_func_lab_final_label)
 
-    diff_result2 = {x: v for x, v in diff_result if v}
+    diff_result2 = {x: v for x, v in diff_result.items() if v}
     dump_diff(diff_result2, name)
 
-    expected2 = {x: v for x, v in diff_result if v}
+    expected2 = {x: v for x, v in diff_result.items() if v}
     dump_diff(expected2, f"{name}_expected")
 
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
