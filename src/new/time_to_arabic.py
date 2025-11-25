@@ -46,7 +46,22 @@ REG_YEAR_BC_PATTERN = re.compile(r"^(\d+)\s*(BCE|BC)$", re.I)
 REG_YEAR_RANGE_PATTERN = re.compile(r"^\d+[−–\-]\d+$", re.I)
 
 # Month-related patterns
-MONTH_STR = "|".join(["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"])
+MONTH_STR = "|".join(
+    [
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december",
+    ]
+)
 REG_MONTH_YEAR = re.compile(rf"^({MONTH_STR})\s*(\d+)\s*$", re.I)
 REG_MONTH_YEAR_BC = re.compile(rf"^({MONTH_STR})\s*" + r"(\d{1,4})\s*(BCE|BC)$", re.I)
 REG_DECADE = re.compile(rf"^{decade_regex}$", re.I)

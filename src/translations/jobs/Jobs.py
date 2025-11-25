@@ -230,9 +230,18 @@ def _add_sport_variants(
 
     for base_key, base_labels in base_jobs.items():
         lowered = base_key.lower()
-        m_w_jobs[f"sports {lowered}"] = {"mens": f"{base_labels['mens']} رياضيون", "womens": f"{base_labels['womens']} رياضيات"}
-        m_w_jobs[f"professional {lowered}"] = {"mens": f"{base_labels['mens']} محترفون", "womens": f"{base_labels['womens']} محترفات"}
-        m_w_jobs[f"wheelchair {lowered}"] = {"mens": f"{base_labels['mens']} على الكراسي المتحركة", "womens": f"{base_labels['womens']} على الكراسي المتحركة"}
+        m_w_jobs[f"sports {lowered}"] = {
+            "mens": f"{base_labels['mens']} رياضيون",
+            "womens": f"{base_labels['womens']} رياضيات",
+        }
+        m_w_jobs[f"professional {lowered}"] = {
+            "mens": f"{base_labels['mens']} محترفون",
+            "womens": f"{base_labels['womens']} محترفات",
+        }
+        m_w_jobs[f"wheelchair {lowered}"] = {
+            "mens": f"{base_labels['mens']} على الكراسي المتحركة",
+            "womens": f"{base_labels['womens']} على الكراسي المتحركة",
+        }
 
 
 def _add_cycling_variants(
@@ -247,7 +256,10 @@ def _add_cycling_variants(
         winners_key = f"{lowered} winners"
         stage_winners_key = f"{lowered} stage winners"
         m_w_jobs[winners_key] = {"mens": f"فائزون في {event_label}", "womens": f"فائزات في {event_label}"}
-        m_w_jobs[stage_winners_key] = {"mens": f"فائزون في مراحل {event_label}", "womens": f"فائزات في مراحل {event_label}"}
+        m_w_jobs[stage_winners_key] = {
+            "mens": f"فائزون في مراحل {event_label}",
+            "womens": f"فائزات في مراحل {event_label}",
+        }
         _append_list_unique(nat_before_occ, winners_key)
         _append_list_unique(nat_before_occ, stage_winners_key)
 
@@ -259,9 +271,15 @@ def _add_jobs_people_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> N
         if not (role_labels["mens"] and role_labels["womens"]):
             continue
         for book_key, book_label in BOOK_CATEGORIES.items():
-            m_w_jobs[f"{book_key} {role_key}"] = {"mens": f"{role_labels['mens']} {book_label}", "womens": f"{role_labels['womens']} {book_label}"}
+            m_w_jobs[f"{book_key} {role_key}"] = {
+                "mens": f"{role_labels['mens']} {book_label}",
+                "womens": f"{role_labels['womens']} {book_label}",
+            }
         for genre_key, genre_label in JOBS_TYPE_TRANSLATIONS.items():
-            m_w_jobs[f"{genre_key} {role_key}"] = {"mens": f"{role_labels['mens']} {genre_label}", "womens": f"{role_labels['womens']} {genre_label}"}
+            m_w_jobs[f"{genre_key} {role_key}"] = {
+                "mens": f"{role_labels['mens']} {genre_label}",
+                "womens": f"{role_labels['womens']} {genre_label}",
+            }
 
 
 def _add_film_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
@@ -272,7 +290,10 @@ def _add_film_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
         for role_key, role_labels in FILM_ROLE_LABELS.items():
             m_w_jobs[role_key] = {"mens": role_labels["mens"], "womens": role_labels["womens"]}
             combo_key = f"{lowered_film_key} {role_key}"
-            m_w_jobs[combo_key] = {"mens": f"{role_labels['mens']} {film_label}", "womens": f"{role_labels['womens']} {film_label}"}
+            m_w_jobs[combo_key] = {
+                "mens": f"{role_labels['mens']} {film_label}",
+                "womens": f"{role_labels['womens']} {film_label}",
+            }
 
 
 def _add_singer_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
@@ -282,7 +303,10 @@ def _add_singer_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
         m_w_jobs[category] = {"mens": labels["mens"], "womens": labels["womens"]}
         for style_key, style_labels in TYPI_LABELS.items():
             combo_key = f"{style_key} {category}"
-            m_w_jobs[combo_key] = {"mens": f"{labels['mens']} {style_labels['mens']}", "womens": f"{labels['womens']} {style_labels['womens']}"}
+            m_w_jobs[combo_key] = {
+                "mens": f"{labels['mens']} {style_labels['mens']}",
+                "womens": f"{labels['womens']} {style_labels['womens']}",
+            }
 
 
 def _build_jobs_new(
@@ -356,7 +380,10 @@ Jobs_new = _build_jobs_new(Female_Jobs)
 _len_result = {
     "jobs_mens_data": {"count": 97797, "size": "3.7 MiB"},  # "zoologists": "علماء حيوانات"
     "Jobs_key": {"count": 97784, "size": "3.7 MiB"},  # "zoologists": "علماء حيوانات"
-    "Men_Womens_Jobs": {"count": 97796, "size": "3.7 MiB"},  # "zoologists": { "mens": "علماء حيوانات", "womens": "عالمات حيوانات" }
+    "Men_Womens_Jobs": {
+        "count": 97796,
+        "size": "3.7 MiB",
+    },  # "zoologists": { "mens": "علماء حيوانات", "womens": "عالمات حيوانات" }
     "Jobs_new": {"count": 99104, "size": "3.7 MiB"},  # same as Jobs_key +
     "jobs_womens_data": {"count": 75244, "size": "1.8 MiB"},
 }

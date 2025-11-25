@@ -67,7 +67,9 @@ def Work_Templates(input_label: str) -> str:
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", base_label :"{base_label}"')
 
             if resolved_label:
-                logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), resolved_label:"{resolved_label}"')
+                logger.info(
+                    f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), resolved_label:"{resolved_label}"'
+                )
                 template_label = format_template.format(resolved_label)
                 logger.info(f'>>>> template_label:"{template_label}"')
                 break
@@ -78,13 +80,15 @@ def Work_Templates(input_label: str) -> str:
     # Try prefix matching
     for prefix, format_template in pp_start_with.items():
         if input_label.startswith(prefix.lower()):
-            remaining_label = input_label[len(prefix):]
+            remaining_label = input_label[len(prefix) :]
 
             resolved_label = _resolve_label(remaining_label)
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", remaining_label :"{remaining_label}"')
 
             if resolved_label:
-                logger.info(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), resolved_label:"{resolved_label}"')
+                logger.info(
+                    f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), resolved_label:"{resolved_label}"'
+                )
                 template_label = format_template.format(resolved_label)
                 logger.info(f'>>>> template_label:"{template_label}"')
                 break
