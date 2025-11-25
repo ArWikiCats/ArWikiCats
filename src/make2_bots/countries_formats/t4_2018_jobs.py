@@ -8,6 +8,7 @@ from typing import Tuple
 
 from ...helps.log import logger
 from ...translations import (
+    All_Nat,
     Nat_men,
     Nat_women,
     People_key,
@@ -17,7 +18,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..jobs_bots.get_helps import get_suffix
+from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ..jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
@@ -128,7 +129,7 @@ def _handle_nationality_logic(
     updated_main_lab = ""
     country_lab = ""
 
-    category_suffix, country_prefix = get_suffix(category, "nat")
+    category_suffix, country_prefix = get_suffix_with_keys(category, All_Nat, "nat")
 
     if category_suffix and (main_ss in priffix_lab_for_2018) and not country_lab:
 
@@ -186,7 +187,7 @@ def te4_2018_Jobs(cate: str) -> str:
     # 3. Direct Lookups
     country_lab = _get_direct_lookup(cate_lower)
 
-    category_suffix, country_prefix = get_suffix(cate_lower, "nat")
+    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, All_Nat, "nat")
 
     if not country_lab:
         # 4. Nationality Logic
