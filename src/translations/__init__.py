@@ -20,6 +20,7 @@ from .mixed.all_keys3 import (
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
     Ambassadors_tab,
+    NN_table2,
     typeTable_7,
 )
 from .mixed.all_keys4 import INTER_FEDS_LOWER
@@ -149,6 +150,7 @@ __all__ = [
     "typeTable_7",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
+    "NN_table2",
     "Ambassadors_tab",
     "SUMMER_WINTER_GAMES",
     #
