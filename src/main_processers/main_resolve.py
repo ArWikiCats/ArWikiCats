@@ -1,19 +1,19 @@
 """
-!
+# isort:skip_file
 """
 from __future__ import annotations
 
 import functools
 from dataclasses import dataclass
 
-from . import event2bot, event_lab_bot  # isort:skip
-from .labs_years import LabsYears  # isort:skip
-from ..config import app_settings  # isort:skip
-from ..fix import fixtitle  # isort:skip
-from ..make2_bots.co_bots import filter_en  # isort:skip
-from ..make2_bots.format_bots import change_cat  # isort:skip
-from ..make2_bots.ma_bots import ye_ts_bot  # isort:skip
-from ..make2_bots.matables_bots.bot import cash_2022  # isort:skip
+from . import event2bot, event_lab_bot
+from .labs_years import LabsYears
+from ..config import app_settings
+from ..fix import fixtitle
+from ..make2_bots.co_bots import filter_en
+from ..make2_bots.format_bots import change_cat
+from ..make2_bots.ma_bots import ye_ts_bot
+from ..make2_bots.matables_bots.bot import cash_2022
 
 
 labs_years_bot = LabsYears()
