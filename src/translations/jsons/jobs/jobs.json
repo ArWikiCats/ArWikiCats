@@ -1,44 +1,44 @@
 {
     "JOBS_2020": {
         "bridge players": {
-            "mens": "",
-            "womens": ""
+            "mens": "لاعبو بريدج",
+            "womens": "لاعبات بريدج"
         },
         "soft tennis players": {
-            "mens": "",
-            "womens": ""
+            "mens": "لاعبو تنس لين",
+            "womens": "لاعبات تنس لين"
         },
         "xiangqi players": {
-            "mens": "",
-            "womens": ""
+            "mens": "لاعبو شيانغتشي",
+            "womens": "لاعبات شيانغتشي"
         },
         "dartchers": {
-            "mens": "",
-            "womens": ""
+            "mens": "رماة سهام",
+            "womens": "راميات سهام"
         },
         "jet skiers": {
-            "mens": "",
-            "womens": ""
+            "mens": "ممارسو الجت سكي",
+            "womens": "ممارسات الجت سكي"
         },
         "freestyle skiers": {
-            "mens": "",
-            "womens": ""
+            "mens": "متزحلقو تزلج حر",
+            "womens": "متزلجات تزلج حر"
         },
         "alpine skiers": {
-            "mens": "",
-            "womens": ""
+            "mens": "متزحلقو تزلج جبلي",
+            "womens": "متزلجات تزلج جبلي"
         },
         "modern pentathletes": {
-            "mens": "",
-            "womens": ""
+            "mens": "خماسيو الرياضات الحديثة",
+            "womens": "خماسيات الرياضات الحديثة"
         },
         "ice sledge speed racers": {
-            "mens": "",
-            "womens": ""
+            "mens": "متسابقو زلاجات جليدية سريعة",
+            "womens": "متسابقات زلاجات جليدية سريعة"
         },
         "lawn bowls players": {
-            "mens": "",
-            "womens": ""
+            "mens": "لاعبو لُون بولز",
+            "womens": "لاعبات لُون بولز"
         },
         "community activists": {
             "mens": "ناشطو مجتمع",

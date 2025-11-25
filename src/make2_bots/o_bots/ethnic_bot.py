@@ -6,8 +6,8 @@ import functools
 from typing import Dict
 
 from ...helps.log import logger
-from ..jobs_bots.get_helps import get_suffix
 from ...translations import Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2
+from ..jobs_bots.get_helps import get_suffix
 
 MALE_TOPIC_TABLE: Dict[str, str] = {
     "history": "تاريخ {}",

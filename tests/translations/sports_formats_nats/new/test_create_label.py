@@ -2,9 +2,9 @@ import pytest
 
 # from src.translations.sports_formats_nats.new import _create_label
 from src.translations.sports_formats_nats.new import (
-    both_bot,
     _create_label,
     _create_nat_label,
+    both_bot,
 )
 
 data = {

@@ -3,8 +3,10 @@
 
 import pytest
 
-from src.translations_formats.format_2_data import FormatMultiData, FormatComparisonHelper
-
+from src.translations_formats.format_2_data import (
+    FormatComparisonHelper,
+    FormatMultiData,
+)
 
 # Sample data for nationality translations
 nationality_data = {

@@ -12,14 +12,15 @@ from ....translations import (
     New_female_keys,
     New_P17_Finall,
     pf_keys2,
+    pop_of_without_in,
 )
 from ... import tmp_bot
+from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ...date_bots import year_lab
 from ...format_bots import (
     Tabl_with_in,
     for_table,
 )
-from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.check_bot import check_key_new_players
 from ...media_bots.films_bot import te_films
@@ -29,10 +30,6 @@ from ...p17_bots import nats
 from ...sports_bots import team_work
 from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
-
-from ....translations import (
-    pop_of_without_in,
-)
 
 TITO_LIST_S = [
     "in",

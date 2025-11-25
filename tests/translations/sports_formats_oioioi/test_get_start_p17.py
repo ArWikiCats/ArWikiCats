@@ -2,9 +2,10 @@
 """ """
 
 import pytest
+
 from src.translations.sports_formats_oioioi.bot import (
-    get_start_p17,
     both_bot,
+    get_start_p17,
 )
 
 data = {

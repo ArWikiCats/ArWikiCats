@@ -1,14 +1,14 @@
 """
-!
+# isort:skip_file
 """
 from __future__ import annotations
-from dataclasses import dataclass
 
 import functools
+from dataclasses import dataclass
 
-from . import event2bot, event_lab_bot  # isort:skip
-from .labs_years import LabsYears  # isort:skip
-from ..config import app_settings  # isort:skip
+from . import event2bot, event_lab_bot
+from .labs_years import LabsYears
+from ..config import app_settings
 from ..fix import fixtitle
 from ..make2_bots.co_bots import filter_en
 from ..make2_bots.format_bots import change_cat

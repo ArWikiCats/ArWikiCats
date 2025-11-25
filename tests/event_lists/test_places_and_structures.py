@@ -1,7 +1,7 @@
 #
 import pytest
-from src import new_func_lab_final_label
 
+from src import new_func_lab_final_label
 
 data = {
     "Category:Bridges in Wales by type": "تصنيف:جسور في ويلز حسب الفئة",

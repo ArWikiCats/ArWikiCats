@@ -4,8 +4,8 @@
 """
 
 import functools
-import json
 import inspect
+import json
 from pathlib import Path
 
 import jsonlines

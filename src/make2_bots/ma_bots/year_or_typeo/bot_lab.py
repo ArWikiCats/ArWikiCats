@@ -8,7 +8,9 @@ from .bot_lab import label_for_startwith_year_or_typeo
 import re
 
 from ....fix import fixtitle
+from ....helps.jsonl_dump import dump_data
 from ....helps.log import logger
+
 # from ....helps.log import LoggerWrap
 from ....translations import Nat_mens, typeTable
 from ....utils import check_key_in_tables
@@ -21,7 +23,6 @@ from ..country_bot import get_country
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
-from ....helps.jsonl_dump import dump_data
 
 type_after_country = ["non-combat"]
 

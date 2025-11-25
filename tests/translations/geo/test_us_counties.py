@@ -1,8 +1,12 @@
 #
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from src.translations.geo.us_counties import STATE_NAME_TRANSLATIONS, _STATE_SUFFIX_TEMPLATES_BASE
+
 from src import new_func_lab_final_label
+from src.translations.geo.us_counties import (
+    _STATE_SUFFIX_TEMPLATES_BASE,
+    STATE_NAME_TRANSLATIONS,
+)
 
 test_data = {
     # "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",

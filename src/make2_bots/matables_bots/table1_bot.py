@@ -37,7 +37,6 @@ KAKO: Dict[str, Dict[str, str]] = {
 from ...helps.jsonl_dump import dump_data
 
 
-
 @functools.lru_cache(maxsize=None)
 def get_KAKO(text: str) -> str:
     """Look up the Arabic label for a term across several mapping tables."""

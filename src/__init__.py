@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from .config import all_params as config_all_params
-from .helps.memory import print_memory
 from .event_processing import (
     EventProcessor,
     event_result,
@@ -9,6 +8,7 @@ from .event_processing import (
 )
 from .helps.len_print import dump_all_len
 from .helps.log import LoggerWrap, config_logger, logger
+from .helps.memory import print_memory
 
 __all__ = [
     "config_logger",

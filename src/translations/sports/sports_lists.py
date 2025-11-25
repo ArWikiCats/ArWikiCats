@@ -6,9 +6,8 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from typing import Final
+
 from ...helps import len_print
-
-
 from ._helpers import extend_with_templates, extend_with_year_templates
 
 

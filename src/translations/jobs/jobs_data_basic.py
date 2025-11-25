@@ -7,7 +7,6 @@ from __future__ import annotations
 from typing import Dict, Iterable, List, Mapping
 
 from ...helps import len_print
-
 from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 

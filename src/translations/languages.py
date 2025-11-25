@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ """
 
+from ..helps import len_print
+
 # import re
 # ---
 from .mixed.all_keys3 import ALBUMS_TYPE
-from ..helps import len_print
 
 language_key_translations = {}
 # "spanish" : "إسبانية",

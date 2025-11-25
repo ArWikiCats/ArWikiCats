@@ -3,6 +3,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from src import new_func_lab_final_label
+
 temporal_1 = {
     "Category:00s establishments in the Roman Empire": "تصنيف:تأسيسات عقد 00 في الإمبراطورية الرومانية",
     "Category:1000 disestablishments by country": "تصنيف:انحلالات سنة 1000 حسب البلد",

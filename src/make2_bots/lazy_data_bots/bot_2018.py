@@ -7,7 +7,7 @@ import functools
 from typing import Dict
 
 from ...helps import len_print
-from ...translations import find_teams_2025, pop_All_2018_bot, Clubs_key_2, pop_final_5
+from ...translations import Clubs_key_2, find_teams_2025, pop_All_2018_bot, pop_final_5
 
 
 @functools.lru_cache(maxsize=1)

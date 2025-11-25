@@ -4,16 +4,16 @@
 
 """
 
-import re
 import functools
+import re
+
 from ...helps.log import logger
+from ...make2_bots.jobs_bots.get_helps import get_suffix
+from ...translations import Nat_women
+from ...translations_formats.format_2_data import FormatMultiData
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
 from .te2 import New_For_nat_female_xo_team
-from ...translations import Nat_women
-from ...make2_bots.jobs_bots.get_helps import get_suffix
-from ...translations_formats.format_2_data import FormatMultiData
-
 
 New_For_nat_female_xo_team_2 = {
     "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball

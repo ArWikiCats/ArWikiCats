@@ -20,8 +20,8 @@ from ...translations import (
 from ..jobs_bots.get_helps import get_suffix
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
-from ..languages_bot.langs_w import Lang_work
 from ..jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
+from ..languages_bot.langs_w import Lang_work
 
 # TODO: fix typo to prefix_lab_for_2018
 priffix_lab_for_2018: dict[str, dict[str, str]] = {

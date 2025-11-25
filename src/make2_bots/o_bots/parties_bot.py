@@ -8,7 +8,6 @@ from ...translations import PARTIES, party_end_keys
 from .utils import resolve_suffix_template
 
 
-
 def get_parties_lab_old(party: str) -> str:
     """Return the Arabic label for ``party`` using known suffixes.
 

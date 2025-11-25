@@ -1,5 +1,6 @@
 #
 import pytest
+
 from src import new_func_lab_final_label
 
 data = {

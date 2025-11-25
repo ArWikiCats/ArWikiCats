@@ -7,6 +7,8 @@ import functools
 import re
 from dataclasses import dataclass
 from typing import Tuple
+
+from ....helps.jsonl_dump import dump_data
 from ....helps.log import logger
 from ....main_processers import event2bot
 from ....utils import check_key_in_tables_return_tuple, fix_minor
@@ -26,13 +28,11 @@ from ...matables_bots.bot import (
     Table_for_frist_word,
 )
 from ...matables_bots.check_bot import check_key_new_players
-from ....helps.jsonl_dump import dump_data
-
 from .lab import (
     add_in_tab,
-    get_type_lab,
     get_con_lab,
     get_type_country,
+    get_type_lab,
     tito_list_s_fixing,
 )
 
