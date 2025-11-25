@@ -23,6 +23,7 @@ from ..priffix_bot import Women_s_priffix_work, priffix_Mens_work
 from ...languages_bot.langs_w import Lang_work
 from .relegin_jobs import try_relegins_jobs_with_suffix
 
+# TODO: fix typo to prefix_lab_for_2018
 priffix_lab_for_2018: dict[str, dict[str, str]] = {
     "fictional": {"men": "{} خيالي", "women": "{} خيالية"},
     "native": {"men": "{} أصلي", "women": "{} أصلية"},

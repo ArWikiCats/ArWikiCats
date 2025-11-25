@@ -4,6 +4,7 @@
 """
 
 import functools
+import json
 import inspect
 from pathlib import Path
 
@@ -78,9 +79,9 @@ def dump_data(input_keys: list = None, enable: bool = False, compare_with_output
             # Create a unique key for this data entry to prevent duplicates
             # Use frozenset for hashable representation of the data
             try:
-                data_key = (func.__name__, str(sorted(data.items())))
-            except (TypeError, AttributeError):
-                # If data is not sortable/hashable, use string representation
+                data_key = (func.__name__, json.dumps(data, sort_keys=True))
+            except TypeError:
+                # If data is not serializable, use string representation
                 data_key = (func.__name__, str(data))
 
             # Check if this exact data has already been saved
