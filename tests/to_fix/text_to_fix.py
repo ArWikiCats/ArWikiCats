@@ -3285,7 +3285,10 @@ def test_all_dump(name, data):
     diff_result2 = {x: v for x, v in diff_result.items() if v}
     dump_diff(diff_result2, name)
 
-    expected2 = {diff_result2[x]: v for x, v in expected.items() if v and x in diff_result2}
+    expected2 = {x: v for x, v in expected.items() if v and x in diff_result2}
     dump_diff(expected2, f"{name}_expected")
+
+    save3 = [f"* [[{v}]]>[[{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
+    dump_diff(save3, f"{name}_d")
 
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
