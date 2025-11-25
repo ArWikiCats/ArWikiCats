@@ -12,7 +12,7 @@ from ....translations import (
     Nat_women,
     New_female_keys,
     New_male_keys,
-    NN_table as NN_table2,
+    NN_table2 as NN_table,
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
