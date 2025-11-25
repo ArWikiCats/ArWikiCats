@@ -14,10 +14,12 @@ from .team_job import sport_formts_enar_p17_jobs
 
 
 def Get_Sport_Format_xo_en_ar_is_P17(con_3: str) -> str:  # sport_formts_enar_p17_jobs
-    """Return a sport label that merges templates with Arabic sport names."""
-    # len:"SPORT_FORMTS_EN_AR_IS_P17":  572927 قبل بدء الوظيفة
-    # sports.py: len:"SPORT_FORMTS_EN_AR_IS_P17":  175  , len:"SPORT_FORMTS_ENAR_P17_TEAM":  1434  , len:"sport_formts_enar_p17_jobs":  27
-    # labs = SPORT_FORMTS_FEMALE_NAT.get(con_3 , "")
+    """
+    Return a sport label that merges templates with Arabic sport names.
+
+    Example:
+        con_3: "winter olympics softball", return: "كرة لينة {} في الألعاب الأولمبية الشتوية"
+    """
     con_3_label = ""
     sport_key = match_sport_key(con_3)
     if not sport_key:
