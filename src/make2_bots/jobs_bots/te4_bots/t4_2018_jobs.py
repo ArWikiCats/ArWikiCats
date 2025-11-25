@@ -79,14 +79,18 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
             category = category_original[len(me2) :]
             main_lab = melab
 
-            if category.lower().endswith("women") or category.lower().endswith("women's"):
-                if main_lab in change_male_to_female:
-                    main_lab = change_male_to_female[main_lab]
-
-            logger.debug(f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{category}",Main_lab:"{main_lab}". ')
-            # We break here to avoid the confusing behavior of the original loop
-            # if multiple prefixes were to match sequentially against the *original* string slice.
             break
+
+    if category.lower().endswith("women") or category.lower().endswith("women's"):
+        if main_lab in change_male_to_female:
+            main_lab = change_male_to_female[main_lab]
+
+    logger.debug(f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{category}",Main_lab:"{main_lab}". ')
+
+    # Fictional Check
+    if main_ss.strip() == "fictional" and category.strip().startswith("female"):
+        main_lab = "{} خياليات"
+        logger.info("{} خياليات")
 
     return category, main_ss, main_lab
 
@@ -173,11 +177,6 @@ def te4_2018_Jobs(cate: str) -> str:
 
     cate_lower = cate.lower()
 
-    # 2. Fictional Check
-    if main_ss.strip() == "fictional" and cate.strip().startswith("female"):
-        main_lab = "{} خياليات"
-        logger.info("{} خياليات")
-
     # 3. Direct Lookups
     country_lab = _get_direct_lookup(cate_lower)
 
@@ -197,21 +196,22 @@ def te4_2018_Jobs(cate: str) -> str:
         if not country_lab:
             country_lab = Women_s_priffix_work(cate_lower) or priffix_Mens_work(cate_lower)
 
-        # 6. Final Formatting
-        if main_ss and main_lab and country_lab:
-            country_lab = main_lab.format(country_lab)
-            if main_ss in Main_priffix_to and job_example_lab:
-                job_example_lab = job_example_lab.format("").strip()
-                country_lab = Main_priffix_to[main_ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
+    # 6. Final Formatting
+    if main_ss and main_lab and country_lab:
+        country_lab = main_lab.format(country_lab)
+        if main_ss in Main_priffix_to and job_example_lab:
+            job_example_lab = job_example_lab.format("").strip()
+            country_lab = Main_priffix_to[main_ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
 
     if not country_lab:
         country_lab = try_relegins_jobs_with_suffix(cate_lower)
 
     logger.debug(f'end te4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate_lower_original}')
+
     return country_lab
 
 
 __all__ = [
-    "te4_2018_Jobs"
-    "handle_main_prefix"
+    "te4_2018_Jobs",
+    "handle_main_prefix",
 ]
