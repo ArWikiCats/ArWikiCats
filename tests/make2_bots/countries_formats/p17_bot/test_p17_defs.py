@@ -68,7 +68,6 @@ test_data_with_pop_format = {
     "umayyad governors of": "ولاة {} الأمويون",
     "university of the arts": "جامعة {} للفنون",
     "university of": "جامعة {}",
-
 }
 
 test_data_relation_mapping = {
