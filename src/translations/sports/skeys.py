@@ -140,12 +140,6 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
     # Static entries
     label_index["international rules football team"] = "منتخب {} لكرة القدم الدولية"
 
-    label_index["cup"] = "كأس {}"
-    label_index["presidents"] = "رؤساء {}"
-    label_index["territorial officials"] = "مسؤولو أقاليم {}"
-    label_index["territorial judges"] = "قضاة أقاليم {}"
-    label_index["war"] = "حرب {}"
-
     # Under-year managers/players
     for year in YEARS_LIST:
         label_index[f"under-{year} international managers"] = (
@@ -183,8 +177,15 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
             label_index[f"{modifier}under-{year} international soccer playerss"] = youth
 
     label_index["rally championship"] = f"بطولة {COUNTRY_PLACEHOLDER} للراليات"
-    label_index["war and conflict"] = f"حروب ونزاعات {COUNTRY_PLACEHOLDER}"
-    label_index["governorate"] = f"حكومة {COUNTRY_PLACEHOLDER}"
+
+    # label_index["cup"] = "كأس {}"
+    # label_index["presidents"] = "رؤساء {}"
+    # label_index["territorial officials"] = "مسؤولو أقاليم {}"
+    # label_index["territorial judges"] = "قضاة أقاليم {}"
+    # label_index["war"] = "حرب {}"
+
+    # label_index["war and conflict"] = f"حروب ونزاعات {COUNTRY_PLACEHOLDER}"
+    # label_index["governorate"] = f"حكومة {COUNTRY_PLACEHOLDER}"
 
     label_index["sports templates"] = f"قوالب {COUNTRY_PLACEHOLDER} الرياضية"
     label_index["national team"] = f"منتخبات {COUNTRY_PLACEHOLDER} الوطنية"

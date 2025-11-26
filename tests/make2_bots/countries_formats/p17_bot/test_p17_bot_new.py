@@ -120,7 +120,7 @@ pop_format_test_data = {
 
 @pytest.mark.parametrize("category, expected", get_p17_data.items(), ids=list(get_p17_data.keys()))
 @pytest.mark.fast
-def test_get_p17(category, expected):
+def test_Get_P17_main_1(category, expected):
     result = Get_P17_main(category)
     assert result.strip() == expected.strip()
 
