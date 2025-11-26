@@ -65,10 +65,10 @@ def Get_P17_with_sport(category: str) -> str:
     logger.debug(f'<<lightblue>> country_start:"{country_start}", suffix:"{suffix}"')
     logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
 
-    suffix_label = wrap_get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
+    suffix_label = get_con_3_lab_sports(suffix.strip())
 
     if not suffix_label:
-        suffix_label = get_con_3_lab_sports(suffix.strip())
+        suffix_label = wrap_get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 
     if not suffix_label:
         logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')

@@ -11,7 +11,6 @@ from src.make2_bots.countries_formats.p17_bot import (
 
 main_data = {
     "australia political leader": "قادة أستراليا السياسيون",
-    "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
     "china university of": "جامعة الصين",
     "england war and conflict": "حروب ونزاعات إنجلترا",
     "england war": "حرب إنجلترا",
@@ -28,7 +27,6 @@ main_data = {
     "syria political leader": "قادة سوريا السياسيون",
     "tunisia political leader": "قادة تونس السياسيون",
     "united states elections": "انتخابات الولايات المتحدة",
-    "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
 }
 
 

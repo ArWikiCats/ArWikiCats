@@ -3,25 +3,15 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 from src.make2_bots.countries_formats.p17_bot import get_con_3_lab, get_con_3_lab_pop_format, from_category_relation_mapping
 
-
 test_data_get_con_3_lab = {
-    "afc asian cup squad": "تشكيلات {} في كأس آسيا",
-    "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
     "board members": "أعضاء مجلس {}",
     "conflict": "نزاع {}",
     "elections": "انتخابات {}",
     "executive cabinet": "مجلس وزراء {} التنفيذي",
-    "fifa futsal world cup squad": "تشكيلات {} في كأس العالم لكرة الصالات",
-    "fifa world cup squad": "تشكيلات {} في كأس العالم",
     "government personnel": "موظفي حكومة {}",
     "government": "حكومة {}",
-    "olympics squad": "تشكيلات {} في الألعاب الأولمبية",
     "political leader": "قادة {} السياسيون",
     "responses": "استجابات {}",
-    "summer olympics squad": "تشكيلات {} في الألعاب الأولمبية الصيفية",
-    "summer olympics": " {} في الألعاب الأولمبية الصيفية",
-    "winter olympics squad": "تشكيلات {} في الألعاب الأولمبية الشتوية",
-    "winter olympics": " {} في الألعاب الأولمبية الشتوية",
 
     "governorate": "حكومة {}",
     "presidents": "رؤساء {}",

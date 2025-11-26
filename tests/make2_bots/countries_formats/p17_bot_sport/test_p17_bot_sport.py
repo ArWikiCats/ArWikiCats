@@ -11,6 +11,21 @@ from src.make2_bots.countries_formats.p17_bot_sport import (
 )
 
 sport_data = {
+    "yemen rally championship": "بطولة اليمن للراليات",
+    "tunisia rally championship": "بطولة تونس للراليات",
+    "yemen sports templates": "قوالب اليمن الرياضية",
+
+    "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
+    "tunisia national team": "منتخبات تونس الوطنية",
+    "tunisia national teams": "منتخبات تونس الوطنية",
+    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
+    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
+    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
+    "venezuela rally championship": "بطولة فنزويلا للراليات",
+    "zambia rally championship": "بطولة زامبيا للراليات",
+    "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
+    "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
+    "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "africa football league": "دوري إفريقيا لكرة القدم",
@@ -128,7 +143,27 @@ sport_data = {
     "wales national women's rugby league team players": "لاعبات منتخب ويلز لدوري الرجبي للسيدات",
 }
 
-data_2 ={
+data_2 = {
+    # "yemen international footballers": "لاعبو كرة قدم دوليون من اليمن",
+    "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم",
+    "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
+
+    "democratic-republic-of-the-congo amateur international soccer players": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم للهواة",
+
+    "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
+    "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
+
+    "democratic-republic-of-the-congo winter olympics": " جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
+    "democratic-republic-of-the-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
+    "democratic-republic-of-the-congo summer olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الصيفية",
+    "west india olympics squad": "تشكيلات الهند الغربية في الألعاب الأولمبية",
+    "victoria-australia fifa futsal world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم لكرة الصالات",
+    "victoria-australia fifa world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم",
+    "yemen afc asian cup squad": "تشكيلات اليمن في كأس آسيا",
+    "west india summer olympics": " الهند الغربية في الألعاب الأولمبية الصيفية",
+    "yemen afc women's asian cup squad": "تشكيلات اليمن في كأس آسيا للسيدات",
+
+    "tunisia sports templates": "قوالب تونس الرياضية",
     "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
     "aruba men's under-20 international footballers": "لاعبو منتخب أروبا تحت 20 سنة لكرة القدم للرجال",
     "bolivia men's international footballers": "لاعبو منتخب بوليفيا لكرة القدم للرجال",
@@ -171,6 +206,13 @@ def test_Get_P17_with_sport(category, expected) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", data_2.items(), ids=list(data_2.keys()))
+@pytest.mark.fast
+def test_Get_P17_with_sport_data_2(category, expected) -> None:
+    label = Get_P17_with_sport(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
     ("test_Get_P17_with_sport", sport_data, Get_P17_with_sport),
     ("test_Get_P17_with_sport_2", data_2, Get_P17_with_sport),
@@ -186,6 +228,16 @@ def test_all_dump(name, data, callback):
 
 
 test_data_get_con_3_lab = {
+    "afc asian cup squad": "تشكيلات {} في كأس آسيا",
+    "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
+    "fifa futsal world cup squad": "تشكيلات {} في كأس العالم لكرة الصالات",
+    "fifa world cup squad": "تشكيلات {} في كأس العالم",
+    "olympics squad": "تشكيلات {} في الألعاب الأولمبية",
+    "summer olympics squad": "تشكيلات {} في الألعاب الأولمبية الصيفية",
+    "summer olympics": " {} في الألعاب الأولمبية الصيفية",
+    "winter olympics squad": "تشكيلات {} في الألعاب الأولمبية الشتوية",
+    "winter olympics": " {} في الألعاب الأولمبية الشتوية",
+
     "amateur international footballers": "لاعبو منتخب {} لكرة القدم للهواة",
     "amateur international soccer players": "لاعبو منتخب {} لكرة القدم للهواة",
     "international footballers": "لاعبو منتخب {} لكرة القدم ",
