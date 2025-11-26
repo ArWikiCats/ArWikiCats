@@ -36,7 +36,6 @@ def from_category_relation_mapping(suffix):
     return suffix_label
 
 
-@dump_data(enable=1)
 def get_con_3_lab_pop_format(suffix, country_start="", category=""):
 
     suffix_label = ""
@@ -48,7 +47,6 @@ def get_con_3_lab_pop_format(suffix, country_start="", category=""):
     return suffix_label
 
 
-@dump_data(enable=1)
 def get_con_3_lab(suffix, country_start="", category=""):
     sources = [
         (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
