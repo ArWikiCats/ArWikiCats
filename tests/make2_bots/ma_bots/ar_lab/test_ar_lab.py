@@ -51,7 +51,7 @@ def test_add_in_tab_2():
     assert isinstance(result_empty, str)
 
 
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_find_ar_label():
     # Test with basic inputs
     result = find_ar_label("test category", "from")

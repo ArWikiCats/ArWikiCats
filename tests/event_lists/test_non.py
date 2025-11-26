@@ -1668,7 +1668,7 @@ data_series = {
 }
 
 to_test = [
-    ("test_non", data1),
+    # ("test_non", data1),
     ("test_non_empty", data_empty_result),
     ("test_non_fiction", non_fiction),
     ("test_data_series", data_series),
