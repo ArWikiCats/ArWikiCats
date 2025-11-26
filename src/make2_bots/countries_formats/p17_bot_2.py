@@ -9,6 +9,7 @@ from ...translations import (
     en_is_P17_ar_is_mens,
 )
 
+
 def add_definite_article(label: str) -> str:
     """Prefix each word in ``label`` with the Arabic definite article."""
     label_without_article = re.sub(r" ", " ال", label)
@@ -26,9 +27,11 @@ def _resolve_p17_2_label(category: str, templates: dict, nat_key: str, add_artic
 
         country_prefix = category[: -len(suffix_key)].strip()
 
-        nat_label = all_country_with_nat_keys_is_en.get(country_prefix, {}).get(nat_key, "")
+        nat_data = all_country_with_nat_keys_is_en.get(country_prefix) or all_country_with_nat_keys_is_en.get(country_prefix.lower(), {})
+        nat_label = nat_data.get(nat_key, "")
 
         if not nat_label:
+            logger.info(f"<<lightblue>>>>>> No {nat_key} label for {country_prefix}")
             continue
 
         if add_article:
@@ -66,5 +69,6 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
 
 __all__ = [
     "Get_P17_2",
+    "_resolve_p17_2_label",
     "add_definite_article",
 ]
