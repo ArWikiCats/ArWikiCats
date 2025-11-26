@@ -48,6 +48,7 @@ def get_con_3_lab_pop_format(suffix, country_start, category):
     return suffix_label
 
 
+@dump_data(enable=1)
 def get_con_3_lab(suffix):
     sources = [
         (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
@@ -56,7 +57,7 @@ def get_con_3_lab(suffix):
     ]
 
     suffix_label = ""
-
+    source = ""
     for source, do_strip, name in sources:
         key = suffix.strip() if do_strip else suffix
         suffix_label = source.get(key, "")
@@ -65,7 +66,7 @@ def get_con_3_lab(suffix):
 
     logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
 
-    return suffix_label
+    return suffix_label, source
 
 
 def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
@@ -92,7 +93,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     suffix_label = from_category_relation_mapping(suffix)
 
     if not suffix_label:
-        suffix_label = get_con_3_lab(suffix)
+        suffix_label, _ = get_con_3_lab(suffix)
 
     if not suffix_label:
         suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)
