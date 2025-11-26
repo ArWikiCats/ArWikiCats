@@ -56,15 +56,15 @@ SPORT_FORMTS_EN_AR_IS_P17["war"] = "حرب {}"
 
 sport_starts = {
     "": "",
-    "men's a' ": " للرجال للمحليين",
-    "men's b ": " الرديف للرجال",
-    "men's ": " للرجال",
-    "women's ": " للسيدات",
-    "men's youth ": " للشباب",
-    "women's youth ": " للشابات",
-    # "professional " : " للمحترفين",
-    "amateur ": " للهواة",
-    "youth ": " للشباب",
+    "men's a' ": "للرجال للمحليين",
+    "men's b ": "الرديف للرجال",
+    "men's ": "للرجال",
+    "women's ": "للسيدات",
+    "men's youth ": "للشباب",
+    "women's youth ": "للشابات",
+    # "professional ": "للمحترفين",
+    "amateur ": "للهواة",
+    "youth ": "للشباب",
 }
 
 for sport, label in SPORTS_KEYS_FOR_LABEL.items():
@@ -105,8 +105,6 @@ for modifier, modifier_label in sport_starts.items():
     SPORT_FORMTS_EN_AR_IS_P17[modifier + "international footballers"] = Lab
     SPORT_FORMTS_EN_AR_IS_P17[modifier + "international soccer players"] = Lab
     SPORT_FORMTS_EN_AR_IS_P17[modifier + "international soccer playerss"] = Lab
-    # print("lab = " + Lab)
-    # print(modifier + " B international footballers")
 
     # Category:Australia under-18 international soccer players
     # تصنيف:لاعبو منتخب أستراليا تحت 18 سنة لكرة القدم
