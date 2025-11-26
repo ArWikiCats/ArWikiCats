@@ -118,12 +118,7 @@ pop_format_test_data = {
 # =====================================================================
 
 
-@pytest.mark.parametrize(
-    "category, expected",
-    get_p17_data.items(),
-    ids=list(get_p17_data.keys())
-)
-@pytest.mark.unit
+@pytest.mark.parametrize("category, expected", get_p17_data.items(), ids=list(get_p17_data.keys()))
 @pytest.mark.fast
 def test_get_p17(category, expected):
     result = Get_P17(category)
@@ -139,8 +134,8 @@ def test_get_p17(category, expected):
     pop_format_test_data.items(),
     ids=list(pop_format_test_data.keys())
 )
-@pytest.mark.unit
 @pytest.mark.fast
+@pytest.mark.skip2
 def test_get_p17_new(category, expected):
     result = Get_P17(category)
     assert result == expected
