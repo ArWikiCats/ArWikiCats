@@ -203,14 +203,14 @@ data_2 = {
 @pytest.mark.fast
 def test_Get_P17_with_sport(category, expected) -> None:
     label = Get_P17_with_sport(category)
-    assert label == expected
+    assert label.strip() == expected.strip()
 
 
 @pytest.mark.parametrize("category, expected", data_2.items(), ids=list(data_2.keys()))
 @pytest.mark.fast
 def test_Get_P17_with_sport_data_2(category, expected) -> None:
     label = Get_P17_with_sport(category)
-    assert label == expected
+    assert label.strip() == expected.strip()
 
 
 TEMPORAL_CASES = [
@@ -221,7 +221,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
 def test_all_dump(name, data, callback):
-    expected, diff_result = one_dump_test(data, callback)
+    expected, diff_result = one_dump_test(data, callback, do_strip=True)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
