@@ -1,7 +1,7 @@
 """ """
 
 from ...helps.log import logger
-from ...helps.jsonl_dump import save_data
+from ...helps.jsonl_dump import dump_data
 from ...translations import (
     SPORT_FORMTS_EN_AR_IS_P17,
     Get_Sport_Format_xo_en_ar_is_P17,
@@ -12,7 +12,7 @@ from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
-@save_data(enable=1)
+@dump_data(enable=1)
 def get_con_3_lab_pop_format(suffix, country_start, category):
 
     suffix_label = ""
