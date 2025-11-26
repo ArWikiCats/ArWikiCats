@@ -57,7 +57,7 @@ def get_con_3_lab(suffix):
     ]
 
     suffix_label = ""
-    source = ""
+    name = ""
     for source, do_strip, name in sources:
         key = suffix.strip() if do_strip else suffix
         suffix_label = source.get(key, "")
@@ -66,7 +66,7 @@ def get_con_3_lab(suffix):
 
     logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
 
-    return suffix_label, source
+    return suffix_label, name
 
 
 def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
