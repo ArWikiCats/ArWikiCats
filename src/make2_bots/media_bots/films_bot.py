@@ -50,6 +50,7 @@ def te_films(category: str) -> str:
         resolved_label = nat_match(normalized_category)
         if resolved_label:
             logger.debug(f'>>>> nat_match: [{normalized_category}] ="{resolved_label}"')
+
     if not resolved_label:
         resolved_label = p17_bot.Get_P17(normalized_category)
 

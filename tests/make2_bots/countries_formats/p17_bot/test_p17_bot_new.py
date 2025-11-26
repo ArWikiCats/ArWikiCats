@@ -63,9 +63,10 @@ get_p17_data = {
 
 pop_format_test_data = {
     # ---------------------------------------------------------
-    # pop_format  (يُستخدم عندما ينتهي التصنيف بـ "of X")
+    # pop_format  (category end with "of X")
     # ---------------------------------------------------------
 
+    "yemen prehistory of": "اليمن ما قبل التاريخ",
     "politics of yemen": "سياسة اليمن",
     "diplomatic missions of yemen": "بعثات اليمن الدبلوماسية",
     "umayyad governors of yemen": "ولاة اليمن الأمويون",
@@ -108,10 +109,6 @@ pop_format_test_data = {
     "rally championship zimbabwe": "بطولة زيمبابوي للراليات",
 }
 
-
-pop_format_test_data = {
-    "yemen prehistory of": "اليمن ما قبل التاريخ",
-}
 
 # =====================================================================
 # test with parametrized
