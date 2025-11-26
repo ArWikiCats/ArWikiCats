@@ -1471,6 +1471,8 @@ non_fiction = {
     "Category:Non-fiction works about the United States Air Force": "تصنيف:أعمال غير خيالية عن القوات الجوية الأمريكية",
     "Category:Non-fiction works about the United States Navy": "تصنيف:أعمال غير خيالية عن البحرية الأمريكية",
     "Category:Non-fiction works": "تصنيف:أعمال غير خيالية",
+}
+non_fiction_empty = {
     "Category:20th-century New Zealand non-fiction writers": "x",
     "Category:Abortion in non-fiction": "x",
     "Category:American non-fiction children's writers": "x",
@@ -1670,8 +1672,8 @@ data_series = {
 }
 
 to_test = [
-    # ("test_non", data1),
     # ("test_non_empty", data_empty_result),
+    ("test_non", data1),
     ("test_non_fiction", non_fiction),
     ("test_data_series", data_series),
 ]
@@ -1684,8 +1686,15 @@ def test_non(category, expected) -> None:
     assert label.strip() == expected
 
 
+@pytest.mark.parametrize("category, expected", data_series.items(), ids=list(data_series.keys()))
+@pytest.mark.slow
+def test_data_series(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+# @pytest.mark.skip2
 def test_non_dump(name, data):
 
     expected, diff_result = one_dump_test(data, new_func_lab_final_label)
