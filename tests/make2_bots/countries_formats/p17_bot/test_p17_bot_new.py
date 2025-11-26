@@ -42,7 +42,7 @@ get_p17_data = {
     # SPORT_FORMTS_EN_AR_IS_P17
     # ---------------------------------------------------------
 
-    "democratic-republic-of-the-congo amateur international soccer players": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم  للهواة",
+    "democratic-republic-of-the-congo amateur international soccer players": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم للهواة",
     "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم ",
     "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم ",
     "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",

@@ -7,7 +7,6 @@ from src.make2_bots.ma_bots.year_or_typeo.mk3 import (
 EXAMPLES = [
     {
         "category": "awards by country",
-        "cat_test": " ",
         "year": "",
         "typeo": "awards",
         "In": "by ",
@@ -22,7 +21,6 @@ EXAMPLES = [
     },
     {
         "category": "politics of united states by state",
-        "cat_test": "  ",
         "year": "",
         "typeo": "politics",
         "In": "of ",
@@ -37,7 +35,6 @@ EXAMPLES = [
     },
     {
         "category": "television series by city of location",
-        "cat_test": " ",
         "year": "",
         "typeo": "television series",
         "In": "by ",
@@ -52,7 +49,6 @@ EXAMPLES = [
     },
     {
         "category": "19th century people",
-        "cat_test": "",
         "year": "19th century ",
         "typeo": "",
         "In": "",
@@ -67,7 +63,6 @@ EXAMPLES = [
     },
     {
         "category": "lists of football players by national team",
-        "cat_test": " ",
         "year": "",
         "typeo": "lists of",
         "In": "",
@@ -82,7 +77,6 @@ EXAMPLES = [
     },
     {
         "category": "1000 disestablishments by country",
-        "cat_test": " ",
         "year": "1000 ",
         "typeo": "disestablishments",
         "In": "by ",
@@ -97,7 +91,6 @@ EXAMPLES = [
     },
     {
         "category": "1000 disestablishments in europe",
-        "cat_test": "  ",
         "year": "1000 ",
         "typeo": "disestablishments",
         "In": "in ",
@@ -112,7 +105,6 @@ EXAMPLES = [
     },
     {
         "category": "2000s films",
-        "cat_test": "",
         "year": "2000s ",
         "typeo": "",
         "In": "",
@@ -132,7 +124,7 @@ EXAMPLES = [
 def test_new_func_mk2_subset(example):
     _, result = new_func_mk2(
         example["category"],
-        example["cat_test"],
+        "",
         example["year"],
         example["typeo"],
         example["In"],
