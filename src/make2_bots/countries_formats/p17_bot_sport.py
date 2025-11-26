@@ -28,6 +28,7 @@ en_is_P17_ar_is_P17_SPORTS: dict[str, str] = {
 }
 
 
+@dump_data(enable=1)
 def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p17_jobs
     """
     Return a sport label that merges templates with Arabic sport names.
@@ -35,8 +36,6 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     Example:
         suffix: "winter olympics softball", return: "كرة لينة {} في الألعاب الأولمبية الشتوية"
     """
-    con_3_label = ""
-
     sport_key = match_sport_key(suffix)
     if not sport_key:
         return ""
@@ -50,11 +49,11 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     logger.info(f'Get_SFxo_en_ar_is P17: suffix:"{suffix}", sport_key:"{sport_key}", team_xoxo:"{normalized_key}"')
 
     if normalized_key in sport_formts_enar_p17_jobs:
-        sport_label = SPORTS_KEYS_FOR_JOBS[sport_key]
+        sport_label = SPORTS_KEYS_FOR_JOBS.get(sport_key, "")
         template_label = sport_formts_enar_p17_jobs.get(normalized_key, "")
 
     elif normalized_key in SPORT_FORMTS_ENAR_P17_TEAM:
-        sport_label = SPORTS_KEYS_FOR_TEAM[sport_key]
+        sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
         template_label = SPORT_FORMTS_ENAR_P17_TEAM.get(normalized_key, "")
 
     else:
@@ -62,21 +61,17 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
             f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs or SPORT_FORMTS_ENAR_P17_TEAM'
         )
 
+    con_3_label = ""
+
     if template_label and sport_label:
         con_3_label = apply_pattern_replacement(template_label, sport_label, "xoxo")
         logger.info(f'Get_SFxo_en_ar_is P17 blab:"{con_3_label}"')
     else:
         logger.info(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs')
 
-    if con_3_label:
-        logger.info(f'Get_SFxo_en_ar_is P17 suffix:"{suffix}", con_3_label:"{con_3_label}"')
+    logger.info(f'Get_SFxo_en_ar_is P17 suffix:"{suffix}", con_3_label:"{con_3_label}"')
 
     return con_3_label
-
-
-@dump_data(enable=1)
-def wrap_get_Sport_Format_xo_en_ar_is_P17(suffix) -> str:
-    return Get_Sport_Format_xo_en_ar_is_P17(suffix)
 
 
 def get_con_3_lab_sports(suffix, country_start="", category="") -> str:
@@ -119,7 +114,7 @@ def get_p17_with_sport(category: str) -> str:
     suffix_label = get_con_3_lab_sports(suffix.strip())
 
     if not suffix_label:
-        suffix_label = wrap_get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
+        suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 
     if not suffix_label:
         logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')
