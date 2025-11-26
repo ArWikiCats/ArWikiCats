@@ -24,6 +24,10 @@ from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
 @dump_data(enable=1)
+def wrap_get_Sport_Format_xo_en_ar_is_P17(suffix) -> str:
+    return Get_Sport_Format_xo_en_ar_is_P17(suffix)
+
+@dump_data(enable=1)
 def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
     codd = category_relation_mapping.get(suffix, "")
@@ -98,7 +102,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
         suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)
 
     if not suffix_label:
-        suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
+        suffix_label = wrap_get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 
     if not suffix_label:
         logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')

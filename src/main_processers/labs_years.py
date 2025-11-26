@@ -51,7 +51,7 @@ class MatchTimes:
 
     def fixing(self, text: str) -> str:
         """Fix text."""
-        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن)", r"\g<1> \g<2>", text)
+        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
         return text
 
 
