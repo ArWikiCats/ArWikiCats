@@ -7,22 +7,9 @@ import pytest
 from src.make2_bots.countries_formats.p17_bot_2 import (
     Get_P17_2,
     _resolve_p17_2_label,
-    add_definite_article,
     en_is_P17_ar_is_mens,
     en_is_P17_ar_is_al_women,
 )
-# --------------------------------------------
-# Tests for add_definite_article
-# --------------------------------------------
-
-
-@pytest.mark.unit
-def test_add_definite_article_simple():
-    # Ensures proper prefixing of words with ال
-    assert add_definite_article("سورية") == "السورية"
-    assert add_definite_article("فيتنامي") == "الفيتنامي"
-    assert add_definite_article("كندي غربي") == "الكندي الغربي"
-
 
 # --------------------------------------------
 # Direct tests for _resolve_p17_2_label

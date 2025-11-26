@@ -20,13 +20,7 @@ from ...translations import (
     en_is_nat_ar_is_women,
 )
 from ..o_bots import ethnic_bot
-
-
-def add_all(lab: str) -> str:
-    """Insert the definite article into every word of the given label."""
-    lab_no_al = re.sub(r" ", " ال", lab)
-    new_lab = f"ال{lab_no_al}"
-    return new_lab
+from .utils import add_definite_article
 
 
 @functools.lru_cache(maxsize=None)
@@ -58,8 +52,8 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
     if not con_3_lab and not country_lab:
         con_3_lab = en_is_nat_ar_is_al_mens.get(suffix.strip(), "")
         if con_3_lab:
-            men_nat_lab_no_al = re.sub(r" ", " ال", men_nat_lab)
-            men_nat_lab = f"ال{men_nat_lab_no_al}"
+            men_nat_lab = add_definite_article(men_nat_lab)
+
             country_lab = con_3_lab.format(men_nat_lab)
             logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_mens new country_lab  "{country_lab}" ')
 
@@ -109,7 +103,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
     if con_3_lab == "" and country_lab == "":
         con_3_lab = en_is_nat_ar_is_al_women.get(suffix.strip(), "")
         if con_3_lab:
-            women_nat_lab = add_all(women_nat_lab)
+            women_nat_lab = add_definite_article(women_nat_lab)
             if "{nat}" in con_3_lab:
                 country_lab = con_3_lab.format(nat=women_nat_lab)
             else:

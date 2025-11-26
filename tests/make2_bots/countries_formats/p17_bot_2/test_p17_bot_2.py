@@ -6,7 +6,6 @@ import pytest
 
 from src.make2_bots.countries_formats.p17_bot_2 import (
     Get_P17_2,
-    add_definite_article,
 )
 
 
@@ -112,35 +111,4 @@ get_p17_2_data = {
 @pytest.mark.fast
 def test_get_p17_2(category, expected) -> None:
     label = Get_P17_2(category)
-    assert label == expected
-
-
-definite_article_data = {
-    "أمريكية": "الأمريكية",
-    "صينية": "الصينية",
-    "شمالية يمنية": "الشمالية اليمنية",
-    "باكستانية": "الباكستانية",
-    "نيوزيلندية": "النيوزيلندية",
-    "كورية": "الكورية",
-    "يمنية": "اليمنية",
-    "فيتنامية": "الفيتنامية",
-    "ميانمارية": "الميانمارية",
-    "هولندية": "الهولندية",
-    "إيرانية": "الإيرانية",
-    "سريلانكية": "السريلانكية",
-    "بهامية": "البهامية",
-    "جنوبية يمنية": "الجنوبية اليمنية",
-    "سيراليونية": "السيراليونية",
-    "يابانية": "اليابانية",
-    "إماراتية": "الإماراتية",
-    "بنينية": "البنينية",
-    "قبرصية": "القبرصية",
-    "برونية": "البرونية",
-}
-
-
-@pytest.mark.parametrize("category, expected", definite_article_data.items(), ids=list(definite_article_data.keys()))
-@pytest.mark.fast
-def test_add_definite_article(category, expected) -> None:
-    label = add_definite_article(category)
     assert label == expected

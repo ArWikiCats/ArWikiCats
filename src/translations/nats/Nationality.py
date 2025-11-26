@@ -317,6 +317,9 @@ all_country_with_nat_ar = result_tables["all_country_with_nat_ar"]
 all_country_with_nat_keys_is_en = result_tables["all_country_with_nat_keys_is_en"]
 en_nats_to_ar_label = result_tables["en_nats_to_ar_label"]
 
+# short names
+countries_nat_en_key = all_country_with_nat_keys_is_en
+
 nats_to_add = {}
 
 len_print.data_len(
@@ -329,7 +332,6 @@ len_print.data_len(
         "contries_from_nat": contries_from_nat,
         "All_Nat": All_Nat,
         "all_country_with_nat_ar": all_country_with_nat_ar,
-        "all_country_with_nat_keys_is_en": all_country_with_nat_keys_is_en,
         "all_country_with_nat": all_country_with_nat,
         "American_nat": American_nat,
     },

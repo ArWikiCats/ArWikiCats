@@ -6,7 +6,6 @@ import pytest
 from src.make2_bots.countries_formats.for_me import (
     Work_for_me,
     Work_for_New_2018_men_Keys_with_all,
-    add_all,
 )
 
 fast_data = [
@@ -1094,19 +1093,4 @@ def test_work_for_me():
 
     # Test with various inputs using valid country codes
     result_various = Work_for_me("sports", "france", "athletes")
-    assert isinstance(result_various, str)
-
-
-def test_add_all():
-    # Test with a basic input
-    result = add_all("test label")
-    assert isinstance(result, str)
-    assert "ال" in result  # The function adds "ال" prefix
-
-    # Test with empty string
-    result_empty = add_all("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = add_all("another label")
     assert isinstance(result_various, str)
