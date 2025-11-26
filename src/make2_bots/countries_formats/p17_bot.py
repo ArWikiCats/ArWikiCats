@@ -3,7 +3,7 @@ This module processes categories that start with an English country name and map
 It checks the suffix against the following tables:
 
 * category_relation_mapping
-* SPORT_FORMTS_EN_AR_IS_P17
+* SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT
 * en_is_P17_ar_is_P17
 * pop_format
 
@@ -71,7 +71,7 @@ def get_con_3_lab(suffix, country_start="", category="") -> tuple[str, str]:
     name = name if suffix_label else ""
     logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
 
-    return suffix_label, name
+    return suffix_label
 
 
 def Get_P17_main(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
@@ -97,7 +97,7 @@ def Get_P17_main(category: str) -> str:  # الإنجليزي جنسية وال�
     suffix_label = from_category_relation_mapping(suffix)
 
     if not suffix_label:
-        suffix_label, _ = get_con_3_lab(suffix, country_start, category)
+        suffix_label = get_con_3_lab(suffix, country_start, category)
 
     if not suffix_label:
         suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)

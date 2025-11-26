@@ -7,6 +7,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 from src.make2_bots.countries_formats.p17_bot_sport import (
     Get_P17_with_sport,
+    get_con_3_lab_sports,
 )
 
 sport_data = {
@@ -182,3 +183,33 @@ def test_all_dump(name, data, callback):
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
+
+
+test_data_get_con_3_lab = {
+    "amateur international footballers": "لاعبو منتخب {} لكرة القدم للهواة",
+    "amateur international soccer players": "لاعبو منتخب {} لكرة القدم للهواة",
+    "international footballers": "لاعبو منتخب {} لكرة القدم ",
+    "international soccer players": "لاعبو منتخب {} لكرة القدم ",
+    "men's a' international footballers": "لاعبو منتخب {} لكرة القدم للرجال للمحليين",
+    "men's international footballers": "لاعبو منتخب {} لكرة القدم للرجال",
+    "men's international soccer players": "لاعبو منتخب {} لكرة القدم للرجال",
+    "men's under-20 international footballers": "لاعبو منتخب {} تحت 20 سنة لكرة القدم للرجال",
+    "men's under-21 international footballers": "لاعبو منتخب {} تحت 21 سنة لكرة القدم للرجال",
+    "men's youth international footballers": "لاعبو منتخب {} لكرة القدم للشباب",
+    "national football team managers": "مدربو منتخب {} لكرة القدم",
+    "national team": "منتخبات {} الوطنية",
+    "national teams": "منتخبات {} الوطنية",
+    "rally championship": "بطولة {} للراليات",
+    "sports templates": "قوالب {} الرياضية",
+    "under-13 international footballers": "لاعبو منتخب {} تحت 13 سنة لكرة القدم ",
+    "under-14 international footballers": "لاعبو منتخب {} تحت 14 سنة لكرة القدم ",
+    "women's international footballers": "لاعبات منتخب {} لكرة القدم للسيدات",
+    "women's youth international footballers": "لاعبات منتخب {} لكرة القدم للشابات",
+}
+
+
+@pytest.mark.parametrize("category, expected", test_data_get_con_3_lab.items(), ids=list(test_data_get_con_3_lab.keys()))
+@pytest.mark.fast
+def test_get_con_3_lab(category, expected):
+    result = get_con_3_lab_sports(category)
+    assert result == expected
