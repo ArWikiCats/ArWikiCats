@@ -67,46 +67,46 @@ pop_format_test_data = {
     # ---------------------------------------------------------
 
     "yemen prehistory of": "اليمن ما قبل التاريخ",
-    "politics of yemen": "سياسة اليمن",
-    "diplomatic missions of yemen": "بعثات اليمن الدبلوماسية",
-    "umayyad governors of yemen": "ولاة اليمن الأمويون",
-    "military installations of yemen": "منشآت اليمن العسكرية",
-    "political history of yemen": "تاريخ اليمن السياسي",
-    "economic history of yemen": "تاريخ اليمن الاقتصادي",
-    "military history of yemen": "تاريخ اليمن العسكري",
-    "natural history of yemen": "تاريخ اليمن الطبيعي",
-    "foreign relations of yemen": "علاقات اليمن الخارجية",
-    "national symbols of yemen": "رموز اليمن الوطنية",
-    "grand prix yemen": "جائزة اليمن الكبرى",
+    "yemen politics of": "سياسة اليمن",
+    "yemen diplomatic missions of": "بعثات اليمن الدبلوماسية",
+    "yemen umayyad governors of": "ولاة اليمن الأمويون",
+    "yemen military installations of": "منشآت اليمن العسكرية",
+    "yemen political history of": "تاريخ اليمن السياسي",
+    "yemen economic history of": "تاريخ اليمن الاقتصادي",
+    "yemen military history of": "تاريخ اليمن العسكري",
+    "yemen natural history of": "تاريخ اليمن الطبيعي",
+    "yemen foreign relations of": "علاقات اليمن الخارجية",
+    "yemen national symbols of": "رموز اليمن الوطنية",
+    "yemen grand prix": "جائزة اليمن الكبرى",
 
     # ---------------------------------------------------------
     # university of / history of / relations / etc.
     # ---------------------------------------------------------
 
-    "university of yemen": "جامعة اليمن",
-    "university of the arts yemen": "جامعة اليمن للفنون",
-    "early-modern history of yemen": "تاريخ اليمن الحديث المبكر",
-    "modern history of yemen": "تاريخ اليمن الحديث",
-    "contemporary history of yemen": "تاريخ اليمن المعاصر",
+    "yemen university of": "جامعة اليمن",
+    "yemen university of the arts": "جامعة اليمن للفنون",
+    "yemen early-modern history of": "تاريخ اليمن الحديث المبكر",
+    "yemen modern history of": "تاريخ اليمن الحديث",
+    "yemen contemporary history of": "تاريخ اليمن المعاصر",
 
     # ---------------------------------------------------------
     # cases for different countries (not only yemen)
     # ---------------------------------------------------------
 
-    "politics of venezuela": "سياسة فنزويلا",
-    "military history of venezuela": "تاريخ فنزويلا العسكري",
-    "international footballers venezuela": "لاعبو منتخب فنزويلا لكرة القدم ",
+    "venezuela politics of": "سياسة فنزويلا",
+    "venezuela military history of": "تاريخ فنزويلا العسكري",
+    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
     "venezuela rally championship": "بطولة فنزويلا للراليات",
 
-    "politics of zambia": "سياسة زامبيا",
-    "military history of zambia": "تاريخ زامبيا العسكري",
-    "international footballers zambia": "لاعبو منتخب زامبيا لكرة القدم ",
-    "rally championship zambia": "بطولة زامبيا للراليات",
+    "zambia politics of": "سياسة زامبيا",
+    "zambia military history of": "تاريخ زامبيا العسكري",
+    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
+    "zambia rally championship": "بطولة زامبيا للراليات",
 
-    "politics of zimbabwe": "سياسة زيمبابوي",
-    "military history of zimbabwe": "تاريخ زيمبابوي العسكري",
-    "international footballers zimbabwe": "لاعبو منتخب زيمبابوي لكرة القدم ",
-    "rally championship zimbabwe": "بطولة زيمبابوي للراليات",
+    "zimbabwe politics of": "سياسة زيمبابوي",
+    "zimbabwe military history of": "تاريخ زيمبابوي العسكري",
+    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
+    "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
 }
 
 
