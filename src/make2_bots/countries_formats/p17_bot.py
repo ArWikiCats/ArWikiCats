@@ -26,11 +26,12 @@ from ..jobs_bots.get_helps import get_suffix_with_keys
 @dump_data(enable=1)
 def from_category_relation_mapping(suffix):
     suffix_label = ""
-    codd = category_relation_mapping.get(suffix)
+    codd = category_relation_mapping.get(suffix, "")
 
     if codd.startswith("لل"):
         suffix_label = "{} " + codd
-        logger.debug(f'get lab from category_relation_mapping suffix_label:"{suffix_label}"')
+
+    logger.debug(f'from_category_relation_mapping {suffix=}, {suffix_label}"')
 
     return suffix_label
 
