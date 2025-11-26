@@ -35,7 +35,7 @@ def from_category_relation_mapping(suffix) -> str:
 
     return suffix_label
 
-
+@dump_data(enable=1)
 def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
     suffix_label = ""

@@ -93,7 +93,7 @@ def test_with_pop_format(category, expected):
 @pytest.mark.parametrize("category, expected", test_data_relation_mapping.items(), ids=list(test_data_relation_mapping.keys()))
 @pytest.mark.fast
 def test_from_category_relation_mapping(category, expected):
-    result = get_con_3_lab_pop_format(category)
+    result = from_category_relation_mapping(category)
     assert result == expected
 
 
