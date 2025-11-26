@@ -79,7 +79,7 @@ def wrap_get_Sport_Format_xo_en_ar_is_P17(suffix) -> str:
     return Get_Sport_Format_xo_en_ar_is_P17(suffix)
 
 
-def get_con_3_lab_sports(suffix, country_start="", category="") -> tuple[str, str]:
+def get_con_3_lab_sports(suffix, country_start="", category="") -> str:
     sources = [
         (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
         (en_is_P17_ar_is_P17_SPORTS, True, "en_is_P17_ar_is_P17_SPORTS"),
@@ -99,7 +99,7 @@ def get_con_3_lab_sports(suffix, country_start="", category="") -> tuple[str, st
     return suffix_label
 
 
-def Get_P17_with_sport(category: str) -> str:
+def get_p17_with_sport(category: str) -> str:
     """
     TODO: use FormatData method
     """
@@ -137,6 +137,6 @@ def Get_P17_with_sport(category: str) -> str:
 
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
-    "Get_P17_with_sport",
+    "get_p17_with_sport",
     "get_con_3_lab_sports",
 ]
