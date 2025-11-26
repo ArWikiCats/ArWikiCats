@@ -4,7 +4,6 @@
 import pytest
 
 from src.translations.sports_formats_teams.sport_lab import (
-    Get_Sport_Format_xo_en_ar_is_P17,
     get_new_team_xo,
 )
 
@@ -272,20 +271,6 @@ data = {
 def test_all(category, expected_key):
     result = get_new_team_xo(category)
     assert result.strip() == expected_key, f"Mismatch for {category}"
-
-
-data2 = {
-    "national women's soccer team": "منتخب {} لكرة القدم للسيدات",
-    "winter olympics softball": "كرة لينة {} في الألعاب الأولمبية الشتوية",
-}
-
-
-@pytest.mark.parametrize("category, expected_key", data2.items(), ids=list(data2.keys()))
-@pytest.mark.fast
-def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
-    label = Get_Sport_Format_xo_en_ar_is_P17(category)
-    assert label.strip() == expected_key
-
 
 def test_mens_softball_world_cup_regression() -> None:
     """The resolver should correctly translate the softball world cup query."""

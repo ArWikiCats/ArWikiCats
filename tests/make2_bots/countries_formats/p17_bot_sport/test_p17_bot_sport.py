@@ -8,6 +8,7 @@ from load_one_data import dump_diff, one_dump_test
 from src.make2_bots.countries_formats.p17_bot_sport import (
     Get_P17_with_sport,
     get_con_3_lab_sports,
+    Get_Sport_Format_xo_en_ar_is_P17,
 )
 
 sport_data = {
@@ -265,3 +266,16 @@ test_data_get_con_3_lab = {
 def test_get_con_3_lab_sports(category, expected):
     result = get_con_3_lab_sports(category)
     assert result == expected
+
+
+data2 = {
+    "national women's soccer team": "منتخب {} لكرة القدم للسيدات",
+    "winter olympics softball": "كرة لينة {} في الألعاب الأولمبية الشتوية",
+}
+
+
+@pytest.mark.parametrize("category, expected_key", data2.items(), ids=list(data2.keys()))
+@pytest.mark.fast
+def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
+    label = Get_Sport_Format_xo_en_ar_is_P17(category)
+    assert label.strip() == expected_key
