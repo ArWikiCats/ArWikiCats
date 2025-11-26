@@ -187,7 +187,6 @@ for company_type in COMPANY_TYPE_TRANSLATIONS.keys():
     }
 
 
-# def Add_companies():
 COMPANY_COLLECTION_PREFIXES = {
     "manufacturers": "مصانع",
     "manufacturing": "تصنيع",

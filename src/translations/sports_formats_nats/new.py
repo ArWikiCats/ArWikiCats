@@ -33,7 +33,7 @@ both_bot = FormatMultiData(
 # @dump_data(enable=True)
 
 
-def _normalize_nat_label(category):
+def _normalize_nat_label(category) -> str:
     """Normalize nationality placeholders within a category string."""
     key = nat_bot.match_key(category)
     result = ""
@@ -42,7 +42,7 @@ def _normalize_nat_label(category):
     return result
 
 
-def _normalize_sport_label(category):
+def _normalize_sport_label(category) -> str:
     """
     Normalize sport placeholders within a category string.
 
@@ -57,7 +57,7 @@ def _normalize_sport_label(category):
 
 
 # @dump_data(enable=True)
-def _normalize_both(category):
+def _normalize_both(category) -> str:
     """
     Normalize both nationality and sport tokens in the category.
 
@@ -69,12 +69,12 @@ def _normalize_both(category):
     return new_category
 
 
-def _create_nat_label(category):
+def _create_nat_label(category) -> str:
     """Search for a nationality-aware label for the category."""
     return nat_bot.search(category)
 
 
-def _create_label(category):
+def _create_label(category) -> str:
     """
     Create a localized label by combining nationality and sport templates.
 

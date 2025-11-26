@@ -42,7 +42,7 @@ class Typies:
     cat_test: str
 
 
-def get_cats(category_r: str):
+def get_cats(category_r: str) -> tuple[str, str]:
     """Normalize category strings and return raw and lowercase variants."""
     cate = REGEX_SUB_MILLENNIUM_CENTURY.sub(r"-\g<1>", category_r)
     cate3 = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate.lower())

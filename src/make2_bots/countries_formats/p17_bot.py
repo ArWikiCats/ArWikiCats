@@ -24,7 +24,7 @@ from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
 @dump_data(enable=1)
-def from_category_relation_mapping(suffix):
+def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
     codd = category_relation_mapping.get(suffix, "")
 
@@ -36,7 +36,7 @@ def from_category_relation_mapping(suffix):
     return suffix_label
 
 
-def get_con_3_lab_pop_format(suffix, country_start="", category=""):
+def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
     suffix_label = ""
 
@@ -47,7 +47,7 @@ def get_con_3_lab_pop_format(suffix, country_start="", category=""):
     return suffix_label
 
 
-def get_con_3_lab(suffix, country_start="", category=""):
+def get_con_3_lab(suffix, country_start="", category="") -> tuple[str, str]:
     sources = [
         (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
         (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),

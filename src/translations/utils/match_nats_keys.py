@@ -20,7 +20,7 @@ RE_KEYS_NEW = re.compile(new_pattern, re.I)
 RE_KEYS_OLD = re.compile(nat_reg_line, re.I)
 
 
-def match_nat_key(category: str):
+def match_nat_key(category: str) -> str:
     """Return the nationality key found in ``category`` or an empty string."""
     match = RE_KEYS_NEW.search(f" {category} ")
     if match:

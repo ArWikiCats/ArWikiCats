@@ -122,7 +122,7 @@ class FormatData:
         return self._search(category)
 
 
-def format_data_sample():
+def format_data_sample() -> bool:
     """
     This function demonstrates how to use the FormatData class to format and transform data.
     It creates a mapping of template patterns to their localized versions and applies them.

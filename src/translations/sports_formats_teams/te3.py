@@ -108,7 +108,7 @@ if True:
     New_team_xo_team_labels["women's xoxo world cup tournaments"] = "بطولات كأس العالم xoxo للسيدات"
 
 
-def _build_nat_formats_for_p17():
+def _build_nat_formats_for_p17() -> dict:
     """Construct nationality placeholders used for P17 sports formats."""
     data = {}
     NAT_PLACE_HOLDER = "{}"

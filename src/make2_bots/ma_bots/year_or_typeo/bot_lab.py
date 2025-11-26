@@ -27,7 +27,7 @@ from .reg_result import get_cats, get_reg_result
 type_after_country = ["non-combat"]
 
 
-def get_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str):
+def get_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str) -> str:
     """Resolve a country label using population tables and fallbacks."""
     country_label = ""
 
@@ -46,7 +46,7 @@ def get_country_label(country_lower: str, country_not_lower: str, cate3: str, co
     return country_label
 
 
-def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str):
+def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> None:
     """Store an Arabic label assembled from type and country components."""
     in_tables_lowers = check_key_new_players(typeo.lower())
     in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
@@ -65,7 +65,7 @@ def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str):
 
 
 class LabelForStartWithYearOrTypeo:
-    def __init__(self):
+    def __init__(self) -> None:
         """Set up placeholders used while constructing category labels."""
         self.cate = ""
         self.cate3 = ""
@@ -93,7 +93,7 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     @staticmethod
-    def replace_cat_test(cat_test: str, text: str):
+    def replace_cat_test(cat_test: str, text: str) -> str:
         """Remove a substring from the category test helper in a case-insensitive way."""
         return cat_test.lower().replace(text.lower().strip(), "")
 

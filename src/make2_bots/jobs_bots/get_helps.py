@@ -20,7 +20,7 @@ keys_data = {
 }
 
 
-def get_keys(category_type: str):
+def get_keys(category_type: str):  # -> Any:
     """Return the lookup table associated with the requested category type."""
     return keys_data.get(category_type, [])
 
@@ -92,7 +92,7 @@ def get_suffix_with_keys(cate: str, data_keys, category_type: str = "", check_th
 
     # Logging final result if match found
     if category_suffix and country_prefix:
-        logger.debug(f'<<lightpurple>>>>>> get_helps.py {country_prefix=}, "{category_suffix=}, {category_type=}')
+        logger.debug(f'<<lightpurple>>>>>> get_helps.py {country_prefix=}, {category_suffix=}, {category_type=}')
 
     return category_suffix, country_prefix
 

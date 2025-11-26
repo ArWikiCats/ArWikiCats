@@ -32,7 +32,7 @@ class CountryLabelRetriever:
     A class to handle the retrieval of country labels and related terms.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
