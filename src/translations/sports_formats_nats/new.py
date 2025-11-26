@@ -30,7 +30,7 @@ both_bot = FormatMultiData(
     value2_placeholder="xoxo",
 )
 
-# @dump_data(enable=True)
+
 
 
 def _normalize_nat_label(category) -> str:
@@ -56,7 +56,7 @@ def _normalize_sport_label(category) -> str:
     return result
 
 
-# @dump_data(enable=True)
+
 def _normalize_both(category) -> str:
     """
     Normalize both nationality and sport tokens in the category.

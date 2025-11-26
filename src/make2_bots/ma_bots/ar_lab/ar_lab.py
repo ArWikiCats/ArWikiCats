@@ -376,7 +376,6 @@ class LabelPipeline(Fixing):
         return arlabel
 
 
-# @dump_data(["category", "tito"])
 @functools.lru_cache(maxsize=10000)
 def find_ar_label(
     category: str,

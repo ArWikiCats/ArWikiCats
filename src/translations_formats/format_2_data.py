@@ -68,7 +68,7 @@ class FormatMultiData(FormatComparisonHelper):
             value_placeholder=self.value2_placeholder,
         )
 
-        # @dump_data(enable=True)
+
 
     def normalize_nat_label(self, category) -> str:
         """
