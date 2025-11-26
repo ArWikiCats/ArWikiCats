@@ -1,7 +1,7 @@
 #
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from src.make2_bots.countries_formats.p17_bot import get_con_3_lab, get_con_3_lab_pop_format
+from src.make2_bots.countries_formats.p17_bot import get_con_3_lab, get_con_3_lab_pop_format, from_category_relation_mapping
 
 
 test_data_get_con_3_lab = {
@@ -71,6 +71,10 @@ test_data_with_pop_format = {
 
 }
 
+test_data_relation_mapping = {
+
+}
+
 
 @pytest.mark.parametrize("category, expected", test_data_get_con_3_lab.items(), ids=list(test_data_get_con_3_lab.keys()))
 @pytest.mark.fast
@@ -86,9 +90,17 @@ def test_with_pop_format(category, expected):
     assert result == expected
 
 
+@pytest.mark.parametrize("category, expected", test_data_relation_mapping.items(), ids=list(test_data_relation_mapping.keys()))
+@pytest.mark.fast
+def test_from_category_relation_mapping(category, expected):
+    result = get_con_3_lab_pop_format(category)
+    assert result == expected
+
+
 TEMPORAL_CASES = [
     ("test_get_con_3_lab", test_data_get_con_3_lab, get_con_3_lab),
     ("test_with_pop_format", test_data_with_pop_format, get_con_3_lab_pop_format),
+    ("test_from_category_relation_mapping", test_data_relation_mapping, from_category_relation_mapping),
 ]
 
 
