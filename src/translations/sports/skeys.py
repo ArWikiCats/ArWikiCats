@@ -17,19 +17,6 @@ SPORT_FORMTS_EN_P17_AR_NAT = {}  # الإنجليزي إسم البلد والع
 SPORT_FORMTS_EN_AR_IS_P17 = {}  # الإنجليزي إسم البلد والعربي يكون اسم البلد
 SPORT_FORMTS_NEW_KKK = {}  # الإنجليزي جنسية والعربي اسم البلد
 
-YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-# السنة الواحدة تساوي 45,560 مدخلة
-
-# قبل تعديل national
-# sports.py: len:"SPORT_FORMTS_FEMALE_NAT":  1359170  , len:"SPORT_FORMTS_EN_AR_IS_P17":  1359224  , len:"Teams new":  1496011
-# بعد التعديل
-# sports.py: len:"SPORT_FORMTS_FEMALE_NAT":  559982  , len:"SPORT_FORMTS_EN_AR_IS_P17":  564640  , len:"Teams new":  696189
-
-# YEARS_LIST = [18]
-
-# SPORT_FORMTS_EN_AR_IS_P17#Sports_Format_en_is_P17_ar_P17
-# SPORT_FORMTS_FEMALE_NAT
-
 Teams = {
     "national sports teams": "منتخبات رياضية وطنية",
     "national teams": "منتخبات وطنية",
@@ -39,21 +26,6 @@ Teams = {
     "clubs": "أندية",
 }
 
-SPORT_FORMTS_EN_AR_IS_P17["international rules football team"] = "منتخب {} لكرة القدم الدولية"
-
-SPORT_FORMTS_EN_AR_IS_P17["cup"] = "كأس {}"
-SPORT_FORMTS_EN_AR_IS_P17["presidents"] = "رؤساء {}"
-SPORT_FORMTS_EN_AR_IS_P17["territorial officials"] = "مسؤولو أقاليم {}"
-SPORT_FORMTS_EN_AR_IS_P17["territorial judges"] = "قضاة أقاليم {}"
-SPORT_FORMTS_EN_AR_IS_P17["war"] = "حرب {}"
-# SPORT_FORMTS_EN_AR_IS_P17["responses"] = "استجابات {}"
-# SPORT_FORMTS_EN_AR_IS_P17["courts"] = "محاكم {}"
-
-# association football clubs
-# Category:Zimbabwe men's A' international footballers
-# SPORT_FORMTS_EN_AR_IS_P17[modifier + "A' international footballers"] = Lab + " للمحليين"
-# SPORT_FORMTS_EN_AR_IS_P17[modifier + "B international footballers"] = Lab + " الرديف"
-
 sport_starts = {
     "": "",
     "men's a' ": "للرجال للمحليين",
@@ -62,122 +34,163 @@ sport_starts = {
     "women's ": "للسيدات",
     "men's youth ": "للشباب",
     "women's youth ": "للشابات",
-    # "professional ": "للمحترفين",
     "amateur ": "للهواة",
     "youth ": "للشباب",
 }
 
-for sport, label in SPORTS_KEYS_FOR_LABEL.items():
-    # SPORT_FORMTS_FEMALE_NAT["%s tour" % sport.lower()] = "بطولة %s {nat}" % label
-    # SPORT_FORMTS_FEMALE_NAT["%s tournament" % sport.lower()] = "بطولة %s {nat}" % label
 
-    SPORT_FORMTS_MALE_NAT[f"{sport.lower()} super league"] = f"دوري السوبر {label} {COUNTRY_PLACEHOLDER}"
+def _build_en_ar_is_p17() -> dict[str, str]:
+    """Return the aggregated translation table"""
 
-    # 12 سطر x 666 len(SPORTS_KEYS_FOR_LABEL) = 7,992
+    YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
+    # years make 330 key
 
-    # tab[Category:yemeni professional Soccer League] = "تصنيف:دوري كرة القدم اليمني للمحترفين"
-    SPORT_FORMTS_MALE_NAT[f"professional {sport.lower()} league"] = f"دوري {label} {COUNTRY_PLACEHOLDER} للمحترفين"
+    label_index: dict[str, str] = {}
 
-    # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
-    SPORT_FORMTS_FEMALE_NAT[f"outdoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} في الهواء الطلق"
-    SPORT_FORMTS_FEMALE_NAT[f"indoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} داخل الصالات"
+    label_index["international rules football team"] = "منتخب {} لكرة القدم الدولية"
 
-
-for year in YEARS_LIST:
-    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international managers"] = (
-        f"مدربو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-    )
-    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international players"] = (
-        f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-    )
-    SPORT_FORMTS_EN_AR_IS_P17[f"under-{year} international playerss"] = (
-        f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-    )
-
-for modifier, modifier_label in sport_starts.items():
-    # SPORT_FORMTS_EN_AR_IS_P17["international footballers"] = "لاعبو منتخب {} لكرة القدم"
-
-    start = "لاعبات منتخب" if "women's" in modifier else "لاعبو منتخب"
-
-    Lab = f"{start} {COUNTRY_PLACEHOLDER} لكرة القدم {modifier_label}"
-
-    SPORT_FORMTS_EN_AR_IS_P17[modifier + "international footballers"] = Lab
-    SPORT_FORMTS_EN_AR_IS_P17[modifier + "international footballers"] = Lab
-    SPORT_FORMTS_EN_AR_IS_P17[modifier + "international soccer players"] = Lab
-    SPORT_FORMTS_EN_AR_IS_P17[modifier + "international soccer playerss"] = Lab
-
-    # Category:Australia under-18 international soccer players
-    # تصنيف:لاعبو منتخب أستراليا تحت 18 سنة لكرة القدم
-
-    # Category:Zimbabwe men's A' international footballers
-    # Category:Belgian men's international footballers
+    label_index["cup"] = "كأس {}"
+    label_index["presidents"] = "رؤساء {}"
+    label_index["territorial officials"] = "مسؤولو أقاليم {}"
+    label_index["territorial judges"] = "قضاة أقاليم {}"
+    label_index["war"] = "حرب {}"
 
     for year in YEARS_LIST:
-        Lab3 = f"{start} {COUNTRY_PLACEHOLDER} تحت {year} سنة لكرة القدم {modifier_label}"
-        SPORT_FORMTS_EN_AR_IS_P17[f"{modifier}under-{year} international footballers"] = Lab3
-        SPORT_FORMTS_EN_AR_IS_P17[f"{modifier}under-{year} international soccer players"] = Lab3
-        SPORT_FORMTS_EN_AR_IS_P17[f"{modifier}under-{year} international soccer playerss"] = Lab3
+        label_index[f"under-{year} international managers"] = (
+            f"مدربو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+        )
+        label_index[f"under-{year} international players"] = (
+            f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+        )
+        label_index[f"under-{year} international playerss"] = (
+            f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+        )
 
-SPORT_FORMTS_EN_AR_IS_P17["rally championship"] = "بطولة {nat} للراليات"
-SPORT_FORMTS_EN_AR_IS_P17["war and conflict"] = "حروب ونزاعات {nat}"
-SPORT_FORMTS_EN_AR_IS_P17["governorate"] = "حكومة {nat}"
+    for modifier, modifier_label in sport_starts.items():
+        # label_index["international footballers"] = "لاعبو منتخب {} لكرة القدم"
 
-SPORT_FORMTS_EN_AR_IS_P17["sports templates"] = "قوالب {} الرياضية"
-SPORT_FORMTS_EN_AR_IS_P17["national team"] = "منتخبات {} الوطنية"
-SPORT_FORMTS_EN_AR_IS_P17["national teams"] = "منتخبات {} الوطنية"
-SPORT_FORMTS_EN_AR_IS_P17["national football team managers"] = "مدربو منتخب {} لكرة القدم"
+        start = "لاعبات منتخب" if "women's" in modifier else "لاعبو منتخب"
 
-# فرق دول وطنية
-# SPORTS_KEYS_FOR_TEAM = {}
-# SPORTS_KEYS_FOR_TEAM["association football"] = "لكرة القدم"
+        Lab = f"{start} {COUNTRY_PLACEHOLDER} لكرة القدم {modifier_label}"
 
-for team2 in SPORTS_KEYS_FOR_TEAM:
-    team2_lab = SPORTS_KEYS_FOR_TEAM[team2]
+        label_index[modifier + "international footballers"] = Lab
+        label_index[modifier + "international footballers"] = Lab
+        label_index[modifier + "international soccer players"] = Lab
+        label_index[modifier + "international soccer playerss"] = Lab
 
-    SPORT_FORMTS_EN_P17_AR_NAT[f"{team2} federation"] = f"الاتحاد {NAT_PLACEHOLDER} {team2_lab}"
+        # Category:Australia under-18 international soccer players
+        # تصنيف:لاعبو منتخب أستراليا تحت 18 سنة لكرة القدم
 
-    # Middle East Rally Championship بطولة الشرق الأوسط للراليات
+        # Category:Zimbabwe men's A' international footballers
+        # Category:Belgian men's international footballers
 
-    # SPORT_FORMTS_FEMALE_NAT["women's %s league" % team] = f"الدوري {NAT_PLACEHOLDER} {team2_lab} للسيدات"
+        for year in YEARS_LIST:
+            Lab3 = f"{start} {COUNTRY_PLACEHOLDER} تحت {year} سنة لكرة القدم {modifier_label}"
+            label_index[f"{modifier}under-{year} international footballers"] = Lab3
+            label_index[f"{modifier}under-{year} international soccer players"] = Lab3
+            label_index[f"{modifier}under-{year} international soccer playerss"] = Lab3
 
-    # SPORT_FORMTS_MALE_NAT[f"professional {team2.lower()} league"] = f"دوري {team2_lab} {COUNTRY_PLACEHOLDER} للمحترفين"
-    SPORT_FORMTS_MALE_NAT[f"{team2.lower()} federation"] = f"الاتحاد {COUNTRY_PLACEHOLDER} {team2_lab}"
+    label_index["rally championship"] = f"بطولة {NAT_PLACEHOLDER} للراليات"
+    label_index["war and conflict"] = f"حروب ونزاعات {NAT_PLACEHOLDER}"
+    label_index["governorate"] = f"حكومة {NAT_PLACEHOLDER}"
 
-    SPORT_FORMTS_MALE_NAT[f"{team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
+    label_index["sports templates"] = "قوالب {} الرياضية"
+    label_index["national team"] = "منتخبات {} الوطنية"
+    label_index["national teams"] = "منتخبات {} الوطنية"
+    label_index["national football team managers"] = "مدربو منتخب {} لكرة القدم"
 
-    SPORT_FORMTS_MALE_NAT[f"women's {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
-    SPORT_FORMTS_MALE_NAT[f"{team2.lower()} league administrators"] = f"مدراء الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
-    SPORT_FORMTS_MALE_NAT[f"{team2.lower()} league players"] = f"لاعبو الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
-    SPORT_FORMTS_MALE_NAT[f"{team2.lower()} league playerss"] = f"لاعبو الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
+    label_index["international rally"] = f"رالي {COUNTRY_PLACEHOLDER} الدولي"
 
-    # tab[Category:American Indoor Soccer League coaches] = "تصنيف:مدربو الدوري الأمريكي لكرة القدم داخل الصالات"
-    SPORT_FORMTS_MALE_NAT[f"indoor {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
-    SPORT_FORMTS_MALE_NAT[f"outdoor {team2.lower()} league"] = (
-        f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} في الهواء الطلق"
-    )
+    return label_index
 
-    # tab[Category:Canadian Major Indoor Soccer League seasons] = "تصنيف:مواسم الدوري الرئيسي الكندي لكرة القدم داخل الصالات"
-    SPORT_FORMTS_MALE_NAT[f"major indoor {team2.lower()} league"] = (
-        f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
-    )
 
-    # Category:National junior women's goalball teams
+def _build_male_nat() -> dict[str, str]:
+    """Return the aggregated translation table"""
 
-    SPORT_FORMTS_NEW_KKK[f"men's {team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab} للرجال"
-    SPORT_FORMTS_NEW_KKK[f"women's {team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
-    SPORT_FORMTS_NEW_KKK[f"{team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab}"
-    SPORT_FORMTS_NEW_KKK[f"national junior men's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للناشئين"
-    SPORT_FORMTS_NEW_KKK[f"national junior {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للناشئين"
-    SPORT_FORMTS_NEW_KKK[f"national {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} " + team2_lab
-    SPORT_FORMTS_NEW_KKK[f"national women's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
+    label_index: dict[str, str] = {}
 
-    # SPORT_FORMTS_NEW_KKK[f"women's {team} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
+    for sport, label in SPORTS_KEYS_FOR_LABEL.items():
+        label_index[f"{sport.lower()} super league"] = f"دوري السوبر {label} {COUNTRY_PLACEHOLDER}"
 
-    SPORT_FORMTS_NEW_KKK[f"national men's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للرجال"
+        # tab[Category:yemeni professional Soccer League] = "تصنيف:دوري كرة القدم اليمني للمحترفين"
+        label_index[f"professional {sport.lower()} league"] = f"دوري {label} {COUNTRY_PLACEHOLDER} للمحترفين"
 
-# SPORT_FORMTS_FEMALE_NAT["competitors"] = "منافسون {nat}"
+    # فرق دول وطنية
 
-SPORT_FORMTS_EN_AR_IS_P17["international rally"] = f"رالي {COUNTRY_PLACEHOLDER} الدولي"
+    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
+        # Middle East Rally Championship بطولة الشرق الأوسط للراليات
+
+        label_index[f"{team2.lower()} federation"] = f"الاتحاد {COUNTRY_PLACEHOLDER} {team2_lab}"
+
+        label_index[f"{team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
+
+        label_index[f"women's {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
+        label_index[f"{team2.lower()} league administrators"] = f"مدراء الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
+        label_index[f"{team2.lower()} league players"] = f"لاعبو الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
+        label_index[f"{team2.lower()} league playerss"] = f"لاعبو الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
+
+        # tab[Category:American Indoor Soccer League coaches] = "تصنيف:مدربو الدوري الأمريكي لكرة القدم داخل الصالات"
+        label_index[f"indoor {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
+        label_index[f"outdoor {team2.lower()} league"] = (
+            f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} في الهواء الطلق"
+        )
+
+        # tab[Category:Canadian Major Indoor Soccer League seasons] = "تصنيف:مواسم الدوري الرئيسي الكندي لكرة القدم داخل الصالات"
+        label_index[f"major indoor {team2.lower()} league"] = (
+            f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
+        )
+
+    return label_index
+
+
+def _build_new_kkk() -> dict[str, str]:
+    """Return the aggregated translation table"""
+
+    label_index: dict[str, str] = {}
+
+    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
+        # Category:National junior women's goalball teams
+        label_index[f"men's {team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab} للرجال"
+        label_index[f"women's {team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
+        label_index[f"{team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab}"
+        label_index[f"national junior men's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للناشئين"
+        label_index[f"national junior {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للناشئين"
+        label_index[f"national {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} " + team2_lab
+        label_index[f"national women's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
+        label_index[f"national men's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للرجال"
+
+    return label_index
+
+
+def _build_en_p17_ar_nat() -> dict[str, str]:
+    """Return the aggregated translation table"""
+
+    label_index: dict[str, str] = {}
+
+    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
+        label_index[f"{team2} federation"] = f"الاتحاد {NAT_PLACEHOLDER} {team2_lab}"
+
+    return label_index
+
+
+def _build_female_nat() -> dict[str, str]:
+    """Return the aggregated translation table"""
+
+    label_index: dict[str, str] = {}
+
+    for sport, label in SPORTS_KEYS_FOR_LABEL.items():
+        # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
+        label_index[f"outdoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} في الهواء الطلق"
+        label_index[f"indoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} داخل الصالات"
+
+    return label_index
+
+
+SPORT_FORMTS_EN_AR_IS_P17 = _build_en_ar_is_p17()
+SPORT_FORMTS_MALE_NAT = _build_male_nat()
+SPORT_FORMTS_FEMALE_NAT = _build_female_nat()
+SPORT_FORMTS_EN_P17_AR_NAT = _build_en_p17_ar_nat()
+SPORT_FORMTS_NEW_KKK = _build_new_kkk()
 
 len_print.data_len(
     "skeys.py",
