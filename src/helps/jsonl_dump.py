@@ -38,7 +38,7 @@ def dump_data(input_keys: list = None, enable: bool = False, compare_with_output
     Only saves unique data entries (no duplicates).
     """
 
-    def decorator(func):
+    def decorator(func: callable) -> callable:
         """Wrap a function so its inputs and outputs are written to JSONL."""
 
         @functools.wraps(func)

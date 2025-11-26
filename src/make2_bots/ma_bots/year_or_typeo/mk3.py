@@ -32,8 +32,20 @@ def check_country_in_tables(country: str) -> bool:
     return False
 
 
-def add_the_in(in_table, country, arlabel, suf, In, typeo, year_labe, country_label, cat_test):
-    """Insert location prepositions into labels when table rules require them."""
+def add_the_in(
+    in_table: bool,
+    country: str,
+    arlabel: str,
+    suf: str,
+    In: str,
+    typeo: str,
+    year_labe: str,
+    country_label: str,
+    cat_test: str
+) -> tuple[bool, str, str]:
+    """
+    Insert location prepositions into labels when table rules require them.
+    """
     Add_In_Done = False
     arlabel2 = arlabel
 
