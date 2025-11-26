@@ -13,7 +13,6 @@ It checks the suffix against the following tables:
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
-    SPORT_FORMTS_EN_AR_IS_P17,
     contries_from_nat,
     en_is_P17_ar_is_P17,
 )
@@ -57,7 +56,6 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
 def get_con_3_lab(suffix, country_start="", category="") -> tuple[str, str]:
     sources = [
-        # (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
         (SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT, True, "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
         (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),
     ]
