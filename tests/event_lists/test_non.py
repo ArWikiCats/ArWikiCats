@@ -1471,6 +1471,8 @@ non_fiction = {
     "Category:Non-fiction works about the United States Air Force": "تصنيف:أعمال غير خيالية عن القوات الجوية الأمريكية",
     "Category:Non-fiction works about the United States Navy": "تصنيف:أعمال غير خيالية عن البحرية الأمريكية",
     "Category:Non-fiction works": "تصنيف:أعمال غير خيالية",
+}
+non_fiction_empty = {
     "Category:20th-century New Zealand non-fiction writers": "x",
     "Category:Abortion in non-fiction": "x",
     "Category:American non-fiction children's writers": "x",
@@ -1590,25 +1592,7 @@ non_fiction = {
     "Category:Writers by non-fiction subject area": "",
 }
 
-data_series = {
-    "Category:American non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية أمريكية",
-    "Category:American non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية أمريكية",
-    "Category:Australian non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية أسترالية",
-    "Category:Australian non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية أسترالية",
-    "Category:British non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية بريطانية",
-    "Category:British non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية بريطانية",
-    "Category:Bulgarian non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية بلغارية",
-    "Category:Canadian non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية كندية",
-    "Category:Finnish non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية فنلندية",
-    "Category:Lists of American non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية أمريكية",
-    "Category:Lists of Australian non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية أسترالية",
-    "Category:Lists of British non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية بريطانية",
-    "Category:Lists of Canadian non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية كندية",
-    "Category:Lists of non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية",
-    "Category:Non-fiction television series by country": "تصنيف:مسلسلات تلفزيونية غير خيالية حسب البلد",
-    "Category:Non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية",
-    "Category:Non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية",
-    "Category:Taiwanese non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية تايوانية",
+data_series_empty = {
     "Category:American television series based on non-American television series": "x",
     "Category:Australian television series based on non-Australian television series": "x",
     "Category:Austrian television series based on non-Austrian television series": "x",
@@ -1666,10 +1650,30 @@ data_series = {
     "Category:Uruguayan television series based on non-Uruguayan television series": "x",
     "Category:Vietnamese television series based on non-Vietnamese television series": "",
 }
+data_series = {
+    "Category:American non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية أمريكية",
+    "Category:American non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية أمريكية",
+    "Category:Australian non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية أسترالية",
+    "Category:Australian non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية أسترالية",
+    "Category:British non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية بريطانية",
+    "Category:British non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية بريطانية",
+    "Category:Bulgarian non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية بلغارية",
+    "Category:Canadian non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية كندية",
+    "Category:Finnish non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية فنلندية",
+    "Category:Lists of American non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية أمريكية",
+    "Category:Lists of Australian non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية أسترالية",
+    "Category:Lists of British non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية بريطانية",
+    "Category:Lists of Canadian non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية كندية",
+    "Category:Lists of non-fiction television series episodes": "تصنيف:حلقات قوائم مسلسلات تلفزيونية غير خيالية",
+    "Category:Non-fiction television series by country": "تصنيف:مسلسلات تلفزيونية غير خيالية حسب البلد",
+    "Category:Non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية",
+    "Category:Non-fiction web series": "تصنيف:مسلسلات ويب غير خيالية",
+    "Category:Taiwanese non-fiction television series": "تصنيف:مسلسلات تلفزيونية غير خيالية تايوانية",
+}
 
 to_test = [
+    # ("test_non_empty", data_empty_result),
     ("test_non", data1),
-    ("test_non_empty", data_empty_result),
     ("test_non_fiction", non_fiction),
     ("test_data_series", data_series),
 ]
@@ -1682,8 +1686,15 @@ def test_non(category, expected) -> None:
     assert label.strip() == expected
 
 
+@pytest.mark.parametrize("category, expected", data_series.items(), ids=list(data_series.keys()))
+@pytest.mark.slow
+def test_data_series(category, expected) -> None:
+    label = new_func_lab_final_label(category)
+    assert label.strip() == expected
+
+
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+# @pytest.mark.skip2
 def test_non_dump(name, data):
 
     expected, diff_result = one_dump_test(data, new_func_lab_final_label)

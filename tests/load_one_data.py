@@ -25,13 +25,18 @@ def dump_diff(data, file_name, _sort=True):
         print(f"Error writing diff data: {e}")
 
 
-def one_dump_test(dataset: dict, callback: Callable[[str], str]):
+def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False):
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
     diff = {}
     data = {x: v for x, v in dataset.items()}  # if v
     for cat, ar in data.items():
         result = callback(cat)
+        # ---
+        if do_strip:
+            result = result.strip() if isinstance(result, str) else result
+            ar = ar.strip() if isinstance(ar, str) else ar
+        # ---
         if result != ar:
             org[cat] = ar
             diff[cat] = result

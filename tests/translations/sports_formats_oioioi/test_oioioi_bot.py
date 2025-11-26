@@ -10,6 +10,8 @@ from src.translations.sports_formats_oioioi.bot import (
 )
 
 data = {
+    # "chinese championships (boxing)": "بطولة الصين للبوكسينغ",
+    # "chinese open (boxing)": "الصين المفتوحة للبوكسينغ",
     "chinese boxing cups": "كؤوس للبوكسينغ الصين",
     "chinese boxing leagues": "دوريات للبوكسينغ الصين",
     "chinese boxing chairmen and investors": "رؤساء ومسيرو للبوكسينغ الصين",
@@ -21,7 +23,6 @@ data = {
     "chinese women's boxing": "للبوكسينغ الصين نسائية",
     "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
     "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
-    "chinese championships (boxing)": "بطولة الصين للبوكسينغ",
     "chinese championships boxing": "بطولة الصين للبوكسينغ",
     "chinese current boxing seasons": "مواسم للبوكسينغ الصين حالية",
     "chinese defunct indoor boxing clubs": "أندية للبوكسينغ الصين داخل الصالات سابقة",
@@ -90,7 +91,6 @@ data = {
     "chinese boxing u21 championships": "بطولة الصين للبوكسينغ تحت 21 سنة",
     "chinese boxing u23 championships": "بطولة الصين للبوكسينغ تحت 23 سنة",
     "chinese boxing u24 championships": "بطولة الصين للبوكسينغ تحت 24 سنة",
-    "chinese open (boxing)": "الصين المفتوحة للبوكسينغ",
     "chinese open boxing": "الصين المفتوحة للبوكسينغ",
     "chinese outdoor boxing championship": "بطولة الصين للبوكسينغ في الهواء الطلق",
     "chinese outdoor boxing championships": "بطولة الصين للبوكسينغ في الهواء الطلق",
@@ -119,7 +119,7 @@ def test_sport_lab_oioioi_load():
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_sport_lab_oioioi_load_data(category, expected) -> None:
     label1 = sport_lab_oioioi_load(category)
     label2 = both_bot.create_label(category)

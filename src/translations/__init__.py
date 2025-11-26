@@ -88,7 +88,6 @@ from .sports_formats_national.sport_lab_nat import (
 from .sports_formats_oioioi.bot import sport_lab_oioioi_load
 from .sports_formats_oioioi.data import NAT_P17_OIOI
 from .sports_formats_teams.sport_lab import (
-    Get_Sport_Format_xo_en_ar_is_P17,
     get_new_team_xo,
 )
 from .tv.films_mslslat import (
@@ -107,7 +106,15 @@ from .tv.films_mslslat import (
 from .type_tables import typeTable
 from .utils.match_sport_keys import match_sport_key
 
+from .sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
+from .utils import apply_pattern_replacement
+from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
+
+
 __all__ = [
+    "sport_formts_enar_p17_jobs",
+    "apply_pattern_replacement",
+    "SPORT_FORMTS_ENAR_P17_TEAM",
     "typeTable",
     "teams_new_founder",
     "find_teams_2025",
@@ -117,7 +124,6 @@ __all__ = [
     "get_new_team_xo",
     "Get_sport_formts_female_nat",
     "sport_lab_nat_load",
-    "Get_Sport_Format_xo_en_ar_is_P17",
     "CITY_TRANSLATIONS_LOWER",
     #
     "jobs_mens_data",
