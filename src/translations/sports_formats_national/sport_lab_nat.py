@@ -121,7 +121,7 @@ def sport_lab_nat_load(category: str, check_the: bool = False) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def sport_lab_nat_load_new(category):
+def sport_lab_nat_load_new(category) -> str:
     return both_bot.create_label(category)
 
 

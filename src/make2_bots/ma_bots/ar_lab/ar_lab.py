@@ -94,7 +94,7 @@ class TypeResolver:
 
 
 class Fixing:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def determine_separator(self) -> str:
@@ -200,7 +200,7 @@ class LabelPipeline(Fixing):
         self.country_in_table = False
         self.type_in_table = False
 
-    def extract_components(self):
+    def extract_components(self) -> None:
         """Extracts type and country components."""
         self.category_type, self.country = get_type_country(self.category, self.tito)
         self.type_lower = self.category_type.strip().lower()
@@ -251,7 +251,7 @@ class LabelPipeline(Fixing):
 
         return True
 
-    def refine_type_label(self):
+    def refine_type_label(self) -> None:
         """Refines the type label with prepositions."""
         if self.add_in_lab:
             self.type_label = tito_list_s_fixing(self.type_label, self.tito_stripped, self.type_lower)
@@ -260,7 +260,7 @@ class LabelPipeline(Fixing):
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.tito_stripped)
 
-    def check_tables(self):
+    def check_tables(self) -> None:
         """Checks if components are in specific tables."""
         self.country_in_table, table1 = check_key_in_tables_return_tuple(self.country_lower, Table_for_frist_word)
         self.type_in_table, table2 = check_key_in_tables_return_tuple(self.type_lower, Table_for_frist_word)
@@ -376,7 +376,6 @@ class LabelPipeline(Fixing):
         return arlabel
 
 
-# @dump_data(["category", "tito"])
 @functools.lru_cache(maxsize=10000)
 def find_ar_label(
     category: str,

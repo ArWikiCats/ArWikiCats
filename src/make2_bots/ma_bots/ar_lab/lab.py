@@ -40,7 +40,6 @@ TITO_LIST_S = [
 ]
 
 
-# @dump_data(enable=True, compare_with_output="type_label")
 def tito_list_s_fixing(type_label: str, tito_stripped: str, type_lower: str) -> str:
     """
     {"type_label": "منشآت عسكرية", "tito_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
@@ -153,7 +152,6 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     return category_type, country
 
 
-# @dump_data(enable=True)
 def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters.
 
@@ -232,7 +230,6 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     return label, should_append_in_label
 
 
-# @dump_data(enable=True)
 def get_con_lab(preposition: str, country: str, start_get_country2: bool = False) -> str:
     """Retrieve the corresponding label for a given country.
 

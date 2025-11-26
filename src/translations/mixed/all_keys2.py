@@ -342,7 +342,7 @@ CINEMA_CATEGORIES: dict[str, str] = {
 def _update_lowercase(data: dict[str, str], mapping: list[Mapping[str, str]], skip_existing: bool = False) -> None:
     """Populate ``data`` with lowercase keys from the provided mappings."""
 
-    def check_skip_existing(key):
+    def check_skip_existing(key) -> bool:
         """Determine whether a lowercase entry should overwrite existing data."""
         if skip_existing:
             return data.get(key.lower()) is None

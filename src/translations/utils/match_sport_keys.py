@@ -45,7 +45,7 @@ new_pattern = load_keys_to_pattern(SPORTS_KEYS_FOR_JOBS)
 RE_KEYS_NEW = re.compile(new_pattern, re.I)
 
 
-def match_sport_key(category: str):
+def match_sport_key(category: str) -> str:
     """Return the matched sport key within the provided category string."""
     match = RE_KEYS_NEW.search(f" {category} ")
     if match:

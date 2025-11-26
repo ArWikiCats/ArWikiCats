@@ -23,7 +23,7 @@ def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> st
     return naturalsize(value, binary=True)
 
 
-def save_data(bot: str, tab: Mapping):
+def save_data(bot: str, tab: Mapping) -> None:
     """Persist bot data to JSON files when a save path is configured."""
     if not app_settings.save_data_path:
         return
@@ -69,7 +69,7 @@ def data_len(
     all_len[bot].update(data)
 
 
-def dump_all_len():
+def dump_all_len() -> dict[str, dict]:
     """Return aggregated counts and sizes for all processed bots."""
     # sort all_len by keys ignore case
     all_len_save = {

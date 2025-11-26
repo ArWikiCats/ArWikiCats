@@ -17,7 +17,13 @@ from .format_data import FormatData
 class FormatComparisonHelper:
     def __init__(self): ...
 
-    def get_start_p17(self, cate):
+    def get_start_p17(self, cate) -> tuple[str, str]:
+        """
+        Get the start of a category string and its corresponding key.
+
+        Example:
+            category: "Yemeni national football teams", result: ("Yemeni", "natar")
+        """
         new_category = self.normalize_nat_label(cate)
         key = self.nat_bot.match_key(cate)
         return new_category, key
@@ -62,9 +68,9 @@ class FormatMultiData(FormatComparisonHelper):
             value_placeholder=self.value2_placeholder,
         )
 
-        # @dump_data(enable=True)
 
-    def normalize_nat_label(self, category):
+
+    def normalize_nat_label(self, category) -> str:
         """
         Normalize nationality placeholders within a category string.
 
@@ -77,7 +83,7 @@ class FormatMultiData(FormatComparisonHelper):
             result = self.nat_bot.normalize_category(category, key)
         return result
 
-    def normalize_sport_label(self, category):
+    def normalize_sport_label(self, category) -> str:
         """
         Normalize sport placeholders within a category string.
 
@@ -90,7 +96,7 @@ class FormatMultiData(FormatComparisonHelper):
             result = self.sport_bot.normalize_category(category, key)
         return result
 
-    def normalize_both(self, category):
+    def normalize_both(self, category) -> str:
         """
         Normalize both nationality and sport tokens in the category.
 
@@ -106,11 +112,11 @@ class FormatMultiData(FormatComparisonHelper):
         return new_category
 
     @functools.lru_cache(maxsize=1000)
-    def create_nat_label(self, category):
+    def create_nat_label(self, category) -> str:
         return self.nat_bot.search(category)
 
     @functools.lru_cache(maxsize=1000)
-    def create_label(self, category):
+    def create_label(self, category) -> str:
         """
         Create a localized label by combining nationality and sport templates.
 

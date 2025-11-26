@@ -14,11 +14,6 @@ from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.check_bot import check_key_new_players
 from ..country_bot import get_country
 
-# from pathlib import Path
-# from ....helps.jsonl_dump import dump_data
-
-# @dump_data(["category3", "year", "year_labe"])
-
 
 def work_2019(category3: str, year: str, year_labe: str) -> str:
     """

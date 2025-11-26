@@ -160,7 +160,7 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
 
     # Footballers base groups
     for modifier, mod_label in sport_starts.items():
-        # label_index["international footballers"] = "لاعبو منتخب {} لكرة القدم"
+        # label_index["international footballers"] = f"لاعبو منتخب {COUNTRY_PLACEHOLDER} لكرة القدم"
 
         start_word = "لاعبات منتخب" if "women's" in modifier else "لاعبو منتخب"
 
@@ -182,14 +182,14 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
             label_index[f"{modifier}under-{year} international soccer players"] = youth
             label_index[f"{modifier}under-{year} international soccer playerss"] = youth
 
-    label_index["rally championship"] = f"بطولة {NAT_PLACEHOLDER} للراليات"
-    label_index["war and conflict"] = f"حروب ونزاعات {NAT_PLACEHOLDER}"
-    label_index["governorate"] = f"حكومة {NAT_PLACEHOLDER}"
+    label_index["rally championship"] = f"بطولة {COUNTRY_PLACEHOLDER} للراليات"
+    label_index["war and conflict"] = f"حروب ونزاعات {COUNTRY_PLACEHOLDER}"
+    label_index["governorate"] = f"حكومة {COUNTRY_PLACEHOLDER}"
 
-    label_index["sports templates"] = "قوالب {} الرياضية"
-    label_index["national team"] = "منتخبات {} الوطنية"
-    label_index["national teams"] = "منتخبات {} الوطنية"
-    label_index["national football team managers"] = "مدربو منتخب {} لكرة القدم"
+    label_index["sports templates"] = f"قوالب {COUNTRY_PLACEHOLDER} الرياضية"
+    label_index["national team"] = f"منتخبات {COUNTRY_PLACEHOLDER} الوطنية"
+    label_index["national teams"] = f"منتخبات {COUNTRY_PLACEHOLDER} الوطنية"
+    label_index["national football team managers"] = f"مدربو منتخب {COUNTRY_PLACEHOLDER} لكرة القدم"
 
     label_index["international rally"] = f"رالي {COUNTRY_PLACEHOLDER} الدولي"
 

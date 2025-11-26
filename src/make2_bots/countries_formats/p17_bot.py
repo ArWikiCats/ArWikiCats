@@ -24,7 +24,11 @@ from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
 @dump_data(enable=1)
-def from_category_relation_mapping(suffix):
+def wrap_get_Sport_Format_xo_en_ar_is_P17(suffix) -> str:
+    return Get_Sport_Format_xo_en_ar_is_P17(suffix)
+
+@dump_data(enable=1)
+def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
     codd = category_relation_mapping.get(suffix, "")
 
@@ -36,7 +40,7 @@ def from_category_relation_mapping(suffix):
     return suffix_label
 
 
-def get_con_3_lab_pop_format(suffix, country_start="", category=""):
+def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
     suffix_label = ""
 
@@ -47,7 +51,7 @@ def get_con_3_lab_pop_format(suffix, country_start="", category=""):
     return suffix_label
 
 
-def get_con_3_lab(suffix, country_start="", category=""):
+def get_con_3_lab(suffix, country_start="", category="") -> tuple[str, str]:
     sources = [
         (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
         (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),
@@ -98,7 +102,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
         suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)
 
     if not suffix_label:
-        suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
+        suffix_label = wrap_get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 
     if not suffix_label:
         logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')

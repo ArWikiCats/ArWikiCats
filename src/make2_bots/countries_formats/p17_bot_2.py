@@ -64,5 +64,4 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
 __all__ = [
     "Get_P17_2",
     "_resolve_p17_2_label",
-    "add_definite_article",
 ]

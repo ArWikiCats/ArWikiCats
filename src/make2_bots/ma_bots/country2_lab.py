@@ -34,7 +34,7 @@ resolvers = {
 }
 
 
-def resolve_all(country2):
+def resolve_all(country2) -> str:
     """
     Iterate through all resolver functions. Return the first valid string.
     If any resolver returns a dict, raise an error showing exactly which resolver failed.
