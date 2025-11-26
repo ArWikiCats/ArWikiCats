@@ -84,7 +84,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
     if not suffix or not country_start:
         logger.info(f'<<lightred>>>>>> suffix: "{suffix}" or country_start :"{country_start}" == ""')
-        return
+        return ""
 
     logger.debug(f'<<lightblue>> country_start:"{country_start}", suffix:"{suffix}"')
     logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
@@ -102,7 +102,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
     if not suffix_label:
         logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')
-        return
+        return ""
 
     if "{nat}" in suffix_label:
         resolved_label = suffix_label.format(nat=country_start_lab)

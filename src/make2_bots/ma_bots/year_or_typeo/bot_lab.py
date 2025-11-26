@@ -123,7 +123,7 @@ class LabelForStartWithYearOrTypeo:
     # 2 — HANDLE TYPEO
     # ----------------------------------------------------
 
-    def handle_typeo(self):
+    def handle_typeo(self) -> None:
         """Translate the type portion of the category when available."""
         if not self.typeo:
             return
@@ -153,7 +153,7 @@ class LabelForStartWithYearOrTypeo:
     # 3 — HANDLE COUNTRY
     # ----------------------------------------------------
 
-    def handle_country(self):
+    def handle_country(self) -> None:
         """Look up and store the country label derived from the category."""
         if not self.country_lower:
             return
@@ -170,7 +170,7 @@ class LabelForStartWithYearOrTypeo:
     # 4 — HANDLE YEAR
     # ----------------------------------------------------
 
-    def handle_year(self):
+    def handle_year(self) -> None:
         """Append year-based labels and mark prepositions when needed."""
         if not self.year_at_first:
             return
@@ -200,7 +200,7 @@ class LabelForStartWithYearOrTypeo:
     # 5 — RELATION MAPPING
     # ----------------------------------------------------
 
-    def handle_relation_mapping(self):
+    def handle_relation_mapping(self) -> None:
         """Remove relation keywords that have already influenced the label."""
         if not self.In.strip():
             return
@@ -219,7 +219,7 @@ class LabelForStartWithYearOrTypeo:
     # 6 — APPLY LABEL RULES
     # ----------------------------------------------------
 
-    def apply_label_rules(self):
+    def apply_label_rules(self) -> None:
         """Apply validation rules and build labels using available data."""
 
         if self.year_at_first and not self.year_labe:
@@ -269,7 +269,7 @@ class LabelForStartWithYearOrTypeo:
     # 7 — APPLY FALLBACKS
     # ----------------------------------------------------
 
-    def apply_fallbacks(self):
+    def apply_fallbacks(self) -> None:
         """Run backup labeling logic when primary processing fails."""
         if self.NoLab and self.cat_test == "":
             if self.country_label and self.typeo_lab and not self.year_at_first and self.In == "":
@@ -279,7 +279,7 @@ class LabelForStartWithYearOrTypeo:
     # 8 — FINALIZE
     # ----------------------------------------------------
 
-    def finalize(self):
+    def finalize(self) -> str:
         """Perform final validation and return the completed label."""
         category2 = (
             self.cate[len("category:") :].lower() if self.cate.lower().startswith("category:") else self.cate.lower()
