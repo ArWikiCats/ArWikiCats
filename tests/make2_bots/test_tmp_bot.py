@@ -29,32 +29,36 @@ def test_work_templates():
     assert result_template == ""
 
 
+suffix_pase_data = [
+    # ---------------------------------------------------------
+    # pp_ends_with_pase tests
+    # ---------------------------------------------------------
+    # Example: " - kannada"
+    (
+        "basketball - kannada",
+        " - kannada",
+        "كرة السلة",
+        "{} - كنادي".format("كرة السلة"),
+    ),
+    (
+        "football – mixed doubles",
+        " – mixed doubles",
+        "كرة القدم",
+        "{} – زوجي مختلط".format("كرة القدم"),
+    ),
+    (
+        "tennis - women's qualification",
+        " - women's qualification",
+        "كرة المضرب",
+        "{} - تصفيات السيدات".format("كرة المضرب"),
+    ),
+]
+
+
 @pytest.mark.parametrize(
     "input_label,suffix,resolved,expected",
-    [
-        # ---------------------------------------------------------
-        # pp_ends_with_pase tests
-        # ---------------------------------------------------------
-        # Example: " - kannada"
-        (
-            "basketball - kannada",
-            " - kannada",
-            "كرة السلة",
-            "{} - كنادي".format("كرة السلة"),
-        ),
-        (
-            "football – mixed doubles",
-            " – mixed doubles",
-            "كرة القدم",
-            "{} – زوجي مختلط".format("كرة القدم"),
-        ),
-        (
-            "tennis - women's qualification",
-            " - women's qualification",
-            "كرة المضرب",
-            "{} - تصفيات السيدات".format("كرة المضرب"),
-        ),
-    ],
+    suffix_pase_data,
+    ids=lambda x: x[0],
 )
 def test_suffix_pase(input_label, suffix, resolved, expected):
     """Test suffix mapping inside pp_ends_with_pase."""
@@ -66,35 +70,39 @@ def test_suffix_pase(input_label, suffix, resolved, expected):
 # -------------------------------------------------------------
 # pp_ends_with tests (full coverage)
 # -------------------------------------------------------------
+pp_ends_data = [
+    (
+        "basketball squaDs",  # suffix " squads"
+        "كرة السلة",
+        "تشكيلات كرة السلة",
+    ),
+    (
+        "rugby leagues seasons",  # " leagues seasons"
+        "اتحاد الرجبي",
+        "مواسم دوريات الرجبي",
+    ),
+    (
+        "american counties",
+        "أمريكية",
+        "",
+    ),
+    (
+        "european logos",
+        "أوروبا",
+        "",
+    ),
+    (
+        "latin american variants",
+        "أمريكيون لاتينيون",
+        "أشكال أمريكيون لاتينيون",
+    ),
+]
+
+
 @pytest.mark.parametrize(
     "input_label,resolved,expected",
-    [
-        (
-            "basketball squaDs",  # suffix " squads"
-            "كرة السلة",
-            "تشكيلات كرة السلة",
-        ),
-        (
-            "rugby leagues seasons",  # " leagues seasons"
-            "اتحاد الرجبي",
-            "مواسم دوريات الرجبي",
-        ),
-        (
-            "american counties",
-            "أمريكية",
-            "",
-        ),
-        (
-            "european logos",
-            "أوروبا",
-            "",
-        ),
-        (
-            "latin american variants",
-            "أمريكيون لاتينيون",
-            "أشكال أمريكيون لاتينيون",
-        ),
-    ],
+    pp_ends_data,
+    ids=[x[0] for x in pp_ends_data],
 )
 def test_suffix_pp_ends(input_label, resolved, expected):
     """Test full pp_ends_with suffix dictionary."""
@@ -105,25 +113,29 @@ def test_suffix_pp_ends(input_label, resolved, expected):
 # -------------------------------------------------------------
 # Prefix tests (pp_start_with)
 # -------------------------------------------------------------
+pp_start_data = [
+    (
+        "wikipedia categories named after egypt",
+        "مصر",
+        "تصنيفات سميت بأسماء {}".format("مصر"),
+    ),
+    (
+        "candidates for president of france",
+        "فرنسا",
+        "مرشحو رئاسة {}".format("فرنسا"),
+    ),
+    (
+        "scheduled qatar",
+        "قطر",
+        "{} مقررة".format("قطر"),
+    ),
+]
+
+
 @pytest.mark.parametrize(
     "input_label,resolved,expected",
-    [
-        (
-            "wikipedia categories named after egypt",
-            "مصر",
-            "تصنيفات سميت بأسماء {}".format("مصر"),
-        ),
-        (
-            "candidates for president of france",
-            "فرنسا",
-            "مرشحو رئاسة {}".format("فرنسا"),
-        ),
-        (
-            "scheduled qatar",
-            "قطر",
-            "{} مقررة".format("قطر"),
-        ),
-    ],
+    pp_start_data,
+    ids=lambda x: x[0],
 )
 def test_prefix_pp_start(input_label, resolved, expected):
     assert Work_Templates(input_label) == expected
@@ -151,14 +163,18 @@ def test_fallback_general_category():
 # -------------------------------------------------------------
 # Edge cases: spaces, uppercase, hyphens
 # -------------------------------------------------------------
+edge_cases_data = [
+    ("  BASKETBALL  FINALS  ", "كرة السلة", "نهائيات كرة السلة"),
+    ("football  SQUADS", "كرة القدم", "تشكيلات كرة القدم"),
+    ("tennis – mixed doubles", "كرة المضرب", "كرة المضرب – زوجي مختلط"),
+    ("tennis  –  mixed doubles", "كرة المضرب", ""),
+]
+
+
 @pytest.mark.parametrize(
     "input_label,resolved,expected",
-    [
-        ("  BASKETBALL  FINALS  ", "كرة السلة", "نهائيات كرة السلة"),
-        ("football  SQUADS", "كرة القدم", "تشكيلات كرة القدم"),
-        ("tennis – mixed doubles", "كرة المضرب", "كرة المضرب – زوجي مختلط"),
-        ("tennis  –  mixed doubles", "كرة المضرب", ""),
-    ],
+    edge_cases_data,
+    ids=[x[0] for x in edge_cases_data],
 )
 def test_edge_cases(input_label, resolved, expected):
     assert Work_Templates(input_label) == expected
