@@ -9,7 +9,25 @@ from ...translations import (
 )
 from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
-from ..matables_bots.bot import All_P17
+
+
+def get_con_3_lab(suffix):
+    sources = [
+        (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
+        (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),
+        (pop_format, False, "pop_format"),
+    ]
+
+    suffix_label = ""
+
+    for source, do_strip, name in sources:
+        key = suffix.strip() if do_strip else suffix
+        suffix_label = source.get(key, "")
+        if suffix_label:
+            logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
+            break
+
+    return suffix_label
 
 
 def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
@@ -21,7 +39,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     TODO: use FormatData method
     """
     resolved_label = ""
-    con_3_lab = ""
+    suffix_label = ""
     category = category.lower()
 
     suffix, country_start = get_suffix_with_keys(category, contries_from_nat)
@@ -37,39 +55,23 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     if suffix in category_relation_mapping:
         codd = category_relation_mapping[suffix]
         if codd.startswith("لل"):
-            con_3_lab = "{} " + codd
-            logger.debug(f'get lab from category_relation_mapping con_3_lab:"{con_3_lab}"')
+            suffix_label = "{} " + codd
+            logger.debug(f'get lab from category_relation_mapping suffix_label:"{suffix_label}"')
 
-    FOF = ""
-    if not con_3_lab:
-        con_3_lab = SPORT_FORMTS_EN_AR_IS_P17.get(suffix.strip(), "")
-        if con_3_lab:
-            FOF = "<<lightgreen>>SPORT_FORMTS_EN_AR_IS_P17<<lightblue>>"
+    if not suffix_label:
+        suffix_label = get_con_3_lab(suffix)
 
-    if not con_3_lab:
-        con_3_lab = en_is_P17_ar_is_P17.get(suffix.strip(), "")
-        if con_3_lab:
-            FOF = "<<lightgreen>>en_is_P17_ar_is_P17<<lightblue>>"
+    if not suffix_label:
+        suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 
-    if not con_3_lab:
-        con_3_lab = pop_format.get(suffix, "")
-        if con_3_lab:
-            FOF = "<<lightgreen>>pop_format<<lightblue>>"
-
-    if FOF:
-        logger.debug(f'<<lightblue>>>>>> {FOF} .startswith({country_start}), suffix:"{suffix}"')
-
-    if not con_3_lab:
-        con_3_lab = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
-
-    if not con_3_lab:
-        logger.debug(f'<<lightred>>>>>> {con_3_lab=}, resolved_label == ""')
+    if not suffix_label:
+        logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')
         return
 
-    if "{nat}" in con_3_lab:
-        resolved_label = con_3_lab.format(nat=country_start_lab)
+    if "{nat}" in suffix_label:
+        resolved_label = suffix_label.format(nat=country_start_lab)
     else:
-        resolved_label = con_3_lab.format(country_start_lab)
+        resolved_label = suffix_label.format(country_start_lab)
 
     logger.debug(f'<<lightblue>>>>>> Get_P17: test_60: new cnt_la "{resolved_label}" ')
 
