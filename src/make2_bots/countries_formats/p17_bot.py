@@ -167,4 +167,6 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
 
 __all__ = [
     "Get_P17",
+    "Get_P17_main",
+    "Get_P17_with_sport",
 ]

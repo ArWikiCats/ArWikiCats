@@ -4,8 +4,10 @@ Tests
 
 import pytest
 
+from load_one_data import dump_diff, one_dump_test
 from src.make2_bots.countries_formats.p17_bot import (
-    Get_P17,
+    Get_P17_main,
+    Get_P17_with_sport,
 )
 
 get_p17_data = {
@@ -179,7 +181,21 @@ get_p17_data = {
 
 
 @pytest.mark.parametrize("category, expected", get_p17_data.items(), ids=list(get_p17_data.keys()))
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_get_p17(category, expected) -> None:
-    label = Get_P17(category)
+    label = Get_P17_with_sport(category)
     assert label == expected
+
+
+TEMPORAL_CASES = [
+    ("test_Get_P17_with_sport", get_p17_data, Get_P17_with_sport),
+    ("test_Get_P17_main", get_p17_data, Get_P17_main),
+]
+
+
+@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
+def test_all_dump(name, data, callback):
+    expected, diff_result = one_dump_test(data, callback)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

@@ -1,5 +1,5 @@
 import pytest
-from src.make2_bots.countries_formats.p17_bot import Get_P17
+from src.make2_bots.countries_formats.p17_bot import Get_P17_main
 
 
 get_p17_data = {
@@ -121,7 +121,7 @@ pop_format_test_data = {
 @pytest.mark.parametrize("category, expected", get_p17_data.items(), ids=list(get_p17_data.keys()))
 @pytest.mark.fast
 def test_get_p17(category, expected):
-    result = Get_P17(category)
+    result = Get_P17_main(category)
     assert result.strip() == expected.strip()
 
 
@@ -136,5 +136,5 @@ def test_get_p17(category, expected):
 )
 @pytest.mark.fast
 def test_get_p17_new(category, expected):
-    result = Get_P17(category)
+    result = Get_P17_main(category)
     assert result.strip() == expected.strip()
