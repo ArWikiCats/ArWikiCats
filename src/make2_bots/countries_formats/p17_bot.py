@@ -1,4 +1,15 @@
-""" """
+"""
+This module processes categories that start with an English country name and maps their suffixes to Arabic labels.
+It checks the suffix against the following tables:
+
+* category_relation_mapping
+* SPORT_FORMTS_EN_AR_IS_P17
+* en_is_P17_ar_is_P17
+* pop_format
+
+If no match is found, it falls back to Get_Sport_Format_xo_en_ar_is_P17().
+
+"""
 
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
@@ -10,6 +21,18 @@ from ...translations import (
 )
 from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
+
+
+@dump_data(enable=1)
+def from_category_relation_mapping(suffix):
+    suffix_label = ""
+    codd = category_relation_mapping.get(suffix)
+
+    if codd.startswith("لل"):
+        suffix_label = "{} " + codd
+        logger.debug(f'get lab from category_relation_mapping suffix_label:"{suffix_label}"')
+
+    return suffix_label
 
 
 @dump_data(enable=1)
@@ -53,7 +76,6 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     TODO: use FormatData method
     """
     resolved_label = ""
-    suffix_label = ""
     category = category.lower()
 
     suffix, country_start = get_suffix_with_keys(category, contries_from_nat)
@@ -66,11 +88,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
     logger.debug(f'<<lightblue>> country_start:"{country_start}", suffix:"{suffix}"')
     logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
 
-    if suffix in category_relation_mapping:
-        codd = category_relation_mapping[suffix]
-        if codd.startswith("لل"):
-            suffix_label = "{} " + codd
-            logger.debug(f'get lab from category_relation_mapping suffix_label:"{suffix_label}"')
+    suffix_label = from_category_relation_mapping(suffix)
 
     if not suffix_label:
         suffix_label = get_con_3_lab(suffix)
