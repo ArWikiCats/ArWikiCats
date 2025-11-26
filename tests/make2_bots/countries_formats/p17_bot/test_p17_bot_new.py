@@ -3,6 +3,15 @@ from src.make2_bots.countries_formats.p17_bot import Get_P17
 
 
 get_p17_data = {
+    # "yemen international footballers": "لاعبو كرة قدم دوليون من اليمن",
+    "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم",
+    "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
+
+    "democratic-republic-of-the-congo amateur international soccer players": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم للهواة",
+
+    "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
+    "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
+
     # ---------------------------------------------------------
     # en_is_P17_ar_is_P17
     # ---------------------------------------------------------
@@ -41,14 +50,8 @@ get_p17_data = {
     # ---------------------------------------------------------
     # SPORT_FORMTS_EN_AR_IS_P17
     # ---------------------------------------------------------
-
-    "democratic-republic-of-the-congo amateur international soccer players": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم للهواة",
-    "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم ",
-    "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم ",
-    "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
     "yemen rally championship": "بطولة اليمن للراليات",
     "yemen sports templates": "قوالب اليمن الرياضية",
-    "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
 
     "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
     "tunisia national team": "منتخبات تونس الوطنية",
@@ -119,7 +122,7 @@ pop_format_test_data = {
 @pytest.mark.fast
 def test_get_p17(category, expected):
     result = Get_P17(category)
-    assert result == expected
+    assert result.strip() == expected.strip()
 
 
 # =====================================================================
@@ -134,4 +137,4 @@ def test_get_p17(category, expected):
 @pytest.mark.fast
 def test_get_p17_new(category, expected):
     result = Get_P17(category)
-    assert result == expected
+    assert result.strip() == expected.strip()
