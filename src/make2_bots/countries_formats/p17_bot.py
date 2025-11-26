@@ -64,6 +64,7 @@ def get_con_3_lab(suffix):
         if suffix_label:
             break
 
+    name = name if suffix_label else ""
     logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
 
     return suffix_label, name
