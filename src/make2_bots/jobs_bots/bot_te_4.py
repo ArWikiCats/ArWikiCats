@@ -8,6 +8,7 @@ import re
 
 from ...helps.log import logger
 from ...translations import (
+    All_Nat,
     Multi_sport_for_Jobs,
     Nat_mens,
     jobs_mens_data,
@@ -17,7 +18,7 @@ from ..countries_formats.for_me import Work_for_me
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..media_bots.film_keys_bot import Films
 from ..o_bots import ethnic_bot
-from .get_helps import get_suffix
+from .get_helps import get_suffix_with_keys
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 COUNTRY_TEMPLATES = {
@@ -89,7 +90,7 @@ def te_2018_with_nat(category: str) -> str:
     country_label = short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
     if not country_label:
-        suffix, nat = get_suffix(normalized_category, "nat")
+        suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
 
         if suffix:
             # Try various strategies if we have a country code

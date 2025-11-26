@@ -1,4 +1,56 @@
 
+## [#114](https://github.com/MrIbrahem/make2_new/pull/114) - 2025-11-26
+* **Refactor [skeys.py](src/ma_lists/sports/skeys.py)**
+
+* **New Features**
+  * Expanded nationality and P17-style role/label coverage with additional country keys and improved label resolution/fallbacks.
+  * Centralized definite-article handling for Arabic labels for more consistent output.
+
+* **Bug Fixes**
+  * Cleaned spacing/punctuation in city and sports club names.
+
+* **Tests**
+  * Added and expanded comprehensive tests for nationality, P17 label resolution, and definite-article formatting.
+
+## [#113](https://github.com/MrIbrahem/make2_new/pull/113) - 2025-11-26
+
+* **New Features**
+  * Added century/millennium date pattern recognition.
+  * Extended category data structure with country information.
+
+* **Bug Fixes**
+  * Improved data dumping and logging functionality for specific operations.
+  * Refined test coverage with expanded validation scenarios.
+
+* **Refactor**
+  * Simplified internal resolution logic to reduce code duplication.
+  * Restructured team job generation using a more data-driven approach.
+
+* **Style**
+  * Enhanced code formatting and readability throughout the codebase.
+
+## [#112](https://github.com/MrIbrahem/make2_new/pull/112) - 2025-11-26
+
+* Expanded Arabic language support by adding gender-specific translations for numerous job and occupation titles across sports and professional categories, improving localization coverage for multilingual users.
+
+## [#111](https://github.com/MrIbrahem/make2_new/pull/111) - 2025-11-26
+
+* **New Features**
+  * Added public helpers ethnic_label and add_all for improved label generation.
+
+* **Chores**
+  * Reorganized modules and updated import paths.
+  * Removed NN_table/related gendered tables from the public translations API.
+
+* **Public API**
+  * Renamed get_con_3 → get_suffix and updated parameter names/signatures that callers see.
+
+* **Tests**
+  * Added and updated unit tests to cover new helpers and adjusted imports.
+
+* **Documentation**
+  * Expanded docstrings and examples for several public functions.
+
 ## [#110](https://github.com/MrIbrahem/make2_new/pull/110) - 2025-11-25
 
 * **New Features**

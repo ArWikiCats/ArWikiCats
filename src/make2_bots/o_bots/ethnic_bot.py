@@ -6,8 +6,8 @@ import functools
 from typing import Dict
 
 from ...helps.log import logger
-from ...translations import Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2
-from ..jobs_bots.get_helps import get_suffix
+from ...translations import Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2, All_Nat
+from ..jobs_bots.get_helps import get_suffix_with_keys
 
 MALE_TOPIC_TABLE: Dict[str, str] = {
     "history": "تاريخ {}",
@@ -100,7 +100,7 @@ def ethnic(category: str, start: str, suffix: str) -> str:
 @functools.lru_cache(maxsize=None)
 def ethnic_label(category: str, nat: str = "", suffix: str = "") -> str:
     if not suffix or not nat:
-        suffix, nat = get_suffix(category, "nat")
+        suffix, nat = get_suffix_with_keys(category, All_Nat, "nat")
 
     normalized_suffix = suffix
     if suffix.endswith(" people"):

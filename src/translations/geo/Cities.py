@@ -44,12 +44,6 @@ CITY_TRANSLATIONS_LOWER = {x.lower(): xar for x, xar in CITY_TRANSLATIONS.items(
 # with open(f"{Dir2}/jsons/all_cities.json", "w", encoding="utf-8") as f:
 #     json.dump(CITY_TRANSLATIONS, f, indent=2, ensure_ascii=False)
 
-__all__ = [
-    "CITY_TRANSLATIONS",
-    "CITY_LABEL_PATCHES",
-    "CITY_TRANSLATIONS_LOWER",
-]
-
 len_print.data_len(
     "Cities.py",
     {
@@ -58,3 +52,10 @@ len_print.data_len(
         "CITY_TRANSLATIONS_LOWER": CITY_TRANSLATIONS_LOWER,
     },
 )
+
+
+__all__ = [
+    "CITY_TRANSLATIONS",
+    "CITY_LABEL_PATCHES",
+    "CITY_TRANSLATIONS_LOWER",
+]

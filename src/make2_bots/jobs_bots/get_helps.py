@@ -25,15 +25,13 @@ def get_keys(category_type: str):
     return keys_data.get(category_type, [])
 
 
-@functools.lru_cache(maxsize=None)
-def get_suffix(cate: str, category_type: str, check_the: bool = False) -> Tuple[str, str]:
+def get_suffix_with_keys(cate: str, data_keys, category_type: str = "", check_the: bool = False) -> Tuple[str, str]:
     """Fast and optimized version of get_suffix.
 
     This function identifies a matching prefix from the given keys and
     extracts the remaining suffix while preserving the original behavior.
     All comments are in English only as required.
     """
-    keys = get_keys(category_type)
     # Pre-lower cate once for speed
     cate_lower = cate.lower()
 
@@ -44,7 +42,7 @@ def get_suffix(cate: str, category_type: str, check_the: bool = False) -> Tuple[
 
     cate_lower2 = cate_lower[4:] if cate_lower.startswith("the ") else cate_lower
 
-    for key in keys:
+    for key in data_keys:
         if category_suffix:
             # A match has already been found; exit early
             break
@@ -77,7 +75,7 @@ def get_suffix(cate: str, category_type: str, check_the: bool = False) -> Tuple[
                 category_suffix = cate[len(prefix_candidate) :].strip()
 
                 logger.debug(
-                    f'<<lightyellow>>>>>> get_suffix start_th key_:{option_index} "{prefix_candidate}", fo_3:"{category_suffix}",country_start:"{country_prefix}"'
+                    f"<<lightyellow>>>>>> get_suffix {prefix_candidate=}, {category_suffix=}, {country_prefix=}"
                 )
 
                 break
@@ -87,15 +85,25 @@ def get_suffix(cate: str, category_type: str, check_the: bool = False) -> Tuple[
                 category_suffix = cate2[len(prefix_candidate) :].strip()
 
                 logger.debug(
-                    f'<<lightyellow>>>>>> get_suffix start_th key_:{option_index} "{prefix_candidate}", fo_3:"{category_suffix}",country_start:"{country_prefix}"'
+                    f"<<lightyellow>>>>>> get_suffix {prefix_candidate=}, {category_suffix=}, {country_prefix=}"
                 )
 
                 break
 
     # Logging final result if match found
     if category_suffix and country_prefix:
-        logger.debug(
-            f'<<lightpurple>>>>>> bot_te_4.py country_start:"{country_prefix}",get_suffix fo_3:"{category_suffix}",lab_type:{category_type}'
-        )
+        logger.debug(f'<<lightpurple>>>>>> get_helps.py {country_prefix=}, "{category_suffix=}, {category_type=}')
 
     return category_suffix, country_prefix
+
+
+@functools.lru_cache(maxsize=None)
+def get_suffix(cate: str, category_type: str, check_the: bool = False) -> Tuple[str, str]:
+    keys = get_keys(category_type)
+    return get_suffix_with_keys(cate, keys, category_type, check_the)
+
+
+__all__ = [
+    "get_suffix_with_keys",
+    "get_suffix",
+]

@@ -5,6 +5,7 @@ from load_one_data import dump_diff, one_dump_test
 from src import new_func_lab_final_label
 
 data1 = {
+    # "Category:yemeni presidential elections": "تصنيف:انتخابات اليمن الرئاسية",
     "Category:Adaptations of works by Greek writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب يونانيون",
     "Category:Adaptations of works by Irish writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب أيرلنديون",
     "Category:Adaptations of works by Italian writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب إيطاليون",
