@@ -23,13 +23,13 @@ test_data_get_con_3_lab = {
     "winter olympics squad": "تشكيلات {} في الألعاب الأولمبية الشتوية",
     "winter olympics": " {} في الألعاب الأولمبية الشتوية",
 
-    "governorate": ("حكومة {}", "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
-    "presidents": ("رؤساء {}", "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
-    "territorial judges": ("قضاة أقاليم {}", "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
-    "territorial officials": ("مسؤولو أقاليم {}", "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
-    "war and conflict": ("حروب ونزاعات {}", "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
-    "war": ("حرب {}", "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
-    "cup": ("كأس {}", "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
+    "governorate": "حكومة {}",
+    "presidents": "رؤساء {}",
+    "territorial judges": "قضاة أقاليم {}",
+    "territorial officials": "مسؤولو أقاليم {}",
+    "war and conflict": "حروب ونزاعات {}",
+    "war": "حرب {}",
+    "cup": "كأس {}",
 }
 
 test_data_with_pop_format = {
