@@ -1,6 +1,7 @@
 """ """
 
 from ...helps.log import logger
+from ...helps.jsonl_dump import save_data
 from ...translations import (
     SPORT_FORMTS_EN_AR_IS_P17,
     Get_Sport_Format_xo_en_ar_is_P17,
@@ -11,11 +12,23 @@ from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
+@save_data(enable=1)
+def get_con_3_lab_pop_format(suffix, country_start, category):
+
+    suffix_label = ""
+
+    key = suffix.strip()
+    suffix_label = pop_format.get(key, "")
+    logger.debug(f'<<lightblue>>>>>> <<lightgreen>>pop_format<<lightblue>> {category=}, {country_start=}, suffix:"{suffix}"')
+
+    return suffix_label
+
+
 def get_con_3_lab(suffix):
     sources = [
         (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
         (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),
-        (pop_format, False, "pop_format"),
+        # (pop_format, False, "pop_format"),
     ]
 
     suffix_label = ""
@@ -24,8 +37,9 @@ def get_con_3_lab(suffix):
         key = suffix.strip() if do_strip else suffix
         suffix_label = source.get(key, "")
         if suffix_label:
-            logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
             break
+
+    logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
 
     return suffix_label
 
@@ -59,7 +73,10 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
             logger.debug(f'get lab from category_relation_mapping suffix_label:"{suffix_label}"')
 
     if not suffix_label:
-        suffix_label = get_con_3_lab(suffix)
+        suffix_label = get_con_3_lab(suffix, country_start, category)
+
+    if not suffix_label:
+        suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)
 
     if not suffix_label:
         suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
