@@ -132,7 +132,6 @@ def test_get_p17(category, expected):
     ids=list(pop_format_test_data.keys())
 )
 @pytest.mark.fast
-@pytest.mark.skip2
 def test_get_p17_new(category, expected):
     result = Get_P17(category)
     assert result == expected
