@@ -1,5 +1,7 @@
+#
 import pytest
-from src.make2_bots.countries_formats.p17_bot import get_con_3_lab
+from load_one_data import dump_diff, one_dump_test
+from src.make2_bots.countries_formats.p17_bot import get_con_3_lab, get_con_3_lab_pop_format
 
 
 test_data_get_con_3_lab = {
@@ -48,7 +50,25 @@ test_data_get_con_3_lab = {
     "women's youth international footballers": ("لاعبات منتخب {} لكرة القدم للشابات", "SPORT_FORMTS_EN_AR_IS_P17"),
 }
 
-test_data_2 = {
+test_data_with_pop_format = {
+    "contemporary history of": "تاريخ {} المعاصر",
+    "diplomatic missions of": "بعثات {} الدبلوماسية",
+    "early-modern history of": "تاريخ {} الحديث المبكر",
+    "economic history of": "تاريخ {} الاقتصادي",
+    "foreign relations of": "علاقات {} الخارجية",
+    "grand prix": "جائزة {} الكبرى",
+    "military history of": "تاريخ {} العسكري",
+    "military installations of": "منشآت {} العسكرية",
+    "modern history of": "تاريخ {} الحديث",
+    "national symbols of": "رموز {} الوطنية",
+    "natural history of": "تاريخ {} الطبيعي",
+    "political history of": "تاريخ {} السياسي",
+    "politics of": "سياسة {}",
+    "prehistory of": "{} ما قبل التاريخ",
+    "umayyad governors of": "ولاة {} الأمويون",
+    "university of the arts": "جامعة {} للفنون",
+    "university of": "جامعة {}",
+
 }
 
 
@@ -59,8 +79,22 @@ def test_get_con_3_lab(category, expected):
     assert result == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_2.items(), ids=list(test_data_2.keys()))
+@pytest.mark.parametrize("category, expected", test_data_with_pop_format.items(), ids=list(test_data_with_pop_format.keys()))
 @pytest.mark.fast
-def test_get_p17_new(category, expected):
-    result = get_con_3_lab(category)
+def test_with_pop_format(category, expected):
+    result = get_con_3_lab_pop_format(category)
     assert result == expected
+
+
+TEMPORAL_CASES = [
+    ("test_get_con_3_lab", test_data_get_con_3_lab, get_con_3_lab),
+    ("test_with_pop_format", test_data_with_pop_format, get_con_3_lab_pop_format),
+]
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+def test_all_dump(name, data, callback):
+    expected, diff_result = one_dump_test(data, callback)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
