@@ -73,7 +73,7 @@ def Get_P17(category: str) -> str:  # الإنجليزي جنسية والعرب
             logger.debug(f'get lab from category_relation_mapping suffix_label:"{suffix_label}"')
 
     if not suffix_label:
-        suffix_label = get_con_3_lab(suffix, country_start, category)
+        suffix_label = get_con_3_lab(suffix)
 
     if not suffix_label:
         suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)
