@@ -1,10 +1,9 @@
 import pytest
 
-from src.translations.sports_formats_nats.new import (
-    _normalize_both,
-    _normalize_nat_label,
-    _normalize_sport_label,
-    both_bot,
+from src.translations_resolvers.nats_new import (
+    normalize_both,
+    normalize_nat_label,
+    normalize_sport_label,
 )
 
 data = {
@@ -71,12 +70,9 @@ data = {
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
 def test_normalize_both(key, expected) -> None:
-    template_label = _normalize_both(key)
+    template_label = normalize_both(key)
     assert template_label != ""
     assert template_label == expected
-
-    template_label2 = both_bot.normalize_both(key)
-    assert template_label2 == expected
 
 
 data2 = {
@@ -90,12 +86,9 @@ data2 = {
 @pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
 def test_normalize_nat_label(key, expected) -> None:
-    template_label = _normalize_nat_label(key)
+    template_label = normalize_nat_label(key)
     assert template_label != ""
     assert template_label == expected
-
-    template_label2 = both_bot.normalize_nat_label(key)
-    assert template_label2 == expected
 
 
 data3 = {
@@ -109,9 +102,6 @@ data3 = {
 @pytest.mark.parametrize("key,expected", data3.items(), ids=data3.keys())
 @pytest.mark.fast
 def test_normalize_sport_label(key, expected) -> None:
-    template_label = _normalize_sport_label(key)
+    template_label = normalize_sport_label(key)
     assert template_label != ""
     assert template_label == expected
-
-    template_label2 = both_bot.normalize_sport_label(key)
-    assert template_label2 == expected
