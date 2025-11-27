@@ -1,4 +1,4 @@
-# make2 — نظام تعريب وتصنيف تلقائي لتصنيفات ويكيبيديا العربية
+# ArWikiCats — نظام تعريب وتصنيف تلقائي لتصنيفات ويكيبيديا العربية
 
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
@@ -9,9 +9,9 @@
 
 # جدول المحتويات (TOC)
 
-- [لماذا make2؟](#لماذا-make2)
+- [لماذا make2؟](#لماذا-ArWikiCats)
 - [1. المزايا الرئيسية](#1-المزايا-الرئيسية)
-- [2. داخل محرك make2 (Pipeline Overview)](#2-داخل-محرك-make2-pipeline-overview)
+- [2. داخل محرك ArWikiCats (Pipeline Overview)](#2-داخل-محرك-ArWikiCats-pipeline-overview)
   - [2.1 التطبيع (Normalization)](#21-التطبيع-normalization)
   - [2.2 اكتشاف الأنماط الزمنية](#22-اكتشاف-الأنماط-الزمنية)
   - [2.3 مطابقة القواعد والقواميس](#23-مطابقة-القواعد-والقواميس)
@@ -35,7 +35,7 @@
 ## لماذا make2؟
 
 تعريب تصنيفات ويكيبيديا العربية يمثل تحديًا بسبب العدد الهائل من التصنيفات الإنجليزية والأنماط المتداخلة.
-يهدف مشروع **make2** إلى معالجة هذه المشكلة عبر بناء نظام قادر على:
+يهدف مشروع **ArWikiCats** إلى معالجة هذه المشكلة عبر بناء نظام قادر على:
 
 * توحيد أسلوب الترجمة.
 * معالجة ملايين التصنيفات بدقة عالية.
@@ -55,7 +55,7 @@
 
 ---
 
-# 2. داخل محرك make2 (Pipeline Overview)
+# 2. داخل محرك ArWikiCats (Pipeline Overview)
 
 المعالجة الكاملة تمر عبر المراحل التالية:
 
@@ -168,8 +168,8 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 ## 3.2 التثبيت
 
 ```bash
-git clone https://github.com/MrIbrahem/make2_new.git make2
-cd make2
+git clone https://github.com/MrIbrahem/ArWikiCats.git
+cd ArWikiCats
 pip install -r requirements.in
 ````
 
@@ -180,7 +180,7 @@ pip install -r requirements.in
 ## 4.1 معالجة تصنيف واحد
 
 ```python
-from make2 import new_func_lab_final_label
+from ArWikiCats import new_func_lab_final_label
 
 label = new_func_lab_final_label("Category:2015 in Yemen")
 print(label)
@@ -190,7 +190,7 @@ print(label)
 ## 4.2 معالجة قائمة كاملة
 
 ```python
-from make2 import EventProcessor
+from ArWikiCats import EventProcessor
 
 categories = [
     "Category:2015 American television",
@@ -374,7 +374,7 @@ python -m scalene run.py
 
 # 13. الخلاصة
 
-**make2** هو نظام مرن، عالي الأداء، قابل للتوسعة، ويدعم ملايين التصنيفات بسهولة.
+**ArWikiCats** هو نظام مرن، عالي الأداء، قابل للتوسعة، ويدعم ملايين التصنيفات بسهولة.
 يعتمد على:
 
 * قواعد ترجمة متخصصة

@@ -1,11 +1,11 @@
 
-## [#119](https://github.com/MrIbrahem/make2_new/pull/119) - 2025-11-28
+## [#119](https://github.com/MrIbrahem/ArWikiCats/pull/119) - 2025-11-28
 
 * **Refactor**
   * Reorganized internal module structure by consolidating label resolution and normalization utilities across packages. Restructured dependencies and import paths to improve code organization and maintainability while preserving all existing functionality and public APIs with no impact to user-facing features.
 
 
-## [#118](https://github.com/MrIbrahem/make2_new/pull/118) - 2025-11-27
+## [#118](https://github.com/MrIbrahem/ArWikiCats/pull/118) - 2025-11-27
 
 * **New Features**
   * Improved Arabic label resolution for sports and federation categories, with new translation fallbacks and broader coverage.
@@ -17,7 +17,7 @@
 * **Tests**
   * Expanded and parameterized test suites covering sports, federation, squads and non-sports label resolution.
 
-## [#117](https://github.com/MrIbrahem/make2_new/pull/117) - 2025-11-27
+## [#117](https://github.com/MrIbrahem/ArWikiCats/pull/117) - 2025-11-27
 
 * **New Features**
   * Added enhanced Arabic label resolution for sports-related content, enabling improved nationality and country classification mapping.
@@ -29,7 +29,7 @@
   * Removed test markers to streamline test selection and filtering.
   * Expanded test coverage for label resolution functionality across multiple domains.
 
-## [#114](https://github.com/MrIbrahem/make2_new/pull/114) - 2025-11-26
+## [#114](https://github.com/MrIbrahem/ArWikiCats/pull/114) - 2025-11-26
 * **Refactor [skeys.py](src/ma_lists/sports/skeys.py)**
 
 * **New Features**
@@ -42,7 +42,7 @@
 * **Tests**
   * Added and expanded comprehensive tests for nationality, P17 label resolution, and definite-article formatting.
 
-## [#113](https://github.com/MrIbrahem/make2_new/pull/113) - 2025-11-26
+## [#113](https://github.com/MrIbrahem/ArWikiCats/pull/113) - 2025-11-26
 
 * **New Features**
   * Added century/millennium date pattern recognition.
@@ -59,11 +59,11 @@
 * **Style**
   * Enhanced code formatting and readability throughout the codebase.
 
-## [#112](https://github.com/MrIbrahem/make2_new/pull/112) - 2025-11-26
+## [#112](https://github.com/MrIbrahem/ArWikiCats/pull/112) - 2025-11-26
 
 * Expanded Arabic language support by adding gender-specific translations for numerous job and occupation titles across sports and professional categories, improving localization coverage for multilingual users.
 
-## [#111](https://github.com/MrIbrahem/make2_new/pull/111) - 2025-11-26
+## [#111](https://github.com/MrIbrahem/ArWikiCats/pull/111) - 2025-11-26
 
 * **New Features**
   * Added public helpers ethnic_label and add_all for improved label generation.
@@ -81,7 +81,7 @@
 * **Documentation**
   * Expanded docstrings and examples for several public functions.
 
-## [#110](https://github.com/MrIbrahem/make2_new/pull/110) - 2025-11-25
+## [#110](https://github.com/MrIbrahem/ArWikiCats/pull/110) - 2025-11-25
 
 * **New Features**
   * Added Arabic translations for several category terms and new occupational labels, including a "non-fiction writers" role and new population/occupation labels.
@@ -91,7 +91,7 @@
 * **Tests**
   * Updated test data to reflect new category translations and removed one outdated case.
 
-## [#109](https://github.com/MrIbrahem/make2_new/pull/109) - 2025-11-25
+## [#109](https://github.com/MrIbrahem/ArWikiCats/pull/109) - 2025-11-25
 
 * **New Features**
   * Large expansion of category and label datasets (many sports, events, nationality and organization entries).
@@ -107,7 +107,7 @@
 * **Breaking Changes**
   * Removed several previously exported prefix/mapping symbols.
 
-## [#106](https://github.com/MrIbrahem/make2_new/pull/106) - 2025-11-24
+## [#106](https://github.com/MrIbrahem/ArWikiCats/pull/106) - 2025-11-24
 
 * **New Features**
   * Consolidated category label resolution and new sport-localization loaders.
@@ -123,7 +123,7 @@
 * **Tests**
   * Expanded translation coverage and consistency tests; removed noisy debug prints.
 
-## [#105](https://github.com/MrIbrahem/make2_new/pull/105) - 2025-11-24
+## [#105](https://github.com/MrIbrahem/ArWikiCats/pull/105) - 2025-11-24
 
 * **New Features**
   * Added a loader for female national sport formats and expanded translation mappings for many sports/categories.
@@ -137,7 +137,7 @@
 * **Chores**
   * General cleanup: removed extraneous commented markers and updated exports.
 
-## [#104](https://github.com/MrIbrahem/make2_new/pull/104) - 2025-11-23
+## [#104](https://github.com/MrIbrahem/ArWikiCats/pull/104) - 2025-11-23
 
 * **Refactor**
   * Reorganized language and film-category label resolution for clearer, layered behavior.
@@ -148,7 +148,7 @@
 * **Tests**
   * Updated tests to align with the revised year handling and resolver behavior.
 
-## [#102](https://github.com/MrIbrahem/make2_new/pull/102) - 2025-11-23
+## [#102](https://github.com/MrIbrahem/ArWikiCats/pull/102) - 2025-11-23
 
 * **New Features**
   * Enhanced relation processing with improved handling of various dash formats and logging.
@@ -167,7 +167,7 @@
   * Expanded test coverage for geopolitical relations and sports data scenarios.
 
 
-## [#101](https://github.com/MrIbrahem/make2_new/pull/101) - 2025-11-23
+## [#101](https://github.com/MrIbrahem/ArWikiCats/pull/101) - 2025-11-23
 
 * **New Features**
   * Added parameterized year- and country-based category translations to improve localization.
@@ -183,7 +183,7 @@
 * **Tests**
   * Updated tests to use parameterized placeholders and reflect dataset/reordering changes.
 
-## [#99](https://github.com/MrIbrahem/make2_new/pull/99) - 2025-11-22
+## [#99](https://github.com/MrIbrahem/ArWikiCats/pull/99) - 2025-11-22
 
 * **Chores**
   * Expanded geographic lookup variants (more country/admin and India secondary regions), added lowercase lookup support, enhanced US state/party/county mappings, consolidated translation exports, removed an obsolete translation bundle and an older add-in table, and added new job-related entries including "censuses"
@@ -198,12 +198,12 @@
 * **Chores**
   * Disabled several data-dump decorators to stop auxiliary data-dumping side effects
 
-## [#98](https://github.com/MrIbrahem/make2_new/pull/98) - 2025-11-22
+## [#98](https://github.com/MrIbrahem/ArWikiCats/pull/98) - 2025-11-22
 
 * **Chores**
   * Updated Arabic transliterations for Minnesota-related terms across translation databases and tests, correcting the spelling from "مينيسوتا" to "منيسوتا" for improved accuracy in geographic names, sports teams, and related entries.
 
-## [#97](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-97
+## [#97](https://github.com/MrIbrahem/ArWikiCats/pull/96) - 2025-11-97
 
   * Expanded geographic lookup APIs: more country, admin-region and India/secondary-region translation variants and lowercased lookup support.
   * More comprehensive US location variant mappings for states, parties and counties.
@@ -216,7 +216,7 @@
   * Consolidated and reorganized translation data and exports.
   * Removed an obsolete translation entry.
 
-## [#96](https://github.com/MrIbrahem/make2_new/pull/96) - 2025-11-21
+## [#96](https://github.com/MrIbrahem/ArWikiCats/pull/96) - 2025-11-21
 
 * **New Features**
   * Expanded geographic translation coverage with lowercased key variants and richer region/province labels.
@@ -233,7 +233,7 @@
   * Minor formatting cleanups (removed extraneous comments/blank lines).
 
 
-## [#94](https://github.com/MrIbrahem/make2_new/pull/94) - 2025-11-21
+## [#94](https://github.com/MrIbrahem/ArWikiCats/pull/94) - 2025-11-21
 
 * **Documentation**
   * Added a new English README and updated the main README header/branding.
@@ -248,7 +248,7 @@
   * Updated tests to ignore surrounding whitespace during normalization.
 
 
-## [#93](https://github.com/MrIbrahem/make2_new/pull/93) - 2025-11-21
+## [#93](https://github.com/MrIbrahem/ArWikiCats/pull/93) - 2025-11-21
 
 * **New Features**
   * Enhanced Arabic labeling system with improved category and type resolution capabilities.
@@ -261,7 +261,7 @@
   * Optimized label caching performance with increased cache limits.
   * Internal code restructuring and refactoring for improved maintainability.
 
-## [#87](https://github.com/MrIbrahem/make2_new/pull/87) - 2025-11-20
+## [#87](https://github.com/MrIbrahem/ArWikiCats/pull/87) - 2025-11-20
 
 * **New Features**
   * Added enhanced Arabic labeling system with comprehensive category and type resolution capabilities.
@@ -274,7 +274,7 @@
   * Introduced refactoring plan document for system architecture improvements.
   * Internal code restructuring for maintainability and modularity.
 
-## [#86](https://github.com/MrIbrahem/make2_new/pull/86) - 2025-11-20
+## [#86](https://github.com/MrIbrahem/ArWikiCats/pull/86) - 2025-11-20
 
 * **Tests**
   * Added extensive dataset-driven and parameterized tests covering Arabic label generation, event-driven differences, edge cases, and diff dumps for mismatches.
@@ -285,7 +285,7 @@
 * **Chore**
   * Enhanced dump utility to optionally skip writing when output matches a specified field to reduce redundant logs.
 
-## [#85](https://github.com/MrIbrahem/make2_new/pull/85) - 2025-11-20
+## [#85](https://github.com/MrIbrahem/ArWikiCats/pull/85) - 2025-11-20
 
 * **New Features**
   * Added public utilities for text normalization and relation-word detection
@@ -301,7 +301,7 @@
   * Expanded test coverage and new fast/parametrized tests
   * Updated test markers to a new default skip marker (skip2)
 
-## [#84](https://github.com/MrIbrahem/make2_new/pull/84) - 2025-11-20
+## [#84](https://github.com/MrIbrahem/ArWikiCats/pull/84) - 2025-11-20
 
 * **New Features**
   * Expanded time parsing: BC/BCE, decades, centuries, month–year and range patterns.
@@ -318,7 +318,7 @@
 * **Tests**
   * Many test import/style refinements, some test data scope reductions and a few altered test call sites.
 
-## [#82](https://github.com/MrIbrahem/make2_new/pull/82) - 2025-11-19
+## [#82](https://github.com/MrIbrahem/ArWikiCats/pull/82) - 2025-11-19
 
 * **New Features**
   * Added data-saving decorators to key functions for improved performance.
@@ -332,7 +332,7 @@
   * Removed print utility module and unused public exports.
   * Cleaned up placeholder comments throughout the codebase.
 
-## [#81](https://github.com/MrIbrahem/make2_new/pull/81) - 2025-11-19
+## [#81](https://github.com/MrIbrahem/ArWikiCats/pull/81) - 2025-11-19
 
 * **New Features**
   * Restructured and expanded data metadata with 50+ new keys for improved categorization of regions, sports, films, and people data.
@@ -344,7 +344,7 @@
 * **Refactor**
   * Improved imports and removed unused code; transitioned to runtime data loading.
 
-## [#79](https://github.com/MrIbrahem/make2_new/pull/79) - 2025-11-19
+## [#79](https://github.com/MrIbrahem/ArWikiCats/pull/79) - 2025-11-19
 * **New Features**
   * Optional JSONL data capture decorator added; enabled for one title extraction function to persist inputs/outputs.
 
@@ -355,7 +355,7 @@
   * Safer file creation and write behavior for persistence.
   * Several automated persistence hooks disabled/commented out to reduce runtime writes.
 
-## [#78](https://github.com/MrIbrahem/make2_new/pull/78) - 2025-11-18
+## [#78](https://github.com/MrIbrahem/ArWikiCats/pull/78) - 2025-11-18
 
 * **New Features**
   * Expanded gendered prefix/suffix translations, year-based variants, and improved suffix-aware nationality/religion labeling with optional persistence.
@@ -369,7 +369,7 @@
 * **Tests**
   * Added many parameterized tests for suffix/expatriate scenarios and removed several legacy tests.
 
-## [#77](https://github.com/MrIbrahem/make2_new/pull/77) - 2025-11-18
+## [#77](https://github.com/MrIbrahem/ArWikiCats/pull/77) - 2025-11-18
 
 * **New Features**
   * Enhanced job categorization with richer nationality and gendered labels and example data export.
@@ -384,7 +384,7 @@
   * Extensive new unit and integration tests covering job-label logic and real examples.
 
 
-## [#74](https://github.com/MrIbrahem/make2_new/pull/74) - 2025-11-17
+## [#74](https://github.com/MrIbrahem/ArWikiCats/pull/74) - 2025-11-17
 
 * **Bug Fixes**
   * Enhanced input validation and type-checking across modules to prevent processing of invalid data.
@@ -395,12 +395,12 @@
   * Optimized data structure handling for improved performance.
 
 
-## [#73](https://github.com/MrIbrahem/make2_new/pull/73) - 2025-11-17
+## [#73](https://github.com/MrIbrahem/ArWikiCats/pull/73) - 2025-11-17
 
 * **Refactor**
   * Optimized pattern matching throughout the application for improved performance.
 
-## [#69](https://github.com/MrIbrahem/make2_new/pull/69) - 2025-11-17
+## [#69](https://github.com/MrIbrahem/ArWikiCats/pull/69) - 2025-11-17
 
 * **New Features**
   - Streamlined event/category processing pipeline with batch label helpers
@@ -413,7 +413,7 @@
 
 * **Tests**
   - Added and reorganized unit tests covering parsing, episodes, templates, and label resolution
-## [#68](https://github.com/MrIbrahem/make2_new/pull/68) - 2025-11-17
+## [#68](https://github.com/MrIbrahem/ArWikiCats/pull/68) - 2025-11-17
 
 * **Refactor**
   * Reorganized internal module structure for better code maintainability and clarity.
@@ -424,7 +424,7 @@
 * **Bug Fixes**
   * Removed erroneous internal imports that could cause module initialization issues.
 
-## [#67](https://github.com/MrIbrahem/make2_new/pull/67) - 2025-11-17
+## [#67](https://github.com/MrIbrahem/ArWikiCats/pull/67) - 2025-11-17
 
 * **Refactor**
   * Large internal reorganization: many modules and tests now reference a consolidated "translations" package and a new "translations_formats" area.
@@ -432,7 +432,7 @@
   * Helper imports consolidated under a helps area.
   * No changes to public APIs or end-user behavior; functionality and external interfaces remain the same.
 
-## [#65](https://github.com/MrIbrahem/make2_new/pull/65) - 2025-11-16
+## [#65](https://github.com/MrIbrahem/ArWikiCats/pull/65) - 2025-11-16
 
 * **Refactor [Nationality.py](src/translations/nats/Nationality.py)**
   * Reorganized labeling engine and moved label construction into a focused start-with-year/type workflow; simplified mapping usage and renamed a public category mapping for clarity.
@@ -444,7 +444,7 @@
 * **Tests**
   * Updated, added, and relocated tests to cover the new labeling flow and time parsing; removed obsolete test harnesses.
 
-## [#64](https://github.com/MrIbrahem/make2_new/pull/64) - 2025-11-16
+## [#64](https://github.com/MrIbrahem/ArWikiCats/pull/64) - 2025-11-16
 
 * **New Features**
   * Added modular event labeling with improved country and type processing
@@ -465,7 +465,7 @@
   * Expanded pattern matching test coverage
   * Added slow test markers for performance-intensive tests
 
-## [#62](https://github.com/MrIbrahem/make2_new/pull/62) - 2025-11-15
+## [#62](https://github.com/MrIbrahem/ArWikiCats/pull/62) - 2025-11-15
 
 * **Refactor**
   * Modernized internal caching mechanisms across the application to use Python's built-in caching utilities instead of manual implementations, improving code maintainability and performance consistency.
@@ -473,7 +473,7 @@
 * **Tests**
   * Added skeleton test files across multiple modules to establish testing infrastructure and improve code coverage foundation.
 
-## [#59](https://github.com/MrIbrahem/make2_new/pull/59) - 2025-11-14
+## [#59](https://github.com/MrIbrahem/ArWikiCats/pull/59) - 2025-11-14
 * **Refactor [Sport_key.py](src/translations/sports/Sport_key.py)**
   * Restructured sport key data handling into a modular pipeline with validation and alias expansion for improved maintainability.
   * Standardized constant naming conventions across the codebase for consistency.
@@ -489,7 +489,7 @@
   * Removed obsolete test file for normalization logic.
   * Updated test coverage to align with refactored APIs and new data structure.
 
-## [#58](https://github.com/MrIbrahem/make2_new/pull/58) - 2025-11-14
+## [#58](https://github.com/MrIbrahem/ArWikiCats/pull/58) - 2025-11-14
 * Refactor [fixtitle.py](src/fix/fixtitle.py)
 * **New Features**
   * Added comprehensive Arabic text normalization with improved handling of formulas, prepositions, time expressions, and category-specific replacements.
@@ -500,7 +500,7 @@
 * **API Updates**
   * Standardized naming convention for exported constants to uppercase format for consistency.
 
-## [#54](https://github.com/MrIbrahem/make2_new/pull/54) - 2025-11-13
+## [#54](https://github.com/MrIbrahem/ArWikiCats/pull/54) - 2025-11-13
 * **Refactor [all_keys2.py](src/translations/mixed/all_keys2.py)**
   * Restructured internal data mapping generation for improved maintainability and scalability of data definitions.
 
@@ -510,7 +510,7 @@
 * **Chores**
   * Updated naming conventions for consistency across the public API.
 
-## [#53](https://github.com/MrIbrahem/make2_new/pull/53) - 2025-11-13
+## [#53](https://github.com/MrIbrahem/ArWikiCats/pull/53) - 2025-11-13
 
 * **Bug Fixes**
   * Corrected Arabic translations for sports categories, publications, and cultural topics.
@@ -525,13 +525,13 @@
   * Refactored internal data structure organization for improved maintainability.
   * Standardized naming conventions across core mappings.
 
-## [#50](https://github.com/MrIbrahem/make2_new/pull/50) - 2025-11-12
+## [#50](https://github.com/MrIbrahem/ArWikiCats/pull/50) - 2025-11-12
 
 * **Refactor [Jobs.py](src/translations/jobs/Jobs.py)**
   * Updated job data API naming conventions and restructured internal data assembly pipeline for improved maintainability and consistency.
   * Enhanced data normalization for automatic sorting and deduplication of lists and dictionaries.
 
-## [#47](https://github.com/MrIbrahem/make2_new/pull/47) - 2025-11-11
+## [#47](https://github.com/MrIbrahem/ArWikiCats/pull/47) - 2025-11-11
 
 * **New Features**
   * Added support for wheelchair racers and expanded wheelchair sport coverage (rugby, tennis, handball, curling, fencing) with localized labels and metadata.
@@ -547,12 +547,12 @@
 * **Chores**
   * Added changelog entry and general internal string-handling cleanups.
 
-## [#46](https://github.com/MrIbrahem/make2_new/pull/46) - 2025-11-11
+## [#46](https://github.com/MrIbrahem/ArWikiCats/pull/46) - 2025-11-11
 
 * **New Features [format_data.py](src/translations_formats/format_data.py)**
   * Introduces FormatData class with template-based string transformation logic, including regex pattern matching from sport keys, placeholder replacement, category normalization, and a unified search() method orchestrating the lookup pipeline. Includes a sample usage function.
 
-## [#45](https://github.com/MrIbrahem/make2_new/pull/45) - 2025-11-11
+## [#45](https://github.com/MrIbrahem/ArWikiCats/pull/45) - 2025-11-11
 
 * **New Features**
   * Improved organization and categorization of sports team-related data
@@ -562,10 +562,10 @@
   * Reorganized internal data structures for better sports information management
   * Updated code formatting and test annotations
 
-## [#44](https://github.com/MrIbrahem/make2_new/pull/44) - 2025-11-10
+## [#44](https://github.com/MrIbrahem/ArWikiCats/pull/44) - 2025-11-10
 * **Refactor [jobs_players_list.py](src/translations/jobs/jobs_players_list.py)**
 
-## [#42](https://github.com/MrIbrahem/make2_new/pull/42) - 2025-11-10
+## [#42](https://github.com/MrIbrahem/ArWikiCats/pull/42) - 2025-11-10
 
 * **Refactor**
   * Optimized data loading performance through lazy initialization and caching mechanisms.
@@ -578,14 +578,14 @@
 * **Tests**
   * Added slow-test markers for improved test categorization and execution management.
 
-## [#41](https://github.com/MrIbrahem/make2_new/pull/41) - 2025-11-09
+## [#41](https://github.com/MrIbrahem/ArWikiCats/pull/41) - 2025-11-09
 
 * **Refactor [pop_All_2018_bot.py](src/translations/mix_data/pop_All_2018_bot.py)**
   - Reorganized internal data-loading and resolution flows for consistency.
   - Removed deprecated backward-compatibility aliases and an obsolete resolver.
   - Consolidated imports and simplified name-resolution logic to improve maintainability.
 
-## [#37](https://github.com/MrIbrahem/make2_new/pull/37) - 2025-11-09
+## [#37](https://github.com/MrIbrahem/ArWikiCats/pull/37) - 2025-11-09
 
 * **New Features**
   * Centralized runtime configuration controlling printing, Wikidata, Kooora, stubs, and other app flags.
@@ -598,7 +598,7 @@
 * **Chores**
   * Updated ignore list (added generated start file).
 
-## [#36](https://github.com/MrIbrahem/make2_new/pull/36) - 2025-11-09
+## [#36](https://github.com/MrIbrahem/ArWikiCats/pull/36) - 2025-11-09
 
 * **Refactor [jobs_singers.py](src/translations/jobs/jobs_singers.py)**
   * Updated public constant names to follow Python naming conventions (MEN_WOMENS_SINGERS, FILMS_TYPE, SINGERS_TAB)
@@ -608,7 +608,7 @@
 * **Tests**
   * Updated tests to align with refactored constant names
 
-## [#35](https://github.com/MrIbrahem/make2_new/pull/35) - 2025-11-09
+## [#35](https://github.com/MrIbrahem/ArWikiCats/pull/35) - 2025-11-09
 
 * **New Features**
   * Expanded job and place name datasets with additional job categories and extensive place-name translations for improved Arabic localization.
@@ -619,7 +619,7 @@
 * **Chores**
   * Added new data assets and updated changelog with two new entries and an expanded existing entry.
 
-## [#34](https://github.com/MrIbrahem/make2_new/pull/34) - 2025-11-09
+## [#34](https://github.com/MrIbrahem/ArWikiCats/pull/34) - 2025-11-09
 
 * **New Features**
   * Expanded and enriched job, player and singer datasets with additional entries and gendered labels, improving localized display.
@@ -630,7 +630,7 @@
 * **Chores**
   * Added new JSON data files to supply the updated datasets and translations.
 
-## [#32](https://github.com/MrIbrahem/make2_new/pull/32) - 2025-11-08
+## [#32](https://github.com/MrIbrahem/ArWikiCats/pull/32) - 2025-11-08
 
 ### Changed
 * Refactored all modules under `src/make2_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
