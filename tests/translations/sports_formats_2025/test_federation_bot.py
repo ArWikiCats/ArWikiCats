@@ -357,14 +357,14 @@ data6 = {
 
 @pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
 @pytest.mark.fast
-def test_resolve_sport_formts_en_p17_ar_nat(category, expected_key) -> None:
+def test_resolve_federation_label(category, expected_key) -> None:
     label = resolve_federation_label(category)
 
     assert label.strip() == expected_key
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_sport_formts_en_p17_ar_nat", data5, resolve_federation_label),
+    ("test_resolve_federation_label", data5, resolve_federation_label),
 ]
 
 
