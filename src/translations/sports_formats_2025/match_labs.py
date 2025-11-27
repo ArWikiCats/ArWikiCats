@@ -5,7 +5,6 @@ import functools
 from typing import Dict
 
 from ...helps import len_print
-from ...helps.jsonl_dump import dump_data
 from ...translations_formats.format_data import FormatData
 from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
@@ -89,7 +88,6 @@ def load_class() -> FormatData:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(enable=1)
 def find_teams_2025(category: str, default: str = "") -> str:
     """Search for a 2025 team label, falling back to ``default`` when absent."""
     bot = load_class()
