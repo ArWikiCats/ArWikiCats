@@ -3,7 +3,7 @@
 from ...translations_formats.format_data import FormatData
 from ...translations import contries_from_nat
 
-SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT: dict[str, str] = {
+en_is_P17_ar_is_P17: dict[str, str] = {
     "{en} cup": "كأس {ar}",
     "{en} presidents": "رؤساء {ar}",
     "{en} territorial officials": "مسؤولو أقاليم {ar}",
@@ -14,17 +14,17 @@ SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT: dict[str, str] = {
 }
 
 nat_bot = FormatData(
-    SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT,
+    en_is_P17_ar_is_P17,
     contries_from_nat,
     key_placeholder="{en}",
     value_placeholder="{ar}",
 )
 
 
-def resolve_SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT(category: str):
+def resolve_en_is_P17_ar_is_P17(category: str):
     return nat_bot.search(category)
 
 
 __all__ = [
-    "resolve_SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT",
+    "resolve_en_is_P17_ar_is_P17",
 ]

@@ -6,7 +6,7 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test
 from src.make2_bots.countries_formats.not_sports_bot import (
-    resolve_SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT,
+    resolve_en_is_P17_ar_is_P17,
 )
 
 main_data = {
@@ -23,13 +23,13 @@ main_data = {
 
 @pytest.mark.parametrize("category, expected", main_data.items(), ids=list(main_data.keys()))
 @pytest.mark.fast
-def test_resolve_SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT(category, expected) -> None:
-    label = resolve_SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT(category)
+def test_resolve_en_is_P17_ar_is_P17(category, expected) -> None:
+    label = resolve_en_is_P17_ar_is_P17(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT", main_data, resolve_SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT),
+    ("test_resolve_en_is_P17_ar_is_P17", main_data, resolve_en_is_P17_ar_is_P17),
 ]
 
 

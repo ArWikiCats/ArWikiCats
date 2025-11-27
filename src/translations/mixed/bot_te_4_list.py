@@ -1,6 +1,6 @@
 """
 Rich lookup tables for gendered and national prefix/suffix mappings.
-(en_is_nat_ar_is_P17|en_is_nat_ar_is_al_mens|en_is_nat_ar_is_man|en_is_nat_ar_is_al_women|en_is_nat_ar_is_women|en_is_nat_ar_is_women_2|en_is_P17_ar_is_mens|en_is_P17_ar_is_P17|en_is_P17_ar_is_al_women)
+(en_is_nat_ar_is_P17|en_is_nat_ar_is_al_mens|en_is_nat_ar_is_man|en_is_nat_ar_is_al_women|en_is_nat_ar_is_women|en_is_nat_ar_is_women_2|en_is_P17_ar_is_mens|en_is_P17_ar_is_al_women)
 """
 
 from ...helps import len_print
@@ -53,23 +53,6 @@ en_is_P17_ar_is_mens: dict[str, str] = {
 
 # الإنجليزية والعربية اسم البلد
 # tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
-
-# "courts" : "محاكم {}",
-en_is_P17_ar_is_P17: dict[str, str] = {
-    "board members": "أعضاء مجلس {}",
-    "elections": "انتخابات {}",
-    "government personnel": "موظفي حكومة {}",
-    "executive cabinet": "مجلس وزراء {} التنفيذي",
-    "political leader": "قادة {} السياسيون",
-    "government": "حكومة {}",
-    "cup": "كأس {}",
-    "presidents": "رؤساء {}",
-    "territorial officials": "مسؤولو أقاليم {}",
-    "territorial judges": "قضاة أقاليم {}",
-    "conflict": "نزاع {}",
-    "war": "حرب {}",
-    "responses": "استجابات {}",
-}
 
 # الإنجليزي جنسية والعربي اسم البلد
 # tab[Category:Bahraini King's Cup] = "تصنيف:كأس ملك البحرين"
@@ -552,7 +535,6 @@ __all__ = [
     "en_is_nat_ar_is_women",
     "en_is_nat_ar_is_women_2",
     "en_is_P17_ar_is_mens",
-    "en_is_P17_ar_is_P17",
     "en_is_P17_ar_is_al_women",
 ]
 
@@ -569,7 +551,6 @@ len_print.data_len(
         "Multi_sport_for_Jobs": Multi_sport_for_Jobs,
         "en_is_nat_ar_is_women_2": en_is_nat_ar_is_women_2,
         "en_is_P17_ar_is_mens": en_is_P17_ar_is_mens,
-        "en_is_P17_ar_is_P17": en_is_P17_ar_is_P17,
         "en_is_P17_ar_is_al_women": en_is_P17_ar_is_al_women,
     },
 )

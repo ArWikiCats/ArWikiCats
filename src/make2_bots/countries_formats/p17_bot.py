@@ -3,7 +3,6 @@ This module processes categories that start with an English country name and map
 It checks the suffix against the following tables:
 
 * category_relation_mapping
-* SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT
 * en_is_P17_ar_is_P17
 * pop_format
 
@@ -14,17 +13,25 @@ from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
     contries_from_nat,
-    en_is_P17_ar_is_P17,
 )
 from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
-SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT = {
+# "courts" : "محاكم {}",
+en_is_P17_ar_is_P17: dict[str, str] = {
+    "board members": "أعضاء مجلس {}",
+    "elections": "انتخابات {}",
+    "government personnel": "موظفي حكومة {}",
+    "executive cabinet": "مجلس وزراء {} التنفيذي",
+    "political leader": "قادة {} السياسيون",
+    "government": "حكومة {}",
     "cup": "كأس {}",
     "presidents": "رؤساء {}",
     "territorial officials": "مسؤولو أقاليم {}",
     "territorial judges": "قضاة أقاليم {}",
+    "conflict": "نزاع {}",
     "war": "حرب {}",
+    "responses": "استجابات {}",
     "war and conflict": "حروب ونزاعات {}",
     "governorate": "حكومة {}",
 }
@@ -56,7 +63,6 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
 def get_con_3_lab(suffix, country_start="", category="") -> str:
     sources = [
-        # (SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT, True, "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
         (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),
     ]
 

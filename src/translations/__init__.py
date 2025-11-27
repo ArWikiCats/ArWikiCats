@@ -35,7 +35,6 @@ from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_women_2,
     en_is_P17_ar_is_al_women,
     en_is_P17_ar_is_mens,
-    en_is_P17_ar_is_P17,
     replace_labels_2022,
 )
 from .mixed.jenders_priffix_suffix import (
@@ -228,7 +227,6 @@ __all__ = [
     "en_is_nat_ar_is_women_2",
     "en_is_P17_ar_is_mens",
     "en_is_P17_ar_is_al_women",
-    "en_is_P17_ar_is_P17",
     "replace_labels_2022",
     "Mens_suffix",
     "Mens_priffix",
