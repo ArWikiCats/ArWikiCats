@@ -13,11 +13,16 @@ from ..matables_bots.bot import Films_O_TT, add_to_new_players
 from ..media_bots.film_keys_bot import get_Films_key_CAO
 from ..o_bots import fax
 from ..o_bots.army import te_army
+from ...translations.sports_formats_2025 import resolved_sports_formats_labels
 
 
 @functools.lru_cache(maxsize=None)
 def te_films(category: str) -> str:
-    """Resolve a media category into an Arabic label using layered fallbacks."""
+    """
+    Resolve a media category into an Arabic label using layered fallbacks.
+
+    TODO: many funcs used here
+    """
     normalized_category = category.lower()
     logger.info(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")
     resolved_label = ""
@@ -53,6 +58,9 @@ def te_films(category: str) -> str:
 
     if not resolved_label:
         resolved_label = resolved_countries_formats_labels(normalized_category)
+
+    if not resolved_label:
+        resolved_label = resolved_sports_formats_labels(normalized_category)
 
     if not resolved_label:
         resolved_label = fax.te_language(normalized_category)

@@ -35,7 +35,6 @@ from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_women_2,
     en_is_P17_ar_is_al_women,
     en_is_P17_ar_is_mens,
-    en_is_P17_ar_is_P17,
     replace_labels_2022,
 )
 from .mixed.jenders_priffix_suffix import (
@@ -70,7 +69,7 @@ from .politics.military_keys import (
     military_format_women_without_al_from_end,
 )
 from .politics.ministers import ministrs_tab_for_pop_format
-from .sports import SPORT_FORMTS_EN_AR_IS_P17, SPORT_FORMTS_EN_P17_AR_NAT
+from .sports import SPORT_FORMTS_EN_AR_IS_P17
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.nat_p17 import SPORT_FORMATS_FOR_P17
 from .sports.olympics_data import olympics
@@ -213,7 +212,6 @@ __all__ = [
     #
     # "TEAMS_NEW",
     "SPORT_FORMTS_EN_AR_IS_P17",
-    "SPORT_FORMTS_EN_P17_AR_NAT",
     #
     "sport_lab_oioioi_load",
     "SPORT_FORMATS_FOR_P17",
@@ -229,7 +227,6 @@ __all__ = [
     "en_is_nat_ar_is_women_2",
     "en_is_P17_ar_is_mens",
     "en_is_P17_ar_is_al_women",
-    "en_is_P17_ar_is_P17",
     "replace_labels_2022",
     "Mens_suffix",
     "Mens_priffix",

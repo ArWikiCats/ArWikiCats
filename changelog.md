@@ -1,4 +1,28 @@
 
+## [#118](https://github.com/MrIbrahem/make2_new/pull/118) - 2025-11-27
+
+* **New Features**
+  * Improved Arabic label resolution for sports and federation categories, with new translation fallbacks and broader coverage.
+
+* **Bug Fixes**
+  * Strengthened fallback logic and streamlined resolution flows for more consistent category matching and earlier, more reliable label selection.
+  * Removed obsolete sport mappings to reduce ambiguity.
+
+* **Tests**
+  * Expanded and parameterized test suites covering sports, federation, squads and non-sports label resolution.
+
+## [#117](https://github.com/MrIbrahem/make2_new/pull/117) - 2025-11-27
+
+* **New Features**
+  * Added enhanced Arabic label resolution for sports-related content, enabling improved nationality and country classification mapping.
+
+* **Bug Fixes**
+  * Improved fallback mechanisms for label resolution to ensure more reliable category matching.
+
+* **Tests**
+  * Removed test markers to streamline test selection and filtering.
+  * Expanded test coverage for label resolution functionality across multiple domains.
+
 ## [#114](https://github.com/MrIbrahem/make2_new/pull/114) - 2025-11-26
 * **Refactor [skeys.py](src/ma_lists/sports/skeys.py)**
 

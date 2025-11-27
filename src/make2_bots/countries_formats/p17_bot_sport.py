@@ -12,26 +12,12 @@ from ...translations import (
     apply_pattern_replacement,
     SPORT_FORMTS_ENAR_P17_TEAM,
     sport_formts_enar_p17_jobs,
-    SPORT_FORMTS_EN_P17_AR_NAT,
-    all_country_with_nat,
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
-from .utils import resolve_p17_2_label
 
-en_is_P17_ar_is_P17_SPORTS: dict[str, str] = {
-    "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
-    "afc asian cup squad": "تشكيلات {} في كأس آسيا",
-    "fifa world cup squad": "تشكيلات {} في كأس العالم",
-    "fifa futsal world cup squad": "تشكيلات {} في كأس العالم لكرة الصالات",
-    "summer olympics squad": "تشكيلات {} في الألعاب الأولمبية الصيفية",
-    "winter olympics squad": "تشكيلات {} في الألعاب الأولمبية الشتوية",
-    "olympics squad": "تشكيلات {} في الألعاب الأولمبية",
-    "summer olympics": " {} في الألعاب الأولمبية الصيفية",
-    "winter olympics": " {} في الألعاب الأولمبية الشتوية",
-}
+# @dump_data(enable=1)
 
 
-@dump_data(enable=1)
 def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p17_jobs
     """
     Return a sport label that merges templates with Arabic sport names.
@@ -80,7 +66,6 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
 def get_con_3_lab_sports(suffix, country_start="", category="") -> str:
     sources = [
         (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
-        (en_is_P17_ar_is_P17_SPORTS, True, "en_is_P17_ar_is_P17_SPORTS"),
     ]
 
     suffix_label = ""
@@ -133,19 +118,8 @@ def get_p17_with_sport(category: str) -> str:
     return resolved_label
 
 
-def resolve_sport_formts_en_p17_ar_nat(category: str) -> str:
-    """
-    Example:
-        "Yemeni martial arts federation": "الاتحاد اليمني للفنون القتالية",
-    """
-    resolved_label = resolve_p17_2_label(category, SPORT_FORMTS_EN_P17_AR_NAT, "men", all_country_with_nat, add_article=True)
-
-    return resolved_label
-
-
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
     "get_p17_with_sport",
     "get_con_3_lab_sports",
-    "resolve_sport_formts_en_p17_ar_nat",
 ]

@@ -13,7 +13,6 @@ NAT_PLACEHOLDER: Final[str] = "{nat}"
 
 SPORT_FORMTS_MALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 SPORT_FORMTS_FEMALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
-SPORT_FORMTS_EN_P17_AR_NAT = {}  # الإنجليزي إسم البلد والعربي جنسية
 SPORT_FORMTS_EN_AR_IS_P17 = {}  # الإنجليزي إسم البلد والعربي يكون اسم البلد
 SPORT_FORMTS_NEW_KKK = {}  # الإنجليزي جنسية والعربي اسم البلد
 
@@ -89,20 +88,6 @@ def _build_female_nat() -> Dict[str, str]:
         # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
         label_index[f"outdoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} في الهواء الطلق"
         label_index[f"indoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} داخل الصالات"
-
-    return label_index
-
-
-def _build_en_p17_ar_nat() -> Dict[str, str]:
-    """
-    English country-name → Arabic nationality
-    Example: “{team2} federation” = "الاتحاد {nat} ..."
-       [Yemeni wheelchair handball federation] : "تصنيف:الاتحاد اليمني لكرة اليد على الكراسي المتحركة",
-    """
-    label_index: Dict[str, str] = {}
-
-    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
-        label_index[f"{team2} federation"] = f"الاتحاد {NAT_PLACEHOLDER} {team2_lab}"
 
     return label_index
 
@@ -203,7 +188,6 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
 # ----------------------------------------------------------------------
 SPORT_FORMTS_MALE_NAT = _build_male_nat()
 SPORT_FORMTS_FEMALE_NAT = _build_female_nat()
-SPORT_FORMTS_EN_P17_AR_NAT = _build_en_p17_ar_nat()
 SPORT_FORMTS_EN_AR_IS_P17 = _build_en_ar_is_p17()
 SPORT_FORMTS_NEW_KKK = _build_new_kkk()
 
@@ -211,7 +195,6 @@ len_print.data_len(
     "skeys.py",
     {
         "SPORT_FORMTS_EN_AR_IS_P17": SPORT_FORMTS_EN_AR_IS_P17,
-        "SPORT_FORMTS_EN_P17_AR_NAT": SPORT_FORMTS_EN_P17_AR_NAT,
         "SPORT_FORMTS_FEMALE_NAT": SPORT_FORMTS_FEMALE_NAT,
         "SPORT_FORMTS_MALE_NAT": SPORT_FORMTS_MALE_NAT,
         "SPORT_FORMTS_NEW_KKK": SPORT_FORMTS_NEW_KKK,
@@ -220,7 +203,6 @@ len_print.data_len(
 
 __all__ = [
     "SPORT_FORMTS_EN_AR_IS_P17",
-    "SPORT_FORMTS_EN_P17_AR_NAT",
     "SPORT_FORMTS_FEMALE_NAT",
     "SPORT_FORMTS_MALE_NAT",
     "SPORT_FORMTS_NEW_KKK",

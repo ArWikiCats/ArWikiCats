@@ -45,17 +45,21 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
     """
 
     men_nat_lab = Nat_men.get(nat, "")
-    country_lab = ""
-    con_3_lab = ""
+
+    if not men_nat_lab:
+        return ""
 
     # رجالية بألف ولام التعريف
-    if not con_3_lab and not country_lab:
-        con_3_lab = en_is_nat_ar_is_al_mens.get(suffix.strip(), "")
-        if con_3_lab:
-            men_nat_lab = add_definite_article(men_nat_lab)
+    suffix_label = en_is_nat_ar_is_al_mens.get(suffix.strip(), "")
 
-            country_lab = con_3_lab.format(men_nat_lab)
-            logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_mens new country_lab  "{country_lab}" ')
+    if not suffix_label:
+        return ""
+
+    men_nat_lab = add_definite_article(men_nat_lab)
+
+    country_lab = suffix_label.format(men_nat_lab)
+    logger.info(f'Work_for_New_2018_men_Keys_with_all: {suffix=}, {suffix_label=} ')
+    logger.info(f'Work_for_New_2018_men_Keys_with_all: {nat=}, {men_nat_lab=}, {country_lab=} ')
 
     return country_lab
 

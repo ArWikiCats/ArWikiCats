@@ -39,7 +39,6 @@ def resolve_p17_2_label(category: str, templates: dict, nat_key: str, country_da
         # resolved_label = template.format(nat_label)
 
         if "{nat}" in template:
-            # {nat} SPORT_FORMTS_EN_P17_AR_NAT
             resolved_label = template.format(nat=nat_label)
         else:
             resolved_label = template.format(nat_label)

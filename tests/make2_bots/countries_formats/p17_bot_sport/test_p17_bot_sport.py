@@ -9,7 +9,6 @@ from src.make2_bots.countries_formats.p17_bot_sport import (
     get_p17_with_sport,
     get_con_3_lab_sports,
     Get_Sport_Format_xo_en_ar_is_P17,
-    resolve_sport_formts_en_p17_ar_nat,
 )
 
 sport_data = {
@@ -26,8 +25,6 @@ sport_data = {
     "venezuela rally championship": "بطولة فنزويلا للراليات",
     "zambia rally championship": "بطولة زامبيا للراليات",
     "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
-    "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
-    "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "africa football league": "دوري إفريقيا لكرة القدم",
@@ -155,16 +152,6 @@ data_2 = {
     "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
     "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
 
-    "democratic-republic-of-the-congo winter olympics": " جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
-    "democratic-republic-of-the-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
-    "democratic-republic-of-the-congo summer olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الصيفية",
-    "west india olympics squad": "تشكيلات الهند الغربية في الألعاب الأولمبية",
-    "victoria-australia fifa futsal world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم لكرة الصالات",
-    "victoria-australia fifa world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم",
-    "yemen afc asian cup squad": "تشكيلات اليمن في كأس آسيا",
-    "west india summer olympics": " الهند الغربية في الألعاب الأولمبية الصيفية",
-    "yemen afc women's asian cup squad": "تشكيلات اليمن في كأس آسيا للسيدات",
-
     "tunisia sports templates": "قوالب تونس الرياضية",
     "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
     "aruba men's under-20 international footballers": "لاعبو منتخب أروبا تحت 20 سنة لكرة القدم للرجال",
@@ -215,31 +202,7 @@ def test_get_p17_with_sport_data_2(category, expected) -> None:
     assert label.strip() == expected.strip()
 
 
-TEMPORAL_CASES = [
-    ("test_get_p17_with_sport", sport_data, get_p17_with_sport),
-    ("test_get_p17_with_sport_2", data_2, get_p17_with_sport),
-]
-
-
-@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
-def test_all_dump(name, data, callback):
-    expected, diff_result = one_dump_test(data, callback, do_strip=True)
-
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 test_data_get_con_3_lab = {
-    "afc asian cup squad": "تشكيلات {} في كأس آسيا",
-    "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
-    "fifa futsal world cup squad": "تشكيلات {} في كأس العالم لكرة الصالات",
-    "fifa world cup squad": "تشكيلات {} في كأس العالم",
-    "olympics squad": "تشكيلات {} في الألعاب الأولمبية",
-    "summer olympics squad": "تشكيلات {} في الألعاب الأولمبية الصيفية",
-    "summer olympics": " {} في الألعاب الأولمبية الصيفية",
-    "winter olympics squad": "تشكيلات {} في الألعاب الأولمبية الشتوية",
-    "winter olympics": " {} في الألعاب الأولمبية الشتوية",
-
     "amateur international footballers": "لاعبو منتخب {} لكرة القدم للهواة",
     "amateur international soccer players": "لاعبو منتخب {} لكرة القدم للهواة",
     "international footballers": "لاعبو منتخب {} لكرة القدم ",
@@ -282,13 +245,17 @@ def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
     assert label.strip() == expected_key
 
 
-data5 = {
-    "Yemeni wheelchair handball federation": "الاتحاد اليمني لكرة اليد على الكراسي المتحركة",
-}
+TEMPORAL_CASES = [
+    ("test_get_p17_with_sport", sport_data, get_p17_with_sport),
+    ("test_get_p17_with_sport_2", data_2, get_p17_with_sport),
+    ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
+    ("test_Get_Sport_Format_xo_en_ar_is_P17", data2, Get_Sport_Format_xo_en_ar_is_P17),
+]
 
 
-@pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
-@pytest.mark.fast
-def test_resolve_sport_formts_en_p17_ar_nat(category, expected_key) -> None:
-    label = resolve_sport_formts_en_p17_ar_nat(category)
-    assert label.strip() == expected_key
+@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
+def test_all_dump(name, data, callback):
+    expected, diff_result = one_dump_test(data, callback, do_strip=True)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
