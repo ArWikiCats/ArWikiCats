@@ -56,7 +56,7 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
 def get_con_3_lab(suffix, country_start="", category="") -> str:
     sources = [
-        (SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT, True, "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
+        # (SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT, True, "SPORT_FORMTS_EN_AR_IS_P17_NOT_SPORT"),
         (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),
     ]
 
