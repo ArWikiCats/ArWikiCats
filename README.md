@@ -275,6 +275,8 @@ src/
 ├── main.py
 ├── event_processing.py
 │
+├── fix/
+│   ├──
 ├── main_processers/
 │   ├── main_resolve.py
 │   ├── event2bot.py
@@ -293,9 +295,12 @@ src/
 │   └── medical/
 │
 ├── translations_formats/
+│   ├──
+├── translations_resolvers/
+│   ├──
 ├── helps/
 ├── utils/
-└── tests/
+tests/
 ```
 
 ---
