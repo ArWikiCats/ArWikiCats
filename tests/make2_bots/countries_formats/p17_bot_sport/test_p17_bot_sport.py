@@ -215,20 +215,6 @@ def test_get_p17_with_sport_data_2(category, expected) -> None:
     assert label.strip() == expected.strip()
 
 
-TEMPORAL_CASES = [
-    ("test_get_p17_with_sport", sport_data, get_p17_with_sport),
-    ("test_get_p17_with_sport_2", data_2, get_p17_with_sport),
-]
-
-
-@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
-def test_all_dump(name, data, callback):
-    expected, diff_result = one_dump_test(data, callback, do_strip=True)
-
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 test_data_get_con_3_lab = {
     "afc asian cup squad": "تشكيلات {} في كأس آسيا",
     "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
@@ -631,3 +617,20 @@ data5 = {
 def test_resolve_sport_formts_en_p17_ar_nat(category, expected_key) -> None:
     label = resolve_sport_formts_en_p17_ar_nat(category)
     assert label.strip() == expected_key
+
+
+TEMPORAL_CASES = [
+    ("test_get_p17_with_sport", sport_data, get_p17_with_sport),
+    ("test_get_p17_with_sport_2", data_2, get_p17_with_sport),
+    ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
+    ("test_Get_Sport_Format_xo_en_ar_is_P17", data2, Get_Sport_Format_xo_en_ar_is_P17),
+    ("test_resolve_sport_formts_en_p17_ar_nat", data5, resolve_sport_formts_en_p17_ar_nat),
+]
+
+
+@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
+def test_all_dump(name, data, callback):
+    expected, diff_result = one_dump_test(data, callback, do_strip=True)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
