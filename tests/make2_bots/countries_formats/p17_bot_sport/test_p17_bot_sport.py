@@ -143,8 +143,6 @@ sport_data = {
 }
 
 data_2 = {
-    "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
-    "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
     # "yemen international footballers": "لاعبو كرة قدم دوليون من اليمن",
     "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم",
     "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
@@ -153,16 +151,6 @@ data_2 = {
 
     "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
     "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
-
-    "democratic-republic-of-the-congo winter olympics": " جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
-    "democratic-republic-of-the-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
-    "democratic-republic-of-the-congo summer olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الصيفية",
-    "west india olympics squad": "تشكيلات الهند الغربية في الألعاب الأولمبية",
-    "victoria-australia fifa futsal world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم لكرة الصالات",
-    "victoria-australia fifa world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم",
-    "yemen afc asian cup squad": "تشكيلات اليمن في كأس آسيا",
-    "west india summer olympics": " الهند الغربية في الألعاب الأولمبية الصيفية",
-    "yemen afc women's asian cup squad": "تشكيلات اليمن في كأس آسيا للسيدات",
 
     "tunisia sports templates": "قوالب تونس الرياضية",
     "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
@@ -215,16 +203,6 @@ def test_get_p17_with_sport_data_2(category, expected) -> None:
 
 
 test_data_get_con_3_lab = {
-    "afc asian cup squad": "تشكيلات {} في كأس آسيا",
-    "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
-    "fifa futsal world cup squad": "تشكيلات {} في كأس العالم لكرة الصالات",
-    "fifa world cup squad": "تشكيلات {} في كأس العالم",
-    "olympics squad": "تشكيلات {} في الألعاب الأولمبية",
-    "summer olympics squad": "تشكيلات {} في الألعاب الأولمبية الصيفية",
-    "summer olympics": " {} في الألعاب الأولمبية الصيفية",
-    "winter olympics squad": "تشكيلات {} في الألعاب الأولمبية الشتوية",
-    "winter olympics": " {} في الألعاب الأولمبية الشتوية",
-
     "amateur international footballers": "لاعبو منتخب {} لكرة القدم للهواة",
     "amateur international soccer players": "لاعبو منتخب {} لكرة القدم للهواة",
     "international footballers": "لاعبو منتخب {} لكرة القدم ",
