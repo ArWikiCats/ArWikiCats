@@ -25,8 +25,6 @@ sport_data = {
     "venezuela rally championship": "بطولة فنزويلا للراليات",
     "zambia rally championship": "بطولة زامبيا للراليات",
     "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
-    "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
-    "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "africa football league": "دوري إفريقيا لكرة القدم",
@@ -145,6 +143,8 @@ sport_data = {
 }
 
 data_2 = {
+    "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
+    "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
     # "yemen international footballers": "لاعبو كرة قدم دوليون من اليمن",
     "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم",
     "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
