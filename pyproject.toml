@@ -60,9 +60,6 @@ skip = [
 # ============================================
 [tool.ruff]
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
     ".git",
     ".git-rewrite",
     ".hg",
@@ -84,7 +81,6 @@ exclude = [
     "old",
     "build",
     "dist",
-    "node_modules",
     "site-packages",
     "venv",
 ]
