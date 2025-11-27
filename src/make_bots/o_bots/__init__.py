@@ -1,4 +1,4 @@
-"""Public interface for the :mod:`make2_bots.o_bots` package.
+"""Public interface for the :mod:`make_bots.o_bots` package.
 
 This module re-exports the most frequently used helpers from the package
 while avoiding circular imports that occur when :mod:`media_bots.films_bot`

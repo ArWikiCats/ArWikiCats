@@ -48,7 +48,7 @@ pop_All_2018 = {}  # 524266
 
 
 len_print.data_len(
-    "make2_bots.matables_bots/bot_2018.py",
+    "make_bots.matables_bots/bot_2018.py",
     {
         # "pop_All_2018" : 524266
         "pop_All_2018": lazy_load()

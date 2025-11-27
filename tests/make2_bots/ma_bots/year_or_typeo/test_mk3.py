@@ -1,6 +1,6 @@
 import pytest
 
-from src.make2_bots.ma_bots.year_or_typeo.mk3 import (
+from src.make_bots.ma_bots.year_or_typeo.mk3 import (
     new_func_mk2,
 )
 

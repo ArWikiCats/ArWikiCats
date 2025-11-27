@@ -4,7 +4,7 @@ from __future__ import annotations
 import pytest
 
 # Adjust this import according to your package layout
-from src.make2_bots.o_bots.rele import work_relations
+from src.make_bots.o_bots.rele import work_relations
 
 
 def _norm(text: str) -> str:

@@ -1,4 +1,4 @@
-"""Tests for :mod:`make2_bots.o_bots.utils`."""
+"""Tests for :mod:`make_bots.o_bots.utils`."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from typing import Dict
 
 import pytest
 
-from src.make2_bots.o_bots import utils
+from src.make_bots.o_bots import utils
 
 
 @pytest.mark.parametrize(

@@ -3,7 +3,7 @@
 
 import pytest
 
-from src.make2_bots.countries_formats.for_me import (
+from src.make_bots.countries_formats.for_me import (
     Work_for_me,
     Work_for_New_2018_men_Keys_with_all,
 )

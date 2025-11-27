@@ -455,7 +455,7 @@
   * Updated regex patterns for consistent dash character handling
   * Improved category normalization logic
 
-* **Refactors [bot_lab.py](src/make2_bots/ma_bots/year_or_typeo/bot_lab.py)**
+* **Refactors [bot_lab.py](src/make_bots/ma_bots/year_or_typeo/bot_lab.py)**
   * Refactored event labeling into modular helper functions
   * Simplified category normalization
   * Replaced legacy parsing functions with efficient aliases
@@ -633,13 +633,13 @@
 ## [#32](https://github.com/MrIbrahem/ArWikiCats/pull/32) - 2025-11-08
 
 ### Changed
-* Refactored all modules under `src/make2_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
+* Refactored all modules under `src/make_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
 * Centralised shared suffix-matching and caching helpers to eliminate duplicated logic across bots.
 * Standardised logging usage and cache handling, adding inline comments to clarify complex resolution flows.
 * Updated dependent bots to consume the new PEP 8 interfaces and refreshed formatting across touched files.
 
 ### Added
-* Introduced `src/make2_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
+* Introduced `src/make_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
 
 ## #31
 
@@ -712,12 +712,12 @@ This update improves label processing accuracy and restructures the test archite
 ## #3 - 2025-11-03
 
 ### Added
-*   New module `src/make2_bots/reg_lines.py` for centralized regular expression definitions.
+*   New module `src/make_bots/reg_lines.py` for centralized regular expression definitions.
 *   "solar eclipses" added to the country add-ins list.
 
 ### Changed
 *   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
-*   Simplified the event labeling flow in `src/make2_bots/ma_bots/year_or_typeo/bot_lab.py` and `src/make2_bots/ma_bots/event2bot.py` by using centralized regex definitions.
+*   Simplified the event labeling flow in `src/make_bots/ma_bots/year_or_typeo/bot_lab.py` and `src/make_bots/ma_bots/event2bot.py` by using centralized regex definitions.
 
 ---
 

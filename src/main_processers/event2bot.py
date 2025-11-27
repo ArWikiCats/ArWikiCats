@@ -10,12 +10,12 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..helps import printe
 from ..helps.log import logger
-from ..make2_bots import tmp_bot
-from ..make2_bots.date_bots import with_years_bot
-from ..make2_bots.ma_bots.country_bot import get_country
-from ..make2_bots.ma_bots.lab_seoo_bot import event_label_work
-from ..make2_bots.ma_bots.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
-from ..make2_bots.o_bots import univer  # univer.te_universities(cate)
+from ..make_bots import tmp_bot
+from ..make_bots.date_bots import with_years_bot
+from ..make_bots.ma_bots.country_bot import get_country
+from ..make_bots.ma_bots.lab_seoo_bot import event_label_work
+from ..make_bots.ma_bots.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
+from ..make_bots.o_bots import univer  # univer.te_universities(cate)
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

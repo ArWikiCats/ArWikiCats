@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.countries_formats.utils import (
+from src.make_bots.countries_formats.utils import (
     add_definite_article,
     resolve_p17_2_label,
 )

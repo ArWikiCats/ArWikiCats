@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.co_bots.filter_en import filter_cat
+from src.make_bots.co_bots.filter_en import filter_cat
 
 
 def test_filter_cat():

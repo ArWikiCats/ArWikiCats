@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-python3 core8/pwb.py -m cProfile -s ncalls make/make2_bots.matables_bots/bot.py
+python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 
 """
 
@@ -171,7 +171,7 @@ def add_to_new_players(en: str, ar: str) -> None:
 
 
 len_print.data_len(
-    "make2_bots.matables_bots/bot.py",
+    "make_bots.matables_bots/bot.py",
     {
         "players_new_keys": players_new_keys,  # 99517
         "All_P17": All_P17,

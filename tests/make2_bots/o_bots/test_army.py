@@ -1,5 +1,5 @@
 """
-Tests for :mod:`make2_bots.o_bots.army`.
+Tests for :mod:`make_bots.o_bots.army`.
 TODO: write tests
 """
 
@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.make2_bots.o_bots import army
+from src.make_bots.o_bots import army
 
 
 def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:

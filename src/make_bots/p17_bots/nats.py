@@ -9,7 +9,7 @@ particularly for sports-related categories using P17 (country) property.
 import functools
 
 from ...helps.log import logger
-from ...make2_bots.matables_bots.bot import add_to_new_players
+from ...make_bots.matables_bots.bot import add_to_new_players
 from ...translations import (
     All_Nat,
     SPORT_FORMATS_FOR_P17,

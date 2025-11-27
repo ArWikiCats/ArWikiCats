@@ -1,5 +1,5 @@
 # import pytest
-from src.make2_bots.ma_bots.year_or_typeo.bot_lab import (
+from src.make_bots.ma_bots.year_or_typeo.bot_lab import (
     label_for_startwith_year_or_typeo,
 )
 

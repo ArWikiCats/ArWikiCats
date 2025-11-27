@@ -9,7 +9,7 @@
 
 # جدول المحتويات (TOC)
 
-- [لماذا make2؟](#لماذا-ArWikiCats)
+- [لماذا ArWikiCats؟](#لماذا-ArWikiCats)
 - [1. المزايا الرئيسية](#1-المزايا-الرئيسية)
 - [2. داخل محرك ArWikiCats (Pipeline Overview)](#2-داخل-محرك-ArWikiCats-pipeline-overview)
   - [2.1 التطبيع (Normalization)](#21-التطبيع-normalization)
@@ -32,7 +32,7 @@
 
 ---
 
-## لماذا make2؟
+## لماذا ArWikiCats؟
 
 تعريب تصنيفات ويكيبيديا العربية يمثل تحديًا بسبب العدد الهائل من التصنيفات الإنجليزية والأنماط المتداخلة.
 يهدف مشروع **ArWikiCats** إلى معالجة هذه المشكلة عبر بناء نظام قادر على:
@@ -256,7 +256,7 @@ if not resolved_label:
 ## 6.3 إضافة بوت جديد
 
 ```text
-src/make2_bots/yourdomain_bot.py
+src/make_bots/yourdomain_bot.py
 ```
 
 مع:
@@ -280,7 +280,7 @@ src/
 │   ├── event2bot.py
 │   └── event_lab_bot.py
 │
-├── make2_bots/
+├── make_bots/
 │   ├── date_bots/
 │   ├── jobs_bots/
 │   ├── media_bots/

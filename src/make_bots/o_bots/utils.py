@@ -1,4 +1,4 @@
-"""Shared utilities for the :mod:`make2_bots.o_bots` package."""
+"""Shared utilities for the :mod:`make_bots.o_bots` package."""
 
 from __future__ import annotations
 
