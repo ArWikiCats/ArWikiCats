@@ -3,13 +3,10 @@
 from __future__ import annotations
 
 import functools
-import re
-from typing import Dict, Mapping, Tuple
+from typing import Mapping, Tuple
 
-from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import (
-    SPORT_FORMTS_EN_P17_AR_NAT,
     all_country_with_nat,
     all_country_with_nat_keys_is_en,
     military_format_men,
@@ -122,25 +119,6 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
     return ""
 
 
-@dump_data(enable=1)
-def _resolve_sport_suffix(category_suffix: str, men_label: str) -> str:
-    """
-    Resolve sports-related categories that share the same structure as armies.
-    [Yemeni wheelchair handball federation] : "تصنيف:الاتحاد اليمني لكرة اليد على الكراسي المتحركة",
-    TODO: move this to sport files!
-    """
-
-    if not category_suffix or not men_label:
-        return ""
-
-    template = SPORT_FORMTS_EN_P17_AR_NAT.get(category_suffix, "")
-    if template:
-        men_with_article = apply_arabic_article(men_label)
-        logger.debug(f"Resolved sports suffix, suffix: {category_suffix}, template: {template}")
-        return template.format(nat=men_with_article)
-    return ""
-
-
 @functools.lru_cache(maxsize=None)
 def te_army(category: str) -> str:
     """Resolve the Arabic label for a military-related category.
@@ -160,24 +138,17 @@ def te_army(category: str) -> str:
 
     if not suffix:
         resolved = _resolve_women_without_article_prefix(normalized_category)
-        if resolved:
-            return resolved
+        return resolved or ""
 
     # Attempt to resolve using women-focused templates first.
     resolved_label = _resolve_women_suffix(suffix, women_label)
-    if resolved_label:
-        return resolved_label
 
-    resolved_label = _resolve_women_extended_suffix(suffix, women_label)
-    if resolved_label:
-        return resolved_label
+    if not resolved_label:
+        resolved_label = _resolve_women_extended_suffix(suffix, women_label)
 
     # Fall back to men-specific and sport-specific templates.
-    resolved_label = _resolve_men_suffix(suffix, men_label)
-    if resolved_label:
-        return resolved_label
-
-    resolved_label = _resolve_sport_suffix(suffix, men_label)
+    if not resolved_label:
+        resolved_label = _resolve_men_suffix(suffix, men_label)
 
     logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
     return resolved_label
