@@ -1,5 +1,6 @@
 
-from . import p17_bot, p17_bot_sport, p17_bot_2, not_sports_bot
+from ...translations_resolvers import not_sports_bot
+from . import p17_bot, p17_bot_sport, p17_bot_2
 
 
 def resolved_countries_formats_labels(normalized_category):

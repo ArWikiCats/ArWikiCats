@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.translations.sports_formats_2025.match_labs import find_teams_2025
+from src.translations_resolvers.match_labs import find_teams_2025
 
 data6 = {
     "amateur football competitions": "منافسات كرة قدم للهواة",

@@ -1,11 +1,6 @@
 import pytest
 
-# from src.translations.sports_formats_nats.new import _create_label
-from src.translations.sports_formats_nats.new import (
-    _create_label,
-    _create_nat_label,
-    both_bot,
-)
+from src.translations_resolvers.nats_new import nats_new_create_label, create_nat_label
 
 data = {
     "british softball championshipszz": "بطولة المملكة المتحدة للكرة اللينة",
@@ -19,12 +14,9 @@ data = {
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
 def test_create_label(key, expected) -> None:
-    template_label = _create_label(key)
+    template_label = nats_new_create_label(key)
     assert template_label != ""
     assert template_label == expected
-
-    template_label2 = both_bot.create_label(key)
-    assert template_label2 == expected
 
 
 data2 = {
@@ -35,9 +27,6 @@ data2 = {
 @pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
 def test_create_nat_label(key, expected) -> None:
-    template_label = _create_nat_label(key)
+    template_label = create_nat_label(key)
     assert template_label != ""
     assert template_label == expected
-
-    template_label2 = both_bot.nat_bot.search(key)
-    assert template_label2 == expected

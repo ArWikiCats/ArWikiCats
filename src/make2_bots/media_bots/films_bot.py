@@ -13,7 +13,7 @@ from ..matables_bots.bot import Films_O_TT, add_to_new_players
 from ..media_bots.film_keys_bot import get_Films_key_CAO
 from ..o_bots import fax
 from ..o_bots.army import te_army
-from ...translations.sports_formats_2025 import resolved_sports_formats_labels
+from ...translations_resolvers import resolved_sports_formats_labels
 
 
 @functools.lru_cache(maxsize=None)

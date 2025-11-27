@@ -1,4 +1,10 @@
 
+## [#119](https://github.com/MrIbrahem/make2_new/pull/119) - 2025-11-28
+
+* **Refactor**
+  * Reorganized internal module structure by consolidating label resolution and normalization utilities across packages. Restructured dependencies and import paths to improve code organization and maintainability while preserving all existing functionality and public APIs with no impact to user-facing features.
+
+
 ## [#118](https://github.com/MrIbrahem/make2_new/pull/118) - 2025-11-27
 
 * **New Features**

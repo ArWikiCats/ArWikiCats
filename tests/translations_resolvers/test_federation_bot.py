@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from load_one_data import dump_diff, one_dump_test
-from src.translations.sports_formats_2025.federation_bot import resolve_federation_label
+from src.translations_resolvers.federation_bot import resolve_federation_label
 
 
 data5 = {

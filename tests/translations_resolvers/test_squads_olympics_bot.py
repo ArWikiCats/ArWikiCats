@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from load_one_data import dump_diff, one_dump_test
-from src.translations.sports_formats_2025.squads_olympics_bot import resolve_en_is_P17_ar_is_P17_SPORTS
+from src.translations_resolvers.squads_olympics_bot import resolve_en_is_P17_ar_is_P17_SPORTS
 
 data = {
     "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",

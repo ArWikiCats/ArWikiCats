@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ """
 import re
-from ...translations_formats.format_2_data import FormatMultiData
-from ..nats.Nationality import all_country_with_nat
-from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
+from ..translations_formats.format_2_data import FormatMultiData
+from ..translations.nats.Nationality import all_country_with_nat
+from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
 format_labels_with_nat = {
     "{en_nat} {en_sport} federation": "الاتحاد {ar_nat} {ar_sport}",
