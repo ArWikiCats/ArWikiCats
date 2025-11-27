@@ -2,47 +2,12 @@ import pytest
 from src.make2_bots.countries_formats.p17_bot import Get_P17_main
 
 
-get_p17_data = {
-    # ---------------------------------------------------------
-    # en_is_P17_ar_is_P17
-    # ---------------------------------------------------------
-
-    "yemen board members": "أعضاء مجلس اليمن",
-    "yemen government": "حكومة اليمن",
-    "yemen elections": "انتخابات اليمن",
-    "yemen war": "حرب اليمن",
-    "yemen responses": "استجابات اليمن",
-    "yemen executive cabinet": "مجلس وزراء اليمن التنفيذي",
-    "yemen presidents": "رؤساء اليمن",
-    "yemen conflict": "نزاع اليمن",
-    "yemen cup": "كأس اليمن",
-
-    "victoria-australia elections": "انتخابات فيكتوريا (أستراليا)",
-    "victoria-australia executive cabinet": "مجلس وزراء فيكتوريا (أستراليا) التنفيذي",
-    "victoria-australia government": "حكومة فيكتوريا (أستراليا)",
-
-    "west india government personnel": "موظفي حكومة الهند الغربية",
-    "west india political leader": "قادة الهند الغربية السياسيون",
-    "west india presidents": "رؤساء الهند الغربية",
-    "west india responses": "استجابات الهند الغربية",
-
-    "democratic-republic-of-the-congo territorial judges": "قضاة أقاليم جمهورية الكونغو الديمقراطية",
-    "democratic-republic-of-the-congo territorial officials": "مسؤولو أقاليم جمهورية الكونغو الديمقراطية",
-    "democratic-republic-of-the-congo war": "حرب جمهورية الكونغو الديمقراطية",
-    # ---------------------------------------------------------
-    # SPORT_FORMTS_EN_AR_IS_P17
-    # ---------------------------------------------------------
-    "tunisia presidents": "رؤساء تونس",
-    "tunisia governorate": "حكومة تونس",
-    "tunisia territorial judges": "قضاة أقاليم تونس",
-    "tunisia territorial officials": "مسؤولو أقاليم تونس",
-}
-
 pop_format_test_data = {
     # ---------------------------------------------------------
     # pop_format  (category end with "of X")
     # ---------------------------------------------------------
 
+    "china university of": "جامعة الصين",
     "yemen prehistory of": "اليمن ما قبل التاريخ",
     "yemen politics of": "سياسة اليمن",
     "yemen diplomatic missions of": "بعثات اليمن الدبلوماسية",
@@ -79,18 +44,6 @@ pop_format_test_data = {
     "zimbabwe politics of": "سياسة زيمبابوي",
     "zimbabwe military history of": "تاريخ زيمبابوي العسكري",
 }
-
-
-# =====================================================================
-# test with parametrized
-# =====================================================================
-
-
-@pytest.mark.parametrize("category, expected", get_p17_data.items(), ids=list(get_p17_data.keys()))
-@pytest.mark.fast
-def test_Get_P17_main_1(category, expected):
-    result = Get_P17_main(category)
-    assert result.strip() == expected.strip()
 
 
 # =====================================================================

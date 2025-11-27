@@ -3,7 +3,6 @@ This module processes categories that start with an English country name and map
 It checks the suffix against the following tables:
 
 * category_relation_mapping
-* en_is_P17_ar_is_P17
 * pop_format
 
 
@@ -16,25 +15,6 @@ from ...translations import (
 )
 from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
-
-# "courts" : "محاكم {}",
-en_is_P17_ar_is_P17: dict[str, str] = {
-    "board members": "أعضاء مجلس {}",
-    "elections": "انتخابات {}",
-    "government personnel": "موظفي حكومة {}",
-    "executive cabinet": "مجلس وزراء {} التنفيذي",
-    "political leader": "قادة {} السياسيون",
-    "government": "حكومة {}",
-    "cup": "كأس {}",
-    "presidents": "رؤساء {}",
-    "territorial officials": "مسؤولو أقاليم {}",
-    "territorial judges": "قضاة أقاليم {}",
-    "conflict": "نزاع {}",
-    "war": "حرب {}",
-    "responses": "استجابات {}",
-    "war and conflict": "حروب ونزاعات {}",
-    "governorate": "حكومة {}",
-}
 
 
 @dump_data(enable=1)
@@ -61,25 +41,6 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
     return suffix_label
 
 
-def get_con_3_lab(suffix, country_start="", category="") -> str:
-    sources = [
-        (en_is_P17_ar_is_P17, True, "en_is_P17_ar_is_P17"),
-    ]
-
-    suffix_label = ""
-    name = ""
-    for source, do_strip, name in sources:
-        key = suffix.strip() if do_strip else suffix
-        suffix_label = source.get(key, "")
-        if suffix_label:
-            break
-
-    name = name if suffix_label else ""
-    logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
-
-    return suffix_label
-
-
 def Get_P17_main(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
     """
     Category input in english is nationality, return arabic as country name.
@@ -101,9 +62,6 @@ def Get_P17_main(category: str) -> str:  # الإنجليزي جنسية وال�
     logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
 
     suffix_label = from_category_relation_mapping(suffix)
-
-    if not suffix_label:
-        suffix_label = get_con_3_lab(suffix, country_start, category)
 
     if not suffix_label:
         suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)
