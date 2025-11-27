@@ -6,52 +6,7 @@ import pytest
 
 from src.make2_bots.countries_formats.p17_bot_2 import (
     Get_P17_2,
-    _resolve_p17_2_label,
-    en_is_P17_ar_is_mens,
-    en_is_P17_ar_is_al_women,
 )
-
-# --------------------------------------------
-# Direct tests for _resolve_p17_2_label
-# --------------------------------------------
-
-@pytest.mark.unit
-def test_resolve_p17_mens_basic():
-    # "government officials": "مسؤولون حكوميون {}"
-    category = "yemen government officials"
-    out = _resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens")
-    assert out == "مسؤولون حكوميون يمنيون"
-
-
-@pytest.mark.unit
-def test_resolve_p17_women_basic_with_article():
-    # women nationality + definite article
-    # en_is_P17_ar_is_al_women["air force"] = "القوات الجوية {}"
-    category = "syria air force"
-    out = _resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", add_article=True)
-    # "سورية" → add_definite_article → "السورية"
-    assert out == "القوات الجوية السورية"
-
-
-@pytest.mark.unit
-def test_resolve_p17_country_not_found():
-    category = "unknowncountry air force"
-    out = _resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women")
-    assert out == ""
-
-
-@pytest.mark.unit
-def test_resolve_p17_suffix_not_matching():
-    category = "yemen strange_suffix"
-    out = _resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens")
-    assert out == ""
-
-
-@pytest.mark.unit
-def test_resolve_p17_case_insensitive():
-    category = "YEMEN GOVERNMENT OFFICIALS"
-    out = _resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens")
-    assert out == "مسؤولون حكوميون يمنيون"
 
 
 # --------------------------------------------

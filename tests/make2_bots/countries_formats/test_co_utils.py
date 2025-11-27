@@ -6,6 +6,13 @@ import pytest
 
 from src.make2_bots.countries_formats.utils import (
     add_definite_article,
+    resolve_p17_2_label,
+)
+
+from src.translations import (
+    en_is_P17_ar_is_mens,
+    en_is_P17_ar_is_al_women,
+    countries_nat_en_key,
 )
 
 definite_article_data = {
@@ -65,3 +72,47 @@ def test_add_definite_article_simple():
     assert add_definite_article("فيتنامي") == "الفيتنامي"
     assert add_definite_article("كندي غربي") == "الكندي الغربي"
     # assert add_definite_article("كندي الغربي") == "الكندي الغربي"
+
+
+# --------------------------------------------
+# Direct tests for resolve_p17_2_label
+# --------------------------------------------
+
+
+@pytest.mark.unit
+def test_resolve_p17_mens_basic():
+    # "government officials": "مسؤولون حكوميون {}"
+    category = "yemen government officials"
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
+    assert out == "مسؤولون حكوميون يمنيون"
+
+
+@pytest.mark.unit
+def test_resolve_p17_women_basic_with_article():
+    # women nationality + definite article
+    # en_is_P17_ar_is_al_women["air force"] = "القوات الجوية {}"
+    category = "syria air force"
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", countries_nat_en_key, add_article=True)
+    # "سورية" → add_definite_article → "السورية"
+    assert out == "القوات الجوية السورية"
+
+
+@pytest.mark.unit
+def test_resolve_p17_country_not_found():
+    category = "unknowncountry air force"
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", countries_nat_en_key)
+    assert out == ""
+
+
+@pytest.mark.unit
+def test_resolve_p17_suffix_not_matching():
+    category = "yemen strange_suffix"
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
+    assert out == ""
+
+
+@pytest.mark.unit
+def test_resolve_p17_case_insensitive():
+    category = "YEMEN GOVERNMENT OFFICIALS"
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
+    assert out == "مسؤولون حكوميون يمنيون"

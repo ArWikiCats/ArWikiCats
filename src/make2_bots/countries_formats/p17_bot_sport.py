@@ -12,8 +12,11 @@ from ...translations import (
     apply_pattern_replacement,
     SPORT_FORMTS_ENAR_P17_TEAM,
     sport_formts_enar_p17_jobs,
+    SPORT_FORMTS_EN_P17_AR_NAT,
+    all_country_with_nat,
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
+from .utils import resolve_p17_2_label
 
 en_is_P17_ar_is_P17_SPORTS: dict[str, str] = {
     "afc women's asian cup squad": "تشكيلات {} في كأس آسيا للسيدات",
@@ -130,8 +133,19 @@ def get_p17_with_sport(category: str) -> str:
     return resolved_label
 
 
+def resolve_sport_formts_en_p17_ar_nat(category: str) -> str:
+    """
+    Example:
+        "Yemeni martial arts federation": "الاتحاد اليمني للفنون القتالية",
+    """
+    resolved_label = resolve_p17_2_label(category, SPORT_FORMTS_EN_P17_AR_NAT, "men", all_country_with_nat, add_article=True)
+
+    return resolved_label
+
+
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
     "get_p17_with_sport",
     "get_con_3_lab_sports",
+    "resolve_sport_formts_en_p17_ar_nat",
 ]

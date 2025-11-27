@@ -6,6 +6,7 @@ import functools
 import re
 from typing import Dict, Mapping, Tuple
 
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import (
     SPORT_FORMTS_EN_P17_AR_NAT,
@@ -121,8 +122,13 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
     return ""
 
 
+@dump_data(enable=1)
 def _resolve_sport_suffix(category_suffix: str, men_label: str) -> str:
-    """Resolve sports-related categories that share the same structure as armies."""
+    """
+    Resolve sports-related categories that share the same structure as armies.
+    [Yemeni wheelchair handball federation] : "تصنيف:الاتحاد اليمني لكرة اليد على الكراسي المتحركة",
+    TODO: move this to sport files!
+    """
 
     if not category_suffix or not men_label:
         return ""

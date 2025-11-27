@@ -9,6 +9,7 @@ from src.make2_bots.countries_formats.p17_bot_sport import (
     get_p17_with_sport,
     get_con_3_lab_sports,
     Get_Sport_Format_xo_en_ar_is_P17,
+    resolve_sport_formts_en_p17_ar_nat,
 )
 
 sport_data = {
@@ -278,4 +279,16 @@ data2 = {
 @pytest.mark.fast
 def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
     label = Get_Sport_Format_xo_en_ar_is_P17(category)
+    assert label.strip() == expected_key
+
+
+data5 = {
+    "Yemeni wheelchair handball federation": "الاتحاد اليمني لكرة اليد على الكراسي المتحركة",
+}
+
+
+@pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
+@pytest.mark.fast
+def test_resolve_sport_formts_en_p17_ar_nat(category, expected_key) -> None:
+    label = resolve_sport_formts_en_p17_ar_nat(category)
     assert label.strip() == expected_key

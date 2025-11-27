@@ -325,14 +325,18 @@ nats_to_add = {}
 len_print.data_len(
     "nationality.py",
     {
+        "ar_Nat_men": ar_Nat_men,
         "Nat_men": Nat_men,
         "Nat_mens": Nat_mens,
         "Nat_women": Nat_women,
         "Nat_Womens": Nat_Womens,
+        "all_country_ar": all_country_ar,
         "contries_from_nat": contries_from_nat,
         "All_Nat": All_Nat,
         "all_country_with_nat_ar": all_country_with_nat_ar,
         "all_country_with_nat": all_country_with_nat,
         "American_nat": American_nat,
+        "all_country_with_nat_keys_is_en": all_country_with_nat_keys_is_en,
+        "en_nats_to_ar_label": en_nats_to_ar_label,
     },
 )

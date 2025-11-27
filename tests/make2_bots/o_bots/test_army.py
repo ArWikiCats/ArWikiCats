@@ -1,4 +1,7 @@
-"""Tests for :mod:`make2_bots.o_bots.army`."""
+"""
+Tests for :mod:`make2_bots.o_bots.army`.
+TODO: write tests
+"""
 
 from __future__ import annotations
 
