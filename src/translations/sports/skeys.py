@@ -97,6 +97,7 @@ def _build_en_p17_ar_nat() -> Dict[str, str]:
     """
     English country-name → Arabic nationality
     Example: “{team2} federation” = "الاتحاد {nat} ..."
+       [Yemeni wheelchair handball federation] : "تصنيف:الاتحاد اليمني لكرة اليد على الكراسي المتحركة",
     """
     label_index: Dict[str, str] = {}
 

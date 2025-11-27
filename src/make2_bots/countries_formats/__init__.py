@@ -11,4 +11,7 @@ def resolved_countries_formats_labels(normalized_category):
     if not resolved_label:
         resolved_label = p17_bot_2.Get_P17_2(normalized_category)
 
+    if not resolved_label:
+        resolved_label = p17_bot_sport.resolve_sport_formts_en_p17_ar_nat(normalized_category)
+
     return resolved_label

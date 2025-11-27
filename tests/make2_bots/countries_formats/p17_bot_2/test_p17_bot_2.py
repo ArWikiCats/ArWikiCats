@@ -8,7 +8,6 @@ from src.make2_bots.countries_formats.p17_bot_2 import (
     Get_P17_2,
 )
 
-
 get_p17_2_data = {
     "bahamas royal defence force": "قوات الدفاع الملكية البهامية",
     # -------------------------
