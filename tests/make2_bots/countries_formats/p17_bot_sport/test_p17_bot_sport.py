@@ -9,7 +9,6 @@ from src.make2_bots.countries_formats.p17_bot_sport import (
     get_p17_with_sport,
     get_con_3_lab_sports,
     Get_Sport_Format_xo_en_ar_is_P17,
-    resolve_sport_formts_en_p17_ar_nat,
 )
 
 sport_data = {

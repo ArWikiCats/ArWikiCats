@@ -30,10 +30,10 @@ both_bot = FormatMultiData(
 )
 
 
-def resolve_sport_formats_en_p17_ar_nat(category: str):
+def resolve_federation_label(category: str):
     return both_bot.create_label(category)
 
 
 __all__ = [
-    "resolve_sport_formats_en_p17_ar_nat",
+    "resolve_federation_label",
 ]

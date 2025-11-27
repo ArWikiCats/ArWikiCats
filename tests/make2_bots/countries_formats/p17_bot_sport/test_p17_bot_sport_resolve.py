@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from load_one_data import dump_diff, one_dump_test
-from src.translations.sports_formats_2025.sport_formts_en_p17_ar_nat_bot import resolve_sport_formats_en_p17_ar_nat
+from src.translations.sports_formats_2025.federation_bot import resolve_federation_label
 from src.make2_bots.countries_formats.p17_bot_sport import (
     resolve_sport_formts_en_p17_ar_nat,
 )
@@ -361,7 +361,7 @@ data6 = {
 @pytest.mark.fast
 def test_resolve_sport_formts_en_p17_ar_nat(category, expected_key) -> None:
     label = resolve_sport_formts_en_p17_ar_nat(category)
-    label2 = resolve_sport_formats_en_p17_ar_nat(category)
+    label2 = resolve_federation_label(category)
 
     assert label.strip() == expected_key
     assert label2.strip() == expected_key
