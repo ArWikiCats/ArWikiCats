@@ -1,5 +1,6 @@
 
-from . import federation_bot, squads_olympics_bot
+from ...translations_resolvers import federation_bot
+from . import squads_olympics_bot
 
 
 def resolved_sports_formats_labels(normalized_category):

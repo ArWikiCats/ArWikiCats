@@ -4,11 +4,11 @@
 import functools
 from typing import Dict
 
-from ...helps import len_print
-from ...translations_formats.format_data import FormatData
-from ..jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
-from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from ..sports.sports_lists import AFTER_KEYS
+from ..helps import len_print
+from ..translations_formats.format_data import FormatData
+from ..translations.jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
+from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ..translations.sports.sports_lists import AFTER_KEYS
 
 teams_2025_sample = {
     "{sport}": "{sport_label}",

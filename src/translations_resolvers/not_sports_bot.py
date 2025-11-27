@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
-from ...translations_formats.format_data import FormatData
-from ...translations import contries_from_nat
+from ..translations_formats.format_data import FormatData
+from ..translations import contries_from_nat
 
 en_is_P17_ar_is_P17: dict[str, str] = {
     "{en} board members": "أعضاء مجلس {ar}",

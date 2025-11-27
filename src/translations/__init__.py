@@ -78,7 +78,7 @@ from .sports.Sport_key import (
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
 )
-from .sports_formats_2025.match_labs import find_teams_2025
+from ..translations_resolvers.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .sports_formats_national.sport_lab_nat import (
     Get_sport_formts_female_nat,

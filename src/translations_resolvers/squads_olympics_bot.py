@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
-from ...translations_formats.format_data import FormatData
-from ..nats.Nationality import contries_from_nat
+from ..translations_formats.format_data import FormatData
+from ..translations import contries_from_nat
 
 en_is_P17_ar_is_P17_SPORTS: dict[str, str] = {
     "{en} afc women's asian cup squad": "تشكيلات {ar} في كأس آسيا للسيدات",
