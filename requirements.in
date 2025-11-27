@@ -1,6 +1,2 @@
-tqdm
 humanize
 psutil
-requests
-libcst
-jsonlines
