@@ -18,7 +18,11 @@ from ...translations.sports_formats_2025 import federation_bot
 
 @functools.lru_cache(maxsize=None)
 def te_films(category: str) -> str:
-    """Resolve a media category into an Arabic label using layered fallbacks."""
+    """
+    Resolve a media category into an Arabic label using layered fallbacks.
+
+    TODO: many funcs used here
+    """
     normalized_category = category.lower()
     logger.info(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")
     resolved_label = ""

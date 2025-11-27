@@ -6,9 +6,7 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test
 from src.translations.sports_formats_2025.federation_bot import resolve_federation_label
-from src.make2_bots.countries_formats.p17_bot_sport import (
-    resolve_sport_formts_en_p17_ar_nat,
-)
+
 
 data5 = {
     "polish sailing (sport) racing federation": "الاتحاد البولندي لسباق رياضة الإبحار",
@@ -360,15 +358,13 @@ data6 = {
 @pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
 @pytest.mark.fast
 def test_resolve_sport_formts_en_p17_ar_nat(category, expected_key) -> None:
-    label = resolve_sport_formts_en_p17_ar_nat(category)
-    label2 = resolve_federation_label(category)
+    label = resolve_federation_label(category)
 
     assert label.strip() == expected_key
-    assert label2.strip() == expected_key
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_sport_formts_en_p17_ar_nat", data5, resolve_sport_formts_en_p17_ar_nat),
+    ("test_resolve_sport_formts_en_p17_ar_nat", data5, resolve_federation_label),
 ]
 
 
