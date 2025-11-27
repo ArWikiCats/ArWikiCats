@@ -47,4 +47,5 @@ __all__ = [
     "normalize_both",
     "create_nat_label",
     "create_label",
+    "nats_new_create_label",
 ]
