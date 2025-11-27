@@ -1,4 +1,16 @@
 
+## [#118](https://github.com/MrIbrahem/make2_new/pull/118) - 2025-11-27
+
+* **New Features**
+  * Improved Arabic label resolution for sports and federation categories, with new translation fallbacks and broader coverage.
+
+* **Bug Fixes**
+  * Strengthened fallback logic and streamlined resolution flows for more consistent category matching and earlier, more reliable label selection.
+  * Removed obsolete sport mappings to reduce ambiguity.
+
+* **Tests**
+  * Expanded and parameterized test suites covering sports, federation, squads and non-sports label resolution.
+
 ## [#117](https://github.com/MrIbrahem/make2_new/pull/117) - 2025-11-27
 
 * **New Features**
