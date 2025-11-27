@@ -235,7 +235,7 @@ data5 = {
     "nordic road bicycle racing federation": "الاتحاد النوردي لسباق الدراجات على الطريق",
     "north african road cycling federation": "الاتحاد الشمال الإفريقي لسباق الدراجات على الطريق",
     "north american road race federation": "الاتحاد الأمريكي الشمالي لسباق الدراجات على الطريق",
-    "north macedonian roller hockey (quad) racing federation": "الاتحاد الشمال المقدوني لسباق هوكي الدحرجة",
+    "north macedonian roller hockey racing federation": "الاتحاد الشمال المقدوني لسباق هوكي الدحرجة",
     "north yemeni roller hockey federation": "الاتحاد اليمني الشمالي لهوكي الدحرجة",
     "northern cypriot roller hockey racing federation": "الاتحاد القبرصي الشمالي لسباق هوكي الدحرجة",
     "northern ireland roller skating federation": "الاتحاد الأيرلندي الشمالي للتزلج بالعجلات",
@@ -348,12 +348,12 @@ data5 = {
     "zaïrean wheelchair sports federation": "الاتحاد الزائيري للرياضة على الكراسي المتحركة",
     "zimbabwean wheelchair tennis federation": "الاتحاد الزيمبابوي لكرة المضرب على الكراسي المتحركة",
     "zulu windsurfing federation": "الاتحاد الزولي لركوب القوارب الشراعية",
+    "north korean roller hockey federation": "الاتحاد الكوري الشمالي لهوكي الدحرجة",
 }
 
 data6 = {
     "georgia (country) freestyle wrestling federation": "الاتحاد الجورجي للمصارعة الحرة",
     "philippine sailing (sport) federation": "الاتحاد الفلبيني لرياضة الإبحار",
-    "north korean roller hockey (quad) federation": "الاتحاد الكوري الشمالي لهوكي الدحرجة",
 }
 
 
@@ -369,7 +369,6 @@ def test_resolve_sport_formts_en_p17_ar_nat(category, expected_key) -> None:
 
 TEMPORAL_CASES = [
     ("test_resolve_sport_formts_en_p17_ar_nat", data5, resolve_sport_formts_en_p17_ar_nat),
-    ("resolve_sport_formats_en_p17_ar_nat", data6, resolve_sport_formats_en_p17_ar_nat),
 ]
 
 

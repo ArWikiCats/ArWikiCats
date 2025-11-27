@@ -48,7 +48,10 @@ def get_Films_key_CAO(country_identifier: str) -> str:
             resolved_label = prefix_label.format(tyty=suffix_translation)
         else:
             resolved_label = f"{suffix_translation} {prefix_label}"
-        logger.debug(f'<<lightblue>> get_Films_key_CAO: new resolved_label "{resolved_label}" ')
+
+        if resolved_label:
+            logger.info(f'<<lightblue>> get_Films_key_CAO: new resolved_label "{resolved_label}" ')
+            break
 
     return resolved_label
 

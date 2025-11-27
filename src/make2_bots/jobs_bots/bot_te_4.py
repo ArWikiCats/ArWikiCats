@@ -153,5 +153,5 @@ def Jobs_in_Multi_Sports(category: str) -> str:
         if job_label and game_label:
             primary_label = f"{job_label} في {game_label}"
 
-    logger.debug(f'end Jobs_in_Multi_Sports "{category_clean}" , primary_label:"{primary_label}"')
+    logger.info(f'end Jobs_in_Multi_Sports "{category_clean}" , primary_label:"{primary_label}"')
     return primary_label
