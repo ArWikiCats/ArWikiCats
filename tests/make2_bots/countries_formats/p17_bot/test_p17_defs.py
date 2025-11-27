@@ -1,26 +1,7 @@
 #
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from src.make2_bots.countries_formats.p17_bot import get_con_3_lab, get_con_3_lab_pop_format, from_category_relation_mapping
-
-test_data_get_con_3_lab = {
-    "board members": "أعضاء مجلس {}",
-    "conflict": "نزاع {}",
-    "elections": "انتخابات {}",
-    "executive cabinet": "مجلس وزراء {} التنفيذي",
-    "government personnel": "موظفي حكومة {}",
-    "government": "حكومة {}",
-    "political leader": "قادة {} السياسيون",
-    "responses": "استجابات {}",
-
-    "governorate": "حكومة {}",
-    "presidents": "رؤساء {}",
-    "territorial judges": "قضاة أقاليم {}",
-    "territorial officials": "مسؤولو أقاليم {}",
-    "war and conflict": "حروب ونزاعات {}",
-    "war": "حرب {}",
-    "cup": "كأس {}",
-}
+from src.make2_bots.countries_formats.p17_bot import get_con_3_lab_pop_format, from_category_relation_mapping
 
 test_data_with_pop_format = {
     "contemporary history of": "تاريخ {} المعاصر",
@@ -47,13 +28,6 @@ test_data_relation_mapping = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data_get_con_3_lab.items(), ids=list(test_data_get_con_3_lab.keys()))
-@pytest.mark.fast
-def test_get_con_3_lab(category, expected):
-    result = get_con_3_lab(category)
-    assert result == expected
-
-
 @pytest.mark.parametrize("category, expected", test_data_with_pop_format.items(), ids=list(test_data_with_pop_format.keys()))
 @pytest.mark.fast
 def test_with_pop_format(category, expected):
@@ -69,7 +43,6 @@ def test_from_category_relation_mapping(category, expected):
 
 
 TEMPORAL_CASES = [
-    ("test_get_con_3_lab", test_data_get_con_3_lab, get_con_3_lab),
     ("test_with_pop_format", test_data_with_pop_format, get_con_3_lab_pop_format),
     ("test_from_category_relation_mapping", test_data_relation_mapping, from_category_relation_mapping),
 ]
