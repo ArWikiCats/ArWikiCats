@@ -31,6 +31,7 @@ class FormatData:
 
         self.value_placeholder = value_placeholder
         self.key_placeholder = key_placeholder
+        self.data_pattern = ""
         self.pattern = self.keys_to_pattern()
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
@@ -39,9 +40,9 @@ class FormatData:
             return None
         keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
 
-        data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
+        self.data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
 
-        return re.compile(data_pattern, re.I)
+        return re.compile(self.data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
     def match_key(self, category: str) -> str:
