@@ -14,7 +14,8 @@ authors = [
 license = { text = "MIT" }
 dependencies = [
   "psutil",
-  "humanize"
+  "humanize",
+  "jsonlines"
 ]
 
 [project.urls]
