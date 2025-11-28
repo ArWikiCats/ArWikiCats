@@ -368,6 +368,7 @@ TEMPORAL_CASES = [
 ]
 
 
+@pytest.mark.dump
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
 def test_all_dump(name, data, callback):
     expected, diff_result = one_dump_test(data, callback, do_strip=True)

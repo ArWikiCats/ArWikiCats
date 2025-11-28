@@ -105,7 +105,7 @@ TEMPORAL_CASES = [
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
-@pytest.mark.slow
+@pytest.mark.dump
 def test_temporal(name, data):
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
