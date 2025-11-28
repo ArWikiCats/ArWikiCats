@@ -88,7 +88,6 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 ## 2.3 القواعد والقواميس
 
 يشمل ذلك:
-
 * **[الجنسيات](src/translations/jsons/nationalities)**:
 	- صيغ المذكر والمؤنث والجمع والمفرد واسم البلد العربي والإنجليزي.
 * **[الجغرافيا](src/translations/jsons/geography) و[المدن](src/translations/jsons/cities)**:
