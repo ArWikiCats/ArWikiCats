@@ -4,6 +4,7 @@
 * **New Features**
   * Added new example scripts for processing 1,000 and 5,000 category datasets with performance metrics.
   * New example data file for category processing demonstrations.
+  * Added batch processing and a public Arabic category label resolver; new example scripts for bulk runs and demos.
 
 * **Documentation**
   * Updated project branding to ArWikiCats across all documentation.
