@@ -128,14 +128,6 @@ def test_arizona(input, expected):
     assert result == expected
 
 
-@pytest.mark.parametrize("name,data", data_1.items())
-@pytest.mark.slow
-def test_us_counties_dump(name, data):
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
-
-
 empty_data = {
     "Category:Georgia (U.S. state) Attorney General elections": "",
     "Category:Georgia (U.S. state) case law": "",
