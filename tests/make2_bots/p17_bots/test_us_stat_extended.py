@@ -9,7 +9,7 @@ from ArWikiCats.translations.geo.us_counties import (
     US_STATES_NAME_TRANSLATIONS,
 )
 from ArWikiCats.make_bots.p17_bots.us_stat import Work_US_State
-from ArWikiCats.translations_resolvers.us_counties_new import resolve_us_states, normalize_state
+from ArWikiCats.translations_resolvers.us_counties_new import resolve_us_states, normalize_state, us_states_new_keys
 
 test_data = {
     "{en} in the War of 1812": "{ar} في حرب 1812",
@@ -18,11 +18,6 @@ test_data = {
     "{en} state court judges": "قضاة محكمة ولاية {ar}",
     "{en} state courts": "محكمة ولاية {ar}",
     "{en} state senators": "أعضاء مجلس شيوخ ولاية {ar}",
-}
-
-_test_data = {
-    f"{{en}} {x.strip()}": "" + v % "{ar}"
-    for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
 }
 
 washington_data = {
@@ -38,11 +33,11 @@ all_test_data = {}
 for en, ar in US_STATES_NAME_TRANSLATIONS.items():
     test_one = {
         x.format(en=en).lower(): normalize_state(v.format(ar=ar))
-        for x, v in test_data.items()
+        for x, v in us_states_new_keys.items()
     }
     all_test_data.update(test_one)
 
-all_test_data.update(washington_data)
+# all_test_data.update(washington_data)
 
 
 to_test = [

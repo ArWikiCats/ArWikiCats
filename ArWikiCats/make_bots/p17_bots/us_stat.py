@@ -27,7 +27,9 @@ def Work_US_State(state_identifier: str) -> str:
     state_key = ""
     suffix_key = ""
 
-    for suffix in STATE_SUFFIX_TEMPLATES:
+    keys_sorted = sorted(STATE_SUFFIX_TEMPLATES.keys(), key=lambda x: -x.count(" "))
+
+    for suffix in keys_sorted:
         lower_suffix = suffix.lower()
         state_suffix_variant = f" state {lower_suffix}"
 
