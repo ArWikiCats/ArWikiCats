@@ -67,7 +67,22 @@ data_1 = {
 for en in data_1.keys():
     if STATE_NAME_TRANSLATIONS.get(en):
         ar = STATE_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
+        data_1[en] = {x.format(en=en): "x" for x, v in test_data.items()}
+
+
+to_test = [
+    (f"test_us_counties_{x}", v) for x, v in data_1.items()
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.slow
+def test_all_dump(name, data):
+
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 @pytest.mark.parametrize("input,expected", data_1["iowa"].items(), ids=[x for x in data_1["iowa"]])
