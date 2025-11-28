@@ -17,7 +17,8 @@ file_path = Path(Path(__file__).parent, "1000_category.json")
 
 time_start = time.time()
 
-data = json.load(open(file_path, "r", encoding="utf-8"))
+with open(file_path, "r", encoding="utf-8") as f:
+    data = json.load(f)
 
 result = batch_resolve_labels(tqdm(data))
 labels = result.labels
