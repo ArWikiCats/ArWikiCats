@@ -111,6 +111,7 @@ data = {
 }
 
 
+@pytest.mark.dump
 def test_sport_lab_oioioi_load():
     expected, diff_result = one_dump_test(data, sport_lab_oioioi_load)
 
