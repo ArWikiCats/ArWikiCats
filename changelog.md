@@ -1,4 +1,18 @@
 
+## [#120](https://github.com/MrIbrahem/ArWikiCats/pull/120) - 2025-11-28
+
+* **New Features**
+  * Added new example scripts for processing 1,000 and 5,000 category datasets with performance metrics.
+  * New example data file for category processing demonstrations.
+
+* **Documentation**
+  * Updated project branding to ArWikiCats across all documentation.
+  * Refreshed project metadata and build configuration.
+
+* **Chores**
+  * Reorganized internal package structure for improved maintainability.
+  * Updated project build system and dependencies.
+
 ## [#119](https://github.com/MrIbrahem/ArWikiCats/pull/119) - 2025-11-28
 
 * **Refactor**
