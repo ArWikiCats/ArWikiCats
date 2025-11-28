@@ -16,6 +16,16 @@ def normalize_state(ar_name: str) -> str:
     return ar_name
 
 
+PARTY_ROLE_SUFFIXES = {
+    "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
+    "candidates for member-of-parliament": "مرشحو %s لعضوية البرلمان",
+    "candidates": "مرشحو %s",
+    "leaders": "قادة %s",
+    "politicians": "سياسيو %s",
+    "members": "أعضاء %s",
+    "state governors": "حكام ولايات من %s",
+}
+
 US_STATES_NAME_TRANSLATIONS = {
     "washington, d.c.": "واشنطن العاصمة",
     "georgia (u.s. state)": "ولاية جورجيا",
@@ -122,16 +132,6 @@ _STATE_SUFFIX_TEMPLATES_BASE = {
     " republicans": "جمهوريون من ولاية %s",
     " democrats": "ديمقراطيون من ولاية %s",
     " independents": "مستقلون من ولاية %s",
-}
-
-PARTY_ROLE_SUFFIXES = {
-    "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
-    "candidates for member-of-parliament": "مرشحو %s لعضوية البرلمان",
-    "candidates": "مرشحو %s",
-    "leaders": "قادة %s",
-    "politicians": "سياسيو %s",
-    "members": "أعضاء %s",
-    "state governors": "حكام ولايات من %s",
 }
 
 _USA_PARTY_LABELS = {
