@@ -11,7 +11,7 @@ from pathlib import Path
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(_Dir))
 
-from src import print_memory, event_result
+from src import print_memory, batch_resolve_labels
 
 file_path = Path(Path(__file__).parent, "1000_category.json")
 
@@ -19,7 +19,7 @@ time_start = time.time()
 
 data = json.load(open(file_path, "r", encoding="utf-8"))
 
-result = event_result(tqdm(data))
+result = batch_resolve_labels(tqdm(data))
 labels = result.labels
 no_labels = result.no_labels
 

@@ -2,8 +2,7 @@
 from .config import all_params as config_all_params
 from .event_processing import (
     EventProcessor,
-    event_result,
-    new_func_lab,
+    batch_resolve_labels,
     resolve_arabic_category_label,
 )
 from .helps.len_print import dump_all_len
@@ -14,8 +13,7 @@ __all__ = [
     "config_logger",
     "logger",
     "LoggerWrap",
-    "event_result",
-    "new_func_lab",
+    "batch_resolve_labels",
     "resolve_arabic_category_label",
     "EventProcessor",
     "do_print_options",
