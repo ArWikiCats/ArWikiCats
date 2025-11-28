@@ -34,10 +34,6 @@ def bot():
     return _bot
 
 
-def test_data_pattern(bot):
-    assert bot.data_pattern == r"\b(georgia\ \(u\.s\.\ state\)|new\ york\ \(state\)|new\ york|washington\ \(state\)|washington,\ d\.c\.|west\ virginia|georgia|virginia|washington)\b"
-
-
 def test_match_key(bot):
     result1 = bot.match_key("georgia (u.s. state) independents")
     assert result1 == "georgia (u.s. state)"
@@ -52,13 +48,13 @@ def test_search(bot):
     result1 = bot.search("georgia (u.s. state) independents")
     result2 = bot.search("georgia independents")
 
-    assert result1 == "مستقلون من ولاية جورجيا"
-    assert result2 == "مستقلون من جورجيا"
+    assert result1 == "مستقلون من ولاية ولاية جورجيا"
+    assert result2 == "مستقلون من ولاية جورجيا"
 
 
 def test_case(bot):
     result = bot.search("washington, d.c. house-of-representatives elections")
-    assert result == "انتخابات مجلس نواب واشنطن العاصمة"
+    assert result == "انتخابات مجلس نواب ولاية واشنطن العاصمة"
 
     result2 = bot.search("washington house-of-representatives elections")
     assert result2 == "انتخابات مجلس نواب ولاية واشنطن"

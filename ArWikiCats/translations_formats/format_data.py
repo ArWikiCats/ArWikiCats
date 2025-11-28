@@ -40,7 +40,10 @@ class FormatData:
             return None
         keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
 
-        self.data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
+        # self.data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
+        alternation = "|".join(map(re.escape, keys_sorted))
+
+        self.data_pattern = fr"(?<!\w)({alternation})(?!\w)"
 
         return re.compile(self.data_pattern, re.I)
 
