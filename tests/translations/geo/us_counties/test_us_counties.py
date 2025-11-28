@@ -91,6 +91,7 @@ def test_all_data(input, expected):
 
 
 empty_data={
+    "Category:Georgia (U.S. state) National Republicans": "تصنيف:أعضاء الحزب الجمهوري الوطني في ولاية جورجيا",
     "Category:Georgia (U.S. state) Attorney General elections": "",
     "Category:Georgia (U.S. state) case law": "",
     "Category:Georgia (U.S. state) city council members": "",
@@ -118,7 +119,6 @@ empty_data={
     "Category:Georgia (U.S. state) mass media navigational boxes": "",
     "Category:Georgia (U.S. state) militia": "",
     "Category:Georgia (U.S. state) militiamen in the American Revolution": "",
-    "Category:Georgia (U.S. state) National Republicans": "",
     "Category:Georgia (U.S. state) Oppositionists": "",
     "Category:Georgia (U.S. state) placenames of Native American origin": "",
     "Category:Georgia (U.S. state) Populists": "",
