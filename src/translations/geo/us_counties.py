@@ -8,27 +8,36 @@ from ...helps import len_print
 from ..utils.json_dir import open_json_file
 from ._shared import load_json_mapping
 
+
+def normalize_state(ar_name: str) -> str:
+    if "ولاية ولاية" in ar_name:
+        ar_name = ar_name.replace("ولاية ولاية", "ولاية")
+
+    return ar_name
+
+
 STATE_NAME_TRANSLATIONS = {
+    "georgia (u.s. state)": "ولاية جورجيا",
+    "washington (state)": "ولاية واشنطن",
+    "new york (state)": "ولاية نيويورك",
+
     "ohio": "أوهايو",
     "louisiana": "لويزيانا",
     "new mexico": "نيومكسيكو",
     "nebraska": "نبراسكا",
     "georgia": "جورجيا",
-    "georgia (u.s. state)": "ولاية جورجيا",
     "wisconsin": "ويسكونسن",
     "montana": "مونتانا",
     "iowa": "آيوا",
     "arizona": "أريزونا",
     "washington, d.c.": "واشنطن العاصمة",
     "washington": "واشنطن",
-    "washington (state)": "ولاية واشنطن",
     "idaho": "أيداهو",
     "massachusetts": "ماساتشوستس",
     "maryland": "ماريلند",
     "rhode island": "رود آيلاند",
     "west virginia": "فيرجينيا الغربية",
     "new york": "نيويورك",
-    "new york (state)": "ولاية نيويورك",
     "pennsylvania": "بنسلفانيا",
     "new jersey": "نيوجيرسي",
     "tennessee": "تينيسي",
@@ -303,6 +312,7 @@ Counties = COUNTY_TRANSLATIONS
 usa_parties = USA_PARTY_LABELS
 
 __all__ = [
+    "normalize_state",
     "COUNTY_TRANSLATIONS",
     "STATE_NAME_TRANSLATIONS",
     "STATE_NAME_TRANSLATIONS_LOWER",

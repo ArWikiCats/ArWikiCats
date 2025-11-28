@@ -6,7 +6,10 @@ from src import resolve_arabic_category_label
 from src.translations.geo.us_counties import (
     _STATE_SUFFIX_TEMPLATES_BASE,
     STATE_NAME_TRANSLATIONS,
+    normalize_state,
 )
+
+test_data2 = {f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()}
 
 test_data = {
     "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
@@ -17,16 +20,14 @@ test_data = {
     "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
 }
 
-test_data2 = {f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()}
 
-data_1 = {
-    "north dakota": "داكوتا الشمالية",
-    "south carolina": "كارولاينا الجنوبية",
-}
-# for en in data_1.keys(): # if STATE_NAME_TRANSLATIONS.get(en): ar = STATE_NAME_TRANSLATIONS.get(en)
+data_1 = {}
 
 for en, ar in STATE_NAME_TRANSLATIONS.items():
-    data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
+    data_1[en] = {
+        x.format(en=en): normalize_state(v.format(ar=ar))
+        for x, v in test_data.items()
+    }
 
 
 to_test = [
