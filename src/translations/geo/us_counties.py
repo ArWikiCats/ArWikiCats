@@ -17,6 +17,7 @@ def normalize_state(ar_name: str) -> str:
 
 
 STATE_NAME_TRANSLATIONS = {
+    "washington, d.c.": "واشنطن العاصمة",
     "georgia (u.s. state)": "ولاية جورجيا",
     "washington (state)": "ولاية واشنطن",
     "new york (state)": "ولاية نيويورك",
@@ -30,7 +31,6 @@ STATE_NAME_TRANSLATIONS = {
     "montana": "مونتانا",
     "iowa": "آيوا",
     "arizona": "أريزونا",
-    "washington, d.c.": "واشنطن العاصمة",
     "washington": "واشنطن",
     "idaho": "أيداهو",
     "massachusetts": "ماساتشوستس",

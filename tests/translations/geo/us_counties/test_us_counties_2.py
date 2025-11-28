@@ -21,13 +21,21 @@ test_data = {
 }
 
 
-data_1 = {}
+data_1 = {
+    "washington, d.c.": {
+        "Category:washington, d.c. Democrats": "تصنيف:ديمقراطيون من واشنطن العاصمة",
+        "Category:washington, d.c. lawyers": "تصنيف:محامون من واشنطن العاصمة",
+        "Category:washington, d.c. state court judges": "تصنيف:قضاة محكمة واشنطن العاصمة",
+        "Category:washington, d.c. state courts": "تصنيف:محكمة واشنطن العاصمة",
+        "Category:washington, d.c. state senators": "تصنيف:أعضاء مجلس شيوخ واشنطن العاصمة"
+    }
+}
 
 for en, ar in STATE_NAME_TRANSLATIONS.items():
-    data_1[en] = {
+    data_1.setdefault(en, {
         x.format(en=en): normalize_state(v.format(ar=ar))
         for x, v in test_data.items()
-    }
+    })
 
 
 to_test = [
