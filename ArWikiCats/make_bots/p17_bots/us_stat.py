@@ -1,4 +1,6 @@
-""" """
+"""
+TODO: replaced by ArWikiCats/translations_resolvers/us_counties_new.py
+"""
 
 import functools
 
