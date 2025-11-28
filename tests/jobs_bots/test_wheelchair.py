@@ -175,7 +175,7 @@ def test_wheelchair_3(category, expected) -> None:
     assert label.strip() == expected
 
 
-@pytest.mark.slow
+@pytest.mark.dump
 @pytest.mark.parametrize("name,data", test_data)
 def test_geography_all(name, data):
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
