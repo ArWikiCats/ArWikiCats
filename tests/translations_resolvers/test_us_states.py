@@ -18,7 +18,7 @@ test_data = {
 
 all_test_data = {}
 
-for en, ar in US_STATES.items():  # 124 per state
+for en, ar in US_STATES.items():  # ~150 per state
     test_one = {
         x.format(en=en).lower(): normalize_state(v.format(ar=ar))
         for x, v in us_states_new_keys.items()
