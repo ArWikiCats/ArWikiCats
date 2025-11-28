@@ -5,9 +5,17 @@ from load_one_data import dump_diff, one_dump_test
 from src import resolve_arabic_category_label
 from src.translations.geo.us_counties import (
     STATE_NAME_TRANSLATIONS,
+    normalize_state,
 )
 
 test_data = {
+    "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
+    "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
+    "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
+    "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
+    "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
+    "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
+
     "Category:{en} attorneys general": "تصنيف:مدعي {ar} العام",
     "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع {ar}",
     "Category:{en} city councils": "تصنيف:مجالس مدن {ar}",
@@ -59,7 +67,10 @@ data_1 = {
 for en in data_1.keys():
     if STATE_NAME_TRANSLATIONS.get(en):
         ar = STATE_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
+        data_1[en] = {
+            x.format(en=en): normalize_state(v.format(ar=ar))
+            for x, v in test_data.items()
+        }
 
 
 to_test = [
