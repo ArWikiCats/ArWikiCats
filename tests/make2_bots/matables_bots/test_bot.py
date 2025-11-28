@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.matables_bots.bot import add_to_new_players
+from src.make_bots.matables_bots.bot import add_to_new_players
 
 
 def test_add_to_new_players():

@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 
 pan_arican = {
     "Category:Members of the Pan-African Parliament": "تصنيف:أعضاء البرلمان الإفريقي",
@@ -50,7 +50,7 @@ pan_arican = {
 
 @pytest.mark.slow
 def test_pan_arican():
-    expected, diff_result = one_dump_test(pan_arican, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(pan_arican, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_pan_arican")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
@@ -59,5 +59,5 @@ def test_pan_arican():
 @pytest.mark.parametrize("category, expected", pan_arican.items(), ids=list(pan_arican.keys()))
 @pytest.mark.slow
 def test_pan_arican_dump(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected

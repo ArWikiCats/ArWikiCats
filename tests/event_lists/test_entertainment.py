@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 
 entertainment_1 = {
     "Category:Action anime and manga": "تصنيف:أنمي ومانغا حركة",
@@ -139,28 +139,28 @@ ENTERTAINMENT_CASES = [
 @pytest.mark.parametrize("category, expected", entertainment_1.items(), ids=list(entertainment_1.keys()))
 @pytest.mark.fast
 def test_entertainment_1(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("category, expected", entertainment_2.items(), ids=list(entertainment_2.keys()))
 @pytest.mark.fast
 def test_entertainment_2(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("category, expected", entertainment_3.items(), ids=list(entertainment_3.keys()))
 @pytest.mark.fast
 def test_entertainment_3(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("name,data", ENTERTAINMENT_CASES)
 @pytest.mark.slow
 def test_entertainment(name, data):
-    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
@@ -179,5 +179,5 @@ data2 = {
 @pytest.mark.parametrize("input,expected", data2.items(), ids=[x for x in data2])
 @pytest.mark.skip2("Need to fix")
 def test_entertainment_5(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected

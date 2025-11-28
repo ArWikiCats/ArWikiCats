@@ -1,6 +1,6 @@
 import pytest
 
-from src.make2_bots.format_bots import category_relation_mapping
+from src.make_bots.format_bots import category_relation_mapping
 from src.utils.match_relation_word import get_relation_word, get_relation_word_new
 
 # ===============================================

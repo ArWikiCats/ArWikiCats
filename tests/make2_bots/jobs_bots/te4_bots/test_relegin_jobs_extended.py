@@ -2,8 +2,8 @@
 
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import create_country_lab
-from src.make2_bots.jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
+from src.make_bots.jobs_bots.jobs_mainbot import create_country_lab
+from src.make_bots.jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
 from src.translations import RELIGIOUS_KEYS_PP
 
 # new dict with only 10 items from RELIGIOUS_KEYS_PP

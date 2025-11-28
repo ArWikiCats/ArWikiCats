@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.country2_bots.cn_lab import make_cnt_lab
+from src.make_bots.ma_bots.country2_bots.cn_lab import make_cnt_lab
 
 make_cnt_lab_data = {
     "jerusalem": "القدس",

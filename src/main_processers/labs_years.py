@@ -1,7 +1,7 @@
 """
 Usage:
 
-from .make2_bots.date_bots.labs_years import LabsYears
+from .make_bots.date_bots.labs_years import LabsYears
 labs_years_bot = LabsYears()
 # ---
 cat_year, from_year = labs_years_bot.lab_from_year(category_r)

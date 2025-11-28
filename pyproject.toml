@@ -1,6 +1,30 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling>=1.17"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ArWikiCats"
+version = "0.1.0"
+description = "Arabic Wikipedia Categories Translation Engine"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Ibrahim Qasim" }
+]
+license = { text = "MIT" }
+dependencies = [
+  "psutil",
+  "humanize",
+  "jsonlines"
+]
+
+[project.urls]
+Homepage = "https://github.com/MrIbrahem/ArWikiCats"
+Repository = "https://github.com/MrIbrahem/ArWikiCats"
+Issues = "https://github.com/MrIbrahem/ArWikiCats/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ArWikiCats"]
 
 # ============================================
 #                 BLACK
@@ -60,9 +84,6 @@ skip = [
 # ============================================
 [tool.ruff]
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
     ".git",
     ".git-rewrite",
     ".hg",
@@ -84,7 +105,6 @@ exclude = [
     "old",
     "build",
     "dist",
-    "node_modules",
     "site-packages",
     "venv",
 ]

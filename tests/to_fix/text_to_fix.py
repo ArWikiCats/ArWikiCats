@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 
 data1 = {
     "Category:1988 executions of Iranian political prisoners": "تصنيف:إعدامات مسجونون سياسيون إيرانيون 1988",
@@ -3280,7 +3280,7 @@ to_test = [
 @pytest.mark.skip2
 def test_all_dump(name, data):
 
-    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     diff_result2 = {x: v for x, v in diff_result.items() if v}
     dump_diff(diff_result2, name)

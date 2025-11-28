@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.jobs_bots.jobs_mainbot import (
+from src.make_bots.jobs_bots.jobs_mainbot import (
     MEN_WOMENS_WITH_NATO,
     jobs_with_nat_prefix,
 )

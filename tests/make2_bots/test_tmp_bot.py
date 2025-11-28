@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.tmp_bot import Work_Templates
+from src.make_bots.tmp_bot import Work_Templates
 
 
 def test_work_templates():

@@ -5,8 +5,8 @@ Tests
 import pytest
 from load_one_data import dump_diff
 
-from src.make2_bots.ma_bots.ar_lab import find_ar_label
-from src.make2_bots.ma_bots.ye_ts_bot import translate_general_category
+from src.make_bots.ma_bots.ar_lab import find_ar_label
+from src.make_bots.ma_bots.ye_ts_bot import translate_general_category
 
 data_list = [
     {

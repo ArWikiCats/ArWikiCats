@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.ar_lab import add_in_tab, find_ar_label
+from src.make_bots.ma_bots.ar_lab import add_in_tab, find_ar_label
 
 fast_data = {
     "00s establishments in the Roman Empire": "تأسيسات عقد 00 في الإمبراطورية الرومانية",

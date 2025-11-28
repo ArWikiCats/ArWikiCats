@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ...translations import PARTIES, party_end_keys
+from ...translations import PARTIES, PARTY_ROLE_SUFFIXES
 from .utils import resolve_suffix_template
 
 
@@ -22,7 +22,7 @@ def get_parties_lab_old(party: str) -> str:
     logger.info(f'get_parties_lab party:"{party}"')
     party_label = ""
 
-    for suffix, suffix_template in party_end_keys.items():
+    for suffix, suffix_template in PARTY_ROLE_SUFFIXES.items():
         suffix_with_space = f" {suffix}"
         if party.endswith(suffix_with_space) and party_label == "":
             party_key = party[: -len(suffix_with_space)]
@@ -55,7 +55,7 @@ def get_parties_lab(party: str) -> str:
         """Retrieve a party label by suffix prefix key."""
         return PARTIES.get(prefix, "")
 
-    party_label = resolve_suffix_template(normalized_party, party_end_keys, _lookup)
+    party_label = resolve_suffix_template(normalized_party, PARTY_ROLE_SUFFIXES, _lookup)
 
     if party_label:
         logger.info(f'get_parties_lab party:"{party}", party_label:"{party_label}"')

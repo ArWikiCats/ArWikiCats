@@ -2,19 +2,20 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 from src.translations.geo.us_counties import (
-    _STATE_SUFFIX_TEMPLATES_BASE,
-    STATE_NAME_TRANSLATIONS,
+    US_STATES_NAME_TRANSLATIONS,
+    normalize_state,
 )
 
 test_data = {
-    # "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
-    # "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
-    # "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
-    # "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
-    # "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
-    # "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
+    "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
+    "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
+    "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
+    "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
+    "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
+    "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
+
     "Category:{en} attorneys general": "تصنيف:مدعي {ar} العام",
     "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع {ar}",
     "Category:{en} city councils": "تصنيف:مجالس مدن {ar}",
@@ -53,8 +54,6 @@ test_data = {
     "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}",
 }
 
-# test_data = { f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items() }
-
 data_1 = {
     "iowa": {},
     "montana": {},
@@ -64,23 +63,42 @@ data_1 = {
     "new mexico": {},
     "arizona": {},
 }
+
 for en in data_1.keys():
-    if STATE_NAME_TRANSLATIONS.get(en):
-        ar = STATE_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
+    if US_STATES_NAME_TRANSLATIONS.get(en):
+        ar = US_STATES_NAME_TRANSLATIONS.get(en)
+        data_1[en] = {
+            x.format(en=en): normalize_state(v.format(ar=ar))
+            for x, v in test_data.items()
+        }
+
+
+to_test = [
+    (f"test_us_counties_{x}", v) for x, v in data_1.items()
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.slow
+def test_all_dump(name, data):
+
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 @pytest.mark.parametrize("input,expected", data_1["iowa"].items(), ids=[x for x in data_1["iowa"]])
 @pytest.mark.slow
 def test_iowa(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["montana"].items(), ids=[x for x in data_1["montana"]])
 @pytest.mark.slow
 def test_montana(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
@@ -89,44 +107,36 @@ def test_montana(input, expected):
 )
 @pytest.mark.slow
 def test_georgia(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["nebraska"].items(), ids=[x for x in data_1["nebraska"]])
 @pytest.mark.slow
 def test_nebraska(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["wisconsin"].items(), ids=[x for x in data_1["wisconsin"]])
 @pytest.mark.slow
 def test_wisconsin(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["new mexico"].items(), ids=[x for x in data_1["new mexico"]])
 @pytest.mark.slow
 def test_new_mexico(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["arizona"].items(), ids=[x for x in data_1["arizona"]])
 @pytest.mark.slow
 def test_arizona(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
-
-
-@pytest.mark.parametrize("name,data", data_1.items())
-@pytest.mark.slow
-def test_us_counties_dump(name, data):
-    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 empty_data = {
@@ -189,7 +199,7 @@ empty_data = {
 
 @pytest.mark.fast
 def test_us_counties_empty():
-    expected, diff_result = one_dump_test(empty_data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(empty_data, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

@@ -1,5 +1,5 @@
 # AI Agent Work Plan for Refactoring the Category Labeling System
-## target file: src/make2_bots/ma_bots/ar_lab.py
+## target file: src/make_bots/ma_bots/ar_lab.py
 
 ## 1. Overview
 

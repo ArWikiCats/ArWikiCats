@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.countries_formats.p17_bot_2 import (
+from src.make_bots.countries_formats.p17_bot_2 import (
     Get_P17_2,
 )
 

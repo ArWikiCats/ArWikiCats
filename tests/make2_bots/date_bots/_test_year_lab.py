@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.date_bots.year_lab import make_month_lab, make_year_lab
+from src.make_bots.date_bots.year_lab import make_month_lab, make_year_lab
 
 
 def test_make_year_lab():

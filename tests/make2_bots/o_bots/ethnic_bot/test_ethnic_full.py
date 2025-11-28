@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-import src.make2_bots.o_bots.ethnic_bot as ethnic_mod  # e.g. src.ethnic_label or src.fix.ethnic_helpers
-from src.make2_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
+import src.make_bots.o_bots.ethnic_bot as ethnic_mod  # e.g. src.ethnic_label or src.fix.ethnic_helpers
+from src.make_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
 
 # ---------- Structural tests for data dictionaries ----------
 

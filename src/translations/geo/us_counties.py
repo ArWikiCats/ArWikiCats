@@ -8,27 +8,36 @@ from ...helps import len_print
 from ..utils.json_dir import open_json_file
 from ._shared import load_json_mapping
 
-STATE_NAME_TRANSLATIONS = {
+
+def normalize_state(ar_name: str) -> str:
+    if "ولاية ولاية" in ar_name:
+        ar_name = ar_name.replace("ولاية ولاية", "ولاية")
+
+    return ar_name
+
+
+US_STATES_NAME_TRANSLATIONS = {
+    "washington, d.c.": "واشنطن العاصمة",
+    "georgia (u.s. state)": "ولاية جورجيا",
+    "washington (state)": "ولاية واشنطن",
+    "new york (state)": "ولاية نيويورك",
+
     "ohio": "أوهايو",
     "louisiana": "لويزيانا",
     "new mexico": "نيومكسيكو",
     "nebraska": "نبراسكا",
     "georgia": "جورجيا",
-    "georgia (u.s. state)": "ولاية جورجيا",
     "wisconsin": "ويسكونسن",
     "montana": "مونتانا",
     "iowa": "آيوا",
     "arizona": "أريزونا",
-    "washington, d.c.": "واشنطن العاصمة",
     "washington": "واشنطن",
-    "washington (state)": "ولاية واشنطن",
     "idaho": "أيداهو",
     "massachusetts": "ماساتشوستس",
     "maryland": "ماريلند",
     "rhode island": "رود آيلاند",
     "west virginia": "فيرجينيا الغربية",
     "new york": "نيويورك",
-    "new york (state)": "ولاية نيويورك",
     "pennsylvania": "بنسلفانيا",
     "new jersey": "نيوجيرسي",
     "tennessee": "تينيسي",
@@ -252,90 +261,38 @@ def _build_party_derived_keys(party_labels: Mapping[str, str]) -> dict[str, str]
     return derived_keys
 
 
-def _build_state_key_mappings(state_labels: Mapping[str, str]) -> dict[str, str]:
-    state_keys: dict[str, str] = {}
-
-    for english_name, arabic_label in state_labels.items():
-        normalized_state = english_name.lower()
-        state_keys[normalized_state] = arabic_label
-
-        base_variants = [normalized_state, f"{normalized_state} state"]
-        house_template = "مجلس نواب ولاية %s"
-        if arabic_label.startswith("ولاية "):
-            house_template = "مجلس نواب %s"
-
-        for variant in base_variants:
-            state_keys[f"{variant} house of representatives"] = house_template % arabic_label
-            state_keys[f"{variant} house-of-representatives"] = house_template % arabic_label
-            state_keys[f"{variant} politics"] = f"سياسة {arabic_label}"
-            state_keys[f"{variant} law"] = f"قانون {arabic_label}"
-            state_keys[f"{variant} city councils"] = f"مجالس مدن {arabic_label}"
-            state_keys[f"{variant} councils"] = f"مجالس {arabic_label}"
-            state_keys[f"{variant} legislature"] = f"هيئة {arabic_label} التشريعية"
-            state_keys[f"{variant} legislative assembly"] = f"هيئة {arabic_label} التشريعية"
-            state_keys[f"{variant} general assembly"] = f"جمعية {arabic_label} العامة"
-            state_keys[f"{variant} local politicians"] = f"سياسيون محليون في {arabic_label}"
-
-    return state_keys
-
-
-# COUNTY_TRANSLATIONS = load_json_mapping("geography/us_counties.json")
-COUNTY_TRANSLATIONS = open_json_file("geography/us_counties.json") or {}
+# US_COUNTY_TRANSLATIONS = load_json_mapping("geography/us_counties.json")
+US_COUNTY_TRANSLATIONS = open_json_file("geography/us_counties.json") or {}
 
 STATE_SUFFIX_TEMPLATES = _extend_state_suffix_templates(_STATE_SUFFIX_TEMPLATES_BASE, USA_PARTY_LABELS)
-
-STATE_NAME_KEY_MAPPINGS = {}
-# STATE_NAME_KEY_MAPPINGS = _build_state_key_mappings(STATE_NAME_TRANSLATIONS)
 
 USA_PARTY_DERIVED_KEYS = _build_party_derived_keys(USA_PARTY_LABELS)
 
 # Backwards compatible aliases ---------------------------------------
-STATE_NAME_TRANSLATIONS_LOWER = {
-    english_name.lower(): arabic_name for english_name, arabic_name in STATE_NAME_TRANSLATIONS.items()
+US_STATE_NAMES_LOWER = {
+    english_name.lower(): arabic_name for english_name, arabic_name in US_STATES_NAME_TRANSLATIONS.items()
 }
 
-US_State = STATE_NAME_TRANSLATIONS
-US_State_lower = STATE_NAME_TRANSLATIONS_LOWER
-kk_end_US_State = STATE_SUFFIX_TEMPLATES
-party_end_keys = PARTY_ROLE_SUFFIXES
-USA_newkeys = USA_PARTY_DERIVED_KEYS
-Counties = COUNTY_TRANSLATIONS
-usa_parties = USA_PARTY_LABELS
-
 __all__ = [
-    "COUNTY_TRANSLATIONS",
-    "STATE_NAME_TRANSLATIONS",
-    "STATE_NAME_TRANSLATIONS_LOWER",
+    "normalize_state",
+    "US_STATES_NAME_TRANSLATIONS",
     "STATE_SUFFIX_TEMPLATES",
+    "US_STATE_NAMES_LOWER",
     "PARTY_ROLE_SUFFIXES",
-    "USA_PARTY_LABELS",
     "USA_PARTY_DERIVED_KEYS",
-    # Backwards-compatible exports
-    "US_State",
-    "US_State_lower",
-    "kk_end_US_State",
-    "party_end_keys",
-    "USA_newkeys",
-    "Counties",
-    "usa_parties",
+    "US_COUNTY_TRANSLATIONS",
+    "USA_PARTY_LABELS",
 ]
 
 len_print.data_len(
     "us_counties.py",
     {
-        "COUNTY_TRANSLATIONS": COUNTY_TRANSLATIONS,
-        "STATE_NAME_TRANSLATIONS": STATE_NAME_TRANSLATIONS,
-        "STATE_NAME_TRANSLATIONS_LOWER": STATE_NAME_TRANSLATIONS_LOWER,
         "STATE_SUFFIX_TEMPLATES": STATE_SUFFIX_TEMPLATES,
         "PARTY_ROLE_SUFFIXES": PARTY_ROLE_SUFFIXES,
         "USA_PARTY_LABELS": USA_PARTY_LABELS,
+        "US_STATES_NAME_TRANSLATIONS": US_STATES_NAME_TRANSLATIONS,
+        "US_STATE_NAMES_LOWER": US_STATE_NAMES_LOWER,
         "USA_PARTY_DERIVED_KEYS": USA_PARTY_DERIVED_KEYS,
-        "US_State": US_State,
-        "US_State_lower": US_State_lower,
-        "kk_end_US_State": kk_end_US_State,
-        "party_end_keys": party_end_keys,
-        "USA_newkeys": USA_newkeys,
-        "Counties": Counties,
-        "usa_parties": usa_parties,
+        "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
     },
 )

@@ -108,17 +108,12 @@ def _get_processed_category(category_r: str) -> ProcessedCategory:
     return processor.process_single(category_r)
 
 
-def new_func_lab(category_r: str) -> str:
-    """Return raw AR label."""
-    return _get_processed_category(category_r).raw_label
-
-
-def new_func_lab_final_label(category_r: str) -> str:
+def resolve_arabic_category_label(category_r: str) -> str:
     """Return final AR label with prefix."""
     return _get_processed_category(category_r).final_label
 
 
-def event_result(
+def batch_resolve_labels(
     new_list: List[str],
 ) -> EventProcessingResult:
     """Run the event processor on the given list of categories."""

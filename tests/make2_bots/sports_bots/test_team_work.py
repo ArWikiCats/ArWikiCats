@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.sports_bots.team_work import Get_team_work_Club
+from src.make_bots.sports_bots.team_work import Get_team_work_Club
 
 fast_data = {
     "ad alcorcón seasons": "مواسم نادي ألكوركون",

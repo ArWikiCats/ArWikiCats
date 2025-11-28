@@ -1,10 +1,10 @@
-"""Tests for :mod:`make2_bots.o_bots.bys`."""
+"""Tests for :mod:`make_bots.o_bots.bys`."""
 
 from __future__ import annotations
 
 import pytest
 
-from src.make2_bots.o_bots import bys
+from src.make_bots.o_bots import bys
 
 
 @pytest.fixture(autouse=True)

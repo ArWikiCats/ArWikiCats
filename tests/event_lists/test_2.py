@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 
 data1 = {
     # "Category:yemeni presidential elections": "تصنيف:انتخابات اليمن الرئاسية",
@@ -115,21 +115,21 @@ to_test = [
 @pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
 @pytest.mark.fast
 def test_1(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("category, expected", data_test2.items(), ids=list(data_test2.keys()))
 @pytest.mark.fast
 def test_2(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("category, expected", data_list_bad.items(), ids=list(data_list_bad.keys()))
 @pytest.mark.fast
 def test_2_new_bug_check(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
@@ -137,7 +137,7 @@ def test_2_new_bug_check(category, expected) -> None:
 @pytest.mark.slow
 def test_peoples(name, data):
 
-    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

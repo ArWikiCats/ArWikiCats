@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make2_bots.ma_bots.country2_bots.c_1_c_2_labs import c_1_1_lab, c_2_1_lab
+from src.make_bots.ma_bots.country2_bots.c_1_c_2_labs import c_1_1_lab, c_2_1_lab
 
 fast_data_c_1_1_lab = [
     {"tat_o": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},

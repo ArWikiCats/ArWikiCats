@@ -4,9 +4,9 @@ Tests
 
 import pytest
 
-from src.make2_bots.date_bots.with_years_bot import Try_With_Years
+from src.make_bots.date_bots.with_years_bot import Try_With_Years
 
-# from src.make2_bots.date_bots import with_years_bot
+# from src.make_bots.date_bots import with_years_bot
 
 
 def test_try_with_years():
