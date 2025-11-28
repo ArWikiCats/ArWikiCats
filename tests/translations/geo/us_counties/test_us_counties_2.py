@@ -34,11 +34,15 @@ data_1 = {
     }
 }
 
+all_test_data = {}
+
 for en, ar in US_STATES_NAME_TRANSLATIONS.items():
-    data_1.setdefault(en, {
+    test_one = {
         x.format(en=en): normalize_state(v.format(ar=ar))
         for x, v in test_data.items()
-    })
+    }
+    data_1.setdefault(en, test_one)
+    all_test_data.update(test_one)
 
 
 to_test = [
@@ -58,15 +62,8 @@ def test_all_dump(name, data):
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
-@pytest.mark.parametrize("input,expected", data_1["north dakota"].items(), ids=[x for x in data_1["north dakota"]])
+@pytest.mark.parametrize("input,expected", all_test_data.items(), ids=[x for x in all_test_data])
 @pytest.mark.slow
-def test_north_dakota(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["south carolina"].items(), ids=[x for x in data_1["south carolina"]])
-@pytest.mark.slow
-def test_south_carolina(input, expected):
+def test_all_data(input, expected):
     result = resolve_arabic_category_label(input)
     assert result == expected

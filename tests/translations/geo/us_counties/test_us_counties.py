@@ -8,7 +8,7 @@ from ArWikiCats.translations.geo.us_counties import (
     normalize_state,
 )
 
-test_data = {
+test_data_keys = {
     "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
     "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
     "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
@@ -54,6 +54,8 @@ test_data = {
     "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}",
 }
 
+all_test_data = {}
+
 data_1 = {
     "iowa": {},
     "montana": {},
@@ -67,10 +69,12 @@ data_1 = {
 for en in data_1.keys():
     if US_STATES_NAME_TRANSLATIONS.get(en):
         ar = US_STATES_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {
+        test_one = {
             x.format(en=en): normalize_state(v.format(ar=ar))
-            for x, v in test_data.items()
+            for x, v in test_data_keys.items()
         }
+        data_1[en] = test_one
+        all_test_data.update(test_one)
 
 
 to_test = [
@@ -88,53 +92,9 @@ def test_all_dump(name, data):
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
-@pytest.mark.parametrize("input,expected", data_1["iowa"].items(), ids=[x for x in data_1["iowa"]])
+@pytest.mark.parametrize("input,expected", all_test_data.items(), ids=[x for x in all_test_data])
 @pytest.mark.slow
-def test_iowa(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["montana"].items(), ids=[x for x in data_1["montana"]])
-@pytest.mark.slow
-def test_montana(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize(
-    "input,expected", data_1["georgia (u.s. state)"].items(), ids=[x for x in data_1["georgia (u.s. state)"]]
-)
-@pytest.mark.slow
-def test_georgia(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["nebraska"].items(), ids=[x for x in data_1["nebraska"]])
-@pytest.mark.slow
-def test_nebraska(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["wisconsin"].items(), ids=[x for x in data_1["wisconsin"]])
-@pytest.mark.slow
-def test_wisconsin(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["new mexico"].items(), ids=[x for x in data_1["new mexico"]])
-@pytest.mark.slow
-def test_new_mexico(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["arizona"].items(), ids=[x for x in data_1["arizona"]])
-@pytest.mark.slow
-def test_arizona(input, expected):
+def test_all_data(input, expected):
     result = resolve_arabic_category_label(input)
     assert result == expected
 
