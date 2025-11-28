@@ -23,10 +23,10 @@ data_1 = {
     "north dakota": "داكوتا الشمالية",
     "south carolina": "كارولاينا الجنوبية",
 }
-for en in data_1.keys():
-    if STATE_NAME_TRANSLATIONS.get(en):
-        ar = STATE_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
+# for en in data_1.keys(): # if STATE_NAME_TRANSLATIONS.get(en): ar = STATE_NAME_TRANSLATIONS.get(en)
+
+for en, ar in STATE_NAME_TRANSLATIONS.items():
+    data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
 
 
 to_test = [
