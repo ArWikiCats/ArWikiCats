@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 
 geography_data = {
     "Category:Culture of Westchester County, New York": "تصنيف:ثقافة مقاطعة ويستتشستر (نيويورك)",
@@ -81,28 +81,28 @@ test_data = [
 @pytest.mark.parametrize("category, expected", geography_data.items(), ids=list(geography_data.keys()))
 @pytest.mark.fast
 def test_geography(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("category, expected", geography_in_1.items(), ids=list(geography_in_1.keys()))
 @pytest.mark.fast
 def test_geography_in_1(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.parametrize("category, expected", geography_in_2.items(), ids=list(geography_in_2.keys()))
 @pytest.mark.fast
 def test_geography_in_2(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected
 
 
 @pytest.mark.slow
 @pytest.mark.parametrize("name,data", test_data)
 def test_geography_all(name, data):
-    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

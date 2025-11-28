@@ -4,7 +4,7 @@ from .event_processing import (
     EventProcessor,
     event_result,
     new_func_lab,
-    new_func_lab_final_label,
+    resolve_arabic_category_label,
 )
 from .helps.len_print import dump_all_len
 from .helps.log import LoggerWrap, config_logger, logger
@@ -16,7 +16,7 @@ __all__ = [
     "LoggerWrap",
     "event_result",
     "new_func_lab",
-    "new_func_lab_final_label",
+    "resolve_arabic_category_label",
     "EventProcessor",
     "do_print_options",
     "print_memory",

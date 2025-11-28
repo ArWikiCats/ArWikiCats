@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 from src.translations.geo.us_counties import (
     _STATE_SUFFIX_TEMPLATES_BASE,
     STATE_NAME_TRANSLATIONS,
@@ -73,14 +73,14 @@ for en in data_1.keys():
 @pytest.mark.parametrize("input,expected", data_1["iowa"].items(), ids=[x for x in data_1["iowa"]])
 @pytest.mark.slow
 def test_iowa(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["montana"].items(), ids=[x for x in data_1["montana"]])
 @pytest.mark.slow
 def test_montana(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
@@ -89,42 +89,42 @@ def test_montana(input, expected):
 )
 @pytest.mark.slow
 def test_georgia(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["nebraska"].items(), ids=[x for x in data_1["nebraska"]])
 @pytest.mark.slow
 def test_nebraska(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["wisconsin"].items(), ids=[x for x in data_1["wisconsin"]])
 @pytest.mark.slow
 def test_wisconsin(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["new mexico"].items(), ids=[x for x in data_1["new mexico"]])
 @pytest.mark.slow
 def test_new_mexico(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("input,expected", data_1["arizona"].items(), ids=[x for x in data_1["arizona"]])
 @pytest.mark.slow
 def test_arizona(input, expected):
-    result = new_func_lab_final_label(input)
+    result = resolve_arabic_category_label(input)
     assert result == expected
 
 
 @pytest.mark.parametrize("name,data", data_1.items())
 @pytest.mark.slow
 def test_us_counties_dump(name, data):
-    expected, diff_result = one_dump_test(data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
@@ -189,7 +189,7 @@ empty_data = {
 
 @pytest.mark.fast
 def test_us_counties_empty():
-    expected, diff_result = one_dump_test(empty_data, new_func_lab_final_label)
+    expected, diff_result = one_dump_test(empty_data, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

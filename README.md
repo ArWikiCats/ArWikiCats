@@ -49,7 +49,7 @@
 
 ---
 
-# 2. داخل محرك ArWikiCats (Pipeline Overview)
+# 2. داخل محرك ArWikiCats
 
 المعالجة الكاملة تمر عبر المراحل التالية:
 * التصنيف الخام → التطبيع → اكتشاف الأنماط الزمنية → مطابقة القواعد والترجمات → وحدة الحل الرئيسية → تنسيق العربية → التسمية النهائية (تصنيف:)
@@ -154,9 +154,9 @@ pip install -r requirements.in
 ## 4.1 معالجة تصنيف واحد
 
 ```python
-from ArWikiCats import new_func_lab_final_label
+from ArWikiCats import resolve_arabic_category_label
 
-label = new_func_lab_final_label("Category:2015 in Yemen")
+label = resolve_arabic_category_label("Category:2015 in Yemen")
 print(label)
 # تصنيف:2015 في اليمن
 ```

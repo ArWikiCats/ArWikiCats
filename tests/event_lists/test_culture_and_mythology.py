@@ -1,7 +1,7 @@
 #
 import pytest
 
-from src import new_func_lab_final_label
+from src import resolve_arabic_category_label
 
 data = {
     "Category:Berlin University of the Arts": "تصنيف:جامعة برلين للفنون",
@@ -16,5 +16,5 @@ data = {
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 @pytest.mark.fast
 def test_culture_and_mythology(category, expected) -> None:
-    label = new_func_lab_final_label(category)
+    label = resolve_arabic_category_label(category)
     assert label.strip() == expected

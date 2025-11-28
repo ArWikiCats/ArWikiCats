@@ -113,7 +113,7 @@ def new_func_lab(category_r: str) -> str:
     return _get_processed_category(category_r).raw_label
 
 
-def new_func_lab_final_label(category_r: str) -> str:
+def resolve_arabic_category_label(category_r: str) -> str:
     """Return final AR label with prefix."""
     return _get_processed_category(category_r).final_label
 
