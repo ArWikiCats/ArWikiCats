@@ -189,10 +189,12 @@ print(result.labels)
 print(result.no_labels)
 ```
 
-## 4.3 تشغيل المثال الجاهز
+## 4.3 تشغيل الأمثلة
 
 ```bash
-python run.py
+python examples/run.py
+python examples/1k.py
+python examples/5k.py
 ```
 
 ---
