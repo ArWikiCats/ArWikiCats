@@ -3,11 +3,9 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
-from ArWikiCats.make_bots.p17_bots.us_stat import normalize_state
-from ArWikiCats.translations_resolvers.us_counties_new import _STATE_SUFFIX_TEMPLATES_BASE
-from ArWikiCats.translations.geo.us_counties import (
-    US_STATES_NAME_TRANSLATIONS,
-)
+from ArWikiCats.translations_resolvers.us_states import _STATE_SUFFIX_TEMPLATES_BASE, normalize_state
+from translations import US_STATES
+
 
 test_data_keys = {
     # "{en} republicans": "أعضاء الحزب الجمهوري في {ar}",
@@ -56,8 +54,8 @@ data_1={
 }
 
 for en in data_1.keys():
-    if US_STATES_NAME_TRANSLATIONS.get(en):
-        ar=US_STATES_NAME_TRANSLATIONS.get(en)
+    if US_STATES.get(en):
+        ar=US_STATES.get(en)
         test_one={
             f"Category:{x.format(en=en)}": f"تصنيف:{normalize_state(v.format(ar=ar))}"
             for x, v in test_data_keys.items()

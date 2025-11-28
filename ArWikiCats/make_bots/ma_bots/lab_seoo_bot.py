@@ -21,8 +21,7 @@ from ..o_bots.popl import work_peoples
 
 # from ..bots import tmp_bot
 from ..p17_bots import nats
-from ..p17_bots.us_stat import Work_US_State
-from ...translations_resolvers.us_counties_new import resolve_us_states
+from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import team_work
 from . import ye_ts_bot
 
@@ -109,7 +108,6 @@ def event_label_work(target_category: str) -> str:
         resolved_category_label = ye_ts_bot.translate_general_category(normalized_target_category)
 
     if not resolved_category_label:
-        # resolved_category_label = Work_US_State(normalized_target_category)
         resolved_category_label = resolve_us_states(normalized_target_category)
 
     if not resolved_category_label:
