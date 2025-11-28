@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from ..translations_formats.format_data import FormatData
+from ..translations import US_STATES
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
     "{en} appellate court judges": "قضاة محكمة استئناف {ar}",
@@ -52,63 +53,6 @@ _STATE_SUFFIX_TEMPLATES_BASE = {
     "{en} territory": "إقليم {ar}",
     # " ballot measures":"استفتاءات عامة {ar}",
     # " councils" : "مجالس {ar}",
-}
-
-US_STATES = {
-    "alabama": "ألاباما",
-    "alaska": "ألاسكا",
-    "arizona": "أريزونا",
-    "arkansas": "أركنساس",
-    "california": "كاليفورنيا",
-    "colorado": "كولورادو",
-    "connecticut": "كونيتيكت",
-    "delaware": "ديلاوير",
-    "florida": "فلوريدا",
-    "georgia (u.s. state)": "ولاية جورجيا",
-    "georgia": "جورجيا",
-    "hawaii": "هاواي",
-    "idaho": "أيداهو",
-    "illinois": "إلينوي",
-    "indiana": "إنديانا",
-    "iowa": "آيوا",
-    "kansas": "كانساس",
-    "kentucky": "كنتاكي",
-    "louisiana": "لويزيانا",
-    "maine": "مين",
-    "maryland": "ماريلند",
-    "massachusetts": "ماساتشوستس",
-    "michigan": "ميشيغان",
-    "minnesota": "منيسوتا",
-    "mississippi": "مسيسيبي",
-    "missouri": "ميزوري",
-    "montana": "مونتانا",
-    "nebraska": "نبراسكا",
-    "nevada": "نيفادا",
-    "new hampshire": "نيوهامشير",
-    "new jersey": "نيوجيرسي",
-    "new mexico": "نيومكسيكو",
-    "new york (state)": "ولاية نيويورك",
-    "new york": "نيويورك",
-    "north carolina": "كارولاينا الشمالية",
-    "north dakota": "داكوتا الشمالية",
-    "ohio": "أوهايو",
-    "oklahoma": "أوكلاهوما",
-    "oregon": "أوريغون",
-    "pennsylvania": "بنسلفانيا",
-    "rhode island": "رود آيلاند",
-    "south carolina": "كارولاينا الجنوبية",
-    "south dakota": "داكوتا الجنوبية",
-    "tennessee": "تينيسي",
-    "texas": "تكساس",
-    "utah": "يوتا",
-    "vermont": "فيرمونت",
-    "virginia": "فرجينيا",
-    "washington (state)": "ولاية واشنطن",
-    "washington": "واشنطن",
-    "washington, d.c.": "واشنطن العاصمة",
-    "west virginia": "فيرجينيا الغربية",
-    "wisconsin": "ويسكونسن",
-    "wyoming": "وايومنغ",
 }
 
 _USA_PARTY_LABELS = {
@@ -181,7 +125,7 @@ for party_name, party_label in USA_PARTY_LABELS.items():
     us_states_new_keys[f"{{en}} {simplified_party_name}s"] = f"أعضاء {party_label} في {{ar}}"
 
 
-nat_bot = FormatData(
+us_bot = FormatData(
     us_states_new_keys,
     US_STATES,
     key_placeholder="{en}",
@@ -200,7 +144,7 @@ def normalize_state(ar_name: str) -> str:
 
 
 def resolve_us_states(category: str):
-    result = nat_bot.search(category)
+    result = us_bot.search(category)
 
     result = normalize_state(result)
 

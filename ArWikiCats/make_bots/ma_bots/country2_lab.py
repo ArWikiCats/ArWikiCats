@@ -16,8 +16,7 @@ from ..o_bots import parties_bot, univer
 from ..o_bots.popl import work_peoples
 from ..o_bots.rele import work_relations
 from ..p17_bots import nats
-from ..p17_bots.us_stat import Work_US_State
-from ...translations_resolvers.us_counties_new import resolve_us_states
+from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import sport_lab_suffixes, team_work
 
 # Dictionary of resolvers mapped to their callable functions
@@ -29,7 +28,6 @@ resolvers = {
     "parties_bot.get_parties_lab": parties_bot.get_parties_lab,
     "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
     "univer.te_universities": univer.te_universities,
-    # "Work_US_State": Work_US_State,
     "resolve_us_states": resolve_us_states,
     "work_peoples": work_peoples,
     "get_KAKO": get_KAKO,

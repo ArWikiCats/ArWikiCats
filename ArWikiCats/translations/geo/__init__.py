@@ -7,6 +7,7 @@ from .Cities import (
     CITY_TRANSLATIONS_LOWER,
 )
 from .labels_country import (
+    US_STATES,
     COUNTRY_LABEL_INDEX,
     COUNTRY_LABEL_INDEX_LOWER,
     COUNTRY_LABEL_OVERRIDES,
@@ -29,8 +30,6 @@ from .regions2 import (
 )
 from .us_counties import (
     US_COUNTY_TRANSLATIONS,
-    US_STATE_NAMES_LOWER,
-    STATE_SUFFIX_TEMPLATES,
     USA_PARTY_DERIVED_KEYS,
 )
 
@@ -49,8 +48,6 @@ __all__ = [
     "SECONDARY_REGION_TRANSLATIONS",
     "INDIA_REGION_TRANSLATIONS",
     "US_COUNTY_TRANSLATIONS",
-    "US_STATE_NAMES_LOWER",
-    "STATE_SUFFIX_TEMPLATES",
     "USA_PARTY_DERIVED_KEYS",
     "get_country_label_index",
     "get_country_label_index_lower",
@@ -59,4 +56,5 @@ __all__ = [
     "get_primary_region_translations",
     "get_secondary_region_translations",
     "get_india_region_translations",
+    "US_STATES",
 ]

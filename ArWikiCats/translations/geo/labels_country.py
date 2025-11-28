@@ -18,6 +18,63 @@ from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
 from .us_counties import US_COUNTY_TRANSLATIONS
 
+US_STATES = {
+    "alabama": "ألاباما",
+    "alaska": "ألاسكا",
+    "arizona": "أريزونا",
+    "arkansas": "أركنساس",
+    "california": "كاليفورنيا",
+    "colorado": "كولورادو",
+    "connecticut": "كونيتيكت",
+    "delaware": "ديلاوير",
+    "florida": "فلوريدا",
+    "georgia (u.s. state)": "ولاية جورجيا",
+    "georgia": "جورجيا",
+    "hawaii": "هاواي",
+    "idaho": "أيداهو",
+    "illinois": "إلينوي",
+    "indiana": "إنديانا",
+    "iowa": "آيوا",
+    "kansas": "كانساس",
+    "kentucky": "كنتاكي",
+    "louisiana": "لويزيانا",
+    "maine": "مين",
+    "maryland": "ماريلند",
+    "massachusetts": "ماساتشوستس",
+    "michigan": "ميشيغان",
+    "minnesota": "منيسوتا",
+    "mississippi": "مسيسيبي",
+    "missouri": "ميزوري",
+    "montana": "مونتانا",
+    "nebraska": "نبراسكا",
+    "nevada": "نيفادا",
+    "new hampshire": "نيوهامشير",
+    "new jersey": "نيوجيرسي",
+    "new mexico": "نيومكسيكو",
+    "new york (state)": "ولاية نيويورك",
+    "new york": "نيويورك",
+    "north carolina": "كارولاينا الشمالية",
+    "north dakota": "داكوتا الشمالية",
+    "ohio": "أوهايو",
+    "oklahoma": "أوكلاهوما",
+    "oregon": "أوريغون",
+    "pennsylvania": "بنسلفانيا",
+    "rhode island": "رود آيلاند",
+    "south carolina": "كارولاينا الجنوبية",
+    "south dakota": "داكوتا الجنوبية",
+    "tennessee": "تينيسي",
+    "texas": "تكساس",
+    "utah": "يوتا",
+    "vermont": "فيرمونت",
+    "virginia": "فرجينيا",
+    "washington (state)": "ولاية واشنطن",
+    "washington": "واشنطن",
+    "washington, d.c.": "واشنطن العاصمة",
+    "west virginia": "فيرجينيا الغربية",
+    "wisconsin": "ويسكونسن",
+    "wyoming": "وايومنغ",
+}
+
 JAPAN_REGIONAL_LABELS = {
     "gokishichidō": "",
     "saitama": "سايتاما",
@@ -179,6 +236,7 @@ def _build_country_label_index() -> dict[str, str]:
     label_index: dict[str, str] = {}
 
     update_with_lowercased(label_index, CITY_TRANSLATIONS)
+    update_with_lowercased(label_index, US_STATES)
     update_with_lowercased(label_index, COUNTRY_LABEL_OVERRIDES)
     update_with_lowercased(label_index, POPULATION_OVERRIDES)
     update_with_lowercased(label_index, COUNTRY_ADMIN_LABELS)

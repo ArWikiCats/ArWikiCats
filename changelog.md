@@ -1,4 +1,14 @@
 
+## [#122](https://github.com/MrIbrahem/ArWikiCats/pull/122) - 2025-11-28
+
+* **New Features**
+  * Improved US state/territory resolution and party-role translation mappings; added a sports-term alternation for more reliable matching.
+* **Bug Fixes**
+  * Arabic state-name normalization refined (e.g., Washington, D.C. label corrected to drop duplicate/state prefix).
+  * Simplified and more consistent key-pattern matching logic.
+* **Tests**
+  * Test suite reorganized: many tests retagged for targeted runs and new integration/unit tests added for state/party resolution.
+
 ## [#120](https://github.com/MrIbrahem/ArWikiCats/pull/120) - 2025-11-28
 
 * **New Features**

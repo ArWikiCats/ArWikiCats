@@ -3,11 +3,9 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
-from ArWikiCats.make_bots.p17_bots.us_stat import normalize_state
-from ArWikiCats.translations.geo.us_counties import (
-    _STATE_SUFFIX_TEMPLATES_BASE,
-    US_STATES_NAME_TRANSLATIONS,
-)
+from ArWikiCats.translations_resolvers.us_states import normalize_state
+
+from ArWikiCats.translations import US_STATES
 
 test_data = {
     "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
@@ -19,10 +17,6 @@ test_data = {
 }
 
 
-_test_data = {
-    f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}"
-    for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
-}
 washington_data = {
     "Category:washington, d.c. Democrats": "تصنيف:ديمقراطيون من واشنطن العاصمة",
     "Category:washington, d.c. lawyers": "تصنيف:محامون من واشنطن العاصمة",
@@ -34,7 +28,7 @@ washington_data = {
 data_1 = {}
 all_test_data = {}
 
-for en, ar in US_STATES_NAME_TRANSLATIONS.items():
+for en, ar in US_STATES.items():
     test_one = {
         x.format(en=en): normalize_state(v.format(ar=ar))
         for x, v in test_data.items()
