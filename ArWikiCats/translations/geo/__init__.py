@@ -29,11 +29,9 @@ from .regions2 import (
 )
 from .us_counties import (
     US_COUNTY_TRANSLATIONS,
-    US_STATES_NAME_TRANSLATIONS,
     US_STATE_NAMES_LOWER,
     STATE_SUFFIX_TEMPLATES,
     USA_PARTY_DERIVED_KEYS,
-    USA_PARTY_LABELS,
 )
 
 __all__ = [
@@ -51,11 +49,9 @@ __all__ = [
     "SECONDARY_REGION_TRANSLATIONS",
     "INDIA_REGION_TRANSLATIONS",
     "US_COUNTY_TRANSLATIONS",
-    "US_STATES_NAME_TRANSLATIONS",
     "US_STATE_NAMES_LOWER",
     "STATE_SUFFIX_TEMPLATES",
     "USA_PARTY_DERIVED_KEYS",
-    "USA_PARTY_LABELS",
     "get_country_label_index",
     "get_country_label_index_lower",
     "get_country_admin_labels",

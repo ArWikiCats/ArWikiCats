@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.o_bots.parties_bot import get_parties_lab, get_parties_lab_old
+from ArWikiCats.make_bots.o_bots.parties_bot import get_parties_lab
 
 fast_data = {}
 
@@ -14,19 +14,6 @@ fast_data = {}
 def test_fast_data(category, expected) -> None:
     label = get_parties_lab(category)
     assert label.strip() == expected
-
-
-def test_get_parties_lab_old():
-    # Test with a basic input
-    result = get_parties_lab_old("democratic party")
-    assert isinstance(result, str)
-
-    result_empty = get_parties_lab_old("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = get_parties_lab_old("some party")
-    assert isinstance(result_various, str)
 
 
 def test_get_parties_lab():

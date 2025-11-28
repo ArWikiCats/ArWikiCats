@@ -119,7 +119,6 @@ _STATE_SUFFIX_TEMPLATES_BASE = {
     " politicians": "سياسيو %s",
     " sheriffs": "مأمورو %s",
     " lawyers": "محامون من ولاية %s",
-    " jacksonians": "جاكسونيون من ولاية %s",
     " republicans": "جمهوريون من ولاية %s",
     " democrats": "ديمقراطيون من ولاية %s",
     " independents": "مستقلون من ولاية %s",
@@ -135,7 +134,7 @@ PARTY_ROLE_SUFFIXES = {
     "state governors": "حكام ولايات من %s",
 }
 
-USA_PARTY_LABELS = {
+_USA_PARTY_LABELS = {
     "democratic republican": "الحزب الديمقراطي الجمهوري",
     "democratic-republican": "الحزب الديمقراطي الجمهوري",
     "democratic-republican party": "الحزب الديمقراطي الجمهوري",
@@ -159,7 +158,6 @@ USA_PARTY_LABELS = {
     "Nonpartisan League": "",
     "democratic party": "الحزب الديمقراطي",
     "republican party": "الحزب الجمهوري",
-    "jacksonian": "جاكسونيون",
     "whig party": "حزب اليمين",
     "National Republican Party": "الحزب الجمهوري الوطني",
     "National Republican": "الحزب الجمهوري الوطني",
@@ -194,6 +192,8 @@ USA_PARTY_LABELS = {
     "Liberty Union Party": "حزب الحرية المتحد",
 }
 
+USA_PARTY_LABELS = {x.strip(): y.strip() for x, y in _USA_PARTY_LABELS.items() if y.strip()}
+
 
 def _extend_state_suffix_templates(
     base_templates: Mapping[str, str], party_labels: Mapping[str, str]
@@ -201,8 +201,12 @@ def _extend_state_suffix_templates(
     extended_templates = dict(base_templates)
 
     for party_name, party_label in party_labels.items():
+        if not party_label.strip():
+            continue
+
         normalized_party_name = party_name.lower()
         extended_templates[f" {normalized_party_name}s"] = f"أعضاء {party_label} في %s"
+
         simplified_party_name = normalized_party_name.replace(" party", "")
         extended_templates[f" {simplified_party_name}s"] = f"أعضاء {party_label} في %s"
 

@@ -1,0 +1,67 @@
+"""
+Tests
+"""
+
+import pytest
+from load_one_data import dump_diff, one_dump_test
+from ArWikiCats.make_bots.p17_bots.us_stat import Work_US_State
+from ArWikiCats.translations.geo.us_counties import (
+    _STATE_SUFFIX_TEMPLATES_BASE,
+    US_STATES_NAME_TRANSLATIONS,
+    normalize_state,
+)
+
+test_data = {
+    "{en} in the War of 1812": "{ar} في حرب 1812",
+    "{en} Democrats": "ديمقراطيون من ولاية {ar}",
+    "{en} lawyers": "محامون من ولاية {ar}",
+    "{en} state court judges": "قضاة محكمة ولاية {ar}",
+    "{en} state courts": "محكمة ولاية {ar}",
+    "{en} state senators": "أعضاء مجلس شيوخ ولاية {ar}",
+}
+
+_test_data = {
+    f"{{en}} {x.strip()}": "" + v % "{ar}"
+    for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
+}
+
+washington_data = {
+    "washington, d.c. Democrats": "ديمقراطيون من واشنطن العاصمة",
+    "washington, d.c. lawyers": "محامون من واشنطن العاصمة",
+    "washington, d.c. state court judges": "قضاة محكمة واشنطن العاصمة",
+    "washington, d.c. state courts": "محكمة واشنطن العاصمة",
+    "washington, d.c. state senators": "أعضاء مجلس شيوخ واشنطن العاصمة",
+}
+
+all_test_data = {}
+
+for en, ar in US_STATES_NAME_TRANSLATIONS.items():
+    test_one = {
+        x.format(en=en): normalize_state(v.format(ar=ar))
+        for x, v in test_data.items()
+    }
+    all_test_data.update(test_one)
+
+all_test_data.update(washington_data)
+
+
+@pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=list(all_test_data.keys()))
+@pytest.mark.slow
+def test_Work_US_State_data(category, expected_key) -> None:
+    label = Work_US_State(category)
+    assert label.strip() == expected_key
+
+
+to_test = [
+    ("test_all_test_data", all_test_data)
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_all_dump(name, data):
+
+    expected, diff_result = one_dump_test(data, Work_US_State)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

@@ -33,7 +33,6 @@ test_data_keys = {
     "Category:{en} in fiction by city": "تصنيف:{ar} في الخيال حسب المدينة",
     "Category:{en} in the American Civil War": "تصنيف:{ar} في الحرب الأهلية الأمريكية",
     "Category:{en} in the American Revolution": "تصنيف:{ar} في الثورة الأمريكية",
-    "Category:{en} Jacksonians": "تصنيف:أعضاء جاكسونيون في {ar}",
     "Category:{en} Know Nothings": "تصنيف:أعضاء حزب لا أدري في {ar}",
     "Category:{en} law": "تصنيف:قانون {ar}",
     "Category:{en} law-related lists": "تصنيف:قوائم متعلقة بقانون {ar}",

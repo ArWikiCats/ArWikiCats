@@ -12,7 +12,6 @@ BASE_POP_FINAL_5: dict[str, str] = {
     "trustees of": "أمناء",
     "members of": "أعضاء",
     "independent members": "أعضاء مستقلون",
-    "jacksonian members": "أعضاء جاكسونيون",
     "members": "أعضاء",
     "secession": "الانفصالية",
     "separatism": "الانفصالية",
