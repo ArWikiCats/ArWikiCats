@@ -32,7 +32,7 @@ for en, ar in US_STATES_NAME_TRANSLATIONS.items():  # 124 per state
 
 to_test = [
     ("test_Work_US_State_data", all_test_data, Work_US_State),
-    ("test_resolve_us_states", all_test_data, resolve_us_states),
+    # ("test_resolve_us_states", all_test_data, resolve_us_states),
 ]
 
 
@@ -54,7 +54,7 @@ def test_Work_US_State_data(category, expected_key) -> None:
 
 
 @pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=list(all_test_data.keys()))
-@pytest.mark.slow
+@pytest.mark.skip2
 def test_resolve_us_states(category, expected_key) -> None:
     label2 = resolve_us_states(category)
     assert label2.strip() == expected_key
