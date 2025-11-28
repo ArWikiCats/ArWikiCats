@@ -4,17 +4,10 @@ from load_one_data import dump_diff, one_dump_test
 
 from src import resolve_arabic_category_label
 from src.translations.geo.us_counties import (
-    _STATE_SUFFIX_TEMPLATES_BASE,
     STATE_NAME_TRANSLATIONS,
 )
 
 test_data = {
-    # "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
-    # "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
-    # "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
-    # "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
-    # "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
-    # "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
     "Category:{en} attorneys general": "تصنيف:مدعي {ar} العام",
     "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع {ar}",
     "Category:{en} city councils": "تصنيف:مجالس مدن {ar}",
@@ -53,8 +46,6 @@ test_data = {
     "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}",
 }
 
-# test_data = { f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items() }
-
 data_1 = {
     "iowa": {},
     "montana": {},
@@ -64,10 +55,11 @@ data_1 = {
     "new mexico": {},
     "arizona": {},
 }
+
 for en in data_1.keys():
     if STATE_NAME_TRANSLATIONS.get(en):
         ar = STATE_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {x.format(en=en): "x" for x, v in test_data.items()}
+        data_1[en] = {x.format(en=en): v.format(ar=ar) for x, v in test_data.items()}
 
 
 to_test = [
