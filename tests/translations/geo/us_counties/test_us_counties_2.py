@@ -39,8 +39,10 @@ to_test = [
 def test_all_dump(name, data):
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    if diff_result:
+        dump_diff(diff_result, name)
+        dump_diff(expected, f"{name}_expected")
 
-    dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
