@@ -64,8 +64,12 @@ SPORTS_EN_TO_AR: Dict[str, str] = {
 }
 
 _sorted_sports = sorted(SPORTS_EN_TO_AR.keys(), key=len, reverse=True)
-SPORTS_PATTERN = re.compile(r"(?i)\b(" + "|".join(re.escape(k) for k in _sorted_sports) + r")\b")
 WHITESPACE_NORM = re.compile(r"\s+")
+
+alternation = "|".join(re.escape(k) for k in _sorted_sports)
+
+SPORTS_PATTERN = re.compile(r"(?i)\b(" + alternation + r")\b")
+# TODO: USE SPORTS_PATTERN = re.compile(fr"(?<!\w)({alternation})(?!\w)")
 
 
 def _normalize(text: str) -> str:

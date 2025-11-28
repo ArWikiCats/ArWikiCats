@@ -8,36 +8,6 @@ from ...translations import PARTIES, PARTY_ROLE_SUFFIXES
 from .utils import resolve_suffix_template
 
 
-def get_parties_lab_old(party: str) -> str:
-    """Return the Arabic label for ``party`` using known suffixes.
-
-    Args:
-        party: The party name to resolve.
-
-    Returns:
-        The resolved Arabic label or an empty string if the suffix is unknown.
-    """
-
-    normalized_party = party.strip()
-    logger.info(f'get_parties_lab party:"{party}"')
-    party_label = ""
-
-    for suffix, suffix_template in PARTY_ROLE_SUFFIXES.items():
-        suffix_with_space = f" {suffix}"
-        if party.endswith(suffix_with_space) and party_label == "":
-            party_key = party[: -len(suffix_with_space)]
-            logger.debug(f'party_uu:"{party_key}", tat:"{suffix}" ')
-            label = PARTIES.get(party_key, "")
-            if label:
-                party_label = suffix_template % label if "%s" in suffix_template else suffix_template.format(label)
-                break
-
-    if party_label:
-        logger.info(f'get_parties_lab party:"{party}", party_label:"{party_label}"')
-
-    return party_label
-
-
 def get_parties_lab(party: str) -> str:
     """Return the Arabic label for ``party`` using known suffixes.
 

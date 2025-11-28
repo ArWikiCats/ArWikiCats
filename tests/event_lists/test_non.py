@@ -1694,7 +1694,8 @@ def test_data_series(category, expected) -> None:
 
 
 @pytest.mark.parametrize("name,data", to_test)
-# @pytest.mark.skip2
+@pytest.mark.dump
+@pytest.mark.skip2
 def test_non_dump(name, data):
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)

@@ -93,7 +93,7 @@ def test_geography_us_3(category, expected) -> None:
 
 
 @pytest.mark.parametrize("name,data", test_data)
-@pytest.mark.slow
+@pytest.mark.dump
 def test_geography_us(name, data):
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 

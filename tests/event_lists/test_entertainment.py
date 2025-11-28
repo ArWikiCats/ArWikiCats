@@ -158,7 +158,7 @@ def test_entertainment_3(category, expected) -> None:
 
 
 @pytest.mark.parametrize("name,data", ENTERTAINMENT_CASES)
-@pytest.mark.slow
+@pytest.mark.dump
 def test_entertainment(name, data):
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)

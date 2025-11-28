@@ -3,10 +3,10 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats.make_bots.p17_bots.us_stat import normalize_state
 from ArWikiCats.translations.geo.us_counties import (
     _STATE_SUFFIX_TEMPLATES_BASE,
     US_STATES_NAME_TRANSLATIONS,
-    normalize_state,
 )
 
 test_data = {
@@ -23,31 +23,37 @@ _test_data = {
     f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}"
     for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
 }
-
-data_1 = {
-    "washington, d.c.": {
-        "Category:washington, d.c. Democrats": "تصنيف:ديمقراطيون من واشنطن العاصمة",
-        "Category:washington, d.c. lawyers": "تصنيف:محامون من واشنطن العاصمة",
-        "Category:washington, d.c. state court judges": "تصنيف:قضاة محكمة واشنطن العاصمة",
-        "Category:washington, d.c. state courts": "تصنيف:محكمة واشنطن العاصمة",
-        "Category:washington, d.c. state senators": "تصنيف:أعضاء مجلس شيوخ واشنطن العاصمة"
-    }
+washington_data = {
+    "Category:washington, d.c. Democrats": "تصنيف:ديمقراطيون من واشنطن العاصمة",
+    "Category:washington, d.c. lawyers": "تصنيف:محامون من واشنطن العاصمة",
+    "Category:washington, d.c. state court judges": "تصنيف:قضاة محكمة واشنطن العاصمة",
+    "Category:washington, d.c. state courts": "تصنيف:محكمة واشنطن العاصمة",
+    "Category:washington, d.c. state senators": "تصنيف:أعضاء مجلس شيوخ واشنطن العاصمة",
 }
 
+data_1 = {}
+all_test_data = {}
+
 for en, ar in US_STATES_NAME_TRANSLATIONS.items():
-    data_1.setdefault(en, {
+    test_one = {
         x.format(en=en): normalize_state(v.format(ar=ar))
         for x, v in test_data.items()
-    })
+    }
+    data_1.setdefault(en, test_one)
+    all_test_data.update(test_one)
 
+data_1["washington, d.c."] = washington_data
+all_test_data.update(washington_data)
 
 to_test = [
     (f"test_us_counties_{x}", v) for x, v in data_1.items()
 ]
 
+to_test.append(("test_all_test_data", all_test_data))
+
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_all_dump(name, data):
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
@@ -58,15 +64,8 @@ def test_all_dump(name, data):
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
-@pytest.mark.parametrize("input,expected", data_1["north dakota"].items(), ids=[x for x in data_1["north dakota"]])
+@pytest.mark.parametrize("input,expected", all_test_data.items(), ids=[x for x in all_test_data])
 @pytest.mark.slow
-def test_north_dakota(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["south carolina"].items(), ids=[x for x in data_1["south carolina"]])
-@pytest.mark.slow
-def test_south_carolina(input, expected):
+def test_all_data(input, expected):
     result = resolve_arabic_category_label(input)
     assert result == expected

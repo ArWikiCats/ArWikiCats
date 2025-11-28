@@ -198,7 +198,7 @@ TEMPORAL_CASES = [
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
-@pytest.mark.slow
+@pytest.mark.dump
 def test_all(name, data):
     expected, diff_result = one_dump_test(data, wrap_team_xo_normal_2025)
 

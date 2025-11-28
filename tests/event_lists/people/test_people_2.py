@@ -82,7 +82,7 @@ def test_people_labels_3(category, expected) -> None:
 
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.slow
+@pytest.mark.dump
 def test_peoples_2(name, data):
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)

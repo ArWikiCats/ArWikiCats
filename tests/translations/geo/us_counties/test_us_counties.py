@@ -3,58 +3,49 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats.make_bots.p17_bots.us_stat import normalize_state
+from ArWikiCats.translations_resolvers.us_counties_new import _STATE_SUFFIX_TEMPLATES_BASE
 from ArWikiCats.translations.geo.us_counties import (
     US_STATES_NAME_TRANSLATIONS,
-    normalize_state,
 )
 
-test_data = {
-    "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
-    "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
-    "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
-    "Category:{en} state court judges": "تصنيف:قضاة محكمة ولاية {ar}",
-    "Category:{en} state courts": "تصنيف:محكمة ولاية {ar}",
-    "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
-
-    "Category:{en} attorneys general": "تصنيف:مدعي {ar} العام",
-    "Category:{en} ballot measures": "تصنيف:إجراءات اقتراع {ar}",
-    "Category:{en} city councils": "تصنيف:مجالس مدن {ar}",
-    "Category:{en} counties": "تصنيف:مقاطعات {ar}",
-    "Category:{en} Democratic-Republicans": "تصنيف:أعضاء الحزب الديمقراطي الجمهوري في {ar}",
-    "Category:{en} elections": "تصنيف:انتخابات {ar}",
-    "Category:{en} elections by decade": "تصنيف:انتخابات {ar} حسب العقد",
-    "Category:{en} elections by year": "تصنيف:انتخابات {ar} حسب السنة",
-    "Category:{en} Federalists": "تصنيف:أعضاء الحزب الفيدرالي الأمريكي في {ar}",
-    "Category:{en} Greenbacks": "تصنيف:أعضاء حزب الدولار الأمريكي في {ar}",
-    "Category:{en} Greens": "تصنيف:أعضاء حزب الخضر في {ar}",
-    "Category:{en} gubernatorial elections": "تصنيف:انتخابات حاكم {ar}",
-    "Category:{en} independents": "تصنيف:أعضاء في {ar}",
-    "Category:{en} in fiction": "تصنيف:{ar} في الخيال",
-    "Category:{en} in fiction by city": "تصنيف:{ar} في الخيال حسب المدينة",
-    "Category:{en} in the American Civil War": "تصنيف:{ar} في الحرب الأهلية الأمريكية",
-    "Category:{en} in the American Revolution": "تصنيف:{ar} في الثورة الأمريكية",
-    "Category:{en} Jacksonians": "تصنيف:أعضاء جاكسونيون في {ar}",
-    "Category:{en} Know Nothings": "تصنيف:أعضاء حزب لا أدري في {ar}",
-    "Category:{en} law": "تصنيف:قانون {ar}",
-    "Category:{en} law-related lists": "تصنيف:قوائم متعلقة بقانون {ar}",
-    "Category:{en} local politicians": "تصنيف:سياسيون محليون في {ar}",
-    "Category:{en} navigational boxes": "تصنيف:صناديق تصفح {ar}",
-    "Category:{en} politicians": "تصنيف:سياسيو {ar}",
-    "Category:{en} politicians by century": "تصنيف:سياسيو {ar} حسب القرن",
-    "Category:{en} politicians by party": "تصنيف:سياسيو {ar} حسب الحزب",
-    "Category:{en} politicians by populated place": "تصنيف:سياسيو {ar} حسب المكان المأهول",
-    "Category:{en} politicians convicted of crimes": "تصنيف:سياسيو {ar} أدينوا بجرائم",
-    "Category:{en} politics-related lists": "تصنيف:قوائم متعلقة بسياسة {ar}",
-    "Category:{en}-related lists": "تصنيف:قوائم متعلقة ب{ar}",
-    "Category:{en} Republicans": "تصنيف:أعضاء الحزب الجمهوري في {ar}",
-    "Category:{en} sheriffs": "تصنيف:مأمورو {ar}",
-    "Category:{en} socialists": "تصنيف:أعضاء الحزب الاشتراكي في {ar}",
-    "Category:{en} templates": "تصنيف:قوالب {ar}",
-    "Category:{en} Unionists": "تصنيف:أعضاء الحزب الوحدوي في {ar}",
-    "Category:{en} Whigs": "تصنيف:أعضاء حزب اليمين في {ar}",
+test_data_keys = {
+    # "{en} republicans": "أعضاء الحزب الجمهوري في {ar}",
+    "{en} counties": "مقاطعات {ar}",
+    "{en} democratic-republicans": "أعضاء الحزب الديمقراطي الجمهوري في {ar}",
+    "{en} elections by decade": "انتخابات {ar} حسب العقد",
+    "{en} elections by year": "انتخابات {ar} حسب السنة",
+    "{en} elections": "انتخابات {ar}",
+    "{en} federalists": "أعضاء الحزب الفيدرالي الأمريكي في {ar}",
+    "{en} greenbacks": "أعضاء حزب الدولار الأمريكي في {ar}",
+    "{en} greens": "أعضاء حزب الخضر في {ar}",
+    "{en} in fiction by city": "{ar} في الخيال حسب المدينة",
+    "{en} in fiction": "{ar} في الخيال",
+    "{en} in the american civil war": "{ar} في الحرب الأهلية الأمريكية",
+    "{en} in the american revolution": "{ar} في الثورة الأمريكية",
+    "{en} independents": "أعضاء في {ar}",
+    "{en} know nothings": "أعضاء حزب لا أدري في {ar}",
+    "{en} law-related lists": "قوائم متعلقة بقانون {ar}",
+    "{en} navigational boxes": "صناديق تصفح {ar}",
+    "{en} politicians by century": "سياسيو {ar} حسب القرن",
+    "{en} politicians by party": "سياسيو {ar} حسب الحزب",
+    "{en} politicians by populated place": "سياسيو {ar} حسب المكان المأهول",
+    "{en} politicians convicted of crimes": "سياسيو {ar} أدينوا بجرائم",
+    "{en} politics-related lists": "قوائم متعلقة بسياسة {ar}",
+    "{en} socialists": "أعضاء الحزب الاشتراكي في {ar}",
+    "{en} templates": "قوالب {ar}",
+    "{en} unionists": "أعضاء الحزب الوحدوي في {ar}",
+    "{en} whigs": "أعضاء حزب اليمين في {ar}",
+    "{en}-related lists": "قوائم متعلقة ب{ar}",
 }
 
-data_1 = {
+test_data_keys.update(_STATE_SUFFIX_TEMPLATES_BASE)
+if "{en} republicans" in test_data_keys:
+    del test_data_keys["{en} republicans"]
+
+all_test_data={}
+
+data_1={
     "iowa": {},
     "montana": {},
     "georgia (u.s. state)": {},
@@ -66,80 +57,41 @@ data_1 = {
 
 for en in data_1.keys():
     if US_STATES_NAME_TRANSLATIONS.get(en):
-        ar = US_STATES_NAME_TRANSLATIONS.get(en)
-        data_1[en] = {
-            x.format(en=en): normalize_state(v.format(ar=ar))
-            for x, v in test_data.items()
+        ar=US_STATES_NAME_TRANSLATIONS.get(en)
+        test_one={
+            f"Category:{x.format(en=en)}": f"تصنيف:{normalize_state(v.format(ar=ar))}"
+            for x, v in test_data_keys.items()
         }
+        data_1[en]=test_one
+        all_test_data.update(test_one)
 
 
-to_test = [
+to_test=[
     (f"test_us_counties_{x}", v) for x, v in data_1.items()
 ]
 
+to_test.append(("test_all_test_data", all_test_data))
+
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.slow
+@pytest.mark.dump
 def test_all_dump(name, data):
 
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result=one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
-@pytest.mark.parametrize("input,expected", data_1["iowa"].items(), ids=[x for x in data_1["iowa"]])
+@pytest.mark.parametrize("input,expected", all_test_data.items(), ids=[x for x in all_test_data])
 @pytest.mark.slow
-def test_iowa(input, expected):
-    result = resolve_arabic_category_label(input)
+def test_all_data(input, expected):
+    result=resolve_arabic_category_label(input)
     assert result == expected
 
 
-@pytest.mark.parametrize("input,expected", data_1["montana"].items(), ids=[x for x in data_1["montana"]])
-@pytest.mark.slow
-def test_montana(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize(
-    "input,expected", data_1["georgia (u.s. state)"].items(), ids=[x for x in data_1["georgia (u.s. state)"]]
-)
-@pytest.mark.slow
-def test_georgia(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["nebraska"].items(), ids=[x for x in data_1["nebraska"]])
-@pytest.mark.slow
-def test_nebraska(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["wisconsin"].items(), ids=[x for x in data_1["wisconsin"]])
-@pytest.mark.slow
-def test_wisconsin(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["new mexico"].items(), ids=[x for x in data_1["new mexico"]])
-@pytest.mark.slow
-def test_new_mexico(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-@pytest.mark.parametrize("input,expected", data_1["arizona"].items(), ids=[x for x in data_1["arizona"]])
-@pytest.mark.slow
-def test_arizona(input, expected):
-    result = resolve_arabic_category_label(input)
-    assert result == expected
-
-
-empty_data = {
+empty_data={
+    "Category:Georgia (U.S. state) National Republicans": "تصنيف:أعضاء الحزب الجمهوري الوطني في ولاية جورجيا",
     "Category:Georgia (U.S. state) Attorney General elections": "",
     "Category:Georgia (U.S. state) case law": "",
     "Category:Georgia (U.S. state) city council members": "",
@@ -167,7 +119,6 @@ empty_data = {
     "Category:Georgia (U.S. state) mass media navigational boxes": "",
     "Category:Georgia (U.S. state) militia": "",
     "Category:Georgia (U.S. state) militiamen in the American Revolution": "",
-    "Category:Georgia (U.S. state) National Republicans": "",
     "Category:Georgia (U.S. state) Oppositionists": "",
     "Category:Georgia (U.S. state) placenames of Native American origin": "",
     "Category:Georgia (U.S. state) Populists": "",
@@ -197,9 +148,9 @@ empty_data = {
 }
 
 
-@pytest.mark.fast
+@pytest.mark.dump
 def test_us_counties_empty():
-    expected, diff_result = one_dump_test(empty_data, resolve_arabic_category_label)
+    expected, diff_result=one_dump_test(empty_data, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
