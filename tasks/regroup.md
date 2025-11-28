@@ -24,7 +24,7 @@ Those functions will be moved directly into the file that consumes them.
 
 ### Tasks
 
-1. Recursively scan the project source directory (e.g., `src/`).
+1. Recursively scan the project source directory (e.g., `ArWikiCats/`).
 
 2. Collect all `.py` files except:
 
@@ -62,7 +62,7 @@ For every candidate file:
 
 | Function | Defined In           | Used By                 | Status  |
 | -------- | -------------------- | ----------------------- | ------- |
-| slugify  | src/tools/slugify.py | src/processors/title.py | movable |
+| slugify  | ArWikiCats/tools/slugify.py | ArWikiCats/processors/title.py | movable |
 
 ---
 
@@ -146,8 +146,8 @@ After restructuring, the agent generates a Markdown report containing:
 
 ```
 Moved function: normalize_text
-From: src/cleaners/normalize.py
-To:   src/parsers/title_parser.py
+From: ArWikiCats/cleaners/normalize.py
+To:   ArWikiCats/parsers/title_parser.py
 Reason: Function used in only one file
 Status: SUCCESS
 ```

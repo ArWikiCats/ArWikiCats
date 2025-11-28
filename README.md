@@ -88,25 +88,25 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 ## 2.3 القواعد والقواميس
 
 يشمل ذلك:
-* **[الجنسيات](src/translations/jsons/nationalities)**:
+* **[الجنسيات](ArWikiCats/translations/jsons/nationalities)**:
 	- صيغ المذكر والمؤنث والجمع والمفرد واسم البلد العربي والإنجليزي.
-* **[الجغرافيا](src/translations/jsons/geography) و[المدن](src/translations/jsons/cities)**:
+* **[الجغرافيا](ArWikiCats/translations/jsons/geography) و[المدن](ArWikiCats/translations/jsons/cities)**:
 	- المدن والدول والمناطق والأقاليم والمحافظات والبلديات والمقاطعات والتقسيمات الإدارية الأخرى.
-* **[الوظائف والمهن](src/translations/jsons/jobs)**:
+* **[الوظائف والمهن](ArWikiCats/translations/jsons/jobs)**:
 	- مختلف مسميات الوظائف والمهن والأعمال. وتصنيفها حسب الجنس (للرجال/للسيدات) يشمل ذلك الوظائف الرياضية والوظائف السينمائية والمهن العلمية.
-* **[الرياضات](src/translations/jsons/sports)**:
+* **[الرياضات](ArWikiCats/translations/jsons/sports)**:
     - التسميات والفرق والوظائف والألعاب الأولمبية، والتنسيقات الرياضية، وأسماء الفرق، ومراكز اللاعبين، ومصطلحات مختلف الرياضات.
-* **[الأفلام والتلفزيون](src/translations/jsons/media)**:
+* **[الأفلام والتلفزيون](ArWikiCats/translations/jsons/media)**:
 	- الأفلام وأنواعها ومهن صناعة السينما، مثل صناع الأفلام والمخرجين والممثلين، وأنواع وتنسيقات التلفزيون وكافة المصطلحات المتعلقة بالأفلام والتلفزيون.
 * **الجوائز والأحداث**:
 	- جوائز الأفلام والمسابقات الرياضية والجوائز الموسيقية، والأحداث والمناسبات حسب الشهر والسنة.
-* **[المفاهيم](src/translations/jsons/keys)**:
+* **[المفاهيم](ArWikiCats/translations/jsons/keys)**:
 	- الأيديولوجيات السياسية، والفترات التاريخية، والمجالات العلمية، والمفاهيم الاقتصادية.
-* **[الكيانات والأشياء](src/translations/jsons/population)**:
+* **[الكيانات والأشياء](ArWikiCats/translations/jsons/population)**:
 	- المباني والبنية التحتية والمركبات والأسلحة والكتب والألبومات.
-* **[الأنواع](src/translations/jsons/taxonomy)**:
+* **[الأنواع](ArWikiCats/translations/jsons/taxonomy)**:
 	- الأنواع الحيوانية والنباتية.
-* **[الأشخاص](src/translations/jsons/people)**:
+* **[الأشخاص](ArWikiCats/translations/jsons/people)**:
 	- الشخصيات التي تملك تصنيفات باسمائها مثل أصحاب المناصب الرسمية والفنانون والمخرجون.
 ---
 
@@ -211,7 +211,7 @@ python examples/5k.py
 
 تفاصيل كل متغير موجودة في:
 
-`src/config.py`
+`ArWikiCats/config.py`
 
 ---
 
@@ -221,7 +221,7 @@ python examples/5k.py
 
 ضع القواميس داخل:
 
-`src/translations/`
+`ArWikiCats/translations/`
 
 مثال:
 
@@ -242,7 +242,7 @@ if not resolved_label:
 ## 6.3 إضافة بوت جديد
 
 ```text
-src/make_bots/yourdomain_bot.py
+ArWikiCats/make_bots/yourdomain_bot.py
 ```
 
 مع:
@@ -256,7 +256,7 @@ src/make_bots/yourdomain_bot.py
 # 7. بنية المشروع
 
 ```
-src/
+ArWikiCats/
 │
 ├── main.py
 ├── event_processing.py

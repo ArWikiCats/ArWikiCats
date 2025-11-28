@@ -4,12 +4,12 @@ Tests
 
 import pytest
 
-from src.make_bots.countries_formats.utils import (
+from ArWikiCats.make_bots.countries_formats.utils import (
     add_definite_article,
     resolve_p17_2_label,
 )
 
-from src.translations import (
+from ArWikiCats.translations import (
     en_is_P17_ar_is_mens,
     en_is_P17_ar_is_al_women,
     countries_nat_en_key,

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.ma_bots.ar_lab import get_con_lab
+from ArWikiCats.make_bots.ma_bots.ar_lab import get_con_lab
 
 
 @pytest.mark.fast

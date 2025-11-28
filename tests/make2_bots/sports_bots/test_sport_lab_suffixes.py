@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.sports_bots.sport_lab_suffixes import get_teams_new
+from ArWikiCats.make_bots.sports_bots.sport_lab_suffixes import get_teams_new
 
 get_teams_new_data = {
     "australian rules football awards": "جوائز كرة قدم أسترالية",

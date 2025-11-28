@@ -1,6 +1,6 @@
 import pytest
 
-from src.make_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
+from ArWikiCats.make_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
 
 # -------------------------------------------------
 # Sample comparisons for ethnic_label()  (people → شعوب)

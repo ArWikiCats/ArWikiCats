@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.make_bots.o_bots import army
+from ArWikiCats.make_bots.o_bots import army
 
 
 def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:

@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import resolve_arabic_category_label
+from ArWikiCats import resolve_arabic_category_label
 
 temporal_1 = {
     "Category:00s establishments in the Roman Empire": "تصنيف:تأسيسات عقد 00 في الإمبراطورية الرومانية",

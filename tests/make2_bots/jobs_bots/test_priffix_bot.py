@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ArWikiCats.make_bots.jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
 
 test_mens_data = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.o_bots.parties_bot import get_parties_lab, get_parties_lab_old
+from ArWikiCats.make_bots.o_bots.parties_bot import get_parties_lab, get_parties_lab_old
 
 fast_data = {}
 

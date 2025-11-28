@@ -45,7 +45,7 @@
   * Expanded test coverage for label resolution functionality across multiple domains.
 
 ## [#114](https://github.com/MrIbrahem/ArWikiCats/pull/114) - 2025-11-26
-* **Refactor [skeys.py](src/ma_lists/sports/skeys.py)**
+* **Refactor [skeys.py](ArWikiCats/ma_lists/sports/skeys.py)**
 
 * **New Features**
   * Expanded nationality and P17-style role/label coverage with additional country keys and improved label resolution/fallbacks.
@@ -449,7 +449,7 @@
 
 ## [#65](https://github.com/MrIbrahem/ArWikiCats/pull/65) - 2025-11-16
 
-* **Refactor [Nationality.py](src/translations/nats/Nationality.py)**
+* **Refactor [Nationality.py](ArWikiCats/translations/nats/Nationality.py)**
   * Reorganized labeling engine and moved label construction into a focused start-with-year/type workflow; simplified mapping usage and renamed a public category mapping for clarity.
   * Overhauled nationality data and normalization to improve country/name lookups and translations.
 
@@ -470,7 +470,7 @@
   * Updated regex patterns for consistent dash character handling
   * Improved category normalization logic
 
-* **Refactors [bot_lab.py](src/make_bots/ma_bots/year_or_typeo/bot_lab.py)**
+* **Refactors [bot_lab.py](ArWikiCats/make_bots/ma_bots/year_or_typeo/bot_lab.py)**
   * Refactored event labeling into modular helper functions
   * Simplified category normalization
   * Replaced legacy parsing functions with efficient aliases
@@ -489,7 +489,7 @@
   * Added skeleton test files across multiple modules to establish testing infrastructure and improve code coverage foundation.
 
 ## [#59](https://github.com/MrIbrahem/ArWikiCats/pull/59) - 2025-11-14
-* **Refactor [Sport_key.py](src/translations/sports/Sport_key.py)**
+* **Refactor [Sport_key.py](ArWikiCats/translations/sports/Sport_key.py)**
   * Restructured sport key data handling into a modular pipeline with validation and alias expansion for improved maintainability.
   * Standardized constant naming conventions across the codebase for consistency.
 
@@ -505,7 +505,7 @@
   * Updated test coverage to align with refactored APIs and new data structure.
 
 ## [#58](https://github.com/MrIbrahem/ArWikiCats/pull/58) - 2025-11-14
-* Refactor [fixtitle.py](src/fix/fixtitle.py)
+* Refactor [fixtitle.py](ArWikiCats/fix/fixtitle.py)
 * **New Features**
   * Added comprehensive Arabic text normalization with improved handling of formulas, prepositions, time expressions, and category-specific replacements.
 
@@ -516,7 +516,7 @@
   * Standardized naming convention for exported constants to uppercase format for consistency.
 
 ## [#54](https://github.com/MrIbrahem/ArWikiCats/pull/54) - 2025-11-13
-* **Refactor [all_keys2.py](src/translations/mixed/all_keys2.py)**
+* **Refactor [all_keys2.py](ArWikiCats/translations/mixed/all_keys2.py)**
   * Restructured internal data mapping generation for improved maintainability and scalability of data definitions.
 
 * **New Features**
@@ -542,7 +542,7 @@
 
 ## [#50](https://github.com/MrIbrahem/ArWikiCats/pull/50) - 2025-11-12
 
-* **Refactor [Jobs.py](src/translations/jobs/Jobs.py)**
+* **Refactor [Jobs.py](ArWikiCats/translations/jobs/Jobs.py)**
   * Updated job data API naming conventions and restructured internal data assembly pipeline for improved maintainability and consistency.
   * Enhanced data normalization for automatic sorting and deduplication of lists and dictionaries.
 
@@ -564,7 +564,7 @@
 
 ## [#46](https://github.com/MrIbrahem/ArWikiCats/pull/46) - 2025-11-11
 
-* **New Features [format_data.py](src/translations_formats/format_data.py)**
+* **New Features [format_data.py](ArWikiCats/translations_formats/format_data.py)**
   * Introduces FormatData class with template-based string transformation logic, including regex pattern matching from sport keys, placeholder replacement, category normalization, and a unified search() method orchestrating the lookup pipeline. Includes a sample usage function.
 
 ## [#45](https://github.com/MrIbrahem/ArWikiCats/pull/45) - 2025-11-11
@@ -578,7 +578,7 @@
   * Updated code formatting and test annotations
 
 ## [#44](https://github.com/MrIbrahem/ArWikiCats/pull/44) - 2025-11-10
-* **Refactor [jobs_players_list.py](src/translations/jobs/jobs_players_list.py)**
+* **Refactor [jobs_players_list.py](ArWikiCats/translations/jobs/jobs_players_list.py)**
 
 ## [#42](https://github.com/MrIbrahem/ArWikiCats/pull/42) - 2025-11-10
 
@@ -595,7 +595,7 @@
 
 ## [#41](https://github.com/MrIbrahem/ArWikiCats/pull/41) - 2025-11-09
 
-* **Refactor [pop_All_2018_bot.py](src/translations/mix_data/pop_All_2018_bot.py)**
+* **Refactor [pop_All_2018_bot.py](ArWikiCats/translations/mix_data/pop_All_2018_bot.py)**
   - Reorganized internal data-loading and resolution flows for consistency.
   - Removed deprecated backward-compatibility aliases and an obsolete resolver.
   - Consolidated imports and simplified name-resolution logic to improve maintainability.
@@ -615,7 +615,7 @@
 
 ## [#36](https://github.com/MrIbrahem/ArWikiCats/pull/36) - 2025-11-09
 
-* **Refactor [jobs_singers.py](src/translations/jobs/jobs_singers.py)**
+* **Refactor [jobs_singers.py](ArWikiCats/translations/jobs/jobs_singers.py)**
   * Updated public constant names to follow Python naming conventions (MEN_WOMENS_SINGERS, FILMS_TYPE, SINGERS_TAB)
   * Reorganized data generation with modular helper functions
   * Consolidated internal data mappings and improved code organization
@@ -628,7 +628,7 @@
 * **New Features**
   * Expanded job and place name datasets with additional job categories and extensive place-name translations for improved Arabic localization.
 
-* **Refactor  [Cities.py](src/translations/geo/Cities.py), [jobs_defs.py](src/translations/jobs/jobs_defs.py)**
+* **Refactor  [Cities.py](ArWikiCats/translations/geo/Cities.py), [jobs_defs.py](ArWikiCats/translations/jobs/jobs_defs.py)**
   * Switched to centralized data-driven loading for geographic names and job labels to simplify updates and reduce hardcoded entries.
 
 * **Chores**
@@ -648,13 +648,13 @@
 ## [#32](https://github.com/MrIbrahem/ArWikiCats/pull/32) - 2025-11-08
 
 ### Changed
-* Refactored all modules under `src/make_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
+* Refactored all modules under `ArWikiCats/make_bots/o_bots` with comprehensive type hints, PEP 8 naming, and Google-style documentation.
 * Centralised shared suffix-matching and caching helpers to eliminate duplicated logic across bots.
 * Standardised logging usage and cache handling, adding inline comments to clarify complex resolution flows.
 * Updated dependent bots to consume the new PEP 8 interfaces and refreshed formatting across touched files.
 
 ### Added
-* Introduced `src/make_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
+* Introduced `ArWikiCats/make_bots/o_bots/utils.py` to host reusable helpers for cache keys, suffix resolution, and article handling.
 
 ## #31
 
@@ -727,12 +727,12 @@ This update improves label processing accuracy and restructures the test archite
 ## #3 - 2025-11-03
 
 ### Added
-*   New module `src/make_bots/reg_lines.py` for centralized regular expression definitions.
+*   New module `ArWikiCats/make_bots/reg_lines.py` for centralized regular expression definitions.
 *   "solar eclipses" added to the country add-ins list.
 
 ### Changed
 *   Refactored multiple Python files to utilize centralized and precompiled regex patterns.
-*   Simplified the event labeling flow in `src/make_bots/ma_bots/year_or_typeo/bot_lab.py` and `src/make_bots/ma_bots/event2bot.py` by using centralized regex definitions.
+*   Simplified the event labeling flow in `ArWikiCats/make_bots/ma_bots/year_or_typeo/bot_lab.py` and `ArWikiCats/make_bots/ma_bots/event2bot.py` by using centralized regex definitions.
 
 ---
 

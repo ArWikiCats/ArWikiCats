@@ -1,6 +1,6 @@
 import pytest
 
-from src.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
+from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
 
 def make_cate(item):

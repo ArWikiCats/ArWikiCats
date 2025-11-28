@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.fix.mv_years import move_by_in, move_years, move_years_first
+from ArWikiCats.fix.mv_years import move_by_in, move_years, move_years_first
 
 
 @pytest.mark.parametrize(

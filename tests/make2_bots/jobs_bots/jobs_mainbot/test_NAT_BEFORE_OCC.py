@@ -4,12 +4,12 @@ Tests
 
 import pytest
 
-from src.make_bots.jobs_bots.jobs_mainbot import (
+from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import (
     MEN_WOMENS_WITH_NATO,
     Nat_mens,
     jobs_with_nat_prefix,
 )
-from src.translations import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
+from ArWikiCats.translations import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 
 # =========================================================
 #   NEW TESTS – NAT_BEFORE_OCC VIA RELIGIOUS_KEYS_PP EXTENSION

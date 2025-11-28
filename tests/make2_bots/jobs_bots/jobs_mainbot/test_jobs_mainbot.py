@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.jobs_bots.jobs_mainbot import Nat_Womens, jobs_with_nat_prefix
+from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import Nat_Womens, jobs_with_nat_prefix
 
 
 @pytest.mark.fast

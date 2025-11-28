@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from load_one_data import dump_diff, one_dump_test
-from src.translations_resolvers.not_sports_bot import (
+from ArWikiCats.translations_resolvers.not_sports_bot import (
     resolve_en_is_P17_ar_is_P17,
 )
 

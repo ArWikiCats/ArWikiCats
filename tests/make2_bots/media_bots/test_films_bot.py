@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.media_bots.films_bot import te_films
+from ArWikiCats.make_bots.media_bots.films_bot import te_films
 
 fast_data = {
     "british films": "أفلام بريطانية",

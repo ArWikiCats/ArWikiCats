@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from src.translations.jobs.jobs_womens import (
+from ArWikiCats.translations.jobs.jobs_womens import (
     FEMALE_JOBS_TO,
     Female_Jobs,
     short_womens_jobs,

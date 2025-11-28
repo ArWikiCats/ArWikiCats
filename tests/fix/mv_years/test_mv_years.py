@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pytest move_years"""
 
-from src.fix.mv_years import move_years
+from ArWikiCats.fix.mv_years import move_years
 
 
 def load_test_move_years(data):

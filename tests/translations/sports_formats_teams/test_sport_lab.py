@@ -3,7 +3,7 @@
 
 import pytest
 
-from src.translations.sports_formats_teams.sport_lab import (
+from ArWikiCats.translations.sports_formats_teams.sport_lab import (
     get_new_team_xo,
 )
 

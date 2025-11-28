@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Pytest to validate all title lists using fixlab()."""
 
-from src.fix.fixtitle import fixlab
+from ArWikiCats.fix.fixtitle import fixlab
 
 
 def load_test_fixlab_data(data):

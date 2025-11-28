@@ -3,7 +3,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import resolve_arabic_category_label
+from ArWikiCats import resolve_arabic_category_label
 
 data = {
     "Category:2020 in wheelchair basketball": "تصنيف:كرة السلة على الكراسي المتحركة في 2020",

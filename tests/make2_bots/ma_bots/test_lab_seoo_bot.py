@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.ma_bots.lab_seoo_bot import event_label_work, te_bot_3
+from ArWikiCats.make_bots.ma_bots.lab_seoo_bot import event_label_work, te_bot_3
 
 event_Lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",

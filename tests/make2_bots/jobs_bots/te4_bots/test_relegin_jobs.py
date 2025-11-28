@@ -5,11 +5,11 @@
 
 import pytest
 
-from src.make_bots.jobs_bots.relegin_jobs import (
+from ArWikiCats.make_bots.jobs_bots.relegin_jobs import (
     relegins_jobs,
     try_relegins_jobs_with_suffix,
 )
-from src.translations import RELIGIOUS_KEYS_PP
+from ArWikiCats.translations import RELIGIOUS_KEYS_PP
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.main_processers.event_lab_bot import get_list_of_and_cat3_with_lab2
+from ArWikiCats.main_processers.event_lab_bot import get_list_of_and_cat3_with_lab2
 
 list_data = {
     "1880 afc asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1880",

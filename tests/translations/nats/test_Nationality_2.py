@@ -2,7 +2,7 @@ from typing import Dict
 
 import pytest
 
-from src.translations.nats.Nationality import (
+from ArWikiCats.translations.nats.Nationality import (
     NationalityEntry,
     build_american_forms,
     build_lookup_tables,
@@ -58,7 +58,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch):
         return {}
 
     # Patch open_json_file used inside load_sources
-    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", fake_open_json_file)
+    monkeypatch.setattr("ArWikiCats.translations.nats.Nationality.open_json_file", fake_open_json_file)
 
     data = load_sources()
 
@@ -88,7 +88,7 @@ def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch):
             return {}
         return {}
 
-    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", fake_open_json_file)
+    monkeypatch.setattr("ArWikiCats.translations.nats.Nationality.open_json_file", fake_open_json_file)
 
     data = load_sources()
     assert "hindustan" in data
@@ -108,7 +108,7 @@ def test_load_sources_merge_all_sources(monkeypatch):
             return {"c": {"en": "C", "ar": "ج"}}
         return {}
 
-    monkeypatch.setattr("src.translations.nats.Nationality.open_json_file", fake_open_json_file)
+    monkeypatch.setattr("ArWikiCats.translations.nats.Nationality.open_json_file", fake_open_json_file)
 
     data = load_sources()
     assert set(data.keys()) == {"a", "b", "c"}

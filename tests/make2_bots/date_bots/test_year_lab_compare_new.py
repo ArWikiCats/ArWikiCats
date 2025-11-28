@@ -4,8 +4,8 @@ Tests
 
 import pytest
 
-from src.make_bots.date_bots.year_lab import make_month_lab, make_year_lab
-from src.new.time_to_arabic import convert_time_to_arabic
+from ArWikiCats.make_bots.date_bots.year_lab import make_month_lab, make_year_lab
+from ArWikiCats.new.time_to_arabic import convert_time_to_arabic
 
 
 def test_make_year_lab():

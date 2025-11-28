@@ -1,10 +1,10 @@
-"""Unit tests for the refactored :mod:`src.fix.fixtitle` helpers."""
+"""Unit tests for the refactored :mod:`ArWikiCats.fix.fixtitle` helpers."""
 
 from __future__ import annotations
 
 import pytest
 
-from src.fix.fixtitle import (
+from ArWikiCats.fix.fixtitle import (
     _apply_basic_normalizations,
     _apply_prefix_replacements,
     _apply_regex_replacements,

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.ma_bots.list_cat_format import list_of_cat_func
+from ArWikiCats.make_bots.ma_bots.list_cat_format import list_of_cat_func
 
 
 def test_list_of_cat_func():

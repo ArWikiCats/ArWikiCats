@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.make_bots.o_bots import bys
+from ArWikiCats.make_bots.o_bots import bys
 
 
 @pytest.fixture(autouse=True)

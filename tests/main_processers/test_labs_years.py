@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.main_processers.labs_years import LabsYears
+from ArWikiCats.main_processers.labs_years import LabsYears
 
 
 @pytest.mark.fast

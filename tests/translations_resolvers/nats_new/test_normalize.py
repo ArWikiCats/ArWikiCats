@@ -1,6 +1,6 @@
 import pytest
 
-from src.translations_resolvers.nats_new import (
+from ArWikiCats.translations_resolvers.nats_new import (
     normalize_both,
     normalize_nat_label,
     normalize_sport_label,
