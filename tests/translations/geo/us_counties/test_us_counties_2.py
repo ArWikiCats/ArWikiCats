@@ -23,17 +23,15 @@ _test_data = {
     f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}"
     for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
 }
-
-data_1 = {
-    "washington, d.c.": {
-        "Category:washington, d.c. Democrats": "تصنيف:ديمقراطيون من واشنطن العاصمة",
-        "Category:washington, d.c. lawyers": "تصنيف:محامون من واشنطن العاصمة",
-        "Category:washington, d.c. state court judges": "تصنيف:قضاة محكمة واشنطن العاصمة",
-        "Category:washington, d.c. state courts": "تصنيف:محكمة واشنطن العاصمة",
-        "Category:washington, d.c. state senators": "تصنيف:أعضاء مجلس شيوخ واشنطن العاصمة"
-    }
+washington_data = {
+    "Category:washington, d.c. Democrats": "تصنيف:ديمقراطيون من واشنطن العاصمة",
+    "Category:washington, d.c. lawyers": "تصنيف:محامون من واشنطن العاصمة",
+    "Category:washington, d.c. state court judges": "تصنيف:قضاة محكمة واشنطن العاصمة",
+    "Category:washington, d.c. state courts": "تصنيف:محكمة واشنطن العاصمة",
+    "Category:washington, d.c. state senators": "تصنيف:أعضاء مجلس شيوخ واشنطن العاصمة",
 }
 
+data_1 = {}
 all_test_data = {}
 
 for en, ar in US_STATES_NAME_TRANSLATIONS.items():
@@ -44,14 +42,18 @@ for en, ar in US_STATES_NAME_TRANSLATIONS.items():
     data_1.setdefault(en, test_one)
     all_test_data.update(test_one)
 
+data_1["washington, d.c."] = washington_data
+all_test_data.update(washington_data)
 
 to_test = [
     (f"test_us_counties_{x}", v) for x, v in data_1.items()
 ]
 
+to_test.append(("test_all_test_data", all_test_data))
+
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_all_dump(name, data):
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
