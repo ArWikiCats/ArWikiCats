@@ -4,7 +4,7 @@ Tests
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from translations import US_STATES
+from ArWikiCats.translations import US_STATES
 from ArWikiCats.translations_resolvers.us_states import resolve_us_states, normalize_state, us_states_new_keys
 
 test_data = {
