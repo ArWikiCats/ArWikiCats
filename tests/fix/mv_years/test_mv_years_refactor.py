@@ -1,8 +1,8 @@
-"""Regression tests for helper utilities in :mod:`src.fix.mv_years`."""
+"""Regression tests for helper utilities in :mod:`ArWikiCats.fix.mv_years`."""
 
 from __future__ import annotations
 
-from src.fix.mv_years import move_by_in, move_years, move_years_first
+from ArWikiCats.fix.mv_years import move_by_in, move_years, move_years_first
 
 
 def test_move_years_first_reorders_when_possible() -> None:

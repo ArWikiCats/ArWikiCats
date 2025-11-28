@@ -1,6 +1,6 @@
 import pytest
 
-from src.translations_resolvers.nats_new import nats_new_create_label, create_nat_label
+from ArWikiCats.translations_resolvers.nats_new import nats_new_create_label, create_nat_label
 
 data = {
     "british softball championshipszz": "بطولة المملكة المتحدة للكرة اللينة",

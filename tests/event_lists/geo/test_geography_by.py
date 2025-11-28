@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import resolve_arabic_category_label
+from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
     "Category:African-American history by state": "تصنيف:تاريخ أمريكي إفريقي حسب الولاية",

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.translations.mixed import Newkey, all_keys2, all_keys4, bot_te_4_list, keys_23
+from ArWikiCats.translations.mixed import Newkey, all_keys2, all_keys4, bot_te_4_list, keys_23
 
 
 @pytest.mark.parametrize(

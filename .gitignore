@@ -7,7 +7,7 @@ make_tests
 /.codex
 categories.json
 /tests/event_lists/diff_data
-src/make_bots/o_bots/save.py
+ArWikiCats/make_bots/o_bots/save.py
 _start.py
 *.sqlite3
 monkey.py
@@ -15,10 +15,10 @@ monkey.py
 *_backup
 /.claude
 **/old/**
-src/make_bots/ma_bots/year_or_typeo/work_2019_examples.jsonl
-src/main_processers/event_lab_bot_backup.py
+ArWikiCats/make_bots/ma_bots/year_or_typeo/work_2019_examples.jsonl
+ArWikiCats/main_processers/event_lab_bot_backup.py
 *.prof
 profile.html
 profile.json
-src/make_bots/jobs_bots/jobs_mainbot_example.py
-/src/translations/jsons1
+ArWikiCats/make_bots/jobs_bots/jobs_mainbot_example.py
+/ArWikiCats/translations/jsons1

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.ma_bots.country2_lab import get_lab_for_country2
+from ArWikiCats.make_bots.ma_bots.country2_lab import get_lab_for_country2
 
 data = {
     "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",

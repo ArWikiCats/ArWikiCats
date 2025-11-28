@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.media_bots.film_keys_bot import Films, get_Films_key_CAO
+from ArWikiCats.make_bots.media_bots.film_keys_bot import Films, get_Films_key_CAO
 
 fast_data = [
     {

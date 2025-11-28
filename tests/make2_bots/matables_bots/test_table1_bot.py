@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.matables_bots.table1_bot import get_KAKO
+from ArWikiCats.make_bots.matables_bots.table1_bot import get_KAKO
 
 fast_data = {
     "action thriller films": "أفلام إثارة حركة",

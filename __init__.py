@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from .src import (
+from .ArWikiCats import (
     print_memory,
     EventProcessor,
     batch_resolve_labels,

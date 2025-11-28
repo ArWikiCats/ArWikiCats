@@ -4,7 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
+from ArWikiCats.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 data1 = {
     "National men's wheelchair basketball teams": "منتخبات كرة سلة على كراسي متحركة وطنية للرجال",

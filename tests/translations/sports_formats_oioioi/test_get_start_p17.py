@@ -3,7 +3,7 @@
 
 import pytest
 
-from src.translations.sports_formats_oioioi.bot import (
+from ArWikiCats.translations.sports_formats_oioioi.bot import (
     both_bot,
     get_start_p17,
 )

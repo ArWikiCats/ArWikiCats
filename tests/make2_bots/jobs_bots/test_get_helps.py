@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.jobs_bots.get_helps import get_suffix
+from ArWikiCats.make_bots.jobs_bots.get_helps import get_suffix
 
 data_contries_from_nat = {
     "afghanistan national football team managers": ("national football team managers", "afghanistan"),

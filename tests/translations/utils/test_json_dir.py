@@ -1,6 +1,6 @@
 import pytest
 
-from src.translations.utils.json_dir import open_json, open_json_file
+from ArWikiCats.translations.utils.json_dir import open_json, open_json_file
 
 
 def test_open_json_file_loads_from_nested_folder():

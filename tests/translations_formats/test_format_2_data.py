@@ -3,7 +3,7 @@
 
 import pytest
 
-from src.translations_formats.format_2_data import (
+from ArWikiCats.translations_formats.format_2_data import (
     FormatComparisonHelper,
     FormatMultiData,
 )

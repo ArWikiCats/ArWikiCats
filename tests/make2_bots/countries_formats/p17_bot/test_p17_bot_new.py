@@ -1,5 +1,5 @@
 import pytest
-from src.make_bots.countries_formats.p17_bot import Get_P17_main
+from ArWikiCats.make_bots.countries_formats.p17_bot import Get_P17_main
 
 
 pop_format_test_data = {

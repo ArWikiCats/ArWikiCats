@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from load_one_data import dump_diff, one_dump_test
-from src.make_bots.countries_formats.p17_bot_sport import (
+from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
     get_p17_with_sport,
     get_con_3_lab_sports,
     Get_Sport_Format_xo_en_ar_is_P17,

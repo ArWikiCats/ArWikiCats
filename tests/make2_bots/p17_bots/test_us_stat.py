@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.p17_bots.us_stat import Work_US_State
+from ArWikiCats.make_bots.p17_bots.us_stat import Work_US_State
 
 Work_US_State_data = {
     "mississippi territory": "إقليم مسيسيبي",

@@ -1,6 +1,6 @@
 import pytest
 
-from src.translations.sports_formats_national.sport_lab_nat import (
+from ArWikiCats.translations.sports_formats_national.sport_lab_nat import (
     Get_sport_formts_female_nat,
     sport_lab_nat_load,
 )

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.ma_bots.country2_bots.country2_tit_bt import (
+from ArWikiCats.make_bots.ma_bots.country2_bots.country2_tit_bt import (
     country_2_tit,
     country_2_title_work,
     make_conas,

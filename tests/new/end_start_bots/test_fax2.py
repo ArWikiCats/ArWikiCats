@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.new.end_start_bots.fax2 import (
+from ArWikiCats.new.end_start_bots.fax2 import (
     get_from_endswith_dict,
     get_from_starts_dict,
     get_list_of_and_cat3,

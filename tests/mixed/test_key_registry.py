@@ -1,4 +1,4 @@
-"""Tests for :mod:`src.translations.mixed.key_registry`."""
+"""Tests for :mod:`ArWikiCats.translations.mixed.key_registry`."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from typing import Iterable
 
 import pytest
 
-from src.translations.mixed.key_registry import KeyRegistry
+from ArWikiCats.translations.mixed.key_registry import KeyRegistry
 
 
 class DummyIterable(Iterable[tuple[str, str]]):

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.languages_bot.langs_w import (
+from ArWikiCats.make_bots.languages_bot.langs_w import (
     Lang_work,
     languages_key,
 )

@@ -1,8 +1,8 @@
-"""Unit tests for the refactored :mod:`src.fix.fixtitle` helpers."""
+"""Unit tests for the refactored :mod:`ArWikiCats.fix.fixtitle` helpers."""
 
 from __future__ import annotations
 
-from src.fix.fixtitle import add_fee, fix_it, fixlab
+from ArWikiCats.fix.fixtitle import add_fee, fix_it, fixlab
 
 
 def test_fix_it_applies_expected_normalizations() -> None:

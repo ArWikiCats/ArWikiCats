@@ -1,6 +1,6 @@
 import pytest
 
-from src.translations.nats.Nationality import (
+from ArWikiCats.translations.nats.Nationality import (
     build_american_forms,
     build_lookup_tables,
     load_sources,
@@ -18,7 +18,7 @@ def test_load_sources_return_type():
 
 def test_sources_are_merged(monkeypatch):
     monkeypatch.setattr(
-        "src.translations.nats.Nationality.open_json_file", lambda name: {"x": {"en": "test", "ar": "اختبار"}}
+        "ArWikiCats.translations.nats.Nationality.open_json_file", lambda name: {"x": {"en": "test", "ar": "اختبار"}}
     )
     data = load_sources()
     assert "x" in data
@@ -26,7 +26,7 @@ def test_sources_are_merged(monkeypatch):
 
 def test_hindustani_normalized(monkeypatch):
     monkeypatch.setattr(
-        "src.translations.nats.Nationality.open_json_file",
+        "ArWikiCats.translations.nats.Nationality.open_json_file",
         lambda name: {"hindustani": {"en": "hindustani", "ar": "هندي"}} if name == "nationalities/uu_nats.json" else {},
     )
     data = load_sources()
@@ -34,9 +34,9 @@ def test_hindustani_normalized(monkeypatch):
 
 
 def test_alias_mapping():
-    src = {"russian": {"men": "a", "mens": "", "women": "", "womens": "", "en": "russia", "ar": "روسيا"}}
-    src["russians"] = {}  # before normalization
-    out = normalize_aliases(src)
+    ArWikiCats = {"russian": {"men": "a", "mens": "", "women": "", "womens": "", "en": "russia", "ar": "روسيا"}}
+    ArWikiCats["russians"] = {}  # before normalization
+    out = normalize_aliases(ArWikiCats)
     assert out["russians"]["en"] == "russia"
 
 
@@ -46,29 +46,29 @@ def test_southwest_asian_added():
 
 
 def test_georgia_country_copy():
-    src = {"georgian": {"men": "x", "mens": "", "women": "", "womens": "", "en": "georgia", "ar": "جورجي"}}
-    out = normalize_aliases(src)
+    ArWikiCats = {"georgian": {"men": "x", "mens": "", "women": "", "womens": "", "en": "georgia", "ar": "جورجي"}}
+    out = normalize_aliases(ArWikiCats)
     assert out["georgia (country)"]["en"] == "georgia (country)"
     assert out["georgia (country)"]["men"] == "x"
 
 
 def test_american_form_created():
-    src = {"yemeni": {"men": "يمني", "mens": "", "women": "", "womens": "", "en": "yemen", "ar": "يمني"}}
-    out, count = build_american_forms({}, src)
+    ArWikiCats = {"yemeni": {"men": "يمني", "mens": "", "women": "", "womens": "", "en": "yemen", "ar": "يمني"}}
+    out, count = build_american_forms({}, ArWikiCats)
     assert "yemeni-american" in out
     assert count == 1
 
 
 def test_no_american_if_no_gender():
-    src = {"abc": {"men": "", "mens": "", "women": "", "womens": "", "en": "abc", "ar": "abc"}}
-    out, count = build_american_forms({}, src)
+    ArWikiCats = {"abc": {"men": "", "mens": "", "women": "", "womens": "", "en": "abc", "ar": "abc"}}
+    out, count = build_american_forms({}, ArWikiCats)
     assert out == {}
     assert count == 0
 
 
 def test_jewish_american():
-    src = {"jewish": {"men": "يهودي", "mens": "", "women": "", "womens": "", "en": "jews", "ar": "يهود"}}
-    out, count = build_american_forms({}, src)
+    ArWikiCats = {"jewish": {"men": "يهودي", "mens": "", "women": "", "womens": "", "en": "jews", "ar": "يهود"}}
+    out, count = build_american_forms({}, ArWikiCats)
     assert "jewish-american" in out
     assert "jewish american" in out  # special rule
 

@@ -1,7 +1,7 @@
 #
 import pytest
 
-from src import resolve_arabic_category_label
+from ArWikiCats import resolve_arabic_category_label
 
 data = {
     "Category:Mosque buildings with domes in India": "تصنيف:مساجد بقباب في الهند",

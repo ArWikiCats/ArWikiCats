@@ -1,6 +1,6 @@
 import pytest
 
-from src.translations.utils.match_sport_keys import (
+from ArWikiCats.translations.utils.match_sport_keys import (
     SPORTS_KEYS_FOR_JOBS,
     match_sport_key,
 )

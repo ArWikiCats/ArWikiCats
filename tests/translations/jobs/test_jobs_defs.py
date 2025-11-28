@@ -1,4 +1,4 @@
-"""Unit tests for :mod:`src.translations.jobs.jobs_defs`."""
+"""Unit tests for :mod:`ArWikiCats.translations.jobs.jobs_defs`."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from typing import Any, Mapping
 
 import pytest
 
-from src.translations.jobs import jobs_defs
+from ArWikiCats.translations.jobs import jobs_defs
 
 
 def test_join_terms_trims_and_skips_empty_strings() -> None:

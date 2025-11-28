@@ -2,8 +2,8 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import resolve_arabic_category_label
-from src.translations.geo.us_counties import (
+from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats.translations.geo.us_counties import (
     US_STATES_NAME_TRANSLATIONS,
     normalize_state,
 )

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.ma_bots.country_bot import Get_c_t_lab, get_country
+from ArWikiCats.make_bots.ma_bots.country_bot import Get_c_t_lab, get_country
 
 
 def test_get_country():

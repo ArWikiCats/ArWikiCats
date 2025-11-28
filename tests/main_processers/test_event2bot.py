@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.main_processers.event2bot import event2, event2_d2, stubs_label
+from ArWikiCats.main_processers.event2bot import event2, event2_d2, stubs_label
 
 fast_data = {
     "1650s films": "أفلام إنتاج عقد 1650",

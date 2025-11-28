@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.ma_bots.country2_bot import Get_country2
+from ArWikiCats.make_bots.ma_bots.country2_bot import Get_country2
 
 data_fast = {
     "4th senate of spain": "مجلس شيوخ إسبانيا",

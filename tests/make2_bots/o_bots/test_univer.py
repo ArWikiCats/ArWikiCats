@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from src.make_bots.o_bots.univer import te_universities
+from ArWikiCats.make_bots.o_bots.univer import te_universities
 
 te_universities_data = {
     "seoul national university": "جامعة سول الوطنية",

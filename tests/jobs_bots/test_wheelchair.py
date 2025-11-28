@@ -3,7 +3,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from src import resolve_arabic_category_label
+from ArWikiCats import resolve_arabic_category_label
 
 wheelchair_racers_by_nat = {
     "Category:American men wheelchair racers": "تصنيف:متسابقو كراسي متحركة رجال أمريكيون",

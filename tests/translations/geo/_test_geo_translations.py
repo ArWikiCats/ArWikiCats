@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.translations.geo import (
+from ArWikiCats.translations.geo import (
     Cities,
     labels_country,
     labels_country2,

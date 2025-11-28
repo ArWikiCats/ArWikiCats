@@ -11,7 +11,7 @@ from pathlib import Path
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(_Dir))
 
-from src import print_memory, batch_resolve_labels
+from ArWikiCats import print_memory, batch_resolve_labels
 
 file_path = Path(Path(__file__).parent, "1000_category.json")
 
