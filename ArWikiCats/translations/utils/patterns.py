@@ -3,10 +3,14 @@ from typing import LiteralString
 
 
 def load_keys_to_pattern(data_List) -> LiteralString:
-    """Build a regex pattern matching any entry from ``data_List`` case-insensitively."""
+    """
+    Build a regex pattern matching any entry from ``data_List`` case-insensitively.
+    TODO: Use data_pattern = fr"(?<!\w)({alternation})(?!\w)" to avoid matching partial words.
+    """
     data_List_sorted = sorted(data_List, key=lambda x: -x.count(" "))
-    # data_pattern = r'\b(' + '|'.join([n.lower() for n in data_List_sorted]) + r')\b'
-    data_pattern = r"\b(" + "|".join(map(re.escape, [n.lower() for n in data_List_sorted])) + r")\b"
+    alternation = "|".join(map(re.escape, [n.lower() for n in data_List_sorted]))
+    data_pattern = r"\b(" + alternation + r")\b"
+    # data_pattern = fr"(?<!\w)({alternation})(?!\w)"
     return data_pattern
 
 

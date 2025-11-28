@@ -109,8 +109,8 @@ def event_label_work(target_category: str) -> str:
         resolved_category_label = ye_ts_bot.translate_general_category(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = Work_US_State(normalized_target_category)
-        # resolved_category_label = resolve_us_states(normalized_target_category)
+        # resolved_category_label = Work_US_State(normalized_target_category)
+        resolved_category_label = resolve_us_states(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = work_peoples(normalized_target_category)

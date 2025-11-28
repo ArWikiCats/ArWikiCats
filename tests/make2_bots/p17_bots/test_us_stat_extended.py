@@ -5,7 +5,6 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations.geo.us_counties import (
-    _STATE_SUFFIX_TEMPLATES_BASE,
     US_STATES_NAME_TRANSLATIONS,
 )
 from ArWikiCats.make_bots.p17_bots.us_stat import Work_US_State

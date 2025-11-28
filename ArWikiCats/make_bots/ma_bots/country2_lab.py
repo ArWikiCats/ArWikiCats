@@ -29,7 +29,7 @@ resolvers = {
     "parties_bot.get_parties_lab": parties_bot.get_parties_lab,
     "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
     "univer.te_universities": univer.te_universities,
-    "Work_US_State": Work_US_State,
+    # "Work_US_State": Work_US_State,
     "resolve_us_states": resolve_us_states,
     "work_peoples": work_peoples,
     "get_KAKO": get_KAKO,
