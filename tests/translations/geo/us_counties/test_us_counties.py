@@ -4,7 +4,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from src import resolve_arabic_category_label
 from src.translations.geo.us_counties import (
-    STATE_NAME_TRANSLATIONS,
+    US_STATES_NAME_TRANSLATIONS,
     normalize_state,
 )
 
@@ -65,8 +65,8 @@ data_1 = {
 }
 
 for en in data_1.keys():
-    if STATE_NAME_TRANSLATIONS.get(en):
-        ar = STATE_NAME_TRANSLATIONS.get(en)
+    if US_STATES_NAME_TRANSLATIONS.get(en):
+        ar = US_STATES_NAME_TRANSLATIONS.get(en)
         data_1[en] = {
             x.format(en=en): normalize_state(v.format(ar=ar))
             for x, v in test_data.items()

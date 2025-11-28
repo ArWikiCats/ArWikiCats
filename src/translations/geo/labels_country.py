@@ -16,7 +16,7 @@ from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import Main_Table
 from .regions2 import India_Main_Table, Main_Table_2
-from .us_counties import COUNTY_TRANSLATIONS
+from .us_counties import US_COUNTY_TRANSLATIONS
 
 JAPAN_REGIONAL_LABELS = {
     "gokishichidō": "",
@@ -187,7 +187,7 @@ def _build_country_label_index() -> dict[str, str]:
     update_with_lowercased(label_index, India_Main_Table)
     update_with_lowercased(label_index, CITY_LABEL_PATCHES)
     update_with_lowercased(label_index, ADDITIONAL_KEYS)
-    update_with_lowercased(label_index, COUNTY_TRANSLATIONS)
+    update_with_lowercased(label_index, US_COUNTY_TRANSLATIONS)
 
     for city, lal in JAPAN_REGIONAL_LABELS.items():
         city2 = city.lower()

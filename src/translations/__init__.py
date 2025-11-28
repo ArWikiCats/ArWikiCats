@@ -4,7 +4,7 @@ from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import New_P17_Finall
-from .geo.us_counties import US_State_lower, kk_end_US_State, party_end_keys
+from .geo.us_counties import US_STATE_NAMES_LOWER, STATE_SUFFIX_TEMPLATES, PARTY_ROLE_SUFFIXES
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
@@ -232,8 +232,8 @@ __all__ = [
     "Mens_priffix",
     "Women_s_priffix",
     #
-    "US_State_lower",
-    "kk_end_US_State",
-    "party_end_keys",
+    "US_STATE_NAMES_LOWER",
+    "STATE_SUFFIX_TEMPLATES",
+    "PARTY_ROLE_SUFFIXES",
     #
 ]

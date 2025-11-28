@@ -5,13 +5,11 @@ from load_one_data import dump_diff, one_dump_test
 from src import resolve_arabic_category_label
 from src.translations.geo.us_counties import (
     _STATE_SUFFIX_TEMPLATES_BASE,
-    STATE_NAME_TRANSLATIONS,
+    US_STATES_NAME_TRANSLATIONS,
     normalize_state,
 )
 
-test_data2 = {f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}" for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()}
-
-test_data = {
+_test_data = {
     "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
     "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
     "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
@@ -20,6 +18,11 @@ test_data = {
     "Category:{en} state senators": "تصنيف:أعضاء مجلس شيوخ ولاية {ar}",
 }
 
+
+test_data = {
+    f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}"
+    for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
+}
 
 data_1 = {
     "washington, d.c.": {
@@ -31,7 +34,7 @@ data_1 = {
     }
 }
 
-for en, ar in STATE_NAME_TRANSLATIONS.items():
+for en, ar in US_STATES_NAME_TRANSLATIONS.items():
     data_1.setdefault(en, {
         x.format(en=en): normalize_state(v.format(ar=ar))
         for x, v in test_data.items()
