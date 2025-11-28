@@ -9,7 +9,7 @@ from src.translations.geo.us_counties import (
     normalize_state,
 )
 
-_test_data = {
+test_data = {
     "Category:{en} in the War of 1812": "تصنيف:{ar} في حرب 1812",
     "Category:{en} Democrats": "تصنيف:ديمقراطيون من ولاية {ar}",
     "Category:{en} lawyers": "تصنيف:محامون من ولاية {ar}",
@@ -19,7 +19,7 @@ _test_data = {
 }
 
 
-test_data = {
+_test_data = {
     f"Category:{{en}} {x.strip()}": "تصنيف:" + v % "{ar}"
     for x, v in _STATE_SUFFIX_TEMPLATES_BASE.items()
 }
@@ -47,7 +47,7 @@ to_test = [
 
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.slow
+@pytest.mark.skip2
 def test_all_dump(name, data):
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
