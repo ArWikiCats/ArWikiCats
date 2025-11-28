@@ -8,14 +8,6 @@ from ...helps import len_print
 from ..utils.json_dir import open_json_file
 from ._shared import load_json_mapping
 
-
-def normalize_state(ar_name: str) -> str:
-    if "ولاية ولاية" in ar_name:
-        ar_name = ar_name.replace("ولاية ولاية", "ولاية")
-
-    return ar_name
-
-
 PARTY_ROLE_SUFFIXES = {
     "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
     "candidates for member-of-parliament": "مرشحو %s لعضوية البرلمان",
@@ -86,6 +78,7 @@ US_STATES_NAME_TRANSLATIONS = {
 
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
+    " in the War of 1812": "%s في حرب 1812",
     " senate": "مجلس شيوخ ولاية %s",
     " house-of-representatives elections": "انتخابات مجلس نواب ولاية %s",
     " house-of-representatives": "مجلس نواب ولاية %s",
@@ -278,7 +271,6 @@ US_STATE_NAMES_LOWER = {
 }
 
 __all__ = [
-    "normalize_state",
     "US_STATES_NAME_TRANSLATIONS",
     "STATE_SUFFIX_TEMPLATES",
     "US_STATE_NAMES_LOWER",

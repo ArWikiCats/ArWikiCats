@@ -3,10 +3,10 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats.make_bots.p17_bots.us_stat import normalize_state
 from ArWikiCats.translations.geo.us_counties import (
     _STATE_SUFFIX_TEMPLATES_BASE,
     US_STATES_NAME_TRANSLATIONS,
-    normalize_state,
 )
 
 test_data = {
