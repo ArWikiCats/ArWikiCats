@@ -8,8 +8,8 @@ test at tests.translations_formats.test_format_2_data.py
 
 import functools
 from dataclasses import dataclass
-from ..helps.log import logger
-from .DataModel.format_data import FormatData
+from ...helps.log import logger
+from .format_data import FormatData
 from .format_data_time import YearFormatData
 
 # -----------------------

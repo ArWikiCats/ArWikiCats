@@ -4,7 +4,7 @@
 import pytest
 
 from ArWikiCats.translations import all_country_ar
-from ArWikiCats.translations_formats.format_multi_data_new import FormatMultiDataNew
+from ArWikiCats.translations_formats import FormatMultiDataNew
 from ArWikiCats.translations_formats.format_data_with_time import (
     FormatYearCountryData,
 )

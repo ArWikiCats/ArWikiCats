@@ -3,9 +3,8 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatData
+from ArWikiCats.translations_formats import FormatData, FormatMultiDataNew
 from ArWikiCats.translations_formats.format_multi_data import FormatMultiData
-from ArWikiCats.translations_formats.format_multi_data_new import FormatMultiDataNew
 
 
 # Sample data for nationality translations

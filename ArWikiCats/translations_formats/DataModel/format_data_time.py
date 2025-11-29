@@ -2,7 +2,7 @@
 """ """
 
 import re
-from ..new.time_to_arabic import (
+from ...new.time_to_arabic import (
     convert_time_to_arabic,
     match_time_en_first,
 )

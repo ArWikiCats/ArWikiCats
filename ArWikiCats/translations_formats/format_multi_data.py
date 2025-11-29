@@ -12,7 +12,7 @@ from typing import Dict
 
 from ..helps.log import logger
 from .DataModel.format_data import FormatData
-from .format_multi_data_new import FormatMultiDataNew
+from .DataModel.format_multi_data_new import FormatMultiDataNew
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"
