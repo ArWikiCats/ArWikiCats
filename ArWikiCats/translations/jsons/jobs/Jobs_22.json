@@ -1,5 +1,5 @@
 {
-        "actuaries": {"mens": "إكتواريون","womens": "إكتواريات"},
+    "actuaries": {"mens": "إكتواريون","womens": "إكتواريات"},
     "admirals": {"mens": "أميرالات","womens": "أميرالات إناث"},
     "adult models": {"mens": "عارضون بالغون","womens": "عارضات بالغات"},
     "aerospace engineers": {"mens": "مهندسو فضاء","womens": "مهندسات فضاء"},
