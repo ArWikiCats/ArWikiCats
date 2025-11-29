@@ -9,6 +9,7 @@ from dataclasses import dataclass
 
 from . import event2bot, event_lab_bot
 from .labs_years import LabsYears
+from .country_time_pattern import get_label
 from ..config import app_settings
 from ..fix import fixtitle
 from ..make_bots.co_bots import filter_en
@@ -49,6 +50,10 @@ def resolve_label(category: str) -> CategoryResult:
         category_lab = from_year
 
     start_ylab = ""
+    from_match = False
+    if not category_lab:
+        category_lab = get_label(changed_cat)
+        from_match = category_lab != ""
 
     if not category_lab:
         start_ylab = ye_ts_bot.translate_general_category(changed_cat)
@@ -78,5 +83,5 @@ def resolve_label(category: str) -> CategoryResult:
     return CategoryResult(
         en=category,
         ar=category_lab,
-        from_match=cat_year,
+        from_match=cat_year or from_match,
     )

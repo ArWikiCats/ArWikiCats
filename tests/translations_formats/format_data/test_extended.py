@@ -4,7 +4,7 @@ import pytest
 
 from ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
 from ArWikiCats.translations_resolvers.match_labs import load_data
-from ArWikiCats.translations_formats.format_data import FormatData
+from ArWikiCats.translations_formats import FormatData
 
 # --- Fixtures ---------------------------------------------------------
 

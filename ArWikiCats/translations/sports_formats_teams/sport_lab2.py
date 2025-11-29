@@ -4,7 +4,7 @@
 import functools
 
 # from ...helps.jsonl_dump import dump_data
-from ...translations_formats.format_data import FormatData
+from ...translations_formats import FormatData
 from ..sports.Sport_key import (
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,
@@ -37,7 +37,6 @@ def find_jobs_bot(category: str, default: str = "") -> str:
 
 
 @functools.lru_cache(maxsize=None)
-
 def wrap_team_xo_normal_2025(team: str) -> str:
     """Normalize a team string and resolve it via the available sports bots."""
     team = team.lower().replace("category:", "")

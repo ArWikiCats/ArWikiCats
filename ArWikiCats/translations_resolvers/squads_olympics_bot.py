@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ """
-from ..translations_formats.format_data import FormatData
+from ..translations_formats import FormatData
 from ..translations import contries_from_nat
 
 en_is_P17_ar_is_P17_SPORTS: dict[str, str] = {

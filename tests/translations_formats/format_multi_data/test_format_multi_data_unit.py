@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""Integration tests for format_multi_data  """
+"""Integration tests for format_multi_data and """
 
 import pytest
 
-from ArWikiCats.translations_formats import (
-    format_multi_data,
-)
-from ArWikiCats.translations_formats.DataModel.model_multi_data import MultiDataFormatterBase
+from ArWikiCats.translations_formats import FormatData, MultiDataFormatterBase, format_multi_data
+
 
 # Sample data for nationality translations
 nationality_data = {
@@ -36,7 +34,31 @@ formatted_data = {
 
 
 @pytest.fixture
-def multi_bot() -> MultiDataFormatterBase:
+def multi_bot():
+    """Create a format_multi_data instance for testing."""
+
+    country_bot = FormatData(
+        formatted_data=formatted_data,
+        data_list=nationality_data,
+        key_placeholder="{nat_en}",
+        value_placeholder="{nat_ar}",
+    )
+
+    other_bot = FormatData(
+        {},
+        sport_data,
+        key_placeholder="{sport_en}",
+        value_placeholder="{sport_ar}",
+    )
+
+    return MultiDataFormatterBase(
+        country_bot=country_bot,
+        other_bot=other_bot,
+    )
+
+
+@pytest.fixture
+def _multi_bot():
     """Create a format_multi_data instance for testing."""
     return format_multi_data(
         formatted_data=formatted_data,
@@ -50,7 +72,7 @@ def multi_bot() -> MultiDataFormatterBase:
 
 
 class TestCountryBotNormalization:
-    """Tests for FormatComparison Helper class."""
+    """Tests for  class."""
 
     def test_get_start_p17(self, multi_bot: MultiDataFormatterBase):
         """Test get_start_p17 method returns normalized category and key."""
@@ -65,7 +87,7 @@ class TestCountryBotNormalization:
 class TestFormatMultiDataInitialization:
     """Tests for format_multi_data initialization."""
 
-    def test_initialization_with_defaults(self) -> None:
+    def test_initialization_with_defaults(self):
         """Test that format_multi_data initializes with default placeholders."""
         bot = format_multi_data(
             formatted_data={},
@@ -77,7 +99,7 @@ class TestFormatMultiDataInitialization:
         assert bot.other_bot.key_placeholder == "xoxo"
         assert bot.other_bot.value_placeholder == "xoxo"
 
-    def test_initialization_with_custom_placeholders(self) -> None:
+    def test_initialization_with_custom_placeholders(self):
         """Test that format_multi_data initializes with custom placeholders."""
         bot = format_multi_data(
             formatted_data={},
@@ -324,7 +346,7 @@ class TestWithTextAfterAndBefore:
     """Tests for format_multi_data with text_after and text_before parameters."""
 
     @pytest.mark.skip2
-    def test_with_text_after(self) -> None:
+    def test_with_text_after(self):
         """Test format_multi_data with text_after parameter."""
         bot = format_multi_data(
             formatted_data={"{nat_en}ian {sport_en} teams": "فرق {sport_ar} {nat_ar}"},
@@ -343,7 +365,7 @@ class TestWithTextAfterAndBefore:
         assert result == "فرق كرة القدم اليمن"
 
     @pytest.mark.skip2
-    def test_with_text_before(self) -> None:
+    def test_with_text_before(self):
         """Test format_multi_data with text_before parameter."""
         bot = format_multi_data(
             formatted_data={"the {nat_en} {sport_en} teams": "فرق {sport_ar} {nat_ar}"},

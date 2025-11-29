@@ -1,4 +1,22 @@
 
+## [#125](https://github.com/MrIbrahem/ArWikiCats/pull/125) - 2025-11-29
+
+* **New Features**
+  * Added pattern recognition and label creation for combined year+country categories to improve temporal/geographic translations.
+
+* **Improvements**
+  * Modularized formatting to unify multi-format template handling and package exports for more consistent labeling.
+
+* **Bug Fixes**
+  * Fixed a mapping typo that affected one year–country label and harmonized import surfaces.
+
+* **Tests**
+  * Expanded test coverage for year+country patterns and multi-format label generation.
+
+* **Chores**
+  * Consolidated API exports for better internal consistency.
+  * Updated test coverage for new translation pattern functionality.
+
 ## [#124](https://github.com/MrIbrahem/ArWikiCats/pull/124) - 2025-11-29
 
 * **New Features**

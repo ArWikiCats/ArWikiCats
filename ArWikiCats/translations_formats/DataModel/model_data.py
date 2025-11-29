@@ -5,7 +5,7 @@ import functools
 import re
 from typing import Dict, Optional
 
-from ..helps.log import logger
+from ...helps.log import logger
 
 
 class FormatData:
@@ -33,6 +33,11 @@ class FormatData:
         self.key_placeholder = key_placeholder
         self.data_pattern = ""
         self.pattern = self.keys_to_pattern()
+
+    def add_formatted_data(self, key: str, value: str) -> None:
+        """Add a key-value pair to the data_list."""
+        self.formatted_data[key] = value
+        self.formated_data_ci[key.lower()] = value
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
@@ -89,7 +94,7 @@ class FormatData:
 
         return normalized.strip()
 
-    def normalize_category_with_key(self, category) -> tuple[str, str]:
+    def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
         Normalize nationality placeholders within a category string.
 
@@ -108,6 +113,21 @@ class FormatData:
         logger.debug(f"normalized xoxo : {normalized}")
         # Case-insensitive key lookup
         return self.formated_data_ci.get(normalized.lower(), "")
+
+    def get_template_ar(self, template_key: str) -> str:
+        """Lookup template in a case-insensitive dict."""
+        # Case-insensitive key lookup
+        template_key = template_key.lower()
+        result = self.formated_data_ci.get(template_key, "")
+
+        if not result:
+            if template_key.startswith("category:"):
+                template_key = template_key.replace("category:", "")
+                result = self.formated_data_ci.get(template_key, "")
+            else:
+                result = self.formated_data_ci.get(f"category:{template_key}", "")
+
+        return result
 
     def get_key_label(self, sport_key: str) -> str:
         """Return the Arabic label mapped to the provided key if present."""
@@ -142,6 +162,10 @@ class FormatData:
     def search(self, category: str) -> str:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
+
+    def replace_value_placeholder(self, label: str, value: str) -> str:
+        # Replace placeholder
+        return label.replace(self.value_placeholder, value)
 
 
 def format_data_sample() -> bool:

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
 import re
-from ..translations_formats.format_multi_data import FormatMultiData
+from ..translations_formats import format_multi_data
 from ..translations.nats.Nationality import all_country_with_nat
 from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
@@ -19,7 +19,7 @@ def add_definite_article(label: str) -> str:
 
 nats_data = {x: add_definite_article(v["men"]) for x, v in all_country_with_nat.items() if v.get("men")}
 
-both_bot = FormatMultiData(
+both_bot = format_multi_data(
     format_labels_with_nat,
     nats_data,
     key_placeholder="{en_nat}",

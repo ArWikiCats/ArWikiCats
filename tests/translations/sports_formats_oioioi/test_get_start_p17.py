@@ -117,7 +117,7 @@ def test_get_start_p17(category, expected) -> None:
     key1, start1 = get_start_p17(category)
     expected_1, expected_2 = expected
 
-    key2, start2 = both_bot.get_start_p17(category)
+    start2, key2 = both_bot.country_bot.normalize_category_with_key(category)
 
     assert key2 == expected_1
     assert start2 == expected_2

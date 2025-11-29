@@ -1,0 +1,63 @@
+"""
+Tests
+"""
+
+import pytest
+
+from ArWikiCats.main_processers.country_time_pattern import yc_bot, get_label
+
+test_data = {
+    # standard
+    "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
+
+    # with text_before
+    "Category:2010s in the united states": "تصنيف:الولايات المتحدة في عقد 2010",
+
+    "Category:2025 in Yemen": "تصنيف:اليمن في 2025",
+    "Category:2020s in Yemen": "تصنيف:اليمن في عقد 2020",
+    "Category:2010s establishments in egypt": "تصنيف:تأسيسات عقد 2010 في مصر",
+    "Category:1999 establishments in egypt": "تصنيف:تأسيسات سنة 1999 في مصر",
+    "Category:2025 in yemen": "تصنيف:اليمن في 2025",
+    "Category:2010 events in iraq": "تصنيف:أحداث 2010 في العراق",
+    "Category:2020 disasters in france": "تصنيف:كوارث في فرنسا في 2020",
+    "Category:2022 sports events in egypt": "تصنيف:أحداث 2022 الرياضية في مصر",
+    "Category:2021 crimes in iraq": "تصنيف:جرائم 2021 في العراق",
+    "Category:2022 murders in yemen": "تصنيف:جرائم قتل في اليمن في 2022",
+    "Category:2015 in united states by month": "تصنيف:أحداث 2015 في الولايات المتحدة حسب الشهر",
+    "Category:2020 elections in france": "تصنيف:انتخابات فرنسا في 2020",
+    "Category:2010 events in yemen by month": "تصنيف:أحداث 2010 في اليمن حسب الشهر",
+    "Category:years of the 1990s in egypt": "تصنيف:سنوات عقد 1990 في مصر",
+    "Category:2023 in sports in iraq": "تصنيف:الرياضة في العراق في 2023",
+    "Category:2020 in yemen by city": "تصنيف:اليمن في 2020 حسب المدينة",
+    "Category:2021 in egypt (state)": "تصنيف:ولاية مصر في 2021",
+    "Category:2022 establishments in france territory": "تصنيف:تأسيسات سنة 2022 في إقليم فرنسا",
+    "Category:1999 establishments in iraq (state)": "تصنيف:تأسيسات سنة 1999 في ولاية العراق",
+    "Category:terrorist incidents in yemen in 2018": "تصنيف:حوادث إرهابية في اليمن في 2018",
+    "Category:railway stations in france opened in 2012": "تصنيف:محطات السكك الحديدية في فرنسا افتتحت في 2012",
+    "Category:2020 in iraq territory": "تصنيف:إقليم العراق في 2020",
+    "Category:2005 architecture in egypt": "تصنيف:عمارة 2005 في مصر",
+    "Category:2010 in new yemen": "تصنيف:اليمن الجديدة في 2010",
+    "Category:2020 in iraq by state": "تصنيف:2020 في العراق حسب الولاية",
+    "Category:2020 in iraq by state or territory": "تصنيف:العراق في 2020 حسب الولاية",
+    "Category:2021 mass shootings in united states": "تصنيف:إطلاق نار عشوائي في الولايات المتحدة في 2021",
+    "Category:attacks in france in 2015": "تصنيف:هجمات في فرنسا في 2015",
+    "Category:2022 roman catholic bishops in france": "تصنيف:أساقفة كاثوليك رومان في فرنسا في 2022",
+    "Category:2019 establishments in new egypt": "تصنيف:تأسيسات سنة 2019 في مصر الجديدة",
+    "Category:2010 in egypt city": "تصنيف:مدينة مصر في 2010",
+    "Category:2011 religious buildings and structures in iraq": "تصنيف:مبان ومنشآت دينية في العراق في 2011",
+    "Category:2011 churches in iraq": "تصنيف:كنائس في العراق في 2011",
+    "Category:2022 mosques in egypt": "تصنيف:مساجد في مصر في 2022",
+}
+
+yc_bot.country_bot.add_formatted_data("category:{year1} in {country1}", "تصنيف:{country1} في {year1}")  # 34632
+
+
+@pytest.mark.parametrize(
+    "category,expected",
+    test_data.items(),
+    ids=test_data.keys()
+)
+def test_country_time_pattern(category, expected):
+    """Test all year-country translation patterns."""
+    result = get_label(category)
+    assert result == expected

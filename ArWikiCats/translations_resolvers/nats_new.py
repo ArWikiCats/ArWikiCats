@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ """
 
-from ..translations_formats.format_multi_data import FormatMultiData
-from ..translations_formats.format_data import FormatData
+from ..translations_formats import format_multi_data, FormatData
+
 from ..translations.nats.Nationality import en_nats_to_ar_label
 from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
@@ -16,10 +16,10 @@ format_labels_with_nat = {
     "ladies natar xoxo tour": "بطولة natar xoxo للسيدات",
 }
 
-nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
-sport_bot = FormatData({}, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_placeholder="xoxo")
+# nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
+# sport_bot = FormatData({}, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_placeholder="xoxo")
 
-both_bot = FormatMultiData(
+both_bot = format_multi_data(
     format_labels_with_nat,
     en_nats_to_ar_label,
     key_placeholder="natar",
@@ -33,7 +33,7 @@ create_nat_label = both_bot.create_nat_label
 create_label = both_bot.create_label
 create_nat_label = both_bot.create_nat_label
 normalize_nat_label = both_bot.normalize_nat_label
-normalize_sport_label = both_bot.normalize_sport_label
+normalize_other_label = both_bot.normalize_other_label
 normalize_both = both_bot.normalize_both
 
 
@@ -43,7 +43,7 @@ def nats_new_create_label(category: str):
 
 __all__ = [
     "normalize_nat_label",
-    "normalize_sport_label",
+    "normalize_other_label",
     "normalize_both",
     "create_nat_label",
     "create_label",

@@ -7,7 +7,7 @@ import re
 from ...helps.log import logger
 from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ...translations import Nat_women, All_Nat
-from ...translations_formats.format_multi_data import FormatMultiData
+from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
 from .te2 import New_For_nat_female_xo_team
@@ -29,7 +29,7 @@ New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in New_For_nat_f
 # remove "the " from the start of all Nat_women_2 keys
 Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}
 
-both_bot = FormatMultiData(
+both_bot = format_multi_data(
     New_For_nat_female_xo_team_2,
     Nat_women_2,
     key_placeholder="{nat}",

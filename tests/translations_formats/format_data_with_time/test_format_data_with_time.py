@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""Integration tests for FormatYearCountryData and FormatComparisonHelper"""
+"""Integration tests for format_year_country_data and """
 
 import pytest
 
 from ArWikiCats.translations import all_country_ar
-from ArWikiCats.translations_formats.format_data_with_time import (
-    FormatYearCountryData,
-)
+from ArWikiCats.translations_formats import MultiDataFormatterBase, format_year_country_data
 
 # Template data with both nationality and sport placeholders
 formatted_data = {
@@ -49,22 +47,33 @@ formatted_data = {
 
 
 @pytest.fixture
-def yc_bot():
-    return FormatYearCountryData(
+def yc_bot() -> MultiDataFormatterBase:
+    return format_year_country_data(
         formatted_data=formatted_data,
         data_list=all_country_ar,
         key_placeholder="{country1}",
         value_placeholder="{country1}",
-        key_placeholder_year="{year1}",
-        value_placeholder_year="{year1}",
+        key2_placeholder="{year1}",
+        value2_placeholder="{year1}",
+        text_after=" !",
+        text_before="the ",
     )
 
 
 test_data = [
+    # standard
+    ("2010s in united states", "الولايات المتحدة في عقد 2010"),
+
+    # with text_before
+    ("2010s in the united states", "الولايات المتحدة في عقد 2010"),
+
+    # with text_after
+    ("2010s in the united states !", "الولايات المتحدة في عقد 2010"),
+
     ("2025 in Yemen", "اليمن في 2025"),
     ("2020s in Yemen", "اليمن في عقد 2020"),
+    ("2010s establishments in egypt", "تأسيسات عقد 2010 في مصر"),
     ("1999 establishments in egypt", "تأسيسات سنة 1999 في مصر"),
-    ("2010s in united states", "الولايات المتحدة في عقد 2010"),
     ("2025 in yemen", "اليمن في 2025"),
     ("1999 establishments in egypt", "تأسيسات سنة 1999 في مصر"),
     ("2010 events in iraq", "أحداث 2010 في العراق"),
