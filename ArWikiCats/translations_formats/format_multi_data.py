@@ -68,8 +68,6 @@ class FormatMultiData(FormatComparisonHelper):
             value_placeholder=self.value2_placeholder,
         )
 
-
-
     def normalize_nat_label(self, category) -> str:
         """
         Normalize nationality placeholders within a category string.
