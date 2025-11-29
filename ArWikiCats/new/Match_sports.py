@@ -1,36 +1,41 @@
 # -*- coding: utf-8 -*-
 """
-Single-file test implementation for the 'xoxo' sports template resolver.
+Single-file test implementation for the '{sport_en}' sports template resolver.
+
+TODO: Use it in the code or remove it!
+
 """
 
+import functools
 import re
-from typing import Dict, Optional, Tuple
+from typing import Dict
+from ..translations_formats import FormatData
 
 TEMPLATES_TEAMS: Dict[str, str] = {
-    "men's xoxo world cup": "كأس العالم للرجال في {sport_ar}",
-    "women's xoxo world cup": "كأس العالم للسيدات في {sport_ar}",
-    "xoxo world cup": "كأس العالم في {sport_ar}",
-    "men's xoxo world championship": "بطولة العالم للرجال في {sport_ar}",
-    "women's xoxo world championship": "بطولة العالم للسيدات في {sport_ar}",
-    "xoxo world championship": "بطولة العالم في {sport_ar}",
-    "men's xoxo asian championship": "بطولة آسيا للرجال في {sport_ar}",
-    "women's xoxo asian championship": "بطولة آسيا للسيدات في {sport_ar}",
-    "xoxo asian championship": "بطولة آسيا في {sport_ar}",
-    "men's xoxo league": "دوري الرجال في {sport_ar}",
-    "women's xoxo league": "دوري السيدات في {sport_ar}",
-    "xoxo league": "الدوري في {sport_ar}",
-    "men's xoxo cup": "كأس الرجال في {sport_ar}",
-    "women's xoxo cup": "كأس السيدات في {sport_ar}",
-    "xoxo cup": "الكأس في {sport_ar}",
-    "u23 xoxo championship": "بطولة تحت 23 سنة في {sport_ar}",
-    "u20 xoxo championship": "بطولة تحت 20 سنة في {sport_ar}",
-    "u17 xoxo world cup": "كأس العالم تحت 17 سنة في {sport_ar}",
-    "wheelchair xoxo world championship": "بطولة العالم للكراسي المتحركة في {sport_ar}",
-    "wheelchair xoxo": "{sport_ar} على كراسي متحركة",
-    "xoxo racing": "سباقات {sport_ar}",
-    "men's national xoxo team": "منتخب {sport_ar} الوطني للرجال",
-    "women's national xoxo team": "منتخب {sport_ar} الوطني للسيدات",
-    "national xoxo team": "المنتخب الوطني في {sport_ar}",
+    "men's {sport_en} world cup": "كأس العالم للرجال في {sport_ar}",
+    "women's {sport_en} world cup": "كأس العالم للسيدات في {sport_ar}",
+    "{sport_en} world cup": "كأس العالم في {sport_ar}",
+    "men's {sport_en} world championship": "بطولة العالم للرجال في {sport_ar}",
+    "women's {sport_en} world championship": "بطولة العالم للسيدات في {sport_ar}",
+    "{sport_en} world championship": "بطولة العالم في {sport_ar}",
+    "men's {sport_en} asian championship": "بطولة آسيا للرجال في {sport_ar}",
+    "women's {sport_en} asian championship": "بطولة آسيا للسيدات في {sport_ar}",
+    "{sport_en} asian championship": "بطولة آسيا في {sport_ar}",
+    "men's {sport_en} league": "دوري الرجال في {sport_ar}",
+    "women's {sport_en} league": "دوري السيدات في {sport_ar}",
+    "{sport_en} league": "الدوري في {sport_ar}",
+    "men's {sport_en} cup": "كأس الرجال في {sport_ar}",
+    "women's {sport_en} cup": "كأس السيدات في {sport_ar}",
+    "{sport_en} cup": "الكأس في {sport_ar}",
+    "u23 {sport_en} championship": "بطولة تحت 23 سنة في {sport_ar}",
+    "u20 {sport_en} championship": "بطولة تحت 20 سنة في {sport_ar}",
+    "u17 {sport_en} world cup": "كأس العالم تحت 17 سنة في {sport_ar}",
+    "wheelchair {sport_en} world championship": "بطولة العالم للكراسي المتحركة في {sport_ar}",
+    "wheelchair {sport_en}": "{sport_ar} على كراسي متحركة",
+    "{sport_en} racing": "سباقات {sport_ar}",
+    "men's national {sport_en} team": "منتخب {sport_ar} الوطني للرجال",
+    "women's national {sport_en} team": "منتخب {sport_ar} الوطني للسيدات",
+    "national {sport_en} team": "المنتخب الوطني في {sport_ar}",
 }
 # ---------- team_job.py ----------
 SPORTS_EN_TO_AR: Dict[str, str] = {
@@ -63,54 +68,47 @@ SPORTS_EN_TO_AR: Dict[str, str] = {
     "gaelic football": "كرة القدم الغيلية",
 }
 
-_sorted_sports = sorted(SPORTS_EN_TO_AR.keys(), key=len, reverse=True)
 WHITESPACE_NORM = re.compile(r"\s+")
-
-alternation = "|".join(re.escape(k) for k in _sorted_sports)
-
-SPORTS_PATTERN = re.compile(r"(?i)\b(" + alternation + r")\b")
-# TODO: USE SPORTS_PATTERN = re.compile(fr"(?<!\w)({alternation})(?!\w)")
 
 
 def _normalize(text: str) -> str:
     """Lowercase and collapse whitespace for consistent matching."""
-    return WHITESPACE_NORM.sub(" ", text.lower()).strip()
+    return WHITESPACE_NORM.sub(" ", text.lower()).strip().replace("–", "-")
 
 
-def find_sport(title_en: str) -> Optional[Tuple[str, str]]:
-    """Return the detected sport (EN and AR) from an English title."""
-    m = SPORTS_PATTERN.search(_normalize(title_en))
-    if not m:
-        return None
-    sport_en = m.group(1).lower()
-    return (sport_en, SPORTS_EN_TO_AR[sport_en])
+def _expand_templates(templates: Dict[str, str]) -> Dict[str, str]:
+    """Add relaxed variants that mirror the previous manual fallbacks."""
+
+    expanded = dict(templates)
+
+    for key, value in templates.items():
+        relaxed_key = key.replace("men's", "mens").replace("women's", "womens")
+        expanded.setdefault(relaxed_key, value)
+
+        # tokens = ["{sport_en}" if token == "{sport_en}" else (token[:-1] if token.endswith("s") else token) for token in key.split(" ")]
+        tokens = [token[:-1] if token == "championships" else token for token in key.split(" ") if token != "{sport_en}"]
+        alt_key = " ".join(tokens)
+        expanded.setdefault(alt_key, value)
+
+    return expanded
 
 
-def make_template_key(title_en: str, sport_en: str) -> str:
-    """Build a normalized template key by replacing the sport name token."""
-    text = re.sub(rf"(?i)\b{re.escape(sport_en)}\b", "xoxo", _normalize(title_en))
-    text = text.replace("–", "-")
-    return WHITESPACE_NORM.sub(" ", text).strip()
+@functools.lru_cache(maxsize=1)
+def _load_sports_bot() -> FormatData:
+    """Create a shared FormatData instance for sports template resolution."""
+
+    expanded_templates = _expand_templates(TEMPLATES_TEAMS)
+    return FormatData(
+        expanded_templates,
+        SPORTS_EN_TO_AR,
+        key_placeholder="{sport_en}",
+        value_placeholder="{sport_ar}",
+    )
 
 
 def resolve_team_label(title_en: str) -> str:
-    """Resolve an Arabic team label for a sports title using templates."""
-    found = find_sport(title_en)
-    if not found:
-        return ""
-    sport_en, sport_ar = found
-    template_key = make_template_key(title_en, sport_en)
+    """Resolve an Arabic team label for a sports title using FormatData."""
 
-    if template_key in TEMPLATES_TEAMS:
-        return TEMPLATES_TEAMS[template_key].format(sport_ar=sport_ar)
-
-    relaxed = template_key.replace("men's", "mens").replace("women's", "womens")
-    if relaxed in TEMPLATES_TEAMS:
-        return TEMPLATES_TEAMS[relaxed].format(sport_ar=sport_ar)
-
-    tokens = [t for t in template_key.split(" ") if t]
-    alt_tokens = ["xoxo" if t == "xoxo" else (t[:-1] if t.endswith("s") else t) for t in tokens]
-    alt_key = " ".join(alt_tokens)
-    if alt_key in TEMPLATES_TEAMS:
-        return TEMPLATES_TEAMS[alt_key].format(sport_ar=sport_ar)
-    return ""
+    bot = _load_sports_bot()
+    normalized_title = _normalize(title_en)
+    return bot.search(normalized_title)

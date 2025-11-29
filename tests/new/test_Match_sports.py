@@ -5,11 +5,12 @@ test runner for resolve_team_label.
 
 import pytest
 
-from ArWikiCats.new.Match_sports import resolve_team_label
+from ArWikiCats.new.Match_sports import resolve_team_label, SPORTS_EN_TO_AR
 
-examples = [
+BASIC_EXAMPLES = [
     ("men's football world cup", "كأس العالم للرجال في كرة القدم"),
     ("women's basketball world cup", "كأس العالم للسيدات في كرة السلة"),
+    ("womens basketball world cup", "كأس العالم للسيدات في كرة السلة"),
     ("softball world cup", "كأس العالم في سوفتبول"),
     ("men's volleyball world championship", "بطولة العالم للرجال في كرة الطائرة"),
     ("women's handball world championship", "بطولة العالم للسيدات في كرة اليد"),
@@ -29,11 +30,73 @@ examples = [
 ]
 
 
+# ----------------------------------------------------------------------
+# Expanded: Cases for all sports (simple "X league" form)
+# Ensures every sport resolves properly in at least one template.
+# ----------------------------------------------------------------------
+SPORT_SIMPLE_CASES = [
+    (f"{sport_en} league", f"الدوري في {sport_ar}")
+    for sport_en, sport_ar in SPORTS_EN_TO_AR.items()
+]
+
+
+# ----------------------------------------------------------------------
+# Expanded: Gender variations for each sport using “world cup”
+# ----------------------------------------------------------------------
+SPORT_GENDER_CASES = []
+for sport_en, sport_ar in SPORTS_EN_TO_AR.items():
+    SPORT_GENDER_CASES.extend([
+        (f"men's {sport_en} world cup", f"كأس العالم للرجال في {sport_ar}"),
+        (f"women's {sport_en} world cup", f"كأس العالم للسيدات في {sport_ar}"),
+        (f"{sport_en} world cup", f"كأس العالم في {sport_ar}"),
+    ])
+
+
+# ----------------------------------------------------------------------
+# Bad / dirty input formatting
+# ----------------------------------------------------------------------
+FORMATTING_CASES = [
+    ("   mens   football   world   cup   ", "كأس العالم للرجال في كرة القدم"),
+    ("   men's   football   world   cup   ", "كأس العالم للرجال في كرة القدم"),
+    ("MEN'S FOOTBALL WORLD CUP", "كأس العالم للرجال في كرة القدم"),
+    ("men's football   world   championship", "بطولة العالم للرجال في كرة القدم"),
+    ("womens   volleyball   league", "دوري السيدات في كرة الطائرة"),
+    ("women's   volleyball   league", "دوري السيدات في كرة الطائرة"),
+    ("u23   football   championship", "بطولة تحت 23 سنة في كرة القدم"),
+]
+
+
+# ----------------------------------------------------------------------
+# Negative tests: must all return ""
+# ----------------------------------------------------------------------
+NEGATIVE_CASES = [
+    ("unknown sport world cup", ""),
+    ("men's unknownsport league", ""),
+    ("wheelchair unknownsport", ""),
+    ("xoxo", ""),
+    ("world cup only", ""),
+    ("football somethingelse cup", ""),  # unrecognized template
+]
+
+
+# ----------------------------------------------------------------------
+# Combine All Tests
+# ----------------------------------------------------------------------
+ALL_CASES = (
+    BASIC_EXAMPLES
+    + SPORT_SIMPLE_CASES
+    + SPORT_GENDER_CASES
+    + FORMATTING_CASES
+    + NEGATIVE_CASES
+)
+
+
 @pytest.mark.parametrize(
     "category, expected",
-    examples,
-    ids=[k[0] for k in examples],
+    ALL_CASES,
+    ids=[c[0] for c in ALL_CASES],
 )
 @pytest.mark.fast
 def test_resolve_team_label(category: str, expected: str) -> None:
+    """Ensure team label resolution works for all template variations."""
     assert resolve_team_label(category) == expected
