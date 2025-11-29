@@ -3,7 +3,7 @@
 Classes for formatting
 """
 from typing import Dict
-from .format_data import FormatData
+from .DataModel.format_data import FormatData
 from .format_data_time import YearFormatData
 from .format_multi_data_new import FormatMultiDataNew
 

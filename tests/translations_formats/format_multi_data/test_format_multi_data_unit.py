@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations_formats.format_data import FormatData
+from ArWikiCats.translations_formats import FormatData
 from ArWikiCats.translations_formats.format_multi_data import FormatMultiData
 from ArWikiCats.translations_formats.format_multi_data_new import FormatMultiDataNew
 
