@@ -44,6 +44,19 @@ class YearFormatData:
             re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE
         )
 
+    def normalize_category_with_key(self, category) -> tuple[str, str]:
+        """
+        Normalize nationality placeholders within a category string.
+
+        Example:
+            category:"Yemeni national football teams", result: "natar national football teams"
+        """
+        key = self.match_key(category)
+        result = ""
+        if key:
+            result = self.normalize_category(category, key)
+        return key, result
+
 
 YEAR_PARAM = "{year1}"
 COUNTRY_PARAM = "{country1}"
@@ -145,7 +158,14 @@ class FormatYearCountryData:
             category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
         """
         # category = Yemeni football championships
-        template_key = self.normalize_both(category)
+        normalized_category = " ".join(category.split())
+        # template_key = self.normalize_both(normalized_category)
+
+        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
+        year_key, template_key = self.year_bot.normalize_category_with_key(template_key)
+
+        if not nat_key or not year_key:
+            return ""
 
         # Must match a template
         if template_key not in self.formatted_data:
@@ -154,19 +174,6 @@ class FormatYearCountryData:
         # cate = natar xoxo championships
         template_ar = self.formatted_data[template_key]
         logger.debug(f"{template_ar=}")
-
-        # Extract keys
-        nat_key = self.country_bot.match_key(category)
-
-        if not nat_key:
-            return ""
-
-        category2 = self.country_bot.normalize_category(category, nat_key)
-
-        year_key = self.year_bot.match_key(category2)
-
-        if not year_key:
-            return ""
 
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(nat_key)

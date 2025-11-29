@@ -140,7 +140,14 @@ class FormatMultiData(FormatComparisonHelper):
             category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
         """
         # category = Yemeni football championships
-        template_key = self.normalize_both(category)
+        normalized_category = " ".join(category.split())
+        # template_key = self.normalize_both(normalized_category)
+
+        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
+        xoxo_key, template_key = self.sport_bot.normalize_category_with_key(template_key)
+
+        if not nat_key or not xoxo_key:
+            return ""
 
         # Must match a template
         if template_key not in self.formatted_data:
@@ -149,19 +156,6 @@ class FormatMultiData(FormatComparisonHelper):
         # cate = natar xoxo championships
         template_ar = self.formatted_data[template_key]
         logger.debug(f"{template_ar=}")
-
-        # Extract keys
-        nat_key = self.country_bot.match_key(category)
-
-        if not nat_key:
-            return ""
-
-        category2 = self.country_bot.normalize_category(category, nat_key)
-
-        xoxo_key = self.sport_bot.match_key(category2)
-
-        if not xoxo_key:
-            return ""
 
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(nat_key)
