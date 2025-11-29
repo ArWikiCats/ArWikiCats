@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Single-file test implementation for the '{sport_en}' sports template resolver.
+
+TODO: Use it in the code or remove it!
+
 """
 
 import functools
