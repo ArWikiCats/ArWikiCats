@@ -19,5 +19,5 @@ yc_bot = FormatYearCountryData(
 
 
 def get_label(category) -> str:
-    result = yc_bot.create_label(category)
+    result = yc_bot.create_label(category) or yc_bot.create_label(category.lower().replace("category:", ""))
     return result

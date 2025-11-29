@@ -83,5 +83,5 @@ def resolve_label(category: str) -> CategoryResult:
     return CategoryResult(
         en=category,
         ar=category_lab,
-        from_match=cat_year,  # or from_match,
+        from_match=cat_year or from_match,
     )
