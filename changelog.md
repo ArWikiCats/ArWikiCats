@@ -1,17 +1,17 @@
 
 ## [#124](https://github.com/MrIbrahem/ArWikiCats/pull/124) - 2025-11-29
 
-**New Features**
-* Enhanced category formatting with automatic country and year detection and normalization
+* **New Features**
+  * Enhanced category formatting with automatic country and year detection and normalization
 
-**Data & Translations**
-* Added 100+ new job occupations with gendered Arabic translations
-* Fixed sports commentator terminology translation
-* Standardized country-year category data format
-* Added "news anchors" job role translations
+* **Data & Translations**
+  * Added 100+ new job occupations with gendered Arabic translations
+  * Fixed sports commentator terminology translation
+  * Standardized country-year category data format
+  * Added "news anchors" job role translations
 
-**Tests & Infrastructure**
-* Added comprehensive test coverage for new formatting capabilities
+* **Tests & Infrastructure**
+  * Added comprehensive test coverage for new formatting capabilities
 
 
 ## [#122](https://github.com/MrIbrahem/ArWikiCats/pull/122) - 2025-11-28
