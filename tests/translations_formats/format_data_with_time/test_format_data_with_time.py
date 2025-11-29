@@ -52,9 +52,9 @@ formatted_data = {
 def yc_bot():
     return FormatYearCountryData(
         formatted_data=formatted_data,
-        countries_data=all_country_ar,
-        key_placeholder_country="{country1}",
-        value_placeholder_country="{country1}",
+        data_list=all_country_ar,
+        key_placeholder="{country1}",
+        value_placeholder="{country1}",
         key_placeholder_year="{year1}",
         value_placeholder_year="{year1}",
     )

@@ -14,114 +14,171 @@ from ..new.time_to_arabic import (
     match_time_en_first,
 )
 
+
+class YearFormatData:
+    """
+    A dynamic wrapper that allows FormatData to handle year patterns.
+    It mimics FormatData behavior but for time values extracted by regex.
+    """
+
+    def __init__(self, key_placeholder: str, value_placeholder: str):
+        self.key_placeholder = key_placeholder
+        self.value_placeholder = value_placeholder
+
+    def match_key(self, text: str) -> str:
+        """Extract English year/decade and return it as the key."""
+        result = match_time_en_first(text)
+        return result if result else ""
+
+    def get_key_label(self, key: str) -> str:
+        """Convert the year expression to Arabic."""
+        if not key:
+            return ""
+        return convert_time_to_arabic(key)
+
+    def normalize_category(self, text: str, key: str) -> str:
+        """Replace matched year with placeholder."""
+        if not key:
+            return text
+        return re.sub(
+            re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE
+        )
+
+
 YEAR_PARAM = "{year1}"
 COUNTRY_PARAM = "{country1}"
 
 
 class FormatYearCountryData:
     """
-    Works exactly like FormatMultiData, but for:
-        - Country detection (same as nationality)
-        - Year detection (instead of sport)
+    Works EXACTLY like FormatMultiData but with:
+        - year_bot instead of sport_bot
     """
 
     def __init__(
         self,
         formatted_data: Dict[str, str],
-        countries_data: Dict[str, str],
-        key_placeholder_country: str = COUNTRY_PARAM,
-        value_placeholder_country: str = COUNTRY_PARAM,
+        data_list: Dict[str, str],
+        key_placeholder: str = COUNTRY_PARAM,
+        value_placeholder: str = COUNTRY_PARAM,
         key_placeholder_year: str = YEAR_PARAM,
         value_placeholder_year: str = YEAR_PARAM,
+        text_after: str = "",
+        text_before: str = "",
     ) -> None:
-
+        """Prepare helpers for matching and formatting template-driven labels."""
+        # Store originals
         self.formatted_data = formatted_data
 
-        self.key_country = key_placeholder_country
-        self.val_country = value_placeholder_country
+        # Placeholders
+        self.key_placeholder = key_placeholder
+        self.value_placeholder = value_placeholder
 
         self.key_year = key_placeholder_year
         self.val_year = value_placeholder_year
 
-        # Normalize country dictionary to lower-case
-        self.countries_data = {k.lower(): v for k, v in countries_data.items()}
+        # Country bot (FormatData)
+        self.country_bot = FormatData(
+            formatted_data={},
+            data_list=data_list,
+            key_placeholder=self.key_placeholder,
+            value_placeholder=self.value_placeholder,
+        )
+
+        # Year bot (custom FormatData-like wrapper)
+        self.year_bot = YearFormatData(
+            key_placeholder=self.key_year,
+            value_placeholder=self.val_year,
+        )
 
     # ------------------------------------------------------
-    # 1) COUNTRY MATCHING (like nat_bot)
+    # COUNTRY/NAT NORMALIZATION
     # ------------------------------------------------------
-    def match_country(self, text: str) -> str:
-        text = text.lower()
-        for key in self.countries_data:
-            if key in text:
-                return key
-        return ""
+    def normalize_nat_label(self, category) -> str:
+        """
+        Normalize nationality placeholders within a category string.
 
-    def normalize_country_label(self, category: str) -> str:
-        key = self.match_country(category)
-        if not key:
-            return category
-
-        pattern = re.escape(key)
-        return re.sub(pattern, self.key_country, category, flags=re.IGNORECASE)
-
-    def get_country_ar(self, key: str) -> str:
-        return self.countries_data.get(key.lower(), "")
+        Example:
+            category:"Yemeni national football teams", result: "natar national football teams"
+        """
+        key = self.country_bot.match_key(category)
+        result = ""
+        if key:
+            result = self.country_bot.normalize_category(category, key)
+        return result
 
     # ------------------------------------------------------
-    # 2) YEAR MATCHING (instead of sport)
+    # YEAR/SPORT NORMALIZATION
     # ------------------------------------------------------
-    def match_year(self, text: str) -> str:
-        return match_time_en_first(text)
+    def normalize_year_label(self, category) -> str:
+        key = self.year_bot.match_key(category)
+        result = ""
+        if key:
+            result = self.year_bot.normalize_category(category, key)
+        return result
 
-    def normalize_year_label(self, category: str) -> str:
-        year = self.match_year(category)
-        if not year:
-            return category
+    def normalize_both(self, category) -> str:
+        """
+        Normalize both nationality and sport tokens in the category.
 
-        pattern = re.escape(year)
-        return re.sub(pattern, self.key_year, category, flags=re.IGNORECASE)
+        Example:
+            input: "british softball championshipszz", output: "natar xoxo championshipszz"
+        """
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
 
-    # ------------------------------------------------------
-    # 3) Normalize Country + Year to template key
-    # ------------------------------------------------------
-    def normalize_both(self, category: str) -> str:
-        category = " ".join(category.split())
-        category = self.normalize_country_label(category)
-        category = self.normalize_year_label(category)
-        return category
+        new_category = self.normalize_nat_label(normalized_category)
+        new_category = self.normalize_year_label(new_category)
 
-    # ------------------------------------------------------
-    # 4) Create Arabic label (replace placeholders)
-    # ------------------------------------------------------
+        return new_category
+
+    @functools.lru_cache(maxsize=2000)
+    def create_nat_label(self, category) -> str:
+        return self.country_bot.search(category)
+
     @functools.lru_cache(maxsize=1000)
     def create_label(self, category: str) -> str:
+        """
+        Create a localized label by combining nationality and sport templates.
+
+        Example:
+            category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
+        """
+        # category = Yemeni football championships
         template_key = self.normalize_both(category)
 
+        # Must match a template
         if template_key not in self.formatted_data:
             return ""
 
+        # cate = natar xoxo championships
         template_ar = self.formatted_data[template_key]
+        logger.debug(f"{template_ar=}")
 
-        # Extract real values again
-        year_en = self.match_year(category)
-        country_en = self.match_country(category)
+        # Extract keys
+        nat_key = self.country_bot.match_key(category)
 
-        if not year_en or not country_en:
+        if not nat_key:
             return ""
 
-        country_ar = self.get_country_ar(country_en)
-        if not country_ar:
+        category2 = self.country_bot.normalize_category(category, nat_key)
+
+        year_key = self.year_bot.match_key(category)
+
+        if not year_key:
             return ""
 
-        # Convert year to Arabic
-        year_ar = convert_time_to_arabic(year_en)
+        # Get Arabic equivalents
+        country_ar = self.country_bot.get_key_label(nat_key)
+        year_ar = self.year_bot.get_key_label(year_key)
+
+        if not country_ar or not year_ar:
+            return ""
 
         # Replace placeholders
-        label = (
-            template_ar
-            .replace(self.val_country, country_ar)
-            .replace(self.val_year, year_ar)
+        label = template_ar.replace(self.value_placeholder, country_ar).replace(
+            self.val_year, year_ar
         )
 
-        logger.debug(f"create_label: {category=} → {label=}")
+        logger.debug(f"Translated {category=} → {label=}")
         return label

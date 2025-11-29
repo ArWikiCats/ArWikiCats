@@ -29,16 +29,16 @@ class FormatYearCountryData:
         self,
         formatted_data: Dict[str, str],
         countries_data: Dict[str, str],
-        key_placeholder_country: str = COUNTRY_PARAM,
-        value_placeholder_country: str = COUNTRY_PARAM,
+        key_placeholder: str = COUNTRY_PARAM,
+        value_placeholder: str = COUNTRY_PARAM,
         key_placeholder_year: str = YEAR_PARAM,
         value_placeholder_year: str = YEAR_PARAM,
     ) -> None:
 
         self.formatted_data = formatted_data
 
-        self.key_country = key_placeholder_country
-        self.val_country = value_placeholder_country
+        self.key_country = key_placeholder
+        self.val_country = value_placeholder
 
         self.key_year = key_placeholder_year
         self.val_year = value_placeholder_year
@@ -56,7 +56,7 @@ class FormatYearCountryData:
                 return key
         return ""
 
-    def normalize_country_label(self, category: str) -> str:
+    def normalize_nat_label(self, category: str) -> str:
         key = self.match_country(category)
         if not key:
             return category
@@ -86,7 +86,7 @@ class FormatYearCountryData:
     # ------------------------------------------------------
     def normalize_both(self, category: str) -> str:
         category = " ".join(category.split())
-        category = self.normalize_country_label(category)
+        category = self.normalize_nat_label(category)
         category = self.normalize_year_label(category)
         return category
 
