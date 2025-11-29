@@ -9,7 +9,7 @@ from typing import Dict, Tuple
 
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ...translations_formats.format_2_data import FormatMultiData
+from ...translations_formats.format_multi_data import FormatMultiData
 from ..nats.Nationality import en_nats_to_ar_label
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 from ..utils.match_sport_keys import match_sport_key

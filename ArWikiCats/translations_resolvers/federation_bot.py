@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
 import re
-from ..translations_formats.format_2_data import FormatMultiData
+from ..translations_formats.format_multi_data import FormatMultiData
 from ..translations.nats.Nationality import all_country_with_nat
 from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
