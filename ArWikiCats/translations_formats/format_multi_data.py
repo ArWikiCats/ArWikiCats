@@ -126,8 +126,14 @@ class FormatMultiData(FormatComparisonHelper):
         return new_category
 
     @functools.lru_cache(maxsize=2000)
-    def create_nat_label(self, category) -> str:
+    def create_nat_label(self, category: str) -> str:
         return self.country_bot.search(category)
+
+    def replace_placeholders(self, template_ar: str, country_ar: str, other_ar: str) -> str:
+        label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
+        label = self.other_bot.replace_value_placeholder(label, other_ar)
+
+        return label
 
     @functools.lru_cache(maxsize=1000)
     def create_label(self, category: str) -> str:
@@ -162,8 +168,7 @@ class FormatMultiData(FormatComparisonHelper):
             return ""
 
         # Replace placeholders
-        label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
-        label = self.other_bot.replace_value_placeholder(label, other_ar)
+        label = self.replace_placeholders(template_ar, country_ar, other_ar)
 
         logger.debug(f"Translated {category=} → {label=}")
         return label
