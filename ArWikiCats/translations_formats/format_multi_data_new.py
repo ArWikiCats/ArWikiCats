@@ -8,14 +8,13 @@ test at tests.translations_formats.test_format_2_data.py
 
 import functools
 from dataclasses import dataclass
-from typing import Dict
-
 from ..helps.log import logger
 from .format_data import FormatData
-from .format_multi_data_new import FormatMultiDataNew
+from .format_data_time import YearFormatData
 
-YEAR_PARAM = "xoxo"
-COUNTRY_PARAM = "natar"
+# -----------------------
+#
+# -----------------------
 
 
 @dataclass
@@ -28,75 +27,20 @@ class CategoryResult:
     other_key: str
 
 
-def FormatMultiData(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
-    key_placeholder: str = COUNTRY_PARAM,
-    value_placeholder: str = COUNTRY_PARAM,
-    data_list2: Dict[str, str] = {},
-    key2_placeholder: str = YEAR_PARAM,
-    value2_placeholder: str = YEAR_PARAM,
-    text_after: str = "",
-    text_before: str = "",
-) -> FormatMultiDataNew:
-    """Prepare helpers for matching and formatting template-driven labels."""
-    # Store originals
-
-    # Country bot (FormatData)
-    country_bot = FormatData(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder=key_placeholder,
-        value_placeholder=value_placeholder,
-        text_after=text_after,
-        text_before=text_before,
-    )
-    other_bot = FormatData(
-        {},
-        data_list2,
-        key_placeholder=key2_placeholder,
-        value_placeholder=value2_placeholder,
-    )
-    return FormatMultiDataNew(
-        country_bot=country_bot,
-        other_bot=other_bot,
-    )
-
-
-class _FormatMultiData:
+class FormatMultiDataNew:
     """
     """
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, str],
-        key_placeholder: str = COUNTRY_PARAM,
-        value_placeholder: str = COUNTRY_PARAM,
-        data_list2: Dict[str, str] = {},
-        key2_placeholder: str = YEAR_PARAM,
-        value2_placeholder: str = YEAR_PARAM,
-        text_after: str = "",
-        text_before: str = "",
+        country_bot: FormatData,
+        other_bot: FormatData | YearFormatData,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
         # Country bot (FormatData)
-        self.country_bot = FormatData(
-            formatted_data=formatted_data,
-            data_list=data_list,
-            key_placeholder=key_placeholder,
-            value_placeholder=value_placeholder,
-            text_after=text_after,
-            text_before=text_before,
-        )
-
-        self.other_bot = FormatData(
-            {},
-            data_list2,
-            key_placeholder=key2_placeholder,
-            value_placeholder=value2_placeholder,
-        )
+        self.country_bot = country_bot
+        self.other_bot = other_bot
 
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
