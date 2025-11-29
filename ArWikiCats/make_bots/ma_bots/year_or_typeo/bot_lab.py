@@ -14,7 +14,7 @@ from ....helps.log import logger
 # from ....helps.log import LoggerWrap
 from ....translations import Nat_mens, typeTable
 from ....utils import check_key_in_tables
-from ...date_bots import year_lab
+from ....new import year_lab
 from ...format_bots import category_relation_mapping
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.bot import Films_O_TT, New_Lan

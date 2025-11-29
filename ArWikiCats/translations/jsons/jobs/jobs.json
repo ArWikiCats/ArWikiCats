@@ -154,6 +154,10 @@
         }
     },
     "JOBS_PEOPLE": {
+        "news anchors": {
+            "mens": "مذيعو أخبار",
+            "womens": "مذيعات أخبار"
+        },
         "bloggers": {
             "mens": "مدونو",
             "womens": "مدونات"
@@ -201,14 +205,6 @@
         "publishers (people)": {
             "mens": "ناشرو",
             "womens": "ناشرات"
-        },
-        "evangelists": {
-            "mens": "",
-            "womens": ""
-        },
-        "news anchors": {
-            "mens": "",
-            "womens": ""
         },
         "personalities": {
             "mens": "شخصيات",

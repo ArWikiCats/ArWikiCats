@@ -7,7 +7,7 @@ import re
 from ...helps.log import logger
 from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ...translations import Nat_women, All_Nat
-from ...translations_formats.format_2_data import FormatMultiData
+from ...translations_formats.format_multi_data import FormatMultiData
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
 from .te2 import New_For_nat_female_xo_team

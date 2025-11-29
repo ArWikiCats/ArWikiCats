@@ -16,7 +16,7 @@ from ....translations import (
 )
 from ... import tmp_bot
 from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ...date_bots import year_lab
+from ....new import year_lab
 from ...format_bots import (
     Tabl_with_in,
     for_table,

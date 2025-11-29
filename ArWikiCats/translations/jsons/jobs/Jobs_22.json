@@ -1,1858 +1,207 @@
 {
-    "propagandists": {
-        "mens": "مروّجون دعائيون",
-        "womens": "مروّجات دعائيات"
-    },
-    "mnemonists": {
-        "mens": "حافظو ذاكرة",
-        "womens": "حافظات ذاكرة"
-    },
-    "erotic artists": {
-        "mens": "فنانون إيروتيكيون",
-        "womens": "فنانات إيروتيكيات"
-    },
-    "otolaryngologists": {
-        "mens": "أخصائيو أنف وأذن وحنجرة",
-        "womens": "أخصائيات أنف وأذن وحنجرة"
-    },
-    "inkers": {
-        "mens": "محبّرون",
-        "womens": "محبّرات"
-    },
-    "pencillers": {
-        "mens": "رسامو أقلام",
-        "womens": "رسامات أقلام"
-    },
-    "letterers": {
-        "mens": "خطاطون",
-        "womens": "خطاطات"
-    },
-    "Archivists": {
-        "mens": "مؤرشفون",
-        "womens": "مؤرشفات"
-    },
-    "actuaries": {
-        "mens": "إكتواريون",
-        "womens": "إكتواريات"
-    },
-    "admirals": {
-        "mens": "أميرالات",
-        "womens": "أميرالات إناث"
-    },
-    "adult models": {
-        "mens": "عارضون بالغون",
-        "womens": "عارضات بالغات"
-    },
-    "aerospace engineers": {
-        "mens": "مهندسو فضاء",
-        "womens": "مهندسات فضاء"
-    },
-    "afrobeat musicians": {
-        "mens": "موسيقيون أفروبِيت",
-        "womens": "موسيقِيات أفروبِيت"
-    },
-    "agrarianists": {
-        "mens": "زراعيون نظريون",
-        "womens": "زراعيات نظريات"
-    },
-    "agricultural writers": {
-        "mens": "كتاب زراعيون",
-        "womens": "كاتبات زراعيات"
-    },
-    "agronomists": {
-        "mens": "مهندسون زراعيون",
-        "womens": "مهندسات زراعيات"
-    },
-    "alchemists": {
-        "mens": "خيميائيون",
-        "womens": "خيميائيات"
-    },
-    "alternate history writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "anatomists": {
-        "mens": "علماء تشريح",
-        "womens": "عالمات تشريح"
-    },
-    "animation directors": {
-        "mens": "",
-        "womens": ""
-    },
-    "anthropologists": {
-        "mens": "علماء أنثروبولوجيا",
-        "womens": "عالمات أنثروبولوجيا"
-    },
-    "anti-corruption activists": {
-        "mens": "",
-        "womens": ""
-    },
-    "antiquarians": {
-        "mens": "",
-        "womens": ""
-    },
-    "arachnologists": {
-        "mens": "علماء عنكبوتيات",
-        "womens": "عالمات عنكبوتيات"
-    },
-    "archaeologists": {
-        "mens": "علماء آثار",
-        "womens": "عالمات آثار"
-    },
-    "architectural historians": {
-        "mens": "مؤرخون معماريون",
-        "womens": "مؤرخات معماريات"
-    },
-    "archivists": {
-        "mens": "",
-        "womens": ""
-    },
-    "arrangers": {
-        "mens": "موزعون موسيقيون",
-        "womens": "موزعات موسيقيات"
-    },
-    "art historians": {
-        "mens": "مؤرخو الفن",
-        "womens": "مؤرخات الفن"
-    },
-    "arts administrators": {
-        "mens": "",
-        "womens": ""
-    },
-    "assyriologists": {
-        "mens": "علماء آشوريات",
-        "womens": "عالمات آشوريات"
-    },
-    "astrologers": {
-        "mens": "منجمون",
-        "womens": "منجمات"
-    },
-    "astrological writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "astrophysicists": {
-        "mens": "فيزيائيون فلكيون",
-        "womens": "فيزيائيات فلكيات"
-    },
-    "atmospheric scientists": {
-        "mens": "علماء الغلاف الجوي",
-        "womens": "عالمات الغلاف الجوي"
-    },
-    "auctioneers": {
-        "mens": "",
-        "womens": ""
-    },
-    "automotive engineers": {
-        "mens": "مهندسو سيارات",
-        "womens": "مهندسات سيارات"
-    },
-    "bacteriologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "ballerinas": {
-        "mens": "",
-        "womens": ""
-    },
-    "ballet masters": {
-        "mens": "",
-        "womens": ""
-    },
-    "balloonists": {
-        "mens": "",
-        "womens": ""
-    },
-    "bank robbers": {
-        "mens": "",
-        "womens": ""
-    },
-    "baritones": {
-        "mens": "",
-        "womens": ""
-    },
-    "barristers": {
-        "mens": "",
-        "womens": ""
-    },
-    "bass-baritones": {
-        "mens": "",
-        "womens": ""
-    },
-    "bassoonists": {
-        "mens": "عازفو باسون",
-        "womens": "عازفات باسون"
-    },
-    "biblical scholars": {
-        "mens": "علماء الكتاب المقدس",
-        "womens": "عالمات الكتاب المقدس"
-    },
-    "biologists": {
-        "mens": "علماء أحياء",
-        "womens": "عالمات أحياء"
-    },
-    "biomechanists": {
-        "mens": "",
-        "womens": ""
-    },
-    "biotechnologists": {
-        "mens": "علماء التكنولوجيا الحيوية",
-        "womens": "عالمات التكنولوجيا الحيوية"
-    },
-    "blacksmiths": {
-        "mens": "",
-        "womens": ""
-    },
-    "booksellers": {
-        "mens": "",
-        "womens": ""
-    },
-    "border guards": {
-        "mens": "",
-        "womens": ""
-    },
-    "botanical writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "botanists": {
-        "mens": "علماء نباتات",
-        "womens": "عالمات نباتات"
-    },
-    "bowling players": {
-        "mens": "",
-        "womens": ""
-    },
-    "bowls players": {
-        "mens": "",
-        "womens": ""
-    },
-    "bricklayers": {
-        "mens": "",
-        "womens": ""
-    },
-    "bridge engineers": {
-        "mens": "مهندسو جسور",
-        "womens": "مهندسات جسور"
-    },
-    "brothel owners": {
-        "mens": "",
-        "womens": ""
-    },
-    "bryologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "buddhist monks": {
-        "mens": "",
-        "womens": ""
-    },
-    "business executives": {
-        "mens": "مسيرو أعمال",
-        "womens": "مسيرات أعمال"
-    },
-    "business theorists": {
-        "mens": "",
-        "womens": ""
-    },
-    "cabinetmakers": {
-        "mens": "",
-        "womens": ""
-    },
-    "candlepin bowling players": {
-        "mens": "",
-        "womens": ""
-    },
-    "car collectors": {
-        "mens": "",
-        "womens": ""
-    },
-    "carpenters": {
-        "mens": "",
-        "womens": ""
-    },
-    "cartographers": {
-        "mens": "علماء رسم الخرائط",
-        "womens": "عالمات رسم الخرائط"
-    },
-    "catholic bishops": {
-        "mens": "أساقفة كاثوليك",
-        "womens": ""
-    },
-    "cell biologists": {
-        "mens": "علماء أحياء خلوية",
-        "womens": "عالمات أحياء خلوية"
-    },
-    "ceramists": {
-        "mens": "",
-        "womens": ""
-    },
-    "chairmeof corporations": {
-        "mens": "",
-        "womens": ""
-    },
-    "chaplains": {
-        "mens": "",
-        "womens": ""
-    },
-    "chess writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "chief executives": {
-        "mens": "رؤساء تنفيذيون",
-        "womens": "رئيسات تنفيذيات"
-    },
-    "chief technologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "chief technology officers": {
-        "mens": "",
-        "womens": ""
-    },
-    "child actresses": {
-        "mens": "ممثلات طفلات",
-        "womens": "ممثلات طفلات"
-    },
-    "children's book illustrators": {
-        "mens": "",
-        "womens": ""
-    },
-    "children's writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "chiropractors": {
-        "mens": "",
-        "womens": ""
-    },
-    "chroniclers": {
-        "mens": "",
-        "womens": ""
-    },
-    "city founders": {
-        "mens": "",
-        "womens": ""
-    },
-    "civil engineering contractors": {
-        "mens": "",
-        "womens": ""
-    },
-    "clarinetists": {
-        "mens": "",
-        "womens": ""
-    },
-    "classical bassoonists": {
-        "mens": "",
-        "womens": ""
-    },
-    "classical clarinetists": {
-        "mens": "",
-        "womens": ""
-    },
-    "classical organists": {
-        "mens": "",
-        "womens": ""
-    },
-    "classical trumpeters": {
-        "mens": "",
-        "womens": ""
-    },
-    "classical viola d'amore players": {
-        "mens": "",
-        "womens": ""
-    },
-    "classical violists": {
-        "mens": "",
-        "womens": ""
-    },
-    "climatologists": {
-        "mens": "أخصائيي علم المناخ",
-        "womens": "أخصائيات علم المناخ"
-    },
-    "clowns": {
-        "mens": "مهرجون",
-        "womens": "مهرجات"
-    },
-    "colonel generals": {
-        "mens": "كولونيلات عامة",
-        "womens": ""
-    },
-    "comedy duos": {
-        "mens": "",
-        "womens": ""
-    },
-    "comedy musicians": {
-        "mens": "",
-        "womens": ""
-    },
-    "commodities traders": {
-        "mens": "",
-        "womens": ""
-    },
-    "communists": {
-        "mens": "شيوعيون",
-        "womens": "شيوعيات"
-    },
-    "computer scientists": {
-        "mens": "علماء حاسوب",
-        "womens": "عالمات حاسوب"
-    },
-    "conductors (music)": {
-        "mens": "قادة فرق موسيقية",
-        "womens": "قائدات فرق موسيقية"
-    },
-    "congregationalist ministers": {
-        "mens": "",
-        "womens": ""
-    },
-    "contract bridge players": {
-        "mens": "",
-        "womens": ""
-    },
-    "contraltos": {
-        "mens": "كونترالتويون",
-        "womens": "كونترالتويات"
-    },
-    "corporate directors": {
-        "mens": "مدراء شركات",
-        "womens": "مديرات شركات"
-    },
-    "cosmologists": {
-        "mens": "علماء كون",
-        "womens": "عالمات كون"
-    },
-    "cosmonauts": {
-        "mens": "",
-        "womens": ""
-    },
-    "costume designers": {
-        "mens": "مصممو أزياء تنكرية",
-        "womens": "مصممات أزياء تنكرية"
-    },
-    "country musicians": {
-        "mens": "",
-        "womens": ""
-    },
-    "courtesans": {
-        "mens": "",
-        "womens": ""
-    },
-    "craftspeople": {
-        "mens": "",
-        "womens": ""
-    },
-    "cricket captains": {
-        "mens": "قادة كريكت",
-        "womens": "قائدات كريكت"
-    },
-    "cricket umpires": {
-        "mens": "حكام كريكت",
-        "womens": "حكمات كريكت"
-    },
-    "crime fiction writers": {
-        "mens": "كتاب خيال الجريمة",
-        "womens": "كاتبات خيال الجريمة"
-    },
-    "crime writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "criminologists": {
-        "mens": "علماء جريمة",
-        "womens": "عالمات جريمة"
-    },
-    "cross-country skiers": {
-        "mens": "",
-        "womens": ""
-    },
-    "cryptographers": {
-        "mens": "علماء تعمية",
-        "womens": "عالمات تعمية"
-    },
-    "crystallographers": {
-        "mens": "علماء البلورات",
-        "womens": "عالمات البلورات"
-    },
-    "darts players": {
-        "mens": "لاعبو سهام مريشة",
-        "womens": "لاعبات سهام مريشة"
-    },
-    "debutantes": {
-        "mens": "مبتدئون",
-        "womens": "مبتدئات"
-    },
-    "demographers": {
-        "mens": "ديموغرافيون",
-        "womens": "ديموغرافيات"
-    },
-    "demographersx": {
-        "mens": "علماء سكان",
-        "womens": "عالمات سكان"
-    },
-    "dialectologists": {
-        "mens": "علماء لهجات",
-        "womens": "عالمات لهجات"
-    },
-    "drug traffickers": {
-        "mens": "تجار مخدرات",
-        "womens": "تاجرات مخدرات"
-    },
-    "drummers": {
-        "mens": "طبالون",
-        "womens": "طبالات"
-    },
-    "duckpin bowling players": {
-        "mens": "",
-        "womens": ""
-    },
-    "earth scientists": {
-        "mens": "علماء الأرض",
-        "womens": "عالمات الأرض"
-    },
-    "ecclesiastical architects": {
-        "mens": "",
-        "womens": ""
-    },
-    "ecologists": {
-        "mens": "علماء بيئة",
-        "womens": "عالمات بيئة"
-    },
-    "egyptologists": {
-        "mens": "علماء مصريات",
-        "womens": "عالمات مصريات"
-    },
-    "electricians": {
-        "mens": "",
-        "womens": ""
-    },
-    "electronic musicians": {
-        "mens": "موسيقيو آلات إلكترونية",
-        "womens": "موسيقيات آلات إلكترونية"
-    },
-    "engineering academics": {
-        "mens": "",
-        "womens": ""
-    },
-    "engravers": {
-        "mens": "نقاشون",
-        "womens": "نقاشات"
-    },
-    "entomologistsx": {
-        "mens": "أخصائيي علم الحشرات",
-        "womens": "أخصائيات علم الحشرات"
-    },
-    "entomologists": {
-        "mens": "علماء حشرات",
-        "womens": "عالمات حشرات"
-    },
-    "epidemiologists": {
-        "mens": "علماء وبائيات",
-        "womens": "عالمات وبائيات"
-    },
-    "epigraphers": {
-        "mens": "علماء نقائش",
-        "womens": "عالمات نقائش"
-    },
-    "equestrians": {
-        "mens": "",
-        "womens": ""
-    },
-    "erotic dancers": {
-        "mens": "",
-        "womens": ""
-    },
-    "erotic photographers": {
-        "mens": "",
-        "womens": ""
-    },
-    "erotica writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "eskrimadors": {
-        "mens": "",
-        "womens": ""
-    },
-    "etchers": {
-        "mens": "منمشون",
-        "womens": "منمشات"
-    },
-    "ethnographers": {
-        "mens": "إنثوغرافيون",
-        "womens": "إنثوغرافيات"
-    },
-    "ethnologists": {
-        "mens": "علماء أثنولوجيا",
-        "womens": "عالمات أثنولوجيا"
-    },
-    "evolutionary biologists": {
-        "mens": "علماء أحياء تطوريون",
-        "womens": "عالمات أحياء تطوريون"
-    },
-    "exercise instructors": {
-        "mens": "",
-        "womens": ""
-    },
-    "experimental musicians": {
-        "mens": "",
-        "womens": ""
-    },
-    "experimental physicists": {
-        "mens": "علماء الفيزياء التجريبية",
-        "womens": "عالمات الفيزياء التجريبية"
-    },
-    "extortionists": {
-        "mens": "مبتزون",
-        "womens": "مبتزات"
-    },
-    "fantasy writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "farmers": {
-        "mens": "فلاحون",
-        "womens": "فلاحات"
-    },
-    "fashion designers": {
-        "mens": "مصممو أزياء",
-        "womens": "مصممات أزياء"
-    },
-    "fiddlers": {
-        "mens": "عازفو كمان",
-        "womens": "عازفات كمان"
-    },
-    "financial analysts": {
-        "mens": "",
-        "womens": ""
-    },
-    "financial businesspeople": {
-        "mens": "",
-        "womens": ""
-    },
-    "financial commentators": {
-        "mens": "",
-        "womens": ""
-    },
-    "financial writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "five-pin bowling players": {
-        "mens": "",
-        "womens": ""
-    },
-    "flautists": {
-        "mens": "عازفو فولت",
-        "womens": "عازفات فولت"
-    },
-    "folk harpists": {
-        "mens": "",
-        "womens": ""
-    },
-    "folk musicians": {
-        "mens": "",
-        "womens": ""
-    },
-    "folk singers": {
-        "mens": "",
-        "womens": ""
-    },
-    "folk-song collectors": {
-        "mens": "",
-        "womens": ""
-    },
-    "foreign policy writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "forensic scientists": {
-        "mens": "علماء أدلة جنائية",
-        "womens": "عالمات أدلة جنائية"
-    },
-    "foresters": {
-        "mens": "",
-        "womens": ""
-    },
-    "founders": {
-        "mens": "",
-        "womens": ""
-    },
-    "gamblers": {
-        "mens": "مقامرون",
-        "womens": "مقامرات"
-    },
-    "game show hosts": {
-        "mens": "",
-        "womens": ""
-    },
-    "gangsters": {
-        "mens": "",
-        "womens": ""
-    },
-    "garden writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "genealogists": {
-        "mens": "",
-        "womens": ""
-    },
-    "general practitioners": {
-        "mens": "",
-        "womens": ""
-    },
-    "generals": {
-        "mens": "جنرالات",
-        "womens": ""
-    },
-    "geneticists": {
-        "mens": "علماء وراثة",
-        "womens": "عالمات وراثة"
-    },
-    "geochemists": {
-        "mens": "",
-        "womens": ""
-    },
-    "geodesists": {
-        "mens": "جيوديسيون",
-        "womens": "جيوديسات"
-    },
-    "geomorphologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "geophysicists": {
-        "mens": "جيوفيزيائيون",
-        "womens": "جيوفيزيائيات"
-    },
-    "hammered dulcimer players": {
-        "mens": "",
-        "womens": ""
-    },
-    "harmonica players": {
-        "mens": "لاعبو هارمونيكا",
-        "womens": "لاعبات هارمونيكا"
-    },
-    "harmonicists": {
-        "mens": "",
-        "womens": ""
-    },
-    "harpists": {
-        "mens": "",
-        "womens": ""
-    },
-    "harpsichordists": {
-        "mens": "",
-        "womens": ""
-    },
-    "health workers": {
-        "mens": "عاملين صحيين",
-        "womens": "عاملات صحيات"
-    },
-    "healthcare chief executives": {
-        "mens": "رؤساء تنفيذيون للرعاية الصحية",
-        "womens": "رئيسات تنفيذيات للرعاية الصحية"
-    },
-    "hedge fund managers": {
-        "mens": "",
-        "womens": ""
-    },
-    "herpetologists": {
-        "mens": "علماء زواحف وبرمائيات",
-        "womens": "عالمات زواحف وبرمائيات"
-    },
-    "historians-of-philosophy": {
-        "mens": "مؤرخو فلسفة",
-        "womens": "مؤرخات فلسفة"
-    },
-    "historical fiction writers": {
-        "mens": "كتاب خيال تاريخي",
-        "womens": "كاتبات خيال تاريخي"
-    },
-    "hokkien pop singers": {
-        "mens": "",
-        "womens": ""
-    },
-    "horror writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "humanitarians": {
-        "mens": "إنسانيون",
-        "womens": "إنسانيات"
-    },
-    "hydrographers": {
-        "mens": "علماء وصف المياه",
-        "womens": "عالمات وصف المياه"
-    },
-    "hygienists": {
-        "mens": "علماء صحة",
-        "womens": "عالمات صحة"
-    },
-    "ian dissidents": {
-        "mens": "",
-        "womens": ""
-    },
-    "ichthyologists": {
-        "mens": "علماء أسماك",
-        "womens": "عالمات أسماك"
-    },
-    "immunologists": {
-        "mens": "علماء مناعة",
-        "womens": "عالمات مناعة"
-    },
-    "indologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "industrial designers": {
-        "mens": "مصممون صناعيون",
-        "womens": "مصممات صناعيات"
-    },
-    "infotainers": {
-        "mens": "",
-        "womens": ""
-    },
-    "innovators": {
-        "mens": "",
-        "womens": ""
-    },
-    "investment bankers": {
-        "mens": "",
-        "womens": ""
-    },
-    "iranologists": {
-        "mens": "علماء إيرانيات",
-        "womens": "عالمات إيرانيات"
-    },
-    "islamic studies scholars": {
-        "mens": "علماء الدراسات الإسلامية",
-        "womens": "عالمات الدراسات الإسلامية"
-    },
-    "jazz accordionists": {
-        "mens": "",
-        "womens": ""
-    },
-    "jazz clarinetists": {
-        "mens": "",
-        "womens": ""
-    },
-    "jazz double-bassists": {
-        "mens": "",
-        "womens": ""
-    },
-    "jazz drummers": {
-        "mens": "طبالو جاز",
-        "womens": "طبالات جاز"
-    },
-    "jazz horn players": {
-        "mens": "",
-        "womens": ""
-    },
-    "jazz tubists": {
-        "mens": "",
-        "womens": ""
-    },
-    "jazz upright-bassists": {
-        "mens": "",
-        "womens": ""
-    },
-    "jazz vibraphonists": {
-        "mens": "",
-        "womens": ""
-    },
-    "jesuits": {
-        "mens": "مبتكرون",
-        "womens": "مبتكرات"
-    },
-    "jewellers": {
-        "mens": "",
-        "womens": ""
-    },
-    "jewelry designers": {
-        "mens": "مصممو مجوهرات",
-        "womens": "مصممات مجوهرات"
-    },
-    "labor unionists": {
-        "mens": "",
-        "womens": ""
-    },
-    "ladies-in-waiting": {
-        "mens": "",
-        "womens": ""
-    },
-    "land owners": {
-        "mens": "حائزو أراضي",
-        "womens": "حائزات أراضي"
-    },
-    "landowners": {
-        "mens": "حائزو أراضي",
-        "womens": "حائزات أراضي"
-    },
-    "latinists": {
-        "mens": "",
-        "womens": ""
-    },
-    "latter day saint writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "letter writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "lichenologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "limnologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "literary scholars": {
-        "mens": "علماء دراسات أدبية",
-        "womens": "عالمات دراسات أدبية"
-    },
-    "lithographers": {
-        "mens": "طباعون حجريون",
-        "womens": "طباعات حجريات"
-    },
-    "lobbyists": {
-        "mens": "",
-        "womens": ""
-    },
-    "lutenists": {
-        "mens": "متعصبون",
-        "womens": "متعصبات"
-    },
-    "magazine editors": {
-        "mens": "",
-        "womens": ""
-    },
-    "magazine people": {
-        "mens": "",
-        "womens": ""
-    },
-    "magazine publishers (people)": {
-        "mens": "ناشرو مجلات",
-        "womens": ""
-    },
-    "magistrates": {
-        "mens": "",
-        "womens": ""
-    },
-    "malacologists": {
-        "mens": "علماء رخويات",
-        "womens": "عالمات رخويات"
-    },
-    "malariologists": {
-        "mens": "علماء الملاريا",
-        "womens": "عالمات الملاريا"
-    },
-    "mammalogists": {
-        "mens": "علماء ثدييات",
-        "womens": "عالمات ثدييات"
-    },
-    "mandolin players": {
-        "mens": "",
-        "womens": ""
-    },
-    "mandopop singers": {
-        "mens": "",
-        "womens": ""
-    },
-    "marine biologists": {
-        "mens": "علماء أحياء بحرية",
-        "womens": "عالمات أحياء بحرية"
-    },
-    "maritime historians": {
-        "mens": "مؤرخون بحريون",
-        "womens": "مؤرخات بحريات"
-    },
-    "marxist historians": {
-        "mens": "مؤرخون ماركسيون",
-        "womens": "مؤرخات ماركسيات"
-    },
-    "materials scientists": {
-        "mens": "",
-        "womens": ""
-    },
-    "media company founders": {
-        "mens": "",
-        "womens": ""
-    },
-    "media personalities": {
-        "mens": "",
-        "womens": ""
-    },
-    "media scholars": {
-        "mens": "",
-        "womens": ""
-    },
-    "medical administrators": {
-        "mens": "",
-        "womens": ""
-    },
-    "medical historians": {
-        "mens": "مؤرخون طبيون",
-        "womens": "مؤرخات طبيات"
-    },
-    "medical researchers": {
-        "mens": "باحثون طبيون",
-        "womens": "باحثات طبيات"
-    },
-    "mesoamerican": {
-        "mens": "",
-        "womens": ""
-    },
-    "metallurgists": {
-        "mens": "",
-        "womens": ""
-    },
-    "metalsmiths": {
-        "mens": "صانعو معادن",
-        "womens": "صانعات معادن"
-    },
-    "meteorologists": {
-        "mens": "خبراء أرصاد جوية",
-        "womens": "خبيرات أرصاد جوية"
-    },
-    "mezzo-sopranos": {
-        "mens": "",
-        "womens": ""
-    },
-    "microbiologists": {
-        "mens": "علماء أحياء مجهريون",
-        "womens": "عالمات أحياء مجهريات"
-    },
-    "military chaplains": {
-        "mens": "",
-        "womens": ""
-    },
-    "mineralogists": {
-        "mens": "علماء معادن",
-        "womens": "عالمات معادن"
-    },
-    "mining engineers": {
-        "mens": "مهندسو معادن",
-        "womens": "مهندسات معادن"
-    },
-    "missionarys": {
-        "mens": "",
-        "womens": ""
-    },
-    "mobsters": {
-        "mens": "",
-        "womens": ""
-    },
-    "molecular biologists": {
-        "mens": "علماء أحياء جزيئية",
-        "womens": "عالمات أحياء جزيئية"
-    },
-    "money managers": {
-        "mens": "مديري أموال",
-        "womens": "مديرات أموال"
-    },
-    "mongolists": {
-        "mens": "علماء المنغوليات",
-        "womens": "عالمات المنغوليات"
-    },
-    "motorcycle designers": {
-        "mens": "مصممو دراجات نارية",
-        "womens": "مصممات دراجات نارية"
-    },
-    "mountain climbers": {
-        "mens": "متسلقو جبال",
-        "womens": "متسلقات جبال"
-    },
-    "muay thai": {
-        "mens": "",
-        "womens": ""
-    },
-    "muralists": {
-        "mens": "رسامو جداريات",
-        "womens": "رسامات جداريات"
-    },
-    "museologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "music arrangers": {
-        "mens": "موزعون موسيقيون",
-        "womens": "موزعات موسيقيات"
-    },
-    "music critics": {
-        "mens": "نقاد موسيقى",
-        "womens": "ناقدات موسيقى"
-    },
-    "music educators": {
-        "mens": "معلمو موسيقى",
-        "womens": "معلمات موسيقى"
-    },
-    "music publishers (people)": {
-        "mens": "ناشرو موسيقى",
-        "womens": "ناشرات موسيقى"
-    },
-    "musical instrument makers": {
-        "mens": "",
-        "womens": ""
-    },
-    "musical theatre lyricists": {
-        "mens": "",
-        "womens": ""
-    },
-    "musical theatre": {
-        "mens": "",
-        "womens": ""
-    },
-    "musicologists": {
-        "mens": "علماء موسيقى",
-        "womens": "عالمات موسيقى"
-    },
-    "mycologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "mystery writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "naturalists": {
-        "mens": "علماء طبيعة",
-        "womens": "عالمات طبيعة"
-    },
-    "naval historians": {
-        "mens": "مؤرخون بحريون عسكريون",
-        "womens": "مؤرخات بحريات عسكريات"
-    },
-    "nazis who committed suicide": {
-        "mens": "نازيون أقدموا على الانتحار",
-        "womens": "نازيات أقدمن على الانتحار"
-    },
-    "naïve painters": {
-        "mens": "",
-        "womens": ""
-    },
-    "netballers": {
-        "mens": "",
-        "womens": ""
-    },
-    "neuroscientists": {
-        "mens": "علماء أعصاب",
-        "womens": "عالمات أعصاب"
-    },
-    "newspaper editors": {
-        "mens": "محررو صحف",
-        "womens": "محررات صحف"
-    },
-    "newspaper founders": {
-        "mens": "مؤسسو صحف",
-        "womens": "مؤسسات صحف"
-    },
-    "newspaper journalists": {
-        "mens": "صحفيو صحف",
-        "womens": "صحفيات صحف"
-    },
-    "newspaper people": {
-        "mens": "شخصيات صحف",
-        "womens": "شخصيات صحف"
-    },
-    "newspaper publishers (people)": {
-        "mens": "ناشرو صحف",
-        "womens": "ناشرات صحف"
-    },
-    "nine-pin bowling players": {
-        "mens": "",
-        "womens": ""
-    },
-    "nuclear engineers": {
-        "mens": "مهندسون نوويون",
-        "womens": "مهندسات نوويات"
-    },
-    "nuclear physicists": {
-        "mens": "علماء ذرة",
-        "womens": "عالمات ذرة"
-    },
-    "numismatists": {
-        "mens": "",
-        "womens": ""
-    },
-    "nurserymen": {
-        "mens": "",
-        "womens": ""
-    },
-    "nursing administrators": {
-        "mens": "",
-        "womens": ""
-    },
-    "nutritionists": {
-        "mens": "أخصائيو تغذية",
-        "womens": "أخصائيات تغذية"
-    },
-    "occult writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "oceanographers": {
-        "mens": "علماء المحيطات",
-        "womens": "عالمات المحيطات"
-    },
-    "opera singers": {
-        "mens": "",
-        "womens": ""
-    },
-    "operatic basses": {
-        "mens": "",
-        "womens": ""
-    },
-    "operatic mezzo-sopranos": {
-        "mens": "",
-        "womens": ""
-    },
-    "operatic sopranos": {
-        "mens": "",
-        "womens": ""
-    },
-    "operations researchers": {
-        "mens": "",
-        "womens": ""
-    },
-    "optometrists": {
-        "mens": "",
-        "womens": ""
-    },
-    "orchardists": {
-        "mens": "",
-        "womens": ""
-    },
-    "organists": {
-        "mens": "عازفو أورغن",
-        "womens": "عازفات أورغن"
-    },
-    "orientalists": {
-        "mens": "مستشرقون",
-        "womens": "مستشرقات"
-    },
-    "orienteers": {
-        "mens": "",
-        "womens": ""
-    },
-    "ornithologists": {
-        "mens": "علماء طيور",
-        "womens": "عالمات طيور"
-    },
-    "orthodox rabbis": {
-        "mens": "",
-        "womens": ""
-    },
-    "oud players": {
-        "mens": "",
-        "womens": ""
-    },
-    "outlaws": {
-        "mens": "",
-        "womens": ""
-    },
-    "palaeographers": {
-        "mens": "",
-        "womens": ""
-    },
-    "palaeontologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "paleoanthropologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "paleogeographers": {
-        "mens": "",
-        "womens": ""
-    },
-    "paleontologists": {
-        "mens": "علماء حفريات",
-        "womens": "عالمات حفريات"
-    },
-    "papyrologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "paraglider pilots": {
-        "mens": "",
-        "womens": ""
-    },
-    "parasitologists": {
-        "mens": "علماء طفيليات",
-        "womens": "عالمات طفيليات"
-    },
-    "pastoralists": {
-        "mens": "",
-        "womens": ""
-    },
-    "people convicted of fraud": {
-        "mens": "مدانون بالاحتيال",
-        "womens": "مدانات بالاحتيال"
-    },
-    "people in the sex industry": {
-        "mens": "",
-        "womens": ""
-    },
-    "people irail transport": {
-        "mens": "",
-        "womens": ""
-    },
-    "philatelists": {
-        "mens": "",
-        "womens": ""
-    },
-    "phycologists": {
-        "mens": "علماء طحالب",
-        "womens": "عالمات طحالب"
-    },
-    "physical chemists": {
-        "mens": "علماء كيمياء فيزيائية",
-        "womens": "عالمات كيمياء فيزيائية"
-    },
-    "phytopathologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "pipe organ builders": {
-        "mens": "",
-        "womens": ""
-    },
-    "planetary scientists": {
-        "mens": "علماء كواكب",
-        "womens": "عالمات كواكب"
-    },
-    "planktologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "planters": {
-        "mens": "مزارعون",
-        "womens": "مزارعات"
-    },
-    "plumbers": {
-        "mens": "",
-        "womens": ""
-    },
-    "podcasters": {
-        "mens": "",
-        "womens": ""
-    },
-    "police chiefs": {
-        "mens": "",
-        "womens": ""
-    },
-    "politicians who committed suicide": {
-        "mens": "سياسيون أقدموا على الانتحار",
-        "womens": "سياسيات أقدمن على الانتحار"
-    },
-    "pool players": {
-        "mens": "",
-        "womens": ""
-    },
-    "potters": {
-        "mens": "خزافون",
-        "womens": "خزافات"
-    },
-    "prehistorians": {
-        "mens": "علماء عصر ما قبل التاريخ",
-        "womens": "عالمات عصر ما قبل التاريخ"
-    },
-    "priests": {
-        "mens": "كهنة",
-        "womens": ""
-    },
-    "primatologists": {
-        "mens": "علماء رئيسيات",
-        "womens": "عالمات رئيسيات"
-    },
-    "printmakers": {
-        "mens": "صناع طباعة",
-        "womens": "صانعات طباعة"
-    },
-    "productio designers": {
-        "mens": "مصممو إنتاج",
-        "womens": "مصممات إنتاج"
-    },
-    "prosecutors": {
-        "mens": "",
-        "womens": ""
-    },
-    "prostitutes": {
-        "mens": "",
-        "womens": "داعرات"
-    },
-    "psychics": {
-        "mens": "وسطاء",
-        "womens": "وسيطات"
-    },
-    "psychological fiction writers": {
-        "mens": "كتاب خيال نفسي",
-        "womens": "كاتبات خيال نفسي"
-    },
-    "psychologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "pteridologists": {
-        "mens": "علماء السرخسيات",
-        "womens": "عالمات السرخسيات"
-    },
-    "public relations people": {
-        "mens": "",
-        "womens": ""
-    },
-    "public servants": {
-        "mens": "",
-        "womens": ""
-    },
-    "punk rock groups": {
-        "mens": "",
-        "womens": ""
-    },
-    "puppeteers": {
-        "mens": "محركو دمى",
-        "womens": "محركات دمى"
-    },
-    "quantum physicists": {
-        "mens": "علماء فيزياء الكم",
-        "womens": "عالمات فيزياء الكم"
-    },
-    "radio actors": {
-        "mens": "",
-        "womens": ""
-    },
-    "radio journalists": {
-        "mens": "",
-        "womens": ""
-    },
-    "radio people": {
-        "mens": "أعلام راديو",
-        "womens": ""
-    },
-    "radio personalities": {
-        "mens": "",
-        "womens": ""
-    },
-    "radio presenters": {
-        "mens": "",
-        "womens": ""
-    },
-    "radio producers": {
-        "mens": "منتجو راديو",
-        "womens": "منتجات راديو"
-    },
-    "radio writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "ragtime musicians": {
-        "mens": "",
-        "womens": ""
-    },
-    "rail workers": {
-        "mens": "عمال سكك حديدية",
-        "womens": "عاملات سكك حديدية"
-    },
-    "railway historians": {
-        "mens": "مؤرخو سكك حديدية",
-        "womens": "مؤرخات سكك حديدية"
-    },
-    "ranchers": {
-        "mens": "",
-        "womens": ""
-    },
-    "rapists": {
-        "mens": "",
-        "womens": ""
-    },
-    "reporters and correspondents": {
-        "mens": "",
-        "womens": ""
-    },
-    "republicans": {
-        "mens": "جمهوريون",
-        "womens": "جمهوريات"
-    },
-    "rhythm and blues singers": {
-        "mens": "",
-        "womens": ""
-    },
-    "robbers": {
-        "mens": "لصوص",
-        "womens": ""
-    },
-    "roboticists": {
-        "mens": "",
-        "womens": ""
-    },
-    "rock climbers": {
-        "mens": "متسلقو صخور",
-        "womens": "متسلقات صخور"
-    },
-    "roman catholic bishops": {
-        "mens": "أساقفة كاثوليك رومان",
-        "womens": ""
-    },
-    "roman catholic clergy": {
-        "mens": "",
-        "womens": ""
-    },
-    "roman catholic priests": {
-        "mens": "",
-        "womens": ""
-    },
-    "roman catholics": {
-        "mens": "رومان كاثوليك",
-        "womens": ""
-    },
-    "scenic designers": {
-        "mens": "مصممو مناظر طبيعية خلابة",
-        "womens": "مصممات مناظر طبيعية خلابة"
-    },
-    "schoolteachers": {
-        "mens": "",
-        "womens": ""
-    },
-    "seismologists": {
-        "mens": "علماء زلازل",
-        "womens": "عالمات زلازل"
-    },
-    "self-help writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "semioticians": {
-        "mens": "",
-        "womens": ""
-    },
-    "serial killers": {
-        "mens": "قتلة متسلسلون",
-        "womens": "قاتلات متسلسلات"
-    },
-    "sex offenders": {
-        "mens": "",
-        "womens": ""
-    },
-    "sex workers": {
-        "mens": "",
-        "womens": ""
-    },
-    "sexologists": {
-        "mens": "علماء جنس",
-        "womens": "عالمات جنس"
-    },
-    "shamans": {
-        "mens": "",
-        "womens": ""
-    },
-    "silent actors": {
-        "mens": "",
-        "womens": ""
-    },
-    "silversmiths": {
-        "mens": "",
-        "womens": ""
-    },
-    "sinologists": {
-        "mens": "علماء الصينيات",
-        "womens": "عالمات الصينيات"
-    },
-    "soap opera actors": {
-        "mens": "",
-        "womens": ""
-    },
-    "soap opera": {
-        "mens": "",
-        "womens": ""
-    },
-    "social commentators": {
-        "mens": "",
-        "womens": ""
-    },
-    "social historians": {
-        "mens": "مؤرخون إجتماعيون",
-        "womens": "مؤرخات إجتماعيات"
-    },
-    "sociologists": {
-        "mens": "علماء اجتماع",
-        "womens": "عالمات اجتماع"
-    },
-    "song collectors": {
-        "mens": "",
-        "womens": ""
-    },
-    "soul singers": {
-        "mens": "",
-        "womens": ""
-    },
-    "speculative fiction critics": {
-        "mens": "",
-        "womens": ""
-    },
-    "speculative fiction editors": {
-        "mens": "",
-        "womens": ""
-    },
-    "speculative fiction writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "speleologists": {
-        "mens": "",
-        "womens": ""
-    },
-    "spiritual mediums": {
-        "mens": "",
-        "womens": ""
-    },
-    "sports announcers": {
-        "mens": "",
-        "womens": ""
-    },
-    "sports executives and administrators": {
-        "mens": "مسيرون رياضيون",
-        "womens": "مسيرات رياضيات"
-    },
-    "spree killers": {
-        "mens": "",
-        "womens": ""
-    },
-    "stained glass artists and manufacturers": {
-        "mens": "",
-        "womens": ""
-    },
-    "stamp designers": {
-        "mens": "مصممو طوابع",
-        "womens": "مصممات طوابع"
-    },
-    "stock traders": {
-        "mens": "",
-        "womens": ""
-    },
-    "stockbrokers": {
-        "mens": "",
-        "womens": ""
-    },
-    "stonemasons": {
-        "mens": "",
-        "womens": ""
-    },
-    "storytellers": {
-        "mens": "",
-        "womens": ""
-    },
-    "stunt performers": {
-        "mens": "",
-        "womens": ""
-    },
-    "suffragists": {
-        "mens": "",
-        "womens": ""
-    },
-    "talent agents": {
-        "mens": "",
-        "womens": ""
-    },
-    "taxonomists": {
-        "mens": "علماء تصنيف",
-        "womens": "عالمات تصنيف"
-    },
-    "teachers": {
-        "mens": "",
-        "womens": ""
-    },
-    "technology chief executives": {
-        "mens": "رؤساء تنفيذيون تقنيون",
-        "womens": "رئيسات تنفيذيات تقنيات"
-    },
-    "telenovela actors": {
-        "mens": "",
-        "womens": ""
-    },
-    "television critics": {
-        "mens": "",
-        "womens": ""
-    },
-    "television directors": {
-        "mens": "",
-        "womens": ""
-    },
-    "television editors": {
-        "mens": "",
-        "womens": ""
-    },
-    "television evangelists": {
-        "mens": "",
-        "womens": ""
-    },
-    "television executives": {
-        "mens": "",
-        "womens": ""
-    },
-    "television journalists": {
-        "mens": "",
-        "womens": ""
-    },
-    "television people": {
-        "mens": "أعلام تلفاز",
-        "womens": ""
-    },
-    "television personalities": {
-        "mens": "",
-        "womens": ""
-    },
-    "television producers": {
-        "mens": "منتجو تلفزيون",
-        "womens": "منتجات تلفزيون"
-    },
-    "television writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "temperance activists": {
-        "mens": "",
-        "womens": ""
-    },
-    "ten-pibowling players": {
-        "mens": "",
-        "womens": ""
-    },
-    "ten-pin bowling players": {
-        "mens": "",
-        "womens": ""
-    },
-    "tenors": {
-        "mens": "",
-        "womens": ""
-    },
-    "textbook writers": {
-        "mens": "",
-        "womens": ""
-    },
-    "theatre architects": {
-        "mens": "",
-        "womens": ""
-    },
-    "theatre critics": {
-        "mens": "",
-        "womens": ""
-    },
-    "theatre managers and producers": {
-        "mens": "",
-        "womens": ""
-    },
-    "theatre owners": {
-        "mens": "",
-        "womens": ""
-    },
-    "tin whistle players": {
-        "mens": "",
-        "womens": ""
-    },
-    "topographers": {
-        "mens": "",
-        "womens": ""
-    },
-    "toxicologists": {
-        "mens": "علماء سموم",
-        "womens": "عالمات سموم"
-    },
-    "trombonists": {
-        "mens": "عازفو ترومبون",
-        "womens": "عازفات ترومبون"
-    },
-    "trumpeters": {
-        "mens": "عازفو بوق",
-        "womens": "عازفات بوق"
-    },
-    "turkologists": {
-        "mens": "علماء التركيات",
-        "womens": "عالمات التركيات"
-    },
-    "uilleann pipers": {
-        "mens": "",
-        "womens": ""
-    },
-    "vedettes": {
-        "mens": "",
-        "womens": ""
-    },
-    "venture capitalists": {
-        "mens": "",
-        "womens": ""
-    },
-    "veterinary scientists": {
-        "mens": "",
-        "womens": ""
-    },
-    "vibraphonists": {
-        "mens": "",
-        "womens": ""
-    },
-    "viola d'amore players": {
-        "mens": "",
-        "womens": ""
-    },
-    "violists": {
-        "mens": "",
-        "womens": ""
-    },
-    "virologists": {
-        "mens": "علماء فيروسات",
-        "womens": "عالمات فيروسات"
-    },
-    "watchmakers (people)": {
-        "mens": "",
-        "womens": ""
-    },
-    "watercolorists": {
-        "mens": "رسامون مائيون",
-        "womens": "رسامات مائيات"
-    },
-    "watercolourists": {
-        "mens": "رسامون مائيون",
-        "womens": "رسامات مائيات"
-    },
-    "web series actors": {
-        "mens": "",
-        "womens": ""
-    },
-    "web series actresses": {
-        "mens": "",
-        "womens": ""
-    },
-    "wicket-keeper": {
-        "mens": "",
-        "womens": ""
-    },
-    "wicket-keepers": {
-        "mens": "",
-        "womens": ""
-    },
-    "woodcarvers": {
-        "mens": "نقاشو خشب",
-        "womens": "نقاشات خشب"
-    },
-    "woodworkers": {
-        "mens": "عمال أخشاب",
-        "womens": "عاملات أخشاب"
-    },
-    "writers on paranormal topics": {
-        "mens": "",
-        "womens": ""
-    },
-    "yacht designers": {
-        "mens": "مصممو يخوت",
-        "womens": "مصممات يخوت"
-    },
-    "zoologists": {
-        "mens": "علماء حيوانات",
-        "womens": "عالمات حيوانات"
-    }
+    "colonel generals": {"mens": "كولونيلات عامة","womens": ""},
+    "generals": {"mens": "جنرالات","womens": ""},
+    "catholic bishops": {"mens": "أساقفة كاثوليك","womens": ""},
+    "priests": {"mens": "كهنة","womens": ""},
+    "prostitutes": {"mens": "","womens": "داعرات"},
+    "magazine publishers (people)": {"mens": "ناشرو مجلات","womens": ""},
+    "radio people": {"mens": "أعلام راديو","womens": ""},
+    "robbers": {"mens": "لصوص","womens": ""},
+    "roman catholic bishops": {"mens": "أساقفة كاثوليك رومان","womens": ""},
+    "roman catholics": {"mens": "رومان كاثوليك","womens": ""},
+    "television people": {"mens": "أعلام تلفاز","womens": ""},
+    "actuaries": {"mens": "إكتواريون","womens": "إكتواريات"},
+    "admirals": {"mens": "أميرالات","womens": "أميرالات إناث"},
+    "adult models": {"mens": "عارضون بالغون","womens": "عارضات بالغات"},
+    "aerospace engineers": {"mens": "مهندسو فضاء","womens": "مهندسات فضاء"},
+    "afrobeat musicians": {"mens": "موسيقيون أفروبِيت","womens": "موسيقِيات أفروبِيت"},
+    "agrarianists": {"mens": "زراعيون نظريون","womens": "زراعيات نظريات"},
+    "agricultural writers": {"mens": "كتاب زراعيون","womens": "كاتبات زراعيات"},
+    "agronomists": {"mens": "مهندسون زراعيون","womens": "مهندسات زراعيات"},
+    "alchemists": {"mens": "خيميائيون","womens": "خيميائيات"},
+    "anatomists": {"mens": "علماء تشريح","womens": "عالمات تشريح"},
+    "anthropologists": {"mens": "علماء أنثروبولوجيا","womens": "عالمات أنثروبولوجيا"},
+    "arachnologists": {"mens": "علماء عنكبوتيات","womens": "عالمات عنكبوتيات"},
+    "archaeologists": {"mens": "علماء آثار","womens": "عالمات آثار"},
+    "architectural historians": {"mens": "مؤرخون معماريون","womens": "مؤرخات معماريات"},
+    "archivists": {"mens": "مؤرشفون","womens": "مؤرشفات"},
+    "arrangers": {"mens": "موزعون موسيقيون","womens": "موزعات موسيقيات"},
+    "art historians": {"mens": "مؤرخو الفن","womens": "مؤرخات الفن"},
+    "assyriologists": {"mens": "علماء آشوريات","womens": "عالمات آشوريات"},
+    "astrologers": {"mens": "منجمون","womens": "منجمات"},
+    "astrophysicists": {"mens": "فيزيائيون فلكيون","womens": "فيزيائيات فلكيات"},
+    "atmospheric scientists": {"mens": "علماء الغلاف الجوي","womens": "عالمات الغلاف الجوي"},
+    "automotive engineers": {"mens": "مهندسو سيارات","womens": "مهندسات سيارات"},
+    "bassoonists": {"mens": "عازفو باسون","womens": "عازفات باسون"},
+    "biblical scholars": {"mens": "علماء الكتاب المقدس","womens": "عالمات الكتاب المقدس"},
+    "biologists": {"mens": "علماء أحياء","womens": "عالمات أحياء"},
+    "biotechnologists": {"mens": "علماء التكنولوجيا الحيوية","womens": "عالمات التكنولوجيا الحيوية"},
+    "botanists": {"mens": "علماء نباتات","womens": "عالمات نباتات"},
+    "bridge engineers": {"mens": "مهندسو جسور","womens": "مهندسات جسور"},
+    "business executives": {"mens": "مسيرو أعمال","womens": "مسيرات أعمال"},
+    "cartographers": {"mens": "علماء رسم الخرائط","womens": "عالمات رسم الخرائط"},
+    "cell biologists": {"mens": "علماء أحياء خلوية","womens": "عالمات أحياء خلوية"},
+    "chief executives": {"mens": "رؤساء تنفيذيون","womens": "رئيسات تنفيذيات"},
+    "child actresses": {"mens": "ممثلات طفلات","womens": "ممثلات طفلات"},
+    "climatologists": {"mens": "أخصائيي علم المناخ","womens": "أخصائيات علم المناخ"},
+    "clowns": {"mens": "مهرجون","womens": "مهرجات"},
+    "communists": {"mens": "شيوعيون","womens": "شيوعيات"},
+    "computer scientists": {"mens": "علماء حاسوب","womens": "عالمات حاسوب"},
+    "conductors (music)": {"mens": "قادة فرق موسيقية","womens": "قائدات فرق موسيقية"},
+    "contraltos": {"mens": "كونترالتويون","womens": "كونترالتويات"},
+    "corporate directors": {"mens": "مدراء شركات","womens": "مديرات شركات"},
+    "cosmologists": {"mens": "علماء كون","womens": "عالمات كون"},
+    "costume designers": {"mens": "مصممو أزياء تنكرية","womens": "مصممات أزياء تنكرية"},
+    "cricket captains": {"mens": "قادة كريكت","womens": "قائدات كريكت"},
+    "cricket umpires": {"mens": "حكام كريكت","womens": "حكمات كريكت"},
+    "crime fiction writers": {"mens": "كتاب خيال الجريمة","womens": "كاتبات خيال الجريمة"},
+    "criminologists": {"mens": "علماء جريمة","womens": "عالمات جريمة"},
+    "cryptographers": {"mens": "علماء تعمية","womens": "عالمات تعمية"},
+    "crystallographers": {"mens": "علماء البلورات","womens": "عالمات البلورات"},
+    "darts players": {"mens": "لاعبو سهام مريشة","womens": "لاعبات سهام مريشة"},
+    "debutantes": {"mens": "مبتدئون","womens": "مبتدئات"},
+    "demographers": {"mens": "ديموغرافيون","womens": "ديموغرافيات"},
+    "demographersx": {"mens": "علماء سكان","womens": "عالمات سكان"},
+    "dialectologists": {"mens": "علماء لهجات","womens": "عالمات لهجات"},
+    "drug traffickers": {"mens": "تجار مخدرات","womens": "تاجرات مخدرات"},
+    "drummers": {"mens": "طبالون","womens": "طبالات"},
+    "earth scientists": {"mens": "علماء الأرض","womens": "عالمات الأرض"},
+    "ecologists": {"mens": "علماء بيئة","womens": "عالمات بيئة"},
+    "egyptologists": {"mens": "علماء مصريات","womens": "عالمات مصريات"},
+    "electronic musicians": {"mens": "موسيقيو آلات إلكترونية","womens": "موسيقيات آلات إلكترونية"},
+    "engravers": {"mens": "نقاشون","womens": "نقاشات"},
+    "entomologists": {"mens": "علماء حشرات","womens": "عالمات حشرات"},
+    "entomologistsx": {"mens": "أخصائيي علم الحشرات","womens": "أخصائيات علم الحشرات"},
+    "epidemiologists": {"mens": "علماء وبائيات","womens": "عالمات وبائيات"},
+    "epigraphers": {"mens": "علماء نقائش","womens": "عالمات نقائش"},
+    "erotic artists": {"mens": "فنانون إيروتيكيون","womens": "فنانات إيروتيكيات"},
+    "etchers": {"mens": "منمشون","womens": "منمشات"},
+    "ethnographers": {"mens": "إنثوغرافيون","womens": "إنثوغرافيات"},
+    "ethnologists": {"mens": "علماء أثنولوجيا","womens": "عالمات أثنولوجيا"},
+    "evolutionary biologists": {"mens": "علماء أحياء تطوريون","womens": "عالمات أحياء تطوريون"},
+    "experimental physicists": {"mens": "علماء الفيزياء التجريبية","womens": "عالمات الفيزياء التجريبية"},
+    "extortionists": {"mens": "مبتزون","womens": "مبتزات"},
+    "farmers": {"mens": "فلاحون","womens": "فلاحات"},
+    "fashion designers": {"mens": "مصممو أزياء","womens": "مصممات أزياء"},
+    "fiddlers": {"mens": "عازفو كمان","womens": "عازفات كمان"},
+    "flautists": {"mens": "عازفو فولت","womens": "عازفات فولت"},
+    "forensic scientists": {"mens": "علماء أدلة جنائية","womens": "عالمات أدلة جنائية"},
+    "gamblers": {"mens": "مقامرون","womens": "مقامرات"},
+    "geneticists": {"mens": "علماء وراثة","womens": "عالمات وراثة"},
+    "geodesists": {"mens": "جيوديسيون","womens": "جيوديسات"},
+    "geophysicists": {"mens": "جيوفيزيائيون","womens": "جيوفيزيائيات"},
+    "harmonica players": {"mens": "لاعبو هارمونيكا","womens": "لاعبات هارمونيكا"},
+    "health workers": {"mens": "عاملين صحيين","womens": "عاملات صحيات"},
+    "healthcare chief executives": {"mens": "رؤساء تنفيذيون للرعاية الصحية","womens": "رئيسات تنفيذيات للرعاية الصحية"},
+    "herpetologists": {"mens": "علماء زواحف وبرمائيات","womens": "عالمات زواحف وبرمائيات"},
+    "historians-of-philosophy": {"mens": "مؤرخو فلسفة","womens": "مؤرخات فلسفة"},
+    "historical fiction writers": {"mens": "كتاب خيال تاريخي","womens": "كاتبات خيال تاريخي"},
+    "humanitarians": {"mens": "إنسانيون","womens": "إنسانيات"},
+    "hydrographers": {"mens": "علماء وصف المياه","womens": "عالمات وصف المياه"},
+    "hygienists": {"mens": "علماء صحة","womens": "عالمات صحة"},
+    "ichthyologists": {"mens": "علماء أسماك","womens": "عالمات أسماك"},
+    "immunologists": {"mens": "علماء مناعة","womens": "عالمات مناعة"},
+    "industrial designers": {"mens": "مصممون صناعيون","womens": "مصممات صناعيات"},
+    "inkers": {"mens": "محبّرون","womens": "محبّرات"},
+    "iranologists": {"mens": "علماء إيرانيات","womens": "عالمات إيرانيات"},
+    "islamic studies scholars": {"mens": "علماء الدراسات الإسلامية","womens": "عالمات الدراسات الإسلامية"},
+    "jazz drummers": {"mens": "طبالو جاز","womens": "طبالات جاز"},
+    "jesuits": {"mens": "مبتكرون","womens": "مبتكرات"},
+    "jewelry designers": {"mens": "مصممو مجوهرات","womens": "مصممات مجوهرات"},
+    "land owners": {"mens": "حائزو أراضي","womens": "حائزات أراضي"},
+    "landowners": {"mens": "حائزو أراضي","womens": "حائزات أراضي"},
+    "letterers": {"mens": "خطاطون","womens": "خطاطات"},
+    "literary scholars": {"mens": "علماء دراسات أدبية","womens": "عالمات دراسات أدبية"},
+    "lithographers": {"mens": "طباعون حجريون","womens": "طباعات حجريات"},
+    "lutenists": {"mens": "متعصبون","womens": "متعصبات"},
+    "malacologists": {"mens": "علماء رخويات","womens": "عالمات رخويات"},
+    "malariologists": {"mens": "علماء الملاريا","womens": "عالمات الملاريا"},
+    "mammalogists": {"mens": "علماء ثدييات","womens": "عالمات ثدييات"},
+    "marine biologists": {"mens": "علماء أحياء بحرية","womens": "عالمات أحياء بحرية"},
+    "maritime historians": {"mens": "مؤرخون بحريون","womens": "مؤرخات بحريات"},
+    "marxist historians": {"mens": "مؤرخون ماركسيون","womens": "مؤرخات ماركسيات"},
+    "medical historians": {"mens": "مؤرخون طبيون","womens": "مؤرخات طبيات"},
+    "medical researchers": {"mens": "باحثون طبيون","womens": "باحثات طبيات"},
+    "metalsmiths": {"mens": "صانعو معادن","womens": "صانعات معادن"},
+    "meteorologists": {"mens": "خبراء أرصاد جوية","womens": "خبيرات أرصاد جوية"},
+    "microbiologists": {"mens": "علماء أحياء مجهريون","womens": "عالمات أحياء مجهريات"},
+    "mineralogists": {"mens": "علماء معادن","womens": "عالمات معادن"},
+    "mining engineers": {"mens": "مهندسو معادن","womens": "مهندسات معادن"},
+    "mnemonists": {"mens": "حافظو ذاكرة","womens": "حافظات ذاكرة"},
+    "molecular biologists": {"mens": "علماء أحياء جزيئية","womens": "عالمات أحياء جزيئية"},
+    "money managers": {"mens": "مديري أموال","womens": "مديرات أموال"},
+    "mongolists": {"mens": "علماء المنغوليات","womens": "عالمات المنغوليات"},
+    "motorcycle designers": {"mens": "مصممو دراجات نارية","womens": "مصممات دراجات نارية"},
+    "mountain climbers": {"mens": "متسلقو جبال","womens": "متسلقات جبال"},
+    "muralists": {"mens": "رسامو جداريات","womens": "رسامات جداريات"},
+    "music arrangers": {"mens": "موزعون موسيقيون","womens": "موزعات موسيقيات"},
+    "music critics": {"mens": "نقاد موسيقى","womens": "ناقدات موسيقى"},
+    "music educators": {"mens": "معلمو موسيقى","womens": "معلمات موسيقى"},
+    "music publishers (people)": {"mens": "ناشرو موسيقى","womens": "ناشرات موسيقى"},
+    "musicologists": {"mens": "علماء موسيقى","womens": "عالمات موسيقى"},
+    "naturalists": {"mens": "علماء طبيعة","womens": "عالمات طبيعة"},
+    "naval historians": {"mens": "مؤرخون بحريون عسكريون","womens": "مؤرخات بحريات عسكريات"},
+    "nazis who committed suicide": {"mens": "نازيون أقدموا على الانتحار","womens": "نازيات أقدمن على الانتحار"},
+    "neuroscientists": {"mens": "علماء أعصاب","womens": "عالمات أعصاب"},
+    "newspaper editors": {"mens": "محررو صحف","womens": "محررات صحف"},
+    "newspaper founders": {"mens": "مؤسسو صحف","womens": "مؤسسات صحف"},
+    "newspaper journalists": {"mens": "صحفيو صحف","womens": "صحفيات صحف"},
+    "newspaper people": {"mens": "شخصيات صحف","womens": "شخصيات صحف"},
+    "newspaper publishers (people)": {"mens": "ناشرو صحف","womens": "ناشرات صحف"},
+    "nuclear engineers": {"mens": "مهندسون نوويون","womens": "مهندسات نوويات"},
+    "nuclear physicists": {"mens": "علماء ذرة","womens": "عالمات ذرة"},
+    "nutritionists": {"mens": "أخصائيو تغذية","womens": "أخصائيات تغذية"},
+    "oceanographers": {"mens": "علماء المحيطات","womens": "عالمات المحيطات"},
+    "organists": {"mens": "عازفو أورغن","womens": "عازفات أورغن"},
+    "orientalists": {"mens": "مستشرقون","womens": "مستشرقات"},
+    "ornithologists": {"mens": "علماء طيور","womens": "عالمات طيور"},
+    "otolaryngologists": {"mens": "أخصائيو أنف وأذن وحنجرة","womens": "أخصائيات أنف وأذن وحنجرة"},
+    "paleontologists": {"mens": "علماء حفريات","womens": "عالمات حفريات"},
+    "parasitologists": {"mens": "علماء طفيليات","womens": "عالمات طفيليات"},
+    "pencillers": {"mens": "رسامو أقلام","womens": "رسامات أقلام"},
+    "people convicted of fraud": {"mens": "مدانون بالاحتيال","womens": "مدانات بالاحتيال"},
+    "phycologists": {"mens": "علماء طحالب","womens": "عالمات طحالب"},
+    "physical chemists": {"mens": "علماء كيمياء فيزيائية","womens": "عالمات كيمياء فيزيائية"},
+    "planetary scientists": {"mens": "علماء كواكب","womens": "عالمات كواكب"},
+    "planters": {"mens": "مزارعون","womens": "مزارعات"},
+    "politicians who committed suicide": {"mens": "سياسيون أقدموا على الانتحار","womens": "سياسيات أقدمن على الانتحار"},
+    "potters": {"mens": "خزافون","womens": "خزافات"},
+    "prehistorians": {"mens": "علماء عصر ما قبل التاريخ","womens": "عالمات عصر ما قبل التاريخ"},
+    "primatologists": {"mens": "علماء رئيسيات","womens": "عالمات رئيسيات"},
+    "printmakers": {"mens": "صناع طباعة","womens": "صانعات طباعة"},
+    "production designers": {"mens": "مصممو إنتاج","womens": "مصممات إنتاج"},
+    "propagandists": {"mens": "مروّجون دعائيون","womens": "مروّجات دعائيات"},
+    "psychics": {"mens": "وسطاء","womens": "وسيطات"},
+    "psychological fiction writers": {"mens": "كتاب خيال نفسي","womens": "كاتبات خيال نفسي"},
+    "pteridologists": {"mens": "علماء السرخسيات","womens": "عالمات السرخسيات"},
+    "puppeteers": {"mens": "محركو دمى","womens": "محركات دمى"},
+    "quantum physicists": {"mens": "علماء فيزياء الكم","womens": "عالمات فيزياء الكم"},
+    "radio producers": {"mens": "منتجو راديو","womens": "منتجات راديو"},
+    "rail workers": {"mens": "عمال سكك حديدية","womens": "عاملات سكك حديدية"},
+    "railway historians": {"mens": "مؤرخو سكك حديدية","womens": "مؤرخات سكك حديدية"},
+    "republicans": {"mens": "جمهوريون","womens": "جمهوريات"},
+    "rock climbers": {"mens": "متسلقو صخور","womens": "متسلقات صخور"},
+    "scenic designers": {"mens": "مصممو مناظر طبيعية خلابة","womens": "مصممات مناظر طبيعية خلابة"},
+    "seismologists": {"mens": "علماء زلازل","womens": "عالمات زلازل"},
+    "serial killers": {"mens": "قتلة متسلسلون","womens": "قاتلات متسلسلات"},
+    "sexologists": {"mens": "علماء جنس","womens": "عالمات جنس"},
+    "sinologists": {"mens": "علماء الصينيات","womens": "عالمات الصينيات"},
+    "social historians": {"mens": "مؤرخون إجتماعيون","womens": "مؤرخات إجتماعيات"},
+    "sociologists": {"mens": "علماء اجتماع","womens": "عالمات اجتماع"},
+    "sports executives and administrators": {"mens": "مسيرون رياضيون","womens": "مسيرات رياضيات"},
+    "stamp designers": {"mens": "مصممو طوابع","womens": "مصممات طوابع"},
+    "taxonomists": {"mens": "علماء تصنيف","womens": "عالمات تصنيف"},
+    "technology chief executives": {"mens": "رؤساء تنفيذيون تقنيون","womens": "رئيسات تنفيذيات تقنيات"},
+    "television producers": {"mens": "منتجو تلفزيون","womens": "منتجات تلفزيون"},
+    "toxicologists": {"mens": "علماء سموم","womens": "عالمات سموم"},
+    "trombonists": {"mens": "عازفو ترومبون","womens": "عازفات ترومبون"},
+    "trumpeters": {"mens": "عازفو بوق","womens": "عازفات بوق"},
+    "turkologists": {"mens": "علماء التركيات","womens": "عالمات التركيات"},
+    "virologists": {"mens": "علماء فيروسات","womens": "عالمات فيروسات"},
+    "watercolorists": {"mens": "رسامون مائيون","womens": "رسامات مائيات"},
+    "watercolourists": {"mens": "رسامون مائيون","womens": "رسامات مائيات"},
+    "woodcarvers": {"mens": "نقاشو خشب","womens": "نقاشات خشب"},
+    "woodworkers": {"mens": "عمال أخشاب","womens": "عاملات أخشاب"},
+    "yacht designers": {"mens": "مصممو يخوت","womens": "مصممات يخوت"},
+    "zoologists": {"mens": "علماء حيوانات","womens": "عالمات حيوانات"}
 }

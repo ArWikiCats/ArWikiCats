@@ -1,4 +1,18 @@
 
+## [#124](https://github.com/MrIbrahem/ArWikiCats/pull/124) - 2025-11-29
+
+* **New Features**
+  * Improved category formatting with automatic country and year detection, plus time-aware label generation.
+
+* **Data & Translations**
+  * Added 100+ gendered job translations and an empty jobs template; updated several job entries and a sports commentator term; standardized country-year category keys and adjusted dataset counts.
+
+* **Bug Fixes**
+  * Minor wording replacement added for a sports profession.
+
+* **Tests & Infrastructure**
+  * New integration and unit tests for year/country formatting and jobs data; added an example comparison script.
+
 ## [#122](https://github.com/MrIbrahem/ArWikiCats/pull/122) - 2025-11-28
 
 * **New Features**

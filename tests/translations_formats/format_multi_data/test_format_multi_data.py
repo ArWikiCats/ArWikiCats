@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations_formats.format_2_data import (
+from ArWikiCats.translations_formats.format_multi_data import (
     FormatComparisonHelper,
     FormatMultiData,
 )
@@ -26,12 +26,12 @@ sport_data = {
 
 # Template data with both nationality and sport placeholders
 formatted_data = {
-    "natar xoxo teams": "فرق {sport} {nationality}",
-    "natar national xoxo teams": "منتخبات {nationality} ل{sport}",
-    "natar xoxo championships": "بطولات {nationality} في {sport}",
-    "ladies natar xoxo tour": "بطولة {nationality} ل{sport} للسيدات",
-    "natar xoxo players": "لاعبو {sport} من {nationality}",
-    "natar xoxo coaches": "مدربو {sport} من {nationality}",
+    "{nat_en} {sport_en} teams": "فرق {sport_ar} {nat_ar}",
+    "{nat_en} national {sport_en} teams": "منتخبات {nat_ar} ل{sport_ar}",
+    "{nat_en} {sport_en} championships": "بطولات {nat_ar} في {sport_ar}",
+    "ladies {nat_en} {sport_en} tour": "بطولة {nat_ar} ل{sport_ar} للسيدات",
+    "{nat_en} {sport_en} players": "لاعبو {sport_ar} من {nat_ar}",
+    "{nat_en} {sport_en} coaches": "مدربو {sport_ar} من {nat_ar}",
 }
 
 
@@ -41,11 +41,11 @@ def multi_bot():
     return FormatMultiData(
         formatted_data=formatted_data,
         data_list=nationality_data,
-        key_placeholder="natar",
-        value_placeholder="{nationality}",
+        key_placeholder="{nat_en}",
+        value_placeholder="{nat_ar}",
         data_list2=sport_data,
-        key2_placeholder="xoxo",
-        value2_placeholder="{sport}",
+        key2_placeholder="{sport_en}",
+        value2_placeholder="{sport_ar}",
     )
 
 
@@ -58,8 +58,8 @@ class TestFormatComparisonHelper:
         new_category, key = multi_bot.get_start_p17(category)
 
         assert key == "yemeni"
-        assert "natar" in new_category
-        assert new_category == "natar football teams"
+        assert "{nat_en}" in new_category
+        assert new_category == "{nat_en} football teams"
 
 
 class TestFormatMultiDataInitialization:
@@ -96,7 +96,7 @@ class TestFormatMultiDataInitialization:
 
     def test_nat_bot_and_sport_bot_created(self, multi_bot):
         """Test that nat_bot and sport_bot are properly initialized."""
-        assert multi_bot.nat_bot is not None
+        assert multi_bot.country_bot is not None
         assert multi_bot.sport_bot is not None
 
 
@@ -108,7 +108,7 @@ class TestNormalizeNatLabel:
         category = "yemeni national football teams"
         result = multi_bot.normalize_nat_label(category)
 
-        assert result == "natar national football teams"
+        assert result == "{nat_en} national football teams"
 
     def test_normalize_nat_label_no_match(self, multi_bot):
         """Test normalization when no nationality is found."""
@@ -120,9 +120,9 @@ class TestNormalizeNatLabel:
     @pytest.mark.parametrize(
         "input_category,expected",
         [
-            ("british football teams", "natar football teams"),
-            ("american basketball players", "natar basketball players"),
-            ("egyptian volleyball coaches", "natar volleyball coaches"),
+            ("british football teams", "{nat_en} football teams"),
+            ("american basketball players", "{nat_en} basketball players"),
+            ("egyptian volleyball coaches", "{nat_en} volleyball coaches"),
         ],
     )
     def test_normalize_nat_label_various_nationalities(self, multi_bot, input_category, expected):
@@ -139,7 +139,7 @@ class TestNormalizeSportLabel:
         category = "yemeni national football teams"
         result = multi_bot.normalize_sport_label(category)
 
-        assert result == "yemeni national xoxo teams"
+        assert result == "yemeni national {sport_en} teams"
 
     def test_normalize_sport_label_no_match(self, multi_bot):
         """Test normalization when no sport is found."""
@@ -151,9 +151,9 @@ class TestNormalizeSportLabel:
     @pytest.mark.parametrize(
         "input_category,expected",
         [
-            ("yemeni football teams", "yemeni xoxo teams"),
-            ("british basketball players", "british xoxo players"),
-            ("american volleyball coaches", "american xoxo coaches"),
+            ("yemeni football teams", "yemeni {sport_en} teams"),
+            ("british basketball players", "british {sport_en} players"),
+            ("american volleyball coaches", "american {sport_en} coaches"),
         ],
     )
     def test_normalize_sport_label_various_sports(self, multi_bot, input_category, expected):
@@ -170,7 +170,7 @@ class TestNormalizeBoth:
         category = "british softball championships"
         result = multi_bot.normalize_both(category)
 
-        assert result == "natar xoxo championships"
+        assert result == "{nat_en} {sport_en} championships"
 
     def test_normalize_both_order_matters(self, multi_bot):
         """Test that nationality is normalized first, then sport."""
@@ -178,15 +178,15 @@ class TestNormalizeBoth:
         result = multi_bot.normalize_both(category)
 
         # Should normalize nationality first, then sport
-        assert result == "natar xoxo teams"
+        assert result == "{nat_en} {sport_en} teams"
 
     @pytest.mark.parametrize(
         "input_category,expected",
         [
-            ("british softball championships", "natar xoxo championships"),
-            ("yemeni football teams", "natar xoxo teams"),
-            ("american basketball players", "natar xoxo players"),
-            ("egyptian volleyball coaches", "natar xoxo coaches"),
+            ("british softball championships", "{nat_en} {sport_en} championships"),
+            ("yemeni football teams", "{nat_en} {sport_en} teams"),
+            ("american basketball players", "{nat_en} {sport_en} players"),
+            ("egyptian volleyball coaches", "{nat_en} {sport_en} coaches"),
         ],
     )
     def test_normalize_both_various_combinations(self, multi_bot, input_category, expected):
@@ -239,7 +239,7 @@ class TestCreateLabel:
         category = "yemeni football something"
         result = multi_bot.create_label(category)
 
-        # Template "natar xoxo something" doesn't exist in formatted_data
+        # Template "{nat_en} {sport_en} something" doesn't exist in formatted_data
         assert result == ""
 
     @pytest.mark.parametrize(
@@ -327,13 +327,13 @@ class TestWithTextAfterAndBefore:
     def test_with_text_after(self):
         """Test FormatMultiData with text_after parameter."""
         bot = FormatMultiData(
-            formatted_data={"natarian xoxo teams": "فرق {sport} {nationality}"},
+            formatted_data={"{nat_en}ian {sport_en} teams": "فرق {sport_ar} {nat_ar}"},
             data_list={"yemeni": "اليمن"},
-            key_placeholder="natar",
-            value_placeholder="{nationality}",
+            key_placeholder="{nat_en}",
+            value_placeholder="{nat_ar}",
             data_list2={"football": "كرة القدم"},
-            key2_placeholder="xoxo",
-            value2_placeholder="{sport}",
+            key2_placeholder="{sport_en}",
+            value2_placeholder="{sport_ar}",
             text_after="ian",
         )
 
@@ -346,13 +346,13 @@ class TestWithTextAfterAndBefore:
     def test_with_text_before(self):
         """Test FormatMultiData with text_before parameter."""
         bot = FormatMultiData(
-            formatted_data={"the natar xoxo teams": "فرق {sport} {nationality}"},
+            formatted_data={"the {nat_en} {sport_en} teams": "فرق {sport_ar} {nat_ar}"},
             data_list={"yemeni": "اليمن"},
-            key_placeholder="natar",
-            value_placeholder="{nationality}",
+            key_placeholder="{nat_en}",
+            value_placeholder="{nat_ar}",
             data_list2={"football": "كرة القدم"},
-            key2_placeholder="xoxo",
-            value2_placeholder="{sport}",
+            key2_placeholder="{sport_en}",
+            value2_placeholder="{sport_ar}",
             text_before="the ",
         )
 

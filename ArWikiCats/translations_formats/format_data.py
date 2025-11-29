@@ -89,6 +89,19 @@ class FormatData:
 
         return normalized.strip()
 
+    def normalize_category_with_key(self, category) -> tuple[str, str]:
+        """
+        Normalize nationality placeholders within a category string.
+
+        Example:
+            category:"Yemeni national football teams", result: "natar national football teams"
+        """
+        key = self.match_key(category)
+        result = ""
+        if key:
+            result = self.normalize_category(category, key)
+        return key, result
+
     def get_template(self, sport_key: str, category: str) -> str:
         """Lookup template in a case-insensitive dict."""
         normalized = self.normalize_category(category, sport_key)
@@ -104,20 +117,25 @@ class FormatData:
         """End-to-end resolution."""
         logger.debug("++++++++ start FormatData ++++++++ ")
         sport_key = self.match_key(category)
+
         if not sport_key:
             logger.debug(f'No sport key matched for category: "{category}"')
             return ""
+
         sport_label = self.get_key_label(sport_key)
         if not sport_label:
             logger.debug(f'No sport label matched for sport key: "{sport_key}"')
             return ""
+
         template_label = self.get_template(sport_key, category)
         if not template_label:
             logger.debug(f'No template label matched for sport key: "{sport_key}" and category: "{category}"')
             return ""
+
         result = self.apply_pattern_replacement(template_label, sport_label)
         logger.debug(f"result: {result}")
         logger.debug("++++++++ end FormatData ++++++++ ")
+
         return result
 
     @functools.lru_cache(maxsize=None)
