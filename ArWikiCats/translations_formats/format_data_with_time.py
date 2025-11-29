@@ -163,7 +163,7 @@ class FormatYearCountryData:
 
         category2 = self.country_bot.normalize_category(category, nat_key)
 
-        year_key = self.year_bot.match_key(category)
+        year_key = self.year_bot.match_key(category2)
 
         if not year_key:
             return ""

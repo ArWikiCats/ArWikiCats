@@ -96,7 +96,7 @@ class TestFormatMultiDataInitialization:
 
     def test_nat_bot_and_sport_bot_created(self, multi_bot):
         """Test that nat_bot and sport_bot are properly initialized."""
-        assert multi_bot.nat_bot is not None
+        assert multi_bot.country_bot is not None
         assert multi_bot.sport_bot is not None
 
 
