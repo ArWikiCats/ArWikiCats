@@ -8,116 +8,104 @@
         "womens": ""
     },
     "antiquarians": {
-        "mens": "",
-        "womens": ""
+        "mens": "أثريون",
+        "womens": "أثريات"
     },
     "arts administrators": {
-        "mens": "",
-        "womens": ""
+        "mens": "إداريون فنيون",
+        "womens": "إداريات فنيات"
     },
     "astrological writers": {
-        "mens": "",
-        "womens": ""
+        "mens": "كتّاب تنجيم",
+        "womens": "كاتبات تنجيم"
     },
     "auctioneers": {
         "mens": "دلالون",
-        "womens": ""
+        "womens": "دلالات"
     },
     "bacteriologists": {
-        "mens": "علماء جراثيم",
-        "womens": ""
+        "mens": "علماء بكتيريا",
+        "womens": "عالِمات بكتيريا"
     },
     "ballerinas": {
         "mens": "",
-        "womens": ""
+        "womens": "راقصات باليه"
     },
     "ballet masters": {
-        "mens": "",
-        "womens": ""
+        "mens": "أساتذة باليه",
+        "womens": "أستاذات باليه"
     },
     "balloonists": {
-        "mens": "",
-        "womens": ""
+        "mens": "منطاديون",
+        "womens": "منطاديات"
     },
     "bank robbers": {
-        "mens": "سارقو بنوك",
-        "womens": ""
+        "mens": "لصوص بنوك",
+        "womens": "لصات بنوك"
     },
     "baritones": {
-        "mens": "",
-        "womens": ""
+        "mens": "باريتون",
+        "womens": "باريتونات"
     },
     "barristers": {
-        "mens": "",
-        "womens": ""
-    },
-    "bass-baritones": {
-        "mens": "",
-        "womens": ""
-    },
-    "biomechanists": {
-        "mens": "",
-        "womens": ""
+        "mens": "محامون مرافعون",
+        "womens": "محاميات مرافعات"
     },
     "blacksmiths": {
         "mens": "حدادون",
-        "womens": ""
+        "womens": "حدادات"
     },
     "booksellers": {
-        "mens": "",
-        "womens": ""
+        "mens": "بائعو كتب",
+        "womens": "بائعات كتب"
     },
     "border guards": {
         "mens": "حرس حدود",
         "womens": ""
     },
     "botanical writers": {
-        "mens": "كتاب علم النبات",
-        "womens": ""
+        "mens": "كتاب نباتات",
+        "womens": "كاتبات نباتات"
     },
     "bricklayers": {
-        "mens": "",
-        "womens": ""
+        "mens": "بناؤون",
+        "womens": "بنايات"
     },
     "brothel owners": {
-        "mens": "",
-        "womens": ""
+        "mens": "مالكو بيوت دعارة",
+        "womens": "مالكات بيوت دعارة"
     },
     "bryologists": {
-        "mens": "",
-        "womens": ""
+        "mens": "علماء حزازيات",
+        "womens": "عالِمات حزازيات"
     },
     "business theorists": {
         "mens": "",
         "womens": ""
     },
     "cabinetmakers": {
-        "mens": "",
-        "womens": ""
+        "mens": "صناع أثاث",
+        "womens": "صانعات أثاث"
     },
     "candlepin bowling players": {
-        "mens": "",
-        "womens": ""
+        "mens": "لاعبو كاندل بن بولينغ",
+        "womens": "لاعبات كاندل بن بولينغ"
     },
     "car collectors": {
-        "mens": "",
-        "womens": ""
+        "mens": "جامعو سيارات",
+        "womens": "جامعات سيارات"
     },
     "carpenters": {
         "mens": "نجارون",
-        "womens": ""
-    },
-    "chairmeof corporations": {
-        "mens": "",
-        "womens": ""
+        "womens": "نجارات"
     },
     "chaplains": {
-        "mens": "",
-        "womens": ""
+        "mens": "قساوسة",
+        "womens": "قسيسات"
     },
     "chess writers": {
         "mens": "كتاب شطرنج",
-        "womens": ""
+        "womens": "كاتبات شطرنج"
     },
     "chief technologists": {
         "mens": "",
@@ -128,124 +116,124 @@
         "womens": ""
     },
     "chiropractors": {
-        "mens": "",
-        "womens": ""
+        "mens": "معالجو العمود الفقري",
+        "womens": "معالجات العمود الفقري"
     },
     "chroniclers": {
-        "mens": "مسلسلون زمنيون",
-        "womens": ""
+        "mens": "مدونو الوقائع",
+        "womens": "مدونات الوقائع"
     },
     "city founders": {
         "mens": "مؤسسو مدن",
-        "womens": ""
+        "womens": "مؤسسات مدن"
     },
     "civil engineering contractors": {
-        "mens": "",
-        "womens": ""
+        "mens": "مقاولو هندسة مدنية",
+        "womens": "مقاولات هندسة مدنية"
     },
     "clarinetists": {
-        "mens": "",
-        "womens": ""
+        "mens": "عازفو كلارينيت",
+        "womens": "عازفات كلارينيت"
     },
     "classical clarinetists": {
-        "mens": "",
-        "womens": ""
+        "mens": "عازفو كلارينيت كلاسيكي",
+        "womens": "عازفات كلارينيت كلاسيكي"
     },
     "classical organists": {
-        "mens": "",
-        "womens": ""
+        "mens": "عازفو أورغن كلاسيكي",
+        "womens": "عازفات أورغن كلاسيكي"
     },
     "classical viola d'amore players": {
-        "mens": "",
-        "womens": ""
+        "mens": "عازفو فيولا داموري كلاسيكية",
+        "womens": "عازفات فيولا داموري كلاسيكية"
     },
     "classical violists": {
-        "mens": "",
-        "womens": ""
+        "mens": "عازفو فيولا كلاسيكية",
+        "womens": "عازفات فيولا كلاسيكية"
     },
     "comedy duos": {
-        "mens": "",
-        "womens": ""
+        "mens": "ثنائيات كوميدية",
+        "womens": "ثنائيات كوميدية"
     },
     "congregationalist ministers": {
-        "mens": "",
-        "womens": ""
+        "mens": "وزراء كونغريغاشيونيون",
+        "womens": "وزيرات كونغريغاشيونيات"
     },
     "contract bridge players": {
         "mens": "لاعبو بريدج",
-        "womens": ""
+        "womens": "لاعبات بريدج"
     },
     "cosmonauts": {
         "mens": "",
         "womens": ""
     },
     "courtesans": {
-        "mens": "محظيات",
+        "mens": "",
         "womens": ""
     },
     "craftspeople": {
-        "mens": "",
-        "womens": ""
+        "mens": "حرفيون",
+        "womens": "حرفيات"
     },
     "duckpin bowling players": {
-        "mens": "",
-        "womens": ""
+        "mens": "لاعبو دَك بن بولينغ",
+        "womens": "لاعبات دك بن بولينغ"
     },
     "ecclesiastical architects": {
-        "mens": "مهندسون معماريون كنسيون",
-        "womens": ""
+        "mens": "معماريون كنسيون",
+        "womens": "معماريات كنسيات"
     },
     "electricians": {
-        "mens": "",
-        "womens": ""
+        "mens": "كهربائيون",
+        "womens": "كهربائيات"
     },
     "erotic dancers": {
-        "mens": "راقصات تعري",
+        "mens": "",
         "womens": ""
     },
     "erotic photographers": {
-        "mens": "",
-        "womens": ""
+        "mens": "مصورون إيروتيكيون",
+        "womens": "مصورات إيروتيكيات"
     },
     "eskrimadors": {
-        "mens": "",
-        "womens": ""
+        "mens": "ممارسو إسكريما",
+        "womens": "ممارسات إسكريما"
     },
     "exercise instructors": {
-        "mens": "",
-        "womens": ""
+        "mens": "مدربو تمارين",
+        "womens": "مدربات تمارين"
     },
     "financial analysts": {
-        "mens": "",
-        "womens": ""
+        "mens": "محللون ماليون",
+        "womens": "محللات ماليات"
     },
     "five-pin bowling players": {
-        "mens": "",
-        "womens": ""
+        "mens": "لاعبو فايف بن بولينغ",
+        "womens": "لاعبات فايف بن بولينغ"
     },
     "folk harpists": {
-        "mens": "",
-        "womens": ""
+        "mens": "عازفو هارب شعبي",
+        "womens": "عازفات هارب شعبي"
     },
     "folk-song collectors": {
         "mens": "",
         "womens": ""
     },
     "foresters": {
-        "mens": "",
-        "womens": ""
+        "mens": "حرجيون",
+        "womens": "حرجيات"
     },
     "game show hosts": {
-        "mens": "",
-        "womens": ""
+        "mens": "مقدمو عروض الألعاب",
+        "womens": "مقدمات عروض الألعاب"
     },
     "gangsters": {
-        "mens": "",
-        "womens": ""
+        "mens": "عصابون",
+        "womens": "عصابيات"
     },
     "garden writers": {
-        "mens": "",
-        "womens": ""
+        "mens": "كتاب حدائق",
+        "womens": "كاتبات حدائق"
     },
     "genealogists": {
         "mens": "نسابون",
@@ -256,8 +244,8 @@
         "womens": ""
     },
     "geochemists": {
-        "mens": "",
-        "womens": ""
+        "mens": "كيميائيون جيولوجيون",
+        "womens": "كيميائيات جيولوجيات"
     },
     "geomorphologists": {
         "mens": "علماء تشكل الأرض",
