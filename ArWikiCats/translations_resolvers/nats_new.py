@@ -33,7 +33,7 @@ create_nat_label = both_bot.create_nat_label
 create_label = both_bot.create_label
 create_nat_label = both_bot.create_nat_label
 normalize_nat_label = both_bot.normalize_nat_label
-normalize_sport_label = both_bot.normalize_sport_label
+normalize_other_label = both_bot.normalize_other_label
 normalize_both = both_bot.normalize_both
 
 
@@ -43,7 +43,7 @@ def nats_new_create_label(category: str):
 
 __all__ = [
     "normalize_nat_label",
-    "normalize_sport_label",
+    "normalize_other_label",
     "normalize_both",
     "create_nat_label",
     "create_label",

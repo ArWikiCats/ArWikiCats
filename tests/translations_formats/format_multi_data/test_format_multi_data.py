@@ -74,8 +74,8 @@ class TestFormatMultiDataInitialization:
 
         assert bot.key_placeholder == "natar"
         assert bot.value_placeholder == "natar"
-        assert bot.key2_placeholder == "xoxo"
-        assert bot.value2_placeholder == "xoxo"
+        assert bot.sport_bot.key_placeholder == "xoxo"
+        assert bot.sport_bot.value_placeholder == "xoxo"
 
     def test_initialization_with_custom_placeholders(self):
         """Test that FormatMultiData initializes with custom placeholders."""
@@ -91,8 +91,8 @@ class TestFormatMultiDataInitialization:
 
         assert bot.key_placeholder == "COUNTRY"
         assert bot.value_placeholder == "{country}"
-        assert bot.key2_placeholder == "SPORT"
-        assert bot.value2_placeholder == "{sport_name}"
+        assert bot.sport_bot.key_placeholder == "SPORT"
+        assert bot.sport_bot.value_placeholder == "{sport_name}"
 
     def test_nat_bot_and_sport_bot_created(self, multi_bot):
         """Test that nat_bot and sport_bot are properly initialized."""
@@ -132,19 +132,19 @@ class TestNormalizeNatLabel:
 
 
 class TestNormalizeSportLabel:
-    """Tests for normalize_sport_label method."""
+    """Tests for normalize_other_label method."""
 
     def test_normalize_sport_label_with_match(self, multi_bot):
         """Test normalization when sport is found."""
         category = "yemeni national football teams"
-        result = multi_bot.normalize_sport_label(category)
+        result = multi_bot.normalize_other_label(category)
 
         assert result == "yemeni national {sport_en} teams"
 
     def test_normalize_sport_label_no_match(self, multi_bot):
         """Test normalization when no sport is found."""
         category = "some random category"
-        result = multi_bot.normalize_sport_label(category)
+        result = multi_bot.normalize_other_label(category)
 
         assert result == ""
 
@@ -158,7 +158,7 @@ class TestNormalizeSportLabel:
     )
     def test_normalize_sport_label_various_sports(self, multi_bot, input_category, expected):
         """Test normalization with various sports."""
-        result = multi_bot.normalize_sport_label(input_category)
+        result = multi_bot.normalize_other_label(input_category)
         assert result == expected
 
 

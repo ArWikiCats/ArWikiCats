@@ -73,7 +73,7 @@ class FormatYearCountryData:
     def match_year(self, text: str) -> str:
         return match_time_en_first(text)
 
-    def normalize_year_label(self, category: str) -> str:
+    def normalize_other_label(self, category: str) -> str:
         year = self.match_year(category)
         if not year:
             return category
@@ -87,7 +87,7 @@ class FormatYearCountryData:
     def normalize_both(self, category: str) -> str:
         category = " ".join(category.split())
         category = self.normalize_nat_label(category)
-        category = self.normalize_year_label(category)
+        category = self.normalize_other_label(category)
         return category
 
     # ------------------------------------------------------

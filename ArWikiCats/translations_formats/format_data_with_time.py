@@ -57,6 +57,10 @@ class YearFormatData:
             result = self.normalize_category(category, key)
         return key, result
 
+    def replace_value_placeholder(self, label, value) -> str:
+        # Replace placeholder
+        return label.replace(self.value_placeholder, value)
+
 
 YEAR_PARAM = "{year1}"
 COUNTRY_PARAM = "{country1}"
@@ -87,9 +91,6 @@ class FormatYearCountryData:
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
 
-        self.key_year = key_placeholder_year
-        self.val_year = value_placeholder_year
-
         # Country bot (FormatData)
         self.country_bot = FormatData(
             formatted_data={},
@@ -100,8 +101,8 @@ class FormatYearCountryData:
 
         # Year bot (custom FormatData-like wrapper)
         self.year_bot = YearFormatData(
-            key_placeholder=self.key_year,
-            value_placeholder=self.val_year,
+            key_placeholder=key_placeholder_year,
+            value_placeholder=value_placeholder_year,
         )
 
     # ------------------------------------------------------
@@ -123,7 +124,7 @@ class FormatYearCountryData:
     # ------------------------------------------------------
     # YEAR/SPORT NORMALIZATION
     # ------------------------------------------------------
-    def normalize_year_label(self, category) -> str:
+    def normalize_other_label(self, category) -> str:
         key = self.year_bot.match_key(category)
         result = ""
         if key:
@@ -141,7 +142,7 @@ class FormatYearCountryData:
         normalized_category = " ".join(category.split())
 
         new_category = self.normalize_nat_label(normalized_category)
-        new_category = self.normalize_year_label(new_category)
+        new_category = self.normalize_other_label(new_category)
 
         return new_category
 
@@ -183,9 +184,8 @@ class FormatYearCountryData:
             return ""
 
         # Replace placeholders
-        label = template_ar.replace(self.value_placeholder, country_ar).replace(
-            self.val_year, year_ar
-        )
+        label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
+        label = self.year_bot.replace_value_placeholder(label, year_ar)
 
         logger.debug(f"Translated {category=} → {label=}")
         return label

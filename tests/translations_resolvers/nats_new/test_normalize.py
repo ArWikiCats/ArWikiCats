@@ -3,7 +3,7 @@ import pytest
 from ArWikiCats.translations_resolvers.nats_new import (
     normalize_both,
     normalize_nat_label,
-    normalize_sport_label,
+    normalize_other_label,
 )
 
 data = {
@@ -102,6 +102,6 @@ data3 = {
 @pytest.mark.parametrize("key,expected", data3.items(), ids=data3.keys())
 @pytest.mark.fast
 def test_normalize_sport_label(key, expected) -> None:
-    template_label = normalize_sport_label(key)
+    template_label = normalize_other_label(key)
     assert template_label != ""
     assert template_label == expected

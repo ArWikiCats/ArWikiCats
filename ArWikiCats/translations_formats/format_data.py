@@ -143,6 +143,10 @@ class FormatData:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 
+    def replace_value_placeholder(self, label, value) -> str:
+        # Replace placeholder
+        return label.replace(self.value_placeholder, value)
+
 
 def format_data_sample() -> bool:
     """

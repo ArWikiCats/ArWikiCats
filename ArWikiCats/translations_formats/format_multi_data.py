@@ -61,9 +61,6 @@ class FormatMultiData(FormatComparisonHelper):
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
 
-        self.value2_placeholder = value2_placeholder
-        self.key2_placeholder = key2_placeholder
-
         self.country_bot = FormatData(
             self.formatted_data,
             data_list,
@@ -76,8 +73,8 @@ class FormatMultiData(FormatComparisonHelper):
         self.sport_bot = FormatData(
             {},
             data_list2,
-            key_placeholder=self.key2_placeholder,
-            value_placeholder=self.value2_placeholder,
+            key_placeholder=key2_placeholder,
+            value_placeholder=value2_placeholder,
         )
 
     # ------------------------------------------------------
@@ -99,7 +96,7 @@ class FormatMultiData(FormatComparisonHelper):
     # ------------------------------------------------------
     # YEAR/SPORT NORMALIZATION
     # ------------------------------------------------------
-    def normalize_sport_label(self, category) -> str:
+    def normalize_other_label(self, category) -> str:
         """
         Normalize sport placeholders within a category string.
 
@@ -123,7 +120,7 @@ class FormatMultiData(FormatComparisonHelper):
         normalized_category = " ".join(category.split())
 
         new_category = self.normalize_nat_label(normalized_category)
-        new_category = self.normalize_sport_label(new_category)
+        new_category = self.normalize_other_label(new_category)
 
         return new_category
 
@@ -165,9 +162,8 @@ class FormatMultiData(FormatComparisonHelper):
             return ""
 
         # Replace placeholders
-        label = template_ar.replace(self.value_placeholder, country_ar).replace(
-            self.value2_placeholder, sport_ar
-        )
+        label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
+        label = self.sport_bot.replace_value_placeholder(label, sport_ar)
 
         logger.debug(f"Translated {category=} → {label=}")
         return label
