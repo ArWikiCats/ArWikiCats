@@ -2,86 +2,86 @@
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/COUNTRY_YEAR.json"""
 
 COUNTRY_YEAR_PARAMS = [
-    "{YEAR1}",
-    "{COUNTRY1}",
+    "{year1}",
+    "{country1}",
 ]
 
 
 COUNTRY_YEAR_DATA = {
-    "Category:{YEAR1} in {COUNTRY1}": "تصنيف:{COUNTRY1} في {YEAR1}",  # 34632
-    "Category:{YEAR1} establishments in {COUNTRY1}": "تصنيف:تأسيسات سنة {YEAR1} في {COUNTRY1}",  # 19853
-    "Category:{YEAR1} events in {COUNTRY1}": "تصنيف:أحداث {YEAR1} في {COUNTRY1}",  # 7413
-    "Category:{YEAR1} disestablishments in {COUNTRY1}": "تصنيف:انحلالات سنة {YEAR1} في {COUNTRY1}",  # 4600
-    "Category:{YEAR1} sports events in {COUNTRY1}": "تصنيف:أحداث {YEAR1} الرياضية في {COUNTRY1}",  # 6108
-    "Category:{YEAR1} crimes in {COUNTRY1}": "تصنيف:جرائم {YEAR1} في {COUNTRY1}",  # 3966
-    "Category:{YEAR1} murders in {COUNTRY1}": "تصنيف:جرائم قتل في {COUNTRY1} في {YEAR1}",
-    "Category:{YEAR1} disasters in {COUNTRY1}": "تصنيف:كوارث في {COUNTRY1} في {YEAR1}",  # 2140
-    "Category:{YEAR1} in {COUNTRY1} by month": "تصنيف:أحداث {YEAR1} في {COUNTRY1} حسب الشهر",  # 1808
-    "Category:{YEAR1} elections in {COUNTRY1}": "تصنيف:انتخابات {COUNTRY1} في {YEAR1}",  # 1550
-    "Category:{YEAR1} events in {COUNTRY1} by month": "تصنيف:أحداث {YEAR1} في {COUNTRY1} حسب الشهر",  # 1382
-    "Category:Years of the {YEAR1} in {COUNTRY1}": "تصنيف:سنوات {YEAR1} في {COUNTRY1}",  # 922
-    "Category:{YEAR1} in sports in {COUNTRY1}": "تصنيف:الرياضة في {COUNTRY1} في {YEAR1}",  # 630
-    "Category:{YEAR1} in {COUNTRY1} by city": "تصنيف:{COUNTRY1} في {YEAR1} حسب المدينة",  # 486
-    "Category:{COUNTRY1} at the {YEAR1} FIFA World Cup": "تصنيف:{COUNTRY1} في كأس العالم {YEAR1}",  # 466
-    "Category:{YEAR1} in {COUNTRY1} (state)": "تصنيف:ولاية {COUNTRY1} في {YEAR1}",  # 353
-    "Category:{YEAR1} establishments in {COUNTRY1} Territory": "تصنيف:تأسيسات سنة {YEAR1} في إقليم {COUNTRY1}",  # 231
-    "Category:{YEAR1} establishments in {COUNTRY1} (state)": "تصنيف:تأسيسات سنة {YEAR1} في ولاية {COUNTRY1}",  # 262
-    "Category:Terrorist incidents in {COUNTRY1} in {YEAR1}": "تصنيف:حوادث إرهابية في {COUNTRY1} في {YEAR1}",  # 333
-    "Category:Railway stations in {COUNTRY1} opened in {YEAR1}": "تصنيف:محطات السكك الحديدية في {COUNTRY1} افتتحت في {YEAR1}",  # 345
-    "Category:{YEAR1} in {COUNTRY1} Territory": "تصنيف:إقليم {COUNTRY1} في {YEAR1}",  # 289
-    "Category:{YEAR1} architecture in {COUNTRY1}": "تصنيف:عمارة {YEAR1} في {COUNTRY1}",  # 317
-    "Category:{YEAR1} in New {COUNTRY1}": "تصنيف:{COUNTRY1} الجديدة في {YEAR1}",  # 253
-    "Category:{YEAR1} in {COUNTRY1} by state": "تصنيف:{YEAR1} في {COUNTRY1} حسب الولاية",  # 280
-    "Category:{YEAR1} in {COUNTRY1} by state or territory": "تصنيف:{COUNTRY1} في {YEAR1} حسب الولاية",  # 243
-    "Category:{YEAR1} mass shootings in {COUNTRY1}": "تصنيف:إطلاق نار عشوائي في {COUNTRY1} في {YEAR1}",  # 215
-    "Category:Attacks in {COUNTRY1} in {YEAR1}": "تصنيف:هجمات في {COUNTRY1} في {YEAR1}",  # 247
-    "Category:{YEAR1} Roman Catholic bishops in {COUNTRY1}": "تصنيف:أساقفة كاثوليك رومان في {COUNTRY1} في {YEAR1}",  # 233
-    "Category:{YEAR1} establishments in New {COUNTRY1}": "تصنيف:تأسيسات سنة {YEAR1} في {COUNTRY1} الجديدة",  # 154
-    "Category:{YEAR1} in {COUNTRY1} City": "تصنيف:مدينة {COUNTRY1} في {YEAR1}",  # 150
-    "Category:{YEAR1} religious buildings and structures in {COUNTRY1}": "تصنيف:مبان ومنشآت دينية في {COUNTRY1} في {YEAR1}",  # 165
-    "Category:{YEAR1} churches in {COUNTRY1}": "تصنيف:كنائس في {COUNTRY1} في {YEAR1}",  # 172
-    "Category:{YEAR1} in {COUNTRY1} (U.S. state)": "تصنيف:ولاية {COUNTRY1} في {YEAR1}",  # 155
-    "Category:{COUNTRY1} at UEFA Euro {YEAR1}": "تصنيف:{COUNTRY1} في بطولة أمم أوروبا {YEAR1}",  # 183
-    "Category:{YEAR1} mosques in {COUNTRY1}": "تصنيف:مساجد في {COUNTRY1} في {YEAR1}",  # 175
-    "Category:{YEAR1} in sport in {COUNTRY1}": "تصنيف:أحداث {YEAR1} الرياضية في {COUNTRY1}",  # 143
-    "Category:Terrorist incidents in {COUNTRY1} in the {YEAR1}": "تصنيف:حوادث إرهابية في {COUNTRY1} في {YEAR1}",  # 173
-    "Category:{YEAR1} establishments in {COUNTRY1} (U.S. state)": "تصنيف:تأسيسات سنة {YEAR1} في ولاية {COUNTRY1}",  # 138
-    "Category:Railway stations in {COUNTRY1} opened in the {YEAR1}": "تصنيف:محطات السكك الحديدية في {COUNTRY1} افتتحت في {YEAR1}",  # 170
-    "Category:{YEAR1} crimes in {COUNTRY1} by month": "تصنيف:جرائم {YEAR1} في {COUNTRY1} حسب الشهر",  # 167
-    "Category:{YEAR1} mayors of places in {COUNTRY1}": "تصنيف:رؤساء بلديات في {COUNTRY1} في {YEAR1}",  # 153
-    "Category:{YEAR1} in {COUNTRY1}, D.C.": "تصنيف:{COUNTRY1} العاصمة في {YEAR1}",  # 145
-    "Category:{YEAR1} establishments in {COUNTRY1} City": "تصنيف:تأسيسات سنة {YEAR1} في مدينة {COUNTRY1}",  # 124
-    "Category:{YEAR1} executions by {COUNTRY1}": "تصنيف:إعدامات في {COUNTRY1} في {YEAR1}",  # 96
-    "Category:{YEAR1} people from {COUNTRY1}": "تصنيف:أشخاص من {COUNTRY1} في {YEAR1}",  # 115
-    "Category:{YEAR1} fires in {COUNTRY1}": "تصنيف:حرائق في {COUNTRY1} في {YEAR1}",  # 120
-    "Category:{YEAR1} establishments in {COUNTRY1}, D.C.": "تصنيف:تأسيسات سنة {YEAR1} في {COUNTRY1} العاصمة",  # 112
-    "Category:{YEAR1} {COUNTRY1} politicians": "تصنيف:سياسيو {COUNTRY1} في {YEAR1}",  # 88
-    "Category:{YEAR1} in {COUNTRY1} by province or territory": "تصنيف:{COUNTRY1} في {YEAR1} حسب المقاطعة أو الإقليم",  # 137
-    "Category:{YEAR1} mass murder in {COUNTRY1}": "تصنيف:قتل جماعي في {COUNTRY1} في {YEAR1}",  # 84
-    "Category:{YEAR1} Roman Catholic archbishops in {COUNTRY1}": "تصنيف:رؤساء أساقفة رومان كاثوليك في {COUNTRY1} في {YEAR1}",  # 129
-    "Category:{YEAR1} in sports in {COUNTRY1} (state)": "تصنيف:الرياضة في ولاية {COUNTRY1} في {YEAR1}",  # 131
-    "Category:{YEAR1} in sports in {COUNTRY1} City": "تصنيف:الرياضة في مدينة {COUNTRY1} في {YEAR1}",  # 126
-    "Category:{YEAR1} Tour de {COUNTRY1}": "تصنيف:سباق طواف {COUNTRY1} في {YEAR1}",  # 110
-    "Category:{YEAR1} monarchs in {COUNTRY1}": "تصنيف:ملكيون في {COUNTRY1} في {YEAR1}",  # 82
-    "Category:{YEAR1} in {COUNTRY1} (country)": "تصنيف:{COUNTRY1} في {YEAR1}",  # 99
-    "Category:{YEAR1} disestablishments in {COUNTRY1} (state)": "تصنيف:انحلالات سنة {YEAR1} في ولاية {COUNTRY1}",  # 71
-    "Category:{COUNTRY1} at the {YEAR1} FIFA Women's World Cup": "تصنيف:{COUNTRY1} في كأس العالم لكرة القدم للسيدات {YEAR1}",  # 97
-    "Category:{YEAR1} Roman Catholic church buildings in {COUNTRY1}": "تصنيف:مبان كنائس رومانية كاثوليكية في {COUNTRY1} في {YEAR1}",  # 92
-    "Category:{YEAR1} in Ottoman {COUNTRY1}": "تصنيف:{COUNTRY1} العثمانية في {YEAR1}",  # 65
-    "Category:{YEAR1} natural disasters in {COUNTRY1}": "تصنيف:كوارث طبيعية في {COUNTRY1} في {YEAR1}",  # 84
-    "Category:{YEAR1} floods in {COUNTRY1}": "تصنيف:فيضانات في {COUNTRY1} في {YEAR1}",  # 62
-    "Category:{YEAR1} awards in {COUNTRY1}": "تصنيف:جوائز {YEAR1} في {COUNTRY1}",  # 78
-    "Category:Aviation accidents and incidents in {COUNTRY1} in {YEAR1}": "تصنيف:حوادث طيران في {COUNTRY1} في {YEAR1}",  # 83
-    "Category:{YEAR1} establishments in {COUNTRY1} by state or union territory": "تصنيف:تأسيسات سنة {YEAR1} في {COUNTRY1} حسب الولاية أو الإقليم الاتحادي",  # 72
-    "Category:{YEAR1} {COUNTRY1} elections": "تصنيف:انتخابات {COUNTRY1} في {YEAR1}",  # 79
-    "Category:Candidates in the {YEAR1} {COUNTRY1} elections": "تصنيف:مرشحون في انتخابات {COUNTRY1} في {YEAR1}",  # 73
-    "Category:{YEAR1} military history of {COUNTRY1}": "تصنيف:تاريخ {COUNTRY1} العسكري في {YEAR1}",  # 57
-    "Category:{YEAR1} controversies in {COUNTRY1}": "تصنيف:خلافات في {COUNTRY1} في {YEAR1}",  # 53
-    "Category:Attacks in {COUNTRY1} in the {YEAR1}": "تصنيف:هجمات في {COUNTRY1} في {YEAR1}",  # 64
-    "Category:{YEAR1} members of {COUNTRY1} General Assembly": "تصنيف:أعضاء جمعية {COUNTRY1} العامة في {YEAR1}",  # 57
-    "Category:{COUNTRY1} at the {YEAR1} Copa América": "تصنيف:{COUNTRY1} في كوبا أمريكا {YEAR1}",  # 57
-    "Category:{YEAR1} in the Colony of {COUNTRY1}": "تصنيف:{COUNTRY1} في {YEAR1}",  # 54
-    "Category:{YEAR1} festivals in {COUNTRY1}": "تصنيف:مهرجانات {YEAR1} في {COUNTRY1}",  # 55
-    "Category:{YEAR1} members of {COUNTRY1} Legislature": "تصنيف:أعضاء هيئة {COUNTRY1} التشريعية في {YEAR1}",  # 54
-    "Category:{YEAR1} {COUNTRY1} state court judges": "تصنيف:قضاة محكمة ولاية {COUNTRY1} في {YEAR1}",  # 54
+    "category:{year1} in {country1}": "تصنيف:{country1} في {year1}",  # 34632
+    "category:{year1} establishments in {country1}": "تصنيف:تأسيسات سنة {year1} في {country1}",  # 19853
+    "category:{year1} events in {country1}": "تصنيف:أحداث {year1} في {country1}",  # 7413
+    "category:{year1} disestablishments in {country1}": "تصنيف:انحلالات سنة {year1} في {country1}",  # 4600
+    "category:{year1} sports events in {country1}": "تصنيف:أحداث {year1} الرياضية في {country1}",  # 6108
+    "category:{year1} crimes in {country1}": "تصنيف:جرائم {year1} في {country1}",  # 3966
+    "category:{year1} murders in {country1}": "تصنيف:جرائم قتل في {country1} في {year1}",
+    "category:{year1} disasters in {country1}": "تصنيف:كوارث في {country1} في {year1}",  # 2140
+    "category:{year1} in {country1} by month": "تصنيف:أحداث {year1} في {country1} حسب الشهر",  # 1808
+    "category:{year1} elections in {country1}": "تصنيف:انتخابات {country1} في {year1}",  # 1550
+    "category:{year1} events in {country1} by month": "تصنيف:أحداث {year1} في {country1} حسب الشهر",  # 1382
+    "category:years of the {year1} in {country1}": "تصنيف:سنوات {year1} في {country1}",  # 922
+    "category:{year1} in sports in {country1}": "تصنيف:الرياضة في {country1} في {year1}",  # 630
+    "category:{year1} in {country1} by city": "تصنيف:{country1} في {year1} حسب المدينة",  # 486
+    "category:{country1} at the {year1} fifa world cup": "تصنيف:{country1} في كأس العالم {year1}",  # 466
+    "category:{year1} in {country1} (state)": "تصنيف:ولاية {country1} في {year1}",  # 353
+    "category:{year1} establishments in {country1} territory": "تصنيف:تأسيسات سنة {year1} في إقليم {country1}",  # 231
+    "category:{year1} establishments in {country1} (state)": "تصنيف:تأسيسات سنة {year1} في ولاية {country1}",  # 262
+    "category:terrorist incidents in {country1} in {year1}": "تصنيف:حوادث إرهابية في {country1} في {year1}",  # 333
+    "category:railway stations in {country1} opened in {year1}": "تصنيف:محطات السكك الحديدية في {country1} افتتحت في {year1}",  # 345
+    "category:{year1} in {country1} territory": "تصنيف:إقليم {country1} في {year1}",  # 289
+    "category:{year1} architecture in {country1}": "تصنيف:عمارة {year1} في {country1}",  # 317
+    "category:{year1} in new {country1}": "تصنيف:{country1} الجديدة في {year1}",  # 253
+    "category:{year1} in {country1} by state": "تصنيف:{year1} في {country1} حسب الولاية",  # 280
+    "category:{year1} in {country1} by state or territory": "تصنيف:{country1} في {year1} حسب الولاية",  # 243
+    "category:{year1} mass shootings in {country1}": "تصنيف:إطلاق نار عشوائي في {country1} في {year1}",  # 215
+    "category:attacks in {country1} in {year1}": "تصنيف:هجمات في {country1} في {year1}",  # 247
+    "category:{year1} roman catholic bishops in {country1}": "تصنيف:أساقفة كاثوليك رومان في {country1} في {year1}",  # 233
+    "category:{year1} establishments in new {country1}": "تصنيف:تأسيسات سنة {year1} في {country1} الجديدة",  # 154
+    "category:{year1} in {country1} city": "تصنيف:مدينة {country1} في {year1}",  # 150
+    "category:{year1} religious buildings and structures in {country1}": "تصنيف:مبان ومنشآت دينية في {country1} في {year1}",  # 165
+    "category:{year1} churches in {country1}": "تصنيف:كنائس في {country1} في {year1}",  # 172
+    "category:{year1} in {country1} (u.s. state)": "تصنيف:ولاية {country1} في {year1}",  # 155
+    "category:{country1} at uefa euro {year1}": "تصنيف:{country1} في بطولة أمم أوروبا {year1}",  # 183
+    "category:{year1} mosques in {country1}": "تصنيف:مساجد في {country1} في {year1}",  # 175
+    "category:{year1} in sport in {country1}": "تصنيف:أحداث {year1} الرياضية في {country1}",  # 143
+    "category:terrorist incidents in {country1} in the {year1}": "تصنيف:حوادث إرهابية في {country1} في {year1}",  # 173
+    "category:{year1} establishments in {country1} (u.s. state)": "تصنيف:تأسيسات سنة {year1} في ولاية {country1}",  # 138
+    "category:railway stations in {country1} opened in the {year1}": "تصنيف:محطات السكك الحديدية في {country1} افتتحت في {year1}",  # 170
+    "category:{year1} crimes in {country1} by month": "تصنيف:جرائم {year1} في {country1} حسب الشهر",  # 167
+    "category:{year1} mayors of places in {country1}": "تصنيف:رؤساء بلديات في {country1} في {year1}",  # 153
+    "category:{year1} in {country1}, d.c.": "تصنيف:{country1} العاصمة في {year1}",  # 145
+    "category:{year1} establishments in {country1} city": "تصنيف:تأسيسات سنة {year1} في مدينة {country1}",  # 124
+    "category:{year1} executions by {country1}": "تصنيف:إعدامات في {country1} في {year1}",  # 96
+    "category:{year1} people from {country1}": "تصنيف:أشخاص من {country1} في {year1}",  # 115
+    "category:{year1} fires in {country1}": "تصنيف:حرائق في {country1} في {year1}",  # 120
+    "category:{year1} establishments in {country1}, d.c.": "تصنيف:تأسيسات سنة {year1} في {country1} العاصمة",  # 112
+    "category:{year1} {country1} politicians": "تصنيف:سياسيو {country1} في {year1}",  # 88
+    "category:{year1} in {country1} by province or territory": "تصنيف:{country1} في {year1} حسب المقاطعة أو الإقليم",  # 137
+    "category:{year1} mass murder in {country1}": "تصنيف:قتل جماعي في {country1} في {year1}",  # 84
+    "category:{year1} roman catholic archbishops in {country1}": "تصنيف:رؤساء أساقفة رومان كاثوليك في {country1} في {year1}",  # 129
+    "category:{year1} in sports in {country1} (state)": "تصنيف:الرياضة في ولاية {country1} في {year1}",  # 131
+    "category:{year1} in sports in {country1} city": "تصنيف:الرياضة في مدينة {country1} في {year1}",  # 126
+    "category:{year1} tour de {country1}": "تصنيف:سباق طواف {country1} في {year1}",  # 110
+    "category:{year1} monarchs in {country1}": "تصنيف:ملكيون في {country1} في {year1}",  # 82
+    "category:{year1} in {country1} (country)": "تصنيف:{country1} في {year1}",  # 99
+    "category:{year1} disestablishments in {country1} (state)": "تصنيف:انحلالات سنة {year1} في ولاية {country1}",  # 71
+    "category:{country1} at the {year1} fifa women's world cup": "تصنيف:{country1} في كأس العالم لكرة القدم للسيدات {year1}",  # 97
+    "category:{year1} roman catholic church buildings in {country1}": "تصنيف:مبان كنائس رومانية كاثوليكية في {country1} في {year1}",  # 92
+    "category:{year1} in ottoman {country1}": "تصنيف:{country1} العثمانية في {year1}",  # 65
+    "category:{year1} natural disasters in {country1}": "تصنيف:كوارث طبيعية في {country1} في {year1}",  # 84
+    "category:{year1} floods in {country1}": "تصنيف:فيضانات في {country1} في {year1}",  # 62
+    "category:{year1} awards in {country1}": "تصنيف:جوائز {year1} في {country1}",  # 78
+    "category:aviation accidents and incidents in {country1} in {year1}": "تصنيف:حوادث طيران في {country1} في {year1}",  # 83
+    "category:{year1} establishments in {country1} by state or union territory": "تصنيف:تأسيسات سنة {year1} في {country1} حسب الولاية أو الإقليم الاتحادي",  # 72
+    "category:{year1} {country1} elections": "تصنيف:انتخابات {country1} في {year1}",  # 79
+    "category:candidates in the {year1} {country1} elections": "تصنيف:مرشحون في انتخابات {country1} في {year1}",  # 73
+    "category:{year1} military history of {country1}": "تصنيف:تاريخ {country1} العسكري في {year1}",  # 57
+    "category:{year1} controversies in {country1}": "تصنيف:خلافات في {country1} في {year1}",  # 53
+    "category:attacks in {country1} in the {year1}": "تصنيف:هجمات في {country1} في {year1}",  # 64
+    "category:{year1} members of {country1} general assembly": "تصنيف:أعضاء جمعية {country1} العامة في {year1}",  # 57
+    "category:{country1} at the {year1} copa américa": "تصنيف:{country1} في كوبا أمريكا {year1}",  # 57
+    "category:{year1} in the colony of {country1}": "تصنيف:{country1} في {year1}",  # 54
+    "category:{year1} festivals in {country1}": "تصنيف:مهرجانات {year1} في {country1}",  # 55
+    "category:{year1} members of {country1} legislature": "تصنيف:أعضاء هيئة {country1} التشريعية في {year1}",  # 54
+    "category:{year1} {country1} state court judges": "تصنيف:قضاة محكمة ولاية {country1} في {year1}",  # 54
 }
