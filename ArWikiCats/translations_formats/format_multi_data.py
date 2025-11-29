@@ -17,16 +17,6 @@ YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"
 
 
-@dataclass
-class CategoryResult:
-    """Data structure representing each processed category."""
-
-    category: str
-    template_key: str
-    nat_key: str
-    other_key: str
-
-
 def FormatMultiData(
     formatted_data: Dict[str, str],
     data_list: Dict[str, str],

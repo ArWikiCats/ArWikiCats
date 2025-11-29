@@ -1,14 +1,13 @@
 
-from .DataModel import YearFormatData, FormatData, CategoryResult, FormatMultiDataNew
-
-from .format_multi_data import FormatMultiData
+from .DataModel import YearFormatData, FormatData, NormalizeResult, FormatMultiDataNew
 from .format_data_with_time import FormatYearCountryData
+from .format_multi_data import FormatMultiData
 
 __all__ = [
-    "FormatMultiDataNew",
-    "FormatYearCountryData",
     "YearFormatData",
     "FormatData",
+    "NormalizeResult",
+    "FormatMultiDataNew",
+    "FormatYearCountryData",
     "FormatMultiData",
-    "CategoryResult",
 ]

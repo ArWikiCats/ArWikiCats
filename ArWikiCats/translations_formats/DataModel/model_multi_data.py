@@ -9,8 +9,8 @@ test at tests.translations_formats.test_format_2_data.py
 import functools
 from dataclasses import dataclass
 from ...helps.log import logger
-from .format_data import FormatData
-from .format_data_time import YearFormatData
+from .model_data import FormatData
+from .model_data_time import YearFormatData
 
 # -----------------------
 #
@@ -18,7 +18,7 @@ from .format_data_time import YearFormatData
 
 
 @dataclass
-class CategoryResult:
+class NormalizeResult:
     """Data structure representing each processed category."""
 
     category: str
@@ -33,7 +33,7 @@ class FormatMultiDataNew:
 
     def __init__(
         self,
-        country_bot: FormatData,
+        country_bot: FormatData | YearFormatData,
         other_bot: FormatData | YearFormatData,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
@@ -68,7 +68,7 @@ class FormatMultiDataNew:
         key, new_category = self.other_bot.normalize_category_with_key(category)
         return new_category
 
-    def normalize_both_new(self, category) -> CategoryResult:
+    def normalize_both_new(self, category) -> NormalizeResult:
         """
         Normalize both nationality and sport tokens in the category.
 
@@ -81,7 +81,7 @@ class FormatMultiDataNew:
         nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
         other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
 
-        return CategoryResult(
+        return NormalizeResult(
             category=normalized_category,
             template_key=template_key,
             nat_key=nat_key,
