@@ -69,7 +69,7 @@ from .politics.military_keys import (
     military_format_women_without_al_from_end,
 )
 from .politics.ministers import ministrs_tab_for_pop_format
-from .sports import SPORT_FORMTS_EN_AR_IS_P17
+from .sports.skeys import SPORT_FORMTS_EN_AR_IS_P17
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.olympics_data import olympics
 from .sports.Sport_key import (
