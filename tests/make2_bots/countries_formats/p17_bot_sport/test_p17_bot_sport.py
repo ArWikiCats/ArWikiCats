@@ -15,26 +15,12 @@ from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
 # =========================================================
 
 sport_data = {
-    "yemen rally championship": "بطولة اليمن للراليات",
-    "tunisia rally championship": "بطولة تونس للراليات",
-    "yemen sports templates": "قوالب اليمن الرياضية",
-
-    "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
-    "tunisia national team": "منتخبات تونس الوطنية",
-    "tunisia national teams": "منتخبات تونس الوطنية",
-    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
-    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
-    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
-    "venezuela rally championship": "بطولة فنزويلا للراليات",
-    "zambia rally championship": "بطولة زامبيا للراليات",
-    "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
-    "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
-    "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "africa football league": "دوري إفريقيا لكرة القدم",
     "angola basketball cup": "كأس أنغولا لكرة السلة",
     "angola national football team lists": "قوائم منتخب أنغولا لكرة القدم",
     "argentina national field hockey team navigational boxes": "صناديق تصفح منتخب الأرجنتين لهوكي الميدان",
     "argentina national football team navigational boxes": "صناديق تصفح منتخب الأرجنتين لكرة القدم",
+    "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "aruba national football team navigational boxes": "صناديق تصفح منتخب أروبا لكرة القدم",
     "australia national men's under-23 soccer team": "منتخب أستراليا لكرة القدم تحت 23 سنة للرجال",
     "australia national netball team": "منتخب أستراليا لكرة الشبكة",
@@ -82,6 +68,7 @@ sport_data = {
     "ivory coast national football team navigational boxes": "صناديق تصفح منتخب ساحل العاج لكرة القدم",
     "jamaica national women's football team navigational boxes": "صناديق تصفح منتخب جامايكا لكرة القدم للسيدات",
     "kazakhstan national handball team templates": "قوالب منتخب كازاخستان لكرة اليد",
+    "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "liberia national football team": "منتخب ليبيريا لكرة القدم",
     "malaysia national football team results": "نتائج منتخب ماليزيا لكرة القدم",
     "maldives national women's football team": "منتخب جزر المالديف لكرة القدم للسيدات",
@@ -136,14 +123,27 @@ sport_data = {
     "switzerland national men's ice hockey team": "منتخب سويسرا لهوكي الجليد للرجال",
     "switzerland national women's basketball team": "منتخب سويسرا لكرة السلة للسيدات",
     "togo national women's basketball team": "منتخب توغو لكرة السلة للسيدات",
+    "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
+    "tunisia national team": "منتخبات تونس الوطنية",
+    "tunisia national teams": "منتخبات تونس الوطنية",
+    "tunisia rally championship": "بطولة تونس للراليات",
     "turkey national women's volleyball team coaches": "مدربو منتخب تركيا لكرة الطائرة للسيدات",
     "united states national field hockey team": "منتخب الولايات المتحدة لهوكي الميدان",
     "united states national men's soccer team records and statistics": "سجلات وإحصائيات منتخب الولايات المتحدة لكرة القدم للرجال",
     "united states national men's soccer team records": "سجلات منتخب الولايات المتحدة لكرة القدم للرجال",
     "united states national rugby league team coaches": "مدربو منتخب الولايات المتحدة لدوري الرجبي",
+    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
+    "venezuela rally championship": "بطولة فنزويلا للراليات",
     "wales national football team results": "نتائج منتخب ويلز لكرة القدم",
     "wales national women's rugby league team players": "لاعبات منتخب ويلز لدوري الرجبي للسيدات",
+    "yemen rally championship": "بطولة اليمن للراليات",
+    "yemen sports templates": "قوالب اليمن الرياضية",
+    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
+    "zambia rally championship": "بطولة زامبيا للراليات",
+    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
+    "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
 }
+
 
 data_2 = {
     # "yemen international footballers": "لاعبو كرة قدم دوليون من اليمن",
@@ -227,7 +227,7 @@ def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
 # =========================================================
 
 TEMPORAL_CASES = [
-    ("test_get_p17_with_sport", sport_data, get_p17_with_sport),
+    ("test_get_p17_with_sport_1", sport_data, get_p17_with_sport),
     ("test_get_p17_with_sport_2", data_2, get_p17_with_sport),
     ("test_Get_Sport_Format_xo_en_ar_is_P17", data2, Get_Sport_Format_xo_en_ar_is_P17),
 ]
