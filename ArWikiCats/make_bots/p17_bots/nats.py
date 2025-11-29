@@ -13,7 +13,6 @@ from ...translations import (
     sport_lab_nat_load,
     sport_lab_oioioi_load,
 )
-from .nats_sport import load_SPORT_FORMATS_FOR_P17
 
 
 @functools.lru_cache(maxsize=None)
@@ -33,9 +32,6 @@ def find_nat_others(category: str) -> str:
     normalized_category = category.lower()
 
     category_label = sport_lab_nat_load(normalized_category)
-
-    if category_label == "":
-        category_label = load_SPORT_FORMATS_FOR_P17(normalized_category)
 
     if category_label == "":
         category_label = sport_lab_oioioi_load(normalized_category)
