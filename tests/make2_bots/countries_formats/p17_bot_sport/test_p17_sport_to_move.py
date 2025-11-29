@@ -5,13 +5,13 @@ Tests
 import pytest
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
-    get_p17_with_sport,
-    Get_Sport_Format_xo_en_ar_is_P17,
+from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
+    sport_formts_en_ar_is_p17_label,
+    get_con_3_lab_sports,
 )
 
 # =========================================================
-#                   get_p17_with_sport
+#           sport_formts_en_ar_is_p17_label
 # =========================================================
 
 sport_data = {
@@ -193,43 +193,61 @@ data_2 = {
 
 @pytest.mark.parametrize("category, expected", sport_data.items(), ids=list(sport_data.keys()))
 @pytest.mark.fast
-def test_get_p17_with_sport(category, expected) -> None:
-    label = get_p17_with_sport(category)
+def test_sport_formts_en_ar_is_p17_label(category, expected) -> None:
+    label = sport_formts_en_ar_is_p17_label(category)
     assert label.strip() == expected.strip()
 
 
 @pytest.mark.parametrize("category, expected", data_2.items(), ids=list(data_2.keys()))
 @pytest.mark.fast
-def test_get_p17_with_sport_data_2(category, expected) -> None:
-    label = get_p17_with_sport(category)
+def test_sport_formts_en_ar_is_p17_label_data_2(category, expected) -> None:
+    label = sport_formts_en_ar_is_p17_label(category)
     assert label.strip() == expected.strip()
 
 
 # =========================================================
-#                   Get_Sport_Format_xo_en_ar_is_P17
+#           get_con_3_lab_sports
 # =========================================================
 
-data2 = {
-    "national women's soccer team": "منتخب {} لكرة القدم للسيدات",
-    "winter olympics softball": "كرة لينة {} في الألعاب الأولمبية الشتوية",
+
+test_data_get_con_3_lab = {
+    "amateur international footballers": "لاعبو منتخب {} لكرة القدم للهواة",
+    "amateur international soccer players": "لاعبو منتخب {} لكرة القدم للهواة",
+    "international footballers": "لاعبو منتخب {} لكرة القدم ",
+    "international soccer players": "لاعبو منتخب {} لكرة القدم ",
+    "men's a' international footballers": "لاعبو منتخب {} لكرة القدم للرجال للمحليين",
+    "men's international footballers": "لاعبو منتخب {} لكرة القدم للرجال",
+    "men's international soccer players": "لاعبو منتخب {} لكرة القدم للرجال",
+    "men's under-20 international footballers": "لاعبو منتخب {} تحت 20 سنة لكرة القدم للرجال",
+    "men's under-21 international footballers": "لاعبو منتخب {} تحت 21 سنة لكرة القدم للرجال",
+    "men's youth international footballers": "لاعبو منتخب {} لكرة القدم للشباب",
+    "national football team managers": "مدربو منتخب {} لكرة القدم",
+    "national team": "منتخبات {} الوطنية",
+    "national teams": "منتخبات {} الوطنية",
+    "rally championship": "بطولة {} للراليات",
+    "sports templates": "قوالب {} الرياضية",
+    "under-13 international footballers": "لاعبو منتخب {} تحت 13 سنة لكرة القدم ",
+    "under-14 international footballers": "لاعبو منتخب {} تحت 14 سنة لكرة القدم ",
+    "women's international footballers": "لاعبات منتخب {} لكرة القدم للسيدات",
+    "women's youth international footballers": "لاعبات منتخب {} لكرة القدم للشابات",
 }
 
 
-@pytest.mark.parametrize("category, expected_key", data2.items(), ids=list(data2.keys()))
+@pytest.mark.parametrize("category, expected", test_data_get_con_3_lab.items(), ids=list(test_data_get_con_3_lab.keys()))
 @pytest.mark.fast
-def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
-    label = Get_Sport_Format_xo_en_ar_is_P17(category)
-    assert label.strip() == expected_key
+def test_get_con_3_lab_sports(category, expected):
+    result = get_con_3_lab_sports(category)
+    assert result == expected
 
 
 # =========================================================
-#                   DUMP
+#           DUMP
 # =========================================================
 
 TEMPORAL_CASES = [
-    ("test_get_p17_with_sport", sport_data, get_p17_with_sport),
-    ("test_get_p17_with_sport_2", data_2, get_p17_with_sport),
-    ("test_Get_Sport_Format_xo_en_ar_is_P17", data2, Get_Sport_Format_xo_en_ar_is_P17),
+    ("test_sport_formts_en_ar_is_p17_label", sport_data, sport_formts_en_ar_is_p17_label),
+    ("test_sport_formts_en_ar_is_p17_label_2", data_2, sport_formts_en_ar_is_p17_label),
+    ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
 ]
 
 
