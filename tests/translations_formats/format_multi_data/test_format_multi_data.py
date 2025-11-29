@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""Integration tests for FormatMultiData and FormatComparisonHelper"""
+"""Integration tests for FormatMultiData  """
 
 import pytest
 
 from ArWikiCats.translations_formats.format_multi_data import (
-    FormatComparisonHelper,
     FormatMultiData,
 )
 
@@ -50,12 +49,12 @@ def multi_bot():
 
 
 class TestFormatComparisonHelper:
-    """Tests for FormatComparisonHelper class."""
+    """Tests for FormatComparison Helper class."""
 
     def test_get_start_p17(self, multi_bot):
         """Test get_start_p17 method returns normalized category and key."""
         category = "yemeni football teams"
-        new_category, key = multi_bot.get_start_p17(category)
+        key, new_category = multi_bot.country_bot.normalize_category_with_key(category)
 
         assert key == "yemeni"
         assert "{nat_en}" in new_category
@@ -72,8 +71,8 @@ class TestFormatMultiDataInitialization:
             data_list=nationality_data,
         )
 
-        assert bot.key_placeholder == "natar"
-        assert bot.value_placeholder == "natar"
+        assert bot.country_bot.key_placeholder == "natar"
+        assert bot.country_bot.value_placeholder == "natar"
         assert bot.other_bot.key_placeholder == "xoxo"
         assert bot.other_bot.value_placeholder == "xoxo"
 
@@ -89,8 +88,8 @@ class TestFormatMultiDataInitialization:
             value2_placeholder="{sport_name}",
         )
 
-        assert bot.key_placeholder == "COUNTRY"
-        assert bot.value_placeholder == "{country}"
+        assert bot.country_bot.key_placeholder == "COUNTRY"
+        assert bot.country_bot.value_placeholder == "{country}"
         assert bot.other_bot.key_placeholder == "SPORT"
         assert bot.other_bot.value_placeholder == "{sport_name}"
 
