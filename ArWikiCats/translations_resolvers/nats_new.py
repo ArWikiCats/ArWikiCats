@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ """
 
-from ..translations_formats.format_multi_data import FormatMultiData
-from ..translations_formats.DataModel.format_data import FormatData
+from ..translations_formats import FormatMultiData, FormatData
+
 from ..translations.nats.Nationality import en_nats_to_ar_label
 from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 

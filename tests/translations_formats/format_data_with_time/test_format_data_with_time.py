@@ -4,10 +4,7 @@
 import pytest
 
 from ArWikiCats.translations import all_country_ar
-from ArWikiCats.translations_formats import FormatMultiDataNew
-from ArWikiCats.translations_formats.format_data_with_time import (
-    FormatYearCountryData,
-)
+from ArWikiCats.translations_formats import FormatMultiDataNew, FormatYearCountryData
 
 # Template data with both nationality and sport placeholders
 formatted_data = {

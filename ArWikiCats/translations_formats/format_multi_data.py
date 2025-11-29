@@ -11,8 +11,7 @@ from dataclasses import dataclass
 from typing import Dict
 
 from ..helps.log import logger
-from .DataModel.format_data import FormatData
-from .DataModel.format_multi_data_new import FormatMultiDataNew
+from .DataModel import FormatMultiDataNew, FormatData
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"

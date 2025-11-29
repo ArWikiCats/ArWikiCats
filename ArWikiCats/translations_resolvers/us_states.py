@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ..translations_formats.DataModel.format_data import FormatData
+from ..translations_formats import FormatData
 from ..translations import US_STATES
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
