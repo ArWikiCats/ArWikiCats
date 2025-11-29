@@ -78,7 +78,7 @@ def _expand_templates(templates: Dict[str, str]) -> Dict[str, str]:
 
     expanded = dict(templates)
 
-    for key, value in list(templates.items()):
+    for key, value in templates.items():
         relaxed_key = key.replace("men's", "mens").replace("women's", "womens")
         expanded.setdefault(relaxed_key, value)
 
