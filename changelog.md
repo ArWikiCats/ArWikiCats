@@ -1,4 +1,18 @@
 
+## [Add Match_sports FormatData tests] - 2025-11-29
+
+* **Added**
+  * New Match_sports tests covering relaxed matching variants, whitespace normalization, template expansion, and cached `FormatData` creation.
+
+* **Changed**
+  * Reorganized the sports resolver test suite to use shared fixtures and clearer parameterization.
+
+* **Fixed**
+  * None.
+
+* **Removed**
+  * None.
+
 ## [Refactor Match_sports to use FormatData resolver] - 2025-11-29
 
 * **Added**
