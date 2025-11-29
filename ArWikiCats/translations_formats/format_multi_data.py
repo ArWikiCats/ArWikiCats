@@ -29,8 +29,9 @@ class FormatComparisonHelper:
         return new_category, key
 
 
-YEAR_PARAM = "{year1}"
-COUNTRY_PARAM = "{country1}"
+# -----------------------
+#
+# -----------------------
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"
@@ -38,7 +39,6 @@ COUNTRY_PARAM = "natar"
 
 class FormatMultiData(FormatComparisonHelper):
     """
-
     """
 
     def __init__(
@@ -61,16 +61,17 @@ class FormatMultiData(FormatComparisonHelper):
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
 
+        # Country bot (FormatData)
         self.country_bot = FormatData(
-            self.formatted_data,
-            data_list,
+            formatted_data=self.formatted_data,
+            data_list=data_list,
             key_placeholder=self.key_placeholder,
             value_placeholder=self.value_placeholder,
             text_after=text_after,
             text_before=text_before,
         )
 
-        self.sport_bot = FormatData(
+        self.other_bot = FormatData(
             {},
             data_list2,
             key_placeholder=key2_placeholder,
@@ -103,10 +104,10 @@ class FormatMultiData(FormatComparisonHelper):
         Example:
             category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
         """
-        key = self.sport_bot.match_key(category)
+        key = self.other_bot.match_key(category)
         result = ""
         if key:
-            result = self.sport_bot.normalize_category(category, key)
+            result = self.other_bot.normalize_category(category, key)
         return result
 
     def normalize_both(self, category) -> str:
@@ -141,9 +142,9 @@ class FormatMultiData(FormatComparisonHelper):
         # template_key = self.normalize_both(normalized_category)
 
         nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
-        xoxo_key, template_key = self.sport_bot.normalize_category_with_key(template_key)
+        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
 
-        if not nat_key or not xoxo_key:
+        if not nat_key or not other_key:
             return ""
 
         # Must match a template
@@ -156,14 +157,14 @@ class FormatMultiData(FormatComparisonHelper):
 
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(nat_key)
-        sport_ar = self.sport_bot.get_key_label(xoxo_key)
+        other_ar = self.other_bot.get_key_label(other_key)
 
-        if not country_ar or not sport_ar:
+        if not country_ar or not other_ar:
             return ""
 
         # Replace placeholders
         label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
-        label = self.sport_bot.replace_value_placeholder(label, sport_ar)
+        label = self.other_bot.replace_value_placeholder(label, other_ar)
 
         logger.debug(f"Translated {category=} → {label=}")
         return label

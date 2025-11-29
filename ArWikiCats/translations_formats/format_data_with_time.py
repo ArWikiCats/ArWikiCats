@@ -68,6 +68,10 @@ class YearFormatData:
         result = self.fixing(result)
         return result
 
+# -----------------------
+#
+# -----------------------
+
 
 YEAR_PARAM = "{year1}"
 COUNTRY_PARAM = "{country1}"
@@ -75,8 +79,6 @@ COUNTRY_PARAM = "{country1}"
 
 class FormatYearCountryData:
     """
-    Works EXACTLY like FormatMultiData but with:
-        - year_bot instead of sport_bot
     """
 
     def __init__(
@@ -85,8 +87,8 @@ class FormatYearCountryData:
         data_list: Dict[str, str],
         key_placeholder: str = COUNTRY_PARAM,
         value_placeholder: str = COUNTRY_PARAM,
-        key_placeholder_year: str = YEAR_PARAM,
-        value_placeholder_year: str = YEAR_PARAM,
+        key2_placeholder: str = YEAR_PARAM,
+        value2_placeholder: str = YEAR_PARAM,
         text_after: str = "",
         text_before: str = "",
     ) -> None:
@@ -104,12 +106,13 @@ class FormatYearCountryData:
             data_list=data_list,
             key_placeholder=self.key_placeholder,
             value_placeholder=self.value_placeholder,
+            text_after=text_after,
+            text_before=text_before,
         )
 
-        # Year bot (custom FormatData-like wrapper)
-        self.year_bot = YearFormatData(
-            key_placeholder=key_placeholder_year,
-            value_placeholder=value_placeholder_year,
+        self.other_bot = YearFormatData(
+            key_placeholder=key2_placeholder,
+            value_placeholder=value2_placeholder,
         )
 
     # ------------------------------------------------------
@@ -132,10 +135,16 @@ class FormatYearCountryData:
     # YEAR/SPORT NORMALIZATION
     # ------------------------------------------------------
     def normalize_other_label(self, category) -> str:
-        key = self.year_bot.match_key(category)
+        """
+        Normalize sport placeholders within a category string.
+
+        Example:
+            category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
+        """
+        key = self.other_bot.match_key(category)
         result = ""
         if key:
-            result = self.year_bot.normalize_category(category, key)
+            result = self.other_bot.normalize_category(category, key)
         return result
 
     def normalize_both(self, category) -> str:
@@ -170,9 +179,9 @@ class FormatYearCountryData:
         # template_key = self.normalize_both(normalized_category)
 
         nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
-        year_key, template_key = self.year_bot.normalize_category_with_key(template_key)
+        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
 
-        if not nat_key or not year_key:
+        if not nat_key or not other_key:
             return ""
 
         # Must match a template
@@ -185,14 +194,14 @@ class FormatYearCountryData:
 
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(nat_key)
-        year_ar = self.year_bot.get_key_label(year_key)
+        other_ar = self.other_bot.get_key_label(other_key)
 
-        if not country_ar or not year_ar:
+        if not country_ar or not other_ar:
             return ""
 
         # Replace placeholders
         label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
-        label = self.year_bot.replace_value_placeholder(label, year_ar)
+        label = self.other_bot.replace_value_placeholder(label, other_ar)
 
         logger.debug(f"Translated {category=} → {label=}")
         return label

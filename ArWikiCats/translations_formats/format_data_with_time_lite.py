@@ -31,8 +31,8 @@ class FormatYearCountryData:
         countries_data: Dict[str, str],
         key_placeholder: str = COUNTRY_PARAM,
         value_placeholder: str = COUNTRY_PARAM,
-        key_placeholder_year: str = YEAR_PARAM,
-        value_placeholder_year: str = YEAR_PARAM,
+        key2_placeholder: str = YEAR_PARAM,
+        value2_placeholder: str = YEAR_PARAM,
     ) -> None:
 
         self.formatted_data = formatted_data
@@ -40,8 +40,8 @@ class FormatYearCountryData:
         self.key_country = key_placeholder
         self.val_country = value_placeholder
 
-        self.key_year = key_placeholder_year
-        self.val_year = value_placeholder_year
+        self.key_year = key2_placeholder
+        self.val_year = value2_placeholder
 
         # Normalize country dictionary to lower-case
         self.countries_data = {k.lower(): v for k, v in countries_data.items()}

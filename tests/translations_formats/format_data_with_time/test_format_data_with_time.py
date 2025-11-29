@@ -55,8 +55,8 @@ def yc_bot():
         data_list=all_country_ar,
         key_placeholder="{country1}",
         value_placeholder="{country1}",
-        key_placeholder_year="{year1}",
-        value_placeholder_year="{year1}",
+        key2_placeholder="{year1}",
+        value2_placeholder="{year1}",
     )
 
 

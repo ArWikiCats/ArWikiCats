@@ -74,8 +74,8 @@ class TestFormatMultiDataInitialization:
 
         assert bot.key_placeholder == "natar"
         assert bot.value_placeholder == "natar"
-        assert bot.sport_bot.key_placeholder == "xoxo"
-        assert bot.sport_bot.value_placeholder == "xoxo"
+        assert bot.other_bot.key_placeholder == "xoxo"
+        assert bot.other_bot.value_placeholder == "xoxo"
 
     def test_initialization_with_custom_placeholders(self):
         """Test that FormatMultiData initializes with custom placeholders."""
@@ -91,13 +91,13 @@ class TestFormatMultiDataInitialization:
 
         assert bot.key_placeholder == "COUNTRY"
         assert bot.value_placeholder == "{country}"
-        assert bot.sport_bot.key_placeholder == "SPORT"
-        assert bot.sport_bot.value_placeholder == "{sport_name}"
+        assert bot.other_bot.key_placeholder == "SPORT"
+        assert bot.other_bot.value_placeholder == "{sport_name}"
 
     def test_nat_bot_and_sport_bot_created(self, multi_bot):
-        """Test that nat_bot and sport_bot are properly initialized."""
+        """Test that nat_bot and other_bot are properly initialized."""
         assert multi_bot.country_bot is not None
-        assert multi_bot.sport_bot is not None
+        assert multi_bot.other_bot is not None
 
 
 class TestNormalizeNatLabel:
