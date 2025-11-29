@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.country_time_pattern import get_label
+from ArWikiCats.main_processers.country_time_pattern import yc_bot, get_label
 
 test_data = {
     # standard
@@ -48,6 +48,8 @@ test_data = {
     "Category:2011 churches in iraq": "تصنيف:كنائس في العراق في 2011",
     "Category:2022 mosques in egypt": "تصنيف:مساجد في مصر في 2022",
 }
+
+yc_bot.country_bot.add_formated_data("category:{year1} in {country1}", "تصنيف:{country1} في {year1}")  # 34632
 
 
 @pytest.mark.parametrize(

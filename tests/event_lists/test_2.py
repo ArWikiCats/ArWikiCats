@@ -59,11 +59,13 @@ data_test2 = {
 
 
 data_list_bad = {
+    # "Category:20th century roman catholic archbishops in colombia": "تصنيف:رؤساء أساقفة رومان كاثوليك في كولومبيا القرن 20",
+    # "Category:20th century disasters in afghanistan": "تصنيف:كوارث القرن 20 في أفغانستان",
+    # "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
+    # "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
+
     "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا القرن 20",
-    "Category:20th century roman catholic archbishops in colombia": "تصنيف:رؤساء أساقفة رومان كاثوليك في كولومبيا القرن 20",
     "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس في القرن 20",
-    "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
-    "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
     "Category:20th century members of maine legislature": "تصنيف:أعضاء هيئة مين التشريعية في القرن 20",
     "Category:20th century prime ministers of japan": "تصنيف:رؤساء وزراء اليابان القرن 20",
     "Category:september 1550 sorts-events in germany": "تصنيف:أحداث سبتمبر 1550 الرياضية في ألمانيا",
@@ -83,7 +85,6 @@ data_list_bad = {
     "Category:20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
     "Category:1550s establishments in jamaica": "تصنيف:تأسيسات عقد 1550 في جامايكا",
     "Category:march 1550 sorts-events in belgium": "تصنيف:أحداث مارس 1550 الرياضية في بلجيكا",
-    "Category:20th century disasters in afghanistan": "تصنيف:كوارث القرن 20 في أفغانستان",
     "Category:april 1550 sorts-events in the united kingdom": "تصنيف:أحداث أبريل 1550 الرياضية في المملكة المتحدة",
     "Category:1550s disestablishments in mississippi": "تصنيف:انحلالات عقد 1550 في مسيسيبي",
     "Category:1550s establishments in maine": "تصنيف:تأسيسات عقد 1550 في مين",

@@ -34,6 +34,11 @@ class FormatData:
         self.data_pattern = ""
         self.pattern = self.keys_to_pattern()
 
+    def add_formated_data(self, key: str, value: str) -> None:
+        """Add a key-value pair to the data_list."""
+        self.formatted_data[key] = value
+        self.formated_data_ci[key.lower()] = value
+
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
         if not self.data_list_ci:
