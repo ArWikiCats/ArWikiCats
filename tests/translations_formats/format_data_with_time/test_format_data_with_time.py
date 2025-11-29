@@ -63,6 +63,7 @@ def yc_bot():
 test_data = [
     ("2025 in Yemen", "اليمن في 2025"),
     ("2020s in Yemen", "اليمن في عقد 2020"),
+    ("2010s establishments in egypt", "تأسيسات عقد 2010 في مصر"),
     ("1999 establishments in egypt", "تأسيسات سنة 1999 في مصر"),
     ("2010s in united states", "الولايات المتحدة في عقد 2010"),
     ("2025 in yemen", "اليمن في 2025"),

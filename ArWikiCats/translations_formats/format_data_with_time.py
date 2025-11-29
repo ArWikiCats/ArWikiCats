@@ -57,9 +57,16 @@ class YearFormatData:
             result = self.normalize_category(category, key)
         return key, result
 
+    def fixing(self, text: str) -> str:
+        """Fix text."""
+        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
+        return text
+
     def replace_value_placeholder(self, label, value) -> str:
         # Replace placeholder
-        return label.replace(self.value_placeholder, value)
+        result = label.replace(self.value_placeholder, value)
+        result = self.fixing(result)
+        return result
 
 
 YEAR_PARAM = "{year1}"
