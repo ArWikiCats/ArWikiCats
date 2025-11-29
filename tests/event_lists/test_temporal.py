@@ -84,7 +84,7 @@ temporal_4 = {
     "Category:July 2018 events by continent": "تصنيف:أحداث يوليو 2018 حسب القارة",
     "Category:Mammals by century of formal description": "تصنيف:ثدييات حسب قرن الوصف",
     "Category:Multi-sport events in the Soviet Union": "تصنيف:أحداث رياضية متعددة في الاتحاد السوفيتي",
-    "Category:November 2006 in Yemen": "تصنيف:نوفمبر 2006 في اليمن",
+    # "Category:November 2006 in Yemen": "تصنيف:نوفمبر 2006 في اليمن",
     "Category:Olympic figure skaters by year": "تصنيف:متزلجون فنيون أولمبيون حسب السنة",
     "Category:Publications by year of disestablishment": "تصنيف:منشورات حسب سنة الانحلال",
     "Category:Publications by year of establishment": "تصنيف:منشورات حسب سنة التأسيس",
