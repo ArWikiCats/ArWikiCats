@@ -1,4 +1,18 @@
 
+## [Refactor Match_sports to use FormatData resolver] - 2025-11-29
+
+* **Added**
+  * None.
+
+* **Changed**
+  * Refactored the sports match resolver to rely on the shared `FormatData` formatter with cached initialization and expanded template variants.
+
+* **Fixed**
+  * Preserved relaxed template matching by generating fallback keys within the formatter instead of manual regex handling.
+
+* **Removed**
+  * None.
+
 ## [#125](https://github.com/MrIbrahem/ArWikiCats/pull/125) - 2025-11-29
 
 * **New Features**
