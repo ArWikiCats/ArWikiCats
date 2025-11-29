@@ -8,7 +8,7 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..make_bots import tmp_bot
-from ..make_bots.date_bots import year_lab
+from ..new import year_lab
 from ..make_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.ma_bots import list_cat_format, ye_ts_bot
