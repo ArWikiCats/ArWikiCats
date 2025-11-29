@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Provides classes for formatting template-driven translation labels.
-- FormatMultiData: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
+- format_multi_data: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
 
 test at tests.translations_formats.test_format_2_data.py
 """
@@ -11,13 +11,13 @@ from dataclasses import dataclass
 from typing import Dict
 
 from ..helps.log import logger
-from .DataModel import FormatMultiDataNew, FormatData
+from .DataModel import MultiDataFormatterBase, FormatData
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"
 
 
-def FormatMultiData(
+def format_multi_data(
     formatted_data: Dict[str, str],
     data_list: Dict[str, str],
     key_placeholder: str = COUNTRY_PARAM,
@@ -27,7 +27,7 @@ def FormatMultiData(
     value2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
-) -> FormatMultiDataNew:
+) -> MultiDataFormatterBase:
     """Prepare helpers for matching and formatting template-driven labels."""
     # Store originals
 
@@ -46,7 +46,7 @@ def FormatMultiData(
         key_placeholder=key2_placeholder,
         value_placeholder=value2_placeholder,
     )
-    return FormatMultiDataNew(
+    return MultiDataFormatterBase(
         country_bot=country_bot,
         other_bot=other_bot,
     )

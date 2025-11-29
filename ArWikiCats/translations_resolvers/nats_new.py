@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
 
-from ..translations_formats import FormatMultiData, FormatData
+from ..translations_formats import format_multi_data, FormatData
 
 from ..translations.nats.Nationality import en_nats_to_ar_label
 from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
@@ -19,7 +19,7 @@ format_labels_with_nat = {
 # nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
 # sport_bot = FormatData({}, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_placeholder="xoxo")
 
-both_bot = FormatMultiData(
+both_bot = format_multi_data(
     format_labels_with_nat,
     en_nats_to_ar_label,
     key_placeholder="natar",

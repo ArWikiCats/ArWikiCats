@@ -49,7 +49,7 @@ test_data = {
     "Category:2022 mosques in egypt": "تصنيف:مساجد في مصر في 2022",
 }
 
-yc_bot.country_bot.add_formated_data("category:{year1} in {country1}", "تصنيف:{country1} في {year1}")  # 34632
+yc_bot.country_bot.add_formatted_data("category:{year1} in {country1}", "تصنيف:{country1} في {year1}")  # 34632
 
 
 @pytest.mark.parametrize(

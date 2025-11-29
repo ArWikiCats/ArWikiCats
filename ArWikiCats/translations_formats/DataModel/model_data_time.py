@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" """
+"""
+This module provides the YearFormatData class, a specialized formatter for
+handling time-based patterns (years, decades, centuries) in category strings.
+"""
 
 import re
 from ...new.time_to_arabic import (
@@ -37,7 +40,7 @@ class YearFormatData:
             re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE
         )
 
-    def normalize_category_with_key(self, category) -> tuple[str, str]:
+    def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
         Normalize nationality placeholders within a category string.
 
@@ -55,7 +58,7 @@ class YearFormatData:
         text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
         return text
 
-    def replace_value_placeholder(self, label, value) -> str:
+    def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
         result = label.replace(self.value_placeholder, value)
         result = self.fixing(result)

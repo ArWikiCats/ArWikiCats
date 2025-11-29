@@ -9,7 +9,7 @@ from typing import Dict, Tuple
 
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ...translations_formats import FormatMultiData
+from ...translations_formats import format_multi_data
 from ..nats.Nationality import en_nats_to_ar_label
 from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 from ..utils.match_sport_keys import match_sport_key
@@ -34,7 +34,7 @@ NAT_P17_OIOI_ADD = {
 
 NAT_P17_OIOI.update(NAT_P17_OIOI_ADD)
 
-both_bot = FormatMultiData(
+both_bot = format_multi_data(
     NAT_P17_OIOI,
     en_nats_to_ar_label,
     key_placeholder="{nat}",

@@ -1,12 +1,16 @@
 """
+
+This module provides functionality to translate category titles
+that follow a 'country-year' pattern. It uses a pre-configured
+bot (`yc_bot`) to handle the translation logic.
 """
 
 from ..translations import all_country_ar
-from ..translations_formats import FormatYearCountryData
+from ..translations_formats import format_year_country_data
 
 from .categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
-yc_bot = FormatYearCountryData(
+yc_bot = format_year_country_data(
     formatted_data=COUNTRY_YEAR_DATA,
     data_list=all_country_ar,
     key_placeholder="{country1}",
@@ -18,6 +22,11 @@ yc_bot = FormatYearCountryData(
 )
 
 
-def get_label(category) -> str:
-    result = yc_bot.create_label(category) or yc_bot.create_label(category.lower().replace("category:", ""))
-    return result
+def get_label(category: str) -> str:
+    result = yc_bot.create_label(category)
+    if not result:
+        normalized_category = category.lower().replace("category:", "")
+        # Only call again if the string is different after normalization
+        if normalized_category != category:
+            result = yc_bot.create_label(normalized_category)
+    return result or ""

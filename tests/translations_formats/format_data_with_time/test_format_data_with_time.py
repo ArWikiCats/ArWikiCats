@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Integration tests for FormatYearCountryData and """
+"""Integration tests for format_year_country_data and """
 
 import pytest
 
 from ArWikiCats.translations import all_country_ar
-from ArWikiCats.translations_formats import FormatMultiDataNew, FormatYearCountryData
+from ArWikiCats.translations_formats import MultiDataFormatterBase, format_year_country_data
 
 # Template data with both nationality and sport placeholders
 formatted_data = {
@@ -47,8 +47,8 @@ formatted_data = {
 
 
 @pytest.fixture
-def yc_bot() -> FormatMultiDataNew:
-    return FormatYearCountryData(
+def yc_bot() -> MultiDataFormatterBase:
+    return format_year_country_data(
         formatted_data=formatted_data,
         data_list=all_country_ar,
         key_placeholder="{country1}",

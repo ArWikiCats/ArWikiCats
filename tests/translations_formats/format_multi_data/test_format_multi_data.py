@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Integration tests for FormatMultiData  """
+"""Integration tests for format_multi_data  """
 
 import pytest
 
 from ArWikiCats.translations_formats import (
-    FormatMultiData,
+    format_multi_data,
 )
-from ArWikiCats.translations_formats.DataModel.model_multi_data import FormatMultiDataNew
+from ArWikiCats.translations_formats.DataModel.model_multi_data import MultiDataFormatterBase
 
 # Sample data for nationality translations
 nationality_data = {
@@ -36,9 +36,9 @@ formatted_data = {
 
 
 @pytest.fixture
-def multi_bot() -> FormatMultiDataNew:
-    """Create a FormatMultiData instance for testing."""
-    return FormatMultiData(
+def multi_bot() -> MultiDataFormatterBase:
+    """Create a format_multi_data instance for testing."""
+    return format_multi_data(
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
@@ -49,10 +49,10 @@ def multi_bot() -> FormatMultiDataNew:
     )
 
 
-class TestFormatComparisonHelper:
+class TestCountryBotNormalization:
     """Tests for FormatComparison Helper class."""
 
-    def test_get_start_p17(self, multi_bot: FormatMultiDataNew):
+    def test_get_start_p17(self, multi_bot: MultiDataFormatterBase):
         """Test get_start_p17 method returns normalized category and key."""
         category = "yemeni football teams"
         key, new_category = multi_bot.country_bot.normalize_category_with_key(category)
@@ -63,11 +63,11 @@ class TestFormatComparisonHelper:
 
 
 class TestFormatMultiDataInitialization:
-    """Tests for FormatMultiData initialization."""
+    """Tests for format_multi_data initialization."""
 
     def test_initialization_with_defaults(self) -> None:
-        """Test that FormatMultiData initializes with default placeholders."""
-        bot = FormatMultiData(
+        """Test that format_multi_data initializes with default placeholders."""
+        bot = format_multi_data(
             formatted_data={},
             data_list=nationality_data,
         )
@@ -78,8 +78,8 @@ class TestFormatMultiDataInitialization:
         assert bot.other_bot.value_placeholder == "xoxo"
 
     def test_initialization_with_custom_placeholders(self) -> None:
-        """Test that FormatMultiData initializes with custom placeholders."""
-        bot = FormatMultiData(
+        """Test that format_multi_data initializes with custom placeholders."""
+        bot = format_multi_data(
             formatted_data={},
             data_list=nationality_data,
             key_placeholder="COUNTRY",
@@ -94,7 +94,7 @@ class TestFormatMultiDataInitialization:
         assert bot.other_bot.key_placeholder == "SPORT"
         assert bot.other_bot.value_placeholder == "{sport_name}"
 
-    def test_nat_bot_and_sport_bot_created(self, multi_bot: FormatMultiDataNew):
+    def test_nat_bot_and_sport_bot_created(self, multi_bot: MultiDataFormatterBase):
         """Test that nat_bot and other_bot are properly initialized."""
         assert multi_bot.country_bot is not None
         assert multi_bot.other_bot is not None
@@ -103,14 +103,14 @@ class TestFormatMultiDataInitialization:
 class TestNormalizeNatLabel:
     """Tests for normalize_nat_label method."""
 
-    def test_normalize_nat_label_with_match(self, multi_bot: FormatMultiDataNew):
+    def test_normalize_nat_label_with_match(self, multi_bot: MultiDataFormatterBase):
         """Test normalization when nationality is found."""
         category = "yemeni national football teams"
         result = multi_bot.normalize_nat_label(category)
 
         assert result == "{nat_en} national football teams"
 
-    def test_normalize_nat_label_no_match(self, multi_bot: FormatMultiDataNew):
+    def test_normalize_nat_label_no_match(self, multi_bot: MultiDataFormatterBase):
         """Test normalization when no nationality is found."""
         category = "some random category"
         result = multi_bot.normalize_nat_label(category)
@@ -134,14 +134,14 @@ class TestNormalizeNatLabel:
 class TestNormalizeSportLabel:
     """Tests for normalize_other_label method."""
 
-    def test_normalize_sport_label_with_match(self, multi_bot: FormatMultiDataNew):
+    def test_normalize_sport_label_with_match(self, multi_bot: MultiDataFormatterBase):
         """Test normalization when sport is found."""
         category = "yemeni national football teams"
         result = multi_bot.normalize_other_label(category)
 
         assert result == "yemeni national {sport_en} teams"
 
-    def test_normalize_sport_label_no_match(self, multi_bot: FormatMultiDataNew):
+    def test_normalize_sport_label_no_match(self, multi_bot: MultiDataFormatterBase):
         """Test normalization when no sport is found."""
         category = "some random category"
         result = multi_bot.normalize_other_label(category)
@@ -165,14 +165,14 @@ class TestNormalizeSportLabel:
 class TestNormalizeBoth:
     """Tests for normalize_both method."""
 
-    def test_normalize_both_with_matches(self, multi_bot: FormatMultiDataNew):
+    def test_normalize_both_with_matches(self, multi_bot: MultiDataFormatterBase):
         """Test normalization when both nationality and sport are found."""
         category = "british softball championships"
         result = multi_bot.normalize_both(category)
 
         assert result == "{nat_en} {sport_en} championships"
 
-    def test_normalize_both_order_matters(self, multi_bot: FormatMultiDataNew):
+    def test_normalize_both_order_matters(self, multi_bot: MultiDataFormatterBase):
         """Test that nationality is normalized first, then sport."""
         category = "yemeni football teams"
         result = multi_bot.normalize_both(category)
@@ -198,7 +198,7 @@ class TestNormalizeBoth:
 class TestCreateNatLabel:
     """Tests for create_nat_label method."""
 
-    def test_create_nat_label_with_match(self, multi_bot: FormatMultiDataNew):
+    def test_create_nat_label_with_match(self, multi_bot: MultiDataFormatterBase):
         """Test creating nationality label when match is found."""
         category = "yemeni football teams"
         result = multi_bot.create_nat_label(category)
@@ -206,7 +206,7 @@ class TestCreateNatLabel:
         # and will return an empty string.
         assert result == ""
 
-    def test_create_nat_label_caching(self, multi_bot: FormatMultiDataNew):
+    def test_create_nat_label_caching(self, multi_bot: MultiDataFormatterBase):
         """Test that create_nat_label uses LRU cache."""
         category = "yemeni football teams"
         result1 = multi_bot.create_nat_label(category)
@@ -219,7 +219,7 @@ class TestCreateNatLabel:
 class TestCreateLabel:
     """Tests for create_label method."""
 
-    def test_create_label_full_match(self, multi_bot: FormatMultiDataNew):
+    def test_create_label_full_match(self, multi_bot: MultiDataFormatterBase):
         """Test creating label when both nationality and sport match."""
         category = "yemeni football teams"
         result = multi_bot.create_label(category)
@@ -227,14 +227,14 @@ class TestCreateLabel:
         expected = "فرق كرة القدم اليمن"
         assert result == expected
 
-    def test_create_label_no_nationality(self, multi_bot: FormatMultiDataNew):
+    def test_create_label_no_nationality(self, multi_bot: MultiDataFormatterBase):
         """Test creating label when nationality is not found."""
         category = "unknown football teams"
         result = multi_bot.create_label(category)
 
         assert result == ""
 
-    def test_create_label_no_template(self, multi_bot: FormatMultiDataNew):
+    def test_create_label_no_template(self, multi_bot: MultiDataFormatterBase):
         """Test creating label when template doesn't exist."""
         category = "yemeni football something"
         result = multi_bot.create_label(category)
@@ -256,7 +256,7 @@ class TestCreateLabel:
         result = multi_bot.create_label(input_category)
         assert result == expected
 
-    def test_create_label_with_national_teams(self, multi_bot: FormatMultiDataNew):
+    def test_create_label_with_national_teams(self, multi_bot: MultiDataFormatterBase):
         """Test creating label for national teams pattern."""
         category = "yemeni national football teams"
         result = multi_bot.create_label(category)
@@ -265,7 +265,7 @@ class TestCreateLabel:
         assert result == expected
 
     @pytest.mark.skip2
-    def test_create_label_ladies_tour(self, multi_bot: FormatMultiDataNew):
+    def test_create_label_ladies_tour(self, multi_bot: MultiDataFormatterBase):
         """Test creating label for ladies tour pattern."""
         category = "ladies british softball tour"
         result = multi_bot.create_label(category)
@@ -273,7 +273,7 @@ class TestCreateLabel:
         expected = "بطولة المملكة المتحدة للكرة اللينة للسيدات"
         assert result == expected
 
-    def test_create_label_caching(self, multi_bot: FormatMultiDataNew):
+    def test_create_label_caching(self, multi_bot: MultiDataFormatterBase):
         """Test that create_label uses LRU cache."""
         category = "yemeni football teams"
         result1 = multi_bot.create_label(category)
@@ -287,23 +287,23 @@ class TestCreateLabel:
 class TestEdgeCases:
     """Tests for edge cases and error handling."""
 
-    def test_empty_category(self, multi_bot: FormatMultiDataNew):
+    def test_empty_category(self, multi_bot: MultiDataFormatterBase):
         """Test with empty category string."""
         result = multi_bot.create_label("")
         assert result == ""
 
-    def test_category_with_only_nationality(self, multi_bot: FormatMultiDataNew):
+    def test_category_with_only_nationality(self, multi_bot: MultiDataFormatterBase):
         """Test with category containing only nationality."""
         result = multi_bot.create_label("yemeni")
         assert result == ""
 
-    def test_category_with_only_sport(self, multi_bot: FormatMultiDataNew):
+    def test_category_with_only_sport(self, multi_bot: MultiDataFormatterBase):
         """Test with category containing only sport."""
         result = multi_bot.create_label("football")
         assert result == ""
 
     @pytest.mark.skip2
-    def test_case_insensitive_matching(self, multi_bot: FormatMultiDataNew):
+    def test_case_insensitive_matching(self, multi_bot: MultiDataFormatterBase):
         """Test that matching is case-insensitive."""
         result1 = multi_bot.create_label("Yemeni Football Teams")
         result2 = multi_bot.create_label("yemeni football teams")
@@ -313,7 +313,7 @@ class TestEdgeCases:
         assert result1 == result2 == result3
         assert result1 == "فرق كرة القدم اليمن"
 
-    def test_with_extra_spaces(self, multi_bot: FormatMultiDataNew):
+    def test_with_extra_spaces(self, multi_bot: MultiDataFormatterBase):
         """Test handling of extra spaces in category."""
         result = multi_bot.create_label("yemeni  football  teams")
         # Should still work despite extra spaces
@@ -321,12 +321,12 @@ class TestEdgeCases:
 
 
 class TestWithTextAfterAndBefore:
-    """Tests for FormatMultiData with text_after and text_before parameters."""
+    """Tests for format_multi_data with text_after and text_before parameters."""
 
     @pytest.mark.skip2
     def test_with_text_after(self) -> None:
-        """Test FormatMultiData with text_after parameter."""
-        bot = FormatMultiData(
+        """Test format_multi_data with text_after parameter."""
+        bot = format_multi_data(
             formatted_data={"{nat_en}ian {sport_en} teams": "فرق {sport_ar} {nat_ar}"},
             data_list={"yemeni": "اليمن"},
             key_placeholder="{nat_en}",
@@ -344,8 +344,8 @@ class TestWithTextAfterAndBefore:
 
     @pytest.mark.skip2
     def test_with_text_before(self) -> None:
-        """Test FormatMultiData with text_before parameter."""
-        bot = FormatMultiData(
+        """Test format_multi_data with text_before parameter."""
+        bot = format_multi_data(
             formatted_data={"the {nat_en} {sport_en} teams": "فرق {sport_ar} {nat_ar}"},
             data_list={"yemeni": "اليمن"},
             key_placeholder="{nat_en}",
@@ -366,7 +366,7 @@ class TestWithTextAfterAndBefore:
 class TestPerformance:
     """Performance tests for caching behavior."""
 
-    def test_cache_effectiveness(self, multi_bot: FormatMultiDataNew):
+    def test_cache_effectiveness(self, multi_bot: MultiDataFormatterBase):
         """Test that LRU cache improves performance on repeated calls."""
         category = "yemeni football teams"
 
@@ -378,7 +378,7 @@ class TestPerformance:
             result = multi_bot.create_label(category)
             assert result == result1
 
-    def test_multiple_categories_caching(self, multi_bot: FormatMultiDataNew):
+    def test_multiple_categories_caching(self, multi_bot: MultiDataFormatterBase):
         """Test caching with multiple different categories."""
         categories = [
             "yemeni football teams",

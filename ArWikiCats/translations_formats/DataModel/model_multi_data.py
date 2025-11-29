@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Provides classes for formatting template-driven translation labels.
-- FormatMultiData: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
+- format_multi_data: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
 
 test at tests.translations_formats.test_format_2_data.py
 """
@@ -27,8 +27,12 @@ class NormalizeResult:
     other_key: str
 
 
-class FormatMultiDataNew:
+class MultiDataFormatterBase:
     """
+    Handles complex formatting involving two sets of data lists (e.g.,
+    nationality and sport, or country and year). It orchestrates two
+    formatter instances (`FormatData` or `YearFormatData`) to normalize
+    and translate category strings.
     """
 
     def __init__(
@@ -45,7 +49,7 @@ class FormatMultiDataNew:
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
     # ------------------------------------------------------
-    def normalize_nat_label(self, category) -> str:
+    def normalize_nat_label(self, category: str) -> str:
         """
         Normalize nationality placeholders within a category string.
 
@@ -58,7 +62,7 @@ class FormatMultiDataNew:
     # ------------------------------------------------------
     # YEAR/SPORT NORMALIZATION
     # ------------------------------------------------------
-    def normalize_other_label(self, category) -> str:
+    def normalize_other_label(self, category: str) -> str:
         """
         Normalize sport placeholders within a category string.
 
@@ -68,7 +72,7 @@ class FormatMultiDataNew:
         key, new_category = self.other_bot.normalize_category_with_key(category)
         return new_category
 
-    def normalize_both_new(self, category) -> NormalizeResult:
+    def normalize_both_new(self, category: str) -> NormalizeResult:
         """
         Normalize both nationality and sport tokens in the category.
 
@@ -88,7 +92,7 @@ class FormatMultiDataNew:
             other_key=other_key,
         )
 
-    def normalize_both(self, category) -> str:
+    def normalize_both(self, category: str) -> str:
         """
         Normalize both nationality and sport tokens in the category.
 

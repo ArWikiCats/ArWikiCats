@@ -34,7 +34,7 @@ class FormatData:
         self.data_pattern = ""
         self.pattern = self.keys_to_pattern()
 
-    def add_formated_data(self, key: str, value: str) -> None:
+    def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
         self.formatted_data[key] = value
         self.formated_data_ci[key.lower()] = value
@@ -94,7 +94,7 @@ class FormatData:
 
         return normalized.strip()
 
-    def normalize_category_with_key(self, category) -> tuple[str, str]:
+    def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
         Normalize nationality placeholders within a category string.
 
@@ -163,7 +163,7 @@ class FormatData:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 
-    def replace_value_placeholder(self, label, value) -> str:
+    def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
         return label.replace(self.value_placeholder, value)
 
