@@ -82,7 +82,8 @@ def _expand_templates(templates: Dict[str, str]) -> Dict[str, str]:
         relaxed_key = key.replace("men's", "mens").replace("women's", "womens")
         expanded.setdefault(relaxed_key, value)
 
-        tokens = ["{sport_en}" if token == "{sport_en}" else (token[:-1] if token.endswith("s") else token) for token in key.split(" ")]
+        # tokens = ["{sport_en}" if token == "{sport_en}" else (token[:-1] if token.endswith("s") else token) for token in key.split(" ")]
+        tokens = [token[:-1] if token == "championships" else token for token in key.split(" ") if token != "{sport_en}"]
         alt_key = " ".join(tokens)
         expanded.setdefault(alt_key, value)
 
