@@ -10,6 +10,7 @@ from ArWikiCats.new.Match_sports import resolve_team_label, SPORTS_EN_TO_AR
 BASIC_EXAMPLES = [
     ("men's football world cup", "كأس العالم للرجال في كرة القدم"),
     ("women's basketball world cup", "كأس العالم للسيدات في كرة السلة"),
+    ("womens basketball world cup", "كأس العالم للسيدات في كرة السلة"),
     ("softball world cup", "كأس العالم في سوفتبول"),
     ("men's volleyball world championship", "بطولة العالم للرجال في كرة الطائرة"),
     ("women's handball world championship", "بطولة العالم للسيدات في كرة اليد"),
@@ -55,9 +56,11 @@ for sport_en, sport_ar in SPORTS_EN_TO_AR.items():
 # Bad / dirty input formatting
 # ----------------------------------------------------------------------
 FORMATTING_CASES = [
+    ("   mens   football   world   cup   ", "كأس العالم للرجال في كرة القدم"),
     ("   men's   football   world   cup   ", "كأس العالم للرجال في كرة القدم"),
     ("MEN'S FOOTBALL WORLD CUP", "كأس العالم للرجال في كرة القدم"),
     ("men's football   world   championship", "بطولة العالم للرجال في كرة القدم"),
+    ("womens   volleyball   league", "دوري السيدات في كرة الطائرة"),
     ("women's   volleyball   league", "دوري السيدات في كرة الطائرة"),
     ("u23   football   championship", "بطولة تحت 23 سنة في كرة القدم"),
 ]
