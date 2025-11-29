@@ -8,6 +8,7 @@ test at tests.translations_formats.test_format_2_data.py
 """
 
 import functools
+from dataclasses import dataclass
 from typing import Dict
 
 from ..helps.log import logger
@@ -24,8 +25,7 @@ class FormatComparisonHelper:
         Example:
             category: "Yemeni national football teams", result: ("Yemeni", "natar")
         """
-        new_category = self.normalize_nat_label(cate)
-        key = self.country_bot.match_key(cate)
+        key, new_category = self.country_bot.normalize_category_with_key(cate)
         return new_category, key
 
 
@@ -35,6 +35,16 @@ class FormatComparisonHelper:
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"
+
+
+@dataclass
+class CategoryResult:
+    """Data structure representing each processed category."""
+
+    category: str
+    template_key: str
+    nat_key: str
+    other_key: str
 
 
 class FormatMultiData(FormatComparisonHelper):
@@ -88,11 +98,8 @@ class FormatMultiData(FormatComparisonHelper):
         Example:
             category:"Yemeni national football teams", result: "natar national football teams"
         """
-        key = self.country_bot.match_key(category)
-        result = ""
-        if key:
-            result = self.country_bot.normalize_category(category, key)
-        return result
+        key, new_category = self.country_bot.normalize_category_with_key(category)
+        return new_category
 
     # ------------------------------------------------------
     # YEAR/SPORT NORMALIZATION
@@ -104,11 +111,28 @@ class FormatMultiData(FormatComparisonHelper):
         Example:
             category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
         """
-        key = self.other_bot.match_key(category)
-        result = ""
-        if key:
-            result = self.other_bot.normalize_category(category, key)
-        return result
+        key, new_category = self.other_bot.normalize_category_with_key(category)
+        return new_category
+
+    def normalize_both_new(self, category) -> CategoryResult:
+        """
+        Normalize both nationality and sport tokens in the category.
+
+        Example:
+            input: "british softball championshipszz", output: "natar xoxo championshipszz"
+        """
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+
+        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
+        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
+
+        return CategoryResult(
+            category=normalized_category,
+            template_key=template_key,
+            nat_key=nat_key,
+            other_key=other_key,
+        )
 
     def normalize_both(self, category) -> str:
         """
@@ -120,10 +144,10 @@ class FormatMultiData(FormatComparisonHelper):
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
 
-        new_category = self.normalize_nat_label(normalized_category)
-        new_category = self.normalize_other_label(new_category)
+        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
+        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
 
-        return new_category
+        return template_key
 
     @functools.lru_cache(maxsize=2000)
     def create_nat_label(self, category: str) -> str:
@@ -144,25 +168,17 @@ class FormatMultiData(FormatComparisonHelper):
             category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
         """
         # category = Yemeni football championships
-        normalized_category = " ".join(category.split())
-        # template_key = self.normalize_both(normalized_category)
+        template_data = self.normalize_both_new(category)
 
-        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
-        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
-
-        if not nat_key or not other_key:
+        if not template_data.nat_key or not template_data.other_key:
             return ""
 
-        # Must match a template
-        # if template_key not in self.formatted_data: return ""
-        # cate = natar xoxo championships
-        # template_ar = self.formatted_data[template_key]
-        template_ar = self.country_bot.get_template_ar(template_key)
+        template_ar = self.country_bot.get_template_ar(template_data.template_key)
         logger.debug(f"{template_ar=}")
 
         # Get Arabic equivalents
-        country_ar = self.country_bot.get_key_label(nat_key)
-        other_ar = self.other_bot.get_key_label(other_key)
+        country_ar = self.country_bot.get_key_label(template_data.nat_key)
+        other_ar = self.other_bot.get_key_label(template_data.other_key)
 
         if not country_ar or not other_ar:
             return ""
