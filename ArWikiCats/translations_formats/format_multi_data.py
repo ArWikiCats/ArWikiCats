@@ -148,11 +148,10 @@ class FormatMultiData(FormatComparisonHelper):
             return ""
 
         # Must match a template
-        if template_key not in self.formatted_data:
-            return ""
-
+        # if template_key not in self.formatted_data: return ""
         # cate = natar xoxo championships
-        template_ar = self.formatted_data[template_key]
+        # template_ar = self.formatted_data[template_key]
+        template_ar = self.country_bot.get_template_ar(template_key)
         logger.debug(f"{template_ar=}")
 
         # Get Arabic equivalents

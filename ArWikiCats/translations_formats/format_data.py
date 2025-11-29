@@ -109,6 +109,11 @@ class FormatData:
         # Case-insensitive key lookup
         return self.formated_data_ci.get(normalized.lower(), "")
 
+    def get_template_ar(self, template_key: str) -> str:
+        """Lookup template in a case-insensitive dict."""
+        # Case-insensitive key lookup
+        return self.formated_data_ci.get(template_key.lower(), "")
+
     def get_key_label(self, sport_key: str) -> str:
         """Return the Arabic label mapped to the provided key if present."""
         return self.data_list_ci.get(sport_key)

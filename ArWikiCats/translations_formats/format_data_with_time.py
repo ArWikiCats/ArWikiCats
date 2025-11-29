@@ -102,7 +102,7 @@ class FormatYearCountryData:
 
         # Country bot (FormatData)
         self.country_bot = FormatData(
-            formatted_data={},
+            formatted_data=self.formatted_data,
             data_list=data_list,
             key_placeholder=self.key_placeholder,
             value_placeholder=self.value_placeholder,
