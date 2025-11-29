@@ -13,7 +13,7 @@ if _Dir := Path(__file__).parent.parent:
 
 from ArWikiCats import print_memory, batch_resolve_labels
 
-file_path = Path(Path(__file__).parent, "1000_category.json")
+file_path = Path(Path(__file__).parent, "1k.json")
 
 time_start = time.time()
 
