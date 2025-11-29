@@ -1,4 +1,11 @@
 
+[Refactor Match_sports to use FormatData] - 2025-11-29
+
+- Added: Cached loader for the sports match formatter built on FormatData.
+- Changed: Refactored Match_sports resolver to delegate matching and formatting to FormatData with placeholder-aware mapping.
+- Fixed: Ensured sports match labels reuse centralized normalization logic for consistent Arabic output.
+- Removed: Deprecated manual matching helpers from the Match_sports module.
+
 ## [#125](https://github.com/MrIbrahem/ArWikiCats/pull/125) - 2025-11-29
 
 * **New Features**

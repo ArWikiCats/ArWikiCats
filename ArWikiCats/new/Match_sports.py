@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-Single-file test implementation for the 'xoxo' sports template resolver.
-"""
+"""Format sports match categories using :class:`FormatData`."""
 
-import re
-from typing import Dict, Optional, Tuple
+from functools import lru_cache
+from typing import Dict
+
+from ..translations_formats import FormatData
 
 TEMPLATES_TEAMS: Dict[str, str] = {
     "men's xoxo world cup": "كأس العالم للرجال في {sport_ar}",
@@ -32,7 +32,7 @@ TEMPLATES_TEAMS: Dict[str, str] = {
     "women's national xoxo team": "منتخب {sport_ar} الوطني للسيدات",
     "national xoxo team": "المنتخب الوطني في {sport_ar}",
 }
-# ---------- team_job.py ----------
+
 SPORTS_EN_TO_AR: Dict[str, str] = {
     "association football": "كرة القدم",
     "football": "كرة القدم",
@@ -63,54 +63,27 @@ SPORTS_EN_TO_AR: Dict[str, str] = {
     "gaelic football": "كرة القدم الغيلية",
 }
 
-_sorted_sports = sorted(SPORTS_EN_TO_AR.keys(), key=len, reverse=True)
-WHITESPACE_NORM = re.compile(r"\s+")
 
-alternation = "|".join(re.escape(k) for k in _sorted_sports)
+@lru_cache(maxsize=1)
+def load_bot() -> FormatData:
+    """Create and cache the sports match formatter."""
 
-SPORTS_PATTERN = re.compile(r"(?i)\b(" + alternation + r")\b")
-# TODO: USE SPORTS_PATTERN = re.compile(fr"(?<!\w)({alternation})(?!\w)")
-
-
-def _normalize(text: str) -> str:
-    """Lowercase and collapse whitespace for consistent matching."""
-    return WHITESPACE_NORM.sub(" ", text.lower()).strip()
-
-
-def find_sport(title_en: str) -> Optional[Tuple[str, str]]:
-    """Return the detected sport (EN and AR) from an English title."""
-    m = SPORTS_PATTERN.search(_normalize(title_en))
-    if not m:
-        return None
-    sport_en = m.group(1).lower()
-    return (sport_en, SPORTS_EN_TO_AR[sport_en])
-
-
-def make_template_key(title_en: str, sport_en: str) -> str:
-    """Build a normalized template key by replacing the sport name token."""
-    text = re.sub(rf"(?i)\b{re.escape(sport_en)}\b", "xoxo", _normalize(title_en))
-    text = text.replace("–", "-")
-    return WHITESPACE_NORM.sub(" ", text).strip()
+    return FormatData(
+        TEMPLATES_TEAMS,
+        SPORTS_EN_TO_AR,
+        key_placeholder="xoxo",
+        value_placeholder="{sport_ar}",
+    )
 
 
 def resolve_team_label(title_en: str) -> str:
-    """Resolve an Arabic team label for a sports title using templates."""
-    found = find_sport(title_en)
-    if not found:
-        return ""
-    sport_en, sport_ar = found
-    template_key = make_template_key(title_en, sport_en)
+    """Resolve an Arabic team label for a sports title using FormatData."""
 
-    if template_key in TEMPLATES_TEAMS:
-        return TEMPLATES_TEAMS[template_key].format(sport_ar=sport_ar)
+    bot = load_bot()
+    return bot.search(title_en)
 
-    relaxed = template_key.replace("men's", "mens").replace("women's", "womens")
-    if relaxed in TEMPLATES_TEAMS:
-        return TEMPLATES_TEAMS[relaxed].format(sport_ar=sport_ar)
 
-    tokens = [t for t in template_key.split(" ") if t]
-    alt_tokens = ["xoxo" if t == "xoxo" else (t[:-1] if t.endswith("s") else t) for t in tokens]
-    alt_key = " ".join(alt_tokens)
-    if alt_key in TEMPLATES_TEAMS:
-        return TEMPLATES_TEAMS[alt_key].format(sport_ar=sport_ar)
-    return ""
+__all__ = [
+    "resolve_team_label",
+    "load_bot",
+]
