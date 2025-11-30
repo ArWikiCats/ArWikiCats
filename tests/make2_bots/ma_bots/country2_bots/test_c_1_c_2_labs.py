@@ -102,7 +102,6 @@ fast_data_c_1_1_lab = [
     {"tat_o": " from ", "cone_1": "rugby union players", "output": "لاعبو اتحاد رجبي"},
     {"tat_o": " from ", "cone_1": "united states house-of-representatives", "output": "مجلس النواب الأمريكي"},
     {"tat_o": " from ", "cone_1": "water polo players", "output": "لاعبو كرة ماء"},
-    {"tat_o": " in ", "cone_1": "1st century bc", "output": "القرن 1 ق م"},
     {"tat_o": " in ", "cone_1": "american football teams", "output": "فرق كرة قدم أمريكية"},
     {"tat_o": " in ", "cone_1": "argentine people executed", "output": "معدومون أرجنتينيون"},
     {"tat_o": " in ", "cone_1": "art museums and galleries", "output": "متاحف فنية ومعارض"},
@@ -326,6 +325,11 @@ def test_c_1_1_lab(data) -> None:
 
 
 fast_data_c_2_1_lab = {
+    "the 6th century bc": "القرن 6 ق م",
+    "the 7th century bc": "القرن 7 ق م",
+    "the 8th century bc": "القرن 8 ق م",
+    "1st century bc": "القرن 1 ق م",
+
     "12th iranian majlis": "المجلس الإيراني الثاني عشر",
     "13th iranian majlis": "المجلس الإيراني الثالث عشر",
     "15th iranian majlis": "المجلس الإيراني الخامس عشر",
@@ -529,9 +533,6 @@ fast_data_c_2_1_lab = {
     "telugu desam party": "حزب تيلوغو ديسام",
     "thai royal air force": "القوات الجوية الملكية التايلندية",
     "thai royal navy": "البحرية التايلندية",
-    "the 6th century bc": "القرن 6 ق م",
-    "the 7th century bc": "القرن 7 ق م",
-    "the 8th century bc": "القرن 8 ق م",
     "the abbasid caliphate": "الدولة العباسية",
     "the american civil war": "الحرب الأهلية الأمريكية",
     "the american revolution": "الثورة الأمريكية",

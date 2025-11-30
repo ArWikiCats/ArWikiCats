@@ -14,11 +14,11 @@ from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import New_Lan
-from ..matables_bots.centries_bot import centries_years_dec
 from ..media_bots.films_bot import te_films
 from ..o_bots import univer
 from ..o_bots.popl import work_peoples
 
+from ...new.time_to_arabic import convert_time_to_arabic
 # from ..bots import tmp_bot
 from ..p17_bots import nats
 from ...translations_resolvers.us_states import resolve_us_states
@@ -83,7 +83,7 @@ def event_label_work(target_category: str) -> str:
         resolved_category_label = get_pop_All_18(normalized_target_category, "")
 
     if not resolved_category_label:
-        resolved_category_label = centries_years_dec.get(normalized_target_category, "")
+        resolved_category_label = convert_time_to_arabic(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = te4_2018_Jobs(normalized_target_category)

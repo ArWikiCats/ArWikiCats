@@ -4,7 +4,7 @@ Country Label Bot Module
 """
 
 import re
-from typing import Dict, List, Optional
+from typing import Dict
 
 from ...config import app_settings
 from ...helps.log import logger
@@ -17,12 +17,12 @@ from ...translations import (
 )
 from ..date_bots import with_years_bot
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.centries_bot import centries_years_dec
 from ..media_bots.films_bot import te_films
 from ..p17_bots import nats
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..sports_bots import team_work
 from . import country2_bot, country2_lab, ye_ts_bot
+from ...new.time_to_arabic import convert_time_to_arabic
 
 get_country_done: Dict[str, str] = {}
 
@@ -199,7 +199,7 @@ class CountryLabelRetriever:
 
         term_label = New_female_keys.get(term_lower, "")
         if not term_label:
-            term_label = centries_years_dec.get(term_lower, "")
+            term_label = convert_time_to_arabic(term_lower)
 
         if term_label == "" and lab_type != "type_label":
             if term_lower.startswith("the "):
@@ -213,7 +213,7 @@ class CountryLabelRetriever:
             if re.sub(r"\d+", "", term_lower) == "":
                 term_label = term_lower
             else:
-                term_label = centries_years_dec.get(term_lower, "")
+                term_label = convert_time_to_arabic(term_lower)
 
         if term_label == "":
             term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
