@@ -7,11 +7,7 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 from ...helps import len_print
 from ...translations import (
     ALBUMS_TYPE,
-    FILM_PRODUCTION_COMPANY,
-    SPORTS_KEYS_FOR_LABEL,
-    By_table,
     Jobs_new,
-    People_key,
     olympics,
     typeTable,
     typeTable_7,
@@ -35,18 +31,6 @@ def _create_pp_priffix(albums_typies) -> dict[str, str]:
     return Pp_Priffix
 
 
-def _extend_By_table():
-    for ss in SPORTS_KEYS_FOR_LABEL:
-        cd = f"by {ss.lower()} team"
-        By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
-
-    for uh in People_key:  #
-        By_table[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"
-
-    for uh in FILM_PRODUCTION_COMPANY:  #
-        By_table[f"by {uh.lower()}"] = f"بواسطة {FILM_PRODUCTION_COMPANY[uh]}"
-
-
 def _make_players_keys(Add_ar_in):
     players_keys = {}
     players_keys["women"] = "المرأة"
@@ -65,7 +49,6 @@ def _make_players_keys(Add_ar_in):
 Add_ar_in = dict(olympics)
 players_new_keys = _make_players_keys(Add_ar_in)
 Pp_Priffix = _create_pp_priffix(ALBUMS_TYPE)
-# _extend_By_table()
 
 
 cash_2022 = {
