@@ -69,7 +69,6 @@ from .politics.military_keys import (
     military_format_women_without_al_from_end,
 )
 from .politics.ministers import ministrs_tab_for_pop_format
-from .sports.skeys import SPORT_FORMTS_EN_AR_IS_P17
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.olympics_data import olympics
 from .sports.Sport_key import (
@@ -211,7 +210,6 @@ __all__ = [
     "pop_All_2018_bot",
     #
     # "TEAMS_NEW",
-    "SPORT_FORMTS_EN_AR_IS_P17",
     #
     "sport_lab_oioioi_load",
     "NAT_P17_OIOI",

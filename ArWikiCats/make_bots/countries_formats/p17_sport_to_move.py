@@ -74,7 +74,7 @@ main_data_under = {
     "{en} youth {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
     "{en} youth {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
     "{en} {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم ",
-    "{en} {under_en} international managers": "مدربو {under_ar} سنة دوليون من {ar}",
+    "{en} {under_en} international managers": "مدربون {under_ar} سنة دوليون من {ar}",
     "{en} {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم ",
     "{en} {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم "
 }
@@ -108,13 +108,13 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
     # Under-year managers/players
     for year in YEARS_LIST:
         label_index[f"{KEY_EN_PLACEHOLDER} under-{year} international managers"] = (
-            f"مدربو تحت {year} سنة دوليون من {KEY_AR_PLACEHOLDER}"
+            f"مدربون تحت {year} سنة دوليون من {KEY_AR_PLACEHOLDER}"
         )
         label_index[f"{KEY_EN_PLACEHOLDER} under-{year} international players"] = (
-            f"لاعبو تحت {year} سنة دوليون من {KEY_AR_PLACEHOLDER}"
+            f"لاعبون تحت {year} سنة دوليون من {KEY_AR_PLACEHOLDER}"
         )
         label_index[f"{KEY_EN_PLACEHOLDER} under-{year} international playerss"] = (
-            f"لاعبو تحت {year} سنة دوليون من {KEY_AR_PLACEHOLDER}"
+            f"لاعبون تحت {year} سنة دوليون من {KEY_AR_PLACEHOLDER}"
         )
 
     # Footballers base groups
@@ -170,16 +170,16 @@ def _load_multi_bot() -> str:
         "under-23": "تحت 23",
         "under-24": "تحت 24",
     }
-    data = main_data | main_data_under
+    # data = main_data | main_data_under
 
     return format_multi_data(
-        formatted_data=data,
-        data_list=contries_from_nat,
-        key_placeholder=KEY_EN_PLACEHOLDER,
-        value_placeholder=KEY_AR_PLACEHOLDER,
-        data_list2=under_data,
-        key2_placeholder="{under_ar}",
-        value2_placeholder="{under_ar}",
+        formatted_data=main_data_under,
+        data_list=under_data,
+        key_placeholder="{under_en}",
+        value_placeholder="{under_ar}",
+        data_list2=contries_from_nat,
+        key2_placeholder=KEY_EN_PLACEHOLDER,
+        value2_placeholder=KEY_AR_PLACEHOLDER,
     )
 
 

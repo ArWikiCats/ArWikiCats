@@ -13,7 +13,6 @@ NAT_PLACEHOLDER: Final[str] = "{nat}"
 
 SPORT_FORMTS_MALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 SPORT_FORMTS_FEMALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
-SPORT_FORMTS_EN_AR_IS_P17 = {}  # الإنجليزي إسم البلد والعربي يكون اسم البلد
 SPORT_FORMTS_NEW_KKK = {}  # الإنجليزي جنسية والعربي اسم البلد
 
 Teams = {
@@ -129,13 +128,13 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
     # Under-year managers/players
     for year in YEARS_LIST:
         label_index[f"under-{year} international managers"] = (
-            f"مدربو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+            f"مدربون تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
         )
         label_index[f"under-{year} international players"] = (
-            f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+            f"لاعبون تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
         )
         label_index[f"under-{year} international playerss"] = (
-            f"لاعبو تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
+            f"لاعبون تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
         )
 
     # Footballers base groups
@@ -188,13 +187,11 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
 # ----------------------------------------------------------------------
 SPORT_FORMTS_MALE_NAT = _build_male_nat()
 SPORT_FORMTS_FEMALE_NAT = _build_female_nat()
-SPORT_FORMTS_EN_AR_IS_P17 = _build_en_ar_is_p17()
 SPORT_FORMTS_NEW_KKK = _build_new_kkk()
 
 len_print.data_len(
     "skeys.py",
     {
-        "SPORT_FORMTS_EN_AR_IS_P17": SPORT_FORMTS_EN_AR_IS_P17,
         "SPORT_FORMTS_FEMALE_NAT": SPORT_FORMTS_FEMALE_NAT,
         "SPORT_FORMTS_MALE_NAT": SPORT_FORMTS_MALE_NAT,
         "SPORT_FORMTS_NEW_KKK": SPORT_FORMTS_NEW_KKK,
@@ -202,7 +199,6 @@ len_print.data_len(
 )
 
 __all__ = [
-    "SPORT_FORMTS_EN_AR_IS_P17",
     "SPORT_FORMTS_FEMALE_NAT",
     "SPORT_FORMTS_MALE_NAT",
     "SPORT_FORMTS_NEW_KKK",
