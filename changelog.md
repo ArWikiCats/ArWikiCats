@@ -1,4 +1,19 @@
 
+## [#136](https://github.com/MrIbrahem/ArWikiCats/pull/136) - 2025-11-30
+
+* **New Features**
+  * Added a new translation resolver for non-feminine nationality-based labels, improving category translation coverage.
+
+* **Improvements**
+  * Applied result caching to core lookup functions, enhancing performance for repeated queries across the application.
+
+* **Refactoring**
+  * Consolidated internal helper functions for improved code organization and maintainability in formatting, translation, and job-processing modules.
+
+* **Tests**
+  * Expanded test coverage for translation resolvers and label resolution scenarios with new integration tests.
+
+
 ## [#134](https://github.com/MrIbrahem/ArWikiCats/pull/134) - 2025-11-30
 
 * **Refactoring**
