@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.ma_bots.year_or_typeo.reg_result import (
-    Typies,
+    TypiesResult,
     basedtypeTable,
     get_reg_result,
 )
@@ -45,8 +45,8 @@ def test_get_reg_result():
 
 
 def test_typies():
-    # Test that Typies class can be instantiated
-    typies_instance = Typies(year_at_first="2020", typeo="test", In="in", country="us", cat_test="test")
+    # Test that TypiesResult class can be instantiated
+    typies_instance = TypiesResult(year_at_first="2020", typeo="test", In="in", country="us", cat_test="test")
     assert typies_instance.year_at_first.strip() == "2020"
     assert typies_instance.typeo == "test"
     assert typies_instance.In == "in"
@@ -54,7 +54,7 @@ def test_typies():
     assert typies_instance.cat_test == "test"
 
     # Test with empty values
-    typies_empty = Typies(year_at_first="", typeo="", In="", country="", cat_test="")
+    typies_empty = TypiesResult(year_at_first="", typeo="", In="", country="", cat_test="")
     assert typies_empty.year_at_first == ""
     assert typies_empty.typeo == ""
     assert typies_empty.In == ""
