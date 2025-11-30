@@ -196,7 +196,7 @@ def get_en_ar_is_p17_label_multi(category: str) -> str:
 @functools.lru_cache(maxsize=1000)
 def get_en_ar_is_p17_label(category: str) -> str:
     nat_bot = _load_bot()
-    return nat_bot.search_all(category).strip()
+    return nat_bot.search_all(category)
 
 
 SPORT_FORMTS_EN_AR_IS_P17 = _build_en_ar_is_p17()

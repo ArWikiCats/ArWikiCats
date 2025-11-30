@@ -64,7 +64,7 @@ def test_data_compare_one(multi_bot: MultiDataFormatterBase) -> None:
     category = "national under-15 football team"
     expected = "منتخب كرة القدم تحت 15 سنة"
 
-    label2 = multi_bot.search_all(category).strip()
+    label2 = multi_bot.search_all(category)
 
     assert label2 == expected
 
@@ -72,7 +72,7 @@ def test_data_compare_one(multi_bot: MultiDataFormatterBase) -> None:
 @pytest.mark.parametrize("category, expected", data_compare.items(), ids=list(data_compare.keys()))
 @pytest.mark.fast
 def test_data_compare_multi(multi_bot: MultiDataFormatterBase, category, expected) -> None:
-    label2 = multi_bot.search_all(category).strip()
+    label2 = multi_bot.search_all(category)
 
     assert label2 == expected
 

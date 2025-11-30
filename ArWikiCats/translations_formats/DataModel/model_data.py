@@ -170,7 +170,7 @@ class FormatData:
     @functools.lru_cache(maxsize=None)
     def search_all(self, category: str) -> str:
         """Public wrapper around ``_search`` with caching."""
-        return self._search(category)
+        return self._search(category).strip()
 
 
 def format_data_sample() -> bool:

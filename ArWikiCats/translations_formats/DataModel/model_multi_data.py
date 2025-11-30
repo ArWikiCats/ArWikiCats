@@ -148,9 +148,9 @@ class MultiDataFormatterBase:
         return label
 
     def search(self, category: str) -> str:
-        return self.create_label(category)
+        return self.create_label(category).strip()
 
     def search_all(self, category: str) -> str:
-        return self.create_label(category) \
+        return self.create_label(category).strip() \
             or self.country_bot.search(category).strip()\
             or self.other_bot.search(category).strip()
