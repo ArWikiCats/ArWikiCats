@@ -13,7 +13,7 @@ data = [
 
 @pytest.mark.parametrize("category, tito, output", data, ids=[x[0] for x in data])
 @pytest.mark.fast
-def test_get_type_country_data(category, tito, output) -> None:
+def test_get_type_country_data(category: str, tito: str, output: str) -> None:
     label = get_type_country(category, tito)
     assert label == output
 

@@ -32,7 +32,7 @@ data_test2 = [
     data_test2,
     ids=[x[0] for x in data_test2],
 )
-def test_single_relation(category, expected_key, expected_value) -> None:
+def test_single_relation(category: str, expected_key: str, expected_value: str) -> None:
     key, value = get_relation_word(category, category_relation_mapping)
     assert key.strip() == expected_key
     assert value == expected_value
@@ -43,7 +43,7 @@ def test_single_relation(category, expected_key, expected_value) -> None:
     data_test2,
     ids=[x[0] for x in data_test2],
 )
-def test_single_relation_compare(category, expected_key, expected_value) -> None:
+def test_single_relation_compare(category: str, expected_key: str, expected_value: str) -> None:
     key1, value1 = get_relation_word(category, category_relation_mapping)
     key2, value2 = get_relation_word_new(category, category_relation_mapping)
     assert key2 == key1
@@ -70,7 +70,7 @@ def test_single_relation_compare(category, expected_key, expected_value) -> None
         ("Songs written by John Smith and produced in London", "written by", "كتبها"),
     ],
 )
-def test_multiple_relations_first_match(category, first_expected_key, first_expected_value) -> None:
+def test_multiple_relations_first_match(category: str, first_expected_key: str, first_expected_value: str) -> None:
     """Ensure that only the first matching relation word is returned."""
     key, value = get_relation_word(category, category_relation_mapping)
     assert key.strip() == first_expected_key
@@ -98,7 +98,7 @@ def test_multiple_relations() -> None:
         "Unclassified biological samples",
     ],
 )
-def test_no_relation(category) -> None:
+def test_no_relation(category:str) -> None:
     key, value = get_relation_word(category, category_relation_mapping)
     assert key == ""
     assert value == ""

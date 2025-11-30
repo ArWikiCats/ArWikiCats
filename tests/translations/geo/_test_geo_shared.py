@@ -41,7 +41,7 @@ def test_load_json_mapping_filters_and_normalizes(monkeypatch) -> None:
 
 
 def test_load_json_mapping_logs_when_no_entries(monkeypatch, caplog) -> None:
-    def fake_open_json(file_key: str):
+    def fake_open_json(file_key: str) -> dict[str, str]:
         return {"empty": ""}
 
     monkeypatch.setattr(_shared, "open_json_file", fake_open_json)

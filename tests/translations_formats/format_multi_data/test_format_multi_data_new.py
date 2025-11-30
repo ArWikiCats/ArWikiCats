@@ -88,7 +88,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all_dump(multi_bot, name, data) -> None:
+def test_all_dump(multi_bot: MultiDataFormatterBase, name: str, data: dict[str, str]) -> None:
     callback = multi_bot.search_all
     expected, diff_result = one_dump_test(data, callback, do_strip=False)
 

@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations_resolvers.federation_bot import resolve_federation_label
@@ -370,7 +371,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.dump
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
-def test_all_dump(name, data, callback) -> None:
+def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback, do_strip=True)
 
     dump_diff(diff_result, name)

@@ -339,6 +339,6 @@ data_test = [
 
 @pytest.mark.parametrize("preposition, country, output", data_test, ids=[x[1] for x in data_test])
 @pytest.mark.fast
-def test_get_con_lab_data2(preposition, country, output) -> None:
+def test_get_con_lab_data2(preposition: str, country: str, output: str) -> None:
     label = get_con_lab(preposition=preposition, country=country, start_get_country2=True)
     assert label == output

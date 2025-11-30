@@ -22,7 +22,7 @@ make_cnt_lab_data = {
 
 @pytest.mark.parametrize("category, ar", make_cnt_lab_data.items(), ids=list(make_cnt_lab_data.keys()))
 @pytest.mark.fast
-def test_make_cnt_lab_data(category, ar) -> None:
+def test_make_cnt_lab_data(category: str, ar: str) -> None:
     label = make_cnt_lab(
         tat_o="-of ",
         country2=f"kingdom-of {category}",
@@ -139,7 +139,7 @@ congress_data = {
 
 @pytest.mark.parametrize("category, ar", congress_data.items(), ids=list(congress_data.keys()))
 @pytest.mark.fast
-def test_congress_data(category, ar) -> None:
+def test_congress_data(category: str, ar: str) -> None:
     label = f"الكونغرس الأمريكي {ar}"
     result = make_cnt_lab(
         tat_o=" of ",

@@ -73,7 +73,7 @@ def test_get_list_of_and_cat3_women_members_fallback() -> None:
     ],
 )
 @pytest.mark.fast
-def test_get_list_of_and_cat3_footballers_variants(category3, expected_label, expected_rest) -> None:
+def test_get_list_of_and_cat3_footballers_variants(category3: str, expected_label: str, expected_rest: str) -> None:
     """All footballers variants should be handled via footballers_get_endswith."""
     category3_nolower = category3
 
@@ -125,7 +125,7 @@ def test_get_list_of_and_cat3_footballers_variants(category3, expected_label, ex
     ],
 )
 @pytest.mark.fast
-def test_get_list_of_and_cat3_players_variants(category3, category3_nolower, expected_rest) -> None:
+def test_get_list_of_and_cat3_players_variants(category3: str, category3_nolower: str, expected_rest: str) -> None:
     """All 'players' / 'playerss' endings should set label and strip suffix correctly."""
     list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3_nolower)
 

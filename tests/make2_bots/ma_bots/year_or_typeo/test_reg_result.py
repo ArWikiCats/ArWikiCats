@@ -214,7 +214,7 @@ class TestCombinedPatterns:
             # ("Category:1933–83 American Soccer League (USA)", "1933–83", "american soccer league", "", ""),
         ],
     )
-    def test_combined(self, category, year, typeo, In, country) -> None:
+    def test_combined(self, category: str, year: str, typeo: str, In: str, country: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first_strip == year
         assert out.typeo == typeo

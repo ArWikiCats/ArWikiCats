@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+from typing import Callable
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations import US_STATES
 from ArWikiCats.translations_resolvers.us_states import resolve_us_states, normalize_state, us_states_new_keys
@@ -34,7 +35,7 @@ to_test = [
 
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_all_dump(name, data, callback) -> None:
+def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
 
     expected, diff_result = one_dump_test(data, callback)
 

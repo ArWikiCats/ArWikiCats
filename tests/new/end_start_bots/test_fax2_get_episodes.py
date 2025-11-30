@@ -22,7 +22,7 @@ data = [
     ids=[x[0] for x in data],
 )
 @pytest.mark.fast
-def test_basic_cases(text, expected_cat, expected_label) -> None:
+def test_basic_cases(text: str, expected_cat: str, expected_label: str) -> None:
     list_of_cat, category3 = get_episodes(text)
     assert list_of_cat == expected_label
     assert category3 == expected_cat

@@ -10,6 +10,7 @@ from ArWikiCats.make_bots.jobs_bots.relegin_jobs import (
     try_relegins_jobs_with_suffix,
 )
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
+from ArWikiCats.translations.jobs.jobs_defs import GenderedLabel
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
@@ -20,7 +21,7 @@ RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.key
     RELIGIOUS_KEYS_20.items(),
     ids=[x for x in RELIGIOUS_KEYS_20],
 )
-def test_with_suffix(key, data) -> None:
+def test_with_suffix(key: str, data: dict[str, str]) -> None:
     input2 = f"{key} historical house music bloggers"
     expected2 = f"مدونو هاوس تاريخيون {data['mens']}"
 
@@ -33,7 +34,7 @@ def test_with_suffix(key, data) -> None:
     RELIGIOUS_KEYS_20.items(),
     ids=[x for x in RELIGIOUS_KEYS_20],
 )
-def test_no_suffix_female(key, data) -> None:
+def test_no_suffix_female(key: str, data: dict[str, str]) -> None:
     input = f"female {key}"
     expected = data["womens"]
 
