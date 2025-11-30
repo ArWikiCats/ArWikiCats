@@ -1,4 +1,18 @@
 
+## [#134](https://github.com/MrIbrahem/ArWikiCats/pull/134) - 2025-11-30
+
+* **Refactoring**
+  * Reorganized and consolidated internal data structures across modules for improved maintainability.
+  * Removed deprecated and unused data definitions.
+  * Streamlined import paths and module dependencies.
+
+* **Bug Fixes**
+  * Enhanced category label resolution with improved fallback mechanisms for better translation coverage.
+
+* **Tests**
+  * Added comprehensive test coverage for label resolution and data formatting scenarios.
+
+
 ## [#132](https://github.com/MrIbrahem/ArWikiCats/pull/132) - 2025-11-30
 
 * **Refactor**

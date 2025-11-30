@@ -29,8 +29,8 @@ def get_teams_new(team_name: str) -> str:
     # sports.py: len:"Teams new":  114691
 
     normalized_team = team_name.strip()
-    logger.info(f'get_teams_new team:"{normalized_team}"')
-    logger.info(f"get_teams_new: Resolving team label, team: {normalized_team}")
+    logger.info(f'start get_teams_new team:"{normalized_team}"')
+    logger.debug(f"get_teams_new: Resolving team label, team: {normalized_team}")
 
     team_label = get_new_team_xo(normalized_team)
 
@@ -40,8 +40,8 @@ def get_teams_new(team_name: str) -> str:
             team_work.Teams_new_end_keys,
             lambda prefix: SPORTS_KEYS_FOR_JOBS.get(prefix, ""),
         )
-
-    logger.info(f'get_teams_new: team_label:"{team_label}" for normalized_team: ({normalized_team})')
+    if team_label:
+        logger.info(f'get_teams_new: team_label:"{team_label}" for normalized_team: ({normalized_team})')
 
     return team_label
 

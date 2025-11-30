@@ -2,6 +2,7 @@
 """ """
 
 import re
+import functools
 
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from .patterns import load_keys_to_pattern
@@ -45,6 +46,7 @@ new_pattern = load_keys_to_pattern(SPORTS_KEYS_FOR_JOBS)
 RE_KEYS_NEW = re.compile(new_pattern, re.I)
 
 
+@functools.lru_cache(maxsize=10000)
 def match_sport_key(category: str) -> str:
     """Return the matched sport key within the provided category string."""
     match = RE_KEYS_NEW.search(f" {category} ")

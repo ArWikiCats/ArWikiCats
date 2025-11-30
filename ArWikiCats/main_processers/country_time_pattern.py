@@ -5,6 +5,7 @@ that follow a 'country-year' pattern. It uses a pre-configured
 bot (`yc_bot`) to handle the translation logic.
 """
 
+import functools
 from ..translations import all_country_ar
 from ..translations_formats import format_year_country_data
 
@@ -22,6 +23,7 @@ yc_bot = format_year_country_data(
 )
 
 
+@functools.lru_cache(maxsize=10000)
 def get_label(category: str) -> str:
     result = yc_bot.create_label(category)
     if not result:

@@ -132,7 +132,7 @@ def te_army(category: str) -> str:
 
     normalized_category = category.lower().strip()
 
-    logger.info(f"Starting army label resolution, category: {normalized_category}")
+    logger.debug(f"Starting army label resolution, category: {normalized_category}")
 
     suffix, women_label, men_label = _match_country_prefix(normalized_category)
 
@@ -150,7 +150,9 @@ def te_army(category: str) -> str:
     if not resolved_label:
         resolved_label = _resolve_men_suffix(suffix, men_label)
 
-    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
+    if resolved_label:
+        logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
+
     return resolved_label
 
 

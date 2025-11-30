@@ -1,6 +1,6 @@
 """ """
 
-import re
+import functools
 
 from ...helps.log import logger
 from ...translations import (
@@ -11,7 +11,8 @@ from ...translations import (
 from .utils import resolve_p17_2_label
 
 
-def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
+@functools.lru_cache(maxsize=10000)
+def get_p17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
     """
     Category input in english is country name, return arabic as mens nationality.
 
@@ -21,7 +22,7 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
         mens: [Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
         women: [Category:syria air force] = "تصنيف:القوات الجوية السورية
     """
-    logger.info(f'<<lightblue>>>>>> Get_P17_2 "{category}" ')  # ""
+    logger.info(f'<<lightblue>>>>>> get_p17_2 "{category}" ')  # ""
 
     # resolved mens:
     resolved_label = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
@@ -33,5 +34,5 @@ def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
 
 
 __all__ = [
-    "Get_P17_2",
+    "get_p17_2",
 ]

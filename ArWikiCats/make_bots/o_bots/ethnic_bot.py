@@ -39,7 +39,7 @@ def ethnic_culture(category: str, start: str, suffix: str) -> str:
     if not Nat_women.get(start, "") and not Nat_men.get(start, ""):
         return ""
 
-    logger.info(f"Resolving ethnic culture, category={category}, start={start}, suffix={suffix}")
+    logger.debug(f"Resolving ethnic culture, category={category}, start={start}, suffix={suffix}")
 
     topic_label = ""
     group_label = ""
@@ -85,7 +85,7 @@ def ethnic_culture(category: str, start: str, suffix: str) -> str:
 def ethnic(category: str, start: str, suffix: str) -> str:
     """Return the ethnic label for ``category``."""
 
-    logger.info(f"Resolving ethnic label, category={category}, start={start}, suffix={suffix}")
+    logger.debug(f"Resolving ethnic label, category={category}, start={start}, suffix={suffix}")
 
     group_label = Nat_mens.get(suffix, "")
     start_label = Nat_mens.get(start, "")
