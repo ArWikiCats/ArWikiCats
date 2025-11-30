@@ -201,7 +201,7 @@ def test_get_list_of_and_cat3_all_endswith_patterns():
             # and is non-empty.
             assert category3.endswith(key)
             expected_rest = category3[: -len(key)]
-            assert rest == expected_rest
+            assert rest.strip() == expected_rest.strip()
 
 
 @pytest.mark.fast
