@@ -10,7 +10,7 @@ from ..mixed.all_keys2 import pf_keys2 as ADDITIONAL_KEYS
 from ..mixed.all_keys5 import (
     BASE_POP_FINAL_5,  # , pop_final_5 as POPULATION_SUPPLEMENTS
 )
-from ..others.tax_table import Taxons_table as TAXON_TABLE
+from ..tax_table import Taxons_table as TAXON_TABLE
 from ._shared import load_json_mapping, normalize_to_lower
 from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS
 from .labels_country2 import COUNTRY_ADMIN_LABELS

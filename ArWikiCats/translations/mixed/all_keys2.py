@@ -9,7 +9,6 @@ from collections.abc import Mapping
 from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
-from ..others.peoples import People_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
 from ..sports import TENNIS_KEYS
 from ..tv.films_mslslat import film_Keys_For_female, film_Keys_For_male
@@ -19,6 +18,8 @@ from .all_keys4 import new2019
 from .keys2 import keys2_py
 from .keys_23 import NEW_2023
 from .Newkey import pop_final6
+
+People_key = open_json_file("people/peoples.json") or {}
 
 BASE_LABELS: dict[str, str] = {
     "international reactions": "ردود فعل دولية",
@@ -535,6 +536,7 @@ pf_keys2, pop_of_without_in, pop_of_football_lower = wrap_build_pf_keys2()
 len_print.data_len(
     "all_keys2.py",
     {
+        "People_key": People_key,
         "pf_keys2": pf_keys2,
         "pop_of_without_in": pop_of_without_in,
         "pop_of_football_lower": pop_of_football_lower,

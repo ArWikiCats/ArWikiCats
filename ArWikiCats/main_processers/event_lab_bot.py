@@ -19,7 +19,9 @@ from ..make_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations import New_P17_Finall, get_new_team_xo
+from ..translations import New_P17_Finall
+from ..translations_resolvers.nats_new import nats_new_create_label
+from ..translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
@@ -160,7 +162,7 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = get_new_team_xo(category3)
+        category_lab = wrap_team_xo_normal_2025(category3) or nats_new_create_label(category3)
         if category_lab:
             return category_lab
 

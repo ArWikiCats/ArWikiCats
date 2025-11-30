@@ -3,9 +3,8 @@
 
 import pytest
 
-from ArWikiCats.translations.sports_formats_teams.sport_lab import (
-    get_new_team_xo,
-)
+from ArWikiCats.translations_resolvers.nats_new import nats_new_create_label
+from ArWikiCats.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 Get_New_team_xo_data = {
     "acrobatic gymnastics junior world championships": "بطولة العالم الجمباز الاكروباتيكي للناشئين",
@@ -143,10 +142,8 @@ Get_New_team_xo_data = {
     "defunct speed skating clubs": "أندية تزلج سريع سابقة",
     "defunct volleyball clubs": "أندية كرة طائرة سابقة",
     "basketball olympic bronze medalists ": "ميداليات كرة سلة برونزية أولمبية",
-    "british figure skating championships": "بطولة المملكة المتحدة للتزلج الفني",
     "premier badminton league": "دوريات تنس ريشة من الدرجة الممتازة",
     "defunct athletics clubs": "أندية ألعاب قوى سابقة",
-    "dominican republic national sports teams ": "منتخبات للرياضة وطنية جمهورية الدومينيكان",
     "international cricket ": "كريكت دولية",
     "current cricket seasons": "مواسم كريكت حالية",
     "basketball cup competitions": "منافسات كؤوس كرة سلة",
@@ -212,21 +209,6 @@ Get_New_team_xo_data = {
     "men's softball world cup": "كأس العالم للكرة اللينة للرجال",
 }
 
-
-@pytest.mark.parametrize("category, expected", Get_New_team_xo_data.items(), ids=list(Get_New_team_xo_data.keys()))
-@pytest.mark.fast
-def test_Get_New_team_xo_data(category: str, expected: str) -> None:
-    label1 = get_new_team_xo(category)
-    assert isinstance(label1, str)
-    assert label1 == expected
-
-
-@pytest.mark.fast
-def test_Get_New_team_xo() -> None:
-    label = get_new_team_xo("national softball teams")
-    assert label == "منتخبات كرة لينة وطنية"
-
-
 data = {
     "national youth women's under-14 softball leagues umpires": "حكام دوريات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
@@ -266,21 +248,48 @@ data = {
 }
 
 
+@pytest.mark.parametrize("category, expected", Get_New_team_xo_data.items(), ids=list(Get_New_team_xo_data.keys()))
+@pytest.mark.fast
+def test_Get_New_team_xo_data(category: str, expected: str) -> None:
+    label1 = wrap_team_xo_normal_2025(category)
+    assert isinstance(label1, str)
+    assert label1 == expected
+
+
 @pytest.mark.fast
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 def test_all(category: str, expected: str) -> None:
-    result = get_new_team_xo(category)
+    result = wrap_team_xo_normal_2025(category)
     assert result == expected, f"Mismatch for {category}"
+
+
+nats_new_data = {
+    "british figure skating championships": "بطولة المملكة المتحدة للتزلج الفني",
+    "dominican republic national sports teams ": "منتخبات للرياضة وطنية جمهورية الدومينيكان",
+}
+
+
+@pytest.mark.fast
+@pytest.mark.parametrize("category, expected", nats_new_data.items(), ids=list(nats_new_data.keys()))
+def test_nats_new_create_label(category: str, expected: str) -> None:
+    result = nats_new_create_label(category)
+    assert result == expected, f"Mismatch for {category}"
+
+
+@pytest.mark.fast
+def test_Get_New_team_xo() -> None:
+    label = wrap_team_xo_normal_2025("national softball teams")
+    assert label == "منتخبات كرة لينة وطنية"
 
 
 def test_mens_softball_world_cup_regression() -> None:
     """The resolver should correctly translate the softball world cup query."""
 
-    result = get_new_team_xo("men's softball world cup")
+    result = wrap_team_xo_normal_2025("men's softball world cup")
     assert result == "كأس العالم للكرة اللينة للرجال"
 
 
 def test_returns_default_for_unknown_category() -> None:
     """Unmapped categories should return the provided default value."""
 
-    assert get_new_team_xo("mystery sport") == ""
+    assert wrap_team_xo_normal_2025("mystery sport") == ""
