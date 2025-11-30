@@ -360,7 +360,7 @@ data6 = {
 def test_resolve_federation_label(category, expected_key) -> None:
     label = resolve_federation_label(category)
 
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 TEMPORAL_CASES = [
