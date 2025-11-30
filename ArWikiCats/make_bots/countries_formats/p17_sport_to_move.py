@@ -14,11 +14,11 @@ main_data = {
     "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
     "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
     "{en} amateur international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للهواة",
-    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم ",
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international rally": "رالي {ar} الدولي",
     "{en} international rules football team": "منتخب {} لكرة القدم الدولية",
-    "{en} international soccer players": "لاعبو منتخب {ar} لكرة القدم ",
-    "{en} international soccer playerss": "لاعبو منتخب {ar} لكرة القدم ",
+    "{en} international soccer players": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} international soccer playerss": "لاعبو منتخب {ar} لكرة القدم",
     "{en} men's a' international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
     "{en} men's a' international soccer players": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
     "{en} men's a' international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
@@ -76,9 +76,9 @@ main_data_under = {
     "{en} youth {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
     "{en} youth {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
     "{en} youth {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
-    "{en} {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم ",
+    "{en} {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم",
     "{en} {under_en} international managers": "مدربون {under_ar} دوليون من {ar}",
-    "{en} {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم ",
+    "{en} {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم",
     "{en} {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم "
 }
 
