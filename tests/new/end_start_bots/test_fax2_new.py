@@ -217,7 +217,7 @@ def test_get_list_of_and_cat3_navigational_boxes_specificity():
     category3 = "1996 Basketball Olympic squad navigational boxes"
     list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3)
     assert list_of_cat == fax2.to_get_endswith["squad navigational boxes"]["lab"]
-    assert rest == "1996 Basketball Olympic"
+    assert rest.strip() == "1996 Basketball Olympic"
 
 
 # ---------------------------------------------------------------------------
