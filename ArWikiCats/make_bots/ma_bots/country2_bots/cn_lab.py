@@ -9,7 +9,7 @@ from ....helps.log import logger
 from ....translations import By_table, typeTable
 from ....utils import check_key_in_tables, check_key_in_tables_return_tuple
 from ...format_bots import pop_format, pop_format2
-from ...matables_bots.bot import Films_O_TT
+from ...matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
 
 
@@ -34,7 +34,8 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
                 logger.info(f'>>>>>> Add في to cona_1:"{cona_1}" cona_1 in New_players:')
                 resolved_label += " في "
         if cona_2 not in By_table:
-            Films_O_TT[country2] = resolved_label
+            # Films_O_TT[country2] = resolved_label
+            add_to_Films_O_TT(country2, country2)
             # print(f"cn_lab: {country2=}, {resolved_label=}\n"*10)
         else:
             logger.info("<<lightblue>>>>>> cona_2 in By_table")

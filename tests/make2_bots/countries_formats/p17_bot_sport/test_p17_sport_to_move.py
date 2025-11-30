@@ -18,30 +18,7 @@ data_1 = {
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
-    "tunisia national team": "منتخبات تونس الوطنية",
-    "tunisia national teams": "منتخبات تونس الوطنية",
-    "tunisia rally championship": "بطولة تونس للراليات",
-    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
-    "venezuela rally championship": "بطولة فنزويلا للراليات",
-    "yemen rally championship": "بطولة اليمن للراليات",
-    "yemen sports templates": "قوالب اليمن الرياضية",
-    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
-    "zambia rally championship": "بطولة زامبيا للراليات",
-    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
-    "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
-}
 
-data_3 = {
-    # "yemen international footballers": "لاعبو كرة قدم دوليون من اليمن",
-    "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم",
-
-    "democratic-republic-of-the-congo amateur international soccer players": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم للهواة",
-
-    "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
-    "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
-
-    "tunisia sports templates": "قوالب تونس الرياضية",
-    "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
     "aruba men's under-20 international footballers": "لاعبو منتخب أروبا تحت 20 سنة لكرة القدم للرجال",
     "bolivia men's international footballers": "لاعبو منتخب بوليفيا لكرة القدم للرجال",
     "bulgaria women's international footballers": "لاعبات منتخب بلغاريا لكرة القدم للسيدات",
@@ -50,6 +27,7 @@ data_3 = {
     "croatia men's international footballers": "لاعبو منتخب كرواتيا لكرة القدم للرجال",
     "cyprus women's international footballers": "لاعبات منتخب قبرص لكرة القدم للسيدات",
     "czech republic men's youth international footballers": "لاعبو منتخب التشيك لكرة القدم للشباب",
+    "democratic-republic-of-the-congo amateur international soccer players": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم للهواة",
     "democratic-republic-of-the-congo men's a' international footballers": "لاعبو منتخب جمهورية الكونغو الديمقراطية لكرة القدم للرجال للمحليين",
     "guam men's international footballers": "لاعبو منتخب غوام لكرة القدم للرجال",
     "guam women's international footballers": "لاعبات منتخب غوام لكرة القدم للسيدات",
@@ -70,22 +48,32 @@ data_3 = {
     "switzerland men's youth international footballers": "لاعبو منتخب سويسرا لكرة القدم للشباب",
     "tanzania sports templates": "قوالب تنزانيا الرياضية",
     "tunisia men's a' international footballers": "لاعبو منتخب تونس لكرة القدم للرجال للمحليين",
+    "tunisia national team": "منتخبات تونس الوطنية",
+    "tunisia national teams": "منتخبات تونس الوطنية",
+    "tunisia rally championship": "بطولة تونس للراليات",
+    "tunisia sports templates": "قوالب تونس الرياضية",
     "ukraine women's international footballers": "لاعبات منتخب أوكرانيا لكرة القدم للسيدات",
+    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
+    "venezuela rally championship": "بطولة فنزويلا للراليات",
+    "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم",
+    "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
+    "yemen rally championship": "بطولة اليمن للراليات",
+    "yemen sports templates": "قوالب اليمن الرياضية",
+    "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
+    "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
+    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
     "zambia men's youth international footballers": "لاعبو منتخب زامبيا لكرة القدم للشباب",
-    "zambia women's international footballers": "لاعبات منتخب زامبيا لكرة القدم للسيدات"
+    "zambia rally championship": "بطولة زامبيا للراليات",
+    "zambia women's international footballers": "لاعبات منتخب زامبيا لكرة القدم للسيدات",
+    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
+    "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
+    "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
 }
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=list(data_1.keys()))
 @pytest.mark.fast
 def test_sport_formts_en_ar_is_p17_label_1(category, expected) -> None:
-    label = sport_formts_en_ar_is_p17_label(category)
-    assert label.strip() == expected.strip()
-
-
-@pytest.mark.parametrize("category, expected", data_3.items(), ids=list(data_3.keys()))
-@pytest.mark.fast
-def test_sport_formts_en_ar_is_p17_label_3(category, expected) -> None:
     label = sport_formts_en_ar_is_p17_label(category)
     assert label.strip() == expected.strip()
 
@@ -131,7 +119,6 @@ def test_get_con_3_lab_sports(category, expected):
 
 TEMPORAL_CASES = [
     ("test_sport_formts_en_ar_is_p17_label_1", data_1, sport_formts_en_ar_is_p17_label),
-    ("test_sport_formts_en_ar_is_p17_label_3", data_3, sport_formts_en_ar_is_p17_label),
     ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
 ]
 
