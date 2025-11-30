@@ -94,7 +94,7 @@ def work_titose_names(
 
 
 @functools.lru_cache(maxsize=10000)
-def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
+def _translate_general_category(category_r: str, category: str, start_get_country2: bool = True) -> str:
     """Translate an English category to Arabic label.
 
     This function processes a category string by normalizing the format
@@ -108,26 +108,37 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     Returns:
         The processed Arabic label associated with the input category.
     """
-    category = category_r.replace("_", " ")
-    category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
-
-    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
-
-    logger.info(f'<<lightyellow>>>>>> yementest, category_r:"{category_r}", category:"{category}"')
     cate_test = category.lower()
 
     arlabel = get_pop_All_18(category, "")
+
     if not arlabel:
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
         arlabel = work_titose_names(category, cate_test, start_get_country2=start_get_country2)
 
+    return arlabel
+
+
+@functools.lru_cache(maxsize=10000)
+def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
+
+    category = category_r.replace("_", " ")
+    category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
+
+    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
+    logger.debug(f'<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}')
+
+    arlabel = _translate_general_category(category_r, category, start_get_country2)
+
     if arlabel and fix_title:
         arlabel = fixtitle.fixlab(arlabel, en=category_r)
-        logger.info(f'xxxxx <<green>>cate_test: "{cate_test}" ')
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
 
-    logger.info("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
+    if arlabel:
+        logger.debug(f"<<lightyellow>>>> translate_general_category {arlabel=}  ")
+
+    logger.debug("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
 
     return arlabel
