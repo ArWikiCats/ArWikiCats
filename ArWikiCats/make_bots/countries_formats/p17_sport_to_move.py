@@ -86,7 +86,7 @@ def get_con_3_lab_sports(suffix, country_start="", category="") -> str:
 
     formatted_data = _build_en_ar_is_p17()
 
-    suffix_label = formatted_data.get(suffix, "")
+    suffix_label = formatted_data.get(suffix, "").strip()
 
     return suffix_label
 
