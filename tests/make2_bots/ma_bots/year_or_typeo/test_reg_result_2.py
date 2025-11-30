@@ -28,11 +28,11 @@ def test_in(eng: ParameterSet | Sequence[object] | object):
     category = f"Category:2025 {eng} Canada"
     out = get_reg_result(category)
     # typeo = out.typeo
-    In = out.In.lower().strip()
+    In = out.In.lower()
     country = out.country.lower()
-    country_expected = "by canada" if In.strip() == "by" else "canada"
+    country_expected = "by canada" if In == "by" else "canada"
     assert out.year_at_first == "2025 ", f"[{category}]: {str(out)}"
     # assert typeo == "", f"[{category}]: {str(out)}"
-    # assert In == eng.lower().strip(), f"[{category}]: {str(out)}"
+    # assert In == eng.lower(), f"[{category}]: {str(out)}"
 
     assert country == country_expected, f"[{category}]: {str(out)}"

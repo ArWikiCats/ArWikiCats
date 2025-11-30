@@ -69,11 +69,11 @@ def test_all(name, data):
 @pytest.mark.fast
 def test_label_for_startwith_year_or_typeo(category, expected) -> None:
     label = label_for_startwith_year_or_typeo(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", examples_century.items(), ids=list(examples_century.keys()))
 @pytest.mark.fast
 def test_label_for_startwith_year_or_typeo_centuries(category, expected) -> None:
     label = label_for_startwith_year_or_typeo(category)
-    assert label.strip() == expected
+    assert label == expected
