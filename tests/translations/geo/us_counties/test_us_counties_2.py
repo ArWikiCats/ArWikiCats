@@ -48,7 +48,7 @@ to_test.append(("test_all_test_data", all_test_data))
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
-def test_all_dump(name, data) -> None:
+def test_all_dump(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     if diff_result:

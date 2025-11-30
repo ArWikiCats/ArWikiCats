@@ -94,7 +94,7 @@ def test_geography_us_3(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("name,data", test_data)
 @pytest.mark.dump
-def test_geography_us(name, data) -> None:
+def test_geography_us(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

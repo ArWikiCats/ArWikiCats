@@ -127,7 +127,7 @@ class TestTypeExtraction:
             ("Category:2020 Japan", ""),
         ],
     )
-    def test_typeo(self, category, expected) -> None:
+    def test_typeo(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         typeo = out.typeo
         assert typeo == expected
@@ -141,7 +141,8 @@ class TestTypeExtraction:
             ("Category:2001 launched in USA", "launched in"),
         ],
     )
-    def _test_typeo2(self, category, expected):
+    @pytest.mark.skip2
+    def test_typeo2(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         typeo = out.typeo
         assert typeo == expected
