@@ -149,5 +149,6 @@ def sport_formts_en_ar_is_p17_label(category: str) -> str:
 
 __all__ = [
     "sport_formts_en_ar_is_p17_label",
+    "sport_formts_en_ar_is_p17_label_new",
     "get_con_3_lab_sports",
 ]

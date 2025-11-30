@@ -7,6 +7,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
     sport_formts_en_ar_is_p17_label,
+    sport_formts_en_ar_is_p17_label_new,
     get_con_3_lab_sports,
 )
 
@@ -75,7 +76,9 @@ data_1 = {
 @pytest.mark.fast
 def test_sport_formts_en_ar_is_p17_label_1(category, expected) -> None:
     label = sport_formts_en_ar_is_p17_label(category)
-    assert label.strip() == expected.strip()
+    assert label == expected
+    label2 = sport_formts_en_ar_is_p17_label_new(category)
+    assert label2 == expected
 
 
 # =========================================================
@@ -119,6 +122,7 @@ def test_get_con_3_lab_sports(category, expected):
 
 TEMPORAL_CASES = [
     ("test_sport_formts_en_ar_is_p17_label_1", data_1, sport_formts_en_ar_is_p17_label),
+    ("test_sport_formts_en_ar_is_p17_label_new", data_1, sport_formts_en_ar_is_p17_label_new),
     ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
 ]
 
