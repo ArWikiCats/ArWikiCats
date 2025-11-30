@@ -1,4 +1,19 @@
 
+## [#131](https://github.com/MrIbrahem/ArWikiCats/pull/131) - 2025-11-30
+
+* **New Features**
+  * Added comprehensive sports-to-Arabic label mappings and new lookup helpers for broader category coverage.
+  * New helper for safely registering resolved media labels.
+
+* **Bug Fixes**
+  * Improved fallback logic for sports/national team label resolution and trimmed whitespace in results.
+
+* **Refactor**
+  * Reorganized sports translation data and streamlined label-formatting helpers for more reliable lookups.
+
+* **Tests**
+  * Added extensive data-driven tests covering sports and category label resolution.
+
 ## [#130](https://github.com/MrIbrahem/ArWikiCats/pull/130) - 2025-11-30
 
 * **Bug Fixes**
