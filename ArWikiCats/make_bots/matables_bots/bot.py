@@ -14,14 +14,10 @@ from ...translations import (
     Jobs_new,
     People_key,
     all_country_with_nat,
-    languages_pop,
-    military_format_men,
-    military_format_women,
     olympics,
     typeTable,
     typeTable_7,
 )
-from ..lazy_data_bots.bot_2018 import pop_All_2018
 
 MONTH_table = {
     "january": "يناير",
@@ -74,35 +70,7 @@ Pp_Priffix = {
 }
 for io in ALBUMS_TYPE:
     Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % ALBUMS_TYPE[io]
-Keep_it_last = ["remakes of"]
-# ---
-Keep_it_frist = [
-    "spaceflight",
-    "lists of",
-    # "people associated with" ,
-    "actors in",
-    "male actors in",
-    "centuries in",
-    "centuries",
-    "qualification for",
-    "participants",
-    "seasons in",
-    "seasons",
-    "works by",
-]
 
-Add_in_table = [
-    "historical documents",
-    "road incidents",
-    "racehorse deaths",
-    "animal deaths",
-    "documents",
-    "sports awards",
-    "military alliances",
-    "illuminated manuscripts",
-    "biblical manuscripts",
-    "censuses",  # تعداد السكان
-]
 # ---
 for x in all_country_with_nat:
     all_country_with_nat_lower[x.lower()] = all_country_with_nat[x]

@@ -21,10 +21,9 @@ from ...format_bots import (
     pop_format33,
 )
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
+from ...matables_bots.data import Keep_it_frist, Keep_it_last
 from ...matables_bots.bot import (
     Add_ar_in,
-    Keep_it_frist,
-    Keep_it_last,
     Table_for_frist_word,
 )
 from ...matables_bots.check_bot import check_key_new_players
