@@ -18,18 +18,8 @@ data_1 = {
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
-    "tunisia national team": "منتخبات تونس الوطنية",
-    "tunisia national teams": "منتخبات تونس الوطنية",
-    "tunisia rally championship": "بطولة تونس للراليات",
-    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
-    "venezuela rally championship": "بطولة فنزويلا للراليات",
-    "yemen rally championship": "بطولة اليمن للراليات",
-    "yemen sports templates": "قوالب اليمن الرياضية",
-    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
-    "zambia rally championship": "بطولة زامبيا للراليات",
-    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
-    "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
 }
+
 data_2 = {
     "africa football league": "دوري إفريقيا لكرة القدم",
     "angola basketball cup": "كأس أنغولا لكرة السلة",

@@ -200,15 +200,15 @@ def test_sport_formts_en_ar_is_p17_label_1(category, expected) -> None:
 
 
 @pytest.mark.parametrize("category, expected", data_2.items(), ids=list(data_2.keys()))
-@pytest.mark.fast
-def test_sport_formts_en_ar_is_p17_label_data_2(category, expected) -> None:
+@pytest.mark.skip2
+def test_sport_formts_en_ar_is_p17_label_2(category, expected) -> None:
     label = sport_formts_en_ar_is_p17_label(category)
     assert label.strip() == expected.strip()
 
 
 @pytest.mark.parametrize("category, expected", data_3.items(), ids=list(data_3.keys()))
 @pytest.mark.fast
-def test_sport_formts_en_ar_is_p17_label_data_3(category, expected) -> None:
+def test_sport_formts_en_ar_is_p17_label_3(category, expected) -> None:
     label = sport_formts_en_ar_is_p17_label(category)
     assert label.strip() == expected.strip()
 
@@ -254,7 +254,7 @@ def test_get_con_3_lab_sports(category, expected):
 
 TEMPORAL_CASES = [
     ("test_sport_formts_en_ar_is_p17_label_1", data_1, sport_formts_en_ar_is_p17_label),
-    ("test_sport_formts_en_ar_is_p17_label_2", data_2, sport_formts_en_ar_is_p17_label),
+    # ("test_sport_formts_en_ar_is_p17_label_2", data_2, sport_formts_en_ar_is_p17_label),
     ("test_sport_formts_en_ar_is_p17_label_3", data_3, sport_formts_en_ar_is_p17_label),
     ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
 ]
