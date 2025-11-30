@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from ...helps import len_print
-from ._shared import apply_suffix_templates, log_mapping_stats, update_with_lowercased
 
 PRIMARY_REGION_TRANSLATIONS = {
     "limburg (belgium)": "ليمبورغ (بلجيكا)",
@@ -685,26 +684,11 @@ for province_name, province_label in ECUADOR_PROVINCE_TRANSLATIONS.items():
     PRIMARY_REGION_TRANSLATIONS[normalized_name] = province_label
     PRIMARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"مقاطعة {province_label}"
 
-
-def get_primary_region_translations() -> dict[str, str]:
-    """Return a copy of the primary region translation table."""
-
-    return dict(PRIMARY_REGION_TRANSLATIONS)
-
-
-Main_Table = PRIMARY_REGION_TRANSLATIONS
+MAIN_REGION_TRANSLATIONS = PRIMARY_REGION_TRANSLATIONS
 
 __all__ = [
     "PRIMARY_REGION_TRANSLATIONS",
-    "PERU_REGION_TRANSLATIONS",
-    "UK_COUNTY_TRANSLATIONS",
-    "SRI_LANKA_DISTRICT_TRANSLATIONS",
-    "ALGERIA_PROVINCE_TRANSLATIONS",
-    "VENEZUELA_STATE_TRANSLATIONS",
-    "ECUADOR_PROVINCE_TRANSLATIONS",
-    "LEGACY_UK_COUNTY_TRANSLATIONS",
-    "get_primary_region_translations",
-    "Main_Table",
+    "MAIN_REGION_TRANSLATIONS",
 ]
 
 len_print.data_len(
@@ -718,6 +702,6 @@ len_print.data_len(
         "VENEZUELA_STATE_TRANSLATIONS": VENEZUELA_STATE_TRANSLATIONS,
         "ECUADOR_PROVINCE_TRANSLATIONS": ECUADOR_PROVINCE_TRANSLATIONS,
         "LEGACY_UK_COUNTY_TRANSLATIONS": LEGACY_UK_COUNTY_TRANSLATIONS,
-        "Main_Table": Main_Table,
+        "MAIN_REGION_TRANSLATIONS": MAIN_REGION_TRANSLATIONS,
     },
 )
