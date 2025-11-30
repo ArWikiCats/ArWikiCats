@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import functools
 from typing import Callable, Dict
 
 from ...helps.log import logger
@@ -22,6 +23,7 @@ def _lookup_entity(key: str, *tables: Dict[str, str]) -> str:
     return first_non_empty(lower_key, list(tables))
 
 
+@functools.lru_cache(maxsize=10000)
 def make_by_label(category: str) -> str:
     """Return the Arabic label for ``category`` that starts with ``by``.
 
@@ -75,6 +77,7 @@ def _lookup_prefixed_label(part: str, lookup: LabelLookup) -> str:
     return lookup(cleaned)
 
 
+@functools.lru_cache(maxsize=10000)
 def get_by_label(category: str) -> str:
     """Return the label for a category in the form ``<entity> by <suffix>``.
 
@@ -106,6 +109,7 @@ def get_by_label(category: str) -> str:
     return label
 
 
+@functools.lru_cache(maxsize=10000)
 def get_and_label(category: str) -> str:
     """Return the label for ``<entity> and <entity>`` categories.
 

@@ -32,6 +32,7 @@ _Multi_sport_for_Jobs: dict[str, str] = {
 }
 
 
+@functools.lru_cache(maxsize=10000)
 def nat_match(category: str) -> str:
     """Match a category string to a localized sentiment label.
 
@@ -94,16 +95,17 @@ def te_2018_with_nat(category: str) -> str:
 
         if suffix:
             # Try various strategies if we have a country code
-            strategies = [
-                lambda: Work_for_me(normalized_category, nat, suffix),
-                lambda: Films(normalized_category, nat, suffix),
-                lambda: ethnic_bot.ethnic_label(normalized_category, nat, suffix),
-                lambda: nat_match(normalized_category),
-            ]
+            strategies = {
+                "Work_for_me": lambda: Work_for_me(normalized_category, nat, suffix),
+                "Films": lambda: Films(normalized_category, nat, suffix),
+                "ethnic_bot.ethnic_label": lambda: ethnic_bot.ethnic_label(normalized_category, nat, suffix),
+                "nat_match": lambda: nat_match(normalized_category),
+            }
 
-            for strategy in strategies:
+            for name, strategy in strategies.items():
                 country_label = strategy()
                 if country_label:
+                    logger.debug(f'<<lightblue>> te_2018_with_nat: def {name}() {country_label=} ')
                     break
 
         # Fallback strategies if still no label
@@ -153,5 +155,7 @@ def Jobs_in_Multi_Sports(category: str) -> str:
         if job_label and game_label:
             primary_label = f"{job_label} في {game_label}"
 
-    logger.info(f'end Jobs_in_Multi_Sports "{category_clean}" , primary_label:"{primary_label}"')
+    if primary_label:
+        logger.info(f'end Jobs_in_Multi_Sports "{category_clean}" , primary_label:"{primary_label}"')
+
     return primary_label

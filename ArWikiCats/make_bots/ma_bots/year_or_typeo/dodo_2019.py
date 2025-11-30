@@ -7,6 +7,7 @@ from .year_or_typeo.dodo_2019 import work_2019
 """
 
 import re
+import functools
 
 from ....helps.log import logger
 from ....new.time_to_arabic import match_en_return_ar
@@ -49,6 +50,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     return arlabel
 
 
+@functools.lru_cache(maxsize=10000)
 def work_2019_wrap(category: str) -> str:
     """Wrap ``work_2019`` with a quick lookup of year metadata from English text."""
     year_data = match_en_return_ar(category)

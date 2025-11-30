@@ -18,8 +18,114 @@ from ...translations import (
     jobs_womens_data,
     replace_labels_2022,
     short_womens_jobs,
+    FILM_PRODUCTION_COMPANY,
+    SPORTS_KEYS_FOR_LABEL,
+    People_key,
 )
+
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
+
+
+@functools.lru_cache(maxsize=1)
+def _extend_By_table() -> dict[str, str]:
+    """
+    TODO: maybe we don't even need it
+    """
+    result = {}
+    for ss in SPORTS_KEYS_FOR_LABEL:
+        cd = f"by {ss.lower()} team"
+        result[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
+
+    for uh in People_key:  #
+        result[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"
+
+    for uh in FILM_PRODUCTION_COMPANY:  #
+        result[f"by {uh.lower()}"] = f"بواسطة {FILM_PRODUCTION_COMPANY[uh]}"
+    return result
+
+
+@functools.lru_cache(maxsize=None)
+def work_mens_priffix(con_33: str) -> str:
+    """
+    TODO: need refactoring
+    """
+    for priff, priff_lab in Mens_priffix.items():
+        pri = f"{priff} "
+
+        if not con_33.startswith(pri):
+            continue
+
+        con_8 = con_33[len(pri) :]
+        con_88 = con_8
+
+        if con_8.endswith(" people"):
+            con_nat = con_8[: -len(" people")]
+            if Nat_mens.get(con_nat):
+                con_88 = con_nat
+        con_88 = con_88.strip()
+
+        logger.debug(f'<<lightblue>> con_8:{con_8}, con_88:"{con_88}"')
+        logger.debug(f'<<lightblue>> con_33.startswith pri ("{pri}"), con_88:"{con_88}"')
+
+        con_8_lab = jobs_mens_data.get(con_88, "")
+
+        if not con_8_lab:
+            con_8_lab = Nat_mens.get(con_88, "")
+
+        if con_88 in Female_Jobs and priff_lab in change_male_to_female:
+            priff_lab = change_male_to_female[priff_lab]
+        if not con_8_lab:
+
+            continue
+        logger.debug(f'<<lightblue>> priffix_Mens_work: pri("{pri}"), con_88:{con_88}, con_8_lab:"{con_8_lab}"')
+
+        label = priff_lab.format(con_8_lab)
+        if label in replace_labels_2022:
+            label = replace_labels_2022[label]
+            logger.debug(f'<<lightgreen>> change label to "{label}" replace_labels_2022.')
+
+        if label.strip():
+            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+            return label
+    return ""
+
+
+@functools.lru_cache(maxsize=None)
+def work_mens_suffix(con_33: str) -> str:
+    """
+    TODO: need refactoring
+    """
+    for suffix1, suf_lab in Mens_suffix.items():
+        suffix2 = f" {suffix1}"
+
+        if not con_33.endswith(suffix2):
+            continue
+
+        con_8 = con_33[: -len(suffix2)]
+        con_88 = con_8
+
+        if con_8.endswith(" people"):
+            con_nat = con_8[: -len(" people")]
+            if Nat_mens.get(con_nat):
+                con_88 = con_nat
+
+        con_88 = con_88.strip()
+        logger.debug(f'<<lightblue>> con_33.endswith suffix2("{suffix2}"), con 88:"{con_88}"')
+
+        con_88_lab = Nat_mens.get(con_88, "")
+
+        if not con_88_lab:
+            con_88_lab = get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
+
+        if con_88_lab:
+            logger.debug(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), con_88_lab:"{con_88_lab}"')
+            label = suf_lab.format(con_88_lab)
+
+        if label.strip():
+            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+            return label
+
+    return ""
 
 
 @functools.lru_cache(maxsize=None)
@@ -42,68 +148,33 @@ def priffix_Mens_work(con_33: str) -> str:
         str: The formatted label corresponding to the input string.
     """
     logger.debug(f'<<lightblue>> --- start: priffix_Mens_work :"{con_33}"')
-    label = By_table.get(con_33, "")
+
+    By_table2 = _extend_By_table()
+
+    label = By_table.get(con_33) or By_table2.get(con_33)
     if label:
         return label
+
     label = jobs_mens_data.get(con_33, "")
     if label:
         logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
         return label
-    for priff, priff_lab in Mens_priffix.items():
-        pri = f"{priff} "
-        if not con_33.startswith(pri):
-            continue
-        con_8 = con_33[len(pri) :]
-        con_88 = con_8
-        if con_8.endswith(" people"):
-            con_nat = con_8[: -len(" people")]
-            if Nat_mens.get(con_nat):
-                con_88 = con_nat
-        con_88 = con_88.strip()
-        logger.debug(f'<<lightblue>> con_8:{con_8}, con_88:"{con_88}"')
-        logger.debug(f'<<lightblue>> con_33.startswith pri ("{pri}"), con_88:"{con_88}"')
-        con_8_lab = jobs_mens_data.get(con_88, "")
-        if not con_8_lab:
-            con_8_lab = Nat_mens.get(con_88, "")
-        if con_88 in Female_Jobs and priff_lab in change_male_to_female:
-            priff_lab = change_male_to_female[priff_lab]
-        if not con_8_lab:
-            continue
-        logger.debug(f'<<lightblue>> priffix_Mens_work: pri("{pri}"), con_88:{con_88}, con_8_lab:"{con_8_lab}"')
-        label = priff_lab.format(con_8_lab)
-        if label in replace_labels_2022:
-            label = replace_labels_2022[label]
-            logger.debug(f'<<lightgreen>> change label to "{label}" replace_labels_2022.')
-        if label.strip():
-            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
-            return label
-    for suffix1, suf_lab in Mens_suffix.items():
-        suffix2 = f" {suffix1}"
-        if not con_33.endswith(suffix2):
-            continue
-        con_8 = con_33[: -len(suffix2)]
-        con_88 = con_8
-        if con_8.endswith(" people"):
-            con_nat = con_8[: -len(" people")]
-            if Nat_mens.get(con_nat):
-                con_88 = con_nat
-        con_88 = con_88.strip()
-        logger.debug(f'<<lightblue>> con_33.endswith suffix2("{suffix2}"), con 88:"{con_88}"')
-        con_88_lab = Nat_mens.get(con_88, "")
-        if not con_88_lab:
-            con_88_lab = get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
-        if con_88_lab:
-            logger.debug(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), con_88_lab:"{con_88_lab}"')
-            label = suf_lab.format(con_88_lab)
-        if label.strip():
-            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
-            return label
+
+    label = work_mens_priffix(con_33)
+    if label:
+        return label
+
+    label = work_mens_suffix(con_33)
+    if label:
+        return label
+
     return ""
 
 
 @functools.lru_cache(maxsize=None)
 def Women_s_priffix_work(suffix: str) -> str:
-    """Retrieve the women's prefix work label based on the input string.
+    """
+    Retrieve the women's prefix work label based on the input string.
 
     This function processes the input string to determine if it matches any
     predefined women's job prefixes. It first checks if the lowercase and
@@ -118,23 +189,32 @@ def Women_s_priffix_work(suffix: str) -> str:
 
     Returns:
         str: The corresponding job label or an empty string if no match is found.
+
+    TODO: need refactoring
     """
     label = short_womens_jobs.get(suffix, "")
+
     if label:
         return label
+
     con_33 = suffix
+
     if suffix.endswith(" women"):
         con_33 = suffix[: -len(" women")]
+
     for wriff, wrifflab in Women_s_priffix.items():
         data = [f"{wriff} "]
         if wriff == "women's":
             data.append("women's-")
+
         for prefix in data:
             if not con_33.startswith(prefix):
                 continue
+
             con_4 = con_33[len(prefix) :]
             con_8_Wb = jobs_womens_data.get(con_4, "")
             logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"),con_4:"{con_4}", con_8_Wb:"{con_8_Wb}"')
+
             if con_8_Wb:
                 label = wrifflab.format(con_8_Wb)
                 return label

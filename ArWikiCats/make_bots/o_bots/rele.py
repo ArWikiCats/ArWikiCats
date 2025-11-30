@@ -148,7 +148,7 @@ def work_relations(value: str) -> str:
     """
 
     normalized = value.lower().strip()
-    logger.info(f"start work_relations: value:{normalized}")
+    logger.debug(f"start work_relations: value:{normalized}")
 
     resolved = _resolve_relations(
         normalized,
@@ -158,6 +158,7 @@ def work_relations(value: str) -> str:
         add_article=True,
     )
     if resolved:
+        logger.info(f"work_relations: cat: {value}, resolved: {resolved}")
         return resolved
 
     resolved = _resolve_relations(
@@ -168,6 +169,7 @@ def work_relations(value: str) -> str:
         add_article=True,
     )
     if resolved:
+        logger.info(f"work_relations: cat: {value}, resolved: {resolved}")
         return resolved
 
     resolved = _resolve_relations(
@@ -178,6 +180,10 @@ def work_relations(value: str) -> str:
         add_article=False,
         joiner=" و",
     )
+
+    if resolved:
+        logger.info(f"work_relations: cat: {value}, resolved: {resolved}")
+
     return resolved
 
 

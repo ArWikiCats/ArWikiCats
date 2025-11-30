@@ -7,31 +7,50 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 from ...helps import len_print
 from ...translations import (
     ALBUMS_TYPE,
-    FILM_PRODUCTION_COMPANY,
-    SPORTS_KEYS_FOR_LABEL,
-    By_table,
     Jobs_new,
-    People_key,
     olympics,
     typeTable,
     typeTable_7,
 )
 
-MONTH_table = {
-    "january": "يناير",
-    "february": "فبراير",
-    "march": "مارس",
-    "april": "أبريل",
-    "may": "مايو",
-    "june": "يونيو",
-    "july": "يوليو",
-    "august": "أغسطس",
-    "september": "سبتمبر",
-    "october": "أكتوبر",
-    "november": "نوفمبر",
-    "december": "ديسمبر",
-}
-# ---
+
+def _create_pp_priffix(albums_typies: dict[str, str]) -> dict[str, str]:
+    Pp_Priffix = {
+        " memorials": "نصب {} التذكارية",
+        " video albums": "ألبومات فيديو {}",
+        " albums": "ألبومات {}",
+        " cabinet": "مجلس وزراء {}",
+        " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
+        " administration personnel": "موظفو إدارة {}",
+        " executive office": "مكتب {} التنفيذي",
+    }
+
+    for io in albums_typies:
+        Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % albums_typies[io]
+
+    return Pp_Priffix
+
+
+def _make_players_keys(Add_ar_in: dict[str, str]) -> dict:
+    players_keys = {}
+    players_keys["women"] = "المرأة"
+
+    players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
+
+    players_keys.update({x.lower(): v for x, v in typeTable_7.items()})
+
+    players_keys["national sports teams"] = "منتخبات رياضية وطنية"
+    players_keys["people"] = "أشخاص"
+
+    players_keys.update(Add_ar_in)
+    return players_keys
+
+
+Add_ar_in = dict(olympics)
+players_new_keys = _make_players_keys(Add_ar_in)
+Pp_Priffix = _create_pp_priffix(ALBUMS_TYPE)
+
+
 cash_2022 = {
     "category:japan golf tour golfers": "تصنيف:لاعبو بطولة اليابان للغولف",
     "category:asian tour golfers": "تصنيف:لاعبو بطولة آسيا للغولف",
@@ -42,50 +61,12 @@ cash_2022 = {
 New_Lan = {}
 All_P17 = {}
 Films_O_TT = {}
-players_keys = {}
-# ---
-Pp_Priffix = {
-    " memorials": "نصب {} التذكارية",
-    " video albums": "ألبومات فيديو {}",
-    " albums": "ألبومات {}",
-    " cabinet": "مجلس وزراء {}",
-    " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
-    " administration personnel": "موظفو إدارة {}",
-    " executive office": "مكتب {} التنفيذي",
-}
-for io in ALBUMS_TYPE:
-    Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % ALBUMS_TYPE[io]
-
-for ss in SPORTS_KEYS_FOR_LABEL:  #
-    cd = f"by {ss.lower()} team"
-    By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
-
-for uh in People_key:  #
-    By_table[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"
-
-for uh in FILM_PRODUCTION_COMPANY:  #
-    By_table[f"by {uh.lower()}"] = f"بواسطة {FILM_PRODUCTION_COMPANY[uh]}"
-
-players_keys["women"] = "المرأة"
-
-players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
-
-players_keys.update({x.lower(): v for x, v in typeTable_7.items()})
-
-players_keys["national sports teams"] = "منتخبات رياضية وطنية"
-players_keys["people"] = "أشخاص"
-
-Add_ar_in = dict(olympics)
-
-players_keys.update({x: v for x, v in Add_ar_in.items()})
 
 Table_for_frist_word = {
     "typetable": typeTable,
     "Films_O_TT": Films_O_TT,
-    "New_players": players_keys,
+    "New_players": players_new_keys,
 }
-
-players_new_keys = players_keys
 
 
 def add_to_new_players(en: str, ar: str) -> None:
@@ -119,10 +100,14 @@ len_print.data_len(
 )
 
 __all__ = [
+    "Table_for_frist_word",
+    "cash_2022",
+    "Films_O_TT",
     "Add_ar_in",
     "players_new_keys",
     "add_to_new_players",
     "add_to_Films_O_TT",
     "All_P17",
     "Pp_Priffix",
+    "New_Lan",
 ]

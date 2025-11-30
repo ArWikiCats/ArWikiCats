@@ -1,6 +1,7 @@
 """Translation helpers for United States counties, states, and parties."""
 
 from __future__ import annotations
+import functools
 
 from ..translations_formats import FormatData
 from ..translations import US_STATES
@@ -143,6 +144,7 @@ def normalize_state(ar_name: str) -> str:
     return ar_name
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
     result = us_bot.search(category)
 
