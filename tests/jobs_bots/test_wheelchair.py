@@ -165,14 +165,14 @@ test_data = [
 @pytest.mark.fast
 def test_wheelchair_racers_by_nat(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data2.items(), ids=list(data2.keys()))
 @pytest.mark.fast
 def test_wheelchair_3(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.dump

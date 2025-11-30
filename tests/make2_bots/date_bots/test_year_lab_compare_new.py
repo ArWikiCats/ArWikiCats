@@ -18,12 +18,12 @@ def test_make_year_lab():
     # Test year with BC
     result_bc = make_year_lab("500 bc")
     assert isinstance(result_bc, str)
-    assert result_bc.strip() == "500 ق م"
+    assert result_bc == "500 ق م"
 
     # Test year with BCE
     result_bce = make_year_lab("300 bce")
     assert isinstance(result_bce, str)
-    assert result_bce.strip() == "300 ق م"
+    assert result_bce == "300 ق م"
 
     # Test century
     result_century = make_year_lab("21st century")
@@ -59,7 +59,7 @@ def test_make_month_lab():
     # Test with just letters
     result_letters = make_month_lab("january")
     assert isinstance(result_letters, str)
-    assert result_letters.strip() == "يناير"
+    assert result_letters == "يناير"
 
 
 class TestMakeYearLabBasicPatterns:
@@ -94,8 +94,8 @@ class TestMakeYearLabBasicPatterns:
     )
     def test_year_lab_core_cases(self, year: str, expected: str) -> None:
         # We ignore leading/trailing whitespace differences by stripping.
-        assert make_year_lab(year).strip() == expected
-        assert convert_time_to_arabic(year).strip() == expected
+        assert make_year_lab(year) == expected
+        assert convert_time_to_arabic(year) == expected
 
 
 class TestMakeYearLabMonths:
@@ -121,8 +121,8 @@ class TestMakeYearLabMonths:
         result = make_year_lab(year)
         result1 = convert_time_to_arabic(year)
         # Strip to normalize trailing space after month name / suffix.
-        assert result.strip() == expected
-        assert result1.strip() == expected
+        assert result == expected
+        assert result1 == expected
 
 
 class TestMakeYearLabRangesAndSpecial:
@@ -187,8 +187,8 @@ class TestMakeMonthLabBasic:
     )
     def test_month_lab_with_month_names(self, year: str, expected: str) -> None:
         # Normalize trailing spaces for bare months.
-        assert make_month_lab(year).strip() == expected
-        assert convert_time_to_arabic(year).strip() == expected
+        assert make_month_lab(year) == expected
+        assert convert_time_to_arabic(year) == expected
 
 
 class TestMakeMonthLabRangesAndSpecial:
