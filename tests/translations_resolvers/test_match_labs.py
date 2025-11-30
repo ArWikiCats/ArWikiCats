@@ -95,7 +95,7 @@ data6 = {
 
 @pytest.mark.parametrize("category, expected_key", data6.items(), ids=list(data6.keys()))
 @pytest.mark.fast
-def test_find_teams_2025(category, expected_key) -> None:
+def test_find_teams_2025(category: str, expected_key: str) -> None:
     label = find_teams_2025(category)
 
     assert label == expected_key

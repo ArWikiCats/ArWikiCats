@@ -118,7 +118,7 @@ def test_no_relation(category) -> None:
         ("Items producedby students", "produced by"),
     ],
 )
-def test_relation_not_matched_without_spaces(category, wrong_rel) -> None:
+def test_relation_not_matched_without_spaces(category: str, wrong_rel: str) -> None:
     key, value = get_relation_word(category, category_relation_mapping)
     assert key == ""
     assert value == ""

@@ -48,7 +48,7 @@ def testFilms_key_For_nat_patterns(suffix, template):
 
 
 @pytest.mark.parametrize("lang,expected", languages_key.items())
-def test_directlanguages_key_lookup(lang, expected) -> None:
+def test_directlanguages_key_lookup(lang: str, expected: str) -> None:
     result = Lang_work(lang)
     assert result == expected, (
         f"languages_key lookup mismatch for '{lang}'\n" f"Expected: {expected}\n" f"Got:      {result}"

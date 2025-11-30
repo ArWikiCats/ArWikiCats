@@ -46,7 +46,7 @@ def test_try_with_years() -> None:
         ("1st iranian majlis", "المجلس الإيراني الأول"),
     ],
 )
-def test_political_terms_mapped_ordinals(text, expected) -> None:
+def test_political_terms_mapped_ordinals(text: str, expected: str) -> None:
     result = Try_With_Years(text)
     assert result == expected
 
@@ -69,7 +69,7 @@ def test_political_terms_non_matching_returns_empty() -> None:
         ("2020 earthquakes", "زلازل 2020"),
     ],
 )
-def test_year_at_start_known_word_after_years(text, expected) -> None:
+def test_year_at_start_known_word_after_years(text: str, expected: str) -> None:
     # Uses WORD_AFTER_YEARS directly without get_KAKO/translate/country2_lab
     result = Try_With_Years(text)
     assert result == expected

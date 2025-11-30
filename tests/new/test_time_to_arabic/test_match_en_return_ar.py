@@ -46,7 +46,7 @@ en_return_ar = {
 
 @pytest.mark.parametrize("en_text, expected", en_return_ar.items(), ids=[x for x in en_return_ar.keys()])
 @pytest.mark.fast
-def test_match_en_return_ar(en_text, expected) -> None:
+def test_match_en_return_ar(en_text: str, expected: dict[str, str]) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = match_en_return_ar(en_text)
     assert result == expected, f"{en_text} → {result}, expected {expected}"

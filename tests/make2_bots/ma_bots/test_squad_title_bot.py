@@ -62,7 +62,7 @@ get_squad_title_data = {
 
 @pytest.mark.parametrize("category, expected_key", get_squad_title_data.items(), ids=list(get_squad_title_data.keys()))
 @pytest.mark.fast
-def test_get_squad_title_data(category, expected_key) -> None:
+def test_get_squad_title_data(category: str, expected_key: str) -> None:
     label = get_squad_title(category)
     assert label == expected_key
 

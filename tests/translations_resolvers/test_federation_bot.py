@@ -357,7 +357,7 @@ data6 = {
 
 @pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
 @pytest.mark.fast
-def test_resolve_federation_label(category, expected_key) -> None:
+def test_resolve_federation_label(category: str, expected_key: str) -> None:
     label = resolve_federation_label(category)
 
     assert label == expected_key

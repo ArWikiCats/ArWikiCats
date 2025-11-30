@@ -87,7 +87,7 @@ def test_by_removal_all_categories(ar, en, expected) -> None:
         ("أشخاص أصل تركي", "أشخاص من أصل تركي"),
     ],
 )
-def test_simple_replacements_all(ar, expected) -> None:
+def test_simple_replacements_all(ar: str, expected: str) -> None:
     """Check every simple replacement rule."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -105,7 +105,7 @@ def test_simple_replacements_all(ar, expected) -> None:
         ("منتجات اخترعت حديثًا", "منتجات عرضت حديثًا"),
     ],
 )
-def test_invention_to_exhibition_all(ar, expected) -> None:
+def test_invention_to_exhibition_all(ar: str, expected: str) -> None:
     """Check replacement of 'اخترعت' with 'عرضت' for all configured items."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -133,7 +133,7 @@ def test_invention_to_exhibition_all(ar, expected) -> None:
         ("أحداث من حسب النوع", "أحداث حسب النوع"),
     ],
 )
-def test_duplicate_cleanup_all(ar, expected) -> None:
+def test_duplicate_cleanup_all(ar: str, expected: str) -> None:
     """Check all duplicate preposition cleanup rules."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -159,7 +159,7 @@ def test_duplicate_cleanup_all(ar, expected) -> None:
         ("أبطال في رياضة في أوروبا", "أبطال في الرياضة في أوروبا"),
     ],
 )
-def test_preposition_fixes_all(ar, expected) -> None:
+def test_preposition_fixes_all(ar: str, expected: str) -> None:
     """Check all preposition-specific fixes."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -185,7 +185,7 @@ def test_preposition_fixes_all(ar, expected) -> None:
         ("شخصيات من الثورة الفرنسية", "شخصيات في الثورة الفرنسية"),
     ],
 )
-def test_time_expressions_all(ar, expected) -> None:
+def test_time_expressions_all(ar: str, expected: str) -> None:
     """Check all time-related expression normalizations."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -203,7 +203,7 @@ def test_time_expressions_all(ar, expected) -> None:
         ("برامج أنتهت حسب السنة", "برامج حسب سنة انتهاء العرض"),
     ],
 )
-def test_media_expressions_all(ar, expected) -> None:
+def test_media_expressions_all(ar: str, expected: str) -> None:
     """Check all media-related expression fixes."""
     assert apply_category_specific_normalizations(ar, "") == expected
 

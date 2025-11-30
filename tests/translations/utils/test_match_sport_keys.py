@@ -109,7 +109,7 @@ def test_case_insensitivity(category) -> None:
     ],
 )
 @pytest.mark.fast
-def test_longest_match_priority(text, longest_key) -> None:
+def test_longest_match_priority(text: str, longest_key: str) -> None:
     """When overlap exists, prefer longest key."""
     res = match_sport_key(text)
     assert res.lower() == longest_key.lower()

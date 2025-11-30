@@ -41,7 +41,7 @@ from ArWikiCats.new.time_to_arabic import (
         ("year 2000", ""),  # should not alter arbitrary text
     ],
 )
-def test_convert_time_to_arabic_basic(en_text, expected) -> None:
+def test_convert_time_to_arabic_basic(en_text: str, expected: str) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = convert_time_to_arabic(en_text)
     assert result == expected, f"{en_text} → {result}, expected {expected}"
@@ -62,7 +62,7 @@ def test_convert_time_to_arabic_basic(en_text, expected) -> None:
     ],
 )
 @pytest.mark.fast
-def test_ranges(en_text, expected) -> None:
+def test_ranges(en_text: str, expected: str) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = convert_time_to_arabic(en_text)
     assert result == expected, f"{en_text} → {result}, expected {expected}"
@@ -116,7 +116,7 @@ def test_convert_time_to_arabic_decade_normal() -> None:
     ],
 )
 @pytest.mark.fast
-def test_month_variants(en_text, expected) -> None:
+def test_month_variants(en_text: str, expected: str) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -134,7 +134,7 @@ def test_month_variants(en_text, expected) -> None:
     ],
 )
 @pytest.mark.fast
-def test_decade_all_variants(en_text, expected) -> None:
+def test_decade_all_variants(en_text: str, expected: str) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -150,7 +150,7 @@ def test_decade_all_variants(en_text, expected) -> None:
     ],
 )
 @pytest.mark.fast
-def test_century_extended(en_text, expected) -> None:
+def test_century_extended(en_text: str, expected: str) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -163,7 +163,7 @@ def test_century_extended(en_text, expected) -> None:
     ],
 )
 @pytest.mark.fast
-def test_millennium_extended(en_text, expected) -> None:
+def test_millennium_extended(en_text: str, expected: str) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -199,7 +199,7 @@ def test_ranges_all_dash_forms(en_text) -> None:
     ],
 )
 @pytest.mark.fast
-def test_match_time_en(text, expected) -> None:
+def test_match_time_en(text: str, expected: list[str]) -> None:
     assert match_time_en(text) == expected
     assert match_time_en_first(text) == expected[0]
 
@@ -214,7 +214,7 @@ def test_match_time_en(text, expected) -> None:
     ],
 )
 @pytest.mark.fast
-def test_match_time_ar(text, expected) -> None:
+def test_match_time_ar(text: str, expected: list[str]) -> None:
     assert match_time_ar(text) == expected
 
 

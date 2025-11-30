@@ -196,7 +196,7 @@ get_teams_new_data = {
 
 @pytest.mark.parametrize("category, expected_key", get_teams_new_data.items(), ids=list(get_teams_new_data.keys()))
 @pytest.mark.fast
-def test_get_teams_new_data(category, expected_key) -> None:
+def test_get_teams_new_data(category: str, expected_key: str) -> None:
     label = get_teams_new(category)
     assert label == expected_key
 

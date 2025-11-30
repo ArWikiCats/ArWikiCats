@@ -178,6 +178,6 @@ data2 = {
 
 @pytest.mark.parametrize("input,expected", data2.items(), ids=[x for x in data2])
 @pytest.mark.skip2("Need to fix")
-def test_entertainment_5(input, expected) -> None:
+def test_entertainment_5(input: str, expected: str) -> None:
     result = resolve_arabic_category_label(input)
     assert result == expected

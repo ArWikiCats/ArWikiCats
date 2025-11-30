@@ -69,7 +69,7 @@ data = {
 
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
-def test_normalize_both(key, expected) -> None:
+def test_normalize_both(key: str, expected: str) -> None:
     template_label = normalize_both(key)
     assert template_label != ""
     assert template_label == expected
@@ -85,7 +85,7 @@ data2 = {
 
 @pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
-def test_normalize_nat_label(key, expected) -> None:
+def test_normalize_nat_label(key: str, expected: str) -> None:
     template_label = normalize_nat_label(key)
     assert template_label != ""
     assert template_label == expected
@@ -101,7 +101,7 @@ data3 = {
 
 @pytest.mark.parametrize("key,expected", data3.items(), ids=data3.keys())
 @pytest.mark.fast
-def test_normalize_sport_label(key, expected) -> None:
+def test_normalize_sport_label(key: str, expected: str) -> None:
     template_label = normalize_other_label(key)
     assert template_label != ""
     assert template_label == expected

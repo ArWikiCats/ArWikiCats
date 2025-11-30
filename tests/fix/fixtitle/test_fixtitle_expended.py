@@ -23,7 +23,7 @@ from ArWikiCats.fix.fixtitle import (
     [("المكان المأهول واحتلال", "المكان المأهول والمهنة"), ("قضاة من مصر", "قضاة في مصر")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_apply_regex_replacements(text, expected) -> None:
+def test_apply_regex_replacements(text: str, expected: str) -> None:
     assert (
         _apply_regex_replacements(text, {"المكان المأهول واحتلال": "المكان المأهول والمهنة", "قضاة من ": "قضاة في "})
         == expected
@@ -35,7 +35,7 @@ def test_apply_regex_replacements(text, expected) -> None:
     [("هجمات ضد المدنيين", "هجمات على المدنيين"), ("تعليم في اليمن", "التعليم في اليمن")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_apply_prefix_replacements(text, expected) -> None:
+def test_apply_prefix_replacements(text: str, expected: str) -> None:
     assert _apply_prefix_replacements(text, {"هجمات ضد": "هجمات على", "تعليم في ": "التعليم في "}) == expected
 
 
@@ -44,7 +44,7 @@ def test_apply_prefix_replacements(text, expected) -> None:
     [("صناعة إعلامية", "صناعة الإعلام"), ("انتهت في", "انتهت")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_apply_suffix_replacements(text, expected) -> None:
+def test_apply_suffix_replacements(text: str, expected: str) -> None:
     assert _apply_suffix_replacements(text, {"صناعة إعلامية": "صناعة الإعلام", "انتهت في": "انتهت"}) == expected
 
 
@@ -56,7 +56,7 @@ def test_apply_suffix_replacements(text, expected) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_insert_year_preposition(text, expected) -> None:
+def test_insert_year_preposition(text: str, expected: str) -> None:
     assert _insert_year_preposition(text, ["كوارث صحية", "كوارث طبيعية"]) == expected
 
 
@@ -69,7 +69,7 @@ def test_insert_year_preposition(text, expected) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_normalize_conflict_phrases(text, expected) -> None:
+def test_normalize_conflict_phrases(text: str, expected: str) -> None:
     assert _normalize_conflict_phrases(text) == expected
 
 
@@ -83,7 +83,7 @@ def test_normalize_conflict_phrases(text, expected) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_normalize_sub_regions(text, expected) -> None:
+def test_normalize_sub_regions(text: str, expected: str) -> None:
     assert _normalize_sub_regions(text) == expected
 
 
@@ -92,7 +92,7 @@ def test_normalize_sub_regions(text, expected) -> None:
     [("كوارث صحية 2010", "كوارث صحية في 2010"), ("تاريخ التعليم في مصر", "تاريخ التعليم في مصر")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_basic_normalizations(text, expected) -> None:
+def test_basic_normalizations(text: str, expected: str) -> None:
     assert _apply_basic_normalizations(text) == expected
 
 
@@ -101,7 +101,7 @@ def test_basic_normalizations(text, expected) -> None:
     [("البلد حسب السنة 2020", "البلد حسب السنة في 2020"), ("المدينة حسب العقد 1990", "المدينة حسب العقد في 1990")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_add_fee(text, expected) -> None:
+def test_add_fee(text: str, expected: str) -> None:
     assert add_fee(text) == expected
 
 
@@ -124,7 +124,7 @@ def test_fix_it_common(ar_label, en_label, expected) -> None:
     [("تصنيف:كوارث طبيعية 2010", "كوارث طبيعية في 2010"), ("كأس العالم لكرة القدم 2018", "كأس العالم 2018")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_fixlab_integration(label_old, expected) -> None:
+def test_fixlab_integration(label_old: str, expected: str) -> None:
     assert fixlab(label_old) == expected
 
 
@@ -147,7 +147,7 @@ def test_fixlab_rejected(label_old) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_fix_it_expanded_patterns(ar_label, en_label) -> None:
+def test_fix_it_expanded_patterns(ar_label: str, en_label: str) -> None:
     result = fix_it(ar_label, en_label)
     assert isinstance(result, str)
     assert result != ""
@@ -158,6 +158,6 @@ def test_fix_it_expanded_patterns(ar_label, en_label) -> None:
     [("فورمولا 1 2020", "Formula 1 2020"), ("فورمولا 1 1990", "Formula 1 1990")],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_fix_it_formula_patterns(ar_label, en_label) -> None:
+def test_fix_it_formula_patterns(ar_label: str, en_label: str) -> None:
     result = fix_it(ar_label, en_label)
     assert "سنة" in result, f"Expected 'سنة' in {result}"

@@ -27,7 +27,7 @@ from ArWikiCats.fix.mv_years import move_by_in, move_years, move_years_first
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_move_years_first(text, expected) -> None:
+def test_move_years_first(text: str, expected: str) -> None:
     """Test move_years_first for all expected patterns."""
     assert move_years_first(text) == expected
 
@@ -48,7 +48,7 @@ def test_move_years_first(text, expected) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_move_by_in(text, expected) -> None:
+def test_move_by_in(text: str, expected: str) -> None:
     """Test move_by_in for year and century reordering."""
     assert move_by_in(text) == expected
 
@@ -69,7 +69,7 @@ def test_move_by_in(text, expected) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_move_years_with_category_namespace(text, expected) -> None:
+def test_move_years_with_category_namespace(text: str, expected: str) -> None:
     """Test category namespace preservation."""
     assert move_years(text) == expected
 
@@ -88,7 +88,7 @@ def test_move_years_with_category_namespace(text, expected) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_move_years_combined(text, expected) -> None:
+def test_move_years_combined(text: str, expected: str) -> None:
     """Full integration tests combining both functions."""
     assert move_years(text) == expected
 

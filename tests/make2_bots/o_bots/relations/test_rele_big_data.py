@@ -697,7 +697,7 @@ def test_work_relations_big_data(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all_dump(name, data) -> None:
+def test_all_dump(name: str, data: str) -> None:
     expected, diff_result = one_dump_test(data, work_relations)
 
     dump_diff(diff_result, f"test_work_relations_big_data_{name}")

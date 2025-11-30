@@ -58,7 +58,7 @@ data = [
     data,
     ids=[x[0] for x in data],
 )
-def test_no_suffix(input, expected) -> None:
+def test_no_suffix(input: str, expected: str) -> None:
     result = relegins_jobs(input)
     assert result == expected, f"{expected=}, {result=}, {input=}"
 

@@ -13,7 +13,7 @@ data = {
 
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
-def test_create_label(key, expected) -> None:
+def test_create_label(key: str, expected: str) -> None:
     template_label = nats_new_create_label(key)
     assert template_label != ""
     assert template_label == expected
@@ -26,7 +26,7 @@ data2 = {
 
 @pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
-def test_create_nat_label(key, expected) -> None:
+def test_create_nat_label(key: str, expected: str) -> None:
     template_label = create_nat_label(key)
     assert template_label != ""
     assert template_label == expected

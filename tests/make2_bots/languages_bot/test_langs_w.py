@@ -171,7 +171,7 @@ def test_lang_work() -> None:
     [(k, v) for k, v in languages_key_subset.items()],
     ids=list(languages_key_subset.keys()),
 )
-def test_lang_work_direct(key, expected) -> None:
+def test_lang_work_direct(key: str, expected: str) -> None:
     """Test Lang_work for direct language keys."""
     result = Lang_work(key)
     # Lang_work may return full label or variant formatting
@@ -192,7 +192,7 @@ data_2 = [(k, f"لغة {languages_key_subset[k]}") for k in languages_key_subset
     data_2,
     ids=[x[0] for x in data_2],
 )
-def test_lang_work_language_suffix(key, expected) -> None:
+def test_lang_work_language_suffix(key: str, expected: str) -> None:
     """Test '<lang> language' format."""
     candidate = f"{key} language"
     result = Lang_work(candidate)
@@ -213,7 +213,7 @@ def test_lang_work_language_suffix(key, expected) -> None:
     [(k, v) for k, v in languages_key_subset.items()],
     ids=[k for k in languages_key_subset.keys()],
 )
-def test_lang_work_films_suffix(key, arabic) -> None:
+def test_lang_work_films_suffix(key: str, arabic: str) -> None:
     """Test '<lang> films' -> 'أفلام ب<ArabicLabel>'."""
     base = key.replace("-language", "")
     candidate = f"{base} films"
@@ -245,7 +245,7 @@ data_x = [(k, suf) for k in languages_key_subset for suf in TOPIC_SUFFIXES]
     data_x,
     ids=[f"{x[0]}-{x[1]}" for x in data_x],
 )
-def test_lang_work_topics(key, suffix) -> None:
+def test_lang_work_topics(key: str, suffix: str) -> None:
     """Test '<lang> grammar', '<lang> writing system', etc."""
     candidate = f"{key} {suffix}"
     result = Lang_work(candidate)

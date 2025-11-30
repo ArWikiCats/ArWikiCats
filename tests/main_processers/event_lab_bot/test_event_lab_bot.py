@@ -41,7 +41,7 @@ data = {
     data.items(),
     ids=[x for x in data],
 )
-def test_basic_cases(text, expected) -> None:
+def test_basic_cases(text: str, expected: str) -> None:
     result = event_Lab(text)
     assert result == expected
 

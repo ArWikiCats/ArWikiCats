@@ -1,4 +1,5 @@
 import re
+from typing import Dict
 
 import pytest
 
@@ -120,12 +121,12 @@ def test_search_valid(bot, category, expected) -> None:
         "غير معروف",
     ],
 )
-def test_search_invalid(bot, category) -> None:
+def test_search_invalid(bot: FormatData, category: str) -> None:
     assert bot.search(category) == ""
 
 
 # --- search edge cases -----------------------------------------------
-def test_search_missing_sport_label(formatted_data, data_list) -> None:
+def test_search_missing_sport_label(formatted_data: Dict[str, str], data_list: Dict[str, str]) -> None:
     # remove a key intentionally
     temp = dict(data_list)
     del temp["football"]
@@ -133,7 +134,7 @@ def test_search_missing_sport_label(formatted_data, data_list) -> None:
     assert bot.search("men's football players") == ""
 
 
-def test_search_missing_template_label(formatted_data, data_list) -> None:
+def test_search_missing_template_label(formatted_data: Dict[str, str], data_list: Dict[str, str]) -> None:
     bot = FormatData({}, data_list)
     assert bot.search("men's football players") == ""
 
@@ -154,7 +155,7 @@ def test_search_case_insensitive(bot) -> None:
         "cycling",
     ],
 )
-def test_multiple_sports(bot, sport_key) -> None:
+def test_multiple_sports(bot: FormatData, sport_key: str) -> None:
     category = f"men's {sport_key} teams"
     result = bot.search(category)
     assert isinstance(result, str)
