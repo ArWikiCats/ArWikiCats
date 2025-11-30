@@ -149,7 +149,7 @@ fast_data = {
 @pytest.mark.fast
 def test_fast_data(category, expected) -> None:
     label = te_films(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 def test_test_films():

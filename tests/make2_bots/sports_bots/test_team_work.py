@@ -128,7 +128,7 @@ fast_data = {
 @pytest.mark.fast
 def test_fast_data(category, expected) -> None:
     label = Get_team_work_Club(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 def test_get_team_work_club():

@@ -13,7 +13,7 @@ fast_data = {}
 @pytest.mark.fast
 def test_fast_data(category, expected) -> None:
     label = te_language(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 def test_te_language():

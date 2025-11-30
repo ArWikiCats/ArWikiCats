@@ -102,7 +102,7 @@ fast_data = {
 @pytest.mark.fast
 def test_work_relations(category, expected) -> None:
     label = work_relations(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 fast_data2 = {
@@ -117,7 +117,7 @@ fast_data2 = {
 @pytest.mark.fast
 def test_relations_congo(category, expected) -> None:
     label = work_relations(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 # ======================

@@ -71,7 +71,7 @@ fix_title_all = True
 @pytest.mark.fast
 def test_Get_country2_fast(category, expected) -> None:
     label = Get_country2(category, fix_title=fix_title_all)
-    assert label.strip() == expected
+    assert label == expected
 
 
 data_slow = {
@@ -655,7 +655,7 @@ data_slow = {
 @pytest.mark.slow
 def test_Get_country2_slow(category, expected) -> None:
     label = Get_country2(category, fix_title=fix_title_all)
-    assert label.strip() == expected
+    assert label == expected
 
 
 def test_get_country2():

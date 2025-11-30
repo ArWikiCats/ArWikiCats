@@ -17,7 +17,7 @@ fast_data = {}
 @pytest.mark.fast
 def test_fast_data(category, expected) -> None:
     label = translate_general_category(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 def test_find_lab():

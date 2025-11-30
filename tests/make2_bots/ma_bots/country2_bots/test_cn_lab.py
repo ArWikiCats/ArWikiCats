@@ -32,7 +32,7 @@ def test_make_cnt_lab_data(category, ar) -> None:
         cona_2=category,
         sps=" ",
     )
-    assert label.strip() == f"مملكة {ar}"
+    assert label == f"مملكة {ar}"
 
 
 party_data = {
@@ -61,7 +61,7 @@ def test_make_cnt_lab_communist_party(country2, c_2_l, expected):
         sps=" ",
     )
 
-    assert label.strip() == expected
+    assert label == expected
 
 
 def test_make_cnt_lab():

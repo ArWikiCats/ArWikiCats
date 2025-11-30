@@ -51,7 +51,7 @@ fast_data = {
 @pytest.mark.fast
 def test_fast_data(category, expected) -> None:
     label = work_peoples(category)
-    assert label.strip() == expected
+    assert label == expected
 
     label2 = work_peoples_old(category)
     assert label == label2
