@@ -41,8 +41,6 @@ Films_key_333 = {}
 Films_key_CAO = {}
 Films_key_man = {}
 # ---
-Films_TT = {}
-# ---
 Films_key_multi = {}
 Films_key_both = {}
 # ---
@@ -164,7 +162,6 @@ for cd, ff in Films_key_O_multi.items():
         Films_key_333[cd] = ff["female"]
 # ---
 ss_Films_key_CAO = 0
-third_Films_key_CAO = 0
 vfvfv = 0
 # ---
 for ke, ke_lab in film_Keys_For_female.items():
@@ -250,11 +247,9 @@ len_print.data_len(
     {
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,
-        "third_Films_key_CAO": third_Films_key_CAO,
         "ss_Films_key_CAO": ss_Films_key_CAO,
         "vfvfv": vfvfv,
         "Films_key_333": Films_key_333,
-        "Films_TT": Films_TT,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new": Films_keys_both_new,
     },

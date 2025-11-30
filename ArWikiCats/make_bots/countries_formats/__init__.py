@@ -11,6 +11,10 @@ def resolved_countries_formats_labels(normalized_category) -> str:
         resolved_label = p17_sport_to_move.get_en_ar_is_p17_label(normalized_category)
 
     if not resolved_label:
+        #  "lithuania men's under-21 international footballers": "لاعبو منتخب ليتوانيا تحت 21 سنة لكرة القدم للرجال"
+        resolved_label = p17_sport_to_move.get_en_ar_is_p17_label_multi(normalized_category)
+
+    if not resolved_label:
         # [yemen international soccer players] : "تصنيف:لاعبو كرة قدم دوليون من اليمن",
         resolved_label = p17_bot_sport.get_p17_with_sport(normalized_category)
 

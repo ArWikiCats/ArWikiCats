@@ -9,37 +9,15 @@ from ...helps import len_print
 from .Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 
 COUNTRY_PLACEHOLDER: Final[str] = "{}"
-NAT_PLACEHOLDER: Final[str] = "{nat}"
 
 SPORT_FORMTS_MALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 SPORT_FORMTS_FEMALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 SPORT_FORMTS_NEW_KKK = {}  # الإنجليزي جنسية والعربي اسم البلد
 
-Teams = {
-    "national sports teams": "منتخبات رياضية وطنية",
-    "national teams": "منتخبات وطنية",
-    "teams": "فرق",
-    "sports teams": "فرق رياضية",
-    "football clubs": "أندية كرة قدم",
-    "clubs": "أندية",
-}
-
-sport_starts = {
-    "": "",
-    "men's a' ": "للرجال للمحليين",
-    "men's b ": "الرديف للرجال",
-    "men's ": "للرجال",
-    "women's ": "للسيدات",
-    "men's youth ": "للشباب",
-    "women's youth ": "للشابات",
-    "amateur ": "للهواة",
-    "youth ": "للشباب",
-}
-
-
 # ----------------------------------------------------------------------
 # Helpers
 # ----------------------------------------------------------------------
+
 
 def _build_male_nat() -> Dict[str, str]:
     """English nationality → Arabic nationality (male formats)."""
@@ -108,76 +86,6 @@ def _build_new_kkk() -> Dict[str, str]:
         label_index[f"national {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab}"
         label_index[f"national women's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
         label_index[f"national men's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للرجال"
-
-    return label_index
-
-
-def _build_en_ar_is_p17() -> Dict[str, str]:
-    """
-    English country-name → Arabic country-name.
-    This is the biggest dictionary (footballers, under-18, etc.).
-    """
-    YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-    # years make 330 key
-
-    label_index: Dict[str, str] = {}
-
-    # Static entries
-    label_index["international rules football team"] = "منتخب {} لكرة القدم الدولية"
-
-    # Under-year managers/players
-    for year in YEARS_LIST:
-        label_index[f"under-{year} international managers"] = (
-            f"مدربون تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-        )
-        label_index[f"under-{year} international players"] = (
-            f"لاعبون تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-        )
-        label_index[f"under-{year} international playerss"] = (
-            f"لاعبون تحت {year} سنة دوليون من {COUNTRY_PLACEHOLDER}"
-        )
-
-    # Footballers base groups
-    for modifier, mod_label in sport_starts.items():
-        # label_index["international footballers"] = f"لاعبو منتخب {COUNTRY_PLACEHOLDER} لكرة القدم"
-
-        start_word = "لاعبات منتخب" if "women's" in modifier else "لاعبو منتخب"
-
-        base = f"{start_word} {COUNTRY_PLACEHOLDER} لكرة القدم {mod_label}"
-
-        label_index[f"{modifier}international footballers"] = base
-        label_index[f"{modifier}international soccer players"] = base
-        label_index[f"{modifier}international soccer playerss"] = base
-
-        # Category:Australia under-18 international soccer players
-        # تصنيف:لاعبو منتخب أستراليا تحت 18 سنة لكرة القدم
-
-        # Category:Zimbabwe men's A' international footballers
-        # Category:Belgian men's international footballers
-
-        for year in YEARS_LIST:
-            youth = f"{start_word} {COUNTRY_PLACEHOLDER} تحت {year} سنة لكرة القدم {mod_label}"
-            label_index[f"{modifier}under-{year} international footballers"] = youth
-            label_index[f"{modifier}under-{year} international soccer players"] = youth
-            label_index[f"{modifier}under-{year} international soccer playerss"] = youth
-
-    label_index["rally championship"] = f"بطولة {COUNTRY_PLACEHOLDER} للراليات"
-
-    # label_index["cup"] = "كأس {}"
-    # label_index["presidents"] = "رؤساء {}"
-    # label_index["territorial officials"] = "مسؤولو أقاليم {}"
-    # label_index["territorial judges"] = "قضاة أقاليم {}"
-    # label_index["war"] = "حرب {}"
-
-    # label_index["war and conflict"] = f"حروب ونزاعات {COUNTRY_PLACEHOLDER}"
-    # label_index["governorate"] = f"حكومة {COUNTRY_PLACEHOLDER}"
-
-    label_index["sports templates"] = f"قوالب {COUNTRY_PLACEHOLDER} الرياضية"
-    label_index["national team"] = f"منتخبات {COUNTRY_PLACEHOLDER} الوطنية"
-    label_index["national teams"] = f"منتخبات {COUNTRY_PLACEHOLDER} الوطنية"
-    label_index["national football team managers"] = f"مدربو منتخب {COUNTRY_PLACEHOLDER} لكرة القدم"
-
-    label_index["international rally"] = f"رالي {COUNTRY_PLACEHOLDER} الدولي"
 
     return label_index
 

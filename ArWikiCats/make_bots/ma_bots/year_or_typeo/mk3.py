@@ -8,12 +8,10 @@ import re
 from ....helps.log import logger
 from ....utils import check_key_in_tables, check_key_in_tables_return_tuple
 from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
+from ...matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
 from ...matables_bots.bot import (
-    Add_in_table,
     Films_O_TT,
-    Keep_it_frist,
     Table_for_frist_word,
-    add_in_to_country,
 )
 from ...matables_bots.check_bot import check_key_new_players
 

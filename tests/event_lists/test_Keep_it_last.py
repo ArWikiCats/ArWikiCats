@@ -1,0 +1,236 @@
+"""
+
+
+"""
+
+import pytest
+from load_one_data import dump_diff, one_dump_test
+from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats.make_bots.matables_bots.data import Keep_it_last
+
+
+@pytest.mark.fast
+def test_Keep_it_last() -> None:
+    # Arabic translation of term "remakes of" ("معاد إنتاجها") should be at last:
+
+    result = resolve_arabic_category_label("Category:remakes of historical documents")
+    assert result == "تصنيف:وثائق تاريخية معاد إنتاجها"
+
+
+fast_data = {
+    "Category:Remakes of American films": "تصنيف:أفلام أمريكية معاد إنتاجها",
+    "Category:Remakes of Argentine films": "تصنيف:أفلام أرجنتينية معاد إنتاجها",
+    "Category:Remakes of Australian films": "تصنيف:أفلام أسترالية معاد إنتاجها",
+    "Category:Remakes of Austrian films": "تصنيف:أفلام نمساوية معاد إنتاجها",
+    "Category:Remakes of Belgian films": "تصنيف:أفلام بلجيكية معاد إنتاجها",
+    "Category:Remakes of Brazilian films": "تصنيف:أفلام برازيلية معاد إنتاجها",
+    "Category:Remakes of British films": "تصنيف:أفلام بريطانية معاد إنتاجها",
+    "Category:Remakes of Burmese films": "تصنيف:أفلام بورمية معاد إنتاجها",
+    "Category:Remakes of Canadian films": "تصنيف:أفلام كندية معاد إنتاجها",
+    "Category:Remakes of Chilean films": "تصنيف:أفلام تشيلية معاد إنتاجها",
+    "Category:Remakes of Chinese films": "تصنيف:أفلام صينية معاد إنتاجها",
+    "Category:Remakes of Danish films": "تصنيف:أفلام دنماركية معاد إنتاجها",
+    "Category:Remakes of Dutch films": "تصنيف:أفلام هولندية معاد إنتاجها",
+    "Category:Remakes of Finnish films": "تصنيف:أفلام فنلندية معاد إنتاجها",
+    "Category:Remakes of French films": "تصنيف:أفلام فرنسية معاد إنتاجها",
+    "Category:Remakes of German films": "تصنيف:أفلام ألمانية معاد إنتاجها",
+    "Category:Remakes of Hong Kong films": "تصنيف:أفلام هونغ كونغية معاد إنتاجها",
+    "Category:Remakes of Hungarian films": "تصنيف:أفلام مجرية معاد إنتاجها",
+    "Category:Remakes of Icelandic films": "تصنيف:أفلام آيسلندية معاد إنتاجها",
+    "Category:Remakes of Indian films": "تصنيف:أفلام هندية معاد إنتاجها",
+    "Category:Remakes of Indian television series": "تصنيف:مسلسلات تلفزيونية هندية معاد إنتاجها",
+    "Category:Remakes of Indonesian films": "تصنيف:أفلام إندونيسية معاد إنتاجها",
+    "Category:Remakes of Irish films": "تصنيف:أفلام أيرلندية معاد إنتاجها",
+    "Category:Remakes of Italian films": "تصنيف:أفلام إيطالية معاد إنتاجها",
+    "Category:Remakes of Japanese films": "تصنيف:أفلام يابانية معاد إنتاجها",
+    "Category:Remakes of Malaysian films": "تصنيف:أفلام ماليزية معاد إنتاجها",
+    "Category:Remakes of Mexican films": "تصنيف:أفلام مكسيكية معاد إنتاجها",
+    "Category:Remakes of Norwegian films": "تصنيف:أفلام نرويجية معاد إنتاجها",
+    "Category:Remakes of Pakistani films": "تصنيف:أفلام باكستانية معاد إنتاجها",
+    "Category:Remakes of Philippine films": "تصنيف:أفلام فلبينية معاد إنتاجها",
+    "Category:Remakes of Russian films": "تصنيف:أفلام روسية معاد إنتاجها",
+    "Category:Remakes of South Korean films": "تصنيف:أفلام كورية جنوبية معاد إنتاجها",
+    "Category:Remakes of Spanish films": "تصنيف:أفلام إسبانية معاد إنتاجها",
+    "Category:Remakes of Sri Lankan films": "تصنيف:أفلام سريلانكية معاد إنتاجها",
+    "Category:Remakes of Swedish films": "تصنيف:أفلام سويدية معاد إنتاجها",
+    "Category:Remakes of Taiwanese films": "تصنيف:أفلام تايوانية معاد إنتاجها",
+    "Category:Remakes of Thai films": "تصنيف:أفلام تايلندية معاد إنتاجها",
+    "Category:Remakes of Turkish films": "تصنيف:أفلام تركية معاد إنتاجها",
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+def test_Keep_it_last_extended(category: str, expected: str) -> None:
+    # Arabic translation of term "remakes of" ("معاد إنتاجها") should be at last:
+    label = resolve_arabic_category_label(category)
+    assert label == expected
+
+
+fast_data_empty = {
+    "Category:American remakes of Argentine films": "x",
+    "Category:American remakes of Belgian films": "x",
+    "Category:American remakes of Brazilian films": "x",
+    "Category:American remakes of British films": "x",
+    "Category:American remakes of Canadian films": "x",
+    "Category:American remakes of Danish films": "x",
+    "Category:American remakes of Dutch films": "x",
+    "Category:American remakes of foreign films": "x",
+    "Category:American remakes of French films": "x",
+    "Category:American remakes of German films": "x",
+    "Category:American remakes of Hong Kong films": "x",
+    "Category:American remakes of Indian films": "x",
+    "Category:American remakes of Israeli films": "x",
+    "Category:American remakes of Italian films": "x",
+    "Category:American remakes of Japanese films": "x",
+    "Category:American remakes of Mexican films": "x",
+    "Category:American remakes of Norwegian films": "x",
+    "Category:American remakes of South Korean films": "x",
+    "Category:American remakes of Spanish films": "x",
+    "Category:American remakes of Swedish films": "x",
+    "Category:American remakes of Thai films": "x",
+    "Category:Assamese-language remakes of Hindi films": "x",
+    "Category:Assamese-language remakes of Malayalam films": "x",
+    "Category:Bangladeshi remakes of American films": "x",
+    "Category:Bangladeshi remakes of foreign films": "x",
+    "Category:Bangladeshi remakes of Indian films": "x",
+    "Category:Bangladeshi remakes of Tamil films": "x",
+    "Category:British remakes of American films": "x",
+    "Category:British remakes of French films": "x",
+    "Category:British remakes of German films": "x",
+    "Category:Bangladeshi remakes of Telugu films": "x",
+    "Category:Bengali remakes of English films": "x",
+    "Category:Bengali remakes of Hindi films": "x",
+    "Category:Bengali remakes of Kannada films": "x",
+    "Category:Bengali remakes of Malayalam films": "x",
+    "Category:Bengali remakes of Marathi films": "x",
+    "Category:Bengali remakes of Punjabi films": "x",
+    "Category:Bengali remakes of Tamil films": "x",
+    "Category:Bengali remakes of Telugu films": "x",
+    "Category:Bhojpuri remakes of Tamil films": "x",
+    "Category:Bhojpuri remakes of Telugu films": "x",
+    "Category:Chinese remakes of American films": "x",
+    "Category:Chinese remakes of foreign films": "x",
+    "Category:Chinese remakes of Japanese films": "x",
+    "Category:Chinese remakes of South Korean films": "x",
+    "Category:Dutch remakes of British films": "x",
+    "Category:Dutch remakes of foreign films": "x",
+    "Category:French remakes of American films": "x",
+    "Category:Gujarati remakes of Marathi films": "x",
+    "Category:Gujarati remakes of Tamil films": "x",
+    "Category:Hindi remakes of Bengali films": "x",
+    "Category:Hindi remakes of English films": "x",
+    "Category:Hindi remakes of Gujarati films": "x",
+    "Category:Hindi remakes of Kannada films": "x",
+    "Category:Hindi remakes of Malayalam films": "x",
+    "Category:Hindi remakes of Marathi films": "x",
+    "Category:Hindi remakes of Odia films": "x",
+    "Category:Hindi remakes of Punjabi films": "x",
+    "Category:Hindi remakes of Rajasthani films": "x",
+    "Category:Hindi remakes of silent films": "x",
+    "Category:Hindi remakes of Tamil films": "x",
+    "Category:Hindi remakes of Telugu films": "x",
+    "Category:Hong Kong remakes of American films": "x",
+    "Category:Indian remakes of American films": "x",
+    "Category:Indian remakes of British films": "x",
+    "Category:Indian remakes of foreign films": "x",
+    "Category:Indian remakes of French films": "x",
+    "Category:Indian remakes of Hong Kong films": "x",
+    "Category:Indian remakes of Italian films": "x",
+    "Category:Indian remakes of Japanese films": "x",
+    "Category:Indian remakes of Pakistani films": "x",
+    "Category:Indian remakes of South Korean films": "x",
+    "Category:Indian remakes of Spanish films": "x",
+    "Category:Indian remakes of Thai films": "x",
+    "Category:Iranian remakes of American films": "x",
+    "Category:Iranian remakes of foreign films": "x",
+    "Category:Italian remakes of foreign films": "x",
+    "Category:Italian remakes of French films": "x",
+    "Category:Japanese remakes of American films": "x",
+    "Category:Japanese remakes of foreign films": "x",
+    "Category:Japanese remakes of South Korean films": "x",
+    "Category:Kannada remakes of Bengali films": "x",
+    "Category:Kannada remakes of Hindi films": "x",
+    "Category:Kannada remakes of Malayalam films": "x",
+    "Category:Kannada remakes of Marathi films": "x",
+    "Category:Kannada remakes of Rajasthani films": "x",
+    "Category:Kannada remakes of Tamil films": "x",
+    "Category:Kannada remakes of Telugu films": "x",
+    "Category:Malayalam remakes of Bengali films": "x",
+    "Category:Malayalam remakes of Hindi films": "x",
+    "Category:Malayalam remakes of Kannada films": "x",
+    "Category:Malayalam remakes of Marathi films": "x",
+    "Category:Malayalam remakes of Tamil films": "x",
+    "Category:Malayalam remakes of Telugu films": "x",
+    "Category:Maldivian remakes of Indian films": "x",
+    "Category:Marathi remakes of Bengali films": "x",
+    "Category:Marathi remakes of Hindi films": "x",
+    "Category:Marathi remakes of Kannada films": "x",
+    "Category:Marathi remakes of Malayalam films": "x",
+    "Category:Marathi remakes of Rajasthani films": "x",
+    "Category:Marathi remakes of Tamil films": "x",
+    "Category:Marathi remakes of Telugu films": "x",
+    "Category:Meitei remakes of Telugu films": "x",
+    "Category:Odia remakes of Bengali films": "x",
+    "Category:Odia remakes of Hindi films": "x",
+    "Category:Odia remakes of Kannada films": "x",
+    "Category:Odia remakes of Malayalam films": "x",
+    "Category:Odia remakes of Marathi films": "x",
+    "Category:Odia remakes of Punjabi films": "x",
+    "Category:Odia remakes of Tamil films": "x",
+    "Category:Odia remakes of Telugu films": "x",
+    "Category:Pakistani remakes of American films": "x",
+    "Category:Pakistani remakes of foreign films": "x",
+    "Category:Pakistani remakes of Indian films": "x",
+    "Category:Philippine remakes of foreign films": "x",
+    "Category:Philippine remakes of South Korean films": "x",
+    "Category:Punjabi remakes of Hindi films": "x",
+    "Category:Punjabi remakes of Malayalam films": "x",
+    "Category:Punjabi remakes of Marathi films": "x",
+    "Category:Punjabi remakes of Tamil films": "x",
+    "Category:Punjabi remakes of Telugu films": "x",
+    "Category:Sound film remakes of silent films": "x",
+    "Category:South Korean remakes of Brazilian films": "x",
+    "Category:South Korean remakes of foreign films": "x",
+    "Category:South Korean remakes of Japanese films": "x",
+    "Category:South Korean remakes of Spanish films": "x",
+    "Category:South Korean remakes of Taiwanese films": "x",
+    "Category:Spanish remakes of Argentine films": "x",
+    "Category:Spanish remakes of foreign films": "x",
+    "Category:Spanish remakes of French films": "x",
+    "Category:Spanish remakes of Italian films": "x",
+    "Category:Sri Lankan remakes of Indian films": "x",
+    "Category:Taiwanese remakes of foreign films": "x",
+    "Category:Taiwanese remakes of South Korean films": "x",
+    "Category:Tamil remakes of Bengali films": "x",
+    "Category:Tamil remakes of Hindi films": "x",
+    "Category:Tamil remakes of Kannada films": "x",
+    "Category:Tamil remakes of Malayalam films": "x",
+    "Category:Tamil remakes of Marathi films": "x",
+    "Category:Tamil remakes of Telugu films": "x",
+    "Category:Television remakes of films": "x",
+    "Category:Telugu remakes of Bengali films": "x",
+    "Category:Telugu remakes of Gujarati films": "x",
+    "Category:Telugu remakes of Hindi films": "x",
+    "Category:Telugu remakes of Kannada films": "x",
+    "Category:Telugu remakes of Malayalam films": "x",
+    "Category:Telugu remakes of Marathi films": "x",
+    "Category:Telugu remakes of Punjabi films": "x",
+    "Category:Telugu remakes of Tamil films": "x",
+    "Category:Thai remakes of foreign films": "x",
+    "Category:Thai remakes of Taiwanese films": ""
+}
+
+
+TEMPORAL_CASES = [
+    ("test_Keep_it_last_extended", fast_data),
+    ("test_Keep_it_last_empty", fast_data_empty),
+]
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.dump
+def test_temporal(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

@@ -6,8 +6,6 @@ Provides classes for formatting template-driven translation labels.
 test at tests.translations_formats.test_format_2_data.py
 """
 
-import functools
-from dataclasses import dataclass
 from typing import Dict
 
 from ..helps.log import logger
@@ -15,6 +13,23 @@ from .DataModel import MultiDataFormatterBase, FormatData
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"
+
+
+def get_other_data(
+    formatted_data: dict[str, str],
+    key_placeholder: str,
+    value_placeholder: str,
+    key2_placeholder: str,
+    value2_placeholder: str
+) -> dict:
+    other_formatted_data = {
+        x: v for x, v in formatted_data.items()
+        if key2_placeholder in x and key_placeholder not in x
+        and value2_placeholder in v and value_placeholder not in v
+    }
+    logger.debug(f"len other_formatted_data: {len(other_formatted_data):,}")
+
+    return other_formatted_data
 
 
 def format_multi_data(
@@ -27,9 +42,11 @@ def format_multi_data(
     value2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
+    use_other_formatted_data: bool=False,
 ) -> MultiDataFormatterBase:
-    """Prepare helpers for matching and formatting template-driven labels."""
-    # Store originals
+    """
+    Prepare helpers for matching and formatting template-driven labels.
+    """
 
     # Country bot (FormatData)
     country_bot = FormatData(
@@ -40,12 +57,22 @@ def format_multi_data(
         text_after=text_after,
         text_before=text_before,
     )
+
+    other_formatted_data = get_other_data(
+        formatted_data,
+        key_placeholder,
+        value_placeholder,
+        key2_placeholder,
+        value2_placeholder
+    ) if use_other_formatted_data else {}
+
     other_bot = FormatData(
-        formatted_data,  # to use from search_all
+        other_formatted_data,  # to use from search_all
         data_list2,
         key_placeholder=key2_placeholder,
         value_placeholder=value2_placeholder,
     )
+
     return MultiDataFormatterBase(
         country_bot=country_bot,
         other_bot=other_bot,

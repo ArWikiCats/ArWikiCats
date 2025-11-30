@@ -102,7 +102,6 @@ def test_year_at_start_add_in_tabl_separator() -> None:
     result = Try_With_Years("1900 historical documents")
     assert result == "وثائق تاريخية في 1900"
 
-
 def test_year_at_start_ar_lab_before_year_to_add_in() -> None:
     # remainder_label in ar_lab_before_year_to_add_in -> " في "
 
