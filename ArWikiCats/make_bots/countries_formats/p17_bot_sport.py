@@ -13,7 +13,6 @@ from ...translations import (
     sport_formts_enar_p17_jobs,
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
-from .p17_sport_to_move import sport_formts_en_ar_is_p17_label
 
 
 @dump_data()
@@ -66,10 +65,7 @@ def get_p17_with_sport(category: str) -> str:
     """
     TODO: use FormatData method
     """
-    resolved_label = sport_formts_en_ar_is_p17_label(category)
-    if resolved_label:
-        return resolved_label
-
+    resolved_label = ""
     category = category.lower()
 
     suffix, country_start = get_suffix_with_keys(category, contries_from_nat)
