@@ -6,19 +6,17 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
-    sport_formts_en_ar_is_p17_label,
-    get_con_3_lab_sports,
+    get_en_ar_is_p17_label,
+    get_en_ar_is_p17_label_multi,
 )
 
 # =========================================================
-#           sport_formts_en_ar_is_p17_label
+#           get_en_ar_is_p17_label
 # =========================================================
 
 data_under = {
-    # "egypt under-19 international players": "لاعبون تحت 19 سنة دوليون من مصر",
-    # "egypt under-19 international playerss": "لاعبون تحت 19 سنة دوليون من مصر",
-    # "egypt under-20 international playerss": "لاعبون تحت 20 سنة دوليون من مصر",
-    # "egypt under-20 international players": "لاعبون تحت 20 سنة دوليون من مصر",
+    "egypt under-19 international players": "لاعبون تحت 19 سنة دوليون من مصر",
+    "egypt under-19 international playerss": "لاعبون تحت 19 سنة دوليون من مصر",
 
     "aruba men's under-20 international footballers": "لاعبو منتخب أروبا تحت 20 سنة لكرة القدم للرجال",
     "lithuania men's under-21 international footballers": "لاعبو منتخب ليتوانيا تحت 21 سنة لكرة القدم للرجال",
@@ -87,19 +85,20 @@ data_under = {
 @pytest.mark.parametrize("category, expected", data_under.items(), ids=list(data_under.keys()))
 @pytest.mark.fast
 def test_under(category, expected) -> None:
-    label1 = sport_formts_en_ar_is_p17_label(category)
+    label1 = get_en_ar_is_p17_label(category)
     assert label1 == expected
 
-    label2 = sport_formts_en_ar_is_p17_label(category, use_multi=True)
+    label2 = get_en_ar_is_p17_label_multi(category)
     assert label2 == expected
-
 
 # =========================================================
 #           DUMP
 # =========================================================
 
+
 TEMPORAL_CASES = [
-    ("test_under", data_under, sport_formts_en_ar_is_p17_label),
+    ("test_under", data_under, get_en_ar_is_p17_label),
+    ("test_under_multi", data_under, get_en_ar_is_p17_label_multi),
 ]
 
 

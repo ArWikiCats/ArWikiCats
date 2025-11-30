@@ -49,34 +49,37 @@ main_data = {
 
 # TODO: USE format_multi_data
 main_data_under = {
-    "{en} amateur {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للهواة",
-    "{en} amateur {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للهواة",
-    "{en} amateur {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للهواة",
-    "{en} men's a' {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للرجال للمحليين",
-    "{en} men's a' {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للرجال للمحليين",
-    "{en} men's a' {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للرجال للمحليين",
-    "{en} men's b {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم الرديف للرجال",
-    "{en} men's b {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم الرديف للرجال",
-    "{en} men's b {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم الرديف للرجال",
-    "{en} men's youth {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
-    "{en} men's youth {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
-    "{en} men's youth {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
-    "{en} men's {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للرجال",
-    "{en} men's {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للرجال",
-    "{en} men's {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للرجال",
-    "{en} women's youth {under_en} international footballers": "لاعبات منتخب {ar} {under_ar} سنة لكرة القدم للشابات",
-    "{en} women's youth {under_en} international soccer players": "لاعبات منتخب {ar} {under_ar} سنة لكرة القدم للشابات",
-    "{en} women's youth {under_en} international soccer playerss": "لاعبات منتخب {ar} {under_ar} سنة لكرة القدم للشابات",
-    "{en} women's {under_en} international footballers": "لاعبات منتخب {ar} {under_ar} سنة لكرة القدم للسيدات",
-    "{en} women's {under_en} international soccer players": "لاعبات منتخب {ar} {under_ar} سنة لكرة القدم للسيدات",
-    "{en} women's {under_en} international soccer playerss": "لاعبات منتخب {ar} {under_ar} سنة لكرة القدم للسيدات",
-    "{en} youth {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
-    "{en} youth {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
-    "{en} youth {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم للشباب",
-    "{en} {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم ",
-    "{en} {under_en} international managers": "مدربون {under_ar} سنة دوليون من {ar}",
-    "{en} {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم ",
-    "{en} {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} سنة لكرة القدم "
+    "{en} {under_en} international players": "لاعبون {under_ar} دوليون من {ar}",
+    "{en} {under_en} international playerss": "لاعبون {under_ar} دوليون من {ar}",
+
+    "{en} amateur {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
+    "{en} amateur {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
+    "{en} amateur {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
+    "{en} men's a' {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال للمحليين",
+    "{en} men's a' {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال للمحليين",
+    "{en} men's a' {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال للمحليين",
+    "{en} men's b {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم الرديف للرجال",
+    "{en} men's b {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم الرديف للرجال",
+    "{en} men's b {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم الرديف للرجال",
+    "{en} men's youth {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
+    "{en} men's youth {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
+    "{en} men's youth {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
+    "{en} men's {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال",
+    "{en} men's {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال",
+    "{en} men's {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال",
+    "{en} women's youth {under_en} international footballers": "لاعبات منتخب {ar} {under_ar} لكرة القدم للشابات",
+    "{en} women's youth {under_en} international soccer players": "لاعبات منتخب {ar} {under_ar} لكرة القدم للشابات",
+    "{en} women's youth {under_en} international soccer playerss": "لاعبات منتخب {ar} {under_ar} لكرة القدم للشابات",
+    "{en} women's {under_en} international footballers": "لاعبات منتخب {ar} {under_ar} لكرة القدم للسيدات",
+    "{en} women's {under_en} international soccer players": "لاعبات منتخب {ar} {under_ar} لكرة القدم للسيدات",
+    "{en} women's {under_en} international soccer playerss": "لاعبات منتخب {ar} {under_ar} لكرة القدم للسيدات",
+    "{en} youth {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
+    "{en} youth {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
+    "{en} youth {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم للشباب",
+    "{en} {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم ",
+    "{en} {under_en} international managers": "مدربون {under_ar} دوليون من {ar}",
+    "{en} {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم ",
+    "{en} {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم "
 }
 
 KEY_AR_PLACEHOLDER = "{ar}"
@@ -158,22 +161,22 @@ def _load_bot() -> str:
 @functools.lru_cache(maxsize=1)
 def _load_multi_bot() -> str:
     under_data = {
-        "under-13": "تحت 13",
-        "under-14": "تحت 14",
-        "under-15": "تحت 15",
-        "under-16": "تحت 16",
-        "under-17": "تحت 17",
-        "under-18": "تحت 18",
-        "under-19": "تحت 19",
-        "under-20": "تحت 20",
-        "under-21": "تحت 21",
-        "under-23": "تحت 23",
-        "under-24": "تحت 24",
+        "under-13": "تحت 13 سنة",
+        "under-14": "تحت 14 سنة",
+        "under-15": "تحت 15 سنة",
+        "under-16": "تحت 16 سنة",
+        "under-17": "تحت 17 سنة",
+        "under-18": "تحت 18 سنة",
+        "under-19": "تحت 19 سنة",
+        "under-20": "تحت 20 سنة",
+        "under-21": "تحت 21 سنة",
+        "under-23": "تحت 23 سنة",
+        "under-24": "تحت 24 سنة",
     }
-    # data = main_data | main_data_under
+    data = main_data | main_data_under
 
     return format_multi_data(
-        formatted_data=main_data_under,
+        formatted_data=data,
         data_list=under_data,
         key_placeholder="{under_en}",
         value_placeholder="{under_ar}",
@@ -183,10 +186,16 @@ def _load_multi_bot() -> str:
     )
 
 
+@functools.lru_cache(maxsize=1000)
+def get_en_ar_is_p17_label_multi(category: str) -> str:
+    nat_bot = _load_multi_bot()
+    return nat_bot.search(category).strip()
+
+
 # @dump_data(enable=1)
 @functools.lru_cache(maxsize=1000)
-def sport_formts_en_ar_is_p17_label(category: str, use_multi=False) -> str:
-    nat_bot = _load_bot() if not use_multi else _load_multi_bot()
+def get_en_ar_is_p17_label(category: str) -> str:
+    nat_bot = _load_bot()
     return nat_bot.search(category).strip()
 
 
@@ -197,6 +206,7 @@ len_print.data_len("p17_sport_to_move.py", {
 })
 
 __all__ = [
-    "sport_formts_en_ar_is_p17_label",
+    "get_en_ar_is_p17_label",
+    "get_en_ar_is_p17_label_multi",
     "get_con_3_lab_sports",
 ]
