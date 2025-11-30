@@ -8,7 +8,6 @@ import re
 
 from ..config import app_settings
 from ..fix import fixtitle
-from ..helps import printe
 from ..helps.log import logger
 from ..make_bots import tmp_bot
 from ..make_bots.date_bots import with_years_bot
@@ -80,7 +79,7 @@ def stubs_label(category_r: str) -> str:
 
         if sub_ar_label and list_of_cat:
             ar_label = list_of_cat.format(sub_ar_label)
-            printe.output(f'<<lightblue>> event2 add list_of_cat, ar_label:"{ar_label}", category:{category} ')
+            logger.info(f'<<lightblue>> event2 add list_of_cat, ar_label:"{ar_label}", category:{category} ')
 
     return ar_label
 

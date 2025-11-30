@@ -6,7 +6,6 @@ This module provides functions for processing and generating labels for country 
 import re
 from typing import Tuple
 
-from ....helps import printe
 from ....helps.log import logger
 from ....utils import fix_minor
 from ...format_bots import category_relation_mapping
@@ -34,7 +33,7 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
     try:
         test_N = test_N.strip().replace(con_2.strip().lower(), "")
     except Exception:
-        printe.output(f'<<lightblue>> >>>> <<lightblue>> except, test_N:"{test_N}",con_2:"{con_2}",con_1:"{con_1}"')
+        logger.info(f'<<lightblue>> >>>> <<lightblue>> except, test_N:"{test_N}",con_2:"{con_2}",con_1:"{con_1}"')
         test_N = re.sub(con_2.strip().lower(), "", test_N)
         test_N = test_N.replace(con_2.strip().lower(), "")
 
