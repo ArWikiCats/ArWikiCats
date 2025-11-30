@@ -16,4 +16,4 @@ te4_2018_Jobs_data = {
 @pytest.mark.slow
 def test_te4_2018_Jobs_data(category, expected_key) -> None:
     label = te4_2018_Jobs(category)
-    assert label.strip() == expected_key
+    assert label == expected_key

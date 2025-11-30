@@ -67,7 +67,7 @@ list_data = {
 @pytest.mark.fast
 def test_list_data(category, expected_key) -> None:
     label = get_list_of_and_cat3_with_lab2(category)
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 @pytest.mark.fast

@@ -229,7 +229,7 @@ match_nat_key_data = {
 @pytest.mark.fast
 def test_match_nat_key_data(category, expected_key) -> None:
     label = match_nat_key(category)
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 @pytest.mark.fast

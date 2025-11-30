@@ -109,7 +109,7 @@ event_Lab_seoo_data = {
 @pytest.mark.fast
 def test_event_Lab_seoo_data(category, expected_key) -> None:
     label = event_label_work(category)
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 te_bot_3_data = {
@@ -148,4 +148,4 @@ te_bot_3_data = {
 @pytest.mark.skip2("need more work")
 def test_te_bot_3_data(category, expected_key) -> None:
     label = te_bot_3(category)
-    assert label.strip() == expected_key
+    assert label == expected_key

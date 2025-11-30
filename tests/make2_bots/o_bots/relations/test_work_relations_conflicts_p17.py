@@ -9,7 +9,7 @@ from ArWikiCats.make_bots.o_bots.rele import work_relations
 
 def _norm(text: str) -> str:
     """Normalize whitespace for robust assertions."""
-    return " ".join(text.strip().split())
+    return " ".join(text.split())
 
 
 @pytest.mark.unit

@@ -52,7 +52,7 @@ def test_get_p17_2_country_not_found_returns_empty():
 
 @pytest.mark.unit
 def test_get_p17_2_handles_extra_spaces():
-    category = "  yemen   air force   ".strip()
+    category = "  yemen   air force   "
     result = Get_P17_2(category)
     assert result == "القوات الجوية اليمنية"
 

@@ -46,7 +46,7 @@ def test_all_dump(name, data, callback):
 @pytest.mark.slow
 def test_resolve_us_states(category, expected_key) -> None:
     label2 = resolve_us_states(category)
-    assert label2.strip() == expected_key
+    assert label2 == expected_key
 
 
 Work_US_State_data = {
@@ -146,7 +146,7 @@ Work_US_State_data = {
 @pytest.mark.slow
 def test_Work_US_State_data(category, expected_key) -> None:
     label = resolve_us_states(category)
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 fast_data = {
@@ -234,4 +234,4 @@ fast_data = {
 @pytest.mark.fast
 def test_fast_data(category, expected_key) -> None:
     label = resolve_us_states(category)
-    assert label.strip() == expected_key
+    assert label == expected_key

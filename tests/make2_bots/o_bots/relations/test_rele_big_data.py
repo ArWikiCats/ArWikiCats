@@ -690,9 +690,9 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("category, expected", big_data.items(), ids=list(big_data.keys()))
 @pytest.mark.fast
-def test_work_relations_big_data(category, expected) -> None:
+def test_work_relations_big_data(category: str, expected: str) -> None:
     label = work_relations(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)

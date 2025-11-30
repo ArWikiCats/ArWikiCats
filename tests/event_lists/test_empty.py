@@ -68,6 +68,6 @@ data = {
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 @pytest.mark.skip2
-def test_empty(category, expected) -> None:
+def test_empty(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected

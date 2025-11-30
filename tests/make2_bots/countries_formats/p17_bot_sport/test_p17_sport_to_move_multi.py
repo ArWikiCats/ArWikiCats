@@ -84,7 +84,7 @@ data_under = {
 
 @pytest.mark.parametrize("category, expected", data_under.items(), ids=list(data_under.keys()))
 @pytest.mark.fast
-def test_under(category, expected) -> None:
+def test_under(category: str, expected: str) -> None:
     label1 = get_en_ar_is_p17_label(category)
     assert label1 == expected
 

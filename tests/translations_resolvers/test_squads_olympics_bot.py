@@ -27,7 +27,7 @@ data = {
 def test_resolve_en_is_P17_ar_is_P17_SPORTS(category, expected_key) -> None:
     label1 = resolve_en_is_P17_ar_is_P17_SPORTS(category)
 
-    assert label1.strip() == expected_key
+    assert label1 == expected_key
 
 
 TEMPORAL_CASES = [

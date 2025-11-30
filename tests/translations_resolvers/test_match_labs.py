@@ -98,4 +98,4 @@ data6 = {
 def test_find_teams_2025(category, expected_key) -> None:
     label = find_teams_2025(category)
 
-    assert label.strip() == expected_key
+    assert label == expected_key

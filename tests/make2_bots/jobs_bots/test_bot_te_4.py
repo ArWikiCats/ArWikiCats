@@ -356,20 +356,20 @@ data_2018_with_nat = {
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
-def test_nat_match(category, expected) -> None:
+def test_nat_match(category: str, expected: str) -> None:
     label = nat_match(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=list(Multi_Sports_data.keys()))
 @pytest.mark.fast
-def test_Jobs_in_Multi_Sports(category, expected) -> None:
+def test_Jobs_in_Multi_Sports(category: str, expected: str) -> None:
     label = Jobs_in_Multi_Sports(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_2018_with_nat.items(), ids=list(data_2018_with_nat.keys()))
 @pytest.mark.fast
-def test_te_2018_with_nat(category, expected) -> None:
+def test_te_2018_with_nat(category: str, expected: str) -> None:
     label = te_2018_with_nat(category)
-    assert label.strip() == expected
+    assert label == expected

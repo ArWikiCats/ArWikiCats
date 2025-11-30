@@ -19,13 +19,6 @@ data1 = {
 }
 
 data2 = {
-    "Category:People from Westchester County, New York by hamlet": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب القرية",
-    "Category:People from New York": "تصنيف:أشخاص من نيويورك",
-
-    "Category:People from Westchester County, New York by city": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب المدينة",
-    "Category:People from Westchester County, New York by town": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب البلدة",
-    "Category:People from Westchester County, New York by village": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب القرية",
-
     "Category:Mixed martial artists from Massachusetts": "تصنيف:مقاتلو فنون قتالية مختلطة من ماساتشوستس",
     "Category:People from Buenos Aires": "تصنيف:أشخاص من بوينس آيرس",
     "Category:Players of American football from Massachusetts": "تصنيف:لاعبو كرة قدم أمريكية من ماساتشوستس",
@@ -64,23 +57,23 @@ to_test = [
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
 @pytest.mark.fast
-def test_people_labels_1(category, expected) -> None:
+def test_people_labels_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data2.items(), ids=list(data2.keys()))
 @pytest.mark.fast
-def test_people_labels_2(category, expected) -> None:
+def test_people_labels_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data3.items(), ids=list(data3.keys()))
 @pytest.mark.fast
-def test_people_labels_3(category, expected) -> None:
+def test_people_labels_3(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)

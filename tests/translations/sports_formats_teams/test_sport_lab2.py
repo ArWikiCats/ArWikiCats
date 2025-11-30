@@ -179,16 +179,16 @@ data2 = {
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
 @pytest.mark.fast
-def test_New_team_xo_team_labels(category, expected) -> None:
+def test_New_team_xo_team_labels(category: str, expected: str) -> None:
     label = wrap_team_xo_normal_2025(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data2.items(), ids=list(data2.keys()))
 @pytest.mark.fast
-def test_New_team_xo_team_labels_2(category, expected) -> None:
+def test_New_team_xo_team_labels_2(category: str, expected: str) -> None:
     label = wrap_team_xo_normal_2025(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 TEMPORAL_CASES = [

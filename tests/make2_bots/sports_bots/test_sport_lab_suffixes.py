@@ -198,7 +198,7 @@ get_teams_new_data = {
 @pytest.mark.fast
 def test_get_teams_new_data(category, expected_key) -> None:
     label = get_teams_new(category)
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 def test_get_teams_new():

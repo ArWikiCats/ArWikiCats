@@ -69,9 +69,9 @@ fix_title_all = True
 
 @pytest.mark.parametrize("category, expected", data_fast.items(), ids=list(data_fast.keys()))
 @pytest.mark.fast
-def test_Get_country2_fast(category, expected) -> None:
+def test_Get_country2_fast(category: str, expected: str) -> None:
     label = Get_country2(category, fix_title=fix_title_all)
-    assert label.strip() == expected
+    assert label == expected
 
 
 data_slow = {
@@ -653,9 +653,9 @@ data_slow = {
 
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=list(data_slow.keys()))
 @pytest.mark.slow
-def test_Get_country2_slow(category, expected) -> None:
+def test_Get_country2_slow(category: str, expected: str) -> None:
     label = Get_country2(category, fix_title=fix_title_all)
-    assert label.strip() == expected
+    assert label == expected
 
 
 def test_get_country2():

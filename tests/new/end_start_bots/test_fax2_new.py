@@ -190,7 +190,7 @@ def test_get_list_of_and_cat3_all_endswith_patterns():
 
         list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3_nolower)
 
-        assert list_of_cat.strip() == tab["lab"]
+        assert list_of_cat == tab["lab"]
         assert foot_ballers is False
 
         # Check the stripped remainder where we control the format
@@ -210,13 +210,13 @@ def test_get_list_of_and_cat3_navigational_boxes_specificity():
     # sports navigational boxes
     category3 = "Yemen sports navigational boxes"
     list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3)
-    assert list_of_cat.strip() == fax2.to_get_endswith["sports navigational boxes"]["lab"]
+    assert list_of_cat == fax2.to_get_endswith["sports navigational boxes"]["lab"]
     assert rest.strip() == "Yemen"
 
     # squad navigational boxes
     category3 = "1996 Basketball Olympic squad navigational boxes"
     list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3)
-    assert list_of_cat.strip() == fax2.to_get_endswith["squad navigational boxes"]["lab"].strip()
+    assert list_of_cat == fax2.to_get_endswith["squad navigational boxes"]["lab"]
     assert rest.strip() == "1996 Basketball Olympic"
 
 

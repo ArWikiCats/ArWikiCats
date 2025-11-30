@@ -121,7 +121,7 @@ def test_sport_lab_oioioi_load():
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 @pytest.mark.fast
-def test_sport_lab_oioioi_load_data(category, expected) -> None:
+def test_sport_lab_oioioi_load_data(category: str, expected: str) -> None:
     label1 = sport_lab_oioioi_load(category)
     label2 = both_bot.create_label(category)
 

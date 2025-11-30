@@ -19,6 +19,6 @@ data = {
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 @pytest.mark.fast
-def test_places_and_structures(category, expected) -> None:
+def test_places_and_structures(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected

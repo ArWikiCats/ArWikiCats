@@ -177,7 +177,7 @@ data = [
 # @pytest.mark.fast
 def test_get_con_lab_data(tab) -> None:
     label = get_con_lab(preposition=f" {tab['tito_stripped']} ", country=tab["country"], start_get_country2=True)
-    assert label.strip() == tab["output"]
+    assert label == tab["output"]
 
 
 data_test = [
