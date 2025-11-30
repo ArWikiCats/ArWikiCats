@@ -1683,14 +1683,14 @@ to_test = [
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
 @pytest.mark.slow
-def test_non(category, expected) -> None:
+def test_non(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_series.items(), ids=list(data_series.keys()))
 @pytest.mark.slow
-def test_data_series(category, expected) -> None:
+def test_data_series(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 

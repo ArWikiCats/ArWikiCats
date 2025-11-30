@@ -165,7 +165,7 @@ fast_data = {
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
-def test_fast_data(category, expected) -> None:
+def test_fast_data(category: str, expected: str) -> None:
     label = get_KAKO(category)
     assert label == expected
 

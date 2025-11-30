@@ -215,7 +215,7 @@ Get_New_team_xo_data = {
 
 @pytest.mark.parametrize("category, expected", Get_New_team_xo_data.items(), ids=list(Get_New_team_xo_data.keys()))
 @pytest.mark.fast
-def test_Get_New_team_xo_data(category, expected) -> None:
+def test_Get_New_team_xo_data(category: str, expected: str) -> None:
     label1 = get_new_team_xo(category)
     assert isinstance(label1, str)
     assert label1 == expected

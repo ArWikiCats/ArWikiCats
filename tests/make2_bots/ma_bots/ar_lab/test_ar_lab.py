@@ -18,7 +18,7 @@ fast_data = {
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
-def test_find_ar_label_fast(category, expected) -> None:
+def test_find_ar_label_fast(category: str, expected: str) -> None:
     label = find_ar_label(category, "in")
     assert label == expected
 

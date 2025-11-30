@@ -58,6 +58,6 @@ def test_pan_arican():
 
 @pytest.mark.parametrize("category, expected", pan_arican.items(), ids=list(pan_arican.keys()))
 @pytest.mark.slow
-def test_pan_arican_dump(category, expected) -> None:
+def test_pan_arican_dump(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected

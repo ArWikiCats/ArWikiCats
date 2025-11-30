@@ -163,14 +163,14 @@ test_data = [
     "category, expected", wheelchair_racers_by_nat.items(), ids=list(wheelchair_racers_by_nat.keys())
 )
 @pytest.mark.fast
-def test_wheelchair_racers_by_nat(category, expected) -> None:
+def test_wheelchair_racers_by_nat(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data2.items(), ids=list(data2.keys()))
 @pytest.mark.fast
-def test_wheelchair_3(category, expected) -> None:
+def test_wheelchair_3(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 

@@ -56,7 +56,7 @@ def test_add_all():
 
 @pytest.mark.parametrize("category, expected", definite_article_data.items(), ids=list(definite_article_data.keys()))
 @pytest.mark.fast
-def test_add_definite_article(category, expected) -> None:
+def test_add_definite_article(category: str, expected: str) -> None:
     label = add_definite_article(category)
     assert label == expected
 

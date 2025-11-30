@@ -354,7 +354,7 @@ test_mens_data = {
 
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=list(test_mens_data.keys()))
 @pytest.mark.fast
-def test_priffix_Mens_work(category, expected) -> None:
+def test_priffix_Mens_work(category: str, expected: str) -> None:
     label = priffix_Mens_work(category)
     assert label == expected
 
@@ -599,7 +599,7 @@ test_womens_data = {
 
 @pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
 @pytest.mark.fast
-def test_Women_s_priffix_work(category, expected) -> None:
+def test_Women_s_priffix_work(category: str, expected: str) -> None:
     label = Women_s_priffix_work(category)
     assert label == expected
 
