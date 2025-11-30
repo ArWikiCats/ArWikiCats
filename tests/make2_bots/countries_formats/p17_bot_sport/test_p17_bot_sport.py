@@ -173,7 +173,7 @@ TEMPORAL_CASES = [
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
 @pytest.mark.dump
 def test_all_dump(name, data, callback):
-    expected, diff_result = one_dump_test(data, callback, do_strip=True)
+    expected, diff_result = one_dump_test(data, callback, do_strip=False)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

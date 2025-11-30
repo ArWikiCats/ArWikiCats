@@ -7,7 +7,6 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
     sport_formts_en_ar_is_p17_label,
-    sport_formts_en_ar_is_p17_label_new,
     get_con_3_lab_sports,
 )
 
@@ -77,8 +76,6 @@ data_1 = {
 def test_sport_formts_en_ar_is_p17_label_1(category, expected) -> None:
     label = sport_formts_en_ar_is_p17_label(category)
     assert label == expected
-    label2 = sport_formts_en_ar_is_p17_label_new(category)
-    assert label2 == expected
 
 
 # =========================================================
@@ -87,25 +84,25 @@ def test_sport_formts_en_ar_is_p17_label_1(category, expected) -> None:
 
 
 test_data_get_con_3_lab = {
-    "amateur international footballers": "لاعبو منتخب {} لكرة القدم للهواة",
-    "amateur international soccer players": "لاعبو منتخب {} لكرة القدم للهواة",
-    "international footballers": "لاعبو منتخب {} لكرة القدم",
-    "international soccer players": "لاعبو منتخب {} لكرة القدم",
-    "men's a' international footballers": "لاعبو منتخب {} لكرة القدم للرجال للمحليين",
-    "men's international footballers": "لاعبو منتخب {} لكرة القدم للرجال",
-    "men's international soccer players": "لاعبو منتخب {} لكرة القدم للرجال",
-    "men's under-20 international footballers": "لاعبو منتخب {} تحت 20 سنة لكرة القدم للرجال",
-    "men's under-21 international footballers": "لاعبو منتخب {} تحت 21 سنة لكرة القدم للرجال",
-    "men's youth international footballers": "لاعبو منتخب {} لكرة القدم للشباب",
-    "national football team managers": "مدربو منتخب {} لكرة القدم",
-    "national team": "منتخبات {} الوطنية",
-    "national teams": "منتخبات {} الوطنية",
-    "rally championship": "بطولة {} للراليات",
-    "sports templates": "قوالب {} الرياضية",
-    "under-13 international footballers": "لاعبو منتخب {} تحت 13 سنة لكرة القدم",
-    "under-14 international footballers": "لاعبو منتخب {} تحت 14 سنة لكرة القدم",
-    "women's international footballers": "لاعبات منتخب {} لكرة القدم للسيدات",
-    "women's youth international footballers": "لاعبات منتخب {} لكرة القدم للشابات",
+    "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} international soccer players": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} men's a' international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
+    "{en} men's international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال",
+    "{en} men's international soccer players": "لاعبو منتخب {ar} لكرة القدم للرجال",
+    "{en} men's under-20 international footballers": "لاعبو منتخب {ar} تحت 20 سنة لكرة القدم للرجال",
+    "{en} men's under-21 international footballers": "لاعبو منتخب {ar} تحت 21 سنة لكرة القدم للرجال",
+    "{en} men's youth international footballers": "لاعبو منتخب {ar} لكرة القدم للشباب",
+    "{en} national football team managers": "مدربو منتخب {ar} لكرة القدم",
+    "{en} national team": "منتخبات {ar} الوطنية",
+    "{en} national teams": "منتخبات {ar} الوطنية",
+    "{en} rally championship": "بطولة {ar} للراليات",
+    "{en} sports templates": "قوالب {ar} الرياضية",
+    "{en} under-13 international footballers": "لاعبو منتخب {ar} تحت 13 سنة لكرة القدم",
+    "{en} under-14 international footballers": "لاعبو منتخب {ar} تحت 14 سنة لكرة القدم",
+    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
 }
 
 
@@ -122,7 +119,6 @@ def test_get_con_3_lab_sports(category, expected):
 
 TEMPORAL_CASES = [
     ("test_sport_formts_en_ar_is_p17_label_1", data_1, sport_formts_en_ar_is_p17_label),
-    ("test_sport_formts_en_ar_is_p17_label_new", data_1, sport_formts_en_ar_is_p17_label_new),
     ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
 ]
 
