@@ -1,4 +1,18 @@
 
+## [#130](https://github.com/MrIbrahem/ArWikiCats/pull/130) - 2025-11-30
+
+* **Bug Fixes**
+  * Improved label resolution for sports and nationality-related categories with better fallback handling.
+  * Fixed whitespace handling in label formatting for consistent output.
+
+* **Refactor**
+  * Reorganized sports translation module structure for better maintainability.
+  * Enhanced data update mechanism with improved encapsulation.
+  * Optimized data loading with caching for improved performance.
+
+* **Tests**
+  * Added comprehensive test coverage for sports category label translations.
+
 ## [#129](https://github.com/MrIbrahem/ArWikiCats/pull/129) - 2025-11-30
 
 * **Added**
