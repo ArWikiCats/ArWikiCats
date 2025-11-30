@@ -76,7 +76,7 @@ NAT_P17_DATA["outdoor oioioi"] = f"ixix {nat_f} في الهواء الطلق"
 NAT_P17_OIOI = {f"{{nat}} {x}": v for x, v in NAT_P17_DATA.items()}
 # ---
 len_print.data_len(
-    "sportsb/nat_p17.py",
+    "sports_formats_oioioi/data.py",
     {
         "NAT_P17_OIOI": NAT_P17_OIOI,  # nat_p17.py: NAT_P17_OIOI: 98
     },

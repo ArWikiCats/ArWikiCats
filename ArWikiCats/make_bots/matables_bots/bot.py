@@ -170,6 +170,15 @@ def add_to_new_players(en: str, ar: str) -> None:
     players_new_keys[en] = ar
 
 
+def add_to_Films_O_TT(en: str, ar: str) -> None:
+    """Add a new English/Arabic player label pair to the cache."""
+    if not en or not ar:
+        return
+    if not isinstance(en, str) or not isinstance(ar, str):
+        return
+    Films_O_TT[en] = ar
+
+
 len_print.data_len(
     "make_bots.matables_bots/bot.py",
     {
@@ -182,4 +191,6 @@ len_print.data_len(
 
 __all__ = [
     "players_new_keys",
+    "add_to_new_players",
+    "add_to_Films_O_TT",
 ]

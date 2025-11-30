@@ -4,20 +4,18 @@ import re
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
-    SPORT_FORMTS_EN_AR_IS_P17,
     contries_from_nat,
     SPORTS_KEYS_FOR_TEAM,
     SPORTS_KEYS_FOR_JOBS,
     match_sport_key,
-    apply_pattern_replacement,
+    apply_pattern_replacements,
     SPORT_FORMTS_ENAR_P17_TEAM,
     sport_formts_enar_p17_jobs,
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
-# @dump_data(enable=1)
 
-
+@dump_data()
 def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p17_jobs
     """
     Return a sport label that merges templates with Arabic sport names.
@@ -53,7 +51,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     con_3_label = ""
 
     if template_label and sport_label:
-        con_3_label = apply_pattern_replacement(template_label, sport_label, "xoxo")
+        con_3_label = apply_pattern_replacements(template_label, sport_label, "xoxo")
         logger.info(f'Get_SFxo_en_ar_is P17 blab:"{con_3_label}"')
     else:
         logger.info(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs')
@@ -61,25 +59,6 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     logger.info(f'Get_SFxo_en_ar_is P17 suffix:"{suffix}", con_3_label:"{con_3_label}"')
 
     return con_3_label
-
-
-def get_con_3_lab_sports(suffix, country_start="", category="") -> str:
-    sources = [
-        (SPORT_FORMTS_EN_AR_IS_P17, True, "SPORT_FORMTS_EN_AR_IS_P17"),
-    ]
-
-    suffix_label = ""
-    name = ""
-    for source, do_strip, name in sources:
-        key = suffix.strip() if do_strip else suffix
-        suffix_label = source.get(key, "")
-        if suffix_label:
-            break
-
-    name = name if suffix_label else ""
-    logger.debug(f'<<lightblue>>>>>> <<lightgreen>>{name}<<lightblue>> suffix:"{suffix}"')
-
-    return suffix_label
 
 
 def get_p17_with_sport(category: str) -> str:
@@ -99,10 +78,7 @@ def get_p17_with_sport(category: str) -> str:
     logger.debug(f'<<lightblue>> country_start:"{country_start}", suffix:"{suffix}"')
     logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
 
-    suffix_label = get_con_3_lab_sports(suffix.strip())
-
-    if not suffix_label:
-        suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
+    suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 
     if not suffix_label:
         logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')
@@ -121,5 +97,4 @@ def get_p17_with_sport(category: str) -> str:
 __all__ = [
     "Get_Sport_Format_xo_en_ar_is_P17",
     "get_p17_with_sport",
-    "get_con_3_lab_sports",
 ]

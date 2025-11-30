@@ -6,7 +6,6 @@ from ..sports_formats_oioioi.data import (
 from .games_labs import SUMMER_WINTER_GAMES
 from .olympics_data import olympics
 from .skeys import (
-    SPORT_FORMTS_EN_AR_IS_P17,
     SPORT_FORMTS_FEMALE_NAT,
     SPORT_FORMTS_MALE_NAT,
     SPORT_FORMTS_NEW_KKK,
@@ -16,7 +15,6 @@ from .tennis import TENNIS_KEYS
 
 __all__ = [
     "TENNIS_KEYS",
-    "SPORT_FORMTS_EN_AR_IS_P17",
     "SPORT_FORMTS_NEW_KKK",
     "SPORT_FORMTS_MALE_NAT",
     "SPORT_FORMTS_FEMALE_NAT",

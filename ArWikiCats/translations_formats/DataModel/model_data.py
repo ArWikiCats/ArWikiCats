@@ -68,7 +68,7 @@ class FormatData:
         final_label = template_label.replace(self.value_placeholder, sport_label)
 
         if self.value_placeholder not in final_label:
-            return final_label
+            return final_label.strip()
 
         return ""
 
@@ -158,14 +158,19 @@ class FormatData:
 
         return result
 
+    def replace_value_placeholder(self, label: str, value: str) -> str:
+        # Replace placeholder
+        return label.replace(self.value_placeholder, value)
+
     @functools.lru_cache(maxsize=None)
     def search(self, category: str) -> str:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 
-    def replace_value_placeholder(self, label: str, value: str) -> str:
-        # Replace placeholder
-        return label.replace(self.value_placeholder, value)
+    @functools.lru_cache(maxsize=None)
+    def search_all(self, category: str) -> str:
+        """Public wrapper around ``_search`` with caching."""
+        return self._search(category)
 
 
 def format_data_sample() -> bool:
