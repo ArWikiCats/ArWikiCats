@@ -16,7 +16,7 @@ main_data = {
     "{en} amateur international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للهواة",
     "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international rally": "رالي {ar} الدولي",
-    "{en} international rules football team": "منتخب {} لكرة القدم الدولية",
+    "{en} international rules football team": "منتخب {ar} لكرة القدم الدولية",
     "{en} international soccer players": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international soccer playerss": "لاعبو منتخب {ar} لكرة القدم",
     "{en} men's a' international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",

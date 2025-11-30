@@ -8,7 +8,7 @@ from ...translations import (
     SPORTS_KEYS_FOR_TEAM,
     SPORTS_KEYS_FOR_JOBS,
     match_sport_key,
-    apply_pattern_replacement,
+    apply_pattern_replacements,
     SPORT_FORMTS_ENAR_P17_TEAM,
     sport_formts_enar_p17_jobs,
 )
@@ -51,7 +51,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     con_3_label = ""
 
     if template_label and sport_label:
-        con_3_label = apply_pattern_replacement(template_label, sport_label, "xoxo")
+        con_3_label = apply_pattern_replacements(template_label, sport_label, "xoxo")
         logger.info(f'Get_SFxo_en_ar_is P17 blab:"{con_3_label}"')
     else:
         logger.info(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs')

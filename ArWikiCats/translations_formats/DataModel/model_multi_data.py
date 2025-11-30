@@ -115,7 +115,7 @@ class MultiDataFormatterBase:
         label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
         label = self.other_bot.replace_value_placeholder(label, other_ar)
 
-        return label
+        return label.strip()
 
     @functools.lru_cache(maxsize=1000)
     def create_label(self, category: str) -> str:
@@ -148,9 +148,9 @@ class MultiDataFormatterBase:
         return label
 
     def search(self, category: str) -> str:
-        return self.create_label(category).strip()
+        return self.create_label(category)
 
     def search_all(self, category: str) -> str:
-        return self.create_label(category).strip() \
-            or self.country_bot.search(category).strip()\
-            or self.other_bot.search(category).strip()
+        return self.create_label(category) \
+            or self.country_bot.search(category) \
+            or self.other_bot.search(category)

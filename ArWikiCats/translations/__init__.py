@@ -104,14 +104,14 @@ from .type_tables import typeTable
 from .utils.match_sport_keys import match_sport_key
 
 from .sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
-from .utils import apply_pattern_replacement
+from .utils import apply_pattern_replacements
 from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
 
 
 __all__ = [
     "US_STATES",
     "sport_formts_enar_p17_jobs",
-    "apply_pattern_replacement",
+    "apply_pattern_replacements",
     "SPORT_FORMTS_ENAR_P17_TEAM",
     "typeTable",
     "teams_new_founder",
