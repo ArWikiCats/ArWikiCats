@@ -83,7 +83,7 @@ class TestYearExtraction:
             ("Category:February 2021 disasters", "february 2021"),
         ],
     )
-    def test_year(self, category, expected) -> None:
+    def test_year(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first_strip.lower() == expected.lower()
 
@@ -100,7 +100,7 @@ class TestYearExtraction:
             ("Category:10s BC", "10s BC"),
         ],
     )
-    def test_year2(self, category, expected) -> None:
+    def test_year2(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first.lower() == expected.lower()
 
@@ -170,7 +170,7 @@ class TestInExtraction:
             ("Category:2020 deaths", ""),
         ],
     )
-    def test_in(self, category, expected) -> None:
+    def test_in(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.In.strip() == expected
 
@@ -195,7 +195,7 @@ class TestCountryExtraction:
             ("Category:20th century architecture", ""),
         ],
     )
-    def test_country(self, category, expected) -> None:
+    def test_country(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.country.lower() == expected.lower()
 
@@ -250,7 +250,7 @@ class TestMonthSuppression:
             ("Category:December 2020 births", "december 2020"),
         ],
     )
-    def test_month_suppression(self, category, expected) -> None:
+    def test_month_suppression(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first_strip == expected
 
@@ -270,7 +270,7 @@ class TestBCE_BC:
             ("Category:2nd millennium BCE", "2nd millennium BCE"),
         ],
     )
-    def test_bce(self, category, expected) -> None:
+    def test_bce(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first.lower() == expected.lower()
 
