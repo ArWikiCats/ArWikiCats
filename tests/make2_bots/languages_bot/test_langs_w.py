@@ -143,7 +143,7 @@ data = {
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
-def test_Lang_work_main(category, expected) -> None:
+def test_Lang_work_main(category: str, expected: str) -> None:
     result = Lang_work(category)
     assert result == expected
 

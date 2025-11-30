@@ -57,7 +57,7 @@ yc_bot.country_bot.add_formatted_data("category:{year1} in {country1}", "تصن�
     test_data.items(),
     ids=test_data.keys()
 )
-def test_country_time_pattern(category, expected) -> None:
+def test_country_time_pattern(category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
     result = get_label(category)
     assert result == expected

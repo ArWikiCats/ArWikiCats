@@ -28,7 +28,7 @@ data_contries_from_nat = {
 
 
 @pytest.mark.parametrize("category, expected", data_contries_from_nat.items(), ids=lambda x: x[0])
-def test_contries_from_nat(category, expected) -> None:
+def test_contries_from_nat(category: str, expected: tuple[str, str]) -> None:
     # Test with a valid category and nat
     result = get_suffix(category, "contries_from_nat")
     assert result == expected
@@ -229,7 +229,7 @@ data_religions = {
 
 
 @pytest.mark.parametrize("category, expected", data_religions.items(), ids=lambda x: x[0])
-def test_religions(category, expected) -> None:
+def test_religions(category: str, expected: tuple[str, str]) -> None:
     # Test with a valid category and nat
     result = get_suffix(category, "religions")
     assert result == expected
@@ -545,7 +545,7 @@ data_nat = {
 
 
 @pytest.mark.parametrize("category, expected", data_nat.items(), ids=lambda x: x[0])
-def test_nat(category, expected) -> None:
+def test_nat(category: str, expected: tuple[str, str]) -> None:
     # Test with a valid category and nat
     result = get_suffix(category, "nat")
     assert result == expected

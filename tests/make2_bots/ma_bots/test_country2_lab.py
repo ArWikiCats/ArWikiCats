@@ -110,7 +110,7 @@ data = {
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=lambda x: x[0])
-def test_get_lab_for_country2(category, expected) -> None:
+def test_get_lab_for_country2(category: str, expected: str) -> None:
     result = get_lab_for_country2(category)
     assert result == expected
 
