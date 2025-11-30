@@ -31,7 +31,7 @@ def _create_pp_priffix(albums_typies) -> dict[str, str]:
     return Pp_Priffix
 
 
-def _make_players_keys(Add_ar_in):
+def _make_players_keys(Add_ar_in: dict[str, str]) -> dict:
     players_keys = {}
     players_keys["women"] = "المرأة"
 

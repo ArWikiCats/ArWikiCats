@@ -76,9 +76,4 @@ def te_films(category: str) -> str:
         logger.info(f'>>>> (te_films) te_army, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
 
-    resolved_label = te4_2018_Jobs(normalized_category)
-    if resolved_label:
-        logger.info(f'>>>> (te_films) te4_2018_Jobs, cat: {normalized_category}, label: "{resolved_label}"')
-        return resolved_label
-
     return ""

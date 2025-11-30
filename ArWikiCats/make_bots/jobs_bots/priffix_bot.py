@@ -28,6 +28,9 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
 @functools.lru_cache(maxsize=1)
 def _extend_By_table() -> dict[str, str]:
+    """
+    TODO: maybe we don't even need it
+    """
     result = {}
     for ss in SPORTS_KEYS_FOR_LABEL:
         cd = f"by {ss.lower()} team"
@@ -43,6 +46,9 @@ def _extend_By_table() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=None)
 def work_mens_priffix(con_33: str) -> str:
+    """
+    TODO: need refactoring
+    """
     for priff, priff_lab in Mens_priffix.items():
         pri = f"{priff} "
 
@@ -86,7 +92,9 @@ def work_mens_priffix(con_33: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def work_mens_suffix(con_33: str) -> str:
-
+    """
+    TODO: need refactoring
+    """
     for suffix1, suf_lab in Mens_suffix.items():
         suffix2 = f" {suffix1}"
 
@@ -165,7 +173,8 @@ def priffix_Mens_work(con_33: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def Women_s_priffix_work(suffix: str) -> str:
-    """Retrieve the women's prefix work label based on the input string.
+    """
+    Retrieve the women's prefix work label based on the input string.
 
     This function processes the input string to determine if it matches any
     predefined women's job prefixes. It first checks if the lowercase and
@@ -180,23 +189,32 @@ def Women_s_priffix_work(suffix: str) -> str:
 
     Returns:
         str: The corresponding job label or an empty string if no match is found.
+
+    TODO: need refactoring
     """
     label = short_womens_jobs.get(suffix, "")
+
     if label:
         return label
+
     con_33 = suffix
+
     if suffix.endswith(" women"):
         con_33 = suffix[: -len(" women")]
+
     for wriff, wrifflab in Women_s_priffix.items():
         data = [f"{wriff} "]
         if wriff == "women's":
             data.append("women's-")
+
         for prefix in data:
             if not con_33.startswith(prefix):
                 continue
+
             con_4 = con_33[len(prefix) :]
             con_8_Wb = jobs_womens_data.get(con_4, "")
             logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"),con_4:"{con_4}", con_8_Wb:"{con_8_Wb}"')
+
             if con_8_Wb:
                 label = wrifflab.format(con_8_Wb)
                 return label
