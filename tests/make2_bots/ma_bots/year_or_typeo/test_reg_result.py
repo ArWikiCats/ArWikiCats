@@ -284,9 +284,9 @@ class TestBCE_BC:
 def test_all_based_types(eng):
     category = f"Category:1999 {eng} in France"
     out = get_reg_result(category)
-    assert out.typeo.lower() == eng.strip().lower()
+    assert out.typeo.lower() == eng.lower()
     assert out.year_at_first_strip.lower() == "1999"
-    assert out.country.strip().lower() == "france"
+    assert out.country.lower() == "france"
 
 
 # -----------------------------------------------------------
