@@ -65,7 +65,7 @@ def _make_players_keys(Add_ar_in):
 Add_ar_in = dict(olympics)
 players_new_keys = _make_players_keys(Add_ar_in)
 Pp_Priffix = _create_pp_priffix(ALBUMS_TYPE)
-_extend_By_table()
+# _extend_By_table()
 
 
 cash_2022 = {
