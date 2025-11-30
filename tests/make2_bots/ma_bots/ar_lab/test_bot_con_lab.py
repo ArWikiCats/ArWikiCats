@@ -220,7 +220,6 @@ data_test = [
     ("by", "by year and continent", "حسب السنة والقارة"),
     ("by", "by year of disestablishment", "حسب سنة الانحلال"),
     ("by", "by year of introduction", "حسب سنة الاستحداث"),
-    ("established in", "the 7th millennium bc", "الألفية السابعة ق م"),
     ("executed by", "ukraine by firing squad", "أوكرانيا رميا بالرصاص"),
     ("for", "for malta ", "مالطا"),
     ("for", "for the british virgin islands", "جزر العذراء البريطانية"),

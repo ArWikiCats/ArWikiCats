@@ -28,6 +28,7 @@ def test_simple(category: str, tito: str, output: str) -> None:
 
 
 data_list = [
+    ("2nd millennium in kentucky", " in ", "الألفية الثانية في كنتاكي"),
     ("1550 mass shootings in oceania", " in ", "إطلاق نار عشوائي 1550 في أوقيانوسيا"),
     ("mass shootings in oceania", " in ", "إطلاق نار عشوائي في أوقيانوسيا"),
     ("1550 elections in sweden", " in ", "انتخابات 1550 في السويد"),
@@ -459,7 +460,7 @@ data_list = [
     ("february 1550 in austria", " in ", "فبراير 1550 في النمسا"),
     ("christian schools in kerala", " in ", "مدارس مسيحية في كيرلا"),
     ("olympic footballers for south korea", " for ", "لاعبو كرة قدم أولمبيون في كوريا الجنوبية"),
-    ("2nd millennium in kentucky", " in ", "الألفية الثانية في كنتاكي"),
+
     ("films set in 1550s", " set in ", "أفلام تقع أحداثها في عقد 1550"),
     ("communes of saïda province", " of ", "بلديات ولاية سعيدة"),
     ("establishments in guernsey", " in ", "تأسيسات في غيرنزي"),
