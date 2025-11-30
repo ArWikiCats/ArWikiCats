@@ -65,19 +65,19 @@ def test_NAT_BEFORE_OCC(suffix: str) -> None:
 # --- NAT_BEFORE_OCC Expansion Tests ---
 
 
-def test_nat_before_occ_deafblind_mens_algerian():
+def test_nat_before_occ_deafblind_mens_algerian() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "algerian", "deafblind writers")  # "deafblind" is in NAT_BEFORE_OCC
     assert result == "كتاب صم ومكفوفون جزائريون"  # Assuming priffix_Mens_work would return "كتاب صم ومكفوفون"
 
 
-def test_nat_before_occ_religious_muslim_mens_afghan():
+def test_nat_before_occ_religious_muslim_mens_afghan() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "afghan", "muslim")
     assert result == "أفغان مسلمون"
 
 
-def test_nat_before_occ_religious_christian_womens_albanian():
+def test_nat_before_occ_religious_christian_womens_albanian() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "albanian", "female christian")
     assert result == "مسيحيات ألبانيات"
@@ -86,25 +86,25 @@ def test_nat_before_occ_religious_christian_womens_albanian():
     assert result2 == "ألبان مسيحيون"
 
 
-def test_nat_before_occ_religious_jews_mens_argentine():
+def test_nat_before_occ_religious_jews_mens_argentine() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "argentine", "jews")
     assert result == "أرجنتينيون يهود"
 
 
-def test_nat_before_occ_religious_jews_womens_argentinean():
+def test_nat_before_occ_religious_jews_womens_argentinean() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "argentinean", "female jews")
     assert result == "يهوديات أرجنتينيات"
 
 
-def test_mens_religious_before_occ():
+def test_mens_religious_before_occ() -> None:
     """Test religious key in NAT_BEFORE_OCC list (nationality before religion)"""
     result = jobs_with_nat_prefix("", "yemeni", "sunni muslims")
     assert result == "يمنيون مسلمون سنة"
 
 
-def test_womens_religious_with_nationality():
+def test_womens_religious_with_nationality() -> None:
     """Test women's religious affiliation with compound nationality"""
     result = jobs_with_nat_prefix("", "north yemeni", "female coptic")
     assert result == "قبطيات يمنيات شماليات"

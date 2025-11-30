@@ -22,7 +22,7 @@ make_cnt_lab_data = {
 
 @pytest.mark.parametrize("category, ar", make_cnt_lab_data.items(), ids=list(make_cnt_lab_data.keys()))
 @pytest.mark.fast
-def test_make_cnt_lab_data(category, ar) -> None:
+def test_make_cnt_lab_data(category: str, ar: str) -> None:
     label = make_cnt_lab(
         tat_o="-of ",
         country2=f"kingdom-of {category}",
@@ -50,7 +50,7 @@ party_data = {
 
 @pytest.mark.parametrize("country2, c_2_l, expected", party_data.values(), ids=list(party_data.keys()))
 @pytest.mark.fast
-def test_make_cnt_lab_communist_party(country2, c_2_l, expected):
+def test_make_cnt_lab_communist_party(country2: str, c_2_l: str, expected: str) -> None:
     label = make_cnt_lab(
         tat_o="-of ",
         country2=country2,
@@ -64,7 +64,7 @@ def test_make_cnt_lab_communist_party(country2, c_2_l, expected):
     assert label == expected
 
 
-def test_make_cnt_lab():
+def test_make_cnt_lab() -> None:
     result1 = make_cnt_lab(
         tat_o=" in ",
         country2="university of arts in belgrade",
@@ -139,7 +139,7 @@ congress_data = {
 
 @pytest.mark.parametrize("category, ar", congress_data.items(), ids=list(congress_data.keys()))
 @pytest.mark.fast
-def test_congress_data(category, ar):
+def test_congress_data(category: str, ar: str) -> None:
     label = f"الكونغرس الأمريكي {ar}"
     result = make_cnt_lab(
         tat_o=" of ",

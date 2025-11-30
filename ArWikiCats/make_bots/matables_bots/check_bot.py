@@ -25,6 +25,6 @@ def check_key_new_players(key: str) -> bool:
     return result
 
 
-def add_key_new_players(key, value, file) -> None:
+def add_key_new_players(key: str, value: str, file: str) -> None:
     players_new_keys[key.lower()] = value
     logger.info(f"add to New_players[{key}] = {value} in {file}")

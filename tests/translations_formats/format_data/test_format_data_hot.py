@@ -9,7 +9,7 @@ from ArWikiCats.translations_formats import FormatData
 
 
 @pytest.fixture
-def bot():
+def bot() -> FormatData:
     formatted_data = {
         "{en} records": "سجلات {ar}",
         "{en} house-of-representatives elections": "انتخابات مجلس نواب ولاية {ar}",
@@ -34,7 +34,7 @@ def bot():
     return _bot
 
 
-def test_match_key(bot):
+def test_match_key(bot) -> None:
     result1 = bot.match_key("georgia (u.s. state) independents")
     assert result1 == "georgia (u.s. state)"
 
@@ -43,7 +43,7 @@ def test_match_key(bot):
     assert result2 == "georgia"
 
 
-def test_search(bot):
+def test_search(bot) -> None:
 
     result1 = bot.search("georgia (u.s. state) independents")
     result2 = bot.search("georgia independents")
@@ -52,7 +52,7 @@ def test_search(bot):
     assert result2 == "مستقلون من ولاية جورجيا"
 
 
-def test_case(bot):
+def test_case(bot) -> None:
     result = bot.search("washington, d.c. house-of-representatives elections")
     assert result == "انتخابات مجلس نواب ولاية واشنطن العاصمة"
 

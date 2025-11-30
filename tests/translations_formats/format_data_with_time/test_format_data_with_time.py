@@ -116,7 +116,7 @@ test_data = [
     test_data,
     ids=[x[0] for x in test_data]
 )
-def test_year_country_combinations(yc_bot, category, expected):
+def test_year_country_combinations(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
     result = yc_bot.create_label(category)
     assert result == expected

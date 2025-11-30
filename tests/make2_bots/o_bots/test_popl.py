@@ -57,7 +57,7 @@ def test_fast_data(category: str, expected: str) -> None:
     assert label == label2
 
 
-def test_work_peoples():
+def test_work_peoples() -> None:
     # Test with a basic input
     result = work_peoples("test people")
     assert isinstance(result, str)
@@ -70,7 +70,7 @@ def test_work_peoples():
     assert isinstance(result_various, str)
 
 
-def test_make_people_lab():
+def test_make_people_lab() -> None:
     # Test with a basic input
     result = make_people_lab("people")
     assert isinstance(result, str)

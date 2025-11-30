@@ -11,7 +11,7 @@ from ArWikiCats.make_bots.lazy_data_bots.bot_2018 import (
 )
 
 
-def test_lazy_load():
+def test_lazy_load() -> None:
     # Test the lazy_load function
     result = lazy_load()
     assert isinstance(result, dict)
@@ -20,7 +20,7 @@ def test_lazy_load():
     assert type(result) is dict
 
 
-def test_add_to_pop_all_18():
+def test_add_to_pop_all_18() -> None:
     # Test with an empty dict
     Add_to_pop_All_18({})
 
@@ -32,7 +32,7 @@ def test_add_to_pop_all_18():
     assert True
 
 
-def test_get_pop_all_18():
+def test_get_pop_all_18() -> None:
     # Test with a basic key (likely won't find the key but should return default)
     result = get_pop_All_18("test_key", "default")
     assert isinstance(result, str)

@@ -14,7 +14,7 @@ from ArWikiCats.make_bots.ma_bots.year_or_typeo.reg_result import (
 basedtypeTable_20 = {k: basedtypeTable[k] for k in list(basedtypeTable.keys())[:20]}
 
 
-def test_get_reg_result_1():
+def test_get_reg_result_1() -> None:
     # Test with basic inputs
     # >>>> self.year_at_first='19th ', self.typeo='', "self.In='', self.country='government of turkey', self.cat_test='government of turkey'
     result = get_reg_result("Category:19th government of turkey")
@@ -25,7 +25,7 @@ def test_get_reg_result_1():
     assert result.cat_test == "government of turkey"
 
 
-def test_get_reg_result():
+def test_get_reg_result() -> None:
     # Test with basic inputs
     result = get_reg_result("Category:2025 in fishes")
     assert hasattr(result, "year_at_first")
@@ -44,7 +44,7 @@ def test_get_reg_result():
     assert hasattr(result_various, "cat_test")
 
 
-def test_typies():
+def test_typies() -> None:
     # Test that TypiesResult class can be instantiated
     typies_instance = TypiesResult(year_at_first="2020", year_at_first_strip="2020", typeo="test", In="in", country="us", cat_test="test")
     assert typies_instance.year_at_first_strip == "2020"
@@ -83,7 +83,7 @@ class TestYearExtraction:
             ("Category:February 2021 disasters", "february 2021"),
         ],
     )
-    def test_year(self, category, expected):
+    def test_year(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first_strip.lower() == expected.lower()
 
@@ -100,7 +100,7 @@ class TestYearExtraction:
             ("Category:10s BC", "10s BC"),
         ],
     )
-    def test_year2(self, category, expected):
+    def test_year2(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first.lower() == expected.lower()
 
@@ -127,7 +127,7 @@ class TestTypeExtraction:
             ("Category:2020 Japan", ""),
         ],
     )
-    def test_typeo(self, category, expected):
+    def test_typeo(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         typeo = out.typeo
         assert typeo == expected
@@ -141,7 +141,8 @@ class TestTypeExtraction:
             ("Category:2001 launched in USA", "launched in"),
         ],
     )
-    def _test_typeo2(self, category, expected):
+    @pytest.mark.skip2
+    def test_typeo2(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         typeo = out.typeo
         assert typeo == expected
@@ -169,7 +170,7 @@ class TestInExtraction:
             ("Category:2020 deaths", ""),
         ],
     )
-    def test_in(self, category, expected):
+    def test_in(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.In.strip() == expected
 
@@ -194,7 +195,7 @@ class TestCountryExtraction:
             ("Category:20th century architecture", ""),
         ],
     )
-    def test_country(self, category, expected):
+    def test_country(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.country.lower() == expected.lower()
 
@@ -213,7 +214,7 @@ class TestCombinedPatterns:
             # ("Category:1933–83 American Soccer League (USA)", "1933–83", "american soccer league", "", ""),
         ],
     )
-    def test_combined(self, category, year, typeo, In, country):
+    def test_combined(self, category: str, year: str, typeo: str, In: str, country: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first_strip == year
         assert out.typeo == typeo
@@ -226,12 +227,12 @@ class TestCombinedPatterns:
 # -----------------------------------------------------------
 @pytest.mark.fast
 class TestCatTestModification:
-    def test_cat_test_year_removed(self):
+    def test_cat_test_year_removed(self) -> None:
         category = "Category:1999 births in France"
         out = get_reg_result(category)
         assert "1999" not in out.cat_test
 
-    def test_cat_test_unchanged_if_no_year(self):
+    def test_cat_test_unchanged_if_no_year(self) -> None:
         category = "Category:births in France"
         out = get_reg_result(category)
         assert out.cat_test == "births in france"
@@ -249,7 +250,7 @@ class TestMonthSuppression:
             ("Category:December 2020 births", "december 2020"),
         ],
     )
-    def test_month_suppression(self, category, expected):
+    def test_month_suppression(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first_strip == expected
 
@@ -269,7 +270,7 @@ class TestBCE_BC:
             ("Category:2nd millennium BCE", "2nd millennium BCE"),
         ],
     )
-    def test_bce(self, category, expected):
+    def test_bce(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first.lower() == expected.lower()
 
@@ -281,7 +282,7 @@ class TestBCE_BC:
 
 @pytest.mark.parametrize("eng", list(basedtypeTable_20.keys()))
 @pytest.mark.dict
-def test_all_based_types(eng):
+def test_all_based_types(eng) -> None:
     category = f"Category:1999 {eng} in France"
     out = get_reg_result(category)
     assert out.typeo.lower() == eng.lower()
@@ -294,26 +295,26 @@ def test_all_based_types(eng):
 # -----------------------------------------------------------
 @pytest.mark.fast
 class TestEdgeCases:
-    def test_empty_category(self):
+    def test_empty_category(self) -> None:
         out = get_reg_result("")
         assert out.year_at_first == ""
         assert out.typeo == ""
         assert out.In == ""
         assert out.country == ""
 
-    def test_only_category_prefix(self):
+    def test_only_category_prefix(self) -> None:
         cat = "Category:"
         out = get_reg_result(cat)
         assert out.year_at_first == ""
         assert out.typeo == ""
 
-    def test_spaces_only(self):
+    def test_spaces_only(self) -> None:
         cat = "Category:     "
         out = get_reg_result(cat)
         assert out.year_at_first == ""
         assert out.typeo == ""
 
-    def test_weird_unicode_dashes(self):
+    def test_weird_unicode_dashes(self) -> None:
         category = "Category:1933–83 births"
         out = get_reg_result(category)
         assert out.year_at_first == "1933–83"

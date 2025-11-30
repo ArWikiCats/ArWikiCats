@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.make_bots.matables_bots.bot import add_to_new_players
 
 
-def test_add_to_new_players():
+def test_add_to_new_players() -> None:
     # Test with basic inputs
     add_to_new_players("english", "arabic")
 

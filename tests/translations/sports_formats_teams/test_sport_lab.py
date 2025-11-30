@@ -268,7 +268,7 @@ data = {
 
 @pytest.mark.fast
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
-def test_all(category, expected):
+def test_all(category: str, expected: str) -> None:
     result = get_new_team_xo(category)
     assert result == expected, f"Mismatch for {category}"
 

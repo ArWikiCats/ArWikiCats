@@ -131,7 +131,7 @@ def test_fast_data(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_get_team_work_club():
+def test_get_team_work_club() -> None:
     # Test basic functionality
     result = Get_team_work_Club("football players")
     assert isinstance(result, str)

@@ -58,7 +58,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all(name, data):
+def test_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, label_for_startwith_year_or_typeo)
 
     dump_diff(diff_result, name)

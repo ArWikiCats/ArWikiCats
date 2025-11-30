@@ -3,11 +3,11 @@ import pytest
 from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
 
-def make_cate(item):
+def make_cate(item) -> str:
     return f"{item['prefix']} {item['suffix']}"
 
 
-def error_show(item, result):
+def error_show(item, result) -> str:
     country_prefix = item.get("prefix", "")
     category_suffix = item.get("suffix", "")
     expected = item.get("expected", "")
@@ -152,7 +152,7 @@ EXAMPLES = [
 
 @pytest.mark.parametrize("item", EXAMPLES, ids=lambda x: make_cate(x))
 @pytest.mark.dict
-def test_jobs_real_examples(item):
+def test_jobs_real_examples(item) -> None:
     item["cate"] = f"{item['prefix']} {item['suffix']}"
 
     # Ensure clean cache per test
@@ -235,7 +235,7 @@ women_examples = [
 
 @pytest.mark.parametrize("item", women_examples, ids=lambda x: make_cate(x))
 @pytest.mark.dict
-def test_womens(item):
+def test_womens(item) -> None:
     item["cate"] = f"{item['prefix']} {item['suffix']}"
 
     # Ensure clean cache per test

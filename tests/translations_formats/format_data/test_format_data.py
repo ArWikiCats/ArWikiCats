@@ -30,7 +30,7 @@ examples = {"snooker players": "لاعبو سنوكر"}
 
 
 @pytest.fixture
-def bot():
+def bot() -> FormatData:
     return FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 
@@ -40,13 +40,13 @@ def bot():
     ids=[k for k in examples],
 )
 @pytest.mark.fast
-def test_format_data(bot, category: str, expected_key: str):
+def test_format_data(bot, category: str, expected_key: str) -> None:
     result = bot.search(category)
 
     assert result == expected_key
 
 
-def test_1(bot):
+def test_1(bot) -> None:
     result = bot.search("snooker players")
 
     assert result == "لاعبو سنوكر"

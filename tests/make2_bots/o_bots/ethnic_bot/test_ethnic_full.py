@@ -9,14 +9,14 @@ from ArWikiCats.make_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
 
 
 @pytest.fixture(autouse=True)
-def clear_lru_caches():
+def clear_lru_caches() -> None:
     """Clear caches before each test."""
     ethnic_mod.ethnic_label.cache_clear()
     ethnic_mod.ethnic_culture.cache_clear()
 
 
 @pytest.mark.fast
-def test_en_is_nat_ar_is_women_templates_have_single_placeholder():
+def test_en_is_nat_ar_is_women_templates_have_single_placeholder() -> None:
     """Each female-topic template must contain exactly one {} placeholder."""
     for template in ethnic_mod.en_is_nat_ar_is_women_2.values():
         assert "{}" in template
@@ -24,7 +24,7 @@ def test_en_is_nat_ar_is_women_templates_have_single_placeholder():
 
 
 @pytest.mark.fast
-def test_male_topic_table_templates_have_single_placeholder():
+def test_male_topic_table_templates_have_single_placeholder() -> None:
     """Each male-topic template must contain exactly one {} placeholder."""
     for template in ethnic_mod.MALE_TOPIC_TABLE.values():
         assert "{}" in template
@@ -35,7 +35,7 @@ def test_male_topic_table_templates_have_single_placeholder():
 
 
 @pytest.mark.fast
-def test_ethnic_culture_female_topics_cover_all_entries():
+def test_ethnic_culture_female_topics_cover_all_entries() -> None:
     """
     For every female-topic mapping, ethnic_culture should build a formatted label
     when given a known female nationality.
@@ -57,7 +57,7 @@ def test_ethnic_culture_female_topics_cover_all_entries():
 
 
 @pytest.mark.fast
-def test_ethnic_culture_male_topics_cover_all_entries():
+def test_ethnic_culture_male_topics_cover_all_entries() -> None:
     """
     For every male-topic mapping, ethnic_culture should build a formatted label
     when given a known male nationality.
@@ -78,7 +78,7 @@ def test_ethnic_culture_male_topics_cover_all_entries():
 # ---------- Edge cases for ethnic_culture() ----------
 
 
-def test_ethnic_culture_unknown_nationality_returns_empty():
+def test_ethnic_culture_unknown_nationality_returns_empty() -> None:
     """When nationality is not found in Nat_men or Nat_women, result must be empty."""
     result = ethnic_culture("Category:Unknown", "unknown-nat", "unknown-nat history")
     assert result == ""
@@ -87,7 +87,7 @@ def test_ethnic_culture_unknown_nationality_returns_empty():
 # ---------- Core tests for ethnic_label() direct -mens composition path ----------
 
 
-def test_ethnic_direct_mens_composition_basic():
+def test_ethnic_direct_mens_composition_basic() -> None:
     """
     When suffix matches `<nat> people` and both start and suffix exist in Nat_mens,
     ethnic_label() should combine plural nationalities.
@@ -102,7 +102,7 @@ def test_ethnic_direct_mens_composition_basic():
     assert result == expected
 
 
-def test_ethnic_direct_mens_composition_trims_people_suffix():
+def test_ethnic_direct_mens_composition_trims_people_suffix() -> None:
     """Suffix should be trimmed from ' people' before lookup in Nat_mens."""
     category = "Category:PeopleTrim"
     start = "afghan"
@@ -114,7 +114,7 @@ def test_ethnic_direct_mens_composition_trims_people_suffix():
     assert result == expected
 
 
-def test_ethnic_direct_mens_composition_requires_both_nationalities():
+def test_ethnic_direct_mens_composition_requires_both_nationalities() -> None:
     """
     If suffix nationality exists in Nat_mens but start nationality does not,
     the direct composition path should not fire and result should fall back.
@@ -131,7 +131,7 @@ def test_ethnic_direct_mens_composition_requires_both_nationalities():
 # ---------- Tests for ethnic_label() fallback to ethnic_culture() ----------
 
 
-def test_ethnic_falls_back_to_ethnic_culture():
+def test_ethnic_falls_back_to_ethnic_culture() -> None:
     """
     When direct mens-composition path does not produce a label, ethnic_label()
     must call ethnic_culture() and return its result.
@@ -147,7 +147,7 @@ def test_ethnic_falls_back_to_ethnic_culture():
     assert direct != ""
 
 
-def test_ethnic_unknown_everything_returns_empty():
+def test_ethnic_unknown_everything_returns_empty() -> None:
     """If neither mens-composition nor ethnic_culture can resolve, result must be empty."""
     category = "Category:Unknown"
     start = "unknown-nat"
@@ -161,7 +161,7 @@ def test_ethnic_unknown_everything_returns_empty():
 # ---------- Integration-style sanity checks ----------
 
 
-def test_ethnic_culture_female_example_music():
+def test_ethnic_culture_female_example_music() -> None:
     """Concrete female example using zanzibari-american music."""
     start = "zanzibari-american"
     suffix = "zanzibari-american music"
@@ -174,7 +174,7 @@ def test_ethnic_culture_female_example_music():
     assert result == expected
 
 
-def test_ethnic_culture_male_example_history():
+def test_ethnic_culture_male_example_history() -> None:
     """Concrete male example using afghan history."""
     start = "afghan"
     suffix = "afghan history"
@@ -187,7 +187,7 @@ def test_ethnic_culture_male_example_history():
     assert result == expected
 
 
-def test_ethnic_prefers_direct_mens_over_culture_when_possible():
+def test_ethnic_prefers_direct_mens_over_culture_when_possible() -> None:
     """
     If both direct mens-composition and culture mapping are theoretically possible,
     ethnic_label() should use the direct mens-composition path.

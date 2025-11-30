@@ -30,7 +30,7 @@ both_bot = format_multi_data(
 )
 
 
-def resolve_federation_label(category: str):
+def resolve_federation_label(category: str) -> str:
     return both_bot.create_label(category)
 
 

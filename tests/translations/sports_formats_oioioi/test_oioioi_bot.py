@@ -112,7 +112,7 @@ data = {
 
 
 @pytest.mark.dump
-def test_sport_lab_oioioi_load():
+def test_sport_lab_oioioi_load() -> None:
     expected, diff_result = one_dump_test(data, sport_lab_oioioi_load)
 
     dump_diff(diff_result, "test_sport_lab_oioioi_load")

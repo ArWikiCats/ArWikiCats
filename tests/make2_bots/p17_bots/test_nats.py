@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.make_bots.p17_bots.nats import find_nat_others
 
 
-def test_find_nat_others():
+def test_find_nat_others() -> None:
     # Test with a basic category string
     result = find_nat_others("American basketball players")
     assert isinstance(result, str)

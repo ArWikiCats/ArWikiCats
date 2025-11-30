@@ -65,13 +65,13 @@ list_data = {
 
 @pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list(list_data.keys()))
 @pytest.mark.fast
-def test_list_data(category, expected_key) -> None:
+def test_list_data(category: str, expected_key: str) -> None:
     label = get_list_of_and_cat3_with_lab2(category)
     assert label == expected_key
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_with_lab2():
+def test_get_list_of_and_cat3_with_lab2() -> None:
     # Test with a basic input
     result = get_list_of_and_cat3_with_lab2("test category")
     assert isinstance(result, str)

@@ -290,12 +290,12 @@ data = [
 
 @pytest.mark.parametrize("preposition, category, output", data, ids=[x[1] for x in data])
 @pytest.mark.fast
-def test_get_type_lab_data(preposition, category, output) -> None:
+def test_get_type_lab_data(preposition: str, category: str, output: str) -> None:
     label, _ = get_type_lab(preposition, category)
     assert label.strip() == output.strip()
 
 
-def test_get_type_lab():
+def test_get_type_lab() -> None:
     # Test with basic inputs
     result = get_type_lab("from", "women")
     assert isinstance(result, tuple)

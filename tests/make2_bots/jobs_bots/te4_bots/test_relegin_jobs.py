@@ -10,6 +10,7 @@ from ArWikiCats.make_bots.jobs_bots.relegin_jobs import (
     try_relegins_jobs_with_suffix,
 )
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
+from ArWikiCats.translations.jobs.jobs_defs import GenderedLabel
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
@@ -20,7 +21,7 @@ RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.key
     RELIGIOUS_KEYS_20.items(),
     ids=[x for x in RELIGIOUS_KEYS_20],
 )
-def test_with_suffix(key, data):
+def test_with_suffix(key: str, data: dict[str, str]) -> None:
     input2 = f"{key} historical house music bloggers"
     expected2 = f"مدونو هاوس تاريخيون {data['mens']}"
 
@@ -33,12 +34,12 @@ def test_with_suffix(key, data):
     RELIGIOUS_KEYS_20.items(),
     ids=[x for x in RELIGIOUS_KEYS_20],
 )
-def test_no_suffix_female(key, data):
-    input = f"female {key}"
+def test_no_suffix_female(key: str, data: dict[str, str]) -> None:
+    input_text = f"female {key}"
     expected = data["womens"]
 
-    result = relegins_jobs(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
+    result = relegins_jobs(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
     expected_mens = data["mens"]
     result_mens = relegins_jobs(key)
@@ -54,23 +55,23 @@ data = [
 
 
 @pytest.mark.parametrize(
-    "input,expected",
+    "input_text,expected",
     data,
     ids=[x[0] for x in data],
 )
-def test_no_suffix(input, expected):
-    result = relegins_jobs(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
+def test_no_suffix(input_text: str, expected: str) -> None:
+    result = relegins_jobs(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
-    input2 = f"people {input}"
-    result2 = relegins_jobs(input)
+    input2 = f"people {input_text}"
+    result2 = relegins_jobs(input_text)
     assert result2 == expected, f"{expected=}, {result2=}, {input2=}"
 
 
-def test_one():
+def test_one() -> None:
     # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "womens": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
-    input = "bahá'ís classical europop composers"
+    input_text = "bahá'ís classical europop composers"
     expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
 
-    result = try_relegins_jobs_with_suffix(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
+    result = try_relegins_jobs_with_suffix(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"

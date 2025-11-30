@@ -170,7 +170,7 @@ def test_fast_data(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_get_kako():
+def test_get_kako() -> None:
     # Test with a basic input
     result = get_KAKO("test")
     assert isinstance(result, str)

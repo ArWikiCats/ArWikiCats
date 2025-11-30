@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.make_bots.tmp_bot import Work_Templates
 
 
-def test_work_templates():
+def test_work_templates() -> None:
     # Test with a basic input
     result = Work_Templates("test input")
     assert isinstance(result, str)
@@ -60,7 +60,7 @@ suffix_pase_data = [
     suffix_pase_data,
     ids=lambda x: x[0],
 )
-def test_suffix_pase(input_label, suffix, resolved, expected):
+def test_suffix_pase(input_label: str, suffix: str, resolved: str, expected: str) -> None:
     """Test suffix mapping inside pp_ends_with_pase."""
 
     result = Work_Templates(input_label)
@@ -104,7 +104,7 @@ pp_ends_data = [
     pp_ends_data,
     ids=[x[0] for x in pp_ends_data],
 )
-def test_suffix_pp_ends(input_label, resolved, expected):
+def test_suffix_pp_ends(input_label: str, resolved: str, expected: str) -> None:
     """Test full pp_ends_with suffix dictionary."""
 
     assert Work_Templates(input_label) == expected
@@ -137,14 +137,14 @@ pp_start_data = [
     pp_start_data,
     ids=lambda x: x[0],
 )
-def test_prefix_pp_start(input_label, resolved, expected):
+def test_prefix_pp_start(input_label: str, resolved: str, expected: str) -> None:
     assert Work_Templates(input_label) == expected
 
 
 # -------------------------------------------------------------
 # Test with_years_bot interactions
 # -------------------------------------------------------------
-def test_with_years():
+def test_with_years() -> None:
     """Test translation when the base contains a year."""
 
     result = Work_Templates("1900 football finals")
@@ -155,7 +155,7 @@ def test_with_years():
 # -------------------------------------------------------------
 # Test translation_general_category fallback
 # -------------------------------------------------------------
-def test_fallback_general_category():
+def test_fallback_general_category() -> None:
     result = Work_Templates("basketball finals")
     assert result == "نهائيات كرة السلة"
 
@@ -176,21 +176,21 @@ edge_cases_data = [
     edge_cases_data,
     ids=[x[0] for x in edge_cases_data],
 )
-def test_edge_cases(input_label, resolved, expected):
+def test_edge_cases(input_label: str, resolved: str, expected: str) -> None:
     assert Work_Templates(input_label) == expected
 
 
 # -------------------------------------------------------------
 # Case: No match — must return empty string
 # -------------------------------------------------------------
-def test_no_match():
+def test_no_match() -> None:
     assert Work_Templates("unknown category label!!") == ""
 
 
 # -------------------------------------------------------------
 # Deep combined patterns – complex case
 # -------------------------------------------------------------
-def test_combined_complex():
+def test_combined_complex() -> None:
     """Example: Ending with '- related lists' with multi-word base."""
 
     result = Work_Templates("association football-related lists")

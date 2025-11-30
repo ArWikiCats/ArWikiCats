@@ -49,7 +49,7 @@ pan_arican = {
 
 
 @pytest.mark.dump
-def test_pan_arican():
+def test_pan_arican() -> None:
     expected, diff_result = one_dump_test(pan_arican, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_pan_arican")

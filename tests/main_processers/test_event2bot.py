@@ -74,7 +74,7 @@ def test_event2_fast(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_event2_d2():
+def test_event2_d2() -> None:
     # Test with a basic input
     result = event2_d2("test category")
     assert isinstance(result, str)
@@ -88,7 +88,7 @@ def test_event2_d2():
     assert isinstance(result_empty, str)
 
 
-def test_stubs_label():
+def test_stubs_label() -> None:
     # Test with a basic input
     result = stubs_label("test category")
     assert isinstance(result, str)
@@ -102,7 +102,7 @@ def test_stubs_label():
     assert isinstance(result_empty, str)
 
 
-def test_event2():
+def test_event2() -> None:
     # Test with a basic input
     result = event2("test category")
     assert isinstance(result, str)

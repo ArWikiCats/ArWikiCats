@@ -227,7 +227,7 @@ match_nat_key_data = {
 
 @pytest.mark.parametrize("category, expected_key", match_nat_key_data.items(), ids=list(match_nat_key_data.keys()))
 @pytest.mark.fast
-def test_match_nat_key_data(category, expected_key) -> None:
+def test_match_nat_key_data(category: str, expected_key: str) -> None:
     label = match_nat_key(category)
     assert label == expected_key
 

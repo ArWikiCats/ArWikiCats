@@ -39,7 +39,7 @@ definite_article_data = {
 }
 
 
-def test_add_all():
+def test_add_all() -> None:
     # Test with a basic input
     result = add_definite_article("test label")
     assert isinstance(result, str)
@@ -66,7 +66,7 @@ def test_add_definite_article(category: str, expected: str) -> None:
 
 
 @pytest.mark.unit
-def test_add_definite_article_simple():
+def test_add_definite_article_simple() -> None:
     # Ensures proper prefixing of words with ال
     assert add_definite_article("سورية") == "السورية"
     assert add_definite_article("فيتنامي") == "الفيتنامي"
@@ -80,7 +80,7 @@ def test_add_definite_article_simple():
 
 
 @pytest.mark.unit
-def test_resolve_p17_mens_basic():
+def test_resolve_p17_mens_basic() -> None:
     # "government officials": "مسؤولون حكوميون {}"
     category = "yemen government officials"
     out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
@@ -88,7 +88,7 @@ def test_resolve_p17_mens_basic():
 
 
 @pytest.mark.unit
-def test_resolve_p17_women_basic_with_article():
+def test_resolve_p17_women_basic_with_article() -> None:
     # women nationality + definite article
     # en_is_P17_ar_is_al_women["air force"] = "القوات الجوية {}"
     category = "syria air force"
@@ -98,21 +98,21 @@ def test_resolve_p17_women_basic_with_article():
 
 
 @pytest.mark.unit
-def test_resolve_p17_country_not_found():
+def test_resolve_p17_country_not_found() -> None:
     category = "unknowncountry air force"
     out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", countries_nat_en_key)
     assert out == ""
 
 
 @pytest.mark.unit
-def test_resolve_p17_suffix_not_matching():
+def test_resolve_p17_suffix_not_matching() -> None:
     category = "yemen strange_suffix"
     out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
     assert out == ""
 
 
 @pytest.mark.unit
-def test_resolve_p17_case_insensitive():
+def test_resolve_p17_case_insensitive() -> None:
     category = "YEMEN GOVERNMENT OFFICIALS"
     out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
     assert out == "مسؤولون حكوميون يمنيون"

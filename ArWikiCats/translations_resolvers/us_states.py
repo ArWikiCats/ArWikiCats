@@ -143,7 +143,7 @@ def normalize_state(ar_name: str) -> str:
     return ar_name
 
 
-def resolve_us_states(category: str):
+def resolve_us_states(category: str) -> str:
     result = us_bot.search(category)
 
     result = normalize_state(result)

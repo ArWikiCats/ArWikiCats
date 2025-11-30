@@ -3279,7 +3279,7 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.skip2
 @pytest.mark.dump
-def test_all_dump(name, data):
+def test_all_dump(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 

@@ -6,8 +6,11 @@ import pytest
 from ArWikiCats.translations_formats import FormatData
 
 
+sample_data_type = tuple[dict[str, str], dict[str, str]]
+
+
 @pytest.fixture
-def sample_data():
+def sample_data() -> sample_data_type:
     formatted_data = {
         "{nat} cup": "كأس {nat}",
     }
@@ -19,7 +22,7 @@ def sample_data():
     return formatted_data, data_list
 
 
-def test_text_after(sample_data):
+def test_text_after(sample_data: sample_data_type) -> None:
     formatted_data, data_list = sample_data
 
     bot = FormatData(
@@ -42,7 +45,7 @@ def test_text_after(sample_data):
     assert result2 == "كأس اليمن"
 
 
-def test_text_before(sample_data):
+def test_text_before(sample_data: sample_data_type) -> None:
     formatted_data, data_list = sample_data
 
     bot = FormatData(formatted_data, data_list, key_placeholder="{nat}", value_placeholder="{nat}", text_before="the ")
@@ -54,7 +57,7 @@ def test_text_before(sample_data):
     assert normalize2 == "{nat} cup"
 
 
-def test_text_before_text_after(sample_data):
+def test_text_before_text_after(sample_data: sample_data_type) -> None:
     formatted_data, data_list = sample_data
 
     bot = FormatData(

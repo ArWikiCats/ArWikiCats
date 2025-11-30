@@ -78,7 +78,7 @@ def test_people_labels_3(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
-def test_peoples_2(name, data):
+def test_peoples_2(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 

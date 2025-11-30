@@ -48,7 +48,7 @@ to_test.append(("test_all_test_data", all_test_data))
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
-def test_all_dump(name, data):
+def test_all_dump(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     if diff_result:
@@ -58,8 +58,8 @@ def test_all_dump(name, data):
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
-@pytest.mark.parametrize("input,expected", all_test_data.items(), ids=[x for x in all_test_data])
+@pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=[x for x in all_test_data])
 @pytest.mark.slow
-def test_all_data(input, expected):
-    result = resolve_arabic_category_label(input)
+def test_all_data(input_text: str, expected: str) -> None:
+    result = resolve_arabic_category_label(input_text)
     assert result == expected

@@ -78,12 +78,12 @@ te_universities_data = {
 
 @pytest.mark.parametrize("category, expected_key", te_universities_data.items(), ids=list(te_universities_data.keys()))
 @pytest.mark.fast
-def test_universities_data(category, expected_key) -> None:
+def test_universities_data(category: str, expected_key: str) -> None:
     label = te_universities(category)
     assert label == expected_key
 
 
-def test_te_universities():
+def test_te_universities() -> None:
     # Test with a basic university category
     result = te_universities("university of california")
     assert isinstance(result, str)

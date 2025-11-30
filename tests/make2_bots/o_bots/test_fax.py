@@ -16,7 +16,7 @@ def test_fast_data(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_te_language():
+def test_te_language() -> None:
     # Test with a basic input
     result = te_language("english language")
     assert isinstance(result, str)

@@ -16,7 +16,7 @@ def test_fast_data(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_get_parties_lab():
+def test_get_parties_lab() -> None:
     # Test with a basic input
     result = get_parties_lab("republican party")
     assert isinstance(result, str)

@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations_resolvers.federation_bot import resolve_federation_label
@@ -357,7 +358,7 @@ data6 = {
 
 @pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
 @pytest.mark.fast
-def test_resolve_federation_label(category, expected_key) -> None:
+def test_resolve_federation_label(category: str, expected_key: str) -> None:
     label = resolve_federation_label(category)
 
     assert label == expected_key
@@ -370,7 +371,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.dump
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
-def test_all_dump(name, data, callback):
+def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback, do_strip=True)
 
     dump_diff(diff_result, name)

@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.make_bots.co_bots.filter_en import filter_cat
 
 
-def test_filter_cat():
+def test_filter_cat() -> None:
     # Test with allowed category
     result_allowed = filter_cat("Football players")
     assert result_allowed is True
@@ -44,7 +44,7 @@ def test_filter_cat():
         "WikiProject Movies",
     ],
 )
-def test_filter_cat_blacklist(cat):
+def test_filter_cat_blacklist(cat) -> None:
     """Should return False when any blacklist fragment exists in the category."""
     assert filter_cat(cat) is False
 
@@ -61,7 +61,7 @@ def test_filter_cat_blacklist(cat):
         "Userspace sandbox",
     ],
 )
-def test_filter_cat_prefix_blacklist(cat):
+def test_filter_cat_prefix_blacklist(cat) -> None:
     """Should return False when the category starts with a blocked prefix."""
     assert filter_cat(cat) is False
 
@@ -74,7 +74,7 @@ def test_filter_cat_prefix_blacklist(cat):
         "Category:history from march 5",
     ],
 )
-def test_filter_cat_blocked_month_patterns(cat):
+def test_filter_cat_blocked_month_patterns(cat) -> None:
     """Should return False when category ends with 'from <month> <year>'."""
     assert filter_cat(cat) is False
 
@@ -89,6 +89,6 @@ def test_filter_cat_blocked_month_patterns(cat):
         "Something random",
     ],
 )
-def test_filter_cat_allowed(cat):
+def test_filter_cat_allowed(cat) -> None:
     """Should return True when the category does not match any blocked rule."""
     assert filter_cat(cat) is True

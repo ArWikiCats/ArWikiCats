@@ -22,7 +22,7 @@ category_relation_mapping_20 = {k: category_relation_mapping[k] for k in list(ca
 
 @pytest.mark.parametrize("eng", list(category_relation_mapping_20.keys()))
 @pytest.mark.dict
-def test_in(eng: ParameterSet | Sequence[object] | object):
+def test_in(eng: ParameterSet | Sequence[object] | object) -> None:
     # [Category:2025 in Canada]: Typies Result(year_at_first='2025 ', typeo='', In='in ', country='canada', cat_test='in canada')
     # [Category:2025 by Canada]: Typies Result(year_at_first='2025 ', typeo='', In='by ', country='by canada', cat_test='by canada'
     category = f"Category:2025 {eng} Canada"

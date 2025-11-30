@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations_resolvers.not_sports_bot import (
@@ -71,7 +72,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.dump
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
-def test_all_dump(name, data, callback):
+def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

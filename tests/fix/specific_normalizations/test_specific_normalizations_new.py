@@ -9,14 +9,14 @@ from ArWikiCats.fix.specific_normalizations import (
 class TestFixFormula:
     """Test the fix_formula function."""
 
-    def test_formula_1_year_pattern(self):
+    def test_formula_1_year_pattern(self) -> None:
         """Test that Formula 1 year pattern is correctly normalized."""
         ar_label = "فورمولا 1 2020"
         en_label = "Formula 1 2020"
         result = fix_formula(ar_label, en_label)
         assert result == "فورمولا 1 في سنة 2020"
 
-    def test_formula_1_year_pattern_with_extra_spaces(self):
+    def test_formula_1_year_pattern_with_extra_spaces(self) -> None:
         """Test Formula 1 pattern with extra spaces."""
         ar_label = "فورمولا 1   2019"
         en_label = "Formula 1 2019"
@@ -32,20 +32,20 @@ class TestFixFormula:
             ("فورمولا 1 2010", "فورمولا 1 في سنة 2010"),
         ],
     )
-    def test_formula_1_with_different_years(self, ar_label, expected):
+    def test_formula_1_with_different_years(self, ar_label: str, expected: str) -> None:
         """Test Formula 1 with different years."""
         en_label = f"Formula 1 {ar_label.split()[-1]}"
         result = fix_formula(ar_label, en_label)
         assert result == expected
 
-    def test_no_formula_1_pattern(self):
+    def test_no_formula_1_pattern(self) -> None:
         """Test that non-Formula 1 labels are unchanged."""
         ar_label = "رياضة السيارات"
         en_label = "Auto racing"
         result = fix_formula(ar_label, en_label)
         assert result == "رياضة السيارات"
 
-    def test_invalid_years_not_matched(self):
+    def test_invalid_years_not_matched(self) -> None:
         """Test that invalid years are not matched."""
         ar_label = "فورمولا 1 99"  # Should not match as it's not 4 digits starting with 1 or 2
         en_label = "Formula 1 99"
@@ -69,7 +69,7 @@ class TestApplyCategorySpecificNormalizations:
             ("كتب بواسطة مؤلفين", "كتب مؤلفين"),
         ],
     )
-    def test_fix_bys_replacements(self, ar_label, expected):
+    def test_fix_bys_replacements(self, ar_label: str, expected: str) -> None:
         """Test removal of 'بواسطة' after certain words."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -82,7 +82,7 @@ class TestApplyCategorySpecificNormalizations:
             ("أفلام أنتجت بواسطة شركات", "أفلام أنتجها شركات"),
         ],
     )
-    def test_specific_bys_replacements(self, ar_label, expected):
+    def test_specific_bys_replacements(self, ar_label: str, expected: str) -> None:
         """Test specific 'بواسطة' replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -96,12 +96,12 @@ class TestApplyCategorySpecificNormalizations:
             ("منتجات اخترعت الآن", "منتجات عرضت الآن"),
         ],
     )
-    def test_invention_replacements(self, ar_label, expected):
+    def test_invention_replacements(self, ar_label: str, expected: str) -> None:
         """Test replacement of 'اخترعت' with 'عرضت'."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
 
-    def test_short_stories_normalization(self):
+    def test_short_stories_normalization(self) -> None:
         """Test short stories with year normalization."""
         ar_label = "قصص قصيرة 1613"
         en_label = "Short stories 1613"
@@ -128,7 +128,7 @@ class TestApplyCategorySpecificNormalizations:
             ("مدربو رياضية مختلفة", "مدربو رياضة مختلفة"),
         ],
     )
-    def test_general_replacements(self, ar_label, expected):
+    def test_general_replacements(self, ar_label: str, expected: str) -> None:
         """Test general text replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -144,7 +144,7 @@ class TestApplyCategorySpecificNormalizations:
             ("من في الحديقة", "في الحديقة"),
         ],
     )
-    def test_duplicate_words_removal(self, ar_label, expected):
+    def test_duplicate_words_removal(self, ar_label: str, expected: str) -> None:
         """Test removal of duplicate prepositions."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -166,7 +166,7 @@ class TestApplyCategorySpecificNormalizations:
             ("أشخاص أصل عربي", "أشخاص من أصل عربي"),
         ],
     )
-    def test_specific_phrase_replacements(self, ar_label, expected):
+    def test_specific_phrase_replacements(self, ar_label: str, expected: str) -> None:
         """Test specific phrase replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -178,47 +178,47 @@ class TestApplyCategorySpecificNormalizations:
             ("أفلام أنتهت حسب السنة", "أفلام حسب سنة انتهاء العرض"),
         ],
     )
-    def test_tv_show_year_normalizations(self, ar_label, expected):
+    def test_tv_show_year_normalizations(self, ar_label: str, expected: str) -> None:
         """Test TV show year normalization patterns."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
 
-    def test_sports_phrase_replacement(self):
+    def test_sports_phrase_replacement(self) -> None:
         """Test sports phrase replacement."""
         ar_label = "لاعبون في رياضة في كرة القدم"
         en_label = "Players in sports in football"
         result = apply_category_specific_normalizations(ar_label, en_label)
         assert result == "لاعبون في الرياضة في كرة القدم"
 
-    def test_attacks_on_condition(self):
+    def test_attacks_on_condition(self) -> None:
         """Test attacks on replacement based on English label."""
         ar_label = "هجمات في المدنيين"
         en_label = "attacks on civilians"
         result = apply_category_specific_normalizations(ar_label, en_label)
         assert result == "هجمات على المدنيين"
 
-    def test_attacks_on_condition_negative(self):
+    def test_attacks_on_condition_negative(self) -> None:
         """Test that attacks replacement only happens when English contains 'attacks on'."""
         ar_label = "هجمات في المدنيين"
         en_label = "attacks against civilians"
         result = apply_category_specific_normalizations(ar_label, en_label)
         assert result == "هجمات في المدنيين"  # Should remain unchanged
 
-    def test_integration_with_fix_formula(self):
+    def test_integration_with_fix_formula(self) -> None:
         """Test that fix_formula is properly integrated."""
         ar_label = "فورمولا 1 2020 وبعض النصوص الأخرى"
         en_label = "Formula 1 2020 and other texts"
         result = apply_category_specific_normalizations(ar_label, en_label)
         assert result == "فورمولا 1 في سنة 2020 وبعض النصوص الأخرى"
 
-    def test_multiple_replacements_chain(self):
+    def test_multiple_replacements_chain(self) -> None:
         """Test that multiple replacements can be applied in sequence."""
         ar_label = "أفلام بواسطة مخرجين من قبل البلد"
         en_label = "Films by directors by country"
         result = apply_category_specific_normalizations(ar_label, en_label)
         assert result == "أفلام مخرجين حسب البلد"
 
-    def test_edge_cases(self):
+    def test_edge_cases(self) -> None:
         """Test edge cases and boundary conditions."""
         # Empty string
         result = apply_category_specific_normalizations("", "")

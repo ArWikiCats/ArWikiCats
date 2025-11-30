@@ -8,7 +8,7 @@ from ArWikiCats.main_processers.labs_years import LabsYears
 
 
 @pytest.mark.fast
-def test_labsyears():
+def test_labsyears() -> None:
     # Test the LabsYears class functionality
     labs_years_bot = LabsYears()
 
@@ -31,21 +31,21 @@ def test_labsyears():
     assert isinstance(from_year2, str)
 
 
-def test_lab_from_year_no_year():
+def test_lab_from_year_no_year() -> None:
     """Should return empty tuple when no 4-digit year exists."""
     bot = LabsYears()
     result = bot.lab_from_year("Category:Something without year")
     assert result == ("", "")
 
 
-def test_lab_from_year_year_detected_but_no_template():
+def test_lab_from_year_year_detected_but_no_template() -> None:
     """Should extract the year but return empty second value if template not found."""
     bot = LabsYears()
     result = bot.lab_from_year("Category:Works in 1999")
     assert result == ("1999", "")
 
 
-def test_lab_from_year_add_creates_template():
+def test_lab_from_year_add_creates_template() -> None:
     """Should correctly create the template key/value with year replaced by {year1}."""
     bot = LabsYears()
 
@@ -59,7 +59,7 @@ def test_lab_from_year_add_creates_template():
     assert bot.category_templates["category:films in {year1}"] == "تصنيف:أفلام في {year1}"
 
 
-def test_lab_from_year_successful_lookup_and_replacement():
+def test_lab_from_year_successful_lookup_and_replacement() -> None:
     """Should return converted label and increment lookup_count."""
     bot = LabsYears()
 
@@ -78,7 +78,7 @@ def test_lab_from_year_successful_lookup_and_replacement():
     assert bot.lookup_count == 1
 
 
-def test_lab_from_year_template_exists_with_different_year():
+def test_lab_from_year_template_exists_with_different_year() -> None:
     """Should correctly replace {year1} back to real year even if category is different year."""
     bot = LabsYears()
 
@@ -98,7 +98,7 @@ def test_lab_from_year_template_exists_with_different_year():
     assert bot.lookup_count == 1
 
 
-def test_lab_from_year_add_missing_real_year():
+def test_lab_from_year_add_missing_real_year() -> None:
     """Should do nothing if en_year is not inside category_lab."""
     bot = LabsYears()
     bot.category_templates = {}
@@ -113,7 +113,7 @@ def test_lab_from_year_add_missing_real_year():
     assert bot.category_templates == {}
 
 
-def test_with_decade():
+def test_with_decade() -> None:
     bot = LabsYears()
 
     # Add template for {year1}-base

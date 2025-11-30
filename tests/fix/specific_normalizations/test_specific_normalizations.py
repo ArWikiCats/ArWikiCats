@@ -9,7 +9,7 @@ from ArWikiCats.fix.specific_normalizations import (
 # -----------------------------
 # Formula-specific tests
 # -----------------------------
-def test_fix_formula_year_replacement():
+def test_fix_formula_year_replacement() -> None:
     """Check Formula 1 year normalization."""
     assert fix_formula("فورمولا 1 1995", "") == "فورمولا 1 في سنة 1995"
 
@@ -31,7 +31,7 @@ def test_fix_formula_year_replacement():
         ("كتب بواسطة مؤلف", "", "كتب مؤلف"),
     ],
 )
-def test_by_removal_all_categories(ar, en, expected):
+def test_by_removal_all_categories(ar: str, en: str, expected: str) -> None:
     """Check removal of 'بواسطة' after all configured categories."""
     assert apply_category_specific_normalizations(ar, en) == expected
 
@@ -87,7 +87,7 @@ def test_by_removal_all_categories(ar, en, expected):
         ("أشخاص أصل تركي", "أشخاص من أصل تركي"),
     ],
 )
-def test_simple_replacements_all(ar, expected):
+def test_simple_replacements_all(ar: str, expected: str) -> None:
     """Check every simple replacement rule."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -105,7 +105,7 @@ def test_simple_replacements_all(ar, expected):
         ("منتجات اخترعت حديثًا", "منتجات عرضت حديثًا"),
     ],
 )
-def test_invention_to_exhibition_all(ar, expected):
+def test_invention_to_exhibition_all(ar: str, expected: str) -> None:
     """Check replacement of 'اخترعت' with 'عرضت' for all configured items."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -133,7 +133,7 @@ def test_invention_to_exhibition_all(ar, expected):
         ("أحداث من حسب النوع", "أحداث حسب النوع"),
     ],
 )
-def test_duplicate_cleanup_all(ar, expected):
+def test_duplicate_cleanup_all(ar: str, expected: str) -> None:
     """Check all duplicate preposition cleanup rules."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -159,7 +159,7 @@ def test_duplicate_cleanup_all(ar, expected):
         ("أبطال في رياضة في أوروبا", "أبطال في الرياضة في أوروبا"),
     ],
 )
-def test_preposition_fixes_all(ar, expected):
+def test_preposition_fixes_all(ar: str, expected: str) -> None:
     """Check all preposition-specific fixes."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -185,7 +185,7 @@ def test_preposition_fixes_all(ar, expected):
         ("شخصيات من الثورة الفرنسية", "شخصيات في الثورة الفرنسية"),
     ],
 )
-def test_time_expressions_all(ar, expected):
+def test_time_expressions_all(ar: str, expected: str) -> None:
     """Check all time-related expression normalizations."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -203,7 +203,7 @@ def test_time_expressions_all(ar, expected):
         ("برامج أنتهت حسب السنة", "برامج حسب سنة انتهاء العرض"),
     ],
 )
-def test_media_expressions_all(ar, expected):
+def test_media_expressions_all(ar: str, expected: str) -> None:
     """Check all media-related expression fixes."""
     assert apply_category_specific_normalizations(ar, "") == expected
 
@@ -212,7 +212,7 @@ def test_media_expressions_all(ar, expected):
 # Short stories with year
 # (special regex at end of function)
 # -----------------------------
-def test_short_stories_year_special_case():
+def test_short_stories_year_special_case() -> None:
     """Check special case: short stories with years."""
     assert apply_category_specific_normalizations("قصص قصيرة 1613", "") == "قصص قصيرة كتبت سنة 1613"
 
@@ -221,7 +221,7 @@ def test_short_stories_year_special_case():
 # English context: 'attacks on'
 # (context-dependent normalization)
 # -----------------------------
-def test_attacks_on_context_changes_preposition():
+def test_attacks_on_context_changes_preposition() -> None:
     """Change 'هجمات في' to 'هجمات على' when English contains 'attacks on'."""
     ar = "هجمات في باريس"
     en = "attacks on Paris"
@@ -238,5 +238,5 @@ def test_attacks_on_context_changes_preposition():
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_apply_category_specific_normalizations(ar_label, en_label, expected):
+def test_apply_category_specific_normalizations(ar_label: str, en_label: str, expected: str) -> None:
     assert apply_category_specific_normalizations(ar_label, en_label) == expected

@@ -71,7 +71,7 @@ def test_data_compare_one(multi_bot: MultiDataFormatterBase) -> None:
 
 @pytest.mark.parametrize("category, expected", data_compare.items(), ids=list(data_compare.keys()))
 @pytest.mark.fast
-def test_data_compare_multi(multi_bot: MultiDataFormatterBase, category, expected) -> None:
+def test_data_compare_multi(multi_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
     label2 = multi_bot.search_all(category)
 
     assert label2 == expected
@@ -88,7 +88,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all_dump(multi_bot, name, data):
+def test_all_dump(multi_bot: MultiDataFormatterBase, name: str, data: dict[str, str]) -> None:
     callback = multi_bot.search_all
     expected, diff_result = one_dump_test(data, callback, do_strip=False)
 

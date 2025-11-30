@@ -16,6 +16,6 @@ data_fast = {
 
 @pytest.mark.parametrize("category, not_expected", data_fast.items(), ids=list(data_fast.keys()))
 @pytest.mark.fast
-def test_get_country2_one(category, not_expected) -> None:
+def test_get_country2_one(category: str, not_expected: str) -> None:
     label = Get_country2(category)
     assert label != not_expected

@@ -24,10 +24,10 @@ def test_load_json_mapping_filters_empty_entries(monkeypatch: pytest.MonkeyPatch
     assert data == {"valid": "123", "42": "3.14"}
 
 
-def test_load_json_mapping_filters_and_normalizes(monkeypatch):
+def test_load_json_mapping_filters_and_normalizes(monkeypatch) -> None:
     mock_data = {1: "value", "empty": "", "none": None}
 
-    def fake_open_json(file_key: str):
+    def fake_open_json(file_key: str) -> dict:
         assert file_key == "example"
         return mock_data
 
@@ -40,8 +40,8 @@ def test_load_json_mapping_filters_and_normalizes(monkeypatch):
     assert mock_data[1] == "value"
 
 
-def test_load_json_mapping_logs_when_no_entries(monkeypatch, caplog):
-    def fake_open_json(file_key: str):
+def test_load_json_mapping_logs_when_no_entries(monkeypatch, caplog) -> None:
+    def fake_open_json(file_key: str) -> dict[str, str]:
         return {"empty": ""}
 
     monkeypatch.setattr(_shared, "open_json_file", fake_open_json)
@@ -53,13 +53,13 @@ def test_load_json_mapping_logs_when_no_entries(monkeypatch, caplog):
     assert "did not contain usable labels" in caplog.text
 
 
-def test_merge_mappings_prefers_later_entries():
+def test_merge_mappings_prefers_later_entries() -> None:
     merged = _shared.merge_mappings({"a": "1"}, {"b": "2"}, {"a": "3"})
 
     assert merged == {"a": "3", "b": "2"}
 
 
-def test_update_with_lowercased_skips_empty_values():
+def test_update_with_lowercased_skips_empty_values() -> None:
     target: dict[str, str] = {"existing": "value"}
     _shared.update_with_lowercased(target, {"Key": "Value", "Other": "", "None": None})
 
@@ -67,7 +67,7 @@ def test_update_with_lowercased_skips_empty_values():
     assert "Other" not in target
 
 
-def test_apply_suffix_templates_formats_entries():
+def test_apply_suffix_templates_formats_entries() -> None:
     target: dict[str, str] = {}
     mapping = {"Base": "أساس"}
     suffixes = ((" suffix", "%s الموسعة"),)
@@ -77,7 +77,7 @@ def test_apply_suffix_templates_formats_entries():
     assert target == {"base suffix": "أساس الموسعة"}
 
 
-def test_normalize_to_lower_returns_new_dict():
+def test_normalize_to_lower_returns_new_dict() -> None:
     original = {"Key": "Value"}
     normalized = _shared.normalize_to_lower(original)
 
@@ -85,7 +85,7 @@ def test_normalize_to_lower_returns_new_dict():
     assert normalized is not original
 
 
-def test_log_mapping_stats_emits_debug(caplog):
+def test_log_mapping_stats_emits_debug(caplog) -> None:
     caplog.set_level(logging.DEBUG)
 
     _shared.log_mapping_stats("example", first={"a": 1, "b": 2})

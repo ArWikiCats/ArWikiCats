@@ -38,11 +38,11 @@ for key, data in RELIGIOUS_KEYS_10.items():
 
 
 @pytest.mark.parametrize(
-    "input,expected",
+    "input_text,expected",
     expatriates_data.items(),
     ids=[x for x in expatriates_data],
 )
 @pytest.mark.slow
-def test_with_suffix_expatriates(input, expected):
-    result = try_relegins_jobs_with_suffix(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
+def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
+    result = try_relegins_jobs_with_suffix(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"

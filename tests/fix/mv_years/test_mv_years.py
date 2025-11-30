@@ -4,7 +4,7 @@
 from ArWikiCats.fix.mv_years import move_years
 
 
-def load_test_move_years(data):
+def load_test_move_years(data: dict) -> None:
     diff_list = []
     same = 0
     for title, expected in data.items():
@@ -22,7 +22,7 @@ def load_test_move_years(data):
         raise AssertionError(f"Found {len_diff_list} transformation mismatches: {diff_details}")
 
 
-def test_fixlab_group_1():
+def test_fixlab_group_1() -> None:
     data = {
         "2010 في الرياضة في آيوا": "الرياضة في آيوا في 2010",
         "2010 في الرياضة في أريزونا": "الرياضة في أريزونا في 2010",
@@ -35,7 +35,7 @@ def test_fixlab_group_1():
     load_test_move_years(data)
 
 
-def test_fixlab_group_2():
+def test_fixlab_group_2() -> None:
     data = {
         "القرن 20 في الرياضة في إلينوي": "الرياضة في إلينوي في القرن 20",
         "القرن 20 في الرياضة في بنسلفانيا": "الرياضة في بنسلفانيا في القرن 20",
@@ -53,7 +53,7 @@ def test_fixlab_group_2():
     load_test_move_years(data)
 
 
-def test_fixlab_group_3():
+def test_fixlab_group_3() -> None:
     data = {
         "عقد 1980 ق م في العراق": "العراق في عقد 1980 ق م",
         "عقد 1990 في السعودية": "السعودية في عقد 1990",
@@ -73,7 +73,7 @@ def test_fixlab_group_3():
     load_test_move_years(data)
 
 
-def test_fixlab_group_4():
+def test_fixlab_group_4() -> None:
     data = {
         "عقد 2020 في الرياضة في كنتاكي": "الرياضة في كنتاكي في عقد 2020",
         "عقد 2020 في الرياضة في مدينة نيويورك": "الرياضة في مدينة نيويورك في عقد 2020",
@@ -87,7 +87,7 @@ def test_fixlab_group_4():
     load_test_move_years(data)
 
 
-def test_fixlab_group_5():
+def test_fixlab_group_5() -> None:
     data = {
         "1881 في الرياضة في رود آيلاند": "الرياضة في رود آيلاند في 1881",
         "1974–75 في دوريات كرة قدم لبنانية": "دوريات كرة قدم لبنانية في 1974–75",

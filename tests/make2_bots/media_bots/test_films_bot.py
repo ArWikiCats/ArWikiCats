@@ -152,7 +152,7 @@ def test_fast_data(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_test_films():
+def test_test_films() -> None:
     # Test with a basic input
     result = te_films("action films")
     assert isinstance(result, str)

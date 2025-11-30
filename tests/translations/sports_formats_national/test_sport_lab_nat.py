@@ -62,7 +62,7 @@ data = {
 
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
-def test_Get_sport_formts_female_nat(key, expected) -> None:
+def test_Get_sport_formts_female_nat(key: str, expected: str) -> None:
     template_label = Get_sport_formts_female_nat(key)
     assert template_label == expected
 
@@ -435,6 +435,6 @@ data2 = {
 
 @pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
-def test_sport_lab_nat_load(key, expected) -> None:
+def test_sport_lab_nat_load(key: str, expected: str) -> None:
     result = sport_lab_nat_load(key)
     assert result == expected

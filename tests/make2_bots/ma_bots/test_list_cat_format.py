@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.make_bots.ma_bots.list_cat_format import list_of_cat_func
 
 
-def test_list_of_cat_func():
+def test_list_of_cat_func() -> None:
     # Test with basic inputs
     result = list_of_cat_func("test category", "test label", "list of {}", False)
     assert isinstance(result, tuple)
