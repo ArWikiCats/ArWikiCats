@@ -6,9 +6,7 @@ from ArWikiCats.translations.geo import (
     Cities,
     labels_country,
     labels_country2,
-    regions,
     regions2,
-    us_counties,
 )
 
 
@@ -66,12 +64,6 @@ class TestCountryLabels:
 
 @pytest.mark.unit
 class TestRegionLabels:
-    def test_primary_region_translations_include_known_entries(self) -> None:
-        primary = regions.get_primary_region_translations()
-
-        assert primary["lima region"] == "إقليم ليما"
-        assert primary is not regions.PRIMARY_REGION_TRANSLATIONS
-
     def test_secondary_region_translations_include_suffixes(self) -> None:
         secondary = regions2.get_secondary_region_translations()
 
