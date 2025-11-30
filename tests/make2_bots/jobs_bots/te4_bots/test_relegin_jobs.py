@@ -35,11 +35,11 @@ def test_with_suffix(key: str, data: dict[str, str]) -> None:
     ids=[x for x in RELIGIOUS_KEYS_20],
 )
 def test_no_suffix_female(key: str, data: dict[str, str]) -> None:
-    input = f"female {key}"
+    input_text = f"female {key}"
     expected = data["womens"]
 
-    result = relegins_jobs(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
+    result = relegins_jobs(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
     expected_mens = data["mens"]
     result_mens = relegins_jobs(key)
@@ -55,23 +55,23 @@ data = [
 
 
 @pytest.mark.parametrize(
-    "input,expected",
+    "input_text,expected",
     data,
     ids=[x[0] for x in data],
 )
-def test_no_suffix(input: str, expected: str) -> None:
-    result = relegins_jobs(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
+def test_no_suffix(input_text: str, expected: str) -> None:
+    result = relegins_jobs(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
-    input2 = f"people {input}"
-    result2 = relegins_jobs(input)
+    input2 = f"people {input_text}"
+    result2 = relegins_jobs(input_text)
     assert result2 == expected, f"{expected=}, {result2=}, {input2=}"
 
 
 def test_one() -> None:
     # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "womens": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
-    input = "bahá'ís classical europop composers"
+    input_text = "bahá'ís classical europop composers"
     expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
 
-    result = try_relegins_jobs_with_suffix(input)
-    assert result == expected, f"{expected=}, {result=}, {input=}"
+    result = try_relegins_jobs_with_suffix(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
