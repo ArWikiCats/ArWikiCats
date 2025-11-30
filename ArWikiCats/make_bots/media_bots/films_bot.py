@@ -24,51 +24,61 @@ def te_films(category: str) -> str:
     TODO: many funcs used here
     """
     normalized_category = category.lower()
-    logger.info(f"<<lightblue>>>> xxxxxxxxxx te_films normalized_category:{normalized_category} xxxxxxxxxxx ")
-    resolved_label = ""
 
     if re.match(r"^\d+$", normalized_category.strip()):
-        resolved_label = normalized_category.strip()
+        return normalized_category.strip()
 
-    if not resolved_label:
-        resolved_label = get_Films_key_CAO(normalized_category)
+    resolved_label = get_Films_key_CAO(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> get_Films_key_CAO: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = Jobs_in_Multi_Sports(normalized_category)
-        if resolved_label:
-            add_to_new_players(normalized_category, resolved_label)
-            logger.debug(f'>>>> Jobs_in_Multi Sports: add_to_new_players[{normalized_category}] ="{resolved_label}"')
+    resolved_label = Jobs_in_Multi_Sports(normalized_category)
+    if resolved_label:
+        add_to_new_players(normalized_category, resolved_label)
+        logger.info(f'>>>> Jobs_in_Multi_Sports: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = te_2018_with_nat(normalized_category)
-        if resolved_label:
-            add_to_Films_O_TT(normalized_category, resolved_label)
+    resolved_label = te_2018_with_nat(normalized_category)
+    if resolved_label:
+        add_to_Films_O_TT(normalized_category, resolved_label)
+        logger.info(f'>>>> te_2018_with_nat: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = te4_2018_Jobs(normalized_category)
-        if resolved_label:
-            add_to_new_players(normalized_category, resolved_label)
-            logger.debug(f'>>>> bot_te_4 2018 Jobs: add_to_new_players[{normalized_category}] ="{resolved_label}"')
+    resolved_label = te4_2018_Jobs(normalized_category)
+    if resolved_label:
+        add_to_new_players(normalized_category, resolved_label)
+        logger.info(f'>>>> te4_2018_Jobs: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = nat_match(normalized_category)
-        if resolved_label:
-            logger.debug(f'>>>> nat_match: [{normalized_category}] ="{resolved_label}"')
+    resolved_label = nat_match(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> nat_match: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = resolved_countries_formats_labels(normalized_category)
+    resolved_label = resolved_countries_formats_labels(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> resolved_countries_formats_labels: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = resolved_sports_formats_labels(normalized_category)
+    resolved_label = resolved_sports_formats_labels(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> resolved_sports_formats_labels: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = fax.te_language(normalized_category)
+    resolved_label = fax.te_language(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> te_language: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = te_army(normalized_category)
+    resolved_label = te_army(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> te_army: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    if not resolved_label:
-        resolved_label = te4_2018_Jobs(normalized_category)
+    resolved_label = te4_2018_Jobs(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> te4_2018_Jobs: {normalized_category=}, {resolved_label}')
+        return resolved_label
 
-    logger.info(f"<<lightblue>>>> xxxxxxxxx te_films end xxxxxxxxxxx resolved_label:{resolved_label}")
-    return resolved_label
+    return ""
