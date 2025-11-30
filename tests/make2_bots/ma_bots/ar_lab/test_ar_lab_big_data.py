@@ -1092,7 +1092,7 @@ data_list = [
 ]
 
 
-def test_simple_dump():
+def test_simple_dump() -> None:
     expected_result = {}
     diff_result = {}
     for tab in data_list:

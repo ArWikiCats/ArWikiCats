@@ -18,7 +18,7 @@ def test_get_type_country_data(category, tito, output) -> None:
     assert label == output
 
 
-def test_get_type_country():
+def test_get_type_country() -> None:
     # Test with basic inputs
     result = get_type_country("test in country", "in")
     assert isinstance(result, tuple)

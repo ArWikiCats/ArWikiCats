@@ -71,7 +71,7 @@ def test_list_data(category, expected_key) -> None:
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_with_lab2():
+def test_get_list_of_and_cat3_with_lab2() -> None:
     # Test with a basic input
     result = get_list_of_and_cat3_with_lab2("test category")
     assert isinstance(result, str)

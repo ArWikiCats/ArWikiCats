@@ -61,7 +61,7 @@ def testhandle_main_prefix(case_key, case_data):
     assert main_lab == case_data["expected_main_lab"], f"main_lab mismatch in case: {case_key}"
 
 
-def test_simple_prefix_match():
+def test_simple_prefix_match() -> None:
     """Prefix should be detected and removed correctly."""
     category = "fictional cats"
     category_original = category
@@ -73,7 +73,7 @@ def test_simple_prefix_match():
     assert label == "{} خياليون"
 
 
-def test_no_prefix_match():
+def test_no_prefix_match() -> None:
     """Should return unchanged category if no prefix matches."""
     category = "random category"
     category_original = category
@@ -85,7 +85,7 @@ def test_no_prefix_match():
     assert label == ""
 
 
-def test_multi_word_prefix_priority():
+def test_multi_word_prefix_priority() -> None:
     """
     Ensure the function respects the sorting order.
     'fictional depictions of' must match BEFORE 'fictional'.
@@ -100,7 +100,7 @@ def test_multi_word_prefix_priority():
     assert label == "تصوير خيالي عن {}"
 
 
-def test_prefix_with_women_singular():
+def test_prefix_with_women_singular() -> None:
     """If suffix ends with 'women', use female version if available."""
     category = "fictional women"
     category_original = category
@@ -112,7 +112,7 @@ def test_prefix_with_women_singular():
     assert label == "{} خياليات"  # female version
 
 
-def test_prefix_with_women_apostrophe_s():
+def test_prefix_with_women_apostrophe_s() -> None:
     """If suffix ends with women's, use female version."""
     category = "native women's"
     category_original = category
@@ -124,7 +124,7 @@ def test_prefix_with_women_apostrophe_s():
     assert label == "{} أصليات"
 
 
-def test_case_insensitive_prefix():
+def test_case_insensitive_prefix() -> None:
     """Prefix match must be case-insensitive."""
     category = "FiCtIoNaL cats"
     category_original = category
@@ -135,7 +135,7 @@ def test_case_insensitive_prefix():
     assert new_cat == "cats"
 
 
-def test_break_after_first_match():
+def test_break_after_first_match() -> None:
     """If two prefixes could match the original string, only first (sorted) should apply."""
     category = "fictional depictions of cats"
     category_original = category
@@ -146,7 +146,7 @@ def test_break_after_first_match():
     assert new_cat == "cats"
 
 
-def test_non_prefix():
+def test_non_prefix() -> None:
     """Test key 'non' mapping."""
     category = "non mammals"
     category_original = category

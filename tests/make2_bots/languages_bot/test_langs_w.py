@@ -143,12 +143,12 @@ data = {
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
-def test_Lang_work_main(category, expected):
+def test_Lang_work_main(category, expected) -> None:
     result = Lang_work(category)
     assert result == expected
 
 
-def test_lang_work():
+def test_lang_work() -> None:
     # Test with a basic input
     result = Lang_work("test language")
     assert isinstance(result, str)
@@ -171,7 +171,7 @@ def test_lang_work():
     [(k, v) for k, v in languages_key_subset.items()],
     ids=list(languages_key_subset.keys()),
 )
-def test_lang_work_direct(key, expected):
+def test_lang_work_direct(key, expected) -> None:
     """Test Lang_work for direct language keys."""
     result = Lang_work(key)
     # Lang_work may return full label or variant formatting
@@ -192,7 +192,7 @@ data_2 = [(k, f"لغة {languages_key_subset[k]}") for k in languages_key_subset
     data_2,
     ids=[x[0] for x in data_2],
 )
-def test_lang_work_language_suffix(key, expected):
+def test_lang_work_language_suffix(key, expected) -> None:
     """Test '<lang> language' format."""
     candidate = f"{key} language"
     result = Lang_work(candidate)
@@ -213,7 +213,7 @@ def test_lang_work_language_suffix(key, expected):
     [(k, v) for k, v in languages_key_subset.items()],
     ids=[k for k in languages_key_subset.keys()],
 )
-def test_lang_work_films_suffix(key, arabic):
+def test_lang_work_films_suffix(key, arabic) -> None:
     """Test '<lang> films' -> 'أفلام ب<ArabicLabel>'."""
     base = key.replace("-language", "")
     candidate = f"{base} films"
@@ -245,7 +245,7 @@ data_x = [(k, suf) for k in languages_key_subset for suf in TOPIC_SUFFIXES]
     data_x,
     ids=[f"{x[0]}-{x[1]}" for x in data_x],
 )
-def test_lang_work_topics(key, suffix):
+def test_lang_work_topics(key, suffix) -> None:
     """Test '<lang> grammar', '<lang> writing system', etc."""
     candidate = f"{key} {suffix}"
     result = Lang_work(candidate)

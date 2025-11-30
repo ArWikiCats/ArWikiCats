@@ -83,7 +83,7 @@ def test_universities_data(category, expected_key) -> None:
     assert label == expected_key
 
 
-def test_te_universities():
+def test_te_universities() -> None:
     # Test with a basic university category
     result = te_universities("university of california")
     assert isinstance(result, str)

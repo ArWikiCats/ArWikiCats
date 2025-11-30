@@ -159,7 +159,7 @@ def test_entertainment_3(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("name,data", ENTERTAINMENT_CASES)
 @pytest.mark.dump
-def test_entertainment(name, data):
+def test_entertainment(name, data) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
@@ -178,6 +178,6 @@ data2 = {
 
 @pytest.mark.parametrize("input,expected", data2.items(), ids=[x for x in data2])
 @pytest.mark.skip2("Need to fix")
-def test_entertainment_5(input, expected):
+def test_entertainment_5(input, expected) -> None:
     result = resolve_arabic_category_label(input)
     assert result == expected

@@ -8,7 +8,7 @@ from ArWikiCats.new.end_start_bots.fax2_temp import get_templates_fo
 
 
 @pytest.mark.fast
-def test_get_templates_fo():
+def test_get_templates_fo() -> None:
     # Test with a templates category
     list_of_cat, category3 = get_templates_fo("test templates")
     assert isinstance(list_of_cat, str)
@@ -26,7 +26,7 @@ def test_get_templates_fo():
 
 
 @pytest.mark.fast
-def test_specific_keys_in_dict_temps():
+def test_specific_keys_in_dict_temps() -> None:
     # Test each specific known key branch
     cases = {
         "sidebar templates": "قوالب اشرطة جانبية {}",
@@ -45,7 +45,7 @@ def test_specific_keys_in_dict_temps():
 
 
 @pytest.mark.fast
-def test_generic_templates_fallback():
+def test_generic_templates_fallback() -> None:
     # Should use: list_of_cat = "قوالب {}"
     list_of_cat, category3 = get_templates_fo("ExampleCategory templates")
 
@@ -54,7 +54,7 @@ def test_generic_templates_fallback():
 
 
 @pytest.mark.fast
-def test_no_templates_anywhere_returns_original():
+def test_no_templates_anywhere_returns_original() -> None:
     # If no match and doesn't end with "templates", category remains as-is
     list_of_cat, category3 = get_templates_fo("RandomCategory")
 
@@ -63,7 +63,7 @@ def test_no_templates_anywhere_returns_original():
 
 
 @pytest.mark.fast
-def test_empty_string():
+def test_empty_string() -> None:
     list_of_cat, category3 = get_templates_fo("")
 
     assert list_of_cat == "قوالب {}"
@@ -71,7 +71,7 @@ def test_empty_string():
 
 
 @pytest.mark.fast
-def test_spaces_are_stripped_correctly():
+def test_spaces_are_stripped_correctly() -> None:
     list_of_cat, category3 = get_templates_fo("  myname   templates   ")
 
     assert list_of_cat == "قوالب {}"
@@ -79,7 +79,7 @@ def test_spaces_are_stripped_correctly():
 
 
 @pytest.mark.fast
-def test_specific_key_with_extra_spaces():
+def test_specific_key_with_extra_spaces() -> None:
     list_of_cat, category3 = get_templates_fo(" title   sidebar templates")
 
     assert list_of_cat == "قوالب اشرطة جانبية {}"
@@ -87,7 +87,7 @@ def test_specific_key_with_extra_spaces():
 
 
 @pytest.mark.fast
-def test_no_key_but_word_templates_inside_not_at_end():
+def test_no_key_but_word_templates_inside_not_at_end() -> None:
     # Should NOT remove "templates" in the middle
     # لأنه لا ينتهي بـ " templates"
     list_of_cat, category3 = get_templates_fo("my templates category")

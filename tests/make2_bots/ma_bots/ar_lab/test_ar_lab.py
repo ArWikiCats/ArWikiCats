@@ -23,7 +23,7 @@ def test_find_ar_label_fast(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_add_in_tab():
+def test_add_in_tab() -> None:
     # Test with basic inputs
     result = add_in_tab("test label", "test", "from")
     assert isinstance(result, str)
@@ -37,7 +37,7 @@ def test_add_in_tab():
     assert isinstance(result_empty, str)
 
 
-def test_add_in_tab_2():
+def test_add_in_tab_2() -> None:
     # Test with basic inputs
     result = add_in_tab("test label", "test", "from")
     assert isinstance(result, str)
@@ -52,7 +52,7 @@ def test_add_in_tab_2():
 
 
 @pytest.mark.fast
-def test_find_ar_label():
+def test_find_ar_label() -> None:
     # Test with basic inputs
     result = find_ar_label("test category", "from")
     assert isinstance(result, str)

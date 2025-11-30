@@ -41,7 +41,7 @@ from ArWikiCats.new.time_to_arabic import (
         ("year 2000", ""),  # should not alter arbitrary text
     ],
 )
-def test_convert_time_to_arabic_basic(en_text, expected):
+def test_convert_time_to_arabic_basic(en_text, expected) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = convert_time_to_arabic(en_text)
     assert result == expected, f"{en_text} → {result}, expected {expected}"
@@ -62,14 +62,14 @@ def test_convert_time_to_arabic_basic(en_text, expected):
     ],
 )
 @pytest.mark.fast
-def test_ranges(en_text, expected):
+def test_ranges(en_text, expected) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = convert_time_to_arabic(en_text)
     assert result == expected, f"{en_text} → {result}, expected {expected}"
 
 
 @pytest.mark.fast
-def test_trim_and_dash_normalization():
+def test_trim_and_dash_normalization() -> None:
     """Ensure spaces and en dash normalization work."""
     result = convert_time_to_arabic("  March 1917 ")
     assert result == "مارس 1917"
@@ -79,7 +79,7 @@ def test_trim_and_dash_normalization():
 
 
 @pytest.mark.fast
-def test_nonstandard_inputs():
+def test_nonstandard_inputs() -> None:
     """Edge cases and nonstandard input should not crash."""
     assert convert_time_to_arabic("") == ""
     assert convert_time_to_arabic("unknown") == ""
@@ -88,20 +88,20 @@ def test_nonstandard_inputs():
 
 
 @pytest.mark.fast
-def test_century_and_millennium_bc_equivalence():
+def test_century_and_millennium_bc_equivalence() -> None:
     """Verify BC and BCE handled identically."""
     assert convert_time_to_arabic("2nd century BC") == convert_time_to_arabic("2nd century BCE")
     assert convert_time_to_arabic("1st millennium BC") == convert_time_to_arabic("1st millennium BCE")
 
 
 @pytest.mark.fast
-def test_convert_time_to_arabic_decade_bc():
+def test_convert_time_to_arabic_decade_bc() -> None:
     # 10s BC should be mapped to عقد 10 ق م
     assert convert_time_to_arabic("10s BC") == "عقد 10 ق م"
 
 
 @pytest.mark.fast
-def test_convert_time_to_arabic_decade_normal():
+def test_convert_time_to_arabic_decade_normal() -> None:
     # 1990s should be mapped to عقد 1990
     assert convert_time_to_arabic("1990s") == "عقد 1990"
 
@@ -116,7 +116,7 @@ def test_convert_time_to_arabic_decade_normal():
     ],
 )
 @pytest.mark.fast
-def test_month_variants(en_text, expected):
+def test_month_variants(en_text, expected) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -134,7 +134,7 @@ def test_month_variants(en_text, expected):
     ],
 )
 @pytest.mark.fast
-def test_decade_all_variants(en_text, expected):
+def test_decade_all_variants(en_text, expected) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -150,7 +150,7 @@ def test_decade_all_variants(en_text, expected):
     ],
 )
 @pytest.mark.fast
-def test_century_extended(en_text, expected):
+def test_century_extended(en_text, expected) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -163,7 +163,7 @@ def test_century_extended(en_text, expected):
     ],
 )
 @pytest.mark.fast
-def test_millennium_extended(en_text, expected):
+def test_millennium_extended(en_text, expected) -> None:
     assert convert_time_to_arabic(en_text) == expected
 
 
@@ -178,7 +178,7 @@ def test_millennium_extended(en_text, expected):
     ],
 )
 @pytest.mark.fast
-def test_ranges_all_dash_forms(en_text):
+def test_ranges_all_dash_forms(en_text) -> None:
     assert convert_time_to_arabic(en_text) == en_text
 
 
@@ -199,7 +199,7 @@ def test_ranges_all_dash_forms(en_text):
     ],
 )
 @pytest.mark.fast
-def test_match_time_en(text, expected):
+def test_match_time_en(text, expected) -> None:
     assert match_time_en(text) == expected
     assert match_time_en_first(text) == expected[0]
 
@@ -214,7 +214,7 @@ def test_match_time_en(text, expected):
     ],
 )
 @pytest.mark.fast
-def test_match_time_ar(text, expected):
+def test_match_time_ar(text, expected) -> None:
     assert match_time_ar(text) == expected
 
 
@@ -230,5 +230,5 @@ def test_match_time_ar(text, expected):
     ],
 )
 @pytest.mark.fast
-def test_fallback(text):
+def test_fallback(text) -> None:
     assert convert_time_to_arabic(text) == ""

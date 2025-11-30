@@ -14,7 +14,7 @@ from ArWikiCats.new.end_start_bots.fax2 import (
 
 
 @pytest.mark.fast
-def test_get_from_starts_dict():
+def test_get_from_starts_dict() -> None:
     # Test with a basic input that starts with a known key
     category3, list_of_cat = get_from_starts_dict("21st century members of test", to_get_startswith)
     assert isinstance(category3, str)
@@ -27,7 +27,7 @@ def test_get_from_starts_dict():
 
 
 @pytest.mark.fast
-def test_get_from_endswith_dict():
+def test_get_from_endswith_dict() -> None:
     # Test with a basic input that ends with a known key
     category3, list_of_cat = get_from_endswith_dict("test squad navigational boxes", to_get_endswith)
     assert isinstance(category3, str)
@@ -40,7 +40,7 @@ def test_get_from_endswith_dict():
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3():
+def test_get_list_of_and_cat3() -> None:
     # Test with a basic input
     list_of_cat, foot_ballers, category3 = get_list_of_and_cat3("test category", "Test Category")
     assert isinstance(list_of_cat, str)

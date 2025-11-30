@@ -658,7 +658,7 @@ def test_Get_country2_slow(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_get_country2():
+def test_get_country2() -> None:
     # Test with a basic input
     result = Get_country2("test country", fix_title=fix_title_all)
     assert isinstance(result, str)

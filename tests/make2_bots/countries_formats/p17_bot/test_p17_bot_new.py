@@ -56,6 +56,6 @@ pop_format_test_data = {
     ids=list(pop_format_test_data.keys())
 )
 @pytest.mark.fast
-def test_get_p17_new(category, expected):
+def test_get_p17_new(category, expected) -> None:
     result = Get_P17_main(category)
     assert result == expected

@@ -40,13 +40,13 @@ def bot():
     ids=[k for k in examples],
 )
 @pytest.mark.fast
-def test_format_data(bot, category: str, expected_key: str):
+def test_format_data(bot, category: str, expected_key: str) -> None:
     result = bot.search(category)
 
     assert result == expected_key
 
 
-def test_1(bot):
+def test_1(bot) -> None:
     result = bot.search("snooker players")
 
     assert result == "لاعبو سنوكر"

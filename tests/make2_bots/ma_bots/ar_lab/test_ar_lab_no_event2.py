@@ -761,7 +761,7 @@ data_list_bad = [
 ]
 
 
-def test_result_only_with_event2():
+def test_result_only_with_event2() -> None:
     expected_result = {}
     diff_result = {}
     for tab in data_list_bad:

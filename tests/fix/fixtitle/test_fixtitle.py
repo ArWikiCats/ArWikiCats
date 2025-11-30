@@ -24,7 +24,7 @@ def load_test_fixlab_data(data):
     assert diff_list == expected_list
 
 
-def test_fixlab_group_1():
+def test_fixlab_group_1() -> None:
     data = {
         "1995 في الإمارات": "الإمارات في 1995",
         "2020 في جنوب إفريقيا": "جنوب إفريقيا في 2020",
@@ -43,7 +43,7 @@ def test_fixlab_group_1():
     load_test_fixlab_data(data)
 
 
-def test_fixlab_group_2():
+def test_fixlab_group_2() -> None:
     data = {
         "قضاة حسب الجنسية عقد 2010": "قضاة في عقد 2010 حسب الجنسية",
         "فنانون ذكور حسب الجنسية 2020": "فنانون ذكور في 2020 حسب الجنسية",
@@ -54,7 +54,7 @@ def test_fixlab_group_2():
     load_test_fixlab_data(data)
 
 
-def test_fixlab_group_3():
+def test_fixlab_group_3() -> None:
     data = {
         "أشخاص حسب الجنسية والمجموعة العرقية القرن 20": "أشخاص في القرن 20 حسب الجنسية والمجموعة العرقية",
         "أشخاص حسب الجنسية والمهنة القرن 20": "أشخاص في القرن 20 حسب الجنسية والمهنة",
@@ -71,7 +71,7 @@ def test_fixlab_group_3():
     load_test_fixlab_data(data)
 
 
-def test_fixlab_group_4():
+def test_fixlab_group_4() -> None:
     data = {
         "أشخاص حسب الدين والجنسية القرن 19": "أشخاص في القرن 19 حسب الدين والجنسية",
         "أشخاص حسب الدين والجنسية القرن 20": "أشخاص في القرن 20 حسب الدين والجنسية",
@@ -86,7 +86,7 @@ def test_fixlab_group_4():
     load_test_fixlab_data(data)
 
 
-def test_fixlab_group_5():
+def test_fixlab_group_5() -> None:
     data = {
         "قوائم أفلام حسب البلد أو اللغة 1930": "قوائم أفلام في 1930 حسب البلد أو اللغة",
         "قوائم أفلام حسب البلد أو اللغة 1931": "قوائم أفلام في 1931 حسب البلد أو اللغة",

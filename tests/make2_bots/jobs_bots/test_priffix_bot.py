@@ -604,7 +604,7 @@ def test_Women_s_priffix_work(category: str, expected: str) -> None:
     assert label == expected
 
 
-def test_priffix_mens_work():
+def test_priffix_mens_work() -> None:
     # Test with a basic input
     result = priffix_Mens_work("test job")
     assert isinstance(result, str)
@@ -617,7 +617,7 @@ def test_priffix_mens_work():
     assert isinstance(result_various, str)
 
 
-def test_women_s_priffix_work():
+def test_women_s_priffix_work() -> None:
     # Test with a basic input
     result = Women_s_priffix_work("test job")
     assert isinstance(result, str)

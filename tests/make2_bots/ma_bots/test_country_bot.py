@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.make_bots.ma_bots.country_bot import Get_c_t_lab, get_country
 
 
-def test_get_country():
+def test_get_country() -> None:
     # Test with a basic input
     result = get_country("test country")
     assert isinstance(result, str)
@@ -21,7 +21,7 @@ def test_get_country():
     assert isinstance(result_empty, str)
 
 
-def test_get_c_t_lab():
+def test_get_c_t_lab() -> None:
     # Test with basic inputs
     result = Get_c_t_lab("test country", "in")
     assert isinstance(result, str)

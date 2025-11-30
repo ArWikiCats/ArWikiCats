@@ -102,7 +102,7 @@ test_data_get_con_3_lab = {
 
 @pytest.mark.parametrize("category, expected", test_data_get_con_3_lab.items(), ids=list(test_data_get_con_3_lab.keys()))
 @pytest.mark.fast
-def test_get_con_3_lab_sports(category, expected):
+def test_get_con_3_lab_sports(category, expected) -> None:
     result = get_con_3_lab_sports(category)
     assert result == expected
 
@@ -119,7 +119,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all_dump(name, data, callback):
+def test_all_dump(name, data, callback) -> None:
     expected, diff_result = one_dump_test(data, callback, do_strip=False)
 
     dump_diff(diff_result, name)

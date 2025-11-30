@@ -201,7 +201,7 @@ def test_get_teams_new_data(category, expected_key) -> None:
     assert label == expected_key
 
 
-def test_get_teams_new():
+def test_get_teams_new() -> None:
     # Test with a basic input
     result = get_teams_new("football team")
     assert isinstance(result, str)

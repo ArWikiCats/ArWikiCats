@@ -121,7 +121,7 @@ EXAMPLES = [
 
 
 @pytest.mark.parametrize("example", EXAMPLES, ids=lambda e: e["category"])
-def test_new_func_mk2_subset(example):
+def test_new_func_mk2_subset(example) -> None:
     _, result = new_func_mk2(
         example["category"],
         "",

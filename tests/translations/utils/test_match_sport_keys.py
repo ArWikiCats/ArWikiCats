@@ -53,7 +53,7 @@ CATEGORY_SAMPLES = {
 
 @pytest.mark.fast
 @pytest.mark.parametrize("category,expected_key", CATEGORY_SAMPLES.items())
-def test_match_sport_key_detects_all(category: str, expected_key: str):
+def test_match_sport_key_detects_all(category: str, expected_key: str) -> None:
     """Ensure every key in SPORTS_KEYS_FOR_JOBS is detectable in sample categories."""
     result = match_sport_key(category)
     assert result.lower() == expected_key.lower(), f"Mismatch for {category}"
@@ -73,7 +73,7 @@ def test_match_sport_key_detects_all(category: str, expected_key: str):
     ],
 )
 @pytest.mark.fast
-def test_match_sport_key_returns_empty_for_irrelevant(category):
+def test_match_sport_key_returns_empty_for_irrelevant(category) -> None:
     """Return empty string for non-sport categories."""
     assert match_sport_key(category) == ""
 
@@ -93,7 +93,7 @@ def test_match_sport_key_returns_empty_for_irrelevant(category):
     ],
 )
 @pytest.mark.fast
-def test_case_insensitivity(category):
+def test_case_insensitivity(category) -> None:
     """Matching should ignore capitalization."""
     assert match_sport_key(category) != ""
 
@@ -109,7 +109,7 @@ def test_case_insensitivity(category):
     ],
 )
 @pytest.mark.fast
-def test_longest_match_priority(text, longest_key):
+def test_longest_match_priority(text, longest_key) -> None:
     """When overlap exists, prefer longest key."""
     res = match_sport_key(text)
     assert res.lower() == longest_key.lower()
@@ -119,7 +119,7 @@ def test_longest_match_priority(text, longest_key):
 # 7. Verify all defined keys are searchable
 # ---------------------------------------------------------------------
 @pytest.mark.fast
-def test_all_defined_keys_detectable():
+def test_all_defined_keys_detectable() -> None:
     """Ensure every key in SPORTS_KEYS_FOR_JOBS dictionary is matchable."""
     for key in SPORTS_KEYS_FOR_JOBS:
         sample = f"Category:{key.title()} Event"
@@ -138,7 +138,7 @@ def test_all_defined_keys_detectable():
     ],
 )
 @pytest.mark.fast
-def test_tolerates_punctuation(category):
+def test_tolerates_punctuation(category) -> None:
     """Pattern should still detect keywords with punctuation nearby."""
     assert match_sport_key(category) != ""
 
@@ -155,7 +155,7 @@ def test_tolerates_punctuation(category):
     ],
 )
 @pytest.mark.fast
-def test_mixed_language_input(category):
+def test_mixed_language_input(category) -> None:
     """Mixed Arabic-English text should not break detection."""
     assert match_sport_key(category) != ""
 
@@ -173,6 +173,6 @@ def test_mixed_language_input(category):
     ],
 )
 @pytest.mark.fast
-def test_no_false_positive(category):
+def test_no_false_positive(category) -> None:
     """Ensure non-related text never matches any sport key."""
     assert match_sport_key(category) == ""

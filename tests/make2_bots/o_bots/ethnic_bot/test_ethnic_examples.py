@@ -37,14 +37,14 @@ from ArWikiCats.make_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
         ),
     ],
 )
-def test_ethnic_direct_mens_examples(category, start, suffix, expected_ar):
+def test_ethnic_direct_mens_examples(category, start, suffix, expected_ar) -> None:
     """Check a few realistic <nat> people categories."""
     result = ethnic_label(category, start, suffix)
     assert result == expected_ar
 
 
 @pytest.mark.unit
-def test_ethnic_fallback_to_ethnic_culture():
+def test_ethnic_fallback_to_ethnic_culture() -> None:
     """
     Example where ethnic_label() cannot build mens-composition and falls back
     to ethnic_culture().
@@ -63,7 +63,7 @@ def test_ethnic_fallback_to_ethnic_culture():
 
 
 @pytest.mark.unit
-def test_ethnic_unknown_returns_empty():
+def test_ethnic_unknown_returns_empty() -> None:
     """Unknown nationalities should return empty string."""
     result = ethnic_label("Category:Unknown people", "unknown-nat", "unknown-nat people")
     assert result == ""
@@ -97,7 +97,7 @@ def test_ethnic_unknown_returns_empty():
         ),
     ],
 )
-def test_ethnic_culture_male_examples(category, start, suffix, expected_ar):
+def test_ethnic_culture_male_examples(category, start, suffix, expected_ar) -> None:
     """Check a few culture-like categories for male topics."""
     result = ethnic_culture(category, start, suffix)
     assert result == expected_ar
@@ -131,14 +131,14 @@ ethnic_culture_female_examples = [
     ethnic_culture_female_examples,
     ids=[x[0] for x in ethnic_culture_female_examples],
 )
-def test_ethnic_culture_female_examples(category, start, suffix, expected_ar):
+def test_ethnic_culture_female_examples(category, start, suffix, expected_ar) -> None:
     """Check a few culture-like categories for female topics."""
     result = ethnic_culture(category, start, suffix)
     assert result == expected_ar
 
 
 @pytest.mark.unit
-def test_ethnic_culture_unknown_nationality():
+def test_ethnic_culture_unknown_nationality() -> None:
     """If nationality not in Nat_men or Nat_women, result must be empty."""
     result = ethnic_culture(
         "Category:Unknown culture",

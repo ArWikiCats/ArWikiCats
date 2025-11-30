@@ -113,13 +113,13 @@ def test_mens_nato_templates_are_applied_for_all_men_keys(
     assert result == expected
 
 
-def test_mens_religious_expatriate():
+def test_mens_religious_expatriate() -> None:
     """Test religious + expatriate combination (both in NAT_BEFORE_OCC)"""
     result = jobs_with_nat_prefix("", "turkmenistan", "jewish")
     assert result == "تركمانيون يهود"
 
 
-def test_mens_new_job_with_nat_before_occ_abidat_rma_saxophonists_yemeni():
+def test_mens_new_job_with_nat_before_occ_abidat_rma_saxophonists_yemeni() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "yemeni", "abidat rma saxophonists")
     assert result == "عازفو سكسفون عبيدات الرما يمنيون"

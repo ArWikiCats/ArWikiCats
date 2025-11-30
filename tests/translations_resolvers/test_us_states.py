@@ -34,7 +34,7 @@ to_test = [
 
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_all_dump(name, data, callback):
+def test_all_dump(name, data, callback) -> None:
 
     expected, diff_result = one_dump_test(data, callback)
 

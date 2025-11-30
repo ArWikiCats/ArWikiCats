@@ -32,7 +32,7 @@ data_test2 = [
     data_test2,
     ids=[x[0] for x in data_test2],
 )
-def test_single_relation(category, expected_key, expected_value):
+def test_single_relation(category, expected_key, expected_value) -> None:
     key, value = get_relation_word(category, category_relation_mapping)
     assert key.strip() == expected_key
     assert value == expected_value
@@ -43,7 +43,7 @@ def test_single_relation(category, expected_key, expected_value):
     data_test2,
     ids=[x[0] for x in data_test2],
 )
-def test_single_relation_compare(category, expected_key, expected_value):
+def test_single_relation_compare(category, expected_key, expected_value) -> None:
     key1, value1 = get_relation_word(category, category_relation_mapping)
     key2, value2 = get_relation_word_new(category, category_relation_mapping)
     assert key2 == key1
@@ -70,14 +70,14 @@ def test_single_relation_compare(category, expected_key, expected_value):
         ("Songs written by John Smith and produced in London", "written by", "كتبها"),
     ],
 )
-def test_multiple_relations_first_match(category, first_expected_key, first_expected_value):
+def test_multiple_relations_first_match(category, first_expected_key, first_expected_value) -> None:
     """Ensure that only the first matching relation word is returned."""
     key, value = get_relation_word(category, category_relation_mapping)
     assert key.strip() == first_expected_key
     assert value == first_expected_value
 
 
-def test_multiple_relations():
+def test_multiple_relations() -> None:
     """Ensure that only the first matching relation word is returned."""
     category = "Ships built in Germany and France launched in 1900"
     key, value = get_relation_word(category, category_relation_mapping)
@@ -98,7 +98,7 @@ def test_multiple_relations():
         "Unclassified biological samples",
     ],
 )
-def test_no_relation(category):
+def test_no_relation(category) -> None:
     key, value = get_relation_word(category, category_relation_mapping)
     assert key == ""
     assert value == ""
@@ -118,7 +118,7 @@ def test_no_relation(category):
         ("Items producedby students", "produced by"),
     ],
 )
-def test_relation_not_matched_without_spaces(category, wrong_rel):
+def test_relation_not_matched_without_spaces(category, wrong_rel) -> None:
     key, value = get_relation_word(category, category_relation_mapping)
     assert key == ""
     assert value == ""
@@ -130,7 +130,7 @@ def test_relation_not_matched_without_spaces(category, wrong_rel):
 # ===============================================
 
 
-def test_first_match_priority():
+def test_first_match_priority() -> None:
     """If both 'in' and 'involving' appear, 'involving' should match first only if it appears first in mapping."""
     cat = "Topic involving science in Europe"
 

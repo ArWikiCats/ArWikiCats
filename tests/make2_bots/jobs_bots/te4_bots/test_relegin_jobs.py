@@ -20,7 +20,7 @@ RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.key
     RELIGIOUS_KEYS_20.items(),
     ids=[x for x in RELIGIOUS_KEYS_20],
 )
-def test_with_suffix(key, data):
+def test_with_suffix(key, data) -> None:
     input2 = f"{key} historical house music bloggers"
     expected2 = f"مدونو هاوس تاريخيون {data['mens']}"
 
@@ -33,7 +33,7 @@ def test_with_suffix(key, data):
     RELIGIOUS_KEYS_20.items(),
     ids=[x for x in RELIGIOUS_KEYS_20],
 )
-def test_no_suffix_female(key, data):
+def test_no_suffix_female(key, data) -> None:
     input = f"female {key}"
     expected = data["womens"]
 
@@ -58,7 +58,7 @@ data = [
     data,
     ids=[x[0] for x in data],
 )
-def test_no_suffix(input, expected):
+def test_no_suffix(input, expected) -> None:
     result = relegins_jobs(input)
     assert result == expected, f"{expected=}, {result=}, {input=}"
 
@@ -67,7 +67,7 @@ def test_no_suffix(input, expected):
     assert result2 == expected, f"{expected=}, {result2=}, {input2=}"
 
 
-def test_one():
+def test_one() -> None:
     # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "womens": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
     input = "bahá'ís classical europop composers"
     expected = "ملحنو يوروبوب كلاسيكيون بهائيون"

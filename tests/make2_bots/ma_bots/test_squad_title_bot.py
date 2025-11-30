@@ -67,7 +67,7 @@ def test_get_squad_title_data(category, expected_key) -> None:
     assert label == expected_key
 
 
-def test_get_squad_title():
+def test_get_squad_title() -> None:
     # Test with a basic input
     result = get_squad_title("test squad")
     assert isinstance(result, str)

@@ -9,7 +9,7 @@ from ArWikiCats.new.end_start_bots import fax2
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_all_startswith_patterns():
+def test_get_list_of_and_cat3_all_startswith_patterns() -> None:
     """Each key in to_get_startswith should be matched and produce expected label."""
     for key, tab in fax2.to_get_startswith.items():
         # Build a synthetic category that starts with the key
@@ -30,7 +30,7 @@ def test_get_list_of_and_cat3_all_startswith_patterns():
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_women_members_fallback():
+def test_get_list_of_and_cat3_women_members_fallback() -> None:
     """The 'women members of ' fallback should be applied when no startswith pattern matches."""
     category3 = "women members of Parliament of the United Kingdom"
     category3_nolower = category3
@@ -73,7 +73,7 @@ def test_get_list_of_and_cat3_women_members_fallback():
     ],
 )
 @pytest.mark.fast
-def test_get_list_of_and_cat3_footballers_variants(category3, expected_label, expected_rest):
+def test_get_list_of_and_cat3_footballers_variants(category3, expected_label, expected_rest) -> None:
     """All footballers variants should be handled via footballers_get_endswith."""
     category3_nolower = category3
 
@@ -125,7 +125,7 @@ def test_get_list_of_and_cat3_footballers_variants(category3, expected_label, ex
     ],
 )
 @pytest.mark.fast
-def test_get_list_of_and_cat3_players_variants(category3, category3_nolower, expected_rest):
+def test_get_list_of_and_cat3_players_variants(category3, category3_nolower, expected_rest) -> None:
     """All 'players' / 'playerss' endings should set label and strip suffix correctly."""
     list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3_nolower)
 
@@ -140,7 +140,7 @@ def test_get_list_of_and_cat3_players_variants(category3, category3_nolower, exp
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_stubs_respected_when_enabled():
+def test_get_list_of_and_cat3_stubs_respected_when_enabled() -> None:
     category3 = "Physics stubs"
     category3_nolower = category3
 
@@ -152,7 +152,7 @@ def test_get_list_of_and_cat3_stubs_respected_when_enabled():
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_stubs_ignored_when_disabled():
+def test_get_list_of_and_cat3_stubs_ignored_when_disabled() -> None:
     category3 = "Physics stubs"
     category3_nolower = category3
 
@@ -171,7 +171,7 @@ def test_get_list_of_and_cat3_stubs_ignored_when_disabled():
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_all_endswith_patterns():
+def test_get_list_of_and_cat3_all_endswith_patterns() -> None:
     """Each key in to_get_endswith should be matched and produce expected label."""
     for key, tab in fax2.to_get_endswith.items():
         if tab.get("example"):
@@ -205,7 +205,7 @@ def test_get_list_of_and_cat3_all_endswith_patterns():
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_navigational_boxes_specificity():
+def test_get_list_of_and_cat3_navigational_boxes_specificity() -> None:
     """More specific 'squad/sports navigational boxes' should win over plain 'navigational boxes'."""
     # sports navigational boxes
     category3 = "Yemen sports navigational boxes"
@@ -226,7 +226,7 @@ def test_get_list_of_and_cat3_navigational_boxes_specificity():
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_no_match_returns_defaults():
+def test_get_list_of_and_cat3_no_match_returns_defaults() -> None:
     """If no startswith/footballers/stubs/players/endswith patterns match, @pytest.mark.fast
     defaults should be returned."""
     category3 = "Completely unmatched category"
@@ -246,7 +246,7 @@ def test_get_list_of_and_cat3_no_match_returns_defaults():
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_strips_whitespace_and_handles_empty_nolower():
+def test_get_list_of_and_cat3_strips_whitespace_and_handles_empty_nolower() -> None:
     """Whitespace should be stripped and empty category3_nolower handled gracefully."""
     category3 = "  Spanish players  "
     category3_nolower = ""

@@ -25,14 +25,14 @@ def bot(formatted_data, data_list):
 
 
 # --- keys_to_pattern --------------------------------------------------
-def test_keys_to_pattern_returns_regex(bot):
+def test_keys_to_pattern_returns_regex(bot) -> None:
     pattern = bot.keys_to_pattern()
     assert isinstance(pattern, re.Pattern)
     assert pattern.search("football")
     assert pattern.search("rugby union")
 
 
-def test_keys_to_pattern_empty():
+def test_keys_to_pattern_empty() -> None:
     bot_empty = FormatData({}, {})
     assert bot_empty.keys_to_pattern() is None
     assert bot_empty.pattern is None
@@ -51,12 +51,12 @@ def test_keys_to_pattern_empty():
         ("unknown sport category", ""),
     ],
 )
-def test_match_key(bot, category, expected):
+def test_match_key(bot, category, expected) -> None:
     result = bot.match_key(category)
     assert result == expected
 
 
-def test_match_key_no_pattern():
+def test_match_key_no_pattern() -> None:
     bot = FormatData({}, {})
     assert bot.match_key("football") == ""
 
@@ -69,18 +69,18 @@ def test_match_key_no_pattern():
         ("youth snooker records", "snooker", "youth {sport} records"),
     ],
 )
-def test_normalize_category(bot, category, sport_key, expected):
+def test_normalize_category(bot, category, sport_key, expected) -> None:
     normalized = bot.normalize_category(category, sport_key)
     assert normalized == expected
 
 
 # --- get_template -----------------------------------------------
-def test_get_template_found(bot):
+def test_get_template_found(bot) -> None:
     label = bot.get_template("football", "men's football players")
     assert "لاعبو كرة قدم رجالية" in label or label != ""
 
 
-def test_get_template_not_found(bot):
+def test_get_template_not_found(bot) -> None:
     label = bot.get_template("football", "unrelated term")
     assert label == ""
 
@@ -94,7 +94,7 @@ def test_get_template_not_found(bot):
         ("بدون متغير", "كرة اليد", "بدون متغير"),  # placeholder missing
     ],
 )
-def test_apply_pattern_replacement(bot, template_label, sport_label, expected):
+def test_apply_pattern_replacement(bot, template_label, sport_label, expected) -> None:
     bot.value_placeholder = "xoxo"
     result = bot.apply_pattern_replacement(template_label, sport_label)
     assert result == expected
@@ -109,7 +109,7 @@ def test_apply_pattern_replacement(bot, template_label, sport_label, expected):
         ("men's youth snooker records and statistics", "سجلات وإحصائيات سنوكر للشباب"),
     ],
 )
-def test_search_valid(bot, category, expected):
+def test_search_valid(bot, category, expected) -> None:
     assert bot.search(category) == expected
 
 
@@ -120,12 +120,12 @@ def test_search_valid(bot, category, expected):
         "غير معروف",
     ],
 )
-def test_search_invalid(bot, category):
+def test_search_invalid(bot, category) -> None:
     assert bot.search(category) == ""
 
 
 # --- search edge cases -----------------------------------------------
-def test_search_missing_sport_label(formatted_data, data_list):
+def test_search_missing_sport_label(formatted_data, data_list) -> None:
     # remove a key intentionally
     temp = dict(data_list)
     del temp["football"]
@@ -133,12 +133,12 @@ def test_search_missing_sport_label(formatted_data, data_list):
     assert bot.search("men's football players") == ""
 
 
-def test_search_missing_template_label(formatted_data, data_list):
+def test_search_missing_template_label(formatted_data, data_list) -> None:
     bot = FormatData({}, data_list)
     assert bot.search("men's football players") == ""
 
 
-def test_search_case_insensitive(bot):
+def test_search_case_insensitive(bot) -> None:
     result = bot.search("MEN'S FOOTBALL PLAYERS")
     assert result == "لاعبو كرة قدم رجالية"
 
@@ -154,7 +154,7 @@ def test_search_case_insensitive(bot):
         "cycling",
     ],
 )
-def test_multiple_sports(bot, sport_key):
+def test_multiple_sports(bot, sport_key) -> None:
     category = f"men's {sport_key} teams"
     result = bot.search(category)
     assert isinstance(result, str)
@@ -162,7 +162,7 @@ def test_multiple_sports(bot, sport_key):
 
 
 # --- consistency check ------------------------------------------------
-def test_all_templates_work(bot):
+def test_all_templates_work(bot) -> None:
     """Randomly sample a few template keys and ensure no crash occurs."""
     import random
 

@@ -8,7 +8,7 @@ from ArWikiCats.new.year_lab import make_month_lab, make_year_lab
 from ArWikiCats.new.time_to_arabic import convert_time_to_arabic
 
 
-def test_make_year_lab():
+def test_make_year_lab() -> None:
     # Test basic year
     result = make_year_lab("2020")
     assert isinstance(result, str)
@@ -41,7 +41,7 @@ def test_make_year_lab():
     assert result_with_month == "يناير 2020"
 
 
-def test_make_month_lab():
+def test_make_month_lab() -> None:
     # Test with numeric year
     result = make_month_lab("2020")
     assert result == "2020"

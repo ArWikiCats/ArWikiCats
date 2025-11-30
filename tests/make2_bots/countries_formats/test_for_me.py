@@ -1083,7 +1083,7 @@ def test_work_for_new_2018_men_keys_with_all(data) -> None:
 
 
 @pytest.mark.skip2
-def test_work_for_me():
+def test_work_for_me() -> None:
     # Test with basic inputs using a valid country code
     result = Work_for_me("test category", "united states", "players")
     assert isinstance(result, str)

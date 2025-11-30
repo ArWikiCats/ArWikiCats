@@ -295,7 +295,7 @@ def test_get_type_lab_data(preposition, category, output) -> None:
     assert label.strip() == output.strip()
 
 
-def test_get_type_lab():
+def test_get_type_lab() -> None:
     # Test with basic inputs
     result = get_type_lab("from", "women")
     assert isinstance(result, tuple)
