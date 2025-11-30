@@ -189,7 +189,7 @@ def _load_multi_bot() -> str:
 @functools.lru_cache(maxsize=1000)
 def get_en_ar_is_p17_label_multi(category: str) -> str:
     nat_bot = _load_multi_bot()
-    return nat_bot.search(category).strip()
+    return nat_bot.search(category).strip() or nat_bot.country_bot.search(category).strip()
 
 
 # @dump_data(enable=1)
