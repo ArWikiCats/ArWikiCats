@@ -75,21 +75,21 @@ test_data = [
 @pytest.mark.fast
 def test_geography_us_1(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", geography_us_2.items(), ids=list(geography_us_2.keys()))
 @pytest.mark.fast
 def test_geography_us_2(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", geography_us_3.items(), ids=list(geography_us_3.keys()))
 @pytest.mark.fast
 def test_geography_us_3(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", test_data)

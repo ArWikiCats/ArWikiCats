@@ -15,4 +15,4 @@ data2 = {
 @pytest.mark.fast
 def test_people_labels_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected

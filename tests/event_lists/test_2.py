@@ -117,21 +117,21 @@ to_test = [
 @pytest.mark.fast
 def test_1(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_test2.items(), ids=list(data_test2.keys()))
 @pytest.mark.fast
 def test_2(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_list_bad.items(), ids=list(data_list_bad.keys()))
 @pytest.mark.fast
 def test_2_new_bug_check(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)

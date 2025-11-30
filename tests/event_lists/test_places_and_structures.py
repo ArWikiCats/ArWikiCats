@@ -21,4 +21,4 @@ data = {
 @pytest.mark.fast
 def test_places_and_structures(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected

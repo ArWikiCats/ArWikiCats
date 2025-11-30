@@ -117,25 +117,25 @@ def test_temporal(name, data):
 @pytest.mark.fast
 def test_temporal_1(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", temporal_2.items(), ids=list(temporal_2.keys()))
 @pytest.mark.fast
 def test_temporal_2(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", temporal_3.items(), ids=list(temporal_3.keys()))
 @pytest.mark.fast
 def test_temporal_3(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", temporal_4.items(), ids=list(temporal_4.keys()))
 @pytest.mark.fast
 def test_temporal_4(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected

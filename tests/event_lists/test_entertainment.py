@@ -140,21 +140,21 @@ ENTERTAINMENT_CASES = [
 @pytest.mark.fast
 def test_entertainment_1(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", entertainment_2.items(), ids=list(entertainment_2.keys()))
 @pytest.mark.fast
 def test_entertainment_2(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", entertainment_3.items(), ids=list(entertainment_3.keys()))
 @pytest.mark.fast
 def test_entertainment_3(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", ENTERTAINMENT_CASES)

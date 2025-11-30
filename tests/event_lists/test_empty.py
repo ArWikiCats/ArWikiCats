@@ -70,4 +70,4 @@ data = {
 @pytest.mark.skip2
 def test_empty(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
