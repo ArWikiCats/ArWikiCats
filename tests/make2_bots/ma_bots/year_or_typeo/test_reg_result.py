@@ -85,7 +85,7 @@ class TestYearExtraction:
     )
     def test_year(self, category, expected):
         out = get_reg_result(category)
-        assert out.year_at_first.lower().strip() == expected.lower().strip()
+        assert out.year_at_first_strip.lower() == expected.lower()
 
     @pytest.mark.parametrize(
         "category,expected",
@@ -129,7 +129,7 @@ class TestTypeExtraction:
     )
     def test_typeo(self, category, expected):
         out = get_reg_result(category)
-        typeo = out.typeo.strip()
+        typeo = out.typeo
         assert typeo == expected
 
     @pytest.mark.parametrize(
@@ -143,7 +143,7 @@ class TestTypeExtraction:
     )
     def _test_typeo2(self, category, expected):
         out = get_reg_result(category)
-        typeo = out.typeo.strip()
+        typeo = out.typeo
         assert typeo == expected
 
 
@@ -284,7 +284,7 @@ class TestBCE_BC:
 def test_all_based_types(eng):
     category = f"Category:1999 {eng} in France"
     out = get_reg_result(category)
-    assert out.typeo.strip().lower() == eng.strip().lower()
+    assert out.typeo.lower() == eng.strip().lower()
     assert out.year_at_first_strip.lower() == "1999"
     assert out.country.strip().lower() == "france"
 
