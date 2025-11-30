@@ -1,27 +1,12 @@
 """
 
-TODO: write tests
-TODO: search for (# Test with basic inputs)
 
 """
 
 import pytest
-from ArWikiCats.make_bots.matables_bots.bot import add_to_new_players
+from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.make_bots.matables_bots.data import Keep_it_last
-
-
-@pytest.mark.fast
-def test_add_to_new_players() -> None:
-    # Test with basic inputs
-    add_to_new_players("english", "arabic")
-
-    # Test with empty strings (should not add anything)
-    add_to_new_players("", "arabic")
-    add_to_new_players("english", "")
-
-    # Test with both empty (should not add anything)
-    add_to_new_players("", "")
 
 
 @pytest.mark.fast
@@ -33,6 +18,55 @@ def test_Keep_it_last() -> None:
 
 
 fast_data = {
+    "Category:Remakes of American films": "تصنيف:أفلام أمريكية معاد إنتاجها",
+    "Category:Remakes of Argentine films": "تصنيف:أفلام أرجنتينية معاد إنتاجها",
+    "Category:Remakes of Australian films": "تصنيف:أفلام أسترالية معاد إنتاجها",
+    "Category:Remakes of Austrian films": "تصنيف:أفلام نمساوية معاد إنتاجها",
+    "Category:Remakes of Belgian films": "تصنيف:أفلام بلجيكية معاد إنتاجها",
+    "Category:Remakes of Brazilian films": "تصنيف:أفلام برازيلية معاد إنتاجها",
+    "Category:Remakes of British films": "تصنيف:أفلام بريطانية معاد إنتاجها",
+    "Category:Remakes of Burmese films": "تصنيف:أفلام بورمية معاد إنتاجها",
+    "Category:Remakes of Canadian films": "تصنيف:أفلام كندية معاد إنتاجها",
+    "Category:Remakes of Chilean films": "تصنيف:أفلام تشيلية معاد إنتاجها",
+    "Category:Remakes of Chinese films": "تصنيف:أفلام صينية معاد إنتاجها",
+    "Category:Remakes of Danish films": "تصنيف:أفلام دنماركية معاد إنتاجها",
+    "Category:Remakes of Dutch films": "تصنيف:أفلام هولندية معاد إنتاجها",
+    "Category:Remakes of Finnish films": "تصنيف:أفلام فنلندية معاد إنتاجها",
+    "Category:Remakes of French films": "تصنيف:أفلام فرنسية معاد إنتاجها",
+    "Category:Remakes of German films": "تصنيف:أفلام ألمانية معاد إنتاجها",
+    "Category:Remakes of Hong Kong films": "تصنيف:أفلام هونغ كونغية معاد إنتاجها",
+    "Category:Remakes of Hungarian films": "تصنيف:أفلام مجرية معاد إنتاجها",
+    "Category:Remakes of Icelandic films": "تصنيف:أفلام آيسلندية معاد إنتاجها",
+    "Category:Remakes of Indian films": "تصنيف:أفلام هندية معاد إنتاجها",
+    "Category:Remakes of Indian television series": "تصنيف:مسلسلات تلفزيونية هندية معاد إنتاجها",
+    "Category:Remakes of Indonesian films": "تصنيف:أفلام إندونيسية معاد إنتاجها",
+    "Category:Remakes of Irish films": "تصنيف:أفلام أيرلندية معاد إنتاجها",
+    "Category:Remakes of Italian films": "تصنيف:أفلام إيطالية معاد إنتاجها",
+    "Category:Remakes of Japanese films": "تصنيف:أفلام يابانية معاد إنتاجها",
+    "Category:Remakes of Malaysian films": "تصنيف:أفلام ماليزية معاد إنتاجها",
+    "Category:Remakes of Mexican films": "تصنيف:أفلام مكسيكية معاد إنتاجها",
+    "Category:Remakes of Norwegian films": "تصنيف:أفلام نرويجية معاد إنتاجها",
+    "Category:Remakes of Pakistani films": "تصنيف:أفلام باكستانية معاد إنتاجها",
+    "Category:Remakes of Philippine films": "تصنيف:أفلام فلبينية معاد إنتاجها",
+    "Category:Remakes of Russian films": "تصنيف:أفلام روسية معاد إنتاجها",
+    "Category:Remakes of South Korean films": "تصنيف:أفلام كورية جنوبية معاد إنتاجها",
+    "Category:Remakes of Spanish films": "تصنيف:أفلام إسبانية معاد إنتاجها",
+    "Category:Remakes of Sri Lankan films": "تصنيف:أفلام سريلانكية معاد إنتاجها",
+    "Category:Remakes of Swedish films": "تصنيف:أفلام سويدية معاد إنتاجها",
+    "Category:Remakes of Taiwanese films": "تصنيف:أفلام تايوانية معاد إنتاجها",
+    "Category:Remakes of Thai films": "تصنيف:أفلام تايلندية معاد إنتاجها",
+    "Category:Remakes of Turkish films": "تصنيف:أفلام تركية معاد إنتاجها",
+}
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+def test_Keep_it_last_extended(category: str, expected: str) -> None:
+    # Arabic translation of term "remakes of" ("معاد إنتاجها") should be at last:
+    label = resolve_arabic_category_label(category)
+    assert label == expected
+
+
+fast_data_empty = {
     "Category:American remakes of Argentine films": "x",
     "Category:American remakes of Belgian films": "x",
     "Category:American remakes of Brazilian films": "x",
@@ -74,7 +108,6 @@ fast_data = {
     "Category:Bengali remakes of Telugu films": "x",
     "Category:Bhojpuri remakes of Tamil films": "x",
     "Category:Bhojpuri remakes of Telugu films": "x",
-    "": "x",
     "Category:Chinese remakes of American films": "x",
     "Category:Chinese remakes of foreign films": "x",
     "Category:Chinese remakes of Japanese films": "x",
@@ -155,44 +188,6 @@ fast_data = {
     "Category:Punjabi remakes of Marathi films": "x",
     "Category:Punjabi remakes of Tamil films": "x",
     "Category:Punjabi remakes of Telugu films": "x",
-    "Category:Remakes of American films": "x",
-    "Category:Remakes of Argentine films": "x",
-    "Category:Remakes of Australian films": "x",
-    "Category:Remakes of Austrian films": "x",
-    "Category:Remakes of Belgian films": "x",
-    "Category:Remakes of Brazilian films": "x",
-    "Category:Remakes of British films": "x",
-    "Category:Remakes of Burmese films": "x",
-    "Category:Remakes of Canadian films": "x",
-    "Category:Remakes of Chilean films": "x",
-    "Category:Remakes of Chinese films": "x",
-    "Category:Remakes of Danish films": "x",
-    "Category:Remakes of Dutch films": "x",
-    "Category:Remakes of Finnish films": "x",
-    "Category:Remakes of French films": "x",
-    "Category:Remakes of German films": "x",
-    "Category:Remakes of Hong Kong films": "x",
-    "Category:Remakes of Hungarian films": "x",
-    "Category:Remakes of Icelandic films": "x",
-    "Category:Remakes of Indian films": "x",
-    "Category:Remakes of Indian television series": "x",
-    "Category:Remakes of Indonesian films": "x",
-    "Category:Remakes of Irish films": "x",
-    "Category:Remakes of Italian films": "x",
-    "Category:Remakes of Japanese films": "x",
-    "Category:Remakes of Malaysian films": "x",
-    "Category:Remakes of Mexican films": "x",
-    "Category:Remakes of Norwegian films": "x",
-    "Category:Remakes of Pakistani films": "x",
-    "Category:Remakes of Philippine films": "x",
-    "Category:Remakes of Russian films": "x",
-    "Category:Remakes of South Korean films": "x",
-    "Category:Remakes of Spanish films": "x",
-    "Category:Remakes of Sri Lankan films": "x",
-    "Category:Remakes of Swedish films": "x",
-    "Category:Remakes of Taiwanese films": "x",
-    "Category:Remakes of Thai films": "x",
-    "Category:Remakes of Turkish films": "x",
     "Category:Sound film remakes of silent films": "x",
     "Category:South Korean remakes of Brazilian films": "x",
     "Category:South Korean remakes of foreign films": "x",
@@ -222,14 +217,20 @@ fast_data = {
     "Category:Telugu remakes of Punjabi films": "x",
     "Category:Telugu remakes of Tamil films": "x",
     "Category:Thai remakes of foreign films": "x",
-    "Category:Thai remakes of Taiwanese films": "x",
+    "Category:Thai remakes of Taiwanese films": ""
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
-@pytest.mark.fast
-def test_Keep_it_last_extended(category: str, expected: str) -> None:
-    # Arabic translation of term "remakes of" ("معاد إنتاجها") should be at last:
+TEMPORAL_CASES = [
+    ("test_Keep_it_last_extended", fast_data),
+    ("test_Keep_it_last_empty", fast_data_empty),
+]
 
-    label = resolve_arabic_category_label(category)
-    assert label == expected
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.dump
+def test_temporal(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
