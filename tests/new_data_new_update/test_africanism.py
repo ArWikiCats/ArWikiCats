@@ -63,14 +63,14 @@ TEMPORAL_CASES = [
 @pytest.mark.fast
 def test_africanism(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", africanism_empty.items(), ids=list(africanism_empty.keys()))
 @pytest.mark.fast
 def test_africanism_empty(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)

@@ -60,4 +60,4 @@ def test_pan_arican():
 @pytest.mark.slow
 def test_pan_arican_dump(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected

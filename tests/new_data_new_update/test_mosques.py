@@ -15,4 +15,4 @@ data = {
 @pytest.mark.fast
 def test_mosques(category, expected) -> None:
     label = resolve_arabic_category_label(category)
-    assert label.strip() == expected
+    assert label == expected
