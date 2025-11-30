@@ -5,7 +5,7 @@ import re
 import functools
 
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from .patterns import load_keys_to_pattern
+from .patterns import load_keys_to_pattern_new
 
 Sports_Keys_For_Jobs_simple = {
     "wheelchair automobile racing": "سباق سيارات على كراسي متحركة",
@@ -41,7 +41,7 @@ Sports_Keys_For_Jobs_simple = {
     "wheelchair shot put": "دفع ثقل على كراسي متحركة",
 }
 
-new_pattern = load_keys_to_pattern(SPORTS_KEYS_FOR_JOBS)
+new_pattern = fr"(?<!\w)({load_keys_to_pattern_new(SPORTS_KEYS_FOR_JOBS)})(?!\w)"
 
 RE_KEYS_NEW = re.compile(new_pattern, re.I)
 
