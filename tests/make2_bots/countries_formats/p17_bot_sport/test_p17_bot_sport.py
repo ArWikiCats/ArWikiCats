@@ -140,7 +140,7 @@ data_1 = {
 @pytest.mark.fast
 def test_get_p17_with_sport_1(category, expected) -> None:
     label = get_p17_with_sport(category)
-    assert label.strip() == expected.strip()
+    assert label == expected
 
 # =========================================================
 #                   Get_Sport_Format_xo_en_ar_is_P17
@@ -157,7 +157,7 @@ data2 = {
 @pytest.mark.fast
 def test_Get_Sport_Format_xo_en_ar_is_P17(category, expected_key) -> None:
     label = Get_Sport_Format_xo_en_ar_is_P17(category)
-    assert label.strip() == expected_key
+    assert label == expected_key
 
 
 # =========================================================
