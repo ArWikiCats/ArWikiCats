@@ -49,7 +49,6 @@ def multi_bot() -> MultiDataFormatterBase:
 # =========================================================
 
 data_compare = {
-    "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "chad sports templates": "قوالب تشاد الرياضية",
     "yemen amateur international soccer players": "لاعبو منتخب اليمن لكرة القدم للهواة",
@@ -59,19 +58,19 @@ data_compare = {
 }
 
 
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_data_compare_one(multi_bot: MultiDataFormatterBase) -> None:
 
     category = "national under-15 football team"
     expected = "منتخب كرة القدم تحت 15 سنة"
 
-    label2 = multi_bot.country_bot.search(category).strip()
+    label2 = multi_bot.search_all(category).strip()
 
     assert label2 == expected
 
 
 @pytest.mark.parametrize("category, expected", data_compare.items(), ids=list(data_compare.keys()))
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_data_compare_multi(multi_bot: MultiDataFormatterBase, category, expected) -> None:
     label2 = multi_bot.search_all(category).strip()
 

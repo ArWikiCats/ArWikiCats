@@ -3,7 +3,7 @@
 import functools
 from typing import Dict
 from ...helps import len_print
-from ...translations_formats import FormatData, format_multi_data
+from ...translations_formats import FormatData, format_multi_data, MultiDataFormatterBase
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
@@ -148,7 +148,7 @@ def get_con_3_lab_sports(suffix, country_start="", category="") -> str:
 
 
 @functools.lru_cache(maxsize=1)
-def _load_bot() -> str:
+def _load_bot() -> FormatData:
     formatted_data = _build_en_ar_is_p17()
     return FormatData(
         formatted_data,
@@ -159,7 +159,7 @@ def _load_bot() -> str:
 
 
 @functools.lru_cache(maxsize=1)
-def _load_multi_bot() -> str:
+def _load_multi_bot() -> MultiDataFormatterBase:
     under_data = {
         "under-13": "تحت 13 سنة",
         "under-14": "تحت 14 سنة",
@@ -189,7 +189,7 @@ def _load_multi_bot() -> str:
 @functools.lru_cache(maxsize=1000)
 def get_en_ar_is_p17_label_multi(category: str) -> str:
     nat_bot = _load_multi_bot()
-    return nat_bot.search(category).strip() or nat_bot.country_bot.search(category).strip()
+    return nat_bot.search_all(category)
 
 
 # @dump_data(enable=1)
