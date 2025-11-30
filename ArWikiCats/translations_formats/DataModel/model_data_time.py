@@ -17,7 +17,7 @@ class YearFormatData:
     It mimics FormatData behavior but for time values extracted by regex.
     """
 
-    def __init__(self, key_placeholder: str, value_placeholder: str):
+    def __init__(self, key_placeholder: str, value_placeholder: str) -> None:
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
 

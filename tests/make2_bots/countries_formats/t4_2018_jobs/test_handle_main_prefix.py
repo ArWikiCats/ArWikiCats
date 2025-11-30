@@ -46,7 +46,7 @@ data = {
     ids=list(data.keys()),
 )
 @pytest.mark.fast
-def testhandle_main_prefix(case_key, case_data):
+def testhandle_main_prefix(case_key: str, case_data: dict[str, str]) -> None:
     category_original = case_data["category_original"]
 
     result_category, main_ss, main_lab = handle_main_prefix(

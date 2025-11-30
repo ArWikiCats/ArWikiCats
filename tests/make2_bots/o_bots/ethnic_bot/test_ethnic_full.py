@@ -9,7 +9,7 @@ from ArWikiCats.make_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
 
 
 @pytest.fixture(autouse=True)
-def clear_lru_caches():
+def clear_lru_caches() -> None:
     """Clear caches before each test."""
     ethnic_mod.ethnic_label.cache_clear()
     ethnic_mod.ethnic_culture.cache_clear()

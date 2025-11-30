@@ -30,7 +30,7 @@ examples = {"snooker players": "لاعبو سنوكر"}
 
 
 @pytest.fixture
-def bot():
+def bot() -> FormatData:
     return FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 

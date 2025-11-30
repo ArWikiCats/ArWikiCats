@@ -21,7 +21,7 @@ def data_list() -> Dict[str, str]:
 
 
 @pytest.fixture
-def bot(formatted_data: Dict[str, str], data_list: Dict[str, str]):
+def bot(formatted_data: Dict[str, str], data_list: Dict[str, str]) -> FormatData:
     return FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 

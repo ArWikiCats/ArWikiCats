@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Callable
 
 
-def dump_diff(data, file_name, _sort=True):
+def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
     if not data:
         return
 
@@ -25,7 +25,7 @@ def dump_diff(data, file_name, _sort=True):
         print(f"Error writing diff data: {e}")
 
 
-def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False):
+def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False) -> tuple[dict, dict]:
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
     diff = {}

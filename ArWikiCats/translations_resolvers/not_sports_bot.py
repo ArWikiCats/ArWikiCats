@@ -29,7 +29,7 @@ nat_bot = FormatData(
 )
 
 
-def resolve_en_is_P17_ar_is_P17(category: str):
+def resolve_en_is_P17_ar_is_P17(category: str) -> str:
     return nat_bot.search(category)
 
 

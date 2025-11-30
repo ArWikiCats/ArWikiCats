@@ -4,7 +4,7 @@
 from ArWikiCats.fix.mv_years import move_years
 
 
-def load_test_move_years(data):
+def load_test_move_years(data: dict) -> None:
     diff_list = []
     same = 0
     for title, expected in data.items():

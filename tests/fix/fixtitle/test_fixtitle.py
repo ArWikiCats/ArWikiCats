@@ -4,7 +4,7 @@
 from ArWikiCats.fix.fixtitle import fixlab
 
 
-def load_test_fixlab_data(data):
+def load_test_fixlab_data(data: dict) -> None:
     expected_list = []
     diff_list = []
     same = 0

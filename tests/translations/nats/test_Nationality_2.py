@@ -39,10 +39,10 @@ def make_entry(
 # -------------------------------------------------------------------
 
 
-def test_load_sources_returns_normalized_entries(monkeypatch) -> None:
+def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch) -> None:
     """load_sources should return dict of NationalityEntry with all keys present and string values."""
 
-    def fake_open_json_file(name: str):
+    def fake_open_json_file(name: str) -> dict[str, dict[str, str]] | dict:
         if name == "nationalities/All_Nat_o.json":
             return {
                 "yemeni": {"en": "yemen", "ar": "اليمن", "men": "يمني"},
@@ -77,7 +77,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch) -> None:
 def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch) -> None:
     """hindustani should produce an additional key hindustan in the resulting dict."""
 
-    def fake_open_json_file(name: str):
+    def fake_open_json_file(name: str) -> dict | dict[str, dict[str, str]]:
         if name == "nationalities/All_Nat_o.json":
             return {}
         if name == "nationalities/uu_nats.json":
@@ -99,7 +99,7 @@ def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch) -> None:
 def test_load_sources_merge_all_sources(monkeypatch) -> None:
     """All_Nat_o, uu_nats and Sub_Nat contents should be merged into a single dict."""
 
-    def fake_open_json_file(name: str):
+    def fake_open_json_file(name: str) -> dict[str, dict[str, str]] | dict:
         if name == "nationalities/All_Nat_o.json":
             return {"a": {"en": "A", "ar": "أ"}}
         if name == "nationalities/uu_nats.json":

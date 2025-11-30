@@ -2,6 +2,7 @@
 Tests
 """
 
+from _collections_abc import dict_items
 import pytest
 
 from ArWikiCats.make_bots.languages_bot.langs_w import (
@@ -23,7 +24,7 @@ BASE_LANG_OUTPUT = "اللغة الأبخازية"
 
 
 @pytest.mark.parametrize("suffix,template", lang_key_m.items())
-def testlang_key_m_patterns(suffix, template):
+def testlang_key_m_patterns(suffix: str, template: str) -> None:
     # builds: "<lang> <suffix>"
     category = f"{BASE_LANG} {suffix}"
     result = Lang_work(category)
@@ -35,7 +36,7 @@ def testlang_key_m_patterns(suffix, template):
 
 
 @pytest.mark.parametrize("suffix,template", Films_key_For_nat.items())
-def testFilms_key_For_nat_patterns(suffix, template):
+def testFilms_key_For_nat_patterns(suffix: str, template: str) -> None:
     category = f"{BASE_LANG} {suffix}"
     result = Lang_work(category)
 
@@ -56,7 +57,7 @@ def test_directlanguages_key_lookup(lang: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("suffix,expected_label", jobs_mens_data.items())
-def testjobs_mens_data_patterns(suffix, expected_label):
+def testjobs_mens_data_patterns(suffix: str, expected_label: str) -> None:
     category = f"{BASE_LANG} {suffix}"
     result = Lang_work(category)
 

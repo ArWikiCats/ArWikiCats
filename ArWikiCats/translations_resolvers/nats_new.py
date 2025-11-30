@@ -37,7 +37,7 @@ normalize_other_label = both_bot.normalize_other_label
 normalize_both = both_bot.normalize_both
 
 
-def nats_new_create_label(category: str):
+def nats_new_create_label(category: str) -> str:
     return both_bot.create_label(category)
 
 

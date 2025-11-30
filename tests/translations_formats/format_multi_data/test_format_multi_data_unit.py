@@ -34,7 +34,7 @@ formatted_data = {
 
 
 @pytest.fixture
-def multi_bot():
+def multi_bot() -> MultiDataFormatterBase:
     """Create a format_multi_data instance for testing."""
 
     country_bot = FormatData(
@@ -58,7 +58,7 @@ def multi_bot():
 
 
 @pytest.fixture
-def _multi_bot():
+def _multi_bot() -> MultiDataFormatterBase:
     """Create a format_multi_data instance for testing."""
     return format_multi_data(
         formatted_data=formatted_data,

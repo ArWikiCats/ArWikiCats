@@ -27,7 +27,7 @@ def test_load_json_mapping_filters_empty_entries(monkeypatch: pytest.MonkeyPatch
 def test_load_json_mapping_filters_and_normalizes(monkeypatch) -> None:
     mock_data = {1: "value", "empty": "", "none": None}
 
-    def fake_open_json(file_key: str):
+    def fake_open_json(file_key: str) -> dict:
         assert file_key == "example"
         return mock_data
 

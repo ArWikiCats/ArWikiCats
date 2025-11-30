@@ -3,7 +3,7 @@ from ...translations_resolvers import not_sports_bot
 from . import p17_bot, p17_bot_sport, p17_bot_2, p17_sport_to_move
 
 
-def resolved_countries_formats_labels(normalized_category):
+def resolved_countries_formats_labels(normalized_category) -> str:
     resolved_label = p17_bot.Get_P17_main(normalized_category)
 
     if not resolved_label:

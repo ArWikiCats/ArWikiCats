@@ -3,11 +3,11 @@ import pytest
 from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 
 
-def make_cate(item):
+def make_cate(item) -> str:
     return f"{item['prefix']} {item['suffix']}"
 
 
-def error_show(item, result):
+def error_show(item, result) -> str:
     country_prefix = item.get("prefix", "")
     category_suffix = item.get("suffix", "")
     expected = item.get("expected", "")

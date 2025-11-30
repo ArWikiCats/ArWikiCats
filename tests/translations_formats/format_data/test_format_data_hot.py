@@ -9,7 +9,7 @@ from ArWikiCats.translations_formats import FormatData
 
 
 @pytest.fixture
-def bot():
+def bot() -> FormatData:
     formatted_data = {
         "{en} records": "سجلات {ar}",
         "{en} house-of-representatives elections": "انتخابات مجلس نواب ولاية {ar}",
