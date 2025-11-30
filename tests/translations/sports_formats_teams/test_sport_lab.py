@@ -218,7 +218,7 @@ Get_New_team_xo_data = {
 def test_Get_New_team_xo_data(category, expected) -> None:
     label1 = get_new_team_xo(category)
     assert isinstance(label1, str)
-    assert label1.strip() == expected
+    assert label1 == expected
 
 
 @pytest.mark.fast
