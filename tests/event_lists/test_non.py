@@ -5,6 +5,11 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    # "Category:Non-fiction writers from Northern Ireland": "تصنيف:كتاب غير روائيون من أيرلندا الشمالية",
+    # "Category:Non-fiction writers from the Russian Empire": "تصنيف:كتاب غير روائيون من الإمبراطورية الروسية",
+
+    "Category:Non-fiction writers from Northern Ireland by century": "تصنيف:كتاب غير روائيون من أيرلندا الشمالية حسب القرن",
+
     "Category:20th-century Indian non-fiction writers": "تصنيف:كتاب غير روائيون هنود في القرن 20",
     "Category:20th-century non-fiction writers": "تصنيف:كتاب غير روائيون في القرن 20",
     "Category:1550 non-fiction books": "تصنيف:كتب غير خيالية 1550",
@@ -432,10 +437,7 @@ data1 = {
     "Category:Non-fiction writers by nationality and century": "تصنيف:كتاب غير روائيون حسب الجنسية والقرن",
     "Category:Non-fiction writers from Cornwall": "تصنيف:كتاب غير روائيون من كورنوال",
     "Category:Non-fiction writers from Georgia (country)": "تصنيف:كتاب غير روائيون من جورجيا",
-    "Category:Non-fiction writers from Northern Ireland": "تصنيف:كتاب غير روائيون من أيرلندا الشمالية",
-    "Category:Non-fiction writers from Northern Ireland by century": "تصنيف:كتاب غير روائيون من أيرلندا الشمالية حسب القرن",
     "Category:Non-fiction writers from the Ottoman Empire": "تصنيف:كتاب غير روائيون من الدولة العثمانية",
-    "Category:Non-fiction writers from the Russian Empire": "تصنيف:كتاب غير روائيون من الإمبراطورية الروسية",
     "Category:Non-interventionism": "تصنيف:عدم التدخل",
     "Category:Non-interventionist parties": "تصنيف:أحزاب غير تدخلية",
     "Category:Non-metropolitan counties": "تصنيف:مقاطعات غير حضرية",
