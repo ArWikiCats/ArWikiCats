@@ -24,7 +24,6 @@ ENDS_WITH_TABLE: Mapping[str, str] = {
 }
 
 
-@functools.lru_cache(maxsize=10000)
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
     """Return the suffix and gendered labels for the matched country prefix."""
 
@@ -53,7 +52,6 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
     return "", "", ""
 
 
-@functools.lru_cache(maxsize=10000)
 def _resolve_women_without_article_prefix(category: str) -> str:
     """Resolve categories that start with a women-only prefix template."""
 

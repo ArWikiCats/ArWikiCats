@@ -23,7 +23,7 @@ def test_nats_women_label(category: str, expected_key: str) -> None:
     assert label2 == expected_key
 
 
-all_test_data = {
+all_test_data_integrated = {
     "Category:Non-American television series based on American television series": "تصنيف:مسلسلات تلفزيونية غير أمريكية مبنية على مسلسلات تلفزيونية أمريكية",
     "Category:American television series based on non-American television series": "تصنيف:مسلسلات تلفزيونية أمريكية مبنية على مسلسلات تلفزيونية غير أمريكية",
     "Category:Australian television series based on non-Australian television series": "تصنيف:مسلسلات تلفزيونية أسترالية مبنية على مسلسلات تلفزيونية غير أسترالية",
@@ -87,7 +87,7 @@ data_series_empty = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=list(all_test_data.keys()))
+@pytest.mark.parametrize("category, expected_key", all_test_data_integrated.items(), ids=list(all_test_data_integrated.keys()))
 @pytest.mark.slow
 def test_with_resolve_arabic_category_label(category: str, expected_key: str) -> None:
     label2 = resolve_arabic_category_label(category)
@@ -95,15 +95,16 @@ def test_with_resolve_arabic_category_label(category: str, expected_key: str) ->
 
 
 to_test = [
-    ("test_with_resolve_arabic_category_label", all_test_data),
+    ("all_test_data", all_test_data, nats_women_label),
+    ("test_with_resolve_arabic_category_label", all_test_data_integrated, resolve_arabic_category_label),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_non_dump(name: str, data: dict[str, str]) -> None:
+def test_non_dump(name: str, data: dict[str, str], callback) -> None:
 
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

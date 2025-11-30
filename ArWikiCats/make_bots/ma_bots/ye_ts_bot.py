@@ -93,7 +93,6 @@ def work_titose_names(
     return arlabel
 
 
-@functools.lru_cache(maxsize=10000)
 def _translate_general_category(category_r: str, category: str, start_get_country2: bool = True) -> str:
     """Translate an English category to Arabic label.
 

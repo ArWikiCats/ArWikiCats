@@ -14,7 +14,7 @@ from ...translations import (
 )
 
 
-def _create_pp_priffix(albums_typies) -> dict[str, str]:
+def _create_pp_priffix(albums_typies: dict[str, str]) -> dict[str, str]:
     Pp_Priffix = {
         " memorials": "نصب {} التذكارية",
         " video albums": "ألبومات فيديو {}",
