@@ -16,7 +16,7 @@ def multi_bot() -> MultiDataFormatterBase:
         "under-20": "تحت 20 سنة",
         "under-15": "تحت 15 سنة",
     }
-    data = {
+    formatted_data = {
         "{en} {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم ",
         "{en} {under_en} amateur international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
         "{en} men's {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال",
@@ -34,13 +34,14 @@ def multi_bot() -> MultiDataFormatterBase:
         "yemen": "اليمن",
     }
     return format_multi_data(
-        formatted_data=data,
+        formatted_data=formatted_data,
         data_list=under_data,
         key_placeholder="{under_en}",
         value_placeholder="{under_ar}",
         data_list2=contries_from_nat,
         key2_placeholder="{en}",
         value2_placeholder="{ar}",
+        use_other_formatted_data=True,
     )
 
 

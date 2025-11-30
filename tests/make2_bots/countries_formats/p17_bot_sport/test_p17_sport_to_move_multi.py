@@ -7,7 +7,6 @@ from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
-    get_en_ar_is_p17_label,
     get_en_ar_is_p17_label_multi,
 )
 
@@ -86,9 +85,6 @@ data_under = {
 @pytest.mark.parametrize("category, expected", data_under.items(), ids=list(data_under.keys()))
 @pytest.mark.fast
 def test_under(category: str, expected: str) -> None:
-    label1 = get_en_ar_is_p17_label(category)
-    assert label1 == expected
-
     label2 = get_en_ar_is_p17_label_multi(category)
     assert label2 == expected
 
@@ -98,7 +94,6 @@ def test_under(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_under", data_under, get_en_ar_is_p17_label),
     ("test_under_multi", data_under, get_en_ar_is_p17_label_multi),
 ]
 

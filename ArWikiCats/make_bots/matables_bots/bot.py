@@ -91,8 +91,6 @@ Keep_it_frist = [
     "works by",
 ]
 
-Keep_it_frist2 = ["lists of", "works by", "qualification for", "seasons"]
-
 Add_in_table = [
     "historical documents",
     "road incidents",
@@ -106,27 +104,10 @@ Add_in_table = [
     "censuses",  # تعداد السكان
 ]
 # ---
-# P17_keys = [x for x in pop_new]
-P17_keys = [x for x in list(pop_All_2018)]
-P17_new_keys = " |".join(P17_keys)
-
-# t_tits = r'(' + pop_new_keys + ')\s*(of \w+|in \w+|by \w+|)(by \w+|)'
-# t_tits = '(' + pop_new_keys + '|)(\s*\w+)'
-# pop_new_ke = pop_new_keys
-pop_new_ke = "decades in |valleys of |the spanish empire |events |water resource management in |landmarks in "
-t_start = r"Category\:(" + pop_new_ke + ").*"
-t_tits = r"Category\:(" + pop_new_ke + "|)(" + P17_new_keys + "|)"
-t_other = f"({P17_new_keys}|)"
-# ---
-add_in_to_country = ["solar eclipses"]
-# ---
-army_line = "|".join(military_format_women.keys())
-army_line = f"{army_line}|{'|'.join(military_format_men.keys())}"
-# ---
 for x in all_country_with_nat:
     all_country_with_nat_lower[x.lower()] = all_country_with_nat[x]
 # ---
-Lang_line = f"{'|'.join(languages_pop.keys())}|"
+
 for ss in SPORTS_KEYS_FOR_LABEL:  #
     cd = f"by {ss.lower()} team"
     By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
@@ -150,8 +131,8 @@ players_keys["people"] = "أشخاص"
 
 Add_ar_in = dict(olympics)
 
-for olmp, olmp_lab in Add_ar_in.items():
-    players_keys[olmp] = olmp_lab
+players_keys.update({x: v for x, v in Add_ar_in.items()})
+
 Table_for_frist_word = {
     "typetable": typeTable,
     "Films_O_TT": Films_O_TT,
@@ -165,8 +146,10 @@ def add_to_new_players(en: str, ar: str) -> None:
     """Add a new English/Arabic player label pair to the cache."""
     if not en or not ar:
         return
+
     if not isinstance(en, str) or not isinstance(ar, str):
         return
+
     players_new_keys[en] = ar
 
 
@@ -174,8 +157,10 @@ def add_to_Films_O_TT(en: str, ar: str) -> None:
     """Add a new English/Arabic player label pair to the cache."""
     if not en or not ar:
         return
+
     if not isinstance(en, str) or not isinstance(ar, str):
         return
+
     Films_O_TT[en] = ar
 
 
@@ -190,7 +175,11 @@ len_print.data_len(
 )
 
 __all__ = [
+    "Add_ar_in",
     "players_new_keys",
     "add_to_new_players",
     "add_to_Films_O_TT",
+    "All_P17",
+    "pop_of_in",
+    "pop_new",
 ]

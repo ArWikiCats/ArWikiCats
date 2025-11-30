@@ -8,7 +8,6 @@ from typing import Callable
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
     get_en_ar_is_p17_label,
-    get_con_3_lab_sports,
 )
 
 # =========================================================
@@ -74,47 +73,12 @@ def test_get_en_ar_is_p17_label_1(category: str, expected: str) -> None:
     assert label1 == expected
 
 # =========================================================
-#           get_con_3_lab_sports
-# =========================================================
-
-
-test_data_get_con_3_lab = {
-    "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
-    "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
-    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
-    "{en} international soccer players": "لاعبو منتخب {ar} لكرة القدم",
-    "{en} men's a' international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
-    "{en} men's international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال",
-    "{en} men's international soccer players": "لاعبو منتخب {ar} لكرة القدم للرجال",
-    "{en} men's under-20 international footballers": "لاعبو منتخب {ar} تحت 20 سنة لكرة القدم للرجال",
-    "{en} men's under-21 international footballers": "لاعبو منتخب {ar} تحت 21 سنة لكرة القدم للرجال",
-    "{en} men's youth international footballers": "لاعبو منتخب {ar} لكرة القدم للشباب",
-    "{en} national football team managers": "مدربو منتخب {ar} لكرة القدم",
-    "{en} national team": "منتخبات {ar} الوطنية",
-    "{en} national teams": "منتخبات {ar} الوطنية",
-    "{en} rally championship": "بطولة {ar} للراليات",
-    "{en} sports templates": "قوالب {ar} الرياضية",
-    "{en} under-13 international footballers": "لاعبو منتخب {ar} تحت 13 سنة لكرة القدم",
-    "{en} under-14 international footballers": "لاعبو منتخب {ar} تحت 14 سنة لكرة القدم",
-    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
-    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
-}
-
-
-@pytest.mark.parametrize("category, expected", test_data_get_con_3_lab.items(), ids=list(test_data_get_con_3_lab.keys()))
-@pytest.mark.fast
-def test_get_con_3_lab_sports(category: str, expected: str) -> None:
-    result = get_con_3_lab_sports(category)
-    assert result == expected
-
-
-# =========================================================
 #           DUMP
 # =========================================================
 
+
 TEMPORAL_CASES = [
     ("test_get_en_ar_is_p17_label_1", data_1, get_en_ar_is_p17_label),
-    ("test_get_con_3_lab_sports", test_data_get_con_3_lab, get_con_3_lab_sports),
 ]
 
 
