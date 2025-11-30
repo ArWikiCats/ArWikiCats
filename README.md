@@ -112,7 +112,7 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 
 ## 2.4 المحرك المركزي لحل التسمية
 
-المسؤول عن orchestrating:
+المسؤول عن التنظيم:
 
 `main_processers/main_resolve.py`
 
