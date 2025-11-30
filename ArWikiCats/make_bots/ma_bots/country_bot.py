@@ -44,7 +44,7 @@ class CountryLabelRetriever:
             return get_country_done[country]
 
         logger.debug(">> ----------------- get_country start ----------------- ")
-        logger.info(f'>>>> Get country for "{country}"')
+        logger.debug(f'>>>> Get country for "{country}"')
 
         resolved_label = self._check_basic_lookups(country)
         if resolved_label == "" and start_get_country2:

@@ -7,7 +7,7 @@ It checks the suffix against the following tables:
 
 
 """
-
+import functools
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
@@ -41,6 +41,7 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
     return suffix_label
 
 
+@functools.lru_cache(maxsize=10000)
 def Get_P17_main(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
     """
     Category input in english is nationality, return arabic as country name.

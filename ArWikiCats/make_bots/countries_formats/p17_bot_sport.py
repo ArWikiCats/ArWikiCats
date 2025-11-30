@@ -1,5 +1,6 @@
 """
 """
+import functools
 import re
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
@@ -61,6 +62,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     return con_3_label
 
 
+@functools.lru_cache(maxsize=10000)
 def get_p17_with_sport(category: str) -> str:
     """
     TODO: use FormatData method

@@ -1,6 +1,6 @@
 """ """
 
-import re
+import functools
 
 from ...helps.log import logger
 from ...translations import (
@@ -11,6 +11,7 @@ from ...translations import (
 from .utils import resolve_p17_2_label
 
 
+@functools.lru_cache(maxsize=10000)
 def Get_P17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
     """
     Category input in english is country name, return arabic as mens nationality.

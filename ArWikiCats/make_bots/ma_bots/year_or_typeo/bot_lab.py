@@ -117,7 +117,7 @@ class LabelForStartWithYearOrTypeo:
         self.country_lower = self.country.lower()
         self.country_not_lower = self.country
 
-        logger.info(f'>>>> {self.year_at_first=}, {self.typeo=}, "{self.In=}, {self.country=}, {self.cat_test=}')
+        logger.debug(f'>>>> {self.year_at_first=}, {self.typeo=}, "{self.In=}, {self.country=}, {self.cat_test=}')
 
     # ----------------------------------------------------
     # 2 — HANDLE TYPEO

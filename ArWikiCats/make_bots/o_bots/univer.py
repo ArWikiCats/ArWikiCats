@@ -59,6 +59,7 @@ for major, arabic_label in MAJORS.items():
     UNIVERSITIES_TABLES[f"university-of-the-{normalized_major}"] = template
 
 
+@functools.lru_cache(maxsize=10000)
 def _normalise_category(category: str) -> str:
     """Lowercase and strip ``category`` while removing ``Category:`` prefix."""
 
@@ -68,6 +69,7 @@ def _normalise_category(category: str) -> str:
     return normalized
 
 
+@functools.lru_cache(maxsize=10000)
 def _resolve(normalized_category: str) -> str:
     """Resolve a university-related category to its Arabic label."""
     logger.info(f"<<lightblue>>>> vvvvvvvvvvvv te_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")

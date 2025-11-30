@@ -86,7 +86,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
             logger.debug(f'<<lightblue>> Work_for_me:con_3_lab: "{con_3_lab}" ')
             if cco_lab:
                 country_lab = con_3_lab.format(cco_lab)
-                logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_women new country_lab   "{country_lab}" ')
+                logger.debug(f'<<lightblue>> bot_te_4:all_country_with_nat_ar new country_lab   "{country_lab}" ')
 
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":

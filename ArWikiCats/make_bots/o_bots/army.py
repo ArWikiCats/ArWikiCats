@@ -24,6 +24,7 @@ ENDS_WITH_TABLE: Mapping[str, str] = {
 }
 
 
+@functools.lru_cache(maxsize=10000)
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
     """Return the suffix and gendered labels for the matched country prefix."""
 
@@ -52,6 +53,7 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
     return "", "", ""
 
 
+@functools.lru_cache(maxsize=10000)
 def _resolve_women_without_article_prefix(category: str) -> str:
     """Resolve categories that start with a women-only prefix template."""
 
@@ -132,7 +134,7 @@ def te_army(category: str) -> str:
 
     normalized_category = category.lower().strip()
 
-    logger.info(f"Starting army label resolution, category: {normalized_category}")
+    logger.debug(f"Starting army label resolution, category: {normalized_category}")
 
     suffix, women_label, men_label = _match_country_prefix(normalized_category)
 
@@ -150,7 +152,9 @@ def te_army(category: str) -> str:
     if not resolved_label:
         resolved_label = _resolve_men_suffix(suffix, men_label)
 
-    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
+    if resolved_label:
+        logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
+
     return resolved_label
 
 

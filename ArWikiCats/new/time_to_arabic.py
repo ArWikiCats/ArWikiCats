@@ -9,6 +9,7 @@ and Arabic, and a conversion function to translate English expressions.
 """
 
 import re
+import functools
 
 century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–\- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
@@ -186,6 +187,7 @@ def convert_time_to_arabic(en_year: str) -> str:
     return ""
 
 
+@functools.lru_cache(maxsize=10000)
 def match_en_return_ar(category: str) -> dict[str, str]:
     """Convert an English time expression into its Arabic equivalent."""
     en_years = match_time_en(category)

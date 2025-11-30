@@ -19,7 +19,7 @@ def get_parties_lab(party: str) -> str:
     """
 
     normalized_party = party.strip()
-    logger.info(f'get_parties_lab party:"{party}"')
+    logger.debug(f'get_parties_lab party:"{party}"')
 
     def _lookup(prefix: str) -> str:
         """Retrieve a party label by suffix prefix key."""

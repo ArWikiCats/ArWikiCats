@@ -100,6 +100,7 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
     return category, main_ss, main_lab
 
 
+@functools.lru_cache(maxsize=10000)
 def _get_direct_lookup(category: str) -> str:
     """Try direct dictionary lookups for the category."""
     if category == "people":
