@@ -68,7 +68,7 @@ class FormatData:
         final_label = template_label.replace(self.value_placeholder, sport_label)
 
         if self.value_placeholder not in final_label:
-            return final_label
+            return final_label.strip()
 
         return ""
 

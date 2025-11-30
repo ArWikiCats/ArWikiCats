@@ -106,7 +106,7 @@ def _load_bot() -> str:
 
 def sport_formts_en_ar_is_p17_label_new(category: str) -> str:
     nat_bot = _load_bot()
-    return nat_bot.search(category)
+    return nat_bot.search(category).strip()
 
 
 # @dump_data(enable=1)
@@ -144,7 +144,7 @@ def sport_formts_en_ar_is_p17_label(category: str) -> str:
 
     logger.debug(f'<<lightblue>>>>>> Get_P17_with_p17_sport: test_60: new cnt_la "{resolved_label}" ')
 
-    return resolved_label
+    return resolved_label.strip()
 
 
 __all__ = [

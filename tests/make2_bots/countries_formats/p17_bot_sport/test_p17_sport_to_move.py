@@ -54,19 +54,19 @@ data_1 = {
     "tunisia rally championship": "بطولة تونس للراليات",
     "tunisia sports templates": "قوالب تونس الرياضية",
     "ukraine women's international footballers": "لاعبات منتخب أوكرانيا لكرة القدم للسيدات",
-    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم ",
+    "venezuela international footballers": "لاعبو منتخب فنزويلا لكرة القدم",
     "venezuela rally championship": "بطولة فنزويلا للراليات",
     "yemen international footballers": "لاعبو منتخب اليمن لكرة القدم",
     "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
     "yemen rally championship": "بطولة اليمن للراليات",
     "yemen sports templates": "قوالب اليمن الرياضية",
-    "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم ",
-    "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم ",
-    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم ",
+    "yemen under-13 international footballers": "لاعبو منتخب اليمن تحت 13 سنة لكرة القدم",
+    "yemen under-14 international footballers": "لاعبو منتخب اليمن تحت 14 سنة لكرة القدم",
+    "zambia international footballers": "لاعبو منتخب زامبيا لكرة القدم",
     "zambia men's youth international footballers": "لاعبو منتخب زامبيا لكرة القدم للشباب",
     "zambia rally championship": "بطولة زامبيا للراليات",
     "zambia women's international footballers": "لاعبات منتخب زامبيا لكرة القدم للسيدات",
-    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم ",
+    "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم",
     "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
     "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
 }
@@ -89,8 +89,8 @@ def test_sport_formts_en_ar_is_p17_label_1(category, expected) -> None:
 test_data_get_con_3_lab = {
     "amateur international footballers": "لاعبو منتخب {} لكرة القدم للهواة",
     "amateur international soccer players": "لاعبو منتخب {} لكرة القدم للهواة",
-    "international footballers": "لاعبو منتخب {} لكرة القدم ",
-    "international soccer players": "لاعبو منتخب {} لكرة القدم ",
+    "international footballers": "لاعبو منتخب {} لكرة القدم",
+    "international soccer players": "لاعبو منتخب {} لكرة القدم",
     "men's a' international footballers": "لاعبو منتخب {} لكرة القدم للرجال للمحليين",
     "men's international footballers": "لاعبو منتخب {} لكرة القدم للرجال",
     "men's international soccer players": "لاعبو منتخب {} لكرة القدم للرجال",
@@ -102,8 +102,8 @@ test_data_get_con_3_lab = {
     "national teams": "منتخبات {} الوطنية",
     "rally championship": "بطولة {} للراليات",
     "sports templates": "قوالب {} الرياضية",
-    "under-13 international footballers": "لاعبو منتخب {} تحت 13 سنة لكرة القدم ",
-    "under-14 international footballers": "لاعبو منتخب {} تحت 14 سنة لكرة القدم ",
+    "under-13 international footballers": "لاعبو منتخب {} تحت 13 سنة لكرة القدم",
+    "under-14 international footballers": "لاعبو منتخب {} تحت 14 سنة لكرة القدم",
     "women's international footballers": "لاعبات منتخب {} لكرة القدم للسيدات",
     "women's youth international footballers": "لاعبات منتخب {} لكرة القدم للشابات",
 }
@@ -130,7 +130,7 @@ TEMPORAL_CASES = [
 @pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
 @pytest.mark.dump
 def test_all_dump(name, data, callback):
-    expected, diff_result = one_dump_test(data, callback, do_strip=True)
+    expected, diff_result = one_dump_test(data, callback, do_strip=False)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
