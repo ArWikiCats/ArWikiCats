@@ -14,7 +14,7 @@ from ...fix import fixtitle
 from ...helps.log import logger
 from ...translations import Jobs_new, jobs_mens_data
 from ...utils import get_relation_word, get_value_from_any_table
-from ...new import year_lab
+from ...new import time_to_arabic
 from ..format_bots import category_relation_mapping
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import Films_O_TT, players_new_keys
@@ -45,7 +45,7 @@ def find_lab(category: str, category_r: str) -> str:
         _lab = get_value_from_any_table(cate_low, [players_new_keys, jobs_mens_data, Jobs_new])
 
     if not _lab:
-        _lab = year_lab.make_year_lab(cate_low)
+        _lab = time_to_arabic.convert_time_to_arabic(cate_low)
 
     if _lab:
         logger.info(f'>>>> <<lightyellow>>test: cat "{category_r}", _lab:"{_lab}"')

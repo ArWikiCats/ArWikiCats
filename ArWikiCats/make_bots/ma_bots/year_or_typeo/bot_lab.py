@@ -14,7 +14,7 @@ from ....helps.log import logger
 # from ....helps.log import LoggerWrap
 from ....translations import Nat_mens, typeTable
 from ....utils import check_key_in_tables
-from ....new import year_lab
+from ....new import time_to_arabic
 from ...format_bots import category_relation_mapping
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.bot import Films_O_TT, New_Lan
@@ -175,7 +175,7 @@ class LabelForStartWithYearOrTypeo:
         if not self.year_at_first:
             return
 
-        self.year_labe = year_lab.make_year_lab(self.year_at_first)
+        self.year_labe = time_to_arabic.convert_time_to_arabic(self.year_at_first)
 
         if not self.year_labe:
             logger.info(f"No label for year_at_first({self.year_at_first}), {self.arlabel=}")

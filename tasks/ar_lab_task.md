@@ -49,7 +49,7 @@ Resolves geographic entities via:
 * bys
 * team_work
 * nats
-* year_lab
+* time_to_arabic
 * get_pop_All_18
 
 ### D. Label Composition Layer

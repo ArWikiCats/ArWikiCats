@@ -16,7 +16,7 @@ from ....translations import (
 )
 from ... import tmp_bot
 from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ....new import year_lab
+from ....new import time_to_arabic
 from ...format_bots import (
     Tabl_with_in,
     for_table,
@@ -279,7 +279,7 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
             label = f"في {cco2_}"
 
     if not label:
-        label = year_lab.make_month_lab(country_lower)
+        label = time_to_arabic.convert_time_to_arabic(country_lower)
     if not label:
         label = te_films(country)
     if not label:
