@@ -18,7 +18,7 @@ def test_get_reg_result_1():
     # Test with basic inputs
     # >>>> self.year_at_first='19th ', self.typeo='', "self.In='', self.country='government of turkey', self.cat_test='government of turkey'
     result = get_reg_result("Category:19th government of turkey")
-    assert result.year_at_first.strip() == "19th"
+    assert result.year_at_first_strip == "19th"
     assert result.In == ""
     assert result.typeo == ""
     assert result.country == "government of turkey"
@@ -29,7 +29,7 @@ def test_get_reg_result():
     # Test with basic inputs
     result = get_reg_result("Category:2025 in fishes")
     assert hasattr(result, "year_at_first")
-    assert result.year_at_first.strip() == "2025"
+    assert result.year_at_first_strip == "2025"
     assert hasattr(result, "typeo")
     assert hasattr(result, "In")
     assert hasattr(result, "country")
@@ -46,15 +46,15 @@ def test_get_reg_result():
 
 def test_typies():
     # Test that TypiesResult class can be instantiated
-    typies_instance = TypiesResult(year_at_first="2020", typeo="test", In="in", country="us", cat_test="test")
-    assert typies_instance.year_at_first.strip() == "2020"
+    typies_instance = TypiesResult(year_at_first="2020", year_at_first_strip="2020", typeo="test", In="in", country="us", cat_test="test")
+    assert typies_instance.year_at_first_strip == "2020"
     assert typies_instance.typeo == "test"
     assert typies_instance.In == "in"
     assert typies_instance.country == "us"
     assert typies_instance.cat_test == "test"
 
     # Test with empty values
-    typies_empty = TypiesResult(year_at_first="", typeo="", In="", country="", cat_test="")
+    typies_empty = TypiesResult(year_at_first="", year_at_first_strip="", typeo="", In="", country="", cat_test="")
     assert typies_empty.year_at_first == ""
     assert typies_empty.typeo == ""
     assert typies_empty.In == ""
@@ -215,7 +215,7 @@ class TestCombinedPatterns:
     )
     def test_combined(self, category, year, typeo, In, country):
         out = get_reg_result(category)
-        assert out.year_at_first.strip() == year
+        assert out.year_at_first_strip == year
         assert out.typeo == typeo
         assert out.In.strip() == In
         assert out.country == country
@@ -251,7 +251,7 @@ class TestMonthSuppression:
     )
     def test_month_suppression(self, category, expected):
         out = get_reg_result(category)
-        assert out.year_at_first.strip() == expected
+        assert out.year_at_first_strip == expected
 
 
 # -----------------------------------------------------------
@@ -285,7 +285,7 @@ def test_all_based_types(eng):
     category = f"Category:1999 {eng} in France"
     out = get_reg_result(category)
     assert out.typeo.strip().lower() == eng.strip().lower()
-    assert out.year_at_first.strip().lower() == "1999"
+    assert out.year_at_first_strip.lower() == "1999"
     assert out.country.strip().lower() == "france"
 
 

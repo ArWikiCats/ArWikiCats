@@ -36,6 +36,7 @@ REGEX_SUB_CATEGORY_LOWERCASE = re.compile(r"category:", re.IGNORECASE)
 @dataclass
 class TypiesResult:
     year_at_first: str
+    year_at_first_strip: str
     typeo: str
     In: str
     country: str
@@ -88,6 +89,7 @@ def get_reg_result(category_r: str) -> TypiesResult:
 
     return TypiesResult(
         year_at_first=year_first,
+        year_at_first_strip=year_first.strip(),
         typeo=typeo,
         In=In,
         country=country,
