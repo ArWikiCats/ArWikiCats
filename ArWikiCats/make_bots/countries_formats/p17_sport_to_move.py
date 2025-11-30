@@ -3,7 +3,7 @@
 import functools
 from typing import Dict
 from ...helps import len_print
-from ...translations_formats import FormatData
+from ...translations_formats import FormatData, format_multi_data
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
@@ -103,7 +103,6 @@ def _build_en_ar_is_p17() -> Dict[str, str]:
     SPORT_FORMTS_EN_AR_IS_P17 len: 364 (34 base + 330 with_years)
     """
     YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-
     label_index: Dict[str, str] = dict(main_data)
 
     # Under-year managers/players
@@ -156,10 +155,38 @@ def _load_bot() -> str:
     )
 
 
+@functools.lru_cache(maxsize=1)
+def _load_multi_bot() -> str:
+    under_data = {
+        "under-13": "تحت 13",
+        "under-14": "تحت 14",
+        "under-15": "تحت 15",
+        "under-16": "تحت 16",
+        "under-17": "تحت 17",
+        "under-18": "تحت 18",
+        "under-19": "تحت 19",
+        "under-20": "تحت 20",
+        "under-21": "تحت 21",
+        "under-23": "تحت 23",
+        "under-24": "تحت 24",
+    }
+    data = main_data | main_data_under
+
+    return format_multi_data(
+        formatted_data=data,
+        data_list=contries_from_nat,
+        key_placeholder=KEY_EN_PLACEHOLDER,
+        value_placeholder=KEY_AR_PLACEHOLDER,
+        data_list2=under_data,
+        key2_placeholder="{under_ar}",
+        value2_placeholder="{under_ar}",
+    )
+
+
 # @dump_data(enable=1)
 @functools.lru_cache(maxsize=1000)
-def sport_formts_en_ar_is_p17_label(category: str) -> str:
-    nat_bot = _load_bot()
+def sport_formts_en_ar_is_p17_label(category: str, use_multi=False) -> str:
+    nat_bot = _load_bot() if not use_multi else _load_multi_bot()
     return nat_bot.search(category).strip()
 
 

@@ -144,8 +144,11 @@ def test_sport_formts_en_ar_is_p17_label_1(category, expected) -> None:
 @pytest.mark.parametrize("category, expected", data_under.items(), ids=list(data_under.keys()))
 @pytest.mark.fast
 def test_sport_formts_en_ar_is_p17_label_data_under(category, expected) -> None:
-    label = sport_formts_en_ar_is_p17_label(category)
-    assert label == expected
+    label1 = sport_formts_en_ar_is_p17_label(category)
+    assert label1 == expected
+
+    label2 = sport_formts_en_ar_is_p17_label(category, use_multi=True)
+    assert label2 == expected
 
 
 # =========================================================

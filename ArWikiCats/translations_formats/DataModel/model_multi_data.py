@@ -146,3 +146,6 @@ class MultiDataFormatterBase:
 
         logger.debug(f"Translated {category=} → {label=}")
         return label
+
+    def search(self, category: str) -> str:
+        return self.create_label(category)
