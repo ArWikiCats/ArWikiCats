@@ -19,13 +19,15 @@ data1 = {
 }
 
 data2 = {
-    "Category:Mixed martial artists from Massachusetts": "تصنيف:مقاتلو فنون قتالية مختلطة من ماساتشوستس",
-    "Category:People from Buenos Aires": "تصنيف:أشخاص من بوينس آيرس",
-    "Category:People from Westchester County, New York by city": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب المدينة",
     "Category:People from Westchester County, New York by hamlet": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب القرية",
+    "Category:People from New York": "تصنيف:أشخاص من نيويورك",
+
+    "Category:People from Westchester County, New York by city": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب المدينة",
     "Category:People from Westchester County, New York by town": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب البلدة",
     "Category:People from Westchester County, New York by village": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك) حسب القرية",
-    "Category:People from Westchester County, New York": "تصنيف:أشخاص من مقاطعة ويستتشستر (نيويورك)",
+
+    "Category:Mixed martial artists from Massachusetts": "تصنيف:مقاتلو فنون قتالية مختلطة من ماساتشوستس",
+    "Category:People from Buenos Aires": "تصنيف:أشخاص من بوينس آيرس",
     "Category:Players of American football from Massachusetts": "تصنيف:لاعبو كرة قدم أمريكية من ماساتشوستس",
     "Category:Professional wrestlers from Massachusetts": "تصنيف:مصارعون محترفون من ماساتشوستس",
     "Category:Racing drivers from Massachusetts": "تصنيف:سائقو سيارات سباق من ماساتشوستس",
