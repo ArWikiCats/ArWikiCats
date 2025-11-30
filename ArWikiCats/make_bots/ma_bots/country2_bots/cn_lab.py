@@ -35,7 +35,7 @@ def make_cnt_lab(tat_o: str, country2: str, c_2_l: str, c_1_l: str, cona_1: str,
                 resolved_label += " في "
         if cona_2 not in By_table:
             # Films_O_TT[country2] = resolved_label
-            add_to_Films_O_TT(country2, country2)
+            add_to_Films_O_TT(country2, resolved_label)
             # print(f"cn_lab: {country2=}, {resolved_label=}\n"*10)
         else:
             logger.info("<<lightblue>>>>>> cona_2 in By_table")

@@ -58,4 +58,4 @@ pop_format_test_data = {
 @pytest.mark.fast
 def test_get_p17_new(category, expected):
     result = Get_P17_main(category)
-    assert result.strip() == expected.strip()
+    assert result == expected

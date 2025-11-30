@@ -8,7 +8,7 @@ def resolved_countries_formats_labels(normalized_category):
 
     if not resolved_label:
         #  [yemen international soccer players] : "تصنيف:لاعبو منتخب اليمن لكرة القدم",
-        resolved_label = p17_sport_to_move.sport_formts_en_ar_is_p17_label(normalized_category)
+        resolved_label = p17_sport_to_move.get_en_ar_is_p17_label(normalized_category)
 
     if not resolved_label:
         # [yemen international soccer players] : "تصنيف:لاعبو كرة قدم دوليون من اليمن",

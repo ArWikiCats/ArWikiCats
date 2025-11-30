@@ -267,10 +267,11 @@ data = {
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category, expected_key", data.items(), ids=list(data.keys()))
-def test_all(category, expected_key):
+@pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
+def test_all(category, expected):
     result = get_new_team_xo(category)
-    assert result.strip() == expected_key, f"Mismatch for {category}"
+    assert result == expected, f"Mismatch for {category}"
+
 
 def test_mens_softball_world_cup_regression() -> None:
     """The resolver should correctly translate the softball world cup query."""

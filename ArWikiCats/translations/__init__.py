@@ -69,7 +69,6 @@ from .politics.military_keys import (
     military_format_women_without_al_from_end,
 )
 from .politics.ministers import ministrs_tab_for_pop_format
-from .sports.skeys import SPORT_FORMTS_EN_AR_IS_P17
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.olympics_data import olympics
 from .sports.Sport_key import (
@@ -105,14 +104,14 @@ from .type_tables import typeTable
 from .utils.match_sport_keys import match_sport_key
 
 from .sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
-from .utils import apply_pattern_replacement
+from .utils import apply_pattern_replacements
 from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
 
 
 __all__ = [
     "US_STATES",
     "sport_formts_enar_p17_jobs",
-    "apply_pattern_replacement",
+    "apply_pattern_replacements",
     "SPORT_FORMTS_ENAR_P17_TEAM",
     "typeTable",
     "teams_new_founder",
@@ -211,7 +210,6 @@ __all__ = [
     "pop_All_2018_bot",
     #
     # "TEAMS_NEW",
-    "SPORT_FORMTS_EN_AR_IS_P17",
     #
     "sport_lab_oioioi_load",
     "NAT_P17_OIOI",

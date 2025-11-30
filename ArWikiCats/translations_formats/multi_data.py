@@ -41,7 +41,7 @@ def format_multi_data(
         text_before=text_before,
     )
     other_bot = FormatData(
-        {},
+        formatted_data,  # to use from search_all
         data_list2,
         key_placeholder=key2_placeholder,
         value_placeholder=value2_placeholder,
