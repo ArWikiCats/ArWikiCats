@@ -6,6 +6,9 @@
 from typing import Dict
 
 CHANGE_KEY_MAPPINGS: Dict[str, str] = {
+    # TODO: find why this used in the code
+    "players in": "playerss in",
+
     "adaptations of works": "adaptations-of-works",
     # "people of the ottoman empire" :"people-of-the-ottoman-empire",
     # "sentenced to death" :"sentenced-to-death",
@@ -40,7 +43,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "city of liverpool f.c.": "city-of-liverpool f.c.",
     "medallists": "medalists",
     "saudi arabian": "saudiarabian",
-    "players in": "playerss in",
     r"athletes \(track and field\)": "track and field athletes",
     "athletes (track and field)": "track and field athletes",
     "world championships in athletics": "world championships-in-athletics",
