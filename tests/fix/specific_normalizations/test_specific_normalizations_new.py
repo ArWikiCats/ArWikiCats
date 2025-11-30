@@ -32,7 +32,7 @@ class TestFixFormula:
             ("فورمولا 1 2010", "فورمولا 1 في سنة 2010"),
         ],
     )
-    def test_formula_1_with_different_years(self, ar_label, expected) -> None:
+    def test_formula_1_with_different_years(self, ar_label: str, expected: str) -> None:
         """Test Formula 1 with different years."""
         en_label = f"Formula 1 {ar_label.split()[-1]}"
         result = fix_formula(ar_label, en_label)
@@ -69,7 +69,7 @@ class TestApplyCategorySpecificNormalizations:
             ("كتب بواسطة مؤلفين", "كتب مؤلفين"),
         ],
     )
-    def test_fix_bys_replacements(self, ar_label, expected) -> None:
+    def test_fix_bys_replacements(self, ar_label: str, expected: str) -> None:
         """Test removal of 'بواسطة' after certain words."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -82,7 +82,7 @@ class TestApplyCategorySpecificNormalizations:
             ("أفلام أنتجت بواسطة شركات", "أفلام أنتجها شركات"),
         ],
     )
-    def test_specific_bys_replacements(self, ar_label, expected) -> None:
+    def test_specific_bys_replacements(self, ar_label: str, expected: str) -> None:
         """Test specific 'بواسطة' replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -96,7 +96,7 @@ class TestApplyCategorySpecificNormalizations:
             ("منتجات اخترعت الآن", "منتجات عرضت الآن"),
         ],
     )
-    def test_invention_replacements(self, ar_label, expected) -> None:
+    def test_invention_replacements(self, ar_label: str, expected: str) -> None:
         """Test replacement of 'اخترعت' with 'عرضت'."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -128,7 +128,7 @@ class TestApplyCategorySpecificNormalizations:
             ("مدربو رياضية مختلفة", "مدربو رياضة مختلفة"),
         ],
     )
-    def test_general_replacements(self, ar_label, expected) -> None:
+    def test_general_replacements(self, ar_label: str, expected: str) -> None:
         """Test general text replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -144,7 +144,7 @@ class TestApplyCategorySpecificNormalizations:
             ("من في الحديقة", "في الحديقة"),
         ],
     )
-    def test_duplicate_words_removal(self, ar_label, expected) -> None:
+    def test_duplicate_words_removal(self, ar_label: str, expected: str) -> None:
         """Test removal of duplicate prepositions."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -166,7 +166,7 @@ class TestApplyCategorySpecificNormalizations:
             ("أشخاص أصل عربي", "أشخاص من أصل عربي"),
         ],
     )
-    def test_specific_phrase_replacements(self, ar_label, expected) -> None:
+    def test_specific_phrase_replacements(self, ar_label: str, expected: str) -> None:
         """Test specific phrase replacements."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected
@@ -178,7 +178,7 @@ class TestApplyCategorySpecificNormalizations:
             ("أفلام أنتهت حسب السنة", "أفلام حسب سنة انتهاء العرض"),
         ],
     )
-    def test_tv_show_year_normalizations(self, ar_label, expected) -> None:
+    def test_tv_show_year_normalizations(self, ar_label: str, expected: str) -> None:
         """Test TV show year normalization patterns."""
         result = apply_category_specific_normalizations(ar_label, "")
         assert result == expected

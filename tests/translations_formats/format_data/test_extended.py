@@ -11,22 +11,22 @@ from ArWikiCats.translations_formats import FormatData
 
 
 @pytest.fixture(scope="session")
-def formatted_data():
+def formatted_data() -> Dict[str, str]:
     return load_data()
 
 
 @pytest.fixture(scope="session")
-def data_list():
+def data_list() -> Dict[str, str]:
     return SPORTS_KEYS_FOR_JOBS
 
 
 @pytest.fixture
-def bot(formatted_data, data_list):
+def bot(formatted_data: Dict[str, str], data_list: Dict[str, str]):
     return FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 
 # --- keys_to_pattern --------------------------------------------------
-def test_keys_to_pattern_returns_regex(bot) -> None:
+def test_keys_to_pattern_returns_regex(bot: FormatData) -> None:
     pattern = bot.keys_to_pattern()
     assert isinstance(pattern, re.Pattern)
     assert pattern.search("football")
@@ -52,7 +52,7 @@ def test_keys_to_pattern_empty() -> None:
         ("unknown sport category", ""),
     ],
 )
-def test_match_key(bot, category, expected) -> None:
+def test_match_key(bot: FormatData, category: str, expected: str) -> None:
     result = bot.match_key(category)
     assert result == expected
 
@@ -70,18 +70,18 @@ def test_match_key_no_pattern() -> None:
         ("youth snooker records", "snooker", "youth {sport} records"),
     ],
 )
-def test_normalize_category(bot, category, sport_key, expected) -> None:
+def test_normalize_category(bot: FormatData, category: str, sport_key: str, expected: str) -> None:
     normalized = bot.normalize_category(category, sport_key)
     assert normalized == expected
 
 
 # --- get_template -----------------------------------------------
-def test_get_template_found(bot) -> None:
+def test_get_template_found(bot: FormatData) -> None:
     label = bot.get_template("football", "men's football players")
     assert "لاعبو كرة قدم رجالية" in label or label != ""
 
 
-def test_get_template_not_found(bot) -> None:
+def test_get_template_not_found(bot: FormatData) -> None:
     label = bot.get_template("football", "unrelated term")
     assert label == ""
 
@@ -95,7 +95,7 @@ def test_get_template_not_found(bot) -> None:
         ("بدون متغير", "كرة اليد", "بدون متغير"),  # placeholder missing
     ],
 )
-def test_apply_pattern_replacement(bot, template_label, sport_label, expected) -> None:
+def test_apply_pattern_replacement(bot: FormatData, template_label: str, sport_label: str, expected: str) -> None:
     bot.value_placeholder = "xoxo"
     result = bot.apply_pattern_replacement(template_label, sport_label)
     assert result == expected
@@ -110,7 +110,7 @@ def test_apply_pattern_replacement(bot, template_label, sport_label, expected) -
         ("men's youth snooker records and statistics", "سجلات وإحصائيات سنوكر للشباب"),
     ],
 )
-def test_search_valid(bot, category, expected) -> None:
+def test_search_valid(bot: FormatData, category: str, expected: str) -> None:
     assert bot.search(category) == expected
 
 
@@ -139,7 +139,7 @@ def test_search_missing_template_label(formatted_data: Dict[str, str], data_list
     assert bot.search("men's football players") == ""
 
 
-def test_search_case_insensitive(bot) -> None:
+def test_search_case_insensitive(bot: FormatData) -> None:
     result = bot.search("MEN'S FOOTBALL PLAYERS")
     assert result == "لاعبو كرة قدم رجالية"
 
@@ -163,7 +163,7 @@ def test_multiple_sports(bot: FormatData, sport_key: str) -> None:
 
 
 # --- consistency check ------------------------------------------------
-def test_all_templates_work(bot) -> None:
+def test_all_templates_work(bot: FormatData) -> None:
     """Randomly sample a few template keys and ensure no crash occurs."""
     import random
 

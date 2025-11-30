@@ -60,6 +60,6 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
 
 @pytest.mark.parametrize("input,expected", all_test_data.items(), ids=[x for x in all_test_data])
 @pytest.mark.slow
-def test_all_data(input, expected) -> None:
+def test_all_data(input: str, expected: str) -> None:
     result = resolve_arabic_category_label(input)
     assert result == expected

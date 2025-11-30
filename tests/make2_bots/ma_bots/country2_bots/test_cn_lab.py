@@ -50,7 +50,7 @@ party_data = {
 
 @pytest.mark.parametrize("country2, c_2_l, expected", party_data.values(), ids=list(party_data.keys()))
 @pytest.mark.fast
-def test_make_cnt_lab_communist_party(country2, c_2_l, expected) -> None:
+def test_make_cnt_lab_communist_party(country2: str, c_2_l: str, expected: str) -> None:
     label = make_cnt_lab(
         tat_o="-of ",
         country2=country2,

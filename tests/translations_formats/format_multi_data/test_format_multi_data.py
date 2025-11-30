@@ -125,7 +125,7 @@ class TestNormalizeNatLabel:
             ("egyptian volleyball coaches", "{nat_en} volleyball coaches"),
         ],
     )
-    def test_normalize_nat_label_various_nationalities(self, multi_bot, input_category, expected) -> None:
+    def test_normalize_nat_label_various_nationalities(self, multi_bot: MultiDataFormatterBase, input_category: str, expected: str) -> None:
         """Test normalization with various nationalities."""
         result = multi_bot.normalize_nat_label(input_category)
         assert result == expected
@@ -156,7 +156,7 @@ class TestNormalizeSportLabel:
             ("american volleyball coaches", "american {sport_en} coaches"),
         ],
     )
-    def test_normalize_sport_label_various_sports(self, multi_bot, input_category, expected) -> None:
+    def test_normalize_sport_label_various_sports(self, multi_bot: MultiDataFormatterBase, input_category: str, expected: str) -> None:
         """Test normalization with various sports."""
         result = multi_bot.normalize_other_label(input_category)
         assert result == expected
@@ -189,7 +189,7 @@ class TestNormalizeBoth:
             ("egyptian volleyball coaches", "{nat_en} {sport_en} coaches"),
         ],
     )
-    def test_normalize_both_various_combinations(self, multi_bot, input_category, expected) -> None:
+    def test_normalize_both_various_combinations(self, multi_bot: MultiDataFormatterBase, input_category: str, expected: str) -> None:
         """Test normalization with various nationality-sport combinations."""
         result = multi_bot.normalize_both(input_category)
         assert result == expected
@@ -251,7 +251,7 @@ class TestCreateLabel:
             ("egyptian volleyball coaches", "مدربو الكرة الطائرة من مصر"),
         ],
     )
-    def test_create_label_various_combinations(self, multi_bot, input_category, expected) -> None:
+    def test_create_label_various_combinations(self, multi_bot: MultiDataFormatterBase, input_category: str, expected: str) -> None:
         """Test creating labels with various nationality-sport combinations."""
         result = multi_bot.create_label(input_category)
         assert result == expected

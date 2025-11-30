@@ -377,7 +377,7 @@ def test_the_compare() -> None:
 
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
-def test_sport_lab_nat_load(key, expected) -> None:
+def test_sport_lab_nat_load(key: str, expected: str) -> None:
     result = sport_lab_nat_load(key)
     result2 = sport_lab_nat_load_new(key)
     assert result == expected
@@ -399,7 +399,7 @@ data2 = {
 
 @pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
-def test_compare(key, expected) -> None:
+def test_compare(key: str, expected: str) -> None:
     """
     Important because keys like: (canadian football, american football) are in both Nationality and SPORTS_KEYS
     """

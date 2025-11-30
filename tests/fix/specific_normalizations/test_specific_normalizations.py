@@ -31,7 +31,7 @@ def test_fix_formula_year_replacement() -> None:
         ("كتب بواسطة مؤلف", "", "كتب مؤلف"),
     ],
 )
-def test_by_removal_all_categories(ar, en, expected) -> None:
+def test_by_removal_all_categories(ar: str, en: str, expected: str) -> None:
     """Check removal of 'بواسطة' after all configured categories."""
     assert apply_category_specific_normalizations(ar, en) == expected
 
@@ -238,5 +238,5 @@ def test_attacks_on_context_changes_preposition() -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_apply_category_specific_normalizations(ar_label, en_label, expected) -> None:
+def test_apply_category_specific_normalizations(ar_label: str, en_label: str, expected: str) -> None:
     assert apply_category_specific_normalizations(ar_label, en_label) == expected

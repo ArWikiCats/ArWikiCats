@@ -114,7 +114,7 @@ def test_add_fee(text: str, expected: str) -> None:
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_fix_it_common(ar_label, en_label, expected) -> None:
+def test_fix_it_common(ar_label: str, en_label: str, expected: str) -> None:
     result = fix_it(ar_label, en_label)
     assert expected in result
 
@@ -133,7 +133,7 @@ def test_fixlab_integration(label_old: str, expected: str) -> None:
     ["مشاعر معادية للإسرائيليون", "abc_english"],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_fixlab_rejected(label_old) -> None:
+def test_fixlab_rejected(label_old: str) -> None:
     assert fixlab(label_old) == ""
 
 

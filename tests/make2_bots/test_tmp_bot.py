@@ -60,7 +60,7 @@ suffix_pase_data = [
     suffix_pase_data,
     ids=lambda x: x[0],
 )
-def test_suffix_pase(input_label, suffix, resolved, expected) -> None:
+def test_suffix_pase(input_label: str, suffix: str, resolved: str, expected: str) -> None:
     """Test suffix mapping inside pp_ends_with_pase."""
 
     result = Work_Templates(input_label)
@@ -104,7 +104,7 @@ pp_ends_data = [
     pp_ends_data,
     ids=[x[0] for x in pp_ends_data],
 )
-def test_suffix_pp_ends(input_label, resolved, expected) -> None:
+def test_suffix_pp_ends(input_label: str, resolved: str, expected: str) -> None:
     """Test full pp_ends_with suffix dictionary."""
 
     assert Work_Templates(input_label) == expected
@@ -137,7 +137,7 @@ pp_start_data = [
     pp_start_data,
     ids=lambda x: x[0],
 )
-def test_prefix_pp_start(input_label, resolved, expected) -> None:
+def test_prefix_pp_start(input_label: str, resolved: str, expected: str) -> None:
     assert Work_Templates(input_label) == expected
 
 
@@ -176,7 +176,7 @@ edge_cases_data = [
     edge_cases_data,
     ids=[x[0] for x in edge_cases_data],
 )
-def test_edge_cases(input_label, resolved, expected) -> None:
+def test_edge_cases(input_label: str, resolved: str, expected: str) -> None:
     assert Work_Templates(input_label) == expected
 
 
