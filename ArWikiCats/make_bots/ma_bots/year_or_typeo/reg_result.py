@@ -34,7 +34,7 @@ REGEX_SUB_CATEGORY_LOWERCASE = re.compile(r"category:", re.IGNORECASE)
 
 
 @dataclass
-class Typies:
+class TypiesResult:
     year_at_first: str
     typeo: str
     In: str
@@ -49,7 +49,7 @@ def get_cats(category_r: str) -> tuple[str, str]:
     return cate, cate3
 
 
-def get_reg_result(category_r: str) -> Typies:
+def get_reg_result(category_r: str) -> TypiesResult:
     """Extract structured pieces from categories that start with a year."""
     cate, cate3 = get_cats(category_r)
     cate = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate)
@@ -86,7 +86,7 @@ def get_reg_result(category_r: str) -> Typies:
     # year_first='january 2025 ', typeo='disasters', In='during ', country='covid-19', cat_test='january 2025 disasters during covid-19'
     # print(f"{year_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
 
-    return Typies(
+    return TypiesResult(
         year_at_first=year_first,
         typeo=typeo,
         In=In,
