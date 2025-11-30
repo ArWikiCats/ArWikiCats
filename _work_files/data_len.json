@@ -153,13 +153,9 @@
     "lang_ttty": "5",
     "MILITARY_PREFIXES": "5",
     "PAINTER_STYLES": "5",
-    "lang_type": "2",
+    "LANGUAGE_SUFFIX_FORMATS": "2",
     "PAINTER_ROLE_LABELS": "2",
     "en_is_P17_ar_is_mens": "1",
     "Ambassadors_tab": "0",
-    "third_Films_key_CAO": "0",
-    "Films_TT": "0",
-    "All_P17": "0",
-    "pop_of_in": "0",
-    "pop_new": "0"
+    "All_P17": "0"
 }

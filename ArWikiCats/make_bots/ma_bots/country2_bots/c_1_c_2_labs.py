@@ -99,7 +99,7 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool = False) -> str:
         c_1_l = get_KAKO(cone_1)
 
     if not c_1_l:
-        logger.debug(f'>>>> XX--== c_1_l =  "{c_1_l}" cone_1:"{cone_1}" not in pop_new')
+        logger.debug(f'>>>> XX--== c_1_l =  "{c_1_l}" cone_1:"{cone_1}"')
     return c_1_l
 
 

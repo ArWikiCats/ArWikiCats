@@ -383,7 +383,6 @@ languages_key = language_key_translations
 languages_pop = PRIMARY_LANGUAGE_TRANSLATIONS
 languages_pop2 = SUPPLEMENTARY_LANGUAGE_TRANSLATIONS
 languages_pop3 = COMPLEX_LANGUAGE_TRANSLATIONS
-lang_type = LANGUAGE_SUFFIX_FORMATS
 lang_key_m = LANGUAGE_TOPIC_FORMATS
 lang_ttty = LANGUAGE_RESOURCE_FORMATS
 cccccc_m = MEDIA_CATEGORY_TRANSLATIONS
@@ -395,7 +394,7 @@ len_print.data_len(
         "languages_pop": languages_pop,
         "languages_pop2": languages_pop2,
         "languages_pop3": languages_pop3,
-        "lang_type": lang_type,
+        "LANGUAGE_SUFFIX_FORMATS": LANGUAGE_SUFFIX_FORMATS,
         "lang_key_m": lang_key_m,
         "lang_ttty": lang_ttty,
         "cccccc_m": cccccc_m,

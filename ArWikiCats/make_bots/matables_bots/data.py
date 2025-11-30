@@ -2,6 +2,10 @@
 """
 """
 
+add_in_to_country = [
+    "solar eclipses",
+]
+# ---
 Keep_it_last = [
     "remakes of",
 ]
@@ -35,6 +39,7 @@ Add_in_table = [
 ]
 
 __all__ = [
+    "add_in_to_country",
     "Keep_it_last",
     "Keep_it_frist",
     "Add_in_table",

@@ -225,7 +225,7 @@ class LabelPipeline(Fixing):
         # Validation
         cao = True
         if not self.type_label:
-            logger.info(f'>>>> type_lower "{self.type_lower}" not in pop_of_in')
+            logger.info(f'>>>> no label for {self.type_lower=}')
             cao = False
 
         if not self.country_label:

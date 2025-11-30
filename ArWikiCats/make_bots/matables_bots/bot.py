@@ -10,10 +10,8 @@ from ...translations import (
     FILM_PRODUCTION_COMPANY,
     SPORTS_KEYS_FOR_LABEL,
     By_table,
-    Films_TT,
     Jobs_new,
     People_key,
-    all_country_with_nat,
     olympics,
     typeTable,
     typeTable_7,
@@ -41,22 +39,9 @@ cash_2022 = {
     "category:ladies european tour golfers": "تصنيف:لاعبات بطولة أوروبا للغولف للسيدات",
 }
 # ---
-Work_With_Change_key = {1: False}
 New_Lan = {}
-all_country_with_nat_lower = {}
-Kingdom = {}
-# KAKO4 = {}
-
-years_Baco = {}
-Baco_decades = {}
-# Baco_centries = {}
-pop_of_in = {}
-pop_new = {}
-pop_type = {}
-
 All_P17 = {}
 Films_O_TT = {}
-
 players_keys = {}
 # ---
 Pp_Priffix = {
@@ -71,11 +56,6 @@ Pp_Priffix = {
 for io in ALBUMS_TYPE:
     Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % ALBUMS_TYPE[io]
 
-# ---
-for x in all_country_with_nat:
-    all_country_with_nat_lower[x.lower()] = all_country_with_nat[x]
-# ---
-
 for ss in SPORTS_KEYS_FOR_LABEL:  #
     cd = f"by {ss.lower()} team"
     By_table[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
@@ -87,8 +67,6 @@ for uh in FILM_PRODUCTION_COMPANY:  #
     By_table[f"by {uh.lower()}"] = f"بواسطة {FILM_PRODUCTION_COMPANY[uh]}"
 
 players_keys["women"] = "المرأة"
-
-Films_O_TT.update({x.lower(): v for x, v in Films_TT.items() if v})
 
 players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
 
@@ -137,8 +115,6 @@ len_print.data_len(
     {
         "players_new_keys": players_new_keys,  # 99517
         "All_P17": All_P17,
-        "pop_of_in": pop_of_in,
-        "pop_new": pop_new,
     },
 )
 
@@ -148,6 +124,5 @@ __all__ = [
     "add_to_new_players",
     "add_to_Films_O_TT",
     "All_P17",
-    "pop_of_in",
-    "pop_new",
+    "Pp_Priffix",
 ]

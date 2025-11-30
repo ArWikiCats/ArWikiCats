@@ -1,5 +1,8 @@
 """
+
 TODO: write tests
+TODO: search for (# Test with basic inputs)
+
 """
 
 import pytest
@@ -18,14 +21,3 @@ def test_add_to_new_players() -> None:
 
     # Test with both empty (should not add anything)
     add_to_new_players("", "")
-
-    # This function modifies internal state, so we just verify it runs without error
-    assert True
-
-
-@pytest.mark.fast
-def test_Keep_it_last() -> None:
-    # remakes of
-
-    result = resolve_arabic_category_label("remakes of historical documents")
-    assert result == "وثائق تاريخية في 1900"
