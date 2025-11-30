@@ -2,8 +2,11 @@
 ## [#132](https://github.com/MrIbrahem/ArWikiCats/pull/132) - 2025-11-30
 
 * **Refactor**
-  * Restructured result data class for year and type analysis with improved naming and additional metadata fields for better output clarity.
-  * Enhanced whitespace normalization in label generation to ensure consistent formatting across all analysis functions.
+  * Labels produced by year/type analysis are now consistently trimmed, removing unintended leading/trailing spaces for cleaner output.
+  * Result structure for year/type analysis improved for clearer, more reliable metadata exposure.
+
+* **Chores**
+  * Tests and validations updated to require exact label matches, enforcing stricter output consistency.
 
 ## [#131](https://github.com/MrIbrahem/ArWikiCats/pull/131) - 2025-11-30
 
