@@ -18,7 +18,6 @@ Identify all usages of:
 - `re.findall(...)`
 - `re.finditer(...)`
 - `re.fullmatch(...)`
-- `re.split(...)`
 - inline `re.compile(...).X()`
 
 Only convert when the pattern is:

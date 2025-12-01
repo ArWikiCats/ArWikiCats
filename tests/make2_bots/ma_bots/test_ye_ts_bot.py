@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.make_bots.ma_bots.ye_ts_bot import (
     find_lab,
     translate_general_category,
-    work_titose_names,
+    work_separator_names,
 )
 
 fast_data = {}
@@ -33,16 +33,16 @@ def test_find_lab() -> None:
     assert isinstance(result_various, str)
 
 
-def test_work_titose_names() -> None:
+def test_work_separator_names() -> None:
     # Test with a basic input
-    result = work_titose_names("test category", "test category", True)
+    result = work_separator_names("test category", "test category", True)
     assert isinstance(result, str)
 
-    result_empty = work_titose_names("", "", False)
+    result_empty = work_separator_names("", "", False)
     assert isinstance(result_empty, str)
 
     # Test with various inputs
-    result_various = work_titose_names("sports", "sports category", True)
+    result_various = work_separator_names("sports", "sports category", True)
     assert isinstance(result_various, str)
 
 

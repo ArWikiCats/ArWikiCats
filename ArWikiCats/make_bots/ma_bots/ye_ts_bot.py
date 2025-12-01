@@ -55,12 +55,12 @@ def find_lab(category: str, category_r: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def work_titose_names(
+def work_separator_names(
     category: str,
     cate_test: str = "",
     start_get_country2: bool = False,
 ) -> str:
-    """Process categories that contain relational words (tito).
+    """Process categories that contain relational words (separator).
 
     This function extracts relational words from categories and uses them
     to find appropriate Arabic labels.
@@ -73,13 +73,13 @@ def work_titose_names(
     Returns:
         The associated Arabic label if found, otherwise an empty string.
     """
-    tito, tito_name = get_relation_word(category, category_relation_mapping)
+    separator, separator_name = get_relation_word(category, category_relation_mapping)
 
-    if not tito:
+    if not separator:
         return ""
 
-    logger.info(f'<<lightblue>>>>>> yementest: tito:"{tito_name}":"{tito}" in category ')
-    arlabel = find_ar_label(category, tito, cate_test=cate_test, start_get_country2=start_get_country2)
+    logger.info(f'<<lightblue>>>>>> yementest: separator:"{separator_name}":"{separator}" in category ')
+    arlabel = find_ar_label(category, separator, cate_test=cate_test, start_get_country2=start_get_country2)
 
     if not arlabel:
         return ""
@@ -115,7 +115,7 @@ def _translate_general_category(category_r: str, category: str, start_get_countr
         arlabel = find_lab(category, category_r)
 
     if not arlabel:
-        arlabel = work_titose_names(category, cate_test, start_get_country2=start_get_country2)
+        arlabel = work_separator_names(category, cate_test, start_get_country2=start_get_country2)
 
     return arlabel
 

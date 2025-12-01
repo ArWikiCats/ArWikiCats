@@ -185,9 +185,9 @@ class CountryLabelRetriever:
                 return resolved_label
         return ""
 
-    def get_term_label(self, term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+    def get_term_label(self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True) -> str:
         """Retrieve the corresponding label for a given term."""
-        logger.info(f'get_term_label lab_type:"{lab_type}", tito:"{tito}", c_ct_lower:"{term_lower}" ')
+        logger.info(f'get_term_label lab_type:"{lab_type}", separator:"{separator}", c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
             start_get_country2 = True
@@ -219,16 +219,16 @@ class CountryLabelRetriever:
             term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
         if not term_label and lab_type == "type_label":
-            term_label = self._handle_type_lab_logic(term_lower, tito, start_get_country2)
+            term_label = self._handle_type_lab_logic(term_lower, separator, start_get_country2)
 
         if term_label:
             logger.info(f'get_term_label term_label:"{term_label}" ')
-        elif tito.strip() == "for" and term_lower.startswith("for "):
+        elif separator.strip() == "for" and term_lower.startswith("for "):
             return self.get_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
 
         return term_label
 
-    def _handle_type_lab_logic(self, term_lower: str, tito: str, start_get_country2: bool) -> str:
+    def _handle_type_lab_logic(self, term_lower: str, separator: str, start_get_country2: bool) -> str:
         """Handle logic specific to type_label."""
         suffixes = [" of", " in", " at"]
         term_label = ""
@@ -261,7 +261,7 @@ class CountryLabelRetriever:
                     logger.info(f"XX add في to term_label:{term_label}, line:1596.")
                 return term_label  # Return immediately if found
 
-        if term_label == "" and tito.strip() == "in":
+        if term_label == "" and separator.strip() == "in":
             term_label = get_pop_All_18(f"{term_lower} in", "")
 
         if not term_label:
@@ -279,9 +279,9 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     return _retriever.get_country_label(country, start_get_country2)
 
 
-def Get_c_t_lab(term_lower: str, tito: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+def Get_c_t_lab(term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True) -> str:
     """Retrieve the corresponding label for a given country or term."""
-    return _retriever.get_term_label(term_lower, tito, lab_type=lab_type, start_get_country2=start_get_country2)
+    return _retriever.get_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
 
 
 __all__ = [

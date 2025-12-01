@@ -32,10 +32,10 @@ from .lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
-    tito_list_s_fixing,
+    separator_lists_fixing,
 )
 
-TITO_LIST_S = [
+separators_lists_raw = [
     "in",
     "from",
     "at",
@@ -45,7 +45,7 @@ TITO_LIST_S = [
 
 
 @functools.lru_cache(maxsize=10000)
-def wrap_event2(category: str, tito: str = "") -> str:
+def wrap_event2(category: str, separator: str = "") -> str:
     """Wraps the event2bot.event2 function with caching."""
     return event2bot.event2(category)
 
@@ -55,7 +55,7 @@ class ParsedCategory:
     """Represents a parsed category with its components."""
 
     category: str
-    tito: str
+    separator: str
     type_value: str
     country: str
 
@@ -99,44 +99,44 @@ class Fixing:
     def determine_separator(self) -> str:
         """Determines the separator string between labels."""
         ar_separator = " "
-        if self.tito_stripped == "in":
+        if self.separator_stripped == "in":
             ar_separator = " في "
 
         if self.country_in_table and self.add_in_lab:
-            if (self.tito_stripped == "in" or self.tito_stripped == "at") and (
+            if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
                 " في" not in self.country_label or self.type_lower in Add_ar_in
             ):
                 ar_separator = " في "
                 logger.info("ssps:%s" % ar_separator)
         else:
-            if (self.tito_stripped == "in" or self.tito_stripped == "at") and (
+            if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
                 " في" not in self.type_label or self.type_lower in Add_ar_in
             ):
                 self.type_label = self.type_label + " في"
 
         if self.add_in_lab:
-            logger.info(f">>>>> > add_in_lab ({self.tito_stripped=})")
-            tito2_lab = category_relation_mapping.get(self.tito_stripped)
+            logger.info(f">>>>> > add_in_lab ({self.separator_stripped=})")
+            separator2_lab = category_relation_mapping.get(self.separator_stripped)
 
-            if tito2_lab not in TITO_LIST_S:
-                tatl = tito2_lab
+            if separator2_lab not in separators_lists_raw:
+                tatl = separator2_lab
                 logger.info(
-                    f">>>>> > ({self.tito_stripped=}): tito_stripped in category_relation_mapping and tito_stripped not in TITO_LIST_S, {tatl=}"
+                    f">>>>> > ({self.separator_stripped=}): separator_stripped in category_relation_mapping and separator_stripped not in separators_lists_raw, {tatl=}"
                 )
 
-                if self.tito_stripped == "for" and self.country_lower.startswith("for "):
+                if self.separator_stripped == "for" and self.country_lower.startswith("for "):
                     if self.type_lower.strip().endswith("competitors") and "competitors for" in self.category:
                         tatl = "من"
                     if self.type_lower.strip().endswith("medalists") and "medalists for" in self.category:
                         tatl = "من"
 
-                if self.tito_stripped == "to" and self.type_lower.strip().startswith("ambassadors of"):
+                if self.separator_stripped == "to" and self.type_lower.strip().startswith("ambassadors of"):
                     tatl = "لدى"
 
                 if self.country_label == "لعضوية البرلمان":
                     tatl = ""
 
-                if self.tito_stripped == "for" and self.country_lower.startswith("for "):
+                if self.separator_stripped == "for" and self.country_lower.startswith("for "):
                     p18lab = get_pop_All_18(self.country_lower)
                     if p18lab and p18lab == self.country_label:
                         tatl = ""
@@ -146,7 +146,7 @@ class Fixing:
 
                 ar_separator = f" {tatl} "
                 logger.info("ar_separator:%s" % ar_separator)
-                self.cate_test = self.cate_test.replace(self.tito, "")
+                self.cate_test = self.cate_test.replace(self.separator, "")
 
         # in_tables_1 = check_key_new_players(self.country_lower)
         # in_tables_2 = check_key_new_players(self.type_lower)
@@ -156,8 +156,8 @@ class Fixing:
         logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
         logger.info(">>>> ================ ")
 
-        faa = category_relation_mapping.get(self.tito_stripped) or category_relation_mapping.get(
-            self.tito_stripped.replace("-", " ").strip()
+        faa = category_relation_mapping.get(self.separator_stripped) or category_relation_mapping.get(
+            self.separator_stripped.replace("-", " ").strip()
         )
 
         if not ar_separator.strip() and faa:
@@ -174,18 +174,18 @@ class LabelPipeline(Fixing):
     def __init__(
         self,
         category: str,
-        tito: str,
+        separator: str,
         cate_test: str = "",
         start_get_country2: bool = True,
         use_event2: bool = True,
     ):
         self.category = category
-        self.tito = tito
+        self.separator = separator
         self.cate_test = cate_test
         self.start_get_country2 = start_get_country2
         self.use_event2 = use_event2
 
-        self.tito_stripped = tito.strip()
+        self.separator_stripped = separator.strip()
         self.category_type = ""
         self.country = ""
         self.type_lower = ""
@@ -201,7 +201,7 @@ class LabelPipeline(Fixing):
 
     def extract_components(self) -> None:
         """Extracts type and country components."""
-        self.category_type, self.country = get_type_country(self.category, self.tito)
+        self.category_type, self.country = get_type_country(self.category, self.separator)
         self.type_lower = self.category_type.strip().lower()
         self.country_lower = self.country.strip().lower()
 
@@ -210,14 +210,14 @@ class LabelPipeline(Fixing):
 
         # Resolve type
         self.type_label, self.add_in_lab = TypeResolver.resolve(
-            self.tito_stripped, self.category_type, self.country_lower, self.use_event2
+            self.separator_stripped, self.category_type, self.country_lower, self.use_event2
         )
 
         if self.type_label:
             self.cate_test = self.cate_test.replace(self.type_lower, "")
 
         # Resolve country
-        self.country_label = CountryResolver.resolve_labels(self.tito_stripped, self.country, self.start_get_country2)
+        self.country_label = CountryResolver.resolve_labels(self.separator_stripped, self.country, self.start_get_country2)
 
         if self.country_label:
             self.cate_test = self.cate_test.replace(self.country_lower, "")
@@ -253,11 +253,11 @@ class LabelPipeline(Fixing):
     def refine_type_label(self) -> None:
         """Refines the type label with prepositions."""
         if self.add_in_lab:
-            self.type_label = tito_list_s_fixing(self.type_label, self.tito_stripped, self.type_lower)
+            self.type_label = separator_lists_fixing(self.type_label, self.separator_stripped, self.type_lower)
             if self.type_lower in Dont_Add_min:
                 logger.info(f'>>>> type_lower "{self.type_lower}" in Dont_Add_min ')
             else:
-                self.type_label = add_in_tab(self.type_label, self.type_lower, self.tito_stripped)
+                self.type_label = add_in_tab(self.type_label, self.type_lower, self.separator_stripped)
 
     def check_tables(self) -> None:
         """Checks if components are in specific tables."""
@@ -275,7 +275,7 @@ class LabelPipeline(Fixing):
         keep_type_first = False
 
         arlabel = ""
-        t_to = f"{self.type_lower} {self.tito_stripped}"
+        t_to = f"{self.type_lower} {self.separator_stripped}"
 
         if self.type_lower in Keep_it_last:
             logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
@@ -315,10 +315,10 @@ class LabelPipeline(Fixing):
             )
             arlabel = self.type_label + ar_separator + self.country_label
 
-        if self.tito_stripped == "about" or (self.tito_stripped not in TITO_LIST_S):
+        if self.separator_stripped == "about" or (self.separator_stripped not in separators_lists_raw):
             arlabel = self.type_label + ar_separator + self.country_label
 
-        if self.type_lower == "years" and self.tito_stripped == "in":
+        if self.type_lower == "years" and self.separator_stripped == "in":
             arlabel = self.type_label + ar_separator + self.country_label
 
         logger.debug(f">>>> {ar_separator=}")
@@ -339,9 +339,9 @@ class LabelPipeline(Fixing):
                     f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}" and country_label.startswith("حسب") '
                 )
 
-        elif self.tito_stripped in pop_format33:
-            logger.info(f'>>>> <<lightblue>> tito in pop_format33 "{pop_format33[self.tito_stripped]}":')
-            arlabel = pop_format33[self.tito_stripped].format(self.type_label, self.country_label)
+        elif self.separator_stripped in pop_format33:
+            logger.info(f'>>>> <<lightblue>> separator in pop_format33 "{pop_format33[self.separator_stripped]}":')
+            arlabel = pop_format33[self.separator_stripped].format(self.type_label, self.country_label)
 
         arlabel = " ".join(arlabel.strip().split())
         maren = re.match(r"\d\d\d\d", self.country_lower.strip())
@@ -353,7 +353,7 @@ class LabelPipeline(Fixing):
 
     def build(self) -> str:
         """Builds and returns the Arabic label."""
-        logger.info(f'<<lightblue>>>>>> find_ar_label: category="{self.category}", tito="{self.tito}"')
+        logger.info(f'<<lightblue>>>>>> find_ar_label: category="{self.category}", separator="{self.separator}"')
 
         self.extract_components()
 
@@ -378,7 +378,7 @@ class LabelPipeline(Fixing):
 @functools.lru_cache(maxsize=10000)
 def find_ar_label(
     category: str,
-    tito: str,
+    separator: str,
     cate_test: str = "",
     start_get_country2: bool = True,
     use_event2: bool = True,
@@ -389,7 +389,7 @@ def find_ar_label(
     """
     builder = LabelPipeline(
         category=category,
-        tito=tito,
+        separator=separator,
         cate_test=cate_test,
         start_get_country2=start_get_country2,
         use_event2=use_event2,

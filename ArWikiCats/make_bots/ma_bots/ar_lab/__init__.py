@@ -6,7 +6,7 @@ from .lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
-    tito_list_s_fixing,
+    separator_lists_fixing,
 )
 
 __all__ = [
@@ -15,5 +15,5 @@ __all__ = [
     "get_type_lab",
     "get_con_lab",
     "get_type_country",
-    "tito_list_s_fixing",
+    "separator_lists_fixing",
 ]

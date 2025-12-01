@@ -20,10 +20,10 @@ simple_list = [
 ]
 
 
-@pytest.mark.parametrize("category, tito, output", simple_list, ids=[x[0] for x in simple_list])
+@pytest.mark.parametrize("category, separator, output", simple_list, ids=[x[0] for x in simple_list])
 @pytest.mark.fast
-def test_simple(category: str, tito: str, output: str) -> None:
-    label = find_ar_label(category, tito, use_event2=False)
+def test_simple(category: str, separator: str, output: str) -> None:
+    label = find_ar_label(category, separator, use_event2=False)
     assert label == output
 
 
@@ -1097,8 +1097,8 @@ def test_simple_dump() -> None:
     expected_result = {}
     diff_result = {}
     for tab in data_list:
-        category, tito, expected = tab
-        result = find_ar_label(category, tito, use_event2=False)
+        category, separator, expected = tab
+        result = find_ar_label(category, separator, use_event2=False)
         if result != expected:
             expected_result[category] = expected
             diff_result[category] = result

@@ -31,7 +31,7 @@ from ...sports_bots import team_work
 from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
 
-TITO_LIST_S = [
+separators_lists_raw = [
     "in",
     "from",
     "at",
@@ -40,41 +40,41 @@ TITO_LIST_S = [
 ]
 
 
-def tito_list_s_fixing(type_label: str, tito_stripped: str, type_lower: str) -> str:
+def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower: str) -> str:
     """
-    {"type_label": "منشآت عسكرية", "tito_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
+    {"type_label": "منشآت عسكرية", "separator_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
     """
-    if tito_stripped in TITO_LIST_S:
-        if tito_stripped == "in" or " in" in type_lower:
+    if separator_stripped in separators_lists_raw:
+        if separator_stripped == "in" or " in" in type_lower:
             if type_lower in pop_of_without_in:
                 logger.info(f'>>-- Skip aAdd في to type_label:"{type_label}", "{type_lower}"')
             else:
                 if " في" not in type_label and " in" in type_lower:
                     logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{type_lower}"')
                     type_label = type_label + " في"
-                elif tito_stripped == "in" and " in" in type_lower:
+                elif separator_stripped == "in" and " in" in type_lower:
                     logger.info(f'>>>> aAdd في to type_label:in"{type_label}", for "{type_lower}"')
                     type_label = type_label + " في"
 
-        elif (tito_stripped == "at" or " at" in type_lower) and (" في" not in type_label):
+        elif (separator_stripped == "at" or " at" in type_lower) and (" في" not in type_label):
             logger.info('>>>> Add في to type_label:at"%s"' % type_label)
             type_label = type_label + " في"
 
     return type_label
 
 
-def get_type_country(category: str, tito: str) -> Tuple[str, str]:
+def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     """Extract the type and country from a given category string.
 
-    This function takes a category string and a delimiter (tito) to split
+    This function takes a category string and a delimiter (separator) to split
     the category into a type and a country. It processes the strings to
     ensure proper formatting and handles specific cases based on the value
-    of tito. The function also performs some cleanup on the extracted
+    of separator. The function also performs some cleanup on the extracted
     strings to remove any unwanted characters or formatting issues.
 
     Args:
         category (str): The category string containing type and country information.
-        tito (str): The delimiter used to separate the type and country in the category
+        separator (str): The delimiter used to separate the type and country in the category
             string.
 
     Returns:
@@ -83,8 +83,8 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     TODO: use re.split()
     """
     category_type, country = "", ""
-    if tito and tito in category:
-        parts = category.split(tito, 1)
+    if separator and separator in category:
+        parts = category.split(separator, 1)
         category_type = parts[0]
         country = parts[1] if len(parts) > 1 else ""
     else:
@@ -93,9 +93,9 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
     country = country.lower()
 
     # Attempt to clean up using regex
-    # Escape tito to prevent regex errors if it contains special chars
-    tito_escaped = re.escape(tito) if tito else ""
-    mash_pattern = f"^(.*?)(?:{tito_escaped}?)(.*?)$"
+    # Escape separator to prevent regex errors if it contains special chars
+    separator_escaped = re.escape(separator) if separator else ""
+    mash_pattern = f"^(.*?)(?:{separator_escaped}?)(.*?)$"
 
     test_remainder = category.lower()
     type_regex, country_regex = "", ""
@@ -112,44 +112,44 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
         logger.info(f"<<lightred>>>>>> except test_remainder: {e}")
 
     test_remainder = test_remainder.strip()
-    tito_stripped = tito.strip()
+    separator_stripped = separator.strip()
 
-    # Adjustments based on tito
-    if tito_stripped == "in" and category_type.endswith(" playerss"):
+    # Adjustments based on separator
+    if separator_stripped == "in" and category_type.endswith(" playerss"):
         category_type = category_type.replace(" playerss", " players")
 
-    tito_ends = f" {tito_stripped}"
-    tito_starts = f"{tito_stripped} "
+    separator_ends = f" {separator_stripped}"
+    separator_starts = f"{separator_stripped} "
 
-    if tito_stripped == "of" and not category_type.endswith(tito_ends):
+    if separator_stripped == "of" and not category_type.endswith(separator_ends):
         category_type = f"{category_type} of"
-    elif tito_stripped == "spies for" and not category_type.endswith(" spies"):
+    elif separator_stripped == "spies for" and not category_type.endswith(" spies"):
         category_type = f"{category_type} spies"
 
-    elif tito_stripped == "by" and not country.startswith(tito_starts):
+    elif separator_stripped == "by" and not country.startswith(separator_starts):
         country = f"by {country}"
-    elif tito_stripped == "for" and not country.startswith(tito_starts):
+    elif separator_stripped == "for" and not country.startswith(separator_starts):
         country = f"for {country}"
 
-    logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {tito=} ')
+    logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {separator=} ')
 
-    if test_remainder and test_remainder != tito_stripped:
+    if test_remainder and test_remainder != separator_stripped:
         logger.info(
-            f'>>>> test_remainder != "", type_regex:"{type_regex}", tito:"{tito}", country_regex:"{country_regex}" '
+            f'>>>> test_remainder != "", type_regex:"{type_regex}", separator:"{separator}", country_regex:"{country_regex}" '
         )
 
-        if tito_stripped == "of" and not type_regex.endswith(tito_ends):
+        if separator_stripped == "of" and not type_regex.endswith(separator_ends):
             type_regex = f"{type_regex} of"
-        elif tito_stripped == "by" and not country_regex.startswith(tito_starts):
+        elif separator_stripped == "by" and not country_regex.startswith(separator_starts):
             country_regex = f"by {country_regex}"
-        elif tito_stripped == "for" and not country_regex.startswith(tito_starts):
+        elif separator_stripped == "for" and not country_regex.startswith(separator_starts):
             country_regex = f"for {country_regex}"
         category_type = type_regex
         country = country_regex
 
         logger.info(f'>>>> yementest: type_regex:"{type_regex}", country_regex:"{country_regex}"')
     else:
-        logger.info(f'>>>> test_remainder:"{test_remainder}" == tito')
+        logger.info(f'>>>> test_remainder:"{test_remainder}" == separator')
 
     return category_type, country
 
@@ -158,7 +158,7 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters.
 
     Args:
-        preposition (str): The preposition/delimiter (tito).
+        preposition (str): The preposition/delimiter (separator).
         type_value (str): The type part of the category.
 
     Returns:
@@ -303,20 +303,20 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
     return label or ""
 
 
-def add_in_tab(type_label: str, type_lower: str, tito_stripped: str) -> str:
+def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str:
     """Add 'من' (from) to the label if conditions are met.
 
     Args:
         type_label (str): The current Arabic label for the type.
         type_lower (str): The lowercase type string.
-        tito_stripped (str): The stripped delimiter.
+        separator_stripped (str): The stripped delimiter.
 
     Returns:
         str: The modified type label.
     """
     ty_in18 = get_pop_All_18(type_lower)
 
-    if tito_stripped == "from":
+    if separator_stripped == "from":
         if not type_label.strip().endswith(" من"):
             logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
             type_label = f"{type_label} من "
@@ -341,5 +341,5 @@ __all__ = [
     "get_type_lab",
     "get_con_lab",
     "get_type_country",
-    "tito_list_s_fixing",
+    "separator_lists_fixing",
 ]
