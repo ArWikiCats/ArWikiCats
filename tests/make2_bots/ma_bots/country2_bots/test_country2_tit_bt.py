@@ -1,5 +1,5 @@
 """
-Tests
+TODO: write tests
 """
 
 import pytest
@@ -8,10 +8,11 @@ from ArWikiCats.make_bots.ma_bots.country2_bots.country2_tit_bt import (
     country_2_tit,
     country_2_title_work,
     make_conas,
-    make_sps,
+    separator_arabic_resolve,
 )
 
 
+@pytest.mark.fast
 def test_make_conas() -> None:
     # Test with basic inputs
     result = make_conas("in", "test in country")
@@ -35,20 +36,22 @@ def test_make_conas() -> None:
     assert isinstance(result_other[1], str)
 
 
+@pytest.mark.fast
 def test_make_sps() -> None:
     # Test with basic inputs
-    result = make_sps("to", "test label", "ambassadors of")
+    result = separator_arabic_resolve("to", "test label", "ambassadors of")
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = make_sps("in", "test label", "test")
+    result_various = separator_arabic_resolve("in", "test label", "test")
     assert isinstance(result_various, str)
 
     # Test with empty strings
-    result_empty = make_sps("", "", "")
+    result_empty = separator_arabic_resolve("", "", "")
     assert isinstance(result_empty, str)
 
 
+@pytest.mark.fast
 def test_country_2_tit() -> None:
     # Test with basic inputs
     result = country_2_tit("in", "test in country")
@@ -63,6 +66,7 @@ def test_country_2_tit() -> None:
     assert isinstance(result_without_years, str)
 
 
+@pytest.mark.fast
 def test_country_2_title_work() -> None:
     # Test with basic input
     result = country_2_title_work("test in country")

@@ -24,12 +24,12 @@ make_cnt_lab_data = {
 @pytest.mark.fast
 def test_make_cnt_lab_data(category: str, ar: str) -> None:
     label = make_cnt_lab(
-        tat_o="-of ",
+        separator="-of ",
         country2=f"kingdom-of {category}",
-        c_2_l=ar,
-        c_1_l="مملكة",
-        cona_1="kingdom of",
-        cona_2=category,
+        part_2_label=ar,
+        part_1_label="مملكة",
+        part_1_normalized="kingdom of",
+        part_2_normalized=category,
         sps=" ",
     )
     assert label == f"مملكة {ar}"
@@ -48,16 +48,16 @@ party_data = {
 }
 
 
-@pytest.mark.parametrize("country2, c_2_l, expected", party_data.values(), ids=list(party_data.keys()))
+@pytest.mark.parametrize("country2, part_2_label, expected", party_data.values(), ids=list(party_data.keys()))
 @pytest.mark.fast
-def test_make_cnt_lab_communist_party(country2: str, c_2_l: str, expected: str) -> None:
+def test_make_cnt_lab_communist_party(country2: str, part_2_label: str, expected: str) -> None:
     label = make_cnt_lab(
-        tat_o="-of ",
+        separator="-of ",
         country2=country2,
-        c_2_l=c_2_l,
-        c_1_l="الحزب الشيوعي في ",
-        cona_1="communist party of",
-        cona_2=country2.replace("communist party-of ", ""),
+        part_2_label=part_2_label,
+        part_1_label="الحزب الشيوعي في ",
+        part_1_normalized="communist party of",
+        part_2_normalized=country2.replace("communist party-of ", ""),
         sps=" ",
     )
 
@@ -66,24 +66,24 @@ def test_make_cnt_lab_communist_party(country2: str, c_2_l: str, expected: str) 
 
 def test_make_cnt_lab() -> None:
     result1 = make_cnt_lab(
-        tat_o=" in ",
+        separator=" in ",
         country2="university of arts in belgrade",
-        c_2_l="بلغراد",
-        c_1_l="جامعة {} للفنون في",
-        cona_1="university of arts",
-        cona_2="belgrade",
+        part_2_label="بلغراد",
+        part_1_label="جامعة {} للفنون في",
+        part_1_normalized="university of arts",
+        part_2_normalized="belgrade",
         sps=" في ",
     )
     assert isinstance(result1, str)
     assert result1 == "جامعة بلغراد للفنون"
 
     result1 = make_cnt_lab(
-        tat_o=" of ",
+        separator=" of ",
         country2="by medium from insular areas of united states",
-        c_2_l="الولايات المتحدة",
-        c_1_l="حسب الوسط من المناطق المعزولة في ",
-        cona_1="by medium from insular areas of",
-        cona_2="united states",
+        part_2_label="الولايات المتحدة",
+        part_1_label="حسب الوسط من المناطق المعزولة في ",
+        part_1_normalized="by medium from insular areas of",
+        part_2_normalized="united states",
         sps=" ",
     )
     assert isinstance(result1, str)
@@ -142,12 +142,12 @@ congress_data = {
 def test_congress_data(category: str, ar: str) -> None:
     label = f"الكونغرس الأمريكي {ar}"
     result = make_cnt_lab(
-        tat_o=" of ",
+        separator=" of ",
         country2=f"acts of {category} united states congress",
-        c_2_l=label,
-        c_1_l="أفعال",
-        cona_1="acts of",
-        cona_2=f"{category} united states congress",
+        part_2_label=label,
+        part_1_label="أفعال",
+        part_1_normalized="acts of",
+        part_2_normalized=f"{category} united states congress",
         sps=" ",
     )
 
