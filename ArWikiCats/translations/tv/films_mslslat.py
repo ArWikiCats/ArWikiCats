@@ -10,7 +10,36 @@ TODO: need refactoring
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
-Films_keys_both_new = {}
+
+def _extend_Films_key_333(Films_key_333):
+    data = {}
+    for ke, ke_lab in film_Keys_For_female.items():
+        ke_lower = ke.lower()
+        tyty = "{tyty}"
+
+        for ke2, ke2_lab in Films_key2.items():
+            ke22 = ke2.lower()
+            if ke22 != ke_lower:
+                Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
+                Paop_2 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
+                if ke_lower in Films_Frist:
+                    Paop_1 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
+                    Paop_2 = Paop_1
+
+                elif ke22 in Films_Frist:
+                    Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
+                    Paop_2 = Paop_1
+
+                k1 = f"{ke} {ke2}"
+                if k1 not in Films_key_333:
+                    data[k1] = Paop_1
+
+                k2 = f"{ke2} {ke}"
+                if k2 not in Films_key_333:
+                    data[k2] = Paop_2
+    return data
+
+
 # ---
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 # ---
@@ -178,39 +207,7 @@ for ke, ke_lab in film_Keys_For_female.items():
         rr = f"{ke} {fao}"
         Films_key_CAO[rr] = f"{television_keys[fao]} {ke_lab}"
 
-
-def _extend_Films_key_333(Films_key_333):
-    data = {}
-    for ke, ke_lab in film_Keys_For_female.items():
-        ke_lower = ke.lower()
-        tyty = "{tyty}"
-
-        for ke2, ke2_lab in Films_key2.items():
-            ke22 = ke2.lower()
-            if ke22 != ke_lower:
-                Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
-                Paop_2 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
-                if ke_lower in Films_Frist:
-                    Paop_1 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
-                    Paop_2 = Paop_1
-
-                elif ke22 in Films_Frist:
-                    Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
-                    Paop_2 = Paop_1
-
-                k1 = f"{ke} {ke2}"
-                if k1 not in Films_key_333:
-                    data[k1] = Paop_1
-
-                k2 = f"{ke2} {ke}"
-                if k2 not in Films_key_333:
-                    data[k2] = Paop_2
-    return data
-
-
 tyty_data = _extend_Films_key_333(Films_key_333)
-
-Films_key_333.update(tyty_data)
 
 Films_key_CAO["lgbt-related films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
@@ -221,19 +218,32 @@ Films_key_CAO_new_format = {}
 Films_key_CAO_new_format["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO_new_format["lgbtqrelated films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
 # ---
+Films_keys_both_new = {}
+
 tabe_2 = dict(Films_keys_male_female)
 # ---
 for en, tab in Films_keys_male_female.items():
+    tab_male = tab.get("male")
+    tab_female = tab.get("female")
+
+    if tab_male and tab_female:
+        continue
+
     for en2, tab2 in tabe_2.items():
         if en == en2:
             continue
+
         new_lab_male = ""
         new_lab_female = ""
+
         if tab["female"] and tab2["female"]:
             new_lab_female = f"{tab['female']} {tab2['female']}"
+
         if tab["male"] and tab2["male"]:
             new_lab_male = f"{tab['male']} {tab2['male']}"
+
         new_key = f"{en} {en2}".lower()
+
         Films_keys_both_new[new_key] = {"male": new_lab_male, "female": new_lab_female}
 
 

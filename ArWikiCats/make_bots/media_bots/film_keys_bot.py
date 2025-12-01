@@ -10,6 +10,7 @@ import functools
 
 from ...helps.log import logger
 from ...translations import (
+    tyty_data,
     Films_key_333,
     Films_key_CAO,
     Films_key_CAO_new_format,
@@ -37,6 +38,13 @@ def get_Films_key_CAO(country_identifier: str) -> str:
 
         prefix = normalized_identifier[: -len(suffix)].strip()
         logger.debug(f'<<lightblue>> {prefix=}, endswith:"{suffix}" ')
+        prefix_label = tyty_data.get(prefix.strip(), "")
+
+        if prefix_label and "{tyty}" in prefix_label:
+            resolved_label = prefix_label.format(tyty=suffix_translation)
+            logger.info(f'<<lightblue>> get_Films_key_CAO: new {resolved_label=} ')
+            break
+
         prefix_label = Films_key_333.get(prefix.strip(), "")
 
         if not prefix_label:

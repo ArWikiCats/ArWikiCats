@@ -84,6 +84,7 @@ from .sports_formats_national.sport_lab_nat import (
 from .sports_formats_oioioi.bot import sport_lab_oioioi_load
 from .sports_formats_oioioi.data import NAT_P17_OIOI
 from .tv.films_mslslat import (
+    tyty_data,
     Films_key_333,
     Films_key_CAO,
     Films_key_CAO_new_format,
@@ -175,6 +176,7 @@ __all__ = [
     "film_Keys_For_female",
     "Films_keys_both_new",
     "Films_key_333",
+    "tyty_data",
     #
     "RELIGIOUS_KEYS_PP",
     #
