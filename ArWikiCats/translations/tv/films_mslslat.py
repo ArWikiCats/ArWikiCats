@@ -148,7 +148,6 @@ def _build_gender_key_maps(
                 films_key_333[en_key] = female_label
 
     _consume_source(films_key_o_multi)
-    _consume_source(films_keys_male_female)
 
     # Alias "animated" to "animation" if present
     if "animated" in films_key_both:
@@ -167,6 +166,17 @@ def _build_gender_key_maps(
             film_keys_for_male[en_key] = male_label
 
         if female_label:
+            film_keys_for_female[en_key] = female_label
+
+    films_keys_male_female = dict(films_keys_male_female)
+    # Alias "animated" to "animation" if present
+    if "animated" in films_keys_male_female:
+        films_keys_male_female["animation"] = films_keys_male_female["animated"]
+
+    for en_key, labels in films_keys_male_female.items():
+        female_label = labels.get("female", "").strip()
+        if female_label:
+            films_key_333[en_key] = female_label
             film_keys_for_female[en_key] = female_label
 
     return (
