@@ -11,13 +11,13 @@ from ....helps.log import logger
 from ...date_bots import with_years_bot
 from ...format_bots import Tabl_with_in, pop_format
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...matables_bots.centries_bot import centries_years_dec
 from ...matables_bots.table1_bot import get_KAKO
 from ...media_bots.films_bot import te_films
 from ...o_bots import bys, parties_bot
 from ...p17_bots import nats
 from ...sports_bots import sport_lab_suffixes, team_work
 from .. import country2_lab
+from ....new.time_to_arabic import convert_time_to_arabic
 
 pp_start_with2 = {
     "defunct": "{} سابقة",
@@ -69,7 +69,7 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool = False) -> str:
             logger.info(f'<<<< con_1_in "{con_1_in}", c_1_l : "{c_1_l}"')
 
     if not c_1_l:
-        c_1_l = centries_years_dec.get(cone_1, "")
+        c_1_l = convert_time_to_arabic(cone_1)
 
     if not c_1_l:
         tst3 = re.sub(r"\d+", "", cone_1.strip())
@@ -141,10 +141,13 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
 
     if not c_2_l:
         c_2_l = te_films(cone_2)
+
     if not c_2_l:
         c_2_l = nats.find_nat_others(cone_2)
+
     if not c_2_l:
-        c_2_l = centries_years_dec.get(cone_2, "")
+        c_2_l = convert_time_to_arabic(cone_2)
+
     if c_2_l == "" and With_Years:
         c_2_l = with_years_bot.Try_With_Years(cone_2)
 

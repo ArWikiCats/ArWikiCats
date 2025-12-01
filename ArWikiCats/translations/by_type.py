@@ -66,7 +66,6 @@ for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
         translation_label = f"حسب السنة - {stage_label} {category_label}"
         By_table[by_entry_key] = translation_label
         # By_table[ "by year – %s %s" % (start , suff ) ] = "حسب السنة – %s %s" % (TOURNAMENT_STAGE_LABELS[suff] , COMPETITION_CATEGORY_LABELS[start])
-        # printe.output('%s=[%s]' % (ke , lab_ke) )
 # ---
 CONTEXT_FIELD_LABELS = {
     "city": "مدينة",

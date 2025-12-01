@@ -192,7 +192,6 @@ for ke, ke_lab in film_Keys_For_female.items():
         ss_Films_key_CAO += 1
         rr = f"{ke} {fao}"
         Films_key_CAO[rr] = f"{television_keys[fao]} {ke_lab}"
-        # printe.output("vv : %s:%s " % (rr , "%s %s" % (television_keys[fao] , ke_lab)) )
     ke_lower = ke.lower()
     tyty = "{tyty}"
     for ke2, ke2_lab in Films_key2.items():

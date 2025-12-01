@@ -68,7 +68,7 @@ temporal_3 = {
     "Category:21st century in the Czech Republic": "تصنيف:التشيك في القرن 21",
     "Category:21st-century in Qatar": "تصنيف:قطر في القرن 21",
     "Category:April 1983 sports events": "تصنيف:أحداث أبريل 1983 الرياضية",
-    "Category:Manufacturing companies established in the 2nd millennium": "تصنيف:شركات تصنيع أسست في الألفية الثانية",
+    "Category:Manufacturing companies established in the 2nd millennium": "تصنيف:شركات تصنيع أسست في الألفية 2",
     "Category:Soviet Union at multi-sport events": "تصنيف:أحداث الاتحاد السوفيتي في رياضية متعددة",
     "Category:Swaziland at multi-sport events": "تصنيف:أحداث سوازيلاند في رياضية متعددة",
 }

@@ -226,19 +226,6 @@ for city, city_lab in PROVINCE_LABELS.items():
 
 COUNTRY_ADMIN_LABELS_LOWER = {k.lower(): v for k, v in COUNTRY_ADMIN_LABELS.items()}
 
-
-def get_country_admin_labels() -> dict[str, str]:
-    """Return a copy of the country administrative label mapping."""
-
-    return dict(COUNTRY_ADMIN_LABELS)
-
-
-def get_country_admin_labels_lower() -> dict[str, str]:
-    """Return a copy of the lower-cased admin label mapping."""
-
-    return dict(COUNTRY_ADMIN_LABELS_LOWER)
-
-
 # Backwards compatible alias
 P17_PP = COUNTRY_ADMIN_LABELS
 
@@ -249,8 +236,6 @@ __all__ = [
     "SWISS_CANTON_LABELS",
     "PROVINCE_LABEL_OVERRIDES",
     "PROVINCE_LABELS",
-    "get_country_admin_labels",
-    "get_country_admin_labels_lower",
     "P17_PP",
 ]
 

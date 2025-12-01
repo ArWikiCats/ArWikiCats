@@ -4,13 +4,13 @@ from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import New_P17_Finall, US_STATES
-from .geo.us_counties import PARTY_ROLE_SUFFIXES
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
 from .languages import lang_key_m, lang_ttty, languages_key, languages_pop
 from .mix_data import pop_All_2018_bot
 from .mixed.all_keys2 import (
+    People_key,
     WORD_AFTER_YEARS,
     pf_keys2,
     pop_of_football_lower,
@@ -61,7 +61,6 @@ from .nats.Nationality import (
     nats_to_add,
 )
 from .numbers1 import change_numb_to_word
-from .others.peoples import People_key
 from .politics.military_keys import (
     military_format_men,
     military_format_women,
@@ -84,9 +83,6 @@ from .sports_formats_national.sport_lab_nat import (
 )
 from .sports_formats_oioioi.bot import sport_lab_oioioi_load
 from .sports_formats_oioioi.data import NAT_P17_OIOI
-from .sports_formats_teams.sport_lab import (
-    get_new_team_xo,
-)
 from .tv.films_mslslat import (
     Films_key_333,
     Films_key_CAO,
@@ -118,7 +114,6 @@ __all__ = [
     "match_sport_key",
     "olympics",
     "en_nats_to_ar_label",
-    "get_new_team_xo",
     "Get_sport_formts_female_nat",
     "sport_lab_nat_load",
     "CITY_TRANSLATIONS_LOWER",
@@ -226,7 +221,4 @@ __all__ = [
     "Mens_suffix",
     "Mens_priffix",
     "Women_s_priffix",
-    #
-    "PARTY_ROLE_SUFFIXES",
-    #
 ]

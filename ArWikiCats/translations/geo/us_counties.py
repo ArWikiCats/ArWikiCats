@@ -6,17 +6,7 @@ from collections.abc import Mapping
 
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
-from ._shared import load_json_mapping
 
-PARTY_ROLE_SUFFIXES = {
-    "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
-    "candidates for member-of-parliament": "مرشحو %s لعضوية البرلمان",
-    "candidates": "مرشحو %s",
-    "leaders": "قادة %s",
-    "politicians": "سياسيو %s",
-    "members": "أعضاء %s",
-    "state governors": "حكام ولايات من %s",
-}
 
 _USA_PARTY_LABELS = {
     "democratic republican": "الحزب الديمقراطي الجمهوري",
@@ -137,7 +127,6 @@ US_COUNTY_TRANSLATIONS = open_json_file("geography/us_counties.json") or {}
 USA_PARTY_DERIVED_KEYS = _build_party_derived_keys(USA_PARTY_LABELS)
 
 __all__ = [
-    "PARTY_ROLE_SUFFIXES",
     "USA_PARTY_DERIVED_KEYS",
     "US_COUNTY_TRANSLATIONS",
     "USA_PARTY_LABELS",
@@ -146,7 +135,6 @@ __all__ = [
 len_print.data_len(
     "us_counties.py",
     {
-        "PARTY_ROLE_SUFFIXES": PARTY_ROLE_SUFFIXES,
         "USA_PARTY_LABELS": USA_PARTY_LABELS,
         "USA_PARTY_DERIVED_KEYS": USA_PARTY_DERIVED_KEYS,
         "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,

@@ -120,6 +120,9 @@ def convert_time_to_arabic(en_year: str) -> str:
     """Convert an English time expression into its Arabic equivalent."""
     en_year = en_year.strip()  # .replace("–", "-").replace("−", "-")
 
+    if en_year.lower().startswith("the "):
+        en_year = en_year[4:]
+
     month_map = {
         "january": "يناير",
         "february": "فبراير",

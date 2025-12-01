@@ -8,7 +8,7 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..make_bots import tmp_bot
-from ..new import year_lab
+from ..new import time_to_arabic
 from ..make_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.ma_bots import list_cat_format, ye_ts_bot
@@ -19,7 +19,9 @@ from ..make_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations import New_P17_Finall, get_new_team_xo
+from ..translations import New_P17_Finall
+from ..translations_resolvers.nats_new import nats_new_create_label
+from ..translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
@@ -156,11 +158,11 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = year_lab.make_year_lab(category3)
+        category_lab = time_to_arabic.convert_time_to_arabic(category3)
         if category_lab:
             return category_lab
 
-        category_lab = get_new_team_xo(category3)
+        category_lab = wrap_team_xo_normal_2025(category3) or nats_new_create_label(category3)
         if category_lab:
             return category_lab
 

@@ -14,8 +14,6 @@ from ..sports.sub_teams_keys import sub_teams_new
 from ..tv.films_mslslat import films_mslslat_tab
 from ..utils.json_dir import open_json_file
 
-# from ..sports.teams_new_data import TEAMS_NEW
-
 
 def load_pop_All_2018() -> Dict[str, str]:
     """Load and merge population-related label sources into a single mapping."""

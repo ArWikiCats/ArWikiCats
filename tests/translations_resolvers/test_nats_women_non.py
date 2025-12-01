@@ -5,7 +5,7 @@ tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations_resolvers.nats_women_non import nats_women_label
+from ArWikiCats.translations_resolvers import nats_women_label
 from ArWikiCats import resolve_arabic_category_label
 
 all_test_data = {

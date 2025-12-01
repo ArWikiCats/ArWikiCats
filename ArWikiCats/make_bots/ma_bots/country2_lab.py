@@ -9,7 +9,6 @@ python3 core8/pwb.py make/make_bots.ma_bots/country2_bot
 
 from ...helps.log import logger
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.centries_bot import centries_years_dec
 from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import te_films
 from ..o_bots import parties_bot, univer
@@ -19,6 +18,7 @@ from ..p17_bots import nats
 from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import sport_lab_suffixes, team_work
 
+from ...new.time_to_arabic import convert_time_to_arabic
 # Dictionary of resolvers mapped to their callable functions
 resolvers = {
     "get_pop_All_18": get_pop_All_18,
@@ -67,7 +67,7 @@ def get_lab_for_country2(country: str) -> str:
         resolved_label = resolve_all(country2)
 
     if not resolved_label:
-        resolved_label = centries_years_dec.get(country2, "")
+        resolved_label = convert_time_to_arabic(country2)
 
     if not resolved_label and country2.startswith("the "):
         resolved_label = get_pop_All_18(country2[len("the ") :], "")
