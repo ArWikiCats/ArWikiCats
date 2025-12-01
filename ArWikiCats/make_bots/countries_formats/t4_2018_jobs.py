@@ -137,7 +137,7 @@ def _handle_nationality_logic(
         job_example_lab = en_is_nat_ar_is_women.get(category_suffix.strip(), "")
         if job_example_lab:
             country_lab = job_example_lab.format(Nat_women[country_prefix])
-            logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
+            logger.debug(f'<<lightblue>> bot_te_4, new {country_lab=} ')
             updated_main_lab = priffix_lab_for_2018[main_ss]["women"]
 
         # en_is_nat_ar_is_man
@@ -145,7 +145,7 @@ def _handle_nationality_logic(
             job_example_lab = en_is_nat_ar_is_man.get(category_suffix.strip(), "")
             if job_example_lab:
                 country_lab = job_example_lab.format(Nat_men[country_prefix])
-                logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
+                logger.debug(f'<<lightblue>> bot_te_4, new {country_lab=} ')
                 updated_main_lab = priffix_lab_for_2018[main_ss]["men"]
 
     return country_lab, job_example_lab, updated_main_lab
