@@ -135,7 +135,7 @@ for xxx, xxx_lab in Films_key_O_multi.items():
     Films_key_both[ka2] = xxx_lab
 # ---
 for xo, ttt in Films_keys_male_female.items():
-    Films_key_both[ka2] = ttt
+    Films_key_both[xo.lower()] = ttt
     if ttt["female"]:
         Films_key_333[xo] = ttt["female"]
 # ---

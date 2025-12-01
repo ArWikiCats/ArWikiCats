@@ -165,12 +165,6 @@ fast_data = [
         "output": "مسلسلات تلفزيونية واقعية نرويجية",
     },
     {
-        "category": "dutch war drama films",
-        "country_start": "dutch",
-        "country_code": "war drama films",
-        "output": "أفلام دراما حربية هولندية",
-    },
-    {
         "category": "scottish television shows",
         "country_start": "scottish",
         "country_code": "television shows",
@@ -188,12 +182,6 @@ fast_data = [
         "country_start": "indian",
         "country_code": "television series debuts",
         "output": "مسلسلات تلفزيونية هندية بدأ عرضها في",
-    },
-    {
-        "category": "iranian romantic drama films",
-        "country_start": "iranian",
-        "country_code": "romantic drama films",
-        "output": "أفلام دراما رومانسية إيرانية",
     },
     {"category": "somalian people", "country_start": "somalian", "country_code": "people", "output": "أعلام صوماليون"},
     {
@@ -392,12 +380,6 @@ fast_data = [
         "output": "مسلسلات تلفزيونية روسية بدأ عرضها في",
     },
     {
-        "category": "burmese romantic drama films",
-        "country_start": "burmese",
-        "country_code": "romantic drama films",
-        "output": "أفلام دراما رومانسية بورمية",
-    },
-    {
         "category": "austrian television series debuts",
         "country_start": "austrian",
         "country_code": "television series debuts",
@@ -551,12 +533,6 @@ fast_data = [
         "output": "مسلسلات تلفزيونية إندونيسية بدأ عرضها في",
     },
     {
-        "category": "spanish war drama films",
-        "country_start": "spanish",
-        "country_code": "war drama films",
-        "output": "أفلام دراما حربية إسبانية",
-    },
-    {
         "category": "slovak television seasons",
         "country_start": "slovak",
         "country_code": "television seasons",
@@ -704,18 +680,6 @@ fast_data = [
         "output": "أفلام إثارة أيرلندية",
     },
     {
-        "category": "nigerian musical drama films",
-        "country_start": "nigerian",
-        "country_code": "musical drama films",
-        "output": "أفلام دراما موسيقية نيجيرية",
-    },
-    {
-        "category": "soviet drama films",
-        "country_start": "soviet",
-        "country_code": "drama films",
-        "output": "أفلام درامية سوفيتية",
-    },
-    {
         "category": "indonesian prequel films",
         "country_start": "indonesian",
         "country_code": "prequel films",
@@ -782,12 +746,6 @@ fast_data = [
         "output": "أعلام جنوب إفريقيون",
     },
     {
-        "category": "belgian drama films",
-        "country_start": "belgian",
-        "country_code": "drama films",
-        "output": "أفلام درامية بلجيكية",
-    },
-    {
         "category": "kuwaiti short films",
         "country_start": "kuwaiti",
         "country_code": "short films",
@@ -822,12 +780,6 @@ fast_data = [
         "country_start": "polish",
         "country_code": "speculative fiction short stories",
         "output": "قصص قصيرة خيالية تأملية بولندية",
-    },
-    {
-        "category": "russian sports drama films",
-        "country_start": "russian",
-        "country_code": "sports drama films",
-        "output": "أفلام دراما رياضية روسية",
     },
     {
         "category": "salvadoran people",
@@ -1038,12 +990,6 @@ fast_data = [
     },
     {"category": "togolese people", "country_start": "togolese", "country_code": "people", "output": "أعلام توغويون"},
     {
-        "category": "indian sports drama films",
-        "country_start": "indian",
-        "country_code": "sports drama films",
-        "output": "أفلام دراما رياضية هندية",
-    },
-    {
         "category": "south korean television series debuts",
         "country_start": "south korean",
         "country_code": "television series debuts",
@@ -1179,12 +1125,6 @@ fast_data = [
         "output": "أعلام أوكرانيون",
     },
     {
-        "category": "canadian docudrama films",
-        "country_start": "canadian",
-        "country_code": "docudrama films",
-        "output": "أفلام درامية وثائقية كندية",
-    },
-    {
         "category": "irish television seasons",
         "country_start": "irish",
         "country_code": "television seasons",
@@ -1262,12 +1202,6 @@ fast_data = [
         "country_start": "south korean",
         "country_code": "children's television shows",
         "output": "عروض تلفزيونية أطفال كورية جنوبية",
-    },
-    {
-        "category": "north korean drama films",
-        "country_start": "north korean",
-        "country_code": "drama films",
-        "output": "أفلام درامية كورية شمالية",
     },
     {
         "category": "irish horror novels",
