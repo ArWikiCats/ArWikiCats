@@ -216,10 +216,10 @@ Films_key_CAO_new_format = {
 # ---
 Films_keys_both_new_female = {}
 # ---
-tabe_2 = {x: v["female"] for x, v in Films_keys_male_female.items() if v["female"]}
+tabe_2 = {x: v["female"] for x, v in Films_keys_male_female.items() if v.get("female", "").strip()}
 # ---
 for en, tab in Films_keys_male_female.items():
-    tab_female = tab.get("female")
+    tab_female = tab.get("female", "").strip()
 
     if not tab_female:
         continue
