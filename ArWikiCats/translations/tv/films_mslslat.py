@@ -278,15 +278,15 @@ def _build_series_and_nat_keys(
 
 
 def _build_television_cao(
-    television_keys: Dict[str, str],
+    tv_keys: Dict[str, str],
     female_keys: Dict[str, str],
 ) -> Tuple[Dict[str, str], int]:
     """Build Films_key_CAO mappings for TV/media-related categories."""
     films_key_cao: Dict[str, str] = {}
     count = 0
 
-    # Base TV keys (per language-independent television_keys)
-    for ff, label in television_keys.items():
+    # Base TV keys (per language-independent tv_keys)
+    for ff, label in tv_keys.items():
         films_key_cao[ff] = label
         films_key_cao[f"{ff} characters"] = f"شخصيات {label}"
         films_key_cao[f"{ff} title cards"] = f"بطاقات عنوان {label}"
@@ -315,7 +315,7 @@ def _build_television_cao(
         films_key_cao[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
         films_key_cao[f"{ke} films"] = f"أفلام {ke_lab}"
 
-        for fao, base_label in television_keys.items():
+        for fao, base_label in tv_keys.items():
             count += 1
             films_key_cao[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
 
@@ -352,9 +352,65 @@ def _build_female_combo_keys(
 
 # --- module-level build pipeline ---------------------------------------------
 
+television_keys = {
+    "albums": "ألبومات",
+    "animation": "رسوم متحركة",
+    "anime and manga": "أنمي ومانغا",
+    "bodies": "هيئات",
+    "championships": "بطولات",
+    "clubs": "أندية",
+    "comic strips": "شرائط مصورة",
+    "comics": "قصص مصورة",
+    "competition": "منافسات",
+    "competitions": "منافسات",
+    "culture": "ثقافة",
+    "equipment": "معدات",
+    "executives": "مدراء",
+    "films": "أفلام",
+    "games": "ألعاب",
+    "governing bodies": "هيئات تنظيم",
+    "graphic novels": "روايات مصورة",
+    "logos": "شعارات",
+    "magazines": "مجلات",
+    "manga": "مانغا",
+    "media": "إعلام",
+    "music": "موسيقى",
+    "non-profit organizations": "منظمات غير ربحية",
+    "non-profit publishers": "ناشرون غير ربحيون",
+    "novellas": "روايات قصيرة",
+    "novels": "روايات",
+    "occupations": "مهن",
+    "organizations": "منظمات",
+    "people": "أعلام",
+    "short stories": "قصص قصيرة",
+    "soap opera": "مسلسلات طويلة",
+    "soundtracks": "موسيقى تصويرية",
+    "tactics and skills": "مهارات",
+    "teams": "فرق",
+    "television commercials": "إعلانات تجارية تلفزيونية",
+    "television episodes": "حلقات تلفزيونية",
+    "television films": "أفلام تلفزيونية",
+    "television miniseries": "مسلسلات قصيرة",
+    "television news": "أخبار تلفزيونية",
+    "television programmes": "برامج تلفزيونية",
+    "television programming": "برمجة تلفزيونية",
+    "television programs": "برامج تلفزيونية",
+    "television schedules": "جداول تلفزيونية",
+    "television series": "مسلسلات تلفزيونية",
+    "film series": "سلاسل أفلام",
+    "television shows": "عروض تلفزيونية",
+    "terminology": "مصطلحات",
+    "variants": "أشكال",
+    "video games": "ألعاب فيديو",
+    "web series": "مسلسلات ويب",
+    "webcomic": "ويب كومكس",
+    "webcomics": "ويب كومكس",
+    "works": "أعمال"
+}
+
+
 # Load JSON resources
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
-television_keys = open_json_file("media/television_keys.json") or {}
 Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
 Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
 
