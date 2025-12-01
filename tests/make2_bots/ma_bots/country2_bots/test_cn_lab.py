@@ -25,7 +25,7 @@ make_cnt_lab_data = {
 def test_make_cnt_lab_data(category: str, ar: str) -> None:
     label = make_cnt_lab(
         separator="-of ",
-        country2=f"kingdom-of {category}",
+        country=f"kingdom-of {category}",
         part_2_label=ar,
         part_1_label="مملكة",
         part_1_normalized="kingdom of",
@@ -48,16 +48,16 @@ party_data = {
 }
 
 
-@pytest.mark.parametrize("country2, part_2_label, expected", party_data.values(), ids=list(party_data.keys()))
+@pytest.mark.parametrize("country, part_2_label, expected", party_data.values(), ids=list(party_data.keys()))
 @pytest.mark.fast
-def test_make_cnt_lab_communist_party(country2: str, part_2_label: str, expected: str) -> None:
+def test_make_cnt_lab_communist_party(country: str, part_2_label: str, expected: str) -> None:
     label = make_cnt_lab(
         separator="-of ",
-        country2=country2,
+        country=country,
         part_2_label=part_2_label,
         part_1_label="الحزب الشيوعي في ",
         part_1_normalized="communist party of",
-        part_2_normalized=country2.replace("communist party-of ", ""),
+        part_2_normalized=country.replace("communist party-of ", ""),
         ar_separator=" ",
     )
 
@@ -67,7 +67,7 @@ def test_make_cnt_lab_communist_party(country2: str, part_2_label: str, expected
 def test_make_cnt_lab() -> None:
     result1 = make_cnt_lab(
         separator=" in ",
-        country2="university of arts in belgrade",
+        country="university of arts in belgrade",
         part_2_label="بلغراد",
         part_1_label="جامعة {} للفنون في",
         part_1_normalized="university of arts",
@@ -79,7 +79,7 @@ def test_make_cnt_lab() -> None:
 
     result1 = make_cnt_lab(
         separator=" of ",
-        country2="by medium from insular areas of united states",
+        country="by medium from insular areas of united states",
         part_2_label="الولايات المتحدة",
         part_1_label="حسب الوسط من المناطق المعزولة في ",
         part_1_normalized="by medium from insular areas of",
@@ -95,7 +95,7 @@ def test_make_cnt_lab() -> None:
 
     # Test with different parameters
     result_various = make_cnt_lab(
-        "from", "test from country", "country label2", "test label2", "test2", "country2", " من "
+        "from", "test from country", "country label2", "test label2", "test2", "country", " من "
     )
     assert isinstance(result_various, str)
 
@@ -143,7 +143,7 @@ def test_congress_data(category: str, ar: str) -> None:
     label = f"الكونغرس الأمريكي {ar}"
     result = make_cnt_lab(
         separator=" of ",
-        country2=f"acts of {category} united states congress",
+        country=f"acts of {category} united states congress",
         part_2_label=label,
         part_1_label="أفعال",
         part_1_normalized="acts of",
