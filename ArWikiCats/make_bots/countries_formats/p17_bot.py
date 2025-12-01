@@ -17,7 +17,7 @@ from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
-@dump_data(enable=1)
+@dump_data(1)
 def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
     codd = category_relation_mapping.get(suffix, "")

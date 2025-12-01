@@ -89,7 +89,7 @@ def make_cnt_lab(
     return resolved_label
 
 
-@dump_data(enable=True)
+@dump_data()
 def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     """
     Process a country name based on a specified separator.
@@ -134,7 +134,7 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     return part_1, part_2
 
 
-@dump_data(enable=True)
+@dump_data()
 def separator_arabic_resolve(separator: str, part_1_label: str, part_1_normalized: str) -> str:
     """
     Generate a specific string based on input parameters.
@@ -162,7 +162,7 @@ def separator_arabic_resolve(separator: str, part_1_label: str, part_1_normalize
     return ar_separator
 
 
-@dump_data(enable=True)
+@dump_data()
 def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
 
     part_2_label = c_2_1_lab(part_2, With_Years=With_Years)
@@ -192,7 +192,7 @@ def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
     return part_1_label, part_2_label
 
 
-@dump_data(enable=True)
+@dump_data()
 def country_2_create_label(separator: str, part_1: str, part_2: str, country: str, With_Years: bool = True) -> str:
     """
     Convert country name and generate labels based on input parameters.
@@ -223,7 +223,7 @@ def country_2_create_label(separator: str, part_1: str, part_2: str, country: st
     return resolved_label
 
 
-@dump_data(enable=True)
+@dump_data()
 def country_2_title_work(country: str, With_Years: bool = True) -> str:
     title_separators = [
         "based in",

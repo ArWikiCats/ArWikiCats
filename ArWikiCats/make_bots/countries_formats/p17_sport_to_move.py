@@ -132,7 +132,7 @@ def get_en_ar_is_p17_label_multi(category: str) -> str:
     return nat_bot.search(category)
 
 
-# @dump_data(enable=1)
+# @dump_data(1)
 @functools.lru_cache(maxsize=1000)
 def get_en_ar_is_p17_label(category: str) -> str:
     nat_bot = _load_bot()
