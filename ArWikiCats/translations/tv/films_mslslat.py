@@ -4,22 +4,7 @@ new pages from file
 
 python3 core8/pwb.py update/update
 
-SELECT DISTINCT (CONCAT("\"", ?en, "\"") AS ?ss) (CONCAT(":") AS ?ss2) (CONCAT("  \"", ?ar, "\",") AS ?ss3) WHERE {
-  ?item (wdt:P31/(wdt:P279*)) wd:Q201658;
-    wdt:P910 ?cat.
-  ?cat rdfs:label ?en.
-  FILTER((LANG(?en)) = "en")
-  ?cat rdfs:label ?ar.
-  FILTER((LANG(?ar)) = "ar")
-  OPTIONAL {
-    ?item rdfs:label ?itemaa.
-    FILTER((LANG(?itemaa)) = "ar")
-  }
-  OPTIONAL {
-    ?cat rdfs:label ?catar.
-    FILTER((LANG(?catar)) = "ar")
-  }
-}
+TODO: need refactoring
 """
 
 from ...helps import len_print
@@ -162,7 +147,6 @@ for cd, ff in Films_key_O_multi.items():
         Films_key_333[cd] = ff["female"]
 # ---
 ss_Films_key_CAO = 0
-vfvfv = 0
 # ---
 for ke, ke_lab in film_Keys_For_female.items():
     Films_key_CAO[f"{ke} anime and manga"] = f"أنمي ومانغا {ke_lab}"
@@ -188,34 +172,48 @@ for ke, ke_lab in film_Keys_For_female.items():
 
     F_k = f"{ke} films"
     Films_key_CAO[F_k] = f"أفلام {ke_lab}"
+
     for fao in television_keys:
         ss_Films_key_CAO += 1
         rr = f"{ke} {fao}"
         Films_key_CAO[rr] = f"{television_keys[fao]} {ke_lab}"
-    ke_lower = ke.lower()
-    tyty = "{tyty}"
-    for ke2, ke2_lab in Films_key2.items():
-        vfvfv += 1
-        ke22 = ke2.lower()
-        if ke22 != ke_lower:
-            Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
-            Paop_2 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
-            if ke_lower in Films_Frist:
-                Paop_1 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
-                Paop_2 = Paop_1
-                # print(Paop_1)
-            elif ke22 in Films_Frist:
+
+
+def _extend_Films_key_333(Films_key_333):
+    vfvfv = 0
+    data = {}
+    for ke, ke_lab in film_Keys_For_female.items():
+        ke_lower = ke.lower()
+        tyty = "{tyty}"
+
+        for ke2, ke2_lab in Films_key2.items():
+            ke22 = ke2.lower()
+            if ke22 != ke_lower:
                 Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
-                Paop_2 = Paop_1
-                # print(Paop_1)
-            k1 = f"{ke} {ke2}"
-            if k1 not in Films_key_333:
-                Films_key_333[k1] = Paop_1
-                # print(f"{k1} : {Paop_1}")
-            k2 = f"{ke2} {ke}"
-            if k2 not in Films_key_333:
-                Films_key_333[k2] = Paop_2
-                # print(f"{k2} : {Paop_2}")
+                Paop_2 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
+                if ke_lower in Films_Frist:
+                    Paop_1 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
+                    Paop_2 = Paop_1
+
+                elif ke22 in Films_Frist:
+                    Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
+                    Paop_2 = Paop_1
+
+                k1 = f"{ke} {ke2}"
+                if k1 not in Films_key_333:
+                    data[k1] = Paop_1
+                    vfvfv += 1
+
+                k2 = f"{ke2} {ke}"
+                if k2 not in Films_key_333:
+                    vfvfv += 1
+                    data[k2] = Paop_2
+    return data
+
+
+extended_data = _extend_Films_key_333(Films_key_333)
+Films_key_333.update(extended_data)
+
 Films_key_CAO["lgbt-related films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO["lgbtq-related films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
@@ -247,7 +245,7 @@ len_print.data_len(
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,
         "ss_Films_key_CAO": ss_Films_key_CAO,
-        "vfvfv": vfvfv,
+        "vfvfv": extended_data,
         "Films_key_333": Films_key_333,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new": Films_keys_both_new,
