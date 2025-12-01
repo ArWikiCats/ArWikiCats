@@ -60,11 +60,11 @@ def _extend_Films_key_333(
                 paop_1 = f"{placeholder} {ke_lab} {ke2_lab}"
                 paop_2 = paop_1
 
-            k1 = f"{ke} {ke2}"
+            k1 = f"{ke} {ke2} {{tyty_en}}"
             if k1 not in films_key_333:
                 data[k1] = paop_1
 
-            k2 = f"{ke2} {ke}"
+            k2 = f"{ke2} {ke} {{tyty_en}}"
             if k2 not in films_key_333:
                 data[k2] = paop_2
 
