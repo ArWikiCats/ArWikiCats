@@ -133,23 +133,27 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
 
     logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {separator=} ')
 
-    if test_remainder and test_remainder != separator_stripped:
-        logger.info(
-            f'>>>> test_remainder != "", type_regex:"{type_regex}", separator:"{separator}", country_regex:"{country_regex}" '
-        )
-
-        if separator_stripped == "of" and not type_regex.endswith(separator_ends):
-            type_regex = f"{type_regex} of"
-        elif separator_stripped == "by" and not country_regex.startswith(separator_starts):
-            country_regex = f"by {country_regex}"
-        elif separator_stripped == "for" and not country_regex.startswith(separator_starts):
-            country_regex = f"for {country_regex}"
-        category_type = type_regex
-        country = country_regex
-
-        logger.info(f'>>>> yementest: type_regex:"{type_regex}", country_regex:"{country_regex}"')
-    else:
+    if not test_remainder or test_remainder == separator_stripped:
         logger.info(f'>>>> test_remainder:"{test_remainder}" == separator')
+        return category_type, country
+
+    logger.info(
+        f'>>>> test_remainder != "", {type_regex=}, {separator=}, {country_regex=} '
+    )
+
+    if separator_stripped == "of" and not type_regex.endswith(separator_ends):
+        type_regex = f"{type_regex} of"
+
+    elif separator_stripped == "by" and not country_regex.startswith(separator_starts):
+        country_regex = f"by {country_regex}"
+
+    elif separator_stripped == "for" and not country_regex.startswith(separator_starts):
+        country_regex = f"for {country_regex}"
+
+    category_type = type_regex
+    country = country_regex
+
+    logger.info(f'>>>> yementest: type_regex:"{type_regex}", {country_regex=}')
 
     return category_type, country
 
