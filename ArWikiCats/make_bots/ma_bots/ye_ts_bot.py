@@ -48,8 +48,8 @@ def find_lab(category: str, category_r: str) -> str:
         _lab = time_to_arabic.convert_time_to_arabic(cate_low)
 
     if _lab:
-        logger.info(f'>>>> <<lightyellow>>test: cat "{category_r}", _lab:"{_lab}"')
-        logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", _lab "{_lab}"')
+        logger.info(f'>>>> <<lightyellow>>test: cat "{category_r}", {_lab=}')
+        logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", {_lab=}')
 
     return _lab
 
@@ -133,7 +133,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
 
     if arlabel and fix_title:
         arlabel = fixtitle.fixlab(arlabel, en=category_r)
-        logger.info(f'>>>>>> <<green>>test: cat "{category_r}", arlabel:"{arlabel}"')
+        logger.info(f'>>>>>> <<green>>test: cat "{category_r}", {arlabel=}')
 
     if arlabel:
         logger.debug(f"<<lightyellow>>>> translate_general_category {arlabel=}  ")

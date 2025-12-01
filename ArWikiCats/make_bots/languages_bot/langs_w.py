@@ -79,7 +79,7 @@ class FilmCategoryLabelResolver:
 
         if film_label:
             result = f"أفلام {film_label} ب{language_label}"
-            logger.debug(f"<<lightblue>> FilmCategoryLabelResolver._try_films_suffix_pattern " f'result:"{result}"')
+            logger.debug(f"<<lightblue>> FilmCategoryLabelResolver._try_films_suffix_pattern " f' {result=}')
             return result
         return ""
 
@@ -97,7 +97,7 @@ class FilmCategoryLabelResolver:
                 result = f"{label} ب{language_label}"
                 logger.debug(
                     f"<<lightblue>> FilmCategoryLabelResolver._lookup_in_film_dictionaries "
-                    f'{dict_name}. result:"{result}"'
+                    f'{dict_name}. {result=}'
                 )
                 return result
         return ""
@@ -119,7 +119,7 @@ class FilmCategoryLabelResolver:
             result = template.format(f"ب{language_label}")
             logger.debug(
                 f"<<lightblue>> FilmCategoryLabelResolver.resolve_with_suffix "
-                f'Films_key_For_nat({suffix}). result:"{result}"'
+                f'Films_key_For_nat({suffix}). {result=}'
             )
             return result
 
@@ -186,7 +186,7 @@ class LanguageLabelResolver:
             nat_label = self._nationalities[lang_key]["mens"]
             logger.debug(
                 f'<<lightred>> skip lang:"{lang_key}" in All_Nat, '
-                f'lang_label:"{lang_label}", nat_label:"{nat_label}" '
+                f' {lang_label=}, {nat_label=} '
             )
             return ""
 
@@ -204,14 +204,14 @@ class LanguageLabelResolver:
         job_label = self._jobs_mens.get(suffix, "")
         if job_label:
             result = f"{job_label} ب{lang_label}"
-            logger.debug(f'<<lightblue>> jobs_mens_data({suffix}): result:"{result}"')
+            logger.debug(f'<<lightblue>> jobs_mens_data({suffix}): {result=}')
             return result
 
         # 4) lang_key_m lookup with formatting
         template = self._lang_key_m.get(suffix, "")
         if template:
             result = template.format(lang_label)
-            logger.debug(f'<<lightblue>> lang_key_m({suffix}), template:"{template}", ' f'result:"{result}"')
+            logger.debug(f'<<lightblue>> lang_key_m({suffix}), {template=}, {result=}')
             return result
 
         logger.debug(f"no match for suffix: ({suffix}), language_label={lang_label}")

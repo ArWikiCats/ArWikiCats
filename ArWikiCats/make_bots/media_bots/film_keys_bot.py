@@ -36,7 +36,7 @@ def get_Films_key_CAO(country_identifier: str) -> str:
             continue
 
         prefix = normalized_identifier[: -len(suffix)].strip()
-        logger.debug(f'<<lightblue>> prefix:"{prefix}", endswith:"{suffix}" ')
+        logger.debug(f'<<lightblue>> {prefix=}, endswith:"{suffix}" ')
         prefix_label = Films_key_333.get(prefix.strip(), "")
 
         if not prefix_label:
@@ -75,7 +75,7 @@ def Films(category: str, country_start: str, country_code: str) -> str:
                 result = f"{country_label} {country_name}"
                 if country_code in Films_key_CAO_new_format:
                     result = Films_key_CAO_new_format[country_code].format(country_name)
-                logger.debug(f'<<lightblue>> bot_te_4:Films: new result "{result}" , country_code:{country_code} ')
+                logger.debug(f'<<lightblue>> bot_te_4:Films: new result "{result}" , {country_code=} ')
 
         if not result:
             country_label = Films_key_For_nat.get(country_code, "")

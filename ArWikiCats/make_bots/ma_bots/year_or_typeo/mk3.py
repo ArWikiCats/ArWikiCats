@@ -73,7 +73,7 @@ def add_the_in(
         arlabel = arlabel + suf + country_label
         arlabel = re.sub(r"\s+", " ", arlabel)
         arlabel = arlabel.replace(" في في ", " في ")
-        logger.info(f">3252 arlabel: {arlabel}")
+        logger.info(f">3252 {arlabel=}")
 
         # if (typeo == '" and In == "') and (country and year != ""):
     return Add_In_Done, arlabel, cat_test
@@ -98,7 +98,7 @@ def added_in_new(country: str, arlabel: str, suf: str, year_labe: str, country_l
         suf = " في "
         logger.info("a<<lightblue>>>>>> Add في to suf")
 
-    logger.info(f'a<<lightblue>>>>>> country_label:{country_label},suf:{suf}:,arlabel2:"{arlabel2}"')
+    logger.info(f'a<<lightblue>>>>>> {country_label=}, {suf=}:, {arlabel2=}')
 
     Add_In_Done = False
 
@@ -196,7 +196,7 @@ def new_func_mk2(
     arlabel = " ".join(arlabel.strip().split())
 
     logger.info("------- end --------")
-    logger.info(f'a<<lightblue>>>>>> p:{country_label}, year_labe: {year_labe}:, cat:"{category}"')
-    logger.info(f'a<<lightblue>>>>>> arlabel  "{arlabel}"')
+    logger.info(f'a<<lightblue>>>>>> p:{country_label}, {year_labe=}, {category=}')
+    logger.info(f'a<<lightblue>>>>>> {arlabel=}')
 
     return cat_test, arlabel

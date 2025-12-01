@@ -123,7 +123,7 @@ def get_and_label(category: str) -> str:
 
     label = ""
     logger.info(f"<<lightyellow>>>>get_and_label {category}")
-    logger.info(f"Resolving get_and_label, category: {category}")
+    logger.info(f"Resolving get_and_label, {category=}")
     match = re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE)
     if not match:
         return ""

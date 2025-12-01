@@ -64,8 +64,8 @@ def work_mens_priffix(con_33: str) -> str:
                 con_88 = con_nat
         con_88 = con_88.strip()
 
-        logger.debug(f'<<lightblue>> con_8:{con_8}, con_88:"{con_88}"')
-        logger.debug(f'<<lightblue>> con_33.startswith pri ("{pri}"), con_88:"{con_88}"')
+        logger.debug(f'<<lightblue>> {con_8=}, {con_88=}')
+        logger.debug(f'<<lightblue>> con_33.startswith pri ("{pri}"), {con_88=}')
 
         con_8_lab = jobs_mens_data.get(con_88, "")
 
@@ -77,7 +77,7 @@ def work_mens_priffix(con_33: str) -> str:
         if not con_8_lab:
 
             continue
-        logger.debug(f'<<lightblue>> priffix_Mens_work: pri("{pri}"), con_88:{con_88}, con_8_lab:"{con_8_lab}"')
+        logger.debug(f'<<lightblue>> priffix_Mens_work: pri("{pri}"), {con_88=}, {con_8_lab=}')
 
         label = priff_lab.format(con_8_lab)
         if label in replace_labels_2022:
@@ -85,7 +85,7 @@ def work_mens_priffix(con_33: str) -> str:
             logger.debug(f'<<lightgreen>> change label to "{label}" replace_labels_2022.')
 
         if label.strip():
-            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
             return label
     return ""
 
@@ -118,11 +118,11 @@ def work_mens_suffix(con_33: str) -> str:
             con_88_lab = get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
 
         if con_88_lab:
-            logger.debug(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), con_88_lab:"{con_88_lab}"')
+            logger.debug(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), {con_88_lab=}')
             label = suf_lab.format(con_88_lab)
 
         if label.strip():
-            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
             return label
 
     return ""
@@ -157,7 +157,7 @@ def priffix_Mens_work(con_33: str) -> str:
 
     label = jobs_mens_data.get(con_33, "")
     if label:
-        logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work :label:"{label}",con_33:"{con_33}"..')
+        logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
         return label
 
     label = work_mens_priffix(con_33)
@@ -213,7 +213,7 @@ def Women_s_priffix_work(suffix: str) -> str:
 
             con_4 = con_33[len(prefix) :]
             con_8_Wb = jobs_womens_data.get(con_4, "")
-            logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"),con_4:"{con_4}", con_8_Wb:"{con_8_Wb}"')
+            logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"), {con_4=}, {con_8_Wb=}')
 
             if con_8_Wb:
                 label = wrifflab.format(con_8_Wb)

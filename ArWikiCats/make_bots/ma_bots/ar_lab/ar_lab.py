@@ -278,17 +278,17 @@ class LabelPipeline(Fixing):
         t_to = f"{self.type_lower} {self.separator_stripped}"
 
         if self.type_lower in Keep_it_last:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last')
             keep_type_last = True
 
         elif self.type_lower in Keep_it_frist:
             logger.info(
-                f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist'
+                f'>>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist'
             )
             keep_type_first = True
 
         elif t_to in Keep_it_frist:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, t_to:"{t_to}" in Keep_it_frist')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, {t_to=} in Keep_it_frist')
             keep_type_first = True
 
         # Determine order
@@ -306,12 +306,12 @@ class LabelPipeline(Fixing):
                 arlabel = self.type_label + ar_separator + self.country_label
 
         if keep_type_last:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
+            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last')
             arlabel = self.country_label + ar_separator + self.type_label
 
         elif keep_type_first:
             logger.info(
-                f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist'
+                f'>>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist'
             )
             arlabel = self.type_label + ar_separator + self.country_label
 
@@ -328,7 +328,7 @@ class LabelPipeline(Fixing):
         vr = re.sub(re.escape(self.country_lower), "{}", self.category.lower())
         if vr in pop_format2:
             logger.info(f'<<lightblue>>>>>> vr in pop_format2 "{pop_format2[vr]}":')
-            logger.info(f'<<lightblue>>>>>>> vr: "{vr}":')
+            logger.info(f'<<lightblue>>>>>>> {vr=}:')
             arlabel = pop_format2[vr].format(self.country_label)
         elif self.type_lower in pop_format:
             if not self.country_label.startswith("حسب"):
@@ -367,7 +367,7 @@ class LabelPipeline(Fixing):
         arlabel = self.join_labels(ar_separator)
 
         logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
-        logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", arlabel:"{arlabel}"')
+        logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", {arlabel=}')
 
         arlabel = arlabel.strip()
         arlabel = fix_minor(arlabel, ar_separator)

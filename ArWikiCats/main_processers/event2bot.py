@@ -79,7 +79,7 @@ def stubs_label(category_r: str) -> str:
 
         if sub_ar_label and list_of_cat:
             ar_label = list_of_cat.format(sub_ar_label)
-            logger.info(f'<<lightblue>> event2 add list_of_cat, ar_label:"{ar_label}", category:{category} ')
+            logger.info(f'<<lightblue>> event2 add list_of_cat, {ar_label=}, {category=} ')
 
     return ar_label
 

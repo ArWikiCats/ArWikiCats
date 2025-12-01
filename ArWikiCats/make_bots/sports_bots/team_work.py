@@ -107,12 +107,12 @@ def Get_team_work_Club(category: str) -> str:
     """
 
     normalized = category.strip()
-    logger.debug(f'get_parties_lab category:"{category}"')
+    logger.debug(f'get_parties_lab {category=}')
 
     category_label = resolve_suffix_template(normalized, Teams_new_end_keys, _resolve_club_label)
 
     if category_label:
-        logger.info(f'get_parties_lab category:"{category}", category_label:"{category_label}"')
+        logger.info(f'get_parties_lab {category=}, {category_label=}')
 
     return category_label
 

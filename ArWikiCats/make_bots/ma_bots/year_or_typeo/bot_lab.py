@@ -60,7 +60,7 @@ def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> No
 
     New_Lan[category_r.lower()] = ar
 
-    logger.info(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
+    logger.info(f'>>>> <<lightyellow>> {typeo_lab=}, cnt_la "{country_label}"')
     logger.info(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
 

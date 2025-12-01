@@ -54,10 +54,10 @@ def make_cnt_lab(
     if co_in_tables or in_players:
         if in_players:
             if part_2_label.startswith("أصل "):
-                logger.info(f'>>>>>> Add من to part_1_normalized:"{part_1_normalized}" part_1_normalized in New_players:')
+                logger.info(f'>>>>>> Add من to {part_1_normalized=} part_1_normalized in New_players:')
                 resolved_label = f"{part_1_label}{ar_separator}من {part_2_label}"
             else:
-                logger.info(f'>>>>>> Add في to part_1_normalized:"{part_1_normalized}" part_1_normalized in New_players:')
+                logger.info(f'>>>>>> Add في to {part_1_normalized=} part_1_normalized in New_players:')
                 resolved_label += " في "
         if part_2_normalized not in By_table:
             # Films_O_TT[country2] = resolved_label

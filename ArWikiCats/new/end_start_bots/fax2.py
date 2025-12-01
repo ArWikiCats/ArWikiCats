@@ -57,6 +57,6 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str, find_stubs=Fals
         category3, list_of_cat = get_from_endswith_dict(category3, to_get_endswith)
 
     if list_of_cat:
-        logger.info(f'<<lightblue>> list_of_cat:"{list_of_cat}", category3:"{category3}"')
+        logger.info(f'<<lightblue>> {list_of_cat=}, {category3=}')
 
     return list_of_cat, foot_ballers, category3

@@ -158,7 +158,7 @@ def work_relations(value: str) -> str:
         add_article=True,
     )
     if resolved:
-        logger.info(f"work_relations: cat: {value}, resolved: {resolved}")
+        logger.info(f"work_relations: cat: {value}, {resolved=}")
         return resolved
 
     resolved = _resolve_relations(
@@ -169,7 +169,7 @@ def work_relations(value: str) -> str:
         add_article=True,
     )
     if resolved:
-        logger.info(f"work_relations: cat: {value}, resolved: {resolved}")
+        logger.info(f"work_relations: cat: {value}, {resolved=}")
         return resolved
 
     resolved = _resolve_relations(
@@ -182,7 +182,7 @@ def work_relations(value: str) -> str:
     )
 
     if resolved:
-        logger.info(f"work_relations: cat: {value}, resolved: {resolved}")
+        logger.info(f"work_relations: cat: {value}, {resolved=}")
 
     return resolved
 

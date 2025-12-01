@@ -47,7 +47,7 @@ def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower:
     if separator_stripped in separators_lists_raw:
         if separator_stripped == "in" or " in" in type_lower:
             if type_lower in pop_of_without_in:
-                logger.info(f'>>-- Skip aAdd في to type_label:"{type_label}", "{type_lower}"')
+                logger.info(f'>>-- Skip aAdd في to {type_label=}, "{type_lower}"')
             else:
                 if " في" not in type_label and " in" in type_lower:
                     logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{type_lower}"')
@@ -134,7 +134,7 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {separator=} ')
 
     if not test_remainder or test_remainder == separator_stripped:
-        logger.info(f'>>>> test_remainder:"{test_remainder}" == separator')
+        logger.info(f'>>>> {test_remainder=} == separator')
         return category_type, country
 
     logger.info(
@@ -153,7 +153,7 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     category_type = type_regex
     country = country_regex
 
-    logger.info(f'>>>> yementest: type_regex:"{type_regex}", {country_regex=}')
+    logger.info(f'>>>> yementest: {type_regex=}, {country_regex=}')
 
     return category_type, country
 
@@ -190,18 +190,18 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = Tabl_with_in.get(type_lower_with_preposition, "")
         if label:
             should_append_in_label = False
-            logger.info(f'<<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
+            logger.info(f'<<<< {type_lower_with_preposition=}, {label=}')
 
     if not label:
         label = New_P17_Finall.get(type_lower, "")
         if label:
-            logger.debug(f'<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
+            logger.debug(f'<< {type_lower_with_preposition=}, {label=}')
 
     if label == "" and type_lower.startswith("the "):
         type_lower_no_article = type_lower[len("the ") :]
         label = New_P17_Finall.get(type_lower_no_article, "")
         if label:
-            logger.debug(f'<<< type_lower_with_preposition "{type_lower_with_preposition}", label : "{label}"')
+            logger.debug(f'<<< {type_lower_with_preposition=}, {label=}')
 
     if label == "" and type_lower.strip().endswith(" people"):
         label = make_people_lab(type_lower)

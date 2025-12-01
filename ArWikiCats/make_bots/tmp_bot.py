@@ -50,7 +50,7 @@ def Work_Templates(input_label: str) -> str:
     """
     # Normalize input for consistent caching
     input_label = input_label.lower().strip()
-    logger.info(f">> ----------------- start Work_ Templates ----------------- input_label:{input_label}")
+    logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
 
     template_label = ""
 
@@ -61,17 +61,17 @@ def Work_Templates(input_label: str) -> str:
     for suffix, format_template in combined_suffix_mappings.items():
         if input_label.endswith(suffix.lower()):
             base_label = input_label[: -len(suffix)]
-            logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), base_label:"{base_label}"')
+            logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {base_label=}')
 
             resolved_label = _resolve_label(base_label)
-            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", base_label :"{base_label}"')
+            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {base_label=}')
 
             if resolved_label:
                 logger.info(
-                    f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), resolved_label:"{resolved_label}"'
+                    f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {resolved_label=}'
                 )
                 template_label = format_template.format(resolved_label)
-                logger.info(f'>>>> template_label:"{template_label}"')
+                logger.info(f'>>>> {template_label=}')
                 break
 
     if template_label:
@@ -83,14 +83,14 @@ def Work_Templates(input_label: str) -> str:
             remaining_label = input_label[len(prefix) :]
 
             resolved_label = _resolve_label(remaining_label)
-            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", remaining_label :"{remaining_label}"')
+            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {remaining_label=}')
 
             if resolved_label:
                 logger.info(
-                    f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), resolved_label:"{resolved_label}"'
+                    f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), {resolved_label=}'
                 )
                 template_label = format_template.format(resolved_label)
-                logger.info(f'>>>> template_label:"{template_label}"')
+                logger.info(f'>>>> {template_label=}')
                 break
 
     logger.info(">> ----------------- end Work_ Templates ----------------- ")

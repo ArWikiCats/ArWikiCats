@@ -36,7 +36,7 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
     key = suffix.strip()
     suffix_label = pop_format.get(key, "")
-    logger.debug(f'<<lightblue>>>>>> <<lightgreen>>pop_format<<lightblue>> {category=}, {country_start=}, suffix:"{suffix}"')
+    logger.debug(f'<<lightblue>>>>>> <<lightgreen>>pop_format<<lightblue>> {category=}, {country_start=}, {suffix=}')
 
     return suffix_label
 
@@ -56,11 +56,11 @@ def get_p17_main(category: str) -> str:  # الإنجليزي جنسية وال�
     country_start_lab = contries_from_nat.get(country_start, "")
 
     if not suffix or not country_start:
-        logger.info(f'<<lightred>>>>>> suffix: "{suffix}" or country_start :"{country_start}" == ""')
+        logger.info(f'<<lightred>>>>>> {suffix=} or {country_start=} == ""')
         return ""
 
-    logger.debug(f'<<lightblue>> country_start:"{country_start}", suffix:"{suffix}"')
-    logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
+    logger.debug(f'<<lightblue>> {country_start=}, {suffix=}')
+    logger.debug(f'<<lightpurple>>>>>> {country_start_lab=}')
 
     suffix_label = from_category_relation_mapping(suffix)
 

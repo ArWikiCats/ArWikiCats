@@ -66,7 +66,7 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
     if not part_1_label:
         part_1_label = Tabl_with_in.get(con_1_in, "")
         if part_1_label:
-            logger.info(f'<<<< con_1_in "{con_1_in}", part_1_label : "{part_1_label}"')
+            logger.info(f'<<<< con_1_in "{con_1_in}", {part_1_label=}')
 
     if not part_1_label:
         part_1_label = convert_time_to_arabic(cone_1)
@@ -81,16 +81,16 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
         if not part_1_label:
             if cone_1.startswith(pri_ss):
                 U_c = cone_1[len(pri_ss) :]
-                logger.info(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", separator:"{separator}" ')
+                logger.info(f' pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ')
                 U_lab = country2_lab.get_lab_for_country2(U_c)
 
                 if U_lab == "" and With_Years:
                     U_lab = with_years_bot.Try_With_Years(U_c)
 
                 if U_lab:
-                    logger.info(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"),U_c:"{U_c}", U_lab:"{U_lab}"')
+                    logger.info(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"), {U_c=}, {U_lab=}')
                     part_1_label = pri_lab.format(U_lab)
-                    logger.info(f'>>>> part_1_label:"{part_1_label}"')
+                    logger.info(f'>>>> {part_1_label=}')
 
     if cone_1 in pop_format:
         part_1_label = pop_format[cone_1]
@@ -99,7 +99,7 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
         part_1_label = get_KAKO(cone_1)
 
     if not part_1_label:
-        logger.debug(f'>>>> XX--== part_1_label =  "{part_1_label}" cone_1:"{cone_1}"')
+        logger.debug(f'>>>> XX--== part_1_label =  "{part_1_label}" {cone_1=}')
     return part_1_label
 
 

@@ -187,7 +187,7 @@ class CountryLabelRetriever:
 
     def get_term_label(self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True) -> str:
         """Retrieve the corresponding label for a given term."""
-        logger.info(f'get_term_label lab_type:"{lab_type}", separator:"{separator}", c_ct_lower:"{term_lower}" ')
+        logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
             start_get_country2 = True
@@ -203,7 +203,7 @@ class CountryLabelRetriever:
 
         if term_label == "" and lab_type != "type_label":
             if term_lower.startswith("the "):
-                logger.info(f'>>>> term_lower:"{term_lower}" startswith("the ")')
+                logger.info(f'>>>> {term_lower=} startswith("the ")')
                 term_without_the = term_lower[len("the ") :]
                 term_label = get_pop_All_18(term_without_the, "")
                 if not term_label:
@@ -222,7 +222,7 @@ class CountryLabelRetriever:
             term_label = self._handle_type_lab_logic(term_lower, separator, start_get_country2)
 
         if term_label:
-            logger.info(f'get_term_label term_label:"{term_label}" ')
+            logger.info(f'get_term_label {term_label=} ')
         elif separator.strip() == "for" and term_lower.startswith("for "):
             return self.get_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
 
@@ -240,11 +240,11 @@ class CountryLabelRetriever:
             base_term = term_lower[: -len(suffix)]
             translated_base = jobs_mens_data.get(base_term, "")
 
-            logger.info(f'base_term:"{base_term}", translated_base:"{translated_base}", term_lower:"{term_lower}" ')
+            logger.info(f' {base_term=}, {translated_base=}, {term_lower=} ')
 
             if term_label == "" and translated_base:
                 term_label = f"{translated_base} من "
-                logger.info(f"jobs_mens_data:: add من to term_label:{term_label}, line:1583.")
+                logger.info(f"jobs_mens_data:: add من to {term_label=}, line:1583.")
 
             if not translated_base:
                 translated_base = get_pop_All_18(base_term, "")
@@ -258,7 +258,7 @@ class CountryLabelRetriever:
                     logger.info("skip add في to pop_of_without_in")
                 else:
                     term_label = f"{translated_base} في "
-                    logger.info(f"XX add في to term_label:{term_label}, line:1596.")
+                    logger.info(f"XX add في to {term_label=}, line:1596.")
                 return term_label  # Return immediately if found
 
         if term_label == "" and separator.strip() == "in":
