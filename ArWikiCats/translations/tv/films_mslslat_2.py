@@ -8,45 +8,12 @@ TODO: need refactoring
 """
 
 from ...helps import len_print
-
-import json
-from pathlib import Path
-from typing import Any
-
-Dir2 = Path(__file__).parent.parent
-
-
-def _build_json_path(relative_path: str) -> Path:
-    """Return the full path to a JSON file under ``jsons``.
-
-    The helper accepts either bare filenames (``"example"``) or paths that
-    include nested folders (``"geography/us_counties"``).  When the provided
-    path does not include an extension, ``.json`` is appended automatically.
-    """
-
-    path = Path(relative_path)
-    if path.suffix != ".json":
-        path = path.with_suffix(".json")
-    return Dir2 / "jsons" / path
-
-
-def open_json_file(file_path: str = "") -> dict[str, Any] | list[Any]:
-    """Open a JSON resource from the bundled ``jsons`` directory by name."""
-    if not file_path:
-        return {}
-    file_path = _build_json_path(file_path)
-    if not file_path.exists():
-        print(f"file {file_path} not found")
-        return {}
-    try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except BaseException:
-        print(f"cant open {file_path.name}")
-    return {}
+from ..utils.json_dir import open_json_file
 
 
 def _extend_Films_key_333(Films_key_333):
+
+    Films_key2 = dict(film_Keys_For_female)
     data = {}
     Films_Frist = ["low-budget", "christmas", "lgbtq-related", "lgbt-related", "lgbtqrelated", "lgbtrelated", "upcoming",]
 
@@ -135,7 +102,7 @@ for xxx, xxx_lab in Films_key_O_multi.items():
     Films_key_both[ka2] = xxx_lab
 # ---
 for xo, ttt in Films_keys_male_female.items():
-    Films_key_both[xo.lower()] = ttt
+    # Films_key_both[xo.lower()] = ttt
     if ttt["female"]:
         Films_key_333[xo] = ttt["female"]
 # ---
@@ -154,10 +121,13 @@ for x, da in Films_key_both.items():
         film_Keys_For_male[x] = da["male"]
     if da["female"]:
         film_Keys_For_female[x] = da["female"]
+
+for x, da in Films_keys_male_female.items():
+    if da["female"]:
+        film_Keys_For_female[x] = da["female"]
 # ---
 debuts_endings_key = ["television series", "television miniseries", "television films"]
 # ---
-Films_key2 = film_Keys_For_female
 # ---Category:Anime_and_manga_by_genre
 # ---
 nat_key_f = "{}"
