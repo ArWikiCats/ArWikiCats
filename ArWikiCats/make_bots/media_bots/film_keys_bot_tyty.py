@@ -8,9 +8,34 @@ import functools
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import (
-    tyty_data,
+    film_Keys_For_female,
     television_keys,
+    tyty_data,
 )
+from ...translations_formats import format_multi_data
+
+
+class FilmKeysBot:
+    """Thin wrapper to expose a search method for film key formatting."""
+
+    def __init__(self) -> None:
+        self.bot = format_multi_data(
+            formatted_data=tyty_data,
+            data_list=film_Keys_For_female,
+            data_list2=film_Keys_For_female,
+            key_placeholder="{tyty}",
+            value_placeholder="<tyty>",
+            key2_placeholder="{tyty}",
+            value2_placeholder="<tyty>",
+        )
+
+    def search(self, category: str) -> str:
+        return self.bot.search(category) or tyty_data.get(category, "")
+
+
+@functools.lru_cache(maxsize=1)
+def _load_bot():
+    return FilmKeysBot()
 
 
 @functools.lru_cache(maxsize=None)
@@ -30,7 +55,8 @@ def get_films_key_tyty(country_identifier: str) -> str:
 
         prefix = normalized_identifier[: -len(suffix)].strip()
         logger.debug(f'<<lightblue>> {prefix=}, endswith:"{suffix}" ')
-        prefix_label = tyty_data.get(prefix.strip(), "")
+        bot = _load_bot()
+        prefix_label = bot.search(prefix.strip())
 
         if prefix_label and "{tyty}" in prefix_label:
             resolved_label = prefix_label.format(tyty=suffix_translation)
