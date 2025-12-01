@@ -28,7 +28,7 @@ def get_films_key_tyty(country_identifier: str) -> str:
         if not normalized_identifier.endswith(suffix.lower()):
             continue
 
-        prefix = normalized_identifier[: -len(suffix)].strip() + " {tyty_en}"
+        prefix = normalized_identifier[: -len(suffix)].strip()
         logger.debug(f'<<lightblue>> {prefix=}, endswith:"{suffix}" ')
         prefix_label = tyty_data.get(prefix.strip(), "")
 
