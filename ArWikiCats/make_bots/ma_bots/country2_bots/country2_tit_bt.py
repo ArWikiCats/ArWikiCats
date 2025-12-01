@@ -30,12 +30,13 @@ def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
 
     test_N = country2.lower().replace(con_1.strip().lower(), "")
 
-    try:
-        test_N = test_N.strip().replace(con_2.strip().lower(), "")
-    except Exception:
-        logger.info(f'<<lightblue>> >>>> <<lightblue>> except, test_N:"{test_N}",con_2:"{con_2}",con_1:"{con_1}"')
-        test_N = re.sub(con_2.strip().lower(), "", test_N)
-        test_N = test_N.replace(con_2.strip().lower(), "")
+    # try:
+    #     test_N = test_N.strip().replace(con_2.strip().lower(), "")
+    # except Exception:
+    #     logger.info(f'<<lightblue>> >>>> <<lightblue>> except, test_N:"{test_N}",con_2:"{con_2}",con_1:"{con_1}"')
+
+    test_N = re.sub(re.escape(con_2.strip()), "", test_N, flags=re.I)
+    test_N = test_N.replace(con_2.strip().lower(), "")
 
     if tat_o.strip() == "by":
         con_2 = f"by {con_2}"
