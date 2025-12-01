@@ -2,10 +2,19 @@
 
 from __future__ import annotations
 
-from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ...translations import PARTIES, PARTY_ROLE_SUFFIXES
+from ...translations import PARTIES
 from .utils import resolve_suffix_template
+
+PARTY_ROLE_SUFFIXES = {
+    "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
+    "candidates for member-of-parliament": "مرشحو %s لعضوية البرلمان",
+    "candidates": "مرشحو %s",
+    "leaders": "قادة %s",
+    "politicians": "سياسيو %s",
+    "members": "أعضاء %s",
+    "state governors": "حكام ولايات من %s",
+}
 
 
 def get_parties_lab(party: str) -> str:

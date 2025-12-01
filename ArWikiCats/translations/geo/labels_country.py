@@ -12,7 +12,7 @@ from ..mixed.all_keys5 import (
 )
 from ..tax_table import Taxons_table as TAXON_TABLE
 from ._shared import load_json_mapping, normalize_to_lower
-from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS
+from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS_LOWER
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
@@ -236,7 +236,7 @@ def _build_country_label_index() -> dict[str, str]:
 
     label_index: dict[str, str] = {}
 
-    update_with_lowercased(label_index, CITY_TRANSLATIONS)
+    label_index.update(CITY_TRANSLATIONS_LOWER)
     update_with_lowercased(label_index, US_STATES)
     update_with_lowercased(label_index, COUNTRY_LABEL_OVERRIDES)
     update_with_lowercased(label_index, POPULATION_OVERRIDES)
@@ -305,19 +305,6 @@ def _build_country_label_index() -> dict[str, str]:
 COUNTRY_LABEL_INDEX = _build_country_label_index()
 COUNTRY_LABEL_INDEX_LOWER = normalize_to_lower(COUNTRY_LABEL_INDEX)
 
-
-def get_country_label_index() -> dict[str, str]:
-    """Return a copy of the country label mapping."""
-
-    return dict(COUNTRY_LABEL_INDEX)
-
-
-def get_country_label_index_lower() -> dict[str, str]:
-    """Return a copy of the lower-cased country label mapping."""
-
-    return dict(COUNTRY_LABEL_INDEX_LOWER)
-
-
 # Backwards compatible aliases
 New_P17_Finall = COUNTRY_LABEL_INDEX
 
@@ -326,8 +313,6 @@ __all__ = [
     "POPULATION_OVERRIDES",
     "COUNTRY_LABEL_INDEX",
     "COUNTRY_LABEL_INDEX_LOWER",
-    "get_country_label_index",
-    "get_country_label_index_lower",
     "New_P17_Finall",
 ]
 
