@@ -60,17 +60,3 @@ class TestCountryLabels:
 
         assert all(key == key.lower() for key in lower_admin)
         assert lower_admin is not labels_country2.COUNTRY_ADMIN_LABELS_LOWER
-
-
-@pytest.mark.unit
-class TestRegionLabels:
-    def test_secondary_region_translations_include_suffixes(self) -> None:
-        secondary = regions2.get_secondary_region_translations()
-
-        assert secondary["bangui"] == "بانغي"
-        assert secondary["bangui prefecture"] == "محافظة بانغي"
-
-    def test_india_region_translations_returns_copy(self) -> None:
-        india = regions2.get_india_region_translations()
-
-        assert india is not regions2.INDIA_REGION_TRANSLATIONS

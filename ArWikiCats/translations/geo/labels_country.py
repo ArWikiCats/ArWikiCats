@@ -15,7 +15,7 @@ from ._shared import load_json_mapping, normalize_to_lower
 from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
-from .regions2 import India_Main_Table, Main_Table_2
+from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
 from .us_counties import US_COUNTY_TRANSLATIONS
 
 US_STATES = {
@@ -219,6 +219,7 @@ TURKEY_PROVINCE_LABELS = {
 
 COUNTRY_LABEL_OVERRIDES = load_json_mapping("geography/P17_2_final_ll.json")
 POPULATION_OVERRIDES = load_json_mapping("geography/opop.json")
+raw_region_overrides = load_json_mapping("geography/popopo.json")
 
 
 def update_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str]) -> None:
@@ -241,8 +242,11 @@ def _build_country_label_index() -> dict[str, str]:
     update_with_lowercased(label_index, POPULATION_OVERRIDES)
     update_with_lowercased(label_index, COUNTRY_ADMIN_LABELS)
     update_with_lowercased(label_index, MAIN_REGION_TRANSLATIONS)
-    update_with_lowercased(label_index, Main_Table_2)
-    update_with_lowercased(label_index, India_Main_Table)
+
+    update_with_lowercased(label_index, raw_region_overrides)
+    update_with_lowercased(label_index, SECONDARY_REGION_TRANSLATIONS)
+
+    update_with_lowercased(label_index, INDIA_REGION_TRANSLATIONS)
     update_with_lowercased(label_index, CITY_LABEL_PATCHES)
     update_with_lowercased(label_index, ADDITIONAL_KEYS)
     update_with_lowercased(label_index, US_COUNTY_TRANSLATIONS)
