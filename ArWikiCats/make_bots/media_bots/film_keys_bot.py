@@ -44,7 +44,7 @@ def get_Films_key_CAO(country_identifier: str) -> str:
 
         logger.debug(f'<<lightblue>> get_Films_key_CAO : {prefix=} ')
 
-        if "{}" in prefix_label:
+        if "{tyty}" in prefix_label:
             resolved_label = prefix_label.format(tyty=suffix_translation)
         else:
             resolved_label = f"{suffix_translation} {prefix_label}"
