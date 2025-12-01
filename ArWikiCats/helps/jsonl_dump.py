@@ -30,7 +30,7 @@ def save(path: Path | str, data: dict | list) -> str:
 already_saved = {}
 
 
-def dump_data(input_keys: list = None, enable: bool = False, compare_with_output: str = ""):
+def dump_data(enable: bool = False, input_keys: list = None, compare_with_output: str = ""):
     """
     Decorator to save function inputs and output into a JSONL file.
 

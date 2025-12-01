@@ -6,6 +6,7 @@ from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
     # "Category:yemeni presidential elections": "تصنيف:انتخابات اليمن الرئاسية",
+    "Category:ambassadors of federated states of micronesia in yemen by year": "تصنيف:سفراء ولايات ميكرونيسيا المتحدة في اليمن حسب السنة",
     "Category:Adaptations of works by Greek writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب يونانيون",
     "Category:Adaptations of works by Irish writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب أيرلنديون",
     "Category:Adaptations of works by Italian writers": "تصنيف:أعمال مقتبسة عن أعمال كتاب إيطاليون",

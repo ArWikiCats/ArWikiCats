@@ -79,6 +79,8 @@ def get_type_country(category: str, tito: str) -> Tuple[str, str]:
 
     Returns:
         tuple: A tuple containing the processed type (str) and country (str).
+
+    TODO: use re.split()
     """
     category_type, country = "", ""
     if tito and tito in category:

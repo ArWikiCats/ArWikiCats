@@ -89,33 +89,36 @@ def make_cnt_lab(
     return resolved_label
 
 
-@dump_data(enable=True)
 def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     """
     Process a country name based on a specified separator.
     TODO: separators need refactoring
     """
 
-    country2_no_lower = country.strip()
-    country2 = country.lower().strip()
+    country = country.strip()
+    country2 = country.lower()
+    if separator.lower() not in country2:
+        return "", ""
 
     part_1 = country2.split(separator)[0]
     part_2 = country2.split(separator)[1]
 
     Mash = f"^(.*?)(?:{separator}?)(.*?)$"
 
-    Type_t = re.sub(Mash, r"\g<1>", country2_no_lower, flags=re.IGNORECASE)
-    country_t = re.sub(Mash, r"\g<2>", country2_no_lower, flags=re.IGNORECASE)
+    Type_t = re.sub(Mash, r"\g<1>", country, flags=re.IGNORECASE)
+    country_t = re.sub(Mash, r"\g<2>", country, flags=re.IGNORECASE)
 
     test_N = country2.lower().replace(part_1.strip().lower(), "")
 
     test_N = re.sub(re.escape(part_2.strip()), "", test_N, flags=re.I)
     test_N = test_N.replace(part_2.strip().lower(), "")
 
+    # specific case
     if separator.strip() == "by":
         part_2 = f"by {part_2}"
         country_t = f"by {country_t}"
 
+    # specific case
     if separator.strip() in ["of", "-of"]:
         Type_t = f"{Type_t} of"
         part_1 = f"{part_1} of"
@@ -130,35 +133,29 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     return part_1, part_2
 
 
-@dump_data(enable=True)
-def separator_arabic_resolve(separator: str, part_1_label: str, part_1_normalized: str) -> str:
+def separator_arabic_resolve(separator: str) -> str:
     """
     Generate a specific string based on input parameters.
     TODO: need refactoring
     """
     ar_separator = " "
+    separator = separator.strip()
 
-    if separator.strip() == "to" and part_1_normalized.strip() == "ambassadors of":
-        ar_separator = " لدى "
-    elif separator.strip() == "to":
+    if separator == "to":
         ar_separator = " إلى "
-    elif separator.strip() == "on":
+    elif separator == "on":
         ar_separator = " على "
-    elif separator.strip() == "about":
+    elif separator == "about":
         ar_separator = " عن "
-    elif separator.strip() in category_relation_mapping:
-        if separator.strip() != "by":
-            ar_separator = f" {category_relation_mapping[separator.strip()]} "
-    elif separator.strip() == "based in":
+    elif separator in category_relation_mapping and separator != "by":
+        ar_separator = f" {category_relation_mapping[separator]} "
+    elif separator == "based in":
         ar_separator = " مقرها في "
-
-    if separator.strip() == "to" and part_1_label.startswith("سفراء "):
-        ar_separator = " لدى "
 
     return ar_separator
 
 
-@dump_data(enable=True)
+@dump_data()
 def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
 
     part_2_label = c_2_1_lab(part_2, With_Years=With_Years)
@@ -188,42 +185,7 @@ def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
     return part_1_label, part_2_label
 
 
-@dump_data(enable=True)
-def country_2_create_label(separator: str, country: str, With_Years: bool = True) -> str:
-    """
-    Convert country name and generate labels based on input parameters.
-    """
-
-    logger.info(f'>>>> <<lightblue>> country_2_create_label: <<lightyellow>> {country=}.')
-
-    part_1, part_2 = split_text_by_separator(separator, country)
-    logger.info(f'2060 {part_1=}, {part_2=}, {separator=}')
-
-    part_1_label, part_2_label = make_parts_labels(part_1, part_2, separator, With_Years)
-
-    part_1_normalized = part_1.strip().lower()
-    part_2_normalized = part_2.strip().lower()
-
-    logger.info(f">>>> XX--== <<lightgreen>> {part_1_normalized=}, {part_1_label=}, {part_2_normalized=}, {part_2_label=}")
-
-    if part_2_label == "" or part_1_label == "":
-        logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
-        return ""
-
-    remaining_text = country.lower().strip()
-    remaining_text = remaining_text.replace(part_1_normalized, "").replace(part_2_normalized, "").replace(separator.strip(), "").strip()
-
-    logger.info(f">>>> XX--== <<lightgreen>> {remaining_text=}")
-
-    ar_separator = separator_arabic_resolve(separator, part_1_label, part_1_normalized)
-
-    resolved_label = make_cnt_lab(separator, country, part_2_label, part_1_label, part_1_normalized, part_2_normalized, ar_separator)
-
-    return resolved_label
-
-
-@dump_data(enable=True)
-def country_2_title_work(country: str, With_Years: bool = True) -> str:
+def get_separator(country: str) -> str:
     title_separators = [
         "based in",
         "in",
@@ -236,18 +198,56 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
         "at",
         "on",
     ]
-    resolved_label = ""
 
     normalized_country = country.lower().strip()
 
     for sep in title_separators:
         separator = f" {sep} " if sep != "-of " else sep
-        if separator not in normalized_country:
-            continue
+        if separator in normalized_country:
+            return separator
 
-        resolved_label = country_2_create_label(separator, country, With_Years=With_Years)
-        resolved_label = fix_minor(resolved_label, separator)
-        break
+    return ""
+
+
+def country_2_title_work(country: str, With_Years: bool = True) -> str:
+
+    separator = get_separator(country)
+
+    if not separator:
+        logger.info(f">>>> country_2_title_work <<red>> {separator=}")
+        return ""
+
+    part_1, part_2 = split_text_by_separator(separator, country)
+
+    logger.info(f'2060 {part_1=}, {part_2=}, {separator=}')
+
+    part_1_label, part_2_label = make_parts_labels(part_1, part_2, separator, With_Years)
+
+    if part_2_label == "" or part_1_label == "":
+        logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
+        return ""
+
+    part_1_normalized = part_1.strip().lower()
+    part_2_normalized = part_2.strip().lower()
+
+    logger.info(f">>>> XX--== <<lightgreen>> {part_1_normalized=}, {part_1_label=}, {part_2_normalized=}, {part_2_label=}")
+
+    if separator.strip() == "to" and (part_1_label.startswith("سفراء ") or part_1_normalized.strip() == "ambassadors of"):
+        ar_separator = " لدى "
+    else:
+        ar_separator = separator_arabic_resolve(separator)
+
+    resolved_label = make_cnt_lab(
+        separator=separator,
+        country=country,
+        part_2_label=part_2_label,
+        part_1_label=part_1_label,
+        part_1_normalized=part_1_normalized,
+        part_2_normalized=part_2_normalized,
+        ar_separator=ar_separator,
+    )
+
+    resolved_label = fix_minor(resolved_label, separator)
 
     return resolved_label
 
@@ -255,7 +255,6 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
 __all__ = [
     "make_cnt_lab",
     "country_2_title_work",
-    "country_2_create_label",
     "separator_arabic_resolve",
     "split_text_by_separator",
 ]
