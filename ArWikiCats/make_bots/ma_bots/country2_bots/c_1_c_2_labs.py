@@ -60,13 +60,13 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
 
     if cone_1 == "women" and separator.strip() == "from":
         part_1_label = "نساء"
-        logger.info(f'>> >> >> Make cone_1 "{cone_1}".')
+        logger.info(f'>> >> >> Make {cone_1=}.')
 
     con_1_in = f"{cone_1.strip()} {separator.strip()}"
     if not part_1_label:
         part_1_label = Tabl_with_in.get(con_1_in, "")
         if part_1_label:
-            logger.info(f'<<<< con_1_in "{con_1_in}", {part_1_label=}')
+            logger.info(f'<<<< {con_1_in=}, {part_1_label=}')
 
     if not part_1_label:
         part_1_label = convert_time_to_arabic(cone_1)

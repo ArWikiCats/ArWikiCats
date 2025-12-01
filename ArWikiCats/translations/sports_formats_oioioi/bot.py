@@ -197,7 +197,7 @@ def sport_lab_oioioi_load(category: str, check_the: bool = False) -> str:
         return ""
 
     category_label = sport_format_label.format(nat=country_label)
-    logger.debug(f'<<lightblue>>xxx sport_lab_oioioi_load: new category_label  "{category_label}"')
+    logger.debug(f'<<lightblue>>xxx sport_lab_oioioi_load: new {category_label=}')
 
     return category_label
 

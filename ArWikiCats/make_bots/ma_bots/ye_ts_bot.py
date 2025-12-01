@@ -88,7 +88,7 @@ def work_separator_names(
     if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:
         arlabel = ""
 
-    logger.info(f'>>>> <<lightyellow>>arlabel "{arlabel}"')
+    logger.info(f'>>>> <<lightyellow>> {arlabel=}')
 
     return arlabel
 

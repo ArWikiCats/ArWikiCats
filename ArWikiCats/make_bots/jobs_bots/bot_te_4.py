@@ -69,7 +69,7 @@ def nat_match(category: str) -> str:
         country_label = country_label_template % country_label_key
 
     if country_label:
-        logger.debug(f'<<lightblue>> bot_te_4: nat_match country_label :: "{country_label}" ')
+        logger.debug(f'<<lightblue>> bot_te_4: nat_match {country_label=} ')
 
     return country_label
 

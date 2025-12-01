@@ -174,11 +174,11 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     label = ""
     if type_lower == "women" and normalized_preposition == "from":
         label = "نساء"
-        logger.info(f'>> >> >> Make label "{label}".')
+        logger.info(f'>> >> >> Make {label=}.')
 
     elif type_lower == "women of":
         label = "نساء من"
-        logger.info(f'>> >> >> Make label "{label}".')
+        logger.info(f'>> >> >> Make {label=}.')
 
     should_append_in_label = True
     type_lower_with_preposition = type_lower.strip()
