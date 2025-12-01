@@ -4,7 +4,7 @@ TODO: write tests
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.country2_bots.country2_tit_bt import (
+from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import (
     split_text_by_separator,
 )
 

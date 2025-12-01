@@ -4,7 +4,7 @@ TODO: write tests
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.country2_bots.country2_tit_bt import (
+from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import (
     split_text_by_separator,
 )
 
@@ -388,7 +388,7 @@ data_based_in = {
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_of_dash.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_of_dash.items(), ids=data_of_dash.keys())
 def test_data_of_dash(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator="-of ", country=category)
 
@@ -396,56 +396,56 @@ def test_data_of_dash(category: str, expected: tuple[str, str]) -> None:
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_about.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_about.items(), ids=data_about.keys())
 def test_data_about(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" about ", country=category)
     assert result == expected
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_by.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_by.items(), ids=data_by.keys())
 def test_data_by(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" by ", country=category)
     assert result == expected
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_from.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_from.items(), ids=data_from.keys())
 def test_data_from(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" from ", country=category)
     assert result == expected
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_in.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_in.items(), ids=data_in.keys())
 def test_data_in(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" in ", country=category)
     assert result == expected
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_of.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_of.items(), ids=data_of.keys())
 def test_data_of(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" of ", country=category)
     assert result == expected
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_on.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_on.items(), ids=data_on.keys())
 def test_data_on(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" on ", country=category)
     assert result == expected
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_to.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_to.items(), ids=data_to.keys())
 def test_data_to(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" to ", country=category)
     assert result == expected
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", data_based_in.items(), ids=lambda x: x[0])
+@pytest.mark.parametrize("category,expected", data_based_in.items(), ids=data_based_in.keys())
 def test_data_based_in(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" based in ", country=category)
     assert result == expected
