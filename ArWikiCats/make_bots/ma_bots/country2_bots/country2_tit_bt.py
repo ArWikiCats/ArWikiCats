@@ -6,134 +6,223 @@ This module provides functions for processing and generating labels for country 
 import re
 from typing import Tuple
 
+from ....helps.jsonl_dump import dump_data
 from ....helps.log import logger
-from ....utils import fix_minor
-from ...format_bots import category_relation_mapping
+from ....utils import fix_minor, check_key_in_tables_return_tuple
+from ...format_bots import category_relation_mapping, pop_format, pop_format2
 from .. import country_bot
+from ....translations import By_table, typeTable
+from ...matables_bots.bot import Films_O_TT, add_to_Films_O_TT
+from ...matables_bots.check_bot import check_key_new_players
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
-from .cn_lab import make_cnt_lab
 
 
-def make_conas(tat_o: str, country: str) -> Tuple[str, str]:
-    """Process a country name based on a specified separator."""
+def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
 
-    country2_no_lower = country.strip()
-    country2 = country.lower().strip()
-
-    con_1 = country2.split(tat_o)[0]
-    con_2 = country2.split(tat_o)[1]
-
-    Mash = f"^(.*?)(?:{tat_o}?)(.*?)$"
-
-    Type_t = re.sub(Mash, r"\g<1>", country2_no_lower, flags=re.IGNORECASE)
-    country_t = re.sub(Mash, r"\g<2>", country2_no_lower, flags=re.IGNORECASE)
-
-    test_N = country2.lower().replace(con_1.strip().lower(), "")
-
-    try:
-        test_N = test_N.strip().replace(con_2.strip().lower(), "")
-    except Exception:
-        logger.info(f'<<lightblue>> >>>> <<lightblue>> except, test_N:"{test_N}",con_2:"{con_2}",con_1:"{con_1}"')
-        test_N = re.sub(con_2.strip().lower(), "", test_N)
-        test_N = test_N.replace(con_2.strip().lower(), "")
-
-    if tat_o.strip() == "by":
-        con_2 = f"by {con_2}"
-        country_t = f"by {country_t}"
-
-    if tat_o.strip() in ["of", "-of"]:
-        Type_t = f"{Type_t} of"
-        con_1 = f"{con_1} of"
-
-    logger.info(f'>>>> con_1:"{con_1.strip()}",test_N:"{test_N.strip()}",con 2:"{con_2.strip()}"')
-
-    if test_N and test_N.strip() != tat_o.strip():
-        logger.info(f'>>>> <<lightblue>> test_N != "",Type_t:"{Type_t}",tat_o:"{tat_o}",country_t:"{country_t}"')
-        con_1 = Type_t
-        con_2 = country_t
-
-    return con_1, con_2
-
-
-def make_sps(tat_o: str, c_1_l: str, cona_1: str) -> str:
-    """Generate a specific string based on input parameters."""
-
-    sps = " "
-
-    if tat_o.strip() == "to" and cona_1.strip() == "ambassadors of":
-        sps = " لدى "
-    elif tat_o.strip() == "to":
-        sps = " إلى "
-    elif tat_o.strip() == "on":
-        sps = " على "
-    elif tat_o.strip() == "about":
-        sps = " عن "
-    elif tat_o.strip() in category_relation_mapping:
-        if tat_o.strip() != "by":
-            sps = f" {category_relation_mapping[tat_o.strip()]} "
-    elif tat_o.strip() == "based in":
-        sps = " مقرها في "
-
-    if tat_o.strip() == "to" and c_1_l.startswith("سفراء "):
-        sps = " لدى "
-
-    return sps
-
-
-def country_2_tit(tat_o: str, country: str, With_Years: bool = True) -> str:
-    """Convert country name and generate labels based on input parameters."""
-
-    logger.info(
-        f'>>>> <<lightblue>> country_2_tit: <<lightyellow>> New Way to find lab for "{country.lower().strip()}".'
-    )
-
-    con_1, con_2 = make_conas(tat_o, country)
-
-    logger.info(f'2060 con_1:"{con_1}",con_2:"{con_2}",tat_o:"{tat_o}"')
-
-    c_2_l = c_2_1_lab(con_2, With_Years=With_Years)
-    c_1_l = c_1_1_lab(tat_o, con_1, With_Years=With_Years)
-
-    if not c_2_l:
-        c_2_l = country_bot.Get_c_t_lab(con_2, "")
-
-    if not c_1_l:
-        c_1_l = country_bot.Get_c_t_lab(con_1, "", lab_type="type_label")
-
-    cona_1 = con_1.strip().lower()
-    cona_2 = con_2.strip().lower()
-
-    fAAA = '>>>> XX--== <<lightgreen>> Ccon_1:"%s", lab"%s", cona_2:"%s", lab"%s", cnt_test: "%s"'
-
-    country2 = country.lower().strip()
-    remaining_text = country2
-
-    if c_2_l == "" or c_1_l == "":
-        logger.info(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
-        return ""
-
-    remaining_text = remaining_text.replace(cona_1, "").replace(cona_2, "").replace(tat_o.strip(), "").strip()
-
-    if (tat_o.strip() == "in" or cona_1.endswith(" in")) and (not cona_1.endswith(" في")):
-        logger.debug(f'>>>> Add في to c_1_l : "{c_1_l}"')
-        c_1_l = f"{c_1_l} في"
-
-    elif (tat_o.strip() == "from" or cona_2.endswith(" from")) and (not c_2_l.endswith(" من")):
-        logger.debug(f'>>>> Add من to c_2_l : "{c_2_l}"')
-        c_2_l = f"من {c_2_l}"
-
-    logger.info(fAAA % (cona_1, c_1_l, cona_2, c_2_l, remaining_text))
-
-    sps = make_sps(tat_o, c_1_l, cona_1)
-
-    if remaining_text:
-        logger.info(f'>>>> cnt_test:"{remaining_text}" != "" ')
-
-    resolved_label = make_cnt_lab(tat_o, country2, c_2_l, c_1_l, cona_1, cona_2, sps)
+    maren = re.match(r"\d\d\d\d", part_2_normalized)
+    if maren:
+        if part_1_normalized == "war of" and resolved_label == f"الحرب في {part_2_normalized}":
+            resolved_label = f"حرب {part_2_normalized}"
+            logger.info(f'<<lightpurple>> >>>> change cnt_la to "{resolved_label}".')
 
     return resolved_label
 
 
+def make_cnt_lab(
+    separator: str,
+    country: str,
+    part_2_label: str,
+    part_1_label: str,
+    part_1_normalized: str,
+    part_2_normalized: str,
+    ar_separator: str
+) -> str:
+    """
+    Construct a formatted string based on various input parameters.
+    """
+    country2 = country.lower().strip()
+
+    resolved_label = part_1_label + ar_separator + part_2_label
+    in_players = check_key_new_players(part_1_normalized.lower())
+
+    to_check_them_tuble = {
+        "typeTable": typeTable,
+        "Films_O_TT": Films_O_TT,
+    }
+    co_in_tables, tab_name = check_key_in_tables_return_tuple(part_1_normalized, to_check_them_tuble)
+
+    if co_in_tables or in_players:
+        if in_players:
+            if part_2_label.startswith("أصل "):
+                logger.info(f'>>>>>> Add من to part_1_normalized:"{part_1_normalized}" part_1_normalized in New_players:')
+                resolved_label = f"{part_1_label}{ar_separator}من {part_2_label}"
+            else:
+                logger.info(f'>>>>>> Add في to part_1_normalized:"{part_1_normalized}" part_1_normalized in New_players:')
+                resolved_label += " في "
+        if part_2_normalized not in By_table:
+            # Films_O_TT[country2] = resolved_label
+            add_to_Films_O_TT(country2, resolved_label)
+            # print(f": {country2=}, {resolved_label=}\n"*10)
+        else:
+            logger.info("<<lightblue>>>>>> part_2_normalized in By_table")
+
+    if part_2_label:
+        if not part_2_normalized.startswith("by "):
+            tashr = f"{part_1_normalized} {separator.strip()}"
+            faxos = pop_format.get(part_1_normalized) or pop_format.get(tashr)
+            if faxos:
+                logger.info(f'<<lightblue>>>>>> part_1_normalized in pop_format "{faxos}":')
+                resolved_label = faxos.format(part_2_label)
+
+        if part_1_normalized in pop_format2:
+            logger.info(f'<<lightblue>>>>>> part_1_normalized in pop_format2 "{pop_format2[part_1_normalized]}":')
+            resolved_label = pop_format2[part_1_normalized].format(part_2_label)
+
+    logger.info(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
+
+    resolved_label = " ".join(resolved_label.strip().split())
+    resolved_label = _resolve_war(resolved_label, part_2_normalized, part_1_normalized)
+
+    if resolved_label.endswith(" في "):
+        resolved_label = resolved_label[: -len(" في ")]
+
+    return resolved_label
+
+
+@dump_data(enable=True)
+def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
+    """
+    Process a country name based on a specified separator.
+    TODO: separators need refactoring
+    """
+
+    country2_no_lower = country.strip()
+    country2 = country.lower().strip()
+
+    part_1 = country2.split(separator)[0]
+    part_2 = country2.split(separator)[1]
+
+    Mash = f"^(.*?)(?:{separator}?)(.*?)$"
+
+    Type_t = re.sub(Mash, r"\g<1>", country2_no_lower, flags=re.IGNORECASE)
+    country_t = re.sub(Mash, r"\g<2>", country2_no_lower, flags=re.IGNORECASE)
+
+    test_N = country2.lower().replace(part_1.strip().lower(), "")
+
+    test_N = re.sub(re.escape(part_2.strip()), "", test_N, flags=re.I)
+    test_N = test_N.replace(part_2.strip().lower(), "")
+
+    if separator.strip() == "by":
+        part_2 = f"by {part_2}"
+        country_t = f"by {country_t}"
+
+    if separator.strip() in ["of", "-of"]:
+        Type_t = f"{Type_t} of"
+        part_1 = f"{part_1} of"
+
+    logger.info(f'>>>> {part_1=}, {test_N.strip()}, {part_2.strip()=}')
+
+    if test_N and test_N.strip() != separator.strip():
+        logger.info(f'>>>> <<lightblue>> test_N != "", {Type_t=}, {separator=}, {country_t=}')
+        part_1 = Type_t
+        part_2 = country_t
+
+    return part_1, part_2
+
+
+@dump_data(enable=True)
+def separator_arabic_resolve(separator: str, part_1_label: str, part_1_normalized: str) -> str:
+    """
+    Generate a specific string based on input parameters.
+    TODO: need refactoring
+    """
+    ar_separator = " "
+
+    if separator.strip() == "to" and part_1_normalized.strip() == "ambassadors of":
+        ar_separator = " لدى "
+    elif separator.strip() == "to":
+        ar_separator = " إلى "
+    elif separator.strip() == "on":
+        ar_separator = " على "
+    elif separator.strip() == "about":
+        ar_separator = " عن "
+    elif separator.strip() in category_relation_mapping:
+        if separator.strip() != "by":
+            ar_separator = f" {category_relation_mapping[separator.strip()]} "
+    elif separator.strip() == "based in":
+        ar_separator = " مقرها في "
+
+    if separator.strip() == "to" and part_1_label.startswith("سفراء "):
+        ar_separator = " لدى "
+
+    return ar_separator
+
+
+@dump_data(enable=True)
+def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
+
+    part_2_label = c_2_1_lab(part_2, With_Years=With_Years)
+    part_1_label = c_1_1_lab(separator, part_1, With_Years=With_Years)
+
+    if not part_2_label:
+        part_2_label = country_bot.Get_c_t_lab(part_2, "")
+
+    if not part_1_label:
+        part_1_label = country_bot.Get_c_t_lab(part_1, "", lab_type="type_label")
+
+    if part_2_label == "" or part_1_label == "":
+        logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
+        return "", ""
+
+    part_1_normalized = part_1.strip().lower()
+    part_2_normalized = part_2.strip().lower()
+
+    if (separator.strip() == "in" or part_1_normalized.endswith(" in")) and (not part_1_normalized.endswith(" في")):
+        logger.debug(f'>>>> Add في to {part_1_label=}')
+        part_1_label = f"{part_1_label} في"
+
+    elif (separator.strip() == "from" or part_2_normalized.endswith(" from")) and (not part_2_label.endswith(" من")):
+        logger.debug(f'>>>> Add من to {part_2_label=}')
+        part_2_label = f"من {part_2_label}"
+
+    return part_1_label, part_2_label
+
+
+@dump_data(enable=True)
+def country_2_create_label(separator: str, country: str, With_Years: bool = True) -> str:
+    """
+    Convert country name and generate labels based on input parameters.
+    """
+
+    logger.info(f'>>>> <<lightblue>> country_2_create_label: <<lightyellow>> {country=}.')
+
+    part_1, part_2 = split_text_by_separator(separator, country)
+    logger.info(f'2060 {part_1=}, {part_2=}, {separator=}')
+
+    part_1_label, part_2_label = make_parts_labels(part_1, part_2, separator, With_Years)
+
+    part_1_normalized = part_1.strip().lower()
+    part_2_normalized = part_2.strip().lower()
+
+    logger.info(f">>>> XX--== <<lightgreen>> {part_1_normalized=}, {part_1_label=}, {part_2_normalized=}, {part_2_label=}")
+
+    if part_2_label == "" or part_1_label == "":
+        logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
+        return ""
+
+    remaining_text = country.lower().strip()
+    remaining_text = remaining_text.replace(part_1_normalized, "").replace(part_2_normalized, "").replace(separator.strip(), "").strip()
+
+    logger.info(f">>>> XX--== <<lightgreen>> {remaining_text=}")
+
+    ar_separator = separator_arabic_resolve(separator, part_1_label, part_1_normalized)
+
+    resolved_label = make_cnt_lab(separator, country, part_2_label, part_1_label, part_1_normalized, part_2_normalized, ar_separator)
+
+    return resolved_label
+
+
+@dump_data(enable=True)
 def country_2_title_work(country: str, With_Years: bool = True) -> str:
     title_separators = [
         "based in",
@@ -153,17 +242,20 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
 
     for sep in title_separators:
         separator = f" {sep} " if sep != "-of " else sep
-        if separator in normalized_country:
-            resolved_label = country_2_tit(separator, country, With_Years=With_Years)
-            resolved_label = fix_minor(resolved_label, separator)
-            break
+        if separator not in normalized_country:
+            continue
+
+        resolved_label = country_2_create_label(separator, country, With_Years=With_Years)
+        resolved_label = fix_minor(resolved_label, separator)
+        break
 
     return resolved_label
 
 
 __all__ = [
+    "make_cnt_lab",
     "country_2_title_work",
-    "country_2_tit",
-    "make_sps",
-    "make_conas",
+    "country_2_create_label",
+    "separator_arabic_resolve",
+    "split_text_by_separator",
 ]

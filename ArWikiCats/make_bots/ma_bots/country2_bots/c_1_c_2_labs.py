@@ -43,45 +43,45 @@ def check_sources(cone_1: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool = False) -> str:
+def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
     """
     Retrieve a label based on the given parameters.
     Example:
-        {"tat_o": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
+        {"separator": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
     """
 
     cone_1 = cone_1.strip().lower()
 
-    c_1_l = get_pop_All_18(cone_1) or ""
-    logger.debug(f"{cone_1=} -> {c_1_l=}")
+    part_1_label = get_pop_All_18(cone_1) or ""
+    logger.debug(f"{cone_1=} -> {part_1_label=}")
 
-    if not c_1_l:
-        c_1_l = check_sources(cone_1)
+    if not part_1_label:
+        part_1_label = check_sources(cone_1)
 
-    if cone_1 == "women" and tat_o.strip() == "from":
-        c_1_l = "نساء"
+    if cone_1 == "women" and separator.strip() == "from":
+        part_1_label = "نساء"
         logger.info(f'>> >> >> Make cone_1 "{cone_1}".')
 
-    con_1_in = f"{cone_1.strip()} {tat_o.strip()}"
-    if not c_1_l:
-        c_1_l = Tabl_with_in.get(con_1_in, "")
-        if c_1_l:
-            logger.info(f'<<<< con_1_in "{con_1_in}", c_1_l : "{c_1_l}"')
+    con_1_in = f"{cone_1.strip()} {separator.strip()}"
+    if not part_1_label:
+        part_1_label = Tabl_with_in.get(con_1_in, "")
+        if part_1_label:
+            logger.info(f'<<<< con_1_in "{con_1_in}", part_1_label : "{part_1_label}"')
 
-    if not c_1_l:
-        c_1_l = convert_time_to_arabic(cone_1)
+    if not part_1_label:
+        part_1_label = convert_time_to_arabic(cone_1)
 
-    if not c_1_l:
+    if not part_1_label:
         tst3 = re.sub(r"\d+", "", cone_1.strip())
         test3_results = ["", "-", "–", "−"]
         if tst3 in test3_results:
-            c_1_l = cone_1
+            part_1_label = cone_1
 
     for pri_ss, pri_lab in pp_start_with2.items():
-        if not c_1_l:
+        if not part_1_label:
             if cone_1.startswith(pri_ss):
                 U_c = cone_1[len(pri_ss) :]
-                logger.info(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", tat_o:"{tat_o}" ')
+                logger.info(f' pp_start_with2 <<lightblue>> cone_1 :"{cone_1}", U_c :"{U_c}", separator:"{separator}" ')
                 U_lab = country2_lab.get_lab_for_country2(U_c)
 
                 if U_lab == "" and With_Years:
@@ -89,18 +89,18 @@ def c_1_1_lab(tat_o: str, cone_1: str, With_Years: bool = False) -> str:
 
                 if U_lab:
                     logger.info(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"),U_c:"{U_c}", U_lab:"{U_lab}"')
-                    c_1_l = pri_lab.format(U_lab)
-                    logger.info(f'>>>> c_1_l:"{c_1_l}"')
+                    part_1_label = pri_lab.format(U_lab)
+                    logger.info(f'>>>> part_1_label:"{part_1_label}"')
 
     if cone_1 in pop_format:
-        c_1_l = pop_format[cone_1]
+        part_1_label = pop_format[cone_1]
 
-    if not c_1_l:
-        c_1_l = get_KAKO(cone_1)
+    if not part_1_label:
+        part_1_label = get_KAKO(cone_1)
 
-    if not c_1_l:
-        logger.debug(f'>>>> XX--== c_1_l =  "{c_1_l}" cone_1:"{cone_1}"')
-    return c_1_l
+    if not part_1_label:
+        logger.debug(f'>>>> XX--== part_1_label =  "{part_1_label}" cone_1:"{cone_1}"')
+    return part_1_label
 
 
 @functools.lru_cache(maxsize=10000)
@@ -109,46 +109,46 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
 
     cone_2 = cone_2.strip().lower()
 
-    c_2_l = get_pop_All_18(cone_2) or ""
-    logger.debug(f"{cone_2=} -> {c_2_l=}")
+    part_2_label = get_pop_All_18(cone_2) or ""
+    logger.debug(f"{cone_2=} -> {part_2_label=}")
 
-    if c_2_l == "" and " by " in cone_2:
-        c_2_l = bys.get_by_label(cone_2)
+    if part_2_label == "" and " by " in cone_2:
+        part_2_label = bys.get_by_label(cone_2)
 
-    if not c_2_l:
-        c_2_l = te_films(cone_2)
-    if not c_2_l:
-        c_2_l = nats.find_nat_others(cone_2)
-    if not c_2_l:
-        c_2_l = sport_lab_suffixes.get_teams_new(cone_2)
+    if not part_2_label:
+        part_2_label = te_films(cone_2)
+    if not part_2_label:
+        part_2_label = nats.find_nat_others(cone_2)
+    if not part_2_label:
+        part_2_label = sport_lab_suffixes.get_teams_new(cone_2)
 
-    if not c_2_l:
-        c_2_l = parties_bot.get_parties_lab(cone_2)
+    if not part_2_label:
+        part_2_label = parties_bot.get_parties_lab(cone_2)
 
-    if c_2_l == "" and " and " in cone_2:
-        c_2_l = bys.get_and_label(cone_2)
-    if not c_2_l:
-        c_2_l = team_work.Get_team_work_Club(cone_2)
+    if part_2_label == "" and " and " in cone_2:
+        part_2_label = bys.get_and_label(cone_2)
+    if not part_2_label:
+        part_2_label = team_work.Get_team_work_Club(cone_2)
 
-    if not c_2_l:
-        c_2_l = get_KAKO(cone_2)
+    if not part_2_label:
+        part_2_label = get_KAKO(cone_2)
 
-    if not c_2_l:
+    if not part_2_label:
         tst3 = re.sub(r"\d+", "", cone_2.strip())
         test3_results = ["", "-", "–", "−"]
         if tst3 in test3_results:
-            c_2_l = cone_2
+            part_2_label = cone_2
 
-    if not c_2_l:
-        c_2_l = te_films(cone_2)
+    if not part_2_label:
+        part_2_label = te_films(cone_2)
 
-    if not c_2_l:
-        c_2_l = nats.find_nat_others(cone_2)
+    if not part_2_label:
+        part_2_label = nats.find_nat_others(cone_2)
 
-    if not c_2_l:
-        c_2_l = convert_time_to_arabic(cone_2)
+    if not part_2_label:
+        part_2_label = convert_time_to_arabic(cone_2)
 
-    if c_2_l == "" and With_Years:
-        c_2_l = with_years_bot.Try_With_Years(cone_2)
+    if part_2_label == "" and With_Years:
+        part_2_label = with_years_bot.Try_With_Years(cone_2)
 
-    return c_2_l
+    return part_2_label

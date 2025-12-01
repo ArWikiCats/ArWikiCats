@@ -57,7 +57,7 @@ Resolves geographic entities via:
 Responsible for building the final Arabic label using:
 
 * pop_format tables
-* sps logic
+* ar_separator logic
 * Keep_it_first / Keep_it_last
 * Formatting rules ("في" / "من" / "حسب")
 

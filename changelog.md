@@ -1,4 +1,19 @@
 
+## [#140](https://github.com/MrIbrahem/ArWikiCats/pull/140) - 2025-12-01
+
+* **Refactor**
+  * Consolidated logging and removed legacy printing helpers; unified time-label flow and updated team-title resolver/fallback order.
+
+* **Bug Fixes**
+  * Time conversion normalizes inputs (e.g., strips leading "The ") for more consistent Arabic mappings.
+
+* **Data**
+  * Added comprehensive region JSON, refreshed people and taxon translation sources, and adjusted region export surface.
+
+* **Tests**
+  * Updated tests to align with new time conversion and team resolver behavior; removed obsolete tests.
+
+
 ## [#136](https://github.com/MrIbrahem/ArWikiCats/pull/136) - 2025-11-30
 
 * **New Features**
