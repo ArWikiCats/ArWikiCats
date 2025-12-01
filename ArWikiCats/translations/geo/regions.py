@@ -11,7 +11,7 @@ data = open_json_file("geography/regions.json") or {}
 def load_regions_data() -> dict[str, str]:
 
     ALGERIA_PROVINCE = data.get("ALGERIA_PROVINCE", {})
-    ECUADOR_PROVINCE = data.get("ALGERIA_PROVINCE", {})
+    ECUADOR_PROVINCE = data.get("ECUADOR_PROVINCE", {})
     LEGACY_UK_COUNTY = data.get("LEGACY_UK_COUNTY", {})
     UK_COUNTY = data.get("UK_COUNTY", {})
     SRI_LANKA_DISTRICT = data.get("SRI_LANKA_DISTRICT", {})
