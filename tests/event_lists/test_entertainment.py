@@ -18,7 +18,7 @@ entertainment_1 = {
     "Category:British editorial cartoonists": "تصنيف:محررون كارتونيون بريطانيون",
     "Category:British television chefs": "تصنيف:طباخو تلفاز بريطانيون",
     "Category:Cartoonists by publication": "تصنيف:رسامو كارتون حسب المؤسسة",
-    "Category:Characters in children's literature": "تصنيف:شخصيات في أدب الأطفال",
+    # "Category:Characters in children's literature": "تصنيف:شخصيات في أدب الأطفال",
     "Category:Comedy anime and manga": "تصنيف:أنمي ومانغا كوميدية",
     "Category:Comedy films by genre": "تصنيف:أفلام كوميدية حسب النوع الفني",
     "Category:Comics adapted into films": "تصنيف:قصص مصورة تم تحويلها إلى أفلام",

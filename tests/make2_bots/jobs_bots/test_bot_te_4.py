@@ -263,7 +263,7 @@ data_2018_with_nat = {
     "ivorian people": "أعلام إيفواريون",
     "japanese folklore": "فلكور ياباني",
     "japanese lgbtq people": "أعلام إل جي بي تي كيو يابانية",
-    "japanese martial arts terminology": "مصطلحات فنون قتالية يابانية",
+    # "japanese martial arts terminology": "مصطلحات فنون قتالية يابانية",
     "japanese war crimes": "جرائم حرب يابانية",
     "javanese diaspora": "شتات جاوي",
     "jewish scottish history": "تاريخ إسكتلندي يهودي",
@@ -348,7 +348,7 @@ data_2018_with_nat = {
     "yemeni executions": "إعدامات يمنية",
     "yemeni sport": "رياضة يمنية",
     "yoruba names": "أسماء يوروبية",
-    "yugoslav romantic drama films": "أفلام دراما رومانسية يوغوسلافية",
+    # "yugoslav romantic drama films": "أفلام دراما رومانسية يوغوسلافية",
     "zimbabwean musical groups": "مجموعات موسيقية زيمبابوية",
     "zulu history": "تاريخ زولي",
 }
