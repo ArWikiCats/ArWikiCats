@@ -20,17 +20,17 @@ class FilmKeysBot:
 
     def __init__(self) -> None:
         self.bot = format_multi_data(
-            formatted_data=tyty_data,
+            formatted_data={"{en1} {en2}":"<ar1> <ar2>"},
             data_list=film_Keys_For_female,
             data_list2=film_Keys_For_female,
-            key_placeholder="{tyty}",
-            value_placeholder="<tyty>",
-            key2_placeholder="{tyty}",
-            value2_placeholder="<tyty>",
+            key_placeholder="{en1}",
+            value_placeholder="<ar1>",
+            key2_placeholder="{en2}",
+            value2_placeholder="<ar2>",
         )
 
     def search(self, category: str) -> str:
-        return self.bot.search(category) or tyty_data.get(category, "")
+        return self.bot.search(category)
 
 
 @functools.lru_cache(maxsize=1)
