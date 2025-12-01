@@ -213,10 +213,7 @@ Films_key_CAO_new_format["lgbtqrelated films"] = "أفلام {} متعلقة ب�
 # ---
 Films_keys_both_new_female = {}
 # ---
-tabe_2 = dict(Films_keys_male_female)
-# ---
-Films_keys_both_new_same = 0
-Films_keys_both_new_diff = 0
+tabe_2 = {x: v["female"] for x, v in Films_keys_male_female.items() if v["female"]}
 # ---
 for en, tab in Films_keys_male_female.items():
     tab_female = tab.get("female")
@@ -224,12 +221,8 @@ for en, tab in Films_keys_male_female.items():
     if not tab_female:
         continue
 
-    for en2, tab2 in tabe_2.items():
+    for en2, tab2_female in tabe_2.items():
         if en == en2:
-            continue
-
-        tab2_female = tab2.get("female")
-        if not tab2_female:
             continue
 
         new_key = f"{en} {en2}".lower()
@@ -248,8 +241,6 @@ len_print.data_len(
         "Films_key_333": Films_key_333,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new_female": Films_keys_both_new_female,
-        "Films_keys_both_new_same": Films_keys_both_new_same,
-        "Films_keys_both_new_diff": Films_keys_both_new_diff,
     },
 )
 __all__ = [
