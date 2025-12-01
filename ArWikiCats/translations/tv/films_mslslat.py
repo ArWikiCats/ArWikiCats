@@ -196,11 +196,11 @@ def _build_series_and_nat_keys(
 
     # Base series keys (television, web, comics, etc.)
     for tt, tt_lab in film_key_women_2.items():
-        films_key_for_nat[tt] = f"%s {nat_key_f}" % tt_lab
-        films_key_for_nat[f"{tt} debuts"] = f"%s {nat_key_f} بدأ عرضها في" % tt_lab
-        films_key_for_nat[f"{tt} endings"] = f"%s {nat_key_f} انتهت في" % tt_lab
+        films_key_for_nat[tt] = f"{tt_lab} {nat_key_f}"
+        films_key_for_nat[f"{tt} debuts"] = f"{tt_lab} {nat_key_f} بدأ عرضها في"
+        films_key_for_nat[f"{tt} endings"] = f"{tt_lab} {nat_key_f} انتهت في"
         films_key_for_nat[f"{tt} revived after cancellation"] = (
-            f"%s {nat_key_f} أعيدت بعد إلغائها" % tt_lab
+            f"{tt_lab} {nat_key_f} أعيدت بعد إلغائها"
         )
 
         films_mslslat_tab[tt] = tt_lab
@@ -215,10 +215,10 @@ def _build_series_and_nat_keys(
             films_mslslat_tab[f"{tt}-debuts"] = f"{tt_lab} بدأ عرضها في"
             films_mslslat_tab[f"{tt}-endings"] = f"{tt_lab} انتهت في"
             films_key_for_nat[f"{tt}-debuts"] = (
-                f"%s {nat_key_f} بدأ عرضها في" % tt_lab
+                f"{tt_lab} {nat_key_f} بدأ عرضها في"
             )
             films_key_for_nat[f"{tt}-endings"] = (
-                f"%s {nat_key_f} انتهت في" % tt_lab
+                f"{tt_lab} {nat_key_f} انتهت في"
             )
 
     # Remakes mapping
