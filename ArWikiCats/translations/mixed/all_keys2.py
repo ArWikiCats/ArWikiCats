@@ -11,7 +11,7 @@ from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
 from ..sports import TENNIS_KEYS
-from ..tv.films_mslslat import film_Keys_For_female, film_Keys_For_male
+from ..tv.films_mslslat import film_Keys_for_female, film_Keys_For_male
 from ..utils.json_dir import open_json_file
 from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
@@ -367,7 +367,7 @@ def _build_book_entries(data: dict[str, str]) -> None:
         data[f"defunct {category_key}"] = f"{category_label} سابقة"
         data[f"{category_key} publications"] = f"منشورات {category_label}"
         lower_category = category_key.lower()
-        for key, key_label in film_Keys_For_female.items():
+        for key, key_label in film_Keys_for_female.items():
             data[f"{key.lower()} {lower_category}"] = f"{category_label} {key_label}"
 
         for book_type, book_label in BOOK_TYPES.items():

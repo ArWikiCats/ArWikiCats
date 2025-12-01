@@ -4,9 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.media_bots.film_keys_bot_tyty import get_films_key_tyty
+from ArWikiCats.make_bots.media_bots.film_keys_bot_tyty import get_films_key_tyty, search_multi_bot
 
-fast_data2 = {
+fast_data1 = {
     "3d low-budget films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "heist historical television commercials": "إعلانات تجارية تلفزيونية سرقة تاريخية",
     "heist holocaust films": "أفلام سرقة هولوكوستية",
@@ -52,7 +52,22 @@ fast_data2 = {
 }
 
 
+fast_data2 = {
+    "heist kung fu": "سرقة كونغ فو",
+    "heist historical": "تلفزيونية سرقة تاريخية",
+    "action thriller adult animated supernatural": "إثارة حركة رسوم متحركة خارقة للطبيعة للكبار",
+    "psychological horror cancelled": "رعب نفسي ملغية",
+}
+
+
 @pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
+@pytest.mark.fast
+def test_search_multi_bot(category: str, expected: str) -> None:
+    label = search_multi_bot(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", fast_data1.items(), ids=list(fast_data1.keys()))
 @pytest.mark.fast
 def test_get_films_key_tyty(category: str, expected: str) -> None:
     label = get_films_key_tyty(category)
