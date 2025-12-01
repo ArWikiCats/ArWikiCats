@@ -89,7 +89,6 @@ film_key_women_2 = {
     "television characters": "شخصيات تلفزيونية",
     "television programs": "برامج تلفزيونية",
     "television programmes": "برامج تلفزيونية",
-    "television programme": "برامج تلفزيونية",
     "web series": "مسلسلات ويب",
     "television series": "مسلسلات تلفزيونية",
     "film series": "سلاسل أفلام",
@@ -310,8 +309,6 @@ def _build_television_cao(
         films_key_cao[f"{ke} television episodes"] = f"حلقات تلفزيونية {ke_lab}"
         films_key_cao[f"{ke} television programs"] = f"برامج تلفزيونية {ke_lab}"
         films_key_cao[f"{ke} television programmes"] = f"برامج تلفزيونية {ke_lab}"
-        films_key_cao[f"{ke} television programme"] = f"برامج تلفزيونية {ke_lab}"
-        films_key_cao[f"{ke} web programme"] = f"مسلسلات ويب {ke_lab}"
         films_key_cao[f"{ke} groups"] = f"مجموعات {ke_lab}"
         films_key_cao[f"{ke} novellas"] = f"روايات قصيرة {ke_lab}"
         films_key_cao[f"{ke} novels"] = f"روايات {ke_lab}"
