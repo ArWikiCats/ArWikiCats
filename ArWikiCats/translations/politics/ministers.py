@@ -3,36 +3,8 @@
 !
 """
 
-# import re
-#
-# ---
-r"""
-Category:Housing ministers of Abkhazia
-Category:Ministers of Housing of Abkhazia
-Category:Ministers for Housing of Abkhazia
+from ...helps import len_print
 
-Category:Public works ministers of Catalonia
-Category:Ministers for Public Works of Luxembourg
-
-Category:Ministers of Economics of Latvia
-Category:Economy ministers of Latvia
-
-Category:Religious affairs ministers of Yemen
-Category:Ministers of Religious Affairs of the Netherlands
-
-Category:Women government ministers of Latvia
-Category:Women's ministers of Fiji
-
-Category:British Secretaries of State for the Environment
-Category:British Secretaries of State for Education
-Category:British Secretaries of State for Employment
-Category:Ministers for Foreign Affairs of Abkhazia
-Category:Ministers for Foreign Affairs of Singapore
-Category:Ministers for Foreign Affairs of Luxembourg
-Category:Ministers for Internal Affairs of Abkhazia
-Category:Ministers of Labour and Social Security of Turkey
-
-"""
 # ---
 ministrees_keysse = {  # to add it to pop_of_without_in in all_keys2.py
     "deputy prime ministers": "نواب رؤساء وزراء",
@@ -87,114 +59,110 @@ keyses_without_in = [
 # ---
 ministrs_keys = {
     "housing and urban development": {
-        "s": "إسكان وتنمية حضرية",
+        "singular": "إسكان وتنمية حضرية",
         "al": "الإسكان والتنمية الحضرية",
     },
-    "peace and reconciliation": {"s": "سلام ومصالحة", "al": "السلام والمصالحة"},
-    "veterans affairs": {"s": "شؤون محاربين قدامى", "al": "شؤون المحاربين القدامى"},
-    "military affairs": {"s": "شؤون عسكرية", "al": "الشؤون العسكرية"},
-    "constitutional affairs": {"s": "شؤون دستورية", "al": "الشؤون الدستورية"},
+    "peace and reconciliation": {"singular": "سلام ومصالحة", "al": "السلام والمصالحة"},
+    "veterans affairs": {"singular": "شؤون محاربين قدامى", "al": "شؤون المحاربين القدامى"},
+    "military affairs": {"singular": "شؤون عسكرية", "al": "الشؤون العسكرية"},
+    "constitutional affairs": {"singular": "شؤون دستورية", "al": "الشؤون الدستورية"},
     "regional development and local governments": {
-        "s": "تنمية محلية",
+        "singular": "تنمية محلية",
         "al": "التنمية المحلية",
     },
     "health and human services": {
-        "s": "صحة وخدمات إنسانية",
+        "singular": "صحة وخدمات إنسانية",
         "al": "الصحة والخدمات الإنسانية",
     },
-    "treasury": {"s": "خزانة", "al": "الخزانة"},
-    "homeland security": {"s": "أمن داخلي", "al": "الأمن الداخلي"},
-    "transportation": {"s": "نقل", "al": "النقل"},
-    "defense": {"s": "دفاع", "al": "الدفاع"},
-    "agriculture": {"s": "زراعة", "al": "الزراعة"},
-    "climate change": {"s": "تغير المناخ", "al": "تغير المناخ"},
-    "communication": {"s": "اتصالات", "al": "الاتصالات"},
-    "communications": {"s": "اتصالات", "al": "الاتصالات"},
-    "construction": {"s": "بناء", "al": "البناء"},
-    "culture": {"s": "ثقافة", "al": "الثقافة"},
-    "national defence": {"s": "دفاع وطني", "al": "الدفاع الوطني"},
-    "defence": {"s": "دفاع", "al": "الدفاع"},
-    "economy": {"s": "اقتصاد", "al": "الاقتصاد"},
-    "education": {"s": "تعليم", "al": "التعليم"},
-    "energy": {"s": "طاقة", "al": "الطاقة"},
-    "environment": {"s": "بيئة", "al": "البيئة"},
-    "family": {"s": "أسرة", "al": "الأسرة"},
-    "finance": {"s": "مالية", "al": "المالية"},
-    "fisheries": {"s": "ثروة سمكية", "al": "الثروة السمكية"},
-    "health": {"s": "صحة", "al": "الصحة"},
-    "human rights": {"s": "حقوق الإنسان", "al": "الحقوق الإنسان"},
-    "immigration": {"s": "هجرة", "al": "الهجرة"},
-    "industry": {"s": "صناعة", "al": "الصناعة"},
-    "information": {"s": "إعلام", "al": "الإعلام"},
-    "infrastructure": {"s": "بنية تحتية", "al": "البنية التحتية"},
-    "interior": {"s": "داخلية", "al": "الداخلية"},
-    "internal affairs": {"s": "شؤون داخلية", "al": "الشؤون الداخلية"},
-    "indigenous affairs": {"s": "شؤون سكان أصليين", "al": "شؤون السكان الأصليين"},
-    "maritime affairs": {"s": "شؤون بحرية", "al": "الشؤون البحرية"},
-    "intelligence": {"s": "مخابرات", "al": "المخابرات"},
+    "treasury": {"singular": "خزانة", "al": "الخزانة"},
+    "homeland security": {"singular": "أمن داخلي", "al": "الأمن الداخلي"},
+    "transportation": {"singular": "نقل", "al": "النقل"},
+    "defense": {"singular": "دفاع", "al": "الدفاع"},
+    "agriculture": {"singular": "زراعة", "al": "الزراعة"},
+    "climate change": {"singular": "تغير المناخ", "al": "تغير المناخ"},
+    "communication": {"singular": "اتصالات", "al": "الاتصالات"},
+    "communications": {"singular": "اتصالات", "al": "الاتصالات"},
+    "construction": {"singular": "بناء", "al": "البناء"},
+    "culture": {"singular": "ثقافة", "al": "الثقافة"},
+    "national defence": {"singular": "دفاع وطني", "al": "الدفاع الوطني"},
+    "defence": {"singular": "دفاع", "al": "الدفاع"},
+    "economy": {"singular": "اقتصاد", "al": "الاقتصاد"},
+    "education": {"singular": "تعليم", "al": "التعليم"},
+    "energy": {"singular": "طاقة", "al": "الطاقة"},
+    "environment": {"singular": "بيئة", "al": "البيئة"},
+    "family": {"singular": "أسرة", "al": "الأسرة"},
+    "finance": {"singular": "مالية", "al": "المالية"},
+    "fisheries": {"singular": "ثروة سمكية", "al": "الثروة السمكية"},
+    "health": {"singular": "صحة", "al": "الصحة"},
+    "human rights": {"singular": "حقوق الإنسان", "al": "الحقوق الإنسان"},
+    "immigration": {"singular": "هجرة", "al": "الهجرة"},
+    "industry": {"singular": "صناعة", "al": "الصناعة"},
+    "information": {"singular": "إعلام", "al": "الإعلام"},
+    "infrastructure": {"singular": "بنية تحتية", "al": "البنية التحتية"},
+    "interior": {"singular": "داخلية", "al": "الداخلية"},
+    "internal affairs": {"singular": "شؤون داخلية", "al": "الشؤون الداخلية"},
+    "indigenous affairs": {"singular": "شؤون سكان أصليين", "al": "شؤون السكان الأصليين"},
+    "maritime affairs": {"singular": "شؤون بحرية", "al": "الشؤون البحرية"},
+    "intelligence": {"singular": "مخابرات", "al": "المخابرات"},
     "labour-and-social security": {
-        "s": "عمل وضمان اجتماعي",
+        "singular": "عمل وضمان اجتماعي",
         "al": "العمل والضمان الاجتماعي",
     },
     "labour and social security": {
-        "s": "عمل وضمان اجتماعي",
+        "singular": "عمل وضمان اجتماعي",
         "al": "العمل والضمان الاجتماعي",
     },
-    "social security": {"s": "ضمان اجتماعي", "al": "الضمان الاجتماعي"},
+    "social security": {"singular": "ضمان اجتماعي", "al": "الضمان الاجتماعي"},
     "labor and social affairs": {
-        "s": "عمل وشؤون اجتماعية",
+        "singular": "عمل وشؤون اجتماعية",
         "al": "العمل والشؤون الاجتماعية",
     },
-    "social affairs": {"s": "شؤون اجتماعية", "al": "الشؤون الاجتماعية"},
-    "labor": {"s": "عمل", "al": "العمل"},
-    "labour": {"s": "عمل", "al": "العمل"},
-    "gender equality": {"s": "المساواة بين الجنسين", "al": "المساواة بين الجنسين"},
-    "colonial": {"s": "إستعمار", "al": "الإستعمار"},
-    "broadcasting": {"s": "إذاعة", "al": "الإذاعة"},
-    "land management": {"s": "إدارة أراضي", "al": "إدارة الأراضي"},
-    "housing": {"s": "إسكان", "al": "الإسكان"},
-    "public safety": {"s": "سلامة عامة", "al": "السلامة العامة"},
-    "planning": {"s": "تخطيط", "al": "التخطيط"},
-    "diaspora": {"s": "شتات", "al": "الشتات"},
-    "urban development": {"s": "تخطيط عمراني", "al": "التخطيط العمراني"},
-    "law": {"s": "قانون", "al": "القانون"},
-    "mining": {"s": "تعدين", "al": "التعدين"},
-    "oil": {"s": "بترول", "al": "البترول"},
-    "security": {"s": "أمن", "al": "الأمن"},
-    "nuclear security": {"s": "أمن نووي", "al": "الأمن النووي"},
-    "prisons": {"s": "سجون", "al": "السجون"},
-    "public works": {"s": "أشغال عامة", "al": "الأشغال العامة"},
-    "research": {"s": "أبحاث", "al": "الأبحاث"},
-    "science": {"s": "العلم", "al": "العلم"},
-    "sports": {"s": "رياضة", "al": "الرياضة"},
-    "civil service": {"s": "خدمة مدنية", "al": "الخدمة المدنية"},
-    "technology": {"s": "تقانة", "al": "التقانة"},
-    "irrigation": {"s": "ري", "al": "الري"},
-    "tourism": {"s": "سياحة", "al": "السياحة"},
-    "natural resources": {"s": "موارد طبيعية", "al": "الموارد الطبيعية"},
-    "religious affairs": {"s": "شؤون دينية", "al": "الشؤون الدينية"},
-    "foreign trade": {"s": "تجارة خارجية", "al": "التجارة الخارجية"},
-    "commerce": {"s": "تجارة", "al": "التجارة"},
-    "trade": {"s": "تجارة", "al": "التجارة"},
-    "transport": {"s": "نقل", "al": "النقل"},
-    "water": {"s": "مياه", "al": "المياه"},
-    "women's": {"s": "شؤون المرأة", "al": "شؤون المرأة"},
-    "public service": {"s": "خدمة عامة", "al": "الخدمة العامة"},
-    "justice": {"s": "عدل", "al": "العدل"},
-    "army": {"s": "جيش", "al": "الجيش"},
-    "war": {"s": "حرب", "al": "الحرب"},
-    "state": {"s": "خارجية", "al": "الخارجية"},
-    "foreign": {"s": "خارجية", "al": "الخارجية"},
-    "foreign affairs": {"s": "شؤون خارجية", "al": "الشؤون الخارجية"},
+    "social affairs": {"singular": "شؤون اجتماعية", "al": "الشؤون الاجتماعية"},
+    "labor": {"singular": "عمل", "al": "العمل"},
+    "labour": {"singular": "عمل", "al": "العمل"},
+    "gender equality": {"singular": "المساواة بين الجنسين", "al": "المساواة بين الجنسين"},
+    "colonial": {"singular": "إستعمار", "al": "الإستعمار"},
+    "broadcasting": {"singular": "إذاعة", "al": "الإذاعة"},
+    "land management": {"singular": "إدارة أراضي", "al": "إدارة الأراضي"},
+    "housing": {"singular": "إسكان", "al": "الإسكان"},
+    "public safety": {"singular": "سلامة عامة", "al": "السلامة العامة"},
+    "planning": {"singular": "تخطيط", "al": "التخطيط"},
+    "diaspora": {"singular": "شتات", "al": "الشتات"},
+    "urban development": {"singular": "تخطيط عمراني", "al": "التخطيط العمراني"},
+    "law": {"singular": "قانون", "al": "القانون"},
+    "mining": {"singular": "تعدين", "al": "التعدين"},
+    "oil": {"singular": "بترول", "al": "البترول"},
+    "security": {"singular": "أمن", "al": "الأمن"},
+    "nuclear security": {"singular": "أمن نووي", "al": "الأمن النووي"},
+    "prisons": {"singular": "سجون", "al": "السجون"},
+    "public works": {"singular": "أشغال عامة", "al": "الأشغال العامة"},
+    "research": {"singular": "أبحاث", "al": "الأبحاث"},
+    "science": {"singular": "العلم", "al": "العلم"},
+    "sports": {"singular": "رياضة", "al": "الرياضة"},
+    "civil service": {"singular": "خدمة مدنية", "al": "الخدمة المدنية"},
+    "technology": {"singular": "تقانة", "al": "التقانة"},
+    "irrigation": {"singular": "ري", "al": "الري"},
+    "tourism": {"singular": "سياحة", "al": "السياحة"},
+    "natural resources": {"singular": "موارد طبيعية", "al": "الموارد الطبيعية"},
+    "religious affairs": {"singular": "شؤون دينية", "al": "الشؤون الدينية"},
+    "foreign trade": {"singular": "تجارة خارجية", "al": "التجارة الخارجية"},
+    "commerce": {"singular": "تجارة", "al": "التجارة"},
+    "trade": {"singular": "تجارة", "al": "التجارة"},
+    "transport": {"singular": "نقل", "al": "النقل"},
+    "water": {"singular": "مياه", "al": "المياه"},
+    "women's": {"singular": "شؤون المرأة", "al": "شؤون المرأة"},
+    "public service": {"singular": "خدمة عامة", "al": "الخدمة العامة"},
+    "justice": {"singular": "عدل", "al": "العدل"},
+    "army": {"singular": "جيش", "al": "الجيش"},
+    "war": {"singular": "حرب", "al": "الحرب"},
+    "state": {"singular": "خارجية", "al": "الخارجية"},
+    "foreign": {"singular": "خارجية", "al": "الخارجية"},
+    "foreign affairs": {"singular": "شؤون خارجية", "al": "الشؤون الخارجية"},
 }
-# ---
-# for io in ministrs_keys:
-# ss = ministrs_keys[io].replace(' ' , ' ال')
-# print('"%s"\t:\t{ "s" : "%s" , "o" : "ال%s" }, ' %  (io , ministrs_keys[io] , ss  ) )
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower().strip()
-    short_label = ministry_labels["s"]
+    short_label = ministry_labels["singular"]
     arabic_ministers_label = f"وزراء {short_label}"
     minister_keyse[f"{normalized_ministry} ministries"] = f"وزارات {short_label}"
 
@@ -205,8 +173,8 @@ for ministry_key, ministry_labels in ministrs_keys.items():
 
     minister_keyse[f"secretaries-of {normalized_ministry}"] = arabic_ministers_label
     minister_keyse[f"secretaries of {normalized_ministry}"] = arabic_ministers_label
-    # minister_keyse["ministers for {}".format(normalized_ministry) ] = arabic_ministers_label
     minister_keyse[f"ministers-for {normalized_ministry}"] = arabic_ministers_label
+
     if short_label in keyses_without_in:
         ministrees_keysse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
         ministrees_keysse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
@@ -214,98 +182,109 @@ for ministry_key, ministry_labels in ministrs_keys.items():
         ministrees_keysse[f"{normalized_ministry} ministers of"] = arabic_ministers_label
         minister_keyse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
-        # minister_keyse["ministers for {} of".format(normalized_ministry) ] = arabic_ministers_label
         minister_keyse[f"ministers-for {normalized_ministry} of"] = arabic_ministers_label
 # ---
 ministrs_tab_for_Jobs_2020 = {}  # used in Jobs.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
+    singular_label = ministry_labels["singular"]
     ministrs_tab_for_Jobs_2020[f"secretaries-of {ministry_key}"] = {
-        "mens": f"وزراء {ministry_labels['s']}",
-        "womens": f"وزيرات {ministry_labels['s']}",
+        "mens": f"وزراء {singular_label}",
+        "womens": f"وزيرات {singular_label}",
     }
     ministrs_tab_for_Jobs_2020[f"secretaries of {ministry_key}"] = {
-        "mens": f"وزراء {ministry_labels['s']}",
-        "womens": f"وزيرات {ministry_labels['s']}",
+        "mens": f"وزراء {singular_label}",
+        "womens": f"وزيرات {singular_label}",
     }
 # ---
 ministrs_tab_for_pop_format = {}  # used in pop_format.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower().strip()
-    short_label = ministry_labels["s"]
-    ministrs_tab_for_pop_format[f"secretaries of {normalized_ministry} of"] = "وزراء %s {}" % short_label
-    ministrs_tab_for_pop_format[f"secretaries-of {normalized_ministry} of"] = "وزراء %s {}" % short_label
+    short_label = ministry_labels["singular"]
+    ministrs_tab_for_pop_format[f"secretaries of {normalized_ministry} of"] = f"وزراء {short_label} {{}}"
+    ministrs_tab_for_pop_format[f"secretaries-of {normalized_ministry} of"] = f"وزراء {short_label} {{}}"
 # ---
 ministrs_for_military_format_men = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
-    # ministrs_for_military_format_men["secretary of the {}".format(mi2)] = 'وزير %s {nat}' % da['al']
+    al_label = ministry_labels["al"]
+
     ministrs_for_military_format_men[f"assistant secretaries of {normalized_ministry}"] = (
-        "مساعدو وزير %s {nat}" % ministry_labels["al"]
+        f"مساعدو وزير {al_label} {{nat}}"
     )
     ministrs_for_military_format_men[f"deputy secretaries of {normalized_ministry}"] = (
-        "نواب وزير %s {nat}" % ministry_labels["al"]
+        f"نواب وزير {al_label} {{nat}}"
     )
     ministrs_for_military_format_men[f"deputy secretaries of the {normalized_ministry}"] = (
-        "نواب وزير %s {nat}" % ministry_labels["al"]
+        f"نواب وزير {al_label} {{nat}}"
     )
 
     ministrs_for_military_format_men[f"assistant secretaries-of {normalized_ministry}"] = (
-        "مساعدو وزير %s {nat}" % ministry_labels["al"]
+        f"مساعدو وزير {al_label} {{nat}}"
     )
     ministrs_for_military_format_men[f"deputy secretaries-of {normalized_ministry}"] = (
-        "نواب وزير %s {nat}" % ministry_labels["al"]
+        f"نواب وزير {al_label} {{nat}}"
     )
     ministrs_for_military_format_men[f"deputy secretaries-of the {normalized_ministry}"] = (
-        "نواب وزير %s {nat}" % ministry_labels["al"]
+        f"نواب وزير {al_label} {{nat}}"
     )
 
     ministrs_for_military_format_men[f"deputy secretary of {normalized_ministry}"] = (
-        "نواب وزير %s {nat}" % ministry_labels["al"]
+        f"نواب وزير {al_label} {{nat}}"
     )
     ministrs_for_military_format_men[f"deputy secretary of the {normalized_ministry}"] = (
-        "نواب وزير %s {nat}" % ministry_labels["al"]
+        f"نواب وزير {al_label} {{nat}}"
     )
 # ---
 ministrs_for_military_format_women = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
+    al_label = ministry_labels["al"]
+
     ministrs_for_military_format_women[f"department of {normalized_ministry} agencies"] = (
-        "وكالات وزارة %s {nat}" % ministry_labels["al"]
+        f"وكالات وزارة {al_label} {{nat}}"
     )
     ministrs_for_military_format_women[f"department of {normalized_ministry} facilities"] = (
-        "مرافق وزارة %s {nat}" % ministry_labels["al"]
+        f"مرافق وزارة {al_label} {{nat}}"
     )
     ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories"] = (
-        "مختبرات وزارة %s {nat}" % ministry_labels["al"]
+        f"مختبرات وزارة {al_label} {{nat}}"
     )
     ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories personnel"] = (
-        "موظفو مختبرات وزارة %s {nat}" % ministry_labels["al"]
+        f"موظفو مختبرات وزارة {al_label} {{nat}}"
     )
     ministrs_for_military_format_women[f"department of {normalized_ministry} officials"] = (
-        "مسؤولو وزارة %s {nat}" % ministry_labels["al"]
+        f"مسؤولو وزارة {al_label} {{nat}}"
     )
     ministrs_for_military_format_women[f"department of {normalized_ministry}"] = (
-        "وزارة %s {nat}" % ministry_labels["al"]
+        f"وزارة {al_label} {{nat}}"
     )
     ministrs_for_military_format_women[f"department of the {normalized_ministry}"] = (
-        "وزارة %s {nat}" % ministry_labels["al"]
+        f"وزارة {al_label} {{nat}}"
     )
 # ---
 ministrs_for_en_is_P17_ar_is_mens = {}  # used in bot_te_4.py
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower()
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of the {normalized_ministry}"] = (
-        "وزراء %s {}" % ministry_labels["s"]
-    )
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of the {normalized_ministry}"] = (
-        "وزراء %s {}" % ministry_labels["s"]
-    )
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
+    singular_label = ministry_labels["singular"]
+
+    label = f"وزراء {singular_label} {{}}"
+
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of the {normalized_ministry}"] = label
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of the {normalized_ministry}"] = label
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = label
+    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = label
 # ---
-# ---
+
+len_print.data_len("ministers.py", {
+    "ministrs_for_en_is_P17_ar_is_mens": ministrs_for_en_is_P17_ar_is_mens,
+    "ministrs_for_military_format_women": ministrs_for_military_format_women,
+    "ministrs_for_military_format_men": ministrs_for_military_format_men,
+    "ministrs_tab_for_pop_format": ministrs_tab_for_pop_format,
+    "ministrs_tab_for_Jobs_2020": ministrs_tab_for_Jobs_2020,
+    "minister_keyse": minister_keyse,
+})

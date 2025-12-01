@@ -1,4 +1,18 @@
 
+## [#146](https://github.com/MrIbrahem/ArWikiCats/pull/146) - 2025-12-01
+
+* **New Features**
+  * Enhanced film and media category translation resolution with improved accuracy.
+  * Extended ministerial title translations with gender-specific and format variants.
+
+* **Tests**
+  * Added comprehensive test coverage for film category translations.
+  * Added test coverage for ministerial category label resolution.
+
+* **Refactoring**
+  * Restructured translation table construction for better maintainability and modularity.
+  * Optimized data handling for television and media-related category mappings.
+
 ## [#143](https://github.com/MrIbrahem/ArWikiCats/pull/143) - 2025-12-01
 
 * **Bug Fixes**
