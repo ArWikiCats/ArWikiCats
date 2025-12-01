@@ -90,7 +90,7 @@ from .tv.films_mslslat import (
     Films_key_CAO_new_format,
     Films_key_For_nat,
     Films_key_man,
-    Films_keys_both_new,
+    Films_keys_both_new_female,
     film_key_women_2,
     film_Keys_For_female,
     films_mslslat_tab,
@@ -174,7 +174,7 @@ __all__ = [
     "film_key_women_2",
     "films_mslslat_tab",
     "film_Keys_For_female",
-    "Films_keys_both_new",
+    "Films_keys_both_new_female",
     "Films_key_333",
     "tyty_data",
     #

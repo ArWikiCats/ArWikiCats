@@ -40,7 +40,6 @@ def _extend_Films_key_333(Films_key_333):
     return data
 
 
-# ---
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 # ---
 television_keys = open_json_file("media/television_keys.json") or {}
@@ -48,14 +47,11 @@ Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
 Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
 # ---
 films_mslslat_tab = {}
-Films_key_For_Jobs = {}
-# ---
 Films_key_333 = {}
 # ---
 Films_key_CAO = {}
 Films_key_man = {}
 # ---
-Films_key_multi = {}
 Films_key_both = {}
 # ---
 Films_Key_for_mat2 = {
@@ -92,7 +88,6 @@ for na4, na4_lab in Films_Key_for_mat2.items():
 # ---
 for xxx, xxx_lab in Films_key_O_multi.items():
     ka2 = xxx.lower()
-    Films_key_multi[ka2] = xxx_lab
     Films_key_both[ka2] = xxx_lab
 # ---
 for xo, ttt in Films_keys_male_female.items():
@@ -111,7 +106,6 @@ for x, da in Films_key_both.items():
         Films_key_man[x] = da["male"]
         if "animated" not in x:
             Films_key_man[f"animated {x}"] = f"{da['male']} رسوم متحركة"
-        # Films_key_For_Jobs[x] = da["male"]
     if da["male"]:
         film_Keys_For_male[x] = da["male"]
     if da["female"]:
@@ -197,7 +191,6 @@ for ke, ke_lab in film_Keys_For_female.items():
     Films_key_CAO[f"{ke} novellas"] = f"روايات قصيرة {ke_lab}"
     Films_key_CAO[f"{ke} novels"] = f"روايات {ke_lab}"
     Films_key_CAO[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
-    Films_key_For_Jobs[ke] = ke_lab
 
     F_k = f"{ke} films"
     Films_key_CAO[F_k] = f"أفلام {ke_lab}"
@@ -218,33 +211,31 @@ Films_key_CAO_new_format = {}
 Films_key_CAO_new_format["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
 Films_key_CAO_new_format["lgbtqrelated films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
 # ---
-Films_keys_both_new = {}
-
+Films_keys_both_new_female = {}
+# ---
 tabe_2 = dict(Films_keys_male_female)
 # ---
+Films_keys_both_new_same = 0
+Films_keys_both_new_diff = 0
+# ---
 for en, tab in Films_keys_male_female.items():
-    tab_male = tab.get("male")
     tab_female = tab.get("female")
 
-    if tab_male and tab_female:
+    if not tab_female:
         continue
 
     for en2, tab2 in tabe_2.items():
         if en == en2:
             continue
 
-        new_lab_male = ""
-        new_lab_female = ""
-
-        if tab["female"] and tab2["female"]:
-            new_lab_female = f"{tab['female']} {tab2['female']}"
-
-        if tab["male"] and tab2["male"]:
-            new_lab_male = f"{tab['male']} {tab2['male']}"
+        tab2_female = tab2.get("female")
+        if not tab2_female:
+            continue
 
         new_key = f"{en} {en2}".lower()
-
-        Films_keys_both_new[new_key] = {"male": new_lab_male, "female": new_lab_female}
+        if tab_female and tab2_female:
+            new_lab_female = f"{tab_female} {tab2_female}"
+            Films_keys_both_new_female[new_key] = new_lab_female
 
 
 len_print.data_len(
@@ -256,6 +247,23 @@ len_print.data_len(
         "tyty_data": tyty_data,
         "Films_key_333": Films_key_333,
         "Films_key_CAO": Films_key_CAO,
-        "Films_keys_both_new": Films_keys_both_new,
+        "Films_keys_both_new_female": Films_keys_both_new_female,
+        "Films_keys_both_new_same": Films_keys_both_new_same,
+        "Films_keys_both_new_diff": Films_keys_both_new_diff,
     },
 )
+__all__ = [
+    "television_keys",
+    "films_mslslat_tab",
+    "film_Keys_For_female",
+    "film_Keys_For_male",
+    "tyty_data",
+    "Films_key_333",
+    "Films_key_CAO",
+    "Films_key_CAO_new_format",
+    "Films_key_For_nat",
+    "Films_key_man",
+    "Films_keys_both_new_female",
+    "film_key_women_2",
+    "television_keys_female",
+]

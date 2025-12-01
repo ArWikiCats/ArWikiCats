@@ -12,7 +12,7 @@ from ...translations import (
     Films_key_333,
     Films_key_CAO,
     Films_key_For_nat,
-    Films_keys_both_new,
+    Films_keys_both_new_female,
     film_Keys_For_female,
     jobs_mens_data,
     lang_key_m,
@@ -75,7 +75,7 @@ class FilmCategoryLabelResolver:
             return ""
 
         prefix = suffix[: -len("films")].strip().lower()
-        film_label = self._films_keys_both.get(prefix, {}).get("female", "")
+        film_label = self._films_keys_both.get(prefix, "")
 
         if film_label:
             result = f"أفلام {film_label} ب{language_label}"
@@ -110,7 +110,7 @@ class FilmCategoryLabelResolver:
 
         Resolution order:
             1) Films_key_For_nat
-            2) Films_keys_both_new (via films pattern)
+            2) Films_keys_both_new_female (via films pattern)
             3) film_Keys_For_female / Films_key_333 / Films_key_CAO
         """
         # 1) Films_key_For_nat (template expects something like 'بالعربية')
@@ -266,7 +266,7 @@ class LanguageLabelResolver:
 
 _film_resolver = FilmCategoryLabelResolver(
     films_for_nat=Films_key_For_nat,
-    films_keys_both=Films_keys_both_new,
+    films_keys_both=Films_keys_both_new_female,
     films_female=film_Keys_For_female,
     films_333=Films_key_333,
     films_cao=Films_key_CAO,
