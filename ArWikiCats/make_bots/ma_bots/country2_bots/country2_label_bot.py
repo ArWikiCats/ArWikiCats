@@ -89,7 +89,6 @@ def make_cnt_lab(
     return resolved_label
 
 
-@dump_data()
 def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     """
     Process a country name based on a specified separator.
@@ -135,25 +134,24 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
 
 
 @dump_data()
-def separator_arabic_resolve(separator: str, part_1_normalized: str) -> str:
+def separator_arabic_resolve(separator: str) -> str:
     """
     Generate a specific string based on input parameters.
     TODO: need refactoring
     """
     ar_separator = " "
+    separator = separator.strip()
 
-    if separator.strip() == "to" and part_1_normalized.strip() == "ambassadors of":
-        ar_separator = " لدى "
-    elif separator.strip() == "to":
+    if separator == "to":
         ar_separator = " إلى "
-    elif separator.strip() == "on":
+    elif separator == "on":
         ar_separator = " على "
-    elif separator.strip() == "about":
+    elif separator == "about":
         ar_separator = " عن "
-    elif separator.strip() in category_relation_mapping:
-        if separator.strip() != "by":
-            ar_separator = f" {category_relation_mapping[separator.strip()]} "
-    elif separator.strip() == "based in":
+    elif separator in category_relation_mapping:
+        if separator != "by":
+            ar_separator = f" {category_relation_mapping[separator]} "
+    elif separator == "based in":
         ar_separator = " مقرها في "
 
     return ar_separator
@@ -213,7 +211,6 @@ def get_separator(country: str) -> str:
     return ""
 
 
-@dump_data()
 def country_2_title_work(country: str, With_Years: bool = True) -> str:
 
     separator = get_separator(country)
@@ -240,7 +237,7 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
     if separator.strip() == "to" and (part_1_label.startswith("سفراء ") or part_1_normalized.strip() == "ambassadors of"):
         ar_separator = " لدى "
     else:
-        ar_separator = separator_arabic_resolve(separator, part_1_normalized)
+        ar_separator = separator_arabic_resolve(separator)
 
     resolved_label = make_cnt_lab(
         separator=separator,

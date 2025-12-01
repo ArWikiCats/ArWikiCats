@@ -13,15 +13,15 @@ from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import (
 @pytest.mark.fast
 def test_separator_arabic_resolve() -> None:
     # Test with basic inputs
-    result = separator_arabic_resolve("to", "ambassadors of")
+    result = separator_arabic_resolve("to")
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = separator_arabic_resolve("in", "test")
+    result_various = separator_arabic_resolve("in")
     assert isinstance(result_various, str)
 
     # Test with empty strings
-    result_empty = separator_arabic_resolve("", "")
+    result_empty = separator_arabic_resolve("")
     assert isinstance(result_empty, str)
 
 
