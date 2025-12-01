@@ -5,7 +5,6 @@ TODO: write tests
 import pytest
 
 from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import (
-    country_2_create_label,
     country_2_title_work,
     separator_arabic_resolve,
 )
@@ -14,15 +13,15 @@ from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import (
 @pytest.mark.fast
 def test_separator_arabic_resolve() -> None:
     # Test with basic inputs
-    result = separator_arabic_resolve("to", "test label", "ambassadors of")
+    result = separator_arabic_resolve("to", "ambassadors of")
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = separator_arabic_resolve("in", "test label", "test")
+    result_various = separator_arabic_resolve("in", "test")
     assert isinstance(result_various, str)
 
     # Test with empty strings
-    result_empty = separator_arabic_resolve("", "", "")
+    result_empty = separator_arabic_resolve("", "")
     assert isinstance(result_empty, str)
 
 
