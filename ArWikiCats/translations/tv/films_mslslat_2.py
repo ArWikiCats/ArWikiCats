@@ -1,0 +1,298 @@
+#!/usr/bin/python3
+"""
+new pages from file
+
+python3 core8/pwb.py update/update
+
+TODO: need refactoring
+"""
+
+from ...helps import len_print
+
+import json
+from pathlib import Path
+from typing import Any
+
+Dir2 = Path(__file__).parent.parent
+
+
+def _build_json_path(relative_path: str) -> Path:
+    """Return the full path to a JSON file under ``jsons``.
+
+    The helper accepts either bare filenames (``"example"``) or paths that
+    include nested folders (``"geography/us_counties"``).  When the provided
+    path does not include an extension, ``.json`` is appended automatically.
+    """
+
+    path = Path(relative_path)
+    if path.suffix != ".json":
+        path = path.with_suffix(".json")
+    return Dir2 / "jsons" / path
+
+
+def open_json_file(file_path: str = "") -> dict[str, Any] | list[Any]:
+    """Open a JSON resource from the bundled ``jsons`` directory by name."""
+    if not file_path:
+        return {}
+    file_path = _build_json_path(file_path)
+    if not file_path.exists():
+        print(f"file {file_path} not found")
+        return {}
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except BaseException:
+        print(f"cant open {file_path.name}")
+    return {}
+
+
+def _extend_Films_key_333(Films_key_333):
+    data = {}
+    Films_Frist = ["low-budget", "christmas", "lgbtq-related", "lgbt-related", "lgbtqrelated", "lgbtrelated", "upcoming",]
+
+    for ke, ke_lab in film_Keys_For_female.items():
+        ke_lower = ke.lower()
+        tyty = "{tyty}"
+
+        for ke2, ke2_lab in Films_key2.items():
+            ke22 = ke2.lower()
+            if ke22 != ke_lower:
+                Paop_1 = f"{tyty} {ke_lab} {ke2_lab}"
+                Paop_2 = f"{tyty} {ke2_lab} {ke_lab}"
+
+                if ke_lower in Films_Frist:
+                    Paop_1 = f"{tyty} {ke2_lab} {ke_lab}"
+                    Paop_2 = Paop_1
+
+                elif ke22 in Films_Frist:
+                    Paop_1 = f"{tyty} {ke_lab} {ke2_lab}"
+                    Paop_2 = Paop_1
+
+                k1 = f"{ke} {ke2}"
+
+                if k1 not in Films_key_333:
+                    data[k1] = Paop_1
+
+                k2 = f"{ke2} {ke}"
+                if k2 not in Films_key_333:
+                    data[k2] = Paop_2
+    return data
+
+
+Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
+# ---
+television_keys = open_json_file("media/television_keys.json") or {}
+Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
+Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
+# ---
+films_mslslat_tab = {}
+Films_key_333 = {}
+# ---
+Films_key_CAO = {
+    "lgbt-related films": "أفلام {} متعلقة بإل جي بي تي",
+    "lgbtrelated films": "أفلام {} متعلقة بإل جي بي تي",
+    "lgbtq-related films": "أفلام {} متعلقة بإل جي بي تي كيو",
+    "lgbtqrelated films": "أفلام {} متعلقة بإل جي بي تي كيو",
+}
+Films_key_man = {}
+# ---
+Films_key_both = {}
+# ---
+Films_Key_for_mat2 = {
+    "television-series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
+    "television-series endings": "مسلسلات تلفزيونية {} انتهت في",
+    "web series-debuts": "مسلسلات ويب {} بدأ عرضها في",
+    "web series debuts": "مسلسلات ويب {} بدأ عرضها في",
+    "television series-debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
+    "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
+    "television series endings": "مسلسلات تلفزيونية {} انتهت في",
+}
+# ---
+film_key_women_2 = {
+    "video games": "ألعاب فيديو",
+    "soap opera": "مسلسلات طويلة",
+    "television characters": "شخصيات تلفزيونية",
+    "television programs": "برامج تلفزيونية",
+    "television programmes": "برامج تلفزيونية",
+    "television programme": "برامج تلفزيونية",
+    "web series": "مسلسلات ويب",
+    "television series": "مسلسلات تلفزيونية",
+    "film series": "سلاسل أفلام",
+    "television episodes": "حلقات تلفزيونية",
+    "television news": "أخبار تلفزيونية",
+    "comics": "قصص مصورة",
+    "television films": "أفلام تلفزيونية",
+    "television miniseries": "مسلسلات قصيرة",
+}
+# ---
+television_keys_female = dict(television_keys)
+# ---
+for na4, na4_lab in Films_Key_for_mat2.items():
+    Films_key_For_nat[na4] = na4_lab
+# ---
+for xxx, xxx_lab in Films_key_O_multi.items():
+    ka2 = xxx.lower()
+    Films_key_both[ka2] = xxx_lab
+# ---
+for xo, ttt in Films_keys_male_female.items():
+    Films_key_both[ka2] = ttt
+    if ttt["female"]:
+        Films_key_333[xo] = ttt["female"]
+# ---
+if Films_key_both.get("animated"):
+    Films_key_both["animation"] = Films_key_both["animated"]
+# ---
+film_Keys_For_male = {}
+film_Keys_For_female = {}
+# ---
+for x, da in Films_key_both.items():
+    if da["male"]:
+        Films_key_man[x] = da["male"]
+        if "animated" not in x:
+            Films_key_man[f"animated {x}"] = f"{da['male']} رسوم متحركة"
+    if da["male"]:
+        film_Keys_For_male[x] = da["male"]
+    if da["female"]:
+        film_Keys_For_female[x] = da["female"]
+# ---
+debuts_endings_key = ["television series", "television miniseries", "television films"]
+# ---
+Films_key2 = film_Keys_For_female
+# ---Category:Anime_and_manga_by_genre
+# ---
+nat_key_f = "{}"
+# ---
+# إضافة المسلسلات
+for tt, tt_lab in film_key_women_2.items():
+    # "television-series debuts" : "مسلسلات تلفزيونية {} بدأ عرضها في",
+    Films_key_For_nat[tt] = f"%s {nat_key_f}" % tt_lab
+    Films_key_For_nat[f"{tt} debuts"] = f"%s {nat_key_f} بدأ عرضها في" % tt_lab
+    Films_key_For_nat[f"{tt} endings"] = f"%s {nat_key_f} انتهت في" % tt_lab
+    Films_key_For_nat[f"{tt} revived after cancellation"] = f"%s {nat_key_f} أعيدت بعد إلغائها" % tt_lab
+    films_mslslat_tab[tt] = tt_lab
+    films_mslslat_tab[f"{tt} revived after cancellation"] = f"{tt_lab} أعيدت بعد إلغائها"
+    films_mslslat_tab[f"{tt} debuts"] = f"{tt_lab} بدأ عرضها في"
+    films_mslslat_tab[f"{tt} endings"] = f"{tt_lab} انتهت في"
+    if tt.lower() in debuts_endings_key:
+        films_mslslat_tab[f"{tt}-debuts"] = f"{tt_lab} بدأ عرضها في"
+        films_mslslat_tab[f"{tt}-endings"] = f"{tt_lab} انتهت في"
+        Films_key_For_nat[f"{tt}-debuts"] = f"%s {nat_key_f} بدأ عرضها في" % tt_lab
+        Films_key_For_nat[f"{tt}-endings"] = f"%s {nat_key_f} انتهت في" % tt_lab
+# ---
+Films_key_For_nat["remakes of {} films"] = f"أفلام {nat_key_f} معاد إنتاجها"
+# ---
+for ff in television_keys:
+    la_b = television_keys[ff]
+    Films_key_CAO[ff] = la_b
+    Films_key_CAO[f"{ff} characters"] = f"شخصيات {la_b}"
+
+    Films_key_CAO[f"{ff} title cards"] = f"بطاقات عنوان {la_b}"
+    Films_key_CAO[f"{ff} video covers"] = f"أغلفة فيديو {la_b}"
+    Films_key_CAO[f"{ff} posters"] = f"ملصقات {la_b}"
+    Films_key_CAO[f"{ff} images"] = f"صور {la_b}"
+# ---
+for ke, ke_lab in film_Keys_For_female.items():
+    for tt, tt_lab in film_key_women_2.items():
+        Films_key_For_nat[f"{ke} {tt}"] = f"{tt_lab} {ke_lab} {nat_key_f}"
+        Films_key_For_nat[f"{ke} {tt} revived after cancellation"] = f"{tt_lab} {ke_lab} {nat_key_f} أعيدت بعد إلغائها"
+        Films_key_For_nat[f"{ke} {tt} debuts"] = f"{tt_lab} {ke_lab} {nat_key_f} بدأ عرضها في"
+        Films_key_For_nat[f"{ke} {tt} endings"] = f"{tt_lab} {ke_lab} {nat_key_f} انتهت في"
+        films_mslslat_tab[f"{ke} {tt}"] = f"{tt_lab} {ke_lab}"
+        films_mslslat_tab[f"{ke} {tt} revived after cancellation"] = f"{tt_lab} {ke_lab} {nat_key_f} أعيدت بعد إلغائها"
+        films_mslslat_tab[f"{ke} {tt} debuts"] = f"{tt_lab} {ke_lab} بدأ عرضها في"
+        films_mslslat_tab[f"{ke} {tt} endings"] = f"{tt_lab} {ke_lab} انتهت في"
+        if tt.lower() in debuts_endings_key:
+            films_mslslat_tab[f"{ke} {tt}-debuts"] = f"{tt_lab} {ke_lab} بدأ عرضها في"
+            films_mslslat_tab[f"{ke} {tt}-endings"] = f"{tt_lab} {ke_lab} انتهت في"
+            Films_key_For_nat[f"{ke} {tt}-debuts"] = f"{tt_lab} {ke_lab} {nat_key_f} بدأ عرضها في"
+            Films_key_For_nat[f"{ke} {tt}-endings"] = f"{tt_lab} {ke_lab} {nat_key_f} انتهت في"
+        # "television-series endings" : "مسلسلات تلفزيونية {} انتهت في",
+# ---
+for cd, ff in Films_key_O_multi.items():
+    if ff["female"]:
+        Films_key_333[cd] = ff["female"]
+# ---
+ss_Films_key_CAO = 0
+# ---
+for ke, ke_lab in film_Keys_For_female.items():
+    Films_key_CAO[f"{ke} anime and manga"] = f"أنمي ومانغا {ke_lab}"
+    Films_key_CAO[f"{ke} compilation albums"] = f"ألبومات تجميعية {ke_lab}"
+    Films_key_CAO[f"{ke} folk albums"] = f"ألبومات فلكلورية {ke_lab}"
+    Films_key_CAO[f"{ke} classical albums"] = f"ألبومات كلاسيكية {ke_lab}"
+    Films_key_CAO[f"{ke} comedy albums"] = f"ألبومات كوميدية {ke_lab}"
+    Films_key_CAO[f"{ke} mixtape albums"] = f"ألبومات ميكستايب {ke_lab}"
+    Films_key_CAO[f"{ke} soundtracks"] = f"موسيقى تصويرية {ke_lab}"
+    Films_key_CAO[f"{ke} terminology"] = f"مصطلحات {ke_lab}"
+    Films_key_CAO[f"children's {ke}"] = f"أطفال {ke_lab}"
+    Films_key_CAO[f"{ke} television series"] = f"مسلسلات تلفزيونية {ke_lab}"
+    Films_key_CAO[f"{ke} television episodes"] = f"حلقات تلفزيونية {ke_lab}"
+    Films_key_CAO[f"{ke} television programs"] = f"برامج تلفزيونية {ke_lab}"
+    Films_key_CAO[f"{ke} television programmes"] = f"برامج تلفزيونية {ke_lab}"
+    Films_key_CAO[f"{ke} television programme"] = f"برامج تلفزيونية {ke_lab}"
+    Films_key_CAO[f"{ke} web programme"] = f"مسلسلات ويب {ke_lab}"
+    Films_key_CAO[f"{ke} groups"] = f"مجموعات {ke_lab}"
+    Films_key_CAO[f"{ke} novellas"] = f"روايات قصيرة {ke_lab}"
+    Films_key_CAO[f"{ke} novels"] = f"روايات {ke_lab}"
+    Films_key_CAO[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
+
+    Films_key_CAO[f"{ke} films"] = f"أفلام {ke_lab}"
+
+    for fao in television_keys:
+        ss_Films_key_CAO += 1
+        Films_key_CAO[f"{ke} {fao}"] = f"{television_keys[fao]} {ke_lab}"
+
+tyty_data = _extend_Films_key_333(Films_key_333)
+
+# ---
+Films_key_CAO_new_format = {
+    "lgbtrelated films": "أفلام {} متعلقة بإل جي بي تي",
+    "lgbtqrelated films": "أفلام {} متعلقة بإل جي بي تي كيو",
+}
+# ---
+Films_keys_both_new_female = {}
+# ---
+tabe_2 = {x: v["female"] for x, v in Films_keys_male_female.items() if v.get("female", "").strip()}
+# ---
+for en, tab in Films_keys_male_female.items():
+    tab_female = tab.get("female", "").strip()
+
+    if not tab_female:
+        continue
+
+    for en2, tab2_female in tabe_2.items():
+        if en == en2:
+            continue
+
+        new_key = f"{en} {en2}".lower()
+        if tab_female and tab2_female:
+            new_lab_female = f"{tab_female} {tab2_female}"
+            Films_keys_both_new_female[new_key] = new_lab_female
+
+
+len_print.data_len(
+    "films_mslslat.py",
+    {
+        "Films_key_For_nat": Films_key_For_nat,
+        "films_mslslat_tab": films_mslslat_tab,
+        "ss_Films_key_CAO": ss_Films_key_CAO,
+        "tyty_data": tyty_data,
+        "Films_key_333": Films_key_333,
+        "Films_key_CAO": Films_key_CAO,
+        "Films_keys_both_new_female": Films_keys_both_new_female,
+    },
+)
+__all__ = [
+    "television_keys",
+    "films_mslslat_tab",
+    "film_Keys_For_female",
+    "film_Keys_For_male",
+    "tyty_data",
+    "Films_key_333",
+    "Films_key_CAO",
+    "Films_key_CAO_new_format",
+    "Films_key_For_nat",
+    "Films_key_man",
+    "Films_keys_both_new_female",
+    "film_key_women_2",
+    "television_keys_female",
+]
