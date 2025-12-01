@@ -87,7 +87,7 @@ def Films(category: str, country_start: str, country_code: str) -> str:
 
         if not result:
             country_label = Films_key_For_nat.get(country_code, "")
-            if country_label:
+            if country_label and "{}" in country_label:
                 result = country_label.format(country_name)
                 logger.debug(f'<<lightblue>> Films_key_For_nat:Films: new {result=} ')
 

@@ -13,6 +13,8 @@ from ..utils.json_dir import open_json_file
 
 def _extend_Films_key_333(Films_key_333):
     data = {}
+    Films_Frist = ["low-budget", "christmas", "lgbtq-related", "lgbt-related", "lgbtqrelated", "lgbtrelated", "upcoming",]
+
     for ke, ke_lab in film_Keys_For_female.items():
         ke_lower = ke.lower()
         tyty = "{tyty}"
@@ -20,17 +22,19 @@ def _extend_Films_key_333(Films_key_333):
         for ke2, ke2_lab in Films_key2.items():
             ke22 = ke2.lower()
             if ke22 != ke_lower:
-                Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
-                Paop_2 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
+                Paop_1 = f"{tyty} {ke_lab} {ke2_lab}"
+                Paop_2 = f"{tyty} {ke2_lab} {ke_lab}"
+
                 if ke_lower in Films_Frist:
-                    Paop_1 = f"{tyty} %s %s" % (ke2_lab, ke_lab)
+                    Paop_1 = f"{tyty} {ke2_lab} {ke_lab}"
                     Paop_2 = Paop_1
 
                 elif ke22 in Films_Frist:
-                    Paop_1 = f"{tyty} %s %s" % (ke_lab, ke2_lab)
+                    Paop_1 = f"{tyty} {ke_lab} {ke2_lab}"
                     Paop_2 = Paop_1
 
                 k1 = f"{ke} {ke2}"
+
                 if k1 not in Films_key_333:
                     data[k1] = Paop_1
 
@@ -49,7 +53,12 @@ Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
 films_mslslat_tab = {}
 Films_key_333 = {}
 # ---
-Films_key_CAO = {}
+Films_key_CAO = {
+    "lgbt-related films": "أفلام {} متعلقة بإل جي بي تي",
+    "lgbtrelated films": "أفلام {} متعلقة بإل جي بي تي",
+    "lgbtq-related films": "أفلام {} متعلقة بإل جي بي تي كيو",
+    "lgbtqrelated films": "أفلام {} متعلقة بإل جي بي تي كيو",
+}
 Films_key_man = {}
 # ---
 Films_key_both = {}
@@ -115,7 +124,6 @@ debuts_endings_key = ["television series", "television miniseries", "television 
 # ---
 Films_key2 = film_Keys_For_female
 # ---Category:Anime_and_manga_by_genre
-Films_Frist = ["low-budget", "christmas", "lgbtq-related", "lgbt-related", "lgbtqrelated", "lgbtrelated", "upcoming"]
 # ---
 nat_key_f = "{}"
 # ---
@@ -192,24 +200,19 @@ for ke, ke_lab in film_Keys_For_female.items():
     Films_key_CAO[f"{ke} novels"] = f"روايات {ke_lab}"
     Films_key_CAO[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
 
-    F_k = f"{ke} films"
-    Films_key_CAO[F_k] = f"أفلام {ke_lab}"
+    Films_key_CAO[f"{ke} films"] = f"أفلام {ke_lab}"
 
     for fao in television_keys:
         ss_Films_key_CAO += 1
-        rr = f"{ke} {fao}"
-        Films_key_CAO[rr] = f"{television_keys[fao]} {ke_lab}"
+        Films_key_CAO[f"{ke} {fao}"] = f"{television_keys[fao]} {ke_lab}"
 
 tyty_data = _extend_Films_key_333(Films_key_333)
 
-Films_key_CAO["lgbt-related films"] = "أفلام {} متعلقة بإل جي بي تي"
-Films_key_CAO["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
-Films_key_CAO["lgbtq-related films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
-Films_key_CAO["lgbtqrelated films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
 # ---
-Films_key_CAO_new_format = {}
-Films_key_CAO_new_format["lgbtrelated films"] = "أفلام {} متعلقة بإل جي بي تي"
-Films_key_CAO_new_format["lgbtqrelated films"] = "أفلام {} متعلقة بإل جي بي تي كيو"
+Films_key_CAO_new_format = {
+    "lgbtrelated films": "أفلام {} متعلقة بإل جي بي تي",
+    "lgbtqrelated films": "أفلام {} متعلقة بإل جي بي تي كيو",
+}
 # ---
 Films_keys_both_new_female = {}
 # ---
