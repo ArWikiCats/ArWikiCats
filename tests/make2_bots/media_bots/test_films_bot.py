@@ -8,26 +8,28 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.media_bots.films_bot import te_films
 
 fast_data_drama = {
-    "belgian drama films": "أفلام درامية بلجيكية",
-    "burmese romantic drama films": "أفلام دراما رومانسية بورمية",
-    "canadian docudrama films": "أفلام درامية وثائقية كندية",
-    "comedy-drama films": "أفلام كوميدية درامية",
-    "dutch war drama films": "أفلام درامية حربية هولندية",
     "english-language political drama films": "أفلام دراما سياسية باللغة الإنجليزية",
     "english-language war drama films": "أفلام دراما حربية باللغة الإنجليزية",
     "hindi-language drama films": "أفلام دراما باللغة الهندية",
-    "indian sports drama films": "أفلام درامية رياضية هندية",
-    "iranian romantic drama films": "أفلام دراما رومانسية إيرانية",
+    "norwegian-language romantic drama films": "أفلام دراما رومانسية باللغة النرويجية",
+
+    "burmese romantic drama films": "أفلام رومانسية درامية بورمية",
+    "dutch war drama films": "أفلام حربية درامية هولندية",
+    "indian sports drama films": "أفلام رياضية درامية هندية",
+    "iranian romantic drama films": "أفلام رومانسية درامية إيرانية",
+    "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
+    "russian sports drama films": "أفلام رياضية درامية روسية",
+    "spanish war drama films": "أفلام حربية درامية إسبانية",
+
+    "belgian drama films": "أفلام درامية بلجيكية",
+    "canadian docudrama films": "أفلام درامية وثائقية كندية",
+    "comedy-drama films": "أفلام كوميدية درامية",
     "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
     "melodrama films": "أفلام ميلودراما",
-    "nigerian musical drama films": "أفلام دراما موسيقية نيجيرية",
     "north korean drama films": "أفلام درامية كورية شمالية",
-    "norwegian-language romantic drama films": "أفلام دراما رومانسية باللغة النرويجية",
     "portuguese-language biographical drama films": "أفلام سيرة ذاتية درامية باللغة البرتغالية",
-    "russian sports drama films": "أفلام درامية رياضية روسية",
     "russian-language fantasy drama films": "أفلام فانتازيا درامية باللغة الروسية",
     "soviet drama films": "أفلام درامية سوفيتية",
-    "spanish war drama films": "أفلام دراما حربية إسبانية",
     "spanish-language historical drama films": "أفلام تاريخية درامية باللغة الإسبانية",
 }
 
