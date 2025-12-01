@@ -94,7 +94,7 @@ from .tv.films_mslslat import (
     film_key_women_2,
     film_Keys_For_female,
     films_mslslat_tab,
-    television_keys_female,
+    television_keys,
 )
 from .type_tables import typeTable
 from .utils.match_sport_keys import match_sport_key
@@ -169,7 +169,7 @@ __all__ = [
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_CAO_new_format",
-    "television_keys_female",
+    "television_keys",
     "Films_key_man",
     "film_key_women_2",
     "films_mslslat_tab",

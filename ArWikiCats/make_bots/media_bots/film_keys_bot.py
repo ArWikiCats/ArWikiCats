@@ -18,7 +18,7 @@ from ...translations import (
     Nat_mens,
     Nat_women,
     en_is_nat_ar_is_women,
-    television_keys_female,
+    television_keys,
 )
 
 
@@ -32,7 +32,7 @@ def get_Films_key_CAO(country_identifier: str) -> str:
     normalized_identifier = country_identifier.lower().strip()
     resolved_label = ""
 
-    for suffix, suffix_translation in television_keys_female.items():
+    for suffix, suffix_translation in television_keys.items():
         if not normalized_identifier.endswith(suffix.lower()):
             continue
 

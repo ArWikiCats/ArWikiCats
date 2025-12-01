@@ -445,9 +445,6 @@ Films_key_CAO, ss_Films_key_CAO = _build_television_cao(
     film_Keys_For_female,
 )
 
-# Simple mirror for television keys
-television_keys_female = dict(television_keys)
-
 # Extended female-only combinations (both keys)
 Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
 
@@ -481,5 +478,4 @@ __all__ = [
     "Films_key_man",
     "Films_keys_both_new_female",
     "film_key_women_2",
-    "television_keys_female",
 ]
