@@ -112,10 +112,12 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     test_N = re.sub(re.escape(part_2.strip()), "", test_N, flags=re.I)
     test_N = test_N.replace(part_2.strip().lower(), "")
 
+    # specific case
     if separator.strip() == "by":
         part_2 = f"by {part_2}"
         country_t = f"by {country_t}"
 
+    # specific case
     if separator.strip() in ["of", "-of"]:
         Type_t = f"{Type_t} of"
         part_1 = f"{part_1} of"
