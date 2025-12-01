@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.country2_bots.cn_lab import make_cnt_lab
+from ArWikiCats.make_bots.ma_bots.country2_bots.country2_tit_bt import make_cnt_lab
 
 make_cnt_lab_data = {
     "jerusalem": "القدس",
@@ -30,7 +30,7 @@ def test_make_cnt_lab_data(category: str, ar: str) -> None:
         part_1_label="مملكة",
         part_1_normalized="kingdom of",
         part_2_normalized=category,
-        sps=" ",
+        ar_separator=" ",
     )
     assert label == f"مملكة {ar}"
 
@@ -58,7 +58,7 @@ def test_make_cnt_lab_communist_party(country2: str, part_2_label: str, expected
         part_1_label="الحزب الشيوعي في ",
         part_1_normalized="communist party of",
         part_2_normalized=country2.replace("communist party-of ", ""),
-        sps=" ",
+        ar_separator=" ",
     )
 
     assert label == expected
@@ -72,7 +72,7 @@ def test_make_cnt_lab() -> None:
         part_1_label="جامعة {} للفنون في",
         part_1_normalized="university of arts",
         part_2_normalized="belgrade",
-        sps=" في ",
+        ar_separator=" في ",
     )
     assert isinstance(result1, str)
     assert result1 == "جامعة بلغراد للفنون"
@@ -84,7 +84,7 @@ def test_make_cnt_lab() -> None:
         part_1_label="حسب الوسط من المناطق المعزولة في ",
         part_1_normalized="by medium from insular areas of",
         part_2_normalized="united states",
-        sps=" ",
+        ar_separator=" ",
     )
     assert isinstance(result1, str)
     assert result1 == "حسب الوسط من المناطق المعزولة في الولايات المتحدة"
@@ -148,7 +148,7 @@ def test_congress_data(category: str, ar: str) -> None:
         part_1_label="أفعال",
         part_1_normalized="acts of",
         part_2_normalized=f"{category} united states congress",
-        sps=" ",
+        ar_separator=" ",
     )
 
     assert result == f"أفعال {label}"

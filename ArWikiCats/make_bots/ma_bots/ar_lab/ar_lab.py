@@ -98,16 +98,16 @@ class Fixing:
 
     def determine_separator(self) -> str:
         """Determines the separator string between labels."""
-        sps = " "
+        ar_separator = " "
         if self.tito_stripped == "in":
-            sps = " في "
+            ar_separator = " في "
 
         if self.country_in_table and self.add_in_lab:
             if (self.tito_stripped == "in" or self.tito_stripped == "at") and (
                 " في" not in self.country_label or self.type_lower in Add_ar_in
             ):
-                sps = " في "
-                logger.info("ssps:%s" % sps)
+                ar_separator = " في "
+                logger.info("ssps:%s" % ar_separator)
         else:
             if (self.tito_stripped == "in" or self.tito_stripped == "at") and (
                 " في" not in self.type_label or self.type_lower in Add_ar_in
@@ -144,8 +144,8 @@ class Fixing:
                 if self.country_lower in for_table:
                     tatl = ""
 
-                sps = f" {tatl} "
-                logger.info("sps:%s" % sps)
+                ar_separator = f" {tatl} "
+                logger.info("ar_separator:%s" % ar_separator)
                 self.cate_test = self.cate_test.replace(self.tito, "")
 
         # in_tables_1 = check_key_new_players(self.country_lower)
@@ -160,10 +160,10 @@ class Fixing:
             self.tito_stripped.replace("-", " ").strip()
         )
 
-        if not sps.strip() and faa:
-            sps = f" {faa} "
+        if not ar_separator.strip() and faa:
+            ar_separator = f" {faa} "
 
-        return sps
+        return ar_separator
 
 
 class LabelPipeline(Fixing):
@@ -269,7 +269,7 @@ class LabelPipeline(Fixing):
         if self.type_in_table:
             logger.info(f'>>>>xX:<<lightpurple>> type_lower "{self.type_lower}" in {table2}.')
 
-    def join_labels(self, sps: str) -> str:
+    def join_labels(self, ar_separator: str) -> str:
         """Constructs the final Arabic label."""
         keep_type_last = False
         keep_type_first = False
@@ -296,32 +296,32 @@ class LabelPipeline(Fixing):
             logger.info(">>> > X:<<lightpurple>> type_lower and country_lower in Table_for_frist_word.")
             in_tables = check_key_new_players(self.country_lower)
             if not keep_type_first and in_tables:
-                arlabel = self.country_label + sps + self.type_label
+                arlabel = self.country_label + ar_separator + self.type_label
             else:
-                arlabel = self.type_label + sps + self.country_label
+                arlabel = self.type_label + ar_separator + self.country_label
         else:
             if keep_type_first and self.country_in_table:
-                arlabel = self.country_label + sps + self.type_label
+                arlabel = self.country_label + ar_separator + self.type_label
             else:
-                arlabel = self.type_label + sps + self.country_label
+                arlabel = self.type_label + ar_separator + self.country_label
 
         if keep_type_last:
             logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, type_lower:"{self.type_lower}" in Keep_it_last')
-            arlabel = self.country_label + sps + self.type_label
+            arlabel = self.country_label + ar_separator + self.type_label
 
         elif keep_type_first:
             logger.info(
                 f'>>>>> > X:<<lightred>> keep_type_first = True, type_lower:"{self.type_lower}" in Keep_it_frist'
             )
-            arlabel = self.type_label + sps + self.country_label
+            arlabel = self.type_label + ar_separator + self.country_label
 
         if self.tito_stripped == "about" or (self.tito_stripped not in TITO_LIST_S):
-            arlabel = self.type_label + sps + self.country_label
+            arlabel = self.type_label + ar_separator + self.country_label
 
         if self.type_lower == "years" and self.tito_stripped == "in":
-            arlabel = self.type_label + sps + self.country_label
+            arlabel = self.type_label + ar_separator + self.country_label
 
-        logger.debug(f">>>> {sps=}")
+        logger.debug(f">>>> {ar_separator=}")
         logger.debug(f">>>> {arlabel=}")
 
         # Formatting replacements
@@ -363,14 +363,14 @@ class LabelPipeline(Fixing):
         self.refine_type_label()
         self.check_tables()
 
-        sps = self.determine_separator()
-        arlabel = self.join_labels(sps)
+        ar_separator = self.determine_separator()
+        arlabel = self.join_labels(ar_separator)
 
         logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
         logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", arlabel:"{arlabel}"')
 
         arlabel = arlabel.strip()
-        arlabel = fix_minor(arlabel, sps)
+        arlabel = fix_minor(arlabel, ar_separator)
 
         return arlabel
 
