@@ -1,4 +1,20 @@
 
+## [#142](https://github.com/MrIbrahem/ArWikiCats/pull/142) - 2025-12-01
+
+* **Refactor**
+  * Standardized naming and reworked Arabic label assembly flow.
+
+* **Bug Fixes**
+  * Improved Arabic label normalization and war-related label consistency.
+
+* **Tests**
+  * Expanded and reorganized unit tests for label creation and text-splitting logic; removed some legacy tests.
+
+* **Chores**
+  * Added city translations and parties data entries; updated changelog.
+* **Compatibility**
+  * Minor change to a data-dump decorator may require updating affected call sites.
+
 ## [#141](https://github.com/MrIbrahem/ArWikiCats/pull/141) - 2025-12-01
 
 * **Refactor**
