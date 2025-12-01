@@ -133,7 +133,6 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     return part_1, part_2
 
 
-@dump_data()
 def separator_arabic_resolve(separator: str) -> str:
     """
     Generate a specific string based on input parameters.
@@ -148,9 +147,8 @@ def separator_arabic_resolve(separator: str) -> str:
         ar_separator = " على "
     elif separator == "about":
         ar_separator = " عن "
-    elif separator in category_relation_mapping:
-        if separator != "by":
-            ar_separator = f" {category_relation_mapping[separator]} "
+    elif separator in category_relation_mapping and separator != "by":
+        ar_separator = f" {category_relation_mapping[separator]} "
     elif separator == "based in":
         ar_separator = " مقرها في "
 
