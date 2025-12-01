@@ -5,10 +5,8 @@ from ...helps import len_print
 
 from ..utils.json_dir import open_json_file
 
-data = open_json_file("geography/regions.json") or {}
 
-
-def load_regions_data() -> dict[str, str]:
+def load_regions_data(data: dict[str, str]) -> dict[str, str]:
 
     ALGERIA_PROVINCE = data.get("ALGERIA_PROVINCE", {})
     ECUADOR_PROVINCE = data.get("ECUADOR_PROVINCE", {})
@@ -47,7 +45,8 @@ def load_regions_data() -> dict[str, str]:
     return index_labels
 
 
-MAIN_REGION_TRANSLATIONS = load_regions_data()
+data = open_json_file("geography/regions.json") or {}
+MAIN_REGION_TRANSLATIONS = load_regions_data(data)
 
 __all__ = [
     "MAIN_REGION_TRANSLATIONS",

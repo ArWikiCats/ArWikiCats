@@ -21,136 +21,45 @@ def _load_india_region_translations() -> dict[str, str]:
     return index_labels
 
 
-EGYPT_GOVERNORATE_TRANSLATIONS = {
-    "alexandria": "الإسكندرية",
-    "aswan": "أسوان",
-    "asyut": "أسيوط",
-    "beheira": "البحيرة",
-    "beni suef": "بني سويف",
-    "cairo": "القاهرة",
-    "dakahlia": "الدقهلية",
-    "damietta": "دمياط",
-    "faiyum": "الفيوم",
-    "gharbia": "الغربية",
-    "giza": "الجيزة",
-    "ismailia": "الإسماعيلية",
-    "kafr el sheikh": "كفر الشيخ",
-    "luxor": "الأقصر",
-    "matrouh": "مطروح",
-    "minya": "المنيا",
-    "monufia": "المنوفية",
-    "new valley": "الوادي الجديد",
-    "north sinai": "شمال سيناء",
-    "port said": "بورسعيد",
-    "qalyubia": "القليوبية",
-    "qena": "قنا",
-    "red sea": "البحر الأحمر",
-    "sharqia": "الشرقية",
-    "sohag": "سوهاج",
-    "south sinai": "جنوب سيناء",
-    "suez": "السويس",
-}
+def _load_secondary_region_translations(data: dict[str, str]) -> dict[str, str]:
 
-DJIBOUTI_REGION_TRANSLATIONS = {
-    "ali sabieh": "علي صبيح",
-    "arta": "عرتا",
-    "obock": "أوبوك",
-    "tadjourah": "تاجورة",
-}
+    CENTRAL_AFRICAN_PREFECTURE = data.get("CENTRAL_AFRICAN_PREFECTURE", {})
+    DJIBOUTI_REGION = data.get("DJIBOUTI_REGION", {})
+    EGYPT_GOVERNORATE = data.get("EGYPT_GOVERNORATE", {})
+    GUATEMALA_DEPARTMENT = data.get("GUATEMALA_DEPARTMENT", {})
+    MONGOLIA_PROVINCE = data.get("MONGOLIA_PROVINCE", {})
+    index_labels: dict[str, str] = {}
 
-GUATEMALA_DEPARTMENT_TRANSLATIONS = {
-    "chiquimula": "تشيكيمولا",
-    "totonicapán": "توتونيكابان",
-    "sololá": "سولولا",
-    "petén": "بيتين",
-    "izabal": "إيزابال",
-    "guatemala": "غواتيمالا",
-    "alta verapaz": "ألتا فيراباز",
-    "baja verapaz": "بايا فيراباز",
-    "chimaltenango": "تشيمالتينانغو",
-    "jutiapa": "خوتيابا",
-    "retalhuleu": "ريتاليوليو",
-    "zacapa": "زاكابا",
-    "jalapa": "جالابا",
-    "sacatepéquez": "ساكاتيبيكيز",
-    "quiché": "كويتشي",
-    "quetzaltenango": "كويتزالتينانغو",
-    "suchitepéquez": "سوشيتبيكيز",
-    "san marcos": "سان ماركوس",
-    "santa rosa, guatemala": "سانتا روزا",
-    "huehuetenango": "هيويتينانغو",
-    "escuintla": "إسكوينتلا",
-    "el progreso": "البروغريسو",
-}
+    for governorate_name, governorate_label in EGYPT_GOVERNORATE.items():
+        normalized_name = governorate_name.lower()
+        index_labels[normalized_name] = governorate_label
+        index_labels[f"{normalized_name} governorate"] = f"محافظة {governorate_label}"
 
-MONGOLIA_PROVINCE_TRANSLATIONS = {
-    "arkhangai": "أرخانغاي",
-    "bulgan": "بولغان",
-    "selenge": "سيلنج",
-    "orkhon": "أورخون",
-    "darkhan-uul": "درخان-وول",
-    "zavkhan": "زافخان",
-    "govi-altai": "غوفي-ألتاي",
-    "dornod": "دورنود",
-    "dundgovi": "دوندغوفي",
-    "sükhbaatar": "سوخباتار",
-    "töv": "توف",
-    "dornogovi": "دورنوغوفي",
-    "govisümber": "جوفيسومبر",
-    "övörkhangai": "أوفوخاناجي",
-    "ömnögovi": "أومنوغوفي",
-    "bayankhongor": "بايانخونغور",
-    "khentii": "خنتي",
-    "khövsgöl": "خوفسغول",
-    "bayan-ölgii": "بايان-أولجي",
-    "uvs": "أوفس",
-}
+    for region_name, region_label in DJIBOUTI_REGION.items():
+        normalized_name = region_name.lower()
+        index_labels[normalized_name] = region_label
+        index_labels[f"{normalized_name} region"] = f"منطقة {region_label}"
 
-CENTRAL_AFRICAN_PREFECTURE = {
-    "bangui": "بانغي",
-    "ombella-m'poko": "أومبلامبوكو",
-    "nana-mambéré": "نانا مامبيري",
-    "basse-kotto": "باس-كوتو",
-    "lobaye": "لوبايه",
-    "ouham": "أوهام",
-    "bamingui-bangoran": "بامينغوي بانغوران",
-    "ouaka": "أواكا",
-    "mambéré-kadéï": "مامبرة كاديي",
-    "kémo": "كيمو",
-    "vakaga": "فاكاجا",
-    "haut-mbomou": "هوت مبومو",
-    "mbomou": "مبومو",
-    "ouham-pendé": "أوهام-بيندي",
-    "haute-kotto": "هوت-كوتو",
-}
+    for department_name, department_label in GUATEMALA_DEPARTMENT.items():
+        normalized_name = department_name.lower()
+        index_labels[normalized_name] = department_label
+        index_labels[f"{normalized_name} department"] = f"إدارة {department_label}"
 
-SECONDARY_REGION_TRANSLATIONS: dict[str, str] = {}
+    for province_name, province_label in MONGOLIA_PROVINCE.items():
+        normalized_name = province_name.lower()
+        index_labels[normalized_name] = province_label
+        index_labels[f"{normalized_name} province"] = f"محافظة {province_label}"
 
-for governorate_name, governorate_label in EGYPT_GOVERNORATE_TRANSLATIONS.items():
-    normalized_name = governorate_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = governorate_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} governorate"] = f"محافظة {governorate_label}"
+    for prefecture_name, prefecture_label in CENTRAL_AFRICAN_PREFECTURE.items():
+        normalized_name = prefecture_name.lower()
+        index_labels[normalized_name] = prefecture_label
+        index_labels[f"{normalized_name} prefecture"] = f"محافظة {prefecture_label}"
 
-for region_name, region_label in DJIBOUTI_REGION_TRANSLATIONS.items():
-    normalized_name = region_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = region_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} region"] = f"منطقة {region_label}"
+    return index_labels
 
-for department_name, department_label in GUATEMALA_DEPARTMENT_TRANSLATIONS.items():
-    normalized_name = department_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = department_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} department"] = f"إدارة {department_label}"
 
-for province_name, province_label in MONGOLIA_PROVINCE_TRANSLATIONS.items():
-    normalized_name = province_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = province_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} province"] = f"محافظة {province_label}"
-
-for prefecture_name, prefecture_label in CENTRAL_AFRICAN_PREFECTURE.items():
-    normalized_name = prefecture_name.lower()
-    SECONDARY_REGION_TRANSLATIONS[normalized_name] = prefecture_label
-    SECONDARY_REGION_TRANSLATIONS[f"{normalized_name} prefecture"] = f"محافظة {prefecture_label}"
-
+data = open_json_file("geography/regions2.json") or {}
+SECONDARY_REGION_TRANSLATIONS = _load_secondary_region_translations(data)
 INDIA_REGION_TRANSLATIONS = _load_india_region_translations()
 
 __all__ = [
