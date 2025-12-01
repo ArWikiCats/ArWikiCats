@@ -23,14 +23,14 @@ from ...translations import (
 
 
 @functools.lru_cache(maxsize=None)
-def get_Films_key_CAO(country_identifier: str) -> str:
+def get_Films_key_tyty(country_identifier: str) -> str:
     """
     Resolve labels for composite television keys used in film lookups.
+    TODO: use FormatData
     """
 
     logger.debug(f'<<lightblue>> get_Films_key_CAO : {country_identifier=} ')
     normalized_identifier = country_identifier.lower().strip()
-    resolved_label = ""
 
     for suffix, suffix_translation in television_keys.items():
         if not normalized_identifier.endswith(suffix.lower()):
@@ -43,7 +43,32 @@ def get_Films_key_CAO(country_identifier: str) -> str:
         if prefix_label and "{tyty}" in prefix_label:
             resolved_label = prefix_label.format(tyty=suffix_translation)
             logger.info(f'<<lightblue>> get_Films_key_CAO: new {resolved_label=} ')
-            break
+            return resolved_label
+
+    return ""
+
+
+@functools.lru_cache(maxsize=None)
+def get_Films_key_CAO(country_identifier: str) -> str:
+    """
+    Resolve labels for composite television keys used in film lookups.
+    """
+
+    logger.debug(f'<<lightblue>> get_Films_key_CAO : {country_identifier=} ')
+    normalized_identifier = country_identifier.lower().strip()
+
+    resolved_label = ""
+    resolved_label = get_Films_key_tyty(normalized_identifier)
+
+    if resolved_label:
+        return resolved_label
+
+    for suffix, suffix_translation in television_keys.items():
+        if not normalized_identifier.endswith(suffix.lower()):
+            continue
+
+        prefix = normalized_identifier[: -len(suffix)].strip()
+        logger.debug(f'<<lightblue>> {prefix=}, endswith:"{suffix}" ')
 
         prefix_label = Films_key_333.get(prefix.strip(), "")
 
