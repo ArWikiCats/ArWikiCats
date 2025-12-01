@@ -3,9 +3,8 @@
 !
 """
 
-# import re
-#
-# ---
+from ...helps import len_print
+
 r"""
 Category:Housing ministers of Abkhazia
 Category:Ministers of Housing of Abkhazia
@@ -308,4 +307,12 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
     ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = "وزراء %s {}" % ministry_labels["s"]
 # ---
-# ---
+
+len_print.data_len("ministers.py", {
+    "ministrs_for_en_is_P17_ar_is_mens": ministrs_for_en_is_P17_ar_is_mens,
+    "ministrs_for_military_format_women": ministrs_for_military_format_women,
+    "ministrs_for_military_format_men": ministrs_for_military_format_men,
+    "ministrs_tab_for_pop_format": ministrs_tab_for_pop_format,
+    "ministrs_tab_for_Jobs_2020": ministrs_tab_for_Jobs_2020,
+    "minister_keyse": minister_keyse,
+})
