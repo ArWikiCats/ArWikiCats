@@ -40,7 +40,7 @@ data_test2 = {
     "Category:Schools for the deaf in New York (state)": "تصنيف:مدارس للصم في ولاية نيويورك",
     "Category:Cabinets involving the Liberal Party (Norway)": "",
     "Category:Television plays directed by William Sterling (director)": "",
-    "Category:Television plays filmed in Brisbane": "",
+    "Category:Television plays filmed in Brisbane": "تصنيف:مسرحيات تلفزيونية صورت في بريزبان",
     "Category:Television personalities from Yorkshire": "تصنيف:شخصيات تلفزيون من يوركشاير",
     "Category:Cabinets involving the Progress Party (Norway)": "تصنيف:مجالس وزراء تشمل حزب التقدم (النرويج)",
     "Category:People convicted of drug offenses by nationality": "تصنيف:مدانون ب جرائم المخدرات حسب الجنسية",

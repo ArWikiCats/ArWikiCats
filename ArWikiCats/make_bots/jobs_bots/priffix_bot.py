@@ -112,18 +112,15 @@ def work_mens_suffix(con_33: str) -> str:
         con_88 = con_88.strip()
         logger.debug(f'<<lightblue>> con_33.endswith suffix2("{suffix2}"), con 88:"{con_88}"')
 
-        con_88_lab = Nat_mens.get(con_88, "")
-
-        if not con_88_lab:
-            con_88_lab = get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
+        con_88_lab = Nat_mens.get(con_88, "") or get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
 
         if con_88_lab:
             logger.debug(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), {con_88_lab=}')
             label = suf_lab.format(con_88_lab)
 
-        if label.strip():
-            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
-            return label
+            if label.strip():
+                logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
+                return label
 
     return ""
 

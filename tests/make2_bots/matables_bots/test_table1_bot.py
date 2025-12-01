@@ -79,7 +79,7 @@ fast_data = {
     "local-elections": "انتخابات محلية",
     "maccabiah games": "ألعاب مكابيه",
     "manga": "مانغا",
-    "martial arts films": "أفلام فنون قتالية",
+    # "martial arts films": "أفلام فنون قتالية",
     "mass shootings": "إطلاق نار عشوائي",
     "massacres of": "مذابح في",
     "mediterranean games templates": "قوالب الألعاب المتوسطية",

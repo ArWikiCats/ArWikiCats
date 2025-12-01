@@ -3,8 +3,35 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.media_bots.films_bot import te_films
+
+fast_data_drama = {
+    "english-language political drama films": "أفلام دراما سياسية باللغة الإنجليزية",
+    "english-language war drama films": "أفلام دراما حربية باللغة الإنجليزية",
+    "hindi-language drama films": "أفلام دراما باللغة الهندية",
+    "norwegian-language romantic drama films": "أفلام دراما رومانسية باللغة النرويجية",
+
+    "burmese romantic drama films": "أفلام رومانسية درامية بورمية",
+    "dutch war drama films": "أفلام حربية درامية هولندية",
+    "indian sports drama films": "أفلام رياضية درامية هندية",
+    "iranian romantic drama films": "أفلام رومانسية درامية إيرانية",
+    "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
+    "russian sports drama films": "أفلام رياضية درامية روسية",
+    "spanish war drama films": "أفلام حربية درامية إسبانية",
+
+    "belgian drama films": "أفلام درامية بلجيكية",
+    "canadian docudrama films": "أفلام درامية وثائقية كندية",
+    "comedy-drama films": "أفلام كوميدية درامية",
+    "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
+    "melodrama films": "أفلام ميلودراما",
+    "north korean drama films": "أفلام درامية كورية شمالية",
+    "portuguese-language biographical drama films": "أفلام سيرة ذاتية درامية باللغة البرتغالية",
+    "russian-language fantasy drama films": "أفلام فانتازيا درامية باللغة الروسية",
+    "soviet drama films": "أفلام درامية سوفيتية",
+    "spanish-language historical drama films": "أفلام تاريخية درامية باللغة الإسبانية",
+}
 
 fast_data = {
     "british films": "أفلام بريطانية",
@@ -12,28 +39,21 @@ fast_data = {
     "black comedy films": "أفلام كوميدية سوداء",
     "moldovan film actors": "ممثلو أفلام مولدوفيون",
     "malaysian sports films": "أفلام رياضية ماليزية",
-    "russian-language fantasy drama films": "أفلام فانتازيا درامية باللغة الروسية",
-    "norwegian-language romantic drama films": "أفلام دراما رومانسية باللغة النرويجية",
     "japanese male film actors": "ممثلو أفلام ذكور يابانيون",
-    "hindi-language drama films": "أفلام دراما باللغة الهندية",
     "australian erotic thriller films": "أفلام إثارة جنسية أسترالية",
     "science fiction thriller films": "أفلام إثارة خيال علمي",
     "american superhero films": "أفلام خارقة أمريكية",
     "film directors": "مخرجو أفلام",
-    "spanish-language historical drama films": "أفلام تاريخية درامية باللغة الإسبانية",
     "animated films": "أفلام رسوم متحركة",
     "documentary films": "أفلام وثائقية",
-    "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
     "thriller films": "أفلام إثارة",
     "german disaster films": "أفلام كوارثية ألمانية",
     "fantasy films": "أفلام فانتازيا",
     "action films": "أفلام حركة",
     "ukrainian filmmakers": "صانعو أفلام أوكرانيون",
-    "dutch war drama films": "أفلام دراما حربية هولندية",
     "crime films": "أفلام جريمة",
     "moroccan musical films": "أفلام موسيقية مغربية",
     "venezuelan silent short films": "أفلام قصيرة صامته فنزويلية",
-    "iranian romantic drama films": "أفلام دراما رومانسية إيرانية",
     "adventure films": "أفلام مغامرات",
     "nigerien film actors": "ممثلو أفلام نيجريون",
     "indonesian film actresses": "ممثلات أفلام إندونيسيات",
@@ -48,7 +68,6 @@ fast_data = {
     "ecuadorian science fiction films": "أفلام خيال علمي إكوادورية",
     "mexican independent films": "أفلام مستقلة مكسيكية",
     "comedy films": "أفلام كوميدية",
-    "burmese romantic drama films": "أفلام دراما رومانسية بورمية",
     "superhero films": "أفلام خارقة",
     "police procedural films": "أفلام إجراءات الشرطة",
     "romanian films": "أفلام رومانية",
@@ -61,35 +80,27 @@ fast_data = {
     "dutch films": "أفلام هولندية",
     "parody films": "أفلام ساخرة",
     "indian crime films": "أفلام جريمة هندية",
-    "spanish war drama films": "أفلام دراما حربية إسبانية",
     "malayalam-language films": "أفلام باللغة الماليالامية",
     "british robot films": "أفلام آلية بريطانية",
-    "portuguese-language biographical drama films": "أفلام سيرة ذاتية درامية باللغة البرتغالية",
     "japanese heist films": "أفلام سرقة يابانية",
-    "melodrama films": "أفلام ميلودراما",
     "russian-language historical comedy films": "أفلام تاريخية كوميدية باللغة الروسية",
     "horror films": "أفلام رعب",
     "irish thriller films": "أفلام إثارة أيرلندية",
-    "nigerian musical drama films": "أفلام دراما موسيقية نيجيرية",
-    "soviet drama films": "أفلام درامية سوفيتية",
     "indonesian prequel films": "أفلام بادئة إندونيسية",
     "australian comedy thriller films": "أفلام كوميديا إثارة أسترالية",
     "albanian film directors": "مخرجو أفلام ألبان",
     "soviet short films": "أفلام قصيرة سوفيتية",
     "nepalese male film actors": "ممثلو أفلام ذكور نيباليون",
     "bruneian film producers": "منتجو أفلام برونيون",
-    "belgian drama films": "أفلام درامية بلجيكية",
     "kuwaiti short films": "أفلام قصيرة كويتية",
     "german-language films": "أفلام باللغة الألمانية",
     "american film directors": "مخرجو أفلام أمريكيون",
-    "russian sports drama films": "أفلام دراما رياضية روسية",
     "austrian silent short films": "أفلام قصيرة صامته نمساوية",
     "maldivian women film directors": "مخرجات أفلام مالديفيات",
     "czech silent film actors": "ممثلو أفلام صامتة تشيكيون",
     "croatian fantasy films": "أفلام فانتازيا كرواتية",
     "war films": "أفلام حربية",
     "epic films": "أفلام ملحمية",
-    "english-language war drama films": "أفلام دراما حربية باللغة الإنجليزية",
     "english-language crime action films": "أفلام جريمة حركة باللغة الإنجليزية",
     "kosovan filmmakers": "صانعو أفلام كوسوفيون",
     "croatian biographical films": "أفلام سير ذاتية كرواتية",
@@ -101,7 +112,6 @@ fast_data = {
     "urdu-language films": "أفلام باللغة الأردية",
     "canadian war films": "أفلام حربية كندية",
     "portuguese adult animated films": "أفلام رسوم متحركة للكبار برتغالية",
-    "indian sports drama films": "أفلام دراما رياضية هندية",
     "portuguese musical comedy films": "أفلام كوميديا موسيقية برتغالية",
     "anthology films": "أفلام أنثولوجيا",
     "dutch short films": "أفلام قصيرة هولندية",
@@ -116,20 +126,16 @@ fast_data = {
     "slovenian animated films": "أفلام رسوم متحركة سلوفينية",
     "mystery film series": "سلاسل أفلام غموض",
     "argentine film actors": "ممثلو أفلام أرجنتينيون",
-    "canadian docudrama films": "أفلام درامية وثائقية كندية",
     "welsh film producers": "منتجو أفلام ويلزيون",
     "french musical comedy films": "أفلام كوميديا موسيقية فرنسية",
     "telugu film directors": "مخرجو أفلام تيلوغويون",
     "iranian film actors": "ممثلو أفلام إيرانيون",
     "russian silent film actresses": "ممثلات أفلام صامتة روسيات",
-    "comedy-drama films": "أفلام كوميدية درامية",
     "indonesian zombie films": "أفلام زومبي إندونيسية",
     "indian dark fantasy films": "أفلام فانتازيا مظلمة هندية",
     "austrian films": "أفلام نمساوية",
     "french films": "أفلام فرنسية",
     "latvian films": "أفلام لاتفية",
-    "north korean drama films": "أفلام درامية كورية شمالية",
-    "english-language political drama films": "أفلام دراما سياسية باللغة الإنجليزية",
     "australian films": "أفلام أسترالية",
     "spanish-language sex comedy films": "أفلام جنسية كوميدية باللغة الإسبانية",
     "irish films": "أفلام أيرلندية",
@@ -145,11 +151,34 @@ fast_data = {
 }
 
 
+@pytest.mark.parametrize("category, expected", fast_data_drama.items(), ids=list(fast_data_drama.keys()))
+@pytest.mark.fast
+def test_fast_data_drama(category: str, expected: str) -> None:
+    label = te_films(category)
+    assert label == expected
+
+
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_fast_data(category: str, expected: str) -> None:
     label = te_films(category)
     assert label == expected
+
+
+to_test = [
+    ("test_fast_data_drama", fast_data_drama),
+    ("test_fast_data", fast_data),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_peoples(name: str, data: dict[str, str]) -> None:
+
+    expected, diff_result = one_dump_test(data, te_films)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"
 
 
 def test_test_films() -> None:
