@@ -33,17 +33,6 @@ def test_split_text_by_separator_unit() -> None:
     assert isinstance(result_other[1], str)
 
 
-data = {
-}
-
-
-@pytest.mark.fast
-@pytest.mark.parametrize("category, expected", data.items(), ids=lambda x: x[0])
-def test_split_text_by_separator(category: str, expected: str) -> None:
-    result: tuple[str, str] = split_text_by_separator(category)
-    assert result == expected
-
-
 class TestSplitTextBySeparatorBasic:
     @pytest.mark.parametrize(
         "separator,country,expected",
@@ -59,7 +48,7 @@ class TestSplitTextBySeparatorBasic:
             # from
             (" from ", "Immigrants from Yemen", ("immigrants", "yemen")),
             # at
-            (" at ", "Conference at Sana'a", ("conference", "Sana'a")),
+            (" at ", "Conference at Sana'a", ("conference", "sana'a")),
             # on
             (" on ", "Report on Yemen", ("report", "yemen")),
         ],

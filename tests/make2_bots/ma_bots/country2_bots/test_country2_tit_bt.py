@@ -12,7 +12,7 @@ from ArWikiCats.make_bots.ma_bots.country2_bots.country2_tit_bt import (
 
 
 @pytest.mark.fast
-def test_make_sps() -> None:
+def test_separator_arabic_resolve() -> None:
     # Test with basic inputs
     result = separator_arabic_resolve("to", "test label", "ambassadors of")
     assert isinstance(result, str)

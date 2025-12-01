@@ -2,16 +2,16 @@
 ## [#141](https://github.com/MrIbrahem/ArWikiCats/pull/141) - 2025-12-01
 
 * **Refactor**
-  * Modularized label construction and unified internal naming for clearer, safer label assembly.
+  * Internal naming and label assembly were standardized for clearer, safer Arabic label construction.
 
 * **Bug Fixes**
-  * Improved Arabic label normalization and war-related label handling, producing more consistent outputs.
+  * Improved Arabic label normalization and war-related adjustments for more consistent final labels.
 
 * **Compatibility**
-  * Label-generation surface updated: legacy entry points replaced with a streamlined creation flow (call sites/tests adjusted).
+  * Streamlined label-creation surface: legacy entry points replaced with a consolidated creation flow (call sites updated).
 
 * **Tests**
-  * Updated tests and imports to match the refactor.
+  * Tests and imports updated and expanded to reflect the new label-creation API.
 
 * **Chores**
   * Changelog entry added documenting the changes.

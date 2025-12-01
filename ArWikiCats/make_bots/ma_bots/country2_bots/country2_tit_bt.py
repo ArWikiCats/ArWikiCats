@@ -96,16 +96,18 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     TODO: separators need refactoring
     """
 
-    country2_no_lower = country.strip()
-    country2 = country.lower().strip()
+    country = country.strip()
+    country2 = country.lower()
+    if separator.lower() not in country2:
+        return "", ""
 
     part_1 = country2.split(separator)[0]
     part_2 = country2.split(separator)[1]
 
     Mash = f"^(.*?)(?:{separator}?)(.*?)$"
 
-    Type_t = re.sub(Mash, r"\g<1>", country2_no_lower, flags=re.IGNORECASE)
-    country_t = re.sub(Mash, r"\g<2>", country2_no_lower, flags=re.IGNORECASE)
+    Type_t = re.sub(Mash, r"\g<1>", country, flags=re.IGNORECASE)
+    country_t = re.sub(Mash, r"\g<2>", country, flags=re.IGNORECASE)
 
     test_N = country2.lower().replace(part_1.strip().lower(), "")
 
@@ -191,15 +193,12 @@ def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
 
 
 @dump_data(enable=True)
-def country_2_create_label(separator: str, country: str, With_Years: bool = True) -> str:
+def country_2_create_label(separator: str, part_1: str, part_2: str, country: str, With_Years: bool = True) -> str:
     """
     Convert country name and generate labels based on input parameters.
     """
 
     logger.info(f'>>>> <<lightblue>> country_2_create_label: <<lightyellow>> {country=}.')
-
-    part_1, part_2 = split_text_by_separator(separator, country)
-    logger.info(f'2060 {part_1=}, {part_2=}, {separator=}')
 
     part_1_label, part_2_label = make_parts_labels(part_1, part_2, separator, With_Years)
 
@@ -247,7 +246,10 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
         if separator not in normalized_country:
             continue
 
-        resolved_label = country_2_create_label(separator, country, With_Years=With_Years)
+        part_1, part_2 = split_text_by_separator(separator, country)
+        logger.info(f'2060 {part_1=}, {part_2=}, {separator=}')
+
+        resolved_label = country_2_create_label(separator, part_1, part_2, country, With_Years=With_Years)
         resolved_label = fix_minor(resolved_label, separator)
         break
 
