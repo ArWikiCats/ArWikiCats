@@ -1,4 +1,19 @@
 
+## [#143](https://github.com/MrIbrahem/ArWikiCats/pull/143) - 2025-12-01
+
+* **Bug Fixes**
+  * More reliable separator-based text splitting and added validation to ensure Arabic labels contain only Arabic characters.
+
+* **Refactor**
+  * Terminology unified across the labeling pipeline: the former toggle term was replaced with "separator" for consistent inputs and logs.
+
+* **Data / Public API**
+  * Film mappings revised: introduced a female-focused film mapping and an additional film dataset exposed publicly.
+
+* **Tests**
+  * Test data and cases updated to use the new "separator" terminology and parsing behavior.
+
+
 ## [#142](https://github.com/MrIbrahem/ArWikiCats/pull/142) - 2025-12-01
 
 * **Refactor**

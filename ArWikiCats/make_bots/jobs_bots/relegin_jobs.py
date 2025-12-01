@@ -17,7 +17,7 @@ from .jobs_mainbot import jobs_with_nat_prefix
 @functools.lru_cache(maxsize=None)
 def relegins_jobs(cate: str) -> str:
     """Resolve religion-based job labels without country context."""
-    logger.debug(f"\t xx start: <<lightred>>relegins_jobs >> <<lightpurple>> cate:{cate}")
+    logger.debug(f"\t xx start: <<lightred>>relegins_jobs >> <<lightpurple>> {cate=}")
     cate_lower = cate.lower().strip()
     data = RELIGIOUS_KEYS_PP.get(cate_lower, {})
     if data:
@@ -38,7 +38,7 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
     TODO: use FormatData method
     """
 
-    logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> cate:{cate}")
+    logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> {cate=}")
 
     category_suffix, country_prefix = get_suffix_with_keys(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
 
@@ -52,6 +52,6 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
     country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, womens=womens, find_nats=False)
 
     logger.debug(
-        f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> cate:{cate}, country_lab:{country_lab} "
+        f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> {cate=}, {country_lab=} "
     )
     return country_lab

@@ -79,7 +79,7 @@ def stubs_label(category_r: str) -> str:
 
         if sub_ar_label and list_of_cat:
             ar_label = list_of_cat.format(sub_ar_label)
-            logger.info(f'<<lightblue>> event2 add list_of_cat, ar_label:"{ar_label}", category:{category} ')
+            logger.info(f'<<lightblue>> event2 add list_of_cat, {ar_label=}, {category=} ')
 
     return ar_label
 
@@ -117,7 +117,7 @@ def event2(category_r: str) -> str:
     if category_lab:
         if re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
             category_lab = fixtitle.fixlab(category_lab, en=category_r)
-            logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", category_lab "{category_lab}"')
+            logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", {category_lab=}')
             logger.info("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
             return category_lab
 

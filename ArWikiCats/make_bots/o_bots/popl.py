@@ -37,9 +37,9 @@ def work_peoples_old(name: str) -> str:
         logger.info(f'>>>><<lightblue>> cant find personlab for:"{person}"')
 
     if person and personlab:
-        logger.info(f'>>>><<lightblue>> person :"{person}", personlab : "{personlab}"')
+        logger.info(f'>>>><<lightblue>> {person=}, {personlab=}')
         PpP_lab = Pp_Priffix[pri].format(personlab)
-        logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), PpP_lab:"{PpP_lab}"')
+        logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), {PpP_lab=}')
     return PpP_lab
 
 
@@ -62,9 +62,9 @@ def work_peoples(name: str) -> str:
 
     label = resolve_suffix_template(name, Pp_Priffix, _lookup)
     if label:
-        logger.debug(f"Resolved work_peoples: name:{name}, label:{label}")
+        logger.debug(f"Resolved work_peoples: {name=}, {label=}")
     else:
-        logger.debug(f"Failed to resolve work_peoples: name:{name}")
+        logger.debug(f"Failed to resolve work_peoples: {name=}")
     return label
 
 
@@ -91,7 +91,7 @@ def make_people_lab(normalized_value: str) -> str:
 
     if new_label:
         logger.debug(">>>>>>>>>>>>")
-        logger.debug(f">> make_people_lab normalized_value: {normalized_value}, new_label: {new_label}")
+        logger.debug(f">> make_people_lab {normalized_value=}, {new_label=}")
 
     return new_label
 

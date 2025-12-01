@@ -41,6 +41,6 @@ def get_squad_title(tit: str) -> str:
                     break
 
     lab = fix_minor(lab)
-    logger.info(f'<<lightblue>> get_squad_title:"{tit}", lab:"{lab}" ')
+    logger.info(f'<<lightblue>> get_squad_title:"{tit}", {lab=} ')
 
     return lab

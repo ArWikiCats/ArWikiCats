@@ -139,7 +139,7 @@ class FormatData:
         sport_key = self.match_key(category)
 
         if not sport_key:
-            logger.debug(f'No sport key matched for category: "{category}"')
+            logger.debug(f'No sport key matched for {category=}')
             return ""
 
         sport_label = self.get_key_label(sport_key)
@@ -149,11 +149,11 @@ class FormatData:
 
         template_label = self.get_template(sport_key, category)
         if not template_label:
-            logger.debug(f'No template label matched for sport key: "{sport_key}" and category: "{category}"')
+            logger.debug(f'No template label matched for sport key: "{sport_key}" and {category=}')
             return ""
 
         result = self.apply_pattern_replacement(template_label, sport_label)
-        logger.debug(f"result: {result}")
+        logger.debug(f" {result=}")
         logger.debug("++++++++ end FormatData ++++++++ ")
 
         return result

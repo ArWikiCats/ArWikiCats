@@ -49,4 +49,4 @@ en_return_ar = {
 def test_match_en_return_ar(en_text: str, expected: dict[str, str]) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = match_en_return_ar(en_text)
-    assert result == expected, f"{en_text} → {result}, expected {expected}"
+    assert result == expected, f"{en_text} → {result}, {expected=}"

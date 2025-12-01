@@ -38,7 +38,7 @@ def move_by_in(text_str: str) -> str:
         by_part = result.group("by_part")
         date = result.group("date")
         new_text = f"{first_part} في {date} حسب {by_part}"
-        logger.debug(f"move_by_in: new_text: {new_text}")
+        logger.debug(f"move_by_in: {new_text=}")
     else:
         logger.debug(f"move_by_in: no match for {text_str}")
 

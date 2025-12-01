@@ -54,10 +54,10 @@ def make_cnt_lab(
     if co_in_tables or in_players:
         if in_players:
             if part_2_label.startswith("أصل "):
-                logger.info(f'>>>>>> Add من to part_1_normalized:"{part_1_normalized}" part_1_normalized in New_players:')
+                logger.info(f'>>>>>> Add من to {part_1_normalized=} part_1_normalized in New_players:')
                 resolved_label = f"{part_1_label}{ar_separator}من {part_2_label}"
             else:
-                logger.info(f'>>>>>> Add في to part_1_normalized:"{part_1_normalized}" part_1_normalized in New_players:')
+                logger.info(f'>>>>>> Add في to {part_1_normalized=} part_1_normalized in New_players:')
                 resolved_label += " في "
         if part_2_normalized not in By_table:
             # Films_O_TT[country2] = resolved_label
@@ -91,45 +91,83 @@ def make_cnt_lab(
 
 def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     """
-    Process a country name based on a specified separator.
-    TODO: separators need refactoring
+    Split a title-like string into two logical parts around a separator.
+
+    Rules:
+    - Case-insensitive search for the separator.
+    - If the separator appears once:
+        * Return both parts in lowercase (trimmed).
+        * Apply special rules for "by" and "of"/"-of".
+    - If the separator appears more than once:
+        * Return both parts in original casing:
+          - part_1: everything before the first separator (with " of" if needed).
+          - part_2: everything after the first separator as a single block
+                    (with leading "by " if needed).
     """
 
+    # Normalize and short-circuit
     country = country.strip()
-    country2 = country.lower()
-    if separator.lower() not in country2:
+    if not country:
         return "", ""
 
-    part_1 = country2.split(separator)[0]
-    part_2 = country2.split(separator)[1]
+    norm_country = country.lower()
+    norm_sep = separator.lower()
 
-    Mash = f"^(.*?)(?:{separator}?)(.*?)$"
+    if norm_sep not in norm_country:
+        return "", ""
 
-    Type_t = re.sub(Mash, r"\g<1>", country, flags=re.IGNORECASE)
-    country_t = re.sub(Mash, r"\g<2>", country, flags=re.IGNORECASE)
+    # Locate first occurrence (case-insensitive) and slice using original indices
+    first_idx = norm_country.find(norm_sep)
+    after_idx = first_idx + len(norm_sep)
 
-    test_N = country2.lower().replace(part_1.strip().lower(), "")
+    before_raw = country[:first_idx]
+    after_raw = country[after_idx:]
 
-    test_N = re.sub(re.escape(part_2.strip()), "", test_N, flags=re.I)
-    test_N = test_N.replace(part_2.strip().lower(), "")
+    # Default parts: normalized lowercase (single-occurrence path)
+    part_1 = before_raw.lower().strip()
+    part_2 = after_raw.lower().strip()
 
-    # specific case
-    if separator.strip() == "by":
-        part_2 = f"by {part_2}"
-        country_t = f"by {country_t}"
+    # Original-case slices (used when we detect multiple separators)
+    type_t = before_raw.strip()
+    country_t = after_raw.strip()
 
-    # specific case
-    if separator.strip() in ["of", "-of"]:
-        Type_t = f"{Type_t} of"
-        part_1 = f"{part_1} of"
+    # Does the separator appear more than once?
+    has_multiple = norm_country.count(norm_sep) > 1
+    base_sep = norm_sep.strip()
 
-    logger.info(f'>>>> {part_1=}, {test_N.strip()}, {part_2.strip()=}')
+    # Apply special rules on the original-case variant first
+    if base_sep == "by":
+        country_t = f"by {country_t}".strip()
 
-    if test_N and test_N.strip() != separator.strip():
-        logger.info(f'>>>> <<lightblue>> test_N != "", {Type_t=}, {separator=}, {country_t=}')
-        part_1 = Type_t
-        part_2 = country_t
+    if base_sep in {"of", "-of"}:
+        type_t = f"{type_t} of".strip()
 
+    if has_multiple:
+        # Multi-occurrence path: keep original casing and group everything
+        # after the first separator as one logical block.
+        logger.info(
+            "split_text_by_separator(multi): %r -> (%r, %r) [sep=%r]",
+            country,
+            type_t,
+            country_t,
+            separator,
+        )
+        return type_t, country_t
+
+    # Single-occurrence path: apply special rules on normalized parts
+    if base_sep == "by":
+        part_2 = f"by {part_2}".strip()
+
+    if base_sep in {"of", "-of"}:
+        part_1 = f"{part_1} of".strip()
+
+    logger.info(
+        "split_text_by_separator(single): %r -> (%r, %r) [sep=%r]",
+        country,
+        part_1,
+        part_2,
+        separator,
+    )
     return part_1, part_2
 
 

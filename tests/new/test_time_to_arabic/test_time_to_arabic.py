@@ -44,7 +44,7 @@ from ArWikiCats.new.time_to_arabic import (
 def test_convert_time_to_arabic_basic(en_text: str, expected: str) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = convert_time_to_arabic(en_text)
-    assert result == expected, f"{en_text} → {result}, expected {expected}"
+    assert result == expected, f"{en_text} → {result}, {expected=}"
 
 
 @pytest.mark.parametrize(
@@ -65,7 +65,7 @@ def test_convert_time_to_arabic_basic(en_text: str, expected: str) -> None:
 def test_ranges(en_text: str, expected: str) -> None:
     """Test various English time expressions for correct Arabic conversion."""
     result = convert_time_to_arabic(en_text)
-    assert result == expected, f"{en_text} → {result}, expected {expected}"
+    assert result == expected, f"{en_text} → {result}, {expected=}"
 
 
 @pytest.mark.fast

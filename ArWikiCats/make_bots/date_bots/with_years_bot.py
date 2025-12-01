@@ -52,7 +52,7 @@ def _handle_year_at_start(category_text: str) -> str:
         return ""
 
     remainder = category_text[len(year) :].strip()
-    logger.debug(f">>> _handle_year_at_start: year:{year}, suffix:{remainder}")
+    logger.debug(f">>> _handle_year_at_start: {year=}, suffix:{remainder}")
 
     remainder_label = ""
     if remainder in WORD_AFTER_YEARS:

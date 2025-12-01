@@ -19,7 +19,7 @@ def load_test_fixlab_data(data: dict) -> None:
             assert result == expected
             same += 1
 
-    print(f"<<green>> diff_list: {len(diff_list)}, same:{same}.")
+    print(f"<<green>> diff_list: {len(diff_list)}, {same=}.")
 
     assert diff_list == expected_list
 

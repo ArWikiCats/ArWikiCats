@@ -69,7 +69,7 @@ def nat_match(category: str) -> str:
         country_label = country_label_template % country_label_key
 
     if country_label:
-        logger.debug(f'<<lightblue>> bot_te_4: nat_match country_label :: "{country_label}" ')
+        logger.debug(f'<<lightblue>> bot_te_4: nat_match {country_label=} ')
 
     return country_label
 
@@ -156,6 +156,6 @@ def Jobs_in_Multi_Sports(category: str) -> str:
             primary_label = f"{job_label} في {game_label}"
 
     if primary_label:
-        logger.info(f'end Jobs_in_Multi_Sports "{category_clean}" , primary_label:"{primary_label}"')
+        logger.info(f'end Jobs_in_Multi_Sports "{category_clean}" , {primary_label=}')
 
     return primary_label

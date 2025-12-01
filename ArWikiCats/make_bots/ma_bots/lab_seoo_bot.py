@@ -66,7 +66,7 @@ def event_label_work(target_category: str) -> str:
     normalized_target_category = target_category.lower().strip()
 
     logger.info("<<lightblue>>>> vvvvvvvvvvvv event_label_work start vvvvvvvvvvvv ")
-    logger.info(f'<<lightyellow>>>>>> normalized_target_category:"{normalized_target_category}"')
+    logger.info(f'<<lightyellow>>>>>> {normalized_target_category=}')
 
     resolved_category_label = New_P17_Finall.get(normalized_target_category, "")
 

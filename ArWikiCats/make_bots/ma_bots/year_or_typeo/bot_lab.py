@@ -41,7 +41,7 @@ def get_country_label(country_lower: str, country_not_lower: str, cate3: str, co
             country_label = Nat_mens.get(country_lower, "")
             if country_label:
                 country_label = country_label + " في"
-                logger.info("a<<lightblue>>>2021 cnt_la == %s" % country_label)
+                logger.info(f"a<<lightblue>>>2021 cnt_la == {country_label=}")
 
     return country_label
 
@@ -60,7 +60,7 @@ def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> No
 
     New_Lan[category_r.lower()] = ar
 
-    logger.info(f'>>>> <<lightyellow>> typeo_lab:"{typeo_lab}", cnt_la "{country_label}"')
+    logger.info(f'>>>> <<lightyellow>> {typeo_lab=}, cnt_la "{country_label}"')
     logger.info(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
 
@@ -129,11 +129,9 @@ class LabelForStartWithYearOrTypeo:
             return
 
         if self.typeo in typeTable:
-            logger.info(
-                'a<<lightblue>>>>>> typeo "{}" in typeTable "{}"'.format(self.typeo, typeTable[self.typeo]["ar"])
-            )
-
             self.typeo_lab = typeTable[self.typeo]["ar"]
+            logger.info(f'a<<lightblue>>>>>> {self.typeo=} in typeTable "{self.typeo_lab}"')
+
             self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
 
             if self.typeo in ("sports events", "sorts-events") and self.year_at_first:
@@ -141,7 +139,7 @@ class LabelForStartWithYearOrTypeo:
 
             self.arlabel += self.typeo_lab
 
-            logger.info("a<<lightblue>>>typeo_lab : %s" % self.typeo_lab)
+            logger.info(f"a<<lightblue>>>typeo_lab : {self.typeo_lab}")
 
             if "s" in typeTable[self.typeo]:
                 self.suf = typeTable[self.typeo]["s"]
@@ -189,7 +187,7 @@ class LabelForStartWithYearOrTypeo:
         )
 
         if (self.In.strip() in ("in", "at")) and not self.suf.strip():
-            logger.info('Add في to arlabel:in,at"%s"' % self.arlabel)
+            logger.info(f'Add في to arlabel:in, at: {self.arlabel}')
 
             self.arlabel += " في "
             self.cat_test = self.replace_cat_test(self.cat_test, self.In)
@@ -258,7 +256,7 @@ class LabelForStartWithYearOrTypeo:
                 )
                 return
 
-            logger.info('a<<lightblue>>>>>> Cant id country_lower : "%s" ' % self.country_lower)
+            logger.info(f'a<<lightblue>>>>>> Cant id {self.country_lower=} ')
             self.NoLab = True
             return
 
@@ -290,7 +288,7 @@ class LabelForStartWithYearOrTypeo:
 
         elif self.cat_test == self.country_lower or self.cat_test == ("in " + self.country_lower):
             logger.debug("<<lightgreen>>>>>> cat_test False.. ")
-            logger.debug('<<lightblue>>>>>> cat_test = country_lower : "%s" ' % self.country_lower)
+            logger.debug(f'<<lightblue>>>>>> cat_test = {self.country_lower=} ')
             self.NoLab = True
 
         elif self.cat_test.lower() == category2.lower():
@@ -298,7 +296,7 @@ class LabelForStartWithYearOrTypeo:
 
         else:
             logger.debug("<<lightgreen>>>> >> cat_test False result.. ")
-            logger.debug(' cat_test : "%s" ' % self.cat_test)
+            logger.debug(f' {self.cat_test=} ')
             logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
             self.NoLab = True
 
@@ -314,7 +312,7 @@ class LabelForStartWithYearOrTypeo:
             if re.sub("[abcdefghijklmnopqrstuvwxyz]", "", self.arlabel, flags=re.IGNORECASE) == self.arlabel:
                 self.arlabel = fixtitle.fixlab(self.arlabel, en=self.category_r)
 
-                logger.info("a<<lightred>>>>>> arlabel ppoi:%s" % self.arlabel)
+                logger.info(f"a<<lightred>>>>>> arlabel ppoi:{self.arlabel}")
                 logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')
                 logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 

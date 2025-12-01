@@ -28,7 +28,7 @@ def test_add_in_tab() -> None:
     result = add_in_tab("test label", "test", "from")
     assert isinstance(result, str)
 
-    # Test with different tito value
+    # Test with different separator value
     result_other = add_in_tab("test label", "test of", "to")
     assert isinstance(result_other, str)
 
@@ -42,7 +42,7 @@ def test_add_in_tab_2() -> None:
     result = add_in_tab("test label", "test", "from")
     assert isinstance(result, str)
 
-    # Test with different tito value
+    # Test with different separator value
     result_other = add_in_tab("test label", "test of", "to")
     assert isinstance(result_other, str)
 

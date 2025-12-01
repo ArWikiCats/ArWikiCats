@@ -15,7 +15,7 @@ def load_test_move_years(data: dict) -> None:
             assert result == expected
             same += 1
     len_diff_list = len(diff_list)
-    print(f"<<green>> diff_list: {len_diff_list}, same:{same}.")
+    print(f"<<green>> {len_diff_list=}, {same=}.")
 
     if len_diff_list:
         diff_details = "\n".join(str(entry) for entry in diff_list)

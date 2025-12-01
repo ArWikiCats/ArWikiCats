@@ -46,7 +46,7 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
         for prefix in filter(None, [english_prefix, english_without_article_prefix, localised_prefix]):
             if category.startswith(prefix):
                 suffix = category[len(prefix) :].strip()
-                logger.debug(f"Matched country prefix, category: {category}, prefix: {prefix}")
+                logger.debug(f"Matched country prefix, {category=}, {prefix=}")
                 return suffix, women_label, men_label
 
     return "", "", ""
@@ -98,7 +98,7 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
         suffix_template = military_format_women.get(base_suffix, "")
         if suffix_template:
             women_with_article = apply_arabic_article(women_label)
-            logger.debug(f"Resolved women extended suffix, suffix: {suffix}, base_suffix: {base_suffix}")
+            logger.debug(f"Resolved women extended suffix, {suffix=}, {base_suffix=}")
             resolved_label = suffix_template.format(nat=women_with_article)
             return prefix_template.format(resolved_label)
 

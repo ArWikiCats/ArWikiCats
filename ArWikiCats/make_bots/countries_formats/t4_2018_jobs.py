@@ -89,7 +89,7 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
             main_lab = change_male_to_female[main_lab]
 
     logger.debug(
-        f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith(me2: "{me2}") cate:"{category}",Main_lab:"{main_lab}". '
+        f'<<lightblue>> te4_2018_Jobs Main_priffix cate.startswith( {me2=}) cate:"{category}", {main_lab=}. '
     )
 
     # Fictional Check
@@ -137,7 +137,7 @@ def _handle_nationality_logic(
         job_example_lab = en_is_nat_ar_is_women.get(category_suffix.strip(), "")
         if job_example_lab:
             country_lab = job_example_lab.format(Nat_women[country_prefix])
-            logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
+            logger.debug(f'<<lightblue>> bot_te_4, new {country_lab=} ')
             updated_main_lab = priffix_lab_for_2018[main_ss]["women"]
 
         # en_is_nat_ar_is_man
@@ -145,7 +145,7 @@ def _handle_nationality_logic(
             job_example_lab = en_is_nat_ar_is_man.get(category_suffix.strip(), "")
             if job_example_lab:
                 country_lab = job_example_lab.format(Nat_men[country_prefix])
-                logger.debug(f'<<lightblue>> bot_te_4, new country_lab "{country_lab}" ')
+                logger.debug(f'<<lightblue>> bot_te_4, new {country_lab=} ')
                 updated_main_lab = priffix_lab_for_2018[main_ss]["men"]
 
     return country_lab, job_example_lab, updated_main_lab
@@ -180,7 +180,7 @@ def te4_2018_Jobs(cate: str) -> str:
     cate, main_ss, main_lab = handle_main_prefix(cate, cate_original)
 
     if cate.lower() != cate_lower_original:
-        logger.debug(f'<<lightblue>> te4_2018_Jobs cate:"{cate}",cate2:"{cate_lower_original}",Main_Ss:"{main_ss}". ')
+        logger.debug(f'<<lightblue>> te4_2018_Jobs {cate=}, {cate_lower_original=}, {main_ss=}. ')
 
     cate_lower = cate.lower()
 
@@ -215,7 +215,7 @@ def te4_2018_Jobs(cate: str) -> str:
     if not country_lab:
         country_lab = try_relegins_jobs_with_suffix(cate_lower)
 
-    logger.debug(f'end te4_2018_Jobs "{cate}" , country_lab:"{country_lab}", cate2:{cate_lower_original}')
+    logger.debug(f'end te4_2018_Jobs "{cate}" , {country_lab=}, cate2:{cate_lower_original}')
 
     return country_lab
 

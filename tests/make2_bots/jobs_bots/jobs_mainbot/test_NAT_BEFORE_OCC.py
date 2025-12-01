@@ -39,7 +39,7 @@ def test_religious_keys_use_nat_and_religious_forms(suffix: str, forms: dict) ->
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "yemeni", suffix)
 
-    error_msg = f"suffix {suffix}, forms: {forms=}"
+    error_msg = f" {suffix=}, forms: {forms=}"
 
     # If jobs_with_nat_prefix or priffix_Mens_work does not support a given key, this will fail
     # and show exactly which religious key is missing.
@@ -58,8 +58,8 @@ def test_NAT_BEFORE_OCC(suffix: str) -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "yemeni", suffix)
 
-    assert result != "", f"suffix {suffix}"
-    assert mens_nat in result, f"suffix {suffix}"
+    assert result != "", f" {suffix=}"
+    assert mens_nat in result, f" {suffix=}"
 
 
 # --- NAT_BEFORE_OCC Expansion Tests ---

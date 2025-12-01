@@ -66,13 +66,15 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
 
 @functools.lru_cache(maxsize=None)
 def Work_for_me(cate: str, nat: str, suffix: str) -> str:
-    """Retrieve a country label based on category, nationality, and a third
+    """
+    Retrieve a country label based on category, nationality, and a third
     parameter.
+    TODO: need refactoring
     """
     women_nat_lab = Nat_women.get(nat, "")
     men_nat_lab = Nat_men.get(nat, "")
     nat_lab = Nat_women[nat]
-    logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), suffix:"{suffix}", nat_lab:"{nat_lab}"')
+    logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), {suffix=}, {nat_lab=}')
     country_lab = ""
     con_3_lab = ""
     cco_lab = ""
@@ -83,10 +85,10 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
         if nat.strip() in all_country_with_nat_ar:
             cco_lab = all_country_with_nat_ar[nat.strip()].get("ar", "")
         if con_3_lab:
-            logger.debug(f'<<lightblue>> Work_for_me:con_3_lab: "{con_3_lab}" ')
+            logger.debug(f'<<lightblue>> Work_for_me: {con_3_lab=} ')
             if cco_lab:
                 country_lab = con_3_lab.format(cco_lab)
-                logger.debug(f'<<lightblue>> bot_te_4:all_country_with_nat_ar new country_lab   "{country_lab}" ')
+                logger.debug(f'<<lightblue>> bot_te_4:all_country_with_nat_ar new {country_lab=} ')
 
     # نسائية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
@@ -101,7 +103,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
                 con_3_lab += " {}"
         if con_3_lab:
             country_lab = con_3_lab.format(women_nat_lab)
-            logger.debug(f'<<lightblue>> test44:en_is_nat_ar_is_women new country_lab   "{country_lab}" ')
+            logger.debug(f'<<lightblue>> test44:en_is_nat_ar_is_women new {country_lab=} ')
 
     # نسائية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
@@ -112,7 +114,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
                 country_lab = con_3_lab.format(nat=women_nat_lab)
             else:
                 country_lab = con_3_lab.format(women_nat_lab)
-            logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new country_lab  "{country_lab}" ')
+            logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ')
 
     # رجالية بدون ألف ولام التعريف
     if con_3_lab == "" and country_lab == "":
@@ -123,7 +125,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
                 con_3_lab += " {}"
         if con_3_lab:
             country_lab = con_3_lab.format(men_nat_lab)
-            logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_man new country_lab    "{country_lab}" ')
+            logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ')
 
     # رجالية بألف ولام التعريف
     if con_3_lab == "" and country_lab == "":

@@ -27,7 +27,7 @@ def find_nat_others(category: str) -> str:
         Resolved category label or empty string
     """
 
-    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv find_nat_others category:{category} vvvvvvvvvvvv ")
+    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv find_nat_others {category=} vvvvvvvvvvvv ")
 
     normalized_category = category.lower()
 

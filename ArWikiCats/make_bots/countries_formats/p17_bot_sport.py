@@ -34,7 +34,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     normalized_key = suffix.replace(sport_key, "xoxo")
     normalized_key = re.sub(sport_key, "xoxo", normalized_key, flags=re.IGNORECASE)
 
-    logger.info(f'Get_SFxo_en_ar_is P17: suffix:"{suffix}", sport_key:"{sport_key}", team_xoxo:"{normalized_key}"')
+    logger.info(f'Get_SFxo_en_ar_is P17: {suffix=}, {sport_key=}, team_xoxo:"{normalized_key}"')
 
     if normalized_key in sport_formts_enar_p17_jobs:
         sport_label = SPORTS_KEYS_FOR_JOBS.get(sport_key, "")
@@ -57,7 +57,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # sport_formts_enar_p
     else:
         logger.info(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in sport_formts_enar_p17_jobs')
 
-    logger.info(f'Get_SFxo_en_ar_is P17 suffix:"{suffix}", con_3_label:"{con_3_label}"')
+    logger.info(f'Get_SFxo_en_ar_is P17 {suffix=}, {con_3_label=}')
 
     return con_3_label
 
@@ -74,11 +74,11 @@ def get_p17_with_sport(category: str) -> str:
     country_start_lab = contries_from_nat.get(country_start, "")
 
     if not suffix or not country_start:
-        logger.info(f'<<lightred>>>>>> suffix: "{suffix}" or country_start :"{country_start}" == ""')
+        logger.info(f'<<lightred>>>>>> {suffix=} or {country_start=} == ""')
         return ""
 
-    logger.debug(f'<<lightblue>> country_start:"{country_start}", suffix:"{suffix}"')
-    logger.debug(f'<<lightpurple>>>>>> country_start_lab:"{country_start_lab}"')
+    logger.debug(f'<<lightblue>> {country_start=}, {suffix=}')
+    logger.debug(f'<<lightpurple>>>>>> {country_start_lab=}')
 
     suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
 

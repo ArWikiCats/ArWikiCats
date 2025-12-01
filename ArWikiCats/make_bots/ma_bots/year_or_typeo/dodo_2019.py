@@ -27,7 +27,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
         result:
             "مستكشفون هولنديون في القرن 18
     """
-    logger.info(f'<<lightyellow>>>> ============ start work_2019 :"{category3}", year:"{year}" ============ ')
+    logger.info(f'<<lightyellow>>>> ============ start work_2019 :"{category3}", {year=} ============ ')
 
     cat_4 = re.sub(rf"{year}\s*(.*)$", r"\g<1>", category3)
     cat_4 = cat_4.strip()
@@ -54,7 +54,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     else:
         arlabel = f"{year_labe} {cat4_lab}"
 
-    logger.info(f'<<lightgreen>>>>>> 2019: New arlabel :"{arlabel}" ')
+    logger.info(f'<<lightgreen>>>>>> 2019: New {arlabel=} ')
     logger.info("<<lightyellow>>>> ^^^^^^^^^ end work_2019 ^^^^^^^^^ ")
 
     return arlabel

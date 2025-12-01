@@ -28,7 +28,7 @@ Responsible for extracting and normalizing:
 
 * `lab_type`
 * `country`
-* `tito`
+* `separator`
 * Lowercased representations
 
 ### B. lab_type Resolution Layer

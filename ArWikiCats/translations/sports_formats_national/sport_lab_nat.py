@@ -61,7 +61,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
     normalized_team_key = re.sub(sport_key, "xzxz", normalized_team_key, flags=re.IGNORECASE)
 
     logger.info(
-        f'Get_sport_formts_female_nat female con_77:"{con_77}", sport_key:"{sport_key}", team_xz:"{normalized_team_key}"'
+        f'Get_sport_formts_female_nat female {con_77=}, {sport_key=}, team_xz:"{normalized_team_key}"'
     )
 
     template_label = New_For_nat_female_xo_team.get(normalized_team_key, "")
@@ -74,7 +74,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
 
     sport_arabic_label = SPORTS_KEYS_FOR_JOBS.get(sport_key, "")
     if not sport_arabic_label:
-        logger.info(f' sport_key:"{sport_key}" not in SPORTS_KEYS_FOR_JOBS ')
+        logger.info(f' {sport_key=} not in SPORTS_KEYS_FOR_JOBS ')
 
     if not template_label or not sport_arabic_label:
         return ""
@@ -85,7 +85,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
         return ""
 
     result = resolved_label
-    logger.info(f'Get_sport_formts_female_nat female con_77:"{con_77}", result:"{result}"')
+    logger.info(f'Get_sport_formts_female_nat female {con_77=}, {result=}')
 
     return result
 
@@ -115,7 +115,7 @@ def sport_lab_nat_load(category: str, check_the: bool = False) -> str:
         return ""
 
     category_label = sport_format_label.format(nat=nat_lab)
-    logger.debug(f'<<lightblue>>xxx sport_lab_nat_load: new category_label  "{category_label}"')
+    logger.debug(f'<<lightblue>>xxx sport_lab_nat_load: new {category_label=}')
 
     return category_label
 
