@@ -11,7 +11,7 @@ from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
 
-def _extend_Films_key_333(Films_key_333):
+def _extend_Films_key_333(data_check):
 
     Films_key2 = dict(film_Keys_For_female)
     data = {}
@@ -37,11 +37,11 @@ def _extend_Films_key_333(Films_key_333):
 
                 k1 = f"{ke} {ke2}"
 
-                if k1 not in Films_key_333:
+                if k1 not in data_check:
                     data[k1] = Paop_1
 
                 k2 = f"{ke2} {ke}"
-                if k2 not in Films_key_333:
+                if k2 not in data_check:
                     data[k2] = Paop_2
     return data
 
@@ -106,6 +106,10 @@ for xo, ttt in Films_keys_male_female.items():
     if ttt["female"]:
         Films_key_333[xo] = ttt["female"]
 # ---
+for cd, ff in Films_key_O_multi.items():
+    if ff["female"]:
+        Films_key_333[cd] = ff["female"]
+# ---
 if Films_key_both.get("animated"):
     Films_key_both["animation"] = Films_key_both["animated"]
 # ---
@@ -122,9 +126,6 @@ for x, da in Films_key_both.items():
     if da["female"]:
         film_Keys_For_female[x] = da["female"]
 
-for x, da in Films_keys_male_female.items():
-    if da["female"]:
-        film_Keys_For_female[x] = da["female"]
 # ---
 debuts_endings_key = ["television series", "television miniseries", "television films"]
 # ---
@@ -161,6 +162,10 @@ for ff in television_keys:
     Films_key_CAO[f"{ff} posters"] = f"ملصقات {la_b}"
     Films_key_CAO[f"{ff} images"] = f"صور {la_b}"
 # ---
+for x, da in Films_keys_male_female.items():
+    if da["female"]:
+        film_Keys_For_female[x] = da["female"]
+# ---
 for ke, ke_lab in film_Keys_For_female.items():
     for tt, tt_lab in film_key_women_2.items():
         Films_key_For_nat[f"{ke} {tt}"] = f"{tt_lab} {ke_lab} {nat_key_f}"
@@ -177,10 +182,6 @@ for ke, ke_lab in film_Keys_For_female.items():
             Films_key_For_nat[f"{ke} {tt}-debuts"] = f"{tt_lab} {ke_lab} {nat_key_f} بدأ عرضها في"
             Films_key_For_nat[f"{ke} {tt}-endings"] = f"{tt_lab} {ke_lab} {nat_key_f} انتهت في"
         # "television-series endings" : "مسلسلات تلفزيونية {} انتهت في",
-# ---
-for cd, ff in Films_key_O_multi.items():
-    if ff["female"]:
-        Films_key_333[cd] = ff["female"]
 # ---
 ss_Films_key_CAO = 0
 # ---
