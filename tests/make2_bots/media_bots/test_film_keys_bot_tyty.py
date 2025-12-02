@@ -52,7 +52,7 @@ test_films_first_data = {
     "upcoming horror": "{tyty} رعب قادمة",
     "3d low-budget": "{tyty} ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget 3d": "{tyty} ثلاثية الأبعاد منخفضة التكلفة",
-    "low-budget christmas": "{tyty} عيد الميلاد منخفضة التكلفة",
+    "low-budget action": "{tyty} حركة منخفضة التكلفة",
 }
 
 
