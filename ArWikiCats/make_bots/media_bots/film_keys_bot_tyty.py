@@ -114,14 +114,14 @@ def get_films_key_tyty(country_identifier: str) -> str:
 
         if prefix_label:
             resolved_label = f"{suffix_translation} {prefix_label}"
-            logger.info(f'<<lightblue>> get_Films_key_CAO: new {resolved_label=} ')
+            logger.info(f'<<lightblue>> get_films_key_tyty: new {resolved_label=} ')
             return resolved_label
 
         prefix_label = search_multi(prefix.strip())
 
         if prefix_label and "{tyty}" in prefix_label:
             resolved_label = prefix_label.format(tyty=suffix_translation)
-            logger.info(f'<<lightblue>> get_Films_key_CAO: new {resolved_label=} ')
+            logger.info(f'<<lightblue>> get_films_key_tyty: new {resolved_label=} ')
             return resolved_label
 
     return ""

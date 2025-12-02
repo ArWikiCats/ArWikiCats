@@ -16,7 +16,7 @@ from ...translations import (
 )
 from ..countries_formats.for_me import Work_for_me
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ..media_bots.film_keys_bot import Films
+from ..media_bots.film_keys_bot import resolve_films
 from ..o_bots import ethnic_bot
 from .get_helps import get_suffix_with_keys
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
@@ -88,7 +88,8 @@ def te_2018_with_nat(category: str) -> str:
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
     # Try direct lookups first
-    country_label = short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
+    country_label = short_womens_jobs.get(normalized_category) \
+        or jobs_mens_data.get(normalized_category) or resolve_films(normalized_category)
 
     if country_label:
         logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
@@ -100,7 +101,6 @@ def te_2018_with_nat(category: str) -> str:
         # Try various strategies if we have a country code
         strategies = {
             "Work_for_me": lambda: Work_for_me(normalized_category, nat, suffix),
-            "Films": lambda: Films(normalized_category, nat, suffix),
             "ethnic_bot.ethnic_label": lambda: ethnic_bot.ethnic_label(normalized_category, nat, suffix),
             "nat_match": lambda: nat_match(normalized_category),
         }
@@ -113,10 +113,6 @@ def te_2018_with_nat(category: str) -> str:
 
     # Fallback strategies if still no label
     country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
-
-    # Special case for Films if everything else failed and no country code
-    if not country_label and not suffix:
-        country_label = Films(normalized_category, "", "")
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     return country_label or ""
