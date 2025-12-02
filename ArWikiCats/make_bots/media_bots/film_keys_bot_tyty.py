@@ -25,32 +25,92 @@ films_first = {
     "upcoming",
 }
 
+search_multi_cache = {}
 
+
+def _extend_Films_key_333(
+    films_key_333: dict[str, str],
+    female_keys: dict[str, str],
+) -> dict[str, str]:
+    """Generate combined female-only film keys based on existing female mappings.
+
+    This function takes a base female mapping (films_key_333) and extends it
+    by creating pairwise combinations of the provided female_keys entries.
+
+    Example combination:
+        horror + comedy films  ->  "{tyty} أفلام رعب كوميدية"
+    """
+    data: dict[str, str] = {}
+
+    for first_key, first_label in female_keys.items():
+        first_key_lower = first_key.lower()
+
+        for second_key, second_label in female_keys.items():
+            if first_key == second_key:
+                continue
+
+            second_key_lower = second_key.lower()
+
+            paop_1 = f"{{tyty}} {first_label} {second_label}"
+            paop_2 = f"{{tyty}} {second_label} {first_label}"
+
+            # Adjust order for specific keywords
+            if first_key_lower in films_first:
+                paop_1 = paop_2
+            elif second_key_lower in films_first:
+                paop_2 = paop_1
+
+            data[f"{first_key} {second_key}"] = paop_1
+            data[f"{second_key} {first_key}"] = paop_2
+
+    new_data = {x: v for x, v in data.items() if x not in films_key_333}
+    return new_data
+
+
+@functools.lru_cache(maxsize=None)
 def search_multi(text: str) -> str:
     label = ""
+    if search_multi_cache.get(text):
+        return search_multi_cache.get(text)
+
     for second_part, second_label in keys_female_sorted.items():
         # ---
         if not text.endswith(second_part.lower()):
             continue
         # ---
-        first = text[: -len(second_part)].strip()
+        first_part = text[: -len(second_part)].strip()
         # ---
-        first_label = film_Keys_for_female.get(first, "")
+        second_key_lower = second_part.lower()
+        first_key_lower = first_part.lower()
         # ---
-        logger.debug(f">??? search_multi: {first=} ({first_label}), {second_part=} ({second_label})")
+        first_label = film_Keys_for_female.get(first_part, "")
+        # ---
+        logger.debug(f">??? search_multi: {first_part=} ({first_label}), {second_part=} ({second_label})")
         # ---
         if not first_label:
             continue
 
-        label = f"{{tyty}} {first_label} {second_label}"
+        _label = f"{{tyty}} {first_label} {second_label}"
 
         # Adjust order for specific keywords
-        if second_part.lower() in films_first:
-            label = f"{{tyty}} {second_label} {first_label}"
+        if first_part.lower() in films_first:
+            _label = f"{{tyty}} {second_label} {first_label}"
         # ---
-        logger.info(f">??? search_multi: {label=}")
+        paop_1 = f"{{tyty}} {first_label} {second_label}"
+        paop_2 = f"{{tyty}} {second_label} {first_label}"
+
+        # Adjust order for specific keywords
+        if first_key_lower in films_first:
+            paop_1 = paop_2
+        elif second_key_lower in films_first:
+            paop_2 = paop_1
+
+        search_multi_cache[f"{first_part} {second_part}"] = paop_1
+        search_multi_cache[f"{second_part} {first_part}"] = paop_2
+
+        logger.info(f">??? search_multi: {paop_1=}")
         # ---
-        return label
+        return paop_1
 
     return label
 

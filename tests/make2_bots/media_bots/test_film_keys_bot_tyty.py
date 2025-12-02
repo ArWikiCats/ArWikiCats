@@ -44,15 +44,14 @@ keys_in_films_key_333 = {
 }
 
 test_films_first_data = {
-    "low-budget science": "{tyty} منخفضة التكلفة علمية",
-    "christmas science": "{tyty} عيد الميلاد علمية",
-    "lgbtq-related teen": "{tyty} متعلقة بإل جي بي تي كيو مراهقة",
-    "lgbt-related drama": "{tyty} متعلقة بإل جي بي تي درامية",
-    "lgbtqrelated horror": "{tyty} متعلقة بإل جي بي تي كيو رعب",
-    "lgbtrelated latin": "{tyty} متعلقة بإل جي بي تي لاتينية",
-    "upcoming horror": "{tyty} قادمة رعب",
-    "3d low-budget": "{tyty} منخفضة التكلفة ثلاثية الأبعاد",
-    "low-budget 3d": "{tyty} منخفضة التكلفة ثلاثية الأبعاد",
+    "low-budget science": "{tyty} علمية منخفضة التكلفة",
+    "christmas science": "{tyty} علمية عيد الميلاد",
+    "lgbt-related drama": "{tyty} درامية متعلقة بإل جي بي تي",
+    "lgbtqrelated horror": "{tyty} رعب متعلقة بإل جي بي تي كيو",
+    "lgbtrelated latin": "{tyty} لاتينية متعلقة بإل جي بي تي",
+    "upcoming horror": "{tyty} رعب قادمة",
+    "3d low-budget": "{tyty} ثلاثية الأبعاد منخفضة التكلفة",
+    "low-budget 3d": "{tyty} ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget christmas": "{tyty} عيد الميلاد منخفضة التكلفة",
 }
 
@@ -65,8 +64,8 @@ def test_films_first(category: str, expected: str) -> None:
 
 
 fast_data1 = {
-    "3d low-budget films": "أفلام منخفضة التكلفة ثلاثية الأبعاد",
-    "low-budget 3d films": "أفلام منخفضة التكلفة ثلاثية الأبعاد",
+    "3d low-budget films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
+    "low-budget 3d films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "heist historical television commercials": "إعلانات تجارية تلفزيونية سرقة تاريخية",
     "adult animated supernatural films": "أفلام رسوم متحركة خارقة للطبيعة للكبار",
     "heist holocaust films": "أفلام سرقة هولوكوستية",
