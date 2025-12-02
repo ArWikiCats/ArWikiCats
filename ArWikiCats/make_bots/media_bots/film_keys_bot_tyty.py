@@ -21,11 +21,39 @@ films_first = {
     "lgbtq-related",
     "lgbt-related",
     "lgbtqrelated",
-    "lgbtrelated",
     "upcoming",
 }
 
-search_multi_cache = {}
+search_multi_cache = {
+    "upcoming christmas": "{tyty} قادمة عيد الميلاد",
+    "christmas upcoming": "{tyty} قادمة عيد الميلاد",
+    "action comedy drama": "{tyty} حركة كوميدية درامية",
+    "action comedy fiction": "{tyty} حركة كوميدية خيالية",
+    "action comedy thriller": "{tyty} حركة كوميدية إثارة",
+    "adult animated supernatural drama": "{tyty} رسوم متحركة خارقة للطبيعة للكبار درامية",
+    "animated science fantasy": "{tyty} علمية رسوم متحركة فانتازيا",
+    "animated science fiction": "{tyty} علمية رسوم متحركة خيالية",
+    "black comedy drama": "{tyty} كوميدية سوداء درامية",
+    "black comedy fiction": "{tyty} كوميدية سوداء خيالية",
+    "black comedy horror": "{tyty} كوميدية سوداء رعب",
+    "black comedy thriller": "{tyty} كوميدية سوداء إثارة",
+    "children's animated science": "{tyty} رسوم متحركة أطفال علمية",
+    "children's animated short": "{tyty} رسوم متحركة أطفال قصيرة",
+    "children's comedy drama": "{tyty} أطفال كوميدية درامية",
+    "children's comedy fiction": "{tyty} أطفال كوميدية خيالية",
+    "children's comedy thriller": "{tyty} أطفال كوميدية إثارة",
+    "crime comedy drama": "{tyty} جنائية كوميدية درامية",
+    "crime comedy fiction": "{tyty} جنائية كوميدية خيالية",
+    "crime comedy horror": "{tyty} جنائية كوميدية رعب",
+    "crime comedy thriller": "{tyty} جنائية كوميدية إثارة",
+    "criminal comedy drama": "{tyty} كوميديا الجريمة درامية",
+    "criminal comedy fiction": "{tyty} كوميديا الجريمة خيالية",
+    "criminal comedy horror": "{tyty} كوميديا الجريمة رعب",
+    "criminal comedy thriller": "{tyty} كوميديا الجريمة إثارة",
+    "musical comedy thriller": "{tyty} كوميديا موسيقية إثارة",
+    "romantic comedy thriller": "{tyty} كوميديا رومانسية إثارة",
+    "science fiction action thriller": "{tyty} خيال علمي وحركة إثارة",
+}
 
 
 @functools.lru_cache(maxsize=None)
