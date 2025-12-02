@@ -30,7 +30,6 @@ data = {
     "category:historic trails and roads in the united states by state": "تصنيف:طرق وممرات تاريخية في الولايات المتحدة حسب الولاية",
     "category:international women's basketball competitions hosted by cuba": "تصنيف:منافسات كرة سلة نسائية دولية استضافتها كوبا",
     "category:languages of cayman islands": "تصنيف:لغات جزر كايمان",
-    "category:lgbtrelated films by genre": "تصنيف:أفلام متعلقة بإل جي بي تي حسب النوع الفني",
     "category:multi-sport events in yemen": "تصنيف:أحداث رياضية متعددة في اليمن",
     "category:parks in the roman empire": "تصنيف:متنزهات في الإمبراطورية الرومانية",
 }
