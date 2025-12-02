@@ -19,7 +19,6 @@ films_first = {
     "low-budget",
     "christmas",
     "lgbtq-related",
-    "lgbtqrelated",
     "upcoming",
 }
 

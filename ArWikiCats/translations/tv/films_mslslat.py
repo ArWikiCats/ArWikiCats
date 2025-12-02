@@ -47,7 +47,7 @@ debuts_endings_key = ["television series", "television miniseries", "television 
 nat_key_f = "{}"
 
 Films_key_CAO_new_format = {
-    "lgbtqrelated films": "أفلام {} متعلقة بإل جي بي تي كيو",
+    "lgbtq-related films": "أفلام {} متعلقة بإل جي بي تي كيو",
 }
 
 

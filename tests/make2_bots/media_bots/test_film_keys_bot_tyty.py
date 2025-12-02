@@ -47,7 +47,7 @@ test_films_first_data = {
     "action lgbtq-related": "{tyty} حركة متعلقة بإل جي بي تي كيو",
     "lgbtq-related action": "{tyty} حركة متعلقة بإل جي بي تي كيو",
     "lgbtq-related drama": "{tyty} درامية متعلقة بإل جي بي تي كيو",
-    "lgbtqrelated horror": "{tyty} رعب متعلقة بإل جي بي تي كيو",
+    "lgbtq-related horror": "{tyty} رعب متعلقة بإل جي بي تي كيو",
     "lgbtq-related latin": "{tyty} لاتينية متعلقة بإل جي بي تي كيو",
 
     "low-budget science": "{tyty} علمية منخفضة التكلفة",
