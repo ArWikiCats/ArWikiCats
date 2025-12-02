@@ -44,11 +44,13 @@ keys_in_films_key_333 = {
 }
 
 test_films_first_data = {
+    "action lgbtq-related": "{tyty} حركة متعلقة بإل جي بي تي كيو",
+    "lgbtq-related action": "{tyty} حركة متعلقة بإل جي بي تي كيو",
     "low-budget science": "{tyty} علمية منخفضة التكلفة",
     "christmas science": "{tyty} علمية عيد الميلاد",
     "lgbt-related drama": "{tyty} درامية متعلقة بإل جي بي تي",
     "lgbtqrelated horror": "{tyty} رعب متعلقة بإل جي بي تي كيو",
-    "lgbtrelated latin": "{tyty} لاتينية متعلقة بإل جي بي تي",
+    "lgbt-related latin": "{tyty} لاتينية متعلقة بإل جي بي تي",
     "upcoming horror": "{tyty} رعب قادمة",
     "3d low-budget": "{tyty} ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget 3d": "{tyty} ثلاثية الأبعاد منخفضة التكلفة",
