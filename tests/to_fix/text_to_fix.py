@@ -5,6 +5,23 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+
+    "Category:1990s LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بإل جي بي تي كيو في عقد 1990",
+    "Category:Icelandic LGBTQ-related films": "تصنيف:أفلام آيسلندية متعلقة بإلمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
+    "Category:Irish LGBTQ-related films": "تصنيف:أفلام أيرلندية متعلقة بإل جي بي تي كيو",
+    "Category:LGBTQ-related buddy films": "تصنيف:أفلام متعلقة بإل جي بي تي كيو رفقاء",
+    "Category:LGBTQ-related films by genre": "تصنيف:أفلام متعلقة بإل جي بي تي كيو حسب النوع الفني",
+    "Category:LGBTQ-related horror films": "تصنيف:أفلام متعلقة بإل جي بي تي كيو رعب",
+    "Category:LGBTQ-related mass media by country": "تصنيف:وسائل إعلام حسب البلد مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related mass media in Denmark": "تصنيف:وسائل إعلام في الدنمارك مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related mass media in Europe": "تصنيف:وسائل إعلام في أوروبا مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related mass media in Ireland": "تصنيف:وسائل إعلام في أيرلندا مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related radio stations": "تصنيف:محطات إذاعية مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related sitcoms by decade": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بإل جي بي تي كيو حسب العقد",
+    "Category:LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية متعلقة بإل جي بي تي كيو",
+    "Category:LGBTQ-related sports films": "تصنيف:أفلام متعلقة بإل جي بي تي كيو رياضية",
+    "Category:Luxembourgian LGBTQ-related films": "تصنيف:أفلام لوكسمبورغية متعلقة بإل جي بي تي كيو",
+
     "Category:1988 executions of Iranian political prisoners": "تصنيف:إعدامات مسجونون سياسيون إيرانيون 1988",
     "Category:10th century in East Francia": "تصنيف:مملكة الفرنجة الشرقيين في القرن 10",
     "Category:10th century in West Francia": "تصنيف:مملكة الفرنجة الغربيين في القرن 10",
