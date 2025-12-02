@@ -7,19 +7,18 @@ import functools
 
 from ...helps.log import logger
 from ...translations import (
-    film_Keys_for_female,
+    film_keys_for_female,
     Films_key_333,
     television_keys,
 )
 
 # sorted by len of " " in key
-keys_female_sorted = dict(sorted(film_Keys_for_female.items(), key=lambda x: x[0].count(" "), reverse=True))
+keys_female_sorted = dict(sorted(film_keys_for_female.items(), key=lambda x: x[0].count(" "), reverse=True))
 
 films_first = {
     "low-budget",
     "christmas",
     "lgbtq-related",
-    "lgbt-related",
     "lgbtqrelated",
     "upcoming",
 }
@@ -72,7 +71,7 @@ def search_multi(text: str) -> str:
         second_key_lower = second_part.lower()
         first_key_lower = first_part.lower()
         # ---
-        first_label = film_Keys_for_female.get(first_part, "")
+        first_label = film_keys_for_female.get(first_part, "")
         # ---
         logger.debug(f">??? search_multi: {first_part=} ({first_label}), {second_part=} ({second_label})")
         # ---

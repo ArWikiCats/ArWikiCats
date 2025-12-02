@@ -13,7 +13,7 @@ from ...translations import (
     Films_key_CAO,
     Films_key_For_nat,
     Films_keys_both_new_female,
-    film_Keys_for_female,
+    film_keys_for_female,
     jobs_mens_data,
     lang_key_m,
     languages_key,
@@ -86,7 +86,7 @@ class FilmCategoryLabelResolver:
     def _lookup_in_film_dictionaries(self, suffix: str, language_label: str) -> str:
         """Lookup suffix in multiple film dictionaries."""
         dict_tabs = {
-            "film_Keys_for_female": self._films_female,
+            "film_keys_for_female": self._films_female,
             "Films_key_333": self._films_333,
             "Films_key_CAO": self._films_cao,
         }
@@ -111,7 +111,7 @@ class FilmCategoryLabelResolver:
         Resolution order:
             1) Films_key_For_nat
             2) Films_keys_both_new_female (via films pattern)
-            3) film_Keys_for_female / Films_key_333 / Films_key_CAO
+            3) film_keys_for_female / Films_key_333 / Films_key_CAO
         """
         # 1) Films_key_For_nat (template expects something like 'بالعربية')
         template = self._films_for_nat.get(suffix)
@@ -267,7 +267,7 @@ class LanguageLabelResolver:
 _film_resolver = FilmCategoryLabelResolver(
     films_for_nat=Films_key_For_nat,
     films_keys_both=Films_keys_both_new_female,
-    films_female=film_Keys_for_female,
+    films_female=film_keys_for_female,
     films_333=Films_key_333,
     films_cao=Films_key_CAO,
 )

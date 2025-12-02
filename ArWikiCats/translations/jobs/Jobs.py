@@ -15,7 +15,7 @@ from ..mixed.male_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..sports.cycling import BASE_CYCLING_EVENTS
-from ..tv.films_mslslat import film_Keys_for_female
+from ..tv.films_mslslat import film_keys_for_female
 from ..utils.json_dir import open_json
 from .Jobs2 import JOBS_2
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
@@ -285,7 +285,7 @@ def _add_jobs_people_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> N
 def _add_film_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
     """Create film-related job variants and return the number of generated entries."""
 
-    for film_key, film_label in film_Keys_for_female.items():
+    for film_key, film_label in film_keys_for_female.items():
         lowered_film_key = film_key.lower()
         for role_key, role_labels in FILM_ROLE_LABELS.items():
             m_w_jobs[role_key] = {"mens": role_labels["mens"], "womens": role_labels["womens"]}
