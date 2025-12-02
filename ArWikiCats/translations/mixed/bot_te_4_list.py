@@ -57,12 +57,12 @@ en_is_P17_ar_is_mens: dict[str, str] = {
 # الإنجليزي جنسية والعربي اسم البلد
 # tab[Category:Bahraini King's Cup] = "تصنيف:كأس ملك البحرين"
 en_is_nat_ar_is_P17: dict[str, str] = {
+    "grand prix": "جائزة {} الكبرى",
     "king's cup": "كأس ملك {}",  # Bahraini King's Cup
     "cup": "كأس {}",
     "independence": "استقلال {}",
     "open": "{} المفتوحة",
     "ladies open": "{} المفتوحة للسيدات",
-    "grand prix": "جائزة {} الكبرى",
     "national university": "جامعة {} الوطنية",
     "national university alumni": "خريجو جامعة {} الوطنية",
     # "open (tennis)" : "{} المفتوحة للتنس",

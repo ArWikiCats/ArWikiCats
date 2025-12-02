@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.jobs_bots.bot_te_4 import (
     Jobs_in_Multi_Sports,
@@ -172,7 +173,6 @@ Multi_Sports_data = {
     "youth olympics ice hockey players": "لاعبو هوكي جليد في الألعاب الأولمبية الشبابية",
     "youth olympics nordic combined skiers": "متزحلقو تزلج نوردي مزدوج في الألعاب الأولمبية الشبابية",
 }
-
 
 data_2018_with_nat = {
     "american culture": "ثقافة أمريكية",
@@ -373,3 +373,18 @@ def test_Jobs_in_Multi_Sports(category: str, expected: str) -> None:
 def test_te_2018_with_nat(category: str, expected: str) -> None:
     label = te_2018_with_nat(category)
     assert label == expected
+
+
+ENTERTAINMENT_CASES = [
+    ("test_nat_match", fast_data, nat_match),
+    ("test_Jobs_in_Multi_Sports", Multi_Sports_data, Jobs_in_Multi_Sports),
+    ("te_2018_with_nat", data_2018_with_nat, te_2018_with_nat),
+]
+
+
+@pytest.mark.parametrize("name,data,callback", ENTERTAINMENT_CASES)
+@pytest.mark.dump
+def test_entertainment(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result)}"

@@ -49,7 +49,6 @@ class FormatData:
         alternation = "|".join(map(re.escape, keys_sorted))
 
         self.data_pattern = fr"(?<!\w)({alternation})(?!\w)"
-
         return re.compile(self.data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)

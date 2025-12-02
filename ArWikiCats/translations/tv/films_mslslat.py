@@ -9,66 +9,9 @@ TODO: need refactoring
 
 from ...helps import len_print
 
-import json
-from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Dict, Tuple
 
 from ..utils.json_dir import open_json_file
-
-
-def _extend_Films_key_333(
-    films_key_333: Dict[str, str],
-    female_keys: Dict[str, str],
-) -> Dict[str, str]:
-    """Generate combined female-only film keys based on existing female mappings.
-
-    This function takes a base female mapping (films_key_333) and extends it
-    by creating pairwise combinations of the provided female_keys entries.
-
-    Example combination:
-        horror films + comedy films  ->  "{tyty} أفلام رعب كوميدية"
-    """
-    data: Dict[str, str] = {}
-    films_first = {
-        "low-budget",
-        "christmas",
-        "lgbtq-related",
-        "lgbt-related",
-        "lgbtqrelated",
-        "lgbtrelated",
-        "upcoming",
-    }
-
-    placeholder = "{tyty}"
-
-    for ke, ke_lab in female_keys.items():
-        ke_lower = ke.lower()
-
-        for ke2, ke2_lab in female_keys.items():
-            ke2_lower = ke2.lower()
-            if ke2_lower == ke_lower:
-                continue
-
-            paop_1 = f"{placeholder} {ke_lab} {ke2_lab}"
-            paop_2 = f"{placeholder} {ke2_lab} {ke_lab}"
-
-            # Adjust order for specific keywords
-            if ke_lower in films_first:
-                paop_1 = f"{placeholder} {ke2_lab} {ke_lab}"
-                paop_2 = paop_1
-            elif ke2_lower in films_first:
-                paop_1 = f"{placeholder} {ke_lab} {ke2_lab}"
-                paop_2 = paop_1
-
-            k1 = f"{ke} {ke2}"
-            if k1 not in films_key_333:
-                data[k1] = paop_1
-
-            k2 = f"{ke2} {ke}"
-            if k2 not in films_key_333:
-                data[k2] = paop_2
-
-    return data
 
 
 # --- base templates / helpers -------------------------------------------------
@@ -104,8 +47,7 @@ debuts_endings_key = ["television series", "television miniseries", "television 
 nat_key_f = "{}"
 
 Films_key_CAO_new_format = {
-    "lgbtrelated films": "أفلام {} متعلقة بإل جي بي تي",
-    "lgbtqrelated films": "أفلام {} متعلقة بإل جي بي تي كيو",
+    "lgbtq-related films": "أفلام {} متعلقة بإل جي بي تي كيو",
 }
 
 
@@ -419,18 +361,18 @@ Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
     Films_key_both,
     Films_key_333,
     Films_key_man,
-    film_Keys_For_male,
-    film_Keys_For_female,
+    film_keys_for_male,
+    film_keys_for_female,
 ) = _build_gender_key_maps(Films_keys_male_female, Films_key_O_multi)
 
 # Convenient alias (kept for compatibility if used elsewhere)
-Films_key2 = film_Keys_For_female
+Films_key2 = film_keys_for_female
 
 # Nat/series keys (Films_key_For_nat + films_mslslat_tab)
 Films_key_For_nat = _extend_films_key_for_nat_with_mat2(Films_key_For_nat)
 Films_key_For_nat, films_mslslat_tab = _build_series_and_nat_keys(
     Films_key_For_nat,
-    film_Keys_For_female,
+    film_keys_for_female,
 )
 
 # Female values from Films_key_O_multi also contribute to Films_key_333
@@ -442,14 +384,11 @@ for cd, ff in Films_key_O_multi.items():
 # Television CAO mappings
 Films_key_CAO, ss_Films_key_CAO = _build_television_cao(
     television_keys,
-    film_Keys_For_female,
+    film_keys_for_female,
 )
 
 # Extended female-only combinations (both keys)
 Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
-
-# Extended Films_key_333 combinations using female keys
-tyty_data = _extend_Films_key_333(Films_key_333, film_Keys_For_female)
 
 # Summary output
 len_print.data_len(
@@ -458,19 +397,18 @@ len_print.data_len(
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,
         "ss_Films_key_CAO": ss_Films_key_CAO,
-        "tyty_data": tyty_data,
         "Films_key_333": Films_key_333,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new_female": Films_keys_both_new_female,
+        "film_keys_for_female": film_keys_for_female,
     },
 )
 
 __all__ = [
     "television_keys",
     "films_mslslat_tab",
-    "film_Keys_For_female",
-    "film_Keys_For_male",
-    "tyty_data",
+    "film_keys_for_female",
+    "film_keys_for_male",
     "Films_key_333",
     "Films_key_CAO",
     "Films_key_CAO_new_format",

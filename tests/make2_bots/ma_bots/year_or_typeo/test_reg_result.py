@@ -137,6 +137,7 @@ class TestTypeExtraction:
         [
             # category_relation_mapping as type
             ("Category:1999 manufactured by Toyota", "manufactured by"),
+            ("Category:1999 manufactured-by Toyota", "manufactured by"),
             ("Category:2001 written by John", "written by"),
             ("Category:2001 launched in USA", "launched in"),
         ],

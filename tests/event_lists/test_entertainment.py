@@ -79,7 +79,7 @@ entertainment_2 = {
     "Category:Historical television series": "تصنيف:مسلسلات تلفزيونية تاريخية",
     "Category:Horror anime and manga": "تصنيف:أنمي ومانغا رعب",
     "Category:Horror films by genre": "تصنيف:أفلام رعب حسب النوع الفني",
-    "Category:LGBT-related films by genre": "تصنيف:أفلام متعلقة بإل جي بي تي حسب النوع الفني",
+    "Category:LGBTQ-related films by genre": "تصنيف:أفلام متعلقة بإل جي بي تي كيو حسب النوع الفني",
     "Category:Lists of British television series characters by series": "تصنيف:قوائم شخصيات مسلسلات تلفزيونية بريطانية حسب السلسلة",
     "Category:Lists of television characters by series": "تصنيف:قوائم شخصيات تلفزيونية حسب السلسلة",
 }

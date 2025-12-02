@@ -5,6 +5,23 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+
+    "Category:1990s LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بإل جي بي تي كيو في عقد 1990",
+    "Category:Icelandic LGBTQ-related films": "تصنيف:أفلام آيسلندية متعلقة بإلمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
+    "Category:Irish LGBTQ-related films": "تصنيف:أفلام أيرلندية متعلقة بإل جي بي تي كيو",
+    "Category:LGBTQ-related buddy films": "تصنيف:أفلام متعلقة بإل جي بي تي كيو رفقاء",
+    "Category:LGBTQ-related films by genre": "تصنيف:أفلام متعلقة بإل جي بي تي كيو حسب النوع الفني",
+    "Category:LGBTQ-related horror films": "تصنيف:أفلام متعلقة بإل جي بي تي كيو رعب",
+    "Category:LGBTQ-related mass media by country": "تصنيف:وسائل إعلام حسب البلد مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related mass media in Denmark": "تصنيف:وسائل إعلام في الدنمارك مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related mass media in Europe": "تصنيف:وسائل إعلام في أوروبا مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related mass media in Ireland": "تصنيف:وسائل إعلام في أيرلندا مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related radio stations": "تصنيف:محطات إذاعية مرتبطة بإل جي بي تي كيو",
+    "Category:LGBTQ-related sitcoms by decade": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بإل جي بي تي كيو حسب العقد",
+    "Category:LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية متعلقة بإل جي بي تي كيو",
+    "Category:LGBTQ-related sports films": "تصنيف:أفلام متعلقة بإل جي بي تي كيو رياضية",
+    "Category:Luxembourgian LGBTQ-related films": "تصنيف:أفلام لوكسمبورغية متعلقة بإل جي بي تي كيو",
+
     "Category:1988 executions of Iranian political prisoners": "تصنيف:إعدامات مسجونون سياسيون إيرانيون 1988",
     "Category:10th century in East Francia": "تصنيف:مملكة الفرنجة الشرقيين في القرن 10",
     "Category:10th century in West Francia": "تصنيف:مملكة الفرنجة الغربيين في القرن 10",
@@ -18,8 +35,6 @@ data1 = {
     "Category:18th-century wives of Ottoman sultans": "تصنيف:زوجات سلاطين عثمانيين في القرن 18",
     "Category:1948 Palestinian exodus": "تصنيف:تهجير الفلسطينيين 1948",
     "Category:1948 Palestinian expulsion and flight": "تصنيف:تهجير الفلسطينيين 1948",
-    "Category:1990s LGBT-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بالمثليين في عقد 1990",
-    "Category:1990s LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بالمثليين في عقد 1990",
     "Category:19th-century wives of Ottoman sultans": "تصنيف:زوجات سلاطين عثمانيين في القرن 19",
     "Category:2009 African Nations Championship": "تصنيف:بطولة أمم إفريقيا للمحليين 2009",
     "Category:2009 African Nations Championship players": "تصنيف:لاعبو بطولة أمم إفريقيا للمحليين 2009",
@@ -981,8 +996,6 @@ data1 = {
     "Category:Hungarian football biography stubs": "تصنيف:بذرة أعلام كرة قدم مجريين",
     "Category:Hurrian kings": "تصنيف:ملوك الحوريين",
     "Category:Hussite Wars": "تصنيف:حروب الهوسيين",
-    "Category:Icelandic LGBT-related films": "تصنيف:أفلام آيسلندية متعلقة بإلمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:Icelandic LGBTQ-related films": "تصنيف:أفلام آيسلندية متعلقة بإلمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
     "Category:Illegitimate children of Portuguese monarchs": "تصنيف:أطفال غير شرعيين من ملوك البرتغال",
     "Category:Illegitimate children of monarchs": "تصنيف:أبناء شخصيات ملكية غير شرعيين",
     "Category:Immigration and LGBT topics": "تصنيف:الهجرة ومواضيع المثليين",
@@ -1035,8 +1048,6 @@ data1 = {
     "Category:Iraq political leader navigational boxes": "تصنيف:صناديق تصفح قادة العراق السياسيين",
     "Category:Iraqi football biography stubs": "تصنيف:بذرة أعلام كرة قدم عراقيين",
     "Category:Ireland political leader navigational boxes": "تصنيف:قوالب تصفح قادة سياسيين أيرلنديين",
-    "Category:Irish LGBT-related films": "تصنيف:أفلام أيرلندية متعلقة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:Irish LGBTQ-related films": "تصنيف:أفلام أيرلندية متعلقة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
     "Category:Irish sportspeople stubs": "تصنيف:بذرة عن رياضيين آيرلنديين",
     "Category:Israel political leader navigational boxes": "تصنيف:قوالب تصفح قادة سياسيين إسرائيليين",
     "Category:Israeli casualties in the Second Intifada": "تصنيف:ضحايا إسرائيليين في الانتفاضة الفلسطينية الثانية",
@@ -1339,17 +1350,6 @@ data1 = {
     "Category:LGBT theatre": "تصنيف:مسرح المثليين",
     "Category:LGBT timelines": "تصنيف:التسلسلات الزمنية للمثليين",
     "Category:LGBT tourism": "تصنيف:سياحة المثليين",
-    "Category:LGBT-related buddy films": "تصنيف:أفلام متعلقة بالمثليين رفقاء",
-    "Category:LGBT-related films by genre": "تصنيف:أفلام متعلقة بالمثليين حسب النوع الفني",
-    "Category:LGBT-related horror films": "تصنيف:أفلام متعلقة بالمثليين رعب",
-    "Category:LGBT-related mass media by country": "تصنيف:وسائل إعلام حسب البلد مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBT-related mass media in Denmark": "تصنيف:وسائل إعلام في الدنمارك مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBT-related mass media in Europe": "تصنيف:وسائل إعلام في أوروبا مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBT-related mass media in Ireland": "تصنيف:وسائل إعلام في أيرلندا مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBT-related radio stations": "تصنيف:محطات إذاعية مرتبطة بالمثليين",
-    "Category:LGBT-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية متعلقة بالمثليين",
-    "Category:LGBT-related sitcoms by decade": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بالمثليين حسب العقد",
-    "Category:LGBT-related sports films": "تصنيف:أفلام متعلقة بالمثليين رياضية",
     "Category:LGBTQ beauty pageants": "تصنيف:مسابقات الجمال للمثليين",
     "Category:LGBTQ culture": "تصنيف:ثقافة المثليين",
     "Category:LGBTQ culture by city": "تصنيف:ثقافة المثليين حسب المدينة",
@@ -1606,17 +1606,6 @@ data1 = {
     "Category:LGBTQ theatre": "تصنيف:مسرح المثليين",
     "Category:LGBTQ timelines": "تصنيف:التسلسلات الزمنية للمثليين",
     "Category:LGBTQ tourism": "تصنيف:سياحة المثليين",
-    "Category:LGBTQ-related buddy films": "تصنيف:أفلام متعلقة بالمثليين رفقاء",
-    "Category:LGBTQ-related films by genre": "تصنيف:أفلام متعلقة بالمثليين حسب النوع الفني",
-    "Category:LGBTQ-related horror films": "تصنيف:أفلام متعلقة بالمثليين رعب",
-    "Category:LGBTQ-related mass media by country": "تصنيف:وسائل إعلام حسب البلد مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBTQ-related mass media in Denmark": "تصنيف:وسائل إعلام في الدنمارك مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBTQ-related mass media in Europe": "تصنيف:وسائل إعلام في أوروبا مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBTQ-related mass media in Ireland": "تصنيف:وسائل إعلام في أيرلندا مرتبطة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:LGBTQ-related radio stations": "تصنيف:محطات إذاعية مرتبطة بالمثليين",
-    "Category:LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية متعلقة بالمثليين",
-    "Category:LGBTQ-related sitcoms by decade": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بالمثليين حسب العقد",
-    "Category:LGBTQ-related sports films": "تصنيف:أفلام متعلقة بالمثليين رياضية",
     "Category:Labour Friends of Israel": "تصنيف:أصدقاء إسرائيل العماليين",
     "Category:Landforms of Camiguin": "تصنيف:تضاريس كاميغويين",
     "Category:Landforms of Haute-Vienne": "تصنيف:تضاريس فيين العليا (إقليم فرنسي)",
@@ -1979,8 +1968,6 @@ data1 = {
     "Category:Lists of spouses of heads of state": "تصنيف:قوائم قرينات قادة وطنيين",
     "Category:Lists of things named after mathematicians": "تصنيف:أشياء مسماة نسبة لرياضياتيين",
     "Category:Local politicians in the Netherlands": "تصنيف:أصحاب مناصب سياسيين محليين في هولندا",
-    "Category:Luxembourgian LGBT-related films": "تصنيف:أفلام لوكسمبورغية متعلقة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
-    "Category:Luxembourgian LGBTQ-related films": "تصنيف:أفلام لوكسمبورغية متعلقة بالمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
     "Category:Malaysian male squash players": "تصنيف:لاعبو سكواش ماليزيين",
     "Category:Mali men's A' international footballers": "تصنيف:لاعبو منتخب مالي لكرة القدم للرجال للمحليين",
     "Category:Mali political leader navigational boxes": "تصنيف:صناديق تصفح قادة مالي السياسيين",
@@ -3289,7 +3276,7 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
     expected2 = {x: v for x, v in expected.items() if v and x in diff_result2}
     dump_diff(expected2, f"{name}_expected")
 
-    save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
-    dump_diff(save3, f"{name}_d", _sort=False)
+    # save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
+    # dump_diff(save3, f"{name}_d", _sort=False)
 
     assert diff_result == expected, f"Differences found: {len(diff_result)}"

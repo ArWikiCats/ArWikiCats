@@ -10,6 +10,7 @@ import functools
 
 from ...helps.log import logger
 from ...translations import (
+    All_Nat,
     Films_key_333,
     Films_key_CAO,
     Films_key_CAO_new_format,
@@ -20,6 +21,7 @@ from ...translations import (
     television_keys,
 )
 from .film_keys_bot_tyty import get_films_key_tyty
+from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
 @functools.lru_cache(maxsize=None)
@@ -98,3 +100,30 @@ def Films(category: str, country_start: str, country_code: str) -> str:
             logger.debug(f'<<lightblue>> test Films: new {result=} ')
 
     return result
+
+
+@functools.lru_cache(maxsize=None)
+def resolve_films(category: str) -> str:
+    """
+    TODO: use class method
+    """
+    logger.debug(f"<<lightyellow>>>> resolve_films >> {category=}")
+
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
+
+    suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
+    if suffix and nat:
+        country_label = Films(normalized_category, nat, suffix)
+    else:
+        country_label = Films(normalized_category, "", "")
+
+    if country_label:
+        logger.info(f'<<lightblue>> _resolve_films(): {category=}, {country_label=} ')
+
+    return country_label or ""
+
+
+__all__ = [
+    "Films",
+    "resolve_films",
+]
