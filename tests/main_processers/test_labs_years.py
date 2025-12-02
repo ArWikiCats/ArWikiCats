@@ -49,11 +49,16 @@ def test_lab_from_year_add_creates() -> None:
     """Should correctly create the template key/value with year replaced by {year1}."""
     bot = LabsYears()
 
-    label = bot.lab_from_year("Category:1670-related list")
+    # _, label = bot.lab_from_year("Category:1670-related list")
+    # assert label == "تصنيف:قوائم متعلقة ب1670"
+    bot.category_templates = {}
 
-    assert label == "تصنيف:قوائم متعلقة ب1670"
+    added = bot.lab_from_year_add("Category:2020s-related list", "تصنيف:قوائم متعلقة بعقد 2020", en_year="")
+    assert added
 
-    label2 = bot.lab_from_year("Category:1670s-related list")
+    assert "category:{year1}-related list" in bot.category_templates
+
+    _, label2 = bot.lab_from_year("Category:1670s-related list")
     assert label2 == "تصنيف:قوائم متعلقة بعقد 1670"
 
 

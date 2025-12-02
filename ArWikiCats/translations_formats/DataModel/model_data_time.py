@@ -56,6 +56,7 @@ class YearFormatData:
     def fixing(self, text: str) -> str:
         """Fix text."""
         text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
+        text = text.replace("بعقد عقد", "بعقد")
         return text
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
