@@ -52,6 +52,8 @@ class MatchTimes:
     def fixing(self, text: str) -> str:
         """Fix text."""
         text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
+        text = text.replace("بعقد عقد", "بعقد")
+        text = text.replace("بعقد القرن", "بالقرن")
         return text
 
 
@@ -106,7 +108,7 @@ class LabsYears(MatchTimes):
 
         return cat_year, from_year
 
-    def lab_from_year_add(self, category_r: str, category_lab: str, en_year: str, ar_year: str = "") -> None:
+    def lab_from_year_add(self, category_r: str, category_lab: str, en_year: str, ar_year: str = "") -> bool:
         """
         A function that converts the year in category_r and category_lab to YEAR_PARAM and updates the category_templates dictionary accordingly.
         Parameters:
@@ -117,13 +119,20 @@ class LabsYears(MatchTimes):
             None
         """
         if not ar_year:
-            ar_year = self.match_ar_time(category_lab)
+            category_lab_2 = category_lab.replace("بعقد ", "عقد ")
+            ar_year = self.match_ar_time(category_lab_2)
+
+        if not en_year:
+            en_year = self.match_en_time(category_r)
 
         if en_year.isdigit() and not ar_year:
             ar_year = en_year
 
         if not ar_year or ar_year not in category_lab:
-            return
+            return False
+
+        if not en_year or en_year not in category_r:
+            return False
 
         cat_key = category_r.replace(en_year, YEAR_PARAM)
         lab_key = category_lab.replace(ar_year, YEAR_PARAM)
@@ -132,3 +141,4 @@ class LabsYears(MatchTimes):
         logger.debug(f"\t<<yellow>> {cat_key=} , {lab_key=}")
 
         self.category_templates[cat_key.lower()] = lab_key
+        return True

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.media_bots.film_keys_bot import Films, get_Films_key_CAO
+from ArWikiCats.make_bots.media_bots.film_keys_bot import films_with_nat, Films
 
 fast_data = [
     {
@@ -73,7 +73,6 @@ fast_data = [
         "country_code": "live television shows",
         "output": "عروض تلفزيونية مباشرة أمريكية",
     },
-    {"category": "comics images", "country_start": "", "country_code": "", "output": "صور قصص مصورة"},
     {
         "category": "american superhero films",
         "country_start": "american",
@@ -118,7 +117,6 @@ fast_data = [
         "country_code": "television series endings",
         "output": "مسلسلات تلفزيونية برازيلية انتهت في",
     },
-    {"category": "animation", "country_start": "", "country_code": "", "output": "رسوم متحركة"},
     {
         "category": "argentine people",
         "country_start": "argentine",
@@ -138,7 +136,6 @@ fast_data = [
         "output": "أفلام كوارثية ألمانية",
     },
     {"category": "gambian people", "country_start": "gambian", "country_code": "people", "output": "أعلام غامبيون"},
-    {"category": "people", "country_start": "", "country_code": "", "output": "أعلام"},
     {"category": "american logos", "country_start": "american", "country_code": "logos", "output": "شعارات أمريكية"},
     {
         "category": "norwegian television series endings",
@@ -226,7 +223,6 @@ fast_data = [
         "country_code": "thriller films",
         "output": "أفلام إثارة أمريكية",
     },
-    {"category": "comics characters", "country_start": "", "country_code": "", "output": "شخصيات قصص مصورة"},
     {
         "category": "french reality television series",
         "country_start": "french",
@@ -336,7 +332,6 @@ fast_data = [
         "country_code": "speculative fiction novels",
         "output": "روايات خيالية تأملية نمساوية",
     },
-    {"category": "anime and manga characters", "country_start": "", "country_code": "", "output": "شخصيات أنمي ومانغا"},
     {
         "category": "singaporean reality television series",
         "country_start": "singaporean",
@@ -1105,7 +1100,6 @@ fast_data = [
         "country_code": "animated films",
         "output": "أفلام رسوم متحركة سلوفينية",
     },
-    {"category": "soap opera", "country_start": "", "country_code": "", "output": "مسلسلات طويلة"},
     {
         "category": "swiss television seasons",
         "country_start": "swiss",
@@ -1136,7 +1130,6 @@ fast_data = [
         "country_code": "musical comedy films",
         "output": "أفلام كوميديا موسيقية فرنسية",
     },
-    {"category": "music", "country_start": "", "country_code": "", "output": "موسيقى"},
     {
         "category": "american political television series",
         "country_start": "american",
@@ -1247,7 +1240,6 @@ fast_data = [
         "country_code": "television series debuts",
         "output": "مسلسلات تلفزيونية كولومبية بدأ عرضها في",
     },
-    {"category": "webcomic", "country_start": "", "country_code": "", "output": "ويب كومكس"},
     {
         "category": "brazilian television seasons",
         "country_start": "brazilian",
@@ -1260,7 +1252,6 @@ fast_data = [
         "country_code": "zombie films",
         "output": "أفلام زومبي إيطالية",
     },
-    {"category": "clubs", "country_start": "", "country_code": "", "output": "أندية"},
     {"category": "mexican people", "country_start": "mexican", "country_code": "people", "output": "أعلام مكسيكيون"},
     {"category": "swedish people", "country_start": "swedish", "country_code": "people", "output": "أعلام سويديون"},
     {
@@ -1275,103 +1266,25 @@ fast_data = [
 @pytest.mark.parametrize("data", fast_data, ids=lambda x: x["category"])
 @pytest.mark.fast
 def test_fast_data(data) -> None:
-    label = Films(data["category"], data["country_start"], data["country_code"])
+    label = films_with_nat(data["country_start"], data["country_code"])
     assert label == data["output"]
 
 
-fast_data2 = {
-    "3d films": "أفلام ثلاثية الأبعاد",
-    "action films": "أفلام حركة",
-    "adult animated films": "أفلام رسوم متحركة للكبار",
-    "adventure films": "أفلام مغامرات",
-    "adventure novels": "روايات مغامرات",
-    "animated films": "أفلام رسوم متحركة",
-    "animated television series": "مسلسلات تلفزيونية رسوم متحركة",
-    "anime films": "أفلام أنمي",
-    "anthology films": "أفلام أنثولوجيا",
-    "apocalyptic television episodes": "حلقات تلفزيونية نهاية العالم",
-    "black comedy films": "أفلام كوميدية سوداء",
-    "black people": "أعلام سوداء",
-    "buddy films": "أفلام رفقاء",
-    "children's animated television series": "مسلسلات تلفزيونية رسوم متحركة أطفال",
-    "children's television series": "مسلسلات تلفزيونية أطفال",
-    "children's television shows": "عروض تلفزيونية أطفال",
-    "christmas albums": "ألبومات عيد الميلاد",
-    "comedy drama television series": "مسلسلات تلفزيونية كوميديا درامية",
-    "comedy films": "أفلام كوميدية",
-    "comedy television series": "مسلسلات تلفزيونية كوميدية",
-    "comedy thriller films": "أفلام كوميديا إثارة",
-    "comedy-drama films": "أفلام كوميدية درامية",
-    "crime films": "أفلام جريمة",
-    "dark fantasy films": "أفلام فانتازيا مظلمة",
-    "disaster films": "أفلام كوارثية",
-    "docudrama films": "أفلام درامية وثائقية",
-    "documentary films": "أفلام وثائقية",
-    "drama films": "أفلام درامية",
-    "drama television series": "مسلسلات تلفزيونية درامية",
-    "epic films": "أفلام ملحمية",
-    "epic television series": "مسلسلات تلفزيونية ملحمية",
-    "erotic thriller films": "أفلام إثارة جنسية",
-    "fantasy films": "أفلام فانتازيا",
-    "fantasy novels": "روايات فانتازيا",
-    "heist films": "أفلام سرقة",
-    "horror films": "أفلام رعب",
-    "horror novels": "روايات رعب",
-    "horror television series": "مسلسلات تلفزيونية رعب",
-    "independent films": "أفلام مستقلة",
-    "kung fu films": "أفلام كونغ فو",
-    "lgbtq people": "أعلام إل جي بي تي كيو",
-    "live television shows": "عروض تلفزيونية مباشرة",
-    "melodrama films": "أفلام ميلودراما",
-    "military television series": "مسلسلات تلفزيونية عسكرية",
-    "music albums": "ألبومات موسيقية",
-    "music television series": "مسلسلات تلفزيونية موسيقية",
-    "music television shows": "عروض تلفزيونية موسيقية",
-    "musical comedy films": "أفلام كوميديا موسيقية",
-    "mystery film series": "سلاسل أفلام غموض",
-    "mystery films": "أفلام غموض",
-    "mystery television series": "مسلسلات تلفزيونية غموض",
-    "parody films": "أفلام ساخرة",
-    "police procedural films": "أفلام إجراءات الشرطة",
-    "police procedural television series": "مسلسلات تلفزيونية إجراءات الشرطة",
-    "political people": "أعلام سياسية",
-    "political television series": "مسلسلات تلفزيونية سياسية",
-    "prequel films": "أفلام بادئة",
-    "reality television series": "مسلسلات تلفزيونية واقعية",
-    "religious organizations": "منظمات دينية",
-    "robot films": "أفلام آلية",
-    "sailing competitions": "منافسات إبحار",
-    "science fiction films": "أفلام خيال علمي",
-    "science fiction novels": "روايات خيال علمي",
-    "science fiction thriller films": "أفلام إثارة خيال علمي",
-    "science fiction works": "أعمال خيال علمي",
-    "sequel films": "أفلام متممة",
-    "short films": "أفلام قصيرة",
-    "silent short films": "أفلام قصيرة صامته",
-    "speculative fiction films": "أفلام خيالية تأملية",
-    "speculative fiction novels": "روايات خيالية تأملية",
-    "speculative fiction short stories": "قصص قصيرة خيالية تأملية",
-    "speculative fiction works": "أعمال خيالية تأملية",
-    "sports clubs": "أندية رياضية",
-    "sports competitions": "منافسات رياضية",
-    "sports executives": "مدراء رياضية",
-    "sports films": "أفلام رياضية",
-    "sports logos": "شعارات رياضية",
-    "sports television series": "مسلسلات تلفزيونية رياضية",
-    "superhero films": "أفلام خارقة",
-    "teen television series": "مسلسلات تلفزيونية مراهقة",
-    "television logos": "شعارات تلفزيونية",
-    "thriller films": "أفلام إثارة",
-    "thriller novels": "روايات إثارة",
-    "war films": "أفلام حربية",
-    "war television series": "مسلسلات تلفزيونية حربية",
-    "wargames": "ألعاب حربية",
-    "zombie films": "أفلام زومبي",
-}
+fast_data_Films = [
+    {"category": "people", "output": "أعلام"},
+    {"category": "comics images", "output": "صور قصص مصورة"},
+    {"category": "animation", "output": "رسوم متحركة"},
+    {"category": "comics characters", "output": "شخصيات قصص مصورة"},
+    {"category": "anime and manga characters", "output": "شخصيات أنمي ومانغا"},
+    {"category": "soap opera", "output": "مسلسلات طويلة"},
+    {"category": "music", "output": "موسيقى"},
+    {"category": "webcomic", "output": "ويب كومكس"},
+    {"category": "clubs", "output": "أندية"},
+]
 
 
-@pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
+@pytest.mark.parametrize("data", fast_data_Films, ids=lambda x: x["category"])
 @pytest.mark.fast
-def test_get_Films_key_CAO(category: str, expected: str) -> None:
-    label = get_Films_key_CAO(category)
-    assert label == expected
+def test_Films(data) -> None:
+    label = Films(data["category"], "", "")
+    assert label == data["output"]

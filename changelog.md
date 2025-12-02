@@ -1,4 +1,13 @@
 
+## [#149](https://github.com/MrIbrahem/ArWikiCats/pull/149) - 2025-12-02
+
+* **Refactor**
+  * Improved film nationality labeling and centralized nationality-based resolution; adjusted fallback order across film, team, and job category lookups for more consistent labels.
+  * Removed an older jobs-category fallback so job label resolution now uses the revised strategies only.
+
+* **Tests**
+  * Expanded, reorganized, and added tests for films and large data sets; updated test data and harnesses to validate the new resolution paths and mappings.
+
 ## [#148](https://github.com/MrIbrahem/ArWikiCats/pull/148) - 2025-12-02
 
 * **Bug Fixes**

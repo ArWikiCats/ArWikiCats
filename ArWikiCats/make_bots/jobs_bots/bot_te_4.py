@@ -16,7 +16,6 @@ from ...translations import (
 )
 from ..countries_formats.for_me import Work_for_me
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ..media_bots.film_keys_bot import resolve_films
 from ..o_bots import ethnic_bot
 from .get_helps import get_suffix_with_keys
 from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
@@ -112,9 +111,6 @@ def te_2018_with_nat(category: str) -> str:
 
     # Fallback strategies if still no label
     country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
-
-    if not country_label:
-        country_label = resolve_films(normalized_category)
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     return country_label or ""

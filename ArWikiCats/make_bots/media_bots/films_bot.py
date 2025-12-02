@@ -11,9 +11,11 @@ from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..media_bots.film_keys_bot import get_Films_key_CAO
+from ..media_bots.film_keys_bot_tyty import get_films_key_tyty
 from ..o_bots import fax
 from ..o_bots.army import te_army
 from ...translations_resolvers import resolved_sports_formats_labels
+from .film_keys_bot import resolve_films
 
 
 @functools.lru_cache(maxsize=None)
@@ -33,6 +35,11 @@ def te_films(category: str) -> str:
         logger.info(f'>>>> (te_films) get_Films_key_CAO, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
 
+    resolved_label = get_films_key_tyty(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> (te_films) get_films_key_tyty, cat: {normalized_category}, label: "{resolved_label}"')
+        return resolved_label
+
     resolved_label = Jobs_in_Multi_Sports(normalized_category)
     if resolved_label:
         add_to_new_players(normalized_category, resolved_label)
@@ -43,6 +50,12 @@ def te_films(category: str) -> str:
     if resolved_label:
         add_to_Films_O_TT(normalized_category, resolved_label)
         logger.info(f'>>>> (te_films) te_2018_with_nat, cat: {normalized_category}, label: "{resolved_label}"')
+        return resolved_label
+
+    resolved_label = resolve_films(normalized_category)
+    if resolved_label:
+        add_to_Films_O_TT(normalized_category, resolved_label)
+        logger.info(f'>>>> (te_films) resolve_films, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
 
     resolved_label = te4_2018_Jobs(normalized_category)
