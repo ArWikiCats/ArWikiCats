@@ -112,9 +112,11 @@ def resolve_films(category: str) -> str:
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
     suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
+    if suffix and nat:
+        country_label = Films(normalized_category, nat, suffix)
+    else:
+        country_label = Films(normalized_category, "", "")
 
-    # Try various strategies if we have a country code
-    country_label = Films(normalized_category, nat, suffix)
     if country_label:
         logger.info(f'<<lightblue>> _resolve_films(): {category=}, {country_label=} ')
 

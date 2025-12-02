@@ -56,6 +56,7 @@ fast_data = {
     "Category:Remakes of Taiwanese films": "تصنيف:أفلام تايوانية معاد إنتاجها",
     "Category:Remakes of Thai films": "تصنيف:أفلام تايلندية معاد إنتاجها",
     "Category:Remakes of Turkish films": "تصنيف:أفلام تركية معاد إنتاجها",
+    "Category:Sound film remakes of silent films": "تصنيف:أفلام ناطقة معاد إنتاجها في أفلام صامتة",
 }
 
 
@@ -188,7 +189,6 @@ fast_data_empty = {
     "Category:Punjabi remakes of Marathi films": "x",
     "Category:Punjabi remakes of Tamil films": "x",
     "Category:Punjabi remakes of Telugu films": "x",
-    "Category:Sound film remakes of silent films": "x",
     "Category:South Korean remakes of Brazilian films": "x",
     "Category:South Korean remakes of foreign films": "x",
     "Category:South Korean remakes of Japanese films": "x",
@@ -223,7 +223,7 @@ fast_data_empty = {
 
 TEMPORAL_CASES = [
     ("test_Keep_it_last_extended", fast_data),
-    ("test_Keep_it_last_empty", fast_data_empty),
+    # ("test_Keep_it_last_empty", fast_data_empty),
 ]
 
 

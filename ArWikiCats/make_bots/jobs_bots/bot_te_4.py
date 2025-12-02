@@ -88,8 +88,7 @@ def te_2018_with_nat(category: str) -> str:
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
     # Try direct lookups first
-    country_label = short_womens_jobs.get(normalized_category) \
-        or jobs_mens_data.get(normalized_category) or resolve_films(normalized_category)
+    country_label = short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
     if country_label:
         logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
@@ -113,6 +112,9 @@ def te_2018_with_nat(category: str) -> str:
 
     # Fallback strategies if still no label
     country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
+
+    if not country_label:
+        country_label = resolve_films(normalized_category)
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     return country_label or ""
