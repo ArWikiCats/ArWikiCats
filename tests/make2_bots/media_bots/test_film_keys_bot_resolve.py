@@ -101,6 +101,41 @@ fast_data = {
     "venezuelan silent short films": "أفلام قصيرة صامته فنزويلية",
 }
 
+fast_data_2 = {
+    "ivorian people": "أعلام إيفواريون",
+    "japanese lgbtq people": "أعلام إل جي بي تي كيو يابانية",
+    "chinese lgbtq people": "أعلام إل جي بي تي كيو صينية",
+    "arab lgbtq people": "أعلام إل جي بي تي كيو عربية",
+    "rwandan political people": "أعلام سياسية رواندية",
+    "maldivian people": "أعلام مالديفيون",
+    "malian people": "أعلام ماليون",
+    "maltese lgbtq people": "أعلام إل جي بي تي كيو مالطية",
+
+    "danish adventure television series": "مسلسلات تلفزيونية مغامرات دنماركية",
+    "danish black-and-white films": "أفلام أبيض وأسود دنماركية",
+    "dutch television-seasons": "مواسم تلفزيونية هولندية",
+    "colombian children's animated television series": "مسلسلات تلفزيونية رسوم متحركة أطفال كولومبية",
+    "chinese sports executives": "مدراء رياضية صينية",
+    "american zombie novels": "روايات زومبي أمريكية",
+    "argentine adult animated television series": "مسلسلات تلفزيونية رسوم متحركة للكبار أرجنتينية",
+    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
+    "british mystery television series": "مسلسلات تلفزيونية غموض بريطانية",
+    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
+    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
+    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
+    "spanish action films": "أفلام حركة إسبانية",
+    "serbian crime television series": "مسلسلات تلفزيونية جريمة صربية",
+    "portuguese fantasy films": "أفلام فانتازيا برتغالية",
+    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
+    "polish crime thriller films": "أفلام إثارة وجريمة بولندية",
+    "polish epic films": "أفلام ملحمية بولندية",
+    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
+    "polish television-seasons": "مواسم تلفزيونية بولندية",
+    "norwegian comedy-drama films": "أفلام كوميديا درامية نرويجية",
+    "mexican crime thriller films": "أفلام إثارة وجريمة مكسيكية",
+    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
+}
+
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
@@ -109,8 +144,16 @@ def test_resolve_films(category: str, expected: str) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", fast_data_2.items(), ids=list(fast_data_2.keys()))
+@pytest.mark.fast
+def test_resolve_films_new(category: str, expected: str) -> None:
+    label = resolve_films(category)
+    assert label == expected
+
+
 to_test = [
     ("test_resolve_films", fast_data),
+    ("test_resolve_films_new", fast_data_2),
 ]
 
 
