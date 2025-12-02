@@ -90,31 +90,33 @@ def te_2018_with_nat(category: str) -> str:
     # Try direct lookups first
     country_label = short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
-    if not country_label:
-        suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
+    if country_label:
+        logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
+        return country_label
 
-        if suffix:
-            # Try various strategies if we have a country code
-            strategies = {
-                "Work_for_me": lambda: Work_for_me(normalized_category, nat, suffix),
-                "Films": lambda: Films(normalized_category, nat, suffix),
-                "ethnic_bot.ethnic_label": lambda: ethnic_bot.ethnic_label(normalized_category, nat, suffix),
-                "nat_match": lambda: nat_match(normalized_category),
-            }
+    suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
 
-            for name, strategy in strategies.items():
-                country_label = strategy()
-                if country_label:
-                    logger.debug(f'<<lightblue>> te_2018_with_nat: def {name}() {country_label=} ')
-                    break
+    if suffix:
+        # Try various strategies if we have a country code
+        strategies = {
+            "Work_for_me": lambda: Work_for_me(normalized_category, nat, suffix),
+            "Films": lambda: Films(normalized_category, nat, suffix),
+            "ethnic_bot.ethnic_label": lambda: ethnic_bot.ethnic_label(normalized_category, nat, suffix),
+            "nat_match": lambda: nat_match(normalized_category),
+        }
 
-        # Fallback strategies if still no label
-        if not country_label:
-            country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
+        for name, strategy in strategies.items():
+            country_label = strategy()
+            if country_label:
+                logger.debug(f'<<lightblue>> te_2018_with_nat: def {name}() {country_label=} ')
+                return country_label
 
-        # Special case for Films if everything else failed and no country code
-        if not country_label and not suffix:
-            country_label = Films(normalized_category, "", "")
+    # Fallback strategies if still no label
+    country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
+
+    # Special case for Films if everything else failed and no country code
+    if not country_label and not suffix:
+        country_label = Films(normalized_category, "", "")
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     return country_label or ""
