@@ -1,4 +1,16 @@
 
+## [#148](https://github.com/MrIbrahem/ArWikiCats/pull/148) - 2025-12-02
+
+* **Bug Fixes**
+  * Standardized film category key names and removed obsolete LGBT/LGBTQ key variants to ensure consistent labels.
+
+* **Improvements**
+  * Improved film label resolution with multi-part matching, prioritization, caching and better suffix handling via a new resolution entry point.
+  * Updated key sets and summary data to reflect consistent naming.
+
+* **Tests**
+  * Expanded and updated tests to cover new resolution logic and mappings.
+
 ## [#146](https://github.com/MrIbrahem/ArWikiCats/pull/146) - 2025-12-01
 
 * **New Features**
