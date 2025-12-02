@@ -38,7 +38,7 @@ class MultiDataFormatterBase:
     def __init__(
         self,
         country_bot: FormatData | YearFormatData,
-        other_bot: FormatData | YearFormatData,
+        other_bot: YearFormatData | FormatData,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
