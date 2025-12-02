@@ -35,7 +35,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     r"football \(soccer\)": "football",
     r"us open \(tennis\)": "us open tennis",
     r"\(tennis\)": "tennis",
-    "lgbt-related": "lgbtrelated",
     "world war ii": "world-war-ii",
     "world war i": "world-war-i",
     "killed in action": "killed-in-action",

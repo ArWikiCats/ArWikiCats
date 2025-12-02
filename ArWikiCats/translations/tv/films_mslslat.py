@@ -47,7 +47,6 @@ debuts_endings_key = ["television series", "television miniseries", "television 
 nat_key_f = "{}"
 
 Films_key_CAO_new_format = {
-    "lgbtrelated films": "أفلام {} متعلقة بإل جي بي تي",
     "lgbtqrelated films": "أفلام {} متعلقة بإل جي بي تي كيو",
 }
 
@@ -72,13 +71,13 @@ def _build_gender_key_maps(
         films_key_333: english key (original) -> female label
         films_key_man: english key -> male label (with animated variants)
         film_keys_for_male: english key -> male label
-        film_Keys_for_female: english key -> female label
+        film_keys_for_female: english key -> female label
     """
     films_key_both: Dict[str, Dict[str, str]] = {}
     films_key_333: Dict[str, str] = {}
     films_key_man: Dict[str, str] = {}
     film_keys_for_male: Dict[str, str] = {}
-    film_Keys_for_female: Dict[str, str] = {}
+    film_keys_for_female: Dict[str, str] = {}
 
     def _consume_source(source: Dict[str, Dict[str, str]]) -> None:
         """Merge a male/female mapping source into the combined structures."""
@@ -108,7 +107,7 @@ def _build_gender_key_maps(
             film_keys_for_male[en_key] = male_label
 
         if female_label:
-            film_Keys_for_female[en_key] = female_label
+            film_keys_for_female[en_key] = female_label
 
     films_keys_male_female = dict(films_keys_male_female)
     # Alias "animated" to "animation" if present
@@ -119,14 +118,14 @@ def _build_gender_key_maps(
         female_label = labels.get("female", "").strip()
         if female_label:
             films_key_333[en_key] = female_label
-            film_Keys_for_female[en_key] = female_label
+            film_keys_for_female[en_key] = female_label
 
     return (
         films_key_both,
         films_key_333,
         films_key_man,
         film_keys_for_male,
-        film_Keys_for_female,
+        film_keys_for_female,
     )
 
 
@@ -362,18 +361,18 @@ Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
     Films_key_both,
     Films_key_333,
     Films_key_man,
-    film_Keys_For_male,
-    film_Keys_for_female,
+    film_keys_for_male,
+    film_keys_for_female,
 ) = _build_gender_key_maps(Films_keys_male_female, Films_key_O_multi)
 
 # Convenient alias (kept for compatibility if used elsewhere)
-Films_key2 = film_Keys_for_female
+Films_key2 = film_keys_for_female
 
 # Nat/series keys (Films_key_For_nat + films_mslslat_tab)
 Films_key_For_nat = _extend_films_key_for_nat_with_mat2(Films_key_For_nat)
 Films_key_For_nat, films_mslslat_tab = _build_series_and_nat_keys(
     Films_key_For_nat,
-    film_Keys_for_female,
+    film_keys_for_female,
 )
 
 # Female values from Films_key_O_multi also contribute to Films_key_333
@@ -385,7 +384,7 @@ for cd, ff in Films_key_O_multi.items():
 # Television CAO mappings
 Films_key_CAO, ss_Films_key_CAO = _build_television_cao(
     television_keys,
-    film_Keys_for_female,
+    film_keys_for_female,
 )
 
 # Extended female-only combinations (both keys)
@@ -401,15 +400,15 @@ len_print.data_len(
         "Films_key_333": Films_key_333,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new_female": Films_keys_both_new_female,
-        "film_Keys_for_female": film_Keys_for_female,
+        "film_keys_for_female": film_keys_for_female,
     },
 )
 
 __all__ = [
     "television_keys",
     "films_mslslat_tab",
-    "film_Keys_for_female",
-    "film_Keys_For_male",
+    "film_keys_for_female",
+    "film_keys_for_male",
     "Films_key_333",
     "Films_key_CAO",
     "Films_key_CAO_new_format",
