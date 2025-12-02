@@ -113,8 +113,7 @@ def te_2018_with_nat(category: str) -> str:
     # Fallback strategies if still no label
     country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
 
-    if not country_label:
-        country_label = resolve_films(normalized_category)
+    # if not country_label: country_label = resolve_films(normalized_category)
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     return country_label or ""

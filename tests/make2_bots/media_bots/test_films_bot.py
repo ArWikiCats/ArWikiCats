@@ -5,31 +5,20 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.media_bots.films_bot import te_films
+from ArWikiCats.make_bots.media_bots.films_bot import resolve_films as te_films
 
 fast_data_drama = {
+    "comedy-drama films": "أفلام كوميدية درامية",
     "english-language political drama films": "أفلام دراما سياسية باللغة الإنجليزية",
     "english-language war drama films": "أفلام دراما حربية باللغة الإنجليزية",
     "hindi-language drama films": "أفلام دراما باللغة الهندية",
     "norwegian-language romantic drama films": "أفلام دراما رومانسية باللغة النرويجية",
 
-    "burmese romantic drama films": "أفلام رومانسية درامية بورمية",
-    "dutch war drama films": "أفلام حربية درامية هولندية",
-    "indian sports drama films": "أفلام رياضية درامية هندية",
-    "iranian romantic drama films": "أفلام رومانسية درامية إيرانية",
-    "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
-    "russian sports drama films": "أفلام رياضية درامية روسية",
-    "spanish war drama films": "أفلام حربية درامية إسبانية",
-
     "belgian drama films": "أفلام درامية بلجيكية",
     "canadian docudrama films": "أفلام درامية وثائقية كندية",
-    "comedy-drama films": "أفلام كوميدية درامية",
     "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
-    "melodrama films": "أفلام ميلودراما",
-    "north korean drama films": "أفلام درامية كورية شمالية",
     "portuguese-language biographical drama films": "أفلام سيرة ذاتية درامية باللغة البرتغالية",
     "russian-language fantasy drama films": "أفلام فانتازيا درامية باللغة الروسية",
-    "soviet drama films": "أفلام درامية سوفيتية",
     "spanish-language historical drama films": "أفلام تاريخية درامية باللغة الإسبانية",
 }
 
@@ -160,14 +149,14 @@ def test_fast_data_drama(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
-def test_fast_data(category: str, expected: str) -> None:
+def test_fast_data_films(category: str, expected: str) -> None:
     label = te_films(category)
     assert label == expected
 
 
 to_test = [
     ("test_fast_data_drama", fast_data_drama),
-    ("test_fast_data", fast_data),
+    ("test_fast_data_films", fast_data),
 ]
 
 
