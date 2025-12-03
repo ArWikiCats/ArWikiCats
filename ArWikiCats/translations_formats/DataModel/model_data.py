@@ -17,7 +17,7 @@ class FormatData:
         value_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
-    ):
+    ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
         self.formatted_data = formatted_data
@@ -114,7 +114,7 @@ class FormatData:
         normalized = self.normalize_category(category, sport_key)
         logger.debug(f"normalized xoxo : {normalized}")
         # Case-insensitive key lookup
-        return self.formated_data_ci.get(normalized.lower(), "")
+        return self.formated_data_ci.get(normalized.lower(), "")  # or self.formated_data_ci.get(f"category:{normalized.lower()}", "")
 
     def get_template_ar(self, template_key: str) -> str:
         """Lookup template in a case-insensitive dict."""
@@ -166,6 +166,11 @@ class FormatData:
 
     @functools.lru_cache(maxsize=None)
     def search(self, category: str) -> str:
+        """Public wrapper around ``_search`` with caching."""
+        return self._search(category)
+
+    @functools.lru_cache(maxsize=None)
+    def create_label(self, category: str) -> str:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 

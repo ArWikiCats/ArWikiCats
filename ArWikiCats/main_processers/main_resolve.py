@@ -9,7 +9,7 @@ from dataclasses import dataclass
 
 from . import event2bot, event_lab_bot
 from .labs_years import LabsYears
-from .country_time_pattern import get_label
+from . import country_time_pattern, nat_pattern
 from ..config import app_settings
 from ..fix import fixtitle
 from ..make_bots.co_bots import filter_en
@@ -52,7 +52,11 @@ def resolve_label(category: str) -> CategoryResult:
     start_ylab = ""
     from_match = False
     if not category_lab:
-        category_lab = get_label(changed_cat)
+        category_lab = country_time_pattern.get_label(changed_cat)
+        from_match = category_lab != ""
+
+    if not category_lab:
+        category_lab = nat_pattern.get_label(changed_cat)
         from_match = category_lab != ""
 
     if not category_lab:

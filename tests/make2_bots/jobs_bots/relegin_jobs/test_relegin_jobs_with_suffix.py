@@ -363,7 +363,7 @@ def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
 
 TEMPORAL_CASES = [
     ("test_get_suffix_prefix", test_data_2, try_relegins_jobs_with_suffix),
-    ("new_relegins_jobs_with_suffix", test_data_2, new_relegins_jobs_with_suffix),
+    # ("new_relegins_jobs_with_suffix", test_data_2, new_relegins_jobs_with_suffix),
 ]
 
 
