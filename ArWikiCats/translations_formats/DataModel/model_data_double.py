@@ -42,7 +42,7 @@ class FormatDataDouble:
 
         self.keys_to_pattern()
 
-    def update_put_label_last(self, data: list[str, str]) -> None:
+    def update_put_label_last(self, data: list[str]|set[str]) -> None:
         self.put_label_last = data
 
     def add_formatted_data(self, key: str, value: str) -> None:
