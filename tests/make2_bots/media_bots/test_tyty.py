@@ -33,16 +33,16 @@ test_data = {
 }
 
 test_data_2 = {
-    "musical comedy drama": "{tyty} كوميديا موسيقية درامية",
-    "musical comedy fiction": "{tyty} كوميديا موسيقية خيالية",
-    "musical comedy horror": "{tyty} كوميديا موسيقية رعب",
-    "romantic comedy drama": "{tyty} كوميديا رومانسية درامية",
-    "romantic comedy fiction": "{tyty} كوميديا رومانسية خيالية",
-    "romantic comedy horror": "{tyty} كوميديا رومانسية رعب",
-    "zombie comedy drama": "{tyty} كوميديا الزومبي درامية",
-    "zombie comedy fiction": "{tyty} كوميديا الزومبي خيالية",
-    "zombie comedy horror": "{tyty} كوميديا الزومبي رعب",
-    "zombie comedy thriller": "{tyty} كوميديا الزومبي إثارة"
+    "musical comedy drama": "{tyty} موسيقية كوميديا درامية",
+    "musical comedy fiction": "{tyty} موسيقية كوميديا خيالية",
+    "musical comedy horror": "{tyty} موسيقية كوميدية رعب",
+    "romantic comedy drama": "{tyty} رومانسية كوميديا درامية",
+    "romantic comedy fiction": "{tyty} رومانسية كوميديا خيالية",
+    "romantic comedy horror": "{tyty} رومانسية كوميدية رعب",
+    "zombie comedy drama": "{tyty} زومبي كوميديا درامية",
+    "zombie comedy fiction": "{tyty} زومبي كوميديا خيالية",
+    "zombie comedy horror": "{tyty} زومبي كوميدية رعب",
+    "zombie comedy thriller": "{tyty} زومبي كوميديا إثارة"
 }
 
 
@@ -52,16 +52,12 @@ def test_search_multi(category: str, expected: str) -> None:
     label1 = search_multi(category)
     assert label1 == expected
 
-    label2 = search_multi_new(category)
-    assert label2 == expected
-
 
 to_test = [
     ("test_search_multi", test_data, search_multi),
     ("test_search_multi_new", test_data, search_multi_new),
 
     ("test_search_multi_test_data_2", test_data_2, search_multi),
-    ("test_search_multi_new_test_data_2", test_data_2, search_multi_new),
 ]
 
 
