@@ -15,11 +15,7 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize(
-    "category,expected",
-    test_data.items(),
-    ids=test_data.keys()
-)
+@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 def test_nat_pattern(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = get_label(category)

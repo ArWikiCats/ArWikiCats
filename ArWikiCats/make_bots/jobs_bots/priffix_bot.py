@@ -5,22 +5,23 @@ TODO: refactor the code
 
 import functools
 
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import (
     By_table,
+    change_male_to_female,
     Female_Jobs,
+    FILM_PRODUCTION_COMPANY,
+    jobs_mens_data,
+    jobs_womens_data,
     Mens_priffix,
     Mens_suffix,
     Nat_mens,
-    Women_s_priffix,
-    change_male_to_female,
-    jobs_mens_data,
-    jobs_womens_data,
+    People_key,
     replace_labels_2022,
     short_womens_jobs,
-    FILM_PRODUCTION_COMPANY,
     SPORTS_KEYS_FOR_LABEL,
-    People_key,
+    Women_s_priffix,
 )
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -45,6 +46,7 @@ def _extend_By_table() -> dict[str, str]:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def work_mens_priffix(con_33: str) -> str:
     """
     TODO: need refactoring
@@ -91,6 +93,7 @@ def work_mens_priffix(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def work_mens_suffix(con_33: str) -> str:
     """
     TODO: need refactoring
@@ -126,6 +129,7 @@ def work_mens_suffix(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def priffix_Mens_work(con_33: str) -> str:
     """Process and retrieve the appropriate label for a given input string.
 
@@ -169,6 +173,7 @@ def priffix_Mens_work(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def Women_s_priffix_work(suffix: str) -> str:
     """
     Retrieve the women's prefix work label based on the input string.
