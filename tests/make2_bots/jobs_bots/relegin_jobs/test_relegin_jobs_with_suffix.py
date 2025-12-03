@@ -4,6 +4,7 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test
 
+from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_relegins_jobs_with_suffix
 from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import create_country_lab
 from ArWikiCats.make_bots.jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
@@ -95,14 +96,15 @@ def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_get_suffix_prefix", test_data_2),
+    ("test_get_suffix_prefix", test_data_2, try_relegins_jobs_with_suffix),
+    ("new_relegins_jobs_with_suffix", test_data_2, new_relegins_jobs_with_suffix),
 ]
 
 
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, try_relegins_jobs_with_suffix)
+def test_all_dump(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
