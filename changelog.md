@@ -2,12 +2,16 @@
 ## [#151](https://github.com/MrIbrahem/ArWikiCats/pull/151) - 2025-12-03
 
 * **New Features**
-  * Added enhanced template-driven label formatting for film and media category data
-  * Introduced improved sorting logic for film-related keys based on composite criteria
-  * Added new functions for film text mapping and label resolution
+  * Improved film/media labeling: template-driven formatting, enhanced multi-key matching, a new film-text mapping/resolution path, and a newly exported formatter available for use.
 
 * **Tests**
-  * Expanded test coverage for new film formatting and label resolution functionality
+  * Expanded unit and integration tests to cover new matching paths and parallel implementations.
+
+* **Style**
+  * Multiple formatting cleanups for sorting expressions (no behavior change).
+
+* **Bug Fixes**
+  * Updated Arabic translation for "Burma".
 
 ## [#150](https://github.com/MrIbrahem/ArWikiCats/pull/150) - 2025-12-02
 
