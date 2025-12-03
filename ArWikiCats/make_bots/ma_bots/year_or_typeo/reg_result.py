@@ -2,31 +2,44 @@ import re
 from dataclasses import dataclass
 
 from ....translations.type_tables import basedtypeTable
-from ....translations.utils.patterns import load_keys_to_pattern_new
 from ...format_bots import category_relation_mapping
 
-# These patterns depend on dynamically generated values and are compiled at runtime
-yy = (
-    r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?"
-    r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?"
-    r"|\d+[−–\-]\d+"
-    r"|\d+s\s*(?:BCE*)?"
-    r"|\d+\s*(?:BCE*)?"
-).lower()
 
-MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
+def _load_pattern() -> re.Pattern:
+    """Load the regex pattern for the first line of categories."""
+    # These patterns depend on dynamically generated values and are compiled at runtime
+    _yy = (
+        r"\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?\s*(?:BCE*)?"
+        r"|\d+(?:th|st|rd|nd)[−–\- ](?:millennium|century)?"
+        r"|\d+[−–\-]\d+"
+        r"|\d+s\s*(?:BCE*)?"
+        r"|\d+\s*(?:BCE*)?"
+    ).lower()
 
-typeo_pattern = load_keys_to_pattern_new(list(basedtypeTable))
-in_pattern = load_keys_to_pattern_new(category_relation_mapping.keys(), by=" |")
+    _MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
 
-reg_line_1_match = (
-    rf"(?P<monthyear>{MONTHSTR3}(?:{yy})|)\s*"
-    r"(?P<typeo>" + typeo_pattern.lower() + r"|)\s*"
-    r"(?P<in>" + in_pattern.lower() + r"|)\s*"
-    r"(?P<country>.*|).*"
-)
+    _basedtypeTable = sorted(
+        basedtypeTable.keys(),
+        key=lambda k: (-k.count(" "), -len(k)),
+    )
+    _typeo_pattern = "|".join(map(re.escape, [n.lower() for n in _basedtypeTable]))
 
-REGEX_SEARCH_REG_LINE_1 = re.compile(reg_line_1_match, re.I)
+    _sorted_mapping = sorted(
+        category_relation_mapping.keys(),
+        key=lambda k: (-k.count(" "), -len(k)),
+    )
+    _in_pattern = " |".join(map(re.escape, [n.lower() for n in _sorted_mapping]))
+
+    _reg_line_1_match = (
+        rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*"
+        r"(?P<typeo>" + _typeo_pattern.lower() + r"|)\s*"
+        r"(?P<in>" + _in_pattern.lower() + r"|)\s*"
+        r"(?P<country>.*|).*"
+    )
+    return re.compile(_reg_line_1_match, re.I)
+
+
+REGEX_SEARCH_REG_LINE_1 = _load_pattern()
 
 # Precompiled Regex Patterns
 REGEX_SUB_MILLENNIUM_CENTURY = re.compile(r"[−–\-](millennium|century)", re.I)

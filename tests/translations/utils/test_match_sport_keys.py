@@ -104,6 +104,8 @@ def test_case_insensitivity(category) -> None:
 @pytest.mark.parametrize(
     "text,longest_key",
     [
+        ("FIFA shooting racing", "shooting racing"),
+        ("FIFA shooting", "shooting"),
         ("Category:FIFA Futsal World Cup racing", "fifa futsal world cup racing"),
         ("Category:FIFA Futsal World Cup", "fifa futsal world cup"),
     ],
