@@ -23,7 +23,7 @@
     "autobiographical": { "male": "", "female": ""},
     "aviation": { "male": "طيران", "female": "طيران"},
     "b movie": { "male": "درجة ثانية", "female": "درجة ثانية"},
-    "biographical": { "male": "سيرة ذاتية", "female": "سيرة ذاتية"},
+    "biographical": { "male": "سير ذاتية", "female": "سير ذاتية"},
     "black and white": { "male": "أبيض وأسود", "female": "أبيض وأسود"},
     "black comedy": { "male": "كوميديا سوداء", "female": "كوميدية سوداء"},
     "black": { "male": "أسود", "female": "سوداء"},

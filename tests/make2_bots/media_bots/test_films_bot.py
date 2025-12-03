@@ -14,12 +14,13 @@ fast_data_drama = {
     "norwegian-language romantic drama films": "أفلام دراما رومانسية باللغة النرويجية",
 
     "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
-    "portuguese-language biographical drama films": "أفلام سيرة ذاتية درامية باللغة البرتغالية",
+    "portuguese-language biographical drama films": "أفلام سير ذاتية درامية باللغة البرتغالية",
     "russian-language fantasy drama films": "أفلام فانتازيا درامية باللغة الروسية",
     "spanish-language historical drama films": "أفلام تاريخية درامية باللغة الإسبانية",
 }
 
 fast_data = {
+    "croatian biographical films": "أفلام سير ذاتية كرواتية",
     "albanian film directors": "مخرجو أفلام ألبان",
     "american film directors": "مخرجو أفلام أمريكيون",
     "argentine film actors": "ممثلو أفلام أرجنتينيون",
@@ -30,7 +31,6 @@ fast_data = {
     "british films": "أفلام بريطانية",
     "bruneian film producers": "منتجو أفلام برونيون",
     "cantonese-language speculative fiction films": "أفلام خيال تأملي باللغة الكانتونية",
-    "croatian biographical films": "أفلام سير ذاتية كرواتية",
     "czech silent film actors": "ممثلو أفلام صامتة تشيكيون",
     "czech-language crime films": "أفلام جريمة باللغة التشيكية",
     "dutch films": "أفلام هولندية",

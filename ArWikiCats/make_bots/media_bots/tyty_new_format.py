@@ -17,7 +17,7 @@ from ...translations import (
 def _make_bot() -> MultiDataFormatterBase:
     # Template data with both nationality and sport placeholders
     formatted_data = {
-        "{nat_en} films": "أفلام {nat_ar}",
+        # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
     }
@@ -129,4 +129,4 @@ def get_films_key_tyty_new(text: str) -> str:
     normalized_text = text.lower().strip()
     bot = _make_bot()
 
-    return bot.search_all(text)
+    return bot.search_all(normalized_text)

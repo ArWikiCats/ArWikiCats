@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+TODO: replaced py ArWikiCats/make_bots/media_bots/tyty_new_format.py
 """
 
 import functools

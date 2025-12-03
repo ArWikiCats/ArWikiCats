@@ -20,7 +20,8 @@ from ...translations import (
     en_is_nat_ar_is_women,
     television_keys,
 )
-from .film_keys_bot_tyty import get_films_key_tyty
+# from .film_keys_bot_tyty import get_films_key_tyty
+from .tyty_new_format import get_films_key_tyty_new
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
@@ -69,7 +70,11 @@ def films_with_nat(country_start: str, country_code: str) -> str:
         logger.debug(f'<<lightblue>> bot_te_4:Films: new {result=} ')
 
     if not result:
-        country_label = Films_key_CAO.get(country_code) or get_Films_key_CAO(country_code) or get_films_key_tyty(country_code)
+        country_label = Films_key_CAO.get(country_code) \
+            or get_Films_key_CAO(country_code) \
+            or get_films_key_tyty_new(country_code)
+        # or get_films_key_tyty(country_code)
+
         if country_label:
             result = f"{country_label} {country_name}"
             if country_code in Films_key_CAO_new_format:
@@ -100,7 +105,9 @@ def Films(category: str, country_start: str, country_code: str) -> str:
             logger.debug(f'<<lightblue>> test Films: {result=} ')
 
     if not result:
-        result = get_Films_key_CAO(category) or get_films_key_tyty(category)
+        result = get_Films_key_CAO(category) \
+            or get_films_key_tyty_new(category)
+        # or get_films_key_tyty(category)
         if result:
             logger.debug(f'<<lightblue>> test Films: new {result=} ')
 
