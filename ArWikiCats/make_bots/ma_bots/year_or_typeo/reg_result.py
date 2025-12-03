@@ -32,8 +32,8 @@ def _load_pattern() -> re.Pattern:
 
     _reg_line_1_match = (
         rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*"
-        r"(?P<typeo>" + _typeo_pattern.lower() + r"|)\s*"
-        r"(?P<in>" + _in_pattern.lower() + r"|)\s*"
+        r"(?P<typeo>" + _typeo_pattern + r"|)\s*"
+        r"(?P<in>" + _in_pattern + r"|)\s*"
         r"(?P<country>.*|).*"
     )
     return re.compile(_reg_line_1_match, re.I)
