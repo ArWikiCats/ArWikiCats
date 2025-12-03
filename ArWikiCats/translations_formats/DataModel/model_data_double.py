@@ -37,6 +37,7 @@ class FormatDataDouble:
         self.pattern = None
         self.keys_to_split = {}
         self.put_label_last = {}
+        self.search_multi_cache = {}
 
         self.data_pattern_double = ""
         self.pattern_double = None
@@ -165,20 +166,25 @@ class FormatDataDouble:
 
         return result
 
+    @functools.lru_cache(maxsize=None)
     def create_label_from_keys(self, part1: str, part2: str):
         """
         if "upcoming" in self.put_label_last we using:
             "أفلام قادمة رعب يمنية inested of "أفلام رعب قادمة يمنية"
         """
-        part1_label = self.data_list_ci.get(part1)
-        part2_label = self.data_list_ci.get(part2)
-        if not part1_label or not part2_label:
+
+        first_label = self.data_list_ci.get(part1)
+        second_label = self.data_list_ci.get(part2)
+
+        if not first_label or not second_label:
             return ""
 
-        label = f"{part1_label} {part2_label}"
+        label = f"{first_label} {second_label}"
 
-        if part1 in self.put_label_last or part1_label in self.put_label_last:
-            label = f"{part2_label} {part1_label}"
+        if part1 in self.put_label_last and part2 not in self.put_label_last:
+            label = f"{second_label} {first_label}"
+
+        self.search_multi_cache[f"{part2} {part1}"] = label
 
         return label
 
@@ -192,6 +198,9 @@ class FormatDataDouble:
         result = self.data_list_ci.get(sport_key)
         if result:
             return result
+
+        if self.search_multi_cache.get(sport_key.lower()):
+            return self.search_multi_cache[sport_key.lower()]
 
         if sport_key in self.keys_to_split:
             part1, part2 = self.keys_to_split[sport_key]

@@ -15,7 +15,7 @@ from ...translations import (
 # sorted by len of " " in key
 keys_female_sorted = dict(sorted(film_keys_for_female.items(), key=lambda x: x[0].count(" "), reverse=True))
 
-films_first = {
+put_label_last = {
     "low-budget",
     "christmas",
     "lgbtq-related",
@@ -79,7 +79,7 @@ def search_multi(text: str) -> str:
         paop_1 = f"{{tyty}} {first_label} {second_label}"
 
         # Adjust order for specific keywords
-        if first_key_lower in films_first and second_key_lower not in films_first:
+        if first_key_lower in put_label_last and second_key_lower not in put_label_last:
             paop_1 = f"{{tyty}} {second_label} {first_label}"
 
         search_multi_cache[f"{second_part} {first_part}"] = paop_1

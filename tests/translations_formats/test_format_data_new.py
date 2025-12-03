@@ -111,6 +111,7 @@ test_data_standard = {
     "psychological horror cancelled films": "أفلام رعب نفسي ملغية",
 }
 
+
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=list(test_data_standard.keys()))
 def test_year_country_combinations(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
     """
@@ -170,31 +171,3 @@ test_match_key_data = {
 def test_match_key(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
     result = yc_bot.other_bot.match_key(category)
     assert result == expected
-
-
-test_match_key_data = {
-    "lgbtq-related low-budget": "{tyty} متعلقة بإل جي بي تي كيو منخفضة التكلفة",
-    "lgbtq-related upcoming": "{tyty} متعلقة بإل جي بي تي كيو قادمة",
-    "low-budget lgbtq-related": "{tyty} متعلقة بإل جي بي تي كيو منخفضة التكلفة",
-    "upcoming lgbtq-related": "{tyty} متعلقة بإل جي بي تي كيو قادمة",
-
-    "upcoming christmas": "{tyty} قادمة عيد الميلاد",
-    "christmas upcoming": "{tyty} قادمة عيد الميلاد",
-    "action comedy drama": "{tyty} حركة كوميدية درامية",
-    "action comedy fiction": "{tyty} حركة كوميدية خيالية",
-    "action comedy thriller": "{tyty} حركة كوميدية إثارة",
-    "christmas low-budget": "{tyty} عيد الميلاد منخفضة التكلفة",
-    "low-budget christmas": "{tyty} عيد الميلاد منخفضة التكلفة",
-    "low-budget upcoming": "{tyty} منخفضة التكلفة قادمة",
-    "musical comedy drama": "{tyty} موسيقية كوميديا درامية",
-    "musical comedy fiction": "{tyty} موسيقية كوميديا خيالية",
-    "musical comedy horror": "{tyty} موسيقية كوميدية رعب",
-    "romantic comedy drama": "{tyty} رومانسية كوميديا درامية",
-    "romantic comedy fiction": "{tyty} رومانسية كوميديا خيالية",
-    "romantic comedy horror": "{tyty} رومانسية كوميدية رعب",
-    "upcoming low-budget": "{tyty} منخفضة التكلفة قادمة",
-    "zombie comedy drama": "{tyty} زومبي كوميديا درامية",
-    "zombie comedy fiction": "{tyty} زومبي كوميديا خيالية",
-    "zombie comedy horror": "{tyty} زومبي كوميدية رعب",
-    "zombie comedy thriller": "{tyty} زومبي كوميديا إثارة"
-}
