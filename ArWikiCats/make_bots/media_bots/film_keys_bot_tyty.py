@@ -56,7 +56,6 @@ search_multi_cache = {
 
 @functools.lru_cache(maxsize=None)
 def search_multi(text: str) -> str:
-    label = ""
     if search_multi_cache.get(text.lower()):
         return search_multi_cache[text.lower()]
 

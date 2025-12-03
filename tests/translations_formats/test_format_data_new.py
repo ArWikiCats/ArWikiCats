@@ -111,7 +111,6 @@ test_data_standard = {
     "psychological horror cancelled films": "أفلام رعب نفسي ملغية",
 }
 
-
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=list(test_data_standard.keys()))
 def test_year_country_combinations(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
     """

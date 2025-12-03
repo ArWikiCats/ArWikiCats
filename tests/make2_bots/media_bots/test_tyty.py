@@ -12,7 +12,8 @@ test_data = {
     "lgbtq-related upcoming": "{tyty} متعلقة بإل جي بي تي كيو قادمة",
     "low-budget lgbtq-related": "{tyty} متعلقة بإل جي بي تي كيو منخفضة التكلفة",
     "upcoming lgbtq-related": "{tyty} متعلقة بإل جي بي تي كيو قادمة",
-
+    "black christmas": "{tyty} سوداء عيد الميلاد",
+    "black-and-white christmas": "{tyty} أبيض وأسود عيد الميلاد",
     "upcoming christmas": "{tyty} قادمة عيد الميلاد",
     "christmas upcoming": "{tyty} قادمة عيد الميلاد",
     "action comedy drama": "{tyty} حركة كوميدية درامية",
