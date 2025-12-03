@@ -61,6 +61,7 @@ class FormatDataDouble:
             self.data_list_ci.keys(),
             key=lambda x: (-x.count(" "), -len(x))
         )
+        # print(keys_sorted)
 
         # self.data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
         alternation = "|".join(map(re.escape, keys_sorted))
