@@ -23,22 +23,26 @@ test_data = {
     "christmas low-budget": "{tyty} عيد الميلاد منخفضة التكلفة",
     "low-budget christmas": "{tyty} عيد الميلاد منخفضة التكلفة",
     "low-budget upcoming": "{tyty} منخفضة التكلفة قادمة",
-    "musical comedy drama": "{tyty} موسيقية كوميديا درامية",
-    "musical comedy fiction": "{tyty} موسيقية كوميديا خيالية",
-    "musical comedy horror": "{tyty} موسيقية كوميدية رعب",
-    "romantic comedy drama": "{tyty} رومانسية كوميديا درامية",
-    "romantic comedy fiction": "{tyty} رومانسية كوميديا خيالية",
-    "romantic comedy horror": "{tyty} رومانسية كوميدية رعب",
     "upcoming low-budget": "{tyty} منخفضة التكلفة قادمة",
-    "zombie comedy drama": "{tyty} زومبي كوميديا درامية",
-    "zombie comedy fiction": "{tyty} زومبي كوميديا خيالية",
-    "zombie comedy horror": "{tyty} زومبي كوميدية رعب",
-    "zombie comedy thriller": "{tyty} زومبي كوميديا إثارة",
     "heist kung fu": "{tyty} سرقة كونغ فو",
     "heist historical": "{tyty} سرقة تاريخية",
+    "historical heist": "{tyty} سرقة تاريخية",
     "action thriller adult animated supernatural": "{tyty} إثارة حركة رسوم متحركة خارقة للطبيعة للكبار",
     "psychological horror cancelled": "{tyty} رعب نفسي ملغية",
 
+}
+
+test_data_2 = {
+    "musical comedy drama": "{tyty} كوميديا موسيقية درامية",
+    "musical comedy fiction": "{tyty} كوميديا موسيقية خيالية",
+    "musical comedy horror": "{tyty} كوميديا موسيقية رعب",
+    "romantic comedy drama": "{tyty} كوميديا رومانسية درامية",
+    "romantic comedy fiction": "{tyty} كوميديا رومانسية خيالية",
+    "romantic comedy horror": "{tyty} كوميديا رومانسية رعب",
+    "zombie comedy drama": "{tyty} كوميديا الزومبي درامية",
+    "zombie comedy fiction": "{tyty} كوميديا الزومبي خيالية",
+    "zombie comedy horror": "{tyty} كوميديا الزومبي رعب",
+    "zombie comedy thriller": "{tyty} كوميديا الزومبي إثارة"
 }
 
 
@@ -55,6 +59,9 @@ def test_search_multi(category: str, expected: str) -> None:
 to_test = [
     ("test_search_multi", test_data, search_multi),
     ("test_search_multi_new", test_data, search_multi_new),
+
+    ("test_search_multi_test_data_2", test_data_2, search_multi),
+    ("test_search_multi_new_test_data_2", test_data_2, search_multi_new),
 ]
 
 

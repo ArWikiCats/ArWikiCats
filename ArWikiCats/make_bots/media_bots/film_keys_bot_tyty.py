@@ -13,7 +13,12 @@ from ...translations import (
 )
 
 # sorted by len of " " in key
-keys_female_sorted = dict(sorted(film_keys_for_female.items(), key=lambda x: x[0].count(" "), reverse=True))
+keys_female_sorted = dict(sorted(
+    film_keys_for_female.items(),
+    # key=lambda x:x[0].count(" "),
+    key=lambda x: (-x[0].count(" "), -len(x[0])),
+    reverse=True
+))
 
 put_label_last = {
     "low-budget",
