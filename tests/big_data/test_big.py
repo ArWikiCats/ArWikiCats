@@ -16,7 +16,7 @@ json_files = [x for x in (Path(__file__).parent).glob("*.json")]
 for file in json_files:
     with open(file, "r", encoding="utf-8") as f:
         data = json.load(f)
-    ENTERTAINMENT_CASES.append((f"test_big_{file.name}", data))
+    ENTERTAINMENT_CASES.append((f"test_big_{file.name}_{len(data)}_item", data))
 
 
 @pytest.mark.parametrize("name,data", ENTERTAINMENT_CASES)
