@@ -1,5 +1,5 @@
 """
-Tests
+pytest tests/test_big_data.py -m skip2
 """
 
 import pytest

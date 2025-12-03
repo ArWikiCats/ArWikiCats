@@ -15,8 +15,8 @@ from ...translations import (
 # sorted by len of " " in key
 keys_female_sorted = dict(sorted(
     film_keys_for_female.items(),
-    # key=lambda x:x[0].count(" "),
     key=lambda x: (-x[0].count(" "), -len(x[0])),
+    # key=lambda x:x[0].count(" "),
     # reverse=True
 ))
 

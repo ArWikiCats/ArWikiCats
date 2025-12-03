@@ -41,9 +41,9 @@ def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> T
     try:
         sorted_data = sorted(
             data.items(),
-            key=lambda x: x[0].count(" "),
-            # key=lambda x: (-x[0].count(" "), -len(x[0])),
-            reverse=True
+            key=lambda x: (-x[0].count(" "), -len(x[0])),
+            # key=lambda x: x[0].count(" "),
+            # reverse=True
         )
     except AttributeError:
         sorted_data = data.items()
