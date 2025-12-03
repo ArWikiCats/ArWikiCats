@@ -55,7 +55,13 @@ class FormatDataDouble:
         """Build a case-insensitive regex over lowercased keys of data_list."""
         if not self.data_list_ci:
             return None
-        keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
+
+        # keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
+        # to fix bug that selected "black" instead of "black-and-white"
+        keys_sorted = sorted(
+            self.data_list_ci.keys(),
+            key=lambda x: (-x.count(" "), -len(x))
+        )
 
         # self.data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
         alternation = "|".join(map(re.escape, keys_sorted))
