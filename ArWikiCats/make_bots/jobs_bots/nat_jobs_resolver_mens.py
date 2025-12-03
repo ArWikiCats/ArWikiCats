@@ -8,12 +8,26 @@ from ...translations import Nat_mens, jobs_mens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
 
-formatted_data = {
+formatted_data_jobs = {
+    "expatriate {en_job}": "{ar_job} مغتربون",
+    "{en_job}": "{ar_job}",
     "{en_job} people": "{ar_job}",
-    "{en_nat} people": "{ar_nat}",  # 187
-    "{en_nat} male {en_job}": "{ar_job} ذكور {ar_nat}",
-    "{en_nat} {en_job}": "{ar_job} {ar_nat}",
+    "male {en_job}": "{ar_job} ذكور",
+    "expatriate male {en_job}": "{ar_job} مغتربون ذكور",
 }
+
+formatted_data_nats = {
+    f"{{en_nat}} {x}" : f"{v} {{ar_nat}}" for x, v in formatted_data_jobs.items()
+}
+
+formatted_data = dict(formatted_data_jobs) | formatted_data_nats
+formatted_data.update({
+    f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{ar_nat}}" for x, v in formatted_data_jobs.items()
+})
+
+formatted_data.update({
+    "{en_nat} people": "{ar_nat}",  # 187
+})
 
 
 @functools.lru_cache(maxsize=1)

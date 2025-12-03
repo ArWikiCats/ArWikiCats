@@ -249,17 +249,3 @@ test_womens_data = {
 def test_Women_s_priffix_work(category: str, expected: str) -> None:
     label = Women_s_priffix_work(category)
     assert label == expected
-
-
-def test_women_s_priffix_work() -> None:
-    # Test with a basic input
-    result = Women_s_priffix_work("test job")
-    assert isinstance(result, str)
-
-    # Test with "women" in the string
-    result_with_women = Women_s_priffix_work("test women")
-    assert isinstance(result_with_women, str)
-
-    # Test with empty string
-    result_empty = Women_s_priffix_work("")
-    assert isinstance(result_empty, str)

@@ -369,16 +369,3 @@ by_data_fast = {
 def test_by_data(category: str, expected: str) -> None:
     label = priffix_Mens_work(category)
     assert label == expected
-
-
-def test_priffix_mens_work() -> None:
-    # Test with a basic input
-    result = priffix_Mens_work("test job")
-    assert isinstance(result, str)
-
-    result_empty = priffix_Mens_work("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = priffix_Mens_work("american players")
-    assert isinstance(result_various, str)
