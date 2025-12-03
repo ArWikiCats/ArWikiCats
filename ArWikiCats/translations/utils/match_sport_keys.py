@@ -5,7 +5,6 @@ import re
 import functools
 
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from .patterns import load_keys_to_pattern_new
 
 Sports_Keys_For_Jobs_simple = {
     "wheelchair automobile racing": "سباق سيارات على كراسي متحركة",
@@ -17,6 +16,7 @@ Sports_Keys_For_Jobs_simple = {
     "wheelchair sport climbing": "تسلق على كراسي متحركة",
     "aquatic sports racing": "سباق رياضات مائية",
     "wheelchair aquatic sports": "رياضات مائية على كراسي متحركة",
+    "shooting": "رماية",
     "shooting racing": "سباق رماية",
     "wheelchair shooting": "رماية على كراسي متحركة",
     "motorsports racing": "سباق رياضة محركات",
@@ -41,14 +41,28 @@ Sports_Keys_For_Jobs_simple = {
     "wheelchair shot put": "دفع ثقل على كراسي متحركة",
 }
 
-new_pattern = fr"(?<!\w)({load_keys_to_pattern_new(SPORTS_KEYS_FOR_JOBS)})(?!\w)"
 
-RE_KEYS_NEW = re.compile(new_pattern, re.I)
+@functools.lru_cache(maxsize=1)
+def _load_regex() -> re.Pattern:
+    """Return the compiled regex pattern for matching sport keys."""
+
+    data_List_sorted = sorted(
+        SPORTS_KEYS_FOR_JOBS.keys(),
+        key=lambda k: (-k.count(" "), -len(k)),
+    )
+    alternation = "|".join(map(re.escape, [n.lower() for n in data_List_sorted]))
+
+    new_pattern = fr"(?<!\w)({alternation})(?!\w)"
+
+    RE_KEYS_NEW = re.compile(new_pattern, re.I)
+
+    return RE_KEYS_NEW
 
 
 @functools.lru_cache(maxsize=10000)
 def match_sport_key(category: str) -> str:
     """Return the matched sport key within the provided category string."""
+    RE_KEYS_NEW = _load_regex()
     match = RE_KEYS_NEW.search(f" {category} ")
     if match:
         return match.group(1)

@@ -4,9 +4,9 @@
 """
 
 import functools
-from pathlib import Path
 
 from ...helps.log import logger
+from ...helps.jsonl_dump import dump_data
 from ...translations import RELIGIOUS_KEYS_PP
 
 # from ....helps.jsonl_dump import save
@@ -32,26 +32,33 @@ def relegins_jobs(cate: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+def get_suffix_prefix(cate: str) -> str:
+    category_suffix, country_prefix = get_suffix_with_keys(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
+    return category_suffix, country_prefix
+
+
+@functools.lru_cache(maxsize=None)
 def try_relegins_jobs_with_suffix(cate: str) -> str:
     """
     Try to generate religion job labels using nationality-style suffix logic.
-    TODO: use FormatData method
+
+    TODO: replaced by new_relegins_jobs_with_suffix
     """
 
     logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> {cate=}")
 
-    category_suffix, country_prefix = get_suffix_with_keys(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
+    category_suffix, country_prefix = get_suffix_prefix(cate)
 
-    if not category_suffix:
-        return ""
+    country_lab = ""
 
-    Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
+    if category_suffix:
 
-    mens = Tab.get("mens")
-    womens = Tab.get("womens")
-    country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, womens=womens, find_nats=False)
+        Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
 
-    logger.debug(
-        f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> {cate=}, {country_lab=} "
-    )
+        mens = Tab.get("mens")
+        womens = Tab.get("womens")
+        country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, womens=womens, find_nats=False)
+
+    logger.debug(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> {cate=}, {country_lab=} ")
+
     return country_lab

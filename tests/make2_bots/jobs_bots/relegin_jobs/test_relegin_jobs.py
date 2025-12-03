@@ -1,39 +1,20 @@
 """
 {"cate": "shi'a muslims expatriates", "country_prefix": "shi'a muslims", "category_suffix": "expatriates", "mens": "مسلمون شيعة", "womens": "مسلمات شيعيات", "country_lab": "مسلمون شيعة مغتربون"}
-
 """
 
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.relegin_jobs import (
     relegins_jobs,
-    try_relegins_jobs_with_suffix,
+    get_suffix_prefix,
 )
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
-from ArWikiCats.translations.jobs.jobs_defs import GenderedLabel
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
 
 
-@pytest.mark.parametrize(
-    "key,data",
-    RELIGIOUS_KEYS_20.items(),
-    ids=[x for x in RELIGIOUS_KEYS_20],
-)
-def test_with_suffix(key: str, data: dict[str, str]) -> None:
-    input2 = f"{key} historical house music bloggers"
-    expected2 = f"مدونو هاوس تاريخيون {data['mens']}"
-
-    result2 = try_relegins_jobs_with_suffix(input2)
-    assert result2 == expected2, f"{expected2=}, {result2=}, {input2=}"
-
-
-@pytest.mark.parametrize(
-    "key,data",
-    RELIGIOUS_KEYS_20.items(),
-    ids=[x for x in RELIGIOUS_KEYS_20],
-)
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
 def test_no_suffix_female(key: str, data: dict[str, str]) -> None:
     input_text = f"female {key}"
     expected = data["womens"]
@@ -54,11 +35,7 @@ data = [
 ]
 
 
-@pytest.mark.parametrize(
-    "input_text,expected",
-    data,
-    ids=[x[0] for x in data],
-)
+@pytest.mark.parametrize("input_text,expected", data, ids=[x[0] for x in data])
 def test_no_suffix(input_text: str, expected: str) -> None:
     result = relegins_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
@@ -68,10 +45,19 @@ def test_no_suffix(input_text: str, expected: str) -> None:
     assert result2 == expected, f"{expected=}, {result2=}, {input2=}"
 
 
-def test_one() -> None:
-    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "womens": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
-    input_text = "bahá'ís classical europop composers"
-    expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
+test_data_2 = {
+    "anglican expatriates": ("expatriates", "anglican"),
+    "buddhist expatriates": ("expatriates", "buddhist"),
+    "buddhist scholars of islam": ("scholars of islam", "buddhist"),
+    "christian convicted-of-murder": ("convicted-of-murder", "christian"),
+    "christian expatriates": ("expatriates", "christian"),
+    "nazi expatriates": ("expatriates", "nazi"),
+    "nazi bloggers": ("bloggers", "nazi"),
+    "nazi scholars of islam": ("scholars of islam", "nazi"),
+}
 
-    result = try_relegins_jobs_with_suffix(input_text)
+
+@pytest.mark.parametrize("input_text,expected", test_data_2.items(), ids=test_data_2.keys())
+def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
+    result = get_suffix_prefix(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"

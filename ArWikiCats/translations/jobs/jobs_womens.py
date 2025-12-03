@@ -40,11 +40,15 @@ def _build_female_jobs() -> Dict[str, str]:
 
     female_jobs = dict(FEMALE_JOBS_BASE)
     female_jobs2: Dict[str, str] = {}
+
     for film_category, film_labels in FILMS_TYPE.items():
         female_jobs2[f"{film_category} actresses"] = f"ممثلات {film_labels['womens']}"
+
     female_jobs2["sportswomen"] = "رياضيات"
+
     for key, label in FEMALE_JOBS_TO.items():
         female_jobs2[key] = label
+
     female_jobs.update(female_jobs2)
     return female_jobs
 

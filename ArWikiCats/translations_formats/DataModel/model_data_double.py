@@ -55,11 +55,10 @@ class FormatDataDouble:
         if not self.data_list_ci:
             return None
 
-        # keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
         # to fix bug that selected "black" instead of "black-and-white"
         keys_sorted = sorted(
             self.data_list_ci.keys(),
-            key=lambda x: (-x.count(" "), -len(x))
+            key=lambda k: (-k.count(" "), -len(k))
         )
         # print(keys_sorted)
 

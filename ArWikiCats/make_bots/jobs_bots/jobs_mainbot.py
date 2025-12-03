@@ -105,9 +105,13 @@ def jobs_with_nat_prefix(
         str: The generated job label based on the input parameters.
     """
     category_suffix = category_suffix.strip().lower()
+
     logger.debug(f"<<lightblue>> jobs_mainbot.py jobs_with_nat_prefix: {cate=}, {country_prefix=}, {category_suffix=}.")
-    country_lab = ""
+
     category_suffix = category_suffix[len("people ") :] if category_suffix.startswith("people ") else category_suffix
+
+    country_lab = ""
+
     mens_nat_lab: str = mens or (Nat_mens.get(country_prefix, "") if find_nats else "")
     if mens_nat_lab:
         if category_suffix == "people":
@@ -115,11 +119,14 @@ def jobs_with_nat_prefix(
         else:
             country_label = jobs_mens_data.get(category_suffix, "") or priffix_Mens_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, country_label)
+
     women_nat_lab: str = womens or (Nat_Womens.get(country_prefix, "") if find_nats else "")
+
     if not country_lab and women_nat_lab:
         if category_suffix in ["women", "female", "women's"]:
             country_lab = women_nat_lab
         else:
             country_label = short_womens_jobs.get(category_suffix, "") or Women_s_priffix_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("womens", category_suffix, women_nat_lab, country_label)
+
     return country_lab
