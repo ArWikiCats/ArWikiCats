@@ -12,8 +12,8 @@ def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tup
     try:
         sorted_data = sorted(
             data.items(),
-            key=lambda x: x[0].count(" "),
             # key=lambda x: (-x[0].count(" "), -len(x[0])),
+            key=lambda x: x[0].count(" "),
             reverse=True
         )
     except AttributeError:
@@ -41,9 +41,7 @@ def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> T
     try:
         sorted_data = sorted(
             data.items(),
-            key=lambda x: (-x[0].count(" "), -len(x[0])),
-            # key=lambda x: x[0].count(" "),
-            # reverse=True
+            key=lambda k: (-k[0].count(" "), -len(k[0])),
         )
     except AttributeError:
         sorted_data = data.items()
