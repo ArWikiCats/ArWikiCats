@@ -47,6 +47,7 @@ class FormatData:
         # keys_sorted = sorted(self.data_list_ci.keys(), key=lambda x: -x.count(" "))
         keys_sorted = sorted(
             self.data_list_ci.keys(),
+            # key=lambda x: -x.count(" ")
             key=lambda x: (-x.count(" "), -len(x))
         )
 
