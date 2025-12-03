@@ -76,7 +76,12 @@ Teams_new_end_keys = {
 }
 
 # sorted by len of " " in key
-Teams_new_end_keys = dict(sorted(Teams_new_end_keys.items(), key=lambda x: x[0].count(" "), reverse=True))
+Teams_new_end_keys = dict(sorted(
+    Teams_new_end_keys.items(),
+    key=lambda x: x[0].count(" "),
+    # key=lambda x: (-x[0].count(" "), -len(x[0])),
+    reverse=True
+))
 
 
 def _resolve_club_label(club_key: str) -> str:
