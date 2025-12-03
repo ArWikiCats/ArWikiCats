@@ -5,9 +5,7 @@ import functools
 import re
 from typing import Dict, Optional
 
-# from ...helps.log import logger
-import logging
-logger = logging.getLogger(__name__)
+from ...helps.log import logger
 
 
 class FormatDataDouble:
@@ -72,7 +70,7 @@ class FormatDataDouble:
 
         self.data_pattern_double = fr"(?<!\w)({alternation}) ({alternation})(?!\w)"
         # (?<!\w)(action|drama) (action|drama)(?!\w)
-        logger.debug(">> keys_to_pattern:", self.data_pattern_double)
+        logger.debug(f">> keys_to_pattern: {self.data_pattern_double}")
 
         self.pattern_double = re.compile(self.data_pattern_double, re.I)
 
@@ -299,7 +297,7 @@ def format_data_sample() -> None:
         label = bot.search(key)
         # Verify if the result matches the expected output
         result = label == value
-        print("search result: ", key, result)
+        logger.debug("search result: ", key, result)
 
     test_data_match = {
         "black-and-white films": "black-and-white",
@@ -311,7 +309,7 @@ def format_data_sample() -> None:
         key = bot.match_key(text)
         # Verify if the result matches the expected output
         result = key == value
-        print(f"match_key result: ({key})<>({value})", result)
+        logger.debug(f"match_key result: ({key})<>({value})", result)
 
     # Return the formatted label
 
