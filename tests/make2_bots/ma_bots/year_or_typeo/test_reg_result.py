@@ -108,7 +108,7 @@ class TestYearExtraction:
 # -----------------------------------------------------------
 # 2) Tests for extracting TYPE (typeo)
 # -----------------------------------------------------------
-@pytest.mark.fast
+
 class TestTypeExtraction:
     @pytest.mark.parametrize(
         "category,expected",
@@ -206,6 +206,10 @@ class TestCountryExtraction:
 # -----------------------------------------------------------
 @pytest.mark.fast
 class TestCombinedPatterns:
+    """
+    A test class for testing combined pattern matching in category names.
+    Uses pytest parametrize decorator to run multiple test cases with different inputs.
+    """
     @pytest.mark.parametrize(
         "category,year,typeo,In,country",
         [
