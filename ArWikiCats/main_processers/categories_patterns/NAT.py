@@ -18,6 +18,7 @@ NAT_DATA_to_check = {
     "{en_nat} basketball players": "لاعبو ولاعبات كرة سلة {nat_men1}",  # 65
     "{en_nat} expatriate footballers": "لاعبو ولاعبات كرة قدم {nat_men1} مغتربون",  # 162
     "{en_nat} businesspeople": "أصحاب أعمال {nat_men1}",  # 110
+    "{en_nat} non-fiction writers": "كتاب غير روائيين {nat_men1}",  # 118
 
 }
 NAT_DATA = {
@@ -68,7 +69,6 @@ NAT_DATA = {
     "{en_nat} novelists": "روائيون {nat_men1}",  # 101
     "{en_nat} sprinters": "عداؤون سريعون {nat_men1}",  # 85
     "{en_nat} muslims": "مسلمون {nat_men1}",  # 132
-    "{en_nat} non-fiction writers": "كتاب غير روائيين {nat_men1}",  # 118
     "{en_nat} criminals": "مجرمون {nat_men1}",  # 124
     "{en_nat} murder victims": "ضحايا قتل {nat_men1}",  # 128
     "{en_nat} roman catholics": "رومان كاثوليك {nat_men1}",  # 127
