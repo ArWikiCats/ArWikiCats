@@ -1,4 +1,17 @@
 
+## [#153](https://github.com/MrIbrahem/ArWikiCats/pull/153) - 2025-12-03
+
+* **New Features**
+  * Added broad nationality-based category translations, including gender and temporal variants.
+  * Updated label resolution to consult multiple category pattern handlers for better matches.
+
+* **Refactor**
+  * Enhanced translation lookup with a cached, reusable formatter to improve lookup consistency and performance.
+
+* **Tests**
+  * Added comprehensive tests validating nationality translation and formatter behavior.
+
+
 ## [#152](https://github.com/MrIbrahem/ArWikiCats/pull/152) - 2025-12-03
 
 * **New Features**

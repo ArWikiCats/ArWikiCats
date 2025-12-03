@@ -114,7 +114,7 @@ class FormatData:
         normalized = self.normalize_category(category, sport_key)
         logger.debug(f"normalized xoxo : {normalized}")
         # Case-insensitive key lookup
-        return self.formated_data_ci.get(normalized.lower())  # or self.formated_data_ci.get(f"category:{normalized.lower()}", "")
+        return self.formated_data_ci.get(normalized.lower(), "")  # or self.formated_data_ci.get(f"category:{normalized.lower()}", "")
 
     def get_template_ar(self, template_key: str) -> str:
         """Lookup template in a case-insensitive dict."""
