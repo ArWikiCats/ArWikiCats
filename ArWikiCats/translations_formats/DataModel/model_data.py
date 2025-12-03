@@ -48,7 +48,6 @@ class FormatData:
             self.data_list_ci.keys(),
             key=lambda k: (-k.count(" "), -len(k))
         )
-
         # self.data_pattern = r"\b(" + "|".join(map(re.escape, keys_sorted)) + r")\b"
         alternation = "|".join(map(re.escape, keys_sorted))
 

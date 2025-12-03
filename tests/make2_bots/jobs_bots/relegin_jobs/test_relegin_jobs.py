@@ -1,6 +1,5 @@
 """
 {"cate": "shi'a muslims expatriates", "country_prefix": "shi'a muslims", "category_suffix": "expatriates", "mens": "مسلمون شيعة", "womens": "مسلمات شيعيات", "country_lab": "مسلمون شيعة مغتربون"}
-
 """
 
 import pytest
