@@ -26,6 +26,7 @@ def bot() -> FormatDataDouble:
         "upcoming": "قادمة",
         "horror": "رعب",
         "black": "سوداء",
+        "black-and-white": "أبيض وأسود",
         "psychological horror": "رعب نفسي",
     }
 
