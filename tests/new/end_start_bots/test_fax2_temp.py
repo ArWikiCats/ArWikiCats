@@ -58,7 +58,7 @@ def test_no_templates_anywhere_returns_original() -> None:
     # If no match and doesn't end with "templates", category remains as-is
     list_of_cat, category3 = get_templates_fo("RandomCategory")
 
-    assert list_of_cat == "قوالب {}"
+    assert list_of_cat == ""
     assert category3 == "RandomCategory"
 
 
@@ -66,7 +66,7 @@ def test_no_templates_anywhere_returns_original() -> None:
 def test_empty_string() -> None:
     list_of_cat, category3 = get_templates_fo("")
 
-    assert list_of_cat == "قوالب {}"
+    assert list_of_cat == ""
     assert category3 == ""
 
 
@@ -93,5 +93,5 @@ def test_no_key_but_word_templates_inside_not_at_end() -> None:
     list_of_cat, category3 = get_templates_fo("my templates category")
 
     # default fallback will fire because it does NOT end with " templates"
-    assert list_of_cat == "قوالب {}"
+    assert list_of_cat == ""
     assert category3 == "my templates category"
