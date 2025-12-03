@@ -20,7 +20,7 @@ for i in range(1, 11):
 
 
 @pytest.mark.parametrize("name,data", ENTERTAINMENT_CASES)
-@pytest.mark.skip
+@pytest.mark.skip2
 @pytest.mark.dump
 def test_entertainment(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)

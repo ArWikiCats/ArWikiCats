@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module provides the YearFormatData class, a specialized formatter for
+This module provides the FilmsFormatData class, a specialized formatter for
 handling time-based patterns (years, decades, centuries) in category strings.
 """
 
@@ -11,18 +11,20 @@ from ...new.time_to_arabic import (
 )
 
 
-class YearFormatData:
+class FilmsFormatData:
     """
     A dynamic wrapper that allows FormatData to handle year patterns.
     It mimics FormatData behavior but for time values extracted by regex.
     """
 
-    def __init__(self, key_placeholder: str, value_placeholder: str) -> None:
+    def __init__(self, key_placeholder: str, value_placeholder: str, call_back: callable = None) -> None:
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
+        self.call_back = call_back
 
     def match_key(self, text: str) -> str:
         """Extract English year/decade and return it as the key."""
+        print(f"match_key:{text=}")
         result = match_time_en_first(text)
         return result if result else ""
 
@@ -48,6 +50,7 @@ class YearFormatData:
             category:"Yemeni national football teams", result: "natar national football teams"
         """
         key = self.match_key(category)
+        print("normalize_category_with_key")
         result = ""
         if key:
             result = self.normalize_category(category, key)
@@ -68,4 +71,6 @@ class YearFormatData:
 
     def search(self, text: str) -> str:
         """place holders"""
+        if self.call_back:
+            return self.call_back(text)
         return ""
