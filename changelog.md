@@ -1,4 +1,24 @@
 
+## [#151](https://github.com/MrIbrahem/ArWikiCats/pull/151) - 2025-12-03
+
+* **New Features**
+  * Added enhanced template-driven label formatting for film and media category data
+  * Introduced improved sorting logic for film-related keys based on composite criteria
+  * Added new functions for film text mapping and label resolution
+
+* **Tests**
+  * Expanded test coverage for new film formatting and label resolution functionality
+
+## [#150](https://github.com/MrIbrahem/ArWikiCats/pull/150) - 2025-12-02
+
+* **New Features**
+  * Added film-related formatting: time-aware category handling, Arabic conversions, and placeholder-based normalization.
+  * Exposed a new public formatter entry for composing film + country transformations.
+
+* **Tests**
+  * Added integration tests covering film category translations and country-based combinations.
+  * Adjusted test skip behavior for an existing entertainment test.
+
 ## [#149](https://github.com/MrIbrahem/ArWikiCats/pull/149) - 2025-12-02
 
 * **Refactor**
