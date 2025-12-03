@@ -1,8 +1,7 @@
 """
-
 This module provides functionality to translate category titles
-that follow a 'country-year' pattern. It uses a pre-configured
-bot (`yc_bot`) to handle the translation logic.
+that follow a nationality pattern. It uses a pre-configured
+bot to handle the translation logic.
 """
 
 import functools
@@ -28,12 +27,12 @@ def _bot() -> FormatData:
 
 @functools.lru_cache(maxsize=10000)
 def get_label(category: str) -> str:
-    yc_bot = _bot()
+    nat_bot = _bot()
 
-    result = yc_bot.search(category)
+    result = nat_bot.search(category)
     if not result:
         normalized_category = category.lower().replace("category:", "")
         # Only call again if the string is different after normalization
         if normalized_category != category:
-            result = yc_bot.search(normalized_category)
+            result = nat_bot.search(normalized_category)
     return result or ""

@@ -20,7 +20,7 @@ test_data = {
     test_data.items(),
     ids=test_data.keys()
 )
-def test_country_time_pattern(category: str, expected: str) -> None:
-    """Test all year-country translation patterns."""
+def test_nat_pattern(category: str, expected: str) -> None:
+    """Test all nat translation patterns."""
     result = get_label(category)
     assert result == expected
