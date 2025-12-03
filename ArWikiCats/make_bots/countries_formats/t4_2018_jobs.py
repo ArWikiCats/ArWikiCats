@@ -55,7 +55,10 @@ Main_priffix: dict[str, str] = {
 }
 
 # sorted by len of " " in key
-Main_priffix = dict(sorted(Main_priffix.items(), key=lambda x: x[0].count(" "), reverse=True))
+Main_priffix = dict(sorted(
+    Main_priffix.items(),
+    key=lambda k: (-k[0].count(" "), -len(k[0])),
+))
 
 
 def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str, str, str]:

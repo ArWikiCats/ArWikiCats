@@ -1,31 +1,67 @@
 #!/usr/bin/python3
 """
-TODO: replaced py ArWikiCats/make_bots/media_bots/tyty_new_format.py
+
 """
 
 import functools
 
 from ...helps.log import logger
+from ...translations_formats import format_films_country_data, MultiDataFormatterBase
 from ...translations import (
+    Nat_women,
     film_keys_for_female,
-    Films_key_333,
-    television_keys,
 )
 
-# sorted by len of " " in key
-keys_female_sorted = dict(sorted(
-    film_keys_for_female.items(),
-    # key=lambda x:x[0].count(" "),
-    key=lambda x: (-x[0].count(" "), -len(x[0])),
-    # reverse=True
-))
 
-put_label_last = {
-    "low-budget",
-    "christmas",
-    "lgbtq-related",
-    "upcoming",
-}
+@functools.lru_cache(maxsize=1)
+def _make_bot() -> MultiDataFormatterBase:
+    # Template data with both nationality and sport placeholders
+    formatted_data = {
+        # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
+        "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
+        "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
+    }
+    other_formatted_data = {
+        "{film_key} films": "أفلام {film_ar}",
+        "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
+    }
+
+    # film_keys_for_female
+    data_list2 = {
+        "action comedy": "حركة كوميدية",
+        "action thriller": "إثارة حركة",
+        "action": "حركة",
+        "drama": "درامية",
+        "upcoming": "قادمة",
+        "horror": "رعب",
+        "black-and-white": "أبيض وأسود",
+        "psychological horror": "رعب نفسي",
+    }
+
+    put_label_last = {
+        "low-budget",
+        "christmas",
+        "lgbtq-related",
+        "upcoming",
+    }
+
+    bot = format_films_country_data(
+        formatted_data=formatted_data,
+        data_list=Nat_women,
+        key_placeholder="{nat_en}",
+        value_placeholder="{nat_ar}",
+        data_list2=film_keys_for_female,
+        key2_placeholder="{film_key}",
+        value2_placeholder="{film_ar}",
+        text_after="",
+        text_before="",
+        other_formatted_data=other_formatted_data,
+    )
+
+    bot.other_bot.update_put_label_last(put_label_last)
+
+    return bot
+
 
 search_multi_cache = {
     "upcoming christmas": "{tyty} قادمة عيد الميلاد",
@@ -60,72 +96,37 @@ search_multi_cache = {
 
 
 @functools.lru_cache(maxsize=None)
-def search_multi(text: str) -> str:
+def search_multi_new(text: str) -> str:
     if search_multi_cache.get(text.lower()):
         return search_multi_cache[text.lower()]
 
-    for second_part, second_label in keys_female_sorted.items():
-        # ---
-        if not text.endswith(second_part.lower()):
-            continue
-        # ---
-        first_part = text[: -len(second_part)].strip()
-        # ---
-        second_key_lower = second_part.lower()
-        first_key_lower = first_part.lower()
-        # ---
-        first_label = film_keys_for_female.get(first_part, "")
-        # ---
-        logger.debug(f">??? search_multi: {first_part=} ({first_label}), {second_part=} ({second_label})")
-        # ---
-        if not first_label:
-            continue
+    bot = _make_bot()
+    key = bot.other_bot.match_key(text)
 
-        paop_1 = f"{{tyty}} {first_label} {second_label}"
+    if not key:
+        return ""
 
-        # Adjust order for specific keywords
-        if first_key_lower in put_label_last and second_key_lower not in put_label_last:
-            paop_1 = f"{{tyty}} {second_label} {first_label}"
+    label = bot.other_bot.get_key_label(key)
 
-        search_multi_cache[f"{second_part} {first_part}"] = paop_1
+    if not label:
+        return ""
 
-        logger.info(f">??? search_multi: {paop_1=}")
+    label = f"{{tyty}} {label}"
 
-        return paop_1
-
-    return ""
+    return label
 
 
 @functools.lru_cache(maxsize=None)
-# @dump_data(1)
-def get_films_key_tyty(country_identifier: str) -> str:
+def get_films_key_tyty_new(text: str) -> str:
     """
-    Resolve labels for composite television keys used in film lookups.
-    TODO: use FormatData
+    Function to generate a films key based on the country identifier.
+    Args:
+        text (str): The country identifier string to process.
+    Returns:
+        str: The resolved label string, or empty string if no match is found.
     """
+    logger.debug(f'<<lightblue>> get_Films_key_CAO : {text=} ')
+    normalized_text = text.lower().strip()
+    bot = _make_bot()
 
-    logger.debug(f'<<lightblue>> get_Films_key_CAO : {country_identifier=} ')
-    normalized_identifier = country_identifier.lower().strip()
-
-    for suffix, suffix_translation in television_keys.items():
-        if not normalized_identifier.endswith(suffix.lower()):
-            continue
-
-        prefix = normalized_identifier[: -len(suffix)].strip()
-        logger.debug(f'<<lightblue>> {prefix=}, endswith:"{suffix}" ')
-
-        prefix_label = Films_key_333.get(prefix.strip())
-
-        if prefix_label:
-            resolved_label = f"{suffix_translation} {prefix_label}"
-            logger.info(f'<<lightblue>> get_films_key_tyty: new {resolved_label=} ')
-            return resolved_label
-
-        prefix_label = search_multi(prefix.strip())
-
-        if prefix_label and "{tyty}" in prefix_label:
-            resolved_label = prefix_label.format(tyty=suffix_translation)
-            logger.info(f'<<lightblue>> get_films_key_tyty: new {resolved_label=} ')
-            return resolved_label
-
-    return ""
+    return bot.search_all(normalized_text)

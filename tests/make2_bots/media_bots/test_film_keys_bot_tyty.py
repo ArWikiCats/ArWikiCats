@@ -5,6 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.media_bots.film_keys_bot_tyty import get_films_key_tyty, search_multi
+from ArWikiCats.make_bots.media_bots.tyty_new_format import get_films_key_tyty_new, search_multi_new
 
 keys_in_films_key_333 = {
     "action comedy": "{tyty} حركة كوميدية",
@@ -43,7 +44,7 @@ keys_in_films_key_333 = {
     "zombie comedy": "{tyty} زومبي كوميدية"
 }
 
-test_films_first_data = {
+test_put_label_last_data = {
     "action lgbtq-related": "{tyty} حركة متعلقة بإل جي بي تي كيو",
     "lgbtq-related action": "{tyty} حركة متعلقة بإل جي بي تي كيو",
     "lgbtq-related drama": "{tyty} درامية متعلقة بإل جي بي تي كيو",
@@ -59,11 +60,15 @@ test_films_first_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_films_first_data.items(), ids=list(test_films_first_data.keys()))
+@pytest.mark.parametrize("category, expected", test_put_label_last_data.items(), ids=list(test_put_label_last_data.keys()))
 @pytest.mark.fast
-def test_films_first(category: str, expected: str) -> None:
-    label = search_multi(category)
-    assert label == expected
+def test_put_label_last(category: str, expected: str) -> None:
+
+    label1 = search_multi(category)
+    assert label1 == expected
+
+    label2 = search_multi_new(category)
+    assert label2 == expected
 
 
 fast_data1 = {
@@ -132,13 +137,16 @@ def test_search_multi(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", fast_data1.items(), ids=list(fast_data1.keys()))
 @pytest.mark.fast
 def test_get_films_key_tyty(category: str, expected: str) -> None:
-    label = get_films_key_tyty(category)
-    assert label == expected
+    label1 = get_films_key_tyty(category)
+    assert label1 == expected
+
+    label2 = get_films_key_tyty_new(category)
+    assert label2 == expected
 
 
 to_test = [
     ("test_get_films_key_tyty", fast_data1, get_films_key_tyty),
-    ("test_films_first", test_films_first_data, search_multi),
+    ("test_put_label_last", test_put_label_last_data, search_multi),
     ("test_search_multi", fast_data2, search_multi),
 ]
 

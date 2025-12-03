@@ -1,4 +1,28 @@
 
+## [#151](https://github.com/MrIbrahem/ArWikiCats/pull/151) - 2025-12-03
+
+* **New Features**
+  * Improved film/media labeling: template-driven formatting, enhanced multi-key matching, a new film-text mapping/resolution path, and a newly exported formatter available for use.
+
+* **Tests**
+  * Expanded unit and integration tests to cover new matching paths and parallel implementations.
+
+* **Style**
+  * Multiple formatting cleanups for sorting expressions (no behavior change).
+
+* **Bug Fixes**
+  * Updated Arabic translation for "Burma".
+
+## [#150](https://github.com/MrIbrahem/ArWikiCats/pull/150) - 2025-12-02
+
+* **New Features**
+  * Added film-related formatting: time-aware category handling, Arabic conversions, and placeholder-based normalization.
+  * Exposed a new public formatter entry for composing film + country transformations.
+
+* **Tests**
+  * Added integration tests covering film category translations and country-based combinations.
+  * Adjusted test skip behavior for an existing entertainment test.
+
 ## [#149](https://github.com/MrIbrahem/ArWikiCats/pull/149) - 2025-12-02
 
 * **Refactor**

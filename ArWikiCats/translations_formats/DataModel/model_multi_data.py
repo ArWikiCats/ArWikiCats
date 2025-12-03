@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from ...helps.log import logger
 from .model_data import FormatData
 from .model_data_time import YearFormatData
+from .model_data_double import FormatDataDouble
 
 # -----------------------
 #
@@ -37,8 +38,8 @@ class MultiDataFormatterBase:
 
     def __init__(
         self,
-        country_bot: FormatData | YearFormatData,
-        other_bot: YearFormatData | FormatData,
+        country_bot: FormatData | YearFormatData | FormatDataDouble,
+        other_bot: YearFormatData | FormatData | FormatDataDouble,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
@@ -128,23 +129,26 @@ class MultiDataFormatterBase:
         # category = Yemeni football championships
         template_data = self.normalize_both_new(category)
 
+        logger.debug(f">>>create_label {template_data.nat_key=}, {template_data.other_key=}")
+
         if not template_data.nat_key or not template_data.other_key:
             return ""
 
         template_ar = self.country_bot.get_template_ar(template_data.template_key)
-        logger.debug(f"{template_ar=}")
+        logger.debug(f">>>create_label {template_ar=}")
 
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(template_data.nat_key)
         other_ar = self.other_bot.get_key_label(template_data.other_key)
 
+        logger.debug(f">>>create_label {country_ar=}, {other_ar=}")
         if not country_ar or not other_ar:
             return ""
 
         # Replace placeholders
         label = self.replace_placeholders(template_ar, country_ar, other_ar)
 
-        logger.debug(f"Translated {category=} → {label=}")
+        logger.debug(f">>>create_label Translated {category=} → {label=}")
         return label
 
     def search(self, category: str) -> str:

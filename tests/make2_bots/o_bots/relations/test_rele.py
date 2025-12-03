@@ -14,7 +14,7 @@ from ArWikiCats.make_bots.o_bots.rele import (
 TEST_ALL_COUNTRY_AR = {
     **all_country_ar,
     "canada": "كندا",
-    "burma": "ميانمار",
+    "burma": "بورما",
     "nato": "الناتو",
     "pakistan": "باكستان",
     "india": "الهند",
