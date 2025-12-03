@@ -11,6 +11,13 @@ NAT_DATA_to_check = {
     "{en_nat} boxers": "ملاكمون وملاكمات {nat_men1}",  # 136
     "{en_nat} cyclists": "دراجون ودراجات {nat_men1}",  # 68
     "{en_nat} actors by medium": "ممثلون وممثلات {nat_men1} حسب الوسط",  # 65
+    "{en_nat} film actors": "ممثلو وممثلات أفلام {nat_men1}",  # 74
+    "{en_nat} footballers": "لاعبو ولاعبات كرة قدم {nat_men1}",  # 171
+    "{en_nat} television actors": "ممثلو وممثلات تلفاز {nat_men1}",  # 60
+    "{en_nat} tennis players": "لاعبو ولاعبات كرة مضرب {nat_men1}",  # 87
+    "{en_nat} basketball players": "لاعبو ولاعبات كرة سلة {nat_men1}",  # 65
+    "{en_nat} expatriate footballers": "لاعبو ولاعبات كرة قدم {nat_men1} مغتربون",  # 162
+    "{en_nat} businesspeople": "أصحاب أعمال {nat_men1}",  # 110
 
 }
 NAT_DATA = {
@@ -28,7 +35,6 @@ NAT_DATA = {
     "{en_nat} politicians": "سياسيون {nat_men1}",  # 179
     "{en_nat} sportspeople by sport": "رياضيون {nat_men1} حسب الرياضة",  # 178
     "{en_nat} expatriate sportspeople": "رياضيون {nat_men1} مغتربون",  # 171
-    "{en_nat} footballers": "لاعبو ولاعبات كرة قدم {nat_men1}",  # 171
     "{en_nat} musicians": "موسيقيون {nat_men1}",  # 157
     "{en_nat} sports coaches": "مدربون رياضيون {nat_men1}",  # 110
     "{en_nat} people by religion": "{nat_men1} حسب الدين",  # 164
@@ -36,7 +42,6 @@ NAT_DATA = {
     "{en_nat} men's footballers": "لاعبو كرة قدم {nat_men1}",  # 167
     "{en_nat} diplomats": "دبلوماسيون {nat_men1}",  # 172
     "{en_nat} emigrants": "{nat_men1} مهاجرون",  # 135
-    "{en_nat} expatriate footballers": "لاعبو ولاعبات كرة قدم {nat_men1} مغتربون",  # 162
     "{en_nat} expatriate men's footballers": "لاعبو كرة قدم {nat_men1} مغتربون",  # 163
     "{en_nat} people by century": "{nat_men1} حسب القرن",  # 121
     "{en_nat} people by political orientation": "{nat_men1} حسب التوجه السياسي",  # 156
@@ -51,7 +56,6 @@ NAT_DATA = {
     "{en_nat} prisoners and detainees": "سجناء ومعتقلون {nat_men1}",  # 153
     "{en_nat} scientists": "علماء {nat_men1}",  # 151
     "{en_nat} artists": "فنانون {nat_men1}",  # 129
-    "{en_nat} businesspeople": "أصحاب أعمال {nat_men1}",  # 110
     "{en_nat} swimmers": "سباحون {nat_men1}",  # 112
     "{en_nat} journalists": "صحفيون {nat_men1}",  # 138
     "{en_nat} runners": "عداؤون {nat_men1}",  # 142
@@ -71,7 +75,6 @@ NAT_DATA = {
     "{en_nat} religious leaders": "قادة دينيون {nat_men1}",  # 110
     "{en_nat} diaspora in the united states": "أمريكيون {nat_men1}",  # 126
     "{en_nat} socialists": "اشتراكيون {nat_men1}",  # 127
-    "{en_nat} basketball players": "لاعبو ولاعبات كرة سلة {nat_men1}",  # 65
     "{en_nat} judges": "قضاة {nat_men1}",  # 125
     "{en_nat} victims of crime": "ضحايا جرائم {nat_men1}",  # 123
     "{en_nat} economists": "اقتصاديون {nat_men1}",  # 124
@@ -81,14 +84,12 @@ NAT_DATA = {
     "{en_nat} freestyle swimmers": "سباحو تزلج حر {nat_men1}",  # 122
     "{en_nat} politicians by century": "سياسيون {nat_men1} حسب القرن",  # 121
     "{en_nat} men's basketball players": "لاعبو كرة سلة {nat_men1}",  # 64
-    "{en_nat} film actors": "ممثلو وممثلات أفلام {nat_men1}",  # 74
     "{en_nat} human rights activists": "{nat_men1} ناشطون في حقوق الإنسان",  # 108
     "{en_nat} composers": "ملحنون {nat_men1}",  # 102
     "{en_nat} physicians": "أطباء {nat_men1}",  # 117
     "{en_nat} feminists": "نسويون {nat_men1}",  # 115
     "{en_nat} historians": "مؤرخون {nat_men1}",  # 114
     "{en_nat} communists": "شيوعيون {nat_men1}",  # 113
-    "{en_nat} tennis players": "لاعبو ولاعبات كرة مضرب {nat_men1}",  # 87
     "{en_nat} people of german descent": "{nat_men1} من أصل ألماني",  # 109
     "executed {en_nat} people": "{nat_men1} معدومون",  # 67
     "{en_nat} models": "عارضو أزياء {nat_men1}",  # 70
@@ -108,7 +109,6 @@ NAT_DATA = {
     "{en_nat} producers": "منتجون {nat_men1}",  # 103
     "{en_nat} musicians by instrument": "موسيقيون {nat_men1} حسب الآلة",  # 97
     "{en_nat} architects": "معماريون {nat_men1}",  # 102
-    "{en_nat} television actors": "ممثلو وممثلات تلفاز {nat_men1}",  # 60
     "{en_nat} generals": "جنرالات {nat_men1}",  # 99
     "{en_nat} long-distance runners": "عداؤو مسافات طويلة {nat_men1}",  # 64
     "{en_nat} middle-distance runners": "عداؤو مسافات متوسطة {nat_men1}",  # 65
