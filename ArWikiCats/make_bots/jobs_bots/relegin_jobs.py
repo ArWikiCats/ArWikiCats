@@ -41,7 +41,8 @@ def get_suffix_prefix(cate: str) -> str:
 def try_relegins_jobs_with_suffix(cate: str) -> str:
     """
     Try to generate religion job labels using nationality-style suffix logic.
-    TODO: use FormatData method
+
+    TODO: replaced by new_relegins_jobs_with_suffix
     """
 
     logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> {cate=}")
