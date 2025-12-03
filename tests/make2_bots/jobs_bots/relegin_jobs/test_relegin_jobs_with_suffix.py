@@ -77,14 +77,14 @@ def test_one() -> None:
 
 
 test_data_2 = {
-    "anglican expatriates": "x",
-    "buddhist expatriates": "x",
-    "buddhist scholars of islam": "x",
-    "christian convicted-of-murder": "x",
-    "christian expatriates": "x",
-    "nazi expatriates": "x",
-    "nazi bloggers": "x",
-    "nazi scholars of islam": "x",
+    "anglican expatriates": "أنجليكيون مغتربون",
+    "buddhist expatriates": "بوذيون مغتربون",
+    "buddhist scholars of islam": "بوذيون باحثون عن الإسلام",
+    "christian convicted-of-murder": "مسيحيون أدينوا بالقتل",
+    "christian expatriates": "مسيحيون مغتربون",
+    "nazi expatriates": "نازيون مغتربون",
+    "nazi bloggers": "مدونون نازيون",
+    "nazi scholars of islam": "نازيون باحثون عن الإسلام"
 }
 
 
@@ -100,7 +100,7 @@ TEMPORAL_CASES = [
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, try_relegins_jobs_with_suffix)
 
