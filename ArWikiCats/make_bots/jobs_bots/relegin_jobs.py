@@ -6,6 +6,7 @@
 import functools
 
 from ...helps.log import logger
+from ...helps.jsonl_dump import dump_data
 from ...translations import RELIGIOUS_KEYS_PP
 
 # from ....helps.jsonl_dump import save
@@ -31,6 +32,12 @@ def relegins_jobs(cate: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+def get_suffix_prefix(cate: str) -> str:
+    category_suffix, country_prefix = get_suffix_with_keys(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
+    return category_suffix, country_prefix
+
+
+@functools.lru_cache(maxsize=None)
 def try_relegins_jobs_with_suffix(cate: str) -> str:
     """
     Try to generate religion job labels using nationality-style suffix logic.
@@ -39,7 +46,8 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
 
     logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> {cate=}")
 
-    category_suffix, country_prefix = get_suffix_with_keys(cate, list(RELIGIOUS_KEYS_PP.keys()), "religions")
+    category_suffix, country_prefix = get_suffix_prefix(cate)
+
     country_lab = ""
 
     if category_suffix:
@@ -51,4 +59,5 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
         country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, womens=womens, find_nats=False)
 
     logger.debug(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> {cate=}, {country_lab=} ")
+
     return country_lab
