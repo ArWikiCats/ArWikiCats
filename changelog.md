@@ -1,4 +1,20 @@
 
+## [#152](https://github.com/MrIbrahem/ArWikiCats/pull/152) - 2025-12-03
+
+* **New Features**
+  * New parsing utility to normalize categories and extract year/type fields.
+  * Multi-language lookup for certain job/category labels and expanded feminine job mappings.
+
+* **Bug Fixes**
+  * Improved matching order with tie-breaker (space count then length) for more accurate key selection.
+  * Template handling now returns an empty label when no template applies.
+
+* **Tests**
+  * Added/updated tests for shooting, longest-match priority, template parsing, suffix-prefix behavior, and large-data test coverage.
+
+* **Chores**
+  * Consolidated pattern-building and removed an old utility.
+
 ## [#151](https://github.com/MrIbrahem/ArWikiCats/pull/151) - 2025-12-03
 
 * **New Features**
