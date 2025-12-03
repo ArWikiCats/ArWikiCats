@@ -17,7 +17,7 @@ keys_female_sorted = dict(sorted(
     film_keys_for_female.items(),
     # key=lambda x:x[0].count(" "),
     key=lambda x: (-x[0].count(" "), -len(x[0])),
-    reverse=True
+    # reverse=True
 ))
 
 put_label_last = {

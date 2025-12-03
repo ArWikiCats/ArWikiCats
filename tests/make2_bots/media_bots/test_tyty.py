@@ -33,6 +33,7 @@ test_data = {
 }
 
 test_data_2 = {
+    "comedy musical drama": "{tyty} كوميديا موسيقية درامية",
     "musical comedy drama": "{tyty} كوميديا موسيقية درامية",
     "musical comedy fiction": "{tyty} كوميديا موسيقية خيالية",
     "musical comedy horror": "{tyty} كوميديا موسيقية رعب",

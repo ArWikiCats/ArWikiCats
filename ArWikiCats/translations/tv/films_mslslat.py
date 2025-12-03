@@ -353,8 +353,9 @@ television_keys = {
 
 # Load JSON resources
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
-Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
 Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
+_Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
+Films_key_O_multi = {x: v for x, v in _Films_key_O_multi.items() if v.get("male", "").strip() and v.get("female", "").strip()}
 
 # Gender-aware film mappings
 (

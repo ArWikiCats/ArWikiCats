@@ -11,6 +11,7 @@ from dataclasses import dataclass
 from ...helps.log import logger
 from .model_data import FormatData
 from .model_data_time import YearFormatData
+from .model_data_double import FormatDataDouble
 
 # -----------------------
 #
@@ -37,8 +38,8 @@ class MultiDataFormatterBase:
 
     def __init__(
         self,
-        country_bot: FormatData | YearFormatData,
-        other_bot: YearFormatData | FormatData,
+        country_bot: FormatData | YearFormatData | FormatDataDouble,
+        other_bot: YearFormatData | FormatData | FormatDataDouble,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
