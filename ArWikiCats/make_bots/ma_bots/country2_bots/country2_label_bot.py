@@ -62,7 +62,6 @@ def make_cnt_lab(
         if part_2_normalized not in By_table:
             # Films_O_TT[country2] = resolved_label
             add_to_Films_O_TT(country2, resolved_label)
-            # print(f": {country2=}, {resolved_label=}\n"*10)
         else:
             logger.info("<<lightblue>>>>>> part_2_normalized in By_table")
 

@@ -6,7 +6,7 @@ from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import New_P17_Finall, US_STATES
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
-from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
+from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
 from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
 from .languages import lang_key_m, lang_ttty, languages_key, languages_pop
 from .mix_data import pop_All_2018_bot
@@ -125,6 +125,7 @@ __all__ = [
     "short_womens_jobs",
     "Female_Jobs",
     "NAT_BEFORE_OCC",
+    "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
     #
     "New_P17_Finall",

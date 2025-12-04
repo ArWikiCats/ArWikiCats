@@ -355,6 +355,8 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "radio stations": "محطات إذاعية {}",
     "radio": "راديو {}",
     "rebellions": "تمردات {}",
+    "occupations": "مهن {}",
+    "religious occupations": "مهن دينية {}",
     "rectors": "عمدات {}",
     "referendums": "استفتاءات {}",
     "religions": "ديانات {}",

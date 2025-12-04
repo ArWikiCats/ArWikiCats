@@ -4,9 +4,9 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_relegins_jobs_with_suffix
-from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import create_country_lab
 from ArWikiCats.make_bots.jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
+# from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_relegins_jobs_with_suffix as try_relegins_jobs_with_suffix
+from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import create_country_lab
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
 
 # new dict with only 10 items from RELIGIOUS_KEYS_PP
@@ -375,8 +375,8 @@ def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> Non
 
 TEMPORAL_CASES = [
     ("test_get_suffix_prefix", test_data_2, try_relegins_jobs_with_suffix),
-    ("new_relegins_jobs_with_suffix", test_data_2, new_relegins_jobs_with_suffix),
-    ("test_MEN_WOMENS_WITH_NATO", MEN_WOMENS_WITH_NATO_data, new_relegins_jobs_with_suffix),
+    ("test_MEN_WOMENS_WITH_NATO", MEN_WOMENS_WITH_NATO_data, try_relegins_jobs_with_suffix),
+    ("test_expatriates_data", expatriates_data, try_relegins_jobs_with_suffix),
 ]
 
 
