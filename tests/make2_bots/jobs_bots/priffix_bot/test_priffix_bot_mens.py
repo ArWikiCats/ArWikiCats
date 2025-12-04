@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.priffix_bot import priffix_Mens_work, work_mens_suffix, work_mens_priffix
+from ArWikiCats.make_bots.jobs_bots.priffix_bot import mens_prefixes_work, work_mens_suffix, work_mens_priffix
 
 test_mens_data = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
@@ -260,8 +260,8 @@ test_mens_data = {
 
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=list(test_mens_data.keys()))
 @pytest.mark.fast
-def test_priffix_Mens_work(category: str, expected: str) -> None:
-    label = priffix_Mens_work(category)
+def test_mens_prefixes_work(category: str, expected: str) -> None:
+    label = mens_prefixes_work(category)
     assert label == expected
 
 
@@ -367,7 +367,7 @@ by_data_fast = {
 @pytest.mark.parametrize("category, expected", by_data_fast.items(), ids=list(by_data_fast.keys()))
 @pytest.mark.fast
 def test_by_data(category: str, expected: str) -> None:
-    label = priffix_Mens_work(category)
+    label = mens_prefixes_work(category)
     assert label == expected
 
 

@@ -20,7 +20,7 @@ from ...translations import (
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ..jobs_bots.priffix_bot import womens_prefixes_work, mens_prefixes_work
 from ..jobs_bots.relegin_jobs import try_relegins_jobs_with_suffix
 from ..languages_bot.langs_w import Lang_work
 
@@ -206,7 +206,7 @@ def te4_2018_Jobs(cate: str) -> str:
 
         # 5. Fallback Prefixes
         if not country_lab:
-            country_lab = Women_s_priffix_work(cate_lower) or priffix_Mens_work(cate_lower)
+            country_lab = womens_prefixes_work(cate_lower) or mens_prefixes_work(cate_lower)
 
     # 6. Final Formatting
     if main_ss and main_lab and country_lab:

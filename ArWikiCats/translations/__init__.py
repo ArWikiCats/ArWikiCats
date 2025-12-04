@@ -41,7 +41,7 @@ from .mixed.bot_te_4_list import (
 from .mixed.jenders_priffix_suffix import (
     Mens_priffix,
     Mens_suffix,
-    Women_s_priffix,
+    womens_prefixes,
 )
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
@@ -222,5 +222,5 @@ __all__ = [
     "replace_labels_2022",
     "Mens_suffix",
     "Mens_priffix",
-    "Women_s_priffix",
+    "womens_prefixes",
 ]

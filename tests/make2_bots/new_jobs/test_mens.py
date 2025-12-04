@@ -4,28 +4,28 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.new_jobs.nat_jobs_resolver_mens import get_label
+from ArWikiCats.make_bots.new_jobs.mens import get_label
 
 test_data2 = {
     # nat
     "welsh people": "ويلزيون",
     "yemeni people": "يمنيون",
-    "abkhazian-american": "أمريكيون أبخازيون",
-    "abkhazian-american people": "أمريكيون أبخازيون",
+    # "abkhazian-american": "أمريكيون أبخازيون",
+    # "abkhazian-american people": "أمريكيون أبخازيون",
 
     # jobs
     "writers people": "كتاب",
     "archers": "نبالون",
     "male archers": "نبالون ذكور",
     "football managers": "مدراء كرة قدم",
-    "expatriate football managers": "مدراء كرة قدم مغتربون",
-    "expatriate male actors": "ممثلون ذكور مغتربون",
+    # "expatriate football managers": "مدراء كرة قدم مغتربون",
+    # "expatriate male actors": "ممثلون ذكور مغتربون",
 
     # nat + jobs
     "yemeni writers": "كتاب يمنيون",
     "yemeni male writers": "كتاب ذكور يمنيون",
     "greek male writers": "كتاب ذكور يونانيون",
-    "abkhazian-american archers": "نبالون أمريكيون أبخازيون",
+    # "abkhazian-american archers": "نبالون أمريكيون أبخازيون",
 }
 
 

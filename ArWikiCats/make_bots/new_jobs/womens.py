@@ -1,14 +1,12 @@
 """
 This module provides functionality to translate category titles
-compare with Women_s_priffix_work
+compare with womens_prefixes_work
 """
 
-import functools
-
 from ...translations import Nat_Womens, jobs_womens_data
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from .job_resolve import NatJobsResolver
 
-Women_s_priffix = {
+womens_prefixes = {
     "{en} blind": "{ar} مكفوفات",
     "{en} deaf": "{ar} صم",
     "{en} deafblind": "{ar} صم ومكفوفات",
@@ -50,34 +48,16 @@ formatted_data.update({
     "{en_nat}-american people": "أمريكيات {ar_nat}",
 })
 
-for x, v in Women_s_priffix.items():
+for x, v in womens_prefixes.items():
     formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
     formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
 
+nat_womens_new = {x: v for x, v in Nat_Womens.items() if "-american" not in x}
+jobs_womens = dict(jobs_womens_data)
+jobs_womens.update({
+    "actresses": "ممثلات",
+})
 
-@functools.lru_cache(maxsize=1)
-def _bot_multi() -> MultiDataFormatterBase:
-    nat_womens_new = {x: v for x, v in Nat_Womens.items() if "-american" not in x}
-    jobs_womens = dict(jobs_womens_data)
-    jobs_womens.update({
-        "actresses": "ممثلات",
-    })
-    return format_multi_data(
-        formatted_data=formatted_data,
-        data_list=nat_womens_new,
-        key_placeholder="{en_nat}",
-        value_placeholder="{ar_nat}",
-        data_list2=jobs_womens,
-        key2_placeholder="{en_job}",
-        value2_placeholder="{ar_job}",
-        text_after="",
-        text_before="the ",
-        use_other_formatted_data=True,
-    )
+mens_resolver = NatJobsResolver(jobs_womens, formatted_data, nat_womens_new)
 
-
-@functools.lru_cache(maxsize=10000)
-def get_label(category: str) -> str:
-    nat_bot = _bot_multi()
-    result = nat_bot.search_all(category)
-    return result
+get_label = mens_resolver.get_label

@@ -9,7 +9,7 @@ Mens_suffix: dict[str, str] = {
     "murdered abroad": "{} قتلوا في الخارج",
 }
 
-Women_s_priffix: dict[str, str] = {
+womens_prefixes: dict[str, str] = {
     "blind": "{} مكفوفات",
     "deaf": "{} صم",
     "deafblind": "{} صم ومكفوفات",
@@ -77,6 +77,6 @@ under_data = {
 }
 __all__ = [
     "Mens_priffix",
-    "Women_s_priffix",
+    "womens_prefixes",
     "Mens_suffix",
 ]
