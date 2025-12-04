@@ -1,5 +1,5 @@
 
-from .nats import nats_women_label
+from .nats_women import nats_women_label
 from . import countries_names, federation_bot
 
 

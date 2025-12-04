@@ -5,10 +5,11 @@ tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations_resolvers.nats import nats_women_label
+from ArWikiCats.translations_resolvers.nats_women import nats_women_label
 from ArWikiCats import resolve_arabic_category_label
 
 all_test_data = {
+    "american television series": "مسلسلات تلفزيونية أمريكية",
     "non-american television series": "مسلسلات تلفزيونية غير أمريكية",
     "non american television series": "مسلسلات تلفزيونية غير أمريكية",
     "non yemeni television series": "مسلسلات تلفزيونية غير يمنية",

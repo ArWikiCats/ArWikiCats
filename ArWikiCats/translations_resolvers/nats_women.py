@@ -11,6 +11,7 @@ def _load_bot() -> FormatData:
     """
 
     format_labels_with_nat = {
+        "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
         "non {nat_en} television series": "مسلسلات تلفزيونية غير {nat_ar}",
     }
 
