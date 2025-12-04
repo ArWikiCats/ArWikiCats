@@ -28,6 +28,8 @@ RELIGIOUS_FEMALE_KEYS: dict[str, str] = {
 }
 
 FEMALE_SUFFIXES: dict[str, str] = {
+    "occupations": "مهن",
+    "religious occupations": "مهن دينية",
     "academies": "أكاديميات",
     "agencies": "وكالات",
     "associations": "جمعيات",
@@ -67,7 +69,6 @@ FEMALE_SUFFIXES: dict[str, str] = {
     "museums": "متاحف",
     "non-profit organizations": "منظمات غير ربحية",
     "non-profit publishers": "ناشرون غير ربحيون",
-    "occupations": "مهن",
     "orders": "أخويات",
     "organisations": "منظمات",
     "organization": "منظمات",

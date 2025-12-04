@@ -6,8 +6,33 @@
 import functools
 
 from ...helps.log import logger
-from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, NAT_BEFORE_OCC_BASE
+from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
+
+
+NAT_BEFORE_OCC_BASE = [
+    "convicted-of-murder",
+    "murdered abroad",
+    "contemporary",
+    "tour de france stage winners",
+    "deafblind",
+    "deaf",
+    "blind",
+    "jews",
+    # "women's rights activists",
+    "human rights activists",
+    "imprisoned",
+    "imprisoned abroad",
+    "conservationists",
+    "expatriate",
+    "defectors",
+    "scholars of islam",
+    "scholars-of-islam",
+    "amputees",
+    "expatriates",
+    "executed abroad",
+    "emigrants",
+]
 
 
 @functools.lru_cache(maxsize=1)
@@ -24,6 +49,7 @@ def _load_womens_bot() -> MultiDataFormatterBase:
         "{rele_en} female {job_en}": "{job_ar} {rele_ar}",
         "{job_en} female {rele_en}": "{job_ar} {rele_ar}",
 
+        "{rele_en} female saints": "قديسات {rele_ar}",
         "{rele_en} female eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
         "{rele_en} female politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
         "{rele_en} female contemporary artists": "فنانات {rele_ar} معاصرات",
@@ -73,6 +99,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "{rele_en} religious workers": "عمال دينيون {rele_ar}",
         "{rele_en} emigrants": "{rele_ar} مهاجرون",
 
+        "{rele_en} saints": "قديسون {rele_ar}",
         "{rele_en} eugenicists": "علماء {rele_ar} متخصصون في تحسين النسل",
         "{rele_en} politicians who committed suicide": "سياسيون {rele_ar} أقدموا على الانتحار",
         "{rele_en} contemporary artists": "فنانون {rele_ar} معاصرون",
