@@ -6,8 +6,8 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.translations_resolvers.contries_names import (
-    resolve_by_contries_names,
+from ArWikiCats.translations_resolvers.countries_names import (
+    resolve_by_countries_names,
 )
 
 main_data = {
@@ -71,13 +71,13 @@ main_data = {
 
 @pytest.mark.parametrize("category, expected", main_data.items(), ids=list(main_data.keys()))
 @pytest.mark.fast
-def test_resolve_by_contries_names(category: str, expected: str) -> None:
-    label = resolve_by_contries_names(category)
+def test_resolve_by_countries_names(category: str, expected: str) -> None:
+    label = resolve_by_countries_names(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_by_contries_names", main_data, resolve_by_contries_names),
+    ("test_resolve_by_countries_names", main_data, resolve_by_countries_names),
 ]
 
 

@@ -57,7 +57,7 @@ from .nats.Nationality import (
     all_country_with_nat_keys_is_en,
     countries_nat_en_key,
     ar_Nat_men,
-    contries_from_nat,
+    countries_from_nat,
     en_nats_to_ar_label,
     nats_to_add,
 )
@@ -136,7 +136,7 @@ __all__ = [
     "all_country_with_nat_keys_is_en",
     "countries_nat_en_key",
     "all_country_with_nat_ar",
-    "contries_from_nat",
+    "countries_from_nat",
     "Nat_mens",
     "Nat_Womens",
     "Nat_men",

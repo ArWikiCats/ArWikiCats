@@ -8,7 +8,7 @@ from ...helps import len_print
 from ...translations_formats import FormatData, format_multi_data, MultiDataFormatterBase
 from ...helps.log import logger
 from ...translations import (
-    contries_from_nat,
+    countries_from_nat,
 )
 
 main_data = {
@@ -92,7 +92,7 @@ KEY_EN_PLACEHOLDER = "{en}"
 def _load_bot() -> FormatData:
     return FormatData(
         main_data,
-        contries_from_nat,
+        countries_from_nat,
         key_placeholder=KEY_EN_PLACEHOLDER,
         value_placeholder=KEY_AR_PLACEHOLDER,
     )
@@ -120,7 +120,7 @@ def _load_multi_bot() -> MultiDataFormatterBase:
         data_list=under_data,
         key_placeholder="{under_en}",
         value_placeholder="{under_ar}",
-        data_list2=contries_from_nat,
+        data_list2=countries_from_nat,
         key2_placeholder=KEY_EN_PLACEHOLDER,
         value2_placeholder=KEY_AR_PLACEHOLDER,
     )

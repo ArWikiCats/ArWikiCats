@@ -27,7 +27,7 @@ def multi_bot() -> MultiDataFormatterBase:
         "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
         "{en} men's a' international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
     }
-    contries_from_nat = {
+    countries_from_nat = {
         "armenia": "أرمينيا",
         "chad": "تشاد",
         "mauritania": "موريتانيا",
@@ -38,7 +38,7 @@ def multi_bot() -> MultiDataFormatterBase:
         data_list=under_data,
         key_placeholder="{under_en}",
         value_placeholder="{under_ar}",
-        data_list2=contries_from_nat,
+        data_list2=countries_from_nat,
         key2_placeholder="{en}",
         value2_placeholder="{ar}",
         use_other_formatted_data=True,

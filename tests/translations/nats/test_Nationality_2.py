@@ -224,7 +224,7 @@ def test_build_american_forms_jewish_special_case() -> None:
 
 
 def test_build_lookup_tables_nat_men_and_country() -> None:
-    """build_lookup_tables should fill Nat_men and contries_from_nat correctly."""
+    """build_lookup_tables should fill Nat_men and countries_from_nat correctly."""
 
     all_nat = {
         "yemeni": make_entry(men="يمني", en="yemen", ar="اليمن"),
@@ -232,25 +232,25 @@ def test_build_lookup_tables_nat_men_and_country() -> None:
 
     result = build_lookup_tables(all_nat, all_nat)
     Nat_men = result["Nat_men"]
-    contries_from_nat = result["contries_from_nat"]
+    countries_from_nat = result["countries_from_nat"]
     all_country_ar = result["all_country_ar"]
 
     assert Nat_men["yemeni"] == "يمني"
-    assert contries_from_nat["yemen"] == "اليمن"
+    assert countries_from_nat["yemen"] == "اليمن"
     assert all_country_ar["yemen"] == "اليمن"
 
 
 def test_build_lookup_tables_the_prefix_normalization() -> None:
-    """'the X' should be normalized to 'X' in contries_from_nat."""
+    """'the X' should be normalized to 'X' in countries_from_nat."""
 
     all_nat = {
         "british": make_entry(men="بريطاني", en="the uk", ar="المملكة المتحدة"),
     }
 
     result = build_lookup_tables(all_nat, all_nat)
-    contries_from_nat = result["contries_from_nat"]
+    countries_from_nat = result["countries_from_nat"]
 
-    assert contries_from_nat["uk"] == "المملكة المتحدة"
+    assert countries_from_nat["uk"] == "المملكة المتحدة"
 
 
 def test_build_lookup_tables_uppercase_en_normalization() -> None:
@@ -261,10 +261,10 @@ def test_build_lookup_tables_uppercase_en_normalization() -> None:
     }
 
     result = build_lookup_tables(all_nat, all_nat)
-    contries_from_nat = result["contries_from_nat"]
+    countries_from_nat = result["countries_from_nat"]
 
-    assert "italy" in contries_from_nat
-    assert contries_from_nat["italy"] == "إيطاليا"
+    assert "italy" in countries_from_nat
+    assert countries_from_nat["italy"] == "إيطاليا"
 
 
 def test_build_lookup_tables_en_nats_to_ar_label() -> None:
@@ -325,7 +325,7 @@ def test_full_pipeline_minimal() -> None:
     result = build_lookup_tables(all_nat, raw)
 
     assert result["Nat_men"]["yemeni"] == "يمني"
-    assert result["contries_from_nat"]["yemen"] == "اليمن"
+    assert result["countries_from_nat"]["yemen"] == "اليمن"
     assert result["all_country_ar"]["yemen"] == "اليمن"
 
 
@@ -358,4 +358,4 @@ def test_full_pipeline_with_alias_and_american() -> None:
     result = build_lookup_tables(all_nat, all_nat_o)
 
     assert "russian" in result["Nat_men"]
-    assert result["contries_from_nat"]["russia"] == "روسيا"
+    assert result["countries_from_nat"]["russia"] == "روسيا"

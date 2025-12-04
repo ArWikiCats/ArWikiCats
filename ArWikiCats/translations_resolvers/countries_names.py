@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
 from ..translations_formats import FormatData
-from ..translations import contries_from_nat
+from ..translations import countries_from_nat
 
 en_is_P17_ar_is_P17: dict[str, str] = {
     "{en} board members": "أعضاء مجلس {ar}",
@@ -32,16 +32,16 @@ en_is_P17_ar_is_P17: dict[str, str] = {
 
 nat_bot = FormatData(
     en_is_P17_ar_is_P17,
-    contries_from_nat,
+    countries_from_nat,
     key_placeholder="{en}",
     value_placeholder="{ar}",
 )
 
 
-def resolve_by_contries_names(category: str) -> str:
+def resolve_by_countries_names(category: str) -> str:
     return nat_bot.search(category)
 
 
 __all__ = [
-    "resolve_by_contries_names",
+    "resolve_by_countries_names",
 ]

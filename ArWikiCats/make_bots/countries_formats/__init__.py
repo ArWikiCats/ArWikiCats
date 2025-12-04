@@ -1,5 +1,5 @@
 
-from ...translations_resolvers import contries_names
+from ...translations_resolvers import countries_names
 from . import p17_bot, p17_bot_sport, p17_bot_2, p17_sport_to_move
 
 
@@ -22,6 +22,6 @@ def resolved_countries_formats_labels(normalized_category) -> str:
         resolved_label = p17_bot_2.get_p17_2(normalized_category)
 
     if not resolved_label:
-        resolved_label = contries_names.resolve_by_contries_names(normalized_category)
+        resolved_label = countries_names.resolve_by_countries_names(normalized_category)
 
     return resolved_label

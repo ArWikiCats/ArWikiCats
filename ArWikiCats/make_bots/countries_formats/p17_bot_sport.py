@@ -5,7 +5,7 @@ import re
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
-    contries_from_nat,
+    countries_from_nat,
     SPORTS_KEYS_FOR_TEAM,
     SPORTS_KEYS_FOR_JOBS,
     match_sport_key,
@@ -70,8 +70,8 @@ def get_p17_with_sport(category: str) -> str:
     resolved_label = ""
     category = category.lower()
 
-    suffix, country_start = get_suffix_with_keys(category, contries_from_nat)
-    country_start_lab = contries_from_nat.get(country_start, "")
+    suffix, country_start = get_suffix_with_keys(category, countries_from_nat)
+    country_start_lab = countries_from_nat.get(country_start, "")
 
     if not suffix or not country_start:
         logger.info(f'<<lightred>>>>>> {suffix=} or {country_start=} == ""')

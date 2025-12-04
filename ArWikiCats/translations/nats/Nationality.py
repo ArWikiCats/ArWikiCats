@@ -232,7 +232,7 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
     Nat_Womens: LookupTable = {}
 
     ar_Nat_men: LookupTable = {}
-    contries_from_nat: LookupTable = {}
+    countries_from_nat: LookupTable = {}
 
     all_country_ar: LookupTable = {}
     all_country_with_nat: AllNatDict = {}
@@ -259,10 +259,10 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
         # English → Arabic country mapping
         if en and ar:
             all_country_ar[en_norm] = ar
-            contries_from_nat[en_norm] = ar
+            countries_from_nat[en_norm] = ar
 
             if en_norm.startswith("the "):
-                contries_from_nat[en_norm[4:]] = ar
+                countries_from_nat[en_norm[4:]] = ar
 
         # Full nationality entry mapping
         if ar:
@@ -283,7 +283,7 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
         "Nat_women": Nat_women,
         "Nat_Womens": Nat_Womens,
         "ar_Nat_men": ar_Nat_men,
-        "contries_from_nat": contries_from_nat,
+        "countries_from_nat": countries_from_nat,
         "all_country_ar": all_country_ar,
         "all_country_with_nat": all_country_with_nat,
         "all_country_with_nat_ar": all_country_with_nat_ar,
@@ -310,7 +310,7 @@ Nat_women = result_tables["Nat_women"]
 Nat_Womens = result_tables["Nat_Womens"]
 
 ar_Nat_men = result_tables["ar_Nat_men"]
-contries_from_nat = result_tables["contries_from_nat"]
+countries_from_nat = result_tables["countries_from_nat"]
 all_country_ar = result_tables["all_country_ar"]
 all_country_with_nat = result_tables["all_country_with_nat"]
 all_country_with_nat_ar = result_tables["all_country_with_nat_ar"]
@@ -331,7 +331,7 @@ len_print.data_len(
         "Nat_women": Nat_women,
         "Nat_Womens": Nat_Womens,
         "all_country_ar": all_country_ar,
-        "contries_from_nat": contries_from_nat,
+        "countries_from_nat": countries_from_nat,
         "All_Nat": All_Nat,
         "all_country_with_nat_ar": all_country_with_nat_ar,
         "all_country_with_nat": all_country_with_nat,
