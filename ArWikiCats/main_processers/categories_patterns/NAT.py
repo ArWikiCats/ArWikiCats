@@ -19,6 +19,10 @@ NAT_DATA_to_check = {
     "{en_nat} expatriate footballers": "لاعبو ولاعبات كرة قدم {nat_men1} مغتربون",  # 162
     "{en_nat} businesspeople": "أصحاب أعمال {nat_men1}",  # 110
     "{en_nat} non-fiction writers": "كتاب غير روائيين {nat_men1}",  # 118
+    "{en_nat} christians": "مسيحيون {nat_men1}",  # 134
+    "{en_nat} muslims": "مسلمون {nat_men1}",  # 132
+    "{en_nat} diaspora in the united states": "أمريكيون {nat_men1}",  # 126
+    "{en_nat} sports coaches": "مدربون رياضيون {nat_men1}",  # 110
 
 }
 NAT_DATA = {
@@ -37,7 +41,6 @@ NAT_DATA = {
     "{en_nat} sportspeople by sport": "رياضيون {nat_men1} حسب الرياضة",  # 178
     "{en_nat} expatriate sportspeople": "رياضيون {nat_men1} مغتربون",  # 171
     "{en_nat} musicians": "موسيقيون {nat_men1}",  # 157
-    "{en_nat} sports coaches": "مدربون رياضيون {nat_men1}",  # 110
     "{en_nat} people by religion": "{nat_men1} حسب الدين",  # 164
     "{en_nat} expatriate sportspeople by country of residence": "رياضيون {nat_men1} مغتربون حسب بلد الإقامة",  # 168
     "{en_nat} men's footballers": "لاعبو كرة قدم {nat_men1}",  # 167
@@ -46,7 +49,6 @@ NAT_DATA = {
     "{en_nat} expatriate men's footballers": "لاعبو كرة قدم {nat_men1} مغتربون",  # 163
     "{en_nat} people by century": "{nat_men1} حسب القرن",  # 121
     "{en_nat} people by political orientation": "{nat_men1} حسب التوجه السياسي",  # 156
-    "{en_nat} christians": "مسيحيون {nat_men1}",  # 134
     "{en_nat} political people": "ساسة {nat_men1}",  # 160
     "{en_nat} military personnel": "عسكريون {nat_men1}",  # 106
     "{en_nat} activists": "ناشطون {nat_men1}",  # 159
@@ -68,12 +70,10 @@ NAT_DATA = {
     "{en_nat} academics": "أكاديميون {nat_men1}",  # 136
     "{en_nat} novelists": "روائيون {nat_men1}",  # 101
     "{en_nat} sprinters": "عداؤون سريعون {nat_men1}",  # 85
-    "{en_nat} muslims": "مسلمون {nat_men1}",  # 132
     "{en_nat} criminals": "مجرمون {nat_men1}",  # 124
     "{en_nat} murder victims": "ضحايا قتل {nat_men1}",  # 128
     "{en_nat} roman catholics": "رومان كاثوليك {nat_men1}",  # 127
     "{en_nat} religious leaders": "قادة دينيون {nat_men1}",  # 110
-    "{en_nat} diaspora in the united states": "أمريكيون {nat_men1}",  # 126
     "{en_nat} socialists": "اشتراكيون {nat_men1}",  # 127
     "{en_nat} judges": "قضاة {nat_men1}",  # 125
     "{en_nat} victims of crime": "ضحايا جرائم {nat_men1}",  # 123

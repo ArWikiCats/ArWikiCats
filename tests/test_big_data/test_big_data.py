@@ -12,7 +12,7 @@ from ArWikiCats import resolve_arabic_category_label
 ENTERTAINMENT_CASES = []
 
 for i in range(1, 11):
-    file = Path(__file__).parent.parent / "examples" / "big_data" / f"{i}.json"
+    file = Path(__file__).parent / "data" / f"{i}.json"
     if file.exists():
         with open(file, "r", encoding="utf-8") as f:
             data = json.load(f)
