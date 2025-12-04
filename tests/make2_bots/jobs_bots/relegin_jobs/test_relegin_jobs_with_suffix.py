@@ -375,8 +375,8 @@ def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> Non
 
 TEMPORAL_CASES = [
     ("test_get_suffix_prefix", test_data_2, try_relegins_jobs_with_suffix),
-    ("new_relegins_jobs_with_suffix", test_data_2, new_relegins_jobs_with_suffix),
-    ("test_MEN_WOMENS_WITH_NATO", MEN_WOMENS_WITH_NATO_data, new_relegins_jobs_with_suffix),
+    ("test_MEN_WOMENS_WITH_NATO", MEN_WOMENS_WITH_NATO_data, try_relegins_jobs_with_suffix),
+    ("test_expatriates_data", expatriates_data, try_relegins_jobs_with_suffix),
 ]
 
 

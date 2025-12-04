@@ -14,7 +14,7 @@ from ...translations_formats import format_multi_data, MultiDataFormatterBase
 def _load_womens_bot() -> MultiDataFormatterBase:
     relegins_data = {x: v["womens"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("womens")}
 
-    formatted_data = {
+    female_formatted_data = {
         "female {job_en}": "{job_ar}",
         "female {rele_en}": "{rele_ar}",
 
@@ -28,6 +28,14 @@ def _load_womens_bot() -> MultiDataFormatterBase:
         "{rele_en} female politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
         "{rele_en} female contemporary artists": "فنانات {rele_ar} معاصرات",
     }
+
+    formatted_data = {}
+
+    for x, v in female_formatted_data.items():
+        formatted_data[x] = v
+        if "female" in x:
+            formatted_data[x.replace("female", "womens")] = v
+            formatted_data[x.replace("female", "women's")] = v
 
     return format_multi_data(
         formatted_data=formatted_data,
