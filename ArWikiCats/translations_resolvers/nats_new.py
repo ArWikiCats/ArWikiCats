@@ -16,9 +16,6 @@ format_labels_with_nat = {
     "ladies natar xoxo tour": "بطولة natar xoxo للسيدات",
 }
 
-# nat_bot = FormatData(format_labels_with_nat, en_nats_to_ar_label, key_placeholder="natar", value_placeholder="natar")
-# sport_bot = FormatData({}, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_placeholder="xoxo")
-
 both_bot = format_multi_data(
     format_labels_with_nat,
     en_nats_to_ar_label,

@@ -19,6 +19,15 @@ en_is_P17_ar_is_P17: dict[str, str] = {
     "{en} territorial officials": "مسؤولو أقاليم {ar}",
     "{en} war and conflict": "حروب ونزاعات {ar}",
     "{en} war": "حرب {ar}",
+    "{en} afc women's asian cup squad": "تشكيلات {ar} في كأس آسيا للسيدات",
+    "{en} afc asian cup squad": "تشكيلات {ar} في كأس آسيا",
+    "{en} fifa world cup squad": "تشكيلات {ar} في كأس العالم",
+    "{en} fifa futsal world cup squad": "تشكيلات {ar} في كأس العالم لكرة الصالات",
+    "{en} summer olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الصيفية",
+    "{en} winter olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الشتوية",
+    "{en} olympics squad": "تشكيلات {ar} في الألعاب الأولمبية",
+    "{en} summer olympics": " {ar} في الألعاب الأولمبية الصيفية",
+    "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
 }
 
 nat_bot = FormatData(
@@ -29,10 +38,10 @@ nat_bot = FormatData(
 )
 
 
-def resolve_en_is_P17_ar_is_P17(category: str) -> str:
+def resolve_by_contries_names(category: str) -> str:
     return nat_bot.search(category)
 
 
 __all__ = [
-    "resolve_en_is_P17_ar_is_P17",
+    "resolve_by_contries_names",
 ]
