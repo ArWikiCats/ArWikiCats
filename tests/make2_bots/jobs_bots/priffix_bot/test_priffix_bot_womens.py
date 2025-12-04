@@ -236,7 +236,7 @@ test_womens_data = {
     "women zoologists": "عالمات حيوانات",
     "women's basketball coaches": "مدربات كرة سلة",
     "women's candidates": "مرشحات",
-    "women's football managers": "مديرات كرة قدم",
+    "women's football managers": "مدربات كرة قدم",
     "women's football wingers": "جناحات كرة قدم",
     "women's ice hockey defencemen": "مدافعات هوكي جليد",
     "women's ice hockey goaltenders": "حارسات مرمى هوكي جليد",

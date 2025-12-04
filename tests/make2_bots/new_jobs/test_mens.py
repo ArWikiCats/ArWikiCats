@@ -17,8 +17,8 @@ test_data2 = {
     "writers people": "كتاب",
     "archers": "نبالون",
     "male archers": "نبالون ذكور",
-    "football managers": "مدراء كرة قدم",
-    # "expatriate football managers": "مدراء كرة قدم مغتربون",
+    "football managers": "مدربو كرة قدم",
+    # "expatriate football managers": "مدربو كرة قدم مغتربون",
     # "expatriate male actors": "ممثلون ذكور مغتربون",
 
     # nat + jobs

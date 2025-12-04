@@ -46,7 +46,8 @@ def load_teams_new() -> Dict[str, str]:
         data.update(
             {
                 f"{sport}": f"{sport_label}",
-                f"{sport} managers": f"مدراء {sport_label}",
+                # f"{sport} managers": f"مدراء {sport_label}",
+                f"{sport} managers": f"مدربو {sport_label}",
                 f"{sport} coaches": f"مدربو {sport_label}",
                 f"{sport} people": f"أعلام {sport_label}",
                 f"{sport} playerss": f"لاعبو {sport_label}",

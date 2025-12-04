@@ -39,6 +39,7 @@ data1 = {
 }
 
 data2 = {
+    "Category:Female association football managers": "تصنيف:مدربات كرة قدم",
     # "Category:Coaches of the West Indies national cricket team": "",
     # "Category:Nauru international soccer players": "",
     "Category:Afghanistan women's national football team coaches": "تصنيف:مدربو منتخب أفغانستان لكرة القدم للسيدات",
@@ -94,7 +95,6 @@ data3 = {
     "Category:European national under-21 association football teams": "تصنيف:منتخبات كرة قدم وطنية أوروبية تحت 21 سنة",
     "Category:Expatriate women's association football players": "تصنيف:لاعبات كرة قدم مغتربات",
     "Category:Expatriate women's footballers by location": "تصنيف:لاعبات كرة قدم مغتربات حسب الموقع",
-    "Category:Female association football managers": "تصنيف:مديرات كرة قدم",
     "Category:Athletics at the Summer Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية الصيفية",
     "Category:Athletics at the Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية",
     "Category:Australia at the Summer Universiade": "تصنيف:أستراليا في الألعاب الجامعية الصيفية",
