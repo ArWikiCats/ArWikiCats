@@ -41,6 +41,7 @@ def _load_womens_bot() -> MultiDataFormatterBase:
 
     female_formatted_data = {
         "female {job_en}": "{job_ar}",
+        "people female {rele_en}": "{rele_ar}",
         "female {rele_en}": "{rele_ar}",
 
         "female {rele_en} {job_en}": "{job_ar} {rele_ar}",
@@ -80,7 +81,9 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     relegins_data = {x: v["mens"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("mens")}
 
     formatted_data = {
+        "people {job_en}": "{job_ar}",
         "{job_en}": "{job_ar}",
+        "people {rele_en}": "{rele_ar}",
         "{rele_en}": "{rele_ar}",
         "{rele_en} expatriates": "{rele_ar} مغتربون",
 
@@ -129,7 +132,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
 def womens_result(category: str) -> str:
     """
     """
-    logger.debug(f"\t xx start: <<lightred>>mens_result >> <<lightpurple>> {category=}")
+    logger.debug(f"\t xx start: <<lightred>>womens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_womens_bot()
     return nat_bot.search_all(category)

@@ -87,5 +87,5 @@ def test_new_relegins_jobs_with_suffix(input_text: str, expected: str) -> None:
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
     input2 = f"people {input_text}"
-    result2 = new_relegins_jobs_with_suffix(input_text)
+    result2 = new_relegins_jobs_with_suffix(input2)
     assert result2 == expected, f"{expected=}, {result2=}, {input2=}"
