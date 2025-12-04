@@ -1,4 +1,18 @@
 
+## [#157](https://github.com/MrIbrahem/ArWikiCats/pull/157) - 2025-12-04
+
+* **New Features**
+  * Better gender-aware translation handling with separate masculine/feminine processing and expanded coverage of professions.
+
+* **Bug Fixes**
+  * Fixes for feminine job forms and corrected role translation terminology.
+
+* **Tests**
+  * Updated test suite and reference data; removed an obsolete test fixture and adjusted expected outputs.
+
+* **Changelog**
+  * Added a new changelog entry documenting the above translation and test updates.
+
 ## [#156](https://github.com/MrIbrahem/ArWikiCats/pull/156) - 2025-12-04
 
 * **Bug Fixes**

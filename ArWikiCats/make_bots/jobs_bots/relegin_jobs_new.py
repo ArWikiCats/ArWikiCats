@@ -6,7 +6,7 @@
 import functools
 
 from ...helps.log import logger
-from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data
+from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, NAT_BEFORE_OCC_BASE
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
 
@@ -73,15 +73,19 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "{rele_en} religious workers": "عمال دينيون {rele_ar}",
         "{rele_en} emigrants": "{rele_ar} مهاجرون",
 
-        # TODO: ADD DATA FROM NAT_BEFORE_OCC
-
-        "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
-        "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
-        "{rele_en} women's rights activists": "{rele_ar} ناشطون في حقوق المرأة",
         "{rele_en} eugenicists": "علماء {rele_ar} متخصصون في تحسين النسل",
         "{rele_en} politicians who committed suicide": "سياسيون {rele_ar} أقدموا على الانتحار",
         "{rele_en} contemporary artists": "فنانون {rele_ar} معاصرون",
+
+        # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
+        "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
+        "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
+        "{rele_en} women's rights activists": "{rele_ar} ناشطون في حقوق المرأة",
     }
+    for x in NAT_BEFORE_OCC_BASE:
+        if jobs_mens_data.get(x):
+            formatted_data[f"{{rele_en}} {x}"] = f"{{rele_ar}} {jobs_mens_data[x]}"
+
     return format_multi_data(
         formatted_data=formatted_data,
         data_list=relegins_data,
