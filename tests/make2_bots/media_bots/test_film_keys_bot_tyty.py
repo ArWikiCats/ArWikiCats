@@ -4,7 +4,6 @@ Tests
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.media_bots.film_keys_bot_tyty import get_films_key_tyty, search_multi
 from ArWikiCats.make_bots.media_bots.tyty_new_format import get_films_key_tyty_new, search_multi_new
 
 keys_in_films_key_333 = {
@@ -63,9 +62,6 @@ test_put_label_last_data = {
 @pytest.mark.parametrize("category, expected", test_put_label_last_data.items(), ids=list(test_put_label_last_data.keys()))
 @pytest.mark.fast
 def test_put_label_last(category: str, expected: str) -> None:
-
-    label1 = search_multi(category)
-    assert label1 == expected
 
     label2 = search_multi_new(category)
     assert label2 == expected
@@ -130,9 +126,6 @@ fast_data2 = {
 @pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
 @pytest.mark.fast
 def test_search_multi(category: str, expected: str) -> None:
-    label1 = search_multi(category)
-    assert label1 == expected
-
     label2 = search_multi_new(category)
     assert label2 == expected
 
@@ -140,17 +133,14 @@ def test_search_multi(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", fast_data1.items(), ids=list(fast_data1.keys()))
 @pytest.mark.fast
 def test_get_films_key_tyty(category: str, expected: str) -> None:
-    label1 = get_films_key_tyty(category)
-    assert label1 == expected
-
     label2 = get_films_key_tyty_new(category)
     assert label2 == expected
 
 
 to_test = [
-    ("test_get_films_key_tyty", fast_data1, get_films_key_tyty),
-    ("test_put_label_last", test_put_label_last_data, search_multi),
-    ("test_search_multi", fast_data2, search_multi),
+    ("test_get_films_key_tyty", fast_data1, get_films_key_tyty_new),
+    ("test_put_label_last", test_put_label_last_data, search_multi_new),
+    ("test_search_multi", fast_data2, search_multi_new),
 ]
 
 

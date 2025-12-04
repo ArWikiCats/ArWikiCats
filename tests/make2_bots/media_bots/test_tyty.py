@@ -5,7 +5,6 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.media_bots.film_keys_bot_tyty import search_multi
 from ArWikiCats.make_bots.media_bots.tyty_new_format import search_multi_new
 
 test_data = {
@@ -32,19 +31,6 @@ test_data = {
 
 }
 
-test_data_2 = {
-    "musical comedy drama": "{tyty} موسيقية كوميديا درامية",
-    "musical comedy fiction": "{tyty} موسيقية كوميديا خيالية",
-    "musical comedy horror": "{tyty} موسيقية كوميدية رعب",
-    "romantic comedy drama": "{tyty} رومانسية كوميديا درامية",
-    "romantic comedy fiction": "{tyty} رومانسية كوميديا خيالية",
-    "romantic comedy horror": "{tyty} رومانسية كوميدية رعب",
-    "zombie comedy drama": "{tyty} زومبي كوميديا درامية",
-    "zombie comedy fiction": "{tyty} زومبي كوميديا خيالية",
-    "zombie comedy horror": "{tyty} زومبي كوميدية رعب",
-    "zombie comedy thriller": "{tyty} زومبي كوميديا إثارة"
-}
-
 test_data_3 = {
     "musical comedy drama": "{tyty} كوميديا موسيقية درامية",
     "musical comedy fiction": "{tyty} كوميديا موسيقية خيالية",
@@ -62,15 +48,13 @@ test_data_3 = {
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=list(test_data.keys()))
 @pytest.mark.fast
 def test_search_multi(category: str, expected: str) -> None:
-    label1 = search_multi(category)
+    label1 = search_multi_new(category)
     assert label1 == expected
 
 
 to_test = [
-    ("test_search_multi", test_data, search_multi),
+    ("test_search_multi", test_data, search_multi_new),
     ("test_search_multi_new", test_data, search_multi_new),
-
-    ("test_search_multi_test_data_2", test_data_2, search_multi),
     ("test_search_multi_test_data_3", test_data_3, search_multi_new),
 ]
 
