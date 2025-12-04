@@ -69,6 +69,9 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "{rele_en} male {job_en}": "{job_ar} ذكور {rele_ar}",
         "{job_en} male {rele_en}": "{job_ar} ذكور {rele_ar}",
 
+        "fictional {rele_en} religious workers": "عمال دينيون {rele_ar} خياليون",
+        "{rele_en} religious workers": "عمال دينيون {rele_ar}",
+
         # TODO: ADD DATA FROM NAT_BEFORE_OCC
 
         "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",

@@ -180,6 +180,10 @@ def te4_2018_Jobs(cate: str) -> str:
     cate_original = cate
     cate_lower_original = cate.lower()
 
+    country_lab = new_relegins_jobs_with_suffix(cate_lower_original)
+    if country_lab:
+        return country_lab
+
     # 1. Handle Prefix
     cate, main_ss, main_lab = handle_main_prefix(cate, cate_original)
 
@@ -217,8 +221,9 @@ def te4_2018_Jobs(cate: str) -> str:
             country_lab = Main_priffix_to[main_ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
 
     if not country_lab:
-        # country_lab = try_relegins_jobs_with_suffix(cate_lower)
         country_lab = new_relegins_jobs_with_suffix(cate_lower)
+
+    # if not country_lab: country_lab = try_relegins_jobs_with_suffix(cate_lower)
 
     logger.debug(f'end te4_2018_Jobs "{cate}" , {country_lab=}, cate2:{cate_lower_original}')
 
