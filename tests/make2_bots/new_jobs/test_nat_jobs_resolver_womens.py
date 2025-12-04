@@ -14,14 +14,17 @@ test_data2 = {
     # jobs
     "female writers people": "كاتبات",
     "female archers": "نبالات",
-    "football managers": "مدراء كرة قدم",
-    "female expatriate football managers": "مدراء كرة قدم مغتربات",
+    "female football managers": "مديرات كرة قدم",
+    "female expatriate football managers": "مديرات كرة قدم مغتربات",
+
+    "actresses": "ممثلات",
+    "female actresses": "ممثلات",
     "expatriate female actresses": "ممثلات مغتربات",
 
     # nat + jobs
-    "yemeni writers": "كاتبات يمنيات",
+    "female yemeni writers": "كاتبات يمنيات",
     "yemeni female writers": "كاتبات يمنيات",
-    "greek female writers": "كاتبات يونانيون",
+    "greek female writers": "كاتبات يونانيات",
 }
 
 

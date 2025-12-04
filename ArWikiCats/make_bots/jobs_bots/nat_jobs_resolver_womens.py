@@ -10,13 +10,18 @@ from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
 
 formatted_data_jobs = {
+    # jobs
     "{en_job}": "{ar_job}",
+    "female {en_job} people": "{ar_job}",
     "{en_job} people": "{ar_job}",
+    "female expatriate {en_job}": "{ar_job} مغتربات",
     "expatriate female {en_job}": "{ar_job} مغتربات",
+
     "female {en_job}": "{ar_job}",
     "women {en_job}": "{ar_job}",
     "women's {en_job}": "{ar_job}",
     "womens {en_job}": "{ar_job}",
+
 }
 
 formatted_data_nats = {
@@ -29,6 +34,8 @@ formatted_data.update({
 })
 
 formatted_data.update({
+    "female {en_nat} people": "{ar_nat}",
+    "women's {en_nat} people": "{ar_nat}",
     "{en_nat} people": "{ar_nat}",
     "{en_nat}-american people": "أمريكيات {ar_nat}",
 })
