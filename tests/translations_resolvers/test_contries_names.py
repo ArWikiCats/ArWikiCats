@@ -23,7 +23,7 @@ main_data = {
     "democratic-republic-of-the-congo winter olympics": "جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
     "west india summer olympics": "الهند الغربية في الألعاب الأولمبية الصيفية",
     "tunisia presidents": "رؤساء تونس",
-    "tunisia governorate": "حكومة تونس",
+    "tunisia government": "حكومة تونس",
     "tunisia territorial judges": "قضاة أقاليم تونس",
     "tunisia territorial officials": "مسؤولو أقاليم تونس",
 
@@ -60,7 +60,7 @@ main_data = {
     "united states elections": "انتخابات الولايات المتحدة",
     "england war and conflict": "حروب ونزاعات إنجلترا",
     "england war": "حرب إنجلترا",
-    "georgia governorate": "حكومة جورجيا",
+    "georgia government": "حكومة جورجيا",
     "israel war and conflict": "حروب ونزاعات إسرائيل",
     "israel war": "حرب إسرائيل",
     "oceania cup": "كأس أوقيانوسيا",

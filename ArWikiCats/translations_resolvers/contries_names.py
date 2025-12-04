@@ -11,7 +11,7 @@ en_is_P17_ar_is_P17: dict[str, str] = {
     "{en} executive cabinet": "مجلس وزراء {ar} التنفيذي",
     "{en} government personnel": "موظفي حكومة {ar}",
     "{en} government": "حكومة {ar}",
-    "{en} governorate": "حكومة {ar}",
+    "{en} governorate": "محافظة {ar}",
     "{en} political leader": "قادة {ar} السياسيون",
     "{en} presidents": "رؤساء {ar}",
     "{en} responses": "استجابات {ar}",
