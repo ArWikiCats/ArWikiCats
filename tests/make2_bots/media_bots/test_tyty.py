@@ -45,6 +45,19 @@ test_data_2 = {
     "zombie comedy thriller": "{tyty} زومبي كوميديا إثارة"
 }
 
+test_data_3 = {
+    "musical comedy drama": "{tyty} كوميديا موسيقية درامية",
+    "musical comedy fiction": "{tyty} كوميديا موسيقية خيالية",
+    "musical comedy horror": "{tyty} كوميديا موسيقية رعب",
+    "romantic comedy drama": "{tyty} كوميديا رومانسية درامية",
+    "romantic comedy fiction": "{tyty} كوميديا رومانسية خيالية",
+    "romantic comedy horror": "{tyty} كوميديا رومانسية رعب",
+    "zombie comedy drama": "{tyty} كوميديا الزومبي درامية",
+    "zombie comedy fiction": "{tyty} كوميديا الزومبي خيالية",
+    "zombie comedy horror": "{tyty} كوميديا الزومبي رعب",
+    "zombie comedy thriller": "{tyty} كوميديا الزومبي إثارة"
+}
+
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=list(test_data.keys()))
 @pytest.mark.fast
@@ -58,6 +71,7 @@ to_test = [
     ("test_search_multi_new", test_data, search_multi_new),
 
     ("test_search_multi_test_data_2", test_data_2, search_multi),
+    ("test_search_multi_test_data_3", test_data_3, search_multi_new),
 ]
 
 
