@@ -1,0 +1,28 @@
+
+import functools
+from ..translations_formats import FormatData
+from ..translations.nats.Nationality import Nat_women
+
+
+@functools.lru_cache(maxsize=1)
+def _load_bot() -> FormatData:
+    """
+    Create a shared FormatData instance for sports template resolution.
+    """
+
+    format_labels_with_nat = {
+        "non {nat} television series": "مسلسلات تلفزيونية غير {nat}",
+    }
+
+    return FormatData(format_labels_with_nat, Nat_women, key_placeholder="{nat}", value_placeholder="{nat}")
+
+
+def nats_women_label(category: str) -> str:
+    bot = _load_bot()
+    category = category.lower().replace("non-", "non ")
+    return bot.search(category)
+
+
+__all__ = [
+    "nats_women_label",
+]
