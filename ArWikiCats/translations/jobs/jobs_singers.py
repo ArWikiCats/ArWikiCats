@@ -130,56 +130,6 @@ FILMS_TYPE: Mapping[str, GenderedLabel] = {
     "voice": {"mens": "أداء صوتي", "womens": "أداء صوتي"},
     "video game": {"mens": "ألعاب فيديو", "womens": "ألعاب فيديو"},
 }
-"""Media categories used when constructing actor related job labels."""
-
-
-SINGERS_MAIN_CATEGORIES: Dict[str, str] = {
-    "song": "أغاني",
-    "albums": "ألبومات",
-    "comedy": "كوميديا",
-    "music": "موسيقى",
-    "country": "كانتري",
-    "light": "خفيفة",
-    "house": "الهاوس",
-    "chamber": "الحجرة",
-    "children's songs": "أغاني أطفال",
-    "children's": "أطفال",
-    "classical": "كلاسيكية",
-    "electronic": "إلكترونية",
-    "electronica": "إلكترونيكا",
-    "abidat rma": "عبيدات الرما",
-    "algerian chaabi": "الشعبي",
-    "algerian hip hop": "هيب هوب جزائري",
-    "andalusian classical music": "طرب أندلسي",
-    "bakersfield sound": "موسيقى بيكرسفيلد",
-    "bluegrass music": "بلوغراس",
-    "canzone napoletana": "أغنية نابولية",
-    "chaoui music": "شاوي",
-    "country music": "كانتري",
-    "electro": "موسيقى كهربائية",
-    "electroacoustic music": "إليكتروكوستيك",
-    "french hip hop": "هيب هوب فرنسي",
-    "gharnati music": "طرب غرناطي",
-    "glitch": "موسيقى الخلل",
-    "gospel music": "غوسبل",
-    "gregorian chant": "الغناء الجريجوري",
-    "heavy metal": "موسيقى الميتال",
-    "hip hop music": "هيب هوب",
-    "house music": "هاوس",
-    "khaliji": "موسيقى خليجية",
-    "musique concrète": "موسيقى ملموسة",
-    "música popular brasileira": "موسيقى شعبية برازيلية",
-    "new wave of british heavy metal": "الموجة الجديدة لموسيقى الهيفي ميتال البريطانية",
-    "parody music": "موسيقي كوميدية",
-    "patriotic song": "أغنية وطنية",
-    "peruvian waltz": "الفالس البيروفي",
-    "progressive house": "موسيقى هاوس تقدمية",
-    "romance": "موسيقى رومانسية",
-    "sawt": "فن الصوت",
-    "swing music": "سوينغ",
-    "technical death metal": "ديث ميتال الفني",
-    "trap music": "تراب",
-}
 
 """Seed mapping of singer categories to their Arabic descriptions."""
 
@@ -261,8 +211,7 @@ NON_FICTION_ADDITIONAL_TOPICS: Mapping[str, str] = {
 
 SINGERS_TAB: Dict[str, str] = open_json("jobs/singers_tab.json") or {}
 
-SINGER_CATEGORY_LABELS: Dict[str, str] = dict(SINGERS_MAIN_CATEGORIES)
-SINGER_CATEGORY_LABELS.update(SINGERS_TAB)
+SINGER_CATEGORY_LABELS: Dict[str, str] = SINGERS_TAB
 """Complete mapping of singer categories combining static and JSON sources."""
 
 NON_FICTION_TOPICS: Dict[str, GenderedLabel] = dict(NON_FICTION_BASE_TOPICS)
@@ -289,7 +238,6 @@ len_print.data_len(
         "NON_FICTION_TOPICS": NON_FICTION_TOPICS,
         "SINGER_CATEGORY_LABELS": SINGER_CATEGORY_LABELS,
         "SINGERS_AFTER_ROLES": SINGERS_AFTER_ROLES,
-        "SINGERS_MAIN_CATEGORIES": SINGERS_MAIN_CATEGORIES,
         "MEN_WOMENS_SINGERS": MEN_WOMENS_SINGERS,
         "SINGERS_TAB": SINGERS_TAB,
     },
@@ -302,7 +250,6 @@ __all__ = [
     "NON_FICTION_TOPICS",
     "SINGER_CATEGORY_LABELS",
     "SINGERS_AFTER_ROLES",
-    "SINGERS_MAIN_CATEGORIES",
     "MEN_WOMENS_SINGERS",
     "SINGERS_TAB",
 ]

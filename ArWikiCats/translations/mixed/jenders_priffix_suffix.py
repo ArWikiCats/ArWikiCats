@@ -1,30 +1,27 @@
-YEARS_LIST: list[int] = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
-
-people_priffix: dict[str, str] = {
-    "assassinated": "{} مغتالون",
-    "fictional": "{} خياليون",
-    "native": "{} أصليون",
-    "murdered": "{} قتلوا",
-    "killed": "{} قتلوا",
-    "contemporary": "{} معاصرون",
-    "ancient": "{} قدماء",
-}
 
 Mens_suffix: dict[str, str] = {
     "male deaf": "{} صم ذكور",
     "blind": "{} مكفوفون",
     "deafblind": "{} صم ومكفوفون",
     "deaf": "{} صم",
-    "missing-in-action": "{} فقدوا في عمليات قتالية",
-    "missing in action": "{} فقدوا في عمليات قتالية",
     "killed-in-action": "{} قتلوا في عمليات قتالية",
     "killed in action": "{} قتلوا في عمليات قتالية",
     "murdered abroad": "{} قتلوا في الخارج",
 }
 
+womens_prefixes: dict[str, str] = {
+    "blind": "{} مكفوفات",
+    "deaf": "{} صم",
+    "deafblind": "{} صم ومكفوفات",
+    "expatriate women's": "{} مغتربات",
+    "female": "{}",
+    "women": "{}",
+    "women's": "{}"
+}
 
-Me_priffix: dict[str, str] = {
+Mens_priffix: dict[str, str] = {
     "amputee": "{} مبتورو أحد الأطراف",
+    "assassinated": "{} مغتالون",
     "blind": "{} مكفوفون",
     "child": "{} أطفال",
     "children": "{} أطفال",
@@ -33,84 +30,53 @@ Me_priffix: dict[str, str] = {
     "deafblind": "{} صم ومكفوفون",
     "disabled": "{} معاقون",
     "executed": "{} معدمون",
+    "expatriate": "{} مغتربون",
+    "expatriate male": "{} ذكور مغتربون",
+    "expatriate men's": "{} رجال مغتربون",
     "fictional": "{} خياليون",
+    "kidnapped": "{} مختطفون",
     "latin": "{} لاتينيون",
-    "lgbt male": "{} مثليون ذكور",
     "lgbt": "{} مثليون",
-    "male child": "{} أطفال ذكور",
-    "male deaf": "{} صم ذكور",
     "male": "{} ذكور",
+    "male child": "{} أطفال ذكور",
     "men": "{} رجال",
     "military": "{} عسكريون",
+    "murdered": "{} قتلوا",
     "mythological": "{} أسطوريون",
     "nautical": "{} بحريون",
     "political": "{} سياسيون",
     "religious": "{} دينيون",
+    "renaissance": "{} عصر النهضة",
     "romantic": "{} رومانسيون",
-    # "male" : "ذكور {}",
+    "sunni muslim": "{} مسلمون سنة",
 }
 
-
-Wo_priffix: dict[str, str] = {
-    # "women of" : "{}",
-    # "non-" : "غير {}",
-    "women": "{}",
-    "female": "{}",
-    "women's": "{}",
-    "blind": "{} مكفوفات",
-    "deafblind": "{} صم ومكفوفات",
-    "deaf": "{} صم",
-    # "expatriate women's" : "{} مغتربات",
-    # "expatriate female" : "{} مغتربات",
-    # "expatriate women" : "{} مغتربات",
+under_data = {
+    "under-13": "{} تحت 13 سنة",
+    "under-14": "{} تحت 14 سنة",
+    "under-15": "{} تحت 15 سنة",
+    "under-16": "{} تحت 16 سنة",
+    "under-17": "{} تحت 17 سنة",
+    "under-18": "{} تحت 18 سنة",
+    "under-19": "{} تحت 19 سنة",
+    "under-20": "{} تحت 20 سنة",
+    "under-21": "{} تحت 21 سنة",
+    "under-23": "{} تحت 23 سنة",
+    "under-24": "{} تحت 24 سنة",
+    "under–13": "{} تحت 13 سنة",
+    "under–14": "{} تحت 14 سنة",
+    "under–15": "{} تحت 15 سنة",
+    "under–16": "{} تحت 16 سنة",
+    "under–17": "{} تحت 17 سنة",
+    "under–18": "{} تحت 18 سنة",
+    "under–19": "{} تحت 19 سنة",
+    "under–20": "{} تحت 20 سنة",
+    "under–21": "{} تحت 21 سنة",
+    "under–23": "{} تحت 23 سنة",
+    "under–24": "{} تحت 24 سنة"
 }
-
-
-def _extend_men_prefixes() -> dict[str, str]:
-    """
-    Populate prefix variants used for male categories.
-    # ,"kidnapped":  {"mens":"مختطفون", "womens":"مختطفات"}
-    #"""
-
-    data = {
-        "kidnapped": "{} مختطفون",
-        "expatriate": "{} مغتربون",
-        "renaissance": "{} عصر النهضة",
-        "murdered": "{} قتلوا",
-        "under-19": "{} تحت 19 سنة",
-        "assassinated": "{} مغتالون",
-        "sunni muslim": "{} مسلمون سنة",
-    }
-    for prefix, template in Me_priffix.items():
-        data[prefix] = template
-        data[f"expatriate {prefix}"] = f"{template} مغتربون"
-
-    for year in YEARS_LIST:
-        data[f"under-{year}"] = f"{{}} تحت {year} سنة"
-        data[f"under–{year}"] = f"{{}} تحت {year} سنة"
-    return data
-
-
-def _extend_women_prefixes() -> dict[str, str]:
-    """Populate prefix variants used for female categories."""
-
-    data = {}
-
-    for prefix, template in Wo_priffix.items():
-        data[prefix] = template
-        data[f"expatriate {prefix}"] = f"{template} مغتربات"
-        data[f"kidnapped {prefix}"] = f"{template} مختطفات"
-        # data["executed"] = "معدومات"
-        # data["executed {}".format(prefix)] = "{template} معدومات"
-    return data
-
-
-Women_s_priffix: dict[str, str] = _extend_women_prefixes()
-Mens_priffix: dict[str, str] = _extend_men_prefixes()
-
-
 __all__ = [
     "Mens_priffix",
-    "Women_s_priffix",
+    "womens_prefixes",
     "Mens_suffix",
 ]

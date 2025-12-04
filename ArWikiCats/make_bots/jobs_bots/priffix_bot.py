@@ -5,22 +5,24 @@ TODO: refactor the code
 
 import functools
 
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import (
     By_table,
+    change_male_to_female,
     Female_Jobs,
+    FILM_PRODUCTION_COMPANY,
+    jobs_mens_data,
+    jobs_womens_data,
+    PLAYERS_TO_MEN_WOMENS_JOBS,
     Mens_priffix,
     Mens_suffix,
     Nat_mens,
-    Women_s_priffix,
-    change_male_to_female,
-    jobs_mens_data,
-    jobs_womens_data,
+    People_key,
     replace_labels_2022,
     short_womens_jobs,
-    FILM_PRODUCTION_COMPANY,
     SPORTS_KEYS_FOR_LABEL,
-    People_key,
+    womens_prefixes,
 )
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -45,6 +47,7 @@ def _extend_By_table() -> dict[str, str]:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data()
 def work_mens_priffix(con_33: str) -> str:
     """
     TODO: need refactoring
@@ -77,7 +80,7 @@ def work_mens_priffix(con_33: str) -> str:
         if not con_8_lab:
 
             continue
-        logger.debug(f'<<lightblue>> priffix_Mens_work: pri("{pri}"), {con_88=}, {con_8_lab=}')
+        logger.debug(f'<<lightblue>> mens_prefixes_work: pri("{pri}"), {con_88=}, {con_8_lab=}')
 
         label = priff_lab.format(con_8_lab)
         if label in replace_labels_2022:
@@ -85,12 +88,13 @@ def work_mens_priffix(con_33: str) -> str:
             logger.debug(f'<<lightgreen>> change label to "{label}" replace_labels_2022.')
 
         if label.strip():
-            logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
+            logger.debug(f'<<lightblue>> ----- end: mens_prefixes_work : {label=}, {con_33=}..')
             return label
     return ""
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data()
 def work_mens_suffix(con_33: str) -> str:
     """
     TODO: need refactoring
@@ -119,14 +123,14 @@ def work_mens_suffix(con_33: str) -> str:
             label = suf_lab.format(con_88_lab)
 
             if label.strip():
-                logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
+                logger.debug(f'<<lightblue>> ----- end: mens_prefixes_work : {label=}, {con_33=}..')
                 return label
 
     return ""
 
 
 @functools.lru_cache(maxsize=None)
-def priffix_Mens_work(con_33: str) -> str:
+def mens_prefixes_work(con_33: str) -> str:
     """Process and retrieve the appropriate label for a given input string.
 
     This function takes an input string, processes it to determine if it
@@ -144,7 +148,7 @@ def priffix_Mens_work(con_33: str) -> str:
     Returns:
         str: The formatted label corresponding to the input string.
     """
-    logger.debug(f'<<lightblue>> --- start: priffix_Mens_work :"{con_33}"')
+    logger.debug(f'<<lightblue>> --- start: mens_prefixes_work :"{con_33}"')
 
     By_table2 = _extend_By_table()
 
@@ -154,7 +158,7 @@ def priffix_Mens_work(con_33: str) -> str:
 
     label = jobs_mens_data.get(con_33, "")
     if label:
-        logger.debug(f'<<lightblue>> ----- end: priffix_Mens_work : {label=}, {con_33=}..')
+        logger.debug(f'<<lightblue>> ----- end: mens_prefixes_work : {label=}, {con_33=}..')
         return label
 
     label = work_mens_priffix(con_33)
@@ -169,7 +173,7 @@ def priffix_Mens_work(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def Women_s_priffix_work(suffix: str) -> str:
+def womens_prefixes_work(suffix: str) -> str:
     """
     Retrieve the women's prefix work label based on the input string.
 
@@ -199,7 +203,7 @@ def Women_s_priffix_work(suffix: str) -> str:
     if suffix.endswith(" women"):
         con_33 = suffix[: -len(" women")]
 
-    for wriff, wrifflab in Women_s_priffix.items():
+    for wriff, wrifflab in womens_prefixes.items():
         data = [f"{wriff} "]
         if wriff == "women's":
             data.append("women's-")
@@ -209,7 +213,7 @@ def Women_s_priffix_work(suffix: str) -> str:
                 continue
 
             con_4 = con_33[len(prefix) :]
-            con_8_Wb = jobs_womens_data.get(con_4, "")
+            con_8_Wb = jobs_womens_data.get(con_4) or PLAYERS_TO_MEN_WOMENS_JOBS.get(con_4, {}).get("womens", "")
             logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"), {con_4=}, {con_8_Wb=}')
 
             if con_8_Wb:

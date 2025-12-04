@@ -41,7 +41,7 @@ def test_religious_keys_use_nat_and_religious_forms(suffix: str, forms: dict) ->
 
     error_msg = f" {suffix=}, forms: {forms=}"
 
-    # If jobs_with_nat_prefix or priffix_Mens_work does not support a given key, this will fail
+    # If jobs_with_nat_prefix or mens_prefixes_work does not support a given key, this will fail
     # and show exactly which religious key is missing.
 
     assert result != "", error_msg
@@ -68,7 +68,7 @@ def test_NAT_BEFORE_OCC(suffix: str) -> None:
 def test_nat_before_occ_deafblind_mens_algerian() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "algerian", "deafblind writers")  # "deafblind" is in NAT_BEFORE_OCC
-    assert result == "كتاب صم ومكفوفون جزائريون"  # Assuming priffix_Mens_work would return "كتاب صم ومكفوفون"
+    assert result == "كتاب صم ومكفوفون جزائريون"  # Assuming mens_prefixes_work would return "كتاب صم ومكفوفون"
 
 
 def test_nat_before_occ_religious_muslim_mens_afghan() -> None:

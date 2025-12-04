@@ -262,6 +262,9 @@ def fixlab(label_old: str, out: bool = False, en: str = "") -> str:
     if "مشاعر معادية للإسرائيليون" in label_old:
         return ""
 
+    if "لاعبات" in label_old and "مغتربون" in label_old:
+        return ""
+
     label_old = label_old.strip()
     label_old = label_old.replace("_", " ")
     label_old = re.sub(r"تصنيف\:\s*", "", label_old)

@@ -18,7 +18,7 @@ from ..countries_formats.for_me import Work_for_me
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..o_bots import ethnic_bot
 from .get_helps import get_suffix_with_keys
-from .priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from .priffix_bot import womens_prefixes_work, mens_prefixes_work
 
 COUNTRY_TEMPLATES = {
     r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
@@ -110,7 +110,7 @@ def te_2018_with_nat(category: str) -> str:
                 return country_label
 
     # Fallback strategies if still no label
-    country_label = priffix_Mens_work(normalized_category) or Women_s_priffix_work(normalized_category)
+    country_label = mens_prefixes_work(normalized_category) or womens_prefixes_work(normalized_category)
 
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{country_label}" ')
     return country_label or ""

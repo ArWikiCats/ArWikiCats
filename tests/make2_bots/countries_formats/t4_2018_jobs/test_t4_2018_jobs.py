@@ -7,6 +7,7 @@ import pytest
 from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 
 te4_2018_Jobs_data = {
+    # "macedonian expatriate female footballers": "لاعبات كرة قدم مقدونيات مغتربات",
     "egyptian male sport shooters": "لاعبو رماية ذكور مصريون",
     "egyptian sport shooters": "لاعبو رماية مصريون",
     "equatoguinean female footballers": "لاعبات كرة قدم غينيات استوائيات",
@@ -428,7 +429,6 @@ te4_2018_Jobs_data = {
     "lithuanian expatriates": "ليتوانيون مغتربون",
     "lithuanian men's footballers": "لاعبو كرة قدم رجالية ليتوانيون",
     "luxembourgian cross-country skiers": "متزحلقون ريفيون لوكسمبورغيون",
-    "macedonian expatriate female footballers": "لاعبات كرة قدم مقدونيات مغتربات",
     "macedonian male taekwondo practitioners": "لاعبو تايكوندو ذكور مقدونيون",
     "malaysian expatriates": "ماليزيون مغتربون",
     "malian artists": "فنانون ماليون",

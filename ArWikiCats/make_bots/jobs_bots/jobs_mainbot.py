@@ -15,7 +15,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..jobs_bots.priffix_bot import Women_s_priffix_work, priffix_Mens_work
+from ..jobs_bots.priffix_bot import womens_prefixes_work, mens_prefixes_work
 
 MEN_WOMENS_WITH_NATO = {
     "eugenicists": {
@@ -117,7 +117,7 @@ def jobs_with_nat_prefix(
         if category_suffix == "people":
             country_lab = mens_nat_lab
         else:
-            country_label = jobs_mens_data.get(category_suffix, "") or priffix_Mens_work(category_suffix) or ""
+            country_label = jobs_mens_data.get(category_suffix, "") or mens_prefixes_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, country_label)
 
     women_nat_lab: str = womens or (Nat_Womens.get(country_prefix, "") if find_nats else "")
@@ -126,7 +126,7 @@ def jobs_with_nat_prefix(
         if category_suffix in ["women", "female", "women's"]:
             country_lab = women_nat_lab
         else:
-            country_label = short_womens_jobs.get(category_suffix, "") or Women_s_priffix_work(category_suffix) or ""
+            country_label = short_womens_jobs.get(category_suffix, "") or womens_prefixes_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("womens", category_suffix, women_nat_lab, country_label)
 
     return country_lab

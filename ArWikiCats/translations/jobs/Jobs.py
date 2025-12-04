@@ -223,25 +223,29 @@ def _load_activist_jobs(m_w_jobs: MutableMapping[str, GenderedLabel], nat_before
 
 
 def _add_sport_variants(
-    m_w_jobs: MutableMapping[str, GenderedLabel],
     base_jobs: Mapping[str, GenderedLabel],
-) -> None:
-    """Derive sport, professional, and wheelchair variants for job labels."""
+) -> dict[str, str]:
+    """
+    Derive sport, professional, and wheelchair variants for job labels.
 
+    added 4605 new items (base_jobs: 1535*3)
+    """
+    data = {}
     for base_key, base_labels in base_jobs.items():
         lowered = base_key.lower()
-        m_w_jobs[f"sports {lowered}"] = {
+        data[f"sports {lowered}"] = {
             "mens": f"{base_labels['mens']} رياضيون",
             "womens": f"{base_labels['womens']} رياضيات",
         }
-        m_w_jobs[f"professional {lowered}"] = {
+        data[f"professional {lowered}"] = {
             "mens": f"{base_labels['mens']} محترفون",
             "womens": f"{base_labels['womens']} محترفات",
         }
-        m_w_jobs[f"wheelchair {lowered}"] = {
+        data[f"wheelchair {lowered}"] = {
             "mens": f"{base_labels['mens']} على الكراسي المتحركة",
             "womens": f"{base_labels['womens']} على الكراسي المتحركة",
         }
+    return data
 
 
 def _add_cycling_variants(
@@ -334,9 +338,11 @@ def _finalise_jobs_dataset() -> JobsDataset:
     """Construct the full jobs dataset from individual builders."""
 
     jobs_pp = _merge_jobs_sources()
+
     jobs_pp = _add_jobs_from_jobs2(jobs_pp)
 
     m_w_jobs: GenderedLabelMap = {}
+
     merge_gendered_maps(m_w_jobs, MEN_WOMENS_JOBS_2)
 
     _load_activist_jobs(m_w_jobs, NAT_BEFORE_OCC)
@@ -344,15 +350,22 @@ def _finalise_jobs_dataset() -> JobsDataset:
     for job_key, labels in jobs_pp.items():
         m_w_jobs[job_key.lower()] = {"mens": labels["mens"], "womens": labels["womens"]}
 
-    _add_sport_variants(m_w_jobs, jobs_pp)
-    merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)
+    new = _add_sport_variants(jobs_pp)
+    m_w_jobs.update(new)
+
     _add_cycling_variants(m_w_jobs, NAT_BEFORE_OCC)
+
     _add_jobs_people_variants(m_w_jobs)
+
     _add_film_variants(m_w_jobs)
+
     _add_singer_variants(m_w_jobs)
 
     jobs_keys_mens: Dict[str, str] = {}
+
     w_jobs_2017: Dict[str, str] = {}
+
+    merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)
 
     for job_key, labels in m_w_jobs.items():
         jobs_keys_mens[job_key] = labels["mens"]

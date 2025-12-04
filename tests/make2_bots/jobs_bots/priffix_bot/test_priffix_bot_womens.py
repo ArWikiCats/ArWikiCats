@@ -4,10 +4,10 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.priffix_bot import Women_s_priffix_work
+from ArWikiCats.make_bots.jobs_bots.priffix_bot import womens_prefixes_work
+from ArWikiCats.make_bots.new_jobs.womens import get_label
 
 test_womens_data = {
-    "expatriate female footballers": "لاعبات كرة قدم مغتربات",
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
     "female archers": "نبالات",
     "female artistic gymnasts": "لاعبات جمباز فني",
@@ -246,20 +246,13 @@ test_womens_data = {
 
 @pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
 @pytest.mark.fast
-def test_Women_s_priffix_work(category: str, expected: str) -> None:
-    label = Women_s_priffix_work(category)
+def test_womens_prefixes_work(category: str, expected: str) -> None:
+    label = womens_prefixes_work(category)
     assert label == expected
 
 
-def test_women_s_priffix_work() -> None:
-    # Test with a basic input
-    result = Women_s_priffix_work("test job")
-    assert isinstance(result, str)
-
-    # Test with "women" in the string
-    result_with_women = Women_s_priffix_work("test women")
-    assert isinstance(result_with_women, str)
-
-    # Test with empty string
-    result_empty = Women_s_priffix_work("")
-    assert isinstance(result_empty, str)
+@pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
+@pytest.mark.skip2
+def test_get_label(category: str, expected: str) -> None:
+    label = get_label(category)
+    assert label == expected

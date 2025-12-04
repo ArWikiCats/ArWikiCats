@@ -102,6 +102,7 @@ fast_data = {
 }
 
 fast_data_2 = {
+    # "chinese sports executives": "مدربو رياضية صينية",
     "ivorian people": "أعلام إيفواريون",
     "japanese lgbtq people": "أعلام إل جي بي تي كيو يابانية",
     "chinese lgbtq people": "أعلام إل جي بي تي كيو صينية",
@@ -115,7 +116,6 @@ fast_data_2 = {
     "danish black-and-white films": "أفلام أبيض وأسود دنماركية",
     "dutch television-seasons": "مواسم تلفزيونية هولندية",
     "colombian children's animated television series": "مسلسلات تلفزيونية رسوم متحركة أطفال كولومبية",
-    "chinese sports executives": "مدراء رياضية صينية",
     "american zombie novels": "روايات زومبي أمريكية",
     "argentine adult animated television series": "مسلسلات تلفزيونية رسوم متحركة للكبار أرجنتينية",
     "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",

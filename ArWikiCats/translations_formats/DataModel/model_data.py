@@ -61,6 +61,10 @@ class FormatData:
             return ""
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
+
+        if self.data_list_ci.get(normalized_category.lower()):
+            return normalized_category.lower()
+
         match = self.pattern.search(f" {normalized_category} ")
         return match.group(1).lower() if match else ""
 
