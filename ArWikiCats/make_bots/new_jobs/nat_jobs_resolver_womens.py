@@ -31,7 +31,7 @@ formatted_data_jobs = {
 }
 
 formatted_data_nats = {
-    f"{{en_nat}} {x}" : f"{v} {{ar_nat}}" for x, v in formatted_data_jobs.items()
+    f"{{en_nat}} {x}": f"{v} {{ar_nat}}" for x, v in formatted_data_jobs.items()
 }
 
 formatted_data = dict(formatted_data_jobs) | formatted_data_nats
