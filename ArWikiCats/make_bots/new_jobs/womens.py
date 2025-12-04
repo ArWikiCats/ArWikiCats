@@ -37,20 +37,25 @@ formatted_data.update({
     f"{{en_nat}}-american {x}" : f"{v} أمريكيات {{ar_nat}}" for x, v in formatted_data_jobs.items()
 })
 
+for x, v in womens_prefixes.items():
+    formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
+    formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
+
 formatted_data.update({
+    "{en_nat} female actresses": "ممثلات {ar_nat}",
+    "{en_nat} actresses": "ممثلات {ar_nat}",
+
     "{en_nat} expatriate female {en_job}": "{ar_job} {ar_nat} مغتربات",
     "{en_nat} expatriate women's {en_job}": "{ar_job} {ar_nat} مغتربات",
     "female {en_nat} people": "{ar_nat}",
     "women's {en_nat} people": "{ar_nat}",
-    "{en_nat} female actresses": "ممثلات {ar_nat}",
-    "{en_nat} actresses": "ممثلات {ar_nat}",
-    "{en_nat} people": "{ar_nat}",
-    "{en_nat}-american people": "أمريكيات {ar_nat}",
-})
+    "{en_nat} female people": "{ar_nat}",
+    "{en_nat}-american female people": "أمريكيات {ar_nat}",
 
-for x, v in womens_prefixes.items():
-    formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
-    formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
+    "{en_nat} female eugenicists": "عالمات {ar_nat} متخصصات في تحسين النسل",
+    "{en_nat} female politicians who committed suicide": "سياسيات {ar_nat} أقدمن على الانتحار",
+    "{en_nat} female contemporary artists": "فنانات {ar_nat} معاصرات",
+})
 
 nat_womens_new = {x: v for x, v in Nat_Womens.items() if "-american" not in x}
 jobs_womens = dict(jobs_womens_data)

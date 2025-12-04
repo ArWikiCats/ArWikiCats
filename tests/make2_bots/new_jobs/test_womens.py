@@ -12,6 +12,9 @@ test_data2 = {
     "women's yemeni people": "يمنيات",
 
     # jobs
+    "female eugenicists": "عالمات متخصصات في تحسين النسل",
+    "female politicians who committed suicide": "سياسيات أقدمن على الانتحار",
+
     "female writers people": "كاتبات",
     "female archers": "نبالات",
     # "female football managers": "مديرات كرة قدم",
@@ -28,6 +31,10 @@ test_data2 = {
     "professional association football managers": "مدربات كرة قدم محترفات",
 
     # nat + jobs
+    "yemeni female eugenicists": "عالمات يمنيات متخصصات في تحسين النسل",
+    "yemeni female politicians who committed suicide": "سياسيات يمنيات أقدمن على الانتحار",
+    "yemeni female contemporary artists": "فنانات يمنيات معاصرات",
+
     "yemeni actresses": "ممثلات يمنيات",
     "yemeni female writers": "كاتبات يمنيات",
     "greek female writers": "كاتبات يونانيات",

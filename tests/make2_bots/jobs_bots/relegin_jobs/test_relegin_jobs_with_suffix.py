@@ -231,7 +231,6 @@ test_data_2 = {
     "Jewish engravers": "نقاشون يهود",
     "Jewish entertainers": "فنانون ترفيهيون يهود",
     "Jewish Esperantists": "إسبرانتوين يهود",
-    "Jewish eugenicists": "علماء يهود متخصصون في تحسين النسل",
     "Jewish fascists": "فاشيون يهود",
     "Jewish fashion designers": "مصممو أزياء يهود",
     "Jewish feminists": "نسويون يهود",
@@ -361,9 +360,23 @@ def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
+MEN_WOMENS_WITH_NATO_data = {
+    "Jewish eugenicists": "علماء يهود متخصصون في تحسين النسل",
+    "Jewish politicians who committed suicide": "سياسيون يهود أقدموا على الانتحار",
+    "Anglican contemporary artists": "فنانون أنجليكيون معاصرون",
+}
+
+
+@pytest.mark.parametrize("input_text,expected", MEN_WOMENS_WITH_NATO_data.items(), ids=MEN_WOMENS_WITH_NATO_data.keys())
+def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> None:
+    result = try_relegins_jobs_with_suffix(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
+
+
 TEMPORAL_CASES = [
     ("test_get_suffix_prefix", test_data_2, try_relegins_jobs_with_suffix),
-    # ("new_relegins_jobs_with_suffix", test_data_2, new_relegins_jobs_with_suffix),
+    ("new_relegins_jobs_with_suffix", test_data_2, new_relegins_jobs_with_suffix),
+    ("test_MEN_WOMENS_WITH_NATO", MEN_WOMENS_WITH_NATO_data, new_relegins_jobs_with_suffix),
 ]
 
 

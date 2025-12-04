@@ -6,7 +6,6 @@
 import functools
 
 from ...helps.log import logger
-from ...helps.jsonl_dump import dump_data
 from ...translations import RELIGIOUS_KEYS_PP
 
 # from ....helps.jsonl_dump import save

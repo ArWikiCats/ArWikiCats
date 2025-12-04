@@ -28,17 +28,20 @@ formatted_data_nats = {
 }
 
 formatted_data = dict(formatted_data_jobs) | formatted_data_nats
-formatted_data.update({
-    f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{ar_nat}}" for x, v in formatted_data_jobs.items()
-})
-
-formatted_data.update({
-    "{en_nat} people": "{ar_nat}",  # 187
-})
+# formatted_data.update({ f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{ar_nat}}" for x, v in formatted_data_jobs.items() })
 
 for x, v in Mens_suffix.items():
     formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
     formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
+
+formatted_data.update({
+    "{en_nat}-american": "{ar_nat} أمريكيون",
+    "{en_nat}": "{ar_nat}",
+    "{en_nat} people": "{ar_nat}",
+    "{en_nat} eugenicists": "علماء {ar_nat} متخصصون في تحسين النسل",
+    "{en_nat} politicians who committed suicide": "سياسيون {ar_nat} أقدموا على الانتحار",
+    "{en_nat} contemporary artists": "فنانون {ar_nat} معاصرون",
+})
 
 Nat_mens_new = {x: v for x, v in Nat_mens.items() if "-american" not in x}
 
