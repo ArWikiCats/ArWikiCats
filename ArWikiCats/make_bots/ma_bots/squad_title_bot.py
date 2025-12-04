@@ -14,7 +14,7 @@ from ..date_bots import with_years_bot
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import All_P17
 
-from ...translations_resolvers.nats_new import nats_new_create_label
+from ...translations_resolvers.nats_sports import nats_new_create_label
 from ...translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 
