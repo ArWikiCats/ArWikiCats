@@ -9,17 +9,17 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
-ENTERTAINMENT_CASES = []
+_CASES = []
 
 json_files = [x for x in (Path(__file__).parent).glob("*.json")]
 
 for file in json_files:
     with open(file, "r", encoding="utf-8") as f:
         data = json.load(f)
-    ENTERTAINMENT_CASES.append((f"test_big_{file.name}_{len(data)}_item", data))
+    _CASES.append((f"test_big_{file.name}_{len(data)}_item", data))
 
 
-@pytest.mark.parametrize("name,data", ENTERTAINMENT_CASES)
+@pytest.mark.parametrize("name,data", _CASES)
 @pytest.mark.skip2
 def test_entertainment(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
