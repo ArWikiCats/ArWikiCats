@@ -38,7 +38,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "world war ii": "world-war-ii",
     "world war i": "world-war-i",
     "killed in action": "killed-in-action",
-    "missing in action": "missing-in-action",
     "city of liverpool f.c.": "city-of-liverpool f.c.",
     "medallists": "medalists",
     "saudi arabian": "saudiarabian",

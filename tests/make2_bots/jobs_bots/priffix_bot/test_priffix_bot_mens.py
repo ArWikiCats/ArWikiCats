@@ -398,7 +398,6 @@ def test_work_mens_suffix(category: str, expected: str) -> None:
 
 
 test_priffix = {
-
     "assassinated civil rights activists": "ناشطو حقوق مدنية مغتالون",
     "assassinated ecuadorian people": "إكوادوريون مغتالون",
     "assassinated educators": "معلمون مغتالون",

@@ -8,20 +8,31 @@ import functools
 from ...translations import Nat_Womens, jobs_womens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
+Women_s_priffix = {
+    "{en} blind": "{ar} مكفوفات",
+    "{en} deaf": "{ar} صم",
+    "{en} deafblind": "{ar} صم ومكفوفات",
+    "{en} expatriate female": "{ar} مغتربات",
+    "{en} expatriate women": "{ar} مغتربات",
+    "{en} expatriate women's": "{ar} مغتربات",
+    "{en} kidnapped deaf": "{ar} صم مختطفات",
+    "{en} kidnapped deafblind": "{ar} صم ومكفوفات مختطفات",
+    "{en} kidnapped female": "{ar} مختطفات",
+    "{en} kidnapped women": "{ar} مختطفات",
+    "{en} kidnapped women's": "{ar} مختطفات",
+}
 
 formatted_data_jobs = {
     # jobs
     "{en_job}": "{ar_job}",
     "female {en_job} people": "{ar_job}",
     "{en_job} people": "{ar_job}",
-    "female expatriate {en_job}": "{ar_job} مغتربات",
     "expatriate female {en_job}": "{ar_job} مغتربات",
 
     "female {en_job}": "{ar_job}",
     "women {en_job}": "{ar_job}",
     "women's {en_job}": "{ar_job}",
     "womens {en_job}": "{ar_job}",
-
 }
 
 formatted_data_nats = {
@@ -39,6 +50,9 @@ formatted_data.update({
     "{en_nat} people": "{ar_nat}",
     "{en_nat}-american people": "أمريكيات {ar_nat}",
 })
+
+for x, v in Women_s_priffix.items():
+    formatted_data[x.format(en="")] = v.format(ar="")
 
 
 @functools.lru_cache(maxsize=1)

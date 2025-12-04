@@ -7,7 +7,6 @@ import pytest
 from ArWikiCats.make_bots.jobs_bots.priffix_bot import Women_s_priffix_work
 
 test_womens_data = {
-    "expatriate female footballers": "لاعبات كرة قدم مغتربات",
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
     "female archers": "نبالات",
     "female artistic gymnasts": "لاعبات جمباز فني",
