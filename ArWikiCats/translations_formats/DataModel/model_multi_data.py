@@ -22,6 +22,7 @@ from .model_data_double import FormatDataDouble
 class NormalizeResult:
     """Data structure representing each processed category."""
 
+    template_key_first: str
     category: str
     template_key: str
     nat_key: str
@@ -40,10 +41,12 @@ class MultiDataFormatterBase:
         self,
         country_bot: FormatData | YearFormatData | FormatDataDouble,
         other_bot: YearFormatData | FormatData | FormatDataDouble,
+        search_first_part: bool = False,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
         # Country bot (FormatData)
+        self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
 
@@ -83,10 +86,11 @@ class MultiDataFormatterBase:
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
 
-        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
-        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
+        nat_key, template_key_first = self.country_bot.normalize_category_with_key(normalized_category)
+        other_key, template_key = self.other_bot.normalize_category_with_key(template_key_first)
 
         return NormalizeResult(
+            template_key_first=template_key_first,
             category=normalized_category,
             template_key=template_key,
             nat_key=nat_key,
@@ -130,12 +134,18 @@ class MultiDataFormatterBase:
         template_data = self.normalize_both_new(category)
 
         logger.debug(f">>>create_label {template_data.nat_key=}, {template_data.other_key=}")
+        # print(f"{template_data.template_key_first=}, {template_data.template_key=}\n"*20)
 
         if not template_data.nat_key or not template_data.other_key:
             return ""
 
+        template_ar_first = self.country_bot.get_template_ar(template_data.template_key_first)
         template_ar = self.country_bot.get_template_ar(template_data.template_key)
-        logger.debug(f">>>create_label {template_ar=}")
+
+        logger.debug(f">>>create_label {template_ar=}, {template_ar_first=}")
+
+        if self.search_first_part and template_ar_first:
+            return self.country_bot.search(category)
 
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(template_data.nat_key)

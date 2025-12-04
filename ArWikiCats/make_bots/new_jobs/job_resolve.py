@@ -24,6 +24,7 @@ class NatJobsResolver:
             text_after="",
             text_before="the ",
             use_other_formatted_data=True,
+            search_first_part=True,
         )
 
     @functools.lru_cache(maxsize=10000)

@@ -14,14 +14,20 @@ test_data2 = {
     # "abkhazian-american people": "أمريكيون أبخازيون",
 
     # jobs
+    "eugenicists": "علماء متخصصون في تحسين النسل",
+    "politicians who committed suicide": "سياسيون أقدموا على الانتحار",
+
     "writers people": "كتاب",
     "archers": "نبالون",
     "male archers": "نبالون ذكور",
-    "football managers": "مدراء كرة قدم",
-    # "expatriate football managers": "مدراء كرة قدم مغتربون",
+    "football managers": "مدربو كرة قدم",
+    # "expatriate football managers": "مدربو كرة قدم مغتربون",
     # "expatriate male actors": "ممثلون ذكور مغتربون",
 
     # nat + jobs
+    "yemeni eugenicists": "علماء يمنيون متخصصون في تحسين النسل",
+    "yemeni politicians who committed suicide": "سياسيون يمنيون أقدموا على الانتحار",
+    "yemeni contemporary artists": "فنانون يمنيون معاصرون",
     "yemeni writers": "كتاب يمنيون",
     "yemeni male writers": "كتاب ذكور يمنيون",
     "greek male writers": "كتاب ذكور يونانيون",

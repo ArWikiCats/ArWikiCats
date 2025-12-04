@@ -192,7 +192,7 @@ def format_data_sample() -> bool:
     # Define a dictionary of formatted patterns with placeholders
     formatted_data = {
         "{sport}": "{sport_label}",
-        "{sport} managers": "مدراء {sport_label}",
+        "{sport} managers": "مدربو {sport_label}",
         "{sport} coaches": "مدربو {sport_label}",
         "{sport} people": "أعلام {sport_label}",
         "{sport} playerss": "لاعبو {sport_label}",

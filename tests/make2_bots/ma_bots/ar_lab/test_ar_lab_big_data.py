@@ -268,7 +268,7 @@ data_list = [
     (
         "expatriate football managers in the northern mariana islands",
         " in ",
-        "مدراء كرة قدم مغتربون في جزر ماريانا الشمالية",
+        "مدربو كرة قدم مغتربون في جزر ماريانا الشمالية",
     ),
     ("basketball venues in serbia", " in ", "ملاعب كرة سلة في صربيا"),
     ("december 1550 in thailand", " in ", "ديسمبر 1550 في تايلاند"),
@@ -713,7 +713,7 @@ data_list = [
     ("1550 elections in croatia", " in ", "انتخابات 1550 في كرواتيا"),
     ("baseball playerss in south korea", " in ", "لاعبو كرة قاعدة في كوريا الجنوبية"),
     ("baseball playerss in south korea by team", " by ", "لاعبو كرة قاعدة في كوريا الجنوبية حسب الفريق"),
-    ("expatriate football managers in cook islands", " in ", "مدراء كرة قدم مغتربون في جزر كوك"),
+    ("expatriate football managers in cook islands", " in ", "مدربو كرة قدم مغتربون في جزر كوك"),
     ("private schools in west yorkshire", " in ", "مدارس خاصة في غرب يوركشاير"),
     ("october 1550 in europe", " in ", "أكتوبر 1550 في أوروبا"),
     ("1550s in technology", " in ", "عقد 1550 في التقانة"),
