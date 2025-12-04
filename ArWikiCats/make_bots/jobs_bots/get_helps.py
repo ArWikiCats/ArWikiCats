@@ -9,13 +9,13 @@ import functools
 from typing import Dict, Tuple
 
 from ...helps.log import logger
-from ...translations import RELIGIOUS_KEYS_PP, All_Nat, Nat_women, contries_from_nat
+from ...translations import RELIGIOUS_KEYS_PP, All_Nat, Nat_women, countries_from_nat
 
 keys_data = {
     "nat": All_Nat,
     "Nat_women": Nat_women,
     "All_P17": {},
-    "contries_from_nat": contries_from_nat,
+    "countries_from_nat": countries_from_nat,
     "religions": list(RELIGIOUS_KEYS_PP.keys()),
 }
 

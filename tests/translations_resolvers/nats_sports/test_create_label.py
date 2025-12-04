@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.translations_resolvers.nats_new import nats_new_create_label, create_nat_label
+from ArWikiCats.translations_resolvers.nats_sports import nats_new_create_label, create_nat_label
 
 data = {
     "british softball championshipszz": "بطولة المملكة المتحدة للكرة اللينة",
@@ -8,6 +8,8 @@ data = {
     "british football tour": "بطولة المملكة المتحدة لكرة القدم",
     "Yemeni football championships": "بطولة اليمن لكرة القدم",
     "german figure skating championships": "بطولة ألمانيا للتزلج الفني",
+    "british figure skating championships": "بطولة المملكة المتحدة للتزلج الفني",
+    "dominican republic national sports teams ": "منتخبات للرياضة وطنية جمهورية الدومينيكان",
 }
 
 
@@ -20,7 +22,7 @@ def test_create_label(key: str, expected: str) -> None:
 
 
 data2 = {
-    "Yemeni xoxo championships": "بطولة اليمن xoxo",
+    "yemeni {sport_en} championships": "بطولة اليمن {sport_ar}",
 }
 
 

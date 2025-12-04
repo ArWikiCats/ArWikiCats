@@ -6,13 +6,24 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.translations_resolvers.not_sports_bot import (
-    resolve_en_is_P17_ar_is_P17,
+from ArWikiCats.translations_resolvers.countries_names import (
+    resolve_by_countries_names,
 )
 
 main_data = {
+    "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
+    "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
+    "democratic-republic-of-the-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
+    "democratic-republic-of-the-congo summer olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الصيفية",
+    "west india olympics squad": "تشكيلات الهند الغربية في الألعاب الأولمبية",
+    "victoria-australia fifa futsal world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم لكرة الصالات",
+    "victoria-australia fifa world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم",
+    "yemen afc asian cup squad": "تشكيلات اليمن في كأس آسيا",
+    "yemen afc women's asian cup squad": "تشكيلات اليمن في كأس آسيا للسيدات",
+    "democratic-republic-of-the-congo winter olympics": "جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
+    "west india summer olympics": "الهند الغربية في الألعاب الأولمبية الصيفية",
     "tunisia presidents": "رؤساء تونس",
-    "tunisia governorate": "حكومة تونس",
+    "tunisia government": "حكومة تونس",
     "tunisia territorial judges": "قضاة أقاليم تونس",
     "tunisia territorial officials": "مسؤولو أقاليم تونس",
 
@@ -49,7 +60,7 @@ main_data = {
     "united states elections": "انتخابات الولايات المتحدة",
     "england war and conflict": "حروب ونزاعات إنجلترا",
     "england war": "حرب إنجلترا",
-    "georgia governorate": "حكومة جورجيا",
+    "georgia government": "حكومة جورجيا",
     "israel war and conflict": "حروب ونزاعات إسرائيل",
     "israel war": "حرب إسرائيل",
     "oceania cup": "كأس أوقيانوسيا",
@@ -60,13 +71,13 @@ main_data = {
 
 @pytest.mark.parametrize("category, expected", main_data.items(), ids=list(main_data.keys()))
 @pytest.mark.fast
-def test_resolve_en_is_P17_ar_is_P17(category: str, expected: str) -> None:
-    label = resolve_en_is_P17_ar_is_P17(category)
+def test_resolve_by_countries_names(category: str, expected: str) -> None:
+    label = resolve_by_countries_names(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_en_is_P17_ar_is_P17", main_data, resolve_en_is_P17_ar_is_P17),
+    ("test_resolve_by_countries_names", main_data, resolve_by_countries_names),
 ]
 
 

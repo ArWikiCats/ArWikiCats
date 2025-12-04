@@ -11,7 +11,7 @@ import functools
 from ...helps.log import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
-    contries_from_nat,
+    countries_from_nat,
 )
 from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
@@ -52,8 +52,8 @@ def get_p17_main(category: str) -> str:  # الإنجليزي جنسية وال�
     resolved_label = ""
     category = category.lower()
 
-    suffix, country_start = get_suffix_with_keys(category, contries_from_nat)
-    country_start_lab = contries_from_nat.get(country_start, "")
+    suffix, country_start = get_suffix_with_keys(category, countries_from_nat)
+    country_start_lab = countries_from_nat.get(country_start, "")
 
     if not suffix or not country_start:
         logger.info(f'<<lightred>>>>>> {suffix=} or {country_start=} == ""')

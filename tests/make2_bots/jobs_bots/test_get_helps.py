@@ -6,7 +6,7 @@ import pytest
 
 from ArWikiCats.make_bots.jobs_bots.get_helps import get_suffix
 
-data_contries_from_nat = {
+data_countries_from_nat = {
     "afghanistan national football team managers": ("national football team managers", "afghanistan"),
     "argentina women's international footballers": ("women's international footballers", "argentina"),
     "australia international soccer players": ("international soccer players", "australia"),
@@ -27,10 +27,10 @@ data_contries_from_nat = {
 }
 
 
-@pytest.mark.parametrize("category, expected", data_contries_from_nat.items(), ids=lambda x: x[0])
-def test_contries_from_nat(category: str, expected: tuple[str, str]) -> None:
+@pytest.mark.parametrize("category, expected", data_countries_from_nat.items(), ids=lambda x: x[0])
+def test_countries_from_nat(category: str, expected: tuple[str, str]) -> None:
     # Test with a valid category and nat
-    result = get_suffix(category, "contries_from_nat")
+    result = get_suffix(category, "countries_from_nat")
     assert result == expected
 
 

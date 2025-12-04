@@ -10,7 +10,7 @@ from ...helps.log import logger
 from ...translations import By_orginal2, By_table, By_table_orginal, New_P17_Finall
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ..media_bots.films_bot import te_films
-from ..p17_bots.nats import find_nat_others
+from ..p17_bots.nats_other import find_nat_others
 from .utils import first_non_empty
 
 LabelLookup = Callable[[str], str]

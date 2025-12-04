@@ -20,7 +20,7 @@ from ..o_bots.popl import work_peoples
 
 from ...new.time_to_arabic import convert_time_to_arabic
 # from ..bots import tmp_bot
-from ..p17_bots import nats
+from ..p17_bots import nats_other
 from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import team_work
 from . import ye_ts_bot
@@ -101,7 +101,7 @@ def event_label_work(target_category: str) -> str:
         resolved_category_label = te_films(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = nats.find_nat_others(normalized_target_category)
+        resolved_category_label = nats_other.find_nat_others(normalized_target_category)
 
     if not resolved_category_label:
         # print("translate_general_category 12")

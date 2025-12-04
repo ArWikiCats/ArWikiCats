@@ -3,7 +3,7 @@ Tests
 """
 
 import pytest
-
+from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.media_bots.film_keys_bot_tyty import get_films_key_tyty, search_multi
 from ArWikiCats.make_bots.media_bots.tyty_new_format import get_films_key_tyty_new, search_multi_new
 
@@ -130,8 +130,11 @@ fast_data2 = {
 @pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
 @pytest.mark.fast
 def test_search_multi(category: str, expected: str) -> None:
-    label = search_multi(category)
-    assert label == expected
+    label1 = search_multi(category)
+    assert label1 == expected
+
+    label2 = search_multi_new(category)
+    assert label2 == expected
 
 
 @pytest.mark.parametrize("category, expected", fast_data1.items(), ids=list(fast_data1.keys()))
@@ -149,8 +152,6 @@ to_test = [
     ("test_put_label_last", test_put_label_last_data, search_multi),
     ("test_search_multi", fast_data2, search_multi),
 ]
-
-from load_one_data import dump_diff, one_dump_test
 
 
 @pytest.mark.parametrize("name,data, callback", to_test)

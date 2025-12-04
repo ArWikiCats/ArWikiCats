@@ -26,7 +26,7 @@ from ...matables_bots.check_bot import check_key_new_players
 from ...media_bots.films_bot import te_films
 from ...o_bots import bys
 from ...o_bots.popl import make_people_lab
-from ...p17_bots import nats
+from ...p17_bots import nats_other
 from ...sports_bots import team_work
 from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
@@ -213,7 +213,7 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     if not label:
         label = te_films(type_lower)
     if not label:
-        label = nats.find_nat_others(type_lower)
+        label = nats_other.find_nat_others(type_lower)
     if not label:
         label = team_work.Get_team_work_Club(type_lower)
 
@@ -289,7 +289,7 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
     if not label:
         label = te_films(country)
     if not label:
-        label = nats.find_nat_others(country)
+        label = nats_other.find_nat_others(country)
     if not label:
         label = team_work.Get_team_work_Club(country.strip())
 
