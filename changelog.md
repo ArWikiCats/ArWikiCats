@@ -1,4 +1,19 @@
 
+## [#158](https://github.com/MrIbrahem/ArWikiCats/pull/158) - 2025-12-05
+
+* **Refactor**
+  * Reorganized translation resolution to prefer federation and nationality+sport resolvers, improving fallback reliability.
+  * Introduced a dedicated nationality+sport resolver for more accurate combined labels.
+
+* **Bug Fixes**
+  * Corrected Arabic phrasing for a people-by-nationality category.
+
+* **Chores**
+  * Consolidated and renamed translation mappings and exposed a smaller, clearer resolver API.
+
+* **Tests**
+  * Updated and added tests to reflect new resolvers and placeholder-based templates.
+
 ## [#157](https://github.com/MrIbrahem/ArWikiCats/pull/157) - 2025-12-04
 
 * **New Features**
