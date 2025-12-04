@@ -129,7 +129,6 @@ def work_mens_suffix(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
 def priffix_Mens_work(con_33: str) -> str:
     """Process and retrieve the appropriate label for a given input string.
 
@@ -173,7 +172,6 @@ def priffix_Mens_work(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
 def Women_s_priffix_work(suffix: str) -> str:
     """
     Retrieve the women's prefix work label based on the input string.
