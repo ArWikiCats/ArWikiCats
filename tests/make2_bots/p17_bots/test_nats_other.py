@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.p17_bots.nats import find_nat_others
+from ArWikiCats.make_bots.p17_bots.nats_other import find_nat_others
 
 
 def test_find_nat_others() -> None:

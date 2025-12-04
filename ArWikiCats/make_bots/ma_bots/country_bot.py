@@ -18,7 +18,7 @@ from ...translations import (
 from ..date_bots import with_years_bot
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..media_bots.films_bot import te_films
-from ..p17_bots import nats
+from ..p17_bots import nats_other
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..sports_bots import team_work
 from . import country2_bot, country2_lab, ye_ts_bot
@@ -87,7 +87,7 @@ class CountryLabelRetriever:
         if not label:
             label = te_films(country)
         if not label:
-            label = nats.find_nat_others(country)
+            label = nats_other.find_nat_others(country)
         if not label:
             label = team_work.Get_team_work_Club(country)
         return label
