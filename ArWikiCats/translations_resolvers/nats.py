@@ -11,10 +11,10 @@ def _load_bot() -> FormatData:
     """
 
     format_labels_with_nat = {
-        "non {nat} television series": "مسلسلات تلفزيونية غير {nat}",
+        "non {nat_en} television series": "مسلسلات تلفزيونية غير {nat_ar}",
     }
 
-    return FormatData(format_labels_with_nat, Nat_women, key_placeholder="{nat}", value_placeholder="{nat}")
+    return FormatData(format_labels_with_nat, Nat_women, key_placeholder="{nat_en}", value_placeholder="{nat_ar}")
 
 
 def nats_women_label(category: str) -> str:
