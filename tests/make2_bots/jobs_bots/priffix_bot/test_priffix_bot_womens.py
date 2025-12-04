@@ -249,28 +249,3 @@ test_womens_data = {
 def test_Women_s_priffix_work(category: str, expected: str) -> None:
     label = Women_s_priffix_work(category)
     assert label == expected
-
-test_suffix = {
-    "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
-    "bulgarian deaf": "بلغاريون صم",
-    "hungarian blind": "مجريون مكفوفون",
-    "liberian blind": "ليبيريون مكفوفون",
-    "malagasy people murdered abroad": "مدغشقريون قتلوا في الخارج",
-    "mercenaries killed in action": "مرتزقة قتلوا في عمليات قتالية",
-    "military personnel killed-in-action": "أفراد عسكريون قتلوا في عمليات قتالية",
-    "sri lankan deaf": "سريلانكيون صم",
-    "taiwanese blind": "تايوانيون مكفوفون",
-    "uruguayan deaf": "أوروغويانيون صم",
-    "czech deaf": "تشيكيون صم",
-    "russian blind": "روس مكفوفون",
-    "singaporean blind": "سنغافوريون مكفوفون",
-    "slovenian deaf": "سلوفينيون صم",
-    "ukrainian deaf": "أوكرانيون صم",
-}
-
-
-@pytest.mark.parametrize("category, expected", test_suffix.items(), ids=list(test_suffix.keys()))
-@pytest.mark.fast
-def test_work_mens_suffix(category: str, expected: str) -> None:
-    label = priffix_Mens_work(category)
-    assert label == expected
