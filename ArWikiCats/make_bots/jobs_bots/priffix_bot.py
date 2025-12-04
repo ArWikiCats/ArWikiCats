@@ -14,6 +14,7 @@ from ...translations import (
     FILM_PRODUCTION_COMPANY,
     jobs_mens_data,
     jobs_womens_data,
+    PLAYERS_TO_MEN_WOMENS_JOBS,
     Mens_priffix,
     Mens_suffix,
     Nat_mens,
@@ -212,7 +213,7 @@ def Women_s_priffix_work(suffix: str) -> str:
                 continue
 
             con_4 = con_33[len(prefix) :]
-            con_8_Wb = jobs_womens_data.get(con_4, "")
+            con_8_Wb = jobs_womens_data.get(con_4) or PLAYERS_TO_MEN_WOMENS_JOBS.get(con_4, {}).get("womens", "")
             logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"), {con_4=}, {con_8_Wb=}')
 
             if con_8_Wb:
