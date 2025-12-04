@@ -1,29 +1,29 @@
 #!/usr/bin/python3
 """ """
 
-from ..translations_formats import format_multi_data, FormatData
+from ..translations_formats import format_multi_data
 
 from ..translations.nats.Nationality import en_nats_to_ar_label
 from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
 format_labels_with_nat = {
-    "natar national xoxo teams": "منتخبات xoxo وطنية natar",
-    "natar xoxo championshipszz": "بطولة natar xoxo",
-    "natar xoxo championships": "بطولة natar xoxo",
-    "ladies natar xoxo championships": "بطولة natar xoxo للسيدات",
-    "natar xoxo tour": "بطولة natar xoxo",
-    "women's natar xoxo tour": "بطولة natar xoxo للسيدات",
-    "ladies natar xoxo tour": "بطولة natar xoxo للسيدات",
+    "{nat_en} national {sport_en} teams": "منتخبات {sport_ar} وطنية {nat_ar}",
+    "{nat_en} {sport_en} championshipszz": "بطولة {nat_ar} {sport_ar}",
+    "{nat_en} {sport_en} championships": "بطولة {nat_ar} {sport_ar}",
+    "ladies {nat_en} {sport_en} championships": "بطولة {nat_ar} {sport_ar} للسيدات",
+    "{nat_en} {sport_en} tour": "بطولة {nat_ar} {sport_ar}",
+    "women's {nat_en} {sport_en} tour": "بطولة {nat_ar} {sport_ar} للسيدات",
+    "ladies {nat_en} {sport_en} tour": "بطولة {nat_ar} {sport_ar} للسيدات",
 }
 
 both_bot = format_multi_data(
     format_labels_with_nat,
     en_nats_to_ar_label,
-    key_placeholder="natar",
-    value_placeholder="natar",
+    key_placeholder="{nat_en}",
+    value_placeholder="{nat_ar}",
     data_list2=SPORTS_KEYS_FOR_TEAM,
-    key2_placeholder="xoxo",
-    value2_placeholder="xoxo",
+    key2_placeholder="{sport_en}",
+    value2_placeholder="{sport_ar}",
 )
 
 create_nat_label = both_bot.create_nat_label

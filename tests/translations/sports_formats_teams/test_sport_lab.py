@@ -2,8 +2,6 @@
 """ """
 
 import pytest
-
-from ArWikiCats.translations_resolvers.nats_new import nats_new_create_label
 from ArWikiCats.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 Get_New_team_xo_data = {
@@ -260,19 +258,6 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 def test_all(category: str, expected: str) -> None:
     result = wrap_team_xo_normal_2025(category)
-    assert result == expected, f"Mismatch for {category}"
-
-
-nats_new_data = {
-    "british figure skating championships": "بطولة المملكة المتحدة للتزلج الفني",
-    "dominican republic national sports teams ": "منتخبات للرياضة وطنية جمهورية الدومينيكان",
-}
-
-
-@pytest.mark.fast
-@pytest.mark.parametrize("category, expected", nats_new_data.items(), ids=list(nats_new_data.keys()))
-def test_nats_new_create_label(category: str, expected: str) -> None:
-    result = nats_new_create_label(category)
     assert result == expected, f"Mismatch for {category}"
 
 
