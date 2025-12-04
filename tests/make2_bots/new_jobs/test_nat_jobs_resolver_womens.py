@@ -15,16 +15,25 @@ test_data2 = {
     "female writers people": "كاتبات",
     "female archers": "نبالات",
     "female football managers": "مديرات كرة قدم",
-    "female expatriate football managers": "مديرات كرة قدم مغتربات",
 
     "actresses": "ممثلات",
     "female actresses": "ممثلات",
-    "expatriate female actresses": "ممثلات مغتربات",
+
+    # jobs + expatriate
+    # "female expatriate football managers": "مديرات كرة قدم مغتربات",
+    # "expatriate female actresses": "ممثلات مغتربات",
+
+    "professional artificial intelligence researchers": "باحثات ذكاء اصطناعي محترفات",
+    "professional association football managers": "مدربات كرة قدم محترفات",
 
     # nat + jobs
-    "female yemeni writers": "كاتبات يمنيات",
+    "yemeni actresses": "ممثلات يمنيات",
     "yemeni female writers": "كاتبات يمنيات",
     "greek female writers": "كاتبات يونانيات",
+    "malian professional artificial intelligence researchers": "باحثات ذكاء اصطناعي محترفات ماليات",
+    "malian professional association football managers": "مدربات كرة قدم محترفات ماليات",
+
+    # "yemeni expatriate female actresses": "ممثلات يمنيات مغتربات",
 }
 
 

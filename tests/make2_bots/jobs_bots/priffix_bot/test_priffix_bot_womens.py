@@ -5,6 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.priffix_bot import Women_s_priffix_work
+from ArWikiCats.make_bots.jobs_bots.nat_jobs_resolver_womens import get_label
 
 test_womens_data = {
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
@@ -247,4 +248,11 @@ test_womens_data = {
 @pytest.mark.fast
 def test_Women_s_priffix_work(category: str, expected: str) -> None:
     label = Women_s_priffix_work(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
+@pytest.mark.fast
+def test_get_label(category: str, expected: str) -> None:
+    label = get_label(category)
     assert label == expected

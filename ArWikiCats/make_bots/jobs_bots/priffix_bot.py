@@ -46,7 +46,7 @@ def _extend_By_table() -> dict[str, str]:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
+@dump_data()
 def work_mens_priffix(con_33: str) -> str:
     """
     TODO: need refactoring
@@ -93,7 +93,7 @@ def work_mens_priffix(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
+@dump_data()
 def work_mens_suffix(con_33: str) -> str:
     """
     TODO: need refactoring

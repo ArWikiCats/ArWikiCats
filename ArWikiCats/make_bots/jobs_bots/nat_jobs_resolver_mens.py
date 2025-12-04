@@ -7,6 +7,15 @@ import functools
 from ...translations import Nat_mens, jobs_mens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
+Mens_suffix: dict[str, str] = {
+    "{en} male deaf": "{ar} صم ذكور",
+    "{en} blind": "{ar} مكفوفون",
+    "{en} deafblind": "{ar} صم ومكفوفون",
+    "{en} deaf": "{ar} صم",
+    "{en} killed-in-action": "{ar} قتلوا في عمليات قتالية",
+    "{en} killed in action": "{ar} قتلوا في عمليات قتالية",
+    "{en} murdered abroad": "{ar} قتلوا في الخارج",
+}
 
 formatted_data_jobs = {
     "expatriate {en_job}": "{ar_job} مغتربون",
@@ -28,6 +37,10 @@ formatted_data.update({
 formatted_data.update({
     "{en_nat} people": "{ar_nat}",  # 187
 })
+
+for x, v in Mens_suffix.items():
+    formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
+    formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
 
 
 @functools.lru_cache(maxsize=1)

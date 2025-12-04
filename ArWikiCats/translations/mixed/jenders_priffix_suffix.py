@@ -13,14 +13,8 @@ Women_s_priffix: dict[str, str] = {
     "blind": "{} مكفوفات",
     "deaf": "{} صم",
     "deafblind": "{} صم ومكفوفات",
-    "expatriate women": "{} مغتربات",
     "expatriate women's": "{} مغتربات",
     "female": "{}",
-    "kidnapped deaf": "{} صم مختطفات",
-    "kidnapped deafblind": "{} صم ومكفوفات مختطفات",
-    "kidnapped female": "{} مختطفات",
-    "kidnapped women": "{} مختطفات",
-    "kidnapped women's": "{} مختطفات",
     "women": "{}",
     "women's": "{}"
 }
@@ -37,34 +31,14 @@ Mens_priffix: dict[str, str] = {
     "disabled": "{} معاقون",
     "executed": "{} معدمون",
     "expatriate": "{} مغتربون",
-    "expatriate amputee": "{} مبتورو أحد الأطراف مغتربون",
-    "expatriate child": "{} أطفال مغتربون",
-    "expatriate children": "{} أطفال مغتربون",
-    "expatriate contemporary": "{} معاصرون مغتربون",
-    "expatriate disabled": "{} معاقون مغتربون",
-    "expatriate executed": "{} معدمون مغتربون",
-    "expatriate fictional": "{} خياليون مغتربون",
-    "expatriate latin": "{} لاتينيون مغتربون",
-    "expatriate lgbt": "{} مثليون مغتربون",
-    "expatriate lgbt male": "{} مثليون ذكور مغتربون",
     "expatriate male": "{} ذكور مغتربون",
-    "expatriate male child": "{} أطفال ذكور مغتربون",
-    "expatriate male deaf": "{} صم ذكور مغتربون",
-    "expatriate men": "{} رجال مغتربون",
-    "expatriate military": "{} عسكريون مغتربون",
-    "expatriate mythological": "{} أسطوريون مغتربون",
-    "expatriate nautical": "{} بحريون مغتربون",
-    "expatriate political": "{} سياسيون مغتربون",
-    "expatriate religious": "{} دينيون مغتربون",
-    "expatriate romantic": "{} رومانسيون مغتربون",
+    "expatriate men's": "{} رجال مغتربون",
     "fictional": "{} خياليون",
     "kidnapped": "{} مختطفون",
     "latin": "{} لاتينيون",
     "lgbt": "{} مثليون",
-    "lgbt male": "{} مثليون ذكور",
     "male": "{} ذكور",
     "male child": "{} أطفال ذكور",
-    "male deaf": "{} صم ذكور",
     "men": "{} رجال",
     "military": "{} عسكريون",
     "murdered": "{} قتلوا",
@@ -75,6 +49,9 @@ Mens_priffix: dict[str, str] = {
     "renaissance": "{} عصر النهضة",
     "romantic": "{} رومانسيون",
     "sunni muslim": "{} مسلمون سنة",
+}
+
+under_data = {
     "under-13": "{} تحت 13 سنة",
     "under-14": "{} تحت 14 سنة",
     "under-15": "{} تحت 15 سنة",
@@ -98,7 +75,6 @@ Mens_priffix: dict[str, str] = {
     "under–23": "{} تحت 23 سنة",
     "under–24": "{} تحت 24 سنة"
 }
-
 __all__ = [
     "Mens_priffix",
     "Women_s_priffix",

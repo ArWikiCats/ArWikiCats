@@ -84,6 +84,9 @@ class FormatDataDouble:
         normalized_category = " ".join(category.split())
         logger.debug(f">> match_key: {normalized_category=}")
 
+        if self.data_list_ci.get(normalized_category.lower()):
+            return normalized_category.lower()
+
         match = self.pattern_double.search(f" {normalized_category} ")
         if match:
             first_key = match.group(1).lower()
