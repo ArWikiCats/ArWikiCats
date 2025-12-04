@@ -2,15 +2,16 @@
 ## [#154](https://github.com/MrIbrahem/ArWikiCats/pull/154) - 2025-12-04
 
 * **New Features**
-  * Added localized label resolution for masculine and feminine job/nationality categories, including combined and specialized variants.
+  * Added localized label resolution for masculine/feminine job and nationality categories, including combined and specialized variants.
+  * Implemented faster exact-match prioritized category lookups.
 
 * **Improvements**
   * Faster, more accurate category lookups via exact-match prioritization.
   * Expanded music-genre translations and updated several job/nationality translation strings.
-  * Cleaned up obsolete/duplicate translation keys.
+  * Removed obsolete and duplicate translation entries.
 
 * **Tests**
-  * Added comprehensive parametrized tests covering masculine and feminine label resolutions.
+  * Added parametrized test coverage for masculine and feminine label resolution across category variants.
 
 ## [#153](https://github.com/MrIbrahem/ArWikiCats/pull/153) - 2025-12-03
 
