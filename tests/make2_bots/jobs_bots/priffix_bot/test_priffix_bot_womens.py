@@ -252,7 +252,7 @@ def test_Women_s_priffix_work(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_get_label(category: str, expected: str) -> None:
     label = get_label(category)
     assert label == expected
