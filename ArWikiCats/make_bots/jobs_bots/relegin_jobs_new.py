@@ -56,7 +56,10 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     formatted_data = {
         "{job_en}": "{job_ar}",
         "{rele_en}": "{rele_ar}",
+        "{rele_en} expatriates": "{rele_ar} مغتربون",
 
+        # "{rele_en} {job_en}": "{job_ar} {rele_ar}",
+        # "{job_en} {rele_en}": "{job_ar} {rele_ar}",
         "{rele_en} {job_en}": "{job_ar} {rele_ar}",
         "{job_en} {rele_en}": "{job_ar} {rele_ar}",
 
@@ -66,6 +69,9 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "{rele_en} male {job_en}": "{job_ar} ذكور {rele_ar}",
         "{job_en} male {rele_en}": "{job_ar} ذكور {rele_ar}",
 
+        "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
+        "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
+        "{rele_en} women's rights activists": "{rele_ar} ناشطون في حقوق المرأة",
         "{rele_en} eugenicists": "علماء {rele_ar} متخصصون في تحسين النسل",
         "{rele_en} politicians who committed suicide": "سياسيون {rele_ar} أقدموا على الانتحار",
         "{rele_en} contemporary artists": "فنانون {rele_ar} معاصرون",
