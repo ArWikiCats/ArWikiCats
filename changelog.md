@@ -1,4 +1,16 @@
 
+## [#156](https://github.com/MrIbrahem/ArWikiCats/pull/156) - 2025-12-04
+
+* **Bug Fixes**
+  * Corrected terminology in football-related role translations to use more accurate terminology.
+  * Fixed feminine form translations for various job titles.
+
+* **New Features**
+  * Expanded translation coverage for additional profession and nationality combinations, including eugenicists, contemporary artists, and politicians.
+  * Added translations for female-specific job category variants and new profession classifications.
+  * Enhanced multi-data formatting with improved search capabilities.
+
+
 ## [#154](https://github.com/MrIbrahem/ArWikiCats/pull/154) - 2025-12-04
 
 * **New Features**

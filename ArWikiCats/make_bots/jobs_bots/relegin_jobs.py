@@ -5,6 +5,7 @@
 
 import functools
 
+from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import RELIGIOUS_KEYS_PP
 
@@ -14,8 +15,12 @@ from .jobs_mainbot import jobs_with_nat_prefix
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def relegins_jobs(cate: str) -> str:
-    """Resolve religion-based job labels without country context."""
+    """
+    Resolve religion-based job labels without country context.
+    TODO: replaced by new_relegins_jobs_with_suffix
+    """
     logger.debug(f"\t xx start: <<lightred>>relegins_jobs >> <<lightpurple>> {cate=}")
     cate_lower = cate.lower().strip()
     data = RELIGIOUS_KEYS_PP.get(cate_lower, {})

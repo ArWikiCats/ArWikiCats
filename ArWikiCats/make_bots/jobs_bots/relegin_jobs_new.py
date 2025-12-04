@@ -21,10 +21,10 @@ def _load_womens_bot() -> MultiDataFormatterBase:
         "female {rele_en} {job_en}": "{job_ar} {rele_ar}",
         "female {job_en} {rele_en}": "{job_ar} {rele_ar}",
 
-        "{rele_en} {job_en}": "{job_ar} {rele_ar}",
-        "{job_en} {rele_en}": "{job_ar} {rele_ar}",
+        "{rele_en} female {job_en}": "{job_ar} {rele_ar}",
+        "{job_en} female {rele_en}": "{job_ar} {rele_ar}",
 
-        "{rele_en} eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
+        "{rele_en} female eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
         "{rele_en} female politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
         "{rele_en} female contemporary artists": "فنانات {rele_ar} معاصرات",
     }
@@ -46,7 +46,18 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     relegins_data = {x: v["mens"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("mens")}
 
     formatted_data = {
+        "{job_en}": "{job_ar}",
+        "{rele_en}": "{rele_ar}",
+
         "{rele_en} {job_en}": "{job_ar} {rele_ar}",
+        "{job_en} {rele_en}": "{job_ar} {rele_ar}",
+
+        "male {job_en}": "{job_ar} ذكور",
+        "male {rele_en}": "{rele_ar} ذكور",
+
+        "{rele_en} male {job_en}": "{job_ar} ذكور {rele_ar}",
+        "{job_en} male {rele_en}": "{job_ar} ذكور {rele_ar}",
+
         "{rele_en} eugenicists": "علماء {rele_ar} متخصصون في تحسين النسل",
         "{rele_en} politicians who committed suicide": "سياسيون {rele_ar} أقدموا على الانتحار",
         "{rele_en} contemporary artists": "فنانون {rele_ar} معاصرون",

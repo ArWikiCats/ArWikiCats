@@ -9,22 +9,35 @@ from ArWikiCats.make_bots.jobs_bots.relegin_jobs import (
     get_suffix_prefix,
 )
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
+# from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_relegins_jobs_with_suffix as relegins_jobs
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
 
 
 @pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
-def test_no_suffix_female(key: str, data: dict[str, str]) -> None:
+def test_with_womens(key: str, data: dict[str, str]) -> None:
     input_text = f"female {key}"
     expected = data["womens"]
 
     result = relegins_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
+
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
+def test_with_mens(key: str, data: dict[str, str]) -> None:
     expected_mens = data["mens"]
     result_mens = relegins_jobs(key)
     assert result_mens == expected_mens, f"{expected_mens=}, {result_mens=}, {key=}"
+
+
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
+@pytest.mark.skip2
+def test_with_male(key: str, data: dict[str, str]) -> None:
+    input_text = f"male {key}"
+    expected = f"{data['mens']} ذكور"
+    result_mens = relegins_jobs(input_text)
+    assert result_mens == expected, f"{expected=}, {result_mens=}, {key=}"
 
 
 data = [
