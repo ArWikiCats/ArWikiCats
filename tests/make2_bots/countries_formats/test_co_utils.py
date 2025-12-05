@@ -92,7 +92,7 @@ def test_resolve_p17_women_basic_with_article() -> None:
     # women nationality + definite article
     # en_is_P17_ar_is_al_women["air force"] = "القوات الجوية {}"
     category = "syria air force"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", countries_nat_en_key, add_article=True)
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "female", countries_nat_en_key, add_article=True)
     # "سورية" → add_definite_article → "السورية"
     assert out == "القوات الجوية السورية"
 
@@ -100,7 +100,7 @@ def test_resolve_p17_women_basic_with_article() -> None:
 @pytest.mark.unit
 def test_resolve_p17_country_not_found() -> None:
     category = "unknowncountry air force"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", countries_nat_en_key)
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "female", countries_nat_en_key)
     assert out == ""
 
 

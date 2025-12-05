@@ -19,9 +19,9 @@ from ..utils.json_dir import open_json_file
 class NationalityEntry(TypedDict):
     """Represents one nationality block with all fields always present as strings."""
 
-    man: str
+    male: str
     males: str
-    women: str
+    female: str
     females: str
     en: str
     ar: str
@@ -63,9 +63,9 @@ def load_sources() -> Dict[str, NationalityEntry]:
     for key, val in raw_all_nat_o.items():
         # Build guaranteed structure
         entry: NationalityEntry = {
-            "man": val.get("man", "") if isinstance(val, dict) else "",
+            "male": val.get("male", "") if isinstance(val, dict) else "",
             "males": val.get("males", "") if isinstance(val, dict) else "",
-            "women": val.get("women", "") if isinstance(val, dict) else "",
+            "female": val.get("female", "") if isinstance(val, dict) else "",
             "females": val.get("females", "") if isinstance(val, dict) else "",
             "en": val.get("en", "") if isinstance(val, dict) else "",
             "ar": val.get("ar", "") if isinstance(val, dict) else "",
@@ -143,9 +143,9 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
 
     # Special defined nationality
     all_nat_o["papua new guinean x "] = {
-        "man": "غيني",
+        "male": "غيني",
         "males": "غينيون",
-        "women": "غينية",
+        "female": "غينية",
         "females": "غينيات",
         "en": "papua new guinea",
         "ar": "بابوا غينيا الجديدة",
@@ -155,9 +155,9 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
     if "georgian" in all_nat_o:
         ge = all_nat_o["georgian"]
         all_nat_o["georgia (country)"] = {
-            "man": ge["man"],
+            "male": ge["male"],
             "males": ge["males"],
-            "women": ge["women"],
+            "female": ge["female"],
             "females": ge["females"],
             "en": "georgia (country)",
             "ar": ge["ar"],
@@ -165,9 +165,9 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
 
     # Add southwest asian nationality
     all_nat_o["southwest asian"] = {
-        "man": "جنوب غرب آسيوي",
+        "male": "جنوب غرب آسيوي",
         "males": "جنوبيون غربيون آسيويين",
-        "women": "جنوب غربي آسيوية",
+        "female": "جنوب غربي آسيوية",
         "females": "جنوبيات غربيات آسيويات",
         "en": "southwest asia",
         "ar": "جنوب غرب آسيا",
@@ -190,17 +190,17 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
     count_added: int = 0
 
     for nat_key, entry in all_nat_o.items():
-        man = entry["man"]
+        male = entry["male"]
         males = entry["males"]
-        women, females = entry["women"], entry["females"]
+        female, females = entry["female"], entry["females"]
 
-        if not any([man, males, women, females]):
+        if not any([male, males, female, females]):
             continue  # skip if no gender fields present
 
         new_entry: NationalityEntry = {
-            "man": f"أمريكي {man}" if man else "",
+            "male": f"أمريكي {male}" if male else "",
             "males": f"أمريكيون {males}" if males else "",
-            "women": f"أمريكية {women}" if women else "",
+            "female": f"أمريكية {female}" if female else "",
             "females": f"أمريكيات {females}" if females else "",
             "en": "",
             "ar": "",
@@ -246,14 +246,14 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
         ar: str = entry["ar"]
         en_norm: str = en[4:] if en.startswith("the ") else en
 
-        if entry["man"]:
-            Nat_men[nat_key] = entry["man"]
-            ar_Nat_men[entry["man"]] = nat_key
+        if entry["male"]:
+            Nat_men[nat_key] = entry["male"]
+            ar_Nat_men[entry["male"]] = nat_key
 
         if entry["males"]:
             Nat_mens[nat_key] = entry["males"]
-        if entry["women"]:
-            Nat_women[nat_key] = entry["women"]
+        if entry["female"]:
+            Nat_women[nat_key] = entry["female"]
         if entry["females"]:
             Nat_Womens[nat_key] = entry["females"]
 

@@ -11,26 +11,26 @@ def bot() -> FormatDataV2:
 
     nationality_data = {
         "egyptian": {
-            "man": "مصري",
-            "women": "مصرية",
+            "male": "مصري",
+            "female": "مصرية",
             "males": "مصريون",
             "females": "مصريات",
         },
         "yemeni": {
-            "man": "يمني",
-            "women": "يمنية",
+            "male": "يمني",
+            "female": "يمنية",
             "males": "يمنيون",
             "females": "يمنيات",
         },
         "Algerian": {
-            "man": "جزائري",
-            "women": "جزائرية",
+            "male": "جزائري",
+            "female": "جزائرية",
             "males": "جزائريون",
             "females": "جزائريات",
         },
         "Moroccan": {
-            "man": "مغربي",
-            "women": "مغربية",
+            "male": "مغربي",
+            "female": "مغربية",
             "males": "مغاربة",
             "females": "مغربيات",
         },
@@ -38,9 +38,9 @@ def bot() -> FormatDataV2:
 
     formatted_data = {
         "{nat_en} writers": "كتاب {males}",                    # كتاب يمنيون
-        "{nat_en} descent": "أصل {man}",                     # أصل يمني
+        "{nat_en} descent": "أصل {male}",                     # أصل يمني
         "{nat_en} women activists": "ناشطات {females}",       # ناشطات يمنيات
-        "{nat_en} gods": "آلهة {women}",                     # أصل يمني
+        "{nat_en} gods": "آلهة {female}",                     # أصل يمني
     }
 
     # nationality_data_men = {x: v["males"] for x, v in nationality_data.items()}
@@ -88,7 +88,7 @@ def test_no_matches(bot: FormatDataV2, category: str, expected: str) -> None:
 def bot_with_text_affixes() -> FormatDataV2:
     nationality_data = {
         "egyptian": {
-            "man": "مصري",
+            "male": "مصري",
             "males": "مصريون",
         },
     }

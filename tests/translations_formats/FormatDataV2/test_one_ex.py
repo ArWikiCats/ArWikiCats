@@ -11,26 +11,26 @@ def bot() -> FormatDataV2:
     """FormatDataV2 instance configured for nationality-based categories."""
     nationality_data = {
         "egyptian": {
-            "man": "مصري",
-            "women": "مصرية",
+            "male": "مصري",
+            "female": "مصرية",
             "males": "مصريون",
             "females": "مصريات",
         },
         "algerian": {
-            "man": "جزائري",
-            "women": "جزائرية",
+            "male": "جزائري",
+            "female": "جزائرية",
             "males": "جزائريون",
             "females": "جزائريات",
         },
         "moroccan": {
-            "man": "مغربي",
-            "women": "مغربية",
+            "male": "مغربي",
+            "female": "مغربية",
             "males": "مغاربة",
             "females": "مغربيات",
         },
         "yemeni": {
-            "man": "يمني",
-            "women": "يمنية",
+            "male": "يمني",
+            "female": "يمنية",
             "males": "يمنيون",
             "females": "يمنيات",
         },
@@ -43,16 +43,16 @@ def bot() -> FormatDataV2:
         "{nat_en} people": "أشخاص {males}",
         "{nat_en} heroes": "أبطال {males}",
 
-        # Uses {man}
-        "{nat_en} descent": "أصل {man}",
+        # Uses {male}
+        "{nat_en} descent": "أصل {male}",
 
         # Uses {females}
         "{nat_en} women activists": "ناشطات {females}",
         "{nat_en} women politicians": "سياسيات {females}",
         "{nat_en} female singers": "مغنيات {females}",
 
-        # Uses {women}
-        "{nat_en} gods": "آلهة {women}",
+        # Uses {female}
+        "{nat_en} gods": "آلهة {female}",
 
         # Mixed placeholders in the same template
         "{nat_en} males and women": "رجال {males} ونساء {females}",
@@ -79,7 +79,7 @@ basic_cases = {
     "Yemeni writers": "كتاب يمنيون",
     "Yemeni poets": "شعراء يمنيون",
 
-    # {man}
+    # {male}
     "Moroccan descent": "أصل مغربي",
 
     # {females}
@@ -87,7 +87,7 @@ basic_cases = {
     "yemeni women politicians": "سياسيات يمنيات",
     "egyptian female singers": "مغنيات مصريات",
 
-    # {women}
+    # {female}
     "egyptian gods": "آلهة مصرية",
 
     # Extra spaces and mixed case

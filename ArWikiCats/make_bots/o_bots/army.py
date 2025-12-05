@@ -29,8 +29,8 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
 
     for country, details in all_country_with_nat.items():
         english_country = details.get("en", "").lower()
-        women_label = details.get("women", "")
-        men_label = details.get("man", "")
+        women_label = details.get("female", "")
+        men_label = details.get("male", "")
 
         if not (women_label or men_label):
             continue
@@ -61,7 +61,7 @@ def _resolve_women_without_article_prefix(category: str) -> str:
             continue
 
         suffix_key = category[len(prefix_with_space) :].strip()
-        country_label = countries_nat_en_key.get(suffix_key, {}).get("women", "")
+        country_label = countries_nat_en_key.get(suffix_key, {}).get("female", "")
         if country_label:
             logger.debug(
                 f"Resolved women without article prefix, prefix: {prefix_without_article}, category: {suffix_key}"
