@@ -15,7 +15,7 @@ from ...translations import (
     jobs_mens_data,
     jobs_womens_data,
     PLAYERS_TO_MEN_WOMENS_JOBS,
-    Mens_priffix,
+    Mens_prefix,
     Mens_suffix,
     Nat_mens,
     People_key,
@@ -48,11 +48,11 @@ def _extend_By_table() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=None)
 @dump_data()
-def work_mens_priffix(con_33: str) -> str:
+def work_mens_prefix(con_33: str) -> str:
     """
     TODO: need refactoring
     """
-    for priff, priff_lab in Mens_priffix.items():
+    for priff, priff_lab in Mens_prefix.items():
         pri = f"{priff} "
 
         if not con_33.startswith(pri):
@@ -161,7 +161,7 @@ def mens_prefixes_work(con_33: str) -> str:
         logger.debug(f'<<lightblue>> ----- end: mens_prefixes_work : {label=}, {con_33=}..')
         return label
 
-    label = work_mens_priffix(con_33)
+    label = work_mens_prefix(con_33)
     if label:
         return label
 
@@ -213,7 +213,7 @@ def womens_prefixes_work(suffix: str) -> str:
                 continue
 
             con_4 = con_33[len(prefix) :]
-            con_8_Wb = jobs_womens_data.get(con_4) or PLAYERS_TO_MEN_WOMENS_JOBS.get(con_4, {}).get("womens", "")
+            con_8_Wb = jobs_womens_data.get(con_4) or PLAYERS_TO_MEN_WOMENS_JOBS.get(con_4, {}).get("females", "")
             logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"), {con_4=}, {con_8_Wb=}')
 
             if con_8_Wb:

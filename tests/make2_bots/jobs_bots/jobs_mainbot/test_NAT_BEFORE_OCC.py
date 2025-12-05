@@ -22,7 +22,7 @@ def test_men_womens_with_nato_matches_source_template() -> None:
     assert MEN_WOMENS_WITH_NATO
     for labels in MEN_WOMENS_WITH_NATO.values():
         assert "{nato}" in labels["mens"]
-        assert "{nato}" in labels["womens"]
+        assert "{nato}" in labels["females"]
 
 
 @pytest.mark.parametrize("suffix, forms", RELIGIOUS_KEYS_PP.items())

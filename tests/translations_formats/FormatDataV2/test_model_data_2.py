@@ -14,32 +14,32 @@ def bot() -> FormatDataV2:
             "man": "مصري",
             "women": "مصرية",
             "mens": "مصريون",
-            "womens": "مصريات",
+            "females": "مصريات",
         },
         "yemeni": {
             "man": "يمني",
             "women": "يمنية",
             "mens": "يمنيون",
-            "womens": "يمنيات",
+            "females": "يمنيات",
         },
         "Algerian": {
             "man": "جزائري",
             "women": "جزائرية",
             "mens": "جزائريون",
-            "womens": "جزائريات",
+            "females": "جزائريات",
         },
         "Moroccan": {
             "man": "مغربي",
             "women": "مغربية",
             "mens": "مغاربة",
-            "womens": "مغربيات",
+            "females": "مغربيات",
         },
     }
 
     formatted_data = {
         "{nat_en} writers": "كتاب {mens}",                    # كتاب يمنيون
         "{nat_en} descent": "أصل {man}",                     # أصل يمني
-        "{nat_en} women activists": "ناشطات {womens}",       # ناشطات يمنيات
+        "{nat_en} women activists": "ناشطات {females}",       # ناشطات يمنيات
         "{nat_en} gods": "آلهة {women}",                     # أصل يمني
     }
 

@@ -12,7 +12,7 @@ def test_load_sources_return_type() -> None:
     data = load_sources()
     assert isinstance(data, dict)
     for v in data.values():
-        assert set(v.keys()) == {"man", "mens", "women", "womens", "en", "ar"}
+        assert set(v.keys()) == {"man", "mens", "women", "females", "en", "ar"}
         assert all(isinstance(x, str) for x in v.values())
 
 
@@ -34,7 +34,7 @@ def test_hindustani_normalized(monkeypatch) -> None:
 
 
 def test_alias_mapping() -> None:
-    ArWikiCats = {"russian": {"man": "a", "mens": "", "women": "", "womens": "", "en": "russia", "ar": "روسيا"}}
+    ArWikiCats = {"russian": {"man": "a", "mens": "", "women": "", "females": "", "en": "russia", "ar": "روسيا"}}
     ArWikiCats["russians"] = {}  # before normalization
     out = normalize_aliases(ArWikiCats)
     assert out["russians"]["en"] == "russia"
@@ -46,55 +46,55 @@ def test_southwest_asian_added() -> None:
 
 
 def test_georgia_country_copy() -> None:
-    ArWikiCats = {"georgian": {"man": "x", "mens": "", "women": "", "womens": "", "en": "georgia", "ar": "جورجي"}}
+    ArWikiCats = {"georgian": {"man": "x", "mens": "", "women": "", "females": "", "en": "georgia", "ar": "جورجي"}}
     out = normalize_aliases(ArWikiCats)
     assert out["georgia (country)"]["en"] == "georgia (country)"
     assert out["georgia (country)"]["man"] == "x"
 
 
 def test_american_form_created() -> None:
-    ArWikiCats = {"yemeni": {"man": "يمني", "mens": "", "women": "", "womens": "", "en": "yemen", "ar": "يمني"}}
+    ArWikiCats = {"yemeni": {"man": "يمني", "mens": "", "women": "", "females": "", "en": "yemen", "ar": "يمني"}}
     out, count = build_american_forms({}, ArWikiCats)
     assert "yemeni-american" in out
     assert count == 1
 
 
 def test_no_american_if_no_gender() -> None:
-    ArWikiCats = {"abc": {"man": "", "mens": "", "women": "", "womens": "", "en": "abc", "ar": "abc"}}
+    ArWikiCats = {"abc": {"man": "", "mens": "", "women": "", "females": "", "en": "abc", "ar": "abc"}}
     out, count = build_american_forms({}, ArWikiCats)
     assert out == {}
     assert count == 0
 
 
 def test_jewish_american() -> None:
-    ArWikiCats = {"jewish": {"man": "يهودي", "mens": "", "women": "", "womens": "", "en": "jews", "ar": "يهود"}}
+    ArWikiCats = {"jewish": {"man": "يهودي", "mens": "", "women": "", "females": "", "en": "jews", "ar": "يهود"}}
     out, count = build_american_forms({}, ArWikiCats)
     assert "jewish-american" in out
     assert "jewish american" in out  # special rule
 
 
 def test_lookup_nat_men() -> None:
-    nat = {"yemeni": {"man": "يمني", "mens": "", "women": "", "womens": "", "en": "yemen", "ar": "اليمن"}}
+    nat = {"yemeni": {"man": "يمني", "mens": "", "women": "", "females": "", "en": "yemen", "ar": "اليمن"}}
     out = build_lookup_tables(nat, nat)
     assert out["Nat_men"]["yemeni"] == "يمني"
 
 
 def test_country_mapping() -> None:
-    nat = {"yemeni": {"man": "يمني", "mens": "", "women": "", "womens": "", "en": "yemen", "ar": "اليمن"}}
+    nat = {"yemeni": {"man": "يمني", "mens": "", "women": "", "females": "", "en": "yemen", "ar": "اليمن"}}
     out = build_lookup_tables(nat, nat)
     assert out["countries_from_nat"]["yemen"] == "اليمن"
 
 
 def test_the_country_normalization() -> None:
     nat = {
-        "british": {"man": "بريطاني", "mens": "", "women": "", "womens": "", "en": "the uk", "ar": "المملكة المتحدة"}
+        "british": {"man": "بريطاني", "mens": "", "women": "", "females": "", "en": "the uk", "ar": "المملكة المتحدة"}
     }
     out = build_lookup_tables(nat, nat)
     assert out["countries_from_nat"]["uk"] == "المملكة المتحدة"
 
 
 def test_full_pipeline() -> None:
-    raw = {"yemeni": {"man": "يمني", "mens": "", "women": "يمنية", "womens": "", "en": "yemen", "ar": "اليمن"}}
+    raw = {"yemeni": {"man": "يمني", "mens": "", "women": "يمنية", "females": "", "en": "yemen", "ar": "اليمن"}}
 
     all_nat = {k.lower(): v for k, v in raw.items()}
     all_nat, cnt = build_american_forms(all_nat, raw)
@@ -106,13 +106,13 @@ def test_full_pipeline() -> None:
 
 
 def test_empty_values_handled() -> None:
-    raw = {"abc": {"man": "", "mens": "", "women": "", "womens": "", "en": "", "ar": ""}}
+    raw = {"abc": {"man": "", "mens": "", "women": "", "females": "", "en": "", "ar": ""}}
     all_nat = {"abc": raw["abc"]}
     all_nat2, c = build_american_forms(all_nat, raw)
     assert c == 0
 
 
 def test_uppercase_english_normalized() -> None:
-    raw = {"Italian": {"man": "إيطالي", "mens": "", "women": "", "womens": "", "en": "ITALY", "ar": "إيطاليا"}}
+    raw = {"Italian": {"man": "إيطالي", "mens": "", "women": "", "females": "", "en": "ITALY", "ar": "إيطاليا"}}
     out = build_lookup_tables(raw, raw)
     assert "italy" in out["countries_from_nat"]

@@ -2,221 +2,221 @@
     "JOBS_2020": {
         "bridge players": {
             "mens": "لاعبو بريدج",
-            "womens": "لاعبات بريدج"
+            "females": "لاعبات بريدج"
         },
         "soft tennis players": {
             "mens": "لاعبو تنس لين",
-            "womens": "لاعبات تنس لين"
+            "females": "لاعبات تنس لين"
         },
         "xiangqi players": {
             "mens": "لاعبو شيانغتشي",
-            "womens": "لاعبات شيانغتشي"
+            "females": "لاعبات شيانغتشي"
         },
         "dartchers": {
             "mens": "رماة سهام",
-            "womens": "راميات سهام"
+            "females": "راميات سهام"
         },
         "jet skiers": {
             "mens": "ممارسو الجت سكي",
-            "womens": "ممارسات الجت سكي"
+            "females": "ممارسات الجت سكي"
         },
         "freestyle skiers": {
             "mens": "متزحلقو تزلج حر",
-            "womens": "متزلجات تزلج حر"
+            "females": "متزلجات تزلج حر"
         },
         "alpine skiers": {
             "mens": "متزحلقو تزلج جبلي",
-            "womens": "متزلجات تزلج جبلي"
+            "females": "متزلجات تزلج جبلي"
         },
         "modern pentathletes": {
             "mens": "متسابقو خماسي حديث",
-            "womens": "متسابقات خماسي حديث"
+            "females": "متسابقات خماسي حديث"
         },
         "ice sledge speed racers": {
             "mens": "متسابقو زلاجات جليدية سريعة",
-            "womens": "متسابقات زلاجات جليدية سريعة"
+            "females": "متسابقات زلاجات جليدية سريعة"
         },
         "lawn bowls players": {
             "mens": "لاعبو لُون بولز",
-            "womens": "لاعبات لُون بولز"
+            "females": "لاعبات لُون بولز"
         },
         "community activists": {
             "mens": "ناشطو مجتمع",
-            "womens": "ناشطات مجتمع"
+            "females": "ناشطات مجتمع"
         },
         "ecosocialists": {
             "mens": "إيكولوجيون",
-            "womens": "إيكولوجيات"
+            "females": "إيكولوجيات"
         },
         "ecosocialistes": {
             "mens": "إيكولوجيون",
-            "womens": "إيكولوجيات"
+            "females": "إيكولوجيات"
         },
         "horse trainers": {
             "mens": "مدربو خيول",
-            "womens": "مدربات خيول"
+            "females": "مدربات خيول"
         },
         "bullfighters": {
             "mens": "مصارعو ثيران",
-            "womens": "مصارعات ثيران"
+            "females": "مصارعات ثيران"
         },
         "supremacists": {
             "mens": "عنصريون",
-            "womens": "عنصريات"
+            "females": "عنصريات"
         },
         "white supremacists": {
             "mens": "عنصريون بيض",
-            "womens": "عنصريات بيضوات"
+            "females": "عنصريات بيضوات"
         },
         "ceramists": {
             "mens": "خزفيون",
-            "womens": "خزفيات"
+            "females": "خزفيات"
         },
         "bodybuilders": {
             "mens": "لاعبو كمال أجسام",
-            "womens": "لاعبات كمال أجسام"
+            "females": "لاعبات كمال أجسام"
         },
         "bowlers": {
             "mens": "لاعبو بولينج",
-            "womens": "لاعبات بولينج"
+            "females": "لاعبات بولينج"
         },
         "dragon boat racers": {
             "mens": "متسابقو قوارب التنين",
-            "womens": "متسابقات قوارب التنين"
+            "females": "متسابقات قوارب التنين"
         },
         "ju-jitsu practitioners": {
             "mens": "ممارسو جوجوتسو",
-            "womens": "ممارسات جوجوتسو"
+            "females": "ممارسات جوجوتسو"
         },
         "kurash practitioners": {
             "mens": "ممارسو كوراش",
-            "womens": "ممارسات كوراش"
+            "females": "ممارسات كوراش"
         },
         "silat practitioners": {
             "mens": "ممارسو سيلات",
-            "womens": "ممارسات سيلات"
+            "females": "ممارسات سيلات"
         },
         "pencak silat practitioners": {
             "mens": "ممارسو بنكات سيلات",
-            "womens": "ممارسات بنكات سيلات"
+            "females": "ممارسات بنكات سيلات"
         },
         "sambo practitioners": {
             "mens": "ممارسو سامبو",
-            "womens": "ممارسات سامبو"
+            "females": "ممارسات سامبو"
         },
         "ski orienteers": {
             "mens": "متسابقو تزلج موجه",
-            "womens": "متسابقات تزلج موجه"
+            "females": "متسابقات تزلج موجه"
         },
         "ski-orienteers": {
             "mens": "متسابقو تزلج موجه",
-            "womens": "متسابقات تزلج موجه"
+            "females": "متسابقات تزلج موجه"
         },
         "artistic swimmers": {
             "mens": "سباحون فنيون",
-            "womens": "سباحات فنيات"
+            "females": "سباحات فنيات"
         },
         "synchronised swimmers": {
             "mens": "سباحون متزامنون",
-            "womens": "سباحات متزامنات"
+            "females": "سباحات متزامنات"
         },
         "powerlifters": {
             "mens": "ممارسو رياضة القوة",
-            "womens": "ممارسات رياضة القوة"
+            "females": "ممارسات رياضة القوة"
         },
         "rifle shooters": {
             "mens": "رماة بندقية",
-            "womens": "راميات بندقية"
+            "females": "راميات بندقية"
         },
         "sepak takraw players": {
             "mens": "لاعبو سيباك تاكرو",
-            "womens": "لاعبات سيباك تاكرو"
+            "females": "لاعبات سيباك تاكرو"
         },
         "boccia players": {
             "mens": "لاعبو بوتشيا",
-            "womens": "لاعبات بوتشيا"
+            "females": "لاعبات بوتشيا"
         },
         "wheelchair curlers": {
             "mens": "لاعبو كيرلنغ على الكراسي المتحركة",
-            "womens": "لاعبات كيرلنغ على الكراسي المتحركة"
+            "females": "لاعبات كيرلنغ على الكراسي المتحركة"
         },
         "wheelchair fencers": {
             "mens": "مبارزون على الكراسي المتحركة",
-            "womens": "مبارزات على الكراسي المتحركة"
+            "females": "مبارزات على الكراسي المتحركة"
         },
         "wheelchair rugby players": {
             "mens": "لاعبو رغبي على الكراسي المتحركة",
-            "womens": "لاعبات رغبي على الكراسي المتحركة"
+            "females": "لاعبات رغبي على الكراسي المتحركة"
         },
         "wheelchair tennis players": {
             "mens": "لاعبو كرة مضرب على الكراسي المتحركة",
-            "womens": "لاعبات كرة مضرب على الكراسي المتحركة"
+            "females": "لاعبات كرة مضرب على الكراسي المتحركة"
         }
     },
     "JOBS_PEOPLE": {
         "news anchors": {
             "mens": "مذيعو أخبار",
-            "womens": "مذيعات أخبار"
+            "females": "مذيعات أخبار"
         },
         "bloggers": {
             "mens": "مدونو",
-            "womens": "مدونات"
+            "females": "مدونات"
         },
         "writers": {
             "mens": "كتاب",
-            "womens": "كاتبات"
+            "females": "كاتبات"
         },
         "non-fiction writers": {
             "mens": "كتاب غير خياليون",
-            "womens": "كاتبات غير خياليات"
+            "females": "كاتبات غير خياليات"
         },
         "critics": {
             "mens": "نقاد",
-            "womens": "ناقدات"
+            "females": "ناقدات"
         },
         "journalists": {
             "mens": "صحفيو",
-            "womens": "صحفيات"
+            "females": "صحفيات"
         },
         "producers": {
             "mens": "منتجو",
-            "womens": "منتجات"
+            "females": "منتجات"
         },
         "authors": {
             "mens": "مؤلفو",
-            "womens": "مؤلفات"
+            "females": "مؤلفات"
         },
         "editors": {
             "mens": "محررو",
-            "womens": "محررات"
+            "females": "محررات"
         },
         "artists": {
             "mens": "فنانو",
-            "womens": "فنانات"
+            "females": "فنانات"
         },
         "directors": {
             "mens": "مخرجو",
-            "womens": "مخرجات"
+            "females": "مخرجات"
         },
         "publisherspeople": {
             "mens": "ناشرو",
-            "womens": "ناشرات"
+            "females": "ناشرات"
         },
         "publishers (people)": {
             "mens": "ناشرو",
-            "womens": "ناشرات"
+            "females": "ناشرات"
         },
         "personalities": {
             "mens": "شخصيات",
-            "womens": "شخصيات"
+            "females": "شخصيات"
         },
         "presenters": {
             "mens": "مذيعو",
-            "womens": "مذيعات"
+            "females": "مذيعات"
         },
         "creators": {
             "mens": "مبتكرو",
-            "womens": "مبتكرات"
+            "females": "مبتكرات"
         }
     },
     "JOBS_TYPE": {

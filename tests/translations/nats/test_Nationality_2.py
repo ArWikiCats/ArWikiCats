@@ -19,7 +19,7 @@ def make_entry(
     man: str = "",
     mens: str = "",
     women: str = "",
-    womens: str = "",
+    females: str = "",
     en: str = "",
     ar: str = "",
 ) -> NationalityEntry:
@@ -28,7 +28,7 @@ def make_entry(
         "man": man,
         "mens": mens,
         "women": women,
-        "womens": womens,
+        "females": females,
         "en": en,
         "ar": ar,
     }
@@ -69,7 +69,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
 
     for entry in data.values():
         # Ensure all required keys are present
-        assert set(entry.keys()) == {"man", "mens", "women", "womens", "en", "ar"}
+        assert set(entry.keys()) == {"man", "mens", "women", "females", "en", "ar"}
         # Ensure all values are strings
         assert all(isinstance(v, str) for v in entry.values())
 
@@ -307,7 +307,7 @@ def test_full_pipeline_minimal() -> None:
             man="يمني",
             mens="يمنيون",
             women="يمنية",
-            womens="يمنيات",
+            females="يمنيات",
             en="yemen",
             ar="اليمن",
         )
@@ -338,7 +338,7 @@ def test_full_pipeline_with_alias_and_american() -> None:
             man="روسي",
             mens="روس",
             women="روسية",
-            womens="روسيات",
+            females="روسيات",
             en="russia",
             ar="روسيا",
         )

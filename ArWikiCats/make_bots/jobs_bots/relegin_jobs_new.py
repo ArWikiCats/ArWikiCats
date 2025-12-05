@@ -37,7 +37,7 @@ NAT_BEFORE_OCC_BASE = [
 
 @functools.lru_cache(maxsize=1)
 def _load_womens_bot() -> MultiDataFormatterBase:
-    relegins_data = {x: v["womens"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("womens")}
+    relegins_data = {x: v["females"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("females")}
 
     female_formatted_data = {
         "female {job_en}": "{job_ar}",
