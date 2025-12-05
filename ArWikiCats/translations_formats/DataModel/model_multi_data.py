@@ -8,6 +8,8 @@ test at tests.translations_formats.test_format_2_data.py
 
 import functools
 from dataclasses import dataclass
+
+from .model_data_2 import FormatDataV2
 from ...helps.log import logger
 from .model_data import FormatData
 from .model_data_time import YearFormatData
@@ -204,6 +206,22 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         self,
         country_bot: FormatData,
         other_bot: FormatDataDouble,
+        search_first_part: bool = False,
+    ) -> None:
+        """Prepare helpers for matching and formatting template-driven labels."""
+
+        self.search_first_part = search_first_part
+        self.country_bot = country_bot
+        self.other_bot = other_bot
+
+class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
+    """
+    """
+
+    def __init__(
+        self,
+        country_bot: FormatDataV2,
+        other_bot: FormatDataV2,
         search_first_part: bool = False,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""

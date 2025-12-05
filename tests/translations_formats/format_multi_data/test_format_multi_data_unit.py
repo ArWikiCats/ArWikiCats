@@ -57,20 +57,6 @@ def multi_bot() -> MultiDataFormatterBase:
     )
 
 
-@pytest.fixture
-def _multi_bot() -> MultiDataFormatterBase:
-    """Create a format_multi_data instance for testing."""
-    return format_multi_data(
-        formatted_data=formatted_data,
-        data_list=nationality_data,
-        key_placeholder="{nat_en}",
-        value_placeholder="{nat_ar}",
-        data_list2=sport_data,
-        key2_placeholder="{sport_en}",
-        value2_placeholder="{sport_ar}",
-    )
-
-
 class TestCountryBotNormalization:
     """Tests for  class."""
 

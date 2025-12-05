@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBase
+from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBaseV2
 
 nationality_data = {
     "Afghan": {"man": "أفغاني", "men": "أفغان"},
@@ -39,7 +39,7 @@ nationality_data_2 = {
 
 
 @pytest.fixture
-def multi_bot() -> MultiDataFormatterBase:
+def multi_bot() -> MultiDataFormatterBaseV2:
     country_bot = FormatDataV2(
         formatted_data=formatted_data,
         data_list=nationality_data_1,
@@ -52,7 +52,7 @@ def multi_bot() -> MultiDataFormatterBase:
         key_placeholder="{nat2_en}",
     )
 
-    return MultiDataFormatterBase(
+    return MultiDataFormatterBaseV2(
         country_bot=country_bot,
         other_bot=other_bot,
     )
@@ -66,7 +66,7 @@ test_first_data = {
 
 @pytest.mark.parametrize("category, expected", test_first_data.items(), ids=list(test_first_data.keys()))
 @pytest.mark.fast
-def test_first_bot(multi_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
+def test_first_bot(multi_bot: MultiDataFormatterBaseV2, category: str, expected: str) -> None:
     result = multi_bot.country_bot.search(category)
     assert result == expected
 
@@ -82,6 +82,6 @@ test_match_key_data = {
 
 @pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=list(test_match_key_data.keys()))
 @pytest.mark.fast
-def test_standers(multi_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
+def test_standers(multi_bot: MultiDataFormatterBaseV2, category: str, expected: str) -> None:
     result = multi_bot.search_all(category)
     assert result == expected
