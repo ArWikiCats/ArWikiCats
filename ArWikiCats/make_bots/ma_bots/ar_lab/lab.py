@@ -21,7 +21,6 @@ from ...format_bots import (
     for_table,
 )
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...matables_bots.check_bot import check_key_new_players
 from ...media_bots.films_bot import te_films
 from ...o_bots import bys
 from ...o_bots.popl import make_people_lab
@@ -205,80 +204,237 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     return type_regex, country_regex
 
 
+def _lookup_label_from_sources(
+    lookup_functions: list,
+    text: str,
+    log_context: str = ""
+) -> str:
+    """Apply a series of lookup functions until a label is found.
+
+    Args:
+        lookup_functions: List of callables that take text and return a label or empty string
+        text: The text to look up
+        log_context: Optional context string for logging
+
+    Returns:
+        The first non-empty label found, or empty string
+    """
+    for lookup_func in lookup_functions:
+        try:
+            label = lookup_func(text)
+            if label:
+                logger.debug(f"{log_context}: Found label '{label}' via {lookup_func.__name__}")
+                return label
+        except Exception as e:
+            logger.warning(
+                f"{log_context}: Exception in {lookup_func.__name__}: {e}"
+            )
+    return ""
+
+
+def _handle_special_type_cases(
+    type_lower: str,
+    normalized_preposition: str
+) -> Tuple[str, bool]:
+    """Handle special cases for type labels.
+
+    Args:
+        type_lower: Lowercase type string
+        normalized_preposition: Normalized separator/preposition
+
+    Returns:
+        Tuple of (label, should_append_in_label)
+    """
+    # Special case: "women" with "from" preposition
+    if type_lower == "women" and normalized_preposition == "from":
+        logger.info('>> >> >> Make label="نساء".')
+        return "نساء", True
+
+    # Special case: "women of"
+    if type_lower == "women of":
+        logger.info('>> >> >> Make label="نساء من".')
+        return "نساء من", True
+
+    # Check for type with preposition in Tabl_with_in
+    type_with_prep = type_lower.strip()
+    if not type_with_prep.endswith(f" {normalized_preposition}"):
+        type_with_prep = f"{type_lower.strip()} {normalized_preposition}"
+
+    label = Tabl_with_in.get(type_with_prep, "")
+    if label:
+        logger.info(f'<<<< {type_with_prep=}, {label=}')
+        return label, False
+
+    return "", True
+
+
+def _lookup_type_without_article(type_lower: str) -> str:
+    """Try to find label for type after removing 'the ' prefix."""
+    if type_lower.startswith("the "):
+        type_no_article = type_lower[len("the "):]
+        label = New_P17_Finall.get(type_no_article, "")
+        if label:
+            logger.debug(f'Found label without article: {type_no_article=}, {label=}')
+            return label
+    return ""
+
+
+def _lookup_people_type(type_lower: str) -> str:
+    """Try to find label for types ending with ' people'."""
+    if type_lower.strip().endswith(" people"):
+        return make_people_lab(type_lower)
+    return ""
+
+
+def _lookup_religious_males(type_lower: str) -> str:
+    """Look up religious keys for males."""
+    return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
+
+
+def _create_type_lookup_chain(
+    type_lower: str,
+    normalized_preposition: str
+) -> list:
+    """Create the lookup chain for type labels.
+
+    Args:
+        type_lower: Lowercase type string
+        normalized_preposition: Normalized separator
+
+    Returns:
+        List of lookup functions to try in order
+    """
+    return [
+        lambda t: New_P17_Finall.get(t, ""),
+        _lookup_type_without_article,
+        _lookup_people_type,
+        _lookup_religious_males,
+        lambda t: New_female_keys.get(t, ""),
+        te_films,
+        nats_other.find_nat_others,
+        team_work.Get_team_work_Club,
+        tmp_bot.Work_Templates,
+        lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
+        te4_2018_Jobs,
+        country2_lab.get_lab_for_country2,
+    ]
+
+
+def _lookup_country_with_dash_variants(country_lower: str, country_no_dash: str) -> str:
+    """Try country lookups with dash variants."""
+    if "-" not in country_lower:
+        return ""
+
+    label = get_pop_All_18(country_no_dash, "")
+    if label:
+        return label
+
+    label = New_female_keys.get(country_no_dash, "")
+    if label:
+        return label
+
+    if "kingdom-of" in country_lower:
+        return get_pop_All_18(country_lower.replace("kingdom-of", "kingdom of"), "")
+
+    return ""
+
+
+def _lookup_country_with_by(country_lower: str) -> str:
+    """Handle country labels with 'by' prefix or infix."""
+    if country_lower.startswith("by "):
+        return bys.make_by_label(country_lower)
+
+    if " by " in country_lower:
+        return bys.get_by_label(country_lower)
+
+    return ""
+
+
+def _lookup_country_with_in_prefix(country_lower: str) -> str:
+    """Handle country labels with 'in ' prefix."""
+    if not country_lower.strip().startswith("in "):
+        return ""
+
+    inner_country = country_lower.strip()[len("in "):].strip()
+    country_label = get_country(inner_country)
+
+    if not country_label:
+        country_label = country2_lab.get_lab_for_country2(inner_country)
+
+    if country_label:
+        return f"في {country_label}"
+
+    return ""
+
+
+def _create_country_lookup_chain(
+    country_lower: str,
+    separator: str,
+    start_get_country2: bool,
+    country_no_dash: str
+) -> list:
+    """Create the lookup chain for country labels.
+
+    Args:
+        country_lower: Lowercase country string
+        separator: The separator/delimiter
+        start_get_country2: Whether to use secondary country lookup
+        country_no_dash: Country string with dashes replaced by spaces
+
+    Returns:
+        List of lookup functions to try in order
+    """
+    return [
+        lambda c: New_P17_Finall.get(c, ""),
+        lambda c: pf_keys2.get(c, ""),
+        lambda c: get_pop_All_18(c, ""),
+        lambda c: _lookup_country_with_dash_variants(c, country_no_dash),
+        _lookup_country_with_by,
+        lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
+        _lookup_country_with_in_prefix,
+        time_to_arabic.convert_time_to_arabic,
+        te_films,
+        nats_other.find_nat_others,
+        lambda c: team_work.Get_team_work_Club(c.strip()),
+        lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
+        tmp_bot.Work_Templates,
+        country2_lab.get_lab_for_country2,
+    ]
+
+
 def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters.
 
     Args:
-        separator (str): The separator/delimiter (separator).
-        type_value (str): The type part of the category.
+        separator: The separator/delimiter (preposition).
+        type_value: The type part of the category.
 
     Returns:
-        Tuple[str, bool]: The label and a boolean indicating if 'in' should be appended.
+        Tuple of (label, should_append_in_label)
+            - label: The Arabic label for the type
+            - should_append_in_label: Whether 'in' preposition should be appended
     """
     normalized_preposition = separator.strip()
     type_lower = type_value.lower()
 
-    label = ""
-    if type_lower == "women" and normalized_preposition == "from":
-        label = "نساء"
-        logger.info(f'>> >> >> Make {label=}.')
+    # Handle special cases first
+    label, should_append_in_label = _handle_special_type_cases(
+        type_lower, normalized_preposition
+    )
 
-    elif type_lower == "women of":
-        label = "نساء من"
-        logger.info(f'>> >> >> Make {label=}.')
-
-    should_append_in_label = True
-    type_lower_with_preposition = type_lower.strip()
-
-    if not type_lower_with_preposition.endswith(f" {normalized_preposition}"):
-        type_lower_with_preposition = f"{type_lower.strip()} {normalized_preposition}"
-
+    # If no special case matched, proceed with lookup chain
     if not label:
-        label = Tabl_with_in.get(type_lower_with_preposition, "")
-        if label:
-            should_append_in_label = False
-            logger.info(f'<<<< {type_lower_with_preposition=}, {label=}')
+        lookup_chain = _create_type_lookup_chain(type_lower, normalized_preposition)
+        label = _lookup_label_from_sources(
+            lookup_chain,
+            type_lower,
+            log_context=f"get_type_lab({type_lower})"
+        )
 
-    if not label:
-        label = New_P17_Finall.get(type_lower, "")
-        if label:
-            logger.debug(f'<< {type_lower_with_preposition=}, {label=}')
-
-    if label == "" and type_lower.startswith("the "):
-        type_lower_no_article = type_lower[len("the ") :]
-        label = New_P17_Finall.get(type_lower_no_article, "")
-        if label:
-            logger.debug(f'<<< {type_lower_with_preposition=}, {label=}')
-
-    if label == "" and type_lower.strip().endswith(" people"):
-        label = make_people_lab(type_lower)
-
-    if not label:
-        label = RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
-    if not label:
-        label = New_female_keys.get(type_lower, "")
-    if not label:
-        label = te_films(type_lower)
-    if not label:
-        label = nats_other.find_nat_others(type_lower)
-    if not label:
-        label = team_work.Get_team_work_Club(type_lower)
-
-    if not label:
-        label = tmp_bot.Work_Templates(type_lower)
-
-    if not label:
-        label = Get_c_t_lab(type_lower, normalized_preposition, lab_type="type_label")
-
-    if not label:
-        label = te4_2018_Jobs(type_lower)
-
-    if not label:
-        label = country2_lab.get_lab_for_country2(type_lower)
+    # Normalize whitespace in the label
+    label = " ".join(label.strip().split())
 
     logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
-
-    label = " ".join(label.strip().split())
 
     return label, should_append_in_label
 
@@ -287,67 +443,30 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
     """Retrieve the corresponding label for a given country.
 
     Args:
-        separator (str): The separator/delimiter.
-        country (str): The country part of the category.
-        start_get_country2 (bool): Whether to use the secondary country lookup.
+        separator: The separator/delimiter.
+        country: The country part of the category.
+        start_get_country2: Whether to use the secondary country lookup.
 
     Returns:
-        str: The Arabic label for the country.
+        The Arabic label for the country.
     """
     separator = separator.strip()
     country_lower = country.strip().lower()
-    label = ""
-    country_lower_no_dash = country_lower.replace("-", " ")
+    country_no_dash = country_lower.replace("-", " ")
 
-    if not label:
-        label = New_P17_Finall.get(country_lower, "")
-    if not label:
-        label = pf_keys2.get(country_lower, "")
-    if not label:
-        label = get_pop_All_18(country_lower, "")
+    # Create and apply the lookup chain
+    lookup_chain = _create_country_lookup_chain(
+        country_lower,
+        separator,
+        start_get_country2,
+        country_no_dash
+    )
 
-    if not label and "-" in country_lower:
-        label = get_pop_All_18(country_lower_no_dash, "")
-        if not label:
-            label = New_female_keys.get(country_lower_no_dash, "")
-
-    if label == "" and "kingdom-of" in country_lower:
-        label = get_pop_All_18(country_lower.replace("kingdom-of", "kingdom of"), "")
-
-    if label == "" and country_lower.startswith("by "):
-        label = bys.make_by_label(country_lower)
-
-    if label == "" and " by " in country_lower:
-        label = bys.get_by_label(country_lower)
-
-    if separator.lower() == "for":
-        label = for_table.get(country_lower, "")
-
-    if label == "" and country_lower.strip().startswith("in "):
-        cco2 = country_lower.strip()[len("in ") :].strip()
-        cco2_ = get_country(cco2)
-        if not cco2_:
-            cco2_ = country2_lab.get_lab_for_country2(cco2)
-        if cco2_:
-            label = f"في {cco2_}"
-
-    if not label:
-        label = time_to_arabic.convert_time_to_arabic(country_lower)
-    if not label:
-        label = te_films(country)
-    if not label:
-        label = nats_other.find_nat_others(country)
-    if not label:
-        label = team_work.Get_team_work_Club(country.strip())
-
-    if not label:
-        label = Get_c_t_lab(country_lower, separator, start_get_country2=start_get_country2)
-
-    if not label:
-        label = tmp_bot.Work_Templates(country_lower)
-
-    if not label:
-        label = country2_lab.get_lab_for_country2(country_lower)
+    label = _lookup_label_from_sources(
+        lookup_chain,
+        country_lower,
+        log_context=f"get_con_lab({country_lower})"
+    )
 
     logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
 
