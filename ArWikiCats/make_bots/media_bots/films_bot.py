@@ -16,7 +16,6 @@ from ...translations_resolvers import resolved_sports_formats_labels
 from .film_keys_bot import resolve_films
 
 from ..media_bots.film_keys_bot import get_Films_key_CAO
-# from ..media_bots.film_keys_bot_tyty import get_films_key_tyty
 from ..media_bots.tyty_new_format import get_films_key_tyty_new
 
 
@@ -37,7 +36,6 @@ def te_films(category: str) -> str:
         logger.info(f'>>>> (te_films) get_Films_key_CAO, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
 
-    # resolved_label = get_films_key_tyty(normalized_category)
     resolved_label = get_films_key_tyty_new(normalized_category)
     if resolved_label:
         logger.info(f'>>>> (te_films) get_films_key_tyty_new, cat: {normalized_category}, label: "{resolved_label}"')

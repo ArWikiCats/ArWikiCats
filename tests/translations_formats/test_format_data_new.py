@@ -4,17 +4,18 @@
 import pytest
 
 from ArWikiCats.translations import Nat_women, film_keys_for_female
-from ArWikiCats.translations_formats import MultiDataFormatterBase, format_films_country_data
+from ArWikiCats.translations_formats import MultiDataFormatterDataDouble, format_films_country_data
 # from ArWikiCats.make_bots.media_bots.film_keys_bot import get_Films_key_CAO
 
 
 @pytest.fixture
-def yc_bot() -> MultiDataFormatterBase:
+def yc_bot() -> MultiDataFormatterDataDouble:
 
     # Template data with both nationality and sport placeholders
     formatted_data = {
         "{nat_en} films": "أفلام {nat_ar}",
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
+        "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
     }
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
@@ -60,11 +61,14 @@ def yc_bot() -> MultiDataFormatterBase:
 test_data_standard = {
     # standard
     # yc_bot.search_all(category)
+    "yemeni films": "أفلام يمنية",
     "Yemeni action films": "أفلام حركة يمنية",
     "Yemeni action drama films": "أفلام حركة درامية يمنية",
     "Yemeni upcoming horror films": "أفلام رعب قادمة يمنية",
     "Yemeni horror upcoming films": "أفلام رعب قادمة يمنية",
+    "Yemeni upcoming films": "أفلام قادمة يمنية",
 
+    # films keys
     "3d low-budget films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget 3d films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "heist historical television commercials": "إعلانات تجارية تلفزيونية سرقة تاريخية",
@@ -113,7 +117,7 @@ test_data_standard = {
 
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=list(test_data_standard.keys()))
-def test_year_country_combinations(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
+def test_year_country_combinations(yc_bot: MultiDataFormatterDataDouble, category: str, expected: str) -> None:
     """
     Test
     """
@@ -128,7 +132,7 @@ country_bot_data = [
 
 
 @pytest.mark.parametrize("category,expected", country_bot_data, ids=[x[0] for x in country_bot_data])
-def test_country_bot(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
+def test_country_bot(yc_bot: MultiDataFormatterDataDouble, category: str, expected: str) -> None:
     """
     Test
     """
@@ -148,7 +152,7 @@ other_bot_data = {
 
 
 @pytest.mark.parametrize("category,expected", other_bot_data.items(), ids=list(other_bot_data.keys()))
-def test_other_bot(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
+def test_other_bot(yc_bot: MultiDataFormatterDataDouble, category: str, expected: str) -> None:
     """
     Test
     """
@@ -168,6 +172,6 @@ test_match_key_data = {
 
 @pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=list(test_match_key_data.keys()))
 @pytest.mark.fast
-def test_match_key(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
+def test_match_key(yc_bot: MultiDataFormatterDataDouble, category: str, expected: str) -> None:
     result = yc_bot.other_bot.match_key(category)
     assert result == expected

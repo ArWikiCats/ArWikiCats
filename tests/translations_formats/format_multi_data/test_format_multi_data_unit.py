@@ -57,20 +57,6 @@ def multi_bot() -> MultiDataFormatterBase:
     )
 
 
-@pytest.fixture
-def _multi_bot() -> MultiDataFormatterBase:
-    """Create a format_multi_data instance for testing."""
-    return format_multi_data(
-        formatted_data=formatted_data,
-        data_list=nationality_data,
-        key_placeholder="{nat_en}",
-        value_placeholder="{nat_ar}",
-        data_list2=sport_data,
-        key2_placeholder="{sport_en}",
-        value2_placeholder="{sport_ar}",
-    )
-
-
 class TestCountryBotNormalization:
     """Tests for  class."""
 
@@ -224,7 +210,7 @@ class TestCreateNatLabel:
         """Test creating nationality label when match is found."""
         category = "yemeni football teams"
         result = multi_bot.create_nat_label(category)
-        # With the current `formated_data`, `nat_bot` won't find a template
+        # With the current `formatted_data`, `nat_bot` won't find a template
         # and will return an empty string.
         assert result == ""
 

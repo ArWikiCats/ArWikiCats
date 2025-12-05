@@ -1,4 +1,16 @@
 
+## [#159](https://github.com/MrIbrahem/ArWikiCats/pull/159) - 2025-12-05
+
+* **New Features**
+  * Support for translating country+year/decade category titles (e.g., national film categories with years or decades).
+
+* **Improvements**
+  * Broadened label resolution to consider additional pattern sources for better matches.
+  * Simplified resolution flow by removing legacy fallback paths and enabling updated templates for film/TV national labels.
+
+* **Tests**
+  * Added and expanded tests covering nationality/year templates, multi-template combinations, and many edge cases.
+
 ## [#158](https://github.com/MrIbrahem/ArWikiCats/pull/158) - 2025-12-05
 
 * **Refactor**

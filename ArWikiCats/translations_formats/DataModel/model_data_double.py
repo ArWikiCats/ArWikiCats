@@ -26,7 +26,7 @@ class FormatDataDouble:
         self.text_before = text_before
 
         # Case-insensitive mirrors
-        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
+        self.formatted_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
         self.data_list_ci: Dict[str, str] = {k.lower(): v for k, v in data_list.items()}
 
         self.value_placeholder = value_placeholder
@@ -48,7 +48,7 @@ class FormatDataDouble:
     def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
         self.formatted_data[key] = value
-        self.formated_data_ci[key.lower()] = value
+        self.formatted_data_ci[key.lower()] = value
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
@@ -108,6 +108,15 @@ class FormatDataDouble:
 
         return ""
 
+    def handle_texts_before_after(self, normalized: str) -> str:
+        """Handle text before and after the key placeholder."""
+        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
+            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
+
+        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
+            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+        return normalized
+
     @functools.lru_cache(maxsize=None)
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
@@ -121,12 +130,7 @@ class FormatDataDouble:
             f" {normalized_category.strip()} ",
             flags=re.IGNORECASE,
         )
-
-        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
-            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
-
-        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
-            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+        normalized = self.handle_texts_before_after(normalized)
 
         return normalized.strip()
 
@@ -150,20 +154,20 @@ class FormatDataDouble:
         normalized = self.normalize_category(category, sport_key)
         logger.debug(f"normalized xoxo : {normalized}")
         # Case-insensitive key lookup
-        return self.formated_data_ci.get(normalized.lower(), "")
+        return self.formatted_data_ci.get(normalized.lower(), "")
 
     def get_template_ar(self, template_key: str) -> str:
         """Lookup template in a case-insensitive dict."""
         # Case-insensitive key lookup
         template_key = template_key.lower()
-        result = self.formated_data_ci.get(template_key, "")
+        result = self.formatted_data_ci.get(template_key, "")
 
         if not result:
             if template_key.startswith("category:"):
                 template_key = template_key.replace("category:", "")
-                result = self.formated_data_ci.get(template_key, "")
+                result = self.formatted_data_ci.get(template_key, "")
             else:
-                result = self.formated_data_ci.get(f"category:{template_key}", "")
+                result = self.formatted_data_ci.get(f"category:{template_key}", "")
 
         return result
 
@@ -247,77 +251,3 @@ class FormatDataDouble:
     def search_all(self, category: str) -> str:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
-
-
-def format_data_sample() -> None:
-    """
-    This function demonstrates how to use the FormatData class to format and transform data.
-    It creates a mapping of template patterns to their localized versions and applies them.
-    """
-    # Define a dictionary of formatted patterns with placeholders
-
-    # Template data with both nationality and sport placeholders
-    formatted_data = {
-        "{film_key} films": "أفلام {film_ar}",
-        "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
-    }
-
-    # film_keys_for_female
-    data_list2 = {
-        "action comedy": "حركة كوميدية",
-        "action thriller": "إثارة حركة",
-        "action": "حركة",
-        "drama": "درامية",
-        "upcoming": "قادمة",
-        "horror": "رعب",
-        "black": "أبيض سوداء",
-        "black-and-white": "أبيض وأسود",
-        "psychological horror": "رعب نفسي",
-    }
-
-    # Create an instance of the FormatDataDouble class with the formatted data and data list
-    bot = FormatDataDouble(
-        formatted_data=formatted_data,
-        data_list=data_list2,
-        key_placeholder="{film_key}",
-        value_placeholder="{film_ar}",
-    )
-
-    put_label_last = {
-        "low-budget",
-        "christmas",
-        "lgbtq-related",
-        "upcoming",
-    }
-    bot.update_put_label_last(put_label_last)
-    test_data = {
-        "black-and-white films": "أفلام أبيض وأسود",
-        "drama action television commercials": "إعلانات تجارية تلفزيونية درامية حركة",
-    }
-    # Test the formatting function with sample data
-    for key, value in test_data.items():
-        # Search for a specific pattern and get its localized version
-        label = bot.search(key)
-        # Verify if the result matches the expected output
-        result = label == value
-        logger.debug("search result: ", key, result)
-
-    test_data_match = {
-        "black-and-white films": "black-and-white",
-        "drama action television commercials": "drama action",
-    }
-    # Test the formatting function with sample data
-    for text, value in test_data_match.items():
-        # Search for a specific pattern and get its localized version
-        key = bot.match_key(text)
-        # Verify if the result matches the expected output
-        result = key == value
-        logger.debug(f"match_key result: ({key})<>({value})", result)
-
-    # Return the formatted label
-
-
-if __name__ == "__main__":
-    format_data_sample()
-
-# match_key result: (black)<>(black-and-white) False
