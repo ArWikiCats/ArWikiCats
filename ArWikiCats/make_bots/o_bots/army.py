@@ -30,7 +30,7 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
     for country, details in all_country_with_nat.items():
         english_country = details.get("en", "").lower()
         women_label = details.get("women", "")
-        men_label = details.get("man", "")
+        men_label = details.get("male", "")
 
         if not (women_label or men_label):
             continue

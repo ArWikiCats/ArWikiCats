@@ -43,7 +43,7 @@ def test_te_army_resolves_men_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         army,
         "all_country_with_nat",
-        {"France": {"en": "France", "man": "فرنسي"}},
+        {"France": {"en": "France", "male": "فرنسي"}},
         raising=False,
     )
     monkeypatch.setattr(army, "military_format_men", {"army": "{nat} العسكري"}, raising=False)

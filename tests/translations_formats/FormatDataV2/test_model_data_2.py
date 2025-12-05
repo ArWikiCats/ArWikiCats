@@ -11,25 +11,25 @@ def bot() -> FormatDataV2:
 
     nationality_data = {
         "egyptian": {
-            "man": "مصري",
+            "male": "مصري",
             "women": "مصرية",
             "males": "مصريون",
             "females": "مصريات",
         },
         "yemeni": {
-            "man": "يمني",
+            "male": "يمني",
             "women": "يمنية",
             "males": "يمنيون",
             "females": "يمنيات",
         },
         "Algerian": {
-            "man": "جزائري",
+            "male": "جزائري",
             "women": "جزائرية",
             "males": "جزائريون",
             "females": "جزائريات",
         },
         "Moroccan": {
-            "man": "مغربي",
+            "male": "مغربي",
             "women": "مغربية",
             "males": "مغاربة",
             "females": "مغربيات",
@@ -38,7 +38,7 @@ def bot() -> FormatDataV2:
 
     formatted_data = {
         "{nat_en} writers": "كتاب {males}",                    # كتاب يمنيون
-        "{nat_en} descent": "أصل {man}",                     # أصل يمني
+        "{nat_en} descent": "أصل {male}",                     # أصل يمني
         "{nat_en} women activists": "ناشطات {females}",       # ناشطات يمنيات
         "{nat_en} gods": "آلهة {women}",                     # أصل يمني
     }
@@ -88,7 +88,7 @@ def test_no_matches(bot: FormatDataV2, category: str, expected: str) -> None:
 def bot_with_text_affixes() -> FormatDataV2:
     nationality_data = {
         "egyptian": {
-            "man": "مصري",
+            "male": "مصري",
             "males": "مصريون",
         },
     }

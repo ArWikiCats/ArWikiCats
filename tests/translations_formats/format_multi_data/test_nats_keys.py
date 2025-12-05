@@ -7,13 +7,13 @@ from ArWikiCats.translations_formats import FormatData
 from ArWikiCats.translations_formats.DataModel.model_multi_data import MultiDataFormatterBase
 
 nationality_data = {
-    "Afghan": {"man": "أفغاني", "males": "أفغان"},
-    "yemeni": {"man": "يمني", "males": "يمنيون"},
-    "british": {"man": "بريطاني", "males": "بريطانيون"},
-    "american": {"man": "أمريكي", "males": "أمريكيون"},
-    "egyptian": {"man": "مصري", "males": "مصريون"},
-    "Algerian": {"man": "جزائري", "males": "جزائريون"},
-    "Moroccan": {"man": "مغربي", "males": "مغاربة"},
+    "Afghan": {"male": "أفغاني", "males": "أفغان"},
+    "yemeni": {"male": "يمني", "males": "يمنيون"},
+    "british": {"male": "بريطاني", "males": "بريطانيون"},
+    "american": {"male": "أمريكي", "males": "أمريكيون"},
+    "egyptian": {"male": "مصري", "males": "مصريون"},
+    "Algerian": {"male": "جزائري", "males": "جزائريون"},
+    "Moroccan": {"male": "مغربي", "males": "مغاربة"},
 }
 
 formatted_data = {
@@ -24,7 +24,7 @@ formatted_data = {
 }
 
 nationality_data_men = {x: v["males"] for x, v in nationality_data.items()}
-nationality_data_man = {x: v["man"] for x, v in nationality_data.items()}
+nationality_data_man = {x: v["male"] for x, v in nationality_data.items()}
 
 
 @pytest.fixture
