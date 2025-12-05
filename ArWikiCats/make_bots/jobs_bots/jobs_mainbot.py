@@ -15,7 +15,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..jobs_bots.priffix_bot import womens_prefixes_work, mens_prefixes_work
+from .prefix_bot import womens_prefixes_work, mens_prefixes_work
 
 MEN_WOMENS_WITH_NATO = {
     "eugenicists": {

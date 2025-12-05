@@ -38,8 +38,8 @@ from .mixed.bot_te_4_list import (
     en_is_P17_ar_is_mens,
     replace_labels_2022,
 )
-from .mixed.jenders_priffix_suffix import (
-    Mens_priffix,
+from .mixed.jenders_prefix_suffix import (
+    Mens_prefix,
     Mens_suffix,
     womens_prefixes,
 )
@@ -222,6 +222,6 @@ __all__ = [
     "en_is_P17_ar_is_al_women",
     "replace_labels_2022",
     "Mens_suffix",
-    "Mens_priffix",
+    "Mens_prefix",
     "womens_prefixes",
 ]

@@ -19,7 +19,7 @@ womens_prefixes: dict[str, str] = {
     "women's": "{}"
 }
 
-Mens_priffix: dict[str, str] = {
+Mens_prefix: dict[str, str] = {
     "men": "{} رجال",
     "amputee": "{} مبتورو أحد الأطراف",
     "assassinated": "{} مغتالون",
@@ -76,7 +76,7 @@ under_data = {
     "under–24": "{} تحت 24 سنة"
 }
 __all__ = [
-    "Mens_priffix",
+    "Mens_prefix",
     "womens_prefixes",
     "Mens_suffix",
 ]
