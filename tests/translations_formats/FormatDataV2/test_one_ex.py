@@ -65,7 +65,6 @@ def bot() -> FormatDataV2:
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
-        value_placeholder="{men}",  # still used for legacy string cases
     )
 
 
@@ -177,44 +176,3 @@ def test_get_template_ar_supports_category_prefix(bot: FormatDataV2) -> None:
 
     assert base_template == "فلاسفة {men}"
     assert prefixed_template == "فلاسفة {men}"
-
-
-# -----------------------------
-# Legacy behavior: string labels
-# -----------------------------
-
-@pytest.fixture
-def simple_bot() -> "FormatDataV2":
-    """
-    FormatDataV2 instance that uses string values instead of dict values.
-
-    This verifies that the legacy code path with `value_placeholder`
-    still works correctly.
-    """
-    formatted_data = {
-        "xoxo players": "لاعبو xoxo",
-    }
-    data_list = {
-        "football": "كرة القدم",
-    }
-
-    return FormatDataV2(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder="xoxo",
-        value_placeholder="xoxo",
-    )
-
-
-@pytest.mark.fast
-def test_legacy_string_label_success(simple_bot: "FormatDataV2") -> None:
-    """Ensure the legacy path (string label + single placeholder) works."""
-    result = simple_bot.search("Football players")
-    assert result == "لاعبو كرة القدم"
-
-
-@pytest.mark.fast
-def test_legacy_string_label_no_match(simple_bot: "FormatDataV2") -> None:
-    """Unknown key or missing template should still return an empty string."""
-    result = simple_bot.search("Basketball players")
-    assert result == ""

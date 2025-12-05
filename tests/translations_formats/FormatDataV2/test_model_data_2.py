@@ -16,6 +16,12 @@ def bot() -> FormatDataV2:
             "men": "مصريون",
             "womens": "مصريات",
         },
+        "yemeni": {
+            "man": "يمني",
+            "women": "يمنية",
+            "men": "يمنيون",
+            "womens": "يمنيات",
+        },
         "Algerian": {
             "man": "جزائري",
             "women": "جزائرية",
@@ -43,7 +49,6 @@ def bot() -> FormatDataV2:
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
-        value_placeholder="{men}",
     )
 
 
@@ -76,42 +81,9 @@ def test_no_matches(bot: FormatDataV2, category: str, expected: str) -> None:
     result = bot.search(category)
     assert result == expected
 
-
-# Test for backward compatibility with string values in data_list
-@pytest.fixture
-def bot_with_strings() -> FormatDataV2:
-    formatted_data = {
-        "{nat_en} writers": "كتاب {value}",
-        "{nat_en} descent": "أصل {value}",
-    }
-
-    data_list_strings = {
-        "egyptian": "مصريون",
-        "Algerian": "جزائريون",
-    }
-
-    return FormatDataV2(
-        formatted_data=formatted_data,
-        data_list=data_list_strings,
-        key_placeholder="{nat_en}",
-        value_placeholder="{value}",
-    )
-
-
-test_string_values_data = {
-    "Algerian writers": "كتاب جزائريون",
-    "egyptian descent": "أصل مصريون",
-}
-
-
-@pytest.mark.parametrize("category, expected", test_string_values_data.items(), ids=list(test_string_values_data.keys()))
-@pytest.mark.fast
-def test_backward_compatibility_strings(bot_with_strings: FormatDataV2, category: str, expected: str) -> None:
-    result = bot_with_strings.search(category)
-    assert result == expected
-
-
 # Test for text_before and text_after
+
+
 @pytest.fixture
 def bot_with_text_affixes() -> FormatDataV2:
     nationality_data = {
@@ -129,7 +101,6 @@ def bot_with_text_affixes() -> FormatDataV2:
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
-        value_placeholder="{men}",
         text_before="of ",
         text_after=" origin",
     )
@@ -163,7 +134,6 @@ def bot_with_overlapping_keys() -> FormatDataV2:
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
-        value_placeholder="{men}",
     )
 
 
@@ -198,7 +168,6 @@ def bot_with_missing_template() -> FormatDataV2:
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
-        value_placeholder="{men}",
     )
 
 

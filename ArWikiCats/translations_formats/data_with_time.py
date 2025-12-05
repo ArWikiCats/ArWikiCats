@@ -3,7 +3,7 @@
 Classes for formatting
 """
 from typing import Dict
-from .DataModel import FormatData, YearFormatData, MultiDataFormatterBase
+from .DataModel import FormatData, YearFormatData, MultiDataFormatterBaseYear
 
 # -----------------------
 #
@@ -22,7 +22,7 @@ def format_year_country_data(
     value2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
-) -> MultiDataFormatterBase:
+) -> MultiDataFormatterBaseYear:
     """Prepare helpers for matching and formatting template-driven labels."""
     # Store originals
 
@@ -41,7 +41,7 @@ def format_year_country_data(
         value_placeholder=value2_placeholder,
     )
 
-    return MultiDataFormatterBase(
+    return MultiDataFormatterBaseYear(
         country_bot=country_bot,
         other_bot=other_bot,
     )

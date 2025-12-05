@@ -3,7 +3,7 @@
 Classes for formatting
 """
 from typing import Dict
-from .DataModel import FormatData, FormatDataDouble, MultiDataFormatterBase
+from .DataModel import FormatData, FormatDataDouble, MultiDataFormatterDataDouble
 
 # -----------------------
 #
@@ -21,7 +21,7 @@ def format_films_country_data(
     value2_placeholder: str = "{film_ar}",
     text_after: str = "",
     text_before: str = "",
-) -> MultiDataFormatterBase:
+) -> MultiDataFormatterDataDouble:
     """Prepare helpers for matching and formatting template-driven labels."""
     # Store originals
 
@@ -42,7 +42,7 @@ def format_films_country_data(
         value_placeholder=value2_placeholder,
     )
 
-    return MultiDataFormatterBase(
+    return MultiDataFormatterDataDouble(
         country_bot=country_bot,
         other_bot=other_bot,
     )

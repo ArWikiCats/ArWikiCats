@@ -29,30 +29,13 @@ class NormalizeResult:
     other_key: str
 
 
-class MultiDataFormatterBase:
-    """
-    Handles complex formatting involving two sets of data lists (e.g.,
-    nationality and sport, or country and year). It orchestrates two
-    formatter instances (`FormatData` or `YearFormatData`) to normalize
-    and translate category strings.
-    """
-
-    def __init__(
-        self,
-        country_bot: FormatData | YearFormatData | FormatDataDouble,
-        other_bot: YearFormatData | FormatData | FormatDataDouble,
-        search_first_part: bool = False,
-    ) -> None:
-        """Prepare helpers for matching and formatting template-driven labels."""
-
-        # Country bot (FormatData)
-        self.search_first_part = search_first_part
-        self.country_bot = country_bot
-        self.other_bot = other_bot
-
+class MultiDataFormatterBaseHelpers:
+    def __init__(self) -> None:
+        pass
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
     # ------------------------------------------------------
+
     def normalize_nat_label(self, category: str) -> str:
         """
         Normalize nationality placeholders within a category string.
@@ -168,3 +151,63 @@ class MultiDataFormatterBase:
         return self.create_label(category) \
             or self.country_bot.search(category) \
             or self.other_bot.search(category)
+
+
+class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
+    """
+    Handles complex formatting involving two sets of data lists (e.g.,
+    nationality and sport, or country and year). It orchestrates two
+    formatter instances (`FormatData` or `YearFormatData`) to normalize
+    and translate category strings.
+    """
+
+    def __init__(
+        self,
+        country_bot: FormatData,
+        other_bot: FormatData,
+        search_first_part: bool = False,
+    ) -> None:
+        """Prepare helpers for matching and formatting template-driven labels."""
+
+        # Country bot (FormatData)
+        self.search_first_part = search_first_part
+        self.country_bot = country_bot
+        self.other_bot = other_bot
+
+
+class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
+    """
+    """
+
+    def __init__(
+        self,
+        country_bot: FormatData,
+        other_bot: YearFormatData,
+        search_first_part: bool = False,
+    ) -> None:
+        """Prepare helpers for matching and formatting template-driven labels."""
+
+        self.search_first_part = search_first_part
+        self.country_bot = country_bot
+        self.other_bot = other_bot
+
+
+class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
+    """
+    Handles complex formatting involving two sets of data lists (e.g.,
+    nationality and sport, or country and year). It orchestrates two
+    formatter instances (`FormatData` or `YearFormatData`) to normalize
+    and translate category strings.
+    """
+
+    def __init__(
+        self,
+        country_bot: FormatData,
+        other_bot: FormatDataDouble,
+        search_first_part: bool = False,
+    ) -> None:
+        """Prepare helpers for matching and formatting template-driven labels."""
+
+        self.search_first_part = search_first_part
+        self.country_bot = country_bot
+        self.other_bot = other_bot

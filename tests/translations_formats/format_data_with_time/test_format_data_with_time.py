@@ -4,7 +4,7 @@
 import pytest
 
 from ArWikiCats.translations import all_country_ar
-from ArWikiCats.translations_formats import MultiDataFormatterBase, format_year_country_data
+from ArWikiCats.translations_formats import MultiDataFormatterBaseYear, format_year_country_data
 
 # Template data with both nationality and sport placeholders
 formatted_data = {
@@ -47,7 +47,7 @@ formatted_data = {
 
 
 @pytest.fixture
-def yc_bot() -> MultiDataFormatterBase:
+def yc_bot() -> MultiDataFormatterBaseYear:
     return format_year_country_data(
         formatted_data=formatted_data,
         data_list=all_country_ar,
@@ -116,7 +116,7 @@ test_data = [
     test_data,
     ids=[x[0] for x in test_data]
 )
-def test_year_country_combinations(yc_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
+def test_year_country_combinations(yc_bot: MultiDataFormatterBaseYear, category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
     result = yc_bot.create_label(category)
     assert result == expected
