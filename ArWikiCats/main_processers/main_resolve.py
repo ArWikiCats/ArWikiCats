@@ -16,6 +16,7 @@ from ..make_bots.co_bots import filter_en
 from ..make_bots.format_bots import change_cat
 from ..make_bots.ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
+from ..translations_resolvers import resolved_sports_formats_labels
 
 
 labs_years_bot = LabsYears()
@@ -48,6 +49,9 @@ def resolve_label(category: str) -> CategoryResult:
 
     if from_year:
         category_lab = from_year
+
+    if not category_lab:
+        category_lab = resolved_sports_formats_labels(changed_cat)
 
     start_ylab = ""
     from_match = False
