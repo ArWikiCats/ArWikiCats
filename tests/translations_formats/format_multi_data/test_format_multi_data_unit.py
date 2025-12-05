@@ -210,7 +210,7 @@ class TestCreateNatLabel:
         """Test creating nationality label when match is found."""
         category = "yemeni football teams"
         result = multi_bot.create_nat_label(category)
-        # With the current `formated_data`, `nat_bot` won't find a template
+        # With the current `formatted_data`, `nat_bot` won't find a template
         # and will return an empty string.
         assert result == ""
 

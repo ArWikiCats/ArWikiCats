@@ -26,7 +26,7 @@ class FormatDataV2:
         self.text_before = text_before
 
         # Case-insensitive mirrors
-        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
+        self.formatted_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
         self.data_list_ci: Dict[str, Union[str, Dict[str, str]]] = {k.lower(): v for k, v in data_list.items()}
 
         self.key_placeholder = key_placeholder
@@ -36,7 +36,7 @@ class FormatDataV2:
     def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
         self.formatted_data[key] = value
-        self.formated_data_ci[key.lower()] = value
+        self.formatted_data_ci[key.lower()] = value
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
@@ -69,8 +69,8 @@ class FormatDataV2:
 
     def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
         """Replace value placeholder once template is chosen."""
+        final_label = template_label
         if isinstance(sport_label, dict):
-            final_label = template_label
             for key, value in sport_label.items():
                 final_label = final_label.replace(f"{{{key}}}", value)
 
@@ -78,6 +78,9 @@ class FormatDataV2:
         return final_label.strip()
 
     def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
+        """
+        Used in MultiDataFormatterBaseV2
+        """
         # Replace placeholder
         # print(f"{value=}\n"*10)   # {'nat1_ar_man': 'جزائري', 'nat1_ar_men': 'جزائريون'}
         # print(f"{label=}\n"*10)   # '{nat1_ar_men} من أصل يهودي {nat2_ar_man}'
@@ -86,6 +89,7 @@ class FormatDataV2:
         if isinstance(value, dict):
             for key, value in value.items():
                 final_label = final_label.replace(f"{{{key}}}", value)
+
         return final_label
 
     def handle_texts_before_after(self, normalized: str) -> str:
@@ -149,20 +153,20 @@ class FormatDataV2:
         normalized = self.normalize_category(category, sport_key)
         logger.debug(f"normalized xoxo : {normalized}")
         # Case-insensitive key lookup
-        return self.formated_data_ci.get(normalized.lower(), "")  # or self.formated_data_ci.get(f"category:{normalized.lower()}", "")
+        return self.formatted_data_ci.get(normalized.lower(), "")  # or self.formatted_data_ci.get(f"category:{normalized.lower()}", "")
 
     def get_template_ar(self, template_key: str) -> str:
         """Lookup template in a case-insensitive dict."""
         # Case-insensitive key lookup
         template_key = template_key.lower()
-        result = self.formated_data_ci.get(template_key, "")
+        result = self.formatted_data_ci.get(template_key, "")
 
         if not result:
             if template_key.startswith("category:"):
                 template_key = template_key.replace("category:", "")
-                result = self.formated_data_ci.get(template_key, "")
+                result = self.formatted_data_ci.get(template_key, "")
             else:
-                result = self.formated_data_ci.get(f"category:{template_key}", "")
+                result = self.formatted_data_ci.get(f"category:{template_key}", "")
 
         return result
 

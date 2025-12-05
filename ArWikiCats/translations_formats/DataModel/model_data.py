@@ -26,7 +26,7 @@ class FormatData:
         self.text_before = text_before
 
         # Case-insensitive mirrors
-        self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
+        self.formatted_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
         self.data_list_ci: Dict[str, str] = {k.lower(): v for k, v in data_list.items()}
 
         self.value_placeholder = value_placeholder
@@ -37,7 +37,7 @@ class FormatData:
     def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
         self.formatted_data[key] = value
-        self.formated_data_ci[key.lower()] = value
+        self.formatted_data_ci[key.lower()] = value
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
@@ -122,20 +122,20 @@ class FormatData:
         normalized = self.normalize_category(category, sport_key)
         logger.debug(f"normalized xoxo : {normalized}")
         # Case-insensitive key lookup
-        return self.formated_data_ci.get(normalized.lower(), "")  # or self.formated_data_ci.get(f"category:{normalized.lower()}", "")
+        return self.formatted_data_ci.get(normalized.lower(), "")  # or self.formatted_data_ci.get(f"category:{normalized.lower()}", "")
 
     def get_template_ar(self, template_key: str) -> str:
         """Lookup template in a case-insensitive dict."""
         # Case-insensitive key lookup
         template_key = template_key.lower()
-        result = self.formated_data_ci.get(template_key, "")
+        result = self.formatted_data_ci.get(template_key, "")
 
         if not result:
             if template_key.startswith("category:"):
                 template_key = template_key.replace("category:", "")
-                result = self.formated_data_ci.get(template_key, "")
+                result = self.formatted_data_ci.get(template_key, "")
             else:
-                result = self.formated_data_ci.get(f"category:{template_key}", "")
+                result = self.formatted_data_ci.get(f"category:{template_key}", "")
 
         return result
 
