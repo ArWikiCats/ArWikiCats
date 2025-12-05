@@ -177,7 +177,7 @@ def test_wheelchair_3(category: str, expected: str) -> None:
 
 @pytest.mark.dump
 @pytest.mark.parametrize("name,data", test_data)
-def test_geography_all(name: str, data: str) -> None:
+def test_dump_all(name: str, data: str) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
