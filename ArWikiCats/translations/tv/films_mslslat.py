@@ -1,22 +1,27 @@
 #!/usr/bin/python3
 """
-new pages from file
+Film and TV Series Translation Mappings.
 
-python3 core8/pwb.py update/update
-
-TODO: need refactoring
+Builds translation mappings for film and television categories from English to Arabic,
+handling gender-specific translations and nationality-based categories.
 """
 
-from ...helps import len_print
-
 from typing import Dict, Tuple
-
+from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
 
-# --- base templates / helpers -------------------------------------------------
+# =============================================================================
+# Constants
+# =============================================================================
 
-Films_Key_for_mat2 = {
+NAT_PLACEHOLDER = "{}"
+
+# Keys that support debuts/endings variants
+DEBUTS_ENDINGS_KEYS = ["television series", "television miniseries", "television films"]
+
+# Fixed television/web series templates
+SERIES_DEBUTS_ENDINGS = {
     "television-series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
     "television-series endings": "مسلسلات تلفزيونية {} انتهت في",
     "web series-debuts": "مسلسلات ويب {} بدأ عرضها في",
@@ -26,7 +31,8 @@ Films_Key_for_mat2 = {
     "television series endings": "مسلسلات تلفزيونية {} انتهت في",
 }
 
-film_key_women_2 = {
+# General television/media category base translations
+TELEVISION_BASE_KEYS = {
     "video games": "ألعاب فيديو",
     "soap opera": "مسلسلات طويلة",
     "television characters": "شخصيات تلفزيونية",
@@ -42,259 +48,8 @@ film_key_women_2 = {
     "television miniseries": "مسلسلات قصيرة",
 }
 
-debuts_endings_key = ["television series", "television miniseries", "television films"]
-
-nat_key_f = "{}"
-
-Films_key_CAO_new_format = {
-    "lgbtq-related films": "أفلام {} متعلقة بإل جي بي تي كيو",
-}
-
-
-# --- pure builder helpers -----------------------------------------------------
-
-
-def _build_gender_key_maps(
-    films_keys_male_female: Dict[str, Dict[str, str]],
-    films_key_o_multi: Dict[str, Dict[str, str]],
-) -> Tuple[
-    Dict[str, Dict[str, str]],
-    Dict[str, str],
-    Dict[str, str],
-    Dict[str, str],
-    Dict[str, str],
-]:
-    """Build gender-aware film key mappings from the JSON sources.
-
-    Returns:
-        films_key_both: english key (lower) -> {"male": ..., "female": ...}
-        films_key_333: english key (original) -> female label
-        films_key_man: english key -> male label (with animated variants)
-        film_keys_for_male: english key -> male label
-        film_keys_for_female: english key -> female label
-    """
-    films_key_both: Dict[str, Dict[str, str]] = {}
-    films_key_333: Dict[str, str] = {}
-    films_key_man: Dict[str, str] = {}
-    film_keys_for_male: Dict[str, str] = {}
-    film_keys_for_female: Dict[str, str] = {}
-
-    def _consume_source(source: Dict[str, Dict[str, str]]) -> None:
-        """Merge a male/female mapping source into the combined structures."""
-        for en_key, labels in source.items():
-            key_lower = en_key.lower()
-            films_key_both[key_lower] = labels
-            female_label = labels.get("female", "").strip()
-            if female_label:
-                films_key_333[en_key] = female_label
-
-    _consume_source(films_key_o_multi)
-
-    # Alias "animated" to "animation" if present
-    if "animated" in films_key_both:
-        films_key_both["animation"] = films_key_both["animated"]
-
-    # Build gender-specific maps
-    for en_key, labels in films_key_both.items():
-        male_label = labels.get("male", "").strip()
-        female_label = labels.get("female", "").strip()
-
-        if male_label:
-            films_key_man[en_key] = male_label
-            # Add explicit animated variant for male only
-            if "animated" not in en_key:
-                films_key_man[f"animated {en_key}"] = f"{male_label} رسوم متحركة"
-            film_keys_for_male[en_key] = male_label
-
-        if female_label:
-            film_keys_for_female[en_key] = female_label
-
-    films_keys_male_female = dict(films_keys_male_female)
-    # Alias "animated" to "animation" if present
-    if "animated" in films_keys_male_female:
-        films_keys_male_female["animation"] = films_keys_male_female["animated"]
-
-    for en_key, labels in films_keys_male_female.items():
-        female_label = labels.get("female", "").strip()
-        if female_label:
-            films_key_333[en_key] = female_label
-            film_keys_for_female[en_key] = female_label
-
-    return (
-        films_key_both,
-        films_key_333,
-        films_key_man,
-        film_keys_for_male,
-        film_keys_for_female,
-    )
-
-
-def _extend_films_key_for_nat_with_mat2(
-    films_key_for_nat: Dict[str, str],
-) -> Dict[str, str]:
-    """Extend Films_key_For_nat with additional fixed television/web templates."""
-    for key, label in Films_Key_for_mat2.items():
-        films_key_for_nat[key] = label
-    return films_key_for_nat
-
-
-def _build_series_and_nat_keys(
-    films_key_for_nat: Dict[str, str],
-    female_keys: Dict[str, str],
-) -> Tuple[Dict[str, str], Dict[str, str]]:
-    """Build Films_key_For_nat and films_mslslat_tab for series and combinations."""
-    films_mslslat_tab: Dict[str, str] = {}
-
-    # Base series keys (television, web, comics, etc.)
-    for tt, tt_lab in film_key_women_2.items():
-        films_key_for_nat[tt] = f"{tt_lab} {nat_key_f}"
-        films_key_for_nat[f"{tt} debuts"] = f"{tt_lab} {nat_key_f} بدأ عرضها في"
-        films_key_for_nat[f"{tt} endings"] = f"{tt_lab} {nat_key_f} انتهت في"
-        films_key_for_nat[f"{tt} revived after cancellation"] = (
-            f"{tt_lab} {nat_key_f} أعيدت بعد إلغائها"
-        )
-
-        films_mslslat_tab[tt] = tt_lab
-        films_mslslat_tab[f"{tt} revived after cancellation"] = (
-            f"{tt_lab} أعيدت بعد إلغائها"
-        )
-        films_mslslat_tab[f"{tt} debuts"] = f"{tt_lab} بدأ عرضها في"
-        films_mslslat_tab[f"{tt} endings"] = f"{tt_lab} انتهت في"
-
-        # Handle dashed variants for specific television keys
-        if tt.lower() in debuts_endings_key:
-            films_mslslat_tab[f"{tt}-debuts"] = f"{tt_lab} بدأ عرضها في"
-            films_mslslat_tab[f"{tt}-endings"] = f"{tt_lab} انتهت في"
-            films_key_for_nat[f"{tt}-debuts"] = (
-                f"{tt_lab} {nat_key_f} بدأ عرضها في"
-            )
-            films_key_for_nat[f"{tt}-endings"] = (
-                f"{tt_lab} {nat_key_f} انتهت في"
-            )
-
-    # Remakes mapping
-    films_key_for_nat["remakes of {} films"] = f"أفلام {nat_key_f} معاد إنتاجها"
-
-    # Combinations of female film keys with series keys
-    for ke, ke_lab in female_keys.items():
-        for tt, tt_lab in film_key_women_2.items():
-            key_base = f"{ke} {tt}"
-
-            films_key_for_nat[key_base] = f"{tt_lab} {ke_lab} {nat_key_f}"
-            films_key_for_nat[f"{key_base} revived after cancellation"] = (
-                f"{tt_lab} {ke_lab} {nat_key_f} أعيدت بعد إلغائها"
-            )
-            films_key_for_nat[f"{key_base} debuts"] = (
-                f"{tt_lab} {ke_lab} {nat_key_f} بدأ عرضها في"
-            )
-            films_key_for_nat[f"{key_base} endings"] = (
-                f"{tt_lab} {ke_lab} {nat_key_f} انتهت في"
-            )
-
-            films_mslslat_tab[key_base] = f"{tt_lab} {ke_lab}"
-            films_mslslat_tab[f"{key_base} revived after cancellation"] = (
-                f"{tt_lab} {ke_lab} {nat_key_f} أعيدت بعد إلغائها"
-            )
-            films_mslslat_tab[f"{key_base} debuts"] = (
-                f"{tt_lab} {ke_lab} بدأ عرضها في"
-            )
-            films_mslslat_tab[f"{key_base} endings"] = (
-                f"{tt_lab} {ke_lab} انتهت في"
-            )
-
-            if tt.lower() in debuts_endings_key:
-                films_mslslat_tab[f"{key_base}-debuts"] = (
-                    f"{tt_lab} {ke_lab} بدأ عرضها في"
-                )
-                films_mslslat_tab[f"{key_base}-endings"] = (
-                    f"{tt_lab} {ke_lab} انتهت في"
-                )
-                films_key_for_nat[f"{key_base}-debuts"] = (
-                    f"{tt_lab} {ke_lab} {nat_key_f} بدأ عرضها في"
-                )
-                films_key_for_nat[f"{key_base}-endings"] = (
-                    f"{tt_lab} {ke_lab} {nat_key_f} انتهت في"
-                )
-
-    return films_key_for_nat, films_mslslat_tab
-
-
-def _build_television_cao(
-    tv_keys: Dict[str, str],
-    female_keys: Dict[str, str],
-) -> Tuple[Dict[str, str], int]:
-    """Build Films_key_CAO mappings for TV/media-related categories."""
-    films_key_cao: Dict[str, str] = {}
-    count = 0
-
-    # Base TV keys (per language-independent tv_keys)
-    for ff, label in tv_keys.items():
-        films_key_cao[ff] = label
-        films_key_cao[f"{ff} characters"] = f"شخصيات {label}"
-        films_key_cao[f"{ff} title cards"] = f"بطاقات عنوان {label}"
-        films_key_cao[f"{ff} video covers"] = f"أغلفة فيديو {label}"
-        films_key_cao[f"{ff} posters"] = f"ملصقات {label}"
-        films_key_cao[f"{ff} images"] = f"صور {label}"
-
-    # Combinations with film genres (female_keys)
-    for ke, ke_lab in female_keys.items():
-        films_key_cao[f"{ke} anime and manga"] = f"أنمي ومانغا {ke_lab}"
-        films_key_cao[f"{ke} compilation albums"] = f"ألبومات تجميعية {ke_lab}"
-        films_key_cao[f"{ke} folk albums"] = f"ألبومات فلكلورية {ke_lab}"
-        films_key_cao[f"{ke} classical albums"] = f"ألبومات كلاسيكية {ke_lab}"
-        films_key_cao[f"{ke} comedy albums"] = f"ألبومات كوميدية {ke_lab}"
-        films_key_cao[f"{ke} mixtape albums"] = f"ألبومات ميكستايب {ke_lab}"
-        films_key_cao[f"{ke} soundtracks"] = f"موسيقى تصويرية {ke_lab}"
-        films_key_cao[f"{ke} terminology"] = f"مصطلحات {ke_lab}"
-        films_key_cao[f"children's {ke}"] = f"أطفال {ke_lab}"
-        films_key_cao[f"{ke} television series"] = f"مسلسلات تلفزيونية {ke_lab}"
-        films_key_cao[f"{ke} television episodes"] = f"حلقات تلفزيونية {ke_lab}"
-        films_key_cao[f"{ke} television programs"] = f"برامج تلفزيونية {ke_lab}"
-        films_key_cao[f"{ke} television programmes"] = f"برامج تلفزيونية {ke_lab}"
-        films_key_cao[f"{ke} groups"] = f"مجموعات {ke_lab}"
-        films_key_cao[f"{ke} novellas"] = f"روايات قصيرة {ke_lab}"
-        films_key_cao[f"{ke} novels"] = f"روايات {ke_lab}"
-        films_key_cao[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
-        films_key_cao[f"{ke} films"] = f"أفلام {ke_lab}"
-
-        for fao, base_label in tv_keys.items():
-            count += 1
-            films_key_cao[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
-
-    return films_key_cao, count
-
-
-def _build_female_combo_keys(
-    films_keys_male_female: Dict[str, Dict[str, str]],
-) -> Dict[str, str]:
-    """Build all pairwise combinations of female labels (new key -> combined label)."""
-    result: Dict[str, str] = {}
-
-    base_female = {
-        x: v["female"]
-        for x, v in films_keys_male_female.items()
-        if v.get("female", "").strip()
-    }
-
-    for en, tab in films_keys_male_female.items():
-        tab_female = tab.get("female", "").strip()
-        if not tab_female:
-            continue
-
-        for en2, tab2_female in base_female.items():
-            if en == en2:
-                continue
-            new_key = f"{en} {en2}".lower()
-            if tab2_female:
-                new_lab_female = f"{tab_female} {tab2_female}"
-                result[new_key] = new_lab_female
-
-    return result
-
-
-# --- module-level build pipeline ---------------------------------------------
-
-television_keys = {
+# Extended television keys dictionary
+TELEVISION_KEYS = {
     "albums": "ألبومات",
     "animation": "رسوم متحركة",
     "anime and manga": "أنمي ومانغا",
@@ -350,14 +105,272 @@ television_keys = {
     "works": "أعمال"
 }
 
+# LGBTQ-related films format
+Films_key_CAO_new_format = {
+    "lgbtq-related films": "أفلام {} متعلقة بإل جي بي تي كيو",
+}
+
+
+# =============================================================================
+# Helper Functions
+# =============================================================================
+
+def _build_gender_key_maps(
+    films_keys_male_female: Dict[str, Dict[str, str]],
+    films_key_o_multi: Dict[str, Dict[str, str]],
+) -> Tuple[
+    Dict[str, Dict[str, str]],  # films_key_both
+    Dict[str, str],              # films_key_333
+    Dict[str, str],              # films_key_man
+    Dict[str, str],              # film_keys_for_male
+    Dict[str, str],              # film_keys_for_female
+]:
+    """
+    Build gender-aware film key mappings from JSON sources.
+
+    Returns:
+        - films_key_both: Lowercase key → {male, female}
+        - films_key_333: Original key → female label
+        - films_key_man: Key → male label (with animated variants)
+        - film_keys_for_male: Key → male label
+        - film_keys_for_female: Key → female label
+    """
+    films_key_both = {}
+    films_key_333 = {}
+    films_key_man = {}
+    film_keys_for_male = {}
+    film_keys_for_female = {}
+
+    # Process films_key_o_multi
+    for en_key, labels in films_key_o_multi.items():
+        key_lower = en_key.lower()
+        films_key_both[key_lower] = labels
+        female_label = labels.get("female", "").strip()
+        if female_label:
+            films_key_333[en_key] = female_label
+
+    # Handle "animated" → "animation" aliasing
+    if "animated" in films_key_both:
+        films_key_both["animation"] = films_key_both["animated"]
+
+    # Build gender-specific maps
+    for en_key, labels in films_key_both.items():
+        male_label = labels.get("male", "").strip()
+        female_label = labels.get("female", "").strip()
+
+        if male_label:
+            films_key_man[en_key] = male_label
+            # Add animated variant for male
+            if "animated" not in en_key:
+                films_key_man[f"animated {en_key}"] = f"{male_label} رسوم متحركة"
+            film_keys_for_male[en_key] = male_label
+
+        if female_label:
+            film_keys_for_female[en_key] = female_label
+
+    # Process films_keys_male_female (with animation aliasing)
+    male_female_copy = dict(films_keys_male_female)
+    if "animated" in male_female_copy:
+        male_female_copy["animation"] = male_female_copy["animated"]
+
+    for en_key, labels in male_female_copy.items():
+        female_label = labels.get("female", "").strip()
+        if female_label:
+            films_key_333[en_key] = female_label
+            film_keys_for_female[en_key] = female_label
+
+    return (
+        films_key_both,
+        films_key_333,
+        films_key_man,
+        film_keys_for_male,
+        film_keys_for_female,
+    )
+
+
+def _build_series_and_nat_keys(
+    films_key_for_nat: Dict[str, str],
+    female_keys: Dict[str, str],
+) -> Tuple[Dict[str, str], Dict[str, str]]:
+    """
+    Build nationality-aware and series-based translation mappings.
+
+    Returns:
+        - films_key_for_nat: With nationality placeholder {}
+        - films_mslslat_tab: Without nationality placeholder
+    """
+    films_mslslat_tab = {}
+
+    # Add fixed templates
+    films_key_for_nat.update(SERIES_DEBUTS_ENDINGS)
+
+    # Add remakes mapping
+    films_key_for_nat["remakes of {} films"] = f"أفلام {NAT_PLACEHOLDER} معاد إنتاجها"
+
+    # Build base series keys
+    for tt, tt_lab in TELEVISION_BASE_KEYS.items():
+        films_key_for_nat[tt] = f"{tt_lab} {NAT_PLACEHOLDER}"
+        films_mslslat_tab[tt] = tt_lab
+
+        # Debuts, endings, revived variants
+        for suffix, arabic_suffix in [
+            ("debuts", "بدأ عرضها في"),
+            ("endings", "انتهت في"),
+            ("revived after cancellation", "أعيدت بعد إلغائها"),
+        ]:
+            key_with_suffix = f"{tt} {suffix}"
+            films_key_for_nat[key_with_suffix] = f"{tt_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+            films_mslslat_tab[key_with_suffix] = f"{tt_lab} {arabic_suffix}"
+
+        # Dashed variants for specific keys
+        if tt.lower() in DEBUTS_ENDINGS_KEYS:
+            for suffix, arabic_suffix in [("debuts", "بدأ عرضها في"), ("endings", "انتهت في")]:
+                dashed_key = f"{tt}-{suffix}"
+                films_key_for_nat[dashed_key] = f"{tt_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                films_mslslat_tab[dashed_key] = f"{tt_lab} {arabic_suffix}"
+
+    # Build combinations of female film keys with series keys
+    for ke, ke_lab in female_keys.items():
+        for tt, tt_lab in TELEVISION_BASE_KEYS.items():
+            key_base = f"{ke} {tt}"
+
+            # Base combination
+            films_key_for_nat[key_base] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER}"
+            films_mslslat_tab[key_base] = f"{tt_lab} {ke_lab}"
+
+            # Debuts, endings, revived variants
+            for suffix, arabic_suffix in [
+                ("debuts", "بدأ عرضها في"),
+                ("endings", "انتهت في"),
+                ("revived after cancellation", "أعيدت بعد إلغائها"),
+            ]:
+                combo_key = f"{key_base} {suffix}"
+
+                if suffix == "revived after cancellation":
+                    films_key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                    films_mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                else:
+                    films_key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                    films_mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
+
+            # Dashed variants
+            if tt.lower() in DEBUTS_ENDINGS_KEYS:
+                for suffix, arabic_suffix in [("debuts", "بدأ عرضها في"), ("endings", "انتهت في")]:
+                    dashed_key = f"{key_base}-{suffix}"
+                    films_key_for_nat[dashed_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                    films_mslslat_tab[dashed_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
+
+    return films_key_for_nat, films_mslslat_tab
+
+
+def _build_television_cao(
+    female_keys: Dict[str, str],
+) -> Tuple[Dict[str, str], int]:
+    """
+    Build CAO (Characters, Albums, Organizations, etc.) mappings.
+
+    Returns:
+        - films_key_cao: CAO translation mapping
+        - count: Number of genre-TV combinations created
+    """
+    films_key_cao = {}
+    count = 0
+
+    # Base TV keys with common suffixes
+    for ff, label in TELEVISION_KEYS.items():
+        films_key_cao[ff] = label
+        for suffix, arabic_suffix in [
+            ("characters", "شخصيات"),
+            ("title cards", "بطاقات عنوان"),
+            ("video covers", "أغلفة فيديو"),
+            ("posters", "ملصقات"),
+            ("images", "صور"),
+        ]:
+            films_key_cao[f"{ff} {suffix}"] = f"{arabic_suffix} {label}"
+
+    # Genre-based categories
+    genre_categories = [
+        ("anime and manga", "أنمي ومانغا"),
+        ("compilation albums", "ألبومات تجميعية"),
+        ("folk albums", "ألبومات فلكلورية"),
+        ("classical albums", "ألبومات كلاسيكية"),
+        ("comedy albums", "ألبومات كوميدية"),
+        ("mixtape albums", "ألبومات ميكستايب"),
+        ("soundtracks", "موسيقى تصويرية"),
+        ("terminology", "مصطلحات"),
+        ("television series", "مسلسلات تلفزيونية"),
+        ("television episodes", "حلقات تلفزيونية"),
+        ("television programs", "برامج تلفزيونية"),
+        ("television programmes", "برامج تلفزيونية"),
+        ("groups", "مجموعات"),
+        ("novellas", "روايات قصيرة"),
+        ("novels", "روايات"),
+        ("films", "أفلام"),
+    ]
+
+    for ke, ke_lab in female_keys.items():
+        # Special cases
+        films_key_cao[f"children's {ke}"] = f"أطفال {ke_lab}"
+        films_key_cao[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
+
+        # Standard categories
+        for suffix, arabic_base in genre_categories:
+            films_key_cao[f"{ke} {suffix}"] = f"{arabic_base} {ke_lab}"
+
+        # Combinations with all TV keys
+        for fao, base_label in TELEVISION_KEYS.items():
+            count += 1
+            films_key_cao[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
+
+    return films_key_cao, count
+
+
+def _build_female_combo_keys(
+    films_keys_male_female: Dict[str, Dict[str, str]],
+) -> Dict[str, str]:
+    """Build all pairwise combinations of female genre labels."""
+    result = {}
+
+    # Extract female labels
+    base_female = {
+        x: v["female"]
+        for x, v in films_keys_male_female.items()
+        if v.get("female", "").strip()
+    }
+
+    # Generate combinations
+    for en, tab in films_keys_male_female.items():
+        tab_female = tab.get("female", "").strip()
+        if not tab_female:
+            continue
+
+        for en2, tab2_female in base_female.items():
+            if en == en2:
+                continue
+            new_key = f"{en} {en2}".lower()
+            if tab2_female:
+                result[new_key] = f"{tab_female} {tab2_female}"
+
+    return result
+
+
+# =============================================================================
+# Module Initialization
+# =============================================================================
 
 # Load JSON resources
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
 _Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
-Films_key_O_multi = {x: v for x, v in _Films_key_O_multi.items() if v.get("male", "").strip() and v.get("female", "").strip()}
 
-# Gender-aware film mappings
+# Filter to only entries with both male and female
+Films_key_O_multi = {
+    x: v
+    for x, v in _Films_key_O_multi.items()
+    if v.get("male", "").strip() and v.get("female", "").strip()
+}
+
+# Build gender-aware mappings
 (
     Films_key_both,
     Films_key_333,
@@ -366,30 +379,30 @@ Films_key_O_multi = {x: v for x, v in _Films_key_O_multi.items() if v.get("male"
     film_keys_for_female,
 ) = _build_gender_key_maps(Films_keys_male_female, Films_key_O_multi)
 
-# Convenient alias (kept for compatibility if used elsewhere)
+# Legacy alias
 Films_key2 = film_keys_for_female
 
-# Nat/series keys (Films_key_For_nat + films_mslslat_tab)
-Films_key_For_nat = _extend_films_key_for_nat_with_mat2(Films_key_For_nat)
+# Build series and nationality keys
 Films_key_For_nat, films_mslslat_tab = _build_series_and_nat_keys(
     Films_key_For_nat,
     film_keys_for_female,
 )
 
-# Female values from Films_key_O_multi also contribute to Films_key_333
+# Extend Films_key_333 with female labels from Films_key_O_multi
 for cd, ff in Films_key_O_multi.items():
     female_label = ff.get("female", "").strip()
     if female_label:
         Films_key_333[cd] = female_label
 
-# Television CAO mappings
-Films_key_CAO, ss_Films_key_CAO = _build_television_cao(
-    television_keys,
-    film_keys_for_female,
-)
+# Build television CAO mappings
+Films_key_CAO, ss_Films_key_CAO = _build_television_cao(film_keys_for_female)
 
-# Extended female-only combinations (both keys)
+# Build female combination keys
 Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
+
+# Legacy aliases
+film_key_women_2 = TELEVISION_BASE_KEYS
+television_keys = TELEVISION_KEYS
 
 # Summary output
 len_print.data_len(
@@ -408,6 +421,11 @@ len_print.data_len(
         "film_key_women_2": film_key_women_2,
     },
 )
+
+
+# =============================================================================
+# Public API
+# =============================================================================
 
 __all__ = [
     "television_keys",
