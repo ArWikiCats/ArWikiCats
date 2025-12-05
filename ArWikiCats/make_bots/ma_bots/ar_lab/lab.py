@@ -31,37 +31,6 @@ from ...sports_bots import team_work
 from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
 
-separators_lists_raw = [
-    "in",
-    "from",
-    "at",
-    "by",
-    "of",
-]
-
-
-def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower: str) -> str:
-    """
-    {"type_label": "منشآت عسكرية", "separator_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
-    """
-    if separator_stripped in separators_lists_raw:
-        if separator_stripped == "in" or " in" in type_lower:
-            if type_lower in pop_of_without_in:
-                logger.info(f'>>-- Skip aAdd في to {type_label=}, "{type_lower}"')
-            else:
-                if " في" not in type_label and " in" in type_lower:
-                    logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{type_lower}"')
-                    type_label = type_label + " في"
-                elif separator_stripped == "in" and " in" in type_lower:
-                    logger.info(f'>>>> aAdd في to type_label:in"{type_label}", for "{type_lower}"')
-                    type_label = type_label + " في"
-
-        elif (separator_stripped == "at" or " at" in type_lower) and (" في" not in type_label):
-            logger.info('>>>> Add في to type_label:at"%s"' % type_label)
-            type_label = type_label + " في"
-
-    return type_label
-
 
 def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
     """Split category into type and country parts using the separator.
@@ -386,43 +355,8 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
     return label or ""
 
 
-def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str:
-    """Add 'من' (from) to the label if conditions are met.
-
-    Args:
-        type_label (str): The current Arabic label for the type.
-        type_lower (str): The lowercase type string.
-        separator_stripped (str): The stripped delimiter.
-
-    Returns:
-        str: The modified type label.
-    """
-    ty_in18 = get_pop_All_18(type_lower)
-
-    if separator_stripped == "from":
-        if not type_label.strip().endswith(" من"):
-            logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
-            type_label = f"{type_label} من "
-        return type_label
-
-    if not ty_in18 or not type_lower.endswith(" of") or " في" in type_label:
-        return type_label
-
-    type_lower_prefix = type_lower[: -len(" of")]
-    in_tables = check_key_new_players(type_lower)
-    in_tables2 = check_key_new_players(type_lower_prefix)
-
-    if in_tables or in_tables2:
-        logger.info(f">>>> nAdd من to type_label '{type_label}' line:59")
-        type_label = f"{type_label} من "
-
-    return type_label
-
-
 __all__ = [
-    "add_in_tab",
     "get_type_lab",
     "get_con_lab",
     "get_type_country",
-    "separator_lists_fixing",
 ]

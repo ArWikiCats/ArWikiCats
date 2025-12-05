@@ -8,7 +8,6 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
-from ....helps.jsonl_dump import dump_data
 from ....helps.log import logger
 from ....main_processers import event2bot
 from ....utils import check_key_in_tables_return_tuple, fix_minor
@@ -20,6 +19,7 @@ from ...format_bots import (
     pop_format2,
     pop_format33,
 )
+from ....translations import pop_of_without_in
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.data import Keep_it_frist, Keep_it_last
 from ...matables_bots.bot import (
@@ -28,11 +28,9 @@ from ...matables_bots.bot import (
 )
 from ...matables_bots.check_bot import check_key_new_players
 from .lab import (
-    add_in_tab,
     get_con_lab,
     get_type_country,
     get_type_lab,
-    separator_lists_fixing,
 )
 
 separators_lists_raw = [
@@ -42,6 +40,62 @@ separators_lists_raw = [
     "by",
     "of",
 ]
+
+
+def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower: str) -> str:
+    """
+    {"type_label": "منشآت عسكرية", "separator_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
+    """
+    if separator_stripped in separators_lists_raw:
+        if separator_stripped == "in" or " in" in type_lower:
+            if type_lower in pop_of_without_in:
+                logger.info(f'>>-- Skip aAdd في to {type_label=}, "{type_lower}"')
+            else:
+                if " في" not in type_label and " in" in type_lower:
+                    logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{type_lower}"')
+                    type_label = type_label + " في"
+                elif separator_stripped == "in" and " in" in type_lower:
+                    logger.info(f'>>>> aAdd في to type_label:in"{type_label}", for "{type_lower}"')
+                    type_label = type_label + " في"
+
+        elif (separator_stripped == "at" or " at" in type_lower) and (" في" not in type_label):
+            logger.info('>>>> Add في to type_label:at"%s"' % type_label)
+            type_label = type_label + " في"
+
+    return type_label
+
+
+def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str:
+    """Add 'من' (from) to the label if conditions are met.
+
+    Args:
+        type_label (str): The current Arabic label for the type.
+        type_lower (str): The lowercase type string.
+        separator_stripped (str): The stripped delimiter.
+
+    Returns:
+        str: The modified type label.
+    """
+    ty_in18 = get_pop_All_18(type_lower)
+
+    if separator_stripped == "from":
+        if not type_label.strip().endswith(" من"):
+            logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
+            type_label = f"{type_label} من "
+        return type_label
+
+    if not ty_in18 or not type_lower.endswith(" of") or " في" in type_label:
+        return type_label
+
+    type_lower_prefix = type_lower[: -len(" of")]
+    in_tables = check_key_new_players(type_lower)
+    in_tables2 = check_key_new_players(type_lower_prefix)
+
+    if in_tables or in_tables2:
+        logger.info(f">>>> nAdd من to type_label '{type_label}' line:59")
+        type_label = f"{type_label} من "
+
+    return type_label
 
 
 @functools.lru_cache(maxsize=10000)
