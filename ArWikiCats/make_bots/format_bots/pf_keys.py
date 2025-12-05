@@ -13,7 +13,10 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
 
     r" \– men's tournament": " mens tournament",
     r" \– women's tournament": " womens tournament",
+
+    r" \- women's tournament": " womens tournament",
     r" \- men's tournament": " mens tournament",
+
     r"athletes \(track and field\)": "track and field athletes",
     r"publishers \(people\)": "publisherspeople",
     "publishers (people)": "publisherspeople",
