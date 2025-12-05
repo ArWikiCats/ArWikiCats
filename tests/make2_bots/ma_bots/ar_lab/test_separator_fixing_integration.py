@@ -16,7 +16,7 @@ from ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab import (
 class TestSeparatorListsFixingIntegration:
     """Integration tests for separator_lists_fixing with real data."""
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_military_installations_in(self):
         """Test real-world example: military installations in."""
         result = separator_lists_fixing(
@@ -28,7 +28,7 @@ class TestSeparatorListsFixingIntegration:
         assert " في" in result
         assert result.endswith("في")
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_sport_at_location(self):
         """Test real-world example: sport at location."""
         result = separator_lists_fixing(
@@ -38,7 +38,7 @@ class TestSeparatorListsFixingIntegration:
         )
         assert result == "رياضة في"
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_complex_label_with_in(self):
         """Test complex Arabic label with 'in' separator."""
         result = separator_lists_fixing(
@@ -48,7 +48,7 @@ class TestSeparatorListsFixingIntegration:
         )
         assert result == "أحداث رياضية في"
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_preserves_existing_في(self):
         """Test that existing 'في' is preserved."""
         result = separator_lists_fixing(
@@ -59,7 +59,7 @@ class TestSeparatorListsFixingIntegration:
         # Should not add duplicate في
         assert result.count(" في") == 1
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_multiple_word_labels(self):
         """Test with multi-word Arabic labels."""
         result = separator_lists_fixing(
@@ -73,7 +73,7 @@ class TestSeparatorListsFixingIntegration:
 class TestAddInTabIntegration:
     """Integration tests for add_in_tab with real data."""
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_athletes_from_country(self):
         """Test real-world example: athletes from country."""
         result = add_in_tab(
@@ -85,7 +85,7 @@ class TestAddInTabIntegration:
         assert " من " in result
         assert result.endswith("من ")
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_preserves_existing_من(self):
         """Test that existing 'من' is preserved."""
         result = add_in_tab(
@@ -96,7 +96,7 @@ class TestAddInTabIntegration:
         # Should not add duplicate من
         assert result.count(" من") == 1
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     @pytest.mark.slow
     def test_footballers_of_team(self):
         """Test real-world example: footballers of team."""
@@ -111,7 +111,7 @@ class TestAddInTabIntegration:
         # Should either add 'من' or return unchanged
         assert result.startswith("لاعبو كرة قدم")
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_with_real_arabic_labels(self):
         """Test with various real Arabic category labels."""
         test_cases = [
@@ -128,7 +128,7 @@ class TestAddInTabIntegration:
 class TestCombinedUsage:
     """Tests for using both functions together as they would be in practice."""
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_sequential_application(self):
         """Test applying both functions sequentially."""
         # First apply separator_lists_fixing
@@ -141,7 +141,7 @@ class TestCombinedUsage:
         # Should not have من because في is present
         assert " من" not in label
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_from_then_in_separator(self):
         """Test from separator followed by checking in conditions."""
         label = "رياضيون"
@@ -155,7 +155,7 @@ class TestCombinedUsage:
         label_with_from = separator_lists_fixing(label, "from", "athletes")
         assert label_with_from == label  # unchanged
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_workflow_for_category_processing(self):
         """Test a realistic workflow for processing a category."""
         # Simulate processing "Military installations in France"
@@ -176,31 +176,31 @@ class TestCombinedUsage:
 class TestRealWorldScenarios:
     """Tests based on actual Wikipedia category patterns."""
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_establishments_in_country(self):
         """Test: 'Establishments in country' pattern."""
         result = separator_lists_fixing("تأسيسات", "in", "establishments in")
         assert result == "تأسيسات في"
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_people_from_country(self):
         """Test: 'People from country' pattern."""
         result = add_in_tab("أشخاص", "people", "from")
         assert result == "أشخاص من "
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_events_at_location(self):
         """Test: 'Events at location' pattern."""
         result = separator_lists_fixing("أحداث", "at", "events at")
         assert result == "أحداث في"
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_buildings_and_structures_in(self):
         """Test: 'Buildings and structures in' pattern."""
         result = separator_lists_fixing("مبانٍ ومنشآت", "in", "buildings and structures in")
         assert result == "مبانٍ ومنشآت في"
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_organizations_based_in(self):
         """Test: 'Organizations based in' pattern."""
         result = separator_lists_fixing("منظمات", "in", "organizations based in")
@@ -210,7 +210,7 @@ class TestRealWorldScenarios:
 class TestDataConsistency:
     """Tests to ensure data consistency and invariants."""
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_idempotency_separator_fixing(self):
         """Test that applying separator_lists_fixing twice gives same result."""
         label = "منشآت عسكرية"
@@ -218,7 +218,7 @@ class TestDataConsistency:
         result2 = separator_lists_fixing(result1, "in", "military installations in")
         assert result1 == result2
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_idempotency_add_in_tab(self):
         """Test that applying add_in_tab twice gives same result."""
         label = "رياضيون"
@@ -226,7 +226,7 @@ class TestDataConsistency:
         result2 = add_in_tab(result1, "athletes", "from")
         assert result1 == result2
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_no_double_spaces(self):
         """Test that functions don't create double spaces."""
         result1 = separator_lists_fixing("منشآت", "in", "installations in")
@@ -236,7 +236,7 @@ class TestDataConsistency:
         # Single space before من is expected
         assert result2.count("  ") == 0 or result2.endswith("من ")
 
-    @pytest.mark.integration
+    @pytest.mark.fast
     def test_preserves_arabic_text_integrity(self):
         """Test that Arabic text is not corrupted."""
         original = "المنشآت العسكرية الحديثة"
@@ -247,4 +247,4 @@ class TestDataConsistency:
 
 
 if __name__ == "__main__":
-    pytest.main([__file__, "-v", "-m", "integration"])
+    pytest.main([__file__, "-v", "-m", "fast"])

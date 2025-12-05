@@ -54,8 +54,13 @@ class TestSeparatorListsFixing:
         assert result == "منشآت عسكرية"
 
     def test_no_change_when_in_not_in_type_lower(self):
-        """Test that 'في' is not added when ' in' is not in type_lower."""
+        """Test that 'في' is not added when ' in' (with space) is not in type_lower.
+
+        Note: 'installations' contains 'in' but not ' in' (with leading space).
+        The code checks for ' in' as a separate word, not as part of another word.
+        """
         result = separator_lists_fixing("منشآت عسكرية", "in", "military installations")
+        # No ' in' with space in type_lower, so في should NOT be added
         assert result == "منشآت عسكرية"
 
     def test_from_separator_returns_unchanged(self):
@@ -161,8 +166,13 @@ class TestHelperFunctions:
         assert _should_add_preposition_في("منشآت عسكرية في", "military installations in") is False
 
     def test_should_add_preposition_في_false_when_no_in(self):
-        """Test _should_add_preposition_في returns False when ' in' is not in type_lower."""
-        assert _should_add_preposition_في("منشآت عسكرية", "military installations") is False
+        """Test _should_add_preposition_في returns False when ' in' (with space) is not in type_lower.
+
+        'installations' contains substring 'in' but not ' in' with a leading space.
+        """
+        result = _should_add_preposition_في("منشآت عسكرية", "military installations")
+        # " in" (with space) is not in "military installations", so should be False
+        assert result is False
 
     @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.pop_of_without_in", [])
     def test_handle_in_separator_adds_في(self):
