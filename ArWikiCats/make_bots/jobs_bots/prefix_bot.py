@@ -70,22 +70,26 @@ def _strip_people_suffix(text: str) -> str:
     """
     Remove ' people' suffix and attempt to resolve nationality.
 
+    If the part before " people" is a known nationality, return just that part.
+    Otherwise, return the original text unchanged.
+
     Args:
         text: The text to process.
 
     Returns:
-        str: The text with nationality resolved if possible, or original text without suffix.
+        str: The nationality key if found, otherwise the original text.
     """
     if not text.endswith(_PEOPLE_SUFFIX):
         return text
 
-    nationality = text[:-len(_PEOPLE_SUFFIX)]
+    nationality_part = text[:-len(_PEOPLE_SUFFIX)]
 
     # Check if this is a known nationality
-    if nationality in Nat_mens:
-        return nationality
+    if nationality_part in Nat_mens:
+        return nationality_part
 
-    return nationality
+    # Not a nationality, keep the full text
+    return text
 
 
 def _get_job_label(job_key: str) -> Optional[str]:
