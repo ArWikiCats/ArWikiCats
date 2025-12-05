@@ -27,10 +27,10 @@ from ..languages_bot.langs_w import Lang_work
 
 # TODO: fix typo to prefix_lab_for_2018
 prefix_lab_for_2018: dict[str, dict[str, str]] = {
-    "fictional": {"man": "{} خيالي", "women": "{} خيالية"},
-    "native": {"man": "{} أصلي", "women": "{} أصلية"},
-    "contemporary": {"man": "{} معاصر", "women": "{} معاصرة"},
-    "ancient": {"man": "{} قديم", "women": "{} قديمة"},
+    "fictional": {"male": "{} خيالي", "women": "{} خيالية"},
+    "native": {"male": "{} أصلي", "women": "{} أصلية"},
+    "contemporary": {"male": "{} معاصر", "women": "{} معاصرة"},
+    "ancient": {"male": "{} قديم", "women": "{} قديمة"},
 }
 
 Main_prefix_to: dict[str, str] = {
@@ -150,7 +150,7 @@ def _handle_nationality_logic(
             if job_example_lab:
                 country_lab = job_example_lab.format(Nat_men[country_prefix])
                 logger.debug(f'<<lightblue>> bot_te_4, new {country_lab=} ')
-                updated_main_lab = prefix_lab_for_2018[main_ss]["man"]
+                updated_main_lab = prefix_lab_for_2018[main_ss]["male"]
 
     return country_lab, job_example_lab, updated_main_lab
 

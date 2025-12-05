@@ -11,25 +11,25 @@ def bot() -> FormatDataV2:
     """FormatDataV2 instance configured for nationality-based categories."""
     nationality_data = {
         "egyptian": {
-            "man": "مصري",
+            "male": "مصري",
             "women": "مصرية",
             "males": "مصريون",
             "females": "مصريات",
         },
         "algerian": {
-            "man": "جزائري",
+            "male": "جزائري",
             "women": "جزائرية",
             "males": "جزائريون",
             "females": "جزائريات",
         },
         "moroccan": {
-            "man": "مغربي",
+            "male": "مغربي",
             "women": "مغربية",
             "males": "مغاربة",
             "females": "مغربيات",
         },
         "yemeni": {
-            "man": "يمني",
+            "male": "يمني",
             "women": "يمنية",
             "males": "يمنيون",
             "females": "يمنيات",
@@ -43,8 +43,8 @@ def bot() -> FormatDataV2:
         "{nat_en} people": "أشخاص {males}",
         "{nat_en} heroes": "أبطال {males}",
 
-        # Uses {man}
-        "{nat_en} descent": "أصل {man}",
+        # Uses {male}
+        "{nat_en} descent": "أصل {male}",
 
         # Uses {females}
         "{nat_en} women activists": "ناشطات {females}",
@@ -79,7 +79,7 @@ basic_cases = {
     "Yemeni writers": "كتاب يمنيون",
     "Yemeni poets": "شعراء يمنيون",
 
-    # {man}
+    # {male}
     "Moroccan descent": "أصل مغربي",
 
     # {females}
