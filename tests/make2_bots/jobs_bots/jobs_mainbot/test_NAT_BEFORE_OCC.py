@@ -21,7 +21,7 @@ def test_men_womens_with_nato_matches_source_template() -> None:
 
     assert MEN_WOMENS_WITH_NATO
     for labels in MEN_WOMENS_WITH_NATO.values():
-        assert "{nato}" in labels["mens"]
+        assert "{nato}" in labels["males"]
         assert "{nato}" in labels["females"]
 
 
@@ -46,7 +46,7 @@ def test_religious_keys_use_nat_and_religious_forms(suffix: str, forms: dict) ->
 
     assert result != "", error_msg
     assert mens_nat in result, error_msg
-    assert forms["mens"] in result, error_msg
+    assert forms["males"] in result, error_msg
 
 
 @pytest.mark.parametrize("suffix", NAT_BEFORE_OCC)

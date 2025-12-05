@@ -19,15 +19,15 @@ from .prefix_bot import womens_prefixes_work, mens_prefixes_work
 
 MEN_WOMENS_WITH_NATO = {
     "eugenicists": {
-        "mens": "علماء {nato} متخصصون في تحسين النسل",
+        "males": "علماء {nato} متخصصون في تحسين النسل",
         "females": "عالمات {nato} متخصصات في تحسين النسل",
     },
     "politicians who committed suicide": {
-        "mens": "سياسيون {nato} أقدموا على الانتحار",
+        "males": "سياسيون {nato} أقدموا على الانتحار",
         "females": "سياسيات {nato} أقدمن على الانتحار",
     },
     "contemporary artists": {
-        "mens": "فنانون {nato} معاصرون",
+        "males": "فنانون {nato} معاصرون",
         "females": "فنانات {nato} معاصرات",
     },
 }
@@ -77,7 +77,7 @@ def jobs_with_nat_prefix(
     cate: str,
     country_prefix: str,
     category_suffix: str,
-    mens: str = "",
+    males: str = "",
     females: str = "",
     save_result=True,
     find_nats=True,
@@ -96,7 +96,7 @@ def jobs_with_nat_prefix(
         cate (str): The category of the job.
         country_prefix (str): The starting country for the job label.
         category_suffix (str): Additional context for the job label.
-        mens (str): Manual override for men's nationality label.
+        males (str): Manual override for men's nationality label.
         females (str): Manual override for women's nationality label.
         save_result (bool): Whether to save the result to a file.
         find_nats (bool): Whether to look up nationality labels.
@@ -112,13 +112,13 @@ def jobs_with_nat_prefix(
 
     country_lab = ""
 
-    mens_nat_lab: str = mens or (Nat_mens.get(country_prefix, "") if find_nats else "")
+    mens_nat_lab: str = males or (Nat_mens.get(country_prefix, "") if find_nats else "")
     if mens_nat_lab:
         if category_suffix == "people":
             country_lab = mens_nat_lab
         else:
             country_label = jobs_mens_data.get(category_suffix, "") or mens_prefixes_work(category_suffix) or ""
-            country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, country_label)
+            country_lab = country_lab_mens_womens("males", category_suffix, mens_nat_lab, country_label)
 
     women_nat_lab: str = females or (Nat_Womens.get(country_prefix, "") if find_nats else "")
 

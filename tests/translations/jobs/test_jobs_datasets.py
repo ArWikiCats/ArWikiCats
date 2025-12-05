@@ -33,7 +33,7 @@ def test_jobs2_contains_men_womens_jobs_entries() -> None:
     ]
     for key in sample_keys:
         assert key in JOBS_2
-        assert JOBS_2[key]["mens"]
+        assert JOBS_2[key]["males"]
 
 
 def test_jobs2_aliases_are_consistent() -> None:

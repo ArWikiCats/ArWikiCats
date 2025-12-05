@@ -207,7 +207,7 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
         label = make_people_lab(type_lower)
 
     if not label:
-        label = RELIGIOUS_KEYS_PP.get(type_lower, {}).get("mens", "")
+        label = RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
     if not label:
         label = New_female_keys.get(type_lower, "")
     if not label:

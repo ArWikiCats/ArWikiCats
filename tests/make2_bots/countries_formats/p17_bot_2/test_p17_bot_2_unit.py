@@ -30,7 +30,7 @@ def test_get_p17_2_women_full() -> None:
 
 @pytest.mark.unit
 def test_get_p17_2_falls_back_from_mens_to_women() -> None:
-    # "air force" not found in mens dict → fallback women
+    # "air force" not found in males dict → fallback women
     category = "vietnam air force"
     result = get_p17_2(category)
     assert result == "القوات الجوية الفيتنامية"

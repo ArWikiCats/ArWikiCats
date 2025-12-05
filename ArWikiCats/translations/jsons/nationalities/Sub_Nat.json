@@ -1,7 +1,7 @@
 {
     "native americans": {
         "man": "أمريكي أصلي",
-        "mens": "أمريكيون أصليون",
+        "males": "أمريكيون أصليون",
         "women": "أمريكية أصلية",
         "females": "أمريكيات أصليات",
         "en": "",
@@ -9,7 +9,7 @@
     },
     "native american": {
         "man": "أمريكي أصلي",
-        "mens": "أمريكيون أصليون",
+        "males": "أمريكيون أصليون",
         "women": "أمريكية أصلية",
         "females": "أمريكيات أصليات",
         "en": "",
@@ -17,7 +17,7 @@
     },
     "pueblo": {
         "man": "بويبلي",
-        "mens": "بويبلون",
+        "males": "بويبلون",
         "women": "بويبلية",
         "females": "بويبلات",
         "en": "",
@@ -25,7 +25,7 @@
     },
     "bosniak": {
         "man": "بوشناقي",
-        "mens": "بوشناقيون",
+        "males": "بوشناقيون",
         "women": "بوشناقية",
         "females": "بوشناقيات",
         "en": "",
@@ -33,7 +33,7 @@
     },
     "hoklo": {
         "man": "هوكلوي",
-        "mens": "هوكلو",
+        "males": "هوكلو",
         "women": "هوكلوية",
         "females": "هوكلويات",
         "en": "hoklo",
@@ -41,7 +41,7 @@
     },
     "zulu": {
         "man": "زولي",
-        "mens": "زولو",
+        "males": "زولو",
         "women": "زولية",
         "females": "زوليات",
         "en": "zulu people",
@@ -49,7 +49,7 @@
     },
     "nazis": {
         "man": "نازي",
-        "mens": "نازيون",
+        "males": "نازيون",
         "women": "نازية",
         "females": "نازيات",
         "en": "nazi germany",
@@ -57,7 +57,7 @@
     },
     "nordic": {
         "man": "نوردي",
-        "mens": "نورديون",
+        "males": "نورديون",
         "women": "نوردية",
         "females": "نورديات",
         "en": "nordic countries",
@@ -65,7 +65,7 @@
     },
     "sahrawi": {
         "man": "صحراوي",
-        "mens": "صحراويون",
+        "males": "صحراويون",
         "women": "صحراوية",
         "females": "صحراويات",
         "en": "western sahara",
@@ -73,7 +73,7 @@
     },
     "yoruba": {
         "man": "يوروبي",
-        "mens": "يوروبيون",
+        "males": "يوروبيون",
         "women": "يوروبية",
         "females": "يوروبيات",
         "en": "yoruba",
@@ -81,7 +81,7 @@
     },
     "gothic": {
         "man": "قوطي",
-        "mens": "قوطيون",
+        "males": "قوطيون",
         "women": "قوطية",
         "females": "قوطيات",
         "en": "gothic",
@@ -89,7 +89,7 @@
     },
     "appalachian": {
         "man": "أبلاشي",
-        "mens": "أبلاشيون",
+        "males": "أبلاشيون",
         "women": "أبلاشية",
         "females": "أبلاشيات",
         "en": "appalachia",
@@ -97,7 +97,7 @@
     },
     "guadeloupean": {
         "man": "غواديلوبي",
-        "mens": "غواديلوبيون",
+        "males": "غواديلوبيون",
         "women": "غواديلوبية",
         "females": "غواديلوبيات",
         "en": "guadeloupe",
@@ -105,7 +105,7 @@
     },
     "caucasus": {
         "man": "قوقازي",
-        "mens": "قوقازيون",
+        "males": "قوقازيون",
         "women": "قوقازية",
         "females": "قوقازيات",
         "en": "caucasus",
@@ -113,7 +113,7 @@
     },
     "kalmyk": {
         "man": "قلميقي",
-        "mens": "قلميقيون",
+        "males": "قلميقيون",
         "women": "قلميقية",
         "females": "قلميقيات",
         "en": "kalmyks",
@@ -121,7 +121,7 @@
     },
     "khazars": {
         "man": "خزري",
-        "mens": "خزر",
+        "males": "خزر",
         "women": "خزرية",
         "females": "خزريات",
         "en": "",
@@ -129,7 +129,7 @@
     },
     "ossetian": {
         "man": "أوسيتي",
-        "mens": "أوسيتيون",
+        "males": "أوسيتيون",
         "women": "أوسيتية",
         "females": "أوسيتيات",
         "en": "south ossetia",
@@ -137,7 +137,7 @@
     },
     "circassians": {
         "man": "شركسي",
-        "mens": "شركس",
+        "males": "شركس",
         "women": "شركسية",
         "females": "شركسيات",
         "en": "khazars",
@@ -145,7 +145,7 @@
     },
     "kurdish": {
         "man": "كردي",
-        "mens": "أكراد",
+        "males": "أكراد",
         "women": "كردية",
         "females": "كرديات",
         "en": "",
@@ -153,7 +153,7 @@
     },
     "coptic": {
         "man": "قبطي",
-        "mens": "أقباط",
+        "males": "أقباط",
         "women": "قبطية",
         "females": "قبطيات",
         "en": "copts",
@@ -161,7 +161,7 @@
     },
     "jews": {
         "man": "يهودي",
-        "mens": "يهود",
+        "males": "يهود",
         "women": "يهودية",
         "females": "يهوديات",
         "en": "",
@@ -169,7 +169,7 @@
     },
     "sufi": {
         "man": "صوفي",
-        "mens": "صوفيون",
+        "males": "صوفيون",
         "women": "صوفية",
         "females": "صوفيات",
         "en": "",
@@ -177,7 +177,7 @@
     },
     "muslims": {
         "man": "مسلم",
-        "mens": "مسلمون",
+        "males": "مسلمون",
         "women": "مسلمة",
         "females": "مسلمات",
         "en": "",
@@ -185,7 +185,7 @@
     },
     "muslim": {
         "man": "مسلم",
-        "mens": "مسلمون",
+        "males": "مسلمون",
         "women": "مسلمة",
         "females": "مسلمات",
         "en": "muslims",
@@ -193,7 +193,7 @@
     },
     "christian": {
         "man": "مسيحي",
-        "mens": "مسيحيون",
+        "males": "مسيحيون",
         "women": "مسيحية",
         "females": "مسيحيات",
         "en": "",
@@ -201,7 +201,7 @@
     },
     "assyrian": {
         "man": "آشوري",
-        "mens": "آشوريون",
+        "males": "آشوريون",
         "women": "آشورية",
         "females": "آشوريات",
         "en": "assyrian",
@@ -209,7 +209,7 @@
     },
     "arab": {
         "man": "عربي",
-        "mens": "عرب",
+        "males": "عرب",
         "women": "عربية",
         "females": "عربيات",
         "en": "arab",
@@ -217,7 +217,7 @@
     },
     "people-of-the-ottoman-empire": {
         "man": "عثماني",
-        "mens": "عثمانيون",
+        "males": "عثمانيون",
         "women": "عثمانية",
         "females": "عثمانيات",
         "en": "the ottoman empire",
@@ -225,7 +225,7 @@
     },
     "ottoman": {
         "man": "عثماني",
-        "mens": "عثمانيون",
+        "males": "عثمانيون",
         "women": "عثمانية",
         "females": "عثمانيات",
         "en": "the ottoman empire",
@@ -233,7 +233,7 @@
     },
     "byzantine": {
         "man": "بيزنطي",
-        "mens": "بيزنطيون",
+        "males": "بيزنطيون",
         "women": "بيزنطية",
         "females": "بيزنطيات",
         "en": "the byzantine empire",
@@ -241,7 +241,7 @@
     },
     "chechen": {
         "man": "شيشاني",
-        "mens": "شيشانيون",
+        "males": "شيشانيون",
         "women": "شيشانية",
         "females": "شيشانيات",
         "en": "chechens",

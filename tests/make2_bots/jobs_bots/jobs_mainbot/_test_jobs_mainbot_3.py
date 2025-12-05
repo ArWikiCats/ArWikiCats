@@ -109,7 +109,7 @@ def test_mens_nato_templates_are_applied_for_all_men_keys(
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "yemeni", suffix)
 
-    expected = template["mens"].format(nato=mens_nat)
+    expected = template["males"].format(nato=mens_nat)
     assert result == expected
 
 

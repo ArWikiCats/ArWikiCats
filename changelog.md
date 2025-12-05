@@ -1,9 +1,14 @@
 
+## [#162](https://github.com/MrIbrahem/ArWikiCats/pull/162) - 2025-12-05
+
+* **Chores**
+  * Standardized internal gender classification terminology across the system from "mens" to "males" for improved consistency and clarity in data labeling and category naming conventions.
+
 ## [#161](https://github.com/MrIbrahem/ArWikiCats/pull/161) - 2025-12-05
 
 * **Chores**
   * Standardized gender terminology across category labels and translations.
-  * Consolidated gender key naming for consistency in data structures ("man"/"mens"/"females" instead of "men"/"womens").
+  * Consolidated gender key naming for consistency in data structures ("man"/"males"/"females" instead of "men"/"womens").
   * Updated data formatting to align with revised gender classification standards.
   * Refined import paths and internal symbol naming for improved code organization.
 

@@ -46,7 +46,7 @@ def test_ethnic_direct_mens_examples(category: str, start: str, suffix: str, exp
 @pytest.mark.unit
 def test_ethnic_fallback_to_ethnic_culture() -> None:
     """
-    Example where ethnic_label() cannot build mens-composition and falls back
+    Example where ethnic_label() cannot build males-composition and falls back
     to ethnic_culture().
     """
     category = "Category:Afghan history"

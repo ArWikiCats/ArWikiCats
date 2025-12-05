@@ -78,7 +78,7 @@ def _load_womens_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=1)
 def _load_mens_bot() -> MultiDataFormatterBase:
-    relegins_data = {x: v["mens"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("mens")}
+    relegins_data = {x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")}
 
     formatted_data = {
         "people {job_en}": "{job_ar}",

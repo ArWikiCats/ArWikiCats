@@ -20,7 +20,7 @@ def test_with_womens(key: str, data: dict[str, str]) -> None:
 
 @pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
 def test_with_mens(key: str, data: dict[str, str]) -> None:
-    expected_mens = data["mens"]
+    expected_mens = data["males"]
     result_mens = new_relegins_jobs_with_suffix(key)
     assert result_mens == expected_mens, f"{expected_mens=}, {result_mens=}, {key=}"
 
@@ -28,7 +28,7 @@ def test_with_mens(key: str, data: dict[str, str]) -> None:
 @pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
 def test_with_male(key: str, data: dict[str, str]) -> None:
     input_text = f"male {key}"
-    expected = f"{data['mens']} ذكور"
+    expected = f"{data['males']} ذكور"
     result_mens = new_relegins_jobs_with_suffix(input_text)
     assert result_mens == expected, f"{expected=}, {result_mens=}, {key=}"
 

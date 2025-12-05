@@ -83,7 +83,7 @@ def test_add_definite_article_simple() -> None:
 def test_resolve_p17_mens_basic() -> None:
     # "government officials": "مسؤولون حكوميون {}"
     category = "yemen government officials"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
     assert out == "مسؤولون حكوميون يمنيون"
 
 
@@ -107,12 +107,12 @@ def test_resolve_p17_country_not_found() -> None:
 @pytest.mark.unit
 def test_resolve_p17_suffix_not_matching() -> None:
     category = "yemen strange_suffix"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
     assert out == ""
 
 
 @pytest.mark.unit
 def test_resolve_p17_case_insensitive() -> None:
     category = "YEMEN GOVERNMENT OFFICIALS"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
+    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
     assert out == "مسؤولون حكوميون يمنيون"

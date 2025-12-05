@@ -33,7 +33,7 @@ jobs_mens_data = {
 
 expatriates_data = {}
 for key, data in RELIGIOUS_KEYS_10.items():
-    mens_label = data.get("mens", "")
+    mens_label = data.get("males", "")
     if mens_label:
         for job_key, job_label in jobs_mens_data.items():
             label = create_country_lab(job_label, mens_label, job_key)
@@ -51,7 +51,7 @@ RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.key
 )
 def test_with_suffix(key: str, data: dict[str, str]) -> None:
     input2 = f"{key} historical house music bloggers"
-    expected2 = f"مدونو هاوس تاريخيون {data['mens']}"
+    expected2 = f"مدونو هاوس تاريخيون {data['males']}"
 
     result2 = try_relegins_jobs_with_suffix(input2)
     assert result2 == expected2, f"{expected2=}, {result2=}, {input2=}"
@@ -69,7 +69,7 @@ def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
 
 
 def test_one() -> None:
-    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "females": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
+    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "males": "بهائيون", "females": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
     input_text = "bahá'ís classical europop composers"
     expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
 

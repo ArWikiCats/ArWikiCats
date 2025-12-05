@@ -174,15 +174,15 @@ companies_to_jobs = {}
 
 for company_type in COMPANY_TYPE_TRANSLATIONS.keys():
     companies_to_jobs[f"{company_type} owners"] = {
-        "mens": f"ملاك {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "males": f"ملاك {COMPANY_TYPE_TRANSLATIONS[company_type]}",
         "females": f"مالكات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
     }
     companies_to_jobs[f"{company_type} founders"] = {
-        "mens": f"مؤسسو {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "males": f"مؤسسو {COMPANY_TYPE_TRANSLATIONS[company_type]}",
         "females": f"مؤسسات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
     }
     companies_to_jobs[f"{company_type} company founders"] = {
-        "mens": f"مؤسسو شركات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "males": f"مؤسسو شركات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
         "females": f"مؤسسات شركات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
     }
 

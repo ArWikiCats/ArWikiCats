@@ -6,13 +6,13 @@ import pytest
 from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBaseV2
 
 nationality_data = {
-    "Afghan": {"man": "أفغاني", "mens": "أفغان"},
-    "yemeni": {"man": "يمني", "mens": "يمنيون"},
-    "british": {"man": "بريطاني", "mens": "بريطانيون"},
-    "american": {"man": "أمريكي", "mens": "أمريكيون"},
-    "egyptian": {"man": "مصري", "mens": "مصريون"},
-    "Algerian": {"man": "جزائري", "mens": "جزائريون"},
-    "Moroccan": {"man": "مغربي", "mens": "مغاربة"},
+    "Afghan": {"man": "أفغاني", "males": "أفغان"},
+    "yemeni": {"man": "يمني", "males": "يمنيون"},
+    "british": {"man": "بريطاني", "males": "بريطانيون"},
+    "american": {"man": "أمريكي", "males": "أمريكيون"},
+    "egyptian": {"man": "مصري", "males": "مصريون"},
+    "Algerian": {"man": "جزائري", "males": "جزائريون"},
+    "Moroccan": {"man": "مغربي", "males": "مغاربة"},
 }
 
 formatted_data = {
@@ -29,11 +29,11 @@ formatted_data = {
 }
 
 nationality_data_1 = {
-    x: {"nat1_man": v["man"], "nat1_men": v["mens"]}
+    x: {"nat1_man": v["man"], "nat1_men": v["males"]}
     for x, v in nationality_data.items()
 }
 nationality_data_2 = {
-    x: {"nat2_man": v["man"], "nat2_men": v["mens"]}
+    x: {"nat2_man": v["man"], "nat2_men": v["males"]}
     for x, v in nationality_data.items()
 }
 

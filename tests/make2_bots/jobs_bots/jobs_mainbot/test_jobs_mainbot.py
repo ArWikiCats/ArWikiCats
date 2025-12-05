@@ -126,7 +126,7 @@ def test_mens_priority_over_women_if_mens_exists() -> None:
 
 def test_override_mens_manually() -> None:
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "abc", "writers", mens="رجال")
+    result = jobs_with_nat_prefix("", "abc", "writers", males="رجال")
     assert result.startswith("كتاب رجال")
 
 
@@ -290,7 +290,7 @@ def test_womens_new_job_with_prefix_and_nato_algerian_female_eugenicists() -> No
     assert result == "عالمات متخصصات في تحسين النسل جزائريات"
 
 
-# Test for a nationality that is in both mens and females, defaulting to mens
+# Test for a nationality that is in both males and females, defaulting to males
 
 
 def test_mens_priority_new_nationality() -> None:

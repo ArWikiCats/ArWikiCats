@@ -13,35 +13,35 @@ def bot() -> FormatDataV2:
         "egyptian": {
             "man": "مصري",
             "women": "مصرية",
-            "mens": "مصريون",
+            "males": "مصريون",
             "females": "مصريات",
         },
         "algerian": {
             "man": "جزائري",
             "women": "جزائرية",
-            "mens": "جزائريون",
+            "males": "جزائريون",
             "females": "جزائريات",
         },
         "moroccan": {
             "man": "مغربي",
             "women": "مغربية",
-            "mens": "مغاربة",
+            "males": "مغاربة",
             "females": "مغربيات",
         },
         "yemeni": {
             "man": "يمني",
             "women": "يمنية",
-            "mens": "يمنيون",
+            "males": "يمنيون",
             "females": "يمنيات",
         },
     }
 
     formatted_data = {
-        # Uses {mens}
-        "{nat_en} writers": "كتاب {mens}",
-        "{nat_en} poets": "شعراء {mens}",
-        "{nat_en} people": "أشخاص {mens}",
-        "{nat_en} heroes": "أبطال {mens}",
+        # Uses {males}
+        "{nat_en} writers": "كتاب {males}",
+        "{nat_en} poets": "شعراء {males}",
+        "{nat_en} people": "أشخاص {males}",
+        "{nat_en} heroes": "أبطال {males}",
 
         # Uses {man}
         "{nat_en} descent": "أصل {man}",
@@ -55,10 +55,10 @@ def bot() -> FormatDataV2:
         "{nat_en} gods": "آلهة {women}",
 
         # Mixed placeholders in the same template
-        "{nat_en} mens and women": "رجال {mens} ونساء {females}",
+        "{nat_en} males and women": "رجال {males} ونساء {females}",
 
         # For get_template_ar tests (with/without Category: prefix)
-        "{nat_en} philosophers": "فلاسفة {mens}",
+        "{nat_en} philosophers": "فلاسفة {males}",
     }
 
     return FormatDataV2(
@@ -74,7 +74,7 @@ def bot() -> FormatDataV2:
 # -----------------------------
 
 basic_cases = {
-    # {mens}
+    # {males}
     "Algerian writers": "كتاب جزائريون",
     "Yemeni writers": "كتاب يمنيون",
     "Yemeni poets": "شعراء يمنيون",
@@ -109,8 +109,8 @@ def test_search_nationality_basic(bot: FormatDataV2, category: str, expected: st
 
 @pytest.mark.fast
 def test_search_nationality_mixed_placeholders(bot: FormatDataV2) -> None:
-    """Template that uses both {mens} and {females} in the same label."""
-    category = "Yemeni mens and women"
+    """Template that uses both {males} and {females} in the same label."""
+    category = "Yemeni males and women"
     expected = "رجال يمنيون ونساء يمنيات"
     assert bot.search(category) == expected
 
@@ -176,8 +176,8 @@ def test_get_template_ar_supports_category_prefix(bot: FormatDataV2) -> None:
     # With 'Category:' prefix; get_template_ar should normalize
     prefixed_template = bot.get_template_ar("Category:{nat_en} philosophers")
 
-    assert base_template == "فلاسفة {mens}"
-    assert prefixed_template == "فلاسفة {mens}"
+    assert base_template == "فلاسفة {males}"
+    assert prefixed_template == "فلاسفة {males}"
 
 
 @pytest.mark.fast

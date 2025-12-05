@@ -1,110 +1,110 @@
 {
     "anti-war activists": {
-        "mens": "ناشطون ضد الحرب",
+        "males": "ناشطون ضد الحرب",
         "females": "ناشطات ضد الحرب"
     },
     "anti-nuclear power activists": {
-        "mens": "ناشطون ضد القوة النووية",
+        "males": "ناشطون ضد القوة النووية",
         "females": "ناشطات ضد القوة النووية"
     },
     "anti-nuclear activists": {
-        "mens": "ناشطون ضد النووي",
+        "males": "ناشطون ضد النووي",
         "females": "ناشطات ضد النووي"
     },
     "anti-nuclear weapons activists": {
-        "mens": "ناشطون ضد الأسلحة النووية",
+        "males": "ناشطون ضد الأسلحة النووية",
         "females": "ناشطات ضد الأسلحة النووية"
     },
     "human rights activists": {
-        "mens": "ناشطون في حقوق الإنسان",
+        "males": "ناشطون في حقوق الإنسان",
         "females": "ناشطات في حقوق الإنسان"
     },
     "women's rights activists": {
-        "mens": "ناشطون في حقوق المرأة",
+        "males": "ناشطون في حقوق المرأة",
         "females": "ناشطات في حقوق المرأة"
     },
     "veterans' rights activists": {
-        "mens": "ناشطون في حقوق قدامى المحاربون",
+        "males": "ناشطون في حقوق قدامى المحاربون",
         "females": "ناشطات في حقوق قدامى المحاربون"
     },
     "anti-liquor activists": {
-        "mens": "ناشطون مناهضون للخمور",
+        "males": "ناشطون مناهضون للخمور",
         "females": "ناشطات مناهضات للخمور"
     },
     "anti-abortion activists": {
-        "mens": "ناشطون مناهضون للإجهاض",
+        "males": "ناشطون مناهضون للإجهاض",
         "females": "ناشطات مناهضات للإجهاض"
     },
     "anti-communists": {
-        "mens": "مناهضون للشيوعية",
+        "males": "مناهضون للشيوعية",
         "females": "مناهضات للشيوعية"
     },
     "anti-racism activists": {
-        "mens": "ناشطون مناهضون للعنصرية",
+        "males": "ناشطون مناهضون للعنصرية",
         "females": "ناشطات مناهضات للعنصرية"
     },
     "anti-poverty activists": {
-        "mens": "ناشطون مناهضون للفقر",
+        "males": "ناشطون مناهضون للفقر",
         "females": "ناشطات مناهضات للفقر"
     },
     "anti-vaccination activists": {
-        "mens": "ناشطون مناهضون للتطعيم",
+        "males": "ناشطون مناهضون للتطعيم",
         "females": "ناشطات مناهضات للتطعيم"
     },
     "anti-obesity activists": {
-        "mens": "ناشطون مناهضون للسمنة",
+        "males": "ناشطون مناهضون للسمنة",
         "females": "ناشطات مناهضات للسمنة"
     },
     "anti-smoking activists": {
-        "mens": "ناشطون مناهضون للتدخين",
+        "males": "ناشطون مناهضون للتدخين",
         "females": "ناشطات مناهضات للتدخين"
     },
     "genital integrity activists": {
-        "mens": "ناشطو سلامة الأعضاء التناسلية",
+        "males": "ناشطو سلامة الأعضاء التناسلية",
         "females": "ناشطات سلامة الأعضاء التناسلية"
     },
     "pro-choice activists": {
-        "mens": "ناشطون مؤيدون للإجهاض",
+        "males": "ناشطون مؤيدون للإجهاض",
         "females": "ناشطات مؤيدات للإجهاض"
     },
     "abolitionists": {
-        "mens": "مناهضون للعبودية",
+        "males": "مناهضون للعبودية",
         "females": "مناهضات للعبودية"
     },
     "disability rights activists": {
-        "mens": "ناشطون في حقوق الإعاقة",
+        "males": "ناشطون في حقوق الإعاقة",
         "females": "ناشطات في حقوق الإعاقة"
     },
     "access to knowledge activists": {
-        "mens": "ناشطو الوصول إلى المعرفة",
+        "males": "ناشطو الوصول إلى المعرفة",
         "females": "ناشطات الوصول إلى المعرفة"
     },
     "cannabis activists": {
-        "mens": "ناشطو القنب",
+        "males": "ناشطو القنب",
         "females": "ناشطات القنب"
     },
     "alternative medicine activists": {
-        "mens": "ناشطو الطب البديل",
+        "males": "ناشطو الطب البديل",
         "females": "ناشطات الطب البديل"
     },
     "breastfeeding activists": {
-        "mens": "ناشطو الرضاعة الطبيعية",
+        "males": "ناشطو الرضاعة الطبيعية",
         "females": "ناشطات الرضاعة الطبيعية"
     },
     "anti-death penalty activists": {
-        "mens": "ناشطون ضد عقوبة الإعدام",
+        "males": "ناشطون ضد عقوبة الإعدام",
         "females": "ناشطات ضد عقوبة الإعدام"
     },
     "anti–death penalty activists": {
-        "mens": "ناشطون ضد عقوبة الإعدام",
+        "males": "ناشطون ضد عقوبة الإعدام",
         "females": "ناشطات ضد عقوبة الإعدام"
     },
     "animal rights activists": {
-        "mens": "ناشطون في حقوق الحيوان",
+        "males": "ناشطون في حقوق الحيوان",
         "females": "ناشطات في حقوق الحيوان"
     },
     "abolitionists activists": {
-        "mens": "ناشطون مناهضون للعبودية",
+        "males": "ناشطون مناهضون للعبودية",
         "females": "ناشطات مناهضات للعبودية"
     }
 }

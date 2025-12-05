@@ -183,7 +183,7 @@ class LanguageLabelResolver:
         """Resolve label for inputs starting with '<lang_key> ' prefix."""
         # 1) Skip if language is in nationality dictionary
         if self._nationalities.get(lang_key, False):
-            nat_label = self._nationalities[lang_key]["mens"]
+            nat_label = self._nationalities[lang_key]["males"]
             logger.debug(
                 f'<<lightred>> skip lang:"{lang_key}" in All_Nat, '
                 f' {lang_label=}, {nat_label=} '
