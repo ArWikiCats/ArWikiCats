@@ -6,7 +6,6 @@ from .Cities import (
 )
 from .labels_country import (
     US_STATES,
-    ,
     COUNTRY_LABEL_OVERRIDES,
     POPULATION_OVERRIDES,
 )
