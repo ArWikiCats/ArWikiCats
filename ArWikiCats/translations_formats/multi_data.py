@@ -9,7 +9,7 @@ test at tests.translations_formats.test_format_2_data.py
 from typing import Dict
 
 from ..helps.log import logger
-from .DataModel import MultiDataFormatterBase, FormatData
+from .DataModel import MultiDataFormatterBase, FormatData, FormatDataV2, MultiDataFormatterBaseV2
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"
@@ -60,16 +60,16 @@ def format_multi_data(
     )
 
     other_formatted_data = get_other_data(
-        formatted_data,
-        key_placeholder,
-        value_placeholder,
-        key2_placeholder,
-        value2_placeholder
+        formatted_data=formatted_data,
+        key_placeholder=key_placeholder,
+        value_placeholder=value_placeholder,
+        key2_placeholder=key2_placeholder,
+        value2_placeholder=value2_placeholder
     ) if use_other_formatted_data else {}
 
     other_bot = FormatData(
-        other_formatted_data,  # to use from search_all
-        data_list2,
+        formatted_data=other_formatted_data,  # to use from search_all
+        data_list=data_list2,
         key_placeholder=key2_placeholder,
         value_placeholder=value2_placeholder,
     )
@@ -79,3 +79,42 @@ def format_multi_data(
         other_bot=other_bot,
         search_first_part=search_first_part
     )
+
+
+def format_multi_data_v2(
+    formatted_data: Dict[str, str],
+    data_list: Dict[str, str],
+    key_placeholder: str,
+    data_list2: Dict[str, str] = {},
+    key2_placeholder: str = YEAR_PARAM,
+    text_after: str = "",
+    text_before: str = "",
+    search_first_part: bool=False,
+) -> MultiDataFormatterBaseV2:
+    country_bot = FormatDataV2(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder=key_placeholder,
+        text_after=text_after,
+        text_before=text_before,
+    )
+
+    other_bot = FormatDataV2(
+        formatted_data={},
+        data_list=data_list2,
+        key_placeholder=key2_placeholder,
+        text_after=text_after,
+        text_before=text_before,
+    )
+
+    return MultiDataFormatterBaseV2(
+        country_bot=country_bot,
+        other_bot=other_bot,
+        search_first_part=search_first_part,
+    )
+
+
+__all__ = [
+    "format_multi_data",
+    "format_multi_data_v2",
+]

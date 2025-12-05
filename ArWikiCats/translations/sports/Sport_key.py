@@ -173,7 +173,7 @@ def _build_tables(records: Mapping[str, SportKeyRecord]) -> SportKeyTables:
     )
 
 
-def _initialise_tables() -> tuple[SportKeyTables, dict[str, SportKeyRecord]]:
+def _initialise_tables() -> dict[str, SportKeyRecord]:
     """Load data, expand aliases and variants, and build helper tables."""
 
     records = _load_base_records()
@@ -183,12 +183,11 @@ def _initialise_tables() -> tuple[SportKeyTables, dict[str, SportKeyRecord]]:
     # collection while iterating over it.
     records.update(_generate_variants(records))
 
-    tables = _build_tables(records)
-
-    return tables, records
+    return records
 
 
-SPORT_KEY_TABLES, SPORT_KEY_RECORDS = _initialise_tables()
+SPORT_KEY_RECORDS: dict[str, SportKeyRecord] = _initialise_tables()
+SPORT_KEY_TABLES: SportKeyTables = _build_tables(SPORT_KEY_RECORDS)
 
 SPORTS_KEYS_FOR_LABEL: Final[dict[str, str]] = SPORT_KEY_TABLES.label
 SPORTS_KEYS_FOR_TEAM: Final[dict[str, str]] = SPORT_KEY_TABLES.team
