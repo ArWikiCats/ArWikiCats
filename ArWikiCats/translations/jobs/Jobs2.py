@@ -164,7 +164,7 @@ def _build_scientist_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
     for role_key, subject in disciplines.items():
         scientist_roles[role_key.lower()] = {
             "mens": f"علماء {subject}",
-            "womens": f"عالمات {subject}",
+            "females": f"عالمات {subject}",
         }
     return scientist_roles
 
@@ -176,7 +176,7 @@ def _build_scholar_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
     for discipline, subject in disciplines.items():
         scholar_roles[f"{discipline.lower()} scholars"] = {
             "mens": f"علماء {subject}",
-            "womens": f"عالمات {subject}",
+            "females": f"عالمات {subject}",
         }
     return scholar_roles
 
@@ -201,7 +201,7 @@ def _build_jobs_datasets() -> Tuple[GenderedLabelMap, GenderedLabelMap]:
         for job_key, labels in source.items():
             if job_key in combined_jobs:
                 continue
-            if labels["mens"] or labels["womens"]:
+            if labels["mens"] or labels["females"]:
                 combined_jobs[job_key] = labels
 
     return combined_jobs, lowercase_additional

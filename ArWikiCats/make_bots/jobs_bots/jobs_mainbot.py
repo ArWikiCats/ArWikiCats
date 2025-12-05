@@ -20,15 +20,15 @@ from ..jobs_bots.priffix_bot import womens_prefixes_work, mens_prefixes_work
 MEN_WOMENS_WITH_NATO = {
     "eugenicists": {
         "mens": "علماء {nato} متخصصون في تحسين النسل",
-        "womens": "عالمات {nato} متخصصات في تحسين النسل",
+        "females": "عالمات {nato} متخصصات في تحسين النسل",
     },
     "politicians who committed suicide": {
         "mens": "سياسيون {nato} أقدموا على الانتحار",
-        "womens": "سياسيات {nato} أقدمن على الانتحار",
+        "females": "سياسيات {nato} أقدمن على الانتحار",
     },
     "contemporary artists": {
         "mens": "فنانون {nato} معاصرون",
-        "womens": "فنانات {nato} معاصرات",
+        "females": "فنانات {nato} معاصرات",
     },
 }
 
@@ -127,6 +127,6 @@ def jobs_with_nat_prefix(
             country_lab = women_nat_lab
         else:
             country_label = short_womens_jobs.get(category_suffix, "") or womens_prefixes_work(category_suffix) or ""
-            country_lab = country_lab_mens_womens("womens", category_suffix, women_nat_lab, country_label)
+            country_lab = country_lab_mens_womens("females", category_suffix, women_nat_lab, country_label)
 
     return country_lab
