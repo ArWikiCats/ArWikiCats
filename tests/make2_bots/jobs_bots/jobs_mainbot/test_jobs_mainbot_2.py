@@ -49,7 +49,7 @@ class Tests:
 
     def test_womens_artists_template_with_override(self) -> None:
         """Test MEN_WOMENS_WITH_NATO template for women with manual override"""
-        result = jobs_with_nat_prefix("", "zanzibari", "female contemporary artists", womens="زنجباريات")
+        result = jobs_with_nat_prefix("", "zanzibari", "female contemporary artists", females="زنجباريات")
         # assert result == "فنانات زنجباريات معاصرات"
         assert result == ""
 

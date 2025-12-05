@@ -30,8 +30,8 @@ def try_relegins_jobs_with_suffix(cate: str) -> str:
         Tab = RELIGIOUS_KEYS_PP.get(country_prefix, {})
 
         mens = Tab.get("mens")
-        womens = Tab.get("females")
-        country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, womens=womens, find_nats=False)
+        females = Tab.get("females")
+        country_lab = jobs_with_nat_prefix(cate, country_prefix, category_suffix, mens=mens, females=females, find_nats=False)
 
     logger.debug(f"\t xx end: <<lightred>>try_relegins_jobs_with_suffix <<lightpurple>> {cate=}, {country_lab=} ")
 

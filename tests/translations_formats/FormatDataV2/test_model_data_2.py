@@ -39,7 +39,7 @@ def bot() -> FormatDataV2:
     formatted_data = {
         "{nat_en} writers": "كتاب {mens}",                    # كتاب يمنيون
         "{nat_en} descent": "أصل {man}",                     # أصل يمني
-        "{nat_en} women activists": "ناشطات {womens}",       # ناشطات يمنيات
+        "{nat_en} women activists": "ناشطات {females}",       # ناشطات يمنيات
         "{nat_en} gods": "آلهة {women}",                     # أصل يمني
     }
 

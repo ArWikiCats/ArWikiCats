@@ -46,16 +46,16 @@ def bot() -> FormatDataV2:
         # Uses {man}
         "{nat_en} descent": "أصل {man}",
 
-        # Uses {womens}
-        "{nat_en} women activists": "ناشطات {womens}",
-        "{nat_en} women politicians": "سياسيات {womens}",
-        "{nat_en} female singers": "مغنيات {womens}",
+        # Uses {females}
+        "{nat_en} women activists": "ناشطات {females}",
+        "{nat_en} women politicians": "سياسيات {females}",
+        "{nat_en} female singers": "مغنيات {females}",
 
         # Uses {women}
         "{nat_en} gods": "آلهة {women}",
 
         # Mixed placeholders in the same template
-        "{nat_en} mens and women": "رجال {mens} ونساء {womens}",
+        "{nat_en} mens and women": "رجال {mens} ونساء {females}",
 
         # For get_template_ar tests (with/without Category: prefix)
         "{nat_en} philosophers": "فلاسفة {mens}",
@@ -82,7 +82,7 @@ basic_cases = {
     # {man}
     "Moroccan descent": "أصل مغربي",
 
-    # {womens}
+    # {females}
     "Algerian women activists": "ناشطات جزائريات",
     "yemeni women politicians": "سياسيات يمنيات",
     "egyptian female singers": "مغنيات مصريات",
@@ -109,7 +109,7 @@ def test_search_nationality_basic(bot: FormatDataV2, category: str, expected: st
 
 @pytest.mark.fast
 def test_search_nationality_mixed_placeholders(bot: FormatDataV2) -> None:
-    """Template that uses both {mens} and {womens} in the same label."""
+    """Template that uses both {mens} and {females} in the same label."""
     category = "Yemeni mens and women"
     expected = "رجال يمنيون ونساء يمنيات"
     assert bot.search(category) == expected

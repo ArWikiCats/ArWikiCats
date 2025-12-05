@@ -16,7 +16,7 @@ class GenderedLabel(TypedDict):
     """Represent an Arabic label split into masculine and feminine forms."""
 
     mens: str
-    womens: str
+    females: str
 
 
 GenderedLabelMap = Dict[str, GenderedLabel]

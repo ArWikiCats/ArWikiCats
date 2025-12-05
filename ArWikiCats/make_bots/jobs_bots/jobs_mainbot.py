@@ -78,7 +78,7 @@ def jobs_with_nat_prefix(
     country_prefix: str,
     category_suffix: str,
     mens: str = "",
-    womens: str = "",
+    females: str = "",
     save_result=True,
     find_nats=True,
 ) -> str:
@@ -97,7 +97,7 @@ def jobs_with_nat_prefix(
         country_prefix (str): The starting country for the job label.
         category_suffix (str): Additional context for the job label.
         mens (str): Manual override for men's nationality label.
-        womens (str): Manual override for women's nationality label.
+        females (str): Manual override for women's nationality label.
         save_result (bool): Whether to save the result to a file.
         find_nats (bool): Whether to look up nationality labels.
 
@@ -120,7 +120,7 @@ def jobs_with_nat_prefix(
             country_label = jobs_mens_data.get(category_suffix, "") or mens_prefixes_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, country_label)
 
-    women_nat_lab: str = womens or (Nat_Womens.get(country_prefix, "") if find_nats else "")
+    women_nat_lab: str = females or (Nat_Womens.get(country_prefix, "") if find_nats else "")
 
     if not country_lab and women_nat_lab:
         if category_suffix in ["women", "female", "women's"]:
