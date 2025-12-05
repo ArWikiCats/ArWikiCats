@@ -17,6 +17,7 @@ geography_data = {
 }
 
 geography_in_1 = {
+    "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Buildings and structures in the United States by state": "تصنيف:مبان ومنشآت في الولايات المتحدة حسب الولاية",
     "Category:Buildings and structures in Westchester County, New York": "تصنيف:مبان ومنشآت في مقاطعة ويستتشستر (نيويورك)",
     "Category:Cemeteries in Westchester County, New York": "تصنيف:مقابر في مقاطعة ويستتشستر (نيويورك)",
@@ -35,7 +36,6 @@ geography_in_1 = {
     "Category:Schools in Westchester County, New York": "تصنيف:مدارس في مقاطعة ويستتشستر (نيويورك)",
     "Category:Science and technology in the United States by state": "تصنيف:العلوم والتكنولوجيا في الولايات المتحدة حسب الولاية",
     "Category:Slavery in the United States by state": "تصنيف:العبودية في الولايات المتحدة حسب الولاية",
-    "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Sports venues in Westchester County, New York": "تصنيف:ملاعب رياضية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Education in Westchester County, New York": "تصنيف:التعليم في مقاطعة ويستتشستر (نيويورك)",
     "Category:Films set in China by city": "تصنيف:أفلام تقع أحداثها في الصين حسب المدينة",
