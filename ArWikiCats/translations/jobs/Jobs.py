@@ -168,6 +168,7 @@ def _merge_jobs_sources() -> GenderedLabelMap:
 
     jobs_pp = open_json("jobs/jobs_Men_Womens_PP.json")
 
+    # jobs_pp["sports coaches"] = {"males": "مدربون رياضيون", "females": "مدربات رياضيات"}
     jobs_pp.setdefault("men", {"males": "رجال", "females": ""})
 
     jobs_pp = _extend_with_religious_jobs(jobs_pp)
