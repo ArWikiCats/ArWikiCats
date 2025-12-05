@@ -26,6 +26,7 @@ NAT_DATA_to_check = {
 }
 
 NAT_DATA = {
+    # "{en_nat} sports coaches": "مدربو رياضة {nat_men1}",  # 110
     "{en_nat} people": "{nat_men1}",  # 187
     "{en_nat} people by occupation": "{nat_men1} حسب المهنة",  # 182
     "{en_nat} sportspeople": "رياضيون {nat_men1}",  # 174

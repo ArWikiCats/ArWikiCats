@@ -21,6 +21,9 @@ def _make_bot() -> MultiDataFormatterBase:
         "{nat_en} films": "أفلام {nat_ar}",
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
+
+        # TODO: move this to jobs bot?
+        # "{nat_en} sports coaches": "مدربو رياضة {nat_ar}",
     }
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",

@@ -168,6 +168,7 @@ def _merge_jobs_sources() -> GenderedLabelMap:
 
     jobs_pp = open_json("jobs/jobs_Men_Womens_PP.json")
 
+    # jobs_pp["coaches"] = {"males": "مدربون", "females": "مدربات"}
     # jobs_pp["sports coaches"] = {"males": "مدربون رياضيون", "females": "مدربات رياضيات"}
     jobs_pp.setdefault("men", {"males": "رجال", "females": ""})
 
@@ -377,6 +378,9 @@ def _finalise_jobs_dataset() -> JobsDataset:
             w_jobs_2017[job_key] = labels["females"]
 
     jobs_keys_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
+
+    jobs_keys_mens["sports coaches"] = "مدربو رياضة"
+    w_jobs_2017["sports coaches"] = "مدربات رياضة"
 
     jobs_keys_mens = {key: label for key, label in jobs_keys_mens.items() if label}
 

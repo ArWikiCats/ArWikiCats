@@ -283,6 +283,15 @@ def _get_occupation_label_for_gender(
 
     Returns:
         Occupation label or empty string
+    Examples:
+        >>> _get_occupation_label_for_gender("writers", is_male=True)
+        "كتاب رجال"
+
+        >>> _get_occupation_label_for_gender('female sports coaches', is_male=True)
+        'مدربات رياضيات'
+
+        >>> _get_occupation_label_for_gender("actresses", is_male=False)
+        "ممثلات نساء"
     """
     if is_male:
         return (
@@ -302,6 +311,53 @@ def _get_occupation_label_for_gender(
 # Main Public Function
 # ============================================================================
 
+def _handle_male_label(country_prefix, males, normalized_suffix, find_nats) -> str:
+    male_nationality = _get_nationality_label(
+        country_prefix, males, Nat_mens, find_nats
+    )
+
+    if not male_nationality:
+        return ""
+
+    # Special case: generic "people" category
+    if normalized_suffix == CATEGORY_PEOPLE:
+        return male_nationality
+
+    # Get occupation label and build complete label
+    male_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=True)
+    logger.debug(f"{male_occupation=}, {normalized_suffix=}")
+
+    male_label = _build_gender_occupation_label(
+        GENDER_MALE, normalized_suffix, male_nationality, male_occupation
+    )
+
+    return male_label
+
+
+def _handle_female_label(country_prefix, females, normalized_suffix, find_nats) -> str:
+
+    female_nationality = _get_nationality_label(
+        country_prefix, females, Nat_Womens, find_nats
+    )
+
+    if not female_nationality:
+        return ""
+
+    # Special case: female-specific categories
+    if normalized_suffix in FEMALE_CATEGORIES:
+        return female_nationality
+
+    # Get occupation label and build complete label
+
+    female_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=False)
+    logger.debug(f"{female_occupation=}, {normalized_suffix=}")
+
+    female_label = _build_gender_occupation_label(
+        GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation
+    )
+
+    return female_label
+
 
 @functools.lru_cache(maxsize=None)
 def jobs_with_nat_prefix(
@@ -310,7 +366,6 @@ def jobs_with_nat_prefix(
     category_suffix: str,
     males: str = "",
     females: str = "",
-    save_result: bool = True,
     find_nats: bool = True,
 ) -> str:
     """
@@ -351,48 +406,17 @@ def jobs_with_nat_prefix(
     # Normalize input
     normalized_suffix = _normalize_category_suffix(category_suffix)
 
-    logger.debug(
-        f"<<lightblue>> jobs_with_nat_prefix: "
-        f"{cate=}, {country_prefix=}, {normalized_suffix=}"
-    )
+    logger.debug(f"<<lightblue>> jobs_with_nat_prefix: {cate=}, {country_prefix=}, {normalized_suffix=}")
 
     # Try to build male-gendered label
-    male_nationality = _get_nationality_label(
-        country_prefix, males, Nat_mens, find_nats
-    )
-
-    if male_nationality:
-        # Special case: generic "people" category
-        if normalized_suffix == CATEGORY_PEOPLE:
-            return male_nationality
-
-        # Get occupation label and build complete label
-        male_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=True)
-        male_label = _build_gender_occupation_label(
-            GENDER_MALE, normalized_suffix, male_nationality, male_occupation
-        )
-
-        if male_label:
-            return male_label
+    male_label = _handle_male_label(country_prefix, males, normalized_suffix, find_nats)
+    if male_label:
+        return male_label
 
     # Try to build female-gendered label
-    female_nationality = _get_nationality_label(
-        country_prefix, females, Nat_Womens, find_nats
-    )
-
-    if female_nationality:
-        # Special case: female-specific categories
-        if normalized_suffix in FEMALE_CATEGORIES:
-            return female_nationality
-
-        # Get occupation label and build complete label
-        female_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=False)
-        female_label = _build_gender_occupation_label(
-            GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation
-        )
-
-        if female_label:
-            return female_label
+    female_label = _handle_female_label(country_prefix, females, normalized_suffix, find_nats)
+    if female_label:
+        return female_label
 
     # No match found
     return ""
