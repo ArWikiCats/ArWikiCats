@@ -12,7 +12,6 @@ from ....translations import (
     New_female_keys,
     New_P17_Finall,
     pf_keys2,
-    pop_of_without_in,
 )
 from ... import tmp_bot
 from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
@@ -206,17 +205,17 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     return type_regex, country_regex
 
 
-def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
+def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters.
 
     Args:
-        preposition (str): The preposition/delimiter (separator).
+        separator (str): The separator/delimiter (separator).
         type_value (str): The type part of the category.
 
     Returns:
         Tuple[str, bool]: The label and a boolean indicating if 'in' should be appended.
     """
-    normalized_preposition = preposition.strip()
+    normalized_preposition = separator.strip()
     type_lower = type_value.lower()
 
     label = ""
@@ -284,18 +283,18 @@ def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:
     return label, should_append_in_label
 
 
-def get_con_lab(preposition: str, country: str, start_get_country2: bool = False) -> str:
+def get_con_lab(separator: str, country: str, start_get_country2: bool = False) -> str:
     """Retrieve the corresponding label for a given country.
 
     Args:
-        preposition (str): The preposition/delimiter.
+        separator (str): The separator/delimiter.
         country (str): The country part of the category.
         start_get_country2 (bool): Whether to use the secondary country lookup.
 
     Returns:
         str: The Arabic label for the country.
     """
-    preposition = preposition.strip()
+    separator = separator.strip()
     country_lower = country.strip().lower()
     label = ""
     country_lower_no_dash = country_lower.replace("-", " ")
@@ -321,7 +320,7 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
     if label == "" and " by " in country_lower:
         label = bys.get_by_label(country_lower)
 
-    if preposition.lower() == "for":
+    if separator.lower() == "for":
         label = for_table.get(country_lower, "")
 
     if label == "" and country_lower.strip().startswith("in "):
@@ -342,7 +341,7 @@ def get_con_lab(preposition: str, country: str, start_get_country2: bool = False
         label = team_work.Get_team_work_Club(country.strip())
 
     if not label:
-        label = Get_c_t_lab(country_lower, preposition, start_get_country2=start_get_country2)
+        label = Get_c_t_lab(country_lower, separator, start_get_country2=start_get_country2)
 
     if not label:
         label = tmp_bot.Work_Templates(country_lower)

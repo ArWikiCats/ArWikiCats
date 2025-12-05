@@ -9,7 +9,7 @@ from ArWikiCats.make_bots.ma_bots.ar_lab import get_con_lab
 
 @pytest.mark.fast
 def test_get_con_lab_data_one() -> None:
-    label = get_con_lab(preposition=" of ", country="11th government of turkey", start_get_country2=True)
+    label = get_con_lab(separator=" of ", country="11th government of turkey", start_get_country2=True)
     assert label != "حكومة تركيا"
 
 
@@ -176,7 +176,7 @@ data = [
 @pytest.mark.parametrize("tab", data, ids=lambda x: f"{x['separator_stripped']} {x['country']}")
 # @pytest.mark.fast
 def test_get_con_lab_data(tab) -> None:
-    label = get_con_lab(preposition=f" {tab['separator_stripped']} ", country=tab["country"], start_get_country2=True)
+    label = get_con_lab(separator=f" {tab['separator_stripped']} ", country=tab["country"], start_get_country2=True)
     assert label == tab["output"]
 
 
@@ -336,8 +336,8 @@ data_test = [
 ]
 
 
-@pytest.mark.parametrize("preposition, country, output", data_test, ids=[x[1] for x in data_test])
+@pytest.mark.parametrize("separator, country, output", data_test, ids=[x[1] for x in data_test])
 @pytest.mark.fast
-def test_get_con_lab_data2(preposition: str, country: str, output: str) -> None:
-    label = get_con_lab(preposition=preposition, country=country, start_get_country2=True)
+def test_get_con_lab_data2(separator: str, country: str, output: str) -> None:
+    label = get_con_lab(separator=separator, country=country, start_get_country2=True)
     assert label == output
