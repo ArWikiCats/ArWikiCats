@@ -288,7 +288,7 @@ def _get_occupation_label_for_gender(
         "كتاب رجال"
 
         >>> _get_occupation_label_for_gender('female sports coaches', is_male=True)
-        'مدربات رياضيات'
+        'مدربات رياضة'
 
         >>> _get_occupation_label_for_gender("actresses", is_male=False)
         "ممثلات نساء"
