@@ -6,6 +6,7 @@ from ..translations.nats.Nationality import all_country_with_nat
 from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
 format_labels_with_nat = {
+    "Olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
     "{en_nat} {en_sport} federation": "الاتحاد {ar_nat} {ar_sport}",
 }
 
