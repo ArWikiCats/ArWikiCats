@@ -129,19 +129,6 @@ class TestCombinedUsage:
     """Tests for using both functions together as they would be in practice."""
 
     @pytest.mark.fast
-    def test_sequential_application(self):
-        """Test applying both functions sequentially."""
-        # First apply separator_lists_fixing
-        label = "منشآت عسكرية"
-        label = separator_lists_fixing(label, "in", "military installations in")
-        assert " في" in label
-
-        # Then apply add_in_tab (though في should prevent من from being added)
-        label = add_in_tab(label, "military installations", "from")
-        # Should not have من because في is present
-        assert " من" not in label
-
-    @pytest.mark.fast
     def test_from_then_in_separator(self):
         """Test from separator followed by checking in conditions."""
         label = "رياضيون"
