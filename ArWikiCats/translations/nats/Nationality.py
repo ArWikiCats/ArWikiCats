@@ -19,7 +19,7 @@ from ..utils.json_dir import open_json_file
 class NationalityEntry(TypedDict):
     """Represents one nationality block with all fields always present as strings."""
 
-    men: str
+    man: str
     mens: str
     women: str
     womens: str
@@ -63,7 +63,7 @@ def load_sources() -> Dict[str, NationalityEntry]:
     for key, val in raw_all_nat_o.items():
         # Build guaranteed structure
         entry: NationalityEntry = {
-            "men": val.get("men", "") if isinstance(val, dict) else "",
+            "man": val.get("man", "") if isinstance(val, dict) else "",
             "mens": val.get("mens", "") if isinstance(val, dict) else "",
             "women": val.get("women", "") if isinstance(val, dict) else "",
             "womens": val.get("womens", "") if isinstance(val, dict) else "",
@@ -143,7 +143,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
 
     # Special defined nationality
     all_nat_o["papua new guinean x "] = {
-        "men": "غيني",
+        "man": "غيني",
         "mens": "غينيون",
         "women": "غينية",
         "womens": "غينيات",
@@ -155,7 +155,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
     if "georgian" in all_nat_o:
         ge = all_nat_o["georgian"]
         all_nat_o["georgia (country)"] = {
-            "men": ge["men"],
+            "man": ge["man"],
             "mens": ge["mens"],
             "women": ge["women"],
             "womens": ge["womens"],
@@ -165,7 +165,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
 
     # Add southwest asian nationality
     all_nat_o["southwest asian"] = {
-        "men": "جنوب غرب آسيوي",
+        "man": "جنوب غرب آسيوي",
         "mens": "جنوبيون غربيون آسيويين",
         "women": "جنوب غربي آسيوية",
         "womens": "جنوبيات غربيات آسيويات",
@@ -190,14 +190,15 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
     count_added: int = 0
 
     for nat_key, entry in all_nat_o.items():
-        men, mens = entry["men"], entry["mens"]
+        man = entry["man"]
+        mens = entry["mens"]
         women, womens = entry["women"], entry["womens"]
 
-        if not any([men, mens, women, womens]):
+        if not any([man, mens, women, womens]):
             continue  # skip if no gender fields present
 
         new_entry: NationalityEntry = {
-            "men": f"أمريكي {men}" if men else "",
+            "man": f"أمريكي {man}" if man else "",
             "mens": f"أمريكيون {mens}" if mens else "",
             "women": f"أمريكية {women}" if women else "",
             "womens": f"أمريكيات {womens}" if womens else "",
@@ -237,7 +238,7 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
     all_country_ar: LookupTable = {}
     all_country_with_nat: AllNatDict = {}
     all_country_with_nat_ar: AllNatDict = {}
-    all_country_with_nat_keys_is_en: Dict[str, NationalityEntry] = {}
+    countries_nat_en_key: Dict[str, NationalityEntry] = {}
     en_nats_to_ar_label: LookupTable = {}
 
     for nat_key, entry in all_nat.items():
@@ -245,10 +246,10 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
         ar: str = entry["ar"]
         en_norm: str = en[4:] if en.startswith("the ") else en
 
-        # Gender tables
-        if entry["men"]:
-            Nat_men[nat_key] = entry["men"]
-            ar_Nat_men[entry["men"]] = nat_key
+        if entry["man"]:
+            Nat_men[nat_key] = entry["man"]
+            ar_Nat_men[entry["man"]] = nat_key
+
         if entry["mens"]:
             Nat_mens[nat_key] = entry["mens"]
         if entry["women"]:
@@ -271,11 +272,11 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
 
         if en:
             all_country_with_nat[nat_key] = entry
-            all_country_with_nat_keys_is_en[en_norm] = entry
+            countries_nat_en_key[en_norm] = entry
 
     # Special case: Iran
     if "iranian" in all_nat:
-        all_country_with_nat_keys_is_en["islamic republic of iran"] = all_nat["iranian"]
+        countries_nat_en_key["islamic republic of iran"] = all_nat["iranian"]
 
     return {
         "Nat_men": Nat_men,
@@ -287,7 +288,7 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
         "all_country_ar": all_country_ar,
         "all_country_with_nat": all_country_with_nat,
         "all_country_with_nat_ar": all_country_with_nat_ar,
-        "all_country_with_nat_keys_is_en": all_country_with_nat_keys_is_en,
+        "countries_nat_en_key": countries_nat_en_key,
         "en_nats_to_ar_label": en_nats_to_ar_label,
     }
 
@@ -304,21 +305,20 @@ All_Nat: AllNatDict = {k.lower(): v for k, v in All_Nat_o.items()}
 All_Nat, American_nat = build_american_forms(All_Nat, All_Nat_o)
 result_tables = build_lookup_tables(All_Nat, All_Nat_o)
 
-Nat_men = result_tables["Nat_men"]
-Nat_mens = result_tables["Nat_mens"]
-Nat_women = result_tables["Nat_women"]
-Nat_Womens = result_tables["Nat_Womens"]
+Nat_men: LookupTable = result_tables["Nat_men"]
+Nat_mens: LookupTable = result_tables["Nat_mens"]
+Nat_women: LookupTable = result_tables["Nat_women"]
+Nat_Womens: LookupTable = result_tables["Nat_Womens"]
 
-ar_Nat_men = result_tables["ar_Nat_men"]
-countries_from_nat = result_tables["countries_from_nat"]
-all_country_ar = result_tables["all_country_ar"]
-all_country_with_nat = result_tables["all_country_with_nat"]
-all_country_with_nat_ar = result_tables["all_country_with_nat_ar"]
-all_country_with_nat_keys_is_en = result_tables["all_country_with_nat_keys_is_en"]
-en_nats_to_ar_label = result_tables["en_nats_to_ar_label"]
+ar_Nat_men: LookupTable = result_tables["ar_Nat_men"]
+countries_from_nat: LookupTable = result_tables["countries_from_nat"]
+all_country_ar: LookupTable = result_tables["all_country_ar"]
 
-# short names
-countries_nat_en_key = all_country_with_nat_keys_is_en
+all_country_with_nat: AllNatDict = result_tables["all_country_with_nat"]
+all_country_with_nat_ar: AllNatDict = result_tables["all_country_with_nat_ar"]
+countries_nat_en_key: Dict[str, NationalityEntry] = result_tables["countries_nat_en_key"]
+
+en_nats_to_ar_label: LookupTable = result_tables["en_nats_to_ar_label"]
 
 nats_to_add = {}
 
@@ -336,7 +336,7 @@ len_print.data_len(
         "all_country_with_nat_ar": all_country_with_nat_ar,
         "all_country_with_nat": all_country_with_nat,
         "American_nat": American_nat,
-        "all_country_with_nat_keys_is_en": all_country_with_nat_keys_is_en,
+        "countries_nat_en_key": countries_nat_en_key,
         "en_nats_to_ar_label": en_nats_to_ar_label,
     },
 )

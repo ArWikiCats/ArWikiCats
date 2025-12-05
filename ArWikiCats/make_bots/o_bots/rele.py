@@ -10,7 +10,7 @@ from ...translations import (
     Nat_men,
     Nat_women,
     all_country_ar,
-    all_country_with_nat_keys_is_en,
+    countries_nat_en_key,
 )
 from .utils import apply_arabic_article
 
@@ -68,7 +68,7 @@ def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str
         return ""
 
     if gender_key:
-        details = all_country_with_nat_keys_is_en.get(normalized, {})
+        details = countries_nat_en_key.get(normalized, {})
         label = details.get(gender_key, "")
         if label:
             return label
@@ -164,7 +164,7 @@ def work_relations(value: str) -> str:
     resolved = _resolve_relations(
         normalized,
         RELATIONS_MALE,
-        "men",
+        "man",
         Nat_men,
         add_article=True,
     )

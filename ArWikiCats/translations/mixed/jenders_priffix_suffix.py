@@ -20,6 +20,7 @@ womens_prefixes: dict[str, str] = {
 }
 
 Mens_priffix: dict[str, str] = {
+    "men": "{} رجال",
     "amputee": "{} مبتورو أحد الأطراف",
     "assassinated": "{} مغتالون",
     "blind": "{} مكفوفون",
@@ -39,7 +40,6 @@ Mens_priffix: dict[str, str] = {
     "lgbt": "{} مثليون",
     "male": "{} ذكور",
     "male child": "{} أطفال ذكور",
-    "men": "{} رجال",
     "military": "{} عسكريون",
     "murdered": "{} قتلوا",
     "mythological": "{} أسطوريون",

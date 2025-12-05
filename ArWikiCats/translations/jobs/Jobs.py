@@ -167,6 +167,9 @@ def _merge_jobs_sources() -> GenderedLabelMap:
     """Combine JSON sources and static configuration into a single map."""
 
     jobs_pp = open_json("jobs/jobs_Men_Womens_PP.json")
+
+    jobs_pp.setdefault("men", {"mens": "رجال", "womens": ""})
+
     jobs_pp = _extend_with_religious_jobs(jobs_pp)
     jobs_pp = _extend_with_disability_jobs(jobs_pp)
 
