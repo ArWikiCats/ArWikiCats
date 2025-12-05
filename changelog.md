@@ -1,3 +1,10 @@
+## [#168](https://github.com/MrIbrahem/ArWikiCats/pull/168) - 2025-12-05
+
+* **Refactor**
+  * Restructured Arabic translation mappings for films and television content to improve maintainability and consistency.
+  * Reorganized how gendered and nationality-based translation variants are handled and accessed.
+  * Updated the public translation interface while maintaining backward compatibility with existing integrations.
+
 ## [#167](https://github.com/MrIbrahem/ArWikiCats/pull/167) - 2025-12-05
 
 - **Refactor**
