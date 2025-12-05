@@ -17,9 +17,10 @@ nationality_data = {
 }
 
 formatted_data = {
-    "{nat1_en} {nat2_en}": "{nat1_ar_men} {nat2_ar_mens}",
-    "{nat1_en} people of {nat2_en} descent": "{nat1_ar_men} من أصل {nat2_ar_man}",
-    "{nat1_en} people of {nat2_en} jewish descent": "{nat1_ar_men} من أصل يهودي {nat2_ar_man}",
+    "{nat1_en} {nat2_en}": "{nat1_men} {nat2_man}",
+    "{nat1_en} people": "{nat1_men}",
+    "{nat1_en} people of {nat2_en} descent": "{nat1_men} من أصل {nat2_man}",
+    "{nat1_en} people of {nat2_en} jewish descent": "{nat1_men} من أصل يهودي {nat2_man}",
 }
 
 nationality_data_men = {x: v["men"] for x, v in nationality_data.items()}
@@ -33,14 +34,14 @@ def multi_bot() -> MultiDataFormatterBase:
         formatted_data=formatted_data,
         data_list=nationality_data_men,
         key_placeholder="{nat1_en}",
-        value_placeholder="{nat1_ar_men}",
+        value_placeholder="{nat1_men}",
     )
 
     other_bot = FormatData(
         {},  # to use from search_all
         nationality_data_man,
         key_placeholder="{nat2_en}",
-        value_placeholder="{nat2_ar_man}",
+        value_placeholder="{nat2_man}",
     )
 
     return MultiDataFormatterBase(
@@ -50,7 +51,7 @@ def multi_bot() -> MultiDataFormatterBase:
 
 
 test_match_key_data = {
-    "Afghan American": "أمريكيون أفغان",
+    "Afghan people": "أفغان",
     "Afghan people of American descent": "أفغان من أصل أمريكي",
     "American people of Afghan descent": "أمريكيون من أصل أفغاني",
     "Algerian people of Moroccan Jewish descent": "جزائريون من أصل يهودي مغربي",

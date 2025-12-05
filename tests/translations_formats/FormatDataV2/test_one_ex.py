@@ -65,6 +65,7 @@ def bot() -> FormatDataV2:
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
+        text_before="the ",
     )
 
 
@@ -155,6 +156,7 @@ def test_match_key_does_not_match_inside_longer_words(bot: FormatDataV2) -> None
 # Direct tests for helpers
 # -----------------------------
 
+
 @pytest.mark.fast
 def test_normalize_category_with_key(bot: FormatDataV2) -> None:
     """normalize_category_with_key should return the key and placeholder-normalized category."""
@@ -176,3 +178,34 @@ def test_get_template_ar_supports_category_prefix(bot: FormatDataV2) -> None:
 
     assert base_template == "فلاسفة {men}"
     assert prefixed_template == "فلاسفة {men}"
+
+
+@pytest.mark.fast
+def test_match_key_descent(bot: FormatDataV2) -> None:
+    """
+    "people of Moroccan-Jewish descent": "أشخاص من أصل يهودي مغربي",
+    Ensure regex does not match nationality keys inside larger words.
+
+    'egyptian' should not match inside 'preEgyptian'.
+    """
+    category = "people of Moroccan-Jewish descent"
+
+    key1 = bot.match_key(category)
+    key2, normalized = bot.normalize_category_with_key(category)
+
+    assert key2 == key1 == "moroccan", f"Expected 'moroccan', got {key1} and {key2}"
+
+
+@pytest.mark.fast
+def test_normalize_category_descent(bot: FormatDataV2) -> None:
+    """
+    "people of Moroccan-Jewish descent": "أشخاص من أصل يهودي مغربي",
+    Ensure regex does not match nationality keys inside larger words.
+
+    'egyptian' should not match inside 'preEgyptian'.
+    """
+    category = "people of the Moroccan-Jewish descent"
+
+    normalized = bot.normalize_category_new(category, "moroccan")
+
+    assert normalized == "people of {nat_en}-Jewish descent"

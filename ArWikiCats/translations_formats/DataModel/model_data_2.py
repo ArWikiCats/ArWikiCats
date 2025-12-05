@@ -77,7 +77,7 @@ class FormatDataV2:
         # if "{" not in final_label:
         return final_label.strip()
 
-    def replace_value_placeholder(self, label: str, value: str) -> str:
+    def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
         # Replace placeholder
         # print(f"{value=}\n"*10)   # {'nat1_ar_man': 'جزائري', 'nat1_ar_men': 'جزائريون'}
         # print(f"{label=}\n"*10)   # '{nat1_ar_men} من أصل يهودي {nat2_ar_man}'
@@ -87,6 +87,32 @@ class FormatDataV2:
             for key, value in value.items():
                 final_label = final_label.replace(f"{{{key}}}", value)
         return final_label
+
+    def handle_texts_before_after(self, normalized: str) -> str:
+        """Handle text before and after the key placeholder."""
+        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
+            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
+
+        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
+            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+        return normalized
+
+    @functools.lru_cache(maxsize=None)
+    def normalize_category_new(self, category: str, sport_key: str) -> str:
+        """Replace the matched sport key with the key placeholder."""
+
+        # Normalize the category by removing extra spaces
+        normalized_category = " ".join(category.split())
+
+        normalized = re.sub(
+            rf"(?<!\w){re.escape(sport_key)}(?!\w)",
+            f"{self.key_placeholder}",
+            f" {normalized_category.strip()} ",
+            flags=re.IGNORECASE,
+        )
+
+        normalized = self.handle_texts_before_after(normalized)
+        return normalized.strip()
 
     @functools.lru_cache(maxsize=None)
     def normalize_category(self, category: str, sport_key: str) -> str:
@@ -102,12 +128,7 @@ class FormatDataV2:
             flags=re.IGNORECASE,
         )
 
-        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
-            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
-
-        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
-            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
-
+        normalized = self.handle_texts_before_after(normalized)
         return normalized.strip()
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:

@@ -108,6 +108,15 @@ class FormatDataDouble:
 
         return ""
 
+    def handle_texts_before_after(self, normalized: str) -> str:
+        """Handle text before and after the key placeholder."""
+        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
+            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
+
+        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
+            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+        return normalized
+
     @functools.lru_cache(maxsize=None)
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
@@ -121,12 +130,7 @@ class FormatDataDouble:
             f" {normalized_category.strip()} ",
             flags=re.IGNORECASE,
         )
-
-        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
-            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
-
-        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
-            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+        normalized = self.handle_texts_before_after(normalized)
 
         return normalized.strip()
 
