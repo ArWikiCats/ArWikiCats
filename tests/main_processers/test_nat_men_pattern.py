@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.nat_pattern import get_label
+from ArWikiCats.main_processers.nat_men_pattern import get_label
 
 test_data = {
     # standard

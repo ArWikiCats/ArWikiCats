@@ -6,7 +6,6 @@ from ArWikiCats.make_bots.ma_bots.year_or_typeo.bot_lab import (
 )
 
 examples = {
-    "2000s American films": "أفلام أمريكية في عقد 2000",
     "2017 American television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
     "2017 American television series endings": "مسلسلات تلفزيونية أمريكية انتهت في 2017",
     "Paralympic competitors for Cape Verde": "منافسون في الألعاب البارالمبية من الرأس الأخضر",

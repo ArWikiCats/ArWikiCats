@@ -1,8 +1,9 @@
 """
 
 This module provides functionality to translate category titles
-that follow a 'country-year' pattern. It uses a pre-configured
+that follow a 'nat-year' pattern. It uses a pre-configured
 bot (`yc_bot`) to handle the translation logic.
+    "2000s American films": "أفلام أمريكية في عقد 2000",
 """
 
 import functools
