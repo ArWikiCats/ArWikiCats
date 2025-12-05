@@ -7,6 +7,15 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.media_bots.tyty_new_format import get_films_key_tyty_new
 
 fast_data1 = {
+    # nats
+    "yemeni films": "أفلام يمنية",
+    "Yemeni action films": "أفلام حركة يمنية",
+    "Yemeni action drama films": "أفلام حركة درامية يمنية",
+    "Yemeni upcoming horror films": "أفلام رعب قادمة يمنية",
+    "Yemeni horror upcoming films": "أفلام رعب قادمة يمنية",
+    "Yemeni upcoming films": "أفلام قادمة يمنية",
+
+    # films keys
     "3d low-budget films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget 3d films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "heist historical television commercials": "إعلانات تجارية تلفزيونية سرقة تاريخية",

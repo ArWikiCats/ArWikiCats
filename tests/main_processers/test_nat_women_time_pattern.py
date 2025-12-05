@@ -1,0 +1,25 @@
+"""
+Tests
+"""
+
+import pytest
+
+from ArWikiCats.main_processers.nat_women_time_pattern import get_label
+
+test_data = {
+    # standard
+    "Category:2000 American films": "تصنيف:أفلام أمريكية في 2000",
+    "Category:2020s American films": "تصنيف:أفلام أمريكية في عقد 2020",
+    "Category:2020s the American films": "تصنيف:أفلام أمريكية في عقد 2020",
+}
+
+
+@pytest.mark.parametrize(
+    "category,expected",
+    test_data.items(),
+    ids=test_data.keys()
+)
+def test_country_time_pattern(category: str, expected: str) -> None:
+    """Test all year-country translation patterns."""
+    result = get_label(category)
+    assert result == expected

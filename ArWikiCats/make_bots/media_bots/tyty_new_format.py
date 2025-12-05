@@ -18,6 +18,7 @@ def _make_bot() -> MultiDataFormatterBase:
     # Template data with both nationality and sport placeholders
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
+        "{nat_en} films": "أفلام {nat_ar}",
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
     }

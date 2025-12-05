@@ -15,6 +15,7 @@ def yc_bot() -> MultiDataFormatterBase:
     formatted_data = {
         "{nat_en} films": "أفلام {nat_ar}",
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
+        "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
     }
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
@@ -60,11 +61,14 @@ def yc_bot() -> MultiDataFormatterBase:
 test_data_standard = {
     # standard
     # yc_bot.search_all(category)
+    "yemeni films": "أفلام يمنية",
     "Yemeni action films": "أفلام حركة يمنية",
     "Yemeni action drama films": "أفلام حركة درامية يمنية",
     "Yemeni upcoming horror films": "أفلام رعب قادمة يمنية",
     "Yemeni horror upcoming films": "أفلام رعب قادمة يمنية",
+    "Yemeni upcoming films": "أفلام قادمة يمنية",
 
+    # films keys
     "3d low-budget films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget 3d films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "heist historical television commercials": "إعلانات تجارية تلفزيونية سرقة تاريخية",
