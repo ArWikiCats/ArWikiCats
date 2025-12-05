@@ -80,7 +80,6 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     Returns:
         tuple: A tuple containing the processed type (str) and country (str).
 
-    TODO: use re.split()
     """
     category_type, country = "", ""
     if separator and separator in category:
