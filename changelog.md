@@ -1,3 +1,17 @@
+## [#170](https://github.com/MrIbrahem/ArWikiCats/pull/170) - 2025-12-06
+
+* **New Features**
+  * Enhanced geographic translation mappings with new entries for alpine skiing categories.
+  * Improved support for month names and century indicators (BC/BCE) in date-to-Arabic conversions.
+
+* **Tests**
+  * Expanded test coverage for geographic translations and date/time formatting.
+  * Added test cases for decade expressions and historical date conversions to Arabic.
+
+* **Refactor**
+  * Reorganized translation data structures for sports and media categories.
+  * Optimized fallback logic in label resolution processes.
+
 ## [#168](https://github.com/MrIbrahem/ArWikiCats/pull/168) - 2025-12-05
 
 * **Refactor**
