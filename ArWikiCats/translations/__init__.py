@@ -1,5 +1,6 @@
 """ """
 
+from .sports.sub_teams_keys import sub_teams_new
 from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
@@ -55,7 +56,6 @@ from .nats.Nationality import (
     all_country_with_nat,
     all_country_with_nat_ar,
     countries_nat_en_key,
-    countries_nat_en_key,
     ar_Nat_men,
     countries_from_nat,
     en_nats_to_ar_label,
@@ -105,6 +105,7 @@ from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
 
 
 __all__ = [
+    "sub_teams_new",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
     "sport_formts_enar_p17_jobs",
@@ -133,7 +134,6 @@ __all__ = [
     "Nat_women",
     "all_country_ar",
     "all_country_with_nat",
-    "countries_nat_en_key",
     "countries_nat_en_key",
     "all_country_with_nat_ar",
     "countries_from_nat",

@@ -248,7 +248,7 @@ def _build_series_and_nat_keys(
 
                 if suffix == "revived after cancellation":
                     films_key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
-                    films_mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                    films_mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
                 else:
                     films_key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
                     films_mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
