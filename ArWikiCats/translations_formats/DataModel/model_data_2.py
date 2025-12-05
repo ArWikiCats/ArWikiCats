@@ -3,16 +3,16 @@
 
 import functools
 import re
-from typing import Dict, Optional
+from typing import Dict, Optional, Union
 
 from ...helps.log import logger
 
 
-class FormatData:
+class FormatDataV2:
     def __init__(
         self,
         formatted_data: Dict[str, str],
-        data_list: Dict[str, str],
+        data_list: Dict[str, Union[str, Dict[str, str]]],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
         text_after: str = "",
@@ -27,7 +27,7 @@ class FormatData:
 
         # Case-insensitive mirrors
         self.formated_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
-        self.data_list_ci: Dict[str, str] = {k.lower(): v for k, v in data_list.items()}
+        self.data_list_ci: Dict[str, Union[str, Dict[str, str]]] = {k.lower(): v for k, v in data_list.items()}
 
         self.value_placeholder = value_placeholder
         self.key_placeholder = key_placeholder
@@ -68,10 +68,14 @@ class FormatData:
         match = self.pattern.search(f" {normalized_category} ")
         return match.group(1).lower() if match else ""
 
-    @functools.lru_cache(maxsize=None)
-    def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
+    def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
         """Replace value placeholder once template is chosen."""
-        final_label = template_label.replace(self.value_placeholder, sport_label)
+        if isinstance(sport_label, dict):
+            final_label = template_label
+            for key, value in sport_label.items():
+                final_label = final_label.replace(f"{{{key}}}", value)
+        else:
+            final_label = template_label.replace(self.value_placeholder, sport_label)
 
         if self.value_placeholder not in final_label:
             return final_label.strip()
@@ -135,13 +139,13 @@ class FormatData:
 
         return result
 
-    def get_key_label(self, sport_key: str) -> str:
+    def get_key_label(self, sport_key: str) -> Union[str, Dict[str, str]]:
         """Return the Arabic label mapped to the provided key if present."""
         return self.data_list_ci.get(sport_key)
 
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
-        logger.debug("++++++++ start FormatData ++++++++ ")
+        logger.debug("++++++++ start FormatDataV2 ++++++++ ")
         sport_key = self.match_key(category)
 
         if not sport_key:
@@ -160,7 +164,7 @@ class FormatData:
 
         result = self.apply_pattern_replacement(template_label, sport_label)
         logger.debug(f" {result=}")
-        logger.debug("++++++++ end FormatData ++++++++ ")
+        logger.debug("++++++++ end FormatDataV2 ++++++++ ")
 
         return result
 
@@ -186,7 +190,7 @@ class FormatData:
 
 def format_data_sample() -> bool:
     """
-    This function demonstrates how to use the FormatData class to format and transform data.
+    This function demonstrates how to use the FormatDataV2 class to format and transform data.
     It creates a mapping of template patterns to their localized versions and applies them.
     """
     # Define a dictionary of formatted patterns with placeholders
@@ -224,8 +228,8 @@ def format_data_sample() -> bool:
         "wheelchair auto racing": "سباق سيارات على كراسي متحركة",
     }
 
-    # Create a FormatData instance with the defined patterns and mappings
-    bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    # Create a FormatDataV2 instance with the defined patterns and mappings
+    bot = FormatDataV2(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     # Search for a specific pattern and get its localized version
     label = bot.search("american football players")
