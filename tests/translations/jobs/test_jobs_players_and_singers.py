@@ -14,7 +14,7 @@ def test_players_dataset_includes_core_sports_roles() -> None:
 
     football_labels = PLAYERS_TO_MEN_WOMENS_JOBS["footballers"]
     assert football_labels["mens"] == "لاعبو كرة قدم"
-    assert football_labels["womens"] == "لاعبات كرة قدم"
+    assert football_labels["females"] == "لاعبات كرة قدم"
 
 
 def test_football_key_players_are_registered() -> None:
@@ -30,4 +30,4 @@ def test_singer_dataset_contains_common_genres() -> None:
     assert "pop singers" in MEN_WOMENS_SINGERS
     labels = MEN_WOMENS_SINGERS["pop singers"]
     assert labels["mens"].startswith("مغنو")
-    assert labels["womens"].startswith("مغنيات")
+    assert labels["females"].startswith("مغنيات")

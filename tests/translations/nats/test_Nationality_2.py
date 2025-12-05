@@ -28,7 +28,7 @@ def make_entry(
         "man": man,
         "mens": mens,
         "women": women,
-        "womens": womens,
+        "females": womens,
         "en": en,
         "ar": ar,
     }
@@ -69,7 +69,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
 
     for entry in data.values():
         # Ensure all required keys are present
-        assert set(entry.keys()) == {"man", "mens", "women", "womens", "en", "ar"}
+        assert set(entry.keys()) == {"man", "mens", "women", "females", "en", "ar"}
         # Ensure all values are strings
         assert all(isinstance(v, str) for v in entry.values())
 

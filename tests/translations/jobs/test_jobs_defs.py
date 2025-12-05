@@ -19,17 +19,17 @@ def test_join_terms_trims_and_skips_empty_strings() -> None:
 def test_combine_gendered_labels_respects_require_base_womens() -> None:
     """When ``require_base_womens`` is set the feminine label may remain blank."""
 
-    base = {"mens": "راهب", "womens": ""}
-    suffix = {"mens": "كاثوليكي", "womens": "كاثوليكية"}
+    base = {"mens": "راهب", "females": ""}
+    suffix = {"mens": "كاثوليكي", "females": "كاثوليكية"}
     combined = jobs_defs.combine_gendered_labels(base, suffix, require_base_womens=True)
-    assert combined == {"mens": "راهب كاثوليكي", "womens": ""}
+    assert combined == {"mens": "راهب كاثوليكي", "females": ""}
 
 
 def test_merge_gendered_maps_copies_source_values() -> None:
     """Merged mappings should copy the source entries to avoid shared state."""
 
-    target = {"key": {"mens": "أ", "womens": "ب"}}
-    source_value = {"mens": "ج", "womens": "د"}
+    target = {"key": {"mens": "أ", "females": "ب"}}
+    source_value = {"mens": "ج", "females": "د"}
     source = {"key": source_value}
 
     jobs_defs.merge_gendered_maps(target, source)
@@ -43,11 +43,11 @@ def test_load_gendered_label_map_filters_invalid_entries(monkeypatch: pytest.Mon
 
     def fake_loader(filename: str) -> Mapping[str, Any]:
         return {
-            "valid": {"mens": "لاعب", "womens": "لاعبة"},
-            "missing": {"mens": "", "womens": ""},
+            "valid": {"mens": "لاعب", "females": "لاعبة"},
+            "missing": {"mens": "", "females": ""},
             # Non-mapping and non-string entries should be skipped silently.
             "bad": ["not", "a", "mapping"],
-            10: {"mens": "number", "womens": "number"},
+            10: {"mens": "number", "females": "number"},
         }
 
     monkeypatch.setattr(jobs_defs, "open_json_file", fake_loader)
@@ -55,6 +55,6 @@ def test_load_gendered_label_map_filters_invalid_entries(monkeypatch: pytest.Mon
     result = jobs_defs.load_gendered_label_map("ignored")
 
     assert result == {
-        "valid": {"mens": "لاعب", "womens": "لاعبة"},
-        "missing": {"mens": "", "womens": ""},
+        "valid": {"mens": "لاعب", "females": "لاعبة"},
+        "missing": {"mens": "", "females": ""},
     }

@@ -14,25 +14,25 @@ def bot() -> FormatDataV2:
             "man": "مصري",
             "women": "مصرية",
             "mens": "مصريون",
-            "womens": "مصريات",
+            "females": "مصريات",
         },
         "algerian": {
             "man": "جزائري",
             "women": "جزائرية",
             "mens": "جزائريون",
-            "womens": "جزائريات",
+            "females": "جزائريات",
         },
         "moroccan": {
             "man": "مغربي",
             "women": "مغربية",
             "mens": "مغاربة",
-            "womens": "مغربيات",
+            "females": "مغربيات",
         },
         "yemeni": {
             "man": "يمني",
             "women": "يمنية",
             "mens": "يمنيون",
-            "womens": "يمنيات",
+            "females": "يمنيات",
         },
     }
 
