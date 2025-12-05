@@ -14,17 +14,17 @@ from .utils import resolve_p17_2_label
 @functools.lru_cache(maxsize=10000)
 def get_p17_2(category: str) -> str:  # الإنجليزي اسم البلد والعربي جنسية رجال
     """
-    Category input in english is country name, return arabic as mens nationality.
+    Category input in english is country name, return arabic as males nationality.
 
     Return a nationality-based label for categories ending with country names.
 
     Example:
-        mens: [Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
+        males: [Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
         women: [Category:syria air force] = "تصنيف:القوات الجوية السورية
     """
     logger.info(f'<<lightblue>>>>>> get_p17_2 "{category}" ')  # ""
 
-    # resolved mens:
+    # resolved males:
     resolved_label = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
 
     if not resolved_label:
