@@ -195,7 +195,7 @@ SPORTS_KEYS_FOR_TEAM: Final[dict[str, str]] = SPORT_KEY_TABLES.team
 SPORTS_KEYS_FOR_OLYMPIC: Final[dict[str, str]] = SPORT_KEY_TABLES.olympic
 
 SPORTS_KEYS_FOR_JOBS: Final[dict[str, str]] = SPORT_KEY_TABLES.jobs
-SPORTS_KEYS_FOR_JOBS["sports"] = "رياضية"
+# SPORTS_KEYS_FOR_JOBS["sports"] = "رياضية"
 
 len_print.data_len(
     "Sport_key.py",

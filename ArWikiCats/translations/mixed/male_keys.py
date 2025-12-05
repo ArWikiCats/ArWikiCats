@@ -270,6 +270,9 @@ def _add_film_entries() -> None:
     """Update the registry with film-based female categories."""
 
     Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
+
+    Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
+
     data = {}
     for key, labels in Films_keys_male_female.items():
         label = labels.get("female", "")

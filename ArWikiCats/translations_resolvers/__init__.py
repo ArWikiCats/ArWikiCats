@@ -5,13 +5,13 @@ from . import countries_names, federation_bot
 
 def resolved_sports_formats_labels(normalized_category) -> str:
 
-    resolved_label = federation_bot.resolve_federation_label(normalized_category)
+    resolved_label = countries_names.resolve_by_countries_names(normalized_category)
+
+    if not resolved_label:
+        resolved_label = federation_bot.resolve_federation_label(normalized_category)
 
     if not resolved_label:
         resolved_label = nats_women_label(normalized_category)
-
-    if not resolved_label:
-        resolved_label = countries_names.resolve_by_countries_names(normalized_category)
 
     return resolved_label
 

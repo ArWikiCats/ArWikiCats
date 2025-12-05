@@ -159,6 +159,7 @@ AFTER_TYPE_FEMALE: dict[str, str] = {
 
 
 FIRST_TYPE_FEMALE: dict[str, str] = {
+    "sports": "رياضية",
     "paleolibertarianism": "ليبرتارية أصلية",
     "libertarian": "ليبرتارية",
     "liberal": "ليبرالية",
@@ -209,7 +210,6 @@ FIRST_TYPE_FEMALE: dict[str, str] = {
     "multinational": "متعددة الجنسيات",
     "power": "طاقة",
     "office": "إدارية",
-    "sports": "رياضية",
     "music": "موسيقى",
     "private": "خاصة",
     "independent": "مستقلة",
@@ -280,8 +280,7 @@ def build_pop_final6() -> dict[str, str]:
     for first, first_label in FIRST_TYPE_FEMALE.items():
         data[f"{first} parties"] = f"أحزاب {first_label}"
         for second, second_label in AFTER_TYPE_FEMALE.items():
-            key = f"{first.lower()} {second.lower()}"
-            data[key] = f"{second_label} {first_label}"
+            data[f"{first.lower()} {second.lower()}"] = f"{second_label} {first_label}"
 
     for key, label in TA_CATEGORIES.items():
         data[f"{key} occupations"] = f"مهن {label}"
