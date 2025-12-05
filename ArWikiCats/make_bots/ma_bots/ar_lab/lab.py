@@ -63,36 +63,93 @@ def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower:
     return type_label
 
 
-def get_type_country(category: str, separator: str) -> Tuple[str, str]:
-    """Extract the type and country from a given category string.
-
-    This function takes a category string and a delimiter (separator) to split
-    the category into a type and a country. It processes the strings to
-    ensure proper formatting and handles specific cases based on the value
-    of separator. The function also performs some cleanup on the extracted
-    strings to remove any unwanted characters or formatting issues.
+def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
+    """Split category into type and country parts using the separator.
 
     Args:
-        category (str): The category string containing type and country information.
-        separator (str): The delimiter used to separate the type and country in the category
-            string.
+        category: The category string to split
+        separator: The delimiter to use for splitting
 
     Returns:
-        tuple: A tuple containing the processed type (str) and country (str).
-
+        Tuple of (category_type, country)
     """
-    category_type, country = "", ""
     if separator and separator in category:
         parts = category.split(separator, 1)
         category_type = parts[0]
         country = parts[1] if len(parts) > 1 else ""
     else:
         category_type = category
+        country = ""
 
-    country = country.lower()
+    return category_type, country.lower()
 
-    # Attempt to clean up using regex
-    # Escape separator to prevent regex errors if it contains special chars
+
+def _fix_typos_in_type(category_type: str, separator_stripped: str) -> str:
+    """Fix known typos in the category type.
+
+    Args:
+        category_type: The category type string
+        separator_stripped: The stripped separator
+
+    Returns:
+        Corrected category type
+    """
+    if separator_stripped == "in" and category_type.endswith(" playerss"):
+        return category_type.replace(" playerss", " players")
+    return category_type
+
+
+def _adjust_separator_position(
+    text: str,
+    separator_stripped: str,
+    is_type: bool
+) -> str:
+    """Adjust separator position for type or country based on separator value.
+
+    Args:
+        text: The text to adjust (either type or country)
+        separator_stripped: The stripped separator
+        is_type: True if adjusting type, False if adjusting country
+
+    Returns:
+        Adjusted text with proper separator positioning
+    """
+    separator_ends = f" {separator_stripped}"
+    separator_starts = f"{separator_stripped} "
+
+    if is_type:
+        # Adjustments for type (separator should be at the end)
+        if separator_stripped == "of" and not text.endswith(separator_ends):
+            return f"{text} of"
+        elif separator_stripped == "spies for" and not text.endswith(" spies"):
+            return f"{text} spies"
+    else:
+        # Adjustments for country (separator should be at the start)
+        if separator_stripped == "by" and not text.startswith(separator_starts):
+            return f"by {text}"
+        elif separator_stripped == "for" and not text.startswith(separator_starts):
+            return f"for {text}"
+
+    return text
+
+
+def _apply_regex_extraction(
+    category: str,
+    separator: str,
+    category_type: str,
+    country: str
+) -> Tuple[str, str, bool]:
+    """Apply regex-based extraction when simple split is insufficient.
+
+    Args:
+        category: Original category string
+        separator: The separator string
+        category_type: Currently extracted type
+        country: Currently extracted country
+
+    Returns:
+        Tuple of (type_regex, country_regex, should_use_regex)
+    """
     separator_escaped = re.escape(separator) if separator else ""
     mash_pattern = f"^(.*?)(?:{separator_escaped}?)(.*?)$"
 
@@ -103,58 +160,78 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
         type_regex = re.sub(mash_pattern, r"\g<1>", category.lower())
         country_regex = re.sub(mash_pattern, r"\g<2>", category.lower())
 
-        # Remove extracted parts from the test string to see what's left
+        # Calculate what's left after removing extracted parts
         test_remainder = re.sub(re.escape(category_type.lower()), "", test_remainder)
         test_remainder = re.sub(re.escape(country.lower()), "", test_remainder)
+        test_remainder = test_remainder.strip()
 
     except Exception as e:
         logger.info(f"<<lightred>>>>>> except test_remainder: {e}")
+        return type_regex, country_regex, False
 
-    test_remainder = test_remainder.strip()
+    # Determine if we should use regex results
     separator_stripped = separator.strip()
+    should_use_regex = test_remainder and test_remainder != separator_stripped
 
-    # Adjustments based on separator
-    if separator_stripped == "in" and category_type.endswith(" playerss"):
-        category_type = category_type.replace(" playerss", " players")
+    return type_regex, country_regex, should_use_regex
 
-    separator_ends = f" {separator_stripped}"
-    separator_starts = f"{separator_stripped} "
 
-    if separator_stripped == "of" and not category_type.endswith(separator_ends):
-        category_type = f"{category_type} of"
-    elif separator_stripped == "spies for" and not category_type.endswith(" spies"):
-        category_type = f"{category_type} spies"
+def get_type_country(category: str, separator: str) -> Tuple[str, str]:
+    """Extract the type and country from a given category string.
 
-    elif separator_stripped == "by" and not country.startswith(separator_starts):
-        country = f"by {country}"
-    elif separator_stripped == "for" and not country.startswith(separator_starts):
-        country = f"for {country}"
+    This function takes a category string and a delimiter (separator) to split
+    the category into a type and a country. It processes the strings to
+    ensure proper formatting and handles specific cases based on the value
+    of separator.
 
-    logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {separator=} ')
+    Args:
+        category: The category string containing type and country information
+        separator: The delimiter used to separate the type and country
 
-    if not test_remainder or test_remainder == separator_stripped:
-        logger.info(f'>>>> {test_remainder=} == separator')
-        return category_type, country
+    Returns:
+        Tuple containing the processed type (str) and country (str)
+
+    Example:
+        >>> get_type_country("Military installations in Egypt", "in")
+        ("Military installations", "egypt")
+    """
+    # Step 1: Initial split
+    category_type, country = _split_category_by_separator(category, separator)
+
+    # Step 2: Fix known typos
+    separator_stripped = separator.strip()
+    category_type = _fix_typos_in_type(category_type, separator_stripped)
+
+    # Step 3: Apply initial separator adjustments
+    category_type = _adjust_separator_position(category_type, separator_stripped, is_type=True)
+    country = _adjust_separator_position(country, separator_stripped, is_type=False)
 
     logger.info(
-        f'>>>> test_remainder != "", {type_regex=}, {separator=}, {country_regex=} '
+        f'>xx>>> category_type: "{category_type.strip()}", '
+        f'country: "{country.strip()}", {separator=}'
     )
 
-    if separator_stripped == "of" and not type_regex.endswith(separator_ends):
-        type_regex = f"{type_regex} of"
+    # Step 4: Check if regex extraction is needed
+    type_regex, country_regex, should_use_regex = _apply_regex_extraction(
+        category, separator, category_type, country
+    )
 
-    elif separator_stripped == "by" and not country_regex.startswith(separator_starts):
-        country_regex = f"by {country_regex}"
+    if not should_use_regex:
+        logger.info('>>>> Using simple split results')
+        return category_type, country
 
-    elif separator_stripped == "for" and not country_regex.startswith(separator_starts):
-        country_regex = f"for {country_regex}"
+    # Step 5: Use regex results with separator adjustments
+    logger.info(
+        f'>>>> Using regex extraction: {type_regex=}, '
+        f'{separator=}, {country_regex=}'
+    )
 
-    category_type = type_regex
-    country = country_regex
+    type_regex = _adjust_separator_position(type_regex, separator_stripped, is_type=True)
+    country_regex = _adjust_separator_position(country_regex, separator_stripped, is_type=False)
 
     logger.info(f'>>>> yementest: {type_regex=}, {country_regex=}')
 
-    return category_type, country
+    return type_regex, country_regex
 
 
 def get_type_lab(preposition: str, type_value: str) -> Tuple[str, bool]:

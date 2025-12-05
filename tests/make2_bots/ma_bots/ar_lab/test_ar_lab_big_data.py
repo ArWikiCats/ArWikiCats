@@ -1093,15 +1093,8 @@ data_list = [
 ]
 
 
-def test_simple_dump() -> None:
-    expected_result = {}
-    diff_result = {}
-    for tab in data_list:
-        category, separator, expected = tab
-        result = find_ar_label(category, separator, use_event2=False)
-        if result != expected:
-            expected_result[category] = expected
-            diff_result[category] = result
-
-    dump_diff(diff_result, "test_simple_dump")
-    assert diff_result == expected_result, f"Differences found: {len(diff_result)}"
+@pytest.mark.parametrize("category, separator, output", data_list, ids=[x[0] for x in data_list])
+@pytest.mark.fast
+def test_simple_2(category: str, separator: str, output: str) -> None:
+    label = find_ar_label(category, separator, use_event2=False)
+    assert label == output
