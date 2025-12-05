@@ -395,6 +395,7 @@ Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
 len_print.data_len(
     "films_mslslat.py",
     {
+        "television_keys": television_keys,
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,
         "ss_Films_key_CAO": ss_Films_key_CAO,
@@ -402,6 +403,9 @@ len_print.data_len(
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new_female": Films_keys_both_new_female,
         "film_keys_for_female": film_keys_for_female,
+        "film_keys_for_male": film_keys_for_male,
+        "Films_key_man": Films_key_man,
+        "film_key_women_2": film_key_women_2,
     },
 )
 

@@ -1,17 +1,25 @@
+## [#167](https://github.com/MrIbrahem/ArWikiCats/pull/167) - 2025-12-05
+
+- **Refactor**
+  - Reorganized internal code structure for label and country processing to improve maintainability and code modularity. No changes to user-facing functionality or features.
+
 ## [#166](https://github.com/MrIbrahem/ArWikiCats/pull/166) - 2025-12-05
 
-* **New Features**
-  * Improved job/category labeling with better nationality, gender and multi-sport phrasing in Arabic.
-  * Added registry-driven lookup utilities to improve translation and prefix/suffix handling.
+- **New Features**
 
-* **Refactor**
-  * Major modularization of label-generation and normalization flows for more consistent outputs and easier maintenance.
+  - Improved job/category labeling with better nationality, gender and multi-sport phrasing in Arabic.
+  - Added registry-driven lookup utilities to improve translation and prefix/suffix handling.
 
-* **Tests**
-  * Replaced bulk diff test with parameterized per-case assertions for clearer failures.
+- **Refactor**
 
-* **Chores**
-  * Normalized and reformatted changelog entries.
+  - Major modularization of label-generation and normalization flows for more consistent outputs and easier maintenance.
+
+- **Tests**
+
+  - Replaced bulk diff test with parameterized per-case assertions for clearer failures.
+
+- **Chores**
+  - Normalized and reformatted changelog entries.
 
 ## [#165](https://github.com/MrIbrahem/ArWikiCats/pull/165) - 2025-12-05
 
