@@ -48,19 +48,3 @@ class FormatDataV2(FormatDataBase):
                 final_label = final_label.replace(f"{{{key}}}", val)
 
         return final_label
-
-    @functools.lru_cache(maxsize=None)
-    def normalize_category_new(self, category: str, sport_key: str) -> str:
-        """Replace the matched sport key with the key placeholder."""
-        # Normalize the category by removing extra spaces
-        normalized_category = " ".join(category.split())
-
-        normalized = re.sub(
-            rf"(?<!\w){re.escape(sport_key)}(?!\w)",
-            f"{self.key_placeholder}",
-            f" {normalized_category.strip()} ",
-            flags=re.IGNORECASE,
-        )
-
-        normalized = self.handle_texts_before_after(normalized)
-        return normalized.strip()
