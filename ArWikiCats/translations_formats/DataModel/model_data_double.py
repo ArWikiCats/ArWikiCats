@@ -57,7 +57,7 @@ class FormatDataDouble(FormatDataBase):
         self.pattern = re.compile(self.data_pattern, re.I)
 
         self.data_pattern_double = fr"(?<!\w)({alternation}) ({alternation})(?!\w)"
-        logger.debug(f">> keys_to_pattern: {self.data_pattern_double}")
+        # logger.debug(f">> keys_to_pattern: {self.data_pattern_double}")
 
         self.pattern_double = re.compile(self.data_pattern_double, re.I)
 
