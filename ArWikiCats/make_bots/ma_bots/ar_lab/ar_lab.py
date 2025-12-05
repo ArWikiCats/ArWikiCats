@@ -42,58 +42,172 @@ separators_lists_raw = [
 ]
 
 
-def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower: str) -> str:
-    """
-    {"type_label": "منشآت عسكرية", "separator_stripped": "in", "type_lower": "military installations", "output": "منشآت عسكرية في"}
-    """
-    if separator_stripped in separators_lists_raw:
-        if separator_stripped == "in" or " in" in type_lower:
-            if type_lower in pop_of_without_in:
-                logger.info(f'>>-- Skip aAdd في to {type_label=}, "{type_lower}"')
-            else:
-                if " في" not in type_label and " in" in type_lower:
-                    logger.info(f'>>-- aAdd في to type_label:in"{type_label}", for "{type_lower}"')
-                    type_label = type_label + " في"
-                elif separator_stripped == "in" and " in" in type_lower:
-                    logger.info(f'>>>> aAdd في to type_label:in"{type_label}", for "{type_lower}"')
-                    type_label = type_label + " في"
+def _should_add_preposition_في(type_label: str, type_lower: str) -> bool:
+    """Check if 'في' should be added to the label.
 
-        elif (separator_stripped == "at" or " at" in type_lower) and (" في" not in type_label):
-            logger.info('>>>> Add في to type_label:at"%s"' % type_label)
-            type_label = type_label + " في"
+    Args:
+        type_label: The Arabic label.
+        type_lower: The lowercase type string.
+
+    Returns:
+        bool: True if 'في' should be added, False otherwise.
+    """
+    return " في" not in type_label and " in" in type_lower
+
+
+def _handle_in_separator(type_label: str, separator_stripped: str, type_lower: str) -> str:
+    """Handle 'in' separator logic.
+
+    Args:
+        type_label: The current Arabic label.
+        separator_stripped: The stripped separator.
+        type_lower: The lowercase type string.
+
+    Returns:
+        str: The modified type label.
+    """
+    # Skip if type is in exception list
+    if type_lower in pop_of_without_in:
+        logger.info(f'>>-- Skip add في to {type_label=}, "{type_lower}"')
+        return type_label
+
+    # Add 'في' if conditions are met
+    if _should_add_preposition_في(type_label, type_lower):
+        logger.info(f'>>-- Add في to type_label:in"{type_label}", for "{type_lower}"')
+        return f"{type_label} في"
 
     return type_label
+
+
+def _handle_at_separator(type_label: str, type_lower: str) -> str:
+    """Handle 'at' separator logic.
+
+    Args:
+        type_label: The current Arabic label.
+        type_lower: The lowercase type string.
+
+    Returns:
+        str: The modified type label.
+    """
+    if " في" not in type_label:
+        logger.info(f'>>>> Add في to type_label:at"{type_label}"')
+        return f"{type_label} في"
+
+    return type_label
+
+
+def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower: str) -> str:
+    """Add appropriate Arabic preposition to the type label based on the separator.
+
+    Adds 'في' (in/at) to the Arabic label when appropriate based on the English separator
+    and the type string content.
+
+    Args:
+        type_label: The current Arabic label for the type (e.g., "منشآت عسكرية").
+        separator_stripped: The stripped English separator (e.g., "in", "at").
+        type_lower: The lowercase type string (e.g., "military installations").
+
+    Returns:
+        str: The modified type label with preposition if applicable.
+
+    Example:
+        >>> separator_lists_fixing("منشآت عسكرية", "in", "military installations")
+        "منشآت عسكرية في"
+    """
+    # Early return if separator is not in the raw list
+    if separator_stripped not in separators_lists_raw:
+        return type_label
+
+    # Handle 'in' separator
+    if separator_stripped == "in" or " in" in type_lower:
+        return _handle_in_separator(type_label, separator_stripped, type_lower)
+
+    # Handle 'at' separator
+    if separator_stripped == "at" or " at" in type_lower:
+        return _handle_at_separator(type_label, type_lower)
+
+    return type_label
+
+
+def _should_add_من_for_from_separator(type_label: str) -> bool:
+    """Check if 'من' should be added for 'from' separator.
+
+    Args:
+        type_label: The current Arabic label.
+
+    Returns:
+        bool: True if 'من' should be added, False otherwise.
+    """
+    return not type_label.strip().endswith(" من")
+
+
+def _should_add_من_for_of_suffix(type_lower: str, ty_in18: str, type_label: str) -> bool:
+    """Check if 'من' should be added for ' of' suffix.
+
+    Args:
+        type_lower: The lowercase type string.
+        ty_in18: The result from get_pop_All_18.
+        type_label: The current Arabic label.
+
+    Returns:
+        bool: True if 'من' should be added, False otherwise.
+    """
+    # Check basic conditions
+    if not ty_in18:
+        return False
+
+    if not type_lower.endswith(" of"):
+        return False
+
+    if " في" in type_label:
+        return False
+
+    return True
 
 
 def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str:
     """Add 'من' (from) to the label if conditions are met.
 
+    This function adds the Arabic preposition 'من' (from/of) to the type label based on:
+    1. The separator being 'from'
+    2. The type ending with ' of' and being found in certain tables
+
     Args:
-        type_label (str): The current Arabic label for the type.
-        type_lower (str): The lowercase type string.
-        separator_stripped (str): The stripped delimiter.
+        type_label: The current Arabic label for the type.
+        type_lower: The lowercase type string.
+        separator_stripped: The stripped delimiter.
 
     Returns:
-        str: The modified type label.
+        str: The modified type label with 'من' if applicable.
+
+    Example:
+        >>> add_in_tab("رياضيون", "athletes", "from")
+        "رياضيون من "
     """
+    # Handle 'from' separator
+    if separator_stripped == "from":
+        if _should_add_من_for_from_separator(type_label):
+            logger.info(f">>>> Add من to type_label '{type_label}' (separator: from)")
+            return f"{type_label} من "
+        return type_label
+
+    # Get population data for type
     ty_in18 = get_pop_All_18(type_lower)
 
-    if separator_stripped == "from":
-        if not type_label.strip().endswith(" من"):
-            logger.info(f">>>> nAdd من to type_label '{type_label}' line:44")
-            type_label = f"{type_label} من "
+    # Check if we should add 'من' for ' of' suffix
+    if not _should_add_من_for_of_suffix(type_lower, ty_in18, type_label):
         return type_label
 
-    if not ty_in18 or not type_lower.endswith(" of") or " في" in type_label:
-        return type_label
+    # Extract type without ' of' suffix
+    type_lower_prefix = type_lower.removesuffix(" of")
 
-    type_lower_prefix = type_lower[: -len(" of")]
+    # Check if type (with or without ' of') is in tables
     in_tables = check_key_new_players(type_lower)
-    in_tables2 = check_key_new_players(type_lower_prefix)
+    in_tables_prefix = check_key_new_players(type_lower_prefix)
 
-    if in_tables or in_tables2:
-        logger.info(f">>>> nAdd من to type_label '{type_label}' line:59")
-        type_label = f"{type_label} من "
+    if in_tables or in_tables_prefix:
+        logger.info(f">>>> Add من to type_label '{type_label}' (ends with ' of')")
+        return f"{type_label} من "
 
     return type_label
 
