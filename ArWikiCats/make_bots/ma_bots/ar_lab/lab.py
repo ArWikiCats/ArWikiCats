@@ -226,6 +226,9 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
         f'{separator=}, {country_regex=}'
     )
 
+    # Apply typo fixes to regex results as well
+    type_regex = _fix_typos_in_type(type_regex, separator_stripped)
+
     type_regex = _adjust_separator_position(type_regex, separator_stripped, is_type=True)
     country_regex = _adjust_separator_position(country_regex, separator_stripped, is_type=False)
 
