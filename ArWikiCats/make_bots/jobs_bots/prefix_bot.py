@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 """
-TODO: refactor the code
+Handles prefix and suffix processing for job categories.
+
+This module provides functions to translate job category strings by processing
+prefixes and suffixes, handling nationality conversions, and applying gender-specific
+transformations.
 """
 
 import functools
+from typing import Optional
 
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
@@ -28,195 +33,313 @@ from ...translations import (
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
 
+# Constants
+_PEOPLE_SUFFIX = " people"
+_WOMEN_SUFFIX = " women"
+
+
 @functools.lru_cache(maxsize=1)
 def _extend_By_table() -> dict[str, str]:
     """
-    TODO: maybe we don't even need it
+    Extend the By_table dictionary with sports teams, people, and production companies.
+
+    Returns:
+        dict[str, str]: Mapping of English "by X" strings to Arabic translations.
     """
     result = {}
-    for ss in SPORTS_KEYS_FOR_LABEL:
-        cd = f"by {ss.lower()} team"
-        result[cd] = f"حسب فريق {SPORTS_KEYS_FOR_LABEL[ss]}"
 
-    for uh in People_key:  #
-        result[f"by {uh.lower()}"] = f"بواسطة {People_key[uh]}"
+    # Add sports team mappings
+    for sport_key, sport_label in SPORTS_KEYS_FOR_LABEL.items():
+        english_key = f"by {sport_key.lower()} team"
+        result[english_key] = f"حسب فريق {sport_label}"
 
-    for uh in FILM_PRODUCTION_COMPANY:  #
-        result[f"by {uh.lower()}"] = f"بواسطة {FILM_PRODUCTION_COMPANY[uh]}"
+    # Add people mappings
+    for person_key, person_label in People_key.items():
+        english_key = f"by {person_key.lower()}"
+        result[english_key] = f"بواسطة {person_label}"
+
+    # Add film production company mappings
+    for company_key, company_label in FILM_PRODUCTION_COMPANY.items():
+        english_key = f"by {company_key.lower()}"
+        result[english_key] = f"بواسطة {company_label}"
+
     return result
 
 
+def _strip_people_suffix(text: str) -> str:
+    """
+    Remove ' people' suffix and attempt to resolve nationality.
+
+    Args:
+        text: The text to process.
+
+    Returns:
+        str: The text with nationality resolved if possible, or original text without suffix.
+    """
+    if not text.endswith(_PEOPLE_SUFFIX):
+        return text
+
+    nationality = text[:-len(_PEOPLE_SUFFIX)]
+
+    # Check if this is a known nationality
+    if nationality in Nat_mens:
+        return nationality
+
+    return nationality
+
+
+def _get_job_label(job_key: str) -> Optional[str]:
+    """
+    Retrieve job label from available data sources.
+
+    Args:
+        job_key: The job identifier to look up.
+
+    Returns:
+        Optional[str]: The corresponding label or None if not found.
+    """
+    return jobs_mens_data.get(job_key) or Nat_mens.get(job_key)
+
+
+def _apply_gender_transformation(prefix_label: str, job_key: str) -> str:
+    """
+    Apply gender transformation if the job is in Female_Jobs and transformation exists.
+
+    Args:
+        prefix_label: The prefix label to potentially transform.
+        job_key: The job key to check against Female_Jobs.
+
+    Returns:
+        str: The transformed prefix label if applicable, otherwise original.
+    """
+    if job_key in Female_Jobs and prefix_label in change_male_to_female:
+        return change_male_to_female[prefix_label]
+    return prefix_label
+
+
+def _apply_label_replacement(label: str) -> str:
+    """
+    Apply label replacement if defined in replace_labels_2022.
+
+    Args:
+        label: The label to potentially replace.
+
+    Returns:
+        str: The replaced label if applicable, otherwise original.
+    """
+    if label in replace_labels_2022:
+        replaced = replace_labels_2022[label]
+        logger.debug(f'<<lightgreen>> Changed label to "{replaced}" via replace_labels_2022.')
+        return replaced
+    return label
+
+
 @functools.lru_cache(maxsize=None)
-def work_mens_prefix(con_33: str) -> str:
+def work_mens_prefix(category: str) -> str:
     """
-    TODO: need refactoring
-    """
-    for priff, priff_lab in Mens_prefix.items():
-        pri = f"{priff} "
+    Process category string with male job prefixes.
 
-        if not con_33.startswith(pri):
+    This function checks if the category starts with any known male job prefix,
+    extracts the job portion, resolves it through nationality or job mappings,
+    and formats the appropriate label.
+
+    Args:
+        category: The category string to process.
+
+    Returns:
+        str: The formatted Arabic label or empty string if no match found.
+    """
+    for prefix, prefix_label in Mens_prefix.items():
+        prefix_with_space = f"{prefix} "
+
+        if not category.startswith(prefix_with_space):
             continue
 
-        con_8 = con_33[len(pri) :]
-        con_88 = con_8
+        # Extract the job part after the prefix
+        job_part = category[len(prefix_with_space):]
 
-        if con_8.endswith(" people"):
-            con_nat = con_8[: -len(" people")]
-            if Nat_mens.get(con_nat):
-                con_88 = con_nat
-        con_88 = con_88.strip()
+        # Try to resolve nationality from "X people" format
+        job_key = _strip_people_suffix(job_part).strip()
 
-        logger.debug(f'<<lightblue>> {con_8=}, {con_88=}')
-        logger.debug(f'<<lightblue>> con_33.startswith pri ("{pri}"), {con_88=}')
+        logger.debug(f'<<lightblue>> Processing prefix "{prefix_with_space}": job_part="{job_part}", job_key="{job_key}"')
 
-        con_8_lab = jobs_mens_data.get(con_88, "")
-
-        if not con_8_lab:
-            con_8_lab = Nat_mens.get(con_88, "")
-
-        if con_88 in Female_Jobs and priff_lab in change_male_to_female:
-            priff_lab = change_male_to_female[priff_lab]
-        if not con_8_lab:
-
+        # Get job label
+        job_label = _get_job_label(job_key)
+        if not job_label:
             continue
-        logger.debug(f'<<lightblue>> mens_prefixes_work: pri("{pri}"), {con_88=}, {con_8_lab=}')
 
-        label = priff_lab.format(con_8_lab)
-        if label in replace_labels_2022:
-            label = replace_labels_2022[label]
-            logger.debug(f'<<lightgreen>> change label to "{label}" replace_labels_2022.')
+        # Apply gender transformation if needed
+        final_prefix_label = _apply_gender_transformation(prefix_label, job_key)
+
+        # Format and apply replacements
+        label = final_prefix_label.format(job_label)
+        label = _apply_label_replacement(label)
 
         if label.strip():
-            logger.debug(f'<<lightblue>> ----- end: mens_prefixes_work : {label=}, {con_33=}..')
+            logger.debug(f'<<lightblue>> Found label via prefix: "{label}" for category "{category}"')
             return label
+
     return ""
 
 
 @functools.lru_cache(maxsize=None)
-def work_mens_suffix(con_33: str) -> str:
+def work_mens_suffix(category: str) -> str:
     """
-    TODO: need refactoring
-    """
-    for suffix1, suf_lab in Mens_suffix.items():
-        suffix2 = f" {suffix1}"
+    Process category string with male job suffixes.
 
-        if not con_33.endswith(suffix2):
+    This function checks if the category ends with any known male job suffix,
+    extracts the nationality/job portion, and formats the appropriate label.
+
+    Args:
+        category: The category string to process.
+
+    Returns:
+        str: The formatted Arabic label or empty string if no match found.
+    """
+    for suffix, suffix_label in Mens_suffix.items():
+        suffix_with_space = f" {suffix}"
+
+        if not category.endswith(suffix_with_space):
             continue
 
-        con_8 = con_33[: -len(suffix2)]
-        con_88 = con_8
+        # Extract the part before the suffix
+        job_part = category[:-len(suffix_with_space)]
 
-        if con_8.endswith(" people"):
-            con_nat = con_8[: -len(" people")]
-            if Nat_mens.get(con_nat):
-                con_88 = con_nat
+        # Try to resolve nationality from "X people" format
+        job_key = _strip_people_suffix(job_part).strip()
 
-        con_88 = con_88.strip()
-        logger.debug(f'<<lightblue>> con_33.endswith suffix2("{suffix2}"), con 88:"{con_88}"')
+        logger.debug(f'<<lightblue>> Processing suffix "{suffix_with_space}": job_key="{job_key}"')
 
-        con_88_lab = Nat_mens.get(con_88, "") or get_pop_All_18(con_88) or get_pop_All_18(con_8) or ""
+        # Try multiple sources for the label
+        job_label = (
+            Nat_mens.get(job_key) or
+            get_pop_All_18(job_key) or
+            get_pop_All_18(job_part) or
+            ""
+        )
 
-        if con_88_lab:
-            logger.debug(f'<<lightblue>> con_33.startswith_suffix2("{suffix2}"), {con_88_lab=}')
-            label = suf_lab.format(con_88_lab)
+        if job_label:
+            label = suffix_label.format(job_label)
 
             if label.strip():
-                logger.debug(f'<<lightblue>> ----- end: mens_prefixes_work : {label=}, {con_33=}..')
+                logger.debug(f'<<lightblue>> Found label via suffix: "{label}" for category "{category}"')
                 return label
 
     return ""
 
 
 @functools.lru_cache(maxsize=None)
-def mens_prefixes_work(con_33: str) -> str:
-    """Process and retrieve the appropriate label for a given input string.
+def mens_prefixes_work(category: str) -> str:
+    """
+    Process and retrieve the appropriate label for a male job category.
 
-    This function takes an input string, processes it to determine if it
-    matches any predefined prefixes or suffixes associated with male job
-    categories. It first normalizes the input by converting it to lowercase
-    and stripping whitespace. The function checks various dictionaries to
-    find a corresponding label based on the input. If a match is found, it
-    formats the label accordingly and caches the result for future use. The
-    function also handles specific cases where the input may end with
-    "people" and adjusts the label based on additional mappings.
+    This function takes a category string and attempts to find a matching Arabic
+    label by checking multiple strategies in order:
+    1. Direct lookup in By_table and extended By_table
+    2. Direct lookup in jobs_mens_data
+    3. Prefix matching and transformation
+    4. Suffix matching and transformation
+
+    The function normalizes input, handles nationality conversions (e.g., "X people"),
+    applies gender transformations, and caches results for performance.
 
     Args:
-        con_33 (str): The input string representing a job title or category.
+        category: The category string representing a job title or category.
 
     Returns:
-        str: The formatted label corresponding to the input string.
+        str: The formatted Arabic label corresponding to the category, or empty string if no match.
     """
-    logger.debug(f'<<lightblue>> --- start: mens_prefixes_work :"{con_33}"')
+    logger.debug(f'<<lightblue>> === Start: mens_prefixes_work for "{category}"')
 
-    By_table2 = _extend_By_table()
+    # Check direct table lookups first
+    by_table_extended = _extend_By_table()
+    label = By_table.get(category) or by_table_extended.get(category)
+    if label:
+        logger.debug(f'<<lightblue>> Found in By_table: "{label}"')
+        return label
 
-    label = By_table.get(con_33) or By_table2.get(con_33)
+    # Check direct job data lookup
+    label = jobs_mens_data.get(category)
+    if label:
+        logger.debug(f'<<lightblue>> Found in jobs_mens_data: "{label}"')
+        return label
+
+    # Try prefix matching
+    label = work_mens_prefix(category)
     if label:
         return label
 
-    label = jobs_mens_data.get(con_33, "")
-    if label:
-        logger.debug(f'<<lightblue>> ----- end: mens_prefixes_work : {label=}, {con_33=}..')
-        return label
-
-    label = work_mens_prefix(con_33)
+    # Try suffix matching
+    label = work_mens_suffix(category)
     if label:
         return label
 
-    label = work_mens_suffix(con_33)
-    if label:
-        return label
-
+    logger.debug(f'<<lightblue>> === End: no match found for "{category}"')
     return ""
 
 
 @functools.lru_cache(maxsize=None)
-def womens_prefixes_work(suffix: str) -> str:
+def womens_prefixes_work(category: str) -> str:
     """
-    Retrieve the women's prefix work label based on the input string.
+    Retrieve the women's job label based on the category string.
 
-    This function processes the input string to determine if it matches any
-    predefined women's job prefixes. It first checks if the lowercase and
-    stripped version of the input exists in a cache. If not found, it
-    attempts to derive the job label from a mapping of women's jobs. The
-    function also handles specific cases where the input string ends with "
-    women" and checks against various prefixes to find a match. The result
-    is cached for future reference.
+    This function processes the category string to determine if it matches any
+    predefined women's job prefixes. It checks:
+    1. Direct lookup in short_womens_jobs
+    2. Prefix matching with women's job prefixes
+    3. Handles special cases like "women's" and "women's-" prefixes
+
+    The function also handles categories ending with " women" and attempts to
+    resolve the job through various data sources.
 
     Args:
-        suffix (str): The input string representing a job or title related to women.
+        category: The category string representing a job or title related to women.
 
     Returns:
-        str: The corresponding job label or an empty string if no match is found.
-
-    TODO: need refactoring
+        str: The corresponding Arabic job label or empty string if no match found.
     """
-    label = short_womens_jobs.get(suffix, "")
-
+    # Direct lookup in short jobs
+    label = short_womens_jobs.get(category)
     if label:
+        logger.debug(f'<<lightblue>> Found in short_womens_jobs: "{label}"')
         return label
 
-    con_33 = suffix
+    # Strip " women" suffix if present
+    processed_category = category
+    if category.endswith(_WOMEN_SUFFIX):
+        processed_category = category[:-len(_WOMEN_SUFFIX)]
 
-    if suffix.endswith(" women"):
-        con_33 = suffix[: -len(" women")]
+    # Try prefix matching
+    for prefix, prefix_label in womens_prefixes.items():
+        # Build list of prefix variants to check
+        prefix_variants = [f"{prefix} "]
+        if prefix == "women's":
+            prefix_variants.append("women's-")
 
-    for wriff, wrifflab in womens_prefixes.items():
-        data = [f"{wriff} "]
-        if wriff == "women's":
-            data.append("women's-")
-
-        for prefix in data:
-            if not con_33.startswith(prefix):
+        for prefix_variant in prefix_variants:
+            if not processed_category.startswith(prefix_variant):
                 continue
 
-            con_4 = con_33[len(prefix) :]
-            con_8_Wb = jobs_womens_data.get(con_4) or PLAYERS_TO_MEN_WOMENS_JOBS.get(con_4, {}).get("females", "")
-            logger.debug(f'<<lightblue>> con_33.startswith_Wriff2("{prefix}"), {con_4=}, {con_8_Wb=}')
+            # Extract job key after prefix
+            job_key = processed_category[len(prefix_variant):]
 
-            if con_8_Wb:
-                label = wrifflab.format(con_8_Wb)
+            # Look up job label from women's data or player mappings
+            job_label = (
+                jobs_womens_data.get(job_key) or
+                PLAYERS_TO_MEN_WOMENS_JOBS.get(job_key, {}).get("females", "")
+            )
+
+            logger.debug(
+                f'<<lightblue>> Processing prefix "{prefix_variant}": '
+                f'job_key="{job_key}", job_label="{job_label}"'
+            )
+
+            if job_label:
+                label = prefix_label.format(job_label)
+                logger.debug(f'<<lightblue>> Found label via prefix: "{label}"')
                 return label
+
+    logger.debug(f'<<lightblue>> No match found for "{category}"')
     return ""
 
 
