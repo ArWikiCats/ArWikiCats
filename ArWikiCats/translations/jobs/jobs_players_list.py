@@ -152,14 +152,14 @@ def _build_skating_labels(labels: Mapping[str, GenderedLabel]) -> GenderedLabelM
     result: GenderedLabelMap = {}
     for discipline_key, discipline_labels in labels.items():
         mens = discipline_labels["mens"]
-        womens = discipline_labels["females"]
+        females = discipline_labels["females"]
         result[f"{discipline_key} skaters"] = {
             "mens": f"متزلجو {mens}",
-            "females": f"متزلجات {womens}",
+            "females": f"متزلجات {females}",
         }
         result[f"{discipline_key} skiers"] = {
             "mens": f"متزحلقو {mens}",
-            "females": f"متزحلقات {womens}",
+            "females": f"متزحلقات {females}",
         }
 
     return result
@@ -211,7 +211,7 @@ def _build_general_scope_labels(
             composite_key = f"{scope_key} {role_key}".lower()
             result[composite_key] = {
                 "mens": f"{role_labels['mens']} {scope_labels['mens']}",
-                "females": f"{role_labels['womens']} {scope_labels['womens']}",
+                "females": f"{role_labels['females']} {scope_labels['females']}",
             }
     return result
 
@@ -289,7 +289,7 @@ def _build_sports_job_variants(
             olympic_key = f"olympic {lowered_job_key} {lowered_football_key}"
             result[olympic_key] = {
                 "mens": f"{football_labels['mens']} {arabic_label} أولمبيون",
-                "females": f"{football_labels['womens']} {arabic_label} أولمبيات",
+                "females": f"{football_labels['females']} {arabic_label} أولمبيات",
             }
             mens_key = f"men's {lowered_job_key} {lowered_football_key}"
             result[mens_key] = {
@@ -299,7 +299,7 @@ def _build_sports_job_variants(
             composite_key = f"{lowered_job_key} {lowered_football_key}"
             result[composite_key] = {
                 "mens": f"{football_labels['mens']} {arabic_label}",
-                "females": f"{football_labels['womens']} {arabic_label}",
+                "females": f"{football_labels['females']} {arabic_label}",
             }
 
     return result

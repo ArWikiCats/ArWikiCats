@@ -29,7 +29,7 @@ def _build_religious_job_labels(
     combined_roles: GenderedLabelMap = {}
     for religion_key, religion_labels in religions.items():
         for role_key, role_labels in roles.items():
-            womens_label = f"{role_labels['womens']} {religion_labels['womens']}" if role_labels["females"] else ""
+            womens_label = f"{role_labels['females']} {religion_labels['females']}" if role_labels["females"] else ""
             combined_roles[f"{religion_key} {role_key}"] = {
                 "mens": f"{role_labels['mens']} {religion_labels['mens']}",
                 "females": womens_label,
@@ -65,7 +65,7 @@ def _build_painter_job_labels(
             composite_key = f"{style_key} {role_key}"
             combined_data[composite_key] = {
                 "mens": f"{role_labels['mens']} {style_labels['mens']}",
-                "females": f"{role_labels['womens']} {style_labels['womens']}",
+                "females": f"{role_labels['females']} {style_labels['females']}",
             }
     for painter_category, category_label in painter_categories.items():
         combined_data[f"{painter_category} painters"] = {
@@ -114,7 +114,7 @@ def _build_military_job_labels(
             composite_key = f"{military_key} {role_key}"
             combined_roles[composite_key] = {
                 "mens": f"{role_labels['mens']} {prefix_labels['mens']}",
-                "females": f"{role_labels['womens']} {prefix_labels['womens']}",
+                "females": f"{role_labels['females']} {prefix_labels['females']}",
             }
 
     return combined_roles

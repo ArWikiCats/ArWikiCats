@@ -39,7 +39,7 @@ def _build_category_role_labels(
             composite_key = f"{category_key} {role_key}"
             combined[composite_key] = {
                 "mens": f"{role_labels['mens']} {category_label}",
-                "females": f"{role_labels['womens']} {category_label}",
+                "females": f"{role_labels['females']} {category_label}",
             }
         # combined[ f"{category_key} singers" ] = { "mens": f"مغنو {category_label}" ,"females": f"مغنيات {category_label}" }
         # combined[ f"{category_key} writers" ] = { "mens": f"كتاب {category_label}" ,"females": f"كاتبات {category_label}" }
@@ -81,7 +81,7 @@ def _build_non_fiction_variants(
         for role_key, role_labels in roles.items():
             variants[f"{topic_key} {role_key}"] = {
                 "mens": f"{role_labels['mens']} {mens_topic}",
-                "females": f"{role_labels['womens']} {womens_topic}",
+                "females": f"{role_labels['females']} {womens_topic}",
             }
 
         variants[f"non-fiction {topic_key} writers"] = {

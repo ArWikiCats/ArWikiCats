@@ -147,7 +147,7 @@ def _extend_with_religious_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMap
     for religion_key, labels in RELIGIOUS_KEYS_PP.items():
         jobs[religion_key] = {"mens": labels["mens"], "females": labels["females"]}
         activist_key = f"{religion_key} activists"
-        jobs[activist_key] = {"mens": f"ناشطون {labels['mens']}", "females": f"ناشطات {labels['womens']}"}
+        jobs[activist_key] = {"mens": f"ناشطون {labels['mens']}", "females": f"ناشطات {labels['females']}"}
     return jobs
 
 
@@ -238,15 +238,15 @@ def _add_sport_variants(
         lowered = base_key.lower()
         data[f"sports {lowered}"] = {
             "mens": f"{base_labels['mens']} رياضيون",
-            "females": f"{base_labels['womens']} رياضيات",
+            "females": f"{base_labels['females']} رياضيات",
         }
         data[f"professional {lowered}"] = {
             "mens": f"{base_labels['mens']} محترفون",
-            "females": f"{base_labels['womens']} محترفات",
+            "females": f"{base_labels['females']} محترفات",
         }
         data[f"wheelchair {lowered}"] = {
             "mens": f"{base_labels['mens']} على الكراسي المتحركة",
-            "females": f"{base_labels['womens']} على الكراسي المتحركة",
+            "females": f"{base_labels['females']} على الكراسي المتحركة",
         }
     return data
 
@@ -280,12 +280,12 @@ def _add_jobs_people_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> N
         for book_key, book_label in BOOK_CATEGORIES.items():
             m_w_jobs[f"{book_key} {role_key}"] = {
                 "mens": f"{role_labels['mens']} {book_label}",
-                "females": f"{role_labels['womens']} {book_label}",
+                "females": f"{role_labels['females']} {book_label}",
             }
         for genre_key, genre_label in JOBS_TYPE_TRANSLATIONS.items():
             m_w_jobs[f"{genre_key} {role_key}"] = {
                 "mens": f"{role_labels['mens']} {genre_label}",
-                "females": f"{role_labels['womens']} {genre_label}",
+                "females": f"{role_labels['females']} {genre_label}",
             }
 
 
@@ -299,7 +299,7 @@ def _add_film_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
             combo_key = f"{lowered_film_key} {role_key}"
             m_w_jobs[combo_key] = {
                 "mens": f"{role_labels['mens']} {film_label}",
-                "females": f"{role_labels['womens']} {film_label}",
+                "females": f"{role_labels['females']} {film_label}",
             }
 
 
@@ -312,7 +312,7 @@ def _add_singer_variants(m_w_jobs: MutableMapping[str, GenderedLabel]) -> None:
             combo_key = f"{style_key} {category}"
             m_w_jobs[combo_key] = {
                 "mens": f"{labels['mens']} {style_labels['mens']}",
-                "females": f"{labels['womens']} {style_labels['womens']}",
+                "females": f"{labels['females']} {style_labels['females']}",
             }
 
 
