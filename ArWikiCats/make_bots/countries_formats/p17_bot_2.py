@@ -25,7 +25,7 @@ def get_p17_2(category: str) -> str:  # الإنجليزي اسم البلد و�
     logger.info(f'<<lightblue>>>>>> get_p17_2 "{category}" ')  # ""
 
     # resolved mens:
-    resolved_label = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "mens", countries_nat_en_key)
+    resolved_label = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
 
     if not resolved_label:
         resolved_label = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "women", countries_nat_en_key, add_article=True)

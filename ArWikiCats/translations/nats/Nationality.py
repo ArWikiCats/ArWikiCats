@@ -20,7 +20,7 @@ class NationalityEntry(TypedDict):
     """Represents one nationality block with all fields always present as strings."""
 
     man: str
-    mens: str
+    males: str
     women: str
     females: str
     en: str
@@ -64,7 +64,7 @@ def load_sources() -> Dict[str, NationalityEntry]:
         # Build guaranteed structure
         entry: NationalityEntry = {
             "man": val.get("man", "") if isinstance(val, dict) else "",
-            "mens": val.get("mens", "") if isinstance(val, dict) else "",
+            "males": val.get("males", "") if isinstance(val, dict) else "",
             "women": val.get("women", "") if isinstance(val, dict) else "",
             "females": val.get("females", "") if isinstance(val, dict) else "",
             "en": val.get("en", "") if isinstance(val, dict) else "",
@@ -144,7 +144,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
     # Special defined nationality
     all_nat_o["papua new guinean x "] = {
         "man": "غيني",
-        "mens": "غينيون",
+        "males": "غينيون",
         "women": "غينية",
         "females": "غينيات",
         "en": "papua new guinea",
@@ -156,7 +156,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
         ge = all_nat_o["georgian"]
         all_nat_o["georgia (country)"] = {
             "man": ge["man"],
-            "mens": ge["mens"],
+            "males": ge["males"],
             "women": ge["women"],
             "females": ge["females"],
             "en": "georgia (country)",
@@ -166,7 +166,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
     # Add southwest asian nationality
     all_nat_o["southwest asian"] = {
         "man": "جنوب غرب آسيوي",
-        "mens": "جنوبيون غربيون آسيويين",
+        "males": "جنوبيون غربيون آسيويين",
         "women": "جنوب غربي آسيوية",
         "females": "جنوبيات غربيات آسيويات",
         "en": "southwest asia",
@@ -191,15 +191,15 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
 
     for nat_key, entry in all_nat_o.items():
         man = entry["man"]
-        mens = entry["mens"]
+        males = entry["males"]
         women, females = entry["women"], entry["females"]
 
-        if not any([man, mens, women, females]):
+        if not any([man, males, women, females]):
             continue  # skip if no gender fields present
 
         new_entry: NationalityEntry = {
             "man": f"أمريكي {man}" if man else "",
-            "mens": f"أمريكيون {mens}" if mens else "",
+            "males": f"أمريكيون {males}" if males else "",
             "women": f"أمريكية {women}" if women else "",
             "females": f"أمريكيات {females}" if females else "",
             "en": "",
@@ -250,8 +250,8 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
             Nat_men[nat_key] = entry["man"]
             ar_Nat_men[entry["man"]] = nat_key
 
-        if entry["mens"]:
-            Nat_mens[nat_key] = entry["mens"]
+        if entry["males"]:
+            Nat_mens[nat_key] = entry["males"]
         if entry["women"]:
             Nat_women[nat_key] = entry["women"]
         if entry["females"]:

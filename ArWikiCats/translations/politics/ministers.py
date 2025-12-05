@@ -189,11 +189,11 @@ ministrs_tab_for_Jobs_2020 = {}  # used in Jobs.py
 for ministry_key, ministry_labels in ministrs_keys.items():
     singular_label = ministry_labels["singular"]
     ministrs_tab_for_Jobs_2020[f"secretaries-of {ministry_key}"] = {
-        "mens": f"وزراء {singular_label}",
+        "males": f"وزراء {singular_label}",
         "females": f"وزيرات {singular_label}",
     }
     ministrs_tab_for_Jobs_2020[f"secretaries of {ministry_key}"] = {
-        "mens": f"وزراء {singular_label}",
+        "males": f"وزراء {singular_label}",
         "females": f"وزيرات {singular_label}",
     }
 # ---

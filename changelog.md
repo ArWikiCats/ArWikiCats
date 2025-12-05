@@ -3,7 +3,7 @@
 
 * **Chores**
   * Standardized gender terminology across category labels and translations.
-  * Consolidated gender key naming for consistency in data structures ("man"/"mens"/"females" instead of "men"/"womens").
+  * Consolidated gender key naming for consistency in data structures ("man"/"males"/"females" instead of "men"/"womens").
   * Updated data formatting to align with revised gender classification standards.
   * Refined import paths and internal symbol naming for improved code organization.
 

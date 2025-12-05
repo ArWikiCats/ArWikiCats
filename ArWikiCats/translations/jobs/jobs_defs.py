@@ -15,7 +15,7 @@ from ..utils.json_dir import open_json_file
 class GenderedLabel(TypedDict):
     """Represent an Arabic label split into masculine and feminine forms."""
 
-    mens: str
+    males: str
     females: str
 
 
@@ -57,16 +57,16 @@ def load_gendered_label_map(filename: str) -> GenderedLabelMap:
         for raw_key, raw_value in raw_data.items():
             if not isinstance(raw_key, str) or not isinstance(raw_value, Mapping):
                 continue
-            mens_value = str(raw_value.get("mens", ""))
+            mens_value = str(raw_value.get("males", ""))
             womens_value = str(raw_value.get("females", ""))
-            result[raw_key] = {"mens": mens_value, "females": womens_value}
+            result[raw_key] = {"males": mens_value, "females": womens_value}
     return result
 
 
 def copy_gendered_map(source: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
     """Return a deep copy of ``source``."""
 
-    return {key: {"mens": value["mens"], "females": value["females"]} for key, value in source.items()}
+    return {key: {"males": value["males"], "females": value["females"]} for key, value in source.items()}
 
 
 def merge_gendered_maps(
@@ -76,7 +76,7 @@ def merge_gendered_maps(
     """Update ``target`` with copies from ``source`` to avoid shared state."""
 
     for key, value in source.items():
-        target[key] = {"mens": value["mens"], "females": value["females"]}
+        target[key] = {"males": value["males"], "females": value["females"]}
 
 
 def ensure_gendered_label(
@@ -87,7 +87,7 @@ def ensure_gendered_label(
     """Insert ``value`` into ``target`` if ``key`` is not present."""
 
     if key not in target:
-        target[key] = {"mens": value["mens"], "females": value["females"]}
+        target[key] = {"males": value["males"], "females": value["females"]}
 
 
 def combine_gendered_labels(
@@ -117,11 +117,11 @@ def combine_gendered_labels(
         implementation.
     """
 
-    mens_label = join_terms(base_labels["mens"], suffix_labels["mens"])
+    mens_label = join_terms(base_labels["males"], suffix_labels["males"])
     womens_label = ""
     if not require_base_womens or base_labels["females"]:
         womens_label = join_terms(base_labels["females"], suffix_labels["females"])
-    return {"mens": mens_label, "females": womens_label}
+    return {"males": mens_label, "females": womens_label}
 
 
 __all__ = [

@@ -31,7 +31,7 @@ def _build_religious_job_labels(
         for role_key, role_labels in roles.items():
             womens_label = f"{role_labels['females']} {religion_labels['females']}" if role_labels["females"] else ""
             combined_roles[f"{religion_key} {role_key}"] = {
-                "mens": f"{role_labels['mens']} {religion_labels['mens']}",
+                "males": f"{role_labels['males']} {religion_labels['males']}",
                 "females": womens_label,
             }
 
@@ -64,16 +64,16 @@ def _build_painter_job_labels(
         for role_key, role_labels in painter_roles.items():
             composite_key = f"{style_key} {role_key}"
             combined_data[composite_key] = {
-                "mens": f"{role_labels['mens']} {style_labels['mens']}",
+                "males": f"{role_labels['males']} {style_labels['males']}",
                 "females": f"{role_labels['females']} {style_labels['females']}",
             }
     for painter_category, category_label in painter_categories.items():
         combined_data[f"{painter_category} painters"] = {
-            "mens": f"رسامو {category_label}",
+            "males": f"رسامو {category_label}",
             "females": f"رسامات {category_label}",
         }
         combined_data[f"{painter_category} artists"] = {
-            "mens": f"فنانو {category_label}",
+            "males": f"فنانو {category_label}",
             "females": f"فنانات {category_label}",
         }
 
@@ -113,7 +113,7 @@ def _build_military_job_labels(
         for role_key, role_labels in military_roles.items():
             composite_key = f"{military_key} {role_key}"
             combined_roles[composite_key] = {
-                "mens": f"{role_labels['mens']} {prefix_labels['mens']}",
+                "males": f"{role_labels['males']} {prefix_labels['males']}",
                 "females": f"{role_labels['females']} {prefix_labels['females']}",
             }
 
@@ -123,38 +123,38 @@ def _build_military_job_labels(
 # --- Religious role definitions -------------------------------------------------
 # (?<!\w)(shi'a\ muslims|sunni\ muslims|shia\ muslims|shi'a\ muslim|sunni\ muslim|shia\ muslim|episcopalians|evangelical|christians|protestant|anglicans|christian|methodist|religious|venerated|anglican|buddhist|bahá'ís|yazidis|islamic|muslims|muslim|coptic|hindus|jewish|zaydis|saints|hindu|zaydi|sufis|nazi|jews)(?!\w)
 RELIGIOUS_KEYS_PP: GenderedLabelMap = {
-    "bahá'ís": {"mens": "بهائيون", "females": "بهائيات"},
-    "yazidis": {"mens": "يزيديون", "females": "يزيديات"},
-    "christians": {"mens": "مسيحيون", "females": "مسيحيات"},
-    "anglican": {"mens": "أنجليكيون", "females": "أنجليكيات"},
-    "anglicans": {"mens": "أنجليكيون", "females": "أنجليكيات"},
-    "episcopalians": {"mens": "أسقفيون", "females": "أسقفيات"},
-    "christian": {"mens": "مسيحيون", "females": "مسيحيات"},
-    "buddhist": {"mens": "بوذيون", "females": "بوذيات"},
-    "nazi": {"mens": "نازيون", "females": "نازيات"},
-    "muslim": {"mens": "مسلمون", "females": "مسلمات"},
-    "coptic": {"mens": "أقباط", "females": "قبطيات"},
-    "islamic": {"mens": "إسلاميون", "females": "إسلاميات"},
-    "hindus": {"mens": "هندوس", "females": "هندوسيات"},
-    "hindu": {"mens": "هندوس", "females": "هندوسيات"},
-    "protestant": {"mens": "بروتستانتيون", "females": "بروتستانتيات"},
-    "methodist": {"mens": "ميثوديون لاهوتيون", "females": "ميثوديات لاهوتيات"},
-    "jewish": {"mens": "يهود", "females": "يهوديات"},
-    "jews": {"mens": "يهود", "females": "يهوديات"},
-    "zaydis": {"mens": "زيود", "females": "زيديات"},
-    "zaydi": {"mens": "زيود", "females": "زيديات"},
-    "sufis": {"mens": "صوفيون", "females": "صوفيات"},
-    "religious": {"mens": "دينيون", "females": "دينيات"},
-    "muslims": {"mens": "مسلمون", "females": "مسلمات"},
-    "shia muslims": {"mens": "مسلمون شيعة", "females": "مسلمات شيعيات"},
-    "shi'a muslims": {"mens": "مسلمون شيعة", "females": "مسلمات شيعيات"},
-    "sunni muslims": {"mens": "مسلمون سنة", "females": "مسلمات سنيات"},
-    "shia muslim": {"mens": "مسلمون شيعة", "females": "مسلمات شيعيات"},
-    "shi'a muslim": {"mens": "مسلمون شيعة", "females": "مسلمات شيعيات"},
-    "sunni muslim": {"mens": "مسلمون سنة", "females": "مسلمات سنيات"},
-    "evangelical": {"mens": "إنجيليون", "females": "إنجيليات"},
-    "venerated": {"mens": "مبجلون", "females": "مبجلات"},
-    "saints": {"mens": "قديسون", "females": "قديسات"},
+    "bahá'ís": {"males": "بهائيون", "females": "بهائيات"},
+    "yazidis": {"males": "يزيديون", "females": "يزيديات"},
+    "christians": {"males": "مسيحيون", "females": "مسيحيات"},
+    "anglican": {"males": "أنجليكيون", "females": "أنجليكيات"},
+    "anglicans": {"males": "أنجليكيون", "females": "أنجليكيات"},
+    "episcopalians": {"males": "أسقفيون", "females": "أسقفيات"},
+    "christian": {"males": "مسيحيون", "females": "مسيحيات"},
+    "buddhist": {"males": "بوذيون", "females": "بوذيات"},
+    "nazi": {"males": "نازيون", "females": "نازيات"},
+    "muslim": {"males": "مسلمون", "females": "مسلمات"},
+    "coptic": {"males": "أقباط", "females": "قبطيات"},
+    "islamic": {"males": "إسلاميون", "females": "إسلاميات"},
+    "hindus": {"males": "هندوس", "females": "هندوسيات"},
+    "hindu": {"males": "هندوس", "females": "هندوسيات"},
+    "protestant": {"males": "بروتستانتيون", "females": "بروتستانتيات"},
+    "methodist": {"males": "ميثوديون لاهوتيون", "females": "ميثوديات لاهوتيات"},
+    "jewish": {"males": "يهود", "females": "يهوديات"},
+    "jews": {"males": "يهود", "females": "يهوديات"},
+    "zaydis": {"males": "زيود", "females": "زيديات"},
+    "zaydi": {"males": "زيود", "females": "زيديات"},
+    "sufis": {"males": "صوفيون", "females": "صوفيات"},
+    "religious": {"males": "دينيون", "females": "دينيات"},
+    "muslims": {"males": "مسلمون", "females": "مسلمات"},
+    "shia muslims": {"males": "مسلمون شيعة", "females": "مسلمات شيعيات"},
+    "shi'a muslims": {"males": "مسلمون شيعة", "females": "مسلمات شيعيات"},
+    "sunni muslims": {"males": "مسلمون سنة", "females": "مسلمات سنيات"},
+    "shia muslim": {"males": "مسلمون شيعة", "females": "مسلمات شيعيات"},
+    "shi'a muslim": {"males": "مسلمون شيعة", "females": "مسلمات شيعيات"},
+    "sunni muslim": {"males": "مسلمون سنة", "females": "مسلمات سنيات"},
+    "evangelical": {"males": "إنجيليون", "females": "إنجيليات"},
+    "venerated": {"males": "مبجلون", "females": "مبجلات"},
+    "saints": {"males": "قديسون", "females": "قديسات"},
 }
 
 NAT_BEFORE_OCC_BASE: List[str] = [
@@ -185,35 +185,35 @@ NAT_BEFORE_OCC = list(NAT_BEFORE_OCC_BASE)
 NAT_BEFORE_OCC.extend(key for key in RELIGIOUS_KEYS_PP.keys())
 
 RELIGIOUS_ROLE_LABELS: GenderedLabelMap = {
-    "christians": {"mens": "مسيحيون", "females": "مسيحيات"},
-    "venerated": {"mens": "مبجلون", "females": "مبجلات"},
-    "missionaries": {"mens": "مبشرون", "females": "مبشرات"},
-    "evangelical": {"mens": "إنجيليون", "females": "إنجيليات"},
-    "monks": {"mens": "رهبان", "females": "راهبات"},
-    "nuns": {"mens": "", "females": "راهبات"},
-    "saints": {"mens": "قديسون", "females": "قديسات"},
-    "astrologers": {"mens": "منجمون", "females": "منجمات"},
-    "leaders": {"mens": "قادة", "females": "قائدات"},
-    "bishops": {"mens": "أساقفة", "females": ""},
-    "actors": {"mens": "ممثلون", "females": "ممثلات"},
-    "theologians": {"mens": "لاهوتيون", "females": "لاهوتيات"},
-    "clergy": {"mens": "رجال دين", "females": "سيدات دين"},
-    "religious leaders": {"mens": "قادة دينيون", "females": "قائدات دينيات"},
+    "christians": {"males": "مسيحيون", "females": "مسيحيات"},
+    "venerated": {"males": "مبجلون", "females": "مبجلات"},
+    "missionaries": {"males": "مبشرون", "females": "مبشرات"},
+    "evangelical": {"males": "إنجيليون", "females": "إنجيليات"},
+    "monks": {"males": "رهبان", "females": "راهبات"},
+    "nuns": {"males": "", "females": "راهبات"},
+    "saints": {"males": "قديسون", "females": "قديسات"},
+    "astrologers": {"males": "منجمون", "females": "منجمات"},
+    "leaders": {"males": "قادة", "females": "قائدات"},
+    "bishops": {"males": "أساقفة", "females": ""},
+    "actors": {"males": "ممثلون", "females": "ممثلات"},
+    "theologians": {"males": "لاهوتيون", "females": "لاهوتيات"},
+    "clergy": {"males": "رجال دين", "females": "سيدات دين"},
+    "religious leaders": {"males": "قادة دينيون", "females": "قائدات دينيات"},
 }
 
 
 # --- Painter role definitions ---------------------------------------------------
 PAINTER_STYLES: GenderedLabelMap = {
-    "symbolist": {"mens": "رمزيون", "females": "رمزيات"},
-    "history": {"mens": "تاريخيون", "females": "تاريخيات"},
-    "romantic": {"mens": "رومانسيون", "females": "رومانسيات"},
-    "neoclassical": {"mens": "كلاسيكيون حديثون", "females": "كلاسيكيات حديثات"},
-    "religious": {"mens": "دينيون", "females": "دينيات"},
+    "symbolist": {"males": "رمزيون", "females": "رمزيات"},
+    "history": {"males": "تاريخيون", "females": "تاريخيات"},
+    "romantic": {"males": "رومانسيون", "females": "رومانسيات"},
+    "neoclassical": {"males": "كلاسيكيون حديثون", "females": "كلاسيكيات حديثات"},
+    "religious": {"males": "دينيون", "females": "دينيات"},
 }
 
 PAINTER_ROLE_LABELS: GenderedLabelMap = {
-    "painters": {"mens": "رسامون", "females": "رسامات"},
-    "artists": {"mens": "فنانون", "females": "فنانات"},
+    "painters": {"males": "رسامون", "females": "رسامات"},
+    "artists": {"males": "فنانون", "females": "فنانات"},
 }
 
 PAINTER_CATEGORY_LABELS: Dict[str, str] = {
@@ -231,22 +231,22 @@ PAINTER_CATEGORY_LABELS: Dict[str, str] = {
 
 # --- Military role definitions --------------------------------------------------
 MILITARY_PREFIXES: GenderedLabelMap = {
-    "military": {"mens": "عسكريون", "females": "عسكريات"},
-    "politicians": {"mens": "سياسيون", "females": "سياسيات"},
-    "nazi": {"mens": "نازيون", "females": "نازيات"},
-    "literary": {"mens": "أدبيون", "females": "أدبيات"},
-    "organizational": {"mens": "تنظيميون", "females": "تنظيميات"},
+    "military": {"males": "عسكريون", "females": "عسكريات"},
+    "politicians": {"males": "سياسيون", "females": "سياسيات"},
+    "nazi": {"males": "نازيون", "females": "نازيات"},
+    "literary": {"males": "أدبيون", "females": "أدبيات"},
+    "organizational": {"males": "تنظيميون", "females": "تنظيميات"},
 }
 
 MILITARY_ROLE_LABELS: GenderedLabelMap = {
-    "theorists": {"mens": "منظرون", "females": "منظرات"},
-    "musicians": {"mens": "موسيقيون", "females": "موسيقيات"},
-    "engineers": {"mens": "مهندسون", "females": "مهندسات"},
-    "leaders": {"mens": "قادة", "females": "قائدات"},
-    "officers": {"mens": "ضباط", "females": "ضابطات"},
-    "historians": {"mens": "مؤرخون", "females": "مؤرخات"},
-    "strategists": {"mens": "استراتيجيون", "females": "استراتيجيات"},
-    "nurses": {"mens": "ممرضون", "females": "ممرضات"},
+    "theorists": {"males": "منظرون", "females": "منظرات"},
+    "musicians": {"males": "موسيقيون", "females": "موسيقيات"},
+    "engineers": {"males": "مهندسون", "females": "مهندسات"},
+    "leaders": {"males": "قادة", "females": "قائدات"},
+    "officers": {"males": "ضباط", "females": "ضابطات"},
+    "historians": {"males": "مؤرخون", "females": "مؤرخات"},
+    "strategists": {"males": "استراتيجيون", "females": "استراتيجيات"},
+    "nurses": {"males": "ممرضون", "females": "ممرضات"},
 }
 
 EXCLUDED_MILITARY_PREFIXES = ("military", "literary")

@@ -71,7 +71,7 @@ def load_data() -> Dict[str, str]:
             data[f"{key2} {after}"] = f"{after_label} {value2}"
         for after in FOOTBALL_KEYS_PLAYERS:
             PP_o = f"{key2} {after}"
-            llab = FOOTBALL_KEYS_PLAYERS[after]["mens"]
+            llab = FOOTBALL_KEYS_PLAYERS[after]["males"]
             if "women's" in PP_o:
                 llab = FOOTBALL_KEYS_PLAYERS[after]["females"]
             data[PP_o] = f"{llab} {value2}"

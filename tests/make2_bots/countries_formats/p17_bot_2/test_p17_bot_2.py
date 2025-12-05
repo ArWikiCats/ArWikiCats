@@ -11,7 +11,7 @@ from ArWikiCats.make_bots.countries_formats.p17_bot_2 import (
 get_p17_2_data = {
     "bahamas royal defence force": "قوات الدفاع الملكية البهامية",
     # -------------------------
-    # government officials (mens)
+    # government officials (males)
     # -------------------------
     "united states government officials": "مسؤولون حكوميون أمريكيون",
     "morocco government officials": "مسؤولون حكوميون مغاربة",

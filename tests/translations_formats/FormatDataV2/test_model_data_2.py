@@ -13,37 +13,37 @@ def bot() -> FormatDataV2:
         "egyptian": {
             "man": "مصري",
             "women": "مصرية",
-            "mens": "مصريون",
+            "males": "مصريون",
             "females": "مصريات",
         },
         "yemeni": {
             "man": "يمني",
             "women": "يمنية",
-            "mens": "يمنيون",
+            "males": "يمنيون",
             "females": "يمنيات",
         },
         "Algerian": {
             "man": "جزائري",
             "women": "جزائرية",
-            "mens": "جزائريون",
+            "males": "جزائريون",
             "females": "جزائريات",
         },
         "Moroccan": {
             "man": "مغربي",
             "women": "مغربية",
-            "mens": "مغاربة",
+            "males": "مغاربة",
             "females": "مغربيات",
         },
     }
 
     formatted_data = {
-        "{nat_en} writers": "كتاب {mens}",                    # كتاب يمنيون
+        "{nat_en} writers": "كتاب {males}",                    # كتاب يمنيون
         "{nat_en} descent": "أصل {man}",                     # أصل يمني
         "{nat_en} women activists": "ناشطات {females}",       # ناشطات يمنيات
         "{nat_en} gods": "آلهة {women}",                     # أصل يمني
     }
 
-    # nationality_data_men = {x: v["mens"] for x, v in nationality_data.items()}
+    # nationality_data_men = {x: v["males"] for x, v in nationality_data.items()}
 
     return FormatDataV2(
         formatted_data=formatted_data,
@@ -89,12 +89,12 @@ def bot_with_text_affixes() -> FormatDataV2:
     nationality_data = {
         "egyptian": {
             "man": "مصري",
-            "mens": "مصريون",
+            "males": "مصريون",
         },
     }
 
     formatted_data = {
-        "{nat_en} writers": "كتاب {mens}",
+        "{nat_en} writers": "كتاب {males}",
     }
 
     return FormatDataV2(
@@ -119,15 +119,15 @@ def test_text_before_after(bot_with_text_affixes: FormatDataV2) -> None:
 def bot_with_overlapping_keys() -> FormatDataV2:
     nationality_data = {
         "South African": {
-            "mens": "جنوب أفريقيون",
+            "males": "جنوب أفريقيون",
         },
         "African": {
-            "mens": "أفريقيون",
+            "males": "أفريقيون",
         },
     }
 
     formatted_data = {
-        "{nat_en} writers": "كتاب {mens}",
+        "{nat_en} writers": "كتاب {males}",
     }
 
     return FormatDataV2(
@@ -155,12 +155,12 @@ def test_overlapping_keys(bot_with_overlapping_keys: FormatDataV2, category: str
 def bot_with_missing_template() -> FormatDataV2:
     nationality_data = {
         "egyptian": {
-            "mens": "مصريون",
+            "males": "مصريون",
         },
     }
 
     formatted_data = {
-        "{nat_en} writers": "كتاب {mens}",
+        "{nat_en} writers": "كتاب {males}",
         # Missing template for "descent"
     }
 

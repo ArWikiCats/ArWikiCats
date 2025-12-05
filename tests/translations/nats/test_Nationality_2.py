@@ -17,7 +17,7 @@ from ArWikiCats.translations.nats.Nationality import (
 
 def make_entry(
     man: str = "",
-    mens: str = "",
+    males: str = "",
     women: str = "",
     females: str = "",
     en: str = "",
@@ -26,7 +26,7 @@ def make_entry(
     """Helper to build a NationalityEntry quickly."""
     return {
         "man": man,
-        "mens": mens,
+        "males": males,
         "women": women,
         "females": females,
         "en": en,
@@ -69,7 +69,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
 
     for entry in data.values():
         # Ensure all required keys are present
-        assert set(entry.keys()) == {"man", "mens", "women", "females", "en", "ar"}
+        assert set(entry.keys()) == {"man", "males", "women", "females", "en", "ar"}
         # Ensure all values are strings
         assert all(isinstance(v, str) for v in entry.values())
 
@@ -305,7 +305,7 @@ def test_full_pipeline_minimal() -> None:
     raw = {
         "yemeni": make_entry(
             man="يمني",
-            mens="يمنيون",
+            males="يمنيون",
             women="يمنية",
             females="يمنيات",
             en="yemen",
@@ -336,7 +336,7 @@ def test_full_pipeline_with_alias_and_american() -> None:
     all_nat_o = {
         "russian": make_entry(
             man="روسي",
-            mens="روس",
+            males="روس",
             women="روسية",
             females="روسيات",
             en="russia",

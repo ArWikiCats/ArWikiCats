@@ -56,7 +56,7 @@ COMPETITION_CATEGORY_LABELS = {
     "singles": "فردي",
     "womens": "سيدات",
     "ladies": "سيدات",
-    "mens": "رجال",
+    "males": "رجال",
     "men's": "رجال",
 }
 # ---

@@ -84,7 +84,7 @@ def test_ethnic_culture_unknown_nationality_returns_empty() -> None:
     assert result == ""
 
 
-# ---------- Core tests for ethnic_label() direct -mens composition path ----------
+# ---------- Core tests for ethnic_label() direct -males composition path ----------
 
 
 def test_ethnic_direct_mens_composition_basic() -> None:
@@ -133,7 +133,7 @@ def test_ethnic_direct_mens_composition_requires_both_nationalities() -> None:
 
 def test_ethnic_falls_back_to_ethnic_culture() -> None:
     """
-    When direct mens-composition path does not produce a label, ethnic_label()
+    When direct males-composition path does not produce a label, ethnic_label()
     must call ethnic_culture() and return its result.
     """
     category = "Category:History"
@@ -148,7 +148,7 @@ def test_ethnic_falls_back_to_ethnic_culture() -> None:
 
 
 def test_ethnic_unknown_everything_returns_empty() -> None:
-    """If neither mens-composition nor ethnic_culture can resolve, result must be empty."""
+    """If neither males-composition nor ethnic_culture can resolve, result must be empty."""
     category = "Category:Unknown"
     start = "unknown-nat"
     suffix = "unknown-nat people"
@@ -189,8 +189,8 @@ def test_ethnic_culture_male_example_history() -> None:
 
 def test_ethnic_prefers_direct_mens_over_culture_when_possible() -> None:
     """
-    If both direct mens-composition and culture mapping are theoretically possible,
-    ethnic_label() should use the direct mens-composition path.
+    If both direct males-composition and culture mapping are theoretically possible,
+    ethnic_label() should use the direct males-composition path.
     """
     category = "Category:People"
     start = "yemeni"

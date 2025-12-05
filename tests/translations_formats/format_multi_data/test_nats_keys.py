@@ -7,13 +7,13 @@ from ArWikiCats.translations_formats import FormatData
 from ArWikiCats.translations_formats.DataModel.model_multi_data import MultiDataFormatterBase
 
 nationality_data = {
-    "Afghan": {"man": "أفغاني", "mens": "أفغان"},
-    "yemeni": {"man": "يمني", "mens": "يمنيون"},
-    "british": {"man": "بريطاني", "mens": "بريطانيون"},
-    "american": {"man": "أمريكي", "mens": "أمريكيون"},
-    "egyptian": {"man": "مصري", "mens": "مصريون"},
-    "Algerian": {"man": "جزائري", "mens": "جزائريون"},
-    "Moroccan": {"man": "مغربي", "mens": "مغاربة"},
+    "Afghan": {"man": "أفغاني", "males": "أفغان"},
+    "yemeni": {"man": "يمني", "males": "يمنيون"},
+    "british": {"man": "بريطاني", "males": "بريطانيون"},
+    "american": {"man": "أمريكي", "males": "أمريكيون"},
+    "egyptian": {"man": "مصري", "males": "مصريون"},
+    "Algerian": {"man": "جزائري", "males": "جزائريون"},
+    "Moroccan": {"man": "مغربي", "males": "مغاربة"},
 }
 
 formatted_data = {
@@ -23,7 +23,7 @@ formatted_data = {
     "{nat1_en} people of {nat2_en} jewish descent": "{nat1_men} من أصل يهودي {nat2_man}",
 }
 
-nationality_data_men = {x: v["mens"] for x, v in nationality_data.items()}
+nationality_data_men = {x: v["males"] for x, v in nationality_data.items()}
 nationality_data_man = {x: v["man"] for x, v in nationality_data.items()}
 
 
