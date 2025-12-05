@@ -71,6 +71,7 @@ class FormatDataDouble(FormatDataBase):
         normalized_category = " ".join(category.split())
         logger.debug(f">> match_key: {normalized_category=}")
 
+        # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
             return normalized_category.lower()
 

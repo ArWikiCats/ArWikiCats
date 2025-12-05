@@ -62,6 +62,7 @@ class FormatDataBase:
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
 
+        # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
             return normalized_category.lower()
 
