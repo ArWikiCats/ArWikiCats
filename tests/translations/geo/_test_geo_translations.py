@@ -25,7 +25,7 @@ class TestCitiesModule:
 @pytest.mark.unit
 class TestCountryLabels:
     def test_country_label_index_contains_overrides(self) -> None:
-        labels = labels_country.COUNTRY_LABEL_INDEX
+        labels = labels_country.COUNTRY_LABEL_INDEX_LOWER
 
         assert labels["indycar"] == "أندي كار"
 

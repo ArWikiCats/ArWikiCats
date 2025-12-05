@@ -302,17 +302,11 @@ def _build_country_label_index() -> dict[str, str]:
     return label_index
 
 
-COUNTRY_LABEL_INDEX = _build_country_label_index()
-COUNTRY_LABEL_INDEX_LOWER = normalize_to_lower(COUNTRY_LABEL_INDEX)
-
-# Backwards compatible aliases
-New_P17_Finall = COUNTRY_LABEL_INDEX
+New_P17_Finall = _build_country_label_index()
 
 __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "POPULATION_OVERRIDES",
-    "COUNTRY_LABEL_INDEX",
-    "COUNTRY_LABEL_INDEX_LOWER",
     "New_P17_Finall",
 ]
 
@@ -321,8 +315,6 @@ len_print.data_len(
     {
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
         "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
-        "COUNTRY_LABEL_INDEX": COUNTRY_LABEL_INDEX,
-        "COUNTRY_LABEL_INDEX_LOWER": COUNTRY_LABEL_INDEX_LOWER,
         "New_P17_Finall": New_P17_Finall,
     },
 )

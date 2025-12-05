@@ -6,8 +6,7 @@ from .Cities import (
 )
 from .labels_country import (
     US_STATES,
-    COUNTRY_LABEL_INDEX,
-    COUNTRY_LABEL_INDEX_LOWER,
+    ,
     COUNTRY_LABEL_OVERRIDES,
     POPULATION_OVERRIDES,
 )
@@ -23,8 +22,6 @@ from .us_counties import (
 __all__ = [
     "CITY_LABEL_PATCHES",
     "CITY_TRANSLATIONS_LOWER",
-    "COUNTRY_LABEL_INDEX",
-    "COUNTRY_LABEL_INDEX_LOWER",
     "COUNTRY_LABEL_OVERRIDES",
     "POPULATION_OVERRIDES",
     "COUNTRY_ADMIN_LABELS",
