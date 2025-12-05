@@ -24,12 +24,6 @@ COUNTRY_TEMPLATES = {
     r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
 }
 
-_Multi_sport_for_Jobs: dict[str, str] = {
-    "afc asian cup": "كأس آسيا",
-    "afc cup": "كأس الاتحاد الآسيوي",
-    "fifa futsal world cup": "كأس العالم لكرة الصالات",
-}
-
 
 @functools.lru_cache(maxsize=10000)
 def nat_match(category: str) -> str:

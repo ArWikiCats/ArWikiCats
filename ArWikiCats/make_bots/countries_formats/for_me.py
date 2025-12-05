@@ -64,71 +64,107 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
     return country_lab
 
 
+def _get_p17_label(nat: str, suffix: str) -> str | None:
+    """Attempt to get label from P17 mappings."""
+    con_3_lab = en_is_nat_ar_is_P17.get(suffix.strip(), "")
+    if not con_3_lab:
+        return None
+
+    cco_lab = ""
+    if nat.strip() in all_country_with_nat_ar:
+        cco_lab = all_country_with_nat_ar[nat.strip()].get("ar", "")
+
+    if cco_lab:
+        logger.debug(f'<<lightblue>> Work_for_me: {con_3_lab=} ')
+        country_lab = con_3_lab.format(cco_lab)
+        logger.debug(f'<<lightblue>> bot_te_4:all_country_with_nat_ar new {country_lab=} ')
+        return country_lab
+
+    return ""
+
+
+def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
+    """Attempt to get female label without definite article."""
+    con_3_lab = en_is_nat_ar_is_women.get(suffix.strip(), "")
+    if not con_3_lab:
+        con_3_lab = New_female_keys.get(suffix.strip(), "")
+        if con_3_lab:
+            con_3_lab += " {}"
+
+    if not con_3_lab:
+        return None
+
+    country_lab = con_3_lab.format(women_nat_lab)
+    logger.debug(f'<<lightblue>> test44:en_is_nat_ar_is_women new {country_lab=} ')
+    return country_lab
+
+
+def _get_female_def_label(suffix: str, women_nat_lab: str) -> str | None:
+    """Attempt to get female label with definite article."""
+    con_3_lab = en_is_nat_ar_is_al_women.get(suffix.strip(), "")
+    if not con_3_lab:
+        return None
+
+    women_nat_lab_def = add_definite_article(women_nat_lab)
+    if "{nat}" in con_3_lab:
+        country_lab = con_3_lab.format(nat=women_nat_lab_def)
+    else:
+        country_lab = con_3_lab.format(women_nat_lab_def)
+    logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ')
+    return country_lab
+
+
+def _get_male_no_def_label(suffix: str, men_nat_lab: str) -> str | None:
+    """Attempt to get male label without definite article."""
+    con_3_lab = en_is_nat_ar_is_man.get(suffix.strip(), "")
+    if not con_3_lab:
+        con_3_lab = New_male_keys.get(suffix.strip(), "")
+        if con_3_lab:
+            con_3_lab += " {}"
+
+    if not con_3_lab:
+        return None
+
+    country_lab = con_3_lab.format(men_nat_lab)
+    logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ')
+    return country_lab
+
+
 @functools.lru_cache(maxsize=None)
 def Work_for_me(cate: str, nat: str, suffix: str) -> str:
     """
     Retrieve a country label based on category, nationality, and a third
     parameter.
-    TODO: need refactoring
     """
     women_nat_lab = Nat_women.get(nat, "")
     men_nat_lab = Nat_men.get(nat, "")
-    nat_lab = Nat_women[nat]
-    logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), {suffix=}, {nat_lab=}')
-    country_lab = ""
-    con_3_lab = ""
-    cco_lab = ""
 
-    # الإنجليزي جنسية والعربي اسم البلد
-    if not con_3_lab and not country_lab:
-        con_3_lab = en_is_nat_ar_is_P17.get(suffix.strip(), "")
-        if nat.strip() in all_country_with_nat_ar:
-            cco_lab = all_country_with_nat_ar[nat.strip()].get("ar", "")
-        if con_3_lab:
-            logger.debug(f'<<lightblue>> Work_for_me: {con_3_lab=} ')
-            if cco_lab:
-                country_lab = con_3_lab.format(cco_lab)
-                logger.debug(f'<<lightblue>> bot_te_4:all_country_with_nat_ar new {country_lab=} ')
+    logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), {suffix=}, nat_lab={women_nat_lab}')
 
-    # نسائية بدون ألف ولام التعريف
-    if con_3_lab == "" and country_lab == "":
-        country_lab = ethnic_bot.ethnic_label(cate, nat, suffix)
+    # 1. الإنجليزي جنسية والعربي اسم البلد
+    res = _get_p17_label(nat, suffix)
+    if res is not None:
+        return res
 
-    # نسائية بدون ألف ولام التعريف
-    if con_3_lab == "" and country_lab == "":
-        con_3_lab = en_is_nat_ar_is_women.get(suffix.strip(), "")
-        if not con_3_lab:
-            con_3_lab = New_female_keys.get(suffix.strip(), "")
-            if con_3_lab:
-                con_3_lab += " {}"
-        if con_3_lab:
-            country_lab = con_3_lab.format(women_nat_lab)
-            logger.debug(f'<<lightblue>> test44:en_is_nat_ar_is_women new {country_lab=} ')
+    # 2. نسائية بدون ألف ولام التعريف (Ethnic)
+    res = ethnic_bot.ethnic_label(cate, nat, suffix)
+    if res:
+        return res
 
-    # نسائية بألف ولام التعريف
-    if con_3_lab == "" and country_lab == "":
-        con_3_lab = en_is_nat_ar_is_al_women.get(suffix.strip(), "")
-        if con_3_lab:
-            women_nat_lab = add_definite_article(women_nat_lab)
-            if "{nat}" in con_3_lab:
-                country_lab = con_3_lab.format(nat=women_nat_lab)
-            else:
-                country_lab = con_3_lab.format(women_nat_lab)
-            logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ')
+    # 3. نسائية بدون ألف ولام التعريف
+    res = _get_female_no_def_label(suffix, women_nat_lab)
+    if res is not None:
+        return res
 
-    # رجالية بدون ألف ولام التعريف
-    if con_3_lab == "" and country_lab == "":
-        con_3_lab = en_is_nat_ar_is_man.get(suffix.strip(), "")
-        if not con_3_lab:
-            con_3_lab = New_male_keys.get(suffix.strip(), "")
-            if con_3_lab:
-                con_3_lab += " {}"
-        if con_3_lab:
-            country_lab = con_3_lab.format(men_nat_lab)
-            logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ')
+    # 4. نسائية بألف ولام التعريف
+    res = _get_female_def_label(suffix, women_nat_lab)
+    if res is not None:
+        return res
 
-    # رجالية بألف ولام التعريف
-    if con_3_lab == "" and country_lab == "":
-        country_lab = Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
+    # 5. رجالية بدون ألف ولام التعريف
+    res = _get_male_no_def_label(suffix, men_nat_lab)
+    if res is not None:
+        return res
 
-    return country_lab
+    # 6. رجالية بألف ولام التعريف (Fallback)
+    return Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
