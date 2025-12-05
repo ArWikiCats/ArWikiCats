@@ -45,8 +45,8 @@ TEST_NAT_WOMEN = {
 TEST_ALL_COUNTRY_WITH_NAT = {
     **countries_nat_en_key,
     "nato": {"ar": "الناتو"},
-    "pakistan": {"male": "باكستاني", "women": "باكستانية", "ar": "باكستان"},
-    "india": {"male": "هندي", "women": "هندية", "ar": "الهند"},
+    "pakistan": {"male": "باكستاني", "female": "باكستانية", "ar": "باكستان"},
+    "india": {"male": "هندي", "female": "هندية", "ar": "الهند"},
 }
 
 fast_data = {

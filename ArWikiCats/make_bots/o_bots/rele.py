@@ -153,7 +153,7 @@ def work_relations(value: str) -> str:
     resolved = _resolve_relations(
         normalized,
         RELATIONS_FEMALE,
-        "women",
+        "female",
         Nat_women,
         add_article=True,
     )

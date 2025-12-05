@@ -12,25 +12,25 @@ def bot() -> FormatDataV2:
     nationality_data = {
         "egyptian": {
             "male": "مصري",
-            "women": "مصرية",
+            "female": "مصرية",
             "males": "مصريون",
             "females": "مصريات",
         },
         "yemeni": {
             "male": "يمني",
-            "women": "يمنية",
+            "female": "يمنية",
             "males": "يمنيون",
             "females": "يمنيات",
         },
         "Algerian": {
             "male": "جزائري",
-            "women": "جزائرية",
+            "female": "جزائرية",
             "males": "جزائريون",
             "females": "جزائريات",
         },
         "Moroccan": {
             "male": "مغربي",
-            "women": "مغربية",
+            "female": "مغربية",
             "males": "مغاربة",
             "females": "مغربيات",
         },
@@ -40,7 +40,7 @@ def bot() -> FormatDataV2:
         "{nat_en} writers": "كتاب {males}",                    # كتاب يمنيون
         "{nat_en} descent": "أصل {male}",                     # أصل يمني
         "{nat_en} women activists": "ناشطات {females}",       # ناشطات يمنيات
-        "{nat_en} gods": "آلهة {women}",                     # أصل يمني
+        "{nat_en} gods": "آلهة {female}",                     # أصل يمني
     }
 
     # nationality_data_men = {x: v["males"] for x, v in nationality_data.items()}

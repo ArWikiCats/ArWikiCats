@@ -30,7 +30,7 @@ def test_te_army_resolves_women_without_article_prefix(monkeypatch: pytest.Monke
     monkeypatch.setattr(
         army,
         "countries_nat_en_key",
-        {"canada": {"women": "كنديات"}},
+        {"canada": {"female": "كنديات"}},
         raising=False,
     )
 

@@ -12,25 +12,25 @@ def bot() -> FormatDataV2:
     nationality_data = {
         "egyptian": {
             "male": "مصري",
-            "women": "مصرية",
+            "female": "مصرية",
             "males": "مصريون",
             "females": "مصريات",
         },
         "algerian": {
             "male": "جزائري",
-            "women": "جزائرية",
+            "female": "جزائرية",
             "males": "جزائريون",
             "females": "جزائريات",
         },
         "moroccan": {
             "male": "مغربي",
-            "women": "مغربية",
+            "female": "مغربية",
             "males": "مغاربة",
             "females": "مغربيات",
         },
         "yemeni": {
             "male": "يمني",
-            "women": "يمنية",
+            "female": "يمنية",
             "males": "يمنيون",
             "females": "يمنيات",
         },
@@ -51,8 +51,8 @@ def bot() -> FormatDataV2:
         "{nat_en} women politicians": "سياسيات {females}",
         "{nat_en} female singers": "مغنيات {females}",
 
-        # Uses {women}
-        "{nat_en} gods": "آلهة {women}",
+        # Uses {female}
+        "{nat_en} gods": "آلهة {female}",
 
         # Mixed placeholders in the same template
         "{nat_en} males and women": "رجال {males} ونساء {females}",
@@ -87,7 +87,7 @@ basic_cases = {
     "yemeni women politicians": "سياسيات يمنيات",
     "egyptian female singers": "مغنيات مصريات",
 
-    # {women}
+    # {female}
     "egyptian gods": "آلهة مصرية",
 
     # Extra spaces and mixed case
