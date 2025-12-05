@@ -39,14 +39,14 @@ def _build_category_role_labels(
             composite_key = f"{category_key} {role_key}"
             combined[composite_key] = {
                 "mens": f"{role_labels['mens']} {category_label}",
-                "womens": f"{role_labels['womens']} {category_label}",
+                "females": f"{role_labels['womens']} {category_label}",
             }
-        # combined[ f"{category_key} singers" ] = { "mens": f"مغنو {category_label}" ,"womens": f"مغنيات {category_label}" }
-        # combined[ f"{category_key} writers" ] = { "mens": f"كتاب {category_label}" ,"womens": f"كاتبات {category_label}" }
-        # combined[ f"{category_key} authors" ] = { "mens": f"مؤلفو {category_label}" ,"womens": f"مؤلفات {category_label}" }
-        # combined[ f"{category_key} journalists" ] = { "mens": f"صحفيو {category_label}" ,"womens": f"صحفيات {category_label}" }
-        # combined[ f"{category_key} bandleaders" ] = { "mens": f"قادة فرق {category_label}" ,"womens": f"قائدات فرق {category_label}" }
-        # combined[ f"{category_key} cheerleaders" ] = { "mens": f"قادة تشجيع {category_label}" ,"womens": f"قائدات تشجيع {category_label}" }
+        # combined[ f"{category_key} singers" ] = { "mens": f"مغنو {category_label}" ,"females": f"مغنيات {category_label}" }
+        # combined[ f"{category_key} writers" ] = { "mens": f"كتاب {category_label}" ,"females": f"كاتبات {category_label}" }
+        # combined[ f"{category_key} authors" ] = { "mens": f"مؤلفو {category_label}" ,"females": f"مؤلفات {category_label}" }
+        # combined[ f"{category_key} journalists" ] = { "mens": f"صحفيو {category_label}" ,"females": f"صحفيات {category_label}" }
+        # combined[ f"{category_key} bandleaders" ] = { "mens": f"قادة فرق {category_label}" ,"females": f"قائدات فرق {category_label}" }
+        # combined[ f"{category_key} cheerleaders" ] = { "mens": f"قادة تشجيع {category_label}" ,"females": f"قائدات تشجيع {category_label}" }
 
     return combined
 
@@ -67,30 +67,30 @@ def _build_non_fiction_variants(
     variants: GenderedLabelMap = {}
 
     roles = {
-        "historian": {"mens": "مؤرخو", "womens": "مؤرخات"},
-        "authors": {"mens": "مؤلفو", "womens": "مؤلفات"},
-        "bloggers": {"mens": "مدونو", "womens": "مدونات"},
-        "writers": {"mens": "كتاب", "womens": "كاتبات"},
-        "journalists": {"mens": "صحفيو", "womens": "صحفيات"},
+        "historian": {"mens": "مؤرخو", "females": "مؤرخات"},
+        "authors": {"mens": "مؤلفو", "females": "مؤلفات"},
+        "bloggers": {"mens": "مدونو", "females": "مدونات"},
+        "writers": {"mens": "كتاب", "females": "كاتبات"},
+        "journalists": {"mens": "صحفيو", "females": "صحفيات"},
     }
 
     for topic_key, topic_labels in topics.items():
         mens_topic = topic_labels["mens"]
-        womens_topic = topic_labels["womens"]
+        womens_topic = topic_labels["females"]
 
         for role_key, role_labels in roles.items():
             variants[f"{topic_key} {role_key}"] = {
                 "mens": f"{role_labels['mens']} {mens_topic}",
-                "womens": f"{role_labels['womens']} {womens_topic}",
+                "females": f"{role_labels['womens']} {womens_topic}",
             }
 
         variants[f"non-fiction {topic_key} writers"] = {
             "mens": f"كتاب {mens_topic} غير روائيون",
-            "womens": f"كاتبات {womens_topic} غير روائيات",
+            "females": f"كاتبات {womens_topic} غير روائيات",
         }
         variants[f"non fiction {topic_key} writers"] = {
             "mens": f"كتاب {mens_topic} غير روائيون",
-            "womens": f"كاتبات {womens_topic} غير روائيات",
+            "females": f"كاتبات {womens_topic} غير روائيات",
         }
     return variants
 
@@ -110,7 +110,7 @@ def _build_actor_labels(film_types: Mapping[str, GenderedLabel]) -> GenderedLabe
     actors: GenderedLabelMap = {}
 
     for film_key, film_labels in film_types.items():
-        actors[f"{film_key} actors"] = {"mens": f"ممثلو {film_labels['mens']}", "womens": ""}
+        actors[f"{film_key} actors"] = {"mens": f"ممثلو {film_labels['mens']}", "females": ""}
 
     return actors
 
@@ -120,59 +120,59 @@ def _build_actor_labels(film_types: Mapping[str, GenderedLabel]) -> GenderedLabe
 
 
 FILMS_TYPE: Mapping[str, GenderedLabel] = {
-    "film": {"mens": "أفلام", "womens": "أفلام"},
-    "silent film": {"mens": "أفلام صامتة", "womens": "أفلام صامتة"},
-    "pornographic film": {"mens": "أفلام إباحية", "womens": "أفلام إباحية"},
-    "television": {"mens": "تلفزيون", "womens": "تلفزيون"},
-    "musical theatre": {"mens": "مسرحيات موسيقية", "womens": "مسرحيات موسيقية"},
-    "stage": {"mens": "مسرح", "womens": "مسرح"},
-    "radio": {"mens": "راديو", "womens": "راديو"},
-    "voice": {"mens": "أداء صوتي", "womens": "أداء صوتي"},
-    "video game": {"mens": "ألعاب فيديو", "womens": "ألعاب فيديو"},
+    "film": {"mens": "أفلام", "females": "أفلام"},
+    "silent film": {"mens": "أفلام صامتة", "females": "أفلام صامتة"},
+    "pornographic film": {"mens": "أفلام إباحية", "females": "أفلام إباحية"},
+    "television": {"mens": "تلفزيون", "females": "تلفزيون"},
+    "musical theatre": {"mens": "مسرحيات موسيقية", "females": "مسرحيات موسيقية"},
+    "stage": {"mens": "مسرح", "females": "مسرح"},
+    "radio": {"mens": "راديو", "females": "راديو"},
+    "voice": {"mens": "أداء صوتي", "females": "أداء صوتي"},
+    "video game": {"mens": "ألعاب فيديو", "females": "ألعاب فيديو"},
 }
 
 """Seed mapping of singer categories to their Arabic descriptions."""
 
 
 SINGERS_AFTER_ROLES: Mapping[str, GenderedLabel] = {
-    "record producers": {"mens": "منتجو تسجيلات", "womens": "منتجات تسجيلات"},
-    "musicians": {"mens": "موسيقيو", "womens": "موسيقيات"},
-    "singers": {"mens": "مغنو", "womens": "مغنيات"},
-    "singer-songwriters": {"mens": "مغنون وكتاب أغاني", "womens": "مغنيات وكاتبات أغاني"},
-    "songwriters": {"mens": "كتاب أغان", "womens": "كاتبات أغان"},
-    "critics": {"mens": "نقاد", "womens": "ناقدات"},
-    "educators": {"mens": "معلمو", "womens": "معلمات"},
-    "historians": {"mens": "مؤرخو", "womens": "مؤرخات"},
-    "bloggers": {"mens": "مدونو", "womens": "مدونات"},
-    "drummers": {"mens": "طبالو", "womens": "طبالات"},
-    "violinists": {"mens": "عازفو كمان", "womens": "عازفات كمان"},
-    "trumpeters": {"mens": "عازفو بوق", "womens": "عازفات بوق"},
-    "bassoonists": {"mens": "عازفو باسون", "womens": "عازفات باسون"},
-    "trombonists": {"mens": "عازفو ترومبون", "womens": "عازفات ترومبون"},
-    "composers": {"mens": "ملحنو", "womens": "ملحنات"},
-    "flautists": {"mens": "عازفو فولت", "womens": "عازفات فولت"},
-    "writers": {"mens": "كتاب", "womens": "كاتبات"},
-    "guitarists": {"mens": "عازفو قيثارة", "womens": "عازفات قيثارة"},
-    "pianists": {"mens": "عازفو بيانو", "womens": "عازفات بيانو"},
-    "saxophonists": {"mens": "عازفو سكسفون", "womens": "عازفات سكسفون"},
-    "authors": {"mens": "مؤلفو", "womens": "مؤلفات"},
-    "journalists": {"mens": "صحفيو", "womens": "صحفيات"},
-    "bandleaders": {"mens": "قادة فرق", "womens": "قائدات فرق"},
-    "cheerleaders": {"mens": "قادة تشجيع", "womens": "قائدات تشجيع"},
+    "record producers": {"mens": "منتجو تسجيلات", "females": "منتجات تسجيلات"},
+    "musicians": {"mens": "موسيقيو", "females": "موسيقيات"},
+    "singers": {"mens": "مغنو", "females": "مغنيات"},
+    "singer-songwriters": {"mens": "مغنون وكتاب أغاني", "females": "مغنيات وكاتبات أغاني"},
+    "songwriters": {"mens": "كتاب أغان", "females": "كاتبات أغان"},
+    "critics": {"mens": "نقاد", "females": "ناقدات"},
+    "educators": {"mens": "معلمو", "females": "معلمات"},
+    "historians": {"mens": "مؤرخو", "females": "مؤرخات"},
+    "bloggers": {"mens": "مدونو", "females": "مدونات"},
+    "drummers": {"mens": "طبالو", "females": "طبالات"},
+    "violinists": {"mens": "عازفو كمان", "females": "عازفات كمان"},
+    "trumpeters": {"mens": "عازفو بوق", "females": "عازفات بوق"},
+    "bassoonists": {"mens": "عازفو باسون", "females": "عازفات باسون"},
+    "trombonists": {"mens": "عازفو ترومبون", "females": "عازفات ترومبون"},
+    "composers": {"mens": "ملحنو", "females": "ملحنات"},
+    "flautists": {"mens": "عازفو فولت", "females": "عازفات فولت"},
+    "writers": {"mens": "كتاب", "females": "كاتبات"},
+    "guitarists": {"mens": "عازفو قيثارة", "females": "عازفات قيثارة"},
+    "pianists": {"mens": "عازفو بيانو", "females": "عازفات بيانو"},
+    "saxophonists": {"mens": "عازفو سكسفون", "females": "عازفات سكسفون"},
+    "authors": {"mens": "مؤلفو", "females": "مؤلفات"},
+    "journalists": {"mens": "صحفيو", "females": "صحفيات"},
+    "bandleaders": {"mens": "قادة فرق", "females": "قائدات فرق"},
+    "cheerleaders": {"mens": "قادة تشجيع", "females": "قائدات تشجيع"},
 }
 
 """Roles that can be combined with the singer categories above."""
 
 NON_FICTION_BASE_TOPICS: Mapping[str, GenderedLabel] = {
-    "non-fiction": {"mens": "غير روائيون", "womens": "غير روائيات"},
+    "non-fiction": {"mens": "غير روائيون", "females": "غير روائيات"},
     "non-fiction environmental": {
         "mens": "بيئة غير روائيون",
-        "womens": "بيئة غير روائيات",
+        "females": "بيئة غير روائيات",
     },
-    "detective": {"mens": "بوليسيون", "womens": "بوليسيات"},
-    "military": {"mens": "عسكريون", "womens": "عسكريات"},
-    "nautical": {"mens": "بحريون", "womens": "بحريات"},
-    "maritime": {"mens": "بحريون", "womens": "بحريات"},
+    "detective": {"mens": "بوليسيون", "females": "بوليسيات"},
+    "military": {"mens": "عسكريون", "females": "عسكريات"},
+    "nautical": {"mens": "بحريون", "females": "بحريات"},
+    "maritime": {"mens": "بحريون", "females": "بحريات"},
 }
 
 """Seed topics that receive dedicated non-fiction role variants."""
@@ -217,7 +217,7 @@ SINGER_CATEGORY_LABELS: Dict[str, str] = SINGERS_TAB
 NON_FICTION_TOPICS: Dict[str, GenderedLabel] = dict(NON_FICTION_BASE_TOPICS)
 
 for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
-    NON_FICTION_TOPICS[topic_key] = {"mens": topic_label, "womens": topic_label}
+    NON_FICTION_TOPICS[topic_key] = {"mens": topic_label, "females": topic_label}
 
 """Expanded non-fiction topics covering both static and dynamically generated entries."""
 
