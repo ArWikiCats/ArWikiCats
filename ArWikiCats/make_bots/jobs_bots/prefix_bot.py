@@ -47,7 +47,6 @@ def _extend_By_table() -> dict[str, str]:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data()
 def work_mens_prefix(con_33: str) -> str:
     """
     TODO: need refactoring
@@ -94,7 +93,6 @@ def work_mens_prefix(con_33: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data()
 def work_mens_suffix(con_33: str) -> str:
     """
     TODO: need refactoring
@@ -220,3 +218,11 @@ def womens_prefixes_work(suffix: str) -> str:
                 label = wrifflab.format(con_8_Wb)
                 return label
     return ""
+
+
+__all__ = [
+    "mens_prefixes_work",
+    "womens_prefixes_work",
+    "work_mens_suffix",
+    "work_mens_prefix",
+]
