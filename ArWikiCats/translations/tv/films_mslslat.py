@@ -428,8 +428,8 @@ class TranslationBuilder:
         """
         count = 0
 
-        # Predefined genre-based categories
-        GENRE_CATEGORIES = [
+        # Standard categories (suffix position) - append ke_lab at the end
+        GENRE_SUFFIX_CATEGORIES = [
             ("anime and manga", "أنمي ومانغا"),
             ("compilation albums", "ألبومات تجميعية"),
             ("folk albums", "ألبومات فلكلورية"),
@@ -445,17 +445,18 @@ class TranslationBuilder:
             ("groups", "مجموعات"),
             ("novellas", "روايات قصيرة"),
             ("novels", "روايات"),
-            ("film remakes", "أفلام {} معاد إنتاجها"),
             ("films", "أفلام"),
         ]
 
         for ke, ke_lab in female_keys.items():
-            # Special case for children's
+            # Special case for children's (prefix position)
             films_key_cao[f"children's {ke}"] = f"أطفال {ke_lab}"
 
-            # Add predefined categories
-            for suffix, arabic_template in GENRE_CATEGORIES:
-                films_key_cao[f"{ke} {suffix}"] = arabic_template.replace("{}", ke_lab)
+            # Special case for film remakes (middle position)
+            films_key_cao[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
+
+            for suffix, arabic_base in GENRE_SUFFIX_CATEGORIES:
+                films_key_cao[f"{ke} {suffix}"] = f"{arabic_base} {ke_lab}"
 
             # Add combinations with all TV keys
             for fao, base_label in self.television_keys.items():
