@@ -69,7 +69,7 @@ def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
 
 
 def test_one() -> None:
-    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "womens": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
+    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "mens": "بهائيون", "females": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
     input_text = "bahá'ís classical europop composers"
     expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
 

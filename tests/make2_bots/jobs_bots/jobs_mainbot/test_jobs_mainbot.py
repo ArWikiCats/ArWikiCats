@@ -75,14 +75,14 @@ def test_mens_nato() -> None:
 def test_womens_nato() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix(
-        "", "yemeni", "female eugenicists", womens=""
-    )  # Removed 'womens="يمنيات"' to test natural fallback
+        "", "yemeni", "female eugenicists", females=""
+    )  # Removed 'females="يمنيات"' to test natural fallback
     assert result == "عالمات متخصصات في تحسين النسل يمنيات"
 
 
 def test_womens_no_nat() -> None:
     jobs_with_nat_prefix.cache_clear()
-    result2 = jobs_with_nat_prefix("", "", "female eugenicists", womens="")
+    result2 = jobs_with_nat_prefix("", "", "female eugenicists", females="")
     assert result2 == ""
 
 
@@ -132,7 +132,7 @@ def test_override_mens_manually() -> None:
 
 def test_override_womens_manually() -> None:
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "abc", "actresses", womens="نساء")
+    result = jobs_with_nat_prefix("", "abc", "actresses", females="نساء")
     assert result.startswith("ممثلات نساء")
 
 
@@ -263,7 +263,7 @@ def test_mens_with_people() -> None:
 
 def test_womens_with_people() -> None:
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "african", "female contemporary artists", womens=Nat_Womens["african"])
+    result = jobs_with_nat_prefix("", "african", "female contemporary artists", females=Nat_Womens["african"])
     assert result == ""  # "فنانات إفريقيات معاصرات"
 
 
@@ -276,7 +276,7 @@ def test_mens_nato_politicians_who_committed_suicide_albanian() -> None:
 def test_womens_nato_politicians_who_committed_suicide_albanian() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix(
-        "", "albanian", "female politicians who committed suicide", womens=Nat_Womens["albanian"]
+        "", "albanian", "female politicians who committed suicide", females=Nat_Womens["albanian"]
     )
     assert result in ["سياسيات ألبانيات أقدمن على الانتحار", "سياسيات أقدمن على الانتحار ألبانيات"]
 
@@ -290,7 +290,7 @@ def test_womens_new_job_with_prefix_and_nato_algerian_female_eugenicists() -> No
     assert result == "عالمات متخصصات في تحسين النسل جزائريات"
 
 
-# Test for a nationality that is in both mens and womens, defaulting to mens
+# Test for a nationality that is in both mens and females, defaulting to mens
 
 
 def test_mens_priority_new_nationality() -> None:

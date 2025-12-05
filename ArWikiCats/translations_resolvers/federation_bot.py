@@ -17,7 +17,7 @@ def add_definite_article(label: str) -> str:
     return new_label
 
 
-nats_data = {x: add_definite_article(v["men"]) for x, v in all_country_with_nat.items() if v.get("men")}
+nats_data = {x: add_definite_article(v["man"]) for x, v in all_country_with_nat.items() if v.get("man")}
 
 both_bot = format_multi_data(
     format_labels_with_nat,

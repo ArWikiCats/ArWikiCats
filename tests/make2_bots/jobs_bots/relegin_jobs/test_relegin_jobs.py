@@ -12,7 +12,7 @@ RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.key
 @pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
 def test_with_womens(key: str, data: dict[str, str]) -> None:
     input_text = f"female {key}"
-    expected = data["womens"]
+    expected = data["females"]
 
     result = new_relegins_jobs_with_suffix(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"

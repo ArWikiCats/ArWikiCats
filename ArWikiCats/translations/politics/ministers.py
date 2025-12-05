@@ -190,11 +190,11 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     singular_label = ministry_labels["singular"]
     ministrs_tab_for_Jobs_2020[f"secretaries-of {ministry_key}"] = {
         "mens": f"وزراء {singular_label}",
-        "womens": f"وزيرات {singular_label}",
+        "females": f"وزيرات {singular_label}",
     }
     ministrs_tab_for_Jobs_2020[f"secretaries of {ministry_key}"] = {
         "mens": f"وزراء {singular_label}",
-        "womens": f"وزيرات {singular_label}",
+        "females": f"وزيرات {singular_label}",
     }
 # ---
 ministrs_tab_for_pop_format = {}  # used in pop_format.py

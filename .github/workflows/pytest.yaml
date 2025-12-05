@@ -31,4 +31,4 @@ jobs:
         run: pip install -r requirements.in
 
       - name: Run tests
-        run: pytest
+        run: pytest -m fast

@@ -16,19 +16,19 @@ from ArWikiCats.translations.nats.Nationality import (
 
 
 def make_entry(
-    men: str = "",
+    man: str = "",
     mens: str = "",
     women: str = "",
-    womens: str = "",
+    females: str = "",
     en: str = "",
     ar: str = "",
 ) -> NationalityEntry:
     """Helper to build a NationalityEntry quickly."""
     return {
-        "men": men,
+        "man": man,
         "mens": mens,
         "women": women,
-        "womens": womens,
+        "females": females,
         "en": en,
         "ar": ar,
     }
@@ -45,7 +45,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
     def fake_open_json_file(name: str) -> dict[str, dict[str, str]] | dict:
         if name == "nationalities/All_Nat_o.json":
             return {
-                "yemeni": {"en": "yemen", "ar": "اليمن", "men": "يمني"},
+                "yemeni": {"en": "yemen", "ar": "اليمن", "man": "يمني"},
             }
         if name == "nationalities/uu_nats.json":
             return {
@@ -53,7 +53,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
             }
         if name == "nationalities/Sub_Nat.json":
             return {
-                "italian": {"men": "إيطالي", "en": "italy", "ar": "إيطاليا"},
+                "italian": {"man": "إيطالي", "en": "italy", "ar": "إيطاليا"},
             }
         return {}
 
@@ -69,7 +69,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
 
     for entry in data.values():
         # Ensure all required keys are present
-        assert set(entry.keys()) == {"men", "mens", "women", "womens", "en", "ar"}
+        assert set(entry.keys()) == {"man", "mens", "women", "females", "en", "ar"}
         # Ensure all values are strings
         assert all(isinstance(v, str) for v in entry.values())
 
@@ -123,14 +123,14 @@ def test_normalize_aliases_alias_copy() -> None:
     """Alias keys (e.g. russians) should reuse target entry (russian)."""
 
     all_nat_o: Dict[str, NationalityEntry] = {
-        "russian": make_entry(men="روسي", en="russia", ar="روسيا"),
+        "russian": make_entry(man="روسي", en="russia", ar="روسيا"),
         "russians": make_entry(),  # will be overwritten
     }
 
     out = normalize_aliases(all_nat_o)
     assert out["russians"]["en"] == "russia"
     assert out["russians"]["ar"] == "روسيا"
-    assert out["russians"]["men"] == "روسي"
+    assert out["russians"]["man"] == "روسي"
 
 
 def test_normalize_aliases_adds_southwest_asian() -> None:
@@ -146,14 +146,14 @@ def test_normalize_aliases_adds_southwest_asian() -> None:
 def test_normalize_aliases_georgia_country_copy() -> None:
     """georgia (country) should be derived from georgian entry and override 'en'."""
 
-    base = {"georgian": make_entry(men="جورجي", en="georgia", ar="جورجي")}
+    base = {"georgian": make_entry(man="جورجي", en="georgia", ar="جورجي")}
 
     out = normalize_aliases(base)
     assert "georgia (country)" in out
     g = out["georgia (country)"]
     assert g["en"] == "georgia (country)"
     assert g["ar"] == "جورجي"
-    assert g["men"] == "جورجي"
+    assert g["man"] == "جورجي"
 
 
 def test_normalize_aliases_papua_new_guinean_added() -> None:
@@ -176,7 +176,7 @@ def test_build_american_forms_basic() -> None:
 
     all_nat = {}
     all_nat_o = {
-        "yemeni": make_entry(men="يمني", en="yemen", ar="اليمن"),
+        "yemeni": make_entry(man="يمني", en="yemen", ar="اليمن"),
     }
 
     out, count = build_american_forms(all_nat, all_nat_o)
@@ -184,7 +184,7 @@ def test_build_american_forms_basic() -> None:
     assert count == 1
     assert "yemeni-american" in out
     entry = out["yemeni-american"]
-    assert entry["men"] == "أمريكي يمني"
+    assert entry["man"] == "أمريكي يمني"
 
 
 def test_build_american_forms_skips_if_no_gender() -> None:
@@ -206,7 +206,7 @@ def test_build_american_forms_jewish_special_case() -> None:
 
     all_nat = {}
     all_nat_o = {
-        "jewish": make_entry(men="يهودي", en="jews", ar="يهود"),
+        "jewish": make_entry(man="يهودي", en="jews", ar="يهود"),
     }
 
     out, count = build_american_forms(all_nat, all_nat_o)
@@ -214,8 +214,8 @@ def test_build_american_forms_jewish_special_case() -> None:
     assert count == 1
     assert "jewish-american" in out
     assert "jewish american" in out
-    assert out["jewish-american"]["men"].startswith("أمريكي")
-    assert out["jewish american"]["men"].startswith("أمريكي")
+    assert out["jewish-american"]["man"].startswith("أمريكي")
+    assert out["jewish american"]["man"].startswith("أمريكي")
 
 
 # -------------------------------------------------------------------
@@ -227,7 +227,7 @@ def test_build_lookup_tables_nat_men_and_country() -> None:
     """build_lookup_tables should fill Nat_men and countries_from_nat correctly."""
 
     all_nat = {
-        "yemeni": make_entry(men="يمني", en="yemen", ar="اليمن"),
+        "yemeni": make_entry(man="يمني", en="yemen", ar="اليمن"),
     }
 
     result = build_lookup_tables(all_nat, all_nat)
@@ -244,7 +244,7 @@ def test_build_lookup_tables_the_prefix_normalization() -> None:
     """'the X' should be normalized to 'X' in countries_from_nat."""
 
     all_nat = {
-        "british": make_entry(men="بريطاني", en="the uk", ar="المملكة المتحدة"),
+        "british": make_entry(man="بريطاني", en="the uk", ar="المملكة المتحدة"),
     }
 
     result = build_lookup_tables(all_nat, all_nat)
@@ -257,7 +257,7 @@ def test_build_lookup_tables_uppercase_en_normalization() -> None:
     """Uppercase English names should be lowercased in mapping keys."""
 
     all_nat = {
-        "italian": make_entry(men="إيطالي", en="ITALY", ar="إيطاليا"),
+        "italian": make_entry(man="إيطالي", en="ITALY", ar="إيطاليا"),
     }
 
     result = build_lookup_tables(all_nat, all_nat)
@@ -271,7 +271,7 @@ def test_build_lookup_tables_en_nats_to_ar_label() -> None:
     """en_nats_to_ar_label should map nationality keys to Arabic labels."""
 
     all_nat = {
-        "yemeni": make_entry(men="يمني", en="yemen", ar="اليمن"),
+        "yemeni": make_entry(man="يمني", en="yemen", ar="اليمن"),
     }
 
     result = build_lookup_tables(all_nat, all_nat)
@@ -281,14 +281,14 @@ def test_build_lookup_tables_en_nats_to_ar_label() -> None:
 
 
 def test_build_lookup_tables_iranian_special_case() -> None:
-    """Special case: 'iranian' should create 'islamic republic of iran' key in all_country_with_nat_keys_is_en."""
+    """Special case: 'iranian' should create 'islamic republic of iran' key in countries_nat_en_key."""
 
     all_nat = {
-        "iranian": make_entry(men="إيراني", en="iran", ar="إيران"),
+        "iranian": make_entry(man="إيراني", en="iran", ar="إيران"),
     }
 
     result = build_lookup_tables(all_nat, all_nat)
-    keys_en = result["all_country_with_nat_keys_is_en"]
+    keys_en = result["countries_nat_en_key"]
 
     assert "islamic republic of iran" in keys_en
     assert keys_en["islamic republic of iran"]["ar"] == "إيران"
@@ -304,10 +304,10 @@ def test_full_pipeline_minimal() -> None:
 
     raw = {
         "yemeni": make_entry(
-            men="يمني",
+            man="يمني",
             mens="يمنيون",
             women="يمنية",
-            womens="يمنيات",
+            females="يمنيات",
             en="yemen",
             ar="اليمن",
         )
@@ -335,10 +335,10 @@ def test_full_pipeline_with_alias_and_american() -> None:
     # Start from a minimal All_Nat_o-like structure
     all_nat_o = {
         "russian": make_entry(
-            men="روسي",
+            man="روسي",
             mens="روس",
             women="روسية",
-            womens="روسيات",
+            females="روسيات",
             en="russia",
             ar="روسيا",
         )

@@ -12,7 +12,7 @@ from ArWikiCats.make_bots.o_bots import army
 
 def _patch_army_datasets(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(army, "all_country_with_nat", {}, raising=False)
-    monkeypatch.setattr(army, "all_country_with_nat_keys_is_en", {}, raising=False)
+    monkeypatch.setattr(army, "countries_nat_en_key", {}, raising=False)
     monkeypatch.setattr(army, "military_format_men", {}, raising=False)
     monkeypatch.setattr(army, "military_format_women", {}, raising=False)
     monkeypatch.setattr(army, "military_format_women_without_al", {}, raising=False)
@@ -29,7 +29,7 @@ def test_te_army_resolves_women_without_article_prefix(monkeypatch: pytest.Monke
     monkeypatch.setattr(army, "military_format_women_without_al_from_end", {"women of": "{nat} بدون ال"}, raising=False)
     monkeypatch.setattr(
         army,
-        "all_country_with_nat_keys_is_en",
+        "countries_nat_en_key",
         {"canada": {"women": "كنديات"}},
         raising=False,
     )
@@ -43,7 +43,7 @@ def test_te_army_resolves_men_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         army,
         "all_country_with_nat",
-        {"France": {"en": "France", "men": "فرنسي"}},
+        {"France": {"en": "France", "man": "فرنسي"}},
         raising=False,
     )
     monkeypatch.setattr(army, "military_format_men", {"army": "{nat} العسكري"}, raising=False)

@@ -14,7 +14,7 @@ def _norm(text: str) -> str:
 
 @pytest.mark.unit
 def test_burma_cambodia_relations_from_country_table() -> None:
-    """Female 'relations' using all_country_with_nat_keys_is_en women demonyms."""
+    """Female 'relations' using countries_nat_en_key women demonyms."""
     value = "burma-cambodia relations"
     result = work_relations(value)
     assert _norm(result) == "العلاقات البورمية الكمبودية"

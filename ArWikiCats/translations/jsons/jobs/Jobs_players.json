@@ -1,410 +1,410 @@
 {
     "squash players": {
         "mens": "لاعبو إسكواش",
-        "womens": "لاعبات إسكواش"
+        "females": "لاعبات إسكواش"
     },
     "curlers": {
         "mens": "لاعبو كيرلنغ",
-        "womens": "لاعبات كيرلنغ"
+        "females": "لاعبات كيرلنغ"
     },
     "triple jumpers": {
         "mens": "لاعبو وثب ثلاثي",
-        "womens": "لاعبات وثب ثلاثي"
+        "females": "لاعبات وثب ثلاثي"
     },
     "skydivers": {
         "mens": "قافزون بالمظلات",
-        "womens": "قافزات بالمظلات"
+        "females": "قافزات بالمظلات"
     },
     "heptathletes": {
         "mens": "متسابقو سباعي",
-        "womens": "متسابقات سباعي"
+        "females": "متسابقات سباعي"
     },
     "artistic gymnasts": {
         "mens": "لاعبو جمباز فني",
-        "womens": "لاعبات جمباز فني"
+        "females": "لاعبات جمباز فني"
     },
     "decathletes": {
         "mens": "متسابقو عشاري",
-        "womens": "متسابقات عشاري"
+        "females": "متسابقات عشاري"
     },
     "chess arbiters": {
         "mens": "حكام شطرنج",
-        "womens": "حكمات شطرنج"
+        "females": "حكمات شطرنج"
     },
     "referees and umpires": {
         "mens": "حكام رياضات",
-        "womens": "حكمات رياضات"
+        "females": "حكمات رياضات"
     },
     "long jumpers": {
         "mens": "لاعبو قفز طويل",
-        "womens": "لاعبات قفز طويل"
+        "females": "لاعبات قفز طويل"
     },
     "aikidoka": {
         "mens": "لاعبو آيكيدو",
-        "womens": "لاعبات آيكيدو"
+        "females": "لاعبات آيكيدو"
     },
     "hapkido practitioners": {
         "mens": "لاعبو هاب كيدو",
-        "womens": "لاعبات هاب كيدو"
+        "females": "لاعبات هاب كيدو"
     },
     "modern pentathletes": {
         "mens": "متسابقو خماسي حديث",
-        "womens": "متسابقات خماسي حديث"
+        "females": "متسابقات خماسي حديث"
     },
     "racewalkers": {
         "mens": "متسابقو مشي",
-        "womens": "متسابقات مشي"
+        "females": "متسابقات مشي"
     },
     "high jumpers": {
         "mens": "متسابقو قفز عالي",
-        "womens": "متسابقات قفز عالي"
+        "females": "متسابقات قفز عالي"
     },
     "hurdlers": {
         "mens": "لاعبو قفز الحواجز",
-        "womens": "لاعبات قفز الحواجز"
+        "females": "لاعبات قفز الحواجز"
     },
     "shot putters": {
         "mens": "لاعبو دفع ثقل",
-        "womens": "لاعبات دفع ثقل"
+        "females": "لاعبات دفع ثقل"
     },
     "rhythmic gymnasts": {
         "mens": "لاعبو جمباز إيقاعي",
-        "womens": "لاعبات جمباز إيقاعي"
+        "females": "لاعبات جمباز إيقاعي"
     },
     "ice dancers": {
         "mens": "راقصو جليد",
-        "womens": "راقصات جليد"
+        "females": "راقصات جليد"
     },
     "skaters": {
         "mens": "متزلجون على اللوح",
-        "womens": "متزلجات على اللوح"
+        "females": "متزلجات على اللوح"
     },
     "skiers": {
         "mens": "متزحلقون",
-        "womens": "متزحلقات"
+        "females": "متزحلقات"
     },
     "alpine skiers": {
         "mens": "متزحلقو منحدرات ثلجية",
-        "womens": "متزحلقات منحدرات ثلجية"
+        "females": "متزحلقات منحدرات ثلجية"
     },
     "pair skaters": {
         "mens": "متزلجون فنيون على الجليد",
-        "womens": "متزلجات فنيات على الجليد"
+        "females": "متزلجات فنيات على الجليد"
     },
     "cross-country skaters": {
         "mens": "متزلجون ريفيون",
-        "womens": "متزلجات ريفيات"
+        "females": "متزلجات ريفيات"
     },
     "cross-country skiers": {
         "mens": "متزحلقون ريفيون",
-        "womens": "متزحلقات ريفيات"
+        "females": "متزحلقات ريفيات"
     },
     "figure skaters": {
         "mens": "متزلجون فنيون",
-        "womens": "متزلجات فنيات"
+        "females": "متزلجات فنيات"
     },
     "single skaters": {
         "mens": "متزلجون فرديون",
-        "womens": "متزلجات فرديات"
+        "females": "متزلجات فرديات"
     },
     "freestyle skiers": {
         "mens": "ممارسو تزلج حر",
-        "womens": "ممارسات تزلج حر"
+        "females": "ممارسات تزلج حر"
     },
     "snowboarders": {
         "mens": "متزلجون على الثلج",
-        "womens": "متزلجات على الثلج"
+        "females": "متزلجات على الثلج"
     },
     "fencers": {
         "mens": "مبارزون",
-        "womens": "مبارزات"
+        "females": "مبارزات"
     },
     "lugers": {
         "mens": "زاحفون ثلجيون",
-        "womens": "زاحفات ثلجيات"
+        "females": "زاحفات ثلجيات"
     },
     "short track speed skaters": {
         "mens": "متزلجون على مسار قصير",
-        "womens": "متزلجات على مسار قصير"
+        "females": "متزلجات على مسار قصير"
     },
     "speed skaters": {
         "mens": "متزلجو سرعة",
-        "womens": "متزلجات سرعة"
+        "females": "متزلجات سرعة"
     },
     "roller skaters": {
         "mens": "متزلجون بالعجلات",
-        "womens": "متزلجات بالعجلات"
+        "females": "متزلجات بالعجلات"
     },
     "wushu practitioners": {
         "mens": "ممارسو ووشو",
-        "womens": "ممارسات ووشو"
+        "females": "ممارسات ووشو"
     },
     "muay thai practitioners": {
         "mens": "ممارسو موياي تاي",
-        "womens": "ممارسات موياي تاي"
+        "females": "ممارسات موياي تاي"
     },
     "sanshou practitioners": {
         "mens": "ممارسو سانشو",
-        "womens": "ممارسات سانشو"
+        "females": "ممارسات سانشو"
     },
     "kickboxers": {
         "mens": "مقاتلو كيك بوكسنغ",
-        "womens": "مقاتلات كيك بوكسنغ"
+        "females": "مقاتلات كيك بوكسنغ"
     },
     "professional wrestlers": {
         "mens": "مصارعون محترفون",
-        "womens": "مصارعات محترفات"
+        "females": "مصارعات محترفات"
     },
     "biathletes": {
         "mens": "لاعبو بياثلون",
-        "womens": "لاعبات بياثلون"
+        "females": "لاعبات بياثلون"
     },
     "association footballers": {
         "mens": "لاعبو كرة قدم",
-        "womens": "لاعبات كرة قدم"
+        "females": "لاعبات كرة قدم"
     },
     "players of american football": {
         "mens": "لاعبو كرة قدم أمريكية",
-        "womens": "لاعبات كرة قدم أمريكية"
+        "females": "لاعبات كرة قدم أمريكية"
     },
     "players of canadian football": {
         "mens": "لاعبو كرة قدم كندية",
-        "womens": "لاعبات كرة قدم كندية"
+        "females": "لاعبات كرة قدم كندية"
     },
     "footballers": {
         "mens": "لاعبو كرة قدم",
-        "womens": "لاعبات كرة قدم"
+        "females": "لاعبات كرة قدم"
     },
     "wheelchair racers": {
         "mens": "متسابقو كراسي متحركة",
-        "womens": "متسابقات كراسي متحركة"
+        "females": "متسابقات كراسي متحركة"
     },
     "women's-footballers": {
         "mens": "",
-        "womens": "لاعبات كرة قدم"
+        "females": "لاعبات كرة قدم"
     },
     "discus throwers": {
         "mens": "رماة قرص",
-        "womens": "راميات قرص"
+        "females": "راميات قرص"
     },
     "golfers": {
         "mens": "لاعبو غولف",
-        "womens": "لاعبات غولف"
+        "females": "لاعبات غولف"
     },
     "sport shooters": {
         "mens": "لاعبو رماية",
-        "womens": "لاعبات رماية"
+        "females": "لاعبات رماية"
     },
     "hermits": {
         "mens": "متنسكون",
-        "womens": "متنسكات"
+        "females": "متنسكات"
     },
     "cannibals": {
         "mens": "آكلو لحوم بشر",
-        "womens": "آكلات لحوم بشر"
+        "females": "آكلات لحوم بشر"
     },
     "bibliophiles": {
         "mens": "محبو كتب",
-        "womens": "محبات كتب"
+        "females": "محبات كتب"
     },
     "whistleblowers": {
         "mens": "مخبرون",
-        "womens": "مخبرات"
+        "females": "مخبرات"
     },
     "librarians": {
         "mens": "أمناء مكتبات",
-        "womens": "أمينات مكتبات"
+        "females": "أمينات مكتبات"
     },
     "shooters": {
         "mens": "رماة",
-        "womens": "راميات"
+        "females": "راميات"
     },
     "esperantists": {
         "mens": "إسبرانتوين",
-        "womens": "إسبرانتيات"
+        "females": "إسبرانتيات"
     },
     "rowers": {
         "mens": "مجدفون",
-        "womens": "مجدفات"
+        "females": "مجدفات"
     },
     "hunters": {
         "mens": "صيادون",
-        "womens": "صيادات"
+        "females": "صيادات"
     },
     "printers": {
         "mens": "طباعون",
-        "womens": "طباعات"
+        "females": "طباعات"
     },
     "sprinters": {
         "mens": "عداؤون سريعون",
-        "womens": "عداءات سريعات"
+        "females": "عداءات سريعات"
     },
     "runners": {
         "mens": "عداؤون",
-        "womens": "عداءات"
+        "females": "عداءات"
     },
     "steeplechase runners": {
         "mens": "عداؤو موانع",
-        "womens": "عداءات موانع"
+        "females": "عداءات موانع"
     },
     "long-distance runners": {
         "mens": "عداؤو مسافات طويلة",
-        "womens": "عداءات مسافات طويلة"
+        "females": "عداءات مسافات طويلة"
     },
     "middle-distance runners": {
         "mens": "عداؤو مسافات متوسطة",
-        "womens": "عداءات مسافات متوسطة"
+        "females": "عداءات مسافات متوسطة"
     },
     "cricketers": {
         "mens": "لاعبو كريكت",
-        "womens": "لاعبات كريكت"
+        "females": "لاعبات كريكت"
     },
     "climbers": {
         "mens": "متسلقون",
-        "womens": "متسلقات"
+        "females": "متسلقات"
     },
     "sport climbers": {
         "mens": "متسلقون",
-        "womens": "متسلقات"
+        "females": "متسلقات"
     },
     "jockeys": {
         "mens": "فرسان",
-        "womens": "فارسات"
+        "females": "فارسات"
     },
     "motorcycle racers": {
         "mens": "متسابقو دراجات نارية",
-        "womens": "متسابقات دراجات نارية"
+        "females": "متسابقات دراجات نارية"
     },
     "boat racers": {
         "mens": "متسابقو زوارق",
-        "womens": "متسابقات زوارق"
+        "females": "متسابقات زوارق"
     },
     "motorboat racers": {
         "mens": "متسابقو زوارق نارية",
-        "womens": "متسابقات زوارق نارية"
+        "females": "متسابقات زوارق نارية"
     },
     "equestrians": {
         "mens": "فرسان خيول",
-        "womens": "فارسات خيول"
+        "females": "فارسات خيول"
     },
     "aviators": {
         "mens": "طيارون",
-        "womens": "طيارات"
+        "females": "طيارات"
     },
     "canoeists": {
         "mens": "متسابقو قوارب الكانوي",
-        "womens": "متسابقات قوارب الكانوي"
+        "females": "متسابقات قوارب الكانوي"
     },
     "skeleton racers": {
         "mens": "متزلجون صدريون",
-        "womens": "متزلجات صدريات"
+        "females": "متزلجات صدريات"
     },
     "athletes track and field": {
         "mens": "رياضيو المسار والميدان",
-        "womens": "رياضيات المسار والميدان"
+        "females": "رياضيات المسار والميدان"
     },
     "track-and-field athletes": {
         "mens": "رياضيو المسار والميدان",
-        "womens": "رياضيات المسار والميدان"
+        "females": "رياضيات المسار والميدان"
     },
     "track and field athletes": {
         "mens": "رياضيو المسار والميدان",
-        "womens": "رياضيات المسار والميدان"
+        "females": "رياضيات المسار والميدان"
     },
     "track and field coaches": {
         "mens": "مدربو المسار والميدان",
-        "womens": "مدربات المسار والميدان"
+        "females": "مدربات المسار والميدان"
     },
     "taekwondo practitioners": {
         "mens": "لاعبو تايكوندو",
-        "womens": "لاعبات تايكوندو"
+        "females": "لاعبات تايكوندو"
     },
     "rally drivers": {
         "mens": "سائقو رالي",
-        "womens": "سائقات رالي"
+        "females": "سائقات رالي"
     },
     "drivers": {
         "mens": "سائقو سيارات",
-        "womens": "سائقات سيارات"
+        "females": "سائقات سيارات"
     },
     "racing drivers": {
         "mens": "سائقو سيارات سباق",
-        "womens": "سائقات سيارات سباق"
+        "females": "سائقات سيارات سباق"
     },
     "triathletes": {
         "mens": "لاعبو ترياثلون",
-        "womens": "لاعبات ترياثلون"
+        "females": "لاعبات ترياثلون"
     },
     "athletes": {
         "mens": "لاعبو قوى",
-        "womens": "لاعبات قوى"
+        "females": "لاعبات قوى"
     },
     "ski jumpers": {
         "mens": "متزلجو قفز",
-        "womens": "متزلجات قفز"
+        "females": "متزلجات قفز"
     },
     "skateboarders": {
         "mens": "متزلجو ألواح",
-        "womens": "متزلجات ألواح"
+        "females": "متزلجات ألواح"
     },
     "water skiers": {
         "mens": "متزلجون على الماء",
-        "womens": "متزلجات على الماء"
+        "females": "متزلجات على الماء"
     },
     "weightlifters": {
         "mens": "رباعون",
-        "womens": "رباعات"
+        "females": "رباعات"
     },
     "archers": {
         "mens": "نبالون",
-        "womens": "نبالات"
+        "females": "نبالات"
     },
     "wrestlers": {
         "mens": "مصارعون",
-        "womens": "مصارعات"
+        "females": "مصارعات"
     },
     "sumo wrestlers": {
         "mens": "مصارعو سومو",
-        "womens": "مصارعات سومو"
+        "females": "مصارعات سومو"
     },
     "sport wrestlers": {
         "mens": "مصارعون رياضيون",
-        "womens": "مصارعات رياضيات"
+        "females": "مصارعات رياضيات"
     },
     "swimmers": {
         "mens": "سباحون",
-        "womens": "سباحات"
+        "females": "سباحات"
     },
     "boxers": {
         "mens": "ملاكمون",
-        "womens": "ملاكمات"
+        "females": "ملاكمات"
     },
     "gymnasts": {
         "mens": "لاعبو جمباز",
-        "womens": "لاعبات جمباز"
+        "females": "لاعبات جمباز"
     },
     "judoka": {
         "mens": "لاعبو جودو",
-        "womens": "لاعبات جودو"
+        "females": "لاعبات جودو"
     },
     "cyclists": {
         "mens": "دراجون",
-        "womens": "دراجات"
+        "females": "دراجات"
     },
     "underwater divers": {
         "mens": "غطاسون تحت الماء",
-        "womens": "غطاسات تحت الماء"
+        "females": "غطاسات تحت الماء"
     },
     "divers": {
         "mens": "غواصون",
-        "womens": "غواصات"
+        "females": "غواصات"
     },
     "nordic combined skaters": {
         "mens": "منافسو تزلج نوردي مزدوج",
-        "womens": "منافسات تزلج نوردي مزدوج"
+        "females": "منافسات تزلج نوردي مزدوج"
     },
     "nordic combined skiers": {
         "mens": "متزحلقو تزلج نوردي مزدوج",
-        "womens": "متزحلقات تزلج نوردي مزدوج"
+        "females": "متزحلقات تزلج نوردي مزدوج"
     }
 }

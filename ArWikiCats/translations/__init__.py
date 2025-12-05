@@ -38,8 +38,8 @@ from .mixed.bot_te_4_list import (
     en_is_P17_ar_is_mens,
     replace_labels_2022,
 )
-from .mixed.jenders_priffix_suffix import (
-    Mens_priffix,
+from .mixed.jenders_prefix_suffix import (
+    Mens_prefix,
     Mens_suffix,
     womens_prefixes,
 )
@@ -54,7 +54,7 @@ from .nats.Nationality import (
     all_country_ar,
     all_country_with_nat,
     all_country_with_nat_ar,
-    all_country_with_nat_keys_is_en,
+    countries_nat_en_key,
     countries_nat_en_key,
     ar_Nat_men,
     countries_from_nat,
@@ -133,7 +133,7 @@ __all__ = [
     "Nat_women",
     "all_country_ar",
     "all_country_with_nat",
-    "all_country_with_nat_keys_is_en",
+    "countries_nat_en_key",
     "countries_nat_en_key",
     "all_country_with_nat_ar",
     "countries_from_nat",
@@ -222,6 +222,6 @@ __all__ = [
     "en_is_P17_ar_is_al_women",
     "replace_labels_2022",
     "Mens_suffix",
-    "Mens_priffix",
+    "Mens_prefix",
     "womens_prefixes",
 ]

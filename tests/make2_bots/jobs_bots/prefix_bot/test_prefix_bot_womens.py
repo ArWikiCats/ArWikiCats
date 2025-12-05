@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.priffix_bot import womens_prefixes_work
+from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
 from ArWikiCats.make_bots.new_jobs.womens import get_label
 
 test_womens_data = {

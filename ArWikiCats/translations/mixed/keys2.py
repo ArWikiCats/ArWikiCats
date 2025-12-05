@@ -103,6 +103,8 @@ def build_keys2_py_mapping() -> dict[str, str]:
     """Return the mapping previously stored in ``keys2_py``."""
 
     data = open_json_file("keys/keys2_py.json") or {}
+    # data["men"] = "رجال"
+
     data.update(medical_keys)
 
     return data

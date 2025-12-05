@@ -42,7 +42,7 @@ def _build_female_jobs() -> Dict[str, str]:
     female_jobs2: Dict[str, str] = {}
 
     for film_category, film_labels in FILMS_TYPE.items():
-        female_jobs2[f"{film_category} actresses"] = f"ممثلات {film_labels['womens']}"
+        female_jobs2[f"{film_category} actresses"] = f"ممثلات {film_labels['females']}"
 
     female_jobs2["sportswomen"] = "رياضيات"
 

@@ -14,7 +14,7 @@ from ...translations import (
 )
 
 
-def _create_pp_priffix(albums_typies: dict[str, str]) -> dict[str, str]:
+def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
     Pp_Priffix = {
         " memorials": "نصب {} التذكارية",
         " video albums": "ألبومات فيديو {}",
@@ -48,7 +48,7 @@ def _make_players_keys(Add_ar_in: dict[str, str]) -> dict:
 
 Add_ar_in = dict(olympics)
 players_new_keys = _make_players_keys(Add_ar_in)
-Pp_Priffix = _create_pp_priffix(ALBUMS_TYPE)
+Pp_Priffix = _create_pp_prefix(ALBUMS_TYPE)
 
 
 cash_2022 = {

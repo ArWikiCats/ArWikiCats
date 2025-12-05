@@ -15,20 +15,20 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..jobs_bots.priffix_bot import womens_prefixes_work, mens_prefixes_work
+from .prefix_bot import womens_prefixes_work, mens_prefixes_work
 
 MEN_WOMENS_WITH_NATO = {
     "eugenicists": {
         "mens": "علماء {nato} متخصصون في تحسين النسل",
-        "womens": "عالمات {nato} متخصصات في تحسين النسل",
+        "females": "عالمات {nato} متخصصات في تحسين النسل",
     },
     "politicians who committed suicide": {
         "mens": "سياسيون {nato} أقدموا على الانتحار",
-        "womens": "سياسيات {nato} أقدمن على الانتحار",
+        "females": "سياسيات {nato} أقدمن على الانتحار",
     },
     "contemporary artists": {
         "mens": "فنانون {nato} معاصرون",
-        "womens": "فنانات {nato} معاصرات",
+        "females": "فنانات {nato} معاصرات",
     },
 }
 
@@ -78,7 +78,7 @@ def jobs_with_nat_prefix(
     country_prefix: str,
     category_suffix: str,
     mens: str = "",
-    womens: str = "",
+    females: str = "",
     save_result=True,
     find_nats=True,
 ) -> str:
@@ -97,7 +97,7 @@ def jobs_with_nat_prefix(
         country_prefix (str): The starting country for the job label.
         category_suffix (str): Additional context for the job label.
         mens (str): Manual override for men's nationality label.
-        womens (str): Manual override for women's nationality label.
+        females (str): Manual override for women's nationality label.
         save_result (bool): Whether to save the result to a file.
         find_nats (bool): Whether to look up nationality labels.
 
@@ -120,13 +120,13 @@ def jobs_with_nat_prefix(
             country_label = jobs_mens_data.get(category_suffix, "") or mens_prefixes_work(category_suffix) or ""
             country_lab = country_lab_mens_womens("mens", category_suffix, mens_nat_lab, country_label)
 
-    women_nat_lab: str = womens or (Nat_Womens.get(country_prefix, "") if find_nats else "")
+    women_nat_lab: str = females or (Nat_Womens.get(country_prefix, "") if find_nats else "")
 
     if not country_lab and women_nat_lab:
         if category_suffix in ["women", "female", "women's"]:
             country_lab = women_nat_lab
         else:
             country_label = short_womens_jobs.get(category_suffix, "") or womens_prefixes_work(category_suffix) or ""
-            country_lab = country_lab_mens_womens("womens", category_suffix, women_nat_lab, country_label)
+            country_lab = country_lab_mens_womens("females", category_suffix, women_nat_lab, country_label)
 
     return country_lab

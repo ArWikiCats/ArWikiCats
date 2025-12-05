@@ -18,7 +18,7 @@ from ..countries_formats.for_me import Work_for_me
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..o_bots import ethnic_bot
 from .get_helps import get_suffix_with_keys
-from .priffix_bot import womens_prefixes_work, mens_prefixes_work
+from .prefix_bot import womens_prefixes_work, mens_prefixes_work
 
 COUNTRY_TEMPLATES = {
     r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
