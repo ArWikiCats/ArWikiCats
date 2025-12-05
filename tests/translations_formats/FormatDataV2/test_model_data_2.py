@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """Integration tests for format_multi_data  """
 
-import logging
 import pytest
 
-logger = logging.getLogger(__name__)
+from ArWikiCats.translations_formats import FormatDataV2
 
 
 @pytest.fixture
