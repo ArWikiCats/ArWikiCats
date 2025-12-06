@@ -248,7 +248,7 @@ def _build_country_label_index() -> dict[str, str]:
 
     update_with_lowercased(label_index, INDIA_REGION_TRANSLATIONS)
     update_with_lowercased(label_index, CITY_LABEL_PATCHES)
-    update_with_lowercased(label_index, pf_keys2)
+    update_with_lowercased(label_index, pf_keys2)               # 68,981
     update_with_lowercased(label_index, US_COUNTY_TRANSLATIONS)
 
     for city, lal in JAPAN_REGIONAL_LABELS.items():
@@ -304,10 +304,17 @@ def _build_country_label_index() -> dict[str, str]:
 
 New_P17_Finall = _build_country_label_index()
 
+
+def get_from_new_p17_finall(text: str, default: str|None = "") -> str:
+    """Look up the Arabic label for a term in the ``New_P17_Finall`` mapping."""
+    return New_P17_Finall.get(text, default)
+
+
 __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "POPULATION_OVERRIDES",
     "New_P17_Finall",
+    "get_from_new_p17_finall",
 ]
 
 len_print.data_len(

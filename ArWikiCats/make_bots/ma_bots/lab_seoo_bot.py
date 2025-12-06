@@ -9,7 +9,7 @@ import re
 from ...fix import fixtitle
 from ...helps.log import logger
 from ...main_processers import event2bot
-from ...translations import Ambassadors_tab, New_P17_Finall
+from ...translations import Ambassadors_tab, get_from_new_p17_finall
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -68,7 +68,7 @@ def event_label_work(target_category: str) -> str:
     logger.info("<<lightblue>>>> vvvvvvvvvvvv event_label_work start vvvvvvvvvvvv ")
     logger.info(f'<<lightyellow>>>>>> {normalized_target_category=}')
 
-    resolved_category_label = New_P17_Finall.get(normalized_target_category, "")
+    resolved_category_label = get_from_new_p17_finall(normalized_target_category, "")
 
     if not resolved_category_label:
         resolved_category_label = Ambassadors_tab.get(normalized_target_category, "")

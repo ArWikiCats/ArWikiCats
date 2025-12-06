@@ -5,7 +5,7 @@ from .sports.sub_teams_keys import sub_teams_new
 from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import New_P17_Finall, US_STATES
+from .geo.labels_country import get_from_new_p17_finall, US_STATES
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
@@ -103,9 +103,11 @@ from .utils.match_sport_keys import match_sport_key
 from .sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
 from .utils import apply_pattern_replacements
 from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
+from .sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 
 __all__ = [
+    "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
@@ -131,7 +133,7 @@ __all__ = [
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
     #
-    "New_P17_Finall",
+    "get_from_new_p17_finall",
     "All_Nat",
     "Nat_women",
     "all_country_ar",
