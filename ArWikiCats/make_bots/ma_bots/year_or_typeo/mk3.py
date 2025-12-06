@@ -177,11 +177,13 @@ def new_func_mk2(
     # ---------------------
     in_table = check_country_in_tables(country)
 
+    logger.info(f"> new_func_mk2(): {country=}, {in_table=}, {arlabel=}")
+
     Add_In_Done, arlabel, cat_test = add_the_in(
         in_table, country, arlabel, suf, In, typeo, year_labe, country_label, cat_test
     )
 
-    logger.info(f"{year_labe=}, {arlabel2=}")
+    logger.info(f"> new_func_mk2(): {year_labe=}, {arlabel=}")
 
     # ---------------------
     # phase 2
@@ -195,8 +197,9 @@ def new_func_mk2(
 
     arlabel = " ".join(arlabel.strip().split())
 
-    logger.info("------- end --------")
+    logger.info("------- ")
     logger.info(f'a<<lightblue>>>>>> p:{country_label}, {year_labe=}, {category=}')
     logger.info(f'a<<lightblue>>>>>> {arlabel=}')
 
+    logger.info("------- end > new_func_mk2() < --------")
     return cat_test, arlabel

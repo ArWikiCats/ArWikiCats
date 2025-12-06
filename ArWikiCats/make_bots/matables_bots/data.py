@@ -23,6 +23,7 @@ Keep_it_frist = [
     "seasons in",
     "seasons",
     "works by",
+    "deaths by",
 ]
 
 Add_in_table = [
