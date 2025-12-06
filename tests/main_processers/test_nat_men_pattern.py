@@ -9,24 +9,8 @@ from ArWikiCats.main_processers.nat_men_pattern import get_label
 
 test_data = {
     # standard
-    "welsh people": "ويلزيون",
-    "yemeni people": "يمنيون",
-    "yemeni men": "رجال يمنيون",
-    "libyan political people": "أعلام سياسية ليبية",
-    "south african political people": "أعلام سياسية جنوبية إفريقية",
-
-    "albanian lgbtq people": "أعلام إل جي بي تي كيو ألبانية",
-    "bangladeshi lgbtq people": "أعلام إل جي بي تي كيو بنغلاديشية",
-    "german lgbtq people": "أعلام إل جي بي تي كيو ألمانية",
-    "jamaican lgbtq people": "أعلام إل جي بي تي كيو جامايكية",
-    "norwegian lgbtq people": "أعلام إل جي بي تي كيو نرويجية",
-    "sierra leonean lgbtq people": "أعلام إل جي بي تي كيو سيراليونية",
-    "south african lgbtq people": "أعلام إل جي بي تي كيو جنوبية إفريقية",
-    "thai lgbtq people": "أعلام إل جي بي تي كيو تايلندية",
-    "tunisian lgbtq people": "أعلام إل جي بي تي كيو تونسية",
-
-    "native american people": "أعلام أمريكيون أصليون",
-
+    "welsh people": "أعلام ويلزيون",
+    "yemeni people": "أعلام يمنيون",
     "africanamerican people": "أعلام أمريكيون أفارقة",
     "american people": "أعلام أمريكيون",
     "argentine people": "أعلام أرجنتينيون",
@@ -68,6 +52,19 @@ test_data = {
     "turkish cypriot people": "أعلام قبرصيون شماليون",
     "turkish people": "أعلام أتراك",
     "ukrainian people": "أعلام أوكرانيون",
+
+    "libyan political people": "ساسة ليبيون",
+    "south african political people": "ساسة جنوب إفريقيون",
+    "albanian lgbtq people": "أعلام إل جي بي تي كيو ألبان",
+    "bangladeshi lgbtq people": "أعلام إل جي بي تي كيو بنغلاديشيون",
+    "german lgbtq people": "أعلام إل جي بي تي كيو ألمان",
+    "jamaican lgbtq people": "أعلام إل جي بي تي كيو جامايكيون",
+    "norwegian lgbtq people": "أعلام إل جي بي تي كيو نرويجيون",
+    "sierra leonean lgbtq people": "أعلام إل جي بي تي كيو سيراليونيون",
+    "south african lgbtq people": "أعلام إل جي بي تي كيو جنوب إفريقيون",
+    "thai lgbtq people": "أعلام إل جي بي تي كيو تايلنديون",
+    "tunisian lgbtq people": "أعلام إل جي بي تي كيو تونسيون",
+    "native american people": "أعلام أمريكيون أصليون",
 }
 
 
