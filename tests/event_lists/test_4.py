@@ -132,16 +132,20 @@ data1 = {
 
 
 data_2 = {
+    "political people": "أعلام سياسية",
+    "lgbtq people": "أعلام إل جي بي تي كيو",
+    "black people": "أعلام سوداء",
 
 }
 
 to_test = [
     ("test_1", data1),
-    ("test_2", data_2),
+    # ("test_2", data_2),
 ]
 
 
 @pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
@@ -151,4 +155,4 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     dump_diff(diff_result, name)
     dump_diff(add_result, f"{name}_add")
 
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

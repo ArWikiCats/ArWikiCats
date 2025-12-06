@@ -53,7 +53,7 @@ def test_pan_arican() -> None:
     expected, diff_result = one_dump_test(pan_arican, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_pan_arican")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(pan_arican):,}"
 
 
 @pytest.mark.parametrize("category, expected", pan_arican.items(), ids=list(pan_arican.keys()))

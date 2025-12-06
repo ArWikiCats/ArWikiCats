@@ -116,7 +116,7 @@ def test_sport_lab_oioioi_load() -> None:
     expected, diff_result = one_dump_test(data, sport_lab_oioioi_load)
 
     dump_diff(diff_result, "test_sport_lab_oioioi_load")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
