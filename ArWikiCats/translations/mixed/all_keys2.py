@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-from ...helps import len_print
+from ...helps import len_print, logger
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
 from ..politics.ministers import minister_keyse, ministrees_keysse
@@ -531,7 +531,27 @@ def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str
     return pf_keys2, pop_of_without_in, pop_of_football_lower
 
 
+def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
+    """Handle 'the ' prefix in country labels."""
+    new_keys = {}
+    for key, value in list(label_index.items()):
+
+        if not key.lower().startswith("the ") or not value:
+            continue
+
+        trimmed_key = key[len("the ") :].strip()
+        if trimmed_key in label_index:
+            continue
+        new_keys.setdefault(trimmed_key, value)
+
+    logger.debug(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
+    return new_keys
+
+
 pf_keys2, pop_of_without_in, pop_of_football_lower = wrap_build_pf_keys2()
+
+no_the = _handle_the_prefix(pf_keys2)
+pf_keys2.update(no_the)
 
 
 def get_from_pf_keys2(text: str) -> str:

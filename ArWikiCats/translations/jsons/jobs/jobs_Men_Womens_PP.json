@@ -188,7 +188,7 @@
     "consultants": {"males":"استشاريون", "females":"استشاريات"},
     "coroners": {"males":"أطباء شرعيون", "females":"طبيبات شرعيات"},
     "cowboys": {"males":"رعاة بقر", "females":"راعيات بقر"},
-    "White-collar criminals": {"males":"مجرمون ذوي ياقات بيضاء", "females":"مجرمات ذوات ياقات بيضاء"},
+    "white-collar criminals": {"males":"مجرمون ذوي ياقات بيضاء", "females":"مجرمات ذوات ياقات بيضاء"},
     "criminals": {"males":"مجرمون", "females":"مجرمات"},
     "bankers": {"males":"مصرفيون", "females":"مصرفيات"},
     "doctors": {"males":"أطباء", "females":"طبيبات"},

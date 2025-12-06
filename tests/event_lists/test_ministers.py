@@ -16,7 +16,7 @@ examples = {
     "Category:Ministers of Religious Affairs of the Netherlands": "تصنيف:وزراء شؤون دينية في هولندا",
     "Category:Women government ministers of Latvia": "تصنيف:وزيرات لاتفيا",
     "Category:Women's ministers of Fiji": "تصنيف:وزيرات فيجي",
-    "Category:British Secretaries of State for the Environment": "تصنيف:وزراء خارجية بريطانيون في بيئة",
+    "Category:British Secretaries of State for the Environment": "تصنيف:وزراء خارجية بريطانيون في البيئة",
     "Category:British Secretaries of State for Education": "تصنيف:وزراء خارجية بريطانيون في التعليم",
     "Category:British Secretaries of State for Employment": "تصنيف:وزراء خارجية بريطانيون في التوظيف",
     "Category:Ministers for Foreign Affairs of Abkhazia": "تصنيف:وزراء شؤون خارجية في أبخازيا",
