@@ -31,11 +31,12 @@ def get_pop_All_18(key: str, default: str = "") -> str:
         "_get_pop_All_18": _get_pop_All_18,
         "find_teams_2025": find_teams_2025,
     }
-    result = SPORTS_KEYS_FOR_LABEL.get(key) or SPORTS_KEYS_FOR_LABEL.get(key.lower(), "")
+    # result = SPORTS_KEYS_FOR_LABEL.get(key) or SPORTS_KEYS_FOR_LABEL.get(key.lower(), "")
+    result = ""
 
     if not result:
         for name, func in call_ables.items():
-            result = func(key, "")
+            result = func(key)
             if result:
                 print(f"get_pop_All_18: Found key in {name}: {key} -> {result}")
                 break

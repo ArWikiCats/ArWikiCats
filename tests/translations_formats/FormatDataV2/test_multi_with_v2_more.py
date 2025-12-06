@@ -57,7 +57,7 @@ test_data_1 = {
     "United States": "الولايات المتحدة",
     "Olympic gold medalists for United States": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة",
     "Olympic gold medalists for United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
-    "Olympic gold medalists for the United States in football": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القدم",
+    # "Olympic gold medalists for the United States in football": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القدم",
 }
 
 

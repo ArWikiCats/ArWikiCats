@@ -21,7 +21,7 @@ def load_pop_All_2018() -> Dict[str, str]:
     # result: 226,093 item
     data = open_json_file("population/pop_All_2018.json") or {}  # 161
 
-    if False:
+    if True:
         sources = [
             pf_keys2,  # 26,557
             Jobs_new,  # 132,174
