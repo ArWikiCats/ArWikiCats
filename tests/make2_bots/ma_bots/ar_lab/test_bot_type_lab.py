@@ -9,6 +9,8 @@ from ArWikiCats.make_bots.ma_bots.ar_lab import get_type_lab
 data = [
     # (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
     # (" of ", "national women's sports teams of", "منتخبات رياضية وطنية نسائية"),
+    # (" by ", "mass media in morocco", "وسائل إعلام في المغرب"),
+
     ("in", "arizona territory", "إقليم أريزونا"),
     (" of ", " university of", "جامعة"),
     (" by ", "basketball playerss in lebanon", "لاعبو كرة سلة في لبنان"),
@@ -48,7 +50,6 @@ data = [
     (" by ", "1789 in the united kingdom", "المملكة المتحدة في 1789"),
     (" opened in ", "railway stations in sweden", "محطات السكك الحديدية في السويد"),
     (" for ", "paralympic table tennis players", "لاعبو كرة طاولة في الألعاب البارالمبية"),
-    (" by ", "mass media in morocco", "وسائل إعلام في المغرب"),
     (" established in ", "sports clubs and teams", "أندية رياضية وفرق"),
     (" by ", "establishments in southeast asia", "تأسيسات في جنوب شرق آسيا"),
     (" opened in ", "railway stations in germany", "محطات السكك الحديدية في ألمانيا"),
@@ -63,7 +64,6 @@ data = [
     (" closed in ", "railway stations in northern-ireland", "محطات السكك الحديدية في أيرلندا الشمالية"),
     (" by ", "sports venues in australia", "ملاعب رياضية في أستراليا"),
     (" closed in ", "railway stations in albania", "محطات السكك الحديدية في ألبانيا"),
-    (" in ", "lists of mass media", "قوائم وسائل إعلام"),
     (" in ", "swiss expatriate basketball peoplee", "أعلام كرة سلة سويسريون مغتربون"),
     (" in ", "roman catholic church buildings", "مبان كنائس رومانية كاثوليكية"),
     (" by ", "christianity in the united states", "المسيحية في الولايات المتحدة"),

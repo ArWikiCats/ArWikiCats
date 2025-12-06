@@ -172,18 +172,18 @@ for company_type, arabic_label in COMPANY_TYPE_TRANSLATIONS.items():  # Media co
 companies_to_jobs = {}
 # ---
 
-for company_type in COMPANY_TYPE_TRANSLATIONS.keys():
+for company_type, label in COMPANY_TYPE_TRANSLATIONS.items():
     companies_to_jobs[f"{company_type} owners"] = {
-        "males": f"ملاك {COMPANY_TYPE_TRANSLATIONS[company_type]}",
-        "females": f"مالكات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "males": f"ملاك {label}",
+        "females": f"مالكات {label}",
     }
     companies_to_jobs[f"{company_type} founders"] = {
-        "males": f"مؤسسو {COMPANY_TYPE_TRANSLATIONS[company_type]}",
-        "females": f"مؤسسات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "males": f"مؤسسو {label}",
+        "females": f"مؤسسات {label}",
     }
     companies_to_jobs[f"{company_type} company founders"] = {
-        "males": f"مؤسسو شركات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
-        "females": f"مؤسسات شركات {COMPANY_TYPE_TRANSLATIONS[company_type]}",
+        "males": f"مؤسسو شركات {label}",
+        "females": f"مؤسسات شركات {label}",
     }
 
 

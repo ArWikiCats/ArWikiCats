@@ -8,6 +8,7 @@ from ArWikiCats.main_processers.country_time_pattern import yc_bot, get_label
 
 test_data = {
     # standard
+    "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
 
     # with text_before

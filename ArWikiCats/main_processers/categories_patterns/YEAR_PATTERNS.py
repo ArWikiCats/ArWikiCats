@@ -4,6 +4,7 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "category:{year1} in mass media": "تصنيف:وسائل الإعلام في {year1}",  # 126
     "category:airlines established in {year1}": "تصنيف:شركات طيران أسست في {year1}",  # 259
     "category:animals described in {year1}": "تصنيف:حيوانات وصفت في {year1}",  # 266
     "category:articles containing potentially dated statements from {year1}": "تصنيف:مقالات فيها عبارات متقادمة منذ {year1}",  # 183
@@ -118,7 +119,6 @@ YEAR_DATA = {
     "category:{year1} in international relations": "تصنيف:علاقات دولية في {year1}",  # 468
     "category:{year1} in law": "تصنيف:القانون في {year1}",  # 477
     "category:{year1} in literature": "تصنيف:الأدب في {year1}",  # 474
-    "category:{year1} in mass media": "تصنيف:وسائل الإعلام في {year1}",  # 126
     "category:{year1} in military history": "تصنيف:التاريخ العسكري في {year1}",  # 570
     "category:{year1} in music": "تصنيف:موسيقى في {year1}",  # 169
     "category:{year1} in paleontology": "تصنيف:علم الأحياء القديمة في {year1}",  # 215

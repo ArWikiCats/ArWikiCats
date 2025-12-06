@@ -27,6 +27,14 @@ def test_simple(category: str, separator: str, output: str) -> None:
     assert label == output
 
 
+mass_media_list = [
+    ("mass media in bosnia and herzegovina by medium", " by ", "وسائل الإعلام في البوسنة والهرسك حسب الوسط"),
+    ("mass media in bosnia and herzegovina", " in ", "وسائل الإعلام في البوسنة والهرسك"),
+    ("1550 in mass media", " in ", "1550 في وسائل إعلام"),
+    ("sports mass media in the united arab emirates", " in ", "إعلام ألعاب رياضية في الإمارات العربية المتحدة"),
+    ("defunct mass media in new jersey", " in ", "وسائل إعلام سابقة في نيوجيرسي"),
+
+]
 data_list = [
     ("male voice actors from kanagawa prefecture", " from ", "ممثلو أداء صوتي ذكور من محافظة كاناغاوا"),
 
@@ -195,7 +203,6 @@ data_list = [
     ("1550 in lithuania", " in ", "1550 في ليتوانيا"),
     ("1550 in macau", " in ", "1550 في ماكاو"),
     ("1550 in maryland", " in ", "1550 في ماريلند"),
-    ("1550 in mass media", " in ", "1550 في وسائل إعلام"),
     ("1550 in mexican television", " in ", "1550 في التلفزة المكسيكية"),
     ("1550 in mexico by month", " by ", "المكسيك في 1550 حسب الشهر"),
     ("1550 in mexico", " in ", "1550 في المكسيك"),
@@ -481,7 +488,6 @@ data_list = [
     ("december 1550 in the united states", " in ", "ديسمبر 1550 في الولايات المتحدة"),
     ("defunct airlines of paraguay", " of ", "شركات طيران سابقة في باراغواي"),
     ("defunct learned societies of united kingdom", " of ", "جمعيات علمية سابقة في المملكة المتحدة"),
-    ("defunct mass media in new jersey", " in ", "وسائل إعلام سابقة في نيوجيرسي"),
     ("defunct museums in arkansas", " in ", "متاحف سابقة في أركنساس"),
     ("diasporas in australia", " in ", "شتات في أستراليا"),
     ("disease outbreaks in peru", " in ", "تفشي طبي في بيرو"),
@@ -653,8 +659,6 @@ data_list = [
     ("maritime incidents in december 1550", " in ", "حوادث بحرية في ديسمبر 1550"),
     ("martial arts in montenegro", " in ", "الفنون القتالية في الجبل الأسود"),
     ("masonic buildings in iowa", " in ", "مبان ماسونية في آيوا"),
-    ("mass media in bosnia and herzegovina by medium", " by ", "وسائل إعلام في البوسنة والهرسك حسب الوسط"),
-    ("mass media in bosnia and herzegovina", " in ", "وسائل إعلام في البوسنة والهرسك"),
     ("mass shootings in africa", " in ", "إطلاق نار عشوائي في إفريقيا"),
     ("mass shootings in oceania", " in ", "إطلاق نار عشوائي في أوقيانوسيا"),
     ("may 1550 by continent", " by ", "مايو 1550 حسب القارة"),
@@ -879,7 +883,6 @@ data_list = [
     ("sports clubs and teams disestablished in 1550", " disestablished in ", "أندية رياضية وفرق انحلت في 1550"),
     ("sports clubs and teams", " and ", "أندية رياضية وفرق"),
     ("sports competitions in montevideo", " in ", "منافسات رياضية في مونتفيدو"),
-    ("sports mass media in the united arab emirates", " in ", "إعلام ألعاب رياضية في الإمارات العربية المتحدة"),
     ("sports organizations by continent", " by ", "منظمات رياضية حسب القارة"),
     ("sports originating in pakistan", " originating in ", "ألعاب رياضية نشأت في باكستان"),
     ("sports venues by type", " by ", "ملاعب رياضية حسب الفئة"),
