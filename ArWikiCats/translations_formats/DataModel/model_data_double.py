@@ -45,7 +45,8 @@ class FormatDataDouble(FormatDataBase):
         if not self.data_list_ci:
             return None
 
-        print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+        if len(self.data_list_ci) > 1000:
+            print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
 
         # to fix bug that selected "black" instead of "black-and-white"
         keys_sorted = sorted(

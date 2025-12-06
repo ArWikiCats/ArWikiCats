@@ -44,7 +44,8 @@ class FormatDataBase:
         if not self.data_list_ci:
             return None
 
-        print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+        if len(self.data_list_ci) > 1000:
+            print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
 
         keys_sorted = sorted(
             self.data_list_ci.keys(),
