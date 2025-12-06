@@ -4,7 +4,6 @@ from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
 COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}
-
 ADDITIONAL_REGION_KEYS = open_json_file("geography/New_Keys.json") or {}
 
 SWISS_CANTON_LABELS = {

@@ -35,7 +35,7 @@ data3 = {
     "Category:German nuclear medicine physicians": "تصنيف:أطباء طب نووي ألمان",
     "Category:Immigrants to New Zealand": "تصنيف:مهاجرون إلى نيوزيلندا",
     "Category:Immigration to New Zealand": "تصنيف:الهجرة إلى نيوزيلندا",
-    "Category:Internees at the Sheberghan Prison": "تصنيف:معتقلين في سجن شيبرغان",
+    "Category:Internees at the Sheberghan Prison": "تصنيف:معتقلون في سجن شيبرغان",
 }
 
 

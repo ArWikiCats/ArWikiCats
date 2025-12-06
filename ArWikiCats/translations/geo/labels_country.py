@@ -7,11 +7,9 @@ from collections.abc import Mapping, MutableMapping
 from ...helps import len_print, logger
 from ..companies import New_Company as COMPANY_LABELS
 from ..mixed.all_keys2 import pf_keys2
-from ..mixed.all_keys5 import (
-    BASE_POP_FINAL_5,  # , pop_final_5 as POPULATION_SUPPLEMENTS
-)
+from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..tax_table import Taxons_table as TAXON_TABLE
-from ._shared import load_json_mapping, normalize_to_lower
+from ._shared import load_json_mapping
 from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS_LOWER
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
@@ -300,7 +298,7 @@ def _build_country_label_index() -> dict[str, str]:
 
     label_index: dict[str, str] = {}
 
-    label_index.update(CITY_TRANSLATIONS_LOWER)
+    label_index.update(CITY_TRANSLATIONS_LOWER)                            # 10,788
 
     to_update = {
         "US_STATES": US_STATES,                                            # 54
@@ -313,10 +311,10 @@ def _build_country_label_index() -> dict[str, str]:
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,            # 1424
         "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
         "pf_keys2": pf_keys2,                                              # 35730,
-        "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,                  # 2998
-        "JAPAN_LABELS": JAPAN_LABELS,                                      # 162
-        "TURKEY_LABELS": TURKEY_LABELS,                                    # 243
-        "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,                          # 10
+        # "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,                  # 2998
+        # "JAPAN_LABELS": JAPAN_LABELS,                                      # 162
+        # "TURKEY_LABELS": TURKEY_LABELS,                                    # 243
+        # "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,                          # 10
 
     }
     for name, mapping in to_update.items():
@@ -338,7 +336,6 @@ def _build_country_label_index() -> dict[str, str]:
 
     setdefault_with_lowercased(label_index, TAXON_TABLE, "TAXON_TABLE")             # 5324
 
-    # for population_key, population_label in POPULATION_SUPPLEMENTS.items():
     setdefault_with_lowercased(label_index, BASE_POP_FINAL_5, "BASE_POP_FINAL_5")   # 124
 
     return label_index
@@ -347,9 +344,25 @@ def _build_country_label_index() -> dict[str, str]:
 NEW_P17_FINAL = _build_country_label_index()  # 68,981
 
 
+def get_from_new_p17_aliases(text: str, default: str|None = "") -> str:
+    """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
+
+    result = (
+        COMPANY_LABELS_NEW.get(text.lower())
+        or TURKEY_LABELS.get(text.lower())
+        or JAPAN_LABELS.get(text.lower())
+        or US_COUNTY_TRANSLATIONS.get(text.lower())
+        # or pf_keys2.get(text.lower())
+    )
+    return result or default
+
+
 def get_from_new_p17_final(text: str, default: str|None = "") -> str:
     """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
-    return NEW_P17_FINAL.get(text, default)
+
+    result = NEW_P17_FINAL.get(text.lower()) or get_from_new_p17_aliases(text.lower())
+
+    return result or default
 
 
 __all__ = [

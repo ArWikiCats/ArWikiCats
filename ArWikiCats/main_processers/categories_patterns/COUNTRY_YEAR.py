@@ -8,8 +8,10 @@ COUNTRY_YEAR_PARAMS = [
     "{country1}",
 ]
 
+# Category:18th-century people of the Dutch Empire
 
 COUNTRY_YEAR_DATA = {
+    "category:{year1} people of {country1}": "تصنيف:أشخاص من {country1} {year1}",  # 34632
     "category:{year1} inin {country1}": "تصنيف:{country1} في {year1}",  # 34632
     # "category:{year1} in {country1}": "تصنيف:{country1} في {year1}",  # 34632
     "category:{year1} establishments in {country1}": "تصنيف:تأسيسات سنة {year1} في {country1}",  # 19853
