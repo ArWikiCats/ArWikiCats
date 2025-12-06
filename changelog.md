@@ -1,3 +1,18 @@
+## [#172](https://github.com/MrIbrahem/ArWikiCats/pull/172) - 2025-12-06
+
+* **New Features**
+  * Added a new localized data source and an alias-based resolver to improve translation hits.
+
+* **Refactor**
+  * Streamlined lookup flow and removed the previous lazy-loading cache in favor of direct in-memory updates.
+  * Simplified post-lookup fallback behavior and reduced lookup surface.
+
+* **Chores**
+  * Normalized capitalization of "prefecture" across example and test data.
+
+* **Tests**
+  * Removed lazy-load-specific test; adjusted test data ordering.
+
 ## [#170](https://github.com/MrIbrahem/ArWikiCats/pull/170) - 2025-12-06
 
 * **New Features**
