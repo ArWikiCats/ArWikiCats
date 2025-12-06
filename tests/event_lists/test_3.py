@@ -151,6 +151,14 @@ data1 = {
 }
 
 data_2 = {
+    "ivorian people": "تصنيف:أعلام إيفواريون",
+    "japanese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو يابانيون",
+    "chinese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو صينيون",
+    "arab lgbtq people": "تصنيف:أعلام إل جي بي تي كيو عرب",
+    "rwandan political people": "تصنيف:ساسة روانديون",
+    "maldivian people": "تصنيف:أعلام مالديفيون",
+    "malian people": "تصنيف:أعلام ماليون",
+    "maltese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو مالطيون"
 
 }
 
