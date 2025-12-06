@@ -555,7 +555,7 @@ data_empty_result = {
     "Category:Song articles with infoboxes with non-standard extra track listings": "x",
     "Category:Songs written by Marla Cannon-Goodman": "x",
     "Category:South America territory (non-sovereign) templates": "x",
-    "Category:Sportspeople from Thonon-les-Bains": "x",
+    "Category:sports-people from Thonon-les-Bains": "x",
     "Category:Sri Lankan non-commissioned personnel": "x",
     "Category:SS non-commissioned officers": "x",
     "Category:Swedish non-commissioned personnel": "x",

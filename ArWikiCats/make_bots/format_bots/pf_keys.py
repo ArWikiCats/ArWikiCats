@@ -178,8 +178,3 @@ CHANGE_KEY_SECONDARY: Dict[str, str] = {
     " based on ": " basedon ",
     r"^men\’s events ": "mensvents",
 }
-# ---
-
-# Backwards compatibility exports
-Change_key = CHANGE_KEY_MAPPINGS
-Change_key2 = CHANGE_KEY_SECONDARY

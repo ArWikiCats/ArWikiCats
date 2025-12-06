@@ -50,6 +50,7 @@ TELEVISION_BASE_KEYS = {
 
 # Extended television keys dictionary
 TELEVISION_KEYS = {
+    # "people": "أعلام",
     "albums": "ألبومات",
     "animation": "رسوم متحركة",
     "anime and manga": "أنمي ومانغا",
@@ -78,7 +79,6 @@ TELEVISION_KEYS = {
     "novels": "روايات",
     "occupations": "مهن",
     "organizations": "منظمات",
-    "people": "أعلام",
     "short stories": "قصص قصيرة",
     "soap opera": "مسلسلات طويلة",
     "soundtracks": "موسيقى تصويرية",

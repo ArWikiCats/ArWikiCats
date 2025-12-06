@@ -345,7 +345,7 @@
     "social workers": {"males":"أخصائيون اجتماعيون", "females":"أخصائيات اجتماعيات"},
     "socialites": {"males":"اجتماعيون", "females":"اجتماعيات"},
     "sports-people": {"males":"رياضيون", "females":"رياضيات"},
-    "sportspeople": {"males":"رياضيون", "females":"رياضيات"},
+    "sports-people": {"males":"رياضيون", "females":"رياضيات"},
     "competitors": {"males":"منافسون", "females":"منافسات"},
     "statisticians": {"males":"إحصائيون", "females":"إحصائيات"},
     "students": {"males":"طلاب", "females":"طالبات"},

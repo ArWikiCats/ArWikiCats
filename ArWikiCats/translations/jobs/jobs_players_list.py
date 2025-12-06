@@ -123,7 +123,7 @@ STATIC_PLAYER_LABELS: GenderedLabelMap = {
     "national team managers": {"males": "مدربو فرق وطنية", "females": "مدربات فرق وطنية"},
     "sports agents": {"males": "وكلاء رياضات", "females": "وكيلات رياضات"},
     "expatriate sports-people": {"males": "رياضيون مغتربون", "females": "رياضيات مغتربات"},
-    "expatriate sportspeople": {"males": "رياضيون مغتربون", "females": "رياضيات مغتربات"},
+    "expatriate sports-people": {"males": "رياضيون مغتربون", "females": "رياضيات مغتربات"},
 }
 # ---------------------------------------------------------------------------
 # Builders
@@ -280,7 +280,7 @@ def _build_sports_job_variants(
             "males": f"رياضيو {arabic_label}",
             "females": f"رياضيات {arabic_label}",
         }
-        result[f"{lowered_job_key} sportspeople"] = {
+        result[f"{lowered_job_key} sports-people"] = {
             "males": f"رياضيو {arabic_label}",
             "females": f"رياضيات {arabic_label}",
         }

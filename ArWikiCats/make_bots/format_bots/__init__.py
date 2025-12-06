@@ -8,7 +8,7 @@ import re
 from ...helps import len_print
 from ...helps.log import logger
 from ...translations import New_Company, ministrs_tab_for_pop_format
-from .pf_keys import Change_key, Change_key2
+from .pf_keys import CHANGE_KEY_MAPPINGS, CHANGE_KEY_SECONDARY
 from .relation_mapping import category_relation_mapping
 
 # Precompiled Regex Patterns
@@ -37,7 +37,7 @@ REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNOREC
 REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
 
-# Precompiled regex patterns for Change_key and Change_key2 will be created in change_cat function
+# Precompiled regex patterns for CHANGE_KEY_MAPPINGS and CHANGE_KEY_SECONDARY will be created in change_cat function
 # since they depend on imported dictionaries that may not be fully populated at module level
 
 # Cache for compiled regex patterns
@@ -298,7 +298,7 @@ for a, b in ministrs_tab_for_pop_format.items():
     pop_format[a] = b
 # ---
 for x in New_Company:
-    Change_key[f"defunct {x} companies"] = f"defunct-{x}-companies"
+    CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
 replaces = {
     "national women's youth": "national youth women's",
@@ -374,6 +374,7 @@ def change_cat(cat_orginal: str) -> str:
     # Apply simple string replacements
     simple_replacements = {
         "secretaries of ": "secretaries-of ",
+        "sportspeople": "sports-people",
         "roller hockey (quad)": "roller hockey",
         "victoria (australia)": "victoria-australia",
         "party of ": "party-of ",
@@ -386,14 +387,14 @@ def change_cat(cat_orginal: str) -> str:
     for x, d in replaces.items():
         category = category.replace(x, d)
 
-    # Apply Change_key2 regex patterns (cached)
-    for chk2, chk2_lab in Change_key2.items():
+    # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
+    for chk2, chk2_lab in CHANGE_KEY_SECONDARY.items():
         if chk2 not in _change_key2_compiled:
             _change_key2_compiled[chk2] = re.compile(chk2, flags=re.IGNORECASE)
         category = _change_key2_compiled[chk2].sub(chk2_lab, category)
 
-    # Apply Change_key regex patterns (cached)
-    for chk, chk_lab in Change_key.items():
+    # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
+    for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
         key = (chk, chk_lab)
         if key not in _change_key_compiled:
             _change_key_compiled[key] = [
@@ -423,7 +424,7 @@ def change_cat(cat_orginal: str) -> str:
     return category
 
 
-len_print.data_len("pop_format.py", {"Change_key": Change_key, "Change_key2": Change_key2})
+len_print.data_len("pop_format.py", {"CHANGE_KEY_MAPPINGS": CHANGE_KEY_MAPPINGS, "CHANGE_KEY_SECONDARY": CHANGE_KEY_SECONDARY})
 
 __all__ = [
     "Dont_Add_min",

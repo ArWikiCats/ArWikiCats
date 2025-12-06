@@ -29,7 +29,7 @@ NAT_DATA = {
     # "{en_nat} sports coaches": "مدربو رياضة {nat_men1}",  # 110
     "{en_nat} people": "{nat_men1}",  # 187
     "{en_nat} people by occupation": "{nat_men1} حسب المهنة",  # 182
-    "{en_nat} sportspeople": "رياضيون {nat_men1}",  # 174
+    "{en_nat} sports-people": "رياضيون {nat_men1}",  # 174
     "{en_nat} men": "رجال {nat_men1}",  # 183
     "{en_nat} sportsmen": "رياضيون رجال {nat_men1}",  # 182
     "{en_nat} people in sports": "{nat_men1} في ألعاب رياضية",  # 177
@@ -39,11 +39,11 @@ NAT_DATA = {
     "{en_nat} people by descent": "{nat_men1} حسب الأصل العرقي أو الوطني",  # 175
     "{en_nat} writers": "كتاب {nat_men1}",  # 95
     "{en_nat} politicians": "سياسيون {nat_men1}",  # 179
-    "{en_nat} sportspeople by sport": "رياضيون {nat_men1} حسب الرياضة",  # 178
-    "{en_nat} expatriate sportspeople": "رياضيون {nat_men1} مغتربون",  # 171
+    "{en_nat} sports-people by sport": "رياضيون {nat_men1} حسب الرياضة",  # 178
+    "{en_nat} expatriate sports-people": "رياضيون {nat_men1} مغتربون",  # 171
     "{en_nat} musicians": "موسيقيون {nat_men1}",  # 157
     "{en_nat} people by religion": "{nat_men1} حسب الدين",  # 164
-    "{en_nat} expatriate sportspeople by country of residence": "رياضيون {nat_men1} مغتربون حسب بلد الإقامة",  # 168
+    "{en_nat} expatriate sports-people by country of residence": "رياضيون {nat_men1} مغتربون حسب بلد الإقامة",  # 168
     "{en_nat} men's footballers": "لاعبو كرة قدم {nat_men1}",  # 167
     "{en_nat} diplomats": "دبلوماسيون {nat_men1}",  # 172
     "{en_nat} emigrants": "{nat_men1} مهاجرون",  # 135
