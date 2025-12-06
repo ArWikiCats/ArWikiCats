@@ -345,14 +345,13 @@ NEW_P17_FINAL = _build_country_label_index()  # 68,981
 
 
 def get_from_new_p17_aliases(text: str, default: str|None = "") -> str:
-    """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
-
+    """Look up the Arabic label for a term in alias mappings."""
     result = (
-        COMPANY_LABELS_NEW.get(text.lower())
-        or TURKEY_LABELS.get(text.lower())
-        or JAPAN_LABELS.get(text.lower())
-        or US_COUNTY_TRANSLATIONS.get(text.lower())
-        # or pf_keys2.get(text.lower())
+        COMPANY_LABELS_NEW.get(text)
+        or TURKEY_LABELS.get(text)
+        or JAPAN_LABELS.get(text)
+        or US_COUNTY_TRANSLATIONS.get(text)
+        # or pf_keys2.get(text)
     )
     return result or default
 
@@ -360,7 +359,8 @@ def get_from_new_p17_aliases(text: str, default: str|None = "") -> str:
 def get_from_new_p17_final(text: str, default: str|None = "") -> str:
     """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
 
-    result = NEW_P17_FINAL.get(text.lower()) or get_from_new_p17_aliases(text.lower())
+    lower_text = text.lower()
+    result = NEW_P17_FINAL.get(lower_text) or get_from_new_p17_aliases(lower_text)
 
     return result or default
 

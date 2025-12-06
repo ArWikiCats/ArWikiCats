@@ -17,7 +17,7 @@ BASIC_EXAMPLES = [
     ("rugby union world championship", "بطولة العالم في اتحاد الرجبي"),
     ("men's football asian championship", "بطولة آسيا للرجال في كرة القدم"),
     ("men's futsal league", "دوري الرجال في كرة الصالات"),
-    ("women's cricket league", "دوري السيدات في كريكيت"),
+    ("women's cricket league", "دوري السيدات في كريكت"),
     ("baseball league", "الدوري في بيسبول"),
     ("u23 football championship", "بطولة تحت 23 سنة في كرة القدم"),
     ("u17 basketball world cup", "كأس العالم تحت 17 سنة في كرة السلة"),

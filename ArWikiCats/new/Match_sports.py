@@ -52,7 +52,7 @@ SPORTS_EN_TO_AR: Dict[str, str] = {
     "hockey": "هوكي",
     "field hockey": "هوكي الحقول",
     "ice hockey": "هوكي الجليد",
-    "cricket": "كريكيت",
+    "cricket": "كريكت",
     "tennis": "تنس",
     "table tennis": "تنس الطاولة",
     "badminton": "بادمنتون",

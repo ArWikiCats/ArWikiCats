@@ -322,7 +322,7 @@ data1 = {
     "Category:Asian baseball coaches": "تصنيف:مدربو كرة قاعدة آسيويين",
     "Category:Asian biblical scholars": "تصنيف:علماء الكتاب المقدس آسيويين",
     "Category:Asian child actors": "تصنيف:ممثلون أطفال آسيويين",
-    "Category:Asian cricket biography stubs": "تصنيف:بذرة عن سيرة لاعبي الكريكيت الآسيويين",
+    "Category:Asian cricket biography stubs": "تصنيف:بذرة عن سيرة لاعبي الكريكت الآسيويين",
     "Category:Asian diaspora in Ireland": "تصنيف:أيرلنديون آسيويين",
     "Category:Asian diaspora in New Zealand": "تصنيف:نيوزيلنديون آسيويين",
     "Category:Asian diaspora in Nigeria": "تصنيف:نيجيريون آسيويين",

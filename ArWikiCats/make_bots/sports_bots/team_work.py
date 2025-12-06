@@ -5,7 +5,6 @@ Sports team and club category processing.
 
 import functools
 
-from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from ..jobs_bots import bot_te_4
@@ -92,7 +91,7 @@ def _resolve_club_label(club_key: str) -> str:
     Returns:
         Resolved club label or empty string
     """
-    club_lab = Clubs_key_2.get(club_key) or pop_of_football_lower.get(club_key) or INTER_FEDS_LOWER.get(club_key) or ""
+    club_lab = Clubs_key_2.get(club_key) or Clubs_key_2.get(club_key.lower()) or pop_of_football_lower.get(club_key) or INTER_FEDS_LOWER.get(club_key) or ""
 
     if not club_lab:
         club_lab = bot_te_4.te_2018_with_nat(club_key) or resolve_films(club_key)
