@@ -104,7 +104,7 @@ data = [
     (" of ", "electric power companies of", "شركات طاقة كهربائية في"),
     (" concerning ", "united nations security council resolutions", "قرارات مجلس الأمن التابع للأمم المتحدة"),
     (" opened in ", "railway stations in indonesia", "محطات السكك الحديدية في إندونيسيا"),
-    (" closed in ", "railway stations in the republic-of ireland", "محطات السكك الحديدية في جمهورية أيرلندا"),
+    (" closed in ", "railway stations in republic-of ireland", "محطات السكك الحديدية في جمهورية أيرلندا"),
     (" to ", "ambassadors of federated states-of micronesia", "سفراء ولايات ميكرونيسيا المتحدة"),
     (" in ", "south african expatriate sprtspeople", "رياضيون جنوب إفريقيون مغتربون"),
     (" for ", "central american and caribbean games medalists", "فائزون بميداليات ألعاب أمريكا الوسطى والكاريبي"),
@@ -197,7 +197,7 @@ data = [
         "مبان ومنشآت زراعية في السجل الوطني للأماكن التاريخية",
     ),
     (" to ", "permanent representatives of kyrgyzstan", "مندوبو قيرغيزستان الدائمون"),
-    (" by ", "tourism in the republic-of ireland", "سياحة في جمهورية أيرلندا"),
+    (" by ", "tourism in republic-of ireland", "سياحة في جمهورية أيرلندا"),
     (" opened in ", "railway stations in hong kong", "محطات السكك الحديدية في هونغ كونغ"),
     (" opened in ", "railway stations in spain", "محطات السكك الحديدية في إسبانيا"),
     (

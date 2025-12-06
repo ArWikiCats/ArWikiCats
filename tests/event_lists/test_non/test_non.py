@@ -565,7 +565,7 @@ data1 = {
     "Category:Non-profit organisations based in the Maldives": "تصنيف:منظمات غير ربحية مقرها في جزر المالديف",
     "Category:Non-profit organisations based in the Netherlands": "تصنيف:منظمات غير ربحية مقرها في هولندا",
     "Category:Non-profit organisations based in the Northern Territory": "تصنيف:منظمات غير ربحية مقرها في الإقليم الشمالي",
-    "Category:Non-profit organisations based in the Republic of Ireland": "تصنيف:منظمات غير ربحية مقرها في جمهورية أيرلندا",
+    "Category:Non-profit organisations based in republic of Ireland": "تصنيف:منظمات غير ربحية مقرها في جمهورية أيرلندا",
     "Category:Non-profit organisations based in the Solomon Islands": "تصنيف:منظمات غير ربحية مقرها في جزر سليمان",
     "Category:Non-profit organisations based in the United Arab Emirates": "تصنيف:منظمات غير ربحية مقرها في الإمارات العربية المتحدة",
     "Category:Non-profit organisations based in the United Kingdom": "تصنيف:منظمات غير ربحية مقرها في المملكة المتحدة",

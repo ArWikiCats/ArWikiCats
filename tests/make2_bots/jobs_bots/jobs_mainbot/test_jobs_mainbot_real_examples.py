@@ -50,7 +50,7 @@ EXAMPLES = [
     {"suffix": "figure skaters", "prefix": "norwegian", "expected": "متزلجون فنيون نرويجيون"},
     {"suffix": "football managers", "prefix": "cape verdean", "expected": "مدربو كرة قدم أخضريون"},
     {"suffix": "football managers", "prefix": "irish", "expected": "مدربو كرة قدم أيرلنديون"},
-    {"suffix": "football managers", "prefix": "the republic-of ireland", "expected": "مدربو كرة قدم أيرلنديون"},
+    {"suffix": "football managers", "prefix": "republic-of ireland", "expected": "مدربو كرة قدم أيرلنديون"},
     {"suffix": "footballers", "prefix": "german", "expected": "لاعبو كرة قدم ألمان"},
     {"suffix": "healthcare managers", "prefix": "portuguese", "expected": "مدراء رعاية صحية برتغاليون"},
     {"suffix": "internet celebrities", "prefix": "australian", "expected": "مشاهير إنترنت أستراليون"},

@@ -13,14 +13,14 @@ data_of_dash = {
     "ministers-of foreign affairs of": ("ministers of", "foreign affairs of"),
     "ambassadors of federated states-of micronesia": ("ambassadors of federated states of", "micronesia"),
     "ambassadors of federated states of micronesia": ("", ""),
-    "tourism in the republic-of ireland": ("tourism in the republic of", "ireland"),
+    "tourism in republic-of ireland": ("tourism in republic of", "ireland"),
 }
 
 
 data_of = {
     "ofyearsof of 16th ofcentury": ("ofyearsof of", "16th ofcentury"),
     "ambassadors of federated states of micronesia": ("ambassadors of", "federated states of micronesia"),
-    "tourism in the republic of ireland": ("tourism in the republic of", "ireland"),
+    "tourism in republic of ireland": ("tourism in republic of", "ireland"),
     "11th government of turkey": ("11th government of", "turkey"),
     "ambassadors of afghanistan": ("ambassadors of", "afghanistan"),
     "ambassadors of austria": ("ambassadors of", "austria"),

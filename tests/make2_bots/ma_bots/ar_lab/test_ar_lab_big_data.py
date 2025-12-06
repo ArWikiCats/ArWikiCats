@@ -600,7 +600,7 @@ data_list = [
     ("hospital buildings completed in 20th century", " completed in ", "مباني مستشفيات اكتملت في القرن 20"),
     ("hotel buildings completed in 1550", " completed in ", "مبان فنادق اكتملت في 1550"),
     ("hotels in italy", " in ", "فنادق في إيطاليا"),
-    ("hotels in the republic-of ireland", " in ", "فنادق في جمهورية أيرلندا"),
+    ("hotels in republic-of ireland", " in ", "فنادق في جمهورية أيرلندا"),
     ("hungarian people executed for war crimes", " executed for ", "أعلام مجريون أعدموا بتهمة جرائم حرب"),
     ("ice hockey venues in ottawa", " in ", "ملاعب هوكي الجليد في أوتاوا"),
     ("indian companies established in 1550", " established in ", "شركات هندية أسست في 1550"),

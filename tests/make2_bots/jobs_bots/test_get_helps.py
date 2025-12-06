@@ -476,7 +476,7 @@ data_nat = {
     "puerto rican wheelchair sports competitors": ("wheelchair sports competitors", "puerto rican"),
     "puerto rican wheelchair track and field athletes": ("wheelchair track and field athletes", "puerto rican"),
     "puerto rican wheelchair track": ("wheelchair track", "puerto rican"),
-    "republic-of ireland football managers": ("football managers", "the republic-of ireland"),
+    "republic-of ireland football managers": ("football managers", "republic-of ireland"),
     "russian folklore characters": ("folklore characters", "russian"),
     "russian wheelchair curlers": ("wheelchair curlers", "russian"),
     "russian wheelchair racers": ("wheelchair racers", "russian"),

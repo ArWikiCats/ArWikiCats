@@ -38,7 +38,7 @@ pan_arican = {
     "Category:Members of the Pan-African Parliament from Tanzania": "تصنيف:أعضاء البرلمان الإفريقي من تنزانيا",
     "Category:Members of the Pan-African Parliament from the Central African Republic": "تصنيف:أعضاء البرلمان الإفريقي من جمهورية إفريقيا الوسطى",
     "Category:Members of the Pan-African Parliament from the Gambia": "تصنيف:أعضاء البرلمان الإفريقي من غامبيا",
-    "Category:Members of the Pan-African Parliament from the Republic of the Congo": "تصنيف:أعضاء البرلمان الإفريقي من جمهورية الكونغو",
+    "Category:Members of the Pan-African Parliament from republic of the Congo": "تصنيف:أعضاء البرلمان الإفريقي من جمهورية الكونغو",
     "Category:Members of the Pan-African Parliament from the Sahrawi Arab Democratic Republic": "تصنيف:أعضاء البرلمان الإفريقي من الجمهورية العربية الصحراوية الديمقراطية",
     "Category:Members of the Pan-African Parliament from Togo": "تصنيف:أعضاء البرلمان الإفريقي من توغو",
     "Category:Members of the Pan-African Parliament from Tunisia": "تصنيف:أعضاء البرلمان الإفريقي من تونس",
