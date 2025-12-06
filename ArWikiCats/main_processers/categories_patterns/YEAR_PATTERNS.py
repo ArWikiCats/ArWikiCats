@@ -4,6 +4,8 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "category:refugee olympic team in the {year1} summer olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",
+    "category:refugee olympic team in the {year1} winter olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الشتوية {year1}",
     "category:{year1} in mass media": "تصنيف:وسائل الإعلام في {year1}",  # 126
     "category:airlines established in {year1}": "تصنيف:شركات طيران أسست في {year1}",  # 259
     "category:animals described in {year1}": "تصنيف:حيوانات وصفت في {year1}",  # 266
