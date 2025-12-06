@@ -15,6 +15,7 @@ from .mixed.all_keys2 import (
     People_key,
     WORD_AFTER_YEARS,
     pf_keys2,
+    get_from_pf_keys2,
     pop_of_football_lower,
     pop_of_without_in,
 )
@@ -148,6 +149,7 @@ __all__ = [
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
     #
+    "get_from_pf_keys2",
     "pf_keys2",
     "pop_of_without_in",
     "pop_of_football_lower",

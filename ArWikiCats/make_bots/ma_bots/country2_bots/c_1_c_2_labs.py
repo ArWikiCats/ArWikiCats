@@ -18,6 +18,7 @@ from ...p17_bots import nats_other
 from ...sports_bots import sport_lab_suffixes, team_work
 from .. import country2_lab
 from ....new.time_to_arabic import convert_time_to_arabic
+from ....translations import get_from_pf_keys2
 
 pp_start_with2 = {
     "defunct": "{} سابقة",
@@ -77,8 +78,8 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
         if tst3 in test3_results:
             part_1_label = cone_1
 
-    for pri_ss, pri_lab in pp_start_with2.items():
-        if not part_1_label:
+    if not part_1_label:
+        for pri_ss, pri_lab in pp_start_with2.items():
             if cone_1.startswith(pri_ss):
                 U_c = cone_1[len(pri_ss) :]
                 logger.info(f' pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ')
@@ -91,9 +92,13 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
                     logger.info(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"), {U_c=}, {U_lab=}')
                     part_1_label = pri_lab.format(U_lab)
                     logger.info(f'>>>> {part_1_label=}')
+                    break
 
     if cone_1 in pop_format:
         part_1_label = pop_format[cone_1]
+
+    if not part_1_label:
+        part_1_label = get_from_pf_keys2(cone_1.strip().lower())
 
     if not part_1_label:
         part_1_label = get_KAKO(cone_1)
@@ -127,8 +132,12 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
 
     if part_2_label == "" and " and " in cone_2:
         part_2_label = bys.get_and_label(cone_2)
+
     if not part_2_label:
         part_2_label = team_work.Get_team_work_Club(cone_2)
+
+    if not part_2_label:
+        part_2_label = get_from_pf_keys2(cone_2.strip().lower())
 
     if not part_2_label:
         part_2_label = get_KAKO(cone_2)

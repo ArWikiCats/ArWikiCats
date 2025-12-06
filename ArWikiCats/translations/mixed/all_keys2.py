@@ -533,6 +533,12 @@ def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str
 
 pf_keys2, pop_of_without_in, pop_of_football_lower = wrap_build_pf_keys2()
 
+
+def get_from_pf_keys2(text: str) -> str:
+    """Look up the Arabic label for a term in the ``pf_keys2`` mapping."""
+    return pf_keys2.get(text, "")
+
+
 len_print.data_len(
     "all_keys2.py",
     {
@@ -547,6 +553,7 @@ len_print.data_len(
 )
 
 __all__ = [
+    "get_from_pf_keys2",
     "pf_keys2",
     "pop_of_without_in",
     "pop_of_football_lower",

@@ -15,22 +15,22 @@ from ...translations import (
     By_table,
     Films_key_man,
     Music_By_table,
-    pf_keys2,
+    # pf_keys2,
 )
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from .bot import All_P17, Films_O_TT, players_new_keys
 
 KAKO: Dict[str, Dict[str, str]] = {
-    "pf_keys2": pf_keys2,
-    "pop_All_2018": pop_All_2018,
-    "Music_By_table": Music_By_table,
-    "Films_key_man": Films_key_man,
-    "All_P17": All_P17,
-    "By_table": By_table,
-    "Films_O_TT": Films_O_TT,
-    "players_new_keys": players_new_keys,
-    "jobs_mens_data": jobs_mens_data,
-    "Jobs_new": Jobs_new,
+    # "pf_keys2": pf_keys2,                # 35,730
+    "pop_All_2018": pop_All_2018,          # 161
+    "Music_By_table": Music_By_table,      # 20
+    "Films_key_man": Films_key_man,        # 74
+    "All_P17": All_P17,                    # 0
+    "By_table": By_table,                  # 15,899
+    "Films_O_TT": Films_O_TT,              # 0
+    "players_new_keys": players_new_keys,  # 1,719
+    "jobs_mens_data": jobs_mens_data,      # 96,552
+    "Jobs_new": Jobs_new,                  # 1,304
 }
 
 
@@ -63,3 +63,8 @@ def _get_KAKO(text: str) -> str:
 def get_KAKO(text: str) -> str:
     _, label = _get_KAKO(text)
     return label
+
+
+__all__ = [
+    "get_KAKO",
+]

@@ -11,7 +11,7 @@ from ....translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
     New_P17_Finall,
-    pf_keys2,
+    get_from_pf_keys2,
 )
 from ... import tmp_bot
 from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
@@ -382,7 +382,7 @@ def _create_country_lookup_chain(
     """
     return {
         "New_P17_Finall": lambda c: New_P17_Finall.get(c, ""),
-        "pf_keys2": lambda c: pf_keys2.get(c, ""),
+        "pf_keys2": lambda c: get_from_pf_keys2(c),
         "get_pop_All_18": lambda c: get_pop_All_18(c, ""),
         "_lookup_country_with_dash_variants": lambda c: _lookup_country_with_dash_variants(c, country_no_dash),
         "_lookup_country_with_by": _lookup_country_with_by,

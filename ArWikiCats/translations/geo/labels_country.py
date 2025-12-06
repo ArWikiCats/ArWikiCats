@@ -6,7 +6,7 @@ from collections.abc import Mapping, MutableMapping
 
 from ...helps import len_print
 from ..companies import New_Company as COMPANY_LABELS
-from ..mixed.all_keys2 import pf_keys2 as ADDITIONAL_KEYS
+from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import (
     BASE_POP_FINAL_5,  # , pop_final_5 as POPULATION_SUPPLEMENTS
 )
@@ -248,7 +248,7 @@ def _build_country_label_index() -> dict[str, str]:
 
     update_with_lowercased(label_index, INDIA_REGION_TRANSLATIONS)
     update_with_lowercased(label_index, CITY_LABEL_PATCHES)
-    update_with_lowercased(label_index, ADDITIONAL_KEYS)
+    update_with_lowercased(label_index, pf_keys2)
     update_with_lowercased(label_index, US_COUNTY_TRANSLATIONS)
 
     for city, lal in JAPAN_REGIONAL_LABELS.items():
@@ -268,7 +268,7 @@ def _build_country_label_index() -> dict[str, str]:
 
     for company_name, company_label in COMPANY_LABELS.items():
         normalized_company = company_name.lower()
-        if normalized_company not in ADDITIONAL_KEYS and company_label:
+        if normalized_company not in pf_keys2 and company_label:
             label_index[normalized_company] = company_label
 
     label_index.update(  # Specific overrides used by downstream consumers.
