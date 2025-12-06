@@ -1,3 +1,22 @@
+## [#175](https://github.com/MrIbrahem/ArWikiCats/pull/175) - 2025-12-06
+
+* **New Features**
+  * Added translations for empire-related terms and refugee Olympic team categories.
+  * Enhanced label resolution with case-insensitive lookups for improved accuracy.
+
+* **Bug Fixes**
+  * Corrected Arabic translation for "internees".
+  * Fixed JSON file formatting.
+
+* **Data Updates**
+  * Expanded category mappings for people-by-country-year combinations.
+  * Removed obsolete historical entries (ancient BCE years, deprecated geopolitical terms).
+  * Streamlined outdated category references.
+
+* **Tests**
+  * Added new test coverage for Arabic category label resolution.
+  * Updated test cases to reflect translation changes.
+
 ## [#174](https://github.com/MrIbrahem/ArWikiCats/pull/174) - 2025-12-06
 
 * **New Features**
