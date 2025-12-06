@@ -1,3 +1,17 @@
+## [#178](https://github.com/MrIbrahem/ArWikiCats/pull/178) - 2025-12-07
+
+* **New Features**
+  * Greatly expanded Arabic translation coverage across cities, regions, historical polities, media titles and occupations (notably many Jerusalem/place entries).
+
+* **Bug Fixes**
+  * Normalized keys and labels: removed leading articles, standardized capitalization, fixed hyphenation (e.g., sports-people) and corrected concatenation glitches.
+
+* **Chores**
+  * Reorganized translation maps, added/removed/relocated many entries and updated dataset counts.
+
+* **Tests**
+  * Updated test data and fixtures to reflect normalized keys and the expanded translations.
+
 ## [#176](https://github.com/MrIbrahem/ArWikiCats/pull/176) - 2025-12-06
 
 # Release Notes
