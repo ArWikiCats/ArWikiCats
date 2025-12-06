@@ -7,6 +7,7 @@ from ArWikiCats import resolve_arabic_category_label
 data0 = {
     "russian empire-united states relations": "العلاقات بين الإمبراطورية الروسية والولايات المتحدة",
     "south korean presidential election, 2017": "الانتخابات الرئاسية الكورية الجنوبية 2017",
+    "republic of ireland women's national football team": "منتخب جمهورية أيرلندا لكرة القدم للسيدات",
 }
 
 data1 = {
@@ -101,10 +102,56 @@ data1 = {
     "populated places in puebla": "تصنيف:أماكن مأهولة في ولاية بويبلا",
     "populated places in the cook islands": "تصنيف:أماكن مأهولة في جزر كوك",
     "populated places in norfolk island": "تصنيف:أماكن مأهولة في جزيرة نورفولك",
-    "cities and towns in moscow oblast": "تصنيف:مدن وبلدات في محافظة موسكو"
+    "cities and towns in moscow oblast": "تصنيف:مدن وبلدات في محافظة موسكو",
+
+    "wheelchair basketball world championship": "تصنيف:بطولة العالم لكرة السلة على الكراسي المتحركة",
+    "water polo at the world aquatics championships": "تصنيف:كرة الماء في بطولة العالم للرياضات المائية",
+    "portugal national rugby league team": "تصنيف:منتخب البرتغال لدوري الرجبي",
+    "new zealand women's national ice hockey team": "تصنيف:منتخب نيوزيلندا لهوكي الجليد للسيدات",
+    "new zealand women's national rugby league team": "تصنيف:منتخب نيوزيلندا لدوري الرجبي للسيدات",
+    "kazakhstan women's national ice hockey team": "تصنيف:منتخب كازاخستان لهوكي الجليد للسيدات",
+    "georgia national rugby union team": "تصنيف:منتخب جورجيا لاتحاد الرجبي",
+    "england women's national rugby league team": "تصنيف:منتخب إنجلترا لدوري الرجبي للسيدات",
+    "chile national rugby union team": "تصنيف:منتخب تشيلي لاتحاد الرجبي",
+    "australia national rugby union team": "تصنيف:منتخب أستراليا لاتحاد الرجبي",
+    "algeria national rugby union team": "تصنيف:منتخب الجزائر لاتحاد الرجبي",
+    "united states national rugby union team": "تصنيف:منتخب الولايات المتحدة لاتحاد الرجبي",
+    "greece national rugby league team": "تصنيف:منتخب اليونان لدوري الرجبي",
+    "archery at the 2004 summer olympics": "تصنيف:النبالة في الألعاب الأولمبية الصيفية 2004",
+    "wrestling at the 2004 summer olympics": "تصنيف:المصارعة في الألعاب الأولمبية الصيفية 2004",
+    "triathlon at the 2004 summer olympics": "تصنيف:السباق الثلاثي في الألعاب الأولمبية الصيفية 2004",
+    "synchronized swimming at the 2004 summer olympics": "تصنيف:السباحة المتزامنة في الألعاب الأولمبية الصيفية 2004",
+    "united states national futsal team": "تصنيف:منتخب الولايات المتحدة لكرة الصالات",
+    "thailand women's national basketball team": "تصنيف:منتخب تايلاند لكرة السلة للسيدات",
+    "sweden national bandy team": "تصنيف:منتخب السويد للباندي",
+    "slovenia women's national football team": "تصنيف:منتخب سلوفينيا لكرة القدم للسيدات",
+    "papua new guinea women's national football team": "تصنيف:منتخب بابوا غينيا الجديدة لكرة القدم للسيدات",
+    "netherlands men's national basketball team": "تصنيف:منتخب هولندا لكرة السلة للرجال",
+    "taekwondo at the 2004 summer olympics": "تصنيف:تايكوندو في الألعاب الأولمبية الصيفية 2004",
+    "namibia women's national football team": "تصنيف:منتخب ناميبيا لكرة القدم للسيدات",
+    "myanmar women's national football team": "تصنيف:منتخب ميانمار لكرة القدم للسيدات",
+    "montenegro women's national football team": "تصنيف:منتخب الجبل الأسود لكرة القدم للسيدات",
+    "moldova national rugby league team": "تصنيف:منتخب مولدافيا لدوري الرجبي",
+    "moldova women's national football team": "تصنيف:منتخب مولدافيا لكرة القدم للسيدات",
+    "bosnia and herzegovina national under-21 football team": "تصنيف:منتخب البوسنة والهرسك لكرة القدم تحت 21 سنة",
+    "philippine football federation": "تصنيف:الاتحاد الفلبيني لكرة القدم",
+    "iraq national football team results": "تصنيف:نتائج منتخب العراق لكرة القدم",
+    "austria women's national football team": "تصنيف:منتخب النمسا لكرة القدم للسيدات",
+    "algeria women's national football team": "تصنيف:منتخب الجزائر لكرة القدم للسيدات",
+    "thailand women's national football team": "تصنيف:منتخب تايلاند لكرة القدم للسيدات",
+    "switzerland women's national football team": "تصنيف:منتخب سويسرا لكرة القدم للسيدات",
+    "south korea national under-17 football team": "تصنيف:منتخب كوريا الجنوبية لكرة القدم تحت 17 سنة",
+    "south korea national under-20 football team": "تصنيف:منتخب كوريا الجنوبية لكرة القدم تحت 20 سنة",
+    "south korea national under-23 football team": "تصنيف:منتخب كوريا الجنوبية لكرة القدم تحت 23 سنة",
+    "portugal women's national football team": "تصنيف:منتخب البرتغال لكرة القدم للسيدات",
+    "vietnam national basketball team": "تصنيف:منتخب فيتنام لكرة السلة",
+    "uruguay national football team": "تصنيف:منتخب الأوروغواي لكرة القدم",
+    "bolivia national soccer team": "تصنيف:منتخب بوليفيا لكرة القدم",
+
 }
 
 data_2 = {
+
 }
 
 to_test = [
