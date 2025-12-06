@@ -10,9 +10,10 @@ from ...translations import Nat_women, All_Nat
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
-from .te2 import New_For_nat_female_xo_team
+from .te2 import New_For_nat_female_xo_team, new_for_nat_female_xo_team_additional
 
 New_For_nat_female_xo_team_2 = {
+    "{nat} airstrikes": "ضربات جوية {nat}",
     "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball
     "{nat} xzxz championships": "بطولات xzxz {nat}",
     "{nat} national xzxz championships": "بطولات xzxz وطنية {nat}",
@@ -25,6 +26,7 @@ New_For_nat_female_xo_team_2 = {
 }
 
 New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in New_For_nat_female_xo_team.items()})
+New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in new_for_nat_female_xo_team_additional.items()})
 
 # remove "the " from the start of all Nat_women_2 keys
 Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}
@@ -64,7 +66,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
         f'Get_sport_formts_female_nat female {con_77=}, {sport_key=}, team_xz:"{normalized_team_key}"'
     )
 
-    template_label = New_For_nat_female_xo_team.get(normalized_team_key, "")
+    template_label = New_For_nat_female_xo_team.get(normalized_team_key) or new_for_nat_female_xo_team_additional.get(normalized_team_key, "")
 
     if not template_label:
         logger.info(
@@ -95,6 +97,8 @@ def sport_lab_nat_load(category: str, check_the: bool = False) -> str:
     """
     Example:
         category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"
+
+    TODO: replace with sport_lab_nat_load_new
     """
     normalized_category = category.lower()
 
