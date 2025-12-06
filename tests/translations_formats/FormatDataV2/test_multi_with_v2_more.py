@@ -7,7 +7,7 @@ from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBase
 
 
 @pytest.fixture
-def multi_bot_2() -> MultiDataFormatterBaseV2:
+def multi_bot() -> MultiDataFormatterBaseV2:
     nationality_data = {
         "United States": {
             "country_ar": "الولايات المتحدة"

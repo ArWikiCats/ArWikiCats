@@ -7,7 +7,50 @@ import functools
 from typing import Dict
 
 from ...helps import len_print
-from ...translations import Clubs_key_2, find_teams_2025, pop_All_2018_bot, pop_final_5
+from ...translations import (
+    Clubs_key_2,
+    find_teams_2025,
+    pop_All_2018_bot,
+    pop_final_5,
+    Jobs_new,
+    jobs_mens_data,
+    New_P17_Finall,
+    pf_keys2,
+    sub_teams_new,
+    By_table,
+    SPORTS_KEYS_FOR_LABEL,
+    films_mslslat_tab,
+    olympics,
+)
+
+
+@functools.lru_cache(maxsize=None)
+def get_pop_All_18(key: str, default: str = "") -> str:
+    """Fetch a population label, falling back to sports team lookups."""
+
+    result = _get_pop_All_18(key) or find_teams_2025(key)
+
+    if not result:
+        sources = {
+            "Clubs_key_2": Clubs_key_2,
+            "pop_final_5": pop_final_5,
+            # "olympics": olympics,
+            # "pf_keys2": pf_keys2,
+            # "Jobs_new": Jobs_new,
+            # "jobs_mens_data": jobs_mens_data,
+            # "films_mslslat_tab": films_mslslat_tab,
+            # "By_table": By_table,
+            # "sub_teams_new": sub_teams_new,
+            # "New_P17_Finall": New_P17_Finall,
+            # "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
+        }
+        for x, source in sources.items():
+            if key in source:
+                result = source[key]
+                print(f"Found key in {x}: {key} -> {result}")
+                break
+
+    return result or default
 
 
 @functools.lru_cache(maxsize=1)
@@ -28,19 +71,6 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
     """Return the cached population label for the given key or a default."""
     pop_All_2018 = lazy_load()
     result = pop_All_2018.get(key, default)
-    return result
-
-
-@functools.lru_cache(maxsize=None)
-def get_pop_All_18(key: str, default: str = "") -> str:
-    """Fetch a population label, falling back to sports team lookups."""
-    result = (
-        _get_pop_All_18(key, default)
-        or find_teams_2025(key, default)
-        or Clubs_key_2.get(key)
-        or pop_final_5.get(key)
-        or default
-    )
     return result
 
 
