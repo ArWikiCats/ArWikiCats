@@ -5,7 +5,7 @@ from .sports.sub_teams_keys import sub_teams_new
 from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import get_from_new_p17_finall, US_STATES
+from .geo.labels_country import get_from_new_p17_final, US_STATES
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
@@ -133,7 +133,7 @@ __all__ = [
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
     #
-    "get_from_new_p17_finall",
+    "get_from_new_p17_final",
     "All_Nat",
     "Nat_women",
     "all_country_ar",

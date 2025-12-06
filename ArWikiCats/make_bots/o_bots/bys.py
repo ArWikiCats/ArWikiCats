@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 import functools
 from ...helps.log import logger
-from ...translations import By_orginal2, By_table, By_table_orginal, get_from_new_p17_finall
+from ...translations import By_orginal2, By_table, By_table_orginal, get_from_new_p17_final
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ..media_bots.films_bot import te_films
 from ..p17_bots.nats_other import find_nat_others
@@ -81,7 +81,7 @@ def get_by_label(category: str) -> str:
     if first_part_cleaned.startswith("the "):
         first_part_cleaned = first_part_cleaned[4:]
 
-    first_label = get_from_new_p17_finall(first_part_cleaned) or pop_All_2018.get(first_part_cleaned, "")
+    first_label = get_from_new_p17_final(first_part_cleaned) or pop_All_2018.get(first_part_cleaned, "")
     by_label = By_table.get(by_section, "") or By_table_orginal.get(by_section, "")
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
@@ -119,8 +119,8 @@ def get_and_label(category: str) -> str:
 
     logger.debug(f"<<lightyellow>>>> get_and_label(): {first_part=}, {last_part=}")
 
-    first_label = get_from_new_p17_finall(first_part, None) or pop_All_2018.get(first_part)
-    last_label = get_from_new_p17_finall(last_part, None) or pop_All_2018.get(last_part)
+    first_label = get_from_new_p17_final(first_part, None) or pop_All_2018.get(first_part)
+    last_label = get_from_new_p17_final(last_part, None) or pop_All_2018.get(last_part)
 
     logger.debug(f"<<lightyellow>>>> get_and_label(): {first_label=}, {last_label=}")
 

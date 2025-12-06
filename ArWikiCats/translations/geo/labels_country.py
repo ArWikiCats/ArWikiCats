@@ -278,7 +278,7 @@ POPULATION_OVERRIDES = load_json_mapping("geography/opop.json")
 raw_region_overrides = load_json_mapping("geography/popopo.json")
 
 
-def _handle_the_prefix(label_index):
+def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
     """Handle 'the ' prefix in country labels."""
     new_keys = {}
     for key, value in list(label_index.items()):
@@ -344,19 +344,19 @@ def _build_country_label_index() -> dict[str, str]:
     return label_index
 
 
-New_P17_Finall = _build_country_label_index()  # 68,981
+NEW_P17_FINAL = _build_country_label_index()  # 68,981
 
 
-def get_from_new_p17_finall(text: str, default: str|None = "") -> str:
-    """Look up the Arabic label for a term in the ``New_P17_Finall`` mapping."""
-    return New_P17_Finall.get(text, default)
+def get_from_new_p17_final(text: str, default: str|None = "") -> str:
+    """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
+    return NEW_P17_FINAL.get(text, default)
 
 
 __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "POPULATION_OVERRIDES",
-    "New_P17_Finall",
-    "get_from_new_p17_finall",
+    "NEW_P17_FINAL",
+    "get_from_new_p17_final",
 ]
 
 len_print.data_len(
@@ -364,6 +364,6 @@ len_print.data_len(
     {
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
         "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
-        "New_P17_Finall": New_P17_Finall,
+        "NEW_P17_FINAL": NEW_P17_FINAL,
     },
 )

@@ -8,7 +8,7 @@ from ..ma_bots.squad_title_bot import get_squad_title
 import functools
 
 from ...helps.log import logger
-from ...translations import get_from_new_p17_finall, pop_of_football_lower
+from ...translations import get_from_new_p17_final, pop_of_football_lower
 from ...utils import fix_minor
 from ..date_bots import with_years_bot
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -35,7 +35,7 @@ def get_squad_title(tit: str) -> str:
                 tit2 = tit[len(f"{oo} ") :]
                 tit2 = tit2.strip()
                 logger.info(f'<<lightblue>> get_squad_title tit.startswith("{oo}"), tit2:({tit2}) ')
-                falab = get_pop_All_18(tit2) or pop_of_football_lower.get(tit2) or get_from_new_p17_finall(tit2) or ""
+                falab = get_pop_All_18(tit2) or pop_of_football_lower.get(tit2) or get_from_new_p17_final(tit2) or ""
                 if falab:
                     lab = f"تشكيلات {oo_lab} في {falab}"
                     break

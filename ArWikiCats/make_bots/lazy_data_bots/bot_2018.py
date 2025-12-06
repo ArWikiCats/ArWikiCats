@@ -14,7 +14,7 @@ from ...translations import (
     pop_final_5,
     Jobs_new,
     jobs_mens_data,
-    get_from_new_p17_finall,
+    get_from_new_p17_final,
     pf_keys2,
     sub_teams_new,
     By_table,
@@ -67,7 +67,7 @@ def _get_from_alias(key: str) -> str:
             logger.debug(f"Found key in {x}: {key} -> {result}")
             return result
 
-    result = get_from_new_p17_finall(key.lower())
+    result = get_from_new_p17_final(key.lower())
 
     if not result:
         result = SPORTS_KEYS_FOR_LABEL.get(key) or SPORTS_KEYS_FOR_LABEL.get(key.lower(), "")

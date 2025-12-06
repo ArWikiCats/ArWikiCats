@@ -11,7 +11,7 @@ from ....translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
     get_from_pf_keys2,
-    get_from_new_p17_finall,
+    get_from_new_p17_final,
 )
 from ... import tmp_bot
 from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
@@ -272,7 +272,7 @@ def _lookup_type_without_article(type_lower: str) -> str:
     """Try to find label for type after removing 'the ' prefix."""
     if type_lower.startswith("the "):
         type_no_article = type_lower[len("the "):]
-        label = get_from_new_p17_finall(type_no_article)
+        label = get_from_new_p17_final(type_no_article)
         if label:
             logger.debug(f'Found label without article: {type_no_article=}, {label=}')
             return label
@@ -303,7 +303,7 @@ def _create_type_lookup_chain(
         List of lookup functions to try in order
     """
     return {
-        "get_from_new_p17_finall" : lambda t: get_from_new_p17_finall(t),
+        "get_from_new_p17_final" : lambda t: get_from_new_p17_final(t),
         "_lookup_type_without_article": _lookup_type_without_article,
         "_lookup_people_type": _lookup_people_type,
         "_lookup_religious_males": _lookup_religious_males,
@@ -381,7 +381,7 @@ def _create_country_lookup_chain(
         Dictionary of lookup functions to try in order
     """
     return {
-        "get_from_new_p17_finall": lambda c: get_from_new_p17_finall(c),
+        "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),
         "pf_keys2": lambda c: get_from_pf_keys2(c),
         "get_pop_All_18": lambda c: get_pop_All_18(c, ""),
         "_lookup_country_with_dash_variants": lambda c: _lookup_country_with_dash_variants(c, country_no_dash),
