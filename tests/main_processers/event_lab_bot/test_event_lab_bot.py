@@ -119,7 +119,7 @@ def test_event_lab_general_translate_category_fallback() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 6) Cricketers / cricket captains branch with New_P17_Finall
+# 6) Cricketers / cricket captains branch
 # ---------------------------------------------------------------------------
 
 

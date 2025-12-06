@@ -19,8 +19,8 @@ from ..o_bots.rele import work_relations
 from ..p17_bots import nats_other
 from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import sport_lab_suffixes, team_work
-
 from ...new.time_to_arabic import convert_time_to_arabic
+from ...translations import get_from_pf_keys2
 # Dictionary of resolvers mapped to their callable functions
 resolvers = {
     "get_pop_All_18": get_pop_All_18,
@@ -64,6 +64,9 @@ def get_lab_for_country2(country: str) -> str:
 
     country2 = country.lower().strip()
     resolved_label = work_relations(country2)
+
+    if not resolved_label:
+        resolved_label = get_from_pf_keys2(country2)
 
     if not resolved_label:
         resolved_label = resolve_all(country2)

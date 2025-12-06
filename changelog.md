@@ -1,3 +1,12 @@
+## [#173](https://github.com/MrIbrahem/ArWikiCats/pull/173) - 2025-12-06
+
+* **Refactor**
+  * Refactored translation lookup mechanism for improved code maintainability across multiple modules.
+  * Updated job categories data structure with clearer field naming (males_jobs and females_jobs).
+
+* **Chores**
+  * Removed obsolete tests and updated test mocks accordingly.
+
 ## [#172](https://github.com/MrIbrahem/ArWikiCats/pull/172) - 2025-12-06
 
 * **New Features**

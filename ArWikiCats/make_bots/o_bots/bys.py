@@ -4,23 +4,11 @@ from __future__ import annotations
 
 import re
 import functools
-from typing import Callable, Dict
-
 from ...helps.log import logger
-from ...translations import By_orginal2, By_table, By_table_orginal, New_P17_Finall
+from ...translations import By_orginal2, By_table, By_table_orginal, get_from_new_p17_finall
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ..media_bots.films_bot import te_films
 from ..p17_bots.nats_other import find_nat_others
-from .utils import first_non_empty
-
-LabelLookup = Callable[[str], str]
-
-
-def _lookup_entity(key: str, *tables: Dict[str, str]) -> str:
-    """Return the first non-empty label for ``key`` from ``tables``."""
-
-    lower_key = key.lower()
-    return first_non_empty(lower_key, list(tables))
 
 
 @functools.lru_cache(maxsize=10000)
@@ -68,15 +56,6 @@ def make_by_label(category: str) -> str:
     return resolved
 
 
-def _lookup_prefixed_label(part: str, lookup: LabelLookup) -> str:
-    """Return the label for ``part`` using ``lookup`` with normalisation."""
-
-    cleaned = part.strip().lower()
-    if cleaned.startswith("the "):
-        cleaned = cleaned[4:]
-    return lookup(cleaned)
-
-
 @functools.lru_cache(maxsize=10000)
 def get_by_label(category: str) -> str:
     """Return the label for a category in the form ``<entity> by <suffix>``.
@@ -96,9 +75,14 @@ def get_by_label(category: str) -> str:
         return ""
 
     first_part, by_section = match.groups()
-    first_label = _lookup_prefixed_label(first_part, lambda key: _lookup_entity(key, New_P17_Finall, pop_All_2018))
+    by_section = by_section.lower()
 
-    by_label = _lookup_entity(by_section, By_table, By_table_orginal)
+    first_part_cleaned = first_part.strip().lower()
+    if first_part_cleaned.startswith("the "):
+        first_part_cleaned = first_part_cleaned[4:]
+
+    first_label = get_from_new_p17_finall(first_part_cleaned) or pop_All_2018.get(first_part_cleaned, "")
+    by_label = By_table.get(by_section, "") or By_table_orginal.get(by_section, "")
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
 
@@ -121,20 +105,26 @@ def get_and_label(category: str) -> str:
         missing from the lookup tables.
     """
 
-    label = ""
     logger.info(f"<<lightyellow>>>>get_and_label {category}")
     logger.info(f"Resolving get_and_label, {category=}")
-    match = re.match(r"(.*?) and (.*)", category, flags=re.IGNORECASE)
+    match = re.match(r"^(.*?) and (.*)$", category, flags=re.IGNORECASE)
+
     if not match:
+        logger.debug(f"<<lightyellow>>>> No match found for get_and_label: {category}")
         return ""
 
     first_part, last_part = match.groups()
+    first_part = first_part.lower()
+    last_part = last_part.lower()
 
-    logger.debug(f"<<lightyellow>>>>frist:{first_part},last:{last_part}")
+    logger.debug(f"<<lightyellow>>>> get_and_label(): {first_part=}, {last_part=}")
 
-    first_label = _lookup_entity(first_part, New_P17_Finall, pop_All_2018)
-    last_label = _lookup_entity(last_part, New_P17_Finall, pop_All_2018)
+    first_label = get_from_new_p17_finall(first_part, None) or pop_All_2018.get(first_part)
+    last_label = get_from_new_p17_finall(last_part, None) or pop_All_2018.get(last_part)
 
+    logger.debug(f"<<lightyellow>>>> get_and_label(): {first_label=}, {last_label=}")
+
+    label = ""
     if first_label and last_label:
         label = f"{first_label} و{last_label}"
         logger.info(f"<<lightyellow>>>>get_and_label lab {label}")

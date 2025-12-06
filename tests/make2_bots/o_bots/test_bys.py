@@ -12,7 +12,6 @@ def reset_bys_tables(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(bys, "By_orginal2", {}, raising=False)
     monkeypatch.setattr(bys, "By_table", {}, raising=False)
     monkeypatch.setattr(bys, "By_table_orginal", {}, raising=False)
-    monkeypatch.setattr(bys, "New_P17_Finall", {}, raising=False)
     monkeypatch.setattr(bys, "pop_All_2018", {}, raising=False)
 
 
@@ -42,8 +41,7 @@ def test_make_by_label_supports_dual_categories(monkeypatch: pytest.MonkeyPatch)
 
 
 def test_get_by_label_combines_entity_and_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(bys, "New_P17_Finall", {"artist": "فنان"}, raising=False)
-    monkeypatch.setattr(bys, "pop_All_2018", {"artist": "رسام"}, raising=False)
+    monkeypatch.setattr(bys, "pop_All_2018", {"artist": "فنان"}, raising=False)
     monkeypatch.setattr(bys, "By_table", {"by birth": "حسب الميلاد"}, raising=False)
 
     result = bys.get_by_label("Artist by birth")
@@ -51,8 +49,7 @@ def test_get_by_label_combines_entity_and_suffix(monkeypatch: pytest.MonkeyPatch
 
 
 def test_get_and_label_returns_joined_entities(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(bys, "New_P17_Finall", {"artist": "فنان"}, raising=False)
-    monkeypatch.setattr(bys, "pop_All_2018", {"painter": "رسام"}, raising=False)
+    monkeypatch.setattr(bys, "pop_All_2018", {"artist": "فنان", "painter": "رسام"}, raising=False)
 
     result = bys.get_and_label("Artist and Painter")
     assert result == "فنان ورسام"

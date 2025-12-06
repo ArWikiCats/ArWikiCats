@@ -122,8 +122,8 @@ FILM_ROLE_LABELS: Mapping[str, GenderedLabel] = {
 class JobsDataset:
     """Aggregate all exported job dictionaries."""
 
-    jobs_keys_mens: Dict[str, str]
-    w_jobs_2017: Dict[str, str]
+    males_jobs: Dict[str, str]
+    females_jobs: Dict[str, str]
 
 
 # ---------------------------------------------------------------------------
@@ -366,35 +366,39 @@ def _finalise_jobs_dataset() -> JobsDataset:
 
     _add_singer_variants(m_w_jobs)
 
-    jobs_keys_mens: Dict[str, str] = {}
+    males_jobs: Dict[str, str] = {}
 
-    w_jobs_2017: Dict[str, str] = {}
+    females_jobs: Dict[str, str] = {}
 
-    merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)
+    merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)  # "PLAYERS_TO_MEN_WOMENS_JOBS": "64,534",
 
+    m_w_jobs["sports coaches"] = {
+        "males": "مدربو رياضة",
+        "females": "مدربات رياضة"
+    }
     for job_key, labels in m_w_jobs.items():
-        jobs_keys_mens[job_key] = labels["males"]
+        males_jobs[job_key] = labels["males"]
         if labels["females"]:
-            w_jobs_2017[job_key] = labels["females"]
+            females_jobs[job_key] = labels["females"]
 
-    jobs_keys_mens["men's footballers"] = "لاعبو كرة قدم رجالية"
+    males_jobs["men's footballers"] = "لاعبو كرة قدم رجالية"
 
-    jobs_keys_mens["sports coaches"] = "مدربو رياضة"
-    w_jobs_2017["sports coaches"] = "مدربات رياضة"
+    # males_jobs["sports coaches"] = "مدربو رياضة"
+    # females_jobs["sports coaches"] = "مدربات رياضة"
 
-    jobs_keys_mens = {key: label for key, label in jobs_keys_mens.items() if label}
+    males_jobs = {key: label for key, label in males_jobs.items() if label}
 
     return JobsDataset(
-        jobs_keys_mens=jobs_keys_mens,
-        w_jobs_2017=w_jobs_2017,
+        males_jobs=males_jobs,
+        females_jobs=females_jobs,
     )
 
 
 _DATASET = _finalise_jobs_dataset()
 
-jobs_mens_data = _DATASET.jobs_keys_mens
+jobs_mens_data = _DATASET.males_jobs
 
-jobs_womens_data = _DATASET.w_jobs_2017
+jobs_womens_data = _DATASET.females_jobs
 
 Jobs_new = _build_jobs_new(Female_Jobs)
 

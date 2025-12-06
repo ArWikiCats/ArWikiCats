@@ -14,7 +14,7 @@ from ...translations import (
     pop_final_5,
     Jobs_new,
     jobs_mens_data,
-    New_P17_Finall,
+    get_from_new_p17_finall,
     pf_keys2,
     sub_teams_new,
     By_table,
@@ -59,15 +59,19 @@ def _get_from_alias(key: str) -> str:
         "films_mslslat_tab": films_mslslat_tab,
         "By_table": By_table,
         "sub_teams_new": sub_teams_new,
-        "New_P17_Finall": New_P17_Finall,
-        "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
     }
+
     for x, source in sources.items():
         result = source.get(key) or source.get(key.lower())
         if result:
             logger.debug(f"Found key in {x}: {key} -> {result}")
             return result
-    return ""
+
+    result = get_from_new_p17_finall(key.lower())
+
+    if not result:
+        result = SPORTS_KEYS_FOR_LABEL.get(key) or SPORTS_KEYS_FOR_LABEL.get(key.lower(), "")
+    return result
 
 
 @functools.lru_cache(maxsize=None)
