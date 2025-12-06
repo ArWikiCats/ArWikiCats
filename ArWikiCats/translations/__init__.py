@@ -1,5 +1,6 @@
 """ """
 
+from .utils.json_dir import open_json_file
 from .sports.sub_teams_keys import sub_teams_new
 from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
@@ -10,7 +11,6 @@ from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
 from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
 from .languages import lang_key_m, lang_ttty, languages_key, languages_pop
-from .mix_data import pop_All_2018_bot
 from .mixed.all_keys2 import (
     People_key,
     WORD_AFTER_YEARS,
@@ -105,6 +105,7 @@ from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
 
 
 __all__ = [
+    "open_json_file",
     "sub_teams_new",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
@@ -202,8 +203,6 @@ __all__ = [
     "change_numb_to_word",
     #
     "People_key",
-    #
-    "pop_All_2018_bot",
     #
     # "TEAMS_NEW",
     #
