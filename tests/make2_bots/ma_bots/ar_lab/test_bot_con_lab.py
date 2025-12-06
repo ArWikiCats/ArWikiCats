@@ -245,7 +245,7 @@ data_test = [
     ("in", "gautam buddh nagar district", "مقاطعة جوتام بوذا نجر"),
     ("in", "insular areas of united states", "المناطق المعزولة في الولايات المتحدة"),
     ("in", "israeli reality television series", "مسلسلات تلفزيونية واقعية إسرائيلية"),
-    ("in", "saint vincent and the grenadines", "سانت فينسنت والغرينادين"),
+    ("in", "saint vincent and grenadines", "سانت فينسنت والغرينادين"),
     ("in", "santa maria da feira", "سانتا ماريا دا فييرا"),
     ("in", "south african rugby union", "اتحاد الرجبي الجنوب الإفريقي"),
     ("in", "south american women's football", "كرة قدم أمريكية جنوبية نسائية"),

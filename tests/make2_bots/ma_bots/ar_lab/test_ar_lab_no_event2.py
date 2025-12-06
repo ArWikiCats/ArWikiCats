@@ -213,7 +213,7 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "1450s establishments in saint vincent and the grenadines",
+        "category": "1450s establishments in saint vincent and grenadines",
         "output": "تأسيسات عقد 1450 في سانت فينسنت والغرينادين",
     },
     {
