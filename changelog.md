@@ -1,3 +1,18 @@
+## [#176](https://github.com/MrIbrahem/ArWikiCats/pull/176) - 2025-12-06
+
+# Release Notes
+
+* **Bug Fixes**
+  * Standardized Arabic translations for cricket-related terminology across all translation databases
+  * Corrected Arabic translations for wheelchair rugby event categories
+  * Fixed data consistency issues in geographic, city, and sports translation mappings
+  * Cleaned up obsolete translation entries for sports competitions and national teams
+
+* **Chores**
+  * Reorganized and updated translation datasets for improved accuracy and coverage
+  * Improved lookup logic for geographic label resolution
+  * Updated data metrics to reflect cleaned translation datasets
+
 ## [#175](https://github.com/MrIbrahem/ArWikiCats/pull/175) - 2025-12-06
 
 * **New Features**
