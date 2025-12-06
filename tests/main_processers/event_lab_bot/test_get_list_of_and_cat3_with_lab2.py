@@ -19,7 +19,7 @@ list_data = {
     "1880 concacaf women's championship squad navigational boxes": "صناديق تصفح تشكيلات بطولة أمريكا الشمالية للسيدات 1880",
     "1880 copa américa femenina squad navigational boxes": "صناديق تصفح تشكيلات كوبا أمريكا فمنينا 1880",
     "1880 copa américa squad navigational boxes": "صناديق تصفح تشكيلات كوبا أمريكا 1880",
-    "1880 cricket world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم للكريكيت 1880",
+    "1880 cricket world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم للكريكت 1880",
     "1880 european competition for women's football squad templates": "قوالب تشكيلات منافسات أوروبية في كرة القدم للسيدات 1880",
     "1880 european men's handball championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للرجال 1880",
     "1880 european women's handball championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للسيدات 1880",

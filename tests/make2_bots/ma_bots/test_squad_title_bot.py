@@ -19,7 +19,7 @@ get_squad_title_data = {
     "1970 concacaf women's championship": "تشكيلات بطولة أمريكا الشمالية للسيدات 1970",
     "1970 copa américa femenina": "تشكيلات كوبا أمريكا فمنينا 1970",
     "1970 copa américa": "تشكيلات كوبا أمريكا 1970",
-    "1970 cricket world cup": "تشكيلات كأس العالم للكريكيت 1970",
+    "1970 cricket world cup": "تشكيلات كأس العالم للكريكت 1970",
     "1970 european competition for women's football": "تشكيلات منافسات أوروبية في كرة القدم للسيدات 1970",
     "1970 european men's handball championship": "تشكيلات بطولة أوروبا لكرة اليد للرجال 1970",
     "1970 european women's handball championship": "تشكيلات بطولة أوروبا لكرة اليد للسيدات 1970",
