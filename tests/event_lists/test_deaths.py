@@ -5,7 +5,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
-
     "Category:Deaths by American airstrikes": "تصنيف:وفيات بضربات جوية أمريكية",
     "Category:Deaths by American airstrikes during World War II": "تصنيف:وفيات بضربات جوية أمريكية خلال الحرب العالمية الثانية",
     "Category:Deaths by American airstrikes during the Syrian civil war": "تصنيف:وفيات بضربات جوية أمريكية خلال الحرب الأهلية السورية",
@@ -1509,4 +1508,9 @@ def test_peoples(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
+
+    same_data = {x: v for x, v in data.items() if x not in diff_result}
+
+    dump_diff(same_data, f"{name}_same")
+
     assert diff_result == expected, f"Differences found: {len(diff_result)}"
