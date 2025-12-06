@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, MutableMapping
 
-from ...helps import len_print
+from ...helps import len_print, logger
 from ..companies import New_Company as COMPANY_LABELS
 from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import (
@@ -217,10 +217,6 @@ TURKEY_PROVINCE_LABELS = {
     "zonguldak": "زانغولداك",
 }
 
-COUNTRY_LABEL_OVERRIDES = load_json_mapping("geography/P17_2_final_ll.json")
-POPULATION_OVERRIDES = load_json_mapping("geography/opop.json")
-raw_region_overrides = load_json_mapping("geography/popopo.json")
-
 
 def update_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str]) -> None:
     """Update ``target`` with a lower-cased version of ``mapping``."""
@@ -231,45 +227,101 @@ def update_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[st
         target[key.lower()] = value
 
 
+def setdefault_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str], name: str="") -> None:
+    """Update ``target`` with a lower-cased version of ``mapping``."""
+    added = 0
+    for key, value in mapping.items():
+        if not value or key.lower() in target:
+            continue
+        target.setdefault(key.lower(), value)
+        added += 1
+
+    logger.debug(f"Added {added} entries to the target mapping, source mapping({name}) {len(mapping)}.")
+
+
+def _make_japan_labels(data: dict[str, str]) -> dict[str, str]:
+    labels_index = {}
+    for province_name, province_label in data.items():
+        if province_label:
+            normalized = province_name.lower()
+            labels_index[normalized] = province_label
+            labels_index[f"{normalized} prefecture"] = f"محافظة {province_label}"
+            labels_index[f"{normalized} region"] = f"منطقة {province_label}"
+
+    return labels_index
+
+
+def _make_turkey_labels(data: dict[str, str]) -> dict[str, str]:
+    labels_index = {}
+    for province_name, province_label in data.items():
+        if province_label:
+            normalized = province_name.lower()
+            labels_index[normalized] = province_label
+            labels_index[f"{normalized} province"] = f"محافظة {province_label}"
+            labels_index[f"districts of {normalized} province"] = f"أقضية محافظة {province_label}"
+
+    return labels_index
+
+
+COMPANY_LABELS_NEW = {
+    company_name.lower(): company_label
+    for company_name, company_label in COMPANY_LABELS.items()
+    if company_label and company_name.lower() not in pf_keys2
+}
+
+JAPAN_LABELS = _make_japan_labels(JAPAN_REGIONAL_LABELS)
+TURKEY_LABELS = _make_turkey_labels(TURKEY_PROVINCE_LABELS)
+
+
+COUNTRY_LABEL_OVERRIDES = load_json_mapping("geography/P17_2_final_ll.json")
+POPULATION_OVERRIDES = load_json_mapping("geography/opop.json")
+raw_region_overrides = load_json_mapping("geography/popopo.json")
+
+
+def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
+    """Handle 'the ' prefix in country labels."""
+    new_keys = {}
+    for key, value in list(label_index.items()):
+
+        if not key.lower().startswith("the ") or not value:
+            continue
+
+        trimmed_key = key[len("the ") :].strip()
+        if trimmed_key in label_index:
+            continue
+        new_keys.setdefault(trimmed_key, value)
+
+    logger.debug(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
+    return new_keys
+
+
 def _build_country_label_index() -> dict[str, str]:
     """Return the aggregated translation table for countries and regions."""
 
     label_index: dict[str, str] = {}
 
     label_index.update(CITY_TRANSLATIONS_LOWER)
-    update_with_lowercased(label_index, US_STATES)
-    update_with_lowercased(label_index, COUNTRY_LABEL_OVERRIDES)
-    update_with_lowercased(label_index, POPULATION_OVERRIDES)
-    update_with_lowercased(label_index, COUNTRY_ADMIN_LABELS)
-    update_with_lowercased(label_index, MAIN_REGION_TRANSLATIONS)
 
-    update_with_lowercased(label_index, raw_region_overrides)
-    update_with_lowercased(label_index, SECONDARY_REGION_TRANSLATIONS)
+    to_update = {
+        "US_STATES": US_STATES,                                            # 54
+        "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,                # 1778
+        "POPULATION_OVERRIDES": POPULATION_OVERRIDES,                      # 1517
+        "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,                      # 1782
+        "MAIN_REGION_TRANSLATIONS": MAIN_REGION_TRANSLATIONS,              # 823
+        "raw_region_overrides": raw_region_overrides,                      # 1454
+        "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,    # 176
+        "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,            # 1424
+        "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
+        "pf_keys2": pf_keys2,                                              # 35730,
+        "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,                  # 2998
+        "JAPAN_LABELS": JAPAN_LABELS,                                      # 162
+        "TURKEY_LABELS": TURKEY_LABELS,                                    # 243
+        "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,                          # 10
 
-    update_with_lowercased(label_index, INDIA_REGION_TRANSLATIONS)
-    update_with_lowercased(label_index, CITY_LABEL_PATCHES)
-    update_with_lowercased(label_index, pf_keys2)               # 68,981
-    update_with_lowercased(label_index, US_COUNTY_TRANSLATIONS)
-
-    for city, lal in JAPAN_REGIONAL_LABELS.items():
-        city2 = city.lower()
-        if lal:
-            label_index[f"{city2} prefecture"] = f"محافظة {lal}"
-            label_index[f"{city2} region"] = f"منطقة {lal}"
-
-    update_with_lowercased(label_index, JAPAN_REGIONAL_LABELS)
-    update_with_lowercased(label_index, TURKEY_PROVINCE_LABELS)
-
-    for province_name, province_label in TURKEY_PROVINCE_LABELS.items():
-        if province_label:
-            normalized = province_name.lower()
-            label_index[f"{normalized} province"] = f"محافظة {province_label}"
-            label_index[f"districts of {normalized} province"] = f"أقضية محافظة {province_label}"
-
-    for company_name, company_label in COMPANY_LABELS.items():
-        normalized_company = company_name.lower()
-        if normalized_company not in pf_keys2 and company_label:
-            label_index[normalized_company] = company_label
+    }
+    for name, mapping in to_update.items():
+        logger.debug(f">> _build_country_label_index() Updating labels for {name}, entries: {len(mapping)}")
+        update_with_lowercased(label_index, mapping)
 
     label_index.update(  # Specific overrides used by downstream consumers.
         {
@@ -281,40 +333,30 @@ def _build_country_label_index() -> dict[str, str]:
             "igbo": "إغبو",
         }
     )
+    no_prefix = _handle_the_prefix(label_index)                                     # 276
+    label_index.update(no_prefix)
 
-    for key, value in list(label_index.items()):
-        if key.lower().startswith("the ") and value:
-            trimmed_key = key[len("the ") :].strip()
-            label_index.setdefault(trimmed_key, value)
-
-    for taxon_name, taxon_label in TAXON_TABLE.items():
-        normalized_taxon = taxon_name.lower()
-        if normalized_taxon not in label_index and taxon_label:
-            label_index[normalized_taxon] = taxon_label
+    setdefault_with_lowercased(label_index, TAXON_TABLE, "TAXON_TABLE")             # 5324
 
     # for population_key, population_label in POPULATION_SUPPLEMENTS.items():
-    for population_key, population_label in BASE_POP_FINAL_5.items():
-        if not population_label:
-            continue
-        normalized_population_key = population_key.lower()
-        label_index.setdefault(normalized_population_key, population_label)
+    setdefault_with_lowercased(label_index, BASE_POP_FINAL_5, "BASE_POP_FINAL_5")   # 124
 
     return label_index
 
 
-New_P17_Finall = _build_country_label_index()
+NEW_P17_FINAL = _build_country_label_index()  # 68,981
 
 
-def get_from_new_p17_finall(text: str, default: str|None = "") -> str:
-    """Look up the Arabic label for a term in the ``New_P17_Finall`` mapping."""
-    return New_P17_Finall.get(text, default)
+def get_from_new_p17_final(text: str, default: str|None = "") -> str:
+    """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
+    return NEW_P17_FINAL.get(text, default)
 
 
 __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "POPULATION_OVERRIDES",
-    "New_P17_Finall",
-    "get_from_new_p17_finall",
+    "NEW_P17_FINAL",
+    "get_from_new_p17_final",
 ]
 
 len_print.data_len(
@@ -322,6 +364,6 @@ len_print.data_len(
     {
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
         "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
-        "New_P17_Finall": New_P17_Finall,
+        "NEW_P17_FINAL": NEW_P17_FINAL,
     },
 )

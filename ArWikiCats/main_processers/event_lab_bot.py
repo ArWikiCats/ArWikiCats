@@ -21,7 +21,7 @@ from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..translations_resolvers.nats_sports import nats_new_create_label
 
-from ..translations import get_from_new_p17_finall, wrap_team_xo_normal_2025
+from ..translations import get_from_new_p17_final, wrap_team_xo_normal_2025
 
 
 def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
@@ -249,7 +249,7 @@ class EventLabResolver:
             category32 = category3_nolower[: -len(" cricket captains")]
 
         if list_of_cat2 and category32:
-            category3_lab = get_from_new_p17_finall(category32.lower())
+            category3_lab = get_from_new_p17_final(category32.lower())
             if category3_lab:
                 return list_of_cat2.format(category3_lab)
 

@@ -35,7 +35,7 @@ Responsible for extracting and normalizing:
 
 Centralizes all type-related logic, including:
 
-* New_P17_Finall
+* NEW_P17_FINAL
 * Tabl_with_in
 * RELIGIOUS_KEYS_PP
 * Players and jobs rules

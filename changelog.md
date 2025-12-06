@@ -1,3 +1,15 @@
+## [#174](https://github.com/MrIbrahem/ArWikiCats/pull/174) - 2025-12-06
+
+* **New Features**
+  * Enhanced geographic label generation for Japan and Turkey with improved mapping consolidation and language-specific variants.
+
+* **Refactor**
+  * Optimized country label index building and loading processes.
+  * Improved label mapping consolidation to reduce redundancy.
+
+* **Chores**
+  * Added diagnostic logging throughout the system to improve monitoring and debugging capabilities.
+
 ## [#173](https://github.com/MrIbrahem/ArWikiCats/pull/173) - 2025-12-06
 
 * **Refactor**

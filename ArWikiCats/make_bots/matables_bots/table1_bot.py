@@ -38,7 +38,7 @@ from ...helps.jsonl_dump import dump_data
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
+# @dump_data(1)
 def _get_KAKO(text: str) -> str:
     """Look up the Arabic label for a term across several mapping tables."""
     for table_name, table_data in KAKO.items():

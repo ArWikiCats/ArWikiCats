@@ -44,10 +44,14 @@ class FormatDataBase:
         if not self.data_list_ci:
             return None
 
+        if len(self.data_list_ci) > 1000:
+            print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+
         keys_sorted = sorted(
             self.data_list_ci.keys(),
             key=lambda k: (-k.count(" "), -len(k))
         )
+
         alternation = "|".join(map(re.escape, keys_sorted))
 
         self.data_pattern = fr"(?<!\w)({alternation})(?!\w)"
