@@ -227,7 +227,7 @@ def update_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[st
         target[key.lower()] = value
 
 
-def setdefault_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str]) -> None:
+def setdefault_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str], name: str="") -> None:
     """Update ``target`` with a lower-cased version of ``mapping``."""
     added = 0
     for key, value in mapping.items():
@@ -236,7 +236,7 @@ def setdefault_with_lowercased(target: MutableMapping[str, str], mapping: Mappin
         target.setdefault(key.lower(), value)
         added += 1
 
-    logger.debug(f"Added {added} entries to the target mapping, source mapping {len(mapping)}.")
+    logger.debug(f"Added {added} entries to the target mapping, source mapping({name}) {len(mapping)}.")
 
 
 def _make_japan_labels(data: dict[str, str]) -> dict[str, str]:
@@ -291,7 +291,7 @@ def _handle_the_prefix(label_index):
             continue
         new_keys.setdefault(trimmed_key, value)
 
-    print(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
+    logger.debug(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
     return new_keys
 
 
@@ -312,7 +312,7 @@ def _build_country_label_index() -> dict[str, str]:
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,    # 176
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,            # 1424
         "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
-        "pf_keys2": pf_keys2,                                              # 35730, #68,981
+        "pf_keys2": pf_keys2,                                              # 35730,
         "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,                  # 2998
         "JAPAN_LABELS": JAPAN_LABELS,                                      # 162
         "TURKEY_LABELS": TURKEY_LABELS,                                    # 243
@@ -320,7 +320,7 @@ def _build_country_label_index() -> dict[str, str]:
 
     }
     for name, mapping in to_update.items():
-        print(f">> _build_country_label_index() Updating labels for {name}, entries: {len(mapping)}")
+        logger.debug(f">> _build_country_label_index() Updating labels for {name}, entries: {len(mapping)}")
         update_with_lowercased(label_index, mapping)
 
     label_index.update(  # Specific overrides used by downstream consumers.
@@ -333,18 +333,18 @@ def _build_country_label_index() -> dict[str, str]:
             "igbo": "إغبو",
         }
     )
-    no_prefix = _handle_the_prefix(label_index)     # 276
+    no_prefix = _handle_the_prefix(label_index)                                     # 276
     label_index.update(no_prefix)
 
-    setdefault_with_lowercased(label_index, TAXON_TABLE)
+    setdefault_with_lowercased(label_index, TAXON_TABLE, "TAXON_TABLE")             # 5324
 
     # for population_key, population_label in POPULATION_SUPPLEMENTS.items():
-    setdefault_with_lowercased(label_index, BASE_POP_FINAL_5)
+    setdefault_with_lowercased(label_index, BASE_POP_FINAL_5, "BASE_POP_FINAL_5")   # 124
 
     return label_index
 
 
-New_P17_Finall = _build_country_label_index()
+New_P17_Finall = _build_country_label_index()  # 68,981
 
 
 def get_from_new_p17_finall(text: str, default: str|None = "") -> str:
