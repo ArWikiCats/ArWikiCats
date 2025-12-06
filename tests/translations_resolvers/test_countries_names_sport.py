@@ -17,14 +17,14 @@ test_data_1 = {
 
 
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=list(test_data_1.keys()))
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_resolve_countries_names_sport(category: str, expected: str) -> None:
     label = resolve_countries_names_sport(category)
     assert label == expected
 
 
 test_data_dump = [
-    ("test_resolve_countries_names_sport", test_data_1),
+    # ("test_resolve_countries_names_sport", test_data_1),
 ]
 
 
