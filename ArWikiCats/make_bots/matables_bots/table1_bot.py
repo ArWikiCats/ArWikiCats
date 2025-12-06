@@ -38,7 +38,8 @@ from ...helps.jsonl_dump import dump_data
 
 
 @functools.lru_cache(maxsize=None)
-def get_KAKO(text: str) -> str:
+@dump_data(1)
+def _get_KAKO(text: str) -> str:
     """Look up the Arabic label for a term across several mapping tables."""
     for table_name, table_data in KAKO.items():
         resolved_label = table_data.get(text, "")
@@ -53,6 +54,12 @@ def get_KAKO(text: str) -> str:
 
         logger.debug(f'>> get_KAKO_({table_name}) for ["{text}"] = "{resolved_label}"')
 
-        return resolved_label
+        return table_name, resolved_label
 
-    return ""
+    return "", ""
+
+
+@functools.lru_cache(maxsize=10000)
+def get_KAKO(text: str) -> str:
+    _, label = _get_KAKO(text)
+    return label
