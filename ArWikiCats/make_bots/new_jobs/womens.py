@@ -16,6 +16,7 @@ formatted_data_jobs = {
     # jobs
     "{en_job}": "{ar_job}",
     "female {en_job} people": "{ar_job}",
+    # "{en_job} people": "أعلام {ar_job}",
     "{en_job} people": "{ar_job}",
 
     "female expatriate {en_job}": "{ar_job} مغتربات",
