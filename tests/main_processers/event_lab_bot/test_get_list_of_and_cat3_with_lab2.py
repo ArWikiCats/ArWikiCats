@@ -43,7 +43,6 @@ list_data = {
     "1880 south american championship (argentina) squad navigational boxes": "صناديق تصفح تشكيلات كأس أمريكا الجنوبية (الأرجنتين) 1880",
     "1880 south american championship (ecuador) squad navigational boxes": "صناديق تصفح تشكيلات كأس أمريكا الجنوبية (الإكوادور) 1880",
     "1880 south american championship squad navigational boxes": "صناديق تصفح تشكيلات بطولة أمريكا الجنوبية 1880",
-    "1880 south american women's football championship squad navigational boxes": "صناديق تصفح تشكيلات كوبا أمريكا فمنينا 1880",
     "1880 summer olympics basketball squad navigational boxes": "صناديق تصفح تشكيلات كرة السلة في الألعاب الأولمبية الصيفية 1880",
     "1880 summer olympics field hockey squad navigational boxes": "صناديق تصفح تشكيلات هوكي الميدان في الألعاب الأولمبية الصيفية 1880",
     "1880 summer olympics football squad navigational boxes": "صناديق تصفح تشكيلات كرة القدم في الألعاب الأولمبية الصيفية 1880",

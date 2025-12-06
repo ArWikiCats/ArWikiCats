@@ -923,7 +923,6 @@ data_list = [
     ("tourist attractions in dâmbovița county", " in ", "مواقع جذب سياحي في مقاطعة دامبوفيتا"),
     ("tourist attractions in marinduque", " in ", "مواقع جذب سياحي في ماريندوك"),
     ("towers completed in 1550", " completed in ", "أبراج اكتملت في 1550"),
-    ("track and field athletes in 1550 asian games", " in ", "رياضيو المسار والميدان في دورة الألعاب الآسيوية 1550"),
     ("track and field athletes in 1550 summer paralympics", " in ", "رياضيو المسار والميدان في الألعاب البارالمبية الصيفية 1550", ),
     ("trade associations based in quebec", " based in ", "اتحادات تجارية مقرها في كيبك"),
     ("trade unionists from missouri", " from ", "نقابيون من ميزوري"),

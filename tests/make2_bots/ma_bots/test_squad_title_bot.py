@@ -42,7 +42,6 @@ get_squad_title_data = {
     "1970 south american championship (argentina)": "تشكيلات كأس أمريكا الجنوبية (الأرجنتين) 1970",
     "1970 south american championship (ecuador)": "تشكيلات كأس أمريكا الجنوبية (الإكوادور) 1970",
     "1970 south american championship": "تشكيلات بطولة أمريكا الجنوبية 1970",
-    "1970 south american women's football championship": "تشكيلات كوبا أمريكا فمنينا 1970",
     "1970 summer olympics basketball": "تشكيلات كرة السلة في الألعاب الأولمبية الصيفية 1970",
     "1970 summer olympics field hockey": "تشكيلات هوكي الميدان في الألعاب الأولمبية الصيفية 1970",
     "1970 summer olympics football": "تشكيلات كرة القدم في الألعاب الأولمبية الصيفية 1970",
