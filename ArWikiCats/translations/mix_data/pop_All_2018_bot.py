@@ -30,26 +30,28 @@ def load_pop_All_2018() -> Dict[str, str]:
             By_table,  # 15,899
             sub_teams_new,  # 12,134
             New_P17_Finall,  # 62,671
-            SPORTS_KEYS_FOR_LABEL,  # 672
+            # SPORTS_KEYS_FOR_LABEL,  # 672
         ]
         for source in sources:
             for pla, value in source.items():
                 if value:
                     data.setdefault(pla.lower(), value)
 
-    data["by country"] = "حسب البلد"
-    data["in"] = "في"
-    data["films"] = "أفلام"
-    data["decades"] = "عقود"
-    data["women"] = "المرأة"
-    data["women in"] = "المرأة في"
-    data["medalists"] = "فائزون بميداليات"
-    data["gold medalists"] = "فائزون بميداليات ذهبية"
-    data["silver medalists"] = "فائزون بميداليات فضية"
-    data["bronze medalists"] = "فائزون بميداليات برونزية"
-    data["kingdom of"] = "مملكة"
-    data["kingdom-of"] = "مملكة"
-    data["country"] = "البلد"
+    data.update({
+        "by country": "حسب البلد",
+        "in": "في",
+        "films": "أفلام",
+        "decades": "عقود",
+        "women": "المرأة",
+        "women in": "المرأة في",
+        "medalists": "فائزون بميداليات",
+        "gold medalists": "فائزون بميداليات ذهبية",
+        "silver medalists": "فائزون بميداليات فضية",
+        "bronze medalists": "فائزون بميداليات برونزية",
+        "kingdom of": "مملكة",
+        "kingdom-of": "مملكة",
+        "country": "البلد",
+    })
 
     for olmp, olmp_lab in olympics.items():
         data[olmp] = olmp_lab
