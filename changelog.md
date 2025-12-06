@@ -1,3 +1,23 @@
+## [Split non-geographic labels from cities translations] - 2025-12-06
+
+- **Added:**
+  - Script to split city translation labels into geographic and non-geographic datasets.
+  - Dedicated JSON file collecting non-geographic labels from the city translations.
+- **Changed:**
+  - City translation dataset now retains only geographic entries.
+- **Removed:**
+  - Non-geographic labels from the primary city translation JSON file.
+
+## [Split non-geographic labels from geography translations] - 2025-12-06
+
+- **Added:**
+  - Script to automatically split non-geographic labels from the geography translation dataset.
+  - Dedicated JSON file collecting non-geographic labels extracted from the geography data.
+- **Changed:**
+  - Geography translation dataset now excludes labels for organizations, media, and other non-geographic entities.
+- **Removed:**
+  - Non-geographic labels from the primary geography translation JSON file.
+
 ## [#176](https://github.com/MrIbrahem/ArWikiCats/pull/176) - 2025-12-06
 
 # Release Notes
