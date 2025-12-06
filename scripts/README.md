@@ -50,3 +50,47 @@ The script detects the following types of non-geographic entities:
 - **Cultural institutions**: museums, galleries, libraries, theaters
 - **Sports venues**: stadiums, arenas
 - **Hospitality**: hotels, resorts
+
+## filter_non_cities.py
+
+Filters non-city entries from `yy2.json` into a separate file using the same logic as `filter_non_geographic.py`.
+
+### Purpose
+
+The `yy2.json` file is intended to contain city translations. However, it contained non-city entries (universities, companies, museums, sports clubs, etc.) that needed to be separated.
+
+This script uses the same filtering logic to identify and separate non-city entries into `yy2_non_cities.json`.
+
+### Usage
+
+```bash
+python scripts/filter_non_cities.py
+```
+
+### What it does
+
+1. Creates a backup of the original file (`.backup`)
+2. Reads `yy2.json`
+3. Applies the same filtering logic as `filter_non_geographic.py`
+4. Splits the entries into two files:
+   - `yy2.json` - City entries only (updated in place)
+   - `yy2_non_cities.json` - Non-city entries (new file)
+
+### Example Output
+
+```
+Total entries: 5166
+City entries: 4710
+Non-city entries: 456
+```
+
+### Categories Filtered
+
+The script filtered 456 non-city entries including:
+- **Universities**: 147
+- **Companies**: 28
+- **Associations/Organizations**: 23
+- **Institutes**: 21
+- **Museums**: 17
+- **Sports Clubs**: 16
+- And more...
