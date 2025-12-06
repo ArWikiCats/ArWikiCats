@@ -315,7 +315,7 @@ data_1 = {
     "Category:Zambian non-fiction writers": "تصنيف:كتاب غير روائيين زامبيون",
 }
 to_test = [
-    ("text_to_fix_1", data_1),
+    ("text_non_fiction", data_1),
 ]
 
 
@@ -335,4 +335,4 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
     # save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
     # dump_diff(save3, f"{name}_d", _sort=False)
 
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
