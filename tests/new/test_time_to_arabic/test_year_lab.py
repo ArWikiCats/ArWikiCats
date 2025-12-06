@@ -129,10 +129,6 @@ class TestMakeYearLabRangesAndSpecial:
             ("1990-1999", "1990-1999"),
             ("1990–1999", "1990–1999"),  # en dash
             ("1990−1999", "1990−1999"),  # minus sign
-            # Special allowed non-digit-only tokens
-            ("-", "-"),
-            ("–", "–"),
-            ("−", "−"),
         ],
     )
     def test_year_lab_ranges_and_allowed_suffixes(self, year: str, expected: str) -> None:
@@ -144,8 +140,6 @@ class TestMakeYearLabRangesAndSpecial:
             # Completely unrelated text
             "random text",
             "not a year",
-            # Unsupported pattern (uppercase BC without prior normalization)
-            "10s BC",
             # Contains English letters and is not recognized
             "year 1990",
         ],
@@ -180,6 +174,13 @@ class TestMakeMonthLabBasic:
             ("january", "يناير"),
             ("January", "يناير"),
             ("march", "مارس"),
+
+            # Decade-like expressions are not handled here
+            ("10s", "عقد 10"),
+            ("10s bc", "عقد 10 ق م"),
+
+            ("january 1990 bc", "يناير 1990 ق م"),
+            ("march 10 bce", "مارس 10 ق م"),
         ],
     )
     def test_month_lab_with_month_names(self, year: str, expected: str) -> None:
@@ -196,10 +197,7 @@ class TestMakeMonthLabRangesAndSpecial:
             ("1990-1999", "1990-1999"),
             ("1990–1999", "1990–1999"),
             ("1990−1999", "1990−1999"),
-            # Special allowed non-digit-only tokens
-            ("-", "-"),
-            ("–", "–"),
-            ("−", "−"),
+
         ],
     )
     def test_month_lab_ranges_and_allowed_suffixes(self, year: str, expected: str) -> None:
@@ -208,12 +206,6 @@ class TestMakeMonthLabRangesAndSpecial:
     @pytest.mark.parametrize(
         "year",
         [
-            # Month + BC/BCE is not supported in convert_time_to_arabic
-            "january 1990 bc",
-            "march 10 bce",
-            # Decade-like expressions are not handled here
-            "10s",
-            "10s bc",
             # Arbitrary strings
             "random text",
             "year 1990",

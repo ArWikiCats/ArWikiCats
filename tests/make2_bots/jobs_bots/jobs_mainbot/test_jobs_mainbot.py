@@ -8,6 +8,22 @@ from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import Nat_Womens, jobs_with_na
 
 
 @pytest.mark.fast
+def test_sports_coaches_male() -> None:
+    # pytest tests/make2_bots/jobs_bots/jobs_mainbot/test_jobs_mainbot.py::test_sports_coaches_male
+    result = jobs_with_nat_prefix("albanian sports coaches", "albanian", "sports coaches")
+    assert isinstance(result, str)
+    assert result == "مدربو رياضة ألبان"
+
+
+@pytest.mark.fast
+def test_sports_coaches_female() -> None:
+    # pytest tests/make2_bots/jobs_bots/jobs_mainbot/test_jobs_mainbot.py::test_sports_coaches_female
+    result = jobs_with_nat_prefix("albanian female sports coaches", "albanian", "female sports coaches")
+    assert isinstance(result, str)
+    assert result == "مدربات رياضة ألبانيات"
+
+
+@pytest.mark.fast
 def test_jobs() -> None:
     # Test with basic inputs
     result = jobs_with_nat_prefix("test category", "united states", "players")

@@ -1,3 +1,18 @@
+## [#170](https://github.com/MrIbrahem/ArWikiCats/pull/170) - 2025-12-06
+
+* **New Features**
+  * Better geographic translations for alpine-skiing categories; new country+sport resolver
+  * Added multi-part formatting (v2) and broader sports/media translation entries
+
+* **Bug Fixes**
+  * Corrected Arabic translations for sports-related occupational categories and media keys
+
+* **Tests**
+  * Expanded coverage for geographic translations, date-to-Arabic (decades, BC/BCE), and sports coach terminology
+
+* **Refactor**
+  * Reorganized sports/media translation data and improved label-resolution fallbacks
+
 ## [#168](https://github.com/MrIbrahem/ArWikiCats/pull/168) - 2025-12-05
 
 * **Refactor**

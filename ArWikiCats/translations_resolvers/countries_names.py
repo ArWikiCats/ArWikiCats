@@ -4,6 +4,7 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 en_is_P17_ar_is_P17: dict[str, str] = {
+    "Olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
     "{en} board members": "أعضاء مجلس {ar}",
     "{en} conflict": "نزاع {ar}",
     "{en} cup": "كأس {ar}",
@@ -35,11 +36,19 @@ nat_bot = FormatData(
     countries_from_nat,
     key_placeholder="{en}",
     value_placeholder="{ar}",
+    text_before="the ",
 )
 
 
 def resolve_by_countries_names(category: str) -> str:
-    return nat_bot.search(category)
+    normalized_category = category.lower().replace("category:", "")
+
+    result = nat_bot.search(normalized_category)
+
+    if result and category.lower().startswith("category:"):
+        result = "تصنيف:" + result
+
+    return result
 
 
 __all__ = [

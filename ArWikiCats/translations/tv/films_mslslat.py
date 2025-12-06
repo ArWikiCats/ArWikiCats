@@ -359,9 +359,11 @@ def _build_female_combo_keys(
 # =============================================================================
 
 # Load JSON resources
-Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
 _Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
+
+Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
+Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
 
 # Filter to only entries with both male and female
 Films_key_O_multi = {

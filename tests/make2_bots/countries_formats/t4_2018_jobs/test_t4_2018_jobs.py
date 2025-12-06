@@ -7,6 +7,9 @@ import pytest
 from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 
 te4_2018_Jobs_data = {
+    "european sports coaches": "مدربو رياضة أوروبيون",
+    "albanian sports coaches": "مدربو رياضة ألبان",
+
     # "macedonian expatriate female footballers": "لاعبات كرة قدم مقدونيات مغتربات",
     "egyptian male sport shooters": "لاعبو رماية ذكور مصريون",
     "egyptian sport shooters": "لاعبو رماية مصريون",
@@ -328,7 +331,6 @@ te4_2018_Jobs_data = {
     "estonian racing drivers": "سائقو سيارات سباق إستونيون",
     "estonian screenwriters": "كتاب سيناريو إستونيون",
     "ethiopian people imprisoned abroad": "إثيوبيون مسجونون في الخارج",
-    "european sports coaches": "مدربو رياضية أوروبيون",
     "fijian football managers": "مدربو كرة قدم فيجيون",
     "fijian language": "لغة فيجية",
     "fijian long jumpers": "لاعبو قفز طويل فيجيون",
@@ -628,7 +630,6 @@ data_fast = {
     "ivorian expatriates": "إيفواريون مغتربون",
     "cross-country skiers": "متزحلقون ريفيون",
     "dutch explorers": "مستكشفون هولنديون",
-    "albanian sports coaches": "مدربو رياضية ألبان",
     "competitors": "منافسون",
     "american cinema editors": "محررون سينمائون أمريكيون",
     "argentine songwriters": "كتاب أغان أرجنتينيون",

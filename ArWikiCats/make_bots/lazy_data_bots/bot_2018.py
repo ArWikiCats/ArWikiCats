@@ -6,7 +6,7 @@
 import functools
 from typing import Dict
 
-from ...helps import len_print
+from ...helps import len_print, logger
 from ...translations import (
     Clubs_key_2,
     find_teams_2025,
@@ -27,23 +27,42 @@ from ...translations import (
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
-    result = (
-        _get_pop_All_18(key, default)
-        or find_teams_2025(key, default)
-        or Clubs_key_2.get(key)
-        or jobs_mens_data.get(key)
-        or Jobs_new.get(key)
-        or New_P17_Finall.get(key)
-        or pop_final_5.get(key)
-        or pf_keys2.get(key)
-        or By_table.get(key)
-        or sub_teams_new.get(key)
-        or SPORTS_KEYS_FOR_LABEL.get(key)
-        or films_mslslat_tab.get(key)
-        or olympics.get(key)
-        or default
-    )
-    return result
+    call_ables = {
+        "_get_pop_All_18": _get_pop_All_18,
+        "find_teams_2025": find_teams_2025,
+    }
+    # result = SPORTS_KEYS_FOR_LABEL.get(key) or SPORTS_KEYS_FOR_LABEL.get(key.lower(), "")
+    result = ""
+
+    if not result:
+        for name, func in call_ables.items():
+            result = func(key)
+            if result:
+                print(f"get_pop_All_18: Found key in {name}: {key} -> {result}")
+                break
+
+    if not result:
+        sources = {
+            "Clubs_key_2": Clubs_key_2,
+            "pop_final_5": pop_final_5,
+            "olympics": olympics,
+
+            "pf_keys2": pf_keys2,
+            "Jobs_new": Jobs_new,
+            "jobs_mens_data": jobs_mens_data,
+            "films_mslslat_tab": films_mslslat_tab,
+            "By_table": By_table,
+            "sub_teams_new": sub_teams_new,
+            "New_P17_Finall": New_P17_Finall,
+            "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
+        }
+        for x, source in sources.items():
+            if key in source or key.lower() in source:
+                result = source.get(key) or source.get(key.lower())
+                print(f"Found key in {x}: {key} -> {result}")
+                break
+
+    return result or default
 
 
 @functools.lru_cache(maxsize=1)

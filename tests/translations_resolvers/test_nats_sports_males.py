@@ -6,7 +6,7 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.translations_resolvers.federation_bot import resolve_federation_label
+from ArWikiCats.translations_resolvers.nats_sports_males import resolve_federation_label
 
 
 data5 = {

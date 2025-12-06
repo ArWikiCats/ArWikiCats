@@ -29,7 +29,9 @@ yc_bot = format_year_country_data(
 @functools.lru_cache(maxsize=10000)
 def get_label(category: str) -> str:
     normalized_category = category.lower().replace("category:", "")
+
     result = yc_bot.create_label(normalized_category)
+
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
     return result or ""

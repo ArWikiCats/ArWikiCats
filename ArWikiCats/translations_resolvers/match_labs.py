@@ -53,7 +53,7 @@ def load_data() -> Dict[str, str]:
     sport = "{sport}"
     sport_label = "{sport_label}"
     data = {
-        f"{sport}": f"{sport_label}",
+        # f"{sport}": f"{sport_label}",
         # f"{sport} managers": f"مدراء {sport_label}",
         f"{sport} managers": f"مدربو {sport_label}",
         f"{sport} coaches": f"مدربو {sport_label}",

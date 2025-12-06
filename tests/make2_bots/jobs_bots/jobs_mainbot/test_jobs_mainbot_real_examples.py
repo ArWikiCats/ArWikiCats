@@ -101,7 +101,7 @@ EXAMPLES = [
     {"suffix": "songwriters", "prefix": "argentine", "expected": "كتاب أغان أرجنتينيون"},
     {"suffix": "sport shooters", "prefix": "egyptian", "expected": "لاعبو رماية مصريون"},
     {"suffix": "sports businesspeople", "prefix": "canadian", "expected": "شخصيات أعمال رياضيون كنديون"},
-    {"suffix": "sports coaches", "prefix": "albanian", "expected": "مدربو رياضية ألبان"},
+    {"suffix": "sports coaches", "prefix": "albanian", "expected": "مدربو رياضة ألبان"},
     {"suffix": "television actors", "prefix": "peruvian", "expected": "ممثلو تلفزيون بيرويون"},
     {"suffix": "television chefs", "prefix": "british", "expected": "طباخو تلفاز بريطانيون"},
     {

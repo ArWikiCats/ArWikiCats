@@ -179,6 +179,8 @@ def work_mens_prefix(category: str) -> str:
         label = final_prefix_label.format(job_label)
         label = _apply_label_replacement(label)
 
+        logger.debug(f'<<lightblue>> work_mens_prefix: Processing {prefix=}: {job_key=}, {job_label=}, {label=}')
+
         if label.strip():
             logger.debug(f'<<lightblue>> Found label via prefix: "{label}" for category "{category}"')
             return label
@@ -222,6 +224,7 @@ def work_mens_suffix(category: str) -> str:
             ""
         )
 
+        logger.debug(f'<<lightblue>> work_mens_suffix: Processing {suffix=}: {job_key=}, {job_label=}')
         if job_label:
             label = suffix_label.format(job_label)
 
@@ -333,10 +336,7 @@ def womens_prefixes_work(category: str) -> str:
                 PLAYERS_TO_MEN_WOMENS_JOBS.get(job_key, {}).get("females", "")
             )
 
-            logger.debug(
-                f'<<lightblue>> Processing prefix "{prefix_variant}": '
-                f'job_key="{job_key}", job_label="{job_label}"'
-            )
+            logger.debug(f'<<lightblue>> womens_prefixes_work: Processing {prefix_variant=}: {job_key=}, {job_label=}')
 
             if job_label:
                 label = prefix_label.format(job_label)

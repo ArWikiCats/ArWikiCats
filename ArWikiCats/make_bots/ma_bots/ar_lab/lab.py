@@ -205,29 +205,29 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
 
 
 def _lookup_label_from_sources(
-    lookup_functions: list,
+    lookup_functions: dict[str, callable],
     text: str,
     log_context: str = ""
 ) -> str:
     """Apply a series of lookup functions until a label is found.
 
     Args:
-        lookup_functions: List of callables that take text and return a label or empty string
+        lookup_functions: Dictionary of callables that take text and return a label or empty string
         text: The text to look up
         log_context: Optional context string for logging
 
     Returns:
         The first non-empty label found, or empty string
     """
-    for lookup_func in lookup_functions:
+    for name, lookup_func in lookup_functions.items():
         try:
             label = lookup_func(text)
             if label:
-                logger.debug(f"{log_context}: Found label '{label}' via {lookup_func.__name__}")
+                logger.debug(f"{log_context}: Found label '{label}' via {name}")
                 return label
         except Exception as e:
             logger.warning(
-                f"{log_context}: Exception in {lookup_func.__name__}: {e}"
+                f"{log_context}: Exception in {name}: {e}"
             )
     return ""
 
@@ -292,32 +292,30 @@ def _lookup_religious_males(type_lower: str) -> str:
 
 
 def _create_type_lookup_chain(
-    type_lower: str,
     normalized_preposition: str
-) -> list:
+) -> dict[str, callable]:
     """Create the lookup chain for type labels.
 
     Args:
-        type_lower: Lowercase type string
         normalized_preposition: Normalized separator
 
     Returns:
         List of lookup functions to try in order
     """
-    return [
-        lambda t: New_P17_Finall.get(t, ""),
-        _lookup_type_without_article,
-        _lookup_people_type,
-        _lookup_religious_males,
-        lambda t: New_female_keys.get(t, ""),
-        te_films,
-        nats_other.find_nat_others,
-        team_work.Get_team_work_Club,
-        tmp_bot.Work_Templates,
-        lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
-        te4_2018_Jobs,
-        country2_lab.get_lab_for_country2,
-    ]
+    return {
+        "New_P17_Finall" : lambda t: New_P17_Finall.get(t, ""),
+        "_lookup_type_without_article": _lookup_type_without_article,
+        "_lookup_people_type": _lookup_people_type,
+        "_lookup_religious_males": _lookup_religious_males,
+        "New_female_keys": lambda t: New_female_keys.get(t, ""),
+        "te_films": te_films,
+        "nats_other.find_nat_others": nats_other.find_nat_others,
+        "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
+        "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
+        "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
+        "te4_2018_Jobs": te4_2018_Jobs,
+        "country2_lab.get_lab_for_country2": country2_lab.get_lab_for_country2,
+    }
 
 
 def _lookup_country_with_dash_variants(country_lower: str, country_no_dash: str) -> str:
@@ -368,38 +366,36 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
 
 
 def _create_country_lookup_chain(
-    country_lower: str,
     separator: str,
     start_get_country2: bool,
     country_no_dash: str
-) -> list:
+) -> dict[str, callable]:
     """Create the lookup chain for country labels.
 
     Args:
-        country_lower: Lowercase country string
         separator: The separator/delimiter
         start_get_country2: Whether to use secondary country lookup
         country_no_dash: Country string with dashes replaced by spaces
 
     Returns:
-        List of lookup functions to try in order
+        Dictionary of lookup functions to try in order
     """
-    return [
-        lambda c: New_P17_Finall.get(c, ""),
-        lambda c: pf_keys2.get(c, ""),
-        lambda c: get_pop_All_18(c, ""),
-        lambda c: _lookup_country_with_dash_variants(c, country_no_dash),
-        _lookup_country_with_by,
-        lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
-        _lookup_country_with_in_prefix,
-        time_to_arabic.convert_time_to_arabic,
-        te_films,
-        nats_other.find_nat_others,
-        lambda c: team_work.Get_team_work_Club(c.strip()),
-        lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
-        tmp_bot.Work_Templates,
-        country2_lab.get_lab_for_country2,
-    ]
+    return {
+        "New_P17_Finall": lambda c: New_P17_Finall.get(c, ""),
+        "pf_keys2": lambda c: pf_keys2.get(c, ""),
+        "get_pop_All_18": lambda c: get_pop_All_18(c, ""),
+        "_lookup_country_with_dash_variants": lambda c: _lookup_country_with_dash_variants(c, country_no_dash),
+        "_lookup_country_with_by": _lookup_country_with_by,
+        "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
+        "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
+        "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
+        "te_films": te_films,
+        "nats_other.find_nat_others": nats_other.find_nat_others,
+        "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
+        "Get_c_t_lab": lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
+        "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
+        "country2_lab.get_lab_for_country2": country2_lab.get_lab_for_country2,
+    }
 
 
 def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
@@ -424,7 +420,7 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
 
     # If no special case matched, proceed with lookup chain
     if not label:
-        lookup_chain = _create_type_lookup_chain(type_lower, normalized_preposition)
+        lookup_chain = _create_type_lookup_chain(normalized_preposition)
         label = _lookup_label_from_sources(
             lookup_chain,
             type_lower,
@@ -456,7 +452,6 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
 
     # Create and apply the lookup chain
     lookup_chain = _create_country_lookup_chain(
-        country_lower,
         separator,
         start_get_country2,
         country_no_dash
