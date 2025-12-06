@@ -566,7 +566,7 @@ data_slow = {
     "the city of": "مدينة",
     "the covid-19 pandemic in paraná (state)": "جائحة فيروس كورونا في ولاية بارانا",
     "the crown dependencies": "ملحقات التاج البريطاني",
-    "the democratic-republic-of-the-congo": "جمهورية الكونغو الديمقراطية",
+    "the democratic-republic-of-congo": "جمهورية الكونغو الديمقراطية",
     "the mamluk sultanate": "مماليك مصر",
     "the ottoman empire by decade": "الدولة العثمانية حسب العقد",
     "the parliament of united kingdom": "برلمان المملكة المتحدة",

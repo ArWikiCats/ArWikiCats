@@ -53,11 +53,11 @@ def test_jobs_mens_data_combined_with_nationality_yemeni(suffix: str, job_label:
     """
     Ensure that for every key in jobs_mens_data, jobs_with_nat_prefix uses it and appends men's nationality.
 
-    We use 'democratic republic of the congo' as a representative nationality because it is used in other tests.
+    We use 'democratic republic of congo' as a representative nationality because it is used in other tests.
     """
-    mens_nat = Nat_mens.get("democratic republic of the congo") or "كونغويون ديمقراطيون"
+    mens_nat = Nat_mens.get("democratic republic of congo") or "كونغويون ديمقراطيون"
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "democratic republic of the congo", suffix)
+    result = jobs_with_nat_prefix("", "democratic republic of congo", suffix)
 
     # Result must not be empty and must include both job label and nationality.
     assert result != ""

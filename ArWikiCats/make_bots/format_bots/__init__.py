@@ -28,8 +28,8 @@ REGEX_SUB_AUSTRIA_HUNGARY = re.compile(r"austria-hungary", re.IGNORECASE)
 REGEX_SUB_AUSTRIA_HUNGARY_2 = re.compile(r"austria hungary", re.IGNORECASE)
 REGEX_SUB_UNMANNED_MILITARY_AIRCRAFT = re.compile(r"unmanned military aircraft of", re.IGNORECASE)
 REGEX_SUB_UNMANNED_AERIAL_VEHICLES = re.compile(r"unmanned aerial vehicles of", re.IGNORECASE)
-REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO = re.compile(r"democratic republic of the congo", re.IGNORECASE)
-REGEX_SUB_REPUBLIC_CONGO = re.compile(r"republic of the congo", re.IGNORECASE)
+REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO = re.compile(r"democratic republic of congo", re.IGNORECASE)
+REGEX_SUB_REPUBLIC_CONGO = re.compile(r"republic of congo", re.IGNORECASE)
 REGEX_SUB_ATHLETICS = re.compile(r"athletics \(track and field\)", re.IGNORECASE)
 REGEX_SUB_TWIN_PEOPLE = re.compile(r"twin people", re.IGNORECASE)
 REGEX_SUB_PERCENT27 = re.compile(r"\%27", re.IGNORECASE)
@@ -325,7 +325,6 @@ replaces = {
     "heads of mission ": "heads-of-mission ",
     "house of commons of canada": "house-of-commons-of-canada",
 }
-# ---
 
 
 def change_cat(cat_orginal: str) -> str:
@@ -340,6 +339,8 @@ def change_cat(cat_orginal: str) -> str:
     """
     cat_orginal = cat_orginal.lower().strip()
     category = cat_orginal
+
+    category = re.sub(r"\bthe\b", "", category, flags=re.IGNORECASE).strip()
 
     # Normalize whitespace
     category = REGEX_SUB_WHITESPACE.sub(" ", category)
@@ -364,8 +365,8 @@ def change_cat(cat_orginal: str) -> str:
     category = REGEX_SUB_AUSTRIA_HUNGARY_2.sub("austria hungary", category)
     category = REGEX_SUB_UNMANNED_MILITARY_AIRCRAFT.sub("unmanned military aircraft-oof", category)
     category = REGEX_SUB_UNMANNED_AERIAL_VEHICLES.sub("unmanned aerial vehicles-oof", category)
-    category = REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO.sub("democratic-republic-of-the-congo", category)
-    category = REGEX_SUB_REPUBLIC_CONGO.sub("republic-of-the-congo", category)
+    category = REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO.sub("democratic-republic-of-congo", category)
+    category = REGEX_SUB_REPUBLIC_CONGO.sub("republic-of-congo", category)
     category = REGEX_SUB_ATHLETICS.sub("track-and-field athletics", category)
     category = REGEX_SUB_TWIN_PEOPLE.sub("twinpeople", category)
     category = REGEX_SUB_PERCENT27.sub("'", category)

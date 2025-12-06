@@ -586,7 +586,7 @@ data_list = [
     {"separator": " by ", "category": "1450s disestablishments by continent", "output": "انحلالات عقد 1450 حسب القارة"},
     {
         "separator": " in ",
-        "category": "2nd millennium disestablishments in the democratic-republic-of-the-congo",
+        "category": "2nd millennium disestablishments in the democratic-republic-of-congo",
         "output": "انحلالات الألفية 2 في جمهورية الكونغو الديمقراطية",
     },
     {

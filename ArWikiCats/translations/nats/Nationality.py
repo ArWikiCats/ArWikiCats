@@ -90,9 +90,9 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
     alias_map: Dict[str, str] = {
         "equatorial guinean": "equatoguinean",
         "south ossetian": "ossetian",
-        "republic-of-the-congo": "republic of the congo",
-        "republic of the congo": "republic of the congo",
-        "democratic-republic-of-the-congo": "democratic republic of the congo",
+        "republic-of-congo": "republic of congo",
+        "republic of congo": "republic of congo",
+        "democratic-republic-of-congo": "democratic republic of congo",
         "dominican republic": "dominican republic",
         "caribbean": "caribbeans",
         "russians": "russian",
