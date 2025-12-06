@@ -40,7 +40,7 @@ def _get_from_alias(key: str) -> str:
     for x, source in sources.items():
         if key in source or key.lower() in source:
             result = source.get(key) or source.get(key.lower())
-            print(f"Found key in {x}: {key} -> {result}")
+            logger.debug(f"Found key in {x}: {key} -> {result}")
             return result or ""
 
 
@@ -78,7 +78,7 @@ def get_pop_All_18(key: str, default: str = "") -> str:
         for name, func in call_ables.items():
             result = func(key)
             if result:
-                print(f"get_pop_All_18: Found key in {name}: {key} -> {result}")
+                logger.debug(f"get_pop_All_18: Found key in {name}: {key} -> {result}")
                 break
 
     if not result:
@@ -89,7 +89,7 @@ def get_pop_All_18(key: str, default: str = "") -> str:
         for x, source in sources.items():
             if key in source or key.lower() in source:
                 result = source.get(key) or source.get(key.lower())
-                print(f"Found key in {x}: {key} -> {result}")
+                logger.debug(f"Found key in {x}: {key} -> {result}")
                 break
 
     return result or default
