@@ -27,8 +27,18 @@ from ...translations import (
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
+    call_ables = {
+        "_get_pop_All_18": _get_pop_All_18,
+        "find_teams_2025": find_teams_2025,
+    }
+    result = SPORTS_KEYS_FOR_LABEL.get(key) or SPORTS_KEYS_FOR_LABEL.get(key.lower(), "")
 
-    result = _get_pop_All_18(key) or find_teams_2025(key)
+    if not result:
+        for name, func in call_ables.items():
+            result = func(key, "")
+            if result:
+                print(f"get_pop_All_18: Found key in {name}: {key} -> {result}")
+                break
 
     if not result:
         sources = {
@@ -47,7 +57,7 @@ def get_pop_All_18(key: str, default: str = "") -> str:
         for x, source in sources.items():
             if key in source or key.lower() in source:
                 result = source.get(key) or source.get(key.lower())
-                logger.debug(f"Found key in {x}: {key} -> {result}")
+                print(f"Found key in {x}: {key} -> {result}")
                 break
 
     return result or default
