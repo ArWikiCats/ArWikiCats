@@ -100,17 +100,17 @@ data1 = {
     "Category:Ambient albums by French artists": "تصنيف:ألبومات أمبينت لفنانين فرنسيين",
     "Category:American Indian reservations": "تصنيف:محميات السكان الأصليين الأمريكية",
     "Category:American Indian reservations by state": "تصنيف:محميات السكان الأصليين الأمريكية حسب الولاية",
-    "Category:American Indian reservations in Alaska": "تصنيف:محميات السكان الاصليين الأمريكية في ألاسكا",
+    "Category:American Indian reservations in Alaska": "تصنيف:محميات السكان الأصليين الأمريكية في ألاسكا",
     "Category:American Indian reservations in Arizona": "تصنيف:محميات السكان الأصليين الأمريكية في أريزونا",
     "Category:American Indian reservations in Colorado": "تصنيف:محميات السكان الأصليين الأمريكية في كولورادو",
     "Category:American Indian reservations in Massachusetts": "تصنيف:محميات السكان الأصليين الأمريكية في ماساتشوستس",
-    "Category:American Indian reservations in Michigan": "تصنيف:محميات السكان الاصليين الأمريكية في ميشيغان",
-    "Category:American Indian reservations in Minnesota": "تصنيف:محميات السكان الاصليين الأمريكية في مينيسوتا",
+    "Category:American Indian reservations in Michigan": "تصنيف:محميات السكان الأصليين الأمريكية في ميشيغان",
+    "Category:American Indian reservations in Minnesota": "تصنيف:محميات السكان الأصليين الأمريكية في مينيسوتا",
     "Category:American Indian reservations in Montana": "تصنيف:محميات السكان الأصليين الأمريكية في مونتانا",
     "Category:American Indian reservations in New Mexico": "تصنيف:محميات السكان الأصليين الأمريكية في نيومكسيكو",
     "Category:American Indian reservations in New York (state)": "تصنيف:محميات السكان الأصليين الأمريكية في ولاية نيويورك",
-    "Category:American Indian reservations in North Dakota": "تصنيف:محميات السكان الاصليين الأمريكية في داكوتا الشمالية",
-    "Category:American Indian reservations in Oklahoma": "تصنيف:محميات السكان الاصليين الأمريكية في أوكلاهوما",
+    "Category:American Indian reservations in North Dakota": "تصنيف:محميات السكان الأصليين الأمريكية في داكوتا الشمالية",
+    "Category:American Indian reservations in Oklahoma": "تصنيف:محميات السكان الأصليين الأمريكية في أوكلاهوما",
     "Category:American Indian reservations in South Dakota": "تصنيف:محميات السكان الأصليين الأمريكية في داكوتا الجنوبية",
     "Category:American Indian reservations in Utah": "تصنيف:محميات السكان الأصليين الأمريكية في يوتا",
     "Category:American Indian reservations in Washington (state)": "تصنيف:محميات السكان الأصليين الأمريكية في ولاية واشنطن",
@@ -2959,12 +2959,12 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     diff_result2 = {x: v for x, v in diff_result.items() if v}
-    dump_diff(diff_result2, name)
+    # dump_diff(diff_result2, name)
 
     expected2 = {x: v for x, v in expected.items() if v and x in diff_result2}
-    dump_diff(expected2, f"{name}_expected")
+    # dump_diff(expected2, f"{name}_expected")
 
-    # save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
-    # dump_diff(save3, f"{name}_d", _sort=False)
+    save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
+    dump_diff(save3, f"{name}_d", _sort=False)
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

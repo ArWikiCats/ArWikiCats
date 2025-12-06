@@ -26,7 +26,7 @@ pop_format_test_data = {
     # ---------------------------------------------------------
 
     "yemen university of": "جامعة اليمن",
-    "yemen university of the arts": "جامعة اليمن للفنون",
+    "yemen university of arts": "جامعة اليمن للفنون",
     "yemen early-modern history of": "تاريخ اليمن الحديث المبكر",
     "yemen modern history of": "تاريخ اليمن الحديث",
     "yemen contemporary history of": "تاريخ اليمن المعاصر",

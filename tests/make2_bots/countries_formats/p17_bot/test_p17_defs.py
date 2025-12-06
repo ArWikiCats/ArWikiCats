@@ -20,7 +20,7 @@ test_data_with_pop_format = {
     "politics of": "سياسة {}",
     "prehistory of": "{} ما قبل التاريخ",
     "umayyad governors of": "ولاة {} الأمويون",
-    "university of the arts": "جامعة {} للفنون",
+    "university of arts": "جامعة {} للفنون",
     "university of": "جامعة {}",
 }
 
