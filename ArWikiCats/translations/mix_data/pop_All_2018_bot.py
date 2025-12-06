@@ -29,7 +29,6 @@ def load_pop_All_2018() -> Dict[str, str]:
             films_mslslat_tab,  # 2,480
             By_table,  # 15,899
             sub_teams_new,  # 12,134
-            # TEAMS_NEW,            # 352,946
             New_P17_Finall,  # 62,671
             SPORTS_KEYS_FOR_LABEL,  # 672
         ]
