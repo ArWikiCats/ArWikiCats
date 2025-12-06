@@ -18,7 +18,7 @@ Mens_suffix: dict[str, str] = {
 formatted_data_jobs = {
     "expatriate {en_job}": "{ar_job} مغتربون",
     "{en_job}": "{ar_job}",
-    "{en_job} people": "{ar_job}",
+    "{en_job} people": "أعلام {ar_job}",
     "male {en_job}": "{ar_job} ذكور",
     "expatriate male {en_job}": "{ar_job} مغتربون ذكور",
 }
