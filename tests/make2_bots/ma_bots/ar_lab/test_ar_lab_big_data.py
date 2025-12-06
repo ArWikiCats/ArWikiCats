@@ -28,6 +28,8 @@ def test_simple(category: str, separator: str, output: str) -> None:
 
 
 data_list = [
+    ("male voice actors from kanagawa prefecture", " from ", "ممثلو أداء صوتي ذكور من محافظة كاناغاوا"),
+
     ("sports coaches from oregon", " from ", "مدربو رياضة من أوريغون"),
     ("sports coaches from illinois", " from ", "مدربو رياضة من إلينوي"),
     ("sports coaches in utah", " in ", "مدربو رياضة في يوتا"),
@@ -644,7 +646,6 @@ data_list = [
     ("magazines published in tennessee", " published in ", "مجلات نشرت في تينيسي"),
     ("malaysian people by populated place", " by ", "أعلام ماليزيون حسب المكان المأهول"),
     ("male actors from lubusz voivodeship", " from ", "ممثلون ذكور من محافظة لوبوسكي"),
-    ("male voice actors from kanagawa prefecture", " from ", "ممثلو أداء صوتي ذكور من محافظة كاناغاوا"),
     ("manslaughter in the united states", " in ", "قتل خطأ في الولايات المتحدة"),
     ("manufacturing companies based in michigan", " based in ", "شركات تصنيع مقرها في ميشيغان"),
     ("manufacturing companies established in 1550", " established in ", "شركات تصنيع أسست في 1550"),

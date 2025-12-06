@@ -254,7 +254,7 @@ def _build_country_label_index() -> dict[str, str]:
     for city, lal in JAPAN_REGIONAL_LABELS.items():
         city2 = city.lower()
         if lal:
-            label_index[f"{city2} Prefecture"] = f"محافظة {lal}"
+            label_index[f"{city2} prefecture"] = f"محافظة {lal}"
             label_index[f"{city2} region"] = f"منطقة {lal}"
 
     update_with_lowercased(label_index, JAPAN_REGIONAL_LABELS)
