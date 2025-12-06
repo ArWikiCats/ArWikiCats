@@ -9,6 +9,7 @@ entries (countries, cities, regions, etc.).
 
 import json
 import os
+import shutil
 from pathlib import Path
 
 
@@ -35,7 +36,7 @@ def is_non_geographic(key: str, value: str) -> bool:
     organization_patterns = ['association', 'society', 'organization', 'organisation', 'foundation']
     
     # Sports entities
-    sports_patterns = ['fc', ' club', 'team']
+    sports_patterns = ['fc', 'club', 'team']
     
     # Companies and businesses
     business_patterns = ['company', 'corporation', 'ltd', 'inc', 'limited']
@@ -140,7 +141,6 @@ def main():
     # Backup the original file first
     backup_file = geography_dir / 'P17_2_final_ll.json.backup'
     if not backup_file.exists():
-        import shutil
         shutil.copy2(input_file, backup_file)
         print(f"Created backup at: {backup_file}")
     
