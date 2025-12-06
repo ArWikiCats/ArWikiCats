@@ -310,7 +310,7 @@ def _build_country_label_index() -> dict[str, str]:
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,    # 176
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,            # 1424
         "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
-        "pf_keys2": pf_keys2,                                              # 35730,
+        # "pf_keys2": pf_keys2,                                              # 35730,
         # "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,                  # 2998
         # "JAPAN_LABELS": JAPAN_LABELS,                                      # 162
         # "TURKEY_LABELS": TURKEY_LABELS,                                    # 243
@@ -351,7 +351,7 @@ def get_from_new_p17_aliases(text: str, default: str|None = "") -> str:
         or TURKEY_LABELS.get(text)
         or JAPAN_LABELS.get(text)
         or US_COUNTY_TRANSLATIONS.get(text)
-        # or pf_keys2.get(text)
+        or pf_keys2.get(text)
     )
     return result or default
 
@@ -360,7 +360,8 @@ def get_from_new_p17_final(text: str, default: str|None = "") -> str:
     """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
 
     lower_text = text.lower()
-    result = NEW_P17_FINAL.get(lower_text) or get_from_new_p17_aliases(lower_text)
+    # result = NEW_P17_FINAL.get(lower_text) or get_from_new_p17_aliases(lower_text)
+    result = get_from_new_p17_aliases(lower_text) or NEW_P17_FINAL.get(lower_text)
 
     return result or default
 
