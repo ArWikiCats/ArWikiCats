@@ -519,7 +519,7 @@ data_nat = {
     "thai wheelchair racers": ("wheelchair racers", "thai"),
     "thai wheelchair tennis players": ("wheelchair tennis players", "thai"),
     "tunisian wheelchair racers": ("wheelchair racers", "tunisian"),
-    "turkish expatriate sprtspeople": ("expatriate sprtspeople", "turkish"),
+    "turkish expatriate sports-people": ("expatriate sports-people", "turkish"),
     "turkish men's wheelchair basketball players": ("men's wheelchair basketball players", "turkish"),
     "turkish wheelchair basketball players": ("wheelchair basketball players", "turkish"),
     "turkish wheelchair racers": ("wheelchair racers", "turkish"),

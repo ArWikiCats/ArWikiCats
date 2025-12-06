@@ -65,9 +65,9 @@ def test_sportspeople2() -> None:
 
 
 @pytest.mark.skip2
-def test_sprtspeople() -> None:
+def test_sports_people() -> None:
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "Turkish", "expatriates sprtspeople")
+    result = jobs_with_nat_prefix("", "Turkish", "expatriates sports-people")
     assert result == "رياضيون مغتربون أتراك"
 
 

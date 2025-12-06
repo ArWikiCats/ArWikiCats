@@ -131,7 +131,7 @@ class LabelForStartWithYearOrTypeo:
 
             self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
 
-            if self.typeo in ("sports events", "sorts-events") and self.year_at_first:
+            if self.typeo in ("sports events", "sports-events") and self.year_at_first:
                 self.typeo_lab = "أحداث"
 
             self.arlabel += self.typeo_lab

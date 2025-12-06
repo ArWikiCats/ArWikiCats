@@ -43,7 +43,7 @@ EXAMPLES = [
     {"suffix": "editorial cartoonists", "prefix": "british", "expected": "محررون كارتونيون بريطانيون"},
     {"suffix": "emigrants", "prefix": "afghan", "expected": "أفغان مهاجرون"},
     {"suffix": "emigrants", "prefix": "ivorian", "expected": "إيفواريون مهاجرون"},
-    {"suffix": "expatriate sprtspeople", "prefix": "turkish", "expected": "رياضيون أتراك مغتربون"},
+    {"suffix": "expatriate sports-people", "prefix": "turkish", "expected": "رياضيون أتراك مغتربون"},
     {"suffix": "expatriates", "prefix": "afghan", "expected": "أفغان مغتربون"},
     {"suffix": "expatriates", "prefix": "ivorian", "expected": "إيفواريون مغتربون"},
     {"suffix": "explorers", "prefix": "dutch", "expected": "مستكشفون هولنديون"},

@@ -4,7 +4,7 @@ from .tv.films_mslslat import television_keys
 
 basedtypeTable = {
     "sports events": "أحداث رياضية",
-    "sorts-events": "أحداث رياضية",
+    "sports-events": "أحداث رياضية",
     "video games": "ألعاب فيديو",
     "politics": "سياسة",
     "installations": "منشآت",
@@ -110,7 +110,7 @@ typeTable = {x: {"ar": v} for x, v in type_table_labels.items()}
 
 typeTable.update({
     "sports events": {"ar": "أحداث", "s": "الرياضية"},
-    "sorts-events": {"ar": "أحداث", "s": "الرياضية"},
+    "sports-events": {"ar": "أحداث", "s": "الرياضية"},
 })
 
 __all__ = [
