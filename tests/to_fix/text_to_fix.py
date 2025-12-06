@@ -5,6 +5,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:Persecution of LGBT people": "تصنيف:اضطهاد الأشخاص المثليين",
+    "Category:Persecution of LGBTQ people": "تصنيف:اضطهاد الأشخاص المثليين",
 
     "Category:1990s LGBTQ-related sitcoms": "تصنيف:مسلسلات تلفزيونية كوميدية أمريكية متعلقة بإل جي بي تي كيو في عقد 1990",
     "Category:Icelandic LGBTQ-related films": "تصنيف:أفلام آيسلندية متعلقة بإلمثليين والمثليات ومزدوجي التوجه الجنسي والمتحولين جنسيا",
@@ -2202,8 +2204,6 @@ data1 = {
     "Category:Persecution of Greeks in the Ottoman Empire before the 20th century": "تصنيف:اضطهاد اليونانيين في الدولة العثمانية قبل القرن 20",
     "Category:Persecution of Greeks in the Ottoman Empire in the 20th century": "تصنيف:اضطهاد اليونانيين في الدولة العثمانية بعد القرن 20",
     "Category:Persecution of Iraqi Turkmen": "تصنيف:اضطهاد التركمانيين العراقيين",
-    "Category:Persecution of LGBT people": "تصنيف:اضطهاد الأشخاص المثليين",
-    "Category:Persecution of LGBTQ people": "تصنيف:اضطهاد الأشخاص المثليين",
     "Category:Persecution of Muslims by Christians": "تصنيف:اضطهاد المسلمين من قبل المسيحيين",
     "Category:Persecution of Oriental Orthodox Christians": "تصنيف:اضطهاد المسيحيين الأرثوذكس المشرقيين",
     "Category:Persecution of Ottoman Muslims": "تصنيف:اضطهاد المسلمين العثمانيين",

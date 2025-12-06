@@ -500,7 +500,6 @@ title_work_tests_data = {
     "permanent representatives of kazakhstan": "مندوبو كازاخستان الدائمون",
     "permanent representatives of kyrgyzstan": "مندوبو قيرغيزستان الدائمون",
     "permanent representatives of luxembourg": "مندوبو لوكسمبورغ الدائمون",
-    "persecution of lgbtq people": "اضطهاد أعلام إل جي بي تي كيو",
     "physicians from bohemia": "أطباء من بوهيميا في",
     "polish emigrants to brazil": "بولنديون مهاجرون إلى البرازيل في",
     "political history of united states": "تاريخ الولايات المتحدة السياسي",

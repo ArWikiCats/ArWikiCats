@@ -126,7 +126,6 @@ data = [
     (" completed in ", "religious buildings and structures", "مبان ومنشآت دينية"),
     (" of ", "prisoners and detainees of", "سجناء ومعتقلون في"),
     (" by ", "disestablishments in georgia (u.s. state)", "انحلالات في ولاية جورجيا"),
-    (" in ", "persecution of lgbtq people", "اضطهاد أعلام إل جي بي تي كيو"),
     (" by ", "history of northern ireland", "تاريخ أيرلندا الشمالية"),
     (" in ", "parliament of united kingdom", "برلمان المملكة المتحدة"),
     (" in ", "the parliament of united kingdom", "برلمان المملكة المتحدة"),
