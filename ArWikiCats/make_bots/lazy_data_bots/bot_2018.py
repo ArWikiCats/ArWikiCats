@@ -63,10 +63,11 @@ def _get_from_alias(key: str) -> str:
         "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
     }
     for x, source in sources.items():
-        if key in source or key.lower() in source:
-            result = source.get(key) or source.get(key.lower())
+        result = source.get(key) or source.get(key.lower())
+        if result:
             logger.debug(f"Found key in {x}: {key} -> {result}")
-            return result or ""
+            return result
+    return ""
 
 
 @functools.lru_cache(maxsize=None)
