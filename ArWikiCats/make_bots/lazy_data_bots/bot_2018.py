@@ -6,7 +6,7 @@
 import functools
 from typing import Dict
 
-from ...helps import len_print
+from ...helps import len_print, logger
 from ...translations import (
     Clubs_key_2,
     find_teams_2025,
@@ -34,20 +34,20 @@ def get_pop_All_18(key: str, default: str = "") -> str:
         sources = {
             "Clubs_key_2": Clubs_key_2,
             "pop_final_5": pop_final_5,
-            # "olympics": olympics,
-            # "pf_keys2": pf_keys2,
-            # "Jobs_new": Jobs_new,
-            # "jobs_mens_data": jobs_mens_data,
-            # "films_mslslat_tab": films_mslslat_tab,
-            # "By_table": By_table,
-            # "sub_teams_new": sub_teams_new,
-            # "New_P17_Finall": New_P17_Finall,
-            # "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
+            "olympics": olympics,
+            "pf_keys2": pf_keys2,
+            "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
+            "Jobs_new": Jobs_new,
+            "jobs_mens_data": jobs_mens_data,
+            "films_mslslat_tab": films_mslslat_tab,
+            "By_table": By_table,
+            "sub_teams_new": sub_teams_new,
+            "New_P17_Finall": New_P17_Finall,
         }
         for x, source in sources.items():
-            if key in source:
-                result = source[key]
-                print(f"Found key in {x}: {key} -> {result}")
+            if key in source or key.lower() in source:
+                result = source.get(key) or source.get(key.lower())
+                logger.debug(f"Found key in {x}: {key} -> {result}")
                 break
 
     return result or default
