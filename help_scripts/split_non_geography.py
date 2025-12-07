@@ -10,6 +10,42 @@ jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 
 
 NON_GEO_KEYWORDS = {
+    # Education
+    "university", "college", "school", "academy", "institute", "faculty",
+
+    # Medical
+    "hospital", "clinic", "medical center",
+
+    # Business
+    "company", "corporation", "ltd", "inc", "limited", "enterprise", "brand",
+
+    # Infrastructure
+    "bridge", "tunnel", "airport", "station", "highway", "road", "railway", "canal", "pipeline", "dam",
+
+    # Organizations
+    "association", "organisation", "organization", "foundation", "society", "agency",
+
+    # Culture
+    "museum", "library", "gallery", "opera", "novel", "book", "film", "movie",
+    "series", "episode", "soundtrack", "theater", "theatre", "poem", "play",
+
+    # Sports
+    "club", "team", "fc", "sc", "league", "tournament", "stadium", "arena",
+
+    # Politics / Law
+    "government", "ministry", "court", "constitution", "policy", "election",
+    "presidential", "parliament", "senate",
+
+    # Media / Technology
+    "software", "protocol", "video game", "algorithm", "language",
+
+    # Biology / Scientific
+    "virus", "bacteria", "species", "genus", "family", "order", "mammal",
+    "bird", "fish", "fungus", "plant",
+
+    # People / Roles
+    "king", "queen", "prince", "president", "minister", "lord", "sir",
+
     "university",
     "college",
     "school",
