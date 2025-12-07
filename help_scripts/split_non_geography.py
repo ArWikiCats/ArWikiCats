@@ -70,7 +70,8 @@ NON_GEO_KEYWORDS_EN = {
     "sports": [
         "club", "team", "fc", "sc", "league", "tournament", "stadium",
         "arena", "championship", "cup", "race", "grand prix",
-        "clubs", "f.c."
+        "clubs", "f.c.",
+        "نادي",
     ],
     "politics_law": [
         "government", "ministry", "court", "constitution", "policy",
@@ -101,12 +102,13 @@ NON_GEO_KEYWORDS_EN = {
         "sect", "liturgy"
     ],
     "historical_societal": [
-        "clan", "empire", "kingdom", "tribe", "war",
-        "battle", "front"
+        # "clan", "empire", "kingdom",
+        "tribe",
+        "war",
+        "battle",
+        "front"
     ],
-    "dynasty": [
-        "dynasty"
-    ],
+    # "dynasty": [ "dynasty" ],
     "languages": [
         "language"
     ],
@@ -115,6 +117,10 @@ NON_GEO_KEYWORDS_EN = {
     ],
     "institutions_other": [
         "department", "dialect", "police", "prison"
+    ],
+    "others": [
+        "history of", "culture of", "economy of", "demographics of",
+        "transport in", "infrastructure of", "tourism in",
     ]
 }
 
@@ -164,8 +170,7 @@ def detect_english_keywords(label: str, value: str) -> bool:
             # pattern = rf"\b{re.escape(keyword)}\b"
             pattern = rf"(?<!\w){re.escape(keyword)}(?!\w)"
             # ---
-
-            if not re.search(pattern, lowered):
+            if not re.search(pattern, lowered) and not re.search(pattern, value):
                 continue
             # ---
             if not ar_word:
@@ -244,30 +249,36 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
 
     typies = dict(sorted(typies.items(), key=lambda item: len(item[1]), reverse=True))
 
-    print(f"Total: {len(entries)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
     print(" - Detected\n\t| " + "\n\t| ".join([f" {k}: {len(v)}" for k, v in typies.items()]))
 
     return geo, typies
 
 
-def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
+def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> str:
     """Read → classify → write outputs."""
     data=json.loads(input_path.read_text(encoding="utf-8"))
     geo, non_geo=classify_entries(data)
+    non = len(data) - len(geo)
+    if non:
+        # Write output files
+        with open(geo_out, 'w', encoding='utf-8') as f:
+            json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    # Write output files
-    with open(geo_out, 'w', encoding='utf-8') as f:
-        json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
+        with open(non_geo_out, 'w', encoding='utf-8') as f:
+            json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    with open(non_geo_out, 'w', encoding='utf-8') as f:
-        json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
+    return f"Total: {len(data):,} | Geographic: {len(geo):,} | Non-Geographic: {non:,}"
 
 
 def main() -> None:
     files = [
-        jsons_dir / "cities/cities_full.json",
-        jsons_dir / "geography/P17_2_final_ll.json",
+        # jsons_dir / "geography/P17_2_final_ll.json",
+        # jsons_dir / "cities/cities_full.json",
+        # jsons_dir / "cities/yy2.json",
+        # jsons_dir / "geography/popopo.json",
+        jsons_dir / "geography/P17_PP.json",
     ]
+    status = {}
     for file in files:
         print(f"Processing file: {file}")
         new_path = file.parent.parent / f"{file.parent.name}_new"
@@ -276,7 +287,13 @@ def main() -> None:
         NEW_FILE = new_path / file.name
         NON_GEO_FILE = new_path / f"{file.stem}_non.json"
 
-        filter_file(file, NEW_FILE, NON_GEO_FILE)
+        stat = filter_file(file, NEW_FILE, NON_GEO_FILE)
+        status[file.name] = stat
+    # ---
+    for fname, stat in status.items():
+        print(f"{fname} => {stat}")
+    # ---
+    print("Processing complete.")
 
 
 if __name__ == "__main__":

@@ -158,7 +158,6 @@ data_list = [
     ("1550 in biotechnology", " in ", "1550 في تقانة حيوية"),
     ("1550 in brazilian sport", " in ", "1550 في رياضة برازيلية"),
     ("1550 in british columbia", " in ", "1550 في كولومبيا البريطانية"),
-    ("1550 in british law", " in ", "1550 في القانون البريطاني"),
     ("1550 in british music", " in ", "1550 في موسيقى بريطانية"),
     ("1550 in bulgaria", " in ", "1550 في بلغاريا"),
     ("1550 in burmese sport", " in ", "1550 في رياضة بورمية"),

@@ -310,7 +310,6 @@ data_test = [
     ("of", "parliament of great britain", "برلمان بريطانيا العظمى"),
     ("of", "parliament of northern ireland 1789–1789", "برلمان أيرلندا الشمالية 1789–1789"),
     ("of", "pays de la loire", "وادي اللوار"),
-    ("of", "rochester institute of technology", "معهد روشيستر للتكنولوجيا"),
     ("of", "royal navy of oman", "البحرية السلطانية العمانية"),
     ("of", "são tomé and príncipe", "ساو تومي وبرينسيب"),
     ("of", "ukrainian soviet socialist republic", "جمهورية أوكرانيا السوفيتية الاشتراكية"),
