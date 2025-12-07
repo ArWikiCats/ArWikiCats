@@ -160,21 +160,19 @@ def classify_entries(data: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, st
     return geo, non_geo
 
 
-def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path):
+def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
     """Read → classify → write outputs."""
-    items = json.loads(input_path.read_text(encoding="utf-8"))
-    geo, non_geo = classify_entries(items)
+    data = json.loads(input_path.read_text(encoding="utf-8"))
+    geo, non_geo = classify_entries(data)
 
-    geo_out.write_text(
-        json.dumps(geo, ensure_ascii=False, indent=4, sort_keys=True),
-        encoding="utf-8",
-    )
-    non_geo_out.write_text(
-        json.dumps(non_geo, ensure_ascii=False, indent=4, sort_keys=True),
-        encoding="utf-8",
-    )
+    # Write output files
+    with open(geo_out, 'w', encoding='utf-8') as f:
+        json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    print(f"Total: {len(items)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
+    with open(non_geo_out, 'w', encoding='utf-8') as f:
+        json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
+
+    print(f"Total: {len(data)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
 
 
 def main() -> None:

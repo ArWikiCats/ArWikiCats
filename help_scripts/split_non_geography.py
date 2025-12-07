@@ -222,15 +222,16 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     return geo, non_geo
 
 
-def filter_file(SOURCE_FILE: Path, NEW_FILE: Path, NON_GEO_FILE: Path) -> None:
-    data = json.loads(SOURCE_FILE.read_text(encoding="utf-8"))
+def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
+    """Read → classify → write outputs."""
+    data = json.loads(input_path.read_text(encoding="utf-8"))
     geo, non_geo = classify_entries(data)
 
     # Write output files
-    with open(NEW_FILE, 'w', encoding='utf-8') as f:
+    with open(geo_out, 'w', encoding='utf-8') as f:
         json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    with open(NON_GEO_FILE, 'w', encoding='utf-8') as f:
+    with open(non_geo_out, 'w', encoding='utf-8') as f:
         json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     print(f"Total: {len(data)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
