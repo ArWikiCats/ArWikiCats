@@ -12,6 +12,7 @@ from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
 from .te2 import New_For_nat_female_xo_team, new_for_nat_female_xo_team_additional
 
+# TODO: add data from New_For_nat_female_xo_team and new_for_nat_female_xo_team_additional
 New_For_nat_female_xo_team_2 = {
     "deaths by {nat} airstrikes": "وفيات بضربات جوية {nat}",
     "{nat} airstrikes": "ضربات جوية {nat}",
