@@ -1,149 +1,137 @@
-from __future__ import annotations
+#!/usr/bin/env python3
+"""
+Unified classifier for geographic vs non-geographic labels.
+
+This script merges:
+- Rich keyword taxonomy from split_non_geography.py
+- Arabic/English pattern detection from filter_non_geographic.py
+- Taxon detection (biological names)
+- Person-role detection (king, queen, president...)
+- Cultural/media keywords
+- Multi-layer rule-based classification for maximum accuracy
+
+"""
 
 import json
 import re
 from pathlib import Path
 from typing import Dict, Tuple
-
+from collections import defaultdict
 base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 
 
-NON_GEO_KEYWORDS = {
-    "university",
-    "college",
-    "school",
-    "academy",
-    "institute",
-    "faculty",
-    "hospital",
-    "clinic",
-    "company",
-    "corporation",
-    "airlines",
-    "airways",
-    "association",
-    "organization",
-    "organisation",
-    "foundation",
-    "museum",
-    "library",
-    "bridge",
-    "church",
-    "cathedral",
-    "mosque",
-    "temple",
-    "synagogue",
-    "abbey",
-    "monastery",
-    "club",
-    "team",
-    "league",
-    "tournament",
-    "championship",
-    "cup",
-    "race",
-    "grand prix",
-    "circuit",
-    "stadium",
-    "arena",
-    "tunnel",
-    "dike",
-    "dam",
-    "canal",
-    "pipeline",
-    "company",
-    "corporation",
-    "bank",
-    "united states presidential election",
-    "election",
-    "government",
-    "ministry",
-    "agency",
-    "politics",
-    "law",
-    "legal",
-    "case",
-    "policy",
-    "constitution",
-    "court",
-    "album",
-    "song",
-    "single",
-    "soundtrack",
-    "film",
-    "movie",
-    "series",
-    "episode",
-    "season",
-    "novel",
-    "book",
-    "poem",
-    "play",
-    "opera",
-    "ballet",
-    "musical",
-    "artist",
-    "actor",
-    "actress",
-    "singer",
-    "writer",
-    "author",
-    "poet",
-    "philosopher",
-    "scientist",
-    "musician",
-    "composer",
-    "director",
-    "producer",
-    "footballer",
-    "basketball player",
-    "baseball player",
-    "coach",
-    "judge",
-    "king",
-    "queen",
-    "emperor",
-    "president",
-    "politician",
-    "businessman",
-    "businesswoman",
-    "company",
-    "brand",
-    "product",
-    "software",
-    "protocol",
-    "language",
-    "algorithm",
-    "operating system",
-    "video game",
-    "board game",
-    "genus",
-    "family",
-    "order",
-    "species",
-    "virus",
-    "bacteria",
-    "plant",
-    "animal",
-    "bird",
-    "fish",
-    "insect",
-    "mammal",
-    "fungus",
-    "mythology",
-    "goddess",
-    "god",
-    "mythical",
-    "religion",
-    "sect",
-    "church",
-    "liturgy",
-    "liturgy",
-    "university",
+# -------------------------------------------------------------
+# 1) Robust Keyword Sets (merged + expanded)
+# -------------------------------------------------------------
+CHECK_AR_ALSO = {
+    "park": "بارك",
+    "bridge": "بريدج",
 }
 
-TAXON_SUFFIXES = (
+NON_GEO_KEYWORDS_EN = {
+    "education": [
+        "university", "college", "school", "academy", "institute", "faculty",
+        "journal"
+    ],
+    "medical": ["hospital", "clinic", "medical center"],
+    "business": [
+        "company", "corporation", "ltd", "inc", "limited", "enterprise",
+        "brand", "product", "bank", "airlines", "airways",
+        "restaurant", "hotel"
+    ],
+    "Infrastructure": [
+        "bridge", "tunnel", "airport", "station", "highway", "road",
+        "railway", "canal", "pipeline", "dam", "dike", "circuit",
+        "center", "centre", "park", "garden", "zoo"
+    ],
+    "religious_cultural_buildings": [
+        "church", "cathedral", "mosque", "temple", "synagogue",
+        "abbey", "monastery"
+    ],
+    "organizations": [
+        "association", "organisation", "organization", "foundation",
+        "society", "agency", "council", "union", "movement",
+    ],
+    "military": [
+        "army", "navy", "air force", "battalion", "regiment", "squadron",
+    ],
+    "Tv": [
+        "film", "tv series", "tv show", "television", "channel", "episode", "series", "movie"
+    ],
+    "culture_media": [
+        "museum", "library", "gallery", "opera", "novel", "book",
+        "movie", "season", "soundtrack",
+        "theater", "theatre", "poem", "play", "album", "song",
+        "single", "ballet", "musical",
+        "magazine", "newspaper", "script", "studios", "music",
+        "festival", "band"
+    ],
+    "sports": [
+        "club", "team", "fc", "sc", "league", "tournament", "stadium",
+        "arena", "championship", "cup", "race", "grand prix",
+        "clubs", "f.c."
+    ],
+    "politics_law": [
+        "government", "ministry", "court", "constitution", "policy",
+        "election", "presidential", "parliament", "senate", "law",
+        "legal", "case", "presidential election",
+        "politics", "assembly", "treaty", "party"
+    ],
+    "media_technology": [
+        "software", "protocol", "video game", "algorithm",
+        "programming language", "operating system", "board game"
+    ],
+    "biology_scientific": [
+        "virus", "bacteria", "species", "genus", "family", "order",
+        "mammal", "bird", "fish", "fungus", "plant", "animal", "insect"
+    ],
+    "roles_people": [
+        "king", "queen", "prince", "emperor", "president", "minister",
+        "lord", "sir", "judge", "politician",
+        "artist", "actor", "actress", "singer", "writer", "author",
+        "poet", "philosopher", "scientist", "musician",
+        "composer", "director", "producer", "footballer",
+        "basketball player", "baseball player", "coach",
+        "businessman", "businesswoman",
+        "people"
+    ],
+    "mythology_religion": [
+        "mythology", "goddess", "god", "mythical", "religion",
+        "sect", "liturgy"
+    ],
+    "historical_societal": [
+        "clan", "empire", "kingdom", "tribe", "war",
+        "battle", "front"
+    ],
+    "dynasty": [
+        "dynasty"
+    ],
+    "languages": [
+        "language"
+    ],
+    "awards": [
+        "award", "medal", "prize", "trophy"
+    ],
+    "institutions_other": [
+        "department", "dialect", "police", "prison"
+    ]
+}
+
+# -------------------------------------------------------------
+# 2) Arabic pattern detection
+# -------------------------------------------------------------
+
+NON_GEO_KEYWORDS_AR=[
+    "جامعة", "كلية", "معهد", "نادي", "شركة", "مستشفى", "متحف",
+    "جمعية", "فندق", "ملعب", "جسر", "قناة", "محطة", "مطار"
+]
+
+# -------------------------------------------------------------
+# 3) Biological suffixes
+# -------------------------------------------------------------
+
+TAXON_SUFFIXES=(
     "aceae",
     "ales",
     "ineae",
@@ -157,70 +145,138 @@ TAXON_SUFFIXES = (
     "oidea",
     "morpha",
     "cetes",
-    "phyceae",
     "phycidae",
 )
 
 
-def has_non_geo_keyword(label: str) -> bool:
-    lowered = label.lower()
-    for keyword in NON_GEO_KEYWORDS:
-        pattern = rf"\b{re.escape(keyword)}\b"
-        if re.search(pattern, lowered):
+# -------------------------------------------------------------
+# Detection Helpers
+# -------------------------------------------------------------
+
+def detect_english_keywords(label: str, value: str) -> bool:
+    """Return True if English keyword matches exactly or by token."""
+    lowered=label.lower()
+    for name, keywords in NON_GEO_KEYWORDS_EN.items():
+        for keyword in keywords:
+            # ----
+            ar_word = CHECK_AR_ALSO.get(keyword)
+            # ----
+            # pattern = rf"\b{re.escape(keyword)}\b"
+            pattern = rf"(?<!\w){re.escape(keyword)}(?!\w)"
+            # ---
+
+            if not re.search(pattern, lowered):
+                continue
+            # ---
+            if not ar_word:
+                return True, name
+            # ---
+            if ar_word:
+                # ar_pattern = rf"\b{re.escape(ar_word)}\b"
+                ar_pattern = rf"(?<!\w){re.escape(ar_word)}(?!\w)"
+
+                if re.search(ar_pattern, value):
+                    return False, ""
+            # ---
+            return True, name
+    return False, ""
+
+
+def detect_arabic_keywords(value: str) -> bool:
+    """Return True if target Arabic keyword appears."""
+    for keyword in NON_GEO_KEYWORDS_AR:
+        if keyword in value:
             return True
     return False
 
 
-def looks_like_taxon(label: str) -> bool:
-    lowered = label.lower()
+def detect_taxon(label: str) -> bool:
+    """Detect biological taxon names by suffix."""
+    lowered=label.lower()
     return any(lowered.endswith(suffix) for suffix in TAXON_SUFFIXES)
 
 
-def looks_like_person(label: str) -> bool:
-    lowered = label.lower()
+def detect_person_like(label: str) -> bool:
+    """Detect if label refers to persons/titles."""
+    lowered=label.lower()
     # Heuristic: titles containing commas that denote roles (e.g., "king of", "queen of")
-    role_markers = ("king", "queen", "president", "chancellor", "minister", "lord", "sir")
-    return any(re.search(rf"\b{marker}\b", lowered) for marker in role_markers)
+    roles=("king", "queen", "president", "chancellor", "minister", "lord", "sir", "prince")
+    return any(re.search(
+        # rf"\b{role}\b",
+        rf"(?<!\w){role}(?!\w)",
+        lowered
+    ) for role in roles)
+
+# -------------------------------------------------------------
+# Filtering Logic
+# -------------------------------------------------------------
 
 
 def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, str]]:
-    non_geo = {}
+    """Split entries into geographic and non-geographic."""
     geo = {}
-
+    non_geo = {}
+    typies = defaultdict(lambda: defaultdict(int))
     for key, value in entries.items():
-        if has_non_geo_keyword(key) or looks_like_taxon(key) or looks_like_person(key):
+
+        # Layer 1: English keyword detection
+        isa, name = detect_english_keywords(key, value)
+        if isa:
             non_geo[key] = value
+            typies[name][key] = value
+
+        # Layer 2: Arabic keyword detection
+        elif detect_arabic_keywords(value):
+            non_geo[key] = value
+            typies["arabic"][key] = value
+
+        # Layer 3: Biological taxon detection
+        elif detect_taxon(key):
+            non_geo[key] = value
+            typies["taxons"][key] = value
+
+        # Layer 4: Person role detection
+        elif detect_person_like(key):
+            non_geo[key] = value
+            typies["persons"][key] = value
         else:
             geo[key] = value
-    return geo, non_geo
+
+    typies = dict(sorted(typies.items(), key=lambda item: len(item[1]), reverse=True))
+
+    print(f"Total: {len(entries)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
+    print(" - Detected\n\t| " + "\n\t| ".join([f" {k}: {len(v)}" for k, v in typies.items()]))
+
+    return geo, typies
 
 
-def one_file(SOURCE_FILE: Path, NEW_FILE: Path, NON_GEO_FILE: Path) -> None:
-    data = json.loads(SOURCE_FILE.read_text(encoding="utf-8"))
-    geo, non_geo = classify_entries(data)
+def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
+    """Read → classify → write outputs."""
+    data=json.loads(input_path.read_text(encoding="utf-8"))
+    geo, non_geo=classify_entries(data)
 
     # Write output files
-    with open(NEW_FILE, 'w', encoding='utf-8') as f:
+    with open(geo_out, 'w', encoding='utf-8') as f:
         json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    with open(NON_GEO_FILE, 'w', encoding='utf-8') as f:
+    with open(non_geo_out, 'w', encoding='utf-8') as f:
         json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
-
-    print(f"Entries kept as geography: {len(geo)}")
-    print(f"Entries moved to non-geography: {len(non_geo)}")
 
 
 def main() -> None:
+    files = [
+        jsons_dir / "cities/cities_full.json",
+        jsons_dir / "geography/P17_2_final_ll.json",
+    ]
+    for file in files:
+        print(f"Processing file: {file}")
+        new_path = file.parent.parent / f"{file.parent.name}_new"
+        new_path.mkdir(parents=True, exist_ok=True)
 
-    SOURCE_FILE = jsons_dir / "cities/yy2.json"
-    NEW_FILE = jsons_dir / "cities/yy2_new.json"
-    NON_GEO_FILE = jsons_dir / "cities/yy2_non_cities.json"
-    one_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
+        NEW_FILE = new_path / file.name
+        NON_GEO_FILE = new_path / f"{file.stem}_non.json"
 
-    SOURCE_FILE2 = jsons_dir / "geography/P17_2_final_ll.json"
-    NEW_FILE2 = jsons_dir / "geography/P17_2_final_ll_new.json"
-    NON_GEO_FILE2 = jsons_dir / "geography/P17_2_final_ll_non_geographic.json"
-    one_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
+        filter_file(file, NEW_FILE, NON_GEO_FILE)
 
 
 if __name__ == "__main__":
