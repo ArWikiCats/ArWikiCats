@@ -303,6 +303,7 @@ def _build_country_label_index() -> dict[str, str]:
     to_update = {
         "US_STATES": US_STATES,                                            # 54
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,                # 1778
+        "raw_region_overrides": raw_region_overrides,                      # 1782
         "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,                      # 1782
         "MAIN_REGION_TRANSLATIONS": MAIN_REGION_TRANSLATIONS,              # 823
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,    # 176
