@@ -70,7 +70,7 @@ NON_GEO_KEYWORDS_EN = {
     "sports": [
         "club", "team", "fc", "sc", "league", "tournament", "stadium",
         "arena", "championship", "cup", "race", "grand prix",
-        "clubs"
+        "clubs", "f.c."
     ],
     "politics_law": [
         "government", "ministry", "court", "constitution", "policy",
@@ -161,8 +161,10 @@ def detect_english_keywords(label: str, value: str) -> bool:
             # ----
             ar_word = CHECK_AR_ALSO.get(keyword)
             # ----
-            pattern=rf"\b{re.escape(keyword)}\b"
+            # pattern = rf"\b{re.escape(keyword)}\b"
+            pattern = rf"(?<!\w){re.escape(keyword)}(?!\w)"
             # ---
+
             if not re.search(pattern, lowered):
                 continue
             # ---
@@ -170,9 +172,11 @@ def detect_english_keywords(label: str, value: str) -> bool:
                 return True, name
             # ---
             if ar_word:
-                ar_pattern = rf"\b{re.escape(ar_word)}\b"
+                # ar_pattern = rf"\b{re.escape(ar_word)}\b"
+                ar_pattern = rf"(?<!\w){re.escape(ar_word)}(?!\w)"
+
                 if re.search(ar_pattern, value):
-                    continue
+                    return False, ""
             # ---
             return True, name
     return False, ""
@@ -197,7 +201,11 @@ def detect_person_like(label: str) -> bool:
     lowered=label.lower()
     # Heuristic: titles containing commas that denote roles (e.g., "king of", "queen of")
     roles=("king", "queen", "president", "chancellor", "minister", "lord", "sir", "prince")
-    return any(re.search(rf"\b{role}\b", lowered) for role in roles)
+    return any(re.search(
+        # rf"\b{role}\b",
+        rf"(?<!\w){role}(?!\w)",
+        lowered
+    ) for role in roles)
 
 # -------------------------------------------------------------
 # Filtering Logic
