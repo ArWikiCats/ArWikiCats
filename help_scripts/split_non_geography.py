@@ -102,7 +102,7 @@ NON_GEO_KEYWORDS_EN = {
         "sect", "liturgy"
     ],
     "historical_societal": [
-        "clan",  # "empire", "kingdom",
+        # "clan", "empire", "kingdom",
         "tribe",
         "war",
         "battle",
