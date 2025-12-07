@@ -201,7 +201,7 @@ COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.ite
 
 COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
 
-region_suffix_matches = 0
+region_suffix_matches = {}
 
 for cc, lab in ADDITIONAL_REGION_KEYS.items():
     should_update = True
@@ -212,8 +212,9 @@ for cc, lab in ADDITIONAL_REGION_KEYS.items():
                 should_update = False
                 cc3 = cc2[: -len(en_k)]
                 lab_2 = lab[len(ar_k) :]
-                COUNTRY_ADMIN_LABELS[cc3] = lab_2
-                region_suffix_matches += 1
+                region_suffix_matches[cc3] = lab_2
+
+COUNTRY_ADMIN_LABELS.update(region_suffix_matches)
 
 for city, city_lab in PROVINCE_LABELS.items():
     city2 = city.lower()
@@ -223,29 +224,18 @@ for city, city_lab in PROVINCE_LABELS.items():
         COUNTRY_ADMIN_LABELS[f"{city2} (province)"] = f"مقاطعة {city_lab}"
 
 
-COUNTRY_ADMIN_LABELS_LOWER = {k.lower(): v for k, v in COUNTRY_ADMIN_LABELS.items()}
-
-# Backwards compatible alias
-P17_PP = COUNTRY_ADMIN_LABELS
-
 __all__ = [
     "COUNTRY_ADMIN_LABELS",
-    "COUNTRY_ADMIN_LABELS_LOWER",
-    "ADDITIONAL_REGION_KEYS",
-    "SWISS_CANTON_LABELS",
-    "PROVINCE_LABEL_OVERRIDES",
-    "PROVINCE_LABELS",
-    "P17_PP",
 ]
 
 len_print.data_len(
     "labels_country2.py",
     {
-        "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,
-        "P17_PP": P17_PP,
+        "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,       # 1,778
         "ADDITIONAL_REGION_KEYS": ADDITIONAL_REGION_KEYS,
         "SWISS_CANTON_LABELS": SWISS_CANTON_LABELS,
         "PROVINCE_LABEL_OVERRIDES": PROVINCE_LABEL_OVERRIDES,
         "PROVINCE_LABELS": PROVINCE_LABELS,
+        "region_suffix_matches": region_suffix_matches,
     },
 )
