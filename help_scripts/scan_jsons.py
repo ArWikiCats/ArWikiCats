@@ -66,8 +66,10 @@ def check_data_new(data: dict[str, str]) -> dict[str, int]:
 
 def main() -> None:
     files = [
-        jsons_dir / "cities/yy2.json",
-        jsons_dir / "cities/cities_full.json",
+        # jsons_dir / "cities/yy2.json",
+        # jsons_dir / "cities/cities_full.json",
+        jsons_dir / "taxonomy/Taxons.json",
+        jsons_dir / "taxonomy/Taxons2.json",
     ]
     status = {}
     for file in files:
