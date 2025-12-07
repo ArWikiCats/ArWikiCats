@@ -1,7 +1,6 @@
 """Convenience exports for geographic translation tables."""
 
 from .Cities import (
-    CITY_LABEL_PATCHES,
     CITY_TRANSLATIONS_LOWER,
 )
 from .labels_country import (
@@ -19,7 +18,6 @@ from .us_counties import (
 )
 
 __all__ = [
-    "CITY_LABEL_PATCHES",
     "CITY_TRANSLATIONS_LOWER",
     "COUNTRY_LABEL_OVERRIDES",
     "POPULATION_OVERRIDES",
