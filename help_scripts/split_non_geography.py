@@ -47,7 +47,9 @@ NON_GEO_KEYWORDS_EN = {
     "organizations": [
         "association", "organisation", "organization", "foundation",
         "society", "agency", "council", "union", "movement",
-        "army", "navy", "air force"
+    ],
+    "military": [
+        "army", "navy", "air force", "battalion", "regiment", "squadron",
     ],
     "Tv": [
         "film", "tv series", "tv show", "television", "channel", "episode", "series", "movie"
@@ -73,7 +75,7 @@ NON_GEO_KEYWORDS_EN = {
     ],
     "media_technology": [
         "software", "protocol", "video game", "algorithm",
-        "language", "operating system", "board game"
+        "programming language", "operating system", "board game"
     ],
     "biology_scientific": [
         "virus", "bacteria", "species", "genus", "family", "order",
@@ -100,11 +102,14 @@ NON_GEO_KEYWORDS_EN = {
     "dynasty": [
         "dynasty"
     ],
+    "languages": [
+        "language"
+    ],
     "awards": [
         "award", "medal", "prize", "trophy"
     ],
     "institutions_other": [
-        "department", "dialect", "military", "police", "prison"
+        "department", "dialect", "police", "prison"
     ]
 }
 
@@ -235,12 +240,12 @@ def main() -> None:
 
     SOURCE_FILE=jsons_dir / "cities/yy2.json"
     NEW_FILE=jsons_dir / "cities/yy2_new.json"
-    NON_GEO_FILE=jsons_dir / "cities/yy2_non_cities.json"
+    NON_GEO_FILE=jsons_dir / "cities/yy2_non.json"
     filter_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
 
     SOURCE_FILE2=jsons_dir / "geography/P17_2_final_ll.json"
     NEW_FILE2=jsons_dir / "geography/P17_2_final_ll_new.json"
-    NON_GEO_FILE2=jsons_dir / "geography/P17_2_final_ll_non_geographic.json"
+    NON_GEO_FILE2=jsons_dir / "geography/P17_2_final_ll_non.json"
     filter_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
 
 
