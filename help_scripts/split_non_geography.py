@@ -237,16 +237,17 @@ def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
 
 
 def main() -> None:
+    files = [
+        jsons_dir / "cities/yy2.json",
+        jsons_dir / "geography/P17_2_final_ll.json",
+    ]
+    for file in files:
+        print(f"Processing file: {file}")
 
-    SOURCE_FILE=jsons_dir / "cities/yy2.json"
-    NEW_FILE=jsons_dir / "cities/yy2_new.json"
-    NON_GEO_FILE=jsons_dir / "cities/yy2_non.json"
-    filter_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
+        NEW_FILE=file.with_name(file.stem + "_new.json")
+        NON_GEO_FILE=file.with_name(file.stem + "_non.json")
 
-    SOURCE_FILE2=jsons_dir / "geography/P17_2_final_ll.json"
-    NEW_FILE2=jsons_dir / "geography/P17_2_final_ll_new.json"
-    NON_GEO_FILE2=jsons_dir / "geography/P17_2_final_ll_non.json"
-    filter_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
+        filter_file(file, NEW_FILE, NON_GEO_FILE)
 
 
 if __name__ == "__main__":
