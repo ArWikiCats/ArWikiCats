@@ -47,7 +47,7 @@ NON_GEO_KEYWORDS_EN = {
     "church", "cathedral", "mosque", "temple", "synagogue",
     "abbey", "monastery",
 
-    # Organizations
+    # Organizations / Groups
     "association", "organisation", "organization", "foundation",
     "society", "agency", "council", "union", "movement",
     "army", "navy", "air force",
@@ -58,7 +58,7 @@ NON_GEO_KEYWORDS_EN = {
     "theater", "theatre", "poem", "play", "album", "song",
     "single", "ballet", "musical",
     "magazine", "newspaper", "script", "studios", "music",
-    "festival",
+    "festival", "band",
 
     # Sports
     "club", "team", "fc", "sc", "league", "tournament", "stadium",
@@ -69,11 +69,11 @@ NON_GEO_KEYWORDS_EN = {
     "government", "ministry", "court", "constitution", "policy",
     "election", "presidential", "parliament", "senate", "law",
     "legal", "case", "presidential election",
-    "politics", "assembly", "treaty", "party",
+    "politics", "assembly", "treaty",
 
     # Media / Technology
     "software", "protocol", "video game", "algorithm",
-    "language", "operating system", "board game", "band",
+    "language", "operating system", "board game",
 
     # Biology / Scientific
     "virus", "bacteria", "species", "genus", "family", "order",
@@ -93,14 +93,14 @@ NON_GEO_KEYWORDS_EN = {
     "mythology", "goddess", "god", "mythical", "religion",
     "sect", "liturgy",
 
-    # Historical / Societal Concepts (New from list2)
+    # Historical / Societal Concepts
     "clan", "dynasty", "empire", "kingdom", "tribe", "war",
     "battle", "front",
 
     # Awards / Recognition
     "award", "medal", "prize", "trophy",
 
-    # Departments / Institutions
+    # Departments / Institutions / Other
     "department", "dialect", "military", "police", "prison",
 }
 
