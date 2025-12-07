@@ -69,7 +69,7 @@ NON_GEO_KEYWORDS_EN = {
     "government", "ministry", "court", "constitution", "policy",
     "election", "presidential", "parliament", "senate", "law",
     "legal", "case", "presidential election",
-    "politics", "assembly", "treaty",
+    "politics", "assembly", "treaty", "party",
 
     # Media / Technology
     "software", "protocol", "video game", "algorithm",
