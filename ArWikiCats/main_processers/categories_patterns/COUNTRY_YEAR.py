@@ -21,7 +21,7 @@ COUNTRY_YEAR_DATA = {
     "category:{year1} crimes in {country1}": "تصنيف:جرائم {year1} في {country1}",  # 3966
     "category:{year1} murders in {country1}": "تصنيف:جرائم قتل في {country1} في {year1}",
     "category:{year1} disasters in {country1}": "تصنيف:كوارث في {country1} في {year1}",  # 2140
-    "category:{year1} in {country1} by month": "تصنيف:أحداث {year1} في {country1} حسب الشهر",  # 1808
+    "category:{year1} in {country1} by month": "تصنيف:{year1} في {country1} حسب الشهر",  # 1808
     "category:{year1} elections in {country1}": "تصنيف:انتخابات {country1} في {year1}",  # 1550
     "category:{year1} events in {country1} by month": "تصنيف:أحداث {year1} في {country1} حسب الشهر",  # 1382
     "category:years of {year1} in {country1}": "تصنيف:سنوات {year1} في {country1}",  # 922
