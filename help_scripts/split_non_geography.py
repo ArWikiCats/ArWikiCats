@@ -257,15 +257,16 @@ def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> str:
     """Read → classify → write outputs."""
     data=json.loads(input_path.read_text(encoding="utf-8"))
     geo, non_geo=classify_entries(data)
+    non = len(data) - len(geo)
+    if non:
+        # Write output files
+        with open(geo_out, 'w', encoding='utf-8') as f:
+            json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    # Write output files
-    with open(geo_out, 'w', encoding='utf-8') as f:
-        json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
+        with open(non_geo_out, 'w', encoding='utf-8') as f:
+            json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    with open(non_geo_out, 'w', encoding='utf-8') as f:
-        json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
-
-    return f"Total: {len(data):,} | Geographic: {len(geo):,} | Non-Geographic: {len(data) - len(geo):,}"
+    return f"Total: {len(data):,} | Geographic: {len(geo):,} | Non-Geographic: {non:,}"
 
 
 def main() -> None:
