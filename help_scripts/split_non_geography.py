@@ -24,11 +24,11 @@ jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 # -------------------------------------------------------------
 # 1) Robust Keyword Sets (merged + expanded)
 # -------------------------------------------------------------
-
 NON_GEO_KEYWORDS_EN = {
 
     # Education
     "university", "college", "school", "academy", "institute", "faculty",
+    "journal",
 
     # Medical
     "hospital", "clinic", "medical center",
@@ -36,10 +36,12 @@ NON_GEO_KEYWORDS_EN = {
     # Business
     "company", "corporation", "ltd", "inc", "limited", "enterprise",
     "brand", "product", "bank", "airlines", "airways",
+    "restaurant", "hotel",
 
     # Infrastructure
-    "bridge", "tunnel", "airport", "station", "highway", "road", "railway",
-    "canal", "pipeline", "dam", "dike", "circuit",
+    "bridge", "tunnel", "airport", "station", "highway", "road",
+    "railway", "canal", "pipeline", "dam", "dike", "circuit",
+    "center", "centre", "park", "garden", "zoo",
 
     # Religious / Cultural Buildings
     "church", "cathedral", "mosque", "temple", "synagogue",
@@ -47,27 +49,31 @@ NON_GEO_KEYWORDS_EN = {
 
     # Organizations
     "association", "organisation", "organization", "foundation",
-    "society", "agency",
+    "society", "agency", "council", "union", "movement",
+    "army", "navy", "air force",
 
     # Culture / Media
     "museum", "library", "gallery", "opera", "novel", "book", "film",
     "movie", "series", "season", "episode", "soundtrack",
     "theater", "theatre", "poem", "play", "album", "song",
     "single", "ballet", "musical",
+    "magazine", "newspaper", "script", "studios", "music",
+    "festival",
 
     # Sports
     "club", "team", "fc", "sc", "league", "tournament", "stadium",
     "arena", "championship", "cup", "race", "grand prix",
+    "clubs",
 
     # Politics / Law
     "government", "ministry", "court", "constitution", "policy",
     "election", "presidential", "parliament", "senate", "law",
-    "legal", "case", "united states presidential election",
-    "politics",
+    "legal", "case", "presidential election",
+    "politics", "assembly", "treaty", "party",
 
     # Media / Technology
-    "software", "protocol", "video game", "algorithm", "language",
-    "operating system", "board game",
+    "software", "protocol", "video game", "algorithm",
+    "language", "operating system", "board game", "band",
 
     # Biology / Scientific
     "virus", "bacteria", "species", "genus", "family", "order",
@@ -81,57 +87,23 @@ NON_GEO_KEYWORDS_EN = {
     "composer", "director", "producer", "footballer",
     "basketball player", "baseball player", "coach",
     "businessman", "businesswoman",
+    "people",
 
     # Mythology / Religion
     "mythology", "goddess", "god", "mythical", "religion",
     "sect", "liturgy",
+
+    # Historical / Societal Concepts (New from list2)
+    "clan", "dynasty", "empire", "kingdom", "tribe", "war",
+    "battle", "front",
+
+    # Awards / Recognition
+    "award", "medal", "prize", "trophy",
+
+    # Departments / Institutions
+    "department", "dialect", "military", "police", "prison",
 }
 
-list2 = [
-    "air force",
-    "army",
-    "assembly",
-    "award",
-    "band",
-    "battle",
-    "center",
-    "centre",
-    "clan",
-    "clubs",
-    "council",
-    "department",
-    "dialect",
-    "dynasty",
-    "empire",
-    "festival",
-    "front",
-    "garden",
-    "hotel",
-    "journal",
-    "kingdom",
-    "magazine",
-    "medal",
-    "military",
-    "movement",
-    "music",
-    "navy",
-    "newspaper",
-    "park",
-    "party",
-    "people",
-    "police",
-    "prison",
-    "prize",
-    "restaurant",
-    "script",
-    "studios",
-    "treaty",
-    "tribe",
-    "trophy",
-    "union",
-    "war",
-    "zoo",
-]
 # -------------------------------------------------------------
 # 2) Arabic pattern detection
 # -------------------------------------------------------------
@@ -206,7 +178,7 @@ def detect_person_like(label: str) -> bool:
 def is_non_geographic(key: str, value: str) -> bool:
     """Unified classification decision combining all heuristics."""
     # Layer 1: English keyword detection
-    if detect_english_keywords(key, NON_GEO_KEYWORDS_EN) or detect_english_keywords(key, list2):
+    if detect_english_keywords(key, NON_GEO_KEYWORDS_EN):
         return True
 
     # Layer 2: Arabic keyword detection
