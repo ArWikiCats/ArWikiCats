@@ -5,8 +5,9 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
-    # "category:non-fiction writers from northern ireland": "تصنيف:كتاب غير روائيون من أيرلندا الشمالية",
-    # "category:non-fiction writers from russian empire": "تصنيف:كتاب غير روائيون من الإمبراطورية الروسية",
+    "category:non-fiction writers from northern ireland": "تصنيف:كتاب غير روائيون من أيرلندا الشمالية",
+    "category:non-fiction writers from russian empire": "تصنيف:كتاب غير روائيون من الإمبراطورية الروسية",
+
     "category:1550 non-fiction books": "تصنيف:كتب غير خيالية 1550",
     "category:1550s non-fiction books": "تصنيف:كتب غير خيالية عقد 1550",
     "category:20th-century american non-fiction writers": "تصنيف:كتاب غير روائيون أمريكيون في القرن 20",
