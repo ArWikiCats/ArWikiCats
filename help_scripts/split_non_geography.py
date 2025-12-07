@@ -275,8 +275,9 @@ def main() -> None:
         # jsons_dir / "geography/P17_2_final_ll.json",
         # jsons_dir / "cities/cities_full.json",
         # jsons_dir / "cities/yy2.json",
+        # jsons_dir / "geography/popopo.json",
 
-        jsons_dir / "geography/popopo.json",
+        jsons_dir / "geography/opop.json",
     ]
     status = {}
     for file in files:
