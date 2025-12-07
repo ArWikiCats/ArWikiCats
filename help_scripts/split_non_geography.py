@@ -70,7 +70,8 @@ NON_GEO_KEYWORDS_EN = {
     "sports": [
         "club", "team", "fc", "sc", "league", "tournament", "stadium",
         "arena", "championship", "cup", "race", "grand prix",
-        "clubs", "f.c."
+        "clubs", "f.c.",
+        "نادي",
     ],
     "politics_law": [
         "government", "ministry", "court", "constitution", "policy",
@@ -101,8 +102,11 @@ NON_GEO_KEYWORDS_EN = {
         "sect", "liturgy"
     ],
     "historical_societal": [
-        "clan", "empire", "kingdom", "tribe", "war",
-        "battle", "front"
+        "clan",  # "empire", "kingdom",
+        "tribe",
+        "war",
+        "battle",
+        "front"
     ],
     "dynasty": [
         "dynasty"
@@ -168,8 +172,7 @@ def detect_english_keywords(label: str, value: str) -> bool:
             # pattern = rf"\b{re.escape(keyword)}\b"
             pattern = rf"(?<!\w){re.escape(keyword)}(?!\w)"
             # ---
-
-            if not re.search(pattern, lowered):
+            if not re.search(pattern, lowered) and not re.search(pattern, value):
                 continue
             # ---
             if not ar_word:
