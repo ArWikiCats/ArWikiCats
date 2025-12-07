@@ -222,7 +222,7 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     return geo, non_geo
 
 
-def one_file(SOURCE_FILE: Path, NEW_FILE: Path, NON_GEO_FILE: Path) -> None:
+def filter_file(SOURCE_FILE: Path, NEW_FILE: Path, NON_GEO_FILE: Path) -> None:
     data = json.loads(SOURCE_FILE.read_text(encoding="utf-8"))
     geo, non_geo = classify_entries(data)
 
@@ -242,12 +242,12 @@ def main() -> None:
     SOURCE_FILE = jsons_dir / "cities/yy2.json"
     NEW_FILE = jsons_dir / "cities/yy2_new.json"
     NON_GEO_FILE = jsons_dir / "cities/yy2_non_cities.json"
-    one_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
+    filter_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
 
     SOURCE_FILE2 = jsons_dir / "geography/P17_2_final_ll.json"
     NEW_FILE2 = jsons_dir / "geography/P17_2_final_ll_new.json"
     NON_GEO_FILE2 = jsons_dir / "geography/P17_2_final_ll_non_geographic.json"
-    one_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
+    filter_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
 
 
 if __name__ == "__main__":

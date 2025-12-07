@@ -1,153 +1,180 @@
 #!/usr/bin/env python3
 """
-Script to filter non-geographic entries from P17_2_final_ll.json.
+Unified classifier for geographic vs non-geographic labels.
 
-This script identifies and separates entries that represent non-geographic entities
-(universities, bridges, associations, companies, sports clubs, etc.) from geographic
-entries (countries, cities, regions, etc.).
+This script merges:
+- Rich keyword taxonomy from split_non_geography.py
+- Arabic/English pattern detection from filter_non_geographic.py
+- Taxon detection (biological names)
+- Person-role detection (king, queen, president...)
+- Cultural/media keywords
+- Multi-layer rule-based classification for maximum accuracy
+
+All comments are in English.
 """
 
-import sys
 import json
-import shutil
+import re
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
+from typing import Dict, Tuple
 base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 
 
+# -------------------------------------------------------------
+# 1) Robust Keyword Sets (merged + expanded)
+# -------------------------------------------------------------
+
+NON_GEO_KEYWORDS_EN = {
+    # Education
+    "university", "college", "school", "academy", "institute", "faculty",
+
+    # Medical
+    "hospital", "clinic", "medical center",
+
+    # Business
+    "company", "corporation", "ltd", "inc", "limited", "enterprise", "brand",
+
+    # Infrastructure
+    "bridge", "tunnel", "airport", "station", "highway", "road", "railway", "canal", "pipeline", "dam",
+
+    # Organizations
+    "association", "organisation", "organization", "foundation", "society", "agency",
+
+    # Culture
+    "museum", "library", "gallery", "opera", "novel", "book", "film", "movie",
+    "series", "episode", "soundtrack", "theater", "theatre", "poem", "play",
+
+    # Sports
+    "club", "team", "fc", "sc", "league", "tournament", "stadium", "arena",
+
+    # Politics / Law
+    "government", "ministry", "court", "constitution", "policy", "election",
+    "presidential", "parliament", "senate",
+
+    # Media / Technology
+    "software", "protocol", "video game", "algorithm", "language",
+
+    # Biology / Scientific
+    "virus", "bacteria", "species", "genus", "family", "order", "mammal",
+    "bird", "fish", "fungus", "plant",
+
+    # People / Roles
+    "king", "queen", "prince", "president", "minister", "lord", "sir",
+}
+
+
+# -------------------------------------------------------------
+# 2) Arabic pattern detection
+# -------------------------------------------------------------
+
+NON_GEO_KEYWORDS_AR = [
+    "جامعة", "كلية", "معهد", "نادي", "شركة", "مستشفى", "متحف",
+    "جمعية", "فندق", "ملعب", "جسر", "قناة", "محطة", "مطار"
+]
+
+
+# -------------------------------------------------------------
+# 3) Biological suffixes
+# -------------------------------------------------------------
+
+TAXON_SUFFIXES = (
+    "aceae", "ales", "ineae", "phyta", "phyceae", "mycota", "formes",
+    "idae", "inae", "oidea", "morpha"
+)
+
+
+# -------------------------------------------------------------
+# Detection Helpers
+# -------------------------------------------------------------
+
+def detect_english_keywords(label: str) -> bool:
+    """Return True if English keyword matches exactly or by token."""
+    lowered = label.lower()
+    for kw in NON_GEO_KEYWORDS_EN:
+        pattern = rf"\b{re.escape(kw)}\b"
+        if re.search(pattern, lowered):
+            return True
+    return False
+
+
+def detect_arabic_keywords(value: str) -> bool:
+    """Return True if target Arabic keyword appears."""
+    for kw in NON_GEO_KEYWORDS_AR:
+        if kw in value:
+            return True
+    return False
+
+
+def detect_taxon(label: str) -> bool:
+    """Detect biological taxon names by suffix."""
+    lowered = label.lower()
+    return any(lowered.endswith(suffix) for suffix in TAXON_SUFFIXES)
+
+
+def detect_person_like(label: str) -> bool:
+    """Detect if label refers to persons/titles."""
+    lowered = label.lower()
+    roles = ["king", "queen", "president", "minister", "sir", "prince"]
+    return any(re.search(rf"\b{role}\b", lowered) for role in roles)
+
+
+# -------------------------------------------------------------
+# Main Rule-Based Classifier
+# -------------------------------------------------------------
+
 def is_non_geographic(key: str, value: str) -> bool:
-    """
-    Determine if an entry is non-geographic based on keywords in key or value.
+    """Unified classification decision combining all heuristics."""
+    # Layer 1: English keyword detection
+    if detect_english_keywords(key):
+        return True
 
-    Args:
-        key: The English key (normalized to lowercase)
-        value: The Arabic translation
+    # Layer 2: Arabic keyword detection
+    if detect_arabic_keywords(value):
+        return True
 
-    Returns:
-        True if the entry is non-geographic, False otherwise
-    """
-    key_lower = key.lower()
+    # Layer 3: Biological taxon detection
+    if detect_taxon(key):
+        return True
 
-    # Educational institutions
-    educational_patterns = ['university', 'college', 'school', 'institute', 'academy']
-
-    # Infrastructure (non-geographic)
-    infrastructure_patterns = ['bridge', 'highway', 'railway', 'airport', 'station', 'road', 'tunnel']
-
-    # Organizations and associations
-    organization_patterns = ['association', 'society', 'organization', 'organisation', 'foundation']
-
-    # Sports entities
-    sports_patterns = ['fc', 'club', 'team']
-
-    # Companies and businesses
-    business_patterns = ['company', 'corporation', 'ltd', 'inc', 'limited']
-
-    # Medical facilities
-    medical_patterns = ['hospital', 'clinic', 'medical center']
-
-    # Cultural institutions
-    cultural_patterns = ['museum', 'gallery', 'library', 'theater', 'theatre']
-
-    # Sports venues
-    venue_patterns = ['stadium', 'arena']
-
-    # Hospitality
-    hospitality_patterns = ['hotel', 'resort']
-
-    # All patterns combined
-    all_patterns = (
-        educational_patterns + infrastructure_patterns + organization_patterns +
-        sports_patterns + business_patterns + medical_patterns +
-        cultural_patterns + venue_patterns + hospitality_patterns
-    )
-
-    # Check English patterns in key
-    for pattern in all_patterns:
-        if pattern in key_lower:
-            return True
-
-    # Arabic patterns in value
-    arabic_patterns = [
-        'جامعة',  # university
-        'كلية',   # college
-        'معهد',   # institute
-        'نادي',   # club
-        'جسر',    # bridge
-        'شركة',   # company
-        'جمعية',  # association
-        'مستشفى',  # hospital
-        'متحف',   # museum
-        'فندق',   # hotel
-        'ملعب',   # stadium
-    ]
-
-    for pattern in arabic_patterns:
-        if pattern in value:
-            return True
+    # Layer 4: Person role detection
+    if detect_person_like(key):
+        return True
 
     return False
 
 
-def filter_json_file(input_file: Path, output_geo: Path, output_non_geo: Path) -> dict:
-    """
-    Filter a JSON file into geographic and non-geographic entries.
+# -------------------------------------------------------------
+# Filtering Logic
+# -------------------------------------------------------------
 
-    Args:
-        input_file: Path to the input JSON file
-        output_geo: Path to save geographic entries
-        output_non_geo: Path to save non-geographic entries
-
-    Returns:
-        Dictionary with statistics about the filtering
-    """
-    # Read the input file
-    with open(input_file, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-
-    # Separate entries
-    geographic = {}
-    non_geographic = {}
-
+def classify_entries(data: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, str]]:
+    """Split entries into geographic and non-geographic."""
+    geo = {}
+    non_geo = {}
     for key, value in data.items():
         if is_non_geographic(key, value):
-            non_geographic[key] = value
+            non_geo[key] = value
         else:
-            geographic[key] = value
-
-    # Write output files
-    with open(output_geo, 'w', encoding='utf-8') as f:
-        json.dump(geographic, f, ensure_ascii=False, indent=4, sort_keys=True)
-
-    with open(output_non_geo, 'w', encoding='utf-8') as f:
-        json.dump(non_geographic, f, ensure_ascii=False, indent=4, sort_keys=True)
-
-    # Return statistics
-    return {
-        'total_entries': len(data),
-        'geographic_entries': len(geographic),
-        'non_geographic_entries': len(non_geographic),
-    }
+            geo[key] = value
+    return geo, non_geo
 
 
-def one_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE):
-    """Main execution function."""
+def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path):
+    """Read → classify → write outputs."""
+    items = json.loads(input_path.read_text(encoding="utf-8"))
+    geo, non_geo = classify_entries(items)
 
-    # Filter the file
-    stats = filter_json_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
+    geo_out.write_text(
+        json.dumps(geo, ensure_ascii=False, indent=4, sort_keys=True),
+        encoding="utf-8",
+    )
+    non_geo_out.write_text(
+        json.dumps(non_geo, ensure_ascii=False, indent=4, sort_keys=True),
+        encoding="utf-8",
+    )
 
-    # Print results
-    print("\n" + "=" * 60)
-    print("Filtering Results")
-    print("=" * 60)
-    print(f"Total entries: {stats['total_entries']}")
-    print(f"Geographic entries: {stats['geographic_entries']}")
-    print(f"Non-geographic entries: {stats['non_geographic_entries']}")
-    print(f"Geographic entries saved to: {NEW_FILE}")
-    print(f"Non-geographic entries saved to: {NON_GEO_FILE}")
-    print("=" * 60)
+    print(f"Total: {len(items)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
 
 
 def main() -> None:
@@ -155,13 +182,13 @@ def main() -> None:
     SOURCE_FILE = jsons_dir / "cities/yy2.json"
     NEW_FILE = jsons_dir / "cities/yy2_new.json"
     NON_GEO_FILE = jsons_dir / "cities/yy2_non_cities.json"
-    one_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
+    filter_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
 
     SOURCE_FILE2 = jsons_dir / "geography/P17_2_final_ll.json"
     NEW_FILE2 = jsons_dir / "geography/P17_2_final_ll_new.json"
     NON_GEO_FILE2 = jsons_dir / "geography/P17_2_final_ll_non_geographic.json"
-    one_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
+    filter_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
