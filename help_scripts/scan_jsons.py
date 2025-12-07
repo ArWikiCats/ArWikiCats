@@ -1,5 +1,6 @@
 
 import json
+import ahocorasick
 import re
 from pathlib import Path
 from tqdm import tqdm
@@ -12,14 +13,10 @@ def load_data_texts() -> str:
     wikidata_9fqzHy = Path("D:/categories_bot/langlinks/source/wikidata_9fqzHy.csv")
     text = wikidata_9fqzHy.read_text(encoding="utf-8")
     text = text.replace("Category:", "")
+    return text.lower()
 
-    data1 = [x.strip() for x in text.splitlines()]
 
-    # data1 has 2,200,000 row
-    data_texts = "\n".join(data1)
-    return data_texts
-
-def check_data_new(input_path: Path) -> str:
+def check_data_1(input_path: Path) -> str:
     """Read → classify → write outputs."""
     data_texts = load_data_texts()
     data = json.loads(input_path.read_text(encoding="utf-8"))
@@ -34,19 +31,37 @@ def check_data_new(input_path: Path) -> str:
     re_compile = re.compile(rf"(?<!\w){alternation}(?!\w)")
     # check each entry key if it exists in data_texts with rf"(?<!\w){re.escape(keyword)}(?!\w)"
     # ---
-    m = re_compile.finditer(data_texts.lower())
+    m = re_compile.finditer(data_texts)
     # ---
-    result = defaultdict(int)
+    keys_found = defaultdict(int)
     # ---
     for match in m:
         # ---
         value = match.group(1).strip().lower()
         # ---
-        result[value] = result.get(value, 0) + 1
+        keys_found[value] += 1
     # ---
-    not_found = {k: v for k, v in data.items() if k.lower() not in result}
+    not_found = {k: v for k, v in data.items() if k.lower() not in keys_found}
     # ---
-    return f"Total: {len(data):,} | Found: {len(result):,} | Not Found: {len(not_found):,}"
+    return f"Total: {len(data):,} | Found: {len(keys_found):,} | Not Found: {len(not_found):,}"
+
+
+def check_data_new(data: dict[str, str]) -> dict[str, int]:
+    # data1 has 2,200,000 rows
+    data_texts = load_data_texts().splitlines()
+
+    A = ahocorasick.Automaton()
+    for k in data:
+        A.add_word(f" {k.lower()} ", k)
+    A.make_automaton()
+
+    keys_found = defaultdict(int)
+    for line in tqdm(data_texts):
+        for end, key in A.iter(f" {line} "):
+            if key in data:
+                keys_found[key] += 1
+
+    return keys_found
 
 
 def main() -> None:
@@ -57,11 +72,23 @@ def main() -> None:
     status = {}
     for file in files:
         print(f"Processing file: {file}")
-        stat = check_data_new(file)
-        status[file.name] = stat
+        data = json.loads(file.read_text(encoding="utf-8"))
+        keys_found = check_data_new(data)
+        status[file.name] = [keys_found, data]
     # ---
-    for fname, stat in status.items():
-        print(f"{fname} => {stat}")
+    for fname, (stat, keys_found) in status.items():
+
+        print(f"{fname} => ")
+        not_found = set(keys_found.keys()) - set(stat.keys())
+        print(f"Total: {len(keys_found):,} | Found: {len(stat):,} | Not Found: {len(not_found):,}")
+        # ---
+        keys_found = dict(sorted(stat.items(), key=lambda item: item[1], reverse=True))
+
+        for k, v in list(keys_found.items())[:10]:
+            print(f"  {k}: {v}")
+        print("...")
+        # ---
+
     # ---
     print("Processing complete.")
 
