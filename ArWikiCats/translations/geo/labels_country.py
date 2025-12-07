@@ -271,7 +271,7 @@ JAPAN_LABELS = _make_japan_labels(JAPAN_REGIONAL_LABELS)
 TURKEY_LABELS = _make_turkey_labels(TURKEY_PROVINCE_LABELS)
 
 
-CITY_LABEL_PATCHES = load_json_mapping("geography/yy2.json")
+CITY_LABEL_PATCHES = load_json_mapping("cities/yy2.json")
 COUNTRY_LABEL_OVERRIDES = load_json_mapping("geography/P17_2_final_ll.json")
 POPULATION_OVERRIDES = load_json_mapping("geography/opop.json")
 raw_region_overrides = load_json_mapping("geography/popopo.json")
