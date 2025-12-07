@@ -61,6 +61,8 @@ NON_GEO_KEYWORDS_EN = {
 
     # People / Roles
     "king", "queen", "prince", "president", "minister", "lord", "sir",
+
+    "airlines",
 }
 
 
