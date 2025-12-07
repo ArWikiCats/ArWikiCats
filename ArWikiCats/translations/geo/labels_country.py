@@ -15,6 +15,7 @@ from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
 from .us_counties import US_COUNTY_TRANSLATIONS
+from ..nats.Nationality import all_country_ar
 
 US_STATES = {
     "alabama": "ألاباما",
@@ -301,6 +302,7 @@ def _build_country_label_index() -> dict[str, str]:
     label_index.update(CITY_TRANSLATIONS_LOWER)                            # 10,788
 
     to_update = {
+        "ALL_COUNTRY_AR": all_country_ar,                                            # 54
         "US_STATES": US_STATES,                                            # 54
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,                # 1778
         "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,                      # 1782
@@ -308,7 +310,7 @@ def _build_country_label_index() -> dict[str, str]:
         "raw_region_overrides": raw_region_overrides,                      # 1782
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,    # 176
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,            # 1424
-        "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
+        # "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
         # "pf_keys2": pf_keys2,                                              # 35730,
         # "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,                  # 2998
         # "JAPAN_LABELS": JAPAN_LABELS,                                      # 162
