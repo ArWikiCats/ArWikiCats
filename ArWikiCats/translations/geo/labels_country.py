@@ -303,9 +303,9 @@ def _build_country_label_index() -> dict[str, str]:
     to_update = {
         "US_STATES": US_STATES,                                            # 54
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,                # 1778
-        "raw_region_overrides": raw_region_overrides,                      # 1782
         "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,                      # 1782
         "MAIN_REGION_TRANSLATIONS": MAIN_REGION_TRANSLATIONS,              # 823
+        "raw_region_overrides": raw_region_overrides,                      # 1782
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,    # 176
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,            # 1424
         "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
@@ -351,7 +351,7 @@ def get_from_new_p17_aliases(text: str, default: str|None = "") -> str:
         or JAPAN_LABELS.get(text)
         or US_COUNTY_TRANSLATIONS.get(text)
         or pf_keys2.get(text)
-        # or CITY_LABEL_PATCHES.get(text)
+        or CITY_LABEL_PATCHES.get(text)
     )
     return result or default
 
