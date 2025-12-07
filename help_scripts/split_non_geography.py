@@ -246,7 +246,7 @@ def main() -> None:
     ]
     for file in files:
         print(f"Processing file: {file}")
-        new_path = f"{file.parent.name}_new"
+        new_path = file.parent.parent / f"{file.parent.name}_new"
         NEW_FILE = new_path / file.name
         NON_GEO_FILE = new_path / f"{file.stem}_non.json"
 
