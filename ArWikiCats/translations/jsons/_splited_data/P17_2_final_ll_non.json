@@ -9,7 +9,6 @@
     "Tv": {
         "anastasia (1997 film)": "آنستازيا (فيلم 1997)",
         "cambrian series 3": "السلسلة 3 (الكامبري)",
-        "channel islands": "جزر القنال الإنجليزي",
         "killing (u.s. tv series)": "القتل (مسلسل)",
         "reality television": "تلفزيون الواقع",
         "star wars:episode ii – attack of clones": "حرب النجوم الجزء الثاني:هجوم المستنسخين",
@@ -57,9 +56,7 @@
         "south african airways": "خطوط جنوب إفريقيا الجوية",
         "sudan airways": "الخطوط الجوية السودانية",
         "tesla, inc.": "تيسلا موتورز",
-        "trans world airlines": "خطوط عبر العالم الجوية",
-        "west bank": "الضفة الغربية",
-        "west bank governorate": "الإدارة الأردنية للضفة الغربية"
+        "trans world airlines": "خطوط عبر العالم الجوية"
     },
     "culture_media": {
         "book of zephaniah": "سفر صفنيا",
@@ -169,9 +166,7 @@
         "jupiter (mythology)": "يوبيتر"
     },
     "organizations": {
-        "abu basma regional council": "قرى أبو بسمة",
         "economic cooperation organization": "منظمة التعاون الاقتصادي",
-        "european union": "الاتحاد الأوروبي",
         "freedom of association": "حرية التنظيم",
         "hadassah women's zionist organization of america": "هداسا",
         "indian space research organisation": "منظمة البحوث الفضائية الهندية",
@@ -179,7 +174,6 @@
         "occupy movement": "حركة احتلوا",
         "royal society of literature": "الجمعية الملكية للأدب",
         "society islands": "جزر المجتمع",
-        "soviet union": "الاتحاد السوفيتي",
         "world boxing association": "رابطة الملاكمة العالمية"
     },
     "others": {
@@ -193,7 +187,6 @@
         "american politics": "السياسة الأمريكية",
         "assembly of experts": "مجلس خبراء القيادة",
         "british law": "القانون البريطاني",
-        "case law": "السوابق القضائية",
         "finns party": "الفنلنديون الحقيقيون",
         "german nationality law": "قانون الجنسية الألمانية",
         "government of sikkim": "حكومة سيكيم",

@@ -272,9 +272,11 @@ def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> str:
 
 def main() -> None:
     files = [
-        jsons_dir / "geography/P17_2_final_ll.json",
-        jsons_dir / "cities/cities_full.json",
-        jsons_dir / "cities/yy2.json",
+        # jsons_dir / "geography/P17_2_final_ll.json",
+        # jsons_dir / "cities/cities_full.json",
+        # jsons_dir / "cities/yy2.json",
+
+        jsons_dir / "geography/popopo.json",
     ]
     status = {}
     for file in files:
