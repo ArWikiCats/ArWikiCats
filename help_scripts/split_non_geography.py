@@ -94,8 +94,11 @@ NON_GEO_KEYWORDS_EN = {
         "sect", "liturgy"
     ],
     "historical_societal": [
-        "clan", "dynasty", "empire", "kingdom", "tribe", "war",
+        "clan", "empire", "kingdom", "tribe", "war",
         "battle", "front"
+    ],
+    "dynasty": [
+        "dynasty"
     ],
     "awards": [
         "award", "medal", "prize", "trophy"

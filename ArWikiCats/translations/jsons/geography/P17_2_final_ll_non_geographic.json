@@ -1,9 +1,43 @@
 {
-    "Awards / Recognition": {
+    "Infrastructure": {
+        "amboseli national park": "حديقة أمبوسيلي الوطنية",
+        "cadel evans great ocean road race": "سباق كاديل ايفانز",
+        "hollywood park, texas": "هوليوود بارك (تكساس)",
+        "manassas park, virginia": "بارك ماناساس",
+        "moscow international business center": "مركز الأعمال الدولي (موسكو)",
+        "tacoma narrows bridge": "جسر تكوما ناروس",
+        "zoo tycoon": "زو تايكون"
+    },
+    "Tv": {
+        "anastasia (1997 film)": "آنستازيا (فيلم 1997)",
+        "cambrian series 3": "السلسلة 3 (الكامبري)",
+        "channel islands": "جزر القنال الإنجليزي",
+        "killing (u.s. tv series)": "القتل (مسلسل)",
+        "reality television": "تلفزيون الواقع",
+        "star wars:episode ii – attack of clones": "حرب النجوم الجزء الثاني:هجوم المستنسخين",
+        "star wars:episode iii – revenge of sith": "حرب النجوم الجزء الثالث:انتقام السيث",
+        "supergirl (tv series)": "سوبرغيرل (مسلسل)"
+    },
+    "arabic": {
+        "bc sakalai": "نادي ساكالي لكرة السلة",
+        "gemmatimonadetes": "جيماتيموناديتيس",
+        "harbour view f.c.": "نادي هاربور فيو",
+        "irem": "إريم (شركة)",
+        "kk krka": "نادي كركا لكرة السلة",
+        "mensa international": "جمعية منسا الدولية",
+        "new radiant s.c.": "نادي نيو راديانت",
+        "planned parenthood": "جمعية تنظيم الأسرة الأمريكية",
+        "rodez af": "نادي روديز",
+        "sciences po": "معهد الدراسات السياسية بباريس",
+        "seiko": "سيكو (شركة يابانية)",
+        "skövde aik": "نادي خوفدة الرياضي العام",
+        "united states conference of catholic bishops": "اتحاد المطارنة الكاثوليك في الولايات المتحدة"
+    },
+    "awards": {
         "google lunar x prize": "جائزة جوجل أكس القمرية",
         "turner prize": "جائزة تيرنر"
     },
-    "Biology / Scientific": {
+    "biology_scientific": {
         "cosmos (plant)": "قسموس",
         "cottus (genus)": "إسقلبين",
         "indicator (genus)": "مرشد العسل",
@@ -16,7 +50,7 @@
         "satyrium (plant)": "ستيريون",
         "testudo (genus)": "سلحفاة (جنس)"
     },
-    "Business": {
+    "business": {
         "ariana afghan airlines": "الخطوط الجوية الأفغانية",
         "artland (company)": "أرتلاند",
         "bristol aeroplane company": "شركة طائرات بريستول",
@@ -30,7 +64,7 @@
         "west bank": "الضفة الغربية",
         "west bank governorate": "الإدارة الأردنية للضفة الغربية"
     },
-    "Culture / Media": {
+    "culture_media": {
         "book of zephaniah": "سفر صفنيا",
         "dawn (newspaper)": "داون (صحيفة)",
         "dream theater": "دريم ثياتر",
@@ -46,24 +80,7 @@
         "vienna state opera": "دار أوبرا فيينا",
         "zaman (newspaper)": "زمان (صحيفة)"
     },
-    "Departments / Institutions / Other": {
-        "atlántico department": "إدارة أتلانتيكو",
-        "australian federal police": "شرطة اتحادية استرالية",
-        "beni department": "إدارة بني (بوليفيا)",
-        "india meteorological department": "دائرة الأرصاد الجوية (الهند)",
-        "israel border police": "شرطة حدود إسرائيل",
-        "israeli military governorate": "الحكم العسكري الإسرائيلي",
-        "nariño department": "إدارة نارينيو",
-        "norte de santander department": "إدارة نورتي دي سانتاندير",
-        "police": "ذا بوليس",
-        "police brutality": "عنف الشرطة",
-        "prison healthcare": "طب إصلاحي",
-        "quindío department": "إدارة كوينديو",
-        "risaralda department": "إدارة ريزارالدا",
-        "sucre department": "إدارة سوكري",
-        "vichada department": "إدارة فيتشادا"
-    },
-    "Education": {
+    "education": {
         "alfaisal university": "جامعة الفيصل",
         "anton de kom university of suriname": "جامعة سورينام أنتون دو كوم",
         "arabian gulf university": "جامعة الخليج العربي",
@@ -113,7 +130,7 @@
         "world islamic sciences and education university": "جامعة العلوم الإسلامية العالمية",
         "zarqa university": "جامعة الزرقاء"
     },
-    "Historical / Societal Concepts": {
+    "historical_societal": {
         "battle of greece": "معركة اليونان",
         "british empire": "الإمبراطورية البريطانية",
         "byzantine empire": "الإمبراطورية البيزنطية",
@@ -184,16 +201,24 @@
         "united kingdom": "المملكة المتحدة",
         "war of polish succession": "حرب الخلافة البولندية"
     },
-    "Infrastructure": {
-        "amboseli national park": "حديقة أمبوسيلي الوطنية",
-        "cadel evans great ocean road race": "سباق كاديل ايفانز",
-        "hollywood park, texas": "هوليوود بارك (تكساس)",
-        "manassas park, virginia": "بارك ماناساس",
-        "moscow international business center": "مركز الأعمال الدولي (موسكو)",
-        "tacoma narrows bridge": "جسر تكوما ناروس",
-        "zoo tycoon": "زو تايكون"
+    "institutions_other": {
+        "atlántico department": "إدارة أتلانتيكو",
+        "australian federal police": "شرطة اتحادية استرالية",
+        "beni department": "إدارة بني (بوليفيا)",
+        "india meteorological department": "دائرة الأرصاد الجوية (الهند)",
+        "israel border police": "شرطة حدود إسرائيل",
+        "israeli military governorate": "الحكم العسكري الإسرائيلي",
+        "nariño department": "إدارة نارينيو",
+        "norte de santander department": "إدارة نورتي دي سانتاندير",
+        "police": "ذا بوليس",
+        "police brutality": "عنف الشرطة",
+        "prison healthcare": "طب إصلاحي",
+        "quindío department": "إدارة كوينديو",
+        "risaralda department": "إدارة ريزارالدا",
+        "sucre department": "إدارة سوكري",
+        "vichada department": "إدارة فيتشادا"
     },
-    "Media / Technology": {
+    "media_technology": {
         "british sign language": "لغة الإشارة البريطانية",
         "free and open-source software": "برمجية حرة مفتوحة المصدر",
         "go (programming language)": "غو (لغة برمجة)",
@@ -201,11 +226,11 @@
         "lak language": "لغة لاك",
         "saterland frisian language": "فريزية سيترلاند"
     },
-    "Mythology / Religion": {
+    "mythology_religion": {
         "inuit religion": "ميثولوجيا الإنويت",
         "jupiter (mythology)": "يوبيتر"
     },
-    "Organizations / Groups": {
+    "organizations": {
         "abu basma regional council": "قرى أبو بسمة",
         "army of republika srpska": "جيش جمهورية صرب البوسنة",
         "economic cooperation organization": "منظمة التعاون الاقتصادي",
@@ -221,7 +246,29 @@
         "soviet union": "الاتحاد السوفيتي",
         "world boxing association": "رابطة الملاكمة العالمية"
     },
-    "People / Roles": {
+    "politics_law": {
+        "american law": "القانون الأمريكي",
+        "american politics": "السياسة الأمريكية",
+        "assembly of experts": "مجلس خبراء القيادة",
+        "british law": "القانون البريطاني",
+        "case law": "السوابق القضائية",
+        "finns party": "الفنلنديون الحقيقيون",
+        "german nationality law": "قانون الجنسية الألمانية",
+        "government of sikkim": "حكومة سيكيم",
+        "international trade law": "القانون التجاري الدولي",
+        "italian nationality law": "قانون الجنسية الإيطالي",
+        "martial law": "قانون عرفي",
+        "nato parliamentary assembly": "الجمعية البرلمانية لحلف الناتو",
+        "russian presidential election, 1991": "الانتخابات الرئاسية الروسية 1991",
+        "russian presidential election, 2012": "انتخابات الرئاسة الروسية 2012",
+        "russian presidential election, 2018": "الانتخابات الرئاسية الروسية 2018",
+        "singaporean nationality law": "قانون الجنسية السنغافورية"
+    },
+    "religious_cultural_buildings": {
+        "church music": "موسيقى مسيحية",
+        "czech and slovak orthodox church": "كنيسة التشيك وسلوفاكيا الأرثوذكسية"
+    },
+    "roles_people": {
         "ainu people": "آينو",
         "alfred, lord tennyson": "ألفريد تنيسون",
         "anne, queen of great britain": "آن (ملكة بريطانيا العظمى)",
@@ -252,29 +299,7 @@
         "wyandot people": "هورون (قبيلة)",
         "zarma people": "شعب زارما"
     },
-    "Politics / Law": {
-        "american law": "القانون الأمريكي",
-        "american politics": "السياسة الأمريكية",
-        "assembly of experts": "مجلس خبراء القيادة",
-        "british law": "القانون البريطاني",
-        "case law": "السوابق القضائية",
-        "finns party": "الفنلنديون الحقيقيون",
-        "german nationality law": "قانون الجنسية الألمانية",
-        "government of sikkim": "حكومة سيكيم",
-        "international trade law": "القانون التجاري الدولي",
-        "italian nationality law": "قانون الجنسية الإيطالي",
-        "martial law": "قانون عرفي",
-        "nato parliamentary assembly": "الجمعية البرلمانية لحلف الناتو",
-        "russian presidential election, 1991": "الانتخابات الرئاسية الروسية 1991",
-        "russian presidential election, 2012": "انتخابات الرئاسة الروسية 2012",
-        "russian presidential election, 2018": "الانتخابات الرئاسية الروسية 2018",
-        "singaporean nationality law": "قانون الجنسية السنغافورية"
-    },
-    "Religious / Cultural Buildings": {
-        "church music": "موسيقى مسيحية",
-        "czech and slovak orthodox church": "كنيسة التشيك وسلوفاكيا الأرثوذكسية"
-    },
-    "Sports": {
+    "sports": {
         "akonangui fc": "نادي أكونانغي",
         "al-fayha fc": "نادي الفيحاء",
         "angola men's handball league": "الدوري الأنغولي لكرة اليد",
@@ -292,31 +317,6 @@
         "team sky": "فريق سكاي",
         "team sunweb (men's team)": "سنويب",
         "uae pro-league": "دوري الخليج العربي"
-    },
-    "Tv": {
-        "anastasia (1997 film)": "آنستازيا (فيلم 1997)",
-        "cambrian series 3": "السلسلة 3 (الكامبري)",
-        "channel islands": "جزر القنال الإنجليزي",
-        "killing (u.s. tv series)": "القتل (مسلسل)",
-        "reality television": "تلفزيون الواقع",
-        "star wars:episode ii – attack of clones": "حرب النجوم الجزء الثاني:هجوم المستنسخين",
-        "star wars:episode iii – revenge of sith": "حرب النجوم الجزء الثالث:انتقام السيث",
-        "supergirl (tv series)": "سوبرغيرل (مسلسل)"
-    },
-    "arabic": {
-        "bc sakalai": "نادي ساكالي لكرة السلة",
-        "gemmatimonadetes": "جيماتيموناديتيس",
-        "harbour view f.c.": "نادي هاربور فيو",
-        "irem": "إريم (شركة)",
-        "kk krka": "نادي كركا لكرة السلة",
-        "mensa international": "جمعية منسا الدولية",
-        "new radiant s.c.": "نادي نيو راديانت",
-        "planned parenthood": "جمعية تنظيم الأسرة الأمريكية",
-        "rodez af": "نادي روديز",
-        "sciences po": "معهد الدراسات السياسية بباريس",
-        "seiko": "سيكو (شركة يابانية)",
-        "skövde aik": "نادي خوفدة الرياضي العام",
-        "united states conference of catholic bishops": "اتحاد المطارنة الكاثوليك في الولايات المتحدة"
     },
     "taxons": {
         "actinomycineae": "شعيانية",
