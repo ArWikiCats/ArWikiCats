@@ -14,14 +14,14 @@ main_data = {
     "Olympic gold medalists for the United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
-    "democratic-republic-of-the-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
-    "democratic-republic-of-the-congo summer olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الصيفية",
+    "democratic-republic-of-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
+    "democratic-republic-of-congo summer olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الصيفية",
     "west india olympics squad": "تشكيلات الهند الغربية في الألعاب الأولمبية",
     "victoria-australia fifa futsal world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم لكرة الصالات",
     "victoria-australia fifa world cup squad": "تشكيلات فيكتوريا (أستراليا) في كأس العالم",
     "yemen afc asian cup squad": "تشكيلات اليمن في كأس آسيا",
     "yemen afc women's asian cup squad": "تشكيلات اليمن في كأس آسيا للسيدات",
-    "democratic-republic-of-the-congo winter olympics": "جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
+    "democratic-republic-of-congo winter olympics": "جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
     "west india summer olympics": "الهند الغربية في الألعاب الأولمبية الصيفية",
     "tunisia presidents": "رؤساء تونس",
     "tunisia government": "حكومة تونس",
@@ -47,9 +47,9 @@ main_data = {
     "west india presidents": "رؤساء الهند الغربية",
     "west india responses": "استجابات الهند الغربية",
 
-    "democratic-republic-of-the-congo territorial judges": "قضاة أقاليم جمهورية الكونغو الديمقراطية",
-    "democratic-republic-of-the-congo territorial officials": "مسؤولو أقاليم جمهورية الكونغو الديمقراطية",
-    "democratic-republic-of-the-congo war": "حرب جمهورية الكونغو الديمقراطية",
+    "democratic-republic-of-congo territorial judges": "قضاة أقاليم جمهورية الكونغو الديمقراطية",
+    "democratic-republic-of-congo territorial officials": "مسؤولو أقاليم جمهورية الكونغو الديمقراطية",
+    "democratic-republic-of-congo war": "حرب جمهورية الكونغو الديمقراطية",
 
     "australia political leader": "قادة أستراليا السياسيون",
     "japan political leader": "قادة اليابان السياسيون",
@@ -88,4 +88,4 @@ def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

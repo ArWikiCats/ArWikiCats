@@ -147,4 +147,4 @@ def test_peoples(name: str, data: dict[str, str], callback) -> None:
     dump_diff(diff_result, name)
     # dump_diff(expected, f"{name}_expected")
 
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

@@ -18,7 +18,7 @@ Mens_suffix: dict[str, str] = {
 formatted_data_jobs = {
     "expatriate {en_job}": "{ar_job} مغتربون",
     "{en_job}": "{ar_job}",
-    "{en_job} people": "{ar_job}",
+    "{en_job} people": "أعلام {ar_job}",
     "male {en_job}": "{ar_job} ذكور",
     "expatriate male {en_job}": "{ar_job} مغتربون ذكور",
 }
@@ -37,7 +37,7 @@ for x, v in Mens_suffix.items():
 formatted_data.update({
     "{en_nat}-american": "{ar_nat} أمريكيون",
     "{en_nat}": "{ar_nat}",
-    "{en_nat} people": "{ar_nat}",
+    "{en_nat} people": "أعلام {ar_nat}",
     "{en_nat} eugenicists": "علماء {ar_nat} متخصصون في تحسين النسل",
     "{en_nat} politicians who committed suicide": "سياسيون {ar_nat} أقدموا على الانتحار",
     "{en_nat} contemporary artists": "فنانون {ar_nat} معاصرون",

@@ -78,7 +78,7 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
     expected, diff_result=one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 @pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=[x for x in all_test_data])
@@ -151,4 +151,4 @@ def test_us_counties_empty() -> None:
     expected, diff_result=one_dump_test(empty_data, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_us_counties_empty")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(empty_data):,}"

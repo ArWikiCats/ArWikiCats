@@ -55,7 +55,7 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
         dump_diff(diff_result, name)
         dump_diff(expected, f"{name}_expected")
 
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 @pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=[x for x in all_test_data])

@@ -45,7 +45,7 @@ data_1 = {
     "cuba national football team navigational boxes": "صناديق تصفح منتخب كوبا لكرة القدم",
     "czech republic national futsal team navigational boxes": "صناديق تصفح منتخب التشيك لكرة الصالات",
     "czech republic national women's football team managers": "مدربو منتخب التشيك لكرة القدم للسيدات",
-    "democratic-republic-of-the-congo national football team matches": "مباريات منتخب جمهورية الكونغو الديمقراطية لكرة القدم",
+    "democratic-republic-of-congo national football team matches": "مباريات منتخب جمهورية الكونغو الديمقراطية لكرة القدم",
     "denmark national field hockey team navigational boxes": "صناديق تصفح منتخب الدنمارك لهوكي الميدان",
     "denmark national men's ice hockey team": "منتخب الدنمارك لهوكي الجليد للرجال",
     "ecuador national football team results": "نتائج منتخب الإكوادور لكرة القدم",
@@ -177,4 +177,4 @@ def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback, do_strip=False)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

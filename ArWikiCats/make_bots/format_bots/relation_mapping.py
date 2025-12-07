@@ -4,9 +4,9 @@
 """
 
 category_relation_mapping = {
-    "for-the-deaf": "للصم",
-    "for-the-deafblind": "للصم وللمكفوفون",
-    "for-the-blind": "للمكفوفون",
+    "for-deaf": "للصم",
+    "for-deafblind": "للصم وللمكفوفون",
+    "for-blind": "للمكفوفون",
     "manufactured-by": "صنعتها",
     "manufactured by": "صنعتها",
     "manufactured in": "صنعت في",

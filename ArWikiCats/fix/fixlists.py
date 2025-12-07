@@ -7,6 +7,7 @@ from __future__ import annotations
 from typing import Dict, Set
 
 REPLACEMENTS: Dict[str, str] = {
+    "بواسطة البلد": "حسب البلد",
     "المكان المأهول واحتلال": "المكان المأهول والمهنة",
     "حقوق المثليين": "معاملة المثليين",
     "منظمات في أطفال": "منظمات أطفال",

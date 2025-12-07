@@ -555,7 +555,7 @@ data_empty_result = {
     "Category:Song articles with infoboxes with non-standard extra track listings": "x",
     "Category:Songs written by Marla Cannon-Goodman": "x",
     "Category:South America territory (non-sovereign) templates": "x",
-    "Category:Sportspeople from Thonon-les-Bains": "x",
+    "Category:sports-people from Thonon-les-Bains": "x",
     "Category:Sri Lankan non-commissioned personnel": "x",
     "Category:SS non-commissioned officers": "x",
     "Category:Swedish non-commissioned personnel": "x",
@@ -745,4 +745,4 @@ def test_non_dump(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

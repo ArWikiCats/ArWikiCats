@@ -14,8 +14,8 @@ class Tests:
     # =========================================================
 
     def test_mens_compound_nationality(self) -> None:
-        """Test compound nationality 'democratic republic of the congo' with standard job"""
-        result = jobs_with_nat_prefix("", "democratic republic of the congo", "episcopalians")
+        """Test compound nationality 'democratic republic of congo' with standard job"""
+        result = jobs_with_nat_prefix("", "democratic republic of congo", "episcopalians")
         assert result == "كونغويون ديمقراطيون أسقفيون"
 
     def test_womens_compound_nationality(self) -> None:

@@ -8,7 +8,7 @@ from ArWikiCats.utils.match_relation_word import get_relation_word, get_relation
 # ===============================================
 
 data_test2 = [
-    ("Schools for-the-deaf in New York (state)", "for-the-deaf", "للصم"),
+    ("Schools for-deaf in New York (state)", "for-deaf", "للصم"),
     ("Cabinets involving the Liberal Party (Norway)", "involving the", "تشمل"),
     ("Television plays directed by William Sterling (director)", "directed by", "أخرجها"),
     ("Television plays filmed in Brisbane", "filmed in", "صورت في"),
@@ -113,7 +113,7 @@ def test_no_relation(category:str) -> None:
 @pytest.mark.parametrize(
     "category, wrong_rel",
     [
-        ("Schools forthedeaf USA", "for-the-deaf"),
+        ("Schools forthedeaf USA", "for-deaf"),
         ("Bridges builtin London", "built in"),
         ("Items producedby students", "produced by"),
     ],

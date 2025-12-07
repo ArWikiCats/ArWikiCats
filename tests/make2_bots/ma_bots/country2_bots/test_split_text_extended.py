@@ -13,14 +13,14 @@ data_of_dash = {
     "ministers-of foreign affairs of": ("ministers of", "foreign affairs of"),
     "ambassadors of federated states-of micronesia": ("ambassadors of federated states of", "micronesia"),
     "ambassadors of federated states of micronesia": ("", ""),
-    "tourism in the republic-of ireland": ("tourism in the republic of", "ireland"),
+    "tourism in republic-of ireland": ("tourism in republic of", "ireland"),
 }
 
 
 data_of = {
     "ofyearsof of 16th ofcentury": ("ofyearsof of", "16th ofcentury"),
     "ambassadors of federated states of micronesia": ("ambassadors of", "federated states of micronesia"),
-    "tourism in the republic of ireland": ("tourism in the republic of", "ireland"),
+    "tourism in republic of ireland": ("tourism in republic of", "ireland"),
     "11th government of turkey": ("11th government of", "turkey"),
     "ambassadors of afghanistan": ("ambassadors of", "afghanistan"),
     "ambassadors of austria": ("ambassadors of", "austria"),
@@ -320,8 +320,8 @@ data_in = {
     "sport in the ottoman empire": ("sport", "the ottoman empire"),
     "sports governing bodies in north america": ("sports governing bodies", "north america"),
     "sports venues in australia": ("sports venues", "australia"),
-    "sprtspeople in ireland": ("sprtspeople", "ireland"),
-    "sprtspeople in västmanland county": ("sprtspeople", "västmanland county"),
+    "sports-people in ireland": ("sports-people", "ireland"),
+    "sports-people in västmanland county": ("sports-people", "västmanland county"),
     "synagogues in switzerland": ("synagogues", "switzerland"),
     "television plays filmed in brisbane": ("television plays filmed", "brisbane"),
     "the iaaf world youth championships in athletics": ("the iaaf world youth championships", "athletics"),

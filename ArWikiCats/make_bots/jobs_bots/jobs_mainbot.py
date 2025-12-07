@@ -321,7 +321,7 @@ def _handle_male_label(country_prefix, males, normalized_suffix, find_nats) -> s
 
     # Special case: generic "people" category
     if normalized_suffix == CATEGORY_PEOPLE:
-        return male_nationality
+        return f"أعلام {male_nationality}"
 
     # Get occupation label and build complete label
     male_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=True)

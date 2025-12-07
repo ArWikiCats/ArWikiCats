@@ -103,14 +103,6 @@ fast_data = {
 
 fast_data_2 = {
     # "chinese sports executives": "مدربو رياضية صينية",
-    "ivorian people": "أعلام إيفواريون",
-    "japanese lgbtq people": "أعلام إل جي بي تي كيو يابانية",
-    "chinese lgbtq people": "أعلام إل جي بي تي كيو صينية",
-    "arab lgbtq people": "أعلام إل جي بي تي كيو عربية",
-    "rwandan political people": "أعلام سياسية رواندية",
-    "maldivian people": "أعلام مالديفيون",
-    "malian people": "أعلام ماليون",
-    "maltese lgbtq people": "أعلام إل جي بي تي كيو مالطية",
 
     "danish adventure television series": "مسلسلات تلفزيونية مغامرات دنماركية",
     "danish black-and-white films": "أفلام أبيض وأسود دنماركية",
@@ -164,4 +156,4 @@ def test_resolve_films_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_films)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

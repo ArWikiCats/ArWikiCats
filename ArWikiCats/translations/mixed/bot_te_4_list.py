@@ -374,7 +374,7 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "societies": "جمعيات {}",
     "songs": "أغاني {}",
     "sorts events": "أحداث رياضية {}",
-    "sorts-events": "أحداث رياضية {}",
+    "sports-events": "أحداث رياضية {}",
     "soundtracks": "موسيقى تصويرية {}",
     "sport": "رياضة {}",
     "sports competitions": "منافسات رياضية {}",

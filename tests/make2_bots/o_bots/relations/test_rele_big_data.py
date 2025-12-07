@@ -554,8 +554,8 @@ big_data2 = {
     "Georgia (country)–Ireland sports relations": "x",
     "Germany–Monaco relations": "x",
     "Greenland–European Union relations": "x",
-    "Grenada–Saint Vincent and the Grenadines border": "x",
-    "Grenada–Saint Vincent and the Grenadines relations": "x",
+    "Grenada–saint vincent and grenadines border": "x",
+    "Grenada–saint vincent and grenadines relations": "x",
     "Guyana–European Union relations": "x",
     "Habsburg monarchy–Polish–Lithuanian Commonwealth relations": "x",
     "Holy See–Iraq relations": "x",
@@ -630,7 +630,7 @@ big_data2 = {
     "Monaco–Netherlands relations": "x",
     "Monaco–Poland relations": "x",
     "Monaco–Qatar relations": "x",
-    "Monaco–Republic of the Congo relations": "x",
+    "Monaco–republic of congo relations": "x",
     "Monaco–Syria relations": "x",
     "Monaco–Togo relations": "x",
     "Monaco–Yugoslavia relations": "x",
@@ -654,7 +654,7 @@ big_data2 = {
     "Points for exit and entry of nationals from third countries along the India–Nepal border": "x",
     "Portugal–Saint Kitts and Nevis relations": "x",
     "Qatar–European Union relations": "x",
-    "Republic of the Congo–Holy See relations": "x",
+    "republic of congo–Holy See relations": "x",
     "Russia–Serbia and Montenegro relations": "x",
     "Saint Kitts and Nevis–Romania relations": "x",
     "Saint Kitts and Nevis–Spain relations": "x",
@@ -701,4 +701,4 @@ def test_all_dump(name: str, data: str) -> None:
     expected, diff_result = one_dump_test(data, work_relations)
 
     dump_diff(diff_result, f"test_work_relations_big_data_{name}")
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

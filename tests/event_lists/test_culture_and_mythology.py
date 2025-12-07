@@ -4,9 +4,9 @@ import pytest
 from ArWikiCats import resolve_arabic_category_label
 
 data = {
-    "Category:Berlin University of the Arts": "تصنيف:جامعة برلين للفنون",
+    "Category:Berlin University of Arts": "تصنيف:جامعة برلين للفنون",
     "Category:Celtic mythology in popular culture": "تصنيف:أساطير كلتية في الثقافة الشعبية",
-    "Category:Ethnic groups of the Dominican Republic": "تصنيف:مجموعات عرقية في جمهورية الدومينيكان",
+    "Category:Ethnic groups of Dominican Republic": "تصنيف:مجموعات عرقية في جمهورية الدومينيكان",
     "Category:Russian folklore characters": "تصنيف:شخصيات فلكلورية روسية",
     "Category:Scottish popular culture": "تصنيف:ثقافة شعبية إسكتلندية",
     "Category:Scottish traditions": "تصنيف:تراث إسكتلندي",

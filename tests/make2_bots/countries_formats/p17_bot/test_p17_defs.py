@@ -20,7 +20,7 @@ test_data_with_pop_format = {
     "politics of": "سياسة {}",
     "prehistory of": "{} ما قبل التاريخ",
     "umayyad governors of": "ولاة {} الأمويون",
-    "university of the arts": "جامعة {} للفنون",
+    "university of arts": "جامعة {} للفنون",
     "university of": "جامعة {}",
 }
 
@@ -55,4 +55,4 @@ def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

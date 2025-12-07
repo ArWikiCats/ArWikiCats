@@ -61,7 +61,7 @@ def test_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, label_for_startwith_year_or_typeo)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 @pytest.mark.parametrize("category, expected", examples.items(), ids=list(examples.keys()))

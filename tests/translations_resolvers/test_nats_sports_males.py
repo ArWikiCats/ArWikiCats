@@ -10,6 +10,12 @@ from ArWikiCats.translations_resolvers.nats_sports_males import resolve_federati
 
 
 data5 = {
+    "democratic republic of congo dragon boat federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
+    "democratic-republic-of-congo dragon boat racing federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
+    "republic of congo synchronised swimming racing federation": "الاتحاد الكونغوي لسباق السباحة المتزامنة",
+    "republic of congo sepak takraw racing federation": "الاتحاد الكونغوي لسباق سيباك تاكرو",
+    "republic-of-congo shooting federation": "الاتحاد الكونغوي للرماية",
+
     "polish sailing (sport) racing federation": "الاتحاد البولندي لسباق رياضة الإبحار",
     "abkhaz acrobatic gymnastics federation": "الاتحاد الأبخازي الجمباز الاكروباتيكي",
     "abkhaz windsurfing racing federation": "الاتحاد الأبخازي لسباق ركوب القوارب الشراعية",
@@ -108,8 +114,6 @@ data5 = {
     "czech discus throw racing federation": "الاتحاد التشيكي لسباق رمي القرص",
     "czechoslovak diving federation": "الاتحاد التشيكوسلوفاكي للغطس",
     "danish diving racing federation": "الاتحاد الدنماركي لسباق الغطس",
-    "democratic republic of the congo dragon boat federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
-    "democratic-republic-of-the-congo dragon boat racing federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
     "djiboutian draughts federation": "الاتحاد الجيبوتي للضامة",
     "dominican draughts racing federation": "الاتحاد الدومينيكي لسباق ضامة",
     "dominican republic dressage federation": "الاتحاد الدومينيكاني لترويض الخيول",
@@ -256,8 +260,6 @@ data5 = {
     "prussian sailing racing federation": "الاتحاد البروسي لسباق الإبحار",
     "puerto rican sambo racing federation": "الاتحاد البورتوريكي لسباق سامبو",
     "qatari sepak takraw federation": "الاتحاد القطري للسيباك تاكرو",
-    "republic of the congo sepak takraw racing federation": "الاتحاد الكونغوي لسباق سيباك تاكرو",
-    "republic-of-the-congo shooting federation": "الاتحاد الكونغوي للرماية",
     "rhodesian shooting racing federation": "الاتحاد الرودوسي لسباق الرماية",
     "roman shooting sport racing federation": "الاتحاد الروماني لسباق الرماية",
     "romanian shooting sports federation": "الاتحاد الروماني للرماية",
@@ -308,8 +310,7 @@ data5 = {
     "tajikistani surfing federation": "الاتحاد الطاجيكي للركمجة",
     "tanzanian swimming federation": "الاتحاد التنزاني للسباحة",
     "thai synchronised swimming federation": "الاتحاد التايلندي للسباحة المتزامنة",
-    "the republic of the congo synchronised swimming racing federation": "الاتحاد الكونغوي لسباق السباحة المتزامنة",
-    "the republic-of ireland synchronized swimming federation": "الاتحاد الأيرلندي للسباحة المتزامنة",
+    "republic-of ireland synchronized swimming federation": "الاتحاد الأيرلندي للسباحة المتزامنة",
     "timorese synchronized swimming racing federation": "الاتحاد التيموري لسباق السباحة المتزامنة",
     "togolese table tennis federation": "الاتحاد التوغوي لكرة الطاولة",
     "tongan table tennis racing federation": "الاتحاد التونغاني لسباق كرة الطاولة",
@@ -375,4 +376,4 @@ def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback, do_strip=True)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

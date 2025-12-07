@@ -357,7 +357,7 @@
         "males": "أمريكيون",
         "female": "أمريكية",
         "females": "أمريكيات",
-        "en": "the united states",
+        "en": "united states",
         "ar": "الولايات المتحدة"
     },
     "andorran": {
@@ -661,7 +661,7 @@
         "males": "بريطانيون",
         "female": "بريطانية",
         "females": "بريطانيات",
-        "en": "the united kingdom",
+        "en": "united kingdom",
         "ar": "المملكة المتحدة"
     },
     "bulgarian": {
@@ -899,20 +899,20 @@
         "en": "congo",
         "ar": "الكونغو"
     },
-    "democratic republic of the congo": {
+    "democratic republic of congo": {
         "male": "كونغوي ديمقراطي",
         "males": "كونغويون ديمقراطيون",
         "female": "كونغوية ديمقراطية",
         "females": "كونغويات ديمقراطيات",
-        "en": "democratic-republic-of-the-congo",
+        "en": "democratic-republic-of-congo",
         "ar": "جمهورية الكونغو الديمقراطية"
     },
-    "the republic of the congo": {
+    "republic of congo": {
         "male": "كونغوي",
         "males": "كونغويون",
         "female": "كونغوية",
         "females": "كونغويات",
-        "en": "the-republic-of-the-congo",
+        "en": "the-republic-of-congo",
         "ar": "جمهورية الكونغو"
     },
     "djiboutian": {
@@ -936,7 +936,7 @@
         "males": "دومينيكانيون",
         "female": "دومينيكانية",
         "females": "دومينيكانيات",
-        "en": "the dominican republic",
+        "en": "dominican republic",
         "ar": "جمهورية الدومينيكان"
     },
     "dutch": {
@@ -976,7 +976,7 @@
         "males": "إماراتيون",
         "female": "إماراتية",
         "females": "إماراتيات",
-        "en": "the united arab emirates",
+        "en": "united arab emirates",
         "ar": "الإمارات العربية المتحدة"
     },
     "english": {
@@ -1048,7 +1048,7 @@
         "males": "فلبينيون",
         "female": "فلبينية",
         "females": "فلبينيات",
-        "en": "the philippines",
+        "en": "philippines",
         "ar": "الفلبين"
     },
     "finnish": {
@@ -1080,7 +1080,7 @@
         "males": "غامبيون",
         "female": "غامبية",
         "females": "غامبيات",
-        "en": "the gambia",
+        "en": "gambia",
         "ar": "غامبيا"
     },
     "georgian": {
@@ -1128,7 +1128,7 @@
         "males": "ساسانيون",
         "female": "ساسانية",
         "females": "ساسانيات",
-        "en": "the sasanian empire",
+        "en": "sasanian empire",
         "ar": "الإمبراطورية الساسانية"
     },
     "parthian": {
@@ -1304,7 +1304,7 @@
         "males": "أيرلنديون",
         "female": "أيرلندية",
         "females": "أيرلنديات",
-        "en": "the republic of ireland",
+        "en": "republic of ireland",
         "ar": "جمهورية أيرلندا"
     },
     "israeli11111": {
@@ -1898,7 +1898,7 @@
         "males": "سوفييت",
         "female": "سوفييتة",
         "females": "سوفييتيات",
-        "en": "the soviet union",
+        "en": "soviet union",
         "ar": "الاتحاد السوفيتي"
     },
     "soviet": {
@@ -1906,7 +1906,7 @@
         "males": "سوفيت",
         "female": "سوفيتية",
         "females": "سوفيتيات",
-        "en": "the soviet union",
+        "en": "soviet union",
         "ar": "الاتحاد السوفيتي"
     },
     "russian": {

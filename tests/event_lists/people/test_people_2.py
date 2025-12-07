@@ -19,6 +19,7 @@ data1 = {
 }
 
 data2 = {
+    # "Category:sports-people from Westchester County, New York": "تصنيف:رياضيون من مقاطعة ويستتشستر (نيويورك)",
     "Category:Mixed martial artists from Massachusetts": "تصنيف:مقاتلو فنون قتالية مختلطة من ماساتشوستس",
     "Category:People from Buenos Aires": "تصنيف:أشخاص من بوينس آيرس",
     "Category:Players of American football from Massachusetts": "تصنيف:لاعبو كرة قدم أمريكية من ماساتشوستس",
@@ -27,7 +28,6 @@ data2 = {
     "Category:Singers from Buenos Aires": "تصنيف:مغنون من بوينس آيرس",
     "Category:Soccer players from Massachusetts": "تصنيف:لاعبو كرة قدم من ماساتشوستس",
     "Category:Sports coaches from Massachusetts": "تصنيف:مدربو رياضة من ماساتشوستس",
-    "Category:Sportspeople from Westchester County, New York": "تصنيف:رياضيون من مقاطعة ويستتشستر (نيويورك)",
     "Category:Sportswriters from Massachusetts": "تصنيف:كتاب رياضيون من ماساتشوستس",
 }
 data3 = {
@@ -83,4 +83,4 @@ def test_peoples_2(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

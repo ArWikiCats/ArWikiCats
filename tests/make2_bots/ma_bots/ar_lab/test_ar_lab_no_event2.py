@@ -21,36 +21,36 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "january 1450 sorts-events in north america",
+        "category": "january 1450 sports-events in north america",
         "output": "أحداث يناير 1450 الرياضية في أمريكا الشمالية",
     },
-    {"separator": " in ", "category": "july 1450 sorts-events in china", "output": "أحداث يوليو 1450 الرياضية في الصين"},
+    {"separator": " in ", "category": "july 1450 sports-events in china", "output": "أحداث يوليو 1450 الرياضية في الصين"},
     {"separator": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
     {"separator": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
     {"separator": " in ", "category": "20th century synagogues in australia", "output": "كنس القرن 20 في أستراليا"},
     {
         "separator": " in ",
-        "category": "november 1450 sorts-events in germany",
+        "category": "november 1450 sports-events in germany",
         "output": "أحداث نوفمبر 1450 الرياضية في ألمانيا",
     },
     {"separator": " in ", "category": "1450s establishments in england", "output": "تأسيسات عقد 1450 في إنجلترا"},
     {"separator": " in ", "category": "may 1450 crimes in asia", "output": "جرائم مايو 1450 في آسيا"},
     {
         "separator": " in ",
-        "category": "november 1450 sorts-events in the united states",
+        "category": "november 1450 sports-events in the united states",
         "output": "أحداث نوفمبر 1450 الرياضية في الولايات المتحدة",
     },
     {
         "separator": " in ",
-        "category": "june 1450 sorts-events in the united states",
+        "category": "june 1450 sports-events in the united states",
         "output": "أحداث يونيو 1450 الرياضية في الولايات المتحدة",
     },
     {
         "separator": " in ",
-        "category": "august 1450 sorts-events in the united states",
+        "category": "august 1450 sports-events in the united states",
         "output": "أحداث أغسطس 1450 الرياضية في الولايات المتحدة",
     },
-    {"separator": " in ", "category": "march 1450 sorts-events in europe", "output": "أحداث مارس 1450 الرياضية في أوروبا"},
+    {"separator": " in ", "category": "march 1450 sports-events in europe", "output": "أحداث مارس 1450 الرياضية في أوروبا"},
     {"separator": " in ", "category": "1450s establishments in asia", "output": "تأسيسات عقد 1450 في آسيا"},
     {"separator": " in ", "category": "september 1450 crimes in europe", "output": "جرائم سبتمبر 1450 في أوروبا"},
     {
@@ -83,7 +83,7 @@ data_list = [
     },
     {"separator": " in ", "category": "1450s disestablishments in oceania", "output": "انحلالات عقد 1450 في أوقيانوسيا"},
     {"separator": " in ", "category": "21st century executions in kentucky", "output": "إعدامات في القرن 21 في كنتاكي"},
-    {"separator": " in ", "category": "july 1450 sorts-events in austria", "output": "أحداث يوليو 1450 الرياضية في النمسا"},
+    {"separator": " in ", "category": "july 1450 sports-events in austria", "output": "أحداث يوليو 1450 الرياضية في النمسا"},
     {
         "separator": " by ",
         "category": "15th century swiss people by occupation",
@@ -93,7 +93,7 @@ data_list = [
     {"separator": " in ", "category": "1450s disestablishments in minnesota", "output": "انحلالات عقد 1450 في منيسوتا"},
     {
         "separator": " in ",
-        "category": "april 1450 sorts-events in north america",
+        "category": "april 1450 sports-events in north america",
         "output": "أحداث أبريل 1450 الرياضية في أمريكا الشمالية",
     },
     {"separator": " in ", "category": "21st century disestablishments in korea", "output": "انحلالات القرن 21 في كوريا"},
@@ -104,13 +104,13 @@ data_list = [
     },
     {"separator": " in ", "category": "1450s establishments in shanghai", "output": "تأسيسات عقد 1450 في شانغهاي"},
     {"separator": " in ", "category": "1450s crimes in germany", "output": "جرائم عقد 1450 في ألمانيا"},
-    {"separator": " in ", "category": "april 1450 sorts-events in europe", "output": "أحداث أبريل 1450 الرياضية في أوروبا"},
+    {"separator": " in ", "category": "april 1450 sports-events in europe", "output": "أحداث أبريل 1450 الرياضية في أوروبا"},
     {"separator": " in ", "category": "1450s establishments in grenada", "output": "تأسيسات عقد 1450 في غرينادا"},
     {"separator": " in ", "category": "15th century establishments in poland", "output": "تأسيسات القرن 15 في بولندا"},
     {"separator": " in ", "category": "1450s murders in peru", "output": "جرائم قتل عقد 1450 في بيرو"},
     {
         "separator": " in ",
-        "category": "october 1450 sorts-events in africa",
+        "category": "october 1450 sports-events in africa",
         "output": "أحداث أكتوبر 1450 الرياضية في إفريقيا",
     },
     {
@@ -124,7 +124,7 @@ data_list = [
         "output": "تأسيسات عقد 1450 في الإمبراطورية الرومانية المقدسة",
     },
     {"separator": " in ", "category": "1450s establishments in taiwan", "output": "تأسيسات عقد 1450 في تايوان"},
-    {"separator": " in ", "category": "july 1450 sorts-events in africa", "output": "أحداث يوليو 1450 الرياضية في إفريقيا"},
+    {"separator": " in ", "category": "july 1450 sports-events in africa", "output": "أحداث يوليو 1450 الرياضية في إفريقيا"},
     {"separator": " in ", "category": "1450s establishments in malta", "output": "تأسيسات عقد 1450 في مالطا"},
     {"separator": " in ", "category": "1450s establishments in indonesia", "output": "تأسيسات عقد 1450 في إندونيسيا"},
     {
@@ -134,13 +134,13 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "september 1450 sorts-events in new zealand",
+        "category": "september 1450 sports-events in new zealand",
         "output": "أحداث سبتمبر 1450 الرياضية في نيوزيلندا",
     },
     {"separator": " in ", "category": "1450s disestablishments in hawaii", "output": "انحلالات عقد 1450 في هاواي"},
     {
         "separator": " in ",
-        "category": "january 1450 sorts-events in austria",
+        "category": "january 1450 sports-events in austria",
         "output": "أحداث يناير 1450 الرياضية في النمسا",
     },
     {
@@ -150,7 +150,7 @@ data_list = [
     },
     {"separator": " by ", "category": "5th century bc establishments by country", "output": "تأسيسات القرن 5 ق م حسب البلد"},
     {"separator": " in ", "category": "1st millennium establishments in morocco", "output": "تأسيسات الألفية 1 في المغرب"},
-    {"separator": " in ", "category": "may 1450 sorts-events in europe", "output": "أحداث مايو 1450 الرياضية في أوروبا"},
+    {"separator": " in ", "category": "may 1450 sports-events in europe", "output": "أحداث مايو 1450 الرياضية في أوروبا"},
     {
         "separator": " in ",
         "category": "17th century roman catholic archbishops in serbia",
@@ -159,7 +159,7 @@ data_list = [
     {"separator": " in ", "category": "1450s establishments in greenland", "output": "تأسيسات عقد 1450 في جرينلاند"},
     {
         "separator": " in ",
-        "category": "may 1450 sorts-events in switzerland",
+        "category": "may 1450 sports-events in switzerland",
         "output": "أحداث مايو 1450 الرياضية في سويسرا",
     },
     {"separator": " in ", "category": "april 1450 crimes in south america", "output": "جرائم أبريل 1450 في أمريكا الجنوبية"},
@@ -178,20 +178,20 @@ data_list = [
         "category": "1450s architecture in the united states",
         "output": "عمارة عقد 1450 في الولايات المتحدة",
     },
-    {"separator": " in ", "category": "june 1450 sorts-events in canada", "output": "أحداث يونيو 1450 الرياضية في كندا"},
+    {"separator": " in ", "category": "june 1450 sports-events in canada", "output": "أحداث يونيو 1450 الرياضية في كندا"},
     {
         "separator": " in ",
-        "category": "january 1450 sorts-events in germany",
+        "category": "january 1450 sports-events in germany",
         "output": "أحداث يناير 1450 الرياضية في ألمانيا",
     },
     {
         "separator": " in ",
-        "category": "april 1450 sorts-events in the united kingdom",
+        "category": "april 1450 sports-events in the united kingdom",
         "output": "أحداث أبريل 1450 الرياضية في المملكة المتحدة",
     },
     {
         "separator": " in ",
-        "category": "august 1450 sorts-events in north america",
+        "category": "august 1450 sports-events in north america",
         "output": "أحداث أغسطس 1450 الرياضية في أمريكا الشمالية",
     },
     {"separator": " in ", "category": "1450s disestablishments in canada", "output": "انحلالات عقد 1450 في كندا"},
@@ -213,7 +213,7 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "1450s establishments in saint vincent and the grenadines",
+        "category": "1450s establishments in saint vincent and grenadines",
         "output": "تأسيسات عقد 1450 في سانت فينسنت والغرينادين",
     },
     {
@@ -234,16 +234,16 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "september 1450 sorts-events in north america",
+        "category": "september 1450 sports-events in north america",
         "output": "أحداث سبتمبر 1450 الرياضية في أمريكا الشمالية",
     },
     {
         "separator": " in ",
-        "category": "march 1450 sorts-events in oceania",
+        "category": "march 1450 sports-events in oceania",
         "output": "أحداث مارس 1450 الرياضية في أوقيانوسيا",
     },
     {"separator": " in ", "category": "21st century fires in south america", "output": "حرائق القرن 21 في أمريكا الجنوبية"},
-    {"separator": " in ", "category": "august 1450 sorts-events in spain", "output": "أحداث أغسطس 1450 الرياضية في إسبانيا"},
+    {"separator": " in ", "category": "august 1450 sports-events in spain", "output": "أحداث أغسطس 1450 الرياضية في إسبانيا"},
     {
         "separator": " in ",
         "category": "16th century monarchs in the middle east",
@@ -259,7 +259,7 @@ data_list = [
     {"separator": " in ", "category": "2nd millennium disestablishments in hawaii", "output": "انحلالات الألفية 2 في هاواي"},
     {
         "separator": " in ",
-        "category": "october 1450 sorts-events in poland",
+        "category": "october 1450 sports-events in poland",
         "output": "أحداث أكتوبر 1450 الرياضية في بولندا",
     },
     {"separator": " in ", "category": "1450s murders in honduras", "output": "جرائم قتل عقد 1450 في هندوراس"},
@@ -294,7 +294,7 @@ data_list = [
     {"separator": " in ", "category": "1450s disestablishments in tunisia", "output": "انحلالات عقد 1450 في تونس"},
     {
         "separator": " in ",
-        "category": "march 1450 sorts-events in the united kingdom",
+        "category": "march 1450 sports-events in the united kingdom",
         "output": "أحداث مارس 1450 الرياضية في المملكة المتحدة",
     },
     {
@@ -304,7 +304,7 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "june 1450 sorts-events in south america",
+        "category": "june 1450 sports-events in south america",
         "output": "أحداث يونيو 1450 الرياضية في أمريكا الجنوبية",
     },
     {
@@ -315,17 +315,17 @@ data_list = [
     {"separator": " in ", "category": "1450s establishments in the caribbean", "output": "تأسيسات عقد 1450 في الكاريبي"},
     {
         "separator": " in ",
-        "category": "april 1450 sorts-events in south america",
+        "category": "april 1450 sports-events in south america",
         "output": "أحداث أبريل 1450 الرياضية في أمريكا الجنوبية",
     },
     {
         "separator": " in ",
-        "category": "october 1450 sorts-events in france",
+        "category": "october 1450 sports-events in france",
         "output": "أحداث أكتوبر 1450 الرياضية في فرنسا",
     },
     {
         "separator": " in ",
-        "category": "september 1450 sorts-events in japan",
+        "category": "september 1450 sports-events in japan",
         "output": "أحداث سبتمبر 1450 الرياضية في اليابان",
     },
     {
@@ -334,7 +334,7 @@ data_list = [
         "output": "مغنون وكتاب أغاني في القرن 21 من أيرلندا الشمالية",
     },
     {"separator": " in ", "category": "1450s establishments in uttar pradesh", "output": "تأسيسات عقد 1450 في أتر برديش"},
-    {"separator": " in ", "category": "february 1450 sorts-events in asia", "output": "أحداث فبراير 1450 الرياضية في آسيا"},
+    {"separator": " in ", "category": "february 1450 sports-events in asia", "output": "أحداث فبراير 1450 الرياضية في آسيا"},
     {
         "separator": " from ",
         "category": "18th century actors from the holy roman empire",
@@ -348,13 +348,13 @@ data_list = [
     {"separator": " in ", "category": "20th century mosques in asia", "output": "مساجد القرن 20 في آسيا"},
     {
         "separator": " in ",
-        "category": "april 1450 sorts-events in malaysia",
+        "category": "april 1450 sports-events in malaysia",
         "output": "أحداث أبريل 1450 الرياضية في ماليزيا",
     },
     {"separator": " by ", "category": "1450s establishments by country", "output": "تأسيسات عقد 1450 حسب البلد"},
     {
         "separator": " in ",
-        "category": "august 1450 sorts-events in the united kingdom",
+        "category": "august 1450 sports-events in the united kingdom",
         "output": "أحداث أغسطس 1450 الرياضية في المملكة المتحدة",
     },
     {
@@ -364,7 +364,7 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "july 1450 sorts-events in indonesia",
+        "category": "july 1450 sports-events in indonesia",
         "output": "أحداث يوليو 1450 الرياضية في إندونيسيا",
     },
     {"separator": " in ", "category": "1450s establishments in south africa", "output": "تأسيسات عقد 1450 في جنوب إفريقيا"},
@@ -375,18 +375,18 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "september 1450 sorts-events in turkey",
+        "category": "september 1450 sports-events in turkey",
         "output": "أحداث سبتمبر 1450 الرياضية في تركيا",
     },
     {"separator": " in ", "category": "1450s disestablishments in africa", "output": "انحلالات عقد 1450 في إفريقيا"},
     {
         "separator": " in ",
-        "category": "april 1450 sorts-events in the united states",
+        "category": "april 1450 sports-events in the united states",
         "output": "أحداث أبريل 1450 الرياضية في الولايات المتحدة",
     },
     {
         "separator": " in ",
-        "category": "february 1450 sorts-events in germany",
+        "category": "february 1450 sports-events in germany",
         "output": "أحداث فبراير 1450 الرياضية في ألمانيا",
     },
     {"separator": " in ", "category": "1450s establishments in mali", "output": "تأسيسات عقد 1450 في مالي"},
@@ -397,7 +397,7 @@ data_list = [
         "category": "1450s establishments in west virginia",
         "output": "تأسيسات عقد 1450 في فيرجينيا الغربية",
     },
-    {"separator": " in ", "category": "march 1450 sorts-events in mexico", "output": "أحداث مارس 1450 الرياضية في المكسيك"},
+    {"separator": " in ", "category": "march 1450 sports-events in mexico", "output": "أحداث مارس 1450 الرياضية في المكسيك"},
     {"separator": " in ", "category": "21st century establishments in kosovo", "output": "تأسيسات القرن 21 في كوسوفو"},
     {
         "separator": " in ",
@@ -406,18 +406,18 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "august 1450 sorts-events in south korea",
+        "category": "august 1450 sports-events in south korea",
         "output": "أحداث أغسطس 1450 الرياضية في كوريا الجنوبية",
     },
     {"separator": " in ", "category": "3rd century bishops in germania", "output": "أساقفة في القرن 3 في جرمانية"},
     {
         "separator": " in ",
-        "category": "july 1450 sorts-events in australia",
+        "category": "july 1450 sports-events in australia",
         "output": "أحداث يوليو 1450 الرياضية في أستراليا",
     },
     {
         "separator": " in ",
-        "category": "november 1450 sorts-events in canada",
+        "category": "november 1450 sports-events in canada",
         "output": "أحداث نوفمبر 1450 الرياضية في كندا",
     },
     {
@@ -426,8 +426,8 @@ data_list = [
         "output": "أساقفة كاثوليك رومان في القرن 18 في باراغواي",
     },
     {"separator": " in ", "category": "1450s murders in ireland", "output": "جرائم قتل عقد 1450 في أيرلندا"},
-    {"separator": " in ", "category": "march 1450 sorts-events in china", "output": "أحداث مارس 1450 الرياضية في الصين"},
-    {"separator": " in ", "category": "july 1450 sorts-events in asia", "output": "أحداث يوليو 1450 الرياضية في آسيا"},
+    {"separator": " in ", "category": "march 1450 sports-events in china", "output": "أحداث مارس 1450 الرياضية في الصين"},
+    {"separator": " in ", "category": "july 1450 sports-events in asia", "output": "أحداث يوليو 1450 الرياضية في آسيا"},
     {
         "separator": " in ",
         "category": "2nd millennium disestablishments in prince edward island",
@@ -436,14 +436,14 @@ data_list = [
     {"separator": " in ", "category": "1450s establishments in germany", "output": "تأسيسات عقد 1450 في ألمانيا"},
     {
         "separator": " in ",
-        "category": "december 1450 sorts-events in the philippines",
+        "category": "december 1450 sports-events in the philippines",
         "output": "أحداث ديسمبر 1450 الرياضية في الفلبين",
     },
     {"separator": " in ", "category": "1450s establishments in armenia", "output": "تأسيسات عقد 1450 في أرمينيا"},
     {"separator": " in ", "category": "1450s disestablishments in nebraska", "output": "انحلالات عقد 1450 في نبراسكا"},
     {
         "separator": " in ",
-        "category": "january 1450 sorts-events in europe",
+        "category": "january 1450 sports-events in europe",
         "output": "أحداث يناير 1450 الرياضية في أوروبا",
     },
     {"separator": " in ", "category": "1450s establishments in france", "output": "تأسيسات عقد 1450 في فرنسا"},
@@ -457,7 +457,7 @@ data_list = [
     {"separator": " in ", "category": "1450s establishments in meghalaya", "output": "تأسيسات عقد 1450 في ميغالايا"},
     {
         "separator": " in ",
-        "category": "november 1450 sorts-events in oceania",
+        "category": "november 1450 sports-events in oceania",
         "output": "أحداث نوفمبر 1450 الرياضية في أوقيانوسيا",
     },
     {"separator": " in ", "category": "1450s establishments in montenegro", "output": "تأسيسات عقد 1450 في الجبل الأسود"},
@@ -474,7 +474,7 @@ data_list = [
         "category": "1450s disestablishments in south america",
         "output": "انحلالات عقد 1450 في أمريكا الجنوبية",
     },
-    {"separator": " in ", "category": "may 1450 sorts-events in asia", "output": "أحداث مايو 1450 الرياضية في آسيا"},
+    {"separator": " in ", "category": "may 1450 sports-events in asia", "output": "أحداث مايو 1450 الرياضية في آسيا"},
     {"separator": " by ", "category": "3rd century asian people by nationality", "output": "آسيويين في القرن 3 حسب الجنسية"},
     {
         "separator": " in ",
@@ -505,7 +505,7 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "october 1450 sorts-events in the united states",
+        "category": "october 1450 sports-events in the united states",
         "output": "أحداث أكتوبر 1450 الرياضية في الولايات المتحدة",
     },
     {"separator": " in ", "category": "february 1450 crimes in europe", "output": "جرائم فبراير 1450 في أوروبا"},
@@ -519,7 +519,7 @@ data_list = [
         "category": "1450s establishments in georgia (u.s. state)",
         "output": "تأسيسات عقد 1450 في ولاية جورجيا",
     },
-    {"separator": " in ", "category": "june 1450 sorts-events in austria", "output": "أحداث يونيو 1450 الرياضية في النمسا"},
+    {"separator": " in ", "category": "june 1450 sports-events in austria", "output": "أحداث يونيو 1450 الرياضية في النمسا"},
     {
         "separator": " from ",
         "category": "18th century historians from the russian empire",
@@ -557,7 +557,7 @@ data_list = [
         "category": "1450s disestablishments in cape verde",
         "output": "انحلالات عقد 1450 في الرأس الأخضر",
     },
-    {"separator": " in ", "category": "may 1450 sorts-events in africa", "output": "أحداث مايو 1450 الرياضية في إفريقيا"},
+    {"separator": " in ", "category": "may 1450 sports-events in africa", "output": "أحداث مايو 1450 الرياضية في إفريقيا"},
     {
         "separator": " and ",
         "category": "18th century religious buildings and structures",
@@ -566,7 +566,7 @@ data_list = [
     {"separator": " in ", "category": "1450s disestablishments in france", "output": "انحلالات عقد 1450 في فرنسا"},
     {
         "separator": " in ",
-        "category": "august 1450 sorts-events in australia",
+        "category": "august 1450 sports-events in australia",
         "output": "أحداث أغسطس 1450 الرياضية في أستراليا",
     },
     {"separator": " in ", "category": "1450s establishments in burkina faso", "output": "تأسيسات عقد 1450 في بوركينا فاسو"},
@@ -586,12 +586,12 @@ data_list = [
     {"separator": " by ", "category": "1450s disestablishments by continent", "output": "انحلالات عقد 1450 حسب القارة"},
     {
         "separator": " in ",
-        "category": "2nd millennium disestablishments in the democratic-republic-of-the-congo",
+        "category": "2nd millennium disestablishments in the democratic-republic-of-congo",
         "output": "انحلالات الألفية 2 في جمهورية الكونغو الديمقراطية",
     },
     {
         "separator": " in ",
-        "category": "august 1450 sorts-events in oceania",
+        "category": "august 1450 sports-events in oceania",
         "output": "أحداث أغسطس 1450 الرياضية في أوقيانوسيا",
     },
     {"separator": " in ", "category": "17th century disestablishments in ireland", "output": "انحلالات القرن 17 في أيرلندا"},
@@ -607,11 +607,11 @@ data_list = [
     },
     {
         "separator": " in ",
-        "category": "december 1450 sorts-events in the united states",
+        "category": "december 1450 sports-events in the united states",
         "output": "أحداث ديسمبر 1450 الرياضية في الولايات المتحدة",
     },
     {"separator": " in ", "category": "20th century crimes in slovenia", "output": "جرائم القرن 20 في سلوفينيا"},
-    {"separator": " in ", "category": "april 1450 sorts-events in france", "output": "أحداث أبريل 1450 الرياضية في فرنسا"},
+    {"separator": " in ", "category": "april 1450 sports-events in france", "output": "أحداث أبريل 1450 الرياضية في فرنسا"},
     {"separator": " in ", "category": "2nd millennium establishments in thailand", "output": "تأسيسات الألفية 2 في تايلاند"},
     {"separator": " in ", "category": "14th century establishments in bohemia", "output": "تأسيسات القرن 14 في بوهيميا"},
     {"separator": " in ", "category": "1450s disestablishments in vermont", "output": "انحلالات عقد 1450 في فيرمونت"},
@@ -621,10 +621,10 @@ data_list = [
         "output": "جرائم يونيو 1450 في الولايات المتحدة",
     },
     {"separator": " in ", "category": "1450s establishments in italy", "output": "تأسيسات عقد 1450 في إيطاليا"},
-    {"separator": " in ", "category": "january 1450 sorts-events in russia", "output": "أحداث يناير 1450 الرياضية في روسيا"},
+    {"separator": " in ", "category": "january 1450 sports-events in russia", "output": "أحداث يناير 1450 الرياضية في روسيا"},
     {
         "separator": " in ",
-        "category": "april 1450 sorts-events in oceania",
+        "category": "april 1450 sports-events in oceania",
         "output": "أحداث أبريل 1450 الرياضية في أوقيانوسيا",
     },
     {"separator": " in ", "category": "1450s disestablishments in taiwan", "output": "انحلالات عقد 1450 في تايوان"},
@@ -677,23 +677,23 @@ fast_data_list = [
     },
     {
         "separator": " in ",
-        "category": "january 1450 sorts-events in north america",
+        "category": "january 1450 sports-events in north america",
         "output": "أحداث يناير 1450 الرياضية في أمريكا الشمالية",
     },
-    {"separator": " in ", "category": "july 1450 sorts-events in china", "output": "أحداث يوليو 1450 الرياضية في الصين"},
+    {"separator": " in ", "category": "july 1450 sports-events in china", "output": "أحداث يوليو 1450 الرياضية في الصين"},
     {"separator": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
     {"separator": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
     {"separator": " in ", "category": "20th century synagogues in australia", "output": "كنس القرن 20 في أستراليا"},
     {
         "separator": " in ",
-        "category": "november 1450 sorts-events in germany",
+        "category": "november 1450 sports-events in germany",
         "output": "أحداث نوفمبر 1450 الرياضية في ألمانيا",
     },
     {"separator": " in ", "category": "1450s establishments in england", "output": "تأسيسات عقد 1450 في إنجلترا"},
     {"separator": " in ", "category": "may 1450 crimes in asia", "output": "جرائم مايو 1450 في آسيا"},
     {
         "separator": " in ",
-        "category": "november 1450 sorts-events in the united states",
+        "category": "november 1450 sports-events in the united states",
         "output": "أحداث نوفمبر 1450 الرياضية في الولايات المتحدة",
     },
 ]
@@ -708,28 +708,28 @@ def test_translate_general_category_event2_fast(tab) -> None:
 
 
 data_list_bad = [
-    ("september 1550 sorts-events in germany", " in ", "أحداث سبتمبر 1550 الرياضية في ألمانيا"),
+    ("september 1550 sports-events in germany", " in ", "أحداث سبتمبر 1550 الرياضية في ألمانيا"),
     ("1550s disestablishments in yugoslavia", " in ", "انحلالات عقد 1550 في يوغوسلافيا"),
     ("20th century synagogues in switzerland", " in ", "كنس القرن 20 في سويسرا"),
     ("20th century disestablishments in the united kingdom", " in ", "انحلالات القرن 20 في المملكة المتحدة"),
-    ("november 1550 sorts-events in north america", " in ", "أحداث نوفمبر 1550 الرياضية في أمريكا الشمالية"),
+    ("november 1550 sports-events in north america", " in ", "أحداث نوفمبر 1550 الرياضية في أمريكا الشمالية"),
     ("1550s establishments in wisconsin", " in ", "تأسيسات عقد 1550 في ويسكونسن"),
     ("20th century disestablishments in sri lanka", " in ", "انحلالات القرن 20 في سريلانكا"),
     ("20th century roman catholic archbishops in colombia", " in ", "رؤساء أساقفة رومان كاثوليك القرن 20 في كولومبيا"),
     ("3rd millennium disestablishments in england", " in ", "انحلالات الألفية 3 في إنجلترا"),
-    ("may 1550 sorts-events in the united states", " in ", "أحداث مايو 1550 الرياضية في الولايات المتحدة"),
-    ("december 1550 sorts-events in the united states", " in ", "أحداث ديسمبر 1550 الرياضية في الولايات المتحدة"),
+    ("may 1550 sports-events in the united states", " in ", "أحداث مايو 1550 الرياضية في الولايات المتحدة"),
+    ("december 1550 sports-events in the united states", " in ", "أحداث ديسمبر 1550 الرياضية في الولايات المتحدة"),
     ("1550s crimes in pakistan", " in ", "جرائم عقد 1550 في باكستان"),
     ("2nd millennium establishments in rhode island", " in ", "تأسيسات الألفية 2 في رود آيلاند"),
     ("1550s establishments in chile", " in ", "تأسيسات عقد 1550 في تشيلي"),
     ("1550s disestablishments in southeast asia", " in ", "انحلالات عقد 1550 في جنوب شرق آسيا"),
-    ("december 1550 sorts-events in the united kingdom", " in ", "أحداث ديسمبر 1550 الرياضية في المملكة المتحدة"),
+    ("december 1550 sports-events in the united kingdom", " in ", "أحداث ديسمبر 1550 الرياضية في المملكة المتحدة"),
     ("20th century american people by occupation", " by ", "أمريكيون في القرن 20 حسب المهنة"),
     ("1550s establishments in jamaica", " in ", "تأسيسات عقد 1550 في جامايكا"),
-    ("march 1550 sorts-events in belgium", " in ", "أحداث مارس 1550 الرياضية في بلجيكا"),
+    ("march 1550 sports-events in belgium", " in ", "أحداث مارس 1550 الرياضية في بلجيكا"),
     ("20th century disasters in afghanistan", " in ", "كوارث القرن 20 في أفغانستان"),
     ("20th century churches in ethiopia", " in ", "كنائس القرن 20 في إثيوبيا"),
-    ("april 1550 sorts-events in the united kingdom", " in ", "أحداث أبريل 1550 الرياضية في المملكة المتحدة"),
+    ("april 1550 sports-events in the united kingdom", " in ", "أحداث أبريل 1550 الرياضية في المملكة المتحدة"),
     ("1550s disestablishments in mississippi", " in ", "انحلالات عقد 1550 في مسيسيبي"),
     ("1550s establishments in maine", " in ", "تأسيسات عقد 1550 في مين"),
     ("1550s establishments in sweden", " in ", "تأسيسات عقد 1550 في السويد"),
@@ -749,15 +749,15 @@ data_list_bad = [
     ("20th century members of maine legislature", " of ", "أعضاء القرن 20 هيئة مين التشريعية"),
     ("20th century monarchs by country", " by ", "ملكيون في القرن 20 حسب البلد"),
     ("20th century prime ministers of japan", " of ", "رؤساء وزراء القرن 20 اليابان"),
-    ("august 1550 sorts-events in france", " in ", "أحداث أغسطس 1550 الرياضية في فرنسا"),
-    ("february 1550 sorts-events in germany", " in ", "أحداث فبراير 1550 الرياضية في ألمانيا"),
+    ("august 1550 sports-events in france", " in ", "أحداث أغسطس 1550 الرياضية في فرنسا"),
+    ("february 1550 sports-events in germany", " in ", "أحداث فبراير 1550 الرياضية في ألمانيا"),
     ("july 1550 crimes by continent", " by ", "جرائم يوليو 1550 حسب القارة"),
-    ("july 1550 sorts-events in north america", " in ", "أحداث يوليو 1550 الرياضية في أمريكا الشمالية"),
-    ("june 1550 sorts-events in malaysia", " in ", "أحداث يونيو 1550 الرياضية في ماليزيا"),
-    ("march 1550 sorts-events in thailand", " in ", "أحداث مارس 1550 الرياضية في تايلاند"),
-    ("november 1550 sorts-events in europe", " in ", "أحداث نوفمبر 1550 الرياضية في أوروبا"),
-    ("november 1550 sorts-events in the united kingdom", " in ", "أحداث نوفمبر 1550 الرياضية في المملكة المتحدة"),
-    ("october 1550 sorts-events in oceania", " in ", "أحداث أكتوبر 1550 الرياضية في أوقيانوسيا"),
+    ("july 1550 sports-events in north america", " in ", "أحداث يوليو 1550 الرياضية في أمريكا الشمالية"),
+    ("june 1550 sports-events in malaysia", " in ", "أحداث يونيو 1550 الرياضية في ماليزيا"),
+    ("march 1550 sports-events in thailand", " in ", "أحداث مارس 1550 الرياضية في تايلاند"),
+    ("november 1550 sports-events in europe", " in ", "أحداث نوفمبر 1550 الرياضية في أوروبا"),
+    ("november 1550 sports-events in the united kingdom", " in ", "أحداث نوفمبر 1550 الرياضية في المملكة المتحدة"),
+    ("october 1550 sports-events in oceania", " in ", "أحداث أكتوبر 1550 الرياضية في أوقيانوسيا"),
 ]
 
 

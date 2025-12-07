@@ -63,10 +63,10 @@ data2 = {
     "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
     "Category:Sports competitors by nationality and competition": "تصنيف:منافسون رياضيون حسب الجنسية والمنافسة",
     "Category:Sports organisations of Andorra": "تصنيف:منظمات رياضية في أندورا",
-    "Category:Sportspeople from Boston": "تصنيف:رياضيون من بوسطن",
+    "Category:sports-people from Boston": "تصنيف:رياضيون من بوسطن",
     "Category:Table tennis clubs": "تصنيف:أندية كرة طاولة",
     "Category:Transport disasters in 2017": "تصنيف:كوارث نقل في 2017",
-    "Category:Turkish expatriate sportspeople": "تصنيف:رياضيون أتراك مغتربون",
+    "Category:Turkish expatriate sports-people": "تصنيف:رياضيون أتراك مغتربون",
     "Category:Universiade medalists by sport": "تصنيف:فائزون بميداليات الألعاب الجامعية حسب الرياضة",
     "Category:Universiade medalists in water polo": "تصنيف:فائزون بميداليات الألعاب الجامعية في كرة الماء",
     "Category:Association football players by under-20 national team": "تصنيف:لاعبو كرة قدم حسب المنتخب الوطني تحت 20 سنة",
@@ -147,4 +147,4 @@ def test_sports(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

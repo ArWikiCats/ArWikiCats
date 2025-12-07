@@ -94,4 +94,4 @@ def test_all_dump(multi_bot: MultiDataFormatterBase, name: str, data: dict[str, 
     expected, diff_result = one_dump_test(data, callback, do_strip=False)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

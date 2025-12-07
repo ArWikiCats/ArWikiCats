@@ -10,9 +10,12 @@ from ...translations import Nat_women, All_Nat
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ..utils.match_sport_keys import match_sport_key
-from .te2 import New_For_nat_female_xo_team
+from .te2 import New_For_nat_female_xo_team, new_for_nat_female_xo_team_additional
 
+# TODO: add data from New_For_nat_female_xo_team and new_for_nat_female_xo_team_additional
 New_For_nat_female_xo_team_2 = {
+    "deaths by {nat} airstrikes": "وفيات بضربات جوية {nat}",
+    "{nat} airstrikes": "ضربات جوية {nat}",
     "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball
     "{nat} xzxz championships": "بطولات xzxz {nat}",
     "{nat} national xzxz championships": "بطولات xzxz وطنية {nat}",
@@ -22,9 +25,26 @@ New_For_nat_female_xo_team_2 = {
     "{nat} men's xzxz cup": "كأس {nat} xzxz للرجال",
     "{nat} women's xzxz cup": "كأس {nat} xzxz للسيدات",
     "{nat} xzxz super leagues": "دوريات سوبر xzxz {nat}",
+
+    # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
+    "{nat} domestic xzxz": "xzxz {nat} محلية",
+    "{nat} indoor xzxz": "xzxz {nat} داخل الصالات",
+    "{nat} outdoor xzxz": "xzxz {nat} في الهواء الطلق",
+
+    # european national women's volleyball teams
+    "{nat} national women's xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
+    "{nat} national xzxz teams": "منتخبات xzxz وطنية {nat}",
+    # ---
+    "{nat} reserve xzxz teams": "فرق xzxz احتياطية {nat}",
+    "{nat} defunct xzxz teams": "فرق xzxz سابقة {nat}",
+    # ---
+    "{nat} national a' xzxz teams": "منتخبات xzxz محليين {nat}",
+    "{nat} national b xzxz teams": "منتخبات xzxz رديفة {nat}",
+    "{nat} national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
 }
 
 New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in New_For_nat_female_xo_team.items()})
+New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in new_for_nat_female_xo_team_additional.items()})
 
 # remove "the " from the start of all Nat_women_2 keys
 Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}
@@ -64,7 +84,7 @@ def Get_sport_formts_female_nat(con_77: str) -> str:  # New_For_nat_female_xo_te
         f'Get_sport_formts_female_nat female {con_77=}, {sport_key=}, team_xz:"{normalized_team_key}"'
     )
 
-    template_label = New_For_nat_female_xo_team.get(normalized_team_key, "")
+    template_label = New_For_nat_female_xo_team.get(normalized_team_key) or new_for_nat_female_xo_team_additional.get(normalized_team_key, "")
 
     if not template_label:
         logger.info(
@@ -95,6 +115,8 @@ def sport_lab_nat_load(category: str, check_the: bool = False) -> str:
     """
     Example:
         category:Yemeni under-13 baseball teams", result: "فرق كرة قاعدة يمنية تحت 13 سنة"
+
+    TODO: replace with sport_lab_nat_load_new
     """
     normalized_category = category.lower()
 

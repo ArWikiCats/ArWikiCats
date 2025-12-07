@@ -291,7 +291,7 @@ test_data_2 = {
     "Jewish sociologists": "علماء اجتماع يهود",
     "Jewish songwriters": "كتاب أغان يهود",
     "Jewish sport shooters": "لاعبو رماية يهود",
-    "Jewish sportspeople": "رياضيون يهود",
+    "Jewish sports-people": "رياضيون يهود",
     "Jewish sport wrestlers": "مصارعون رياضيون يهود",
     "Jewish swimmers": "سباحون يهود",
     "Jewish tennis players": "لاعبو كرة مضرب يهود",
@@ -386,4 +386,4 @@ def test_all_dump(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

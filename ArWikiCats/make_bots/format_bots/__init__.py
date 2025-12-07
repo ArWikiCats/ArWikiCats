@@ -8,7 +8,7 @@ import re
 from ...helps import len_print
 from ...helps.log import logger
 from ...translations import New_Company, ministrs_tab_for_pop_format
-from .pf_keys import Change_key, Change_key2
+from .pf_keys import CHANGE_KEY_MAPPINGS, CHANGE_KEY_SECONDARY
 from .relation_mapping import category_relation_mapping
 
 # Precompiled Regex Patterns
@@ -28,8 +28,8 @@ REGEX_SUB_AUSTRIA_HUNGARY = re.compile(r"austria-hungary", re.IGNORECASE)
 REGEX_SUB_AUSTRIA_HUNGARY_2 = re.compile(r"austria hungary", re.IGNORECASE)
 REGEX_SUB_UNMANNED_MILITARY_AIRCRAFT = re.compile(r"unmanned military aircraft of", re.IGNORECASE)
 REGEX_SUB_UNMANNED_AERIAL_VEHICLES = re.compile(r"unmanned aerial vehicles of", re.IGNORECASE)
-REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO = re.compile(r"democratic republic of the congo", re.IGNORECASE)
-REGEX_SUB_REPUBLIC_CONGO = re.compile(r"republic of the congo", re.IGNORECASE)
+REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO = re.compile(r"democratic republic of congo", re.IGNORECASE)
+REGEX_SUB_REPUBLIC_CONGO = re.compile(r"republic of congo", re.IGNORECASE)
 REGEX_SUB_ATHLETICS = re.compile(r"athletics \(track and field\)", re.IGNORECASE)
 REGEX_SUB_TWIN_PEOPLE = re.compile(r"twin people", re.IGNORECASE)
 REGEX_SUB_PERCENT27 = re.compile(r"\%27", re.IGNORECASE)
@@ -37,7 +37,7 @@ REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNOREC
 REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
 
-# Precompiled regex patterns for Change_key and Change_key2 will be created in change_cat function
+# Precompiled regex patterns for CHANGE_KEY_MAPPINGS and CHANGE_KEY_SECONDARY will be created in change_cat function
 # since they depend on imported dictionaries that may not be fully populated at module level
 
 # Cache for compiled regex patterns
@@ -229,8 +229,7 @@ pop_format = {
     "military units and formations of": "وحدات وتشكيلات {} العسكرية",
     "the university of": "جامعة {}",
     "university of arts": "جامعة {} للفنون",
-    "university of the arts": "جامعة {} للفنون",
-    "the university of the arts": "جامعة {} للفنون",
+    "the university of arts": "جامعة {} للفنون",
     "university of": "جامعة {}",
     # "university of technology" : "جامعة {} للتكنولوجيا" ,
     "university of art": "جامعة {} للفنون",
@@ -298,7 +297,7 @@ for a, b in ministrs_tab_for_pop_format.items():
     pop_format[a] = b
 # ---
 for x in New_Company:
-    Change_key[f"defunct {x} companies"] = f"defunct-{x}-companies"
+    CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
 replaces = {
     "national women's youth": "national youth women's",
@@ -325,7 +324,6 @@ replaces = {
     "heads of mission ": "heads-of-mission ",
     "house of commons of canada": "house-of-commons-of-canada",
 }
-# ---
 
 
 def change_cat(cat_orginal: str) -> str:
@@ -340,6 +338,8 @@ def change_cat(cat_orginal: str) -> str:
     """
     cat_orginal = cat_orginal.lower().strip()
     category = cat_orginal
+
+    category = re.sub(r"\bthe\b", "", category, flags=re.IGNORECASE).strip()
 
     # Normalize whitespace
     category = REGEX_SUB_WHITESPACE.sub(" ", category)
@@ -364,8 +364,8 @@ def change_cat(cat_orginal: str) -> str:
     category = REGEX_SUB_AUSTRIA_HUNGARY_2.sub("austria hungary", category)
     category = REGEX_SUB_UNMANNED_MILITARY_AIRCRAFT.sub("unmanned military aircraft-oof", category)
     category = REGEX_SUB_UNMANNED_AERIAL_VEHICLES.sub("unmanned aerial vehicles-oof", category)
-    category = REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO.sub("democratic-republic-of-the-congo", category)
-    category = REGEX_SUB_REPUBLIC_CONGO.sub("republic-of-the-congo", category)
+    category = REGEX_SUB_DEMOCRATIC_REPUBLIC_CONGO.sub("democratic-republic-of-congo", category)
+    category = REGEX_SUB_REPUBLIC_CONGO.sub("republic-of-congo", category)
     category = REGEX_SUB_ATHLETICS.sub("track-and-field athletics", category)
     category = REGEX_SUB_TWIN_PEOPLE.sub("twinpeople", category)
     category = REGEX_SUB_PERCENT27.sub("'", category)
@@ -373,6 +373,7 @@ def change_cat(cat_orginal: str) -> str:
     # Apply simple string replacements
     simple_replacements = {
         "secretaries of ": "secretaries-of ",
+        "sportspeople": "sports-people",
         "roller hockey (quad)": "roller hockey",
         "victoria (australia)": "victoria-australia",
         "party of ": "party-of ",
@@ -385,14 +386,14 @@ def change_cat(cat_orginal: str) -> str:
     for x, d in replaces.items():
         category = category.replace(x, d)
 
-    # Apply Change_key2 regex patterns (cached)
-    for chk2, chk2_lab in Change_key2.items():
+    # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
+    for chk2, chk2_lab in CHANGE_KEY_SECONDARY.items():
         if chk2 not in _change_key2_compiled:
             _change_key2_compiled[chk2] = re.compile(chk2, flags=re.IGNORECASE)
         category = _change_key2_compiled[chk2].sub(chk2_lab, category)
 
-    # Apply Change_key regex patterns (cached)
-    for chk, chk_lab in Change_key.items():
+    # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
+    for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
         key = (chk, chk_lab)
         if key not in _change_key_compiled:
             _change_key_compiled[key] = [
@@ -422,7 +423,7 @@ def change_cat(cat_orginal: str) -> str:
     return category
 
 
-len_print.data_len("pop_format.py", {"Change_key": Change_key, "Change_key2": Change_key2})
+len_print.data_len("pop_format.py", {"CHANGE_KEY_MAPPINGS": CHANGE_KEY_MAPPINGS, "CHANGE_KEY_SECONDARY": CHANGE_KEY_SECONDARY})
 
 __all__ = [
     "Dont_Add_min",

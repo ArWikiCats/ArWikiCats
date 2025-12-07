@@ -15,100 +15,103 @@ New_team_xo_team_labels = {}
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 # السنة الواحدة تساوي 45,560 مدخلة
 # ---
-New_Tato = {}
 
-national_keys: dict[str, str] = {
-    "national": "{}",
-    "national youth": "{} للشباب",
-    "national amateur": "{} للهواة",
-    "national junior men's": "{} للناشئين",
-    "national junior women's": "{} للناشئات",
-    "national men's": "{} للرجال",
-    "national women's": "{} للسيدات",
-    "multi-national women's": "{} متعددة الجنسيات للسيدات",
-    "national youth women's": "{} للشابات",
-}
-for mrr, mrr_lab in national_keys.items():
-    New_Tato[mrr] = mrr_lab
-    for year in YEARS_LIST:
-        New_Tato[f"{mrr} under-{year}"] = mrr_lab.format(f"{{}} تحت {year} سنة")
-# ---
-New_Tato["men's under-23 national"] = "{} تحت 23 سنة للرجال"
-New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
-New_Tato["men's u23 national"] = "{} تحت 23 سنة للرجال"
 
-if True:
-    # New_team_xo_team_labels["asian xoxo tour"] =  "بطولة آسيا xoxo"
-    # New_team_xo_team_labels["women's asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
-    # New_team_xo_team_labels["ladies asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
-    typies = {
-        "cups": "كؤوس",
-        "clubs": "أندية",
-        "competitions": "منافسات",
-        "leagues": "دوريات",
-        "coaches": "مدربو",  # Category:Indoor soccer coaches in the United States by club
+def _build_new_tato() -> dict[str, str]:
+    data = {}
+
+    national_keys: dict[str, str] = {
+        "national": "{}",
+        "national youth": "{} للشباب",
+        "national amateur": "{} للهواة",
+        "national junior men's": "{} للناشئين",
+        "national junior women's": "{} للناشئات",
+        "national men's": "{} للرجال",
+        "national women's": "{} للسيدات",
+        "multi-national women's": "{} متعددة الجنسيات للسيدات",
+        "national youth women's": "{} للشابات",
     }
+    for mrr, mrr_lab in national_keys.items():
+        data[mrr] = mrr_lab
+        for year in YEARS_LIST:
+            data[f"{mrr} under-{year}"] = mrr_lab.format(f"{{}} تحت {year} سنة")
+    # ---
+    data["men's under-23 national"] = "{} تحت 23 سنة للرجال"
+    data["men's u23 national"] = "{} تحت 23 سنة للرجال"
+    data["men's u23 national"] = "{} تحت 23 سنة للرجال"
+
+    return data
+
+
+def _build_new_team_xo_team_labels() -> dict[str, str]:
+    data = {}
+    # ---
+    # data["asian xoxo tour"] =  "بطولة آسيا xoxo"
+    # data["women's asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
+    # data["ladies asian xoxo tour"] =  "بطولة آسيا xoxo للسيدات"
     # ---tournaments
-    New_team_xo_team_labels["world champion national xoxo teams"] = "أبطال بطولة العالم xoxo"
+    data["world champion national xoxo teams"] = "أبطال بطولة العالم xoxo"
     for ioi in ["championships", "championship"]:
-        New_team_xo_team_labels[f"world xoxo {ioi} competitors"] = "منافسو بطولة العالم xoxo"
-        New_team_xo_team_labels[f"world xoxo {ioi} medalists"] = "فائزون بميداليات بطولة العالم xoxo"
+        data[f"world xoxo {ioi} competitors"] = "منافسو بطولة العالم xoxo"
+        data[f"world xoxo {ioi} medalists"] = "فائزون بميداليات بطولة العالم xoxo"
         # outdoor
-        New_team_xo_team_labels[f"world wheelchair xoxo {ioi}"] = "بطولة العالم xoxo على الكراسي المتحركة"
-        New_team_xo_team_labels[f"world xoxo {ioi}"] = "بطولة العالم xoxo"
+        data[f"world wheelchair xoxo {ioi}"] = "بطولة العالم xoxo على الكراسي المتحركة"
+        data[f"world xoxo {ioi}"] = "بطولة العالم xoxo"
 
-        New_team_xo_team_labels[f"xoxo world {ioi}"] = "بطولة العالم xoxo"
+        data[f"xoxo world {ioi}"] = "بطولة العالم xoxo"
 
-        New_team_xo_team_labels[f"world junior xoxo {ioi}"] = "بطولة العالم xoxo للناشئين"
-        New_team_xo_team_labels[f"world xoxo junior {ioi}"] = "بطولة العالم xoxo للناشئين"
-        New_team_xo_team_labels[f"xoxo world junior {ioi}"] = "بطولة العالم xoxo للناشئين"
-        New_team_xo_team_labels[f"xoxo junior world {ioi}"] = "بطولة العالم xoxo للناشئين"
+        data[f"world junior xoxo {ioi}"] = "بطولة العالم xoxo للناشئين"
+        data[f"world xoxo junior {ioi}"] = "بطولة العالم xoxo للناشئين"
+        data[f"xoxo world junior {ioi}"] = "بطولة العالم xoxo للناشئين"
+        data[f"xoxo junior world {ioi}"] = "بطولة العالم xoxo للناشئين"
 
-        New_team_xo_team_labels[f"world outdoor xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
-        New_team_xo_team_labels[f"outdoor world xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
+        data[f"world outdoor xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
+        data[f"outdoor world xoxo {ioi}"] = "بطولة العالم xoxo في الهواء الطلق"
 
-        New_team_xo_team_labels[f"world amateur xoxo {ioi}"] = "بطولة العالم xoxo للهواة"
-        New_team_xo_team_labels[f"world xoxo amateur {ioi}"] = "بطولة العالم xoxo للهواة"
-        New_team_xo_team_labels[f"xoxo world amateur {ioi}"] = "بطولة العالم xoxo للهواة"
-        New_team_xo_team_labels[f"xoxo amateur world {ioi}"] = "بطولة العالم xoxo للهواة"
+        data[f"world amateur xoxo {ioi}"] = "بطولة العالم xoxo للهواة"
+        data[f"world xoxo amateur {ioi}"] = "بطولة العالم xoxo للهواة"
+        data[f"xoxo world amateur {ioi}"] = "بطولة العالم xoxo للهواة"
+        data[f"xoxo amateur world {ioi}"] = "بطولة العالم xoxo للهواة"
 
-        New_team_xo_team_labels[f"world youth xoxo {ioi}"] = "بطولة العالم xoxo للشباب"
-        New_team_xo_team_labels[f"world xoxo youth {ioi}"] = "بطولة العالم xoxo للشباب"
-        New_team_xo_team_labels[f"xoxo world youth {ioi}"] = "بطولة العالم xoxo للشباب"
-        New_team_xo_team_labels[f"xoxo youth world {ioi}"] = "بطولة العالم xoxo للشباب"
+        data[f"world youth xoxo {ioi}"] = "بطولة العالم xoxo للشباب"
+        data[f"world xoxo youth {ioi}"] = "بطولة العالم xoxo للشباب"
+        data[f"xoxo world youth {ioi}"] = "بطولة العالم xoxo للشباب"
+        data[f"xoxo youth world {ioi}"] = "بطولة العالم xoxo للشباب"
 
-        New_team_xo_team_labels[f"men's xoxo {ioi}"] = "بطولة xoxo للرجال"
-        New_team_xo_team_labels[f"women's xoxo {ioi}"] = "بطولة xoxo للسيدات"
+        data[f"men's xoxo {ioi}"] = "بطولة xoxo للرجال"
+        data[f"women's xoxo {ioi}"] = "بطولة xoxo للسيدات"
 
-        New_team_xo_team_labels[f"men's xoxo world {ioi}"] = "بطولة العالم xoxo للرجال"
-        New_team_xo_team_labels[f"women's xoxo world {ioi}"] = "بطولة العالم xoxo للسيدات"
-        New_team_xo_team_labels[f"women's world xoxo {ioi}"] = "بطولة العالم xoxo للسيدات"
+        data[f"men's xoxo world {ioi}"] = "بطولة العالم xoxo للرجال"
+        data[f"women's xoxo world {ioi}"] = "بطولة العالم xoxo للسيدات"
+        data[f"women's world xoxo {ioi}"] = "بطولة العالم xoxo للسيدات"
 
     # ---World champion national
-    New_team_xo_team_labels["international xoxo council"] = "المجلس الدولي xoxo"
-    New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
-    New_team_xo_team_labels["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
+    data["international xoxo council"] = "المجلس الدولي xoxo"
+    data["xoxo world cup"] = "كأس العالم xoxo"
+    data["xoxo world cup tournaments"] = "بطولات كأس العالم xoxo"
 
     # 'Wheelchair Rugby League World Cup': 'كأس العالم لدوري الرجبي على الكراسي المتحركة'
-    # New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
-    # New_team_xo_team_labels["xoxo league world cup"] = "كأس العالم لدوري xoxo"
-    # New_team_xo_team_labels["xoxo league finals"] = "نهائيات دوري xoxo"
+    # data["xoxo league"] = "دوري xoxo"
+    # data["xoxo league world cup"] = "كأس العالم لدوري xoxo"
+    # data["xoxo league finals"] = "نهائيات دوري xoxo"
 
     # 'football league': 'دوري لكرة القدم',
-    # New_team_xo_team_labels["xoxo league"] = "دوري xoxo"
+    # data["xoxo league"] = "دوري xoxo"
 
     # 'Wheelchair Rugby League World Cup': 'كأس العالم لدوري الرجبي على الكراسي المتحركة'
-    New_team_xo_team_labels["xoxo world cup"] = "كأس العالم xoxo"
+    data["xoxo world cup"] = "كأس العالم xoxo"
 
-    New_team_xo_team_labels["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
-    New_team_xo_team_labels["youth xoxo world cup"] = "كأس العالم xoxo للشباب"
-    New_team_xo_team_labels["men's xoxo world cup"] = "كأس العالم xoxo للرجال"
+    data["amateur xoxo world cup"] = "كأس العالم xoxo للهواة"
+    data["youth xoxo world cup"] = "كأس العالم xoxo للشباب"
+    data["men's xoxo world cup"] = "كأس العالم xoxo للرجال"
 
-    New_team_xo_team_labels["women's xoxo world cup"] = "كأس العالم xoxo للسيدات"
-    New_team_xo_team_labels["women's xoxo world cup tournaments"] = "بطولات كأس العالم xoxo للسيدات"
+    data["women's xoxo world cup"] = "كأس العالم xoxo للسيدات"
+    data["women's xoxo world cup tournaments"] = "بطولات كأس العالم xoxo للسيدات"
+
+    return data
 
 
-def _build_nat_formats_for_p17() -> dict:
+def _build_nat_formats_for_p17(New_Tato) -> dict:
     """Construct nationality placeholders used for P17 sports formats."""
     data = {}
     NAT_PLACE_HOLDER = "{}"
@@ -179,7 +182,9 @@ def _build_nat_formats_for_p17() -> dict:
     return data
 
 
-SPORT_FORMTS_ENAR_P17_TEAM = _build_nat_formats_for_p17()
+New_Tato = _build_new_tato()
+SPORT_FORMTS_ENAR_P17_TEAM = _build_nat_formats_for_p17(New_Tato)
+New_team_xo_team_labels = _build_new_team_xo_team_labels()
 
 len_print.data_len(
     "te3.py",

@@ -11,6 +11,14 @@ data0 = {
 }
 
 data1 = {
+    "ivorian people": "تصنيف:أعلام إيفواريون",
+    "japanese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو يابانيون",
+    "chinese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو صينيون",
+    "arab lgbtq people": "تصنيف:أعلام إل جي بي تي كيو عرب",
+    "rwandan political people": "تصنيف:ساسة روانديون",
+    "maldivian people": "تصنيف:أعلام مالديفيون",
+    "malian people": "تصنيف:أعلام ماليون",
+    "maltese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو مالطيون",
     "namibia–russia relations": "تصنيف:العلاقات الروسية الناميبية",
     "morocco–netherlands relations": "تصنيف:العلاقات المغربية الهولندية",
     "morocco–pakistan relations": "تصنيف:العلاقات الباكستانية المغربية",
@@ -174,4 +182,4 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result)}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

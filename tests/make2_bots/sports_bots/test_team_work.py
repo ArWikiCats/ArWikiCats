@@ -92,7 +92,6 @@ fast_data = {
     "northern-ireland football cups": "كؤوس كرة القدم الأيرلندية الشمالية",
     "oakland raiders owners": "ملاك أوكلاند ريدرز",
     "orlando pride players": "لاعبو أورلاندو برايد",
-    "people people": "أعلام أعلام",
     "pfc beroe stara zagora players": "لاعبو نادي بيروي ستارا زاغورا",
     "philadelphia 76ers lists": "قوائم فيلادلفيا سفنتي سيكسرز",
     "portsmouth f.c. players": "لاعبو نادي بورتسموث",

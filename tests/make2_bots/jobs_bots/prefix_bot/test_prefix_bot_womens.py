@@ -65,7 +65,7 @@ test_womens_data = {
     "female spies": "جاسوسات",
     "female sport shooters": "لاعبات رماية",
     "female sport wrestlers": "مصارعات رياضيات",
-    "female sprtspeople": "رياضيات",
+    "female sports-people": "رياضيات",
     "female squash players": "لاعبات إسكواش",
     "female swimmers": "سباحات",
     "female table tennis players": "لاعبات كرة طاولة",

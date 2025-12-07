@@ -4,8 +4,8 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
-    "category:refugee olympic team in the {year1} summer olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",
-    "category:refugee olympic team in the {year1} winter olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الشتوية {year1}",
+    "category:refugee olympic team in {year1} summer olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",
+    "category:refugee olympic team in {year1} winter olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الشتوية {year1}",
     "category:{year1} in mass media": "تصنيف:وسائل الإعلام في {year1}",  # 126
     "category:airlines established in {year1}": "تصنيف:شركات طيران أسست في {year1}",  # 259
     "category:animals described in {year1}": "تصنيف:حيوانات وصفت في {year1}",  # 266
@@ -59,10 +59,8 @@ YEAR_DATA = {
     "category:species described in {year1}": "تصنيف:أنواع وصفت في {year1}",  # 271
     "category:sports clubs and teams established in {year1}": "تصنيف:أندية رياضية أسست في {year1}",  # 152
     "category:sports organizations established in {year1}": "تصنيف:منظمات رياضية أسست في {year1}",  # 170
-    "category:states and territories disestablished in the {year1}": "تصنيف:دول وأقاليم انحلت في {year1}",  # 174
-    "category:states and territories disestablished in {year1}": "تصنيف:دول وأقاليم انحلت في {year1}",  # 406
-    "category:states and territories established in the {year1}": "تصنيف:دول وأقاليم أسست في {year1}",  # 224
-    "category:states and territories established in {year1}": "تصنيف:دول وأقاليم أسست في {year1}",  # 644
+    "category:states and territories disestablished in {year1}": "تصنيف:دول وأقاليم انحلت في {year1}",  # 174
+    "category:states and territories established in {year1}": "تصنيف:دول وأقاليم أسست في {year1}",  # 224
     "category:taxa described in {year1}": "تصنيف:أصنوفات وصفت في {year1}",  # 270
     "category:transport companies established in {year1}": "تصنيف:شركات نقل أسست في {year1}",
     "category:transport disasters in {year1}": "تصنيف:كوارث نقل في {year1}",  # 149
@@ -97,9 +95,9 @@ YEAR_DATA = {
     "category:{year1} endings": "تصنيف:نهايات {year1}",  # 1970
     "category:{year1} establishments by continent": "تصنيف:تأسيسات سنة {year1} حسب القارة",  # 523
     "category:{year1} establishments by country": "تصنيف:تأسيسات سنة {year1} حسب البلد",  # 731
-    "category:{year1} establishments in the ottoman empire": "تصنيف:تأسيسات سنة {year1} في الدولة العثمانية",  # 211
-    "category:{year1} establishments in the russian empire": "تصنيف:تأسيسات سنة {year1} في الإمبراطورية الروسية",  # 152
-    "category:{year1} establishments in the spanish empire": "تصنيف:تأسيسات سنة {year1} في الإمبراطورية الإسبانية",  # 256
+    "category:{year1} establishments in ottoman empire": "تصنيف:تأسيسات سنة {year1} في الدولة العثمانية",  # 211
+    "category:{year1} establishments in russian empire": "تصنيف:تأسيسات سنة {year1} في الإمبراطورية الروسية",  # 152
+    "category:{year1} establishments in spanish empire": "تصنيف:تأسيسات سنة {year1} في الإمبراطورية الإسبانية",  # 256
     "category:{year1} establishments": "تصنيف:تأسيسات سنة {year1}",  # 1243
     "category:{year1} events by continent": "تصنيف:أحداث {year1} حسب القارة",  # 967
     "category:{year1} events by country": "تصنيف:أحداث {year1} حسب البلد",  # 956
@@ -133,11 +131,11 @@ YEAR_DATA = {
     "category:{year1} in sports": "تصنيف:أحداث {year1} الرياضية",  # 1295
     "category:{year1} in technology": "تصنيف:التقانة في {year1}",  # 164
     "category:{year1} in tennis": "تصنيف:كرة المضرب في {year1}",  # 164
-    "category:{year1} in the arts": "تصنيف:الفنون في {year1}",  # 734
-    "category:{year1} in the environment": "تصنيف:البيئة في {year1}",  # 283
-    "category:{year1} in the ottoman empire": "تصنيف:الدولة العثمانية في {year1}",  # 349
-    "category:{year1} in the russian empire": "تصنيف:الإمبراطورية الروسية في {year1}",  # 192
-    "category:{year1} in the spanish empire": "تصنيف:الإمبراطورية الإسبانية في {year1}",  # 315
+    "category:{year1} in arts": "تصنيف:الفنون في {year1}",  # 734
+    "category:{year1} in environment": "تصنيف:البيئة في {year1}",  # 283
+    "category:{year1} in ottoman empire": "تصنيف:الدولة العثمانية في {year1}",  # 349
+    "category:{year1} in russian empire": "تصنيف:الإمبراطورية الروسية في {year1}",  # 192
+    "category:{year1} in spanish empire": "تصنيف:الإمبراطورية الإسبانية في {year1}",  # 315
     "category:{year1} in theatre": "تصنيف:المسرح في {year1}",  # 262
     "category:{year1} in transport": "تصنيف:النقل في {year1}",  # 279
     "category:{year1} introductions": "تصنيف:استحداثات {year1}",  # 275
