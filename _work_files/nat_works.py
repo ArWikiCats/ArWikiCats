@@ -84,18 +84,24 @@ def process_file(path: Path) -> None:
         if not isinstance(entry, dict):
             continue
         female = entry.get("female")
-        if not female:
-            continue
-        the_female = add_definite_article(female)
-        if entry.get("the_female") != the_female:
-            entry["the_female"] = the_female
-            updated += 1
+        if female:
+            the_female = add_definite_article(female)
+            if entry.get("the_female") != the_female:
+                entry["the_female"] = the_female
+                updated += 1
+        # Also process male -> the_male
+        male = entry.get("male")
+        if male:
+            the_male = add_definite_article(male)
+            if entry.get("the_male") != the_male:
+                entry["the_male"] = the_male
+                updated += 1
 
     # Write back to the same file, preserving UTF-8
     with path.open("w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-    print(f"Updated 'the_female' for {updated} entries. Saved to: {path}")
+    print(f"Updated 'the_female'/'the_male' for {updated} entries. Saved to: {path}")
 
 
 if __name__ == "__main__":
