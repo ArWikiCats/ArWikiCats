@@ -87,7 +87,78 @@ NON_GEO_KEYWORDS_EN = {
     "sect", "liturgy",
 }
 
-
+list2 = [
+    "agency",
+    "air force",
+    "airlines",
+    "airport",
+    "army",
+    "assembly",
+    "association",
+    "award",
+    "band",
+    "battle",
+    "bridge",
+    "cathedral",
+    "center",
+    "centre",
+    "championship",
+    "clan",
+    "clinic",
+    "clubs",
+    "college",
+    "company",
+    "council",
+    "court",
+    "dam",
+    "department",
+    "dialect",
+    "dynasty",
+    "empire",
+    "family",
+    "festival",
+    "film",
+    "front",
+    "garden",
+    "government",
+    "hospital",
+    "hotel",
+    "institute",
+    "journal",
+    "kingdom",
+    "language",
+    "library",
+    "magazine",
+    "medal",
+    "military",
+    "ministry",
+    "monastery",
+    "mosque",
+    "movement",
+    "museum",
+    "music",
+    "navy",
+    "newspaper",
+    "organization",
+    "park",
+    "party",
+    "people",
+    "police",
+    "prison",
+    "prize",
+    "restaurant",
+    "script",
+    "studios",
+    "temple",
+    "theatre",
+    "treaty",
+    "tribe",
+    "trophy",
+    "union",
+    "university",
+    "war",
+    "zoo"
+]
 # -------------------------------------------------------------
 # 2) Arabic pattern detection
 # -------------------------------------------------------------
@@ -123,10 +194,10 @@ TAXON_SUFFIXES = (
 # Detection Helpers
 # -------------------------------------------------------------
 
-def detect_english_keywords(label: str) -> bool:
+def detect_english_keywords(label: str, words) -> bool:
     """Return True if English keyword matches exactly or by token."""
     lowered = label.lower()
-    for keyword in NON_GEO_KEYWORDS_EN:
+    for keyword in words:
         pattern = rf"\b{re.escape(keyword)}\b"
         if re.search(pattern, lowered):
             return True
@@ -162,7 +233,7 @@ def detect_person_like(label: str) -> bool:
 def is_non_geographic(key: str, value: str) -> bool:
     """Unified classification decision combining all heuristics."""
     # Layer 1: English keyword detection
-    if detect_english_keywords(key):
+    if detect_english_keywords(key, NON_GEO_KEYWORDS_EN) or detect_english_keywords(key, list2):
         return True
 
     # Layer 2: Arabic keyword detection
