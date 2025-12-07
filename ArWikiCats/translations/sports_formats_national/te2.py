@@ -76,18 +76,23 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
     # ---
     # indoor & outdoor
     # tab[Category:Canadian domestic Soccer] = "تصنيف:كرة قدم كندية محلية"
-    data["domestic xzxz"] = f"xzxz {nat_f} محلية"
-    data["indoor xzxz"] = f"xzxz {nat_f} داخل الصالات"
-    data["outdoor xzxz"] = f"xzxz {nat_f} في الهواء الطلق"
-    data["national women's xzxz teams"] = "منتخبات xzxz وطنية نسائية {nat}"
-    data["national xzxz teams"] = "منتخبات xzxz وطنية {nat}"
-    # ---
-    data["reserve xzxz teams"] = "فرق xzxz احتياطية {nat}"
-    data["defunct xzxz teams"] = "فرق xzxz سابقة {nat}"
-    # ---
-    data["national a' xzxz teams"] = "منتخبات xzxz محليين {nat}"
-    data["national b xzxz teams"] = "منتخبات xzxz رديفة {nat}"
-    data["national reserve xzxz teams"] = "منتخبات xzxz وطنية احتياطية {nat}"
+    data.update({
+        # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
+        "domestic xzxz": "xzxz {nat} محلية",
+        "indoor xzxz": "xzxz {nat} داخل الصالات",
+        "outdoor xzxz": "xzxz {nat} في الهواء الطلق",
+
+        # european national women's volleyball teams
+        "national women's xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
+        "national xzxz teams": "منتخبات xzxz وطنية {nat}",
+        # ---
+        "reserve xzxz teams": "فرق xzxz احتياطية {nat}",
+        "defunct xzxz teams": "فرق xzxz سابقة {nat}",
+        # ---
+        "national a' xzxz teams": "منتخبات xzxz محليين {nat}",
+        "national b xzxz teams": "منتخبات xzxz رديفة {nat}",
+        "national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
+    })
     # ---
     return data
 

@@ -313,6 +313,8 @@ data = {
 }
 
 data_womens = {
+    "european national women's volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
+
     "african women's football": "كرة قدم إفريقية نسائية",
     "algerian women's football": "كرة قدم جزائرية نسائية",
     "american women's basketball": "كرة سلة أمريكية نسائية",
@@ -338,7 +340,6 @@ data_womens = {
     "english women's football": "كرة قدم إنجليزية نسائية",
     "estonian women's football": "كرة قدم إستونية نسائية",
     "european national women's under-21 football teams": "منتخبات كرة قدم وطنية أوروبية تحت 21 سنة للسيدات",
-    "european national women's volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
     "european women's basketball": "كرة سلة أوروبية نسائية",
     "european women's football": "كرة قدم أوروبية نسائية",
     "finnish women's football": "كرة قدم فنلندية نسائية",

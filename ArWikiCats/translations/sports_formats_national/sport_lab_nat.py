@@ -24,6 +24,22 @@ New_For_nat_female_xo_team_2 = {
     "{nat} men's xzxz cup": "كأس {nat} xzxz للرجال",
     "{nat} women's xzxz cup": "كأس {nat} xzxz للسيدات",
     "{nat} xzxz super leagues": "دوريات سوبر xzxz {nat}",
+
+    # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
+    "{nat} domestic xzxz": "xzxz {nat} محلية",
+    "{nat} indoor xzxz": "xzxz {nat} داخل الصالات",
+    "{nat} outdoor xzxz": "xzxz {nat} في الهواء الطلق",
+
+    # european national women's volleyball teams
+    "{nat} national women's xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
+    "{nat} national xzxz teams": "منتخبات xzxz وطنية {nat}",
+    # ---
+    "{nat} reserve xzxz teams": "فرق xzxz احتياطية {nat}",
+    "{nat} defunct xzxz teams": "فرق xzxz سابقة {nat}",
+    # ---
+    "{nat} national a' xzxz teams": "منتخبات xzxz محليين {nat}",
+    "{nat} national b xzxz teams": "منتخبات xzxz رديفة {nat}",
+    "{nat} national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
 }
 
 New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in New_For_nat_female_xo_team.items()})
