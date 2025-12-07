@@ -10,7 +10,7 @@ from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..tax_table import Taxons_table as TAXON_TABLE
 from ._shared import load_json_mapping
-from .Cities import CITY_LABEL_PATCHES, CITY_TRANSLATIONS_LOWER
+from .Cities import CITY_TRANSLATIONS_LOWER
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
@@ -271,6 +271,7 @@ JAPAN_LABELS = _make_japan_labels(JAPAN_REGIONAL_LABELS)
 TURKEY_LABELS = _make_turkey_labels(TURKEY_PROVINCE_LABELS)
 
 
+CITY_LABEL_PATCHES = load_json_mapping("geography/yy2.json")
 COUNTRY_LABEL_OVERRIDES = load_json_mapping("geography/P17_2_final_ll.json")
 POPULATION_OVERRIDES = load_json_mapping("geography/opop.json")
 raw_region_overrides = load_json_mapping("geography/popopo.json")
@@ -352,6 +353,7 @@ def get_from_new_p17_aliases(text: str, default: str|None = "") -> str:
         or JAPAN_LABELS.get(text)
         or US_COUNTY_TRANSLATIONS.get(text)
         or pf_keys2.get(text)
+        # or CITY_LABEL_PATCHES.get(text)
     )
     return result or default
 
@@ -378,6 +380,7 @@ len_print.data_len(
     {
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
         "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
+        "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,           # 5,191
         "NEW_P17_FINAL": NEW_P17_FINAL,
     },
 )
