@@ -233,8 +233,7 @@ def filter_file(SOURCE_FILE: Path, NEW_FILE: Path, NON_GEO_FILE: Path) -> None:
     with open(NON_GEO_FILE, 'w', encoding='utf-8') as f:
         json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    print(f"Entries kept as geography: {len(geo)}")
-    print(f"Entries moved to non-geography: {len(non_geo)}")
+    print(f"Total: {len(data)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
 
 
 def main() -> None:
