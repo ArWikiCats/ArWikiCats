@@ -273,7 +273,6 @@ TURKEY_LABELS = _make_turkey_labels(TURKEY_PROVINCE_LABELS)
 
 CITY_LABEL_PATCHES = load_json_mapping("cities/yy2.json")
 COUNTRY_LABEL_OVERRIDES = load_json_mapping("geography/P17_2_final_ll.json")
-POPULATION_OVERRIDES = load_json_mapping("geography/opop.json")
 raw_region_overrides = load_json_mapping("geography/popopo.json")
 
 
@@ -304,10 +303,8 @@ def _build_country_label_index() -> dict[str, str]:
     to_update = {
         "US_STATES": US_STATES,                                            # 54
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,                # 1778
-        "POPULATION_OVERRIDES": POPULATION_OVERRIDES,                      # 1517
         "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,                      # 1782
         "MAIN_REGION_TRANSLATIONS": MAIN_REGION_TRANSLATIONS,              # 823
-        "raw_region_overrides": raw_region_overrides,                      # 1454
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,    # 176
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,            # 1424
         "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
@@ -369,8 +366,6 @@ def get_from_new_p17_final(text: str, default: str|None = "") -> str:
 
 
 __all__ = [
-    "COUNTRY_LABEL_OVERRIDES",
-    "POPULATION_OVERRIDES",
     "NEW_P17_FINAL",
     "get_from_new_p17_final",
 ]
@@ -379,7 +374,6 @@ len_print.data_len(
     "labels_country.py",
     {
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
-        "POPULATION_OVERRIDES": POPULATION_OVERRIDES,
         "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,           # 5,191
         "NEW_P17_FINAL": NEW_P17_FINAL,
     },
