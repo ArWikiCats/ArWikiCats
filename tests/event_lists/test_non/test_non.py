@@ -372,7 +372,7 @@ data1 = {
     "non-fiction books about immigration to the united states": "كتب غير خيالية عن الهجرة إلى الولايات المتحدة",
     "non-fiction books about indigenous peoples of the americas": "كتب غير خيالية عن شعوب أصلية في الأمريكتين",
     "non-fiction books about italian-american culture": "كتب غير خيالية عن ثقافة أمريكية إيطالية",
-    "non-fiction books about jack the ripper": "كتب غير خيالية عن جاك السفاح",
+    "non-fiction books about jack ripper": "كتب غير خيالية عن جاك السفاح",
     "non-fiction books about james bond": "كتب غير خيالية عن جيمس بوند",
     "non-fiction books about military history of the united states": "كتب غير خيالية عن التاريخ العسكري الولايات المتحدة",
     "non-fiction books about mining": "كتب غير خيالية عن تعدين",

@@ -418,7 +418,7 @@ title_work_tests_data = {
     "non-fiction books about immigration": "كتب غير خيالية عن الهجرة",
     "non-fiction books about indigenous peoples of": "كتب غير خيالية عن شعوب أصلية في",
     "non-fiction books about italian-american culture": "كتب غير خيالية عن ثقافة أمريكية إيطالية",
-    "non-fiction books about jack the ripper": "كتب غير خيالية عن جاك السفاح",
+    "non-fiction books about jack ripper": "كتب غير خيالية عن جاك السفاح",
     "non-fiction books about james bond": "كتب غير خيالية عن جيمس بوند",
     "non-fiction books about military history of": "كتب غير خيالية عن التاريخ العسكري",
     "non-fiction books about mining": "كتب غير خيالية عن تعدين",
