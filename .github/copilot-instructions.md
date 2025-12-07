@@ -37,7 +37,7 @@ This project uses multiple tools to maintain code quality:
 
 ### Ruff
 - **Line length**: 120 characters
-- **Target version**: Python 3.13
+- **Target version**: Python 3.13 (linter target, project requires 3.10+)
 - **Ignored rules**: E402, E225, E226, E227, E228, E252, E501, F841, E224, E203, F401
 - Run with: `ruff check ArWikiCats/`
 
