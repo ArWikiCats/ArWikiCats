@@ -137,8 +137,6 @@
         "xinjiang university": "جامعة سنجان"
     },
     "historical_societal": {
-        "battle creek, michigan": "باتل كريك (ميشيغان)",
-        "front royal, virginia": "فرونت رويال (فيرجينيا)",
         "kingdom of serbia (medieval)": "مملكة صربيا (العصور الوسطى)",
         "nine years' war (ireland)": "حرب التسع سنوات (أيرلندا)",
         "off wall comedy empire": "ملهى العروض الكوميدية"
@@ -168,17 +166,10 @@
     "organizations": {
         "arab orthodox society": "جمعية حاملات الطيب الأرثوذكسية",
         "bethlehem association": "منظمة بيت لحم",
-        "council bluffs, iowa": "كونسيل بلوفس (آيوا)",
         "jerusalem foundation": "مؤسسة القدس",
         "jewish agency for israel": "الوكالة اليهودية",
         "north atlantic council": "مجلس شمال الأطلسي",
         "somali national movement": "الحركة الوطنية الصومالية",
-        "union city, california": "يونيون سيتي (كاليفورنيا)",
-        "union city, new jersey": "يونيون سيتي (نيوجيرسي)",
-        "union parish, louisiana": "مقاطعة يونيون (لويزيانا)",
-        "union square, san francisco": "ساحة الاتحاد (سان فرانسيسكو)",
-        "union, kentucky": "يونيون (كنتاكي)",
-        "west union, iowa": "ويست يونيون (آيوا)",
         "world boxing council": "المجلس العالمي للملاكمة",
         "world boxing organization": "منظمة الملاكمة العالمية"
     },
@@ -224,8 +215,6 @@
         "igorot people": "شعب إغوروت",
         "king": "كينغ",
         "king and queen": "كينغ أند كوين",
-        "king george county, virginia": "مقاطعة كينغ جورج (فيرجينيا)",
-        "king george island (south shetland islands)": "جزيرة الملك جورج (جزر شيتلاند الجنوبية)",
         "king william": "كينغ ويليام",
         "king, ontario": "كينغ (أونتاريو)",
         "lord howe island": "جزيرة لورد هاو",
@@ -233,7 +222,6 @@
         "port-au-prince": "بورت أو برانس",
         "prince albert, saskatchewan": "برينس ألبرت (ساسكاتشوان)",
         "prince edward county, ontario": "برنس إدوارد (أونتاريو)",
-        "prince edward county, virginia": "مقاطعة برينس إدورد (فيرجينيا)",
         "prince george": "برينس جورج",
         "prince george's": "برينس جورج",
         "prince george, british columbia": "برينس جورج (كولومبيا البريطانية)",
@@ -264,26 +252,5 @@
         "warri wolves f.c.": "واري وولفز"
     },
     "taxons": {
-        "anthiinae": "أنثياس",
-        "armidale, new south wales": "آرمدال",
-        "bathurst, new south wales": "باثرست",
-        "byron bay, new south wales": "خليج بايرون (نيوساوث ويلز)",
-        "castro urdiales": "كاسترو أورديالس",
-        "coralliophilinae": "رجونيات",
-        "eriocraniidae": "قطيميات",
-        "gonzales": "غونزاليس",
-        "goulburn, new south wales": "غولبرن (نيوساوث ويلز)",
-        "hemiscylliidae": "أشلاقيات نصفية",
-        "lestoidea": "رعاش ساقي الجناح",
-        "manizales": "مانيزاليس",
-        "metaviridae": "فيروسات تالية",
-        "moree, new south wales": "موري (أستراليا)",
-        "neovenatoridae": "نيوفيناتوريات",
-        "newcastle, new south wales": "نيوكاسل (نيوساوث ويلز)",
-        "orange, new south wales": "أورانج (أستراليا)",
-        "osteolepiformes": "حرشفيات العظم",
-        "propionibacterineae": "بروبيونيات",
-        "tamworth, new south wales": "تامورث (نيوساوث ويلز)",
-        "wentworth, new south wales": "وينتورث"
     }
 }
