@@ -139,10 +139,10 @@ TAXON_SUFFIXES = (
 # Detection Helpers
 # -------------------------------------------------------------
 
-def detect_english_keywords(label: str, words) -> bool:
+def detect_english_keywords(label: str) -> bool:
     """Return True if English keyword matches exactly or by token."""
     lowered = label.lower()
-    for keyword in words:
+    for keyword in NON_GEO_KEYWORDS_EN:
         pattern = rf"\b{re.escape(keyword)}\b"
         if re.search(pattern, lowered):
             return True
@@ -178,7 +178,7 @@ def detect_person_like(label: str) -> bool:
 def is_non_geographic(key: str, value: str) -> bool:
     """Unified classification decision combining all heuristics."""
     # Layer 1: English keyword detection
-    if detect_english_keywords(key, NON_GEO_KEYWORDS_EN):
+    if detect_english_keywords(key):
         return True
 
     # Layer 2: Arabic keyword detection
@@ -201,23 +201,38 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     geo = {}
     non_geo = {}
     taxons = 0
+    persons = 0
     for key, value in entries.items():
-        if is_non_geographic(key, value):
+
+        # Layer 1: English keyword detection
+        if detect_english_keywords(key):
             non_geo[key] = value
+
+        # Layer 2: Arabic keyword detection
+        elif detect_arabic_keywords(value):
+            non_geo[key] = value
+
         # Layer 3: Biological taxon detection
         elif detect_taxon(key):
-            geo[key] = value
+            non_geo[key] = value
             taxons += 1
+
+        # Layer 4: Person role detection
+        elif detect_person_like(key):
+            non_geo[key] = value
+            persons += 1
         else:
             geo[key] = value
 
-    return geo, non_geo, taxons
+    print(f"Total: {len(entries)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)} | Taxons: {taxons} | Persons: {persons}")
+
+    return geo, non_geo
 
 
 def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
     """Read → classify → write outputs."""
     data = json.loads(input_path.read_text(encoding="utf-8"))
-    geo, non_geo, taxons = classify_entries(data)
+    geo, non_geo = classify_entries(data)
 
     # Write output files
     with open(geo_out, 'w', encoding='utf-8') as f:
@@ -225,8 +240,6 @@ def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
 
     with open(non_geo_out, 'w', encoding='utf-8') as f:
         json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
-
-    print(f"Total: {len(data)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)} | Taxons: {taxons}")
 
 
 def main() -> None:
