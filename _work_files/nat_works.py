@@ -51,7 +51,10 @@ the_female
 import json
 from pathlib import Path
 
-JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/translations/jsons/nationalities/All_Nat_o.json")
+# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/translations/jsons/nationalities/All_Nat_o.json")
+
+JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/translations/jsons/nationalities/uu_nats.json")
+# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/translations/jsons/nationalities/Sub_Nat.json")
 
 
 def add_definite_article(word: str) -> str:
