@@ -1,3 +1,13 @@
+## [#183](https://github.com/MrIbrahem/ArWikiCats/pull/183) - 2025-12-07
+
+* **New Features**
+  * Implemented enhanced filtering for geographic vs. non-geographic translation entries.
+  * Added city vs. non-city categorization for location data.
+
+* **Chores**
+  * Reorganized translation data file structure and consolidated data sources.
+  * Updated Arabic translation mappings across multiple content categories.
+
 ## [#182](https://github.com/MrIbrahem/ArWikiCats/pull/182) - 2025-12-07
 
 * **New Features**
