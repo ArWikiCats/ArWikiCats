@@ -6,14 +6,12 @@ This script uses the same logic as filter_non_geographic.py to identify and sepa
 non-city entries (universities, companies, museums, etc.) from actual city entries.
 """
 
-import json
+import sys
 import shutil
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-# Import the filtering function from the main script
-import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from scripts.filter_non_geographic import is_non_geographic, filter_json_file
+from help_scripts.filter_non_geographic import filter_json_file
 
 
 def main():

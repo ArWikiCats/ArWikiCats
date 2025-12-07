@@ -7,10 +7,11 @@ This script identifies and separates entries that represent non-geographic entit
 entries (countries, cities, regions, etc.).
 """
 
+import sys
 import json
-import os
 import shutil
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 
 def is_non_geographic(key: str, value: str) -> bool:
@@ -74,7 +75,7 @@ def is_non_geographic(key: str, value: str) -> bool:
         'جسر',    # bridge
         'شركة',   # company
         'جمعية',  # association
-        'مستشفى', # hospital
+        'مستشفى',  # hospital
         'متحف',   # museum
         'فندق',   # hotel
         'ملعب',   # stadium

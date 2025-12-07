@@ -3,69 +3,69 @@
 import json
 import pytest
 from pathlib import Path
-from scripts.filter_non_geographic import is_non_geographic, filter_json_file
+from help_scripts.filter_non_geographic import is_non_geographic, filter_json_file
 
 
 class TestIsNonGeographic:
     """Test cases for the is_non_geographic function."""
 
-    def test_university_in_key(self):
+    def test_university_in_key(self, jsons_geography_dir):
         """Test that university keywords are detected."""
         assert is_non_geographic("alfaisal university", "جامعة الفيصل") is True
         assert is_non_geographic("brown university", "جامعة براون") is True
 
-    def test_college_in_key(self):
+    def test_college_in_key(self, jsons_geography_dir):
         """Test that college keywords are detected."""
         assert is_non_geographic("bard college", "كلية بارد") is True
         assert is_non_geographic("medical college of wisconsin", "كلية طب ويسكونسن") is True
 
-    def test_bridge_in_key(self):
+    def test_bridge_in_key(self, jsons_geography_dir):
         """Test that bridge keywords are detected."""
         assert is_non_geographic("tacoma narrows bridge", "جسر تكوما ناروس") is True
 
-    def test_fc_club_in_key(self):
+    def test_fc_club_in_key(self, jsons_geography_dir):
         """Test that sports clubs are detected."""
         assert is_non_geographic("akonangui fc", "نادي أكونانغي") is True
         assert is_non_geographic("al-fayha fc", "نادي الفيحاء") is True
         assert is_non_geographic("harbour view f.c.", "نادي هاربور فيو") is True
 
-    def test_company_in_key(self):
+    def test_company_in_key(self, jsons_geography_dir):
         """Test that companies are detected."""
         assert is_non_geographic("bristol aeroplane company", "شركة طائرات بريستول") is True
         assert is_non_geographic("artland (company)", "أرتلاند") is True
 
-    def test_museum_in_key(self):
+    def test_museum_in_key(self, jsons_geography_dir):
         """Test that museums are detected."""
         assert is_non_geographic("museum of london", "متحف لندن") is True
         assert is_non_geographic("national museum of china", "المتحف الوطني الصيني") is True
 
-    def test_library_in_key(self):
+    def test_library_in_key(self, jsons_geography_dir):
         """Test that libraries are detected."""
         assert is_non_geographic("library of ashurbanipal", "مكتبة آشوربانيبال") is True
 
-    def test_association_in_key(self):
+    def test_association_in_key(self, jsons_geography_dir):
         """Test that associations are detected."""
         assert is_non_geographic("freedom of association", "حرية التنظيم") is True
         assert is_non_geographic("world boxing association", "رابطة الملاكمة العالمية") is True
 
-    def test_organization_in_key(self):
+    def test_organization_in_key(self, jsons_geography_dir):
         """Test that organizations are detected."""
         assert is_non_geographic("economic cooperation organization", "منظمة التعاون الاقتصادي") is True
         assert is_non_geographic("indian space research organisation", "منظمة البحوث الفضائية الهندية") is True
 
-    def test_arabic_university_in_value(self):
+    def test_arabic_university_in_value(self, jsons_geography_dir):
         """Test that Arabic 'جامعة' is detected in value."""
         assert is_non_geographic("some key", "جامعة القاهرة") is True
 
-    def test_arabic_club_in_value(self):
+    def test_arabic_club_in_value(self, jsons_geography_dir):
         """Test that Arabic 'نادي' is detected in value."""
         assert is_non_geographic("some key", "نادي الأهلي") is True
 
-    def test_arabic_company_in_value(self):
+    def test_arabic_company_in_value(self, jsons_geography_dir):
         """Test that Arabic 'شركة' is detected in value."""
         assert is_non_geographic("some key", "شركة طائرات") is True
 
-    def test_geographic_entries_not_flagged(self):
+    def test_geographic_entries_not_flagged(self, jsons_geography_dir):
         """Test that genuine geographic entries are not flagged."""
         assert is_non_geographic("africa", "إفريقيا") is False
         assert is_non_geographic("alberta", "ألبرتا") is False
@@ -141,27 +141,28 @@ class TestFilterJsonFile:
         assert non_geo_data["test university"] == "جامعة الاختبار"
 
 
+@pytest.fixture
+def jsons_geography_dir() -> Path:
+    return Path(__file__).parent.parent.parent / 'ArWikiCats' / 'translations' / 'jsons' / 'geography'
+
+
 class TestRealDataIntegrity:
     """Test cases that verify the real data files."""
 
-    def test_p17_files_exist(self):
+    def test_p17_files_exist(self, jsons_geography_dir):
         """Test that the output files exist after filtering."""
-        base_dir = Path(__file__).parent.parent
-        geography_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons' / 'geography'
 
-        geo_file = geography_dir / 'P17_2_final_ll.json'
-        non_geo_file = geography_dir / 'P17_2_final_ll_non_geographic.json'
+        geo_file = jsons_geography_dir / 'P17_2_final_ll.json'
+        non_geo_file = jsons_geography_dir / 'P17_2_final_ll_non_geographic.json'
 
         assert geo_file.exists(), "Geographic file should exist"
         assert non_geo_file.exists(), "Non-geographic file should exist"
 
-    def test_p17_files_have_correct_counts(self):
+    def test_p17_files_have_correct_counts(self, jsons_geography_dir):
         """Test that the files have the expected number of entries."""
-        base_dir = Path(__file__).parent.parent
-        geography_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons' / 'geography'
 
-        geo_file = geography_dir / 'P17_2_final_ll.json'
-        non_geo_file = geography_dir / 'P17_2_final_ll_non_geographic.json'
+        geo_file = jsons_geography_dir / 'P17_2_final_ll.json'
+        non_geo_file = jsons_geography_dir / 'P17_2_final_ll_non_geographic.json'
 
         with open(geo_file, 'r', encoding='utf-8') as f:
             geo_data = json.load(f)
@@ -179,11 +180,10 @@ class TestRealDataIntegrity:
         # Geographic should be the majority
         assert len(geo_data) > len(non_geo_data), "Geographic entries should be more than non-geographic"
 
-    def test_non_geographic_contains_expected_entries(self):
+    def test_non_geographic_contains_expected_entries(self, jsons_geography_dir):
         """Test that specific known non-geographic entries are in the right file."""
-        base_dir = Path(__file__).parent.parent
-        geography_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons' / 'geography'
-        non_geo_file = geography_dir / 'P17_2_final_ll_non_geographic.json'
+
+        non_geo_file = jsons_geography_dir / 'P17_2_final_ll_non_geographic.json'
 
         with open(non_geo_file, 'r', encoding='utf-8') as f:
             non_geo_data = json.load(f)
@@ -199,11 +199,10 @@ class TestRealDataIntegrity:
         for entry in expected_entries:
             assert entry in non_geo_data, f"Expected '{entry}' to be in non-geographic file"
 
-    def test_geographic_contains_expected_entries(self):
+    def test_geographic_contains_expected_entries(self, jsons_geography_dir):
         """Test that specific known geographic entries remain in the geographic file."""
-        base_dir = Path(__file__).parent.parent
-        geography_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons' / 'geography'
-        geo_file = geography_dir / 'P17_2_final_ll.json'
+
+        geo_file = jsons_geography_dir / 'P17_2_final_ll.json'
 
         with open(geo_file, 'r', encoding='utf-8') as f:
             geo_data = json.load(f)
