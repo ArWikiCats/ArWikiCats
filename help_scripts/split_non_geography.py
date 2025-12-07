@@ -108,9 +108,7 @@ NON_GEO_KEYWORDS_EN = {
         "battle",
         "front"
     ],
-    "dynasty": [
-        "dynasty"
-    ],
+    # "dynasty": [ "dynasty" ],
     "languages": [
         "language"
     ],
