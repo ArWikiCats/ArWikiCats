@@ -16,7 +16,7 @@ import json
 import re
 from pathlib import Path
 from typing import Dict, Tuple
-
+from collections import defaultdict
 base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 
@@ -168,10 +168,11 @@ TAXON_SUFFIXES=(
 def detect_english_keywords(label: str) -> bool:
     """Return True if English keyword matches exactly or by token."""
     lowered=label.lower()
-    for name, keyword in NON_GEO_KEYWORDS_EN.items():
-        pattern=rf"\b{re.escape(keyword)}\b"
-        if re.search(pattern, lowered):
-            return True, name
+    for name, keywords in NON_GEO_KEYWORDS_EN.items():
+        for keyword in keywords:
+            pattern=rf"\b{re.escape(keyword)}\b"
+            if re.search(pattern, lowered):
+                return True, name
     return False, ""
 
 
@@ -205,14 +206,11 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     """Split entries into geographic and non-geographic."""
     geo = {}
     non_geo = {}
-    typies = {
-        "persons": 0,
-        "taxons": 0,
-    }
+    typies = defaultdict(int)
     for key, value in entries.items():
 
         # Layer 1: English keyword detection
-        name, isa = detect_english_keywords(key)
+        isa, name = detect_english_keywords(key)
         if isa:
             typies[name] += 1
             non_geo[key] = value
