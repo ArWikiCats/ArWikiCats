@@ -26,6 +26,7 @@ jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 # -------------------------------------------------------------
 CHECK_AR_ALSO = {
     "park": "بارك",
+    "bridge": "بريدج",
 }
 
 NON_GEO_KEYWORDS_EN = {
@@ -167,6 +168,11 @@ def detect_english_keywords(label: str, value: str) -> bool:
             # ---
             if not ar_word:
                 return True, name
+            # ---
+            if ar_word:
+                ar_pattern = rf"\b{re.escape(ar_word)}\b"
+                if re.search(ar_pattern, value):
+                    continue
             # ---
             return True, name
     return False, ""
