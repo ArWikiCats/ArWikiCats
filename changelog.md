@@ -1,3 +1,19 @@
+## [#182](https://github.com/MrIbrahem/ArWikiCats/pull/182) - 2025-12-07
+
+* **New Features**
+  * Added filtering functionality to separate geographic and non-geographic entries in translation data
+  * Added filtering functionality to separate city and non-city entries
+
+* **Documentation**
+  * Added comprehensive documentation for new filtering scripts
+
+* **Tests**
+  * Added test suite for filtering functionality to ensure data integrity
+
+* **Chores**
+  * Enhanced translation data for Arabic localization
+  * Updated file exclusion rules
+
 ## [#178](https://github.com/MrIbrahem/ArWikiCats/pull/178) - 2025-12-07
 
 * **New Features**

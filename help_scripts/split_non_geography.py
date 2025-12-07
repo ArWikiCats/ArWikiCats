@@ -203,9 +203,9 @@ def is_non_geographic(key: str, value: str) -> bool:
         'ملعب',   # stadium
     ]
 
-    for pattern in arabic_patterns:
-        if pattern in value:
-            return True
+    # for pattern in arabic_patterns:
+    #     if pattern in value:
+    #         return True
 
     return False
 
