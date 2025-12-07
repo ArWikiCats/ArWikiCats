@@ -61,9 +61,13 @@ NON_GEO_KEYWORDS_EN = {
     ],
 
     # Culture / Media
+    "Tv": [
+        "film", "tv series", "tv show", "television", "channel", "episode", "series"
+    ],
+    # Culture / Media
     "Culture / Media": [
-        "museum", "library", "gallery", "opera", "novel", "book", "film",
-        "movie", "series", "season", "episode", "soundtrack",
+        "museum", "library", "gallery", "opera", "novel", "book",
+        "movie", "season", "soundtrack",
         "theater", "theatre", "poem", "play", "album", "song",
         "single", "ballet", "musical",
         "magazine", "newspaper", "script", "studios", "music",
@@ -206,35 +210,38 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     """Split entries into geographic and non-geographic."""
     geo = {}
     non_geo = {}
-    typies = defaultdict(int)
+    typies = defaultdict(lambda: defaultdict(int))
     for key, value in entries.items():
 
         # Layer 1: English keyword detection
         isa, name = detect_english_keywords(key)
         if isa:
-            typies[name] += 1
             non_geo[key] = value
+            typies[name][key] = value
 
         # Layer 2: Arabic keyword detection
         elif detect_arabic_keywords(value):
             non_geo[key] = value
+            typies["arabic"][key] = value
 
         # Layer 3: Biological taxon detection
         elif detect_taxon(key):
             non_geo[key] = value
-            typies["taxons"] += 1
+            typies["taxons"][key] = value
 
         # Layer 4: Person role detection
         elif detect_person_like(key):
             non_geo[key] = value
-            typies["persons"] += 1
+            typies["persons"][key] = value
         else:
             geo[key] = value
 
-    print(f"Total: {len(entries)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
-    print(" - Detected" + " | ".join([f" {k}: {v}" for k, v in typies.items()]))
+    typies = dict(sorted(typies.items(), key=lambda item: len(item[1]), reverse=True))
 
-    return geo, non_geo
+    print(f"Total: {len(entries)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
+    print(" - Detected\n\t| " + "\n\t| ".join([f" {k}: {len(v)}" for k, v in typies.items()]))
+
+    return geo, typies
 
 
 def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
