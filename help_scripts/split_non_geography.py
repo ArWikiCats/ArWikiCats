@@ -25,12 +25,12 @@ jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 # 1) Robust Keyword Sets (merged + expanded)
 # -------------------------------------------------------------
 NON_GEO_KEYWORDS_EN = {
-    "Education": [
+    "education": [
         "university", "college", "school", "academy", "institute", "faculty",
         "journal"
     ],
-    "Medical": ["hospital", "clinic", "medical center"],
-    "Business": [
+    "medical": ["hospital", "clinic", "medical center"],
+    "business": [
         "company", "corporation", "ltd", "inc", "limited", "enterprise",
         "brand", "product", "bank", "airlines", "airways",
         "restaurant", "hotel"
@@ -40,19 +40,19 @@ NON_GEO_KEYWORDS_EN = {
         "railway", "canal", "pipeline", "dam", "dike", "circuit",
         "center", "centre", "park", "garden", "zoo"
     ],
-    "Religious / Cultural Buildings": [
+    "religious_cultural_buildings": [
         "church", "cathedral", "mosque", "temple", "synagogue",
         "abbey", "monastery"
     ],
-    "Organizations / Groups": [
+    "organizations": [
         "association", "organisation", "organization", "foundation",
         "society", "agency", "council", "union", "movement",
         "army", "navy", "air force"
     ],
     "Tv": [
-        "film", "tv series", "tv show", "television", "channel", "episode", "series"
+        "film", "tv series", "tv show", "television", "channel", "episode", "series", "movie"
     ],
-    "Culture / Media": [
+    "culture_media": [
         "museum", "library", "gallery", "opera", "novel", "book",
         "movie", "season", "soundtrack",
         "theater", "theatre", "poem", "play", "album", "song",
@@ -60,26 +60,26 @@ NON_GEO_KEYWORDS_EN = {
         "magazine", "newspaper", "script", "studios", "music",
         "festival", "band"
     ],
-    "Sports": [
+    "sports": [
         "club", "team", "fc", "sc", "league", "tournament", "stadium",
         "arena", "championship", "cup", "race", "grand prix",
         "clubs"
     ],
-    "Politics / Law": [
+    "politics_law": [
         "government", "ministry", "court", "constitution", "policy",
         "election", "presidential", "parliament", "senate", "law",
         "legal", "case", "presidential election",
         "politics", "assembly", "treaty", "party"
     ],
-    "Media / Technology": [
+    "media_technology": [
         "software", "protocol", "video game", "algorithm",
         "language", "operating system", "board game"
     ],
-    "Biology / Scientific": [
+    "biology_scientific": [
         "virus", "bacteria", "species", "genus", "family", "order",
         "mammal", "bird", "fish", "fungus", "plant", "animal", "insect"
     ],
-    "People / Roles": [
+    "roles_people": [
         "king", "queen", "prince", "emperor", "president", "minister",
         "lord", "sir", "judge", "politician",
         "artist", "actor", "actress", "singer", "writer", "author",
@@ -89,18 +89,18 @@ NON_GEO_KEYWORDS_EN = {
         "businessman", "businesswoman",
         "people"
     ],
-    "Mythology / Religion": [
+    "mythology_religion": [
         "mythology", "goddess", "god", "mythical", "religion",
         "sect", "liturgy"
     ],
-    "Historical / Societal Concepts": [
+    "historical_societal": [
         "clan", "dynasty", "empire", "kingdom", "tribe", "war",
         "battle", "front"
     ],
-    "Awards / Recognition": [
+    "awards": [
         "award", "medal", "prize", "trophy"
     ],
-    "Departments / Institutions / Other": [
+    "institutions_other": [
         "department", "dialect", "military", "police", "prison"
     ]
 }
