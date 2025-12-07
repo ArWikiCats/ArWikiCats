@@ -25,6 +25,8 @@ class NationalityEntry(TypedDict):
     females: str
     en: str
     ar: str
+    the_female: str
+    the_male: str
 
 
 AllNatDict = Dict[str, NationalityEntry]
@@ -62,13 +64,16 @@ def load_sources() -> Dict[str, NationalityEntry]:
 
     for key, val in raw_all_nat_o.items():
         # Build guaranteed structure
+        val = val if isinstance(val, dict) else {}
         entry: NationalityEntry = {
-            "male": val.get("male", "") if isinstance(val, dict) else "",
-            "males": val.get("males", "") if isinstance(val, dict) else "",
-            "female": val.get("female", "") if isinstance(val, dict) else "",
-            "females": val.get("females", "") if isinstance(val, dict) else "",
-            "en": val.get("en", "") if isinstance(val, dict) else "",
-            "ar": val.get("ar", "") if isinstance(val, dict) else "",
+            "male": val.get("male", ""),
+            "males": val.get("males", ""),
+            "female": val.get("female", ""),
+            "females": val.get("females", ""),
+            "en": val.get("en", ""),
+            "ar": val.get("ar", ""),
+            "the_female": val.get("the_female", ""),
+            "the_male": val.get("the_male", ""),
         }
 
         normalized[key] = entry
@@ -149,6 +154,8 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
         "females": "غينيات",
         "en": "papua new guinea",
         "ar": "بابوا غينيا الجديدة",
+        "the_female": "الغينية",
+        "the_male": "الغيني"
     }
 
     # Handle Georgia (country)
@@ -161,6 +168,8 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
             "females": ge["females"],
             "en": "georgia (country)",
             "ar": ge["ar"],
+            "the_female": ge["the_female"],
+            "the_male": ge["the_male"]
         }
 
     # Add southwest asian nationality
@@ -171,6 +180,8 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
         "females": "جنوبيات غربيات آسيويات",
         "en": "southwest asia",
         "ar": "جنوب غرب آسيا",
+        "the_female": "الجنوب غربي الآسيوية",
+        "the_male": "الجنوب غربي الآسيوي"
     }
 
     return all_nat_o
@@ -196,6 +207,7 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
 
         if not any([male, males, female, females]):
             continue  # skip if no gender fields present
+        the_female, the_male = entry.get("the_female", ""), entry.get("the_male", "")
 
         new_entry: NationalityEntry = {
             "male": f"أمريكي {male}" if male else "",
@@ -204,6 +216,8 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
             "females": f"أمريكيات {females}" if females else "",
             "en": "",
             "ar": "",
+            "the_female": f"الأمريكية {the_female}" if the_female else "",
+            "the_male": f"الأمريكي {the_male}" if the_male else "",
         }
 
         key_lower = nat_key.lower()
@@ -232,6 +246,9 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
     Nat_women: LookupTable = {}
     Nat_Womens: LookupTable = {}
 
+    Nat_the_female : LookupTable = {}
+    Nat_the_male : LookupTable = {}
+
     ar_Nat_men: LookupTable = {}
     countries_from_nat: LookupTable = {}
 
@@ -252,10 +269,18 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
 
         if entry["males"]:
             Nat_mens[nat_key] = entry["males"]
+
         if entry["female"]:
             Nat_women[nat_key] = entry["female"]
+
         if entry["females"]:
             Nat_Womens[nat_key] = entry["females"]
+
+        if entry["the_female"]:
+            Nat_the_female[nat_key] = entry["the_female"]
+
+        if entry["the_male"]:
+            Nat_the_male[nat_key] = entry["the_male"]
 
         # English → Arabic country mapping
         if en and ar:
@@ -290,6 +315,8 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
         "all_country_with_nat_ar": all_country_with_nat_ar,
         "countries_nat_en_key": countries_nat_en_key,
         "en_nats_to_ar_label": en_nats_to_ar_label,
+        "Nat_the_male": Nat_the_male,
+        "Nat_the_female": Nat_the_female,
     }
 
 
@@ -309,6 +336,9 @@ Nat_men: LookupTable = result_tables["Nat_men"]
 Nat_mens: LookupTable = result_tables["Nat_mens"]
 Nat_women: LookupTable = result_tables["Nat_women"]
 Nat_Womens: LookupTable = result_tables["Nat_Womens"]
+
+Nat_the_male : LookupTable = result_tables["Nat_the_male"]
+Nat_the_female : LookupTable = result_tables["Nat_the_female"]
 
 ar_Nat_men: LookupTable = result_tables["ar_Nat_men"]
 countries_from_nat: LookupTable = result_tables["countries_from_nat"]
@@ -338,5 +368,7 @@ len_print.data_len(
         "American_nat": American_nat,
         "countries_nat_en_key": countries_nat_en_key,
         "en_nats_to_ar_label": en_nats_to_ar_label,
+        "Nat_the_male": Nat_the_male,
+        "Nat_the_female": Nat_the_female,
     },
 )
