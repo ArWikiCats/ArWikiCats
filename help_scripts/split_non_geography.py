@@ -265,7 +265,7 @@ def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> str:
     with open(non_geo_out, 'w', encoding='utf-8') as f:
         json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    return f"Total: {len(data)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}"
+    return f"Total: {len(data):,} | Geographic: {len(geo):,} | Non-Geographic: {len(non_geo):,}"
 
 
 def main() -> None:
