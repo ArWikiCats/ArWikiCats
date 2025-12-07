@@ -1,3 +1,19 @@
+## [#184](https://github.com/MrIbrahem/ArWikiCats/pull/184) - 2025-12-07
+
+* **New Features**
+  * Improved filtering for geographic vs non‑geographic and city vs non‑city entries
+
+* **Bug Fixes**
+  * Removed an incorrect country-prefix mapping that affected some country label resolutions
+  * Corrected and normalized many Arabic translation mappings
+
+* **Chores**
+  * Reorganized and consolidated translation datasets; removed and added large translation resources
+  * Added a JSON scanning/validation utility; refined region-suffix handling and public exports
+
+* **Tests**
+  * Updated test data to reflect mapping removals and translation changes; some test cases adjusted or removed
+
 ## [#183](https://github.com/MrIbrahem/ArWikiCats/pull/183) - 2025-12-07
 
 * **New Features**
