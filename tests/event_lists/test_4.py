@@ -132,6 +132,21 @@ data1 = {
 
 
 data_2 = {
+    "tokyo metropolitan police department": "قسم شرطة العاصمة طوكيو",
+    "sri lankan civil war by decade": "الحرب الأهلية السريلانكية حسب العقد",
+    "church of jesus christ of latter-day saints": "كنيسة يسوع المسيح لقديسي الأيام الأخيرة",
+    "supreme court of israel": "المحكمة العليا (إسرائيل)",
+    "sydney opera house": "دار أوبرا سيدني",
+    "sovereign military order of malta": "فرسان مالطة",
+    "senate of pakistan": "مجلس الشيوخ الباكستان",
+    "second congo war": "حرب الكونغو الثانية",
+    "san quentin state prison": "سجن سان كوينتن",
+    "royal canadian mounted police": "شرطة الخيالة الكندية الملكية",
+    "royal danish army": "القوات البرية الدانماركية",
+    "parliament of india": "برلمان الهند",
+    "people's liberation army air force": "القوات الجوية لجيش التحرير الشعبي الصيني",
+    "people's liberation army navy": "بحرية جيش التحرير الشعبي",
+    "russian academy of arts": "الأكاديمية الروسية للفنون",
     "political people": "أعلام سياسية",
     "lgbtq people": "أعلام إل جي بي تي كيو",
     "black people": "أعلام سوداء",
