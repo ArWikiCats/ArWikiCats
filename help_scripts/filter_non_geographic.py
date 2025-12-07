@@ -7,10 +7,14 @@ This script identifies and separates entries that represent non-geographic entit
 entries (countries, cities, regions, etc.).
 """
 
+import sys
 import json
-import os
 import shutil
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+base_dir = Path(__file__).parent.parent
+jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 
 
 def is_non_geographic(key: str, value: str) -> bool:
@@ -74,7 +78,7 @@ def is_non_geographic(key: str, value: str) -> bool:
         'جسر',    # bridge
         'شركة',   # company
         'جمعية',  # association
-        'مستشفى', # hospital
+        'مستشفى',  # hospital
         'متحف',   # museum
         'فندق',   # hotel
         'ملعب',   # stadium
@@ -115,10 +119,10 @@ def filter_json_file(input_file: Path, output_geo: Path, output_non_geo: Path) -
 
     # Write output files
     with open(output_geo, 'w', encoding='utf-8') as f:
-        json.dump(geographic, f, ensure_ascii=False, indent=4)
+        json.dump(geographic, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     with open(output_non_geo, 'w', encoding='utf-8') as f:
-        json.dump(non_geographic, f, ensure_ascii=False, indent=4)
+        json.dump(non_geographic, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     # Return statistics
     return {
@@ -128,24 +132,11 @@ def filter_json_file(input_file: Path, output_geo: Path, output_non_geo: Path) -
     }
 
 
-def main():
+def one_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE):
     """Main execution function."""
-    # Define paths
-    base_dir = Path(__file__).parent.parent
-    geography_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons' / 'geography'
-
-    input_file = geography_dir / 'P17_2_final_ll.json'
-    output_geo = geography_dir / 'P17_2_final_ll.json'
-    output_non_geo = geography_dir / 'P17_2_final_ll_non_geographic.json'
-
-    # Backup the original file first
-    backup_file = geography_dir / 'P17_2_final_ll.json.backup'
-    if not backup_file.exists():
-        shutil.copy2(input_file, backup_file)
-        print(f"Created backup at: {backup_file}")
 
     # Filter the file
-    stats = filter_json_file(input_file, output_geo, output_non_geo)
+    stats = filter_json_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
 
     # Print results
     print("\n" + "=" * 60)
@@ -154,9 +145,22 @@ def main():
     print(f"Total entries: {stats['total_entries']}")
     print(f"Geographic entries: {stats['geographic_entries']}")
     print(f"Non-geographic entries: {stats['non_geographic_entries']}")
-    print(f"\nGeographic entries saved to: {output_geo}")
-    print(f"Non-geographic entries saved to: {output_non_geo}")
+    print(f"Geographic entries saved to: {NEW_FILE}")
+    print(f"Non-geographic entries saved to: {NON_GEO_FILE}")
     print("=" * 60)
+
+
+def main() -> None:
+
+    SOURCE_FILE = jsons_dir / "cities/yy2.json"
+    NEW_FILE = jsons_dir / "cities/yy2_new.json"
+    NON_GEO_FILE = jsons_dir / "cities/yy2_non_cities.json"
+    one_file(SOURCE_FILE, NEW_FILE, NON_GEO_FILE)
+
+    SOURCE_FILE2 = jsons_dir / "geography/P17_2_final_ll.json"
+    NEW_FILE2 = jsons_dir / "geography/P17_2_final_ll_new.json"
+    NON_GEO_FILE2 = jsons_dir / "geography/P17_2_final_ll_non_geographic.json"
+    one_file(SOURCE_FILE2, NEW_FILE2, NON_GEO_FILE2)
 
 
 if __name__ == '__main__':
