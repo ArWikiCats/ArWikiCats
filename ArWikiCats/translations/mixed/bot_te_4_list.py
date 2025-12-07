@@ -200,6 +200,7 @@ baston_women: dict[str, str] = {
     "television": "التلفزة",
     "revolution": "الثورة",
     "war": "الحرب",
+    "border war": "حرب الحدود",
     "civil war": "الحرب الأهلية",
     "detention": "المعتقلات",
     "para games": "الألعاب البارالمبية",
