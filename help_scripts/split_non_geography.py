@@ -185,10 +185,6 @@ def is_non_geographic(key: str, value: str) -> bool:
     if detect_arabic_keywords(value):
         return True
 
-    # Layer 3: Biological taxon detection
-    if detect_taxon(key):
-        return True
-
     # Layer 4: Person role detection
     if detect_person_like(key):
         return True
@@ -204,18 +200,24 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     """Split entries into geographic and non-geographic."""
     geo = {}
     non_geo = {}
+    taxons = 0
     for key, value in entries.items():
         if is_non_geographic(key, value):
             non_geo[key] = value
+        # Layer 3: Biological taxon detection
+        elif detect_taxon(key):
+            geo[key] = value
+            taxons += 1
         else:
             geo[key] = value
-    return geo, non_geo
+
+    return geo, non_geo, taxons
 
 
 def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
     """Read → classify → write outputs."""
     data = json.loads(input_path.read_text(encoding="utf-8"))
-    geo, non_geo = classify_entries(data)
+    geo, non_geo, taxons = classify_entries(data)
 
     # Write output files
     with open(geo_out, 'w', encoding='utf-8') as f:
@@ -224,7 +226,7 @@ def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
     with open(non_geo_out, 'w', encoding='utf-8') as f:
         json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-    print(f"Total: {len(data)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)}")
+    print(f"Total: {len(data)} | Geographic: {len(geo)} | Non-Geographic: {len(non_geo)} | Taxons: {taxons}")
 
 
 def main() -> None:
