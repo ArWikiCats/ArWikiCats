@@ -1,4 +1,16 @@
-from __future__ import annotations
+#!/usr/bin/env python3
+"""
+Unified classifier for geographic vs non-geographic labels.
+
+This script merges:
+- Rich keyword taxonomy from split_non_geography.py
+- Arabic/English pattern detection from filter_non_geographic.py
+- Taxon detection (biological names)
+- Person-role detection (king, queen, president...)
+- Cultural/media keywords
+- Multi-layer rule-based classification for maximum accuracy
+
+"""
 
 import json
 import re
@@ -9,7 +21,12 @@ base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 
 
-NON_GEO_KEYWORDS = {
+# -------------------------------------------------------------
+# 1) Robust Keyword Sets (merged + expanded)
+# -------------------------------------------------------------
+
+NON_GEO_KEYWORDS_EN = {
+
     # Education
     "university", "college", "school", "academy", "institute", "faculty",
 
@@ -17,36 +34,72 @@ NON_GEO_KEYWORDS = {
     "hospital", "clinic", "medical center",
 
     # Business
-    "company", "corporation", "ltd", "inc", "limited", "enterprise", "brand",
+    "company", "corporation", "ltd", "inc", "limited", "enterprise",
+    "brand", "product", "bank", "airlines", "airways",
 
     # Infrastructure
-    "bridge", "tunnel", "airport", "station", "highway", "road", "railway", "canal", "pipeline", "dam",
+    "bridge", "tunnel", "airport", "station", "highway", "road", "railway",
+    "canal", "pipeline", "dam", "dike", "circuit",
+
+    # Religious / Cultural Buildings
+    "church", "cathedral", "mosque", "temple", "synagogue",
+    "abbey", "monastery",
 
     # Organizations
-    "association", "organisation", "organization", "foundation", "society", "agency",
+    "association", "organisation", "organization", "foundation",
+    "society", "agency",
 
-    # Culture
-    "museum", "library", "gallery", "opera", "novel", "book", "film", "movie",
-    "series", "episode", "soundtrack", "theater", "theatre", "poem", "play",
+    # Culture / Media
+    "museum", "library", "gallery", "opera", "novel", "book", "film",
+    "movie", "series", "season", "episode", "soundtrack",
+    "theater", "theatre", "poem", "play", "album", "song",
+    "single", "ballet", "musical",
 
     # Sports
-    "club", "team", "fc", "sc", "league", "tournament", "stadium", "arena",
+    "club", "team", "fc", "sc", "league", "tournament", "stadium",
+    "arena", "championship", "cup", "race", "grand prix",
 
     # Politics / Law
-    "government", "ministry", "court", "constitution", "policy", "election",
-    "presidential", "parliament", "senate",
+    "government", "ministry", "court", "constitution", "policy",
+    "election", "presidential", "parliament", "senate", "law",
+    "legal", "case", "united states presidential election",
+    "politics",
 
     # Media / Technology
     "software", "protocol", "video game", "algorithm", "language",
+    "operating system", "board game",
 
     # Biology / Scientific
-    "virus", "bacteria", "species", "genus", "family", "order", "mammal",
-    "bird", "fish", "fungus", "plant",
+    "virus", "bacteria", "species", "genus", "family", "order",
+    "mammal", "bird", "fish", "fungus", "plant", "animal", "insect",
 
     # People / Roles
-    "king", "queen", "prince", "president", "minister", "lord", "sir",
+    "king", "queen", "prince", "emperor", "president", "minister",
+    "lord", "sir", "judge", "politician",
+    "artist", "actor", "actress", "singer", "writer", "author",
+    "poet", "philosopher", "scientist", "musician",
+    "composer", "director", "producer", "footballer",
+    "basketball player", "baseball player", "coach",
+    "businessman", "businesswoman",
 
+    # Mythology / Religion
+    "mythology", "goddess", "god", "mythical", "religion",
+    "sect", "liturgy",
 }
+
+
+# -------------------------------------------------------------
+# 2) Arabic pattern detection
+# -------------------------------------------------------------
+
+NON_GEO_KEYWORDS_AR = [
+    "جامعة", "كلية", "معهد", "نادي", "شركة", "مستشفى", "متحف",
+    "جمعية", "فندق", "ملعب", "جسر", "قناة", "محطة", "مطار"
+]
+
+# -------------------------------------------------------------
+# 3) Biological suffixes
+# -------------------------------------------------------------
 
 TAXON_SUFFIXES = (
     "aceae",
@@ -62,54 +115,79 @@ TAXON_SUFFIXES = (
     "oidea",
     "morpha",
     "cetes",
-    "phyceae",
     "phycidae",
 )
 
 
-def has_non_geo_keyword(label: str) -> bool:
+# -------------------------------------------------------------
+# Detection Helpers
+# -------------------------------------------------------------
+
+def detect_english_keywords(label: str) -> bool:
+    """Return True if English keyword matches exactly or by token."""
     lowered = label.lower()
-    for keyword in NON_GEO_KEYWORDS:
+    for keyword in NON_GEO_KEYWORDS_EN:
         pattern = rf"\b{re.escape(keyword)}\b"
         if re.search(pattern, lowered):
             return True
     return False
 
 
-def looks_like_taxon(label: str) -> bool:
+def detect_arabic_keywords(value: str) -> bool:
+    """Return True if target Arabic keyword appears."""
+    for keyword in NON_GEO_KEYWORDS_AR:
+        if keyword in value:
+            return True
+    return False
+
+
+def detect_taxon(label: str) -> bool:
+    """Detect biological taxon names by suffix."""
     lowered = label.lower()
     return any(lowered.endswith(suffix) for suffix in TAXON_SUFFIXES)
 
 
-def looks_like_person(label: str) -> bool:
+def detect_person_like(label: str) -> bool:
+    """Detect if label refers to persons/titles."""
     lowered = label.lower()
     # Heuristic: titles containing commas that denote roles (e.g., "king of", "queen of")
-    role_markers = ("king", "queen", "president", "chancellor", "minister", "lord", "sir")
-    return any(re.search(rf"\b{marker}\b", lowered) for marker in role_markers)
+    roles = ("king", "queen", "president", "chancellor", "minister", "lord", "sir", "prince")
+    return any(re.search(rf"\b{role}\b", lowered) for role in roles)
 
+
+# -------------------------------------------------------------
+# Main Rule-Based Classifier
+# -------------------------------------------------------------
 
 def is_non_geographic(key: str, value: str) -> bool:
-    # Arabic patterns in value
-
-    if has_non_geo_keyword(key) or looks_like_taxon(key) or looks_like_person(key):
+    """Unified classification decision combining all heuristics."""
+    # Layer 1: English keyword detection
+    if detect_english_keywords(key):
         return True
 
-    arabic_patterns = [
-        "جامعة", "كلية", "معهد", "نادي", "شركة", "مستشفى", "متحف",
-        "جمعية", "فندق", "ملعب", "جسر", "قناة", "محطة", "مطار"
-    ]
+    # Layer 2: Arabic keyword detection
+    if detect_arabic_keywords(value):
+        return True
 
-    for pattern in arabic_patterns:
-        if pattern in value:
-            return True
+    # Layer 3: Biological taxon detection
+    if detect_taxon(key):
+        return True
+
+    # Layer 4: Person role detection
+    if detect_person_like(key):
+        return True
 
     return False
 
 
-def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, str]]:
-    non_geo = {}
-    geo = {}
+# -------------------------------------------------------------
+# Filtering Logic
+# -------------------------------------------------------------
 
+def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, str]]:
+    """Split entries into geographic and non-geographic."""
+    geo = {}
+    non_geo = {}
     for key, value in entries.items():
         if is_non_geographic(key, value):
             non_geo[key] = value
