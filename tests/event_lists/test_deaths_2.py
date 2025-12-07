@@ -192,7 +192,7 @@ data_test_1 = {
     "Category:Deaths from cancer in New York (state)": "تصنيف:وفيات السرطان في نيويورك",
     "Category:Deaths from cancer in North Carolina": "تصنيف:وفيات السرطان في كارولينا الشمالية",
     "Category:Deaths from cancer in Oregon": "تصنيف:وفيات السرطان في أوريغن",
-    "Category:Deaths from cancer in Quebec": "تصنيف:وفيات السرطان في كيبيك",
+    "Category:Deaths from cancer in Quebec": "تصنيف:وفيات السرطان في كيبك",
     "Category:Deaths from cancer in Rhode Island": "تصنيف:وفيات السرطان في رود ايلاند",
     "Category:Deaths from cancer in South Carolina": "تصنيف:وفيات السرطان في كارولينا الجنوبية",
     "Category:Deaths from cancer in the Palestinian territories": "تصنيف:وفيات السرطان في فلسطين",

@@ -10,7 +10,7 @@ from ..utils.json_dir import open_json_file
 PARTIES: dict[str, str] = {
     "libertarian party of canada": "الحزب التحرري الكندي",
     "libertarian party-of-canada": "الحزب التحرري الكندي",
-    "green party-of-quebec": "حزب الخضر في كيبيك",
+    "green party-of-quebec": "حزب الخضر في كيبك",
     "balochistan national party (awami)": "حزب بلوشستان الوطني (عوامي)",
     "republican party-of armenia": "حزب أرمينيا الجمهوري",
     "republican party of armenia": "حزب أرمينيا الجمهوري",
@@ -61,7 +61,7 @@ PARTIES: dict[str, str] = {
     "national party (south africa)": "الحزب الوطني (جنوب إفريقيا)",
     "national woman's party": "الحزب الوطني للمرأة",
     "new democratic party": "الحزب الديمقراطي الجديد",
-    "parti québécois": "الحزب الكيبيكي",
+    "parti québécois": "الحزب الكيبكي",
     "republican party (united states)": "الحزب الجمهوري (الولايات المتحدة)",
     "revolutionary socialist party (india)": "الحزب الاشتراكي الثوري",
     "scottish national party": "الحزب القومي الإسكتلندي",
