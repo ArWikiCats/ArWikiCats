@@ -25,46 +25,33 @@ jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 # 1) Robust Keyword Sets (merged + expanded)
 # -------------------------------------------------------------
 NON_GEO_KEYWORDS_EN = {
-
     "Education": [
         "university", "college", "school", "academy", "institute", "faculty",
         "journal"
     ],
-
     "Medical": ["hospital", "clinic", "medical center"],
-
-    # Business
     "Business": [
         "company", "corporation", "ltd", "inc", "limited", "enterprise",
         "brand", "product", "bank", "airlines", "airways",
         "restaurant", "hotel"
     ],
-
-    # Infrastructure
     "Infrastructure": [
         "bridge", "tunnel", "airport", "station", "highway", "road",
         "railway", "canal", "pipeline", "dam", "dike", "circuit",
         "center", "centre", "park", "garden", "zoo"
     ],
-
-    # Religious / Cultural Buildings
     "Religious / Cultural Buildings": [
         "church", "cathedral", "mosque", "temple", "synagogue",
         "abbey", "monastery"
     ],
-
-    # Organizations / Groups
     "Organizations / Groups": [
         "association", "organisation", "organization", "foundation",
         "society", "agency", "council", "union", "movement",
         "army", "navy", "air force"
     ],
-
-    # Culture / Media
     "Tv": [
         "film", "tv series", "tv show", "television", "channel", "episode", "series"
     ],
-    # Culture / Media
     "Culture / Media": [
         "museum", "library", "gallery", "opera", "novel", "book",
         "movie", "season", "soundtrack",
@@ -73,35 +60,25 @@ NON_GEO_KEYWORDS_EN = {
         "magazine", "newspaper", "script", "studios", "music",
         "festival", "band"
     ],
-
-    # Sports
     "Sports": [
         "club", "team", "fc", "sc", "league", "tournament", "stadium",
         "arena", "championship", "cup", "race", "grand prix",
         "clubs"
     ],
-
-    # Politics / Law
     "Politics / Law": [
         "government", "ministry", "court", "constitution", "policy",
         "election", "presidential", "parliament", "senate", "law",
         "legal", "case", "presidential election",
-        "politics", "assembly", "treaty", "party",
+        "politics", "assembly", "treaty", "party"
     ],
-
-    # Media / Technology
     "Media / Technology": [
         "software", "protocol", "video game", "algorithm",
-        "language", "operating system", "board game",
+        "language", "operating system", "board game"
     ],
-
-    # Biology / Scientific
     "Biology / Scientific": [
         "virus", "bacteria", "species", "genus", "family", "order",
-        "mammal", "bird", "fish", "fungus", "plant", "animal", "insect",
-
+        "mammal", "bird", "fish", "fungus", "plant", "animal", "insect"
     ],
-    # People / Roles
     "People / Roles": [
         "king", "queen", "prince", "emperor", "president", "minister",
         "lord", "sir", "judge", "politician",
@@ -110,28 +87,22 @@ NON_GEO_KEYWORDS_EN = {
         "composer", "director", "producer", "footballer",
         "basketball player", "baseball player", "coach",
         "businessman", "businesswoman",
-        "people",
+        "people"
     ],
-    # Mythology / Religion
     "Mythology / Religion": [
         "mythology", "goddess", "god", "mythical", "religion",
-        "sect", "liturgy",
+        "sect", "liturgy"
     ],
-
-    # Historical / Societal Concepts
     "Historical / Societal Concepts": [
         "clan", "dynasty", "empire", "kingdom", "tribe", "war",
-        "battle", "front",
+        "battle", "front"
     ],
-
-    # Awards / Recognition
     "Awards / Recognition": [
-        "award", "medal", "prize", "trophy",
+        "award", "medal", "prize", "trophy"
     ],
-    # Departments / Institutions / Other
     "Departments / Institutions / Other": [
-        "department", "dialect", "military", "police", "prison",
-    ],
+        "department", "dialect", "military", "police", "prison"
+    ]
 }
 
 # -------------------------------------------------------------
