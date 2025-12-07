@@ -119,10 +119,10 @@ def filter_json_file(input_file: Path, output_geo: Path, output_non_geo: Path) -
 
     # Write output files
     with open(output_geo, 'w', encoding='utf-8') as f:
-        json.dump(geographic, f, ensure_ascii=False, indent=4)
+        json.dump(geographic, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     with open(output_non_geo, 'w', encoding='utf-8') as f:
-        json.dump(non_geographic, f, ensure_ascii=False, indent=4)
+        json.dump(non_geographic, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     # Return statistics
     return {

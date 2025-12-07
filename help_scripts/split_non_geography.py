@@ -199,14 +199,12 @@ def one_file(SOURCE_FILE: Path, NEW_FILE: Path, NON_GEO_FILE: Path) -> None:
     data = json.loads(SOURCE_FILE.read_text(encoding="utf-8"))
     geo, non_geo = classify_entries(data)
 
-    NEW_FILE.write_text(
-        json.dumps(geo, ensure_ascii=False, indent=4, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
-    NON_GEO_FILE.write_text(
-        json.dumps(non_geo, ensure_ascii=False, indent=4, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+    # Write output files
+    with open(NEW_FILE, 'w', encoding='utf-8') as f:
+        json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
+
+    with open(NON_GEO_FILE, 'w', encoding='utf-8') as f:
+        json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     print(f"Entries kept as geography: {len(geo)}")
     print(f"Entries moved to non-geography: {len(non_geo)}")
