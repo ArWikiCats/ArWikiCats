@@ -238,14 +238,17 @@ def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> None:
 
 def main() -> None:
     files = [
+        jsons_dir / "cities/all_cities.json",
+        jsons_dir / "cities/Cities_tab2.json",
+        jsons_dir / "cities/CITY_OVERRIDES.json",
         jsons_dir / "cities/yy2.json",
         jsons_dir / "geography/P17_2_final_ll.json",
     ]
     for file in files:
         print(f"Processing file: {file}")
-
-        NEW_FILE=file.with_name(file.stem + "_new.json")
-        NON_GEO_FILE=file.with_name(file.stem + "_non.json")
+        new_path = f"{file.parent.name}_new"
+        NEW_FILE = new_path / file.name
+        NON_GEO_FILE = new_path / f"{file.stem}_non.json"
 
         filter_file(file, NEW_FILE, NON_GEO_FILE)
 
