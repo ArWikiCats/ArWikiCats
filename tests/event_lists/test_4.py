@@ -144,8 +144,6 @@ data_2 = {
     "royal canadian mounted police": "شرطة الخيالة الكندية الملكية",
     "royal danish army": "القوات البرية الدانماركية",
     "parliament of india": "برلمان الهند",
-    "people's liberation army air force": "القوات الجوية لجيش التحرير الشعبي الصيني",
-    "people's liberation army navy": "بحرية جيش التحرير الشعبي",
     "russian academy of arts": "الأكاديمية الروسية للفنون",
     "political people": "أعلام سياسية",
     "lgbtq people": "أعلام إل جي بي تي كيو",

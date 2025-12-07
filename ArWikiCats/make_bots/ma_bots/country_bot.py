@@ -97,7 +97,6 @@ class CountryLabelRetriever:
         prefix_labels = {
             "women's ": "نسائية",
             "men's ": "رجالية",
-            "non-combat ": "غير قتالية",
         }
 
         for prefix, prefix_label in prefix_labels.items():
