@@ -115,6 +115,10 @@ NON_GEO_KEYWORDS_EN = {
     ],
     "institutions_other": [
         "department", "dialect", "police", "prison"
+    ],
+    "others": [
+        "history of", "culture of", "economy of", "demographics of",
+        "transport in", "infrastructure of", "tourism in",
     ]
 }
 
