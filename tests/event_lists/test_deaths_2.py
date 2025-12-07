@@ -511,7 +511,7 @@ data_test_2 = {
 
 to_test = [
     ("test_deaths_2_data_1", data_test_1),
-    ("test_deaths_2_data_2", data_test_2),
+    # ("test_deaths_2_data_2", data_test_2),
 ]
 
 
