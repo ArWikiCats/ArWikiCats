@@ -24,6 +24,10 @@ jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 # -------------------------------------------------------------
 # 1) Robust Keyword Sets (merged + expanded)
 # -------------------------------------------------------------
+CHECK_AR_ALSO = {
+    "park": "بارك",
+}
+
 NON_GEO_KEYWORDS_EN = {
     "education": [
         "university", "college", "school", "academy", "institute", "faculty",
@@ -148,14 +152,23 @@ TAXON_SUFFIXES=(
 # Detection Helpers
 # -------------------------------------------------------------
 
-def detect_english_keywords(label: str) -> bool:
+def detect_english_keywords(label: str, value: str) -> bool:
     """Return True if English keyword matches exactly or by token."""
     lowered=label.lower()
     for name, keywords in NON_GEO_KEYWORDS_EN.items():
         for keyword in keywords:
+            # ----
+            ar_word = CHECK_AR_ALSO.get(keyword)
+            # ----
             pattern=rf"\b{re.escape(keyword)}\b"
-            if re.search(pattern, lowered):
+            # ---
+            if not re.search(pattern, lowered):
+                continue
+            # ---
+            if not ar_word:
                 return True, name
+            # ---
+            return True, name
     return False, ""
 
 
@@ -193,7 +206,7 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     for key, value in entries.items():
 
         # Layer 1: English keyword detection
-        isa, name = detect_english_keywords(key)
+        isa, name = detect_english_keywords(key, value)
         if isa:
             non_geo[key] = value
             typies[name][key] = value
