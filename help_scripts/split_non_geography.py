@@ -183,12 +183,39 @@ def looks_like_person(label: str) -> bool:
     return any(re.search(rf"\b{marker}\b", lowered) for marker in role_markers)
 
 
+def is_non_geographic(key: str, value: str) -> bool:
+    # Arabic patterns in value
+
+    if has_non_geo_keyword(key) or looks_like_taxon(key) or looks_like_person(key):
+        return True
+
+    arabic_patterns = [
+        'جامعة',  # university
+        'كلية',   # college
+        'معهد',   # institute
+        'نادي',   # club
+        'جسر',    # bridge
+        'شركة',   # company
+        'جمعية',  # association
+        'مستشفى',  # hospital
+        'متحف',   # museum
+        'فندق',   # hotel
+        'ملعب',   # stadium
+    ]
+
+    for pattern in arabic_patterns:
+        if pattern in value:
+            return True
+
+    return False
+
+
 def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, str]]:
     non_geo = {}
     geo = {}
 
     for key, value in entries.items():
-        if has_non_geo_keyword(key) or looks_like_taxon(key) or looks_like_person(key):
+        if is_non_geographic(key, value):
             non_geo[key] = value
         else:
             geo[key] = value
