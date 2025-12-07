@@ -21,7 +21,8 @@ with open(file_path, "r", encoding="utf-8") as f:
 
 result = batch_resolve_labels(tqdm(list(data.keys())))
 labels = result.labels
-no_labels = result.no_labels
+
+no_labels = {x: data.get(x) for x in result.no_labels}
 
 print(f"total: {len(data)}")
 print(f"labels: {len(labels)}")
@@ -45,5 +46,8 @@ for key, value in labels.items():
 
 print(f"{same=}, {len(diff)=}")
 
-with open(Path(Path(__file__).parent, "diff.json"), "w", encoding="utf-8") as f:
+with open(Path(Path(__file__).parent, "compare_diff.json"), "w", encoding="utf-8") as f:
     json.dump(diff, f, ensure_ascii=False, indent=4)
+
+with open(Path(Path(__file__).parent, "compare_no_labels.json"), "w", encoding="utf-8") as f:
+    json.dump(no_labels, f, ensure_ascii=False, indent=4)
