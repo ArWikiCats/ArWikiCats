@@ -190,17 +190,8 @@ def is_non_geographic(key: str, value: str) -> bool:
         return True
 
     arabic_patterns = [
-        'جامعة',  # university
-        'كلية',   # college
-        'معهد',   # institute
-        'نادي',   # club
-        'جسر',    # bridge
-        'شركة',   # company
-        'جمعية',  # association
-        'مستشفى',  # hospital
-        'متحف',   # museum
-        'فندق',   # hotel
-        'ملعب',   # stadium
+        "جامعة", "كلية", "معهد", "نادي", "شركة", "مستشفى", "متحف",
+        "جمعية", "فندق", "ملعب", "جسر", "قناة", "محطة", "مطار"
     ]
 
     for pattern in arabic_patterns:
