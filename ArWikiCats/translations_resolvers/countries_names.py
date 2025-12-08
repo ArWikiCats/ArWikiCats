@@ -4,9 +4,11 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 en_is_P17_ar_is_P17: dict[str, str] = {
+    "national university of {en}": "جامعة {ar} الوطنية",
+
     "Olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
     "{en} board members": "أعضاء مجلس {ar}",
-    # "accidental deaths from falls in {en}": "وفيات عرضية نتيجة السقوط في {ar}",
+    "accidental deaths from falls in {en}": "وفيات عرضية نتيجة السقوط في {ar}",
     "{en} conflict": "نزاع {ar}",
     "{en} cup": "كأس {ar}",
     "{en} elections": "انتخابات {ar}",

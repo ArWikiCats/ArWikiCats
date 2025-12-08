@@ -5,12 +5,12 @@ from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV
 from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
 
-formatted_data: dict[str, str] = {
+sports_formatted_data = {
+    "{country_en} testxx": "{country_ar} اختبار!",
     "{country_en}": "{country_ar}",
-    "Olympic gold medalists for {country_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar}",
-    "Olympic gold medalists for {country_en} in alpine skiing":
-        "فائزون بميداليات ذهبية أولمبية من {country_ar} في التزلج على المنحدرات الثلجية",
-    "Olympic gold medalists for {country_en} in {sport_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar} في {sport_ar}",
+    "olympic gold medalists for {country_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar}",
+    "olympic gold medalists for {country_en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {country_ar} في التزلج على المنحدرات الثلجية",
+    "olympic gold medalists for {country_en} in {sport_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar} في {sport_ar}",
 }
 
 
@@ -27,6 +27,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
             "country_ar": v["ar"],
         }
         for x, v in all_country_with_nat_ar.items()
+        if v.get("ar") and v.get("en")
     }
 
     sports_data = {
@@ -34,10 +35,11 @@ def _load_bot() -> MultiDataFormatterBaseV2:
             "sport_ar": v["label"],
         }
         for x, v in SPORT_KEY_RECORDS.items()
+        if v.get("label")
     }
 
     both_bot = format_multi_data_v2(
-        formatted_data=formatted_data,
+        formatted_data=sports_formatted_data,
         data_list=nats_data,
         key_placeholder="{country_en}",
         data_list2=sports_data,
