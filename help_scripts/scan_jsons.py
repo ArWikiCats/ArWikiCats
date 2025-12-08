@@ -66,8 +66,8 @@ def check_data_new(data: dict[str, str]) -> dict[str, int]:
 
 def main() -> None:
     files = [
-        # jsons_dir / "cities/yy2.json",
-        # jsons_dir / "cities/cities_full.json",
+        jsons_dir / "cities/yy2.json",
+        jsons_dir / "cities/cities_full.json",
         jsons_dir / "taxonomy/Taxons.json",
         jsons_dir / "taxonomy/Taxons2.json",
     ]
@@ -76,15 +76,17 @@ def main() -> None:
         print(f"Processing file: {file}")
         data = json.loads(file.read_text(encoding="utf-8"))
         keys_found = check_data_new(data)
-        status[file.name] = [keys_found, data]
+        status[file] = keys_found
     # ---
-    for fname, (stat, keys_found) in status.items():
+    for fname, keys_found in status.items():
+
+        data = json.loads(fname.read_text(encoding="utf-8"))
 
         print(f"{fname} => ")
-        not_found = set(keys_found.keys()) - set(stat.keys())
-        print(f"Total: {len(keys_found):,} | Found: {len(stat):,} | Not Found: {len(not_found):,}")
+        not_found = {k: v for k, v in data.items() if k not in keys_found}
+        print(f"Total: {len(data):,} | Found: {len(keys_found):,} | Not Found: {len(not_found):,}")
         # ---
-        keys_found = dict(sorted(stat.items(), key=lambda item: item[1], reverse=True))
+        keys_found = dict(sorted(keys_found.items(), key=lambda item: item[1], reverse=True))
 
         for k, v in list(keys_found.items())[:10]:
             print(f"  {k}: {v}")

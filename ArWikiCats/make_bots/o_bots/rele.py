@@ -33,6 +33,7 @@ RELATIONS_FEMALE: Mapping[str, str] = {
     " clashes": "الاشتباكات {}",
     " wars": "الحروب {}",
     " war": "الحرب {}",
+    " border war": "حرب الحدود {}",
 }
 
 RELATIONS_MALE: Mapping[str, str] = {

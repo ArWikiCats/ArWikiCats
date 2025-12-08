@@ -495,7 +495,7 @@ fast_data_c_2_1_lab = {
     "spain by populated place": "إسبانيا حسب المكان المأهول",
     "spain by year": "إسبانيا حسب السنة",
     "spanish civil war": "الحرب الأهلية الإسبانية",
-    "sports clubs and teams": "أندية رياضية وفرق",
+    "sports clubs and teams": "أندية وفرق رياضية",
     "sri lanka air force": "القوات الجوية السريلانكية",
     "sri lanka by city": "سريلانكا حسب المدينة",
     "sri lanka navy": "البحرية السريلانكية",

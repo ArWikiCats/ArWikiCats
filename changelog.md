@@ -1,3 +1,14 @@
+## [#185](https://github.com/MrIbrahem/ArWikiCats/pull/185) - 2025-12-08
+
+* **New Features**
+  * Added gender-specific nationality translations (masculine and feminine forms)
+  * Expanded translation coverage for sports clubs, border wars, and archaeological categories
+  * Enhanced taxonomy and geographic reference data with new entries
+
+* **Chores**
+  * Consolidated and reorganized translation mappings
+  * Removed obsolete entries from reference datasets to improve data accuracy
+
 ## [#184](https://github.com/MrIbrahem/ArWikiCats/pull/184) - 2025-12-07
 
 * **New Features**
