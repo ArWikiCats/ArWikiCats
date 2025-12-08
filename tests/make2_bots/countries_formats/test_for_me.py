@@ -3,6 +3,7 @@
 
 import pytest
 
+# from ArWikiCats.translations_resolvers_v2.nats_v2 import resolve_by_nats
 from ArWikiCats.make_bots.countries_formats.for_me import (
     Work_for_me,
     Work_for_New_2018_men_Keys_with_all,
@@ -625,9 +626,12 @@ fast_data = [
 
 @pytest.mark.parametrize("data", fast_data, ids=lambda x: x["cate"])
 @pytest.mark.fast
-def test_fast_data(data) -> None:
-    label = Work_for_me(data["cate"], data["nat"], data["suffix"])
-    assert label == data["output"]
+def test_fast_data(data: dict[str, str]) -> None:
+    label1 = Work_for_me(data["cate"], data["nat"], data["suffix"])
+    assert label1 == data["output"]
+
+    # label2 = resolve_by_nats(data["cate"])
+    # assert label2 == data["output"]
 
 
 with_all_data = [
