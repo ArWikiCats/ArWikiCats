@@ -1,3 +1,17 @@
+## [#189](https://github.com/MrIbrahem/ArWikiCats/pull/189) - 2025-12-08
+
+* **New Features**
+  * Added multiple localized translation resolvers and expanded country/sport/nationality translation entries, plus new localized entries for universities, airports, military institutions, theaters, and test phrases.
+
+* **Bug Fixes**
+  * Improved Arabic phrasing, key normalization, and added fallback label resolution logic.
+
+* **Tests**
+  * Added and updated fast, parametric, and dump tests validating new resolvers and datasets.
+
+* **Chores**
+  * Consolidated translation datasets and removed legacy dynasty translations; updated changelog.
+
 ## [#185](https://github.com/MrIbrahem/ArWikiCats/pull/185) - 2025-12-08
 
 * **New Features**
