@@ -132,6 +132,11 @@ data1 = {
 
 
 data_2 = {
+    "national university of singapore": "جامعة سنغافورة الوطنية",
+    "puerto princesa international airport": "مطار بويرتو برينسيسا الدولي",
+    "united states military academy": "الأكاديمية العسكرية الأمريكية",
+    "west end theatre": "مسارح وست اند",
+    "xin dynasty": "سلالة شين الحاكمة",
     "tokyo metropolitan police department": "قسم شرطة العاصمة طوكيو",
     "sri lankan civil war by decade": "الحرب الأهلية السريلانكية حسب العقد",
     "church of jesus christ of latter-day saints": "كنيسة يسوع المسيح لقديسي الأيام الأخيرة",

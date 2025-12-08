@@ -1,6 +1,6 @@
 
 from .nats_women import nats_women_label
-from . import countries_names, nats_sports_males
+from . import countries_names, nats_sports_males, countries_names_sport
 
 
 def resolved_sports_formats_labels(normalized_category) -> str:
@@ -12,6 +12,9 @@ def resolved_sports_formats_labels(normalized_category) -> str:
 
     if not resolved_label:
         resolved_label = nats_women_label(normalized_category)
+
+    if not resolved_label:
+        resolved_label = countries_names_sport.resolve_countries_names_sport(normalized_category)
 
     return resolved_label
 

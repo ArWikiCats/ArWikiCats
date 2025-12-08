@@ -1,13 +1,29 @@
+## [#189](https://github.com/MrIbrahem/ArWikiCats/pull/189) - 2025-12-08
+
+* **New Features**
+  * Added multiple localized translation resolvers and expanded country/sport/nationality translation entries, plus new localized entries for universities, airports, military institutions, theaters, and test phrases.
+
+* **Bug Fixes**
+  * Improved Arabic phrasing, key normalization, and added fallback label resolution logic.
+
+* **Tests**
+  * Added and updated fast, parametric, and dump tests validating new resolvers and datasets.
+
+* **Chores**
+  * Consolidated translation datasets and removed legacy dynasty translations; updated changelog.
+
 ## [#185](https://github.com/MrIbrahem/ArWikiCats/pull/185) - 2025-12-08
 
 * **New Features**
-  * Added gender-specific nationality translations (masculine and feminine forms)
-  * Expanded translation coverage for sports clubs, border wars, and archaeological categories
-  * Enhanced taxonomy and geographic reference data with new entries
+  * Gender-specific nationality translations added (the_female / the_male).
+  * New translation entries added (e.g., "sports clubs and teams", "border war", many taxonomy and location terms).
+
+* **Bug Fixes / Tweaks**
+  * Improved Arabic phrasing for multiple sports-club and year-by-country category labels.
+  * Normalized some keys (e.g., lowercase city names) and adjusted label ordering.
 
 * **Chores**
-  * Consolidated and reorganized translation mappings
-  * Removed obsolete entries from reference datasets to improve data accuracy
+  * Large consolidation/pruning and reorganization of translation datasets; changelog updated.
 
 ## [#184](https://github.com/MrIbrahem/ArWikiCats/pull/184) - 2025-12-07
 
