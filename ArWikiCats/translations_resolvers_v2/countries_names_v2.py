@@ -9,6 +9,17 @@ import functools
 from ..translations_formats import FormatDataV2
 from ..translations import countries_nat_en_key
 
+countries_nat_en_key_example = {
+    "yemen": {
+        "ar": "اليمن",
+        "en": "Yemen",
+        "male": "يمني",
+        "female": "يمنية",
+        "the_male": "اليمني",
+        "the_female": "اليمنية",
+    }
+}
+
 all_data: dict[str, str] = {
     # ar
     "national university of {en}": "جامعة {ar} الوطنية",

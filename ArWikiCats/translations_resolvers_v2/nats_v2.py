@@ -6,6 +6,17 @@ import functools
 from ..translations_formats import FormatDataV2
 from ..translations import all_country_with_nat_ar
 
+all_country_with_nat_ar_example = {
+    "yemeni": {
+        "ar": "اليمن",
+        "en": "Yemen",
+        "male": "يمني",
+        "female": "يمنية",
+        "the_male": "اليمني",
+        "the_female": "اليمنية",
+    }
+}
+
 all_data: dict[str, str] = {
     # en_is_nat_ar_is_mens
     "{en} non profit publishers": "ناشرون غير ربحيون {males}",
