@@ -10,14 +10,15 @@ from ArWikiCats.translations_resolvers_v2.nats_v2 import (
     resolve_by_nats,
 )
 
-main_data_2 = {
+test_data_males = {
     # males - en_is_nat_ar_is_mens
     "yemeni non profit publishers": "ناشرون غير ربحيون يمنيون",
     "yemeni non-profit publishers": "ناشرون غير ربحيون يمنيون",
     "yemeni government officials": "مسؤولون حكوميون يمنيون",
     "saudi non profit publishers": "ناشرون غير ربحيون سعوديون",
     "egyptian government officials": "مسؤولون حكوميون مصريون",
-
+}
+test_data_ar = {
     # ar - en_is_nat_ar_is_P17
     "Bahraini King's Cup": "كأس ملك البحرين",
     "Yemeni King's Cup": "كأس ملك اليمن",
@@ -35,7 +36,8 @@ main_data_2 = {
     "Egyptian National University Alumni": "خريجو جامعة مصر الوطنية",
     "Japanese national women's motorsports racing team": "منتخب اليابان لسباق رياضة المحركات للسيدات",
     "French national women's motorsports racing team": "منتخب فرنسا لسباق رياضة المحركات للسيدات",
-
+}
+test_data_the_male = {
     # the_male - en_is_nat_ar_is_al_mens
     "Iraqi President Cup": "كأس الرئيس العراقي",
     "Egyptian President Cup": "كأس الرئيس المصري",
@@ -97,15 +99,31 @@ main_data_2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", main_data_2.items(), ids=list(main_data_2.keys()))
+@pytest.mark.parametrize("category, expected", test_data_males.items(), ids=list(test_data_males.keys()))
 @pytest.mark.fast
-def test_resolve_by_all(category: str, expected: str) -> None:
+def test_resolve_males(category: str, expected: str) -> None:
+    label = resolve_by_nats(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=list(test_data_ar.keys()))
+@pytest.mark.fast
+def test_resolve_ar(category: str, expected: str) -> None:
+    label = resolve_by_nats(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_the_male.items(), ids=list(test_data_the_male.keys()))
+@pytest.mark.fast
+def test_resolve_the_male(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_by_all", main_data_2, resolve_by_nats),
+    ("test_resolve_males", test_data_males, resolve_by_nats),
+    ("test_resolve_ar", test_data_ar, resolve_by_nats),
+    ("test_resolve_the_male", test_data_the_male, resolve_by_nats),
 ]
 
 

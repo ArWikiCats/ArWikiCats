@@ -18,12 +18,13 @@ all_country_with_nat_ar_example = {
     }
 }
 
-all_data: dict[str, str] = {
+males_data = {
     # en_is_nat_ar_is_mens
     "{en} non profit publishers": "ناشرون غير ربحيون {males}",
     "{en} non-profit publishers": "ناشرون غير ربحيون {males}",
     "{en} government officials": "مسؤولون حكوميون {males}",
-
+}
+ar_data = {
     # ar - en_is_nat_ar_is_P17
     "{en} grand prix": "جائزة {ar} الكبرى",
     "{en} king's cup": "كأس ملك {ar}",  # Bahraini King's Cup
@@ -34,7 +35,8 @@ all_data: dict[str, str] = {
     "{en} national university": "جامعة {ar} الوطنية",
     "{en} national university alumni": "خريجو جامعة {ar} الوطنية",
     "{en} national women's motorsports racing team": "منتخب {ar} لسباق رياضة المحركات للسيدات",
-
+}
+the_male_data = {
     # the_male - en_is_nat_ar_is_al_mens
     "{en} president cup": "كأس الرئيس {the_male}",
     "{en} federation cup": "كأس الاتحاد {the_male}",
@@ -65,7 +67,8 @@ all_data: dict[str, str] = {
     "{en} rugby union": "اتحاد الرجبي {the_male}",
     "{en} presidential pardons": "العفو الرئاسي {the_male}",
     "{en} pardons": "العفو {the_male}",
-
+}
+male_data = {
     # male - en_is_nat_ar_is_man
 
     "{en} descent": "أصل {male}",
@@ -90,7 +93,8 @@ all_data: dict[str, str] = {
     "{en} traditions": "تراث {male}",
     "{en} folklore": "فلكور {male}",
     "{en} television": "تلفاز {male}",
-
+}
+female_data = {
     # female - en_is_nat_ar_is_women
     "{en} phonologies": "تصريفات صوتية {female}",
     "{en} crimes": "جرائم {female}",
@@ -279,7 +283,8 @@ all_data: dict[str, str] = {
     "{en} youth competitions": "منافسات شبابية {female}",
     "{en} youth music competitions": "منافسات موسيقية شبابية {female}",
     "{en} youth sports competitions": "منافسات رياضية شبابية {female}",
-
+}
+the_female_data = {
     # the_female - en_is_nat_ar_is_al_women
     "{en} royal air force": "القوات الجوية الملكية {the_female}",
     "{en} air force": "القوات الجوية {the_female}",
@@ -315,6 +320,8 @@ all_data: dict[str, str] = {
     "{en} presidential election": "انتخابات الرئاسة {the_female}",
 }
 
+all_formatted_data = males_data | ar_data | the_male_data | female_data | male_data | the_female_data
+
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
@@ -325,7 +332,7 @@ def _load_bot() -> FormatDataV2:
     }
 
     return FormatDataV2(
-        formatted_data=all_data,
+        formatted_data=all_formatted_data,
         data_list=nats_data,
         key_placeholder="{en}",
         text_before="the ",
