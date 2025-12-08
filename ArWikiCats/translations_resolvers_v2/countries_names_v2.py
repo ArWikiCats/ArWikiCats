@@ -1,12 +1,16 @@
 #!/usr/bin/python3
 """
-TODO: use this inestead of for_me.py
+TODO: use this inestead of :
+- for_me.py
+- countries_names.py
+
 """
 import functools
 from ..translations_formats import FormatDataV2
 from ..translations import countries_nat_en_key
 
-en_is_P17_ar_is_P17: dict[str, str] = {
+all_data: dict[str, str] = {
+    # ar
     "national university of {en}": "جامعة {ar} الوطنية",
     "Olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
     "{en} board members": "أعضاء مجلس {ar}",
@@ -34,10 +38,7 @@ en_is_P17_ar_is_P17: dict[str, str] = {
     "{en} olympics squad": "تشكيلات {ar} في الألعاب الأولمبية",
     "{en} summer olympics": " {ar} في الألعاب الأولمبية الصيفية",
     "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
-}
 
-
-all_data: dict[str, str] = {
     # the_female
     # en_is_P17_ar_is_al_women
     "{en} royal air force": "القوات الجوية الملكية {the_female}",
@@ -91,17 +92,15 @@ def _load_bot() -> FormatDataV2:
         for x, v in countries_nat_en_key.items()
         if v.get("ar")
     }
-    formatted_data = en_is_P17_ar_is_P17 | all_data
-
     return FormatDataV2(
-        formatted_data=formatted_data,
+        formatted_data=all_data,
         data_list=nats_data,
         key_placeholder="{en}",
         text_before="the ",
     )
 
 
-def resolve_by_countries_names(category: str) -> str:
+def resolve_by_countries_names_v2(category: str) -> str:
     normalized_category = category.lower().replace("category:", "")
     nat_bot = _load_bot()
     result = nat_bot.search(normalized_category)
@@ -113,5 +112,5 @@ def resolve_by_countries_names(category: str) -> str:
 
 
 __all__ = [
-    "resolve_by_countries_names",
+    "resolve_by_countries_names_v2",
 ]

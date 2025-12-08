@@ -7,10 +7,11 @@ from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations_resolvers_v2.countries_names_v2 import (
-    resolve_by_countries_names,
+    resolve_by_countries_names_v2,
 )
 
 main_data = {
+    # ar
     "Olympic gold medalists for the United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
@@ -67,9 +68,7 @@ main_data = {
     "oceania cup": "كأس أوقيانوسيا",
     "spain war and conflict": "حروب ونزاعات إسبانيا",
     "spain war": "حرب إسبانيا",
-}
 
-main_data_2 = {
     # the_female
     "yemen royal air force": "القوات الجوية الملكية اليمنية",
 
@@ -85,21 +84,13 @@ main_data_2 = {
 
 @pytest.mark.parametrize("category, expected", main_data.items(), ids=list(main_data.keys()))
 @pytest.mark.fast
-def test_resolve_by_countries_names(category: str, expected: str) -> None:
-    label = resolve_by_countries_names(category)
-    assert label == expected
-
-
-@pytest.mark.parametrize("category, expected", main_data_2.items(), ids=list(main_data_2.keys()))
-@pytest.mark.fast
-def test_resolve_by_all(category: str, expected: str) -> None:
-    label = resolve_by_countries_names(category)
+def test_resolve_by_countries_names_v2(category: str, expected: str) -> None:
+    label = resolve_by_countries_names_v2(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_by_countries_names", main_data, resolve_by_countries_names),
-    ("test_resolve_by_all", main_data_2, resolve_by_countries_names),
+    ("test_resolve_by_countries_names_v2", main_data, resolve_by_countries_names_v2),
 ]
 
 
