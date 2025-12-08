@@ -522,7 +522,7 @@ title_work_tests_data = {
     "sport in ottoman empire": "الرياضة في في الدولة العثمانية",
     "sports by country": "ألعاب رياضية حسب البلد",
     "sports by month": "ألعاب رياضية حسب الشهر",
-    "sports clubs and teams in brazil": "أندية رياضية وفرق في البرازيل",
+    "sports clubs and teams in brazil": "أندية وفرق رياضية في البرازيل",
     "sports governing bodies in north america": "هيئات تنظيم رياضية في أمريكا الشمالية",
     "sports venues in australia": "ملاعب رياضية في أستراليا",
     "sports-people from saxony": "رياضيون من ساكسونيا في",

@@ -68,8 +68,8 @@ def main() -> None:
     files = [
         jsons_dir / "cities/yy2.json",
         jsons_dir / "cities/cities_full.json",
-        # jsons_dir / "taxonomy/Taxons.json",
-        # jsons_dir / "taxonomy/Taxons2.json",
+        jsons_dir / "taxonomy/Taxons.json",
+        jsons_dir / "taxonomy/Taxons2.json",
     ]
     status = {}
     for file in files:
@@ -80,7 +80,7 @@ def main() -> None:
     # ---
     for fname, keys_found in status.items():
 
-        data = json.loads(file.read_text(encoding="utf-8"))
+        data = json.loads(fname.read_text(encoding="utf-8"))
 
         print(f"{fname} => ")
         not_found = {k: v for k, v in data.items() if k not in keys_found}
