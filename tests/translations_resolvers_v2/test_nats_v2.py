@@ -97,6 +97,146 @@ test_data_the_male = {
     "American Pardons": "العفو الأمريكي",
     "Egyptian Pardons": "العفو المصري",
 }
+test_data_male = {
+    # male - en_is_nat_ar_is_man
+    "Egyptian descent": "أصل مصري",
+    "Iraqi descent": "أصل عراقي",
+    "American military occupations": "احتلال عسكري أمريكي",
+    "Iraqi military occupations": "احتلال عسكري عراقي",
+    "French integration": "تكامل فرنسي",
+    "Egyptian integration": "تكامل مصري",
+    "Japanese innovation": "ابتكار ياباني",
+    "American innovation": "ابتكار أمريكي",
+    "Italian design": "تصميم إيطالي",
+    "French design": "تصميم فرنسي",
+    "French contemporary art": "فن معاصر فرنسي",
+    "American contemporary art": "فن معاصر أمريكي",
+    "Italian art": "فن إيطالي",
+    "French art": "فن فرنسي",
+    "Italian cuisine": "مطبخ إيطالي",
+    "French cuisine": "مطبخ فرنسي",
+    "Japanese calendar": "تقويم ياباني",
+    "Chinese calendar": "تقويم صيني",
+    "American non fiction literature": "أدب غير خيالي أمريكي",
+    "French non fiction literature": "أدب غير خيالي فرنسي",
+    "British non-fiction literature": "أدب غير خيالي بريطاني",
+    "American non-fiction literature": "أدب غير خيالي أمريكي",
+    "Russian literature": "أدب روسي",
+    "French literature": "أدب فرنسي",
+    "Indian caste system": "نظام طبقي هندي",
+    "Pakistani caste system": "نظام طبقي باكستاني",
+    "American law": "قانون أمريكي",
+    "French law": "قانون فرنسي",
+    "French wine": "نبيذ فرنسي",
+    "Italian wine": "نبيذ إيطالي",
+    "Egyptian history": "تاريخ مصري",
+    "Iraqi history": "تاريخ عراقي",
+    "American nuclear history": "تاريخ نووي أمريكي",
+    "French nuclear history": "تاريخ نووي فرنسي",
+    "American military history": "تاريخ عسكري أمريكي",
+    "French military history": "تاريخ عسكري فرنسي",
+    "Palestinian diaspora": "شتات فلسطيني",
+    "Syrian diaspora": "شتات سوري",
+    "Indian traditions": "تراث هندي",
+    "Chinese traditions": "تراث صيني",
+    "Irish folklore": "فلكور أيرلندي",
+    "Scottish folklore": "فلكور إسكتلندي",
+    "American television": "تلفاز أمريكي",
+    "British television": "تلفاز بريطاني",
+}
+test_data_female = {
+    # female - en_is_nat_ar_is_women
+    "French phonologies": "تصريفات صوتية فرنسية",
+    "American crimes": "جرائم أمريكية",
+    "Iraqi crimes": "جرائم عراقية",
+    "American crimes against humanity": "جرائم ضد الإنسانية أمريكية",
+    "Israeli crimes against humanity": "جرائم ضد الإنسانية إسرائيلية",
+    "American war crimes": "جرائم حرب أمريكية",
+    "Israeli war crimes": "جرائم حرب إسرائيلية",
+    "American airstrikes": "ضربات جوية أمريكية",
+    "Israeli airstrikes": "ضربات جوية إسرائيلية",
+    "Greek archipelagoes": "أرخبيلات يونانية",
+    "Indonesian archipelagoes": "أرخبيلات إندونيسية",
+    "Japanese architecture": "عمارة يابانية",
+    "French architecture": "عمارة فرنسية",
+    "American autobiographies": "ترجمة ذاتية أمريكية",
+    "British autobiographies": "ترجمة ذاتية بريطانية",
+    "Japanese automotive": "سيارات يابانية",
+    "German automotive": "سيارات ألمانية",
+    "French awards and decorations": "جوائز وأوسمة فرنسية",
+    "American awards and decorations": "جوائز وأوسمة أمريكية",
+    "French awards": "جوائز فرنسية",
+    "American awards": "جوائز أمريكية",
+    "American companies": "شركات أمريكية",
+    "Japanese companies": "شركات يابانية",
+    "French culture": "ثقافة فرنسية",
+    "Japanese culture": "ثقافة يابانية",
+    "American elections": "انتخابات أمريكية",
+    "French elections": "انتخابات فرنسية",
+    "Greek mythology": "أساطير يونانية",
+    "Roman mythology": "أساطير رومانية",
+    "French music": "موسيقى فرنسية",
+    "American music": "موسيقى أمريكية",
+    "American newspapers": "صحف أمريكية",
+    "British newspapers": "صحف بريطانية",
+    "American organizations": "منظمات أمريكية",
+    "French organizations": "منظمات فرنسية",
+    "American universities": "جامعات أمريكية",
+    "British universities": "جامعات بريطانية",
+    "American wars": "حروب أمريكية",
+    "French wars": "حروب فرنسية",
+}
+test_data_the_female = {
+    # the_female - en_is_nat_ar_is_al_women
+    "British royal air force": "القوات الجوية الملكية البريطانية",
+    "Saudi royal air force": "القوات الجوية الملكية السعودية",
+    "American air force": "القوات الجوية الأمريكية",
+    "French air force": "القوات الجوية الفرنسية",
+    "British royal defence force": "قوات الدفاع الملكية البريطانية",
+    "Saudi royal defence force": "قوات الدفاع الملكية السعودية",
+    "British royal navy": "البحرية البريطانية",
+    "Saudi royal navy": "البحرية السعودية",
+    "American naval force": "البحرية الأمريكية",
+    "French naval force": "البحرية الفرنسية",
+    "American naval forces": "البحرية الأمريكية",
+    "French naval forces": "البحرية الفرنسية",
+    "American navy": "البحرية الأمريكية",
+    "French navy": "البحرية الفرنسية",
+    "British airways accidents and incidents": "حوادث الخطوط الجوية البريطانية",
+    "American airways accidents and incidents": "حوادث الخطوط الجوية الأمريكية",
+    "British airways": "الخطوط الجوية البريطانية",
+    "American airways": "الخطوط الجوية الأمريكية",
+    "French youth games": "الألعاب الفرنسية الشبابية",
+    "Egyptian youth games": "الألعاب المصرية الشبابية",
+    "American financial crisis": "الأزمة المالية الأمريكية",
+    "Greek financial crisis": "الأزمة المالية اليونانية",
+    "Egyptian presidential crisis": "الأزمة الرئاسية المصرية",
+    "American presidential crisis": "الأزمة الرئاسية الأمريكية",
+    "Egyptian military academy": "الأكاديمية العسكرية المصرية",
+    "American military academy": "الأكاديمية العسكرية الأمريكية",
+    "Egyptian military college": "الكلية العسكرية المصرية",
+    "American military college": "الكلية العسكرية الأمريكية",
+    "Greek crisis": "الأزمة اليونانية",
+    "American crisis": "الأزمة الأمريكية",
+    "American energy crisis": "أزمة الطاقة الأمريكية",
+    "European energy crisis": "أزمة الطاقة الأوروبية",
+    "American constitutional crisis": "الأزمة الدستورية الأمريكية",
+    "Egyptian constitutional crisis": "الأزمة الدستورية المصرية",
+    "French games competitors": "منافسون في الألعاب الفرنسية",
+    "Egyptian games competitors": "منافسون في الألعاب المصرية",
+    "American television people": "شخصيات التلفزة الأمريكية",
+    "British television people": "شخصيات التلفزة البريطانية",
+    "American presidential primaries": "الانتخابات الرئاسية التمهيدية الأمريكية",
+    "French presidential primaries": "الانتخابات الرئاسية التمهيدية الفرنسية",
+    "Egyptian legislative election": "الانتخابات التشريعية المصرية",
+    "French legislative election": "الانتخابات التشريعية الفرنسية",
+    "British parliamentary election": "الانتخابات البرلمانية البريطانية",
+    "Egyptian parliamentary election": "الانتخابات البرلمانية المصرية",
+    "American general election": "الانتخابات العامة الأمريكية",
+    "British general election": "الانتخابات العامة البريطانية",
+    "French presidential election": "انتخابات الرئاسة الفرنسية",
+    "American presidential election": "انتخابات الرئاسة الأمريكية",
+}
 
 
 @pytest.mark.parametrize("category, expected", test_data_males.items(), ids=list(test_data_males.keys()))
@@ -120,10 +260,34 @@ def test_resolve_the_male(category: str, expected: str) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", test_data_male.items(), ids=list(test_data_male.keys()))
+@pytest.mark.fast
+def test_resolve_male(category: str, expected: str) -> None:
+    label = resolve_by_nats(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_female.items(), ids=list(test_data_female.keys()))
+@pytest.mark.fast
+def test_resolve_female(category: str, expected: str) -> None:
+    label = resolve_by_nats(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_the_female.items(), ids=list(test_data_the_female.keys()))
+@pytest.mark.fast
+def test_resolve_the_female(category: str, expected: str) -> None:
+    label = resolve_by_nats(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
     ("test_resolve_males", test_data_males, resolve_by_nats),
     ("test_resolve_ar", test_data_ar, resolve_by_nats),
     ("test_resolve_the_male", test_data_the_male, resolve_by_nats),
+    ("test_resolve_male", test_data_male, resolve_by_nats),
+    ("test_resolve_female", test_data_female, resolve_by_nats),
+    ("test_resolve_the_female", test_data_the_female, resolve_by_nats),
 ]
 
 
