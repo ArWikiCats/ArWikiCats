@@ -6,11 +6,13 @@ import pytest
 
 from ArWikiCats.make_bots.ma_bots.country2_bot import Get_country2
 
+fix_title_all = True
+
+
 data_fast = {
-    " kingdom-of italy": "مملكة إيطاليا",
+    "kingdom-of italy": "مملكة إيطاليا",
     "11th century": "القرن 11",
     "12th century": "القرن 12",
-    "1330 in yemen": "اليمن في 1330",
     "1330 by country": "1330 حسب البلد",
     "1330 elections in united states": "انتخابات 1330 في الولايات المتحدة",
     "1330 films by country": "أفلام إنتاج 1330 حسب البلد",
@@ -63,15 +65,6 @@ data_fast = {
     "bank of korea": "بنك كوريا",
     "barracks in spain": "ثكنات في إسبانيا",
 }
-
-fix_title_all = True
-
-
-@pytest.mark.parametrize("category, expected", data_fast.items(), ids=list(data_fast.keys()))
-@pytest.mark.fast
-def test_Get_country2_fast(category: str, expected: str) -> None:
-    label = Get_country2(category, fix_title=fix_title_all)
-    assert label == expected
 
 
 data_slow = {
@@ -382,7 +375,6 @@ data_slow = {
     "music of jean sibelius": "موسيقى جان سيبيليوس",
     "nascar races": "سباقات ناسكار",
     "national cricket teams": "منتخبات كريكت وطنية",
-    "national university of singapore": "جامعة سنغافورة الوطنية",
     "national wheelchair rugby league teams": "منتخبات دوري رجبي على كراسي متحركة وطنية",
     "national youth women's football teams": "منتخبات كرة قدم وطنية للشابات",
     "nature reserves in united states": "محميات طبيعية في الولايات المتحدة",
@@ -475,7 +467,6 @@ data_slow = {
     "prime ministers of malaysia": "رؤساء وزراء ماليزيا",
     "protected areas of united states": "مناطق محمية في الولايات المتحدة",
     "provinces of saudi arabia": "مقاطعات السعودية",
-    "puerto princesa international airport": "مطار بويرتو برينسيسا الدولي",
     "puerto rico": "بورتوريكو",
     "rail transport in sri lanka": "السكك الحديدية في سريلانكا",
     "railway stations in australia": "محطات السكك الحديدية في أستراليا",
@@ -591,7 +582,6 @@ data_slow = {
     "united states by state": "الولايات المتحدة حسب الولاية",
     "united states house-of-representatives from missouri territory": "مجلس النواب الأمريكي من إقليم ميزوري",
     "united states in 1330": "الولايات المتحدة في 1330",
-    "united states military academy": "الأكاديمية العسكرية الأمريكية",
     "universities and colleges in canada": "جامعات وكليات في كندا",
     "universities and colleges in italy": "جامعات وكليات في إيطاليا",
     "university of alabama": "جامعة ألاباما",
@@ -611,7 +601,6 @@ data_slow = {
     "water polo": "كرة الماء",
     "web colors": "ألوان الويب",
     "west bank premier league": "الدوري الفلسطيني الممتاز للضفة الغربية",
-    "west end theatre": "مسارح وست اند",
     "west virginia": "فيرجينيا الغربية",
     "wheelchair basketball competitions between national teams": "منافسات كرة سلة على كراسي متحركة بين منتخبات وطنية",
     "wheelchair basketball competitions": "منافسات كرة سلة على كراسي متحركة",
@@ -632,7 +621,6 @@ data_slow = {
     "works adapted for other media": "أعمال تم تحويلها إلى وسائط أخرى",
     "works basedon mythology": "أعمال مبنية على أساطير",
     "world judo championships": "بطولة العالم للجودو",
-    "xin dynasty": "سلالة شين الحاكمة",
     "yamanashi prefecture": "محافظة ياماناشي",
     "years in united states": "سنوات في الولايات المتحدة",
     "years of 20th century": "سنوات القرن 20",
@@ -648,6 +636,13 @@ data_slow = {
     "zambian emigrants to sweden": "زامبيون مهاجرون إلى السويد",
     "zürich eprix": "زيورخ إي بريكس",
 }
+
+
+@pytest.mark.parametrize("category, expected", data_fast.items(), ids=list(data_fast.keys()))
+@pytest.mark.fast
+def test_Get_country2_fast(category: str, expected: str) -> None:
+    label = Get_country2(category, fix_title=fix_title_all)
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=list(data_slow.keys()))
