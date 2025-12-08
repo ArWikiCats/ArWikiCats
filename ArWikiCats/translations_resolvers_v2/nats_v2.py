@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-TODO: use this inestead of for_me.py
+TODO: use this instead of for_me.py
 
 """
 import functools
