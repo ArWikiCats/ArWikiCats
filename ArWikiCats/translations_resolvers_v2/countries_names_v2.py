@@ -8,7 +8,7 @@ TODO: use this instead of :
 import functools
 from ..translations_formats import FormatDataV2
 from ..translations import countries_nat_en_key
-
+from ..translations_resolvers.countries_names import formatted_data_en_ar_only
 countries_nat_en_key_example = {
     "yemen": {
         "ar": "اليمن",
@@ -20,36 +20,19 @@ countries_nat_en_key_example = {
     }
 }
 
-all_data: dict[str, str] = {
-    # ar
-    "national university of {en}": "جامعة {ar} الوطنية",
-    "Olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
-    "{en} board members": "أعضاء مجلس {ar}",
-    "accidental deaths from falls in {en}": "وفيات عرضية نتيجة السقوط في {ar}",
-    "{en} conflict": "نزاع {ar}",
-    "{en} cup": "كأس {ar}",
-    "{en} elections": "انتخابات {ar}",
-    "{en} executive cabinet": "مجلس وزراء {ar} التنفيذي",
-    "{en} government personnel": "موظفي حكومة {ar}",
-    "{en} government": "حكومة {ar}",
-    "{en} governorate": "محافظة {ar}",
-    "{en} political leader": "قادة {ar} السياسيون",
-    "{en} presidents": "رؤساء {ar}",
-    "{en} responses": "استجابات {ar}",
-    "{en} territorial judges": "قضاة أقاليم {ar}",
-    "{en} territorial officials": "مسؤولو أقاليم {ar}",
-    "{en} war and conflict": "حروب ونزاعات {ar}",
-    "{en} war": "حرب {ar}",
-    "{en} afc women's asian cup squad": "تشكيلات {ar} في كأس آسيا للسيدات",
-    "{en} afc asian cup squad": "تشكيلات {ar} في كأس آسيا",
-    "{en} fifa world cup squad": "تشكيلات {ar} في كأس العالم",
-    "{en} fifa futsal world cup squad": "تشكيلات {ar} في كأس العالم لكرة الصالات",
-    "{en} summer olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الصيفية",
-    "{en} winter olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الشتوية",
-    "{en} olympics squad": "تشكيلات {ar} في الألعاب الأولمبية",
-    "{en} summer olympics": " {ar} في الألعاب الأولمبية الصيفية",
-    "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
+new_data: dict[str, str] = {
+    # ar new
+    "national library of {en}": "مكتبة {ar} الوطنية",
+    "bodies of water of {en}": "مسطحات مائية في {ar}",
 
+    # the_female
+    "dependent territories of {en}": "أقاليم ما وراء البحار {the_female}",
+    "supreme court of {en}": "المحكمة العليا {the_female}",
+}
+
+# NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
+
+all_data: dict[str, str] = {
     # the_female
     # en_is_P17_ar_is_al_women
     "{en} royal air force": "القوات الجوية الملكية {the_female}",
@@ -103,8 +86,10 @@ def _load_bot() -> FormatDataV2:
         for x, v in countries_nat_en_key.items()
         if v.get("ar")
     }
+    formatted_data = all_data | new_data | formatted_data_en_ar_only
+
     return FormatDataV2(
-        formatted_data=all_data,
+        formatted_data=formatted_data,
         data_list=nats_data,
         key_placeholder="{en}",
         text_before="the ",

@@ -1,3 +1,15 @@
+## [#192](https://github.com/MrIbrahem/ArWikiCats/pull/192) - 2025-12-10
+
+* **New Features**
+  * Added translation support for "bodies of water" categories across multiple languages.
+  * Expanded translation database with new entity mappings including cultural institutions, sports organizations, and historical figures.
+
+* **Bug Fixes**
+  * Corrected Arabic translation for "Third Punic War" to use proper definite article form.
+
+* **Improvements**
+  * Enhanced category naming standardization and reorganized translation data for better consistency.
+
 ## [#191](https://github.com/MrIbrahem/ArWikiCats/pull/191) - 2025-12-10
 
 * **New Features**

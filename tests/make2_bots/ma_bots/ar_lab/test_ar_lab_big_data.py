@@ -407,7 +407,6 @@ data_list = [
     ("bissau-guinean expatriates in hungary", " in ", "غينيون بيساويون مغتربون في المجر"),
     ("black metal albums by french artists", " by ", "ألبومات بلاك ميتال حسب بواسطة فنانون فرنسيون"),
     ("blues musicians from tennessee", " from ", "موسيقيو بلوز من تينيسي"),
-    ("bodies of water of novosibirsk oblast", " of ", "هيئات مياه في نوفوسيبيرسك أوبلاست"),
     ("bolivian artists by century", " by ", "فنانون بوليفيون حسب القرن"),
     ("bosnia and herzegovina politicians convicted of corruption", " convicted of ", "سياسيون بوسنيون أدينوا ب فساد"),
     ("bowling in asia", " in ", "بولينج في آسيا"),
