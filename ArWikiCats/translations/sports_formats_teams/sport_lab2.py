@@ -48,4 +48,7 @@ def wrap_team_xo_normal_2025(team: str) -> str:
 
 __all__ = [
     "wrap_team_xo_normal_2025",
+    "find_labels_bot",
+    "find_teams_bot",
+    "find_jobs_bot",
 ]
