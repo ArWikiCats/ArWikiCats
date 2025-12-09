@@ -161,9 +161,11 @@ data_3 = {
     "Category:Aruba Football Federation": "تصنيف:الاتحاد الأروبي لكرة القدم",
     "Category:Bhutan Football Federation": "تصنيف:الاتحاد البوتاني لكرة القدم",
 
+    "Category:Bodies of water of Germany by state": "تصنيف:مسطحات مائية في ألمانيا حسب الولاية",
+    "Category:Bodies of water of Carmarthenshire": "تصنيف:مسطحات مائية في كرمرثنشير",
+
     "Category:2023 in dependent territories of United Kingdom": "تصنيف:أقاليم ما وراء البحار البريطانية في 2023",
     "Category:Battles involving al-Qaeda in Arabian Peninsula": "تصنيف:معارك تشمل تنظيم القاعدة في جزيرة العرب",
-    "Category:Bodies of water of Germany by state": "تصنيف:هيئات مياه في ألمانيا حسب الولاية",
     "Category:Family of Solomon": "تصنيف:عائلة الملك سليمان",
     "Category:Film set at Metropolitan Museum of Art": "تصنيف:أفلام تقع أحداثها في متحف المتروبوليتان للفنون",
     "Category:Halo (franchise) players": "تصنيف:لاعبو هيلو (سلسلة)",
@@ -190,12 +192,9 @@ def test_3(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    dump_diff(diff_result, name)
 
     add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-
-    dump_diff(diff_result, name)
     dump_diff(add_result, f"{name}_add")
-
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
