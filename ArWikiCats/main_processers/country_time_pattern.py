@@ -13,7 +13,7 @@ from .categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
 
 @functools.lru_cache(maxsize=1)
-def _bot() -> MultiDataFormatterBaseYear:
+def load_bot() -> MultiDataFormatterBaseYear:
     return format_year_country_data(
         formatted_data=COUNTRY_YEAR_DATA,
         data_list=all_country_ar,
@@ -28,7 +28,7 @@ def _bot() -> MultiDataFormatterBaseYear:
 
 @functools.lru_cache(maxsize=10000)
 def get_label(category: str) -> str:
-    yc_bot = _bot()
+    yc_bot = load_bot()
     result = yc_bot.create_label(category)
     if not result:
         normalized_category = category.lower().replace("category:", "")
@@ -36,3 +36,9 @@ def get_label(category: str) -> str:
         if normalized_category != category:
             result = yc_bot.create_label(normalized_category)
     return result or ""
+
+
+__all__ = [
+    "get_label",
+    "load_bot",
+]
