@@ -5,6 +5,10 @@ from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBase
 from ArWikiCats.translations_resolvers.countries_names_sport import resolve_countries_names_sport
 
 test_data_1 = {
+    "Category:Afghanistan Football Federation": "تصنيف:الاتحاد الأفغاني لكرة القدم",
+    "Category:Aruba Football Federation": "تصنيف:الاتحاد الأروبي لكرة القدم",
+    "Category:Bhutan Football Federation": "تصنيف:الاتحاد البوتاني لكرة القدم",
+
     "United States": "الولايات المتحدة",
     "Olympic gold medalists for United States": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة",
     "Olympic gold medalists for United States in alpine skiing":

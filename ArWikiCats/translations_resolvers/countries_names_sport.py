@@ -6,6 +6,7 @@ from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
 
 sports_formatted_data = {
+    "{country_en} {sport_en} federation": "الاتحاد {the_male} {sport_team}",
     "{country_en} testxx": "{country_ar} اختبار!",
     "{country_en}": "{country_ar}",
     "olympic gold medalists for {country_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar}",
@@ -25,6 +26,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     nats_data = {
         remove_the(v["en"]): {
             "country_ar": v["ar"],
+            "the_male": v["the_male"],
         }
         for x, v in all_country_with_nat_ar.items()
         if v.get("ar") and v.get("en")
@@ -33,6 +35,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     sports_data = {
         x: {
             "sport_ar": v["label"],
+            "sport_team": v["team"],
         }
         for x, v in SPORT_KEY_RECORDS.items()
         if v.get("label")
