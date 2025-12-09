@@ -5,27 +5,26 @@ from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.main_processers.main_resolve import resolve_label_ar
 
 data_1 = {
-    "senate (france)": "مجلس الشيوخ الفرنسي",
-    "senate (netherlands)": "مجلس الشيوخ (هولندا)",
-    "senate of canada": "مجلس الشيوخ الكندي",
-    "senate of iran": "مجلس سنا",
-    "senate of spain": "مجلس الشيوخ الإسباني",
+    "senate of canada": "مجلس شيوخ كندا",
+    "senate of iran": "مجلس شيوخ إيران",
+    "senate of spain": "مجلس شيوخ إسبانيا",
+    "parliament of egypt": "برلمان مصر",
+    "parliament of romania": "برلمان رومانيا",
 
-    "parliament of egypt": "البرلمان المصري",
+    "senate (france)": "مجلس الشيوخ (فرنسا)",
+    "senate (netherlands)": "مجلس الشيوخ (هولندا)",
+
     "parliament of greenland": "برلمان جرينلاند",
     "parliament of india": "برلمان الهند",
-    "parliament of jordan": "مجلس الأمة الأردني",
-    "parliament of pakistan": "مجلس شورى باكستان",
-    "parliament of romania": "البرلمان الروماني",
     "parliament of united kingdom": "برلمان المملكة المتحدة",
 
+    "supreme court of israel": "المحكمة العليا الإسرائيلية",
+    "supreme court of sri lanka": "المحكمة العليا السريلانكية",
+    "supreme court of united states": "المحكمة العليا الأمريكية",
     "supreme court of afghanistan": "المحكمة العليا الأفغانية",
     "supreme court of india": "المحكمة العليا الهندية",
     "supreme court of indonesia": "المحكمة العليا الإندونيسية",
-    "supreme court of israel": "المحكمة العليا (إسرائيل)",
     "supreme court of japan": "المحكمة العليا اليابانية",
-    "supreme court of sri lanka": "المحكمة العليا السيريلانكية",
-    "supreme court of united states": "المحكمة العليا للولايات المتحدة",
 }
 
 data_2 = {
@@ -40,7 +39,7 @@ data_2 = {
     "ministry of national defense (colombia)": "وزارة الدفاع (كولومبيا)",
     "mitt romney presidential campaign, 2012": "حملة ميت رومني الرئاسية 2012",
     "national assembly (france)": "الجمعية الوطنية الفرنسية",
-    "national assembly of pakistan": "المجلس الوطني الباكستاني",
+    "national assembly of pakistan": "الجمعية الوطنية في باكستان",
     "natural law": "حق طبيعي",
     "o. j. simpson murder case": "قضية جريمة أو جاي سيمبسون",
     "one-child policy": "سياسة الطفل الواحد",
@@ -67,7 +66,7 @@ data_2 = {
     "united kingdom general election, 2010": "انتخابات المملكة المتحدة لعام 2010",
     "united kingdom general election, 2017": "الانتخابات التشريعية البريطانية 2017",
     "united states presidential election, 1860": "انتخابات الرئاسة الأمريكية 1860",
-    "united states presidential election, 1880": "الانتخابات الرئاسية الأمريكية عام 1880",
+    "united states presidential election, 1880": "انتخابات الرئاسة الأمريكية 1880",
     "united states presidential election, 2008": "انتخابات الرئاسة الأمريكية 2008",
     "united states presidential election, 2012": "انتخابات الرئاسة الأمريكية 2012",
     "united states presidential election, 2016": "انتخابات الرئاسة الأمريكية 2016"
