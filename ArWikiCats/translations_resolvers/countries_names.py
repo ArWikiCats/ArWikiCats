@@ -38,6 +38,7 @@ formatted_data_en_ar_only: dict[str, str] = {
     "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
 }
 
+
 nat_bot = FormatData(
     formatted_data_en_ar_only,
     countries_from_nat,
