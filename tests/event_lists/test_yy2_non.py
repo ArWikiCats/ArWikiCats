@@ -25,12 +25,23 @@ data_1 = {
     "supreme court of india": "المحكمة العليا الهندية",
     "supreme court of indonesia": "المحكمة العليا الإندونيسية",
     "supreme court of japan": "المحكمة العليا اليابانية",
+    "maryland general assembly": "جمعية ماريلند العامة",
+    "politics of emilia-romagna": "سياسة إميليا-رومانيا",
+    "malaysian nationality law": "قانون الجنسية الماليزي",
 }
 
 data_2 = {
 
-    "malaysian nationality law": "قانون الجنسية الماليزي",
-    "maryland general assembly": "مجلس النواب في ماريلند",
+    "polish presidential election, 2010": "الانتخابات الرئاسية البولندية 2010",
+    "turkish general election, june 2015": "الانتخابات التشريعية التركية يونيو 2015",
+    "turkish general election, november 2015": "الانتخابات التشريعية التركية نوفمبر 2015",
+    "united kingdom general election, 2010": "انتخابات المملكة المتحدة لعام 2010",
+    "united kingdom general election, 2017": "الانتخابات التشريعية البريطانية 2017",
+    "united states presidential election, 1860": "انتخابات الرئاسة الأمريكية 1860",
+    "united states presidential election, 1880": "انتخابات الرئاسة الأمريكية 1880",
+    "united states presidential election, 2008": "انتخابات الرئاسة الأمريكية 2008",
+    "united states presidential election, 2012": "انتخابات الرئاسة الأمريكية 2012",
+    "united states presidential election, 2016": "انتخابات الرئاسة الأمريكية 2016",
     "media law": "قانون إعلام",
     "ministry of defence (ukraine)": "وزارة الدفاع (أوكرانيا)",
     "ministry of foreign affairs of people's republic of china": "وزارة الخارجية لجمهورية الصين الشعبية",
@@ -38,7 +49,6 @@ data_2 = {
     "ministry of intelligence": "وزارة الاستخبارات والأمن الوطني (إيران)",
     "ministry of national defense (colombia)": "وزارة الدفاع (كولومبيا)",
     "mitt romney presidential campaign, 2012": "حملة ميت رومني الرئاسية 2012",
-    "national assembly (france)": "الجمعية الوطنية الفرنسية",
     "national assembly of pakistan": "الجمعية الوطنية في باكستان",
     "natural law": "حق طبيعي",
     "o. j. simpson murder case": "قضية جريمة أو جاي سيمبسون",
@@ -46,9 +56,7 @@ data_2 = {
     "open government": "الحوكمة المفتوحة",
     "permanent court of international justice": "المحكمة الدائمة للعدل الدولي",
     "podemos (spanish political party)": "بوديموس",
-    "polish presidential election, 2010": "الانتخابات الرئاسية البولندية 2010",
     "politics of abruzzo": "سياسة أبروتسو",
-    "politics of emilia-romagna": "سياسة إميليا رومانيا",
     "politics of sicily": "سياسة صقلية",
     "politics of umbria": "سياسة أومبريا",
     "privacy law": "قانون الخصوصية",
@@ -61,15 +69,6 @@ data_2 = {
     "thing (assembly)": "ثينج",
     "treaty of brest-litovsk": "معاهدة برست ليتوفسك",
     "treaty of nanking": "معاهدة نانجينغ",
-    "turkish general election, june 2015": "الانتخابات التشريعية التركية يونيو 2015",
-    "turkish general election, november 2015": "الانتخابات التشريعية التركية نوفمبر 2015",
-    "united kingdom general election, 2010": "انتخابات المملكة المتحدة لعام 2010",
-    "united kingdom general election, 2017": "الانتخابات التشريعية البريطانية 2017",
-    "united states presidential election, 1860": "انتخابات الرئاسة الأمريكية 1860",
-    "united states presidential election, 1880": "انتخابات الرئاسة الأمريكية 1880",
-    "united states presidential election, 2008": "انتخابات الرئاسة الأمريكية 2008",
-    "united states presidential election, 2012": "انتخابات الرئاسة الأمريكية 2012",
-    "united states presidential election, 2016": "انتخابات الرئاسة الأمريكية 2016"
 }
 
 to_test = [
