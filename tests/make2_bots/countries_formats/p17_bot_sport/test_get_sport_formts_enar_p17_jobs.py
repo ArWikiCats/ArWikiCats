@@ -16,7 +16,13 @@ from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
 
 
 data2 = {
+    "football manager history": "تاريخ مدربو كرة قدم {}",
+    "international soccer players": "لاعبو كرة قدم دوليون من {}",
+    "international women's rugby sevens players": "لاعبات سباعيات رجبي دوليات من {}",
+    "men's international soccer players": "لاعبو كرة قدم دوليون من {}",
+    "summer olympics football": "كرة قدم {} في الألعاب الأولمبية الصيفية",
     "winter olympics softball": "كرة لينة {} في الألعاب الأولمبية الشتوية",
+    "women's international rugby union players": "لاعبات اتحاد رجبي دوليات من {}",
 }
 
 

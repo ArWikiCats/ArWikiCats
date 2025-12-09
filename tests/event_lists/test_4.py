@@ -138,8 +138,7 @@ data1 = {
 }
 
 
-data_2 = {
-
+data_2 ={
     "puerto princesa international airport": "مطار بويرتو برينسيسا الدولي",
     "united states military academy": "الأكاديمية العسكرية الأمريكية",
     "west end theatre": "مسارح وست اند",
@@ -157,10 +156,35 @@ data_2 = {
     "black people": "أعلام سوداء",
 }
 
+data_3 = {
+    "Category:Afghanistan Football Federation": "تصنيف:الاتحاد الأفغاني لكرة القدم",
+    "Category:Aruba Football Federation": "تصنيف:الاتحاد الأروبي لكرة القدم",
+    "Category:Bhutan Football Federation": "تصنيف:الاتحاد البوتاني لكرة القدم",
+
+    "Category:2023 in dependent territories of United Kingdom": "تصنيف:أقاليم ما وراء البحار البريطانية في 2023",
+    "Category:Battles involving al-Qaeda in Arabian Peninsula": "تصنيف:معارك تشمل تنظيم القاعدة في جزيرة العرب",
+    "Category:Bodies of water of Germany by state": "تصنيف:هيئات مياه في ألمانيا حسب الولاية",
+    "Category:Family of Solomon": "تصنيف:عائلة الملك سليمان",
+    "Category:Film set at Metropolitan Museum of Art": "تصنيف:أفلام تقع أحداثها في متحف المتروبوليتان للفنون",
+    "Category:Halo (franchise) players": "تصنيف:لاعبو هيلو (سلسلة)",
+    "Category:Lists of members of Parliament of Syria": "تصنيف:قوائم أعضاء برلمان سوريا",
+    "Category:National Library of Israel": "تصنيف:مكتبة إسرائيل الوطنية",
+    "Category:Paintings of Judas Iscariot": "تصنيف:لوحات عن يهوذا الإسخريوطي",
+    "Category:People of Third Punic War": "تصنيف:أشخاص في حروب بونية ثالثة",
+    "Category:Rectors of Stellenbosch University": "تصنيف:عمدات جامعة ستيلينبوش",
+    "Category:Violence against LGBTQ people in Oceania": "تصنيف:عنف ضد أعلام إل جي بي تي كيو في أوقيانوسيا",
+}
+
 to_test = [
     ("test_1", data1),
     # ("test_2", data_2),
+    ("test_3", data_3),
 ]
+
+
+@pytest.mark.parametrize("category, expected", data_3.items(), ids=[k for k in data_3])
+def test_3(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
