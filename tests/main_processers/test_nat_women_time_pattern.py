@@ -16,11 +16,7 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize(
-    "category,expected",
-    test_data.items(),
-    ids=test_data.keys()
-)
+@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 def test_country_time_pattern(category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
     result = get_label(category)
