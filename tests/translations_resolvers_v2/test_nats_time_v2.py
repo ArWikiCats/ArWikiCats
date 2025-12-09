@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.nat_women_time_pattern import resolve_nat_women_time_pattern
+from ArWikiCats.translations_resolvers_v2.nats_time_v2 import resolve_nat_women_time_pattern
 
 test_data = {
     # standard
