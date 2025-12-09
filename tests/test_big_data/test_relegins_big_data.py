@@ -21,7 +21,7 @@ for file in json_files:
 
 @pytest.mark.parametrize("name,data", _CASES)
 @pytest.mark.skip2
-def test_entertainment(name: str, data: dict[str, str]) -> None:
+def test_relegins_big_data(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
