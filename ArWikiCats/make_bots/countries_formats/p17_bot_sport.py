@@ -16,7 +16,6 @@ from ...translations import (
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
-@dump_data(1)
 def get_sport_formts_enar_p17_jobs(suffix: str) -> str:  # sport_formts_enar_p17_jobs
     """
     Return a sport label that merges templates with Arabic sport names.
@@ -58,7 +57,6 @@ def get_sport_formts_enar_p17_jobs(suffix: str) -> str:  # sport_formts_enar_p17
     return con_3_label
 
 
-@dump_data(1)
 def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # SPORT_FORMTS_ENAR_P17_TEAM
     """
     Return a sport label that merges templates with Arabic sport names.
