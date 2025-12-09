@@ -6,7 +6,7 @@ from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
     "russian empire-united states relations": "العلاقات بين الإمبراطورية الروسية والولايات المتحدة",
-    "south korean presidential election, 2017": "الانتخابات الرئاسية الكورية الجنوبية 2017",
+    "south korean presidential election 2017": "الانتخابات الرئاسية الكورية الجنوبية 2017",
     "republic of ireland women's national football team": "منتخب جمهورية أيرلندا لكرة القدم للسيدات",
 }
 

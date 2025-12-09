@@ -194,6 +194,23 @@ class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
         self.other_bot = other_bot
 
 
+class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
+    """
+    """
+
+    def __init__(
+        self,
+        country_bot: FormatDataV2,
+        other_bot: YearFormatData,
+        search_first_part: bool = False,
+    ) -> None:
+        """Prepare helpers for matching and formatting template-driven labels."""
+
+        self.search_first_part = search_first_part
+        self.country_bot = country_bot
+        self.other_bot = other_bot
+
+
 class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
     """
     Handles complex formatting involving two sets of data lists (e.g.,
@@ -213,6 +230,7 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
+
 
 class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
     """

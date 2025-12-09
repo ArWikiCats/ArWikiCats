@@ -9,7 +9,6 @@ COUNTRY_YEAR_PARAMS = [
 ]
 
 # Category:18th-century people of Dutch Empire
-
 COUNTRY_YEAR_DATA = {
     "category:{year1} people of {country1}": "تصنيف:أشخاص من {country1} {year1}",  # 34632
     "category:{year1} inin {country1}": "تصنيف:{country1} في {year1}",  # 34632

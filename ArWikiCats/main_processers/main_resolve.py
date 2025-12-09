@@ -97,3 +97,15 @@ def resolve_label(category: str) -> CategoryResult:
         ar=category_lab,
         from_match=cat_year or from_match,
     )
+
+
+def resolve_label_ar(category: str) -> str:
+    """Resolve the Arabic label for a given category."""
+    result = resolve_label(category)
+    return result.ar
+
+
+__all__ = [
+    "resolve_label",
+    "resolve_label_ar",
+]

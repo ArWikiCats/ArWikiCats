@@ -333,7 +333,6 @@ def build_new2019() -> dict[str, str]:
     for key, label in UNITED_STATES_POLITICAL.items():
         base_key = key.lower()
         data[f"{base_key} electors"] = f"ناخبو {label}"
-        data[f"{base_key} election,"] = f"انتخابات {label}"
         data[f"{base_key} election"] = f"انتخابات {label}"
         data[f"{base_key} elections"] = f"انتخابات {label}"
         data[f"{base_key} candidates"] = f"مرشحو {label}"

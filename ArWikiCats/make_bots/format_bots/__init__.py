@@ -300,6 +300,7 @@ for x in New_Company:
     CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
 replaces = {
+    "election, " : "election ",
     "national women's youth": "national youth women's",
     "national youth women's": "national youth women's",
     "women's youth national": "national youth women's",

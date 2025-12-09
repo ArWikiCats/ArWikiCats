@@ -4,22 +4,16 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.country_time_pattern import yc_bot, get_label
+from ArWikiCats.main_processers.country_time_pattern import get_label, load_bot
+from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
 
 test_data = {
     # standard
     # "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     # "Category:years of the 1990s in egypt": "تصنيف:سنوات عقد 1990 في مصر",
 
-    "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
-    # with text_before
-    "Category:2010s in the united states": "تصنيف:الولايات المتحدة في عقد 2010",
-
-    "Category:2025 in Yemen": "تصنيف:اليمن في 2025",
-    "Category:2020s in Yemen": "تصنيف:اليمن في عقد 2020",
     "Category:2010s establishments in egypt": "تصنيف:تأسيسات عقد 2010 في مصر",
     "Category:1999 establishments in egypt": "تصنيف:تأسيسات سنة 1999 في مصر",
-    "Category:2025 in yemen": "تصنيف:اليمن في 2025",
     "Category:2010 events in iraq": "تصنيف:أحداث 2010 في العراق",
     "Category:2020 disasters in france": "تصنيف:كوارث في فرنسا في 2020",
     "Category:2022 sports events in egypt": "تصنيف:أحداث 2022 الرياضية في مصر",
@@ -50,15 +44,36 @@ test_data = {
     "Category:2022 mosques in egypt": "تصنيف:مساجد في مصر في 2022",
 }
 
-yc_bot.country_bot.add_formatted_data("category:{year1} in {country1}", "تصنيف:{country1} في {year1}")  # 34632
 
-
-@pytest.mark.parametrize(
-    "category,expected",
-    test_data.items(),
-    ids=test_data.keys()
-)
+@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
 def test_country_time_pattern(category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
     result = get_label(category)
     assert result == expected
+
+
+class TestLoadBot:
+
+    test_data2 = {
+        "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
+
+        # with text_before
+        "Category:2010s in the united states": "تصنيف:الولايات المتحدة في عقد 2010",
+        "Category:2025 in Yemen": "تصنيف:اليمن في 2025",
+        "Category:2020s in Yemen": "تصنيف:اليمن في عقد 2020",
+        "Category:2025 in yemen": "تصنيف:اليمن في 2025",
+    }
+
+    @pytest.fixture
+    def yc_bot(self) -> MultiDataFormatterBaseYear:
+        yc_bot = load_bot()
+        yc_bot.country_bot.add_formatted_data("category:{year1} in {country1}", "تصنيف:{country1} في {year1}")
+        return yc_bot
+
+    @pytest.mark.parametrize("category,expected", test_data2.items(), ids=test_data2.keys())
+    @pytest.mark.fast
+    def test_load_bot(self, yc_bot: MultiDataFormatterBaseYear, category: str, expected: str) -> None:
+        """Test loading the bot and using it."""
+        result = yc_bot.create_label(category)
+        assert result == expected

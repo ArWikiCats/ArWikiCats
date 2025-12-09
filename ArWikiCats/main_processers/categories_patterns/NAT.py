@@ -26,6 +26,9 @@ NAT_DATA_to_check = {
 }
 
 NAT_DATA = {
+    "{en_nat} general election": "الانتخابات التشريعية {nat_men1}",
+    "{en_nat} presidential election": "الانتخابات الرئاسية {nat_men1}",
+
     # "{en_nat} sports coaches": "مدربو رياضة {nat_men1}",  # 110
     "{en_nat} people": "أعلام {nat_men1}",  # 187
     "{en_nat} lgbtq people": "أعلام إل جي بي تي كيو {nat_men1}",  # 187

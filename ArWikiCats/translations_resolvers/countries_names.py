@@ -6,6 +6,11 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
+    "national congress ({en})": "المؤتمر الوطني ({ar})",
+    "national council ({en})": "المجلس الوطني ({ar})",
+    "national assembly ({en})": "الجمعية الوطنية ({ar})",
+
+    "senate ({en})": "مجلس الشيوخ ({ar})",
     "{en} general assembly": "جمعية {ar} العامة",
     "parliament of {en}": "برلمان {ar}",
     "accidental deaths from falls in {en}": "وفيات عرضية نتيجة السقوط في {ar}",
@@ -37,6 +42,7 @@ formatted_data_en_ar_only: dict[str, str] = {
     "{en} winter olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الشتوية",
     "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
 }
+
 
 nat_bot = FormatData(
     formatted_data_en_ar_only,
