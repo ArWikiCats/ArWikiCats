@@ -7,6 +7,7 @@ from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations_resolvers.nats_sports_males import resolve_federation_label
+from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 
 data5 = {
@@ -38,9 +39,9 @@ data5 = {
     "ancient-roman artistic gymnastics racing federation": "الاتحاد الروماني القديم لسباق الجمباز الفني",
     "ancient-romans artistic swimming federation": "الاتحاد الروماني القديم للسباحة الفنية",
     "andorran association football federation": "الاتحاد الأندوري لكرة القدم",
+    "antillean australian rules football federation": "الاتحاد الأنتيلي لكرة القدم الأسترالية",
     "angolan athletics federation": "الاتحاد الأنغولي لألعاب القوى",
     "anguillan athletics racing federation": "الاتحاد الأنغويلاني لسباق ألعاب القوى",
-    "antillean australian rules football federation": "الاتحاد الأنتيلي لكرة القدم الأسترالية",
     "appalachian australian rules football racing federation": "الاتحاد الأبلاشي لسباق كرة القدم الأسترالية",
     "arab auto racing federation": "الاتحاد العربي لسباق السيارات",
     "arabian automobile racing federation": "الاتحاد العربي لسباق السيارات",
@@ -295,7 +296,7 @@ data5 = {
     "south yemeni soft tennis racing federation": "الاتحاد اليمني الجنوبي لسباق كرة المضرب اللينة",
     "southeast asian softball federation": "الاتحاد الآسيوي الجنوب الشرقي للكرة اللينة",
     "southern european softball racing federation": "الاتحاد الأوروبي الجنوبي لسباق الكرة اللينة",
-    "southwest asian speed skating federation": "الاتحاد الجنوب الغرب الآسيوي لتزلج السريع",
+    "southwest asian speed skating federation": "الاتحاد الجنوب غربي الآسيوي لتزلج السريع",
     "soviet speed skating racing federation": "الاتحاد السوفيتي لسباق التزلج السريع",
     "spanish speed skiing federation": "الاتحاد الإسباني للتزلج السريع",
     "sri lankan speed skiing racing federation": "الاتحاد السريلانكي لسباق التزلج السريع",
@@ -361,8 +362,10 @@ data6 = {
 @pytest.mark.fast
 def test_resolve_federation_label(category: str, expected_key: str) -> None:
     label = resolve_federation_label(category)
-
     assert label == expected_key
+
+    label2 = resolve_nats_sport_multi_v2(category)
+    assert label2 == expected_key
 
 
 TEMPORAL_CASES = [

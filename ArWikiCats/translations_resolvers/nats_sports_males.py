@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" """
+"""
+
+"""
 import re
 from ..translations_formats import format_multi_data
 from ..translations.nats.Nationality import all_country_with_nat
@@ -9,15 +11,7 @@ format_labels_with_nat = {
     "{en_nat} {en_sport} federation": "الاتحاد {ar_nat} {ar_sport}",
 }
 
-
-def add_definite_article(label: str) -> str:
-    """Prefix each word in ``label`` with the Arabic definite article."""
-    label_without_article = re.sub(r" ", " ال", label)
-    new_label = f"ال{label_without_article}"
-    return new_label
-
-
-nats_data = {x: add_definite_article(v["male"]) for x, v in all_country_with_nat.items() if v.get("male")}
+nats_data = {x: v["the_male"] for x, v in all_country_with_nat.items() if v.get("the_male")}
 
 both_bot = format_multi_data(
     format_labels_with_nat,
