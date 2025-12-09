@@ -137,7 +137,6 @@
         "you only live twice (film)": "أنت فقط تعيش مرتين (فيلم)"
     },
     "arabic": {
-        "luzenac ap": "نادي لوزيناك",
         "mack trucks": "شركة شاحنات ماك",
         "madame tussauds": "متحف الشمع (لندن)",
         "man se": "مان (شركة)",
@@ -154,10 +153,8 @@
         "nancy-université": "جامعة نانسي",
         "nationalmuseum": "المتحف الوطني السويدي",
         "novell": "نوفل (شركة)",
-        "orlando nightclub shooting": "الهجوم على نادي ليلي في أورلاندو",
         "parishes of saint vincent and grenadines": "أبرشيات سانت فينسنت والغرينادين",
         "pentax": "شركة بينتاكس",
-        "pfc lokomotiv sofia": "نادي لوكوموتيف صوفيا",
         "qinetiq": "كنيتيك (شركة)",
         "ramakrishna mission": "بعثة راماكريشنا/ملعب",
         "rede globo": "قناة غلوبو",
@@ -168,7 +165,6 @@
         "sciences po aix": "معهد الدراسات السياسية آكس أون بروفانس",
         "sncf": "الشركة الوطنية للسكك الحديدية (فرنسا)",
         "soldier field": "ملعب سولدر فيلد",
-        "sporting b.c.": "نادي سبورتينغ لكرة السلة",
         "sri international": "معهد ستانفورد للأبحاث",
         "storm chasing": "مطاردة الأعاصير",
         "veolia": "فيوليا (شركة)",
@@ -406,7 +402,6 @@
         "oregon health & science university": "جامعة أوريغون للصحة والعلوم مدرسة الطب",
         "oregon state university": "جامعة ولاية أوريغون",
         "osmania university": "الجامعة العثمانية",
-        "ouran high school host club": "نادي مضيفي ثانوية أوران",
         "panthéon-assas university": "جامعة بانتيون أساس",
         "paris descartes university": "جامعة باريس 5 - ديكارت",
         "paris diderot university": "جامعة باريس ديديرو",
@@ -915,8 +910,6 @@
         "people's choice awards": "جوائز خيار الشعب",
         "people's front for democracy and justice": "الجبهة الشعبية للديمقراطية والعدالة",
         "people's mujahedin of iran": "حركة مجاهدي خلق",
-        "prince of egypt": "أمير مصر (فيلم)",
-        "prince of tennis": "أمير التنس",
         "prince olav coast": "ساحل الأمير أولاف",
         "qianlong emperor": "الإمبراطور تشيان لونغ",
         "rajasthani people": "الشعب الراجاستاني",
@@ -952,6 +945,10 @@
         "millennium stadium": "ملعب الألفية",
         "nasarawa united f.c.": "ناساراوا يونايتد",
         "neath f.c.": "نادي نيث",
+        "ouran high school host club": "نادي مضيفي ثانوية أوران",
+        "sporting b.c.": "نادي سبورتينغ لكرة السلة",
+        "luzenac ap": "نادي لوزيناك",
+        "pfc lokomotiv sofia": "نادي لوكوموتيف صوفيا",
         "north african cup of champions": "كأس شمال إفريقيا للأندية البطلة",
         "orica–scott (men's team)": "أوريكا سكوت",
         "pakistan muslim league (n)": "الرابطة الإسلامية الباكستانية (ن)",
@@ -964,7 +961,5 @@
         "tonnerre d'abomey fc": "نادي تونير أبومي",
         "united football league (philippines)": "دوري الفلبين الممتاز لكرة القدم",
         "winx club": "نادي وينكس"
-    },
-    "taxons": {
     }
 }
