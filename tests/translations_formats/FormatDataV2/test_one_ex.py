@@ -206,6 +206,6 @@ def test_normalize_category_descent(bot: FormatDataV2) -> None:
     """
     category = "people of the Moroccan-Jewish descent"
 
-    normalized = bot.normalize_category_new(category, "moroccan")
+    normalized = bot.normalize_category(category, "moroccan")
 
     assert normalized == "people of {nat_en}-Jewish descent"

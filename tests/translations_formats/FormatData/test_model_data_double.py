@@ -55,6 +55,8 @@ test_data = {
     "horror upcoming films": "أفلام رعب قادمة",
     "psychological horror films": "أفلام رعب نفسي",
     "psychological horror black-and-white films": "أفلام رعب نفسي أبيض وأسود",
+
+    "horror horror films": "أفلام رعب رعب",
 }
 
 
