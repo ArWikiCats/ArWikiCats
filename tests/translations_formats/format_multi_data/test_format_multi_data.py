@@ -5,8 +5,8 @@ import pytest
 
 from ArWikiCats.translations_formats import (
     format_multi_data,
+    MultiDataFormatterBase,
 )
-from ArWikiCats.translations_formats.DataModel.model_multi_data import MultiDataFormatterBase
 
 # Sample data for nationality translations
 nationality_data = {

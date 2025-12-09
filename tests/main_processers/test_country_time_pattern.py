@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.main_processers.country_time_pattern import get_label, load_bot
-from ArWikiCats.translations_formats.DataModel.model_multi_data import MultiDataFormatterBaseYear
+from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
 
 test_data = {
     # standard
