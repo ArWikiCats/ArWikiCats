@@ -1,3 +1,15 @@
+## [#193](https://github.com/MrIbrahem/ArWikiCats/pull/193) - 2025-12-10
+
+* **New Features**
+  * Expanded Arabic translations for elections, national bodies and additional national-language term variants; added more year-aware label variants.
+
+* **Bug Fixes**
+  * Standardized category key formatting (removed stray commas/spacing) to improve lookup reliability.
+
+* **Tests**
+  * Added and updated tests for election, nationality and year-based category translations.
+
+
 ## [#192](https://github.com/MrIbrahem/ArWikiCats/pull/192) - 2025-12-10
 
 * **New Features**
