@@ -294,7 +294,7 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "given names": "أسماء شخصية {}",
     "heraldry": "نبالة {}",
     "heritage sites": "موقع تراث عالمي {}",
-    "inscriptionss": "نقوش وكتابات {}",
+    "inscriptions": "نقوش {}",
     "introductions": "استحداثات {}",
     "inventions": "اختراعات {}",
     "islands": "جزر {}",

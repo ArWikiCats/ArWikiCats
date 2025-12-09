@@ -320,7 +320,7 @@ MEDIA_CATEGORY_TRANSLATIONS = {
     "films": "أفلام",
     "given names": "أسماء شخصية",
     "graphic novels": "روايات مصورة",
-    "inscriptionss": "نقوش وكتابات",
+    "inscriptions": "نقوش",
     "literary awards": "جوائز أدبية",
     # "literary critics" : "نقد أدبي",
     "magazines": "مجلات",
