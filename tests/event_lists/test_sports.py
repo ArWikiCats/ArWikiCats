@@ -4,10 +4,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
-    # "Category:Women's national youth association football teams": "تصنيف:منتخبات كرة قدم وطنية للشابات",
-    # "Category:Women's national ice hockey teams": "تصنيف:منتخبات هوكي جليد وطنية للسيدات",
-    # "Category:National under-18 ice hockey teams": "تصنيف:منتخبات هوكي جليد وطنية تحت 18 سنة",
-    # "Category:Women's national under-18 ice hockey teams": "تصنيف:منتخبات هوكي جليد وطنية تحت 18 سنة للسيدات",
 
     "Category:Irish association football managers": "تصنيف:مدربو كرة قدم أيرلنديون",
     "Category:Lists of association football players by national team": "تصنيف:قوائم لاعبو كرة قدم حسب المنتخب الوطني",

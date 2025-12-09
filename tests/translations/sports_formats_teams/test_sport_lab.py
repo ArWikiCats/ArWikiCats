@@ -11,6 +11,11 @@ from ArWikiCats.translations.sports_formats_teams.sport_lab2 import (
 )
 
 test_find_jobs_bot_data_with_additional = {
+    "women's national youth association football teams": "منتخبات كرة قدم وطنية للشابات",
+    "women's national ice hockey teams": "منتخبات هوكي جليد وطنية للسيدات",
+    "national under-18 ice hockey teams": "منتخبات هوكي جليد وطنية تحت 18 سنة",
+    "women's national under-18 ice hockey teams": "منتخبات هوكي جليد وطنية تحت 18 سنة للسيدات",
+    "national youth women's football teams": "منتخبات كرة قدم وطنية للشابات",
     "american football leagues templates": "قوالب دوريات كرة قدم أمريكية",
     "multi-national women's basketball leagues": "دوريات كرة سلة متعددة الجنسيات للسيدات",
     "national softball teams coaches": "مدربو منتخبات كرة لينة وطنية",

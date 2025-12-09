@@ -284,7 +284,6 @@ te4_2018_Jobs_data = {
     "canadian musicians": "موسيقيون كنديون",
     "canadian sportsmen": "رياضيون رجال كنديون",
     "cape verdean essayists": "كتاب مقالات أخضريون",
-    "catherine the great": "كاترين الثانية",
     "caymanian expatriates": "كايمانيون مغتربون",
     "chechen rebels": "متمردون شيشانيون",
     "chilean expatriates": "تشيليون مغتربون",
