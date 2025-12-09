@@ -2,6 +2,7 @@
 """ """
 
 import pytest
+from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 Get_New_team_xo_data = {
@@ -256,7 +257,7 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
 
 @pytest.mark.fast
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
-def test_all(category: str, expected: str) -> None:
+def test_all_fast(category: str, expected: str) -> None:
     result = wrap_team_xo_normal_2025(category)
     assert result == expected, f"Mismatch for {category}"
 
@@ -278,3 +279,18 @@ def test_returns_default_for_unknown_category() -> None:
     """Unmapped categories should return the provided default value."""
 
     assert wrap_team_xo_normal_2025("mystery sport") == ""
+
+
+TEMPORAL_CASES = [
+    ("test_Get_New_team_xo_data", Get_New_team_xo_data),
+    ("test_all_fast", data),
+]
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.dump
+def test_all_dump(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, wrap_team_xo_normal_2025)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

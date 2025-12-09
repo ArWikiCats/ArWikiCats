@@ -100,7 +100,7 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
 def _load_additional() -> dict[str, str]:
     data = {}
 
-    for ty_nat, tas in NEW_TATO_NAT.items():
+    for ty_nat, tas in NEW_TATO_NAT.items():  # 120
         tas = tas.strip()
         tasf = tas.format(nat="").strip()
         K_at_p = f"منتخبات xzxz وطنية {tas}"
@@ -111,7 +111,7 @@ def _load_additional() -> dict[str, str]:
         elif "multi-national" in ty_nat:
             Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
         Ar_labs = K_at_p.format(nat="{nat}")
-        for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():
+        for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():       # 67
             if pr_e in ["players", "playerss"] and "women's" in ty_nat:
                 pr_e_Lab = "لاعبات {lab}"
             elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
@@ -124,7 +124,7 @@ def _load_additional() -> dict[str, str]:
 
 
 New_For_nat_female_xo_team = _load_new_for_nat_female_xo_team()
-new_for_nat_female_xo_team_additional = _load_additional()
+new_for_nat_female_xo_team_additional = _load_additional()  # 8162
 
 # New_For_nat_female_xo_team.update(new_for_nat_female_xo_team_additional)
 
