@@ -8,6 +8,40 @@ import re
 from ...helps import len_print
 from ..sports.sports_lists import AFTER_KEYS_NAT, LEVELS, NEW_TATO_NAT
 
+sport_formts_enar_p17_jobs = {
+    "international men's xoxo players": "لاعبو xoxo دوليون من {}",
+    "international women's xoxo players": "لاعبات xoxo دوليات من {}",
+    "international xoxo players": "لاعبو xoxo دوليون من {}",
+    "men's international xoxo players": "لاعبو xoxo دوليون من {}",
+    "olympics xoxo": "xoxo {} في الألعاب الأولمبية",
+    "summer olympics xoxo": "xoxo {} في الألعاب الأولمبية الصيفية",
+    "under-13 international xoxo managers": "مدربو xoxo تحت 13 سنة دوليون من {}",
+    "under-13 international xoxo players": "لاعبو xoxo تحت 13 سنة دوليون من {}",
+    "under-14 international xoxo managers": "مدربو xoxo تحت 14 سنة دوليون من {}",
+    "under-14 international xoxo players": "لاعبو xoxo تحت 14 سنة دوليون من {}",
+    "under-15 international xoxo managers": "مدربو xoxo تحت 15 سنة دوليون من {}",
+    "under-15 international xoxo players": "لاعبو xoxo تحت 15 سنة دوليون من {}",
+    "under-16 international xoxo managers": "مدربو xoxo تحت 16 سنة دوليون من {}",
+    "under-16 international xoxo players": "لاعبو xoxo تحت 16 سنة دوليون من {}",
+    "under-17 international xoxo managers": "مدربو xoxo تحت 17 سنة دوليون من {}",
+    "under-17 international xoxo players": "لاعبو xoxo تحت 17 سنة دوليون من {}",
+    "under-18 international xoxo managers": "مدربو xoxo تحت 18 سنة دوليون من {}",
+    "under-18 international xoxo players": "لاعبو xoxo تحت 18 سنة دوليون من {}",
+    "under-19 international xoxo managers": "مدربو xoxo تحت 19 سنة دوليون من {}",
+    "under-19 international xoxo players": "لاعبو xoxo تحت 19 سنة دوليون من {}",
+    "under-20 international xoxo managers": "مدربو xoxo تحت 20 سنة دوليون من {}",
+    "under-20 international xoxo players": "لاعبو xoxo تحت 20 سنة دوليون من {}",
+    "under-21 international xoxo managers": "مدربو xoxo تحت 21 سنة دوليون من {}",
+    "under-21 international xoxo players": "لاعبو xoxo تحت 21 سنة دوليون من {}",
+    "under-23 international xoxo managers": "مدربو xoxo تحت 23 سنة دوليون من {}",
+    "under-23 international xoxo players": "لاعبو xoxo تحت 23 سنة دوليون من {}",
+    "under-24 international xoxo managers": "مدربو xoxo تحت 24 سنة دوليون من {}",
+    "under-24 international xoxo players": "لاعبو xoxo تحت 24 سنة دوليون من {}",
+    "winter olympics xoxo": "xoxo {} في الألعاب الأولمبية الشتوية",
+    "women's international xoxo players": "لاعبات xoxo دوليات من {}",
+    "xoxo manager history": "تاريخ مدربو xoxo {}"
+}
+# ---
 New_team_xo_labels = {
     "xoxo": "xoxo",
     "xoxo league": "دوري xoxo",
@@ -19,8 +53,6 @@ New_team_xo_labels = {
 }
 # ---
 New_team_xo_jobs = {}
-sport_formts_enar_p17_jobs = {}
-# ---
 YEARS_LIST = [13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24]
 
 New_team_xo_jobs["xoxo olympic gold medalists"] = "ميداليات xoxo ذهبية أولمبية"
@@ -35,10 +67,6 @@ New_team_xo_jobs["reserve xoxo teams"] = "فرق xoxo احتياطية"
 New_team_xo_jobs["defunct xoxo teams"] = "فرق xoxo سابقة"
 New_team_xo_jobs["defunct xoxo clubs"] = "أندية xoxo سابقة"
 # New_team_xo_jobs[ "xoxo olympic champions"] = "تاريخ مدربو منتخبات xoxo وطنية للسيدات"
-sport_formts_enar_p17_jobs["olympics xoxo"] = "xoxo {} في الألعاب الأولمبية"
-sport_formts_enar_p17_jobs["summer olympics xoxo"] = "xoxo {} في الألعاب الأولمبية الصيفية"
-sport_formts_enar_p17_jobs["winter olympics xoxo"] = "xoxo {} في الألعاب الأولمبية الشتوية"
-sport_formts_enar_p17_jobs["xoxo manager history"] = "تاريخ مدربو xoxo {}"
 # tab[Category:Women's national football manager history navigational boxes] = "تصنيف:صناديق تصفح تاريخ مدربو منتخبات كرة قدم وطنية للسيدات"
 New_team_xo_jobs["national women's xoxo manager history"] = "تاريخ مدربو منتخبات xoxo وطنية للسيدات"
 # tab[Category:national football manager history navigational boxes] = "تصنيف:صناديق تصفح تاريخ مدربو منتخبات كرة قدم وطنية"
@@ -50,16 +78,8 @@ for year in YEARS_LIST:
     # Category:National under-17 football manager history navigational boxes
     New_team_xo_jobs[f"national under-{year} xoxo manager history"] = f"تاريخ مدربو منتخبات xoxo تحت {year} سنة"
     New_team_xo_jobs[f"under-{year} xoxo manager history"] = f"تاريخ مدربو فرق xoxo تحت {year} سنة"
-    sport_formts_enar_p17_jobs[f"under-{year} international xoxo managers"] = (
-        f"مدربو xoxo تحت {year} سنة دوليون من {{}}"
-    )
-    sport_formts_enar_p17_jobs[f"under-{year} international xoxo players"] = f"لاعبو xoxo تحت {year} سنة دوليون من {{}}"
 
-sport_formts_enar_p17_jobs["international women's xoxo players"] = "لاعبات xoxo دوليات من {}"
-sport_formts_enar_p17_jobs["women's international xoxo players"] = "لاعبات xoxo دوليات من {}"
-sport_formts_enar_p17_jobs["international men's xoxo players"] = "لاعبو xoxo دوليون من {}"
-sport_formts_enar_p17_jobs["men's international xoxo players"] = "لاعبو xoxo دوليون من {}"
-sport_formts_enar_p17_jobs["international xoxo players"] = "لاعبو xoxo دوليون من {}"
+
 New_team_xo_jobs["grand slam (xoxo) tournaments"] = "بطولات xoxo كبرى"
 New_team_xo_jobs["grand slam (xoxo) tournament champions"] = "أبطال بطولات xoxo كبرى"
 
@@ -202,7 +222,6 @@ for en, ar in typies.items():
 New_team_xo_jobs["domestic xoxo"] = "xoxo محلية"
 New_team_xo_jobs["indoor xoxo"] = "xoxo داخل الصالات"
 New_team_xo_jobs["outdoor xoxo"] = "xoxo في الهواء الطلق"
-# sport_formts_enar_p17_jobs["international rally"] =  "رالي {} الدولي"
 # ---
 len_print.data_len(
     "sports_formats_teams/team_job.py",

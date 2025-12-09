@@ -16,7 +16,6 @@ from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
 
 
 data2 = {
-    "national women's soccer team": "منتخب {} لكرة القدم للسيدات",
     "winter olympics softball": "كرة لينة {} في الألعاب الأولمبية الشتوية",
 }
 
