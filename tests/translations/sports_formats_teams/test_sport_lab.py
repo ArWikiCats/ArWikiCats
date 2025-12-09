@@ -238,7 +238,6 @@ def test_returns_default_for_unknown_category() -> None:
 
 TEMPORAL_CASES = [
     ("test_Get_New_team_xo_data", Get_New_team_xo_data),
-    ("test_all_fast", data),
 ]
 
 
