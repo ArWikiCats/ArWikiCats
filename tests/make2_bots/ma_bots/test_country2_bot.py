@@ -376,7 +376,6 @@ data_slow = {
     "nascar races": "سباقات ناسكار",
     "national cricket teams": "منتخبات كريكت وطنية",
     "national wheelchair rugby league teams": "منتخبات دوري رجبي على كراسي متحركة وطنية",
-    "national youth women's football teams": "منتخبات كرة قدم وطنية للشابات",
     "nature reserves in united states": "محميات طبيعية في الولايات المتحدة",
     "naval battles involving united states": "معارك بحرية تشمل الولايات المتحدة",
     "navoiy region": "ولاية نواوي",

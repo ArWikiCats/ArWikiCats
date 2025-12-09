@@ -8,7 +8,6 @@ from typing import Callable
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
     get_p17_with_sport,
-    Get_Sport_Format_xo_en_ar_is_P17,
 )
 
 # =========================================================
@@ -143,23 +142,6 @@ def test_get_p17_with_sport_1(category: str, expected: str) -> None:
     label = get_p17_with_sport(category)
     assert label == expected
 
-# =========================================================
-#                   Get_Sport_Format_xo_en_ar_is_P17
-# =========================================================
-
-
-data2 = {
-    "national women's soccer team": "منتخب {} لكرة القدم للسيدات",
-    "winter olympics softball": "كرة لينة {} في الألعاب الأولمبية الشتوية",
-}
-
-
-@pytest.mark.parametrize("category, expected_key", data2.items(), ids=list(data2.keys()))
-@pytest.mark.fast
-def test_Get_Sport_Format_xo_en_ar_is_P17(category: str, expected_key: str) -> None:
-    label = Get_Sport_Format_xo_en_ar_is_P17(category)
-    assert label == expected_key
-
 
 # =========================================================
 #                   DUMP
@@ -167,7 +149,6 @@ def test_Get_Sport_Format_xo_en_ar_is_P17(category: str, expected_key: str) -> N
 
 TEMPORAL_CASES = [
     ("test_get_p17_with_sport_1", data_1, get_p17_with_sport),
-    ("test_Get_Sport_Format_xo_en_ar_is_P17", data2, Get_Sport_Format_xo_en_ar_is_P17),
 ]
 
 

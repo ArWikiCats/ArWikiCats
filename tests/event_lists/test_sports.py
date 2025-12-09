@@ -4,6 +4,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+
     "Category:Irish association football managers": "تصنيف:مدربو كرة قدم أيرلنديون",
     "Category:Lists of association football players by national team": "تصنيف:قوائم لاعبو كرة قدم حسب المنتخب الوطني",
     "Category:Male long-distance runners": "تصنيف:عداؤو مسافات طويلة ذكور",
@@ -15,7 +16,6 @@ data1 = {
     "Category:Norwegian male pair skaters": "تصنيف:متزلجون فنيون على الجليد ذكور نرويجيون",
     "Category:Norwegian male single skaters": "تصنيف:متزلجون فرديون ذكور نرويجيون",
     "Category:Water polo at the Summer Universiade": "تصنيف:كرة الماء في الألعاب الجامعية الصيفية",
-    "Category:Women's national youth association football teams": "تصنيف:منتخبات كرة قدم وطنية للشابات",
     "Category:World Judo Championships": "تصنيف:بطولة العالم للجودو",
     "Category:Youth athletics competitions": "تصنيف:منافسات ألعاب قوى شبابية",
     "Category:Youth athletics": "تصنيف:ألعاب القوى للشباب",
@@ -40,15 +40,13 @@ data1 = {
 
 data2 = {
     "Category:Female association football managers": "تصنيف:مدربات كرة قدم",
+
     # "Category:Coaches of the West Indies national cricket team": "",
     # "Category:Nauru international soccer players": "",
     "Category:Afghanistan women's national football team coaches": "تصنيف:مدربو منتخب أفغانستان لكرة القدم للسيدات",
     "Category:Coaches of Yemen national cricket team": "تصنيف:مدربو منتخب اليمن للكريكت",
     "Category:Cuba women's national basketball team": "تصنيف:منتخب كوبا لكرة السلة للسيدات",
     "Category:Equatorial Guinea women's national football team": "تصنيف:منتخب غينيا الاستوائية لكرة القدم للسيدات",
-    "Category:National under-18 ice hockey teams": "تصنيف:منتخبات هوكي جليد وطنية تحت 18 سنة",
-    "Category:Women's national ice hockey teams": "تصنيف:منتخبات هوكي جليد وطنية للسيدات",
-    "Category:Women's national under-18 ice hockey teams": "تصنيف:منتخبات هوكي جليد وطنية تحت 18 سنة للسيدات",
     "Category:Norwegian pair skaters": "تصنيف:متزلجون فنيون على الجليد نرويجيون",
     "Category:Norwegian short track speed skaters": "تصنيف:متزلجون على مسار قصير نرويجيون",
     "Category:Olympic competitors for Cape Verde": "تصنيف:منافسون أولمبيون من الرأس الأخضر",

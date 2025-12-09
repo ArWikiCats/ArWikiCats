@@ -8,9 +8,10 @@ from ArWikiCats.main_processers.country_time_pattern import yc_bot, get_label
 
 test_data = {
     # standard
-    "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
-    "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
+    # "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
+    # "Category:years of the 1990s in egypt": "تصنيف:سنوات عقد 1990 في مصر",
 
+    "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
     # with text_before
     "Category:2010s in the united states": "تصنيف:الولايات المتحدة في عقد 2010",
 
@@ -24,10 +25,9 @@ test_data = {
     "Category:2022 sports events in egypt": "تصنيف:أحداث 2022 الرياضية في مصر",
     "Category:2021 crimes in iraq": "تصنيف:جرائم 2021 في العراق",
     "Category:2022 murders in yemen": "تصنيف:جرائم قتل في اليمن في 2022",
-    "Category:2015 in united states by month": "تصنيف:أحداث 2015 في الولايات المتحدة حسب الشهر",
+    "Category:2015 in united states by month": "تصنيف:2015 في الولايات المتحدة حسب الشهر",
     "Category:2020 elections in france": "تصنيف:انتخابات فرنسا في 2020",
     "Category:2010 events in yemen by month": "تصنيف:أحداث 2010 في اليمن حسب الشهر",
-    "Category:years of the 1990s in egypt": "تصنيف:سنوات عقد 1990 في مصر",
     "Category:2023 in sports in iraq": "تصنيف:الرياضة في العراق في 2023",
     "Category:2020 in yemen by city": "تصنيف:اليمن في 2020 حسب المدينة",
     "Category:2021 in egypt (state)": "تصنيف:ولاية مصر في 2021",

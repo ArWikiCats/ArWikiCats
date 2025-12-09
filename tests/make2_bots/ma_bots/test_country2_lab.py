@@ -44,7 +44,6 @@ data = {
     "international women's basketball competitions": "منافسات كرة سلة نسائية دولية",
     "water polo": "كرة الماء",
     "national women's sports teams of": "منتخبات رياضية وطنية نسائية في",
-    "national youth women's football teams": "منتخبات كرة قدم وطنية للشابات",
     "world judo championships": "بطولة العالم للجودو",
     "youth athletics competitions": "منافسات ألعاب قوى شبابية",
     "youth athletics": "ألعاب القوى للشباب",

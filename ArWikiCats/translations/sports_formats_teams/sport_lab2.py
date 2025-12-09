@@ -11,11 +11,15 @@ from ..sports.Sport_key import (
     SPORTS_KEYS_FOR_TEAM,
 )
 from .te3 import New_team_xo_team_labels
-from .team_job import New_team_xo_jobs, New_team_xo_labels
+from .team_job import New_team_xo_jobs, New_team_xo_labels, new_team_xo_jobs_additional
 
 labels_bot = FormatData(New_team_xo_labels, SPORTS_KEYS_FOR_LABEL, key_placeholder="xoxo", value_placeholder="xoxo")
 teams_bot = FormatData(New_team_xo_team_labels, SPORTS_KEYS_FOR_TEAM, key_placeholder="xoxo", value_placeholder="xoxo")
-jobs_bot = FormatData(New_team_xo_jobs, SPORTS_KEYS_FOR_JOBS, key_placeholder="xoxo", value_placeholder="xoxo")
+
+new_team_jobs = New_team_xo_jobs
+# new_team_jobs = new_team_xo_jobs_additional | New_team_xo_jobs
+
+jobs_bot = FormatData(new_team_jobs, SPORTS_KEYS_FOR_JOBS, key_placeholder="xoxo", value_placeholder="xoxo")
 
 
 @functools.lru_cache(maxsize=None)
@@ -46,4 +50,7 @@ def wrap_team_xo_normal_2025(team: str) -> str:
 
 __all__ = [
     "wrap_team_xo_normal_2025",
+    "find_labels_bot",
+    "find_teams_bot",
+    "find_jobs_bot",
 ]

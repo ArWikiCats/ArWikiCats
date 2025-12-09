@@ -1,3 +1,17 @@
+## [#190](https://github.com/MrIbrahem/ArWikiCats/pull/190) - 2025-12-10
+
+* **New Features**
+  * Added enhanced sport format resolution with improved fallback mechanisms for category translation
+  * Introduced new utility functions for retrieving team labels, job titles, and category identifiers
+
+* **Bug Fixes**
+  * Removed outdated translation entries and updated deprecated mappings across translation datasets
+  * Improved data consistency for sports team and job category translations
+
+* **Tests**
+  * Reorganized test suite with a new data-driven framework for better coverage and maintainability
+  * Removed obsolete test cases and consolidated validation approaches
+
 ## [#189](https://github.com/MrIbrahem/ArWikiCats/pull/189) - 2025-12-08
 
 * **New Features**

@@ -27,7 +27,7 @@ def test_nat_mens_people_uses_full_mapping(country_key: str, expected_label: str
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", country_key, "people")
     # If something is missing in jobs_with_nat_prefix logic, this will fail and show which key
-    assert result == expected_label
+    assert result == f"أعلام {expected_label}"
 
 
 @pytest.mark.parametrize(

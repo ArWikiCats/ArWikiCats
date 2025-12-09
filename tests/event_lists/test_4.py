@@ -128,32 +128,33 @@ data1 = {
     "world games": "تصنيف:دورة الألعاب العالمية",
     "world karate championships": "تصنيف:بطولة العالم للكاراتيه",
     "yemeni unity cup": "تصنيف:كأس الوحدة اليمنية",
+    "College sports coaches in the United States by sport by state": "تصنيف:مدربو رياضات الكليات في الولايات المتحدة حسب الرياضة حسب الولاية",
+    "national university of singapore": "تصنيف:جامعة سنغافورة الوطنية",
+    "sri lankan civil war by decade": "تصنيف:الحرب الأهلية السريلانكية حسب العقد",
+    "church of jesus christ of latter-day saints": "تصنيف:كنيسة يسوع المسيح لقديسي الأيام الأخيرة",
+    "senate of pakistan": "تصنيف:مجلس شيوخ باكستان",
+    "parliament of india": "تصنيف:برلمان الهند",
+    "political people": "تصنيف:ساسة",
 }
 
 
 data_2 = {
-    "national university of singapore": "جامعة سنغافورة الوطنية",
+
     "puerto princesa international airport": "مطار بويرتو برينسيسا الدولي",
     "united states military academy": "الأكاديمية العسكرية الأمريكية",
     "west end theatre": "مسارح وست اند",
     "xin dynasty": "سلالة شين الحاكمة",
     "tokyo metropolitan police department": "قسم شرطة العاصمة طوكيو",
-    "sri lankan civil war by decade": "الحرب الأهلية السريلانكية حسب العقد",
-    "church of jesus christ of latter-day saints": "كنيسة يسوع المسيح لقديسي الأيام الأخيرة",
     "supreme court of israel": "المحكمة العليا (إسرائيل)",
     "sydney opera house": "دار أوبرا سيدني",
     "sovereign military order of malta": "فرسان مالطة",
-    "senate of pakistan": "مجلس الشيوخ الباكستان",
     "second congo war": "حرب الكونغو الثانية",
     "san quentin state prison": "سجن سان كوينتن",
     "royal canadian mounted police": "شرطة الخيالة الكندية الملكية",
     "royal danish army": "القوات البرية الدانماركية",
-    "parliament of india": "برلمان الهند",
     "russian academy of arts": "الأكاديمية الروسية للفنون",
-    "political people": "أعلام سياسية",
     "lgbtq people": "أعلام إل جي بي تي كيو",
     "black people": "أعلام سوداء",
-
 }
 
 to_test = [
