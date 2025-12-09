@@ -1,3 +1,13 @@
+## [#191](https://github.com/MrIbrahem/ArWikiCats/pull/191) - 2025-12-10
+
+* **New Features**
+  * Enhanced translation resolution for sports-related categories, including improved federation label formatting and nationality translations.
+  * Expanded Arabic translations for nationality entries.
+
+* **Tests**
+  * Added comprehensive test coverage for sports category translations, including football, rugby, and Olympics-related categories.
+  * Extended test data for nationality and sports translations across multiple countries.
+
 ## [#190](https://github.com/MrIbrahem/ArWikiCats/pull/190) - 2025-12-10
 
 * **New Features**

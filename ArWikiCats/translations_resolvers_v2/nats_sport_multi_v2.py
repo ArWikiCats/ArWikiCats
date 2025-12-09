@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
 
-TODO: use this file to replace resolve_federation_label
+Resolves category labels for sports federations based on nationality.
+This module constructs a formatter that combines nationality data with sports data
+to translate category titles like "{nationality} {sport} federation" into Arabic.
 
 """
 import functools

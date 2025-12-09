@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" """
+"""
+
+"""
 import functools
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations.nats.Nationality import all_country_with_nat_ar
