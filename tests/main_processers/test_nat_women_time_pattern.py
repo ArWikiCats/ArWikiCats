@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.nat_women_time_pattern import get_label
+from ArWikiCats.main_processers.nat_women_time_pattern import resolve_nat_women_time_pattern
 
 test_data = {
     # standard
@@ -19,5 +19,5 @@ test_data = {
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 def test_country_time_pattern(category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
-    result = get_label(category)
+    result = resolve_nat_women_time_pattern(category)
     assert result == expected

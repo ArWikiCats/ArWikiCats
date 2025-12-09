@@ -41,7 +41,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_label(category: str) -> str:
+def resolve_nat_women_time_pattern(category: str) -> str:
     yc_bot = _bot_new()
 
     normalized_category = category.lower().replace("category:", "")
@@ -54,5 +54,5 @@ def get_label(category: str) -> str:
 
 
 __all__ = [
-    "get_label",
+    "resolve_nat_women_time_pattern",
 ]

@@ -27,7 +27,7 @@ def load_bot() -> MultiDataFormatterBaseYear:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_label(category: str) -> str:
+def resolve_country_time_pattern(category: str) -> str:
     yc_bot = load_bot()
     result = yc_bot.create_label(category)
     if not result:
@@ -39,6 +39,6 @@ def get_label(category: str) -> str:
 
 
 __all__ = [
-    "get_label",
+    "resolve_country_time_pattern",
     "load_bot",
 ]
