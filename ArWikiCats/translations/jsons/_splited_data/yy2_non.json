@@ -1,5 +1,5 @@
 {
-    "Infrastructure": {
+    "infrastructure": {
         "logan international airport": "مطار لوجان الدولي",
         "london zoo": "حديقة حيوان لندن",
         "madison square garden": "ماديسون سكوير جاردن",
@@ -56,7 +56,7 @@
         "zion national park": "متنزه صهيون الوطني",
         "øresund bridge": "جسر أوريسند"
     },
-    "Tv": {
+    "tv": {
         "americans (2013 tv series)": "الأمريكيون (مسلسل)",
         "apprentice (tv series)": "الإدارة جدارة",
         "blacklist (tv series)": "القائمة السوداء (مسلسل)",
@@ -579,7 +579,6 @@
         "ten-day war": "حرب الاستقلال السلوفينية",
         "third anglo-afghan war": "الحرب الإنجليزية الأفغانية الثالثة",
         "third macedonian war": "الحرب المقدونية الثالثة",
-        "third punic war": "حروب بونية ثالثة",
         "third servile war": "حرب العبيد الثالثة",
         "thirteen years' war": "حرب الثلاثة عشر عاما",
         "thousand days' war": "حرب الألف يوم",

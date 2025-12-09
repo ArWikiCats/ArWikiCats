@@ -166,13 +166,12 @@ data_3 = {
 
     "Category:2023 in dependent territories of United Kingdom": "تصنيف:أقاليم ما وراء البحار البريطانية في 2023",
     "Category:Battles involving al-Qaeda in Arabian Peninsula": "تصنيف:معارك تشمل تنظيم القاعدة في جزيرة العرب",
-    "Category:Family of Solomon": "تصنيف:عائلة الملك سليمان",
     "Category:Film set at Metropolitan Museum of Art": "تصنيف:أفلام تقع أحداثها في متحف المتروبوليتان للفنون",
     "Category:Halo (franchise) players": "تصنيف:لاعبو هيلو (سلسلة)",
     "Category:Lists of members of Parliament of Syria": "تصنيف:قوائم أعضاء برلمان سوريا",
     "Category:National Library of Israel": "تصنيف:مكتبة إسرائيل الوطنية",
     "Category:Paintings of Judas Iscariot": "تصنيف:لوحات عن يهوذا الإسخريوطي",
-    "Category:People of Third Punic War": "تصنيف:أشخاص في حروب بونية ثالثة",
+    "Category:People of Third Punic War": "تصنيف:أشخاص في الحرب البونيقية الثالثة",
     "Category:Rectors of Stellenbosch University": "تصنيف:عمدات جامعة ستيلينبوش",
     "Category:Violence against LGBTQ people in Oceania": "تصنيف:عنف ضد أعلام إل جي بي تي كيو في أوقيانوسيا",
 }

@@ -9,6 +9,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
     "players in": "playerss in",
 
+    "bodies of water" : "bodies-of-water",
     r"\’": "'",
 
     r" \– men's tournament": " mens tournament",
