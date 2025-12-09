@@ -6,6 +6,7 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
+    "{en} general assembly": "جمعية {ar} العامة",
     "parliament of {en}": "برلمان {ar}",
     "accidental deaths from falls in {en}": "وفيات عرضية نتيجة السقوط في {ar}",
     "bodies of water of {en}": "مسطحات مائية في {ar}",

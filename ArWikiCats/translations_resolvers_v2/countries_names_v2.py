@@ -23,8 +23,11 @@ countries_nat_en_key_example = {
 new_data: dict[str, str] = {
     # ar new
     "national library of {en}": "مكتبة {ar} الوطنية",
-    "dependent territories of {en}": "أقاليم ما وراء البحار {the_female}",
     "bodies of water of {en}": "مسطحات مائية في {ar}",
+
+    # the_female
+    "dependent territories of {en}": "أقاليم ما وراء البحار {the_female}",
+    "supreme court of {en}": "المحكمة العليا {the_female}",
 }
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
@@ -75,8 +78,6 @@ all_data: dict[str, str] = {
     "{en} forth division league": "الدوري {the_male} الدرجة الرابعة",
 }
 
-all_data |= formatted_data_en_ar_only
-
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
@@ -85,7 +86,7 @@ def _load_bot() -> FormatDataV2:
         for x, v in countries_nat_en_key.items()
         if v.get("ar")
     }
-    formatted_data = all_data | new_data
+    formatted_data = all_data | new_data | formatted_data_en_ar_only
 
     return FormatDataV2(
         formatted_data=formatted_data,
