@@ -6,7 +6,6 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.translations_resolvers.nats_sports_males import resolve_federation_label
 from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 
@@ -360,16 +359,13 @@ data6 = {
 
 @pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
 @pytest.mark.fast
-def test_resolve_federation_label(category: str, expected_key: str) -> None:
-    label = resolve_federation_label(category)
-    assert label == expected_key
-
+def test_resolve_nats_sport_multi_v2(category: str, expected_key: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected_key
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_federation_label", data5, resolve_federation_label),
+    ("test_resolve_nats_sport_multi_v2", data5, resolve_nats_sport_multi_v2),
 ]
 
 

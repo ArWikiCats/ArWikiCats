@@ -13,6 +13,7 @@ from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..o_bots import fax
 from ..o_bots.army import te_army
 from ...translations_resolvers import resolved_sports_formats_labels
+from ...translations_resolvers_v2 import resolved_translations_resolvers_v2
 from .film_keys_bot import resolve_films
 
 from ..media_bots.film_keys_bot import get_Films_key_CAO
@@ -78,6 +79,11 @@ def te_films(category: str) -> str:
     resolved_label = resolved_sports_formats_labels(normalized_category)
     if resolved_label:
         logger.info(f'>>>> (te_films) resolved_sports_formats_labels, cat: {normalized_category}, label: "{resolved_label}"')
+        return resolved_label
+
+    resolved_label = resolved_translations_resolvers_v2(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> (te_films) resolved_translations_resolvers_v2, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
 
     resolved_label = fax.te_language(normalized_category)

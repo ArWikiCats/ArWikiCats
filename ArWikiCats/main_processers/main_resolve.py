@@ -17,6 +17,7 @@ from ..make_bots.format_bots import change_cat
 from ..make_bots.ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
 from ..translations_resolvers import resolved_sports_formats_labels
+from ..translations_resolvers_v2 import resolved_translations_resolvers_v2
 
 
 labs_years_bot = LabsYears()
@@ -52,6 +53,9 @@ def resolve_label(category: str) -> CategoryResult:
 
     if not category_lab:
         category_lab = resolved_sports_formats_labels(changed_cat)
+
+    if not category_lab:
+        category_lab = resolved_translations_resolvers_v2(changed_cat)
 
     start_ylab = ""
     from_match = False
