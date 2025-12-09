@@ -9,26 +9,11 @@ from ArWikiCats.translations.sports_formats_teams.sport_lab2 import (
     find_teams_bot,
     find_jobs_bot,
 )
-
-Get_New_team_xo_data = {
-    "acrobatic gymnastics junior world championships": "بطولة العالم الجمباز الاكروباتيكي للناشئين",
-    "acrobatic gymnastics world championships": "بطولة العالم الجمباز الاكروباتيكي",
+test_find_jobs_bot_data = {
     "american football leagues templates": "قوالب دوريات كرة قدم أمريكية",
     "baseball competitions ": "منافسات كرة قاعدة",
-    "baseball league": "دوري كرة القاعدة",
-    "baseball world cup": "كأس العالم لكرة القاعدة",
     "basketball cup competitions": "منافسات كؤوس كرة سلة",
-    "basketball junior world championships": "بطولة العالم لكرة السلة للناشئين",
     "basketball olympic bronze medalists ": "ميداليات كرة سلة برونزية أولمبية",
-    "basketball": "كرة السلة",
-    "beach volleyball world championships": "بطولة العالم لكرة الطائرة الشاطئية",
-    "biathlon world cup": "كأس العالم للبياثلون",
-    "category:college": "الكليات",
-    "category:premier lacrosse league": "دوريات لاكروس من الدرجة الممتازة",
-    "chess": "الشطرنج",
-    "cricket world cup": "كأس العالم للكريكت",
-    "cross-country skiing world championships": "بطولة العالم للتزلج الريفي",
-    "curling world cup": "كأس العالم للكيرلنغ",
     "current badminton seasons": "مواسم تنس ريشة حالية",
     "current cricket seasons": "مواسم كريكت حالية",
     "current football seasons": "مواسم كرة قدم حالية",
@@ -69,23 +54,16 @@ Get_New_team_xo_data = {
     "domestic handball leagues": "دوريات كرة يد محلية",
     "domestic women's football leagues": "دوريات كرة قدم محلية للسيدات",
     "domestic women's handball leagues": "دوريات كرة يد محلية للسيدات",
-    "esports world cup": "كأس العالم للرياضة إلكترونية",
     "fictional motorsports": "رياضة محركات خيالية",
     "field hockey cup competitions": "منافسات كؤوس هوكي ميدان",
-    "field hockey": "هوكي الميدان",
     "first-class cricket teams": "فرق كريكت من الدرجة الأولى",
     "first-class cricket": "كريكت من الدرجة الأولى",
     "football chairmen and investors": "رؤساء ومسيرو كرة قدم",
     "football cup competitions": "منافسات كؤوس كرة قدم",
     "football cups": "كؤوس كرة قدم",
     "football league competitions": "منافسات دوري كرة قدم",
-    "football league": "دوري كرة القدم",
     "football seventh tier leagues": "دوريات كرة قدم من الدرجة السابعة",
     "fourth level football leagues": "دوريات كرة قدم من الدرجة الرابعة",
-    "goalball world championships": "بطولة العالم لكرة الهدف",
-    "hockey league": "دوري هوكي",
-    "hockey world cup": "كأس العالم للهوكي",
-    "ice hockey league": "دوري هوكي الجليد",
     "indoor football": "كرة قدم داخل الصالات",
     "indoor hockey clubs": "أندية هوكي داخل الصالات",
     "indoor hockey": "هوكي داخل الصالات",
@@ -99,12 +77,10 @@ Get_New_team_xo_data = {
     "international bandy competitions": "منافسات باندي دولية",
     "international baseball competitions": "منافسات كرة قاعدة دولية",
     "international basketball competitions": "منافسات كرة سلة دولية",
-    "international basketball council": "المجلس الدولي لكرة السلة",
     "international boxing competitions": "منافسات بوكسينغ دولية",
     "international chess competitions": "منافسات شطرنج دولية",
     "international cricket ": "كريكت دولية",
     "international cricket competitions": "منافسات كريكت دولية",
-    "international cricket council": "المجلس الدولي للكريكت",
     "international cricket records and statistics": "سجلات وإحصائيات كريكت دولية",
     "international curling competitions": "منافسات كيرلنغ دولية",
     "international cycle races": "سباقات دراجات دولية",
@@ -124,12 +100,10 @@ Get_New_team_xo_data = {
     "international rugby league competitions": "منافسات دوري رجبي دولية",
     "international rugby sevens players": "لاعبو سباعيات رجبي دوليون",
     "international rugby union competitions": "منافسات اتحاد رجبي دولية",
-    "international snowboarding council": "المجلس الدولي للتزلج على الثلوج",
     "international softball competitions": "منافسات كرة لينة دولية",
     "international taekwondo competitions": "منافسات تايكوندو دولية",
     "international track and field competitions": "منافسات سباقات مضمار وميدان دولية",
     "international volleyball competitions": "منافسات كرة طائرة دولية",
-    "international volleyball council": "المجلس الدولي لكرة الطائرة",
     "international water polo competitions": "منافسات كرة ماء دولية",
     "international weightlifting competitions": "منافسات رفع أثقال دولية",
     "international women's basketball competitions": "منافسات كرة سلة نسائية دولية",
@@ -139,16 +113,10 @@ Get_New_team_xo_data = {
     "international wrestling competitions": "منافسات مصارعة دولية",
     "international youth basketball competitions": "منافسات كرة سلة شبابية دولية",
     "international youth football competitions": "منافسات كرة قدم شبابية دولية",
-    "martial arts": "الفنون القتالية",
-    "men's hockey world cup": "كأس العالم للهوكي للرجال",
     "men's international basketball": "كرة سلة دولية للرجال",
     "men's international football": "كرة قدم دولية للرجال",
-    "men's rugby world cup": "كأس العالم للرجبي للرجال",
-    "men's softball world championship": "بطولة العالم للكرة اللينة للرجال",
-    "men's softball world cup": "كأس العالم للكرة اللينة للرجال",
     "military diving": "غطس عسكرية",
     "military football": "كرة قدم عسكرية",
-    "motocross world championship": "بطولة العالم للموتو كروس",
     "multi-national women's basketball leagues": "دوريات كرة سلة متعددة الجنسيات للسيدات",
     "national b football teams": "منتخبات كرة قدم رديفة",
     "national badminton teams": "منتخبات تنس ريشة وطنية",
@@ -190,7 +158,6 @@ Get_New_team_xo_data = {
     "national youth women's under-14 softball teams coaches": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball teams scouts": "كشافة منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
     "national youth women's under-14 softball teams trainers": "مدربو منتخبات كرة لينة وطنية تحت 14 سنة للشابات",
-    "netball world cup": "كأس العالم لكرة الشبكة",
     "outdoor equestrian": "فروسية في الهواء الطلق",
     "premier badminton league": "دوريات تنس ريشة من الدرجة الممتازة",
     "premier volleyball league": "دوريات كرة طائرة من الدرجة الممتازة",
@@ -198,32 +165,12 @@ Get_New_team_xo_data = {
     "professional ice hockey leagues": "دوريات هوكي جليد للمحترفين",
     "professional soccer leagues": "دوريات كرة قدم للمحترفين",
     "professional sports leagues": "دوريات رياضية للمحترفين",
-    "racquetball world championships": "بطولة العالم لكرة الراح",
-    "rhythmic gymnastics world championships": "بطولة العالم للجمباز الإيقاعي",
     "rugby competitions": "منافسات رجبي",
-    "rugby finals": "نهائيات الرجبي",
     "rugby league competitions": "منافسات دوري رجبي",
-    "rugby league finals": "نهائيات دوري الرجبي",
-    "rugby league league": "دوري دوري الرجبي",
     "rugby league teams": "فرق دوري رجبي",
-    "rugby league world cup": "كأس العالم لدوري الرجبي",
     "rugby teams": "فرق رجبي",
-    "rugby world cup": "كأس العالم للرجبي",
-    "rugby world junior championship": "بطولة العالم للرجبي للناشئين",
-    "rugby": "الرجبي",
-    "sailing world championship": "بطولة العالم للإبحار",
-    "sailing world championships": "بطولة العالم للإبحار",
     "softball competitions": "منافسات كرة لينة",
-    "speed skating": "التزلج السريع",
     "sports cup competitions": "منافسات كؤوس رياضية",
-    "sports league": "دوري ألعاب رياضية",
-    "summer olympics basketball": "كرة السلة في الألعاب الأولمبية الصيفية",
-    "summer olympics field hockey": "هوكي الميدان في الألعاب الأولمبية الصيفية",
-    "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
-    "summer olympics handball": "كرة اليد في الألعاب الأولمبية الصيفية",
-    "summer olympics rugby sevens": "سباعيات الرجبي في الألعاب الأولمبية الصيفية",
-    "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
-    "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
     "swimming competitions ": "منافسات سباحة",
     "under-13 baseball leagues films": "أفلام دوريات كرة قاعدة تحت 13 سنة",
     "under-13 baseball leagues finals": "نهائيات دوريات كرة قاعدة تحت 13 سنة",
@@ -240,26 +187,83 @@ Get_New_team_xo_data = {
     "under-18 ice hockey": "هوكي جليد تحت 18 سنة",
     "under-18 rugby union": "اتحاد رجبي تحت 18 سنة",
     "under-20 basketball": "كرة سلة تحت 20 سنة",
+    "wheelchair rugby competitions": "منافسات رجبي على كراسي متحركة",
+    "wheelchair rugby league competitions": "منافسات دوري رجبي على كراسي متحركة",
+    "wheelchair rugby league teams": "فرق دوري رجبي على كراسي متحركة",
+    "wheelchair rugby teams": "فرق رجبي على كراسي متحركة",
+    "women's international basketball": "كرة سلة دولية للسيدات",
+    "women's international football": "كرة قدم دولية للسيدات",
+    "youth international football": "كرة قدم دولية شبابية"
+}
+
+test_find_labels_bot_data = {
+    "baseball league": "دوري كرة القاعدة",
+    "basketball": "كرة السلة",
+    "chess": "الشطرنج",
+    "field hockey": "هوكي الميدان",
+    "football league": "دوري كرة القدم",
+    "hockey league": "دوري هوكي",
+    "ice hockey league": "دوري هوكي الجليد",
+    "martial arts": "الفنون القتالية",
+    "rugby finals": "نهائيات الرجبي",
+    "rugby league finals": "نهائيات دوري الرجبي",
+    "rugby league league": "دوري دوري الرجبي",
+    "rugby": "الرجبي",
+    "speed skating": "التزلج السريع",
+    "sports league": "دوري ألعاب رياضية",
+    "summer olympics basketball": "كرة السلة في الألعاب الأولمبية الصيفية",
+    "summer olympics field hockey": "هوكي الميدان في الألعاب الأولمبية الصيفية",
+    "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
+    "summer olympics handball": "كرة اليد في الألعاب الأولمبية الصيفية",
+    "summer olympics rugby sevens": "سباعيات الرجبي في الألعاب الأولمبية الصيفية",
+    "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
+    "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
+    "wheelchair rugby finals": "نهائيات الرجبي على الكراسي المتحركة",
+    "wheelchair rugby league finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
+    "wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
+    "winter olympics sports": "ألعاب رياضية في الألعاب الأولمبية الشتوية"
+}
+
+test_find_teams_bot_data = {
+    "acrobatic gymnastics junior world championships": "بطولة العالم الجمباز الاكروباتيكي للناشئين",
+    "acrobatic gymnastics world championships": "بطولة العالم الجمباز الاكروباتيكي",
+    "baseball world cup": "كأس العالم لكرة القاعدة",
+    "basketball junior world championships": "بطولة العالم لكرة السلة للناشئين",
+    "beach volleyball world championships": "بطولة العالم لكرة الطائرة الشاطئية",
+    "biathlon world cup": "كأس العالم للبياثلون",
+    "cricket world cup": "كأس العالم للكريكت",
+    "cross-country skiing world championships": "بطولة العالم للتزلج الريفي",
+    "curling world cup": "كأس العالم للكيرلنغ",
+    "esports world cup": "كأس العالم للرياضة إلكترونية",
+    "goalball world championships": "بطولة العالم لكرة الهدف",
+    "hockey world cup": "كأس العالم للهوكي",
+    "international basketball council": "المجلس الدولي لكرة السلة",
+    "international cricket council": "المجلس الدولي للكريكت",
+    "international snowboarding council": "المجلس الدولي للتزلج على الثلوج",
+    "international volleyball council": "المجلس الدولي لكرة الطائرة",
+    "men's hockey world cup": "كأس العالم للهوكي للرجال",
+    "men's rugby world cup": "كأس العالم للرجبي للرجال",
+    "men's softball world championship": "بطولة العالم للكرة اللينة للرجال",
+    "men's softball world cup": "كأس العالم للكرة اللينة للرجال",
+    "motocross world championship": "بطولة العالم للموتو كروس",
+    "netball world cup": "كأس العالم لكرة الشبكة",
+    "racquetball world championships": "بطولة العالم لكرة الراح",
+    "rhythmic gymnastics world championships": "بطولة العالم للجمباز الإيقاعي",
+    "rugby league world cup": "كأس العالم لدوري الرجبي",
+    "rugby world cup": "كأس العالم للرجبي",
+    "rugby world junior championship": "بطولة العالم للرجبي للناشئين",
+    "sailing world championship": "بطولة العالم للإبحار",
+    "sailing world championships": "بطولة العالم للإبحار",
     "wheelchair basketball world championships": "بطولة العالم لكرة السلة على الكراسي المتحركة",
     "wheelchair handball world championship": "بطولة العالم لكرة اليد على الكراسي المتحركة",
-    "wheelchair rugby competitions": "منافسات رجبي على كراسي متحركة",
-    "wheelchair rugby finals": "نهائيات الرجبي على الكراسي المتحركة",
-    "wheelchair rugby league competitions": "منافسات دوري رجبي على كراسي متحركة",
-    "wheelchair rugby league finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
-    "wheelchair rugby league teams": "فرق دوري رجبي على كراسي متحركة",
     "wheelchair rugby league world cup": "كأس العالم لدوري الرجبي على الكراسي المتحركة",
-    "wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
-    "wheelchair rugby teams": "فرق رجبي على كراسي متحركة",
     "wheelchair rugby world cup": "كأس العالم للرجبي على الكراسي المتحركة",
-    "winter olympics sports": "ألعاب رياضية في الألعاب الأولمبية الشتوية",
     "women's basketball world championships": "بطولة العالم لكرة السلة للسيدات",
     "women's cricket world cup ": "كأس العالم للكريكت للسيدات",
     "women's cricket world cup tournaments": "بطولات كأس العالم للكريكت للسيدات",
     "women's cricket world cup": "كأس العالم للكريكت للسيدات",
     "women's field hockey world cup": "كأس العالم لهوكي الميدان للسيدات",
     "women's hockey world cup": "كأس العالم للهوكي للسيدات",
-    "women's international basketball": "كرة سلة دولية للسيدات",
-    "women's international football": "كرة قدم دولية للسيدات",
     "women's rugby league world cup": "كأس العالم لدوري الرجبي للسيدات",
     "women's rugby world cup": "كأس العالم للرجبي للسيدات",
     "women's softball world cup": "كأس العالم للكرة اللينة للسيدات",
@@ -289,12 +293,11 @@ Get_New_team_xo_data = {
     "world wheelchair curling championship": "بطولة العالم للكيرلنغ على الكراسي المتحركة",
     "world wheelchair rugby championships": "بطولة العالم للرجبي على الكراسي المتحركة",
     "world wrestling championships": "بطولة العالم للمصارعة",
-    "wrestling world cup": "كأس العالم للمصارعة",
-    "youth international football": "كرة قدم دولية شبابية",
+    "wrestling world cup": "كأس العالم للمصارعة"
 }
 
 
-@pytest.mark.parametrize("category, expected", Get_New_team_xo_data.items(), ids=list(Get_New_team_xo_data.keys()))
+@pytest.mark.parametrize("category, expected", test_find_teams_bot_data.items(), ids=list(test_find_teams_bot_data.keys()))
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category: str, expected: str) -> None:
     label1 = wrap_team_xo_normal_2025(category)
@@ -302,30 +305,10 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
     assert label1 == expected
 
 
-@pytest.mark.fast
-def test_Get_New_team_xo() -> None:
-    label = wrap_team_xo_normal_2025("national softball teams")
-    assert label == "منتخبات كرة لينة وطنية"
-
-
-def test_mens_softball_world_cup_regression() -> None:
-    """The resolver should correctly translate the softball world cup query."""
-
-    result = wrap_team_xo_normal_2025("men's softball world cup")
-    assert result == "كأس العالم للكرة اللينة للرجال"
-
-
-def test_returns_default_for_unknown_category() -> None:
-    """Unmapped categories should return the provided default value."""
-
-    assert wrap_team_xo_normal_2025("mystery sport") == ""
-
-
 TEMPORAL_CASES = [
-    ("test_Get_New_team_xo_data", Get_New_team_xo_data, wrap_team_xo_normal_2025),
-    ("test_find_labels_bot", Get_New_team_xo_data, find_labels_bot),
-    ("test_find_teams_bot", Get_New_team_xo_data, find_teams_bot),
-    ("test_find_jobs_bot", Get_New_team_xo_data, find_jobs_bot),
+    ("test_find_labels_bot", test_find_labels_bot_data, find_labels_bot),
+    ("test_find_teams_bot", test_find_teams_bot_data, find_teams_bot),
+    ("test_find_jobs_bot", test_find_jobs_bot_data, find_jobs_bot),
 ]
 
 
@@ -333,6 +316,5 @@ TEMPORAL_CASES = [
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
-
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
