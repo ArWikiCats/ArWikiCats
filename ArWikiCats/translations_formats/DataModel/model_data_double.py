@@ -41,7 +41,8 @@ class FormatDataDouble(FormatDataBase):
         self.put_label_last = data
 
     def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
-        """Build a case-insensitive regex over lowercased keys of data_list.
+        """
+        Build a case-insensitive regex over lowercased keys of data_list.
         """
         if not self.data_list_ci:
             return None
@@ -50,8 +51,6 @@ class FormatDataDouble(FormatDataBase):
             self.alternation = self.create_alternation()
 
         data_pattern = fr"(?<!\w)({self.alternation}) ({self.alternation})(?!\w)"
-        # logger.debug(f">> keys_to_pattern: {data_pattern}")
-
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -88,21 +87,6 @@ class FormatDataDouble(FormatDataBase):
             return final_label.strip()
 
         return ""
-
-    def normalize_category_with_key(self, category: str) -> tuple[str, str]:
-        """
-        Normalize nationality placeholders within a category string.
-
-        Example:
-            category='{nat_en} action drama films', key='action drama', result='{nat_en} {film_key} films'
-        """
-        key = self.match_key(category)
-        result = ""
-        if key:
-            result = self.normalize_category(category, key)
-            logger.debug(f">>> normalize_category_with_key: {category=}, {key=}, {result=}")
-
-        return key, result
 
     @functools.lru_cache(maxsize=None)
     def create_label_from_keys(self, part1: str, part2: str):

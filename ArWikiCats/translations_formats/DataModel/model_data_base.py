@@ -57,7 +57,9 @@ class FormatDataBase:
         return "|".join(map(re.escape, keys_sorted))
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
-        """Build a case-insensitive regex over lowercased keys of data_list."""
+        """
+        Build a case-insensitive regex over lowercased keys of data_list.
+        """
         if not self.data_list_ci:
             return None
 
@@ -113,12 +115,17 @@ class FormatDataBase:
         Normalize nationality placeholders within a category string.
 
         Example:
-            category:"Yemeni national football teams", result: "natar national football teams"
+            normal:
+                category:"Yemeni national football teams", result: "natar national football teams"
+            model_data_double:
+                category='{nat_en} action drama films', key='action drama', result='{nat_en} {film_key} films'
         """
         key = self.match_key(category)
         result = ""
         if key:
             result = self.normalize_category(category, key)
+            logger.debug(f">>> normalize_category_with_key: {category=}, {key=}, {result=}")
+
         return key, result
 
     def get_template(self, sport_key: str, category: str) -> str:
