@@ -5,9 +5,9 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.main_processers.nat_men_pattern import resolve_nat_men_pattern
+from ArWikiCats.main_processers.nat_men_pattern import resolve_nat_men_pattern, resolve_nat_men_pattern_new
 
-test_data = {
+_mens_data = {
     # standard
     "welsh people": "أعلام ويلزيون",
     "yemeni people": "أعلام يمنيون",
@@ -69,7 +69,7 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.parametrize("category,expected", _mens_data.items(), ids=_mens_data.keys())
 def test_nat_pattern(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = resolve_nat_men_pattern(category)
@@ -77,13 +77,14 @@ def test_nat_pattern(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_nat_pattern", test_data),
+    ("test_nat_pattern", _mens_data, resolve_nat_men_pattern),
+    ("test_nat_pattern_new", _mens_data, resolve_nat_men_pattern_new),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_nat_men_pattern)
+def test_dump_all(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
