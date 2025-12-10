@@ -83,7 +83,6 @@ from .sports_formats_national.sport_lab_nat import (
     sport_lab_nat_load_new,
 )
 from .sports_formats_oioioi.bot import sport_lab_oioioi_load
-from .sports_formats_oioioi.data import NAT_P17_OIOI
 from .tv.films_mslslat import (
     Films_key_333,
     Films_key_CAO,
@@ -209,7 +208,6 @@ __all__ = [
     # "TEAMS_NEW",
     #
     "sport_lab_oioioi_load",
-    "NAT_P17_OIOI",
     #
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",

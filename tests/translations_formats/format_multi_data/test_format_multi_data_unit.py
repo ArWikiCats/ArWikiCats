@@ -61,7 +61,7 @@ class TestCountryBotNormalization:
     """Tests for  class."""
 
     def test_get_start_p17(self, multi_bot: MultiDataFormatterBase) -> None:
-        """Test get_start_p17 method returns normalized category and key."""
+        """Test get_start _p17 method returns normalized category and key."""
         category = "yemeni football teams"
         key, new_category = multi_bot.country_bot.normalize_category_with_key(category)
 

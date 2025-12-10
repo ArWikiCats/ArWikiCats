@@ -5,7 +5,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.translations.sports_formats_oioioi.bot import (
-    both_bot,
+    sport_lab_oioioi_load_new,
     sport_lab_oioioi_load,
 )
 
@@ -123,7 +123,7 @@ def test_sport_lab_oioioi_load() -> None:
 @pytest.mark.fast
 def test_sport_lab_oioioi_load_data(category: str, expected: str) -> None:
     label1 = sport_lab_oioioi_load(category)
-    label2 = both_bot.create_label(category)
+    label2 = sport_lab_oioioi_load_new(category)
 
     assert label1 == expected
     assert label2 == expected
