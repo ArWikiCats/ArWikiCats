@@ -58,9 +58,10 @@ the_male_data = {
     "{en_nat} presidential pardons": "العفو الرئاسي {the_male}",
     "{en_nat} pardons": "العفو {the_male}",
 }
+
 male_data = {
     # male - en_is_nat_ar_is_man
-
+    "{en_nat} diaspora": "شتات {male}",
     "{en_nat} descent": "أصل {male}",
     "{en_nat} military occupations": "احتلال عسكري {male}",
     "{en_nat} integration": "تكامل {male}",
@@ -79,7 +80,6 @@ male_data = {
     "{en_nat} history": "تاريخ {male}",
     "{en_nat} nuclear history": "تاريخ نووي {male}",
     "{en_nat} military history": "تاريخ عسكري {male}",
-    "{en_nat} diaspora": "شتات {male}",
     "{en_nat} traditions": "تراث {male}",
     "{en_nat} folklore": "فلكور {male}",
     "{en_nat} television": "تلفاز {male}",
