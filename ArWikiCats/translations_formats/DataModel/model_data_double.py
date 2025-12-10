@@ -41,24 +41,18 @@ class FormatDataDouble(FormatDataBase):
         self.put_label_last = data
 
     def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
-        """Build a case-insensitive regex over lowercased keys of data_list."""
+        """Build a case-insensitive regex over lowercased keys of data_list.
+        """
         if not self.data_list_ci:
             return None
 
-        if len(self.data_list_ci) > 1000:
-            print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+        if not self.alternation:
+            self.alternation = self.create_alternation()
 
-        # to fix bug that selected "black" instead of "black-and-white"
-        keys_sorted = sorted(
-            self.data_list_ci.keys(),
-            key=lambda k: (-k.count(" "), -len(k))
-        )
+        data_pattern = fr"(?<!\w)({self.alternation}) ({self.alternation})(?!\w)"
+        # logger.debug(f">> keys_to_pattern: {data_pattern}")
 
-        alternation = "|".join(map(re.escape, keys_sorted))
-        data_pattern_double = fr"(?<!\w)({alternation}) ({alternation})(?!\w)"
-        # logger.debug(f">> keys_to_pattern: {data_pattern_double}")
-
-        return re.compile(data_pattern_double, re.I)
+        return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
     def match_key(self, category: str) -> str:

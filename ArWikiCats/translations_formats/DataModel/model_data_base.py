@@ -61,18 +61,10 @@ class FormatDataBase:
         if not self.data_list_ci:
             return None
 
-        if len(self.data_list_ci) > 1000:
-            print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+        if not self.alternation:
+            self.alternation = self.create_alternation()
 
-        # to fix bug that selected "black" instead of "black-and-white"
-        keys_sorted = sorted(
-            self.data_list_ci.keys(),
-            key=lambda k: (-k.count(" "), -len(k))
-        )
-
-        alternation = "|".join(map(re.escape, keys_sorted))
-
-        data_pattern = fr"(?<!\w)({alternation})(?!\w)"
+        data_pattern = fr"(?<!\w)({self.alternation})(?!\w)"
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
