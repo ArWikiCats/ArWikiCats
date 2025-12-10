@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.main_processers.nat_men_pattern import get_label
+from ArWikiCats.main_processers.nat_men_pattern import resolve_nat_men_pattern
 
 test_data = {
     # standard
@@ -72,7 +72,7 @@ test_data = {
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 def test_nat_pattern(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = get_label(category)
+    result = resolve_nat_men_pattern(category)
     assert result == expected
 
 
@@ -84,6 +84,6 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, get_label)
+    expected, diff_result = one_dump_test(data, resolve_nat_men_pattern)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

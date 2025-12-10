@@ -17,11 +17,11 @@ from .categories_patterns.NAT_males import NAT_DATA_MALES
 
 @functools.lru_cache(maxsize=1)
 def _bot() -> FormatData:
-    Nat_mens_new = {x: v for x, v in Nat_mens.items() if "-american" not in x}
+    # nat_mens_new = {x: v for x, v in Nat_mens.items() if "-american" not in x}
 
     return FormatData(
         formatted_data=NAT_DATA_MALES,
-        data_list=Nat_mens_new,
+        data_list=Nat_mens,
         key_placeholder="{en_nat}",
         value_placeholder="{nat_men1}",
         text_after="",
@@ -30,7 +30,7 @@ def _bot() -> FormatData:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_label(category: str) -> str:
+def resolve_nat_men_pattern(category: str) -> str:
     nat_bot = _bot()
 
     result = nat_bot.search(category)
@@ -40,3 +40,8 @@ def get_label(category: str) -> str:
         if normalized_category != category:
             result = nat_bot.search(normalized_category)
     return result or ""
+
+
+__all__ = [
+    "resolve_nat_men_pattern",
+]

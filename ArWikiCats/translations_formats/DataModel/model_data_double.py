@@ -47,7 +47,7 @@ class FormatDataDouble(FormatDataBase):
         if not self.data_list_ci:
             return None
 
-        if not self.alternation:
+        if self.alternation is None:
             self.alternation = self.create_alternation()
 
         data_pattern = fr"(?<!\w)({self.alternation}) ({self.alternation})(?!\w)"

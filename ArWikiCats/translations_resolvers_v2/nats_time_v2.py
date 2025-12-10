@@ -15,7 +15,6 @@ from ..translations_formats import (
 
 from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
-
 @functools.lru_cache(maxsize=1)
 def _bot_new() -> MultiDataFormatterBaseYearV2:
 
