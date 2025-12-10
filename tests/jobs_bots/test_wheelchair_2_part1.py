@@ -28,7 +28,6 @@ data = {
     "Category:Canadian wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة كنديون",
     "Category:Canadian wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة كنديون",
     "Category:Canadian wheelchair curling champions": "تصنيف:أبطال الكيرلنغ على الكراسي المتحركة كنديون",
-    "Category:Canadian Wheelchair Curling Championships": "تصنيف:بطولات كيرلنغ على كراسي متحركة كندية",
     "Category:Canadian wheelchair rugby players": "تصنيف:لاعبو رجبي على كراسي متحركة كنديون",
     "Category:Chinese wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة صينيون",
     "Category:Danish wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة دنماركيون",

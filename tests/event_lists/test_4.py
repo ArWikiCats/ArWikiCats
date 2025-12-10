@@ -5,6 +5,40 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "african judo championships": "تصنيف:بطولة إفريقيا للجودو",
+    "african swimming championships": "تصنيف:بطولة إفريقيا للسباحة",
+    "asian athletics championships": "تصنيف:بطولة آسيا لألعاب القوى",
+    "asian swimming championships": "تصنيف:بطولة آسيا للسباحة",
+    "asian weightlifting championships": "تصنيف:بطولات رفع أثقال آسيوية",
+    "asian wrestling championships": "تصنيف:بطولة آسيا للمصارعة",
+    "asian wushu championships": "تصنيف:بطولات ووشو آسيوية",
+    "australian netball championships": "تصنيف:بطولات كرة شبكة أسترالية",
+    "bulgarian athletics championships": "تصنيف:بطولات ألعاب قوى بلغارية",
+    "canadian wheelchair curling championships": "تصنيف:بطولة كندا للكيرلنغ على الكراسي المتحركة",
+    "czech figure skating championships": "تصنيف:بطولات تزلج فني تشيكية",
+    "czechoslovak athletics championships": "تصنيف:بطولات ألعاب قوى تشيكوسلوفاكية",
+    "dutch national track cycling championships": "تصنيف:بطولات سباق الدراجات على المضمار وطنية هولندية",
+    "european amateur boxing championships": "تصنيف:بطولة أوروبا للبوكسينغ للهواة",
+    "european beach volleyball championships": "تصنيف:بطولة أوروبا لكرة الطائرة الشاطئية",
+    "european cross country championships": "تصنيف:بطولات عدو ريفي أوروبية",
+    "european diving championships": "تصنيف:بطولات غطس أوروبية",
+    "european fencing championships": "تصنيف:بطولة أوروبا لمبارزة سيف الشيش",
+    "european judo championships": "تصنيف:بطولة أوروبا للجودو",
+    "european karate championships": "تصنيف:بطولة أوروبا للكاراتيه",
+    "european speed skating championships": "تصنيف:بطولة أوروبا لتزلج السريع",
+    "european table tennis championships": "تصنيف:بطولات كرة طاولة أوروبية",
+    "european taekwondo championships": "تصنيف:بطولات تايكوندو أوروبية",
+    "european wrestling championships": "تصنيف:بطولات مصارعة أوروبية",
+    "french athletics championships": "تصنيف:بطولات ألعاب قوى فرنسية",
+    "lithuanian athletics championships": "تصنيف:بطولات ألعاب قوى ليتوانية",
+    "lithuanian swimming championships": "تصنيف:بطولات سباحة ليتوانية",
+    "paraguayan athletics championships": "تصنيف:بطولات ألعاب قوى بارغوايانية",
+    "slovak figure skating championships": "تصنيف:بطولات تزلج فني سلوفاكية",
+    "south american gymnastics championships": "تصنيف:بطولات جمباز أمريكية جنوبية",
+    "south american swimming championships": "تصنيف:بطولة أمريكا الجنوبية للسباحة",
+    "turkish figure skating championships": "تصنيف:بطولات تزلج فني تركية",
+    "world karate championships": "تصنيف:بطولة العالم للكاراتيه",
+
 
 }
 
@@ -14,8 +48,6 @@ data1 = {
     "2014 commonwealth games": "تصنيف:ألعاب الكومنولث 2014",
     "afghan premier league": "تصنيف:الدوري الأفغاني الممتاز",
     "africa cup of nations": "تصنيف:كأس إفريقيا في بلدان",
-    "african judo championships": "تصنيف:بطولات جودو إفريقية",
-    "african swimming championships": "تصنيف:بطولات سباحة إفريقية",
     "albanian second division": "تصنيف:الدوري الألباني الدرجة الثانية",
     "algerian basketball championship": "تصنيف:بطولة الجزائر لكرة السلة",
     "algerian league cup": "تصنيف:كأس الدوري الجزائري",
@@ -25,10 +57,7 @@ data1 = {
     "anguillan league": "تصنيف:الدوري الأنغويلاني",
     "armenian independence cup": "تصنيف:كأس استقلال أرمينيا",
     "armenian premier league": "تصنيف:الدوري الأرميني الممتاز",
-    "asian athletics championships": "تصنيف:بطولات ألعاب قوى آسيوية",
     "asian games": "تصنيف:الألعاب الآسيوية",
-    "asian swimming championships": "تصنيف:بطولات سباحة آسيوية",
-    "asian wrestling championships": "تصنيف:بطولات مصارعة آسيوية",
     "australian baseball league": "تصنيف:الدوري الأسترالي لكرة القاعدة",
     "australian football league": "تصنيف:الدوري الأسترالي لكرة القدم",
     "azerbaijan first division": "تصنيف:أذربيجان",
@@ -47,12 +76,6 @@ data1 = {
     "croatian premier handball league": "تصنيف:دوريات كرة يد كرواتية من الدرجة الممتازة",
     "cyprus cup": "تصنيف:كأس قبرص",
     "east asian games": "تصنيف:الألعاب الآسيوية الشرقية",
-    "european amateur boxing championships": "تصنيف:بطولة أوروبا للبوكسينغ للهواة",
-    "european beach volleyball championships": "تصنيف:بطولات كرة طائرة شاطئية أوروبية",
-    "european fencing championships": "تصنيف:بطولات مبارزة سيف شيش أوروبية",
-    "european judo championships": "تصنيف:بطولات جودو أوروبية",
-    "european karate championships": "تصنيف:بطولات كاراتيه أوروبية",
-    "european speed skating championships": "تصنيف:بطولات تزلج سريع أوروبية",
     "first league of serbia and montenegro": "تصنيف:دوري كرة القدم الدرجة الأولى في صربيا والجبل الأسود",
     "french women's handball championship": "تصنيف:بطولة فرنسا لكرة اليد للسيدات",
     "gerry weber open": "تصنيف:بطولة هالي المفتوحة",
@@ -107,7 +130,6 @@ data1 = {
     "slovenian football cup": "تصنيف:كأس سلوفينيا لكرة القدم",
     "south african premier division": "تصنيف:الدوري الجنوب الإفريقي الممتاز",
     "south american games": "تصنيف:الألعاب الأمريكية الجنوبية",
-    "south american swimming championships": "تصنيف:بطولات سباحة أمريكية جنوبية",
     "south american volleyball championship": "تصنيف:بطولة أمريكا الجنوبية لكرة الطائرة",
     "south american women's football championship": "تصنيف:بطولة أمريكا الجنوبية لكرة القدم للسيدات",
     "soviet cup": "تصنيف:كأس الاتحاد السوفيتي",
@@ -126,7 +148,6 @@ data1 = {
     "women's chinese basketball association": "تصنيف:الرابطة الصينية لكرة السلة نسائية",
     "women's korean basketball league": "تصنيف:الدوري الكوري لكرة السلة نسائية",
     "world games": "تصنيف:دورة الألعاب العالمية",
-    "world karate championships": "تصنيف:بطولة العالم للكاراتيه",
     "yemeni unity cup": "تصنيف:كأس الوحدة اليمنية",
     "College sports coaches in the United States by sport by state": "تصنيف:مدربو رياضات الكليات في الولايات المتحدة حسب الرياضة حسب الولاية",
     "national university of singapore": "تصنيف:جامعة سنغافورة الوطنية",
@@ -178,9 +199,10 @@ data_3 = {
 }
 
 to_test = [
+    ("test_0", data0),
     ("test_1", data1),
-    # ("test_2", data_2),
     ("test_3", data_3),
+    # ("test_2", data_2),
 ]
 
 
