@@ -5,8 +5,23 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Taekwondo at 2021 Islamic Solidarity Games": "تصنيف:التايكوندو في ألعاب التضامن الإسلامي 2021",
+    "Taekwondo at Islamic Solidarity Games": "تصنيف:التايكوندو في ألعاب التضامن الإسلامي",
+    "Works about Islamic State of Iraq and Levant": "تصنيف:أعمال عن تنظيم الدولة الإسلامية (داعش)",
+    "Islamic Solidarity Games medalists in taekwondo": "تصنيف:فائزون بميداليات ألعاب التضامن الإسلامي في التايكوندو",
+    "Academic staff of World Islamic Sciences and Education University": "تصنيف:أعضاء هيئة تدريس جامعة العلوم الإسلامية العالمية",
+    "World Islamic Sciences and Education University alumni": "تصنيف:خريجو جامعة العلوم الإسلامية العالمية",
+    "World Islamic Sciences and Education University": "تصنيف:جامعة العلوم الإسلامية العالمية",
 
-
+    "Mine warfare vessels of Islamic Republic of Iran Navy": "تصنيف:سفن حرب ألغام في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Missile boats of Islamic Republic of Iran Navy": "تصنيف:قوارب صواريخ في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Amphibious warfare vessels of Islamic Republic of Iran Navy": "تصنيف:سفن حربية برمائية في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Ship classes of Islamic Republic of Iran Navy": "تصنيف:فئات سفن في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Ships of Islamic Republic of Iran Navy": "تصنيف:سفن القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Submarines of Islamic Republic of Iran Navy": "تصنيف:غواصات القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Auxiliary ships of Islamic Republic of Iran Navy": "تصنيف:سفن مساعدة في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Destroyers of Islamic Republic of Iran Navy": "تصنيف:مدمرات في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
+    "Frigates of Islamic Republic of Iran Navy": "تصنيف:فرقاطات في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
 }
 
 data1 = {
