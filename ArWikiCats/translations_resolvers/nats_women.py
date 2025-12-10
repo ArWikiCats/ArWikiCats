@@ -1,4 +1,6 @@
-
+"""
+TODO: replaced by nats_v2.py (resolve_by_nats)
+"""
 import functools
 from ..translations_formats import FormatData
 from ..translations.nats.Nationality import Nat_women

@@ -8,8 +8,8 @@ from ArWikiCats.make_bots.new_jobs.mens import get_label
 
 test_data2 = {
     # nat
-    "welsh people": "ويلزيون",
-    "yemeni people": "يمنيون",
+    "welsh people": "أعلام ويلزيون",
+    "yemeni people": "أعلام يمنيون",
     # "abkhazian-american": "أمريكيون أبخازيون",
     # "abkhazian-american people": "أمريكيون أبخازيون",
 
@@ -17,7 +17,7 @@ test_data2 = {
     "eugenicists": "علماء متخصصون في تحسين النسل",
     "politicians who committed suicide": "سياسيون أقدموا على الانتحار",
 
-    "writers people": "كتاب",
+    "writers people": "أعلام كتاب",
     "archers": "نبالون",
     "male archers": "نبالون ذكور",
     "football managers": "مدربو كرة قدم",

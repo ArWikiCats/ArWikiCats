@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-TODO: use this instead of for_me.py
-
+TODO: use this instead of for_me.py and nats_women.py
 """
 import functools
 from ..translations_formats import FormatDataV2
@@ -246,6 +245,8 @@ female_data = {
     "{en_nat} television programmes": "برامج تلفزيونية {female}",
     "{en_nat} television programs": "برامج تلفزيونية {female}",
     "{en_nat} television series": "مسلسلات تلفزيونية {female}",
+    "non {en_nat} television series": "مسلسلات تلفزيونية غير {female}",
+    "non-{en_nat} television series": "مسلسلات تلفزيونية غير {female}",
     "{en_nat} film series": "سلاسل أفلام {female}",
     "{en_nat} television series-debuts": "مسلسلات تلفزيونية {female} بدأ عرضها في",
     "{en_nat} television series-endings": "مسلسلات تلفزيونية {female} انتهت في",

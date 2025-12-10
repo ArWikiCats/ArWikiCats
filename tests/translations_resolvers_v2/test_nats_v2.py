@@ -16,6 +16,7 @@ test_data_males = {
     "saudi non profit publishers": "ناشرون غير ربحيون سعوديون",
     "egyptian government officials": "مسؤولون حكوميون مصريون",
 }
+
 test_data_ar = {
     # ar - en_is_nat_ar_is_P17
     "Bahraini King's Cup": "كأس ملك البحرين",
@@ -35,6 +36,7 @@ test_data_ar = {
     "Japanese national women's motorsports racing team": "منتخب اليابان لسباق رياضة المحركات للسيدات",
     "French national women's motorsports racing team": "منتخب فرنسا لسباق رياضة المحركات للسيدات",
 }
+
 test_data_the_male = {
     # the_male - en_is_nat_ar_is_al_mens
     "Iraqi President Cup": "كأس الرئيس العراقي",
@@ -95,6 +97,7 @@ test_data_the_male = {
     "American Pardons": "العفو الأمريكي",
     "Egyptian Pardons": "العفو المصري",
 }
+
 test_data_male = {
     # male - en_is_nat_ar_is_man
     "Egyptian descent": "أصل مصري",
@@ -142,48 +145,55 @@ test_data_male = {
     "American television": "تلفاز أمريكي",
     "British television": "تلفاز بريطاني",
 }
+
 test_data_female = {
     # female - en_is_nat_ar_is_women
-    "French phonologies": "تصريفات صوتية فرنسية",
-    "American crimes": "جرائم أمريكية",
-    "Iraqi crimes": "جرائم عراقية",
-    "American crimes against humanity": "جرائم ضد الإنسانية أمريكية",
-    "Israeli crimes against humanity": "جرائم ضد الإنسانية إسرائيلية",
-    "American war crimes": "جرائم حرب أمريكية",
-    "Israeli war crimes": "جرائم حرب إسرائيلية",
     "American airstrikes": "ضربات جوية أمريكية",
-    "Israeli airstrikes": "ضربات جوية إسرائيلية",
-    "Greek archipelagoes": "أرخبيلات يونانية",
-    "Indonesian archipelagoes": "أرخبيلات إندونيسية",
-    "Japanese architecture": "عمارة يابانية",
-    "French architecture": "عمارة فرنسية",
     "American autobiographies": "ترجمة ذاتية أمريكية",
-    "British autobiographies": "ترجمة ذاتية بريطانية",
-    "Japanese automotive": "سيارات يابانية",
-    "German automotive": "سيارات ألمانية",
-    "French awards and decorations": "جوائز وأوسمة فرنسية",
     "American awards and decorations": "جوائز وأوسمة أمريكية",
-    "French awards": "جوائز فرنسية",
     "American awards": "جوائز أمريكية",
     "American companies": "شركات أمريكية",
-    "Japanese companies": "شركات يابانية",
-    "French culture": "ثقافة فرنسية",
-    "Japanese culture": "ثقافة يابانية",
+    "American crimes against humanity": "جرائم ضد الإنسانية أمريكية",
+    "American crimes": "جرائم أمريكية",
     "American elections": "انتخابات أمريكية",
-    "French elections": "انتخابات فرنسية",
-    "Greek mythology": "أساطير يونانية",
-    "Roman mythology": "أساطير رومانية",
-    "French music": "موسيقى فرنسية",
     "American music": "موسيقى أمريكية",
     "American newspapers": "صحف أمريكية",
-    "British newspapers": "صحف بريطانية",
     "American organizations": "منظمات أمريكية",
-    "French organizations": "منظمات فرنسية",
+    "american television series": "مسلسلات تلفزيونية أمريكية",
     "American universities": "جامعات أمريكية",
-    "British universities": "جامعات بريطانية",
+    "American war crimes": "جرائم حرب أمريكية",
     "American wars": "حروب أمريكية",
+    "British autobiographies": "ترجمة ذاتية بريطانية",
+    "British newspapers": "صحف بريطانية",
+    "British universities": "جامعات بريطانية",
+    "French architecture": "عمارة فرنسية",
+    "French awards and decorations": "جوائز وأوسمة فرنسية",
+    "French awards": "جوائز فرنسية",
+    "French culture": "ثقافة فرنسية",
+    "French elections": "انتخابات فرنسية",
+    "French music": "موسيقى فرنسية",
+    "French organizations": "منظمات فرنسية",
+    "French phonologies": "تصريفات صوتية فرنسية",
     "French wars": "حروب فرنسية",
+    "German automotive": "سيارات ألمانية",
+    "Greek archipelagoes": "أرخبيلات يونانية",
+    "Greek mythology": "أساطير يونانية",
+    "Indonesian archipelagoes": "أرخبيلات إندونيسية",
+    "Iraqi crimes": "جرائم عراقية",
+    "Israeli airstrikes": "ضربات جوية إسرائيلية",
+    "Israeli crimes against humanity": "جرائم ضد الإنسانية إسرائيلية",
+    "Israeli war crimes": "جرائم حرب إسرائيلية",
+    "Japanese architecture": "عمارة يابانية",
+    "Japanese automotive": "سيارات يابانية",
+    "Japanese companies": "شركات يابانية",
+    "Japanese culture": "ثقافة يابانية",
+    "non american television series": "مسلسلات تلفزيونية غير أمريكية",
+    "non yemeni television series": "مسلسلات تلفزيونية غير يمنية",
+    "non-american television series": "مسلسلات تلفزيونية غير أمريكية",
+    "non-yemeni television series": "مسلسلات تلفزيونية غير يمنية",
+    "Roman mythology": "أساطير رومانية",
 }
+
 test_data_the_female = {
     # the_female - en_is_nat_ar_is_al_women
     "British royal air force": "القوات الجوية الملكية البريطانية",

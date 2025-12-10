@@ -157,6 +157,7 @@ data_2 ={
 }
 
 data_3 = {
+    # "Category:second italo-ethiopian war": "تصنيف:الحرب الإيطالية الإثيوبية الثانية",
     "Category:Afghanistan Football Federation": "تصنيف:الاتحاد الأفغاني لكرة القدم",
     "Category:Aruba Football Federation": "تصنيف:الاتحاد الأروبي لكرة القدم",
     "Category:Bhutan Football Federation": "تصنيف:الاتحاد البوتاني لكرة القدم",
