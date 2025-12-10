@@ -4,7 +4,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
-relegins_data = {
+religions_data = {
     "Children's books about Islam and Muslims": "تصنيف:كتب أطفال عن الإسلام ومسلمون",
     "Conspiracy theories involving Muslims": "تصنيف:نظريات مؤامرة تشمل مسلمون",
     "Discrimination against Muslims": "تصنيف:تمييز ضد مسلمون",
@@ -83,14 +83,14 @@ data2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", relegins_data.items(), ids=[k for k in relegins_data])
-def test_relegins_data(category: str, expected: str) -> None:
+@pytest.mark.parametrize("category, expected", religions_data.items(), ids=[k for k in religions_data])
+def test_religions_data(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
 to_test = [
-    ("test_relegins_data_1", relegins_data),
-    ("test_relegins_data_2", data2),
+    ("test_religions_data_1", religions_data),
+    ("test_religions_data_2", data2),
 ]
 
 
