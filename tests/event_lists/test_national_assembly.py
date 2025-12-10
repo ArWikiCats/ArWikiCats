@@ -4,7 +4,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
-data1 = {
+data0 = {
     "Category:Deputies of the 10th National Assembly of the French Fifth Republic": "تصنيف:نواب الجمعية الوطنية العاشرة للجمهورية الفرنسية الخامسة",
     "Category:Deputies of the 11th National Assembly of the French Fifth Republic": "تصنيف:نواب الجمعية الوطنية الحادية عشر للجمهورية الفرنسية الخامسة",
     "Category:Deputies of the 12th National Assembly of the French Fifth Republic": "تصنيف:نواب الجمعية الوطنية الثانية عشر للجمهورية الفرنسية الخامسة",
@@ -26,16 +26,7 @@ data1 = {
     "Category:Members of the Grand National Assembly of Turkey by term": "تصنيف:أعضاء البرلمان التركي حسب الفترة",
     "Category:Members of the Grand National Assembly of Turkey": "تصنيف:نواب البرلمان التركي",
     "Category:Members of the National Assembly (1871)": "تصنيف:أعضاء الجمعية الوطنية (1871)",
-    "Category:Members of the National Assembly (Afghanistan)": "تصنيف:أعضاء الجمعية الوطنية الأفغانية",
-    "Category:Members of the National Assembly (Bahrain)": "تصنيف:أعضاء المجلس الوطني البحريني",
-    "Category:Members of the National Assembly (Ecuador)": "تصنيف:أعضاء الجمعية الوطنية في الإكوادور",
     "Category:Members of the National Assembly (France)": "تصنيف:أعضاء الجمعية الوطنية الفرنسية",
-    "Category:Members of the National Assembly (Ivory Coast)": "تصنيف:أعضاء الجمعية الوطنية في ساحل العاج",
-    "Category:Members of the National Assembly (Kuwait)": "تصنيف:أعضاء مجلس الأمة الكويتي",
-    "Category:Members of the National Assembly (Malawi)": "تصنيف:أعضاء الجمعية الوطنية في ملاوي",
-    "Category:Members of the National Assembly (Mali)": "تصنيف:أعضاء جمعية مالي الوطنية",
-    "Category:Members of the National Assembly (Serbia)": "تصنيف:أعضاء الجمعية الوطنية في صربيا",
-    "Category:Members of the National Assembly (Slovenia)": "تصنيف:اعضاء في جمعية سلوفينيا الوطنية",
     "Category:Members of the National Assembly (Venezuela)": "تصنيف:أعضاء الجمعية الوطنية (فنزويلا)",
     "Category:Members of the National Assembly of Burkina Faso": "تصنيف:أعضاء الجمعية الوطنية في بوركينا فاسو",
     "Category:Members of the National Assembly of Czechoslovakia (1925–1929)": "تصنيف:أعضاء الجمعية الوطنية في تشيكوسلوفاكيا (1925–1929)",
@@ -83,7 +74,6 @@ data1 = {
     "Category:Members of the National Assembly of South Africa 2024–2029": "تصنيف:أعضاء الجمعية الوطنية في جنوب إفريقيا 2024–2029",
     "Category:Members of the National Assembly of South Africa": "تصنيف:أعضاء الجمعية الوطنية في جنوب إفريقيا",
     "Category:Members of the National Assembly of Thailand": "تصنيف:أعضاء الجمعية الوطنية في تايلاند",
-    "Category:Members of the National Assembly of the French Fifth Republic": "تصنيف:أعضاء الجمعية الوطنية للجمهورية الفرنسية الخامسة",
     "Category:Members of the National Assembly of the Philippines": "تصنيف:أعضاء الجمعية الوطنية في الفلبين",
     "Category:Members of the National Assembly of the United Arab Republic": "تصنيف:أعضاء الجمعية الوطنية في الجمهورية العربية المتحدة",
     "Category:Members of the National Assembly of Zambia": "تصنيف:أعضاء الجمعية الوطنية في زامبيا",
@@ -92,9 +82,6 @@ data1 = {
     "Category:Members of the National Congress (Ecuador)": "تصنيف:أعضاء المؤتمر الوطني (الإكوادور)",
     "Category:Members of the National Congress of Belgium": "تصنيف:أعضاء حزب المؤتمر الوطني في بلجيكا",
     "Category:Members of the National Congress of Chile": "تصنيف:أعضاء حزب المؤتمر الوطني في تشيلي",
-    "Category:Members of the National Consultative Assembly by term": "تصنيف:أعضاء مجلس الشورى الوطني حسب الفترة",
-    "Category:Members of the National Consultative Assembly": "تصنيف:أعضاء مجلس الشورى الإيراني",
-    "Category:Members of the National Council (Austria)": "تصنيف:أعضاء المجلس الوطني النمساوي",
     "Category:Members of the National Council (Switzerland) 1848–1851": "تصنيف:أعضاء المجلس الوطني (سويسرا) 1848–1851",
     "Category:Members of the National Council (Switzerland) 1851–1854": "تصنيف:أعضاء المجلس الوطني (سويسرا) 1851–1854",
     "Category:Members of the National Council (Switzerland) 1854–1857": "تصنيف:أعضاء المجلس الوطني (سويسرا) 1854–1857",
@@ -102,7 +89,6 @@ data1 = {
     "Category:Members of the National Council (Switzerland) 1878–1881": "تصنيف:أعضاء المجلس الوطني (سويسرا) 1878–1881",
     "Category:Members of the National Council (Switzerland) 1991–1995": "تصنيف:أعضاء المجلس الوطني (سويسرا) 1991–1995",
     "Category:Members of the National Council (Switzerland) 1995–1999": "تصنيف:أعضاء المجلس الوطني (سويسرا) 1995–1999",
-    "Category:Members of the National Council (Switzerland) 1999–2003": "تصنيف:أعضاء المجلس الوطني (سويسرا) 2000–2003",
     "Category:Members of the National Council (Switzerland) 2003–2007": "تصنيف:أعضاء المجلس الوطني (سويسرا) 2003–2007",
     "Category:Members of the National Council (Switzerland) 2007–2011": "تصنيف:أعضاء المجلس الوطني (سويسرا) 2007–2011",
     "Category:Members of the National Council (Switzerland) 2011–2015": "تصنيف:أعضاء المجلس الوطني (سويسرا) 2011–2015",
@@ -112,54 +98,28 @@ data1 = {
     "Category:Members of the National Council (Switzerland) by term": "تصنيف:أعضاء المجلس الوطني (سويسرا) حسب الفترة",
     "Category:Members of the National Council (Switzerland)": "تصنيف:أعضاء المجلس الوطني (سويسرا)",
     "Category:Members of the National Council of Churches": "تصنيف:أعضاء المجلس الوطني الأمريكي لكنائس المسيح",
-    "Category:National Assembly (Afghanistan)": "تصنيف:الجمعية الوطنية الأفغانية",
-    "Category:National Assembly (Azerbaijan)": "تصنيف:الجمعية الوطنية في أذربيجان",
-    "Category:National Assembly (Bahrain)": "تصنيف:المجلس الوطني البحريني",
-    "Category:National Assembly (Benin)": "تصنيف:جمعية بنين الوطنية",
-    "Category:National Assembly (Bhutan)": "تصنيف:الجمعية الوطنية في بوتان",
-    "Category:National Assembly (Bulgaria)": "تصنيف:جمعية بلغاريا الوطنية",
-    "Category:National Assembly (France)": "تصنيف:الجمعية الوطنية الفرنسية",
-    "Category:National Assembly (Hungary)": "تصنيف:الجمعية الوطنية المجرية",
-    "Category:National Assembly (Kenya)": "تصنيف:جمعية كينيا الوطنية",
-    "Category:National Assembly (Namibia)": "تصنيف:جمعية ناميبيا الوطنية",
-    "Category:National Assembly (Niger)": "تصنيف:جمعية النيجر الوطنية",
-    "Category:National Assembly (Nigeria)": "تصنيف:الجمعية الوطنية في نيجيريا",
-    "Category:National Assembly (Serbia)": "تصنيف:جمعية صربيا الوطنية",
-    "Category:National Assembly (Slovenia)": "تصنيف:جمعية سلوفينيا الوطنية",
-    "Category:National Assembly (South Korea)": "تصنيف:الجمعية الوطنية",
-    "Category:National Assembly (Tanzania)": "تصنيف:جمعية تنزانيا الوطنية",
     "Category:National Assembly (Venezuela)": "تصنيف:الجمعية الوطنية (فنزويلا)",
-    "Category:National Assembly (Vietnam)": "تصنيف:الجمعية الوطنية لفيتنام",
     "Category:National Assembly Constituencies of Pakistan": "تصنيف:الدوائر الانتخابية في المجلس الوطني الباكستاني",
     "Category:National Assembly elections in Bhutan": "تصنيف:انتخابات الجمعية الوطنية في بوتان",
     "Category:National Assembly of Belarus": "تصنيف:الجمعية الوطنية في روسيا البيضاء",
     "Category:National Assembly of Botswana": "تصنيف:الجمعية الوطنية في بوتسوانا",
     "Category:National Assembly of Laos": "تصنيف:الجمعية الوطنية في لاوس",
-    "Category:National Assembly of Pakistan": "تصنيف:المجلس الوطني الباكستاني",
     "Category:National Assembly of Quebec": "تصنيف:الجمعية الوطنية في كيبك",
     "Category:National Assembly of the Philippines": "تصنيف:الجمعية الوطنية في الفلبين",
     "Category:National Assembly of Zambia": "تصنيف:الجمعية الوطنية في زامبيا",
     "Category:National Congress of Belgium": "تصنيف:حزب المؤتمر الوطني في بلجيكا",
     "Category:National Congress of the Chinese Communist Party": "تصنيف:المؤتمر الوطني للحزب الشيوعي الصيني",
-    "Category:National Council (Bhutan)": "تصنيف:المجلس الوطني لبوتان",
-    "Category:National Council (Namibia)": "تصنيف:مجلس ناميبيا الوطني",
     "Category:National Council (Switzerland)": "تصنيف:المجلس الوطني (سويسرا)",
     "Category:National Council of Resistance of Iran": "تصنيف:المجلس الوطني للمقاومة الإيرانية",
     "Category:Presidents of the Indian National Congress": "تصنيف:رؤساء المؤتمر الوطني الهندي",
-    "Category:Presidents of the National Assembly (Ecuador)": "تصنيف:رؤساء الجمعية الوطنية في الإكوادور",
     "Category:Presidents of the National Assembly (France)": "تصنيف:رؤساء الجمعية الوطنية الفرنسية",
-    "Category:Presidents of the National Assembly (Ivory Coast)": "تصنيف:رؤساء الجمعية الوطنية في ساحل العاج",
-    "Category:Presidents of the National Assembly (Mauritania)": "تصنيف:رؤساء الجمعية الوطنية الموريتانية",
-    "Category:Presidents of the National Assembly (Serbia)": "تصنيف:رؤساء الجمعية الوطنية في صربيا",
     "Category:Presidents of the National Assembly of Burkina Faso": "تصنيف:رؤساء الجمعية الوطنية في بوركينا فاسو",
     "Category:Presidents of the National Assembly of Laos": "تصنيف:رؤساء الجمعية الوطنية في لاوس",
     "Category:Presidents of the National Assembly of People's Power": "تصنيف:رؤساء الجمعية الوطنية",
     "Category:Presidents of the National Assembly of Quebec": "تصنيف:رؤساء الجمعية الوطنية في كيبك",
     "Category:Presidents of the National Assembly of Thailand": "تصنيف:رؤساء الجمعية الوطنية في تايلاند",
     "Category:Presidents of the National Convention": "تصنيف:رؤساء المؤتمر الوطني الفرنسي 1792 ـ 1795",
-    "Category:Presidents of the National Council (Austria)": "تصنيف:رؤساء المجلس الوطني النمساوي",
     "Category:Presidents of the National Council (Switzerland)": "تصنيف:رؤساء المجلس الوطني (سويسرا)",
-    "Category:Speakers of the National Assembly (Kuwait)": "تصنيف:رؤساء مجلس الأمة الكويتي",
     "Category:Speakers of the National Assembly (Venezuela)": "تصنيف:رؤساء الجمعية الوطنية (فنزويلا)",
     "Category:Speakers of the National Assembly of Hungary": "تصنيف:رؤساء الجمعية الوطنية في المجر",
     "Category:Speakers of the National Assembly of Kenya": "تصنيف:رؤساء الجمعية الوطنية في كينيا",
@@ -167,7 +127,6 @@ data1 = {
     "Category:Speakers of the National Assembly of Republika Srpska": "تصنيف:رؤساء الجمعية الوطنية في جمهورية صرب البوسنة",
     "Category:Speakers of the National Assembly of South Africa": "تصنيف:رؤساء الجمعية الوطنية في جنوب إفريقيا",
     "Category:Speakers of the National Assembly of Zimbabwe": "تصنيف:رؤساء الجمعية الوطنية في زيمبابوي",
-    "Category:Women members of the National Assembly (Ecuador)": "تصنيف:عضوات الجمعية الوطنية في الإكوادور",
     "Category:Women members of the National Assembly (France)": "تصنيف:عضوات الجمعية الوطنية الفرنسية",
     "Category:Women members of the National Assembly of Hungary": "تصنيف:عضوات الجمعية الوطنية في المجر",
     "Category:Women members of the National Assembly of Pakistan": "تصنيف:عضوات الجمعية الوطنية في باكستان",
@@ -175,19 +134,67 @@ data1 = {
     "Category:Women members of the National Council (Switzerland)": "تصنيف:عضوات المجلس الوطني (سويسرا)",
 }
 
-data_2 = {
+data_1 = {
+
+    "Category:Members of the National Assembly (Afghanistan)": "تصنيف:أعضاء الجمعية الوطنية (أفغانستان)",
+    "Category:Members of the National Assembly (Bahrain)": "تصنيف:أعضاء الجمعية الوطنية (البحرين)",
+    "Category:Members of the National Assembly (Ecuador)": "تصنيف:أعضاء الجمعية الوطنية (الإكوادور)",
+    "Category:Members of the National Assembly (Ivory Coast)": "تصنيف:أعضاء الجمعية الوطنية (ساحل العاج)",
+    "Category:Members of the National Assembly (Kuwait)": "تصنيف:أعضاء الجمعية الوطنية (الكويت)",
+    "Category:Members of the National Assembly (Malawi)": "تصنيف:أعضاء الجمعية الوطنية (مالاوي)",
+    "Category:Members of the National Assembly (Mali)": "تصنيف:أعضاء الجمعية الوطنية (مالي)",
+    "Category:Members of the National Assembly (Serbia)": "تصنيف:أعضاء الجمعية الوطنية (صربيا)",
+    "Category:Members of the National Assembly (Slovenia)": "تصنيف:أعضاء الجمعية الوطنية (سلوفينيا)",
+    "Category:Members of the National Assembly of the French Fifth Republic": "تصنيف:أعضاء الجمعية الوطنية في الجمهورية الفرنسية الخامسة",
+    "Category:Members of the National Consultative Assembly by term": "تصنيف:أعضاء المجلس الإستشاري الوطني حسب الفترة",
+    "Category:Members of the National Consultative Assembly": "تصنيف:أعضاء المجلس الإستشاري الوطني",
+    "Category:Members of the National Council (Austria)": "تصنيف:أعضاء المجلس الوطني (النمسا)",
+    "Category:Members of the National Council (Switzerland) 1999–2003": "تصنيف:أعضاء المجلس الوطني (سويسرا) 1999–2003",
+    "Category:National Assembly (Afghanistan)": "تصنيف:الجمعية الوطنية (أفغانستان)",
+    "Category:National Assembly (Azerbaijan)": "تصنيف:الجمعية الوطنية (أذربيجان)",
+    "Category:National Assembly (Bahrain)": "تصنيف:الجمعية الوطنية (البحرين)",
+    "Category:National Assembly (Benin)": "تصنيف:الجمعية الوطنية (بنين)",
+    "Category:National Assembly (Bhutan)": "تصنيف:الجمعية الوطنية (بوتان)",
+    "Category:National Assembly (Bulgaria)": "تصنيف:الجمعية الوطنية (بلغاريا)",
+    "Category:National Assembly (France)": "تصنيف:الجمعية الوطنية (فرنسا)",
+    "Category:National Assembly (Hungary)": "تصنيف:الجمعية الوطنية (المجر)",
+    "Category:National Assembly (Kenya)": "تصنيف:الجمعية الوطنية (كينيا)",
+    "Category:National Assembly (Namibia)": "تصنيف:الجمعية الوطنية (ناميبيا)",
+    "Category:National Assembly (Niger)": "تصنيف:الجمعية الوطنية (النيجر)",
+    "Category:National Assembly (Nigeria)": "تصنيف:الجمعية الوطنية (نيجيريا)",
+    "Category:National Assembly (Serbia)": "تصنيف:الجمعية الوطنية (صربيا)",
+    "Category:National Assembly (Slovenia)": "تصنيف:الجمعية الوطنية (سلوفينيا)",
+    "Category:National Assembly (South Korea)": "تصنيف:الجمعية الوطنية (كوريا الجنوبية)",
+    "Category:National Assembly (Tanzania)": "تصنيف:الجمعية الوطنية (تنزانيا)",
+    "Category:National Assembly (Vietnam)": "تصنيف:الجمعية الوطنية (فيتنام)",
+    "Category:National Assembly of Pakistan": "تصنيف:الجمعية الوطنية في باكستان",
+    "Category:National Council (Bhutan)": "تصنيف:المجلس الوطني (بوتان)",
+    "Category:National Council (Namibia)": "تصنيف:المجلس الوطني (ناميبيا)",
+    "Category:Presidents of the National Assembly (Ecuador)": "تصنيف:رؤساء الجمعية الوطنية (الإكوادور)",
+    "Category:Presidents of the National Assembly (Ivory Coast)": "تصنيف:رؤساء الجمعية الوطنية (ساحل العاج)",
+    "Category:Presidents of the National Assembly (Mauritania)": "تصنيف:رؤساء الجمعية الوطنية (موريتانيا)",
+    "Category:Presidents of the National Assembly (Serbia)": "تصنيف:رؤساء الجمعية الوطنية (صربيا)",
+    "Category:Presidents of the National Council (Austria)": "تصنيف:رؤساء المجلس الوطني (النمسا)",
+    "Category:Speakers of the National Assembly (Kuwait)": "تصنيف:رؤساء الجمعية الوطنية (الكويت)",
+    "Category:Women members of the National Assembly (Ecuador)": "تصنيف:عضوات الجمعية الوطنية (الإكوادور)",
 
 }
 
 to_test = [
-    ("test_national_assembly_1", data1),
-    ("test_national_assembly_2", data_2),
+    ("test_national_assembly_1", data_1),
 ]
 
 
-@pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=list(data_1.keys()))
 @pytest.mark.fast
-def test_1(category: str, expected: str) -> None:
+def test_national_assembly_1(category: str, expected: str) -> None:
+    label = resolve_arabic_category_label(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", data0.items(), ids=list(data0.keys()))
+@pytest.mark.skip2
+def test_national_assembly_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
