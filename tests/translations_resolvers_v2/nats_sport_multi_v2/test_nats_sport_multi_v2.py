@@ -9,7 +9,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 
-data5 = {
+the_male_sport_team_data = {
     "democratic republic of congo dragon boat federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
     "democratic-republic-of-congo dragon boat racing federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
     "republic of congo synchronised swimming racing federation": "الاتحاد الكونغوي لسباق السباحة المتزامنة",
@@ -356,16 +356,48 @@ data6 = {
     "philippine sailing (sport) federation": "الاتحاد الفلبيني لرياضة الإبحار",
 }
 
+ar_sport_team_data = {
+    "british softball championshipszz": "بطولة المملكة المتحدة للكرة اللينة",
+    "ladies british softball tour": "بطولة المملكة المتحدة للكرة اللينة للسيدات",
+    "british football tour": "بطولة المملكة المتحدة لكرة القدم",
+    "Yemeni football championships": "بطولة اليمن لكرة القدم",
+    "german figure skating championships": "بطولة ألمانيا للتزلج الفني",
+    "british figure skating championships": "بطولة المملكة المتحدة للتزلج الفني",
+}
 
-@pytest.mark.parametrize("category, expected_key", data5.items(), ids=list(data5.keys()))
+
+sport_jobs_female_data = {
+    "dominican republic national football teams": "منتخبات كرة قدم وطنية دومينيكانية",
+    "yemeni national softball teams": "منتخبات كرة لينة وطنية يمنية",
+}
+
+
+@pytest.mark.parametrize("category, expected_key", the_male_sport_team_data.items(), ids=list(the_male_sport_team_data.keys()))
 @pytest.mark.fast
-def test_resolve_nats_sport_multi_v2(category: str, expected_key: str) -> None:
+def test_the_male_sport_team_data(category: str, expected_key: str) -> None:
+    label2 = resolve_nats_sport_multi_v2(category)
+    assert label2 == expected_key
+
+
+@pytest.mark.parametrize("category, expected_key", ar_sport_team_data.items(), ids=list(ar_sport_team_data.keys()))
+@pytest.mark.fast
+def test_ar_sport_team_data(category: str, expected_key: str) -> None:
+    label2 = resolve_nats_sport_multi_v2(category)
+    assert label2 == expected_key
+
+
+@pytest.mark.parametrize("category, expected_key", sport_jobs_female_data.items(), ids=list(sport_jobs_female_data.keys()))
+@pytest.mark.fast
+def test_sport_jobs_female_data(category: str, expected_key: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected_key
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_nats_sport_multi_v2", data5, resolve_nats_sport_multi_v2),
+    ("test_the_male_sport_team_data", the_male_sport_team_data, resolve_nats_sport_multi_v2),
+    ("test_resolve_nats_sport_multi_v2", data6, resolve_nats_sport_multi_v2),
+    ("test_ar_sport_team_data", ar_sport_team_data, resolve_nats_sport_multi_v2),
+    ("test_sport_jobs_female_data", sport_jobs_female_data, resolve_nats_sport_multi_v2),
 ]
 
 

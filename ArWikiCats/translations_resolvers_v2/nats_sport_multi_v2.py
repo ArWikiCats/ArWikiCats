@@ -13,24 +13,31 @@ from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
 
 sports_formatted_data = {
     "{en_nat} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
+
+    "ladies {en_nat} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+    "ladies {en_nat} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
+    "women's {en_nat} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
+    "{en_nat} {en_sport} championships": "بطولة {ar} {sport_team}",
+    "{en_nat} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
+    "{en_nat} {en_sport} tour": "بطولة {ar} {sport_team}",
+
+    "{en_nat} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
 }
 
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBaseV2:
     nats_data = {
-        x: {
-            "country_ar": v["ar"],
-            "the_male": v["the_male"],
-        }
+        x: v
         for x, v in all_country_with_nat_ar.items()
-        if v.get("ar") and v.get("en")
+        if v.get("ar")  # and v.get("en")
     }
 
     sports_data = {
         x: {
             "sport_ar": v["label"],
             "sport_team": v["team"],
+            "sport_jobs": v["jobs"],
         }
         for x, v in SPORT_KEY_RECORDS.items()
         if v.get("label")
