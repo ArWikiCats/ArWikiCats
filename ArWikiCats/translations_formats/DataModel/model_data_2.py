@@ -27,6 +27,7 @@ class FormatDataV2(FormatDataBase):
             text_after=text_after,
             text_before=text_before,
         )
+        self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
 
     def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:

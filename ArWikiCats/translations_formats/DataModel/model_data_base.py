@@ -32,12 +32,29 @@ class FormatDataBase:
 
         self.key_placeholder = key_placeholder
         self.data_pattern = ""
+        self.alternation: str = None
         self.pattern: Optional[re.Pattern[str]] = None
 
     def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
         self.formatted_data[key] = value
         self.formatted_data_ci[key.lower()] = value
+
+    def create_alternation(self) -> None:
+        """Create regex alternation from data_list_ci keys."""
+        if not self.data_list_ci:
+            return ""
+
+        if len(self.data_list_ci) > 1000:
+            print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+
+        # to fix bug that selected "black" instead of "black-and-white"
+        keys_sorted = sorted(
+            self.data_list_ci.keys(),
+            key=lambda k: (-k.count(" "), -len(k))
+        )
+
+        self.alternation = "|".join(map(re.escape, keys_sorted))
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
@@ -47,6 +64,7 @@ class FormatDataBase:
         if len(self.data_list_ci) > 1000:
             print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
 
+        # to fix bug that selected "black" instead of "black-and-white"
         keys_sorted = sorted(
             self.data_list_ci.keys(),
             key=lambda k: (-k.count(" "), -len(k))
