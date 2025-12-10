@@ -9,6 +9,7 @@ import functools
 from ..translations_formats import FormatDataV2
 from ..translations import countries_nat_en_key
 from ..translations_resolvers.countries_names import formatted_data_en_ar_only
+
 countries_nat_en_key_example = {
     "yemen": {
         "ar": "اليمن",
