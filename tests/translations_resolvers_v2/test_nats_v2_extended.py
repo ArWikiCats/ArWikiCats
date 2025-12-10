@@ -5,7 +5,7 @@ tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations_resolvers.nats_women import nats_women_label
+from ArWikiCats.translations_resolvers_v2.nats_v2 import resolve_by_nats
 from ArWikiCats import resolve_arabic_category_label
 
 all_test_data = {
@@ -19,8 +19,8 @@ all_test_data = {
 
 @pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=list(all_test_data.keys()))
 @pytest.mark.slow
-def test_nats_women_label(category: str, expected_key: str) -> None:
-    label2 = nats_women_label(category)
+def test_resolve_by_nats(category: str, expected_key: str) -> None:
+    label2 = resolve_by_nats(category)
     assert label2 == expected_key
 
 
@@ -96,7 +96,7 @@ def test_with_resolve_arabic_category_label(category: str, expected_key: str) ->
 
 
 to_test = [
-    ("all_test_data", all_test_data, nats_women_label),
+    ("all_test_data", all_test_data, resolve_by_nats),
     ("test_with_resolve_arabic_category_label", all_test_data_integrated, resolve_arabic_category_label),
 ]
 
