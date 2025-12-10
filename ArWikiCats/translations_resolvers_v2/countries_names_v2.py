@@ -44,6 +44,15 @@ all_data: dict[str, str] = {
     "{en} royal navy": "البحرية الملكية {the_female}",
     "{en} naval force": "البحرية {the_female}",
     "{en} naval forces": "البحرية {the_female}",
+    "{en} cup-of-nations": "كأس الأمم {the_female}",
+    "{en} cup of nations": "كأس الأمم {the_female}",
+    "women's {en} cup of nations": "كأس الأمم {the_female} للسيدات",
+    "women's {en} cup-of-nations": "كأس الأمم {the_female} للسيدات",
+
+    "{en} cup-of-nations players": "لاعبو كأس الأمم {the_female}",
+    "{en} cup of nations players": "لاعبو كأس الأمم {the_female}",
+    "women's {en} cup of nations players": "لاعبات كأس الأمم {the_female} للسيدات",
+    "women's {en} cup-of-nations players": "لاعبات كأس الأمم {the_female} للسيدات",
 
     # males
 
