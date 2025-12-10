@@ -1,3 +1,16 @@
+## [#196](https://github.com/MrIbrahem/ArWikiCats/pull/196) - 2025-12-10
+
+* **Bug Fixes**
+  * Corrected terminology used throughout the application to consistently reference "religion" instead of an outdated variant.
+
+* **Translations**
+  * Added numerous new translation mappings for organizations, political bodies, and cultural entities.
+  * Removed outdated entries from translation data to improve accuracy.
+
+* **Tests**
+  * Enhanced test coverage for religion-related categories with comprehensive validation of Arabic translations.
+  * Updated existing tests to reflect terminology corrections.
+
 ## [#195](https://github.com/MrIbrahem/ArWikiCats/pull/195) - 2025-12-10
 
 * **New Features**

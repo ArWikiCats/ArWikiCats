@@ -222,7 +222,6 @@ the_male_sport_team_data = {
     "moroccan powerlifting federation": "الاتحاد المغربي لرياضة القوة",
     "mosotho powerlifting racing federation": "الاتحاد الليسوتي لسباق رياضة القوة",
     "mozambican professional wrestling federation": "الاتحاد الموزمبيقي لمصارعة المحترفين",
-    "muslim professional wrestling racing federation": "الاتحاد المسلم لسباق مصارعة المحترفين",
     "myanmarian racingxx federation": "الاتحاد الميانماري لسباق السيارات",
     "namibian racquetball federation": "الاتحاد الناميبي لكرة الراح",
     "nasovietna racquetball racing federation": "الاتحاد السوفييتي لسباق كرة الراح",
