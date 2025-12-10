@@ -80,8 +80,7 @@ from .sports.Sport_key import (
 from ..translations_resolvers.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .sports_formats_national.sport_lab_nat import (
-    Get_sport_formts_female_nat,
-    sport_lab_nat_load,
+    sport_lab_nat_load_new,
 )
 from .sports_formats_oioioi.bot import sport_lab_oioioi_load
 from .sports_formats_oioioi.data import NAT_P17_OIOI
@@ -121,8 +120,7 @@ __all__ = [
     "match_sport_key",
     "olympics",
     "en_nats_to_ar_label",
-    "Get_sport_formts_female_nat",
-    "sport_lab_nat_load",
+    "sport_lab_nat_load_new",
     "CITY_TRANSLATIONS_LOWER",
     #
     "jobs_mens_data",

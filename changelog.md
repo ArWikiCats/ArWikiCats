@@ -1,3 +1,19 @@
+## [#197](https://github.com/MrIbrahem/ArWikiCats/pull/197) - 2025-12-11
+
+* **Refactor**
+  * Category label resolution updated to use a new nationality-pattern resolver and improved data formats.
+  * Nationality/diaspora translation handling reorganized for richer mappings.
+
+* **Documentation / Data**
+  * Added an example country mapping for reference.
+
+* **Tests**
+  * Removed obsolete test module and one deprecated test; minor test comment cleanup.
+
+* **Chores**
+  * Removed an unused public export from translations API.
+
+
 ## [#196](https://github.com/MrIbrahem/ArWikiCats/pull/196) - 2025-12-10
 
 * **Bug Fixes**

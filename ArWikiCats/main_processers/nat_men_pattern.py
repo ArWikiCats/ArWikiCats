@@ -3,32 +3,12 @@ This module provides functionality to translate category titles
 that follow a nationality pattern. It uses a pre-configured
 bot to handle the translation logic.
 
-TODO: use resolve_nat_men_pattern_new to handle arabic nats keys like: (males, females, male, female, the_male, the_female) not only males
-
-
 """
 
 import functools
 from .categories_patterns.NAT_males import NAT_DATA_MALES
-from ..translations import Nat_mens, All_Nat
-from ..translations_formats import (
-    FormatData,
-    FormatDataV2,
-)
-
-
-@functools.lru_cache(maxsize=1)
-def _bot() -> FormatData:
-    # nat_mens_new = {x: v for x, v in Nat_mens.items() if "-american" not in x}
-
-    return FormatData(
-        formatted_data=NAT_DATA_MALES,
-        data_list=Nat_mens,
-        key_placeholder="{en_nat}",
-        value_placeholder="{nat_men1}",
-        text_after="",
-        text_before="the ",
-    )
+from ..translations import All_Nat
+from ..translations_formats import FormatDataV2
 
 
 @functools.lru_cache(maxsize=1)
@@ -58,19 +38,6 @@ def _bot_new() -> FormatDataV2:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_nat_men_pattern(category: str) -> str:
-    nat_bot=_bot()
-
-    result=nat_bot.search(category)
-    if not result:
-        normalized_category=category.lower().replace("category:", "")
-        # Only call again if the string is different after normalization
-        if normalized_category != category:
-            result=nat_bot.search(normalized_category)
-    return result or ""
-
-
-@functools.lru_cache(maxsize=10000)
 def resolve_nat_men_pattern_new(category: str) -> str:
     yc_bot=_bot_new()
 
@@ -84,6 +51,5 @@ def resolve_nat_men_pattern_new(category: str) -> str:
 
 
 __all__=[
-    "resolve_nat_men_pattern",
     "resolve_nat_men_pattern_new",
 ]

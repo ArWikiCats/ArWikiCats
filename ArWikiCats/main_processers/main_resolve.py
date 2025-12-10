@@ -65,7 +65,7 @@ def resolve_label(category: str) -> CategoryResult:
         from_match = category_lab != ""
 
     if not category_lab:
-        category_lab = nat_men_pattern.resolve_nat_men_pattern(changed_cat)
+        category_lab = nat_men_pattern.resolve_nat_men_pattern_new(changed_cat)
         from_match = category_lab != ""
 
     if not category_lab:
