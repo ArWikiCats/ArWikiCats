@@ -2,7 +2,6 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.translations.sports_formats_national.sport_lab_nat import (
-    sport_lab_nat_load,
     sport_lab_nat_load_new,
 )
 
@@ -349,9 +348,7 @@ data_womens = {
 @pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
 @pytest.mark.fast
 def test_sport_lab_nat_load(key: str, expected: str) -> None:
-    result = sport_lab_nat_load(key)
     result2 = sport_lab_nat_load_new(key)
-    assert result == expected
     assert result2 == expected
 
 
@@ -376,10 +373,8 @@ def test_compare(key: str, expected: str) -> None:
     """
     # pytest tests/translations/sports_formats_national/test_sport_lab_nat_compare.py -m skip2
 
-    result = sport_lab_nat_load(key)
     result2 = sport_lab_nat_load_new(key)
 
-    assert result == expected
     assert result2 == expected
 
 
@@ -388,11 +383,9 @@ def test_the_compare() -> None:
     key = "the yemeni people under-13 baseball teams"
     expected = "فرق كرة قاعدة يمنية تحت 13 سنة"
 
-    result = sport_lab_nat_load(key, True)
     result2 = sport_lab_nat_load_new(key)
 
-    assert result == expected, f"Error: {result=}, {result2=}, {expected=}"
-    assert result2 == expected, f"Error: {result=}, {result2=}, {expected=}"
+    assert result2 == expected, f"Error: {result2=}, {expected=}"
 
 
 to_test = [
@@ -405,8 +398,7 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, sport_lab_nat_load)
-    # expected, diff_result = one_dump_test(data, sport_lab_nat_load_new)
+    expected, diff_result = one_dump_test(data, sport_lab_nat_load_new)
     dump_diff(diff_result, name)
 
     # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
