@@ -40,7 +40,7 @@ class FormatDataBase:
         self.formatted_data[key] = value
         self.formatted_data_ci[key.lower()] = value
 
-    def create_alternation(self) -> None:
+    def create_alternation(self) -> str:
         """Create regex alternation from data_list_ci keys."""
         if not self.data_list_ci:
             return ""
@@ -54,7 +54,7 @@ class FormatDataBase:
             key=lambda k: (-k.count(" "), -len(k))
         )
 
-        self.alternation = "|".join(map(re.escape, keys_sorted))
+        return "|".join(map(re.escape, keys_sorted))
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
@@ -109,25 +109,6 @@ class FormatDataBase:
         normalized = re.sub(
             rf"(?<!\w){re.escape(sport_key)}(?!\w)",
             f"{self.key_placeholder}",
-            f" {normalized_category.strip()} ",
-            flags=re.IGNORECASE,
-        )
-
-        normalized = self.handle_texts_before_after(normalized)
-        return normalized.strip()
-
-    @functools.lru_cache(maxsize=None)
-    def normalize_category_new(self, category: str, sport_key: str) -> str:
-        return self.normalize_category(category, sport_key)
-
-    def normalize_category_old(self, category: str, sport_key: str) -> str:
-        """Replace the matched sport key with the key placeholder."""
-        # Normalize the category by removing extra spaces
-        normalized_category = " ".join(category.split())
-
-        normalized = re.sub(
-            rf" {re.escape(sport_key)} ",
-            f" {self.key_placeholder} ",
             f" {normalized_category.strip()} ",
             flags=re.IGNORECASE,
         )
