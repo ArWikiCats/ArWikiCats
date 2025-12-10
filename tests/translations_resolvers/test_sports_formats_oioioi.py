@@ -4,7 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations.sports_formats_oioioi.bot import (
+from ArWikiCats.translations_resolvers.sports_formats_oioioi import (
     sport_lab_oioioi_load,
 )
 

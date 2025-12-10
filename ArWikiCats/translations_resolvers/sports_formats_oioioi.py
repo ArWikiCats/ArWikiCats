@@ -4,9 +4,9 @@ Bot for generating Arabic Wikipedia category labels for sports formats involving
 """
 
 import functools
-from ...translations_formats import format_multi_data
-from ..nats.Nationality import en_nats_to_ar_label
-from ..sports.Sport_key import SPORTS_KEYS_FOR_TEAM
+from ..translations_formats import format_multi_data
+from ..translations.nats.Nationality import en_nats_to_ar_label
+from ..translations.sports.Sport_key import SPORTS_KEYS_FOR_TEAM
 
 
 # Placeholder used for sport key substitution in templates

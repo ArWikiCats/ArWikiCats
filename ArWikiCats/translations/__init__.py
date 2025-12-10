@@ -82,7 +82,7 @@ from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .sports_formats_national.sport_lab_nat import (
     sport_lab_nat_load_new,
 )
-from .sports_formats_oioioi.bot import sport_lab_oioioi_load
+from ..translations_resolvers.sports_formats_oioioi import sport_lab_oioioi_load
 from .tv.films_mslslat import (
     Films_key_333,
     Films_key_CAO,
