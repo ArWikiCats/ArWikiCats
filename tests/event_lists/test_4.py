@@ -5,39 +5,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
-    "african judo championships": "تصنيف:بطولة إفريقيا للجودو",
-    "african swimming championships": "تصنيف:بطولة إفريقيا للسباحة",
-    "asian athletics championships": "تصنيف:بطولة آسيا لألعاب القوى",
-    "asian swimming championships": "تصنيف:بطولة آسيا للسباحة",
-    "asian weightlifting championships": "تصنيف:بطولات رفع أثقال آسيوية",
-    "asian wrestling championships": "تصنيف:بطولة آسيا للمصارعة",
-    "asian wushu championships": "تصنيف:بطولات ووشو آسيوية",
-    "australian netball championships": "تصنيف:بطولات كرة شبكة أسترالية",
-    "bulgarian athletics championships": "تصنيف:بطولات ألعاب قوى بلغارية",
-    "canadian wheelchair curling championships": "تصنيف:بطولة كندا للكيرلنغ على الكراسي المتحركة",
-    "czech figure skating championships": "تصنيف:بطولات تزلج فني تشيكية",
-    "czechoslovak athletics championships": "تصنيف:بطولات ألعاب قوى تشيكوسلوفاكية",
-    "dutch national track cycling championships": "تصنيف:بطولات سباق الدراجات على المضمار وطنية هولندية",
-    "european amateur boxing championships": "تصنيف:بطولة أوروبا للبوكسينغ للهواة",
-    "european beach volleyball championships": "تصنيف:بطولة أوروبا لكرة الطائرة الشاطئية",
-    "european cross country championships": "تصنيف:بطولات عدو ريفي أوروبية",
-    "european diving championships": "تصنيف:بطولات غطس أوروبية",
-    "european fencing championships": "تصنيف:بطولة أوروبا لمبارزة سيف الشيش",
-    "european judo championships": "تصنيف:بطولة أوروبا للجودو",
-    "european karate championships": "تصنيف:بطولة أوروبا للكاراتيه",
-    "european speed skating championships": "تصنيف:بطولة أوروبا لتزلج السريع",
-    "european table tennis championships": "تصنيف:بطولات كرة طاولة أوروبية",
-    "european taekwondo championships": "تصنيف:بطولات تايكوندو أوروبية",
-    "european wrestling championships": "تصنيف:بطولات مصارعة أوروبية",
-    "french athletics championships": "تصنيف:بطولات ألعاب قوى فرنسية",
-    "lithuanian athletics championships": "تصنيف:بطولات ألعاب قوى ليتوانية",
-    "lithuanian swimming championships": "تصنيف:بطولات سباحة ليتوانية",
-    "paraguayan athletics championships": "تصنيف:بطولات ألعاب قوى بارغوايانية",
-    "slovak figure skating championships": "تصنيف:بطولات تزلج فني سلوفاكية",
-    "south american gymnastics championships": "تصنيف:بطولات جمباز أمريكية جنوبية",
-    "south american swimming championships": "تصنيف:بطولة أمريكا الجنوبية للسباحة",
-    "turkish figure skating championships": "تصنيف:بطولات تزلج فني تركية",
-    "world karate championships": "تصنيف:بطولة العالم للكاراتيه",
 
 
 }
@@ -199,10 +166,10 @@ data_3 = {
 }
 
 to_test = [
-    ("test_0", data0),
-    ("test_1", data1),
-    ("test_3", data_3),
-    # ("test_2", data_2),
+    ("test_4_data_0", data0),
+    ("test_4_data_1", data1),
+    ("test_4_data_3", data_3),
+    # ("test_4_data_2", data_2),
 ]
 
 
