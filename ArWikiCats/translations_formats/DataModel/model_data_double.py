@@ -32,37 +32,26 @@ class FormatDataDouble(FormatDataBase):
         self.put_label_last = {}
         self.search_multi_cache = {}
 
-        self.data_pattern_double = ""
-        self.pattern_double = None
+        self.alternation: str = self.create_alternation()
+        self.pattern = self.keys_to_pattern()
 
-        self.keys_to_pattern()
+        self.pattern_double = self.keys_to_pattern_double()
 
     def update_put_label_last(self, data: list[str] | set[str]) -> None:
         self.put_label_last = data
 
-    def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
-        """Build a case-insensitive regex over lowercased keys of data_list."""
+    def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
+        """
+        Build a case-insensitive regex over lowercased keys of data_list.
+        """
         if not self.data_list_ci:
             return None
 
-        if len(self.data_list_ci) > 1000:
-            print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+        if self.alternation is None:
+            self.alternation = self.create_alternation()
 
-        # to fix bug that selected "black" instead of "black-and-white"
-        keys_sorted = sorted(
-            self.data_list_ci.keys(),
-            key=lambda k: (-k.count(" "), -len(k))
-        )
-
-        alternation = "|".join(map(re.escape, keys_sorted))
-
-        self.data_pattern = fr"(?<!\w)({alternation})(?!\w)"
-        self.pattern = re.compile(self.data_pattern, re.I)
-
-        self.data_pattern_double = fr"(?<!\w)({alternation}) ({alternation})(?!\w)"
-        # logger.debug(f">> keys_to_pattern: {self.data_pattern_double}")
-
-        self.pattern_double = re.compile(self.data_pattern_double, re.I)
+        data_pattern = fr"(?<!\w)({self.alternation}) ({self.alternation})(?!\w)"
+        return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
     def match_key(self, category: str) -> str:
@@ -98,21 +87,6 @@ class FormatDataDouble(FormatDataBase):
             return final_label.strip()
 
         return ""
-
-    def normalize_category_with_key(self, category: str) -> tuple[str, str]:
-        """
-        Normalize nationality placeholders within a category string.
-
-        Example:
-            category='{nat_en} action drama films', key='action drama', result='{nat_en} {film_key} films'
-        """
-        key = self.match_key(category)
-        result = ""
-        if key:
-            result = self.normalize_category(category, key)
-            logger.debug(f">>> normalize_category_with_key: {category=}, {key=}, {result=}")
-
-        return key, result
 
     @functools.lru_cache(maxsize=None)
     def create_label_from_keys(self, part1: str, part2: str):

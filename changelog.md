@@ -1,3 +1,16 @@
+## [#194](https://github.com/MrIbrahem/ArWikiCats/pull/194) - 2025-12-10
+
+* **Bug Fixes**
+  * Fixed multiple translation typos (e.g., "inscriptionss" → "inscriptions") and improved Arabic labels.
+  * Corrected category name typo ("presidential primarie" → "presidential primaries").
+
+* **Improvements**
+  * More robust category pattern matching and fallback resolution to improve label detection.
+  * Enhanced pattern construction to better handle complex category keys.
+
+* **Tests**
+  * Added and enabled additional test cases to cover new/edge translations and patterns.
+
 ## [#193](https://github.com/MrIbrahem/ArWikiCats/pull/193) - 2025-12-10
 
 * **New Features**

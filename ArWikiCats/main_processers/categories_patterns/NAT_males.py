@@ -25,7 +25,7 @@ NAT_DATA_to_check = {
     "{en_nat} sports coaches": "مدربون رياضيون {nat_men1}",  # 110
 }
 
-NAT_DATA = {
+NAT_DATA_MALES = {
     "{en_nat} general election": "الانتخابات التشريعية {nat_men1}",
     "{en_nat} presidential election": "الانتخابات الرئاسية {nat_men1}",
 

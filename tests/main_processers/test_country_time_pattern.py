@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.country_time_pattern import get_label, load_bot
+from ArWikiCats.main_processers.country_time_pattern import resolve_country_time_pattern, load_bot
 from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
 
 test_data = {
@@ -49,7 +49,7 @@ test_data = {
 @pytest.mark.fast
 def test_country_time_pattern(category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
-    result = get_label(category)
+    result = resolve_country_time_pattern(category)
     assert result == expected
 
 

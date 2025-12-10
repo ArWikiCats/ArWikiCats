@@ -31,32 +31,43 @@ class FormatDataBase:
         self.data_list_ci: Dict[str, Any] = {k.lower(): v for k, v in data_list.items()}
 
         self.key_placeholder = key_placeholder
-        self.data_pattern = ""
+        self.alternation: str = None
         self.pattern: Optional[re.Pattern[str]] = None
+        self.pattern_double: Optional[re.Pattern[str]] = None
 
     def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
         self.formatted_data[key] = value
         self.formatted_data_ci[key.lower()] = value
 
-    def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
-        """Build a case-insensitive regex over lowercased keys of data_list."""
+    def create_alternation(self) -> str:
+        """Create regex alternation from data_list_ci keys."""
         if not self.data_list_ci:
-            return None
+            return ""
 
         if len(self.data_list_ci) > 1000:
             print(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
 
+        # to fix bug that selected "black" instead of "black-and-white"
         keys_sorted = sorted(
             self.data_list_ci.keys(),
             key=lambda k: (-k.count(" "), -len(k))
         )
 
-        alternation = "|".join(map(re.escape, keys_sorted))
+        return "|".join(map(re.escape, keys_sorted))
 
-        self.data_pattern = fr"(?<!\w)({alternation})(?!\w)"
-        self.pattern = re.compile(self.data_pattern, re.I)
-        return self.pattern
+    def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
+        """
+        Build a case-insensitive regex over lowercased keys of data_list.
+        """
+        if not self.data_list_ci:
+            return None
+
+        if self.alternation is None:
+            self.alternation = self.create_alternation()
+
+        data_pattern = fr"(?<!\w)({self.alternation})(?!\w)"
+        return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
     def match_key(self, category: str) -> str:
@@ -65,6 +76,7 @@ class FormatDataBase:
             return ""
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
+        logger.debug(f">> match_key: {normalized_category=}")
 
         # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
@@ -98,36 +110,22 @@ class FormatDataBase:
         normalized = self.handle_texts_before_after(normalized)
         return normalized.strip()
 
-    @functools.lru_cache(maxsize=None)
-    def normalize_category_new(self, category: str, sport_key: str) -> str:
-        return self.normalize_category(category, sport_key)
-
-    def normalize_category_old(self, category: str, sport_key: str) -> str:
-        """Replace the matched sport key with the key placeholder."""
-        # Normalize the category by removing extra spaces
-        normalized_category = " ".join(category.split())
-
-        normalized = re.sub(
-            rf" {re.escape(sport_key)} ",
-            f" {self.key_placeholder} ",
-            f" {normalized_category.strip()} ",
-            flags=re.IGNORECASE,
-        )
-
-        normalized = self.handle_texts_before_after(normalized)
-        return normalized.strip()
-
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
         Normalize nationality placeholders within a category string.
 
         Example:
-            category:"Yemeni national football teams", result: "natar national football teams"
+            normal:
+                category:"Yemeni national football teams", result: "natar national football teams"
+            model_data_double:
+                category='{nat_en} action drama films', key='action drama', result='{nat_en} {film_key} films'
         """
         key = self.match_key(category)
         result = ""
         if key:
             result = self.normalize_category(category, key)
+            logger.debug(f">>> normalize_category_with_key: {category=}, {key=}, {result=}")
+
         return key, result
 
     def get_template(self, sport_key: str, category: str) -> str:

@@ -148,7 +148,7 @@ female_data = {
     "{en_nat} given names": "أسماء شخصية {female}",
     "{en_nat} heraldry": "نبالة {female}",
     "{en_nat} heritage sites": "موقع تراث عالمي {female}",
-    "{en_nat} inscriptionss": "نقوش وكتابات {female}",
+    "{en_nat} inscriptions": "نقوش {female}",
     "{en_nat} introductions": "استحداثات {female}",
     "{en_nat} inventions": "اختراعات {female}",
     "{en_nat} islands": "جزر {female}",
@@ -308,7 +308,6 @@ the_female_data = {
     "{en_nat} general election": "الانتخابات العامة {the_female}",
     "{en_nat} regional election": "انتخابات الإقليمية {the_female}",
     "{en_nat} vice-presidential election": "انتخابات نائب الرئاسة {the_female}",
-    "{en_nat} presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
     "{en_nat} presidential election": "انتخابات الرئاسة {the_female}",
 }
 

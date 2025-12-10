@@ -13,6 +13,7 @@ from ..translations_formats import (
     MultiDataFormatterBaseYearV2,
 )
 
+from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
 @functools.lru_cache(maxsize=1)
 def _bot_new() -> MultiDataFormatterBaseYearV2:
@@ -41,7 +42,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_label(category: str) -> str:
+def resolve_nats_time_v2(category: str) -> str:
     yc_bot = _bot_new()
 
     normalized_category = category.lower().replace("category:", "")
@@ -54,5 +55,5 @@ def get_label(category: str) -> str:
 
 
 __all__ = [
-    "get_label",
+    "resolve_nats_time_v2",
 ]

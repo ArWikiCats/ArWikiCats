@@ -26,6 +26,7 @@ class FormatData(FormatDataBase):
             text_before=text_before,
         )
         self.value_placeholder = value_placeholder
+        self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
 
     @functools.lru_cache(maxsize=None)

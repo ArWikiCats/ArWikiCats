@@ -88,7 +88,7 @@ ANTI_SUFFIXES: dict[str, str] = {
     "films": "أفلام",
     "given names": "أسماء شخصية",
     "graphic novels": "روايات مصورة",
-    "inscriptionss": "نقوش وكتابات",
+    "inscriptions": "نقوش",
     "literary awards": "جوائز أدبية",
     "magazines": "مجلات",
     "manga": "مانغا",
