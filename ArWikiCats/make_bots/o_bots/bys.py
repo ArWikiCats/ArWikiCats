@@ -9,6 +9,7 @@ from ...translations import By_orginal2, By_table, By_table_orginal, get_from_ne
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ..media_bots.films_bot import te_films
 from ..p17_bots.nats_other import find_nat_others
+from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 
 @functools.lru_cache(maxsize=10000)
@@ -34,7 +35,7 @@ def make_by_label(category: str) -> str:
             logger.debug(f"Matched film label, category: {normalized}, label: {resolved}")
 
         if not resolved:
-            nationality_label = find_nat_others(candidate)
+            nationality_label = sport_lab_nat_load_new(candidate) or find_nat_others(candidate)
             if nationality_label:
                 resolved = f"بواسطة {nationality_label}"
                 logger.debug(f"Matched nationality label, category: {normalized}, label: {resolved}")

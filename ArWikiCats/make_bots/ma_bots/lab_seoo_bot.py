@@ -18,6 +18,7 @@ from ..media_bots.films_bot import te_films
 from ..o_bots import univer
 from ..o_bots.popl import work_peoples
 
+from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 from ...new.time_to_arabic import convert_time_to_arabic
 # from ..bots import tmp_bot
 from ..p17_bots import nats_other
@@ -99,6 +100,9 @@ def event_label_work(target_category: str) -> str:
 
     if not resolved_category_label:
         resolved_category_label = te_films(normalized_target_category)
+
+    if not resolved_category_label:
+        resolved_category_label = sport_lab_nat_load_new(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = nats_other.find_nat_others(normalized_target_category)
