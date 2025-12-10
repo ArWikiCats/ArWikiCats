@@ -54,21 +54,19 @@ def test_georgia_country_copy() -> None:
 
 def test_american_form_created() -> None:
     ArWikiCats = {"yemeni": {"male": "يمني", "males": "", "female": "", "females": "", "en": "yemen", "ar": "يمني"}}
-    out, count = build_american_forms({}, ArWikiCats)
+    out = build_american_forms(ArWikiCats)
     assert "yemeni-american" in out
-    assert count == 1
 
 
 def test_no_american_if_no_gender() -> None:
     ArWikiCats = {"abc": {"male": "", "males": "", "female": "", "females": "", "en": "abc", "ar": "abc"}}
-    out, count = build_american_forms({}, ArWikiCats)
+    out = build_american_forms(ArWikiCats)
     assert out == {}
-    assert count == 0
 
 
 def test_jewish_american() -> None:
     ArWikiCats = {"jewish": {"male": "يهودي", "males": "", "female": "", "females": "", "en": "jews", "ar": "يهود"}}
-    out, count = build_american_forms({}, ArWikiCats)
+    out = build_american_forms(ArWikiCats)
     assert "jewish-american" in out
     assert "jewish american" in out  # special rule
 
@@ -96,20 +94,18 @@ def test_the_country_normalization() -> None:
 def test_full_pipeline() -> None:
     raw = {"yemeni": {"male": "يمني", "males": "", "female": "يمنية", "females": "", "en": "yemen", "ar": "اليمن"}}
 
-    all_nat = {k.lower(): v for k, v in raw.items()}
-    all_nat, cnt = build_american_forms(all_nat, raw)
+    all_nat = build_american_forms(raw)
     out = build_lookup_tables(all_nat)
 
     assert "yemeni-american" in all_nat
-    assert out["Nat_men"]["yemeni"] == "يمني"
-    assert out["countries_from_nat"]["yemen"] == "اليمن"
+    assert out["countries_from_nat"].get("yemeni-american") is None
+    assert out["Nat_men"]["yemeni-american"] == "أمريكي يمني"
 
 
 def test_empty_values_handled() -> None:
     raw = {"abc": {"male": "", "males": "", "female": "", "females": "", "en": "", "ar": ""}}
-    all_nat = {"abc": raw["abc"]}
-    all_nat2, c = build_american_forms(all_nat, raw)
-    assert c == 0
+    all_nat2 = build_american_forms(raw)
+    assert all_nat2 == {}
 
 
 def test_uppercase_english_normalized() -> None:
