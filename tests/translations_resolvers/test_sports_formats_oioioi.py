@@ -4,9 +4,8 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations_resolvers.sports_formats_oioioi import (
-    sport_lab_oioioi_load,
-)
+from ArWikiCats.translations_resolvers.sports_formats_oioioi import sport_lab_oioioi_load
+from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 data0 = {
     # "chinese championships (boxing)": "بطولة الصين للبوكسينغ",
@@ -113,17 +112,28 @@ data = {
 }
 
 
-@pytest.mark.dump
-def test_sport_lab_oioioi_load() -> None:
-    expected, diff_result = one_dump_test(data, sport_lab_oioioi_load)
-
-    dump_diff(diff_result, "test_sport_lab_oioioi_load")
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 @pytest.mark.fast
-def test_sport_lab_oioioi_load_data(category: str, expected: str) -> None:
+def test_sport_lab_oioioi_load(category: str, expected: str) -> None:
     label1 = sport_lab_oioioi_load(category)
-
     assert label1 == expected
+
+    label2 = resolve_nats_sport_multi_v2(category)
+    assert label2 == expected
+
+
+to_test = [
+    ("test_sport_lab_oioioi_load_0", data0),
+    ("test_sport_lab_oioioi_load_1", data),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_it(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_nats_sport_multi_v2)
+    dump_diff(diff_result, name)
+
+    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
+    # dump_diff(add_result, f"{name}_add")
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
