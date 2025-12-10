@@ -7,7 +7,6 @@ from ..translations_formats import FormatDataV2
 from ..translations import all_country_with_nat_ar
 
 males_data = {
-    "{en_nat} {en_sport} federation": "الاتحاد {ar_nat} {ar_sport}",
     # en_is_nat_ar_is_mens
     "{en_nat} non profit publishers": "ناشرون غير ربحيون {males}",
     "{en_nat} non-profit publishers": "ناشرون غير ربحيون {males}",
