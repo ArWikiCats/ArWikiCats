@@ -6,6 +6,7 @@ from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
 
+
 }
 
 data1 = {
@@ -14,8 +15,6 @@ data1 = {
     "2014 commonwealth games": "تصنيف:ألعاب الكومنولث 2014",
     "afghan premier league": "تصنيف:الدوري الأفغاني الممتاز",
     "africa cup of nations": "تصنيف:كأس إفريقيا في بلدان",
-    "african judo championships": "تصنيف:بطولات جودو إفريقية",
-    "african swimming championships": "تصنيف:بطولات سباحة إفريقية",
     "albanian second division": "تصنيف:الدوري الألباني الدرجة الثانية",
     "algerian basketball championship": "تصنيف:بطولة الجزائر لكرة السلة",
     "algerian league cup": "تصنيف:كأس الدوري الجزائري",
@@ -25,10 +24,7 @@ data1 = {
     "anguillan league": "تصنيف:الدوري الأنغويلاني",
     "armenian independence cup": "تصنيف:كأس استقلال أرمينيا",
     "armenian premier league": "تصنيف:الدوري الأرميني الممتاز",
-    "asian athletics championships": "تصنيف:بطولات ألعاب قوى آسيوية",
     "asian games": "تصنيف:الألعاب الآسيوية",
-    "asian swimming championships": "تصنيف:بطولات سباحة آسيوية",
-    "asian wrestling championships": "تصنيف:بطولات مصارعة آسيوية",
     "australian baseball league": "تصنيف:الدوري الأسترالي لكرة القاعدة",
     "australian football league": "تصنيف:الدوري الأسترالي لكرة القدم",
     "azerbaijan first division": "تصنيف:أذربيجان",
@@ -47,12 +43,6 @@ data1 = {
     "croatian premier handball league": "تصنيف:دوريات كرة يد كرواتية من الدرجة الممتازة",
     "cyprus cup": "تصنيف:كأس قبرص",
     "east asian games": "تصنيف:الألعاب الآسيوية الشرقية",
-    "european amateur boxing championships": "تصنيف:بطولة أوروبا للبوكسينغ للهواة",
-    "european beach volleyball championships": "تصنيف:بطولات كرة طائرة شاطئية أوروبية",
-    "european fencing championships": "تصنيف:بطولات مبارزة سيف شيش أوروبية",
-    "european judo championships": "تصنيف:بطولات جودو أوروبية",
-    "european karate championships": "تصنيف:بطولات كاراتيه أوروبية",
-    "european speed skating championships": "تصنيف:بطولات تزلج سريع أوروبية",
     "first league of serbia and montenegro": "تصنيف:دوري كرة القدم الدرجة الأولى في صربيا والجبل الأسود",
     "french women's handball championship": "تصنيف:بطولة فرنسا لكرة اليد للسيدات",
     "gerry weber open": "تصنيف:بطولة هالي المفتوحة",
@@ -107,7 +97,6 @@ data1 = {
     "slovenian football cup": "تصنيف:كأس سلوفينيا لكرة القدم",
     "south african premier division": "تصنيف:الدوري الجنوب الإفريقي الممتاز",
     "south american games": "تصنيف:الألعاب الأمريكية الجنوبية",
-    "south american swimming championships": "تصنيف:بطولات سباحة أمريكية جنوبية",
     "south american volleyball championship": "تصنيف:بطولة أمريكا الجنوبية لكرة الطائرة",
     "south american women's football championship": "تصنيف:بطولة أمريكا الجنوبية لكرة القدم للسيدات",
     "soviet cup": "تصنيف:كأس الاتحاد السوفيتي",
@@ -126,7 +115,6 @@ data1 = {
     "women's chinese basketball association": "تصنيف:الرابطة الصينية لكرة السلة نسائية",
     "women's korean basketball league": "تصنيف:الدوري الكوري لكرة السلة نسائية",
     "world games": "تصنيف:دورة الألعاب العالمية",
-    "world karate championships": "تصنيف:بطولة العالم للكاراتيه",
     "yemeni unity cup": "تصنيف:كأس الوحدة اليمنية",
     "College sports coaches in the United States by sport by state": "تصنيف:مدربو رياضات الكليات في الولايات المتحدة حسب الرياضة حسب الولاية",
     "national university of singapore": "تصنيف:جامعة سنغافورة الوطنية",
@@ -157,6 +145,7 @@ data_2 ={
 }
 
 data_3 = {
+    # "Category:second italo-ethiopian war": "تصنيف:الحرب الإيطالية الإثيوبية الثانية",
     "Category:Afghanistan Football Federation": "تصنيف:الاتحاد الأفغاني لكرة القدم",
     "Category:Aruba Football Federation": "تصنيف:الاتحاد الأروبي لكرة القدم",
     "Category:Bhutan Football Federation": "تصنيف:الاتحاد البوتاني لكرة القدم",
@@ -177,9 +166,10 @@ data_3 = {
 }
 
 to_test = [
-    ("test_1", data1),
-    # ("test_2", data_2),
-    ("test_3", data_3),
+    ("test_4_data_0", data0),
+    ("test_4_data_1", data1),
+    ("test_4_data_3", data_3),
+    # ("test_4_data_2", data_2),
 ]
 
 

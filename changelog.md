@@ -1,3 +1,20 @@
+## [#195](https://github.com/MrIbrahem/ArWikiCats/pull/195) - 2025-12-10
+
+* **New Features**
+  * Support for gender-variant nationality translations and expanded diaspora mappings.
+
+* **Bug Fixes**
+  * Corrected Arabic diaspora translation and deactivated invalid election category mappings.
+
+* **Improvements**
+  * Improved translation resolution for sports, championships and nationality labels; more robust data handling.
+
+* **Tests**
+  * Expanded and reorganized tests to cover new nationality and sports label behaviors.
+
+* **Refactor**
+  * Simplified translation resolver architecture and removed legacy fallback paths.
+
 ## [#194](https://github.com/MrIbrahem/ArWikiCats/pull/194) - 2025-12-10
 
 * **Bug Fixes**

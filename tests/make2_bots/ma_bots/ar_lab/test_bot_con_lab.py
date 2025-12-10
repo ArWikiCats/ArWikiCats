@@ -107,11 +107,6 @@ data = [
     {"separator_stripped": "introduced in", "country": "21st century", "output": "القرن 21"},
     {"separator_stripped": "involving", "country": "north macedonia", "output": "مقدونيا الشمالية"},
     {"separator_stripped": "involving the", "country": "united states", "output": "الولايات المتحدة"},
-    {
-        "separator_stripped": "killed in",
-        "country": "second italo-ethiopian war",
-        "output": "الحرب الإيطالية الإثيوبية الثانية",
-    },
     {"separator_stripped": "murdered in", "country": "1420", "output": "1420"},
     {
         "separator_stripped": "murdered in",

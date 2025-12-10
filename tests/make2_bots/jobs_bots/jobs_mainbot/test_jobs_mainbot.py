@@ -79,7 +79,7 @@ def test_mens_prefix_fallback_when_no_jobs_data() -> None:
 def test_mens_people_only() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "egyptian", "people")
-    assert result == "مصريون"
+    assert result == "أعلام مصريون"
 
 
 def test_mens_nato() -> None:
@@ -193,7 +193,7 @@ def test_empty_start() -> None:
 def test_new_mens_nationality_afghan_people() -> None:
     jobs_with_nat_prefix.cache_clear()
     result = jobs_with_nat_prefix("", "afghan", "people")
-    assert result == "أفغان"
+    assert result == "أعلام أفغان"
 
 
 def test_new_womens_nationality_afghan_women() -> None:

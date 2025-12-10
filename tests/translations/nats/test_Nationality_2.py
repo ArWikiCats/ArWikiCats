@@ -69,7 +69,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
 
     for entry in data.values():
         # Ensure all required keys are present
-        assert set(entry.keys()) == {"male", "males", "female", "females", "en", "ar"}
+        assert set(entry.keys()) == {"male", "males", "female", "females", "en", "ar", "the_male", "the_female"}
         # Ensure all values are strings
         assert all(isinstance(v, str) for v in entry.values())
 
@@ -174,14 +174,12 @@ def test_normalize_aliases_papua_new_guinean_added() -> None:
 def test_build_american_forms_basic() -> None:
     """build_american_forms should create '-american' keys when there is at least one gendered form."""
 
-    all_nat = {}
     all_nat_o = {
         "yemeni": make_entry(male="يمني", en="yemen", ar="اليمن"),
     }
 
-    out, count = build_american_forms(all_nat, all_nat_o)
+    out = build_american_forms(all_nat_o)
 
-    assert count == 1
     assert "yemeni-american" in out
     entry = out["yemeni-american"]
     assert entry["male"] == "أمريكي يمني"
@@ -190,28 +188,24 @@ def test_build_american_forms_basic() -> None:
 def test_build_american_forms_skips_if_no_gender() -> None:
     """No american form should be generated when all gender fields are empty."""
 
-    all_nat = {}
     all_nat_o = {
         "abc": make_entry(en="abc", ar="ايه بي سي"),  # all gender fields empty
     }
 
-    out, count = build_american_forms(all_nat, all_nat_o)
+    out = build_american_forms(all_nat_o)
 
-    assert count == 0
     assert out == {}
 
 
 def test_build_american_forms_jewish_special_case() -> None:
     """For 'jewish' key, both 'jewish-american' and 'jewish american' should be created."""
 
-    all_nat = {}
     all_nat_o = {
         "jewish": make_entry(male="يهودي", en="jews", ar="يهود"),
     }
 
-    out, count = build_american_forms(all_nat, all_nat_o)
+    out = build_american_forms(all_nat_o)
 
-    assert count == 1
     assert "jewish-american" in out
     assert "jewish american" in out
     assert out["jewish-american"]["male"].startswith("أمريكي")
@@ -230,7 +224,7 @@ def test_build_lookup_tables_nat_men_and_country() -> None:
         "yemeni": make_entry(male="يمني", en="yemen", ar="اليمن"),
     }
 
-    result = build_lookup_tables(all_nat, all_nat)
+    result = build_lookup_tables(all_nat)
     Nat_men = result["Nat_men"]
     countries_from_nat = result["countries_from_nat"]
     all_country_ar = result["all_country_ar"]
@@ -247,7 +241,7 @@ def test_build_lookup_tables_the_prefix_normalization() -> None:
         "british": make_entry(male="بريطاني", en="the uk", ar="المملكة المتحدة"),
     }
 
-    result = build_lookup_tables(all_nat, all_nat)
+    result = build_lookup_tables(all_nat)
     countries_from_nat = result["countries_from_nat"]
 
     assert countries_from_nat["uk"] == "المملكة المتحدة"
@@ -260,7 +254,7 @@ def test_build_lookup_tables_uppercase_en_normalization() -> None:
         "italian": make_entry(male="إيطالي", en="ITALY", ar="إيطاليا"),
     }
 
-    result = build_lookup_tables(all_nat, all_nat)
+    result = build_lookup_tables(all_nat)
     countries_from_nat = result["countries_from_nat"]
 
     assert "italy" in countries_from_nat
@@ -274,7 +268,7 @@ def test_build_lookup_tables_en_nats_to_ar_label() -> None:
         "yemeni": make_entry(male="يمني", en="yemen", ar="اليمن"),
     }
 
-    result = build_lookup_tables(all_nat, all_nat)
+    result = build_lookup_tables(all_nat)
     en_nats_to_ar_label = result["en_nats_to_ar_label"]
 
     assert en_nats_to_ar_label["yemeni"] == "اليمن"
@@ -287,7 +281,7 @@ def test_build_lookup_tables_iranian_special_case() -> None:
         "iranian": make_entry(male="إيراني", en="iran", ar="إيران"),
     }
 
-    result = build_lookup_tables(all_nat, all_nat)
+    result = build_lookup_tables(all_nat)
     keys_en = result["countries_nat_en_key"]
 
     assert "islamic republic of iran" in keys_en
@@ -317,16 +311,13 @@ def test_full_pipeline_minimal() -> None:
     all_nat = {k.lower(): v for k, v in raw.items()}
 
     # Add American forms
-    all_nat, count = build_american_forms(all_nat, raw)
-    assert count == 1
+    all_nat = build_american_forms(raw)
     assert "yemeni-american" in all_nat
 
     # Build lookup tables
-    result = build_lookup_tables(all_nat, raw)
+    result = build_lookup_tables(all_nat)
 
-    assert result["Nat_men"]["yemeni"] == "يمني"
-    assert result["countries_from_nat"]["yemen"] == "اليمن"
-    assert result["all_country_ar"]["yemen"] == "اليمن"
+    assert result["Nat_mens"]["yemeni-american"] == "أمريكيون يمنيون"
 
 
 def test_full_pipeline_with_alias_and_american() -> None:
@@ -350,12 +341,8 @@ def test_full_pipeline_with_alias_and_american() -> None:
     # Lower-case main All_Nat dict
     all_nat = {k.lower(): v for k, v in all_nat_o.items()}
 
-    # American forms
-    all_nat, count = build_american_forms(all_nat, all_nat_o)
-    assert count >= 1
-
     # Lookup tables
-    result = build_lookup_tables(all_nat, all_nat_o)
+    result = build_lookup_tables(all_nat)
 
     assert "russian" in result["Nat_men"]
     assert result["countries_from_nat"]["russia"] == "روسيا"

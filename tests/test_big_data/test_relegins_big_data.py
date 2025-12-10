@@ -24,4 +24,8 @@ for file in json_files:
 def test_relegins_big_data(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
+
+    expected2 = {x: v for x, v in expected.items() if v and x in diff_result}
+    dump_diff(expected2, f"{name}_expected")
+
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
