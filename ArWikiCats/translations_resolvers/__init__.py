@@ -2,7 +2,7 @@
 from . import countries_names, nats_women
 
 
-def resolved_sports_formats_labels(normalized_category) -> str:
+def resolved_translations_resolvers(normalized_category) -> str:
 
     resolved_label = countries_names.resolve_by_countries_names(normalized_category)
 
@@ -14,5 +14,5 @@ def resolved_sports_formats_labels(normalized_category) -> str:
 
 __all__ = [
     "nats_women_label",
-    "resolved_sports_formats_labels",
+    "resolved_translations_resolvers",
 ]

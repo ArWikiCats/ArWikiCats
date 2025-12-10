@@ -12,7 +12,7 @@ from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_n
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..o_bots import fax
 from ..o_bots.army import te_army
-from ...translations_resolvers import resolved_sports_formats_labels
+from ...translations_resolvers import resolved_translations_resolvers
 from ...translations_resolvers_v2 import resolved_translations_resolvers_v2
 from .film_keys_bot import resolve_films
 
@@ -76,7 +76,7 @@ def te_films(category: str) -> str:
         logger.info(f'>>>> (te_films) resolved_countries_formats_labels, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
 
-    resolved_label = resolved_sports_formats_labels(normalized_category)
+    resolved_label = resolved_translations_resolvers(normalized_category)
     if resolved_label:
         logger.info(f'>>>> (te_films) resolved_sports_formats_labels, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
