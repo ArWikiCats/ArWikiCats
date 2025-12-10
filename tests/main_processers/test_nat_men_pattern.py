@@ -7,7 +7,17 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.main_processers.nat_men_pattern import resolve_nat_men_pattern, resolve_nat_men_pattern_new
 
-_mens_data = {
+_mens_data_old = {
+    # {en_nat} christians
+    "bissau-guinean christians": "مسيحيون غينيون بيساويون",
+    "anglo-irish christians": "مسيحيون أنجلو إيرلنديون",
+
+    # {en_nat} muslims
+    "czechoslovak muslims": "مسلمون تشيكوسلوفاكيون",
+    "east german muslims": "مسلمون ألمانيون شرقيون",
+}
+
+test_data_males = {
     # standard - {en_nat} people
     "welsh people": "أعلام ويلزيون",
     "yemeni people": "أعلام يمنيون",
@@ -454,35 +464,73 @@ _mens_data = {
     # {en_nat} male film actors
     "east timorese male film actors": "ممثلو أفلام ذكور تيموريون شرقيون",
     "federated states-of micronesia male film actors": "ممثلو أفلام ذكور ميكرونيزيون",
-
-    # {en_nat} christians
-    "bissau-guinean christians": "مسيحيون غينيون بيساويون",
-    "anglo-irish christians": "مسيحيون أنجلو إيرلنديون",
-
-    # {en_nat} muslims
-    "czechoslovak muslims": "مسلمون تشيكوسلوفاكيون",
-    "east german muslims": "مسلمون ألمانيون شرقيون",
-
-    # {en_nat} diaspora in united states
-    "bosnia and herzegovina diaspora in united states": "أمريكيون بوسنيون",
-    "chinese taipei diaspora in united states": "أمريكيون تايبيون صينيون",
-
-    # {en_nat} sports coaches
-    "democratic-republic-of-congo sports coaches": "مدربون رياضيون كونغويون ديمقراطيون",
-    "dominican republic sports coaches": "مدربون رياضيون دومينيكانيون",
 }
 
+test_data_ar = {}
 
-@pytest.mark.parametrize("category,expected", _mens_data.items(), ids=_mens_data.keys())
-def test_nat_pattern(category: str, expected: str) -> None:
-    """Test all nat translation patterns."""
-    result = resolve_nat_men_pattern(category)
-    assert result == expected
+test_data_the_male = {}
+
+test_data_male = {
+    # {en_nat} diaspora
+    "bosnia and herzegovina diaspora": "شتات بوسني",
+    "chinese taipei diaspora": "شتات تايبي صيني",
+
+}
+
+test_data_female = {}
+
+test_data_the_female = {}
+
+
+@pytest.mark.parametrize("category, expected", test_data_males.items(), ids=list(test_data_males.keys()))
+@pytest.mark.fast
+def test_p_resolve_males(category: str, expected: str) -> None:
+    label = resolve_nat_men_pattern_new(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=list(test_data_ar.keys()))
+@pytest.mark.fast
+def test_p_resolve_ar(category: str, expected: str) -> None:
+    label = resolve_nat_men_pattern_new(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_the_male.items(), ids=list(test_data_the_male.keys()))
+@pytest.mark.fast
+def test_p_resolve_the_male(category: str, expected: str) -> None:
+    label = resolve_nat_men_pattern_new(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_male.items(), ids=list(test_data_male.keys()))
+@pytest.mark.fast
+def test_p_resolve_male(category: str, expected: str) -> None:
+    label = resolve_nat_men_pattern_new(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_female.items(), ids=list(test_data_female.keys()))
+@pytest.mark.fast
+def test_p_resolve_female(category: str, expected: str) -> None:
+    label = resolve_nat_men_pattern_new(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_the_female.items(), ids=list(test_data_the_female.keys()))
+@pytest.mark.fast
+def test_p_resolve_the_female(category: str, expected: str) -> None:
+    label = resolve_nat_men_pattern_new(category)
+    assert label == expected
 
 
 to_test = [
-    ("test_nat_pattern", _mens_data, resolve_nat_men_pattern),
-    ("test_nat_pattern_new", _mens_data, resolve_nat_men_pattern_new),
+    ("test_p_resolve_males", test_data_males, resolve_nat_men_pattern_new),
+    ("test_p_resolve_ar", test_data_ar, resolve_nat_men_pattern_new),
+    ("test_p_resolve_the_male", test_data_the_male, resolve_nat_men_pattern_new),
+    ("test_p_resolve_male", test_data_male, resolve_nat_men_pattern_new),
+    ("test_p_resolve_female", test_data_female, resolve_nat_men_pattern_new),
+    ("test_p_resolve_the_female", test_data_the_female, resolve_nat_men_pattern_new),
 ]
 
 

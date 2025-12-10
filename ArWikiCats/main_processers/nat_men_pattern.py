@@ -35,10 +35,14 @@ def _bot() -> FormatData:
 def _bot_new() -> FormatDataV2:
 
     formatted_data = dict(NAT_DATA_MALES)
+    formatted_data.update({
+        "{en_nat} diaspora": "شتات {male}",
+    })
 
-    nats_data = {
+    nats_data={
         x: {
-            "nat_men1": v["males"]
+            "nat_men1": v["males"],
+            "male": v["male"],
         }
         for x, v in All_Nat.items()
         if v.get("males")
@@ -55,31 +59,31 @@ def _bot_new() -> FormatDataV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nat_men_pattern(category: str) -> str:
-    nat_bot = _bot()
+    nat_bot=_bot()
 
-    result = nat_bot.search(category)
+    result=nat_bot.search(category)
     if not result:
-        normalized_category = category.lower().replace("category:", "")
+        normalized_category=category.lower().replace("category:", "")
         # Only call again if the string is different after normalization
         if normalized_category != category:
-            result = nat_bot.search(normalized_category)
+            result=nat_bot.search(normalized_category)
     return result or ""
 
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nat_men_pattern_new(category: str) -> str:
-    yc_bot = _bot_new()
+    yc_bot=_bot_new()
 
-    normalized_category = category.lower().replace("category:", "")
-    result = yc_bot.create_label(normalized_category)
+    normalized_category=category.lower().replace("category:", "")
+    result=yc_bot.create_label(normalized_category)
 
     if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
+        result="تصنيف:" + result
 
     return result or ""
 
 
-__all__ = [
+__all__=[
     "resolve_nat_men_pattern",
     "resolve_nat_men_pattern_new",
 ]

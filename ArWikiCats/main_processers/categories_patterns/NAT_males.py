@@ -21,8 +21,10 @@ NAT_DATA_to_check = {
     "{en_nat} non-fiction writers": "كتاب غير روائيين {nat_men1}",  # 118
     "{en_nat} christians": "مسيحيون {nat_men1}",  # 134
     "{en_nat} muslims": "مسلمون {nat_men1}",  # 132
-    "{en_nat} diaspora in united states": "أمريكيون {nat_men1}",  # 126
     "{en_nat} sports coaches": "مدربون رياضيون {nat_men1}",  # 110
+
+    # "{en_nat} diaspora in united states": "أمريكيون {nat_men1}",  # 126
+    "{en_nat} diaspora in united states": "شتات {nat_men1} في الولايات المتحدة",  # 126
 }
 
 NAT_DATA_MALES = {
