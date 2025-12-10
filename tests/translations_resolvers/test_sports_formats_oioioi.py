@@ -8,7 +8,7 @@ from ArWikiCats.translations_resolvers.sports_formats_oioioi import (
     sport_lab_oioioi_load,
 )
 
-data = {
+data0 = {
     # "chinese championships (boxing)": "بطولة الصين للبوكسينغ",
     # "chinese open (boxing)": "الصين المفتوحة للبوكسينغ",
     "chinese boxing cups": "كؤوس للبوكسينغ الصين",
@@ -20,9 +20,6 @@ data = {
     "chinese boxing cup competitions": "منافسات كؤوس للبوكسينغ الصين",
     "chinese outdoor boxing": "للبوكسينغ الصين في الهواء الطلق",
     "chinese women's boxing": "للبوكسينغ الصين نسائية",
-    "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
-    "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
-    "chinese championships boxing": "بطولة الصين للبوكسينغ",
     "chinese current boxing seasons": "مواسم للبوكسينغ الصين حالية",
     "chinese defunct indoor boxing clubs": "أندية للبوكسينغ الصين داخل الصالات سابقة",
     "chinese defunct indoor boxing coaches": "مدربو للبوكسينغ الصين داخل الصالات سابقة",
@@ -58,7 +55,13 @@ data = {
     "chinese indoor boxing competitions": "منافسات للبوكسينغ الصين داخل الصالات",
     "chinese indoor boxing cups": "كؤوس للبوكسينغ الصين داخل الصالات",
     "chinese indoor boxing leagues": "دوريات للبوكسينغ الصين داخل الصالات",
+}
+
+data = {
     "chinese men's boxing championship": "بطولة الصين للبوكسينغ للرجال",
+    "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
+    "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
+    "chinese championships boxing": "بطولة الصين للبوكسينغ",
     "chinese men's boxing championships": "بطولة الصين للبوكسينغ للرجال",
     "chinese men's boxing national team": "منتخب الصين للبوكسينغ للرجال",
     "chinese men's u23 national boxing team": "منتخب الصين للبوكسينغ تحت 23 سنة للرجال",
