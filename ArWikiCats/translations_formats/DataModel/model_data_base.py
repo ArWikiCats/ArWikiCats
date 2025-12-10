@@ -73,8 +73,7 @@ class FormatDataBase:
         alternation = "|".join(map(re.escape, keys_sorted))
 
         data_pattern = fr"(?<!\w)({alternation})(?!\w)"
-        self.pattern = re.compile(data_pattern, re.I)
-        return self.pattern
+        return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
     def match_key(self, category: str) -> str:
@@ -83,6 +82,7 @@ class FormatDataBase:
             return ""
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
+        logger.debug(f">> match_key: {normalized_category=}")
 
         # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
