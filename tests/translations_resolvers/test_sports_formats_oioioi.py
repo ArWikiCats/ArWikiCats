@@ -8,8 +8,6 @@ from ArWikiCats.translations_resolvers.sports_formats_oioioi import sport_lab_oi
 from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 data0 = {
-    # "chinese championships (boxing)": "بطولة الصين للبوكسينغ",
-    # "chinese open (boxing)": "الصين المفتوحة للبوكسينغ",
     "chinese boxing cups": "كؤوس للبوكسينغ الصين",
     "chinese boxing leagues": "دوريات للبوكسينغ الصين",
     "chinese boxing chairmen and investors": "رؤساء ومسيرو للبوكسينغ الصين",
