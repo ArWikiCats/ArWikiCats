@@ -24,6 +24,7 @@ from ..sports_bots import team_work
 from . import country2_bot, country2_lab, ye_ts_bot
 from ...new.time_to_arabic import convert_time_to_arabic
 
+from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 get_country_done: Dict[str, str] = {}
 
 
@@ -83,13 +84,13 @@ class CountryLabelRetriever:
         if country.strip().isdigit():
             return country
 
-        label = New_female_keys.get(country, "")
-        if not label:
-            label = te_films(country)
-        if not label:
-            label = nats_other.find_nat_others(country)
-        if not label:
-            label = team_work.Get_team_work_Club(country)
+        label = (
+            New_female_keys.get(country, "")
+            or te_films(country)
+            or sport_lab_nat_load_new(country)
+            or nats_other.find_nat_others(country)
+            or team_work.Get_team_work_Club(country)
+        )
         return label
 
     def _check_prefixes(self, country: str) -> str:

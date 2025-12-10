@@ -10,7 +10,6 @@ import functools
 from ...helps.log import logger
 from ..matables_bots.bot import add_to_new_players
 from ...translations import (
-    sport_lab_nat_load_new,
     sport_lab_oioioi_load,
 )
 
@@ -31,12 +30,9 @@ def find_nat_others(category: str) -> str:
 
     normalized_category = category.lower()
 
-    category_label = sport_lab_nat_load_new(normalized_category)
-
-    if category_label == "":
-        category_label = sport_lab_oioioi_load(normalized_category)
-        if category_label:
-            add_to_new_players(category, category_label)
+    category_label = sport_lab_oioioi_load(normalized_category)
+    if category_label:
+        add_to_new_players(category, category_label)
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ find_nat_others end ^^^^^^^^^ ")
 

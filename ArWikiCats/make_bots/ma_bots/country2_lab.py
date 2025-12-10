@@ -21,10 +21,13 @@ from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import sport_lab_suffixes, team_work
 from ...new.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2
+from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+
 # Dictionary of resolvers mapped to their callable functions
 resolvers = {
     "get_pop_All_18": get_pop_All_18,
     "te_films": te_films,
+    "sport_lab_nat_load_new": sport_lab_nat_load_new,
     "nats.find_nat_others": nats_other.find_nat_others,
     "sport_lab_suffixes.get_teams_new": sport_lab_suffixes.get_teams_new,
     "parties_bot.get_parties_lab": parties_bot.get_parties_lab,

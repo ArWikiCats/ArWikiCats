@@ -28,6 +28,7 @@ from ...p17_bots import nats_other
 from ...sports_bots import team_work
 from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
+from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 
 def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
@@ -309,6 +310,7 @@ def _create_type_lookup_chain(
         "_lookup_religious_males": _lookup_religious_males,
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
         "te_films": te_films,
+        "sport_lab_nat_load_new": sport_lab_nat_load_new,
         "nats_other.find_nat_others": nats_other.find_nat_others,
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
@@ -390,6 +392,7 @@ def _create_country_lookup_chain(
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
         "te_films": te_films,
+        "sport_lab_nat_load_new": sport_lab_nat_load_new,
         "nats_other.find_nat_others": nats_other.find_nat_others,
         "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
         "Get_c_t_lab": lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),

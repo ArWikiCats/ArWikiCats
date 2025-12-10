@@ -4,14 +4,10 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations.sports_formats_oioioi.bot import (
-    both_bot,
-    sport_lab_oioioi_load,
-)
+from ArWikiCats.translations_resolvers.sports_formats_oioioi import sport_lab_oioioi_load
+from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
-data = {
-    # "chinese championships (boxing)": "بطولة الصين للبوكسينغ",
-    # "chinese open (boxing)": "الصين المفتوحة للبوكسينغ",
+data0 = {
     "chinese boxing cups": "كؤوس للبوكسينغ الصين",
     "chinese boxing leagues": "دوريات للبوكسينغ الصين",
     "chinese boxing chairmen and investors": "رؤساء ومسيرو للبوكسينغ الصين",
@@ -21,9 +17,6 @@ data = {
     "chinese boxing cup competitions": "منافسات كؤوس للبوكسينغ الصين",
     "chinese outdoor boxing": "للبوكسينغ الصين في الهواء الطلق",
     "chinese women's boxing": "للبوكسينغ الصين نسائية",
-    "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
-    "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
-    "chinese championships boxing": "بطولة الصين للبوكسينغ",
     "chinese current boxing seasons": "مواسم للبوكسينغ الصين حالية",
     "chinese defunct indoor boxing clubs": "أندية للبوكسينغ الصين داخل الصالات سابقة",
     "chinese defunct indoor boxing coaches": "مدربو للبوكسينغ الصين داخل الصالات سابقة",
@@ -59,7 +52,22 @@ data = {
     "chinese indoor boxing competitions": "منافسات للبوكسينغ الصين داخل الصالات",
     "chinese indoor boxing cups": "كؤوس للبوكسينغ الصين داخل الصالات",
     "chinese indoor boxing leagues": "دوريات للبوكسينغ الصين داخل الصالات",
+    "chinese outdoor boxing coaches": "مدربو للبوكسينغ الصين في الهواء الطلق",
+    "chinese outdoor boxing competitions": "منافسات للبوكسينغ الصين في الهواء الطلق",
+    "chinese outdoor boxing leagues": "دوريات للبوكسينغ الصين في الهواء الطلق",
+    "chinese professional boxing clubs": "أندية للبوكسينغ الصين للمحترفين",
+    "chinese professional boxing coaches": "مدربو للبوكسينغ الصين للمحترفين",
+    "chinese professional boxing competitions": "منافسات للبوكسينغ الصين للمحترفين",
+    "chinese professional boxing cups": "كؤوس للبوكسينغ الصين للمحترفين",
+    "chinese outdoor boxing cups": "كؤوس للبوكسينغ الصين في الهواء الطلق",
+    "chinese professional boxing leagues": "دوريات للبوكسينغ الصين للمحترفين",
+}
+
+data = {
     "chinese men's boxing championship": "بطولة الصين للبوكسينغ للرجال",
+    "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
+    "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
+    "chinese championships boxing": "بطولة الصين للبوكسينغ",
     "chinese men's boxing championships": "بطولة الصين للبوكسينغ للرجال",
     "chinese men's boxing national team": "منتخب الصين للبوكسينغ للرجال",
     "chinese men's u23 national boxing team": "منتخب الصين للبوكسينغ تحت 23 سنة للرجال",
@@ -95,15 +103,6 @@ data = {
     "chinese outdoor boxing championship": "بطولة الصين للبوكسينغ في الهواء الطلق",
     "chinese outdoor boxing championships": "بطولة الصين للبوكسينغ في الهواء الطلق",
     "chinese outdoor boxing clubs": "أندية للبوكسينغ الصين في الهواء الطلق",
-    "chinese outdoor boxing coaches": "مدربو للبوكسينغ الصين في الهواء الطلق",
-    "chinese outdoor boxing competitions": "منافسات للبوكسينغ الصين في الهواء الطلق",
-    "chinese outdoor boxing cups": "كؤوس للبوكسينغ الصين في الهواء الطلق",
-    "chinese outdoor boxing leagues": "دوريات للبوكسينغ الصين في الهواء الطلق",
-    "chinese professional boxing clubs": "أندية للبوكسينغ الصين للمحترفين",
-    "chinese professional boxing coaches": "مدربو للبوكسينغ الصين للمحترفين",
-    "chinese professional boxing competitions": "منافسات للبوكسينغ الصين للمحترفين",
-    "chinese professional boxing cups": "كؤوس للبوكسينغ الصين للمحترفين",
-    "chinese professional boxing leagues": "دوريات للبوكسينغ الصين للمحترفين",
     "chinese women's boxing championship": "بطولة الصين للبوكسينغ للسيدات",
     "chinese women's boxing championships": "بطولة الصين للبوكسينغ للسيدات",
     "chinese youth boxing championship": "بطولة الصين للبوكسينغ للشباب",
@@ -111,19 +110,28 @@ data = {
 }
 
 
-@pytest.mark.dump
-def test_sport_lab_oioioi_load() -> None:
-    expected, diff_result = one_dump_test(data, sport_lab_oioioi_load)
-
-    dump_diff(diff_result, "test_sport_lab_oioioi_load")
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
 @pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
 @pytest.mark.fast
-def test_sport_lab_oioioi_load_data(category: str, expected: str) -> None:
+def test_sport_lab_oioioi_load(category: str, expected: str) -> None:
     label1 = sport_lab_oioioi_load(category)
-    label2 = both_bot.create_label(category)
-
     assert label1 == expected
+
+    label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected
+
+
+to_test = [
+    # ("test_sport_lab_oioioi_load_0", data0),
+    ("test_sport_lab_oioioi_load_1", data),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_it(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_nats_sport_multi_v2)
+    dump_diff(diff_result, name)
+
+    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
+    # dump_diff(add_result, f"{name}_add")
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
