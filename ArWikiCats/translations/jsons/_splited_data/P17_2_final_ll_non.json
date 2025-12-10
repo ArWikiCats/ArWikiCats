@@ -138,7 +138,6 @@
         "israel border police": "شرطة حدود إسرائيل",
         "nariño department": "إدارة نارينيو",
         "norte de santander department": "إدارة نورتي دي سانتاندير",
-        "police": "ذا بوليس",
         "police brutality": "عنف الشرطة",
         "prison healthcare": "طب إصلاحي",
         "quindío department": "إدارة كوينديو",
@@ -158,8 +157,7 @@
     },
     "military": {
         "army of republika srpska": "جيش جمهورية صرب البوسنة",
-        "international freedom battalion": "تابور الحرية العالمي",
-        "islamic republic of iran navy": "القوة البحرية لجيش الجمهورية الإسلامية الإيرانية"
+        "international freedom battalion": "تابور الحرية العالمي"
     },
     "mythology_religion": {
         "inuit religion": "ميثولوجيا الإنويت",

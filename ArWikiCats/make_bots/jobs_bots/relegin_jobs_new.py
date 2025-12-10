@@ -37,7 +37,7 @@ NAT_BEFORE_OCC_BASE = [
 
 @functools.lru_cache(maxsize=1)
 def _load_womens_bot() -> MultiDataFormatterBase:
-    relegins_data = {x: v["females"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("females")}
+    religions_data = {x: v["females"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("females")}
 
     female_formatted_data = {
         "female {job_en}": "{job_ar}",
@@ -66,7 +66,7 @@ def _load_womens_bot() -> MultiDataFormatterBase:
 
     return format_multi_data(
         formatted_data=formatted_data,
-        data_list=relegins_data,
+        data_list=religions_data,
         key_placeholder="{rele_en}",
         value_placeholder="{rele_ar}",
         data_list2=jobs_mens_data,
@@ -78,7 +78,7 @@ def _load_womens_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=1)
 def _load_mens_bot() -> MultiDataFormatterBase:
-    relegins_data = {x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")}
+    religions_data = {x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")}
 
     formatted_data = {
         "people {job_en}": "{job_ar}",
@@ -118,7 +118,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
 
     return format_multi_data(
         formatted_data=formatted_data,
-        data_list=relegins_data,
+        data_list=religions_data,
         key_placeholder="{rele_en}",
         value_placeholder="{rele_ar}",
         data_list2=jobs_mens_data,
@@ -149,9 +149,9 @@ def mens_result(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def new_relegins_jobs_with_suffix(category: str) -> str:
+def new_religions_jobs_with_suffix(category: str) -> str:
     """
     """
-    logger.debug(f"\t xx start: <<lightred>>try_relegins_jobs_with_suffix >> <<lightpurple>> {category=}")
+    logger.debug(f"\t xx start: <<lightred>>try_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
 
     return mens_result(category) or womens_result(category)

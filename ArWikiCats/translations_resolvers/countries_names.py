@@ -6,6 +6,8 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
+    "police of {en}": "شرطة {ar}",
+    "army of {en}": "جيش {ar}",
     "national congress ({en})": "المؤتمر الوطني ({ar})",
     "national council ({en})": "المجلس الوطني ({ar})",
     "national assembly ({en})": "الجمعية الوطنية ({ar})",

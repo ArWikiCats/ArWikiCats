@@ -50,6 +50,62 @@ def build_nationality_structure(val):
 # =====================================================================
 
 
+raw_sub_nat_additional_to_check = {
+    "muslims": {
+        "male": "مسلم",
+        "males": "مسلمون",
+        "female": "مسلمة",
+        "females": "مسلمات",
+        "en": "",
+        "ar": "الإسلام",
+        "the_female": "المسلمة",
+        "the_male": "المسلم"
+    },
+    "muslim": {
+        "male": "مسلم",
+        "males": "مسلمون",
+        "female": "مسلمة",
+        "females": "مسلمات",
+        "en": "muslims",
+        "ar": "الإسلام",
+        "the_female": "المسلمة",
+        "the_male": "المسلم"
+    },
+}
+raw_sub_nat_additional = {
+    "jews": {
+        "male": "يهودي",
+        "males": "يهود",
+        "female": "يهودية",
+        "females": "يهوديات",
+        "en": "",
+        "ar": "اليهودية",
+        "the_female": "اليهودية",
+        "the_male": "اليهودي",
+    },
+    "sufi": {
+        "male": "صوفي",
+        "males": "صوفيون",
+        "female": "صوفية",
+        "females": "صوفيات",
+        "en": "",
+        "ar": "الصوفية",
+        "the_female": "الصوفية",
+        "the_male": "الصوفي"
+    },
+    "christian": {
+        "male": "مسيحي",
+        "males": "مسيحيون",
+        "female": "مسيحية",
+        "females": "مسيحيات",
+        "en": "",
+        "ar": "المسيحية",
+        "the_female": "المسيحية",
+        "the_male": "المسيحي"
+    },
+}
+
+
 def load_sources() -> Dict[str, NationalityEntry]:
     """
     Load nationality JSON data and merge All_Nat_o + uu_nats + Sub_Nat.
@@ -71,6 +127,7 @@ def load_sources() -> Dict[str, NationalityEntry]:
     # for key, val in raw_uu_nats.items(): raw_all_nat_o[key] = val
 
     data.update(raw_sub_nat)
+    data.update(raw_sub_nat_additional)
     # for key, val in raw_sub_nat.items(): raw_all_nat_o[key] = val
 
     data.update(raw_all_nat_o)
@@ -118,7 +175,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "equatorial guinean": "equatoguinean",
         "israeli": "israeli11111",
         "ivoirian": "ivorian",
-        "jewish": "jews",
         "kosovar": "kosovan",
         "lao": "laotian",
         "luxembourg": "luxembourgish",
@@ -141,6 +197,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "turkish cypriot": "northern cypriot",
         "vietnamesei": "vietnamese",
         "yemenite": "yemeni",
+        "jewish": "jews",
     }
 
     # Apply simple alias redirection

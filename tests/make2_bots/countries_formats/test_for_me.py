@@ -307,7 +307,6 @@ fast_data = [
         "output": "فرق موسيقى فانك هندية",
     },
     {"cate": "indian literature", "nat": "indian", "suffix": "literature", "output": "أدب هندي"},
-    {"cate": "indian muslims", "nat": "indian", "suffix": "muslims", "output": "مسلمون هنود"},
     {"cate": "indian politics", "nat": "indian", "suffix": "politics", "output": "السياسة الهندية"},
     {
         "cate": "indonesian rock music groups",
@@ -544,7 +543,6 @@ fast_data = [
     {"cate": "south korean sport", "nat": "south korean", "suffix": "sport", "output": "رياضة كورية جنوبية"},
     {"cate": "soviet football", "nat": "soviet", "suffix": "football", "output": "كرة القدم السوفيتية"},
     {"cate": "soviet musical groups", "nat": "soviet", "suffix": "musical groups", "output": "مجموعات موسيقية سوفيتية"},
-    {"cate": "soviet muslims", "nat": "soviet", "suffix": "muslims", "output": "مسلمون سوفيت"},
     {"cate": "soviet navy", "nat": "soviet", "suffix": "navy", "output": "البحرية السوفيتية"},
     {"cate": "spanish companies", "nat": "spanish", "suffix": "companies", "output": "شركات إسبانية"},
     {"cate": "spanish diaspora", "nat": "spanish", "suffix": "diaspora", "output": "شتات إسباني"},
@@ -570,7 +568,6 @@ fast_data = [
     },
     {"cate": "syrian sport", "nat": "syrian", "suffix": "sport", "output": "رياضة سورية"},
     {"cate": "taiwanese hip hop", "nat": "taiwanese", "suffix": "hip hop", "output": "هيب هوب تايواني"},
-    {"cate": "taiwanese muslims", "nat": "taiwanese", "suffix": "muslims", "output": "مسلمون تايوانيون"},
     {
         "cate": "tajikistani rock music groups",
         "nat": "tajikistani",
