@@ -12,7 +12,7 @@ def test_load_sources_return_type() -> None:
     data = load_sources()
     assert isinstance(data, dict)
     for v in data.values():
-        assert set(v.keys()) == {"male", "males", "female", "females", "en", "ar"}
+        assert set(v.keys()) == {"male", "males", "female", "females", "en", "ar", "the_male", "the_female"}
         assert all(isinstance(x, str) for x in v.values())
 
 

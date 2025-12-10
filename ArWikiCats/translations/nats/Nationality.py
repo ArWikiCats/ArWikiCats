@@ -33,6 +33,18 @@ AllNatDict = Dict[str, NationalityEntry]
 LookupTable = Dict[str, str]
 
 
+def build_nationality_structure(val):
+    return {
+        "male": val.get("male", ""),
+        "males": val.get("males", ""),
+        "female": val.get("female", ""),
+        "females": val.get("females", ""),
+        "en": val.get("en", ""),
+        "ar": val.get("ar", ""),
+        "the_female": val.get("the_female", ""),
+        "the_male": val.get("the_male", ""),
+    }
+
 # =====================================================================
 # Section 1: Load and prepare JSON sources
 # =====================================================================
@@ -52,29 +64,24 @@ def load_sources() -> Dict[str, NationalityEntry]:
     if raw_uu_nats.get("hindustani"):
         raw_uu_nats["hindustan"] = raw_uu_nats["hindustani"]
 
-    # Merge JSONs into All_Nat_o
-    for key, val in raw_uu_nats.items():
-        raw_all_nat_o[key] = val
+    data = {}
 
-    for key, val in raw_sub_nat.items():
-        raw_all_nat_o[key] = val
+    # Merge JSONs into All_Nat_o
+    data.update(raw_uu_nats)
+    # for key, val in raw_uu_nats.items(): raw_all_nat_o[key] = val
+
+    data.update(raw_sub_nat)
+    # for key, val in raw_sub_nat.items(): raw_all_nat_o[key] = val
+
+    data.update(raw_all_nat_o)
 
     # Convert everything to NationalityEntry ensuring all fields exist
     normalized: Dict[str, NationalityEntry] = {}
 
-    for key, val in raw_all_nat_o.items():
+    for key, val in data.items():
         # Build guaranteed structure
         val = val if isinstance(val, dict) else {}
-        entry: NationalityEntry = {
-            "male": val.get("male", ""),
-            "males": val.get("males", ""),
-            "female": val.get("female", ""),
-            "females": val.get("females", ""),
-            "en": val.get("en", ""),
-            "ar": val.get("ar", ""),
-            "the_female": val.get("the_female", ""),
-            "the_male": val.get("the_male", ""),
-        }
+        entry: NationalityEntry = build_nationality_structure(val)
 
         normalized[key] = entry
 
@@ -86,54 +93,54 @@ def load_sources() -> Dict[str, NationalityEntry]:
 # =====================================================================
 
 
-def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, NationalityEntry]:
+def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> Dict[str, NationalityEntry]:
     """
     Apply alias equivalence and one-off corrections.
     Ensures the resulting dictionary keys all map to NationalityEntry.
     """
 
     alias_map: Dict[str, str] = {
-        "equatorial guinean": "equatoguinean",
-        "south ossetian": "ossetian",
-        "republic-of-congo": "republic of congo",
-        "republic of congo": "republic of congo",
-        "democratic-republic-of-congo": "democratic republic of congo",
-        "dominican republic": "dominican republic",
-        "caribbean": "caribbeans",
-        "russians": "russian",
-        "bangladesh": "bangladeshi",
-        "yemenite": "yemeni",
-        "arabian": "arab",
-        "jewish": "jews",
-        "bosnia and herzegovina": "bosnian",
-        "turkish cypriot": "northern cypriot",
-        "somali": "somalian",
-        "saudi": "saudiarabian",
-        "canadians": "canadian",
-        "salvadoran": "salvadorean",
-        "ivoirian": "ivorian",
-        "republic-of ireland": "irish",
-        "trinidadian": "trinidad and tobago",
-        "trinidadians": "trinidad and tobago",
-        "comoran": "comorian",
-        "slovakian": "slovak",
-        "emirian": "emirati",
-        "austro-hungarian": "austrianhungarian",
-        "emiri": "emirati",
-        "roman": "romanian",
-        "ancient-roman": "ancient-romans",
         "ancient romans": "ancient-romans",
-        "mosotho": "lesotho",
-        "singapore": "singaporean",
-        "luxembourg": "luxembourgish",
-        "kosovar": "kosovan",
+        "ancient-roman": "ancient-romans",
+        "arabian": "arab",
         "argentinean": "argentine",
         "argentinian": "argentine",
-        "lao": "laotian",
+        "austro-hungarian": "austrianhungarian",
+        "bangladesh": "bangladeshi",
+        "bosnia and herzegovina": "bosnian",
+        "canadians": "canadian",
+        "caribbean": "caribbeans",
+        "comoran": "comorian",
+        "democratic-republic-of-congo": "democratic republic of congo",
+        "dominican republic": "dominican republic",
+        "emiri": "emirati",
+        "emirian": "emirati",
+        "equatorial guinean": "equatoguinean",
         "israeli": "israeli11111",
-        "slovene": "slovenian",
-        "vietnamesei": "vietnamese",
+        "ivoirian": "ivorian",
+        "jewish": "jews",
+        "kosovar": "kosovan",
+        "lao": "laotian",
+        "luxembourg": "luxembourgish",
+        "mosotho": "lesotho",
         "nepali": "nepalese",
+        "republic of congo": "republic of congo",
+        "republic-of ireland": "irish",
+        "republic-of-congo": "republic of congo",
+        "roman": "romanian",
+        "russians": "russian",
+        "salvadoran": "salvadorean",
+        "saudi": "saudiarabian",
+        "singapore": "singaporean",
+        "slovakian": "slovak",
+        "slovene": "slovenian",
+        "somali": "somalian",
+        "south ossetian": "ossetian",
+        "trinidadian": "trinidad and tobago",
+        "trinidadians": "trinidad and tobago",
+        "turkish cypriot": "northern cypriot",
+        "vietnamesei": "vietnamese",
+        "yemenite": "yemeni",
     }
 
     # Apply simple alias redirection
@@ -142,9 +149,10 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
             continue  # skip self-aliases
 
         if target in all_nat_o:
-            all_nat_o[alias] = all_nat_o[target]
+            all_nat_o[alias] = build_nationality_structure(all_nat_o[target])
         else:
-            print(f"Alias({alias}) target ({target}) not found in nationality data")
+            if _print:
+                print(f"Alias({alias}) target ({target}) not found in nationality data")
 
     # Special defined nationality
     all_nat_o["papua new guinean x "] = {
@@ -161,16 +169,8 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
     # Handle Georgia (country)
     if "georgian" in all_nat_o:
         ge = all_nat_o["georgian"]
-        all_nat_o["georgia (country)"] = {
-            "male": ge["male"],
-            "males": ge["males"],
-            "female": ge["female"],
-            "females": ge["females"],
-            "en": "georgia (country)",
-            "ar": ge["ar"],
-            "the_female": ge["the_female"],
-            "the_male": ge["the_male"]
-        }
+        all_nat_o["georgia (country)"] = build_nationality_structure(ge)
+        all_nat_o["georgia (country)"]["en"] = "georgia (country)"
 
     # Add southwest asian nationality
     all_nat_o["southwest asian"] = {
@@ -192,13 +192,13 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Natio
 # =====================================================================
 
 
-def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEntry]) -> Tuple[AllNatDict, int]:
+def build_american_forms(all_nat_o: Dict[str, NationalityEntry]) -> AllNatDict:
     """
     Build '-american' and 'x american' nationality forms.
     Returns: (updated_all_nat, count_of_added_items)
     """
 
-    count_added: int = 0
+    American_nat = {}
 
     for nat_key, entry in all_nat_o.items():
         male = entry["male"]
@@ -207,6 +207,7 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
 
         if not any([male, males, female, females]):
             continue  # skip if no gender fields present
+
         the_female, the_male = entry.get("the_female", ""), entry.get("the_male", "")
 
         new_entry: NationalityEntry = {
@@ -221,14 +222,13 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
         }
 
         key_lower = nat_key.lower()
-        all_nat[f"{key_lower}-american"] = new_entry
-        count_added += 1
+        American_nat[f"{key_lower}-american"] = new_entry
 
         # Special case
         if key_lower == "jewish":
-            all_nat[f"{key_lower} american"] = new_entry
+            American_nat[f"{key_lower} american"] = new_entry
 
-    return all_nat, count_added
+    return American_nat
 
 
 # =====================================================================
@@ -325,11 +325,12 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
 # =====================================================================
 
 All_Nat_o: Dict[str, NationalityEntry] = load_sources()
-All_Nat_o = normalize_aliases(All_Nat_o)
+All_Nat_o = normalize_aliases(All_Nat_o, True)
 
 All_Nat: AllNatDict = {k.lower(): v for k, v in All_Nat_o.items()}
 
-All_Nat, American_nat = build_american_forms(All_Nat, All_Nat_o)
+American_nat = build_american_forms(All_Nat_o)
+All_Nat.update(American_nat)
 result_tables = build_lookup_tables(All_Nat)
 
 Nat_men: LookupTable = result_tables["Nat_men"]
