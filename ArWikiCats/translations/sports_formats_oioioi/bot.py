@@ -118,21 +118,6 @@ NAT_P17_OIOI = {
 SPORT_PLACEHOLDER = "oioioi"
 LABEL_PLACEHOLDER = "ixix"
 
-NAT_P17_OIOI_ADD = {
-    "{nat} defunct oioioi coaches": "مدربو ixix {nat} سابقة",
-    "{nat} defunct oioioi competitions": "منافسات ixix {nat} سابقة",
-    "{nat} defunct oioioi cup competitions": "منافسات كؤوس ixix {nat} سابقة",
-    "{nat} oioioi championships": "بطولة {nat} ixix",
-    "{nat} oioioi clubs": "أندية ixix {nat}",
-    "{nat} oioioi coaches": "مدربو ixix {nat}",
-    "{nat} oioioi competitions": "منافسات ixix {nat}",
-    "{nat} oioioi cup competitions": "منافسات كؤوس ixix {nat}",
-    "{nat} oioioi cups": "كؤوس ixix {nat}",
-    "{nat} oioioi indoor championship": "بطولة {nat} ixix داخل الصالات",
-}
-
-NAT_P17_OIOI.update(NAT_P17_OIOI_ADD)
-
 
 @functools.lru_cache(maxsize=None)
 def _get_start_p17(cate: str, check_the: bool = False) -> Tuple[str, str]:
