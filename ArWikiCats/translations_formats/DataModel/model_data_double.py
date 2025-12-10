@@ -32,15 +32,15 @@ class FormatDataDouble(FormatDataBase):
         self.put_label_last = {}
         self.search_multi_cache = {}
 
-        self.data_pattern_double = ""
-        self.pattern_double = None
+        self.alternation: str = self.create_alternation()
+        self.pattern = self.keys_to_pattern()
 
-        self.keys_to_pattern()
+        self.pattern_double = self.keys_to_pattern_double()
 
     def update_put_label_last(self, data: list[str] | set[str]) -> None:
         self.put_label_last = data
 
-    def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
+    def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
         """Build a case-insensitive regex over lowercased keys of data_list."""
         if not self.data_list_ci:
             return None
@@ -55,14 +55,10 @@ class FormatDataDouble(FormatDataBase):
         )
 
         alternation = "|".join(map(re.escape, keys_sorted))
+        data_pattern_double = fr"(?<!\w)({alternation}) ({alternation})(?!\w)"
+        # logger.debug(f">> keys_to_pattern: {data_pattern_double}")
 
-        self.data_pattern = fr"(?<!\w)({alternation})(?!\w)"
-        self.pattern = re.compile(self.data_pattern, re.I)
-
-        self.data_pattern_double = fr"(?<!\w)({alternation}) ({alternation})(?!\w)"
-        # logger.debug(f">> keys_to_pattern: {self.data_pattern_double}")
-
-        self.pattern_double = re.compile(self.data_pattern_double, re.I)
+        return re.compile(data_pattern_double, re.I)
 
     @functools.lru_cache(maxsize=None)
     def match_key(self, category: str) -> str:

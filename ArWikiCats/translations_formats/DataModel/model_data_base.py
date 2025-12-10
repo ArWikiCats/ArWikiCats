@@ -31,9 +31,9 @@ class FormatDataBase:
         self.data_list_ci: Dict[str, Any] = {k.lower(): v for k, v in data_list.items()}
 
         self.key_placeholder = key_placeholder
-        self.data_pattern = ""
         self.alternation: str = None
         self.pattern: Optional[re.Pattern[str]] = None
+        self.pattern_double: Optional[re.Pattern[str]] = None
 
     def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
@@ -72,8 +72,8 @@ class FormatDataBase:
 
         alternation = "|".join(map(re.escape, keys_sorted))
 
-        self.data_pattern = fr"(?<!\w)({alternation})(?!\w)"
-        self.pattern = re.compile(self.data_pattern, re.I)
+        data_pattern = fr"(?<!\w)({alternation})(?!\w)"
+        self.pattern = re.compile(data_pattern, re.I)
         return self.pattern
 
     @functools.lru_cache(maxsize=None)
