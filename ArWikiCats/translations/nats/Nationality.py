@@ -118,7 +118,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "equatorial guinean": "equatoguinean",
         "israeli": "israeli11111",
         "ivoirian": "ivorian",
-        "jewish": "jews",
         "kosovar": "kosovan",
         "lao": "laotian",
         "luxembourg": "luxembourgish",

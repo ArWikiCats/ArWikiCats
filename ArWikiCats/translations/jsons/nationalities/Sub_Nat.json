@@ -1,4 +1,55 @@
 {
+    "jews": {
+        "male": "يهودي",
+        "males": "يهود",
+        "female": "يهودية",
+        "females": "يهوديات",
+        "en": "",
+        "ar": "اليهودية",
+        "the_female": "اليهودية",
+        "the_male": "اليهودي",
+        "alt": "jewish"
+    },
+    "sufi": {
+        "male": "صوفي",
+        "males": "صوفيون",
+        "female": "صوفية",
+        "females": "صوفيات",
+        "en": "",
+        "ar": "الصوفية",
+        "the_female": "الصوفية",
+        "the_male": "الصوفي"
+    },
+    "muslims": {
+        "male": "مسلم",
+        "males": "مسلمون",
+        "female": "مسلمة",
+        "females": "مسلمات",
+        "en": "",
+        "ar": "الإسلام",
+        "the_female": "المسلمة",
+        "the_male": "المسلم"
+    },
+    "muslim": {
+        "male": "مسلم",
+        "males": "مسلمون",
+        "female": "مسلمة",
+        "females": "مسلمات",
+        "en": "muslims",
+        "ar": "الإسلام",
+        "the_female": "المسلمة",
+        "the_male": "المسلم"
+    },
+    "christian": {
+        "male": "مسيحي",
+        "males": "مسيحيون",
+        "female": "مسيحية",
+        "females": "مسيحيات",
+        "en": "",
+        "ar": "المسيحية",
+        "the_female": "المسيحية",
+        "the_male": "المسيحي"
+    },
     "native americans": {
         "male": "أمريكي أصلي",
         "males": "أمريكيون أصليون",
@@ -198,56 +249,6 @@
         "ar": "أقباط",
         "the_female": "القبطية",
         "the_male": "القبطي"
-    },
-    "jews": {
-        "male": "يهودي",
-        "males": "يهود",
-        "female": "يهودية",
-        "females": "يهوديات",
-        "en": "",
-        "ar": "اليهودية",
-        "the_female": "اليهودية",
-        "the_male": "اليهودي"
-    },
-    "sufi": {
-        "male": "صوفي",
-        "males": "صوفيون",
-        "female": "صوفية",
-        "females": "صوفيات",
-        "en": "",
-        "ar": "الصوفية",
-        "the_female": "الصوفية",
-        "the_male": "الصوفي"
-    },
-    "muslims": {
-        "male": "مسلم",
-        "males": "مسلمون",
-        "female": "مسلمة",
-        "females": "مسلمات",
-        "en": "",
-        "ar": "الإسلام",
-        "the_female": "المسلمة",
-        "the_male": "المسلم"
-    },
-    "muslim": {
-        "male": "مسلم",
-        "males": "مسلمون",
-        "female": "مسلمة",
-        "females": "مسلمات",
-        "en": "muslims",
-        "ar": "الإسلام",
-        "the_female": "المسلمة",
-        "the_male": "المسلم"
-    },
-    "christian": {
-        "male": "مسيحي",
-        "males": "مسيحيون",
-        "female": "مسيحية",
-        "females": "مسيحيات",
-        "en": "",
-        "ar": "المسيحية",
-        "the_female": "المسيحية",
-        "the_male": "المسيحي"
     },
     "assyrian": {
         "male": "آشوري",
