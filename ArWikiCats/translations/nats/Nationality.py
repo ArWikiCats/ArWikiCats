@@ -236,7 +236,7 @@ def build_american_forms(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEn
 # =====================================================================
 
 
-def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEntry]) -> Dict[str, Any]:
+def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
     """
     Build all nationality lookup tables used throughout the system.
     """
@@ -263,23 +263,23 @@ def build_lookup_tables(all_nat: AllNatDict, all_nat_o: Dict[str, NationalityEnt
         ar: str = entry["ar"]
         en_norm: str = en[4:] if en.startswith("the ") else en
 
-        if entry["male"]:
+        if entry.get("male"):
             Nat_men[nat_key] = entry["male"]
             ar_Nat_men[entry["male"]] = nat_key
 
-        if entry["males"]:
+        if entry.get("males"):
             Nat_mens[nat_key] = entry["males"]
 
-        if entry["female"]:
+        if entry.get("female"):
             Nat_women[nat_key] = entry["female"]
 
-        if entry["females"]:
+        if entry.get("females"):
             Nat_Womens[nat_key] = entry["females"]
 
-        if entry["the_female"]:
+        if entry.get("the_female"):
             Nat_the_female[nat_key] = entry["the_female"]
 
-        if entry["the_male"]:
+        if entry.get("the_male"):
             Nat_the_male[nat_key] = entry["the_male"]
 
         # English → Arabic country mapping
@@ -330,7 +330,7 @@ All_Nat_o = normalize_aliases(All_Nat_o)
 All_Nat: AllNatDict = {k.lower(): v for k, v in All_Nat_o.items()}
 
 All_Nat, American_nat = build_american_forms(All_Nat, All_Nat_o)
-result_tables = build_lookup_tables(All_Nat, All_Nat_o)
+result_tables = build_lookup_tables(All_Nat)
 
 Nat_men: LookupTable = result_tables["Nat_men"]
 Nat_mens: LookupTable = result_tables["Nat_mens"]

@@ -75,13 +75,13 @@ def test_jewish_american() -> None:
 
 def test_lookup_nat_men() -> None:
     nat = {"yemeni": {"male": "يمني", "males": "", "female": "", "females": "", "en": "yemen", "ar": "اليمن"}}
-    out = build_lookup_tables(nat, nat)
+    out = build_lookup_tables(nat)
     assert out["Nat_men"]["yemeni"] == "يمني"
 
 
 def test_country_mapping() -> None:
     nat = {"yemeni": {"male": "يمني", "males": "", "female": "", "females": "", "en": "yemen", "ar": "اليمن"}}
-    out = build_lookup_tables(nat, nat)
+    out = build_lookup_tables(nat)
     assert out["countries_from_nat"]["yemen"] == "اليمن"
 
 
@@ -89,7 +89,7 @@ def test_the_country_normalization() -> None:
     nat = {
         "british": {"male": "بريطاني", "males": "", "female": "", "females": "", "en": "the uk", "ar": "المملكة المتحدة"}
     }
-    out = build_lookup_tables(nat, nat)
+    out = build_lookup_tables(nat)
     assert out["countries_from_nat"]["uk"] == "المملكة المتحدة"
 
 
@@ -98,7 +98,7 @@ def test_full_pipeline() -> None:
 
     all_nat = {k.lower(): v for k, v in raw.items()}
     all_nat, cnt = build_american_forms(all_nat, raw)
-    out = build_lookup_tables(all_nat, raw)
+    out = build_lookup_tables(all_nat)
 
     assert "yemeni-american" in all_nat
     assert out["Nat_men"]["yemeni"] == "يمني"
@@ -114,5 +114,5 @@ def test_empty_values_handled() -> None:
 
 def test_uppercase_english_normalized() -> None:
     raw = {"Italian": {"male": "إيطالي", "males": "", "female": "", "females": "", "en": "ITALY", "ar": "إيطاليا"}}
-    out = build_lookup_tables(raw, raw)
+    out = build_lookup_tables(raw)
     assert "italy" in out["countries_from_nat"]
