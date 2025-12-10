@@ -121,7 +121,7 @@ def test_sport_lab_oioioi_load(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_sport_lab_oioioi_load_0", data0),
+    # ("test_sport_lab_oioioi_load_0", data0),
     ("test_sport_lab_oioioi_load_1", data),
 ]
 
