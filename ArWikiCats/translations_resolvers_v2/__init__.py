@@ -22,7 +22,7 @@ def resolved_translations_resolvers_v2(normalized_category) -> str:
         resolved_label = nats_v2.resolve_by_nats(normalized_category)
 
     if not resolved_label:
-        resolved_label = nats_time_v2.resolve_nat_women_time_pattern(normalized_category)
+        resolved_label = nats_time_v2.resolve_nats_time_v2(normalized_category)
 
     return resolved_label
 

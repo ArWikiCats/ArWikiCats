@@ -13,6 +13,8 @@ from ..translations_formats import (
     MultiDataFormatterBaseYearV2,
 )
 
+from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
+
 
 @functools.lru_cache(maxsize=1)
 def _bot_new() -> MultiDataFormatterBaseYearV2:
@@ -41,7 +43,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_nat_women_time_pattern(category: str) -> str:
+def resolve_nats_time_v2(category: str) -> str:
     yc_bot = _bot_new()
 
     normalized_category = category.lower().replace("category:", "")
@@ -54,5 +56,5 @@ def resolve_nat_women_time_pattern(category: str) -> str:
 
 
 __all__ = [
-    "resolve_nat_women_time_pattern",
+    "resolve_nats_time_v2",
 ]

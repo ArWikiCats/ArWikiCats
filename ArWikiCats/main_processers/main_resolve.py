@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from . import event2bot, event_lab_bot, nat_men_pattern
 from .labs_years import LabsYears
 from .country_time_pattern import resolve_country_time_pattern
-from ..translations_resolvers_v2.nats_time_v2 import resolve_nat_women_time_pattern
+from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
 from ..config import app_settings
 from ..fix import fixtitle
 from ..make_bots.co_bots import filter_en
