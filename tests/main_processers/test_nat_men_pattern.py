@@ -56,7 +56,7 @@ _mens_data = {
     # {en_nat} lgbtq people
     "albanian lgbtq people": "أعلام إل جي بي تي كيو ألبان",
     "bangladeshi lgbtq people": "أعلام إل جي بي تي كيو بنغلاديشيون",
-    "german lgbtq people": "أعلام إل جي بي تي كيو ألمان",
+    "east german lgbtq people": "أعلام إل جي بي تي كيو ألمانيون شرقيون",
     "jamaican lgbtq people": "أعلام إل جي بي تي كيو جامايكيون",
     "norwegian lgbtq people": "أعلام إل جي بي تي كيو نرويجيون",
     "sierra leonean lgbtq people": "أعلام إل جي بي تي كيو سيراليونيون",
@@ -68,410 +68,408 @@ _mens_data = {
     # {en_nat} political people
     "libyan political people": "ساسة ليبيون",
     "south african political people": "ساسة جنوب إفريقيون",
-    "egyptian political people": "ساسة مصريون",
+    "central african republic political people": "ساسة أفارقة أوسطيون",
 
     # {en_nat} people by occupation
-    "german people by occupation": "ألمان حسب المهنة",
-    "egyptian people by occupation": "مصريون حسب المهنة",
+    "bissau-guinean people by occupation": "غينيون بيساويون حسب المهنة",
+    "equatoguinean people by occupation": "غينيون استوائيون حسب المهنة",
 
     # {en_nat} sports-people
-    "german sports-people": "رياضيون ألمان",
-    "egyptian sports-people": "رياضيون مصريون",
+    "east timorese sports-people": "رياضيون تيموريون شرقيون",
+    "dominican republic sports-people": "رياضيون دومينيكانيون",
     "brazilian sports-people": "رياضيون برازيليون",
 
     # {en_nat} men
-    "german men": "رجال ألمان",
-    "egyptian men": "رجال مصريون",
+    "czechoslovak men": "رجال تشيكوسلوفاكيون",
+    "bosnia and herzegovina men": "رجال بوسنيون",
 
     # {en_nat} sportsmen
-    "german sportsmen": "رياضيون رجال ألمان",
-    "egyptian sportsmen": "رياضيون رجال مصريون",
+    "anglo-irish sportsmen": "رياضيون رجال أنجلو إيرلنديون",
+    "ancient-romans sportsmen": "رياضيون رجال رومان قدماء",
 
     # {en_nat} people in sports
-    "german people in sports": "ألمان في ألعاب رياضية",
-    "egyptian people in sports": "مصريون في ألعاب رياضية",
+    "chinese taipei people in sports": "تايبيون صينيون في ألعاب رياضية",
+    "democratic-republic-of-congo people in sports": "كونغويون ديمقراطيون في ألعاب رياضية",
 
     # {en_nat} people by ethnic or national origin
-    "german people by ethnic or national origin": "ألمان حسب الأصل العرقي أو الوطني",
-    "egyptian people by ethnic or national origin": "مصريون حسب الأصل العرقي أو الوطني",
+    "central american people by ethnic or national origin": "أمريكيون أوسطيون حسب الأصل العرقي أو الوطني",
+    "eastern asian people by ethnic or national origin": "آسيويين شرقيون حسب الأصل العرقي أو الوطني",
 
     # {en_nat} expatriates
-    "german expatriates": "ألمان مغتربون",
-    "egyptian expatriates": "مصريون مغتربون",
+    "eastern european expatriates": "أوروبيون شرقيون مغتربون",
+    "central asian expatriates": "آسيويين أوسطيون مغتربون",
 
     # {en_nat} men by occupation
-    "german men by occupation": "رجال ألمان حسب المهنة",
-    "egyptian men by occupation": "رجال مصريون حسب المهنة",
+    "federated states-of micronesia men by occupation": "رجال ميكرونيزيون حسب المهنة",
+    "equatorial guinean men by occupation": "رجال غينيون استوائيون حسب المهنة",
 
     # {en_nat} people by descent
-    "german people by descent": "ألمان حسب الأصل العرقي أو الوطني",
-    "egyptian people by descent": "مصريون حسب الأصل العرقي أو الوطني",
+    "bissau-guinean people by descent": "غينيون بيساويون حسب الأصل العرقي أو الوطني",
+    "east german people by descent": "ألمانيون شرقيون حسب الأصل العرقي أو الوطني",
 
     # {en_nat} writers
-    "german writers": "كتاب ألمان",
-    "egyptian writers": "كتاب مصريون",
+    "ancient-romans writers": "كتاب رومان قدماء",
+    "anglo-irish writers": "كتاب أنجلو إيرلنديون",
 
     # {en_nat} politicians
-    "german politicians": "سياسيون ألمان",
-    "egyptian politicians": "سياسيون مصريون",
+    "czechoslovak politicians": "سياسيون تشيكوسلوفاكيون",
+    "bosnia and herzegovina politicians": "سياسيون بوسنيون",
 
     # {en_nat} sports-people by sport
-    "german sports-people by sport": "رياضيون ألمان حسب الرياضة",
-    "egyptian sports-people by sport": "رياضيون مصريون حسب الرياضة",
+    "chinese taipei sports-people by sport": "رياضيون تايبيون صينيون حسب الرياضة",
+    "democratic-republic-of-congo sports-people by sport": "رياضيون كونغويون ديمقراطيون حسب الرياضة",
 
     # {en_nat} expatriate sports-people
-    "german expatriate sports-people": "رياضيون ألمان مغتربون",
-    "egyptian expatriate sports-people": "رياضيون مصريون مغتربون",
+    "dominican republic expatriate sports-people": "رياضيون دومينيكانيون مغتربون",
+    "east timorese expatriate sports-people": "رياضيون تيموريون شرقيون مغتربون",
 
     # {en_nat} musicians
-    "german musicians": "موسيقيون ألمان",
-    "egyptian musicians": "موسيقيون مصريون",
+    "central african republic musicians": "موسيقيون أفارقة أوسطيون",
+    "equatoguinean musicians": "موسيقيون غينيون استوائيون",
 
     # {en_nat} people by religion
-    "german people by religion": "ألمان حسب الدين",
-    "egyptian people by religion": "مصريون حسب الدين",
+    "eastern asian people by religion": "آسيويين شرقيون حسب الدين",
+    "central asian people by religion": "آسيويين أوسطيون حسب الدين",
 
     # {en_nat} expatriate sports-people by country of residence
-    "german expatriate sports-people by country of residence": "رياضيون ألمان مغتربون حسب بلد الإقامة",
-    "egyptian expatriate sports-people by country of residence": "رياضيون مصريون مغتربون حسب بلد الإقامة",
+    "bissau-guinean expatriate sports-people by country of residence": "رياضيون غينيون بيساويون مغتربون حسب بلد الإقامة",
+    "anglo-irish expatriate sports-people by country of residence": "رياضيون أنجلو إيرلنديون مغتربون حسب بلد الإقامة",
 
     # {en_nat} men's footballers
-    "german men's footballers": "لاعبو كرة قدم ألمان",
-    "egyptian men's footballers": "لاعبو كرة قدم مصريون",
+    "east german men's footballers": "لاعبو كرة قدم ألمانيون شرقيون",
+    "czechoslovak men's footballers": "لاعبو كرة قدم تشيكوسلوفاكيون",
 
     # {en_nat} diplomats
-    "german diplomats": "دبلوماسيون ألمان",
-    "egyptian diplomats": "دبلوماسيون مصريون",
+    "ancient-romans diplomats": "دبلوماسيون رومان قدماء",
+    "bosnia and herzegovina diplomats": "دبلوماسيون بوسنيون",
 
     # {en_nat} emigrants
-    "german emigrants": "ألمان مهاجرون",
-    "egyptian emigrants": "مصريون مهاجرون",
+    "chinese taipei emigrants": "تايبيون صينيون مهاجرون",
+    "democratic-republic-of-congo emigrants": "كونغويون ديمقراطيون مهاجرون",
 
     # {en_nat} expatriate men's footballers
-    "german expatriate men's footballers": "لاعبو كرة قدم ألمان مغتربون",
-    "egyptian expatriate men's footballers": "لاعبو كرة قدم مصريون مغتربون",
+    "dominican republic expatriate men's footballers": "لاعبو كرة قدم دومينيكانيون مغتربون",
+    "equatorial guinean expatriate men's footballers": "لاعبو كرة قدم غينيون استوائيون مغتربون",
 
     # {en_nat} people by century
-    "german people by century": "ألمان حسب القرن",
-    "egyptian people by century": "مصريون حسب القرن",
+    "ancient-romans people by century": "رومان قدماء حسب القرن",
+    "eastern european people by century": "أوروبيون شرقيون حسب القرن",
 
     # {en_nat} people by political orientation
-    "german people by political orientation": "ألمان حسب التوجه السياسي",
-    "egyptian people by political orientation": "مصريون حسب التوجه السياسي",
+    "central american people by political orientation": "أمريكيون أوسطيون حسب التوجه السياسي",
+    "central asian people by political orientation": "آسيويين أوسطيون حسب التوجه السياسي",
 
     # {en_nat} military personnel
-    "german military personnel": "عسكريون ألمان",
-    "egyptian military personnel": "عسكريون مصريون",
+    "east timorese military personnel": "عسكريون تيموريون شرقيون",
+    "federated states-of micronesia military personnel": "عسكريون ميكرونيزيون",
 
     # {en_nat} activists
-    "german activists": "ناشطون ألمان",
-    "egyptian activists": "ناشطون مصريون",
+    "bissau-guinean activists": "ناشطون غينيون بيساويون",
+    "anglo-irish activists": "ناشطون أنجلو إيرلنديون",
 
     # {en_nat} lawyers
-    "german lawyers": "محامون ألمان",
-    "egyptian lawyers": "محامون مصريون",
+    "czechoslovak lawyers": "محامون تشيكوسلوفاكيون",
+    "east german lawyers": "محامون ألمانيون شرقيون",
 
     # {en_nat} athletes
-    "german athletes": "لاعبو قوى ألمان",
-    "egyptian athletes": "لاعبو قوى مصريون",
+    "bosnia and herzegovina athletes": "لاعبو قوى بوسنيون",
+    "chinese taipei athletes": "لاعبو قوى تايبيون صينيون",
 
     # {en_nat} football managers
-    "german football managers": "مدربو كرة قدم ألمان",
-    "egyptian football managers": "مدربو كرة قدم مصريون",
+    "democratic-republic-of-congo football managers": "مدربو كرة قدم كونغويون ديمقراطيون",
+    "dominican republic football managers": "مدربو كرة قدم دومينيكانيون",
 
     # {en_nat} martial artists
-    "german martial artists": "ممارسو وممارسات فنون قتالية ألمان",
-    "egyptian martial artists": "ممارسو وممارسات فنون قتالية مصريون",
+    "eastern asian martial artists": "ممارسو وممارسات فنون قتالية آسيويين شرقيون",
+    "equatoguinean martial artists": "ممارسو وممارسات فنون قتالية غينيون استوائيون",
 
     # {en_nat} prisoners and detainees
-    "german prisoners and detainees": "سجناء ومعتقلون ألمان",
-    "egyptian prisoners and detainees": "سجناء ومعتقلون مصريون",
+    "central african republic prisoners and detainees": "سجناء ومعتقلون أفارقة أوسطيون",
+    "equatorial guinean prisoners and detainees": "سجناء ومعتقلون غينيون استوائيون",
 
     # {en_nat} scientists
-    "german scientists": "علماء ألمان",
-    "egyptian scientists": "علماء مصريون",
+    "ancient-romans scientists": "علماء رومان قدماء",
+    "eastern european scientists": "علماء أوروبيون شرقيون",
 
     # {en_nat} artists
-    "german artists": "فنانون ألمان",
-    "egyptian artists": "فنانون مصريون",
+    "central american artists": "فنانون أمريكيون أوسطيون",
+    "central asian artists": "فنانون آسيويين أوسطيون",
 
     # {en_nat} swimmers
-    "german swimmers": "سباحون ألمان",
-    "egyptian swimmers": "سباحون مصريون",
+    "east timorese swimmers": "سباحون تيموريون شرقيون",
+    "federated states-of micronesia swimmers": "سباحون ميكرونيزيون",
 
     # {en_nat} journalists
-    "german journalists": "صحفيون ألمان",
-    "egyptian journalists": "صحفيون مصريون",
+    "bissau-guinean journalists": "صحفيون غينيون بيساويون",
+    "anglo-irish journalists": "صحفيون أنجلو إيرلنديون",
 
     # {en_nat} runners
-    "german runners": "عداؤون ألمان",
-    "egyptian runners": "عداؤون مصريون",
+    "czechoslovak runners": "عداؤون تشيكوسلوفاكيون",
+    "east german runners": "عداؤون ألمانيون شرقيون",
 
     # {en_nat} poets
-    "german poets": "شعراء ألمان",
-    "egyptian poets": "شعراء مصريون",
+    "bosnia and herzegovina poets": "شعراء بوسنيون",
+    "chinese taipei poets": "شعراء تايبيون صينيون",
 
     # {en_nat} people by occupation and century
-    "german people by occupation and century": "ألمان حسب المهنة والقرن",
-    "egyptian people by occupation and century": "مصريون حسب المهنة والقرن",
+    "democratic-republic-of-congo people by occupation and century": "كونغويون ديمقراطيون حسب المهنة والقرن",
+    "dominican republic people by occupation and century": "دومينيكانيون حسب المهنة والقرن",
 
     # {en_nat} film directors
-    "german film directors": "مخرجو أفلام ألمان",
-    "egyptian film directors": "مخرجو أفلام مصريون",
+    "eastern asian film directors": "مخرجو أفلام آسيويين شرقيون",
+    "equatoguinean film directors": "مخرجو أفلام غينيون استوائيون",
 
     # {en_nat} educators
-    "german educators": "معلمون ألمان",
-    "egyptian educators": "معلمون مصريون",
+    "central african republic educators": "معلمون أفارقة أوسطيون",
+    "equatorial guinean educators": "معلمون غينيون استوائيون",
 
     # {en_nat} competitors by sports event
-    "german competitors by sports event": "منافسون ألمان حسب الحدث الرياضي",
-    "egyptian competitors by sports event": "منافسون مصريون حسب الحدث الرياضي",
+    "ancient-romans competitors by sports event": "منافسون رومان قدماء حسب الحدث الرياضي",
+    "eastern european competitors by sports event": "منافسون أوروبيون شرقيون حسب الحدث الرياضي",
 
     # {en_nat} academics
-    "german academics": "أكاديميون ألمان",
-    "egyptian academics": "أكاديميون مصريون",
+    "central american academics": "أكاديميون أمريكيون أوسطيون",
+    "central asian academics": "أكاديميون آسيويين أوسطيون",
 
     # {en_nat} novelists
-    "german novelists": "روائيون ألمان",
-    "egyptian novelists": "روائيون مصريون",
+    "east timorese novelists": "روائيون تيموريون شرقيون",
+    "federated states-of micronesia novelists": "روائيون ميكرونيزيون",
 
     # {en_nat} sprinters
-    "german sprinters": "عداؤون سريعون ألمان",
-    "egyptian sprinters": "عداؤون سريعون مصريون",
+    "bissau-guinean sprinters": "عداؤون سريعون غينيون بيساويون",
+    "anglo-irish sprinters": "عداؤون سريعون أنجلو إيرلنديون",
 
     # {en_nat} criminals
-    "german criminals": "مجرمون ألمان",
-    "egyptian criminals": "مجرمون مصريون",
+    "czechoslovak criminals": "مجرمون تشيكوسلوفاكيون",
+    "east german criminals": "مجرمون ألمانيون شرقيون",
 
     # {en_nat} murder victims
-    "german murder victims": "ضحايا قتل ألمان",
-    "egyptian murder victims": "ضحايا قتل مصريون",
+    "bosnia and herzegovina murder victims": "ضحايا قتل بوسنيون",
+    "chinese taipei murder victims": "ضحايا قتل تايبيون صينيون",
 
     # {en_nat} roman catholics
-    "german roman catholics": "رومان كاثوليك ألمان",
-    "egyptian roman catholics": "رومان كاثوليك مصريون",
+    "democratic-republic-of-congo roman catholics": "رومان كاثوليك كونغويون ديمقراطيون",
+    "dominican republic roman catholics": "رومان كاثوليك دومينيكانيون",
 
     # {en_nat} religious leaders
-    "german religious leaders": "قادة دينيون ألمان",
-    "egyptian religious leaders": "قادة دينيون مصريون",
+    "eastern asian religious leaders": "قادة دينيون آسيويين شرقيون",
+    "equatoguinean religious leaders": "قادة دينيون غينيون استوائيون",
 
     # {en_nat} socialists
-    "german socialists": "اشتراكيون ألمان",
-    "egyptian socialists": "اشتراكيون مصريون",
+    "central african republic socialists": "اشتراكيون أفارقة أوسطيون",
+    "equatorial guinean socialists": "اشتراكيون غينيون استوائيون",
 
     # {en_nat} judges
-    "german judges": "قضاة ألمان",
-    "egyptian judges": "قضاة مصريون",
+    "ancient-romans judges": "قضاة رومان قدماء",
+    "eastern european judges": "قضاة أوروبيون شرقيون",
 
     # {en_nat} victims of crime
-    "german victims of crime": "ضحايا جرائم ألمان",
-    "egyptian victims of crime": "ضحايا جرائم مصريون",
+    "central american victims of crime": "ضحايا جرائم أمريكيون أوسطيون",
+    "central asian victims of crime": "ضحايا جرائم آسيويين أوسطيون",
 
     # {en_nat} economists
-    "german economists": "اقتصاديون ألمان",
-    "egyptian economists": "اقتصاديون مصريون",
+    "east timorese economists": "اقتصاديون تيموريون شرقيون",
+    "federated states-of micronesia economists": "اقتصاديون ميكرونيزيون",
 
     # {en_nat} mass media people
-    "german mass media people": "إعلاميون ألمان",
-    "egyptian mass media people": "إعلاميون مصريون",
+    "bissau-guinean mass media people": "إعلاميون غينيون بيساويون",
+    "anglo-irish mass media people": "إعلاميون أنجلو إيرلنديون",
 
     # {en_nat} people by century and occupation
-    "german people by century and occupation": "ألمان حسب القرن والمهنة",
-    "egyptian people by century and occupation": "مصريون حسب القرن والمهنة",
+    "czechoslovak people by century and occupation": "تشيكوسلوفاكيون حسب القرن والمهنة",
+    "east german people by century and occupation": "ألمانيون شرقيون حسب القرن والمهنة",
 
     # {en_nat} writers by century
-    "german writers by century": "كتاب ألمان حسب القرن",
-    "egyptian writers by century": "كتاب مصريون حسب القرن",
+    "bosnia and herzegovina writers by century": "كتاب بوسنيون حسب القرن",
+    "chinese taipei writers by century": "كتاب تايبيون صينيون حسب القرن",
 
     # {en_nat} freestyle swimmers
-    "german freestyle swimmers": "سباحو تزلج حر ألمان",
-    "egyptian freestyle swimmers": "سباحو تزلج حر مصريون",
+    "democratic-republic-of-congo freestyle swimmers": "سباحو تزلج حر كونغويون ديمقراطيون",
+    "dominican republic freestyle swimmers": "سباحو تزلج حر دومينيكانيون",
 
     # {en_nat} politicians by century
-    "german politicians by century": "سياسيون ألمان حسب القرن",
-    "egyptian politicians by century": "سياسيون مصريون حسب القرن",
+    "eastern asian politicians by century": "سياسيون آسيويين شرقيون حسب القرن",
+    "equatoguinean politicians by century": "سياسيون غينيون استوائيون حسب القرن",
 
     # {en_nat} men's basketball players
-    "german men's basketball players": "لاعبو كرة سلة ألمان",
-    "egyptian men's basketball players": "لاعبو كرة سلة مصريون",
+    "central african republic men's basketball players": "لاعبو كرة سلة أفارقة أوسطيون",
+    "equatorial guinean men's basketball players": "لاعبو كرة سلة غينيون استوائيون",
 
     # {en_nat} human rights activists
-    "german human rights activists": "ألمان ناشطون في حقوق الإنسان",
-    "egyptian human rights activists": "مصريون ناشطون في حقوق الإنسان",
+    "ancient-romans human rights activists": "رومان قدماء ناشطون في حقوق الإنسان",
+    "eastern european human rights activists": "أوروبيون شرقيون ناشطون في حقوق الإنسان",
 
     # {en_nat} composers
-    "german composers": "ملحنون ألمان",
-    "egyptian composers": "ملحنون مصريون",
+    "central american composers": "ملحنون أمريكيون أوسطيون",
+    "central asian composers": "ملحنون آسيويين أوسطيون",
 
     # {en_nat} physicians
-    "german physicians": "أطباء ألمان",
-    "egyptian physicians": "أطباء مصريون",
+    "east timorese physicians": "أطباء تيموريون شرقيون",
+    "federated states-of micronesia physicians": "أطباء ميكرونيزيون",
 
     # {en_nat} feminists
-    "german feminists": "نسويون ألمان",
-    "egyptian feminists": "نسويون مصريون",
+    "bissau-guinean feminists": "نسويون غينيون بيساويون",
+    "anglo-irish feminists": "نسويون أنجلو إيرلنديون",
 
     # {en_nat} historians
-    "german historians": "مؤرخون ألمان",
-    "egyptian historians": "مؤرخون مصريون",
+    "czechoslovak historians": "مؤرخون تشيكوسلوفاكيون",
+    "east german historians": "مؤرخون ألمانيون شرقيون",
 
     # {en_nat} communists
-    "german communists": "شيوعيون ألمان",
-    "egyptian communists": "شيوعيون مصريون",
+    "bosnia and herzegovina communists": "شيوعيون بوسنيون",
+    "chinese taipei communists": "شيوعيون تايبيون صينيون",
 
     # {en_nat} people of german descent
     "american people of german descent": "أمريكيون من أصل ألماني",
     "brazilian people of german descent": "برازيليون من أصل ألماني",
 
     # executed {en_nat} people
-    "executed german people": "ألمان معدومون",
-    "executed egyptian people": "مصريون معدومون",
+    "executed democratic-republic-of-congo people": "كونغويون ديمقراطيون معدومون",
+    "executed dominican republic people": "دومينيكانيون معدومون",
 
     # {en_nat} models
-    "german models": "عارضو أزياء ألمان",
-    "egyptian models": "عارضو أزياء مصريون",
+    "eastern asian models": "عارضو أزياء آسيويين شرقيون",
+    "equatoguinean models": "عارضو أزياء غينيون استوائيون",
 
     # {en_nat} painters
-    "german painters": "رسامون ألمان",
-    "egyptian painters": "رسامون مصريون",
+    "central african republic painters": "رسامون أفارقة أوسطيون",
+    "equatorial guinean painters": "رسامون غينيون استوائيون",
 
     # {en_nat} bankers
-    "german bankers": "مصرفيون ألمان",
-    "egyptian bankers": "مصرفيون مصريون",
+    "ancient-romans bankers": "مصرفيون رومان قدماء",
+    "eastern european bankers": "مصرفيون أوروبيون شرقيون",
 
     # {en_nat} people with disabilities
-    "german people with disabilities": "ألمان بإعاقات",
-    "egyptian people with disabilities": "مصريون بإعاقات",
+    "central american people with disabilities": "أمريكيون أوسطيون بإعاقات",
+    "central asian people with disabilities": "آسيويين أوسطيون بإعاقات",
 
     # assassinated {en_nat} people
-    "assassinated german people": "ألمان مغتالون",
-    "assassinated egyptian people": "مصريون مغتالون",
+    "assassinated east timorese people": "تيموريون شرقيون مغتالون",
+    "assassinated federated states-of micronesia people": "ميكرونيزيون مغتالون",
 
     # {en_nat} jews
-    "german jews": "يهود ألمان",
-    "egyptian jews": "يهود مصريون",
+    "bissau-guinean jews": "يهود غينيون بيساويون",
+    "anglo-irish jews": "يهود أنجلو إيرلنديون",
 
     # {en_nat} theatre people
-    "german theatre people": "مسرحيون ألمان",
-    "egyptian theatre people": "مسرحيون مصريون",
+    "czechoslovak theatre people": "مسرحيون تشيكوسلوفاكيون",
+    "east german theatre people": "مسرحيون ألمانيون شرقيون",
 
     # {en_nat} anti-communists
-    "german anti-communists": "ألمان مناهضون للشيوعية",
-    "egyptian anti-communists": "مصريون مناهضون للشيوعية",
+    "bosnia and herzegovina anti-communists": "بوسنيون مناهضون للشيوعية",
+    "chinese taipei anti-communists": "تايبيون صينيون مناهضون للشيوعية",
 
     # {en_nat} prisoners sentenced to death
-    "german prisoners sentenced to death": "مسجونون ألمان حكم عليهم بالإعدام",
-    "egyptian prisoners sentenced to death": "مسجونون مصريون حكم عليهم بالإعدام",
+    "democratic-republic-of-congo prisoners sentenced to death": "مسجونون كونغويون ديمقراطيون حكم عليهم بالإعدام",
+    "dominican republic prisoners sentenced to death": "مسجونون دومينيكانيون حكم عليهم بالإعدام",
 
     # {en_nat} designers
-    "german designers": "مصممون ألمان",
-    "egyptian designers": "مصممون مصريون",
+    "eastern asian designers": "مصممون آسيويين شرقيون",
+    "equatoguinean designers": "مصممون غينيون استوائيون",
 
     # {en_nat} engineers
-    "german engineers": "مهندسون ألمان",
-    "egyptian engineers": "مهندسون مصريون",
+    "central african republic engineers": "مهندسون أفارقة أوسطيون",
+    "equatorial guinean engineers": "مهندسون غينيون استوائيون",
 
     # {en_nat} short story writers
-    "german short story writers": "كتاب قصة قصيرة ألمان",
-    "egyptian short story writers": "كتاب قصة قصيرة مصريون",
+    "ancient-romans short story writers": "كتاب قصة قصيرة رومان قدماء",
+    "eastern european short story writers": "كتاب قصة قصيرة أوروبيون شرقيون",
 
     # {en_nat} actors by century
-    "german actors by century": "ممثلون ألمان حسب القرن",
-    "egyptian actors by century": "ممثلون مصريون حسب القرن",
+    "central american actors by century": "ممثلون أمريكيون أوسطيون حسب القرن",
+    "central asian actors by century": "ممثلون آسيويين أوسطيون حسب القرن",
 
     # {en_nat} murderers
-    "german murderers": "قتلة ألمان",
-    "egyptian murderers": "قتلة مصريون",
+    "east timorese murderers": "قتلة تيموريون شرقيون",
+    "federated states-of micronesia murderers": "قتلة ميكرونيزيون",
 
     # {en_nat} producers
-    "german producers": "منتجون ألمان",
-    "egyptian producers": "منتجون مصريون",
+    "bissau-guinean producers": "منتجون غينيون بيساويون",
+    "anglo-irish producers": "منتجون أنجلو إيرلنديون",
 
     # {en_nat} musicians by instrument
-    "german musicians by instrument": "موسيقيون ألمان حسب الآلة",
-    "egyptian musicians by instrument": "موسيقيون مصريون حسب الآلة",
+    "czechoslovak musicians by instrument": "موسيقيون تشيكوسلوفاكيون حسب الآلة",
+    "east german musicians by instrument": "موسيقيون ألمانيون شرقيون حسب الآلة",
 
     # {en_nat} architects
-    "german architects": "معماريون ألمان",
-    "egyptian architects": "معماريون مصريون",
+    "bosnia and herzegovina architects": "معماريون بوسنيون",
+    "chinese taipei architects": "معماريون تايبيون صينيون",
 
     # {en_nat} generals
-    "german generals": "جنرالات ألمان",
-    "egyptian generals": "جنرالات مصريون",
+    "democratic-republic-of-congo generals": "جنرالات كونغويون ديمقراطيون",
+    "dominican republic generals": "جنرالات دومينيكانيون",
 
     # {en_nat} long-distance runners
-    "german long-distance runners": "عداؤو مسافات طويلة ألمان",
-    "egyptian long-distance runners": "عداؤو مسافات طويلة مصريون",
+    "eastern asian long-distance runners": "عداؤو مسافات طويلة آسيويين شرقيون",
+    "equatoguinean long-distance runners": "عداؤو مسافات طويلة غينيون استوائيون",
 
     # {en_nat} middle-distance runners
-    "german middle-distance runners": "عداؤو مسافات متوسطة ألمان",
-    "egyptian middle-distance runners": "عداؤو مسافات متوسطة مصريون",
+    "central african republic middle-distance runners": "عداؤو مسافات متوسطة أفارقة أوسطيون",
+    "equatorial guinean middle-distance runners": "عداؤو مسافات متوسطة غينيون استوائيون",
 
     # {en_nat} civil servants
-    "german civil servants": "موظفو خدمة مدنية ألمان",
-    "egyptian civil servants": "موظفو خدمة مدنية مصريون",
+    "ancient-romans civil servants": "موظفو خدمة مدنية رومان قدماء",
+    "eastern european civil servants": "موظفو خدمة مدنية أوروبيون شرقيون",
 
     # {en_nat} nationalists
-    "german nationalists": "قوميون ألمان",
-    "egyptian nationalists": "قوميون مصريون",
+    "central american nationalists": "قوميون أمريكيون أوسطيون",
+    "central asian nationalists": "قوميون آسيويين أوسطيون",
 
     # males with ذكور - {en_nat} male swimmers
-    "german male swimmers": "سباحون ذكور ألمان",
-    "egyptian male swimmers": "سباحون ذكور مصريون",
+    "east timorese male swimmers": "سباحون ذكور تيموريون شرقيون",
+    "federated states-of micronesia male swimmers": "سباحون ذكور ميكرونيزيون",
 
     # {en_nat} male freestyle swimmers
-    "german male freestyle swimmers": "سباحو تزلج حر ذكور ألمان",
-    "egyptian male freestyle swimmers": "سباحو تزلج حر ذكور مصريون",
+    "bissau-guinean male freestyle swimmers": "سباحو تزلج حر ذكور غينيون بيساويون",
+    "anglo-irish male freestyle swimmers": "سباحو تزلج حر ذكور أنجلو إيرلنديون",
 
     # {en_nat} male sprinters
-    "german male sprinters": "عداؤون سريعون ذكور ألمان",
-    "egyptian male sprinters": "عداؤون سريعون ذكور مصريون",
+    "czechoslovak male sprinters": "عداؤون سريعون ذكور تشيكوسلوفاكيون",
+    "east german male sprinters": "عداؤون سريعون ذكور ألمانيون شرقيون",
 
     # males without ذكور - {en_nat} male martial artists
-    "german male martial artists": "ممارسو فنون قتالية ذكور ألمان",
-    "egyptian male martial artists": "ممارسو فنون قتالية ذكور مصريون",
+    "bosnia and herzegovina male martial artists": "ممارسو فنون قتالية ذكور بوسنيون",
+    "chinese taipei male martial artists": "ممارسو فنون قتالية ذكور تايبيون صينيون",
 
     # {en_nat} male boxers
-    "german male boxers": "ملاكمون ذكور ألمان",
-    "egyptian male boxers": "ملاكمون ذكور مصريون",
+    "democratic-republic-of-congo male boxers": "ملاكمون ذكور كونغويون ديمقراطيون",
+    "dominican republic male boxers": "ملاكمون ذكور دومينيكانيون",
 
     # {en_nat} male athletes
-    "german male athletes": "لاعبو قوى ذكور ألمان",
-    "egyptian male athletes": "لاعبو قوى ذكور مصريون",
+    "eastern asian male athletes": "لاعبو قوى ذكور آسيويين شرقيون",
+    "equatoguinean male athletes": "لاعبو قوى ذكور غينيون استوائيون",
 
     # {en_nat} male actors
-    "german male actors": "ممثلون ذكور ألمان",
-    "egyptian male actors": "ممثلون ذكور مصريون",
+    "central african republic male actors": "ممثلون ذكور أفارقة أوسطيون",
+    "equatorial guinean male actors": "ممثلون ذكور غينيون استوائيون",
 
     # {en_nat} male singers
-    "german male singers": "مغنون ذكور ألمان",
-    "egyptian male singers": "مغنون ذكور مصريون",
+    "ancient-romans male singers": "مغنون ذكور رومان قدماء",
+    "eastern european male singers": "مغنون ذكور أوروبيون شرقيون",
 
     # {en_nat} male writers
-    "german male writers": "كتاب ذكور ألمان",
-    "egyptian male writers": "كتاب ذكور مصريون",    # {en_nat} male film actors
-    "german male film actors": "ممثلو أفلام ذكور ألمان",
-    "egyptian male film actors": "ممثلو أفلام ذكور مصريون",
+    "central american male writers": "كتاب ذكور أمريكيون أوسطيون",
+    "central asian male writers": "كتاب ذكور آسيويين أوسطيون",
+
+    # {en_nat} male film actors
+    "east timorese male film actors": "ممثلو أفلام ذكور تيموريون شرقيون",
+    "federated states-of micronesia male film actors": "ممثلو أفلام ذكور ميكرونيزيون",
 
     # {en_nat} christians
-    "german christians": "مسيحيون ألمان",
-    "egyptian christians": "مسيحيون مصريون",
-    "american christians": "مسيحيون أمريكيون",
+    "bissau-guinean christians": "مسيحيون غينيون بيساويون",
+    "anglo-irish christians": "مسيحيون أنجلو إيرلنديون",
 
     # {en_nat} muslims
-    "german muslims": "مسلمون ألمان",
-    "egyptian muslims": "مسلمون مصريون",
-    "american muslims": "مسلمون أمريكيون",
+    "czechoslovak muslims": "مسلمون تشيكوسلوفاكيون",
+    "east german muslims": "مسلمون ألمانيون شرقيون",
 
     # {en_nat} diaspora in united states
-    "german diaspora in united states": "أمريكيون ألمان",
-    "egyptian diaspora in united states": "أمريكيون مصريون",
-    "italian diaspora in united states": "أمريكيون إيطاليون",
+    "bosnia and herzegovina diaspora in united states": "أمريكيون بوسنيون",
+    "chinese taipei diaspora in united states": "أمريكيون تايبيون صينيون",
 
     # {en_nat} sports coaches
-    "german sports coaches": "مدربون رياضيون ألمان",
-    "egyptian sports coaches": "مدربون رياضيون مصريون",
-    "brazilian sports coaches": "مدربون رياضيون برازيليون",
+    "democratic-republic-of-congo sports coaches": "مدربون رياضيون كونغويون ديمقراطيون",
+    "dominican republic sports coaches": "مدربون رياضيون دومينيكانيون",
 }
 
 
