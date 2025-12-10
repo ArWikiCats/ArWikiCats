@@ -26,8 +26,8 @@ NAT_DATA_to_check = {
 }
 
 NAT_DATA_MALES = {
-    "{en_nat} general election": "الانتخابات التشريعية {nat_men1}",
-    "{en_nat} presidential election": "الانتخابات الرئاسية {nat_men1}",
+    # "{en_nat} general election": "الانتخابات التشريعية {nat_men1}",
+    # "{en_nat} presidential election": "الانتخابات الرئاسية {nat_men1}",
 
     # "{en_nat} sports coaches": "مدربو رياضة {nat_men1}",  # 110
     "{en_nat} people": "أعلام {nat_men1}",  # 187
@@ -134,5 +134,4 @@ NAT_DATA_MALES = {
     "{en_nat} male singers": "مغنون ذكور {nat_men1}",  # 85
     "{en_nat} male writers": "كتاب ذكور {nat_men1}",  # 86
     "{en_nat} male film actors": "ممثلو أفلام ذكور {nat_men1}",  # 80
-
 }
