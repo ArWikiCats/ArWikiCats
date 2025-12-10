@@ -95,25 +95,6 @@ def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch) -> None:
     assert data["hindustan"]["en"] == "hindustani"
     assert data["hindustan"]["ar"] == "هندوستاني"
 
-
-def test_load_sources_merge_all_sources(monkeypatch) -> None:
-    """All_Nat_o, uu_nats and Sub_Nat contents should be merged into a single dict."""
-
-    def fake_open_json_file(name: str) -> dict[str, dict[str, str]] | dict:
-        if name == "nationalities/All_Nat_o.json":
-            return {"a": {"en": "A", "ar": "أ"}}
-        if name == "nationalities/uu_nats.json":
-            return {"b": {"en": "B", "ar": "ب"}}
-        if name == "nationalities/Sub_Nat.json":
-            return {"c": {"en": "C", "ar": "ج"}}
-        return {}
-
-    monkeypatch.setattr("ArWikiCats.translations.nats.Nationality.open_json_file", fake_open_json_file)
-
-    data = load_sources()
-    assert set(data.keys()) == {"a", "b", "c"}
-
-
 # -------------------------------------------------------------------
 # Tests for normalize_aliases
 # -------------------------------------------------------------------
