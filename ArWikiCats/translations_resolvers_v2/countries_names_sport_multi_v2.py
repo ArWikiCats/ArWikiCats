@@ -8,27 +8,27 @@ from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
 
 sports_formatted_data = {
-    "{country_en} {sport_en} federation": "الاتحاد {the_male} {sport_team}",
-    "{country_en} testxx": "{country_ar} اختبار!",
-    "{country_en}": "{country_ar}",
-    "olympic gold medalists for {country_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar}",
-    "olympic gold medalists for {country_en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {country_ar} في التزلج على المنحدرات الثلجية",
-    "olympic gold medalists for {country_en} in {sport_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar} في {sport_ar}",
+    "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
+    "{en} testxx": "{ar} اختبار!",
+    "{en}": "{ar}",
+    "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
+    "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
+    "olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_ar}",
 
-    "{country_en} women's {sport_en} playerss": "لاعبات {sport_jobs} {females}",
-    "women's {sport_en} playerss": "لاعبات {sport_jobs}",
+    "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
+    "women's {en_sport} playerss": "لاعبات {sport_jobs}",
 
-    "{country_en} women's national {sport_en} team" : "منتخب {country_ar} {sport_team} للسيدات",
-    "{country_en} women's national {sport_en} team players" : "لاعبات منتخب {country_ar} {sport_team} للسيدات",
+    "{en} women's national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
+    "{en} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
 
-    "{country_en} national {sport_en} team" : "منتخب {country_ar} {sport_team}",
-    "{country_en} national {sport_en} team players" : "لاعبو منتخب {country_ar} {sport_team}",
+    "{en} national {en_sport} team" : "منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
 
-    "{country_en} women's international footballers": "لاعبات منتخب {country_ar} لكرة القدم للسيدات",
-    "{country_en} women's international {sport_en} players": "لاعبات {sport_jobs} دوليات من {country_ar}",
+    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
-    "{country_en} international footballers": "لاعبو منتخب {country_ar} لكرة القدم",
-    "{country_en} international {sport_en} players": "لاعبو {sport_jobs} دوليون من {country_ar}",
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
 }
 
 WOMENS_NATIONAL_DATA = {
@@ -50,7 +50,7 @@ def remove_the(text: str) -> str:
 def _load_bot() -> MultiDataFormatterBaseV2:
     nats_data = {
         remove_the(v["en"]): {
-            "country_ar": v["ar"],
+            "ar": v["ar"],
             "the_male": v["the_male"],
         }
         for x, v in all_country_with_nat_ar.items()
@@ -70,12 +70,13 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     both_bot = format_multi_data_v2(
         formatted_data=sports_formatted_data,
         data_list=nats_data,
-        key_placeholder="{country_en}",
+        key_placeholder="{en}",
         data_list2=sports_data,
-        key2_placeholder="{sport_en}",
+        key2_placeholder="{en_sport}",
         text_after="",
         text_before="the ",
         search_first_part=True,
+        use_other_formatted_data=True,
     )
     return both_bot
 

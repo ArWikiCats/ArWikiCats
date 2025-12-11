@@ -10,19 +10,19 @@ from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBase
 def multi_bot() -> MultiDataFormatterBaseV2:
     nationality_data = {
         "United States": {
-            "country_ar": "الولايات المتحدة"
+            "ar": "الولايات المتحدة"
         },
         "yemen": {
-            "country_ar": "اليمن"
+            "ar": "اليمن"
         },
     }
 
     formatted_data = {
-        "{country_en}": "{country_ar}",
-        "Olympic gold medalists for {country_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar}",
-        "Olympic gold medalists for {country_en} in alpine skiing":
-        "فائزون بميداليات ذهبية أولمبية من {country_ar} في التزلج على المنحدرات الثلجية",
-        "Olympic gold medalists for {country_en} in {sport_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar} في {sport_ar}",
+        "{en}": "{ar}",
+        "Olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
+        "Olympic gold medalists for {en} in alpine skiing":
+        "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
+        "Olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_ar}",
     }
 
     sport_data = {
@@ -37,13 +37,13 @@ def multi_bot() -> MultiDataFormatterBaseV2:
     country_bot = FormatDataV2(
         formatted_data=formatted_data,
         data_list=nationality_data,
-        key_placeholder="{country_en}",
+        key_placeholder="{en}",
     )
 
     other_bot = FormatDataV2(
         {},
         sport_data,
-        key_placeholder="{sport_en}",
+        key_placeholder="{en_sport}",
     )
 
     return MultiDataFormatterBaseV2(

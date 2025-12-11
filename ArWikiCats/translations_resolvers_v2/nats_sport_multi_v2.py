@@ -13,31 +13,35 @@ from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
 
 sports_formatted_data = {
-    "{en_nat} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
-
-    "ladies {en_nat} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
-    "ladies {en_nat} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
-    "women's {en_nat} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
-    "{en_nat} {en_sport} championships": "بطولة {ar} {sport_team}",
-    "{en_nat} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
-    "{en_nat} {en_sport} tour": "بطولة {ar} {sport_team}",
+    "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
+    "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+    "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
+    "women's {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
+    "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
+    "{en} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
+    "{en} {en_sport} tour": "بطولة {ar} {sport_team}",
 
     "women's national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
 
-    "{en_nat} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
+    "{en} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
 
-    "{en_nat} women's {en_sport} players": "لاعبات {sport_jobs} {females}",
+    "{en} women's {en_sport} players": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} players": "لاعبات {sport_jobs}",
 
-    "{en_nat} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
+    "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} playerss": "لاعبات {sport_jobs}",
 
-    "{en_nat} women's national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
-    "{en_nat} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
+    "{en} women's national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
+    "{en} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
 
-    "{en_nat} national {en_sport} team" : "منتخب {ar} {sport_team}",
-    "{en_nat} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team" : "منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
 
+    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
+
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
 }
 
 sports_formatted_data.update(NAT_P17_OIOI)
@@ -72,7 +76,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     both_bot = format_multi_data_v2(
         formatted_data=sports_formatted_data,
         data_list=nats_data,
-        key_placeholder="{en_nat}",
+        key_placeholder="{en}",
         data_list2=sports_data,
         key2_placeholder="{en_sport}",
         text_after="",
