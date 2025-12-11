@@ -43,7 +43,7 @@ data1 = {
     "palestine–uruguay relations": "تصنيف:العلاقات الأوروغويانية الفلسطينية",
     "african championships in athletics": "تصنيف:بطولات إفريقية في ألعاب القوى",
     "automotive industry in italy": "تصنيف:صناعة سيارات في إيطاليا",
-    "bahrain in the asian para games": "تصنيف:البحرين في دورة الألعاب الآسيوية البارالمبية",
+    "bahrain in the asian para games": "تصنيف:البحرين في الألعاب البارالمبية الآسيوية",
     "field hockey in the 2004 summer olympics": "تصنيف:هوكي الميدان في الألعاب الأولمبية الصيفية 2004",
     "gymnastics in the 2004 summer olympics": "تصنيف:الجمباز في الألعاب الأولمبية الصيفية 2004",
     "history of the petroleum industry in canada": "تصنيف:تاريخ صناعة بترولية في كندا",

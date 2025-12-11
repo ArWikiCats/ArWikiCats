@@ -247,7 +247,7 @@ data_test = [
     ("in", "south korean women's sport", "رياضة كورية جنوبية نسائية"),
     ("in", "special region of yogyakarta", "يوجياكرتا"),
     ("in", "american civil war", "الحرب الأهلية الأمريكية"),
-    ("in", "asian para games", "دورة الألعاب الآسيوية البارالمبية"),
+    ("in", "asian para games", "الألعاب البارالمبية الآسيوية"),
     ("in", "australian capital territory", "إقليم العاصمة الأسترالية"),
     ("in", "basque country (autonomous community)", "منطقة الباسك ذاتية الحكم"),
     ("in", "bay of plenty region", "إقليم خليج بانتي"),
