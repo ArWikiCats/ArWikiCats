@@ -5,25 +5,24 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
-    "Category:2016 Women's Africa Cup of Nations squad navigational boxes": "تصنيف:قوالب تصفح تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات 2016",
-    "Category:2016 Women's Africa Cup of Nations": "تصنيف:كأس أمم إفريقيا لكرة القدم للسيدات 2016",
-    "Category:2018 Women's Africa Cup of Nations squad navigational boxes": "تصنيف:قوالب تصفح تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات 2018",
-    "Category:2018 Women's Africa Cup of Nations": "تصنيف:كأس أمم إفريقيا لكرة القدم للسيدات 2018",
-    "Category:2022 Women's Africa Cup of Nations players": "تصنيف:لاعبو كأس إفريقيا نسائية في بلدان 2022",
-    "Category:2022 Women's Africa Cup of Nations squad navigational boxes": "تصنيف:كأس إفريقيا نسائية في صناديق تصفح تشكيلات بلدان 2022",
-    "Category:2022 Women's Africa Cup of Nations": "تصنيف:كأس إفريقيا نسائية في بلدان 2022",
-    "Category:2024 Women's Africa Cup of Nations players": "تصنيف:لاعبو كأس الأمم الإفريقية نسائية 2024",
-    "Category:2024 Women's Africa Cup of Nations": "تصنيف:كأس الأمم الإفريقية نسائية 2024",
-    "Category:Women's Africa Cup of Nations players": "تصنيف:لاعبو كأس أمم إفريقيا لكرة القدم للسيدات",
-    "Category:Women's Africa Cup of Nations qualification": "تصنيف:تصفيات كأس أمم إفريقيا لكرة القدم للسيدات",
-    "Category:Women's Africa Cup of Nations squad navigational boxes by competition": "تصنيف:صناديق تصفح تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات حسب المنافسة",
-    "Category:Women's Africa Cup of Nations squad navigational boxes by nation": "تصنيف:صناديق تصفح تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات حسب الموطن",
-    "Category:Women's Africa Cup of Nations tournaments": "تصنيف:بطولات كأس أمم إفريقيا لكرة القدم للسيدات",
-    "Category:Women's Africa Cup of Nations": "تصنيف:كأس أمم إفريقيا لكرة القدم للسيدات",
+    "Category:2016 Women's Africa Cup of Nations squad navigational boxes": "تصنيف:صناديق تصفح تشكيلات كأس الأمم الإفريقية للسيدات 2016",
+    "Category:2016 Women's Africa Cup of Nations": "تصنيف:كأس الأمم الإفريقية للسيدات 2016",
+    "Category:2018 Women's Africa Cup of Nations squad navigational boxes": "تصنيف:صناديق تصفح تشكيلات كأس الأمم الإفريقية للسيدات 2018",
+    "Category:2018 Women's Africa Cup of Nations": "تصنيف:كأس الأمم الإفريقية للسيدات 2018",
+    "Category:2022 Women's Africa Cup of Nations players": "تصنيف:لاعبات كأس الأمم الإفريقية للسيدات 2022",
+    "Category:2022 Women's Africa Cup of Nations squad navigational boxes": "تصنيف:صناديق تصفح تشكيلات كأس الأمم الإفريقية للسيدات 2022",
+    "Category:2022 Women's Africa Cup of Nations": "تصنيف:كأس الأمم الإفريقية للسيدات 2022",
+    "Category:2024 Women's Africa Cup of Nations players": "تصنيف:لاعبات كأس الأمم الإفريقية للسيدات 2024",
+    "Category:2024 Women's Africa Cup of Nations": "تصنيف:كأس الأمم الإفريقية للسيدات 2024",
+    "Category:Women's Africa Cup of Nations players": "تصنيف:لاعبات كأس الأمم الإفريقية للسيدات",
+    "Category:Women's Africa Cup of Nations qualification": "تصنيف:تصفيات كأس الأمم الإفريقية للسيدات",
+    "Category:Women's Africa Cup of Nations tournaments": "تصنيف:بطولات كأس الأمم الإفريقية للسيدات",
+    "Category:Women's Africa Cup of Nations": "تصنيف:كأس الأمم الإفريقية للسيدات",
 }
 
 data_2 = {
-
+    "Category:Women's Africa Cup of Nations squad navigational boxes by competition": "تصنيف:صناديق تصفح تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات حسب المنافسة",
+    "Category:Women's Africa Cup of Nations squad navigational boxes by nation": "تصنيف:صناديق تصفح تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات حسب الموطن",
 }
 
 to_test = [
