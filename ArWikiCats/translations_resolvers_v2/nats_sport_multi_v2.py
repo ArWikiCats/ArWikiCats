@@ -29,6 +29,9 @@ sports_formatted_data = {
 
     "{en_nat} women's {en_sport} players": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} players": "لاعبات {sport_jobs}",
+
+    "{en_nat} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
+    "women's {en_sport} playerss": "لاعبات {sport_jobs}",
 }
 
 sports_formatted_data.update(NAT_P17_OIOI)
