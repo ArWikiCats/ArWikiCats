@@ -15,10 +15,8 @@ from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
 # =========================================================
 
 data_1 = {
+    "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
-    "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
-    "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
-
     "bolivia men's international footballers": "لاعبو منتخب بوليفيا لكرة القدم للرجال",
     "bulgaria women's international footballers": "لاعبات منتخب بلغاريا لكرة القدم للسيدات",
     "chad sports templates": "قوالب تشاد الرياضية",
@@ -32,6 +30,7 @@ data_1 = {
     "guam women's international footballers": "لاعبات منتخب غوام لكرة القدم للسيدات",
     "guinea-bissau women's international footballers": "لاعبات منتخب غينيا بيساو لكرة القدم للسيدات",
     "iceland women's youth international footballers": "لاعبات منتخب آيسلندا لكرة القدم للشابات",
+    "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "latvia men's youth international footballers": "لاعبو منتخب لاتفيا لكرة القدم للشباب",
     "malawi men's international footballers": "لاعبو منتخب مالاوي لكرة القدم للرجال",
     "malaysia women's international footballers": "لاعبات منتخب ماليزيا لكرة القدم للسيدات",
@@ -44,6 +43,7 @@ data_1 = {
     "slovakia sports templates": "قوالب سلوفاكيا الرياضية",
     "switzerland men's youth international footballers": "لاعبو منتخب سويسرا لكرة القدم للشباب",
     "tanzania sports templates": "قوالب تنزانيا الرياضية",
+    "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
     "tunisia men's a' international footballers": "لاعبو منتخب تونس لكرة القدم للرجال للمحليين",
     "tunisia national team": "منتخبات تونس الوطنية",
     "tunisia national teams": "منتخبات تونس الوطنية",
@@ -62,7 +62,6 @@ data_1 = {
     "zambia women's international footballers": "لاعبات منتخب زامبيا لكرة القدم للسيدات",
     "zimbabwe international footballers": "لاعبو منتخب زيمبابوي لكرة القدم",
     "zimbabwe rally championship": "بطولة زيمبابوي للراليات",
-    "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
 }
 
 

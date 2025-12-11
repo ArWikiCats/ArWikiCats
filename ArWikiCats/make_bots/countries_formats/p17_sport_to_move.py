@@ -6,10 +6,7 @@ SPORT_FORMTS_EN_AR_IS_P17: English country-name → Arabic country-name.
 import functools
 from ...helps import len_print
 from ...translations_formats import FormatData, format_multi_data, MultiDataFormatterBase
-from ...helps.log import logger
-from ...translations import (
-    countries_from_nat,
-)
+from ...translations import countries_from_nat
 
 main_data = {
     "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",

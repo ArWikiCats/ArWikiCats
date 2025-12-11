@@ -45,10 +45,8 @@ sports_formatted_data = {
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
 
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
-    "{en} {en_sport} association players": "لاعبو الرابطة {the_female} {sport_team}",
 
     "women's {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
-    "women's {en} {en_sport} association players": "لاعبات الرابطة {the_female} {sport_team} للسيدات",
 }
 
 sports_formatted_data.update(NAT_P17_OIOI)

@@ -7,7 +7,6 @@ from ArWikiCats import resolve_arabic_category_label
 data_1 = {
     # "Category:Fenerbahçe women's basketball players": "تصنيف:لاعبات فنربخشة لكرة السلة للسيدات",
     "Category:Volleyball players by women's national team": "تصنيف:لاعبو كرة طائرة حسب منتخب السيدات الوطني",
-    "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبات الرابطة الصينية لكرة السلة للسيدات",
 }
 data_2 = {
     "Category:Rugby league players by women's national team": "تصنيف:لاعبو دوري رجبي حسب منتخب السيدات الوطني",
@@ -25,8 +24,6 @@ data_2 = {
     "Category:Women's England Hockey League players": "تصنيف:لاعبو دوري إنجلترا للهوكي نسائية",
     "Category:Women's Irish Hockey League players": "تصنيف:لاعبو الدوري الأيرلندي للهوكي نسائية",
     "Category:Women's Korean Basketball League players": "تصنيف:لاعبو الدوري الكوري لكرة السلة نسائية",
-    "Category:Women's National Basketball Association players from Croatia": "تصنيف:لاعبو الاتحاد الوطني لكرة السلة النسائية من كرواتيا",
-    "Category:Women's National Basketball Association players from Serbia": "تصنيف:لاعبو الاتحاد الوطني لكرة السلة النسائية من صربيا",
     "Category:Women's soccer players in Australia by competition": "تصنيف:لاعبو كرة قدم نسائية في أستراليا حسب المنافسة",
 }
 
