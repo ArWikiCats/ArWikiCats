@@ -60,10 +60,6 @@ from .nats.Nationality import (
     nats_to_add,
 )
 from .numbers1 import change_numb_to_word
-from .politics.military_keys import (
-    military_format_men,
-    military_format_women,
-)
 from .politics.ministers import ministrs_tab_for_pop_format
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.olympics_data import olympics
@@ -97,8 +93,15 @@ from .utils import apply_pattern_replacements
 from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
 from .sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
-
+from .politics.ministers import (
+    ministrs_for_en_is_P17_ar_is_mens,
+    ministrs_for_military_format_men,
+    ministrs_for_military_format_women,
+)
 __all__ = [
+    "ministrs_for_en_is_P17_ar_is_mens",
+    "ministrs_for_military_format_men",
+    "ministrs_for_military_format_women",
     "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",
@@ -174,8 +177,6 @@ __all__ = [
     "New_female_keys",
     "New_male_keys",
     "New_Company",
-    "military_format_women",
-    "military_format_men",
     "ministrs_tab_for_pop_format",
     "change_numb_to_word",
     "People_key",
