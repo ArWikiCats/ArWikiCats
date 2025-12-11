@@ -11,7 +11,7 @@ list_data = {
     "1880 afc women's asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الآسيوية لكرة القدم للسيدات 1880",
     "1880 afc women's championship squad navigational boxes": "صناديق تصفح تشكيلات بطولة آسيا للسيدات 1880",
     "1880 africa cup-of-nations squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الإفريقية 1880",
-    "1880 african cup of nations squad navigational boxes": "صناديق تصفح تشكيلات كأس إفريقيا في بلدان 1880",
+    "1880 african cup of nations squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الإفريقية 1880",
     "1880 african women's championship squad navigational boxes": "صناديق تصفح تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات 1880",
     "1880 basketball olympic squad templates": "قوالب تشكيلات كرة سلة أولمبية 1880",
     "1880 concacaf championships squad navigational boxes": "صناديق تصفح تشكيلات بطولات الكونكاكاف 1880",

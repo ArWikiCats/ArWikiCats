@@ -23,7 +23,7 @@ def test_make_by_label_prefers_film_labels(monkeypatch: pytest.MonkeyPatch) -> N
 
 
 def test_make_by_label_falls_back_to_nationality(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(bys, "te_films", lambda name: "", raising=False)
+    monkeypatch.setattr(bys, "te_films", lambda name: "مصري" if name == "Ali" else "", raising=False)
 
     result = bys.make_by_label("by Ali")
     assert result == "بواسطة مصري"
