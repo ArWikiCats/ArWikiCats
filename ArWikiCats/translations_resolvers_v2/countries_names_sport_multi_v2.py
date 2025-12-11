@@ -30,6 +30,7 @@ sports_formatted_data = {
 
     "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
+    "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
 }
 
 WOMENS_NATIONAL_DATA = {

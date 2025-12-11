@@ -5,9 +5,9 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_1 = {
-    "Category:Volleyball players by women's national team": "تصنيف:لاعبو كرة طائرة حسب المنتخب الوطني للسيدات",
-    "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبو الدوري الصيني لكرة السلة للسيدات",
-    "Category:Fenerbahçe women's basketball players": "تصنيف:لاعبو نادي فنربخشة لكرة السلة للسيدات",
+    "Category:Volleyball players by women's national team": "تصنيف:لاعبو كرة طائرة حسب منتخب السيدات الوطني",
+    "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبات الرابطة الصينية لكرة السلة للسيدات",
+    "Category:Fenerbahçe women's basketball players": "تصنيف:لاعبات فنربخشة لكرة السلة للسيدات",
 }
 data_2 = {
     "Category:Rugby league players by women's national team": "تصنيف:لاعبو دوري رجبي حسب منتخب السيدات الوطني",
