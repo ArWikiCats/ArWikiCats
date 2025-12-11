@@ -34,7 +34,10 @@ TEMPLATES_TEAMS: Dict[str, str] = {
     "wheelchair {sport_en}": "{sport_ar} على كراسي متحركة",
     "{sport_en} racing": "سباقات {sport_ar}",
     "men's national {sport_en} team": "منتخب {sport_ar} الوطني للرجال",
+
+    "national women's {sport_en} team": "منتخب {sport_ar} الوطني للسيدات",
     "women's national {sport_en} team": "منتخب {sport_ar} الوطني للسيدات",
+
     "national {sport_en} team": "المنتخب الوطني في {sport_ar}",
 }
 # ---------- team_job.py ----------
