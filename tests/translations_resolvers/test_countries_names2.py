@@ -6,12 +6,7 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import get_en_ar_is_p17_label
 from ArWikiCats.translations_resolvers.countries_names import resolve_by_countries_names
-
-# =========================================================
-#           get_en_ar_is_p17_label
-# =========================================================
 
 data_1 = {
     "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
@@ -66,8 +61,8 @@ data_1 = {
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=list(data_1.keys()))
 @pytest.mark.fast
-def test_get_en_ar_is_p17_label_1(category: str, expected: str) -> None:
-    label1 = get_en_ar_is_p17_label(category)
+def test_resolve_by_countries_names_1(category: str, expected: str) -> None:
+    label1 = resolve_by_countries_names(category)
     assert label1 == expected
 
 # =========================================================
@@ -76,8 +71,7 @@ def test_get_en_ar_is_p17_label_1(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_get_en_ar_is_p17_label_1", data_1, get_en_ar_is_p17_label),
-    ("test_get_en_ar_is_p17_label_1_x", data_1, resolve_by_countries_names),
+    ("test_resolve_by_countries_names_1", data_1, resolve_by_countries_names),
 ]
 
 
