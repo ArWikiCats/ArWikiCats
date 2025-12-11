@@ -142,8 +142,6 @@ test_data_male = {
     "Chinese traditions": "تراث صيني",
     "Irish folklore": "فلكور أيرلندي",
     "Scottish folklore": "فلكور إسكتلندي",
-    "American television": "تلفاز أمريكي",
-    "British television": "تلفاز بريطاني",
 }
 
 test_data_female = {

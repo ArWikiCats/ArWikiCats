@@ -1612,27 +1612,7 @@
         "the_female": "العراقية",
         "the_male": "العراقي"
     },
-    "irish_xx": {
-        "male": "أيرلندي شمالي",
-        "males": "أيرلنديون",
-        "female": "أيرلندية شمالية",
-        "females": "أيرلنديات",
-        "en": "northern ireland",
-        "ar": "أيرلندا الشمالية",
-        "the_female": "الأيرلندية الشمالية",
-        "the_male": "الأيرلندي الشمالي"
-    },
-    "irish": {
-        "male": "أيرلندي",
-        "males": "أيرلنديون",
-        "female": "أيرلندية",
-        "females": "أيرلنديات",
-        "en": "republic of ireland",
-        "ar": "جمهورية أيرلندا",
-        "the_female": "الأيرلندية",
-        "the_male": "الأيرلندي"
-    },
-    "israeli11111": {
+    "israeli": {
         "male": "إسرائيلي",
         "males": "إسرائيليون",
         "female": "إسرائيلية",
@@ -2172,6 +2152,16 @@
         "ar": "كوريا الشمالية",
         "the_female": "الكورية الشمالية",
         "the_male": "الكوري الشمالي"
+    },
+    "irish": {
+        "male": "أيرلندي",
+        "males": "أيرلنديون",
+        "female": "أيرلندية",
+        "females": "أيرلنديات",
+        "en": "republic of ireland",
+        "ar": "جمهورية أيرلندا",
+        "the_female": "الأيرلندية",
+        "the_male": "الأيرلندي"
     },
     "northern ireland": {
         "male": "أيرلندي شمالي",

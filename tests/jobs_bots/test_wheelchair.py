@@ -90,6 +90,8 @@ wheelchair_racers_by_nat = {
     "Category:Wheelchair racers": "تصنيف:متسابقو كراسي متحركة",
     "Category:Women wheelchair racers": "تصنيف:متسابقات كراسي متحركة",
     "Category:Zambian wheelchair racers": "تصنيف:متسابقو كراسي متحركة زامبيون",
+    "Category:Australia women's national wheelchair basketball team": "تصنيف:منتخب أستراليا لكرة السلة على الكراسي المتحركة للسيدات",
+    "Category:Women's National Wheelchair Basketball League": "تصنيف:الدوري الوطني لكرة السلة على الكراسي المتحركة للسيدات",
 }
 
 
@@ -109,7 +111,6 @@ data2 = {
     "Category:American wheelchair shot putters": "",
     "Category:American wheelchair sports competitors": "",
     "Category:American wheelchair track and field athletes": "",
-    "Category:Australia women's national wheelchair basketball team": "تصنيف:منتخب أستراليا لكرة السلة على الكراسي المتحركة للسيدات",
     "Category:Australian Open by year – Wheelchair events": "",
     "Category:IWBF U23 World Wheelchair Basketball Championship": "",
     "Category:Olympic women wheelchair racers": "",
@@ -118,7 +119,6 @@ data2 = {
     "Category:Puerto Rican wheelchair sports competitors": "",
     "Category:Puerto Rican wheelchair track and field athletes": "",
     "Category:RFL Wheelchair Super League": "",
-    "Category:Women's National Wheelchair Basketball League": "",
     "Category:Women's U25 Wheelchair Basketball World Championship": "",
     "Category:World Wheelchair Mixed Doubles Curling Championship": "",
     "Category:Wheelchair rugby Paralympic champions navigational boxes": "",

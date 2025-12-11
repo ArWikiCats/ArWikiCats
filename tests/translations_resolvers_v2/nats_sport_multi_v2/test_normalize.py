@@ -3,21 +3,21 @@ import pytest
 from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import _load_bot
 
 data = {
-    "100 metres in the african championships in athletics": "100 metres in {en_nat} championships in {en_sport}",
-    "1330 in south american football": "1330 in {en_nat} {en_sport}",
-    "1789 in south american football": "1789 in {en_nat} {en_sport}",
-    "1789 in south american women's football": "1789 in {en_nat} women's {en_sport}",
-    "1880 european competition for women's football": "1880 {en_nat} competition for women's {en_sport}",
-    "1880 european men's handball championship": "1880 {en_nat} men's {en_sport} championship",
-    "1880 european women's handball championship": "1880 {en_nat} women's {en_sport} championship",
-    "1880 south american women's football championship": "1880 {en_nat} women's {en_sport} championship",
-    "the african championships in athletics": "{en_nat} championships in {en_sport}",
-    "wheelchair basketball in 2020 parapan american games": "{en_sport} in 2020 parapan {en_nat} games",
-    "wheelchair basketball in the asian para games": "{en_sport} in {en_nat} para games",
-    "wheelchair basketball in the parapan american games": "{en_sport} in the parapan {en_nat} games",
-    "wheelchair basketball playerss in 2020 parapan american games": "{en_sport} playerss in 2020 parapan {en_nat} games",
-    "Yemeni football championships": "{en_nat} {en_sport} championships",
-    "Yemeni national football teams": "{en_nat} national {en_sport} teams",
+    "100 metres in the african championships in athletics": "100 metres in {en} championships in {en_sport}",
+    "1330 in south american football": "1330 in {en} {en_sport}",
+    "1789 in south american football": "1789 in {en} {en_sport}",
+    "1789 in south american women's football": "1789 in {en} women's {en_sport}",
+    "1880 european competition for women's football": "1880 {en} competition for women's {en_sport}",
+    "1880 european men's handball championship": "1880 {en} men's {en_sport} championship",
+    "1880 european women's handball championship": "1880 {en} women's {en_sport} championship",
+    "1880 south american women's football championship": "1880 {en} women's {en_sport} championship",
+    "the african championships in athletics": "{en} championships in {en_sport}",
+    "wheelchair basketball in 2020 parapan american games": "{en_sport} in 2020 parapan {en} games",
+    "wheelchair basketball in the asian para games": "{en_sport} in {en} para games",
+    "wheelchair basketball in the parapan american games": "{en_sport} in the parapan {en} games",
+    "wheelchair basketball playerss in 2020 parapan american games": "{en_sport} playerss in 2020 parapan {en} games",
+    "Yemeni football championships": "{en} {en_sport} championships",
+    "Yemeni national football teams": "{en} national {en_sport} teams",
 }
 
 both_bot_v2 = _load_bot()
@@ -31,10 +31,10 @@ def test_normalize_both(key: str, expected: str) -> None:
 
 
 data2 = {
-    "Yemeni national football teams": "{en_nat} national football teams",
-    "1970 european women's handball championship": "1970 {en_nat} women's handball championship",
-    "1970 south american women's football championship": "1970 {en_nat} women's football championship",
-    "american basketball players by ethnic or national origin": "{en_nat} basketball players by ethnic or national origin",
+    "Yemeni national football teams": "{en} national football teams",
+    "1970 european women's handball championship": "1970 {en} women's handball championship",
+    "1970 south american women's football championship": "1970 {en} women's football championship",
+    "american basketball players by ethnic or national origin": "{en} basketball players by ethnic or national origin",
 }
 
 

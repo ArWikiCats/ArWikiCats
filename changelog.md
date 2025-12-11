@@ -1,3 +1,28 @@
+## [#199](https://github.com/MrIbrahem/ArWikiCats/pull/199) - 2025-12-11
+
+* **New Features**
+  * Expanded category label resolution with support for women's sports categories, including Women's Africa Cup of Nations and national teams.
+  * Enhanced fallback mechanisms for improved label resolution across sports and nationality-related categories.
+  * Added translation coverage for under-age sports groups and women's sports variants.
+
+* **Bug Fixes**
+  * Corrected fallback resolution order for category labels to improve accuracy.
+
+* **Documentation**
+  * Updated changelog with new features and enhancements to label resolution workflows.
+
+## [#198](https://github.com/MrIbrahem/ArWikiCats/pull/198) - 2025-12-11
+
+* **New Features**
+  * Added alternative data sources for category label resolution to improve coverage of sports and nationality-related categorizations.
+
+* **Refactor**
+  * Reorganized label lookup workflows with enhanced fallback logic across multiple labeling systems.
+  * Consolidated and relocated translation data structures to a new centralized resolver module.
+
+* **Tests**
+  * Updated test coverage to verify label resolution through both legacy and new data sources.
+
 ## [#197](https://github.com/MrIbrahem/ArWikiCats/pull/197) - 2025-12-11
 
 * **Refactor**

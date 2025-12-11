@@ -35,7 +35,7 @@ wheelchair_by_nats = {
     "Category:Turkish men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة رجالية أتراك",
     "Category:Turkish wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة أتراك",
     "Category:Turkish wheelchair tennis players": "تصنيف:لاعبو كرة مضرب على كراسي متحركة أتراك",
-    "Category:Turkish women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة نسائية تركيات",
+    "Category:Turkish women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة تركيات",
     "Category:Welsh wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة ويلزيون",
 }
 
@@ -143,8 +143,8 @@ wheelchair_sports = {
     "Category:Wheelchair tennis players": "تصنيف:لاعبو كرة مضرب على كراسي متحركة",
     "Category:Wheelchair tennis tournaments": "تصنيف:بطولات كرة مضرب على كراسي متحركة",
     "Category:Wheelchair tennis": "تصنيف:كرة المضرب على الكراسي المتحركة",
-    "Category:Women's wheelchair basketball players by nationality": "تصنيف:لاعبات كرة سلة على كراسي متحركة نسائية حسب الجنسية",
-    "Category:Women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة نسائية",
+    "Category:Women's wheelchair basketball players by nationality": "تصنيف:لاعبات كرة سلة على كراسي متحركة حسب الجنسية",
+    "Category:Women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة",
     "Category:World wheelchair curling champions": "تصنيف:أبطال العالم للكيرلنغ على الكراسي المتحركة",
     "Category:Years in wheelchair rugby": "تصنيف:سنوات في الرجبي على الكراسي المتحركة",
 }

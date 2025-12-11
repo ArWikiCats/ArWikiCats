@@ -35,8 +35,8 @@ BASIC_EXAMPLES = [
 # Ensures every sport resolves properly in at least one template.
 # ----------------------------------------------------------------------
 SPORT_SIMPLE_CASES = [
-    (f"{sport_en} league", f"الدوري في {sport_ar}")
-    for sport_en, sport_ar in SPORTS_EN_TO_AR.items()
+    (f"{en_sport} league", f"الدوري في {sport_ar}")
+    for en_sport, sport_ar in SPORTS_EN_TO_AR.items()
 ]
 
 
@@ -44,11 +44,11 @@ SPORT_SIMPLE_CASES = [
 # Expanded: Gender variations for each sport using “world cup”
 # ----------------------------------------------------------------------
 SPORT_GENDER_CASES = []
-for sport_en, sport_ar in SPORTS_EN_TO_AR.items():
+for en_sport, sport_ar in SPORTS_EN_TO_AR.items():
     SPORT_GENDER_CASES.extend([
-        (f"men's {sport_en} world cup", f"كأس العالم للرجال في {sport_ar}"),
-        (f"women's {sport_en} world cup", f"كأس العالم للسيدات في {sport_ar}"),
-        (f"{sport_en} world cup", f"كأس العالم في {sport_ar}"),
+        (f"men's {en_sport} world cup", f"كأس العالم للرجال في {sport_ar}"),
+        (f"women's {en_sport} world cup", f"كأس العالم للسيدات في {sport_ar}"),
+        (f"{en_sport} world cup", f"كأس العالم في {sport_ar}"),
     ])
 
 

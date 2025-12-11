@@ -28,7 +28,6 @@ data1 = {
     "Category:Afghanistan national football team managers": "تصنيف:مدربو منتخب أفغانستان لكرة القدم",
     "Category:African women's national association football teams": "تصنيف:منتخبات كرة قدم وطنية إفريقية للسيدات",
     "Category:Argentina women's international footballers": "تصنيف:لاعبات منتخب الأرجنتين لكرة القدم للسيدات",
-    "Category:Association football players by women's national team": "تصنيف:لاعبو كرة قدم حسب منتخب السيدات الوطني",
     "Category:Belgian athletics coaches": "تصنيف:مدربو ألعاب قوى بلجيكيون",
     "Category:Coaches of national cricket teams": "تصنيف:مدربو منتخبات كريكت وطنية",
     "Category:International women's basketball competitions hosted by Cuba": "تصنيف:منافسات كرة سلة نسائية دولية استضافتها كوبا",

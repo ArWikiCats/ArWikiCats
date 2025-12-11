@@ -15,7 +15,7 @@ from ...translations import (
 
 
 @functools.lru_cache(maxsize=None)
-def find_nat_others(category: str) -> str:
+def find_nat_others_old(category: str) -> str:
     """Resolve fallback national labels for sport categories.
 
     Args:
@@ -37,3 +37,6 @@ def find_nat_others(category: str) -> str:
     logger.info("<<lightblue>>>> ^^^^^^^^^ find_nat_others end ^^^^^^^^^ ")
 
     return category_label
+
+
+def find_nat_others(x): return ""

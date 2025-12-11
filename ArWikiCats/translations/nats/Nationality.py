@@ -173,7 +173,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "emiri": "emirati",
         "emirian": "emirati",
         "equatorial guinean": "equatoguinean",
-        "israeli": "israeli11111",
         "ivoirian": "ivorian",
         "kosovar": "kosovan",
         "lao": "laotian",

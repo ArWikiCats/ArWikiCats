@@ -6,6 +6,13 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
+    "{en}": "{ar}",
+    "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
+    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+    "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
+
     "police of {en}": "شرطة {ar}",
     "army of {en}": "جيش {ar}",
     "national congress ({en})": "المؤتمر الوطني ({ar})",
@@ -18,7 +25,7 @@ formatted_data_en_ar_only: dict[str, str] = {
     "accidental deaths from falls in {en}": "وفيات عرضية نتيجة السقوط في {ar}",
     "bodies of water of {en}": "مسطحات مائية في {ar}",
     "national university of {en}": "جامعة {ar} الوطنية",
-    "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
+    "national library of {en}": "مكتبة {ar} الوطنية",
     "{en} afc asian cup squad": "تشكيلات {ar} في كأس آسيا",
     "{en} afc women's asian cup squad": "تشكيلات {ar} في كأس آسيا للسيدات",
     "{en} board members": "أعضاء مجلس {ar}",
@@ -45,6 +52,44 @@ formatted_data_en_ar_only: dict[str, str] = {
     "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
 }
 
+main_data = {
+    "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    "{en} amateur international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} international rally": "رالي {ar} الدولي",
+    "{en} international rules football team": "منتخب {ar} لكرة القدم الدولية",
+    "{en} international soccer players": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} international soccer playerss": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} men's a' international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
+    "{en} men's a' international soccer players": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
+    "{en} men's a' international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للرجال للمحليين",
+    "{en} men's b international footballers": "لاعبو منتخب {ar} لكرة القدم الرديف للرجال",
+    "{en} men's b international soccer players": "لاعبو منتخب {ar} لكرة القدم الرديف للرجال",
+    "{en} men's b international soccer playerss": "لاعبو منتخب {ar} لكرة القدم الرديف للرجال",
+    "{en} men's international footballers": "لاعبو منتخب {ar} لكرة القدم للرجال",
+    "{en} men's international soccer players": "لاعبو منتخب {ar} لكرة القدم للرجال",
+    "{en} men's international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للرجال",
+    "{en} men's youth international footballers": "لاعبو منتخب {ar} لكرة القدم للشباب",
+    "{en} men's youth international soccer players": "لاعبو منتخب {ar} لكرة القدم للشباب",
+    "{en} men's youth international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للشباب",
+    "{en} national football team managers": "مدربو منتخب {ar} لكرة القدم",
+    "{en} national team": "منتخبات {ar} الوطنية",
+    "{en} national teams": "منتخبات {ar} الوطنية",
+    "{en} rally championship": "بطولة {ar} للراليات",
+    "{en} sports templates": "قوالب {ar} الرياضية",
+    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's international soccer players": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's international soccer playerss": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
+    "{en} women's youth international soccer players": "لاعبات منتخب {ar} لكرة القدم للشابات",
+    "{en} women's youth international soccer playerss": "لاعبات منتخب {ar} لكرة القدم للشابات",
+    "{en} youth international footballers": "لاعبو منتخب {ar} لكرة القدم للشباب",
+    "{en} youth international soccer players": "لاعبو منتخب {ar} لكرة القدم للشباب",
+    "{en} youth international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للشباب",
+}
+
+formatted_data_en_ar_only.update(main_data)
 
 nat_bot = FormatData(
     formatted_data_en_ar_only,

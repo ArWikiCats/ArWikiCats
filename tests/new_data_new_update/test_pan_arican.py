@@ -23,7 +23,6 @@ pan_arican = {
     "Category:Members of the Pan-African Parliament from Ghana": "تصنيف:أعضاء البرلمان الإفريقي من غانا",
     "Category:Members of the Pan-African Parliament from Lesotho": "تصنيف:أعضاء البرلمان الإفريقي من ليسوتو",
     "Category:Members of the Pan-African Parliament from Libya": "تصنيف:أعضاء البرلمان الإفريقي من ليبيا",
-    "Category:Members of the Pan-African Parliament from Malawi": "تصنيف:أعضاء البرلمان الإفريقي من ملاوي",
     "Category:Members of the Pan-African Parliament from Mali": "تصنيف:أعضاء البرلمان الإفريقي من مالي",
     "Category:Members of the Pan-African Parliament from Mozambique": "تصنيف:أعضاء البرلمان الإفريقي من موزمبيق",
     "Category:Members of the Pan-African Parliament from Namibia": "تصنيف:أعضاء البرلمان الإفريقي من ناميبيا",

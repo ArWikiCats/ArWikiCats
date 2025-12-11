@@ -89,6 +89,7 @@ def format_multi_data_v2(
     key2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
+    use_other_formatted_data: bool=False,
     search_first_part: bool=False,
 ) -> MultiDataFormatterBaseV2:
     country_bot = FormatDataV2(
@@ -99,8 +100,13 @@ def format_multi_data_v2(
         text_before=text_before,
     )
 
+    other_formatted_data = {
+        x: v for x, v in formatted_data.items()
+        if key2_placeholder in x and key_placeholder not in x
+    } if use_other_formatted_data else {}
+
     other_bot = FormatDataV2(
-        formatted_data={},
+        formatted_data=other_formatted_data,
         data_list=data_list2,
         key_placeholder=key2_placeholder,
         text_after=text_after,

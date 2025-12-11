@@ -168,9 +168,7 @@ the_male_sport_team_data = {
     "iranian ice sledge hockey federation": "الاتحاد الإيراني لهوكي المزلجة على الجليد",
     "iraqi ice sledge hockey racing federation": "الاتحاد العراقي لسباق هوكي المزلجة على الجليد",
     "irish inline hockey federation": "الاتحاد الأيرلندي للهوكي المضمن",
-    "irish_xx inline hockey racing federation": "الاتحاد الأيرلندي الشمالي لسباق هوكي مضمن",
     "israeli javelin throw federation": "الاتحاد الإسرائيلي لرمي الرمح",
-    "israeli11111 javelin throw racing federation": "الاتحاد الإسرائيلي لسباق رمي الرمح",
     "italian ju-jitsu federation": "الاتحاد الإيطالي للجوجوتسو",
     "ivoirian ju-jitsu racing federation": "الاتحاد الإيفواري لسباق جوجوتسو",
     "ivorian judo federation": "الاتحاد الإيفواري للجودو",
@@ -368,6 +366,7 @@ ar_sport_team_data = {
 sport_jobs_female_data = {
     "dominican republic national football teams": "منتخبات كرة قدم وطنية دومينيكانية",
     "yemeni national softball teams": "منتخبات كرة لينة وطنية يمنية",
+    "Women's National Basketball League": "الدوري الوطني لكرة السلة للسيدات",
 }
 
 

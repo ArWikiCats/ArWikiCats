@@ -30,6 +30,9 @@ from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
 from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
+from ....translations_resolvers import resolved_translations_resolvers
+from ....translations_resolvers_v2 import resolved_translations_resolvers_v2
+
 
 def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
     """Split category into type and country parts using the separator.
@@ -304,6 +307,8 @@ def _create_type_lookup_chain(
         List of lookup functions to try in order
     """
     return {
+        "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
+        "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
         "get_from_new_p17_final" : lambda t: get_from_new_p17_final(t),
         "_lookup_type_without_article": _lookup_type_without_article,
         "_lookup_people_type": _lookup_people_type,
@@ -383,6 +388,9 @@ def _create_country_lookup_chain(
         Dictionary of lookup functions to try in order
     """
     return {
+        "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
+        "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
+
         "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),
         "pf_keys2": lambda c: get_from_pf_keys2(c),
         "get_pop_All_18": lambda c: get_pop_All_18(c, ""),

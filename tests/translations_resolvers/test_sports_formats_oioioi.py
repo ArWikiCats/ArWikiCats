@@ -121,15 +121,16 @@ def test_sport_lab_oioioi_load(category: str, expected: str) -> None:
 
 
 to_test = [
-    # ("test_sport_lab_oioioi_load_0", data0),
-    ("test_sport_lab_oioioi_load_1", data),
+    # ("test_sport_lab_oioioi_load_0", data0, resolve_nats_sport_multi_v2),
+    ("test_sport_lab_oioioi_load_1", data, sport_lab_oioioi_load),
+    ("test_sport_lab_oioioi_load_2", data, resolve_nats_sport_multi_v2),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_nats_sport_multi_v2)
+def test_dump_it(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
 
     # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
