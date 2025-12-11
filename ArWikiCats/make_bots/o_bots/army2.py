@@ -3,98 +3,280 @@
 from __future__ import annotations
 
 import functools
-from typing import Mapping, Tuple
+from typing import Mapping
+from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
+from ...translations.nats.Nationality import all_country_with_nat_ar
 
-from ...helps import logger
-from ...helps.jsonl_dump import dump_data
-from ...translations import (
-    ministrs_keys,
-    all_country_with_nat,
-)
-from .utils import apply_arabic_article
-
-#: Mapping of suffixes that require adding a prefix around the formatted label.
-ENDS_WITH_TABLE: Mapping[str, str] = {
-    " civilians": "مدنيو {}",
-    " generals": "جنرالات {}",
-    " accidents and incidents": "حوادث {}",
+_all_country_with_nat = {
+    "eastern asian": {
+        "male": "آسيوي شرقي",
+        "males": "آسيويين شرقيون",
+        "female": "آسيوية شرقية",
+        "females": "آسيويات شرقيات",
+        "en": "eastern asia",
+        "ar": "شرق آسيا",
+        "the_female": "الآسيوية الشرقية",
+        "the_male": "الآسيوي الشرقي"
+    },
+    "eastern european": {
+        "male": "أوروبي شرقي",
+        "males": "أوروبيون شرقيون",
+        "female": "أوروبية شرقية",
+        "females": "أوروبيات شرقيات",
+        "en": "eastern european",
+        "ar": "شرق أوروبا",
+        "the_female": "الأوروبية الشرقية",
+        "the_male": "الأوروبي الشرقي"
+    },
+    "ecuadorian": {
+        "male": "إكوادوري",
+        "males": "إكوادوريون",
+        "female": "إكوادورية",
+        "females": "إكوادوريات",
+        "en": "ecuador",
+        "ar": "الإكوادور",
+        "the_female": "الإكوادورية",
+        "the_male": "الإكوادوري"
+    },
+    "egyptian": {
+        "male": "مصري",
+        "males": "مصريون",
+        "female": "مصرية",
+        "females": "مصريات",
+        "en": "egypt",
+        "ar": "مصر",
+        "the_female": "المصرية",
+        "the_male": "المصري"
+    },
+    "emirati": {
+        "male": "إماراتي",
+        "males": "إماراتيون",
+        "female": "إماراتية",
+        "females": "إماراتيات",
+        "en": "united arab emirates",
+        "ar": "الإمارات العربية المتحدة",
+        "the_female": "الإماراتية",
+        "the_male": "الإماراتي"
+    },
+    "emiri": {
+        "male": "إماراتي",
+        "males": "إماراتيون",
+        "female": "إماراتية",
+        "females": "إماراتيات",
+        "en": "united arab emirates",
+        "ar": "الإمارات العربية المتحدة",
+        "the_female": "الإماراتية",
+        "the_male": "الإماراتي"
+    },
+    "emirian": {
+        "male": "إماراتي",
+        "males": "إماراتيون",
+        "female": "إماراتية",
+        "females": "إماراتيات",
+        "en": "united arab emirates",
+        "ar": "الإمارات العربية المتحدة",
+        "the_female": "الإماراتية",
+        "the_male": "الإماراتي"
+    },
+    "english": {
+        "male": "إنجليزي",
+        "males": "إنجليز",
+        "female": "إنجليزية",
+        "females": "إنجليزيات",
+        "en": "england",
+        "ar": "إنجلترا",
+        "the_female": "الإنجليزية",
+        "the_male": "الإنجليزي"
+    },
+    "equatoguinean": {
+        "male": "غيني استوائي",
+        "males": "غينيون استوائيون",
+        "female": "غينية استوائية",
+        "females": "غينيات استوائيات",
+        "en": "equatorial guinea",
+        "ar": "غينيا الاستوائية",
+        "the_female": "الغينية الاستوائية",
+        "the_male": "الغيني الاستوائي"
+    },
+    "equatorial guinean": {
+        "male": "غيني استوائي",
+        "males": "غينيون استوائيون",
+        "female": "غينية استوائية",
+        "females": "غينيات استوائيات",
+        "en": "equatorial guinea",
+        "ar": "غينيا الاستوائية",
+        "the_female": "الغينية الاستوائية",
+        "the_male": "الغيني الاستوائي"
+    }
 }
-
 # ---
-ministrs_for_en_is_P17_ar_is_mens = {}
+ministrs_keys = {
+    "housing and urban development": {
+        "singular": "إسكان وتنمية حضرية",
+        "al": "الإسكان والتنمية الحضرية",
+    },
+    "peace and reconciliation": {"singular": "سلام ومصالحة", "al": "السلام والمصالحة"},
+    "veterans affairs": {"singular": "شؤون محاربين قدامى", "al": "شؤون المحاربين القدامى"},
+    "military affairs": {"singular": "شؤون عسكرية", "al": "الشؤون العسكرية"},
+    "constitutional affairs": {"singular": "شؤون دستورية", "al": "الشؤون الدستورية"},
+    "regional development and local governments": {
+        "singular": "تنمية محلية",
+        "al": "التنمية المحلية",
+    },
+    "health and human services": {
+        "singular": "صحة وخدمات إنسانية",
+        "al": "الصحة والخدمات الإنسانية",
+    },
+    "treasury": {"singular": "خزانة", "al": "الخزانة"},
+    "homeland security": {"singular": "أمن داخلي", "al": "الأمن الداخلي"},
+    "transportation": {"singular": "نقل", "al": "النقل"},
+    "defense": {"singular": "دفاع", "al": "الدفاع"},
+    "agriculture": {"singular": "زراعة", "al": "الزراعة"},
+    "climate change": {"singular": "تغير المناخ", "al": "تغير المناخ"},
+    "communication": {"singular": "اتصالات", "al": "الاتصالات"},
+    "communications": {"singular": "اتصالات", "al": "الاتصالات"},
+    "construction": {"singular": "بناء", "al": "البناء"},
+    "culture": {"singular": "ثقافة", "al": "الثقافة"},
+    "national defence": {"singular": "دفاع وطني", "al": "الدفاع الوطني"},
+    "defence": {"singular": "دفاع", "al": "الدفاع"},
+    "economy": {"singular": "اقتصاد", "al": "الاقتصاد"},
+    "education": {"singular": "تعليم", "al": "التعليم"},
+    "energy": {"singular": "طاقة", "al": "الطاقة"},
+    "environment": {"singular": "بيئة", "al": "البيئة"},
+    "family": {"singular": "أسرة", "al": "الأسرة"},
+    "finance": {"singular": "مالية", "al": "المالية"},
+    "fisheries": {"singular": "ثروة سمكية", "al": "الثروة السمكية"},
+    "health": {"singular": "صحة", "al": "الصحة"},
+    "human rights": {"singular": "حقوق الإنسان", "al": "الحقوق الإنسان"},
+    "immigration": {"singular": "هجرة", "al": "الهجرة"},
+    "industry": {"singular": "صناعة", "al": "الصناعة"},
+    "information": {"singular": "إعلام", "al": "الإعلام"},
+    "infrastructure": {"singular": "بنية تحتية", "al": "البنية التحتية"},
+    "interior": {"singular": "داخلية", "al": "الداخلية"},
+    "internal affairs": {"singular": "شؤون داخلية", "al": "الشؤون الداخلية"},
+    "indigenous affairs": {"singular": "شؤون سكان أصليين", "al": "شؤون السكان الأصليين"},
+    "maritime affairs": {"singular": "شؤون بحرية", "al": "الشؤون البحرية"},
+    "intelligence": {"singular": "مخابرات", "al": "المخابرات"},
+    "labour-and-social security": {
+        "singular": "عمل وضمان اجتماعي",
+        "al": "العمل والضمان الاجتماعي",
+    },
+    "labour and social security": {
+        "singular": "عمل وضمان اجتماعي",
+        "al": "العمل والضمان الاجتماعي",
+    },
+    "social security": {"singular": "ضمان اجتماعي", "al": "الضمان الاجتماعي"},
+    "labor and social affairs": {
+        "singular": "عمل وشؤون اجتماعية",
+        "al": "العمل والشؤون الاجتماعية",
+    },
+    "social affairs": {"singular": "شؤون اجتماعية", "al": "الشؤون الاجتماعية"},
+    "labor": {"singular": "عمل", "al": "العمل"},
+    "labour": {"singular": "عمل", "al": "العمل"},
+    "gender equality": {"singular": "المساواة بين الجنسين", "al": "المساواة بين الجنسين"},
+    "colonial": {"singular": "إستعمار", "al": "الإستعمار"},
+    "broadcasting": {"singular": "إذاعة", "al": "الإذاعة"},
+    "land management": {"singular": "إدارة أراضي", "al": "إدارة الأراضي"},
+    "housing": {"singular": "إسكان", "al": "الإسكان"},
+    "public safety": {"singular": "سلامة عامة", "al": "السلامة العامة"},
+    "planning": {"singular": "تخطيط", "al": "التخطيط"},
+    "diaspora": {"singular": "شتات", "al": "الشتات"},
+    "urban development": {"singular": "تخطيط عمراني", "al": "التخطيط العمراني"},
+    "law": {"singular": "قانون", "al": "القانون"},
+    "mining": {"singular": "تعدين", "al": "التعدين"},
+    "oil": {"singular": "بترول", "al": "البترول"},
+    "security": {"singular": "أمن", "al": "الأمن"},
+    "nuclear security": {"singular": "أمن نووي", "al": "الأمن النووي"},
+    "prisons": {"singular": "سجون", "al": "السجون"},
+    "public works": {"singular": "أشغال عامة", "al": "الأشغال العامة"},
+    "research": {"singular": "أبحاث", "al": "الأبحاث"},
+    "science": {"singular": "العلم", "al": "العلم"},
+    "sports": {"singular": "رياضة", "al": "الرياضة"},
+    "civil service": {"singular": "خدمة مدنية", "al": "الخدمة المدنية"},
+    "technology": {"singular": "تقانة", "al": "التقانة"},
+    "irrigation": {"singular": "ري", "al": "الري"},
+    "tourism": {"singular": "سياحة", "al": "السياحة"},
+    "natural resources": {"singular": "موارد طبيعية", "al": "الموارد الطبيعية"},
+    "religious affairs": {"singular": "شؤون دينية", "al": "الشؤون الدينية"},
+    "foreign trade": {"singular": "تجارة خارجية", "al": "التجارة الخارجية"},
+    "commerce": {"singular": "تجارة", "al": "التجارة"},
+    "trade": {"singular": "تجارة", "al": "التجارة"},
+    "transport": {"singular": "نقل", "al": "النقل"},
+    "water": {"singular": "مياه", "al": "المياه"},
+    "women's": {"singular": "شؤون المرأة", "al": "شؤون المرأة"},
+    "public service": {"singular": "خدمة عامة", "al": "الخدمة العامة"},
+    "justice": {"singular": "عدل", "al": "العدل"},
+    "army": {"singular": "جيش", "al": "الجيش"},
+    "war": {"singular": "حرب", "al": "الحرب"},
+    # "state": {"singular": "خارجية", "al": "الخارجية"},
+    "foreign": {"singular": "خارجية", "al": "الخارجية"},
+    "foreign affairs": {"singular": "شؤون خارجية", "al": "الشؤون الخارجية"},
+}
 # ---
-for ministry_key, ministry_labels in ministrs_keys.items():
-    normalized_ministry = ministry_key.lower()
-    singular_label = ministry_labels["singular"]
-    label = f"وزراء {singular_label} {{}}"
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = label
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = label
+formatted_data = {
+    "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
+    "secretaries of {ministry} of {en}" : "وزراء {singular} {males}",
+    "secretaries of {ministry}" : "وزراء {singular}",
+}
+# ---
+formatted_data.update({
+    x.replace("secretaries of", "secretaries-of"): y
+    for x, y in formatted_data.items()
+    if "secretaries of" in x
+})
+# ---
 
 
-@functools.lru_cache(maxsize=None)
-@dump_data(1)
+def remove_the(text: str) -> str:
+    if text.lower().startswith("the "):
+        return text[4:]
+    return text
+
+
+@functools.lru_cache(maxsize=1)
+def _load_bot() -> MultiDataFormatterBaseV2:
+    nats_data = {
+        remove_the(v["en"]): v
+        for x, v in all_country_with_nat_ar.items()
+        if v.get("ar") and v.get("en")
+    }
+
+    nats_data.update({
+        "ireland": {
+            "male": "أيرلندي",
+            "males": "أيرلنديون",
+            "female": "أيرلندية",
+            "females": "أيرلنديات",
+            "en": "ireland",
+            "ar": "أيرلندا",
+            "the_female": "الأيرلندية",
+            "the_male": "الأيرلندي"
+        }
+    })
+
+    both_bot = format_multi_data_v2(
+        formatted_data=formatted_data,
+        data_list=nats_data,
+        key_placeholder="{en}",
+        data_list2=ministrs_keys,
+        key2_placeholder="{ministry}",
+        text_after="",
+        text_before="the ",
+        search_first_part=True,
+        use_other_formatted_data=True,
+    )
+    return both_bot
+
+
 def te_army2(category: str) -> str:
-    """Resolve the Arabic label for a military-related category.
+    normalized_category = category.lower().replace("category:", "")
+    both_bot = _load_bot()
 
-    Args:
-        category: The category name in English.
+    result = both_bot.search_all(normalized_category)
 
-    Returns:
-        The resolved Arabic label or an empty string when no match exists.
-    TODO: use FormatData method
-    """
-
-    normalized_category = category.lower().strip()
-
-    logger.debug(f"Starting army label resolution, category: {normalized_category}")
-
-    suffix = ""
-    women_label = ""
-
-    for country, details in all_country_with_nat.items():
-        english_country = details.get("en", "").lower()
-        women_label = details.get("female", "")
-
-        if not women_label:
-            continue
-
-        english_prefix = f"{english_country} " if english_country else ""
-        localised_prefix = f"{country.lower()} "
-
-        english_without_article = english_country
-        if english_without_article.startswith("the "):
-            english_without_article = english_without_article[len("the ") :]
-        english_without_article_prefix = f"{english_without_article} " if english_without_article else ""
-
-        for prefix in filter(None, [english_prefix, english_without_article_prefix, localised_prefix]):
-            if category.startswith(prefix):
-                suffix = category[len(prefix) :].strip()
-                logger.debug(f"Matched country prefix, {category=}, {prefix=}")
-                break
-
-    if not suffix or not women_label:
-        return ""
-
-    resolved_label = ""
-
-    for suffix, prefix_template in ENDS_WITH_TABLE.items():
-        if not suffix.endswith(suffix):
-            continue
-
-        base_suffix = suffix[: -len(suffix)].strip()
-
-        suffix_template = ministrs_for_en_is_P17_ar_is_mens.get(base_suffix, "")
-
-        if suffix_template:
-            women_with_article = apply_arabic_article(women_label)
-            logger.debug(f"Resolved women extended suffix, {suffix=}, {base_suffix=}")
-            _label = suffix_template.format(nat=women_with_article)
-            resolved_label = prefix_template.format(_label)
-            break
-
-    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
-
-    return resolved_label
+    if result and category.lower().startswith("category:"):
+        result = "تصنيف:" + result
+    return result
 
 
 __all__ = [

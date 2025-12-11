@@ -155,7 +155,7 @@ ministrs_keys = {
     "justice": {"singular": "عدل", "al": "العدل"},
     "army": {"singular": "جيش", "al": "الجيش"},
     "war": {"singular": "حرب", "al": "الحرب"},
-    "state": {"singular": "خارجية", "al": "الخارجية"},
+    # "state": {"singular": "خارجية", "al": "الخارجية"},
     "foreign": {"singular": "خارجية", "al": "الخارجية"},
     "foreign affairs": {"singular": "شؤون خارجية", "al": "الشؤون الخارجية"},
 }
