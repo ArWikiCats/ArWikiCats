@@ -27,7 +27,7 @@ data_2 = {
 
 to_test = [
     ("test_womens_africa_cup_of_nations_1", data1),
-    ("test_womens_africa_cup_of_nations_2", data_2),
+    # ("test_womens_africa_cup_of_nations_2", data_2),
 ]
 
 

@@ -66,11 +66,11 @@ religions_data = {
 }
 
 data2 = {
+    "Jewish television": "تصنيف:التلفزة اليهودية",
+    "Christian television": "تصنيف:التلفزة المسيحية",
     "Jewish Canadian films": "تصنيف:أفلام كندية يهودية",
     "Jewish musical groups": "تصنيف:فرق موسيقية يهودية",
-    "Jewish television": "تصنيف:تلفاز يهودي",
     "Christian musical groups": "تصنيف:فرق موسيقية مسيحية",
-    "Christian television": "تصنيف:تلفاز مسيحي",
     "Pakistan Muslim League (N)": "تصنيف:الرابطة الإسلامية الباكستانية (ن)",
     "Pakistan Muslim League (Q)": "تصنيف:الجماعة الإسلامية الباكستانية (ق)",
     "People of Jewish Agency for Israel": "تصنيف:أشخاص من الوكالة اليهودية",

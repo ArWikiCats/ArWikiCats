@@ -11,7 +11,7 @@ get_squad_title_data = {
     "1970 afc women's asian cup": "تشكيلات كأس الأمم الآسيوية لكرة القدم للسيدات 1970",
     "1970 afc women's championship": "تشكيلات بطولة آسيا للسيدات 1970",
     "1970 africa cup-of-nations": "تشكيلات كأس الأمم الإفريقية 1970",
-    "1970 african cup of nations": "تشكيلات كأس إفريقيا في بلدان 1970",
+    "1970 african cup of nations": "تشكيلات كأس الأمم الإفريقية 1970",
     "1970 african women's championship": "تشكيلات كأس أمم إفريقيا لكرة القدم للسيدات 1970",
     "1970 basketball olympic": "تشكيلات كرة سلة أولمبية 1970",
     "1970 concacaf championships": "تشكيلات بطولات الكونكاكاف 1970",
