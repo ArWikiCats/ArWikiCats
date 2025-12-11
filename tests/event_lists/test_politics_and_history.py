@@ -13,7 +13,7 @@ data = {
     "Category:Historical novels": "تصنيف:روايات تاريخية",
     "Category:Historical poems": "تصنيف:قصائد تاريخية",
     "Category:Historical short stories": "تصنيف:قصص قصيرة تاريخية",
-    "Category:History of the British Army": "تصنيف:تاريخ الجيش البريطاني",
+    # "Category:History of the British Army": "تصنيف:تاريخ الجيش البريطاني",
     "Category:History of the British National Party": "تصنيف:تاريخ الحزب الوطني البريطاني",
     "Category:Military alliances involving Japan": "تصنيف:تحالفات عسكرية تشمل اليابان",
     "Category:Military alliances involving Yemen": "تصنيف:تحالفات عسكرية تشمل اليمن",

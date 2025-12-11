@@ -6,7 +6,7 @@ import re
 
 # from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ..countries_formats import resolved_countries_formats_labels  # , p17_bot, p17_bot_2, p17_bot_sport
+from ..countries_formats import resolved_countries_formats_labels
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players

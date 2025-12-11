@@ -217,24 +217,13 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_for_military_format_men[f"deputy secretaries of {normalized_ministry}"] = (
         f"نواب وزير {al_label} {{nat}}"
     )
-    ministrs_for_military_format_men[f"deputy secretaries of the {normalized_ministry}"] = (
-        f"نواب وزير {al_label} {{nat}}"
-    )
-
     ministrs_for_military_format_men[f"assistant secretaries-of {normalized_ministry}"] = (
         f"مساعدو وزير {al_label} {{nat}}"
     )
     ministrs_for_military_format_men[f"deputy secretaries-of {normalized_ministry}"] = (
         f"نواب وزير {al_label} {{nat}}"
     )
-    ministrs_for_military_format_men[f"deputy secretaries-of the {normalized_ministry}"] = (
-        f"نواب وزير {al_label} {{nat}}"
-    )
-
     ministrs_for_military_format_men[f"deputy secretary of {normalized_ministry}"] = (
-        f"نواب وزير {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_men[f"deputy secretary of the {normalized_ministry}"] = (
         f"نواب وزير {al_label} {{nat}}"
     )
 # ---
@@ -262,9 +251,6 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_for_military_format_women[f"department of {normalized_ministry}"] = (
         f"وزارة {al_label} {{nat}}"
     )
-    ministrs_for_military_format_women[f"department of the {normalized_ministry}"] = (
-        f"وزارة {al_label} {{nat}}"
-    )
 # ---
 ministrs_for_en_is_P17_ar_is_mens = {}  # used in bot_te_4.py
 # ---
@@ -274,8 +260,6 @@ for ministry_key, ministry_labels in ministrs_keys.items():
 
     label = f"وزراء {singular_label} {{}}"
 
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of the {normalized_ministry}"] = label
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of the {normalized_ministry}"] = label
     ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = label
     ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = label
 # ---
