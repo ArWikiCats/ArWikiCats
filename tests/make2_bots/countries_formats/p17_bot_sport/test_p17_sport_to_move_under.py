@@ -11,7 +11,7 @@ from ArWikiCats.make_bots.countries_formats.p17_sport_to_move_under import (
 )
 
 # =========================================================
-#           get_en_ar_is_p17_label
+#
 # =========================================================
 
 data_under = {

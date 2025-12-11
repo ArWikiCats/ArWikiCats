@@ -9,6 +9,7 @@ def resolved_countries_formats_labels(normalized_category) -> str:
     resolved_label = p17_bot.get_p17_main(normalized_category)
 
     if not resolved_label:
+        #  [yemen international soccer players] : "تصنيف:لاعبو منتخب اليمن لكرة القدم",
         resolved_label = countries_names.resolve_by_countries_names(normalized_category)
 
     if not resolved_label:

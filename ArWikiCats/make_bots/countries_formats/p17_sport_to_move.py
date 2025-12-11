@@ -7,8 +7,6 @@ import functools
 from ...translations_formats import FormatData
 from ...translations import countries_from_nat
 from ..p17_sport_to_move_data import main_data
-# from .p17_sport_to_move_under import main_data_under
-# SPORT_FORMTS_EN_AR_IS_P17 = main_data | main_data_under
 
 
 @functools.lru_cache(maxsize=1)
