@@ -8,9 +8,9 @@ to translate category titles like "{nationality} {sport} federation" into Arabic
 """
 import functools
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ..translations_resolvers.sports_formats_oioioi import NAT_P17_OIOI
 from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ..translations_resolvers.sports_formats_oioioi import NAT_P17_OIOI
 
 sports_formatted_data = {
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
