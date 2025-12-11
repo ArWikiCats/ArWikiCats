@@ -5,9 +5,11 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:Women's National Basketball League": "تصنيف:الدوري الوطني لكرة السلة نسائية",
+    "Category:Women's National Basketball League players": "تصنيف:لاعبو الدوري الوطني لكرة السلة نسائية",
+    "Category:Women's National Basketball League teams": "تصنيف:فرق الدوري الوطني لكرة السلة نسائية",
     "Category:Women's Irish Hockey League players": "تصنيف:لاعبو الدوري الأيرلندي للهوكي نسائية",
     "Category:Women's Korean Basketball League players": "تصنيف:لاعبو الدوري الكوري لكرة السلة نسائية",
-    "Category:Women's National Basketball League players": "تصنيف:لاعبو الدوري الوطني لكرة السلة نسائية",
     "Category:Women's basketball players in the United States by league": "تصنيف:لاعبو كرة سلة نسائية في الولايات المتحدة حسب الدوري",
     "Category:Women's lacrosse players": "تصنيف:لاعبو لاكروس نسائية",
     "Category:Women's hockey players": "تصنيف:لاعبو هوكي نسائية",
@@ -44,7 +46,7 @@ to_test = [
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
 @pytest.mark.fast
-def test_1(category: str, expected: str) -> None:
+def test_womens_players_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 

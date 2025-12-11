@@ -22,6 +22,8 @@ sports_formatted_data = {
     "{en_nat} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
     "{en_nat} {en_sport} tour": "بطولة {ar} {sport_team}",
 
+    "women's national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
+
     "{en_nat} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
 }
 
@@ -55,6 +57,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         text_after="",
         text_before="the ",
         search_first_part=True,
+        use_other_formatted_data=True,
     )
     return both_bot
 

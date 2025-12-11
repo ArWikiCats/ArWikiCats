@@ -368,6 +368,7 @@ ar_sport_team_data = {
 sport_jobs_female_data = {
     "dominican republic national football teams": "منتخبات كرة قدم وطنية دومينيكانية",
     "yemeni national softball teams": "منتخبات كرة لينة وطنية يمنية",
+    "Women's National Basketball League": "الدوري الوطني لكرة السلة للسيدات",
 }
 
 
