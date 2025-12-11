@@ -88,6 +88,17 @@ military_format_men = {
     "forth division league": "الدوري {nat} الدرجة الرابعة",
 }
 
+_WOMEN_FORMATS = {
+    **ministrs_for_en_is_P17_ar_is_mens,
+    **ministrs_for_military_format_women,
+    **military_format_women,
+}
+
+_MEN_FORMATS = {
+    **ministrs_for_military_format_men,
+    **military_format_men,
+}
+
 
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
     """
@@ -135,11 +146,7 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
 
         base_suffix = category_suffix[: -len(suffix)].strip()
 
-        suffix_template = (
-            military_format_women.get(base_suffix, "") or
-            ministrs_for_military_format_women.get(base_suffix, "") or
-            ministrs_for_en_is_P17_ar_is_mens.get(base_suffix, "")
-        )
+        suffix_template = _WOMEN_FORMATS.get(base_suffix, "")
 
         if suffix_template:
             women_with_article = apply_arabic_article(women_label)
@@ -159,10 +166,8 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
     if not category_suffix or not men_label:
         return ""
 
-    template = (
-        military_format_men.get(category_suffix, "") or
-        ministrs_for_military_format_men.get(category_suffix, "")
-    )
+    template = _MEN_FORMATS.get(category_suffix, "")
+
     if template:
         men_with_article = apply_arabic_article(men_label)
         logger.debug(f"Resolved men suffix, suffix: {category_suffix}")
