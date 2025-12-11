@@ -9,29 +9,11 @@ from ...helps import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
     all_country_with_nat,
-    countries_nat_en_key,
     military_format_men,
     military_format_women,
 )
 from .utils import apply_arabic_article
 
-# الإنجليزية اسم البلد والعربية جنسية مؤنث بدون ألف ولام التعريف
-# TODO: move to countries_names_v2.py
-military_format_women_without_al_from_end = {
-    # Category:Unmanned_aerial_vehicles_of_Jordan > طائرات بدون طيار أردنية
-    "unmanned military aircraft-of": "طائرات عسكرية بدون طيار {nat}",
-    "unmanned aerial vehicles-of": "طائرات بدون طيار {nat}",
-    "unmanned military aircraft of": "طائرات عسكرية بدون طيار {nat}",
-    "unmanned aerial vehicles of": "طائرات بدون طيار {nat}",
-}
-
-# TODO: move to countries_names_v2.py
-military_format_women_without_al = {
-    "federal legislation": "تشريعات فيدرالية {nat}",
-    "courts": "محاكم {nat}",
-    "sports templates": "قوالب رياضة {nat}",
-    "political party": "أحزاب سياسية {nat}",
-}
 #: Mapping of suffixes that require adding a prefix around the formatted label.
 ENDS_WITH_TABLE: Mapping[str, str] = {
     " civilians": "مدنيو {}",
@@ -66,38 +48,6 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
                 return suffix, women_label, men_label
 
     return "", "", ""
-
-
-def _resolve_women_without_article_prefix(category: str) -> str:
-    """Resolve categories that start with a women-only prefix template."""
-
-    for prefix_without_article, template in military_format_women_without_al_from_end.items():
-        prefix_with_space = f"{prefix_without_article} "
-        if not category.startswith(prefix_with_space):
-            continue
-
-        suffix_key = category[len(prefix_with_space) :].strip()
-        country_label = countries_nat_en_key.get(suffix_key, {}).get("female", "")
-        if country_label:
-            logger.debug(
-                f"Resolved women without article prefix, prefix: {prefix_without_article}, category: {suffix_key}"
-            )
-            return template.format(nat=country_label)
-
-    return ""
-
-
-def _resolve_women_suffix(category_suffix: str, women_label: str) -> str:
-    """Resolve categories with a direct women suffix template."""
-
-    if not category_suffix or not women_label:
-        return ""
-
-    template = military_format_women_without_al.get(category_suffix, "")
-    if template:
-        logger.debug(f"Resolved women suffix, suffix: {category_suffix}")
-        return template.format(nat=women_label)
-    return ""
 
 
 def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> str:
@@ -154,14 +104,10 @@ def te_army(category: str) -> str:
     suffix, women_label, men_label = _match_country_prefix(normalized_category)
 
     if not suffix:
-        resolved = _resolve_women_without_article_prefix(normalized_category)
-        return resolved or ""
+        # resolved = _resolve_women_without_article_prefix(normalized_category)
+        return ""
 
-    # Attempt to resolve using women-focused templates first.
-    resolved_label = _resolve_women_suffix(suffix, women_label)
-
-    if not resolved_label:
-        resolved_label = _resolve_women_extended_suffix(suffix, women_label)
+    resolved_label = _resolve_women_extended_suffix(suffix, women_label)
 
     # Fall back to men-specific and sport-specific templates.
     if not resolved_label:
