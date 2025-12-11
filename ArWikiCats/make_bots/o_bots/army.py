@@ -55,27 +55,13 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
     if not category_suffix or not women_label:
         return ""
 
-    #: Mapping of suffixes that require adding a prefix around the formatted label.
-    ENDS_WITH_TABLE: Mapping[str, str] = {
-        " civilians": "مدنيو {}",
-        " generals": "جنرالات {}",
-        " accidents and incidents": "حوادث {}",
-    }
+    suffix_template = ministrs_for_military_format_women.get(category_suffix, "")
 
-    for suffix, prefix_template in ENDS_WITH_TABLE.items():
-        if not category_suffix.endswith(suffix):
-            continue
+    if suffix_template:
+        women_with_article = apply_arabic_article(women_label)
+        resolved_label = suffix_template.format(nat=women_with_article)
 
-        base_suffix = category_suffix[: -len(suffix)].strip()
-
-        suffix_template = ministrs_for_military_format_women.get(base_suffix, "")
-
-        if suffix_template:
-            women_with_article = apply_arabic_article(women_label)
-            logger.debug(f"Resolved women extended suffix, {suffix=}, {base_suffix=}")
-            resolved_label = suffix_template.format(nat=women_with_article)
-            return prefix_template.format(resolved_label)
-
+    print(f"Resolved women extended suffix, {category_suffix=}, {resolved_label=}")
     return ""
 
 

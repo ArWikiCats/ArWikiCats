@@ -4,7 +4,12 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.make_bots.o_bots.army2 import te_army2
 
+secretaries_test_0 = {
+    "Category:State secretaries of state of the United States by state": "تصنيف:وزراء خارجية الولايات في الولايات المتحدة حسب الولاية",
+}
+
 secretaries_test_1 = {
+    "Category:State secretaries of state of the United States": "تصنيف:وزراء خارجية الولايات في الولايات المتحدة",
     "Category:Secretaries of agriculture of the Philippines": "تصنيف:وزراء زراعة فلبينيون",
     "Category:Secretaries of education of the Philippines": "تصنيف:وزراء تعليم فلبينيون",
     "Category:Secretaries of energy of the Philippines": "تصنيف:وزراء طاقة فلبينيون",
@@ -162,10 +167,6 @@ secretaries_test_1 = {
     "Category:State cabinet secretaries of West Virginia": "تصنيف:أعضاء مجلس وزراء فيرجينيا الغربية",
     "Category:State cabinet secretaries of Wisconsin": "تصنيف:أعضاء مجلس وزراء ويسكونسن",
     "Category:State cabinet secretaries of Wyoming": "تصنيف:أعضاء مجلس وزراء وايومنغ",
-    "Category:State cabinet secretaries of the United States": "تصنيف:أعضاء مجالس وزراء ولايات الولايات المتحدة",
-    "Category:State cabinet secretaries of the United States by state": "تصنيف:أعضاء مجالس وزراء الولايات الأمريكية حسب الولاية",
-    "Category:State secretaries of state of the United States": "تصنيف:وزراء خارجية ولايات الولايات المتحدة",
-    "Category:State secretaries of state of the United States by state": "تصنيف:وزراء خارجية ولايات الولايات المتحدة حسب الولاية",
     "Category:State secretaries of the Netherlands": "تصنيف:وزراء مفوضون هولنديون",
     "Category:United States deputy secretaries of agriculture": "تصنيف:نواب وزير الزراعة الأمريكي",
     "Category:United States deputy secretaries of commerce": "تصنيف:نواب وزير التجارة الأمريكي",
@@ -216,6 +217,7 @@ secretaries_test_1 = {
 
 
 to_test = [
+    ("test_secretaries_0", secretaries_test_0, resolve_arabic_category_label),
     ("test_secretaries_1", secretaries_test_1, resolve_arabic_category_label),
     ("test_secretaries_1", secretaries_test_1, te_army2),
 ]

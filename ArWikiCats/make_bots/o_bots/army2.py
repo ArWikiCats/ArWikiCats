@@ -214,6 +214,10 @@ ministrs_keys = {
 }
 # ---
 formatted_data = {
+    "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
+    "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",
+    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
     "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
     "secretaries of {ministry} of {en}" : "وزراء {singular} {males}",

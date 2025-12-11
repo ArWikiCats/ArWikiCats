@@ -6,6 +6,8 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
+    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
     "{en}": "{ar}",
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
