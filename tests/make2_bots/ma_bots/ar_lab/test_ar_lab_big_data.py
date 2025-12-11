@@ -58,7 +58,6 @@ data_list = [
     ("united nations security council resolutions concerning angola", " concerning ", "قرارات مجلس الأمن التابع للأمم المتحدة بشأن أنغولا", ),
     ("united nations security council resolutions concerning turkmenistan", " concerning ", "قرارات مجلس الأمن التابع للأمم المتحدة بشأن تركمانستان", ),
     ("victims of aviation accidents or incidents in dominican republic", " in ", "ضحايا حوادث طيران في جمهورية الدومينيكان", ),
-    ("wikipedia categories named after swedish musical groups", " named after ", "تصنيفات سميت بأسماء مجموعات موسيقية سويدية", ),
     (" university of annaba", " of ", "جامعة عنابة"),
     ("1550 awards in united states", " in ", "جوائز 1550 في الولايات المتحدة"),
     ("1550 by city", " by ", "1550 حسب المدينة"),
