@@ -4,11 +4,10 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.countries_formats.p17_bot_2 import (
-    get_p17_2,
-)
+from ArWikiCats.translations_resolvers_v2.countries_names_v2 import resolve_by_countries_names_v2
 
-get_p17_2_data = {
+
+test_data = {
     "bahamas royal defence force": "قوات الدفاع الملكية البهامية",
     # -------------------------
     # government officials (males)
@@ -106,8 +105,8 @@ get_p17_2_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", get_p17_2_data.items(), ids=list(get_p17_2_data.keys()))
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=list(test_data.keys()))
 @pytest.mark.fast
 def test_get_p17_2(category: str, expected: str) -> None:
-    label = get_p17_2(category)
+    label = resolve_by_countries_names_v2(category)
     assert label == expected

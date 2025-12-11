@@ -6,12 +6,6 @@ import pytest
 
 from ArWikiCats.make_bots.countries_formats.utils import (
     add_definite_article,
-    resolve_p17_2_label,
-)
-
-from ArWikiCats.translations import (
-    en_is_P17_ar_is_mens,
-    countries_nat_en_key,
 )
 
 definite_article_data = {
@@ -71,29 +65,3 @@ def test_add_definite_article_simple() -> None:
     assert add_definite_article("فيتنامي") == "الفيتنامي"
     assert add_definite_article("كندي غربي") == "الكندي الغربي"
     # assert add_definite_article("كندي الغربي") == "الكندي الغربي"
-
-
-# --------------------------------------------
-# Direct tests for resolve_p17_2_label
-# --------------------------------------------
-
-
-@pytest.mark.unit
-def test_resolve_p17_mens_basic() -> None:
-    # "government officials": "مسؤولون حكوميون {}"
-    category = "yemen government officials"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
-    assert out == "مسؤولون حكوميون يمنيون"
-
-@pytest.mark.unit
-def test_resolve_p17_suffix_not_matching() -> None:
-    category = "yemen strange_suffix"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
-    assert out == ""
-
-
-@pytest.mark.unit
-def test_resolve_p17_case_insensitive() -> None:
-    category = "YEMEN GOVERNMENT OFFICIALS"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
-    assert out == "مسؤولون حكوميون يمنيون"

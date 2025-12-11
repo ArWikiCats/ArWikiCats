@@ -15,13 +15,6 @@ from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from .keys_23 import AFC_KEYS
 from .Newkey import pop_final6
 
-# الإنجليزية اسم البلد والعربية رجال
-# tab[Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
-
-en_is_P17_ar_is_mens: dict[str, str] = {
-    "government officials": "مسؤولون حكوميون {}",
-}
-
 # الإنجليزية والعربية اسم البلد
 # tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
 
@@ -528,7 +521,6 @@ __all__ = [
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
     "en_is_nat_ar_is_women_2",
-    "en_is_P17_ar_is_mens",
 ]
 
 
@@ -543,6 +535,5 @@ len_print.data_len(
         "change_male_to_female": change_male_to_female,
         "Multi_sport_for_Jobs": Multi_sport_for_Jobs,
         "en_is_nat_ar_is_women_2": en_is_nat_ar_is_women_2,
-        "en_is_P17_ar_is_mens": en_is_P17_ar_is_mens,
     },
 )

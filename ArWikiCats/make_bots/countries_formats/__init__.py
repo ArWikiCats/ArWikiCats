@@ -1,10 +1,9 @@
 
 from ...translations_resolvers import countries_names
-from . import p17_bot, p17_bot_sport, p17_bot_2, p17_sport_to_move_under
+from . import p17_bot, p17_bot_sport, p17_sport_to_move_under  # , p17_bot_2
 
 
 def resolved_countries_formats_labels(normalized_category) -> str:
-    _ = p17_bot_sport.get_p17_with_sport(normalized_category)
 
     resolved_label = p17_bot.get_p17_main(normalized_category)
 
@@ -20,7 +19,6 @@ def resolved_countries_formats_labels(normalized_category) -> str:
         # [yemen international soccer players] : "تصنيف:لاعبو كرة قدم دوليون من اليمن",
         resolved_label = p17_bot_sport.get_p17_with_sport(normalized_category)
 
-    if not resolved_label:
-        resolved_label = p17_bot_2.get_p17_2(normalized_category)
+    # if not resolved_label: resolved_label = p17_bot_2.get_p17_2(normalized_category)
 
     return resolved_label

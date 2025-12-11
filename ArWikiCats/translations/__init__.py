@@ -36,7 +36,6 @@ from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
     en_is_nat_ar_is_women_2,
-    en_is_P17_ar_is_mens,
 )
 from .mixed.jenders_prefix_suffix import (
     Mens_prefix,
@@ -192,7 +191,6 @@ __all__ = [
     "change_male_to_female",
     "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_women_2",
-    "en_is_P17_ar_is_mens",
     "Mens_suffix",
     "Mens_prefix",
     "womens_prefixes",

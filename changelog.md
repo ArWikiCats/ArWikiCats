@@ -1,3 +1,13 @@
+## [#200](https://github.com/MrIbrahem/ArWikiCats/pull/200) - 2025-12-11
+
+* **Bug Fixes**
+  * Corrected Arabic transliteration for Malawi across category translations.
+  * Updated and standardized translations for African Cup of Nations references.
+  * Improved Arabic labels for religious and women's sports categories (basketball, television).
+
+* **Documentation & Data**
+  * Enhanced translation coverage for sports-related category mappings.
+
 ## [#199](https://github.com/MrIbrahem/ArWikiCats/pull/199) - 2025-12-11
 
 * **New Features**

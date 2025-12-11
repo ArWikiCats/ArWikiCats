@@ -5,10 +5,16 @@ import functools
 from ...helps.log import logger
 from ...translations import (
     countries_nat_en_key,
-    en_is_P17_ar_is_mens,
 )
 from .utils import resolve_p17_2_label
 
+
+# الإنجليزية اسم البلد والعربية رجال
+# tab[Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
+
+en_is_P17_ar_is_mens: dict[str, str] = {
+    "government officials": "مسؤولون حكوميون {}",
+}
 
 # الإنجليزية اسم البلد والعربية نساء
 # tab[Category:United States navy] = "تصنيف:البحرية الأمريكية"
