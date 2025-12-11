@@ -4,7 +4,7 @@ Resolve country names categories translations
 """
 from ..translations_formats import FormatData
 from ..translations import countries_from_nat
-from ..make_bots.countries_formats.p17_sport_to_move import main_data
+from ..make_bots.p17_sport_to_move_data import main_data
 
 formatted_data_en_ar_only: dict[str, str] = {
     "{en}": "{ar}",
