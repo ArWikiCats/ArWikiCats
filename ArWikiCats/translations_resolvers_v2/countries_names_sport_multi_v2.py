@@ -24,6 +24,11 @@ sports_formatted_data = {
     "{country_en} national {sport_en} team" : "منتخب {country_ar} {sport_team}",
     "{country_en} national {sport_en} team players" : "لاعبو منتخب {country_ar} {sport_team}",
 
+    "{country_en} women's international footballers": "لاعبات منتخب {country_ar} لكرة القدم للسيدات",
+    "{country_en} women's international {sport_en} players": "لاعبات {sport_jobs} دوليات من {country_ar}",
+
+    "{country_en} international footballers": "لاعبو منتخب {country_ar} لكرة القدم",
+    "{country_en} international {sport_en} players": "لاعبو {sport_jobs} دوليون من {country_ar}",
 }
 
 WOMENS_NATIONAL_DATA = {
@@ -56,6 +61,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         x: {
             "sport_ar": v["label"],
             "sport_team": v["team"],
+            "sport_jobs": v["jobs"],
         }
         for x, v in SPORT_KEY_RECORDS.items()
         if v.get("label")
