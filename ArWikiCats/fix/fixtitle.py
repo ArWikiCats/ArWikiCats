@@ -198,6 +198,11 @@ def fix_it(ar_label: str, en_label: str) -> str:
     ar_label = re.sub(r"قوائممتعلقة", "قوائم متعلقة", ar_label)
     ar_label = re.sub(r" في أصل ", " من أصل ", ar_label)
     ar_label = _normalize_conflict_phrases(ar_label)
+
+    # if "لاعبو " and "سيدات" in label_old: fix it to لاعبات (use all())
+
+    # if all(x in ar_label for x in ["لاعبو ", "سيدات"]): ar_label = ar_label.replace("لاعبو ", "لاعبات ")
+
     ar_label = ar_label.strip()
     return ar_label
 

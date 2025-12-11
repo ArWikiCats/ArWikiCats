@@ -5,9 +5,9 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_1 = {
+    # "Category:Fenerbahçe women's basketball players": "تصنيف:لاعبات فنربخشة لكرة السلة للسيدات",
     "Category:Volleyball players by women's national team": "تصنيف:لاعبو كرة طائرة حسب منتخب السيدات الوطني",
     "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبات الرابطة الصينية لكرة السلة للسيدات",
-    "Category:Fenerbahçe women's basketball players": "تصنيف:لاعبات فنربخشة لكرة السلة للسيدات",
 }
 data_2 = {
     "Category:Rugby league players by women's national team": "تصنيف:لاعبو دوري رجبي حسب منتخب السيدات الوطني",
@@ -61,6 +61,15 @@ data_3 = {
 }
 
 data_4 = {
+    "Category:Ireland women's national field hockey team coaches": "تصنيف:مدربو منتخب أيرلندا لهوكي الميدان للسيدات",
+    "Category:Ireland women's national field hockey team": "تصنيف:منتخب أيرلندا لهوكي الميدان للسيدات",
+
+    "Category:Ireland women's national basketball team players": "تصنيف:لاعبات منتخب أيرلندا لكرة السلة للسيدات",
+    "Category:Ireland women's national basketball team": "تصنيف:منتخب أيرلندا لكرة السلة للسيدات",
+    "Category:Ireland women's national rugby sevens team": "تصنيف:منتخب أيرلندا لسباعيات الرجبي للسيدات",
+    "Category:Ireland women's national rugby union team coaches": "تصنيف:مدربو منتخب أيرلندا لاتحاد الرجبي للسيدات",
+    "Category:Ireland women's national rugby union team": "تصنيف:منتخب أيرلندا لاتحاد الرجبي للسيدات",
+
     "Category:Republic of Ireland women's international rugby union players": "تصنيف:لاعبات اتحاد رجبي دوليات من جمهورية أيرلندا",
     "Category:Republic of Ireland women's international footballers": "تصنيف:لاعبات منتخب جمهورية أيرلندا لكرة القدم للسيدات",
     "Category:Republic of Ireland women's youth international footballers": "تصنيف:لاعبات منتخب جمهورية أيرلندا لكرة القدم للشابات",
@@ -69,13 +78,6 @@ data_4 = {
     "Category:Republic of Ireland association football leagues": "تصنيف:دوريات كرة قدم أيرلندية",
     "Category:Republic of Ireland association football": "تصنيف:كرة قدم أيرلندية",
     "Category:Republic of Ireland women's association football": "تصنيف:كرة قدم أيرلندية نسائية",
-    "Category:Ireland women's national basketball team players": "تصنيف:لاعبو منتخب أيرلندا الوطني لكرة السلة للسيدات",
-    "Category:Ireland women's national basketball team": "تصنيف:منتخب أيرلندا الوطني لكرة السلة للسيدات",
-    "Category:Ireland women's national field hockey team coaches": "تصنيف:مدربو منتخب أيرلندا لهوكي الميدان للسيدات",
-    "Category:Ireland women's national field hockey team": "تصنيف:منتخب أيرلندا لهوكي الميدان للسيدات",
-    "Category:Ireland women's national rugby sevens team": "تصنيف:منتخب أيرلندا الوطني لسباعيات الرجبي للسيدات",
-    "Category:Ireland women's national rugby union team coaches": "تصنيف:مدربو منتخب أيرلندا الوطني لاتحاد الرجبي للسيدات",
-    "Category:Ireland women's national rugby union team": "تصنيف:منتخب أيرلندا الوطني لاتحاد الرجبي للسيدات",
     "Category:Northern Ireland women's national football team": "تصنيف:منتخب أيرلندا الشمالية لكرة القدم للسيدات",
     "Category:Northern Ireland women's national football teams": "تصنيف:منتخبات كرة قدم وطنية أيرلندية شمالية للسيدات",
     "Category:Republic of Ireland women's national football team managers": "تصنيف:مدربو منتخب جمهورية أيرلندا لكرة القدم للسيدات",
