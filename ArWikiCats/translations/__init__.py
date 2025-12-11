@@ -121,7 +121,6 @@ __all__ = [
     "en_nats_to_ar_label",
     "sport_lab_nat_load_new",
     "CITY_TRANSLATIONS_LOWER",
-    #
     "jobs_mens_data",
     "jobs_womens_data",
     "short_womens_jobs",
@@ -129,7 +128,6 @@ __all__ = [
     "NAT_BEFORE_OCC",
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
-    #
     "get_from_new_p17_final",
     "All_Nat",
     "Nat_women",
@@ -143,33 +141,26 @@ __all__ = [
     "Nat_men",
     "ar_Nat_men",
     "nats_to_add",
-    #
     "SPORTS_KEYS_FOR_TEAM",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
-    #
     "get_from_pf_keys2",
     "pf_keys2",
     "pop_of_without_in",
     "pop_of_football_lower",
     "WORD_AFTER_YEARS",
-    #
     "typeTable_7",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
     "Ambassadors_tab",
     "SUMMER_WINTER_GAMES",
-    #
     "INTER_FEDS_LOWER",
-    #
     "pop_final_5",
     "Clubs_key_2",
-    #
     "By_table",
     "By_orginal2",
     "By_table_orginal",
     "Music_By_table",
-    #
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_CAO_new_format",
@@ -180,35 +171,22 @@ __all__ = [
     "film_keys_for_female",
     "Films_keys_both_new_female",
     "Films_key_333",
-    #
     "RELIGIOUS_KEYS_PP",
-    #
     "PARTIES",
-    #
     "languages_pop",
     "lang_ttty",
     "languages_key",
     "lang_key_m",
-    #
     "New_female_keys",
     "New_male_keys",
     "New_Company",
-    #
     "military_format_women_without_al_from_end",
     "military_format_women_without_al",
     "military_format_women",
     "military_format_men",
-    #
     "ministrs_tab_for_pop_format",
-    #
     "change_numb_to_word",
-    #
     "People_key",
-    #
-    # "TEAMS_NEW",
-    #
-    "sport_lab_oioioi_load",
-    #
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_man",
