@@ -116,6 +116,23 @@ NAT_P17_OIOI = {
 }
 
 sports_formatted_data = {
+
+    # _build_new_kkk() -> dict[str, str]:
+    # Category:National junior women's goalball teams
+    "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
+    "{en} national junior men's {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national women's {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+
+    # SPORT_FORMTS_FEMALE_NAT
+    # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
+    "{en} outdoor {en_sport}": "{sport_ar} {the_female} في الهواء الطلق",
+    "{en} indoor {en_sport}": "{sport_ar} {the_female} داخل الصالات",
+
+    # data
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
     "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",

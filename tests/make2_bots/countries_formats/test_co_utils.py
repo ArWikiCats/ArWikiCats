@@ -11,7 +11,6 @@ from ArWikiCats.make_bots.countries_formats.utils import (
 
 from ArWikiCats.translations import (
     en_is_P17_ar_is_mens,
-    en_is_P17_ar_is_al_women,
     countries_nat_en_key,
 )
 
@@ -85,24 +84,6 @@ def test_resolve_p17_mens_basic() -> None:
     category = "yemen government officials"
     out = resolve_p17_2_label(category, en_is_P17_ar_is_mens, "males", countries_nat_en_key)
     assert out == "مسؤولون حكوميون يمنيون"
-
-
-@pytest.mark.unit
-def test_resolve_p17_women_basic_with_article() -> None:
-    # women nationality + definite article
-    # en_is_P17_ar_is_al_women["air force"] = "القوات الجوية {}"
-    category = "syria air force"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "female", countries_nat_en_key, add_article=True)
-    # "سورية" → add_definite_article → "السورية"
-    assert out == "القوات الجوية السورية"
-
-
-@pytest.mark.unit
-def test_resolve_p17_country_not_found() -> None:
-    category = "unknowncountry air force"
-    out = resolve_p17_2_label(category, en_is_P17_ar_is_al_women, "female", countries_nat_en_key)
-    assert out == ""
-
 
 @pytest.mark.unit
 def test_resolve_p17_suffix_not_matching() -> None:

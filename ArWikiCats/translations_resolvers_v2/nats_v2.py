@@ -23,6 +23,7 @@ ar_data = {
     "{en_nat} national university": "جامعة {ar} الوطنية",
     "{en_nat} national university alumni": "خريجو جامعة {ar} الوطنية",
     "{en_nat} national women's motorsports racing team": "منتخب {ar} لسباق رياضة المحركات للسيدات",
+
 }
 the_male_data = {
     "{en_nat} nationality law": "قانون الجنسية {the_male}",
@@ -310,6 +311,25 @@ the_female_data = {
     "{en_nat} regional election": "انتخابات الإقليمية {the_female}",
     "{en_nat} vice-presidential election": "انتخابات نائب الرئاسة {the_female}",
     "{en_nat} presidential election": "انتخابات الرئاسة {the_female}",
+
+    # baston_women: dict[str, str] = {
+    "{en_nat} movement": "الحركة {the_female}",
+    "{en_nat} unity cup": "كأس الوحدة {the_female}",
+    "{en_nat} rail": "السكك الحديدية {the_female}",
+    "{en_nat} television": "التلفزة {the_female}",
+    "{en_nat} revolution": "الثورة {the_female}",
+    "{en_nat} war": "الحرب {the_female}",
+    "{en_nat} border war": "حرب الحدود {the_female}",
+    "{en_nat} civil war": "الحرب الأهلية {the_female}",
+    "{en_nat} detention": "المعتقلات {the_female}",
+    "{en_nat} para games": "الألعاب البارالمبية {the_female}",
+    "{en_nat} games": "الألعاب {the_female}",
+    "{en_nat} medical association": "الجمعية الطبية {the_female}",
+    "{en_nat} football": "كرة القدم {the_female}",
+    "{en_nat} soccer": "كرة القدم {the_female}",
+    "{en_nat} cinema": "السينما {the_female}",
+    "{en_nat} politics": "السياسة {the_female}",
+
 }
 
 all_formatted_data = males_data | ar_data | the_male_data | female_data | male_data | the_female_data

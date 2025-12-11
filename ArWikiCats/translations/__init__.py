@@ -36,9 +36,7 @@ from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
     en_is_nat_ar_is_women_2,
-    en_is_P17_ar_is_al_women,
     en_is_P17_ar_is_mens,
-    replace_labels_2022,
 )
 from .mixed.jenders_prefix_suffix import (
     Mens_prefix,
@@ -195,8 +193,6 @@ __all__ = [
     "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_women_2",
     "en_is_P17_ar_is_mens",
-    "en_is_P17_ar_is_al_women",
-    "replace_labels_2022",
     "Mens_suffix",
     "Mens_prefix",
     "womens_prefixes",

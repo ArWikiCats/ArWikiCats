@@ -12,7 +12,6 @@ COUNTRY_PLACEHOLDER: Final[str] = "{}"
 
 SPORT_FORMTS_MALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 SPORT_FORMTS_FEMALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
-SPORT_FORMTS_NEW_KKK = {}  # الإنجليزي جنسية والعربي اسم البلد
 
 # ----------------------------------------------------------------------
 # Helpers
@@ -62,30 +61,10 @@ def _build_female_nat() -> Dict[str, str]:
     label_index: Dict[str, str] = {}
 
     for sport, label in SPORTS_KEYS_FOR_LABEL.items():
+        # SPORT_FORMTS_FEMALE_NAT
         # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
         label_index[f"outdoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} في الهواء الطلق"
         label_index[f"indoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} داخل الصالات"
-
-    return label_index
-
-
-def _build_new_kkk() -> Dict[str, str]:
-    """
-    English nationality → Arabic country-name
-    Example: “men's hockey cup” → “كأس {} الهوكي للرجال”
-    """
-    label_index: Dict[str, str] = {}
-
-    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
-        # Category:National junior women's goalball teams
-        label_index[f"men's {team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab} للرجال"
-        label_index[f"women's {team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
-        label_index[f"{team2} cup"] = f"كأس {COUNTRY_PLACEHOLDER} {team2_lab}"
-        label_index[f"national junior men's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للناشئين"
-        label_index[f"national junior {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للناشئين"
-        label_index[f"national {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab}"
-        label_index[f"national women's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
-        label_index[f"national men's {team2} team"] = f"منتخب {COUNTRY_PLACEHOLDER} {team2_lab} للرجال"
 
     return label_index
 
@@ -95,19 +74,16 @@ def _build_new_kkk() -> Dict[str, str]:
 # ----------------------------------------------------------------------
 SPORT_FORMTS_MALE_NAT = _build_male_nat()
 SPORT_FORMTS_FEMALE_NAT = _build_female_nat()
-SPORT_FORMTS_NEW_KKK = _build_new_kkk()
 
 len_print.data_len(
     "skeys.py",
     {
         "SPORT_FORMTS_FEMALE_NAT": SPORT_FORMTS_FEMALE_NAT,
         "SPORT_FORMTS_MALE_NAT": SPORT_FORMTS_MALE_NAT,
-        "SPORT_FORMTS_NEW_KKK": SPORT_FORMTS_NEW_KKK,
     },
 )
 
 __all__ = [
     "SPORT_FORMTS_FEMALE_NAT",
     "SPORT_FORMTS_MALE_NAT",
-    "SPORT_FORMTS_NEW_KKK",
 ]
