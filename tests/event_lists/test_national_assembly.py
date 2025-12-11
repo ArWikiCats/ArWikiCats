@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -210,6 +210,6 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
         f"* {{{{وب:طنت/سطر|{v.replace('تصنيف:', '')}|{diff_result[x].replace('تصنيف:', '')}|سبب النقل=تصحيح ArWikiCats}}}}"
         for x, v in expected.items() if v and x in diff_result
         ]
-    dump_diff(save3, f"{name}_d", _sort=False)
+    dump_diff_text(save3, f"{name}_d")
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

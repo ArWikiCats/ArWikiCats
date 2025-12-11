@@ -23,7 +23,6 @@ sports_formatted_data = {
     "{en_nat} {en_sport} tour": "بطولة {ar} {sport_team}",
 
     "women's national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
-    "national women's {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
 
     "{en_nat} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
 
@@ -32,9 +31,24 @@ sports_formatted_data = {
 
     "{en_nat} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} playerss": "لاعبات {sport_jobs}",
+
+    "{en_nat} women's national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
+    "{en_nat} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
+
+    "{en_nat} national {en_sport} team" : "منتخب {ar} {sport_team}",
+    "{en_nat} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
+
 }
 
 sports_formatted_data.update(NAT_P17_OIOI)
+
+WOMENS_NATIONAL_DATA = {
+    x.replace("women's national", "national women's"): v
+    for x, v in sports_formatted_data.items()
+    if "women's national" in x
+}
+
+sports_formatted_data.update(WOMENS_NATIONAL_DATA)
 
 
 @functools.lru_cache(maxsize=1)

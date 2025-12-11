@@ -14,7 +14,25 @@ sports_formatted_data = {
     "olympic gold medalists for {country_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar}",
     "olympic gold medalists for {country_en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {country_ar} في التزلج على المنحدرات الثلجية",
     "olympic gold medalists for {country_en} in {sport_en}": "فائزون بميداليات ذهبية أولمبية من {country_ar} في {sport_ar}",
+
+    "{country_en} women's {sport_en} playerss": "لاعبات {sport_jobs} {females}",
+    "women's {sport_en} playerss": "لاعبات {sport_jobs}",
+
+    "{country_en} women's national {sport_en} team" : "منتخب {country_ar} {sport_team} للسيدات",
+    "{country_en} women's national {sport_en} team players" : "لاعبات منتخب {country_ar} {sport_team} للسيدات",
+
+    "{country_en} national {sport_en} team" : "منتخب {country_ar} {sport_team}",
+    "{country_en} national {sport_en} team players" : "لاعبو منتخب {country_ar} {sport_team}",
+
 }
+
+WOMENS_NATIONAL_DATA = {
+    x.replace("women's national", "national women's"): v
+    for x, v in sports_formatted_data.items()
+    if "women's national" in x
+}
+
+sports_formatted_data.update(WOMENS_NATIONAL_DATA)
 
 
 def remove_the(text: str) -> str:

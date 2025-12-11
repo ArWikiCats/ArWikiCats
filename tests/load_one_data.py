@@ -25,6 +25,22 @@ def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
         print(f"Error writing diff data: {e}")
 
 
+def dump_diff_text(data: list, file_name: str) -> None:
+    if not data:
+        return
+
+    diff_data_path = Path(__file__).parent / "diff_data"
+    diff_data_path.mkdir(exist_ok=True, parents=True)
+    file_path = diff_data_path / f"{file_name}.txt"
+
+    try:
+        text = "\n".join(data)
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(text)
+    except Exception as e:
+        print(f"Error writing diff data: {e}")
+
+
 def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False) -> tuple[dict, dict]:
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}

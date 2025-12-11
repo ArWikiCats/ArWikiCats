@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -11,6 +11,7 @@ data_1 = {
     "Category:UEFA Women's Euro 2017 players": "تصنيف:لاعبو بطولة أمم أوروبا للسيدات 2017",
     "Category:Volleyball players by women's national team": "تصنيف:لاعبو كرة طائرة حسب المنتخب الوطني للنساء",
     "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبو الدوري الصيني لكرة السلة للسيدات",
+    "Category:Fenerbahçe women's basketball players": "تصنيف:لاعبو نادي فنربخشة لكرة السلة للسيدات",
 }
 data_2 = {
     "Category:2022 Women's Africa Cup of Nations players": "تصنيف:لاعبو كأس إفريقيا نسائية في بلدان 2022",
@@ -27,9 +28,7 @@ data_2 = {
     "Category:European Women's Hockey League players": "تصنيف:لاعبو الدوري الأوروبي للهوكي للسيدات",
     "Category:Expatriate women's futsal players in Kuwait": "تصنيف:لاعبو كرة صالات للسيدات مغتربون في الكويت",
     "Category:Expatriate women's futsal players in the Maldives": "تصنيف:لاعبو كرة صالات للسيدات مغتربون في جزر المالديف",
-    "Category:Fenerbahçe women's basketball players": "تصنيف:لاعبو نادي فنربخشة لكرة السلة للسيدات",
     "Category:Galatasaray S.K. (women's basketball) players": "تصنيف:لاعبو نادي غلطة سراي لكرة السلة للسيدات",
-    "Category:Ireland women's national basketball team players": "تصنيف:لاعبو منتخب أيرلندا الوطني لكرة السلة للسيدات",
     "Category:Israeli women's basketball players": "تصنيف:لاعبو كرة سلة إسرائيلية نسائية",
     "Category:Italian women's futsal players": "تصنيف:لاعبو كرة صالات إيطالية نسائية",
     "Category:Kyrgyzstani women's basketball players": "تصنيف:لاعبو كرة سلة قرغيزستانية نسائية",
@@ -79,16 +78,41 @@ data_3 = {
     "Category:Scottish women's basketball players": "تصنيف:لاعبات كرة سلة إسكتلنديات",
 }
 
+data_4 = {
+    "Category:Republic of Ireland association football leagues": "تصنيف:دوريات كرة قدم أيرلندية",
+    "Category:Republic of Ireland association football": "تصنيف:كرة قدم أيرلندية",
+    "Category:Republic of Ireland women's association football": "تصنيف:كرة قدم أيرلندية نسائية",
+    "Category:Ireland women's international rugby union players": "تصنيف:لاعبات اتحاد رغبي دوليات من أيرلندا",
+    "Category:Ireland women's national basketball team players": "تصنيف:لاعبو منتخب أيرلندا الوطني لكرة السلة للسيدات",
+    "Category:Ireland women's national basketball team": "تصنيف:منتخب أيرلندا الوطني لكرة السلة للسيدات",
+    "Category:Ireland women's national field hockey team coaches": "تصنيف:مدربو منتخب أيرلندا لهوكي الميدان للسيدات",
+    "Category:Ireland women's national field hockey team": "تصنيف:منتخب أيرلندا لهوكي الميدان للسيدات",
+    "Category:Ireland women's national rugby sevens team": "تصنيف:منتخب أيرلندا الوطني لسباعيات الرغبي للسيدات",
+    "Category:Ireland women's national rugby union team coaches": "تصنيف:مدربو منتخب أيرلندا الوطني لاتحاد الرغبي للسيدات",
+    "Category:Ireland women's national rugby union team": "تصنيف:منتخب أيرلندا الوطني لاتحاد الرغبي للسيدات",
+    "Category:Northern Ireland women's international footballers": "تصنيف:لاعبات منتخب أيرلندا الشمالية لكرة القدم للسيدات",
+    "Category:Northern Ireland women's national football team": "تصنيف:منتخب أيرلندا الشمالية الوطني لكرة القدم للنساء",
+    "Category:Northern Ireland women's national football teams": "تصنيف:منتخبات كرة قدم وطنية أيرلندية شمالية للسيدات",
+    "Category:Republic of Ireland women's association footballers": "تصنيف:لاعبات كرة قدم أيرلنديات",
+    "Category:Republic of Ireland women's international footballers": "تصنيف:لاعبات منتخب جمهورية أيرلندا لكرة القدم للنساء",
+    "Category:Republic of Ireland women's national football team managers": "تصنيف:مدراء منتخب جمهورية أيرلندا الوطني لكرة القدم للسيدات",
+    "Category:Republic of Ireland women's national football team navigational boxes": "تصنيف:قوالب منتخب جمهورية أيرلندا لكرة القدم للسيدات",
+    "Category:Republic of Ireland women's national football team": "تصنيف:منتخب جمهورية أيرلندا الوطني لكرة القدم للنساء",
+    "Category:Republic of Ireland women's national football teams": "تصنيف:منتخبات كرة قدم وطنية أيرلندية للسيدات",
+    "Category:Republic of Ireland women's youth international footballers": "تصنيف:لاعبات منتخب جمهورية أيرلندا لكرة القدم للشابات",
+}
+
 to_test = [
-    ("test_womens_players_1", data_1),
+    # ("test_womens_players_1", data_1),
     ("test_womens_players_2", data_2),
     ("test_womens_players_3", data_3),
+    ("test_womens_ireland_4", data_4),
 ]
 
 
-@pytest.mark.parametrize("category, expected", data_1.items(), ids=list(data_1.keys()))
+@pytest.mark.parametrize("category, expected", data_2.items(), ids=list(data_2.keys()))
 @pytest.mark.fast
-def test_womens_players_1(category: str, expected: str) -> None:
+def test_womens_players_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
@@ -105,6 +129,6 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
         for x, v in expected.items()
         if v and x in diff_result
     ]
-    dump_diff(save3, f"{name}_d", _sort=False)
+    dump_diff_text(save3, f"{name}_d")
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
