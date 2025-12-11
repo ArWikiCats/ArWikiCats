@@ -54,10 +54,7 @@ def remove_the(text: str) -> str:
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBaseV2:
     nats_data = {
-        remove_the(v["en"]): {
-            "ar": v["ar"],
-            "the_male": v["the_male"],
-        }
+        remove_the(v["en"]): v
         for x, v in all_country_with_nat_ar.items()
         if v.get("ar") and v.get("en")
     }

@@ -14,7 +14,6 @@ from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.table1_bot import get_KAKO
 from ...media_bots.films_bot import te_films
 from ...o_bots import bys, parties_bot
-from ...p17_bots import nats_other
 from ...sports_bots import sport_lab_suffixes, team_work
 from .. import country2_lab
 from ....new.time_to_arabic import convert_time_to_arabic
@@ -33,7 +32,6 @@ def check_sources(cone_1: str) -> str:
     sources: List[Callable[[str], str]] = [
         te_films,
         sport_lab_nat_load_new,
-        nats_other.find_nat_others,
         sport_lab_suffixes.get_teams_new,
         parties_bot.get_parties_lab,
         team_work.Get_team_work_Club,
@@ -125,7 +123,7 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
     if not part_2_label:
         part_2_label = te_films(cone_2)
     if not part_2_label:
-        part_2_label = sport_lab_nat_load_new(cone_2) or nats_other.find_nat_others(cone_2)
+        part_2_label = sport_lab_nat_load_new(cone_2)
     if not part_2_label:
         part_2_label = sport_lab_suffixes.get_teams_new(cone_2)
 
@@ -154,7 +152,7 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
         part_2_label = te_films(cone_2)
 
     if not part_2_label:
-        part_2_label = sport_lab_nat_load_new(cone_2) or nats_other.find_nat_others(cone_2)
+        part_2_label = sport_lab_nat_load_new(cone_2)
 
     if not part_2_label:
         part_2_label = convert_time_to_arabic(cone_2)
