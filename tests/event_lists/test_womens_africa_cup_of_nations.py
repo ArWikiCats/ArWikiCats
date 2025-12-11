@@ -46,11 +46,5 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    save3 = [
-        f"* {{{{وب:طنت/سطر|{v.replace('تصنيف:', '')}|{diff_result[x].replace('تصنيف:', '')}|سبب النقل=تصحيح ArWikiCats}}}}"
-        for x, v in expected.items()
-        if v and x in diff_result
-    ]
-    dump_diff_text(save3, f"{name}_d")
-
+    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

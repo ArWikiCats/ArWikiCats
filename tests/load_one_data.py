@@ -25,16 +25,26 @@ def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
         print(f"Error writing diff data: {e}")
 
 
-def dump_diff_text(data: list, file_name: str) -> None:
-    if not data:
+def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None:
+    if not expected or not diff_result:
+        return
+
+    save3 = [
+        f"* {{{{وب:طنت/سطر|{v}|{diff_result[x]}|سبب النقل=تصحيح ArWikiCats}}}}"
+        for x, v in expected.items()
+        if v and diff_result.get(x)
+    ]
+
+    if not save3:
         return
 
     diff_data_path = Path(__file__).parent / "diff_data"
     diff_data_path.mkdir(exist_ok=True, parents=True)
-    file_path = diff_data_path / f"{file_name}.txt"
+    file_path = diff_data_path / f"{file_name}_d.json"
 
+    text = "\n".join(save3)
+    text = text.replace('تصنيف:', '')
     try:
-        text = "\n".join(data)
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(text)
     except Exception as e:
