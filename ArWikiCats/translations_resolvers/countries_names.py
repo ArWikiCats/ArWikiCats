@@ -4,11 +4,15 @@ Resolve country names categories translations
 """
 from ..translations_formats import FormatData
 from ..translations import countries_from_nat
+from ..make_bots.countries_formats.p17_sport_to_move import main_data
 
 formatted_data_en_ar_only: dict[str, str] = {
-    # "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
-    # "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
-    # "{en} amateur international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    "{en}": "{ar}",
+    "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
+    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+    "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
 
     "police of {en}": "شرطة {ar}",
     "army of {en}": "جيش {ar}",
@@ -23,7 +27,6 @@ formatted_data_en_ar_only: dict[str, str] = {
     "bodies of water of {en}": "مسطحات مائية في {ar}",
     "national university of {en}": "جامعة {ar} الوطنية",
     "national library of {en}": "مكتبة {ar} الوطنية",
-    "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
     "{en} afc asian cup squad": "تشكيلات {ar} في كأس آسيا",
     "{en} afc women's asian cup squad": "تشكيلات {ar} في كأس آسيا للسيدات",
     "{en} board members": "أعضاء مجلس {ar}",
@@ -50,6 +53,7 @@ formatted_data_en_ar_only: dict[str, str] = {
     "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
 }
 
+formatted_data_en_ar_only.update(main_data)
 
 nat_bot = FormatData(
     formatted_data_en_ar_only,

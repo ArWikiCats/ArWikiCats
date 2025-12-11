@@ -6,13 +6,15 @@ import functools
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ..translations_resolvers.countries_names import formatted_data_en_ar_only
+
+
+# NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
+
 
 sports_formatted_data = {
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
-    "{en} testxx": "{ar} اختبار!",
-    "{en}": "{ar}",
-    "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
-    "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
+
     "olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_ar}",
 
     "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
@@ -24,11 +26,8 @@ sports_formatted_data = {
     "{en} national {en_sport} team" : "منتخب {ar} {sport_team}",
     "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
 
-    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
-    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
     "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
-    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
 
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
@@ -43,6 +42,7 @@ WOMENS_NATIONAL_DATA = {
 }
 
 sports_formatted_data.update(WOMENS_NATIONAL_DATA)
+sports_formatted_data.update(formatted_data_en_ar_only)
 
 
 def remove_the(text: str) -> str:

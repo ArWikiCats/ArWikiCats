@@ -4,10 +4,14 @@ SPORT_FORMTS_EN_AR_IS_P17: English country-name → Arabic country-name.
 
 """
 import functools
-from ...helps import len_print
 from ...translations_formats import FormatData
 from ...translations import countries_from_nat
-from .p17_sport_to_move_under import main_data_under
+
+# from .p17_sport_to_move_under import main_data_under
+# SPORT_FORMTS_EN_AR_IS_P17 = main_data | main_data_under
+
+
+# NOTE: main_data used in countries_names.py
 
 main_data = {
     "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
@@ -46,19 +50,14 @@ main_data = {
     "{en} youth international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للشباب",
 }
 
-SPORT_FORMTS_EN_AR_IS_P17 = main_data | main_data_under
-
-KEY_AR_PLACEHOLDER = "{ar}"
-KEY_EN_PLACEHOLDER = "{en}"
-
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatData:
     return FormatData(
         main_data,
         countries_from_nat,
-        key_placeholder=KEY_EN_PLACEHOLDER,
-        value_placeholder=KEY_AR_PLACEHOLDER,
+        key_placeholder="{en}",
+        value_placeholder="{ar}",
     )
 
 
@@ -68,10 +67,6 @@ def get_en_ar_is_p17_label(category: str) -> str:
     nat_bot = _load_bot()
     return nat_bot.search(category)
 
-
-len_print.data_len("p17_sport_to_move.py", {
-    "SPORT_FORMTS_EN_AR_IS_P17": SPORT_FORMTS_EN_AR_IS_P17  # 364
-})
 
 __all__ = [
     "get_en_ar_is_p17_label",

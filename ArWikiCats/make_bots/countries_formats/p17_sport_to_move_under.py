@@ -1,6 +1,6 @@
 """
 
-SPORT_FORMTS_EN_AR_IS_P17: English country-name → Arabic country-name.
+English country-name → Arabic country-name.
 
 """
 import functools
@@ -60,7 +60,6 @@ def _load_multi_bot() -> MultiDataFormatterBase:
         "under-23": "تحت 23 سنة",
         "under-24": "تحت 24 سنة",
     }
-    # data = SPORT_FORMTS_EN_AR_IS_P17
 
     return format_multi_data(
         formatted_data=main_data_under,
