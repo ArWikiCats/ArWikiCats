@@ -9,8 +9,9 @@ from ...helps import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
     all_country_with_nat,
-    military_format_men,
-    military_format_women,
+    ministrs_for_en_is_P17_ar_is_mens,
+    ministrs_for_military_format_men,
+    ministrs_for_military_format_women,
 )
 from .utils import apply_arabic_article
 
@@ -19,6 +20,83 @@ ENDS_WITH_TABLE: Mapping[str, str] = {
     " civilians": "مدنيو {}",
     " generals": "جنرالات {}",
     " accidents and incidents": "حوادث {}",
+}
+
+military_format_women = {
+    "air force": "القوات الجوية {nat}",
+    "airlines": "الخطوط الجوية {nat}",
+    "armed forces": "القوات المسلحة {nat}",
+    "army aviation": "طيران القوات المسلحة {nat}",
+    "army": "القوات المسلحة {nat}",
+    "case law": "السوابق القضائية {nat}",
+    "communications": "الاتصالات {nat}",
+    "diplomacy": "الدبلوماسية {nat}",
+    "federal election candidates": "مرشحو الانتخابات الفيدرالية {nat}",
+    "federal election": "الانتخابات الفيدرالية {nat}",
+    "federal elections": "الانتخابات الفيدرالية {nat}",
+    "football club": "أندية كرة القدم {nat}",
+    "football manager history": "تاريخ مدربي كرة القدم {nat}",
+    "football manager": "مدربي كرة القدم {nat}",
+    "football": "كرة القدم {nat}",
+    "general election candidates": "مرشحو الانتخابات العامة {nat}",
+    "general election": "الانتخابات العامة {nat}",
+    "general elections": "الانتخابات العامة {nat}",
+    "legislature election": "الانتخابات التشريعية {nat}",
+    "legislature elections": "الانتخابات التشريعية {nat}",
+    "local election": "الانتخابات المحلية {nat}",
+    "local elections": "الانتخابات المحلية {nat}",
+    "national navy": "القوات البحرية الوطنية {nat}",
+    "naval forces": "القوات البحرية {nat}",
+    "navy": "القوات البحرية {nat}",
+    "presidential candidates": "مرشحو الرئاسة {nat}",
+    "presidential election": "انتخابات الرئاسة {nat}",
+    "presidential elections": "انتخابات الرئاسة {nat}",
+    "presidential electors": "ناخبو الرئاسة {nat}",
+    "presidential primaries": "الانتخابات الرئاسية التمهيدية {nat}",
+    # "presidential primaries": "انتخابات رئاسية تمهيدية {nat}",
+    "presidential-elections": "انتخابات الرئاسة {nat}",
+    "presidential-primaries": "الانتخابات الرئاسية التمهيدية {nat}",
+    "state legislative": "المجالس التشريعية للولايات {nat}",
+    "state lower house": "المجالس الدنيا للولايات {nat}",
+    "state upper house": "المجالس العليا للولايات {nat}",
+    "supreme court": "المحكمة العليا {nat}",
+}  # Category:United_States_Coast_Guard_Aviation
+
+military_format_men = {
+    "congressional delegation": "وفود الكونغرس {nat}",
+    "congressional delegations": "وفود الكونغرس {nat}",
+    "parliament": "البرلمان {nat}",
+    "congress": "الكونغرس {nat}",
+    "house of commons": "مجلس العموم {nat}",
+    "house-of-commons": "مجلس العموم {nat}",
+    "senate election": "انتخابات مجلس الشيوخ {nat}",
+    "senate elections": "انتخابات مجلس الشيوخ {nat}",
+    "premier division": "الدوري {nat} الممتاز",
+    "coast guard": "خفر السواحل {nat}",
+    "fa cup": "كأس الاتحاد {nat}",  # Category:Iraq FA Cup
+    "federation cup": "كأس الاتحاد {nat}",  # Category:Bangladesh Federation Cup
+    "marine corps personnel": "أفراد سلاح مشاة البحرية {nat}",
+    "army personnel": "أفراد الجيش {nat}",
+    "coast guard aviation": "طيران خفر السواحل {nat}",
+    "abortion law": "قانون الإجهاض {nat}",
+    "labour law": "قانون العمل {nat}",  # Category:French_labour_law
+    "professional league": "دوري المحترفين {nat}",
+    "first division league": "الدوري {nat} الدرجة الأولى",
+    "second division": "الدوري {nat} الدرجة الثانية",
+    "second division league": "الدوري {nat} الدرجة الثانية",
+    "third division league": "الدوري {nat} الدرجة الثالثة",
+    "forth division league": "الدوري {nat} الدرجة الرابعة",
+}
+
+_WOMEN_FORMATS = {
+    **ministrs_for_en_is_P17_ar_is_mens,
+    **ministrs_for_military_format_women,
+    **military_format_women,
+}
+
+_MEN_FORMATS = {
+    **ministrs_for_military_format_men,
+    **military_format_men,
 }
 
 
@@ -67,7 +145,9 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
             continue
 
         base_suffix = category_suffix[: -len(suffix)].strip()
-        suffix_template = military_format_women.get(base_suffix, "")
+
+        suffix_template = _WOMEN_FORMATS.get(base_suffix, "")
+
         if suffix_template:
             women_with_article = apply_arabic_article(women_label)
             logger.debug(f"Resolved women extended suffix, {suffix=}, {base_suffix=}")
@@ -86,7 +166,8 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
     if not category_suffix or not men_label:
         return ""
 
-    template = military_format_men.get(category_suffix, "")
+    template = _MEN_FORMATS.get(category_suffix, "")
+
     if template:
         men_with_article = apply_arabic_article(men_label)
         logger.debug(f"Resolved men suffix, suffix: {category_suffix}")
