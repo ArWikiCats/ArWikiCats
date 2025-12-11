@@ -214,6 +214,7 @@ ministrs_keys = {
 }
 # ---
 formatted_data = {
+    "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
     "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
     "secretaries of {ministry} of {en}" : "وزراء {singular} {males}",
     "secretaries of {ministry}" : "وزراء {singular}",
