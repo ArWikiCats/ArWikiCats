@@ -9,7 +9,10 @@ import pytest
 
 from ArWikiCats.translations_resolvers_v2.countries_names_v2 import resolve_by_countries_names_v2
 
-test_army_data = {
+test_army_data_1 = {
+}
+
+test_army_data_2 = {
     "Unmanned military aircraft of Austria": "طائرات عسكرية بدون طيار نمساوية",
     "Unmanned military aircraft of China": "طائرات عسكرية بدون طيار صينية",
     "Unmanned military aircraft of France": "طائرات عسكرية بدون طيار فرنسية",
@@ -54,8 +57,14 @@ test_army_data = {
 
 
 @pytest.mark.fast
-@pytest.mark.parametrize("category,expected", test_army_data.items(), ids=test_army_data.keys())
-def test_ethnic_culture_female_examples(category: str, expected: str) -> None:
-    """Check a few culture-like categories for female topics."""
+@pytest.mark.parametrize("category,expected", test_army_data_1.items(), ids=test_army_data_1.keys())
+def test_army_1(category: str, expected: str) -> None:
+    result = resolve_by_countries_names_v2(category)
+    assert result == expected
+
+
+@pytest.mark.fast
+@pytest.mark.parametrize("category,expected", test_army_data_2.items(), ids=test_army_data_2.keys())
+def test_army_2(category: str, expected: str) -> None:
     result = resolve_by_countries_names_v2(category)
     assert result == expected
