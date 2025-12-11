@@ -23,7 +23,10 @@ ENDS_WITH_TABLE: Mapping[str, str] = {
 
 
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
-    """Return the suffix and gendered labels for the matched country prefix."""
+    """
+    Return the suffix and gendered labels for the matched country prefix.
+    TODO: use FormatData method
+    """
 
     for country, details in all_country_with_nat.items():
         english_country = details.get("en", "").lower()
@@ -51,7 +54,10 @@ def _match_country_prefix(category: str) -> Tuple[str, str, str]:
 
 
 def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> str:
-    """Resolve categories with suffixes that require a surrounding template."""
+    """
+    Resolve categories with suffixes that require a surrounding template.
+    TODO: use FormatData method
+    """
 
     if not category_suffix or not women_label:
         return ""
@@ -72,7 +78,10 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
 
 
 def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
-    """Resolve categories that use the male templates."""
+    """
+    Resolve categories that use the male templates.
+    TODO: use FormatData method
+    """
 
     if not category_suffix or not men_label:
         return ""
@@ -95,6 +104,7 @@ def te_army(category: str) -> str:
 
     Returns:
         The resolved Arabic label or an empty string when no match exists.
+    TODO: use FormatData method
     """
 
     normalized_category = category.lower().strip()
