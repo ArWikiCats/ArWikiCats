@@ -71,7 +71,7 @@ Multi_Sports_data = {
     "asian games weightlifters": "رباعون في الألعاب الآسيوية",
     "asian games wrestlers": "مصارعون في الألعاب الآسيوية",
     "asian games xiangqi players": "لاعبو شطرنج صيني في الألعاب الآسيوية",
-    "asian para games competitors": "منافسون في دورة الألعاب الآسيوية البارالمبية",
+    "asian para games competitors": "منافسون في الألعاب البارالمبية الآسيوية",
     "central american and caribbean games competitors": "منافسون في ألعاب أمريكا الوسطى والكاريبي",
     "commonwealth games athletes": "لاعبو قوى في ألعاب الكومنولث",
     "commonwealth games badminton players": "لاعبو تنس ريشة في ألعاب الكومنولث",

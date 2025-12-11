@@ -24,7 +24,6 @@ from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...media_bots.films_bot import te_films
 from ...o_bots import bys
 from ...o_bots.popl import make_people_lab
-from ...p17_bots import nats_other
 from ...sports_bots import team_work
 from .. import country2_lab
 from ..country_bot import Get_c_t_lab, get_country
@@ -316,7 +315,6 @@ def _create_type_lookup_chain(
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
         "te_films": te_films,
         "sport_lab_nat_load_new": sport_lab_nat_load_new,
-        "nats_other.find_nat_others": nats_other.find_nat_others,
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
@@ -401,7 +399,6 @@ def _create_country_lookup_chain(
         "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
         "te_films": te_films,
         "sport_lab_nat_load_new": sport_lab_nat_load_new,
-        "nats_other.find_nat_others": nats_other.find_nat_others,
         "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
         "Get_c_t_lab": lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,

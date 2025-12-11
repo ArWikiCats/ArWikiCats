@@ -24,7 +24,6 @@ from ...translations import (
     Mens_suffix,
     Nat_mens,
     People_key,
-    replace_labels_2022,
     short_womens_jobs,
     SPORTS_KEYS_FOR_LABEL,
     womens_prefixes,
@@ -36,6 +35,10 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 # Constants
 _PEOPLE_SUFFIX = " people"
 _WOMEN_SUFFIX = " women"
+
+replace_labels_2022: dict[str, str] = {
+    "مجندون أطفال": "أطفال مجندون",
+}
 
 
 @functools.lru_cache(maxsize=1)

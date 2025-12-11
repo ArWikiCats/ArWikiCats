@@ -29,7 +29,7 @@ SUMMER_WINTER_GAMES = {
     "african games": "الألعاب الإفريقية",
     "asian beach games": "دورة الألعاب الآسيوية الشاطئية",
     "asian games": "الألعاب الآسيوية",
-    "asian para games": "دورة الألعاب الآسيوية البارالمبية",
+    "asian para games": "الألعاب البارالمبية الآسيوية",
     "asian summer games": "الألعاب الآسيوية الصيفية",
     "asian winter games": "الألعاب الآسيوية الشتوية",
     "bolivarian games": "الألعاب البوليفارية",

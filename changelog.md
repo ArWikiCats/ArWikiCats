@@ -1,3 +1,19 @@
+## [#200](https://github.com/MrIbrahem/ArWikiCats/pull/200) - 2025-12-11
+
+* **Bug Fixes**
+  * Corrected Arabic transliteration for Malawi and standardized African Cup of Nations labels.
+  * Improved Arabic labels for some religious and women's sports/TV categories.
+
+* **New Data**
+  * Added "African Cup of Nations" translation and expanded wheelchair-related occupation mappings.
+  * Broadened female-oriented translation entries for sports/nationality terms.
+
+* **Behavior Changes**
+  * Nationality-resolution sources reduced — some nationality label lookups may now return fewer candidates.
+
+* **Documentation & Exports**
+  * Public translation export surface trimmed and reorganized.
+
 ## [#199](https://github.com/MrIbrahem/ArWikiCats/pull/199) - 2025-12-11
 
 * **New Features**

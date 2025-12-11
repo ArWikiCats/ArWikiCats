@@ -141,7 +141,7 @@ data_1 = {
     "Category:Members of the National Assembly (Ecuador)": "تصنيف:أعضاء الجمعية الوطنية (الإكوادور)",
     "Category:Members of the National Assembly (Ivory Coast)": "تصنيف:أعضاء الجمعية الوطنية (ساحل العاج)",
     "Category:Members of the National Assembly (Kuwait)": "تصنيف:أعضاء الجمعية الوطنية (الكويت)",
-    "Category:Members of the National Assembly (Malawi)": "تصنيف:أعضاء الجمعية الوطنية (مالاوي)",
+    "Category:Members of the National Assembly (Malawi)": "تصنيف:أعضاء الجمعية الوطنية (ملاوي)",
     "Category:Members of the National Assembly (Mali)": "تصنيف:أعضاء الجمعية الوطنية (مالي)",
     "Category:Members of the National Assembly (Serbia)": "تصنيف:أعضاء الجمعية الوطنية (صربيا)",
     "Category:Members of the National Assembly (Slovenia)": "تصنيف:أعضاء الجمعية الوطنية (سلوفينيا)",

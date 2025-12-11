@@ -1,6 +1,5 @@
 """
 Rich lookup tables for gendered and national prefix/suffix mappings.
-(en_is_nat_ar_is_P17|en_is_nat_ar_is_al_mens|en_is_nat_ar_is_man|en_is_nat_ar_is_al_women|en_is_nat_ar_is_women|en_is_nat_ar_is_women_2|en_is_P17_ar_is_mens|en_is_P17_ar_is_al_women)
 """
 
 from ...helps import len_print
@@ -8,48 +7,13 @@ from ..jobs.jobs_singers import SINGERS_TAB
 from ..sports import (
     SPORT_FORMTS_FEMALE_NAT,
     SPORT_FORMTS_MALE_NAT,
-    SPORT_FORMTS_NEW_KKK,
+    SPORTS_KEYS_FOR_TEAM,
 )
 from ..sports.games_labs import SUMMER_WINTER_GAMES
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from .keys_23 import AFC_KEYS
 from .Newkey import pop_final6
-
-replace_labels_2022: dict[str, str] = {
-    "مجندون أطفال": "أطفال مجندون",
-}
-
-# الإنجليزية جنسية والعربية رجال
-# tab[Category:Austrian non-profit publishers] = "تصنيف:ناشرون غير ربحيون نمساويون"
-# tab[Category:Austrian non profit publishers] = "تصنيف:ناشرون غير ربحيون نمساويون"
-
-en_is_nat_ar_is_mens: dict[str, str] = {
-    "non profit publishers": "ناشرون غير ربحيون {}",
-    "non-profit publishers": "ناشرون غير ربحيون {}",
-}
-
-# الإنجليزية اسم البلد والعربية نساء
-# tab[Category:United States navy] = "تصنيف:البحرية الأمريكية"
-# tab[Category:syria air force] = "تصنيف:القوات الجوية السورية
-
-en_is_P17_ar_is_al_women: dict[str, str] = {
-    "civil war": "الحرب الأهلية {}",
-    "royal air force": "القوات الجوية الملكية {}",
-    "air force": "القوات الجوية {}",
-    "royal defence force": "قوات الدفاع الملكية {}",
-    "navy": "البحرية {}",
-    "royal navy": "البحرية الملكية {}",
-    "naval force": "البحرية {}",
-    "naval forces": "البحرية {}",
-}
-
-# الإنجليزية اسم البلد والعربية رجال
-# tab[Category:United States government officials] = "تصنيف:مسؤولون حكوميون أمريكيون"
-
-en_is_P17_ar_is_mens: dict[str, str] = {
-    "government officials": "مسؤولون حكوميون {}",
-}
 
 # الإنجليزية والعربية اسم البلد
 # tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
@@ -431,11 +395,29 @@ en_is_nat_ar_is_women: dict[str, str] = {
 }
 
 
+def _build_new_kkk() -> dict[str, str]:
+    """
+    English nationality → Arabic country-name
+    Example: “men's hockey cup” → “كأس {} الهوكي للرجال”
+    """
+    label_index: dict[str, str] = {}
+
+    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
+        # Category:National junior women's goalball teams
+        label_index[f"men's {team2} cup"] = f"كأس {{}} {team2_lab} للرجال"
+        label_index[f"women's {team2} cup"] = f"كأس {{}} {team2_lab} للسيدات"
+        label_index[f"{team2} cup"] = f"كأس {{}} {team2_lab}"
+        label_index[f"national junior men's {team2} team"] = f"منتخب {{}} {team2_lab} للناشئين"
+        label_index[f"national junior {team2} team"] = f"منتخب {{}} {team2_lab} للناشئين"
+        label_index[f"national {team2} team"] = f"منتخب {{}} {team2_lab}"
+        label_index[f"national women's {team2} team"] = f"منتخب {{}} {team2_lab} للسيدات"
+        label_index[f"national men's {team2} team"] = f"منتخب {{}} {team2_lab} للرجال"
+
+    return label_index
+
+
 def _extend_sport_mappings() -> None:
     """Populate sport related mappings for both genders."""
-
-    for key, value in SPORT_FORMTS_NEW_KKK.items():
-        en_is_nat_ar_is_P17[key] = value
 
     for key, value in SPORT_FORMTS_MALE_NAT.items():
         en_is_nat_ar_is_al_mens[key] = value
@@ -518,6 +500,10 @@ Multi_sport_for_Jobs: dict[str, str] = {
 Multi_sport_for_Jobs.update(SUMMER_WINTER_GAMES)
 Multi_sport_for_Jobs.update(AFC_KEYS)
 
+SPORT_FORMTS_NEW_KKK = _build_new_kkk()  # الإنجليزي جنسية والعربي اسم البلد
+
+en_is_nat_ar_is_P17.update(SPORT_FORMTS_NEW_KKK)
+
 _extend_sport_mappings()
 
 en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
@@ -529,15 +515,12 @@ _extend_book_entries()
 __all__ = [
     "change_male_to_female",
     "Multi_sport_for_Jobs",
-    "replace_labels_2022",
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_man",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
     "en_is_nat_ar_is_women_2",
-    "en_is_P17_ar_is_mens",
-    "en_is_P17_ar_is_al_women",
 ]
 
 
@@ -552,7 +535,5 @@ len_print.data_len(
         "change_male_to_female": change_male_to_female,
         "Multi_sport_for_Jobs": Multi_sport_for_Jobs,
         "en_is_nat_ar_is_women_2": en_is_nat_ar_is_women_2,
-        "en_is_P17_ar_is_mens": en_is_P17_ar_is_mens,
-        "en_is_P17_ar_is_al_women": en_is_P17_ar_is_al_women,
     },
 )

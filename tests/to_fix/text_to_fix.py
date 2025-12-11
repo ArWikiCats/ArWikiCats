@@ -2757,7 +2757,7 @@ data1 = {
     "Category:Works by Luxembourgian people": "تصنيف:أعمال لوكسمبورغيين",
     "Category:Works by Macedonian people": "تصنيف:أعمال مقدونيين",
     "Category:Works by Malagasy people": "تصنيف:أعمال مدغشقريين",
-    "Category:Works by Malawian people": "تصنيف:أعمال مالاويين",
+    "Category:Works by Malawian people": "تصنيف:أعمال ملاويون",
     "Category:Works by Malaysian people": "تصنيف:أعمال ماليزيين",
     "Category:Works by Maldivian people": "تصنيف:أعمال مالديفيين",
     "Category:Works by Malian people": "تصنيف:أعمال ماليين",

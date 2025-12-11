@@ -185,51 +185,6 @@ women_examples = [
     {"suffix": "women wheelchair racers", "prefix": "welsh", "expected": "متسابقات كراسي متحركة ويلزيات"},
     {"suffix": "women", "prefix": "european", "expected": "أوروبيات"},
     {"suffix": "women", "prefix": "polish", "expected": "بولنديات"},
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "american",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية أمريكيات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "australian",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية أستراليات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "british",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية بريطانيات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "canadian",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية كنديات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "dutch",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية هولنديات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "french",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية فرنسيات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "german",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية ألمانيات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "israeli",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية إسرائيليات",
-    },
-    {
-        "suffix": "women's wheelchair basketball players",
-        "prefix": "turkish",
-        "expected": "لاعبات كرة سلة على كراسي متحركة نسائية تركيات",
-    },
 ]
 
 

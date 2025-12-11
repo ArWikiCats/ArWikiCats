@@ -26,7 +26,7 @@ data_1 = {
     "iceland women's youth international footballers": "لاعبات منتخب آيسلندا لكرة القدم للشابات",
     "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "latvia men's youth international footballers": "لاعبو منتخب لاتفيا لكرة القدم للشباب",
-    "malawi men's international footballers": "لاعبو منتخب مالاوي لكرة القدم للرجال",
+    "malawi men's international footballers": "لاعبو منتخب ملاوي لكرة القدم للرجال",
     "malaysia women's international footballers": "لاعبات منتخب ماليزيا لكرة القدم للسيدات",
     "mauritania sports templates": "قوالب موريتانيا الرياضية",
     "mexico women's international footballers": "لاعبات منتخب المكسيك لكرة القدم للسيدات",
