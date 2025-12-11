@@ -1,3 +1,8 @@
+## [#202](https://github.com/MrIbrahem/ArWikiCats/pull/202) - 2025-12-12
+
+* **Refactor**
+  * Reorganized military category translation mappings for improved fallback resolution. Enhanced suffix resolution logic to provide better localization of military-related category labels through additional translation sources when primary templates are unavailable.
+
 ## [#200](https://github.com/MrIbrahem/ArWikiCats/pull/200) - 2025-12-11
 
 * **Bug Fixes**
