@@ -251,21 +251,8 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_for_military_format_women[f"department of {normalized_ministry}"] = (
         f"وزارة {al_label} {{nat}}"
     )
-# ---
-ministrs_for_en_is_P17_ar_is_mens = {}  # used in bot_te_4.py
-# ---
-for ministry_key, ministry_labels in ministrs_keys.items():
-    normalized_ministry = ministry_key.lower()
-    singular_label = ministry_labels["singular"]
-
-    label = f"وزراء {singular_label} {{}}"
-
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries-of {normalized_ministry}"] = label
-    ministrs_for_en_is_P17_ar_is_mens[f"secretaries of {normalized_ministry}"] = label
-# ---
 
 len_print.data_len("ministers.py", {
-    "ministrs_for_en_is_P17_ar_is_mens": ministrs_for_en_is_P17_ar_is_mens,
     "ministrs_for_military_format_women": ministrs_for_military_format_women,
     "ministrs_for_military_format_men": ministrs_for_military_format_men,
     "ministrs_tab_for_pop_format": ministrs_tab_for_pop_format,

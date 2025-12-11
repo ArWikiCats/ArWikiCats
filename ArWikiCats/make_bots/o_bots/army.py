@@ -9,27 +9,10 @@ from ...helps import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
     all_country_with_nat,
-    ministrs_for_en_is_P17_ar_is_mens,
     ministrs_for_military_format_men,
     ministrs_for_military_format_women,
 )
 from .utils import apply_arabic_article
-
-#: Mapping of suffixes that require adding a prefix around the formatted label.
-ENDS_WITH_TABLE: Mapping[str, str] = {
-    " civilians": "مدنيو {}",
-    " generals": "جنرالات {}",
-    " accidents and incidents": "حوادث {}",
-}
-
-_WOMEN_FORMATS = {
-    **ministrs_for_en_is_P17_ar_is_mens,
-    **ministrs_for_military_format_women,
-}
-
-_MEN_FORMATS = {
-    **ministrs_for_military_format_men,
-}
 
 
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
@@ -72,13 +55,20 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
     if not category_suffix or not women_label:
         return ""
 
+    #: Mapping of suffixes that require adding a prefix around the formatted label.
+    ENDS_WITH_TABLE: Mapping[str, str] = {
+        " civilians": "مدنيو {}",
+        " generals": "جنرالات {}",
+        " accidents and incidents": "حوادث {}",
+    }
+
     for suffix, prefix_template in ENDS_WITH_TABLE.items():
         if not category_suffix.endswith(suffix):
             continue
 
         base_suffix = category_suffix[: -len(suffix)].strip()
 
-        suffix_template = _WOMEN_FORMATS.get(base_suffix, "")
+        suffix_template = ministrs_for_military_format_women.get(base_suffix, "")
 
         if suffix_template:
             women_with_article = apply_arabic_article(women_label)
@@ -98,7 +88,7 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
     if not category_suffix or not men_label:
         return ""
 
-    template = _MEN_FORMATS.get(category_suffix, "")
+    template = ministrs_for_military_format_men.get(category_suffix, "")
 
     if template:
         men_with_article = apply_arabic_article(men_label)
@@ -127,17 +117,11 @@ def te_army(category: str) -> str:
     suffix, women_label, men_label = _match_country_prefix(normalized_category)
 
     if not suffix:
-        # resolved = _resolve_women_without_article_prefix(normalized_category)
         return ""
 
-    resolved_label = _resolve_women_extended_suffix(suffix, women_label)
+    resolved_label = _resolve_women_extended_suffix(suffix, women_label) or _resolve_men_suffix(suffix, men_label)
 
-    # Fall back to men-specific and sport-specific templates.
-    if not resolved_label:
-        resolved_label = _resolve_men_suffix(suffix, men_label)
-
-    if resolved_label:
-        logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
+    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
 
     return resolved_label
 
