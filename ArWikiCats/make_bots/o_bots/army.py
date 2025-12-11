@@ -11,11 +11,26 @@ from ...translations import (
     countries_nat_en_key,
     military_format_men,
     military_format_women,
-    military_format_women_without_al,
-    military_format_women_without_al_from_end,
 )
 from .utils import apply_arabic_article
 
+# الإنجليزية اسم البلد والعربية جنسية مؤنث بدون ألف ولام التعريف
+# TODO: move to countries_names_v2.py
+military_format_women_without_al_from_end = {
+    # Category:Unmanned_aerial_vehicles_of_Jordan > طائرات بدون طيار أردنية
+    "unmanned military aircraft-of": "طائرات عسكرية بدون طيار {nat}",
+    "unmanned aerial vehicles-of": "طائرات بدون طيار {nat}",
+    "unmanned military aircraft of": "طائرات عسكرية بدون طيار {nat}",
+    "unmanned aerial vehicles of": "طائرات بدون طيار {nat}",
+}
+
+# TODO: move to countries_names_v2.py
+military_format_women_without_al = {
+    "federal legislation": "تشريعات فيدرالية {nat}",
+    "courts": "محاكم {nat}",
+    "sports templates": "قوالب رياضة {nat}",
+    "political party": "أحزاب سياسية {nat}",
+}
 #: Mapping of suffixes that require adding a prefix around the formatted label.
 ENDS_WITH_TABLE: Mapping[str, str] = {
     " civilians": "مدنيو {}",

@@ -63,8 +63,6 @@ from .numbers1 import change_numb_to_word
 from .politics.military_keys import (
     military_format_men,
     military_format_women,
-    military_format_women_without_al,
-    military_format_women_without_al_from_end,
 )
 from .politics.ministers import ministrs_tab_for_pop_format
 from .sports.games_labs import SUMMER_WINTER_GAMES
@@ -176,8 +174,6 @@ __all__ = [
     "New_female_keys",
     "New_male_keys",
     "New_Company",
-    "military_format_women_without_al_from_end",
-    "military_format_women_without_al",
     "military_format_women",
     "military_format_men",
     "ministrs_tab_for_pop_format",

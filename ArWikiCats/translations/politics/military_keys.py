@@ -2,32 +2,13 @@
 """
 !
 """
-
+from ...helps import len_print
 from .ministers import (
     ministrs_for_en_is_P17_ar_is_mens,
     ministrs_for_military_format_men,
     ministrs_for_military_format_women,
 )
 
-# الإنجليزية اسم البلد والعربية جنسية مؤنث بدون ألف ولام التعريف
-military_format_women_without_al_from_end = {
-    # Category:Unmanned_aerial_vehicles_of_Jordan > طائرات بدون طيار أردنية
-    "unmanned military aircraft-of": "طائرات عسكرية بدون طيار {nat}",
-    "unmanned aerial vehicles-of": "طائرات بدون طيار {nat}",
-    "unmanned military aircraft-oof": "طائرات عسكرية بدون طيار {nat}",
-    "unmanned aerial vehicles-oof": "طائرات بدون طيار {nat}",
-}
-military_format_women_without_al = {
-    "unmanned military aircraft of": "طائرات عسكرية بدون طيار {nat}",
-    "unmanned aerial vehicles of": "طائرات بدون طيار {nat}",
-    "federal legislation": "تشريعات فيدرالية {nat}",
-    "courts": "محاكم {nat}",
-    "sports templates": "قوالب رياضة {nat}",
-    "political party": "أحزاب سياسية {nat}",
-    # "diplomacy" : "دبلوماسية {nat}",
-    # "communications" : "اتصالات {nat}",
-    # "sports navigational boxes" : "صناديق تصفح رياضة {nat}",
-}
 # ---
 # الإنجليزية اسم البلد والعربية جنسية مؤنث بألف ولام التعريف
 military_format_women = {
@@ -108,3 +89,8 @@ military_format_men = {
 for yu in ministrs_for_military_format_men:
     military_format_men[yu] = ministrs_for_military_format_men[yu]
 # ---
+
+len_print.data_len("military_keys.py", {
+    "military_format_men": military_format_men,
+    "military_format_women": military_format_women,
+})

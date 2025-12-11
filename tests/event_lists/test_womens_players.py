@@ -73,7 +73,7 @@ data_4 = {
     "Category:Republic of Ireland women's association footballers": "تصنيف:لاعبات كرة قدم أيرلنديات",
 
     "Category:Republic of Ireland association football leagues": "تصنيف:دوريات كرة قدم أيرلندية",
-    "Category:Republic of Ireland association football": "تصنيف:كرة قدم أيرلندية",
+    # "Category:Republic of Ireland association football": "تصنيف:كرة قدم أيرلندية",
     "Category:Republic of Ireland women's association football": "تصنيف:كرة قدم أيرلندية نسائية",
     "Category:Northern Ireland women's national football team": "تصنيف:منتخب أيرلندا الشمالية لكرة القدم للسيدات",
     "Category:Northern Ireland women's national football teams": "تصنيف:منتخبات كرة قدم وطنية أيرلندية شمالية للسيدات",

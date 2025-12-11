@@ -50,9 +50,7 @@ all_data: dict[str, str] = {
     "women's {en} cup of nations players": "لاعبات كأس الأمم {the_female} للسيدات",
     "women's {en} cup-of-nations players": "لاعبات كأس الأمم {the_female} للسيدات",
 
-    # males
-
-    # en_is_P17_ar_is_mens
+    # males - en_is_P17_ar_is_mens
     "{en} government officials": "مسؤولون حكوميون {males}",
 
     # the_male
@@ -82,6 +80,20 @@ all_data: dict[str, str] = {
     "{en} second division league": "الدوري {the_male} الدرجة الثانية",
     "{en} third division league": "الدوري {the_male} الدرجة الثالثة",
     "{en} forth division league": "الدوري {the_male} الدرجة الرابعة",
+
+    # female - military_format_women_without_al_from_end
+    # Category:Unmanned_aerial_vehicles_of_Jordan > طائرات بدون طيار أردنية
+    "unmanned military aircraft-of {en}": "طائرات عسكرية بدون طيار {female}",
+    "unmanned military aircraft of {en}": "طائرات عسكرية بدون طيار {female}",
+
+    "unmanned aerial vehicles-of {en}": "طائرات بدون طيار {female}",
+    "unmanned aerial vehicles of {en}": "طائرات بدون طيار {female}",
+
+    # female - military_format_women_without_al
+    "{en} federal legislation": "تشريعات فيدرالية {female}",
+    "{en} courts": "محاكم {female}",
+    "{en} sports templates": "قوالب رياضة {female}",
+    "{en} political party": "أحزاب سياسية {female}",
 }
 
 
