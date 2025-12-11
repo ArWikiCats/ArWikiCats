@@ -22,10 +22,6 @@ countries_nat_en_key_example = {
 }
 
 new_data: dict[str, str] = {
-    # ar new
-    "national library of {en}": "مكتبة {ar} الوطنية",
-    "bodies of water of {en}": "مسطحات مائية في {ar}",
-
     # the_female
     "dependent territories of {en}": "أقاليم ما وراء البحار {the_female}",
     "supreme court of {en}": "المحكمة العليا {the_female}",

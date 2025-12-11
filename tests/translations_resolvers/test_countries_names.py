@@ -6,9 +6,7 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.translations_resolvers.countries_names import (
-    resolve_by_countries_names,
-)
+from ArWikiCats.translations_resolvers.countries_names import resolve_by_countries_names
 
 main_data = {
     "Olympic gold medalists for the United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",

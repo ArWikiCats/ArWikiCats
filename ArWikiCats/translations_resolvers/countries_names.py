@@ -6,6 +6,10 @@ from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
+    # "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    # "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
+    # "{en} amateur international soccer playerss": "لاعبو منتخب {ar} لكرة القدم للهواة",
+
     "police of {en}": "شرطة {ar}",
     "army of {en}": "جيش {ar}",
     "national congress ({en})": "المؤتمر الوطني ({ar})",
@@ -18,6 +22,7 @@ formatted_data_en_ar_only: dict[str, str] = {
     "accidental deaths from falls in {en}": "وفيات عرضية نتيجة السقوط في {ar}",
     "bodies of water of {en}": "مسطحات مائية في {ar}",
     "national university of {en}": "جامعة {ar} الوطنية",
+    "national library of {en}": "مكتبة {ar} الوطنية",
     "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
     "{en} afc asian cup squad": "تشكيلات {ar} في كأس آسيا",
     "{en} afc women's asian cup squad": "تشكيلات {ar} في كأس آسيا للسيدات",

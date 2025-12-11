@@ -6,9 +6,8 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import (
-    get_en_ar_is_p17_label,
-)
+from ArWikiCats.make_bots.countries_formats.p17_sport_to_move import get_en_ar_is_p17_label
+from ArWikiCats.translations_resolvers.countries_names import resolve_by_countries_names
 
 # =========================================================
 #           get_en_ar_is_p17_label
@@ -78,6 +77,7 @@ def test_get_en_ar_is_p17_label_1(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_get_en_ar_is_p17_label_1", data_1, get_en_ar_is_p17_label),
+    ("test_get_en_ar_is_p17_label_1_x", data_1, resolve_by_countries_names),
 ]
 
 
