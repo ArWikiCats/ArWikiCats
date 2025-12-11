@@ -5,7 +5,8 @@ from __future__ import annotations
 import functools
 from typing import Mapping, Tuple
 
-from ...helps.log import logger
+from ...helps import logger
+from ...helps.jsonl_dump import dump_data
 from ...translations import (
     all_country_with_nat,
     countries_nat_en_key,
@@ -135,6 +136,7 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def te_army(category: str) -> str:
     """Resolve the Arabic label for a military-related category.
 
