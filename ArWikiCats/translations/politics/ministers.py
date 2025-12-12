@@ -77,6 +77,7 @@ ministrs_keys = {
     "homeland security": {"singular": "أمن داخلي", "al": "الأمن الداخلي"},
     "transportation": {"singular": "نقل", "al": "النقل"},
     "defense": {"singular": "دفاع", "al": "الدفاع"},
+    "cooperatives": {"singular": "تعاونيات", "al": "التعاونيات"},
     "agriculture": {"singular": "زراعة", "al": "الزراعة"},
     "climate change": {"singular": "تغير المناخ", "al": "تغير المناخ"},
     "communication": {"singular": "اتصالات", "al": "الاتصالات"},
@@ -165,6 +166,8 @@ add_keys = [
     ("environment", "natural resources"),
     ("labor", "employment"),
     ("war", "navy"),
+    ("culture", "tourism"),
+    ("agriculture", "cooperatives"),
 ]
 # ---
 for key1, key2 in add_keys:
