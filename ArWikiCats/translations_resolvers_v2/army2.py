@@ -24,7 +24,7 @@ en_secretaries_mapping = {
     "ministry of {ministry} ({en})": "وزارة {al} {the_female}",
 
     # category:ministries of education
-    "ministries of {ministry}": "وزارات {ministry}",
+    "ministries of {ministry}": "وزارات {singular}",
 
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
     "{en} under secretaries of {ministry}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
