@@ -5,6 +5,10 @@ from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
 secretaries_test_0 = {
+    "Category:United States under secretaries of agriculture": "تصنيف:الولايات المتحدة تحت وزراء زراعة",
+    "Category:United States under secretaries of commerce": "تصنيف:الولايات المتحدة تحت وزراء تجارة",
+    "Category:United States under secretaries of defense": "تصنيف:الولايات المتحدة تحت وزراء دفاع",
+
     "Category:Secretaries of the state of Connecticut": "تصنيف:وزراء خارجية كونيتيكت",
     "Category:Secretaries of state of Alabama": "تصنيف:وزراء خارجية ألاباما",
     "Category:Secretaries of state of Arizona": "تصنيف:وزراء خارجية أريزونا",
@@ -178,9 +182,6 @@ secretaries_test_1 = {
     "Category:United States secretaries of the treasury": "تصنيف:وزراء خزانة أمريكيون",
     "Category:United States secretaries of veterans affairs": "تصنيف:وزراء شؤون محاربين قدامى أمريكيون",
     "Category:United States secretaries of war": "تصنيف:وزراء حرب أمريكيون",
-    "Category:United States under secretaries of agriculture": "تصنيف:الولايات المتحدة تحت وزراء زراعة",
-    "Category:United States under secretaries of commerce": "تصنيف:الولايات المتحدة تحت وزراء تجارة",
-    "Category:United States under secretaries of defense": "تصنيف:الولايات المتحدة تحت وزراء دفاع",
     "Category:Cabinet secretaries of the Northern Mariana Islands": "تصنيف:أعضاء مجلس وزراء جزر ماريانا الشمالية",
     "Category:United States assistant secretaries of defense": "تصنيف:مساعدو وزير الدفاع الأمريكي",
     "Category:United States assistant secretaries of the interior": "تصنيف:مساعدو وزير الداخلية الأمريكي",

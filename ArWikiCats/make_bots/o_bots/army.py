@@ -21,7 +21,8 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     al_label = ministry_labels["al"]
 
     ministrs_format_men[f"assistant secretaries of {normalized_ministry}"] = f"مساعدو وزير {al_label} {{nat}}"
-    ministrs_format_men[f"deputy secretaries of {normalized_ministry}"] = f"نواب وزير {al_label} {{nat}} للشؤون المتخصصة"
+    ministrs_format_men[f"deputy secretaries of {normalized_ministry}"] = f"نواب وزير {al_label} {{nat}}"
+    ministrs_format_men[f"under secretaries of {normalized_ministry}"] = f"نواب وزير {al_label} {{nat}} للشؤون المتخصصة"
 
 ministrs_format_women = {}
 # ---
