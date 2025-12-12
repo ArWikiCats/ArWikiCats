@@ -64,16 +64,12 @@ jobs_womens.update({
     "actresses": "ممثلات",
 })
 
-womens_resolver = NatJobsResolver(jobs_womens, formatted_data, nat_womens_new)
-
-get_label = womens_resolver.get_label
-
 
 @functools.lru_cache(maxsize=1)
 def load_bot() -> NatJobsResolver:
     return NatJobsResolver(jobs_womens, formatted_data, nat_womens_new)
 
 
-def womens_resolver_label(category: str) -> str:
+def womens_resolver_labels(category: str) -> str:
     _bot = load_bot()
     return _bot.search_all_category(category)

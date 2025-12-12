@@ -45,16 +45,12 @@ formatted_data.update({
 
 Nat_mens_new = {x: v for x, v in Nat_mens.items() if "-american" not in x}
 
-mens_resolver = NatJobsResolver(jobs_mens_data, formatted_data, Nat_mens_new)
-
-get_label = mens_resolver.get_label
-
 
 @functools.lru_cache(maxsize=1)
 def load_bot() -> NatJobsResolver:
     return NatJobsResolver(jobs_mens_data, formatted_data, Nat_mens_new)
 
 
-def mens_resolver_label(category: str) -> str:
+def mens_resolver_labels(category: str) -> str:
     _bot = load_bot()
     return _bot.search_all_category(category)

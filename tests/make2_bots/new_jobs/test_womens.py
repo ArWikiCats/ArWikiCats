@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.new_jobs_resolver.womens import get_label
+from ArWikiCats.make_bots.new_jobs_resolver.womens import womens_resolver_labels
 
 test_data2 = {
     # nat
@@ -48,5 +48,5 @@ test_data2 = {
 @pytest.mark.parametrize("category,expected", test_data2.items(), ids=test_data2.keys())
 def test_nat_pattern_multi(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = get_label(category)
+    result = womens_resolver_labels(category)
     assert result == expected

@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
-from ArWikiCats.make_bots.new_jobs_resolver.womens import get_label
+from ArWikiCats.make_bots.new_jobs_resolver.womens import womens_resolver_labels
 
 test_womens_data = {
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
@@ -254,5 +254,5 @@ def test_womens_prefixes_work(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
 @pytest.mark.skip2
 def test_get_label(category: str, expected: str) -> None:
-    label = get_label(category)
+    label = womens_resolver_labels(category)
     assert label == expected
