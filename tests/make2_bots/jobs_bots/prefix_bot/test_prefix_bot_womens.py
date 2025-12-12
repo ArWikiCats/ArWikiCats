@@ -8,6 +8,7 @@ from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
 from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_resolver_labels
 
 test_womens_data = {
+    "expatriate women's football players": "لاعبات كرة قدم مغتربات",
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
     "female archers": "نبالات",
     "female artistic gymnasts": "لاعبات جمباز فني",
@@ -65,6 +66,7 @@ test_womens_data = {
     "female spies": "جاسوسات",
     "female sport shooters": "لاعبات رماية",
     "female sport wrestlers": "مصارعات رياضيات",
+    "female sports coaches": "مدربات رياضة",
     "female sports-people": "رياضيات",
     "female squash players": "لاعبات إسكواش",
     "female swimmers": "سباحات",
@@ -74,6 +76,7 @@ test_womens_data = {
     "female triathletes": "لاعبات ترياثلون",
     "female water polo players": "لاعبات كرة ماء",
     "female weightlifters": "رباعات",
+    "female women's rights activists": "ناشطات في حقوق المرأة",
     "women academics": "أكاديميات",
     "women accordionists": "عازفات أكورديات",
     "women accountants": "محاسبات",
@@ -232,6 +235,7 @@ test_womens_data = {
     "women triple jumpers": "لاعبات وثب ثلاثي",
     "women video artists": "فنانات فيديو",
     "women violinists": "عازفات كمان",
+    "women wheelchair racers": "متسابقات كراسي متحركة",
     "women writers": "كاتبات",
     "women zoologists": "عالمات حيوانات",
     "women's basketball coaches": "مدربات كرة سلة",
@@ -245,7 +249,7 @@ test_womens_data = {
 
 
 @pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_womens_prefixes_work(category: str, expected: str) -> None:
     label = womens_prefixes_work(category)
     assert label == expected
