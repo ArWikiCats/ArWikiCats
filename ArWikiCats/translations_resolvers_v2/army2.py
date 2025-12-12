@@ -16,6 +16,15 @@ en_secretaries_mapping = {
     "secretaries of state of {en}": "وزراء خارجية {males}",
     "secretaries of state for {en}": "وزراء خارجية {males}",
 
+    # Category:Department of Defence (Australia)
+    "department of {ministry} ({en})": "وزارة {al} {the_female}",
+
+    # Category:Ministry of Defense (Yemen)
+    "ministry of {ministry} ({en})": "وزارة {al} {the_female}",
+
+    # Category:Ministries of education
+    "ministries of {ministry}": "وزارات {ministry}",
+
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
     "{en} under secretaries of {ministry}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
     "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",

@@ -5,6 +5,28 @@ from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
 secretaries_test_0 = {
+    "Category:Ministries of education": "تصنيف:وزارات تربية",
+    "Category:Ministries of finance": "تصنيف:وزارات مالية",
+    "Category:Ministries of health": "تصنيف:وزارات صحة",
+    "Category:Ministries of justice": "تصنيف:وزارات عدل",
+    "Category:Ministries of the Government of Laos": "تصنيف:وزارات في حكومة لاوس",
+    "Category:Ministries of transport": "تصنيف:وزارات نقل",
+
+    "Category:Ministry of Agriculture and Cooperatives (Thailand)": "تصنيف:وزارة الزراعة والتعاونيات (تايلاند)",
+    "Category:Ministry of Commerce (Thailand)": "تصنيف:وزارة التجارة (تايلاند)",
+    "Category:Ministry of Culture (Saudi Arabia)": "تصنيف:وزارة الثقافة (السعودية)",
+    "Category:Ministry of Culture (Thailand)": "تصنيف:وزارة الثقافة (تايلاند)",
+    "Category:Ministry of Culture and Tourism (Turkey)": "تصنيف:وزارة الثقافة والسياحة (تركيا)",
+    "Category:Ministry of Defence (Jordan)": "تصنيف:وزارة الدفاع (الأردن)",
+    "Category:Ministry of Defence (Russia)": "تصنيف:وزارة الدفاع (روسيا)",
+    "Category:Ministry of Defence (Thailand)": "تصنيف:وزارة الدفاع (تايلاند)",
+    "Category:Ministry of Defence (Ukraine)": "تصنيف:وزارة الدفاع (أوكرانيا)",
+    "Category:Ministry of Defence (United Kingdom)": "تصنيف:وزارة الدفاع (المملكة المتحدة)",
+    "Category:Ministry of Defense (Israel)": "تصنيف:وزارة الدفاع (إسرائيل)",
+    "Category:Ministry of Defense (Japan)": "تصنيف:وزارة الدفاع (اليابان)",
+    "Category:Ministry of Defense (Saudi Arabia)": "تصنيف:وزارة دفاع المملكة العربية السعودية",
+    "Category:Ministry of Defense (Yemen)": "تصنيف:وزارة الدفاع (اليمن)",
+
     "Category:Former Colombian Executive Council positions": "تصنيف:مناصب سابقة في المجلس التنفيذي الكولومبي",
     "Category:Colombian Executive Council": "تصنيف:المجلس التنفيذي الكولومبي",
     "Category:Colombian Executive Council positions": "تصنيف:مناصب في المجلس التنفيذي الكولومبي",
