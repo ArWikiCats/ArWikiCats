@@ -60,6 +60,7 @@ def _load_womens_bot() -> MultiDataFormatterBase:
     for x, v in female_formatted_data.items():
         formatted_data[x] = v
         if "{female}" in x:
+            formatted_data[x.replace("{female}", "female")] = v
             formatted_data[x.replace("{female}", "womens")] = v
             formatted_data[x.replace("{female}", "women's")] = v
 
