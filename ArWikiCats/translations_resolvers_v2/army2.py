@@ -157,6 +157,7 @@ def _names(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_secretaries_labels(category: str) -> str:
+    category = category.replace("'", "")
     result = _names(category) or _nats(category)
     return result
 
