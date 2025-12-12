@@ -1,3 +1,17 @@
+## [#206](https://github.com/MrIbrahem/ArWikiCats/pull/206) - 2025-12-13
+
+* **New Features**
+  * New job-category resolvers with broader fallback and richer variants for masculine and feminine labels (expanded sports, cycling, film, music, gendered and nationality forms).
+
+* **Bug Fixes**
+  * Removed duplicate football key and adjusted related test expectations.
+
+* **Refactor**
+  * Reworked translation builders to return assembled variant maps; simplified resolution flow and consolidated resolver logic.
+
+* **Tests**
+  * Added comprehensive resolver and formatting tests; updated and removed obsolete tests to match new behavior.
+
 ## [#205](https://github.com/MrIbrahem/ArWikiCats/pull/205) - 2025-12-12
 
 * **New Features**

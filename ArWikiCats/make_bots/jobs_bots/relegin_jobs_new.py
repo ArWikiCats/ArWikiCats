@@ -4,7 +4,6 @@
 """
 
 import functools
-
 from ...helps.log import logger
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
@@ -40,29 +39,29 @@ def _load_womens_bot() -> MultiDataFormatterBase:
     religions_data = {x: v["females"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("females")}
 
     female_formatted_data = {
-        "female {job_en}": "{job_ar}",
-        "people female {rele_en}": "{rele_ar}",
-        "female {rele_en}": "{rele_ar}",
+        "{female} {job_en}": "{job_ar}",
+        "people {female} {rele_en}": "{rele_ar}",
+        "{female} {rele_en}": "{rele_ar}",
 
-        "female {rele_en} {job_en}": "{job_ar} {rele_ar}",
-        "female {job_en} {rele_en}": "{job_ar} {rele_ar}",
+        "{female} {rele_en} {job_en}": "{job_ar} {rele_ar}",
+        "{female} {job_en} {rele_en}": "{job_ar} {rele_ar}",
 
-        "{rele_en} female {job_en}": "{job_ar} {rele_ar}",
-        "{job_en} female {rele_en}": "{job_ar} {rele_ar}",
+        "{rele_en} {female} {job_en}": "{job_ar} {rele_ar}",
+        "{job_en} {female} {rele_en}": "{job_ar} {rele_ar}",
 
-        "{rele_en} female saints": "قديسات {rele_ar}",
-        "{rele_en} female eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
-        "{rele_en} female politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
-        "{rele_en} female contemporary artists": "فنانات {rele_ar} معاصرات",
+        "{rele_en} {female} saints": "قديسات {rele_ar}",
+        "{rele_en} {female} eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
+        "{rele_en} {female} politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
+        "{rele_en} {female} contemporary artists": "فنانات {rele_ar} معاصرات",
     }
 
     formatted_data = {}
 
     for x, v in female_formatted_data.items():
         formatted_data[x] = v
-        if "female" in x:
-            formatted_data[x.replace("female", "womens")] = v
-            formatted_data[x.replace("female", "women's")] = v
+        if "{female}" in x:
+            formatted_data[x.replace("{female}", "womens")] = v
+            formatted_data[x.replace("{female}", "women's")] = v
 
     return format_multi_data(
         formatted_data=formatted_data,
@@ -112,6 +111,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
         "{rele_en} women's rights activists": "{rele_ar} ناشطون في حقوق المرأة",
     }
+
     for x in NAT_BEFORE_OCC_BASE:
         if jobs_mens_data.get(x):
             formatted_data[f"{{rele_en}} {x}"] = f"{{rele_ar}} {jobs_mens_data[x]}"

@@ -337,6 +337,7 @@ SKATING_LABELS = {x: v for x, v in SKATING_LABELS.items() if x not in BASE_PLAYE
 GENERAL_SCOPE_LABELS = _build_general_scope_labels(GENERAL_SPORT_ROLES, SPORT_SCOPE_ROLES)
 CHAMPION_LABELS = _build_champion_labels(SPORTS_KEYS_FOR_LABEL)
 WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
+
 SPORT_JOB_VARIANTS = _build_sports_job_variants(
     SPORTS_KEYS_FOR_JOBS,
     FOOTBALL_KEYS_PLAYERS,
@@ -353,11 +354,6 @@ PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
     SPORT_JOB_VARIANTS,
     BASE_PLAYER_VARIANTS,
 )
-
-# ---------------------------------------------------------------------------
-# Backwards compatible exports
-
-Football_Keys_players: GenderedLabelMap = FOOTBALL_KEYS_PLAYERS
 
 __all__ = [
     "FOOTBALL_KEYS_PLAYERS",

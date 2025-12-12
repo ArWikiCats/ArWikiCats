@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.new_jobs.womens import get_label
+from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_resolver_labels
 
 test_data2 = {
     # nat
@@ -42,11 +42,41 @@ test_data2 = {
     "malian professional association football managers": "مدربات كرة قدم محترفات ماليات",
 
     # "yemeni expatriate female actresses": "ممثلات يمنيات مغتربات",
+
+
+    "female greek blind": "يونانيات مكفوفات",
+    "female writers blind": "كاتبات مكفوفات",
+
+    "female greek writers blind": "كاتبات يونانيات مكفوفات",
+    "female writers greek blind": "كاتبات يونانيات مكفوفات",
 }
 
 
 @pytest.mark.parametrize("category,expected", test_data2.items(), ids=test_data2.keys())
 def test_nat_pattern_multi(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = get_label(category)
+    result = womens_resolver_labels(category)
+    assert result == expected
+
+
+@pytest.mark.skip2
+def test_must_be_empty() -> None:
+    result = womens_resolver_labels("Yemeni singers")
+    assert result == ""
+
+
+test_religions_data = {
+    "Category:female Yemeni shi'a muslims": "تصنيف:يمنيات مسلمات شيعيات",
+    "Category:Yemeni female shia muslims": "تصنيف:يمنيات مسلمات شيعيات",
+    "Category:Yemeni women's muslims": "تصنيف:يمنيات مسلمات",
+    "Category:Yemeni female muslims": "تصنيف:يمنيات مسلمات",
+    "Category:women's Yemeni muslims": "تصنيف:يمنيات مسلمات",
+}
+
+
+@pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
+def test_religions(category: str, expected: str) -> None:
+    """Test all nat translation patterns."""
+    # result = new_religions_jobs_with_suffix(category)
+    result = womens_resolver_labels(category)
     assert result == expected

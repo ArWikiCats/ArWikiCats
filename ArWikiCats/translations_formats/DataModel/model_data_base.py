@@ -87,11 +87,31 @@ class FormatDataBase:
 
     def handle_texts_before_after(self, normalized: str) -> str:
         """Handle text before and after the key placeholder."""
-        if self.text_before and f"{self.text_before}{self.key_placeholder}" in normalized:
-            normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
+        if not self.text_before and not self.text_after:
+            return normalized
 
-        if self.text_after and f"{self.key_placeholder}{self.text_after}" in normalized:
-            normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+        logger.debug(f"handle_texts_before_after: {normalized=}")
+
+        # no need for further processing
+        # (text_before="the ") but key: ("the {nat_en} actors") already in formatted_data_ci so no need to replace
+
+        if self.formatted_data_ci.get(normalized.strip(), ""):
+            logger.debug(f"handle_texts_before_after: found directly {normalized=} in formatted_data_ci")
+            return normalized
+
+        if self.text_before:
+            if f"{self.text_before}{self.key_placeholder}" in normalized:
+                normalized = normalized.replace(f"{self.text_before}{self.key_placeholder}", self.key_placeholder)
+
+            # no need for further processing
+            # (text_after=" people") but key: ("{nat_en} people actors") already in formatted_data_ci so no need to replace
+            if self.formatted_data_ci.get(normalized.strip(), ""):
+                return normalized
+
+        if self.text_after:
+            if f"{self.key_placeholder}{self.text_after}" in normalized:
+                normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
+
         return normalized
 
     @functools.lru_cache(maxsize=None)
