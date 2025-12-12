@@ -23,7 +23,7 @@ def multi_bot() -> MultiDataFormatterBaseV2:
         "Secretaries of {en}": "وزراء {ar}",
     }
 
-    ministrs_keys = {
+    _keys = {
         "education": {"singular": "تعليم", "al": "التعليم"},
         "finance": {"singular": "مالية", "al": "المالية"},
         "health": {"singular": "صحة", "al": "الصحة"},
@@ -33,7 +33,7 @@ def multi_bot() -> MultiDataFormatterBaseV2:
         formatted_data=formatted_data,
         data_list=countries_data,
         key_placeholder="{en}",
-        data_list2=ministrs_keys,
+        data_list2=_keys,
         key2_placeholder="{ministry}",
         text_after="",
         text_before="the ",

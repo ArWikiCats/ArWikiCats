@@ -5,19 +5,6 @@
 
 from ...helps import len_print
 
-minister_keyse = {
-    "ministers of": "وزراء",
-    "government ministers of": "وزراء",
-    "women's ministers of": "وزيرات",
-    "deputy prime ministers of": "نواب رؤساء وزراء",
-    "finance ministers of": "وزراء مالية",
-    "foreign ministers of": "وزراء خارجية",
-    "prime ministers of": "رؤساء وزراء",
-    "sport-ministers": "وزراء رياضة",
-    "sports-ministers": "وزراء رياضة",
-    "ministers of power": "وزراء طاقة",
-    "ministers-of power": "وزراء طاقة",
-}
 # ---#
 keyses_without_in = [
     "زراعة",
@@ -179,29 +166,8 @@ for key1, key2 in add_keys:
         "singular": f"{key_1_singular} و{key_2_singular}",
         "al": f"{key_1_al} و{key_2_al}",
     }
-# ---
-"""
-for ministry_key, ministry_labels in ministrs_keys.items():
-    normalized_ministry = ministry_key.lower().strip()
-    short_label = ministry_labels["singular"]
-    arabic_ministers_label = f"وزراء {short_label}"
-    minister_keyse[f"{normalized_ministry} ministries"] = f"وزارات {short_label}"
 
-    minister_keyse[f"{normalized_ministry} ministers"] = arabic_ministers_label
-
-    minister_keyse[f"ministers-of {normalized_ministry}"] = arabic_ministers_label
-    minister_keyse[f"ministers of {normalized_ministry}"] = arabic_ministers_label
-
-    minister_keyse[f"secretaries-of {normalized_ministry}"] = arabic_ministers_label
-    minister_keyse[f"secretaries of {normalized_ministry}"] = arabic_ministers_label
-    minister_keyse[f"ministers-for {normalized_ministry}"] = arabic_ministers_label
-
-    if short_label in keyses_without_in:
-        minister_keyse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
-        minister_keyse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
-        minister_keyse[f"ministers-for {normalized_ministry} of"] = arabic_ministers_label
-"""
 
 len_print.data_len("ministers.py", {
-    "minister_keyse": minister_keyse,
+    "ministrs_keys": ministrs_keys,
 })
