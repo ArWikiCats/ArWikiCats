@@ -327,49 +327,6 @@ class TestEdgeCases:
         # Should still work despite extra spaces
         assert result == "فرق كرة القدم اليمن"
 
-
-class TestWithTextAfterAndBefore:
-    """Tests for format_multi_data with text_after and text_before parameters."""
-
-    @pytest.mark.skip2
-    def test_with_text_after(self) -> None:
-        """Test format_multi_data with text_after parameter."""
-        bot = format_multi_data(
-            formatted_data={"{nat_en}ian {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
-            data_list={"yemeni": "اليمن"},
-            key_placeholder="{nat_en}",
-            value_placeholder="{nat_ar}",
-            data_list2={"football": "كرة القدم"},
-            key2_placeholder="{en_sport}",
-            value2_placeholder="{sport_ar}",
-            text_after="ian",
-        )
-
-        category = "yemenian football teams"
-        result = bot.create_label(category)
-
-        assert result == "فرق كرة القدم اليمن"
-
-    @pytest.mark.skip2
-    def test_with_text_before(self) -> None:
-        """Test format_multi_data with text_before parameter."""
-        bot = format_multi_data(
-            formatted_data={"the {nat_en} {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
-            data_list={"yemeni": "اليمن"},
-            key_placeholder="{nat_en}",
-            value_placeholder="{nat_ar}",
-            data_list2={"football": "كرة القدم"},
-            key2_placeholder="{en_sport}",
-            value2_placeholder="{sport_ar}",
-            text_before="the ",
-        )
-
-        category = "the yemeni football teams"
-        result = bot.create_label(category)
-
-        assert result == "فرق كرة القدم اليمن"
-
-
 @pytest.mark.slow
 class TestPerformance:
     """Performance tests for caching behavior."""

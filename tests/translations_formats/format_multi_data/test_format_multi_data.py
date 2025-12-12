@@ -327,14 +327,15 @@ class TestWithTextAfterAndBefore:
     def test_with_text_after(self) -> None:
         """Test format_multi_data with text_after parameter."""
         bot = format_multi_data(
-            formatted_data={"{nat_en}ian {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
+            formatted_data={"{nat_en} sports {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
             data_list={"yemeni": "اليمن"},
             key_placeholder="{nat_en}",
             value_placeholder="{nat_ar}",
             data_list2={"football": "كرة القدم"},
             key2_placeholder="{en_sport}",
             value2_placeholder="{sport_ar}",
-            text_after="ian",
+            text_before="",
+            text_after=" sports",
         )
 
         category = "yemenian football teams"
@@ -346,7 +347,7 @@ class TestWithTextAfterAndBefore:
     def test_with_text_before(self) -> None:
         """Test format_multi_data with text_before parameter."""
         bot = format_multi_data(
-            formatted_data={"the {nat_en} {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
+            formatted_data={"{nat_en} the {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
             data_list={"yemeni": "اليمن"},
             key_placeholder="{nat_en}",
             value_placeholder="{nat_ar}",
@@ -354,6 +355,7 @@ class TestWithTextAfterAndBefore:
             key2_placeholder="{en_sport}",
             value2_placeholder="{sport_ar}",
             text_before="the ",
+            text_after="",
         )
 
         category = "the yemeni football teams"
