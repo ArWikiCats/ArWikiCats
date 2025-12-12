@@ -14,7 +14,7 @@ new = {
 }
 
 secretaries_test_2 = {
-    "Category:Ministries of education": "تصنيف:وزارات تربية",
+    "Category:Ministries of education": "تصنيف:وزارات تعليم",
     "Category:Ministries of finance": "تصنيف:وزارات مالية",
     "Category:Ministries of health": "تصنيف:وزارات صحة",
     "Category:Ministries of justice": "تصنيف:وزارات عدل",
