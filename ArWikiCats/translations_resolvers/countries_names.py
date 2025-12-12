@@ -11,6 +11,7 @@ ONLY_COUNTRY_NAMES = {
 }
 
 formatted_data_en_ar_only: dict[str, str] = {
+    "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
     "united states secretaries of state": "وزراء خارجية أمريكيون",

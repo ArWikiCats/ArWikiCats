@@ -18,7 +18,7 @@ secretaries_test_2 = {
     "Category:Ministries of finance": "تصنيف:وزارات مالية",
     "Category:Ministries of health": "تصنيف:وزارات صحة",
     "Category:Ministries of justice": "تصنيف:وزارات عدل",
-    "Category:Ministries of the Government of Laos": "تصنيف:وزارات في حكومة لاوس",
+    "Category:Ministries of the Government of Laos": "تصنيف:وزارات حكومة لاوس",
     "Category:Ministries of transport": "تصنيف:وزارات نقل",
     "Category:Secretaries of Guam": "تصنيف:وزراء غوام",
 }
@@ -227,7 +227,7 @@ to_test = [
     ("test_secretaries_0", secretaries_test_0, resolve_arabic_category_label),
     ("test_secretaries_1", secretaries_test_1, resolve_arabic_category_label),
     ("test_secretaries_2", secretaries_test_2, resolve_arabic_category_label),
-    ("test_secretaries_te_army2", secretaries_test_1, resolve_secretaries_labels),
+    ("test_secretaries_te_army2", secretaries_test_0, resolve_secretaries_labels),
 ]
 
 

@@ -13,6 +13,8 @@ nat_secretaries_mapping = {
 }
 
 en_secretaries_mapping = {
+    "secretaries of {en}": "وزراء {ar}",
+    "ministries of the government of {en}": "وزارات حكومة {ar}",
     "united states secretaries of state": "وزراء خارجية أمريكيون",
     "secretaries of state of {en}": "وزراء خارجية {males}",
     "secretaries of state for {en}": "وزراء خارجية {males}",
