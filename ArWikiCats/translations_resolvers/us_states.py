@@ -66,6 +66,14 @@ _STATE_SUFFIX_TEMPLATES_BASE = {
     # " councils" : "مجالس {ar}",
 }
 
+
+_STATE_SUFFIX_TEMPLATES_BASE.update({
+    x.replace("secretaries of", "secretaries-of"): y
+    for x, y in _STATE_SUFFIX_TEMPLATES_BASE.items()
+    if "secretaries of" in x
+})
+
+
 _USA_PARTY_LABELS = {
     "democratic republican": "الحزب الديمقراطي الجمهوري",
     "democratic-republican": "الحزب الديمقراطي الجمهوري",
