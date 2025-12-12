@@ -2,7 +2,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
-from ArWikiCats.translations_resolvers_v2.army2 import te_army2
+from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
 secretaries_test_0 = {
     "Category:State secretaries of state of the United States by state": "تصنيف:وزراء خارجية الولايات في الولايات المتحدة حسب الولاية",
@@ -224,7 +224,7 @@ to_test = [
     ("test_secretaries_0", secretaries_test_0, resolve_arabic_category_label),
     ("test_secretaries_1", secretaries_test_1, resolve_arabic_category_label),
     ("test_secretaries_2", secretaries_test_2, resolve_arabic_category_label),
-    ("test_secretaries_te_army2", secretaries_test_1, te_army2),
+    ("test_secretaries_te_army2", secretaries_test_1, resolve_secretaries_labels),
 ]
 
 

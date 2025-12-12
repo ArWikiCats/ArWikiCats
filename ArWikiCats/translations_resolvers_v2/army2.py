@@ -278,7 +278,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     return both_bot
 
 
-def te_army2(category: str) -> str:
+def resolve_secretaries_labels(category: str) -> str:
     normalized_category = category.lower().replace("category:", "")
     both_bot = _load_bot()
 
@@ -290,5 +290,5 @@ def te_army2(category: str) -> str:
 
 
 __all__ = [
-    "te_army2"
+    "resolve_secretaries_labels"
 ]

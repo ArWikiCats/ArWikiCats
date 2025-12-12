@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_resolvers_v2.army2 import te_army2
+from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
 fast_data = {
     "United States secretaries-of war": "وزراء حرب أمريكيون",
@@ -15,5 +15,5 @@ fast_data = {
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
 @pytest.mark.fast
 def test_fast_data(category: str, expected: str) -> None:
-    label = te_army2(category)
+    label = resolve_secretaries_labels(category)
     assert label == expected
