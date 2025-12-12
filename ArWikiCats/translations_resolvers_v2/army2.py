@@ -44,7 +44,6 @@ en_secretaries_mapping = {
     "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
-
 }
 
 

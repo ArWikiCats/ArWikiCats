@@ -6,6 +6,9 @@ from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_label
 
 
 new = {
+    "Category:British Secretaries of State for the Environment": "تصنيف:وزراء خارجية بريطانيون في البيئة",
+    "Category:British Secretaries of State for Education": "تصنيف:وزراء خارجية بريطانيون في التعليم",
+    "Category:British Secretaries of State for Employment": "تصنيف:وزراء خارجية بريطانيون في التوظيف",
     "Category:British secretaries of state for Commonwealth affairs": "تصنيف:وزراء الدولة البريطانيون لشؤون الكومنولث",
     "Category:British secretaries of state for education": "تصنيف:وزراء الدولة للتعليم (المملكة المتحدة)",
     "Category:British secretaries of state for employment": "تصنيف:وزراء خارجية بريطانيون في التوظيف",
