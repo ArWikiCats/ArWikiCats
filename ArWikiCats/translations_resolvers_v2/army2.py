@@ -250,6 +250,10 @@ state_secretaries_mapping = {
     "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",
     "{en} under secretaries of {ministry}": "نواب وزير {al} {the_male}",
 
+    "assistant secretaries of {ministry} of {en}": "مساعدو وزير {al} {the_male}",
+    "deputy secretaries of {ministry} of {en}": "نواب وزير {al} {the_male}",
+    "under secretaries of {ministry} of {en}": "نواب وزير {al} {the_male}",
+
     "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
     "secretaries of {ministry} of {en}" : "وزراء {singular} {males}",
     "secretaries of {ministry}" : "وزراء {singular}",
@@ -308,13 +312,8 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
 
 def resolve_secretaries_labels(category: str) -> str:
-    normalized_category = category.lower().replace("category:", "")
     both_bot = _load_bot()
-
-    result = both_bot.search_all(normalized_category)
-
-    if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
+    result = both_bot.search_all_category(category)
     return result
 
 

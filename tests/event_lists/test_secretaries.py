@@ -5,6 +5,7 @@ from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
 secretaries_test_0 = {
+    "Category:Secretaries of the state of Connecticut": "تصنيف:وزراء خارجية كونيتيكت",
     "Category:Secretaries of state of Alabama": "تصنيف:وزراء خارجية ألاباما",
     "Category:Secretaries of state of Arizona": "تصنيف:وزراء خارجية أريزونا",
     "Category:Secretaries of state of Arkansas": "تصنيف:وزراء خارجية أركنساس",
@@ -99,7 +100,6 @@ secretaries_test_0 = {
 }
 
 secretaries_test_1 = {
-    "Category:Secretaries of the state of Connecticut": "تصنيف:وزير خارجية كونيتيكت",
 
 
     "Category:United States secretaries of health and human services": "تصنيف:وزراء صحة وخدمات إنسانية أمريكيون",
