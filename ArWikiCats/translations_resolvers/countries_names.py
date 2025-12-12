@@ -8,6 +8,8 @@ from ..translations import countries_from_nat
 ONLY_COUNTRY_NAMES = {
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
+    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
 }
 
 formatted_data_en_ar_only: dict[str, str] = {
@@ -15,8 +17,6 @@ formatted_data_en_ar_only: dict[str, str] = {
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
     "united states secretaries of state": "وزراء خارجية أمريكيون",
-    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
-    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
 
     "{en}": "{ar}",
