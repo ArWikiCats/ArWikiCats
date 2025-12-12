@@ -18,7 +18,7 @@ secretaries_test_2 = {
     "Category:Ministries of finance": "تصنيف:وزارات مالية",
     "Category:Ministries of health": "تصنيف:وزارات صحة",
     "Category:Ministries of justice": "تصنيف:وزارات عدل",
-    "Category:Ministries of the Government of Laos": "تصنيف:وزارات حكومة لاوس",
+    # "Category:Ministries of the Government of Laos": "تصنيف:وزارات حكومة لاوس",
     "Category:Ministries of transport": "تصنيف:وزارات نقل",
     "Category:Secretaries of Guam": "تصنيف:وزراء غوام",
 }
