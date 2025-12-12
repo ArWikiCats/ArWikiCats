@@ -2,7 +2,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
-from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
+from ArWikiCats.translations_resolvers_v2.ministers_resolver import resolve_secretaries_labels
 
 
 new = {

@@ -2,10 +2,10 @@
 from . import (
     countries_names_sport_multi_v2,
     countries_names_v2,
+    ministers_resolver,
     nats_sport_multi_v2,
     nats_v2,
     nats_time_v2,
-    army2,
 )
 
 
@@ -17,7 +17,7 @@ def resolved_translations_resolvers_v2(normalized_category) -> str:
         nats_sport_multi_v2.resolve_nats_sport_multi_v2(normalized_category) or
         nats_v2.resolve_by_nats(normalized_category) or
         nats_time_v2.resolve_nats_time_v2(normalized_category) or
-        army2.resolve_secretaries_labels(normalized_category) or
+        ministers_resolver.resolve_secretaries_labels(normalized_category) or
         ""
     )
 

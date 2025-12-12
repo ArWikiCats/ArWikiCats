@@ -1,3 +1,17 @@
+## [#205](https://github.com/MrIbrahem/ArWikiCats/pull/205) - 2025-12-12
+
+* **New Features**
+  - Expanded coverage for secretary and ministry-related category translations with additional wording variants and improved input normalization for better lookup accuracy
+
+* **Bug Fixes**
+  - Removed redundant runtime processing logic and consolidated translation resolution approach
+
+* **Tests**
+  - Updated test cases to reflect new translation mappings and normalization changes
+
+* **Documentation**
+  - Updated changelog entries for recent changes
+
 ## [#204](https://github.com/MrIbrahem/ArWikiCats/pull/204) - 2025-12-12
 
 * **Bug Fixes**
