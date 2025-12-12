@@ -11,9 +11,13 @@ nat_secretaries_mapping = {
     # Category:Secretaries of the Australian Department of Defence
     "secretaries of {en} department of {ministry}": "وزراء {singular} {males}",
     "{en} secretaries of {ministry}": "وزراء {singular} {males}",
+    "{en} ministers of {ministry}": "وزراء {singular} {males}",
+    "{en} government ministers of {ministry}": "وزراء {singular} {males}",
     "{en} female secretaries of {ministry}": "وزيرات {singular} {females}",
     "{en} womens secretaries of {ministry}": "وزيرات {singular} {females}",
     "{en} women's secretaries of {ministry}": "وزيرات {singular} {females}",
+    "{en} women secretaries of {ministry}": "وزيرات {singular} {females}",
+    "{en} women government ministers of {ministry}": "وزيرات {singular} {females}",
 }
 
 en_secretaries_mapping = {

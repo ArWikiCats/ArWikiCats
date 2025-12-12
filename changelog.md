@@ -1,14 +1,16 @@
 ## [#204](https://github.com/MrIbrahem/ArWikiCats/pull/204) - 2025-12-12
 
 * **Bug Fixes**
-  * Simplified category label resolution by removing redundant processing logic and consolidating to a single resolution approach.
+  * Simplified category label resolution by removing redundant fallback logic and redundant runtime population of some translation maps.
 
 * **Features**
-  * Expanded coverage for secretary and ministry-related category translations, including additional U.S. department variants (energy, education, laboratories).
-  * Enhanced category normalization for improved lookup accuracy.
+  * Expanded secretary/ministry translation coverage, adding more U.S. department and wording variants and improved input normalization.
 
 * **Tests**
-  * Added four new test cases for secretary category translations.
+  * Added and adjusted multiple secretary and minister translation tests to reflect new mappings.
+
+* **Documentation**
+  * Updated changelog entries for recent PRs.
 
 ## [#203](https://github.com/MrIbrahem/ArWikiCats/pull/203) - 2025-12-12
 
