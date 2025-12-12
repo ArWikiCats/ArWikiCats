@@ -144,10 +144,10 @@ secretaries_test_0 = {
 }
 
 secretaries_test_1 = {
+    "Category:Secretaries of labor and employment of the Philippines": "تصنيف:وزراء عمل وتوظيف فلبينيون",
     "Category:United States secretaries of health and human services": "تصنيف:وزراء صحة وخدمات إنسانية أمريكيون",
     "Category:Secretaries of communications and transportation of Mexico": "تصنيف:وزراء اتصالات ونقل مكسيكيون",
     "Category:Secretaries of environment and natural resources of the Philippines": "تصنيف:وزراء بيئة وموارد طبيعية فلبينيون",
-    "Category:Secretaries of labor and employment of the Philippines": "تصنيف:وزراء في عمالة والتوظيف في الفلبين",
     "Category:Secretaries of veterans and military families of Maryland": "تصنيف:وزراء شؤون محاربين قدامى ماريلند",
     "Category:Secretaries of war and navy of Colombia": "تصنيف:وزراء حرب وبحرية كولومبيون",
     "Category:United States deputy secretaries of health and human services": "تصنيف:نواب وزير الصحة والخدمات الإنسانية الأمريكي",
