@@ -58,6 +58,7 @@ keyses_without_in = [
 ]
 # ---
 ministrs_keys = {
+    "navy": {"singular": "بحرية", "al": "البحرية"},
     "housing and urban development": {
         "singular": "إسكان وتنمية حضرية",
         "al": "الإسكان والتنمية الحضرية",
@@ -71,10 +72,7 @@ ministrs_keys = {
         "singular": "تنمية محلية",
         "al": "التنمية المحلية",
     },
-    "health and human services": {
-        "singular": "صحة وخدمات إنسانية",
-        "al": "الصحة والخدمات الإنسانية",
-    },
+    "human services": {"singular": "خدمات إنسانية", "al": "الخدمات الإنسانية"},
     "treasury": {"singular": "خزانة", "al": "الخزانة"},
     "homeland security": {"singular": "أمن داخلي", "al": "الأمن الداخلي"},
     "transportation": {"singular": "نقل", "al": "النقل"},
@@ -156,11 +154,40 @@ ministrs_keys = {
     "justice": {"singular": "عدل", "al": "العدل"},
     "army": {"singular": "جيش", "al": "الجيش"},
     "war": {"singular": "حرب", "al": "الحرب"},
-    "navy": {"singular": "بحرية", "al": "البحرية"},
     # "state": {"singular": "خارجية", "al": "الخارجية"},
     "foreign": {"singular": "خارجية", "al": "الخارجية"},
     "foreign affairs": {"singular": "شؤون خارجية", "al": "الشؤون الخارجية"},
 }
+
+add_keys = [
+    ("health", "human services"),
+    ("communications", "transportation"),
+    ("environment", "natural resources"),
+    ("labor", "employment"),
+    ("war", "navy"),
+]
+# ---
+for key1, key2 in add_keys:
+    combined_key = f"{key1} and {key2}"
+    key_1_data = ministrs_keys.get(key1, {})
+    key_2_data = ministrs_keys.get(key2, {})
+    # ---
+    if not key_1_data or not key_2_data:
+        continue
+    # ---
+    key_1_singular = key_1_data.get("singular", "")
+    key_2_singular = key_2_data.get("singular", "")
+    # ---
+    key_1_al = key_1_data.get("al", "")
+    key_2_al = key_2_data.get("al", "")
+    # ---
+    if not any([key_1_singular, key_2_singular, key_1_al, key_2_al]):
+        continue
+    # ---
+    ministrs_keys[combined_key] = {
+        "singular": f"{key_1_singular} و{key_2_singular}",
+        "al": f"{key_1_al} و{key_2_al}",
+    }
 # ---
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower().strip()
