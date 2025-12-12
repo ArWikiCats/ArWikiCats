@@ -13,7 +13,6 @@ from ..companies import companies_to_jobs
 from ..mixed.all_keys2 import BOOK_CATEGORIES
 from ..mixed.male_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
-from ..politics.ministers import ministrs_tab_for_Jobs_2020
 from ..sports.cycling import BASE_CYCLING_EVENTS
 from ..tv.films_mslslat import film_keys_for_female
 from ..utils.json_dir import open_json
@@ -135,8 +134,6 @@ def _build_jobs_2020() -> GenderedLabelMap:
     """Return the 2020 job dictionary merged with ministerial categories."""
 
     jobs_2020 = copy_gendered_map(JOBS_2020_BASE)
-    for category, labels in ministrs_tab_for_Jobs_2020.items():
-        jobs_2020[category] = {"males": labels["males"], "females": labels["females"]}
     return jobs_2020
 
 

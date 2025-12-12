@@ -5,11 +5,6 @@
 
 from ...helps import len_print
 
-# ---
-ministrees_keysse = {  # to add it to pop_of_without_in in all_keys2.py
-    "deputy prime ministers": "نواب رؤساء وزراء",
-}
-# ---
 minister_keyse = {
     "ministers of": "وزراء",
     "government ministers of": "وزراء",
@@ -202,37 +197,10 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     minister_keyse[f"ministers-for {normalized_ministry}"] = arabic_ministers_label
 
     if short_label in keyses_without_in:
-        ministrees_keysse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
-        ministrees_keysse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
-        ministrees_keysse[f"{normalized_ministry} ministers"] = arabic_ministers_label
-        ministrees_keysse[f"{normalized_ministry} ministers of"] = arabic_ministers_label
         minister_keyse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers-for {normalized_ministry} of"] = arabic_ministers_label
-# ---
-ministrs_tab_for_Jobs_2020 = {}  # used in Jobs.py
-# ---
-for ministry_key, ministry_labels in ministrs_keys.items():
-    singular_label = ministry_labels["singular"]
-    ministrs_tab_for_Jobs_2020[f"secretaries-of {ministry_key}"] = {
-        "males": f"وزراء {singular_label}",
-        "females": f"وزيرات {singular_label}",
-    }
-    ministrs_tab_for_Jobs_2020[f"secretaries of {ministry_key}"] = {
-        "males": f"وزراء {singular_label}",
-        "females": f"وزيرات {singular_label}",
-    }
-# ---
-ministrs_tab_for_pop_format = {}  # used in pop_format.py
-# ---
-for ministry_key, ministry_labels in ministrs_keys.items():
-    normalized_ministry = ministry_key.lower().strip()
-    short_label = ministry_labels["singular"]
-    ministrs_tab_for_pop_format[f"secretaries of {normalized_ministry} of"] = f"وزراء {short_label} {{}}"
-    ministrs_tab_for_pop_format[f"secretaries-of {normalized_ministry} of"] = f"وزراء {short_label} {{}}"
-# ---
+
 len_print.data_len("ministers.py", {
-    "ministrs_tab_for_pop_format": ministrs_tab_for_pop_format,
-    "ministrs_tab_for_Jobs_2020": ministrs_tab_for_Jobs_2020,
     "minister_keyse": minister_keyse,
 })

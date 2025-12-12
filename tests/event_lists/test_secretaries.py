@@ -17,6 +17,11 @@ new = {
 }
 
 secretaries_test_2 = {
+    "Category:United States Department of Energy national laboratories": "تصنيف:مختبرات وزارة الطاقة الأمريكية",
+    "Category:United States Department of Education agencies": "تصنيف:وكالات وزارة التعليم الأمريكية",
+    "Category:United States Department of Education officials": "تصنيف:مسؤولو وزارة التعليم الأمريكية",
+    "Category:United States Department of Energy National Laboratories personnel": "تصنيف:موظفو مختبرات وزارة الطاقة الأمريكية",
+
     "Category:Ministries of education": "تصنيف:وزارات تعليم",
     "Category:Ministries of finance": "تصنيف:وزارات مالية",
     "Category:Ministries of health": "تصنيف:وزارات صحة",
@@ -27,6 +32,11 @@ secretaries_test_2 = {
 }
 
 secretaries_test_0 = {
+    "Category:Secretaries of transportation of Maryland": "تصنيف:وزراء نقل في ماريلند",
+    "Category:Secretaries of veterans and military families of Maryland": "تصنيف:وزراء شؤون محاربين قدامى في ماريلند",
+    "Category:Secretaries of education of Pennsylvania": "تصنيف:وزراء تعليم في بنسلفانيا",
+    "Category:Secretaries of education of Oklahoma": "تصنيف:وزراء تعليم في أوكلاهوما",
+    "Category:Secretaries of agriculture of Iowa": "تصنيف:وزراء زراعة في آيوا",
     "Category:Ministry of Commerce (Thailand)": "تصنيف:وزارة التجارة التايلندية",
     "Category:Ministry of Culture (Saudi Arabia)": "تصنيف:وزارة الثقافة السعودية",
     "Category:Ministry of Culture (Thailand)": "تصنيف:وزارة الثقافة التايلندية",
@@ -142,12 +152,7 @@ secretaries_test_0 = {
     "Category:State cabinet secretaries of West Virginia": "تصنيف:أعضاء مجلس وزراء فيرجينيا الغربية",
     "Category:State cabinet secretaries of Wisconsin": "تصنيف:أعضاء مجلس وزراء ويسكونسن",
     "Category:State cabinet secretaries of Wyoming": "تصنيف:أعضاء مجلس وزراء وايومنغ",
-    "Category:Secretaries of transportation of Maryland": "تصنيف:وزراء نقل ماريلند",
-    "Category:Secretaries of veterans and military families of Maryland": "تصنيف:وزراء شؤون محاربين قدامى ماريلند",
     "Category:Cabinet secretaries of the Northern Mariana Islands": "تصنيف:أعضاء مجلس وزراء جزر ماريانا الشمالية",
-    "Category:Secretaries of education of Pennsylvania": "تصنيف:وزراء تعليم بنسلفانيا",
-    "Category:Secretaries of education of Oklahoma": "تصنيف:وزراء تعليم أوكلاهوما",
-    "Category:Secretaries of agriculture of Iowa": "تصنيف:وزراء زراعة آيوا",
 }
 
 secretaries_test_1 = {

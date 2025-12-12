@@ -1,3 +1,15 @@
+## [#204](https://github.com/MrIbrahem/ArWikiCats/pull/204) - 2025-12-12
+
+* **Bug Fixes**
+  * Simplified category label resolution by removing redundant processing logic and consolidating to a single resolution approach.
+
+* **Features**
+  * Expanded coverage for secretary and ministry-related category translations, including additional U.S. department variants (energy, education, laboratories).
+  * Enhanced category normalization for improved lookup accuracy.
+
+* **Tests**
+  * Added four new test cases for secretary category translations.
+
 ## [#203](https://github.com/MrIbrahem/ArWikiCats/pull/203) - 2025-12-12
 
 * **New Features**

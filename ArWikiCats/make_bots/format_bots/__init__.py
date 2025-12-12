@@ -7,7 +7,7 @@ import re
 
 from ...helps import len_print
 from ...helps.log import logger
-from ...translations import New_Company, ministrs_tab_for_pop_format
+from ...translations import New_Company
 from .pf_keys import CHANGE_KEY_MAPPINGS, CHANGE_KEY_SECONDARY
 from .relation_mapping import category_relation_mapping
 
@@ -292,9 +292,6 @@ for start, start_lab in key_2_3.items():
 # ---
 for i, i_lab in fix_o.items():
     pp_ends_with[f" {i}"] = i_lab + " {}"
-# ---
-for a, b in ministrs_tab_for_pop_format.items():
-    pop_format[a] = b
 # ---
 for x in New_Company:
     CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"

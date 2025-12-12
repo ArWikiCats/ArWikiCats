@@ -118,7 +118,6 @@ data = [
     (" by ", "protected areas of georgia (u.s. state)", "مناطق محمية في ولاية جورجيا"),
     (" by ", "universities and colleges in andhra pradesh", "جامعات وكليات في أندرا برديش"),
     (" by ", "1789 in north america", "أمريكا الشمالية في 1789"),
-    (" of ", "ministers-of foreign affairs of", "وزراء شؤون خارجية في "),
     (" set in ", "novels and short stories", "روايات وقصص قصيرة"),
     (" in ", "lists of universities and colleges", "قوائم جامعات وكليات"),
     (" based in ", "medical and health organizations", "منظمات طبية وصحية"),

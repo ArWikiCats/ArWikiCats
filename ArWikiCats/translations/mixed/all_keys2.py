@@ -9,7 +9,7 @@ from collections.abc import Mapping
 from ...helps import len_print, logger
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
-from ..politics.ministers import minister_keyse, ministrees_keysse
+from ..politics.ministers import minister_keyse
 from ..sports import TENNIS_KEYS
 from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male
 from ..utils.json_dir import open_json_file
@@ -525,7 +525,6 @@ def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str
     _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, cccccc_m], skip_existing=True)
     _update_lowercase(pf_keys2, [languages_key, People_key, new2019, NEW_2023], skip_existing=False)
 
-    pop_of_without_in.update(ministrees_keysse)
     pop_of_football_lower = {key.lower(): value for key, value in pop_of_football.items()}
 
     return pf_keys2, pop_of_without_in, pop_of_football_lower
