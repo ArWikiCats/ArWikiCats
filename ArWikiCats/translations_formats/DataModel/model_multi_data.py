@@ -154,6 +154,15 @@ class MultiDataFormatterBaseHelpers:
             or self.country_bot.search(category) \
             or self.other_bot.search(category)
 
+    def search_all_category(self, category: str) -> str:
+        normalized_category = category.lower().replace("category:", "")
+
+        result = self.search_all(normalized_category)
+
+        if result and category.lower().startswith("category:"):
+            result = "تصنيف:" + result
+        return result
+
 
 class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
     """

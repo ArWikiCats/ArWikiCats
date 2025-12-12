@@ -157,6 +157,10 @@ class FormatDataBase:
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
         logger.debug(f"++++++++ start {self.__class__.__name__} ++++++++ ")
+
+        if self.formatted_data_ci.get(category):
+            return self.formatted_data_ci[category]
+
         sport_key = self.match_key(category)
 
         if not sport_key:
@@ -201,3 +205,12 @@ class FormatDataBase:
     def search_all(self, category: str) -> str:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
+
+    def search_all_category(self, category: str) -> str:
+        normalized_category = category.lower().replace("category:", "")
+
+        result = self._search(normalized_category)
+
+        if result and category.lower().startswith("category:"):
+            result = "تصنيف:" + result
+        return result
