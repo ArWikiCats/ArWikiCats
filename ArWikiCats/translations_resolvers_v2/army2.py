@@ -10,6 +10,10 @@ from ..translations import all_country_with_nat_ar, ministrs_keys
 nat_secretaries_mapping = {
     # Category:Secretaries of the Australian Department of Defence
     "secretaries of {en} department of {ministry}": "وزراء {singular} {males}",
+    "{en} secretaries of {ministry}": "وزراء {singular} {males}",
+    "{en} female secretaries of {ministry}": "وزيرات {singular} {females}",
+    "{en} womens secretaries of {ministry}": "وزيرات {singular} {females}",
+    "{en} women's secretaries of {ministry}": "وزيرات {singular} {females}",
 }
 
 en_secretaries_mapping = {
@@ -38,6 +42,11 @@ en_secretaries_mapping = {
 
     # category:ministries of education
     "ministries of {ministry}": "وزارات {singular}",
+    "{ministry} ministries": "وزارات {singular}",
+
+    "ministers of {ministry}": "وزراء {singular}",
+    "ministers for {ministry}": "وزراء {singular}",
+    "secretaries of {ministry}" : "وزراء {singular}",
 
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
     "{en} under secretaries of {ministry}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
@@ -50,7 +59,6 @@ en_secretaries_mapping = {
 
     "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
     "secretaries of {ministry} of {en}" : "وزراء {singular} {males}",
-    "secretaries of {ministry}" : "وزراء {singular}",
 
     "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",

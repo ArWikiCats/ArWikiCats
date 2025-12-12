@@ -135,8 +135,7 @@ def _build_jobs_2020() -> GenderedLabelMap:
     """Return the 2020 job dictionary merged with ministerial categories."""
 
     jobs_2020 = copy_gendered_map(JOBS_2020_BASE)
-    for category, labels in ministrs_tab_for_Jobs_2020.items():
-        jobs_2020[category] = {"males": labels["males"], "females": labels["females"]}
+    # for category, labels in ministrs_tab_for_Jobs_2020.items(): jobs_2020[category] = {"males": labels["males"], "females": labels["females"]}
     return jobs_2020
 
 
