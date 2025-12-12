@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import functools
-from typing import Mapping
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations.nats.Nationality import all_country_with_nat_ar
 
@@ -242,7 +241,7 @@ for key1, key2 in add_keys:
         "al": f"{key_1_al} و{key_2_al}",
     }
 # ---
-formatted_data = {
+state_secretaries_mapping = {
     "united states secretaries of state": "وزراء خارجية أمريكيون",
     "secretaries of state of {en}": "وزراء خارجية {males}",
     "secretaries of state for {en}": "وزراء خارجية {males}",
@@ -259,13 +258,12 @@ formatted_data = {
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
 }
-# ---
-formatted_data.update({
+
+state_secretaries_mapping.update({
     x.replace("secretaries of", "secretaries-of"): y
-    for x, y in formatted_data.items()
+    for x, y in state_secretaries_mapping.items()
     if "secretaries of" in x
 })
-# ---
 
 
 def remove_the(text: str) -> str:
@@ -296,7 +294,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     })
 
     both_bot = format_multi_data_v2(
-        formatted_data=formatted_data,
+        formatted_data=state_secretaries_mapping,
         data_list=nats_data,
         key_placeholder="{en}",
         data_list2=ministrs_keys,
