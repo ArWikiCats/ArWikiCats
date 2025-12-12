@@ -144,6 +144,7 @@ class MultiDataFormatterBaseHelpers:
         label = self.replace_placeholders(template_ar, country_ar, other_ar)
 
         logger.debug(f">>>create_label Translated {category=} → {label=}")
+
         return label
 
     def search(self, category: str) -> str:
