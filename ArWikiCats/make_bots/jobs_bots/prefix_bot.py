@@ -289,7 +289,7 @@ def mens_prefixes_work(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
+# @dump_data(1)
 def womens_prefixes_work(category: str) -> str:
     """
     Retrieve the women's job label based on the category string.
