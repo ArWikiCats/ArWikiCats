@@ -213,18 +213,53 @@ fast_data = {
     "secretaries-of interior of emirati": "وزراء داخلية إماراتيون",
     "secretaries-of health of english": "وزراء صحة إنجليز",
     "secretaries-of war": "وزراء حرب",
-    "secretaries-of defense": "وزراء دفاع",
-
-    # Combined ministries (ministry1 and ministry2)
+    "secretaries-of defense": "وزراء دفاع",    # Combined ministries (ministry1 and ministry2)
     "secretaries of health and human services": "وزراء صحة وخدمات إنسانية",
     "secretaries of communications and transportation": "وزراء اتصالات ونقل",
     "secretaries of environment and natural resources": "وزراء بيئة وموارد طبيعية",
     "secretaries of war and navy": "وزراء حرب وبحرية",
 
-    # Combined ministries with countries
-    "egyptian secretaries of health and human services": "وزراء صحة وخدمات إنسانية مصريون",
-    "emirati secretaries of communications and transportation": "وزراء اتصالات ونقل إماراتيون",
-    "english secretaries of environment and natural resources": "وزراء بيئة وموارد طبيعية إنجليز",
+    # Combined ministries with countries - Egypt
+    "secretaries of health and human services of egypt": "وزراء صحة وخدمات إنسانية مصريون",
+    "secretaries of communications and transportation of egypt": "وزراء اتصالات ونقل مصريون",
+    "secretaries of environment and natural resources of egypt": "وزراء بيئة وموارد طبيعية مصريون",
+    "secretaries of war and navy of egypt": "وزراء حرب وبحرية مصريون",
+
+    # Combined ministries with countries - United Arab Emirates
+    "secretaries of health and human services of united arab emirates": "وزراء صحة وخدمات إنسانية إماراتيون",
+    "secretaries of communications and transportation of united arab emirates": "وزراء اتصالات ونقل إماراتيون",
+    "secretaries of environment and natural resources of united arab emirates": "وزراء بيئة وموارد طبيعية إماراتيون",
+    "secretaries of war and navy of united arab emirates": "وزراء حرب وبحرية إماراتيون",
+
+    # Combined ministries with countries - England
+    "secretaries of health and human services of england": "وزراء صحة وخدمات إنسانية إنجليز",
+    "secretaries of communications and transportation of england": "وزراء اتصالات ونقل إنجليز",
+    "secretaries of environment and natural resources of england": "وزراء بيئة وموارد طبيعية إنجليز",
+    "secretaries of war and navy of england": "وزراء حرب وبحرية إنجليز",
+
+    # Combined ministries with countries - Ecuador
+    "secretaries of health and human services of ecuador": "وزراء صحة وخدمات إنسانية إكوادوريون",
+    "secretaries of communications and transportation of ecuador": "وزراء اتصالات ونقل إكوادوريون",
+    "secretaries of environment and natural resources of ecuador": "وزراء بيئة وموارد طبيعية إكوادوريون",
+    "secretaries of war and navy of ecuador": "وزراء حرب وبحرية إكوادوريون",
+
+    # Combined ministries with countries - Eastern Asia
+    "secretaries of health and human services of eastern asia": "وزراء صحة وخدمات إنسانية آسيويين شرقيون",
+    "secretaries of communications and transportation of eastern asia": "وزراء اتصالات ونقل آسيويين شرقيون",
+    "secretaries of environment and natural resources of eastern asia": "وزراء بيئة وموارد طبيعية آسيويين شرقيون",
+    "secretaries of war and navy of eastern asia": "وزراء حرب وبحرية آسيويين شرقيون",
+
+    # Combined ministries with countries - Eastern European
+    "secretaries of health and human services of eastern european": "وزراء صحة وخدمات إنسانية أوروبيون شرقيون",
+    "secretaries of communications and transportation of eastern european": "وزراء اتصالات ونقل أوروبيون شرقيون",
+    "secretaries of environment and natural resources of eastern european": "وزراء بيئة وموارد طبيعية أوروبيون شرقيون",
+    "secretaries of war and navy of eastern european": "وزراء حرب وبحرية أوروبيون شرقيون",
+
+    # Combined ministries with countries - Equatorial Guinea
+    "secretaries of health and human services of equatorial guinea": "وزراء صحة وخدمات إنسانية غينيون استوائيون",
+    "secretaries of communications and transportation of equatorial guinea": "وزراء اتصالات ونقل غينيون استوائيون",
+    "secretaries of environment and natural resources of equatorial guinea": "وزراء بيئة وموارد طبيعية غينيون استوائيون",
+    "secretaries of war and navy of equatorial guinea": "وزراء حرب وبحرية غينيون استوائيون",
 
     # Case sensitivity tests
     "EGYPTIAN SECRETARIES OF DEFENSE": "وزراء دفاع مصريون",
