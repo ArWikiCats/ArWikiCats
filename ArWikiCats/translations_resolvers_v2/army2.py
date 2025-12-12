@@ -23,12 +23,13 @@ en_secretaries_mapping = {
     # Category:Ministry of Defense (Yemen)
     "ministry of {ministry} ({en})": "وزارة {al} {the_female}",
 
-    # Category:Ministries of education
+    # category:ministries of education
     "ministries of {ministry}": "وزارات {ministry}",
 
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
     "{en} under secretaries of {ministry}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
     "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",
+    "{en} deputy secretaries of state": "نواب وزير الخارجية {the_male}",
 
     "assistant secretaries of {ministry} of {en}": "مساعدو وزير {al} {the_male}",
     "under secretaries of {ministry} of {en}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
@@ -120,15 +121,23 @@ def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
     return both_bot
 
 
-def resolve_secretaries_labels_nats(category: str) -> str:
+@functools.lru_cache(maxsize=10000)
+def _nats(category: str) -> str:
     _bot = _load_nats_bot()
     result = _bot.search_all_category(category)
     return result
 
 
-def resolve_secretaries_labels(category: str) -> str:
+@functools.lru_cache(maxsize=10000)
+def _names(category: str) -> str:
     both_bot = _load_countries_names_bot()
-    result = both_bot.search_all_category(category) or resolve_secretaries_labels_nats(category)
+    result = both_bot.search_all_category(category)
+    return result
+
+
+@functools.lru_cache(maxsize=10000)
+def resolve_secretaries_labels(category: str) -> str:
+    result = _names(category) or _nats(category)
     return result
 
 

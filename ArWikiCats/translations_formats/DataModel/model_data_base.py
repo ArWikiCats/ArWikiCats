@@ -156,7 +156,8 @@ class FormatDataBase:
 
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
-        logger.debug(f"++++++++ start {self.__class__.__name__} ++++++++ ")
+        logger.debug("><><><>< start _search(): ")
+        logger.debug(f"++++++++ _search {self.__class__.__name__} ++++++++ ")
 
         if self.formatted_data_ci.get(category):
             return self.formatted_data_ci[category]
@@ -179,6 +180,7 @@ class FormatDataBase:
 
         result = self.apply_pattern_replacement(template_label, sport_label)
         logger.debug(f" {result=}")
+
         logger.debug(f"++++++++ end {self.__class__.__name__} ++++++++ ")
 
         return result
@@ -207,10 +209,13 @@ class FormatDataBase:
         return self._search(category)
 
     def search_all_category(self, category: str) -> str:
+        logger.debug("--"*20)
+        logger.debug(">> search_all_category start")
         normalized_category = category.lower().replace("category:", "")
 
         result = self._search(normalized_category)
 
         if result and category.lower().startswith("category:"):
             result = "تصنيف:" + result
+        logger.debug(">> search_all_category end")
         return result

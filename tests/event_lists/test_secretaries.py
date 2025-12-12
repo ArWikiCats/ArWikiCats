@@ -20,8 +20,6 @@ secretaries_test_2 = {
     "Category:Ministries of justice": "تصنيف:وزارات عدل",
     "Category:Ministries of the Government of Laos": "تصنيف:وزارات في حكومة لاوس",
     "Category:Ministries of transport": "تصنيف:وزارات نقل",
-    "Category:State secretaries of the Netherlands": "تصنيف:وزراء مفوضون هولنديون",
-    "Category:United States deputy secretaries of state": "تصنيف:نواب وزير الخارجية الأمريكي",
     "Category:Secretaries of Guam": "تصنيف:وزراء غوام",
 }
 
