@@ -7,12 +7,19 @@ from ..translations_formats import FormatDataV2
 from ..translations import all_country_with_nat_ar
 from .data import country_names_and_nats_data
 
+peoples_nats_not_jobs_males = {
+    "{en} expatriates": "{males} مغتربون",
+    "{en} emigrants": "{males} مهاجرون",
+}
+
 males_data = {
     # en_is_nat_ar_is_mens
     "{en} non profit publishers": "ناشرون غير ربحيون {males}",
     "{en} non-profit publishers": "ناشرون غير ربحيون {males}",
     "{en} government officials": "مسؤولون حكوميون {males}",
 }
+males_data.update(peoples_nats_not_jobs_males)
+
 ar_data = {
     # ar - en_is_nat_ar_is_P17
     "{en} grand prix": "جائزة {ar} الكبرى",
@@ -90,6 +97,7 @@ male_data = {
     "{en} traditions": "تراث {male}",
     "{en} folklore": "فلكور {male}",
 }
+
 female_data = {
     # female - en_is_nat_ar_is_women
     "{en} phonologies": "تصريفات صوتية {female}",
@@ -282,6 +290,7 @@ female_data = {
     "{en} youth music competitions": "منافسات موسيقية شبابية {female}",
     "{en} youth sports competitions": "منافسات رياضية شبابية {female}",
 }
+
 the_female_data = {
     "{en} airways accidents and incidents": "حوادث الخطوط الجوية {the_female}",
     "{en} airways accidents-and-incidents": "حوادث الخطوط الجوية {the_female}",
