@@ -99,6 +99,8 @@ secretaries_test_0 = {
 }
 
 secretaries_test_1 = {
+    "Category:Secretaries of the state of Connecticut": "تصنيف:وزير خارجية كونيتيكت",
+
 
     "Category:United States secretaries of health and human services": "تصنيف:وزراء صحة وخدمات إنسانية أمريكيون",
     "Category:Secretaries of communications and transportation of Mexico": "تصنيف:وزراء اتصالات ونقل مكسيكيون",
@@ -151,7 +153,6 @@ secretaries_test_1 = {
     "Category:Secretaries of the United States Senate": "تصنيف:وزراء في مجلس الشيوخ الأمريكي",
     "Category:Secretaries of the environment of Mexico": "تصنيف:وزراء بيئة مكسيكيون",
     "Category:Secretaries of the interior of Mexico": "تصنيف:وزراء داخلية مكسيكيون",
-    "Category:Secretaries of the state of Connecticut": "تصنيف:وزير خارجية كونيتيكت",
     "Category:Secretaries of tourism of Mexico": "تصنيف:وزراء سياحة مكسيكيون",
     "Category:Secretaries of transportation of Maryland": "تصنيف:وزراء نقل ماريلند",
     "Category:Secretaries of transportation of the United States": "تصنيف:وزراء نقل أمريكيون",
