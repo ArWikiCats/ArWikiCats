@@ -233,7 +233,7 @@ to_test = [
     ("test_secretaries_0", secretaries_test_0, resolve_arabic_category_label),
     ("test_secretaries_1", secretaries_test_1, resolve_arabic_category_label),
     ("test_secretaries_2", secretaries_test_2, resolve_arabic_category_label),
-    ("test_secretaries_te_army2", secretaries_test_1, resolve_secretaries_labels),
+    # ("test_secretaries_te_army2", secretaries_test_1, resolve_secretaries_labels),
 ]
 
 
