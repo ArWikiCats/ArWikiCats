@@ -26,7 +26,11 @@ test_data2 = {
     "male archers": "نبالون ذكور",
     "football managers": "مدربو كرة قدم",
     # "expatriate football managers": "مدربو كرة قدم مغتربون",
-    # "expatriate male actors": "ممثلون ذكور مغتربون",
+
+    "expatriate male actors": "ممثلون ذكور مغتربون",
+
+    "expatriate actors": "ممثلون مغتربون",
+    "male actors": "ممثلون ذكور",
 
     # nat + jobs
     "yemeni eugenicists": "علماء يمنيون متخصصون في تحسين النسل",

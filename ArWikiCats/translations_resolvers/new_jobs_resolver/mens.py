@@ -62,7 +62,7 @@ def _load_formatted_data() -> dict:
 
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
-        "expatriate male {en_job}": "{ar_job} مغتربون ذكور",
+        "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
 
         # emigrants keys
         # "{en_nat} emigrants": "{ar_job} مهاجرون",
