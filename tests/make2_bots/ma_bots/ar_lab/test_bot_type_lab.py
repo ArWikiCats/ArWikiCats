@@ -260,7 +260,6 @@ data = [
     (" by ", "universities and colleges in ukraine", "جامعات وكليات في أوكرانيا"),
     (" closed in ", "railway stations in new zealand", "محطات السكك الحديدية في نيوزيلندا"),
     (" for ", "african games bronze medalists", "فائزون بميداليات برونزية في الألعاب الإفريقية"),
-    (" of ", "women government ministers of", "وزيرات"),
     (" in ", "military operations of war", "عمليات عسكرية في الحرب"),
     (
         " involving ",

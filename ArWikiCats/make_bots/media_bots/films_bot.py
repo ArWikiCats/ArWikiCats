@@ -11,7 +11,7 @@ from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..o_bots import fax
-from ...translations_resolvers_v2.army2 import resolve_secretaries_labels
+from ...translations_resolvers_v2.ministers_resolver import resolve_secretaries_labels
 from ...translations_resolvers import resolved_translations_resolvers
 from ...translations_resolvers_v2 import resolved_translations_resolvers_v2
 from .film_keys_bot import resolve_films

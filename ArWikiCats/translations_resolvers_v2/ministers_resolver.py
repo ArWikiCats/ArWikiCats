@@ -11,12 +11,23 @@ nat_secretaries_mapping = {
     # Category:Secretaries of the Australian Department of Defence
     "secretaries of {en} department of {ministry}": "وزراء {singular} {males}",
     "{en} secretaries of {ministry}": "وزراء {singular} {males}",
+    "{en} ministers of {ministry}": "وزراء {singular} {males}",
+
+    "{en} government ministers of {ministry}": "وزراء {singular} {males}",
     "{en} female secretaries of {ministry}": "وزيرات {singular} {females}",
     "{en} womens secretaries of {ministry}": "وزيرات {singular} {females}",
     "{en} women's secretaries of {ministry}": "وزيرات {singular} {females}",
+    "{en} women secretaries of {ministry}": "وزيرات {singular} {females}",
+    "{en} women government ministers of {ministry}": "وزيرات {singular} {females}",
+    "{en} women government ministers": "وزيرات {singular} {females}",
 }
 
 en_secretaries_mapping = {
+    "ministers for {ministry} of {en}": "وزراء {singular} {ar}",
+    "ministers of {ministry} for {en}": "وزراء {singular} {ar}",
+    "ministers of {ministry} of {en}": "وزراء {singular} {ar}",
+
+    "women government ministers of {en}": "وزيرات {females}",
     "secretaries of {en}": "وزراء {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "united states secretaries of state": "وزراء خارجية أمريكيون",
@@ -83,12 +94,6 @@ def _load_nats_bot() -> MultiDataFormatterBaseV2:
         if v.get("ar") and v.get("en")
     }
 
-    nat_secretaries_mapping.update({
-        x.replace("secretaries of", "secretaries-of"): y
-        for x, y in nat_secretaries_mapping.items()
-        if "secretaries of" in x
-    })
-
     both_bot = format_multi_data_v2(
         formatted_data=nat_secretaries_mapping,
         data_list=nats_data,
@@ -124,12 +129,6 @@ def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
         }
     })
 
-    en_secretaries_mapping.update({
-        x.replace("secretaries of", "secretaries-of"): y
-        for x, y in en_secretaries_mapping.items()
-        if "secretaries of" in x
-    })
-
     both_bot = format_multi_data_v2(
         formatted_data=en_secretaries_mapping,
         data_list=countries_data,
@@ -161,6 +160,8 @@ def _names(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def resolve_secretaries_labels(category: str) -> str:
     category = category.replace("'", "")
+    category = category.replace("ministers-of", "ministers of").replace("ministers-for", "ministers for")
+    category = category.replace("secretaries-of", "secretaries of")
     result = _names(category) or _nats(category)
     return result
 

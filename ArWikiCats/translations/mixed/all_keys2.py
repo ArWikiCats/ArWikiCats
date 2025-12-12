@@ -9,7 +9,6 @@ from collections.abc import Mapping
 from ...helps import len_print, logger
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import cccccc_m, languages_key
-from ..politics.ministers import minister_keyse
 from ..sports import TENNIS_KEYS
 from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male
 from ..utils.json_dir import open_json_file
@@ -499,7 +498,20 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
 
     _build_of_variants(data, [], [weapon_data])
 
-    data.update(minister_keyse)
+    minister_keys_2 = {
+        "ministers of": "وزراء",
+        "government ministers of": "وزراء",
+        "women's ministers of": "وزيرات",
+        "deputy prime ministers of": "نواب رؤساء وزراء",
+        "finance ministers of": "وزراء مالية",
+        "foreign ministers of": "وزراء خارجية",
+        "prime ministers of": "رؤساء وزراء",
+        "sport-ministers": "وزراء رياضة",
+        "sports-ministers": "وزراء رياضة",
+        "ministers of power": "وزراء طاقة",
+        "ministers-of power": "وزراء طاقة",
+    }
+    data.update(minister_keys_2)
 
     for key, value in pop_final_3.items():
         lower_key = key.lower()
