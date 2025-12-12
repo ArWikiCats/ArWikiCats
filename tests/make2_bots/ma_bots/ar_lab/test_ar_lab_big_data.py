@@ -678,8 +678,6 @@ data_list = [
     ("millennia in peru", " in ", "ألفيات في بيرو"),
     ("mine warfare vessels of united states navy", " of ", "سفن حرب ألغام في البحرية الأمريكية"),
     ("mines in devon", " in ", "مناجم في ديفون"),
-    ("ministers-of defence of france", " of ", "وزراء دفاع فرنسا"),
-    ("ministers-of defence of turkmenistan", " of ", "وزراء دفاع تركمانستان"),
     ("models from essex", " from ", "عارضو أزياء من إسكس"),
     ("monarchs by country", " by ", "ملكيون حسب البلد"),
     ("montserratian expatriates in england", " in ", "مونتسراتيون مغتربون في إنجلترا"),

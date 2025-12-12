@@ -12,6 +12,7 @@ nat_secretaries_mapping = {
     "secretaries of {en} department of {ministry}": "وزراء {singular} {males}",
     "{en} secretaries of {ministry}": "وزراء {singular} {males}",
     "{en} ministers of {ministry}": "وزراء {singular} {males}",
+
     "{en} government ministers of {ministry}": "وزراء {singular} {males}",
     "{en} female secretaries of {ministry}": "وزيرات {singular} {females}",
     "{en} womens secretaries of {ministry}": "وزيرات {singular} {females}",
@@ -22,6 +23,9 @@ nat_secretaries_mapping = {
 }
 
 en_secretaries_mapping = {
+    "ministers of {ministry} of {en}": "وزراء {singular} {ar}",
+    "ministers-of {ministry} of {en}": "وزراء {singular} {ar}",
+
     "women government ministers of {en}": "وزيرات {females}",
     "secretaries of {en}": "وزراء {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
