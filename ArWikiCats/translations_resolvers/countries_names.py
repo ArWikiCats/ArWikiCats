@@ -4,11 +4,19 @@ Resolve country names categories translations
 """
 from ..translations_formats import FormatData
 from ..translations import countries_from_nat
+from ..translations.geo import US_STATES
+
+nat_data = countries_from_nat | US_STATES
 
 formatted_data_en_ar_only: dict[str, str] = {
+    "united states secretaries of state": "وزراء خارجية أمريكيون",
+
+    "secretaries of state of {en}": "وزراء خارجية {ar}",
+    "secretaries of state for {en}": "وزراء خارجية {ar}",
     "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
+
     "{en}": "{ar}",
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
     "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
@@ -94,9 +102,15 @@ main_data = {
 
 formatted_data_en_ar_only.update(main_data)
 
+formatted_data_en_ar_only.update({
+    x.replace("secretaries of", "secretaries-of"): y
+    for x, y in formatted_data_en_ar_only.items()
+    if "secretaries of" in x
+})
+
 nat_bot = FormatData(
     formatted_data_en_ar_only,
-    countries_from_nat,
+    nat_data,
     key_placeholder="{en}",
     value_placeholder="{ar}",
     text_before="the ",

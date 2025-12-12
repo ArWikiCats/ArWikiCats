@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import functools
 from typing import Mapping
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ...translations.nats.Nationality import all_country_with_nat_ar
+from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
+from ..translations.nats.Nationality import all_country_with_nat_ar
 
 _all_country_with_nat = {
     "eastern asian": {
@@ -214,14 +214,19 @@ ministrs_keys = {
 }
 # ---
 formatted_data = {
+    "united states secretaries of state": "وزراء خارجية أمريكيون",
+    "secretaries of state of {en}": "وزراء خارجية {males}",
+    "secretaries of state for {en}": "وزراء خارجية {males}",
+    # "secretaries of state of {en}": "وزراء خارجية {ar}",
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
     "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",
-    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
-    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
-    "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
     "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
     "secretaries of {ministry} of {en}" : "وزراء {singular} {males}",
     "secretaries of {ministry}" : "وزراء {singular}",
+
+    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
+    "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
 }
 # ---
 formatted_data.update({

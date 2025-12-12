@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.o_bots.army2 import te_army2
+from ArWikiCats.translations_resolvers_v2.army2 import te_army2
 
 fast_data = {
     "United States secretaries-of war": "وزراء حرب أمريكيون",

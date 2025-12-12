@@ -57,12 +57,13 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
 
     suffix_template = ministrs_for_military_format_women.get(category_suffix, "")
 
+    resolved_label = ""
     if suffix_template:
         women_with_article = apply_arabic_article(women_label)
         resolved_label = suffix_template.format(nat=women_with_article)
 
     print(f"Resolved women extended suffix, {category_suffix=}, {resolved_label=}")
-    return ""
+    return resolved_label
 
 
 def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
