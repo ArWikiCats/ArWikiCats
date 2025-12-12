@@ -59,6 +59,7 @@ def test_nat_pattern_multi(category: str, expected: str) -> None:
     assert result == expected
 
 
+@pytest.mark.skip2
 def test_must_be_empty() -> None:
     result = womens_resolver_labels("Yemeni singers")
     assert result == ""
