@@ -17,6 +17,11 @@ new = {
 }
 
 secretaries_test_2 = {
+    "Category:United States Department of Energy national laboratories": "تصنيف:مختبرات وزارة الطاقة الأمريكية",
+    "Category:United States Department of Education agencies": "تصنيف:وكالات وزارة التعليم الأمريكية",
+    "Category:United States Department of Education officials": "تصنيف:مسؤولو وزارة التعليم الأمريكية",
+    "Category:United States Department of Energy National Laboratories personnel": "تصنيف:موظفو مختبرات وزارة الطاقة الأمريكية",
+
     "Category:Ministries of education": "تصنيف:وزارات تعليم",
     "Category:Ministries of finance": "تصنيف:وزارات مالية",
     "Category:Ministries of health": "تصنيف:وزارات صحة",

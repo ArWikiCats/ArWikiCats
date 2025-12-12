@@ -13,7 +13,6 @@ that the package initialisation no longer triggers the cycle.
 from __future__ import annotations
 
 from . import fax as fax_module
-from .army import te_army
 from .ethnic_bot import ethnic, ethnic_culture
 from .fax import te_language
 from .parties_bot import get_parties_lab
@@ -32,7 +31,6 @@ __all__ = [
     "get_parties_lab",
     "make_by_label",
     "make_people_lab",
-    "te_army",
     "te_language",
     "te_universities",
     "work_peoples",

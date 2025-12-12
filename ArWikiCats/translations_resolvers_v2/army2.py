@@ -22,6 +22,17 @@ en_secretaries_mapping = {
     # Category:Department of Defence (Australia)
     "department of {ministry} ({en})": "وزارة {al} {the_female}",
 
+    # Category:United States Department of Energy National Laboratories personnel
+    "{en} department of {ministry}": "وزارة {al} {the_female}",
+    "{en} department of {ministry} laboratories personnel": "موظفو مختبرات وزارة {al} {the_female}",
+    "{en} department of {ministry} national laboratories personnel": "موظفو مختبرات وزارة {al} {the_female}",
+    "{en} department of {ministry} national laboratories": "مختبرات وزارة {al} {the_female}",
+
+    # Category:United States Department of Education agencies
+    "{en} department of {ministry} officials": "مسؤولو وزارة {al} {the_female}",
+    "{en} department of {ministry} agencies": "وكالات وزارة {al} {the_female}",
+    "{en} department of {ministry} facilities": "مرافق وزارة {al} {the_female}",
+
     # Category:Ministry of Defense (Yemen)
     "ministry of {ministry} ({en})": "وزارة {al} {the_female}",
 
