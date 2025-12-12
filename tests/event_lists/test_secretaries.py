@@ -192,7 +192,6 @@ secretaries_test_1 = {
     "Category:Secretaries of public safety of Mexico": "تصنيف:وزراء سلامة عامة مكسيكيون",
     "Category:Secretaries of the Australian Department of Defence": "تصنيف:وزراء دفاع أستراليون",
     "Category:Secretaries of the Australian Department of Finance": "تصنيف:وزراء مالية أستراليون",
-    "Category:Secretaries of the United States Senate": "تصنيف:وزراء في مجلس الشيوخ الأمريكي",
     "Category:Secretaries of the environment of Mexico": "تصنيف:وزراء بيئة مكسيكيون",
     "Category:Secretaries of the interior of Mexico": "تصنيف:وزراء داخلية مكسيكيون",
     "Category:Secretaries of tourism of Mexico": "تصنيف:وزراء سياحة مكسيكيون",
