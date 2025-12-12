@@ -5,11 +5,6 @@
 
 from ...helps import len_print
 
-# ---
-ministrees_keysse = {  # to add it to pop_of_without_in in all_keys2.py
-    "deputy prime ministers": "نواب رؤساء وزراء",
-}
-# ---
 minister_keyse = {
     "ministers of": "وزراء",
     "government ministers of": "وزراء",
@@ -202,16 +197,10 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     minister_keyse[f"ministers-for {normalized_ministry}"] = arabic_ministers_label
 
     if short_label in keyses_without_in:
-        ministrees_keysse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
-        ministrees_keysse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
-        ministrees_keysse[f"{normalized_ministry} ministers"] = arabic_ministers_label
-        ministrees_keysse[f"{normalized_ministry} ministers of"] = arabic_ministers_label
         minister_keyse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers-for {normalized_ministry} of"] = arabic_ministers_label
-# ---
-ministrees_keysse = {}
-# ---
+
 len_print.data_len("ministers.py", {
     "minister_keyse": minister_keyse,
 })
