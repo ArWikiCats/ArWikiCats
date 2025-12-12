@@ -5,9 +5,12 @@ from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
 secretaries_test_0 = {
-    "Category:United States under secretaries of agriculture": "تصنيف:الولايات المتحدة تحت وزراء زراعة",
-    "Category:United States under secretaries of commerce": "تصنيف:الولايات المتحدة تحت وزراء تجارة",
-    "Category:United States under secretaries of defense": "تصنيف:الولايات المتحدة تحت وزراء دفاع",
+    "Category:Former Colombian Executive Council positions": "تصنيف:مناصب سابقة في المجلس التنفيذي الكولومبي",
+    "Category:Colombian Executive Council": "تصنيف:المجلس التنفيذي الكولومبي",
+    "Category:Colombian Executive Council positions": "تصنيف:مناصب في المجلس التنفيذي الكولومبي",
+    "Category:United States under secretaries of agriculture": "تصنيف:نواب وزير الزراعة الأمريكي للشؤون المتخصصة",
+    "Category:United States under secretaries of commerce": "تصنيف:نواب وزير التجارة الأمريكي للشؤون المتخصصة",
+    "Category:United States under secretaries of defense": "تصنيف:نواب وزير الدفاع الأمريكي للشؤون المتخصصة",
 
     "Category:Secretaries of the state of Connecticut": "تصنيف:وزراء خارجية كونيتيكت",
     "Category:Secretaries of state of Alabama": "تصنيف:وزراء خارجية ألاباما",

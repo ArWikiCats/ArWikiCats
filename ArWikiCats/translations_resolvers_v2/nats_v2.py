@@ -28,6 +28,9 @@ ar_data = {
 }
 the_male_data = {
     "{en} nationality law": "قانون الجنسية {the_male}",
+    "{en} executive council": "المجلس التنفيذي {the_male}",
+    "{en} executive council positions": "مناصب في المجلس التنفيذي {the_male}",
+    "former {en} executive council positions": "مناصب سابقة في المجلس التنفيذي {the_male}",
 
     # the_male - en_is_nat_ar_is_al_mens
     "{en} president cup": "كأس الرئيس {the_male}",

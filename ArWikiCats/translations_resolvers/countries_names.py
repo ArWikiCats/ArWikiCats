@@ -10,7 +10,6 @@ nat_data = countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
     "united states secretaries of state": "وزراء خارجية أمريكيون",
-
     "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
