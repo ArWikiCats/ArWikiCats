@@ -291,7 +291,6 @@ fast_data_c_1_1_lab = [
     {"separator": " of ", "cone_1": "order of", "output": "وسام"},
     {"separator": " of ", "cone_1": "uninhabited islands of", "output": "جزر غير مأهولة في"},
     {"separator": " of ", "cone_1": "vice presidents of", "output": "نواب رؤساء"},
-    {"separator": " of ", "cone_1": "women government ministers of", "output": "وزيرات"},
     {"separator": " on ", "cone_1": "art museums and galleries", "output": "متاحف فنية ومعارض"},
     {"separator": " on ", "cone_1": "buildings and structures", "output": "مبان ومنشآت"},
     {"separator": " on ", "cone_1": "demolished buildings and structures", "output": "مبان ومنشآت مهدمة"},

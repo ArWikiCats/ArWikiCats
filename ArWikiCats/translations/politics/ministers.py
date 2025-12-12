@@ -9,7 +9,6 @@ minister_keyse = {
     "ministers of": "وزراء",
     "government ministers of": "وزراء",
     "women's ministers of": "وزيرات",
-    "women government ministers of": "وزيرات",
     "deputy prime ministers of": "نواب رؤساء وزراء",
     "finance ministers of": "وزراء مالية",
     "foreign ministers of": "وزراء خارجية",
@@ -181,6 +180,7 @@ for key1, key2 in add_keys:
         "al": f"{key_1_al} و{key_2_al}",
     }
 # ---
+"""
 for ministry_key, ministry_labels in ministrs_keys.items():
     normalized_ministry = ministry_key.lower().strip()
     short_label = ministry_labels["singular"]
@@ -200,6 +200,7 @@ for ministry_key, ministry_labels in ministrs_keys.items():
         minister_keyse[f"ministers-of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers of {normalized_ministry} of"] = arabic_ministers_label
         minister_keyse[f"ministers-for {normalized_ministry} of"] = arabic_ministers_label
+"""
 
 len_print.data_len("ministers.py", {
     "minister_keyse": minister_keyse,
