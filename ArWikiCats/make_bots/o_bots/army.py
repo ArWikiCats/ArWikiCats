@@ -62,7 +62,7 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
         women_with_article = apply_arabic_article(women_label)
         resolved_label = suffix_template.format(nat=women_with_article)
 
-    print(f"Resolved women extended suffix, {category_suffix=}, {resolved_label=}")
+    logger.debug(f"Resolved women extended suffix, {category_suffix=}, {resolved_label=}")
     return resolved_label
 
 

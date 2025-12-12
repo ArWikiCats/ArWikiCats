@@ -8,24 +8,19 @@ from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_label
 
 fast_data = {
     # US specific pattern
-    "United States secretaries of state": "وزراء خارجية أمريكيون",
-
-    # Secretaries of state patterns - all countries from _all_country_with_nat
-    "secretaries of state of eastern asian": "وزراء خارجية آسيويين شرقيون",
+    "United States secretaries of state": "وزراء خارجية أمريكيون",    # Secretaries of state patterns - all countries from _all_country_with_nat
+    "secretaries of state of eastern asia": "وزراء خارجية آسيويين شرقيون",
     "secretaries of state of eastern european": "وزراء خارجية أوروبيون شرقيون",
-    "secretaries of state of ecuadorian": "وزراء خارجية إكوادوريون",
-    "secretaries of state of egyptian": "وزراء خارجية مصريون",
-    "secretaries of state of emirati": "وزراء خارجية إماراتيون",
-    "secretaries of state of emiri": "وزراء خارجية إماراتيون",
-    "secretaries of state of emirian": "وزراء خارجية إماراتيون",
-    "secretaries of state of english": "وزراء خارجية إنجليز",
-    "secretaries of state of equatoguinean": "وزراء خارجية غينيون استوائيون",
-    "secretaries of state of equatorial guinean": "وزراء خارجية غينيون استوائيون",
+    "secretaries of state of ecuador": "وزراء خارجية إكوادوريون",
+    "secretaries of state of egypt": "وزراء خارجية مصريون",
+    "secretaries of state of united arab emirates": "وزراء خارجية إماراتيون",
+    "secretaries of state of england": "وزراء خارجية إنجليز",
+    "secretaries of state of equatorial guinea": "وزراء خارجية غينيون استوائيون",
 
-    "secretaries of state for egyptian": "وزراء خارجية مصريون",
-    "secretaries of state for emirati": "وزراء خارجية إماراتيون",
-    "secretaries of state for english": "وزراء خارجية إنجليز",
-    "secretaries of state for ecuadorian": "وزراء خارجية إكوادوريون",
+    "secretaries of state for egypt": "وزراء خارجية مصريون",
+    "secretaries of state for united arab emirates": "وزراء خارجية إماراتيون",
+    "secretaries of state for england": "وزراء خارجية إنجليز",
+    "secretaries of state for ecuador": "وزراء خارجية إكوادوريون",
 
     # Assistant secretaries patterns - multiple countries
     "egyptian assistant secretaries of defense": "مساعدو وزير الدفاع المصري",
@@ -94,16 +89,15 @@ fast_data = {
     # Country secretaries of ministry patterns - Equatorial Guinean
     "equatorial guinean secretaries of defense": "وزراء دفاع غينيون استوائيون",
     "equatorial guinean secretaries of agriculture": "وزراء زراعة غينيون استوائيون",
-    "equatorial guinean secretaries of health": "وزراء صحة غينيون استوائيون",
-
-    # Secretaries of ministry of country patterns
-    "secretaries of defense of egyptian": "وزراء دفاع مصريون",
-    "secretaries of interior of emirati": "وزراء داخلية إماراتيون",
-    "secretaries of health of english": "وزراء صحة إنجليز",
-    "secretaries of agriculture of ecuadorian": "وزراء زراعة إكوادوريون",
-    "secretaries of finance of eastern asian": "وزراء مالية آسيويين شرقيون",
+    "equatorial guinean secretaries of health": "وزراء صحة غينيون استوائيون",    # Secretaries of ministry of country patterns
+    "secretaries of defense of egypt": "وزراء دفاع مصريون",
+    "secretaries of interior of united arab emirates": "وزراء داخلية إماراتيون",
+    "secretaries of health of england": "وزراء صحة إنجليز",
+    "secretaries of agriculture of ecuador": "وزراء زراعة إكوادوريون",
+    "secretaries of finance of eastern asia": "وزراء مالية آسيويين شرقيون",
     "secretaries of culture of eastern european": "وزراء ثقافة أوروبيون شرقيون",
-    "secretaries of education of egyptian": "وزراء تعليم مصريون",
+    "secretaries of education of egypt": "وزراء تعليم مصريون",
+    "secretaries of environment of equatorial guinea": "وزراء بيئة غينيون استوائيون",
 
     # Secretaries of ministry (no country) - all ministries
     "secretaries of defense": "وزراء دفاع",
@@ -207,11 +201,9 @@ fast_data = {
     "emirati secretaries-of interior": "وزراء داخلية إماراتيون",
     "english secretaries-of health": "وزراء صحة إنجليز",
     "ecuadorian secretaries-of agriculture": "وزراء زراعة إكوادوريون",
-    "eastern asian secretaries-of finance": "وزراء مالية آسيويين شرقيون",
-
-    "secretaries-of defense of egyptian": "وزراء دفاع مصريون",
-    "secretaries-of interior of emirati": "وزراء داخلية إماراتيون",
-    "secretaries-of health of english": "وزراء صحة إنجليز",
+    "eastern asian secretaries-of finance": "وزراء مالية آسيويين شرقيون",    "secretaries-of defense of egypt": "وزراء دفاع مصريون",
+    "secretaries-of interior of united arab emirates": "وزراء داخلية إماراتيون",
+    "secretaries-of health of england": "وزراء صحة إنجليز",
     "secretaries-of war": "وزراء حرب",
     "secretaries-of defense": "وزراء دفاع",    # Combined ministries (ministry1 and ministry2)
     "secretaries of health and human services": "وزراء صحة وخدمات إنسانية",
