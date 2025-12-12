@@ -29,12 +29,20 @@ fast_data = {
     "assistant secretaries of defense of eastern european": "مساعدو وزير الدفاع الأوروبي الشرقي",
     "assistant secretaries of agriculture of equatorial guinea": "مساعدو وزير الزراعة الغيني الاستوائي",
 
+    # Deputy secretaries patterns - multiple countries
+    "deputy secretaries of defense of egypt": "نواب وزير الدفاع المصري",
+    "deputy secretaries of interior of united arab emirates": "نواب وزير الداخلية الإماراتي",
+    "deputy secretaries of health of england": "نواب وزير الصحة الإنجليزي",
+    "deputy secretaries of finance of ecuador": "نواب وزير المالية الإكوادوري",
+    "deputy secretaries of economy of eastern asia": "نواب وزير الاقتصاد الآسيوي الشرقي",
+    "deputy secretaries of culture of eastern european": "نواب وزير الثقافة الأوروبي الشرقي",
+
     # Under secretaries patterns - multiple countries
-    "under secretaries of defense of egypt": "نواب وزير الدفاع المصري",
-    "under secretaries of interior of united arab emirates": "نواب وزير الداخلية الإماراتي",
-    "under secretaries of education of england": "نواب وزير التعليم الإنجليزي",
-    "under secretaries of agriculture of ecuador": "نواب وزير الزراعة الإكوادوري",
-    "under secretaries of transport of eastern asia": "نواب وزير النقل الآسيوي الشرقي",
+    "under secretaries of defense of egypt": "نواب وزير الدفاع المصري للشؤون المتخصصة",
+    "under secretaries of interior of united arab emirates": "نواب وزير الداخلية الإماراتي للشؤون المتخصصة",
+    "under secretaries of education of england": "نواب وزير التعليم الإنجليزي للشؤون المتخصصة",
+    "under secretaries of agriculture of ecuador": "نواب وزير الزراعة الإكوادوري للشؤون المتخصصة",
+    "under secretaries of transport of eastern asia": "نواب وزير النقل الآسيوي الشرقي للشؤون المتخصصة",
 
     # Country secretaries of ministry patterns - Egyptian
     "secretaries of defense of egypt": "وزراء دفاع مصريون",
@@ -179,7 +187,7 @@ fast_data = {
     "secretaries-of interior of united arab emirates": "وزراء داخلية إماراتيون",
     "secretaries-of health of england": "وزراء صحة إنجليز",
     "secretaries-of war": "وزراء حرب",
-    "secretaries-of defense": "وزراء دفاع",# Combined ministries (ministry1 and ministry2)
+    "secretaries-of defense": "وزراء دفاع",  # Combined ministries (ministry1 and ministry2)
     "secretaries of health and human services": "وزراء صحة وخدمات إنسانية",
     "secretaries of communications and transportation": "وزراء اتصالات ونقل",
     "secretaries of environment and natural resources": "وزراء بيئة وموارد طبيعية",

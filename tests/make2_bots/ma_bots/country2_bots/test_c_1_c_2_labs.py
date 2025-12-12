@@ -273,7 +273,6 @@ fast_data_c_1_1_lab = [
     {"separator": " of ", "cone_1": "lieutenant governors of", "output": "نواب حكام"},
     {"separator": " of ", "cone_1": "mass murder of", "output": "قتل جماعي في"},
     {"separator": " of ", "cone_1": "military operations of", "output": "عمليات عسكرية في"},
-    {"separator": " of ", "cone_1": "ministers-of state of", "output": "وزراء خارجية"},
     {"separator": " of ", "cone_1": "mountain passes of", "output": "ممرات جبلية في"},
     {"separator": " of ", "cone_1": "mountain ranges of", "output": "سلاسل جبلية في"},
     {"separator": " of ", "cone_1": "mountains and hills of", "output": "جبال وتلال"},
