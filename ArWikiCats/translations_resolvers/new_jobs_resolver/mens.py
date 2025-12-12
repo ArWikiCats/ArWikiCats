@@ -42,16 +42,19 @@ def _load_formatted_data() -> dict:
         "{en_nat} shia muslims": "{ar_nat} مسلمون شيعة",
     }
 
+    religious_formatted_data = {}
     for x, v in RELIGIOUS_KEYS_PP.items():
         label = f"{{ar_nat}} {v['males']}"
 
         # "Yemeni muslims": "تصنيف:يمنيون مسلمون"
-        formatted_data_jobs_with_nat[f"{{en_nat}} {x}"] = label
-        # formatted_data_jobs_with_nat[f"{x} {{en_nat}}"] = label
+        religious_formatted_data[f"{{en_nat}} {x}"] = label
+        # religious_formatted_data[f"{x} {{en_nat}}"] = label
 
-        formatted_data_jobs_with_nat.update(
+        religious_formatted_data.update(
             _nat_and_gender_keys(x, "male", f"{label} ذكور")
         )
+
+    # formatted_data_jobs_with_nat.update(religious_formatted_data)
 
     formatted_data_jobs = {
 

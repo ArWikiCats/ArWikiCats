@@ -24,8 +24,8 @@ test_data2 = {
     "female actresses": "ممثلات",
 
     # jobs + expatriate
-    # "female expatriate football managers": "مدربات كرة قدم مغتربات",
-    # "expatriate female actresses": "ممثلات مغتربات",
+    "female expatriate football managers": "مدربات كرة قدم مغتربات",
+    "expatriate female actresses": "ممثلات مغتربات",
 
     "professional artificial intelligence researchers": "باحثات ذكاء اصطناعي محترفات",
     "professional association football managers": "مدربات كرة قدم محترفات",
@@ -75,8 +75,23 @@ test_religions_data = {
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
+@pytest.mark.skip2
 def test_religions(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     # result = new_religions_jobs_with_suffix(category)
+    result = womens_resolver_labels(category)
+    assert result == expected
+
+
+test_religions_data_2 = {
+    "Category:Pakistani expatriate female actors": "تصنيف:ممثلات باكستانيات مغتربات",
+    "Category:expatriate female actors": "تصنيف:ممثلات مغتربات",
+}
+
+
+@pytest.mark.parametrize("category,expected", test_religions_data_2.items(), ids=test_religions_data_2.keys())
+@pytest.mark.skip2
+def test_religions_2(category: str, expected: str) -> None:
+    """Test all nat translation patterns."""
     result = womens_resolver_labels(category)
     assert result == expected

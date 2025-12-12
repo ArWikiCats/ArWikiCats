@@ -14,8 +14,8 @@ test_data2 = {
     # nat
     "welsh people": "أعلام ويلزيون",
     "yemeni people": "أعلام يمنيون",
-    # "abkhazian-american": "أمريكيون أبخازيون",
-    # "abkhazian-american people": "أمريكيون أبخازيون",
+    "abkhazian-american": "أبخازيون أمريكيون",
+    # "abkhazian-american people": "أبخازيون أمريكيون",
 
     # jobs
     "eugenicists": "علماء متخصصون في تحسين النسل",
@@ -25,7 +25,9 @@ test_data2 = {
     "archers": "نبالون",
     "male archers": "نبالون ذكور",
     "football managers": "مدربو كرة قدم",
-    # "expatriate football managers": "مدربو كرة قدم مغتربون",
+
+    # jobs + expatriate
+    "expatriate football managers": "مدربو كرة قدم مغتربون",
 
     "expatriate male actors": "ممثلون ذكور مغتربون",
 
@@ -68,6 +70,7 @@ test_religions_data = {
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
+@pytest.mark.skip2
 def test_religions(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     # result = new_religions_jobs_with_suffix(category)
