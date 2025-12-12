@@ -345,13 +345,8 @@ def _load_bot() -> FormatDataV2:
 
 
 def resolve_by_nats(category: str) -> str:
-    normalized_category = category.lower().replace("category:", "")
     nat_bot = _load_bot()
-    result = nat_bot.search(normalized_category)
-
-    if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
-
+    result = nat_bot.search_all_category(category)
     return result
 
 

@@ -97,13 +97,8 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
 
 def resolve_countries_names_sport(category: str) -> str:
-    normalized_category = category.lower().replace("category:", "")
     both_bot = _load_bot()
-
-    result = both_bot.search_all(normalized_category)
-
-    if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
+    result = both_bot.search_all_category(category)
     return result
 
 

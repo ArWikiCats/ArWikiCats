@@ -116,13 +116,7 @@ nat_bot = FormatData(
 
 
 def resolve_by_countries_names(category: str) -> str:
-    normalized_category = category.lower().replace("category:", "")
-
-    result = nat_bot.search(normalized_category)
-
-    if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
-
+    result = nat_bot.search_all_category(category)
     return result
 
 
