@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
-from ArWikiCats.make_bots.new_jobs_resolver.womens import womens_resolver_labels
+from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_resolver_labels
 
 test_womens_data = {
     "female alpine skiers": "متزحلقات منحدرات ثلجية",

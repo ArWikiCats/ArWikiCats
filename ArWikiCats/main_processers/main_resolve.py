@@ -19,7 +19,7 @@ from ..make_bots.ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
 from ..translations_resolvers import resolved_translations_resolvers
 from ..translations_resolvers_v2 import resolved_translations_resolvers_v2
-from ..make_bots.new_jobs_resolver import new_jobs_resolver_label
+from ..translations_resolvers.new_jobs_resolver import new_jobs_resolver_label
 
 
 labs_years_bot = LabsYears()
