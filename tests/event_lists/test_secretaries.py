@@ -4,6 +4,31 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
+
+secretaries_test_2 = {
+    "Category:Ministries of education": "تصنيف:وزارات تربية",
+    "Category:Ministries of finance": "تصنيف:وزارات مالية",
+    "Category:Ministries of health": "تصنيف:وزارات صحة",
+    "Category:Ministries of justice": "تصنيف:وزارات عدل",
+    "Category:Ministries of the Government of Laos": "تصنيف:وزارات في حكومة لاوس",
+    "Category:Ministries of transport": "تصنيف:وزارات نقل",
+    "Category:State secretaries of the Netherlands": "تصنيف:وزراء مفوضون هولنديون",
+    "Category:United States deputy secretaries of state": "تصنيف:نواب وزير الخارجية الأمريكي",
+    "Category:Foreign secretaries of Germany": "تصنيف:أمناء سر خارجية ألمانيا",
+    "Category:Argentine secretaries of intelligence": "تصنيف:أمناء أرجنتينيون في مخابرات",
+    "Category:Chief secretaries of Palestine": "تصنيف:أمناء عامون لفلسطين",
+    "Category:Secretaries of the District of Columbia": "تصنيف:أمناء من مديرية في كولومبيا",
+    "Category:Secretaries of the Marylebone Cricket Club": "تصنيف:أمناء من نادي مارليبون للكريكيت",
+    "Category:Secretaries of the Smithsonian Institution": "تصنيف:أمناء من مؤسسة سميثسونيان",
+    "Category:Secretaries of the Zoological Society of London": "تصنيف:أمناء من جمعية علم الحيوان في لندن",
+    "Category:Secretaries of foreign affairs of the Granadine Confederation": "تصنيف:أمناء من الشؤون الخارجية في الاتحاد الكنفدرالي الغرناطي",
+    "Category:Secretaries of Guam": "تصنيف:أمناء من غوام",
+    "Category:Secretaries of Internal Affairs of Pennsylvania": "تصنيف:أمناء شؤون داخلية بنسلفانيا",
+    "Category:Secretaries of Middlesex County Cricket Club": "تصنيف:أمناء من نادي مقاطعة ميدلسكس للكريكت",
+    "Category:Secretaries of Warwickshire County Cricket Club": "تصنيف:أمناء من نادي وارويكشاير للكريكيت",
+    "Category:Secretaries of Yorkshire County Cricket Club": "تصنيف:أمناء من نادي مقاطعة يوركشاير للكريكت",
+}
+
 secretaries_test_0 = {
     "Category:Ministry of Commerce (Thailand)": "تصنيف:وزارة التجارة التايلندية",
     "Category:Ministry of Culture (Saudi Arabia)": "تصنيف:وزارة الثقافة السعودية",
@@ -17,15 +42,9 @@ secretaries_test_0 = {
     "Category:Ministry of Defense (Japan)": "تصنيف:وزارة الدفاع اليابانية",
     "Category:Ministry of Defense (Saudi Arabia)": "تصنيف:وزارة الدفاع السعودية",
     "Category:Ministry of Defense (Yemen)": "تصنيف:وزارة الدفاع اليمنية",
-    "Category:Ministries of education": "تصنيف:وزارات تربية",
-    "Category:Ministries of finance": "تصنيف:وزارات مالية",
-    "Category:Ministries of health": "تصنيف:وزارات صحة",
-    "Category:Ministries of justice": "تصنيف:وزارات عدل",
-    "Category:Ministries of the Government of Laos": "تصنيف:وزارات في حكومة لاوس",
-    "Category:Ministries of transport": "تصنيف:وزارات نقل",
 
-    "Category:Ministry of Agriculture and Cooperatives (Thailand)": "تصنيف:وزارة الزراعة والتعاونيات (تايلاند)",
-    "Category:Ministry of Culture and Tourism (Turkey)": "تصنيف:وزارة الثقافة والسياحة (تركيا)",
+    "Category:Ministry of Agriculture and Cooperatives (Thailand)": "تصنيف:وزارة الزراعة والتعاونيات التايلندية",
+    "Category:Ministry of Culture and Tourism (Turkey)": "تصنيف:وزارة الثقافة والسياحة التركية",
 
     "Category:Former Colombian Executive Council positions": "تصنيف:مناصب سابقة في المجلس التنفيذي الكولومبي",
     "Category:Colombian Executive Council": "تصنيف:المجلس التنفيذي الكولومبي",
@@ -129,8 +148,6 @@ secretaries_test_0 = {
 }
 
 secretaries_test_1 = {
-
-
     "Category:United States secretaries of health and human services": "تصنيف:وزراء صحة وخدمات إنسانية أمريكيون",
     "Category:Secretaries of communications and transportation of Mexico": "تصنيف:وزراء اتصالات ونقل مكسيكيون",
     "Category:Secretaries of environment and natural resources of the Philippines": "تصنيف:وزراء بيئة وموارد طبيعية فلبينيون",
@@ -185,7 +202,6 @@ secretaries_test_1 = {
     "Category:Secretaries of tourism of Mexico": "تصنيف:وزراء سياحة مكسيكيون",
     "Category:Secretaries of transportation of Maryland": "تصنيف:وزراء نقل ماريلند",
     "Category:Secretaries of transportation of the United States": "تصنيف:وزراء نقل أمريكيون",
-    "Category:State secretaries of the Netherlands": "تصنيف:وزراء مفوضون هولنديون",
     "Category:United States deputy secretaries of agriculture": "تصنيف:نواب وزير الزراعة الأمريكي",
     "Category:United States deputy secretaries of commerce": "تصنيف:نواب وزير التجارة الأمريكي",
     "Category:United States deputy secretaries of defense": "تصنيف:نواب وزير الدفاع الأمريكي",
@@ -193,7 +209,6 @@ secretaries_test_1 = {
     "Category:United States deputy secretaries of energy": "تصنيف:نواب وزير الطاقة الأمريكي",
     "Category:United States deputy secretaries of homeland security": "تصنيف:نواب وزير الأمن الداخلي الأمريكي",
     "Category:United States deputy secretaries of labor": "تصنيف:نواب وزير العمل الأمريكي",
-    "Category:United States deputy secretaries of state": "تصنيف:نواب وزير الخارجية الأمريكي",
     "Category:United States deputy secretaries of the interior": "تصنيف:نواب وزير الداخلية الأمريكي",
     "Category:United States deputy secretaries of the treasury": "تصنيف:نواب وزير الخزانة الأمريكي",
     "Category:United States deputy secretaries of transportation": "تصنيف:نواب وزير النقل الأمريكي",
@@ -213,21 +228,6 @@ secretaries_test_1 = {
     "Category:United States assistant secretaries of war": "تصنيف:مساعدو وزير الحرب الأمريكي",
 }
 
-secretaries_test_2 = {
-    "Category:Foreign secretaries of Germany": "تصنيف:أمناء سر خارجية ألمانيا",
-    "Category:Argentine secretaries of intelligence": "تصنيف:أمناء أرجنتينيون في مخابرات",
-    "Category:Chief secretaries of Palestine": "تصنيف:أمناء عامون لفلسطين",
-    "Category:Secretaries of the District of Columbia": "تصنيف:أمناء من مديرية في كولومبيا",
-    "Category:Secretaries of the Marylebone Cricket Club": "تصنيف:أمناء من نادي مارليبون للكريكيت",
-    "Category:Secretaries of the Smithsonian Institution": "تصنيف:أمناء من مؤسسة سميثسونيان",
-    "Category:Secretaries of the Zoological Society of London": "تصنيف:أمناء من جمعية علم الحيوان في لندن",
-    "Category:Secretaries of foreign affairs of the Granadine Confederation": "تصنيف:أمناء من الشؤون الخارجية في الاتحاد الكنفدرالي الغرناطي",
-    "Category:Secretaries of Guam": "تصنيف:أمناء من غوام",
-    "Category:Secretaries of Internal Affairs of Pennsylvania": "تصنيف:أمناء شؤون داخلية بنسلفانيا",
-    "Category:Secretaries of Middlesex County Cricket Club": "تصنيف:أمناء من نادي مقاطعة ميدلسكس للكريكت",
-    "Category:Secretaries of Warwickshire County Cricket Club": "تصنيف:أمناء من نادي وارويكشاير للكريكيت",
-    "Category:Secretaries of Yorkshire County Cricket Club": "تصنيف:أمناء من نادي مقاطعة يوركشاير للكريكت",
-}
 
 to_test = [
     ("test_secretaries_0", secretaries_test_0, resolve_arabic_category_label),

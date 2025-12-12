@@ -8,6 +8,7 @@ from ..translations import all_country_with_nat_ar, ministrs_keys
 
 
 nat_secretaries_mapping = {
+    # Category:Secretaries of the Australian Department of Defence
     "secretaries of {en} department of {ministry}": "وزراء {singular} {males}",
 }
 
