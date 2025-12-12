@@ -251,7 +251,7 @@ class CountryLabelRetriever:
                 translated_base = self.get_country_label(base_term, start_get_country2=start_get_country2)
 
             if term_label == "" and translated_base:
-                if term_lower in pop_of_without_in:
+                if term_lower in pop_of_without_in or translated_base.strip().startswith("وزراء"):
                     term_label = translated_base
                     logger.info("skip add في to pop_of_without_in")
                 else:
