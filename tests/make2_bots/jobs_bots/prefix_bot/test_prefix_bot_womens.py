@@ -218,7 +218,7 @@ test_womens_data = {
     "women short story writers": "كاتبات قصة قصيرة",
     "women shot putters": "لاعبات دفع ثقل",
     "women singer-songwriters": "مغنيات وكاتبات أغاني",
-    "women singers": "مغنبات",
+    "women singers": "مغنيات",
     "women sociologists": "عالمات اجتماع",
     "women songwriters": "كاتبات أغان",
     "women sportswriters": "كاتبات رياضيات",
