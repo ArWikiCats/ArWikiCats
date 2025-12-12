@@ -139,6 +139,12 @@ secretaries_test_0 = {
     "Category:State cabinet secretaries of West Virginia": "تصنيف:أعضاء مجلس وزراء فيرجينيا الغربية",
     "Category:State cabinet secretaries of Wisconsin": "تصنيف:أعضاء مجلس وزراء ويسكونسن",
     "Category:State cabinet secretaries of Wyoming": "تصنيف:أعضاء مجلس وزراء وايومنغ",
+    "Category:Secretaries of transportation of Maryland": "تصنيف:وزراء نقل ماريلند",
+    "Category:Secretaries of veterans and military families of Maryland": "تصنيف:وزراء شؤون محاربين قدامى ماريلند",
+    "Category:Cabinet secretaries of the Northern Mariana Islands": "تصنيف:أعضاء مجلس وزراء جزر ماريانا الشمالية",
+    "Category:Secretaries of education of Pennsylvania": "تصنيف:وزراء تعليم بنسلفانيا",
+    "Category:Secretaries of education of Oklahoma": "تصنيف:وزراء تعليم أوكلاهوما",
+    "Category:Secretaries of agriculture of Iowa": "تصنيف:وزراء زراعة آيوا",
 }
 
 secretaries_test_1 = {
@@ -146,7 +152,6 @@ secretaries_test_1 = {
     "Category:United States secretaries of health and human services": "تصنيف:وزراء صحة وخدمات إنسانية أمريكيون",
     "Category:Secretaries of communications and transportation of Mexico": "تصنيف:وزراء اتصالات ونقل مكسيكيون",
     "Category:Secretaries of environment and natural resources of the Philippines": "تصنيف:وزراء بيئة وموارد طبيعية فلبينيون",
-    "Category:Secretaries of veterans and military families of Maryland": "تصنيف:وزراء شؤون محاربين قدامى ماريلند",
     "Category:Secretaries of war and navy of Colombia": "تصنيف:وزراء حرب وبحرية كولومبيون",
     "Category:United States deputy secretaries of health and human services": "تصنيف:نواب وزير الصحة والخدمات الإنسانية الأمريكي",
     "Category:United States deputy secretaries of housing and urban development": "تصنيف:نواب وزير الإسكان والتنمية الحضرية الأمريكي",
@@ -176,14 +181,11 @@ secretaries_test_1 = {
     "Category:United States secretaries of state": "تصنيف:وزراء خارجية أمريكيون",
     "Category:United States secretaries of the interior": "تصنيف:وزراء داخلية أمريكيون",
 
-    "Category:Secretaries of agriculture of Iowa": "تصنيف:وزراء زراعة آيوا",
     "Category:Secretaries of agriculture of Mexico": "تصنيف:وزراء زراعة مكسيكيون",
     "Category:Secretaries of agriculture of the United States": "تصنيف:وزراء زراعة أمريكيون",
     "Category:Secretaries of defense of Mexico": "تصنيف:وزراء دفاع مكسيكيون",
     "Category:Secretaries of economy of Mexico": "تصنيف:وزراء اقتصاد مكسيكيون",
     "Category:Secretaries of education of Mexico": "تصنيف:وزراء تعليم مكسيكيون",
-    "Category:Secretaries of education of Oklahoma": "تصنيف:وزراء تعليم أوكلاهوما",
-    "Category:Secretaries of education of Pennsylvania": "تصنيف:وزراء تعليم بنسلفانيا",
     "Category:Secretaries of energy of Mexico": "تصنيف:وزراء طاقة مكسيكيون",
     "Category:Secretaries of health of Mexico": "تصنيف:وزراء صحة مكسيكيون",
     "Category:Secretaries of labor of Mexico": "تصنيف:وزراء عمل مكسيكيون",
@@ -193,7 +195,6 @@ secretaries_test_1 = {
     "Category:Secretaries of the environment of Mexico": "تصنيف:وزراء بيئة مكسيكيون",
     "Category:Secretaries of the interior of Mexico": "تصنيف:وزراء داخلية مكسيكيون",
     "Category:Secretaries of tourism of Mexico": "تصنيف:وزراء سياحة مكسيكيون",
-    "Category:Secretaries of transportation of Maryland": "تصنيف:وزراء نقل ماريلند",
     "Category:Secretaries of transportation of the United States": "تصنيف:وزراء نقل أمريكيون",
     "Category:United States deputy secretaries of agriculture": "تصنيف:نواب وزير الزراعة الأمريكي",
     "Category:United States deputy secretaries of commerce": "تصنيف:نواب وزير التجارة الأمريكي",
@@ -215,7 +216,6 @@ secretaries_test_1 = {
     "Category:United States secretaries of the treasury": "تصنيف:وزراء خزانة أمريكيون",
     "Category:United States secretaries of veterans affairs": "تصنيف:وزراء شؤون محاربين قدامى أمريكيون",
     "Category:United States secretaries of war": "تصنيف:وزراء حرب أمريكيون",
-    "Category:Cabinet secretaries of the Northern Mariana Islands": "تصنيف:أعضاء مجلس وزراء جزر ماريانا الشمالية",
     "Category:United States assistant secretaries of defense": "تصنيف:مساعدو وزير الدفاع الأمريكي",
     "Category:United States assistant secretaries of the interior": "تصنيف:مساعدو وزير الداخلية الأمريكي",
     "Category:United States assistant secretaries of war": "تصنيف:مساعدو وزير الحرب الأمريكي",
@@ -227,7 +227,7 @@ to_test = [
     ("test_secretaries_0", secretaries_test_0, resolve_arabic_category_label),
     ("test_secretaries_1", secretaries_test_1, resolve_arabic_category_label),
     ("test_secretaries_2", secretaries_test_2, resolve_arabic_category_label),
-    # ("test_secretaries_te_army2", secretaries_test_1, resolve_secretaries_labels),
+    ("test_secretaries_te_army2", secretaries_test_1, resolve_secretaries_labels),
 ]
 
 
