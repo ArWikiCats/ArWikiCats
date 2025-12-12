@@ -228,7 +228,7 @@ def _add_sport_variants(
 
     added 4605 new items (base_jobs: 1535*3)
     """
-    data: GenderedLabel = {}
+    data: dict[str, GenderedLabel] = {}
     for base_key, base_labels in base_jobs.items():
         lowered = base_key.lower()
         data[f"sports {lowered}"] = {
@@ -248,7 +248,7 @@ def _add_sport_variants(
 
 def _add_cycling_variants(nat_before_occ: List[str]) -> dict[str, GenderedLabel]:
     """Insert variants derived from cycling events."""
-    data: GenderedLabel = {}
+    data: dict[str, GenderedLabel] = {}
     for event_key, event_label in BASE_CYCLING_EVENTS.items():
         lowered = event_key.lower()
         data[f"{lowered} cyclists"] = {"males": f"دراجو {event_label}", "females": f"دراجات {event_label}"}
@@ -269,7 +269,7 @@ def _add_cycling_variants(nat_before_occ: List[str]) -> dict[str, GenderedLabel]
 
 def _add_jobs_people_variants() -> dict[str, GenderedLabel]:
     """Create combinations of people-centric roles with book genres and types."""
-    data: GenderedLabel = {}
+    data: dict[str, GenderedLabel] = {}
     for role_key, role_labels in JOBS_PEOPLE_ROLES.items():
         if not (role_labels["males"] and role_labels["females"]):
             continue
@@ -289,7 +289,7 @@ def _add_jobs_people_variants() -> dict[str, GenderedLabel]:
 
 def _add_film_variants() -> dict[str, GenderedLabel]:
     """Create film-related job variants and return the number of generated entries."""
-    data: GenderedLabel = {}
+    data: dict[str, GenderedLabel] = {}
     for film_key, film_label in film_keys_for_female.items():
         lowered_film_key = film_key.lower()
         for role_key, role_labels in FILM_ROLE_LABELS.items():
@@ -304,7 +304,7 @@ def _add_film_variants() -> dict[str, GenderedLabel]:
 
 def _add_singer_variants() -> dict[str, GenderedLabel]:
     """Add singer categories and stylistic combinations."""
-    data: GenderedLabel = {}
+    data: dict[str, GenderedLabel] = {}
 
     for category, labels in MEN_WOMENS_SINGERS.items():
         data[category] = {"males": labels["males"], "females": labels["females"]}

@@ -7,6 +7,21 @@ from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
 
+def _nat_and_gender_keys(key, gender_key, gender_label) -> dict[str, str]:
+    data = {}
+
+    # "Yemeni male muslims": "تصنيف:يمنيون مسلمون ذكور"
+    data[f"{{en_nat}} {gender_key} {key}"] = gender_label
+
+    # "Yemeni muslims male": "تصنيف:يمنيون مسلمون ذكور"
+    data[f"{{en_nat}} {key} {gender_key}"] = gender_label
+
+    # "male Yemeni muslims": "تصنيف:يمنيون مسلمون ذكور"
+    data[f"{gender_key} {{en_nat}} {key}"] = gender_label
+
+    return data
+
+
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         "{en_nat} {women} actresses": "ممثلات {ar_nat}",
@@ -31,9 +46,10 @@ def _load_formatted_data() -> dict:
     for x, v in RELIGIOUS_KEYS_PP.items():
         label = f"{{ar_nat}} {v['females']}"
 
-        # "Yemeni muslims": "تصنيف:يمنيون مسلمون"
-        # formatted_data_jobs_with_nat[f"{{en_nat}} {x}"] = label
-        # formatted_data_jobs_with_nat[f"{x} {{en_nat}}"] = label
+        # formatted_data_jobs_with_nat[f"{key} {{en_nat}}"] = label
+        formatted_data_jobs_with_nat.update(
+            _nat_and_gender_keys(x, "{women}", label)
+        )
 
         # "Yemeni women's muslims": "تصنيف:يمنيات مسلمات"
         formatted_data_jobs_with_nat[f"{{en_nat}} {{women}} {x}"] = label

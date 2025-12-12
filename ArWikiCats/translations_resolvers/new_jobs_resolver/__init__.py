@@ -14,5 +14,5 @@ def new_jobs_resolver_label(normalized_category) -> str:
 
 
 __all__ = [
-    "resolved_translations_resolvers",
+    "new_jobs_resolver_label",
 ]

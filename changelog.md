@@ -1,3 +1,20 @@
+## [#206](https://github.com/MrIbrahem/ArWikiCats/pull/206) - 2025-12-13
+
+* **New Features**
+  * Introduced new job category resolver system with improved fallback logic.
+  * Added support for expanded job variants including sports, cycling, film, and music categories.
+  * Expanded translations for female-related and nationality-based categories.
+
+* **Bug Fixes**
+  * Removed duplicate entry in football keys data.
+
+* **Refactor**
+  * Restructured job resolution architecture for better maintainability.
+  * Improved data-building approach for category translations.
+
+* **Tests**
+  * Added comprehensive test coverage for new resolver functions.
+
 ## [#205](https://github.com/MrIbrahem/ArWikiCats/pull/205) - 2025-12-12
 
 * **New Features**
