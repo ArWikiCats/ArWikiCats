@@ -5,6 +5,14 @@ from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.translations_resolvers_v2.army2 import resolve_secretaries_labels
 
 
+new = {
+    "Category:British secretaries of state for Commonwealth affairs": "تصنيف:وزراء الدولة البريطانيون لشؤون الكومنولث",
+    "Category:British secretaries of state for education": "تصنيف:وزراء الدولة للتعليم (المملكة المتحدة)",
+    "Category:British secretaries of state for employment": "تصنيف:وزراء خارجية بريطانيون في التوظيف",
+    "Category:British secretaries of state for foreign and Commonwealth affairs": "تصنيف:وزراء خارجية بريطانيا",
+    "Category:British secretaries of state for the environment": "تصنيف:وزراء دولة بريطانيون لشؤون البيئة",
+}
+
 secretaries_test_2 = {
     "Category:Ministries of education": "تصنيف:وزارات تربية",
     "Category:Ministries of finance": "تصنيف:وزارات مالية",
@@ -230,6 +238,7 @@ secretaries_test_1 = {
 
 
 to_test = [
+    ("test_secretaries_new", new, resolve_arabic_category_label),
     ("test_secretaries_0", secretaries_test_0, resolve_arabic_category_label),
     ("test_secretaries_1", secretaries_test_1, resolve_arabic_category_label),
     ("test_secretaries_2", secretaries_test_2, resolve_arabic_category_label),

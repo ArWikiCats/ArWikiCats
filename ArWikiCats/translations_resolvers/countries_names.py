@@ -4,12 +4,12 @@ Resolve country names categories translations
 """
 from ..translations_formats import FormatData
 from ..translations import countries_from_nat
-from ..translations.geo import US_STATES
 
 nat_data = countries_from_nat
 
 formatted_data_en_ar_only: dict[str, str] = {
     "united states secretaries of state": "وزراء خارجية أمريكيون",
+    "government ministers of {en}": "وزراء {ar}",
     "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
     "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
