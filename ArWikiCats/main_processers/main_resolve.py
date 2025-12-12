@@ -39,10 +39,18 @@ def resolve_label(category: str) -> CategoryResult:
     changed_cat = change_cat(category)
 
     if category.isdigit():
-        return category
+        return CategoryResult(
+            en=category,
+            ar=category,
+            from_match=False,
+        )
 
     if changed_cat.isdigit():
-        return changed_cat
+        return CategoryResult(
+            en=category,
+            ar=changed_cat,
+            from_match=False,
+        )
 
     is_cat_okay = filter_en.filter_cat(category)
 
