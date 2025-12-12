@@ -29,14 +29,6 @@ fast_data = {
     "assistant secretaries of defense of eastern european": "مساعدو وزير الدفاع الأوروبي الشرقي",
     "assistant secretaries of agriculture of equatorial guinea": "مساعدو وزير الزراعة الغيني الاستوائي",
 
-    # Deputy secretaries patterns - multiple countries
-    "deputy secretaries of defense of egypt": "نواب وزير الدفاع المصري",
-    "deputy secretaries of interior of united arab emirates": "نواب وزير الداخلية الإماراتي",
-    "deputy secretaries of health of england": "نواب وزير الصحة الإنجليزي",
-    "deputy secretaries of finance of ecuador": "نواب وزير المالية الإكوادوري",
-    "deputy secretaries of economy of eastern asia": "نواب وزير الاقتصاد الآسيوي الشرقي",
-    "deputy secretaries of culture of eastern european": "نواب وزير الثقافة الأوروبي الشرقي",
-
     # Under secretaries patterns - multiple countries
     "under secretaries of defense of egypt": "نواب وزير الدفاع المصري",
     "under secretaries of interior of united arab emirates": "نواب وزير الداخلية الإماراتي",

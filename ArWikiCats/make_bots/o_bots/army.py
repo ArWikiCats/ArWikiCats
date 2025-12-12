@@ -3,16 +3,50 @@
 from __future__ import annotations
 
 import functools
-from typing import Mapping, Tuple
+from typing import Tuple
 
 from ...helps import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
     all_country_with_nat,
-    ministrs_for_military_format_men,
-    ministrs_for_military_format_women,
+    ministrs_keys,
 )
 from .utils import apply_arabic_article
+
+
+ministrs_format_men = {}
+# ---
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower()
+    al_label = ministry_labels["al"]
+
+    ministrs_format_men[f"assistant secretaries of {normalized_ministry}"] = f"مساعدو وزير {al_label} {{nat}}"
+    ministrs_format_men[f"deputy secretaries of {normalized_ministry}"] = f"نواب وزير {al_label} {{nat}} للشؤون المتخصصة"
+
+ministrs_format_women = {}
+# ---
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower()
+    al_label = ministry_labels["al"]
+
+    ministrs_format_women[f"department of {normalized_ministry} agencies"] = (
+        f"وكالات وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} facilities"] = (
+        f"مرافق وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} national laboratories"] = (
+        f"مختبرات وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} national laboratories personnel"] = (
+        f"موظفو مختبرات وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} officials"] = (
+        f"مسؤولو وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry}"] = (
+        f"وزارة {al_label} {{nat}}"
+    )
 
 
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
@@ -55,7 +89,7 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
     if not category_suffix or not women_label:
         return ""
 
-    suffix_template = ministrs_for_military_format_women.get(category_suffix, "")
+    suffix_template = ministrs_format_women.get(category_suffix, "")
 
     resolved_label = ""
     if suffix_template:
@@ -74,8 +108,9 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
 
     if not category_suffix or not men_label:
         return ""
+    category_suffix = category_suffix.replace("secretaries-of", "secretaries of")
 
-    template = ministrs_for_military_format_men.get(category_suffix, "")
+    template = ministrs_format_men.get(category_suffix, "")
 
     if template:
         men_with_article = apply_arabic_article(men_label)

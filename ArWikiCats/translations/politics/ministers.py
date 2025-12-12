@@ -207,56 +207,7 @@ for ministry_key, ministry_labels in ministrs_keys.items():
     ministrs_tab_for_pop_format[f"secretaries of {normalized_ministry} of"] = f"وزراء {short_label} {{}}"
     ministrs_tab_for_pop_format[f"secretaries-of {normalized_ministry} of"] = f"وزراء {short_label} {{}}"
 # ---
-ministrs_for_military_format_men = {}  # used in bot_te_4.py
-# ---
-for ministry_key, ministry_labels in ministrs_keys.items():
-    normalized_ministry = ministry_key.lower()
-    al_label = ministry_labels["al"]
-
-    ministrs_for_military_format_men[f"assistant secretaries of {normalized_ministry}"] = (
-        f"مساعدو وزير {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_men[f"deputy secretaries of {normalized_ministry}"] = (
-        f"نواب وزير {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_men[f"assistant secretaries-of {normalized_ministry}"] = (
-        f"مساعدو وزير {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_men[f"deputy secretaries-of {normalized_ministry}"] = (
-        f"نواب وزير {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_men[f"deputy secretary of {normalized_ministry}"] = (
-        f"نواب وزير {al_label} {{nat}}"
-    )
-# ---
-ministrs_for_military_format_women = {}  # used in bot_te_4.py
-# ---
-for ministry_key, ministry_labels in ministrs_keys.items():
-    normalized_ministry = ministry_key.lower()
-    al_label = ministry_labels["al"]
-
-    ministrs_for_military_format_women[f"department of {normalized_ministry} agencies"] = (
-        f"وكالات وزارة {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_women[f"department of {normalized_ministry} facilities"] = (
-        f"مرافق وزارة {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories"] = (
-        f"مختبرات وزارة {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_women[f"department of {normalized_ministry} national laboratories personnel"] = (
-        f"موظفو مختبرات وزارة {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_women[f"department of {normalized_ministry} officials"] = (
-        f"مسؤولو وزارة {al_label} {{nat}}"
-    )
-    ministrs_for_military_format_women[f"department of {normalized_ministry}"] = (
-        f"وزارة {al_label} {{nat}}"
-    )
-
 len_print.data_len("ministers.py", {
-    "ministrs_for_military_format_women": ministrs_for_military_format_women,
-    "ministrs_for_military_format_men": ministrs_for_military_format_men,
     "ministrs_tab_for_pop_format": ministrs_tab_for_pop_format,
     "ministrs_tab_for_Jobs_2020": ministrs_tab_for_Jobs_2020,
     "minister_keyse": minister_keyse,

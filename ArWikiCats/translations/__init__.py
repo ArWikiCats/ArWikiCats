@@ -93,13 +93,7 @@ from .utils import apply_pattern_replacements
 from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
 from .sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
-from .politics.ministers import (
-    ministrs_for_military_format_men,
-    ministrs_for_military_format_women,
-)
 __all__ = [
-    "ministrs_for_military_format_men",
-    "ministrs_for_military_format_women",
     "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",

@@ -247,11 +247,11 @@ state_secretaries_mapping = {
     "secretaries of state for {en}": "وزراء خارجية {males}",
 
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
-    "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",
+    "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
     "{en} under secretaries of {ministry}": "نواب وزير {al} {the_male}",
 
     "assistant secretaries of {ministry} of {en}": "مساعدو وزير {al} {the_male}",
-    "deputy secretaries of {ministry} of {en}": "نواب وزير {al} {the_male}",
+    "deputy secretaries of {ministry} of {en}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
     "under secretaries of {ministry} of {en}": "نواب وزير {al} {the_male}",
 
     "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
