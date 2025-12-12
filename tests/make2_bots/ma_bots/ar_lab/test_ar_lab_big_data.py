@@ -16,7 +16,6 @@ simple_list = [
     ("1550s in rugby union", " in ", "عقد 1550 في اتحاد الرجبي"),
     ("1550 in sarawak", " in ", "1550 في ساراواك"),
     ("montserratian expatriates in england", " in ", "مونتسراتيون مغتربون في إنجلترا"),
-    ("government ministries of qatar", " of ", "وزارات حكومة في قطر"),
 ]
 
 
@@ -570,7 +569,6 @@ data_list = [
     ("ghanaian people of nigerien descent", " of ", "غانيون في أصل نيجري"),
     ("government buildings in manhattan", " in ", "مبان حكومية في مانهاتن"),
     ("government ministers of northern cyprus", " of ", "وزراء قبرص الشمالية"),
-    ("government ministries of qatar", " of ", "وزارات حكومة في قطر"),
     ("government of chicago", " of ", "حكومة شيكاغو"),
     ("government of la rioja", " of ", "حكومة منطقة لا ريوخا"),
     ("government of moldova", " of ", "حكومة مولدافيا"),

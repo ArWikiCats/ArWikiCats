@@ -59,6 +59,7 @@ all_data: dict[str, str] = {
 
 all_data.update(country_names_and_nats_data)
 
+
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
     nats_data = {
@@ -77,13 +78,8 @@ def _load_bot() -> FormatDataV2:
 
 
 def resolve_by_countries_names_v2(category: str) -> str:
-    normalized_category = category.lower().replace("category:", "")
     nat_bot = _load_bot()
-    result = nat_bot.search(normalized_category)
-
-    if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
-
+    result = nat_bot.search_all_category(category)
     return result
 
 

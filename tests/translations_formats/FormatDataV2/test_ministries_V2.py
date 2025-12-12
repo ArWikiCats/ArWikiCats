@@ -1,0 +1,57 @@
+#!/usr/bin/python3
+"""Integration tests for format_multi_data  """
+
+import pytest
+
+from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBaseV2, format_multi_data_v2
+
+
+@pytest.fixture
+def multi_bot() -> MultiDataFormatterBaseV2:
+    countries_data = {
+        "Guam": {
+            "ar": "غوام"
+        },
+        "yemen": {
+            "ar": "اليمن"
+        },
+    }
+
+    formatted_data = {
+        # category:ministries of education
+        "ministries of {ministry}": "وزارات {singular}",
+        "Secretaries of {en}": "وزراء {ar}",
+    }
+
+    ministrs_keys = {
+        "education": {"singular": "تعليم", "al": "التعليم"},
+        "finance": {"singular": "مالية", "al": "المالية"},
+        "health": {"singular": "صحة", "al": "الصحة"},
+    }
+
+    return format_multi_data_v2(
+        formatted_data=formatted_data,
+        data_list=countries_data,
+        key_placeholder="{en}",
+        data_list2=ministrs_keys,
+        key2_placeholder="{ministry}",
+        text_after="",
+        text_before="the ",
+        search_first_part=True,
+        use_other_formatted_data=True,
+    )
+
+
+test_data_1 = {
+    "Category:Ministries of education": "تصنيف:وزارات تعليم",
+    "Category:Ministries of finance": "تصنيف:وزارات مالية",
+    "Category:Ministries of health": "تصنيف:وزارات صحة",
+    "Category:Secretaries of Guam": "تصنيف:وزراء غوام",
+}
+
+
+@pytest.mark.parametrize("category, expected", test_data_1.items(), ids=list(test_data_1.keys()))
+@pytest.mark.fast
+def test_multi_bot(multi_bot: MultiDataFormatterBaseV2, category: str, expected: str) -> None:
+    result = multi_bot.search_all_category(category)
+    assert result == expected

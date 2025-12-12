@@ -11,6 +11,7 @@ from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..o_bots import fax
+from ...translations_resolvers_v2.army2 import resolve_secretaries_labels
 from ..o_bots.army import te_army
 from ...translations_resolvers import resolved_translations_resolvers
 from ...translations_resolvers_v2 import resolved_translations_resolvers_v2
@@ -31,6 +32,12 @@ def te_films(category: str) -> str:
 
     if re.match(r"^\d+$", normalized_category.strip()):
         return normalized_category.strip()
+
+    # TODO: move it to last position
+    resolved_label = te_army(normalized_category) or resolve_secretaries_labels(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> (te_films) te_army, cat: {normalized_category}, label: "{resolved_label}"')
+        return resolved_label
 
     resolved_label = get_Films_key_CAO(normalized_category)
     if resolved_label:
@@ -89,11 +96,6 @@ def te_films(category: str) -> str:
     resolved_label = fax.te_language(normalized_category)
     if resolved_label:
         logger.info(f'>>>> (te_films) te_language, cat: {normalized_category}, label: "{resolved_label}"')
-        return resolved_label
-
-    resolved_label = te_army(normalized_category)
-    if resolved_label:
-        logger.info(f'>>>> (te_films) te_army, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
 
     return ""

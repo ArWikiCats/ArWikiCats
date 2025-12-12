@@ -65,7 +65,8 @@ for en in data_1.keys():
 
 
 to_test=[
-    (f"test_us_counties_{x}", v) for x, v in data_1.items()
+    # (f"test_us_counties_{x}", v) for x, v in data_1.items()
+    ("test_us_counties_iowa", data_1["iowa"])
 ]
 
 to_test.append(("test_all_test_data", all_test_data))

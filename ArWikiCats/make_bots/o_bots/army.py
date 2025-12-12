@@ -3,101 +3,51 @@
 from __future__ import annotations
 
 import functools
-from typing import Mapping, Tuple
+from typing import Tuple
 
 from ...helps import logger
 from ...helps.jsonl_dump import dump_data
 from ...translations import (
     all_country_with_nat,
-    ministrs_for_en_is_P17_ar_is_mens,
-    ministrs_for_military_format_men,
-    ministrs_for_military_format_women,
+    ministrs_keys,
 )
 from .utils import apply_arabic_article
 
-#: Mapping of suffixes that require adding a prefix around the formatted label.
-ENDS_WITH_TABLE: Mapping[str, str] = {
-    " civilians": "مدنيو {}",
-    " generals": "جنرالات {}",
-    " accidents and incidents": "حوادث {}",
-}
 
-military_format_women = {
-    "air force": "القوات الجوية {nat}",
-    "airlines": "الخطوط الجوية {nat}",
-    "armed forces": "القوات المسلحة {nat}",
-    "army aviation": "طيران القوات المسلحة {nat}",
-    "army": "القوات المسلحة {nat}",
-    "case law": "السوابق القضائية {nat}",
-    "communications": "الاتصالات {nat}",
-    "diplomacy": "الدبلوماسية {nat}",
-    "federal election candidates": "مرشحو الانتخابات الفيدرالية {nat}",
-    "federal election": "الانتخابات الفيدرالية {nat}",
-    "federal elections": "الانتخابات الفيدرالية {nat}",
-    "football club": "أندية كرة القدم {nat}",
-    "football manager history": "تاريخ مدربي كرة القدم {nat}",
-    "football manager": "مدربي كرة القدم {nat}",
-    "football": "كرة القدم {nat}",
-    "general election candidates": "مرشحو الانتخابات العامة {nat}",
-    "general election": "الانتخابات العامة {nat}",
-    "general elections": "الانتخابات العامة {nat}",
-    "legislature election": "الانتخابات التشريعية {nat}",
-    "legislature elections": "الانتخابات التشريعية {nat}",
-    "local election": "الانتخابات المحلية {nat}",
-    "local elections": "الانتخابات المحلية {nat}",
-    "national navy": "القوات البحرية الوطنية {nat}",
-    "naval forces": "القوات البحرية {nat}",
-    "navy": "القوات البحرية {nat}",
-    "presidential candidates": "مرشحو الرئاسة {nat}",
-    "presidential election": "انتخابات الرئاسة {nat}",
-    "presidential elections": "انتخابات الرئاسة {nat}",
-    "presidential electors": "ناخبو الرئاسة {nat}",
-    "presidential primaries": "الانتخابات الرئاسية التمهيدية {nat}",
-    # "presidential primaries": "انتخابات رئاسية تمهيدية {nat}",
-    "presidential-elections": "انتخابات الرئاسة {nat}",
-    "presidential-primaries": "الانتخابات الرئاسية التمهيدية {nat}",
-    "state legislative": "المجالس التشريعية للولايات {nat}",
-    "state lower house": "المجالس الدنيا للولايات {nat}",
-    "state upper house": "المجالس العليا للولايات {nat}",
-    "supreme court": "المحكمة العليا {nat}",
-}  # Category:United_States_Coast_Guard_Aviation
+ministrs_format_men = {}
+# ---
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower()
+    al_label = ministry_labels["al"]
 
-military_format_men = {
-    "congressional delegation": "وفود الكونغرس {nat}",
-    "congressional delegations": "وفود الكونغرس {nat}",
-    "parliament": "البرلمان {nat}",
-    "congress": "الكونغرس {nat}",
-    "house of commons": "مجلس العموم {nat}",
-    "house-of-commons": "مجلس العموم {nat}",
-    "senate election": "انتخابات مجلس الشيوخ {nat}",
-    "senate elections": "انتخابات مجلس الشيوخ {nat}",
-    "premier division": "الدوري {nat} الممتاز",
-    "coast guard": "خفر السواحل {nat}",
-    "fa cup": "كأس الاتحاد {nat}",  # Category:Iraq FA Cup
-    "federation cup": "كأس الاتحاد {nat}",  # Category:Bangladesh Federation Cup
-    "marine corps personnel": "أفراد سلاح مشاة البحرية {nat}",
-    "army personnel": "أفراد الجيش {nat}",
-    "coast guard aviation": "طيران خفر السواحل {nat}",
-    "abortion law": "قانون الإجهاض {nat}",
-    "labour law": "قانون العمل {nat}",  # Category:French_labour_law
-    "professional league": "دوري المحترفين {nat}",
-    "first division league": "الدوري {nat} الدرجة الأولى",
-    "second division": "الدوري {nat} الدرجة الثانية",
-    "second division league": "الدوري {nat} الدرجة الثانية",
-    "third division league": "الدوري {nat} الدرجة الثالثة",
-    "forth division league": "الدوري {nat} الدرجة الرابعة",
-}
+    ministrs_format_men[f"assistant secretaries of {normalized_ministry}"] = f"مساعدو وزير {al_label} {{nat}}"
+    ministrs_format_men[f"deputy secretaries of {normalized_ministry}"] = f"نواب وزير {al_label} {{nat}}"
+    ministrs_format_men[f"under secretaries of {normalized_ministry}"] = f"نواب وزير {al_label} {{nat}} للشؤون المتخصصة"
 
-_WOMEN_FORMATS = {
-    **ministrs_for_en_is_P17_ar_is_mens,
-    **ministrs_for_military_format_women,
-    **military_format_women,
-}
+ministrs_format_women = {}
+# ---
+for ministry_key, ministry_labels in ministrs_keys.items():
+    normalized_ministry = ministry_key.lower()
+    al_label = ministry_labels["al"]
 
-_MEN_FORMATS = {
-    **ministrs_for_military_format_men,
-    **military_format_men,
-}
+    ministrs_format_women[f"department of {normalized_ministry} agencies"] = (
+        f"وكالات وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} facilities"] = (
+        f"مرافق وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} national laboratories"] = (
+        f"مختبرات وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} national laboratories personnel"] = (
+        f"موظفو مختبرات وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry} officials"] = (
+        f"مسؤولو وزارة {al_label} {{nat}}"
+    )
+    ministrs_format_women[f"department of {normalized_ministry}"] = (
+        f"وزارة {al_label} {{nat}}"
+    )
 
 
 def _match_country_prefix(category: str) -> Tuple[str, str, str]:
@@ -140,21 +90,15 @@ def _resolve_women_extended_suffix(category_suffix: str, women_label: str) -> st
     if not category_suffix or not women_label:
         return ""
 
-    for suffix, prefix_template in ENDS_WITH_TABLE.items():
-        if not category_suffix.endswith(suffix):
-            continue
+    suffix_template = ministrs_format_women.get(category_suffix, "")
 
-        base_suffix = category_suffix[: -len(suffix)].strip()
+    resolved_label = ""
+    if suffix_template:
+        women_with_article = apply_arabic_article(women_label)
+        resolved_label = suffix_template.format(nat=women_with_article)
 
-        suffix_template = _WOMEN_FORMATS.get(base_suffix, "")
-
-        if suffix_template:
-            women_with_article = apply_arabic_article(women_label)
-            logger.debug(f"Resolved women extended suffix, {suffix=}, {base_suffix=}")
-            resolved_label = suffix_template.format(nat=women_with_article)
-            return prefix_template.format(resolved_label)
-
-    return ""
+    logger.debug(f"Resolved women extended suffix, {category_suffix=}, {resolved_label=}")
+    return resolved_label
 
 
 def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
@@ -165,8 +109,9 @@ def _resolve_men_suffix(category_suffix: str, men_label: str) -> str:
 
     if not category_suffix or not men_label:
         return ""
+    category_suffix = category_suffix.replace("secretaries-of", "secretaries of")
 
-    template = _MEN_FORMATS.get(category_suffix, "")
+    template = ministrs_format_men.get(category_suffix, "")
 
     if template:
         men_with_article = apply_arabic_article(men_label)
@@ -195,17 +140,11 @@ def te_army(category: str) -> str:
     suffix, women_label, men_label = _match_country_prefix(normalized_category)
 
     if not suffix:
-        # resolved = _resolve_women_without_article_prefix(normalized_category)
         return ""
 
-    resolved_label = _resolve_women_extended_suffix(suffix, women_label)
+    resolved_label = _resolve_women_extended_suffix(suffix, women_label) or _resolve_men_suffix(suffix, men_label)
 
-    # Fall back to men-specific and sport-specific templates.
-    if not resolved_label:
-        resolved_label = _resolve_men_suffix(suffix, men_label)
-
-    if resolved_label:
-        logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
+    logger.info(f"Finished army label resolution, category: {normalized_category}, label: {resolved_label}")
 
     return resolved_label
 

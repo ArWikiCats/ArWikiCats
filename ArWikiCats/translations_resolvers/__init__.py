@@ -1,10 +1,14 @@
 
-from . import countries_names
+from . import countries_names, us_states
 
 
 def resolved_translations_resolvers(normalized_category) -> str:
 
-    resolved_label = countries_names.resolve_by_countries_names(normalized_category)
+    resolved_label = (
+        countries_names.resolve_by_countries_names(normalized_category) or
+        us_states.resolve_us_states(normalized_category) or
+        ""
+    )
 
     return resolved_label
 

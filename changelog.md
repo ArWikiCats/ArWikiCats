@@ -1,3 +1,17 @@
+## [#203](https://github.com/MrIbrahem/ArWikiCats/pull/203) - 2025-12-12
+
+* **New Features**
+  * Added a public category search method and a unified secretary/ministry label resolver for more consistent lookups.
+
+* **Bug Fixes**
+  * Corrected Arabic spellings for Delaware and Minnesota; fixed pluralization for secretary titles.
+
+* **Improvements**
+  * Consolidated and expanded ministry keys, streamlined resolution paths, and added more country/state translation coverage.
+
+* **Tests**
+  * Added comprehensive tests for secretary/ministry label resolution and related resolvers.
+
 ## [#202](https://github.com/MrIbrahem/ArWikiCats/pull/202) - 2025-12-12
 
 * **Refactor**

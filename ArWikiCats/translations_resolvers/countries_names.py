@@ -5,7 +5,20 @@ Resolve country names categories translations
 from ..translations_formats import FormatData
 from ..translations import countries_from_nat
 
+ONLY_COUNTRY_NAMES = {
+    "government ministers of {en}": "وزراء {ar}",
+    "secretaries of {en}": "وزراء {ar}",
+    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
+}
+
 formatted_data_en_ar_only: dict[str, str] = {
+    "ministries of the government of {en}": "وزارات حكومة {ar}",
+    "government ministers of {en}": "وزراء {ar}",
+    "secretaries of {en}": "وزراء {ar}",
+    "united states secretaries of state": "وزراء خارجية أمريكيون",
+    "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
+
     "{en}": "{ar}",
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
     "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
@@ -91,8 +104,18 @@ main_data = {
 
 formatted_data_en_ar_only.update(main_data)
 
+formatted_data_en_ar_only.update({
+    x.replace("secretaries of", "secretaries-of"): y
+    for x, y in formatted_data_en_ar_only.items()
+    if "secretaries of" in x
+})
+
+formatted_data_updated = dict(formatted_data_en_ar_only)
+
+formatted_data_updated.update(ONLY_COUNTRY_NAMES)
+
 nat_bot = FormatData(
-    formatted_data_en_ar_only,
+    formatted_data_updated,
     countries_from_nat,
     key_placeholder="{en}",
     value_placeholder="{ar}",
@@ -101,13 +124,7 @@ nat_bot = FormatData(
 
 
 def resolve_by_countries_names(category: str) -> str:
-    normalized_category = category.lower().replace("category:", "")
-
-    result = nat_bot.search(normalized_category)
-
-    if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
-
+    result = nat_bot.search_all_category(category)
     return result
 
 

@@ -92,6 +92,7 @@ def format_multi_data_v2(
     use_other_formatted_data: bool=False,
     search_first_part: bool=False,
 ) -> MultiDataFormatterBaseV2:
+
     country_bot = FormatDataV2(
         formatted_data=formatted_data,
         data_list=data_list,
