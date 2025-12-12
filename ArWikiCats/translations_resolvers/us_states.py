@@ -7,6 +7,12 @@ from ..translations_formats import FormatData
 from ..translations import US_STATES
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
+    "secretaries of state of {en}": "وزراء خارجية {ar}",
+    "secretaries of state for {en}": "وزراء خارجية {ar}",
+    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
+    "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
+
     "{en} appellate court judges": "قضاة محكمة استئناف {ar}",
     "{en} attorneys general": "مدعي {ar} العام",
     "{en} ballot measures": "إجراءات اقتراع {ar}",

@@ -217,7 +217,6 @@ formatted_data = {
     "united states secretaries of state": "وزراء خارجية أمريكيون",
     "secretaries of state of {en}": "وزراء خارجية {males}",
     "secretaries of state for {en}": "وزراء خارجية {males}",
-    # "secretaries of state of {en}": "وزراء خارجية {ar}",
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
     "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",
     "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
