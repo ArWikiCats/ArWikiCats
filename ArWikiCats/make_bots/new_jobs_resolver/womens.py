@@ -2,7 +2,7 @@
 This module provides functionality to translate category titles
 compare with womens_prefixes_work
 """
-
+import functools
 from ...translations import Nat_Womens, jobs_womens_data
 from .job_resolve import NatJobsResolver
 
@@ -64,6 +64,16 @@ jobs_womens.update({
     "actresses": "ممثلات",
 })
 
-mens_resolver = NatJobsResolver(jobs_womens, formatted_data, nat_womens_new)
+womens_resolver = NatJobsResolver(jobs_womens, formatted_data, nat_womens_new)
 
-get_label = mens_resolver.get_label
+get_label = womens_resolver.get_label
+
+
+@functools.lru_cache(maxsize=1)
+def load_bot() -> NatJobsResolver:
+    return NatJobsResolver(jobs_womens, formatted_data, nat_womens_new)
+
+
+def womens_resolver_label(category: str) -> str:
+    _bot = load_bot()
+    return _bot.search_all_category(category)

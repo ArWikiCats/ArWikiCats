@@ -31,3 +31,8 @@ class NatJobsResolver:
     def get_label(self, category: str) -> str:
         self._bot = self._create_bot()
         return self._bot.search_all(category)
+
+    @functools.lru_cache(maxsize=10000)
+    def search_all_category(self, category: str) -> str:
+        self._bot = self._create_bot()
+        return self._bot.search_all_category(category)

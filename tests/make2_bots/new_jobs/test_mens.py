@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.new_jobs.mens import get_label
+from ArWikiCats.make_bots.new_jobs_resolver.mens import get_label
 
 test_data2 = {
     # nat
