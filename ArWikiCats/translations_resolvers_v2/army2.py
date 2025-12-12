@@ -8,7 +8,7 @@ from ..translations import all_country_with_nat_ar, ministrs_keys
 
 
 nat_secretaries_mapping = {
-    "secretaries of the {en} department of {ministry}": "وزراء {singular} {males}",
+    "secretaries of {en} department of {ministry}": "وزراء {singular} {males}",
 }
 
 en_secretaries_mapping = {
