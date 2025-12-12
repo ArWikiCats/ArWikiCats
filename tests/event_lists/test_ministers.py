@@ -5,13 +5,13 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 examples = {
-    "Category:Housing ministers of Abkhazia": "تصنيف:وزراء إسكان أبخازيا",
+    "Category:Housing ministers of Abkhazia": "تصنيف:وزراء إسكان في أبخازيا",
+    "Category:Economy ministers of Latvia": "تصنيف:وزراء اقتصاد في لاتفيا",
     "Category:Ministers of Housing of Abkhazia": "تصنيف:وزراء إسكان أبخازيا",
     "Category:Ministers for Housing of Abkhazia": "تصنيف:وزراء إسكان أبخازيا",
     "Category:Public works ministers of Catalonia": "تصنيف:وزراء أشغال عامة في كتالونيا",
     "Category:Ministers for Public Works of Luxembourg": "تصنيف:وزراء أشغال عامة في لوكسمبورغ",
     "Category:Ministers of Economics of Latvia": "تصنيف:وزراء الاقتصاد في لاتفيا",
-    "Category:Economy ministers of Latvia": "تصنيف:وزراء اقتصاد لاتفيا",
     "Category:Religious affairs ministers of Yemen": "تصنيف:وزراء شؤون دينية في اليمن",
     "Category:Ministers of Religious Affairs of the Netherlands": "تصنيف:وزراء شؤون دينية في هولندا",
     "Category:Women government ministers of Latvia": "تصنيف:وزيرات لاتفيا",

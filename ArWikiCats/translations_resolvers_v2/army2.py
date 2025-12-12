@@ -44,6 +44,9 @@ en_secretaries_mapping = {
     "ministries of {ministry}": "وزارات {singular}",
     "{ministry} ministries": "وزارات {singular}",
 
+    "{ministry} ministers of {en}": "وزراء {singular} في {ar}",
+    "ministers for {ministry} of {en}": "وزراء {singular} في {ar}",
+
     "ministers of {ministry}": "وزراء {singular}",
     "ministers for {ministry}": "وزراء {singular}",
     "secretaries of {ministry}" : "وزراء {singular}",

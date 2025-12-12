@@ -163,7 +163,6 @@ fast_data = {
     "secretaries of religious affairs": "وزراء شؤون دينية",
     "secretaries of foreign trade": "وزراء تجارة خارجية",
     "secretaries of transport": "وزراء نقل",
-    "secretaries of women's": "وزراء شؤون المرأة",
     "secretaries of public service": "وزراء خدمة عامة",
     "secretaries of human services": "وزراء خدمات إنسانية",
     "secretaries of peace and reconciliation": "وزراء سلام ومصالحة",
