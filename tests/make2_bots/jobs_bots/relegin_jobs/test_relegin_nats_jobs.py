@@ -6,6 +6,7 @@ import pytest
 from ArWikiCats.make_bots.jobs_bots.relegin_jobs_nats_jobs import resolve_relegin_nats_jobs
 
 test_data = {
+    "Afghan Christians" : "تصنيف:أفغان مسيحيون",
     "American Episcopalians": "تصنيف:أمريكيون أسقفيون",
     "American Hindus": "تصنيف:أمريكيون هندوس",
     "American saints": "تصنيف:أمريكيون قديسون",
