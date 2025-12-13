@@ -304,15 +304,73 @@ def _add_film_variants() -> dict[str, GenderedLabel]:
 
 def _add_singer_variants() -> dict[str, GenderedLabel]:
     """Add singer categories and stylistic combinations."""
-    data: dict[str, GenderedLabel] = {}
 
-    for category, labels in MEN_WOMENS_SINGERS.items():
-        for style_key, style_labels in TYPI_LABELS.items():
-            combo_key = f"{style_key} {category}"
-            data[combo_key] = {
-                "males": f"{labels['males']} {style_labels['males']}",
-                "females": f"{labels['females']} {style_labels['females']}",
-            }
+    data: dict[str, GenderedLabel] = {
+        "classical composers": {
+            "males": "ملحنون كلاسيكيون",
+            "females": "ملحنات كلاسيكيات"
+        },
+        "classical musicians": {
+            "males": "موسيقيون كلاسيكيون",
+            "females": "موسيقيات كلاسيكيات"
+        },
+        "classical pianists": {
+            "males": "عازفو بيانو كلاسيكيون",
+            "females": "عازفات بيانو كلاسيكيات"
+        },
+        "classical violinists": {
+            "males": "عازفو كمان كلاسيكيون",
+            "females": "عازفات كمان كلاسيكيات"
+        },
+        "classical cellists": {
+            "males": "عازفو تشيلو كلاسيكيون",
+            "females": "عازفات تشيلو كلاسيكيات"
+        },
+        "classical guitarists": {
+            "males": "عازفو قيثارة كلاسيكيون",
+            "females": "عازفات قيثارة كلاسيكيات"
+        },
+        "historical novelists": {
+            "males": "روائيون تاريخيون",
+            "females": "روائيات تاريخيات"
+        },
+        "classical singers": {
+            "males": "مغنون كلاسيكيون",
+            "females": "مغنيات كلاسيكيات"
+        },
+        "classical mandolinists": {
+            "males": "عازفو مندولين كلاسيكيون",
+            "females": "عازفات مندولين كلاسيكيات"
+        },
+        "classical saxophonists": {
+            "males": "عازفو سكسفون كلاسيكيون",
+            "females": "عازفات سكسفون كلاسيكيات"
+        },
+        "classical percussionists": {
+            "males": "فنانون إيقاعيون كلاسيكيون",
+            "females": "فنانات إيقاعيات كلاسيكيات"
+        },
+        "classical music critics": {
+            "males": "نقاد موسيقى كلاسيكيون",
+            "females": "ناقدات موسيقى كلاسيكيات"
+        },
+        "classical painters": {
+            "males": "رسامون كلاسيكيون",
+            "females": "رسامات كلاسيكيات"
+        },
+        "classical writers": {
+            "males": "كتاب كلاسيكيون",
+            "females": "كاتبات كلاسيكيات"
+        },
+        "classical choreographers": {
+            "males": "مصممو رقص كلاسيكيون",
+            "females": "مصممات رقص كلاسيكيات"
+        },
+        "classical dancers": {
+            "males": "راقصون كلاسيكيون",
+            "females": "راقصات كلاسيكيات"
+        }
+    }
 
     return data
 
@@ -353,7 +411,7 @@ def _finalise_jobs_dataset() -> JobsDataset:
     cycling_variants = _add_cycling_variants(NAT_BEFORE_OCC)    # 27
     people_variants = _add_jobs_people_variants()               # 2,096
     film_variants = _add_film_variants()                        # 1,881
-    singer_variants = _add_singer_variants()                    # 21,508
+    singer_variants = _add_singer_variants()                    # 14,362
 
     m_w_jobs.update(MEN_WOMENS_SINGERS)                         # 7181
     m_w_jobs.update(jobs_pp)
