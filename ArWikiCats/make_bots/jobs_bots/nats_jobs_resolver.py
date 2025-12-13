@@ -13,7 +13,7 @@ formatted_data = {
 }
 
 
-def resolve_relegin_nats_jobs(category: str) -> str:
+def resolve_nats_jobs(category: str) -> str:
     """
     Resolves the Arabic label for a category string that combines a religious group and a nationality.
     Args:
