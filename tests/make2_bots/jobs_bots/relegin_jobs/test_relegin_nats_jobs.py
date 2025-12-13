@@ -106,6 +106,24 @@ test_data = {
     "Zimbabwean Sunni Muslims": "تصنيف:زيمبابويون مسلمون سنة"
 }
 
+test_religions_data = {
+    "Yemeni shi'a muslims": "يمنيون مسلمون شيعة",
+    "Yemeni shia muslims": "يمنيون مسلمون شيعة",
+    "Yemeni male muslims": "يمنيون مسلمون ذكور",
+    "Yemeni muslims male": "يمنيون مسلمون ذكور",
+    "muslims Yemeni": "يمنيون مسلمون",
+    "Yemeni muslims": "يمنيون مسلمون",
+    "Yemeni people muslims": "يمنيون مسلمون",
+}
+
+test_religions_female_data = {
+    "female Yemeni shi'a muslims": "يمنيات مسلمات شيعيات",
+    "Yemeni female shia muslims": "يمنيات مسلمات شيعيات",
+    "Yemeni women's muslims": "يمنيات مسلمات",
+    "Yemeni female muslims": "يمنيات مسلمات",
+    "women's Yemeni muslims": "يمنيات مسلمات",
+}
+
 
 @pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.skip2
@@ -113,3 +131,18 @@ def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
 
     result = resolve_relegin_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
+
+
+@pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
+@pytest.mark.skip2
+def test_religions_jobs_1(category: str, expected: str) -> None:
+    result = resolve_relegin_nats_jobs(category)
+    assert result == expected
+
+
+@pytest.mark.parametrize("category,expected", test_religions_female_data.items(), ids=test_religions_female_data.keys())
+@pytest.mark.skip2
+def test_religions_females(category: str, expected: str) -> None:
+    """Test all nat translation patterns."""
+    result = resolve_relegin_nats_jobs(category)
+    assert result == expected
