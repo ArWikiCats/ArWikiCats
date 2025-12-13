@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_resolver_labels
+from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_resolver_labels, nat_and_gender_keys
 
 test_data2 = {
     # nat
@@ -77,3 +77,13 @@ def test_religions_2(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = womens_resolver_labels(category)
     assert result == expected
+
+
+def test_nat_and_gender_keys():
+    data = nat_and_gender_keys("expatriate", "{women}", "{ar_nat} مغتربات")
+
+    assert data == {
+        '{en_nat} {women} expatriate': '{ar_nat} مغتربات',
+        '{en_nat} expatriate {women}': '{ar_nat} مغتربات',
+        '{women} {en_nat} expatriate': '{ar_nat} مغتربات'
+    }, print(data)

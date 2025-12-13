@@ -6,16 +6,18 @@ from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
 
-def _nat_and_gender_keys(key, gender_key, gender_label) -> dict[str, str]:
+def nat_and_gender_keys(key, gender_key, gender_label) -> dict[str, str]:
     data = {}
 
     # "Yemeni male muslims": "تصنيف:يمنيون مسلمون ذكور"
+    # "Yemeni women's muslims": "تصنيف:يمنيات مسلمات"
     data[f"{{en_nat}} {gender_key} {key}"] = gender_label
 
     # "Yemeni muslims male": "تصنيف:يمنيون مسلمون ذكور"
     data[f"{{en_nat}} {key} {gender_key}"] = gender_label
 
     # "male Yemeni muslims": "تصنيف:يمنيون مسلمون ذكور"
+    # "women's Yemeni muslims": "تصنيف:يمنيات مسلمات"
     data[f"{gender_key} {{en_nat}} {key}"] = gender_label
 
     return data
@@ -40,24 +42,7 @@ def _load_formatted_data() -> dict:
         "{en_nat}": "{ar_nat}",
         "{en_nat} people": "أعلام {ar_nat}",
         "male {en_nat}": "{ar_nat} ذكور",
-
-        # TODO: ADD DATA FROM RELIGIOUS_KEYS_PP
-        "{en_nat} shia muslims": "{ar_nat} مسلمون شيعة",
     }
-
-    religious_formatted_data = {}
-    for x, v in RELIGIOUS_KEYS_PP.items():
-        label = f"{{ar_nat}} {v['males']}"
-
-        # "Yemeni muslims": "تصنيف:يمنيون مسلمون"
-        religious_formatted_data[f"{{en_nat}} {x}"] = label
-        # religious_formatted_data[f"{x} {{en_nat}}"] = label
-
-        religious_formatted_data.update(
-            _nat_and_gender_keys(x, "male", f"{label} ذكور")
-        )
-
-    # formatted_data_jobs_with_nat.update(religious_formatted_data)
 
     formatted_data_jobs = {
 
@@ -72,7 +57,7 @@ def _load_formatted_data() -> dict:
 
         # emigrants keys
         # "{en_nat} emigrants": "{ar_job} مهاجرون",
-        "{en_nat} emigrants {en_job}": "{ar_job} مهاجرون",
+        "{en_nat} emigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
         "emigrants {en_nat} {en_job}": "{ar_job} مهاجرون",
         "emigrants {en_job}": "{ar_job} مهاجرون",
     }
@@ -82,6 +67,12 @@ def _load_formatted_data() -> dict:
         f"{{en_nat}} {x}": f"{v} {{ar_nat}}" for x, v in formatted_data_jobs.items()
         if "{en_nat}" not in x and "{ar_nat}" not in v
     })
+
+    formatted_data.update(nat_and_gender_keys("expatriate", "male", "{ar_nat} مغتربون ذكور"))
+
+    # { '{en_nat} male emigrants': '{ar_nat} مهاجرون ذكور', '{en_nat} emigrants male': '{ar_nat} مهاجرون ذكور', 'male {en_nat} emigrants': '{ar_nat} مهاجرون ذكور' }
+    emigrants_keys = nat_and_gender_keys("emigrants", "male", "{ar_nat} مهاجرون ذكور")
+    formatted_data.update(emigrants_keys)
 
     # formatted_data.update({
     #     f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{ar_nat}}" for x, v in formatted_data_jobs.items()
