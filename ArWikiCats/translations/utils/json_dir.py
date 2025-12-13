@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List
 
-Dir2 = Path(__file__).parent.parent
+Dir2 = Path(__file__).parent.parent.parent
 
 
 def _build_json_path(relative_path: str) -> Path:
