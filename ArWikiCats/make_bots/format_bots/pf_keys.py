@@ -2,8 +2,13 @@
 """
 !
 """
-
+import re
 from typing import Dict
+
+from ...translations import New_Company
+
+# Cache for compiled regex patterns
+_change_key_compiled = {}
 
 CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
@@ -11,20 +16,18 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
 
     "bodies of water" : "bodies-of-water",
     "canadian football" : "canadian-football",
-    r"\’": "'",
+    "’": "'",
 
-    r" \– men's tournament": " mens tournament",
-    r" \– women's tournament": " womens tournament",
+    " – men's tournament": " mens tournament",
+    " – women's tournament": " womens tournament",
 
-    r" \- women's tournament": " womens tournament",
-    r" \- men's tournament": " mens tournament",
+    " - women's tournament": " womens tournament",
+    " - men's tournament": " mens tournament",
 
-    r"athletes \(track and field\)": "track and field athletes",
-    r"publishers \(people\)": "publisherspeople",
     "publishers (people)": "publisherspeople",
-    r"football \(soccer\)": "football",
-    r"us open \(tennis\)": "us open tennis",
-    r"\(tennis\)": "tennis",
+    "football (soccer)": "football",
+    "us open (tennis)": "us open tennis",
+    "(tennis)": "tennis",
 
     "adaptations of works": "adaptations-of-works",
     # "people of ottoman empire" :"people-of-ottoman-empire",
@@ -106,8 +109,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "elections, ": "elections ",
     "harrow on hill": "harrow-on-hill",
     "city of london": "city-of-london",
-    "^labor ": "labour ",
-    " labor$": " labour",
     "executions by": "executions in",
     "african american": "africanamerican",
     "african-american": "africanamerican",
@@ -142,8 +143,12 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "realm of": "realm-of",
     "isle of": "isle-of",
     "viceroyalty of": "viceroyalty-of",
+
+    "labor": "labour",
 }
-# ---
+
+for x in New_Company:
+    CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
 CHANGE_KEY_SECONDARY: Dict[str, str] = {
     " for deafblind$": " for-deafblind",
@@ -167,8 +172,6 @@ CHANGE_KEY_SECONDARY: Dict[str, str] = {
     "house of representatives": "house-of-representatives",
     " at 1": " in 1",
     " executed people$": " executed-people",
-    r" \- men's tournament": " mens tournament",
-    r" \- women's tournament": " womens tournament",
     " - men's tournament": " mens tournament",
     " - women's tournament": " womens tournament",
     "historians of philosophy": "historians-of-philosophy",
@@ -180,3 +183,33 @@ CHANGE_KEY_SECONDARY: Dict[str, str] = {
     " based on ": " basedon ",
     r"^men\’s events ": "mensvents",
 }
+
+
+def change_key_secondary_replacements(category):
+    return category
+
+
+def change_key_mappings_replacements(category):
+    # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
+    for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
+        key = (chk, chk_lab)
+        if key not in _change_key_compiled:
+            _change_key_compiled[key] = [
+                re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE),
+                re.compile(rf"^{chk} ", flags=re.IGNORECASE),
+                re.compile(rf" {chk} ", flags=re.IGNORECASE),
+                re.compile(rf" {chk}$", flags=re.IGNORECASE),
+                re.compile(rf"category\:{chk} ", flags=re.IGNORECASE),
+                # re.compile(rf"\b{chk}\b", flags=re.IGNORECASE),
+                re.compile(rf"(?<!\w){chk}(?!\w)", flags=re.IGNORECASE),
+            ]
+
+        patterns = _change_key_compiled[key]
+        category = patterns[0].sub(f"category:{chk_lab} ", category)
+        category = patterns[1].sub(f"{chk_lab} ", category)
+        category = patterns[2].sub(f" {chk_lab} ", category)
+        category = patterns[3].sub(f" {chk_lab}", category)
+        category = patterns[4].sub(f"category:{chk_lab} ", category)
+        category = patterns[5].sub(chk_lab, category)
+
+    return category

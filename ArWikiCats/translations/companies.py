@@ -143,7 +143,10 @@ for company_type, arabic_label in COMPANY_TYPE_TRANSLATIONS.items():  # Media co
 
     companies_data[f"{company_type_lower} companies of"] = f"شركات {arabic_label} في"
     companies_data[f"defunct {company_type_lower} companies"] = f"شركات {arabic_label} سابقة"
+
+    # NOTE: CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
     companies_data[f"defunct-{company_type_lower}-companies"] = f"شركات {arabic_label} سابقة"
+
     companies_data[f"defunct {company_type_lower}"] = f"{arabic_label} سابقة"
     companies_data[f"defunct {company_type_lower} of"] = f"{arabic_label} سابقة في"
     companies_data[f"{company_type_lower} firms of"] = f"شركات {arabic_label} في"
