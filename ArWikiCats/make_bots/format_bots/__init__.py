@@ -4,10 +4,7 @@
 """
 
 import re
-
-from ...helps import len_print
 from ...helps.log import logger
-from .pf_keys import CHANGE_KEY_MAPPINGS, CHANGE_KEY_SECONDARY
 from .pf_keys import change_key_secondary_replacements, change_key_mappings_replacements
 from .relation_mapping import category_relation_mapping
 
@@ -37,7 +34,7 @@ REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNOREC
 REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
 
-# Precompiled regex patterns for CHANGE_KEY_MAPPINGS and CHANGE_KEY_SECONDARY will be created in change_cat function
+# Precompiled regex patterns for CHANGE KEY MAPPINGS and CHANGE KEY SECONDARY will be created in change_cat function
 # since they depend on imported dictionaries that may not be fully populated at module level
 
 # ---
@@ -392,11 +389,6 @@ def change_cat(cat_orginal: str) -> str:
 
     return category
 
-
-len_print.data_len("pop_format.py", {
-    "CHANGE_KEY_MAPPINGS": CHANGE_KEY_MAPPINGS,
-    "CHANGE_KEY_SECONDARY": CHANGE_KEY_SECONDARY
-})
 
 __all__ = [
     "Dont_Add_min",
