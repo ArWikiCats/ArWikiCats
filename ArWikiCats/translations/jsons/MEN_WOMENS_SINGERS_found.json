@@ -1,0 +1,1734 @@
+{
+    "classical composers": {
+        "males": "ملحنون كلاسيكيون",
+        "females": "ملحنات كلاسيكيات"
+    },
+    "classical musicians": {
+        "males": "موسيقيون كلاسيكيون",
+        "females": "موسيقيات كلاسيكيات"
+    },
+    "classical pianists": {
+        "males": "عازفو بيانو كلاسيكيون",
+        "females": "عازفات بيانو كلاسيكيات"
+    },
+    "classical violinists": {
+        "males": "عازفو كمان كلاسيكيون",
+        "females": "عازفات كمان كلاسيكيات"
+    },
+    "classical cellists": {
+        "males": "عازفو تشيلو كلاسيكيون",
+        "females": "عازفات تشيلو كلاسيكيات"
+    },
+    "classical guitarists": {
+        "males": "عازفو قيثارة كلاسيكيون",
+        "females": "عازفات قيثارة كلاسيكيات"
+    },
+    "historical novelists": {
+        "males": "روائيون تاريخيون",
+        "females": "روائيات تاريخيات"
+    },
+    "classical singers": {
+        "males": "مغنون كلاسيكيون",
+        "females": "مغنيات كلاسيكيات"
+    },
+    "classical mandolinists": {
+        "males": "عازفو مندولين كلاسيكيون",
+        "females": "عازفات مندولين كلاسيكيات"
+    },
+    "classical saxophonists": {
+        "males": "عازفو سكسفون كلاسيكيون",
+        "females": "عازفات سكسفون كلاسيكيات"
+    },
+    "classical percussionists": {
+        "males": "فنانون إيقاعيون كلاسيكيون",
+        "females": "فنانات إيقاعيات كلاسيكيات"
+    },
+    "classical music critics": {
+        "males": "نقاد موسيقى كلاسيكيون",
+        "females": "ناقدات موسيقى كلاسيكيات"
+    },
+    "classical painters": {
+        "males": "رسامون كلاسيكيون",
+        "females": "رسامات كلاسيكيات"
+    },
+    "classical writers": {
+        "males": "كتاب كلاسيكيون",
+        "females": "كاتبات كلاسيكيات"
+    },
+    "classical choreographers": {
+        "males": "مصممو رقص كلاسيكيون",
+        "females": "مصممات رقص كلاسيكيات"
+    },
+    "classical dancers": {
+        "males": "راقصون كلاسيكيون",
+        "females": "راقصات كلاسيكيات"
+    },
+    "opera singers": {
+        "males": "مغنو أوبرا",
+        "females": "مغنيات أوبرا"
+    },
+    "film actors": {
+        "males": "ممثلو أفلام",
+        "females": ""
+    },
+    "non-fiction writers": {
+        "males": "كتاب غير روائيون",
+        "females": "كاتبات غير روائيات"
+    },
+    "voice actors": {
+        "males": "ممثلو أداء صوتي",
+        "females": ""
+    },
+    "jazz musicians": {
+        "males": "موسيقيو جاز",
+        "females": "موسيقيات جاز"
+    },
+    "television actors": {
+        "males": "ممثلو تلفزيون",
+        "females": ""
+    },
+    "rock musicians": {
+        "males": "موسيقيو روك",
+        "females": "موسيقيات روك"
+    },
+    "stage actors": {
+        "males": "ممثلو مسرح",
+        "females": ""
+    },
+    "children's writers": {
+        "males": "كتاب أطفال",
+        "females": "كاتبات أطفال"
+    },
+    "folk musicians": {
+        "males": "موسيقيو فولك",
+        "females": "موسيقيات فولك"
+    },
+    "pop singers": {
+        "males": "مغنو بوب",
+        "females": "مغنيات بوب"
+    },
+    "rock singers": {
+        "males": "مغنو روك",
+        "females": "مغنيات روك"
+    },
+    "music educators": {
+        "males": "معلمو موسيقى",
+        "females": "معلمات موسيقى"
+    },
+    "folk singers": {
+        "males": "مغنو فولك",
+        "females": "مغنيات فولك"
+    },
+    "pornographic film actors": {
+        "males": "ممثلو أفلام إباحية",
+        "females": ""
+    },
+    "country musicians": {
+        "males": "موسيقيو كانتري",
+        "females": "موسيقيات كانتري"
+    },
+    "jazz singers": {
+        "males": "مغنو جاز",
+        "females": "مغنيات جاز"
+    },
+    "opera composers": {
+        "males": "ملحنو أوبرا",
+        "females": "ملحنات أوبرا"
+    },
+    "pop musicians": {
+        "males": "موسيقيو بوب",
+        "females": "موسيقيات بوب"
+    },
+    "silent film actors": {
+        "males": "ممثلو أفلام صامتة",
+        "females": ""
+    },
+    "jazz composers": {
+        "males": "ملحنو جاز",
+        "females": "ملحنات جاز"
+    },
+    "jazz pianists": {
+        "males": "عازفو بيانو جاز",
+        "females": "عازفات بيانو جاز"
+    },
+    "blues musicians": {
+        "males": "موسيقيو بلوز",
+        "females": "موسيقيات بلوز"
+    },
+    "musical theatre actors": {
+        "males": "ممثلو مسرحيات موسيقية",
+        "females": ""
+    },
+    "travel writers": {
+        "males": "كتاب سفر",
+        "females": "كاتبات سفر"
+    },
+    "radio actors": {
+        "males": "ممثلو راديو",
+        "females": ""
+    },
+    "electronic musicians": {
+        "males": "موسيقيو إليكترونيك",
+        "females": "موسيقيات إليكترونيك"
+    },
+    "metal musicians": {
+        "males": "موسيقيو ميتال",
+        "females": "موسيقيات ميتال"
+    },
+    "science writers": {
+        "males": "كتاب علم",
+        "females": "كاتبات علم"
+    },
+    "rock guitarists": {
+        "males": "عازفو قيثارة روك",
+        "females": "عازفات قيثارة روك"
+    },
+    "video game actors": {
+        "males": "ممثلو ألعاب فيديو",
+        "females": ""
+    },
+    "political writers": {
+        "males": "كتاب سياسة",
+        "females": "كاتبات سياسة"
+    },
+    "jazz saxophonists": {
+        "males": "عازفو سكسفون جاز",
+        "females": "عازفات سكسفون جاز"
+    },
+    "jazz guitarists": {
+        "males": "عازفو قيثارة جاز",
+        "females": "عازفات قيثارة جاز"
+    },
+    "music critics": {
+        "males": "نقاد موسيقى",
+        "females": "ناقدات موسيقى"
+    },
+    "food writers": {
+        "males": "كتاب طعام",
+        "females": "كاتبات طعام"
+    },
+    "jazz trumpeters": {
+        "males": "عازفو بوق جاز",
+        "females": "عازفات بوق جاز"
+    },
+    "medical writers": {
+        "males": "كتاب طب",
+        "females": "كاتبات طب"
+    },
+    "blues singers": {
+        "males": "مغنو بلوز",
+        "females": "مغنيات بلوز"
+    },
+    "heavy metal musicians": {
+        "males": "موسيقيو هيفي ميتال",
+        "females": "موسيقيات هيفي ميتال"
+    },
+    "dance musicians": {
+        "males": "موسيقيو رقص",
+        "females": "موسيقيات رقص"
+    },
+    "house musicians": {
+        "males": "موسيقيو الهاوس",
+        "females": "موسيقيات الهاوس"
+    },
+    "country singers": {
+        "males": "مغنو كانتري",
+        "females": "مغنيات كانتري"
+    },
+    "jazz drummers": {
+        "males": "طبالو جاز",
+        "females": "طبالات جاز"
+    },
+    "comedy musicians": {
+        "males": "موسيقيو كوميديا",
+        "females": "موسيقيات كوميديا"
+    },
+    "trance musicians": {
+        "males": "موسيقيو ترانس",
+        "females": "موسيقيات ترانس"
+    },
+    "metal singers": {
+        "males": "مغنو ميتال",
+        "females": "مغنيات ميتال"
+    },
+    "rock drummers": {
+        "males": "طبالو روك",
+        "females": "طبالات روك"
+    },
+    "jazz bandleaders": {
+        "males": "قادة فرق جاز",
+        "females": "قائدات فرق جاز"
+    },
+    "heavy metal singers": {
+        "males": "مغنو هيفي ميتال",
+        "females": "مغنيات هيفي ميتال"
+    },
+    "reggae musicians": {
+        "males": "موسيقيو ريغيه",
+        "females": "موسيقيات ريغيه"
+    },
+    "military writers": {
+        "males": "كتاب عسكريون",
+        "females": "كاتبات عسكريات"
+    },
+    "political journalists": {
+        "males": "صحفيو سياسة",
+        "females": "صحفيات سياسة"
+    },
+    "gospel singers": {
+        "males": "مغنو غوسبل",
+        "females": "مغنيات غوسبل"
+    },
+    "spiritual writers": {
+        "males": "كتاب روحانية",
+        "females": "كاتبات روحانية"
+    },
+    "metal guitarists": {
+        "males": "عازفو قيثارة ميتال",
+        "females": "عازفات قيثارة ميتال"
+    },
+    "jazz trombonists": {
+        "males": "عازفو ترومبون جاز",
+        "females": "عازفات ترومبون جاز"
+    },
+    "bluegrass musicians": {
+        "males": "موسيقيو بلوغراس",
+        "females": "موسيقيات بلوغراس"
+    },
+    "jazz violinists": {
+        "males": "عازفو كمان جاز",
+        "females": "عازفات كمان جاز"
+    },
+    "classical bassoonists": {
+        "males": "عازفو باسون كلاسيكية",
+        "females": "عازفات باسون كلاسيكية"
+    },
+    "heavy metal guitarists": {
+        "males": "عازفو قيثارة هيفي ميتال",
+        "females": "عازفات قيثارة هيفي ميتال"
+    },
+    "jazz flautists": {
+        "males": "عازفو فولت جاز",
+        "females": "عازفات فولت جاز"
+    },
+    "music historians": {
+        "males": "مؤرخو موسيقى",
+        "females": "مؤرخات موسيقى"
+    },
+    "soul singers": {
+        "males": "مغنو السول",
+        "females": "مغنيات السول"
+    },
+    "new wave musicians": {
+        "males": "موسيقيو موجة جديدة",
+        "females": "موسيقيات موجة جديدة"
+    },
+    "architecture writers": {
+        "males": "كتاب عمارة",
+        "females": "كاتبات عمارة"
+    },
+    "music journalists": {
+        "males": "صحفيو موسيقى",
+        "females": "صحفيات موسيقى"
+    },
+    "classical flautists": {
+        "males": "عازفو فولت كلاسيكية",
+        "females": "عازفات فولت كلاسيكية"
+    },
+    "crime writers": {
+        "males": "كتاب جريمة",
+        "females": "كاتبات جريمة"
+    },
+    "baroque composers": {
+        "males": "ملحنو باروك",
+        "females": "ملحنات باروك"
+    },
+    "rhythm and blues singers": {
+        "males": "مغنو ريذم أند بلوز",
+        "females": "مغنيات ريذم أند بلوز"
+    },
+    "music musicians": {
+        "males": "موسيقيو موسيقى",
+        "females": "موسيقيات موسيقى"
+    },
+    "rhythm and blues musicians": {
+        "males": "موسيقيو ريذم أند بلوز",
+        "females": "موسيقيات ريذم أند بلوز"
+    },
+    "technology writers": {
+        "males": "كتاب تقنية",
+        "females": "كاتبات تقنية"
+    },
+    "blues guitarists": {
+        "males": "عازفو قيثارة بلوز",
+        "females": "عازفات قيثارة بلوز"
+    },
+    "legal writers": {
+        "males": "كتاب قانون",
+        "females": "كاتبات قانون"
+    },
+    "children's musicians": {
+        "males": "موسيقيو أطفال",
+        "females": "موسيقيات أطفال"
+    },
+    "metal drummers": {
+        "males": "طبالو ميتال",
+        "females": "طبالات ميتال"
+    },
+    "music composers": {
+        "males": "ملحنو موسيقى",
+        "females": "ملحنات موسيقى"
+    },
+    "classical trombonists": {
+        "males": "عازفو ترومبون كلاسيكية",
+        "females": "عازفات ترومبون كلاسيكية"
+    },
+    "comedy writers": {
+        "males": "كتاب كوميديا",
+        "females": "كاتبات كوميديا"
+    },
+    "r&b singers": {
+        "males": "مغنو ريذم أند بلوز",
+        "females": "مغنيات ريذم أند بلوز"
+    },
+    "heavy metal drummers": {
+        "males": "طبالو هيفي ميتال",
+        "females": "طبالات هيفي ميتال"
+    },
+    "soul musicians": {
+        "males": "موسيقيو السول",
+        "females": "موسيقيات السول"
+    },
+    "economics writers": {
+        "males": "كتاب إقتصاد",
+        "females": "كاتبات إقتصاد"
+    },
+    "experimental musicians": {
+        "males": "موسيقيو تجريبية",
+        "females": "موسيقيات تجريبية"
+    },
+    "gothic rock musicians": {
+        "males": "موسيقيو غوثك روك",
+        "females": "موسيقيات غوثك روك"
+    },
+    "nature writers": {
+        "males": "كتاب طبيعة",
+        "females": "كاتبات طبيعة"
+    },
+    "contemporary r&b singers": {
+        "males": "مغنو آر أند بي معاصر",
+        "females": "مغنيات آر أند بي معاصر"
+    },
+    "techno musicians": {
+        "males": "موسيقيو تكنو",
+        "females": "موسيقيات تكنو"
+    },
+    "rock pianists": {
+        "males": "عازفو بيانو روك",
+        "females": "عازفات بيانو روك"
+    },
+    "business writers": {
+        "males": "كتاب أعمال تجارية",
+        "females": "كاتبات أعمال تجارية"
+    },
+    "gospel musicians": {
+        "males": "موسيقيو غوسبل",
+        "females": "موسيقيات غوسبل"
+    },
+    "reggaeton musicians": {
+        "males": "موسيقيو ريغيه تون",
+        "females": "موسيقيات ريغيه تون"
+    },
+    "social sciences writers": {
+        "males": "كتاب علوم اجتماعية",
+        "females": "كاتبات علوم اجتماعية"
+    },
+    "disco musicians": {
+        "males": "موسيقيو ديسكو",
+        "females": "موسيقيات ديسكو"
+    },
+    "folk guitarists": {
+        "males": "عازفو قيثارة فولك",
+        "females": "عازفات قيثارة فولك"
+    },
+    "pop pianists": {
+        "males": "عازفو بيانو بوب",
+        "females": "عازفات بيانو بوب"
+    },
+    "rockabilly musicians": {
+        "males": "موسيقيو روكابيلي",
+        "females": "موسيقيات روكابيلي"
+    },
+    "world music musicians": {
+        "males": "موسيقيو موسيقى العالم",
+        "females": "موسيقيات موسيقى العالم"
+    },
+    "reggae singers": {
+        "males": "مغنو ريغيه",
+        "females": "مغنيات ريغيه"
+    },
+    "alternative rock musicians": {
+        "males": "موسيقيو روك بديل",
+        "females": "موسيقيات روك بديل"
+    },
+    "pop guitarists": {
+        "males": "عازفو قيثارة بوب",
+        "females": "عازفات قيثارة بوب"
+    },
+    "bossa nova musicians": {
+        "males": "موسيقيو بوسا نوفا",
+        "females": "موسيقيات بوسا نوفا"
+    },
+    "country guitarists": {
+        "males": "عازفو قيثارة كانتري",
+        "females": "عازفات قيثارة كانتري"
+    },
+    "funk musicians": {
+        "males": "موسيقيو فانك",
+        "females": "موسيقيات فانك"
+    },
+    "music singers": {
+        "males": "مغنو موسيقى",
+        "females": "مغنيات موسيقى"
+    },
+    "industrial musicians": {
+        "males": "موسيقيو صناعية",
+        "females": "موسيقيات صناعية"
+    },
+    "light music composers": {
+        "males": "ملحنو موسيقى خفيفة",
+        "females": "ملحنات موسيقى خفيفة"
+    },
+    "new wave singers": {
+        "males": "مغنو موجة جديدة",
+        "females": "مغنيات موجة جديدة"
+    },
+    "science journalists": {
+        "males": "صحفيو علم",
+        "females": "صحفيات علم"
+    },
+    "classical trumpeters": {
+        "males": "عازفو بوق كلاسيكية",
+        "females": "عازفات بوق كلاسيكية"
+    },
+    "electro musicians": {
+        "males": "موسيقيو موسيقى كهربائية",
+        "females": "موسيقيات موسيقى كهربائية"
+    },
+    "folk rock musicians": {
+        "males": "موسيقيو فولك روك",
+        "females": "موسيقيات فولك روك"
+    },
+    "ska musicians": {
+        "males": "موسيقيو سكا",
+        "females": "موسيقيات سكا"
+    },
+    "opera writers": {
+        "males": "كتاب أوبرا",
+        "females": "كاتبات أوبرا"
+    },
+    "string quartet composers": {
+        "males": "ملحنو رباعية وترية",
+        "females": "ملحنات رباعية وترية"
+    },
+    "trap musicians": {
+        "males": "موسيقيو تراب",
+        "females": "موسيقيات تراب"
+    },
+    "mandopop singers": {
+        "males": "مغنو ماندوبوب",
+        "females": "مغنيات ماندوبوب"
+    },
+    "alternative rock drummers": {
+        "males": "طبالو روك بديل",
+        "females": "طبالات روك بديل"
+    },
+    "alternative rock singers": {
+        "males": "مغنو روك بديل",
+        "females": "مغنيات روك بديل"
+    },
+    "ambient musicians": {
+        "males": "موسيقيو أمبينت",
+        "females": "موسيقيات أمبينت"
+    },
+    "country singer-songwriters": {
+        "males": "مغنون وكتاب أغاني كانتري",
+        "females": "مغنيات وكاتبات أغاني كانتري"
+    },
+    "hard rock musicians": {
+        "males": "موسيقيو هارد روك",
+        "females": "موسيقيات هارد روك"
+    },
+    "indie pop musicians": {
+        "males": "موسيقيو إيندي بوب",
+        "females": "موسيقيات إيندي بوب"
+    },
+    "indie rock musicians": {
+        "males": "موسيقيو إيندي روك",
+        "females": "موسيقيات إيندي روك"
+    },
+    "k-pop singers": {
+        "males": "مغنو بوب كوري",
+        "females": "مغنيات بوب كوري"
+    },
+    "alternative rock guitarists": {
+        "males": "عازفو قيثارة روك بديل",
+        "females": "عازفات قيثارة روك بديل"
+    },
+    "bossa nova singers": {
+        "males": "مغنو بوسا نوفا",
+        "females": "مغنيات بوسا نوفا"
+    },
+    "electronic dance music musicians": {
+        "males": "موسيقيو موسيقى الرقص الإلكترونية",
+        "females": "موسيقيات موسيقى الرقص الإلكترونية"
+    },
+    "dance music musicians": {
+        "males": "موسيقيو موسيقى الرقص",
+        "females": "موسيقيات موسيقى الرقص"
+    },
+    "funk singers": {
+        "males": "مغنو فانك",
+        "females": "مغنيات فانك"
+    },
+    "environmental writers": {
+        "males": "كتاب بيئة",
+        "females": "كاتبات بيئة"
+    },
+    "folk flautists": {
+        "males": "عازفو فولت فولك",
+        "females": "عازفات فولت فولك"
+    },
+    "traditional musicians": {
+        "males": "موسيقيو تقليدية",
+        "females": "موسيقيات تقليدية"
+    },
+    "rock saxophonists": {
+        "males": "عازفو سكسفون روك",
+        "females": "عازفات سكسفون روك"
+    },
+    "art historian": {
+        "males": "مؤرخو فن",
+        "females": "مؤرخات فن"
+    },
+    "bluegrass guitarists": {
+        "males": "عازفو قيثارة بلوغراس",
+        "females": "عازفات قيثارة بلوغراس"
+    },
+    "blues pianists": {
+        "males": "عازفو بيانو بلوز",
+        "females": "عازفات بيانو بلوز"
+    },
+    "death metal musicians": {
+        "males": "موسيقيو ديث ميتال",
+        "females": "موسيقيات ديث ميتال"
+    },
+    "magazine writers": {
+        "males": "كتاب مجلات",
+        "females": "كاتبات مجلات"
+    },
+    "non-fiction crime writers": {
+        "males": "كتاب جريمة غير روائيون",
+        "females": "كاتبات جريمة غير روائيات"
+    },
+    "ragtime musicians": {
+        "males": "موسيقيو راجتايم",
+        "females": "موسيقيات راجتايم"
+    },
+    "rhythm guitarists": {
+        "males": "عازفو قيثارة إيقاع",
+        "females": "عازفات قيثارة إيقاع"
+    },
+    "rock violinists": {
+        "males": "عازفو كمان روك",
+        "females": "عازفات كمان روك"
+    },
+    "soft rock musicians": {
+        "males": "موسيقيو سوفت روك",
+        "females": "موسيقيات سوفت روك"
+    },
+    "dance music singers": {
+        "males": "مغنو موسيقى الرقص",
+        "females": "مغنيات موسيقى الرقص"
+    },
+    "art writers": {
+        "males": "كتاب فن",
+        "females": "كاتبات فن"
+    },
+    "blues drummers": {
+        "males": "طبالو بلوز",
+        "females": "طبالات بلوز"
+    },
+    "blues rock musicians": {
+        "males": "موسيقيو بلوز روك",
+        "females": "موسيقيات بلوز روك"
+    },
+    "blues singer-songwriters": {
+        "males": "مغنون وكتاب أغاني بلوز",
+        "females": "مغنيات وكاتبات أغاني بلوز"
+    },
+    "country drummers": {
+        "males": "طبالو كانتري",
+        "females": "طبالات كانتري"
+    },
+    "country songwriters": {
+        "males": "كتاب أغان كانتري",
+        "females": "كاتبات أغان كانتري"
+    },
+    "dance-pop musicians": {
+        "males": "موسيقيو رقص البوب",
+        "females": "موسيقيات رقص البوب"
+    },
+    "funk guitarists": {
+        "males": "عازفو قيثارة فانك",
+        "females": "عازفات قيثارة فانك"
+    },
+    "indie folk musicians": {
+        "males": "موسيقيو إندي فولك",
+        "females": "موسيقيات إندي فولك"
+    },
+    "jazz bassoonists": {
+        "males": "عازفو باسون جاز",
+        "females": "عازفات باسون جاز"
+    },
+    "new-age musicians": {
+        "males": "موسيقيو العصر الحديث",
+        "females": "موسيقيات العصر الحديث"
+    },
+    "non-fiction environmental writers": {
+        "males": "كتاب بيئة غير روائيون",
+        "females": "كاتبات بيئة غير روائيات"
+    },
+    "post-punk musicians": {
+        "males": "موسيقيو بوست بانك",
+        "females": "موسيقيات بوست بانك"
+    },
+    "ska trombonists": {
+        "males": "عازفو ترومبون سكا",
+        "females": "عازفات ترومبون سكا"
+    },
+    "synth-pop musicians": {
+        "males": "موسيقيو سينثبوب",
+        "females": "موسيقيات سينثبوب"
+    },
+    "synth-pop singers": {
+        "males": "مغنو سينثبوب",
+        "females": "مغنيات سينثبوب"
+    },
+    "baroque writers": {
+        "males": "كتاب باروك",
+        "females": "كاتبات باروك"
+    },
+    "rock flautists": {
+        "males": "عازفو فولت روك",
+        "females": "عازفات فولت روك"
+    },
+    "rock trumpeters": {
+        "males": "عازفو بوق روك",
+        "females": "عازفات بوق روك"
+    },
+    "folk violinists": {
+        "males": "عازفو كمان فولك",
+        "females": "عازفات كمان فولك"
+    },
+    "fusion musicians": {
+        "males": "موسيقيو فيوشن",
+        "females": "موسيقيات فيوشن"
+    },
+    "music songwriters": {
+        "males": "كتاب أغان موسيقى",
+        "females": "كاتبات أغان موسيقى"
+    },
+    "swing musicians": {
+        "males": "موسيقيو سوينغ",
+        "females": "موسيقيات سوينغ"
+    },
+    "black metal musicians": {
+        "males": "موسيقيو بلاك ميتال",
+        "females": "موسيقيات بلاك ميتال"
+    },
+    "blues saxophonists": {
+        "males": "عازفو سكسفون بلوز",
+        "females": "عازفات سكسفون بلوز"
+    },
+    "bossa nova guitarists": {
+        "males": "عازفو قيثارة بوسا نوفا",
+        "females": "عازفات قيثارة بوسا نوفا"
+    },
+    "bossa nova pianists": {
+        "males": "عازفو بيانو بوسا نوفا",
+        "females": "عازفات بيانو بوسا نوفا"
+    },
+    "country pianists": {
+        "males": "عازفو بيانو كانتري",
+        "females": "عازفات بيانو كانتري"
+    },
+    "country record producers": {
+        "males": "منتجو تسجيلات كانتري",
+        "females": "منتجات تسجيلات كانتري"
+    },
+    "disco singers": {
+        "males": "مغنو ديسكو",
+        "females": "مغنيات ديسكو"
+    },
+    "dubstep musicians": {
+        "males": "موسيقيو دبستيب",
+        "females": "موسيقيات دبستيب"
+    },
+    "funk drummers": {
+        "males": "طبالو فانك",
+        "females": "طبالات فانك"
+    },
+    "funk saxophonists": {
+        "males": "عازفو سكسفون فانك",
+        "females": "عازفات سكسفون فانك"
+    },
+    "funk trombonists": {
+        "males": "عازفو ترومبون فانك",
+        "females": "عازفات ترومبون فانك"
+    },
+    "jazz educators": {
+        "males": "معلمو جاز",
+        "females": "معلمات جاز"
+    },
+    "jazz songwriters": {
+        "males": "كتاب أغان جاز",
+        "females": "كاتبات أغان جاز"
+    },
+    "noise musicians": {
+        "males": "موسيقيو ضوضائية",
+        "females": "موسيقيات ضوضائية"
+    },
+    "rhythm and blues guitarists": {
+        "males": "عازفو قيثارة ريذم أند بلوز",
+        "females": "عازفات قيثارة ريذم أند بلوز"
+    },
+    "rockabilly guitarists": {
+        "males": "عازفو قيثارة روكابيلي",
+        "females": "عازفات قيثارة روكابيلي"
+    },
+    "soul guitarists": {
+        "males": "عازفو قيثارة السول",
+        "females": "عازفات قيثارة السول"
+    },
+    "technology journalists": {
+        "males": "صحفيو تقنية",
+        "females": "صحفيات تقنية"
+    },
+    "fado singers": {
+        "males": "مغنو فادو",
+        "females": "مغنيات فادو"
+    },
+    "dancehall musicians": {
+        "males": "موسيقيو دانسهول",
+        "females": "موسيقيات دانسهول"
+    },
+    "pop drummers": {
+        "males": "طبالو بوب",
+        "females": "طبالات بوب"
+    },
+    "flamenco guitarists": {
+        "males": "عازفو قيثارة فلامنكو",
+        "females": "عازفات قيثارة فلامنكو"
+    },
+    "mandopop singer-songwriters": {
+        "males": "مغنون وكتاب أغاني ماندوبوب",
+        "females": "مغنيات وكاتبات أغاني ماندوبوب"
+    },
+    "jazz fusion musicians": {
+        "males": "موسيقيو جاز فيوشن",
+        "females": "موسيقيات جاز فيوشن"
+    },
+    "bachata musicians": {
+        "males": "موسيقيو باجاتا",
+        "females": "موسيقيات باجاتا"
+    },
+    "banda musicians": {
+        "males": "موسيقيو البانداذ",
+        "females": "موسيقيات البانداذ"
+    },
+    "dance critics": {
+        "males": "نقاد رقص",
+        "females": "ناقدات رقص"
+    },
+    "environmental journalists": {
+        "males": "صحفيو بيئة",
+        "females": "صحفيات بيئة"
+    },
+    "experimental composers": {
+        "males": "ملحنو تجريبية",
+        "females": "ملحنات تجريبية"
+    },
+    "experimental guitarists": {
+        "males": "عازفو قيثارة تجريبية",
+        "females": "عازفات قيثارة تجريبية"
+    },
+    "magazine journalists": {
+        "males": "صحفيو مجلات",
+        "females": "صحفيات مجلات"
+    },
+    "mariachi musicians": {
+        "males": "موسيقيو مرياتي",
+        "females": "موسيقيات مرياتي"
+    },
+    "medical journalists": {
+        "males": "صحفيو طب",
+        "females": "صحفيات طب"
+    },
+    "merengue musicians": {
+        "males": "موسيقيو ميرينغي",
+        "females": "موسيقيات ميرينغي"
+    },
+    "ranchera singers": {
+        "males": "مغنو رانشيرا",
+        "females": "مغنيات رانشيرا"
+    },
+    "reggae guitarists": {
+        "males": "عازفو قيثارة ريغيه",
+        "females": "عازفات قيثارة ريغيه"
+    },
+    "rhythm and blues drummers": {
+        "males": "طبالو ريذم أند بلوز",
+        "females": "طبالات ريذم أند بلوز"
+    },
+    "rhythm and blues singer-songwriters": {
+        "males": "مغنون وكتاب أغاني ريذم أند بلوز",
+        "females": "مغنيات وكاتبات أغاني ريذم أند بلوز"
+    },
+    "rock songwriters": {
+        "males": "كتاب أغان روك",
+        "females": "كاتبات أغان روك"
+    },
+    "ska guitarists": {
+        "males": "عازفو قيثارة سكا",
+        "females": "عازفات قيثارة سكا"
+    },
+    "ska saxophonists": {
+        "males": "عازفو سكسفون سكا",
+        "females": "عازفات سكسفون سكا"
+    },
+    "bebop musicians": {
+        "males": "موسيقيو بيبوب",
+        "females": "موسيقيات بيبوب"
+    },
+    "blues trumpeters": {
+        "males": "عازفو بوق بلوز",
+        "females": "عازفات بوق بلوز"
+    },
+    "crime journalists": {
+        "males": "صحفيو جريمة",
+        "females": "صحفيات جريمة"
+    },
+    "rock and roll musicians": {
+        "males": "موسيقيو روك أند رول",
+        "females": "موسيقيات روك أند رول"
+    },
+    "arts journalists": {
+        "males": "صحفيو فنون",
+        "females": "صحفيات فنون"
+    },
+    "folk singer-songwriters": {
+        "males": "مغنون وكتاب أغاني فولك",
+        "females": "مغنيات وكاتبات أغاني فولك"
+    },
+    "cantopop singers": {
+        "males": "مغنو كانتوبوب",
+        "females": "مغنيات كانتوبوب"
+    },
+    "country music songwriters": {
+        "males": "كتاب أغان كانتري",
+        "females": "كاتبات أغان كانتري"
+    },
+    "progressive house musicians": {
+        "males": "موسيقيو موسيقى هاوس تقدمية",
+        "females": "موسيقيات موسيقى هاوس تقدمية"
+    },
+    "electronica musicians": {
+        "males": "موسيقيو إلكترونيكا",
+        "females": "موسيقيات إلكترونيكا"
+    },
+    "electronic music singers": {
+        "males": "مغنو موسيقى إلكترونية",
+        "females": "مغنيات موسيقى إلكترونية"
+    },
+    "flamenco musicians": {
+        "males": "موسيقيو فلامنكو",
+        "females": "موسيقيات فلامنكو"
+    },
+    "folk pianists": {
+        "males": "عازفو بيانو فولك",
+        "females": "عازفات بيانو فولك"
+    },
+    "qawwali singers": {
+        "males": "مغنو قوالي",
+        "females": "مغنيات قوالي"
+    },
+    "j-pop musicians": {
+        "males": "موسيقيو بوب ياباني",
+        "females": "موسيقيات بوب ياباني"
+    },
+    "j-pop singers": {
+        "males": "مغنو بوب ياباني",
+        "females": "مغنيات بوب ياباني"
+    },
+    "k-pop musicians": {
+        "males": "موسيقيو بوب كوري",
+        "females": "موسيقيات بوب كوري"
+    },
+    "music record producers": {
+        "males": "منتجو تسجيلات موسيقى",
+        "females": "منتجات تسجيلات موسيقى"
+    },
+    "world music singers": {
+        "males": "مغنو موسيقى العالم",
+        "females": "مغنيات موسيقى العالم"
+    },
+    "smooth jazz musicians": {
+        "males": "موسيقيو جاز ناعم",
+        "females": "موسيقيات جاز ناعم"
+    },
+    "a cappella musicians": {
+        "males": "موسيقيو أكابيلا",
+        "females": "موسيقيات أكابيلا"
+    },
+    "alternative metal guitarists": {
+        "males": "عازفو قيثارة ميتال بديل",
+        "females": "عازفات قيثارة ميتال بديل"
+    },
+    "alternative metal musicians": {
+        "males": "موسيقيو ميتال بديل",
+        "females": "موسيقيات ميتال بديل"
+    },
+    "alternative metal singers": {
+        "males": "مغنو ميتال بديل",
+        "females": "مغنيات ميتال بديل"
+    },
+    "r&b musicians": {
+        "males": "موسيقيو ريذم أند بلوز",
+        "females": "موسيقيات ريذم أند بلوز"
+    },
+    "alternative rock pianists": {
+        "males": "عازفو بيانو روك بديل",
+        "females": "عازفات بيانو روك بديل"
+    },
+    "ambient composers": {
+        "males": "ملحنو أمبينت",
+        "females": "ملحنات أمبينت"
+    },
+    "romance writers": {
+        "males": "كتاب موسيقى رومانسية",
+        "females": "كاتبات موسيقى رومانسية"
+    },
+    "science historian": {
+        "males": "مؤرخو علم",
+        "females": "مؤرخات علم"
+    },
+    "ska singers": {
+        "males": "مغنو سكا",
+        "females": "مغنيات سكا"
+    },
+    "argentine tango musicians": {
+        "males": "موسيقيو تانغو أرجنتيني",
+        "females": "موسيقيات تانغو أرجنتيني"
+    },
+    "bachata guitarists": {
+        "males": "عازفو قيثارة باجاتا",
+        "females": "عازفات قيثارة باجاتا"
+    },
+    "bachata singers": {
+        "males": "مغنو باجاتا",
+        "females": "مغنيات باجاتا"
+    },
+    "baroque musicians": {
+        "males": "موسيقيو باروك",
+        "females": "موسيقيات باروك"
+    },
+    "bebop bandleaders": {
+        "males": "قادة فرق بيبوب",
+        "females": "قائدات فرق بيبوب"
+    },
+    "bebop composers": {
+        "males": "ملحنو بيبوب",
+        "females": "ملحنات بيبوب"
+    },
+    "bebop drummers": {
+        "males": "طبالو بيبوب",
+        "females": "طبالات بيبوب"
+    },
+    "bebop flautists": {
+        "males": "عازفو فولت بيبوب",
+        "females": "عازفات فولت بيبوب"
+    },
+    "bebop guitarists": {
+        "males": "عازفو قيثارة بيبوب",
+        "females": "عازفات قيثارة بيبوب"
+    },
+    "bebop pianists": {
+        "males": "عازفو بيانو بيبوب",
+        "females": "عازفات بيانو بيبوب"
+    },
+    "bebop saxophonists": {
+        "males": "عازفو سكسفون بيبوب",
+        "females": "عازفات سكسفون بيبوب"
+    },
+    "bebop singers": {
+        "males": "مغنو بيبوب",
+        "females": "مغنيات بيبوب"
+    },
+    "bebop trombonists": {
+        "males": "عازفو ترومبون بيبوب",
+        "females": "عازفات ترومبون بيبوب"
+    },
+    "bebop trumpeters": {
+        "males": "عازفو بوق بيبوب",
+        "females": "عازفات بوق بيبوب"
+    },
+    "bhangra (music) musicians": {
+        "males": "موسيقيو بانغرا",
+        "females": "موسيقيات بانغرا"
+    },
+    "big beat musicians": {
+        "males": "موسيقيو بيغ بيت",
+        "females": "موسيقيات بيغ بيت"
+    },
+    "black metal guitarists": {
+        "males": "عازفو قيثارة بلاك ميتال",
+        "females": "عازفات قيثارة بلاك ميتال"
+    },
+    "black metal singers": {
+        "males": "مغنو بلاك ميتال",
+        "females": "مغنيات بلاك ميتال"
+    },
+    "blues historians": {
+        "males": "مؤرخو بلوز",
+        "females": "مؤرخات بلوز"
+    },
+    "blues record producers": {
+        "males": "منتجو تسجيلات بلوز",
+        "females": "منتجات تسجيلات بلوز"
+    },
+    "boogie-woogie musicians": {
+        "males": "موسيقيو بوجي ووجي",
+        "females": "موسيقيات بوجي ووجي"
+    },
+    "boogie-woogie pianists": {
+        "males": "عازفو بيانو بوجي ووجي",
+        "females": "عازفات بيانو بوجي ووجي"
+    },
+    "bossa nova drummers": {
+        "males": "طبالو بوسا نوفا",
+        "females": "طبالات بوسا نوفا"
+    },
+    "breakbeat musicians": {
+        "males": "موسيقيو بريك بيت",
+        "females": "موسيقيات بريك بيت"
+    },
+    "britpop musicians": {
+        "males": "موسيقيو بوب بريطاني",
+        "females": "موسيقيات بوب بريطاني"
+    },
+    "folk drummers": {
+        "males": "طبالو فولك",
+        "females": "طبالات فولك"
+    },
+    "cantopop singer-songwriters": {
+        "males": "مغنون وكتاب أغاني كانتوبوب",
+        "females": "مغنيات وكاتبات أغاني كانتوبوب"
+    },
+    "chanson composers": {
+        "males": "ملحنو شانسون",
+        "females": "ملحنات شانسون"
+    },
+    "children's songwriters": {
+        "males": "كتاب أغان أطفال",
+        "females": "كاتبات أغان أطفال"
+    },
+    "christian metal musicians": {
+        "males": "موسيقيو ميتال مسيحي",
+        "females": "موسيقيات ميتال مسيحي"
+    },
+    "christian music songwriters": {
+        "males": "كتاب أغان موسيقى مسيحية",
+        "females": "كاتبات أغان موسيقى مسيحية"
+    },
+    "contemporary historians": {
+        "males": "مؤرخو معاصرة",
+        "females": "مؤرخات معاصرة"
+    },
+    "country bandleaders": {
+        "males": "قادة فرق كانتري",
+        "females": "قائدات فرق كانتري"
+    },
+    "country music composers": {
+        "males": "ملحنو كانتري",
+        "females": "ملحنات كانتري"
+    },
+    "country music historians": {
+        "males": "مؤرخو كانتري",
+        "females": "مؤرخات كانتري"
+    },
+    "c-pop musicians": {
+        "males": "موسيقيو سي بوب",
+        "females": "موسيقيات سي بوب"
+    },
+    "c-pop singers": {
+        "males": "مغنو سي بوب",
+        "females": "مغنيات سي بوب"
+    },
+    "dancehall singers": {
+        "males": "مغنو دانسهول",
+        "females": "مغنيات دانسهول"
+    },
+    "dance historians": {
+        "males": "مؤرخو رقص",
+        "females": "مؤرخات رقص"
+    },
+    "dance writers": {
+        "males": "كتاب رقص",
+        "females": "كاتبات رقص"
+    },
+    "electroacoustic music composers": {
+        "males": "ملحنو إليكتروكوستيك",
+        "females": "ملحنات إليكتروكوستيك"
+    },
+    "electro house musicians": {
+        "males": "موسيقيو إلكتروهاوس",
+        "females": "موسيقيات إلكتروهاوس"
+    },
+    "electronic composers": {
+        "males": "ملحنو إليكترونيك",
+        "females": "ملحنات إليكترونيك"
+    },
+    "emo musicians": {
+        "males": "موسيقيو إيمو",
+        "females": "موسيقيات إيمو"
+    },
+    "environmental bloggers": {
+        "males": "مدونو بيئة",
+        "females": "مدونات بيئة"
+    },
+    "eurodance musicians": {
+        "males": "موسيقيو يورودانس",
+        "females": "موسيقيات يورودانس"
+    },
+    "eurodisco musicians": {
+        "males": "موسيقيو يوروديسكو",
+        "females": "موسيقيات يوروديسكو"
+    },
+    "folk composers": {
+        "males": "ملحنو فولك",
+        "females": "ملحنات فولك"
+    },
+    "filmi singers": {
+        "males": "مغنو نغمة فيلمي",
+        "females": "مغنيات نغمة فيلمي"
+    },
+    "finnish rock drummers": {
+        "males": "طبالو روك فنلندي",
+        "females": "طبالات روك فنلندي"
+    },
+    "finnish rock guitarists": {
+        "males": "عازفو قيثارة روك فنلندي",
+        "females": "عازفات قيثارة روك فنلندي"
+    },
+    "finnish rock musicians": {
+        "males": "موسيقيو روك فنلندي",
+        "females": "موسيقيات روك فنلندي"
+    },
+    "finnish rock singers": {
+        "males": "مغنو روك فنلندي",
+        "females": "مغنيات روك فنلندي"
+    },
+    "flamenco singers": {
+        "males": "مغنو فلامنكو",
+        "females": "مغنيات فلامنكو"
+    },
+    "folk music historians": {
+        "males": "مؤرخو موسيقى تقليدية",
+        "females": "مؤرخات موسيقى تقليدية"
+    },
+    "funk trumpeters": {
+        "males": "عازفو بوق فانك",
+        "females": "عازفات بوق فانك"
+    },
+    "future bass musicians": {
+        "males": "موسيقيو فيوتشر باس",
+        "females": "موسيقيات فيوتشر باس"
+    },
+    "glam metal musicians": {
+        "males": "موسيقيو جلام ميتال",
+        "females": "موسيقيات جلام ميتال"
+    },
+    "gospel music composers": {
+        "males": "ملحنو غوسبل",
+        "females": "ملحنات غوسبل"
+    },
+    "gospel music pianists": {
+        "males": "عازفو بيانو غوسبل",
+        "females": "عازفات بيانو غوسبل"
+    },
+    "music pianists": {
+        "males": "عازفو بيانو موسيقى",
+        "females": "عازفات بيانو موسيقى"
+    },
+    "gothic metal musicians": {
+        "males": "موسيقيو غوثيك ميتال",
+        "females": "موسيقيات غوثيك ميتال"
+    },
+    "grindcore musicians": {
+        "males": "موسيقيو قريندكور",
+        "females": "موسيقيات قريندكور"
+    },
+    "grunge musicians": {
+        "males": "موسيقيو غرنج",
+        "females": "موسيقيات غرنج"
+    },
+    "hardcore punk musicians": {
+        "males": "موسيقيو هاردكور بانك",
+        "females": "موسيقيات هاردكور بانك"
+    },
+    "hard rock singers": {
+        "males": "مغنو هارد روك",
+        "females": "مغنيات هارد روك"
+    },
+    "pop composers": {
+        "males": "ملحنو بوب",
+        "females": "ملحنات بوب"
+    },
+    "indie rock drummers": {
+        "males": "طبالو إيندي روك",
+        "females": "طبالات إيندي روك"
+    },
+    "industrial rock musicians": {
+        "males": "موسيقيو إندستريال روك",
+        "females": "موسيقيات إندستريال روك"
+    },
+    "jazz fusion drummers": {
+        "males": "طبالو جاز فيوشن",
+        "females": "طبالات جاز فيوشن"
+    },
+    "fusion drummers": {
+        "males": "طبالو فيوشن",
+        "females": "طبالات فيوشن"
+    },
+    "jazz fusion guitarists": {
+        "males": "عازفو قيثارة جاز فيوشن",
+        "females": "عازفات قيثارة جاز فيوشن"
+    },
+    "fusion guitarists": {
+        "males": "عازفو قيثارة فيوشن",
+        "females": "عازفات قيثارة فيوشن"
+    },
+    "jazz fusion pianists": {
+        "males": "عازفو بيانو جاز فيوشن",
+        "females": "عازفات بيانو جاز فيوشن"
+    },
+    "fusion pianists": {
+        "males": "عازفو بيانو فيوشن",
+        "females": "عازفات بيانو فيوشن"
+    },
+    "jazz fusion saxophonists": {
+        "males": "عازفو سكسفون جاز فيوشن",
+        "females": "عازفات سكسفون جاز فيوشن"
+    },
+    "fusion saxophonists": {
+        "males": "عازفو سكسفون فيوشن",
+        "females": "عازفات سكسفون فيوشن"
+    },
+    "jazz fusion trumpeters": {
+        "males": "عازفو بوق جاز فيوشن",
+        "females": "عازفات بوق جاز فيوشن"
+    },
+    "fusion trumpeters": {
+        "males": "عازفو بوق فيوشن",
+        "females": "عازفات بوق فيوشن"
+    },
+    "jazz record producers": {
+        "males": "منتجو تسجيلات جاز",
+        "females": "منتجات تسجيلات جاز"
+    },
+    "jazz writers": {
+        "males": "كتاب جاز",
+        "females": "كاتبات جاز"
+    },
+    "kizomba singers": {
+        "males": "مغنو kizomba",
+        "females": "مغنيات kizomba"
+    },
+    "klezmer musicians": {
+        "males": "موسيقيو كليزمر",
+        "females": "موسيقيات كليزمر"
+    },
+    "dance singers": {
+        "males": "مغنو رقص",
+        "females": "مغنيات رقص"
+    },
+    "latin music composers": {
+        "males": "ملحنو موسيقى لاتينية",
+        "females": "ملحنات موسيقى لاتينية"
+    },
+    "latin music musicians": {
+        "males": "موسيقيو موسيقى لاتينية",
+        "females": "موسيقيات موسيقى لاتينية"
+    },
+    "latin music record producers": {
+        "males": "منتجو تسجيلات موسيقى لاتينية",
+        "females": "منتجات تسجيلات موسيقى لاتينية"
+    },
+    "latin music songwriters": {
+        "males": "كتاب أغان موسيقى لاتينية",
+        "females": "كاتبات أغان موسيقى لاتينية"
+    },
+    "song historians": {
+        "males": "مؤرخو أغاني",
+        "females": "مؤرخات أغاني"
+    },
+    "song writers": {
+        "males": "كتاب أغاني",
+        "females": "كاتبات أغاني"
+    },
+    "mambo musicians": {
+        "males": "موسيقيو المامبو",
+        "females": "موسيقيات المامبو"
+    },
+    "mandopop musicians": {
+        "males": "موسيقيو ماندوبوب",
+        "females": "موسيقيات ماندوبوب"
+    },
+    "maritime writers": {
+        "males": "كتاب بحريون",
+        "females": "كاتبات بحريات"
+    },
+    "arts writers": {
+        "males": "كتاب فنون",
+        "females": "كاتبات فنون"
+    },
+    "hip hop musicians": {
+        "males": "موسيقيو هيب هوب",
+        "females": "موسيقيات هيب هوب"
+    },
+    "moroccan pop singers": {
+        "males": "مغنو بوب مغربي",
+        "females": "مغنيات بوب مغربي"
+    },
+    "mugham musicians": {
+        "males": "موسيقيو مقام أذربيجاني",
+        "females": "موسيقيات مقام أذربيجاني"
+    },
+    "mugham singers": {
+        "males": "مغنو مقام أذربيجاني",
+        "females": "مغنيات مقام أذربيجاني"
+    },
+    "música popular brasileira guitarists": {
+        "males": "عازفو قيثارة موسيقى شعبية برازيلية",
+        "females": "عازفات قيثارة موسيقى شعبية برازيلية"
+    },
+    "música popular brasileira musicians": {
+        "males": "موسيقيو موسيقى شعبية برازيلية",
+        "females": "موسيقيات موسيقى شعبية برازيلية"
+    },
+    "música popular brasileira pianists": {
+        "males": "عازفو بيانو موسيقى شعبية برازيلية",
+        "females": "عازفات بيانو موسيقى شعبية برازيلية"
+    },
+    "música popular brasileira singers": {
+        "males": "مغنو موسيقى شعبية برازيلية",
+        "females": "مغنيات موسيقى شعبية برازيلية"
+    },
+    "new-age composers": {
+        "males": "ملحنو العصر الحديث",
+        "females": "ملحنات العصر الحديث"
+    },
+    "new-age guitarists": {
+        "males": "عازفو قيثارة العصر الحديث",
+        "females": "عازفات قيثارة العصر الحديث"
+    },
+    "new-age pianists": {
+        "males": "عازفو بيانو العصر الحديث",
+        "females": "عازفات بيانو العصر الحديث"
+    },
+    "new-age violinists": {
+        "males": "عازفو كمان العصر الحديث",
+        "females": "عازفات كمان العصر الحديث"
+    },
+    "new wave drummers": {
+        "males": "طبالو موجة جديدة",
+        "females": "طبالات موجة جديدة"
+    },
+    "nu metal drummers": {
+        "males": "طبالو نيو ميتال",
+        "females": "طبالات نيو ميتال"
+    },
+    "nu metal musicians": {
+        "males": "موسيقيو نيو ميتال",
+        "females": "موسيقيات نيو ميتال"
+    },
+    "nu metal singers": {
+        "males": "مغنو نيو ميتال",
+        "females": "مغنيات نيو ميتال"
+    },
+    "opera critics": {
+        "males": "نقاد أوبرا",
+        "females": "ناقدات أوبرا"
+    },
+    "crossover singers": {
+        "males": "مغنو كروس أوفر",
+        "females": "مغنيات كروس أوفر"
+    },
+    "oratorio composers": {
+        "males": "ملحنو أوراتوريو",
+        "females": "ملحنات أوراتوريو"
+    },
+    "organized crime writers": {
+        "males": "كتاب جريمة منظمة",
+        "females": "كاتبات جريمة منظمة"
+    },
+    "outsider house musicians": {
+        "males": "موسيقيو أوتسايدر هاوس",
+        "females": "موسيقيات أوتسايدر هاوس"
+    },
+    "polka musicians": {
+        "males": "موسيقيو بولكا",
+        "females": "موسيقيات بولكا"
+    },
+    "pop punk musicians": {
+        "males": "موسيقيو بوب بانك",
+        "females": "موسيقيات بوب بانك"
+    },
+    "pop punk singers": {
+        "males": "مغنو بوب بانك",
+        "females": "مغنيات بوب بانك"
+    },
+    "pop trumpeters": {
+        "males": "عازفو بوق بوب",
+        "females": "عازفات بوق بوب"
+    },
+    "popular music composers": {
+        "males": "ملحنو موسيقى شائعة",
+        "females": "ملحنات موسيقى شائعة"
+    },
+    "fado guitarists": {
+        "males": "عازفو قيثارة فادو",
+        "females": "عازفات قيثارة فادو"
+    },
+    "post-grunge musicians": {
+        "males": "موسيقيو بوست-غرنج",
+        "females": "موسيقيات بوست-غرنج"
+    },
+    "progressive metal guitarists": {
+        "males": "عازفو قيثارة بروجريسف ميتال",
+        "females": "عازفات قيثارة بروجريسف ميتال"
+    },
+    "progressive metal musicians": {
+        "males": "موسيقيو بروجريسف ميتال",
+        "females": "موسيقيات بروجريسف ميتال"
+    },
+    "punk blues musicians": {
+        "males": "موسيقيو بانك بلوز",
+        "females": "موسيقيات بانك بلوز"
+    },
+    "rock record producers": {
+        "males": "منتجو تسجيلات روك",
+        "females": "منتجات تسجيلات روك"
+    },
+    "ragtime composers": {
+        "males": "ملحنو راجتايم",
+        "females": "ملحنات راجتايم"
+    },
+    "ragtime pianists": {
+        "males": "عازفو بيانو راجتايم",
+        "females": "عازفات بيانو راجتايم"
+    },
+    "raï musicians": {
+        "males": "موسيقيو راي",
+        "females": "موسيقيات راي"
+    },
+    "rap metal musicians": {
+        "males": "موسيقيو راب ميتال",
+        "females": "موسيقيات راب ميتال"
+    },
+    "reggae journalists": {
+        "males": "صحفيو ريغيه",
+        "females": "صحفيات ريغيه"
+    },
+    "reggae record producers": {
+        "males": "منتجو تسجيلات ريغيه",
+        "females": "منتجات تسجيلات ريغيه"
+    },
+    "reggaeton record producers": {
+        "males": "منتجو تسجيلات ريغيه تون",
+        "females": "منتجات تسجيلات ريغيه تون"
+    },
+    "reggae trombonists": {
+        "males": "عازفو ترومبون ريغيه",
+        "females": "عازفات ترومبون ريغيه"
+    },
+    "rhythm and blues pianists": {
+        "males": "عازفو بيانو ريذم أند بلوز",
+        "females": "عازفات بيانو ريذم أند بلوز"
+    },
+    "rhythm and blues saxophonists": {
+        "males": "عازفو سكسفون ريذم أند بلوز",
+        "females": "عازفات سكسفون ريذم أند بلوز"
+    },
+    "rhythm and blues trumpeters": {
+        "males": "عازفو بوق ريذم أند بلوز",
+        "females": "عازفات بوق ريذم أند بلوز"
+    },
+    "rock critics": {
+        "males": "نقاد روك",
+        "females": "ناقدات روك"
+    },
+    "rock music historians": {
+        "males": "مؤرخو موسيقى الروك",
+        "females": "مؤرخات موسيقى الروك"
+    },
+    "romani guitarists": {
+        "males": "عازفو قيثارة غجرية",
+        "females": "عازفات قيثارة غجرية"
+    },
+    "romani musicians": {
+        "males": "موسيقيو غجرية",
+        "females": "موسيقيات غجرية"
+    },
+    "romani singers": {
+        "males": "مغنو غجرية",
+        "females": "مغنيات غجرية"
+    },
+    "romani violinists": {
+        "males": "عازفو كمان غجرية",
+        "females": "عازفات كمان غجرية"
+    },
+    "romani writers": {
+        "males": "كتاب غجرية",
+        "females": "كاتبات غجرية"
+    },
+    "samba musicians": {
+        "males": "موسيقيو سامبا",
+        "females": "موسيقيات سامبا"
+    },
+    "science bloggers": {
+        "males": "مدونو علم",
+        "females": "مدونات علم"
+    },
+    "electronic singers": {
+        "males": "مغنو إليكترونيك",
+        "females": "مغنيات إليكترونيك"
+    },
+    "shibuya-kei musicians": {
+        "males": "موسيقيو شيبوياكي",
+        "females": "موسيقيات شيبوياكي"
+    },
+    "smooth jazz flautists": {
+        "males": "عازفو فولت جاز ناعم",
+        "females": "عازفات فولت جاز ناعم"
+    },
+    "smooth jazz guitarists": {
+        "males": "عازفو قيثارة جاز ناعم",
+        "females": "عازفات قيثارة جاز ناعم"
+    },
+    "smooth jazz pianists": {
+        "males": "عازفو بيانو جاز ناعم",
+        "females": "عازفات بيانو جاز ناعم"
+    },
+    "smooth jazz saxophonists": {
+        "males": "عازفو سكسفون جاز ناعم",
+        "females": "عازفات سكسفون جاز ناعم"
+    },
+    "smooth jazz singers": {
+        "males": "مغنو جاز ناعم",
+        "females": "مغنيات جاز ناعم"
+    },
+    "smooth jazz trumpeters": {
+        "males": "عازفو بوق جاز ناعم",
+        "females": "عازفات بوق جاز ناعم"
+    },
+    "soft rock pianists": {
+        "males": "عازفو بيانو سوفت روك",
+        "females": "عازفات بيانو سوفت روك"
+    },
+    "soul drummers": {
+        "males": "طبالو السول",
+        "females": "طبالات السول"
+    },
+    "folk rock singers": {
+        "males": "مغنو فولك روك",
+        "females": "مغنيات فولك روك"
+    },
+    "swing bandleaders": {
+        "males": "قادة فرق سوينغ",
+        "females": "قائدات فرق سوينغ"
+    },
+    "swing composers": {
+        "males": "ملحنو سوينغ",
+        "females": "ملحنات سوينغ"
+    },
+    "swing drummers": {
+        "males": "طبالو سوينغ",
+        "females": "طبالات سوينغ"
+    },
+    "swing flautists": {
+        "males": "عازفو فولت سوينغ",
+        "females": "عازفات فولت سوينغ"
+    },
+    "swing guitarists": {
+        "males": "عازفو قيثارة سوينغ",
+        "females": "عازفات قيثارة سوينغ"
+    },
+    "swing pianists": {
+        "males": "عازفو بيانو سوينغ",
+        "females": "عازفات بيانو سوينغ"
+    },
+    "swing saxophonists": {
+        "males": "عازفو سكسفون سوينغ",
+        "females": "عازفات سكسفون سوينغ"
+    },
+    "swing singers": {
+        "males": "مغنو سوينغ",
+        "females": "مغنيات سوينغ"
+    },
+    "swing trombonists": {
+        "males": "عازفو ترومبون سوينغ",
+        "females": "عازفات ترومبون سوينغ"
+    },
+    "swing trumpeters": {
+        "males": "عازفو بوق سوينغ",
+        "females": "عازفات بوق سوينغ"
+    },
+    "swing violinists": {
+        "males": "عازفو كمان سوينغ",
+        "females": "عازفات كمان سوينغ"
+    },
+    "symphonic metal musicians": {
+        "males": "موسيقيو ميتال سيمفوني",
+        "females": "موسيقيات ميتال سيمفوني"
+    },
+    "tejano musicians": {
+        "males": "موسيقيو تيخانو",
+        "females": "موسيقيات تيخانو"
+    },
+    "tejano writers": {
+        "males": "كتاب تيخانو",
+        "females": "كاتبات تيخانو"
+    },
+    "thrash metal musicians": {
+        "males": "موسيقيو ثراش ميتال",
+        "females": "موسيقيات ثراش ميتال"
+    },
+    "traditional pop music singers": {
+        "males": "مغنو موسيقى بوب تقليدية",
+        "females": "مغنيات موسيقى بوب تقليدية"
+    },
+    "pop music singers": {
+        "males": "مغنو موسيقى بوب",
+        "females": "مغنيات موسيقى بوب"
+    },
+    "trance singers": {
+        "males": "مغنو ترانس",
+        "females": "مغنيات ترانس"
+    },
+    "post-grunge singers": {
+        "males": "مغنو بوست-غرنج",
+        "females": "مغنيات بوست-غرنج"
+    }
+}
