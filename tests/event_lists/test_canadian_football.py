@@ -65,7 +65,7 @@ data1 = {
     "Category:Canadian football in Hamilton, Ontario": "تصنيف:كرة القدم الكندية في هاميلتون",
     "Category:Canadian football in Winnipeg": "تصنيف:كرة القدم الكندية في وينيبيغ",
     "Category:Canadian football": "تصنيف:كرة قدم كندية",
-    "Category:American players of Canadian football": "تصنيف:لاعبو أمريكيون من كرة القدم الكندية",
+    "Category:American players of Canadian football": "تصنيف:لاعبو كرة قدم كندية أمريكيون",
     "Category:Players of Canadian football": "تصنيف:لاعبو كرة القدم الكندية",
     "Category:Players of Canadian football by nationality": "تصنيف:لاعبو كرة القدم الكندية حسب الجنسية",
     "Category:Players of Canadian football from Atlanta": "تصنيف:لاعبو كرة القدم الكندية من أتلانتا (جورجيا)",
@@ -149,7 +149,7 @@ data1 = {
     "Category:Players of Canadian football from Arkansas": "تصنيف:لاعبو كرة قدم كندية من أركنساس",
     "Category:Players of Canadian football from Arizona": "تصنيف:لاعبو كرة قدم كندية من أريزونا",
     "Category:Players of Canadian football from Alaska": "تصنيف:لاعبو كرة قدم كندية من ألاسكا",
-    "Category:Players of Canadian football from Oregon": "تصنيف:لاعبو كرة قدم كندية من أوريغن",
+    "Category:Players of Canadian football from Oregon": "تصنيف:لاعبو كرة قدم كندية من أوريغون",
     "Category:Players of Canadian football from Oklahoma": "تصنيف:لاعبو كرة قدم كندية من أوكلاهوما",
     "Category:Players of Canadian football from Oklahoma City": "تصنيف:لاعبو كرة قدم كندية من أوكلاهوما سيتي",
     "Category:Players of Canadian football from Idaho": "تصنيف:لاعبو كرة قدم كندية من أيداهو",
@@ -211,20 +211,20 @@ data2 = {
 }
 
 data3 = {
-    "Category:Canadian football players in Edmonton": "تصنيف:لاعبو كرة القدم الكندية في إدمونتون",
+    "Category:Canadian football players in Edmonton": "تصنيف:لاعبو كرة قدم كندية في إدمونتون",
+    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كندية",
+    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كندية",
+    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كندية",
+    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة قدم كندية",
+    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة قدم كندية",
+    "Category:Canadian football fullbacks": "تصنيف:مدافعو كرة قدم كندية",
+    "Category:Canadian football placekickers": "تصنيف:مسددو كرة قدم كندية",
     "Category:Canadian football scouts": "تصنيف:كشافة كرة قدم كندية",
     "Category:Canadian football offensive linemen": "تصنيف:مهاجمو خط كرة قدم كندية",
     "Category:Canadian football tackles": "تصنيف:مصطدمو كرة قدم كندية",
     "Category:Canadian football wide receivers": "تصنيف:مستقبلون واسعون كرة قدم كندية",
     "Category:Canadian football guards": "تصنيف:حراس كرة قدم كندية",
     "Category:Canadian football quarterbacks": "تصنيف:أظهرة رباعيون كرة قدم كندية",
-    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كنديون",
-    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كنديون",
-    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كنديون",
-    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة قدم كنديون",
-    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة قدم كنديون",
-    "Category:Canadian football fullbacks": "تصنيف:مدافعون كرة قدم كنديون",
-    "Category:Canadian football placekickers": "تصنيف:مسددون كرة قدم كنديون",
 }
 
 to_test = [
@@ -239,13 +239,20 @@ def test_canadian_football_1(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
+@pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
+def test_canadian_football_2(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
+@pytest.mark.parametrize("category, expected", data3.items(), ids=data3.keys())
+def test_canadian_football_3(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
     dump_diff_text(expected, diff_result, name)
-
-    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    # dump_diff(add_result, f"{name}_add")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
