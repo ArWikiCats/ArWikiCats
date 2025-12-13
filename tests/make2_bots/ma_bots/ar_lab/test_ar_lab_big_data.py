@@ -844,7 +844,7 @@ data_list = [
     ("seasons in asian football leagues", " in ", "مواسم في دوريات كرة قدم آسيوية"),
     ("secretaries-of state of nevada", " of ", "وزراء خارجية نيفادا"),
     ("senegal in world aquatics championships", " in ", "السنغال في بطولة العالم للرياضات المائية"),
-    ("senegalese expatriate basketball peoplee in kosovo", " in ", "أعلام كرة سلة سنغاليون مغتربون في كوسوفو"),
+    ("senegalese expatriate basketball people in kosovo", " in ", "أعلام كرة سلة سنغاليون مغتربون في كوسوفو"),
     ("september 1550 in canada", " in ", "سبتمبر 1550 في كندا"),
     ("september 1550 in north america", " in ", "سبتمبر 1550 في أمريكا الشمالية"),
     ("shipping in north america", " in ", "نقل بحري في أمريكا الشمالية"),
