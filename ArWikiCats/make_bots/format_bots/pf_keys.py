@@ -10,6 +10,9 @@ from ...translations import New_Company
 # Cache for compiled regex patterns
 _change_key_compiled = {}
 
+# Cache for compiled regex patterns
+_change_key2_compiled = {}
+
 CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
     "players in": "playerss in",
@@ -150,11 +153,35 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
 for x in New_Company:
     CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
+
+def change_key_mappings_replacements(category):
+    # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
+    for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
+        key = (chk, chk_lab)
+        if key not in _change_key_compiled:
+            _change_key_compiled[key] = {
+                "0": re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE),
+                "1": re.compile(rf"^{chk} ", flags=re.IGNORECASE),
+                "2": re.compile(rf" {chk} ", flags=re.IGNORECASE),
+                "3": re.compile(rf" {chk}$", flags=re.IGNORECASE),
+                "4": re.compile(rf"category\:{chk} ", flags=re.IGNORECASE),
+                # "5": re.compile(rf"\b{chk}\b", flags=re.IGNORECASE),
+                "5": re.compile(rf"(?<!\w){chk}(?!\w)", flags=re.IGNORECASE),
+            }
+
+        patterns = _change_key_compiled[key]
+        category = patterns["0"].sub(f"category:{chk_lab} ", category)
+        category = patterns["1"].sub(f"{chk_lab} ", category)
+        category = patterns["2"].sub(f" {chk_lab} ", category)
+        category = patterns["3"].sub(f" {chk_lab}", category)
+        category = patterns["4"].sub(f"category:{chk_lab} ", category)
+        category = patterns["5"].sub(chk_lab, category)
+
+    return category
+
+
 CHANGE_KEY_SECONDARY: Dict[str, str] = {
-    " for deafblind$": " for-deafblind",
     "charter airlines": "charter-airlines",
-    " for blind$": " for-blind",
-    " for deaf$": " for-deaf",
     " for blind ": " for-blind ",
     " for deaf ": " for-deaf ",
     "term of Iranian Majlis": "Iranian Majlis",
@@ -162,7 +189,6 @@ CHANGE_KEY_SECONDARY: Dict[str, str] = {
     "country of residence": "country-of-residence",
     "serbia and montenegro": "serbia-and-montenegro",
     " at 2": " in 2",
-    "^tour de ": "tour of ",
     "game of thrones": "game-of-thrones",
     "green party of quebec": "green party-of-quebec",
     "libertarian party of canada": "libertarian party-of-canada",
@@ -171,45 +197,34 @@ CHANGE_KEY_SECONDARY: Dict[str, str] = {
     "house of commons": "house-of-commons",
     "house of representatives": "house-of-representatives",
     " at 1": " in 1",
-    " executed people$": " executed-people",
     " - men's tournament": " mens tournament",
     " - women's tournament": " womens tournament",
     "historians of philosophy": "historians-of-philosophy",
     " at ": " in ",
-    " women's footballers$": " female footballers",
-    "^women's footballers ": "female footballers ",
-    "^women's footballers": "female footballers",
     " remade in ": " remadein ",
     " based on ": " basedon ",
+
+    r"^tour de ": "tour of ",
+    r"^women's footballers ": "female footballers ",
+    r"^women's footballers": "female footballers",
     r"^men\’s events ": "mensvents",
+
+    r" women's footballers$": " female footballers",
+    r" executed people$": " executed-people",
+    r" for deafblind$": " for-deafblind",
+    r" for blind$": " for-blind",
+    r" for deaf$": " for-deaf",
 }
 
 
 def change_key_secondary_replacements(category):
-    return category
 
+    # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
+    for chk2, chk2_lab in CHANGE_KEY_SECONDARY.items():
 
-def change_key_mappings_replacements(category):
-    # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
-    for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
-        key = (chk, chk_lab)
-        if key not in _change_key_compiled:
-            _change_key_compiled[key] = [
-                re.compile(rf"^category\:{chk} ", flags=re.IGNORECASE),
-                re.compile(rf"^{chk} ", flags=re.IGNORECASE),
-                re.compile(rf" {chk} ", flags=re.IGNORECASE),
-                re.compile(rf" {chk}$", flags=re.IGNORECASE),
-                re.compile(rf"category\:{chk} ", flags=re.IGNORECASE),
-                # re.compile(rf"\b{chk}\b", flags=re.IGNORECASE),
-                re.compile(rf"(?<!\w){chk}(?!\w)", flags=re.IGNORECASE),
-            ]
+        if chk2 not in _change_key2_compiled:
+            _change_key2_compiled[chk2] = re.compile(chk2, flags=re.IGNORECASE)
 
-        patterns = _change_key_compiled[key]
-        category = patterns[0].sub(f"category:{chk_lab} ", category)
-        category = patterns[1].sub(f"{chk_lab} ", category)
-        category = patterns[2].sub(f" {chk_lab} ", category)
-        category = patterns[3].sub(f" {chk_lab}", category)
-        category = patterns[4].sub(f"category:{chk_lab} ", category)
-        category = patterns[5].sub(chk_lab, category)
+        category = _change_key2_compiled[chk2].sub(chk2_lab, category)
 
     return category

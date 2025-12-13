@@ -40,8 +40,6 @@ REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECA
 # Precompiled regex patterns for CHANGE_KEY_MAPPINGS and CHANGE_KEY_SECONDARY will be created in change_cat function
 # since they depend on imported dictionaries that may not be fully populated at module level
 
-# Cache for compiled regex patterns
-_change_key2_compiled = {}
 # ---
 for_table = {
     "for national teams": "للمنتخبات الوطنية",
@@ -379,12 +377,6 @@ def change_cat(cat_orginal: str) -> str:
     # Apply replaces dictionary
     for x, d in replaces.items():
         category = category.replace(x, d)
-
-    # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
-    for chk2, chk2_lab in CHANGE_KEY_SECONDARY.items():
-        if chk2 not in _change_key2_compiled:
-            _change_key2_compiled[chk2] = re.compile(chk2, flags=re.IGNORECASE)
-        category = _change_key2_compiled[chk2].sub(chk2_lab, category)
 
     category = change_key_secondary_replacements(category)
     category = change_key_mappings_replacements(category)
