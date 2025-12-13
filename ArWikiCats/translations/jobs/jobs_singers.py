@@ -229,6 +229,70 @@ MEN_WOMENS_SINGERS_BASED: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Sin
 # MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
 
 MEN_WOMENS_SINGERS = {
+    "classical composers": {
+        "males": "ملحنون كلاسيكيون",
+        "females": "ملحنات كلاسيكيات"
+    },
+    "classical musicians": {
+        "males": "موسيقيون كلاسيكيون",
+        "females": "موسيقيات كلاسيكيات"
+    },
+    "classical pianists": {
+        "males": "عازفو بيانو كلاسيكيون",
+        "females": "عازفات بيانو كلاسيكيات"
+    },
+    "classical violinists": {
+        "males": "عازفو كمان كلاسيكيون",
+        "females": "عازفات كمان كلاسيكيات"
+    },
+    "classical cellists": {
+        "males": "عازفو تشيلو كلاسيكيون",
+        "females": "عازفات تشيلو كلاسيكيات"
+    },
+    "classical guitarists": {
+        "males": "عازفو قيثارة كلاسيكيون",
+        "females": "عازفات قيثارة كلاسيكيات"
+    },
+    "historical novelists": {
+        "males": "روائيون تاريخيون",
+        "females": "روائيات تاريخيات"
+    },
+    "classical singers": {
+        "males": "مغنون كلاسيكيون",
+        "females": "مغنيات كلاسيكيات"
+    },
+    "classical mandolinists": {
+        "males": "عازفو مندولين كلاسيكيون",
+        "females": "عازفات مندولين كلاسيكيات"
+    },
+    "classical saxophonists": {
+        "males": "عازفو سكسفون كلاسيكيون",
+        "females": "عازفات سكسفون كلاسيكيات"
+    },
+    "classical percussionists": {
+        "males": "فنانون إيقاعيون كلاسيكيون",
+        "females": "فنانات إيقاعيات كلاسيكيات"
+    },
+    "classical music critics": {
+        "males": "نقاد موسيقى كلاسيكيون",
+        "females": "ناقدات موسيقى كلاسيكيات"
+    },
+    "classical painters": {
+        "males": "رسامون كلاسيكيون",
+        "females": "رسامات كلاسيكيات"
+    },
+    "classical writers": {
+        "males": "كتاب كلاسيكيون",
+        "females": "كاتبات كلاسيكيات"
+    },
+    "classical choreographers": {
+        "males": "مصممو رقص كلاسيكيون",
+        "females": "مصممات رقص كلاسيكيات"
+    },
+    "classical dancers": {
+        "males": "راقصون كلاسيكيون",
+        "females": "راقصات كلاسيكيات"
+    },
     "opera singers": {
         "males": "مغنو أوبرا",
         "females": "مغنيات أوبرا"
@@ -240,14 +304,6 @@ MEN_WOMENS_SINGERS = {
     "non-fiction writers": {
         "males": "كتاب غير روائيون",
         "females": "كاتبات غير روائيات"
-    },
-    "classical composers": {
-        "males": "ملحنو كلاسيكية",
-        "females": "ملحنات كلاسيكية"
-    },
-    "classical musicians": {
-        "males": "موسيقيو كلاسيكية",
-        "females": "موسيقيات كلاسيكية"
     },
     "voice actors": {
         "males": "ممثلو أداء صوتي",
@@ -269,10 +325,6 @@ MEN_WOMENS_SINGERS = {
         "males": "ممثلو مسرح",
         "females": ""
     },
-    "classical pianists": {
-        "males": "عازفو بيانو كلاسيكية",
-        "females": "عازفات بيانو كلاسيكية"
-    },
     "children's writers": {
         "males": "كتاب أطفال",
         "females": "كاتبات أطفال"
@@ -292,10 +344,6 @@ MEN_WOMENS_SINGERS = {
     "music educators": {
         "males": "معلمو موسيقى",
         "females": "معلمات موسيقى"
-    },
-    "classical violinists": {
-        "males": "عازفو كمان كلاسيكية",
-        "females": "عازفات كمان كلاسيكية"
     },
     "folk singers": {
         "males": "مغنو فولك",
@@ -388,10 +436,6 @@ MEN_WOMENS_SINGERS = {
     "food writers": {
         "males": "كتاب طعام",
         "females": "كاتبات طعام"
-    },
-    "classical guitarists": {
-        "males": "عازفو قيثارة كلاسيكية",
-        "females": "عازفات قيثارة كلاسيكية"
     },
     "jazz trumpeters": {
         "males": "عازفو بوق جاز",
@@ -552,10 +596,6 @@ MEN_WOMENS_SINGERS = {
     "legal writers": {
         "males": "كتاب قانون",
         "females": "كاتبات قانون"
-    },
-    "classical singers": {
-        "males": "مغنو كلاسيكية",
-        "females": "مغنيات كلاسيكية"
     },
     "children's musicians": {
         "males": "موسيقيو أطفال",
@@ -809,10 +849,6 @@ MEN_WOMENS_SINGERS = {
         "males": "عازفو بيانو بلوز",
         "females": "عازفات بيانو بلوز"
     },
-    "classical saxophonists": {
-        "males": "عازفو سكسفون كلاسيكية",
-        "females": "عازفات سكسفون كلاسيكية"
-    },
     "death metal musicians": {
         "males": "موسيقيو ديث ميتال",
         "females": "موسيقيات ديث ميتال"
@@ -952,10 +988,6 @@ MEN_WOMENS_SINGERS = {
     "bossa nova pianists": {
         "males": "عازفو بيانو بوسا نوفا",
         "females": "عازفات بيانو بوسا نوفا"
-    },
-    "classical music critics": {
-        "males": "نقاد موسيقى كلاسيكية",
-        "females": "ناقدات موسيقى كلاسيكية"
     },
     "country pianists": {
         "males": "عازفو بيانو كانتري",
@@ -1348,10 +1380,6 @@ MEN_WOMENS_SINGERS = {
     "christian music songwriters": {
         "males": "كتاب أغان موسيقى مسيحية",
         "females": "كاتبات أغان موسيقى مسيحية"
-    },
-    "classical writers": {
-        "males": "كتاب كلاسيكية",
-        "females": "كاتبات كلاسيكية"
     },
     "contemporary historians": {
         "males": "مؤرخو معاصرة",
