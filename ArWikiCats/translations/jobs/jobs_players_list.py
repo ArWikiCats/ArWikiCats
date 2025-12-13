@@ -123,7 +123,6 @@ STATIC_PLAYER_LABELS: GenderedLabelMap = {
     "national team managers": {"males": "مدربو فرق وطنية", "females": "مدربات فرق وطنية"},
     "sports agents": {"males": "وكلاء رياضات", "females": "وكيلات رياضات"},
     "expatriate sports-people": {"males": "رياضيون مغتربون", "females": "رياضيات مغتربات"},
-    "expatriate sports-people": {"males": "رياضيون مغتربون", "females": "رياضيات مغتربات"},
 }
 # ---------------------------------------------------------------------------
 # Builders
@@ -364,8 +363,17 @@ __all__ = [
 len_print.data_len(
     "jobs_players_list.py",
     {
-        "FOOTBALL_KEYS_PLAYERS": FOOTBALL_KEYS_PLAYERS,
-        "JOBS_PLAYERS": JOBS_PLAYERS,
-        "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,
+        "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,   # 63234
+        "SPORT_JOB_VARIANTS": SPORT_JOB_VARIANTS,                   # 61919
+        "BASE_PLAYER_VARIANTS": BASE_PLAYER_VARIANTS,   # 435
+        "WORLD_CHAMPION_LABELS": WORLD_CHAMPION_LABELS,  # 431
+        "CHAMPION_LABELS": CHAMPION_LABELS,  # 434
+        "GENERAL_SCOPE_LABELS": GENERAL_SCOPE_LABELS,  # 9
+        "STATIC_PLAYER_LABELS": STATIC_PLAYER_LABELS,  # 4
+        "BOXING_LABELS": BOXING_LABELS,  # 42
+        "TEAM_SPORT_LABELS": TEAM_SPORT_LABELS,  # 31
+        "SKATING_LABELS": SKATING_LABELS,  # 4
+        "FOOTBALL_KEYS_PLAYERS": FOOTBALL_KEYS_PLAYERS,  # 46
+        "JOBS_PLAYERS": JOBS_PLAYERS,  # 145
     },
 )

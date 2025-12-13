@@ -71,7 +71,8 @@ def main() -> None:
         # jsons_dir / "taxonomy/Taxons.json",
         # jsons_dir / "taxonomy/Taxons2.json",
         # Path("D:/categories_bot/len_data/jobs.py/singer_variants.json"),
-        Path("D:/categories_bot/len_data/jobs_singers.py/MEN_WOMENS_SINGERS.json"),
+        # Path("D:/categories_bot/len_data/jobs_singers.py/MEN_WOMENS_SINGERS.json"),
+        Path("D:/categories_bot/len_data/jobs_players_list.py/SPORT_JOB_VARIANTS.json"),
     ]
     status = {}
     for file in files:
