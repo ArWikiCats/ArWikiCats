@@ -37,7 +37,7 @@ jobs_mens_data = {
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
 
 
-@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
 @pytest.mark.fast
 def test_with_suffix(key: str, data: dict[str, str]) -> None:
     input2 = f"{key} historical house music bloggers"
@@ -374,7 +374,7 @@ for key, data in RELIGIOUS_KEYS_10.items():
             expatriates_data[f"{key} {job_key}"] = label
 
 
-@pytest.mark.parametrize("input_text,expected", expatriates_data.items(), ids=expatriates_data.keys(), )
+@pytest.mark.parametrize("input_text,expected", expatriates_data.items(), ids=expatriates_data.keys())
 @pytest.mark.skip2
 def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
     result1 = try_religions_jobs_with_suffix(input_text)

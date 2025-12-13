@@ -9,7 +9,7 @@ from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_w
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
 
 
-@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
 def test_with_womens(key: str, data: dict[str, str]) -> None:
     input_text = f"female {key}"
     expected = data["females"]
@@ -18,14 +18,14 @@ def test_with_womens(key: str, data: dict[str, str]) -> None:
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
-@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
 def test_with_mens(key: str, data: dict[str, str]) -> None:
     expected_mens = data["males"]
     result_mens = new_religions_jobs_with_suffix(key)
     assert result_mens == expected_mens, f"{expected_mens=}, {result_mens=}, {key=}"
 
 
-@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=[x for x in RELIGIOUS_KEYS_20])
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
 def test_with_male(key: str, data: dict[str, str]) -> None:
     input_text = f"male {key}"
     expected = f"{data['males']} ذكور"
