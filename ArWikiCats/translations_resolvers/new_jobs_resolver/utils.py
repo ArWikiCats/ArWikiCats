@@ -32,38 +32,6 @@ def one_Keys_more_2(x, v, add_women=False) -> dict[str, str]:
     return data
 
 
-def one_Keys_more(x, v, add_women=False) -> dict[str, str]:
-    data = {}
-    # writers blind
-    data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
-
-    # greek blind
-    data[x.format(en="{en_nat}")] = v.format(ar="{ar_nat}")
-
-    # greek writers blind
-    data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
-    # writers greek blind
-    data[x.format(en="{en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
-    if add_women:
-        # female greek blind
-        data[x.format(en="{women} {en_nat}")] = v.format(ar="{ar_nat}")
-
-        # female writers blind
-        data[x.format(en="{women} {en_job}")] = v.format(ar="{ar_job}")
-        # female greek writers blind
-        data[x.format(en="{women} {en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # writers female greek blind
-        data[x.format(en="{en_job} {women} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # female writers greek blind
-        data[x.format(en="{women} {en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
-    return data
-
-
 def nat_and_gender_keys(nat_job_key, key, gender_key, gender_label) -> dict[str, str]:
     data = {}
 
@@ -97,7 +65,6 @@ def filter_and_replace_gender_terms(formatted_data) -> dict:
 
 
 __all__ = [
-    "one_Keys_more",
     "nat_and_gender_keys",
     "filter_and_replace_gender_terms",
 ]
