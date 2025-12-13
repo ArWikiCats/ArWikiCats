@@ -57,7 +57,7 @@ def test_one() -> None:
     result1 = try_religions_jobs_with_suffix(input_text)
     result2 = new_religions_jobs_with_suffix(input_text)
 
-    assert result1 == expected, f"{expected=}, {result2=}, {input_text=}"
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
     assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
@@ -344,7 +344,7 @@ def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
     result1 = try_religions_jobs_with_suffix(input_text)
     result2 = new_religions_jobs_with_suffix(input_text)
 
-    assert result1 == expected, f"{expected=}, {result2=}, {input_text=}"
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
     assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
@@ -361,7 +361,7 @@ def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> Non
     result1 = try_religions_jobs_with_suffix(input_text)
     result2 = new_religions_jobs_with_suffix(input_text)
 
-    assert result1 == expected, f"{expected=}, {result2=}, {input_text=}"
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
     assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
@@ -380,7 +380,7 @@ def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
     result1 = try_religions_jobs_with_suffix(input_text)
     result2 = new_religions_jobs_with_suffix(input_text)
 
-    assert result1 == expected, f"{expected=}, {result2=}, {input_text=}"
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
     assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
