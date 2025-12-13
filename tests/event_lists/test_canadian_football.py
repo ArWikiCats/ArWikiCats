@@ -1,12 +1,13 @@
-#
+"""
+"Category:Defunct Canadian football teams": "تصنيف:فرق كرة قدم كندية سابقة",
+"Category:LGBTQ players of Canadian football": "تصنيف:لاعبو كرة قدم كندية مثليون",
+"""
 import pytest
-from load_one_data import dump_diff, one_dump_test
-
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
     "Category:Canadian football quarterbacks": "تصنيف:أظهرة رباعيون كرة قدم كندية",
-    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كنديون",
     "Category:Canadian football people": "تصنيف:أعلام كرة القدم الكندية",
     "Category:Canadian football people from Ottawa": "تصنيف:أعلام كرة القدم الكندية من أوتاوا",
     "Category:Canadian football people from Edmonton": "تصنيف:أعلام كرة القدم الكندية من إدمونتون",
@@ -29,7 +30,6 @@ data1 = {
     "Category:Canadian football media": "تصنيف:إعلام كرة القدم الكندية",
     "Category:Canadian football guards": "تصنيف:حراس كرة قدم كندية",
     "Category:Canadian football leagues": "تصنيف:دوريات كرة قدم كندية",
-    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كنديون",
     "Category:Canadian football teams": "تصنيف:فرق كرة القدم الكندية",
     "Category:Canadian football teams by city": "تصنيف:فرق كرة القدم الكندية حسب المدينة",
     "Category:Canadian football teams by province or territory": "تصنيف:فرق كرة القدم الكندية حسب المقاطعة أو الإقليم",
@@ -42,7 +42,6 @@ data1 = {
     "Category:Canadian football teams in Manitoba": "تصنيف:فرق كرة القدم الكندية في مانيتوبا",
     "Category:Canadian football teams in Winnipeg": "تصنيف:فرق كرة القدم الكندية في وينيبيغ",
     "Category:Canadian football teams by league": "تصنيف:فرق كرة قدم كندية حسب الدوري",
-    "Category:Defunct Canadian football teams": "تصنيف:فرق كرة قدم كندية سابقة",
     "Category:Canadian football teams in Vancouver": "تصنيف:فرق كرة قدم كندية في فانكوفر",
     "Category:Canadian football teams in Calgary": "تصنيف:فرق كرة قدم كندية في كالغاري",
     "Category:Canadian football templates": "تصنيف:قوالب كرة قدم كندية",
@@ -151,7 +150,6 @@ data1 = {
     "Category:Venezuelan players of Canadian football": "تصنيف:لاعبو كرة قدم كندية فنزويليون",
     "Category:Cuban players of Canadian football": "تصنيف:لاعبو كرة قدم كندية كوبيون",
     "Category:Lebanese players of Canadian football": "تصنيف:لاعبو كرة قدم كندية لبنانيون",
-    "Category:LGBTQ players of Canadian football": "تصنيف:لاعبو كرة قدم كندية مثليون",
     "Category:Players of Canadian football from Arkansas": "تصنيف:لاعبو كرة قدم كندية من أركنساس",
     "Category:Players of Canadian football from Arizona": "تصنيف:لاعبو كرة قدم كندية من أريزونا",
     "Category:Players of Canadian football from Alaska": "تصنيف:لاعبو كرة قدم كندية من ألاسكا",
@@ -194,7 +192,6 @@ data1 = {
     "Category:Players of Canadian football from Utah": "تصنيف:لاعبو كرة قدم كندية من يوتا",
     "Category:Nigerian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية نيجيريون",
     "Category:Honduran players of Canadian football": "تصنيف:لاعبو كرة قدم كندية هندوراسيون",
-    "Category:Canadian players of Canadian football": "تصنيف:لاعبو كنديون من كرة القدم الكندية",
     "Category:Panamanian players of Canadian football": "تصنيف:لاعبون بنميون في كرة القدم الكندية",
     "Category:Bahamian players of Canadian football": "تصنيف:لاعبون بهاميون في كرة القدم الكندية",
     "Category:Puerto Rican players of Canadian football": "تصنيف:لاعبون بورتوريكيون في كرة القدم الكندية",
@@ -202,14 +199,9 @@ data1 = {
     "Category:Guyanese players of Canadian football": "تصنيف:لاعبون غيانيون في كرة القدم الكندية",
     "Category:Cameroonian players of Canadian football": "تصنيف:لاعبون كاميرونيون في كرة القدم الكندية",
     "Category:Democratic Republic of the Congo players of Canadian football": "تصنيف:لاعبون كونغويون ديمقراطيون في كرة القدم الكندية",
-    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كنديون",
-    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة قدم كنديون",
-    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة قدم كنديون",
-    "Category:Canadian football fullbacks": "تصنيف:مدافعون كرة قدم كنديون",
     "Category:Coaches of Canadian football": "تصنيف:مدربو كرة القدم الكندية",
     "Category:African-American coaches of Canadian football": "تصنيف:مدربون أفارقة أمريكيون في كرة القدم الكندية",
     "Category:Canadian football wide receivers": "تصنيف:مستقبلون واسعون كرة قدم كندية",
-    "Category:Canadian football placekickers": "تصنيف:مسددون كرة قدم كنديون",
     "Category:Canadian football tackles": "تصنيف:مصطدمو كرة قدم كندية",
     "Category:Canadian football terminology": "تصنيف:مصطلحات كرة القدم الكندية",
     "Category:Canadian football venues": "تصنيف:ملاعب كرة القدم الكندية",
@@ -225,6 +217,14 @@ data2 = {
 }
 
 data3 ={
+    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كنديون",
+    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كنديون",
+    "Category:Canadian players of Canadian football": "تصنيف:لاعبو كنديون من كرة القدم الكندية",
+    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كنديون",
+    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة قدم كنديون",
+    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة قدم كنديون",
+    "Category:Canadian football fullbacks": "تصنيف:مدافعون كرة قدم كنديون",
+    "Category:Canadian football placekickers": "تصنيف:مسددون كرة قدم كنديون",
 }
 
 to_test = [
@@ -244,6 +244,7 @@ def test_canadian_football_1(category: str, expected: str) -> None:
 def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
+    dump_diff_text(expected, diff_result, name)
 
     # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
     # dump_diff(add_result, f"{name}_add")
