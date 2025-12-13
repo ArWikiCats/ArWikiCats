@@ -5,16 +5,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
-    "Category:Canadian football fullbacks": "تصنيف:مدافعو كرة قدم كنديون",
-    "Category:Canadian football guards": "تصنيف:حراس كرة قدم كنديون",
-    "Category:Canadian football offensive linemen": "تصنيف:مهاجمو خط كرة قدم كنديون",
-    "Category:Canadian football placekickers": "تصنيف:مسددو كرة قدم كنديون",
-    "Category:Canadian football quarterbacks": "تصنيف:أظهرة رباعيون كرة قدم كنديون",
-    "Category:Canadian football scouts": "تصنيف:كشافة كرة قدم كنديون",
-    "Category:Canadian football tackles": "تصنيف:مصطدمو كرة قدم كنديون",
-    "Category:Canadian football wide receivers": "تصنيف:مستقبلون واسعون كرة قدم كنديون",
-    "Category:Canadian players of Canadian football by populated place": "تصنيف:لاعبو كرة قدم كندية كنديون حسب المكان المأهول",
-    "Category:Canadian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية كنديون",
+
+
     "Category:African-American coaches of Canadian football": "تصنيف:مدربون أفارقة أمريكيون في كرة القدم الكندية",
     "Category:American players of Canadian football by populated place": "تصنيف:لاعبو كرة قدم كندية حسب المدينة أو البلدة في الولايات المتحدة",
     "Category:American players of Canadian football by state": "تصنيف:لاعبو كرة قدم كندية أمريكيون حسب الولاية",
@@ -25,9 +17,6 @@ data1 = {
     "Category:Canadian football by city": "تصنيف:كرة القدم الكندية حسب المدينة",
     "Category:Canadian football by country": "تصنيف:كرة القدم الكندية حسب البلد",
     "Category:Canadian football by province or territory": "تصنيف:كرة القدم الكندية حسب المقاطعة أو الإقليم",
-    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كنديون",
-    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة قدم كنديون",
-    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة قدم كنديون",
     "Category:Canadian Football Hall of Fame inductees": "تصنيف:أعضاء قاعة مشاهير كرة القدم الكندية",
     "Category:Canadian football in Alberta": "تصنيف:كرة القدم الكندية في ألبرتا",
     "Category:Canadian football in British Columbia": "تصنيف:كرة القدم الكندية في كولومبيا البريطانية",
@@ -62,7 +51,6 @@ data1 = {
     "Category:Canadian Football League venues": "تصنيف:ملاعب الدوري الكندي لكرة القدم",
     "Category:Canadian Football League": "تصنيف:الدوري الكندي لكرة القدم",
     "Category:Canadian football leagues": "تصنيف:دوريات كرة قدم كندية",
-    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كنديون",
     "Category:Canadian football media": "تصنيف:إعلام كرة القدم الكندية",
     "Category:Canadian football on television": "تصنيف:كرة القدم الكندية في التلفاز",
     "Category:Canadian football people from Calgary": "تصنيف:أعلام كرة القدم الكندية من كالغاري",
@@ -85,7 +73,6 @@ data1 = {
     "Category:Canadian football people from Winnipeg": "تصنيف:أعلام كرة القدم الكندية من وينيبيغ",
     "Category:Canadian football people": "تصنيف:أعلام كرة القدم الكندية",
     "Category:Canadian football players in Edmonton": "تصنيف:لاعبو كرة القدم الكندية في إدمونتون",
-    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كنديون",
     "Category:Canadian football teams by city": "تصنيف:فرق كرة القدم الكندية حسب المدينة",
     "Category:Canadian football teams by league": "تصنيف:فرق كرة قدم كندية حسب الدوري",
     "Category:Canadian football teams by province or territory": "تصنيف:فرق كرة القدم الكندية حسب المقاطعة أو الإقليم",
@@ -250,7 +237,21 @@ data2 = {
     "Category:Canadian football offensive linemen": "تصنيف:مهاجمو خط كرة قدم كندية",
     "Category:Canadian football guards": "تصنيف:حراس كرة قدم كندية",
 }
+
 data3 ={
+    "Category:Canadian football fullbacks": "تصنيف:مدافعو كرة قدم كنديون",
+    "Category:Canadian football guards": "تصنيف:حراس كرة قدم كنديون",
+    "Category:Canadian football offensive linemen": "تصنيف:مهاجمو خط كرة قدم كنديون",
+    "Category:Canadian football placekickers": "تصنيف:مسددو كرة قدم كنديون",
+    "Category:Canadian football quarterbacks": "تصنيف:أظهرة رباعيون كرة قدم كنديون",
+    "Category:Canadian football scouts": "تصنيف:كشافة كرة قدم كنديون",
+    "Category:Canadian football tackles": "تصنيف:مصطدمو كرة قدم كنديون",
+    "Category:Canadian football wide receivers": "تصنيف:مستقبلون واسعون كرة قدم كنديون",
+    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كنديون",
+    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة قدم كنديون",
+    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة قدم كنديون",
+    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كنديون",
+    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كنديون",
 }
 
 to_test = [
