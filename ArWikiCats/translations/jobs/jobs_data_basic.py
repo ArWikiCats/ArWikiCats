@@ -124,6 +124,7 @@ def _build_military_job_labels(
 # (?<!\w)(shi'a\ muslims|sunni\ muslims|shia\ muslims|shi'a\ muslim|sunni\ muslim|shia\ muslim|episcopalians|evangelical|christians|protestant|anglicans|christian|methodist|religious|venerated|anglican|buddhist|bahá'ís|yazidis|islamic|muslims|muslim|coptic|hindus|jewish|zaydis|saints|hindu|zaydi|sufis|nazi|jews)(?!\w)
 RELIGIOUS_KEYS_PP: GenderedLabelMap = {
     "bahá'ís": {"males": "بهائيون", "females": "بهائيات"},
+    "baháís": {"males": "بهائيون", "females": "بهائيات"},
     "yazidis": {"males": "يزيديون", "females": "يزيديات"},
     "christians": {"males": "مسيحيون", "females": "مسيحيات"},
     "anglican": {"males": "أنجليكيون", "females": "أنجليكيات"},
