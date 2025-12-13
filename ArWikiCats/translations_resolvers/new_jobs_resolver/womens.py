@@ -151,6 +151,7 @@ def _load_jobs_data() -> dict[str, str]:
         x: v
         for x, v in jobs_womens_data.items()
         if not any(word in x for word in not_in_keys)
+        and not RELIGIOUS_KEYS_PP.get(x)
     }
     data.update({
         "actresses": "ممثلات",

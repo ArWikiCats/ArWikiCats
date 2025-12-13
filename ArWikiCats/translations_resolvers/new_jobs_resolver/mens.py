@@ -117,6 +117,7 @@ def _load_jobs_data() -> dict[str, str]:
         x: v
         for x, v in jobs_mens_data.items()
         if not any(word in x for word in not_in_keys)
+        and not RELIGIOUS_KEYS_PP.get(x)
     }
 
     return data
