@@ -68,7 +68,7 @@ test_womens_data = {
     "female sport wrestlers": "مصارعات رياضيات",
     "female sports coaches": "مدربات رياضة",
     "female sports-people": "رياضيات",
-    "female squash players": "لاعبات إسكواش",
+    "female squash players": "لاعبات اسكواش",
     "female swimmers": "سباحات",
     "female table tennis players": "لاعبات كرة طاولة",
     "female taekwondo practitioners": "لاعبات تايكوندو",

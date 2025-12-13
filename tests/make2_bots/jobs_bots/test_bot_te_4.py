@@ -83,7 +83,7 @@ Multi_Sports_data = {
     "commonwealth games field hockey players": "لاعبو هوكي ميدان في ألعاب الكومنولث",
     "commonwealth games gymnasts": "لاعبو جمباز في ألعاب الكومنولث",
     "commonwealth games rugby sevens players": "لاعبو سباعيات رجبي في ألعاب الكومنولث",
-    "commonwealth games squash players": "لاعبو إسكواش في ألعاب الكومنولث",
+    "commonwealth games squash players": "لاعبو اسكواش في ألعاب الكومنولث",
     "commonwealth games swimmers": "سباحون في ألعاب الكومنولث",
     "commonwealth games triathletes": "لاعبو ترياثلون في ألعاب الكومنولث",
     "european games boxers": "ملاكمون في الألعاب الأوروبية",
