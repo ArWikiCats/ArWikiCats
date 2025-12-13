@@ -6,6 +6,12 @@ TODO: write code
 
 import functools
 
+formatted_data = {
+    # "Category:Indonesian women singers": "تصنيف:مغنيات إندونيسيات",
+    "{en} singers": "مغنون {males}",
+    "{en} women singers": "مغنيات {females}",
+}
+
 
 def resolve_relegin_nats_jobs(category: str) -> str:
     """
