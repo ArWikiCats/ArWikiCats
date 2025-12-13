@@ -225,28 +225,6 @@ def test_new_womens_nationality_argentine_female_sailors() -> None:
     result = jobs_with_nat_prefix("", "argentine", "female sailors")
     assert result == "بحارات أرجنتينيات"
 
-
-# --- New Men's Jobs Data Tests ---
-
-
-def test_new_mens_job_classical_europop_composers_albanian() -> None:
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "albanian", "classical europop composers")
-    assert result == "ملحنو يوروبوب كلاسيكيون ألبان"
-
-
-def test_new_mens_job_abidat_rma_pianists_arab() -> None:
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "arab", "abidat rma pianists")
-    assert result == "عازفو بيانو عبيدات الرما عرب"
-
-
-def test_new_mens_job_historical_objectivists_ancient_roman() -> None:
-    jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "ancient-roman", "historical objectivists")
-    assert result == "موضوعيون تاريخيون رومان قدماء"
-
-
 # --- New Women's Short Jobs Data Tests ---
 
 

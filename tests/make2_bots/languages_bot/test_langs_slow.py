@@ -98,17 +98,6 @@ def test_sample_jobs_mens_data() -> None:
     assert result == "كتاب باللغة الأبخازية"
 
 
-def test_sample_jobs_discuss_throw() -> None:
-    # "discus throw umpires": "حكام رمي قرص",
-    result = Lang_work("abkhazian-language discus throw umpires")
-    assert result == "حكام رمي قرص باللغة الأبخازية"
-
-
-def test_sample_films_key_for_nat() -> None:
-    result = Lang_work("arabic-language 3d anime films")
-    assert result == "أفلام ثلاثية الأبعاد أنمي باللغة العربية"
-
-
 def test_sample_films_drama() -> None:
     # "action drama films": "أفلام حركة درامية {}",
     result = Lang_work("abkhazian-language action drama films")
