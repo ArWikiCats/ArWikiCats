@@ -1,3 +1,23 @@
+## [#210](https://github.com/MrIbrahem/ArWikiCats/pull/210) - 2025-12-13
+
+* **New Features**
+  * Expanded Arabic translations for ministerial positions (electricity and water) and sports-related job titles with male/female variant mappings.
+
+* **Bug Fixes**
+  * Corrected typos in test data and removed invalid test entries to improve data quality.
+
+* **Tests**
+  * Removed obsolete test cases for improved test suite maintenance.
+
+## [#209](https://github.com/MrIbrahem/ArWikiCats/pull/209) - 2025-12-13
+
+* **Updates**
+  * Expanded Arabic translations for sports-related and occupation-based job titles with comprehensive variant mappings for male and female roles.
+  * Improved translation resource loading infrastructure for better performance.
+
+* **Bug Fixes**
+  * Corrected typos in test data and removed invalid test entries to improve overall data quality and test reliability.
+
 ## [#208](https://github.com/MrIbrahem/ArWikiCats/pull/208) - 2025-12-13
 
 * **New Features**

@@ -118,9 +118,11 @@ NAT_P17_OIOI = {
 
 sports_formatted_data = {
     # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
+    "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
     "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
 
     # expatriate basketball people
+    "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
     "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
 
     # _build_new_kkk() -> dict[str, str]:

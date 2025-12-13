@@ -129,6 +129,7 @@ ministrs_keys = {
     "war": {"singular": "حرب", "al": "الحرب"},
     "water": {"singular": "مياه", "al": "المياه"},
     "women's": {"singular": "شؤون المرأة", "al": "شؤون المرأة"},
+    "electricity": {"singular": "كهرباء", "al": "الكهرباء"},
     # "state": {"singular": "خارجية", "al": "الخارجية"},
 }
 
@@ -143,6 +144,7 @@ add_keys = [
     ("labour", "social security"),
     ("agriculture", "cooperatives"),
     ("peace", "reconciliation"),
+    ("electricity", "water"),
 ]
 # ---
 for key1, key2 in add_keys:
