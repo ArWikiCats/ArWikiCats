@@ -57,8 +57,8 @@ if file_path.exists():
         data_3 = json.load(f)
 
 
-@pytest.mark.parametrize("name,data", [(f"test_big_data_3_{len(data_3)}_item", data_3)])
-@pytest.mark.skip3
+@pytest.mark.parametrize("name,data", [(f"test_big_data_3_with_{len(data_3)}_item", data_3)])
+@pytest.mark.skip2
 def test_religions_big_data_3(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
