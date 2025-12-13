@@ -189,7 +189,6 @@ def _build_gender_key_maps(
 
 
 def _build_series_and_nat_keys(
-    films_key_for_nat: Dict[str, str],
     female_keys: Dict[str, str],
 ) -> Tuple[Dict[str, str], Dict[str, str]]:
     """
@@ -199,18 +198,19 @@ def _build_series_and_nat_keys(
         - films_key_for_nat: With nationality placeholder {}
         - films_mslslat_tab: Without nationality placeholder
     """
-    films_mslslat_tab = {}
+    _mslslat_tab = {}
+    _key_for_nat = {}
 
     # Add fixed templates
-    films_key_for_nat.update(SERIES_DEBUTS_ENDINGS)
+    _key_for_nat.update(SERIES_DEBUTS_ENDINGS)
 
     # Add remakes mapping
-    films_key_for_nat["remakes of {} films"] = f"أفلام {NAT_PLACEHOLDER} معاد إنتاجها"
+    _key_for_nat["remakes of {} films"] = f"أفلام {NAT_PLACEHOLDER} معاد إنتاجها"
 
     # Build base series keys
     for tt, tt_lab in TELEVISION_BASE_KEYS.items():
-        films_key_for_nat[tt] = f"{tt_lab} {NAT_PLACEHOLDER}"
-        films_mslslat_tab[tt] = tt_lab
+        _key_for_nat[tt] = f"{tt_lab} {NAT_PLACEHOLDER}"
+        _mslslat_tab[tt] = tt_lab
 
         # Debuts, endings, revived variants
         for suffix, arabic_suffix in [
@@ -219,15 +219,15 @@ def _build_series_and_nat_keys(
             ("revived after cancellation", "أعيدت بعد إلغائها"),
         ]:
             key_with_suffix = f"{tt} {suffix}"
-            films_key_for_nat[key_with_suffix] = f"{tt_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
-            films_mslslat_tab[key_with_suffix] = f"{tt_lab} {arabic_suffix}"
+            _key_for_nat[key_with_suffix] = f"{tt_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+            _mslslat_tab[key_with_suffix] = f"{tt_lab} {arabic_suffix}"
 
         # Dashed variants for specific keys
         if tt.lower() in DEBUTS_ENDINGS_KEYS:
             for suffix, arabic_suffix in [("debuts", "بدأ عرضها في"), ("endings", "انتهت في")]:
                 dashed_key = f"{tt}-{suffix}"
-                films_key_for_nat[dashed_key] = f"{tt_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
-                films_mslslat_tab[dashed_key] = f"{tt_lab} {arabic_suffix}"
+                _key_for_nat[dashed_key] = f"{tt_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                _mslslat_tab[dashed_key] = f"{tt_lab} {arabic_suffix}"
 
     # Build combinations of female film keys with series keys
     for ke, ke_lab in female_keys.items():
@@ -235,8 +235,8 @@ def _build_series_and_nat_keys(
             key_base = f"{ke} {tt}"
 
             # Base combination
-            films_key_for_nat[key_base] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER}"
-            films_mslslat_tab[key_base] = f"{tt_lab} {ke_lab}"
+            _key_for_nat[key_base] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER}"
+            _mslslat_tab[key_base] = f"{tt_lab} {ke_lab}"
 
             # Debuts, endings, revived variants
             for suffix, arabic_suffix in [
@@ -247,20 +247,20 @@ def _build_series_and_nat_keys(
                 combo_key = f"{key_base} {suffix}"
 
                 if suffix == "revived after cancellation":
-                    films_key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
-                    films_mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
+                    _key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                    _mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
                 else:
-                    films_key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
-                    films_mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
+                    _key_for_nat[combo_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                    _mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
 
             # Dashed variants
             if tt.lower() in DEBUTS_ENDINGS_KEYS:
                 for suffix, arabic_suffix in [("debuts", "بدأ عرضها في"), ("endings", "انتهت في")]:
                     dashed_key = f"{key_base}-{suffix}"
-                    films_key_for_nat[dashed_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
-                    films_mslslat_tab[dashed_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
+                    _key_for_nat[dashed_key] = f"{tt_lab} {ke_lab} {NAT_PLACEHOLDER} {arabic_suffix}"
+                    _mslslat_tab[dashed_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
 
-    return films_key_for_nat, films_mslslat_tab
+    return _key_for_nat, _mslslat_tab
 
 
 def _build_television_cao(
@@ -385,10 +385,12 @@ Films_key_O_multi = {
 Films_key2 = film_keys_for_female
 
 # Build series and nationality keys
-Films_key_For_nat, films_mslslat_tab = _build_series_and_nat_keys(
-    Films_key_For_nat,
-    film_keys_for_female,
-)
+# Films_key_For_nat_extended, films_mslslat_tab = _build_series_and_nat_keys(film_keys_for_female)
+
+Films_key_For_nat_extended = open_json_file("Films_key_For_nat_extended_found.json")
+films_mslslat_tab = open_json_file("films_mslslat_tab_found.json")
+
+Films_key_For_nat.update(Films_key_For_nat_extended)
 
 # Extend Films_key_333 with female labels from Films_key_O_multi
 for cd, ff in Films_key_O_multi.items():
@@ -400,7 +402,8 @@ for cd, ff in Films_key_O_multi.items():
 Films_key_CAO, ss_Films_key_CAO = _build_television_cao(film_keys_for_female)
 
 # Build female combination keys
-Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
+# Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
+Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.json")
 
 # Legacy aliases
 film_key_women_2 = TELEVISION_BASE_KEYS
@@ -410,6 +413,7 @@ television_keys = TELEVISION_KEYS
 len_print.data_len(
     "films_mslslat.py",
     {
+        "Films_key_For_nat_extended": Films_key_For_nat_extended,
         "television_keys": television_keys,
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,

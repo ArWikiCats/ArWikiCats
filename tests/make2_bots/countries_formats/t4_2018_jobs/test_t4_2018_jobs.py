@@ -65,7 +65,7 @@ te4_2018_Jobs_data = {
     "armenian expatriate sports-people": "رياضيون أرمن مغتربون",
     "asian politicians": "سياسيون آسيويين",
     "athletes": "لاعبو قوى",
-    "australian comedy writers": "كتاب كوميدي أستراليون",
+    "australian comedy writers": "كتاب كوميديا أستراليون",
     "australian expatriate sports-people": "رياضيون أستراليون مغتربون",
     "australian heavy metal singers": "مغنو هيفي ميتال أستراليون",
     "australian male sculptors": "نحاتون ذكور أستراليون",

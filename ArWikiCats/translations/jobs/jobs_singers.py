@@ -614,8 +614,8 @@ MEN_WOMENS_SINGERS = {
         "females": "عازفات ترومبون كلاسيكية"
     },
     "comedy writers": {
-        "males": "كتاب كوميدي",
-        "females": "كاتبات كوميدي"
+        "males": "كتاب كوميديا",
+        "females": "كاتبات كوميديا"
     },
     "r&b singers": {
         "males": "مغنو ريذم أند بلوز",
