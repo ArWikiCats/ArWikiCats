@@ -239,15 +239,15 @@ data1 = {
 }
 
 data2 = {
+    "Category:Canadian players of Canadian football by populated place": "تصنيف:لاعبو كرة قدم كندية كنديون حسب المكان المأهول",
+    "Category:Canadian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية كنديون",
+    "Category:Canadian football placekickers": "تصنيف:مسددو كرة قدم كندية",
+    "Category:Canadian football fullbacks": "تصنيف:مدافعو كرة قدم كندية",
     "Category:Canadian football wide receivers": "تصنيف:مستقبلون واسعون كرة قدم كندية",
-    "Category:Canadian players of Canadian football by populated place": "تصنيف:لاعبو كرة قدم كندية حسب المكان المأهول في كندا",
-    "Category:Canadian players of Canadian football": "تصنيف:لاعبو كنديون من كرة القدم الكندية",
     "Category:Canadian football scouts": "تصنيف:كشافة كرة قدم كندية",
     "Category:Canadian football tackles": "تصنيف:مصطدمو كرة قدم كندية",
-    "Category:Canadian football placekickers": "تصنيف:مسددون كرة قدم كنديون",
     "Category:Canadian football quarterbacks": "تصنيف:أظهرة رباعيون كرة قدم كندية",
     "Category:Canadian football offensive linemen": "تصنيف:مهاجمو خط كرة قدم كندية",
-    "Category:Canadian football fullbacks": "تصنيف:مدافعون كرة قدم كنديون",
     "Category:Canadian football guards": "تصنيف:حراس كرة قدم كندية",
 }
 data3 ={
