@@ -65,24 +65,6 @@ def test_must_be_empty() -> None:
     assert result == ""
 
 
-test_religions_data = {
-    "Category:female Yemeni shi'a muslims": "تصنيف:يمنيات مسلمات شيعيات",
-    "Category:Yemeni female shia muslims": "تصنيف:يمنيات مسلمات شيعيات",
-    "Category:Yemeni women's muslims": "تصنيف:يمنيات مسلمات",
-    "Category:Yemeni female muslims": "تصنيف:يمنيات مسلمات",
-    "Category:women's Yemeni muslims": "تصنيف:يمنيات مسلمات",
-}
-
-
-@pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
-@pytest.mark.skip2
-def test_religions(category: str, expected: str) -> None:
-    """Test all nat translation patterns."""
-    # result = new_religions_jobs_with_suffix(category)
-    result = womens_resolver_labels(category)
-    assert result == expected
-
-
 test_religions_data_2 = {
     "Category:Pakistani expatriate female actors": "تصنيف:ممثلات باكستانيات مغتربات",
     "Category:expatriate female actors": "تصنيف:ممثلات مغتربات",

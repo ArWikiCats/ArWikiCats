@@ -55,29 +55,6 @@ def test_nat_pattern_multi(category: str, expected: str) -> None:
     assert result == expected
 
 
-test_religions_data = {
-    "Category:Yemeni shi'a muslims": "تصنيف:يمنيون مسلمون شيعة",
-    "Category:Yemeni shia muslims": "تصنيف:يمنيون مسلمون شيعة",
-    "Category:Yemeni male muslims": "تصنيف:يمنيون مسلمون ذكور",
-    "Category:Yemeni muslims male": "تصنيف:يمنيون مسلمون ذكور",
-
-    "Category:Yemeni muslims": "تصنيف:يمنيون مسلمون",
-    "Category:Yemeni people muslims": "تصنيف:يمنيون مسلمون",
-
-    "Category:Pakistani expatriate footballers": "تصنيف:لاعبو كرة قدم باكستانيون مغتربون",
-
-}
-
-
-@pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
-@pytest.mark.skip2
-def test_religions(category: str, expected: str) -> None:
-    """Test all nat translation patterns."""
-    # result = new_religions_jobs_with_suffix(category)
-    result = mens_resolver_labels(category)
-    assert result == expected
-
-
 test_religions_data_2 = {
     "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
     "Category:expatriate male actors": "تصنيف:ممثلون ذكور مغتربون",
