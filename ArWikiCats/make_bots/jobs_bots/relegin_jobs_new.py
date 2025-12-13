@@ -5,7 +5,7 @@
 
 import functools
 from ...helps.log import logger
-from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data
+from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
 
@@ -69,7 +69,7 @@ def _load_womens_bot() -> MultiDataFormatterBase:
         data_list=religions_data,
         key_placeholder="{rele_en}",
         value_placeholder="{rele_ar}",
-        data_list2=jobs_mens_data,
+        data_list2=jobs_womens_data,
         key2_placeholder="{job_en}",
         value2_placeholder="{job_ar}",
         search_first_part=True
@@ -136,7 +136,7 @@ def womens_result(category: str) -> str:
     logger.debug(f"\t xx start: <<lightred>>womens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_womens_bot()
-    return nat_bot.search_all(category)
+    return nat_bot.search_all_category(category)
 
 
 @functools.lru_cache(maxsize=None)
@@ -146,7 +146,7 @@ def mens_result(category: str) -> str:
     logger.debug(f"\t xx start: <<lightred>>mens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_mens_bot()
-    return nat_bot.search_all(category)
+    return nat_bot.search_all_category(category)
 
 
 @functools.lru_cache(maxsize=None)
@@ -156,3 +156,10 @@ def new_religions_jobs_with_suffix(category: str) -> str:
     logger.debug(f"\t xx start: <<lightred>>try_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
 
     return mens_result(category) or womens_result(category)
+
+
+__all__ = [
+    "new_religions_jobs_with_suffix",
+    "mens_result",
+    "womens_result",
+]
