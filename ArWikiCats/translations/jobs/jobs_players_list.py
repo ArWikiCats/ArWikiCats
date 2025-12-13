@@ -332,7 +332,7 @@ WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
 # SPORT_JOB_VARIANTS = _build_sports_job_variants(SPORTS_KEYS_FOR_JOBS, FOOTBALL_KEYS_PLAYERS)
 SPORT_JOB_VARIANTS = open_json_file("SPORT_JOB_VARIANTS_found.json") or {}
 
-SPORT_JOB_VARIANTS_addittional = {
+SPORT_JOB_VARIANTS_additional = {
 
     "canadian football players": {
         "males": "لاعبو كرة قدم كندية",
@@ -396,7 +396,7 @@ SPORT_JOB_VARIANTS_addittional = {
     },
 }
 
-SPORT_JOB_VARIANTS.update(SPORT_JOB_VARIANTS_addittional)
+SPORT_JOB_VARIANTS.update(SPORT_JOB_VARIANTS_additional)
 
 PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
     STATIC_PLAYER_LABELS,

@@ -2,6 +2,7 @@
 """
 !
 """
+import functools
 import re
 from typing import Dict
 from ...helps import dump_data
@@ -149,7 +150,8 @@ for x in New_Company:
     CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
 
-@dump_data(1)
+# @dump_data(1)
+@functools.lru_cache(maxsize=1024)
 def change_key_mappings_replacements(category):
     # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
     for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
@@ -175,7 +177,6 @@ def change_key_mappings_replacements(category):
         category = patterns["5"].sub(chk_lab, category)
 
     return category
-
 
 CHANGE_KEY_SECONDARY: Dict[str, str] = {
     " - men's tournament": " mens tournament",
@@ -217,7 +218,8 @@ CHANGE_KEY_SECONDARY_REGEX = {
 }
 
 
-@dump_data(1)
+# @dump_data(1)
+@functools.lru_cache(maxsize=1024)
 def change_key_secondary_replacements(category):
 
     # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
