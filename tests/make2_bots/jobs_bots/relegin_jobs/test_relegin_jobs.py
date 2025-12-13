@@ -3,7 +3,7 @@
 
 import pytest
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
+from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix, womens_result
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
@@ -81,7 +81,22 @@ test_data = {
 }
 
 
+test_data_2 = {
+    "actors Episcopalians": "ممثلون أسقفيون",
+    "actors Sunni Muslims": "ممثلون مسلمون سنة",
+}
+
+
+test_female_2 = {
+    # "Muslims actresses": "ممثلات مسلمات",
+    "muslims female singers": "مغنيات مسلمات",
+    "female muslims singers": "مغنيات مسلمات",
+    "female singers muslims": "مغنيات مسلمات",
+}
+
+
 @pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
 def test_new_religions_jobs_with_suffix(input_text: str, expected: str) -> None:
     result = new_religions_jobs_with_suffix(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
@@ -89,3 +104,17 @@ def test_new_religions_jobs_with_suffix(input_text: str, expected: str) -> None:
     input2 = f"people {input_text}"
     result2 = new_religions_jobs_with_suffix(input2)
     assert result2 == expected, f"{expected=}, {result2=}, {input2=}"
+
+
+@pytest.mark.parametrize("input_text,expected", test_data_2.items(), ids=test_data_2.keys())
+@pytest.mark.fast
+def test_religions_with_jobs(input_text: str, expected: str) -> None:
+    result = new_religions_jobs_with_suffix(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
+
+
+@pytest.mark.parametrize("input_text,expected", test_female_2.items(), ids=test_female_2.keys())
+@pytest.mark.fast
+def test_females(input_text: str, expected: str) -> None:
+    result = womens_result(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
