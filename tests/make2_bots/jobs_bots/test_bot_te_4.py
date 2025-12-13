@@ -261,7 +261,7 @@ data_2018_with_nat = {
     "mexican-american culture": "ثقافة أمريكية مكسيكية",
     "moroccan television series": "مسلسلات تلفزيونية مغربية",
     "moroccan tennis": "كرة مضرب مغربية",
-    "music journalists": "صحفيو موسيقى",
+    "music journalists": "صحفيون موسيقيون",
     "nepali television": "التلفزة النيبالية",
     "nigerian football": "كرة القدم النيجيرية",
     "north korean literature": "أدب كوري شمالي",

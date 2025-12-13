@@ -255,10 +255,6 @@ def _build_sports_job_variants(
             "males": f"أعلام {arabic_label}",
             "females": "",
         }
-        result[f"{lowered_job_key} commentators_"] = {  # TODO: remove this
-            "males": f"معلقو {arabic_label}",
-            "females": f"معلقات {arabic_label}",
-        }
         result[f"{lowered_job_key} announcers"] = {
             "males": f"مذيعو {arabic_label}",
             "females": f"مذيعات {arabic_label}",
@@ -274,10 +270,6 @@ def _build_sports_job_variants(
         result[f"{lowered_job_key} executives"] = {
             "males": f"مسيرو {arabic_label}",
             "females": f"مسيرات {arabic_label}",
-        }
-        result[f"{lowered_job_key} sports-people"] = {
-            "males": f"رياضيو {arabic_label}",
-            "females": f"رياضيات {arabic_label}",
         }
         result[f"{lowered_job_key} sports-people"] = {
             "males": f"رياضيو {arabic_label}",
