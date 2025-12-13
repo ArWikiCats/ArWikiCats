@@ -59,7 +59,7 @@ data_1 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", data_1.items(), ids=list(data_1.keys()))
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_resolve_by_countries_names_1(category: str, expected: str) -> None:
     label1 = resolve_by_countries_names(category)

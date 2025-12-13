@@ -65,7 +65,7 @@ te4_2018_Jobs_data = {
     "armenian expatriate sports-people": "رياضيون أرمن مغتربون",
     "asian politicians": "سياسيون آسيويين",
     "athletes": "لاعبو قوى",
-    "australian comedy writers": "كتاب كوميدي أستراليون",
+    "australian comedy writers": "كتاب كوميديا أستراليون",
     "australian expatriate sports-people": "رياضيون أستراليون مغتربون",
     "australian heavy metal singers": "مغنو هيفي ميتال أستراليون",
     "australian male sculptors": "نحاتون ذكور أستراليون",
@@ -79,7 +79,7 @@ te4_2018_Jobs_data = {
     "australian wheelchair rugby players": "لاعبو رجبي على كراسي متحركة أستراليون",
     "australian wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة أستراليون",
     "australian women wheelchair racers": "متسابقات كراسي متحركة أستراليات",
-    "austrian classical violinists": "عازفو كمان كلاسيكية نمساويون",
+    "austrian classical violinists": "عازفو كمان كلاسيكيون نمساويون",
     "austrian film directors": "مخرجو أفلام نمساويون",
     "austrian men wheelchair racers": "متسابقو كراسي متحركة رجال نمساويون",
     "austrian pianists": "عازفو بيانو نمساويون",
@@ -416,7 +416,7 @@ te4_2018_Jobs_data = {
     "pan-africanists": "وحدويون أفارقة",
     "panamanian anti-communists": "بنميون مناهضون للشيوعية",
     "panamanian expatriates": "بنميون مغتربون",
-    "paraguayan classical musicians": "موسيقيو كلاسيكية بارغوايانيون",
+    "paraguayan classical musicians": "موسيقيون كلاسيكيون بارغوايانيون",
     "paraguayan male actors": "ممثلون ذكور بارغوايانيون",
     "paraguayan singers": "مغنون بارغوايانيون",
     "paraguayan surgeons": "جراحون بارغوايانيون",
@@ -661,14 +661,14 @@ data_fast = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=list(te4_2018_Jobs_data.keys()))
+@pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=te4_2018_Jobs_data.keys())
 @pytest.mark.slow
 def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
     label = te4_2018_Jobs(category)
     assert label == expected_key
 
 
-@pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=list(data_fast.keys()))
+@pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
     label = te4_2018_Jobs(category)

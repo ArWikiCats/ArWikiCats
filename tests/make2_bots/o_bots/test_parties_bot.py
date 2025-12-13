@@ -9,7 +9,7 @@ from ArWikiCats.make_bots.o_bots.parties_bot import get_parties_lab
 fast_data = {}
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_fast_data(category: str, expected: str) -> None:
     label = get_parties_lab(category)

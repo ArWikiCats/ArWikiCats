@@ -4,7 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_resolver_labels
+from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_resolver_labels, nat_and_gender_keys
+from ArWikiCats.translations import jobs_mens_data, jobs_womens_data
 
 test_data2 = {
     # nat
@@ -68,6 +69,7 @@ def test_must_be_empty() -> None:
 test_religions_data_2 = {
     "Category:Pakistani expatriate female actors": "تصنيف:ممثلات باكستانيات مغتربات",
     "Category:expatriate female actors": "تصنيف:ممثلات مغتربات",
+    "women's guitarists": "عازفات قيثارة",
 }
 
 
@@ -77,3 +79,30 @@ def test_religions_2(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = womens_resolver_labels(category)
     assert result == expected
+
+
+def test_nat_and_gender_keys():
+    data = nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{ar_nat} مغتربات")
+
+    assert data == {
+        "{en_nat} {women} expatriate": "{ar_nat} مغتربات",
+        "{en_nat} expatriate {women}": "{ar_nat} مغتربات",
+        "{women} {en_nat} expatriate": "{ar_nat} مغتربات"
+    }, print(data)
+
+
+def test_compare():
+    # jobs_mens_data jobs_womens_data
+    new_keys = {
+        x: v for x, v in jobs_womens_data.items()
+        if x not in jobs_mens_data
+    }
+    expected = {
+        "women": "نساء",
+        "sportswomen": "رياضيات",
+        "midwives": "قابلات",
+        "prostitutes": "داعرات",
+        "video game actresses": "ممثلات ألعاب فيديو",
+        "women's-footballers": "لاعبات كرة قدم"
+    }
+    assert new_keys == expected

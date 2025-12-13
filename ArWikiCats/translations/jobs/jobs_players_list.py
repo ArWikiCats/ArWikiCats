@@ -123,7 +123,6 @@ STATIC_PLAYER_LABELS: GenderedLabelMap = {
     "national team managers": {"males": "مدربو فرق وطنية", "females": "مدربات فرق وطنية"},
     "sports agents": {"males": "وكلاء رياضات", "females": "وكيلات رياضات"},
     "expatriate sports-people": {"males": "رياضيون مغتربون", "females": "رياضيات مغتربات"},
-    "expatriate sports-people": {"males": "رياضيون مغتربون", "females": "رياضيات مغتربات"},
 }
 # ---------------------------------------------------------------------------
 # Builders
@@ -256,10 +255,6 @@ def _build_sports_job_variants(
             "males": f"أعلام {arabic_label}",
             "females": "",
         }
-        result[f"{lowered_job_key} commentators_"] = {  # TODO: remove this
-            "males": f"معلقو {arabic_label}",
-            "females": f"معلقات {arabic_label}",
-        }
         result[f"{lowered_job_key} announcers"] = {
             "males": f"مذيعو {arabic_label}",
             "females": f"مذيعات {arabic_label}",
@@ -275,10 +270,6 @@ def _build_sports_job_variants(
         result[f"{lowered_job_key} executives"] = {
             "males": f"مسيرو {arabic_label}",
             "females": f"مسيرات {arabic_label}",
-        }
-        result[f"{lowered_job_key} sports-people"] = {
-            "males": f"رياضيو {arabic_label}",
-            "females": f"رياضيات {arabic_label}",
         }
         result[f"{lowered_job_key} sports-people"] = {
             "males": f"رياضيو {arabic_label}",
@@ -351,7 +342,7 @@ PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
     GENERAL_SCOPE_LABELS,
     CHAMPION_LABELS,
     WORLD_CHAMPION_LABELS,
-    SPORT_JOB_VARIANTS,
+    # SPORT_JOB_VARIANTS,
     BASE_PLAYER_VARIANTS,
 )
 
@@ -364,8 +355,17 @@ __all__ = [
 len_print.data_len(
     "jobs_players_list.py",
     {
-        "FOOTBALL_KEYS_PLAYERS": FOOTBALL_KEYS_PLAYERS,
-        "JOBS_PLAYERS": JOBS_PLAYERS,
-        "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,
+        "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,   # 1,345
+        "SPORT_JOB_VARIANTS": SPORT_JOB_VARIANTS,                   # 61919
+        "BASE_PLAYER_VARIANTS": BASE_PLAYER_VARIANTS,   # 435
+        "WORLD_CHAMPION_LABELS": WORLD_CHAMPION_LABELS,  # 431
+        "CHAMPION_LABELS": CHAMPION_LABELS,  # 434
+        "GENERAL_SCOPE_LABELS": GENERAL_SCOPE_LABELS,  # 9
+        "STATIC_PLAYER_LABELS": STATIC_PLAYER_LABELS,  # 4
+        "BOXING_LABELS": BOXING_LABELS,  # 42
+        "TEAM_SPORT_LABELS": TEAM_SPORT_LABELS,  # 31
+        "SKATING_LABELS": SKATING_LABELS,  # 4
+        "FOOTBALL_KEYS_PLAYERS": FOOTBALL_KEYS_PLAYERS,  # 46
+        "JOBS_PLAYERS": JOBS_PLAYERS,  # 145
     },
 )

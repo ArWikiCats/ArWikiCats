@@ -3,7 +3,7 @@ TODO: write relegin_jobs_nats_jobs.py code
 """
 
 import pytest
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs_nats_jobs import resolve_relegin_nats_jobs
+from ArWikiCats.make_bots.jobs_bots.nats_jobs_resolver import resolve_nats_jobs
 
 test_data = {
     "Afghan Christians" : "تصنيف:أفغان مسيحيون",
@@ -130,14 +130,14 @@ test_religions_female_data = {
 @pytest.mark.skip2
 def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
 
-    result = resolve_relegin_nats_jobs(input_text)
+    result = resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
 @pytest.mark.skip2
 def test_religions_jobs_1(category: str, expected: str) -> None:
-    result = resolve_relegin_nats_jobs(category)
+    result = resolve_nats_jobs(category)
     assert result == expected
 
 
@@ -145,5 +145,5 @@ def test_religions_jobs_1(category: str, expected: str) -> None:
 @pytest.mark.skip2
 def test_religions_females(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = resolve_relegin_nats_jobs(category)
+    result = resolve_nats_jobs(category)
     assert result == expected

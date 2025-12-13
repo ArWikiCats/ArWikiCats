@@ -6,7 +6,7 @@ from .by_type import By_orginal2, By_table, By_table_orginal, Music_By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import get_from_new_p17_final, US_STATES
-from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS
+from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
 from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
@@ -97,6 +97,7 @@ __all__ = [
     "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",
+    "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
     "sport_formts_enar_p17_jobs",

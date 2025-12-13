@@ -370,21 +370,21 @@ sport_jobs_female_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", the_male_sport_team_data.items(), ids=list(the_male_sport_team_data.keys()))
+@pytest.mark.parametrize("category, expected_key", the_male_sport_team_data.items(), ids=the_male_sport_team_data.keys())
 @pytest.mark.fast
 def test_the_male_sport_team_data(category: str, expected_key: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected_key
 
 
-@pytest.mark.parametrize("category, expected_key", ar_sport_team_data.items(), ids=list(ar_sport_team_data.keys()))
+@pytest.mark.parametrize("category, expected_key", ar_sport_team_data.items(), ids=ar_sport_team_data.keys())
 @pytest.mark.fast
 def test_ar_sport_team_data(category: str, expected_key: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected_key
 
 
-@pytest.mark.parametrize("category, expected_key", sport_jobs_female_data.items(), ids=list(sport_jobs_female_data.keys()))
+@pytest.mark.parametrize("category, expected_key", sport_jobs_female_data.items(), ids=sport_jobs_female_data.keys())
 @pytest.mark.fast
 def test_sport_jobs_female_data(category: str, expected_key: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)

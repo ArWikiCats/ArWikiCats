@@ -18,18 +18,11 @@ jobs_mens_data = {
     "scholars of islam": "باحثون عن الإسلام",
     "women's rights activists": "ناشطون في حقوق المرأة",
     "convicted-of-murder": "أدينوا بالقتل",
-    "classical europop cheerleaders": "قادة تشجيع يوروبوب كلاسيكيون",
-    "classical europop composers": "ملحنو يوروبوب كلاسيكيون",
-    "abidat rma pianists": "عازفو بيانو عبيدات الرما",
-    "abidat rma record producers": "منتجو تسجيلات عبيدات الرما",
-    "historical objectivists": "موضوعيون تاريخيون",
-    "historical opera authors": "مؤلفو أوبرا تاريخيون",
+    "objectivists": "موضوعيون",
     "men's sailing (sport) power forwards": "مهاجمون أقوياء الجسم رياضة إبحار رجالية",
     "men's sailing (sport) quarterbacks": "أظهرة رباعيون رياضة إبحار رجالية",
     "men's sailing (sport) racing centers": "لاعبو وسط سباق رياضة إبحار رجالية",
     "ski-orienteering quarterbacks": "أظهرة رباعيون سباق تزلج موجه",
-    "abidat rma saxophonists": "عازفو سكسفون عبيدات الرما",
-    "abidat rma singer-songwriters": "مغنون وكتاب أغاني عبيدات الرما",
     "expatriates": "مغتربون",
 }
 
@@ -40,8 +33,8 @@ RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.key
 @pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
 @pytest.mark.fast
 def test_with_suffix(key: str, data: dict[str, str]) -> None:
-    input2 = f"{key} historical house music bloggers"
-    expected2 = f"مدونو هاوس تاريخيون {data['males']}"
+    input2 = f"{key} science bloggers"
+    expected2 = f"مدونو علم {data['males']}"
 
     result1 = try_religions_jobs_with_suffix(input2)
     result2 = new_religions_jobs_with_suffix(input2)
@@ -51,8 +44,8 @@ def test_with_suffix(key: str, data: dict[str, str]) -> None:
 
 def test_one() -> None:
     # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "males": "بهائيون", "females": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
-    input_text = "bahá'ís classical europop composers"
-    expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
+    input_text = "bahá'ís opera composers"
+    expected = "ملحنو أوبرا بهائيون"
 
     result1 = try_religions_jobs_with_suffix(input_text)
     result2 = new_religions_jobs_with_suffix(input_text)
@@ -195,13 +188,13 @@ test_data_2 = {
     "Jewish chemists": "كيميائيون يهود",
     "Jewish chess players": "لاعبو شطرنج يهود",
     "Jewish civil rights activists": "ناشطو حقوق مدنية يهود",
-    "Jewish classical composers": "ملحنو كلاسيكية يهود",
-    "Jewish classical musicians": "موسيقيو كلاسيكية يهود",
-    "Jewish classical pianists": "عازفو بيانو كلاسيكية يهود",
-    "Jewish classical violinists": "عازفو كمان كلاسيكية يهود",
+    "Jewish classical composers": "ملحنون كلاسيكيون يهود",
+    "Jewish classical musicians": "موسيقيون كلاسيكيون يهود",
+    "Jewish classical pianists": "عازفو بيانو كلاسيكيون يهود",
+    "Jewish classical violinists": "عازفو كمان كلاسيكيون يهود",
     "Jewish clergy": "رجال دين يهود",
     "Jewish comedians": "كوميديون يهود",
-    "Jewish comedy writers": "كتاب كوميدي يهود",
+    "Jewish comedy writers": "كتاب كوميديا يهود",
     "Jewish communists": "شيوعيون يهود",
     "Jewish composers": "ملحنون يهود",
     "Jewish country singers": "مغنو كانتري يهود",

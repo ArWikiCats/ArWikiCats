@@ -245,42 +245,42 @@ test_data_the_female = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data_males.items(), ids=list(test_data_males.keys()))
+@pytest.mark.parametrize("category, expected", test_data_males.items(), ids=test_data_males.keys())
 @pytest.mark.fast
 def test_resolve_males(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=list(test_data_ar.keys()))
+@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=test_data_ar.keys())
 @pytest.mark.fast
 def test_resolve_ar(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_the_male.items(), ids=list(test_data_the_male.keys()))
+@pytest.mark.parametrize("category, expected", test_data_the_male.items(), ids=test_data_the_male.keys())
 @pytest.mark.fast
 def test_resolve_the_male(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_male.items(), ids=list(test_data_male.keys()))
+@pytest.mark.parametrize("category, expected", test_data_male.items(), ids=test_data_male.keys())
 @pytest.mark.fast
 def test_resolve_male(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_female.items(), ids=list(test_data_female.keys()))
+@pytest.mark.parametrize("category, expected", test_data_female.items(), ids=test_data_female.keys())
 @pytest.mark.fast
 def test_resolve_female(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_the_female.items(), ids=list(test_data_the_female.keys()))
+@pytest.mark.parametrize("category, expected", test_data_the_female.items(), ids=test_data_the_female.keys())
 @pytest.mark.fast
 def test_resolve_the_female(category: str, expected: str) -> None:
     label = resolve_by_nats(category)

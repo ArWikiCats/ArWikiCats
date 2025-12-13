@@ -5,20 +5,7 @@ import functools
 from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
-
-def _nat_and_gender_keys(key, gender_key, gender_label) -> dict[str, str]:
-    data = {}
-
-    # "Yemeni male muslims": "تصنيف:يمنيون مسلمون ذكور"
-    data[f"{{en_nat}} {gender_key} {key}"] = gender_label
-
-    # "Yemeni muslims male": "تصنيف:يمنيون مسلمون ذكور"
-    data[f"{{en_nat}} {key} {gender_key}"] = gender_label
-
-    # "male Yemeni muslims": "تصنيف:يمنيون مسلمون ذكور"
-    data[f"{gender_key} {{en_nat}} {key}"] = gender_label
-
-    return data
+from .utils import one_Keys_more_2, nat_and_gender_keys
 
 
 def _load_formatted_data() -> dict:
@@ -41,23 +28,16 @@ def _load_formatted_data() -> dict:
         "{en_nat} people": "أعلام {ar_nat}",
         "male {en_nat}": "{ar_nat} ذكور",
 
-        # TODO: ADD DATA FROM RELIGIOUS_KEYS_PP
-        "{en_nat} shia muslims": "{ar_nat} مسلمون شيعة",
+        # emigrants keys
+        # "{en_nat} emigrants": "{ar_job} مهاجرون",
+        "{en_nat} emigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
+        "emigrants {en_nat} {en_job}": "{ar_job} مهاجرون",
+
     }
 
-    religious_formatted_data = {}
-    for x, v in RELIGIOUS_KEYS_PP.items():
-        label = f"{{ar_nat}} {v['males']}"
-
-        # "Yemeni muslims": "تصنيف:يمنيون مسلمون"
-        religious_formatted_data[f"{{en_nat}} {x}"] = label
-        # religious_formatted_data[f"{x} {{en_nat}}"] = label
-
-        religious_formatted_data.update(
-            _nat_and_gender_keys(x, "male", f"{label} ذكور")
-        )
-
-    # formatted_data_jobs_with_nat.update(religious_formatted_data)
+    # { "{en_nat} male emigrants": "{ar_nat} مهاجرون ذكور", "{en_nat} emigrants male": "{ar_nat} مهاجرون ذكور", "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور" }
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{ar_nat} مهاجرون ذكور"))
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{ar_nat} مغتربون ذكور"))
 
     formatted_data_jobs = {
 
@@ -71,11 +51,10 @@ def _load_formatted_data() -> dict:
         "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
 
         # emigrants keys
-        # "{en_nat} emigrants": "{ar_job} مهاجرون",
-        "{en_nat} emigrants {en_job}": "{ar_job} مهاجرون",
-        "emigrants {en_nat} {en_job}": "{ar_job} مهاجرون",
         "emigrants {en_job}": "{ar_job} مهاجرون",
     }
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "male", "{ar_job} مهاجرون ذكور"))
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "male", "{ar_job} مغتربون ذكور"))
 
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update({
@@ -88,20 +67,20 @@ def _load_formatted_data() -> dict:
     # })
 
     genders_keys: dict[str, str] = {
-        "{en} male deaf": "{ar} صم ذكور",
-        "{en} blind": "{ar} مكفوفون",
-        "{en} deaf": "{ar} صم",
-        "{en} deafblind": "{ar} صم ومكفوفون",
-        "{en} killed-in-action": "{ar} قتلوا في عمليات قتالية",
-        "{en} killed in action": "{ar} قتلوا في عمليات قتالية",
-        "{en} murdered abroad": "{ar} قتلوا في الخارج",
+        "male deaf": "صم ذكور",
+        "blind": "مكفوفون",
+        "deaf": "صم",
+        "deafblind": "صم ومكفوفون",
+        "killed-in-action": "قتلوا في عمليات قتالية",
+        "killed in action": "قتلوا في عمليات قتالية",
+        "murdered abroad": "قتلوا في الخارج",
     }
 
     for x, v in genders_keys.items():
-        formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
-        formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-        formatted_data[x.format(en="{en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
+        # formatted_data.update( one_Keys_more_2(x, v, add_women=False) )
+        formatted_data.update(
+            one_Keys_more_2(x, v, add_women=False)
+        )
     formatted_data.update(formatted_data_jobs_with_nat)
 
     return formatted_data

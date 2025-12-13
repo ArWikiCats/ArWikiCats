@@ -98,7 +98,7 @@ fast_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_work_relations(category: str, expected: str) -> None:
     label = work_relations(category)
@@ -113,7 +113,7 @@ fast_data2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
+@pytest.mark.parametrize("category, expected", fast_data2.items(), ids=fast_data2.keys())
 @pytest.mark.fast
 def test_relations_congo(category: str, expected: str) -> None:
     label = work_relations(category)

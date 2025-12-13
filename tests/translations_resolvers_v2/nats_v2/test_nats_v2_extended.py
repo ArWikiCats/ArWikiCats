@@ -17,7 +17,7 @@ all_test_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=list(all_test_data.keys()))
+@pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=all_test_data.keys())
 @pytest.mark.slow
 def test_resolve_by_nats(category: str, expected_key: str) -> None:
     label2 = resolve_by_nats(category)
@@ -88,7 +88,7 @@ data_series_empty = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", all_test_data_integrated.items(), ids=list(all_test_data_integrated.keys()))
+@pytest.mark.parametrize("category, expected_key", all_test_data_integrated.items(), ids=all_test_data_integrated.keys())
 @pytest.mark.slow
 def test_with_resolve_arabic_category_label(category: str, expected_key: str) -> None:
     label2 = resolve_arabic_category_label(category)

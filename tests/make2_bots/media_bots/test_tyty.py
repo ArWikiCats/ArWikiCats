@@ -83,7 +83,7 @@ test_data_3 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data.items(), ids=list(test_data.keys()))
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_search_multi(category: str, expected: str) -> None:
     label1 = search_multi_new(category)
@@ -106,7 +106,7 @@ test_put_label_last_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_put_label_last_data.items(), ids=list(test_put_label_last_data.keys()))
+@pytest.mark.parametrize("category, expected", test_put_label_last_data.items(), ids=test_put_label_last_data.keys())
 @pytest.mark.fast
 def test_put_label_last(category: str, expected: str) -> None:
 
@@ -122,7 +122,7 @@ fast_data2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data2.items(), ids=list(fast_data2.keys()))
+@pytest.mark.parametrize("category, expected", fast_data2.items(), ids=fast_data2.keys())
 @pytest.mark.fast
 def test_search_multi_z(category: str, expected: str) -> None:
     label2 = search_multi_new(category)

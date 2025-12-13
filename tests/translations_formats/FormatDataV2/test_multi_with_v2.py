@@ -64,7 +64,7 @@ test_first_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_first_data.items(), ids=list(test_first_data.keys()))
+@pytest.mark.parametrize("category, expected", test_first_data.items(), ids=test_first_data.keys())
 @pytest.mark.fast
 def test_first_bot(multi_bot: MultiDataFormatterBaseV2, category: str, expected: str) -> None:
     result = multi_bot.country_bot.search(category)
@@ -81,7 +81,7 @@ test_match_key_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=list(test_match_key_data.keys()))
+@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=test_match_key_data.keys())
 @pytest.mark.fast
 def test_standers(multi_bot: MultiDataFormatterBaseV2, category: str, expected: str) -> None:
     result = multi_bot.search_all(category)

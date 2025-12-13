@@ -78,21 +78,21 @@ test_data = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", geography_data.items(), ids=list(geography_data.keys()))
+@pytest.mark.parametrize("category, expected", geography_data.items(), ids=geography_data.keys())
 @pytest.mark.fast
 def test_geography(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", geography_in_1.items(), ids=list(geography_in_1.keys()))
+@pytest.mark.parametrize("category, expected", geography_in_1.items(), ids=geography_in_1.keys())
 @pytest.mark.fast
 def test_geography_in_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", geography_in_2.items(), ids=list(geography_in_2.keys()))
+@pytest.mark.parametrize("category, expected", geography_in_2.items(), ids=geography_in_2.keys())
 @pytest.mark.fast
 def test_geography_in_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)

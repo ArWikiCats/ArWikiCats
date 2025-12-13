@@ -6,8 +6,14 @@ TODO: write code
 
 import functools
 
+formatted_data = {
+    # "Category:Indonesian women singers": "تصنيف:مغنيات إندونيسيات",
+    "{en} singers": "مغنون {males}",
+    "{en} women singers": "مغنيات {females}",
+}
 
-def resolve_relegin_nats_jobs(category: str) -> str:
+
+def resolve_nats_jobs(category: str) -> str:
     """
     Resolves the Arabic label for a category string that combines a religious group and a nationality.
     Args:

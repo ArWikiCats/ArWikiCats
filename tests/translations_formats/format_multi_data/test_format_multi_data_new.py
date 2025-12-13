@@ -70,7 +70,7 @@ def test_data_compare_one(multi_bot: MultiDataFormatterBase) -> None:
     assert label2 == expected
 
 
-@pytest.mark.parametrize("category, expected", data_compare.items(), ids=list(data_compare.keys()))
+@pytest.mark.parametrize("category, expected", data_compare.items(), ids=data_compare.keys())
 @pytest.mark.fast
 def test_data_compare_multi(multi_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
     label2 = multi_bot.search_all(category)

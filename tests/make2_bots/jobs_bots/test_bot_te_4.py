@@ -83,7 +83,7 @@ Multi_Sports_data = {
     "commonwealth games field hockey players": "لاعبو هوكي ميدان في ألعاب الكومنولث",
     "commonwealth games gymnasts": "لاعبو جمباز في ألعاب الكومنولث",
     "commonwealth games rugby sevens players": "لاعبو سباعيات رجبي في ألعاب الكومنولث",
-    "commonwealth games squash players": "لاعبو إسكواش في ألعاب الكومنولث",
+    "commonwealth games squash players": "لاعبو اسكواش في ألعاب الكومنولث",
     "commonwealth games swimmers": "سباحون في ألعاب الكومنولث",
     "commonwealth games triathletes": "لاعبو ترياثلون في ألعاب الكومنولث",
     "european games boxers": "ملاكمون في الألعاب الأوروبية",
@@ -261,7 +261,7 @@ data_2018_with_nat = {
     "mexican-american culture": "ثقافة أمريكية مكسيكية",
     "moroccan television series": "مسلسلات تلفزيونية مغربية",
     "moroccan tennis": "كرة مضرب مغربية",
-    "music journalists": "صحفيو موسيقى",
+    "music journalists": "صحفيون موسيقيون",
     "nepali television": "التلفزة النيبالية",
     "nigerian football": "كرة القدم النيجيرية",
     "north korean literature": "أدب كوري شمالي",
@@ -321,21 +321,21 @@ data_2018_with_nat = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_nat_match(category: str, expected: str) -> None:
     label = nat_match(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=list(Multi_Sports_data.keys()))
+@pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=Multi_Sports_data.keys())
 @pytest.mark.fast
 def test_Jobs_in_Multi_Sports(category: str, expected: str) -> None:
     label = Jobs_in_Multi_Sports(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", data_2018_with_nat.items(), ids=list(data_2018_with_nat.keys()))
+@pytest.mark.parametrize("category, expected", data_2018_with_nat.items(), ids=data_2018_with_nat.keys())
 @pytest.mark.fast
 def test_te_2018_with_nat(category: str, expected: str) -> None:
     label = te_2018_with_nat(category)

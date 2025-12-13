@@ -168,7 +168,7 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", data1.items(), ids=list(data1.keys()))
+@pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
 @pytest.mark.fast
 def test_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)

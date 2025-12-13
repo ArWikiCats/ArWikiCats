@@ -9,7 +9,7 @@ from ArWikiCats.make_bots.o_bots.fax import te_language
 fast_data = {}
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_fast_data(category: str, expected: str) -> None:
     label = te_language(category)

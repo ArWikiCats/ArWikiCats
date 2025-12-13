@@ -9,7 +9,7 @@ import sys
 from typing import Dict, Mapping
 
 from ...helps import len_print
-from ..utils.json_dir import open_json
+from ..utils.json_dir import open_json, open_json_file
 from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 # ---------------------------------------------------------------------------
@@ -221,19 +221,20 @@ for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
 
 """Expanded non-fiction topics covering both static and dynamically generated entries."""
 
-MEN_WOMENS_SINGERS: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Singers.json") or {}
+MEN_WOMENS_SINGERS_BASED: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Singers.json") or {}
 
-MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
+# MEN_WOMENS_SINGERS = {}
+# MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
+# MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
+# MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
 
-MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
-
-MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
+MEN_WOMENS_SINGERS = open_json_file("MEN_WOMENS_SINGERS_found.json")
 
 len_print.data_len(
     "jobs_singers.py",
     {
+        "MEN_WOMENS_SINGERS_BASED": MEN_WOMENS_SINGERS_BASED,
         "FILMS_TYPE": FILMS_TYPE,
-        "NON_FICTION_ADDITIONAL_TOPICS": NON_FICTION_ADDITIONAL_TOPICS,
         "NON_FICTION_BASE_TOPICS": NON_FICTION_BASE_TOPICS,
         "NON_FICTION_TOPICS": NON_FICTION_TOPICS,
         "SINGER_CATEGORY_LABELS": SINGER_CATEGORY_LABELS,
@@ -244,12 +245,8 @@ len_print.data_len(
 )
 
 __all__ = [
+    "MEN_WOMENS_SINGERS_BASED",
     "FILMS_TYPE",
-    "NON_FICTION_ADDITIONAL_TOPICS",
-    "NON_FICTION_BASE_TOPICS",
-    "NON_FICTION_TOPICS",
-    "SINGER_CATEGORY_LABELS",
-    "SINGERS_AFTER_ROLES",
     "MEN_WOMENS_SINGERS",
     "SINGERS_TAB",
 ]

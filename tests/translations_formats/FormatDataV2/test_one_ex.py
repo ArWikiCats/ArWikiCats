@@ -95,7 +95,7 @@ basic_cases = {
 }
 
 
-@pytest.mark.parametrize("category, expected", basic_cases.items(), ids=list(basic_cases.keys()))
+@pytest.mark.parametrize("category, expected", basic_cases.items(), ids=basic_cases.keys())
 @pytest.mark.fast
 def test_search_nationality_basic(bot: FormatDataV2, category: str, expected: str) -> None:
     """Ensure all basic nationality cases resolve correctly."""

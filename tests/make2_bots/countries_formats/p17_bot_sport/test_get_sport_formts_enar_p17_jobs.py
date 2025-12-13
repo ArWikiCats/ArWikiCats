@@ -26,7 +26,7 @@ data2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", data2.items(), ids=list(data2.keys()))
+@pytest.mark.parametrize("category, expected_key", data2.items(), ids=data2.keys())
 @pytest.mark.fast
 def test_get_sport_formts_enar_p17_jobs(category: str, expected_key: str) -> None:
     label = get_sport_formts_enar_p17_jobs(category)

@@ -10,6 +10,9 @@ from .data import country_names_and_nats_data
 peoples_nats_not_jobs_males = {
     "{en} expatriates": "{males} مغتربون",
     "{en} emigrants": "{males} مهاجرون",
+    # "Category:Indonesian women singers": "تصنيف:مغنيات إندونيسيات",
+    "{en} singers": "مغنون {males}",
+    "{en} women singers": "مغنيات {females}",
 }
 
 males_data = {
@@ -18,6 +21,7 @@ males_data = {
     "{en} non-profit publishers": "ناشرون غير ربحيون {males}",
     "{en} government officials": "مسؤولون حكوميون {males}",
 }
+
 males_data.update(peoples_nats_not_jobs_males)
 
 ar_data = {
@@ -33,6 +37,7 @@ ar_data = {
     "{en} national women's motorsports racing team": "منتخب {ar} لسباق رياضة المحركات للسيدات",
 
 }
+
 the_male_data = {
     "{en} nationality law": "قانون الجنسية {the_male}",
     "{en} executive council": "المجلس التنفيذي {the_male}",

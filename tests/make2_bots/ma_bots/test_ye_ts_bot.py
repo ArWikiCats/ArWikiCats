@@ -13,7 +13,7 @@ from ArWikiCats.make_bots.ma_bots.ye_ts_bot import (
 fast_data = {}
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_fast_data(category: str, expected: str) -> None:
     label = translate_general_category(category)

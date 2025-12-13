@@ -47,7 +47,7 @@ def test_add_all() -> None:
     assert isinstance(result_various, str)
 
 
-@pytest.mark.parametrize("category, expected", definite_article_data.items(), ids=list(definite_article_data.keys()))
+@pytest.mark.parametrize("category, expected", definite_article_data.items(), ids=definite_article_data.keys())
 @pytest.mark.fast
 def test_add_definite_article(category: str, expected: str) -> None:
     label = add_definite_article(category)

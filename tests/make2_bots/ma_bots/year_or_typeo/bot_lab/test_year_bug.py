@@ -64,14 +64,14 @@ def test_all(name: str, data: dict[str, str]) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-@pytest.mark.parametrize("category, expected", examples.items(), ids=list(examples.keys()))
+@pytest.mark.parametrize("category, expected", examples.items(), ids=examples.keys())
 @pytest.mark.fast
 def test_label_for_startwith_year_or_typeo(category: str, expected: str) -> None:
     label = label_for_startwith_year_or_typeo(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", examples_century.items(), ids=list(examples_century.keys()))
+@pytest.mark.parametrize("category, expected", examples_century.items(), ids=examples_century.keys())
 @pytest.mark.fast
 def test_label_for_startwith_year_or_typeo_centuries(category: str, expected: str) -> None:
     label = label_for_startwith_year_or_typeo(category)

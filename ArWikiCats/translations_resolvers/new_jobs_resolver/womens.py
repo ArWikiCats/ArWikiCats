@@ -6,22 +6,7 @@ import functools
 from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
-
-def _nat_and_gender_keys(key, gender_key, gender_label) -> dict[str, str]:
-    data = {}
-
-    # "Yemeni male muslims": "تصنيف:يمنيون مسلمون ذكور"
-    # "Yemeni women's muslims": "تصنيف:يمنيات مسلمات"
-    data[f"{{en_nat}} {gender_key} {key}"] = gender_label
-
-    # "Yemeni muslims male": "تصنيف:يمنيون مسلمون ذكور"
-    data[f"{{en_nat}} {key} {gender_key}"] = gender_label
-
-    # "male Yemeni muslims": "تصنيف:يمنيون مسلمون ذكور"
-    # "women's Yemeni muslims": "تصنيف:يمنيات مسلمات"
-    data[f"{gender_key} {{en_nat}} {key}"] = gender_label
-
-    return data
+from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
 
 
 def _load_formatted_data() -> dict:
@@ -39,22 +24,10 @@ def _load_formatted_data() -> dict:
         # base keys
         "{women} {en_nat} people": "{ar_nat}",
         "{en_nat} {women} people": "{ar_nat}",
-
-        # TODO: ADD DATA FROM RELIGIOUS_KEYS_PP
-        "{en_nat} {women} shia muslims": "{ar_nat} مسلمات شيعيات",
-        "{women} {en_nat} shia muslims": "{ar_nat} مسلمات شيعيات",
     }
 
-    religious_formatted_data = {}
-    for x, v in RELIGIOUS_KEYS_PP.items():
-        label = f"{{ar_nat}} {v['females']}"
-
-        # religious_formatted_data[f"{key} {{en_nat}}"] = label
-        religious_formatted_data.update(
-            _nat_and_gender_keys(x, "{women}", label)
-        )
-
-    # formatted_data_jobs_with_nat.update(religious_formatted_data)
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{ar_nat} مغتربات"))
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "{women}", "{ar_nat} مهاجرات"))
 
     formatted_data_jobs = {
         # jobs
@@ -80,6 +53,9 @@ def _load_formatted_data() -> dict:
         "emigrants {en_job}": "{ar_job} مهاجرات",
     }
 
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "{women}", "{ar_job} مغتربات"))
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "{women}", "{ar_job} مهاجرات"))
+
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update({
         f"{{en_nat}} {x}": f"{v} {{ar_nat}}" for x, v in formatted_data_jobs.items()
@@ -91,52 +67,21 @@ def _load_formatted_data() -> dict:
     })
 
     genders_keys: dict[str, str] = {
-        "{en} blind": "{ar} مكفوفات",
-        "{en} deaf": "{ar} صم",
-        "{en} deafblind": "{ar} صم ومكفوفات",
-        "{en} killed-in-action": "{ar} قتلن في عمليات قتالية",
-        "{en} killed in action": "{ar} قتلن في عمليات قتالية",
-        "{en} murdered abroad": "{ar} قتلن في الخارج",
+        "blind": "مكفوفات",
+        "deaf": "صم",
+        "deafblind": "صم ومكفوفات",
+        "killed-in-action": "قتلن في عمليات قتالية",
+        "killed in action": "قتلن في عمليات قتالية",
+        "murdered abroad": "قتلن في الخارج",
     }
 
     for x, v in genders_keys.items():
-        # writers blind
-        formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
-
-        # greek blind
-        formatted_data[x.format(en="{en_nat}")] = v.format(ar="{ar_nat}")
-
-        # female greek blind
-        formatted_data[x.format(en="{women} {en_nat}")] = v.format(ar="{ar_nat}")
-
-        # female writers blind
-        formatted_data[x.format(en="{women} {en_job}")] = v.format(ar="{ar_job}")
-
-        # greek writers blind
-        formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # female greek writers blind
-        formatted_data[x.format(en="{women} {en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # writers greek blind
-        formatted_data[x.format(en="{en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # writers female greek blind
-        formatted_data[x.format(en="{en_job} {women} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # female writers greek blind
-        formatted_data[x.format(en="{women} {en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
+        formatted_data.update(
+            one_Keys_more_2(x, v, add_women=True)
+        )
     formatted_data.update(formatted_data_jobs_with_nat)
 
-    formatted_data_women = {x: v for x, v in formatted_data.items() if "{women}" in x}
-
-    formatted_data_final = {x: v for x, v in formatted_data.items() if "{women}" not in x}
-
-    for x, v in formatted_data_women.items():
-        formatted_data_final[x.replace("{women}", "women")] = v
-        formatted_data_final[x.replace("{women}", "womens")] = v
-        formatted_data_final[x.replace("{women}", "female")] = v
+    formatted_data_final = filter_and_replace_gender_terms(formatted_data)
 
     return formatted_data_final
 

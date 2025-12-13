@@ -68,7 +68,7 @@ test_womens_data = {
     "female sport wrestlers": "مصارعات رياضيات",
     "female sports coaches": "مدربات رياضة",
     "female sports-people": "رياضيات",
-    "female squash players": "لاعبات إسكواش",
+    "female squash players": "لاعبات اسكواش",
     "female swimmers": "سباحات",
     "female table tennis players": "لاعبات كرة طاولة",
     "female taekwondo practitioners": "لاعبات تايكوندو",
@@ -104,9 +104,9 @@ test_womens_data = {
     "women choreographers": "مصممات رقص",
     "women cinematographers": "مصورات سينمائيات",
     "women civil servants": "موظفات خدمة مدنية",
-    "women classical composers": "ملحنات كلاسيكية",
-    "women classical pianists": "عازفات بيانو كلاسيكية",
-    "women classical violinists": "عازفات كمان كلاسيكية",
+    "women classical composers": "ملحنات كلاسيكيات",
+    "women classical pianists": "عازفات بيانو كلاسيكيات",
+    "women classical violinists": "عازفات كمان كلاسيكيات",
     "women columnists": "كاتبات عمود",
     "women comedians": "كوميديات",
     "women company founders": "مؤسسات شركات",
@@ -248,14 +248,14 @@ test_womens_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
+@pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=test_womens_data.keys())
 @pytest.mark.fast
 def test_womens_prefixes_work(category: str, expected: str) -> None:
     label = womens_prefixes_work(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=list(test_womens_data.keys()))
+@pytest.mark.parametrize("category, expected", test_womens_data.items(), ids=test_womens_data.keys())
 @pytest.mark.skip2
 def test_get_label(category: str, expected: str) -> None:
     label = womens_resolver_labels(category)

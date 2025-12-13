@@ -17,14 +17,14 @@ test_data_ar = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data_males.items(), ids=list(test_data_males.keys()))
+@pytest.mark.parametrize("category, expected", test_data_males.items(), ids=test_data_males.keys())
 @pytest.mark.fast
 def test_resolve_males(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=list(test_data_ar.keys()))
+@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=test_data_ar.keys())
 @pytest.mark.fast
 def test_resolve_ar(category: str, expected: str) -> None:
     label = resolve_by_nats(category)
