@@ -1,3 +1,20 @@
+## [#208](https://github.com/MrIbrahem/ArWikiCats/pull/208) - 2025-12-13
+
+* **New Features**
+  * Added sport job variants with gendered translations and expanded singer/classical musician mappings
+  * Added extensive film & TV translation resources and additional translation JSONs
+
+* **Bug Fixes**
+  * Corrected Arabic grammatical forms for several musician and illustrator categories
+  * Adjusted various sport-related translation phrasings
+
+* **Refactor**
+  * Shifted several translation data sources to JSON-backed loading and consolidated utilities
+  * Standardized test parametrization style across the suite
+
+* **Chores**
+  * Updated ignore list and revised build/metrics inventory files
+
 ## [#207](https://github.com/MrIbrahem/ArWikiCats/pull/207) - 2025-12-13
 
 * **New Features**

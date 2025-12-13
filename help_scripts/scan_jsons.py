@@ -50,7 +50,8 @@ def main() -> None:
         # Path("D:/categories_bot/len_data/films_mslslat.py/Films_keys_both_new_female.json"),
         # Path("D:/categories_bot/len_data/films_mslslat.py/films_mslslat_tab.json"),
         # Path("D:/categories_bot/len_data/films_mslslat.py/Films_key_For_nat_extended.json"),
-        Path("D:/categories_bot/len_data/jobs.py/jobs_mens_data.json"),
+        # Path("D:/categories_bot/len_data/jobs.py/jobs_mens_data.json"),
+        Path("D:/categories_bot/len_data/jobs.py/film_variants.json"),
     ]
     status = {}
     for file in files:
