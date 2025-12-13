@@ -1,3 +1,12 @@
+## [#209](https://github.com/MrIbrahem/ArWikiCats/pull/209) - 2025-12-13
+
+* **Updates**
+  * Expanded Arabic translations for sports-related and occupation-based job titles with comprehensive variant mappings for male and female roles.
+  * Improved translation resource loading infrastructure for better performance.
+
+* **Bug Fixes**
+  * Corrected typos in test data and removed invalid test entries to improve overall data quality and test reliability.
+
 ## [#208](https://github.com/MrIbrahem/ArWikiCats/pull/208) - 2025-12-13
 
 * **New Features**
