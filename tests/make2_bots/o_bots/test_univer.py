@@ -76,7 +76,7 @@ te_universities_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", te_universities_data.items(), ids=list(te_universities_data.keys()))
+@pytest.mark.parametrize("category, expected_key", te_universities_data.items(), ids=te_universities_data.keys())
 @pytest.mark.fast
 def test_universities_data(category: str, expected_key: str) -> None:
     label = te_universities(category)

@@ -724,14 +724,14 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", data_empty_result.items(), ids=list(data_empty_result.keys()))
+@pytest.mark.parametrize("category, expected", data_empty_result.items(), ids=data_empty_result.keys())
 @pytest.mark.skip2
 def test_data_empty_result(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", non_fiction_empty.items(), ids=list(non_fiction_empty.keys()))
+@pytest.mark.parametrize("category, expected", non_fiction_empty.items(), ids=non_fiction_empty.keys())
 @pytest.mark.skip2
 def test_non_fiction_empty(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)

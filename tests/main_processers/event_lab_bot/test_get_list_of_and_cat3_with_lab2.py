@@ -62,7 +62,7 @@ list_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list(list_data.keys()))
+@pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
 @pytest.mark.fast
 def test_list_data(category: str, expected_key: str) -> None:
     label = get_list_of_and_cat3_with_lab2(category)

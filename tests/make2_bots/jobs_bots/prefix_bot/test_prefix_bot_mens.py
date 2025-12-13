@@ -259,7 +259,7 @@ test_mens_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=list(test_mens_data.keys()))
+@pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
 @pytest.mark.fast
 def test_mens_prefixes_work(category: str, expected: str) -> None:
     label = mens_prefixes_work(category)
@@ -365,7 +365,7 @@ by_data_fast = {
 }
 
 
-@pytest.mark.parametrize("category, expected", by_data_fast.items(), ids=list(by_data_fast.keys()))
+@pytest.mark.parametrize("category, expected", by_data_fast.items(), ids=by_data_fast.keys())
 @pytest.mark.fast
 def test_by_data(category: str, expected: str) -> None:
     label = mens_prefixes_work(category)
@@ -391,7 +391,7 @@ test_suffix = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_suffix.items(), ids=list(test_suffix.keys()))
+@pytest.mark.parametrize("category, expected", test_suffix.items(), ids=test_suffix.keys())
 @pytest.mark.fast
 def test_work_mens_suffix(category: str, expected: str) -> None:
     label = work_mens_suffix(category)
@@ -648,7 +648,7 @@ test_prefix = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_prefix.items(), ids=list(test_prefix.keys()))
+@pytest.mark.parametrize("category, expected", test_prefix.items(), ids=test_prefix.keys())
 @pytest.mark.fast
 def test_work_mens_prefix(category: str, expected: str) -> None:
     label = work_mens_prefix(category)

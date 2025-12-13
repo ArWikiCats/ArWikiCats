@@ -116,7 +116,7 @@ test_data_standard = {
 }
 
 
-@pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=list(test_data_standard.keys()))
+@pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 def test_year_country_combinations(yc_bot: MultiDataFormatterDataDouble, category: str, expected: str) -> None:
     """
     Test
@@ -151,7 +151,7 @@ other_bot_data = {
 }
 
 
-@pytest.mark.parametrize("category,expected", other_bot_data.items(), ids=list(other_bot_data.keys()))
+@pytest.mark.parametrize("category,expected", other_bot_data.items(), ids=other_bot_data.keys())
 def test_other_bot(yc_bot: MultiDataFormatterDataDouble, category: str, expected: str) -> None:
     """
     Test
@@ -170,7 +170,7 @@ test_match_key_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=list(test_match_key_data.keys()))
+@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=test_match_key_data.keys())
 @pytest.mark.fast
 def test_match_key(yc_bot: MultiDataFormatterDataDouble, category: str, expected: str) -> None:
     result = yc_bot.other_bot.match_key(category)

@@ -60,7 +60,7 @@ test_match_key_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=list(test_match_key_data.keys()))
+@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=test_match_key_data.keys())
 @pytest.mark.fast
 def test_standers(bot: FormatDataV2, category: str, expected: str) -> None:
     result = bot.search(category)
@@ -75,7 +75,7 @@ test_no_match_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_no_match_data.items(), ids=list(test_no_match_data.keys()))
+@pytest.mark.parametrize("category, expected", test_no_match_data.items(), ids=test_no_match_data.keys())
 @pytest.mark.fast
 def test_no_matches(bot: FormatDataV2, category: str, expected: str) -> None:
     result = bot.search(category)
@@ -143,7 +143,7 @@ test_overlapping_keys_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_overlapping_keys_data.items(), ids=list(test_overlapping_keys_data.keys()))
+@pytest.mark.parametrize("category, expected", test_overlapping_keys_data.items(), ids=test_overlapping_keys_data.keys())
 @pytest.mark.fast
 def test_overlapping_keys(bot_with_overlapping_keys: FormatDataV2, category: str, expected: str) -> None:
     result = bot_with_overlapping_keys.search(category)

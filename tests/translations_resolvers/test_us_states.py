@@ -43,7 +43,7 @@ def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-@pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=list(all_test_data.keys()))
+@pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=all_test_data.keys())
 @pytest.mark.slow
 def test_resolve_us_states(category: str, expected_key: str) -> None:
     label2 = resolve_us_states(category)
@@ -143,7 +143,7 @@ Work_US_State_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", Work_US_State_data.items(), ids=list(Work_US_State_data.keys()))
+@pytest.mark.parametrize("category, expected_key", Work_US_State_data.items(), ids=Work_US_State_data.keys())
 @pytest.mark.slow
 def test_Work_US_State_data(category: str, expected_key: str) -> None:
     label = resolve_us_states(category)
@@ -231,7 +231,7 @@ fast_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected_key", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_fast_data(category: str, expected_key: str) -> None:
     label = resolve_us_states(category)

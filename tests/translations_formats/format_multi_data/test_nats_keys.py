@@ -57,7 +57,7 @@ test_match_key_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=list(test_match_key_data.keys()))
+@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=test_match_key_data.keys())
 @pytest.mark.fast
 def test_standers(multi_bot: MultiDataFormatterBase, category: str, expected: str) -> None:
     result = multi_bot.search_all(category)

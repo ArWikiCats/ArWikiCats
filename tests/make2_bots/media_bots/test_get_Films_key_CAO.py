@@ -94,7 +94,7 @@ fast_data_drama_cao = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data_drama_cao.items(), ids=list(fast_data_drama_cao.keys()))
+@pytest.mark.parametrize("category, expected", fast_data_drama_cao.items(), ids=fast_data_drama_cao.keys())
 @pytest.mark.fast
 def test_get_Films_key_CAO(category: str, expected: str) -> None:
     label = get_Films_key_CAO(category)

@@ -60,7 +60,7 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize("category,expected", test_data.items(), ids=list(test_data.keys()))
+@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 def test_year_country_combinations(bot: FormatDataDouble, category: str, expected: str) -> None:
     """
     Test
@@ -78,7 +78,7 @@ test_match_key_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=list(test_match_key_data.keys()))
+@pytest.mark.parametrize("category, expected", test_match_key_data.items(), ids=test_match_key_data.keys())
 @pytest.mark.fast
 def test_match_key(bot: FormatDataDouble, category: str, expected: str) -> None:
     result = bot.match_key(category)

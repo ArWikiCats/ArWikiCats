@@ -113,28 +113,28 @@ def test_temporal(name: str, data: dict[str, str]) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-@pytest.mark.parametrize("category, expected", temporal_1.items(), ids=list(temporal_1.keys()))
+@pytest.mark.parametrize("category, expected", temporal_1.items(), ids=temporal_1.keys())
 @pytest.mark.fast
 def test_temporal_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", temporal_2.items(), ids=list(temporal_2.keys()))
+@pytest.mark.parametrize("category, expected", temporal_2.items(), ids=temporal_2.keys())
 @pytest.mark.fast
 def test_temporal_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", temporal_3.items(), ids=list(temporal_3.keys()))
+@pytest.mark.parametrize("category, expected", temporal_3.items(), ids=temporal_3.keys())
 @pytest.mark.fast
 def test_temporal_3(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", temporal_4.items(), ids=list(temporal_4.keys()))
+@pytest.mark.parametrize("category, expected", temporal_4.items(), ids=temporal_4.keys())
 @pytest.mark.fast
 def test_temporal_4(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)

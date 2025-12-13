@@ -129,14 +129,14 @@ fast_data_2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_resolve_films(category: str, expected: str) -> None:
     label = resolve_films(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", fast_data_2.items(), ids=list(fast_data_2.keys()))
+@pytest.mark.parametrize("category, expected", fast_data_2.items(), ids=fast_data_2.keys())
 @pytest.mark.fast
 def test_resolve_films_new(category: str, expected: str) -> None:
     label = resolve_films(category)

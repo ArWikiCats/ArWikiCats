@@ -93,7 +93,7 @@ data6 = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", data6.items(), ids=list(data6.keys()))
+@pytest.mark.parametrize("category, expected_key", data6.items(), ids=data6.keys())
 @pytest.mark.fast
 def test_find_teams_2025(category: str, expected_key: str) -> None:
     label = find_teams_2025(category)

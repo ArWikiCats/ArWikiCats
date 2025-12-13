@@ -60,7 +60,7 @@ fast_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=list(fast_data.keys()))
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 def test_Keep_it_last_extended(category: str, expected: str) -> None:
     # Arabic translation of term "remakes of" ("معاد إنتاجها") should be at last:
     label = resolve_arabic_category_label(category)

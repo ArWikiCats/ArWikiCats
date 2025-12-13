@@ -105,7 +105,7 @@ event_Lab_seoo_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", event_Lab_seoo_data.items(), ids=list(event_Lab_seoo_data.keys()))
+@pytest.mark.parametrize("category, expected_key", event_Lab_seoo_data.items(), ids=event_Lab_seoo_data.keys())
 @pytest.mark.fast
 def test_event_Lab_seoo_data(category: str, expected_key: str) -> None:
     label = event_label_work(category)
@@ -144,7 +144,7 @@ te_bot_3_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", te_bot_3_data.items(), ids=list(te_bot_3_data.keys()))
+@pytest.mark.parametrize("category, expected_key", te_bot_3_data.items(), ids=te_bot_3_data.keys())
 @pytest.mark.skip2("need more work")
 def test_te_bot_3_data(category: str, expected_key: str) -> None:
     label = te_bot_3(category)

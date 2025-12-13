@@ -661,14 +661,14 @@ data_fast = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=list(te4_2018_Jobs_data.keys()))
+@pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=te4_2018_Jobs_data.keys())
 @pytest.mark.slow
 def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
     label = te4_2018_Jobs(category)
     assert label == expected_key
 
 
-@pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=list(data_fast.keys()))
+@pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
     label = te4_2018_Jobs(category)

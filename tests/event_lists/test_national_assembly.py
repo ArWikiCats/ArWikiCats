@@ -185,14 +185,14 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", data_1.items(), ids=list(data_1.keys()))
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_national_assembly_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", data0.items(), ids=list(data0.keys()))
+@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
 @pytest.mark.skip2
 def test_national_assembly_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)

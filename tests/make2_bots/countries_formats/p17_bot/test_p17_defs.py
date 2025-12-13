@@ -29,14 +29,14 @@ test_data_relation_mapping = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data_with_pop_format.items(), ids=list(test_data_with_pop_format.keys()))
+@pytest.mark.parametrize("category, expected", test_data_with_pop_format.items(), ids=test_data_with_pop_format.keys())
 @pytest.mark.fast
 def test_with_pop_format(category: str, expected: str) -> None:
     result = get_con_3_lab_pop_format(category)
     assert result == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_relation_mapping.items(), ids=list(test_data_relation_mapping.keys()))
+@pytest.mark.parametrize("category, expected", test_data_relation_mapping.items(), ids=test_data_relation_mapping.keys())
 @pytest.mark.fast
 def test_from_category_relation_mapping(category: str, expected: str) -> None:
     result = from_category_relation_mapping(category)

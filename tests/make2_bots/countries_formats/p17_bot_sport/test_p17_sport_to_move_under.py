@@ -82,7 +82,7 @@ data_under = {
 }
 
 
-@pytest.mark.parametrize("category, expected", data_under.items(), ids=list(data_under.keys()))
+@pytest.mark.parametrize("category, expected", data_under.items(), ids=data_under.keys())
 @pytest.mark.fast
 def test_under(category: str, expected: str) -> None:
     label2 = get_en_ar_is_p17_label_multi(category)

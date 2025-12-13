@@ -110,14 +110,14 @@ def test_wheelchair_1(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", wheelchair_racers.items(), ids=list(wheelchair_racers.keys()))
+@pytest.mark.parametrize("category, expected", wheelchair_racers.items(), ids=wheelchair_racers.keys())
 @pytest.mark.fast
 def test_wheelchair_racers(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", mens_womens.items(), ids=list(mens_womens.keys()))
+@pytest.mark.parametrize("category, expected", mens_womens.items(), ids=mens_womens.keys())
 @pytest.mark.fast
 def test_wheelchair_mens_womens(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)

@@ -20,7 +20,7 @@ make_cnt_lab_data = {
 }
 
 
-@pytest.mark.parametrize("category, ar", make_cnt_lab_data.items(), ids=list(make_cnt_lab_data.keys()))
+@pytest.mark.parametrize("category, ar", make_cnt_lab_data.items(), ids=make_cnt_lab_data.keys())
 @pytest.mark.fast
 def test_make_cnt_lab_data(category: str, ar: str) -> None:
     label = make_cnt_lab(
@@ -48,7 +48,7 @@ party_data = {
 }
 
 
-@pytest.mark.parametrize("country, part_2_label, expected", party_data.values(), ids=list(party_data.keys()))
+@pytest.mark.parametrize("country, part_2_label, expected", party_data.values(), ids=party_data.keys())
 @pytest.mark.fast
 def test_make_cnt_lab_communist_party(country: str, part_2_label: str, expected: str) -> None:
     label = make_cnt_lab(
@@ -121,7 +121,7 @@ congress_data = {
 }
 
 
-@pytest.mark.parametrize("category, ar", congress_data.items(), ids=list(congress_data.keys()))
+@pytest.mark.parametrize("category, ar", congress_data.items(), ids=congress_data.keys())
 @pytest.mark.fast
 def test_congress_data(category: str, ar: str) -> None:
     label = f"الكونغرس الأمريكي {ar}"
