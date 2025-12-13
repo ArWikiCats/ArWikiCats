@@ -94,7 +94,7 @@ def main() -> None:
             print(f"  {k}: {v}")
         print("...")
         # ---
-        keys_found_dump = {x: data[x] for x, v in keys_found.items() if v > 50}
+        keys_found_dump = {x: data[x] for x, v in keys_found.items()}  # if v > 50}
         output_path = fname.parent / f"{fname.stem}_found.json"
         with output_path.open("w", encoding="utf-8") as f:
             json.dump(keys_found_dump, f, ensure_ascii=False, indent=4)
