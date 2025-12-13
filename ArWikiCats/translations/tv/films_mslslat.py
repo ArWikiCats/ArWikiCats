@@ -390,6 +390,11 @@ Films_key2 = film_keys_for_female
 Films_key_For_nat_extended = open_json_file("Films_key_For_nat_extended_found.json")
 films_mslslat_tab = open_json_file("films_mslslat_tab_found.json")
 
+films_mslslat_tab.update({
+    x.replace(" endings", "-endings"): y
+    for x, y in films_mslslat_tab.items()
+    if " endings" in x
+})
 Films_key_For_nat.update(Films_key_For_nat_extended)
 
 # Extend Films_key_333 with female labels from Films_key_O_multi

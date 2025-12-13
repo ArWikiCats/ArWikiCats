@@ -23,7 +23,7 @@ from .jobs_defs import (
     copy_gendered_map,
     merge_gendered_maps,
 )
-from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS
+from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs_singers import MEN_WOMENS_SINGERS, MEN_WOMENS_SINGERS_BASED
 from .jobs_womens import Female_Jobs
 
@@ -422,7 +422,8 @@ def _finalise_jobs_dataset() -> JobsDataset:
     m_w_jobs.update(film_variants)
     m_w_jobs.update(singer_variants)
 
-    merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)  # 63,234
+    merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)  # 1,345
+    merge_gendered_maps(m_w_jobs, SPORT_JOB_VARIANTS)          # 61,486
 
     m_w_jobs["sports coaches"] = {
         "males": "مدربو رياضة",

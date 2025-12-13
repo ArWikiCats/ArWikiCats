@@ -20,6 +20,7 @@ from ...translations import (
     jobs_mens_data,
     jobs_womens_data,
     PLAYERS_TO_MEN_WOMENS_JOBS,
+    SPORT_JOB_VARIANTS,
     Mens_prefix,
     Mens_suffix,
     Nat_mens,
@@ -337,7 +338,9 @@ def womens_prefixes_work(category: str) -> str:
             # Look up job label from women's data or player mappings
             job_label = (
                 jobs_womens_data.get(job_key) or
-                PLAYERS_TO_MEN_WOMENS_JOBS.get(job_key, {}).get("females", "")
+                PLAYERS_TO_MEN_WOMENS_JOBS.get(job_key, {}).get("females", "") or
+                SPORT_JOB_VARIANTS.get(job_key, {}).get("females", "") or
+                ""
             )
 
             logger.debug(f'<<lightblue>> womens_prefixes_work: Processing {prefix_variant=}: {job_key=}, {job_label=}')
