@@ -1,0 +1,378 @@
+{
+    "television personalities": {
+        "males": "شخصيات تلفزيون",
+        "females": "شخصيات تلفزيون"
+    },
+    "television presenters": {
+        "males": "مذيعو تلفزيون",
+        "females": "مذيعات تلفزيون"
+    },
+    "radio presenters": {
+        "males": "مذيعو راديو",
+        "females": "مذيعات راديو"
+    },
+    "radio personalities": {
+        "males": "شخصيات راديو",
+        "females": "شخصيات راديو"
+    },
+    "comics artists": {
+        "males": "فنانو قصص مصورة",
+        "females": "فنانات قصص مصورة"
+    },
+    "television producers": {
+        "males": "منتجو تلفزيون",
+        "females": "منتجات تلفزيون"
+    },
+    "newspaper editors": {
+        "males": "محررو صحف",
+        "females": "محررات صحف"
+    },
+    "newspaper publishers (people)": {
+        "males": "ناشرو صحف",
+        "females": "ناشرات صحف"
+    },
+    "television journalists": {
+        "males": "صحفيو تلفزيون",
+        "females": "صحفيات تلفزيون"
+    },
+    "comics writers": {
+        "males": "كتاب قصص مصورة",
+        "females": "كاتبات قصص مصورة"
+    },
+    "magazine editors": {
+        "males": "محررو مجلات",
+        "females": "محررات مجلات"
+    },
+    "television directors": {
+        "males": "مخرجو تلفزيون",
+        "females": "مخرجات تلفزيون"
+    },
+    "television writers": {
+        "males": "كتاب تلفزيون",
+        "females": "كاتبات تلفزيون"
+    },
+    "speculative fiction writers": {
+        "males": "كتاب خيال تأملي",
+        "females": "كاتبات خيال تأملي"
+    },
+    "science fiction writers": {
+        "males": "كتاب خيال علمي",
+        "females": "كاتبات خيال علمي"
+    },
+    "radio journalists": {
+        "males": "صحفيو راديو",
+        "females": "صحفيات راديو"
+    },
+    "fantasy writers": {
+        "males": "كتاب فنتازيا",
+        "females": "كاتبات فنتازيا"
+    },
+    "sports journalists": {
+        "males": "صحفيو رياضة",
+        "females": "صحفيات رياضة"
+    },
+    "manga artists": {
+        "males": "فنانو مانغا",
+        "females": "فنانات مانغا"
+    },
+    "television news anchors": {
+        "males": "مذيعو أخبار تلفزيون",
+        "females": "مذيعات أخبار تلفزيون"
+    },
+    "comics creators": {
+        "males": "مبتكرو قصص مصورة",
+        "females": "مبتكرات قصص مصورة"
+    },
+    "war artists": {
+        "males": "فنانو حرب",
+        "females": "فنانات حرب"
+    },
+    "newspaper journalists": {
+        "males": "صحفيو صحف",
+        "females": "صحفيات صحف"
+    },
+    "horror writers": {
+        "males": "كتاب رعب",
+        "females": "كاتبات رعب"
+    },
+    "mystery writers": {
+        "males": "كتاب غموض",
+        "females": "كاتبات غموض"
+    },
+    "radio producers": {
+        "males": "منتجو راديو",
+        "females": "منتجات راديو"
+    },
+    "speculative fiction artists": {
+        "males": "فنانو خيال تأملي",
+        "females": "فنانات خيال تأملي"
+    },
+    "radio writers": {
+        "males": "كتاب راديو",
+        "females": "كاتبات راديو"
+    },
+    "erotica writers": {
+        "males": "كتاب أدب جنسي",
+        "females": "كاتبات أدب جنسي"
+    },
+    "crime writers": {
+        "males": "كتاب جريمة",
+        "females": "كاتبات جريمة"
+    },
+    "magazine publishers (people)": {
+        "males": "ناشرو مجلات",
+        "females": "ناشرات مجلات"
+    },
+    "thriller writers": {
+        "males": "كتاب إثارة",
+        "females": "كاتبات إثارة"
+    },
+    "fantasy artists": {
+        "males": "فنانو فنتازيا",
+        "females": "فنانات فنتازيا"
+    },
+    "speculative fiction critics": {
+        "males": "نقاد خيال تأملي",
+        "females": "ناقدات خيال تأملي"
+    },
+    "webcomic creators": {
+        "males": "مبتكرو ويب كومكس",
+        "females": "مبتكرات ويب كومكس"
+    },
+    "comedy writers": {
+        "males": "كتاب كوميديا",
+        "females": "كاتبات كوميديا"
+    },
+    "speculative fiction editors": {
+        "males": "محررو خيال تأملي",
+        "females": "محررات خيال تأملي"
+    },
+    "business writers": {
+        "males": "كتاب أعمال",
+        "females": "كاتبات أعمال"
+    },
+    "horror artists": {
+        "males": "فنانو رعب",
+        "females": "فنانات رعب"
+    },
+    "television critics": {
+        "males": "نقاد تلفزيون",
+        "females": "ناقدات تلفزيون"
+    },
+    "science fiction artists": {
+        "males": "فنانو خيال علمي",
+        "females": "فنانات خيال علمي"
+    },
+    "alternate history writers": {
+        "males": "كتاب تاريخ بديل",
+        "females": "كاتبات تاريخ بديل"
+    },
+    "financial writers": {
+        "males": "كتاب مالية",
+        "females": "كاتبات مالية"
+    },
+    "business and financial journalists": {
+        "males": "صحفيو أعمال ومالية",
+        "females": "صحفيات أعمال ومالية"
+    },
+    "financial journalists": {
+        "males": "صحفيو مالية",
+        "females": "صحفيات مالية"
+    },
+    "television editors": {
+        "males": "محررو تلفزيون",
+        "females": "محررات تلفزيون"
+    },
+    "environmental writers": {
+        "males": "كتاب بيئة",
+        "females": "كاتبات بيئة"
+    },
+    "speculative fiction publishers (people)": {
+        "males": "ناشرو خيال تأملي",
+        "females": "ناشرات خيال تأملي"
+    },
+    "comic book writers": {
+        "males": "كتاب كتب قصص مصورة",
+        "females": "كاتبات كتب قصص مصورة"
+    },
+    "magazine writers": {
+        "males": "كتاب مجلات",
+        "females": "كاتبات مجلات"
+    },
+    "radio directors": {
+        "males": "مخرجو راديو",
+        "females": "مخرجات راديو"
+    },
+    "television artists": {
+        "males": "فنانو تلفزيون",
+        "females": "فنانات تلفزيون"
+    },
+    "finance and investment writers": {
+        "males": "كتاب تمويل واستثمار",
+        "females": "كاتبات تمويل واستثمار"
+    },
+    "investment writers": {
+        "males": "كتاب استثمار",
+        "females": "كاتبات استثمار"
+    },
+    "newspaper writers": {
+        "males": "كتاب صحف",
+        "females": "كاتبات صحف"
+    },
+    "sports artists": {
+        "males": "فنانو رياضة",
+        "females": "فنانات رياضة"
+    },
+    "comic book editors": {
+        "males": "محررو كتب قصص مصورة",
+        "females": "محررات كتب قصص مصورة"
+    },
+    "dance critics": {
+        "males": "نقاد رقص",
+        "females": "ناقدات رقص"
+    },
+    "environmental artists": {
+        "males": "فنانو بيئة",
+        "females": "فنانات بيئة"
+    },
+    "environmental journalists": {
+        "males": "صحفيو بيئة",
+        "females": "صحفيات بيئة"
+    },
+    "magazine journalists": {
+        "males": "صحفيو مجلات",
+        "females": "صحفيات مجلات"
+    },
+    "radio news anchors": {
+        "males": "مذيعو أخبار راديو",
+        "females": "مذيعات أخبار راديو"
+    },
+    "science fiction critics": {
+        "males": "نقاد خيال علمي",
+        "females": "ناقدات خيال علمي"
+    },
+    "science fiction editors": {
+        "males": "محررو خيال علمي",
+        "females": "محررات خيال علمي"
+    },
+    "sports presenters": {
+        "males": "مذيعو رياضة",
+        "females": "مذيعات رياضة"
+    },
+    "crime journalists": {
+        "males": "صحفيو جريمة",
+        "females": "صحفيات جريمة"
+    },
+    "manga critics": {
+        "males": "نقاد مانغا",
+        "females": "ناقدات مانغا"
+    },
+    "adventure writers": {
+        "males": "كتاب مغامرة",
+        "females": "كاتبات مغامرة"
+    },
+    "comedy fiction writers": {
+        "males": "كتاب خيال كوميدي",
+        "females": "كاتبات خيال كوميدي"
+    },
+    "comic book publishers (people)": {
+        "males": "ناشرو كتب قصص مصورة",
+        "females": "ناشرات كتب قصص مصورة"
+    },
+    "comics critics": {
+        "males": "نقاد قصص مصورة",
+        "females": "ناقدات قصص مصورة"
+    },
+    "sports writers": {
+        "males": "كتاب رياضة",
+        "females": "كاتبات رياضة"
+    },
+    "cyberpunk writers": {
+        "males": "كتاب سايبربانك",
+        "females": "كاتبات سايبربانك"
+    },
+    "dance directors": {
+        "males": "مخرجو رقص",
+        "females": "مخرجات رقص"
+    },
+    "dance writers": {
+        "males": "كتاب رقص",
+        "females": "كاتبات رقص"
+    },
+    "environmental bloggers": {
+        "males": "مدونو بيئة",
+        "females": "مدونات بيئة"
+    },
+    "environmental fiction writers": {
+        "males": "كتاب خيال بيئي",
+        "females": "كاتبات خيال بيئي"
+    },
+    "erotica artists": {
+        "males": "فنانو أدب جنسي",
+        "females": "فنانات أدب جنسي"
+    },
+    "publications directors": {
+        "males": "مخرجو منشورات",
+        "females": "مخرجات منشورات"
+    },
+    "japanese horror artists": {
+        "males": "فنانو رعب ياباني",
+        "females": "فنانات رعب ياباني"
+    },
+    "japanese horror writers": {
+        "males": "كتاب رعب ياباني",
+        "females": "كاتبات رعب ياباني"
+    },
+    "manga writers": {
+        "males": "كتاب مانغا",
+        "females": "كاتبات مانغا"
+    },
+    "martial arts writers": {
+        "males": "كتاب فنون قتالية",
+        "females": "كاتبات فنون قتالية"
+    },
+    "marvel comics editors": {
+        "males": "محررو مارفال كومكس",
+        "females": "محررات مارفال كومكس"
+    },
+    "comics editors": {
+        "males": "محررو قصص مصورة",
+        "females": "محررات قصص مصورة"
+    },
+    "marvel comics writers": {
+        "males": "كتاب مارفال كومكس",
+        "females": "كاتبات مارفال كومكس"
+    },
+    "martial arts journalists": {
+        "males": "صحفيو فنون قتالية",
+        "females": "صحفيات فنون قتالية"
+    },
+    "organized crime writers": {
+        "males": "كتاب جريمة منظمة",
+        "females": "كاتبات جريمة منظمة"
+    },
+    "radio artists": {
+        "males": "فنانو راديو",
+        "females": "فنانات راديو"
+    },
+    "radio critics": {
+        "males": "نقاد راديو",
+        "females": "ناقدات راديو"
+    },
+    "radio editors": {
+        "males": "محررو راديو",
+        "females": "محررات راديو"
+    },
+    "socialist realism writers": {
+        "males": "كتاب واقعية اشتراكية",
+        "females": "كاتبات واقعية اشتراكية"
+    },
+    "finance editors": {
+        "males": "محررو تمويل",
+        "females": "محررات تمويل"
+    },
+    "war writers": {
+        "males": "كتاب حرب",
+        "females": "كاتبات حرب"
+    }
+}

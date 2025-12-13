@@ -14,7 +14,7 @@ from ..mixed.male_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..sports.cycling import BASE_CYCLING_EVENTS
 from ..tv.films_mslslat import film_keys_for_female
-from ..utils.json_dir import open_json
+from ..utils.json_dir import open_json_file
 from .Jobs2 import JOBS_2
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 from .jobs_defs import (
@@ -86,7 +86,7 @@ JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
     "writers": {"males": "كتاب", "females": "كاتبات"},
 }
 
-jobs_data = open_json("jobs/jobs.json")
+jobs_data = open_json_file("jobs/jobs.json")
 
 JOBS_2020_BASE.update({x: v for x, v in jobs_data["JOBS_2020"].items() if v.get("males") and v.get("females")})
 
@@ -159,7 +159,7 @@ def _extend_with_disability_jobs(base_jobs: GenderedLabelMap) -> GenderedLabelMa
 def _merge_jobs_sources() -> GenderedLabelMap:
     """Combine JSON sources and static configuration into a single map."""
 
-    jobs_pp = open_json("jobs/jobs_Men_Womens_PP.json")
+    jobs_pp = open_json_file("jobs/jobs_Men_Womens_PP.json")
 
     jobs_pp["coaches"] = {"males": "مدربون", "females": "مدربات"}
     # jobs_pp["sports coaches"] = {"males": "مدربون رياضيون", "females": "مدربات رياضيات"}
@@ -213,7 +213,7 @@ def _add_jobs_from_jobs2(jobs_pp: GenderedLabelMap) -> GenderedLabelMap:
 def _load_activist_jobs(m_w_jobs: MutableMapping[str, GenderedLabel], nat_before_occ: List[str]) -> None:
     """Extend ``m_w_jobs`` with activist categories from JSON."""
 
-    activists = open_json("jobs/activists_keys.json")
+    activists = open_json_file("jobs/activists_keys.json")
     for category, labels in activists.items():
         lowered = category.lower()
         _append_list_unique(nat_before_occ, lowered)
@@ -534,17 +534,22 @@ def _finalise_jobs_dataset() -> JobsDataset:
     females_jobs: Dict[str, str] = {}
 
     jobs_sources = _merge_jobs_sources()
-    jobs_pp = _add_jobs_from_jobs2(jobs_sources)                # 1,369
-    merge_gendered_maps(m_w_jobs, MEN_WOMENS_JOBS_2)            # 534
-    _load_activist_jobs(m_w_jobs, NAT_BEFORE_OCC)               # 95
-    sport_variants = _add_sport_variants(jobs_pp)               # 4,107
-    cycling_variants = _add_cycling_variants(NAT_BEFORE_OCC)    # 27
-    people_variants = _add_jobs_people_variants()               # 2,096
-    film_variants = _add_film_variants()                        # 1,881
-    singer_variants = _add_singer_variants()                    # 16
+    jobs_pp = _add_jobs_from_jobs2(jobs_sources)                    # 1,369
 
-    m_w_jobs.update(MEN_WOMENS_SINGERS_BASED)                   # 7,181
-    m_w_jobs.update(MEN_WOMENS_SINGERS)                         # 7,181
+    # sport_variants = _add_sport_variants(jobs_pp)                 # 4,107
+    sport_variants = open_json_file("sport_variants_found.json")    # 35
+
+    # people_variants = _add_jobs_people_variants()                 # 2,096
+    people_variants = open_json_file("people_variants_found.json")  # 94
+
+    merge_gendered_maps(m_w_jobs, MEN_WOMENS_JOBS_2)                # 534
+    _load_activist_jobs(m_w_jobs, NAT_BEFORE_OCC)                   # 95
+    cycling_variants = _add_cycling_variants(NAT_BEFORE_OCC)        # 27
+    film_variants = _add_film_variants()                            # 1,881
+    singer_variants = _add_singer_variants()                        # 16
+
+    m_w_jobs.update(MEN_WOMENS_SINGERS_BASED)                       # 65
+    m_w_jobs.update(MEN_WOMENS_SINGERS)                             # 7,181 > to > 433
     m_w_jobs.update(jobs_pp)
     m_w_jobs.update(sport_variants)
     m_w_jobs.update(cycling_variants)
@@ -553,7 +558,7 @@ def _finalise_jobs_dataset() -> JobsDataset:
     m_w_jobs.update(singer_variants)
 
     merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)  # 1,345
-    merge_gendered_maps(m_w_jobs, SPORT_JOB_VARIANTS)          # 61,486
+    merge_gendered_maps(m_w_jobs, SPORT_JOB_VARIANTS)            # 61,486
 
     m_w_jobs["sports coaches"] = {
         "males": "مدربو رياضة",
