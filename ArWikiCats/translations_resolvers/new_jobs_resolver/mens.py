@@ -31,6 +31,9 @@ def _load_formatted_data() -> dict:
         # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
         "{en_nat} expatriate {en_job}": "{ar_job} {ar_nat} مغتربون",
 
+        # "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
+        "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {ar_nat} مغتربون",
+
         # [Category:Turkish immigrants sports-people] : "تصنيف:رياضيون أتراك مهاجرون"
         "{en_nat} immigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
         # base keys

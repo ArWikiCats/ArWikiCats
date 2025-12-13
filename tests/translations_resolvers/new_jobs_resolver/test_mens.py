@@ -5,7 +5,6 @@ Tests
 import pytest
 
 from ArWikiCats.translations_resolvers.new_jobs_resolver.mens import mens_resolver_labels
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
 
 test_data2 = {
     # Category:Turkish expatriate sports-people
@@ -45,24 +44,26 @@ test_data2 = {
 
     "greek writers blind": "كتاب يونانيون مكفوفون",
     "writers greek blind": "كتاب يونانيون مكفوفون",
+
+}
+
+test_religions_data_2 = {
+    "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
+    "Category:expatriate male actors": "تصنيف:ممثلون ذكور مغتربون",
+    "Category:Pakistani expatriate footballers": "تصنيف:لاعبو كرة قدم باكستانيون مغتربون",
 }
 
 
 @pytest.mark.parametrize("category,expected", test_data2.items(), ids=test_data2.keys())
+@pytest.mark.fast
 def test_nat_pattern_multi(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = mens_resolver_labels(category)
     assert result == expected
 
 
-test_religions_data_2 = {
-    "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
-    "Category:expatriate male actors": "تصنيف:ممثلون ذكور مغتربون",
-}
-
-
 @pytest.mark.parametrize("category,expected", test_religions_data_2.items(), ids=test_religions_data_2.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_religions_2(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = mens_resolver_labels(category)
