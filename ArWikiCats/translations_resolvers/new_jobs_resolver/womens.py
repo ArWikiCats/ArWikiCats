@@ -6,22 +6,7 @@ import functools
 from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
-
-def nat_and_gender_keys(nat_job_key, key, gender_key, gender_label) -> dict[str, str]:
-    data = {}
-
-    # "Yemeni male muslims": "تصنيف:يمنيون مسلمون ذكور"
-    # "Yemeni women's muslims": "تصنيف:يمنيات مسلمات"
-    data[f"{nat_job_key} {gender_key} {key}"] = gender_label
-
-    # "Yemeni muslims male": "تصنيف:يمنيون مسلمون ذكور"
-    data[f"{nat_job_key} {key} {gender_key}"] = gender_label
-
-    # "male Yemeni muslims": "تصنيف:يمنيون مسلمون ذكور"
-    # "women's Yemeni muslims": "تصنيف:يمنيات مسلمات"
-    data[f"{gender_key} {nat_job_key} {key}"] = gender_label
-
-    return data
+from .utils import one_Keys_more, nat_and_gender_keys, filter_and_replace_gender_terms
 
 
 def _load_formatted_data() -> dict:
@@ -93,43 +78,12 @@ def _load_formatted_data() -> dict:
     }
 
     for x, v in genders_keys.items():
-        # writers blind
-        formatted_data[x.format(en="{en_job}")] = v.format(ar="{ar_job}")
-
-        # greek blind
-        formatted_data[x.format(en="{en_nat}")] = v.format(ar="{ar_nat}")
-
-        # greek writers blind
-        formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # writers greek blind
-        formatted_data[x.format(en="{en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # female greek blind
-        formatted_data[x.format(en="{women} {en_nat}")] = v.format(ar="{ar_nat}")
-
-        # female writers blind
-        formatted_data[x.format(en="{women} {en_job}")] = v.format(ar="{ar_job}")
-        # female greek writers blind
-        formatted_data[x.format(en="{women} {en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # writers female greek blind
-        formatted_data[x.format(en="{en_job} {women} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # female writers greek blind
-        formatted_data[x.format(en="{women} {en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
-
+        formatted_data.update(
+            one_Keys_more(x, v, add_women=True)
+        )
     formatted_data.update(formatted_data_jobs_with_nat)
 
-    formatted_data_final = {x: v for x, v in formatted_data.items() if "{women}" not in x}
-
-    # handle womens keys
-    formatted_data_women = {x: v for x, v in formatted_data.items() if "{women}" in x}
-
-    for x, v in formatted_data_women.items():
-        formatted_data_final[x.replace("{women}", "women")] = v
-        formatted_data_final[x.replace("{women}", "womens")] = v
-        formatted_data_final[x.replace("{women}", "female")] = v
+    formatted_data_final = filter_and_replace_gender_terms(formatted_data)
 
     return formatted_data_final
 
