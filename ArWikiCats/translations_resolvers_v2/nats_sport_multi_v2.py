@@ -120,6 +120,9 @@ sports_formatted_data = {
     # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
     "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
 
+    # expatriate basketball people
+    "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
+
     # _build_new_kkk() -> dict[str, str]:
     # Category:National junior women's goalball teams
     "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
