@@ -222,7 +222,7 @@ for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
 """Expanded non-fiction topics covering both static and dynamically generated entries."""
 
 MEN_WOMENS_SINGERS_BASED: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Singers.json") or {}
-MEN_WOMENS_SINGERS = dict(MEN_WOMENS_SINGERS_BASED)
+MEN_WOMENS_SINGERS = {}
 
 MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
 
