@@ -51,7 +51,7 @@ data_2 = {
 
 
 @pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_women_singers(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected

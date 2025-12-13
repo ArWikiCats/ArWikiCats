@@ -152,6 +152,14 @@ def mens_result(category: str) -> str:
 @functools.lru_cache(maxsize=None)
 def new_religions_jobs_with_suffix(category: str) -> str:
     """
+    Resolves jobs for religious groups, handling both male and female variations.
+    This function attempts to find a translation for a given category by checking
+    against male-specific job/religion combinations first, and then female-specific
+    combinations if no male-specific match is found.
+    Args:
+        category: The category string to translate.
+    Returns:
+        The translated Arabic category string, or an empty string if no match is found.
     """
     category = category.replace("'", "").lower()
     logger.debug(f"\t xx start: <<lightred>>try_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
