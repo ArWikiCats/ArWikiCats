@@ -62,7 +62,6 @@ def _load_womens_bot() -> MultiDataFormatterBase:
         if "{female}" in x:
             formatted_data[x.replace("{female}", "female")] = v
             formatted_data[x.replace("{female}", "womens")] = v
-            formatted_data[x.replace("{female}", "women's")] = v
 
     return format_multi_data(
         formatted_data=formatted_data,
@@ -72,7 +71,8 @@ def _load_womens_bot() -> MultiDataFormatterBase:
         data_list2=jobs_womens_data,
         key2_placeholder="{job_en}",
         value2_placeholder="{job_ar}",
-        search_first_part=True
+        text_after="",
+        search_first_part=True,
     )
 
 
@@ -110,7 +110,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
         "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
         "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
-        "{rele_en} women's rights activists": "{rele_ar} ناشطون في حقوق المرأة",
+        "{rele_en} womens rights activists": "{rele_ar} ناشطون في حقوق المرأة",
     }
 
     for x in NAT_BEFORE_OCC_BASE:
@@ -153,6 +153,7 @@ def mens_result(category: str) -> str:
 def new_religions_jobs_with_suffix(category: str) -> str:
     """
     """
+    category = category.replace("'", "").lower()
     logger.debug(f"\t xx start: <<lightred>>try_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
 
     return mens_result(category) or womens_result(category)
