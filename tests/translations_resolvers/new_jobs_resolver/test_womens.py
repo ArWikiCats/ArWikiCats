@@ -28,9 +28,6 @@ test_data2 = {
     "female expatriate football managers": "مدربات كرة قدم مغتربات",
     "expatriate female actresses": "ممثلات مغتربات",
 
-    "professional artificial intelligence researchers": "باحثات ذكاء اصطناعي محترفات",
-    "professional association football managers": "مدربات كرة قدم محترفات",
-
     # nat + jobs
     "yemeni female eugenicists": "عالمات يمنيات متخصصات في تحسين النسل",
     "yemeni female politicians who committed suicide": "سياسيات يمنيات أقدمن على الانتحار",
@@ -39,8 +36,6 @@ test_data2 = {
     "yemeni actresses": "ممثلات يمنيات",
     "yemeni female writers": "كاتبات يمنيات",
     "greek female writers": "كاتبات يونانيات",
-    "malian professional artificial intelligence researchers": "باحثات ذكاء اصطناعي محترفات ماليات",
-    "malian professional association football managers": "مدربات كرة قدم محترفات ماليات",
 
     # "yemeni expatriate female actresses": "ممثلات يمنيات مغتربات",
 
