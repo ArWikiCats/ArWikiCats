@@ -307,7 +307,6 @@ def _add_singer_variants() -> dict[str, GenderedLabel]:
     data: dict[str, GenderedLabel] = {}
 
     for category, labels in MEN_WOMENS_SINGERS.items():
-        data[category] = {"males": labels["males"], "females": labels["females"]}
         for style_key, style_labels in TYPI_LABELS.items():
             combo_key = f"{style_key} {category}"
             data[combo_key] = {
@@ -356,6 +355,7 @@ def _finalise_jobs_dataset() -> JobsDataset:
     film_variants = _add_film_variants()                        # 1,881
     singer_variants = _add_singer_variants()                    # 21,508
 
+    m_w_jobs.update(MEN_WOMENS_SINGERS)                         # 7181
     m_w_jobs.update(jobs_pp)
     m_w_jobs.update(sport_variants)
     m_w_jobs.update(cycling_variants)

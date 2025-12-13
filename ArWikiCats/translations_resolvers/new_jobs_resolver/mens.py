@@ -35,7 +35,7 @@ def _load_formatted_data() -> dict:
 
     }
 
-    # { '{en_nat} male emigrants': '{ar_nat} مهاجرون ذكور', '{en_nat} emigrants male': '{ar_nat} مهاجرون ذكور', 'male {en_nat} emigrants': '{ar_nat} مهاجرون ذكور' }
+    # { "{en_nat} male emigrants": "{ar_nat} مهاجرون ذكور", "{en_nat} emigrants male": "{ar_nat} مهاجرون ذكور", "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور" }
     formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{ar_nat} مهاجرون ذكور"))
     formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{ar_nat} مغتربون ذكور"))
 
