@@ -41,6 +41,12 @@ def _load_formatted_data() -> dict:
         "{en_nat} {women} people": "{ar_nat}",
     }
 
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{ar_nat} مغتربات"))
+
+    # { '{en_nat} male emigrants': '{ar_nat} مهاجرون ذكور', '{en_nat} emigrants male': '{ar_nat} مهاجرون ذكور', 'male {en_nat} emigrants': '{ar_nat} مهاجرون ذكور' }
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "{women}", "{ar_nat} مهاجرات"))
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{ar_nat} مغتربات"))
+
     formatted_data_jobs = {
         # jobs
         # NOTE: "{en_job}": "{ar_job}", Should be used in males bot: [yemeni singers] : "تصنيف:مغنون يمنيون"
@@ -64,18 +70,14 @@ def _load_formatted_data() -> dict:
         "emigrants {women} {en_job}": "{ar_job} مهاجرات",
         "emigrants {en_job}": "{ar_job} مهاجرات",
     }
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "{women}", "{ar_job} مهاجرات"))
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "{women}", "{ar_job} مغتربات"))
 
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update({
         f"{{en_nat}} {x}": f"{v} {{ar_nat}}" for x, v in formatted_data_jobs.items()
         if "{en_nat}" not in x and "{ar_nat}" not in v
     })
-
-    formatted_data.update(nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{ar_nat} مغتربات"))
-
-    # { '{en_nat} male emigrants': '{ar_nat} مهاجرون ذكور', '{en_nat} emigrants male': '{ar_nat} مهاجرون ذكور', 'male {en_nat} emigrants': '{ar_nat} مهاجرون ذكور' }
-    emigrants_keys = nat_and_gender_keys("{en_nat}", "emigrants", "{women}", "{ar_nat} مهاجرات")
-    formatted_data.update(emigrants_keys)
 
     formatted_data.update({
         f"{{en_nat}}-american {x}" : f"{v} أمريكيات {{ar_nat}}" for x, v in formatted_data_jobs.items()
@@ -97,20 +99,19 @@ def _load_formatted_data() -> dict:
         # greek blind
         formatted_data[x.format(en="{en_nat}")] = v.format(ar="{ar_nat}")
 
+        # greek writers blind
+        formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
+
+        # writers greek blind
+        formatted_data[x.format(en="{en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
+
         # female greek blind
         formatted_data[x.format(en="{women} {en_nat}")] = v.format(ar="{ar_nat}")
 
         # female writers blind
         formatted_data[x.format(en="{women} {en_job}")] = v.format(ar="{ar_job}")
-
-        # greek writers blind
-        formatted_data[x.format(en="{en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
         # female greek writers blind
         formatted_data[x.format(en="{women} {en_nat} {en_job}")] = v.format(ar="{ar_job} {ar_nat}")
-
-        # writers greek blind
-        formatted_data[x.format(en="{en_job} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
 
         # writers female greek blind
         formatted_data[x.format(en="{en_job} {women} {en_nat}")] = v.format(ar="{ar_job} {ar_nat}")
@@ -120,9 +121,10 @@ def _load_formatted_data() -> dict:
 
     formatted_data.update(formatted_data_jobs_with_nat)
 
-    formatted_data_women = {x: v for x, v in formatted_data.items() if "{women}" in x}
-
     formatted_data_final = {x: v for x, v in formatted_data.items() if "{women}" not in x}
+
+    # handle womens keys
+    formatted_data_women = {x: v for x, v in formatted_data.items() if "{women}" in x}
 
     for x, v in formatted_data_women.items():
         formatted_data_final[x.replace("{women}", "women")] = v
