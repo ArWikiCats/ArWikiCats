@@ -66,10 +66,11 @@ def check_data_new(data: dict[str, str]) -> dict[str, int]:
 
 def main() -> None:
     files = [
-        jsons_dir / "cities/yy2.json",
-        jsons_dir / "cities/cities_full.json",
-        jsons_dir / "taxonomy/Taxons.json",
-        jsons_dir / "taxonomy/Taxons2.json",
+        # jsons_dir / "cities/yy2.json",
+        # jsons_dir / "cities/cities_full.json",
+        # jsons_dir / "taxonomy/Taxons.json",
+        # jsons_dir / "taxonomy/Taxons2.json",
+        Path("D:/categories_bot/len_data/jobs.py/singer_variants.json"),
     ]
     status = {}
     for file in files:
@@ -88,11 +89,14 @@ def main() -> None:
         # ---
         keys_found = dict(sorted(keys_found.items(), key=lambda item: item[1], reverse=True))
 
-        for k, v in list(keys_found.items())[:10]:
+        for k, v in list(keys_found.items())[:25]:
             print(f"  {k}: {v}")
         print("...")
         # ---
-
+        keys_found_dump = {x: data[x] for x in keys_found}
+        output_path = fname.parent / f"{fname.stem}_found.json"
+        with output_path.open("w", encoding="utf-8") as f:
+            json.dump(keys_found_dump, f, ensure_ascii=False, indent=4)
     # ---
     print("Processing complete.")
 
