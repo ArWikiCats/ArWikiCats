@@ -400,6 +400,8 @@ def change_cat(cat_orginal: str) -> str:
                 re.compile(rf" {chk} ", flags=re.IGNORECASE),
                 re.compile(rf" {chk}$", flags=re.IGNORECASE),
                 re.compile(rf"category\:{chk} ", flags=re.IGNORECASE),
+                # re.compile(rf"\b{chk}\b", flags=re.IGNORECASE),
+                re.compile(rf"(?<!\w)({chk})(?!\w)", flags=re.IGNORECASE),
             ]
 
         patterns = _change_key_compiled[key]
@@ -408,6 +410,7 @@ def change_cat(cat_orginal: str) -> str:
         category = patterns[2].sub(f" {chk_lab} ", category)
         category = patterns[3].sub(f" {chk_lab}", category)
         category = patterns[4].sub(f"category:{chk_lab} ", category)
+        category = patterns[5].sub(chk_lab, category)
 
     # Final transformations
     category = REGEX_SUB_CATEGORY_MINISTERS.sub("category:ministers-of ", category)

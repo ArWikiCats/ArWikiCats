@@ -10,6 +10,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "players in": "playerss in",
 
     "bodies of water" : "bodies-of-water",
+    "canadian football" : "canadian-football",
     r"\’": "'",
 
     r" \– men's tournament": " mens tournament",
