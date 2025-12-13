@@ -289,6 +289,7 @@ def _add_jobs_people_variants() -> dict[str, GenderedLabel]:
 
 def _add_film_variants() -> dict[str, GenderedLabel]:
     """Create film-related job variants and return the number of generated entries."""
+    """
     data: dict[str, GenderedLabel] = {}
     for film_key, film_label in film_keys_for_female.items():
         lowered_film_key = film_key.lower()
@@ -299,6 +300,135 @@ def _add_film_variants() -> dict[str, GenderedLabel]:
                 "males": f"{role_labels['males']} {film_label}",
                 "females": f"{role_labels['females']} {film_label}",
             }
+    """
+
+    data = {
+        "film directors": {
+            "males": "مخرجو أفلام",
+            "females": "مخرجات أفلام"
+        },
+        "filmmakers": {
+            "males": "صانعو أفلام",
+            "females": "صانعات أفلام"
+        },
+        "film producers": {
+            "males": "منتجو أفلام",
+            "females": "منتجات أفلام"
+        },
+        "film critics": {
+            "males": "نقاد أفلام",
+            "females": "ناقدات أفلام"
+        },
+        "film editors": {
+            "males": "محررو أفلام",
+            "females": "محررات أفلام"
+        },
+        "documentary filmmakers": {
+            "males": "صانعو أفلام وثائقية",
+            "females": "صانعات أفلام وثائقية"
+        },
+        "documentary film directors": {
+            "males": "مخرجو أفلام وثائقية",
+            "females": "مخرجات أفلام وثائقية"
+        },
+        "animated film directors": {
+            "males": "مخرجو أفلام رسوم متحركة",
+            "females": "مخرجات أفلام رسوم متحركة"
+        },
+        "experimental filmmakers": {
+            "males": "صانعو أفلام تجريبية",
+            "females": "صانعات أفلام تجريبية"
+        },
+        "animated film producers": {
+            "males": "منتجو أفلام رسوم متحركة",
+            "females": "منتجات أفلام رسوم متحركة"
+        },
+        "pornographic film directors": {
+            "males": "مخرجو أفلام إباحية",
+            "females": "مخرجات أفلام إباحية"
+        },
+        "lgbtq film directors": {
+            "males": "مخرجو أفلام إل جي بي تي كيو",
+            "females": "مخرجات أفلام إل جي بي تي كيو"
+        },
+        "comedy film directors": {
+            "males": "مخرجو أفلام كوميدية",
+            "females": "مخرجات أفلام كوميدية"
+        },
+        "science fiction film directors": {
+            "males": "مخرجو أفلام خيال علمي",
+            "females": "مخرجات أفلام خيال علمي"
+        },
+        "fiction film directors": {
+            "males": "مخرجو أفلام خيالية",
+            "females": "مخرجات أفلام خيالية"
+        },
+        "pornographic film producers": {
+            "males": "منتجو أفلام إباحية",
+            "females": "منتجات أفلام إباحية"
+        },
+        "documentary film producers": {
+            "males": "منتجو أفلام وثائقية",
+            "females": "منتجات أفلام وثائقية"
+        },
+        "horror film directors": {
+            "males": "مخرجو أفلام رعب",
+            "females": "مخرجات أفلام رعب"
+        },
+        "film historians": {
+            "males": "مؤرخو أفلام",
+            "females": "مؤرخات أفلام"
+        },
+        "silent film directors": {
+            "males": "مخرجو أفلام صامتة",
+            "females": "مخرجات أفلام صامتة"
+        },
+        "action film directors": {
+            "males": "مخرجو أفلام حركة",
+            "females": "مخرجات أفلام حركة"
+        },
+        "cinema editors": {
+            "males": "محررون سينمائون",
+            "females": "محررات سينمائيات"
+        },
+        "silent film producers": {
+            "males": "منتجو أفلام صامتة",
+            "females": "منتجات أفلام صامتة"
+        },
+        "propaganda film directors": {
+            "males": "مخرجو أفلام دعائية",
+            "females": "مخرجات أفلام دعائية"
+        },
+        "war filmmakers": {
+            "males": "صانعو أفلام حربية",
+            "females": "صانعات أفلام حربية"
+        },
+        "fantasy film directors": {
+            "males": "مخرجو أفلام فانتازيا",
+            "females": "مخرجات أفلام فانتازيا"
+        },
+        "feminist filmmakers": {
+            "males": "صانعو أفلام نسوية",
+            "females": "صانعات أفلام نسوية"
+        },
+        "horror film producers": {
+            "males": "منتجو أفلام رعب",
+            "females": "منتجات أفلام رعب"
+        },
+        "japanese horror film directors": {
+            "males": "مخرجو أفلام رعب يابانية",
+            "females": "مخرجات أفلام رعب يابانية"
+        },
+        "lgbtq film producers": {
+            "males": "منتجو أفلام إل جي بي تي كيو",
+            "females": "منتجات أفلام إل جي بي تي كيو"
+        },
+        "parody film directors": {
+            "males": "مخرجو أفلام ساخرة",
+            "females": "مخرجات أفلام ساخرة"
+        }
+    }
+
     return data
 
 
