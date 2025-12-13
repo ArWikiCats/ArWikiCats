@@ -77,3 +77,61 @@ country_names_and_nats_data = {
     "{en} third division league": "الدوري {the_male} الدرجة الثالثة",
     "{en} forth division league": "الدوري {the_male} الدرجة الرابعة",
 }
+
+
+sports_formatted_data_for_jobs = {
+    # Category:American players of Canadian football
+    "{en} players of {en_sport}": "لاعبو {sport_jobs} {males}",
+    "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
+
+    # american coaches of basketball
+    "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
+    "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
+
+    # coaches of basketball
+    "coaches of {en_sport}": "مدربو {sport_jobs}",
+    "players of {en_sport}": "لاعبو {sport_jobs}",
+
+    # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
+    "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
+    "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
+
+    # expatriate basketball people
+    "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
+    "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
+
+    "{en} women's {en_sport} players": "لاعبات {sport_jobs} {females}",
+    "women's {en_sport} players": "لاعبات {sport_jobs}",
+
+    "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
+    "women's {en_sport} playerss": "لاعبات {sport_jobs}",
+
+    "{en} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
+
+    "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
+
+    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
+    "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
+
+    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+    "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
+
+}
+
+for_jobs = {
+    # american coaches of basketball
+    # "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
+    # "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
+
+    # coaches of basketball
+    "coaches of {en_sport}": "مدربو {sport_jobs}",
+    "players of {en_sport}": "لاعبو {sport_jobs}",
+}
+
+sports_formatted_data_for_jobs.update(for_jobs)
+
+for x, v in for_jobs.items():
+    # american coaches of basketball
+    # "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
+    sports_formatted_data_for_jobs[f"{{en}} {x}"] = f"{v} {{males}}"

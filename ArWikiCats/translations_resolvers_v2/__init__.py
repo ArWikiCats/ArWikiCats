@@ -1,4 +1,7 @@
 
+import functools
+
+from ..helps import logger
 from . import (
     countries_names_sport_multi_v2,
     countries_names_v2,
@@ -9,7 +12,9 @@ from . import (
 )
 
 
+@functools.lru_cache(maxsize=None)
 def resolved_translations_resolvers_v2(normalized_category) -> str:
+    logger.debug(f"Trying v2 resolvers for: {normalized_category=}")
 
     resolved_label = (
         countries_names_sport_multi_v2.resolve_countries_names_sport(normalized_category) or
