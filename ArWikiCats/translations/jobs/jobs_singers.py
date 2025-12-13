@@ -222,20 +222,184 @@ for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
 """Expanded non-fiction topics covering both static and dynamically generated entries."""
 
 MEN_WOMENS_SINGERS_BASED: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Singers.json") or {}
-MEN_WOMENS_SINGERS = {}
 
-MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
+# MEN_WOMENS_SINGERS = {}
+# MEN_WOMENS_SINGERS.update(_build_category_role_labels(SINGER_CATEGORY_LABELS, SINGERS_AFTER_ROLES))
+# MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
+# MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
 
-MEN_WOMENS_SINGERS.update(_build_non_fiction_variants(NON_FICTION_TOPICS))
-
-MEN_WOMENS_SINGERS.update(_build_actor_labels(FILMS_TYPE))
+MEN_WOMENS_SINGERS = {
+    "opera singers": {
+        "males": "مغنو أوبرا",
+        "females": "مغنيات أوبرا"
+    },
+    "film actors": {
+        "males": "ممثلو أفلام",
+        "females": ""
+    },
+    "non-fiction writers": {
+        "males": "كتاب غير روائيون",
+        "females": "كاتبات غير روائيات"
+    },
+    "classical composers": {
+        "males": "ملحنو كلاسيكية",
+        "females": "ملحنات كلاسيكية"
+    },
+    "classical musicians": {
+        "males": "موسيقيو كلاسيكية",
+        "females": "موسيقيات كلاسيكية"
+    },
+    "voice actors": {
+        "males": "ممثلو أداء صوتي",
+        "females": ""
+    },
+    "jazz musicians": {
+        "males": "موسيقيو جاز",
+        "females": "موسيقيات جاز"
+    },
+    "television actors": {
+        "males": "ممثلو تلفزيون",
+        "females": ""
+    },
+    "rock musicians": {
+        "males": "موسيقيو روك",
+        "females": "موسيقيات روك"
+    },
+    "stage actors": {
+        "males": "ممثلو مسرح",
+        "females": ""
+    },
+    "classical pianists": {
+        "males": "عازفو بيانو كلاسيكية",
+        "females": "عازفات بيانو كلاسيكية"
+    },
+    "children's writers": {
+        "males": "كتاب أطفال",
+        "females": "كاتبات أطفال"
+    },
+    "folk musicians": {
+        "males": "موسيقيو فولك",
+        "females": "موسيقيات فولك"
+    },
+    "pop singers": {
+        "males": "مغنو بوب",
+        "females": "مغنيات بوب"
+    },
+    "rock singers": {
+        "males": "مغنو روك",
+        "females": "مغنيات روك"
+    },
+    "music educators": {
+        "males": "معلمو موسيقى",
+        "females": "معلمات موسيقى"
+    },
+    "classical violinists": {
+        "males": "عازفو كمان كلاسيكية",
+        "females": "عازفات كمان كلاسيكية"
+    },
+    "folk singers": {
+        "males": "مغنو فولك",
+        "females": "مغنيات فولك"
+    },
+    "pornographic film actors": {
+        "males": "ممثلو أفلام إباحية",
+        "females": ""
+    },
+    "country musicians": {
+        "males": "موسيقيو كانتري",
+        "females": "موسيقيات كانتري"
+    },
+    "jazz singers": {
+        "males": "مغنو جاز",
+        "females": "مغنيات جاز"
+    },
+    "opera composers": {
+        "males": "ملحنو أوبرا",
+        "females": "ملحنات أوبرا"
+    },
+    "pop musicians": {
+        "males": "موسيقيو بوب",
+        "females": "موسيقيات بوب"
+    },
+    "silent film actors": {
+        "males": "ممثلو أفلام صامتة",
+        "females": ""
+    },
+    "jazz composers": {
+        "males": "ملحنو جاز",
+        "females": "ملحنات جاز"
+    },
+    "jazz pianists": {
+        "males": "عازفو بيانو جاز",
+        "females": "عازفات بيانو جاز"
+    },
+    "blues musicians": {
+        "males": "موسيقيو بلوز",
+        "females": "موسيقيات بلوز"
+    },
+    "musical theatre actors": {
+        "males": "ممثلو مسرحيات موسيقية",
+        "females": ""
+    },
+    "travel writers": {
+        "males": "كتاب سفر",
+        "females": "كاتبات سفر"
+    },
+    "radio actors": {
+        "males": "ممثلو راديو",
+        "females": ""
+    },
+    "electronic musicians": {
+        "males": "موسيقيو إليكترونيك",
+        "females": "موسيقيات إليكترونيك"
+    },
+    "metal musicians": {
+        "males": "موسيقيو ميتال",
+        "females": "موسيقيات ميتال"
+    },
+    "science writers": {
+        "males": "كتاب علم",
+        "females": "كاتبات علم"
+    },
+    "rock guitarists": {
+        "males": "عازفو قيثارة روك",
+        "females": "عازفات قيثارة روك"
+    },
+    "video game actors": {
+        "males": "ممثلو ألعاب فيديو",
+        "females": ""
+    },
+    "political writers": {
+        "males": "كتاب سياسة",
+        "females": "كاتبات سياسة"
+    },
+    "jazz saxophonists": {
+        "males": "عازفو سكسفون جاز",
+        "females": "عازفات سكسفون جاز"
+    },
+    "jazz guitarists": {
+        "males": "عازفو قيثارة جاز",
+        "females": "عازفات قيثارة جاز"
+    },
+    "music critics": {
+        "males": "نقاد موسيقى",
+        "females": "ناقدات موسيقى"
+    },
+    "food writers": {
+        "males": "كتاب طعام",
+        "females": "كاتبات طعام"
+    },
+    "classical guitarists": {
+        "males": "عازفو قيثارة كلاسيكية",
+        "females": "عازفات قيثارة كلاسيكية"
+    }
+}
 
 len_print.data_len(
     "jobs_singers.py",
     {
         "MEN_WOMENS_SINGERS_BASED": MEN_WOMENS_SINGERS_BASED,
         "FILMS_TYPE": FILMS_TYPE,
-        "NON_FICTION_ADDITIONAL_TOPICS": NON_FICTION_ADDITIONAL_TOPICS,
         "NON_FICTION_BASE_TOPICS": NON_FICTION_BASE_TOPICS,
         "NON_FICTION_TOPICS": NON_FICTION_TOPICS,
         "SINGER_CATEGORY_LABELS": SINGER_CATEGORY_LABELS,
@@ -248,11 +412,6 @@ len_print.data_len(
 __all__ = [
     "MEN_WOMENS_SINGERS_BASED",
     "FILMS_TYPE",
-    "NON_FICTION_ADDITIONAL_TOPICS",
-    "NON_FICTION_BASE_TOPICS",
-    "NON_FICTION_TOPICS",
-    "SINGER_CATEGORY_LABELS",
-    "SINGERS_AFTER_ROLES",
     "MEN_WOMENS_SINGERS",
     "SINGERS_TAB",
 ]
