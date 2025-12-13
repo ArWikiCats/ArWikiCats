@@ -19,10 +19,6 @@ jobs_mens_data = {
     "women's rights activists": "ناشطون في حقوق المرأة",
     "convicted-of-murder": "أدينوا بالقتل",
     "objectivists": "موضوعيون",
-    "men's sailing (sport) power forwards": "مهاجمون أقوياء الجسم رياضة إبحار رجالية",
-    "men's sailing (sport) quarterbacks": "أظهرة رباعيون رياضة إبحار رجالية",
-    "men's sailing (sport) racing centers": "لاعبو وسط سباق رياضة إبحار رجالية",
-    "ski-orienteering quarterbacks": "أظهرة رباعيون سباق تزلج موجه",
     "expatriates": "مغتربون",
 }
 
