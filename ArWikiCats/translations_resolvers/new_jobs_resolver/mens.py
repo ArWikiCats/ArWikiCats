@@ -2,6 +2,7 @@
 This module provides functionality to translate category titles
 """
 import functools
+from os import replace
 from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
@@ -10,6 +11,9 @@ from .utils import one_Keys_more_2, nat_and_gender_keys
 
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
+        "{en_nat}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {ar_nat}",
+        "{en_nat} coaches of canadian-football": "مدربو كرة قدم كندية {ar_nat}",
+
         "{en_nat}-american": "{ar_nat} أمريكيون",
         "{en_nat} eugenicists": "علماء {ar_nat} متخصصون في تحسين النسل",
         "{en_nat} politicians who committed suicide": "سياسيون {ar_nat} أقدموا على الانتحار",
@@ -130,10 +134,23 @@ def load_bot() -> MultiDataFormatterBase:
     )
 
 
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower()
+
+    replacements = {
+        "expatriates": "expatriate",
+        "canadian football": "canadian-football",
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    return category
+
+
 def mens_resolver_labels(category: str) -> str:
     _bot = load_bot()
 
-    category = category.replace("'", "").lower()
-    category = category.replace("expatriates", "expatriate")
+    category = fix_keys(category)
 
     return _bot.search_all_category(category)

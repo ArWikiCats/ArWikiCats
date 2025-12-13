@@ -117,6 +117,10 @@ NAT_P17_OIOI = {
 }
 
 sports_formatted_data = {
+    "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
+    "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
+    "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
+
     # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
     "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
     "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
