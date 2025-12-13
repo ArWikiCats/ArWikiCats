@@ -24,7 +24,7 @@ data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", data.items(), ids=list(data.keys()))
+@pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
 @pytest.mark.fast
 def test_politics_and_history(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
