@@ -80,7 +80,7 @@ def test_religions_2(category: str, expected: str) -> None:
 
 
 def test_nat_and_gender_keys():
-    data = nat_and_gender_keys("expatriate", "{women}", "{ar_nat} مغتربات")
+    data = nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{ar_nat} مغتربات")
 
     assert data == {
         '{en_nat} {women} expatriate': '{ar_nat} مغتربات',
