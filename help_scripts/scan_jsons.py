@@ -70,7 +70,8 @@ def main() -> None:
         # jsons_dir / "cities/cities_full.json",
         # jsons_dir / "taxonomy/Taxons.json",
         # jsons_dir / "taxonomy/Taxons2.json",
-        Path("D:/categories_bot/len_data/jobs.py/singer_variants.json"),
+        # Path("D:/categories_bot/len_data/jobs.py/singer_variants.json"),
+        Path("D:/categories_bot/len_data/jobs_singers.py/MEN_WOMENS_SINGERS.json"),
     ]
     status = {}
     for file in files:

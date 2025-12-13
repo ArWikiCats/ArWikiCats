@@ -24,7 +24,7 @@ from .jobs_defs import (
     merge_gendered_maps,
 )
 from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS
-from .jobs_singers import MEN_WOMENS_SINGERS
+from .jobs_singers import MEN_WOMENS_SINGERS, MEN_WOMENS_SINGERS_BASED
 from .jobs_womens import Female_Jobs
 
 # ---------------------------------------------------------------------------
@@ -411,9 +411,10 @@ def _finalise_jobs_dataset() -> JobsDataset:
     cycling_variants = _add_cycling_variants(NAT_BEFORE_OCC)    # 27
     people_variants = _add_jobs_people_variants()               # 2,096
     film_variants = _add_film_variants()                        # 1,881
-    singer_variants = _add_singer_variants()                    # 14,362
+    singer_variants = _add_singer_variants()                    # 16
 
-    m_w_jobs.update(MEN_WOMENS_SINGERS)                         # 7181
+    m_w_jobs.update(MEN_WOMENS_SINGERS_BASED)                   # 7,181
+    m_w_jobs.update(MEN_WOMENS_SINGERS)                         # 7,181
     m_w_jobs.update(jobs_pp)
     m_w_jobs.update(sport_variants)
     m_w_jobs.update(cycling_variants)
