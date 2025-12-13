@@ -176,7 +176,7 @@ data2 = {
 }
 
 
-@pytest.mark.parametrize("input_text,expected", data2.items(), ids=[x for x in data2])
+@pytest.mark.parametrize("input_text,expected", data2.items(), ids=data2.keys())
 @pytest.mark.skip2("Need to fix")
 def test_entertainment_5(input_text: str, expected: str) -> None:
     result = resolve_arabic_category_label(input_text)

@@ -31,6 +31,9 @@ def _load_formatted_data() -> dict:
         # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
         "{en_nat} expatriate {en_job}": "{ar_job} {ar_nat} مغتربون",
 
+        # "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
+        "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {ar_nat} مغتربون",
+
         # [Category:Turkish immigrants sports-people] : "تصنيف:رياضيون أتراك مهاجرون"
         "{en_nat} immigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
         # base keys
@@ -42,16 +45,19 @@ def _load_formatted_data() -> dict:
         "{en_nat} shia muslims": "{ar_nat} مسلمون شيعة",
     }
 
+    religious_formatted_data = {}
     for x, v in RELIGIOUS_KEYS_PP.items():
         label = f"{{ar_nat}} {v['males']}"
 
         # "Yemeni muslims": "تصنيف:يمنيون مسلمون"
-        formatted_data_jobs_with_nat[f"{{en_nat}} {x}"] = label
-        # formatted_data_jobs_with_nat[f"{x} {{en_nat}}"] = label
+        religious_formatted_data[f"{{en_nat}} {x}"] = label
+        # religious_formatted_data[f"{x} {{en_nat}}"] = label
 
-        formatted_data_jobs_with_nat.update(
+        religious_formatted_data.update(
             _nat_and_gender_keys(x, "male", f"{label} ذكور")
         )
+
+    # formatted_data_jobs_with_nat.update(religious_formatted_data)
 
     formatted_data_jobs = {
 
@@ -111,6 +117,7 @@ def _load_jobs_data() -> dict[str, str]:
         x: v
         for x, v in jobs_mens_data.items()
         if not any(word in x for word in not_in_keys)
+        and not RELIGIOUS_KEYS_PP.get(x)
     }
 
     return data

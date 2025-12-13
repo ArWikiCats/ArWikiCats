@@ -58,7 +58,7 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-@pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=[x for x in all_test_data])
+@pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=all_test_data.keys())
 @pytest.mark.slow
 def test_all_data(input_text: str, expected: str) -> None:
     result = resolve_arabic_category_label(input_text)

@@ -4,10 +4,12 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs import try_religions_jobs_with_suffix
-# from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix as try_religions_jobs_with_suffix
 from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import create_country_lab
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
+
+
+from ArWikiCats.make_bots.jobs_bots.relegin_jobs import try_religions_jobs_with_suffix
+from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
 
 # new dict with only 10 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_10 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:10]}
@@ -31,41 +33,20 @@ jobs_mens_data = {
     "expatriates": "مغتربون",
 }
 
-expatriates_data = {}
-for key, data in RELIGIOUS_KEYS_10.items():
-    mens_label = data.get("males", "")
-    if mens_label:
-        for job_key, job_label in jobs_mens_data.items():
-            label = create_country_lab(job_label, mens_label, job_key)
-            expatriates_data[f"{key} {job_key}"] = label
-
-
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
 
 
-@pytest.mark.parametrize(
-    "key,data",
-    RELIGIOUS_KEYS_20.items(),
-    ids=[x for x in RELIGIOUS_KEYS_20],
-)
+@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
+@pytest.mark.fast
 def test_with_suffix(key: str, data: dict[str, str]) -> None:
     input2 = f"{key} historical house music bloggers"
     expected2 = f"مدونو هاوس تاريخيون {data['males']}"
 
-    result2 = try_religions_jobs_with_suffix(input2)
+    result1 = try_religions_jobs_with_suffix(input2)
+    result2 = new_religions_jobs_with_suffix(input2)
+    assert result1 == expected2, f"{expected2=}, {result2=}, {input2=}"
     assert result2 == expected2, f"{expected2=}, {result2=}, {input2=}"
-
-
-@pytest.mark.parametrize(
-    "input_text,expected",
-    expatriates_data.items(),
-    ids=[x for x in expatriates_data],
-)
-@pytest.mark.slow
-def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
-    result = try_religions_jobs_with_suffix(input_text)
-    assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 def test_one() -> None:
@@ -73,8 +54,11 @@ def test_one() -> None:
     input_text = "bahá'ís classical europop composers"
     expected = "ملحنو يوروبوب كلاسيكيون بهائيون"
 
-    result = try_religions_jobs_with_suffix(input_text)
-    assert result == expected, f"{expected=}, {result=}, {input_text=}"
+    result1 = try_religions_jobs_with_suffix(input_text)
+    result2 = new_religions_jobs_with_suffix(input_text)
+
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
+    assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
 test_data_2 = {
@@ -355,9 +339,13 @@ test_data_2 = {
 
 
 @pytest.mark.parametrize("input_text,expected", test_data_2.items(), ids=test_data_2.keys())
+@pytest.mark.fast
 def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
-    result = try_religions_jobs_with_suffix(input_text)
-    assert result == expected, f"{expected=}, {result=}, {input_text=}"
+    result1 = try_religions_jobs_with_suffix(input_text)
+    result2 = new_religions_jobs_with_suffix(input_text)
+
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
+    assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
 MEN_WOMENS_WITH_NATO_data = {
@@ -368,9 +356,32 @@ MEN_WOMENS_WITH_NATO_data = {
 
 
 @pytest.mark.parametrize("input_text,expected", MEN_WOMENS_WITH_NATO_data.items(), ids=MEN_WOMENS_WITH_NATO_data.keys())
+@pytest.mark.fast
 def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> None:
-    result = try_religions_jobs_with_suffix(input_text)
-    assert result == expected, f"{expected=}, {result=}, {input_text=}"
+    result1 = try_religions_jobs_with_suffix(input_text)
+    result2 = new_religions_jobs_with_suffix(input_text)
+
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
+    assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
+
+
+expatriates_data = {}
+for key, data in RELIGIOUS_KEYS_10.items():
+    mens_label = data.get("males", "")
+    if mens_label:
+        for job_key, job_label in jobs_mens_data.items():
+            label = create_country_lab(job_label, mens_label, job_key)
+            expatriates_data[f"{key} {job_key}"] = label
+
+
+@pytest.mark.parametrize("input_text,expected", expatriates_data.items(), ids=expatriates_data.keys())
+@pytest.mark.skip2
+def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
+    result1 = try_religions_jobs_with_suffix(input_text)
+    result2 = new_religions_jobs_with_suffix(input_text)
+
+    assert result1 == expected, f"{expected=}, {result1=}, {input_text=}"
+    assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
 TEMPORAL_CASES = [

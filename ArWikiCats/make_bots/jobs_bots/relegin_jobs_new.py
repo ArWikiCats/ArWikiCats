@@ -5,7 +5,7 @@
 
 import functools
 from ...helps.log import logger
-from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data
+from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
 
@@ -60,18 +60,19 @@ def _load_womens_bot() -> MultiDataFormatterBase:
     for x, v in female_formatted_data.items():
         formatted_data[x] = v
         if "{female}" in x:
+            formatted_data[x.replace("{female}", "female")] = v
             formatted_data[x.replace("{female}", "womens")] = v
-            formatted_data[x.replace("{female}", "women's")] = v
 
     return format_multi_data(
         formatted_data=formatted_data,
         data_list=religions_data,
         key_placeholder="{rele_en}",
         value_placeholder="{rele_ar}",
-        data_list2=jobs_mens_data,
+        data_list2=jobs_womens_data,
         key2_placeholder="{job_en}",
         value2_placeholder="{job_ar}",
-        search_first_part=True
+        text_after="",
+        search_first_part=True,
     )
 
 
@@ -109,7 +110,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
         "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
         "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
-        "{rele_en} women's rights activists": "{rele_ar} ناشطون في حقوق المرأة",
+        "{rele_en} womens rights activists": "{rele_ar} ناشطون في حقوق المرأة",
     }
 
     for x in NAT_BEFORE_OCC_BASE:
@@ -135,7 +136,7 @@ def womens_result(category: str) -> str:
     logger.debug(f"\t xx start: <<lightred>>womens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_womens_bot()
-    return nat_bot.search_all(category)
+    return nat_bot.search_all_category(category)
 
 
 @functools.lru_cache(maxsize=None)
@@ -145,13 +146,29 @@ def mens_result(category: str) -> str:
     logger.debug(f"\t xx start: <<lightred>>mens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_mens_bot()
-    return nat_bot.search_all(category)
+    return nat_bot.search_all_category(category)
 
 
 @functools.lru_cache(maxsize=None)
 def new_religions_jobs_with_suffix(category: str) -> str:
     """
+    Resolves jobs for religious groups, handling both male and female variations.
+    This function attempts to find a translation for a given category by checking
+    against male-specific job/religion combinations first, and then female-specific
+    combinations if no male-specific match is found.
+    Args:
+        category: The category string to translate.
+    Returns:
+        The translated Arabic category string, or an empty string if no match is found.
     """
+    category = category.replace("'", "").lower()
     logger.debug(f"\t xx start: <<lightred>>try_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
 
     return mens_result(category) or womens_result(category)
+
+
+__all__ = [
+    "new_religions_jobs_with_suffix",
+    "mens_result",
+    "womens_result",
+]

@@ -11,12 +11,14 @@ def _nat_and_gender_keys(key, gender_key, gender_label) -> dict[str, str]:
     data = {}
 
     # "Yemeni male muslims": "تصنيف:يمنيون مسلمون ذكور"
+    # "Yemeni women's muslims": "تصنيف:يمنيات مسلمات"
     data[f"{{en_nat}} {gender_key} {key}"] = gender_label
 
     # "Yemeni muslims male": "تصنيف:يمنيون مسلمون ذكور"
     data[f"{{en_nat}} {key} {gender_key}"] = gender_label
 
     # "male Yemeni muslims": "تصنيف:يمنيون مسلمون ذكور"
+    # "women's Yemeni muslims": "تصنيف:يمنيات مسلمات"
     data[f"{gender_key} {{en_nat}} {key}"] = gender_label
 
     return data
@@ -43,22 +45,16 @@ def _load_formatted_data() -> dict:
         "{women} {en_nat} shia muslims": "{ar_nat} مسلمات شيعيات",
     }
 
+    religious_formatted_data = {}
     for x, v in RELIGIOUS_KEYS_PP.items():
         label = f"{{ar_nat}} {v['females']}"
 
-        # formatted_data_jobs_with_nat[f"{key} {{en_nat}}"] = label
-        formatted_data_jobs_with_nat.update(
+        # religious_formatted_data[f"{key} {{en_nat}}"] = label
+        religious_formatted_data.update(
             _nat_and_gender_keys(x, "{women}", label)
         )
 
-        # "Yemeni women's muslims": "تصنيف:يمنيات مسلمات"
-        formatted_data_jobs_with_nat[f"{{en_nat}} {{women}} {x}"] = label
-
-        # "women's Yemeni muslims": "تصنيف:يمنيات مسلمات"
-        formatted_data_jobs_with_nat[f"{{women}} {{en_nat}} {x}"] = label
-
-        # "Yemeni women's muslims": "تصنيف:يمنيات مسلمات"
-        formatted_data_jobs_with_nat[f"{{en_nat}} {{women}} {x}"] = label
+    # formatted_data_jobs_with_nat.update(religious_formatted_data)
 
     formatted_data_jobs = {
         # jobs
@@ -155,6 +151,7 @@ def _load_jobs_data() -> dict[str, str]:
         x: v
         for x, v in jobs_womens_data.items()
         if not any(word in x for word in not_in_keys)
+        and not RELIGIOUS_KEYS_PP.get(x)
     }
     data.update({
         "actresses": "ممثلات",
