@@ -1,3 +1,17 @@
+## [#207](https://github.com/MrIbrahem/ArWikiCats/pull/207) - 2025-12-13
+
+* **New Features**
+  * Added support for religious and nationality-based job classifications
+  * Extended public interface with new translation and resolver functions
+
+* **Bug Fixes**
+  * Corrected female singers translation label
+
+* **Data Updates**
+  * Added recognition for "baháís" variant alongside existing religious entries
+  * Updated religious keys and occupational data mappings
+  * Expanded translation datasets for improved coverage
+
 ## [#206](https://github.com/MrIbrahem/ArWikiCats/pull/206) - 2025-12-13
 
 * **New Features**
