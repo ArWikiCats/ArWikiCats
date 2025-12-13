@@ -10,9 +10,9 @@ import functools
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
+from .data import sports_formatted_data_for_jobs
 
 NAT_P17_OIOI_TO_CHECK = {
-
     "{en} {en_sport} cups": "كؤوس {sport_team} {ar}",
     "{en} {en_sport} leagues": "دوريات {sport_team} {ar}",
     "{en} {en_sport} chairmen and investors": "رؤساء ومسيرو {sport_team} {ar}",
@@ -21,7 +21,7 @@ NAT_P17_OIOI_TO_CHECK = {
     "{en} {en_sport} competitions": "منافسات {sport_team} {ar}",
     "{en} {en_sport} cup competitions": "منافسات كؤوس {sport_team} {ar}",
     "{en} outdoor {en_sport}": "{sport_team} {ar} في الهواء الطلق",
-    "{en} women's {en_sport}": "{sport_team} {ar} نسائية",
+    "{en} womens {en_sport}": "{sport_team} {ar} نسائية",
     "{en} current {en_sport} seasons": "مواسم {sport_team} {ar} حالية",
     "{en} defunct indoor {en_sport} clubs": "أندية {sport_team} {ar} داخل الصالات سابقة",
     "{en} defunct indoor {en_sport} coaches": "مدربو {sport_team} {ar} داخل الصالات سابقة",
@@ -46,11 +46,11 @@ NAT_P17_OIOI_TO_CHECK = {
     "{en} domestic {en_sport} cup": "كؤوس {sport_team} {ar} محلية",
     "{en} domestic {en_sport} cups": "كؤوس {sport_team} {ar} محلية",
     "{en} domestic {en_sport} leagues": "دوريات {sport_team} {ar} محلية",
-    "{en} domestic women's {en_sport} clubs": "أندية {sport_team} محلية {ar} للسيدات",
-    "{en} domestic women's {en_sport} coaches": "مدربو {sport_team} محلية {ar} للسيدات",
-    "{en} domestic women's {en_sport} competitions": "منافسات {sport_team} محلية {ar} للسيدات",
-    "{en} domestic women's {en_sport} cups": "كؤوس {sport_team} محلية {ar} للسيدات",
-    "{en} domestic women's {en_sport} leagues": "دوريات {sport_team} محلية {ar} للسيدات",
+    "{en} domestic womens {en_sport} clubs": "أندية {sport_team} محلية {ar} للسيدات",
+    "{en} domestic womens {en_sport} coaches": "مدربو {sport_team} محلية {ar} للسيدات",
+    "{en} domestic womens {en_sport} competitions": "منافسات {sport_team} محلية {ar} للسيدات",
+    "{en} domestic womens {en_sport} cups": "كؤوس {sport_team} محلية {ar} للسيدات",
+    "{en} domestic womens {en_sport} leagues": "دوريات {sport_team} محلية {ar} للسيدات",
     "{en} indoor {en_sport}": "{sport_team} {ar} داخل الصالات",
     "{en} indoor {en_sport} clubs": "أندية {sport_team} {ar} داخل الصالات",
     "{en} indoor {en_sport} coaches": "مدربو {sport_team} {ar} داخل الصالات",
@@ -74,10 +74,10 @@ NAT_P17_OIOI = {
     "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
     "{en} championships ({en_sport})": "بطولة {ar} {sport_team}",
     "{en} championships {en_sport}": "بطولة {ar} {sport_team}",
-    "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
-    "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
-    "{en} men's {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
-    "{en} men's u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+    "{en} mens {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
+    "{en} mens {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
+    "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
+    "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
     "{en} {en_sport} championship": "بطولة {ar} {sport_team}",
     "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
     "{en} {en_sport} indoor championship": "بطولة {ar} {sport_team} داخل الصالات",
@@ -110,16 +110,22 @@ NAT_P17_OIOI = {
     "{en} open {en_sport}": "{ar} المفتوحة {sport_team}",
     "{en} outdoor {en_sport} championship": "بطولة {ar} {sport_team} في الهواء الطلق",
     "{en} outdoor {en_sport} championships": "بطولة {ar} {sport_team} في الهواء الطلق",
-    "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
-    "{en} women's {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+    "{en} womens {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
+    "{en} womens {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
     "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
 }
 
 sports_formatted_data = {
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
+
+    # american coaches of basketball
     "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
     "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
+
+    # coaches of basketball
+    "coaches of {en_sport}": "مدربو {sport_jobs}",
+    "players of {en_sport}": "لاعبو {sport_jobs}",
 
     # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
     "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
@@ -130,14 +136,14 @@ sports_formatted_data = {
     "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
 
     # _build_new_kkk() -> dict[str, str]:
-    # Category:National junior women's goalball teams
-    "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
-    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    # Category:National junior womens goalball teams
+    "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+    "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
     "{en} {en_sport} cup": "كأس {ar} {sport_team}",
-    "{en} national junior men's {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
     "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
-    "{en} national women's {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
-    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
 
     # SPORT_FORMTS_FEMALE_NAT
     # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
@@ -148,45 +154,46 @@ sports_formatted_data = {
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
     "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
-    "women's {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
+    "womens {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
     "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
     "{en} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
     "{en} {en_sport} tour": "بطولة {ar} {sport_team}",
 
-    "women's national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
+    "womens national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
 
     "{en} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
 
-    "{en} women's {en_sport} players": "لاعبات {sport_jobs} {females}",
-    "women's {en_sport} players": "لاعبات {sport_jobs}",
+    "{en} womens {en_sport} players": "لاعبات {sport_jobs} {females}",
+    "womens {en_sport} players": "لاعبات {sport_jobs}",
 
-    "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
-    "women's {en_sport} playerss": "لاعبات {sport_jobs}",
+    "{en} womens {en_sport} playerss": "لاعبات {sport_jobs} {females}",
+    "womens {en_sport} playerss": "لاعبات {sport_jobs}",
 
-    "{en} women's national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
-    "{en} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
+    "{en} womens national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
+    "{en} womens national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
 
     "{en} national {en_sport} team" : "منتخب {ar} {sport_team}",
     "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
 
-    "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
-    "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
-    "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
+    "{en} womens international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+    "{en} womens youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
+    "{en} womens international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
     "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
 
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
 
-    "women's {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
+    "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
 }
 
+sports_formatted_data.update(sports_formatted_data_for_jobs)
 sports_formatted_data.update(NAT_P17_OIOI)
 
 WOMENS_NATIONAL_DATA = {
-    x.replace("women's national", "national women's"): v
+    x.replace("womens national", "national womens"): v
     for x, v in sports_formatted_data.items()
-    if "women's national" in x
+    if "womens national" in x
 }
 
 sports_formatted_data.update(WOMENS_NATIONAL_DATA)
@@ -224,8 +231,23 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     return both_bot
 
 
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower()
+
+    replacements = {
+        "expatriates": "expatriate",
+        "canadian football": "canadian-football",
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    return category
+
+
 def resolve_nats_sport_multi_v2(category: str) -> str:
     both_bot = _load_bot()
+    category = fix_keys(category)
     result = both_bot.search_all_category(category)
     return result
 
