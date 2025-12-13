@@ -1,5 +1,37 @@
 
 
+def one_Keys_more_2(x, v, add_women=False) -> dict[str, str]:
+    data = {}
+    # writers blind
+    data[f"{{en_job}} {x}"] = f"{{ar_job}} {v}"
+
+    # greek blind
+    data[f"{{en_nat}} {x}"] = f"{{ar_nat}} {v}"
+
+    # greek writers blind
+    data[f"{{en_nat}} {{en_job}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+
+    # writers greek blind
+    data[f"{{en_job}} {{en_nat}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+
+    if add_women:
+        # female greek blind
+        data[f"{{women}} {{en_nat}} {x}"] = f"{{ar_nat}} {v}"
+
+        # female writers blind
+        data[f"{{women}} {{en_job}} {x}"] = f"{{ar_job}} {v}"
+        # female greek writers blind
+        data[f"{{women}} {{en_nat}} {{en_job}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+
+        # writers female greek blind
+        data[f"{{en_job}} {{women}} {{en_nat}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+
+        # female writers greek blind
+        data[f"{{women}} {{en_job}} {{en_nat}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+
+    return data
+
+
 def one_Keys_more(x, v, add_women=False) -> dict[str, str]:
     data = {}
     # writers blind

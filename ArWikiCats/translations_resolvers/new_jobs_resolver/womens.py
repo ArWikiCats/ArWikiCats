@@ -6,7 +6,7 @@ import functools
 from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
-from .utils import one_Keys_more, nat_and_gender_keys, filter_and_replace_gender_terms
+from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
 
 
 def _load_formatted_data() -> dict:
@@ -69,17 +69,17 @@ def _load_formatted_data() -> dict:
     })
 
     genders_keys: dict[str, str] = {
-        "{en} blind": "{ar} مكفوفات",
-        "{en} deaf": "{ar} صم",
-        "{en} deafblind": "{ar} صم ومكفوفات",
-        "{en} killed-in-action": "{ar} قتلن في عمليات قتالية",
-        "{en} killed in action": "{ar} قتلن في عمليات قتالية",
-        "{en} murdered abroad": "{ar} قتلن في الخارج",
+        "blind": "مكفوفات",
+        "deaf": "صم",
+        "deafblind": "صم ومكفوفات",
+        "killed-in-action": "قتلن في عمليات قتالية",
+        "killed in action": "قتلن في عمليات قتالية",
+        "murdered abroad": "قتلن في الخارج",
     }
 
     for x, v in genders_keys.items():
         formatted_data.update(
-            one_Keys_more(x, v, add_women=True)
+            one_Keys_more_2(x, v, add_women=True)
         )
     formatted_data.update(formatted_data_jobs_with_nat)
 
