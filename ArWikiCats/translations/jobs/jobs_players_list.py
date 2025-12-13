@@ -16,7 +16,7 @@ from ..sports.Sport_key import (
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
 )
-from ..utils.json_dir import open_json
+from ..utils.json_dir import open_json_file
 from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 # ---------------------------------------------------------------------------
@@ -308,9 +308,9 @@ def _merge_maps(*maps: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
 # ---------------------------------------------------------------------------
 # Data assembly
 
-FOOTBALL_KEYS_PLAYERS: GenderedLabelMap = open_json("jobs/jobs_Football_Keys_players.json") or {}
+FOOTBALL_KEYS_PLAYERS: GenderedLabelMap = open_json_file("jobs/jobs_Football_Keys_players.json") or {}
 
-JOBS_PLAYERS: GenderedLabelMap = open_json("jobs/Jobs_players.json") or {}
+JOBS_PLAYERS: GenderedLabelMap = open_json_file("jobs/Jobs_players.json") or {}
 
 JOBS_PLAYERS.setdefault("freestyle swimmers", {"males": "سباحو تزلج حر", "females": "سباحات تزلج حر"})
 
@@ -329,10 +329,8 @@ GENERAL_SCOPE_LABELS = _build_general_scope_labels(GENERAL_SPORT_ROLES, SPORT_SC
 CHAMPION_LABELS = _build_champion_labels(SPORTS_KEYS_FOR_LABEL)
 WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
 
-SPORT_JOB_VARIANTS = _build_sports_job_variants(
-    SPORTS_KEYS_FOR_JOBS,
-    FOOTBALL_KEYS_PLAYERS,
-)
+# SPORT_JOB_VARIANTS = _build_sports_job_variants(SPORTS_KEYS_FOR_JOBS, FOOTBALL_KEYS_PLAYERS)
+SPORT_JOB_VARIANTS = open_json_file("SPORT_JOB_VARIANTS_found.json") or {}
 
 PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
     STATIC_PLAYER_LABELS,
@@ -356,7 +354,7 @@ len_print.data_len(
     "jobs_players_list.py",
     {
         "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,   # 1,345
-        "SPORT_JOB_VARIANTS": SPORT_JOB_VARIANTS,                   # 61919
+        "SPORT_JOB_VARIANTS": SPORT_JOB_VARIANTS,                   # 61,919
         "BASE_PLAYER_VARIANTS": BASE_PLAYER_VARIANTS,   # 435
         "WORLD_CHAMPION_LABELS": WORLD_CHAMPION_LABELS,  # 431
         "CHAMPION_LABELS": CHAMPION_LABELS,  # 434

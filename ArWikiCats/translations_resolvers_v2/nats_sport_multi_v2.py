@@ -12,6 +12,7 @@ from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
 
 NAT_P17_OIOI_TO_CHECK = {
+
     "{en} {en_sport} cups": "كؤوس {sport_team} {ar}",
     "{en} {en_sport} leagues": "دوريات {sport_team} {ar}",
     "{en} {en_sport} chairmen and investors": "رؤساء ومسيرو {sport_team} {ar}",
@@ -116,6 +117,11 @@ NAT_P17_OIOI = {
 }
 
 sports_formatted_data = {
+    # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
+    "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
+
+    # expatriate basketball people
+    "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
 
     # _build_new_kkk() -> dict[str, str]:
     # Category:National junior women's goalball teams

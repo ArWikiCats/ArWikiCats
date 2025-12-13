@@ -46,12 +46,14 @@ def main() -> None:
         # jsons_dir / "taxonomy/Taxons2.json",
         # Path("D:/categories_bot/len_data/jobs.py/singer_variants.json"),
         # Path("D:/categories_bot/len_data/jobs_singers.py/MEN_WOMENS_SINGERS.json"),
-        # Path("D:/categories_bot/len_data/jobs_players_list.py/SPORT_JOB_VARIANTS.json"),
         # Path("D:/categories_bot/len_data/films_mslslat.py/Films_keys_both_new_female.json"),
         # Path("D:/categories_bot/len_data/films_mslslat.py/films_mslslat_tab.json"),
         # Path("D:/categories_bot/len_data/films_mslslat.py/Films_key_For_nat_extended.json"),
         # Path("D:/categories_bot/len_data/jobs.py/jobs_mens_data.json"),
-        Path("D:/categories_bot/len_data/jobs.py/film_variants.json"),
+        # Path("D:/categories_bot/len_data/jobs.py/film_variants.json"),
+        # Path("D:/categories_bot/len_data/jobs.py/sport_variants.json"),
+        # Path("D:/categories_bot/len_data/jobs.py/people_variants.json"),
+        Path("D:/categories_bot/len_data/jobs_players_list.py/SPORT_JOB_VARIANTS.json"),
     ]
     status = {}
     for file in files:

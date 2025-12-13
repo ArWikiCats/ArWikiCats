@@ -1,0 +1,2286 @@
+{
+    "basketball players": {
+        "males": "لاعبو كرة سلة",
+        "females": "لاعبات كرة سلة"
+    },
+    "tennis players": {
+        "males": "لاعبو كرة مضرب",
+        "females": "لاعبات كرة مضرب"
+    },
+    "baseball players": {
+        "males": "لاعبو كرة قاعدة",
+        "females": "لاعبات كرة قاعدة"
+    },
+    "basketball coaches": {
+        "males": "مدربو كرة سلة",
+        "females": "مدربات كرة سلة"
+    },
+    "hockey players": {
+        "males": "لاعبو هوكي",
+        "females": "لاعبات هوكي"
+    },
+    "football coaches": {
+        "males": "مدربو كرة قدم",
+        "females": "مدربات كرة قدم"
+    },
+    "rugby union players": {
+        "males": "لاعبو اتحاد رجبي",
+        "females": "لاعبات اتحاد رجبي"
+    },
+    "football players": {
+        "males": "لاعبو كرة قدم",
+        "females": "لاعبات كرة قدم"
+    },
+    "volleyball players": {
+        "males": "لاعبو كرة طائرة",
+        "females": "لاعبات كرة طائرة"
+    },
+    "men's basketball players": {
+        "males": "لاعبو كرة سلة رجالية",
+        "females": ""
+    },
+    "football managers": {
+        "males": "مدربو كرة قدم",
+        "females": "مدربات كرة قدم"
+    },
+    "soccer players": {
+        "males": "لاعبو كرة قدم",
+        "females": "لاعبات كرة قدم"
+    },
+    "baseball coaches": {
+        "males": "مدربو كرة قاعدة",
+        "females": "مدربات كرة قاعدة"
+    },
+    "men's basketball coaches": {
+        "males": "مدربو كرة سلة رجالية",
+        "females": ""
+    },
+    "ice hockey players": {
+        "males": "لاعبو هوكي جليد",
+        "females": "لاعبات هوكي جليد"
+    },
+    "handball players": {
+        "males": "لاعبو كرة يد",
+        "females": "لاعبات كرة يد"
+    },
+    "badminton players": {
+        "males": "لاعبو تنس ريشة",
+        "females": "لاعبات تنس ريشة"
+    },
+    "table tennis players": {
+        "males": "لاعبو كرة طاولة",
+        "females": "لاعبات كرة طاولة"
+    },
+    "rugby league players": {
+        "males": "لاعبو دوري رجبي",
+        "females": "لاعبات دوري رجبي"
+    },
+    "soccer coaches": {
+        "males": "مدربو كرة قدم",
+        "females": "مدربات كرة قدم"
+    },
+    "field hockey players": {
+        "males": "لاعبو هوكي ميدان",
+        "females": "لاعبات هوكي ميدان"
+    },
+    "men's soccer players": {
+        "males": "لاعبو كرة قدم رجالية",
+        "females": ""
+    },
+    "polo players": {
+        "males": "لاعبو بولو",
+        "females": "لاعبات بولو"
+    },
+    "sports coaches": {
+        "males": "مدربو رياضية",
+        "females": "مدربات رياضية"
+    },
+    "chess players": {
+        "males": "لاعبو شطرنج",
+        "females": "لاعبات شطرنج"
+    },
+    "water polo players": {
+        "males": "لاعبو كرة ماء",
+        "females": "لاعبات كرة ماء"
+    },
+    "football biography": {
+        "males": "أعلام كرة قدم",
+        "females": ""
+    },
+    "men's soccer coaches": {
+        "males": "مدربو كرة قدم رجالية",
+        "females": ""
+    },
+    "futsal players": {
+        "males": "لاعبو كرة صالات",
+        "females": "لاعبات كرة صالات"
+    },
+    "hockey coaches": {
+        "males": "مدربو هوكي",
+        "females": "مدربات هوكي"
+    },
+    "softball coaches": {
+        "males": "مدربو كرة لينة",
+        "females": "مدربات كرة لينة"
+    },
+    "softball players": {
+        "males": "لاعبو كرة لينة",
+        "females": "لاعبات كرة لينة"
+    },
+    "squash players": {
+        "males": "لاعبو اسكواش",
+        "females": "لاعبات اسكواش"
+    },
+    "beach volleyball players": {
+        "males": "لاعبو كرة طائرة شاطئية",
+        "females": "لاعبات كرة طائرة شاطئية"
+    },
+    "ice hockey coaches": {
+        "males": "مدربو هوكي جليد",
+        "females": "مدربات هوكي جليد"
+    },
+    "track and field coaches": {
+        "males": "مدربو سباقات مضمار وميدان",
+        "females": "مدربات سباقات مضمار وميدان"
+    },
+    "tennis coaches": {
+        "males": "مدربو كرة مضرب",
+        "females": "مدربات كرة مضرب"
+    },
+    "volleyball coaches": {
+        "males": "مدربو كرة طائرة",
+        "females": "مدربات كرة طائرة"
+    },
+    "rugby sevens players": {
+        "males": "لاعبو سباعيات رجبي",
+        "females": "لاعبات سباعيات رجبي"
+    },
+    "football referees": {
+        "males": "حكام كرة قدم",
+        "females": "حكمات كرة قدم"
+    },
+    "lacrosse players": {
+        "males": "لاعبو لاكروس",
+        "females": "لاعبات لاكروس"
+    },
+    "bowls players": {
+        "males": "لاعبو بولينج",
+        "females": "لاعبات بولينج"
+    },
+    "men's tennis players": {
+        "males": "لاعبو كرة مضرب رجالية",
+        "females": ""
+    },
+    "men's volleyball players": {
+        "males": "لاعبو كرة طائرة رجالية",
+        "females": ""
+    },
+    "association football players": {
+        "males": "لاعبو كرة قدم",
+        "females": "لاعبات كرة قدم"
+    },
+    "olympic table tennis players": {
+        "males": "لاعبو كرة طاولة أولمبيون",
+        "females": "لاعبات كرة طاولة أولمبيات"
+    },
+    "cricket umpires": {
+        "males": "حكام كريكت",
+        "females": "حكمات كريكت"
+    },
+    "bowling players": {
+        "males": "لاعبو بولينج",
+        "females": "لاعبات بولينج"
+    },
+    "netball players": {
+        "males": "لاعبو كرة شبكة",
+        "females": "لاعبات كرة شبكة"
+    },
+    "athletics biography": {
+        "males": "أعلام ألعاب قوى",
+        "females": ""
+    },
+    "men's ice hockey players": {
+        "males": "لاعبو هوكي جليد رجالية",
+        "females": ""
+    },
+    "sports executives": {
+        "males": "مسيرو رياضية",
+        "females": "مسيرات رياضية"
+    },
+    "swimming coaches": {
+        "males": "مدربو سباحة",
+        "females": "مدربات سباحة"
+    },
+    "olympic tennis players": {
+        "males": "لاعبو كرة مضرب أولمبيون",
+        "females": "لاعبات كرة مضرب أولمبيات"
+    },
+    "men's ice hockey coaches": {
+        "males": "مدربو هوكي جليد رجالية",
+        "females": ""
+    },
+    "lacrosse coaches": {
+        "males": "مدربو لاكروس",
+        "females": "مدربات لاكروس"
+    },
+    "wheelchair basketball players": {
+        "males": "لاعبو كرة سلة على كراسي متحركة",
+        "females": "لاعبات كرة سلة على كراسي متحركة"
+    },
+    "snooker players": {
+        "males": "لاعبو سنوكر",
+        "females": "لاعبات سنوكر"
+    },
+    "wrestling coaches": {
+        "males": "مدربو مصارعة",
+        "females": "مدربات مصارعة"
+    },
+    "men's tennis coaches": {
+        "males": "مدربو كرة مضرب رجالية",
+        "females": ""
+    },
+    "olympic badminton players": {
+        "males": "لاعبو تنس ريشة أولمبيون",
+        "females": "لاعبات تنس ريشة أولمبيات"
+    },
+    "rugby players": {
+        "males": "لاعبو رجبي",
+        "females": "لاعبات رجبي"
+    },
+    "martial arts biography": {
+        "males": "أعلام فنون قتالية",
+        "females": ""
+    },
+    "olympic basketball players": {
+        "males": "لاعبو كرة سلة أولمبيون",
+        "females": "لاعبات كرة سلة أولمبيات"
+    },
+    "hockey forwards": {
+        "males": "مهاجمو هوكي",
+        "females": "مهاجمات هوكي"
+    },
+    "men's lacrosse players": {
+        "males": "لاعبو لاكروس رجالية",
+        "females": ""
+    },
+    "men's futsal players": {
+        "males": "لاعبو كرة صالات رجالية",
+        "females": ""
+    },
+    "ice hockey forwards": {
+        "males": "مهاجمو هوكي جليد",
+        "females": "مهاجمات هوكي جليد"
+    },
+    "poker players": {
+        "males": "لاعبو بوكر",
+        "females": "لاعبات بوكر"
+    },
+    "boccia players": {
+        "males": "لاعبو بوتشيا",
+        "females": "لاعبات بوتشيا"
+    },
+    "football announcers": {
+        "males": "مذيعو كرة قدم",
+        "females": "مذيعات كرة قدم"
+    },
+    "men's lacrosse coaches": {
+        "males": "مدربو لاكروس رجالية",
+        "females": ""
+    },
+    "darts players": {
+        "males": "لاعبو سهام مريشة",
+        "females": "لاعبات سهام مريشة"
+    },
+    "water polo coaches": {
+        "males": "مدربو كرة ماء",
+        "females": "مدربات كرة ماء"
+    },
+    "polo coaches": {
+        "males": "مدربو بولو",
+        "females": "مدربات بولو"
+    },
+    "esports players": {
+        "males": "لاعبو رياضة إلكترونية",
+        "females": "لاعبات رياضة إلكترونية"
+    },
+    "wheelchair tennis players": {
+        "males": "لاعبو كرة مضرب على كراسي متحركة",
+        "females": "لاعبات كرة مضرب على كراسي متحركة"
+    },
+    "hockey biography": {
+        "males": "أعلام هوكي",
+        "females": ""
+    },
+    "ice hockey defencemen": {
+        "males": "مدافعو هوكي جليد",
+        "females": "مدافعات هوكي جليد"
+    },
+    "hockey defencemen": {
+        "males": "مدافعو هوكي",
+        "females": "مدافعات هوكي"
+    },
+    "ice hockey goaltenders": {
+        "males": "حراس مرمى هوكي جليد",
+        "females": "حارسات مرمى هوكي جليد"
+    },
+    "hockey goaltenders": {
+        "males": "حراس مرمى هوكي",
+        "females": "حارسات مرمى هوكي"
+    },
+    "sports journalists": {
+        "males": "صحفيو رياضية",
+        "females": "صحفيات رياضية"
+    },
+    "association football managers": {
+        "males": "مدربو كرة قدم",
+        "females": "مدربات كرة قدم"
+    },
+    "olympic water polo players": {
+        "males": "لاعبو كرة ماء أولمبيون",
+        "females": "لاعبات كرة ماء أولمبيات"
+    },
+    "bandy players": {
+        "males": "لاعبو باندي",
+        "females": "لاعبات باندي"
+    },
+    "rugby union coaches": {
+        "males": "مدربو اتحاد رجبي",
+        "females": "مدربات اتحاد رجبي"
+    },
+    "handball biography": {
+        "males": "أعلام كرة يد",
+        "females": ""
+    },
+    "olympic handball players": {
+        "males": "لاعبو كرة يد أولمبيون",
+        "females": "لاعبات كرة يد أولمبيات"
+    },
+    "olympic volleyball players": {
+        "males": "لاعبو كرة طائرة أولمبيون",
+        "females": "لاعبات كرة طائرة أولمبيات"
+    },
+    "cricket coaches": {
+        "males": "مدربو كريكت",
+        "females": "مدربات كريكت"
+    },
+    "cross country coaches": {
+        "males": "مدربو عدو ريفي",
+        "females": "مدربات عدو ريفي"
+    },
+    "boxing biography": {
+        "males": "أعلام بوكسينغ",
+        "females": ""
+    },
+    "cycling biography": {
+        "males": "أعلام سباق دراجات هوائية",
+        "females": ""
+    },
+    "handball coaches": {
+        "males": "مدربو كرة يد",
+        "females": "مدربات كرة يد"
+    },
+    "basketball biography": {
+        "males": "أعلام كرة سلة",
+        "females": ""
+    },
+    "kabaddi players": {
+        "males": "لاعبو كابادي",
+        "females": "لاعبات كابادي"
+    },
+    "field hockey coaches": {
+        "males": "مدربو هوكي ميدان",
+        "females": "مدربات هوكي ميدان"
+    },
+    "olympic beach volleyball players": {
+        "males": "لاعبو كرة طائرة شاطئية أولمبيون",
+        "females": "لاعبات كرة طائرة شاطئية أولمبيات"
+    },
+    "olympic field hockey players": {
+        "males": "لاعبو هوكي ميدان أولمبيون",
+        "females": "لاعبات هوكي ميدان أولمبيات"
+    },
+    "sports biography": {
+        "males": "أعلام رياضية",
+        "females": ""
+    },
+    "skiing biography": {
+        "males": "أعلام تزلج",
+        "females": ""
+    },
+    "goalball players": {
+        "males": "لاعبو كرة هدف",
+        "females": "لاعبات كرة هدف"
+    },
+    "swimming biography": {
+        "males": "أعلام سباحة",
+        "females": ""
+    },
+    "golf coaches": {
+        "males": "مدربو غولف",
+        "females": "مدربات غولف"
+    },
+    "ice hockey right wingers": {
+        "males": "أجنحة يمين هوكي جليد",
+        "females": "جناحات يمين هوكي جليد"
+    },
+    "hockey right wingers": {
+        "males": "أجنحة يمين هوكي",
+        "females": "جناحات يمين هوكي"
+    },
+    "rowing biography": {
+        "males": "أعلام تجديف",
+        "females": ""
+    },
+    "volleyball biography": {
+        "males": "أعلام كرة طائرة",
+        "females": ""
+    },
+    "rugby league coaches": {
+        "males": "مدربو دوري رجبي",
+        "females": "مدربات دوري رجبي"
+    },
+    "ice hockey left wingers": {
+        "males": "أجنحة يسار هوكي جليد",
+        "females": "جناحات يسار هوكي جليد"
+    },
+    "hockey left wingers": {
+        "males": "أجنحة يسار هوكي",
+        "females": "جناحات يسار هوكي"
+    },
+    "sports players": {
+        "males": "لاعبو رياضية",
+        "females": "لاعبات رياضية"
+    },
+    "ice hockey centres": {
+        "males": "لاعبو وسط هوكي جليد",
+        "females": "لاعبات وسط هوكي جليد"
+    },
+    "hockey centres": {
+        "males": "لاعبو وسط هوكي",
+        "females": "لاعبات وسط هوكي"
+    },
+    "olympic ice hockey players": {
+        "males": "لاعبو هوكي جليد أولمبيون",
+        "females": "لاعبات هوكي جليد أولمبيات"
+    },
+    "beach soccer players": {
+        "males": "لاعبو كرة قدم شاطئية",
+        "females": "لاعبات كرة قدم شاطئية"
+    },
+    "athletics coaches": {
+        "males": "مدربو ألعاب قوى",
+        "females": "مدربات ألعاب قوى"
+    },
+    "skating biography": {
+        "males": "أعلام تزلج",
+        "females": ""
+    },
+    "tennis biography": {
+        "males": "أعلام كرة مضرب",
+        "females": ""
+    },
+    "water polo biography": {
+        "males": "أعلام كرة ماء",
+        "females": ""
+    },
+    "polo biography": {
+        "males": "أعلام بولو",
+        "females": ""
+    },
+    "gymnastics coaches": {
+        "males": "مدربو جمباز",
+        "females": "مدربات جمباز"
+    },
+    "curling coaches": {
+        "males": "مدربو كيرلنغ",
+        "females": "مدربات كيرلنغ"
+    },
+    "shooting biography": {
+        "males": "أعلام رماية",
+        "females": ""
+    },
+    "rowing coaches": {
+        "males": "مدربو تجديف",
+        "females": "مدربات تجديف"
+    },
+    "cricket biography": {
+        "males": "أعلام كريكت",
+        "females": ""
+    },
+    "college sports-people": {
+        "males": "رياضيو كليات",
+        "females": "رياضيات كليات"
+    },
+    "go players": {
+        "males": "لاعبو غو",
+        "females": "لاعبات غو"
+    },
+    "sailing biography": {
+        "males": "أعلام إبحار",
+        "females": ""
+    },
+    "sledge hockey players": {
+        "males": "لاعبو هوكي مزلجة",
+        "females": "لاعبات هوكي مزلجة"
+    },
+    "fencing biography": {
+        "males": "أعلام مبارزة سيف شيش",
+        "females": ""
+    },
+    "chess biography": {
+        "males": "أعلام شطرنج",
+        "females": ""
+    },
+    "field hockey biography": {
+        "males": "أعلام هوكي ميدان",
+        "females": ""
+    },
+    "judo biography": {
+        "males": "أعلام جودو",
+        "females": ""
+    },
+    "ice hockey biography": {
+        "males": "أعلام هوكي جليد",
+        "females": ""
+    },
+    "rugby union biography": {
+        "males": "أعلام اتحاد رجبي",
+        "females": ""
+    },
+    "weightlifting biography": {
+        "males": "أعلام رفع أثقال",
+        "females": ""
+    },
+    "diving coaches": {
+        "males": "مدربو غطس",
+        "females": "مدربات غطس"
+    },
+    "basketball announcers": {
+        "males": "مذيعو كرة سلة",
+        "females": "مذيعات كرة سلة"
+    },
+    "draughts players": {
+        "males": "لاعبو ضامة",
+        "females": "لاعبات ضامة"
+    },
+    "wheelchair rugby players": {
+        "males": "لاعبو رجبي على كراسي متحركة",
+        "females": "لاعبات رجبي على كراسي متحركة"
+    },
+    "skating coaches": {
+        "males": "مدربو تزلج",
+        "females": "مدربات تزلج"
+    },
+    "athletics players": {
+        "males": "لاعبو ألعاب قوى",
+        "females": "لاعبات ألعاب قوى"
+    },
+    "inline hockey players": {
+        "males": "لاعبو هوكي مضمن",
+        "females": "لاعبات هوكي مضمن"
+    },
+    "men's golf coaches": {
+        "males": "مدربو غولف رجالية",
+        "females": ""
+    },
+    "equestrian biography": {
+        "males": "أعلام فروسية",
+        "females": ""
+    },
+    "fifa world cup managers": {
+        "males": "مدربو كأس العالم لكرة القدم",
+        "females": "مدربات كأس العالم لكرة القدم"
+    },
+    "fifa world cup players": {
+        "males": "لاعبو كأس العالم لكرة القدم",
+        "females": "لاعبات كأس العالم لكرة القدم"
+    },
+    "fifa world cup referees": {
+        "males": "حكام كأس العالم لكرة القدم",
+        "females": "حكمات كأس العالم لكرة القدم"
+    },
+    "badminton coaches": {
+        "males": "مدربو تنس ريشة",
+        "females": "مدربات تنس ريشة"
+    },
+    "lawn bowls players": {
+        "males": "لاعبو بولينغ عشبي",
+        "females": "لاعبات بولينغ عشبي"
+    },
+    "olympic rugby sevens players": {
+        "males": "لاعبو سباعيات رجبي أولمبيون",
+        "females": "لاعبات سباعيات رجبي أولمبيات"
+    },
+    "figure skating coaches": {
+        "males": "مدربو تزلج فني",
+        "females": "مدربات تزلج فني"
+    },
+    "cricket players": {
+        "males": "لاعبو كريكت",
+        "females": "لاعبات كريكت"
+    },
+    "netball coaches": {
+        "males": "مدربو كرة شبكة",
+        "females": "مدربات كرة شبكة"
+    },
+    "baseball managers": {
+        "males": "مدربو كرة قاعدة",
+        "females": "مدربات كرة قاعدة"
+    },
+    "racquetball players": {
+        "males": "لاعبو كرة الراح",
+        "females": "لاعبات كرة الراح"
+    },
+    "olympic baseball players": {
+        "males": "لاعبو كرة قاعدة أولمبيون",
+        "females": "لاعبات كرة قاعدة أولمبيات"
+    },
+    "rugby union referees": {
+        "males": "حكام اتحاد رجبي",
+        "females": "حكمات اتحاد رجبي"
+    },
+    "cue sports players": {
+        "males": "لاعبو بلياردو",
+        "females": "لاعبات بلياردو"
+    },
+    "men's association football players": {
+        "males": "لاعبو كرة قدم رجالية",
+        "females": ""
+    },
+    "baseball biography": {
+        "males": "أعلام كرة قاعدة",
+        "females": ""
+    },
+    "cross-country skiing biography": {
+        "males": "أعلام تزلج ريفي",
+        "females": ""
+    },
+    "curling biography": {
+        "males": "أعلام كيرلنغ",
+        "females": ""
+    },
+    "speed skating biography": {
+        "males": "أعلام تزلج سريع",
+        "females": ""
+    },
+    "badminton biography": {
+        "males": "أعلام تنس ريشة",
+        "females": ""
+    },
+    "alpine skiing biography": {
+        "males": "أعلام تزلج على المنحدرات الثلجية",
+        "females": ""
+    },
+    "figure skating biography": {
+        "males": "أعلام تزلج فني",
+        "females": ""
+    },
+    "men's wheelchair basketball players": {
+        "males": "لاعبو كرة سلة على كراسي متحركة رجالية",
+        "females": ""
+    },
+    "soccer managers": {
+        "males": "مدربو كرة قدم",
+        "females": "مدربات كرة قدم"
+    },
+    "hurling biography": {
+        "males": "أعلام قذف",
+        "females": ""
+    },
+    "olympic softball players": {
+        "males": "لاعبو كرة لينة أولمبيون",
+        "females": "لاعبات كرة لينة أولمبيات"
+    },
+    "rugby biography": {
+        "males": "أعلام رجبي",
+        "females": ""
+    },
+    "fencing coaches": {
+        "males": "مدربو مبارزة سيف شيش",
+        "females": "مدربات مبارزة سيف شيش"
+    },
+    "ski jumping biography": {
+        "males": "أعلام قفز تزلجي",
+        "females": ""
+    },
+    "football executives": {
+        "males": "مسيرو كرة قدم",
+        "females": "مسيرات كرة قدم"
+    },
+    "sepak takraw players": {
+        "males": "لاعبو سيباك تاكرو",
+        "females": "لاعبات سيباك تاكرو"
+    },
+    "association football biography": {
+        "males": "أعلام كرة قدم",
+        "females": ""
+    },
+    "rugby league biography": {
+        "males": "أعلام دوري رجبي",
+        "females": ""
+    },
+    "table tennis biography": {
+        "males": "أعلام كرة طاولة",
+        "females": ""
+    },
+    "skiing coaches": {
+        "males": "مدربو تزلج",
+        "females": "مدربات تزلج"
+    },
+    "cycling coaches": {
+        "males": "مدربو سباق دراجات هوائية",
+        "females": "مدربات سباق دراجات هوائية"
+    },
+    "baseball announcers": {
+        "males": "مذيعو كرة قاعدة",
+        "females": "مذيعات كرة قاعدة"
+    },
+    "men's volleyball coaches": {
+        "males": "مدربو كرة طائرة رجالية",
+        "females": ""
+    },
+    "men's water polo players": {
+        "males": "لاعبو كرة ماء رجالية",
+        "females": ""
+    },
+    "american football players": {
+        "males": "لاعبو كرة قدم أمريكية",
+        "females": "لاعبات كرة قدم أمريكية"
+    },
+    "auto racing biography": {
+        "males": "أعلام سباق سيارات",
+        "females": ""
+    },
+    "bobsleigh biography": {
+        "males": "أعلام زلاجة جماعية",
+        "females": ""
+    },
+    "boxing trainers": {
+        "males": "مدربو بوكسينغ",
+        "females": "مدربات بوكسينغ"
+    },
+    "croquet players": {
+        "males": "لاعبو كروكيت",
+        "females": "لاعبات كروكيت"
+    },
+    "olympic polo players": {
+        "males": "لاعبو بولو أولمبيون",
+        "females": "لاعبات بولو أولمبيات"
+    },
+    "men's beach volleyball players": {
+        "males": "لاعبو كرة طائرة شاطئية رجالية",
+        "females": ""
+    },
+    "basketball referees": {
+        "males": "حكام كرة سلة",
+        "females": "حكمات كرة سلة"
+    },
+    "men's squash players": {
+        "males": "لاعبو اسكواش رجالية",
+        "females": ""
+    },
+    "gaelic football biography": {
+        "males": "أعلام كرة قدم غالية",
+        "females": ""
+    },
+    "futsal coaches": {
+        "males": "مدربو كرة صالات",
+        "females": "مدربات كرة صالات"
+    },
+    "squash biography": {
+        "males": "أعلام اسكواش",
+        "females": ""
+    },
+    "men's football players": {
+        "males": "لاعبو كرة قدم رجالية",
+        "females": ""
+    },
+    "golf biography": {
+        "males": "أعلام غولف",
+        "females": ""
+    },
+    "soccer biography": {
+        "males": "أعلام كرة قدم",
+        "females": ""
+    },
+    "roller hockey players": {
+        "males": "لاعبو هوكي دحرجة",
+        "females": "لاعبات هوكي دحرجة"
+    },
+    "rugby league referees": {
+        "males": "حكام دوري رجبي",
+        "females": "حكمات دوري رجبي"
+    },
+    "biathlon biography": {
+        "males": "أعلام بياثلون",
+        "females": ""
+    },
+    "association football referees": {
+        "males": "حكام كرة قدم",
+        "females": "حكمات كرة قدم"
+    },
+    "beach handball players": {
+        "males": "لاعبو كرة يد شاطئية",
+        "females": "لاعبات كرة يد شاطئية"
+    },
+    "table tennis coaches": {
+        "males": "مدربو كرة طاولة",
+        "females": "مدربات كرة طاولة"
+    },
+    "men's gymnastics coaches": {
+        "males": "مدربو جمباز رجالية",
+        "females": ""
+    },
+    "olympic rugby union players": {
+        "males": "لاعبو اتحاد رجبي أولمبيون",
+        "females": "لاعبات اتحاد رجبي أولمبيات"
+    },
+    "archery biography": {
+        "males": "أعلام نبالة",
+        "females": ""
+    },
+    "basketball scouts": {
+        "males": "كشافة كرة سلة",
+        "females": "كشافة كرة سلة"
+    },
+    "floorball players": {
+        "males": "لاعبو كرة أرض",
+        "females": "لاعبات كرة أرض"
+    },
+    "football scouts": {
+        "males": "كشافة كرة قدم",
+        "females": "كشافة كرة قدم"
+    },
+    "freestyle skiing biography": {
+        "males": "أعلام تزلج حر",
+        "females": ""
+    },
+    "luge biography": {
+        "males": "أعلام زحف ثلجي",
+        "females": ""
+    },
+    "football goalkeepers": {
+        "males": "حراس مرمى كرة قدم",
+        "females": "حارسات مرمى كرة قدم"
+    },
+    "field hockey umpires": {
+        "males": "حكام هوكي ميدان",
+        "females": "حكمات هوكي ميدان"
+    },
+    "hockey umpires": {
+        "males": "حكام هوكي",
+        "females": "حكمات هوكي"
+    },
+    "bandy managers": {
+        "males": "مدربو باندي",
+        "females": "مدربات باندي"
+    },
+    "baseball executives": {
+        "males": "مسيرو كرة قاعدة",
+        "females": "مسيرات كرة قاعدة"
+    },
+    "men's water polo coaches": {
+        "males": "مدربو كرة ماء رجالية",
+        "females": ""
+    },
+    "rugby coaches": {
+        "males": "مدربو رجبي",
+        "females": "مدربات رجبي"
+    },
+    "squash coaches": {
+        "males": "مدربو اسكواش",
+        "females": "مدربات اسكواش"
+    },
+    "racquets players": {
+        "males": "لاعبو لعبة الراح",
+        "females": "لاعبات لعبة الراح"
+    },
+    "taekwondo biography": {
+        "males": "أعلام تايكوندو",
+        "females": ""
+    },
+    "boxing coaches": {
+        "males": "مدربو بوكسينغ",
+        "females": "مدربات بوكسينغ"
+    },
+    "wrestling executives": {
+        "males": "مسيرو مصارعة",
+        "females": "مسيرات مصارعة"
+    },
+    "professional wrestling trainers": {
+        "males": "مدربو مصارعة محترفين",
+        "females": "مدربات مصارعة محترفين"
+    },
+    "wrestling trainers": {
+        "males": "مدربو مصارعة",
+        "females": "مدربات مصارعة"
+    },
+    "soccer referees": {
+        "males": "حكام كرة قدم",
+        "females": "حكمات كرة قدم"
+    },
+    "soft tennis players": {
+        "males": "لاعبو كرة مضرب لينة",
+        "females": "لاعبات كرة مضرب لينة"
+    },
+    "ski jumping coaches": {
+        "males": "مدربو قفز تزلجي",
+        "females": "مدربات قفز تزلجي"
+    },
+    "ice sledge hockey players": {
+        "males": "لاعبو هوكي مزلجة على الجليد",
+        "females": "لاعبات هوكي مزلجة على الجليد"
+    },
+    "olympic lacrosse players": {
+        "males": "لاعبو لاكروس أولمبيون",
+        "females": "لاعبات لاكروس أولمبيات"
+    },
+    "baseball umpires": {
+        "males": "حكام كرة قاعدة",
+        "females": "حكمات كرة قاعدة"
+    },
+    "alpine skiing coaches": {
+        "males": "مدربو تزلج على المنحدرات الثلجية",
+        "females": "مدربات تزلج على المنحدرات الثلجية"
+    },
+    "football quarterbacks": {
+        "males": "أظهرة رباعيون كرة قدم",
+        "females": "ظهيرات رباعيات كرة قدم"
+    },
+    "bandy biography": {
+        "males": "أعلام باندي",
+        "females": ""
+    },
+    "netball biography": {
+        "males": "أعلام كرة شبكة",
+        "females": ""
+    },
+    "bowls biography": {
+        "males": "أعلام بولينج",
+        "females": ""
+    },
+    "cross-country skiing coaches": {
+        "males": "مدربو تزلج ريفي",
+        "females": "مدربات تزلج ريفي"
+    },
+    "sports managers": {
+        "males": "مدربو رياضية",
+        "females": "مدربات رياضية"
+    },
+    "men's handball players": {
+        "males": "لاعبو كرة يد رجالية",
+        "females": ""
+    },
+    "sledge hockey coaches": {
+        "males": "مدربو هوكي مزلجة",
+        "females": "مدربات هوكي مزلجة"
+    },
+    "snowboarding biography": {
+        "males": "أعلام تزلج على الثلوج",
+        "females": ""
+    },
+    "softball biography": {
+        "males": "أعلام كرة لينة",
+        "females": ""
+    },
+    "xiangqi players": {
+        "males": "لاعبو شطرنج صيني",
+        "females": "لاعبات شطرنج صيني"
+    },
+    "karate biography": {
+        "males": "أعلام كاراتيه",
+        "females": ""
+    },
+    "modern pentathlon biography": {
+        "males": "أعلام خماسي حديث",
+        "females": ""
+    },
+    "pentathlon biography": {
+        "males": "أعلام خماسي",
+        "females": ""
+    },
+    "association football executives": {
+        "males": "مسيرو كرة قدم",
+        "females": "مسيرات كرة قدم"
+    },
+    "football forwards": {
+        "males": "مهاجمو كرة قدم",
+        "females": "مهاجمات كرة قدم"
+    },
+    "association football goalkeepers": {
+        "males": "حراس مرمى كرة قدم",
+        "females": "حارسات مرمى كرة قدم"
+    },
+    "football utility players": {
+        "males": "لاعبو مراكز متعددة كرة قدم",
+        "females": "لاعبات مراكز متعددة كرة قدم"
+    },
+    "basketball executives": {
+        "males": "مسيرو كرة سلة",
+        "females": "مسيرات كرة سلة"
+    },
+    "motorcycle racing biography": {
+        "males": "أعلام سباق دراجات نارية",
+        "females": ""
+    },
+    "speed skating coaches": {
+        "males": "مدربو تزلج سريع",
+        "females": "مدربات تزلج سريع"
+    },
+    "orienteering biography": {
+        "males": "أعلام سباق موجه",
+        "females": ""
+    },
+    "ice hockey executives": {
+        "males": "مسيرو هوكي جليد",
+        "females": "مسيرات هوكي جليد"
+    },
+    "hockey executives": {
+        "males": "مسيرو هوكي",
+        "females": "مسيرات هوكي"
+    },
+    "olympic croquet players": {
+        "males": "لاعبو كروكيت أولمبيون",
+        "females": "لاعبات كروكيت أولمبيات"
+    },
+    "olympic racquets players": {
+        "males": "لاعبو لعبة الراح أولمبيون",
+        "females": "لاعبات لعبة الراح أولمبيات"
+    },
+    "olympic soccer players": {
+        "males": "لاعبو كرة قدم أولمبيون",
+        "females": "لاعبات كرة قدم أولمبيات"
+    },
+    "american football coaches": {
+        "males": "مدربو كرة قدم أمريكية",
+        "females": "مدربات كرة قدم أمريكية"
+    },
+    "american football executives": {
+        "males": "مسيرو كرة قدم أمريكية",
+        "females": "مسيرات كرة قدم أمريكية"
+    },
+    "boxing managers": {
+        "males": "مدربو بوكسينغ",
+        "females": "مدربات بوكسينغ"
+    },
+    "boxing referees": {
+        "males": "حكام بوكسينغ",
+        "females": "حكمات بوكسينغ"
+    },
+    "american football biography": {
+        "males": "أعلام كرة قدم أمريكية",
+        "females": ""
+    },
+    "football defensive backs": {
+        "males": "مدافعون خلفيون كرة قدم",
+        "females": "مدافعات خلفيات كرة قدم"
+    },
+    "football defensive linemen": {
+        "males": "مدافعو خط كرة قدم",
+        "females": "مدافعات خط كرة قدم"
+    },
+    "football fullbacks": {
+        "males": "مدافعو كرة قدم",
+        "females": "مدافعات كرة قدم"
+    },
+    "football guards": {
+        "males": "حراس كرة قدم",
+        "females": "حراس كرة قدم"
+    },
+    "football linebackers": {
+        "males": "أظهرة كرة قدم",
+        "females": "ظهيرات كرة قدم"
+    },
+    "football offensive linemen": {
+        "males": "مهاجمو خط كرة قدم",
+        "females": "مهاجمات خط كرة قدم"
+    },
+    "football placekickers": {
+        "males": "مسددو كرة قدم",
+        "females": "مسددات كرة قدم"
+    },
+    "football running backs": {
+        "males": "راكضون للخلف كرة قدم",
+        "females": "راكضات للخلف كرة قدم"
+    },
+    "football tackles": {
+        "males": "مصطدمو كرة قدم",
+        "females": "مصطدمات كرة قدم"
+    },
+    "ice hockey centers": {
+        "males": "لاعبو وسط هوكي جليد",
+        "females": "لاعبات وسط هوكي جليد"
+    },
+    "hockey centers": {
+        "males": "لاعبو وسط هوكي",
+        "females": "لاعبات وسط هوكي"
+    },
+    "lacrosse biography": {
+        "males": "أعلام لاكروس",
+        "females": ""
+    },
+    "professional wrestling announcers": {
+        "males": "مذيعو مصارعة محترفين",
+        "females": "مذيعات مصارعة محترفين"
+    },
+    "wrestling announcers": {
+        "males": "مذيعو مصارعة",
+        "females": "مذيعات مصارعة"
+    },
+    "professional wrestling executives": {
+        "males": "مسيرو مصارعة محترفين",
+        "females": "مسيرات مصارعة محترفين"
+    },
+    "association football coaches": {
+        "males": "مدربو كرة قدم",
+        "females": "مدربات كرة قدم"
+    },
+    "association football defenders": {
+        "males": "مدافعو كرة قدم",
+        "females": "مدافعات كرة قدم"
+    },
+    "football defenders": {
+        "males": "مدافعو كرة قدم",
+        "females": "مدافعات كرة قدم"
+    },
+    "association football forwards": {
+        "males": "مهاجمو كرة قدم",
+        "females": "مهاجمات كرة قدم"
+    },
+    "association football midfielders": {
+        "males": "لاعبو وسط كرة قدم",
+        "females": "لاعبات وسط كرة قدم"
+    },
+    "football midfielders": {
+        "males": "لاعبو وسط كرة قدم",
+        "females": "لاعبات وسط كرة قدم"
+    },
+    "association football utility players": {
+        "males": "لاعبو مراكز متعددة كرة قدم",
+        "females": "لاعبات مراكز متعددة كرة قدم"
+    },
+    "association football wingers": {
+        "males": "أجنحة كرة قدم",
+        "females": "جناحات كرة قدم"
+    },
+    "football wingers": {
+        "males": "أجنحة كرة قدم",
+        "females": "جناحات كرة قدم"
+    },
+    "bandy executives": {
+        "males": "مسيرو باندي",
+        "females": "مسيرات باندي"
+    },
+    "baseball scouts": {
+        "males": "كشافة كرة قاعدة",
+        "females": "كشافة كرة قاعدة"
+    },
+    "bowling biography": {
+        "males": "أعلام بولينج",
+        "females": ""
+    },
+    "snooker biography": {
+        "males": "أعلام سنوكر",
+        "females": ""
+    },
+    "beach volleyball coaches": {
+        "males": "مدربو كرة طائرة شاطئية",
+        "females": "مدربات كرة طائرة شاطئية"
+    },
+    "triathlon biography": {
+        "males": "أعلام سباق ثلاثي",
+        "females": ""
+    },
+    "field hockey defenders": {
+        "males": "مدافعو هوكي ميدان",
+        "females": "مدافعات هوكي ميدان"
+    },
+    "hockey defenders": {
+        "males": "مدافعو هوكي",
+        "females": "مدافعات هوكي"
+    },
+    "field hockey forwards": {
+        "males": "مهاجمو هوكي ميدان",
+        "females": "مهاجمات هوكي ميدان"
+    },
+    "field hockey goalkeepers": {
+        "males": "حراس مرمى هوكي ميدان",
+        "females": "حارسات مرمى هوكي ميدان"
+    },
+    "hockey goalkeepers": {
+        "males": "حراس مرمى هوكي",
+        "females": "حارسات مرمى هوكي"
+    },
+    "field hockey midfielders": {
+        "males": "لاعبو وسط هوكي ميدان",
+        "females": "لاعبات وسط هوكي ميدان"
+    },
+    "hockey midfielders": {
+        "males": "لاعبو وسط هوكي",
+        "females": "لاعبات وسط هوكي"
+    },
+    "martial arts trainers": {
+        "males": "مدربو فنون قتالية",
+        "females": "مدربات فنون قتالية"
+    },
+    "gaelic football managers": {
+        "males": "مدربو كرة قدم غالية",
+        "females": "مدربات كرة قدم غالية"
+    },
+    "gridiron football players": {
+        "males": "لاعبو كرة قدم أمريكية شمالية",
+        "females": "لاعبات كرة قدم أمريكية شمالية"
+    },
+    "hurling managers": {
+        "males": "مدربو قذف",
+        "females": "مدربات قذف"
+    },
+    "gridiron football biography": {
+        "males": "أعلام كرة قدم أمريكية شمالية",
+        "females": ""
+    },
+    "athletics announcers": {
+        "males": "مذيعو ألعاب قوى",
+        "females": "مذيعات ألعاب قوى"
+    },
+    "athletics executives": {
+        "males": "مسيرو ألعاب قوى",
+        "females": "مسيرات ألعاب قوى"
+    },
+    "athletics managers": {
+        "males": "مدربو ألعاب قوى",
+        "females": "مدربات ألعاب قوى"
+    },
+    "athletics scouts": {
+        "males": "كشافة ألعاب قوى",
+        "females": "كشافة ألعاب قوى"
+    },
+    "gymnastics biography": {
+        "males": "أعلام جمباز",
+        "females": ""
+    },
+    "american football announcers": {
+        "males": "مذيعو كرة قدم أمريكية",
+        "females": "مذيعات كرة قدم أمريكية"
+    },
+    "bodybuilding biography": {
+        "males": "أعلام كمال أجسام",
+        "females": ""
+    },
+    "american football quarterbacks": {
+        "males": "أظهرة رباعيون كرة قدم أمريكية",
+        "females": "ظهيرات رباعيات كرة قدم أمريكية"
+    },
+    "football wide receivers": {
+        "males": "مستقبلون واسعون كرة قدم",
+        "females": "مستقبلات واسعات كرة قدم"
+    },
+    "professional wrestling biography": {
+        "males": "أعلام مصارعة محترفين",
+        "females": ""
+    },
+    "wrestling biography": {
+        "males": "أعلام مصارعة",
+        "females": ""
+    },
+    "professional wrestling referees": {
+        "males": "حكام مصارعة محترفين",
+        "females": "حكمات مصارعة محترفين"
+    },
+    "wrestling referees": {
+        "males": "حكام مصارعة",
+        "females": "حكمات مصارعة"
+    },
+    "skateboarding biography": {
+        "males": "أعلام تزلج على اللوح",
+        "females": ""
+    },
+    "soccer executives": {
+        "males": "مسيرو كرة قدم",
+        "females": "مسيرات كرة قدم"
+    },
+    "surfing biography": {
+        "males": "أعلام ركمجة",
+        "females": ""
+    },
+    "track-and-field athletics biography": {
+        "males": "أعلام ألعاب قوى مضمار وميدان",
+        "females": ""
+    },
+    "archery coaches": {
+        "males": "مدربو نبالة",
+        "females": "مدربات نبالة"
+    },
+    "netball umpires": {
+        "males": "حكام كرة شبكة",
+        "females": "حكمات كرة شبكة"
+    },
+    "rugby league journalists": {
+        "males": "صحفيو دوري رجبي",
+        "females": "صحفيات دوري رجبي"
+    },
+    "australian rules football coaches": {
+        "males": "مدربو كرة قدم أسترالية",
+        "females": "مدربات كرة قدم أسترالية"
+    },
+    "football umpires": {
+        "males": "حكام كرة قدم",
+        "females": "حكمات كرة قدم"
+    },
+    "soccer goalkeepers": {
+        "males": "حراس مرمى كرة قدم",
+        "females": "حارسات مرمى كرة قدم"
+    },
+    "darts biography": {
+        "males": "أعلام سهام مريشة",
+        "females": ""
+    },
+    "canadian football players": {
+        "males": "لاعبو كرة قدم كندية",
+        "females": "لاعبات كرة قدم كندية"
+    },
+    "sports announcers": {
+        "males": "مذيعو رياضية",
+        "females": "مذيعات رياضية"
+    },
+    "rugby union executives": {
+        "males": "مسيرو اتحاد رجبي",
+        "females": "مسيرات اتحاد رجبي"
+    },
+    "rallying biography": {
+        "males": "أعلام راليات",
+        "females": ""
+    },
+    "gaelic football goalkeepers": {
+        "males": "حراس مرمى كرة قدم غالية",
+        "females": "حارسات مرمى كرة قدم غالية"
+    },
+    "go biography": {
+        "males": "أعلام غو",
+        "females": ""
+    },
+    "men's field hockey players": {
+        "males": "لاعبو هوكي ميدان رجالية",
+        "females": ""
+    },
+    "karate coaches": {
+        "males": "مدربو كاراتيه",
+        "females": "مدربات كاراتيه"
+    },
+    "lacrosse announcers": {
+        "males": "مذيعو لاكروس",
+        "females": "مذيعات لاكروس"
+    },
+    "gaelic football players": {
+        "males": "لاعبو كرة قدم غالية",
+        "females": "لاعبات كرة قدم غالية"
+    },
+    "hurling players": {
+        "males": "لاعبو قذف",
+        "females": "لاعبات قذف"
+    },
+    "association football central defenders": {
+        "males": "قلوب دفاع كرة قدم",
+        "females": "مدافعات مركزيات كرة قدم"
+    },
+    "football central defenders": {
+        "males": "قلوب دفاع كرة قدم",
+        "females": "مدافعات مركزيات كرة قدم"
+    },
+    "association football outside forwards": {
+        "males": "مهاجمون خارجيون كرة قدم",
+        "females": "مهاجمات خارجيات كرة قدم"
+    },
+    "football outside forwards": {
+        "males": "مهاجمون خارجيون كرة قدم",
+        "females": "مهاجمات خارجيات كرة قدم"
+    },
+    "orienteering coaches": {
+        "males": "مدربو سباق موجه",
+        "females": "مدربات سباق موجه"
+    },
+    "olympic football managers": {
+        "males": "مدربو كرة قدم أولمبيون",
+        "females": "مدربات كرة قدم أولمبيات"
+    },
+    "olympic ice hockey coaches": {
+        "males": "مدربو هوكي جليد أولمبيون",
+        "females": "مدربات هوكي جليد أولمبيات"
+    },
+    "olympic water polo coaches": {
+        "males": "مدربو كرة ماء أولمبيون",
+        "females": "مدربات كرة ماء أولمبيات"
+    },
+    "wheelchair basketball coaches": {
+        "males": "مدربو كرة سلة على كراسي متحركة",
+        "females": "مدربات كرة سلة على كراسي متحركة"
+    },
+    "wheelchair rugby coaches": {
+        "males": "مدربو رجبي على كراسي متحركة",
+        "females": "مدربات رجبي على كراسي متحركة"
+    },
+    "pesäpallo players": {
+        "males": "لاعبو بيسبالو",
+        "females": "لاعبات بيسبالو"
+    },
+    "rugby referees": {
+        "males": "حكام رجبي",
+        "females": "حكمات رجبي"
+    },
+    "sailing centers": {
+        "males": "لاعبو وسط إبحار",
+        "females": "لاعبات وسط إبحار"
+    },
+    "acrobatic gymnastics biography": {
+        "males": "أعلام الجمباز الاكروباتيكي",
+        "females": ""
+    },
+    "college managers": {
+        "males": "مدربو كليات",
+        "females": "مدربات كليات"
+    },
+    "american football centers": {
+        "males": "لاعبو وسط كرة قدم أمريكية",
+        "females": "لاعبات وسط كرة قدم أمريكية"
+    },
+    "football centers": {
+        "males": "لاعبو وسط كرة قدم",
+        "females": "لاعبات وسط كرة قدم"
+    },
+    "american football defensive backs": {
+        "males": "مدافعون خلفيون كرة قدم أمريكية",
+        "females": "مدافعات خلفيات كرة قدم أمريكية"
+    },
+    "american football defensive linemen": {
+        "males": "مدافعو خط كرة قدم أمريكية",
+        "females": "مدافعات خط كرة قدم أمريكية"
+    },
+    "american football drop kickers": {
+        "males": "مسددو ركلات كرة قدم أمريكية",
+        "females": "مسددات ركلات كرة قدم أمريكية"
+    },
+    "football drop kickers": {
+        "males": "مسددو ركلات كرة قدم",
+        "females": "مسددات ركلات كرة قدم"
+    },
+    "american football fullbacks": {
+        "males": "مدافعو كرة قدم أمريكية",
+        "females": "مدافعات كرة قدم أمريكية"
+    },
+    "american football guards": {
+        "males": "حراس كرة قدم أمريكية",
+        "females": "حراس كرة قدم أمريكية"
+    },
+    "american football halfbacks": {
+        "males": "أظهرة مساعدون كرة قدم أمريكية",
+        "females": "ظهيرات مساعدات كرة قدم أمريكية"
+    },
+    "football halfbacks": {
+        "males": "أظهرة مساعدون كرة قدم",
+        "females": "ظهيرات مساعدات كرة قدم"
+    },
+    "american football linebackers": {
+        "males": "أظهرة كرة قدم أمريكية",
+        "females": "ظهيرات كرة قدم أمريكية"
+    },
+    "american football offensive linemen": {
+        "males": "مهاجمو خط كرة قدم أمريكية",
+        "females": "مهاجمات خط كرة قدم أمريكية"
+    },
+    "american football placekickers": {
+        "males": "مسددو كرة قدم أمريكية",
+        "females": "مسددات كرة قدم أمريكية"
+    },
+    "american football running backs": {
+        "males": "راكضون للخلف كرة قدم أمريكية",
+        "females": "راكضات للخلف كرة قدم أمريكية"
+    },
+    "american football scouts": {
+        "males": "كشافة كرة قدم أمريكية",
+        "females": "كشافة كرة قدم أمريكية"
+    },
+    "american football tackles": {
+        "males": "مصطدمو كرة قدم أمريكية",
+        "females": "مصطدمات كرة قدم أمريكية"
+    },
+    "american football wide receivers": {
+        "males": "مستقبلون واسعون كرة قدم أمريكية",
+        "females": "مستقبلات واسعات كرة قدم أمريكية"
+    },
+    "men's ice hockey centers": {
+        "males": "لاعبو وسط هوكي جليد رجالية",
+        "females": ""
+    },
+    "men's ice hockey forwards": {
+        "males": "مهاجمو هوكي جليد رجالية",
+        "females": ""
+    },
+    "men's ice hockey goaltenders": {
+        "males": "حراس مرمى هوكي جليد رجالية",
+        "females": ""
+    },
+    "men's ice hockey left wingers": {
+        "males": "أجنحة يسار هوكي جليد رجالية",
+        "females": ""
+    },
+    "men's ice hockey right wingers": {
+        "males": "أجنحة يمين هوكي جليد رجالية",
+        "females": ""
+    },
+    "association football journalists": {
+        "males": "صحفيو كرة قدم",
+        "females": "صحفيات كرة قدم"
+    },
+    "football journalists": {
+        "males": "صحفيو كرة قدم",
+        "females": "صحفيات كرة قدم"
+    },
+    "association football scouts": {
+        "males": "كشافة كرة قدم",
+        "females": "كشافة كرة قدم"
+    },
+    "association football sports-people": {
+        "males": "رياضيو كرة قدم",
+        "females": "رياضيات كرة قدم"
+    },
+    "football sports-people": {
+        "males": "رياضيو كرة قدم",
+        "females": "رياضيات كرة قدم"
+    },
+    "australian rules football biography": {
+        "males": "أعلام كرة قدم أسترالية",
+        "females": ""
+    },
+    "australian rules football umpires": {
+        "males": "حكام كرة قدم أسترالية",
+        "females": "حكمات كرة قدم أسترالية"
+    },
+    "auto racing executives": {
+        "males": "مسيرو سباق سيارات",
+        "females": "مسيرات سباق سيارات"
+    },
+    "badminton executives": {
+        "males": "مسيرو تنس ريشة",
+        "females": "مسيرات تنس ريشة"
+    },
+    "ball hockey players": {
+        "males": "لاعبو هوكي كرة",
+        "females": "لاعبات هوكي كرة"
+    },
+    "beach soccer coaches": {
+        "males": "مدربو كرة قدم شاطئية",
+        "females": "مدربات كرة قدم شاطئية"
+    },
+    "beach soccer goalkeepers": {
+        "males": "حراس مرمى كرة قدم شاطئية",
+        "females": "حارسات مرمى كرة قدم شاطئية"
+    },
+    "beach volleyball defenders": {
+        "males": "مدافعو كرة طائرة شاطئية",
+        "females": "مدافعات كرة طائرة شاطئية"
+    },
+    "volleyball defenders": {
+        "males": "مدافعو كرة طائرة",
+        "females": "مدافعات كرة طائرة"
+    },
+    "biathlon coaches": {
+        "males": "مدربو بياثلون",
+        "females": "مدربات بياثلون"
+    },
+    "boules players": {
+        "males": "لاعبو بوتشي",
+        "females": "لاعبات بوتشي"
+    },
+    "men's football managers": {
+        "males": "مدربو كرة قدم رجالية",
+        "females": ""
+    },
+    "bullfighting biography": {
+        "males": "أعلام مصارعة ثيران",
+        "females": ""
+    },
+    "canadian football biography": {
+        "males": "أعلام كرة قدم كندية",
+        "females": ""
+    },
+    "canadian football centres": {
+        "males": "لاعبو وسط كرة قدم كندية",
+        "females": "لاعبات وسط كرة قدم كندية"
+    },
+    "football centres": {
+        "males": "لاعبو وسط كرة قدم",
+        "females": "لاعبات وسط كرة قدم"
+    },
+    "canadian football defensive backs": {
+        "males": "مدافعون خلفيون كرة قدم كندية",
+        "females": "مدافعات خلفيات كرة قدم كندية"
+    },
+    "canadian football defensive linemen": {
+        "males": "مدافعو خط كرة قدم كندية",
+        "females": "مدافعات خط كرة قدم كندية"
+    },
+    "canadian football fullbacks": {
+        "males": "مدافعو كرة قدم كندية",
+        "females": "مدافعات كرة قدم كندية"
+    },
+    "canadian football guards": {
+        "males": "حراس كرة قدم كندية",
+        "females": "حراس كرة قدم كندية"
+    },
+    "canadian football linebackers": {
+        "males": "أظهرة كرة قدم كندية",
+        "females": "ظهيرات كرة قدم كندية"
+    },
+    "canadian football offensive linemen": {
+        "males": "مهاجمو خط كرة قدم كندية",
+        "females": "مهاجمات خط كرة قدم كندية"
+    },
+    "canadian football placekickers": {
+        "males": "مسددو كرة قدم كندية",
+        "females": "مسددات كرة قدم كندية"
+    },
+    "canadian football quarterbacks": {
+        "males": "أظهرة رباعيون كرة قدم كندية",
+        "females": "ظهيرات رباعيات كرة قدم كندية"
+    },
+    "canadian football running backs": {
+        "males": "راكضون للخلف كرة قدم كندية",
+        "females": "راكضات للخلف كرة قدم كندية"
+    },
+    "canadian football scouts": {
+        "males": "كشافة كرة قدم كندية",
+        "females": "كشافة كرة قدم كندية"
+    },
+    "canadian football tackles": {
+        "males": "مصطدمو كرة قدم كندية",
+        "females": "مصطدمات كرة قدم كندية"
+    },
+    "canadian football wide receivers": {
+        "males": "مستقبلون واسعون كرة قدم كندية",
+        "females": "مستقبلات واسعات كرة قدم كندية"
+    },
+    "go coaches": {
+        "males": "مدربو غو",
+        "females": "مدربات غو"
+    },
+    "chess coaches": {
+        "males": "مدربو شطرنج",
+        "females": "مدربات شطرنج"
+    },
+    "chinese martial arts biography": {
+        "males": "أعلام فنون قتالية صينية",
+        "females": ""
+    },
+    "climbing biography": {
+        "males": "أعلام تسلق",
+        "females": ""
+    },
+    "hockey announcers": {
+        "males": "مذيعو هوكي",
+        "females": "مذيعات هوكي"
+    },
+    "men's basketball referees": {
+        "males": "حكام كرة سلة رجالية",
+        "females": ""
+    },
+    "men's sports coaches": {
+        "males": "مدربو رياضية رجالية",
+        "females": ""
+    },
+    "men's squash coaches": {
+        "males": "مدربو اسكواش رجالية",
+        "females": ""
+    },
+    "cricket managers": {
+        "males": "مدربو كريكت",
+        "females": "مدربات كريكت"
+    },
+    "cue sports biography": {
+        "males": "أعلام بلياردو",
+        "females": ""
+    },
+    "cue sports executives": {
+        "males": "مسيرو بلياردو",
+        "females": "مسيرات بلياردو"
+    },
+    "cue sports referees": {
+        "males": "حكام بلياردو",
+        "females": "حكمات بلياردو"
+    },
+    "sports referees": {
+        "males": "حكام رياضية",
+        "females": "حكمات رياضية"
+    },
+    "cycle race stage winners": {
+        "males": "فائزون في مراحل سباق دراجات",
+        "females": "فائزات في مراحل سباق دراجات"
+    },
+    "cycle racing executives": {
+        "males": "مسيرو سباق دراجات",
+        "females": "مسيرات سباق دراجات"
+    },
+    "cycling announcers": {
+        "males": "مذيعو سباق دراجات هوائية",
+        "females": "مذيعات سباق دراجات هوائية"
+    },
+    "cycling journalists": {
+        "males": "صحفيو سباق دراجات هوائية",
+        "females": "صحفيات سباق دراجات هوائية"
+    },
+    "college coaches": {
+        "males": "مدربو كليات",
+        "females": "مدربات كليات"
+    },
+    "dressage trainers": {
+        "males": "مدربو ترويض خيول",
+        "females": "مدربات ترويض خيول"
+    },
+    "esports coaches": {
+        "males": "مدربو رياضة إلكترونية",
+        "females": "مدربات رياضة إلكترونية"
+    },
+    "esports executives": {
+        "males": "مسيرو رياضة إلكترونية",
+        "females": "مسيرات رياضة إلكترونية"
+    },
+    "esports journalists": {
+        "males": "صحفيو رياضة إلكترونية",
+        "females": "صحفيات رياضة إلكترونية"
+    },
+    "rugby football players": {
+        "males": "لاعبو كرة قدم رجبي",
+        "females": "لاعبات كرة قدم رجبي"
+    },
+    "floorball biography": {
+        "males": "أعلام كرة أرض",
+        "females": ""
+    },
+    "formula one journalists": {
+        "males": "صحفيو فورمولا ون",
+        "females": "صحفيات فورمولا ون"
+    },
+    "formula one managers": {
+        "males": "مدربو فورمولا ون",
+        "females": "مدربات فورمولا ون"
+    },
+    "futsal defenders": {
+        "males": "مدافعو كرة صالات",
+        "females": "مدافعات كرة صالات"
+    },
+    "futsal forwards": {
+        "males": "مهاجمو كرة صالات",
+        "females": "مهاجمات كرة صالات"
+    },
+    "futsal goalkeepers": {
+        "males": "حراس مرمى كرة صالات",
+        "females": "حارسات مرمى كرة صالات"
+    },
+    "futsal referees": {
+        "males": "حكام كرة صالات",
+        "females": "حكمات كرة صالات"
+    },
+    "gaelic football coaches": {
+        "males": "مدربو كرة قدم غالية",
+        "females": "مدربات كرة قدم غالية"
+    },
+    "gaelic football forwards": {
+        "males": "مهاجمو كرة قدم غالية",
+        "females": "مهاجمات كرة قدم غالية"
+    },
+    "gaelic football referees": {
+        "males": "حكام كرة قدم غالية",
+        "females": "حكمات كرة قدم غالية"
+    },
+    "gaelic football umpires": {
+        "males": "حكام كرة قدم غالية",
+        "females": "حكمات كرة قدم غالية"
+    },
+    "gaelic football utility players": {
+        "males": "لاعبو مراكز متعددة كرة قدم غالية",
+        "females": "لاعبات مراكز متعددة كرة قدم غالية"
+    },
+    "goalball biography": {
+        "males": "أعلام كرة هدف",
+        "females": ""
+    },
+    "gridiron football defensive backs": {
+        "males": "مدافعون خلفيون كرة قدم أمريكية شمالية",
+        "females": "مدافعات خلفيات كرة قدم أمريكية شمالية"
+    },
+    "gridiron football defensive linemen": {
+        "males": "مدافعو خط كرة قدم أمريكية شمالية",
+        "females": "مدافعات خط كرة قدم أمريكية شمالية"
+    },
+    "gridiron football guards": {
+        "males": "حراس كرة قدم أمريكية شمالية",
+        "females": "حراس كرة قدم أمريكية شمالية"
+    },
+    "gridiron football linebackers": {
+        "males": "أظهرة كرة قدم أمريكية شمالية",
+        "females": "ظهيرات كرة قدم أمريكية شمالية"
+    },
+    "gridiron football offensive linemen": {
+        "males": "مهاجمو خط كرة قدم أمريكية شمالية",
+        "females": "مهاجمات خط كرة قدم أمريكية شمالية"
+    },
+    "gridiron football placekickers": {
+        "males": "مسددو كرة قدم أمريكية شمالية",
+        "females": "مسددات كرة قدم أمريكية شمالية"
+    },
+    "gridiron football quarterbacks": {
+        "males": "أظهرة رباعيون كرة قدم أمريكية شمالية",
+        "females": "ظهيرات رباعيات كرة قدم أمريكية شمالية"
+    },
+    "gridiron football receivers": {
+        "males": "مستقبلو كرة قدم أمريكية شمالية",
+        "females": "مستقبلات كرة قدم أمريكية شمالية"
+    },
+    "football receivers": {
+        "males": "مستقبلو كرة قدم",
+        "females": "مستقبلات كرة قدم"
+    },
+    "gridiron football running backs": {
+        "males": "راكضون للخلف كرة قدم أمريكية شمالية",
+        "females": "راكضات للخلف كرة قدم أمريكية شمالية"
+    },
+    "gridiron football tackles": {
+        "males": "مصطدمو كرة قدم أمريكية شمالية",
+        "females": "مصطدمات كرة قدم أمريكية شمالية"
+    },
+    "handball referees": {
+        "males": "حكام كرة يد",
+        "females": "حكمات كرة يد"
+    },
+    "hurling coaches": {
+        "males": "مدربو قذف",
+        "females": "مدربات قذف"
+    },
+    "hurling forwards": {
+        "males": "مهاجمو قذف",
+        "females": "مهاجمات قذف"
+    },
+    "hurling goalkeepers": {
+        "males": "حراس مرمى قذف",
+        "females": "حارسات مرمى قذف"
+    },
+    "hurling referees": {
+        "males": "حكام قذف",
+        "females": "حكمات قذف"
+    },
+    "hurling umpires": {
+        "males": "حكام قذف",
+        "females": "حكمات قذف"
+    },
+    "ice hockey journalists": {
+        "males": "صحفيو هوكي جليد",
+        "females": "صحفيات هوكي جليد"
+    },
+    "hockey journalists": {
+        "males": "صحفيو هوكي",
+        "females": "صحفيات هوكي"
+    },
+    "ice hockey wingers": {
+        "males": "أجنحة هوكي جليد",
+        "females": "جناحات هوكي جليد"
+    },
+    "hockey wingers": {
+        "males": "أجنحة هوكي",
+        "females": "جناحات هوكي"
+    },
+    "college players": {
+        "males": "لاعبو كليات",
+        "females": "لاعبات كليات"
+    },
+    "judo referees": {
+        "males": "حكام جودو",
+        "females": "حكمات جودو"
+    },
+    "kickboxing executives": {
+        "males": "مسيرو كيك بوكسينغ",
+        "females": "مسيرات كيك بوكسينغ"
+    },
+    "kickboxing referees": {
+        "males": "حكام كيك بوكسينغ",
+        "females": "حكمات كيك بوكسينغ"
+    },
+    "kickboxing trainers": {
+        "males": "مدربو كيك بوكسينغ",
+        "females": "مدربات كيك بوكسينغ"
+    },
+    "lacrosse defenders": {
+        "males": "مدافعو لاكروس",
+        "females": "مدافعات لاكروس"
+    },
+    "lacrosse forwards": {
+        "males": "مهاجمو لاكروس",
+        "females": "مهاجمات لاكروس"
+    },
+    "lacrosse goaltenders": {
+        "males": "حراس مرمى لاكروس",
+        "females": "حارسات مرمى لاكروس"
+    },
+    "lacrosse midfielders": {
+        "males": "لاعبو وسط لاكروس",
+        "females": "لاعبات وسط لاكروس"
+    },
+    "golf players": {
+        "males": "لاعبو غولف",
+        "females": "لاعبات غولف"
+    },
+    "baseball trainers": {
+        "males": "مدربو كرة قاعدة",
+        "females": "مدربات كرة قاعدة"
+    },
+    "baseball utility players": {
+        "males": "لاعبو مراكز متعددة كرة قاعدة",
+        "females": "لاعبات مراكز متعددة كرة قاعدة"
+    },
+    "men's association football central defenders": {
+        "males": "قلوب دفاع كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football defenders": {
+        "males": "مدافعو كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football forwards": {
+        "males": "مهاجمو كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football goalkeepers": {
+        "males": "حراس مرمى كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football inside forwards": {
+        "males": "مهاجمون داخليون كرة قدم رجالية",
+        "females": ""
+    },
+    "association football inside forwards": {
+        "males": "مهاجمون داخليون كرة قدم",
+        "females": "مهاجمات داخليات كرة قدم"
+    },
+    "football inside forwards": {
+        "males": "مهاجمون داخليون كرة قدم",
+        "females": "مهاجمات داخليات كرة قدم"
+    },
+    "men's association football midfielders": {
+        "males": "لاعبو وسط كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football outside forwards": {
+        "males": "مهاجمون خارجيون كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football utility players": {
+        "males": "لاعبو مراكز متعددة كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football wingers": {
+        "males": "أجنحة كرة قدم رجالية",
+        "females": ""
+    },
+    "men's association football wing halves": {
+        "males": "أنصاف أجنحة كرة قدم رجالية",
+        "females": ""
+    },
+    "association football wing halves": {
+        "males": "أنصاف أجنحة كرة قدم",
+        "females": "جناحات نصفيات كرة قدم"
+    },
+    "football wing halves": {
+        "males": "أنصاف أجنحة كرة قدم",
+        "females": "جناحات نصفيات كرة قدم"
+    },
+    "men's netball players": {
+        "males": "لاعبو كرة شبكة رجالية",
+        "females": ""
+    },
+    "mixed martial arts announcers": {
+        "males": "مذيعو فنون قتال مختلطة",
+        "females": "مذيعات فنون قتال مختلطة"
+    },
+    "martial arts announcers": {
+        "males": "مذيعو فنون قتالية",
+        "females": "مذيعات فنون قتالية"
+    },
+    "mixed martial arts biography": {
+        "males": "أعلام فنون قتال مختلطة",
+        "females": ""
+    },
+    "mixed martial arts executives": {
+        "males": "مسيرو فنون قتال مختلطة",
+        "females": "مسيرات فنون قتال مختلطة"
+    },
+    "martial arts executives": {
+        "males": "مسيرو فنون قتالية",
+        "females": "مسيرات فنون قتالية"
+    },
+    "mixed martial arts journalists": {
+        "males": "صحفيو فنون قتال مختلطة",
+        "females": "صحفيات فنون قتال مختلطة"
+    },
+    "martial arts journalists": {
+        "males": "صحفيو فنون قتالية",
+        "females": "صحفيات فنون قتالية"
+    },
+    "mixed martial arts referees": {
+        "males": "حكام فنون قتال مختلطة",
+        "females": "حكمات فنون قتال مختلطة"
+    },
+    "martial arts referees": {
+        "males": "حكام فنون قتالية",
+        "females": "حكمات فنون قتالية"
+    },
+    "mixed martial arts trainers": {
+        "males": "مدربو فنون قتال مختلطة",
+        "females": "مدربات فنون قتال مختلطة"
+    },
+    "modern pentathlon coaches": {
+        "males": "مدربو خماسي حديث",
+        "females": "مدربات خماسي حديث"
+    },
+    "pentathlon coaches": {
+        "males": "مدربو خماسي",
+        "females": "مدربات خماسي"
+    },
+    "motorcycle journalists": {
+        "males": "صحفيو دراجات نارية",
+        "females": "صحفيات دراجات نارية"
+    },
+    "motorcycle sports-people": {
+        "males": "رياضيو دراجات نارية",
+        "females": "رياضيات دراجات نارية"
+    },
+    "motorcycle trainers": {
+        "males": "مدربو دراجات نارية",
+        "females": "مدربات دراجات نارية"
+    },
+    "motorsport announcers": {
+        "males": "مذيعو رياضة محركات",
+        "females": "مذيعات رياضة محركات"
+    },
+    "motorsport journalists": {
+        "males": "صحفيو رياضة محركات",
+        "females": "صحفيات رياضة محركات"
+    },
+    "muay thai trainers": {
+        "males": "مدربو موياي تاي",
+        "females": "مدربات موياي تاي"
+    },
+    "olympic baseball managers": {
+        "males": "مدربو كرة قاعدة أولمبيون",
+        "females": "مدربات كرة قاعدة أولمبيات"
+    },
+    "olympic football referees": {
+        "males": "حكام كرة قدم أولمبيون",
+        "females": "حكمات كرة قدم أولمبيات"
+    },
+    "olympic rugby players": {
+        "males": "لاعبو رجبي أولمبيون",
+        "females": "لاعبات رجبي أولمبيات"
+    },
+    "olympic volleyball coaches": {
+        "males": "مدربو كرة طائرة أولمبيون",
+        "females": "مدربات كرة طائرة أولمبيات"
+    },
+    "professional wrestling journalists": {
+        "males": "صحفيو مصارعة محترفين",
+        "females": "صحفيات مصارعة محترفين"
+    },
+    "wrestling journalists": {
+        "males": "صحفيو مصارعة",
+        "females": "صحفيات مصارعة"
+    },
+    "professional wrestling managers": {
+        "males": "مدربو مصارعة محترفين",
+        "females": "مدربات مصارعة محترفين"
+    },
+    "wrestling managers": {
+        "males": "مدربو مصارعة",
+        "females": "مدربات مصارعة"
+    },
+    "roller hockey coaches": {
+        "males": "مدربو هوكي دحرجة",
+        "females": "مدربات هوكي دحرجة"
+    },
+    "roller hockey forwards": {
+        "males": "مهاجمو هوكي دحرجة",
+        "females": "مهاجمات هوكي دحرجة"
+    },
+    "rugby football biography": {
+        "males": "أعلام كرة قدم رجبي",
+        "females": ""
+    },
+    "rugby football coaches": {
+        "males": "مدربو كرة قدم رجبي",
+        "females": "مدربات كرة قدم رجبي"
+    },
+    "rugby league centres": {
+        "males": "لاعبو وسط دوري رجبي",
+        "females": "لاعبات وسط دوري رجبي"
+    },
+    "rugby league forwards": {
+        "males": "مهاجمو دوري رجبي",
+        "females": "مهاجمات دوري رجبي"
+    },
+    "rugby league fullbacks": {
+        "males": "مدافعو دوري رجبي",
+        "females": "مدافعات دوري رجبي"
+    },
+    "rugby league halfbacks": {
+        "males": "أظهرة مساعدون دوري رجبي",
+        "females": "ظهيرات مساعدات دوري رجبي"
+    },
+    "rugby league utility players": {
+        "males": "لاعبو مراكز متعددة دوري رجبي",
+        "females": "لاعبات مراكز متعددة دوري رجبي"
+    },
+    "rugby league wingers": {
+        "males": "أجنحة دوري رجبي",
+        "females": "جناحات دوري رجبي"
+    },
+    "rugby union centres": {
+        "males": "لاعبو وسط اتحاد رجبي",
+        "females": "لاعبات وسط اتحاد رجبي"
+    },
+    "rugby union forwards": {
+        "males": "مهاجمو اتحاد رجبي",
+        "females": "مهاجمات اتحاد رجبي"
+    },
+    "rugby union fullbacks": {
+        "males": "مدافعو اتحاد رجبي",
+        "females": "مدافعات اتحاد رجبي"
+    },
+    "rugby union halfbacks": {
+        "males": "أظهرة مساعدون اتحاد رجبي",
+        "females": "ظهيرات مساعدات اتحاد رجبي"
+    },
+    "rugby union journalists": {
+        "males": "صحفيو اتحاد رجبي",
+        "females": "صحفيات اتحاد رجبي"
+    },
+    "sailing coaches": {
+        "males": "مدربو إبحار",
+        "females": "مدربات إبحار"
+    },
+    "sailing executives": {
+        "males": "مسيرو إبحار",
+        "females": "مسيرات إبحار"
+    },
+    "shooting coaches": {
+        "males": "مدربو رماية",
+        "females": "مدربات رماية"
+    },
+    "shooting guards": {
+        "males": "حراس رماية",
+        "females": "حراس رماية"
+    },
+    "show jumping trainers": {
+        "males": "مدربو قفز حواجز",
+        "females": "مدربات قفز حواجز"
+    },
+    "skeleton racing biography": {
+        "males": "أعلام سباق زلاجات صدرية",
+        "females": ""
+    },
+    "skiing announcers": {
+        "males": "مذيعو تزلج",
+        "females": "مذيعات تزلج"
+    },
+    "skiing executives": {
+        "males": "مسيرو تزلج",
+        "females": "مسيرات تزلج"
+    },
+    "sledge hockey biography": {
+        "males": "أعلام هوكي مزلجة",
+        "females": ""
+    },
+    "snooker referees": {
+        "males": "حكام سنوكر",
+        "females": "حكمات سنوكر"
+    },
+    "softball announcers": {
+        "males": "مذيعو كرة لينة",
+        "females": "مذيعات كرة لينة"
+    },
+    "softball executives": {
+        "males": "مسيرو كرة لينة",
+        "females": "مسيرات كرة لينة"
+    },
+    "athletics journalists": {
+        "males": "صحفيو ألعاب قوى",
+        "females": "صحفيات ألعاب قوى"
+    },
+    "sports scouts": {
+        "males": "كشافة رياضية",
+        "females": "كشافة رياضية"
+    },
+    "sumo announcers": {
+        "males": "مذيعو سومو",
+        "females": "مذيعات سومو"
+    },
+    "sumo biography": {
+        "males": "أعلام سومو",
+        "females": ""
+    },
+    "synchronized swimming coaches": {
+        "males": "مدربو سباحة متزامنة",
+        "females": "مدربات سباحة متزامنة"
+    },
+    "taekwondo coaches": {
+        "males": "مدربو تايكوندو",
+        "females": "مدربات تايكوندو"
+    },
+    "tennis executives": {
+        "males": "مسيرو كرة مضرب",
+        "females": "مسيرات كرة مضرب"
+    },
+    "tennis umpires": {
+        "males": "حكام كرة مضرب",
+        "females": "حكمات كرة مضرب"
+    },
+    "triathlon coaches": {
+        "males": "مدربو سباق ثلاثي",
+        "females": "مدربات سباق ثلاثي"
+    },
+    "men's track and field coaches": {
+        "males": "مدربو سباقات مضمار وميدان رجالية",
+        "females": ""
+    },
+    "men's rowing coaches": {
+        "males": "مدربو تجديف رجالية",
+        "females": ""
+    },
+    "water polo goalkeepers": {
+        "males": "حراس مرمى كرة ماء",
+        "females": "حارسات مرمى كرة ماء"
+    },
+    "polo goalkeepers": {
+        "males": "حراس مرمى بولو",
+        "females": "حارسات مرمى بولو"
+    },
+    "water polo utility players": {
+        "males": "لاعبو مراكز متعددة كرة ماء",
+        "females": "لاعبات مراكز متعددة كرة ماء"
+    },
+    "polo utility players": {
+        "males": "لاعبو مراكز متعددة بولو",
+        "females": "لاعبات مراكز متعددة بولو"
+    },
+    "weightlifting coaches": {
+        "males": "مدربو رفع أثقال",
+        "females": "مدربات رفع أثقال"
+    },
+    "wheelchair rugby biography": {
+        "males": "أعلام رجبي على كراسي متحركة",
+        "females": ""
+    },
+    "wheelchair rugby league players": {
+        "males": "لاعبو دوري رجبي على كراسي متحركة",
+        "females": "لاعبات دوري رجبي على كراسي متحركة"
+    },
+    "association football fullbacks": {
+        "males": "مدافعو كرة قدم",
+        "females": "مدافعات كرة قدم"
+    }
+}
