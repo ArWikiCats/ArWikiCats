@@ -49,7 +49,8 @@ data_to_find.update(by_table_year)
 data_to_find.update(Music_By_table)
 data_to_find.update(by_under_keys)
 
-by_data = PRIMARY_BY_COMPONENTS | CONTEXT_FIELD_LABELS
+by_data = PRIMARY_BY_COMPONENTS
+by_data.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_BY_COMPONENTS})
 
 
 @functools.lru_cache(maxsize=1)

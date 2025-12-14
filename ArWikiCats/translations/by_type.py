@@ -6,6 +6,19 @@ from .utils.json_dir import open_json_file
 
 PRIMARY_BY_COMPONENTS = {
     "city": "المدينة",
+    "continent": "القارة",
+    "country": "البلد",
+    "century": "القرن",
+    "decade": "العقد",
+    "year": "السنة",
+    "millennium": "الألفية",
+
+    "date": "التاريخ",
+    "location": "الموقع",
+    "period": "الحقبة",
+    "time": "الوقت",
+    "era": "العصر",
+
     "rank": "الرتبة",
     "non-profit organizations": "المؤسسات غير الربحية",
     "non-profit publishers": "ناشرون غير ربحيون",
@@ -39,7 +52,6 @@ PRIMARY_BY_COMPONENTS = {
     "former religion": "الدين السابق",
     "religion": "الدين",
     "ethnicity": "المجموعة العرقية",
-    "country": "البلد",
     "writer": "الكاتب",
     "record label": "شركة التسجيلات",
     "publication": "المؤسسة",
@@ -56,7 +68,6 @@ PRIMARY_BY_COMPONENTS = {
     "shipbuilding company": "شركة بناء السفن",
     "company": "الشركة",
     "organization": "المنظمة",
-    "continent": "القارة",
     "specialty": "التخصص",
     "medium": "الوسط",
     "educational institution": "الهيئة التعليمية",
@@ -71,10 +82,6 @@ PRIMARY_BY_COMPONENTS = {
     "country-of-residence": "بلد الإقامة",
     "country of residence": "بلد الإقامة",
     "nation": "الموطن",
-    "century": "القرن",
-    "decade": "العقد",
-    "year": "السنة",
-    "millennium": "الألفية",
     "state": "الولاية",
     "party": "الحزب",
 }
