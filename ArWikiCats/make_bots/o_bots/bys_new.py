@@ -16,6 +16,7 @@ from ...translations.by_type import (
     by_map_table,
     by_under_keys,
     Music_By_table,
+    CONTEXT_FIELD_LABELS,
 )
 
 sports_formatted_data = {
@@ -25,12 +26,30 @@ sports_formatted_data = {
     "by {en} and {en2}": "حسب {ar} و{ar2}",
     "by {en} by {en2}": "حسب {ar} حسب {ar2}",
 }
+sports_formatted_data.update({
+    "by {en} of shooting location": "حسب {ar} التصوير",
+    "by {en} of developer": "حسب {ar} التطوير",
+    "by {en} of location": "حسب {ar} الموقع",
+    "by {en} of setting": "حسب {ar} الأحداث",
+    "by {en} of disestablishment": "حسب {ar} الانحلال",
+    "by {en} of reestablishment": "حسب {ar} إعادة التأسيس",
+    "by {en} of establishment": "حسب {ar} التأسيس",
+    "by {en} of setting location": "حسب {ar} موقع الأحداث",
+    "by {en} of invention": "حسب {ar} الاختراع",
+    "by {en} of introduction": "حسب {ar} الاستحداث",
+    "by {en} of formal description": "حسب {ar} الوصف",
+    "by {en} of photographing": "حسب {ar} التصوير",
+    "by photographing {en} ": "حسب {ar} التصوير",
+    "by {en} of completion": "حسب {ar} الانتهاء",
+    "by {en} of opening": "حسب {ar} الافتتاح",
+    "by opening {en} ": "حسب {ar} الافتتاح",
+})
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(by_table_year)
 data_to_find.update(Music_By_table)
 data_to_find.update(by_under_keys)
 
-by_data = PRIMARY_BY_COMPONENTS
+by_data = PRIMARY_BY_COMPONENTS | CONTEXT_FIELD_LABELS
 
 
 @functools.lru_cache(maxsize=1)
