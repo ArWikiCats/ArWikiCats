@@ -17,6 +17,7 @@ from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def make_by_label(category: str) -> str:
     """Return the Arabic label for ``category`` that starts with ``by``.
 
@@ -28,9 +29,10 @@ def make_by_label(category: str) -> str:
     """
 
     normalized = category.strip()
-    logger.info(f"Resolving by-label, category: {normalized}")
+    logger.info(f"Resolving by-label, category: {normalized=}")
     logger.info(f"<<lightred>>>> vvvvvvvvvvvv make_by_label start, cate:{category} vvvvvvvvvvvv ")
     resolved = ""
+
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
         film_label = te_films(candidate)
@@ -43,6 +45,7 @@ def make_by_label(category: str) -> str:
             if nationality_label:
                 resolved = f"بواسطة {nationality_label}"
                 logger.debug(f"Matched nationality label, category: {normalized}, label: {resolved}")
+
     if not resolved:
         match = re.match(r"^by (.*?) and (.*?)$", normalized, flags=re.IGNORECASE)
         if match:
@@ -62,6 +65,7 @@ def make_by_label(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def get_by_label(category: str) -> str:
     """Return the label for a category in the form ``<entity> by <suffix>``.
 
@@ -75,7 +79,7 @@ def get_by_label(category: str) -> str:
         return ""
 
     label = ""
-    logger.info(f"<<lightyellow>>>>get_by_label {category}")
+    logger.info(f"<<lightyellow>>>>get_by_label {category=}")
 
     match = re.match(r"^(.*?) (by .*)$", category, flags=re.IGNORECASE)
     if not match:
@@ -91,16 +95,17 @@ def get_by_label(category: str) -> str:
     first_label = get_from_new_p17_final(first_part_cleaned) or pop_All_2018.get(first_part_cleaned, "")
     by_label = By_table.get(by_section, "") or By_table_orginal.get(by_section, "")
 
-    logger.debug(f"<<lightyellow>>>>frist:{first_part},by:{by_section}")
+    logger.debug(f"<<lightyellow>>>>frist:{first_part=}, {by_section=}")
 
     if first_label and by_label:
         label = f"{first_label} {by_label}"
-        logger.info(f"<<lightyellow>>>>get_by_label lab {label}")
+        logger.info(f"<<lightyellow>>>>get_by_label lab {label=}")
 
     return label
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def get_and_label(category: str) -> str:
     """Return the label for ``<entity> and <entity>`` categories.
 
