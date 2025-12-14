@@ -78,6 +78,7 @@ by_data_new.update({
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
+
     both_bot = format_multi_data(
         formatted_data=formatted_data,
         data_list=by_data_new,
@@ -96,8 +97,7 @@ def _load_bot() -> MultiDataFormatterBase:
 
 
 def resolve_by_labels(category: str) -> str:
-    if formatted_data.get(category):
-        return formatted_data[category]
+    # if formatted_data.get(category): return formatted_data[category]
 
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
