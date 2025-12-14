@@ -102,8 +102,9 @@ Music_By_table = {
     "by nationality": "حسب الجنسية",
 }
 
-By_table = open_json_file("keys/By_table.json") or {}
+BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
 
+By_table = dict(BY_TABLE_BASED)
 for year in [16, 17, 18, 19, 20, 21, 23]:
     # By_table["by under-%d national team" % year] = "المنتخب الوطني تحت %d سنة"  % year
     By_table[f"by under-{year} national team"] = f"حسب المنتخب الوطني تحت {year} سنة"
@@ -237,3 +238,10 @@ len_print.data_len("by_table.py", {
     "by_musics": by_musics,
     "Music_By_table": Music_By_table,
 })
+
+__all__ = [
+    "BY_TABLE_BASED",
+    "PRIMARY_BY_COMPONENTS",
+    "By_table",
+    "By_table_orginal",
+]
