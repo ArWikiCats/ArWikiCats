@@ -7,16 +7,29 @@ from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations.by_type import (
     PRIMARY_BY_COMPONENTS,
     BY_TABLE_BASED,
+    by_table_year,
+    by_of_fields,
+    by_and_fields,
+    by_or_fields,
+    by_by_fields,
+    by_musics,
+    by_map_table,
+    by_under_keys,
+    Music_By_table,
 )
 
 sports_formatted_data = {
+    "by year - {en}": "حسب {ar}",
     "by {en}": "حسب {ar}",
     "by {en} or {en2}": "حسب {ar} أو {ar2}",
     "by {en} and {en2}": "حسب {ar} و{ar2}",
     "by {en} by {en2}": "حسب {ar} حسب {ar2}",
 }
+sports_formatted_data.update(BY_TABLE_BASED)
+sports_formatted_data.update(by_table_year)
+sports_formatted_data.update(Music_By_table)
 
-by_data = PRIMARY_BY_COMPONENTS | BY_TABLE_BASED
+by_data = PRIMARY_BY_COMPONENTS
 
 
 @functools.lru_cache(maxsize=1)
@@ -30,14 +43,17 @@ def _load_bot() -> MultiDataFormatterBase:
         key2_placeholder="{en2}",
         value2_placeholder="{ar2}",
         text_after="",
-        text_before="the ",
-        search_first_part=True,
-        use_other_formatted_data=True,
+        text_before="",
+        search_first_part=False,
+        use_other_formatted_data=False,
     )
     return both_bot
 
 
 def resolve_by_labels(category: str) -> str:
+    if sports_formatted_data.get(category):
+        return sports_formatted_data[category]
+
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
     return result

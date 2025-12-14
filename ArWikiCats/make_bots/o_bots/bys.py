@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 import functools
 from ...helps import logger, dump_data
-from ...translations import By_orginal2, By_table, By_table_orginal, get_from_new_p17_final
+from ...translations import By_orginal2, By_table, get_from_new_p17_final
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ..media_bots.films_bot import te_films
 from ...translations import sport_lab_nat_load_new, People_key
@@ -141,7 +141,6 @@ def get_by_label(category: str) -> str:
     )
     by_label = (
         By_table.get(by_section, "") or
-        By_table_orginal.get(by_section, "") or
         ""
     )
 

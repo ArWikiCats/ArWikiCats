@@ -87,12 +87,12 @@ Music_By_table = {
     "by band": "حسب الفرقة",
     "by medium by nationality": "حسب الوسط حسب الجنسية",
     "by instrument": "حسب الآلة",
-    "by instrument, genre and nationality": "حسب الآلة والنوع والجنسية",
-    "by genre, nationality and instrument": "حسب النوع والجنسية والآلة",
+    "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
+    "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
     "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
     "by instrument and nationality": "حسب الآلة والجنسية",
-    "by instrument and genre": "حسب الآلة والنوع",
-    "by genre and instrument": "حسب النوع والآلة",
+    "by instrument and genre": "حسب الآلة والنوع الفني",
+    "by genre and instrument": "حسب النوع الفني والآلة",
     "by nationality and instrument ": "حسب الجنسية والآلة الموسيقية",
     "by century and instrument": "حسب القرن والآلة",
     "by medium": "حسب الوسط",
@@ -105,19 +105,14 @@ Music_By_table = {
 BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
 
 By_table = dict(BY_TABLE_BASED)
-for year in [16, 17, 18, 19, 20, 21, 23]:
-    # By_table["by under-%d national team" % year] = "المنتخب الوطني تحت %d سنة"  % year
-    By_table[f"by under-{year} national team"] = f"حسب المنتخب الوطني تحت {year} سنة"
-    By_table[f"by men's under-{year} national team"] = f"حسب المنتخب الوطني للرجال تحت {year} سنة"
-    By_table[f"by women's under-{year} national team"] = f"حسب المنتخب الوطني للسيدات تحت {year} سنة"
 
-TOURNAMENT_STAGE_LABELS = {
-    "tournament": "مسابقة",
-    "singles": "فردي",
-    "qualification": "تصفيات",
-    "team": "فريق",
-    "doubles": "زوجي",
-}
+by_under_keys = {}
+
+for year in [16, 17, 18, 19, 20, 21, 23]:
+    # by_under_keys["by under-%d national team" % year] = "المنتخب الوطني تحت %d سنة"  % year
+    by_under_keys[f"by under-{year} national team"] = f"حسب المنتخب الوطني تحت {year} سنة"
+    by_under_keys[f"by men's under-{year} national team"] = f"حسب المنتخب الوطني للرجال تحت {year} سنة"
+    by_under_keys[f"by women's under-{year} national team"] = f"حسب المنتخب الوطني للسيدات تحت {year} سنة"
 
 COMPETITION_CATEGORY_LABELS = {
     "girls": "فتيات",
@@ -130,8 +125,16 @@ COMPETITION_CATEGORY_LABELS = {
     "men's": "رجال",
 }
 # ---
+TOURNAMENT_STAGE_LABELS = {
+    "tournament": "مسابقة",
+    "singles": "فردي",
+    "qualification": "تصفيات",
+    "team": "فريق",
+    "doubles": "زوجي",
+}
+
 by_table_year = {}
-# ---
+
 for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
     for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
         by_entry_key = f"by year - {category_key} {stage_key}"
@@ -176,12 +179,13 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
     by_of_fields[f"by opening {context_key} "] = f"حسب {context_label} الافتتاح"
 
 
+by_map_table = {}
 by_and_fields = {}
 by_or_fields = {}
 by_by_fields = {}
 
 for component_key, component_label in PRIMARY_BY_COMPONENTS.items():
-    By_table[f"by {component_key}"] = f"حسب {component_label}"
+    by_map_table[f"by {component_key}"] = f"حسب {component_label}"
 
     for secondary_key, secondary_label in PRIMARY_BY_COMPONENTS.items():
         if component_key != secondary_key:
@@ -213,18 +217,18 @@ for component_key, component_label in ADDITIONAL_BY_COMPONENTS.items():
     by_musics[f"by {component_key}"] = f"حسب {component_label}"
     by_musics[f"by genre and {component_key}"] = f"حسب النوع الفني و{component_label}"
 
+By_table.update(by_under_keys)
 By_table.update(by_table_year)
 By_table.update(by_of_fields)
+By_table.update(by_map_table)
 By_table.update(by_and_fields)
 By_table.update(by_or_fields)
 By_table.update(by_by_fields)
 By_table.update(by_musics)
 By_table.update(Music_By_table)
 
-By_table_orginal = By_table
-
 By_orginal2 = {
-    entry.replace("by ", "", 1).lower(): By_table_orginal[entry].replace("حسب ", "", 1) for entry in By_table_orginal
+    entry.replace("by ", "", 1).lower(): By_table[entry].replace("حسب ", "", 1) for entry in By_table
 }
 
 len_print.data_len("by_table.py", {
@@ -237,11 +241,13 @@ len_print.data_len("by_table.py", {
     "by_by_fields": by_by_fields,
     "by_musics": by_musics,
     "Music_By_table": Music_By_table,
+    "by_map_table": by_map_table,
+    "by_under_keys": by_under_keys,
 })
 
 __all__ = [
     "BY_TABLE_BASED",
     "PRIMARY_BY_COMPONENTS",
+    "by_table_year",
     "By_table",
-    "By_table_orginal",
 ]
