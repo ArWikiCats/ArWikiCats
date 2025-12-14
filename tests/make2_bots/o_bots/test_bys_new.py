@@ -23,6 +23,7 @@ data1 = {
     "by city": "حسب المدينة",
     "by country": "حسب البلد",
     "by year": "حسب السنة",
+    "by city of developer": "حسب مدينة التطوير",
 }
 
 to_test = [

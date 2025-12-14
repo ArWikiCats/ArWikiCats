@@ -22,6 +22,7 @@ from ...translations.by_type import (
 sports_formatted_data = {
     "by year - {en}": "حسب {ar}",
     "by {en}": "حسب {ar}",
+    "by {en2}": "حسب {ar2}",
     "by {en} or {en2}": "حسب {ar} أو {ar2}",
     "by {en} and {en2}": "حسب {ar} و{ar2}",
     "by {en} by {en2}": "حسب {ar} حسب {ar2}",
@@ -83,8 +84,8 @@ def _load_bot() -> MultiDataFormatterBase:
         value2_placeholder="{ar2}",
         text_after="",
         text_before="",
-        search_first_part=False,
-        use_other_formatted_data=False,
+        search_first_part=True,
+        use_other_formatted_data=True,
     )
     return both_bot
 

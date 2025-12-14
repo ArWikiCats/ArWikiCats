@@ -115,7 +115,7 @@ class MultiDataFormatterBaseHelpers:
         Example:
             category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
         """
-        if self.data_to_find and category in self.data_to_find:
+        if self.data_to_find and self.data_to_find.get(category):
             return self.data_to_find[category]
 
         # category = Yemeni football championships
