@@ -797,7 +797,6 @@ data_list = [
     ("railway stations in japan", " in ", "محطات السكك الحديدية في اليابان"),
     ("railway stations in new zealand", " in ", "محطات السكك الحديدية في نيوزيلندا"),
     ("railway stations in north korea", " in ", "محطات السكك الحديدية في كوريا الشمالية"),
-    ("railway stations in russia by century of opening", " by ", "محطات السكك الحديدية في روسيا حسب قرن الافتتاح"),
     ("railway stations in russia opened in 1550", " opened in ", "محطات السكك الحديدية في روسيا افتتحت في 1550"),
     ("railway stations in russia", " in ", "محطات السكك الحديدية في روسيا"),
     ("railway stations in netherlands opened in 1550", " opened in ", "محطات السكك الحديدية في هولندا افتتحت في 1550", ),
