@@ -1,3 +1,16 @@
+## [#214](https://github.com/MrIbrahem/ArWikiCats/pull/214) - 2025-12-14
+
+* **New Features**
+  * Added filters: by country/continent of setting, by period of setting location, by opening decade/year
+  * New label-resolution bot and helpers for complex "by" categories
+  * Added data overrides support (data_to_find) for multi-label formatting
+
+* **Bug Fixes**
+  * Removed obsolete "impacted by covid-19 pandemic" category
+
+* **Chores**
+  * Reorganized translation and by-label mapping structures; removed deprecated exports and consolidated fallback logic
+
 ## [#213](https://github.com/MrIbrahem/ArWikiCats/pull/213) - 2025-12-14
 
 * **Refactor**
