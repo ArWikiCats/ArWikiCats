@@ -42,7 +42,7 @@ sports_formatted_data.update({
     "by photographing {en} ": "حسب {ar} التصوير",
     "by {en} of completion": "حسب {ar} الانتهاء",
     "by {en} of opening": "حسب {ar} الافتتاح",
-    "by opening {en} ": "حسب {ar} الافتتاح",
+    "by opening {en}": "حسب {ar} الافتتاح",
 })
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(by_table_year)
