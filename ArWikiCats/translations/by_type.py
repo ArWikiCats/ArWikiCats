@@ -159,25 +159,24 @@ CONTEXT_FIELD_LABELS = {
 by_of_fields = {}
 
 for context_key, context_label in CONTEXT_FIELD_LABELS.items():
-    by_of_fields[f"by {context_key} of shooting location"] = f"حسب {context_label} التصوير"
-    by_of_fields[f"by {context_key} of developer"] = f"حسب {context_label} التطوير"
-    by_of_fields[f"by {context_key} of location"] = f"حسب {context_label} الموقع"
-    by_of_fields[f"by {context_key} of setting"] = f"حسب {context_label} الأحداث"
-    by_of_fields[f"by {context_key} of disestablishment"] = f"حسب {context_label} الانحلال"
-    by_of_fields[f"by {context_key} of reestablishment"] = f"حسب {context_label} إعادة التأسيس"
-    by_of_fields[f"by {context_key} of establishment"] = f"حسب {context_label} التأسيس"
-    by_of_fields[f"by {context_key} of setting location"] = f"حسب {context_label} موقع الأحداث"
-    by_of_fields[f"by {context_key} of invention"] = f"حسب {context_label} الاختراع"
-    by_of_fields[f"by {context_key} of introduction"] = f"حسب {context_label} الاستحداث"
-    by_of_fields[f"by {context_key} of formal description"] = f"حسب {context_label} الوصف"
-    by_of_fields[f"by {context_key} of photographing"] = f"حسب {context_label} التصوير"
-    by_of_fields[f"by photographing {context_key} "] = f"حسب {context_label} التصوير"
-
-    by_of_fields[f"by {context_key} of completion"] = f"حسب {context_label} الانتهاء"
-
-    by_of_fields[f"by {context_key} of opening"] = f"حسب {context_label} الافتتاح"
-    by_of_fields[f"by opening {context_key} "] = f"حسب {context_label} الافتتاح"
-
+    by_of_fields.update({
+        f"by {context_key} of shooting location": f"حسب {context_label} التصوير",
+        f"by {context_key} of developer": f"حسب {context_label} التطوير",
+        f"by {context_key} of location": f"حسب {context_label} الموقع",
+        f"by {context_key} of setting": f"حسب {context_label} الأحداث",
+        f"by {context_key} of disestablishment": f"حسب {context_label} الانحلال",
+        f"by {context_key} of reestablishment": f"حسب {context_label} إعادة التأسيس",
+        f"by {context_key} of establishment": f"حسب {context_label} التأسيس",
+        f"by {context_key} of setting location": f"حسب {context_label} موقع الأحداث",
+        f"by {context_key} of invention": f"حسب {context_label} الاختراع",
+        f"by {context_key} of introduction": f"حسب {context_label} الاستحداث",
+        f"by {context_key} of formal description": f"حسب {context_label} الوصف",
+        f"by {context_key} of photographing": f"حسب {context_label} التصوير",
+        f"by photographing {context_key} ": f"حسب {context_label} التصوير",
+        f"by {context_key} of completion": f"حسب {context_label} الانتهاء",
+        f"by {context_key} of opening": f"حسب {context_label} الافتتاح",
+        f"by opening {context_key} ": f"حسب {context_label} الافتتاح",
+    })
 
 by_map_table = {}
 by_and_fields = {}
