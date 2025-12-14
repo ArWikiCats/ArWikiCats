@@ -11,7 +11,6 @@ from ArWikiCats.make_bots.o_bots import bys
 def reset_bys_tables(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(bys, "By_orginal2", {}, raising=False)
     monkeypatch.setattr(bys, "By_table", {}, raising=False)
-    monkeypatch.setattr(bys, "By_table_orginal", {}, raising=False)
     monkeypatch.setattr(bys, "pop_All_2018", {}, raising=False)
 
 

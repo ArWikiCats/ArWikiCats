@@ -16,7 +16,7 @@ from . import fax as fax_module
 from .ethnic_bot import ethnic, ethnic_culture
 from .fax import te_language
 from .parties_bot import get_parties_lab
-from .popl import make_people_lab, work_peoples
+from .peoples_resolver import make_people_lab, work_peoples
 from .rele import work_relations
 from .univer import te_universities
 

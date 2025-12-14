@@ -130,6 +130,9 @@ category_relation_mapping = {
     "recorded at": "سُجلت في",
     "produced in": "أنتجت في",
     "produced by": "من إنتاج",
+
+    # "impacted by": "تأثرت بـ",
+
     "who compete in": "يتنافسون في",
     "extended to": "امتدت إلى",
     "involving the": "تشمل",

@@ -315,11 +315,11 @@ replaces = {
 }
 
 
-def get_tabl_with_in(cone_1, separator) -> str:
+def get_tabl_with_in(cone_1: str, separator: str) -> str:
 
     con_1_in = f"{cone_1.strip()} {separator.strip()}"
     part_1_label = Tabl_with_in.get(con_1_in, "")
-    logger.info(f'<<<< {con_1_in=}, {part_1_label=}')
+    logger.debug(f'<<<< {con_1_in=}, {part_1_label=}')
 
     return part_1_label
 

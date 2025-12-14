@@ -25,21 +25,21 @@ pp_start_with2 = {
 }
 
 
-def work_with_pp_start_with2(cone_1: str, separator: str, With_Years: bool = False) -> str:
+def work_with_pp_start_with2(cone_1: str, separator: str, with_years: bool = False) -> str:
     part_1_label = ""
     for pri_ss, pri_lab in pp_start_with2.items():
         if cone_1.startswith(pri_ss):
             U_c = cone_1[len(pri_ss) :]
-            logger.info(f' pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ')
+            logger.debug(f' pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ')
             U_lab = country2_lab.get_lab_for_country2(U_c)
 
-            if U_lab == "" and With_Years:
+            if U_lab == "" and with_years:
                 U_lab = with_years_bot.Try_With_Years(U_c)
 
             if U_lab:
-                logger.info(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"), {U_c=}, {U_lab=}')
+                logger.debug(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"), {U_c=}, {U_lab=}')
                 part_1_label = pri_lab.format(U_lab)
-                logger.info(f'>>>> {part_1_label=}')
+                logger.debug(f'>>>> {part_1_label=}')
                 break
     return part_1_label
 
@@ -65,7 +65,7 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
 
     if cone_1 == "women" and separator.strip() == "from":
         part_1_label = "نساء"
-        logger.info(f'>> >> >> Make {cone_1=}.')
+        logger.debug(f'>> >> >> Make {cone_1=}.')
         return part_1_label
 
     part_1_label = (
@@ -80,7 +80,7 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
         time_label(cone_1) or
         work_with_pp_start_with2(cone_1, separator, With_Years) or
         pop_format.get(cone_1) or
-        get_from_pf_keys2(cone_1.strip().lower()) or
+        get_from_pf_keys2(cone_1) or
         get_KAKO(cone_1) or
         ""
     )
@@ -109,8 +109,6 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
         get_from_pf_keys2(cone_2.strip().lower()) or
         get_KAKO(cone_2) or
         time_label(cone_2) or
-        te_films(cone_2) or
-        sport_lab_nat_load_new(cone_2) or
         convert_time_to_arabic(cone_2) or
         ""
     )

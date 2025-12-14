@@ -10,7 +10,7 @@ jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
 
 
 def fix_keys(text) -> str:
-    return text.replace("sports-people", "sportspeople").replace("-", " ")
+    return text.replace("sports-people", "sportspeople").replace("-", " ").replace("–", " ")
 
 
 def load_data_texts() -> str:
@@ -53,7 +53,8 @@ def main() -> None:
         # Path("D:/categories_bot/len_data/jobs.py/film_variants.json"),
         # Path("D:/categories_bot/len_data/jobs.py/sport_variants.json"),
         # Path("D:/categories_bot/len_data/jobs.py/people_variants.json"),
-        Path("D:/categories_bot/len_data/jobs_players_list.py/SPORT_JOB_VARIANTS.json"),
+        # Path("D:/categories_bot/len_data/jobs_players_list.py/SPORT_JOB_VARIANTS.json"),
+        Path("D:/categories_bot/len_data/by_table.py/by_table.json"),
     ]
     status = {}
     for file in files:
