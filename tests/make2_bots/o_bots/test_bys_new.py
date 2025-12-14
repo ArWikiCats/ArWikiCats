@@ -11,6 +11,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
 
 from ArWikiCats.translations.by_type import (
+    By_table,
     by_of_fields,
     by_table_year,
     by_and_fields,
@@ -36,6 +37,13 @@ to_test = [
     ("test_by_musics", by_musics),
     ("test_music_by_table", Music_By_table),
 ]
+
+
+@pytest.mark.parametrize("category, expected", By_table.items(), ids=By_table.keys())
+@pytest.mark.slow
+def test_bys_all(category: str, expected: str) -> None:
+    label = resolve_by_labels(category)
+    assert label == expected, f"Failed for category: {category}"
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())

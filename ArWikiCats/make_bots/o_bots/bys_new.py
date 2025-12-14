@@ -16,10 +16,11 @@ from ...translations.by_type import (
     by_map_table,
     by_under_keys,
     Music_By_table,
+    ADDITIONAL_BY_COMPONENTS,
     CONTEXT_FIELD_LABELS,
 )
 
-sports_formatted_data = {
+formatted_data = {
     "by year - {en}": "حسب {ar}",
     "by {en}": "حسب {ar}",
     "by {en2}": "حسب {ar2}",
@@ -43,7 +44,7 @@ by_of_keys_2 = {
     "by century of {en}": "حسب قرن {ar}",
 }
 
-sports_formatted_data.update(by_of_keys_2)
+formatted_data.update(by_of_keys_2)
 
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(by_table_year)
@@ -51,7 +52,8 @@ data_to_find.update(Music_By_table)
 data_to_find.update(by_under_keys)
 
 by_data_new = PRIMARY_BY_COMPONENTS
-by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_BY_COMPONENTS})
+by_data_new.update(ADDITIONAL_BY_COMPONENTS)
+# by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_BY_COMPONENTS})
 
 by_data_new.update({
     "shooting location": "موقع التصوير",
@@ -74,7 +76,7 @@ by_data_new.update({
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
     both_bot = format_multi_data(
-        formatted_data=sports_formatted_data,
+        formatted_data=formatted_data,
         data_to_find=data_to_find,
         data_list=by_data_new,
         key_placeholder="{en}",
@@ -91,8 +93,8 @@ def _load_bot() -> MultiDataFormatterBase:
 
 
 def resolve_by_labels(category: str) -> str:
-    if sports_formatted_data.get(category):
-        return sports_formatted_data[category]
+    if formatted_data.get(category):
+        return formatted_data[category]
 
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
