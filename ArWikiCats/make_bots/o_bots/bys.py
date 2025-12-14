@@ -66,6 +66,8 @@ def get_by_label(category: str) -> str:
     Returns:
         The composed Arabic label or an empty string when the lookup fails.
     """
+    if " by " not in category:
+        return ""
 
     label = ""
     logger.info(f"<<lightyellow>>>>get_by_label {category}")
@@ -104,6 +106,8 @@ def get_and_label(category: str) -> str:
         The combined Arabic label or an empty string when either entity is
         missing from the lookup tables.
     """
+    if " and " not in category:
+        return ""
 
     logger.info(f"<<lightyellow>>>>get_and_label {category}")
     logger.info(f"Resolving get_and_label, {category=}")
