@@ -1,3 +1,13 @@
+## [#212](https://github.com/MrIbrahem/ArWikiCats/pull/212) - 2025-12-14
+
+* **Refactor**
+  * Restructured translation key organization system for improved consistency and maintainability
+  * Enhanced translation mapping format across minister and ministry categories
+
+* **New Features**
+  * Added support for additional labour ministry-related category combinations
+
+
 ## [#211](https://github.com/MrIbrahem/ArWikiCats/pull/211) - 2025-12-14
 
 * **New Features**
