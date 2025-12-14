@@ -8,7 +8,7 @@ test at tests.translations_formats.test_format_2_data.py
 
 import functools
 from dataclasses import dataclass
-
+from typing import Dict
 from .model_data_2 import FormatDataV2
 from ...helps.log import logger
 from .model_data import FormatData
@@ -33,7 +33,7 @@ class NormalizeResult:
 
 class MultiDataFormatterBaseHelpers:
     def __init__(self) -> None:
-        pass
+        self.data_to_find = None
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
     # ------------------------------------------------------
@@ -115,6 +115,9 @@ class MultiDataFormatterBaseHelpers:
         Example:
             category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
         """
+        if self.data_to_find and category in self.data_to_find:
+            return self.data_to_find[category]
+
         # category = Yemeni football championships
         template_data = self.normalize_both_new(category)
 
@@ -181,6 +184,7 @@ class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: FormatData,
         search_first_part: bool = False,
+        data_to_find: Dict[str, str] = {},
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
@@ -188,6 +192,7 @@ class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
+        self.data_to_find = data_to_find
 
 
 class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
@@ -199,12 +204,14 @@ class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: YearFormatData,
         search_first_part: bool = False,
+        data_to_find: Dict[str, str] = {},
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
+        self.data_to_find = data_to_find
 
 
 class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
@@ -216,12 +223,14 @@ class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataV2,
         other_bot: YearFormatData,
         search_first_part: bool = False,
+        data_to_find: Dict[str, str] = {},
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
+        self.data_to_find = data_to_find
 
 
 class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
@@ -237,12 +246,14 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: FormatDataDouble,
         search_first_part: bool = False,
+        data_to_find: Dict[str, str] = {},
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
+        self.data_to_find = data_to_find
 
 
 class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
@@ -254,9 +265,11 @@ class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataV2,
         other_bot: FormatDataV2,
         search_first_part: bool = False,
+        data_to_find: Dict[str, str] = {},
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
+        self.data_to_find = data_to_find

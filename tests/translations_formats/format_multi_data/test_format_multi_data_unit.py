@@ -50,10 +50,14 @@ def multi_bot() -> MultiDataFormatterBase:
         key_placeholder="{en_sport}",
         value_placeholder="{sport_ar}",
     )
+    data_to_find = {
+        "test 2025": "2025",
+    }
 
     return MultiDataFormatterBase(
         country_bot=country_bot,
         other_bot=other_bot,
+        data_to_find=data_to_find,
     )
 
 
@@ -327,6 +331,7 @@ class TestEdgeCases:
         # Should still work despite extra spaces
         assert result == "فرق كرة القدم اليمن"
 
+
 @pytest.mark.slow
 class TestPerformance:
     """Performance tests for caching behavior."""
@@ -357,3 +362,22 @@ class TestPerformance:
         # Verify cached results match
         for i, cat in enumerate(categories):
             assert multi_bot.create_label(cat) == results[i]
+
+
+@pytest.mark.fast
+class TestDataToFind:
+    """Tests for data_to_find functionality."""
+
+    def test_data_to_find_hit(self, multi_bot: MultiDataFormatterBase) -> None:
+        """Test that data_to_find returns correct label when category is found."""
+        category = "test 2025"
+        result = multi_bot.create_label(category)
+
+        assert result == "2025"
+
+    def test_data_to_find_miss(self, multi_bot: MultiDataFormatterBase) -> None:
+        """Test that data_to_find returns empty string when category is not found."""
+        category = "nonexistent category"
+        result = multi_bot.create_label(category)
+
+        assert result == ""

@@ -44,6 +44,7 @@ def format_multi_data(
     text_before: str = "",
     use_other_formatted_data: bool=False,
     search_first_part: bool=False,
+    data_to_find: Dict[str, str] = {},
 ) -> MultiDataFormatterBase:
     """
     Prepare helpers for matching and formatting template-driven labels.
@@ -77,7 +78,8 @@ def format_multi_data(
     return MultiDataFormatterBase(
         country_bot=country_bot,
         other_bot=other_bot,
-        search_first_part=search_first_part
+        search_first_part=search_first_part,
+        data_to_find=data_to_find,
     )
 
 
