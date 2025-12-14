@@ -10,23 +10,30 @@ from pathlib import Path
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
 
+from ArWikiCats.translations.by_type import (
+    by_of_fields,
+    by_table_year,
+    by_and_fields,
+    by_or_fields,
+    by_by_fields,
+    by_musics,
+    Music_By_table,
+)
 data1 = {
     "by city": "حسب المدينة",
     "by country": "حسب البلد",
     "by year": "حسب السنة",
 }
 
-file_path = Path(__file__).parent.parent.parent.parent.parent / "len_data/by_table.py/by_table.json"
-
-data2 = {}
-
-if file_path.exists():
-    with open(file_path, "r", encoding="utf-8") as f:
-        data2 = json.load(f)
-
 to_test = [
     ("test_bys_new_1", data1),
-    ("test_bys_new_2", data2),
+    ("test_by_table_year", by_table_year),
+    ("test_by_of_fields", by_of_fields),
+    ("test_by_and_fields", by_and_fields),
+    ("test_by_or_fields", by_or_fields),
+    ("test_by_by_fields", by_by_fields),
+    ("test_by_musics", by_musics),
+    ("test_music_by_table", Music_By_table),
 ]
 
 
@@ -37,9 +44,16 @@ def test_bys_new_1(category: str, expected: str) -> None:
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
+@pytest.mark.parametrize("category, expected", by_table_year.items(), ids=by_table_year.keys())
 @pytest.mark.fast
-def test_bys_new_2(category: str, expected: str) -> None:
+def test_by_table_year(category: str, expected: str) -> None:
+    label = resolve_by_labels(category)
+    assert label == expected, f"Failed for category: {category}"
+
+
+@pytest.mark.parametrize("category, expected", by_of_fields.items(), ids=by_of_fields.keys())
+@pytest.mark.fast
+def test_by_of_fields(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
