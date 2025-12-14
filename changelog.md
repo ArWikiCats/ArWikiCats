@@ -1,20 +1,19 @@
 ## [#211](https://github.com/MrIbrahem/ArWikiCats/pull/211) - 2025-12-14
 
 * **New Features**
-  * Added American-football and Canadian-football entries with new translation mappings for jobs and labels.
+  * Added american-football and canadian-football translation entries and exposed a new data-dump utility in the public API.
 
 * **Improvements**
-  * Expanded translation coverage for sports and job-related categories.
-  * Standardized key normalization (hyphenation and normalized forms) to improve lookup consistency.
+  * Expanded and normalized sports & job translation coverage (hyphenation and key normalization); reorganized Canadian football variants and some lookup keys.
 
 * **Performance**
-  * Applied caching to translation resolution for faster repeated lookups.
+  * Added caching to translation resolution for faster repeated lookups.
 
 * **Tests**
-  * Added focused Canadian football test coverage and renamed tests for clarity.
+  * Added Canadian football tests and renamed/updated several test cases.
 
 * **Documentation**
-  * Updated resource paths in README to reflect reorganized JSON locations.
+  * Updated README resource paths to reflect reorganized JSON locations.
 
 ## [#210](https://github.com/MrIbrahem/ArWikiCats/pull/210) - 2025-12-13
 
