@@ -25,9 +25,10 @@ sports_formatted_data = {
     "by {en} and {en2}": "حسب {ar} و{ar2}",
     "by {en} by {en2}": "حسب {ar} حسب {ar2}",
 }
-sports_formatted_data.update(BY_TABLE_BASED)
-sports_formatted_data.update(by_table_year)
-sports_formatted_data.update(Music_By_table)
+data_to_find = dict(BY_TABLE_BASED)
+data_to_find.update(by_table_year)
+data_to_find.update(Music_By_table)
+data_to_find.update(by_under_keys)
 
 by_data = PRIMARY_BY_COMPONENTS
 
@@ -36,6 +37,7 @@ by_data = PRIMARY_BY_COMPONENTS
 def _load_bot() -> MultiDataFormatterBase:
     both_bot = format_multi_data(
         formatted_data=sports_formatted_data,
+        data_to_find=data_to_find,
         data_list=by_data,
         key_placeholder="{en}",
         value_placeholder="{ar}",

@@ -23,6 +23,7 @@ def format_year_country_data_v2(
     text_before: str = "",
     key2_placeholder: str = YEAR_PARAM,
     value2_placeholder: str = YEAR_PARAM,
+    data_to_find: Dict[str, str] = {},
 ) -> MultiDataFormatterBaseYearV2:
     """Prepare helpers for matching and formatting template-driven labels."""
     # Store originals
@@ -44,6 +45,7 @@ def format_year_country_data_v2(
     return MultiDataFormatterBaseYearV2(
         country_bot=country_bot,
         other_bot=other_bot,
+        data_to_find=data_to_find,
     )
 
 # -----------------------
@@ -60,6 +62,7 @@ def format_year_country_data(
     value2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
+    data_to_find: Dict[str, str] = {},
 ) -> MultiDataFormatterBaseYear:
     """Prepare helpers for matching and formatting template-driven labels."""
     # Store originals
@@ -82,4 +85,5 @@ def format_year_country_data(
     return MultiDataFormatterBaseYear(
         country_bot=country_bot,
         other_bot=other_bot,
+        data_to_find=data_to_find,
     )
