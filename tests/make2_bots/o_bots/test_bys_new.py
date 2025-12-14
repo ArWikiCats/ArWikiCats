@@ -25,9 +25,13 @@ data1 = {
     "by country": "حسب البلد",
     "by year": "حسب السنة",
     "by city of developer": "حسب مدينة التطوير",
+    "by organization": "حسب المنظمة",
+    "by nonprofit organization": "حسب المؤسسات غير الربحية",
+    "by organization or nonprofit organization": "حسب المنظمة أو المؤسسات غير الربحية",
 }
 
 to_test = [
+    ("test_bys_all", By_table),
     ("test_bys_new_1", data1),
     ("test_by_table_year", by_table_year),
     ("test_by_of_fields", by_of_fields),

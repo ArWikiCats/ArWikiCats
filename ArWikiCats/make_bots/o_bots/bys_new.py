@@ -44,14 +44,17 @@ by_of_keys_2 = {
     "by century of {en}": "حسب قرن {ar}",
 }
 
-formatted_data.update(by_of_keys_2)
+# formatted_data.update(by_of_keys_2)
+
+for context_key, context_label in CONTEXT_FIELD_LABELS.items():
+    formatted_data[f"by {context_key} of {{en}}"] = f"حسب {context_label} {{ar}}"
 
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(by_table_year)
 data_to_find.update(Music_By_table)
 data_to_find.update(by_under_keys)
 
-by_data_new = PRIMARY_BY_COMPONENTS
+by_data_new = dict(PRIMARY_BY_COMPONENTS)
 by_data_new.update(ADDITIONAL_BY_COMPONENTS)
 # by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_BY_COMPONENTS})
 
@@ -77,7 +80,6 @@ by_data_new.update({
 def _load_bot() -> MultiDataFormatterBase:
     both_bot = format_multi_data(
         formatted_data=formatted_data,
-        data_to_find=data_to_find,
         data_list=by_data_new,
         key_placeholder="{en}",
         value_placeholder="{ar}",
@@ -88,6 +90,7 @@ def _load_bot() -> MultiDataFormatterBase:
         text_before="",
         search_first_part=True,
         use_other_formatted_data=True,
+        data_to_find=data_to_find,
     )
     return both_bot
 
