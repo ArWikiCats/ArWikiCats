@@ -1,3 +1,12 @@
+## [#213](https://github.com/MrIbrahem/ArWikiCats/pull/213) - 2025-12-14
+
+* **Refactor**
+  * Simplified internal label resolution logic by consolidating conditional fallback chains into cleaner expressions, improving code maintainability with no user-visible impact.
+  * Added new helper functions to enhance label derivation for specialized categories.
+
+* **Chores**
+  * Removed deprecated function aliases that were maintained for backwards compatibility.
+
 ## [#212](https://github.com/MrIbrahem/ArWikiCats/pull/212) - 2025-12-14
 
 * **Refactor**

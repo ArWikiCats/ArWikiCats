@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.o_bots.popl import make_people_lab, work_peoples, work_peoples_old
+from ArWikiCats.make_bots.o_bots.peoples_resolver import make_people_lab, work_peoples, work_peoples_old
 
 fast_data = {
     "andrew johnson administration cabinet members": "أعضاء مجلس وزراء إدارة أندرو جونسون",

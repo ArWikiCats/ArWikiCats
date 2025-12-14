@@ -16,7 +16,7 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import New_Lan
 from ..media_bots.films_bot import te_films
 from ..o_bots import univer
-from ..o_bots.popl import work_peoples
+from ..o_bots.peoples_resolver import work_peoples
 
 from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 from ...new.time_to_arabic import convert_time_to_arabic
