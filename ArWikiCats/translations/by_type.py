@@ -167,7 +167,7 @@ by_of_fields = {}
 
 for context_key, context_label in CONTEXT_FIELD_LABELS.items():
     by_of_fields.update({
-        f"by {context_key} of shooting location": f"حسب {context_label} التصوير",
+        f"by {context_key} of shooting location": f"حسب {context_label} موقع التصوير",
         f"by {context_key} of developer": f"حسب {context_label} التطوير",
         f"by {context_key} of location": f"حسب {context_label} الموقع",
         f"by {context_key} of setting": f"حسب {context_label} الأحداث",

@@ -27,25 +27,6 @@ sports_formatted_data = {
     "by {en} by {en2}": "حسب {ar} حسب {ar2}",
 }
 
-by_of_keys = {
-    "by {en} of shooting location": "حسب {ar} التصوير",
-    "by {en} of developer": "حسب {ar} التطوير",
-    "by {en} of location": "حسب {ar} الموقع",
-    "by {en} of setting": "حسب {ar} الأحداث",
-    "by {en} of disestablishment": "حسب {ar} الانحلال",
-    "by {en} of reestablishment": "حسب {ar} إعادة التأسيس",
-    "by {en} of establishment": "حسب {ar} التأسيس",
-    "by {en} of setting location": "حسب {ar} موقع الأحداث",
-    "by {en} of invention": "حسب {ar} الاختراع",
-    "by {en} of introduction": "حسب {ar} الاستحداث",
-    "by {en} of formal description": "حسب {ar} الوصف",
-    "by {en} of photographing": "حسب {ar} التصوير",
-    # "by photographing {en} ": "حسب {ar} التصوير",
-    "by {en} of completion": "حسب {ar} الانتهاء",
-    "by {en} of opening": "حسب {ar} الافتتاح",
-}
-# sports_formatted_data.update(by_of_keys)
-
 by_of_keys_2 = {
     "by city of {en}": "حسب مدينة {ar}",
     "by date of {en}": "حسب تاريخ {ar}",
@@ -70,6 +51,23 @@ data_to_find.update(by_under_keys)
 
 by_data_new = PRIMARY_BY_COMPONENTS
 by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_BY_COMPONENTS})
+
+by_data_new.update({
+    "shooting location": "موقع التصوير",
+    "developer": "التطوير",
+    "location": "الموقع",
+    "setting": "الأحداث",
+    "disestablishment": "الانحلال",
+    "reestablishment": "إعادة التأسيس",
+    "establishment": "التأسيس",
+    "setting location": "موقع الأحداث",
+    "invention": "الاختراع",
+    "introduction": "الاستحداث",
+    "formal description": "الوصف",
+    "photographing": "التصوير",
+    "completion": "الانتهاء",
+    "opening": "الافتتاح",
+})
 
 
 @functools.lru_cache(maxsize=1)
