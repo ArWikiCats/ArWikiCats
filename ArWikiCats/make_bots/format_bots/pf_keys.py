@@ -5,24 +5,41 @@
 import functools
 import re
 from typing import Dict
-from ...helps import dump_data
 from ...translations import New_Company
 
 # Cache for compiled regex patterns
-_change_key_compiled = {}
+_change_key_compiled = {
+    "basedon non-": re.compile(r"\bbasedon non-(?!\S)", flags=re.IGNORECASE),
+    "comedy-": re.compile(r"\bcomedy-(?!\S)", flags=re.IGNORECASE),
+}
 
 # Cache for compiled regex patterns
 _change_key2_compiled = {}
+_change_key3_compiled = {}
 
 CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
     "players in": "playerss in",
 
-    " - men's tournament": " mens tournament",
-    " - women's tournament": " womens tournament",
-    " labor ": " labour ",
-    " – men's tournament": " mens tournament",
-    " – women's tournament": " womens tournament",
+    "elections,": "elections",
+
+    "based on": "basedon",
+    "basedon non-": "basedon non ",
+    "based on non-": "basedon non ",
+
+    "comedy-": "comedy ",
+
+    "convicted of murder by": "convicted-of-murder-by",
+    "convicted-of-murder by": "convicted-of-murder-by",
+
+    "labor": "labour",
+    "war of": "war-of",
+
+    "- men's tournament": "mens tournament",
+    "- women's tournament": "womens tournament",
+    "– men's tournament": "mens tournament",
+    "– women's tournament": "womens tournament",
+
     "(tennis)": "tennis",
     "accidents and incidents": "accidents-and-incidents",
     "adaptations of works": "adaptations-of-works",
@@ -35,7 +52,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "architecture schools": "architecture-schools",
     "association football afc": "association-football afc",
     "athletes (track and field)": "track and field athletes",
-    "basedon non-": "basedon non ",
     "bodies of water" : "bodies-of-water",
     "british hong kong": "british-hong-kong",
     "built by": "built-by",
@@ -49,16 +65,12 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "city of liverpool f.c.": "city-of-liverpool f.c.",
     "city of london": "city-of-london",
     "colony of": "colony-of",
-    "comedy-": "comedy ",
-    "convicted of murder by ": "convicted-of-murder-by ",
     "convicted of murder": "convicted-of-murder",
-    "convicted-of-murder by ": "convicted-of-murder-by ",
     "county of": "county-of",
     "crown of": "crown-of",
     "domain of": "domain-of",
     "duchy of": "duchy-of",
     "early modern": "early-modern",
-    "elections, ": "elections ",
     "emirate of": "emirate-of",
     "executed by burning": "executed-burning",
     "executed by decapitation": "executed-decapitation",
@@ -79,7 +91,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "isle of": "isle-of",
     "killed in action": "killed-in-action",
     "kingdom of": "kingdom-of",
-    "labor": "labour",
     "labour and social security": "labour-and-social security",
     "launched by": "launched-by",
     "launched in": "launched-in",
@@ -127,12 +138,10 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "university of technology": "university-of-technology",
     "us open (tennis)": "us open tennis",
     "viceroyalty of": "viceroyalty-of",
-    "war of ": "war-of ",
     "west coast of united states": "west coast-of-united states",
     "world championships in athletics": "world championships-in-athletics",
     "world war i": "world-war-i",
     "world war ii": "world-war-ii",
-    "’": "'",
     # " executed by " :" executed-by ",
     # "ancient romans" :"ancient-romans",
     # "austria-hungary" :"austriahungary",
@@ -149,45 +158,15 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
 for x in New_Company:
     CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
-
-# @dump_data(1)
-@functools.lru_cache(maxsize=1024)
-def change_key_mappings_replacements(category):
-    # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
-    for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
-        key = (chk, chk_lab)
-        if key not in _change_key_compiled:
-            chk_escape = re.escape(chk)
-            _change_key_compiled[key] = {
-                "0": re.compile(rf"^category\:{chk_escape} ", flags=re.IGNORECASE),
-                "1": re.compile(rf"^{chk_escape} ", flags=re.IGNORECASE),
-                "2": re.compile(rf" {chk_escape} ", flags=re.IGNORECASE),
-                "3": re.compile(rf" {chk_escape}$", flags=re.IGNORECASE),
-                "4": re.compile(rf"category\:{chk_escape} ", flags=re.IGNORECASE),
-                # "5": re.compile(rf"\b{chk_escape}\b", flags=re.IGNORECASE),
-                "5": re.compile(rf"(?<!\w){chk_escape}(?!\w)", flags=re.IGNORECASE),
-            }
-
-        patterns = _change_key_compiled[key]
-        category = patterns["0"].sub(f"category:{chk_lab} ", category)
-        category = patterns["1"].sub(f"{chk_lab} ", category)
-        category = patterns["2"].sub(f" {chk_lab} ", category)
-        category = patterns["3"].sub(f" {chk_lab}", category)
-        category = patterns["4"].sub(f"category:{chk_lab} ", category)
-        category = patterns["5"].sub(chk_lab, category)
-
-    return category
-
 CHANGE_KEY_SECONDARY: Dict[str, str] = {
-    " - men's tournament": " mens tournament",
-    " - women's tournament": " womens tournament",
     " at ": " in ",
     " at 1": " in 1",
     " at 2": " in 2",
-    " based on ": " basedon ",
-    " for blind ": " for-blind ",
-    " for deaf ": " for-deaf ",
-    " remade in ": " remadein ",
+    "for deafblind": "for-deafblind",
+    "for blind": "for-blind",
+    "for deaf": "for-deaf",
+    "remade in": "remade-in",
+
     "charter airlines": "charter-airlines",
     "country of residence": "country-of-residence",
     "declarations of independence": "declarations-of-independence",
@@ -208,34 +187,52 @@ CHANGE_KEY_SECONDARY_REGEX = {
     r"^tour de ": "tour of ",
     r"^women's footballers ": "female footballers ",
     r"^women's footballers": "female footballers",
-    r"^men\’s events ": "mensvents",
+    r"men's events": "mens-events",
+    r"mens events": "mens-events",
 
     r" women's footballers$": " female footballers",
     r" executed people$": " executed-people",
-    r" for deafblind$": " for-deafblind",
-    r" for blind$": " for-blind",
-    r" for deaf$": " for-deaf",
 }
+
+# @dump_data(1)
+
+
+@functools.lru_cache(maxsize=10000)
+def change_key_mappings_replacements(category):
+    category = category.replace("’", "'")
+    # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
+    for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
+        key = (chk, chk_lab)
+        if key not in _change_key_compiled:
+            chk_escape = re.escape(chk)
+            # This single pattern robustly handles whole word/phrase replacements.
+            _change_key_compiled[key] = re.compile(rf"(?<!\w){chk_escape}(?!\w)", flags=re.IGNORECASE)
+
+        category = _change_key_compiled[key].sub(chk_lab, category)
+
+    return category
 
 
 # @dump_data(1)
-@functools.lru_cache(maxsize=1024)
+@functools.lru_cache(maxsize=10000)
 def change_key_secondary_replacements(category):
+    category = category.replace("’", "'")
 
     # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
     for chk2, chk2_lab in CHANGE_KEY_SECONDARY.items():
 
         if chk2 not in _change_key2_compiled:
             chk2_escape = re.escape(chk2)
-            _change_key2_compiled[chk2] = re.compile(chk2_escape, flags=re.IGNORECASE)
+            # _change_key2_compiled[chk2] = re.compile(rf"(?<!\w){chk2_escape}(?!\w)", flags=re.IGNORECASE)
+            _change_key2_compiled[chk2] = re.compile(rf"\b{chk2_escape}\b", flags=re.IGNORECASE)
 
         category = _change_key2_compiled[chk2].sub(chk2_lab, category)
 
     # Apply CHANGE_KEY_SECONDARY_REGEX patterns
     for chk2_regex, chk2_lab in CHANGE_KEY_SECONDARY_REGEX.items():
-        if chk2_regex not in _change_key2_compiled:
-            _change_key2_compiled[chk2_regex] = re.compile(chk2_regex, flags=re.IGNORECASE)
+        if chk2_regex not in _change_key3_compiled:
+            _change_key3_compiled[chk2_regex] = re.compile(chk2_regex, flags=re.IGNORECASE)
 
-        category = _change_key2_compiled[chk2_regex].sub(chk2_lab, category)
+        category = _change_key3_compiled[chk2_regex].sub(chk2_lab, category)
 
     return category

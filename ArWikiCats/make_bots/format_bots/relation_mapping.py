@@ -117,7 +117,7 @@ category_relation_mapping = {
     "headquartered in": "مقرها الرئيسي في",
     "based in": "مقرها في",
     # "remade in" : "أعيد إنتاجها في",
-    "remadein": "أعيد إنتاجها في",
+    "remade-in": "أعيد إنتاجها في",
     # "based on" : "مبنية على",
     "basedon": "مبنية على",
     "set in": "تقع أحداثها في",
