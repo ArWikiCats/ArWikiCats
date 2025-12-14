@@ -1,10 +1,15 @@
-"""Label helpers for categories that use the word ``by``."""
+"""
+Label helpers for categories that use the word ``by``.
+
+TODO: need refactoring
+
+"""
 
 from __future__ import annotations
 
 import re
 import functools
-from ...helps.log import logger
+from ...helps import logger, dump_data
 from ...translations import By_orginal2, By_table, By_table_orginal, get_from_new_p17_final
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ..media_bots.films_bot import te_films
@@ -136,18 +141,8 @@ def get_and_label(category: str) -> str:
     return label
 
 
-# Backwards compatibility ----------------------------------------------------------------------
-make_By_lab = make_by_label  # type: ignore
-Make_By_lab = make_by_label
-Get_by_label = get_by_label
-Get_and_label = get_and_label
-
 __all__ = [
     "get_and_label",
     "get_by_label",
     "make_by_label",
-    "Get_and_label",
-    "Get_by_label",
-    "Make_By_lab",
-    "make_By_lab",
 ]
