@@ -181,7 +181,6 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
         f"by {context_key} of photographing": f"حسب {context_label} التصوير",
         # f"by photographing {context_key} ": f"حسب {context_label} التصوير",
         f"by {context_key} of completion": f"حسب {context_label} الانتهاء",
-        f"by opening {context_key}": f"حسب {context_label} الافتتاح",
     })
 
 by_map_table = {}
