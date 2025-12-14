@@ -5,7 +5,7 @@
 
 import re
 from ...helps.log import logger
-from .pf_keys import change_key_secondary_replacements, change_key_mappings_replacements
+from .pf_keys import change_key_mappings_replacements
 from .relation_mapping import category_relation_mapping
 
 # Precompiled Regex Patterns
@@ -375,7 +375,6 @@ def change_cat(cat_orginal: str) -> str:
     for x, d in replaces.items():
         category = category.replace(x, d)
 
-    category = change_key_secondary_replacements(category)
     category = change_key_mappings_replacements(category)
 
     # Final transformations

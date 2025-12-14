@@ -210,6 +210,8 @@ def change_key_mappings_replacements(category):
 
         category = _change_key_compiled[key].sub(chk_lab, category)
 
+    category = change_key_secondary_replacements(category)
+
     return category
 
 
