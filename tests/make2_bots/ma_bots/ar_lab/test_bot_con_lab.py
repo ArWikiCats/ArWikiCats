@@ -145,7 +145,7 @@ data = [
     {"separator_stripped": "published in", "country": "finland", "output": "فنلندا"},
     {"separator_stripped": "published in", "country": "western australia", "output": "أستراليا الغربية"},
     {"separator_stripped": "related to", "country": "future", "output": "المستقبل"},
-    {"separator_stripped": "remadein", "country": "other languages", "output": "لغات أخرى"},
+    {"separator_stripped": "remade-in", "country": "other languages", "output": "لغات أخرى"},
     {"separator_stripped": "scored by", "country": "spanish composers", "output": "ملحنون إسبان"},
     {"separator_stripped": "sentenced to", "country": "death", "output": "الموت"},
     {"separator_stripped": "set in", "country": "10th century", "output": "القرن 10"},

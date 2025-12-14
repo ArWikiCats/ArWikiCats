@@ -88,25 +88,25 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 ## 2.3 القواعد والقواميس
 
 يشمل ذلك:
-* **[الجنسيات](ArWikiCats/translations/jsons/nationalities)**:
+* **[الجنسيات](ArWikiCats/jsons/nationalities)**:
 	- صيغ المذكر والمؤنث والجمع والمفرد واسم البلد العربي والإنجليزي.
-* **[الجغرافيا](ArWikiCats/translations/jsons/geography) و[المدن](ArWikiCats/translations/jsons/cities)**:
+* **[الجغرافيا](ArWikiCats/jsons/geography) و[المدن](ArWikiCats/jsons/cities)**:
 	- المدن والدول والمناطق والأقاليم والمحافظات والبلديات والمقاطعات والتقسيمات الإدارية الأخرى.
-* **[الوظائف والمهن](ArWikiCats/translations/jsons/jobs)**:
+* **[الوظائف والمهن](ArWikiCats/jsons/jobs)**:
 	- مختلف مسميات الوظائف والمهن والأعمال. وتصنيفها حسب الجنس (للرجال/للسيدات) يشمل ذلك الوظائف الرياضية والوظائف السينمائية والمهن العلمية.
-* **[الرياضات](ArWikiCats/translations/jsons/sports)**:
+* **[الرياضات](ArWikiCats/jsons/sports)**:
     - التسميات والفرق والوظائف والألعاب الأولمبية، والتنسيقات الرياضية، وأسماء الفرق، ومراكز اللاعبين، ومصطلحات مختلف الرياضات.
-* **[الأفلام والتلفزيون](ArWikiCats/translations/jsons/media)**:
+* **[الأفلام والتلفزيون](ArWikiCats/jsons/media)**:
 	- الأفلام وأنواعها ومهن صناعة السينما، مثل صناع الأفلام والمخرجين والممثلين، وأنواع وتنسيقات التلفزيون وكافة المصطلحات المتعلقة بالأفلام والتلفزيون.
 * **الجوائز والأحداث**:
 	- جوائز الأفلام والمسابقات الرياضية والجوائز الموسيقية، والأحداث والمناسبات حسب الشهر والسنة.
-* **[المفاهيم](ArWikiCats/translations/jsons/keys)**:
+* **[المفاهيم](ArWikiCats/jsons/keys)**:
 	- الأيديولوجيات السياسية، والفترات التاريخية، والمجالات العلمية، والمفاهيم الاقتصادية.
-* **[الكيانات والأشياء](ArWikiCats/translations/jsons/population)**:
+* **[الكيانات والأشياء](ArWikiCats/jsons/population)**:
 	- المباني والبنية التحتية والمركبات والأسلحة والكتب والألبومات.
-* **[الأنواع](ArWikiCats/translations/jsons/taxonomy)**:
+* **[الأنواع](ArWikiCats/jsons/taxonomy)**:
 	- الأنواع الحيوانية والنباتية.
-* **[الأشخاص](ArWikiCats/translations/jsons/people)**:
+* **[الأشخاص](ArWikiCats/jsons/people)**:
 	- الشخصيات التي تملك تصنيفات باسمائها مثل أصحاب المناصب الرسمية والفنانون والمخرجون.
 ---
 

@@ -1335,10 +1335,6 @@
         "males": "أعلام سهام مريشة",
         "females": ""
     },
-    "canadian football players": {
-        "males": "لاعبو كرة قدم كندية",
-        "females": "لاعبات كرة قدم كندية"
-    },
     "sports announcers": {
         "males": "مذيعو رياضية",
         "females": "مذيعات رياضية"
@@ -1599,65 +1595,9 @@
         "males": "أعلام مصارعة ثيران",
         "females": ""
     },
-    "canadian football biography": {
-        "males": "أعلام كرة قدم كندية",
-        "females": ""
-    },
-    "canadian football centres": {
-        "males": "لاعبو وسط كرة قدم كندية",
-        "females": "لاعبات وسط كرة قدم كندية"
-    },
     "football centres": {
         "males": "لاعبو وسط كرة قدم",
         "females": "لاعبات وسط كرة قدم"
-    },
-    "canadian football defensive backs": {
-        "males": "مدافعون خلفيون كرة قدم كندية",
-        "females": "مدافعات خلفيات كرة قدم كندية"
-    },
-    "canadian football defensive linemen": {
-        "males": "مدافعو خط كرة قدم كندية",
-        "females": "مدافعات خط كرة قدم كندية"
-    },
-    "canadian football fullbacks": {
-        "males": "مدافعو كرة قدم كندية",
-        "females": "مدافعات كرة قدم كندية"
-    },
-    "canadian football guards": {
-        "males": "حراس كرة قدم كندية",
-        "females": "حراس كرة قدم كندية"
-    },
-    "canadian football linebackers": {
-        "males": "أظهرة كرة قدم كندية",
-        "females": "ظهيرات كرة قدم كندية"
-    },
-    "canadian football offensive linemen": {
-        "males": "مهاجمو خط كرة قدم كندية",
-        "females": "مهاجمات خط كرة قدم كندية"
-    },
-    "canadian football placekickers": {
-        "males": "مسددو كرة قدم كندية",
-        "females": "مسددات كرة قدم كندية"
-    },
-    "canadian football quarterbacks": {
-        "males": "أظهرة رباعيون كرة قدم كندية",
-        "females": "ظهيرات رباعيات كرة قدم كندية"
-    },
-    "canadian football running backs": {
-        "males": "راكضون للخلف كرة قدم كندية",
-        "females": "راكضات للخلف كرة قدم كندية"
-    },
-    "canadian football scouts": {
-        "males": "كشافة كرة قدم كندية",
-        "females": "كشافة كرة قدم كندية"
-    },
-    "canadian football tackles": {
-        "males": "مصطدمو كرة قدم كندية",
-        "females": "مصطدمات كرة قدم كندية"
-    },
-    "canadian football wide receivers": {
-        "males": "مستقبلون واسعون كرة قدم كندية",
-        "females": "مستقبلات واسعات كرة قدم كندية"
     },
     "go coaches": {
         "males": "مدربو غو",

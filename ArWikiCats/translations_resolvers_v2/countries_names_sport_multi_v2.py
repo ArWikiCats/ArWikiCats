@@ -13,6 +13,7 @@ from ..translations_resolvers.countries_names import formatted_data_en_ar_only
 
 
 sports_formatted_data = {
+
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
     "olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_ar}",

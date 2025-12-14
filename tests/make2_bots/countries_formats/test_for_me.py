@@ -132,7 +132,6 @@ fast_data = [
         "suffix": "contemporary r&b musical groups",
         "output": "فرق موسيقى آر أند بي معاصر كندية",
     },
-    {"cate": "canadian football", "nat": "canadian", "suffix": "football", "output": "كرة القدم الكندية"},
     {"cate": "canadian journalism", "nat": "canadian", "suffix": "journalism", "output": "صحافة كندية"},
     {"cate": "canadian magazines", "nat": "canadian", "suffix": "magazines", "output": "مجلات كندية"},
     {"cate": "canadian military", "nat": "canadian", "suffix": "military", "output": "الجيش الكندي"},

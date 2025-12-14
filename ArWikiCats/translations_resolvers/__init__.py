@@ -1,8 +1,11 @@
 
 from . import countries_names, us_states
+from ..helps import logger
 
 
 def resolved_translations_resolvers(normalized_category) -> str:
+
+    logger.debug(f"Trying v1 resolvers for: {normalized_category=}")
 
     resolved_label = (
         countries_names.resolve_by_countries_names(normalized_category) or

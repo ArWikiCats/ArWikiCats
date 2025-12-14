@@ -321,7 +321,7 @@ data_slow = {
     "malaysia in fiction": "ماليزيا في الخيال",
     "malaysia in summer olympics": "ماليزيا في الألعاب الأولمبية الصيفية",
     "manufacturing in united states": "تصنيع في الولايات المتحدة",
-    "marathi films remadein other languages": "أفلام باللغة الماراثية أعيد إنتاجها في لغات أخرى",
+    "marathi films remade-in other languages": "أفلام باللغة الماراثية أعيد إنتاجها في لغات أخرى",
     "march 1330": "مارس 1330",
     "martial arts": "الفنون القتالية",
     "mass shootings in europe": "إطلاق نار عشوائي في أوروبا",

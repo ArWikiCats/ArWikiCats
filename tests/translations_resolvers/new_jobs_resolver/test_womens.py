@@ -61,6 +61,12 @@ def test_must_be_empty() -> None:
     assert result == ""
 
 
+@pytest.mark.skip2
+def test_must_not_be_empty() -> None:
+    result = womens_resolver_labels("Yemeni actresses")
+    assert result == "ممثلات يمنيات"
+
+
 test_religions_data_2 = {
     "Category:Pakistani expatriate female actors": "تصنيف:ممثلات باكستانيات مغتربات",
     "Category:expatriate female actors": "تصنيف:ممثلات مغتربات",
