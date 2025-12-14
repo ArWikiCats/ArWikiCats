@@ -12,7 +12,7 @@ if _Dir := Path(__file__).parent.parent:
 
 from ArWikiCats import print_memory, batch_resolve_labels
 
-file_path = Path(Path(__file__).parent, "2025-11-28.json")
+file_path = Path(__file__).parent / "2025-11-28.json"
 
 time_start = time.time()
 
@@ -46,8 +46,10 @@ for key, value in labels.items():
 
 print(f"{same=}, {len(diff)=}")
 
-with open(Path(Path(__file__).parent, "compare_diff.json"), "w", encoding="utf-8") as f:
+output_dir = Path(__file__).parent
+
+with open(output_dir / "compare_diff.json", "w", encoding="utf-8") as f:
     json.dump(diff, f, ensure_ascii=False, indent=4)
 
-with open(Path(Path(__file__).parent, "compare_no_labels.json"), "w", encoding="utf-8") as f:
+with open(output_dir / "compare_no_labels.json", "w", encoding="utf-8") as f:
     json.dump(no_labels, f, ensure_ascii=False, indent=4)
