@@ -1,5 +1,11 @@
 """
 
+This script processes category labels from '2026.json' to test and compare
+the `batch_resolve_labels` function.
+It reads a set of category keys, resolves their Arabic labels, and then
+compares them against the original values. The script outputs two files:
+- `compare_diff.json`: Contains keys where the resolved label differs from the original.
+- `compare_no_labels.json`: Contains keys for which no label could be resolved.
 """
 import sys
 import json
@@ -12,7 +18,7 @@ if _Dir := Path(__file__).parent.parent:
 
 from ArWikiCats import print_memory, batch_resolve_labels
 
-file_path = Path(__file__).parent / "2025-11-28.json"
+file_path = Path(__file__).parent / "2026.json"
 
 time_start = time.time()
 

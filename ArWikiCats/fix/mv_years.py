@@ -58,7 +58,7 @@ def move_years_first(text_str: str) -> str:
     Returns:
         A normalized string with the year moved after the subject.
     """
-
+    # return text_str
     new_text = text_str
     if match := REGEX_YEAR_FIRST_PATTERN.match(text_str):
         first_part = match.group("first_part").strip()
