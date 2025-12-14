@@ -139,6 +139,8 @@ add_keys = [
     ("environment", "natural resources"),
     ("labor", "employment"),
     ("labor", "social affairs"),
+    ("labour", "employment"),
+    ("labour", "social affairs"),
     ("war", "navy"),
     ("culture", "tourism"),
     ("labour", "social security"),
