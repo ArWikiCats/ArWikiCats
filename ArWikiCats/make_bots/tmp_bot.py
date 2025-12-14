@@ -24,11 +24,12 @@ def _resolve_label(label: str) -> str:
     Returns:
         Resolved Arabic label or empty string
     """
-    resolved_label = country2_lab.get_lab_for_country2(label)
-    if not resolved_label:
-        resolved_label = with_years_bot.Try_With_Years(label)
-    if not resolved_label:
-        resolved_label = ye_ts_bot.translate_general_category(label, fix_title=False)
+    resolved_label = (
+        country2_lab.get_lab_for_country2(label) or
+        with_years_bot.Try_With_Years(label) or
+        ye_ts_bot.translate_general_category(label, fix_title=False) or
+        ""
+    )
     return resolved_label
 
 

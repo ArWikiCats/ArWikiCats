@@ -91,11 +91,15 @@ def _resolve_club_label(club_key: str) -> str:
     Returns:
         Resolved club label or empty string
     """
-    club_lab = Clubs_key_2.get(club_key) or Clubs_key_2.get(club_key.lower()) or pop_of_football_lower.get(club_key) or INTER_FEDS_LOWER.get(club_key) or ""
-
-    if not club_lab:
-        club_lab = bot_te_4.te_2018_with_nat(club_key) or resolve_films(club_key)
-
+    club_lab = (
+        Clubs_key_2.get(club_key) or
+        Clubs_key_2.get(club_key.lower()) or
+        pop_of_football_lower.get(club_key) or
+        INTER_FEDS_LOWER.get(club_key) or
+        bot_te_4.te_2018_with_nat(club_key) or
+        resolve_films(club_key) or
+        ""
+    )
     return club_lab
 
 

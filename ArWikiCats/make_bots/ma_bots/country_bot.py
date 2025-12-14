@@ -65,13 +65,12 @@ class CountryLabelRetriever:
                 resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
         if not resolved_label:
-            resolved_label = self._check_regex_years(country)
-
-        if not resolved_label:
-            resolved_label = self._check_members(country)
-
-        if not resolved_label:
-            resolved_label = SPORTS_KEYS_FOR_LABEL.get(country, "")
+            resolved_label = (
+                self._check_regex_years(country) or
+                self._check_members(country) or
+                SPORTS_KEYS_FOR_LABEL.get(country, "") or
+                ""
+            )
 
         get_country_done[country] = resolved_label
         logger.debug(f'>>>> Get country "{resolved_label=}"')
