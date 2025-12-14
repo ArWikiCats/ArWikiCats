@@ -9,23 +9,23 @@ from ..translations import all_country_with_nat_ar, ministrs_keys
 
 nat_secretaries_mapping = {
     # Category:Secretaries of the Australian Department of Defence
-    "secretaries of {en} department of {ministry}": "وزراء {singular} {males}",
-    "{en} secretaries of {ministry}": "وزراء {singular} {males}",
-    "{en} ministers of {ministry}": "وزراء {singular} {males}",
+    "secretaries of {en} department of {ministry}": "وزراء {no_al} {males}",
+    "{en} secretaries of {ministry}": "وزراء {no_al} {males}",
+    "{en} ministers of {ministry}": "وزراء {no_al} {males}",
 
-    "{en} government ministers of {ministry}": "وزراء {singular} {males}",
-    "{en} female secretaries of {ministry}": "وزيرات {singular} {females}",
-    "{en} womens secretaries of {ministry}": "وزيرات {singular} {females}",
-    "{en} women's secretaries of {ministry}": "وزيرات {singular} {females}",
-    "{en} women secretaries of {ministry}": "وزيرات {singular} {females}",
-    "{en} women government ministers of {ministry}": "وزيرات {singular} {females}",
-    "{en} women government ministers": "وزيرات {singular} {females}",
+    "{en} government ministers of {ministry}": "وزراء {no_al} {males}",
+    "{en} female secretaries of {ministry}": "وزيرات {no_al} {females}",
+    "{en} womens secretaries of {ministry}": "وزيرات {no_al} {females}",
+    "{en} women's secretaries of {ministry}": "وزيرات {no_al} {females}",
+    "{en} women secretaries of {ministry}": "وزيرات {no_al} {females}",
+    "{en} women government ministers of {ministry}": "وزيرات {no_al} {females}",
+    "{en} women government ministers": "وزيرات {no_al} {females}",
 }
 
 en_secretaries_mapping = {
-    "ministers for {ministry} of {en}": "وزراء {singular} {ar}",
-    "ministers of {ministry} for {en}": "وزراء {singular} {ar}",
-    "ministers of {ministry} of {en}": "وزراء {singular} {ar}",
+    "ministers for {ministry} of {en}": "وزراء {no_al} {ar}",
+    "ministers of {ministry} for {en}": "وزراء {no_al} {ar}",
+    "ministers of {ministry} of {en}": "وزراء {no_al} {ar}",
 
     "women government ministers of {en}": "وزيرات {females}",
     "secretaries of {en}": "وزراء {ar}",
@@ -35,44 +35,44 @@ en_secretaries_mapping = {
     "secretaries of state for {en}": "وزراء خارجية {males}",
 
     # Category:Department of Defence (Australia)
-    "department of {ministry} ({en})": "وزارة {al} {the_female}",
+    "department of {ministry} ({en})": "وزارة {with_al} {the_female}",
 
     # Category:United States Department of Energy National Laboratories personnel
-    "{en} department of {ministry}": "وزارة {al} {the_female}",
-    "{en} department of {ministry} laboratories personnel": "موظفو مختبرات وزارة {al} {the_female}",
-    "{en} department of {ministry} national laboratories personnel": "موظفو مختبرات وزارة {al} {the_female}",
-    "{en} department of {ministry} national laboratories": "مختبرات وزارة {al} {the_female}",
+    "{en} department of {ministry}": "وزارة {with_al} {the_female}",
+    "{en} department of {ministry} laboratories personnel": "موظفو مختبرات وزارة {with_al} {the_female}",
+    "{en} department of {ministry} national laboratories personnel": "موظفو مختبرات وزارة {with_al} {the_female}",
+    "{en} department of {ministry} national laboratories": "مختبرات وزارة {with_al} {the_female}",
 
     # Category:United States Department of Education agencies
-    "{en} department of {ministry} officials": "مسؤولو وزارة {al} {the_female}",
-    "{en} department of {ministry} agencies": "وكالات وزارة {al} {the_female}",
-    "{en} department of {ministry} facilities": "مرافق وزارة {al} {the_female}",
+    "{en} department of {ministry} officials": "مسؤولو وزارة {with_al} {the_female}",
+    "{en} department of {ministry} agencies": "وكالات وزارة {with_al} {the_female}",
+    "{en} department of {ministry} facilities": "مرافق وزارة {with_al} {the_female}",
 
     # Category:Ministry of Defense (Yemen)
-    "ministry of {ministry} ({en})": "وزارة {al} {the_female}",
+    "ministry of {ministry} ({en})": "وزارة {with_al} {the_female}",
 
     # category:ministries of education
-    "ministries of {ministry}": "وزارات {singular}",
-    "{ministry} ministries": "وزارات {singular}",
+    "ministries of {ministry}": "وزارات {no_al}",
+    "{ministry} ministries": "وزارات {no_al}",
 
-    "{ministry} ministers of {en}": "وزراء {singular} في {ar}",
-    "ministers for {ministry} of {en}": "وزراء {singular} في {ar}",
+    "{ministry} ministers of {en}": "وزراء {no_al} في {ar}",
+    "ministers for {ministry} of {en}": "وزراء {no_al} في {ar}",
 
-    "ministers of {ministry}": "وزراء {singular}",
-    "ministers for {ministry}": "وزراء {singular}",
-    "secretaries of {ministry}" : "وزراء {singular}",
+    "ministers of {ministry}": "وزراء {no_al}",
+    "ministers for {ministry}": "وزراء {no_al}",
+    "secretaries of {ministry}" : "وزراء {no_al}",
 
-    "{en} assistant secretaries of {ministry}": "مساعدو وزير {al} {the_male}",
-    "{en} under secretaries of {ministry}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
-    "{en} deputy secretaries of {ministry}": "نواب وزير {al} {the_male}",
+    "{en} assistant secretaries of {ministry}": "مساعدو وزير {with_al} {the_male}",
+    "{en} under secretaries of {ministry}": "نواب وزير {with_al} {the_male} للشؤون المتخصصة",
+    "{en} deputy secretaries of {ministry}": "نواب وزير {with_al} {the_male}",
     "{en} deputy secretaries of state": "نواب وزير الخارجية {the_male}",
 
-    "assistant secretaries of {ministry} of {en}": "مساعدو وزير {al} {the_male}",
-    "under secretaries of {ministry} of {en}": "نواب وزير {al} {the_male} للشؤون المتخصصة",
-    "deputy secretaries of {ministry} of {en}": "نواب وزير {al} {the_male}",
+    "assistant secretaries of {ministry} of {en}": "مساعدو وزير {with_al} {the_male}",
+    "under secretaries of {ministry} of {en}": "نواب وزير {with_al} {the_male} للشؤون المتخصصة",
+    "deputy secretaries of {ministry} of {en}": "نواب وزير {with_al} {the_male}",
 
-    "{en} secretaries of {ministry}" : "وزراء {singular} {males}",
-    "secretaries of {ministry} of {en}" : "وزراء {singular} {males}",
+    "{en} secretaries of {ministry}" : "وزراء {no_al} {males}",
+    "secretaries of {ministry} of {en}" : "وزراء {no_al} {males}",
 
     "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",

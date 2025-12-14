@@ -19,14 +19,14 @@ def multi_bot() -> MultiDataFormatterBaseV2:
 
     formatted_data = {
         # category:ministries of education
-        "ministries of {ministry}": "وزارات {singular}",
+        "ministries of {ministry}": "وزارات {no_al}",
         "Secretaries of {en}": "وزراء {ar}",
     }
 
     _keys = {
-        "education": {"singular": "تعليم", "al": "التعليم"},
-        "finance": {"singular": "مالية", "al": "المالية"},
-        "health": {"singular": "صحة", "al": "الصحة"},
+        "education": {"no_al": "تعليم", "with_al": "التعليم"},
+        "finance": {"no_al": "مالية", "with_al": "المالية"},
+        "health": {"no_al": "صحة", "with_al": "الصحة"},
     }
 
     return format_multi_data_v2(
