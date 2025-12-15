@@ -10,9 +10,12 @@ COUNTRY_YEAR_PARAMS = [
 
 # Category:18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
+    # "category:{year1} in new {country1}": "تصنيف:{country1} الجديدة في {year1}",  # 253
+    "category:{year1} elections in {country1}": "تصنيف:انتخابات {year1} في {country1}",  # 1550
+
     "category:{year1} people of {country1}": "تصنيف:أشخاص من {country1} {year1}",  # 34632
-    "category:{year1} inin {country1}": "تصنيف:{country1} في {year1}",  # 34632
-    # "category:{year1} in {country1}": "تصنيف:{country1} في {year1}",  # 34632
+    # "category:{year1} inin {country1}": "تصنيف:{country1} في {year1}",  # 34632
+    "category:{year1} in {country1}": "تصنيف:{year1} في {country1}",  # 34632
     "category:{year1} establishments in {country1}": "تصنيف:تأسيسات سنة {year1} في {country1}",  # 19853
     "category:{year1} events in {country1}": "تصنيف:أحداث {year1} في {country1}",  # 7413
     "category:{year1} disestablishments in {country1}": "تصنيف:انحلالات سنة {year1} في {country1}",  # 4600
@@ -21,7 +24,6 @@ COUNTRY_YEAR_DATA = {
     "category:{year1} murders in {country1}": "تصنيف:جرائم قتل في {country1} في {year1}",
     "category:{year1} disasters in {country1}": "تصنيف:كوارث في {country1} في {year1}",  # 2140
     "category:{year1} in {country1} by month": "تصنيف:{year1} في {country1} حسب الشهر",  # 1808
-    "category:{year1} elections in {country1}": "تصنيف:انتخابات {country1} في {year1}",  # 1550
     "category:{year1} events in {country1} by month": "تصنيف:أحداث {year1} في {country1} حسب الشهر",  # 1382
     "category:years of {year1} in {country1}": "تصنيف:سنوات {year1} في {country1}",  # 922
     "category:{year1} in sports in {country1}": "تصنيف:الرياضة في {country1} في {year1}",  # 630
@@ -34,7 +36,6 @@ COUNTRY_YEAR_DATA = {
     "category:railway stations in {country1} opened in {year1}": "تصنيف:محطات السكك الحديدية في {country1} افتتحت في {year1}",  # 345
     "category:{year1} in {country1} territory": "تصنيف:إقليم {country1} في {year1}",  # 289
     "category:{year1} architecture in {country1}": "تصنيف:عمارة {year1} في {country1}",  # 317
-    "category:{year1} in new {country1}": "تصنيف:{country1} الجديدة في {year1}",  # 253
     "category:{year1} in {country1} by state": "تصنيف:{year1} في {country1} حسب الولاية",  # 280
     "category:{year1} in {country1} by state or territory": "تصنيف:{country1} في {year1} حسب الولاية",  # 243
     "category:{year1} mass shootings in {country1}": "تصنيف:إطلاق نار عشوائي في {country1} في {year1}",  # 215

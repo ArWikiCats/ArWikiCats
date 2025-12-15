@@ -6,6 +6,8 @@ YEAR_PARAM_NAME = "year1"
 YEAR_DATA = {
     "category:refugee olympic team in {year1} summer olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",
     "category:refugee olympic team in {year1} winter olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الشتوية {year1}",
+    "category:{year1} television series-debuts": "تصنيف:مسلسلات تلفزيونية بدأ عرضها في {year1}",
+    "category:{year1} television series debuts": "تصنيف:مسلسلات تلفزيونية بدأ عرضها في {year1}",
     "category:{year1} in mass media": "تصنيف:وسائل الإعلام في {year1}",  # 126
     "category:airlines established in {year1}": "تصنيف:شركات طيران أسست في {year1}",  # 259
     "category:animals described in {year1}": "تصنيف:حيوانات وصفت في {year1}",  # 266
@@ -57,7 +59,7 @@ YEAR_DATA = {
     "category:reptiles described in {year1}": "تصنيف:زواحف وصفت في {year1}",  # 192
     "category:residential buildings completed in {year1}": "تصنيف:مبان سكنية اكتملت في {year1}",  # 182
     "category:species described in {year1}": "تصنيف:أنواع وصفت في {year1}",  # 271
-    "category:sports clubs and teams established in {year1}": "تصنيف:أندية رياضية أسست في {year1}",  # 152
+    "category:sports clubs and teams established in {year1}": "تصنيف:أندية وفرق رياضية أسست في {year1}",  # 152
     "category:sports organizations established in {year1}": "تصنيف:منظمات رياضية أسست في {year1}",  # 170
     "category:states and territories disestablished in {year1}": "تصنيف:دول وأقاليم انحلت في {year1}",  # 174
     "category:states and territories established in {year1}": "تصنيف:دول وأقاليم أسست في {year1}",  # 224
@@ -109,7 +111,7 @@ YEAR_DATA = {
     "category:{year1} in biology": "تصنيف:علم الأحياء في {year1}",  # 180
     "category:{year1} in christianity": "تصنيف:المسيحية في {year1}",  # 369
     "category:{year1} in domestic association football": "تصنيف:كرة قدم محلية في {year1}",  # 285
-    "category:{year1} in economic history": "تصنيف:الاقتصاد في {year1}",  # 251
+    # "category:{year1} in economic history": "تصنيف:الاقتصاد في {year1}",  # 251
     "category:{year1} in economics": "تصنيف:{year1} في الاقتصاد",  # 287
     "category:{year1} in education": "تصنيف:التعليم في {year1}",  # 258
     "category:{year1} in english sport": "تصنيف:رياضة إنجليزية في {year1}",  # 164
@@ -128,7 +130,8 @@ YEAR_DATA = {
     "category:{year1} in science": "تصنيف:العلم في {year1}",  # 540
     "category:{year1} in sport by continent": "تصنيف:رياضة في {year1} حسب القارة",  # 181
     "category:{year1} in sports by country": "تصنيف:ألعاب رياضية في {year1} حسب البلد",  # 190
-    "category:{year1} in sports": "تصنيف:أحداث {year1} الرياضية",  # 1295
+    "category:{year1} in sports": "تصنيف:ألعاب رياضية في {year1}",
+    # "category:{year1} in sports": "تصنيف:أحداث {year1} الرياضية",  # 1295
     "category:{year1} in technology": "تصنيف:التقانة في {year1}",  # 164
     "category:{year1} in tennis": "تصنيف:كرة المضرب في {year1}",  # 164
     "category:{year1} in arts": "تصنيف:الفنون في {year1}",  # 734
