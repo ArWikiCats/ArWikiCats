@@ -1,10 +1,31 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:American film people": "تصنيف:أعلام أفلام أمريكيون",
+    "Category:Yemeni film people": "تصنيف:أعلام أفلام يمنيون",
+    "Category:Ugandan film people": "تصنيف:أعلام أفلام أوغنديون",
+    "Category:Turkish film people": "تصنيف:أعلام أفلام أتراك",
+    "Category:Tunisian film people": "تصنيف:أعلام أفلام تونسيون",
+    "Category:Saudi Arabian film people": "تصنيف:أعلام أفلام سعوديون",
+    "Category:Rwandan film people": "تصنيف:أعلام أفلام روانديون",
+    "Category:Republic of the Congo film people": "تصنيف:أعلام أفلام كونغويون",
+    "Category:Palestinian film people": "تصنيف:أعلام أفلام فلسطينيون",
+    "Category:Nigerien film people": "تصنيف:أعلام أفلام نيجريون",
+    "Category:Malian film people": "تصنيف:أعلام أفلام ماليون",
+    "Category:Ivorian film people": "تصنيف:أعلام أفلام إيفواريون",
+    "Category:Gambian film people": "تصنيف:أعلام أفلام غامبيون",
+    "Category:Gabonese film people": "تصنيف:أعلام أفلام غابونيون",
+    "Category:Film people": "تصنيف:أعلام أفلام",
+    "Category:Film people by nationality": "تصنيف:أعلام أفلام حسب الجنسية",
+    "Category:Film people by role": "تصنيف:أعلام أفلام حسب الدور",
+    "Category:Ethiopian film people": "تصنيف:أعلام أفلام إثيوبيون",
+    "Category:Canadian film people": "تصنيف:أعلام أفلام كنديون",
+    "Category:Bulgarian film people": "تصنيف:أعلام أفلام بلغاريون",
+    "Category:Bissau-Guinean film people": "تصنيف:أعلام أفلام غينيون بيساويون"
 }
 
 data_1 = {
@@ -105,6 +126,7 @@ data_2 = {
 }
 
 to_test = [
+    ("test_film_keys_0", data0),
     ("test_film_keys_1", data_1),
     ("test_film_keys_2", data_2),
 ]
@@ -120,8 +142,7 @@ def test_film_keys_2(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-
     dump_diff(diff_result, name)
+    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
