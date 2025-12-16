@@ -10,11 +10,9 @@ COUNTRY_YEAR_PARAMS = [
 
 # Category:18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
-    # "category:{year1} in new {country1}": "تصنيف:{country1} الجديدة في {year1}",  # 253
     "category:{year1} elections in {country1}": "تصنيف:انتخابات {year1} في {country1}",  # 1550
 
     "category:{year1} people of {country1}": "تصنيف:أشخاص من {country1} {year1}",  # 34632
-    # "category:{year1} inin {country1}": "تصنيف:{country1} في {year1}",  # 34632
     "category:{year1} in {country1}": "تصنيف:{year1} في {country1}",  # 34632
     "category:{year1} establishments in {country1}": "تصنيف:تأسيسات سنة {year1} في {country1}",  # 19853
     "category:{year1} events in {country1}": "تصنيف:أحداث {year1} في {country1}",  # 7413

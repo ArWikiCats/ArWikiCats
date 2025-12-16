@@ -130,8 +130,7 @@ YEAR_DATA = {
     "category:{year1} in science": "تصنيف:العلم في {year1}",  # 540
     "category:{year1} in sport by continent": "تصنيف:رياضة في {year1} حسب القارة",  # 181
     "category:{year1} in sports by country": "تصنيف:ألعاب رياضية في {year1} حسب البلد",  # 190
-    "category:{year1} in sports": "تصنيف:ألعاب رياضية في {year1}",
-    # "category:{year1} in sports": "تصنيف:أحداث {year1} الرياضية",  # 1295
+    "category:{year1} in sports": "تصنيف:ألعاب رياضية في {year1}",  # 1295
     "category:{year1} in technology": "تصنيف:التقانة في {year1}",  # 164
     "category:{year1} in tennis": "تصنيف:كرة المضرب في {year1}",  # 164
     "category:{year1} in arts": "تصنيف:الفنون في {year1}",  # 734
