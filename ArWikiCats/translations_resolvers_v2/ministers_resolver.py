@@ -29,6 +29,14 @@ en_secretaries_mapping = {
     "ministers of {ministry} of {en}": "وزراء {no_al} {ar}",
 
     "women government ministers of {en}": "وزيرات {females}",
+
+    "{ministry} ministers of {en}": "وزراء {no_al} في {ar}",
+    "ministers for {ministry} of {en}": "وزراء {no_al} في {ar}",
+
+    "ministers of {ministry}": "وزراء {no_al}",
+    "ministers for {ministry}": "وزراء {no_al}",
+    "secretaries of {ministry}" : "وزراء {no_al}",
+
     "secretaries of {en}": "وزراء {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "united states secretaries of state": "وزراء خارجية أمريكيون",
@@ -55,13 +63,6 @@ en_secretaries_mapping = {
     # category:ministries of education
     "ministries of {ministry}": "وزارات {no_al}",
     "{ministry} ministries": "وزارات {no_al}",
-
-    "{ministry} ministers of {en}": "وزراء {no_al} في {ar}",
-    "ministers for {ministry} of {en}": "وزراء {no_al} في {ar}",
-
-    "ministers of {ministry}": "وزراء {no_al}",
-    "ministers for {ministry}": "وزراء {no_al}",
-    "secretaries of {ministry}" : "وزراء {no_al}",
 
     "{en} assistant secretaries of {ministry}": "مساعدو وزير {with_al} {the_male}",
     "{en} under secretaries of {ministry}": "نواب وزير {with_al} {the_male} للشؤون المتخصصة",
