@@ -1,21 +1,20 @@
 ## [#223](https://github.com/MrIbrahem/ArWikiCats/pull/223) - 2025-12-17
 
 * **New Features**
-  * Enhanced year-aware translation formatting and new V3 year/country formatter for time-qualified categories.
-  * Added broader template-driven formatting options for dual-data labels (e.g., nationality + role).
+  * Year-aware formatting and a new V3 year/country formatter; expanded template-driven dual-data formatting for combined labels (e.g., nationality + role). Public API now exposes V3Formats and MultiDataFormatterBaseYearV3.
 
 * **Bug Fixes**
-  * Improved normalization for gender-related terms (standardizing “women” → “female”).
-  * Stabilized year-movement label handling to reduce mismatches.
+  * Standardized gender-term normalization (women → female). Improved year-movement/label normalization to reduce mismatches.
 
 * **Refactor**
-  * Reorganized translation formatting internals and public API exports for clearer extensibility.
+  * Reorganized translation formatting internals and adjusted optional data mapping defaults for safer usage.
 
 * **Tests**
-  * Added extensive tests and integration suites covering year, country, and gender scenarios.
+  * Added extensive unit and integration tests covering year, country, and gender scenarios.
 
 * **Documentation**
-  * Release notes updated.
+  * Changelog updated.
+
 
 ## [#222](https://github.com/MrIbrahem/ArWikiCats/pull/222) - 2025-12-16
 
