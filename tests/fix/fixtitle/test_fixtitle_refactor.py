@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ArWikiCats.fix.fixtitle import add_fee, fix_it, fixlab
+from ArWikiCats.fix.fixtitle import add_fee, fix_it, fixlabel
 
 
 def test_fix_it_applies_expected_normalizations() -> None:
@@ -18,19 +18,19 @@ def test_fix_it_applies_expected_normalizations() -> None:
 
 
 def test_fixlab_rejects_invalid_labels() -> None:
-    """``fixlab`` should discard labels with latin letters or stray dashes."""
+    """``fixlabel`` should discard labels with latin letters or stray dashes."""
     data = [
         "Label مع حروف انجليزية",
         "–1990 في القاهرة",
     ]
     for raw_label in data:
-        assert fixlab(raw_label) == ""
+        assert fixlabel(raw_label) == ""
 
 
 def test_fixlab_pipeline_strips_namespace_and_moves_years() -> None:
-    """Full ``fixlab`` pipeline should normalise underscores and year placement."""
+    """Full ``fixlabel`` pipeline should normalise underscores and year placement."""
 
-    assert fixlab("تصنيف:2020_في_الرياضة_في_تكساس") == "الرياضة في تكساس في 2020"
+    assert fixlabel("تصنيف:2020_في_الرياضة_في_تكساس") == "الرياضة في تكساس في 2020"
 
 
 def test_add_fee_inserts_preposition_for_supported_categories() -> None:

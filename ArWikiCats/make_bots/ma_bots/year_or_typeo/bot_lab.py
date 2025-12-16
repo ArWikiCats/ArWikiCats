@@ -307,7 +307,7 @@ class LabelForStartWithYearOrTypeo:
 
         if not self.NoLab:
             if re.sub("[abcdefghijklmnopqrstuvwxyz]", "", self.arlabel, flags=re.IGNORECASE) == self.arlabel:
-                self.arlabel = fixtitle.fixlab(self.arlabel, en=self.category_r)
+                self.arlabel = fixtitle.fixlabel(self.arlabel, en=self.category_r)
 
                 logger.info(f"a<<lightred>>>>>> arlabel ppoi:{self.arlabel}")
                 logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')

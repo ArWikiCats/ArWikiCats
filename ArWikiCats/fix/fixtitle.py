@@ -1,6 +1,6 @@
 """Helpers for normalizing Arabic category titles.
 
-The module exposes the :func:`fixlab` entry point that performs a sequence of
+The module exposes the :func:`fixlabel` entry point that performs a sequence of
 regular-expression driven transformations. The transformations are heavily
 localized for Arabic Wikipedia labels and rely on the constants defined in
 :mod:`ArWikiCats.fix.fixlists`.
@@ -247,7 +247,7 @@ def add_fee(text: str) -> str:
     return text
 
 
-def fixlab(label_old: str, out: bool = False, en: str = "") -> str:
+def fixlabel(label_old: str, out: bool = False, en: str = "") -> str:
     """Return a normalized Arabic label suitable for publication.
 
     Args:
@@ -288,5 +288,5 @@ def fixlab(label_old: str, out: bool = False, en: str = "") -> str:
 __all__ = [
     "add_fee",
     "fix_it",
-    "fixlab",
+    "fixlabel",
 ]

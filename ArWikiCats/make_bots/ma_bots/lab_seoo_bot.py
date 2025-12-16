@@ -38,7 +38,7 @@ def te_bot_3(category_key: str) -> str:
         logger.info(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
         if existing_label is not None:
             if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:
-                normalized_label = f"تصنيف:{fixtitle.fixlab(existing_label, en=category_key)}"
+                normalized_label = f"تصنيف:{fixtitle.fixlabel(existing_label, en=category_key)}"
                 logger.info(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
                 logger.info("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
                 return normalized_label

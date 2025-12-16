@@ -132,7 +132,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     arlabel = _translate_general_category(category_r, category, start_get_country2)
 
     if arlabel and fix_title:
-        arlabel = fixtitle.fixlab(arlabel, en=category_r)
+        arlabel = fixtitle.fixlabel(arlabel, en=category_r)
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", {arlabel=}')
 
     if arlabel:

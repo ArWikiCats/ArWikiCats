@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Pytest to validate all title lists using fixlab()."""
+"""Pytest to validate all title lists using fixlabel()."""
 
-from ArWikiCats.fix.fixtitle import fixlab
+from ArWikiCats.fix.fixtitle import fixlabel
 
 
 def load_test_fixlab_data(data: dict) -> None:
@@ -9,7 +9,7 @@ def load_test_fixlab_data(data: dict) -> None:
     diff_list = []
     same = 0
     for title, expected in data.items():
-        result = fixlab(title)
+        result = fixlabel(title)
         # result = result.replace("جرائم قتل", "جرائم قتل في")
 
         if result != expected:
