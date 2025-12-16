@@ -30,6 +30,8 @@ def _load_formatted_data() -> dict:
         # base keys
         "{en_nat}": "{ar_nat}",
         "{en_nat} people": "أعلام {ar_nat}",
+        "{en_nat} films people": "أعلام أفلام {ar_nat}",
+        "{en_nat} film people": "أعلام أفلام {ar_nat}",
         "male {en_nat}": "{ar_nat} ذكور",
 
         # emigrants keys

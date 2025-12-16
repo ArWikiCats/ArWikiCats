@@ -151,7 +151,6 @@ data_2 = {
     "Category:Drag queens from Northern Ireland": "",
     "Category:Experimental musical groups from Northern Ireland": "",
     "Category:Far-right politicians from Northern Ireland": "",
-    "Category:Female members of the Northern Ireland Assembly": "",
     "Category:Film people from Northern Ireland": "",
     "Category:Film score composers from Northern Ireland": "",
     "Category:Folk-song collectors from Northern Ireland": "",
