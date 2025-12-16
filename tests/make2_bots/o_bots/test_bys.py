@@ -7,7 +7,57 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.o_bots.bys import get_and_label, get_by_label, make_new_by_label
 
-by_table_all = {
+data_0 = {
+    "12th iranian majlis": "المجلس الإيراني الثاني عشر",
+    "13th iranian majlis": "المجلس الإيراني الثالث عشر",
+    "15th iranian majlis": "المجلس الإيراني الخامس عشر",
+    "1866 asian winter games": "الألعاب الآسيوية الشتوية 1866",
+    "1866 european games": "الألعاب الأوروبية 1866",
+    "1866 indian general election": "الانتخابات العامة الهندية 1866",
+    "1866 pan american games": "دورة الألعاب الأمريكية 1866",
+    "1866 parapan american games": "ألعاب بارابان الأمريكية 1866",
+    "1866 presidential candidates": "مرشحون رئاسيون 1866",
+    "1866 sea games": "ألعاب البحر 1866",
+    "1866 summer olympics": "الألعاب الأولمبية الصيفية 1866",
+    "1866 summer paralympics": "الألعاب البارالمبية الصيفية 1866",
+    "1866 united states elections": "انتخابات الولايات المتحدة 1866",
+    "1866 united states": "الولايات المتحدة 1866",
+    "war in iraq (1866–1866)": "الحرب في العراق (1866–1866)",
+    "united kingdom (1866–1866)": "المملكة المتحدة (1866–1866)",
+    "uefa euro 1866": "بطولة أمم أوروبا 1866",
+    "second polish republic (1866–1866)": "الجمهورية البولندية الثانية (1866–1866)",
+    "british columbia (1866–1866)": "كولومبيا البريطانية (1866–1866)",
+
+}
+# TODO: need to fix results by_and_data_true_result, by_and_data
+
+by_and_data_true_result = {
+    "angus and dundee": "أنغوس ودندي",
+    "architecture and construction": "هندسة معمارية وبناء",
+    "architecture and planning": "هندسة معمارية وتخطيط",
+    "architecture and technology": "الهندسة المعمارية والتقانة",
+    "art and design": "الفن والتصميم",
+    "arts and architecture": "الفنون والهندسة المعمارية",
+    "arts and design": "الفنون والتصميم",
+    "arts and sciences": "الفنون والعلوم",
+    "british columbia and vancouver island": "كولومبيا البريطانية وجزيرة فانكوفر",
+    "british columbia and yukon": "كولومبيا البريطانية ويوكون",
+    "business and economics": "الأعمال والاقتصاد",
+    "egypt and syria": "مصر وسوريا",
+    "people and nations": "أشخاص وبلدان",
+    "pesaro and urbino": "بيزارو وأوربينو",
+    "philosophy and religion": "الفلسفة والدين",
+    "pisa and sardinia": "بيزا وسردينيا",
+    "poland and ukraine": "بولندا وأوكرانيا",
+    "road transport and bridges": "نقل بري وجسور",
+    "russia and soviet union": "روسيا والاتحاد السوفيتي",
+    "schools and colleges": "مدارس وكليات",
+    "science and engineering": "العلم والهندسة",
+    "science and mathematics": "العلم والرياضيات",
+    "theatre and film": "المسرح والأفلام",
+}
+
+by_and_data = {
     "angus and dundee": "أنغوس ودندي",
     "architecture and construction": "هندسة معمارية وبناء",
     "architecture and planning": "هندسة معمارية وتخطيط",
@@ -33,8 +83,7 @@ by_table_all = {
     "theatre and film": "المسرح وأفلام",
 }
 
-get_by_label_data = {
-
+by_label_data = {
     "africa by country": "إفريقيا حسب البلد",
     "alaska by populated place": "ألاسكا حسب المكان المأهول",
     "alberta by city": "ألبرتا حسب المدينة",
@@ -107,12 +156,11 @@ get_by_label_data = {
     "world-war-ii by nationality": "الحرب العالمية الثانية حسب الجنسية",
 }
 
-
 make_new_by_label_data = {}
 
 to_test = [
-    ("test_get_and_label", by_table_all, get_and_label),
-    ("test_get_by_label", get_by_label_data, get_by_label),
+    ("test_get_and_label", by_and_data, get_and_label),
+    ("test_get_by_label", by_label_data, get_by_label),
     ("test_make_new_by_label", make_new_by_label_data, make_new_by_label),
 ]
 
@@ -124,14 +172,14 @@ def test_make_new_by_label(category: str, expected: str) -> None:
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("category, expected", get_by_label_data.items(), ids=get_by_label_data.keys())
+@pytest.mark.parametrize("category, expected", by_label_data.items(), ids=by_label_data.keys())
 @pytest.mark.fast
 def test_get_by_label(category: str, expected: str) -> None:
     label = get_by_label(category)
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("category, expected", by_table_all.items(), ids=by_table_all.keys())
+@pytest.mark.parametrize("category, expected", by_and_data.items(), ids=by_and_data.keys())
 @pytest.mark.fast
 def test_get_and_label(category: str, expected: str) -> None:
     label = get_and_label(category)
