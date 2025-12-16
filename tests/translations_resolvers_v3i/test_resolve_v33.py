@@ -2,7 +2,7 @@
 """Integration tests for format_films_country_data and """
 
 import pytest
-from ArWikiCats.translations_resolvers_v3.resolve_v33 import multi_bot_v3
+from ArWikiCats.translations_resolvers_v3i.resolve_v3i import multi_bot_v3
 
 
 class TestCountriesPart:
