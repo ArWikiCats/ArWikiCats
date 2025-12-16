@@ -1,0 +1,44 @@
+name: Auto Update Toolforge New
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Copy files to server
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          source: "./ArWikiCats"
+          target: "~/arwikicats_temp"
+          rm: true
+
+      - name: Deploy on Toolforge
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: 22
+          request_pty: true
+          script_stop: true
+          key: ${{ secrets.KEY }}
+          script: |
+            become {{ secrets.TOOL }} bash -lc "
+              rm -rf ~/ArWikiCats &&
+              cp -r /mnt/nfs/labstore-secondary-tools-home/${{ secrets.USERNAME }}/arwikicats_temp ~/ArWikiCats &&
+              chmod -R 770 ~/ArWikiCats &&
+              cp -rf ~/ArWikiCats/* ~/bots/ma/ArWikiCats -v &&
+              rm -rf ~/ArWikiCats &&
+              echo \"Updated on: $(date '+%Y-%m-%d %H:%M:%S')\" > ~/update_arwikicats &&
+              echo ''
+            "
+            rm -rf arwikicats_temp
