@@ -27,7 +27,7 @@ class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: FormatData,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] = {},
+        data_to_find: Dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
@@ -47,7 +47,7 @@ class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: YearFormatData,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] = {},
+        data_to_find: Dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
@@ -66,7 +66,7 @@ class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataV2,
         other_bot: YearFormatData,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] = {},
+        data_to_find: Dict[str, str] | None = None,
         other_key_first: bool = False,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
@@ -91,7 +91,7 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: FormatDataDouble,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] = {},
+        data_to_find: Dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 
@@ -110,7 +110,7 @@ class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataV2,
         other_bot: FormatDataV2,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] = {},
+        data_to_find: Dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 

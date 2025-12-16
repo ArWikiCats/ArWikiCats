@@ -21,7 +21,7 @@ def format_films_country_data(
     value2_placeholder: str = "{film_ar}",
     text_after: str = "",
     text_before: str = "",
-    data_to_find: Dict[str, str] = {},
+    data_to_find: Dict[str, str] | None = None,
 ) -> MultiDataFormatterDataDouble:
     """Prepare helpers for matching and formatting template-driven labels."""
     # Store originals
