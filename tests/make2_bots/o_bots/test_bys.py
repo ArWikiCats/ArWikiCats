@@ -109,6 +109,7 @@ get_by_label_data = {
 
 
 make_new_by_label_data = {}
+
 to_test = [
     ("test_get_and_label", by_table_all, get_and_label),
     ("test_get_by_label", get_by_label_data, get_by_label),
