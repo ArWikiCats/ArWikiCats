@@ -20,7 +20,7 @@ from ..translations_resolvers import resolved_translations_resolvers
 from ..translations_resolvers_v2 import resolved_translations_resolvers_v2
 from ..translations_resolvers.new_jobs_resolver import new_jobs_resolver_label
 
-from ..fix import fixlab
+from ..fix import fixlabel
 
 
 @dataclass
@@ -39,7 +39,7 @@ def build_labs_years_object() -> LabsYears:
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_label(category: str) -> CategoryResult:
+def resolve_label(category: str, fix_label=True) -> CategoryResult:
     """Resolve the label using multi-step logic."""
     changed_cat = change_cat(category)
 
@@ -105,8 +105,8 @@ def resolve_label(category: str) -> CategoryResult:
     if not category_lab and is_cat_okay:
         category_lab = start_ylab
 
-    if category_lab:
-        category_lab = fixlab(category_lab, en=category)
+    if category_lab and fix_label:
+        category_lab = fixlabel(category_lab, en=category)
 
     if not from_year and cat_year:
         labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
@@ -118,9 +118,9 @@ def resolve_label(category: str) -> CategoryResult:
     )
 
 
-def resolve_label_ar(category: str) -> str:
+def resolve_label_ar(category: str, fix_label=True) -> str:
     """Resolve the Arabic label for a given category."""
-    result = resolve_label(category)
+    result = resolve_label(category, fix_label=fix_label)
     return result.ar
 
 

@@ -268,7 +268,7 @@ class EventLabResolver:
         """
         if category_lab:
             # Apply final formatting and prefix
-            fixed = fixtitle.fixlab(category_lab, en=cate_r)
+            fixed = fixtitle.fixlabel(category_lab, en=cate_r)
             category_lab = f"تصنيف:{fixed}"
 
         return category_lab

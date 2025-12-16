@@ -4,21 +4,24 @@ from __future__ import annotations
 
 import re
 
-from ..helps.log import logger
+from ..helps import logger, dump_data
 from ..make_bots.reg_lines import YEARS_REGEX_AR
 
 # Precompiled Regex Patterns
+REGEX_WHITESPACE = re.compile(r"\s+", re.IGNORECASE)
+REGEX_QM = re.compile(r"\bق\.م\b", re.IGNORECASE)
+
+REGEX_YEAR_IN_SECOND_PART = re.compile(r"^(?P<subject>.*)\sحسب\s(?P<by>[\s\w]+)$", re.IGNORECASE)
+
 REGEX_BY_DATE_PATTERN = re.compile(
     rf"^(?P<first_part>.*)\sحسب\s(?P<by_part>[\s\w]+)\sفي\s(?P<date>{YEARS_REGEX_AR})$", re.IGNORECASE
 )
-REGEX_WHITESPACE = re.compile(r"\s+", re.IGNORECASE)
-REGEX_QM = re.compile(r"\bق\.م\b", re.IGNORECASE)
-REGEX_YEAR_IN_SECOND_PART = re.compile(r"^(?P<subject>.*)\sحسب\s(?P<by>[\s\w]+)$", re.IGNORECASE)
 REGEX_YEAR_FIRST_PATTERN = re.compile(
     rf"^(?P<first_part>{YEARS_REGEX_AR})\sفي\s(?P<second_part>[^0-9]*)$", re.IGNORECASE
 )
 
 
+@dump_data(1)
 def move_by_in(text_str: str) -> str:
     """
     A function that takes in a string and searches for a specific pattern within it. The function replaces underscores in the string with spaces and then uses a regular expression to search for a pattern of the form '{first_part} حسب {by_part} في {date}'.
@@ -49,6 +52,7 @@ def move_by_in(text_str: str) -> str:
     return new_text
 
 
+@dump_data(1)
 def move_years_first(text_str: str) -> str:
     """Move leading year fragments to the end of the label when applicable.
 
@@ -101,9 +105,9 @@ def move_years(text_str: str) -> str:
     """
 
     text_str = text_str.replace("_", " ").strip()
-    is_category_namespace = False
-    if text_str.startswith("تصنيف:"):
-        is_category_namespace = True
+    is_category_namespace = text_str.startswith("تصنيف:")
+
+    if is_category_namespace:
         text_str = text_str.replace("تصنيف:", "")
 
     new_text = move_years_first(text_str)
@@ -112,6 +116,7 @@ def move_years(text_str: str) -> str:
 
     if is_category_namespace:
         new_text = f"تصنيف:{new_text}"
+
     return new_text
 
 

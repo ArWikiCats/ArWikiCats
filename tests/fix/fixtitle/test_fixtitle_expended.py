@@ -14,7 +14,7 @@ from ArWikiCats.fix.fixtitle import (
     _normalize_sub_regions,
     add_fee,
     fix_it,
-    fixlab,
+    fixlabel,
 )
 
 
@@ -125,7 +125,7 @@ def test_fix_it_common(ar_label: str, en_label: str, expected: str) -> None:
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fixlab_integration(label_old: str, expected: str) -> None:
-    assert fixlab(label_old) == expected
+    assert fixlabel(label_old) == expected
 
 
 @pytest.mark.parametrize(
@@ -134,7 +134,7 @@ def test_fixlab_integration(label_old: str, expected: str) -> None:
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_fixlab_rejected(label_old: str) -> None:
-    assert fixlab(label_old) == ""
+    assert fixlabel(label_old) == ""
 
 
 @pytest.mark.parametrize(
