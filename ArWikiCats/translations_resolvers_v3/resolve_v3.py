@@ -2,6 +2,7 @@
 """
 TODO: use this code in flowworks
 """
+import functools
 import re
 
 from ArWikiCats.translations_formats import FormatData, YearFormatData, MultiDataFormatterBase, V3Formats, MultiDataFormatterBaseYearV3
@@ -33,9 +34,8 @@ class FormatDataXX:
         """Replace matched year with placeholder."""
         if not key:
             return text
-        return re.sub(
-            re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE
-        )
+        result = re.sub(re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE)
+        return result
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
@@ -60,6 +60,7 @@ class FormatDataXX:
         return ""
 
 
+@functools.lru_cache(maxsize=1)
 def multi_bot() -> MultiDataFormatterBase:
     """Create a format_multi_data instance for testing."""
 
@@ -96,6 +97,7 @@ def resolve_job_from_countries(category: str) -> str:
     return _bot.search_all(category)
 
 
+@functools.lru_cache(maxsize=1)
 def multi_bot_v3() -> MultiDataFormatterBaseYearV3:
 
     other_bot = YearFormatData(
