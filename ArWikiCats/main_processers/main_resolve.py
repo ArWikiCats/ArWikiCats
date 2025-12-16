@@ -86,7 +86,7 @@ def resolve_label(category: str) -> CategoryResult:
         category_lower = category.lower()
         category_lab = cash_2022.get(category_lower, "")
 
-        if not category_lab and app_settings.start_yementest:
+        if not category_lab and app_settings.start_tgc_resolver_first:
             category_lab = start_ylab
 
         if not category_lab:
