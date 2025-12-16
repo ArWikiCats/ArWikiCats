@@ -1,3 +1,34 @@
+## [#217](https://github.com/MrIbrahem/ArWikiCats/pull/217) - 2025-12-16
+
+* **Bug Fixes**
+  * Standardized the Arabic translation for 'non-fiction writers' across multiple files to use the correct plural form 'غير روائيين'. Added new label mappings in get_by_label.jsonl and updated category patterns for year and country in COUNTRY_YEAR.py and YEAR_PATTERNS.py.
+  * Corrected Arabic grammatical forms in category translations for non-fiction writers and related categories.
+  * Fixed typo in category pattern (removed duplicate "in").
+
+* **New Features**
+  * Added support for election year category patterns.
+  * Added support for television series debut year categories.
+
+* **Improvements**
+  * Enhanced category mappings for sports clubs and teams.
+  * Updated category labels for improved accuracy and consistency across localized content.
+
+## [#215](https://github.com/MrIbrahem/ArWikiCats/pull/215) - 2025-12-15
+
+* **Chores**
+  * Added Arabic translation mapping for "womens-events".
+  * Incremented internal dataset counters by 1.
+  * Inserted a harmless commented line in a utility (no behavior change).
+
+* **New Features**
+  * Added an example script for batch label resolution with progress tracking, memory reporting, and comparison outputs.
+
+* **Refactor**
+  * Simplified file path handling in an example script (no functional change).
+
+* **Tests**
+  * Removed two category entries from a time-pattern test dataset.
+
 ## [#214](https://github.com/MrIbrahem/ArWikiCats/pull/214) - 2025-12-14
 
 * **New Features**
