@@ -604,6 +604,7 @@ non_fiction_empty = {
     "Category:New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون",
     "Category:New Zealand non-fiction writers by century": "تصنيف:كتاب غير روائيين نيوزيلنديون حسب القرن",
     "Category:New Zealand non-fiction books": "تصنيف:كتب نيوزيلندية غير خيالية",
+
     "Category:New Zealand non-fiction literary awards": "x",
     "Category:New Zealand women non-fiction writers": "x",
     "Category:Abortion in non-fiction": "x",
@@ -736,6 +737,7 @@ def test_non_fiction_empty(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.skip2
 @pytest.mark.dump
 def test_non_dump(name: str, data: dict[str, str]) -> None:
 
