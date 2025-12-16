@@ -120,7 +120,6 @@ def _build_gender_key_maps(
 ) -> Tuple[
     Dict[str, Dict[str, str]],  # films_key_both
     Dict[str, str],              # films_key_man
-    Dict[str, str],              # film_keys_for_male
 ]:
     """
     Build gender-aware film key mappings from JSON sources.
@@ -128,11 +127,9 @@ def _build_gender_key_maps(
     Returns:
         - films_key_both: Lowercase key → {male, female}
         - films_key_man: Key → male label (with animated variants)
-        - film_keys_for_male: Key → male label
     """
     films_key_both = {}
     films_key_man = {}
-    film_keys_for_male = {}
 
     # Process films_key_o_multi
     for en_key, labels in films_key_o_multi.items():
@@ -152,12 +149,10 @@ def _build_gender_key_maps(
             # Add animated variant for male
             if "animated" not in en_key:
                 films_key_man[f"animated {en_key}"] = f"{male_label} رسوم متحركة"
-            film_keys_for_male[en_key] = male_label
 
     return (
         films_key_both,
         films_key_man,
-        film_keys_for_male,
     )
 
 
@@ -357,14 +352,20 @@ def _build_female_combo_keys(
     return result
 
 
-def build_gender_specific_film_maps(Films_keys_male_female, Films_key_O_multi, Films_key_both) -> tuple[dict, dict]:
-    Films_key_333 = {}
+def build_gender_specific_film_maps(Films_keys_male_female, Films_key_O_multi, films_key_both) -> tuple[dict, dict]:
+    """
+    Build gender-aware film key mappings.
 
+    Returns:
+        - Films_key_333: key → {male, female}
+        - film_keys_for_female: Key → female label
+    """
+    Films_key_333: Dict[str, str] = {}
     # Build gender-specific maps
 
-    film_keys_for_female = {
+    film_keys_for_female: Dict[str, str] = {
         x: v.get("female", "").strip()
-        for x, v in Films_key_both.items()
+        for x, v in films_key_both.items()
         if v.get("female", "").strip()
     }
 
@@ -373,13 +374,10 @@ def build_gender_specific_film_maps(Films_keys_male_female, Films_key_O_multi, F
     film_keys_for_female.update(female_extended_labels)
 
     # Extend Films_key_333 with female labels from Films_key_O_multi
-    new_female_keys = {}
     for cd, ff in Films_key_O_multi.items():
         female_label = ff.get("female", "").strip()
         if female_label and cd not in Films_key_333:
-            new_female_keys[cd] = female_label
-
-    Films_key_333.update(new_female_keys)
+            Films_key_333[cd] = female_label
 
     return Films_key_333, film_keys_for_female
 
@@ -406,8 +404,13 @@ Films_key_O_multi = {
 (
     Films_key_both,
     Films_key_man,
-    film_keys_for_male,
 ) = _build_gender_key_maps(Films_key_O_multi)
+
+film_keys_for_male: Dict[str, str] = {
+    x: v.get("male", "").strip()
+    for x, v in Films_key_both.items()
+    if v.get("male", "").strip()
+}
 
 Films_key_333, film_keys_for_female = build_gender_specific_film_maps(
     Films_keys_male_female,
