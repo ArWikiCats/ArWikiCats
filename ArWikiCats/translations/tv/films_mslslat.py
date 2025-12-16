@@ -352,7 +352,11 @@ def _build_female_combo_keys(
     return result
 
 
-def build_gender_specific_film_maps(Films_keys_male_female, Films_key_O_multi, films_key_both) -> tuple[dict, dict]:
+def build_gender_specific_film_maps(
+    Films_keys_male_female: Dict[str, Dict[str, str]],
+    Films_key_O_multi: Dict[str, Dict[str, str]],
+    films_key_both: Dict[str, Dict[str, str]],
+) -> tuple[dict, dict]:
     """
     Build gender-aware film key mappings.
 

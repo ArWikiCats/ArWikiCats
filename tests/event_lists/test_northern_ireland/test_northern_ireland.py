@@ -254,7 +254,7 @@ def test_northern_ireland_1(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
-def test_northern_ireland_dump_it(name: str, data: dict[str, str]) -> None:
+def test_dump_all(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 

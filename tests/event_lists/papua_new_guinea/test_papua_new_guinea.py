@@ -10,7 +10,7 @@ data_0 = {
     "Category:Southern Region, Papua New Guinea": "",
     "Category:1982 in Papua New Guinea rugby league": "",
     "Category:1986 in Papua New Guinea rugby league": "",
-    "Category:19rh-century disasters in Papua New Guinea": "",
+    "Category:19th-century disasters in Papua New Guinea": "",
     "Category:2009 in Papua New Guinea rugby league": "",
     "Category:2010 in Papua New Guinea rugby league": "",
     "Category:2013 in Papua New Guinea rugby league": "",
@@ -1121,7 +1121,7 @@ def test_papua_new_guinea_1(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
-def test_northern_ireland_dump_it(name: str, data: dict[str, str]) -> None:
+def test_dump_all(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
