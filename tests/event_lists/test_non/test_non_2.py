@@ -599,7 +599,13 @@ data_empty_result = {
 }
 
 non_fiction_empty = {
-    "Category:20th-century New Zealand non-fiction writers": "x",
+    "Category:21st-century New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون في القرن 21",
+    "Category:20th-century New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون في القرن 20",
+    "Category:New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون",
+    "Category:New Zealand non-fiction writers by century": "تصنيف:كتاب غير روائيين نيوزيلنديون حسب القرن",
+    "Category:New Zealand non-fiction books": "تصنيف:كتب نيوزيلندية غير خيالية",
+    "Category:New Zealand non-fiction literary awards": "x",
+    "Category:New Zealand women non-fiction writers": "x",
     "Category:Abortion in non-fiction": "x",
     "Category:American non-fiction children's writers": "x",
     "Category:American non-fiction literary awards": "x",
@@ -635,12 +641,6 @@ non_fiction_empty = {
     "Category:LDS non-fiction": "x",
     "Category:Lesbian non-fiction books": "x",
     "Category:LGBTQ non-fiction books": "x",
-    "Category:New Zealand male non-fiction writers": "x",
-    "Category:New Zealand non-fiction books": "x",
-    "Category:New Zealand non-fiction literary awards": "x",
-    "Category:New Zealand non-fiction writers by century": "x",
-    "Category:New Zealand non-fiction writers": "x",
-    "Category:New Zealand women non-fiction writers": "x",
     "Category:Non-fiction book stub templates": "x",
     "Category:Non-fiction books about American prostitution": "x",
     "Category:Non-fiction books about American slavery": "x",
@@ -739,7 +739,7 @@ def test_non_fiction_empty(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_non_dump(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
