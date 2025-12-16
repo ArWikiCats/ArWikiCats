@@ -5,6 +5,11 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:Mongolian film actors": "تصنيف:ممثلو أفلام منغوليون",
+    "Category:Mongolian film directors": "تصنيف:مخرجو أفلام منغوليون",
+    "Category:Mongolian documentary filmmakers": "تصنيف:صانعو أفلام وثائقية منغوليون",
+    "Category:Mongolian film producers": "تصنيف:منتجو أفلام منغوليون",
+    "Category:Mongolian screenwriters": "تصنيف:كتاب سيناريو منغوليون",
     "Category:American film people": "تصنيف:أعلام أفلام أمريكيون",
     "Category:Yemeni film people": "تصنيف:أعلام أفلام يمنيون",
     "Category:Ugandan film people": "تصنيف:أعلام أفلام أوغنديون",
