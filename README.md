@@ -203,10 +203,9 @@ python examples/5k.py
 
 يمكن تخصيص سلوك النظام باستخدام:
 
-* `YEMENTEST`
-* `STUBS`
+* `TGC_RESOLVER_FIRST`
+* `STUBS` أو `-STUBS`
 * `MAKEERR`
-* `LOAD_P17NAT`
 * `NOPRINT`
 
 تفاصيل كل متغير موجودة في:
