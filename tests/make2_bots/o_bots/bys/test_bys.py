@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.o_bots.bys import get_and_label, get_by_label, make_new_by_label
+from ArWikiCats.make_bots.o_bots.bys import get_by_label, make_new_by_label
 
 data_0 = {
     "12th iranian majlis": "المجلس الإيراني الثاني عشر",
@@ -28,59 +28,6 @@ data_0 = {
     "second polish republic (1866–1866)": "الجمهورية البولندية الثانية (1866–1866)",
     "british columbia (1866–1866)": "كولومبيا البريطانية (1866–1866)",
 
-}
-# TODO: need to fix results by_and_data_true_result, by_and_data
-
-by_and_data_true_result = {
-    "angus and dundee": "أنغوس ودندي",
-    "architecture and construction": "هندسة معمارية وبناء",
-    "architecture and planning": "هندسة معمارية وتخطيط",
-    "architecture and technology": "الهندسة المعمارية والتقانة",
-    "art and design": "الفن والتصميم",
-    "arts and architecture": "الفنون والهندسة المعمارية",
-    "arts and design": "الفنون والتصميم",
-    "arts and sciences": "الفنون والعلوم",
-    "british columbia and vancouver island": "كولومبيا البريطانية وجزيرة فانكوفر",
-    "british columbia and yukon": "كولومبيا البريطانية ويوكون",
-    "business and economics": "الأعمال والاقتصاد",
-    "egypt and syria": "مصر وسوريا",
-    "people and nations": "أشخاص وبلدان",
-    "pesaro and urbino": "بيزارو وأوربينو",
-    "philosophy and religion": "الفلسفة والدين",
-    "pisa and sardinia": "بيزا وسردينيا",
-    "poland and ukraine": "بولندا وأوكرانيا",
-    "road transport and bridges": "نقل بري وجسور",
-    "russia and soviet union": "روسيا والاتحاد السوفيتي",
-    "schools and colleges": "مدارس وكليات",
-    "science and engineering": "العلم والهندسة",
-    "science and mathematics": "العلم والرياضيات",
-    "theatre and film": "المسرح والأفلام",
-}
-
-by_and_data = {
-    "angus and dundee": "أنغوس ودندي",
-    "architecture and construction": "هندسة معمارية وبناء",
-    "architecture and planning": "هندسة معمارية وتخطيط",
-    "architecture and technology": "هندسة معمارية والتقانة",
-    "art and design": "الفن وتصميم",
-    "arts and architecture": "الفنون وهندسة معمارية",
-    "arts and design": "الفنون وتصميم",
-    "arts and sciences": "الفنون وعلوم",
-    "british columbia and vancouver island": "كولومبيا البريطانية وجزيرة فانكوفر",
-    "british columbia and yukon": "كولومبيا البريطانية ويوكون",
-    "business and economics": "أعمال والاقتصاد",
-    "egypt and syria": "مصر وسوريا",
-    "people and nations": "أشخاص وبلدان",
-    "pesaro and urbino": "بيزارو وأوربينو",
-    "philosophy and religion": "الفلسفة والدين",
-    "pisa and sardinia": "بيزا وسردينيا",
-    "poland and ukraine": "بولندا وأوكرانيا",
-    "road transport and bridges": "نقل بري وجسور",
-    "russia and soviet union": "روسيا والاتحاد السوفيتي",
-    "schools and colleges": "مدارس وكليات",
-    "science and engineering": "العلم وهندسة",
-    "science and mathematics": "العلم والرياضيات",
-    "theatre and film": "المسرح وأفلام",
 }
 
 by_label_data = {
@@ -159,7 +106,6 @@ by_label_data = {
 make_new_by_label_data = {}
 
 to_test = [
-    ("test_get_and_label", by_and_data, get_and_label),
     ("test_get_by_label", by_label_data, get_by_label),
     ("test_make_new_by_label", make_new_by_label_data, make_new_by_label),
 ]
@@ -176,13 +122,6 @@ def test_make_new_by_label(category: str, expected: str) -> None:
 @pytest.mark.fast
 def test_get_by_label(category: str, expected: str) -> None:
     label = get_by_label(category)
-    assert label == expected, f"Failed for category: {category}"
-
-
-@pytest.mark.parametrize("category, expected", by_and_data.items(), ids=by_and_data.keys())
-@pytest.mark.fast
-def test_get_and_label(category: str, expected: str) -> None:
-    label = get_and_label(category)
     assert label == expected, f"Failed for category: {category}"
 
 
