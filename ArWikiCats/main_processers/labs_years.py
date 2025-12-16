@@ -1,21 +1,5 @@
 """
-Usage:
-
-from .make_bots.date_bots.labs_years import LabsYears
-labs_years_bot = LabsYears()
-# ---
-cat_year, from_year = labs_years_bot.lab_from_year(category_r)
-if from_year:
-    category_lab = from_year
-# ---
-...
-get lab
-...
-# ---
-if not from_year and cat_year:
-    labs_years_bot.lab_from_year_add(category_r, category_lab, cat_year)
-# ---
-
+Labs Years processing module.
 """
 
 import re
