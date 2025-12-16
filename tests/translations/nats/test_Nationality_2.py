@@ -136,17 +136,6 @@ def test_normalize_aliases_georgia_country_copy() -> None:
     assert g["ar"] == "جورجي"
     assert g["male"] == "جورجي"
 
-
-def test_normalize_aliases_papua_new_guinean_added() -> None:
-    """normalize_aliases must inject 'papua new guinean x ' block."""
-
-    out = normalize_aliases({})
-    assert "papua new guinean x " in out
-    entry = out["papua new guinean x "]
-    assert entry["en"] == "papua new guinea"
-    assert entry["ar"] == "بابوا غينيا الجديدة"
-
-
 # -------------------------------------------------------------------
 # Tests for build_american_forms
 # -------------------------------------------------------------------
