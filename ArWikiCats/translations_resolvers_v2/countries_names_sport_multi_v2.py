@@ -7,7 +7,7 @@ from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV
 from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ..translations_resolvers.countries_names import formatted_data_en_ar_only
-
+from .nats_as_country_names import nats_keys_as_country_names
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
@@ -60,18 +60,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         if v.get("ar") and v.get("en")
     }
 
-    nats_data.update({
-        "ireland": {
-            "male": "أيرلندي",
-            "males": "أيرلنديون",
-            "female": "أيرلندية",
-            "females": "أيرلنديات",
-            "en": "ireland",
-            "ar": "أيرلندا",
-            "the_female": "الأيرلندية",
-            "the_male": "الأيرلندي"
-        }
-    })
+    nats_data.update(nats_keys_as_country_names)
 
     sports_data = {
         x: {

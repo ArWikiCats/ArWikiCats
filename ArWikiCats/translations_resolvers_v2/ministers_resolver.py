@@ -5,6 +5,7 @@ from __future__ import annotations
 import functools
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations import all_country_with_nat_ar, ministrs_keys
+from .nats_as_country_names import nats_keys_as_country_names
 
 
 nat_secretaries_mapping = {
@@ -116,18 +117,7 @@ def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
         if v.get("ar") and v.get("en")
     }
 
-    countries_data.update({
-        "ireland": {
-            "male": "أيرلندي",
-            "males": "أيرلنديون",
-            "female": "أيرلندية",
-            "females": "أيرلنديات",
-            "en": "ireland",
-            "ar": "أيرلندا",
-            "the_female": "الأيرلندية",
-            "the_male": "الأيرلندي"
-        }
-    })
+    countries_data.update(nats_keys_as_country_names)
 
     both_bot = format_multi_data_v2(
         formatted_data=en_secretaries_mapping,

@@ -1,3 +1,20 @@
+## [#220](https://github.com/MrIbrahem/ArWikiCats/pull/220) - 2025-12-16
+
+* **Bug Fixes**
+  * Standardized New Zealand nationality naming to the plural form; updated related translation keys.
+
+* **Refactor**
+  * Consolidated country→nationality data sourcing for consistency.
+  * Reworked gender-based film categorization flow with a new helper to improve mapping clarity.
+
+* **New Features**
+  * Added a country-name-derived nationality mapping for clearer entries.
+
+* **Tests**
+  * Added comprehensive tests for Papua New Guinea and Northern Ireland label resolution and dump verification.
+  * Removed one obsolete nationality-normalization test.
+
+
 ## [#219](https://github.com/MrIbrahem/ArWikiCats/pull/219) - 2025-12-16
 
 * **Tests**

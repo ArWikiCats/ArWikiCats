@@ -224,8 +224,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
 
     # Handle Georgia (country)
     if "georgian" in all_nat_o:
-        ge = all_nat_o["georgian"]
-        all_nat_o["georgia (country)"] = build_nationality_structure(ge)
+        all_nat_o["georgia (country)"] = build_nationality_structure(all_nat_o["georgian"])
         all_nat_o["georgia (country)"]["en"] = "georgia (country)"
 
     # Add southwest asian nationality
