@@ -180,11 +180,16 @@ def _extend_females_labels(
     films_keys_male_female: Dict[str, Dict[str, str]],
 ) -> Dict[str, str]:
     """
-    Build gender-aware film key mappings from JSON sources.
+    Extract female labels from the male/female dictionary with animation aliasing.
 
-    Returns:
-        - films_key_333: Original key → female label
-        - film_keys_for_female: Key → female label
+    Processes the input dictionary and returns a mapping of original keys to their
+    female labels. Includes special handling to alias "animated" to "animation".
+
+    Args:
+        films_keys_male_female: Dictionary mapping English keys to gender label pairs
+
+     Returns:
+        Dictionary mapping original keys to female labels
     """
     data = {}
 
