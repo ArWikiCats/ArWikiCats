@@ -2,8 +2,8 @@
 from .model_data_time import YearFormatData
 from .model_data import FormatData
 from .model_data_double import FormatDataDouble
+from .model_multi_data_base import NormalizeResult
 from .model_multi_data import (
-    NormalizeResult,
     MultiDataFormatterBase,
     MultiDataFormatterDataDouble,
     MultiDataFormatterBaseYear,
@@ -11,6 +11,8 @@ from .model_multi_data import (
     MultiDataFormatterBaseYearV2,
 )
 from .model_data_2 import FormatDataV2
+
+from .model_multi_data_v3 import V3Formats, MultiDataFormatterBaseYearV3
 
 __all__ = [
     "FormatDataV2",
@@ -23,4 +25,7 @@ __all__ = [
     "YearFormatData",
     "FormatData",
     "NormalizeResult",
+
+    "MultiDataFormatterBaseYearV3",
+    "V3Formats",
 ]
