@@ -78,7 +78,7 @@ def work_separator_names(
     if not separator:
         return ""
 
-    logger.info(f'<<lightblue>>>>>> yementest: separator:"{separator_name}":"{separator}" in category ')
+    logger.info(f'<<lightblue>>>>>> work_separator_names: separator:"{separator_name}":"{separator}" in category ')
     arlabel = find_ar_label(category, separator, cate_test=cate_test, start_get_country2=start_get_country2)
 
     if not arlabel:
@@ -126,7 +126,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     category = category_r.replace("_", " ")
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
-    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ yementest start ^^^^^^^^^ ({category}) ")
+    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ translate_general_category start ^^^^^^^^^ ({category}) ")
     logger.debug(f'<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}')
 
     arlabel = _translate_general_category(category_r, category, start_get_country2)
@@ -138,6 +138,6 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     if arlabel:
         logger.debug(f"<<lightyellow>>>> translate_general_category {arlabel=}  ")
 
-    logger.debug("<<lightyellow>>>> ^^^^^^^^^ yementest end ^^^^^^^^^ ")
+    logger.debug("<<lightyellow>>>> ^^^^^^^^^ translate_general_category end ^^^^^^^^^ ")
 
     return arlabel
