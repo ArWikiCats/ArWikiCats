@@ -62,10 +62,15 @@ class YearFormatData:
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
+        # print(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
         result = self.fixing(result)
         return result
 
     def search(self, text: str) -> str:
         """place holders"""
-        return ""
+        return convert_time_to_arabic(text)
+
+    def search_all(self, text: str) -> str:
+        """place holders"""
+        return self.search(text)
