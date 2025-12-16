@@ -96,7 +96,6 @@ class MultiDataFormatterBaseHelpers:
 
         return template_key
 
-    @functools.lru_cache(maxsize=2000)
     def create_nat_label(self, category: str) -> str:
         return self.country_bot.search(category)
 
