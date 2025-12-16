@@ -6,7 +6,6 @@ Provides classes for formatting template-driven translation labels.
 test at tests.translations_formats.test_format_2_data.py
 """
 import re
-from dataclasses import dataclass
 from .model_multi_data import MultiDataFormatterBase
 from .model_data_time import YearFormatData
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
@@ -68,7 +67,7 @@ class V3Formats:
 
     def search(self, text: str) -> str:
         """place holders"""
-        return ""
+        return self.bot.search_all(text)
 
     def get_template_ar(self, template_key: str) -> str:
         """Lookup template in a case-insensitive dict."""
@@ -95,7 +94,7 @@ class MultiDataFormatterBaseYearV3(MultiDataFormatterBaseHelpers):
         country_bot: V3Formats,
         other_bot: YearFormatData,
         search_first_part: bool = False,
-        data_to_find: dict[str, str] = {},
+        data_to_find: dict[str, str] | None = None,
         other_key_first: bool = False,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
