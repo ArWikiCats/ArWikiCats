@@ -12,7 +12,6 @@ from .labs_years import LabsYears
 from .country_time_pattern import resolve_country_time_pattern
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
 from ..config import app_settings
-from ..fix import fixtitle
 from ..make_bots.co_bots import filter_en
 from ..make_bots.format_bots import change_cat
 from ..make_bots.ma_bots import ye_ts_bot
@@ -21,8 +20,7 @@ from ..translations_resolvers import resolved_translations_resolvers
 from ..translations_resolvers_v2 import resolved_translations_resolvers_v2
 from ..translations_resolvers.new_jobs_resolver import new_jobs_resolver_label
 
-
-labs_years_bot = LabsYears()
+from ..fix import fixlab
 
 
 @dataclass
@@ -32,6 +30,12 @@ class CategoryResult:
     en: str
     ar: str
     from_match: str
+
+
+@functools.lru_cache(maxsize=1)
+def build_labs_years_object() -> LabsYears:
+    labs_years_bot = LabsYears()
+    return labs_years_bot
 
 
 @functools.lru_cache(maxsize=None)
@@ -56,6 +60,9 @@ def resolve_label(category: str) -> CategoryResult:
     is_cat_okay = filter_en.filter_cat(category)
 
     category_lab = ""
+
+    labs_years_bot = build_labs_years_object()
+
     cat_year, from_year = labs_years_bot.lab_from_year(category)
 
     if from_year:
@@ -99,7 +106,7 @@ def resolve_label(category: str) -> CategoryResult:
         category_lab = start_ylab
 
     if category_lab:
-        category_lab = fixtitle.fixlab(category_lab, en=category)
+        category_lab = fixlab(category_lab, en=category)
 
     if not from_year and cat_year:
         labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
