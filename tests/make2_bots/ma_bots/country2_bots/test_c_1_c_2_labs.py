@@ -312,13 +312,31 @@ fast_data_c_1_1_lab = [
     {"separator": "-of ", "cone_1": "state cabinet secretaries of", "output": "أعضاء مجلس وزراء"},
 ]
 
-
-@pytest.mark.parametrize("data", fast_data_c_1_1_lab, ids=lambda x: x["cone_1"])
-@pytest.mark.fast
-def test_c_1_1_lab(data) -> None:
-    label = c_1_1_lab(data["separator"], data["cone_1"], With_Years=False)
-    assert label == data["output"]
-
+fast_and_data = {
+    "akrotiri and dhekelia": "أكروتيري ودكليا",
+    "andaman and nicobar islands": "جزر أندمان ونيكوبار",
+    "anime and manga": "أنمي ومانغا",
+    "antigua and barbuda": "أنتيغوا وباربودا",
+    "argyll and bute": "أرغيل وبوت",
+    "art museums and galleries": "متاحف فنية ومعارض",
+    "bosnia and herzegovina soldiers": "مجندون بوسنيون",
+    "bosnia and herzegovina": "البوسنة والهرسك",
+    "brighton and hove": "برايتون أند هوف",
+    "perth and kinross": "بيرث وكينروس",
+    "ross and cromarty": "روس وكرومارتي",
+    "saint kitts and nevis": "سانت كيتس ونيفيس",
+    "saint pierre and miquelon": "سان بيير وميكلون",
+    "saint vincent and grenadines": "سانت فينسنت والغرينادين",
+    "saxe-coburg and gotha": "دوقية ساكسونيا كوبورغ وغوتا",
+    "science and technology": "العلوم والتكنولوجيا",
+    "sports clubs and teams": "أندية وفرق رياضية",
+    "são tomé and príncipe": "ساو تومي وبرينسيب",
+    "trinidad and tobago coast guard": "خفر السواحل الترنيدادي",
+    "trinidad and tobago descent": "أصل ترنيدادي",
+    "trinidad and tobago": "ترينيداد وتوباغو",
+    "turks and caicos islands": "جزر توركس وكايكوس",
+    "tyne and wear": "تاين و وير",
+}
 
 fast_data_c_2_1_lab = {
     "1st century bc": "القرن 1 ق م",
@@ -326,7 +344,6 @@ fast_data_c_2_1_lab = {
     "7th century bc": "القرن 7 ق م",
     "8th century bc": "القرن 8 ق م",
     "abbasid caliphate": "الدولة العباسية",
-    "akrotiri and dhekelia": "أكروتيري ودكليا",
     "algerian civil war": "الحرب الأهلية الجزائرية",
     "amazonas (brazilian state)": "الأمازون (ولاية)",
     "american civil war": "الحرب الأهلية الأمريكية",
@@ -334,16 +351,11 @@ fast_data_c_2_1_lab = {
     "american football players": "لاعبو كرة قدم أمريكية",
     "american revolution": "الثورة الأمريكية",
     "ancient indian philosophy": "فلسفة هندية قديمة",
-    "andaman and nicobar islands": "جزر أندمان ونيكوبار",
     "andorra la vella": "أندورا لا فيلا",
     "ang thong province": "محافظة أنغ ثونغ",
     "animated television series": "مسلسلات تلفزيونية رسوم متحركة",
-    "anime and manga": "أنمي ومانغا",
-    "antigua and barbuda": "أنتيغوا وباربودا",
     "arab world": "الوطن العربي",
     "archelaus of macedon": "أرخيلاوس الأول المقدوني",
-    "argyll and bute": "أرغيل وبوت",
-    "art museums and galleries": "متاحف فنية ومعارض",
     "asian football confederation": "الاتحاد الآسيوي لكرة القدم",
     "asian tennis federation": "الاتحاد الآسيوي لكرة المضرب",
     "athletics navigational boxes": "صناديق تصفح ألعاب قوى",
@@ -361,9 +373,6 @@ fast_data_c_2_1_lab = {
     "banteay meanchey province": "محافظة بانتياي مينتشي",
     "boadilla del monte": "بواديلا ديل مونتي",
     "bocas del toro province": "محافظة بوكاس ديل تورو",
-    "bosnia and herzegovina soldiers": "مجندون بوسنيون",
-    "bosnia and herzegovina": "البوسنة والهرسك",
-    "brighton and hove": "برايتون أند هوف",
     "british empire": "الإمبراطورية البريطانية",
     "british medical association": "الجمعية الطبية البريطانية",
     "british virgin islands": "جزر العذراء البريطانية",
@@ -405,7 +414,6 @@ fast_data_c_2_1_lab = {
     "papua new guinea": "بابوا غينيا الجديدة",
     "paschim medinipur district": "مقاطعة باشيم مدينبور",
     "pays de la loire": "وادي اللوار",
-    "perth and kinross": "بيرث وكينروس",
     "pitcairn islands": "جزر بيتكيرن",
     "polish air force": "القوات الجوية البولندية",
     "polish–lithuanian commonwealth": "الكومنولث البولندي الليتواني",
@@ -434,7 +442,6 @@ fast_data_c_2_1_lab = {
     "rio grande do sul": "ريو غراندي دو سول",
     "rio negro (amazon)": "ريو نيغرو (الأمازون)",
     "romanian naval forces": "البحرية الرومانية",
-    "ross and cromarty": "روس وكرومارتي",
     "royal air force": "القوات الجوية الملكية",
     "royal college of nursing": "كلية التمريض الملكية",
     "rugby union players": "لاعبو اتحاد رجبي",
@@ -442,9 +449,6 @@ fast_data_c_2_1_lab = {
     "russian soviet federative socialist republic": "جمهورية روسيا السوفيتية الاتحادية الاشتراكية",
     "río de la plata": "ريو دي لا بلاتا (نهر)",
     "río negro province": "محافظة ريو نيغرو",
-    "saint kitts and nevis": "سانت كيتس ونيفيس",
-    "saint pierre and miquelon": "سان بيير وميكلون",
-    "saint vincent and grenadines": "سانت فينسنت والغرينادين",
     "salt lake city": "سولت ليك (مدينة)",
     "san francisco bay area": "منطقة خليج سان فرانسيسكو",
     "san luis potosí": "ولاية سان لويس بوتوسي",
@@ -459,8 +463,6 @@ fast_data_c_2_1_lab = {
     "santiago metropolitan region": "إقليم سانتياغو متروبوليتان",
     "sasanian empire": "الإمبراطورية الساسانية",
     "satu mare county": "مقاطعة ساتو ماري",
-    "saxe-coburg and gotha": "دوقية ساكسونيا كوبورغ وغوتا",
-    "science and technology": "العلوم والتكنولوجيا",
     "science fiction magazines": "مجلات خيال علمي",
     "second bulgarian empire": "الإمبراطورية البلغارية الثانية",
     "second polish republic": "الجمهورية البولندية الثانية",
@@ -474,7 +476,6 @@ fast_data_c_2_1_lab = {
     "south african descent": "أصل جنوب إفريقي",
     "soviet union": "الاتحاد السوفيتي",
     "spanish civil war": "الحرب الأهلية الإسبانية",
-    "sports clubs and teams": "أندية وفرق رياضية",
     "sri lanka air force": "القوات الجوية السريلانكية",
     "sri lanka navy": "البحرية السريلانكية",
     "sri lankan civil war": "الحرب الأهلية السريلانكية",
@@ -488,7 +489,6 @@ fast_data_c_2_1_lab = {
     "syrian civil war": "الحرب الأهلية السورية",
     "são paulo (city)": "ساو باولو",
     "são paulo (state)": "ولاية ساو باولو",
-    "são tomé and príncipe": "ساو تومي وبرينسيب",
     "tai po district": "مقاطعة تاي بو",
     "telugu desam party": "حزب تيلوغو ديسام",
     "thai royal air force": "القوات الجوية الملكية التايلندية",
@@ -496,16 +496,11 @@ fast_data_c_2_1_lab = {
     "third dynasty of egypt": "الأسرة المصرية الثالثة",
     "thirteen colonies": "المستعمرات الثلاث عشرة",
     "thirtieth dynasty of egypt": "الأسرة المصرية الثلاثون",
-    "trinidad and tobago coast guard": "خفر السواحل الترنيدادي",
-    "trinidad and tobago descent": "أصل ترنيدادي",
-    "trinidad and tobago": "ترينيداد وتوباغو",
     "turkish air force": "القوات الجوية التركية",
-    "turks and caicos islands": "جزر توركس وكايكوس",
     "twelfth dynasty of egypt": "الأسرة المصرية الثانية عشر",
     "twenty-fifth dynasty of egypt": "الأسرة المصرية الخامسة والعشرون",
     "twenty-fourth dynasty of egypt": "الأسرة المصرية الرابعة والعشرون",
     "twenty-second dynasty of egypt": "الأسرة المصرية الثانية والعشرون",
-    "tyne and wear": "تاين و وير",
     "u.s. virgin islands": "جزر العذراء الأمريكية",
     "ukrainian soviet socialist republic": "جمهورية أوكرانيا السوفيتية الاشتراكية",
     "united arab emirates": "الإمارات العربية المتحدة",
@@ -521,6 +516,13 @@ fast_data_c_2_1_lab = {
 }
 
 
+@pytest.mark.parametrize("data", fast_data_c_1_1_lab, ids=lambda x: x["cone_1"])
+@pytest.mark.fast
+def test_c_1_1_lab(data) -> None:
+    label = c_1_1_lab(data["separator"], data["cone_1"], With_Years=False)
+    assert label == data["output"]
+
+
 @pytest.mark.parametrize("category, expected", fast_data_c_2_1_lab.items(), ids=fast_data_c_2_1_lab.keys())
 @pytest.mark.fast
 def test_c_2_1_lab(category: str, expected: str) -> None:
@@ -529,7 +531,9 @@ def test_c_2_1_lab(category: str, expected: str) -> None:
 
 
 to_test = [
+    ("test_c_1_1_lab", fast_data_c_1_1_lab, c_1_1_lab),
     ("test_c_2_1_lab", fast_data_c_2_1_lab, c_2_1_lab),
+    ("test_c_2_1_lab", fast_and_data, c_2_1_lab),
 ]
 
 
