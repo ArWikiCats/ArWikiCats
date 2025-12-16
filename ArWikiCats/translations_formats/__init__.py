@@ -12,6 +12,8 @@ from .DataModel import (
     V3Formats,
     MultiDataFormatterBaseYearV2,
     MultiDataFormatterBaseYearV3,
+    MultiDataFormatterYearAndFrom,
+    FormatDataFrom,
 )
 
 from .data_with_time import format_year_country_data, format_year_country_data_v2
@@ -23,6 +25,9 @@ __all__ = [
     "MultiDataFormatterBaseYear",
     "MultiDataFormatterBaseYearV2",
     "MultiDataFormatterBaseYearV3",
+    "MultiDataFormatterYearAndFrom",
+    "FormatDataFrom",
+
     "MultiDataFormatterDataDouble",
     "FormatDataV2",
     "FormatDataDouble",

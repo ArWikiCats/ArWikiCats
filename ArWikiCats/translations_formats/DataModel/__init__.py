@@ -7,12 +7,12 @@ from .model_multi_data import (
     MultiDataFormatterBase,
     MultiDataFormatterDataDouble,
     MultiDataFormatterBaseYear,
-    MultiDataFormatterBaseV2,
     MultiDataFormatterBaseYearV2,
 )
-from .model_data_2 import FormatDataV2
+from .model_data_v2 import FormatDataV2, MultiDataFormatterBaseV2
 
 from .model_multi_data_v3 import V3Formats, MultiDataFormatterBaseYearV3
+from .model_multi_data_year_from import MultiDataFormatterYearAndFrom, FormatDataFrom
 
 __all__ = [
     "FormatDataV2",
@@ -28,4 +28,6 @@ __all__ = [
 
     "MultiDataFormatterBaseYearV3",
     "V3Formats",
+    "MultiDataFormatterYearAndFrom",
+    "FormatDataFrom",
 ]
