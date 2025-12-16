@@ -5,6 +5,10 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:Jewish American non-fiction writers": "تصنيف:كتاب غير روائيين أمريكيون يهود",
+    "Category:Non-fiction books about the United States Army": "تصنيف:كتب غير خيالية عن القوات المسلحة الأمريكية",
+    "Category:Non-fiction works about the United States Army": "تصنيف:أعمال غير خيالية عن القوات المسلحة الأمريكية",
+
     "category:non-fiction writers from northern ireland": "تصنيف:كتاب غير روائيين من أيرلندا الشمالية",
     "category:non-fiction writers from russian empire": "تصنيف:كتاب غير روائيين من الإمبراطورية الروسية",
 
