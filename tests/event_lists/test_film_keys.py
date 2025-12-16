@@ -121,7 +121,6 @@ data_2 = {
     "Category:Asian Film Awards": "تصنيف:جوائز الأفلام الآسيوية",
     "Category:Asian Film Awards navigational boxes": "تصنيف:صناديق تصفح جوائز الأفلام الآسيوية",
     "Category:Canadian women film critics": "تصنيف:ناقدات أفلام كنديات",
-    "Category:Canadian women film directors": "تصنيف:مخرجات أفلام كنديات",
     "Category:Canadian women film editors": "تصنيف:محررات أفلام كنديات",
     "Category:Canadian women film producers": "تصنيف:منتجات أفلام كنديات",
 }

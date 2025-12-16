@@ -57,9 +57,9 @@ def filter_and_replace_gender_terms(formatted_data) -> dict:
     formatted_data_women = {x: v for x, v in formatted_data.items() if "{women}" in x}
 
     for x, v in formatted_data_women.items():
-        formatted_data_final[x.replace("{women}", "womens")] = v
+        # formatted_data_final[x.replace("{women}", "womens")] = v
+        # formatted_data_final[x.replace("{women}", "women")] = v
         formatted_data_final[x.replace("{women}", "female")] = v
-        formatted_data_final[x.replace("{women}", "women")] = v
 
     return formatted_data_final
 

@@ -9,7 +9,9 @@ from .DataModel import (
     FormatDataV2,
     MultiDataFormatterDataDouble,
     MultiDataFormatterBaseYear,
+    V3Formats,
     MultiDataFormatterBaseYearV2,
+    MultiDataFormatterBaseYearV3,
 )
 
 from .data_with_time import format_year_country_data, format_year_country_data_v2
@@ -17,8 +19,10 @@ from .data_new_model import format_films_country_data
 from .multi_data import format_multi_data, format_multi_data_v2
 
 __all__ = [
+    "V3Formats",
     "MultiDataFormatterBaseYear",
     "MultiDataFormatterBaseYearV2",
+    "MultiDataFormatterBaseYearV3",
     "MultiDataFormatterDataDouble",
     "FormatDataV2",
     "FormatDataDouble",

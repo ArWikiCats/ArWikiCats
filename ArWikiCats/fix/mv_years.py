@@ -21,7 +21,7 @@ REGEX_YEAR_FIRST_PATTERN = re.compile(
 )
 
 
-@dump_data(1)
+# @dump_data(1, compare_with_output="text_str")
 def move_by_in(text_str: str) -> str:
     """
     A function that takes in a string and searches for a specific pattern within it. The function replaces underscores in the string with spaces and then uses a regular expression to search for a pattern of the form '{first_part} حسب {by_part} في {date}'.
@@ -33,26 +33,29 @@ def move_by_in(text_str: str) -> str:
     - str: The modified string if a match is found, otherwise the original string.
     """
     # تصنيف:اتحاد الرجبي حسب البلد في 1989
-    text_str = text_str.replace("_", " ")
-    new_text = text_str
-    if result := REGEX_BY_DATE_PATTERN.search(text_str):
-        # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
-        first_part = result.group("first_part")
-        by_part = result.group("by_part")
-        date = result.group("date")
-        new_text = f"{first_part} في {date} حسب {by_part}"
-        logger.debug(f"move_by_in: {new_text=}")
-    else:
-        logger.debug(f"move_by_in: no match for {text_str}")
+    text_normalized = text_str.replace("_", " ")
+    new_text = text_normalized
+    result = REGEX_BY_DATE_PATTERN.search(text_normalized)
 
-    if new_text != text_str:
-        new_text = REGEX_WHITESPACE.sub(" ", new_text)
-        new_text = REGEX_QM.sub("ق م", new_text)
-        new_text = new_text.replace(" في في ", " في ")
+    if not result:
+        logger.debug(f"move_by_in: no match for {text_str}")
+        return text_str
+
+    # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
+    first_part = result.group("first_part")
+    by_part = result.group("by_part")
+    date = result.group("date")
+    new_text = f"{first_part} في {date} حسب {by_part}"
+    logger.debug(f"move_by_in: {new_text=}")
+
+    new_text = REGEX_WHITESPACE.sub(" ", new_text)
+    new_text = REGEX_QM.sub("ق م", new_text)
+    new_text = new_text.replace(" في في ", " في ")
+
     return new_text
 
 
-@dump_data(1)
+# @dump_data(1, compare_with_output="text_str")
 def move_years_first(text_str: str) -> str:
     """Move leading year fragments to the end of the label when applicable.
 
@@ -64,33 +67,35 @@ def move_years_first(text_str: str) -> str:
     """
     # return text_str
     new_text = text_str
-    if match := REGEX_YEAR_FIRST_PATTERN.match(text_str):
-        first_part = match.group("first_part").strip()
-        second_part = match.group("second_part").strip()
-        logger.debug(f"move_years_first: first_part={first_part} second_part={second_part}")
-        skip_it = [
-            "أفلام",
-            "الأفلام",
-        ]
-        if second_part in skip_it:
-            return text_str
-        if " في x" in second_part:
-            logger.debug("move_years_first: skipping due to nested preposition")
-            return text_str
+    match = REGEX_YEAR_FIRST_PATTERN.match(text_str)
 
-        new_text = f"{second_part} في {first_part}"
-        if result := REGEX_YEAR_IN_SECOND_PART.search(second_part):
-            logger.debug("move_years_first: found حسب clause")
-            subject = result.group("subject")
-            by_part = result.group("by")
-            new_text = f"{subject} في {first_part} حسب {by_part}"
-    else:
+    if not match:
         logger.debug(f'move_years_first: no match for "{text_str}"')
+        return text_str
 
-    if new_text != text_str:
-        new_text = REGEX_WHITESPACE.sub(" ", new_text)
-        new_text = REGEX_QM.sub("ق م", new_text)
-        new_text = new_text.replace(" في في ", " في ")
+    first_part = match.group("first_part").strip()
+    second_part = match.group("second_part").strip()
+    logger.debug(f"move_years_first: first_part={first_part} second_part={second_part}")
+    skip_it = [
+        "أفلام",
+        "الأفلام",
+    ]
+    if second_part in skip_it:
+        return text_str
+    if " في x" in second_part:
+        logger.debug("move_years_first: skipping due to nested preposition")
+        return text_str
+
+    new_text = f"{second_part} في {first_part}"
+    if result := REGEX_YEAR_IN_SECOND_PART.search(second_part):
+        logger.debug("move_years_first: found حسب clause")
+        subject = result.group("subject")
+        by_part = result.group("by")
+        new_text = f"{subject} في {first_part} حسب {by_part}"
+
+    new_text = REGEX_WHITESPACE.sub(" ", new_text)
+    new_text = REGEX_QM.sub("ق م", new_text)
+    new_text = new_text.replace(" في في ", " في ")
     return new_text
 
 

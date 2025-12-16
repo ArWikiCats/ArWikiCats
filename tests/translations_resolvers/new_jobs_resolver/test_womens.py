@@ -8,9 +8,9 @@ from ArWikiCats.translations_resolvers.new_jobs_resolver.womens import womens_re
 from ArWikiCats.translations import jobs_mens_data, jobs_womens_data
 
 test_data2 = {
+    "Category:Canadian women film directors": "تصنيف:مخرجات أفلام كنديات",
     "Category:Canadian women's film directors": "تصنيف:مخرجات أفلام كنديات",
     "Category:Canadian womens film directors": "تصنيف:مخرجات أفلام كنديات",
-    "Category:Canadian women film directors": "تصنيف:مخرجات أفلام كنديات",
     "Category:Canadian female film directors": "تصنيف:مخرجات أفلام كنديات",
 
     # nat

@@ -39,7 +39,7 @@ def build_labs_years_object() -> LabsYears:
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_label(category: str, fix_label=True) -> CategoryResult:
+def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
     """Resolve the label using multi-step logic."""
     changed_cat = change_cat(category)
 
@@ -118,7 +118,7 @@ def resolve_label(category: str, fix_label=True) -> CategoryResult:
     )
 
 
-def resolve_label_ar(category: str, fix_label=True) -> str:
+def resolve_label_ar(category: str, fix_label: bool = True) -> str:
     """Resolve the Arabic label for a given category."""
     result = resolve_label(category, fix_label=fix_label)
     return result.ar
