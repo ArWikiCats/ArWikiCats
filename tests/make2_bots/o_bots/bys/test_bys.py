@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.o_bots.bys import get_by_label, make_new_by_label
+from ArWikiCats.make_bots.o_bots.bys import get_by_label
 
 data_0 = {
     "12th iranian majlis": "المجلس الإيراني الثاني عشر",
@@ -103,19 +103,9 @@ by_label_data = {
     "world-war-ii by nationality": "الحرب العالمية الثانية حسب الجنسية",
 }
 
-make_new_by_label_data = {}
-
 to_test = [
     ("test_get_by_label", by_label_data, get_by_label),
-    ("test_make_new_by_label", make_new_by_label_data, make_new_by_label),
 ]
-
-
-@pytest.mark.parametrize("category, expected", make_new_by_label_data.items(), ids=make_new_by_label_data.keys())
-@pytest.mark.fast
-def test_make_new_by_label(category: str, expected: str) -> None:
-    label = make_new_by_label(category)
-    assert label == expected, f"Failed for category: {category}"
 
 
 @pytest.mark.parametrize("category, expected", by_label_data.items(), ids=by_label_data.keys())
