@@ -232,7 +232,7 @@ test_data_2 = {
     "Jewish musicians": "موسيقيون يهود",
     "Jewish musicologists": "علماء موسيقى يهود",
     "Jewish neuroscientists": "علماء أعصاب يهود",
-    "Jewish non-fiction writers": "كتاب غير روائيون يهود",
+    "Jewish non-fiction writers": "كتاب غير روائيين يهود",
     "Jewish novelists": "روائيون يهود",
     "Jewish opera composers": "ملحنو أوبرا يهود",
     "Jewish opera singers": "مغنو أوبرا يهود",

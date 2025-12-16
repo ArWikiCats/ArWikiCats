@@ -85,11 +85,11 @@ def _build_non_fiction_variants(
             }
 
         variants[f"non-fiction {topic_key} writers"] = {
-            "males": f"كتاب {mens_topic} غير روائيون",
+            "males": f"كتاب {mens_topic} غير روائيين",
             "females": f"كاتبات {womens_topic} غير روائيات",
         }
         variants[f"non fiction {topic_key} writers"] = {
-            "males": f"كتاب {mens_topic} غير روائيون",
+            "males": f"كتاب {mens_topic} غير روائيين",
             "females": f"كاتبات {womens_topic} غير روائيات",
         }
     return variants
@@ -164,9 +164,9 @@ SINGERS_AFTER_ROLES: Mapping[str, GenderedLabel] = {
 """Roles that can be combined with the singer categories above."""
 
 NON_FICTION_BASE_TOPICS: Mapping[str, GenderedLabel] = {
-    "non-fiction": {"males": "غير روائيون", "females": "غير روائيات"},
+    "non-fiction": {"males": "غير روائيين", "females": "غير روائيات"},
     "non-fiction environmental": {
-        "males": "بيئة غير روائيون",
+        "males": "بيئة غير روائيين",
         "females": "بيئة غير روائيات",
     },
     "detective": {"males": "بوليسيون", "females": "بوليسيات"},

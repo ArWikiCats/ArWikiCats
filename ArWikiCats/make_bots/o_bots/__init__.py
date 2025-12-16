@@ -26,7 +26,6 @@ __all__ = [
     "ethnic",
     "ethnic_culture",
     "fax",
-    "get_and_label",
     "get_by_label",
     "get_parties_lab",
     "make_by_label",
