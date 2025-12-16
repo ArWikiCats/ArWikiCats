@@ -297,6 +297,11 @@ female_data = {
 }
 
 the_female_data = {
+    "{en} film awards": "جوائز الأفلام {the_female}",
+    "{en} film award": "جوائز الأفلام {the_female}",
+    "{en} film award winners": "فائزون بجائزة الأفلام {the_female}",
+    "{en} short film awards": "جوائز الأفلام القصيرة {the_female}",
+
     "{en} airways accidents and incidents": "حوادث الخطوط الجوية {the_female}",
     "{en} airways accidents-and-incidents": "حوادث الخطوط الجوية {the_female}",
     "{en} airways": "الخطوط الجوية {the_female}",

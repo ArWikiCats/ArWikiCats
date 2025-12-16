@@ -1,3 +1,15 @@
+## [#221](https://github.com/MrIbrahem/ArWikiCats/pull/221) - 2025-12-16
+
+* **New Features**
+  * Added comprehensive Arabic translations for film-related categories, including film people, film directors, and film awards.
+  * Introduced enhanced category label resolution functionality.
+
+* **Improvements**
+  * Expanded translation patterns with additional gender variants for better category matching.
+
+* **Tests**
+  * Increased test coverage for film-related categories and label resolution workflows.
+
 ## [#220](https://github.com/MrIbrahem/ArWikiCats/pull/220) - 2025-12-16
 
 * **Bug Fixes**
