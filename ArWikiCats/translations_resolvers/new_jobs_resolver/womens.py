@@ -3,6 +3,8 @@ This module provides functionality to translate category titles
 compare with womens_prefixes_work
 """
 import functools
+import re
+from ...helps import len_print
 from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
@@ -81,6 +83,7 @@ def _load_formatted_data() -> dict:
         )
     formatted_data.update(formatted_data_jobs_with_nat)
 
+    # formatted_data.update({ "{en_nat} {women} film directors": "مخرجات أفلام {ar_nat}"})
     formatted_data_final = filter_and_replace_gender_terms(formatted_data)
 
     return formatted_data_final
@@ -132,10 +135,20 @@ def load_bot() -> MultiDataFormatterBase:
     )
 
 
+REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
+
+
 def womens_resolver_labels(category: str) -> str:
     _bot = load_bot()
 
     category = category.replace("'", "").lower()
     category = category.replace("expatriates", "expatriate")
+    category = REGEX_WOMENS.sub("female", category)
 
     return _bot.search_all_category(category)
+
+
+formatted_data = _load_formatted_data()
+len_print.data_len("womens.py", {
+    "formatted_data": formatted_data,
+})

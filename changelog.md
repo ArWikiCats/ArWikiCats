@@ -1,3 +1,18 @@
+## [#222](https://github.com/MrIbrahem/ArWikiCats/pull/222) - 2025-12-16
+
+* **New Features**
+  * Added optional parameter to label resolution functions for controlling label transformation behavior.
+
+* **Refactor**
+  * Renamed label-fixing function to improve naming clarity across the codebase.
+  * Enhanced data-dump handling with decorator application to transformation functions.
+
+* **Tests**
+  * Updated test suite to reflect function naming changes and added test coverage for conditional label transformation.
+
+* **Documentation**
+  * Updated README and changelog to reflect API changes.
+
 ## [#221](https://github.com/MrIbrahem/ArWikiCats/pull/221) - 2025-12-16
 
 * **New Features**

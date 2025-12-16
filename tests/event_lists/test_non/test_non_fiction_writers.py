@@ -46,7 +46,7 @@ non_fiction_data_nats = {
 }
 
 non_fiction_data_male = {
-    "Category:New Zealand male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور نيوزيلنديون",
+    # "Category:New Zealand male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور نيوزيلنديون",
     "Category:Turkish male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور أتراك",
     "Category:Argentine male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور أرجنتينيون",
     "Category:Albanian male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور ألبان",
