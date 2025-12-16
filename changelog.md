@@ -1,3 +1,32 @@
+## [#219](https://github.com/MrIbrahem/ArWikiCats/pull/219) - 2025-12-16
+
+* **Tests**
+  * Added comprehensive test coverage for Arabic category label resolution
+  * New test suite for non-fiction writer categories with data-driven validation
+  * Added tests for label generation and category handling functions
+
+* **Refactor**
+  * Restructured internal data mapping architecture for improved modularity and maintainability
+  * Consolidated label extension workflow for better code organization
+
+## [#218](https://github.com/MrIbrahem/ArWikiCats/pull/218) - 2025-12-16
+
+* **New Features**
+  * Added support for television series debut categories
+  * Implemented automated deployment workflow for remote server updates
+
+* **Bug Fixes**
+  * Corrected Arabic grammatical forms in non-fiction writer categories
+  * Fixed category pattern typos and improved sports/elections translations
+
+* **Tests**
+  * Refactored label tests to use data-driven approach
+  * Added comprehensive unit tests for label functionality
+
+* **Chores**
+  * Updated GitHub Actions workflow for improved caching performance
+  * Internal cleanup of decorators and module exports
+
 ## [#217](https://github.com/MrIbrahem/ArWikiCats/pull/217) - 2025-12-16
 
 * **Bug Fixes**

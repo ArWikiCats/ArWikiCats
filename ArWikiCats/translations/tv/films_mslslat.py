@@ -116,8 +116,7 @@ Films_key_CAO_new_format = {
 # =============================================================================
 
 def _build_gender_key_maps(
-    films_keys_male_female: Dict[str, Dict[str, str]],
-    films_key_o_multi: Dict[str, Dict[str, str]],
+    films_key_o_multi: Dict[str, Dict[str, str]]
 ) -> Tuple[
     Dict[str, Dict[str, str]],  # films_key_both
     Dict[str, str],              # films_key_333
@@ -168,6 +167,32 @@ def _build_gender_key_maps(
         if female_label:
             film_keys_for_female[en_key] = female_label
 
+    return (
+        films_key_both,
+        films_key_333,
+        films_key_man,
+        film_keys_for_male,
+        film_keys_for_female,
+    )
+
+
+def _extend_females_labels(
+    films_keys_male_female: Dict[str, Dict[str, str]],
+) -> Dict[str, str]:
+    """
+    Extract female labels from the male/female dictionary with animation aliasing.
+
+    Processes the input dictionary and returns a mapping of original keys to their
+    female labels. Includes special handling to alias "animated" to "animation".
+
+    Args:
+        films_keys_male_female: Dictionary mapping English keys to gender label pairs
+
+     Returns:
+        Dictionary mapping original keys to female labels
+    """
+    data = {}
+
     # Process films_keys_male_female (with animation aliasing)
     male_female_copy = dict(films_keys_male_female)
     if "animated" in male_female_copy:
@@ -176,16 +201,9 @@ def _build_gender_key_maps(
     for en_key, labels in male_female_copy.items():
         female_label = labels.get("female", "").strip()
         if female_label:
-            films_key_333[en_key] = female_label
-            film_keys_for_female[en_key] = female_label
+            data[en_key] = female_label
 
-    return (
-        films_key_both,
-        films_key_333,
-        films_key_man,
-        film_keys_for_male,
-        film_keys_for_female,
-    )
+    return data
 
 
 def _build_series_and_nat_keys(
@@ -326,7 +344,7 @@ def _build_television_cao(
 
 
 def _build_female_combo_keys(
-    films_keys_male_female: Dict[str, Dict[str, str]],
+    filmskeys_male_female: Dict[str, Dict[str, str]],
 ) -> Dict[str, str]:
     """Build all pairwise combinations of female genre labels."""
     result = {}
@@ -334,12 +352,12 @@ def _build_female_combo_keys(
     # Extract female labels
     base_female = {
         x: v["female"]
-        for x, v in films_keys_male_female.items()
+        for x, v in filmskeys_male_female.items()
         if v.get("female", "").strip()
     }
 
     # Generate combinations
-    for en, tab in films_keys_male_female.items():
+    for en, tab in filmskeys_male_female.items():
         tab_female = tab.get("female", "").strip()
         if not tab_female:
             continue
@@ -379,10 +397,12 @@ Films_key_O_multi = {
     Films_key_man,
     film_keys_for_male,
     film_keys_for_female,
-) = _build_gender_key_maps(Films_keys_male_female, Films_key_O_multi)
+) = _build_gender_key_maps(Films_key_O_multi)
 
-# Legacy alias
-Films_key2 = film_keys_for_female
+
+female_extended_labels = _extend_females_labels(Films_keys_male_female)
+Films_key_333.update(female_extended_labels)
+film_keys_for_female.update(female_extended_labels)
 
 # Build series and nationality keys
 # Films_key_For_nat_extended, films_mslslat_tab = _build_series_and_nat_keys(film_keys_for_female)
