@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-""" """
+"""
+"""
 
-import functools
 import re
-from typing import Dict, Optional, Union
+from typing import Dict, Union
 
 from ...helps.log import logger
 from .model_data_base import FormatDataBase
+from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 
 class FormatDataV2(FormatDataBase):
@@ -41,7 +42,7 @@ class FormatDataV2(FormatDataBase):
 
     def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
         """
-        Used in MultiDataFormatterBaseV2
+        Used in MultiDataFormatterBaseV2 / MultiDataFormatterBaseHelpers
         """
         final_label = label
         if isinstance(value, dict):
@@ -49,3 +50,22 @@ class FormatDataV2(FormatDataBase):
                 final_label = final_label.replace(f"{{{key}}}", val)
 
         return final_label
+
+
+class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
+    """
+    """
+
+    def __init__(
+        self,
+        country_bot: FormatDataV2,
+        other_bot: FormatDataV2,
+        search_first_part: bool = False,
+        data_to_find: Dict[str, str] | None = None,
+    ) -> None:
+        """Prepare helpers for matching and formatting template-driven labels."""
+
+        self.search_first_part = search_first_part
+        self.country_bot = country_bot
+        self.other_bot = other_bot
+        self.data_to_find = data_to_find

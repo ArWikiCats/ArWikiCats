@@ -7,7 +7,7 @@ test at tests.translations_formats.test_format_2_data.py
 """
 
 from typing import Dict
-from .model_data_2 import FormatDataV2
+from .model_data_v2 import FormatDataV2
 from .model_data import FormatData
 from .model_data_time import YearFormatData
 from .model_data_double import FormatDataDouble
@@ -90,25 +90,6 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         self,
         country_bot: FormatData,
         other_bot: FormatDataDouble,
-        search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
-    ) -> None:
-        """Prepare helpers for matching and formatting template-driven labels."""
-
-        self.search_first_part = search_first_part
-        self.country_bot = country_bot
-        self.other_bot = other_bot
-        self.data_to_find = data_to_find
-
-
-class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
-    """
-    """
-
-    def __init__(
-        self,
-        country_bot: FormatDataV2,
-        other_bot: FormatDataV2,
         search_first_part: bool = False,
         data_to_find: Dict[str, str] | None = None,
     ) -> None:
