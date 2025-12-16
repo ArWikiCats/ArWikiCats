@@ -1,8 +1,12 @@
 #!/usr/bin/python3
-"""Integration tests for format_films_country_data and """
+"""Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
-from ArWikiCats.translations_resolvers_v3i.resolve_v3i import multi_bot_v3
+from ArWikiCats.translations_resolvers_v3i.resolve_v3i import multi_bot_v3  # , multi_bot_v4
+
+
+bot = multi_bot_v3()
+# bot = multi_bot_v4()
 
 
 class TestCountriesPart:
@@ -17,7 +21,6 @@ class TestCountriesPart:
         """
         Test
         """
-        bot = multi_bot_v3()
         result = bot.country_bot.search(category)
         assert result == expected
 
@@ -33,7 +36,6 @@ class TestYearPart:
         """
         Test
         """
-        bot = multi_bot_v3()
         result = bot.other_bot.search_all(category)
         assert result == expected
 
@@ -49,6 +51,5 @@ class TestAllParts:
         """
         Test
         """
-        bot = multi_bot_v3()
         result = bot.search_all(category)
         assert result == expected

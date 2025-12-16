@@ -9,8 +9,7 @@ from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 class FormatDataFrom:
     """
-    A dynamic wrapper that allows FormatData to handle year patterns.
-    It mimics FormatData behavior but for time values extracted by regex.
+    A dynamic wrapper
     """
 
     def __init__(
@@ -80,19 +79,18 @@ class FormatDataFrom:
         return result
 
     def get_key_label(self, key: str) -> str:
-        # result = resolve_label_ar(key)
+        """place holders"""
+        if not key:
+            return ""
         logger.debug(f"get_key_label: {key=}")
-        # return result
         return self.search(key)
 
     def search(self, text: str) -> str:
         """place holders"""
-        # result = resolve_label_ar(text)
-        # logger.debug(f"search: {text=}, {result=}")
         return self.search_callback(text)
 
     def search_all(self, key: str) -> str:
-        """Convert the year expression to Arabic."""
+        """place holders"""
         return self.search(key)
 
 

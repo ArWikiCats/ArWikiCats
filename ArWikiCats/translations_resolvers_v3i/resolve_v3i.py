@@ -3,10 +3,14 @@
 TODO: use this code in flowworks
 """
 import functools
-import re
+from ..helps import logger
+from ..translations_formats import YearFormatData, FormatDataFrom, MultiDataFormatterYearAndFrom
+from ..translations_resolvers.new_jobs_resolver.mens import mens_resolver_labels
 
-from ArWikiCats.translations_formats import YearFormatData, FormatDataFrom, MultiDataFormatterYearAndFrom
-from ArWikiCats.translations_resolvers.new_jobs_resolver.mens import mens_resolver_labels
+from ..new.time_to_arabic import (
+    convert_time_to_arabic,
+    match_time_en_first,
+)
 
 
 def get_label(text: str) -> str:
@@ -16,7 +20,7 @@ def get_label(text: str) -> str:
         "writers from Crown of Aragon" : "كتاب من تاج أرغون",
         "writers gg yemen" : "كتاب من اليمن",
     }
-    print(f"search: {text=}")
+    logger.debug(f"search: {text=}")
     return data.get(text, "")
 
 
@@ -37,6 +41,33 @@ def multi_bot_v3() -> MultiDataFormatterYearAndFrom:
     year_bot = YearFormatData(
         key_placeholder="{year1}",
         value_placeholder="{year1}",
+    )
+    return MultiDataFormatterYearAndFrom(
+        country_bot=country_bot,
+        year_bot=year_bot,
+        other_key_first=True,
+    )
+
+
+@functools.lru_cache(maxsize=1)
+def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
+
+    formatted_data = {
+        "{year1} {country1}": "{country1} في {year1}",
+    }
+    country_bot = FormatDataFrom(
+        formatted_data=formatted_data,
+        key_placeholder="{country1}",
+        value_placeholder="{country1}",
+        search_callback=get_label,
+        match_key_callback=lambda x: x.replace("{year1}", "").strip()
+    )
+    year_bot = FormatDataFrom(
+        formatted_data=formatted_data,
+        key_placeholder="{year1}",
+        value_placeholder="{year1}",
+        search_callback=lambda x: convert_time_to_arabic(x),
+        match_key_callback=lambda x: match_time_en_first(x),
     )
     return MultiDataFormatterYearAndFrom(
         country_bot=country_bot,

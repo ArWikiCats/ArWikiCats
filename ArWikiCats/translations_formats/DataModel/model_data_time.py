@@ -2,9 +2,14 @@
 """
 This module provides the YearFormatData class, a specialized formatter for
 handling time-based patterns (years, decades, centuries) in category strings.
+
+TODO: use FormatDataFrom with:
+        search_callback=lambda x: convert_time_to_arabic(x),
+        match_key_callback=lambda x: match_time_en_first(x),
 """
 
 import re
+from ...helps import logger
 from ...new.time_to_arabic import (
     convert_time_to_arabic,
     match_time_en_first,
@@ -17,7 +22,11 @@ class YearFormatData:
     It mimics FormatData behavior but for time values extracted by regex.
     """
 
-    def __init__(self, key_placeholder: str, value_placeholder: str) -> None:
+    def __init__(
+        self,
+        key_placeholder: str,
+        value_placeholder: str,
+    ) -> None:
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
 
@@ -26,19 +35,15 @@ class YearFormatData:
         result = match_time_en_first(text)
         return result if result else ""
 
-    def get_key_label(self, key: str) -> str:
-        """Convert the year expression to Arabic."""
-        if not key:
-            return ""
-        return convert_time_to_arabic(key)
-
     def normalize_category(self, text: str, key: str) -> str:
-        """Replace matched year with placeholder."""
+        """
+        Replace matched year with placeholder.
+        """
+        logger.debug(f"normalize_category: {key=}, {text=}")
         if not key:
             return text
-        return re.sub(
-            re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE
-        )
+        result = re.sub(re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE)
+        return result
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
@@ -67,10 +72,17 @@ class YearFormatData:
         result = self.fixing(result)
         return result
 
-    def search(self, text: str) -> str:
+    def get_key_label(self, key: str) -> str:
         """place holders"""
+        if not key:
+            return ""
+        logger.debug(f"get_key_label: {key=}")
+        return self.search(key)
+
+    def search(self, text: str) -> str:
+        """Convert the year expression to Arabic."""
         return convert_time_to_arabic(text)
 
-    def search_all(self, text: str) -> str:
+    def search_all(self, key: str) -> str:
         """place holders"""
-        return self.search(text)
+        return self.search(key)

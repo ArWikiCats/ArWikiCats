@@ -43,9 +43,7 @@ class V3Formats:
         if not key:
             return text
         # print(f"Normalizing: {text} with key: {key}")
-        return re.sub(
-            re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE
-        )
+        return re.sub(re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE)
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
