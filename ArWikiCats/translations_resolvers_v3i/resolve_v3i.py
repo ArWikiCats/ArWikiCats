@@ -28,8 +28,9 @@ from ..new.time_to_arabic import convert_time_to_arabic, match_time_en_first
 FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 
 label_new_keys = {
-    "crown-of aragon": "تاج أرغون",
-    "republic-of venice": "جمهورية البندقية",
+    # "crown-of aragon": "تاج أرغون",
+    # "republic-of venice": "جمهورية البندقية",
+    # "republic of geneva": "جمهورية جنيف",
 }
 
 jobs_part_labels = {
@@ -61,6 +62,19 @@ def get_job_label(text: str) -> str:
     return result
 
 
+def get_from_label(from_part):
+    from_label = (
+        medical_keys.get(from_part) or
+        label_new_keys.get(from_part) or
+        get_KAKO(from_part) or
+        get_from_pf_keys2(from_part) or
+        get_from_new_p17_final(from_part) or
+        ""
+    )
+
+    return from_label
+
+
 def normalize_text(text):
     text = text.lower()
     text = text.replace("sportspeople", "sports-people")
@@ -83,20 +97,16 @@ def get_label_new(text: str) -> str:
 
     job_part = match.group(1)
     from_part = match.group(2)
-    logger.debug(f"get_label_new: {job_part=}, {from_part=}")
+    print(f"get_label_new: {job_part=}, {from_part=}")
 
     job_label = get_job_label(job_part)
     logger.debug(f"get_label_new: {job_part=}, {job_label=}")
 
     # from_label = get_lab_for_country2(from_part)
-    from_label = (
-        medical_keys.get(from_part) or
-        label_new_keys.get(from_part) or
-        get_KAKO(from_part) or
-        get_from_pf_keys2(from_part) or
-        get_from_new_p17_final(from_part) or
-        ""
-    )
+    from_label = get_from_label(from_part)
+
+    if not from_label and "-" in from_part:
+        from_label = get_from_label(from_part.replace("-", " "))
 
     logger.debug(f"get_label_new: {from_part=}, {from_label=}")
     min_word = "من" if job_label != "وفيات" else "بسبب"

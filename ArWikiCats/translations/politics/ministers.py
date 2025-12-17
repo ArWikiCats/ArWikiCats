@@ -147,6 +147,7 @@ add_keys = [
     ("agriculture", "cooperatives"),
     ("peace", "reconciliation"),
     ("electricity", "water"),
+    ("environment", "climate change")
 ]
 # ---
 for key1, key2 in add_keys:
