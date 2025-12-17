@@ -29,6 +29,7 @@ FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 
 label_new_keys = {
     "crown-of aragon": "تاج أرغون",
+    "republic-of venice": "جمهورية البندقية",
 }
 
 jobs_part_labels = {
