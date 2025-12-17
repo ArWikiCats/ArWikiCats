@@ -4,8 +4,35 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
+from ArWikiCats import resolve_label_ar
+
+test_deaths_data = {
+    "12th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 12",
+    "15th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 15",
+    "16th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 16",
+    "20th-century deaths from infectious disease": "وفيات بسبب أمراض معدية في القرن 20",
+    "17th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 17",
+    "18th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 18",
+    "19th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 19",
+    "20th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 20",
+    "7th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 7",
+    "21st-century deaths from tuberculosis": "وفيات بسبب السل في القرن 21",
+    "14th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 14",
+}
 
 test_0 = {
+    "18th-century artists from the Republic of Geneva": "فنانون من جمهورية جنيف في القرن 18",
+    "15th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 15",
+    "12th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 12",
+    "13th-century people from the crown of aragon": "أشخاص من تاج أرغون في القرن 13",
+    "14th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 14",
+
+    "20th-century people from insular areas of the United States": "أشخاص من المناطق المعزولة في الولايات المتحدة في القرن 20",
+    "20th-century politicians from insular areas of the United States": "سياسيون من المناطق المعزولة في الولايات المتحدة في القرن 20",
+    "20th-century women politicians from insular areas of the United States": "سياسيات من المناطق المعزولة في الولايات المتحدة في القرن 20",
+    "21st-century people from insular areas of the United States": "أشخاص من المناطق المعزولة في الولايات المتحدة في القرن 21",
+    "21st-century politicians from insular areas of the United States": "سياسيون من المناطق المعزولة في الولايات المتحدة في القرن 21",
+    "21st-century women politicians from insular areas of the United States": "سياسيات من المناطق المعزولة في الولايات المتحدة في القرن 21"
 }
 
 test_data_standard = {
@@ -30,7 +57,6 @@ test_data_standard = {
     "11th-century people from Bohemia": "أشخاص من بوهيميا في القرن 11",
     "11th-century people from Georgia (country)": "أشخاص من جورجيا في القرن 11",
     "11th-century people from Kievan Rus'": "أشخاص من كييف روس في القرن 11",
-    "12th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 12",
     "12th-century Jews from the Abbasid Caliphate": "يهود من الدولة العباسية في القرن 12",
     "12th-century nobility from the Holy Roman Empire": "نبلاء من الإمبراطورية الرومانية المقدسة في القرن 12",
     "12th-century people from Bohemia": "أشخاص من بوهيميا في القرن 12",
@@ -44,7 +70,6 @@ test_data_standard = {
     "15th-century businesspeople from the Holy Roman Empire": "شخصيات أعمال من الإمبراطورية الرومانية المقدسة في القرن 15",
     "15th-century civil servants from the Ottoman Empire": "موظفو خدمة مدنية من الدولة العثمانية في القرن 15",
     "15th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 15",
-    "15th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 15",
     "15th-century Jews from the Ottoman Empire": "يهود من الدولة العثمانية في القرن 15",
     "15th-century nobility from Bohemia": "نبلاء من بوهيميا في القرن 15",
     "15th-century nobility from the Holy Roman Empire": "نبلاء من الإمبراطورية الرومانية المقدسة في القرن 15",
@@ -56,7 +81,6 @@ test_data_standard = {
     "16th-century civil servants from the Ottoman Empire": "موظفو خدمة مدنية من الدولة العثمانية في القرن 16",
     "16th-century clergy from Bohemia": "رجال دين من بوهيميا في القرن 16",
     "16th-century criminals from the Holy Roman Empire": "مجرمون من الإمبراطورية الرومانية المقدسة في القرن 16",
-    "16th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 16",
     "16th-century educators from the Holy Roman Empire": "معلمون من الإمبراطورية الرومانية المقدسة في القرن 16",
     "16th-century engineers from the Holy Roman Empire": "مهندسون من الإمبراطورية الرومانية المقدسة في القرن 16",
     "16th-century engravers from the Holy Roman Empire": "نقاشون من الإمبراطورية الرومانية المقدسة في القرن 16",
@@ -71,7 +95,6 @@ test_data_standard = {
     "17th-century artisans from the Holy Roman Empire": "حرفيون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "17th-century biologists from the Holy Roman Empire": "علماء أحياء من الإمبراطورية الرومانية المقدسة في القرن 17",
     "17th-century chemists from the Holy Roman Empire": "كيميائيون من الإمبراطورية الرومانية المقدسة في القرن 17",
-    "17th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 17",
     "17th-century diplomats from the Holy Roman Empire": "دبلوماسيون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "17th-century educators from the Holy Roman Empire": "معلمون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "17th-century explorers from the Holy Roman Empire": "مستكشفون من الإمبراطورية الرومانية المقدسة في القرن 17",
@@ -95,7 +118,6 @@ test_data_standard = {
     "18th-century civil servants from the Ottoman Empire": "موظفو خدمة مدنية من الدولة العثمانية في القرن 18",
     "18th-century clergy from the Russian Empire": "رجال دين من الإمبراطورية الروسية في القرن 18",
     "18th-century criminals from the Holy Roman Empire": "مجرمون من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 18",
     "18th-century diplomats from the Holy Roman Empire": "دبلوماسيون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century dramatists and playwrights from the Russian Empire": "كتاب دراما ومسرح من الإمبراطورية الروسية في القرن 18",
     "18th-century educators from the Holy Roman Empire": "معلمون من الإمبراطورية الرومانية المقدسة في القرن 18",
@@ -146,7 +168,6 @@ test_data_standard = {
     "19th-century clergy from the Russian Empire": "رجال دين من الإمبراطورية الروسية في القرن 19",
     "19th-century composers from the Russian Empire": "ملحنون من الإمبراطورية الروسية في القرن 19",
     "19th-century criminals from the Russian Empire": "مجرمون من الإمبراطورية الروسية في القرن 19",
-    "19th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 19",
     "19th-century diarists from the Russian Empire": "كتاب يوميات من الإمبراطورية الروسية في القرن 19",
     "19th-century educators from Georgia (country)": "معلمون من جورجيا في القرن 19",
     "19th-century explorers from the Russian Empire": "مستكشفون من الإمبراطورية الروسية في القرن 19",
@@ -229,7 +250,6 @@ test_data_standard = {
     "20th-century clergy from the Ottoman Empire": "رجال دين من الدولة العثمانية في القرن 20",
     "20th-century comedians from Northern Ireland": "كوميديون من أيرلندا الشمالية في القرن 20",
     "20th-century composers from Northern Ireland": "ملحنون من أيرلندا الشمالية في القرن 20",
-    "20th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 20",
     "20th-century dramatists and playwrights from Northern Ireland": "كتاب دراما ومسرح من أيرلندا الشمالية في القرن 20",
     "20th-century drummers from Northern Ireland": "طبالون من أيرلندا الشمالية في القرن 20",
     "20th-century educators from Georgia (country)": "معلمون من جورجيا في القرن 20",
@@ -268,7 +288,6 @@ test_data_standard = {
     "20th-century people from Idaho": "أشخاص من أيداهو في القرن 20",
     "20th-century people from Illinois": "أشخاص من إلينوي في القرن 20",
     "20th-century people from Indiana": "أشخاص من إنديانا في القرن 20",
-    "20th-century people from insular areas of the United States": "أشخاص من المناطق المعزولة في الولايات المتحدة في القرن 20",
     "20th-century people from Kansas": "أشخاص من كانساس في القرن 20",
     "20th-century people from Louisiana": "أشخاص من لويزيانا في القرن 20",
     "20th-century people from Maine": "أشخاص من مين في القرن 20",
@@ -306,7 +325,6 @@ test_data_standard = {
     "20th-century poets from Georgia (country)": "شعراء من جورجيا في القرن 20",
     "20th-century poets from Northern Ireland": "شعراء من أيرلندا الشمالية في القرن 20",
     "20th-century politicians from Georgia (country)": "سياسيون من جورجيا في القرن 20",
-    "20th-century politicians from insular areas of the United States": "سياسيون من المناطق المعزولة في الولايات المتحدة في القرن 20",
     "20th-century politicians from Northern Ireland": "سياسيون من أيرلندا الشمالية في القرن 20",
     "20th-century rabbis from the Ottoman Empire": "حاخامات من الدولة العثمانية في القرن 20",
     "20th-century scientists from Georgia (country)": "علماء من جورجيا في القرن 20",
@@ -328,7 +346,6 @@ test_data_standard = {
     "20th-century women musicians from Georgia (country)": "موسيقيات من جورجيا في القرن 20",
     "20th-century women musicians from Northern Ireland": "موسيقيات من أيرلندا الشمالية في القرن 20",
     "20th-century women politicians from Georgia (country)": "سياسيات من جورجيا في القرن 20",
-    "20th-century women politicians from insular areas of the United States": "سياسيات من المناطق المعزولة في الولايات المتحدة في القرن 20",
     "20th-century women politicians from Northern Ireland": "سياسيات من أيرلندا الشمالية في القرن 20",
     "20th-century women scientists from Georgia (country)": "عالمات من جورجيا في القرن 20",
     "20th-century women scientists from Northern Ireland": "عالمات من أيرلندا الشمالية في القرن 20",
@@ -351,7 +368,6 @@ test_data_standard = {
     "21st-century clergy from Northern Ireland": "رجال دين من أيرلندا الشمالية في القرن 21",
     "21st-century comedians from Northern Ireland": "كوميديون من أيرلندا الشمالية في القرن 21",
     "21st-century composers from Northern Ireland": "ملحنون من أيرلندا الشمالية في القرن 21",
-    "21st-century deaths from tuberculosis": "وفيات بسبب السل في القرن 21",
     "21st-century dramatists and playwrights from Northern Ireland": "كتاب دراما ومسرح من أيرلندا الشمالية في القرن 21",
     "21st-century drummers from Northern Ireland": "طبالون من أيرلندا الشمالية في القرن 21",
     "21st-century educators from Northern Ireland": "معلمون من أيرلندا الشمالية في القرن 21",
@@ -384,7 +400,6 @@ test_data_standard = {
     "21st-century people from Idaho": "أشخاص من أيداهو في القرن 21",
     "21st-century people from Illinois": "أشخاص من إلينوي في القرن 21",
     "21st-century people from Indiana": "أشخاص من إنديانا في القرن 21",
-    "21st-century people from insular areas of the United States": "أشخاص من المناطق المعزولة في الولايات المتحدة في القرن 21",
     "21st-century people from Louisiana": "أشخاص من لويزيانا في القرن 21",
     "21st-century people from Maine": "أشخاص من مين في القرن 21",
     "21st-century people from Maryland": "أشخاص من ماريلند في القرن 21",
@@ -408,7 +423,6 @@ test_data_standard = {
     "21st-century physicists from Northern Ireland": "فيزيائيون من أيرلندا الشمالية في القرن 21",
     "21st-century poets from Georgia (country)": "شعراء من جورجيا في القرن 21",
     "21st-century poets from Northern Ireland": "شعراء من أيرلندا الشمالية في القرن 21",
-    "21st-century politicians from insular areas of the United States": "سياسيون من المناطق المعزولة في الولايات المتحدة في القرن 21",
     "21st-century politicians from Northern Ireland": "سياسيون من أيرلندا الشمالية في القرن 21",
     "21st-century scientists from Georgia (country)": "علماء من جورجيا في القرن 21",
     "21st-century scientists from Northern Ireland": "علماء من أيرلندا الشمالية في القرن 21",
@@ -428,7 +442,6 @@ test_data_standard = {
     "21st-century women musicians from Georgia (country)": "موسيقيات من جورجيا في القرن 21",
     "21st-century women opera singers from Georgia (country)": "مغنيات أوبرا من جورجيا في القرن 21",
     "21st-century women politicians from Georgia (country)": "سياسيات من جورجيا في القرن 21",
-    "21st-century women politicians from insular areas of the United States": "سياسيات من المناطق المعزولة في الولايات المتحدة في القرن 21",
     "21st-century women politicians from Northern Ireland": "سياسيات من أيرلندا الشمالية في القرن 21",
     "21st-century women scientists from Northern Ireland": "عالمات من أيرلندا الشمالية في القرن 21",
     "21st-century women singers from Georgia (country)": "مغنيات من جورجيا في القرن 21",
@@ -436,7 +449,6 @@ test_data_standard = {
     "21st-century writers from Georgia (country)": "كتاب من جورجيا في القرن 21",
     "21st-century writers from Northern Ireland": "كتاب من أيرلندا الشمالية في القرن 21",
     "21st-century zoologists from Northern Ireland": "علماء حيوانات من أيرلندا الشمالية في القرن 21",
-    "7th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 7",
     "8th-century Jews from the Abbasid Caliphate": "يهود من الدولة العباسية في القرن 8",
     "8th-century people from the Abbasid Caliphate": "أشخاص من الدولة العباسية في القرن 8",
     "9th-century Jews from the Abbasid Caliphate": "يهود من الدولة العباسية في القرن 9",
@@ -512,7 +524,6 @@ test_data_2 = {
     "18th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية في القرن 18",
     "19th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية في القرن 19",
     "20th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية في القرن 20",
-    "18th-century artists from the Republic of Geneva": "فنانون من جمهورية جنيف في القرن 18",
     "18th-century artists from the Russian Empire": "فنانون من الإمبراطورية الروسية في القرن 18",
     "19th-century artists from the Russian Empire": "فنانون من الإمبراطورية الروسية في القرن 19",
 
@@ -554,9 +565,6 @@ test_data_2 = {
     "17th-century composers from the Holy Roman Empire": "ملحنون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "18th-century composers from the Holy Roman Empire": "ملحنون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "19th-century dancers from the Russian Empire": "راقصون من الإمبراطورية الروسية في القرن 19",
-    "20th-century deaths from infectious disease": "وفيات بسبب أمراض معدية في القرن 20",
-    "14th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 14",
-
     "20th-century dramatists and playwrights from Georgia (country)": "كتاب دراما ومسرح من جورجيا في القرن 20",
     "21st-century dramatists and playwrights from Georgia (country)": "كتاب دراما ومسرح من جورجيا في القرن 21",
     "19th-century dramatists and playwrights from the Russian Empire": "كتاب دراما ومسرح من الإمبراطورية الروسية في القرن 19",
@@ -580,10 +588,6 @@ test_data_2 = {
     "10th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية في القرن 10",
     "8th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية في القرن 8",
     "9th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية في القرن 9",
-    "15th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 15",
-    "12th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 12",
-    "13th-century people from the crown of aragon": "أشخاص من تاج أرغون في القرن 13",
-    "14th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 14",
     "11th-century people from the Kingdom of Aragon": "أشخاص من مملكة أرغون في القرن 11",
 
     "15th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 15",
@@ -606,28 +610,47 @@ test_data_2 = {
 @pytest.mark.fast
 def test_resolve_v3i_more_1(category: str, expected: str) -> None:
     """    Test resolve year job from countries function for test_data_standard. """
-    result = resolve_year_job_from_countries(category)
-    assert result == expected
+    result1 = resolve_year_job_from_countries(category)
+    assert result1 == expected
+
+    result2 = resolve_label_ar(category)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("category,expected", test_data_2.items(), ids=test_data_2.keys())
+@pytest.mark.fast
+def test_resolve_v3i_more_2(category: str, expected: str) -> None:
+    """    Test resolve year job from countries function for test_data_2. """
+    result1 = resolve_year_job_from_countries(category)
+    assert result1 == expected
+
+    result2 = resolve_label_ar(category)
+    assert result2 == expected
 
 
 @pytest.mark.parametrize("category,expected", test_women_from_data.items(), ids=test_women_from_data.keys())
 @pytest.mark.fast
 def test_resolve_v3i_more_women(category: str, expected: str) -> None:
     """    Test resolve year job from countries function for test_women_from_data. """
-    result = resolve_year_job_from_countries(category)
-    assert result == expected
+    result1 = resolve_year_job_from_countries(category)
+    assert result1 == expected
+
+    result2 = resolve_label_ar(category)
+    assert result2 == expected
 
 
 to_test = [
-    ("test_resolve_v3i_more_1", test_data_standard),
-    ("test_resolve_v3i_more_women", test_women_from_data),
+    ("test_resolve_v3i_more_0", test_0, resolve_year_job_from_countries),
+    ("test_resolve_v3i_more_1", test_data_standard, resolve_year_job_from_countries),
+    ("test_resolve_v3i_more_2", test_data_2, resolve_year_job_from_countries),
+    ("test_resolve_v3i_more_women", test_women_from_data, resolve_year_job_from_countries),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_year_job_from_countries)
+def test_dump_all(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
     dump_diff_text(expected, diff_result, name)

@@ -2,7 +2,7 @@
 """Integration tests for format_films_country_data and """
 
 import pytest
-from ArWikiCats.translations_resolvers_v3.resolve_v3 import resolve_job_from_countries, resolve_year_job_from_countries
+from ArWikiCats.translations_resolvers_v3.resolve_v3 import resolve_job_from_country, resolve_yearjob_from_country
 
 
 class TestPart1:
@@ -17,7 +17,7 @@ class TestPart1:
         """
         Test
         """
-        result = resolve_job_from_countries(category)
+        result = resolve_job_from_country(category)
         assert result == expected
 
 
@@ -32,5 +32,5 @@ class TestPart2:
         """
         Test
         """
-        result = resolve_year_job_from_countries(category)
+        result = resolve_yearjob_from_country(category)
         assert result == expected

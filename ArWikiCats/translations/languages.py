@@ -27,7 +27,7 @@ PRIMARY_LANGUAGE_TRANSLATIONS = {
     "semitic": "سامية",
     "afroasiatic": "أفروآسيوية",
     "arabic": "عربية",
-    "aragonese": "أراغونية",
+    "aragonese": "أرغونية",
     "armenian": "أرمنية",
     "assamese": "آسامية",
     "asturian": "أستورية",

@@ -1,0 +1,52 @@
+"""
+Tests
+"""
+
+import pytest
+from load_one_data import dump_diff, one_dump_test
+
+from ArWikiCats.main_processers.nat_genders_pattern import resolve_nat_genders_pattern
+
+test_data_ar = {
+    "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",
+    "yemeni men's softball players": "لاعبو كرة لينة يمنيون",
+    "yemeni male softball players": "لاعبو كرة لينة يمنيون",
+    "yemeni women's softball players": "لاعبات كرة لينة يمنيات",
+
+    "Serbian men's footballers": "لاعبو كرة قدم صرب",
+    "Russian men's futsal players": "لاعبو كرة صالات روس",
+    "Scottish male badminton players": "لاعبو تنس ريشة إسكتلنديون",
+
+    "irish actors": "ممثلون وممثلات أيرلنديون",
+    "irish male actors": "ممثلون أيرلنديون",
+    "irish actresses": "ممثلات أيرلنديات",
+
+    "Albanian women's volleyball players": "لاعبات كرة طائرة ألبانيات",
+    "yemeni women's footballers": "لاعبات كرة قدم يمنيات",
+    "yemeni female footballers": "لاعبات كرة قدم يمنيات",
+    "American women baseball players": "لاعبات كرة قاعدة أمريكيات",
+    "Andorran female tennis players": "لاعبات كرة مضرب أندوريات",
+    "Welsh players of Australian rules football": "لاعبو ولاعبات كرة قدم أسترالية ويلزيون",
+    "Irish female players of Australian rules football": "لاعبات كرة قدم أسترالية أيرلنديات",
+    "Irish female players of american football": "لاعبات كرة قدم أمريكية أيرلنديات",
+}
+
+
+@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=test_data_ar.keys())
+@pytest.mark.fast
+def test_nat_genders_pattern_1(category: str, expected: str) -> None:
+    label = resolve_nat_genders_pattern(category)
+    assert label == expected
+
+
+to_test = [
+    ("test_nat_genders_pattern_1", test_data_ar, resolve_nat_genders_pattern),
+]
+
+
+@pytest.mark.parametrize("name,data,callback", to_test)
+@pytest.mark.dump
+def test_dump_all(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

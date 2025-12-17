@@ -23,8 +23,8 @@ data_2 = {
 
     "14th-century writers from the democratic republic of the Congo": "كتاب من جمهورية الكونغو الديمقراطية في القرن 14",
 
-    "14th-century writers from Crown of Aragon": "كتاب من تاج أراغون في القرن 14",
-    "14th-century writers from the Crown of Aragon": "كتاب من تاج أراغون في القرن 14",
+    "14th-century writers from Crown of Aragon": "كتاب من تاج أرغون في القرن 14",
+    "14th-century writers from the Crown of Aragon": "كتاب من تاج أرغون في القرن 14",
 }
 
 to_test = [
