@@ -13,6 +13,7 @@ from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..o_bots import fax
 from ...translations_resolvers_v2.ministers_resolver import resolve_secretaries_labels
 from ...translations_resolvers import resolved_translations_resolvers
+# from ...translations_resolvers_v3i import resolved_translations_resolvers_v3i
 from ...translations_resolvers_v2 import resolved_translations_resolvers_v2
 from .film_keys_bot import resolve_films
 
@@ -86,6 +87,12 @@ def te_films(category: str) -> str:
     if resolved_label:
         logger.info(f'>>>> (te_films) resolved_sports_formats_labels, cat: {normalized_category}, label: "{resolved_label}"')
         return resolved_label
+
+    # most likely due to a circular import
+    # resolved_label = resolved_translations_resolvers_v3i(normalized_category)
+    # if resolved_label:
+    #     logger.info(f'>>>> (te_films) resolved_translations_resolvers_v3i, cat: {normalized_category}, label: "{resolved_label}"')
+    #     return resolved_label
 
     resolved_label = resolved_translations_resolvers_v2(normalized_category)
     if resolved_label:
