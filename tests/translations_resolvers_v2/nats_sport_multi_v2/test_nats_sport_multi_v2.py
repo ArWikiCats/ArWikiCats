@@ -194,7 +194,7 @@ the_male_sport_team_data = {
     "libyan motocross racing federation": "الاتحاد الليبي لسباق موتو كروس",
     "liechtenstein motor federation": "الاتحاد الليختنشتاني للمحركات",
     "liechtensteiner motor racing federation": "الاتحاد الليختنشتاني لسباق المحركات",
-    "lithuanian motorboat federation": "الاتحاد الليتواني الزوارق النارية",
+    "lithuanian motorboat federation": "الاتحاد الليتواني للزوارق النارية",
     "luxembourg motorcycle federation": "الاتحاد اللوكسمبورغي للدراجات النارية",
     "luxembourgian motorcycle racing federation": "الاتحاد اللوكسمبورغي لسباق الدراجات النارية",
     "luxembourgish motorsport federation": "الاتحاد اللوكسمبورغي لرياضة المحركات",
