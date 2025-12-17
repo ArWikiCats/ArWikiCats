@@ -6,8 +6,8 @@ from ArWikiCats.main_processers.main_resolve import resolve_label_ar
 data_2 = {
     # NEED FIXING
     "2020 Chinese Taipei international footballers from Hong Kong": "لاعبو منتخب تايبيه الصينية لكرة القدم من هونغ كونغ في 2020",
-    "14th-century writers from Crown of Aragon": "كتاب من تاج أراغون في القرن 14",
-    "14th-century writers from the Crown of Aragon": "كتاب من تاج أراغون في القرن 14",
+    "14th-century writers from Crown of Aragon": "كتاب من تاج أرغون في القرن 14",
+    "14th-century writers from the Crown of Aragon": "كتاب من تاج أرغون في القرن 14",
 }
 
 

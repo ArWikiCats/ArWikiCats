@@ -43,12 +43,13 @@ test_0 = {
 }
 
 test_data_1 = {
-
+    "19th-century people from Ottoman Arabia": "أشخاص من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
+    "20th-century non-fiction writers from Northern Ireland": "كتاب غير روائيين من أيرلندا الشمالية في القرن 20",
+    "18th-century non-fiction writers from the Russian Empire": "كتاب غير روائيين من الإمبراطورية الروسية في القرن 18",
+    "19th-century poets from Ottoman Arabia": "شعراء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
 }
 
 test_data_2 = {
-    "19th-century people from Ottoman Arabia": "عرب سعوديون في القرن 19",
-    "19th-century poets from Ottoman Arabia": "شعراء سعوديون في القرن 19",
     "11th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية القرن 11",
     "10th-century historians from the Fatimid Caliphate": "مؤرخون من الدولة الفاطمية القرن 10",
     "15th-century historians from the Ottoman Empire": "مؤرخو الدولة العثمانية القرن 15",
@@ -102,8 +103,6 @@ test_data_2 = {
     "14th-century nobility from the Kingdom of Navarre": "نبلاء في القرن 14 من مملكة نبرة",
     "15th-century nobility from the Kingdom of Navarre": "نبلاء في القرن 15 من مملكة نبرة",
 
-    "20th-century non-fiction writers from Northern Ireland": "كتاب غير روائيون من أيرلندا الشمالية في القرن 20",
-    "18th-century non-fiction writers from the Russian Empire": "كتاب غير روائيون من الإمبراطورية الروسية في القرن 18",
     "19th-century non-fiction writers from the Russian Empire": "كتاب غير روائيين روس في القرن 19",
 
     "18th-century novelists from the Russian Empire": "روائيون روس في القرن 18",
