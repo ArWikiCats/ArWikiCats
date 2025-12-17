@@ -1,20 +1,20 @@
 
 from ...helps import logger
-from .rele import work_relations
+from .rele import resolve_relations_label
 
 
-def resolve_relations_labels(text: str) -> str:
+def resolve_category_relations(text: str) -> str:
     normalized_text = text.lower().replace("category:", " ")
-    logger.debug(f"resolve_relations_labels: {normalized_text=}")
+    logger.debug(f"resolve_category_relations: {normalized_text=}")
 
     label = (
-        work_relations(normalized_text) or
+        resolve_relations_label(normalized_text) or
         ""
     )
-    logger.debug(f"resolve_relations_labels: {normalized_text=}, {label=}")
+    logger.debug(f"resolve_category_relations: {normalized_text=}, {label=}")
     return label
 
 
 __all__ = [
-    "resolve_relations_labels",
+    "resolve_category_relations",
 ]

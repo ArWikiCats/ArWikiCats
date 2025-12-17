@@ -1,7 +1,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.reslove_relations.rele import work_relations
+from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 big_data = {
     "Afghanistan–Australia sports relations": "العلاقات الأسترالية الأفغانية الرياضية",
@@ -690,15 +690,15 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("category, expected", big_data.items(), ids=big_data.keys())
 @pytest.mark.fast
-def test_work_relations_big_data(category: str, expected: str) -> None:
-    label = work_relations(category)
+def test_resolve_relations_label_big_data(category: str, expected: str) -> None:
+    label = resolve_relations_label(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
 def test_all_dump(name: str, data: str) -> None:
-    expected, diff_result = one_dump_test(data, work_relations)
+    expected, diff_result = one_dump_test(data, resolve_relations_label)
 
-    dump_diff(diff_result, f"test_work_relations_big_data_{name}")
+    dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

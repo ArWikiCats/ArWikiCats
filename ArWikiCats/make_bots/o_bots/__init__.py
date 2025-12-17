@@ -17,7 +17,7 @@ from .ethnic_bot import ethnic, ethnic_culture
 from .fax import te_language
 from .parties_bot import get_parties_lab
 from .peoples_resolver import make_people_lab, work_peoples
-from ..reslove_relations.rele import work_relations
+from ..reslove_relations.rele import resolve_relations_label
 from .univer import te_universities
 
 fax = fax_module
@@ -33,5 +33,5 @@ __all__ = [
     "te_language",
     "te_universities",
     "work_peoples",
-    "work_relations",
+    "resolve_relations_label",
 ]
