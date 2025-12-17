@@ -326,7 +326,7 @@ fast_and_data = {
     "ross and cromarty": "روس وكرومارتي",
     "saint kitts and nevis": "سانت كيتس ونيفيس",
     "saint pierre and miquelon": "سان بيير وميكلون",
-    "saint vincent and grenadines": "سانت فينسنت والغرينادين",
+    "saint vincent and grenadines": "سانت فنسنت وجزر غرينادين",
     "saxe-coburg and gotha": "دوقية ساكسونيا كوبورغ وغوتا",
     "science and technology": "العلوم والتكنولوجيا",
     "sports clubs and teams": "أندية وفرق رياضية",
