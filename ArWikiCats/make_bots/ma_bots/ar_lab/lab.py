@@ -392,7 +392,7 @@ def _create_country_lookup_chain(
     """
     return {
         # NOTE: resolve_nat_genders_pattern IN TESTING HERE ONLY
-        "resolve_nat_genders_pattern" : lambda t: resolve_nat_genders_pattern(t),
+        # "resolve_nat_genders_pattern" : lambda t: resolve_nat_genders_pattern(t),
         "resolved_translations_resolvers_v3i" : lambda t: resolved_translations_resolvers_v3i(t),
         "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
         "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
