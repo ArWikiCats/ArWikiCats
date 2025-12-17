@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 """
 TODO: use this code in flowworks
+
+Examples:
+    - en: 18th-century nobility from the Holy Roman Empire
+    - bad arabic: (نبلاء من الإمبراطورية الرومانية المقدسة القرن 18)
+    - good arabic: (نبلاء من الإمبراطورية الرومانية المقدسة في القرن 18)
+
 """
 import re
 import functools
@@ -100,12 +106,6 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         year_bot=year_bot,
         other_key_first=True,
     )
-
-
-def resolve_job_from_countries(category: str) -> str:
-    """Resolve job from countries using the provided multi_bot_v4.country_bot."""
-    _bot = multi_bot_v4()
-    return _bot.country_bot.search_all(category)
 
 
 def resolve_year_job_from_countries(category: str) -> str:
