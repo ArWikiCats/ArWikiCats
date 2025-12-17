@@ -60,7 +60,7 @@ from .nats.Nationality import (
     nats_to_add,
 )
 from .numbers1 import change_numb_to_word
-from .politics.ministers import ministrs_keys
+from .politics.ministers import ministers_keys
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.olympics_data import olympics
 from .sports.Sport_key import (
@@ -172,7 +172,7 @@ __all__ = [
     "New_female_keys",
     "New_male_keys",
     "New_Company",
-    "ministrs_keys",
+    "ministers_keys",
     "change_numb_to_word",
     "People_key",
     "en_is_nat_ar_is_P17",

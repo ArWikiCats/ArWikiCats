@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import functools
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ..translations import all_country_with_nat_ar, ministrs_keys
+from ..translations import all_country_with_nat_ar, ministers_keys
 from .nats_as_country_names import nats_keys_as_country_names
 
 
@@ -102,7 +102,7 @@ def _load_nats_bot() -> MultiDataFormatterBaseV2:
         formatted_data=nat_secretaries_mapping,
         data_list=nats_data,
         key_placeholder="{en}",
-        data_list2=ministrs_keys,
+        data_list2=ministers_keys,
         key2_placeholder="{ministry}",
         text_after="",
         text_before="the ",
@@ -126,7 +126,7 @@ def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
         formatted_data=en_secretaries_mapping,
         data_list=countries_data,
         key_placeholder="{en}",
-        data_list2=ministrs_keys,
+        data_list2=ministers_keys,
         key2_placeholder="{ministry}",
         text_after="",
         text_before="the ",

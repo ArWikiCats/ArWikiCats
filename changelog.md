@@ -1,3 +1,15 @@
+## [#231](https://github.com/MrIbrahem/ArWikiCats/pull/231) - 2025-12-17
+
+* **Bug Fixes**
+  * Corrected Arabic spellings/translations for Eritrea and Saint Vincent and Grenadines across multiple data categories and examples
+  * Fixed a naming typo in public exports for consistency
+
+* **Tests**
+  * Updated test fixtures and expectations to match corrected Arabic translations
+
+* **Refactor**
+  * Consolidated label-resolution logic to improve maintainability
+
 ## [#230](https://github.com/MrIbrahem/ArWikiCats/pull/230) - 2025-12-17
 
 * **Documentation**
