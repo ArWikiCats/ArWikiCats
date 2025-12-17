@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -25,9 +25,10 @@ data0 = {
 }
 
 data1 = {
-    "Category:19th-century women from Ottoman Arabia": "تصنيف:سعوديات في القرن 19",
-    "Category:19th-century poets from Ottoman Arabia": "تصنيف:شعراء سعوديون في القرن 19",
-    "Category:19th-century people from Ottoman Arabia": "تصنيف:عرب سعوديون في القرن 19",
+    "Category:19th-century women from Ottoman Arabia": "تصنيف:نساء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
+    "Category:19th-century poets from Ottoman Arabia": "تصنيف:شعراء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
+    "Category:19th-century people from Ottoman Arabia": "تصنيف:أشخاص من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
+
     "2002 commonwealth games": "تصنيف:ألعاب الكومنولث 2002",
     "2006 commonwealth games": "تصنيف:ألعاب الكومنولث 2006",
     "2014 commonwealth games": "تصنيف:ألعاب الكومنولث 2014",
@@ -201,12 +202,16 @@ def test_4_data_1(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
+@pytest.mark.parametrize("category, expected", data_3.items(), ids=data_3.keys())
+def test_4_data_3(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    dump_diff(add_result, f"{name}_add")
+    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
