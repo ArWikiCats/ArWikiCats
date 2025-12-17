@@ -9,6 +9,8 @@ test_0 = {
 }
 
 test_data_standard = {
+    "sports-people": "رياضيون",
+    "sportspeople": "رياضيون",
     "botanists": "علماء نباتات",
     "actors": "ممثلون",
     "actresses": "ممثلات",
@@ -90,7 +92,6 @@ test_data_standard = {
     "singers": "مغنون",
     "songwriters": "كتاب أغان",
     "sportsmen": "رياضيون رجال",
-    "sportspeople": "أعلام رياضية",
     "sportswomen": "رياضيات",
     "translators": "مترجمون",
     "violinists": "عازفو كمان",

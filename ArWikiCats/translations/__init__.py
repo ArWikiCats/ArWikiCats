@@ -9,7 +9,7 @@ from .geo.labels_country import get_from_new_p17_final, US_STATES
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
-from .jobs.jobs_womens import Female_Jobs, short_womens_jobs
+from .jobs.jobs_womens import Female_Jobs, short_womens_jobs, FEMALE_JOBS_BASE
 from .languages import lang_key_m, lang_ttty, languages_key, languages_pop
 from .mixed.all_keys2 import (
     People_key,
@@ -114,6 +114,7 @@ __all__ = [
     "CITY_TRANSLATIONS_LOWER",
     "jobs_mens_data",
     "jobs_womens_data",
+    "FEMALE_JOBS_BASE",
     "short_womens_jobs",
     "Female_Jobs",
     "NAT_BEFORE_OCC",
