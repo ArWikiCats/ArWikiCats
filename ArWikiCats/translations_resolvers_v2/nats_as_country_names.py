@@ -55,4 +55,26 @@ nats_keys_as_country_names = {
         "the_female": "الأيرلندية الشمالية",
         "the_male": "الأيرلندي الشمالي"
     },
+    "antigua and barbuda": {
+        # "en_nat": "antiguan and barbudan",
+        "en": "antigua and barbuda",
+        "ar": "أنتيغوا وباربودا",
+        "male": "أنتيغوي وبربودي",
+        "males": "أنتيغويون وبربوديون",
+        "female": "أنتيغوية وبربودية",
+        "females": "أنتيغويات وبربوديات",
+        "the_female": "الأنتيغوية والبربودية",
+        "the_male": "الأنتيغوي والبربودي"
+    },
+    "trinidad and tobago": {
+        "xx": "trinidadian",
+        "male": "ترنيدادي",
+        "males": "ترنيداديون",
+        "female": "ترنيدادية",
+        "females": "ترنيداديات",
+        "en": "trinidad and tobago",
+        "ar": "ترينيداد وتوباغو",
+        "the_female": "الترنيدادية",
+        "the_male": "الترنيدادي"
+    },
 }

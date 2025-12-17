@@ -113,8 +113,32 @@ def load_sources() -> Dict[str, NationalityEntry]:
     """
 
     raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
+
+    raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
+    raw_all_nat_o.update(raw_nats_as_en_key)
+
     raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
     raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
+
+    raw_uu_nats_en_as_nat = ['hoklo', 'yoruba', 'gothic', 'caucasus', 'arab']
+    raw_all_nat_o_en_as_nat = [
+        "trinidad and tobago",
+        "central african republic",
+        "chinese taipei",
+        "dominican republic",
+        "federated states-of micronesia",
+        "hong kong",
+        "kiribati",
+        "kyrgyz",
+        "liechtenstein",
+        "lesotho",
+        "são toméan",
+        "turkmen",
+        "turkmenistan",
+        "uzbek",
+        "vatican",
+        "northern ireland"
+    ]
 
     # Fix hindustani
     if raw_uu_nats.get("hindustani"):
