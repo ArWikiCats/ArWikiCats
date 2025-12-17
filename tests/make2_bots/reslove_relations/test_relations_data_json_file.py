@@ -4,6 +4,7 @@ from pathlib import Path
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
+from ArWikiCats import resolve_label_ar
 
 
 def _load_data(file_name) -> list:
@@ -40,7 +41,8 @@ TEMPORAL_CASES2 = _load_data("relations_data_empty.json")
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES2)
 @pytest.mark.skip2
 def test_empty_dump(name: str, data: str) -> None:
-    expected, diff_result = one_dump_test(data, resolve_relations_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
+    # expected, diff_result = one_dump_test(data, resolve_relations_label)
 
     dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
