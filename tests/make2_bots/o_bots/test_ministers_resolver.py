@@ -10,7 +10,7 @@ fast_data = {
     # US specific pattern
     "United States secretaries of state": "وزراء خارجية أمريكيون",    # Secretaries of state patterns - all countries from _all_country_with_nat
     "secretaries of state of eastern asia": "وزراء خارجية آسيويين شرقيون",
-    "secretaries of state of eastern european": "وزراء خارجية أوروبيون شرقيون",
+    "secretaries of state of eastern europe": "وزراء خارجية أوروبيون شرقيون",
     "secretaries of state of ecuador": "وزراء خارجية إكوادوريون",
     "secretaries of state of egypt": "وزراء خارجية مصريون",
     "secretaries of state of united arab emirates": "وزراء خارجية إماراتيون",
@@ -26,7 +26,7 @@ fast_data = {
     "assistant secretaries of health of england": "مساعدو وزير الصحة الإنجليزي",
     "assistant secretaries of education of ecuador": "مساعدو وزير التعليم الإكوادوري",
     "assistant secretaries of finance of eastern asia": "مساعدو وزير المالية الآسيوي الشرقي",
-    "assistant secretaries of defense of eastern european": "مساعدو وزير الدفاع الأوروبي الشرقي",
+    "assistant secretaries of defense of eastern europe": "مساعدو وزير الدفاع الأوروبي الشرقي",
     "assistant secretaries of agriculture of equatorial guinea": "مساعدو وزير الزراعة الغيني الاستوائي",
 
     # Deputy secretaries patterns - multiple countries
@@ -35,7 +35,7 @@ fast_data = {
     "deputy secretaries of health of england": "نواب وزير الصحة الإنجليزي",
     "deputy secretaries of finance of ecuador": "نواب وزير المالية الإكوادوري",
     "deputy secretaries of economy of eastern asia": "نواب وزير الاقتصاد الآسيوي الشرقي",
-    "deputy secretaries of culture of eastern european": "نواب وزير الثقافة الأوروبي الشرقي",
+    "deputy secretaries of culture of eastern europe": "نواب وزير الثقافة الأوروبي الشرقي",
 
     # Under secretaries patterns - multiple countries
     "under secretaries of defense of egypt": "نواب وزير الدفاع المصري للشؤون المتخصصة",
@@ -78,9 +78,9 @@ fast_data = {
     "secretaries of economy of eastern asia": "وزراء اقتصاد آسيويين شرقيون",
 
     # Country secretaries of ministry patterns - Eastern European
-    "secretaries of defense of eastern european": "وزراء دفاع أوروبيون شرقيون",
-    "secretaries of interior of eastern european": "وزراء داخلية أوروبيون شرقيون",
-    "secretaries of culture of eastern european": "وزراء ثقافة أوروبيون شرقيون",
+    "secretaries of defense of eastern europe": "وزراء دفاع أوروبيون شرقيون",
+    "secretaries of interior of eastern europe": "وزراء داخلية أوروبيون شرقيون",
+    "secretaries of culture of eastern europe": "وزراء ثقافة أوروبيون شرقيون",
 
     # Country secretaries of ministry patterns - Equatorial Guinean
     "secretaries of defense of equatorial guinea": "وزراء دفاع غينيون استوائيون",
@@ -223,10 +223,10 @@ fast_data = {
     "secretaries of war and navy of eastern asia": "وزراء حرب وبحرية آسيويين شرقيون",
 
     # Combined ministries with countries - Eastern European
-    "secretaries of health and human services of eastern european": "وزراء صحة وخدمات إنسانية أوروبيون شرقيون",
-    "secretaries of communications and transportation of eastern european": "وزراء اتصالات ونقل أوروبيون شرقيون",
-    "secretaries of environment and natural resources of eastern european": "وزراء بيئة وموارد طبيعية أوروبيون شرقيون",
-    "secretaries of war and navy of eastern european": "وزراء حرب وبحرية أوروبيون شرقيون",
+    "secretaries of health and human services of eastern europe": "وزراء صحة وخدمات إنسانية أوروبيون شرقيون",
+    "secretaries of communications and transportation of eastern europe": "وزراء اتصالات ونقل أوروبيون شرقيون",
+    "secretaries of environment and natural resources of eastern europe": "وزراء بيئة وموارد طبيعية أوروبيون شرقيون",
+    "secretaries of war and navy of eastern europe": "وزراء حرب وبحرية أوروبيون شرقيون",
 
     # Combined ministries with countries - Equatorial Guinea
     "secretaries of health and human services of equatorial guinea": "وزراء صحة وخدمات إنسانية غينيون استوائيون",

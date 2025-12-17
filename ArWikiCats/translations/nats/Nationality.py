@@ -72,6 +72,7 @@ raw_sub_nat_additional_to_check = {
         "the_male": "المسلم"
     },
 }
+
 raw_sub_nat_additional = {
     "jews": {
         "male": "يهودي",
@@ -106,19 +107,24 @@ raw_sub_nat_additional = {
 }
 
 
-def load_sources() -> Dict[str, NationalityEntry]:
+def load_sources(
+    raw_nats_as_en_key: Dict[str, Dict[str, str]] | None = None,
+) -> Dict[str, NationalityEntry]:
     """
     Load nationality JSON data and merge All_Nat_o + uu_nats + Sub_Nat.
     Ensures all entries follow the NationalityEntry structure (string values only).
     """
 
     raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
+
+    if raw_nats_as_en_key:
+        raw_all_nat_o.update(raw_nats_as_en_key)
+        raw_all_nat_o.update(build_en_nat_entries(raw_nats_as_en_key))
+
     raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
     raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
 
-    # Fix hindustani
-    if raw_uu_nats.get("hindustani"):
-        raw_uu_nats["hindustan"] = raw_uu_nats["hindustani"]
+    raw_uu_nats.update(build_en_nat_entries(raw_uu_nats))
 
     data = {}
 
@@ -144,6 +150,15 @@ def load_sources() -> Dict[str, NationalityEntry]:
 
     return normalized
 
+
+def build_en_nat_entries(raw_nats_as_en_key: Dict[str, Any]):
+    data: Dict[str, Any] = {}
+
+    for x, v in raw_nats_as_en_key.items():
+        if v.get("en_nat"):
+            data[v["en_nat"]] = build_nationality_structure(v)
+
+    return data
 
 # =====================================================================
 # Section 2: Normalize aliases
@@ -379,7 +394,9 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
 # Main Execution (same logic as before)
 # =====================================================================
 
-All_Nat_o: Dict[str, NationalityEntry] = load_sources()
+raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
+All_Nat_o: Dict[str, NationalityEntry] = load_sources(raw_nats_as_en_key)
+
 All_Nat_o = normalize_aliases(All_Nat_o, True)
 
 All_Nat: AllNatDict = {k.lower(): v for k, v in All_Nat_o.items()}
@@ -411,6 +428,7 @@ nats_to_add = {}
 len_print.data_len(
     "nationality.py",
     {
+        "raw_nats_as_en_key": raw_nats_as_en_key,
         "ar_Nat_men": ar_Nat_men,
         "Nat_men": Nat_men,
         "Nat_mens": Nat_mens,
