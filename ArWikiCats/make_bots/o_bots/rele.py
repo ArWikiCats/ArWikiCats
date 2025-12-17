@@ -189,6 +189,5 @@ def work_relations(value: str) -> str:
 
 
 __all__ = [
-    "RELATIONS_END_KEYS",
     "work_relations",
 ]
