@@ -1,18 +1,18 @@
 ## [#224](https://github.com/MrIbrahem/ArWikiCats/pull/224) - 2025-12-17
 
 * **New Features**
-  * Added combined year-and-country translation formatting for improved multi-data label generation
-  * Introduced new translation resolution module supporting advanced translation workflows
+  * Added combined year-and-country formatter and a new translation resolution flow for richer label composition
+  * Introduced a dynamic "from"-style formatter to support key/value placeholder handling
 
 * **Bug Fixes**
-  * Fixed optional parameter handling in data formatters for safer defaults
-  * Improved search functionality with real-time lookup results
+  * Safer defaults for optional data mappings
+  * Search now returns real lookup results; removed extraneous debug output
 
 * **Tests**
-  * Expanded test coverage for new translation formatting and resolution features
+  * Added integration/unit tests for the new resolvers; removed an outdated test file
 
 * **Documentation**
-  * Changelog updated with latest improvements
+  * Changelog updated with PR details
 
 ## [#223](https://github.com/MrIbrahem/ArWikiCats/pull/223) - 2025-12-17
 
