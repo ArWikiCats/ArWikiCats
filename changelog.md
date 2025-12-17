@@ -1,3 +1,18 @@
+## [#233](https://github.com/MrIbrahem/ArWikiCats/pull/233) - 2025-12-18
+
+* **Bug Fixes**
+  * Corrected Arabic spellings/diacritics across pan‑African related translations.
+
+* **New Features**
+  * Added additional regional classification data and related category entries.
+  * Improved label resolution for relation/category labels.
+
+* **Refactor**
+  * Consolidated resolution logic and updated public exports for clearer APIs.
+
+* **Tests**
+  * Updated test data and expectations to match corrected translations and new classifications.
+
 ## [#232](https://github.com/MrIbrahem/ArWikiCats/pull/232) - 2025-12-18
 
 * **Bug Fixes**
