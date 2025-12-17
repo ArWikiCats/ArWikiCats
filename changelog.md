@@ -1,3 +1,14 @@
+## [#230](https://github.com/MrIbrahem/ArWikiCats/pull/230) - 2025-12-17
+
+* **Documentation**
+  * Added resolver documentation examples with an external reference link.
+
+* **Tests**
+  * Replaced a large test dataset with a smaller focused set and adjusted related expectations; added a new case for a year-country translation.
+
+* **Chores**
+  * Updated many Arabic translation strings (economic history phrasing and Ottoman Iraq grammatical fixes) and removed one obsolete mapping; added a new Arabic label for the Republic of Venice; standardized input normalization for some resolver inputs.
+
 ## [#229](https://github.com/MrIbrahem/ArWikiCats/pull/229) - 2025-12-17
 
 * **New Features**
