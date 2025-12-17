@@ -2,6 +2,7 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
 
 
@@ -926,3 +927,18 @@ def test_resolve_v3i_2(category: str, expected: str) -> None:
     """
     result = resolve_year_job_from_countries(category)
     assert result == expected
+
+
+to_test = [
+    ("test_resolve_v3i", test_data_standard),
+    ("test_resolve_v3i_2", test_data_2),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_all(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_year_job_from_countries)
+    dump_diff(diff_result, name)
+    dump_diff_text(expected, diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
