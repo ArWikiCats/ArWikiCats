@@ -148,7 +148,7 @@ def resolve_relations_label(value: str) -> str:
         be interpreted.
     """
 
-    normalized = value.lower().strip()
+    normalized = value.lower().replace("category:", "").strip()
     logger.debug(f"start resolve_relations_label: value:{normalized}")
 
     resolved = _resolve_relations(
