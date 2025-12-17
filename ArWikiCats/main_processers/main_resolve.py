@@ -17,6 +17,7 @@ from ..make_bots.format_bots import change_cat
 from ..make_bots.ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
 from ..translations_resolvers import resolved_translations_resolvers
+from ..translations_resolvers_v3i import resolved_translations_resolvers_v3i
 from ..translations_resolvers_v2 import resolved_translations_resolvers_v2
 from ..translations_resolvers.new_jobs_resolver import new_jobs_resolver_label
 
@@ -70,6 +71,7 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
 
     if not category_lab:
         category_lab = (
+            resolved_translations_resolvers_v3i(changed_cat) or
             resolved_translations_resolvers_v2(changed_cat) or
             resolved_translations_resolvers(changed_cat) or
             new_jobs_resolver_label(changed_cat) or

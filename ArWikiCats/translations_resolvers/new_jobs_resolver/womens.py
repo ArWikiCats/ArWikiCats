@@ -5,8 +5,9 @@ compare with womens_prefixes_work
 import functools
 import re
 from ...helps import len_print
-from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP
+from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP, FEMALE_JOBS_BASE
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from ...translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
 
 from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
 
@@ -104,6 +105,7 @@ def _load_jobs_data() -> dict[str, str]:
     data.update({
         "actresses": "ممثلات",
     })
+    data.update(FEMALE_JOBS_BASE)
     return data
 
 
@@ -144,6 +146,9 @@ def womens_resolver_labels(category: str) -> str:
     category = category.replace("'", "").lower()
     category = category.replace("expatriates", "expatriate")
     category = REGEX_WOMENS.sub("female", category)
+
+    if category in nats_keys_as_country_names:
+        return ""
 
     return _bot.search_all_category(category)
 

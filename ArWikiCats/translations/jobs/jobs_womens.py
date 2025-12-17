@@ -58,6 +58,7 @@ short_womens_jobs = Female_Jobs
 
 __all__ = [
     "Female_Jobs",
+    "FEMALE_JOBS_BASE",
     "short_womens_jobs",
     "FEMALE_JOBS_TO",
 ]

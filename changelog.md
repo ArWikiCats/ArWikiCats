@@ -1,3 +1,17 @@
+## [#229](https://github.com/MrIbrahem/ArWikiCats/pull/229) - 2025-12-17
+
+* **New Features**
+  * Integrated an improved translation resolver and normalization for label resolution.
+  * Added translations for Safavid Iran and Northern Ireland; expanded related regional/historical mappings.
+  * Exposed additional female jobs data and extended sports/job terminology.
+
+* **Bug Fixes**
+  * Corrected a sports-category label and fixed a nationality key formatting issue.
+  * Minor data count adjustments in metadata.
+
+* **Tests**
+  * Expanded and reorganized test datasets; updated test expectations and execution markers; some tests/data entries commented or removed.
+
 ## [#228](https://github.com/MrIbrahem/ArWikiCats/pull/228) - 2025-12-17
 
 * **New Features**

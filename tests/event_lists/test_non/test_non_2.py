@@ -738,7 +738,6 @@ def test_non_fiction_empty(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.skip2
-@pytest.mark.dump
 def test_non_dump(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)

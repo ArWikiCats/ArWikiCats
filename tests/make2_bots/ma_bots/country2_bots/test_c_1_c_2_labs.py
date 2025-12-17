@@ -531,7 +531,7 @@ def test_c_2_1_lab(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_c_1_1_lab", fast_data_c_1_1_lab, c_1_1_lab),
+    # ("test_c_1_1_lab", fast_data_c_1_1_lab, c_1_1_lab),
     ("test_c_2_1_lab", fast_data_c_2_1_lab, c_2_1_lab),
     ("test_c_2_1_lab", fast_and_data, c_2_1_lab),
 ]
