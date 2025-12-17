@@ -32,7 +32,7 @@ from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat
 from ....translations_resolvers import resolved_translations_resolvers
 from ....translations_resolvers_v2 import resolved_translations_resolvers_v2
 from ....translations_resolvers_v3i import resolved_translations_resolvers_v3i
-
+# from ....main_processers import resolve_nat_genders_pattern
 
 def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
     """Split category into type and country parts using the separator.
@@ -307,6 +307,8 @@ def _create_type_lookup_chain(
         List of lookup functions to try in order
     """
     return {
+        # NOTE: resolve_nat_genders_pattern IN TESTING HERE ONLY
+        # "resolve_nat_genders_pattern" : lambda t: resolve_nat_genders_pattern(t),
         "resolved_translations_resolvers_v3i" : lambda t: resolved_translations_resolvers_v3i(t),
         "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
         "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
@@ -389,6 +391,8 @@ def _create_country_lookup_chain(
         Dictionary of lookup functions to try in order
     """
     return {
+        # NOTE: resolve_nat_genders_pattern IN TESTING HERE ONLY
+        "resolve_nat_genders_pattern" : lambda t: resolve_nat_genders_pattern(t),
         "resolved_translations_resolvers_v3i" : lambda t: resolved_translations_resolvers_v3i(t),
         "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
         "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
