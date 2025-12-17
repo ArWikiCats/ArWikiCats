@@ -97,7 +97,7 @@ def get_label_new(text: str) -> str:
 
     job_part = match.group(1)
     from_part = match.group(2)
-    print(f"get_label_new: {job_part=}, {from_part=}")
+    logger.debug(f"get_label_new: {job_part=}, {from_part=}")
 
     job_label = get_job_label(job_part)
     logger.debug(f"get_label_new: {job_part=}, {job_label=}")

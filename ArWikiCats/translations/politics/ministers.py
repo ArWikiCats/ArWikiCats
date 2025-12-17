@@ -38,7 +38,7 @@ keyses_without_in = [
     "عدل",
 ]
 # ---
-ministrs_keys = {
+ministers_keys = {
     "housing and urban development": {
         "no_al": "إسكان وتنمية حضرية",
         "with_al": "الإسكان والتنمية الحضرية",
@@ -152,8 +152,8 @@ add_keys = [
 # ---
 for key1, key2 in add_keys:
     combined_key = f"{key1} and {key2}"
-    key_1_data = ministrs_keys.get(key1, {})
-    key_2_data = ministrs_keys.get(key2, {})
+    key_1_data = ministers_keys.get(key1, {})
+    key_2_data = ministers_keys.get(key2, {})
     # ---
     if not key_1_data or not key_2_data:
         continue
@@ -167,12 +167,12 @@ for key1, key2 in add_keys:
     if not any([key_1_singular, key_2_singular, key_1_al, key_2_al]):
         continue
     # ---
-    ministrs_keys[combined_key] = {
+    ministers_keys[combined_key] = {
         "no_al": f"{key_1_singular} و{key_2_singular}",
         "with_al": f"{key_1_al} و{key_2_al}",
     }
 
 
 len_print.data_len("ministers.py", {
-    "ministrs_keys": ministrs_keys,
+    "ministers_keys": ministers_keys,
 })
