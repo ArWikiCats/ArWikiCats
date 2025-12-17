@@ -27,7 +27,7 @@ from ArWikiCats.fix.mv_years import move_by_in, move_years, move_years_first
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
-def test_move_years_first(text: str, expected: str) -> None:
+def test_move_years_first_o(text: str, expected: str) -> None:
     """Test move_years_first for all expected patterns."""
     assert move_years_first(text) == expected
 

@@ -4,8 +4,6 @@ import pytest
 from ArWikiCats.fix.mv_years import move_by_in, move_years_first
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
-
 move_years_first_data = {
     "عقد 1910 في بابوا غينيا الجديدة": "بابوا غينيا الجديدة في عقد 1910",
     "2016 في بابوا غينيا الجديدة حسب الشهر": "بابوا غينيا الجديدة في 2016 حسب الشهر",
@@ -329,8 +327,8 @@ move_by_in_data = {
 }
 
 to_test = [
-    ("test_move_years_first", move_years_first_data),
-    ("test_move_by_in", move_by_in_data),
+    ("test_move_years_first", move_years_first_data, move_years_first),
+    ("test_move_by_in", move_by_in_data, move_by_in),
 ]
 
 
@@ -348,11 +346,11 @@ def test_move_by_in(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
+def test_dump_all(name: str, data: dict[str, str], callback) -> None:
 
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
