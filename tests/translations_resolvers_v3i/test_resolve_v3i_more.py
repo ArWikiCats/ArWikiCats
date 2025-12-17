@@ -445,6 +445,44 @@ test_data_standard = {
     "9th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 9"
 }
 
+test_women_from_data = {
+    "10th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 10",
+    "10th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 10",
+    "11th-century women from Georgia (country)": "نساء من جورجيا في القرن 11",
+    "11th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 11",
+    "12th-century women from Georgia (country)": "نساء من جورجيا في القرن 12",
+    "12th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 12",
+    "12th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 12",
+    "13th-century women from Bohemia": "نساء من بوهيميا في القرن 13",
+    "13th-century women from Georgia (country)": "نساء من جورجيا في القرن 13",
+    "13th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 13",
+    "13th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 13",
+    "13th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 13",
+    "14th-century women from Bohemia": "نساء من بوهيميا في القرن 14",
+    "14th-century women from Georgia (country)": "نساء من جورجيا في القرن 14",
+    "14th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 14",
+    "14th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 14",
+    "15th-century women from Bohemia": "نساء من بوهيميا في القرن 15",
+    "15th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 15",
+    "15th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 15",
+    "16th-century women from Bohemia": "نساء من بوهيميا في القرن 16",
+    "16th-century women from Georgia (country)": "نساء من جورجيا في القرن 16",
+    "16th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 16",
+    "16th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 16",
+    "17th-century women from Bohemia": "نساء من بوهيميا في القرن 17",
+    "17th-century women from Georgia (country)": "نساء من جورجيا في القرن 17",
+    "17th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 17",
+    "17th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 17",
+    "18th-century women from Bohemia": "نساء من بوهيميا في القرن 18",
+    "18th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 18",
+    "18th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 18",
+    "19th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 19",
+    "20th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 20",
+    "21st-century women from Georgia (country)": "نساء من جورجيا في القرن 21",
+    "8th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 8",
+    "9th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 9",
+}
+
 test_data_2 = {
 }
 
@@ -460,6 +498,7 @@ def test_resolve_v3i_more_1(category: str, expected: str) -> None:
 
 to_test = [
     ("test_resolve_v3i_more_1", test_data_standard),
+    ("test_resolve_v3i_more_women", test_women_from_data),
 ]
 
 

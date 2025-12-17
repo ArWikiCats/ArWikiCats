@@ -43,45 +43,12 @@ test_0 = {
     "9th-century people from Ifriqiya": ""
 }
 
-test_women_from_data = {
-    "10th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 10",
-    "10th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 10",
-    "11th-century women from Georgia (country)": "نساء من جورجيا في القرن 11",
-    "11th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 11",
-    "12th-century women from Georgia (country)": "نساء من جورجيا في القرن 12",
-    "12th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 12",
-    "12th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 12",
-    "13th-century women from Bohemia": "نساء من بوهيميا في القرن 13",
-    "13th-century women from Georgia (country)": "نساء من جورجيا في القرن 13",
-    "13th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 13",
-    "13th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 13",
-    "13th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 13",
-    "14th-century women from Bohemia": "نساء من بوهيميا في القرن 14",
-    "14th-century women from Georgia (country)": "نساء من جورجيا في القرن 14",
-    "14th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 14",
-    "14th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 14",
-    "15th-century women from Bohemia": "نساء من بوهيميا في القرن 15",
-    "15th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 15",
-    "15th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 15",
-    "16th-century women from Bohemia": "نساء من بوهيميا في القرن 16",
-    "16th-century women from Georgia (country)": "نساء من جورجيا في القرن 16",
-    "16th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 16",
-    "16th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 16",
-    "17th-century women from Bohemia": "نساء من بوهيميا في القرن 17",
-    "17th-century women from Georgia (country)": "نساء من جورجيا في القرن 17",
-    "17th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 17",
-    "17th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 17",
-    "18th-century women from Bohemia": "نساء من بوهيميا في القرن 18",
-    "18th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 18",
-    "19th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 19",
-    "20th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 20",
-    "21st-century women from Georgia (country)": "نساء من جورجيا في القرن 21",
-    "8th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 8",
-    "9th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 9",
-}
-
 test_data_standard = {
+    "15th-century people from the Crown of Aragon": "أشخاص في القرن 15 من مملكة أراغون",
+    "12th-century people from the Crown of Aragon": "أشخاص في القرن 12 من مملكة أراغون",
+    "13th-century people from the crown of aragon": "أشخاص في القرن 13 من تاج أراغون",
+    "14th-century people from the Crown of Aragon": "أشخاص في القرن 14 من مملكة أراغون",
+
     "10th-century nobility from the Kingdom of León": "نبلاء في القرن 10 من مملكة ليون",
     "10th-century people from al-Andalus": "أندلسيون في القرن 10",
     "10th-century people from Ifriqiya": "تونسيون في القرن 10",
@@ -104,15 +71,13 @@ test_data_standard = {
     "12th-century people from Ifriqiya": "تونسيون في القرن 12",
     "12th-century people from the Abbasid Caliphate": "عراقيون في القرن 12",
     "12th-century people from the County of Barcelona": "أشخاص في القرن 12 من كونتية برشلونة",
-    "12th-century people from the Crown of Aragon": "أشخاص في القرن 12 من مملكة أراغون",
     "12th-century people from the Kingdom of Navarre": "أشخاص في القرن 12 من مملكة نبرة",
     "12th-century princes from Kievan Rus'": "أمراء في كييف روس القرن 12",
     "13th-century nobility from the Kingdom of Navarre": "نبلاء في القرن 13 من مملكة نبرة",
     "13th-century people from al-Andalus": "أندلسيون في القرن 13",
-    "13th-century people from Bohemia": "بوهيميون في القرن 13",
-    "13th-century people from Ifriqiya": "تونسيون في القرن 13",
-    "13th-century people from the Crown of Aragon": "أشخاص في القرن 13 من مملكة أراغون",
-    "13th-century people from the Kingdom of León": "أشخاص في القرن 13 من مملكة ليون",
+    "13th-century people from bohemia": "بوهيميون في القرن 13",
+    "13th-century people from ifriqiya": "تونسيون في القرن 13",
+    "13th-century people from the kingdom of león": "أشخاص في القرن 13 من مملكة ليون",
     "13th-century people from the Kingdom of Navarre": "أشخاص في القرن 13 من مملكة نبرة",
     "13th-century people from the Ottoman Empire": "عثمانيون في القرن 13",
     "13th-century princes from Kievan Rus'": "أمراء في كييف روس القرن 13",
@@ -121,7 +86,6 @@ test_data_standard = {
     "14th-century people from Bohemia": "بوهيميون في القرن 14",
     "14th-century people from Georgia (country)": "أشخاص في القرن 14 من جورجيا",
     "14th-century people from Ifriqiya": "تونسيون في القرن 14",
-    "14th-century people from the Crown of Aragon": "أشخاص في القرن 14 من مملكة أراغون",
     "14th-century people from the Kingdom of Navarre": "أشخاص في القرن 14 من مملكة نبرة",
     "14th-century people from the Ottoman Empire": "عثمانيون في القرن 14",
     "14th-century poets from the Ottoman Empire": "شعراء عثمانيون في القرن 14",
@@ -130,7 +94,6 @@ test_data_standard = {
     "15th-century people from al-Andalus": "أندلسيون في القرن 15",
     "15th-century people from Bohemia": "بوهيميون في القرن 15",
     "15th-century people from Ifriqiya": "تونسيون في القرن 15",
-    "15th-century people from the Crown of Aragon": "أشخاص في القرن 15 من مملكة أراغون",
     "15th-century people from the Kingdom of Navarre": "أشخاص في القرن 15 من مملكة نبرة",
     "15th-century people from the Ottoman Empire": "عثمانيون في القرن 15",
     "15th-century physicians from the Ottoman Empire": "أطباء عثمانيون في القرن 15",
@@ -498,6 +461,10 @@ test_data_2 = {
     "9th-century Jews from al-Andalus": "يهود من الأندلس القرن 9",
 }
 
+test_data_3 = {
+
+}
+
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 @pytest.mark.skip2
@@ -521,9 +488,9 @@ def test_resolve_v3i_extended_2(category: str, expected: str) -> None:
 
 to_test = [
     # ("test_resolve_v3i_extended_0", test_0),
-    ("test_resolve_v3i_extended_women", test_women_from_data),
     ("test_resolve_v3i_extended_1", test_data_standard),
     ("test_resolve_v3i_extended_2", test_data_2),
+    ("test_resolve_v3i_extended_3", test_data_3),
 ]
 
 
