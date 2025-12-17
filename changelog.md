@@ -1,3 +1,19 @@
+## [#227](https://github.com/MrIbrahem/ArWikiCats/pull/227) - 2025-12-17
+
+* **New Features**
+  * Added geographic mapping for Ottoman Arabia.
+
+* **Updates**
+  * Improved Arabic translations for sports terminology (acrobatic gymnastics, motorboat) and related labels.
+  * Exposed additional sport key records for broader lookup coverage.
+  * Consolidated gender-specific category phrasing.
+
+* **Tests**
+  * Updated, expanded and reorganized multiple translation and resolver tests (some cases removed, others extended).
+
+* **Chores**
+  * Standardized internal data handling and changelog entry added.
+
 ## [#226](https://github.com/MrIbrahem/ArWikiCats/pull/226) - 2025-12-17
 
 * **New Features**
