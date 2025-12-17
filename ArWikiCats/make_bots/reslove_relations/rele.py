@@ -137,6 +137,21 @@ def _resolve_relations(
     return ""
 
 
+def fix_key(category: str) -> str:
+    category = category.lower().replace("category:", "")
+    category = category.replace("'", "")
+
+    replacements = {
+        "expatriates": "expatriate",
+        "canadian football": "canadian-football",
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    return category
+
+
 def resolve_relations_label(value: str) -> str:
     """Return the label for relations between two countries.
 
@@ -148,7 +163,7 @@ def resolve_relations_label(value: str) -> str:
         be interpreted.
     """
 
-    normalized = value.lower().replace("category:", "").strip()
+    normalized = fix_key(value)
     logger.debug(f"start resolve_relations_label: value:{normalized}")
 
     resolved = _resolve_relations(
