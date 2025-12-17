@@ -239,8 +239,8 @@ test_find_labels_bot_data = {
 }
 
 test_find_teams_bot_data = {
-    "acrobatic gymnastics junior world championships": "بطولة العالم الجمباز الاكروباتيكي للناشئين",
-    "acrobatic gymnastics world championships": "بطولة العالم الجمباز الاكروباتيكي",
+    "acrobatic gymnastics junior world championships": "بطولة العالم للجمباز الاكروباتيكي للناشئين",
+    "acrobatic gymnastics world championships": "بطولة العالم للجمباز الاكروباتيكي",
     "baseball world cup": "كأس العالم لكرة القاعدة",
     "basketball junior world championships": "بطولة العالم لكرة السلة للناشئين",
     "beach volleyball world championships": "بطولة العالم لكرة الطائرة الشاطئية",

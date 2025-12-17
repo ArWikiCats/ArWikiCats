@@ -17,7 +17,7 @@ the_male_sport_team_data = {
     "republic-of-congo shooting federation": "الاتحاد الكونغوي للرماية",
 
     "polish sailing (sport) racing federation": "الاتحاد البولندي لسباق رياضة الإبحار",
-    "abkhaz acrobatic gymnastics federation": "الاتحاد الأبخازي الجمباز الاكروباتيكي",
+    "abkhaz acrobatic gymnastics federation": "الاتحاد الأبخازي للجمباز الاكروباتيكي",
     "abkhaz windsurfing racing federation": "الاتحاد الأبخازي لسباق ركوب القوارب الشراعية",
     "abkhazian acrobatic gymnastics racing federation": "الاتحاد الأبخازي لسباق الجمباز الاكروباتيكي",
     "abkhazian wrestling federation": "الاتحاد الأبخازي للمصارعة",

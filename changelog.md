@@ -1,3 +1,19 @@
+## [#226](https://github.com/MrIbrahem/ArWikiCats/pull/226) - 2025-12-17
+
+* **New Features**
+  * Added geographic mapping for Ottoman Arabia
+
+* **Updates**
+  * Updated Kingdom of Aragon translation for improved accuracy
+
+* **Chores**
+  * Standardized internal data handling conventions
+  * Improved data structure consistency across gender-specific categories
+
+* **Tests**
+  * Expanded test coverage for gender-specific regional categories
+  * Refactored test structure for better maintainability
+
 ## [#225](https://github.com/MrIbrahem/ArWikiCats/pull/225) - 2025-12-17
 
 * **New Features**

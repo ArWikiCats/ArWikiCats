@@ -489,6 +489,20 @@ test_data_2 = {
     "13th-century people from the crown of aragon": "أشخاص من تاج أرغون في القرن 13",
     "14th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 14",
     "11th-century people from the Kingdom of Aragon": "أشخاص من مملكة أرغون في القرن 11",
+
+    "15th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 15",
+    "16th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 16",
+    "17th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 17",
+    "18th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 18",
+    "17th-century businesspeople from the Holy Roman Empire": "شخصيات أعمال من الإمبراطورية الرومانية المقدسة في القرن 17",
+    "18th-century businesspeople from the Holy Roman Empire": "شخصيات أعمال من الإمبراطورية الرومانية المقدسة في القرن 18",
+    "13th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 13",
+    "16th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 16",
+    "17th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 17",
+    "18th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 18",
+    "16th-century composers from the Holy Roman Empire": "ملحنون من الإمبراطورية الرومانية المقدسة في القرن 16",
+    "17th-century engineers from the Holy Roman Empire": "مهندسون من الإمبراطورية الرومانية المقدسة في القرن 17",
+    "18th-century engineers from the Holy Roman Empire": "مهندسون من الإمبراطورية الرومانية المقدسة في القرن 18",
 }
 
 

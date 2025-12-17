@@ -28,6 +28,10 @@ NAT_DATA_to_check = {
 }
 
 NAT_DATA_MALES = {
+    "{en_nat} men's basketball players": "لاعبو كرة سلة {males}",  # 64
+    "{en_nat} men's footballers": "لاعبو كرة قدم {males}",  # 167
+    "{en_nat} expatriate men's footballers": "لاعبو كرة قدم {males} مغتربون",  # 163
+
     # "{en_nat} general election": "الانتخابات التشريعية {males}",
     # "{en_nat} presidential election": "الانتخابات الرئاسية {males}",
 
@@ -50,10 +54,8 @@ NAT_DATA_MALES = {
     "{en_nat} musicians": "موسيقيون {males}",  # 157
     "{en_nat} people by religion": "{males} حسب الدين",  # 164
     "{en_nat} expatriate sports-people by country of residence": "رياضيون {males} مغتربون حسب بلد الإقامة",  # 168
-    "{en_nat} men's footballers": "لاعبو كرة قدم {males}",  # 167
     "{en_nat} diplomats": "دبلوماسيون {males}",  # 172
     "{en_nat} emigrants": "{males} مهاجرون",  # 135
-    "{en_nat} expatriate men's footballers": "لاعبو كرة قدم {males} مغتربون",  # 163
     "{en_nat} people by century": "{males} حسب القرن",  # 121
     "{en_nat} people by political orientation": "{males} حسب التوجه السياسي",  # 156
     "{en_nat} political people": "ساسة {males}",  # 160
@@ -90,7 +92,6 @@ NAT_DATA_MALES = {
     "{en_nat} writers by century": "كتاب {males} حسب القرن",  # 122
     "{en_nat} freestyle swimmers": "سباحو تزلج حر {males}",  # 122
     "{en_nat} politicians by century": "سياسيون {males} حسب القرن",  # 121
-    "{en_nat} men's basketball players": "لاعبو كرة سلة {males}",  # 64
     "{en_nat} human rights activists": "{males} ناشطون في حقوق الإنسان",  # 108
     "{en_nat} composers": "ملحنون {males}",  # 102
     "{en_nat} physicians": "أطباء {males}",  # 117

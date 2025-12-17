@@ -67,6 +67,7 @@ from .sports.Sport_key import (
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
+    SPORT_KEY_RECORDS_BASE,
 )
 from ..translations_resolvers.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
@@ -131,6 +132,7 @@ __all__ = [
     "Nat_men",
     "ar_Nat_men",
     "nats_to_add",
+    "SPORT_KEY_RECORDS_BASE",
     "SPORTS_KEYS_FOR_TEAM",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
