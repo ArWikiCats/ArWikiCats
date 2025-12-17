@@ -1,3 +1,20 @@
+## [#228](https://github.com/MrIbrahem/ArWikiCats/pull/228) - 2025-12-17
+
+* **New Features**
+  * Added nationality gender pattern resolution for Arabic categories
+  * Geographic mapping for Ottoman Arabia
+
+* **Updates**
+  * Improved Arabic translations for sports terminology
+  * Enhanced gender-specific phrasing consolidation
+
+* **Tests**
+  * Expanded and reorganized translation resolver test coverage
+  * Added comprehensive test validation for new features
+
+* **Chores**
+  * Standardized internal data handling and structure
+
 ## [#227](https://github.com/MrIbrahem/ArWikiCats/pull/227) - 2025-12-17
 
 * **New Features**
