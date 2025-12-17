@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from ArWikiCats.make_bots.o_bots.rele import (
+from ArWikiCats.make_bots.reslove_relations.rele import (
     Nat_men,
     Nat_women,
     all_country_ar,

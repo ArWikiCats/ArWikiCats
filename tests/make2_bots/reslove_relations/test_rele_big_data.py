@@ -1,7 +1,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.o_bots.rele import work_relations
+from ArWikiCats.make_bots.reslove_relations.rele import work_relations
 
 big_data = {
     "Afghanistan–Australia sports relations": "العلاقات الأسترالية الأفغانية الرياضية",

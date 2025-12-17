@@ -12,7 +12,7 @@ from ...translations import (
     all_country_ar,
     countries_nat_en_key,
 )
-from .utils import apply_arabic_article
+from ..o_bots.utils import apply_arabic_article
 
 all_country_ar["nato"] = "الناتو"
 

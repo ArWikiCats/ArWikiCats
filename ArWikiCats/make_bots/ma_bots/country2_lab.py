@@ -15,7 +15,7 @@ from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import te_films
 from ..o_bots import parties_bot, univer
 from ..o_bots.peoples_resolver import work_peoples
-from ..o_bots.rele import work_relations
+from ..reslove_relations.rele import work_relations
 from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import sport_lab_suffixes, team_work
 from ...new.time_to_arabic import convert_time_to_arabic
