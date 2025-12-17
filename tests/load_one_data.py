@@ -45,7 +45,7 @@ def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None:
 
     diff_data_path = Path(__file__).parent / "diff_data"
     diff_data_path.mkdir(exist_ok=True, parents=True)
-    file_path = diff_data_path / f"{file_name}_d.json"
+    file_path = diff_data_path / f"{file_name}_wiki.json"
 
     text = "\n".join(save3)
     text = text.replace('تصنيف:', '')
@@ -73,3 +73,21 @@ def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False)
             diff[cat] = result
 
     return org, diff
+
+
+def dump_same_and_not_same(data: dict, diff_result: dict, name: str) -> None:
+    """
+    Dump same data as JSON file for easy copy-paste to wiki.
+
+    dump_same_add(data, diff_result, name)
+    """
+    if not data or not diff_result:
+        return
+
+    same_data = {x: v for x, v in data.items() if x not in diff_result}
+    if len(same_data) != len(data):
+        dump_diff(same_data, f"{name}_same")
+
+    add_data = {x: v for x, v in data.items() if x in diff_result}
+    if len(add_data) != len(data):
+        dump_diff(add_data, f"{name}_not_same")

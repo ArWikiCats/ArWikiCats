@@ -101,7 +101,7 @@ class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
     def __init__(
         self,
         country_bot: FormatDataFrom,
-        year_bot: YearFormatData,
+        year_bot: FormatDataFrom,
         search_first_part: bool = False,
         data_to_find: dict[str, str] | None = None,
         other_key_first: bool = False,

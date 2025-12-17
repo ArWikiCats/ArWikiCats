@@ -98,7 +98,7 @@ def resolve_job_from_countries(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=1)
-def multi_bot_v3() -> MultiDataFormatterBaseYearV3:
+def multi_bot_vv3() -> MultiDataFormatterBaseYearV3:
 
     other_bot = YearFormatData(
         key_placeholder="{year1}",
@@ -122,5 +122,5 @@ def multi_bot_v3() -> MultiDataFormatterBaseYearV3:
 
 def resolve_year_job_from_countries(category: str) -> str:
     """Resolve year and job from countries using yc_bot2."""
-    bot = multi_bot_v3()
+    bot = multi_bot_vv3()
     return bot.search_all(category)

@@ -47,10 +47,13 @@ test_data2 = {
 
 }
 
-test_religions_data_2 = {
+test_data_2 = {
     "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
     "Category:expatriate male actors": "تصنيف:ممثلون ذكور مغتربون",
     "Category:Pakistani expatriate footballers": "تصنيف:لاعبو كرة قدم باكستانيون مغتربون",
+    "educators": "معلمون",
+    "medical doctors": "أطباء",
+    "singers": "مغنون",
 }
 
 
@@ -62,12 +65,18 @@ def test_nat_pattern_multi(category: str, expected: str) -> None:
     assert result == expected
 
 
-@pytest.mark.parametrize("category,expected", test_religions_data_2.items(), ids=test_religions_data_2.keys())
+@pytest.mark.parametrize("category,expected", test_data_2.items(), ids=test_data_2.keys())
 @pytest.mark.fast
 def test_religions_2(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = mens_resolver_labels(category)
     assert result == expected
+
+
+@pytest.mark.fast
+def test_people_key() -> None:
+    result = mens_resolver_labels("people")
+    assert result == ""
 
 
 def test_nat_and_gender_keys():

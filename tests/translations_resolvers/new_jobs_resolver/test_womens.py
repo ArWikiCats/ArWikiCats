@@ -76,6 +76,9 @@ test_religions_data_2 = {
     "Category:Pakistani expatriate female actors": "تصنيف:ممثلات باكستانيات مغتربات",
     "Category:expatriate female actors": "تصنيف:ممثلات مغتربات",
     "women's guitarists": "عازفات قيثارة",
+    "women educators": "معلمات",
+    "women medical doctors": "طبيبات",
+    "women singers": "مغنيات",
 }
 
 
