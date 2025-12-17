@@ -45,6 +45,7 @@ from .mixed.jenders_prefix_suffix import (
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
 from .nats.Nationality import (
+    raw_nats_as_en_key,
     All_Nat,
     Nat_men,
     Nat_mens,
@@ -121,6 +122,7 @@ __all__ = [
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
     "get_from_new_p17_final",
+    "raw_nats_as_en_key",
     "All_Nat",
     "Nat_women",
     "all_country_ar",

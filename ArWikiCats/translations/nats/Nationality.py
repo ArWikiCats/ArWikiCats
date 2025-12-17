@@ -72,6 +72,7 @@ raw_sub_nat_additional_to_check = {
         "the_male": "المسلم"
     },
 }
+
 raw_sub_nat_additional = {
     "jews": {
         "male": "يهودي",
@@ -118,35 +119,12 @@ def load_sources(
 
     if raw_nats_as_en_key:
         raw_all_nat_o.update(raw_nats_as_en_key)
+        raw_all_nat_o.update(build_en_nat_entries(raw_nats_as_en_key))
 
     raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
     raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
 
-    raw_uu_nats_en_as_nat = ['hoklo', 'yoruba', 'gothic', 'caucasus', 'arab']
-    raw_all_nat_o_en_as_nat = [
-        "trinidad and tobago",
-        "central african republic",
-        "northern ireland",
-        "antigua and barbuda",
-        "chinese taipei",
-        "dominican republic",
-        "federated states-of micronesia",
-        "hong kong",
-        "kiribati",
-        "kyrgyz",
-        "liechtenstein",
-
-        "lesotho",
-        "são toméan",
-        "turkmen",
-        "turkmenistan",
-        "uzbek",
-        "vatican",
-    ]
-
-    # Fix hindustani
-    if raw_uu_nats.get("hindustani"):
-        raw_uu_nats["hindustan"] = raw_uu_nats["hindustani"]
+    raw_uu_nats.update(build_en_nat_entries(raw_uu_nats))
 
     data = {}
 
@@ -172,6 +150,15 @@ def load_sources(
 
     return normalized
 
+
+def build_en_nat_entries(raw_nats_as_en_key: Dict[str, Any]):
+    data: Dict[str, Any] = {}
+
+    for x, v in raw_nats_as_en_key.items():
+        if v.get("en_nat"):
+            data[v["en_nat"]] = build_nationality_structure(v)
+
+    return data
 
 # =====================================================================
 # Section 2: Normalize aliases
@@ -441,6 +428,7 @@ nats_to_add = {}
 len_print.data_len(
     "nationality.py",
     {
+        "raw_nats_as_en_key": raw_nats_as_en_key,
         "ar_Nat_men": ar_Nat_men,
         "Nat_men": Nat_men,
         "Nat_mens": Nat_mens,
