@@ -6,6 +6,8 @@ Examples:
     - en: 18th-century nobility from the Holy Roman Empire
     - bad arabic: (نبلاء من الإمبراطورية الرومانية المقدسة القرن 18)
     - good arabic: (نبلاء من الإمبراطورية الرومانية المقدسة في القرن 18)
+More examples:
+    - https://quarry.wmcloud.org/query/100099
 
 """
 import re
