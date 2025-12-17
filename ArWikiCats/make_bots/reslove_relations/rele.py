@@ -12,7 +12,7 @@ from ...translations import (
     all_country_ar,
     countries_nat_en_key,
 )
-from .utils import apply_arabic_article
+from ..o_bots.utils import apply_arabic_article
 
 all_country_ar["nato"] = "الناتو"
 
@@ -137,7 +137,7 @@ def _resolve_relations(
     return ""
 
 
-def work_relations(value: str) -> str:
+def resolve_relations_label(value: str) -> str:
     """Return the label for relations between two countries.
 
     Args:
@@ -149,7 +149,7 @@ def work_relations(value: str) -> str:
     """
 
     normalized = value.lower().strip()
-    logger.debug(f"start work_relations: value:{normalized}")
+    logger.debug(f"start resolve_relations_label: value:{normalized}")
 
     resolved = _resolve_relations(
         normalized,
@@ -159,7 +159,7 @@ def work_relations(value: str) -> str:
         add_article=True,
     )
     if resolved:
-        logger.info(f"work_relations (female): cat: {value}, {resolved=}")
+        logger.info(f"resolve_relations_label (female): cat: {value}, {resolved=}")
         return resolved
 
     resolved = _resolve_relations(
@@ -170,7 +170,7 @@ def work_relations(value: str) -> str:
         add_article=True,
     )
     if resolved:
-        logger.info(f"work_relations (male): cat: {value}, {resolved=}")
+        logger.info(f"resolve_relations_label (male): cat: {value}, {resolved=}")
         return resolved
 
     resolved = _resolve_relations(
@@ -183,12 +183,11 @@ def work_relations(value: str) -> str:
     )
 
     if resolved:
-        logger.info(f"work_relations (): cat: {value}, {resolved=}")
+        logger.info(f"resolve_relations_label (): cat: {value}, {resolved=}")
 
     return resolved
 
 
 __all__ = [
-    "RELATIONS_END_KEYS",
-    "work_relations",
+    "resolve_relations_label",
 ]

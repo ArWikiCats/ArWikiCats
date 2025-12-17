@@ -15,7 +15,7 @@ from ..matables_bots.table1_bot import get_KAKO
 from ..media_bots.films_bot import te_films
 from ..o_bots import parties_bot, univer
 from ..o_bots.peoples_resolver import work_peoples
-from ..o_bots.rele import work_relations
+from ..reslove_relations.rele import resolve_relations_label
 from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import sport_lab_suffixes, team_work
 from ...new.time_to_arabic import convert_time_to_arabic
@@ -66,7 +66,7 @@ def get_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        work_relations(country2) or
+        resolve_relations_label(country2) or
         get_from_pf_keys2(country2) or
         resolve_all(country2) or
         convert_time_to_arabic(country2) or

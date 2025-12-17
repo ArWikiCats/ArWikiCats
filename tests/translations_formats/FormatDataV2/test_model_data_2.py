@@ -119,10 +119,10 @@ def test_text_before_after(bot_with_text_affixes: FormatDataV2) -> None:
 def bot_with_overlapping_keys() -> FormatDataV2:
     nationality_data = {
         "South African": {
-            "males": "جنوب أفريقيون",
+            "males": "جنوب إفريقيون",
         },
         "African": {
-            "males": "أفريقيون",
+            "males": "إفريقيون",
         },
     }
 
@@ -138,8 +138,8 @@ def bot_with_overlapping_keys() -> FormatDataV2:
 
 
 test_overlapping_keys_data = {
-    "South African writers": "كتاب جنوب أفريقيون",
-    "African writers": "كتاب أفريقيون",
+    "South African writers": "كتاب جنوب إفريقيون",
+    "African writers": "كتاب إفريقيون",
 }
 
 

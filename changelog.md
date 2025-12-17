@@ -1,4 +1,33 @@
-## [#231](https://github.com/MrIbrahem/ArWikiCats/pull/231) - 2025-12-17
+## [#233](https://github.com/MrIbrahem/ArWikiCats/pull/233) - 2025-12-18
+
+* **Bug Fixes**
+  * Corrected Arabic spellings/diacritics across pan‑African related translations.
+
+* **New Features**
+  * Added additional regional classification data and related category entries.
+  * Improved label resolution for relation/category labels.
+
+* **Refactor**
+  * Consolidated resolution logic and updated public exports for clearer APIs.
+
+* **Tests**
+  * Updated test data and expectations to match corrected translations and new classifications.
+
+## [#232](https://github.com/MrIbrahem/ArWikiCats/pull/232) - 2025-12-18
+
+* **Bug Fixes**
+  * Corrected country name spelling in geography data.
+  * Updated nationality naming inconsistencies and standardized regional designations.
+
+* **New Features**
+  * Expanded nationality dataset with enhanced multilingual translations and gendered forms.
+  * Improved country-nationality mappings for multiple regions.
+
+* **Chores**
+  * Consolidated and cleaned up redundant nationality entries.
+  * Updated test data to reflect current data mappings.
+
+## [#231](https://github.com/MrIbrahem/ArWikiCats/pull/231) - 2025-12-18
 
 * **Bug Fixes**
   * Corrected Arabic spellings/translations for Eritrea and Saint Vincent and Grenadines across multiple data categories and examples
