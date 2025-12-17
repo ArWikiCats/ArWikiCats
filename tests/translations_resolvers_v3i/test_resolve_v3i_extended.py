@@ -532,9 +532,9 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     # dump_diff_text(expected, diff_result, name)
 
     same_data = {x: v for x, v in data.items() if x not in diff_result}
-    # dump_diff(same_data, f"{name}_same")
+    # if len(same_data) != len(data): dump_diff(same_data, f"{name}_same")
 
     add_data2 = {x: v for x, v in data.items() if x in diff_result}
-    # dump_diff(add_data2, f"{name}_add")
+    # if len(add_data2) != len(data): dump_diff(add_data2, f"{name}_add")
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
