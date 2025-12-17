@@ -577,7 +577,7 @@ data_slow = {
     "treaties extended to curaçao": "اتفاقيات امتدت إلى كوراساو",
     "ukraine–united states military relations": "العلاقات الأمريكية الأوكرانية العسكرية",
     "united kingdom from aden": "المملكة المتحدة من عدن",
-    "united nations security council resolutions concerning eritrea": "قرارات مجلس الأمن التابع للأمم المتحدة بشأن إريتريا",
+    "united nations security council resolutions concerning eritrea": "قرارات مجلس الأمن التابع للأمم المتحدة بشأن إرتريا",
     "united states by state": "الولايات المتحدة حسب الولاية",
     "united states house-of-representatives from missouri territory": "مجلس النواب الأمريكي من إقليم ميزوري",
     "united states in 1330": "الولايات المتحدة في 1330",
