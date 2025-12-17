@@ -25,6 +25,10 @@ from ..new.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 
+label_new_keys = {
+    "crown-of aragon": "تاج أرغون",
+}
+
 jobs_part_labels = {
     "lgbtq people": "أعلام إل جي بي تي كيو",
     "princes": "أمراء",
@@ -83,6 +87,7 @@ def get_label_new(text: str) -> str:
     # from_label = get_lab_for_country2(from_part)
     from_label = (
         medical_keys.get(from_part) or
+        label_new_keys.get(from_part) or
         get_KAKO(from_part) or
         get_from_pf_keys2(from_part) or
         get_from_new_p17_final(from_part) or

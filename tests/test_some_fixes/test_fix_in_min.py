@@ -18,7 +18,7 @@ data_1 = {
 
 data_2 = {
     # NEED FIXING
-    "2020 Chinese Taipei international footballers from Hong Kong": "لاعبو منتخب تايبيه الصينية لكرة القدم من هونغ كونغ في 2020",
+
     "2020 international footballers from Yemen": "لاعبو كرة قدم دوليون من اليمن في 2020",
 
     "14th-century writers from the democratic republic of the Congo": "كتاب من جمهورية الكونغو الديمقراطية في القرن 14",
