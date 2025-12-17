@@ -9,6 +9,9 @@ test_0 = {
 }
 
 test_data_standard = {
+    "19th-century women from Ottoman Arabia": "نساء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
+    "18th-century women from the Russian Empire": "نساء من الإمبراطورية الروسية في القرن 18",
+    "19th-century women from the Russian Empire": "نساء من الإمبراطورية الروسية في القرن 19",
     "21st-century women from Northern Ireland": "نساء من أيرلندا الشمالية في القرن 21",
     "20th-century women from Georgia (country)": "نساء من جورجيا في القرن 20",
     "20th-century women from Northern Ireland": "نساء من أيرلندا الشمالية في القرن 20",
