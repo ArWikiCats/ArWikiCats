@@ -128,8 +128,8 @@ def test_relations_congo(category: str, expected: str) -> None:
 def test_female_relations_basic() -> None:
     """اختبار حالة أساسية للعلاقات النسائية مع دول موجودة في القاموس"""
     with (
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN),
     ):
         result = work_relations("canada–burma military relations")
         assert result == "العلاقات البورمية الكندية العسكرية"
@@ -138,8 +138,8 @@ def test_female_relations_basic() -> None:
 def test_female_relations_special_nato() -> None:
     """اختبار حالة خاصة للناتو مع دولة موجودة"""
     with (
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.all_country_ar", TEST_ALL_COUNTRY_AR),
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.all_country_ar", TEST_ALL_COUNTRY_AR),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
     ):
         result = work_relations("nato–canada relations")
         assert result == "علاقات الناتو وكندا"
@@ -148,8 +148,8 @@ def test_female_relations_special_nato() -> None:
 def test_female_relations_mixed_sources() -> None:
     """اختبار دول من مصادر مختلفة (all_country_with_nat و Nat_women)"""
     with (
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN),
     ):
         result = work_relations("burma–zanzibari border crossings")
         assert result == "معابر الحدود البورمية الزنجبارية"
@@ -158,8 +158,8 @@ def test_female_relations_mixed_sources() -> None:
 def test_female_relations_unknown_country() -> None:
     """اختبار حالة وجود دولة غير موجودة في القواميس"""
     with (
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN),
     ):
         result = work_relations("unknown–canada relations")
         assert result == ""
@@ -172,21 +172,21 @@ def test_female_relations_unknown_country() -> None:
 
 def test_male_relations_basic() -> None:
     """اختبار حالة أساسية للعلاقات الذكورية"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_men", TEST_NAT_MEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_men", TEST_NAT_MEN):
         result = work_relations("german–polish football rivalry")
         assert result == "التنافس الألماني البولندي في كرة القدم"
 
 
 def test_male_relations_with_en_dash() -> None:
     """اختبار استخدام en-dash (–) بدلاً من hyphen (-)"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_men", TEST_NAT_MEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_men", TEST_NAT_MEN):
         result = work_relations("afghan–prussian conflict")
         assert result == "الصراع الأفغاني البروسي"
 
 
 def test_male_relations_with_minus_sign() -> None:
     """اختبار استخدام علامة الطرح (−)"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_men", TEST_NAT_MEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_men", TEST_NAT_MEN):
         result = work_relations("indian−pakistani wars")
         assert result == "الحروب الباكستانية الهندية"
 
@@ -198,14 +198,14 @@ def test_male_relations_with_minus_sign() -> None:
 
 def test_p17_prefixes_basic() -> None:
     """اختبار حالة أساسية للبادئات"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.all_country_ar", TEST_ALL_COUNTRY_AR):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.all_country_ar", TEST_ALL_COUNTRY_AR):
         result = work_relations("afghanistan–pakistan proxy conflict")
         assert result == "صراع أفغانستان وباكستان بالوكالة"
 
 
 def test_p17_prefixes_unknown_country() -> None:
     """اختبار حالة وجود دولة غير معروفة في P17"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.all_country_ar", TEST_ALL_COUNTRY_AR):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.all_country_ar", TEST_ALL_COUNTRY_AR):
         result = work_relations("unknown–pakistan conflict")
         assert result == ""
 
@@ -218,8 +218,8 @@ def test_p17_prefixes_unknown_country() -> None:
 def test_special_nato_case_male() -> None:
     """اختبار حالة الناتو في العلاقات الذكورية (يتطلب معالجة خاصة)"""
     with (
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.all_country_ar", TEST_ALL_COUNTRY_AR),
-        patch.dict("ArWikiCats.make_bots.o_bots.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.all_country_ar", TEST_ALL_COUNTRY_AR),
+        patch.dict("ArWikiCats.make_bots.reslove_relations.rele.countries_nat_en_key", TEST_ALL_COUNTRY_WITH_NAT),
     ):
         result = work_relations("nato–germany conflict")
         assert result == "صراع ألمانيا والناتو"
@@ -233,7 +233,7 @@ def test_unsupported_relation_type() -> None:
 
 def test_missing_separator() -> None:
     """اختبار نص بدون فاصل بين الدول"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN):
         result = work_relations("canadaburma relations")
         assert result == ""
 
@@ -251,28 +251,28 @@ def test_empty_input() -> None:
 
 def test_trailing_whitespace() -> None:
     """اختبار مسافات زائدة في النهاية"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN):
         result = work_relations("canada–burma relations   ")
         assert result == "العلاقات البورمية الكندية"
 
 
 def test_leading_whitespace() -> None:
     """اختبار مسافات زائدة في البداية"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN):
         result = work_relations("   canada–burma relations")
         assert result == "العلاقات البورمية الكندية"
 
 
 def test_mixed_case_input() -> None:
     """اختبار حالة أحرف مختلطة (أعلى وأسفل)"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN):
         result = work_relations("CaNaDa–BuRmA ReLaTiOnS")
         assert result == "العلاقات البورمية الكندية"
 
 
 def test_multiple_dashes() -> None:
     """اختبار نص يحتوي على أكثر من فاصل"""
-    with patch.dict("ArWikiCats.make_bots.o_bots.rele.Nat_women", TEST_NAT_WOMEN):
+    with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN):
         result = work_relations("canada–burma–india relations")
         assert result == ""
 
