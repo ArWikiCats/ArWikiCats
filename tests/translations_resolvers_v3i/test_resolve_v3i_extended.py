@@ -523,6 +523,8 @@ def test_resolve_v3i_extended_2(category: str, expected: str) -> None:
 
 
 to_test = [
+    # ("test_resolve_v3i_extended_0", test_0),
+    ("test_resolve_v3i_extended_women", test_women_from_data),
     ("test_resolve_v3i_extended_1", test_data_standard),
     ("test_resolve_v3i_extended_2", test_data_2),
 ]
