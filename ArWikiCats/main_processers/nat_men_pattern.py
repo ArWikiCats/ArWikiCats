@@ -21,8 +21,9 @@ def _bot_new() -> FormatDataV2:
 
     nats_data={
         x: {
-            "nat_men1": v["males"],
+            "males": v["males"],
             "male": v["male"],
+            "females": v["females"],
         }
         for x, v in All_Nat.items()
         if v.get("males")
