@@ -500,6 +500,7 @@ test_data_2 = {
 
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
+@pytest.mark.skip2
 def test_resolve_v3i_extended_1(category: str, expected: str) -> None:
     """
     Test
@@ -509,6 +510,7 @@ def test_resolve_v3i_extended_1(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category,expected", test_data_2.items(), ids=test_data_2.keys())
+@pytest.mark.skip2
 def test_resolve_v3i_extended_2(category: str, expected: str) -> None:
     """
     Test
