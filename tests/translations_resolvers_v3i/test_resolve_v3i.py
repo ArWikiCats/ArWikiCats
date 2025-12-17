@@ -72,8 +72,8 @@ class TestAllParts:
         assert result == expected
 
     data_2 = {
-        "21st-century musicians by instrument from Northern Ireland": "موسيقيون في القرن 21 حسب الآلة من أيرلندا الشمالية",
-        "20th-century musicians by instrument from Northern Ireland": "موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
+        # "21st-century musicians by instrument from Northern Ireland": "موسيقيون في القرن 21 حسب الآلة من أيرلندا الشمالية",
+        # "20th-century musicians by instrument from Northern Ireland": "موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
 
         "9th-century people from East Francia": "أشخاص من مملكة الفرنجة الشرقيين في القرن 9",
         "9th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 9",

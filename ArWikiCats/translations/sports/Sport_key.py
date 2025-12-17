@@ -179,14 +179,16 @@ def _initialise_tables() -> dict[str, SportKeyRecord]:
     records = _load_base_records()
     _apply_aliases(records)
 
-    # Variants are created in a separate dictionary to avoid modifying the
-    # collection while iterating over it.
-    records.update(_generate_variants(records))
-
     return records
 
 
-SPORT_KEY_RECORDS: dict[str, SportKeyRecord] = _initialise_tables()
+SPORT_KEY_RECORDS_BASE: dict[str, SportKeyRecord] = _initialise_tables()
+# Variants are created in a separate dictionary to avoid modifying the
+# collection while iterating over it.
+SPORT_KEY_RECORDS_VARIANTS = _generate_variants(SPORT_KEY_RECORDS_BASE)
+
+SPORT_KEY_RECORDS = SPORT_KEY_RECORDS_BASE | SPORT_KEY_RECORDS_VARIANTS
+
 SPORT_KEY_TABLES: SportKeyTables = _build_tables(SPORT_KEY_RECORDS)
 
 SPORTS_KEYS_FOR_LABEL: Final[dict[str, str]] = SPORT_KEY_TABLES.label
@@ -200,6 +202,8 @@ len_print.data_len(
     "Sport_key.py",
     {
         "SPORT_KEY_RECORDS": SPORT_KEY_RECORDS,
+        "SPORT_KEY_RECORDS_BASE": SPORT_KEY_RECORDS_BASE,
+        "SPORT_KEY_RECORDS_VARIANTS": SPORT_KEY_RECORDS_VARIANTS,
         "SPORTS_KEYS_FOR_LABEL": SPORTS_KEYS_FOR_LABEL,
         "SPORTS_KEYS_FOR_JOBS": SPORTS_KEYS_FOR_JOBS,
         "SPORTS_KEYS_FOR_OLYMPIC": SPORTS_KEYS_FOR_OLYMPIC,
@@ -209,6 +213,8 @@ len_print.data_len(
 
 __all__ = [
     "SPORT_KEY_RECORDS",
+    "SPORT_KEY_RECORDS_BASE",
+    "SPORT_KEY_RECORDS_VARIANTS",
     "SPORT_KEY_TABLES",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
