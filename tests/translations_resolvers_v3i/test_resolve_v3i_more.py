@@ -9,6 +9,17 @@ test_0 = {
 }
 
 test_data_standard = {
+    "19th-century women from Ottoman Arabia": "نساء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
+    "18th-century women from the Russian Empire": "نساء من الإمبراطورية الروسية في القرن 18",
+    "19th-century women from the Russian Empire": "نساء من الإمبراطورية الروسية في القرن 19",
+    "21st-century women from Northern Ireland": "نساء من أيرلندا الشمالية في القرن 21",
+    "20th-century women from Georgia (country)": "نساء من جورجيا في القرن 20",
+    "20th-century women from Northern Ireland": "نساء من أيرلندا الشمالية في القرن 20",
+    "19th-century women from Georgia (country)": "نساء من جورجيا في القرن 19",
+    "12th-century women from Kievan Rus'": "نساء من كييف روس في القرن 12",
+    "11th-century women from Kievan Rus'": "نساء من كييف روس في القرن 11",
+    "11th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 11",
+
     "10th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 10",
     "10th-century nobility from the Holy Roman Empire": "نبلاء من الإمبراطورية الرومانية المقدسة في القرن 10",
     "10th-century people from Georgia (country)": "أشخاص من جورجيا في القرن 10",
@@ -19,8 +30,6 @@ test_data_standard = {
     "11th-century people from Bohemia": "أشخاص من بوهيميا في القرن 11",
     "11th-century people from Georgia (country)": "أشخاص من جورجيا في القرن 11",
     "11th-century people from Kievan Rus'": "أشخاص من كييف روس في القرن 11",
-    "11th-century women from Kievan Rus'": "نساء من كييف روس في القرن 11",
-    "11th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 11",
     "12th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 12",
     "12th-century Jews from the Abbasid Caliphate": "يهود من الدولة العباسية في القرن 12",
     "12th-century nobility from the Holy Roman Empire": "نبلاء من الإمبراطورية الرومانية المقدسة في القرن 12",
@@ -28,7 +37,6 @@ test_data_standard = {
     "12th-century people from Georgia (country)": "أشخاص من جورجيا في القرن 12",
     "12th-century people from Kievan Rus'": "أشخاص من كييف روس في القرن 12",
     "12th-century poets from Georgia (country)": "شعراء من جورجيا في القرن 12",
-    "12th-century women from Kievan Rus'": "نساء من كييف روس في القرن 12",
     "13th-century people from Georgia (country)": "أشخاص من جورجيا في القرن 13",
     "13th-century poets from Georgia (country)": "شعراء من جورجيا في القرن 13",
     "14th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 14",
@@ -201,7 +209,6 @@ test_data_standard = {
     "19th-century scientists from Georgia (country)": "علماء من جورجيا في القرن 19",
     "19th-century singers from the Russian Empire": "مغنون من الإمبراطورية الروسية في القرن 19",
     "19th-century women educators from Georgia (country)": "معلمات من جورجيا في القرن 19",
-    "19th-century women from Georgia (country)": "نساء من جورجيا في القرن 19",
     "19th-century women musicians from the Russian Empire": "موسيقيات من الإمبراطورية الروسية في القرن 19",
     "19th-century women painters from the Russian Empire": "رسامات من الإمبراطورية الروسية في القرن 19",
     "19th-century women scientists from Georgia (country)": "عالمات من جورجيا في القرن 19",
@@ -315,8 +322,6 @@ test_data_standard = {
     "20th-century women artists from Northern Ireland": "فنانات من أيرلندا الشمالية في القرن 20",
     "20th-century women educators from Georgia (country)": "معلمات من جورجيا في القرن 20",
     "20th-century women educators from Northern Ireland": "معلمات من أيرلندا الشمالية في القرن 20",
-    "20th-century women from Georgia (country)": "نساء من جورجيا في القرن 20",
-    "20th-century women from Northern Ireland": "نساء من أيرلندا الشمالية في القرن 20",
     "20th-century women journalists from Northern Ireland": "صحفيات من أيرلندا الشمالية في القرن 20",
     "20th-century women lawyers from Northern Ireland": "محاميات من أيرلندا الشمالية في القرن 20",
     "20th-century women medical doctors from Northern Ireland": "طبيبات من أيرلندا الشمالية في القرن 20",
@@ -418,7 +423,6 @@ test_data_standard = {
     "21st-century sportswomen from Northern Ireland": "رياضيات من أيرلندا الشمالية في القرن 21",
     "21st-century women artists from Northern Ireland": "فنانات من أيرلندا الشمالية في القرن 21",
     "21st-century women composers from Northern Ireland": "ملحنات من أيرلندا الشمالية في القرن 21",
-    "21st-century women from Northern Ireland": "نساء من أيرلندا الشمالية في القرن 21",
     "21st-century women journalists from Northern Ireland": "صحفيات من أيرلندا الشمالية في القرن 21",
     "21st-century women lawyers from Northern Ireland": "محاميات من أيرلندا الشمالية في القرن 21",
     "21st-century women musicians from Georgia (country)": "موسيقيات من جورجيا في القرن 21",
@@ -441,21 +445,72 @@ test_data_standard = {
     "9th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 9"
 }
 
+test_women_from_data = {
+    "10th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 10",
+    "10th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 10",
+    "11th-century women from Georgia (country)": "نساء من جورجيا في القرن 11",
+    "11th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 11",
+    "12th-century women from Georgia (country)": "نساء من جورجيا في القرن 12",
+    "12th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 12",
+    "12th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 12",
+    "13th-century women from Bohemia": "نساء من بوهيميا في القرن 13",
+    "13th-century women from Georgia (country)": "نساء من جورجيا في القرن 13",
+    "13th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 13",
+    "13th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 13",
+    "13th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 13",
+    "14th-century women from Bohemia": "نساء من بوهيميا في القرن 14",
+    "14th-century women from Georgia (country)": "نساء من جورجيا في القرن 14",
+    "14th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 14",
+    "14th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 14",
+    "15th-century women from Bohemia": "نساء من بوهيميا في القرن 15",
+    "15th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 15",
+    "15th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 15",
+    "16th-century women from Bohemia": "نساء من بوهيميا في القرن 16",
+    "16th-century women from Georgia (country)": "نساء من جورجيا في القرن 16",
+    "16th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 16",
+    "16th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 16",
+    "17th-century women from Bohemia": "نساء من بوهيميا في القرن 17",
+    "17th-century women from Georgia (country)": "نساء من جورجيا في القرن 17",
+    "17th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 17",
+    "17th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 17",
+    "18th-century women from Bohemia": "نساء من بوهيميا في القرن 18",
+    "18th-century women from the Holy Roman Empire": "نساء من الإمبراطورية الرومانية المقدسة في القرن 18",
+    "18th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 18",
+    "19th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 19",
+    "20th-century women from the Ottoman Empire": "نساء من الدولة العثمانية في القرن 20",
+    "21st-century women from Georgia (country)": "نساء من جورجيا في القرن 21",
+    "8th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 8",
+    "9th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 9",
+}
+
 test_data_2 = {
+    "15th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 15",
+    "12th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 12",
+    "13th-century people from the crown of aragon": "أشخاص من تاج أرغون في القرن 13",
+    "14th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 14",
+    "11th-century people from the Kingdom of Aragon": "أشخاص من مملكة أرغون في القرن 11",
 }
 
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
+@pytest.mark.fast
 def test_resolve_v3i_more_1(category: str, expected: str) -> None:
-    """
-    Test
-    """
+    """    Test resolve year job from countries function for test_data_standard. """
+    result = resolve_year_job_from_countries(category)
+    assert result == expected
+
+
+@pytest.mark.parametrize("category,expected", test_women_from_data.items(), ids=test_women_from_data.keys())
+@pytest.mark.fast
+def test_resolve_v3i_more_women(category: str, expected: str) -> None:
+    """    Test resolve year job from countries function for test_women_from_data. """
     result = resolve_year_job_from_countries(category)
     assert result == expected
 
 
 to_test = [
     ("test_resolve_v3i_more_1", test_data_standard),
+    ("test_resolve_v3i_more_women", test_women_from_data),
 ]
 
 

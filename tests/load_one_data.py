@@ -75,7 +75,7 @@ def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False)
     return org, diff
 
 
-def dump_same_and_not_same(data: dict, diff_result: dict, name: str) -> None:
+def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: bool=False) -> None:
     """
     Dump same data as JSON file for easy copy-paste to wiki.
 
@@ -85,9 +85,9 @@ def dump_same_and_not_same(data: dict, diff_result: dict, name: str) -> None:
         return
 
     same_data = {x: v for x, v in data.items() if x not in diff_result}
-    if len(same_data) != len(data):
+    if len(same_data) != len(data) or just_dump:
         dump_diff(same_data, f"{name}_same")
 
     add_data = {x: v for x, v in data.items() if x in diff_result}
-    if len(add_data) != len(data):
+    if len(add_data) != len(data) or just_dump:
         dump_diff(add_data, f"{name}_not_same")

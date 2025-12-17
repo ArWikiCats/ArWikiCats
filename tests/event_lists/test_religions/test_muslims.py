@@ -210,7 +210,7 @@ data2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", religions_data.items(), ids=[k for k in religions_data])
+@pytest.mark.parametrize("category, expected", religions_data.items(), ids=religions_data.keys())
 def test_muslims(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
