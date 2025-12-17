@@ -45,7 +45,7 @@ def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None:
 
     diff_data_path = Path(__file__).parent / "diff_data"
     diff_data_path.mkdir(exist_ok=True, parents=True)
-    file_path = diff_data_path / f"{file_name}_d.json"
+    file_path = diff_data_path / f"{file_name}_wiki.json"
 
     text = "\n".join(save3)
     text = text.replace('تصنيف:', '')
