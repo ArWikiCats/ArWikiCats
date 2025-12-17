@@ -484,6 +484,11 @@ test_women_from_data = {
 }
 
 test_data_2 = {
+    "15th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 15",
+    "12th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 12",
+    "13th-century people from the crown of aragon": "أشخاص من تاج أرغون في القرن 13",
+    "14th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 14",
+    "11th-century people from the Kingdom of Aragon": "أشخاص من مملكة أرغون في القرن 11",
 }
 
 

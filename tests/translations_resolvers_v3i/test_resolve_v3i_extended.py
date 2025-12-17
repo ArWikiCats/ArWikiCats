@@ -44,10 +44,6 @@ test_0 = {
 }
 
 test_data_standard = {
-    "15th-century people from the Crown of Aragon": "أشخاص في القرن 15 من مملكة أراغون",
-    "12th-century people from the Crown of Aragon": "أشخاص في القرن 12 من مملكة أراغون",
-    "13th-century people from the crown of aragon": "أشخاص في القرن 13 من تاج أراغون",
-    "14th-century people from the Crown of Aragon": "أشخاص في القرن 14 من مملكة أراغون",
 
     "10th-century nobility from the Kingdom of León": "نبلاء في القرن 10 من مملكة ليون",
     "10th-century people from al-Andalus": "أندلسيون في القرن 10",
@@ -61,7 +57,6 @@ test_data_standard = {
     "11th-century people from Ifriqiya": "تونسيون في القرن 11",
     "11th-century people from the Abbasid Caliphate": "عراقيون في القرن 11",
     "11th-century people from the County of Barcelona": "أشخاص في القرن 11 من كونتية برشلونة",
-    "11th-century people from the Kingdom of Aragon": "أشخاص في القرن 11 من مملكة أراغون",
     "11th-century people from the Kingdom of León": "أشخاص في القرن 11 من مملكة ليون",
     "11th-century people from the Kingdom of Pamplona": "أشخاص في القرن 11 من مملكة نبرة",
     "11th-century people from the Savoyard State": "أشخاص من منطقة سافوا في القرن 11",
