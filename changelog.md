@@ -1,3 +1,16 @@
+## [#225](https://github.com/MrIbrahem/ArWikiCats/pull/225) - 2025-12-17
+
+* **New Features**
+  * Enhanced year-and-country resolver with dynamic translation labels
+  * Improved search functionality with better result accuracy
+
+* **Bug Fixes**
+  * Safer data mapping defaults
+  * Fixed search to return actual lookup results
+
+* **Tests**
+  * Added comprehensive test coverage for new resolvers and translation mappings
+
 ## [#224](https://github.com/MrIbrahem/ArWikiCats/pull/224) - 2025-12-17
 
 * **New Features**
