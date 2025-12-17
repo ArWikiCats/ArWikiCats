@@ -2,7 +2,7 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_diff_text
+from load_one_data import dump_diff, one_dump_test, dump_diff_text, dump_same_and_not_same
 from ArWikiCats.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
 
 test_0 = {
@@ -533,10 +533,6 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     dump_diff(diff_result, name)
     # dump_diff_text(expected, diff_result, name)
 
-    same_data = {x: v for x, v in data.items() if x not in diff_result}
-    # if len(same_data) != len(data): dump_diff(same_data, f"{name}_same")
-
-    add_data2 = {x: v for x, v in data.items() if x in diff_result}
-    # if len(add_data2) != len(data): dump_diff(add_data2, f"{name}_add")
+    dump_same_and_not_same(data, diff_result, name)
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
