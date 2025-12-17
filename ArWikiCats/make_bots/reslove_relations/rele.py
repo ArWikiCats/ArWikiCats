@@ -140,6 +140,7 @@ def _resolve_relations(
 def fix_key(category: str) -> str:
     category = category.lower().replace("category:", "")
     category = category.replace("'", "")
+    category = category.replace(" the ", "")
 
     replacements = {
         "expatriates": "expatriate",
