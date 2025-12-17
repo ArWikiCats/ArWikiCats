@@ -10,7 +10,7 @@ def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
 
     diff_data_path = Path(__file__).parent / "diff_data"
     diff_data_path.mkdir(exist_ok=True, parents=True)
-    file_path = diff_data_path / f"{file_name}.json"
+    file_path = diff_data_path / f"{file_name}_diff.json"
 
     if _sort:
         data_sorted = {x: v for x, v in data.items() if v}
