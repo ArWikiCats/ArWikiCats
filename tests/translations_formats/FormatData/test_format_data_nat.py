@@ -11,11 +11,11 @@ from ArWikiCats.translations_formats import FormatData
 @pytest.fixture
 def bot() -> FormatData:
     formatted_data = {
-        "{en_nat} people": "{nat_men1}",  # 187
-        "{en_nat} people by occupation": "{nat_men1} حسب المهنة",  # 182
-        "{en_nat} sports-people": "رياضيون {nat_men1}",  # 174
-        "{en_nat} men": "رجال {nat_men1}",  # 183
-        "{en_nat} sportsmen": "رياضيون رجال {nat_men1}",  # 182
+        "{en_nat} people": "{males}",  # 187
+        "{en_nat} people by occupation": "{males} حسب المهنة",  # 182
+        "{en_nat} sports-people": "رياضيون {males}",  # 174
+        "{en_nat} men": "رجال {males}",  # 183
+        "{en_nat} sportsmen": "رياضيون رجال {males}",  # 182
     }
 
     data_list = {
@@ -26,7 +26,7 @@ def bot() -> FormatData:
         "african": "أفارقة",
         "ancient-roman": "رومان قدماء",
     }
-    _bot = FormatData(formatted_data, data_list, "{en_nat}", "{nat_men1}")
+    _bot = FormatData(formatted_data, data_list, "{en_nat}", "{males}")
     return _bot
 
 

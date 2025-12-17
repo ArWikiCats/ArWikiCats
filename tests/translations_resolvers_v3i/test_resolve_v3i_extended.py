@@ -44,11 +44,14 @@ test_0 = {
 }
 
 test_data_1 = {
+    "18th-century actors from the Holy Roman Empire": "ممثلون من الإمبراطورية الرومانية المقدسة في القرن 18",
+    "15th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 15",
+    "16th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 16",
+    "17th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 17",
+    "18th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 18",
+
     "18th-century actors from Bohemia": "ممثلون بوهيميون في القرن 18",
     "20th-century actors from Georgia (country)": "ممثلون في القرن 20 من جورجيا",
-    "20th-century actors from Northern Ireland": "ممثلون وممثلات من أيرلندا الشمالية في القرن 20",
-    "21st-century actors from Northern Ireland": "ممثلون وممثلات من أيرلندا الشمالية في القرن 21",
-    "18th-century actors from the Holy Roman Empire": "ممثلون من الإمبراطورية الرومانية المقدسة القرن 18",
     "19th-century actors from the Ottoman Empire": "ممثلون من الدولة العثمانية القرن 19",
 
     "18th-century actresses from Bohemia": "ممثلات بوهيميات في القرن 18",
@@ -64,10 +67,6 @@ test_data_1 = {
 
     "20th-century artists from Georgia (country)": "فنانون في القرن 20 من جورجيا",
     "21st-century artists from Georgia (country)": "فنانون في القرن 21 من جورجيا",
-    "15th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة القرن 15",
-    "16th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة القرن 16",
-    "17th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة القرن 17",
-    "18th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة القرن 18",
     "15th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية القرن 15",
     "16th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية القرن 16",
     "17th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية القرن 17",
