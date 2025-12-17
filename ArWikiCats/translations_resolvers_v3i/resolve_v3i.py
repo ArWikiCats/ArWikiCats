@@ -43,7 +43,7 @@ def get_label_new(text: str) -> str:
     logger.debug(f"get_label_new: {text=}")
 
     if not match:
-        print(f"get_label_new: no match: {text=}")
+        logger.debug(f"get_label_new: no match: {text=}")
         return get_lab_for_country2(text) or ""
 
     job_part = match.group(1)
