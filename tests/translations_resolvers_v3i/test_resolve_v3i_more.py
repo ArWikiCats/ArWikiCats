@@ -488,10 +488,17 @@ test_data_2 = {
 
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
+@pytest.mark.fast
 def test_resolve_v3i_more_1(category: str, expected: str) -> None:
-    """
-    Test
-    """
+    """    Test resolve year job from countries function for test_data_standard. """
+    result = resolve_year_job_from_countries(category)
+    assert result == expected
+
+
+@pytest.mark.parametrize("category,expected", test_women_from_data.items(), ids=test_women_from_data.keys())
+@pytest.mark.fast
+def test_resolve_v3i_more_women(category: str, expected: str) -> None:
+    """    Test resolve year job from countries function for test_women_from_data. """
     result = resolve_year_job_from_countries(category)
     assert result == expected
 
