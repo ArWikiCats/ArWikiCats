@@ -13,6 +13,7 @@ from ...translations import (
     countries_nat_en_key,
 )
 from ..o_bots.utils import apply_arabic_article
+from .utils import sort_by_empty_space
 
 all_country_labels = dict(all_country_ar)
 all_country_labels.update({
@@ -22,8 +23,8 @@ all_country_labels.update({
 
 P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
-    " relations": "علاقات {}",
     " proxy conflict": "صراع {} بالوكالة",
+    " relations": "علاقات {}",
 }
 
 RELATIONS_FEMALE: Mapping[str, str] = {
@@ -46,6 +47,10 @@ RELATIONS_MALE: Mapping[str, str] = {
     " conflict": "الصراع {}",
     " football rivalry": "التنافس {} في كرة القدم",
 }
+
+P17_PREFIXES = sort_by_empty_space(P17_PREFIXES)
+RELATIONS_FEMALE = sort_by_empty_space(RELATIONS_FEMALE)
+RELATIONS_MALE = sort_by_empty_space(RELATIONS_MALE)
 
 RELATIONS_END_KEYS = list(P17_PREFIXES.keys()) + list(RELATIONS_FEMALE.keys()) + list(RELATIONS_MALE.keys())
 # ".*?–.*? (joint economic efforts|conflict video games|conflict legal issues|proxy conflict|military relations|border crossings|border towns|football rivalry|conflict|relations|relations|border|clashes|wars|war|conflict)"
@@ -89,6 +94,7 @@ def _combine_labels(labels: Tuple[str, str], add_article: bool, joiner: str = " 
         # Replicate the historical behaviour where each word receives an ``ال``
         # prefix and the combined string keeps the order alphabetical.
         return apply_arabic_article(combined)
+
     return joiner.join(sorted_labels)
 
 
@@ -144,10 +150,10 @@ def _resolve_relations(
     if suffix.strip() != "relations" or "nato" not in {first_key, second_key}:
         return template.format(combined)
 
-    counterpart = first_key if second_key == "nato" else second_key
-    counterpart_label = all_country_labels.get(counterpart, "")
-    if counterpart_label:
-        template, combined = get_nato_relation_template(template, counterpart_label)
+    # counterpart = first_key if second_key == "nato" else second_key
+    # counterpart_label = all_country_labels.get(counterpart, "")
+    # if counterpart_label:
+    #     template, combined = get_nato_relation_template(template, counterpart_label)
 
     result = template.format(combined)
 
@@ -160,14 +166,12 @@ def fix_key(category: str) -> str:
     # category = category.replace(" the ", "")
 
     replacements = {
-        "expatriates": "expatriate",
-        "canadian football": "canadian-football",
     }
 
     for old, new in replacements.items():
         category = category.replace(old, new)
 
-    return category
+    return category.strip()
 
 
 def resolve_relations_label(value: str) -> str:
