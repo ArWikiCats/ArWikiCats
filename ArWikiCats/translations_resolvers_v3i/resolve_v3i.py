@@ -6,6 +6,8 @@ Examples:
     - en: 18th-century nobility from the Holy Roman Empire
     - bad arabic: (نبلاء من الإمبراطورية الرومانية المقدسة القرن 18)
     - good arabic: (نبلاء من الإمبراطورية الرومانية المقدسة في القرن 18)
+More examples:
+    - https://quarry.wmcloud.org/query/100099
 
 """
 import re
@@ -27,6 +29,7 @@ FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 
 label_new_keys = {
     "crown-of aragon": "تاج أرغون",
+    "republic-of venice": "جمهورية البندقية",
 }
 
 jobs_part_labels = {
@@ -62,6 +65,7 @@ def normalize_text(text):
     text = text.lower()
     text = text.replace("sportspeople", "sports-people")
     text = text.replace(" the ", " ")
+    # text = text.replace("republic of", "republic-of")
     if text.startswith("the "):
         text = text[4:]
     return text.strip()

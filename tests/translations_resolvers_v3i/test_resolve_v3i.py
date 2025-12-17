@@ -82,6 +82,7 @@ class TestAllParts:
         "20th century people from al-andalus": "أشخاص من الأندلس في القرن 20",
         "18th-century women singers from the Holy Roman Empire": "مغنيات من الإمبراطورية الرومانية المقدسة في القرن 18",
         "10th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 10",
+        "17th-century women from the Republic of Venice": "نساء من جمهورية البندقية في القرن 17",
     }
 
     @pytest.mark.parametrize("category,expected", data_2.items(), ids=data_2.keys())

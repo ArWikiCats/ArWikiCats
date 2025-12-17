@@ -5,6 +5,7 @@ from ..helps import logger
 
 def resolved_translations_resolvers(normalized_category) -> str:
 
+    normalized_category = normalized_category.lower().replace("category:", " ")
     logger.debug(f"Trying v1 resolvers for: {normalized_category=}")
 
     resolved_label = (

@@ -7,7 +7,7 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 
-from . import event2bot, event_lab_bot, nat_men_pattern
+from . import event2bot, event_lab_bot, nat_men_pattern, resolve_nat_genders_pattern
 from .labs_years import LabsYears
 from .country_time_pattern import resolve_country_time_pattern
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
@@ -71,6 +71,8 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
 
     if not category_lab:
         category_lab = (
+            # NOTE: resolve_nat_genders_pattern IN TESTING HERE ONLY
+            # resolve_nat_genders_pattern(changed_cat) or
             resolved_translations_resolvers_v3i(changed_cat) or
             resolved_translations_resolvers_v2(changed_cat) or
             resolved_translations_resolvers(changed_cat) or
@@ -92,8 +94,7 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
         start_ylab = ye_ts_bot.translate_general_category(changed_cat)
 
     if not category_lab and is_cat_okay:
-        category_lower = category.lower()
-        category_lab = cash_2022.get(category_lower, "")
+        category_lab = cash_2022.get(category.lower(), "") or cash_2022.get(changed_cat, "")
 
         if not category_lab and app_settings.start_tgc_resolver_first:
             category_lab = start_ylab
