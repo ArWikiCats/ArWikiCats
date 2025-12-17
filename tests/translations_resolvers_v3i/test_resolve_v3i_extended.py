@@ -915,7 +915,7 @@ test_data_2 = {
 
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
-def test_resolve_v3i(category: str, expected: str) -> None:
+def test_resolve_v3i_1(category: str, expected: str) -> None:
     """
     Test
     """
@@ -933,7 +933,7 @@ def test_resolve_v3i_2(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_resolve_v3i", test_data_standard),
+    ("test_resolve_v3i_1", test_data_standard),
     ("test_resolve_v3i_2", test_data_2),
 ]
 
