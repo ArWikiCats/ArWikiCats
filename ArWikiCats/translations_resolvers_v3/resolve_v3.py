@@ -91,7 +91,7 @@ def multi_bot() -> MultiDataFormatterBase:
     )
 
 
-def resolve_job_from_countries(category: str) -> str:
+def resolve_job_from_country(category: str) -> str:
     """Resolve job from countries using the provided multi_bot."""
     _bot = multi_bot()
     return _bot.search_all(category)
@@ -120,7 +120,7 @@ def multi_bot_vv3() -> MultiDataFormatterBaseYearV3:
     )
 
 
-def resolve_year_job_from_countries(category: str) -> str:
+def resolve_yearjob_from_country(category: str) -> str:
     """Resolve year and job from countries using yc_bot2."""
     bot = multi_bot_vv3()
     return bot.search_all(category)
