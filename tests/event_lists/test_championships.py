@@ -45,12 +45,12 @@ championships_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", national_championships_data.items(), ids=[k for k in national_championships_data])
+@pytest.mark.parametrize("category, expected", national_championships_data.items(), ids=national_championships_data.keys())
 def test_national_championships_data(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
-@pytest.mark.parametrize("category, expected", championships_data.items(), ids=[k for k in championships_data])
+@pytest.mark.parametrize("category, expected", championships_data.items(), ids=championships_data.keys())
 def test_championships_data(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 

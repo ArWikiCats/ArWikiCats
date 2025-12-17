@@ -25,6 +25,9 @@ data0 = {
 }
 
 data1 = {
+    "Category:19th-century women from Ottoman Arabia": "تصنيف:سعوديات في القرن 19",
+    "Category:19th-century poets from Ottoman Arabia": "تصنيف:شعراء سعوديون في القرن 19",
+    "Category:19th-century people from Ottoman Arabia": "تصنيف:عرب سعوديون في القرن 19",
     "2002 commonwealth games": "تصنيف:ألعاب الكومنولث 2002",
     "2006 commonwealth games": "تصنيف:ألعاب الكومنولث 2006",
     "2014 commonwealth games": "تصنيف:ألعاب الكومنولث 2014",
@@ -141,7 +144,7 @@ data1 = {
 }
 
 
-data_2 ={
+data_2 = {
     "puerto princesa international airport": "مطار بويرتو برينسيسا الدولي",
     "united states military academy": "الأكاديمية العسكرية الأمريكية",
     "west end theatre": "مسارح وست اند",
@@ -188,8 +191,13 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", data_3.items(), ids=[k for k in data_3])
-def test_3(category: str, expected: str) -> None:
+@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
+def test_4_data_0(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
+@pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
+def test_4_data_1(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
