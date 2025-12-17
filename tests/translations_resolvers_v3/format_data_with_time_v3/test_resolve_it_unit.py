@@ -31,13 +31,9 @@ class FormatDataXX:
 
     def normalize_category(self, text: str, key: str) -> str:
         """Replace matched year with placeholder."""
-        print(key)
-        print(text)
         if not key:
             return text
-        return re.sub(
-            re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE
-        )
+        return re.sub(re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE)
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
