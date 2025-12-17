@@ -684,7 +684,7 @@ big_data2 = {
 
 TEMPORAL_CASES = [
     ("500_items", big_data),
-    # ("670_items", big_data2),
+    ("670_items", big_data2),
 ]
 
 

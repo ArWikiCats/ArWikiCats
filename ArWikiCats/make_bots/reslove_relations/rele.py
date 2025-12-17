@@ -14,7 +14,11 @@ from ...translations import (
 )
 from ..o_bots.utils import apply_arabic_article
 
-all_country_ar["nato"] = "الناتو"
+all_country_labels = dict(all_country_ar)
+all_country_labels.update({
+    "nato": "الناتو",
+    "european union": "الاتحاد الأوروبي",
+})
 
 P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
@@ -88,6 +92,23 @@ def _combine_labels(labels: Tuple[str, str], add_article: bool, joiner: str = " 
     return joiner.join(sorted_labels)
 
 
+def get_nato_relation_template(template, counterpart_label):
+    template = f"علاقات {template}" if "علاقات" not in template else template
+    sorted_labels = sorted(["الناتو", counterpart_label])
+    combined = " و".join(sorted_labels)
+
+    return template, combined
+
+
+def get_suffix_and_template(normalized_value, suffixes):
+    for suffix, template in suffixes.items():
+        if not normalized_value.endswith(suffix):
+            continue
+        return suffix, template
+
+    return "", ""
+
+
 def _resolve_relations(
     normalized_value: str,
     suffixes: Mapping[str, str],
@@ -99,48 +120,44 @@ def _resolve_relations(
 ) -> str:
     """Resolve a relation label using ``suffixes`` and ``nat_table``."""
 
-    for suffix, template in suffixes.items():
-        if not normalized_value.endswith(suffix):
-            continue
+    suffix, template = get_suffix_and_template(normalized_value, suffixes)
 
-        prefix = normalized_value[: -len(suffix)].strip()
-        logger.debug(f"\t\t>>>>{suffix=} -> {prefix=}")
+    prefix = normalized_value[: -len(suffix)].strip()
+    logger.debug(f"\t\t>>>>{suffix=} -> {prefix=}")
 
-        first_key, second_key = _split_pair(prefix)
-        if not first_key or not second_key:
-            continue
+    first_key, second_key = _split_pair(prefix)
+    if not first_key or not second_key:
+        return ""
 
-        first_label = _lookup_country_label(first_key, gender_key, nat_table)
-        second_label = _lookup_country_label(second_key, gender_key, nat_table)
+    first_label = _lookup_country_label(first_key, gender_key, nat_table)
+    second_label = _lookup_country_label(second_key, gender_key, nat_table)
 
-        logger.debug(f"\t\t>>>>{first_key=} -> {first_label=}")
-        logger.debug(f"\t\t>>>>{second_key=} -> {second_label=}")
+    logger.debug(f"\t\t>>>>{first_key=} -> {first_label=}")
+    logger.debug(f"\t\t>>>>{second_key=} -> {second_label=}")
 
-        if not first_label or not second_label:
-            logger.info(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')
-            continue
+    if not first_label or not second_label:
+        logger.info(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')
+        return ""
 
-        combined = _combine_labels((first_label, second_label), add_article, joiner=joiner)
+    combined = _combine_labels((first_label, second_label), add_article, joiner=joiner)
 
-        if suffix == " relations" and "nato" in {first_key, second_key}:
-            counterpart = first_key if second_key == "nato" else second_key
-            counterpart_label = all_country_ar.get(counterpart, "")
-            if counterpart_label:
-                template = f"علاقات {template}" if "علاقات" not in template else template
-                sorted_labels = sorted(["الناتو", counterpart_label])
-                combined = " و".join(sorted_labels)
+    if suffix.strip() != "relations" or "nato" not in {first_key, second_key}:
+        return template.format(combined)
 
-        result = template.format(combined)
+    counterpart = first_key if second_key == "nato" else second_key
+    counterpart_label = all_country_labels.get(counterpart, "")
+    if counterpart_label:
+        template, combined = get_nato_relation_template(template, counterpart_label)
 
-        return result
+    result = template.format(combined)
 
-    return ""
+    return result
 
 
 def fix_key(category: str) -> str:
     category = category.lower().replace("category:", "")
     category = category.replace("'", "")
-    category = category.replace(" the ", "")
+    # category = category.replace(" the ", "")
 
     replacements = {
         "expatriates": "expatriate",
@@ -193,7 +210,7 @@ def resolve_relations_label(value: str) -> str:
         normalized,
         P17_PREFIXES,
         "",
-        all_country_ar,
+        all_country_labels,
         add_article=False,
         joiner=" و",
     )
