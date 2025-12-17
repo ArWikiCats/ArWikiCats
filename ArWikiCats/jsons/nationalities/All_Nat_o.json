@@ -1,4 +1,14 @@
 {
+    "antiguan and barbudan": {
+        "en": "antigua and barbuda",
+        "ar": "أنتيغوا وباربودا",
+        "male": "أنتيغوي وبربودي",
+        "males": "أنتيغويون وبربوديون",
+        "female": "أنتيغوية وبربودية",
+        "females": "أنتيغويات وبربوديات",
+        "the_female": "الأنتيغوية والبربودية",
+        "the_male": "الأنتيغوي والبربودي"
+    },
     "zanzibari": {
         "male": "زنجباري",
         "males": "زنجباريون",
@@ -359,17 +369,6 @@
         "the_female": "الفاروية",
         "the_male": "الفاروي"
     },
-    "trinidad and tobago": {
-        "xx": "trinidadian",
-        "male": "ترنيدادي",
-        "males": "ترنيداديون",
-        "female": "ترنيدادية",
-        "females": "ترنيداديات",
-        "en": "trinidad and tobago",
-        "ar": "ترينيداد وتوباغو",
-        "the_female": "الترنيدادية",
-        "the_male": "الترنيدادي"
-    },
     "abkhazian": {
         "male": "أبخازي",
         "males": "أبخازيون",
@@ -575,7 +574,7 @@
         "males": "أوروبيون شرقيون",
         "female": "أوروبية شرقية",
         "females": "أوروبيات شرقيات",
-        "en": "eastern european",
+        "en": "eastern europe",
         "ar": "شرق أوروبا",
         "the_female": "الأوروبية الشرقية",
         "the_male": "الأوروبي الشرقي"
@@ -929,16 +928,6 @@
         "ar": "الرأس الأخضر",
         "the_female": "الرأس الأخضرية",
         "the_male": "الرأس الأخضري"
-    },
-    "central african republic": {
-        "men__": "وسط إفريقي",
-        "xx_men": "إفريقي أوسطي",
-        "males": "أفارقة أوسطيون",
-        "female": "إفريقية أوسطية",
-        "females": "إفريقيات أوسطيات",
-        "en": "central african republic",
-        "ar": "جمهورية إفريقيا الوسطى",
-        "the_female": "الإفريقية الأوسطية"
     },
     "chadian": {
         "male": "تشادي",
@@ -2162,16 +2151,6 @@
         "ar": "جمهورية أيرلندا",
         "the_female": "الأيرلندية",
         "the_male": "الأيرلندي"
-    },
-    "northern ireland": {
-        "male": "أيرلندي شمالي",
-        "males": "أيرلنديون شماليون",
-        "female": "أيرلندية شمالية",
-        "females": "أيرلنديات شماليات",
-        "en": "northern ireland",
-        "ar": "أيرلندا الشمالية",
-        "the_female": "الأيرلندية الشمالية",
-        "the_male": "الأيرلندي الشمالي"
     },
     "norwegian": {
         "male": "نرويجي",

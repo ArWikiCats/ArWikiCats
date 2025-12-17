@@ -1,0 +1,44 @@
+{
+    "trinidad and tobago": {
+        "en_nat": "trinidadian",
+        "male": "ترنيدادي",
+        "males": "ترنيداديون",
+        "female": "ترنيدادية",
+        "females": "ترنيداديات",
+        "en": "trinidad and tobago",
+        "ar": "ترينيداد وتوباغو",
+        "the_female": "الترنيدادية",
+        "the_male": "الترنيدادي"
+    },
+    "central african republic": {
+        "men__": "وسط إفريقي",
+        "xx_men": "إفريقي أوسطي",
+        "males": "أفارقة أوسطيون",
+        "female": "إفريقية أوسطية",
+        "females": "إفريقيات أوسطيات",
+        "en": "central african republic",
+        "ar": "جمهورية إفريقيا الوسطى",
+        "the_female": "الإفريقية الأوسطية"
+    },
+    "northern ireland": {
+        "male": "أيرلندي شمالي",
+        "males": "أيرلنديون شماليون",
+        "female": "أيرلندية شمالية",
+        "females": "أيرلنديات شماليات",
+        "en": "northern ireland",
+        "ar": "أيرلندا الشمالية",
+        "the_female": "الأيرلندية الشمالية",
+        "the_male": "الأيرلندي الشمالي"
+    },
+    "antigua and barbuda": {
+        "en_nat": "antiguan and barbudan",
+        "en": "antigua and barbuda",
+        "ar": "أنتيغوا وباربودا",
+        "male": "أنتيغوي وبربودي",
+        "males": "أنتيغويون وبربوديون",
+        "female": "أنتيغوية وبربودية",
+        "females": "أنتيغويات وبربوديات",
+        "the_female": "الأنتيغوية والبربودية",
+        "the_male": "الأنتيغوي والبربودي"
+    }
+}
