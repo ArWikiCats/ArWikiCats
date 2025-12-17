@@ -35,7 +35,7 @@ def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None:
         return
 
     save3 = [
-        f"* {{{{وب:طنت/سطر|{v}|{diff_result[x]}|سبب النقل=تصحيح ArWikiCats}}}}"
+        f"# {{{{وب:طنت/سطر|{v}|{diff_result[x]}|سبب النقل=تصحيح ArWikiCats}}}}"
         for x, v in expected.items()
         if v and diff_result.get(x)
     ]
