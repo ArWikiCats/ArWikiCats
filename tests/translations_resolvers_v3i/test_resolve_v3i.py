@@ -2,10 +2,8 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
-from ArWikiCats.translations_resolvers_v3i.resolve_v3i import multi_bot_v4  # , multi_bot_v3
+from ArWikiCats.translations_resolvers_v3i.resolve_v3i import multi_bot_v4, resolve_year_job_from_countries
 
-
-# bot = multi_bot_v3()
 bot = multi_bot_v4()
 
 
@@ -70,7 +68,7 @@ class TestAllParts:
         """
         Test
         """
-        result = bot.search_all(category)
+        result = resolve_year_job_from_countries(category)
         assert result == expected
 
     data_2 = {
@@ -91,5 +89,17 @@ class TestAllParts:
         """
         Test
         """
-        result = bot.search_all(category)
+        result = resolve_year_job_from_countries(category)
+        assert result == expected
+
+    deaths_data = {
+        "15th-century deaths from cancer": "وفيات بسبب السرطان في القرن 15",
+    }
+
+    @pytest.mark.parametrize("category,expected", deaths_data.items(), ids=deaths_data.keys())
+    def test_deaths_data(self, category: str, expected: str) -> None:
+        """
+        pytest tests/translations_resolvers_v3i/test_resolve_v3i.py::TestAllParts::test_deaths_data
+        """
+        result = resolve_year_job_from_countries(category)
         assert result == expected
