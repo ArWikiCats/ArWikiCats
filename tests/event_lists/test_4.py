@@ -5,6 +5,9 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:Eastern European Hockey League": "تصنيف:الدوري الأوروبي الشرقي للهوكي",
+    "Category:Eastern European Hockey League seasons": "تصنيف:مواسم الدوري الأوروبي الشرقي للهوكي",
+    "Category:Eastern European Hockey League teams": "تصنيف:فرق الدوري الأوروبي الشرقي للهوكي",
     "Taekwondo at 2021 Islamic Solidarity Games": "تصنيف:التايكوندو في ألعاب التضامن الإسلامي 2021",
     "Taekwondo at Islamic Solidarity Games": "تصنيف:التايكوندو في ألعاب التضامن الإسلامي",
     "Works about Islamic State of Iraq and Levant": "تصنيف:أعمال عن تنظيم الدولة الإسلامية (داعش)",

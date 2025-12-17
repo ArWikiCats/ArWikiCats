@@ -106,7 +106,9 @@ raw_sub_nat_additional = {
 }
 
 
-def load_sources() -> Dict[str, NationalityEntry]:
+def load_sources(
+    raw_nats_as_en_key: Dict[str, Dict[str, str]] | None = None,
+) -> Dict[str, NationalityEntry]:
     """
     Load nationality JSON data and merge All_Nat_o + uu_nats + Sub_Nat.
     Ensures all entries follow the NationalityEntry structure (string values only).
@@ -114,8 +116,8 @@ def load_sources() -> Dict[str, NationalityEntry]:
 
     raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
 
-    raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
-    raw_all_nat_o.update(raw_nats_as_en_key)
+    if raw_nats_as_en_key:
+        raw_all_nat_o.update(raw_nats_as_en_key)
 
     raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
     raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
@@ -124,6 +126,8 @@ def load_sources() -> Dict[str, NationalityEntry]:
     raw_all_nat_o_en_as_nat = [
         "trinidad and tobago",
         "central african republic",
+        "northern ireland",
+        "antigua and barbuda",
         "chinese taipei",
         "dominican republic",
         "federated states-of micronesia",
@@ -131,13 +135,13 @@ def load_sources() -> Dict[str, NationalityEntry]:
         "kiribati",
         "kyrgyz",
         "liechtenstein",
+
         "lesotho",
         "são toméan",
         "turkmen",
         "turkmenistan",
         "uzbek",
         "vatican",
-        "northern ireland"
     ]
 
     # Fix hindustani
@@ -403,7 +407,9 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
 # Main Execution (same logic as before)
 # =====================================================================
 
-All_Nat_o: Dict[str, NationalityEntry] = load_sources()
+raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
+All_Nat_o: Dict[str, NationalityEntry] = load_sources(raw_nats_as_en_key)
+
 All_Nat_o = normalize_aliases(All_Nat_o, True)
 
 All_Nat: AllNatDict = {k.lower(): v for k, v in All_Nat_o.items()}

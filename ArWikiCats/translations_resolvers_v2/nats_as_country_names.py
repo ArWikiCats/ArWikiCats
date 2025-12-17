@@ -13,7 +13,7 @@ Reference:
 
 nats_keys_as_country_names = {
     "ireland": {
-        # "en_nat": "irish",
+        "en_nat": "irish",
         "male": "أيرلندي",
         "males": "أيرلنديون",
         "female": "أيرلندية",
@@ -24,7 +24,8 @@ nats_keys_as_country_names = {
         "the_male": "الأيرلندي"
     },
     "georgia (country)": {
-        # "en_nat": "georgians", #"georgian"
+        "en_nat": "georgians",
+        "en_nat1": "georgian",
         "male": "جورجي",
         "males": "جورجيون",
         "female": "جورجية",
@@ -35,7 +36,7 @@ nats_keys_as_country_names = {
         "the_male": "الجورجي"
     },
     "new zealand": {
-        # "en_nat": "new zealanders",
+        "en_nat": "new zealanders",
         "male": "نيوزيلندي",
         "males": "نيوزيلنديون",
         "female": "نيوزيلندية",
@@ -56,7 +57,7 @@ nats_keys_as_country_names = {
         "the_male": "الأيرلندي الشمالي"
     },
     "antigua and barbuda": {
-        # "en_nat": "antiguan and barbudan",
+        "en_nat": "antiguan and barbudan",
         "en": "antigua and barbuda",
         "ar": "أنتيغوا وباربودا",
         "male": "أنتيغوي وبربودي",
@@ -67,7 +68,7 @@ nats_keys_as_country_names = {
         "the_male": "الأنتيغوي والبربودي"
     },
     "trinidad and tobago": {
-        "xx": "trinidadian",
+        "en_nat": "trinidadian",
         "male": "ترنيدادي",
         "males": "ترنيداديون",
         "female": "ترنيدادية",

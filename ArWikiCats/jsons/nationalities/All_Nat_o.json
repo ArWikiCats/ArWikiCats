@@ -959,16 +959,6 @@
         "the_female": "الصينية",
         "the_male": "الصيني"
     },
-    "chinese taipei": {
-        "male": "تايبي صيني",
-        "males": "تايبيون صينيون",
-        "female": "تايبيه صينية",
-        "females": "تايبيات صينيات",
-        "en": "chinese taipei",
-        "ar": "تايبيه الصينية",
-        "the_female": "التايبيه الصينية",
-        "the_male": "التايبي الصيني"
-    },
     "colombian": {
         "male": "كولومبي",
         "males": "كولومبيون",
@@ -1151,16 +1141,6 @@
         "the_female": "الدومينيكية",
         "the_male": "الدومينيكي"
     },
-    "dominican republic": {
-        "male": "دومينيكاني",
-        "males": "دومينيكانيون",
-        "female": "دومينيكانية",
-        "females": "دومينيكانيات",
-        "en": "dominican republic",
-        "ar": "جمهورية الدومينيكان",
-        "the_female": "الدومينيكانية",
-        "the_male": "الدومينيكاني"
-    },
     "dutch": {
         "male": "هولندي",
         "males": "هولنديون",
@@ -1270,16 +1250,6 @@
         "ar": "أوروبا",
         "the_female": "الأوروبية",
         "the_male": "الأوروبي"
-    },
-    "federated states-of micronesia": {
-        "male": "ميكرونيزي",
-        "males": "ميكرونيزيون",
-        "female": "ميكرونيزية",
-        "females": "ميكرونيزيات",
-        "en": "federated states-of micronesia",
-        "ar": "ولايات ميكرونيسيا المتحدة",
-        "the_female": "الميكرونيزية",
-        "the_male": "الميكرونيزي"
     },
     "fijian": {
         "male": "فيجي",
@@ -1501,16 +1471,6 @@
         "the_female": "الهندوراسية",
         "the_male": "الهندوراسي"
     },
-    "hong kong": {
-        "male": "هونغ كونغي",
-        "males": "هونغ كونغيون",
-        "female": "هونغ كونغية",
-        "females": "هونغ كونغيات",
-        "en": "hong kong",
-        "ar": "هونغ كونغ",
-        "the_female": "الهونغ الكونغية",
-        "the_male": "الهونغ الكونغي"
-    },
     "hungarian": {
         "male": "مجري",
         "males": "مجريون",
@@ -1530,16 +1490,6 @@
         "ar": "الإمبراطورية النمساوية المجرية",
         "the_female": "النمساوية المجرية",
         "the_male": "النمساوي المجري"
-    },
-    "i-kiribati": {
-        "male": "كيريباتي",
-        "males": "كيريباتيون",
-        "female": "كيريباتية",
-        "females": "كيريباتيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الكيريباتية",
-        "the_male": "الكيريباتي"
     },
     "icelandic1": {
         "male": "أيسلندي",
@@ -1681,16 +1631,6 @@
         "the_female": "الكينية",
         "the_male": "الكيني"
     },
-    "kiribati": {
-        "male": "كيريباتي",
-        "males": "كيريباتيون",
-        "female": "كيريباتية",
-        "females": "كيريباتيات",
-        "en": "kiribati",
-        "ar": "كيريباتي",
-        "the_female": "الكيريباتية",
-        "the_male": "الكيريباتي"
-    },
     "korean": {
         "male": "كوري",
         "males": "كوريون",
@@ -1720,16 +1660,6 @@
         "ar": "الكويت",
         "the_female": "الكويتية",
         "the_male": "الكويتي"
-    },
-    "kyrgyz": {
-        "male": "قيرغيزي",
-        "males": "قيرغيزيون",
-        "female": "قيرغيزية",
-        "females": "قيرغيزيات",
-        "en": "kyrgyz",
-        "ar": "قيرغيز",
-        "the_female": "القيرغيزية",
-        "the_male": "القيرغيزي"
     },
     "kyrgyzstani": {
         "male": "قيرغيزستاني",
@@ -1790,26 +1720,6 @@
         "ar": "ليبيا",
         "the_female": "الليبية",
         "the_male": "الليبي"
-    },
-    "liechtensteiner": {
-        "male": "ليختنشتاني",
-        "males": "ليختنشتانيون",
-        "female": "ليختنشتانية",
-        "females": "ليختنشتانيات",
-        "en": "liechtenstein",
-        "ar": "ليختنشتاين",
-        "the_female": "الليختنشتانية",
-        "the_male": "الليختنشتاني"
-    },
-    "liechtenstein": {
-        "male": "ليختنشتاني",
-        "males": "ليختنشتانيون",
-        "female": "ليختنشتانية",
-        "females": "ليختنشتانيات",
-        "en": "liechtenstein",
-        "ar": "ليختنشتاين",
-        "the_female": "الليختنشتانية",
-        "the_male": "الليختنشتاني"
     },
     "lithuanian": {
         "male": "ليتواني",
@@ -2010,16 +1920,6 @@
         "ar": "المغرب",
         "the_female": "المغربية",
         "the_male": "المغربي"
-    },
-    "lesotho": {
-        "male": "ليسوتي",
-        "males": "ليسوتيون",
-        "female": "ليسوتية",
-        "females": "ليسوتيات",
-        "en": "lesotho",
-        "ar": "ليسوتو",
-        "the_female": "الليسوتية",
-        "the_male": "الليسوتي"
     },
     "mozambican": {
         "male": "موزمبيقي",
@@ -2643,16 +2543,6 @@
         "the_female": "السورية",
         "the_male": "السوري"
     },
-    "são toméan": {
-        "male": "ساوتومي",
-        "males": "ساوتوميون",
-        "female": "ساوتومية",
-        "females": "ساوتوميات",
-        "en": "são toméan",
-        "ar": "ساو تومي",
-        "the_female": "الساوتومية",
-        "the_male": "الساوتومي"
-    },
     "taiwanese": {
         "male": "تايواني",
         "males": "تايوانيون",
@@ -2743,27 +2633,6 @@
         "the_female": "التركية",
         "the_male": "التركي"
     },
-    "turkmen": {
-        "male": "تركماني",
-        "males": "تركمانيون",
-        "female": "تركمانية",
-        "females": "تركمانيات",
-        "en": "turkmen",
-        "en1": "turkmens",
-        "ar": "تركمان",
-        "the_female": "التركمانية",
-        "the_male": "التركماني"
-    },
-    "turkmenistan": {
-        "male": "تركماني",
-        "males": "تركمانيون",
-        "female": "تركمانية",
-        "females": "تركمانيات",
-        "en": "turkmenistan",
-        "ar": "تركمانستان",
-        "the_female": "التركمانية",
-        "the_male": "التركماني"
-    },
     "turkmenistani": {
         "male": "تركماني",
         "males": "تركمانيون",
@@ -2814,16 +2683,6 @@
         "the_female": "الأوروغويانية",
         "the_male": "الأوروغوياني"
     },
-    "uzbek": {
-        "male": "أوزبكي",
-        "males": "أوزبكيون",
-        "female": "أوزبكية",
-        "females": "أوزبكيات",
-        "en": "uzbek",
-        "ar": "أوزبك",
-        "the_female": "الأوزبكية",
-        "the_male": "الأوزبكي"
-    },
     "uzbekistani": {
         "male": "أوزبكستاني",
         "males": "أوزبكستانيون",
@@ -2844,16 +2703,6 @@
         "ar": "فانواتو",
         "the_female": "الفانواتية",
         "the_male": "الفانواتي"
-    },
-    "vatican": {
-        "male": "فاتيكاني",
-        "males": "فاتيكانيون",
-        "female": "فاتيكانية",
-        "females": "فاتيكانيات",
-        "en": "vatican",
-        "ar": "الفاتيكان",
-        "the_female": "الفاتيكانية",
-        "the_male": "الفاتيكاني"
     },
     "venezuelan": {
         "male": "فنزويلي",
