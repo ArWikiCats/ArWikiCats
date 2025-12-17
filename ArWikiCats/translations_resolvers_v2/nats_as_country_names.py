@@ -45,4 +45,14 @@ nats_keys_as_country_names = {
         "the_female": "النيوزيلندية",
         "the_male": "النيوزيلندي"
     },
+    "northern ireland": {
+        "male": "أيرلندي شمالي",
+        "males": "أيرلنديون شماليون",
+        "female": "أيرلندية شمالية",
+        "females": "أيرلنديات شماليات",
+        "en": "northern ireland",
+        "ar": "أيرلندا الشمالية",
+        "the_female": "الأيرلندية الشمالية",
+        "the_male": "الأيرلندي الشمالي"
+    },
 }

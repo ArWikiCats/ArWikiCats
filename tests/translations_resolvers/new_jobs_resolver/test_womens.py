@@ -79,6 +79,7 @@ test_religions_data_2 = {
     "women educators": "معلمات",
     "women medical doctors": "طبيبات",
     "women singers": "مغنيات",
+    "northern ireland": "",
 }
 
 

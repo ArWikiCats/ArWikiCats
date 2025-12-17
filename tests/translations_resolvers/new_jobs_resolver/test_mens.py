@@ -54,6 +54,7 @@ test_data_2 = {
     "educators": "معلمون",
     "medical doctors": "أطباء",
     "singers": "مغنون",
+    "northern ireland": "",
 }
 
 
