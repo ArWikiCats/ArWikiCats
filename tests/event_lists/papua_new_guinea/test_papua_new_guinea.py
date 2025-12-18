@@ -637,7 +637,6 @@ data_1 = {
     "Category:Death in Papua New Guinea": "تصنيف:الموت في بابوا غينيا الجديدة",
     "Category:Deaths by firearm in Papua New Guinea": "تصنيف:وفيات بإطلاق النار في بابوا غينيا الجديدة",
     "Category:Deaths from cancer in Papua New Guinea": "تصنيف:وفيات السرطان في بابوا غينيا الجديدة",
-    "Category:Deaths from the COVID-19 pandemic in Papua New Guinea": "تصنيف:وفيات من جائحة فيروس كورونا في بابوا غينيا الجديدة",
     "Category:Deaths in Papua New Guinea": "تصنيف:وفيات في بابوا غينيا الجديدة",
     "Category:Decades in Papua New Guinea": "تصنيف:عقود في بابوا غينيا الجديدة",
     "Category:Defunct airlines of Papua New Guinea": "تصنيف:شركات طيران سابقة في بابوا غينيا الجديدة",
