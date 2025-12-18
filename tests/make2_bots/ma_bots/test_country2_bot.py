@@ -429,7 +429,6 @@ data_slow = {
     "pan-africanist political parties": "أحزاب سياسية وحدوية إفريقية",
     "papua new guinea by year": "بابوا غينيا الجديدة حسب السنة",
     "paralympic athletes for colombia": "لاعبو قوى في الألعاب البارالمبية في كولومبيا",
-    "paralympic competitors for cape verde": "منافسون في الألعاب البارالمبية من الرأس الأخضر",
     "paralympic judoka for uzbekistan": "لاعبو جودو في الألعاب البارالمبية في أوزبكستان",
     "paralympic medalists for serbia": "فائزون بميداليات الألعاب البارالمبية من صربيا",
     "paralympic medalists": "فائزون بميداليات الألعاب البارالمبية",

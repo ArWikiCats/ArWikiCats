@@ -5,6 +5,7 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "1650s soviet": "تصنيف:سوفيت في عقد 1650",
     "10th century chinese people by occupation": "تصنيف:صينيون في القرن 10 حسب المهنة",
     "14th century people by nationality and occupation": "تصنيف:أشخاص في القرن 14 حسب الجنسية والمهنة",
     "15th century swiss people by occupation": "تصنيف:سويسريون في القرن 15 حسب المهنة",

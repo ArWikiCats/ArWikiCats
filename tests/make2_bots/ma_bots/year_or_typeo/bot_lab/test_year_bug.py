@@ -8,7 +8,7 @@ from ArWikiCats.make_bots.ma_bots.year_or_typeo.bot_lab import (
 examples = {
     "2017 American television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
     "2017 American television series endings": "مسلسلات تلفزيونية أمريكية انتهت في 2017",
-    "Paralympic competitors for Cape Verde": "منافسون في الألعاب البارالمبية من الرأس الأخضر",
+    "Paralympic competitors for Cape Verde": "منافسون بارالمبيون من الرأس الأخضر",
     "1980 sports events in Europe": "أحداث 1980 الرياضية في أوروبا",
     "April 1983 sports events": "أحداث أبريل 1983 الرياضية",
     "April 1983 events in Europe": "أحداث أبريل 1983 في أوروبا",
