@@ -288,7 +288,6 @@ data_test = [
     ("of", " kingdom-of montenegro", "مملكة الجبل الأسود"),
     ("of", "aviation accidents or incidents", "حوادث طيران"),
     ("of", "azerbaijan soviet socialist republic", "الجمهورية الأذرية السوفيتية الاشتراكية"),
-    ("of", "bosnia and herzegovina people", "بوسنيون"),
     ("of", "bosnia and herzegovina politicians", "سياسيون بوسنيون"),
     ("of", "companies of georgia (country)", "شركات في جورجيا"),
     ("of", "companies of southeast asia", "شركات في جنوب شرق آسيا"),

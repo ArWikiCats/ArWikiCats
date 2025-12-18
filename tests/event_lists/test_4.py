@@ -5,6 +5,13 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "10th century chinese people by occupation": "تصنيف:صينيون في القرن 10 حسب المهنة",
+    "14th century people by nationality and occupation": "تصنيف:أشخاص في القرن 14 حسب الجنسية والمهنة",
+    "15th century swiss people by occupation": "تصنيف:سويسريون في القرن 15 حسب المهنة",
+    "16th century iranian people by occupation": "تصنيف:إيرانيون في القرن 16 حسب المهنة",
+    "20th century croatian people by occupation": "تصنيف:كروات في القرن 20 حسب المهنة",
+    "21st century yemeni people by occupation": "تصنيف:يمنيون في القرن 21 حسب المهنة",
+    "3rd century asian people by nationality": "تصنيف:آسيويين في القرن 3 حسب الجنسية",
     "Category:Eastern European Hockey League": "تصنيف:الدوري الأوروبي الشرقي للهوكي",
     "Category:Eastern European Hockey League seasons": "تصنيف:مواسم الدوري الأوروبي الشرقي للهوكي",
     "Category:Eastern European Hockey League teams": "تصنيف:فرق الدوري الأوروبي الشرقي للهوكي",

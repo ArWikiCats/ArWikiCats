@@ -65,7 +65,7 @@ data_list_bad = {
     # "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
     # "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
 
-    "20th century american people by occupation": "أمريكيون في القرن 20 حسب المهنة",
+    "20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
 
     "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا القرن 20",
     "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس في القرن 20",

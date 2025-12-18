@@ -130,6 +130,7 @@ Multi_Sports_data = {
     "paralympic boccia players": "لاعبو بوتشيا في الألعاب البارالمبية",
     "paralympic coaches": "مدربون في الألعاب البارالمبية",
     "paralympic competitors": "منافسون في الألعاب البارالمبية",
+
     "paralympic cross-country skiers": "متزحلقون ريفيون في الألعاب البارالمبية",
     "paralympic cyclists": "دراجون في الألعاب البارالمبية",
     "paralympic equestrians": "فرسان خيول في الألعاب البارالمبية",

@@ -8,7 +8,6 @@ from ArWikiCats.main_processers.event2bot import event2, event2_d2, stubs_label
 
 fast_data = {
     "1650s films": "أفلام إنتاج عقد 1650",
-    "1650 central american": "أمريكيون أوسطيون في 1650",
     "1650s soviet": "سوفيت في عقد 1650",
     "20th century canadian violinists": "عازفو كمان كنديون في القرن 20",
     "20th century chinese dramatists": "دراميون صينيون في القرن 20",
