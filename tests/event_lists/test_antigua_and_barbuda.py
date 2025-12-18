@@ -33,8 +33,13 @@ data_0 = {
 }
 
 data_1 = {
-    "Category:Antigua and Barbuda people of New Zealand descent": "تصنيف:أنتيغويون وبربوديون من أصل نيوزيلندي",
     "Category:New Zealand emigrants to Antigua and Barbuda": "تصنيف:نيوزيلنديون مهاجرون إلى أنتيغوا وباربودا",
+    "Category:New Zealand emigrants to Antigua and Barbuda": "تصنيف:مهاجرون نيوزيلنديون إلى أنتيغوا وباربودا",
+
+    "Category:Paralympic competitors for Antigua and Barbuda": "تصنيف:منافسون بارالمبيون من أنتيغوا وباربودا",
+    "Category:Paralympic competitors for Antigua and Barbuda": "تصنيف:منافسون في الألعاب البارالمبية من أنتيغوا وباربودا",
+
+    "Category:Antigua and Barbuda people of New Zealand descent": "تصنيف:أنتيغويون وبربوديون من أصل نيوزيلندي",
     "Category:Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون",
     "Category:21st-century Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون في القرن 21",
     "Category:Antigua and Barbuda clergy": "تصنيف:رجال دين أنتيغويون وبربوديون",
@@ -613,7 +618,6 @@ data_1 = {
     "Category:Pan American Games medalists for Antigua and Barbuda": "تصنيف:فائزون بميداليات دورة الألعاب الأمريكية من أنتيغوا وباربودا",
     "Category:Pan American Games silver medalists for Antigua and Barbuda": "تصنيف:فائزون بميداليات فضية دورة الألعاب الأمريكية من أنتيغوا وباربودا",
     "Category:Paralympic athletes for Antigua and Barbuda": "تصنيف:لاعبو قوى في الألعاب البارالمبية في أنتيغوا وباربودا",
-    "Category:Paralympic competitors for Antigua and Barbuda": "تصنيف:منافسون في الألعاب البارالمبية من أنتيغوا وباربودا",
     "Category:People murdered in Antigua and Barbuda": "تصنيف:أشخاص قتلوا في أنتيغوا وباربودا",
     "Category:Permanent delegates of Antigua and Barbuda to UNESCO": "تصنيف:مندوبو أنتيغوا وباربودا الدائمون لدى يونسكو",
     "Category:Permanent representatives of Antigua and Barbuda to the Organization of American States": "تصنيف:مندوبو أنتيغوا وباربودا الدائمون إلى منظمة الدول الأمريكية",
