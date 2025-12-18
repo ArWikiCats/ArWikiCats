@@ -11,6 +11,7 @@ from ...translations import (
     Nat_women,
     all_country_ar,
     countries_nat_en_key,
+    COUNTRY_LABEL_OVERRIDES,
 )
 from ..o_bots.utils import apply_arabic_article
 from .utils import sort_by_empty_space
@@ -20,6 +21,8 @@ all_country_labels.update({
     "nato": "الناتو",
     "european union": "الاتحاد الأوروبي",
 })
+
+all_country_labels.update(COUNTRY_LABEL_OVERRIDES)
 
 P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
