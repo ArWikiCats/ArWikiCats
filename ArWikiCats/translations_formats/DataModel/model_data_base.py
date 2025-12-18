@@ -176,7 +176,7 @@ class FormatDataBase:
 
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
-        logger.debug("><><><>< start _search(): ")
+        logger.debug("$$$ start _search(): ")
         logger.debug(f"++++++++ _search {self.__class__.__name__} ++++++++ ")
 
         if self.formatted_data_ci.get(category):

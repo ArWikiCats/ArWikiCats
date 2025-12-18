@@ -159,6 +159,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
 
 def resolve_year_job_from_countries(category: str) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
+    logger.debug(f"<<yellow>> start resolve_year_job_from_countries: {category=}")
     if not FROM_REGEX.match(category):
         return ""
 
@@ -168,4 +169,7 @@ def resolve_year_job_from_countries(category: str) -> str:
     # NOTE: search_all creates labels like:
     #  [Category:Non-fiction writers from Northern Ireland by century]:
     #  "تصنيف:كتاب غير روائيين من أيرلنديون شماليون حسب القرن"
-    return _bot.create_label(category)
+    result = _bot.create_label(category)
+
+    logger.debug(f"<<yellow>> end resolve_year_job_from_countries: {category=}, {result=}")
+    return result

@@ -3,6 +3,8 @@
 Resolve country names categories translations
 """
 from typing import Dict
+
+from ..helps import logger
 from ..translations_formats import FormatData
 from ..translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
 
@@ -132,7 +134,11 @@ nat_bot = FormatData(
 
 
 def resolve_by_countries_names(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_by_countries_names: {category=}")
+
     result = nat_bot.search_all_category(category)
+
+    logger.debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
     return result
 
 

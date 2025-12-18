@@ -9,6 +9,7 @@ TODO: Use it in the code or remove it!
 import functools
 import re
 from typing import Dict
+from ..helps import logger
 from ..translations_formats import FormatData
 
 TEMPLATES_TEAMS: Dict[str, str] = {
@@ -111,7 +112,9 @@ def _load_sports_bot() -> FormatData:
 
 def resolve_team_label(title_en: str) -> str:
     """Resolve an Arabic team label for a sports title using FormatData."""
-
+    logger.debug(f"<<yellow>> start resolve_by_labels: {title_en=}")
     bot = _load_sports_bot()
     normalized_title = _normalize(title_en)
-    return bot.search(normalized_title)
+    result = bot.search(normalized_title)
+    logger.debug(f"<<yellow>> end resolve_by_labels: {title_en=}, {result=}")
+    return result

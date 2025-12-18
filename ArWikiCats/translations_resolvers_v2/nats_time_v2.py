@@ -7,6 +7,7 @@ bot (`yc_bot`) to handle the translation logic.
 """
 
 import functools
+from ..helps import logger
 from ..translations import all_country_with_nat_ar
 from ..translations_formats import (
     format_year_country_data_v2,
@@ -43,6 +44,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nats_time_v2(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_nats_time_v2: {category=}")
     yc_bot = _bot_new()
 
     normalized_category = category.lower().replace("category:", "")
@@ -51,6 +53,7 @@ def resolve_nats_time_v2(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
+    logger.debug(f"<<yellow>> end resolve_nats_time_v2: {category=}, {result=}")
     return result or ""
 
 

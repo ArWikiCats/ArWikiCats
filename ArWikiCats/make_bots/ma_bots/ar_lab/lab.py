@@ -34,6 +34,7 @@ from ....translations_resolvers_v2 import resolved_translations_resolvers_v2
 from ....translations_resolvers_v3i import resolved_translations_resolvers_v3i
 # from ....main_processers import resolve_nat_genders_pattern
 
+
 def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
     """Split category into type and country parts using the separator.
 
@@ -426,6 +427,9 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
             - label: The Arabic label for the type
             - should_append_in_label: Whether 'in' preposition should be appended
     """
+    print(f"get_type_lab, {separator=}, {type_value=}")
+    # get_type_lab, separator='by', type_value='new zealand non-fiction writers'
+
     normalized_preposition = separator.strip()
     type_lower = type_value.lower()
 

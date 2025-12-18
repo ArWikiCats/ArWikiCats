@@ -16,7 +16,7 @@ from . import (
 def resolved_translations_resolvers_v2(normalized_category) -> str:
     normalized_category = normalized_category.lower().replace("category:", " ")
 
-    logger.debug(f"Trying v2 resolvers for: {normalized_category=}")
+    logger.debug(f"<><><><><><> Trying v2 resolvers for: {normalized_category=}")
 
     resolved_label = (
         countries_names_sport_multi_v2.resolve_countries_names_sport(normalized_category) or
