@@ -65,6 +65,7 @@ data_list_bad = {
     # "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
     # "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
 
+    "Paralympic competitors for Cape Verde": "تصنيف:منافسون بارالمبيون من الرأس الأخضر",
     "20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
 
     "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا القرن 20",
