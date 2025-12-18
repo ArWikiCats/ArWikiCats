@@ -1,19 +1,17 @@
 ## [#234](https://github.com/MrIbrahem/ArWikiCats/pull/234) - 2025-12-18
 
 * **New Features**
-  * Added Ireland nationality support to country data.
+  * Ireland nationality support added.
   * Exposed a formatting helper for external use.
 
 * **Enhancements**
-  * Improved relation-label resolution with normalization, caching, deterministic ordering and suffix/template handling.
-  * Added a sorting utility to improve label ordering.
+  * Relation-label resolution improved: input trimming/normalization, caching, deterministic ordering, suffix/template handling.
+  * Added a sorting utility to prioritize label keys.
   * Replaced ad-hoc prints with structured logging.
+  * Typing and data-model clarity improvements for nationality mappings.
 
 * **Tests**
-  * Added extensive test suites and data to validate relation label resolution across varied datasets.
-
-* **Refactor**
-  * Modularized relation-resolution internals for maintainability.
+  * Added extensive test suites and datasets for relation-label resolution.
 
 ## [#233](https://github.com/MrIbrahem/ArWikiCats/pull/233) - 2025-12-18
 
