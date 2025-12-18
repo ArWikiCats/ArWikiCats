@@ -166,6 +166,7 @@ def resolve_year_job_from_countries(category: str) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
     logger.debug(f"<<yellow>> start resolve_year_job_from_countries: {category=}")
     if not FROM_REGEX.match(category):
+        logger.debug(f"<<yellow>> end resolve_year_job_from_countries: {category=} not FROM_REGEX.match(category)")
         return ""
 
     category = normalize_text(category)

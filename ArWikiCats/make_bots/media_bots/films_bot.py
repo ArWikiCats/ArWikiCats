@@ -36,72 +36,72 @@ def te_films(category: str) -> str:
     # TODO: move it to last position
     resolved_label = resolve_secretaries_labels(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) resolve_secretaries_labels, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) resolve_secretaries_labels, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = get_Films_key_CAO(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) get_Films_key_CAO, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) get_Films_key_CAO, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = get_films_key_tyty_new(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) get_films_key_tyty_new, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) get_films_key_tyty_new, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = Jobs_in_Multi_Sports(normalized_category)
     if resolved_label:
         add_to_new_players(normalized_category, resolved_label)
-        logger.info(f'>>>> (te_films) Jobs_in_Multi_Sports, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) Jobs_in_Multi_Sports, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = te_2018_with_nat(normalized_category)
     if resolved_label:
         add_to_Films_O_TT(normalized_category, resolved_label)
-        logger.info(f'>>>> (te_films) te_2018_with_nat, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) te_2018_with_nat, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = resolve_films(normalized_category)
     if resolved_label:
         add_to_Films_O_TT(normalized_category, resolved_label)
-        logger.info(f'>>>> (te_films) resolve_films, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) resolve_films, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = te4_2018_Jobs(normalized_category)
     if resolved_label:
         add_to_new_players(normalized_category, resolved_label)
-        logger.info(f'>>>> (te_films) te4_2018_Jobs, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) te4_2018_Jobs, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = nat_match(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) nat_match, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) nat_match, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = resolved_countries_formats_labels(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) resolved_countries_formats_labels, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) resolved_countries_formats_labels, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = resolved_translations_resolvers(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) resolved_sports_formats_labels, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) resolved_sports_formats_labels, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     # most likely due to a circular import
     # resolved_label = resolved_translations_resolvers_v3i(normalized_category)
     # if resolved_label:
-    #     logger.info(f'>>>> (te_films) resolved_translations_resolvers_v3i, cat: {normalized_category}, label: "{resolved_label}"')
+    #     logger.info(f'>>>> (te_films) resolved_translations_resolvers_v3i, {normalized_category=}, {resolved_label=}')
     #     return resolved_label
 
     resolved_label = resolved_translations_resolvers_v2(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) resolved_translations_resolvers_v2, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) resolved_translations_resolvers_v2, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = fax.te_language(normalized_category)
     if resolved_label:
-        logger.info(f'>>>> (te_films) te_language, cat: {normalized_category}, label: "{resolved_label}"')
+        logger.info(f'>>>> (te_films) te_language, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     return ""

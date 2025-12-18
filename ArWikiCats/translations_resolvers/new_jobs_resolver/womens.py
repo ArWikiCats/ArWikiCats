@@ -112,10 +112,10 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def load_bot() -> MultiDataFormatterBase:
     jobs_data_enhanced = _load_jobs_data()
-    logger.info(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
+    logger.debug(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
 
     formatted_data = _load_formatted_data()
-    logger.info(f"_load_formatted_data womens: {len(formatted_data):,}")
+    logger.debug(f"_load_formatted_data womens: {len(formatted_data):,}")
 
     nats_data = {
         x: v for x, v in Nat_Womens.items()
