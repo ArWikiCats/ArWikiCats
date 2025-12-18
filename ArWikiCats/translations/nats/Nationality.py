@@ -118,18 +118,17 @@ def load_sources(
     raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
 
     if raw_nats_as_en_key:
-        raw_all_nat_o.update(raw_nats_as_en_key)
         raw_all_nat_o.update(build_en_nat_entries(raw_nats_as_en_key))
+        raw_all_nat_o.update(raw_nats_as_en_key)
 
     raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
     raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
-
-    raw_uu_nats.update(build_en_nat_entries(raw_uu_nats))
 
     data = {}
 
     # Merge JSONs into All_Nat_o
     data.update(raw_uu_nats)
+    data.update(build_en_nat_entries(raw_uu_nats))
     # for key, val in raw_uu_nats.items(): raw_all_nat_o[key] = val
 
     data.update(raw_sub_nat)
