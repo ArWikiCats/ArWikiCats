@@ -145,17 +145,25 @@ def load_bot() -> MultiDataFormatterBase:
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 
 
-def womens_resolver_labels(category: str) -> str:
-    _bot = load_bot()
-
+def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower()
     category = category.replace("expatriates", "expatriate")
     category = REGEX_WOMENS.sub("female", category)
+    return category
+
+
+def womens_resolver_labels(category: str) -> str:
+    logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
+    category = fix_keys(category)
 
     if category in nats_keys_as_country_names:
+        logger.debug(f"<<yellow>> end womens_resolver_labels: {category=}, [result=]")
         return ""
 
-    return _bot.search_all_category(category)
+    _bot = load_bot()
+    result = _bot.search_all_category(category)
+    logger.debug(f"<<yellow>> end womens_resolver_labels: {category=}, {result=}")
+    return result
 
 
 formatted_data = _load_formatted_data()
