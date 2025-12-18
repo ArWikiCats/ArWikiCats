@@ -98,6 +98,7 @@ def _load_bot() -> MultiDataFormatterBase:
     return both_bot
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_by_labels(category: str) -> str:
     # if formatted_data.get(category): return formatted_data[category]
 

@@ -152,6 +152,7 @@ def fix_keys(category: str) -> str:
     return category
 
 
+@functools.lru_cache(maxsize=10000)
 def womens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
     category = fix_keys(category)

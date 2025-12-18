@@ -110,6 +110,7 @@ def _load_sports_bot() -> FormatData:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_team_label(title_en: str) -> str:
     """Resolve an Arabic team label for a sports title using FormatData."""
     logger.debug(f"<<yellow>> start resolve_by_labels: {title_en=}")

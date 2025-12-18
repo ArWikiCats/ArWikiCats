@@ -246,6 +246,7 @@ def fix_keys(category: str) -> str:
     return category
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_nats_sport_multi_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
 

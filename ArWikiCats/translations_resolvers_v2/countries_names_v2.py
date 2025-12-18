@@ -78,6 +78,7 @@ def _load_bot() -> FormatDataV2:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_by_countries_names_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_countries_names_v2: {category=}")
 

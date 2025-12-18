@@ -373,6 +373,7 @@ def _load_bot() -> FormatDataV2:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 

@@ -92,6 +92,7 @@ def multi_bot() -> MultiDataFormatterBase:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_job_from_country(category: str) -> str:
     """Resolve job from countries using the provided multi_bot."""
     logger.debug(f"<<yellow>> start resolve_job_from_country: {category=}")
@@ -126,6 +127,7 @@ def multi_bot_vv3() -> MultiDataFormatterBaseYearV3:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_yearjob_from_country(category: str) -> str:
     """Resolve year and job from countries using yc_bot2."""
     bot = multi_bot_vv3()

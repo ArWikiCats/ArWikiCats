@@ -92,6 +92,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     return both_bot
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_countries_names_sport(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_countries_names_sport: {category=}")
     both_bot = _load_bot()

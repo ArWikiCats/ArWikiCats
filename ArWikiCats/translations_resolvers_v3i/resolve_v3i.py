@@ -50,6 +50,7 @@ formatted_data = {
 }
 
 
+@functools.lru_cache(maxsize=10000)
 def get_job_label(text: str) -> str:
     text = normalize_text(text)
     result = (
@@ -62,6 +63,7 @@ def get_job_label(text: str) -> str:
     return result
 
 
+@functools.lru_cache(maxsize=10000)
 def get_from_label(from_part):
     from_label = (
         medical_keys.get(from_part) or
@@ -85,6 +87,7 @@ def normalize_text(text):
     return text.strip()
 
 
+@functools.lru_cache(maxsize=10000)
 def get_label_new(text: str) -> str:
     """Get the Arabic label for a 'job from country' category."""
     text = normalize_text(text)
@@ -116,6 +119,7 @@ def get_label_new(text: str) -> str:
     return ""
 
 
+@functools.lru_cache(maxsize=10000)
 def match_key_callback(text: str) -> str:
     """Match the country part from 'job from country'."""
     # replace all formatted_data keys from text
@@ -157,6 +161,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_year_job_from_countries(category: str) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
     logger.debug(f"<<yellow>> start resolve_year_job_from_countries: {category=}")
