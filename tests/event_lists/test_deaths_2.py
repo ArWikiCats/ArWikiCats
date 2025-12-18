@@ -1,10 +1,19 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
+
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
-airstrikes_data = {
+airstrikes_data ={
+    "Category:Deaths by German airstrikes during The Blitz": "تصنيف:وفيات بضربات جوية ألمانية خلال قصف لندن",
+    "Category:Deaths by German airstrikes during World War II": "تصنيف:وفيات بضربات جوية ألمانية خلال الحرب العالمية الثانية",
+    "Category:Deaths by Greek airstrikes during World War II": "تصنيف:وفيات بضربات جوية يونانية خلال الحرب العالمية الثانية",
+    "Category:Deaths by Turkish airstrikes during the Syrian civil war": "تصنيف:وفيات بضربات جوية تركية خلال الحرب الأهلية السورية",
+    "Category:Deaths by Russian airstrikes during the Syrian civil war": "تصنيف:وفيات بضربات جوية روسية خلال الحرب الأهلية السورية",
+    "Category:Deaths by Soviet airstrikes during World War II": "تصنيف:وفيات بضربات جوية سوفيتية خلال الحرب العالمية الثانية",
+    "Category:Deaths by British airstrikes during World War II": "تصنيف:وفيات بضربات جوية بريطانية خلال الحرب العالمية الثانية",
+    "Category:Deaths by New Zealand airstrikes during World War II": "تصنيف:وفيات بضربات جوية نيوزيلندية خلال الحرب العالمية الثانية",
     "Category:Deaths by British airstrikes": "تصنيف:وفيات بضربات جوية بريطانية",
     "Category:Deaths by Colombian airstrikes": "تصنيف:وفيات بضربات جوية كولومبية",
     "Category:Deaths by drone strikes": "تصنيف:وفيات بواسطة هجمات الطائرات بدون طيار",
@@ -17,11 +26,11 @@ airstrikes_data = {
     "Category:Deaths by Sudanese airstrikes": "تصنيف:وفيات بضربات جوية سودانية",
     "Category:Deaths by Turkish airstrikes": "تصنيف:وفيات بضربات جوية تركية",
     "Category:Deaths by New Zealand airstrikes": "تصنيف:وفيات بضربات جوية نيوزيلندية",
+
 }
 
 data_test_1 = {
     "Category:Deaths by blade weapons": "تصنيف:وفيات بالأسلحة البيضاء",
-    "Category:Deaths by British airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية بريطانية خلال الحرب العالمية الثانية",
     "Category:Deaths by country": "تصنيف:وفيات حسب البلد",
     "Category:Deaths by decapitation": "تصنيف:وفيات بقطع الرأس",
     "Category:Deaths by dehydration": "تصنيف:وفيات بسبب جفاف",
@@ -61,9 +70,6 @@ data_test_1 = {
     "Category:Deaths by firearm in Yemen": "تصنيف:أشخاص قتلوا بإطلاق النار في اليمن",
     "Category:Deaths by firearm": "تصنيف:وفيات بسبب الأسلحة النارية",
     "Category:Deaths by former country": "تصنيف:وفيات في دول سابقة",
-    "Category:Deaths by German airstrikes during The Blitz": "تصنيف:وفيات بواسطة ضربات جوية ألمانية خلال قصف لندن",
-    "Category:Deaths by German airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية ألمانية خلال الحرب العالمية الثانية",
-    "Category:Deaths by Greek airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية يونانية خلال الحرب العالمية الثانية",
     "Category:Deaths by hanging": "تصنيف:وفيات شنقا",
     "Category:Deaths by improvised explosive device by country": "تصنيف:وفيات بعبوة ناسفة بدائية الصنع حسب البلد",
     "Category:Deaths by improvised explosive device in Afghanistan": "تصنيف:وفيات بعبوة ناسفة بدائية الصنع في أفغانستان",
@@ -83,8 +89,6 @@ data_test_1 = {
     "Category:Deaths by person": "تصنيف:وفيات حسب الأشخاص",
     "Category:Deaths by populated place": "تصنيف:موت حسب المدينة",
     "Category:Deaths by projectile weapons": "تصنيف:وفيات بسبب سلاح القذائف",
-    "Category:Deaths by Russian airstrikes during the Syrian civil war": "تصنيف:وفيات بواسطة ضربات جوية روسية خلال الحرب الأهلية السورية",
-    "Category:Deaths by Soviet airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية سوفيتية خلال الحرب العالمية الثانية",
     "Category:Deaths by stabbing in Algeria": "تصنيف:وفيات بالطعن في الجزائر",
     "Category:Deaths by stabbing in ancient Rome": "تصنيف:وفيات بالطعن في روما",
     "Category:Deaths by stabbing in Argentina": "تصنيف:وفيات بالطعن في الأرجنتين",
@@ -166,8 +170,6 @@ data_test_1 = {
     "Category:Deaths by stabbing in Wales": "تصنيف:وفيات بالطعن في ويلز",
     "Category:Deaths by stabbing": "تصنيف:وفيات بالطعن",
     "Category:Deaths by suicide bomber": "تصنيف:وفيات بتفجير انتحاري",
-    "Category:Deaths by Turkish airstrikes during the Syrian civil war": "تصنيف:وفيات بواسطة ضربات جوية تركية خلال الحرب الأهلية السورية",
-
     "Category:Deaths by United States drone strikes in Afghanistan": "تصنيف:وفيات بهجمات طائرات بدون طيار أمريكية في أفغانستان",
     "Category:Deaths by United States drone strikes in Iraq": "تصنيف:وفيات بضربات طائرات مسيرة أمريكية في العراق",
     "Category:Deaths by United States drone strikes in Pakistan": "تصنيف:وفيات بهجمات طائرات بدون طيار أمريكية في باكستان",
@@ -333,8 +335,6 @@ data_test_2 = {
     "Category:Deaths by firearm in Timor-Leste": "تصنيف:وفيات بإطلاق النار في تيمور الشرقية",
     "Category:Deaths by firearm in Victoria (state)": "تصنيف:وفيات بإطلاق النار في فيكتوريا (أستراليا)",
     "Category:Deaths by horse-riding accident": "تصنيف:وفيات بسبب حادث السقوط عن الحصان",
-    "Category:Deaths by New Zealand airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية نيوزيلندية خلال الحرب العالمية الثانية",
-
     "Category:Deaths by poisoning": "تصنيف:وفيات بسبب السم",
     "Category:Deaths by smoke inhalation": "تصنيف:وفيات بسبب استنشاق الدخان",
     "Category:Deaths by starvation": "تصنيف:وفيات بسبب الجوع",
@@ -515,9 +515,9 @@ data_test_2 = {
 }
 
 to_test = [
-    # ("test_airstrikes_data", airstrikes_data),
-    ("test_deaths_2_data_1", data_test_1),
-    ("test_deaths_2_data_2", data_test_2),
+    ("test_airstrikes_data", airstrikes_data),
+    # ("test_deaths_2_data_1", data_test_1),
+    # ("test_deaths_2_data_2", data_test_2),
 ]
 
 
@@ -534,10 +534,6 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    # dump_diff(add_result, f"{name}_empty")
-
-    # add_result2 = {x: v for x, v in data.items() if x not in add_result}
-    # dump_diff(add_result2, f"{name}_not_empty")
+    dump_diff_text(expected, diff_result, name)
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
