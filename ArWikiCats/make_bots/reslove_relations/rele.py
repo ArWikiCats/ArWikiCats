@@ -14,6 +14,7 @@ from ...translations import (
     all_country_ar,
     countries_nat_en_key,
     COUNTRY_LABEL_OVERRIDES,
+    get_from_new_p17_final,
 )
 from ..o_bots.utils import apply_arabic_article
 from .utils import sort_by_empty_space
@@ -110,7 +111,7 @@ def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str
         if label:
             return label
 
-    return nat_table.get(normalized, "")
+    return nat_table.get(normalized, "") or get_from_new_p17_final(normalized)
 
 
 def _combine_labels(labels: Tuple[str, str], add_article: bool, joiner: str = " ") -> str:
