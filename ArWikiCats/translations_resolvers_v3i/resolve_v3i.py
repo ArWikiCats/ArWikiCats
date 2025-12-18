@@ -179,3 +179,11 @@ def resolve_year_job_from_countries(category: str) -> str:
 
     logger.debug(f"<<yellow>> end resolve_year_job_from_countries: {category=}, {result=}")
     return result
+
+
+__all__ = [
+    "get_from_label",
+    "get_label_new",
+    "resolve_year_job_from_countries",
+    "multi_bot_v4",
+]
