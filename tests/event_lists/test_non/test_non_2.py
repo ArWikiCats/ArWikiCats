@@ -4,6 +4,15 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
+test_1 = {
+    "Category:21st-century New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون في القرن 21",
+    "Category:20th-century New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون في القرن 20",
+    "Category:New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون",
+    "Category:New Zealand non-fiction writers by century": "تصنيف:كتاب غير روائيين نيوزيلنديون حسب القرن",
+    "Category:New Zealand non-fiction books": "تصنيف:كتب نيوزيلندية غير خيالية",
+
+}
+
 data_empty_result = {
     "Category:Academicians of non-governmental academies based in Russia": "x",
     "Category:Advisory non-departmental public bodies of the Scottish Government": "x",
@@ -599,12 +608,6 @@ data_empty_result = {
 }
 
 non_fiction_empty = {
-    "Category:21st-century New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون في القرن 21",
-    "Category:20th-century New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون في القرن 20",
-    "Category:New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون",
-    "Category:New Zealand non-fiction writers by century": "تصنيف:كتاب غير روائيين نيوزيلنديون حسب القرن",
-    "Category:New Zealand non-fiction books": "تصنيف:كتب نيوزيلندية غير خيالية",
-
     "Category:New Zealand non-fiction literary awards": "x",
     "Category:New Zealand women non-fiction writers": "x",
     "Category:Abortion in non-fiction": "x",
@@ -722,8 +725,8 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", data_empty_result.items(), ids=data_empty_result.keys())
-@pytest.mark.skip2
+@pytest.mark.parametrize("category, expected", test_1.items(), ids=test_1.keys())
+@pytest.mark.fast
 def test_data_empty_result(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected

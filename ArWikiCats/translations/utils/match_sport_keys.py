@@ -46,7 +46,7 @@ Sports_Keys_For_Jobs_simple = {
 def _load_regex() -> re.Pattern:
     """Return the compiled regex pattern for matching sport keys."""
     if len(SPORTS_KEYS_FOR_JOBS) > 1000:
-        logger.info(f">keys_to_pattern(): len(new_pattern keys) = {len(SPORTS_KEYS_FOR_JOBS):,}")
+        logger.debug(f">keys_to_pattern(): len(new_pattern keys) = {len(SPORTS_KEYS_FOR_JOBS):,}")
 
     data_List_sorted = sorted(
         SPORTS_KEYS_FOR_JOBS.keys(),

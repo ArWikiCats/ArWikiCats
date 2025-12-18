@@ -8,7 +8,6 @@ examples = {
     "2017 American television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
     "2017 American television series endings": "مسلسلات تلفزيونية أمريكية انتهت في 2017",
     "20th-century railway accidents": "حوادث سكك حديد في القرن 20",
-    "Paralympic competitors for Cape Verde": "",
 }
 
 

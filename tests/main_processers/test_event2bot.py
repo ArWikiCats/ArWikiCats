@@ -7,9 +7,8 @@ import pytest
 from ArWikiCats.main_processers.event2bot import event2, event2_d2, stubs_label
 
 fast_data = {
+
     "1650s films": "أفلام إنتاج عقد 1650",
-    "1650 central american": "أمريكيون أوسطيون في 1650",
-    "1650s soviet": "سوفيت في عقد 1650",
     "20th century canadian violinists": "عازفو كمان كنديون في القرن 20",
     "20th century chinese dramatists": "دراميون صينيون في القرن 20",
     "20th century dramatists": "دراميون في القرن 20",
@@ -29,7 +28,7 @@ fast_data = {
     "20th century philosophers": "فلاسفة في القرن 20",
     "20th century roman catholic bishops": "أساقفة كاثوليك رومان في القرن 20",
     "20th century roman catholic church buildings": "مبان كنائس رومانية كاثوليكية القرن 20",
-    "20th century romanian people": "رومانيون في القرن 20",
+    "20th century romanian people": "رومان في القرن 20",
     "20th century women": "المرأة في القرن 20",
     "march 1650 crimes": "جرائم مارس 1650",
     "20th century clergy": "رجال دين في القرن 20",

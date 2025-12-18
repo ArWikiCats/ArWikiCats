@@ -1,3 +1,34 @@
+## [#236](https://github.com/MrIbrahem/ArWikiCats/pull/236) - 2025-12-18
+
+* **Improvements**
+  * Widespread memoization added to many resolvers for faster repeated lookups; increased debug logging and reduced noisy debug output.
+  * Adjusted data merge/precedence for nationality and label mappings; refined some normalization behaviors.
+
+* **New Features**
+  * Added a new year/country-job resolver and several helper normalization utilities.
+
+* **Bug Fixes**
+  * Simplified resolution chains by removing an unused fallback step.
+
+* **Tests**
+  * Reorganized and updated many test fixtures, added targeted resolver integration/unit tests.
+
+* **Documentation**
+  * Updated changelog with recent entries.
+
+## [#235](https://github.com/MrIbrahem/ArWikiCats/pull/235) - 2025-12-18
+
+* **New Features**
+  * Added airstrike-related death categorization translations
+  * Expanded nationality categorization support for country data
+
+* **Improvements**
+  * Enhanced Arabic text normalization for death-attribution phrases
+  * Improved category label resolution with better data consistency and handling
+
+* **Tests**
+  * Expanded test coverage for category-to-label resolution across multiple datasets
+
 ## [#234](https://github.com/MrIbrahem/ArWikiCats/pull/234) - 2025-12-18
 
 * **New Features**

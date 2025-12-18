@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import functools
 import re
 
 from ..helps import logger, dump_data
@@ -99,6 +100,7 @@ def move_years_first(text_str: str) -> str:
     return new_text
 
 
+@functools.lru_cache(maxsize=10000)
 def move_years(text_str: str) -> str:
     """Normalize the placement of year fragments within the label.
 

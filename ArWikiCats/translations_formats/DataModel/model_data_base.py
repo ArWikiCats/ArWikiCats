@@ -46,7 +46,7 @@ class FormatDataBase:
             return ""
 
         if len(self.data_list_ci) > 1000:
-            logger.info(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+            logger.debug(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
 
         # to fix bug that selected "black" instead of "black-and-white"
         keys_sorted = sorted(
@@ -91,12 +91,11 @@ class FormatDataBase:
             return normalized
 
         logger.debug(f"handle_texts_before_after: {normalized=}")
-
         # no need for further processing
         # (text_before="the ") but key: ("the {nat_en} actors") already in formatted_data_ci so no need to replace
-
-        if self.formatted_data_ci.get(normalized.strip(), ""):
-            logger.debug(f"handle_texts_before_after: found directly {normalized=} in formatted_data_ci")
+        normalized_strip = normalized.strip()
+        if self.formatted_data_ci.get(normalized_strip, ""):
+            logger.debug(f"handle_texts_before_after: found directly {normalized_strip=} in formatted_data_ci")
             return normalized
 
         if self.text_before:
@@ -105,7 +104,7 @@ class FormatDataBase:
 
             # no need for further processing
             # (text_after=" people") but key: ("{nat_en} people actors") already in formatted_data_ci so no need to replace
-            if self.formatted_data_ci.get(normalized.strip(), ""):
+            if self.formatted_data_ci.get(normalized_strip, ""):
                 return normalized
 
         if self.text_after:
@@ -176,7 +175,7 @@ class FormatDataBase:
 
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
-        logger.debug("><><><>< start _search(): ")
+        logger.debug("$$$ start _search(): ")
         logger.debug(f"++++++++ _search {self.__class__.__name__} ++++++++ ")
 
         if self.formatted_data_ci.get(category):
@@ -229,7 +228,7 @@ class FormatDataBase:
         return self._search(category)
 
     def search_all_category(self, category: str) -> str:
-        logger.debug("--"*20)
+        logger.debug("--"*5)
         logger.debug(">> search_all_category start")
         normalized_category = category.lower().replace("category:", "")
 

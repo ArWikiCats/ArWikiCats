@@ -3,6 +3,7 @@
 
 """
 import functools
+from ..helps import logger
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
@@ -62,6 +63,11 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
     nats_data.update(nats_keys_as_country_names)
 
+    nats_data.update({
+        x: v for x, v in nats_keys_as_country_names.items()
+        if v.get("ar") and v.get("en")
+    })
+
     sports_data = {
         x: {
             "sport_ar": v["label"],
@@ -86,9 +92,12 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     return both_bot
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_countries_names_sport(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_countries_names_sport: {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
+    logger.debug(f"<<yellow>> end resolve_countries_names_sport: {category=}, {result=}")
     return result
 
 

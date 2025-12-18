@@ -7,6 +7,7 @@ to translate category titles like "{nationality} {sport} federation" into Arabic
 
 """
 import functools
+from ..helps import logger
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations.nats.Nationality import all_country_with_nat_ar
 from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
@@ -245,10 +246,15 @@ def fix_keys(category: str) -> str:
     return category
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_nats_sport_multi_v2(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
+
     both_bot = _load_bot()
     category = fix_keys(category)
     result = both_bot.search_all_category(category)
+
+    logger.debug(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}")
     return result
 
 

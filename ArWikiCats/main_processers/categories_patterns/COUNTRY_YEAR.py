@@ -11,6 +11,7 @@ COUNTRY_YEAR_PARAMS = [
 # Category:18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
     "category:{year1} elections in {country1}": "تصنيف:انتخابات {year1} في {country1}",  # 1550
+    # "category:{year1} in ottoman {country1}": "تصنيف:{country1} العثمانية في {year1}",  # 65
 
     "category:{year1} people of {country1}": "تصنيف:أشخاص من {country1} {year1}",  # 34632
     "category:{year1} in {country1}": "تصنيف:{year1} في {country1}",  # 34632
@@ -68,7 +69,6 @@ COUNTRY_YEAR_DATA = {
     "category:{year1} disestablishments in {country1} (state)": "تصنيف:انحلالات سنة {year1} في ولاية {country1}",  # 71
     "category:{country1} at {year1} fifa women's world cup": "تصنيف:{country1} في كأس العالم لكرة القدم للسيدات {year1}",  # 97
     "category:{year1} roman catholic church buildings in {country1}": "تصنيف:مبان كنائس رومانية كاثوليكية في {country1} في {year1}",  # 92
-    "category:{year1} in ottoman {country1}": "تصنيف:{country1} العثمانية في {year1}",  # 65
     "category:{year1} natural disasters in {country1}": "تصنيف:كوارث طبيعية في {country1} في {year1}",  # 84
     "category:{year1} floods in {country1}": "تصنيف:فيضانات في {country1} في {year1}",  # 62
     "category:{year1} awards in {country1}": "تصنيف:جوائز {year1} في {country1}",  # 78

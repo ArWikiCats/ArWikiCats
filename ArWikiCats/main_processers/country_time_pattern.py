@@ -6,6 +6,7 @@ bot (`yc_bot`) to handle the translation logic.
 """
 
 import functools
+from ..helps import logger
 from ..translations import all_country_ar
 from ..translations_formats import format_year_country_data, MultiDataFormatterBaseYear
 
@@ -28,6 +29,7 @@ def load_bot() -> MultiDataFormatterBaseYear:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_country_time_pattern(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_country_time_pattern: {category=}")
     yc_bot = load_bot()
     result = yc_bot.create_label(category)
     if not result:
@@ -35,6 +37,7 @@ def resolve_country_time_pattern(category: str) -> str:
         # Only call again if the string is different after normalization
         if normalized_category != category:
             result = yc_bot.create_label(normalized_category)
+    logger.debug(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}")
     return result or ""
 
 

@@ -2,6 +2,7 @@
 """ """
 
 import functools
+from ...helps import logger
 from ...translations import Nat_women
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
@@ -59,7 +60,10 @@ both_bot = format_multi_data(
 
 @functools.lru_cache(maxsize=None)
 def sport_lab_nat_load_new(category) -> str:
-    return both_bot.create_label(category)
+    logger.debug(f"<<yellow>> start resolve_by_countries_names: {category=}")
+    result = both_bot.create_label(category)
+    logger.debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
+    return result
 
 
 __all__ = [

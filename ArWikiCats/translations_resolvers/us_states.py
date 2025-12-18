@@ -3,6 +3,7 @@
 from __future__ import annotations
 import functools
 
+from ..helps import logger
 from ..translations_formats import FormatData
 from ..translations import US_STATES
 
@@ -164,10 +165,12 @@ def normalize_state(ar_name: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
-    result = us_bot.search(category)
+    logger.debug(f"<<yellow>> start resolve_us_states: {category=}")
 
+    result = us_bot.search(category)
     result = normalize_state(result)
 
+    logger.debug(f"<<yellow>> end resolve_us_states: {category=}, {result=}")
     return result
 
 

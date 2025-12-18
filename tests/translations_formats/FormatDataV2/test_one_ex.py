@@ -40,7 +40,7 @@ def bot() -> FormatDataV2:
         # Uses {males}
         "{nat_en} writers": "كتاب {males}",
         "{nat_en} poets": "شعراء {males}",
-        "{nat_en} people": "أشخاص {males}",
+        "{nat_en} people": "أعلام {males}",
         "{nat_en} heroes": "أبطال {males}",
 
         # Uses {male}
@@ -183,7 +183,7 @@ def test_get_template_ar_supports_category_prefix(bot: FormatDataV2) -> None:
 @pytest.mark.fast
 def test_match_key_descent(bot: FormatDataV2) -> None:
     """
-    "people of Moroccan-Jewish descent": "أشخاص من أصل يهودي مغربي",
+    "people of Moroccan-Jewish descent": "أعلام من أصل يهودي مغربي",
     Ensure regex does not match nationality keys inside larger words.
 
     'egyptian' should not match inside 'preEgyptian'.
@@ -199,7 +199,7 @@ def test_match_key_descent(bot: FormatDataV2) -> None:
 @pytest.mark.fast
 def test_normalize_category_descent(bot: FormatDataV2) -> None:
     """
-    "people of Moroccan-Jewish descent": "أشخاص من أصل يهودي مغربي",
+    "people of Moroccan-Jewish descent": "أعلام من أصل يهودي مغربي",
     Ensure regex does not match nationality keys inside larger words.
 
     'egyptian' should not match inside 'preEgyptian'.

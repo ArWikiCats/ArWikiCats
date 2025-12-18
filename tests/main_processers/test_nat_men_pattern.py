@@ -48,7 +48,7 @@ test_data_males = {
     "mongolian people": "أعلام منغوليون",
     "polish people": "أعلام بولنديون",
     "rhodesian people": "أعلام رودوسيون",
-    "romanian people": "أعلام رومانيون",
+    "romanian people": "أعلام رومان",
     "salvadoran people": "أعلام سلفادوريون",
     "scottish people": "أعلام إسكتلنديون",
     "serbian people": "أعلام صرب",

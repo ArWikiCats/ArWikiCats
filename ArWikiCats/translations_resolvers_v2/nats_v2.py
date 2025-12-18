@@ -4,7 +4,8 @@ TODO: use this instead of for_me.py and nats_women.py
 """
 import functools
 
-from ..translations_resolvers_v2.ministers_resolver import nats_keys_as_country_names
+from ..helps import logger
+from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 from ..translations_formats import FormatDataV2
 from ..translations import all_country_with_nat_ar
 from .data import country_names_and_nats_data
@@ -106,7 +107,18 @@ male_data = {
 }
 
 female_data = {
+    "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
+    "{en} non-fiction comic strips": "شرائط مصورة {female} غير خيالية",
+    "{en} non-fiction comic": "قصص مصورة {female} غير خيالية",
+    "{en} non-fiction comics": "قصص مصورة {female} غير خيالية",
+    "{en} non-fiction crime": "جريمة {female} غير خيالية",
+    "{en} non-fiction graphic novels": "روايات مصورة {female} غير خيالية",
+    "{en} non-fiction novels": "روايات {female} غير خيالية",
+
     # female - en_is_nat_ar_is_women
+    "{en} non-fiction books": "كتب {female} غير خيالية",
+    "{en} non fiction books": "كتب {female} غير خيالية",
+    "{en} books": "كتب {female}",
     "{en} phonologies": "تصريفات صوتية {female}",
     "{en} crimes": "جرائم {female}",
     "{en} crimes against humanity": "جرائم ضد الإنسانية {female}",
@@ -359,9 +371,11 @@ def _load_bot() -> FormatDataV2:
         for x, v in all_country_with_nat_ar.items()
         if v.get("ar")
     }
-    nats_data.update(
-        nats_keys_as_country_names
-    )
+    nats_data.update({
+        x: v
+        for x, v in nats_keys_as_country_names.items()
+        if v.get("ar")
+    })
     return FormatDataV2(
         formatted_data=all_formatted_data,
         data_list=nats_data,
@@ -370,13 +384,17 @@ def _load_bot() -> FormatDataV2:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_by_nats(category: str) -> str:
-    nat_bot = _load_bot()
+    logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 
-    if category in nats_keys_as_country_names:
+    if category in nats_keys_as_country_names_bad_keys:
+        logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, [result=]")
         return ""
 
+    nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
+    logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
     return result
 
 

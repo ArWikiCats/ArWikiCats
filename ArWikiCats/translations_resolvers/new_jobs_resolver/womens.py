@@ -7,8 +7,7 @@ import re
 from ...helps import len_print, logger
 from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP, FEMALE_JOBS_BASE
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
-from ...translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
-
+from ...translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
 
 
@@ -112,19 +111,24 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def load_bot() -> MultiDataFormatterBase:
     jobs_data_enhanced = _load_jobs_data()
-    logger.info(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
+    logger.debug(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
 
     formatted_data = _load_formatted_data()
-    logger.info(f"_load_formatted_data womens: {len(formatted_data):,}")
+    logger.debug(f"_load_formatted_data womens: {len(formatted_data):,}")
 
-    nats_new = {
+    nats_data = {
         x: v for x, v in Nat_Womens.items()
         if "-american" not in x
     }
 
+    nats_data.update({
+        x: v.get("females") for x, v in nats_keys_as_country_names.items()
+        if v.get("females")
+    })
+
     return format_multi_data(
         formatted_data=formatted_data,
-        data_list=nats_new,
+        data_list=nats_data,
         key_placeholder="{en_nat}",
         value_placeholder="{ar_nat}",
         data_list2=jobs_data_enhanced,
@@ -140,17 +144,26 @@ def load_bot() -> MultiDataFormatterBase:
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 
 
-def womens_resolver_labels(category: str) -> str:
-    _bot = load_bot()
-
+def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower()
     category = category.replace("expatriates", "expatriate")
     category = REGEX_WOMENS.sub("female", category)
+    return category
 
-    if category in nats_keys_as_country_names:
+
+@functools.lru_cache(maxsize=10000)
+def womens_resolver_labels(category: str) -> str:
+    logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
+    category = fix_keys(category)
+
+    if category in nats_keys_as_country_names_bad_keys:
+        logger.debug(f"<<yellow>> end womens_resolver_labels: {category=}, [result=]")
         return ""
 
-    return _bot.search_all_category(category)
+    _bot = load_bot()
+    result = _bot.search_all_category(category)
+    logger.debug(f"<<yellow>> end womens_resolver_labels: {category=}, {result=}")
+    return result
 
 
 formatted_data = _load_formatted_data()

@@ -3,7 +3,9 @@
 Resolve country names categories translations
 """
 from typing import Dict
-from ..translations_formats import FormatData
+import functools
+from ..helps import logger
+from ..translations_formats import FormatData, MultiDataFormatterBase
 from ..translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
 
 # NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly
@@ -122,17 +124,27 @@ countries_from_nat_data: Dict[str, str] = dict(countries_from_nat)
 
 # TODO: update countries_from_nat_data with COUNTRY_LABEL_OVERRIDES after check any issues!
 
-nat_bot = FormatData(
-    formatted_data_updated,
-    countries_from_nat_data,
-    key_placeholder="{en}",
-    value_placeholder="{ar}",
-    text_before="the ",
-)
+
+@functools.lru_cache(maxsize=1)
+def _load_bot() -> MultiDataFormatterBase:
+
+    return FormatData(
+        formatted_data_updated,
+        countries_from_nat_data,
+        key_placeholder="{en}",
+        value_placeholder="{ar}",
+        text_before="the ",
+    )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_by_countries_names(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_by_countries_names: {category=}")
+
+    nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
+
+    logger.debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
     return result
 
 

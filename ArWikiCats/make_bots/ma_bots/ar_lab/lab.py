@@ -4,6 +4,7 @@ Arabic Label Builder Module
 """
 
 import re
+import functools
 from typing import Tuple
 
 from ....helps.log import logger
@@ -34,6 +35,8 @@ from ....translations_resolvers_v2 import resolved_translations_resolvers_v2
 from ....translations_resolvers_v3i import resolved_translations_resolvers_v3i
 # from ....main_processers import resolve_nat_genders_pattern
 
+
+@functools.lru_cache(maxsize=10000)
 def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
     """Split category into type and country parts using the separator.
 
@@ -55,6 +58,7 @@ def _split_category_by_separator(category: str, separator: str) -> Tuple[str, st
     return category_type, country.lower()
 
 
+@functools.lru_cache(maxsize=10000)
 def _fix_typos_in_type(category_type: str, separator_stripped: str) -> str:
     """Fix known typos in the category type.
 
@@ -147,6 +151,7 @@ def _apply_regex_extraction(
     return type_regex, country_regex, should_use_regex
 
 
+@functools.lru_cache(maxsize=10000)
 def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     """Extract the type and country from a given category string.
 
@@ -306,9 +311,13 @@ def _create_type_lookup_chain(
     Returns:
         List of lookup functions to try in order
     """
+    data = {
+        "executed people": "أشخاص أعدموا",
+    }
     return {
         # NOTE: resolve_nat_genders_pattern IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern" : lambda t: resolve_nat_genders_pattern(t),
+        "data_get" : lambda t: data.get(t),
         "resolved_translations_resolvers_v3i" : lambda t: resolved_translations_resolvers_v3i(t),
         "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
         "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
@@ -414,6 +423,7 @@ def _create_country_lookup_chain(
     }
 
 
+@functools.lru_cache(maxsize=10000)
 def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
     """Determine the type label based on input parameters.
 
@@ -426,6 +436,9 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
             - label: The Arabic label for the type
             - should_append_in_label: Whether 'in' preposition should be appended
     """
+    logger.debug(f"get_type_lab, {separator=}, {type_value=}")
+    # get_type_lab, separator='by', type_value='new zealand non-fiction writers'
+
     normalized_preposition = separator.strip()
     type_lower = type_value.lower()
 
@@ -451,6 +464,7 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
     return label, should_append_in_label
 
 
+@functools.lru_cache(maxsize=10000)
 def get_con_lab(separator: str, country: str, start_get_country2: bool = False) -> str:
     """Retrieve the corresponding label for a given country.
 

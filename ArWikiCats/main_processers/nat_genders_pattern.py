@@ -7,7 +7,7 @@ TODO: use format_multi_data_v2
 
 import re
 import functools
-from ..helps import len_print
+from ..helps import len_print, logger
 from ..translations import All_Nat, SPORT_KEY_RECORDS_BASE
 from ..translations_formats import FormatDataV2
 
@@ -179,6 +179,7 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nat_genders_pattern(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_nat_genders_pattern: {category=}")
     yc_bot = _bot_new()
 
     normalized_category = fix_keys(category)
@@ -187,6 +188,7 @@ def resolve_nat_genders_pattern(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
+    logger.debug(f"<<yellow>> end resolve_nat_genders_pattern: {category=}, {result=}")
     return result or ""
 
 

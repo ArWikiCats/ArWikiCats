@@ -4,6 +4,7 @@ TODO: still has some issues to resolve with some labels
 
 """
 import functools
+from ...helps import logger
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations.by_type import (
     PRIMARY_BY_COMPONENTS,
@@ -97,11 +98,14 @@ def _load_bot() -> MultiDataFormatterBase:
     return both_bot
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_by_labels(category: str) -> str:
     # if formatted_data.get(category): return formatted_data[category]
 
+    logger.debug(f"<<yellow>> start resolve_by_labels: {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
+    logger.debug(f"<<yellow>> end resolve_by_labels: {category=}, {result=}")
     return result
 
 

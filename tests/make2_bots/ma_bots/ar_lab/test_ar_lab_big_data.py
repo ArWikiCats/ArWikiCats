@@ -729,7 +729,7 @@ data_list = [
     ("paintings of queen victoria", " of ", "لوحات عن الملكة فيكتوريا"),
     ("pakistani companies established in 1550", " established in ", "شركات باكستانية أسست في 1550"),
     ("paleontology in connecticut", " in ", "علم الأحياء القديمة في كونيتيكت"),
-    ("paralympic competitors for cyprus", " for ", "منافسون في الألعاب البارالمبية من قبرص"),
+    ("paralympic competitors for cyprus", " for ", "منافسون بارالمبيون من قبرص"),
     ("parks in county waterford", " in ", "متنزهات في مقاطعة وترفورد"),
     ("parks in taiwan", " in ", "متنزهات في تايوان"),
     ("parliament of barbados", " of ", "برلمان بربادوس"),

@@ -261,7 +261,7 @@ data_1 = {
     "Category:Portuguese non-fiction writers": "تصنيف:كتاب غير روائيين برتغاليون",
     "Category:Puerto Rican non-fiction writers": "تصنيف:كتاب غير روائيين بورتوريكيون",
     "Category:Qatari non-fiction writers": "تصنيف:كتاب غير روائيين قطريون",
-    "Category:Romanian non-fiction writers": "تصنيف:كتاب غير روائيين رومانيون",
+    "Category:Romanian non-fiction writers": "تصنيف:كتاب غير روائيين رومان",
     "Category:Russian non-fiction writers": "تصنيف:كتاب غير روائيين روس",
     "Category:Russian non-fiction writers by century": "تصنيف:كتاب غير روائيين روس حسب القرن",
     "Category:Rwandan non-fiction writers": "تصنيف:كتاب غير روائيين روانديون",

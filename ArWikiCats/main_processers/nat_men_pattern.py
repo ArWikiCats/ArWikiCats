@@ -7,6 +7,7 @@ bot to handle the translation logic.
 
 import functools
 from .categories_patterns.NAT_males import NAT_DATA_MALES
+from ..helps import logger
 from ..translations import All_Nat
 from ..translations_formats import FormatDataV2
 
@@ -40,6 +41,7 @@ def _bot_new() -> FormatDataV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nat_men_pattern_new(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_nat_men_pattern_new: {category=}")
     yc_bot=_bot_new()
 
     normalized_category=category.lower().replace("category:", "")
@@ -47,6 +49,7 @@ def resolve_nat_men_pattern_new(category: str) -> str:
 
     if result and category.lower().startswith("category:"):
         result="تصنيف:" + result
+    logger.debug(f"<<yellow>> end resolve_nat_men_pattern_new: {category=}, {result=}")
 
     return result or ""
 

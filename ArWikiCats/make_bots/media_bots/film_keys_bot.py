@@ -126,8 +126,7 @@ def resolve_films(category: str) -> str:
     else:
         country_label = Films(normalized_category, "", "")
 
-    if country_label:
-        logger.info(f'<<lightblue>> _resolve_films(): {category=}, {country_label=} ')
+    logger.debug(f'<<lightblue>> _resolve_films(): {category=}, {country_label=} ')
 
     return country_label or ""
 

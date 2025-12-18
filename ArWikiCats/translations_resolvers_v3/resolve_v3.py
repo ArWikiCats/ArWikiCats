@@ -5,6 +5,7 @@ TODO: use this code in flowworks
 import functools
 import re
 
+from ..helps import logger
 from ..translations_formats import FormatData, YearFormatData, MultiDataFormatterBase, V3Formats, MultiDataFormatterBaseYearV3
 from ..translations_resolvers.new_jobs_resolver.mens import mens_resolver_labels
 
@@ -91,10 +92,16 @@ def multi_bot() -> MultiDataFormatterBase:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_job_from_country(category: str) -> str:
     """Resolve job from countries using the provided multi_bot."""
+    logger.debug(f"<<yellow>> start resolve_job_from_country: {category=}")
+
     _bot = multi_bot()
-    return _bot.search_all(category)
+    result = _bot.search_all(category)
+
+    logger.debug(f"<<yellow>> end resolve_job_from_country: {category=}, {result=}")
+    return result
 
 
 @functools.lru_cache(maxsize=1)
@@ -120,6 +127,7 @@ def multi_bot_vv3() -> MultiDataFormatterBaseYearV3:
     )
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_yearjob_from_country(category: str) -> str:
     """Resolve year and job from countries using yc_bot2."""
     bot = multi_bot_vv3()
