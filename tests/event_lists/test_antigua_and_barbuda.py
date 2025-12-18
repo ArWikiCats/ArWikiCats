@@ -33,11 +33,11 @@ data_0 = {
 }
 
 data_1 = {
+    "Category:21st-century Antigua and Barbuda politicians": "تصنيف:سياسيون أنتيغويون وبربوديون في القرن 21",
+    "Category:21st-century Antigua and Barbuda people": "تصنيف:أعلام أنتيغويون وبربوديون في القرن 21",
     "Category:New Zealand emigrants to Antigua and Barbuda": "تصنيف:نيوزيلنديون مهاجرون إلى أنتيغوا وباربودا",
-    "Category:New Zealand emigrants to Antigua and Barbuda": "تصنيف:مهاجرون نيوزيلنديون إلى أنتيغوا وباربودا",
 
     "Category:Paralympic competitors for Antigua and Barbuda": "تصنيف:منافسون بارالمبيون من أنتيغوا وباربودا",
-    "Category:Paralympic competitors for Antigua and Barbuda": "تصنيف:منافسون في الألعاب البارالمبية من أنتيغوا وباربودا",
 
     "Category:Antigua and Barbuda people of New Zealand descent": "تصنيف:أنتيغويون وبربوديون من أصل نيوزيلندي",
     "Category:Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون",
@@ -184,8 +184,6 @@ data_1 = {
     "Category:2025 in Antigua and Barbuda sport": "تصنيف:رياضة أنتيغوية وبربودية في 2025",
     "Category:2026 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في 2026",
     "Category:20th-century disestablishments in Antigua and Barbuda": "تصنيف:انحلالات القرن 20 في أنتيغوا وباربودا",
-    "Category:21st-century Antigua and Barbuda people": "تصنيف:أنتيغويون وبربوديون في القرن 21",
-    "Category:21st-century Antigua and Barbuda politicians": "تصنيف:سياسيو أنتيغوا وباربودا في القرن 21",
     "Category:21st-century disestablishments in Antigua and Barbuda": "تصنيف:انحلالات القرن 21 في أنتيغوا وباربودا",
     "Category:2nd-millennium disestablishments in Antigua and Barbuda": "تصنيف:انحلالات الألفية 2 في أنتيغوا وباربودا",
     "Category:3rd-millennium disestablishments in Antigua and Barbuda": "تصنيف:انحلالات الألفية 3 في أنتيغوا وباربودا",

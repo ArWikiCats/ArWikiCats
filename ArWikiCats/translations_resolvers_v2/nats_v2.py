@@ -107,7 +107,18 @@ male_data = {
 }
 
 female_data = {
+    "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
+    "{en} non-fiction comic strips": "شرائط مصورة {female} غير خيالية",
+    "{en} non-fiction comic": "قصص مصورة {female} غير خيالية",
+    "{en} non-fiction comics": "قصص مصورة {female} غير خيالية",
+    "{en} non-fiction crime": "جريمة {female} غير خيالية",
+    "{en} non-fiction graphic novels": "روايات مصورة {female} غير خيالية",
+    "{en} non-fiction novels": "روايات {female} غير خيالية",
+
     # female - en_is_nat_ar_is_women
+    "{en} non-fiction books": "كتب {female} غير خيالية",
+    "{en} non fiction books": "كتب {female} غير خيالية",
+    "{en} books": "كتب {female}",
     "{en} phonologies": "تصريفات صوتية {female}",
     "{en} crimes": "جرائم {female}",
     "{en} crimes against humanity": "جرائم ضد الإنسانية {female}",
