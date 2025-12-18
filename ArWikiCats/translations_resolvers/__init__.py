@@ -4,7 +4,7 @@ from ..helps import logger
 
 
 def resolved_translations_resolvers(normalized_category) -> str:
-    normalized_category = normalized_category.lower().replace("category:", " ")
+    normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--"*20)
     logger.debug(f"<><><><><><> <<green>> Trying v1 resolvers for: {normalized_category=}")
 
