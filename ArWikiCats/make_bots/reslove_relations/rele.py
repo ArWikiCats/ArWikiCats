@@ -111,7 +111,12 @@ def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str
         if label:
             return label
 
-    return nat_table.get(normalized, "") or get_from_new_p17_final(normalized)
+    label = nat_table.get(normalized, "")
+
+    if not label and not gender_key:
+        label = get_from_new_p17_final(normalized)
+
+    return label
 
 
 def _combine_labels(labels: Tuple[str, str], add_article: bool, joiner: str = " ") -> str:
