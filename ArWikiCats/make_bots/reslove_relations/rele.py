@@ -21,13 +21,13 @@ all_country_labels.update({
     "nato": "الناتو",
     "european union": "الاتحاد الأوروبي",
 })
-
 all_country_labels.update(COUNTRY_LABEL_OVERRIDES)
 
 P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
     " proxy conflict": "صراع {} بالوكالة",
     " relations": "علاقات {}",
+    " sports relations": "علاقات {} الرياضية",
 }
 
 RELATIONS_FEMALE: Mapping[str, str] = {
