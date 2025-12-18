@@ -3,7 +3,7 @@ This module provides functionality to translate category titles
 """
 import functools
 
-from ...helps import logger
+from ...helps import logger, len_print
 from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
@@ -89,7 +89,11 @@ def _load_formatted_data() -> dict:
         formatted_data.update(
             one_Keys_more_2(x, v, add_women=False)
         )
+
     formatted_data.update(formatted_data_jobs_with_nat)
+    formatted_data.update({
+        "{en_nat} emigrants": "{ar_nat} مهاجرون",
+    })
 
     return formatted_data
 
@@ -113,10 +117,11 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def load_bot() -> MultiDataFormatterBase:
     jobs_data_enhanced = _load_jobs_data()
-    logger.info(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
+    logger.debug(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
 
     formatted_data = _load_formatted_data()
-    logger.info(f"_load_formatted_data mens: {len(formatted_data):,}")
+
+    logger.debug(f"_load_formatted_data mens: {len(formatted_data):,}")
 
     nats_data: dict[str, str] = {
         x: v for x, v in Nat_mens.items()
@@ -171,3 +176,5 @@ def mens_resolver_labels(category: str) -> str:
 
     logger.debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
     return result
+
+# len_print.data_len("mens.py", {"formatted_data": _load_formatted_data()})

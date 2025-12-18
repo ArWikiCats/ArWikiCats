@@ -46,7 +46,7 @@ class FormatDataBase:
             return ""
 
         if len(self.data_list_ci) > 1000:
-            logger.info(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
+            logger.debug(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
 
         # to fix bug that selected "black" instead of "black-and-white"
         keys_sorted = sorted(
@@ -94,9 +94,9 @@ class FormatDataBase:
 
         # no need for further processing
         # (text_before="the ") but key: ("the {nat_en} actors") already in formatted_data_ci so no need to replace
-
-        if self.formatted_data_ci.get(normalized.strip(), ""):
-            logger.debug(f"handle_texts_before_after: found directly {normalized=} in formatted_data_ci")
+        normalized_strip = normalized.strip()
+        if self.formatted_data_ci.get(normalized_strip, ""):
+            logger.debug(f"handle_texts_before_after: found directly {normalized_strip=} in formatted_data_ci")
             return normalized
 
         if self.text_before:
@@ -105,7 +105,7 @@ class FormatDataBase:
 
             # no need for further processing
             # (text_after=" people") but key: ("{nat_en} people actors") already in formatted_data_ci so no need to replace
-            if self.formatted_data_ci.get(normalized.strip(), ""):
+            if self.formatted_data_ci.get(normalized_strip, ""):
                 return normalized
 
         if self.text_after:
