@@ -158,9 +158,15 @@ def fix_keys(category: str) -> str:
 
 
 def mens_resolver_labels(category: str) -> str:
-    _bot = load_bot()
+    logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
 
     category = fix_keys(category)
     if category in nats_keys_as_country_names:
+        logger.debug(f"<<yellow>> end mens_resolver_labels: {category=}, [result=]")
         return ""
-    return _bot.search_all_category(category)
+
+    _bot = load_bot()
+    result = _bot.search_all_category(category)
+
+    logger.debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
+    return result

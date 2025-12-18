@@ -157,7 +157,7 @@ class MultiDataFormatterBaseHelpers:
             or self.other_bot.search(category)
 
     def search_all_category(self, category: str) -> str:
-        logger.debug("--"*20)
+        logger.debug("--"*5)
         logger.debug(">> search_all_category start")
 
         normalized_category = category.lower().replace("category:", "")

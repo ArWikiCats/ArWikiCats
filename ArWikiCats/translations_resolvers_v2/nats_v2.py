@@ -375,11 +375,12 @@ def _load_bot() -> FormatDataV2:
 
 def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
-    nat_bot = _load_bot()
 
     if category in nats_keys_as_country_names:
+        logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, [result=]")
         return ""
 
+    nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
     logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
     return result
