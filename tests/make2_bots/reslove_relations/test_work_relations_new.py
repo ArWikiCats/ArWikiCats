@@ -3,7 +3,6 @@ import pytest
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 test_data = {
-
     "gambia–ireland relations": "علاقات أيرلندا وغامبيا",
     "afghanistan–ireland relations": "علاقات أفغانستان وأيرلندا",
     "afghanistan–ireland sports relations": "علاقات أفغانستان وأيرلندا الرياضية",

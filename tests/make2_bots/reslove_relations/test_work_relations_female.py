@@ -12,6 +12,24 @@ def _norm(text: str) -> str:
     return " ".join(text.split())
 
 
+test_data = {
+    "ireland–spain military relations": "العلاقات الأيرلندية الإسبانية العسكرية",
+    "ireland–united kingdom military relations": "العلاقات الأيرلندية البريطانية العسكرية",
+    "iran–iraq war films": "أفلام الحرب الإيرانية العراقية",
+    "mexican–american war films": "أفلام الحرب الأمريكية المكسيكية",
+    "soviet–afghan war films": "أفلام الحرب الأفغانية السوفيتية",
+    "soviet–afghan war video games": "ألعاب فيديو الحرب الأفغانية السوفيتية",
+    "spanish–american war films": "أفلام الحرب الأمريكية الإسبانية",
+}
+
+
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
+def test_work_relations_new(category: str, expected: str) -> None:
+    label = resolve_relations_label(category)
+    assert label == expected
+
+
 @pytest.mark.unit
 def test_burma_cambodia_relations_from_country_table() -> None:
     """Female 'relations' using countries_nat_en_key women demonyms."""

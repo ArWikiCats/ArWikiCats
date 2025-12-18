@@ -13,8 +13,6 @@ def _norm(text: str) -> str:
 
 
 males_data = {
-    "ireland–spain military relations": "العلاقات الأيرلندية الإسبانية العسكرية",
-    "ireland–united kingdom military relations": "العلاقات الأيرلندية البريطانية العسكرية",
 }
 
 
