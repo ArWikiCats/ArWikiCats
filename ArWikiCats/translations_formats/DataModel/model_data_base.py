@@ -91,7 +91,6 @@ class FormatDataBase:
             return normalized
 
         logger.debug(f"handle_texts_before_after: {normalized=}")
-
         # no need for further processing
         # (text_before="the ") but key: ("the {nat_en} actors") already in formatted_data_ci so no need to replace
         normalized_strip = normalized.strip()

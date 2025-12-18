@@ -82,16 +82,6 @@ pp_ends_data = [
         "مواسم دوريات الرجبي",
     ),
     (
-        "american counties",
-        "أمريكية",
-        "",
-    ),
-    (
-        "european logos",
-        "أوروبا",
-        "",
-    ),
-    (
         "latin american variants",
         "أمريكيون لاتينيون",
         "أشكال أمريكيون لاتينيون",
