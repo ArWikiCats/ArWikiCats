@@ -29,6 +29,8 @@ def by_removal(ar_label: str) -> str:
 def simple_replace(ar_label: str) -> str:
     """Apply quick search-and-replace rules for frequent phrasing issues."""
     data = {
+        "وفيات حسب بضربة جوية": "وفيات بضربة جوية",
+        "وفيات حسب بضربات": "وفيات بضربات",
         "وفيات بواسطة ضربات": "وفيات بضربات",
         "ضربات جوية نفذت بواسطة": "ضربات جوية نفذتها",
         "أفلام أنتجت بواسطة": "أفلام أنتجها",
@@ -53,6 +55,8 @@ def simple_replace(ar_label: str) -> str:
 
     ar_label = re.sub(r"\bأدينوا ب\s+", "أدينوا ب", ar_label)
     ar_label = re.sub("مغتربون ال", "مغتربون من ال", ar_label)
+
+    ar_label = ar_label.replace("وفيات حسب ب", "وفيات ب")
 
     return ar_label
 

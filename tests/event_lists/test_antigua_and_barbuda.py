@@ -4,7 +4,41 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
+data_0 = {
+    "Category:Antigua and Barbuda men": "تصنيف:رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men athletes": "تصنيف:لاعبو قوى رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men centenarians": "تصنيف:مئويون رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men high jumpers": "تصنيف:متسابقو قفز عالي رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men hurdlers": "تصنيف:لاعبو قفز الحواجز رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men long jumpers": "تصنيف:لاعبو قفز طويل رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men middle-distance runners": "تصنيف:عداؤو مسافات متوسطة رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men sprinters": "تصنيف:عداؤون سريعون رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men triple jumpers": "تصنيف:لاعبو وثب ثلاثي رجال أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda men's basketball players": "تصنيف:لاعبو كرة سلة أنتيغويون وبربوديون",
+
+    "Category:Antigua and Barbuda male actors": "تصنيف:ممثلون ذكور أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda male boxers": "تصنيف:ملاكمون ذكور أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda male canoeists": "تصنيف:متسابقو قوارب الكانوي ذكور أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda male cyclists": "تصنيف:دراجون ذكور أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda male freestyle swimmers": "تصنيف:سباحو تزلج حر ذكور أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda male sailors (sport)": "تصنيف:بحارة رياضيون ذكور أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda male swimmers": "تصنيف:سباحون ذكور أنتيغويون وبربوديون",
+    "Category:Antigua and Barbuda male tennis players": "تصنيف:لاعبو كرة مضرب ذكور أنتيغويون وبربوديون",
+
+    "Category:Antigua and Barbuda men's footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون",
+    "Category:Men's footballers in Antigua and Barbuda by club": "تصنيف:لاعبو كرة قدم رجالية في أنتيغوا وباربودا حسب النادي",
+
+    "Category:Antigua and Barbuda expatriate footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
+    "Category:Antigua and Barbuda expatriate men's footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
+}
+
 data_1 = {
+    "Category:Antigua and Barbuda people of New Zealand descent": "تصنيف:أنتيغويون وبربوديون من أصل نيوزيلندي",
+    "Category:New Zealand emigrants to Antigua and Barbuda": "تصنيف:نيوزيلنديون مهاجرون إلى أنتيغوا وباربودا",
+    "Category:Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون",
+    "Category:21st-century Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون في القرن 21",
+    "Category:Antigua and Barbuda clergy": "تصنيف:رجال دين أنتيغويون وبربوديون",
+    "Category:Men in Antigua and Barbuda": "تصنيف:رجال في أنتيغوا وباربودا",
     "Category:1930s establishments in Antigua and Barbuda": "تصنيف:تأسيسات عقد 1930 في أنتيغوا وباربودا",
     "Category:1930s in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في عقد 1930",
     "Category:1939 establishments in Antigua and Barbuda": "تصنيف:تأسيسات سنة 1939 في أنتيغوا وباربودا",
@@ -147,7 +181,6 @@ data_1 = {
     "Category:20th-century disestablishments in Antigua and Barbuda": "تصنيف:انحلالات القرن 20 في أنتيغوا وباربودا",
     "Category:21st-century Antigua and Barbuda people": "تصنيف:أنتيغويون وبربوديون في القرن 21",
     "Category:21st-century Antigua and Barbuda politicians": "تصنيف:سياسيو أنتيغوا وباربودا في القرن 21",
-    "Category:21st-century Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون في القرن 21",
     "Category:21st-century disestablishments in Antigua and Barbuda": "تصنيف:انحلالات القرن 21 في أنتيغوا وباربودا",
     "Category:2nd-millennium disestablishments in Antigua and Barbuda": "تصنيف:انحلالات الألفية 2 في أنتيغوا وباربودا",
     "Category:3rd-millennium disestablishments in Antigua and Barbuda": "تصنيف:انحلالات الألفية 3 في أنتيغوا وباربودا",
@@ -187,7 +220,6 @@ data_1 = {
     "Category:Antigua and Barbuda canoeists": "تصنيف:متسابقو قوارب الكانوي أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda centenarians": "تصنيف:مئويون أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda Christians": "تصنيف:أنتيغويون وبربوديون مسيحيون",
-    "Category:Antigua and Barbuda clergy": "تصنيف:رجال دين أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda communications-related lists": "تصنيف:قوائم متعلقة بالاتصالات الأنتيغوية والبربودية",
     "Category:Antigua and Barbuda competitors by sports event": "تصنيف:منافسون أنتيغويون وبربوديون حسب الحدث الرياضي",
     "Category:Antigua and Barbuda cricket coaches": "تصنيف:مدربو كريكت أنتيغويون وبربوديون",
@@ -217,9 +249,7 @@ data_1 = {
     "Category:Antigua and Barbuda expatriate basketball people in Greece": "تصنيف:أعلام كرة سلة أنتيغويون وبربوديون مغتربون في اليونان",
     "Category:Antigua and Barbuda expatriate basketball people in Poland": "تصنيف:أعلام كرة سلة أنتيغويون وبربوديون مغتربون في بولندا",
     "Category:Antigua and Barbuda expatriate basketball people in Puerto Rico": "تصنيف:أعلام كرة سلة أنتيغويون وبربوديون مغتربون في بورتوريكو",
-    "Category:Antigua and Barbuda expatriate footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
     "Category:Antigua and Barbuda expatriate judges": "تصنيف:قضاة أنتيغويون وبربوديون مغتربون",
-    "Category:Antigua and Barbuda expatriate men's footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
     "Category:Antigua and Barbuda expatriate sportspeople": "تصنيف:رياضيون أنتيغويون وبربوديون مغتربون",
     "Category:Antigua and Barbuda expatriate sportspeople by country of residence": "تصنيف:رياضيون أنتيغويون وبربوديون مغتربون حسب بلد الإقامة",
     "Category:Antigua and Barbuda expatriate sportspeople in Cambodia": "تصنيف:رياضيون أنتيغويون وبربوديون مغتربون في كمبوديا",
@@ -291,25 +321,6 @@ data_1 = {
     "Category:Antigua and Barbuda lawyers": "تصنيف:محامون أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda literature": "تصنيف:أدب أنتيغوي وبربودي",
     "Category:Antigua and Barbuda long jumpers": "تصنيف:لاعبو قفز طويل أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male actors": "تصنيف:ممثلون ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male boxers": "تصنيف:ملاكمون ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male canoeists": "تصنيف:متسابقو قوارب الكانوي ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male cyclists": "تصنيف:دراجون ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male freestyle swimmers": "تصنيف:سباحو تزلج حر ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male sailors (sport)": "تصنيف:بحارة رياضيون ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male swimmers": "تصنيف:سباحون ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda male tennis players": "تصنيف:لاعبو كرة مضرب ذكور أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men": "تصنيف:رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men athletes": "تصنيف:لاعبو قوى رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men centenarians": "تصنيف:مئويون رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men high jumpers": "تصنيف:متسابقو قفز عالي رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men hurdlers": "تصنيف:لاعبو قفز الحواجز رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men long jumpers": "تصنيف:لاعبو قفز طويل رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men middle-distance runners": "تصنيف:عداؤو مسافات متوسطة رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men sprinters": "تصنيف:عداؤون سريعون رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men triple jumpers": "تصنيف:لاعبو وثب ثلاثي رجال أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men's basketball players": "تصنيف:لاعبو كرة سلة أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda men's footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda Methodists": "تصنيف:ميثوديون أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda middle-distance runners": "تصنيف:عداؤو مسافات متوسطة أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda murder victims": "تصنيف:ضحايا قتل أنتيغويون وبربوديون",
@@ -377,7 +388,6 @@ data_1 = {
     "Category:Antigua and Barbuda sport-related lists": "تصنيف:قوائم متعلقة برياضة أنتيغوية وبربودية",
     "Category:Antigua and Barbuda sports coaches": "تصنيف:مدربو رياضة أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في أنتيغوا وباربودا",
-    "Category:Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda sportspeople": "تصنيف:رياضيون أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda sportspeople by sport": "تصنيف:رياضيون أنتيغويون وبربوديون حسب الرياضة",
     "Category:Antigua and Barbuda sportswomen": "تصنيف:رياضيات أنتيغويات وبربوديات",
@@ -579,8 +589,6 @@ data_1 = {
     "Category:Members of the Parliament of Antigua and Barbuda": "تصنيف:أعضاء برلمان أنتيغوا وباربودا",
     "Category:Members of the Parliament of Antigua and Barbuda by term": "تصنيف:أعضاء برلمان أنتيغوا وباربودا حسب الفترة",
     "Category:Members of the Senate (Antigua and Barbuda)": "تصنيف:أعضاء مجلس الشيوخ (أنتيغوا وباربودا)",
-    "Category:Men in Antigua and Barbuda": "تصنيف:رجال في أنتيغوا وباربودا",
-    "Category:Men's footballers in Antigua and Barbuda by club": "تصنيف:لاعبو كرة قدم رجالية في أنتيغوا وباربودا حسب النادي",
     "Category:Military equipment of Antigua and Barbuda": "تصنيف:عتاد أنتيغوا وباربودا العسكري",
     "Category:Montserratian emigrants to Antigua and Barbuda": "تصنيف:مونتسراتيون مهاجرون إلى أنتيغوا وباربودا",
     "Category:Montserratian expatriates in Antigua and Barbuda": "تصنيف:مونتسراتيون مغتربون في أنتيغوا وباربودا",
@@ -695,7 +703,6 @@ data_2 = {
     "Category:Antigua and Barbuda location map modules": "x",
     "Category:Antigua and Barbuda masters athletes": "x",
     "Category:Antigua and Barbuda modules": "x",
-    "Category:Antigua and Barbuda people of New Zealand descent": "x",
     "Category:Antigua and Barbuda people of Saint Kitts and Nevis descent": "x",
     "Category:Antigua and Barbuda Protestants": "x",
     "Category:Antigua and Barbuda records": "x",
@@ -768,7 +775,6 @@ data_2 = {
     "Category:Monarchy of Antigua and Barbuda": "x",
     "Category:National Cultural Heritage of Antigua and Barbuda": "x",
     "Category:National Security Council (Antigua and Barbuda)": "x",
-    "Category:New Zealand emigrants to Antigua and Barbuda": "x",
     "Category:Olympic sailors for Antigua and Barbuda": "x",
     "Category:Parades in Antigua and Barbuda": "x",
     "Category:Parliaments of Antigua and Barbuda": "x",
@@ -810,9 +816,16 @@ data_2 = {
 }
 
 to_test = [
+    ("test_antigua_and_barbuda_0", data_0),
     ("test_antigua_and_barbuda_1", data_1),
     ("test_antigua_and_barbuda_2", data_2),
 ]
+
+
+@pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
+@pytest.mark.fast
+def test_antigua_and_barbuda_0(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())

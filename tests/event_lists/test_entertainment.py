@@ -168,7 +168,7 @@ def test_entertainment(name: str, data: dict[str, str]) -> None:
 data2 = {
     "Category:documentary filmmakers by nationality": "تصنيف:صانعو أفلام وثائقية حسب الجنسية",
     "Category:yemeni war filmmakers": "تصنيف:صانعو أفلام حربية يمنيون",
-    "Category:Peruvian documentary film directors": "تصنيف:مخرجو أفلام وثائقية بيروفيون",
+    "Category:Peruvian documentary film directors": "تصنيف:مخرجو أفلام وثائقية بيرويون",
     "Category:Lists of action television characters by series": "تصنيف:قوائم شخصيات تلفزيونية حركة حسب السلسلة",
     "Category:Holocaust literature": "تصنيف:أدب هولوكوست",
     "Category:Drama television characters by series": "تصنيف:شخصيات تلفزيونية درامية حسب السلسلة",

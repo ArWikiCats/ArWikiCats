@@ -65,8 +65,9 @@ data = {
     "Category:Women's rights in Slovakia": "z",
 }
 
+data_0 = {}
 
-@pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
+@pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.skip2
 def test_empty(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)

@@ -3,6 +3,8 @@
 TODO: use this instead of for_me.py and nats_women.py
 """
 import functools
+
+from ..translations_resolvers_v2.ministers_resolver import nats_keys_as_country_names
 from ..translations_formats import FormatDataV2
 from ..translations import all_country_with_nat_ar
 from .data import country_names_and_nats_data
@@ -357,7 +359,9 @@ def _load_bot() -> FormatDataV2:
         for x, v in all_country_with_nat_ar.items()
         if v.get("ar")
     }
-
+    nats_data.update(
+        nats_keys_as_country_names
+    )
     return FormatDataV2(
         formatted_data=all_formatted_data,
         data_list=nats_data,
@@ -368,6 +372,10 @@ def _load_bot() -> FormatDataV2:
 
 def resolve_by_nats(category: str) -> str:
     nat_bot = _load_bot()
+
+    if category in nats_keys_as_country_names:
+        return ""
+
     result = nat_bot.search_all_category(category)
     return result
 

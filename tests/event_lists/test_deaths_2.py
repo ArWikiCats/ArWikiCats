@@ -1,60 +1,77 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
+
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
+airstrikes_data ={
+    "Category:Deaths by German airstrikes during The Blitz": "تصنيف:وفيات بضربات جوية ألمانية خلال قصف لندن",
+    "Category:Deaths by German airstrikes during World War II": "تصنيف:وفيات بضربات جوية ألمانية خلال الحرب العالمية الثانية",
+    "Category:Deaths by Greek airstrikes during World War II": "تصنيف:وفيات بضربات جوية يونانية خلال الحرب العالمية الثانية",
+    "Category:Deaths by Turkish airstrikes during the Syrian civil war": "تصنيف:وفيات بضربات جوية تركية خلال الحرب الأهلية السورية",
+    "Category:Deaths by Russian airstrikes during the Syrian civil war": "تصنيف:وفيات بضربات جوية روسية خلال الحرب الأهلية السورية",
+    "Category:Deaths by Soviet airstrikes during World War II": "تصنيف:وفيات بضربات جوية سوفيتية خلال الحرب العالمية الثانية",
+    "Category:Deaths by British airstrikes during World War II": "تصنيف:وفيات بضربات جوية بريطانية خلال الحرب العالمية الثانية",
+    "Category:Deaths by New Zealand airstrikes during World War II": "تصنيف:وفيات بضربات جوية نيوزيلندية خلال الحرب العالمية الثانية",
+    "Category:Deaths by British airstrikes": "تصنيف:وفيات بضربات جوية بريطانية",
+    "Category:Deaths by Colombian airstrikes": "تصنيف:وفيات بضربات جوية كولومبية",
+    "Category:Deaths by drone strikes": "تصنيف:وفيات بواسطة هجمات الطائرات بدون طيار",
+    "Category:Deaths by Russian airstrikes": "تصنيف:وفيات بضربات جوية روسية",
+    "Category:Deaths by Saudi Arabian airstrikes": "تصنيف:وفيات بضربات جوية سعودية",
+    "Category:Deaths by Greek airstrikes": "تصنيف:وفيات بضربات جوية يونانية",
+    "Category:Deaths by German airstrikes": "تصنيف:وفيات بضربات جوية ألمانية",
+    "Category:Deaths by French airstrikes": "تصنيف:وفيات بضربات جوية فرنسية",
+    "Category:Deaths by Soviet airstrikes": "تصنيف:وفيات بضربات جوية سوفيتية",
+    "Category:Deaths by Sudanese airstrikes": "تصنيف:وفيات بضربات جوية سودانية",
+    "Category:Deaths by Turkish airstrikes": "تصنيف:وفيات بضربات جوية تركية",
+    "Category:Deaths by New Zealand airstrikes": "تصنيف:وفيات بضربات جوية نيوزيلندية",
+
+}
+
 data_test_1 = {
-    "Category:Deaths by blade weapons": "تصنيف:وفيات بالأسلحة البيضاء",
-    "Category:Deaths by British airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية بريطانية خلال الحرب العالمية الثانية",
-    "Category:Deaths by British airstrikes": "تصنيف:وفيات بسبب ضربات جوية بريطانية",
-    "Category:Deaths by Colombian airstrikes": "تصنيف:وفيات بسبب ضربات جوية كولومبية",
-    "Category:Deaths by country": "تصنيف:وفيات حسب البلد",
-    "Category:Deaths by decapitation": "تصنيف:وفيات بقطع الرأس",
-    "Category:Deaths by dehydration": "تصنيف:وفيات بسبب جفاف",
-    "Category:Deaths by drone strikes": "تصنيف:وفيات بسبب ضربات طائرات مسيرة",
-    "Category:Deaths by explosive device": "تصنيف:وفيات بعبوة ناسفة",
     "Category:Deaths by firearm in Algeria": "تصنيف:أشخاص قتلوا بإطلاق النار في الجزائر",
     "Category:Deaths by firearm in Austria": "تصنيف:أشخاص قتلوا بإطلاق النار في النمسا",
     "Category:Deaths by firearm in Bahrain": "تصنيف:أشخاص قتلوا بإطلاق النار في البحرين",
-    "Category:Deaths by firearm in Balochistan, Pakistan": "تصنيف:وفيات بإطلاق النار في بلوشستان",
     "Category:Deaths by firearm in China": "تصنيف:أشخاص قتلوا بإطلاق النار في الصين",
-    "Category:Deaths by firearm in Florida": "تصنيف:وفيات إطلاق نار في فلوريدا",
     "Category:Deaths by firearm in France": "تصنيف:أشخاص قتلوا بإطلاق النار في فرنسا",
     "Category:Deaths by firearm in Greece": "تصنيف:أشخاص قتلوا بإطلاق النار في اليونان",
-    "Category:Deaths by firearm in Grenada": "تصنيف:وفيات بسلاح ناري في غرينادا",
     "Category:Deaths by firearm in Honduras": "تصنيف:أشخاص قتلوا بإطلاق النار في هندوراس",
+    "Category:Deaths by firearm in Jordan": "تصنيف:أشخاص قتلوا بإطلاق النار في الأردن",
+    "Category:Deaths by firearm in Lebanon": "تصنيف:أشخاص قتلوا بإطلاق النار في لبنان",
+    "Category:Deaths by firearm in South Africa": "تصنيف:أشخاص قتلوا بإطلاق النار في جنوب إفريقيا",
+    "Category:Deaths by firearm in Syria": "تصنيف:أشخاص قتلوا بإطلاق النار في سوريا",
+    "Category:Deaths by firearm in the United States": "تصنيف:أشخاص قتلوا بإطلاق النار في الولايات المتحدة",
+    "Category:Deaths by firearm in Tunisia": "تصنيف:أشخاص قتلوا بإطلاق النار في تونس",
+    "Category:Deaths by firearm in Turkey": "تصنيف:أشخاص قتلوا بإطلاق النار في تركيا",
+    "Category:Deaths by firearm in Venezuela": "تصنيف:أشخاص قتلوا بإطلاق النار في فنزويلا",
+    "Category:Deaths by firearm in Yemen": "تصنيف:أشخاص قتلوا بإطلاق النار في اليمن",
+
+    "Category:Deaths by firearm in Balochistan, Pakistan": "تصنيف:وفيات بإطلاق النار في بلوشستان",
+    "Category:Deaths by firearm in Florida": "تصنيف:وفيات إطلاق نار في فلوريدا",
+    "Category:Deaths by firearm in Grenada": "تصنيف:وفيات بسلاح ناري في غرينادا",
     "Category:Deaths by firearm in Iran": "تصنيف:وفيات بسلاح ناري في إيران",
     "Category:Deaths by firearm in Iraq": "تصنيف:وفيات بسلاح ناري في العراق",
-    "Category:Deaths by firearm in Jordan": "تصنيف:أشخاص قتلوا بإطلاق النار في الأردن",
     "Category:Deaths by firearm in Khyber Pakhtunkhwa": "تصنيف:وفيات بإطلاق النار في خیبر بختونخوا",
-    "Category:Deaths by firearm in Lebanon": "تصنيف:أشخاص قتلوا بإطلاق النار في لبنان",
     "Category:Deaths by firearm in Manitoba": "تصنيف:وفيات بسلاح ناري في مانيتوبا",
     "Category:Deaths by firearm in Minnesota": "تصنيف:وفيات بإطلاق النار في منيسوتا",
     "Category:Deaths by firearm in Oregon": "تصنيف:وفيات بإطلاق النار في أوريغن",
     "Category:Deaths by firearm in Saudi Arabia": "تصنيف:وفيات بإطلاق النار في المملكة العربية السعودية",
-    "Category:Deaths by firearm in South Africa": "تصنيف:أشخاص قتلوا بإطلاق النار في جنوب إفريقيا",
     "Category:Deaths by firearm in Sudan": "تصنيف:وفيات بالسلاح الناري في السودان",
-    "Category:Deaths by firearm in Syria": "تصنيف:أشخاص قتلوا بإطلاق النار في سوريا",
     "Category:Deaths by firearm in Texas": "تصنيف:وفيات إطلاق النار في تكساس",
     "Category:Deaths by firearm in Thailand": "تصنيف:وفيات بسلاح ناري في تايلاند",
     "Category:Deaths by firearm in the State of Palestine": "تصنيف:وفيات بإطلاق النار في فلسطين",
     "Category:Deaths by firearm in the United States by state": "تصنيف:وفيات إطلاق النار في الولايات المتحدة حسب الولاية",
-    "Category:Deaths by firearm in the United States": "تصنيف:أشخاص قتلوا بإطلاق النار في الولايات المتحدة",
-    "Category:Deaths by firearm in Tunisia": "تصنيف:أشخاص قتلوا بإطلاق النار في تونس",
-    "Category:Deaths by firearm in Turkey": "تصنيف:أشخاص قتلوا بإطلاق النار في تركيا",
     "Category:Deaths by firearm in Uruguay": "تصنيف:وفيات بإطلاق النار في أوروغواي",
-    "Category:Deaths by firearm in Venezuela": "تصنيف:أشخاص قتلوا بإطلاق النار في فنزويلا",
     "Category:Deaths by firearm in Wyoming": "تصنيف:وفيات بسلاح ناري في وايومنغ",
-    "Category:Deaths by firearm in Yemen": "تصنيف:أشخاص قتلوا بإطلاق النار في اليمن",
     "Category:Deaths by firearm": "تصنيف:وفيات بسبب الأسلحة النارية",
+
+    "Category:Deaths by blade weapons": "تصنيف:وفيات بالأسلحة البيضاء",
+    "Category:Deaths by country": "تصنيف:وفيات حسب البلد",
+    "Category:Deaths by decapitation": "تصنيف:وفيات بقطع الرأس",
+    "Category:Deaths by dehydration": "تصنيف:وفيات بسبب جفاف",
+    "Category:Deaths by explosive device": "تصنيف:وفيات بعبوة ناسفة",
     "Category:Deaths by former country": "تصنيف:وفيات في دول سابقة",
-    "Category:Deaths by French airstrikes": "تصنيف:وفيات بسبب ضربات جوية فرنسية",
-    "Category:Deaths by German airstrikes during The Blitz": "تصنيف:وفيات بواسطة ضربات جوية ألمانية خلال قصف لندن",
-    "Category:Deaths by German airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية ألمانية خلال الحرب العالمية الثانية",
-    "Category:Deaths by German airstrikes": "تصنيف:وفيات بسبب ضربات جوية ألمانية",
-    "Category:Deaths by Greek airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية يونانية خلال الحرب العالمية الثانية",
-    "Category:Deaths by Greek airstrikes": "تصنيف:وفيات بسبب ضربات جوية يونانية",
     "Category:Deaths by hanging": "تصنيف:وفيات شنقا",
     "Category:Deaths by improvised explosive device by country": "تصنيف:وفيات بعبوة ناسفة بدائية الصنع حسب البلد",
     "Category:Deaths by improvised explosive device in Afghanistan": "تصنيف:وفيات بعبوة ناسفة بدائية الصنع في أفغانستان",
@@ -74,11 +91,6 @@ data_test_1 = {
     "Category:Deaths by person": "تصنيف:وفيات حسب الأشخاص",
     "Category:Deaths by populated place": "تصنيف:موت حسب المدينة",
     "Category:Deaths by projectile weapons": "تصنيف:وفيات بسبب سلاح القذائف",
-    "Category:Deaths by Russian airstrikes during the Syrian civil war": "تصنيف:وفيات بواسطة ضربات جوية روسية خلال الحرب الأهلية السورية",
-    "Category:Deaths by Russian airstrikes": "تصنيف:وفيات بسبب ضربات جوية روسية",
-    "Category:Deaths by Saudi Arabian airstrikes": "تصنيف:وفيات بسبب ضربات جوية سعودية",
-    "Category:Deaths by Soviet airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية سوفيتية خلال الحرب العالمية الثانية",
-    "Category:Deaths by Soviet airstrikes": "تصنيف:وفيات بسبب ضربات جوية سوفيتية",
     "Category:Deaths by stabbing in Algeria": "تصنيف:وفيات بالطعن في الجزائر",
     "Category:Deaths by stabbing in ancient Rome": "تصنيف:وفيات بالطعن في روما",
     "Category:Deaths by stabbing in Argentina": "تصنيف:وفيات بالطعن في الأرجنتين",
@@ -159,10 +171,7 @@ data_test_1 = {
     "Category:Deaths by stabbing in Venezuela": "تصنيف:وفيات بالطعن في فنزويلا",
     "Category:Deaths by stabbing in Wales": "تصنيف:وفيات بالطعن في ويلز",
     "Category:Deaths by stabbing": "تصنيف:وفيات بالطعن",
-    "Category:Deaths by Sudanese airstrikes": "تصنيف:وفيات بسبب ضربات جوية سودانية",
     "Category:Deaths by suicide bomber": "تصنيف:وفيات بتفجير انتحاري",
-    "Category:Deaths by Turkish airstrikes during the Syrian civil war": "تصنيف:وفيات بواسطة ضربات جوية تركية خلال الحرب الأهلية السورية",
-    "Category:Deaths by Turkish airstrikes": "تصنيف:وفيات بسبب ضربات جوية تركية",
     "Category:Deaths by United States drone strikes in Afghanistan": "تصنيف:وفيات بهجمات طائرات بدون طيار أمريكية في أفغانستان",
     "Category:Deaths by United States drone strikes in Iraq": "تصنيف:وفيات بضربات طائرات مسيرة أمريكية في العراق",
     "Category:Deaths by United States drone strikes in Pakistan": "تصنيف:وفيات بهجمات طائرات بدون طيار أمريكية في باكستان",
@@ -328,8 +337,6 @@ data_test_2 = {
     "Category:Deaths by firearm in Timor-Leste": "تصنيف:وفيات بإطلاق النار في تيمور الشرقية",
     "Category:Deaths by firearm in Victoria (state)": "تصنيف:وفيات بإطلاق النار في فيكتوريا (أستراليا)",
     "Category:Deaths by horse-riding accident": "تصنيف:وفيات بسبب حادث السقوط عن الحصان",
-    "Category:Deaths by New Zealand airstrikes during World War II": "تصنيف:وفيات بواسطة ضربات جوية نيوزيلندية خلال الحرب العالمية الثانية",
-    "Category:Deaths by New Zealand airstrikes": "تصنيف:وفيات بسبب ضربات جوية نيوزيلندية",
     "Category:Deaths by poisoning": "تصنيف:وفيات بسبب السم",
     "Category:Deaths by smoke inhalation": "تصنيف:وفيات بسبب استنشاق الدخان",
     "Category:Deaths by starvation": "تصنيف:وفيات بسبب الجوع",
@@ -510,9 +517,17 @@ data_test_2 = {
 }
 
 to_test = [
+    # ("test_airstrikes_data", airstrikes_data),
     ("test_deaths_2_data_1", data_test_1),
-    # ("test_deaths_2_data_2", data_test_2),
+    ("test_deaths_2_data_2", data_test_2),
 ]
+
+
+@pytest.mark.parametrize("category, expected", airstrikes_data.items(), ids=airstrikes_data.keys())
+@pytest.mark.fast
+def test_airstrikes_data(category: str, expected: str) -> None:
+    label = resolve_arabic_category_label(category)
+    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
@@ -521,10 +536,6 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    # dump_diff(add_result, f"{name}_empty")
-
-    # add_result2 = {x: v for x, v in data.items() if x not in add_result}
-    # dump_diff(add_result2, f"{name}_not_empty")
+    dump_diff_text(expected, diff_result, name)
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
