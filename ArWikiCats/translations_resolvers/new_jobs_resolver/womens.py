@@ -4,7 +4,7 @@ compare with womens_prefixes_work
 """
 import functools
 import re
-from ...helps import len_print
+from ...helps import len_print, logger
 from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP, FEMALE_JOBS_BASE
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
@@ -112,10 +112,10 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def load_bot() -> MultiDataFormatterBase:
     jobs_data_enhanced = _load_jobs_data()
-    print(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
+    logger.info(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
 
     formatted_data = _load_formatted_data()
-    print(f"_load_formatted_data womens: {len(formatted_data):,}")
+    logger.info(f"_load_formatted_data womens: {len(formatted_data):,}")
 
     nats_new = {
         x: v for x, v in Nat_Womens.items()

@@ -3,7 +3,7 @@
 
 import re
 import functools
-
+from ...helps import logger
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 
 Sports_Keys_For_Jobs_simple = {
@@ -46,7 +46,7 @@ Sports_Keys_For_Jobs_simple = {
 def _load_regex() -> re.Pattern:
     """Return the compiled regex pattern for matching sport keys."""
     if len(SPORTS_KEYS_FOR_JOBS) > 1000:
-        print(f">keys_to_pattern(): len(new_pattern keys) = {len(SPORTS_KEYS_FOR_JOBS):,}")
+        logger.info(f">keys_to_pattern(): len(new_pattern keys) = {len(SPORTS_KEYS_FOR_JOBS):,}")
 
     data_List_sorted = sorted(
         SPORTS_KEYS_FOR_JOBS.keys(),

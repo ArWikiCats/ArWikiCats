@@ -2,7 +2,8 @@
 This module provides functionality to translate category titles
 """
 import functools
-from os import replace
+
+from ...helps import logger
 from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
@@ -112,10 +113,10 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def load_bot() -> MultiDataFormatterBase:
     jobs_data_enhanced = _load_jobs_data()
-    print(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
+    logger.info(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
 
     formatted_data = _load_formatted_data()
-    print(f"_load_formatted_data mens: {len(formatted_data):,}")
+    logger.info(f"_load_formatted_data mens: {len(formatted_data):,}")
 
     nats_new = {
         x: v for x, v in Nat_mens.items()
