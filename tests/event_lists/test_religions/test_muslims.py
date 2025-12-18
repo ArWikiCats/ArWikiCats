@@ -149,7 +149,7 @@ religions_data = {
     "portuguese muslims": "تصنيف:برتغاليون مسلمون",
     "puerto rican muslims": "تصنيف:بورتوريكيون مسلمون",
     "qatari muslims": "تصنيف:قطريون مسلمون",
-    "romanian muslims": "تصنيف:رومانيون مسلمون",
+    "romanian muslims": "تصنيف:رومان مسلمون",
     "russian muslims": "تصنيف:روس مسلمون",
     "rwandan muslims": "تصنيف:روانديون مسلمون",
     "salvadoran muslims": "تصنيف:سلفادوريون مسلمون",

@@ -64,7 +64,7 @@ non_fiction_data_male = {
     "Category:Chilean male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور تشيليون",
     "Category:Jamaican male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور جامايكيون",
     "Category:Russian male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور روس",
-    "Category:Romanian male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور رومانيون",
+    "Category:Romanian male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور رومان",
     "Category:Soviet male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور سوفيت",
     "Category:Swiss male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور سويسريون",
     "Category:Serbian male non-fiction writers": "تصنيف:كتاب غير روائيين ذكور صرب",

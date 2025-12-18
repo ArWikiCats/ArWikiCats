@@ -29,7 +29,7 @@ fast_data = {
     "20th century philosophers": "فلاسفة في القرن 20",
     "20th century roman catholic bishops": "أساقفة كاثوليك رومان في القرن 20",
     "20th century roman catholic church buildings": "مبان كنائس رومانية كاثوليكية القرن 20",
-    "20th century romanian people": "رومانيون في القرن 20",
+    "20th century romanian people": "رومان في القرن 20",
     "20th century women": "المرأة في القرن 20",
     "march 1650 crimes": "جرائم مارس 1650",
     "20th century clergy": "رجال دين في القرن 20",
