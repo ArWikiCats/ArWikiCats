@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import functools
 import re
 from typing import Mapping, Tuple
 
 from ...helps.log import logger
+from ...translations.nats.Nationality import NationalityEntry
 from ...translations import (
     Nat_men,
     Nat_women,
@@ -15,13 +17,6 @@ from ...translations import (
 )
 from ..o_bots.utils import apply_arabic_article
 from .utils import sort_by_empty_space
-
-all_country_labels = dict(all_country_ar)
-all_country_labels.update({
-    "nato": "الناتو",
-    "european union": "الاتحاد الأوروبي",
-})
-all_country_labels.update(COUNTRY_LABEL_OVERRIDES)
 
 P17_PREFIXES: Mapping[str, str] = {
     " conflict": "صراع {}",
@@ -59,6 +54,35 @@ RELATIONS_END_KEYS = list(P17_PREFIXES.keys()) + list(RELATIONS_FEMALE.keys()) +
 # ".*?–.*? (joint economic efforts|conflict video games|conflict legal issues|proxy conflict|military relations|border crossings|border towns|football rivalry|conflict|relations|relations|border|clashes|wars|war|conflict)"
 
 
+def _load_all_country_labels() -> dict[str, str]:
+    all_country_labels = dict(all_country_ar)
+    all_country_labels.update({
+        "nato": "الناتو",
+        "european union": "الاتحاد الأوروبي",
+    })
+
+    all_country_labels.update(COUNTRY_LABEL_OVERRIDES)
+    return all_country_labels
+
+
+@functools.lru_cache(maxsize=1)
+def _load_countries_data() -> dict[str, NationalityEntry]:
+    data = dict(countries_nat_en_key)
+    data.update({
+        "ireland": {
+            "male": "أيرلندي",
+            "males": "أيرلنديون",
+            "female": "أيرلندية",
+            "females": "أيرلنديات",
+            "en": "ireland",
+            "ar": "أيرلندا",
+            "the_female": "الأيرلندية",
+            "the_male": "الأيرلندي"
+        }
+    })
+    return data
+
+
 def _split_pair(expression: str) -> Tuple[str, str]:
     """Split ``expression`` into two country identifiers."""
 
@@ -79,9 +103,9 @@ def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str
     normalized = key.strip()
     if not normalized:
         return ""
-
+    countries_data = _load_countries_data()
     if gender_key:
-        details = countries_nat_en_key.get(normalized, {})
+        details = countries_data.get(normalized, {})
         label = details.get(gender_key, "")
         if label:
             return label
@@ -213,6 +237,7 @@ def resolve_relations_label(value: str) -> str:
         logger.info(f"resolve_relations_label (male): cat: {value}, {resolved=}")
         return resolved
 
+    all_country_labels = _load_all_country_labels()
     resolved = _resolve_relations(
         normalized,
         P17_PREFIXES,

@@ -496,6 +496,17 @@ big_data = {
 }
 
 big_data2 = {
+    "georgia (country)–ireland sports relations": "العلاقات الأيرلندية الجورجية الرياضية",
+    "ireland–japan sports relations": "العلاقات الأيرلندية اليابانية الرياضية",
+    "ireland–romania sports relations": "العلاقات الأيرلندية الرومانية الرياضية",
+    "ireland–russia sports relations": "العلاقات الأيرلندية الروسية الرياضية",
+    "ireland–samoa sports relations": "العلاقات الأيرلندية الساموية الرياضية",
+    "ireland–slovakia sports relations": "العلاقات الأيرلندية السلوفاكية الرياضية",
+    "ireland–tanzania sports relations": "العلاقات الأيرلندية التنزانية الرياضية",
+    "ireland–tonga sports relations": "العلاقات الأيرلندية التونغانية الرياضية",
+    "ireland–uganda sports relations": "العلاقات الأوغندية الأيرلندية الرياضية",
+    "ireland–uruguay sports relations": "العلاقات الأوروغويانية الأيرلندية الرياضية",
+    "ireland–zambia sports relations": "العلاقات الأيرلندية الزامبية الرياضية",
     "federated states of micronesia–palau relations": "علاقات بالاو وولايات ميكرونيسيا المتحدة",
     "federated states of micronesia–papua new guinea relations": "علاقات بابوا غينيا الجديدة وولايات ميكرونيسيا المتحدة",
     "federated states of micronesia–sweden relations": "علاقات السويد وولايات ميكرونيسيا المتحدة",
@@ -505,17 +516,6 @@ big_data2 = {
     "palau–solomon islands relations": "علاقات بالاو وجزر سليمان",
     "solomon islands–tonga relations": "علاقات تونغا وجزر سليمان",
     "solomon islands–tuvalu relations": "علاقات توفالو وجزر سليمان",
-    "georgia (country)–ireland sports relations": "علاقات أيرلندا وجورجيا الرياضية",
-    "ireland–japan sports relations": "علاقات أيرلندا واليابان الرياضية",
-    "ireland–romania sports relations": "علاقات أيرلندا ورومانيا الرياضية",
-    "ireland–russia sports relations": "علاقات أيرلندا وروسيا الرياضية",
-    "ireland–samoa sports relations": "علاقات أيرلندا وساموا الرياضية",
-    "ireland–slovakia sports relations": "علاقات أيرلندا وسلوفاكيا الرياضية",
-    "ireland–tanzania sports relations": "علاقات أيرلندا وتنزانيا الرياضية",
-    "ireland–tonga sports relations": "علاقات أيرلندا وتونغا الرياضية",
-    "ireland–uganda sports relations": "علاقات أوغندا وأيرلندا الرياضية",
-    "ireland–uruguay sports relations": "علاقات أيرلندا والأوروغواي الرياضية",
-    "ireland–zambia sports relations": "علاقات أيرلندا وزامبيا الرياضية",
 }
 
 big_data_empty = {
