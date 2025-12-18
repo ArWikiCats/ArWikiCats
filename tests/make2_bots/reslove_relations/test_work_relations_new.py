@@ -3,7 +3,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
-test_data = {
+ireland_test_data = {
     "gambia–ireland relations": "علاقات أيرلندا وغامبيا",
     "afghanistan–ireland relations": "علاقات أفغانستان وأيرلندا",
     "afghanistan–ireland sports relations": "علاقات أفغانستان وأيرلندا الرياضية",
@@ -178,6 +178,9 @@ test_data = {
     "ireland–zambia relations": "علاقات أيرلندا وزامبيا",
     "ireland–zimbabwe relations": "علاقات أيرلندا وزيمبابوي",
     "ireland–zimbabwe sports relations": "علاقات أيرلندا وزيمبابوي الرياضية",
+}
+
+test_data = {
     "abbasid caliphate–byzantine empire relations": "علاقات الإمبراطورية البيزنطية والدولة العباسية",
     "algeria–sahrawi arab democratic republic relations": "علاقات الجزائر والجمهورية العربية الصحراوية الديمقراطية",
     "angola–sahrawi arab democratic republic relations": "علاقات أنغولا والجمهورية العربية الصحراوية الديمقراطية",
@@ -435,7 +438,8 @@ def test_work_relations_new(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_work_relations_new", test_data)
+    ("test_work_relations_new", test_data),
+    ("test_work_relations_ireland", ireland_test_data)
 ]
 
 
