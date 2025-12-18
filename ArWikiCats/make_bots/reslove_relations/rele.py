@@ -162,6 +162,8 @@ def _resolve_relations(
     """Resolve a relation label using ``suffixes`` and ``nat_table``."""
 
     suffix, template = get_suffix_and_template(normalized_value, suffixes)
+    if not suffix:
+        return ""
 
     prefix = normalized_value[: -len(suffix)].strip()
     logger.debug(f"\t\t>>>>{suffix=} -> {prefix=}")
