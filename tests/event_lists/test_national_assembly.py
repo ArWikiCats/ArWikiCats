@@ -26,7 +26,6 @@ data0 = {
     "Category:Members of the Grand National Assembly of Turkey by term": "تصنيف:أعضاء البرلمان التركي حسب الفترة",
     "Category:Members of the Grand National Assembly of Turkey": "تصنيف:نواب البرلمان التركي",
     "Category:Members of the National Assembly (1871)": "تصنيف:أعضاء الجمعية الوطنية (1871)",
-    "Category:Members of the National Assembly (France)": "تصنيف:أعضاء الجمعية الوطنية الفرنسية",
     "Category:Members of the National Assembly (Venezuela)": "تصنيف:أعضاء الجمعية الوطنية (فنزويلا)",
     "Category:Members of the National Assembly of Burkina Faso": "تصنيف:أعضاء الجمعية الوطنية في بوركينا فاسو",
     "Category:Members of the National Assembly of Czechoslovakia (1925–1929)": "تصنيف:أعضاء الجمعية الوطنية في تشيكوسلوفاكيا (1925–1929)",
@@ -135,7 +134,7 @@ data0 = {
 }
 
 data_1 = {
-
+    "Category:Members of the National Assembly (France)": "تصنيف:أعضاء الجمعية الوطنية (فرنسا)",
     "Category:Members of the National Assembly (Afghanistan)": "تصنيف:أعضاء الجمعية الوطنية (أفغانستان)",
     "Category:Members of the National Assembly (Bahrain)": "تصنيف:أعضاء الجمعية الوطنية (البحرين)",
     "Category:Members of the National Assembly (Ecuador)": "تصنيف:أعضاء الجمعية الوطنية (الإكوادور)",
@@ -181,6 +180,7 @@ data_1 = {
 }
 
 to_test = [
+    # ("test_national_assembly_0", data0),
     ("test_national_assembly_1", data_1),
 ]
 
@@ -188,13 +188,6 @@ to_test = [
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_national_assembly_1(category: str, expected: str) -> None:
-    label = resolve_arabic_category_label(category)
-    assert label == expected
-
-
-@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
-@pytest.mark.skip2
-def test_national_assembly_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
