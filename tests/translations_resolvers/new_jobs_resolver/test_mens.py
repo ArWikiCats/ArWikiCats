@@ -55,6 +55,8 @@ test_data_2 = {
     "medical doctors": "أطباء",
     "singers": "مغنون",
     "northern ireland": "",
+    "republic of ireland": "",
+    "republic-of ireland": "",
 }
 
 

@@ -82,3 +82,22 @@ nats_keys_as_country_names = {
 }
 
 nats_keys_as_country_names.update(raw_nats_as_en_key)
+
+nats_keys_as_country_names_bad_keys = list(nats_keys_as_country_names.keys())
+
+nats_keys_as_country_names_bad_keys.extend(
+    [
+        "federated states of micronesia",
+        "republic of ireland",
+        "republic-of ireland",
+        "democratic-republic-of-congo",
+        "democratic republic of congo",
+        "dominican republic",
+        "dominican republic",
+        "republic of congo",
+        "republic of congo",
+        "republic-of ireland",
+        "republic-of-congo",
+        "republic of congo",
+    ]
+)

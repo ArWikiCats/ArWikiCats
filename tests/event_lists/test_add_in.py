@@ -11,7 +11,6 @@ examples = {
     "Category:2000s American films": "تصنيف:أفلام أمريكية في عقد 2000",
     "Category:2017 American television series debuts": "تصنيف:مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
     "Category:2017 American television series endings": "تصنيف:مسلسلات تلفزيونية أمريكية انتهت في 2017",
-    "Category:Paralympic competitors for Cape Verde": "تصنيف:منافسون في الألعاب البارالمبية من الرأس الأخضر",
     "Category:19th-century actors by religion": "تصنيف:ممثلون في القرن 19 حسب الدين",
     "Category:19th-century people by religion": "تصنيف:أشخاص في القرن 19 حسب الدين",
     "Category:20th-century railway accidents": "تصنيف:حوادث سكك حديد في القرن 20",
