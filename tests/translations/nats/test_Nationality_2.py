@@ -49,7 +49,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
             }
         if name == "nationalities/uu_nats.json":
             return {
-                "hindustani": {"en": "hindustani", "ar": "هندوستاني"},
+                "hindustani": {"en_nat": "hindustan", "en": "hindustani", "ar": "هندوستاني"},
             }
         if name == "nationalities/Sub_Nat.json":
             return {
@@ -82,7 +82,7 @@ def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch) -> None:
             return {}
         if name == "nationalities/uu_nats.json":
             return {
-                "hindustani": {"en": "hindustani", "ar": "هندوستاني"},
+                "hindustani": {"en_nat": "hindustan", "en": "hindustani", "ar": "هندوستاني"},
             }
         if name == "nationalities/Sub_Nat.json":
             return {}

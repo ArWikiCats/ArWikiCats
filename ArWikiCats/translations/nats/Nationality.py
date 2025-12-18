@@ -151,10 +151,11 @@ def load_sources(
     return normalized
 
 
-def build_en_nat_entries(raw_nats_as_en_key: Dict[str, Any]):
+def build_en_nat_entries(raw_data: Dict[str, Any]) -> Dict[str, Any]:
     data: Dict[str, Any] = {}
-
-    for x, v in raw_nats_as_en_key.items():
+    if not raw_data:
+        return {}
+    for _, v in raw_data.items():
         if v.get("en_nat"):
             data[v["en_nat"]] = build_nationality_structure(v)
 

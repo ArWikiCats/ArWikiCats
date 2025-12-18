@@ -12,6 +12,17 @@ def _norm(text: str) -> str:
     return " ".join(text.split())
 
 
+males_data = {
+}
+
+
+@pytest.mark.parametrize("category, expected", males_data.items(), ids=males_data.keys())
+@pytest.mark.fast
+def test_males_data(category: str, expected: str) -> None:
+    label = resolve_relations_label(category)
+    assert label == expected
+
+
 @pytest.mark.unit
 def test_zanzibari_anguillan_conflict_from_nat_men() -> None:
     """Male 'conflict' using Nat_men demonyms."""

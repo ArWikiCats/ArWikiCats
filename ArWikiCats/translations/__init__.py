@@ -5,7 +5,7 @@ from .sports.sub_teams_keys import sub_teams_new
 from .by_type import By_orginal2, By_table, Music_By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import get_from_new_p17_final, US_STATES
+from .geo.labels_country import get_from_new_p17_final, US_STATES, COUNTRY_LABEL_OVERRIDES
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
@@ -102,6 +102,7 @@ __all__ = [
     "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
+    "COUNTRY_LABEL_OVERRIDES",
     "sport_formts_enar_p17_jobs",
     "apply_pattern_replacements",
     "SPORT_FORMTS_ENAR_P17_TEAM",

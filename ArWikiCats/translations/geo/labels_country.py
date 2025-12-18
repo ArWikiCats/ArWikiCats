@@ -369,6 +369,7 @@ def get_from_new_p17_final(text: str, default: str|None = "") -> str:
 
 
 __all__ = [
+    "COUNTRY_LABEL_OVERRIDES",
     "get_from_new_p17_final",
 ]
 

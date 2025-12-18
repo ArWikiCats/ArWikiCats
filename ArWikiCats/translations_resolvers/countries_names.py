@@ -2,8 +2,11 @@
 """
 Resolve country names categories translations
 """
+from typing import Dict
 from ..translations_formats import FormatData
-from ..translations import countries_from_nat
+from ..translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
+
+# NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly
 
 ONLY_COUNTRY_NAMES = {
     "government ministers of {en}": "وزراء {ar}",
@@ -12,7 +15,10 @@ ONLY_COUNTRY_NAMES = {
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
 }
 
-formatted_data_en_ar_only: dict[str, str] = {
+
+# NOTE: formatted_data_en_ar_only used in other resolver
+
+formatted_data_en_ar_only: Dict[str, str] = {
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
@@ -111,12 +117,14 @@ formatted_data_en_ar_only.update({
 })
 
 formatted_data_updated = dict(formatted_data_en_ar_only)
-
 formatted_data_updated.update(ONLY_COUNTRY_NAMES)
+countries_from_nat_data: Dict[str, str] = dict(countries_from_nat)
+
+# TODO: update countries_from_nat_data with COUNTRY_LABEL_OVERRIDES after check any issues!
 
 nat_bot = FormatData(
     formatted_data_updated,
-    countries_from_nat,
+    countries_from_nat_data,
     key_placeholder="{en}",
     value_placeholder="{ar}",
     text_before="the ",
