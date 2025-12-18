@@ -4,6 +4,7 @@ TODO: use this instead of for_me.py and nats_women.py
 """
 import functools
 
+from ..helps import logger
 from ..translations_resolvers_v2.ministers_resolver import nats_keys_as_country_names
 from ..translations_formats import FormatDataV2
 from ..translations import all_country_with_nat_ar
@@ -359,9 +360,11 @@ def _load_bot() -> FormatDataV2:
         for x, v in all_country_with_nat_ar.items()
         if v.get("ar")
     }
-    nats_data.update(
-        nats_keys_as_country_names
-    )
+    nats_data.update({
+        x: v
+        for x, v in nats_keys_as_country_names.items()
+        if v.get("ar")
+    })
     return FormatDataV2(
         formatted_data=all_formatted_data,
         data_list=nats_data,
@@ -371,12 +374,14 @@ def _load_bot() -> FormatDataV2:
 
 
 def resolve_by_nats(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
     nat_bot = _load_bot()
 
     if category in nats_keys_as_country_names:
         return ""
 
     result = nat_bot.search_all_category(category)
+    logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
     return result
 
 

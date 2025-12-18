@@ -118,14 +118,19 @@ def load_bot() -> MultiDataFormatterBase:
     formatted_data = _load_formatted_data()
     logger.info(f"_load_formatted_data mens: {len(formatted_data):,}")
 
-    nats_new = {
+    nats_data: dict[str, str] = {
         x: v for x, v in Nat_mens.items()
         if "-american" not in x
     }
 
+    nats_data.update({
+        x: v.get("males") for x, v in nats_keys_as_country_names.items()
+        if v.get("males")
+    })
+
     return format_multi_data(
         formatted_data=formatted_data,
-        data_list=nats_new,
+        data_list=nats_data,
         key_placeholder="{en_nat}",
         value_placeholder="{ar_nat}",
         data_list2=jobs_data_enhanced,

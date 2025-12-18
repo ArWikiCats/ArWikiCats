@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import functools
+from ..helps import logger
 from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations import all_country_with_nat_ar, ministers_keys
 from .nats_as_country_names import nats_keys_as_country_names
@@ -122,6 +123,12 @@ def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
 
     countries_data.update(nats_keys_as_country_names)
 
+    countries_data.update({
+        remove_the(v["en"]): v
+        for x, v in nats_keys_as_country_names.items()
+        if v.get("ar") and v.get("en")
+    })
+
     both_bot = format_multi_data_v2(
         formatted_data=en_secretaries_mapping,
         data_list=countries_data,
@@ -150,12 +157,19 @@ def _names(category: str) -> str:
     return result
 
 
+def fix_keys(text: str) -> str:
+    text = text.replace("'", "")
+    text = text.replace("ministers-of", "ministers of").replace("ministers-for", "ministers for")
+    text = text.replace("secretaries-of", "secretaries of")
+    return text
+
+
 @functools.lru_cache(maxsize=10000)
 def resolve_secretaries_labels(category: str) -> str:
-    category = category.replace("'", "")
-    category = category.replace("ministers-of", "ministers of").replace("ministers-for", "ministers for")
-    category = category.replace("secretaries-of", "secretaries of")
+    logger.debug(f"<<yellow>> start resolve_secretaries_labels: {category=}")
+    category = fix_keys(category)
     result = _names(category) or _nats(category)
+    logger.debug(f"<<yellow>> end resolve_secretaries_labels: {category=}, {result=}")
     return result
 
 
