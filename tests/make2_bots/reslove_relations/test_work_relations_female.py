@@ -25,7 +25,7 @@ test_data = {
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_work_relations_new(category: str, expected: str) -> None:
+def test_work_relations_female(category: str, expected: str) -> None:
     label = resolve_relations_label(category)
     assert label == expected
 

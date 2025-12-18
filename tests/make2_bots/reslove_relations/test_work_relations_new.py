@@ -1,5 +1,6 @@
 from __future__ import annotations
 import pytest
+from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 test_data = {
@@ -431,3 +432,18 @@ test_data = {
 def test_work_relations_new(category: str, expected: str) -> None:
     label = resolve_relations_label(category)
     assert label == expected
+
+
+TEMPORAL_CASES = [
+    ("test_work_relations_new", test_data)
+]
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.dump
+def test_dump_all(name: str, data: str) -> None:
+    # expected, diff_result = one_dump_test(data, resolve_label_ar)
+    expected, diff_result = one_dump_test(data, resolve_relations_label)
+
+    dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
