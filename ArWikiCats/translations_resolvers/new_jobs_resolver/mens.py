@@ -13,6 +13,11 @@ from .utils import one_Keys_more_2, nat_and_gender_keys
 
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
+        # base keys
+        "{en_nat}": "{ar_nat}",
+        "{en_nat} people": "أعلام {ar_nat}",
+        # "{en_nat} people": "{ar_nat}",
+
         "{en_nat}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {ar_nat}",
         "{en_nat} coaches of canadian-football": "مدربو كرة قدم كندية {ar_nat}",
 
@@ -29,9 +34,7 @@ def _load_formatted_data() -> dict:
 
         # [Category:Turkish immigrants sports-people] : "تصنيف:رياضيون أتراك مهاجرون"
         "{en_nat} immigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
-        # base keys
-        "{en_nat}": "{ar_nat}",
-        "{en_nat} people": "أعلام {ar_nat}",
+
         "{en_nat} films people": "أعلام أفلام {ar_nat}",
         "{en_nat} film people": "أعلام أفلام {ar_nat}",
         "male {en_nat}": "{ar_nat} ذكور",

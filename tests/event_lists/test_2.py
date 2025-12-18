@@ -65,6 +65,8 @@ data_list_bad = {
     # "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
     # "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
 
+    "20th century american people by occupation": "أمريكيون في القرن 20 حسب المهنة",
+
     "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا القرن 20",
     "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس في القرن 20",
     "Category:20th century members of maine legislature": "تصنيف:أعضاء هيئة مين التشريعية في القرن 20",
@@ -83,7 +85,6 @@ data_list_bad = {
     "Category:1550s establishments in chile": "تصنيف:تأسيسات عقد 1550 في تشيلي",
     "Category:1550s disestablishments in southeast asia": "تصنيف:انحلالات عقد 1550 في جنوب شرق آسيا",
     "Category:december 1550 sports-events in united kingdom": "تصنيف:أحداث ديسمبر 1550 الرياضية في المملكة المتحدة",
-    "Category:20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
     "Category:1550s establishments in jamaica": "تصنيف:تأسيسات عقد 1550 في جامايكا",
     "Category:march 1550 sports-events in belgium": "تصنيف:أحداث مارس 1550 الرياضية في بلجيكا",
     "Category:april 1550 sports-events in united kingdom": "تصنيف:أحداث أبريل 1550 الرياضية في المملكة المتحدة",
