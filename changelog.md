@@ -1,21 +1,20 @@
 ## [#236](https://github.com/MrIbrahem/ArWikiCats/pull/236) - 2025-12-18
 
 * **Improvements**
-  * Broad memoization added to many resolvers for faster repeated lookups.
-  * Increased debug logging across resolution flows and standardized log messages.
-  * Adjusted data merge/precedence for nationality and label mappings; reduced noisy debug output.
+  * Widespread memoization added to many resolvers for faster repeated lookups; increased debug logging and reduced noisy debug output.
+  * Adjusted data merge/precedence for nationality and label mappings; refined some normalization behaviors.
 
 * **New Features**
-  * Added an additional year/country-job resolver to enhance complex label resolution.
+  * Added a new year/country-job resolver and several helper normalization utilities.
 
 * **Bug Fixes**
-  * Removed an unused resolver step simplifying the resolution chain.
+  * Simplified resolution chains by removing an unused fallback step.
 
 * **Tests**
-  * Reorganized test data, removed some entries, and added targeted integration/unit tests.
+  * Reorganized and updated many test fixtures, added targeted resolver integration/unit tests.
 
 * **Documentation**
-  * Updated changelog with recent release entries.
+  * Updated changelog with recent entries.
 
 ## [#235](https://github.com/MrIbrahem/ArWikiCats/pull/235) - 2025-12-18
 
