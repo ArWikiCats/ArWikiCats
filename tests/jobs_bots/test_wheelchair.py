@@ -92,13 +92,13 @@ wheelchair_racers_by_nat = {
     "Category:Zambian wheelchair racers": "تصنيف:متسابقو كراسي متحركة زامبيون",
     "Category:Australia women's national wheelchair basketball team": "تصنيف:منتخب أستراليا لكرة السلة على الكراسي المتحركة للسيدات",
     "Category:Women's National Wheelchair Basketball League": "تصنيف:الدوري الوطني لكرة السلة على الكراسي المتحركة للسيدات",
+    "Category:New Zealand wheelchair racers": "تصنيف:متسابقو كراسي متحركة نيوزيلنديون",
+    "Category:New Zealand wheelchair rugby players": "تصنيف:لاعبو رجبي على كراسي متحركة نيوزيلنديون",
 }
 
 
 data2 = {
     "Category:Olympic men wheelchair racers": "",
-    "Category:New Zealand wheelchair racers": "",
-    "Category:New Zealand wheelchair rugby players": "",
     "Category:European Wheelchair Handball Nations’ Tournament": "",
     "Category:French Open by year – Wheelchair events": "",
     "Category:College men's wheelchair basketball teams in the United States": "",
