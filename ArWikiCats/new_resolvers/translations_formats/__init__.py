@@ -1,5 +1,5 @@
 
-from ..new_resolvers.translations_formats.DataModel import (
+from .DataModel import (
     YearFormatData,
     FormatData,
     NormalizeResult,
@@ -16,9 +16,9 @@ from ..new_resolvers.translations_formats.DataModel import (
     FormatDataFrom,
 )
 
-from ..new_resolvers.translations_formats.data_with_time import format_year_country_data, format_year_country_data_v2
-from ..new_resolvers.translations_formats.data_new_model import format_films_country_data
-from ..new_resolvers.translations_formats.multi_data import format_multi_data, format_multi_data_v2
+from .data_with_time import format_year_country_data, format_year_country_data_v2
+from .data_new_model import format_films_country_data
+from .multi_data import format_multi_data, format_multi_data_v2
 
 __all__ = [
     "V3Formats",
