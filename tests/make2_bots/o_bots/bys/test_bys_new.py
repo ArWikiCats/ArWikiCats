@@ -17,7 +17,11 @@ from ArWikiCats.translations.by_type import (
     by_musics,
     Music_By_table,
 )
+
 data1 = {
+    "by country and country": "حسب البلد والبلد",
+    "by country and city of setting": "حسب البلد ومدينة الأحداث",
+    "by country and city of developer": "حسب البلد ومدينة التطوير",
     "by city": "حسب المدينة",
     "by country": "حسب البلد",
     "by year": "حسب السنة",
@@ -26,6 +30,7 @@ data1 = {
     "by nonprofit organization": "حسب المؤسسات غير الربحية",
     "by organization or nonprofit organization": "حسب المنظمة أو المؤسسات غير الربحية",
 }
+
 by_table_all = {
     "by branch": "حسب الفرع",
     "by city of shooting location": "حسب مدينة التصوير",
