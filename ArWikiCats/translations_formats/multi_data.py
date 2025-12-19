@@ -45,6 +45,7 @@ def format_multi_data(
     use_other_formatted_data: bool=False,
     search_first_part: bool=False,
     data_to_find: Dict[str, str] | None = None,
+    regex_filter: str | None = None,
 ) -> MultiDataFormatterBase:
     """
     Prepare helpers for matching and formatting template-driven labels.
@@ -58,6 +59,7 @@ def format_multi_data(
         value_placeholder=value_placeholder,
         text_after=text_after,
         text_before=text_before,
+        regex_filter=regex_filter,
     )
 
     other_formatted_data = get_other_data(
@@ -73,6 +75,7 @@ def format_multi_data(
         data_list=data_list2,
         key_placeholder=key2_placeholder,
         value_placeholder=value2_placeholder,
+        regex_filter=regex_filter,
     )
 
     return MultiDataFormatterBase(

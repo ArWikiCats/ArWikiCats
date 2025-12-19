@@ -141,7 +141,6 @@ title_work_tests_data = {
     "by city in jharkhand": "حسب المدينة في جهارخاند",
     "by city in northern-ireland": "حسب المدينة في أيرلندا الشمالية",
     "by county in taiwan": "حسب المقاطعة في تايوان",
-    "by dependent territory of setting": "حسب الأقاليم التابعة في مواقع الأحداث",
     "by educational institution in derbyshire": "حسب الهيئة التعليمية في داربيشير",
     "by instrument from northern ireland": "حسب الآلة من أيرلندا الشمالية",
     "by league in united states": "حسب الدوري في الولايات المتحدة",

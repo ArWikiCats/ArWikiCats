@@ -132,4 +132,5 @@ class FormatDataDouble(FormatDataBase):
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
+        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         return label.replace(self.value_placeholder, value)

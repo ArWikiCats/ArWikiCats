@@ -97,7 +97,6 @@ data_slow = {
     "burials in amsterdam": "مدفونون في أمستردام",
     "by city in afghanistan": "حسب المدينة في أفغانستان",
     "by city in jharkhand": "حسب المدينة في جهارخاند",
-    "by dependent territory of setting": "حسب الأقاليم التابعة في مواقع الأحداث",
     "by instrument from northern ireland": "حسب الآلة من أيرلندا الشمالية",
     "by period by state": "حسب الحقبة حسب الولاية",
     "by person in alabama": "حسب الشخص في ألاباما",

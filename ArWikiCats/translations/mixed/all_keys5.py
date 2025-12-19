@@ -68,7 +68,6 @@ BASE_POP_FINAL_5: dict[str, str] = {
     "tropes": "مجازات",
     "theism": "الإيمان بالله",
     "chemical energy": "طاقة كيميائية",
-    "setting": "مواقع الأحداث",
     "fictional characters": "شخصيات خيالية",
     "economic systems": "أنظمة اقتصادية",
     "platonism": "أفلاطونية",

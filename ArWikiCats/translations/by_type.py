@@ -5,6 +5,7 @@ from ..helps import len_print
 from .utils.json_dir import open_json_file
 
 PRIMARY_BY_COMPONENTS = {
+    "setting location": "موقع الأحداث",
     "city": "المدينة",
     "continent": "القارة",
     "country": "البلد",

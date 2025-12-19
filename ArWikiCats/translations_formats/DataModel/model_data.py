@@ -3,7 +3,7 @@
 
 import functools
 from typing import Dict
-
+from ...helps.log import logger
 from .model_data_base import FormatDataBase
 
 
@@ -16,6 +16,7 @@ class FormatData(FormatDataBase):
         value_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
+        regex_filter: str = "",
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__(
@@ -24,6 +25,7 @@ class FormatData(FormatDataBase):
             key_placeholder=key_placeholder,
             text_after=text_after,
             text_before=text_before,
+            regex_filter=regex_filter,
         )
         self.value_placeholder = value_placeholder
         self.alternation: str = self.create_alternation()
@@ -40,6 +42,7 @@ class FormatData(FormatDataBase):
         return ""
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
+        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         # Replace placeholder
         return label.replace(self.value_placeholder, value)
 

@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-TODO: still has some issues to resolve with some labels
+TODO: use it to replace get_and_label, get_by_label functions in bys.py
 
 """
+import re
 import functools
 from ...helps import logger
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
@@ -10,24 +11,40 @@ from ...translations.by_type import (
     PRIMARY_BY_COMPONENTS,
     BY_TABLE_BASED,
     by_table_year,
-    by_of_fields,
-    by_and_fields,
-    by_or_fields,
-    by_by_fields,
-    by_musics,
-    by_map_table,
+    # by_of_fields,
+    # by_and_fields,
+    # by_or_fields,
+    # by_by_fields,
+    # by_musics,
+    # by_map_table,
     by_under_keys,
     Music_By_table,
     ADDITIONAL_BY_COMPONENTS,
     CONTEXT_FIELD_LABELS,
 )
 
+
+def fix_keys(label: str) -> str:
+    """Fix common issues in keys before processing."""
+
+    context_keys = "|".join(CONTEXT_FIELD_LABELS.keys())
+    label = re.sub(f"({context_keys}) of", r"\g<1>-of", label, flags=re.I)
+
+    return label
+
+
 formatted_data = {
+    "by {en} and city of setting": "حسب {ar} ومدينة الأحداث",
+    "by {en} and city-of {en2}": "حسب {ar} ومدينة {ar2}",
     "by year - {en}": "حسب {ar}",
     "by {en}": "حسب {ar}",
     "by {en2}": "حسب {ar2}",
     "by {en} or {en2}": "حسب {ar} أو {ar2}",
+
     "by {en} and {en2}": "حسب {ar} و{ar2}",
+    "by {en} and {en}": "حسب {ar} و{ar}",
+
+    "by {en2} and {en}": "حسب {ar2} و{ar}",
     "by {en} by {en2}": "حسب {ar} حسب {ar2}",
 }
 
@@ -46,10 +63,16 @@ by_of_keys_2 = {
     "by century of {en}": "حسب قرن {ar}",
 }
 
-# formatted_data.update(by_of_keys_2)
-
 for context_key, context_label in CONTEXT_FIELD_LABELS.items():
     formatted_data[f"by {context_key} of {{en}}"] = f"حسب {context_label} {{ar}}"
+    # # formatted_data[f"by {{en2}} and {context_key} of {{en}}"] = f"حسب {{ar2}} و{context_label} {{ar}}"
+    # # formatted_data[f"by {{en}} and {context_key} of {{en2}}"] = f"حسب {{ar}} و{context_label} {{ar2}}"
+    # ---
+    formatted_data[f"by {context_key}-of {{en}}"] = f"حسب {context_label} {{ar}}"
+    formatted_data[f"by {{en2}} and {context_key}-of {{en}}"] = f"حسب {{ar2}} و{context_label} {{ar}}"
+    formatted_data[f"by {{en}} and {context_key}-of {{en2}}"] = f"حسب {{ar}} و{context_label} {{ar2}}"
+
+# formatted_data.update(by_of_keys_2)
 
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(by_table_year)
@@ -61,10 +84,13 @@ by_data_new.update(ADDITIONAL_BY_COMPONENTS)
 # by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_BY_COMPONENTS})
 
 by_data_new.update({
+    "nonprofit organization": "المؤسسات غير الربحية",
     "shooting location": "موقع التصوير",
     "developer": "التطوير",
     "location": "الموقع",
     "setting": "الأحداث",
+    "country of residence": "بلد الإقامة",
+    "country-of residence": "بلد الإقامة",
     "disestablishment": "الانحلال",
     "reestablishment": "إعادة التأسيس",
     "establishment": "التأسيس",
@@ -77,6 +103,8 @@ by_data_new.update({
     "opening": "الافتتاح",
 })
 
+by_data_new = {fix_keys(k): v for k, v in by_data_new.items()}
+
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
@@ -86,14 +114,15 @@ def _load_bot() -> MultiDataFormatterBase:
         data_list=by_data_new,
         key_placeholder="{en}",
         value_placeholder="{ar}",
-        data_list2=by_data_new,
+        data_list2=dict(by_data_new),
         key2_placeholder="{en2}",
         value2_placeholder="{ar2}",
         text_after="",
         text_before="",
-        search_first_part=True,
-        use_other_formatted_data=True,
+        search_first_part=False,
+        use_other_formatted_data=False,
         data_to_find=data_to_find,
+        regex_filter=r"[\w-]",
     )
     return both_bot
 
@@ -101,7 +130,7 @@ def _load_bot() -> MultiDataFormatterBase:
 @functools.lru_cache(maxsize=10000)
 def resolve_by_labels(category: str) -> str:
     # if formatted_data.get(category): return formatted_data[category]
-
+    category = fix_keys(category)
     logger.debug(f"<<yellow>> start resolve_by_labels: {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
