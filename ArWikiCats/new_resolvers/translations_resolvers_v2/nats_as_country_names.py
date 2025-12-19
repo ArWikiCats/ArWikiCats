@@ -10,7 +10,7 @@ Reference:
     https://en.wikipedia.org/wiki/Category:People_by_occupation_and_nationality
     https://en.wikipedia.org/wiki/Category:People_by_nationality_and_occupation
 """
-from ..translations.nats.Nationality import raw_nats_as_en_key
+from ...translations.nats.Nationality import raw_nats_as_en_key
 
 nats_keys_as_country_names = {
     "ireland": {

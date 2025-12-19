@@ -16,7 +16,7 @@ from ..make_bots.media_bots.films_bot import te_films
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.reslove_relations.rele import resolve_relations_label
-from ..translations_resolvers.us_states import resolve_us_states
+from ..new_resolvers.translations_resolvers.us_states import resolve_us_states
 from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2

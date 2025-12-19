@@ -21,7 +21,7 @@ from ..make_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations_resolvers.nats_sports import nats_new_create_label
+from ..new_resolvers.translations_resolvers.nats_sports import nats_new_create_label
 
 from ..translations import get_from_new_p17_final, wrap_team_xo_normal_2025
 

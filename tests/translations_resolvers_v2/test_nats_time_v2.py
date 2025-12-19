@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
+from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
 
 test_data = {
     # standard

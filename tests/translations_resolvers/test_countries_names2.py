@@ -6,7 +6,7 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.translations_resolvers.countries_names import resolve_by_countries_names
+from ArWikiCats.new_resolvers.translations_resolvers.countries_names import resolve_by_countries_names
 
 data_1 = {
     "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",

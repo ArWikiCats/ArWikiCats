@@ -21,7 +21,7 @@ from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 # from ..bots import tmp_bot
-from ..translations_resolvers.us_states import resolve_us_states
+from ..new_resolvers.translations_resolvers.us_states import resolve_us_states
 from ..make_bots.sports_bots import team_work
 from . import ye_ts_bot
 

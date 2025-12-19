@@ -17,9 +17,9 @@ from ..make_bots.co_bots import filter_en
 from ..make_bots.format_bots import change_cat
 from ..ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
-from ..translations_resolvers import resolved_translations_resolvers
-from ..translations_resolvers_v3i import resolved_translations_resolvers_v3i
-from ..translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ..new_resolvers.translations_resolvers import resolved_translations_resolvers
+from ..new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
+from ..new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
 
 from ..fix import fixlabel
 

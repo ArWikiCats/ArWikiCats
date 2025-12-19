@@ -4,7 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
+from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 data0 = {
     "chinese boxing cups": "كؤوس للبوكسينغ الصين",

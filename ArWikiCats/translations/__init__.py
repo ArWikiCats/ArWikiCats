@@ -70,7 +70,7 @@ from .sports.Sport_key import (
     SPORTS_KEYS_FOR_TEAM,
     SPORT_KEY_RECORDS_BASE,
 )
-from ..translations_resolvers.match_labs import find_teams_2025
+from ..new_resolvers.translations_resolvers.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .sports_formats_national.sport_lab_nat import (
     sport_lab_nat_load_new,

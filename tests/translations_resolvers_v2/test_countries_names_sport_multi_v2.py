@@ -1,7 +1,7 @@
 #
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.translations_resolvers_v2.countries_names_sport_multi_v2 import resolve_countries_names_sport
+from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import resolve_countries_names_sport
 
 test_data_1 = {
     "Category:Afghanistan Football Federation": "تصنيف:الاتحاد الأفغاني لكرة القدم",

@@ -12,10 +12,10 @@ More examples:
 
 """
 import functools
-from ..helps import logger
-from ..translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from ..new_resolvers.new_jobs_resolver import new_jobs_resolver_label
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
+from ...helps import logger
+from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
+from ..new_jobs_resolver import new_jobs_resolver_label
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 jobs_part_labels = {
     "lgbtq people": "أعلام إل جي بي تي كيو",

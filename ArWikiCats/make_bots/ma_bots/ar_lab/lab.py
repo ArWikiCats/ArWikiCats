@@ -30,9 +30,9 @@ from ....ma_bots import country2_lab
 from ....ma_bots.country_bot import Get_c_t_lab, get_country
 from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
-from ....translations_resolvers import resolved_translations_resolvers
-from ....translations_resolvers_v2 import resolved_translations_resolvers_v2
-from ....translations_resolvers_v3i import resolved_translations_resolvers_v3i
+from ....new_resolvers.translations_resolvers import resolved_translations_resolvers
+from ....new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ....new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
 # from ....genders_processers import resolve_nat_genders_pattern_v2
 
 

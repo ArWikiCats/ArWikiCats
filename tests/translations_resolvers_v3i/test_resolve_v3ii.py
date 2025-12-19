@@ -2,7 +2,7 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
-from ArWikiCats.translations_resolvers_v3i.resolve_v3ii import resolve_year_job_countries
+from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3ii import resolve_year_job_countries
 
 test_data = {
     "18th-century princes": "أمراء في القرن 18",

@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.translations_resolvers_v2.countries_names_v2 import resolve_by_countries_names_v2
+from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_v2 import resolve_by_countries_names_v2
 
 test_army_data_1 = {
 }

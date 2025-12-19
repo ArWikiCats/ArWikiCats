@@ -7,7 +7,7 @@ import functools
 from ...helps.log import logger
 from ...translations import SPORTS_KEYS_FOR_JOBS
 from ..o_bots.utils import resolve_suffix_template
-from ...translations_resolvers.nats_sports import nats_new_create_label
+from ...new_resolvers.translations_resolvers.nats_sports import nats_new_create_label
 from ...translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 from . import team_work
 

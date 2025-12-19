@@ -4,10 +4,10 @@ TODO: use this instead of for_me.py and nats_women.py
 """
 import functools
 
-from ..helps import logger
-from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
-from ..translations_formats import FormatDataV2
-from ..translations import all_country_with_nat_ar
+from ...helps import logger
+from .nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
+from ...translations_formats import FormatDataV2
+from ...translations import all_country_with_nat_ar
 from .data import country_names_and_nats_data
 
 peoples_nats_not_jobs_males = {

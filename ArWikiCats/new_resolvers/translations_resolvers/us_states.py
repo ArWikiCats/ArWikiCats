@@ -3,9 +3,9 @@
 from __future__ import annotations
 import functools
 
-from ..helps import logger
-from ..translations_formats import FormatData
-from ..translations import US_STATES
+from ...helps import logger
+from ...translations_formats import FormatData
+from ...translations import US_STATES
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
     "secretaries of state of {en}": "وزراء خارجية {ar}",

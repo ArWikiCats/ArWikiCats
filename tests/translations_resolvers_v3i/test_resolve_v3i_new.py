@@ -3,7 +3,7 @@
 
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_diff_text, dump_same_and_not_same
-from ArWikiCats.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
+from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
 from ArWikiCats import resolve_label_ar
 
 test_data_standard = {

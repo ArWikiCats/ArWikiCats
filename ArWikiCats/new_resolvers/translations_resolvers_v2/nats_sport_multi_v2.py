@@ -7,10 +7,10 @@ to translate category titles like "{nationality} {sport} federation" into Arabic
 
 """
 import functools
-from ..helps import logger
-from ..translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ..translations.nats.Nationality import all_country_with_nat_ar
-from ..translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...helps import logger
+from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
+from ...translations.nats.Nationality import all_country_with_nat_ar
+from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from .data import sports_formatted_data_for_jobs
 
 NAT_P17_OIOI_TO_CHECK = {

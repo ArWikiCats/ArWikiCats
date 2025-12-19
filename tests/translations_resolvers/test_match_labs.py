@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_resolvers.match_labs import find_teams_2025
+from ArWikiCats.new_resolvers.translations_resolvers.match_labs import find_teams_2025
 
 data6 = {
     "amateur football competitions": "منافسات كرة قدم للهواة",

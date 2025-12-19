@@ -7,7 +7,7 @@ Integration tests for the get_label_new function.
 """
 
 import pytest
-from ArWikiCats.translations_resolvers_v3i.resolve_v3i import get_label_new
+from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import get_label_new
 
 test_data_standard = {
     "writers from Crown of Aragon": "كتاب من تاج أرغون",

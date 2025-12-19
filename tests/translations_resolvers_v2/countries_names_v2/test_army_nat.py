@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.translations_resolvers_v2.nats_v2 import resolve_by_nats
+from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_v2 import resolve_by_nats
 
 test_army_nat_data_1 = {
     "albanian congress": "الكونغرس الألباني",
