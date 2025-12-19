@@ -10,13 +10,14 @@ TODO: use FormatDataFrom with:
 
 import re
 from ...helps import logger
+from .model_multi_data_year_from import FormatDataFrom
 from ...time_resolvers.time_to_arabic import (
     convert_time_to_arabic,
     match_time_en_first,
 )
 
 
-class YearFormatData:
+class YearFormatDataLegacy:
     """
     A dynamic wrapper that allows FormatData to handle year patterns.
     It mimics FormatData behavior but for time values extracted by regex.
@@ -86,3 +87,17 @@ class YearFormatData:
     def search_all(self, key: str) -> str:
         """place holders"""
         return self.search(key)
+
+
+def YearFormatData(
+    key_placeholder: str,
+    value_placeholder: str,
+) -> FormatDataFrom:
+    return FormatDataFrom(
+        formatted_data={},
+        key_placeholder=key_placeholder,
+        value_placeholder=value_placeholder,
+        search_callback=convert_time_to_arabic,
+        match_key_callback=match_time_en_first,
+        use_fixing=True,
+    )

@@ -3,7 +3,7 @@
 """
 import re
 from ...helps import logger
-from .model_data_time import YearFormatData
+# from .model_data_time import YearFormatData
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 
@@ -19,6 +19,7 @@ class FormatDataFrom:
         value_placeholder: str,
         search_callback: callable,
         match_key_callback: callable,
+        use_fixing: bool = False,
     ) -> None:
         self.search_callback = search_callback
         self.match_key_callback = match_key_callback
@@ -27,6 +28,7 @@ class FormatDataFrom:
         self.value_placeholder = value_placeholder
         self.formatted_data = formatted_data
         self.formatted_data_ci = {k.lower(): v for k, v in formatted_data.items()}
+        self.use_fixing = use_fixing
 
     def match_key(self, text: str) -> str:
         """Extract English year/decade and return it as the key."""
@@ -57,10 +59,19 @@ class FormatDataFrom:
             result = self.normalize_category(category, key)
         return key, result
 
+    def fixing(self, text: str) -> str:
+        """Fix text."""
+        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
+        text = text.replace("بعقد عقد", "بعقد")
+        text = text.replace("بعقد القرن", "بالقرن")
+        return text
+
     def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
+        if self.use_fixing:
+            result = self.fixing(result)
         return result
 
     def get_template_ar(self, template_key: str) -> str:
