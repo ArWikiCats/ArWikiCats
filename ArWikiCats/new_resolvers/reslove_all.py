@@ -1,0 +1,16 @@
+
+from .translations_resolvers import resolved_translations_resolvers
+from .translations_resolvers_v3i import resolved_translations_resolvers_v3i
+from .translations_resolvers_v2 import resolved_translations_resolvers_v2
+from .new_jobs_resolver import new_jobs_resolver_label
+
+
+def new_resolvers_all(category: str) -> str:
+    category_lab = (
+        resolved_translations_resolvers_v3i(category) or
+        resolved_translations_resolvers_v2(category) or
+        resolved_translations_resolvers(category) or
+        new_jobs_resolver_label(category) or
+        ""
+    )
+    return category_lab
