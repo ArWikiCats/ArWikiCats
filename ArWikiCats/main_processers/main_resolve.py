@@ -7,19 +7,22 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 
-from . import event2bot, event_lab_bot, nat_men_pattern
+from ..patterns_resolvers import nat_men_pattern
+
+from . import event2bot, event_lab_bot
 from ..genders_resolvers import resolve_nat_genders_pattern_v2
-from .labs_years import LabsYears
-from .country_time_pattern import resolve_country_time_pattern
+from ..time_resolvers.labs_years import LabsYears
+from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
 from ..config import app_settings
 from ..make_bots.co_bots import filter_en
 from ..make_bots.format_bots import change_cat
-from ..make_bots.ma_bots import ye_ts_bot
+from ..ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
-from ..translations_resolvers import resolved_translations_resolvers
-from ..translations_resolvers_v3i import resolved_translations_resolvers_v3i
-from ..translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ..new_resolvers.new_jobs_resolver import new_jobs_resolver_label
+from ..new_resolvers.translations_resolvers import resolved_translations_resolvers
+from ..new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
+from ..new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
 
 from ..fix import fixlabel
 
@@ -76,6 +79,7 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
             resolved_translations_resolvers_v3i(changed_cat) or
             resolved_translations_resolvers_v2(changed_cat) or
             resolved_translations_resolvers(changed_cat) or
+            new_jobs_resolver_label(changed_cat) or
             ""
         )
 

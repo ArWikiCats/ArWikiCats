@@ -4,22 +4,24 @@ EventLab Bot - A class-based implementation to handle category labeling
 
 from typing import Tuple
 
+from .main_utils import list_of_cat_func
+
 from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..make_bots import tmp_bot
-from ..new import time_to_arabic
+from ..time_resolvers import time_to_arabic
 from ..make_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ..make_bots.ma_bots import list_cat_format, ye_ts_bot
-from ..make_bots.ma_bots.country2_bot import Get_country2
-from ..make_bots.ma_bots.lab_seoo_bot import event_label_work
-from ..make_bots.ma_bots.squad_title_bot import get_squad_title
+from ..ma_bots import ye_ts_bot
+from ..ma_bots.country2_bot import Get_country2
+from ..ma_bots.lab_seoo_bot import event_label_work
+from ..ma_bots.squad_title_bot import get_squad_title
 from ..make_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations_resolvers.nats_sports import nats_new_create_label
+from ..new_resolvers.translations_resolvers.nats_sports import nats_new_create_label
 
 from ..translations import get_from_new_p17_final, wrap_team_xo_normal_2025
 
@@ -221,7 +223,7 @@ class EventLabResolver:
             str: Updated category label
         """
         if list_of_cat and category_lab:
-            category_lab, list_of_cat = list_cat_format.list_of_cat_func(
+            category_lab, list_of_cat = list_of_cat_func(
                 cate_r, category_lab, list_of_cat, self.foot_ballers
             )
 

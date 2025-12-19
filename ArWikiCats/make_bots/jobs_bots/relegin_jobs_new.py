@@ -6,7 +6,7 @@
 import functools
 from ...helps.log import logger
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from ...new_resolvers.translations_formats import format_multi_data, MultiDataFormatterBase
 
 
 NAT_BEFORE_OCC_BASE = [

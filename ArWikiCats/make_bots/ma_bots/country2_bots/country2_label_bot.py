@@ -10,7 +10,7 @@ from ....helps.jsonl_dump import dump_data
 from ....helps.log import logger
 from ....utils import fix_minor, check_key_in_tables_return_tuple
 from ...format_bots import category_relation_mapping, pop_format, pop_format2
-from .. import country_bot
+from ....ma_bots import country_bot
 from ....translations import By_table, typeTable
 from ...matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players

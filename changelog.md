@@ -1,3 +1,13 @@
+## [#238](https://github.com/MrIbrahem/ArWikiCats/pull/238) - 2025-12-19
+
+* **New Features**
+  * Enhanced event processing with new resolver logic for category labeling.
+  * Expanded translation resolution capabilities with improved label generation and multi-resolver chains.
+
+* **Refactor**
+  * Reorganized internal codebase structure for better modularity and maintainability; consolidated resolver utilities and time-related functions into centralized locations.
+  * Updated import paths across numerous modules to reflect new package hierarchy.
+
 ## [#237](https://github.com/MrIbrahem/ArWikiCats/pull/237) - 2025-12-19
 
 * **New Features**

@@ -16,7 +16,7 @@ from ....translations import (
 )
 from ... import tmp_bot
 from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ....new import time_to_arabic
+from ....time_resolvers import time_to_arabic
 from ...format_bots import (
     Tabl_with_in,
     for_table,
@@ -26,13 +26,14 @@ from ...media_bots.films_bot import te_films
 from ...o_bots import bys
 from ...o_bots.peoples_resolver import make_people_lab
 from ...sports_bots import team_work
-from .. import country2_lab
-from ..country_bot import Get_c_t_lab, get_country
+from ....ma_bots import country2_lab
+from ....ma_bots.country_bot import Get_c_t_lab, get_country
 from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
-from ....translations_resolvers import resolved_translations_resolvers
-from ....translations_resolvers_v2 import resolved_translations_resolvers_v2
-from ....translations_resolvers_v3i import resolved_translations_resolvers_v3i
+from ....new_resolvers.translations_resolvers import resolved_translations_resolvers
+from ....new_resolvers.new_jobs_resolver import new_jobs_resolver_label
+from ....new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ....new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
 # from ....genders_processers import resolve_nat_genders_pattern_v2
 
 
@@ -320,6 +321,7 @@ def _create_type_lookup_chain(
         "data_get" : lambda t: data.get(t),
         "resolved_translations_resolvers_v3i" : lambda t: resolved_translations_resolvers_v3i(t),
         "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
+        "new_jobs_resolver_label" : lambda t: new_jobs_resolver_label(t),
         "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
 
         "get_from_new_p17_final" : lambda t: get_from_new_p17_final(t),
@@ -404,6 +406,7 @@ def _create_country_lookup_chain(
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
         "resolved_translations_resolvers_v3i" : lambda t: resolved_translations_resolvers_v3i(t),
         "resolved_translations_resolvers" : lambda t: resolved_translations_resolvers(t),
+        "new_jobs_resolver_label" : lambda t: new_jobs_resolver_label(t),
         "resolved_translations_resolvers_v2" : lambda t: resolved_translations_resolvers_v2(t),
 
         "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),

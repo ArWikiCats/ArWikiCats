@@ -6,7 +6,7 @@
 import functools
 
 from ...helps.log import logger
-from ...translations_formats import format_films_country_data, MultiDataFormatterBase
+from ...new_resolvers.translations_formats import format_films_country_data, MultiDataFormatterBase
 from ...translations import (
     Nat_women,
     film_keys_for_female,

@@ -4,7 +4,7 @@ English country-name → Arabic country-name.
 
 """
 import functools
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from ...new_resolvers.translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations import countries_from_nat
 
 main_data_under = {

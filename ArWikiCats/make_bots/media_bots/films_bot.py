@@ -11,10 +11,11 @@ from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..o_bots import fax
-from ...translations_resolvers_v2.ministers_resolver import resolve_secretaries_labels
-from ...translations_resolvers import resolved_translations_resolvers
+from ...new_resolvers.translations_resolvers_v2.ministers_resolver import resolve_secretaries_labels
+from ...new_resolvers.translations_resolvers import resolved_translations_resolvers
+from ...new_resolvers.new_jobs_resolver import new_jobs_resolver_label
 # from ...translations_resolvers_v3i import resolved_translations_resolvers_v3i
-from ...translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ...new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
 from .film_keys_bot import resolve_films
 
 from ..media_bots.film_keys_bot import get_Films_key_CAO
@@ -86,6 +87,11 @@ def te_films(category: str) -> str:
     resolved_label = resolved_translations_resolvers(normalized_category)
     if resolved_label:
         logger.info(f'>>>> (te_films) resolved_sports_formats_labels, {normalized_category=}, {resolved_label=}')
+        return resolved_label
+
+    resolved_label = new_jobs_resolver_label(normalized_category)
+    if resolved_label:
+        logger.info(f'>>>> (te_films) new_jobs_resolver_label, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     # most likely due to a circular import
