@@ -19,7 +19,7 @@ class FormatDataFrom:
         value_placeholder: str,
         search_callback: callable,
         match_key_callback: callable,
-        fixing_callback: None | callable = None,
+        fixing_callback: callable = None,
     ) -> None:
         self.search_callback = search_callback
         self.match_key_callback = match_key_callback
