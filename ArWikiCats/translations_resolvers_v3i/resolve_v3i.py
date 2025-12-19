@@ -21,7 +21,7 @@ from ..make_bots.matables_bots.table1_bot import get_KAKO
 # from ..make_bots.ma_bots.country2_lab import get_lab_for_country2
 from ..helps import logger
 from ..translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from ..translations_resolvers.new_jobs_resolver import new_jobs_resolver_label
+from ..new_resolvers.new_jobs_resolver import new_jobs_resolver_label
 
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 

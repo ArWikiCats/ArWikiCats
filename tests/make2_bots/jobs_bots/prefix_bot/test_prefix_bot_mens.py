@@ -5,7 +5,7 @@ TODO: use mens_resolver_labels
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import mens_prefixes_work, work_mens_suffix, work_mens_prefix
-from ArWikiCats.translations_resolvers.new_jobs_resolver.mens import mens_resolver_labels
+from ArWikiCats.new_resolvers.new_jobs_resolver.mens import mens_resolver_labels
 
 test_mens_data = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",

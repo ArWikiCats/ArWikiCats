@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_resolvers.new_jobs_resolver.mens import mens_resolver_labels, nat_and_gender_keys
+from ArWikiCats.new_resolvers.new_jobs_resolver.mens import mens_resolver_labels, nat_and_gender_keys
 
 test_data2 = {
     # Category:Turkish expatriate sports-people

@@ -7,7 +7,7 @@ import re
 
 from ..helps import logger
 from ..translations_formats import FormatData, YearFormatData, MultiDataFormatterBase, V3Formats, MultiDataFormatterBaseYearV3
-from ..translations_resolvers.new_jobs_resolver.mens import mens_resolver_labels
+from ..new_resolvers.new_jobs_resolver.mens import mens_resolver_labels
 
 
 class FormatDataXX:

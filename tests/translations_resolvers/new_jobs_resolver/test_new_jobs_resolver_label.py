@@ -3,7 +3,7 @@ Tests
 """
 
 import pytest
-from ArWikiCats.translations_resolvers.new_jobs_resolver import new_jobs_resolver_label
+from ArWikiCats.new_resolvers.new_jobs_resolver import new_jobs_resolver_label
 
 main_data = {
     "new zealand emigrants": "نيوزيلنديون مهاجرون",
