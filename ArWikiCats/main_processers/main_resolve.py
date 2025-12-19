@@ -15,7 +15,7 @@ from .country_time_pattern import resolve_country_time_pattern
 from ..config import app_settings
 from ..make_bots.co_bots import filter_en
 from ..make_bots.format_bots import change_cat
-from ..make_bots.ma_bots import ye_ts_bot
+from ..ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
 from ..translations_resolvers import resolved_translations_resolvers
 from ..translations_resolvers_v3i import resolved_translations_resolvers_v3i

@@ -6,24 +6,26 @@ Country Label Bot Module
 import re
 from typing import Dict
 
-from ...config import app_settings
-from ...helps.log import logger
-from ...translations import (
+from . import country2_bot, country2_lab
+
+from ..config import app_settings
+from ..helps.log import logger
+from ..translations import (
     SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
     jobs_mens_data,
     pop_of_without_in,
 )
-from ..date_bots import with_years_bot
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..media_bots.films_bot import te_films
-from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
-from ..sports_bots import team_work
-from . import country2_bot, country2_lab, ye_ts_bot
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..make_bots.date_bots import with_years_bot
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.media_bots.films_bot import te_films
+from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
+from ..make_bots.sports_bots import team_work
+from . import ye_ts_bot
+from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 
-from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 get_country_done: Dict[str, str] = {}
 
 

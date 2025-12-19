@@ -9,18 +9,18 @@ TODO: need refactoring
 
 """
 
-from ...helps.log import logger
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.table1_bot import get_KAKO
-from ..media_bots.films_bot import te_films
-from ..o_bots import parties_bot, univer
-from ..o_bots.peoples_resolver import work_peoples
-from ..reslove_relations.rele import resolve_relations_label
-from ...translations_resolvers.us_states import resolve_us_states
-from ..sports_bots import sport_lab_suffixes, team_work
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic
-from ...translations import get_from_pf_keys2
-from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ..helps.log import logger
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.matables_bots.table1_bot import get_KAKO
+from ..make_bots.media_bots.films_bot import te_films
+from ..make_bots.o_bots import parties_bot, univer
+from ..make_bots.o_bots.peoples_resolver import work_peoples
+from ..make_bots.reslove_relations.rele import resolve_relations_label
+from ..translations_resolvers.us_states import resolve_us_states
+from ..make_bots.sports_bots import sport_lab_suffixes, team_work
+from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..translations import get_from_pf_keys2
+from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 # Dictionary of resolvers mapped to their callable functions
 resolvers = {

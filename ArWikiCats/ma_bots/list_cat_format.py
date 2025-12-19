@@ -6,7 +6,7 @@ from  make.make_bots.ma_bots import list_cat_format
 
 from typing import Tuple
 
-from ...helps.log import logger
+from ..helps.log import logger
 
 
 def list_of_cat_func(category_r: str, category_lab: str, list_of_cat: str, foot_ballers: bool) -> Tuple[str, str]:

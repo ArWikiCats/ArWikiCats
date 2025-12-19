@@ -7,15 +7,15 @@ from ..ma_bots.squad_title_bot import get_squad_title
 
 import functools
 
-from ...helps.log import logger
-from ...translations import get_from_new_p17_final, pop_of_football_lower
-from ...utils import fix_minor
-from ..date_bots import with_years_bot
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.bot import All_P17
+from ..helps.log import logger
+from ..translations import get_from_new_p17_final, pop_of_football_lower
+from ..utils import fix_minor
+from ..make_bots.date_bots import with_years_bot
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.matables_bots.bot import All_P17
 
-from ...translations_resolvers.nats_sports import nats_new_create_label
-from ...translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
+from ..translations_resolvers.nats_sports import nats_new_create_label
+from ..translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 
 @functools.lru_cache(maxsize=None)

@@ -16,7 +16,7 @@ from ...format_bots import category_relation_mapping
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.bot import Films_O_TT, New_Lan
 from ...matables_bots.check_bot import check_key_new_players
-from ..country_bot import get_country
+from ....ma_bots.country_bot import get_country
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result

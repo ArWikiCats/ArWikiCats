@@ -26,8 +26,8 @@ from ...media_bots.films_bot import te_films
 from ...o_bots import bys
 from ...o_bots.peoples_resolver import make_people_lab
 from ...sports_bots import team_work
-from .. import country2_lab
-from ..country_bot import Get_c_t_lab, get_country
+from ....ma_bots import country2_lab
+from ....ma_bots.country_bot import Get_c_t_lab, get_country
 from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 from ....translations_resolvers import resolved_translations_resolvers

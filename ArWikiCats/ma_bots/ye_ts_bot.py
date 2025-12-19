@@ -10,15 +10,15 @@ import functools
 import re
 from typing import Optional
 
-from ...fix import fixtitle
-from ...helps.log import logger
-from ...translations import Jobs_new, jobs_mens_data
-from ...utils import get_relation_word, get_value_from_any_table
-from ...time_resolvers import time_to_arabic
-from ..format_bots import category_relation_mapping
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.bot import Films_O_TT, players_new_keys
-from .ar_lab import find_ar_label
+from ..fix import fixtitle
+from ..helps.log import logger
+from ..translations import Jobs_new, jobs_mens_data
+from ..utils import get_relation_word, get_value_from_any_table
+from ..time_resolvers import time_to_arabic
+from ..make_bots.format_bots import category_relation_mapping
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.matables_bots.bot import Films_O_TT, players_new_keys
+from ..make_bots.ma_bots.ar_lab import find_ar_label
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

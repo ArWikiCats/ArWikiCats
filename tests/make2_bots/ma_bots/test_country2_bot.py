@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.country2_bot import Get_country2
+from ArWikiCats.ma_bots.country2_bot import Get_country2
 
 fix_title_all = True
 
