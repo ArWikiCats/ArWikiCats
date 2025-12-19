@@ -7,7 +7,7 @@ TODO: use this instead of :
 """
 import functools
 from ...helps import logger
-from .. import FormatDataV2
+from ..translations_formats import FormatDataV2
 from ...translations import countries_nat_en_key
 from ..translations_resolvers.countries_names import formatted_data_en_ar_only
 from .data import country_names_and_nats_data

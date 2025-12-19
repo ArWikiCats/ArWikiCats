@@ -5,7 +5,7 @@ Resolve country names categories translations
 from typing import Dict
 import functools
 from ...helps import logger
-from .. import FormatData, MultiDataFormatterBase
+from ..translations_formats import FormatData, MultiDataFormatterBase
 from ...translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
 
 # NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly

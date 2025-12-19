@@ -1,5 +1,4 @@
 
-from .. import new_jobs_resolver
 from . import countries_names, us_states
 from ...helps import logger
 
@@ -12,7 +11,6 @@ def resolved_translations_resolvers(normalized_category) -> str:
     resolved_label = (
         countries_names.resolve_by_countries_names(normalized_category) or
         us_states.resolve_us_states(normalized_category) or
-        new_jobs_resolver.new_jobs_resolver_label(normalized_category) or
         ""
     )
 
