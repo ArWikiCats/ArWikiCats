@@ -11,11 +11,6 @@ from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
 from ArWikiCats.translations.by_type import (
     by_of_fields,
     by_table_year,
-    by_and_fields,
-    by_or_fields,
-    by_by_fields,
-    by_musics,
-    Music_By_table,
 )
 
 data1 = {
@@ -209,13 +204,6 @@ by_table_all = {
 to_test = [
     ("test_bys_all", by_table_all),
     ("test_bys_new_1", data1),
-    # ("test_by_table_year", by_table_year),
-    # ("test_by_of_fields", by_of_fields),
-    # ("test_by_and_fields", by_and_fields),
-    # ("test_by_or_fields", by_or_fields),
-    # ("test_by_by_fields", by_by_fields),
-    # ("test_by_musics", by_musics),
-    # ("test_music_by_table", Music_By_table),
 ]
 
 
