@@ -18,12 +18,14 @@ class FormatDataBase:
         key_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
+        regex_filter: str = r"\w",
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         # Store originals
         self.formatted_data = formatted_data
         self.data_list = data_list
         self.text_after = text_after
+        self.regex_filter = regex_filter or r"\w"
         self.text_before = text_before
 
         # Case-insensitive mirrors
@@ -66,7 +68,8 @@ class FormatDataBase:
         if self.alternation is None:
             self.alternation = self.create_alternation()
 
-        data_pattern = fr"(?<!\w)({self.alternation})(?!\w)"
+        data_pattern = fr"(?<!{self.regex_filter})({self.alternation})(?!{self.regex_filter})"
+        # data_pattern = fr"(?<![\w-])({self.alternation})(?![\w-])"
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -120,10 +123,13 @@ class FormatDataBase:
         normalized_category = " ".join(category.split())
 
         normalized = re.sub(
-            rf"(?<!\w){re.escape(sport_key)}(?!\w)",
+            # rf"(?<!\w){re.escape(sport_key)}(?!\w)",
+            # rf"(?<![\w-]){re.escape(sport_key)}(?![\w-])",
+            rf"(?<!{self.regex_filter}){re.escape(sport_key)}(?!{self.regex_filter})",
             f"{self.key_placeholder}",
             f" {normalized_category.strip()} ",
             flags=re.IGNORECASE,
+            count=1,
         )
 
         normalized = self.handle_texts_before_after(normalized)
@@ -150,7 +156,7 @@ class FormatDataBase:
     def get_template(self, sport_key: str, category: str) -> str:
         """Lookup template in a case-insensitive dict."""
         normalized = self.normalize_category(category, sport_key)
-        logger.debug(f"normalized xoxo : {normalized}")
+        logger.debug(f"normalized xoxo : {normalized=}")
         # Case-insensitive key lookup
         return self.formatted_data_ci.get(normalized.lower(), "")
 
@@ -158,6 +164,7 @@ class FormatDataBase:
         """Lookup template in a case-insensitive dict."""
         # Case-insensitive key lookup
         template_key = template_key.lower()
+        logger.debug(f"get_template_ar: {template_key=}")
         result = self.formatted_data_ci.get(template_key, "")
 
         if not result:
@@ -167,6 +174,7 @@ class FormatDataBase:
             else:
                 result = self.formatted_data_ci.get(f"category:{template_key}", "")
 
+        logger.debug(f"get_template_ar: {template_key=}, {result=}")
         return result
 
     def get_key_label(self, sport_key: str) -> Any:
