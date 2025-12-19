@@ -32,12 +32,36 @@ data1 = {
 }
 
 by_table_all = {
-    "by branch": "حسب الفرع",
-    "by city of shooting location": "حسب مدينة التصوير",
-    "by continent of shooting location": "حسب قارة التصوير",
-    "by country of shooting location": "حسب بلد التصوير",
-    "by educational institution": "حسب المؤسسة التعليمية",
-    "by event": "حسب المناسبة",
+    "by country and country subdivision": "حسب البلد وتقسيم البلد",
+    "by country and country subdivisions": "حسب البلد وتقسيمات البلد",
+    "by country and country-of-residence": "حسب البلد وبلد الإقامة",
+    "by company and shipbuilding company": "حسب الشركة وشركة بناء السفن",
+    "by organization and nonprofit organization": "حسب المنظمة والمؤسسات غير الربحية",
+    "by organization and research organization": "حسب المنظمة ومنظمة البحوث",
+    "by orientation and political orientation": "حسب التوجه والتوجه السياسي",
+    "by religion and former religion": "حسب الدين والدين السابق",
+    "by subdivision and country subdivision": "حسب التقسيم وتقسيم البلد",
+    "by country or country subdivision": "حسب البلد أو تقسيم البلد",
+    "by country or country subdivisions": "حسب البلد أو تقسيمات البلد",
+    "by country or country-of-residence": "حسب البلد أو بلد الإقامة",
+    "by company or shipbuilding company": "حسب الشركة أو شركة بناء السفن",
+    "by organization or nonprofit organization": "حسب المنظمة أو المؤسسات غير الربحية",
+    "by organization or research organization": "حسب المنظمة أو منظمة البحوث",
+    "by orientation or political orientation": "حسب التوجه أو التوجه السياسي",
+    "by religion or former religion": "حسب الدين أو الدين السابق",
+    "by subdivision or country subdivision": "حسب التقسيم أو تقسيم البلد",
+    "by country by country subdivision": "حسب البلد حسب تقسيم البلد",
+    "by country by country subdivisions": "حسب البلد حسب تقسيمات البلد",
+    "by country by country-of-residence": "حسب البلد حسب بلد الإقامة",
+    "by company by shipbuilding company": "حسب الشركة حسب شركة بناء السفن",
+    "by organization by nonprofit organization": "حسب المنظمة حسب المؤسسات غير الربحية",
+    "by organization by research organization": "حسب المنظمة حسب منظمة البحوث",
+    "by orientation by political orientation": "حسب التوجه حسب التوجه السياسي",
+    "by religion by former religion": "حسب الدين حسب الدين السابق",
+    "by subdivision by country subdivision": "حسب التقسيم حسب تقسيم البلد",
+    "by city of shooting location": "",
+    "by continent of shooting location": "",
+    "by country of shooting location": "",
     "by city of developer": "",
     "by city of disestablishment": "",
     "by city of reestablishment": "",
@@ -180,35 +204,8 @@ by_table_all = {
     "by century of photographing": "",
     "by century of completion": "",
     "by country and country of residence": "",
-    "by country and country subdivision": "",
-    "by country and country subdivisions": "",
-    "by country and country-of-residence": "",
-    "by company and shipbuilding company": "",
-    "by organization and nonprofit organization": "",
-    "by organization and research organization": "",
-    "by orientation and political orientation": "",
-    "by religion and former religion": "",
-    "by subdivision and country subdivision": "",
     "by country or country of residence": "",
-    "by country or country subdivision": "",
-    "by country or country subdivisions": "",
-    "by country or country-of-residence": "",
-    "by company or shipbuilding company": "",
-    "by organization or nonprofit organization": "",
-    "by organization or research organization": "",
-    "by orientation or political orientation": "",
-    "by religion or former religion": "",
-    "by subdivision or country subdivision": "",
-    "by country by country of residence": "",
-    "by country by country subdivision": "",
-    "by country by country subdivisions": "",
-    "by country by country-of-residence": "",
-    "by company by shipbuilding company": "",
-    "by organization by nonprofit organization": "",
-    "by organization by research organization": "",
-    "by orientation by political orientation": "",
-    "by religion by former religion": "",
-    "by subdivision by country subdivision": ""
+    "by country by country of residence": ""
 }
 
 to_test = [
@@ -253,7 +250,7 @@ def test_by_of_fields(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_by_labels)
     dump_diff(diff_result, name)
