@@ -13,7 +13,7 @@ More examples:
 """
 import functools
 from ...helps import logger
-from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
+from .. import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..new_jobs_resolver import new_jobs_resolver_label
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 

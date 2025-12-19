@@ -5,7 +5,7 @@ TODO: still has some issues to resolve with some labels
 """
 import functools
 from ...helps import logger
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from ...new_resolvers.translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations.by_type import (
     PRIMARY_BY_COMPONENTS,
     BY_TABLE_BASED,

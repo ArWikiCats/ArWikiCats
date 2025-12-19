@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatData, MultiDataFormatterBase
+from ArWikiCats.new_resolvers.translations_formats import FormatData, MultiDataFormatterBase
 
 nationality_data = {
     "Afghan": {"male": "أفغاني", "males": "أفغان"},

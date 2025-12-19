@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatData
+from ArWikiCats.new_resolvers.translations_formats import FormatData
 
 sample_data_type = tuple[dict[str, str], dict[str, str]]
 

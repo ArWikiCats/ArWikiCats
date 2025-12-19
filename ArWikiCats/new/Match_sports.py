@@ -10,7 +10,7 @@ import functools
 import re
 from typing import Dict
 from ..helps import logger
-from ..translations_formats import FormatData
+from ..new_resolvers.translations_formats import FormatData
 
 TEMPLATES_TEAMS: Dict[str, str] = {
     "men's {en_sport} world cup": "كأس العالم للرجال في {sport_ar}",
