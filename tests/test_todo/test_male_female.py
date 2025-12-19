@@ -10,7 +10,7 @@ The categories should be like:
 
 import pytest
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.genders_processers.nat_genders_pattern import resolve_nat_genders_pattern
+from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
 
 test_1 = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",        # x
@@ -46,5 +46,5 @@ def test_male_female_2(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category,expected", test_1.items(), ids=test_1.keys())
 def test_data_genders_1(category: str, expected: str) -> None:
     """ Test """
-    result = resolve_nat_genders_pattern(category)
+    result = resolve_nat_genders_pattern_v2(category)
     assert result == expected
