@@ -7,10 +7,12 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 
-from . import event2bot, event_lab_bot, nat_men_pattern
+from ..patterns_resolvers import nat_men_pattern
+
+from . import event2bot, event_lab_bot
 from ..genders_resolvers import resolve_nat_genders_pattern_v2
 from ..time_resolvers.labs_years import LabsYears
-from .country_time_pattern import resolve_country_time_pattern
+from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
 from ..config import app_settings
 from ..make_bots.co_bots import filter_en

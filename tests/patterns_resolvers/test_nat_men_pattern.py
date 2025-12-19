@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.main_processers.nat_men_pattern import resolve_nat_men_pattern_new
+from ArWikiCats.patterns_resolvers.nat_men_pattern import resolve_nat_men_pattern_new
 
 _mens_data_old = {
     # {en_nat} christians

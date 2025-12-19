@@ -6,7 +6,7 @@ bot to handle the translation logic.
 """
 
 import functools
-from ..patterns_resolvers.categories_patterns.NAT_males import NAT_DATA_MALES
+from .categories_patterns.NAT_males import NAT_DATA_MALES
 from ..helps import logger
 from ..translations import All_Nat
 from ..new_resolvers.translations_formats import FormatDataV2

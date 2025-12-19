@@ -10,7 +10,7 @@ from ..helps import logger
 from ..translations import all_country_ar
 from ..new_resolvers.translations_formats import format_year_country_data, MultiDataFormatterBaseYear
 
-from ..patterns_resolvers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
+from .categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
 
 @functools.lru_cache(maxsize=1)
