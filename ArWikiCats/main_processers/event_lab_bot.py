@@ -4,7 +4,7 @@ EventLab Bot - A class-based implementation to handle category labeling
 
 from typing import Tuple
 
-from ..ma_bots import list_cat_format
+from . import list_cat_format
 
 from ..config import app_settings
 from ..fix import fixtitle
