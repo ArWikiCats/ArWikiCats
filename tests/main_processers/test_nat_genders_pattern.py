@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.main_processers.nat_genders_pattern import resolve_nat_genders_pattern
+from ArWikiCats.main_processers.nat_genders_pattern import resolve_nat_genders_pattern, NAT_DATA_MALES_FEMALES
 
 test_data_ar = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",
@@ -39,8 +39,22 @@ def test_nat_genders_pattern_1(category: str, expected: str) -> None:
     assert label == expected
 
 
+test_data_2 = {
+    x.format(en_nat="yemeni"): y.format(males="يمنيون", females="يمنيات")
+    for x, y in NAT_DATA_MALES_FEMALES.items()
+}
+
+
+@pytest.mark.parametrize("category, expected", test_data_2.items(), ids=test_data_2.keys())
+@pytest.mark.fast
+def test_nat_genders_pattern_2(category: str, expected: str) -> None:
+    label = resolve_nat_genders_pattern(category)
+    assert label == expected
+
+
 to_test = [
     ("test_nat_genders_pattern_1", test_data_ar, resolve_nat_genders_pattern),
+    ("test_nat_genders_pattern_2", test_data_2, resolve_nat_genders_pattern),
 ]
 
 
