@@ -4,7 +4,7 @@ EventLab Bot - A class-based implementation to handle category labeling
 
 from typing import Tuple
 
-from . import list_cat_format
+from .main_utils import list_of_cat_func
 
 from ..config import app_settings
 from ..fix import fixtitle
@@ -223,7 +223,7 @@ class EventLabResolver:
             str: Updated category label
         """
         if list_of_cat and category_lab:
-            category_lab, list_of_cat = list_cat_format.list_of_cat_func(
+            category_lab, list_of_cat = list_of_cat_func(
                 cate_r, category_lab, list_of_cat, self.foot_ballers
             )
 

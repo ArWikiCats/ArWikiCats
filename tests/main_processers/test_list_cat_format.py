@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.list_cat_format import list_of_cat_func
+from ArWikiCats.main_processers.main_utils import list_of_cat_func
 
 
 def test_list_of_cat_func() -> None:

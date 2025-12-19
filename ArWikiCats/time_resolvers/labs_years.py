@@ -10,7 +10,7 @@ from .time_to_arabic import (
     match_time_ar_first,
     match_time_en_first,
 )
-from ..main_processers.categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
+from ..patterns_resolvers.categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
 from .utils_time import fixing
 
 YEAR_PARAM = "{year1}"
