@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-TODO: still has some issues to resolve with some labels
+TODO: use it to replace get_and_label, get_by_label functions in bys.py
 
 """
 import re
@@ -11,17 +11,27 @@ from ...translations.by_type import (
     PRIMARY_BY_COMPONENTS,
     BY_TABLE_BASED,
     by_table_year,
-    by_of_fields,
-    by_and_fields,
-    by_or_fields,
-    by_by_fields,
-    by_musics,
-    by_map_table,
+    # by_of_fields,
+    # by_and_fields,
+    # by_or_fields,
+    # by_by_fields,
+    # by_musics,
+    # by_map_table,
     by_under_keys,
     Music_By_table,
     ADDITIONAL_BY_COMPONENTS,
     CONTEXT_FIELD_LABELS,
 )
+
+
+def fix_keys(label: str) -> str:
+    """Fix common issues in keys before processing."""
+
+    context_keys = "|".join(CONTEXT_FIELD_LABELS.keys())
+    label = re.sub(f"({context_keys}) of", r"\g<1>-of", label, flags=re.I)
+
+    return label
+
 
 formatted_data = {
     "by {en} and city of setting": "حسب {ar} ومدينة الأحداث",
@@ -80,6 +90,7 @@ by_data_new.update({
     "location": "الموقع",
     "setting": "الأحداث",
     "country of residence": "بلد الإقامة",
+    "country-of residence": "بلد الإقامة",
     "disestablishment": "الانحلال",
     "reestablishment": "إعادة التأسيس",
     "establishment": "التأسيس",
@@ -91,6 +102,8 @@ by_data_new.update({
     "completion": "الانتهاء",
     "opening": "الافتتاح",
 })
+
+by_data_new = {fix_keys(k): v for k, v in by_data_new.items()}
 
 
 @functools.lru_cache(maxsize=1)
@@ -112,15 +125,6 @@ def _load_bot() -> MultiDataFormatterBase:
         regex_filter=r"[\w-]",
     )
     return both_bot
-
-
-def fix_keys(label: str) -> str:
-    """Fix common issues in keys before processing."""
-
-    context_keys = "|".join(CONTEXT_FIELD_LABELS.keys())
-    label = re.sub(f"({context_keys}) of", r"\g<1>-of", label, flags=re.I)
-
-    return label
 
 
 @functools.lru_cache(maxsize=10000)

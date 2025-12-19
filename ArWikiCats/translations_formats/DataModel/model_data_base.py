@@ -25,7 +25,7 @@ class FormatDataBase:
         self.formatted_data = formatted_data
         self.data_list = data_list
         self.text_after = text_after
-        self.regex_filter = regex_filter or r"\w"
+        self.regex_filter = regex_filter or r"\w"  # [\w-]
         self.text_before = text_before
 
         # Case-insensitive mirrors
@@ -69,7 +69,6 @@ class FormatDataBase:
             self.alternation = self.create_alternation()
 
         data_pattern = fr"(?<!{self.regex_filter})({self.alternation})(?!{self.regex_filter})"
-        # data_pattern = fr"(?<![\w-])({self.alternation})(?![\w-])"
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -123,8 +122,6 @@ class FormatDataBase:
         normalized_category = " ".join(category.split())
 
         normalized = re.sub(
-            # rf"(?<!\w){re.escape(sport_key)}(?!\w)",
-            # rf"(?<![\w-]){re.escape(sport_key)}(?![\w-])",
             rf"(?<!{self.regex_filter}){re.escape(sport_key)}(?!{self.regex_filter})",
             f"{self.key_placeholder}",
             f" {normalized_category.strip()} ",

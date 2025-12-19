@@ -208,28 +208,28 @@ to_test = [
 
 
 @pytest.mark.parametrize("category, expected", by_table_all.items(), ids=by_table_all.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_bys_all(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_bys_new_1(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
 
 @pytest.mark.parametrize("category, expected", by_table_year.items(), ids=by_table_year.keys())
-@pytest.mark.skip2
+@pytest.mark.slow
 def test_by_table_year(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
 
 @pytest.mark.parametrize("category, expected", by_of_fields.items(), ids=by_of_fields.keys())
-@pytest.mark.skip2
+@pytest.mark.slow
 def test_by_of_fields(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
