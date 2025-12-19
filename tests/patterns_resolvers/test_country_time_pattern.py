@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.patterns_resolvers.country_time_pattern import resolve_country_time_pattern, load_bot
-from ArWikiCats.new_resolvers.translations_formats import MultiDataFormatterBaseYear
+from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
 
 test_data = {
     # standard

@@ -3,7 +3,7 @@
 
 import pytest
 import re
-from ArWikiCats.new_resolvers.translations_formats import MultiDataFormatterYearAndFrom, FormatDataFrom
+from ArWikiCats.translations_formats import MultiDataFormatterYearAndFrom, FormatDataFrom
 from ArWikiCats.time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 

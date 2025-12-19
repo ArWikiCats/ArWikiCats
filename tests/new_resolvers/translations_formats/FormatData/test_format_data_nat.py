@@ -5,7 +5,7 @@ import re
 
 import pytest
 
-from ArWikiCats.new_resolvers.translations_formats import FormatData
+from ArWikiCats.translations_formats import FormatData
 
 
 @pytest.fixture

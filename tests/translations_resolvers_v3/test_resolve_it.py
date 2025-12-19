@@ -4,7 +4,7 @@
 import pytest
 import re
 
-from ArWikiCats.new_resolvers.translations_formats import FormatData, YearFormatData, MultiDataFormatterBase, V3Formats, MultiDataFormatterBaseYearV3
+from ArWikiCats.translations_formats import FormatData, YearFormatData, MultiDataFormatterBase, V3Formats, MultiDataFormatterBaseYearV3
 
 
 @pytest.fixture

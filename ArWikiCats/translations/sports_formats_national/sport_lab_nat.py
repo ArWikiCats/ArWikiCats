@@ -4,7 +4,7 @@
 import functools
 from ...helps import logger
 from ...translations import Nat_women
-from ...new_resolvers.translations_formats import format_multi_data
+from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from .te2 import New_For_nat_female_xo_team, new_for_nat_female_xo_team_additional
 
