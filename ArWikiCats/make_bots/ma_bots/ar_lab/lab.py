@@ -33,7 +33,7 @@ from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat
 from ....translations_resolvers import resolved_translations_resolvers
 from ....translations_resolvers_v2 import resolved_translations_resolvers_v2
 from ....translations_resolvers_v3i import resolved_translations_resolvers_v3i
-# from ....main_processers import resolve_nat_genders_pattern
+# from ....genders_processers import resolve_nat_genders_pattern
 
 
 @functools.lru_cache(maxsize=10000)

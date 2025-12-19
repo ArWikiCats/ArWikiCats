@@ -10,7 +10,7 @@ The categories should be like:
 
 import pytest
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.main_processers.nat_genders_pattern import resolve_nat_genders_pattern
+from ArWikiCats.genders_processers.nat_genders_pattern import resolve_nat_genders_pattern
 
 test_1 = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",        # x

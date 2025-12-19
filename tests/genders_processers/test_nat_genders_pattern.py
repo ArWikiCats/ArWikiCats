@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.main_processers.nat_genders_pattern import resolve_nat_genders_pattern, NAT_DATA_MALES_FEMALES
+from ArWikiCats.genders_processers.nat_genders_pattern import resolve_nat_genders_pattern, NAT_DATA_MALES_FEMALES
 
 test_data_ar = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",
