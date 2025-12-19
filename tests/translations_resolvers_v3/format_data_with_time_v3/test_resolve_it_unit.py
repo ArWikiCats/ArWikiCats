@@ -6,6 +6,7 @@ import re
 
 from ArWikiCats.new_resolvers.translations_formats import FormatData, YearFormatData, MultiDataFormatterBase, V3Formats, MultiDataFormatterBaseYearV3
 from ArWikiCats.new_resolvers.new_jobs_resolver.mens import mens_resolver_labels
+from ArWikiCats.time_resolvers import fixing
 
 
 class FormatDataXX:
@@ -48,17 +49,10 @@ class FormatDataXX:
             result = self.normalize_category(category, key)
         return key, result
 
-    def fixing(self, text: str) -> str:
-        """Fix text."""
-        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
-        text = text.replace("بعقد عقد", "بعقد")
-        text = text.replace("بعقد القرن", "بالقرن")
-        return text
-
     def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
         result = label.replace(self.value_placeholder, value)
-        result = self.fixing(result)
+        result = fixing(result)
         return result
 
     def search(self, text: str) -> str:

@@ -11,9 +11,10 @@ TODO: use FormatDataFrom with:
 import re
 from ....helps import logger
 from .model_multi_data_year_from import FormatDataFrom
-from ....time_resolvers.time_to_arabic import (
+from ....time_resolvers import (
     convert_time_to_arabic,
     match_time_en_first,
+    fixing,
 )
 
 
@@ -59,18 +60,11 @@ class YearFormatDataLegacy:
             result = self.normalize_category(category, key)
         return key, result
 
-    def fixing(self, text: str) -> str:
-        """Fix text."""
-        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
-        text = text.replace("بعقد عقد", "بعقد")
-        text = text.replace("بعقد القرن", "بالقرن")
-        return text
-
     def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
         # print(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
-        result = self.fixing(result)
+        result = fixing(result)
         return result
 
     def get_key_label(self, key: str) -> str:
@@ -99,5 +93,5 @@ def YearFormatData(
         value_placeholder=value_placeholder,
         search_callback=convert_time_to_arabic,
         match_key_callback=match_time_en_first,
-        use_fixing=True,
+        fixing_callback=fixing,
     )

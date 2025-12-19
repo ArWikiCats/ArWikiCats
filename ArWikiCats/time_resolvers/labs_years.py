@@ -11,6 +11,7 @@ from .time_to_arabic import (
     match_time_en_first,
 )
 from ..main_processers.categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
+from .utils_time import fixing
 
 YEAR_PARAM = "{year1}"
 
@@ -32,13 +33,6 @@ class MatchTimes:
         result = match_time_ar_first(text)
         logger.debug(f"match_ar_time: {result=}")
         return result
-
-    def fixing(self, text: str) -> str:
-        """Fix text."""
-        text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
-        text = text.replace("بعقد عقد", "بعقد")
-        text = text.replace("بعقد القرن", "بالقرن")
-        return text
 
 
 class LabsYears(MatchTimes):
@@ -85,7 +79,7 @@ class LabsYears(MatchTimes):
 
         if canonical_label and YEAR_PARAM in canonical_label and cat_year_ar:
             from_year = canonical_label.format_map({YEAR_PARAM_NAME: cat_year_ar})
-            from_year = self.fixing(from_year)
+            from_year = fixing(from_year)
             self.lookup_count += 1
             logger.info(f"<<green>> lab_from_year: {self.lookup_count}")
             logger.info(f"\t<<green>> {category_r=} , {from_year=}")
