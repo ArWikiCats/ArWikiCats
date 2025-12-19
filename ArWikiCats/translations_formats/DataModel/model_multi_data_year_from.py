@@ -71,6 +71,7 @@ class FormatDataFrom:
         """Lookup template in a case-insensitive dict."""
         # Case-insensitive key lookup
         template_key = template_key.lower()
+        logger.debug(f"get_template_ar: {template_key=}")
         result = self.formatted_data_ci.get(template_key, "")
 
         if not result:
@@ -80,6 +81,7 @@ class FormatDataFrom:
             else:
                 result = self.formatted_data_ci.get(f"category:{template_key}", "")
 
+        logger.debug(f"get_template_ar: {template_key=}, {result=}")
         return result
 
     def get_key_label(self, key: str) -> str:

@@ -7,10 +7,12 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 
+from ..make_bots.o_bots.bys_new import resolve_by_labels
+
 from ..patterns_resolvers import nat_men_pattern
 
 from . import event2bot, event_lab_bot
-from ..genders_resolvers import resolve_nat_genders_pattern_v2
+# from ..genders_resolvers import resolve_nat_genders_pattern_v2
 from ..time_resolvers.labs_years import LabsYears
 from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
@@ -61,7 +63,12 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
     is_cat_okay = filter_en.filter_cat(category)
 
     category_lab = ""
-
+    category_lab = resolve_by_labels(changed_cat)
+    return CategoryResult(
+        en=category,
+        ar=category_lab,
+        from_match=False,
+    )
     labs_years_bot = build_labs_years_object()
 
     cat_year, from_year = labs_years_bot.lab_from_year(category)

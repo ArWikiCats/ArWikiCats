@@ -3,7 +3,7 @@
 
 import functools
 from typing import Dict
-
+from ...helps.log import logger
 from .model_data_base import FormatDataBase
 
 
@@ -40,6 +40,7 @@ class FormatData(FormatDataBase):
         return ""
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
+        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         # Replace placeholder
         return label.replace(self.value_placeholder, value)
 
