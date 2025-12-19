@@ -21,7 +21,7 @@ from ..media_bots.films_bot import te_films
 from ..reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..sports_bots import team_work
 from . import country2_bot, country2_lab, ye_ts_bot
-from ...new.time_to_arabic import convert_time_to_arabic
+from ...new.time_resolvers.time_to_arabic import convert_time_to_arabic
 
 from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 get_country_done: Dict[str, str] = {}

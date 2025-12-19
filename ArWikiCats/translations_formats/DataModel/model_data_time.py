@@ -10,7 +10,7 @@ TODO: use FormatDataFrom with:
 
 import re
 from ...helps import logger
-from ...new.time_to_arabic import (
+from ...new.time_resolvers.time_to_arabic import (
     convert_time_to_arabic,
     match_time_en_first,
 )

@@ -4,7 +4,7 @@
 import pytest
 import re
 from ArWikiCats.translations_formats import MultiDataFormatterYearAndFrom, FormatDataFrom
-from ArWikiCats.new.time_to_arabic import convert_time_to_arabic, match_time_en_first
+from ArWikiCats.new.time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 
 def get_label(text: str) -> str:

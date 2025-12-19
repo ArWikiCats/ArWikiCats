@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new.time_to_arabic import convert_time_to_arabic
+from ArWikiCats.new.time_resolvers.time_to_arabic import convert_time_to_arabic
 
 
 def test_make_year_lab() -> None:

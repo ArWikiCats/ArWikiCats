@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from ArWikiCats.new.time_to_arabic import match_en_return_ar
+from ArWikiCats.new.time_resolvers.time_to_arabic import match_en_return_ar
 
 en_return_ar = {
     "Category:2020s in Yemen": {"2020s": "عقد 2020"},
