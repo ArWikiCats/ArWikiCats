@@ -25,3 +25,4 @@ ArWikiCats/make_bots/jobs_bots/jobs_mainbot_example.py
 /ArWikiCats/translations/jsons1
 examples/diff.json
 _work_files/data.json
+examples/compare_diff.json

@@ -8,10 +8,14 @@ COUNTRY_YEAR_PARAMS = [
     "{country1}",
 ]
 
+COUNTRY_YEAR_DATA_TO_CHECK = {
+    "category:{year1} establishments in new {country1}": "تصنيف:تأسيسات سنة {year1} في {country1} الجديدة",  # 154
+    "category:{year1} in ottoman {country1}": "تصنيف:{country1} العثمانية في {year1}",  # 65
+}
+
 # Category:18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
     "category:{year1} elections in {country1}": "تصنيف:انتخابات {year1} في {country1}",  # 1550
-    # "category:{year1} in ottoman {country1}": "تصنيف:{country1} العثمانية في {year1}",  # 65
 
     "category:{year1} people of {country1}": "تصنيف:أشخاص من {country1} {year1}",  # 34632
     "category:{year1} in {country1}": "تصنيف:{year1} في {country1}",  # 34632
@@ -40,7 +44,6 @@ COUNTRY_YEAR_DATA = {
     "category:{year1} mass shootings in {country1}": "تصنيف:إطلاق نار عشوائي في {country1} في {year1}",  # 215
     "category:attacks in {country1} in {year1}": "تصنيف:هجمات في {country1} في {year1}",  # 247
     "category:{year1} roman catholic bishops in {country1}": "تصنيف:أساقفة كاثوليك رومان في {country1} في {year1}",  # 233
-    "category:{year1} establishments in new {country1}": "تصنيف:تأسيسات سنة {year1} في {country1} الجديدة",  # 154
     "category:{year1} in {country1} city": "تصنيف:مدينة {country1} في {year1}",  # 150
     "category:{year1} religious buildings and structures in {country1}": "تصنيف:مبان ومنشآت دينية في {country1} في {year1}",  # 165
     "category:{year1} churches in {country1}": "تصنيف:كنائس في {country1} في {year1}",  # 172
