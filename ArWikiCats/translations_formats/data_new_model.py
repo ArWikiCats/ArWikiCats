@@ -48,3 +48,8 @@ def format_films_country_data(
         other_bot=other_bot,
         data_to_find=data_to_find,
     )
+
+
+__all__ = [
+    "format_films_country_data",
+]
