@@ -1,6 +1,5 @@
 """
 Tests for :mod:`make_bots.o_bots.army`.
-TODO: write tests
 """
 
 from __future__ import annotations
@@ -42,6 +41,26 @@ test_army_nat_data_1 = {
 }
 
 test_army_nat_data_2 = {
+    "egyptian army personnel": "أفراد الجيش المصري",
+    "french air force generals": "جنرالات القوات الجوية الفرنسية",
+    "german federal legislation": "تشريعات فيدرالية ألمانية",
+    "indian parliament": "البرلمان الهندي",
+    "irish senate elections": "انتخابات مجلس الشيوخ الأيرلندي",
+    "italian army personnel": "أفراد الجيش الإيطالي",
+    "japanese parliament": "البرلمان الياباني",
+    "kenyan second division": "الدوري الكيني الدرجة الثانية",
+    "mexican congress": "الكونغرس المكسيكي",
+    "moroccan army personnel": "أفراد الجيش المغربي",
+    "norwegian parliament": "البرلمان النرويجي",
+    "pakistani army generals": "جنرالات الجيش الباكستاني",
+    "polish air force generals": "جنرالات القوات الجوية البولندية",
+    "portuguese senate elections": "انتخابات مجلس الشيوخ البرتغالي",
+    "russian army personnel": "أفراد الجيش الروسي",
+    "saudi coast guard": "خفر السواحل السعودي",
+    "spanish parliament": "البرلمان الإسباني",
+    "swedish army personnel": "أفراد الجيش السويدي",
+    "turkish air force generals": "جنرالات القوات الجوية التركية",
+    "yemeni army personnel": "أفراد الجيش اليمني",
 }
 
 

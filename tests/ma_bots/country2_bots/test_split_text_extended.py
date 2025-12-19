@@ -1,5 +1,5 @@
 """
-TODO: write tests
+Extended tests for split_text_by_separator function covering additional edge cases.
 """
 
 import pytest
