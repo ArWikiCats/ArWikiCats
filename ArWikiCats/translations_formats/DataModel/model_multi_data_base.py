@@ -152,9 +152,20 @@ class MultiDataFormatterBaseHelpers:
         return self.create_label(category)
 
     def search_all(self, category: str) -> str:
-        return self.create_label(category) \
-            or self.country_bot.search(category) \
-            or self.other_bot.search(category)
+        return (
+            self.create_label(category) or
+            self.country_bot.search(category) or
+            self.other_bot.search(category) or
+            ""
+        )
+
+    def search_all_other_first(self, category: str) -> str:
+        return (
+            self.other_bot.search(category) or
+            self.country_bot.search(category) or
+            self.create_label(category) or
+            ""
+        )
 
     def search_all_category(self, category: str) -> str:
         logger.debug("--"*5)

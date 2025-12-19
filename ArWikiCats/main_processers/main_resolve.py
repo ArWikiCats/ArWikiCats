@@ -7,7 +7,8 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 
-from . import event2bot, event_lab_bot, nat_men_pattern, resolve_nat_genders_pattern
+from . import event2bot, event_lab_bot, nat_men_pattern
+from ..genders_resolvers import resolve_nat_genders_pattern_v2
 from .labs_years import LabsYears
 from .country_time_pattern import resolve_country_time_pattern
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
@@ -70,8 +71,8 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
 
     if not category_lab:
         category_lab = (
-            # NOTE: resolve_nat_genders_pattern IN TESTING HERE ONLY
-            # resolve_nat_genders_pattern(changed_cat) or
+            # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
+            # resolve_nat_genders_pattern_v2(changed_cat) or
             resolved_translations_resolvers_v3i(changed_cat) or
             resolved_translations_resolvers_v2(changed_cat) or
             resolved_translations_resolvers(changed_cat) or

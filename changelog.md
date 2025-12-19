@@ -1,3 +1,18 @@
+## [#237](https://github.com/MrIbrahem/ArWikiCats/pull/237) - 2025-12-19
+
+* **New Features**
+  * Added a v2 nationality‑gendered Arabic label resolver and exposed it via the package namespace.
+
+* **Data / Behavior**
+  * Expanded patterns and mappings for jobs, sports and nationality variants to improve label coverage and accuracy.
+  * Normalization and caching added to improve matching and performance.
+
+* **Tests**
+  * Expanded and added parametrized tests and dump-based validations to ensure correctness.
+
+* **Chores**
+  * Adjusted public exports and import surface to align with the new resolver.
+
 ## [#236](https://github.com/MrIbrahem/ArWikiCats/pull/236) - 2025-12-18
 
 * **Improvements**
