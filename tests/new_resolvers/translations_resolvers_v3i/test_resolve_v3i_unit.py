@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Integration tests for MultiDataFormatterBase and MultiDataFormatterBaseYearV3 with year-based translations."""
+"""Integration tests for MultiDataFormatterBase and MultiDataFormatterYearAndFrom with year-based translations."""
 
 import pytest
 import re
