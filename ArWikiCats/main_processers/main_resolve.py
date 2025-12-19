@@ -19,10 +19,7 @@ from ..make_bots.co_bots import filter_en
 from ..make_bots.format_bots import change_cat
 from ..ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
-from ..new_resolvers.new_jobs_resolver import new_jobs_resolver_label
-from ..new_resolvers.translations_resolvers import resolved_translations_resolvers
-from ..new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
-from ..new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ..new_resolvers.reslove_all import new_resolvers_all
 
 from ..fix import fixlabel
 
@@ -76,10 +73,7 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
         category_lab = (
             # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
             # resolve_nat_genders_pattern_v2(changed_cat) or
-            resolved_translations_resolvers_v3i(changed_cat) or
-            resolved_translations_resolvers_v2(changed_cat) or
-            resolved_translations_resolvers(changed_cat) or
-            new_jobs_resolver_label(changed_cat) or
+            new_resolvers_all(changed_cat) or
             ""
         )
 
@@ -114,8 +108,12 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
     if category_lab and fix_label:
         category_lab = fixlabel(category_lab, en=category)
 
-    if not from_year and cat_year:
-        labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
+    # NOTE: causing some issues with years and decades
+    # [Category:1930s Japanese novels] : "تصنيف:روايات يابانية في عقد 1930",
+    # [Category:1930s Japanese novels] : "تصنيف:روايات يابانية في عقد 1930",
+
+    # if not from_year and cat_year:
+        # labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
 
     return CategoryResult(
         en=category,

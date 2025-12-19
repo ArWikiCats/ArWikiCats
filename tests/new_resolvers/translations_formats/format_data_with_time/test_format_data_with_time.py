@@ -4,10 +4,12 @@
 import pytest
 
 from ArWikiCats.translations import all_country_ar
-from ArWikiCats.new_resolvers.translations_formats import MultiDataFormatterBaseYear, format_year_country_data
+from ArWikiCats.translations_formats import MultiDataFormatterBaseYear, format_year_country_data
 
 # Template data with both nationality and sport placeholders
 formatted_data = {
+    "{year1} in new {country1}": "{country1} الجديدة في {year1}",
+    "{year1} establishments in new {country1}": "تأسيسات سنة {year1} في {country1} الجديدة",
     "{year1} in {country1}": "{country1} في {year1}",
     "{year1} establishments in {country1}": "تأسيسات سنة {year1} في {country1}",
     "{year1} events in {country1}": "أحداث {year1} في {country1}",
@@ -30,13 +32,11 @@ formatted_data = {
     "railway stations in {country1} opened in {year1}": "محطات السكك الحديدية في {country1} افتتحت في {year1}",
     "{year1} in {country1} territory": "إقليم {country1} في {year1}",
     "{year1} architecture in {country1}": "عمارة {year1} في {country1}",
-    "{year1} in new {country1}": "{country1} الجديدة في {year1}",
     "{year1} in {country1} by state": "{year1} في {country1} حسب الولاية",
     "{year1} in {country1} by state or territory": "{country1} في {year1} حسب الولاية",
     "{year1} mass shootings in {country1}": "إطلاق نار عشوائي في {country1} في {year1}",
     "attacks in {country1} in {year1}": "هجمات في {country1} في {year1}",
     "{year1} roman catholic bishops in {country1}": "أساقفة كاثوليك رومان في {country1} في {year1}",
-    "{year1} establishments in new {country1}": "تأسيسات سنة {year1} في {country1} الجديدة",
     "{year1} in {country1} city": "مدينة {country1} في {year1}",
     "{year1} religious buildings and structures in {country1}": "مبان ومنشآت دينية في {country1} في {year1}",
     "{year1} churches in {country1}": "كنائس في {country1} في {year1}",

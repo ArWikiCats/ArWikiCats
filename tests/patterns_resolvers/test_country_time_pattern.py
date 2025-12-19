@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.patterns_resolvers.country_time_pattern import resolve_country_time_pattern, load_bot
-from ArWikiCats.new_resolvers.translations_formats import MultiDataFormatterBaseYear
+from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
 
 test_data = {
     # standard
@@ -35,7 +35,7 @@ test_data = {
     "Category:2021 mass shootings in united states": "تصنيف:إطلاق نار عشوائي في الولايات المتحدة في 2021",
     "Category:attacks in france in 2015": "تصنيف:هجمات في فرنسا في 2015",
     "Category:2022 roman catholic bishops in france": "تصنيف:أساقفة كاثوليك رومان في فرنسا في 2022",
-    "Category:2019 establishments in new egypt": "تصنيف:تأسيسات سنة 2019 في مصر الجديدة",
+    "Category:2019 establishments in egypt": "تصنيف:تأسيسات سنة 2019 في مصر",
     "Category:2010 in egypt city": "تصنيف:مدينة مصر في 2010",
     "Category:2011 religious buildings and structures in iraq": "تصنيف:مبان ومنشآت دينية في العراق في 2011",
     "Category:2011 churches in iraq": "تصنيف:كنائس في العراق في 2011",

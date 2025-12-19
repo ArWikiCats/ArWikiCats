@@ -4,7 +4,7 @@
 import functools
 
 # from ...helps.jsonl_dump import dump_data
-from ...new_resolvers.translations_formats import FormatData
+from ...translations_formats import FormatData
 from ..sports.Sport_key import (
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,

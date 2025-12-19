@@ -9,7 +9,7 @@ import re
 import functools
 from ..helps import logger
 from ..translations import All_Nat, SPORT_KEY_RECORDS_BASE
-from ..new_resolvers.translations_formats import FormatDataV2, MultiDataFormatterBaseV2, format_multi_data_v2
+from ..translations_formats import FormatDataV2, MultiDataFormatterBaseV2, format_multi_data_v2
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 REGEX_MENS = re.compile(r"\b(mens|men)\b", re.I)

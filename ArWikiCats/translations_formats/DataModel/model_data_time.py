@@ -9,9 +9,9 @@ TODO: use FormatDataFrom with:
 """
 
 import re
-from ....helps import logger
+from ...helps import logger
 from .model_multi_data_year_from import FormatDataFrom
-from ....time_resolvers import (
+from ...time_resolvers import (
     convert_time_to_arabic,
     match_time_en_first,
     fixing,

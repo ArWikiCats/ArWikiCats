@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.translations_formats import FormatData, MultiDataFormatterBase, format_multi_data
+from ArWikiCats.translations_formats import FormatData, MultiDataFormatterBase, format_multi_data
 
 
 # Sample data for nationality translations

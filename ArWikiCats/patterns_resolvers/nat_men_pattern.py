@@ -9,7 +9,7 @@ import functools
 from .categories_patterns.NAT_males import NAT_DATA_MALES
 from ..helps import logger
 from ..translations import All_Nat
-from ..new_resolvers.translations_formats import FormatDataV2
+from ..translations_formats import FormatDataV2
 
 
 @functools.lru_cache(maxsize=1)

@@ -4,6 +4,15 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
+data_skip = {
+    "Category:January 2021 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في يناير 2021",
+    "Category:November 2018 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في نوفمبر 2018",
+    "Category:October 2023 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في أكتوبر 2023",
+    "Category:March 2018 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في مارس 2018",
+    "Category:March 2021 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في مارس 2021",
+    "Category:March 2023 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في مارس 2023",
+}
+
 data_0 = {
     "Category:Antigua and Barbuda men": "تصنيف:رجال أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda men athletes": "تصنيف:لاعبو قوى رجال أنتيغويون وبربوديون",
@@ -565,8 +574,8 @@ data_1 = {
     "Category:Irish people of Antigua and Barbuda descent": "تصنيف:أيرلنديون من أصل أنتيغوي وبربودي",
     "Category:Jamaican emigrants to Antigua and Barbuda": "تصنيف:جامايكيون مهاجرون إلى أنتيغوا وباربودا",
     "Category:Jamaican people of Antigua and Barbuda descent": "تصنيف:جامايكيون من أصل أنتيغوي وبربودي",
-    "Category:January 2021 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في يناير 2021",
     "Category:Judiciary of Antigua and Barbuda": "تصنيف:النظام القضائي أنتيغوا وباربودا",
+
     "Category:Labour relations in Antigua and Barbuda": "تصنيف:علاقات عمالية في أنتيغوا وباربودا",
     "Category:Landmarks in Antigua and Barbuda": "تصنيف:معالم في أنتيغوا وباربودا",
     "Category:Law enforcement in Antigua and Barbuda": "تصنيف:تطبيق القانون في أنتيغوا وباربودا",
@@ -582,9 +591,6 @@ data_1 = {
     "Category:Lists of religious buildings and structures in Antigua and Barbuda": "تصنيف:قوائم مبان ومنشآت دينية في أنتيغوا وباربودا",
     "Category:Lists of tourist attractions in Antigua and Barbuda": "تصنيف:قوائم مواقع جذب سياحي في أنتيغوا وباربودا",
     "Category:Local government in Antigua and Barbuda": "تصنيف:الحكومة المحلية في أنتيغوا وباربودا",
-    "Category:March 2018 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في مارس 2018",
-    "Category:March 2021 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في مارس 2021",
-    "Category:March 2023 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في مارس 2023",
     "Category:Mass media in Antigua and Barbuda": "تصنيف:وسائل إعلام في أنتيغوا وباربودا",
     "Category:Medical and health organisations based in Antigua and Barbuda": "تصنيف:منظمات طبية وصحية مقرها في أنتيغوا وباربودا",
     "Category:Medical schools in Antigua and Barbuda": "تصنيف:مدارس طبية في أنتيغوا وباربودا",
@@ -605,8 +611,6 @@ data_1 = {
     "Category:Newspapers published in Antigua and Barbuda": "تصنيف:صحف نشرت في أنتيغوا وباربودا",
     "Category:Nigerian expatriates in Antigua and Barbuda": "تصنيف:نيجيريون مغتربون في أنتيغوا وباربودا",
     "Category:Nigerian people of Antigua and Barbuda descent": "تصنيف:نيجيريون من أصل أنتيغوي وبربودي",
-    "Category:November 2018 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في نوفمبر 2018",
-    "Category:October 2023 in Antigua and Barbuda": "تصنيف:أنتيغوا وباربودا في أكتوبر 2023",
     "Category:Olympic boxers for Antigua and Barbuda": "تصنيف:ملاكمون أولمبيون في أنتيغوا وباربودا",
     "Category:Olympic canoeists for Antigua and Barbuda": "تصنيف:متسابقو قوارب الكانوي أولمبيون في أنتيغوا وباربودا",
     "Category:Olympic cyclists for Antigua and Barbuda": "تصنيف:دراجون أولمبيون في أنتيغوا وباربودا",
