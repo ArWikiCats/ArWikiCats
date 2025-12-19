@@ -1,2 +1,3 @@
 
 from .nat_genders_pattern import resolve_nat_genders_pattern
+from .nat_genders_pattern_multi import resolve_nat_genders_pattern_v2

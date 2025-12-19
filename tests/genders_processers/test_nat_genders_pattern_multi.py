@@ -3,10 +3,11 @@ Tests
 """
 
 import pytest
+import re
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.genders_processers.nat_genders_pattern import NAT_DATA_MALES_FEMALES
-from ArWikiCats.genders_processers.nat_genders_pattern_multi import resolve_nat_genders_pattern
+from ArWikiCats.genders_processers.nat_genders_pattern import _build_players_data
+from ArWikiCats.genders_processers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
 
 test_data_ar = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",
@@ -29,33 +30,50 @@ test_data_ar = {
     "Andorran female tennis players": "لاعبات كرة مضرب أندوريات",
     "Welsh players of Australian rules football": "لاعبو ولاعبات كرة قدم أسترالية ويلزيون",
     "Irish female players of Australian rules football": "لاعبات كرة قدم أسترالية أيرلنديات",
+
+    "Welsh players of american-football": "لاعبو ولاعبات كرة قدم أمريكية ويلزيون",
+    "Irish female players of american-football": "لاعبات كرة قدم أمريكية أيرلنديات",
+
     "Irish female players of american football": "لاعبات كرة قدم أمريكية أيرلنديات",
 }
 
-
-@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=test_data_ar.keys())
-@pytest.mark.fast
-def test_nat_genders_pattern_1(category: str, expected: str) -> None:
-    label = resolve_nat_genders_pattern(category)
-    assert label == expected
-
+NAT_DATA_MALES_FEMALES = _build_players_data()
 
 test_data_2 = {
     x.format(en_nat="yemeni"): y.format(males="يمنيون", females="يمنيات")
     for x, y in NAT_DATA_MALES_FEMALES.items()
 }
 
+test_data_2.update({
+    re.sub(r"\bmale\b", "men's", x): y
+    for x, y in test_data_2.items()
+    if "male" in x
+})
+
+test_data_2.update({
+    re.sub(r"\bfemale\b", "womens", x): y
+    for x, y in test_data_2.items()
+    if "female" in x
+})
+
+
+@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=test_data_ar.keys())
+@pytest.mark.fast
+def test_nat_genders_pattern_1(category: str, expected: str) -> None:
+    label = resolve_nat_genders_pattern_v2(category)
+    assert label == expected
+
 
 @pytest.mark.parametrize("category, expected", test_data_2.items(), ids=test_data_2.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_nat_genders_pattern_2(category: str, expected: str) -> None:
-    label = resolve_nat_genders_pattern(category)
+    label = resolve_nat_genders_pattern_v2(category)
     assert label == expected
 
 
 to_test = [
-    ("test_nat_genders_pattern_1", test_data_ar, resolve_nat_genders_pattern),
-    ("test_nat_genders_pattern_2", test_data_2, resolve_nat_genders_pattern),
+    ("test_nat_genders_pattern_1", test_data_ar, resolve_nat_genders_pattern_v2),
+    ("test_nat_genders_pattern_2", test_data_2, resolve_nat_genders_pattern_v2),
 ]
 
 

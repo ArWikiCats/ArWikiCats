@@ -7,142 +7,37 @@ TODO: use format_multi_data_v2
 
 import re
 import functools
-from ..helps import len_print, logger
+from ..helps import logger
 from ..translations import All_Nat, SPORT_KEY_RECORDS_BASE
-from ..translations_formats import FormatDataV2
+from ..translations_formats import FormatDataV2, MultiDataFormatterBaseV2
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
-
-NAT_DATA_MALES_FEMALES = {
-    "{en_nat} footballers": "لاعبو ولاعبات كرة قدم {males}",
-    "{en_nat} mens footballers": "لاعبو كرة قدم {males}",
-    "{en_nat} male footballers": "لاعبو كرة قدم {males}",
-    "{en_nat} womens footballers": "لاعبات كرة قدم {females}",
-    "{en_nat} female footballers": "لاعبات كرة قدم {females}",
-
-    "{en_nat} actors": "ممثلون وممثلات من {males}",
-    "{en_nat} male actors": "ممثلون {males}",
-    "{en_nat} actresses": "ممثلات {females}",
-
-    "{en_nat} singers": "مغنون ومغنيات {males}",
-    "{en_nat} male singers": "مغنون {males}",
-    "{en_nat} female singers": "مغنيات {females}",
-    "{en_nat} women singers": "مغنيات {females}",
-}
-
-
-def _build_jobs_data() -> dict[str, str]:
-
-    occupation_gender_labels = {
-        "singers": {"males": "مغنون", "females": "مغنيات"},
-        "actors": {"males": "ممثلون", "females": "ممثلات"},
-        "boxers": {"males": "ملاكمون", "females": "ملاكمات"},
-    }
-
-    gendered_job_title_replacements = {
-        "actors": "actresses",
-    }
-
-    data = {}
-    for job, job_labels in occupation_gender_labels.items():
-        males = job_labels["males"]
-        females = job_labels["females"]
-
-        # "irish actors": "ممثلون وممثلات أيرلنديون"
-        data[f"{{en_nat}} {job}"] = f"{males} و{females} {{males}}"
-
-        # "irish male actors": "ممثلون أيرلنديون"
-        data[f"{{en_nat}} male {job}"] = f"{males} {{males}}"
-
-        female_replacement = gendered_job_title_replacements.get(job)
-
-        if female_replacement:
-            # "irish actresses": "ممثلات أيرلنديات"
-            data[f"{{en_nat}} {female_replacement}"] = f"{females} {{females}}"
-        else:
-            # "irish actresses": "ممثلات أيرلنديات"
-            data[f"{{en_nat}} female {job}"] = f"{females} {{females}}"
-            data[f"{{en_nat}} women {job}"] = f"{females} {{females}}"
-
-    return data
-
-
-def _build_players_data() -> dict[str, str]:
-
-    sport_labels = {
-        "softball players": "كرة لينة",
-        "futsal players": "كرة صالات",
-        "badminton players": "تنس ريشة",
-        "footballers": "كرة قدم",
-        "players of australian rules football": "كرة قدم أسترالية",
-        "players of american football": "كرة قدم أمريكية",
-    }
-
-    sport_labels.update({
-        f"{sport} players": record.get("jobs", "")
-        for sport, record in SPORT_KEY_RECORDS_BASE.items()
-        if record.get("jobs", "")
-    })
-
-    # ------------------------------
-    # 1) males data
-
-    data_males = {}
-
-    for job, job_label in sport_labels.items():
-
-        # "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون"
-        # data[f"{{en_nat}} {job}"] = f"لاعبو ولاعبات {job_label} {{males}}"
-
-        # "softball players": "لاعبو ولاعبات كرة لينة"
-        data_males[f"{job}"] = f"لاعبو ولاعبات {job_label}"
-
-        # "Category:Scottish male badminton players": "تصنيف:لاعبو تنس ريشة ذكور إسكتلنديون",
-        # data_males[f"{{en_nat}} male {job}"] = f"لاعبو {job_label} {{males}}"
-        data_males[f"male {job}"] = f"لاعبو {job_label}"
-
-        # "Category:Serbian men's footballers": "تصنيف:لاعبو كرة قدم صرب",
-        # "Category:Russian men's futsal players": "تصنيف:لاعبو كرة صالات رجالية روس",
-        # data_males[f"{{en_nat}} mens {job}"] = f"لاعبو {job_label} {{males}}"
-        data_males[f"mens {job}"] = f"لاعبو {job_label}"
-
-    males_with_nats = {
-        f"{{en_nat}} {key}": f"{value} {{males}}"
-        for key, value in data_males.items()
-    }
-    # ------------------------------
-    # 2) females data
-
-    # "yemeni women's softball players": "لاعبات كرة لينة يمنيات"
-    # "Category:American women baseball players": "تصنيف:لاعبات كرة قاعدة أمريكيات",
-    # data[f"{{en_nat}} female {job}"] = f"لاعبات {job_label} {{females}}"
-
-    data_females = {
-        f"female {job}": f"لاعبات {job_label}"
-        for job, job_label in sport_labels.items()
-    }
-
-    females_with_nats = {
-        f"{{en_nat}} female {job}": f"لاعبات {job_label} {{females}}"
-        for job, job_label in sport_labels.items()
-    }
-    # ------------------------------
-    # 3) full data
-    data = data_males | data_females | males_with_nats | females_with_nats
-
-    return data
-
-
-NAT_DATA_MALES_FEMALES.update(_build_jobs_data())
-NAT_DATA_MALES_FEMALES.update(_build_players_data())
+REGEX_MENS = re.compile(r"\b(mens|men)\b", re.I)
 
 
 @functools.lru_cache(maxsize=1)
-def _bot_new() -> FormatDataV2:
+def _job_bot() -> MultiDataFormatterBaseV2:
+    formatted_data = {
+        # _build_jobs_data
+        "{job_en}": "{job_males} و{job_females}",
+        "male {job_en}": "{job_males}",
 
-    formatted_data = NAT_DATA_MALES_FEMALES
+        # _build_jobs_data
+        "{en_nat} {job_en}": "{job_males} و{job_females} {males}",
+        "{en_nat} male {job_en}": "{job_males} {males}",
 
-    nats_data={
+        # _build_jobs_data
+        "female {job_en}": "{job_females}",
+        "{en_nat} female {job_en}": "{job_females} {females}",
+    }
+
+    jobs_data_new = {
+        "singers": {"job_males": "مغنون", "job_females": "مغنيات"},
+        "actors": {"job_males": "ممثلون", "job_females": "ممثلات"},
+        "boxers": {"job_males": "ملاكمون", "job_females": "ملاكمات"},
+    }
+
+    nats_data = {
         x: {
             "males": v["males"],
             "females": v["females"],
@@ -151,12 +46,122 @@ def _bot_new() -> FormatDataV2:
         if v.get("males")
     }
 
-    return FormatDataV2(
+    country_bot = FormatDataV2(
         formatted_data=formatted_data,
         data_list=nats_data,
         key_placeholder="{en_nat}",
-        text_after="",
-        text_before="the ",
+    )
+
+    other_bot = FormatDataV2(
+        {},
+        jobs_data_new,
+        key_placeholder="{job_en}",
+    )
+
+    return MultiDataFormatterBaseV2(
+        country_bot=country_bot,
+        other_bot=other_bot,
+    )
+
+
+@functools.lru_cache(maxsize=1)
+def _make_formatted_data_new() -> dict[str, str]:
+    formatted_data_new = {
+        "actresses": "ممثلات",
+        "{en_nat} actresses": "ممثلات {females}",
+
+        # _build_players_data - footballers without nats
+        "male footballers": "لاعبو كرة قدم",
+        "female footballers": "لاعبات كرة قدم",
+        "footballers": "لاعبو ولاعبات كرة قدم",
+
+        # _build_players_data - footballers with nats
+        "{en_nat} male footballers": "لاعبو كرة قدم {males}",
+        "{en_nat} female footballers": "لاعبات كرة قدم {females}",
+        "{en_nat} footballers": "لاعبو ولاعبات كرة قدم {males}",
+    }
+
+    formatted_data_females = {
+        # _build_players_data - sports without nats
+        "female {sport_en} players": "لاعبات {job_ar}",
+
+        # _build_players_data - sports with nats
+        "{en_nat} female {sport_en} players": "لاعبات {job_ar} {females}",
+
+    }
+
+    formatted_data_males = {
+        # _build_players_data - sports without nats
+        "male {sport_en} players": "لاعبو {job_ar}",
+        "{sport_en} players": "لاعبو ولاعبات {job_ar}",
+
+        # _build_players_data - sports with nats
+        "{en_nat} male {sport_en} players": "لاعبو {job_ar} {males}",
+        "{en_nat} {sport_en} players": "لاعبو ولاعبات {job_ar} {males}",
+    }
+
+    formatted_data_new.update(formatted_data_females)
+    formatted_data_new.update(formatted_data_males)
+
+    players_of_data = {
+        "australian rules football": "كرة قدم أسترالية",
+        "american-football": "كرة قدم أمريكية",
+    }
+    for sport, ar in players_of_data.items():
+        formatted_data_new.update({
+            f"female players of {sport}": f"لاعبات {ar}",
+            f"{{en_nat}} female players of {sport}": f"لاعبات {ar} {{females}}",
+            f"male players of {sport}": f"لاعبو {ar}",
+            f"players of {sport}": f"لاعبو ولاعبات {ar}",
+            f"{{en_nat}} male players of {sport}": f"لاعبو {ar} {{males}}",
+            f"{{en_nat}} players of {sport}": f"لاعبو ولاعبات {ar} {{males}}",
+        })
+
+    return formatted_data_new
+
+
+@functools.lru_cache(maxsize=1)
+def _sport_bot() -> MultiDataFormatterBaseV2:
+
+    sports_data_new = {
+        sport: {"job_ar": record.get("jobs", "")}
+        for sport, record in SPORT_KEY_RECORDS_BASE.items()
+        if record.get("jobs", "")
+    }
+
+    sports_data_new.update({
+        "softball": {"job_ar": "كرة لينة"},
+        "futsal": {"job_ar": "كرة صالات"},
+        "badminton": {"job_ar": "تنس ريشة"},
+        "australian rules football": {"job_ar": "كرة قدم أسترالية"},
+        "american-football": {"job_ar": "كرة قدم أمريكية"},
+    })
+
+    nats_data = {
+        x: {
+            "males": v["males"],
+            "females": v["females"],
+        }
+        for x, v in All_Nat.items()
+        if v.get("males")
+    }
+    formatted_data_new = _make_formatted_data_new()
+
+    country_bot = FormatDataV2(
+        formatted_data=formatted_data_new,
+        data_list=nats_data,
+        key_placeholder="{en_nat}",
+    )
+
+    other_bot = FormatDataV2(
+        {},
+        sports_data_new,
+        key_placeholder="{sport_en}",
+    )
+
+    return MultiDataFormatterBaseV2(
+        country_bot=country_bot,
+        other_bot=other_bot,
     )
 
 
@@ -167,9 +172,11 @@ def fix_keys(category: str) -> str:
     replacements = {
         "expatriates": "expatriate",
         "canadian football": "canadian-football",
+        "american football": "american-football",
     }
 
     category = REGEX_WOMENS.sub("female", category)
+    category = REGEX_MENS.sub("male", category)
 
     for old, new in replacements.items():
         category = category.replace(old, new)
@@ -178,27 +185,25 @@ def fix_keys(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_nat_genders_pattern(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_nat_genders_pattern: {category=}")
-    yc_bot = _bot_new()
-
+def resolve_nat_genders_pattern_v2(category: str) -> str:
     normalized_category = fix_keys(category)
-    result = yc_bot.create_label(normalized_category)
+    logger.debug(f"<<yellow>> start resolve_nat_genders_pattern: {normalized_category=}")
+
+    sport_bot = _sport_bot()
+    job_bot = _job_bot()
+
+    result = (
+        sport_bot.search_all_other_first(normalized_category) or
+        job_bot.search_all_other_first(normalized_category) or
+        ""
+    )
 
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
-
     logger.debug(f"<<yellow>> end resolve_nat_genders_pattern: {category=}, {result=}")
     return result or ""
 
 
-len_print.data_len(
-    "nat_genders_pattern.py",
-    {
-        "NAT_DATA_MALES_FEMALES": NAT_DATA_MALES_FEMALES        # 1,868
-    },
-)
-
 __all__=[
-    "resolve_nat_genders_pattern",
+    "resolve_nat_genders_pattern_v2",
 ]

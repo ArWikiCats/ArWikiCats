@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+import re
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.genders_processers.nat_genders_pattern import resolve_nat_genders_pattern, NAT_DATA_MALES_FEMALES
@@ -28,6 +29,10 @@ test_data_ar = {
     "Andorran female tennis players": "لاعبات كرة مضرب أندوريات",
     "Welsh players of Australian rules football": "لاعبو ولاعبات كرة قدم أسترالية ويلزيون",
     "Irish female players of Australian rules football": "لاعبات كرة قدم أسترالية أيرلنديات",
+
+    "Welsh players of american-football": "لاعبو ولاعبات كرة قدم أمريكية ويلزيون",
+    "Irish female players of american-football": "لاعبات كرة قدم أمريكية أيرلنديات",
+
     "Irish female players of american football": "لاعبات كرة قدم أمريكية أيرلنديات",
 }
 
@@ -43,6 +48,18 @@ test_data_2 = {
     x.format(en_nat="yemeni"): y.format(males="يمنيون", females="يمنيات")
     for x, y in NAT_DATA_MALES_FEMALES.items()
 }
+
+test_data_2.update({
+    re.sub(r"\bmale\b", "men's", x): y
+    for x, y in test_data_2.items()
+    if "male" in x
+})
+
+test_data_2.update({
+    re.sub(r"\bfemale\b", "women's", x): y
+    for x, y in test_data_2.items()
+    if "female" in x
+})
 
 
 @pytest.mark.parametrize("category, expected", test_data_2.items(), ids=test_data_2.keys())

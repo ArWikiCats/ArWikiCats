@@ -8,7 +8,7 @@ import functools
 from dataclasses import dataclass
 
 from . import event2bot, event_lab_bot, nat_men_pattern
-# from ..genders_processers import resolve_nat_genders_pattern
+from ..genders_processers import resolve_nat_genders_pattern
 from .labs_years import LabsYears
 from .country_time_pattern import resolve_country_time_pattern
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2

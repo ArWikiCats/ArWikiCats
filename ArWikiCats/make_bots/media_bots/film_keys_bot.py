@@ -69,10 +69,12 @@ def films_with_nat(country_start: str, country_code: str) -> str:
         logger.debug(f'<<lightblue>> bot_te_4:Films: new {result=} ')
 
     if not result:
-        country_label = Films_key_CAO.get(country_code) \
-            or get_Films_key_CAO(country_code) \
-            or get_films_key_tyty_new(country_code)
-
+        country_label = (
+            Films_key_CAO.get(country_code) or
+            get_Films_key_CAO(country_code) or
+            get_films_key_tyty_new(country_code) or
+            ""
+        )
         if country_label:
             result = f"{country_label} {country_name}"
             if country_code in Films_key_CAO_new_format:
