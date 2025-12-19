@@ -16,7 +16,7 @@ from ....translations import (
 )
 from ... import tmp_bot
 from ...countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ....new.time_resolvers import time_to_arabic
+from ....time_resolvers import time_to_arabic
 from ...format_bots import (
     Tabl_with_in,
     for_table,

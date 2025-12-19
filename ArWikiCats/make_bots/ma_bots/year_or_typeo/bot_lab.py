@@ -11,7 +11,7 @@ from ....fix import fixtitle
 from ....helps.log import logger
 from ....translations import Nat_mens, typeTable
 from ....utils import check_key_in_tables
-from ....new.time_resolvers import time_to_arabic
+from ....time_resolvers import time_to_arabic
 from ...format_bots import category_relation_mapping
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.bot import Films_O_TT, New_Lan

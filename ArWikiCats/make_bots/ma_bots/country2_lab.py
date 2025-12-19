@@ -18,7 +18,7 @@ from ..o_bots.peoples_resolver import work_peoples
 from ..reslove_relations.rele import resolve_relations_label
 from ...translations_resolvers.us_states import resolve_us_states
 from ..sports_bots import sport_lab_suffixes, team_work
-from ...new.time_resolvers.time_to_arabic import convert_time_to_arabic
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2
 from ...translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
