@@ -21,6 +21,7 @@ def multi_bot() -> MultiDataFormatterBase:
         "establishment": "التأسيس",
         "setting location": "موقع الأحداث",
         "invention": "الاختراع",
+        "country": "البلد",
         "introduction": "الاستحداث",
         "formal description": "الوصف",
         "photographing": "التصوير",
@@ -47,6 +48,7 @@ def multi_bot() -> MultiDataFormatterBase:
         "by era of {en}": "حسب عصر {ar}",
         "by millennium of {en}": "حسب ألفية {ar}",
         "by century of {en}": "حسب قرن {ar}",
+        "by {en} and city of {en2}": "حسب {ar} ومدينة {ar2}",
     }
 
     return format_multi_data(
@@ -67,11 +69,14 @@ def multi_bot() -> MultiDataFormatterBase:
 # =========================================================
 
 data_compare = {
+    "by country and country": "حسب البلد والبلد",
     "by shooting location": "حسب موقع التصوير",
     "by date of developer": "حسب تاريخ التطوير",
     "by city of disestablishment": "حسب مدينة الانحلال",
     "by city of reestablishment": "حسب مدينة إعادة التأسيس",
     "by city of establishment": "حسب مدينة التأسيس",
+    "by country and city of setting": "حسب البلد ومدينة الأحداث",
+    "by country and city of developer": "حسب البلد ومدينة التطوير",
 }
 
 
