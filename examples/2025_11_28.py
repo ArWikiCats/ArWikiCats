@@ -1,0 +1,17 @@
+
+
+import sys
+import json
+from pathlib import Path
+
+if _Dir := Path(__file__).parent:
+    sys.path.append(str(_Dir))
+
+from compare import compare_and_export_labels
+
+file_path = Path(__file__).parent / "2025-11-28.json"
+
+with open(file_path, "r", encoding="utf-8") as f:
+    data = json.load(f)
+
+compare_and_export_labels(data, "compare")
