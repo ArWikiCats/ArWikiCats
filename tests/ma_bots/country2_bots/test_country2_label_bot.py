@@ -1,5 +1,5 @@
 """
-TODO: write tests
+Tests for country2_label_bot module functions.
 """
 
 import pytest
@@ -12,23 +12,42 @@ from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import (
 
 @pytest.mark.fast
 def test_separator_arabic_resolve() -> None:
-    # Test with basic inputs
+    """Test separator_arabic_resolve function with various separators."""
+    # Test "to" separator
     result = separator_arabic_resolve("to")
+    assert result == " إلى "
+    
+    # Test "on" separator
+    result = separator_arabic_resolve("on")
+    assert result == " على "
+    
+    # Test "about" separator
+    result = separator_arabic_resolve("about")
+    assert result == " عن "
+    
+    # Test "based in" separator
+    result = separator_arabic_resolve("based in")
+    assert result == " مقرها في "
+    
+    # Test "in" separator (from category_relation_mapping)
+    result = separator_arabic_resolve("in")
+    assert result == " في "
+    
+    # Test "from" separator (from category_relation_mapping)
+    result = separator_arabic_resolve("from")
+    assert result == " من "
+    
+    # Test "by" separator (should return space, not from mapping)
+    result = separator_arabic_resolve("by")
+    assert result == " "
+    
+    # Test empty string
+    result = separator_arabic_resolve("")
     assert isinstance(result, str)
-
-    # Test with different parameters
-    result_various = separator_arabic_resolve("in")
-    assert isinstance(result_various, str)
-
-    # Test with empty strings
-    result_empty = separator_arabic_resolve("")
-    assert isinstance(result_empty, str)
-
-
-@pytest.mark.fast
-def test_country_2_tit() -> None:
-    # Test with basic inputs
-    pass
+    
+    # Test unknown separator
+    result = separator_arabic_resolve("unknown_sep")
+    assert isinstance(result, str)
 
 
 title_work_tests_data = {
