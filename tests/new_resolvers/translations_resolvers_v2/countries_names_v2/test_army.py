@@ -1,6 +1,5 @@
 """
 Tests for :mod:`make_bots.o_bots.army`.
-TODO: write tests
 """
 
 from __future__ import annotations
@@ -10,6 +9,24 @@ import pytest
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_v2 import resolve_by_countries_names_v2
 
 test_army_data_1 = {
+    "Unmanned military aircraft of Belgium": "طائرات عسكرية بدون طيار بلجيكية",
+    "Unmanned military aircraft of Canada": "طائرات عسكرية بدون طيار كندية",
+    "Unmanned military aircraft of Egypt": "طائرات عسكرية بدون طيار مصرية",
+    "Unmanned military aircraft of Japan": "طائرات عسكرية بدون طيار يابانية",
+    "Unmanned military aircraft of Pakistan": "طائرات عسكرية بدون طيار باكستانية",
+    "Unmanned military aircraft of Spain": "طائرات عسكرية بدون طيار إسبانية",
+    "Unmanned military aircraft of Sweden": "طائرات عسكرية بدون طيار سويدية",
+    "Unmanned aerial vehicles of Brazil": "طائرات بدون طيار برازيلية",
+    "Unmanned aerial vehicles of Egypt": "طائرات بدون طيار مصرية",
+    "Unmanned aerial vehicles of Iraq": "طائرات بدون طيار عراقية",
+    "Unmanned aerial vehicles of Mexico": "طائرات بدون طيار مكسيكية",
+    "Unmanned aerial vehicles of Morocco": "طائرات بدون طيار مغربية",
+    "Unmanned aerial vehicles of Norway": "طائرات بدون طيار نرويجية",
+    "Unmanned aerial vehicles of Pakistan": "طائرات بدون طيار باكستانية",
+    "Unmanned aerial vehicles of Spain": "طائرات بدون طيار إسبانية",
+    "Unmanned aerial vehicles of Switzerland": "طائرات بدون طيار سويسرية",
+    "Unmanned aerial vehicles of Thailand": "طائرات بدون طيار تايلندية",
+    "Unmanned aerial vehicles of Yemen": "طائرات بدون طيار يمنية",
 }
 
 test_army_data_2 = {
