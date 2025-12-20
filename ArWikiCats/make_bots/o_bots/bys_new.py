@@ -35,6 +35,8 @@ def fix_keys(label: str) -> str:
 
 formatted_data = {
     "by {en} and city of setting": "حسب {ar} ومدينة الأحداث",
+    "by {en} by city-of {en2}": "حسب {ar} حسب مدينة {ar2}",
+    "by {en} or city-of {en2}": "حسب {ar} أو مدينة {ar2}",
     "by {en} and city-of {en2}": "حسب {ar} ومدينة {ar2}",
     "by year - {en}": "حسب {ar}",
     "by {en}": "حسب {ar}",

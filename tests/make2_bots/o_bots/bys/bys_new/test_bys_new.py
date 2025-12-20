@@ -14,6 +14,9 @@ from ArWikiCats.translations.by_type import (
 )
 
 data1 = {
+    "by city or city of sport": "حسب المدينة أو مدينة الرياضة",
+    "by city by city of sport": "حسب المدينة حسب مدينة الرياضة",
+    "by city and city of sport": "حسب المدينة ومدينة الرياضة",
     "by country and country": "حسب البلد والبلد",
     "by country and city of setting": "حسب البلد ومدينة الأحداث",
     "by country and city of developer": "حسب البلد ومدينة التطوير",
