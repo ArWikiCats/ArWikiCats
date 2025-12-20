@@ -14,6 +14,7 @@ from ArWikiCats.translations.by_type import (
     by_by_fields,
     by_musics,
     Music_By_table,
+    by_map_table,
 )
 
 to_test = [
@@ -22,6 +23,7 @@ to_test = [
     ("test_by_by_fields", by_by_fields),
     ("test_by_musics", by_musics),
     ("test_music_by_table", Music_By_table),
+    ("by_map_table", by_map_table),
 ]
 
 
@@ -30,4 +32,8 @@ to_test = [
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_by_labels)
     dump_diff(diff_result, name)
+
+    expected2 = {x: v for x, v in expected.items() if v and x in diff_result}
+    dump_diff(expected2, f"{name}_expected")
+
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
