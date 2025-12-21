@@ -1,4 +1,30 @@
+## [#247](https://github.com/MrIbrahem/ArWikiCats/pull/247) - 2025-12-21
+## [#246](https://github.com/MrIbrahem/ArWikiCats/pull/246) - 2025-12-21
+
+* **Bug Fixes**
+  * More precise Arabic label normalization to avoid accidental removals; improved handling of trailing tokens.
+
+* **Data Updates**
+  * Updated Arabic translations for Santa Fe entries to use consistent hyphenation/formatting.
+
+* **Tests**
+  * Adjusted and added tests to reflect reordered inputs and the updated label-normalization behavior.
+
+* **Refactor**
+  * Label-resolution logic updated to use a consolidated resolver and related legacy translation mappings removed.
+
 ## [#245](https://github.com/MrIbrahem/ArWikiCats/pull/245) - 2025-12-21
+
+* **Bug Fixes**
+  * Prevented duplicate Arabic prepositions in generated labels and ensured no doubled "في".
+  * Standardized geographic phrasing: "province" terminology updated consistently to "المقاطعة" across categories.
+
+* **New Features**
+  * New, improved bilingual label-resolution system with broader translation coverage.
+  * Added translations for several non‑profit organization category variants.
+
+* **Tests**
+  * Expanded and reorganized tests with more parameterized cases and explicit type hints.
 
 ## [#244](https://github.com/MrIbrahem/ArWikiCats/pull/244) - 2025-12-21
 
