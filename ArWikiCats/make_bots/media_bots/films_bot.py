@@ -74,7 +74,7 @@ def te_films(category: str) -> str:
     ]
 
     for name, source in sources.items():
-        resolved_label = source(normalized_category) or source(normalized_category.lower())
+        resolved_label = source(normalized_category)
         if not resolved_label:
             continue
         if name in _add_to_new_players_tables:
