@@ -1,3 +1,19 @@
+## [#243](https://github.com/MrIbrahem/ArWikiCats/pull/243) - 2025-12-21
+
+* **New Features**
+  * Added new Arabic translations and expanded category mappings (including sports and medalist categories).
+  * New example scripts and a reusable compare-and-export utility for label comparisons.
+
+* **Bug Fixes**
+  * Updated Arabic translations for educational institution and event-related categories.
+  * Corrected several branch/category translation strings.
+
+* **Refactor**
+  * Renamed and reorganized translation resources and mapping keys for clearer public interfaces.
+
+* **Tests**
+  * Added and updated test fixtures to cover new/changed category mappings.
+
 ## [#238](https://github.com/MrIbrahem/ArWikiCats/pull/238) - 2025-12-19
 
 * **New Features**
