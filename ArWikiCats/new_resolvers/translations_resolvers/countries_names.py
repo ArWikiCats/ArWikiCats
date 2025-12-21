@@ -18,11 +18,32 @@ ONLY_COUNTRY_NAMES = {
 }
 
 
-# NOTE: formatted_data_en_ar_only used in other resolver
+# TODO: add data from ArWikiCats/translations/sports/olympics_data.py
+medalists_data = {
+    "african games": "الألعاب الإفريقية",
+    "all-africa games": "ألعاب عموم إفريقيا",
+    "asian games": "الألعاب الآسيوية",
+    "central american games": "ألعاب أمريكا الوسطى",
+    "commonwealth games": "دورة ألعاب الكومنولث",
+    "deaflympic games": "ألعاب ديفلمبياد",
+    "european youth olympic winter": "الألعاب الأولمبية الشبابية الأوروبية الشتوية",
+    "european youth olympic": "الألعاب الأولمبية الشبابية الأوروبية",
+    "islamic solidarity games": "ألعاب التضامن الإسلامي",
+    "jeux de la francophonie": "الألعاب الفرانكوفونية",
+    "military world games" : "دورة الألعاب العسكرية",
+    "olympic games": "الألعاب الأولمبية",
+    "olympics": "الألعاب الأولمبية",
+    "pan american games": "دورة الألعاب الأمريكية",
+    "paralympics games": "الألعاب البارالمبية",
+    "south american games": "ألعاب أمريكا الجنوبية",
+    "universiade": "الألعاب الجامعية",
+    "world games" : "دورة الألعاب العالمية",
+    "youth olympic games": "الألعاب الأولمبية الشبابية",
+    "youth olympics": "الألعاب الأولمبية الشبابية",
+}
 
+# NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
-    "military world games medalists for {en}" : "فائزون بميداليات دورة الألعاب العسكرية من {ar}",
-    "world games medalists for {en}" : "فائزون بميداليات دورة الألعاب العالمية من {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
@@ -74,6 +95,14 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "{en} winter olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الشتوية",
     "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
 }
+
+for key, value in medalists_data.items():
+    formatted_data_en_ar_only.update({
+        f"{key} medalists for {{en}}" : f"فائزون بميداليات {value} من {{ar}}",
+        f"{key} bronze medalists for {{en}}" : f"فائزون بميداليات برونزية في {value} من {{ar}}",
+        f"{key} gold medalists for {{en}}" : f"فائزون بميداليات ذهبية في {value} من {{ar}}",
+        f"{key} silver medalists for {{en}}" : f"فائزون بميداليات فضية في {value} من {{ar}}",
+    })
 
 main_data = {
     "{en} amateur international footballers": "لاعبو منتخب {ar} لكرة القدم للهواة",
