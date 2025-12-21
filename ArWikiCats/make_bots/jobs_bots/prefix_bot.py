@@ -12,11 +12,11 @@ from typing import Optional
 
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
+from ...make_bots.o_bots.by_type_2 import by_table_extended_get
 from ...translations import (
-    By_table,
+    by_table_get,
     change_male_to_female,
     Female_Jobs,
-    FILM_PRODUCTION_COMPANY,
     jobs_mens_data,
     jobs_womens_data,
     PLAYERS_TO_MEN_WOMENS_JOBS,
@@ -24,9 +24,7 @@ from ...translations import (
     Mens_prefix,
     Mens_suffix,
     Nat_mens,
-    People_key,
     short_womens_jobs,
-    SPORTS_KEYS_FOR_LABEL,
     womens_prefixes,
 )
 
@@ -40,34 +38,6 @@ _WOMEN_SUFFIX = " women"
 replace_labels_2022: dict[str, str] = {
     "مجندون أطفال": "أطفال مجندون",
 }
-
-
-@functools.lru_cache(maxsize=1)
-def _extend_By_table() -> dict[str, str]:
-    """
-    Extend the By_table dictionary with sports teams, people, and production companies.
-
-    Returns:
-        dict[str, str]: Mapping of English "by X" strings to Arabic translations.
-    """
-    result = {}
-
-    # Add sports team mappings
-    for sport_key, sport_label in SPORTS_KEYS_FOR_LABEL.items():
-        english_key = f"by {sport_key.lower()} team"
-        result[english_key] = f"حسب فريق {sport_label}"
-
-    # Add people mappings
-    for person_key, person_label in People_key.items():
-        english_key = f"by {person_key.lower()}"
-        result[english_key] = f"بواسطة {person_label}"
-
-    # Add film production company mappings
-    for company_key, company_label in FILM_PRODUCTION_COMPANY.items():
-        english_key = f"by {company_key.lower()}"
-        result[english_key] = f"بواسطة {company_label}"
-
-    return result
 
 
 def _strip_people_suffix(text: str) -> str:
@@ -246,7 +216,7 @@ def mens_prefixes_work(category: str) -> str:
 
     This function takes a category string and attempts to find a matching Arabic
     label by checking multiple strategies in order:
-    1. Direct lookup in By_table and extended By_table
+    1. Direct lookup in By table and extended By table
     2. Direct lookup in jobs_mens_data
     3. Prefix matching and transformation
     4. Suffix matching and transformation
@@ -263,10 +233,9 @@ def mens_prefixes_work(category: str) -> str:
     logger.debug(f'<<lightblue>> === Start: mens_prefixes_work for "{category}"')
 
     # Check direct table lookups first
-    by_table_extended = _extend_By_table()
-    label = By_table.get(category) or by_table_extended.get(category)
+    label = by_table_get(category) or by_table_extended_get(category)
     if label:
-        logger.debug(f'<<lightblue>> Found in By_table: "{label}"')
+        logger.debug(f'<<lightblue>> Found in By table: "{label}"')
         return label
 
     # Check direct job data lookup

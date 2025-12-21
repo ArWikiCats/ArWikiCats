@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
-
-from ..helps import len_print
+import functools
+from ..helps import len_print, dump_data
 from .utils.json_dir import open_json_file
 
 PRIMARY_BY_COMPONENTS = {
@@ -251,6 +251,16 @@ By_table.update(Music_By_table)
 By_orginal2 = {
     entry.replace("by ", "", 1).lower(): By_table[entry].replace("حسب ", "", 1) for entry in By_table
 }
+
+
+@dump_data(1)
+def by_table_get(by_section):
+    return (
+        By_table.get(by_section, "") or
+        By_orginal2.get(by_section, "") or
+        ""
+    )
+
 
 len_print.data_len("by_table.py", {
     "by_table": By_table,

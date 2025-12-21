@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 import functools
 from ...helps import logger, dump_data
-from ...translations import By_orginal2, By_table, get_from_new_p17_final
+from ...translations import get_from_new_p17_final, by_table_get
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from ..media_bots.films_bot import te_films
 from ...translations import sport_lab_nat_load_new, People_key
@@ -29,8 +29,8 @@ def find_dual_by_keys(normalized: str) -> str:
         return ""
 
     first_key, second_key = match.groups()
-    first_label = By_orginal2.get(first_key.lower(), "")
-    second_label = By_orginal2.get(second_key.lower(), "")
+    first_label = by_table_get(first_key.lower())
+    second_label = by_table_get(second_key.lower())
 
     logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
     logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
@@ -140,7 +140,7 @@ def get_by_label(category: str) -> str:
         ""
     )
     by_label = (
-        By_table.get(by_section, "") or
+        by_table_get(by_section) or
         ""
     )
 
