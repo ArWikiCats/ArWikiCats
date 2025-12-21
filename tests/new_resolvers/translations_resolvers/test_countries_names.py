@@ -9,7 +9,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.translations_resolvers.countries_names import resolve_by_countries_names
 
 main_data = {
-    "Olympic gold medalists for the United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
     "democratic-republic-of-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",

@@ -297,11 +297,10 @@ def Lang_work(suffix: str) -> str:
     Returns:
         The corresponding language label or an empty string if no match is found.
     """
+    suffix = suffix.lower()
     return _default_resolver.resolve(suffix)
 
 
 __all__ = [
     "Lang_work",
-    "LanguageLabelResolver",
-    "FilmCategoryLabelResolver",
 ]

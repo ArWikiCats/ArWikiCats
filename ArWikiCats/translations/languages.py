@@ -3,7 +3,37 @@
 
 from ..helps import len_print
 
-from .mixed.all_keys3 import ALBUMS_TYPE
+SUPPLEMENTARY_LANGUAGE_TRANSLATIONS = {
+    "herero": "هيريرو",
+    "hiri motu": "هيري موتو",
+    "ido": "إيدو",
+    "igbo": "إيجبو",
+    "interlingua": "إنترلنغوا",
+    # "yoruba" : "يوربا",
+    "zhuang": "زهيونج",
+    "interlingue": "إنترلينج",
+    "inupiaq": "إينبياك",
+    "kikuyu": "كيكيو",
+    "kinyarwanda": "كينيارواندا",
+    "kuanyama": "كيونياما",
+    "lingala": "لينغالا",
+    "luba-katanga": "تشيلوبا",
+    "navajo": "نافاجو",
+    "ndonga": "ندونجا",
+    "odia": "أوريا",
+    "quechua": "كتشوا",
+    "shona": "شونا",
+    "swati": "سوازي",
+    "twi": "توي",
+    "nyanja": "نيانجا",
+    "aymara": "أيمارا",
+    "bashkir": "باشقير",
+    "chuvash": "تشوفاش",
+    "divehi": "ديفهي",
+    "dzongkha": "دزونكا",
+    "ganda": "جاندا",
+    "esperanto": "إسبرانتو",
+}
 
 language_key_translations = {}
 
@@ -192,52 +222,20 @@ PRIMARY_LANGUAGE_TRANSLATIONS = {
     "zulu": "زولوية",
     "молдовеняскэ": "مولدوفية",
 }
-# ---
-SUPPLEMENTARY_LANGUAGE_TRANSLATIONS = {
-    "herero": "هيريرو",
-    "hiri motu": "هيري موتو",
-    "ido": "إيدو",
-    "igbo": "إيجبو",
-    "interlingua": "إنترلنغوا",
-    # "yoruba" : "يوربا",
-    "zhuang": "زهيونج",
-    "interlingue": "إنترلينج",
-    "inupiaq": "إينبياك",
-    "kikuyu": "كيكيو",
-    "kinyarwanda": "كينيارواندا",
-    "kuanyama": "كيونياما",
-    "lingala": "لينغالا",
-    "luba-katanga": "تشيلوبا",
-    "navajo": "نافاجو",
-    "ndonga": "ندونجا",
-    "odia": "أوريا",
-    "quechua": "كتشوا",
-    "shona": "شونا",
-    "swati": "سوازي",
-    "twi": "توي",
-    "nyanja": "نيانجا",
-    "aymara": "أيمارا",
-    "bashkir": "باشقير",
-    "chuvash": "تشوفاش",
-    "divehi": "ديفهي",
-    "dzongkha": "دزونكا",
-    "ganda": "جاندا",
-    "esperanto": "إسبرانتو",
-}
-# ---
+
 LANGUAGE_SUFFIX_FORMATS = {
     # " language" : "لغة {}",
     "-language": "اللغة ال{}",
     " languages": "اللغات ال{}",
 }
-# ---
+
 for language_key, arabic_name in PRIMARY_LANGUAGE_TRANSLATIONS.items():
     normalized_key = language_key.lower()
     language_key_translations[f"{normalized_key} language"] = f"لغة {arabic_name}"
     for suffix_pattern, suffix_label in LANGUAGE_SUFFIX_FORMATS.items():
         translation_key = f"{normalized_key}{suffix_pattern.lower()}"
         language_key_translations[translation_key] = suffix_label.format(arabic_name)
-# ---
+
 COMPLEX_LANGUAGE_TRANSLATIONS = {
     "west frisian": "فريزية غربية",
     "sorani": "كردية سورانية",
@@ -255,7 +253,7 @@ COMPLEX_LANGUAGE_TRANSLATIONS = {
     "haitian creole": "كريولية هايتية",
     "church slavic": "سلافونية كنسية قديمة",
 }
-# ---
+
 for language_key, arabic_name in COMPLEX_LANGUAGE_TRANSLATIONS.items():
     normalized_key = language_key.lower()
     language_key_translations[f"{normalized_key} language"] = f"لغة {arabic_name}"
@@ -266,24 +264,12 @@ for language_key, arabic_name in COMPLEX_LANGUAGE_TRANSLATIONS.items():
     for suffix_pattern in LANGUAGE_SUFFIX_FORMATS:
         translation_key = f"{normalized_key}{suffix_pattern}"
         language_key_translations[translation_key] = LANGUAGE_SUFFIX_FORMATS[suffix_pattern].format(arabic_name)
-# ---
-"""
-"arabic surnames" : "ألقاب عربية",
-"arabic-language surnames" : "ألقاب عربية",
-"arabic language surnames" : "ألقاب عربية",
-"arabic masculine given names" : "أسماء ذكور عربية",
-"bosniak masculine given names" : "أسماء ذكور بوشناقية",
-"bosnian masculine given names" : "أسماء ذكور بوسنية",
-"iranian masculine given names" : "أسماء ذكور إيرانية",
-"pakistani masculine given names" : "أسماء ذكور باكستانية",
-"""
-# ---
+
 LANGUAGE_TOPIC_FORMATS = {
     "grammar": "قواعد {}",
     "romanization": "رومنة {}",
     "writing system": "نظام كتابة {}",
     "dialects": "لهجات {}",
-    # ---    "romanization of arabic" : "رومنة العربية",
     "surnames": "ألقاب {}",
     "masculine given names": "أسماء ذكور ب{}",
     "given names": "أسماء شخصية {}",
@@ -295,11 +281,8 @@ LANGUAGE_TOPIC_FORMATS = {
     "countries": "بلدان {}",
     "categories": "تصنيفات {}",
     "education": "تعليم {}",
-    # "Bible translations
-    # "Compositions مؤلفات موسيقية
-    # "tirukkural translations" : " ب{}",
 }
-# ---
+
 MEDIA_CATEGORY_TRANSLATIONS = {
     "words and phrases": "كلمات وجمل",
     "academic journals": "دوريات أكاديمية",
@@ -322,7 +305,7 @@ MEDIA_CATEGORY_TRANSLATIONS = {
     "manga": "مانغا",
     "media": "إعلام",
     "medieval literature": "أدب العصور الوسطى",
-    "mmagazines": "مجلات",
+    "magazines": "مجلات",
     "music": "موسيقى",
     "musicians": "موسيقيون",
     "names": "أسماء",
@@ -359,39 +342,41 @@ MEDIA_CATEGORY_TRANSLATIONS = {
     # "Compositions مؤلفات موسيقية
     # "tirukkural translations" : "",
 }
-# ---
+
+ALBUMS_TYPE: dict[str, str] = {
+    "folktronica": "فولكترونيكا",
+    "concept": "مفاهيمية",
+    "surprise": "مفاجئة",
+    "comedy": "كوميدية",
+    "mixtape": "ميكستايب",
+    "remix": "ريمكس",
+    "animation": "رسوم متحركة",
+    "video": "فيديو",
+    "compilation": "تجميعية",
+    "live": "مباشرة",
+    "jazz": "جاز",
+    "eps": "أسطوانة مطولة",
+    "folk": "فولك",
+}
 for album_type in ALBUMS_TYPE:
     MEDIA_CATEGORY_TRANSLATIONS[f"{album_type} albums"] = f"ألبومات {ALBUMS_TYPE[album_type]}"
 # ---
 for media_key, media_label in MEDIA_CATEGORY_TRANSLATIONS.items():
-    LANGUAGE_TOPIC_FORMATS[media_key.lower()] = "%s ب{}" % media_label
-# ---
-LANGUAGE_RESOURCE_FORMATS = {
-    "poems": "قصائد %s",
-    "phonology": "نطقيات %s",
-    "mythology": "أساطير %s",
-    "texts": "نصوص %s",
-    "prose texts": "نصوص نثرية %s",
-}
+    LANGUAGE_TOPIC_FORMATS[media_key.lower()] = f"{media_label} ب{{}}"
 
 len_print.data_len(
     "languages.py",
     {
         "language_key_translations": language_key_translations,
         "PRIMARY_LANGUAGE_TRANSLATIONS": PRIMARY_LANGUAGE_TRANSLATIONS,
-        "SUPPLEMENTARY_LANGUAGE_TRANSLATIONS": SUPPLEMENTARY_LANGUAGE_TRANSLATIONS,
         "COMPLEX_LANGUAGE_TRANSLATIONS": COMPLEX_LANGUAGE_TRANSLATIONS,
         "LANGUAGE_SUFFIX_FORMATS": LANGUAGE_SUFFIX_FORMATS,
         "LANGUAGE_TOPIC_FORMATS": LANGUAGE_TOPIC_FORMATS,
-        "LANGUAGE_RESOURCE_FORMATS": LANGUAGE_RESOURCE_FORMATS,
     },
 )
 __all__ = [
     "language_key_translations",
     "PRIMARY_LANGUAGE_TRANSLATIONS",
-    "SUPPLEMENTARY_LANGUAGE_TRANSLATIONS",
     "COMPLEX_LANGUAGE_TRANSLATIONS",
-    "LANGUAGE_SUFFIX_FORMATS",
     "LANGUAGE_TOPIC_FORMATS",
-    "LANGUAGE_RESOURCE_FORMATS",
 ]

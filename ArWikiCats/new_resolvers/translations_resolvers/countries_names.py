@@ -17,12 +17,8 @@ ONLY_COUNTRY_NAMES = {
     "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
 }
 
-
 # NOTE: formatted_data_en_ar_only used in other resolver
-
 formatted_data_en_ar_only: Dict[str, str] = {
-    "military world games medalists for {en}" : "فائزون بميداليات دورة الألعاب العسكرية من {ar}",
-    "world games medalists for {en}" : "فائزون بميداليات دورة الألعاب العالمية من {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
@@ -30,11 +26,9 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
 
     "{en}": "{ar}",
-    "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
     "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
     "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
     "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
-    "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
 
     "police of {en}": "شرطة {ar}",
     "army of {en}": "جيش {ar}",
@@ -136,6 +130,7 @@ def _load_bot() -> MultiDataFormatterBase:
         key_placeholder="{en}",
         value_placeholder="{ar}",
         text_before="the ",
+        regex_filter=r"[\w-]",
     )
 
 

@@ -9,7 +9,7 @@ BASE_GAME_LABELS = {
     "all-africa games": "ألعاب عموم إفريقيا",
     "asian games": "الألعاب الآسيوية",
     "central american games": "ألعاب أمريكا الوسطى",
-    "commonwealth games": "دورة ألعاب الكومنولث",
+    "commonwealth games": "ألعاب الكومنولث",
     "deaflympic games": "ألعاب ديفلمبياد",
     "european youth olympic winter": "الألعاب الأولمبية الشبابية الأوروبية الشتوية",
     "european youth olympic": "الألعاب الأولمبية الشبابية الأوروبية",
@@ -77,15 +77,6 @@ SUMMER_WINTER_GAMES = {
 }
 
 
-GAME_CATEGORY_LABELS = {
-    "competitions": "منافسات",
-    "events": "أحداث",
-    "festival": "مهرجانات",
-    "bids": "عروض",
-    "templates": "قوالب",
-}
-
-
 def _build_seasonal_labels() -> dict[str, str]:
     """Return the label table that includes seasonal variants."""
 
@@ -103,6 +94,14 @@ def _build_seasonal_labels() -> dict[str, str]:
 
 def _build_tab_labels(SEASONAL_GAME_LABELS) -> dict[str, str]:
     """Return tabs that combine games with category labels."""
+
+    GAME_CATEGORY_LABELS = {
+        "competitions": "منافسات",
+        "events": "أحداث",
+        "festival": "مهرجانات",
+        "bids": "عروض",
+        "templates": "قوالب",
+    }
 
     tab_labels: dict[str, str] = {}
 

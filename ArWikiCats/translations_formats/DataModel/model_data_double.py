@@ -92,7 +92,7 @@ class FormatDataDouble(FormatDataBase):
     def create_label_from_keys(self, part1: str, part2: str):
         """
         if "upcoming" in self.put_label_last we using:
-            "أفلام قادمة رعب يمنية inested of "أفلام رعب قادمة يمنية"
+            "أفلام قادمة رعب يمنية instead of "أفلام رعب قادمة يمنية"
         """
 
         first_label = self.data_list_ci.get(part1)

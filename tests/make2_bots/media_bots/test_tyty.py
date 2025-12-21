@@ -70,16 +70,16 @@ test_data = {
 }
 
 test_data_3 = {
-    "musical comedy drama": "{tyty} كوميديا موسيقية درامية",
-    "musical comedy fiction": "{tyty} كوميديا موسيقية خيالية",
-    "musical comedy horror": "{tyty} كوميديا موسيقية رعب",
-    "romantic comedy drama": "{tyty} كوميديا رومانسية درامية",
-    "romantic comedy fiction": "{tyty} كوميديا رومانسية خيالية",
-    "romantic comedy horror": "{tyty} كوميديا رومانسية رعب",
-    "zombie comedy drama": "{tyty} كوميديا الزومبي درامية",
-    "zombie comedy fiction": "{tyty} كوميديا الزومبي خيالية",
-    "zombie comedy horror": "{tyty} كوميديا الزومبي رعب",
-    "zombie comedy thriller": "{tyty} كوميديا الزومبي إثارة"
+    "musical comedy drama": "{tyty} كوميدية موسيقية درامية",
+    "musical comedy fiction": "{tyty} كوميدية موسيقية خيالية",
+    "musical comedy horror": "{tyty} كوميدية موسيقية رعب",
+    "romantic comedy drama": "{tyty} كوميدية رومانسية درامية",
+    "romantic comedy fiction": "{tyty} كوميدية رومانسية خيالية",
+    "romantic comedy horror": "{tyty} كوميدية رومانسية رعب",
+    "zombie comedy drama": "{tyty} كوميدية الزومبي درامية",
+    "zombie comedy fiction": "{tyty} كوميدية الزومبي خيالية",
+    "zombie comedy horror": "{tyty} كوميدية الزومبي رعب",
+    "zombie comedy thriller": "{tyty} كوميدية الزومبي إثارة"
 }
 
 

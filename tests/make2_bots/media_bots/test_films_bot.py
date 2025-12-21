@@ -8,10 +8,10 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.media_bots.films_bot import te_films
 
 fast_data_drama = {
-    "english-language political drama films": "أفلام دراما سياسية باللغة الإنجليزية",
-    "english-language war drama films": "أفلام دراما حربية باللغة الإنجليزية",
-    "hindi-language drama films": "أفلام دراما باللغة الهندية",
-    "norwegian-language romantic drama films": "أفلام دراما رومانسية باللغة النرويجية",
+    "english-language political drama films": "أفلام سياسية درامية باللغة الإنجليزية",
+    "english-language war drama films": "أفلام حربية درامية باللغة الإنجليزية",
+    "hindi-language drama films": "أفلام درامية باللغة الهندية",
+    "norwegian-language romantic drama films": "أفلام رومانسية درامية باللغة النرويجية",
 
     "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
     "portuguese-language biographical drama films": "أفلام سير ذاتية درامية باللغة البرتغالية",
@@ -27,10 +27,10 @@ fast_data = {
     "australian films": "أفلام أسترالية",
     "austrian films": "أفلام نمساوية",
     "bangladeshi films": "أفلام بنغلاديشية",
-    "bengali-language romantic comedy films": "أفلام رومانسية كوميدية باللغة البنغالية",
+    "bengali-language romantic comedy films": "أفلام كوميدية رومانسية باللغة البنغالية",
     "british films": "أفلام بريطانية",
     "bruneian film producers": "منتجو أفلام برونيون",
-    "cantonese-language speculative fiction films": "أفلام خيال تأملي باللغة الكانتونية",
+    "cantonese-language speculative fiction films": "أفلام خيالية تأملية باللغة الكانتونية",
     "czech silent film actors": "ممثلو أفلام صامتة تشيكيون",
     "czech-language crime films": "أفلام جريمة باللغة التشيكية",
     "dutch films": "أفلام هولندية",

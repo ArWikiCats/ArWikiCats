@@ -241,7 +241,7 @@ data = [
     (" opened in ", "railway stations in poland", "محطات السكك الحديدية في بولندا"),
     (" in ", "impact of covid-19 pandemic", "تأثيرات جائحة فيروس كورونا"),
     (" opened in ", "railway stations in russia", "محطات السكك الحديدية في روسيا"),
-    (" for ", "commonwealth games bronze medalists", "فائزون بميداليات برونزية ألعاب الكومنولث"),
+    (" for ", "commonwealth games bronze medalists", "فائزون بميداليات برونزية في ألعاب الكومنولث"),
     (
         " in ",
         "buildings and structures on the-national-register-of-historic-places",
@@ -280,7 +280,7 @@ data = [
     (" of ", "canyons and gorges of", "أخاديد في"),
     (" by ", "food and drink in europe", "أطعمة ومشروبات في أوروبا"),
     (" to ", "permanent representatives of kazakhstan", "مندوبو كازاخستان الدائمون"),
-    (" for ", "islamic solidarity games silver medalists", "فائزون بميداليات فضية ألعاب التضامن الإسلامي"),
+    (" for ", "islamic solidarity games silver medalists", "فائزون بميداليات فضية في ألعاب التضامن الإسلامي"),
 ]
 
 

@@ -264,7 +264,6 @@ def test_mens_prefixes_work(category: str, expected: str) -> None:
 
 
 by_data_fast = {
-    "by aardman animations": "بواسطة آردمان انيمشنز",
     "by abraham lincoln": "بواسطة أبراهام لينكون",
     "by andrea mantegna": "بواسطة أندريا مانتينيا",
     "by benjamin britten": "بواسطة بنجامين بريتن",

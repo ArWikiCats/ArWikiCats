@@ -1,4 +1,15 @@
-## [#247](https://github.com/MrIbrahem/ArWikiCats/pull/247) - 2025-12-21
+## [#247](https://github.com/MrIbrahem/ArWikiCats/pull/247) - 2025-12-22
+
+* **New Features**
+  * New language-label resolver for Arabic (resolve_languages_labels) and a new country-medalists resolver for Olympic-related categories.
+
+* **Bug Fixes**
+  * Widespread Arabic wording corrections: adjective/noun order, gender agreement, preposition placement across film, media, games, and sports categories.
+  * Fixed typos and normalized category key formats and mappings.
+
+* **Tests**
+  * Added and updated tests to cover language resolution, medalist mappings, and related label outputs.
+
 ## [#246](https://github.com/MrIbrahem/ArWikiCats/pull/246) - 2025-12-21
 
 * **Bug Fixes**

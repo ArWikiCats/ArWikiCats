@@ -139,7 +139,7 @@ en_is_nat_ar_is_al_women: dict[str, str] = {
     "energy crisis": "أزمة الطاقة {}",
     "constitutional crisis": "الأزمة الدستورية {}",
     "games competitors": "منافسون في الألعاب {}",
-    "games medalists": "فائزون بميداليات في الألعاب {}",
+    "games medalists": "فائزون بميداليات الألعاب {}",
     "games gold medalists": "فائزون بميداليات ذهبية في الألعاب {}",
     "games silver medalists": "فائزون بميداليات فضية في الألعاب {}",
     "games bronze medalists": "فائزون بميداليات برونزية في الألعاب {}",

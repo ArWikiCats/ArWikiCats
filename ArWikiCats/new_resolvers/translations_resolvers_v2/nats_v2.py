@@ -328,7 +328,7 @@ the_female_data = {
     "{en} energy crisis": "أزمة الطاقة {the_female}",
     "{en} constitutional crisis": "الأزمة الدستورية {the_female}",
     "{en} games competitors": "منافسون في الألعاب {the_female}",
-    "{en} games medalists": "فائزون بميداليات في الألعاب {the_female}",
+    "{en} games medalists": "فائزون بميداليات الألعاب {the_female}",
     "{en} games gold medalists": "فائزون بميداليات ذهبية في الألعاب {the_female}",
     "{en} games silver medalists": "فائزون بميداليات فضية في الألعاب {the_female}",
     "{en} games bronze medalists": "فائزون بميداليات برونزية في الألعاب {the_female}",
