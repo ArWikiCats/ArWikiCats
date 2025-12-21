@@ -859,8 +859,6 @@ data_list = [
     ("south african expatriate sports-people in peru", " in ", "رياضيون جنوب إفريقيون مغتربون في بيرو"),
     ("south african mathematicians by century", " by ", "رياضياتيون جنوب إفريقيون حسب القرن"),
     ("south america by month", " by ", "أمريكا الجنوبية حسب الشهر"),
-    ("soviet union in multi-sport ", " in ", "الاتحاد السوفيتي في رياضية متعددة"),
-    ("soviet union in multi-sport events", " in ", "الاتحاد السوفيتي في أحداث رياضية متعددة"),
     ("spain in uefa euro 1550", " in ", "إسبانيا في بطولة أمم أوروبا 1550"),
     ("spanish expatriates in solomon islands", " in ", "إسبان مغتربون في جزر سليمان"),
     ("spiders described in 1550", " described in ", "عناكب وصفت في 1550"),

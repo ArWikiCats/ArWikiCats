@@ -320,15 +320,6 @@ olympics = {
     "youth olympics silver medalists": "فائزون بميداليات فضية في الألعاب الأولمبية الشبابية"
 }
 
-for_countries_t = {
-    "Category:Winter Olympics competitors for Eswatini": "تصنيف:منافسون أولمبيون شتويون من إسواتيني",
-    "Category:Winter Olympics competitors by country": "تصنيف:منافسون أولمبيون شتويون حسب البلد",
-    "Category:Winter Olympics competitors by sport": "تصنيف:منافسون أولمبيون شتويون حسب الرياضة",
-    "Category:Winter Olympics competitors by sport and country": "تصنيف:منافسون أولمبيون شتويون حسب الرياضة والبلد",
-    "Category:Winter Olympics competitors by sport and year": "تصنيف:منافسون أولمبيون شتويون حسب الرياضة والسنة",
-    "Category:Winter Olympics competitors by year": "تصنيف:منافسون أولمبيون شتويون حسب السنة",
-}
-
 for_countries = {
     "Category:Winter Olympics competitors": "تصنيف:منافسون أولمبيون شتويون",
     "Category:Winter Olympics competitors for Algeria": "تصنيف:منافسون أولمبيون شتويون من الجزائر",
