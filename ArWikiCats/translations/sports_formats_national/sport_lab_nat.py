@@ -60,9 +60,9 @@ both_bot = format_multi_data(
 
 @functools.lru_cache(maxsize=None)
 def sport_lab_nat_load_new(category) -> str:
-    logger.debug(f"<<yellow>> start resolve_by_countries_names: {category=}")
+    logger.debug(f"<<yellow>> start sport_lab_nat_load_new: {category=}")
     result = both_bot.create_label(category)
-    logger.debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
+    logger.debug(f"<<yellow>> end sport_lab_nat_load_new: {category=}, {result=}")
     return result
 
 
