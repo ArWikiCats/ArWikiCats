@@ -4,7 +4,7 @@ Tests for country2_label_bot module functions.
 
 import pytest
 
-from load_one_data import one_dump_test, dump_diff, dump_same_and_not_same, dump_one
+from load_one_data import one_dump_test, dump_diff, dump_same_and_not_same
 from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import country_2_title_work
 from ArWikiCats.ma_bots.country2_bot import Get_country2
 
@@ -907,7 +907,6 @@ data_fast_diff = {
     "years of 19th century": "سنوات القرن 19",
     "zambian emigrants to sweden": "زامبيون مهاجرون إلى السويد في"
 }
-
 
 data_compare = {
     "australia by century": "أستراليا حسب القرن",
