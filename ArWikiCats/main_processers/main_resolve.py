@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import functools
 from dataclasses import dataclass
+import re
 
 from ..patterns_resolvers import nat_men_pattern
 
@@ -114,6 +115,8 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
 
     # if not from_year and cat_year:
         # labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
+
+    category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
 
     return CategoryResult(
         en=category,

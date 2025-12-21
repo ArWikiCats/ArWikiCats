@@ -5,6 +5,8 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "category:people from santa fe province": "تصنيف:أشخاص من محافظة سانتا في",
+
     "category:non-profit organizations by continent": "تصنيف:منظمات غير ربحية حسب القارة",
     "category:non-profit organizations by country": "تصنيف:منظمات غير ربحية حسب البلد",
     "category:non-profit organizations by dependent territory": "تصنيف:منظمات غير ربحية حسب الأقاليم التابعة",

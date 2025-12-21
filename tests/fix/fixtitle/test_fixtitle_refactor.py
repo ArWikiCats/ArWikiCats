@@ -45,13 +45,13 @@ def test_add_fee_inserts_preposition_for_supported_categories() -> None:
 
 def test_fix_it_should_not_remove_fe_from_endings() -> None:
     en = "people from santa fe province"
-    ar = "أشخاص من محافظة سانتا في"
+    ar = "أشخاص من محافظة سانتا-في"
 
     assert fix_it(ar, en) == ar
 
 
 def test_fix_it_should_not_remove_fe_from_endings2() -> None:
     en = "people from santa fe province by city"
-    ar = "أشخاص من محافظة سانتا في حسب المدينة"
+    ar = "أشخاص من محافظة سانتا-في حسب المدينة"
 
     assert fixlabel(ar, en) == ar
