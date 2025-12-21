@@ -2,7 +2,6 @@
 Tests
 """
 
-from _collections_abc import dict_items
 import pytest
 
 from ArWikiCats.make_bots.languages_bot.langs_w import (
