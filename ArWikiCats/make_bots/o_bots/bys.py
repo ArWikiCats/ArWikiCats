@@ -62,6 +62,7 @@ def by_people_bot(key: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def make_new_by_label(category: str) -> str:
     """Return the Arabic label for ``category`` that starts with ``by``.
 

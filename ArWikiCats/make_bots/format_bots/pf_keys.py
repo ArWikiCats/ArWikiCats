@@ -95,6 +95,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "launched by": "launched-by",
     "launched in": "launched-in",
     "local elections": "local-elections",
+    "published by": "published-by",
     "manufactured by": "manufactured-by",
     "manufactured in": "manufactured-in",
     "march of": "march-of",

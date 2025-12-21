@@ -4,6 +4,7 @@
 import functools
 import re
 
+
 # from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ..countries_formats import resolved_countries_formats_labels
@@ -20,6 +21,7 @@ from .film_keys_bot import resolve_films
 from ..media_bots.film_keys_bot import get_Films_key_CAO
 from ..media_bots.tyty_new_format import get_films_key_tyty_new
 from ...make_bots.languages_bot.languages_resolvers import te_language
+from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 
 
 @functools.lru_cache(maxsize=None)
@@ -66,6 +68,12 @@ def te_films(category: str) -> str:
     if resolved_label:
         add_to_Films_O_TT(normalized_category, resolved_label)
         logger.info(f'>>>> (te_films) resolve_films, {normalized_category=}, {resolved_label=}')
+        return resolved_label
+
+    resolved_label = get_pop_All_18(normalized_category)
+    if resolved_label:
+        add_to_new_players(normalized_category, resolved_label)
+        logger.info(f'>>>> (te_films) get_pop_All_18, {normalized_category=}, {resolved_label=}')
         return resolved_label
 
     resolved_label = te4_2018_Jobs(normalized_category)
