@@ -6,11 +6,13 @@ import pytest
 
 from ArWikiCats.make_bots.languages_bot.langs_w import (
     Films_key_For_nat,
-    Lang_work,
+    # Lang_work,
     jobs_mens_data,
     LANGUAGE_TOPIC_FORMATS,
     language_key_translations,
 )
+
+from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels as Lang_work
 
 # only 10 items from jobs_mens_data
 jobs_mens_data = {k: jobs_mens_data[k] for k in list(jobs_mens_data.keys())[:10]}
@@ -31,7 +33,7 @@ def testlang_key_m_patterns(suffix: str, template: str) -> None:
     # expected formatting
     expected = template.format(BASE_LANG_OUTPUT)
 
-    assert result == expected, f"LANGUAGE_TOPIC_FORMATS mismatch for '{suffix}'\n" f" {expected=}\n" f"Got:      {result}"
+    assert result == expected, f"LANGUAGE_TOPIC_FORMATS mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
 
 
 @pytest.mark.parametrize("suffix,template", Films_key_For_nat.items())
@@ -43,7 +45,7 @@ def testFilms_key_For_nat_patterns(suffix: str, template: str) -> None:
     expected = template.format(f"ب{BASE_LANG_OUTPUT}")
 
     assert result == expected, (
-        f"Films_key_For_nat mismatch for '{suffix}'\n" f" {expected=}\n" f"Got:      {result}"
+        f"Films_key_For_nat mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
     )
 
 
@@ -63,7 +65,7 @@ def testjobs_mens_data_patterns(suffix: str, expected_label: str) -> None:
     expected = f"{expected_label} ب{BASE_LANG_OUTPUT}"
 
     assert result == expected, (
-        f"jobs_mens_data mismatch for '{suffix}'\n" f" {expected=}\n" f"Got:      {result}"
+        f"jobs_mens_data mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
     )
 
 
@@ -106,7 +108,7 @@ def test_sample_films_drama() -> None:
 def test_romanization_pattern() -> None:
     # "romanization of"
     result = Lang_work("romanization of abkhazian")
-    assert result == "رومنة لغة أبخازية"
+    assert result == "رومنة اللغة الأبخازية"
 
 
 def test_films_pattern_basic() -> None:
