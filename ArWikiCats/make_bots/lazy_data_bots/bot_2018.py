@@ -53,16 +53,16 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
 @functools.lru_cache(maxsize=10000)
 def _get_from_alias(key: str) -> str:
     sources = {
-        "pf_keys2": pf_keys2,
-        "Jobs_new": Jobs_new,
-        "jobs_mens_data": jobs_mens_data,
-        "films_mslslat_tab": films_mslslat_tab,
-        "By_table_main": By_table_main,
-        "sub_teams_new": sub_teams_new,
+        "pf_keys2": lambda k: pf_keys2.get(k),
+        "Jobs_new": lambda k: Jobs_new.get(k),
+        "jobs_mens_data": lambda k: jobs_mens_data.get(k),
+        "films_mslslat_tab": lambda k: films_mslslat_tab.get(k),
+        "By_table_main": lambda k: By_table_main.get(k),
+        "sub_teams_new": lambda k: sub_teams_new.get(k),
     }
 
     for x, source in sources.items():
-        result = source.get(key) or source.get(key.lower())
+        result = source(key) or source(key.lower())
         if result:
             logger.debug(f"Found key in {x}: {key} -> {result}")
             return result
