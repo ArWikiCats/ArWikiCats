@@ -11,7 +11,6 @@ from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_v2 impor
 main_data = {
     # ar patterns
     "national university of yemen": "جامعة اليمن الوطنية",
-    "Olympic gold medalists for the United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "yemen board members": "أعضاء مجلس اليمن",
     "accidental deaths from falls in tunisia": "وفيات عرضية نتيجة السقوط في تونس",
     "yemen conflict": "نزاع اليمن",
