@@ -6,8 +6,17 @@
 import re
 import functools
 from ...helps import logger
-from ...translations_formats import FormatDataV2
+from ...translations_formats import FormatDataV2, format_films_country_data, MultiDataFormatterBase
 from ...translations import PRIMARY_LANGUAGE_TRANSLATIONS, COMPLEX_LANGUAGE_TRANSLATIONS
+
+from ...translations import (
+    film_keys_for_female,
+    Films_key_333,
+    Films_key_CAO,
+    Films_key_For_nat,
+    Films_keys_both_new_female,
+)
+new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
 formatted_data = {
     "romanization of {en}": "رومنة اللغة {al_ar}",
@@ -119,8 +128,43 @@ def add_definite_article(label: str) -> str:
 
 
 @functools.lru_cache(maxsize=1)
+def _make_bot() -> MultiDataFormatterBase:
+
+    formatted_data = {
+        "{lang_en} language {film_en} films": "أفلام {film_ar} باللغة {lang_al}",
+    }
+    put_label_last = {
+        "low-budget",
+        "christmas",
+        "lgbtq-related",
+        "upcoming",
+    }
+
+    data = {
+        x: add_definite_article(v)
+        for x, v in new_data.items()
+    }
+    bot = format_films_country_data(
+        formatted_data=formatted_data,
+        data_list=data,
+        key_placeholder="{lang_en}",
+        value_placeholder="{lang_al}",
+        data_list2=film_keys_for_female,
+        key2_placeholder="{film_en}",
+        value2_placeholder="{film_ar}",
+        text_after="",
+        text_before="",
+        data_to_find=Films_key_CAO,
+        # other_formatted_data=other_formatted_data,
+    )
+
+    # bot.other_bot.update_put_label_last(put_label_last)
+
+    return bot
+
+
+@functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-    new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
     data = {
         x: {
@@ -149,9 +193,13 @@ def fix_keys(category: str) -> str:
 def resolve_languages_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_languages_labels: {category=}")
 
-    both_bot = _load_bot()
     category = fix_keys(category)
-    result = both_bot.search_all_category(category)
+
+    result = (
+        _load_bot().search_all_category(category) or
+        _make_bot().search_all_category(category) or
+        ""
+    )
 
     logger.debug(f"<<yellow>> end resolve_languages_labels: {category=}, {result=}")
     return result

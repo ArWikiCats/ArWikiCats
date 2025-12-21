@@ -6,10 +6,13 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.languages_bot.langs_w import Lang_work
-# from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels as Lang_work
+from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
+
+test_data_0 = {
+    "Arabic-language action films": "أفلام حركة باللغة العربية",
+}
 
 test_data = {
-    "Arabic-language action films": "أفلام حركة باللغة العربية",
     "Arabic-language biographical drama films": "أفلام سير ذاتية درامية باللغة العربية",
     "Arabic-language biographical films": "أفلام سير ذاتية باللغة العربية",
     "Arabic-language comedy films": "أفلام كوميديا باللغة العربية",
@@ -1312,16 +1315,29 @@ to_test = [
 ]
 
 
+@pytest.mark.parametrize("category, expected", test_data_0.items(), ids=test_data_0.keys())
+@pytest.mark.fast
+def test_language_films_0(category: str, expected: str) -> None:
+    label1 = Lang_work(category)
+    assert label1 == expected
+
+    label2 = resolve_languages_labels(category)
+    assert label2 == expected
+
+
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_language_films(category: str, expected: str) -> None:
-    label = Lang_work(category)
-    assert label == expected
+    label1 = Lang_work(category)
+    assert label1 == expected
+
+    label2 = resolve_languages_labels(category)
+    assert label2 == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
-def test_peoples(name: str, data: dict[str, str]) -> None:
+def test_dump_all(name: str, data: dict[str, str]) -> None:
 
     expected, diff_result = one_dump_test(data, Lang_work)
 
