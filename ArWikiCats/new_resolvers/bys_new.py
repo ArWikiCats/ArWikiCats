@@ -6,7 +6,6 @@ TODO: use it to replace get_and_label, get_by_label functions in bys.py
 import re
 import functools
 from ..helps import logger, len_print
-from ..translations import open_json_file
 from ..translations_formats import format_multi_data, MultiDataFormatterBase
 
 CONTEXT_FIELD_LABELS = {
@@ -138,31 +137,6 @@ def _load_data_to_find() -> dict[str, str]:
         "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة"
     }
 
-    BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
-
-    _by_music_table_base = {
-        "by city": "حسب المدينة",
-        "by seniority": "حسب الأقدمية",
-        "by producer": "حسب المنتج",
-        "by software": "حسب البرمجيات",
-        "by band": "حسب الفرقة",
-        "by medium by nationality": "حسب الوسط حسب الجنسية",
-        "by instrument": "حسب الآلة",
-        "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
-        "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
-        "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
-        "by instrument and nationality": "حسب الآلة والجنسية",
-        "by instrument and genre": "حسب الآلة والنوع الفني",
-        "by genre and instrument": "حسب النوع الفني والآلة",
-        "by nationality and instrument": "حسب الجنسية والآلة",
-        "by century and instrument": "حسب القرن والآلة",
-        "by medium": "حسب الوسط",
-        "by name": "حسب الإسم",
-        "by voice type": "حسب نوع الصوت",
-        "by language": "حسب اللغة",
-        "by nationality": "حسب الجنسية",
-    }
-
     data_to_find = {
         "by national amateur team": "حسب المنتخب الوطني للهواة",
         "by national men's amateur team": "حسب المنتخب الوطني للهواة للرجال",
@@ -177,18 +151,15 @@ def _load_data_to_find() -> dict[str, str]:
         "by national women's amateur team": "حسب المنتخب الوطني للهواة للسيدات",
         "by national women's team": "حسب منتخب السيدات الوطني",
         "by national youth team": "حسب المنتخب الوطني للشباب",
-    }  # dict(BY_TABLE_BASED)
 
-    data_to_find.update(build_yearly_category_translation())
-    data_to_find.update(_by_music_table_base)
-    data_to_find.update(by_keys_under)
-    data_to_find.update({
-        "by country of origin": "حسب البلد الأصل",
-        "by year of entry into force": "حسب سنة دخولها حيز التنفيذ",
         "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
         "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
         "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
-    })
+    }
+
+    data_to_find.update(build_yearly_category_translation())
+    data_to_find.update(by_keys_under)
+
     return data_to_find
 
 
@@ -204,6 +175,10 @@ def _load_by_data_new() -> dict[str, str]:
         "blade weapons": "بالأسلحة البيضاء",
     }
     by_data_new = {
+        "country of origin": "البلد الأصل",
+        "year of entry into force": "سنة دخولها حيز التنفيذ",
+        "home video label": "علامة الفيديو المنزلي",
+        "color process": "عملية التلوين",
         "ethnic or national origin": "الأصل العرقي أو الوطني",
         "origin": "الأصل",
         "arrest": "الاعتقال",
@@ -257,7 +232,6 @@ def _load_by_data_new() -> dict[str, str]:
         "closing year": "سنة الاغلاق",
         "closing": "الاغلاق",
         "club": "النادي",
-        "color process": "",
         "color": "اللون",
         "commune": "البلدية",
         "community": "المجتمع",
@@ -334,7 +308,6 @@ def _load_by_data_new() -> dict[str, str]:
         "heritage register": "سجل التراث",
         "high school": "المدرسة الثانوية",
         "history of colleges and universities": "تاريخ الكليات والجامعات",
-        "home video label": "",
         "host country": "البلد المضيف",
         "host": "المضيف",
         "ideology": "الأيديولوجية",
@@ -550,9 +523,6 @@ len_print.data_len(
         "by_data_new": _load_by_data_new(),
     },
 )
-
-BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
-BY_TABLE_BASED = {k: v for k, v in BY_TABLE_BASED.items() if v.startswith("حسب ")}
 
 __all__ = [
     "resolve_by_labels",
