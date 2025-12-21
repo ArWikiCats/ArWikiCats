@@ -141,7 +141,8 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         for x, v in medalists_data.items()
     }
     formatted_data = _build_formatted_data()
-    both_bot_ = format_multi_data_v2(
+
+    """both_bot_ = format_multi_data_v2(
         formatted_data=formatted_data,
         data_list=sports_data,
         key_placeholder="{game_en}",
@@ -152,7 +153,8 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         regex_filter=r"[\w-]",
         search_first_part=True,
         use_other_formatted_data=True,
-    )
+    )"""
+
     both_bot = format_multi_data_v2(
         formatted_data=formatted_data,
         data_list=countries_data,
