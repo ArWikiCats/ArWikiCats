@@ -9,6 +9,10 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.translations_resolvers.countries_names_medalists import resolve_countries_names_medalists
 
 main_data = {
+    "universiade competitors": "منافسون في الألعاب الجامعية",
+    "universiade medalists": "فائزون بميداليات الألعاب الجامعية",
+    "commonwealth games gold medalists": "فائزون بميداليات ذهبية في ألعاب الكومنولث",
+    "Olympic gold medalists for Papua New Guinea": "فائزون بميداليات ذهبية أولمبية من بابوا غينيا الجديدة",
     "Olympic gold medalists for the United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "Olympic gold medalists for the United States": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة",
     "islamic solidarity games silver medalists": "فائزون بميداليات فضية في ألعاب التضامن الإسلامي",
@@ -739,6 +743,9 @@ summer_winter_games = {
 @pytest.mark.parametrize("category, expected", main_data.items(), ids=main_data.keys())
 @pytest.mark.fast
 def test_resolve_countries_names_medalists(category: str, expected: str) -> None:
+    """
+    pytest tests/new_resolvers/translations_resolvers/countries_names_medalists/test_countries_names_medalists.py::test_resolve_countries_names_medalists
+    """
     label = resolve_countries_names_medalists(category)
     assert label == expected
 
