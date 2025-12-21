@@ -8,7 +8,7 @@ from ...helps import len_print
 from ...translations import (
     ALBUMS_TYPE,
     Jobs_new,
-    olympics,
+    olympic_event_translations,
     typeTable,
     typeTable_7,
 )
@@ -46,7 +46,7 @@ def _make_players_keys(Add_ar_in: dict[str, str]) -> dict:
     return players_keys
 
 
-Add_ar_in = dict(olympics)
+Add_ar_in = dict(olympic_event_translations)
 players_new_keys = _make_players_keys(Add_ar_in)
 Pp_Priffix = _create_pp_prefix(ALBUMS_TYPE)
 

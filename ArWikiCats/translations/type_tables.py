@@ -1,5 +1,5 @@
 from ..helps import len_print
-from .sports.olympics_data import olympics
+from .sports.olympics_data import olympic_event_translations
 from .tv.films_mslslat import television_keys
 
 basedtypeTable = {
@@ -91,7 +91,7 @@ for ff, la_b in television_keys.items():
 
 type_table_labels = dict(type_Table_no) | dict(basedtypeTable)
 
-for olmp, olmp_lab in olympics.items():
+for olmp, olmp_lab in olympic_event_translations.items():
     type_table_labels[f"{olmp} for"] = f"{olmp_lab} من"
 
 type_Table_oo = {
