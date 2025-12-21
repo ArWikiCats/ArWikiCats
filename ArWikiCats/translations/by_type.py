@@ -262,7 +262,6 @@ len_print.data_len("by_table.py", {
     "by_by_fields": by_by_fields,
     "by_musics": by_musics,
     "Music_By_table": Music_By_table,
-    "by_map_table": by_map_table,
     "by_under_keys": by_under_keys,
 })
 

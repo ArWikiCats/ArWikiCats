@@ -16,12 +16,11 @@ from ...translations.by_type import (
     # by_or_fields,
     # by_by_fields,
     # by_musics,
-    # by_map_table,
     ADDITIONAL_BY_COMPONENTS,
     CONTEXT_FIELD_LABELS,
 )
 
-by_under_keys = {
+by_keys_under = {
     "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
     "by men's under-17 national team": "حسب المنتخب الوطني للرجال تحت 17 سنة",
     "by men's under-18 national team": "حسب المنتخب الوطني للرجال تحت 18 سنة",
@@ -44,7 +43,7 @@ by_under_keys = {
     "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
     "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة"
 }
-Music_By_table = {
+music_by_table = {
     "by city": "حسب المدينة",
     "by seniority": "حسب الأقدمية",
     "by producer": "حسب المنتج",
@@ -122,8 +121,8 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
 
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(by_table_year)
-data_to_find.update(Music_By_table)
-data_to_find.update(by_under_keys)
+data_to_find.update(music_by_table)
+data_to_find.update(by_keys_under)
 
 by_data_new = dict(PRIMARY_BY_COMPONENTS)
 by_data_new.update(ADDITIONAL_BY_COMPONENTS)

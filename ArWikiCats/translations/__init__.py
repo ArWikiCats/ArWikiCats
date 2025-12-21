@@ -2,7 +2,7 @@
 
 from .utils.json_dir import open_json_file
 from .sports.sub_teams_keys import sub_teams_new
-from .by_type import By_orginal2, By_table, Music_By_table
+from .by_type import By_orginal2, By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import get_from_new_p17_final, US_STATES, COUNTRY_LABEL_OVERRIDES
@@ -155,7 +155,6 @@ __all__ = [
     "Clubs_key_2",
     "By_table",
     "By_orginal2",
-    "Music_By_table",
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_CAO_new_format",
