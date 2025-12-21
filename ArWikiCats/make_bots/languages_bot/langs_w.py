@@ -302,6 +302,4 @@ def Lang_work(suffix: str) -> str:
 
 __all__ = [
     "Lang_work",
-    "LanguageLabelResolver",
-    "FilmCategoryLabelResolver",
 ]
