@@ -124,6 +124,23 @@ def test_relations_congo(category: str, expected: str) -> None:
 # Basic tests
 # ======================
 
+def test_unsupported_relation_type() -> None:
+    """اختبار نوع علاقة غير مدعومة"""
+    result = resolve_relations_label("mars–venus space relations")
+    assert result == ""
+
+
+def test_empty_input() -> None:
+    """اختبار إدخال فارغ"""
+    result = resolve_relations_label("")
+    assert result == ""
+
+
+def test_numeric_country_codes() -> None:
+    """اختبار أكواد دول رقمية (غير مدعومة)"""
+    result = resolve_relations_label("123–456 relations")
+    assert result == ""
+
 
 def test_female_relations_basic() -> None:
     """اختبار حالة أساسية للعلاقات النسائية مع دول موجودة في القاموس"""
@@ -225,23 +242,11 @@ def test_special_nato_case_male() -> None:
         assert result == "صراع ألمانيا والناتو"
 
 
-def test_unsupported_relation_type() -> None:
-    """اختبار نوع علاقة غير مدعومة"""
-    result = resolve_relations_label("mars–venus space relations")
-    assert result == ""
-
-
 def test_missing_separator() -> None:
     """اختبار نص بدون فاصل بين الدول"""
     with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN):
         result = resolve_relations_label("canadaburma relations")
         assert result == ""
-
-
-def test_empty_input() -> None:
-    """اختبار إدخال فارغ"""
-    result = resolve_relations_label("")
-    assert result == ""
 
 
 # ======================
@@ -275,9 +280,3 @@ def test_multiple_dashes() -> None:
     with patch.dict("ArWikiCats.make_bots.reslove_relations.rele.Nat_women", TEST_NAT_WOMEN):
         result = resolve_relations_label("canada–burma–india relations")
         assert result == ""
-
-
-def test_numeric_country_codes() -> None:
-    """اختبار أكواد دول رقمية (غير مدعومة)"""
-    result = resolve_relations_label("123–456 relations")
-    assert result == ""
