@@ -209,7 +209,7 @@ fast_data_c_1_1_lab = [
     {
         "separator": " in ",
         "cone_1": "pan american games silver medalists",
-        "output": "فائزون بميداليات فضية دورة الألعاب الأمريكية",
+        "output": "فائزون بميداليات فضية في دورة الألعاب الأمريكية",
     },
     {"separator": " in ", "cone_1": "papua new guinea", "output": "بابوا غينيا الجديدة"},
     {"separator": " in ", "cone_1": "parks and open spaces", "output": "متنزهات ومساحات مفتوحة"},

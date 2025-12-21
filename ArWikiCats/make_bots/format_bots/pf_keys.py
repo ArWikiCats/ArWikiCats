@@ -21,6 +21,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
     "players in": "playerss in",
 
+    "central american and caribbean games": "central-american-and-caribbean-games",
     "elections,": "elections",
 
     "based on": "basedon",
