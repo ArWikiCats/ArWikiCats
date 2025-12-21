@@ -30,19 +30,19 @@ def compare_and_export_labels(data, name):
     print(f"total time: {time_diff} seconds")
     print_memory()
 
-    same = 0
+    same = {}
     diff = {}
 
     for key, value in labels.items():
         if value == data.get(key):
-            same += 1
+            same[key] = value
         else:
             diff[key] = {
                 "old": data.get(key),
                 "new": value
             }
 
-    print(f"{same=}, {len(diff)=}")
+    print(f"{len(same)=}, {len(diff)=}")
 
     output_dir = Path(__file__).parent
     if diff:
@@ -52,3 +52,7 @@ def compare_and_export_labels(data, name):
     if no_labels:
         with open(output_dir / f"{name}_no_labels.json", "w", encoding="utf-8") as f:
             json.dump(no_labels, f, ensure_ascii=False, indent=4)
+
+    if diff or no_labels:
+        with open(output_dir / f"{name}_same.json", "w", encoding="utf-8") as f:
+            json.dump(same, f, ensure_ascii=False, indent=4)
