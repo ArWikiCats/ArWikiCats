@@ -77,6 +77,10 @@ def make_cnt_lab(
             logger.info(f'<<lightblue>>>>>> part_1_normalized in pop_format2 "{pop_format2[part_1_normalized]}":')
             resolved_label = pop_format2[part_1_normalized].format(part_2_label)
 
+    # NOTE: important to fix bug like: [sport in ottoman] = "الرياضة في في الدولة العثمانية" !
+
+    resolved_label = resolved_label.replace(" في في ", " في ")
+
     logger.info(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
 
     resolved_label = " ".join(resolved_label.strip().split())

@@ -160,6 +160,30 @@ def _load_data_to_find() -> dict[str, str]:
     data_to_find.update(build_yearly_category_translation())
     data_to_find.update(by_keys_under)
 
+    by_table_not_hasab = {
+        "by airstrike": "بضربات جوية",
+        "by airstrikes": "بضربات جوية",
+        "by alexander phimister proctor": "بواسطة الكسندر فيميستر بروكتور",
+        "by violence": "بسبب العنف",
+        "by suicide bomber": "بتفجير انتحاري",
+        "by stabbing": "بالطعن",
+        "by projectile weapons": "بسلاح القذائف",
+        "by organized crime": "بواسطة الجريمة المنظمة",
+        "by law enforcement officers": "بواسطة ضباط إنفاذ القانون",
+        "by law enforcement": "بواسطة إنفاذ القانون",
+        "by improvised explosive device": "بعبوة ناسفة بدائية الصنع",
+        "by guillotine": "بالمقصلة",
+        "by hanging": "بالشنق",
+        "by firearm": "بسلاح ناري",
+        "by firing squad": "رميا بالرصاص",
+        "by explosive device": "بعبوة ناسفة",
+        "by decapitation": "بقطع الرأس",
+        "by covid-19 pandemic": "بجائحة فيروس كورونا",
+        "by burning": "بالحرق",
+        "by blade weapons": "بالأسلحة البيضاء"
+    }
+    data_to_find.update(by_table_not_hasab)
+
     return data_to_find
 
 
