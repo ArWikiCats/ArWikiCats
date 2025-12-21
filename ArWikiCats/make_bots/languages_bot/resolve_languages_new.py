@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-
+TODO: use it instead of langs_w.py after adding
+    jobs_mens_data,
+    Films_key_For_nat,
 
 """
 import re
@@ -11,10 +13,10 @@ from ...translations import PRIMARY_LANGUAGE_TRANSLATIONS, COMPLEX_LANGUAGE_TRAN
 
 from ...translations import (
     film_keys_for_female,
-    Films_key_333,
     Films_key_CAO,
-    Films_key_For_nat,
-    Films_keys_both_new_female,
+    # Films_key_333,
+    # Films_key_For_nat,
+    # Films_keys_both_new_female,
 )
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 

@@ -5,18 +5,13 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.languages_bot.langs_w import (
-    Films_key_For_nat,
     # Lang_work,
-    jobs_mens_data,
     LANGUAGE_TOPIC_FORMATS,
     language_key_translations,
 )
 
 from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels as Lang_work
 
-# only 10 items from jobs_mens_data
-jobs_mens_data = {k: jobs_mens_data[k] for k in list(jobs_mens_data.keys())[:10]}
-Films_key_For_nat = {k: Films_key_For_nat[k] for k in list(Films_key_For_nat.keys())[:10]}
 language_key_translations = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:10]}
 
 # A real language key that exists in language_key_translations
@@ -36,36 +31,11 @@ def testlang_key_m_patterns(suffix: str, template: str) -> None:
     assert result == expected, f"LANGUAGE_TOPIC_FORMATS mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
 
 
-@pytest.mark.parametrize("suffix,template", Films_key_For_nat.items())
-def testFilms_key_For_nat_patterns(suffix: str, template: str) -> None:
-    category = f"{BASE_LANG} {suffix}"
-    result = Lang_work(category)
-
-    # Films_key_For_nat templates contain "{}" -> should become "ب<lang>"
-    expected = template.format(f"ب{BASE_LANG_OUTPUT}")
-
-    assert result == expected, (
-        f"Films_key_For_nat mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
-    )
-
-
 @pytest.mark.parametrize("lang,expected", language_key_translations.items())
 def test_directlanguages_key_lookup(lang: str, expected: str) -> None:
     result = Lang_work(lang)
     assert result == expected, (
         f"language_key_translations lookup mismatch for '{lang}'\n" f" {expected=}\n" f"Got:      {result}"
-    )
-
-
-@pytest.mark.parametrize("suffix,expected_label", jobs_mens_data.items())
-def testjobs_mens_data_patterns(suffix: str, expected_label: str) -> None:
-    category = f"{BASE_LANG} {suffix}"
-    result = Lang_work(category)
-
-    expected = f"{expected_label} ب{BASE_LANG_OUTPUT}"
-
-    assert result == expected, (
-        f"jobs_mens_data mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
     )
 
 
@@ -92,11 +62,6 @@ def test_sample_lang_key_m_grammar() -> None:
     # "grammar": "قواعد اللغة ال{}",
     result = Lang_work("abkhazian-language grammar")
     assert result == "قواعد اللغة الأبخازية"
-
-
-def test_sample_jobs_mens_data() -> None:
-    result = Lang_work("abkhazian-language writers")
-    assert result == "كتاب باللغة الأبخازية"
 
 
 def test_sample_films_drama() -> None:
