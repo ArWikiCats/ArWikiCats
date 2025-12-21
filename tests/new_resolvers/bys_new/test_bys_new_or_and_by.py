@@ -6,16 +6,24 @@ from __future__ import annotations
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
+from ArWikiCats.new_resolvers.bys_new import resolve_by_labels, BY_TABLE_BASED
 
 test_data = {
+    "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
+    "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
+    "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
+
     "by university or college": "حسب الجامعة أو الكلية",
     "by territory or dependency": "حسب الإقليم أو التبعية",
-    "by state or division": " حسب الولاية أو المقاطعة",
+    "by state or division": "حسب الولاية أو المقاطعة",
     "by state or union territory": "حسب الولاية أو الإقليم الاتحادي",
+
+    "by province": "حسب المقاطعة",
+    "by territory": "حسب الإقليم",
     "by province or territory": "حسب المقاطعة أو الإقليم",
+
     "by faith or belief": "حسب الإيمان أو العقيدة",
-    "by division or state": " حسب المقاطعة أو الولاية",
+    "by division or state": "حسب المقاطعة أو الولاية",
     "by ethnic or national origin": "حسب الأصل العرقي أو الوطني",
     "by country or language": "حسب البلد أو اللغة",
     "by city or town": "حسب المدينة أو البلدة",
@@ -23,16 +31,13 @@ test_data = {
     "by ethnic or national origin and occupation": "حسب الأصل العرقي أو الوطني والمهنة",
     "by state and year": "حسب الولاية والسنة",
     "by nation and year": "حسب الموطن والسنة",
-    "by nationality and instrument ": "حسب الجنسية والآلة الموسيقية",
-    "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
+    "by nationality and instrument ": "حسب الجنسية والآلة",
     "by occupation and continent": "حسب المهنة والقارة",
 
     "by populated place and occupation": "حسب المكان المأهول والمهنة",
     "by instrument and genre": "حسب الآلة والنوع الفني",
     "by instrument and nationality": "حسب الآلة والجنسية",
-    "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
     "by genre and instrument": "حسب النوع الفني والآلة",
-    "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
     "by country and city": "حسب البلد والمدينة",
     "by country and occupation": "حسب البلد والمهنة",
     "by country and war": "حسب البلد والحرب",
@@ -69,7 +74,23 @@ test_data = {
 
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_bys_new_or_and_by(category: str, expected: str) -> None:
+def test_bys_new_or_and_by(category: str, expected: str, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Test all nat translation patterns."""
+    to_find_new = {
+        "by country of origin": "حسب البلد الأصل",
+        "by year of entry into force": "حسب سنة دخولها حيز التنفيذ",
+        "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
+        "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
+        "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
+    }
+    # monkeypatch.setattr("ArWikiCats.new_resolvers.bys_new.data_to_find", to_find_new)
+    result = resolve_by_labels(category)
+    assert result == expected
+
+
+@pytest.mark.parametrize("category,expected", BY_TABLE_BASED.items(), ids=BY_TABLE_BASED.keys())
+@pytest.mark.fast
+def test_by_table_based(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = resolve_by_labels(category)
     assert result == expected

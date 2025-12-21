@@ -133,7 +133,7 @@ _by_music_table_base = {
     "by instrument and nationality": "حسب الآلة والجنسية",
     "by instrument and genre": "حسب الآلة والنوع الفني",
     "by genre and instrument": "حسب النوع الفني والآلة",
-    "by nationality and instrument ": "حسب الجنسية والآلة الموسيقية",
+    "by nationality and instrument ": "حسب الجنسية والآلة",
     "by century and instrument": "حسب القرن والآلة",
     "by medium": "حسب الوسط",
     "by name": "حسب الإسم",

@@ -154,7 +154,7 @@ def _load_data_to_find() -> dict[str, str]:
         "by instrument and nationality": "حسب الآلة والجنسية",
         "by instrument and genre": "حسب الآلة والنوع الفني",
         "by genre and instrument": "حسب النوع الفني والآلة",
-        "by nationality and instrument ": "حسب الجنسية والآلة الموسيقية",
+        "by nationality and instrument": "حسب الجنسية والآلة",
         "by century and instrument": "حسب القرن والآلة",
         "by medium": "حسب الوسط",
         "by name": "حسب الإسم",
@@ -163,11 +163,32 @@ def _load_data_to_find() -> dict[str, str]:
         "by nationality": "حسب الجنسية",
     }
 
-    data_to_find = dict(BY_TABLE_BASED)
+    data_to_find = {
+        "by national amateur team": "حسب المنتخب الوطني للهواة",
+        "by national men's amateur team": "حسب المنتخب الوطني للهواة للرجال",
+        "by national men's team": "حسب منتخب الرجال الوطني",
+        "by national team": "حسب المنتخب الوطني",
+        "by men's a' national team": "حسب منتخب المحليين",
+        "by men's b national team": "حسب المنتخب الرديف",
+        "by men's amateur national team": "حسب المنتخب الوطني للهواة للرجال",
+        "by amateur national team": "حسب المنتخب الوطني للهواة",
+        "by women's amateur national team": "حسب المنتخب الوطني للهواة للسيدات",
+        "by youth national team": "حسب المنتخب الوطني للشباب",
+        "by national women's amateur team": "حسب المنتخب الوطني للهواة للسيدات",
+        "by national women's team": "حسب منتخب السيدات الوطني",
+        "by national youth team": "حسب المنتخب الوطني للشباب",
+    }  # dict(BY_TABLE_BASED)
+
     data_to_find.update(build_yearly_category_translation())
     data_to_find.update(_by_music_table_base)
     data_to_find.update(by_keys_under)
-
+    data_to_find.update({
+        "by country of origin": "حسب البلد الأصل",
+        "by year of entry into force": "حسب سنة دخولها حيز التنفيذ",
+        "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
+        "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
+        "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
+    })
     return data_to_find
 
 
@@ -175,7 +196,31 @@ data_to_find = _load_data_to_find()
 
 
 def _load_by_data_new() -> dict[str, str]:
+    _to_review = {
+        "guillotine": "بالمقصلة",
+        "hanging": "بالشنق",
+        "burning": "بالحرق",
+        "stabbing": "بالطعن",
+        "blade weapons": "بالأسلحة البيضاء",
+    }
     by_data_new = {
+        "ethnic or national origin": "الأصل العرقي أو الوطني",
+        "origin": "الأصل",
+        "arrest": "الاعتقال",
+        "university": "الجامعة",
+        "college": "الكلية",
+
+        "dependency": "التبعية",
+
+        "state": "الولاية",
+        "division": "المقاطعة",
+
+        "union territory": "الإقليم الاتحادي",
+
+        "province": "المقاطعة",
+        "county": "المقاطعة",
+        "territory": "الإقليم",
+
         "academic discipline": "التخصص الأكاديمي",
         "administrative subdivisions": "التقسيم الإداري",
         "administrative unit": "الوحدة الإدارية",
@@ -197,13 +242,11 @@ def _load_by_data_new() -> dict[str, str]:
         "behavior": "السلوك",
         "belief": "العقيدة",
         "belligerent party": "الطرف المحارب",
-        "blade weapons": "بالأسلحة البيضاء",
         "body of water": "المسطح المائي",
         "borough": "البلدة",
         "branch": "الفرع",
         "brand": "العلامة التجارية",
         "builder": "الباني",
-        "burning": "بالحرق",
         "cause of death": "سبب الوفاة",
         "cemetery": "المقبرة",
         "census-designated place": "المكان المخصص للتعداد",
@@ -212,11 +255,13 @@ def _load_by_data_new() -> dict[str, str]:
         "city": "المدينة",
         "class": "الصنف",
         "closing year": "سنة الاغلاق",
+        "closing": "الاغلاق",
         "club": "النادي",
         "color process": "",
         "color": "اللون",
         "commune": "البلدية",
         "community": "المجتمع",
+        "conclusion": "الإبرام",
         "company": "الشركة",
         "competition won": "المنافسة التي فازوا بها",
         "competition": "المنافسة",
@@ -235,7 +280,6 @@ def _load_by_data_new() -> dict[str, str]:
         "country": "البلد",
         "country-of residence": "بلد الإقامة",
         "country-of-residence": "بلد الإقامة",
-        "county": "المقاطعة",
         "covid-19 pandemic": "بجائحة فيروس كورونا",
         "criminal charge": "التهمة الجنائية",
         "criminal conviction": "الإدانة الجنائية",
@@ -285,9 +329,7 @@ def _load_by_data_new() -> dict[str, str]:
         "geographical categorization": "التصنيف الجغرافي",
         "government agency": "الوكالة الحكومية",
         "governorate": "المحافظة",
-        "guillotine": "بالمقصلة",
         "hamlet": "القرية",
-        "hanging": "بالشنق",
         "height": "الارتفاع",
         "heritage register": "سجل التراث",
         "high school": "المدرسة الثانوية",
@@ -372,12 +414,12 @@ def _load_by_data_new() -> dict[str, str]:
         "presidential administration": "الإدارة الرئاسية",
         "prison": "السجن",
         "producer": "المنتج",
+        "production": "الإنتاج",
         "production location": "موقع الإنتاج",
         "professional association": "الجمعيات المهنية",
         "professional league": "دوري المحترفين",
         "projectile weapons": "بسلاح القذائف",
         "propellant": "المادة الدافعة",
-        "province": "الإقليم",
         "publication": "المؤسسة",
         "quality": "الجودة",
         "range": "النطاق",
@@ -412,8 +454,6 @@ def _load_by_data_new() -> dict[str, str]:
         "specialty": "التخصص",
         "sport": "الرياضة",
         "sports event": "الحدث الرياضي",
-        "stabbing": "بالطعن",
-        "state": "الولاية",
         "station": "المحطة",
         "status": "الحالة",
         "strength": "القوة",
@@ -429,7 +469,6 @@ def _load_by_data_new() -> dict[str, str]:
         "technique": "التقنية",
         "technology": "التكنولوجيا",
         "term": "الفترة",
-        "territory": "الإقليم",
         "theatre": "المسرح",
         "time": "الوقت",
         "topic": "الموضوع",
@@ -443,8 +482,6 @@ def _load_by_data_new() -> dict[str, str]:
         "type": "الفئة",
         "u.s. state": "الولاية الأمريكية",
         "unincorporated community": "المجتمع غير المدمج",
-        "union territory": "الإقليم الاتحادي",
-        "university": "الجامعة",
         "user": "المستخدم",
         "village": "القرية",
         "violence": "بسبب العنف",
@@ -513,6 +550,9 @@ len_print.data_len(
         "by_data_new": _load_by_data_new(),
     },
 )
+
+BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
+BY_TABLE_BASED = {k: v for k, v in BY_TABLE_BASED.items() if v.startswith("حسب ")}
 
 __all__ = [
     "resolve_by_labels",
