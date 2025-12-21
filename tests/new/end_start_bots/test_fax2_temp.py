@@ -29,7 +29,7 @@ def test_get_templates_fo() -> None:
 def test_specific_keys_in_dict_temps() -> None:
     # Test each specific known key branch
     cases = {
-        "sidebar templates": "قوالب اشرطة جانبية {}",
+        "sidebar templates": "قوالب أشرطة جانبية {}",
         "politics and government templates": "قوالب سياسة وحكومة {}",
         "infobox templates": "قوالب معلومات {}",
         "squad templates": "قوالب تشكيلات {}",
@@ -82,7 +82,7 @@ def test_spaces_are_stripped_correctly() -> None:
 def test_specific_key_with_extra_spaces() -> None:
     list_of_cat, category3 = get_templates_fo(" title   sidebar templates")
 
-    assert list_of_cat == "قوالب اشرطة جانبية {}"
+    assert list_of_cat == "قوالب أشرطة جانبية {}"
     assert category3 == "title"
 
 

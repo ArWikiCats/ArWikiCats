@@ -844,7 +844,7 @@ data_1 = {
     "Category:Papua New Guinea navigational boxes": "تصنيف:صناديق تصفح بابوا غينيا الجديدة",
     "Category:Papua New Guinea political leader navigational boxes": "تصنيف:صناديق تصفح قادة بابوا غينيا الجديدة السياسيون",
     "Category:Papua New Guinea politics and government templates": "تصنيف:قوالب سياسة وحكومة بابوا غينيا الجديدة",
-    "Category:Papua New Guinea sidebar templates": "تصنيف:قوالب اشرطة جانبية بابوا غينيا الجديدة",
+    "Category:Papua New Guinea sidebar templates": "تصنيف:قوالب أشرطة جانبية بابوا غينيا الجديدة",
     "Category:Papua New Guinea sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في بابوا غينيا الجديدة",
     "Category:Papua New Guinea sports templates": "تصنيف:قوالب بابوا غينيا الجديدة الرياضية",
     "Category:Papua New Guinea templates": "تصنيف:قوالب بابوا غينيا الجديدة",
