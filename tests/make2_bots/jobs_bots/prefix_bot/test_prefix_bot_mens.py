@@ -337,7 +337,7 @@ by_data_fast = {
     "by pope pius xi": "بواسطة بيوس الحادي عشر",
     "by populated place": "حسب المكان المأهول",
     "by province or territory": "حسب المقاطعة أو الإقليم",
-    "by province": "حسب الإقليم",
+    "by province": "حسب المقاطعة",
     "by pyotr ilyich tchaikovsky": "بواسطة بيتر إليتش تشايكوفسكي",
     "by queen victoria": "بواسطة الملكة فيكتوريا",
     "by richard strauss": "بواسطة ريتشارد شتراوس",

@@ -102,7 +102,7 @@ data_slow = {
     "by person in alabama": "حسب الشخص في ألاباما",
     "by person in austria": "حسب الشخص في النمسا",
     "by person in tonga": "حسب الشخص في تونغا",
-    "by province of saudi arabia": "حسب الإقليم في السعودية",
+    "by province of saudi arabia": "حسب المقاطعة في السعودية",
     "by stabbing in philippines": "بالطعن في الفلبين",
     "by state in united states": "حسب الولاية في الولايات المتحدة",
     "by university or college in ghana": "حسب الجامعة أو الكلية في غانا",

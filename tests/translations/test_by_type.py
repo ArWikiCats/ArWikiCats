@@ -109,7 +109,7 @@ data1 = {
     "by producer": "حسب المنتج",
     "by production location": "حسب موقع الإنتاج",
     "by province or territory": "حسب المقاطعة أو الإقليم",
-    "by province": "حسب الإقليم",
+    "by province": "حسب المقاطعة",
     "by publication": "حسب المؤسسة",
     "by region": "حسب المنطقة",
     "by religion": "حسب الدين",
