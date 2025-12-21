@@ -14,7 +14,7 @@ data1 = {
     "Category:American culture by state": "تصنيف:ثقافة أمريكية حسب الولاية",
     "Category:Awards by country": "تصنيف:جوائز حسب البلد",
     "Category:Books about politics by country": "تصنيف:كتب عن سياسة حسب البلد",
-    "Category:Categories by province of Saudi Arabia": "تصنيف:تصنيفات حسب الإقليم في السعودية",
+    "Category:Categories by province of Saudi Arabia": "تصنيف:تصنيفات حسب المقاطعة في السعودية",
     "Category:Demographics of the United States by state": "تصنيف:التركيبة السكانية في الولايات المتحدة حسب الولاية",
     "Category:Destroyed churches by country": "تصنيف:كنائس مدمرة حسب البلد",
     "Category:Drama films by country": "تصنيف:أفلام درامية حسب البلد",

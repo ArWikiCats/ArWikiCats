@@ -18,7 +18,7 @@ from ...translations import (
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from .bot import All_P17, Films_O_TT, players_new_keys
 
-from ...make_bots.o_bots.bys_new import resolve_by_labels
+from ...new_resolvers.bys_new import resolve_by_labels
 
 KAKO: Dict[str, Dict[str, str]] = {
     "pop_All_2018": pop_All_2018,          # 161

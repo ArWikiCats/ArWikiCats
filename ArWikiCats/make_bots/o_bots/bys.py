@@ -10,10 +10,11 @@ from __future__ import annotations
 import re
 import functools
 from ...helps import logger, dump_data
-from ...translations import get_from_new_p17_final, by_table_get, sport_lab_nat_load_new, People_key, by_table_main_get
-
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..media_bots.films_bot import te_films
+from ...translations import get_from_new_p17_final, sport_lab_nat_load_new, People_key
+
+from ...translations import by_table_get, by_table_main_get
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
 BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)

@@ -2,7 +2,13 @@
 
 from .utils.json_dir import open_json_file
 from .sports.sub_teams_keys import sub_teams_new
-from .by_type import by_table_get, by_table_main_get
+
+# from .by_type import by_table_get, by_table_main_get
+from ..new_resolvers.bys_new import resolve_by_labels
+
+by_table_get = resolve_by_labels
+by_table_main_get = resolve_by_labels
+
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import get_from_new_p17_final, US_STATES, COUNTRY_LABEL_OVERRIDES

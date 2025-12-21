@@ -41,3 +41,10 @@ def test_add_fee_inserts_preposition_for_supported_categories() -> None:
     ]
     for text, expected in data:
         assert add_fee(text) == expected
+
+
+def test_fix_it_should_not_remove_fe_from_endings() -> None:
+    category = "people from santa fe province"
+    ar = "تصنيف:أشخاص من محافظة سانتا في"
+
+    assert fix_it(category, ar) == category

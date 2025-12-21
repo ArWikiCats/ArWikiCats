@@ -1,10 +1,12 @@
 import re
 
+from ..helps import logger
 
-def fix_minor(arlabel: str, ar_separator: str = "") -> str:
+
+def fix_minor(ar: str, ar_separator: str = "", en: str = "") -> str:
     """Clean up duplicate spaces and repeated prepositions in labels."""
 
-    arlabel = " ".join(arlabel.strip().split())
+    arlabel = " ".join(ar.strip().split())
 
     sps_list = [
         "من",
@@ -23,5 +25,7 @@ def fix_minor(arlabel: str, ar_separator: str = "") -> str:
             arlabel = re.sub(rf" {ar_separator} ", f" {ar_separator}", arlabel)
 
     arlabel = " ".join(arlabel.strip().split())
+
+    logger.debug(f"fix_minor: {en=}| {ar=}  ==> {arlabel=}")
 
     return arlabel

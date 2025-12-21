@@ -51,6 +51,8 @@ def test_separator_arabic_resolve() -> None:
 
 
 title_work_tests_data = {
+    "people from santa fe province": "أشخاص من محافظة سانتا في",
+
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
     # "mass media in morocco": "وسائل إعلام في المغرب",
 
@@ -168,7 +170,7 @@ title_work_tests_data = {
     "by person in alabama": "حسب الشخص في ألاباما",
     "by person in austria": "حسب الشخص في النمسا",
     "by person in tonga": "حسب الشخص في تونغا",
-    "by province of saudi arabia": "حسب الإقليم في السعودية",
+    "by province of saudi arabia": "حسب المقاطعة في السعودية",
     "by stabbing in philippines": "بالطعن في الفلبين",
     "by state in united states": "حسب الولاية في الولايات المتحدة",
     "by team in united states": "حسب الفريق في الولايات المتحدة",
@@ -444,7 +446,6 @@ title_work_tests_data = {
     "people from hawaii": "أشخاص من هاواي في",
     "people from madhya pradesh": "أشخاص من ماديا براديش في",
     "people from ottoman empire": "أشخاص من الدولة العثمانية في",
-    "people from santa fe province": "أشخاص من محافظة سانتا في في",
     "people from saxony": "أشخاص من ساكسونيا في",
     "people from south lanarkshire": "أشخاص من جنوب لاناركشاير في",
     "people from west sumatra": "أشخاص من سومطرة الغربية في",
@@ -537,7 +538,6 @@ title_work_tests_data = {
     "songs about south dakota": "أغاني عن داكوتا الجنوبية",
     "south american football by country": "كرة القدم الأمريكية الجنوبية حسب البلد",
     "spain by decade": "إسبانيا حسب العقد",
-    "sport in ottoman empire": "الرياضة في الدولة العثمانية",
     "sports by country": "ألعاب رياضية حسب البلد",
     "sports by month": "ألعاب رياضية حسب الشهر",
     "sports clubs and teams in brazil": "أندية وفرق رياضية في البرازيل",
@@ -630,9 +630,21 @@ title_work_tests_data = {
     "zambian emigrants to sweden": "زامبيون مهاجرون إلى السويد في",
 }
 
+data_2 = {
+    "sport in ottoman empire": "الرياضة في الدولة العثمانية",
+    "sports in ottoman empire": "الرياضة في الدولة العثمانية",
+}
+
 
 @pytest.mark.fast
 @pytest.mark.parametrize("category,expected", title_work_tests_data.items(), ids=title_work_tests_data.keys())
 def test_data_based_in(category: str, expected: str) -> None:
+    result = country_2_title_work(category)
+    assert result == expected
+
+
+@pytest.mark.fast
+@pytest.mark.parametrize("category,expected", data_2.items(), ids=data_2.keys())
+def test_data_based_in_data_2(category: str, expected: str) -> None:
     result = country_2_title_work(category)
     assert result == expected

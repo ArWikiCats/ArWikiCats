@@ -58,7 +58,9 @@ def make_cnt_lab(
                 resolved_label = f"{part_1_label}{ar_separator}من {part_2_label}"
             else:
                 logger.info(f'>>>>>> Add في to {part_1_normalized=} part_1_normalized in New_players:')
-                resolved_label += " في "
+                if not resolved_label.strip().endswith(" في"):
+                    resolved_label += " في "
+
         if not by_table_get(part_2_normalized):
             # Films_O_TT[country2] = resolved_label
             add_to_Films_O_TT(country2, resolved_label)
@@ -76,6 +78,10 @@ def make_cnt_lab(
         if part_1_normalized in pop_format2:
             logger.info(f'<<lightblue>>>>>> part_1_normalized in pop_format2 "{pop_format2[part_1_normalized]}":')
             resolved_label = pop_format2[part_1_normalized].format(part_2_label)
+
+    # NOTE: important to fix bug like: [sport in ottoman] = "الرياضة في في الدولة العثمانية" !
+
+    resolved_label = resolved_label.replace(" في في ", " في ")
 
     logger.info(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
 

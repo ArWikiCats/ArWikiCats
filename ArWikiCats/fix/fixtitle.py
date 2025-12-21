@@ -148,12 +148,14 @@ def fix_it(ar_label: str, en_label: str) -> str:
         A normalised Arabic label.
     """
 
+    normalized_en = en_label.replace("_", " ").lower()
+
     ar_label = re.sub(r"\s+", " ", ar_label)
     ar_label = re.sub(r"\{\}", "", ar_label)
-    if ar_label.endswith(" في"):
-        ar_label = ar_label[: -len(" في")]
 
-    normalized_en = en_label.replace("_", " ").lower()
+    # santa fe province
+    if ar_label.endswith(" في") and " fe " not in normalized_en:
+        ar_label = ar_label[: -len(" في")]
 
     if match := re.match(r".*(\d\d\d\d)\-(\d\d).*", ar_label, flags=re.IGNORECASE):
         start_year = match.group(1)
@@ -259,6 +261,7 @@ def fixlabel(label_old: str, out: bool = False, en: str = "") -> str:
         The normalized label string. An empty string indicates that the label
         was rejected by one of the validation steps.
     """
+    logger.debug(f"fixlabel: Starting with label_old: {label_old}| {en=}")
 
     letters_regex = "[abcdefghijklmnopqrstuvwxyz]"
     if re.sub(letters_regex, "", label_old, flags=re.IGNORECASE) != label_old:
@@ -275,12 +278,12 @@ def fixlabel(label_old: str, out: bool = False, en: str = "") -> str:
     label_old = re.sub(r"تصنيف\:\s*", "", label_old)
     label_old = re.sub(r"تصنيف:", "", label_old)
 
-    ar_label = fix_it(label_old, en)
+    ar_label = label_old
+    ar_label = fix_it(ar_label, en)
     ar_label = add_fee(ar_label)
     ar_label = move_years(ar_label)
 
-    if label_old != ar_label and out:
-        logger.info(f'fixtitle: label_old before:"{label_old}", after:"{ar_label}"')
+    logger.info(f'fixtitle: label_old before:"{label_old}", after:"{ar_label}"')
 
     return ar_label
 

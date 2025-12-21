@@ -2,11 +2,9 @@
 Tests for bys_new bot
 """
 
-from __future__ import annotations
-
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
+from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 from ArWikiCats.translations.by_type import (
     _by_of_fields,
@@ -14,6 +12,8 @@ from ArWikiCats.translations.by_type import (
 )
 
 data1 = {
+    "by populated place and decade": "حسب المكان المأهول والعقد",
+    "by populated place and year": "حسب المكان المأهول والسنة",
     "by city or city of sport": "حسب المدينة أو مدينة الرياضة",
     "by city by city of sport": "حسب المدينة حسب مدينة الرياضة",
     "by city and city of sport": "حسب المدينة ومدينة الرياضة",
@@ -29,6 +29,73 @@ data1 = {
     "by organization or nonprofit organization": "حسب المنظمة أو المنظمات غير الربحية",
     "by organization by nonprofit organization": "حسب المنظمة حسب المنظمات غير الربحية",
     "by organization and nonprofit organization": "حسب المنظمة والمنظمات غير الربحية",
+}
+
+data_yearly = {
+    "by year - boys doubles": "حسب السنة - زوجي فتيان",
+    "by year - boys qualification": "حسب السنة - تصفيات فتيان",
+    "by year - boys singles": "حسب السنة - فردي فتيان",
+    "by year - boys team": "حسب السنة - فريق فتيان",
+    "by year - boys tournament": "حسب السنة - مسابقة فتيان",
+    "by year - girls doubles": "حسب السنة - زوجي فتيات",
+    "by year - girls qualification": "حسب السنة - تصفيات فتيات",
+    "by year - girls singles": "حسب السنة - فردي فتيات",
+    "by year - girls team": "حسب السنة - فريق فتيات",
+    "by year - girls tournament": "حسب السنة - مسابقة فتيات",
+    "by year - ladies doubles": "حسب السنة - زوجي سيدات",
+    "by year - ladies qualification": "حسب السنة - تصفيات سيدات",
+    "by year - ladies singles": "حسب السنة - فردي سيدات",
+    "by year - ladies team": "حسب السنة - فريق سيدات",
+    "by year - ladies tournament": "حسب السنة - مسابقة سيدات",
+    "by year - males doubles": "حسب السنة - زوجي رجال",
+    "by year - males qualification": "حسب السنة - تصفيات رجال",
+    "by year - males singles": "حسب السنة - فردي رجال",
+    "by year - males team": "حسب السنة - فريق رجال",
+    "by year - males tournament": "حسب السنة - مسابقة رجال",
+    "by year - men's doubles": "حسب السنة - زوجي رجال",
+    "by year - men's qualification": "حسب السنة - تصفيات رجال",
+    "by year - men's singles": "حسب السنة - فردي رجال",
+    "by year - men's team": "حسب السنة - فريق رجال",
+    "by year - men's tournament": "حسب السنة - مسابقة رجال",
+    "by year - mixed doubles": "حسب السنة - زوجي مختلط",
+    "by year - mixed qualification": "حسب السنة - تصفيات مختلط",
+    "by year - mixed singles": "حسب السنة - فردي مختلط",
+    "by year - mixed team": "حسب السنة - فريق مختلط",
+    "by year - mixed tournament": "حسب السنة - مسابقة مختلط",
+    "by year - singles doubles": "حسب السنة - زوجي فردي",
+    "by year - singles qualification": "حسب السنة - تصفيات فردي",
+    "by year - singles singles": "حسب السنة - فردي فردي",
+    "by year - singles team": "حسب السنة - فريق فردي",
+    "by year - singles tournament": "حسب السنة - مسابقة فردي",
+    "by year - womens doubles": "حسب السنة - زوجي سيدات",
+    "by year - womens qualification": "حسب السنة - تصفيات سيدات",
+    "by year - womens singles": "حسب السنة - فردي سيدات",
+    "by year - womens team": "حسب السنة - فريق سيدات",
+    "by year - womens tournament": "حسب السنة - مسابقة سيدات",
+}
+
+by_keys_under = {
+    "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
+    "by men's under-17 national team": "حسب المنتخب الوطني للرجال تحت 17 سنة",
+    "by men's under-18 national team": "حسب المنتخب الوطني للرجال تحت 18 سنة",
+    "by men's under-19 national team": "حسب المنتخب الوطني للرجال تحت 19 سنة",
+    "by men's under-20 national team": "حسب المنتخب الوطني للرجال تحت 20 سنة",
+    "by men's under-21 national team": "حسب المنتخب الوطني للرجال تحت 21 سنة",
+    "by men's under-23 national team": "حسب المنتخب الوطني للرجال تحت 23 سنة",
+    "by under-16 national team": "حسب المنتخب الوطني تحت 16 سنة",
+    "by under-17 national team": "حسب المنتخب الوطني تحت 17 سنة",
+    "by under-18 national team": "حسب المنتخب الوطني تحت 18 سنة",
+    "by under-19 national team": "حسب المنتخب الوطني تحت 19 سنة",
+    "by under-20 national team": "حسب المنتخب الوطني تحت 20 سنة",
+    "by under-21 national team": "حسب المنتخب الوطني تحت 21 سنة",
+    "by under-23 national team": "حسب المنتخب الوطني تحت 23 سنة",
+    "by women's under-16 national team": "حسب المنتخب الوطني للسيدات تحت 16 سنة",
+    "by women's under-17 national team": "حسب المنتخب الوطني للسيدات تحت 17 سنة",
+    "by women's under-18 national team": "حسب المنتخب الوطني للسيدات تحت 18 سنة",
+    "by women's under-19 national team": "حسب المنتخب الوطني للسيدات تحت 19 سنة",
+    "by women's under-20 national team": "حسب المنتخب الوطني للسيدات تحت 20 سنة",
+    "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
+    "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة"
 }
 
 by_table_all = {
@@ -206,7 +273,23 @@ by_table_all = {
 to_test = [
     ("test_bys_all", by_table_all),
     ("test_bys_new_1", data1),
+    ("test_by_keys_under", by_keys_under),
+    ("test_data_yearly", data_yearly),
 ]
+
+
+@pytest.mark.parametrize("category, expected", data_yearly.items(), ids=data_yearly.keys())
+@pytest.mark.fast
+def test_data_yearly(category: str, expected: str) -> None:
+    label = resolve_by_labels(category)
+    assert label == expected, f"Failed for category: {category}"
+
+
+@pytest.mark.parametrize("category, expected", by_keys_under.items(), ids=by_keys_under.keys())
+@pytest.mark.fast
+def test_by_keys_under(category: str, expected: str) -> None:
+    label = resolve_by_labels(category)
+    assert label == expected, f"Failed for category: {category}"
 
 
 @pytest.mark.parametrize("category, expected", by_table_all.items(), ids=by_table_all.keys())
@@ -232,7 +315,7 @@ def test_by_table_year(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("category, expected", _by_of_fields.items(), ids=_by_of_fields.keys())
 @pytest.mark.slow
-def test__by_of_fields(category: str, expected: str) -> None:
+def test_by_of_fields(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
