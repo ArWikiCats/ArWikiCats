@@ -68,6 +68,7 @@ data_fast = {
 
 
 data_slow = {
+    "people from santa fe province": "أشخاص من محافظة سانتا-في",
     # "presidents of greece": "رؤساء اليونان",
     # "presidents of maldives": "رؤساء جزر المالديف",
     "bas-sassandra district": "مقاطعة باس-ساساندرا",
@@ -444,7 +445,6 @@ data_slow = {
     "people from hawaii": "أشخاص من هاواي",
     "people from madhya pradesh": "أشخاص من ماديا براديش",
     "people from ottoman empire": "أشخاص من الدولة العثمانية",
-    "people from santa fe province": "أشخاص من محافظة سانتا",
     "people from saxony": "أشخاص من ساكسونيا",
     "people from south lanarkshire": "أشخاص من جنوب لاناركشاير",
     "people from westchester county, new york": "أشخاص من مقاطعة ويستتشستر (نيويورك)",
