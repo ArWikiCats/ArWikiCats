@@ -872,7 +872,7 @@ data_1 = {
     "Category:Papua New Guinea–Zimbabwe relations": "تصنيف:العلاقات الزيمبابوية الغينية",
     "Category:Paralympic athletes for Papua New Guinea": "تصنيف:لاعبو قوى في الألعاب البارالمبية في بابوا غينيا الجديدة",
     "Category:Paralympic medalists for Papua New Guinea": "تصنيف:فائزون بميداليات الألعاب البارالمبية من بابوا غينيا الجديدة",
-    "Category:Paralympic silver medalists for Papua New Guinea": "تصنيف:فائزون بميداليات فضية الألعاب البارالمبية من بابوا غينيا الجديدة",
+    "Category:Paralympic silver medalists for Papua New Guinea": "تصنيف:فائزون بميداليات فضية في الألعاب البارالمبية من بابوا غينيا الجديدة",
     "Category:Paralympic taekwondo practitioners for Papua New Guinea": "تصنيف:لاعبو تايكوندو في الألعاب البارالمبية في بابوا غينيا الجديدة",
     "Category:Patrol vessels of Papua New Guinea": "تصنيف:سفن دورية في بابوا غينيا الجديدة",
     "Category:Penal system in Papua New Guinea": "تصنيف:قانون العقوبات في بابوا غينيا الجديدة",
