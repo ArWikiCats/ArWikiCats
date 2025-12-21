@@ -941,14 +941,14 @@ data_compare = {
 
 
 @pytest.mark.parametrize("category, expected", data_compare.items(), ids=data_compare.keys())
-@pytest.mark.slow
+@pytest.mark.skip2
 def test_Get_country2_slow(category: str, expected: str) -> None:
     label = Get_country2(category, fix_title=True)
     assert label == expected
 
 
-@pytest.mark.fast
 @pytest.mark.parametrize("category,expected", data_compare.items(), ids=data_compare.keys())
+@pytest.mark.skip2
 def test_data_based_in(category: str, expected: str) -> None:
     result = country_2_title_work(category)
     assert result == expected
