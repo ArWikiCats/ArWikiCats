@@ -10,7 +10,7 @@ from ...translations_formats import format_multi_data_v2, MultiDataFormatterBase
 from ...translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
 
 
-# TODO: add data from ArWikiCats/translations/sports/olympic_data.py
+# TODO: add data from ArWikiCats/translations/sports/olympics_data.py
 medalists_data = {
     "central-american-and-caribbean-games": "ألعاب أمريكا الوسطى والكاريبي",
     # "central american and caribbean games": "ألعاب أمريكا الوسطى والكاريبي",
