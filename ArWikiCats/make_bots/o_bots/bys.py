@@ -14,7 +14,7 @@ from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..media_bots.films_bot import te_films
 from ...translations import get_from_new_p17_final, sport_lab_nat_load_new, People_key
 
-from ...translations import by_table_get, by_table_main_get
+from ...new_resolvers.bys_new import resolve_by_labels
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
 BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)
@@ -30,8 +30,8 @@ def find_dual_by_keys(normalized: str) -> str:
         return ""
 
     first_key, second_key = match.groups()
-    first_label = by_table_get(first_key.lower())
-    second_label = by_table_get(second_key.lower())
+    first_label = resolve_by_labels(first_key.lower())
+    second_label = resolve_by_labels(second_key.lower())
 
     logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
     logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
@@ -141,7 +141,7 @@ def get_by_label(category: str) -> str:
         get_pop_All_18(first_part_cleaned, "") or
         ""
     )
-    by_label = by_table_main_get(by_section)
+    by_label = resolve_by_labels(by_section)
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part=}, {by_section=}")
 

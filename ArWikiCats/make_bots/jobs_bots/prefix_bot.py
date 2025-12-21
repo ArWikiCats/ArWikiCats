@@ -13,8 +13,8 @@ from typing import Optional
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...make_bots.o_bots.by_type_2 import by_table_extended_get
+from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import (
-    by_table_get,
     change_male_to_female,
     Female_Jobs,
     jobs_mens_data,
@@ -233,7 +233,7 @@ def mens_prefixes_work(category: str) -> str:
     logger.debug(f'<<lightblue>> === Start: mens_prefixes_work for "{category}"')
 
     # Check direct table lookups first
-    label = by_table_get(category) or by_table_extended_get(category)
+    label = resolve_by_labels(category) or by_table_extended_get(category)
     if label:
         logger.debug(f'<<lightblue>> Found in By table: "{label}"')
         return label

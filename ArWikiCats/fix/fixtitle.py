@@ -156,7 +156,7 @@ def fix_it(ar_label: str, en_label: str) -> str:
     # santa fe province
     if ar_label.endswith(" في") and " fe " not in f" {normalized_en.strip()} ":
         ar_label = ar_label[: -len(" في")]
-        print(f"Removed stray 'في' from end of label: {ar_label}")
+        logger.debug(f"Removed stray 'في' from end of label: {ar_label}")
 
     if match := re.match(r".*(\d\d\d\d)\-(\d\d).*", ar_label, flags=re.IGNORECASE):
         start_year = match.group(1)
