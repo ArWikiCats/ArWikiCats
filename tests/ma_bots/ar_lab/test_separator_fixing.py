@@ -87,58 +87,89 @@ class TestAddInTab:
         result = add_in_tab("رياضيون من", "athletes", "from")
         assert result == "رياضيون من"
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.check_key_new_players")
-    def test_add_من_for_of_suffix(self, mock_check_key, mock_get_pop):
+    def test_add_من_for_of_suffix(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test adding 'من' when type ends with ' of' and is in tables."""
-        mock_get_pop.return_value = "some_value"
-        mock_check_key.return_value = True
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18",
+            lambda *_: "some_value",
+            raising=False,
+        )
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.check_key_new_players",
+            lambda *_: True,
+            raising=False,
+        )
 
         result = add_in_tab("رياضيون", "athletes of", "in")
         assert result == "رياضيون من "
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    def test_skip_من_when_no_ty_in18(self, mock_get_pop):
+    def test_skip_من_when_no_ty_in18(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when get_pop_All_18 returns None."""
-        mock_get_pop.return_value = None
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18",
+            lambda *_: None,
+            raising=False,
+        )
 
         result = add_in_tab("رياضيون", "athletes of", "in")
         assert result == "رياضيون"
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    def test_skip_من_when_not_ending_with_of(self, mock_get_pop):
+    def test_skip_من_when_not_ending_with_of(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when type doesn't end with ' of'."""
-        mock_get_pop.return_value = "some_value"
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18",
+            lambda *_: "some_value",
+            raising=False,
+        )
 
         result = add_in_tab("رياضيون", "athletes", "in")
         assert result == "رياضيون"
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    def test_skip_من_when_in_in_label(self, mock_get_pop):
+    def test_skip_من_when_in_in_label(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when 'في' is already in label."""
-        mock_get_pop.return_value = "some_value"
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18",
+            lambda *_: "some_value",
+            raising=False,
+        )
 
         result = add_in_tab("رياضيون في", "athletes of", "in")
         assert result == "رياضيون في"
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.check_key_new_players")
-    def test_skip_من_when_not_in_tables(self, mock_check_key, mock_get_pop):
+    def test_skip_من_when_not_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when type is not in tables."""
-        mock_get_pop.return_value = "some_value"
-        mock_check_key.return_value = False
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18",
+            lambda *_: "some_value",
+            raising=False,
+        )
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.check_key_new_players",
+            lambda *_: False,
+            raising=False,
+        )
 
         result = add_in_tab("رياضيون", "athletes of", "in")
         assert result == "رياضيون"
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.check_key_new_players")
-    def test_add_من_when_prefix_in_tables(self, mock_check_key, mock_get_pop):
+    def test_add_من_when_prefix_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test adding 'من' when type prefix (without ' of') is in tables."""
-        mock_get_pop.return_value = "some_value"
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18",
+            lambda *_: "some_value",
+            raising=False,
+        )
 
-        # First call for full type returns False, second call for prefix returns True
-        mock_check_key.side_effect = [False, True]
+        calls = iter([False, True])
+
+        def fake_check_key(*_):
+            return next(calls)
+
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.check_key_new_players",
+            fake_check_key,
+            raising=False,
+        )
 
         result = add_in_tab("رياضيون", "athletes of", "in")
         assert result == "رياضيون من "
