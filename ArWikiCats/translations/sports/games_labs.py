@@ -77,15 +77,6 @@ SUMMER_WINTER_GAMES = {
 }
 
 
-GAME_CATEGORY_LABELS = {
-    "competitions": "منافسات",
-    "events": "أحداث",
-    "festival": "مهرجانات",
-    "bids": "عروض",
-    "templates": "قوالب",
-}
-
-
 def _build_seasonal_labels() -> dict[str, str]:
     """Return the label table that includes seasonal variants."""
 
@@ -104,10 +95,18 @@ def _build_seasonal_labels() -> dict[str, str]:
 def _build_tab_labels(SEASONAL_GAME_LABELS) -> dict[str, str]:
     """Return tabs that combine games with category labels."""
 
+    GAME_CATEGORY_LABELS = {
+        "competitions": "منافسات",
+        "events": "أحداث",
+        "festival": "مهرجانات",
+        "bids": "عروض",
+        "templates": "قوالب",
+    }
+
     tab_labels: dict[str, str] = {}
 
     for game_key, game_label in SEASONAL_GAME_LABELS.items():
-        tab_labels[game_key] = game_label
+        # tab_labels[game_key] = game_label
 
         for category_key, category_label in GAME_CATEGORY_LABELS.items():
             category_entry_key = f"{game_key} {category_key}"

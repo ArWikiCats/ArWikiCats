@@ -97,6 +97,7 @@ def format_multi_data_v2(
     use_other_formatted_data: bool=False,
     search_first_part: bool=False,
     data_to_find: Dict[str, str] | None = None,
+    regex_filter: str | None = None,
 ) -> MultiDataFormatterBaseV2:
 
     country_bot = FormatDataV2(
@@ -105,6 +106,7 @@ def format_multi_data_v2(
         key_placeholder=key_placeholder,
         text_after=text_after,
         text_before=text_before,
+        regex_filter=regex_filter,
     )
 
     other_formatted_data = {
@@ -118,6 +120,7 @@ def format_multi_data_v2(
         key_placeholder=key2_placeholder,
         text_after=text_after,
         text_before=text_before,
+        regex_filter=regex_filter,
     )
 
     return MultiDataFormatterBaseV2(
