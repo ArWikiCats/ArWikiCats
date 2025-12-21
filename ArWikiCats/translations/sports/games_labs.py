@@ -106,7 +106,7 @@ def _build_tab_labels(SEASONAL_GAME_LABELS) -> dict[str, str]:
     tab_labels: dict[str, str] = {}
 
     for game_key, game_label in SEASONAL_GAME_LABELS.items():
-        # tab_labels[game_key] = game_label
+        tab_labels[game_key] = game_label
 
         for category_key, category_label in GAME_CATEGORY_LABELS.items():
             category_entry_key = f"{game_key} {category_key}"
