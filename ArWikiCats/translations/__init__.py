@@ -2,7 +2,7 @@
 
 from .utils.json_dir import open_json_file
 from .sports.sub_teams_keys import sub_teams_new
-from .by_type import By_orginal2, By_table, Music_By_table
+from .by_type import By_orginal2, By_table
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import get_from_new_p17_final, US_STATES, COUNTRY_LABEL_OVERRIDES
@@ -10,7 +10,7 @@ from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIAN
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
 from .jobs.jobs_womens import Female_Jobs, short_womens_jobs, FEMALE_JOBS_BASE
-from .languages import lang_key_m, lang_ttty, languages_key, languages_pop
+from .languages import LANGUAGE_TOPIC_FORMATS, LANGUAGE_RESOURCE_FORMATS, language_key_translations, PRIMARY_LANGUAGE_TRANSLATIONS
 from .mixed.all_keys2 import (
     People_key,
     WORD_AFTER_YEARS,
@@ -155,7 +155,6 @@ __all__ = [
     "Clubs_key_2",
     "By_table",
     "By_orginal2",
-    "Music_By_table",
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_CAO_new_format",
@@ -168,10 +167,10 @@ __all__ = [
     "Films_key_333",
     "RELIGIOUS_KEYS_PP",
     "PARTIES",
-    "languages_pop",
-    "lang_ttty",
-    "languages_key",
-    "lang_key_m",
+    "PRIMARY_LANGUAGE_TRANSLATIONS",
+    "LANGUAGE_RESOURCE_FORMATS",
+    "language_key_translations",
+    "LANGUAGE_TOPIC_FORMATS",
     "New_female_keys",
     "New_male_keys",
     "New_Company",

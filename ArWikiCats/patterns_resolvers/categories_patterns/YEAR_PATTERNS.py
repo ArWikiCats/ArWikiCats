@@ -4,6 +4,7 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "category:{year1} meteorology": "تصنيف:الأرصاد الجوية في {year1}",
     "category:refugee olympic team in {year1} summer olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",
     "category:refugee olympic team in {year1} winter olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الشتوية {year1}",
     "category:{year1} television series-debuts": "تصنيف:مسلسلات تلفزيونية بدأ عرضها في {year1}",
@@ -54,7 +55,6 @@ YEAR_DATA = {
     "category:populated places established in {year1}": "تصنيف:أماكن مأهولة أسست في {year1}",  # 521
     "category:publications established in {year1}": "تصنيف:منشورات أسست في {year1}",  # 217
     "category:railway stations opened in {year1}": "تصنيف:محطات السكك الحديدية افتتحت في {year1}",  # 169
-    "category:religious buildings and structures completed in {year1}": "تصنيف:مبان دينية اكتملت في {year1}",  # 396
     "category:religious organizations established in {year1}": "تصنيف:منظمات دينية أسست في {year1}",  # 169
     "category:reptiles described in {year1}": "تصنيف:زواحف وصفت في {year1}",  # 192
     "category:residential buildings completed in {year1}": "تصنيف:مبان سكنية اكتملت في {year1}",  # 182

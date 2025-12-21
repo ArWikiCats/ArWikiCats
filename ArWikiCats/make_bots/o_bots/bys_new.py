@@ -16,12 +16,55 @@ from ...translations.by_type import (
     # by_or_fields,
     # by_by_fields,
     # by_musics,
-    # by_map_table,
-    by_under_keys,
-    Music_By_table,
     ADDITIONAL_BY_COMPONENTS,
     CONTEXT_FIELD_LABELS,
 )
+
+by_keys_under = {
+    "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
+    "by men's under-17 national team": "حسب المنتخب الوطني للرجال تحت 17 سنة",
+    "by men's under-18 national team": "حسب المنتخب الوطني للرجال تحت 18 سنة",
+    "by men's under-19 national team": "حسب المنتخب الوطني للرجال تحت 19 سنة",
+    "by men's under-20 national team": "حسب المنتخب الوطني للرجال تحت 20 سنة",
+    "by men's under-21 national team": "حسب المنتخب الوطني للرجال تحت 21 سنة",
+    "by men's under-23 national team": "حسب المنتخب الوطني للرجال تحت 23 سنة",
+    "by under-16 national team": "حسب المنتخب الوطني تحت 16 سنة",
+    "by under-17 national team": "حسب المنتخب الوطني تحت 17 سنة",
+    "by under-18 national team": "حسب المنتخب الوطني تحت 18 سنة",
+    "by under-19 national team": "حسب المنتخب الوطني تحت 19 سنة",
+    "by under-20 national team": "حسب المنتخب الوطني تحت 20 سنة",
+    "by under-21 national team": "حسب المنتخب الوطني تحت 21 سنة",
+    "by under-23 national team": "حسب المنتخب الوطني تحت 23 سنة",
+    "by women's under-16 national team": "حسب المنتخب الوطني للسيدات تحت 16 سنة",
+    "by women's under-17 national team": "حسب المنتخب الوطني للسيدات تحت 17 سنة",
+    "by women's under-18 national team": "حسب المنتخب الوطني للسيدات تحت 18 سنة",
+    "by women's under-19 national team": "حسب المنتخب الوطني للسيدات تحت 19 سنة",
+    "by women's under-20 national team": "حسب المنتخب الوطني للسيدات تحت 20 سنة",
+    "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
+    "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة"
+}
+music_by_table = {
+    "by city": "حسب المدينة",
+    "by seniority": "حسب الأقدمية",
+    "by producer": "حسب المنتج",
+    "by software": "حسب البرمجيات",
+    "by band": "حسب الفرقة",
+    "by medium by nationality": "حسب الوسط حسب الجنسية",
+    "by instrument": "حسب الآلة",
+    "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
+    "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
+    "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
+    "by instrument and nationality": "حسب الآلة والجنسية",
+    "by instrument and genre": "حسب الآلة والنوع الفني",
+    "by genre and instrument": "حسب النوع الفني والآلة",
+    "by nationality and instrument ": "حسب الجنسية والآلة الموسيقية",
+    "by century and instrument": "حسب القرن والآلة",
+    "by medium": "حسب الوسط",
+    "by name": "حسب الإسم",
+    "by voice type": "حسب نوع الصوت",
+    "by language": "حسب اللغة",
+    "by nationality": "حسب الجنسية",
+}
 
 
 def fix_keys(label: str) -> str:
@@ -35,6 +78,8 @@ def fix_keys(label: str) -> str:
 
 formatted_data = {
     "by {en} and city of setting": "حسب {ar} ومدينة الأحداث",
+    "by {en} by city-of {en2}": "حسب {ar} حسب مدينة {ar2}",
+    "by {en} or city-of {en2}": "حسب {ar} أو مدينة {ar2}",
     "by {en} and city-of {en2}": "حسب {ar} ومدينة {ar2}",
     "by year - {en}": "حسب {ar}",
     "by {en}": "حسب {ar}",
@@ -76,8 +121,8 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
 
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(by_table_year)
-data_to_find.update(Music_By_table)
-data_to_find.update(by_under_keys)
+data_to_find.update(music_by_table)
+data_to_find.update(by_keys_under)
 
 by_data_new = dict(PRIMARY_BY_COMPONENTS)
 by_data_new.update(ADDITIONAL_BY_COMPONENTS)

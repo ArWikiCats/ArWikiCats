@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
 Language processing utilities for category translation.
+
+TODO: use FormatData/FormatDataV2 methods
+
 """
 
 import functools
@@ -15,8 +18,8 @@ from ...translations import (
     Films_keys_both_new_female,
     film_keys_for_female,
     jobs_mens_data,
-    lang_key_m,
-    languages_key,
+    LANGUAGE_TOPIC_FORMATS,
+    language_key_translations,
 )
 
 
@@ -207,11 +210,11 @@ class LanguageLabelResolver:
             logger.debug(f'<<lightblue>> jobs_mens_data({suffix}): {result=}')
             return result
 
-        # 4) lang_key_m lookup with formatting
+        # 4) LANGUAGE_TOPIC_FORMATS lookup with formatting
         template = self._lang_key_m.get(suffix, "")
         if template:
             result = template.format(lang_label)
-            logger.debug(f'<<lightblue>> lang_key_m({suffix}), {template=}, {result=}')
+            logger.debug(f'<<lightblue>> LANGUAGE_TOPIC_FORMATS({suffix}), {template=}, {result=}')
             return result
 
         logger.debug(f"no match for suffix: ({suffix}), language_label={lang_label}")
@@ -229,7 +232,7 @@ class LanguageLabelResolver:
         """Resolve and retrieve language-related label based on input."""
         logger.debug(f'<<lightblue>> Lang_work/resolve :"{suffix}"')
 
-        # 1) Direct lookup in languages_key
+        # 1) Direct lookup in language_key_translations
         lang_lab = self._languages.get(suffix, "")
         if lang_lab:
             return lang_lab
@@ -273,10 +276,10 @@ _film_resolver = FilmCategoryLabelResolver(
 )
 
 _default_resolver = LanguageLabelResolver(
-    languages=languages_key,
+    languages=language_key_translations,
     nationalities=All_Nat,
     jobs_mens=jobs_mens_data,
-    lang_key_m_map=lang_key_m,
+    lang_key_m_map=LANGUAGE_TOPIC_FORMATS,
     film_resolver=_film_resolver,
 )
 

@@ -5,6 +5,12 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:German military personnel by branch": "تصنيف:أفراد عسكريون ألمان حسب الفرع",
+    "Category:Dutch military personnel by branch": "تصنيف:أفراد عسكريون هولنديون حسب الفرع",
+    "Category:1697 meteorology": "تصنيف:الأرصاد الجوية في 1697",
+    "Category:1680s meteorology": "تصنيف:الأرصاد الجوية في عقد 1680",
+    "Category:1684 meteorology": "تصنيف:الأرصاد الجوية في 1684",
+    "Category:1683 meteorology": "تصنيف:الأرصاد الجوية في 1683",
     "1650s soviet": "تصنيف:سوفيت في عقد 1650",
     "10th century chinese people by occupation": "تصنيف:صينيون في القرن 10 حسب المهنة",
     "14th century people by nationality and occupation": "تصنيف:أشخاص في القرن 14 حسب الجنسية والمهنة",

@@ -100,7 +100,7 @@ def _load_formatted_data() -> dict:
         "{en_nat} religious workers": "عمال دينيون {ar_nat}",
 
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
-        "{en_nat} saints": "قديسون {ar_nat}",
+        # "{en_nat} saints": "{ar_nat} قديسون",
         "{en_nat} eugenicists": "علماء {ar_nat} متخصصون في تحسين النسل",
         "{en_nat} politicians who committed suicide": "سياسيون {ar_nat} أقدموا على الانتحار",
         "{en_nat} contemporary artists": "فنانون {ar_nat} معاصرون",

@@ -11,22 +11,19 @@ from typing import Dict
 from ...helps.log import logger
 from ...translations import Jobs_new  # to be removed from players_new_keys
 from ...translations import jobs_mens_data  # to be  removed from players_new_keys
+from ...helps.jsonl_dump import dump_data
 from ...translations import (
-    By_table,
     Films_key_man,
-    Music_By_table,
-    # pf_keys2,
 )
 from ..lazy_data_bots.bot_2018 import pop_All_2018
 from .bot import All_P17, Films_O_TT, players_new_keys
 
+from ...make_bots.o_bots.bys_new import resolve_by_labels
+
 KAKO: Dict[str, Dict[str, str]] = {
-    # "pf_keys2": pf_keys2,                # 35,730
     "pop_All_2018": pop_All_2018,          # 161
-    "Music_By_table": Music_By_table,      # 20
     "Films_key_man": Films_key_man,        # 74
     "All_P17": All_P17,                    # 0
-    "By_table": By_table,                  # 15,899
     "Films_O_TT": Films_O_TT,              # 0
     "players_new_keys": players_new_keys,  # 1,719
     "jobs_mens_data": jobs_mens_data,      # 96,552
@@ -34,13 +31,14 @@ KAKO: Dict[str, Dict[str, str]] = {
 }
 
 
-from ...helps.jsonl_dump import dump_data
-
-
 @functools.lru_cache(maxsize=None)
 # @dump_data(1)
 def _get_KAKO(text: str) -> str:
     """Look up the Arabic label for a term across several mapping tables."""
+    resolved_label = resolve_by_labels(text)
+    if resolved_label:
+        return "resolve_by_labels", resolved_label
+
     for table_name, table_data in KAKO.items():
         resolved_label = table_data.get(text, "")
         if not resolved_label:

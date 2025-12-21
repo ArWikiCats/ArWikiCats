@@ -266,7 +266,7 @@ for language_key, arabic_name in COMPLEX_LANGUAGE_TRANSLATIONS.items():
     language_key_translations[f"{normalized_key} language"] = f"لغة {arabic_name}"
     arabic_name = arabic_name.replace(" ", " ال")
     # lab = re.sub(r" " , " ال" , lab )
-    # languages_key[x2] = "ال%s" % lab
+    # language_key_translations[x2] = "ال%s" % lab
     language_key_translations[normalized_key] = arabic_name
     for suffix_pattern in LANGUAGE_SUFFIX_FORMATS:
         translation_key = f"{normalized_key}{suffix_pattern}"
@@ -378,25 +378,25 @@ LANGUAGE_RESOURCE_FORMATS = {
     "texts": "نصوص %s",
     "prose texts": "نصوص نثرية %s",
 }
-# ---
-languages_key = language_key_translations
-languages_pop = PRIMARY_LANGUAGE_TRANSLATIONS
-languages_pop2 = SUPPLEMENTARY_LANGUAGE_TRANSLATIONS
-languages_pop3 = COMPLEX_LANGUAGE_TRANSLATIONS
-lang_key_m = LANGUAGE_TOPIC_FORMATS
-lang_ttty = LANGUAGE_RESOURCE_FORMATS
-cccccc_m = MEDIA_CATEGORY_TRANSLATIONS
 
 len_print.data_len(
     "languages.py",
     {
-        "languages_key": languages_key,
-        "languages_pop": languages_pop,
-        "languages_pop2": languages_pop2,
-        "languages_pop3": languages_pop3,
+        "language_key_translations": language_key_translations,
+        "PRIMARY_LANGUAGE_TRANSLATIONS": PRIMARY_LANGUAGE_TRANSLATIONS,
+        "SUPPLEMENTARY_LANGUAGE_TRANSLATIONS": SUPPLEMENTARY_LANGUAGE_TRANSLATIONS,
+        "COMPLEX_LANGUAGE_TRANSLATIONS": COMPLEX_LANGUAGE_TRANSLATIONS,
         "LANGUAGE_SUFFIX_FORMATS": LANGUAGE_SUFFIX_FORMATS,
-        "lang_key_m": lang_key_m,
-        "lang_ttty": lang_ttty,
-        "cccccc_m": cccccc_m,
+        "LANGUAGE_TOPIC_FORMATS": LANGUAGE_TOPIC_FORMATS,
+        "LANGUAGE_RESOURCE_FORMATS": LANGUAGE_RESOURCE_FORMATS,
     },
 )
+__all__ = [
+    "language_key_translations",
+    "PRIMARY_LANGUAGE_TRANSLATIONS",
+    "SUPPLEMENTARY_LANGUAGE_TRANSLATIONS",
+    "COMPLEX_LANGUAGE_TRANSLATIONS",
+    "LANGUAGE_SUFFIX_FORMATS",
+    "LANGUAGE_TOPIC_FORMATS",
+    "LANGUAGE_RESOURCE_FORMATS",
+]
