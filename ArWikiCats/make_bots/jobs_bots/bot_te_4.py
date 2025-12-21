@@ -4,6 +4,8 @@ Bot for translating job-related and nationality-based categories.
 
 This module provides functionality for matching and translating categories
 related to jobs, nationalities, and multi-sports topics from English to Arabic.
+
+TODO: planed to be replaced by translations_resolvers_v2
 """
 
 import functools
@@ -235,6 +237,26 @@ def jobs_in_multi_sports(category: str) -> str:
 
     category_clean = category.replace("_", " ")
     category_lower = category_clean.lower()
+
+    data_find_in_it = {
+        # medalists
+        "olympic medalists": "فائزون بميداليات أولمبية",
+        "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
+        "olympic silver medalists": "فائزون بميداليات فضية أولمبية",
+        "olympic bronze medalists": "فائزون بميداليات برونزية أولمبية",
+
+        "winter olympic medalists": "فائزون بميداليات أولمبية شتوية",
+        "summer olympic medalists": "فائزون بميداليات أولمبية صيفية",
+        # competitors
+        "olympic competitors": "منافسون أولمبيون",
+
+        "winter olympic competitors": "منافسون أولمبيون شتويون",
+        "summer olympic competitors": "منافسون أولمبيون صيفيون",
+    }
+    category_lower_fixed = category_lower.replace("olympics", "olympic")
+    if category_lower_fixed in data_find_in_it:
+        logger.info(f'end jobs_in_multi_sports "{category_lower_fixed}", direct found')
+        return data_find_in_it[category_lower_fixed]
 
     job_suffix, sport_label = _find_sport_prefix_match(category_lower)
 
