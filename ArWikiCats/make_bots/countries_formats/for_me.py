@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-!
+TODO: planed to be replaced by translations_resolvers_v2
 """
 
 import functools
