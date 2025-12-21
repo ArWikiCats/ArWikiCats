@@ -39,8 +39,8 @@ def compare_and_export_labels(data, name):
         if value == data.get(key):
             same[key] = value
         else:
-            diff[key]["new"][key] = value
-            diff[key]["old"][key] = data.get(key)
+            diff["new"][key] = value
+            diff["old"][key] = data.get(key)
 
     print(f"{len(same)=}, {len(diff)=}")
 
