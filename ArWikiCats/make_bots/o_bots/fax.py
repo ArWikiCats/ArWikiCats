@@ -6,7 +6,7 @@ import functools
 
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ...translations import lang_ttty, languages_pop
+from ...translations import LANGUAGE_RESOURCE_FORMATS, PRIMARY_LANGUAGE_TRANSLATIONS
 
 
 @functools.lru_cache(maxsize=None)
@@ -27,7 +27,7 @@ def te_language(category: str) -> str:
     language_label = ""
     language_suffix = ""
 
-    for language_key, language_name in languages_pop.items():
+    for language_key, language_name in PRIMARY_LANGUAGE_TRANSLATIONS.items():
         lowercase_key = language_key.lower()
         key_prefix = f"{lowercase_key} "
         if normalized_category.startswith(key_prefix):
@@ -36,7 +36,7 @@ def te_language(category: str) -> str:
             break
 
     if not resolved_label:
-        suffix_template = lang_ttty.get(language_suffix, "")
+        suffix_template = LANGUAGE_RESOURCE_FORMATS.get(language_suffix, "")
         if suffix_template and language_label:
             resolved_label = (
                 suffix_template % language_label if "%s" in suffix_template else suffix_template.format(language_label)

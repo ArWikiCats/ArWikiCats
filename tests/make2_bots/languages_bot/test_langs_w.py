@@ -6,10 +6,10 @@ import pytest
 
 from ArWikiCats.make_bots.languages_bot.langs_w import (
     Lang_work,
-    languages_key,
+    language_key_translations,
 )
 
-languages_key_subset = {k: languages_key[k] for k in list(languages_key.keys())[:15]}
+languages_key_subset = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:15]}
 
 data = {
     "balinese language grammar": "قواعد لغة بالية",

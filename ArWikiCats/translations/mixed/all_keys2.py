@@ -8,7 +8,7 @@ from collections.abc import Mapping
 
 from ...helps import len_print, logger
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..languages import cccccc_m, languages_key
+from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
 from ..sports import TENNIS_KEYS
 from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male
 from ..utils.json_dir import open_json_file
@@ -534,8 +534,8 @@ def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str
 
     pf_keys2: dict[str, str] = build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in)
 
-    _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, cccccc_m], skip_existing=True)
-    _update_lowercase(pf_keys2, [languages_key, People_key, new2019, NEW_2023], skip_existing=False)
+    _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
+    _update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
 
     pop_of_football_lower = {key.lower(): value for key, value in pop_of_football.items()}
 

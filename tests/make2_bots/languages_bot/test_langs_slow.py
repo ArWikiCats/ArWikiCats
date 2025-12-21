@@ -9,21 +9,21 @@ from ArWikiCats.make_bots.languages_bot.langs_w import (
     Films_key_For_nat,
     Lang_work,
     jobs_mens_data,
-    lang_key_m,
-    languages_key,
+    LANGUAGE_TOPIC_FORMATS,
+    language_key_translations,
 )
 
 # only 10 items from jobs_mens_data
 jobs_mens_data = {k: jobs_mens_data[k] for k in list(jobs_mens_data.keys())[:10]}
 Films_key_For_nat = {k: Films_key_For_nat[k] for k in list(Films_key_For_nat.keys())[:10]}
-languages_key = {k: languages_key[k] for k in list(languages_key.keys())[:10]}
+language_key_translations = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:10]}
 
-# A real language key that exists in languages_key
+# A real language key that exists in language_key_translations
 BASE_LANG = "abkhazian-language"
 BASE_LANG_OUTPUT = "اللغة الأبخازية"
 
 
-@pytest.mark.parametrize("suffix,template", lang_key_m.items())
+@pytest.mark.parametrize("suffix,template", LANGUAGE_TOPIC_FORMATS.items())
 def testlang_key_m_patterns(suffix: str, template: str) -> None:
     # builds: "<lang> <suffix>"
     category = f"{BASE_LANG} {suffix}"
@@ -32,7 +32,7 @@ def testlang_key_m_patterns(suffix: str, template: str) -> None:
     # expected formatting
     expected = template.format(BASE_LANG_OUTPUT)
 
-    assert result == expected, f"lang_key_m mismatch for '{suffix}'\n" f" {expected=}\n" f"Got:      {result}"
+    assert result == expected, f"LANGUAGE_TOPIC_FORMATS mismatch for '{suffix}'\n" f" {expected=}\n" f"Got:      {result}"
 
 
 @pytest.mark.parametrize("suffix,template", Films_key_For_nat.items())
@@ -48,11 +48,11 @@ def testFilms_key_For_nat_patterns(suffix: str, template: str) -> None:
     )
 
 
-@pytest.mark.parametrize("lang,expected", languages_key.items())
+@pytest.mark.parametrize("lang,expected", language_key_translations.items())
 def test_directlanguages_key_lookup(lang: str, expected: str) -> None:
     result = Lang_work(lang)
     assert result == expected, (
-        f"languages_key lookup mismatch for '{lang}'\n" f" {expected=}\n" f"Got:      {result}"
+        f"language_key_translations lookup mismatch for '{lang}'\n" f" {expected=}\n" f"Got:      {result}"
     )
 
 
