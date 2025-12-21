@@ -27,7 +27,7 @@ def test_make_by_label_falls_back_to_nationality(monkeypatch: pytest.MonkeyPatch
 
 def test_find_dual_by_keys_supports_dual_categories(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        "ArWikiCats.make_bots.o_bots.bys.by_table_get",
+        "ArWikiCats.make_bots.o_bots.bys.resolve_by_labels",
         lambda name: {"alpha": "ألفا", "beta": "بيتا"}.get(name, ""),
     )
 
@@ -37,7 +37,7 @@ def test_find_dual_by_keys_supports_dual_categories(monkeypatch: pytest.MonkeyPa
 
 def test_get_by_label_combines_entity_and_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        "ArWikiCats.make_bots.o_bots.bys.by_table_main_get",
+        "ArWikiCats.make_bots.o_bots.bys.resolve_by_labels",
         lambda name: {"by birth": "حسب الميلاد"}.get(name, ""),
     )
     monkeypatch.setattr(
