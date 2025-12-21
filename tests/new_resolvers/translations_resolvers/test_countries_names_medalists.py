@@ -661,10 +661,7 @@ summer_winter_games = {
     "world championships": "بطولات العالم",
     "youth olympic": "الألعاب الأولمبية الشبابية",
     "youth olympics": "الألعاب الأولمبية الشبابية",
-    "youth olympics games": "الألعاب الأولمبية الشبابية"
-}
-
-seasonal_game_labels = {
+    "youth olympics games": "الألعاب الأولمبية الشبابية",
     "all-africa games": "ألعاب عموم إفريقيا",
     "east african games": "الألعاب الإفريقية الشرقية",
     "east all-africa games": "ألعاب عموم إفريقيا الشرقية",
@@ -753,11 +750,17 @@ def test_summer_winter_tabs(category: str, expected: str) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", summer_winter_games.items(), ids=summer_winter_games.keys())
+@pytest.mark.fast
+def test_summer_winter_games(category: str, expected: str) -> None:
+    label = resolve_countries_names_medalists(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
     ("test_resolve_countries_names_medalists", main_data, resolve_countries_names_medalists),
     ("test_summer_winter_tabs", summer_winter_tabs, resolve_countries_names_medalists),
     ("test_summer_winter_games", summer_winter_games, resolve_countries_names_medalists),
-    ("test_seasonal_game_labels", seasonal_game_labels, resolve_countries_names_medalists),
 ]
 
 
