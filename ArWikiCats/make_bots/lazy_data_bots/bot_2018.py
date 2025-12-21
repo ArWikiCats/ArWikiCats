@@ -17,7 +17,7 @@ from ...translations import (
     get_from_new_p17_final,
     pf_keys2,
     sub_teams_new,
-    By_table_main,
+    by_table_get,
     SPORTS_KEYS_FOR_LABEL,
     films_mslslat_tab,
     olympics,
@@ -57,7 +57,7 @@ def _get_from_alias(key: str) -> str:
         "Jobs_new": lambda k: Jobs_new.get(k),
         "jobs_mens_data": lambda k: jobs_mens_data.get(k),
         "films_mslslat_tab": lambda k: films_mslslat_tab.get(k),
-        "By_table_main": lambda k: By_table_main.get(k),
+        "by_table_get": lambda k: by_table_get(k),
         "sub_teams_new": lambda k: sub_teams_new.get(k),
     }
 

@@ -6,18 +6,107 @@ TODO: use it to replace get_and_label, get_by_label functions in bys.py
 import re
 import functools
 from ...helps import logger
+from ...translations import open_json_file
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
-from ...translations.by_type import (
-    PRIMARY_BY_COMPONENTS,
-    BY_TABLE_BASED,
-    # by_of_fields,
-    # by_and_fields,
-    # by_or_fields,
-    # by_by_fields,
-    # by_musics,
-    ADDITIONAL_BY_COMPONENTS,
-    CONTEXT_FIELD_LABELS,
-)
+
+CONTEXT_FIELD_LABELS = {
+    "city": "مدينة",
+    "date": "تاريخ",
+    "country": "بلد",
+    "continent": "قارة",
+    "location": "موقع",
+    "period": "حقبة",
+    "time": "وقت",
+    "year": "سنة",
+    "decade": "عقد",
+    "era": "عصر",
+    "millennium": "ألفية",
+    "century": "قرن",
+}
+BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
+
+PRIMARY_COMPONENTS = {
+    "setting location": "موقع الأحداث",
+    "city": "المدينة",
+    "continent": "القارة",
+    "country": "البلد",
+    "century": "القرن",
+    "decade": "العقد",
+    "year": "السنة",
+    "millennium": "الألفية",
+
+    "date": "التاريخ",
+    "location": "الموقع",
+    "period": "الحقبة",
+    "time": "الوقت",
+    "era": "العصر",
+
+    "bank": "البنك",
+    "behavior": "السلوك",
+    "branch": "الفرع",
+    "class": "الصنف",
+    "club": "النادي",
+    "company": "الشركة",
+    "competition": "المنافسة",
+    "condition": "الحالة",
+    "conflict": "النزاع",
+    "country of residence": "بلد الإقامة",
+    "country subdivision": "تقسيم البلد",
+    "country subdivisions": "تقسيمات البلد",
+    "country-of-residence": "بلد الإقامة",
+    "county": "المقاطعة",
+    "educational establishment": "المؤسسة التعليمية",
+    "educational institution": "الهيئة التعليمية",
+    "ethnicity": "المجموعة العرقية",
+    "event": "الحدث",
+    "former religion": "الدين السابق",
+    "genre": "النوع الفني",
+    "government agency": "الوكالة الحكومية",
+    "history of colleges and universities": "تاريخ الكليات والجامعات",
+    "importance": "الأهمية",
+    "industry": "الصناعة",
+    "instrument": "الآلة",
+    "issue": "القضية",
+    "league": "الدوري",
+    "magazine": "المجلة",
+    "medium": "الوسط",
+    "nation": "الموطن",
+    "nationality": "الجنسية",
+    "newspaper": "الصحيفة",
+    "non-profit organizations": "المؤسسات غير الربحية",
+    "non-profit publishers": "ناشرون غير ربحيون",
+    "nonprofit organization": "المؤسسات غير الربحية",
+    "occupation": "المهنة",
+    "organization": "المنظمة",
+    "organizer": "المنظم",
+    "orientation": "التوجه",
+    "party": "الحزب",
+    "political orientation": "التوجه السياسي",
+    "prison": "السجن",
+    "professional association": "الجمعيات المهنية",
+    "publication": "المؤسسة",
+    "quality": "الجودة",
+    "rank": "الرتبة",
+    "record label": "شركة التسجيلات",
+    "region": "المنطقة",
+    "religion": "الدين",
+    "research organization": "منظمة البحوث",
+    "role": "الدور",
+    "sector": "القطاع",
+    "series": "السلسلة",
+    "shipbuilding company": "شركة بناء السفن",
+    "specialty": "التخصص",
+    "sport": "الرياضة",
+    "state": "الولاية",
+    "station": "المحطة",
+    "status": "الحالة",
+    "subdivision": "التقسيم",
+    "team": "الفريق",
+    "territory": "الإقليم",
+    "trade union": "النقابات العمالية",
+    "type": "الفئة",
+    "writer": "الكاتب",
+}
 
 
 def build_yearly_category_translation():
@@ -40,15 +129,15 @@ def build_yearly_category_translation():
         "doubles": "زوجي",
     }
 
-    by_table_year = {}
+    data = {}
 
     for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
         for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
             by_entry_key = f"by year - {category_key} {stage_key}"
             translation_label = f"حسب السنة - {stage_label} {category_label}"
-            by_table_year[by_entry_key] = translation_label
+            data[by_entry_key] = translation_label
     # ---
-    return by_table_year
+    return data
 
 
 by_keys_under = {
@@ -74,7 +163,7 @@ by_keys_under = {
     "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
     "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة"
 }
-music_by_table = {
+_by_music_table_base = {
     "by city": "حسب المدينة",
     "by seniority": "حسب الأقدمية",
     "by producer": "حسب المنتج",
@@ -152,12 +241,20 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
 
 data_to_find = dict(BY_TABLE_BASED)
 data_to_find.update(build_yearly_category_translation())
-data_to_find.update(music_by_table)
+data_to_find.update(_by_music_table_base)
 data_to_find.update(by_keys_under)
 
-by_data_new = dict(PRIMARY_BY_COMPONENTS)
-by_data_new.update(ADDITIONAL_BY_COMPONENTS)
-# by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_BY_COMPONENTS})
+ADDITIONAL_COMPONENTS_BY = {
+    "composer": "الملحن",
+    "composer nationality": "جنسية الملحن",
+    "artist": "الفنان",
+    "artist nationality": "جنسية الفنان",
+    "manufacturer": "الصانع",
+    "manufacturer nationality": "جنسية الصانع",
+}
+by_data_new = dict(PRIMARY_COMPONENTS)
+by_data_new.update(ADDITIONAL_COMPONENTS_BY)
+# by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_COMPONENTS})
 
 by_data_new.update({
     "nonprofit organization": "المؤسسات غير الربحية",
