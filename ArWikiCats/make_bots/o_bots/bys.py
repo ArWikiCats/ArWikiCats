@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 import functools
 from ...helps import logger, dump_data
-from ...translations import get_from_new_p17_final, by_table_get, sport_lab_nat_load_new, People_key
+from ...translations import get_from_new_p17_final, by_table_get, sport_lab_nat_load_new, People_key, by_table_main_get
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..media_bots.films_bot import te_films
@@ -140,7 +140,7 @@ def get_by_label(category: str) -> str:
         get_pop_All_18(first_part_cleaned, "") or
         ""
     )
-    by_label = by_table_get(by_section)
+    by_label = by_table_main_get(by_section)
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part=}, {by_section=}")
 

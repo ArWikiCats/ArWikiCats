@@ -25,8 +25,10 @@ data1 = {
     "by year": "حسب السنة",
     "by city of developer": "حسب مدينة التطوير",
     "by organization": "حسب المنظمة",
-    "by nonprofit organization": "حسب المؤسسات غير الربحية",
-    "by organization or nonprofit organization": "حسب المنظمة أو المؤسسات غير الربحية",
+    "by nonprofit organization": "حسب المنظمات غير الربحية",
+    "by organization or nonprofit organization": "حسب المنظمة أو المنظمات غير الربحية",
+    "by organization by nonprofit organization": "حسب المنظمة حسب المنظمات غير الربحية",
+    "by organization and nonprofit organization": "حسب المنظمة والمنظمات غير الربحية",
 }
 
 by_table_all = {
@@ -34,7 +36,6 @@ by_table_all = {
     "by country and country subdivisions": "حسب البلد وتقسيمات البلد",
     "by country and country-of-residence": "حسب البلد وبلد الإقامة",
     "by company and shipbuilding company": "حسب الشركة وشركة بناء السفن",
-    "by organization and nonprofit organization": "حسب المنظمة والمؤسسات غير الربحية",
     "by organization and research organization": "حسب المنظمة ومنظمة البحوث",
     "by orientation and political orientation": "حسب التوجه والتوجه السياسي",
     "by religion and former religion": "حسب الدين والدين السابق",
@@ -43,7 +44,6 @@ by_table_all = {
     "by country or country subdivisions": "حسب البلد أو تقسيمات البلد",
     "by country or country-of-residence": "حسب البلد أو بلد الإقامة",
     "by company or shipbuilding company": "حسب الشركة أو شركة بناء السفن",
-    "by organization or nonprofit organization": "حسب المنظمة أو المؤسسات غير الربحية",
     "by organization or research organization": "حسب المنظمة أو منظمة البحوث",
     "by orientation or political orientation": "حسب التوجه أو التوجه السياسي",
     "by religion or former religion": "حسب الدين أو الدين السابق",
@@ -52,7 +52,6 @@ by_table_all = {
     "by country by country subdivisions": "حسب البلد حسب تقسيمات البلد",
     "by country by country-of-residence": "حسب البلد حسب بلد الإقامة",
     "by company by shipbuilding company": "حسب الشركة حسب شركة بناء السفن",
-    "by organization by nonprofit organization": "حسب المنظمة حسب المؤسسات غير الربحية",
     "by organization by research organization": "حسب المنظمة حسب منظمة البحوث",
     "by orientation by political orientation": "حسب التوجه حسب التوجه السياسي",
     "by religion by former religion": "حسب الدين حسب الدين السابق",

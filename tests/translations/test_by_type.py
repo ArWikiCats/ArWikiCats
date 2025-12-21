@@ -5,6 +5,21 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.translations import by_table_get
 from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
 
+data0 = {
+    "by year": "حسب السنة",
+    "decade": "العقد",
+    "election": "الانتخابات",
+    "by non-profit organizations by country": "حسب المنظمات غير الربحية حسب البلد",
+    "non-profit organizations by continent": "المنظمات غير الربحية حسب القارة",
+    "non-profit organizations by country": "المنظمات غير الربحية حسب البلد",
+    "non-profit organizations by type": "المنظمات غير الربحية حسب الفئة",
+    "non-profit organizations": "المنظمات غير الربحية",
+    "non-profit publishers": "ناشرون غير ربحيون",
+    "organized crime": "بواسطة الجريمة المنظمة",
+    "populated place": "المكان المأهول",
+    "sport": "الرياضة",
+}
+
 data1 = {
     "by academic discipline": "حسب التخصص الأكاديمي",
     "by architectural style": "حسب الطراز المعماري",
@@ -15,7 +30,6 @@ data1 = {
     "by branch": "حسب الفرع",
     "by century and nationality": "حسب القرن والجنسية",
     "by century and occupation": "حسب القرن والمهنة",
-    "by century of closing": "حسب قرن الاغلاق",
     "by century of disestablishment": "حسب قرن الانحلال",
     "by century of establishment": "حسب قرن التأسيس",
     "by century of formal description": "حسب قرن الوصف",
@@ -29,7 +43,6 @@ data1 = {
     "by conflict": "حسب النزاع",
     "by continent of setting": "حسب قارة الأحداث",
     "by continent": "حسب القارة",
-    "by country of origin": "حسب البلد الأصل",
     "by country": "حسب البلد",
     "by country-of-residence": "حسب بلد الإقامة",
     "by county": "حسب المقاطعة",
@@ -80,7 +93,6 @@ data1 = {
     "by nationality and status": "حسب الجنسية والحالة",
     "by nationality": "حسب الجنسية",
     "by newspaper": "حسب الصحيفة",
-    "by non-profit organizations by country": "حسب المؤسسات غير الربحية حسب البلد",
     "by occupation and century": "حسب المهنة والقرن",
     "by occupation and region": "حسب المهنة والمنطقة",
     "by occupation": "حسب المهنة",
@@ -143,22 +155,21 @@ data1 = {
     "by year of establishment": "حسب سنة التأسيس",
     "by year of formal description": "حسب سنة الوصف",
     "by year of introduction": "حسب سنة الاستحداث",
-    "by year": "حسب السنة",
-    "decade": "العقد",
-    "election": "الانتخابات",
-    "non-profit organizations by continent": "المؤسسات غير الربحية حسب القارة",
-    "non-profit organizations by country": "المؤسسات غير الربحية حسب البلد",
-    "non-profit organizations by type": "المؤسسات غير الربحية حسب الفئة",
-    "non-profit organizations": "المؤسسات غير الربحية",
-    "non-profit publishers": "ناشرون غير ربحيون",
-    "organized crime": "بواسطة الجريمة المنظمة",
-    "populated place": "المكان المأهول",
-    "sport": "الرياضة",
+}
+
+data2 = {
+    "by century of closing": "حسب قرن الاغلاق",
+    "by country of origin": "حسب البلد الأصل",
+    "by organization": "حسب المنظمة",
+    "by nonprofit organization": "حسب المنظمات غير الربحية",
+    "by organization or nonprofit organization": "حسب المنظمة أو المنظمات غير الربحية",
+    "by organization by nonprofit organization": "حسب المنظمة حسب المنظمات غير الربحية",
+    "by organization and nonprofit organization": "حسب المنظمة والمنظمات غير الربحية",
 }
 
 to_test = [
-    ("test_by_table_get", data1),
-    ("test_resolve_by_labels_1", resolve_by_labels),
+    ("test_by_table_get", data1, by_table_get),
+    ("test_resolve_by_labels_1", data1, resolve_by_labels),
 ]
 
 
@@ -169,9 +180,19 @@ def test_by_table_get(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
+@pytest.mark.fast
+def test_by_table_get_2(category: str, expected: str) -> None:
+    label1 = by_table_get(category)
+    assert label1 == expected
+
+    label2 = resolve_by_labels(category)
+    assert label2 == expected
+
+
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, by_table_get)
+def test_dump_it(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

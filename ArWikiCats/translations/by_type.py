@@ -84,9 +84,9 @@ PRIMARY_BY_COMPONENTS = {
     "nation": "الموطن",
     "nationality": "الجنسية",
     "newspaper": "الصحيفة",
-    "non-profit organizations": "المؤسسات غير الربحية",
+    "non-profit organizations": "المنظمات غير الربحية",
     "non-profit publishers": "ناشرون غير ربحيون",
-    "nonprofit organization": "المؤسسات غير الربحية",
+    "nonprofit organization": "المنظمات غير الربحية",
     "occupation": "المهنة",
     "organization": "المنظمة",
     "organizer": "المنظم",
@@ -278,6 +278,13 @@ by_orginal2 = {
 }
 
 
+def by_table_main_get(by_section):
+    return (
+        by_table_main.get(by_section, "") or
+        ""
+    )
+
+
 def by_table_get(by_section):
     return (
         by_table_main.get(by_section, "") or
@@ -300,5 +307,6 @@ len_print.data_len("by_table.py", {
 })
 
 __all__ = [
+    "by_table_main_get",
     "by_table_get",
 ]

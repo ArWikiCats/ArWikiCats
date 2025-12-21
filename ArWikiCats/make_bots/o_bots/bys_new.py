@@ -3,6 +3,7 @@
 TODO: use it to replace get_and_label, get_by_label functions in bys.py
 
 """
+from locale import normalize
 import re
 import functools
 from ...helps import logger
@@ -23,6 +24,7 @@ CONTEXT_FIELD_LABELS = {
     "millennium": "ألفية",
     "century": "قرن",
 }
+
 BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
 
 PRIMARY_COMPONENTS = {
@@ -73,9 +75,9 @@ PRIMARY_COMPONENTS = {
     "nation": "الموطن",
     "nationality": "الجنسية",
     "newspaper": "الصحيفة",
-    "non-profit organizations": "المؤسسات غير الربحية",
+    "non-profit organizations": "المنظمات غير الربحية",
     "non-profit publishers": "ناشرون غير ربحيون",
-    "nonprofit organization": "المؤسسات غير الربحية",
+    "nonprofit organization": "المنظمات غير الربحية",
     "occupation": "المهنة",
     "organization": "المنظمة",
     "organizer": "المنظم",
@@ -257,7 +259,7 @@ by_data_new.update(ADDITIONAL_COMPONENTS_BY)
 # by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in PRIMARY_COMPONENTS})
 
 by_data_new.update({
-    "nonprofit organization": "المؤسسات غير الربحية",
+    "nonprofit organization": "المنظمات غير الربحية",
     "shooting location": "موقع التصوير",
     "developer": "التطوير",
     "location": "الموقع",
@@ -303,11 +305,15 @@ def _load_bot() -> MultiDataFormatterBase:
 @functools.lru_cache(maxsize=10000)
 def resolve_by_labels(category: str) -> str:
     # if formatted_data.get(category): return formatted_data[category]
-    category = fix_keys(category)
-    logger.debug(f"<<yellow>> start resolve_by_labels: {category=}")
+    normalized_category = fix_keys(category)
+    label = data_to_find.get(category) or data_to_find.get(normalized_category)
+    if label:
+        return label
+
+    logger.debug(f"<<yellow>> start resolve_by_labels: {normalized_category=}")
     both_bot = _load_bot()
-    result = both_bot.search_all_category(category)
-    logger.debug(f"<<yellow>> end resolve_by_labels: {category=}, {result=}")
+    result = both_bot.search_all_category(normalized_category)
+    logger.debug(f"<<yellow>> end resolve_by_labels: {normalized_category=}, {result=}")
     return result
 
 
