@@ -157,15 +157,38 @@ TOURNAMENT_STAGE_LABELS = {
     "doubles": "زوجي",
 }
 
-by_table_year = {}
 
-for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
-    for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
-        by_entry_key = f"by year - {category_key} {stage_key}"
-        translation_label = f"حسب السنة - {stage_label} {category_label}"
-        by_table_year[by_entry_key] = translation_label
-# ---
-# ---
+def build_yearly_category_translation():
+    COMPETITION_CATEGORY_LABELS = {
+        "girls": "فتيات",
+        "mixed": "مختلط",
+        "boys": "فتيان",
+        "singles": "فردي",
+        "womens": "سيدات",
+        "ladies": "سيدات",
+        "males": "رجال",
+        "men's": "رجال",
+    }
+    # ---
+    TOURNAMENT_STAGE_LABELS = {
+        "tournament": "مسابقة",
+        "singles": "فردي",
+        "qualification": "تصفيات",
+        "team": "فريق",
+        "doubles": "زوجي",
+    }
+
+    by_table_year = {}
+
+    for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
+        for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
+            by_entry_key = f"by year - {category_key} {stage_key}"
+            translation_label = f"حسب السنة - {stage_label} {category_label}"
+            by_table_year[by_entry_key] = translation_label
+    # ---
+    return by_table_year
+
+
 CONTEXT_FIELD_LABELS = {
     "city": "مدينة",
     "date": "تاريخ",
@@ -237,6 +260,8 @@ by_musics = {}
 for component_key, component_label in ADDITIONAL_BY_COMPONENTS.items():
     by_musics[f"by {component_key}"] = f"حسب {component_label}"
     by_musics[f"by genre and {component_key}"] = f"حسب النوع الفني و{component_label}"
+
+by_table_year = build_yearly_category_translation()
 
 By_table_main.update(by_under_keys)
 By_table_main.update(by_table_year)

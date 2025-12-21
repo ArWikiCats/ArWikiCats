@@ -10,7 +10,6 @@ from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ...translations.by_type import (
     PRIMARY_BY_COMPONENTS,
     BY_TABLE_BASED,
-    by_table_year,
     # by_of_fields,
     # by_and_fields,
     # by_or_fields,
@@ -19,6 +18,38 @@ from ...translations.by_type import (
     ADDITIONAL_BY_COMPONENTS,
     CONTEXT_FIELD_LABELS,
 )
+
+
+def build_yearly_category_translation():
+    COMPETITION_CATEGORY_LABELS = {
+        "girls": "فتيات",
+        "mixed": "مختلط",
+        "boys": "فتيان",
+        "singles": "فردي",
+        "womens": "سيدات",
+        "ladies": "سيدات",
+        "males": "رجال",
+        "men's": "رجال",
+    }
+    # ---
+    TOURNAMENT_STAGE_LABELS = {
+        "tournament": "مسابقة",
+        "singles": "فردي",
+        "qualification": "تصفيات",
+        "team": "فريق",
+        "doubles": "زوجي",
+    }
+
+    by_table_year = {}
+
+    for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
+        for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
+            by_entry_key = f"by year - {category_key} {stage_key}"
+            translation_label = f"حسب السنة - {stage_label} {category_label}"
+            by_table_year[by_entry_key] = translation_label
+    # ---
+    return by_table_year
+
 
 by_keys_under = {
     "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
@@ -120,7 +151,7 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
 # formatted_data.update(by_of_keys_2)
 
 data_to_find = dict(BY_TABLE_BASED)
-data_to_find.update(by_table_year)
+data_to_find.update(build_yearly_category_translation())
 data_to_find.update(music_by_table)
 data_to_find.update(by_keys_under)
 
