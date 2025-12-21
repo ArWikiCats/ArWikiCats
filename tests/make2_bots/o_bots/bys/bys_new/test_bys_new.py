@@ -9,8 +9,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
 
 from ArWikiCats.translations.by_type import (
-    by_of_fields,
-    by_table_year,
+    _by_of_fields,
+    _by_table_year,
 )
 
 data1 = {
@@ -224,16 +224,16 @@ def test_bys_new_1(category: str, expected: str) -> None:
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("category, expected", by_table_year.items(), ids=by_table_year.keys())
+@pytest.mark.parametrize("category, expected", _by_table_year.items(), ids=_by_table_year.keys())
 @pytest.mark.slow
 def test_by_table_year(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("category, expected", by_of_fields.items(), ids=by_of_fields.keys())
+@pytest.mark.parametrize("category, expected", _by_of_fields.items(), ids=_by_of_fields.keys())
 @pytest.mark.slow
-def test_by_of_fields(category: str, expected: str) -> None:
+def test__by_of_fields(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
