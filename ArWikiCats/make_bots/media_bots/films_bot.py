@@ -48,7 +48,10 @@ def te_films(category: str) -> str:
         "Jobs_in_Multi_Sports": lambda k: Jobs_in_Multi_Sports(k),
         "te_2018_with_nat": lambda k: te_2018_with_nat(k),
         "resolve_films": lambda k: resolve_films(k),
-        "get_pop_All_18": lambda k: get_pop_All_18(k),
+
+        # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
+
+        # "get_pop_All_18": lambda k: get_pop_All_18(k),
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
         "nat_match": lambda k: nat_match(k),
         "resolved_countries_formats_labels": lambda k: resolved_countries_formats_labels(k),
@@ -62,7 +65,7 @@ def te_films(category: str) -> str:
     _add_to_new_players_tables = [
         "Jobs_in_Multi_Sports",
         "te4_2018_Jobs",
-        "get_pop_All_18",
+        # "get_pop_All_18",
     ]
 
     _add_to_films_o_tt_tables = [
