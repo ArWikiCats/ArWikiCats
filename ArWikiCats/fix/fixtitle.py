@@ -154,8 +154,9 @@ def fix_it(ar_label: str, en_label: str) -> str:
     ar_label = re.sub(r"\{\}", "", ar_label)
 
     # santa fe province
-    if ar_label.endswith(" في") and " fe " not in normalized_en:
+    if ar_label.endswith(" في") and " fe " not in f" {normalized_en.strip()} ":
         ar_label = ar_label[: -len(" في")]
+        logger.debug(f"Removed stray 'في' from end of label: {ar_label}")
 
     if match := re.match(r".*(\d\d\d\d)\-(\d\d).*", ar_label, flags=re.IGNORECASE):
         start_year = match.group(1)
@@ -249,7 +250,7 @@ def add_fee(text: str) -> str:
     return text
 
 
-def fixlabel(label_old: str, out: bool = False, en: str = "") -> str:
+def fixlabel(label_old: str, en: str = "") -> str:
     """Return a normalized Arabic label suitable for publication.
 
     Args:
@@ -261,7 +262,7 @@ def fixlabel(label_old: str, out: bool = False, en: str = "") -> str:
         The normalized label string. An empty string indicates that the label
         was rejected by one of the validation steps.
     """
-    logger.debug(f"fixlabel: Starting with label_old: {label_old}| {en=}")
+    logger.debug(f"fixlabel: Starting with label_old: {label_old=}| {en=}")
 
     letters_regex = "[abcdefghijklmnopqrstuvwxyz]"
     if re.sub(letters_regex, "", label_old, flags=re.IGNORECASE) != label_old:

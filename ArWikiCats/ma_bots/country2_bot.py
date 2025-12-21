@@ -40,6 +40,7 @@ def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
         resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
 
     logger.info(f'>> Get_ scountry2 "{normalized_country}": cnt_la: {resolved_label}')
+
     resolved_label = " ".join(resolved_label.strip().split())
 
     return resolved_label

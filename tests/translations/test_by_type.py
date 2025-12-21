@@ -2,7 +2,6 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 # from ArWikiCats import resolve_arabic_category_label
-from ArWikiCats.translations import by_table_get
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 data0 = {
@@ -168,7 +167,7 @@ data2 = {
 }
 
 to_test = [
-    ("test_by_table_get", data1, by_table_get),
+    ("test_by_table_get", data1, resolve_by_labels),
     ("test_resolve_by_labels_1", data1, resolve_by_labels),
 ]
 
@@ -176,16 +175,13 @@ to_test = [
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
 @pytest.mark.fast
 def test_by_table_get(category: str, expected: str) -> None:
-    label = by_table_get(category)
+    label = resolve_by_labels(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
 def test_by_table_get_2(category: str, expected: str) -> None:
-    label1 = by_table_get(category)
-    assert label1 == expected
-
     label2 = resolve_by_labels(category)
     assert label2 == expected
 

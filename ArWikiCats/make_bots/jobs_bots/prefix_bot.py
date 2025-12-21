@@ -12,9 +12,8 @@ from typing import Optional
 
 from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ...make_bots.o_bots.by_type_2 import by_table_extended_get
+from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import (
-    by_table_get,
     change_male_to_female,
     Female_Jobs,
     jobs_mens_data,
@@ -26,6 +25,9 @@ from ...translations import (
     Nat_mens,
     short_womens_jobs,
     womens_prefixes,
+    FILM_PRODUCTION_COMPANY,
+    People_key,
+    SPORTS_KEYS_FOR_LABEL
 )
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -38,6 +40,37 @@ _WOMEN_SUFFIX = " women"
 replace_labels_2022: dict[str, str] = {
     "مجندون أطفال": "أطفال مجندون",
 }
+
+
+@functools.lru_cache(maxsize=10000)
+def get_sport_label(key: str) -> str:
+    """
+    """
+    if not key.endswith(" team"):
+        return ""
+    normalized_sport_key = key[:-5].strip()  # Remove " team" suffix
+    label = SPORTS_KEYS_FOR_LABEL.get(normalized_sport_key.lower(), "")
+    if label:
+        return f"حسب فريق {label}"
+
+    return ""
+
+
+@dump_data(1)
+def by_table_extended_get(text) -> str:
+    if not text.lower().startswith("by "):
+        return ""
+    key = text.lower()[3:]
+    by_result = (
+        FILM_PRODUCTION_COMPANY.get(key, "") or
+        People_key.get(key, "") or
+        ""
+    )
+    if by_result:
+        return f"بواسطة {by_result}"
+
+    result = get_sport_label(key)
+    return result
 
 
 def _strip_people_suffix(text: str) -> str:
@@ -233,7 +266,7 @@ def mens_prefixes_work(category: str) -> str:
     logger.debug(f'<<lightblue>> === Start: mens_prefixes_work for "{category}"')
 
     # Check direct table lookups first
-    label = by_table_get(category) or by_table_extended_get(category)
+    label = resolve_by_labels(category) or by_table_extended_get(category)
     if label:
         logger.debug(f'<<lightblue>> Found in By table: "{label}"')
         return label

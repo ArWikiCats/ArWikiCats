@@ -455,7 +455,7 @@ fast_data_c_2_1_lab = {
     "san luis province": "محافظة سان لويس",
     "santa catarina (state)": "ولاية سانتا كاتارينا",
     "santa cruz de tenerife": "سانتا كروث دي تينيريفه",
-    "santa fe province": "محافظة سانتا في",
+    "santa fe province": "محافظة سانتا-في",
     "santa maria da feira": "سانتا ماريا دا فييرا",
     "santiago de cuba": "سانتياغو دي كوبا",
     "santiago del estero province": "محافظة سانتياغو ديل استيرو",

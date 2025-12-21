@@ -11,10 +11,11 @@ from ....helps.log import logger
 from ....utils import fix_minor, check_key_in_tables_return_tuple
 from ...format_bots import category_relation_mapping, pop_format, pop_format2
 from ....ma_bots import country_bot
-from ....translations import typeTable, by_table_get
+from ....translations import typeTable
 from ...matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
+from ....new_resolvers.bys_new import resolve_by_labels
 
 
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
@@ -61,7 +62,7 @@ def make_cnt_lab(
                 if not resolved_label.strip().endswith(" في"):
                     resolved_label += " في "
 
-        if not by_table_get(part_2_normalized):
+        if not resolve_by_labels(part_2_normalized):
             # Films_O_TT[country2] = resolved_label
             add_to_Films_O_TT(country2, resolved_label)
         else:
