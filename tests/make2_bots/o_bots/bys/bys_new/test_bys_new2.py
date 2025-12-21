@@ -9,21 +9,21 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
 
 from ArWikiCats.translations.by_type import (
-    by_and_fields,
-    by_or_fields,
-    by_by_fields,
-    by_musics,
-    Music_By_table,
-    by_map_table,
+    _by_and_fields,
+    _by_or_fields,
+    _by_by_fields,
+    _by_music_labels,
+    _by_music_table_base,
+    _by_map_table,
 )
 
 to_test = [
-    ("test_by_and_fields", by_and_fields),
-    ("test_by_or_fields", by_or_fields),
-    ("test_by_by_fields", by_by_fields),
-    ("test_by_musics", by_musics),
-    ("test_music_by_table", Music_By_table),
-    ("by_map_table", by_map_table),
+    ("test_by_and_fields", _by_and_fields),
+    ("test_by_or_fields", _by_or_fields),
+    ("test_by_by_fields", _by_by_fields),
+    ("test_by_musics", _by_music_labels),
+    ("test_music_by_table", _by_music_table_base),
+    ("_by_map_table", _by_map_table),
 ]
 
 

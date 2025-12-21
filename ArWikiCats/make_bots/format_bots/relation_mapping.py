@@ -11,6 +11,7 @@ category_relation_mapping = {
     "manufactured by": "صنعتها",
     "manufactured in": "صنعت في",
     "manufactured-in": "صنعت في",
+    "published-by": "نشرتها",
     "published by": "نشرتها",
     "published in": "نشرت في",
     "launched in": "أطلقت في",

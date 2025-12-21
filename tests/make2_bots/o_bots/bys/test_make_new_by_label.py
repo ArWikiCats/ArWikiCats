@@ -7,7 +7,9 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.o_bots.bys import make_new_by_label
 
-make_new_by_label_data = {}
+make_new_by_label_data = {
+    "by ali khamenei": "بواسطة علي خامنئي",
+}
 
 to_test = [
     ("test_make_new_by_label", make_new_by_label_data, make_new_by_label),
@@ -22,7 +24,7 @@ def test_make_new_by_label(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("name,data, callback", to_test)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)

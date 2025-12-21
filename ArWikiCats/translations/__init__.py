@@ -2,7 +2,7 @@
 
 from .utils.json_dir import open_json_file
 from .sports.sub_teams_keys import sub_teams_new
-from .by_type import By_orginal2, By_table
+from .by_type import by_table_get, by_table_main_get
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import get_from_new_p17_final, US_STATES, COUNTRY_LABEL_OVERRIDES
@@ -153,8 +153,8 @@ __all__ = [
     "INTER_FEDS_LOWER",
     "pop_final_5",
     "Clubs_key_2",
-    "By_table",
-    "By_orginal2",
+    "by_table_main_get",
+    "by_table_get",
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_CAO_new_format",

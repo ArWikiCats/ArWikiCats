@@ -9,8 +9,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
 
 from ArWikiCats.translations.by_type import (
-    by_of_fields,
-    by_table_year,
+    _by_of_fields,
+    _by_table_year,
 )
 
 data1 = {
@@ -25,8 +25,10 @@ data1 = {
     "by year": "حسب السنة",
     "by city of developer": "حسب مدينة التطوير",
     "by organization": "حسب المنظمة",
-    "by nonprofit organization": "حسب المؤسسات غير الربحية",
-    "by organization or nonprofit organization": "حسب المنظمة أو المؤسسات غير الربحية",
+    "by nonprofit organization": "حسب المنظمات غير الربحية",
+    "by organization or nonprofit organization": "حسب المنظمة أو المنظمات غير الربحية",
+    "by organization by nonprofit organization": "حسب المنظمة حسب المنظمات غير الربحية",
+    "by organization and nonprofit organization": "حسب المنظمة والمنظمات غير الربحية",
 }
 
 by_table_all = {
@@ -34,7 +36,6 @@ by_table_all = {
     "by country and country subdivisions": "حسب البلد وتقسيمات البلد",
     "by country and country-of-residence": "حسب البلد وبلد الإقامة",
     "by company and shipbuilding company": "حسب الشركة وشركة بناء السفن",
-    "by organization and nonprofit organization": "حسب المنظمة والمؤسسات غير الربحية",
     "by organization and research organization": "حسب المنظمة ومنظمة البحوث",
     "by orientation and political orientation": "حسب التوجه والتوجه السياسي",
     "by religion and former religion": "حسب الدين والدين السابق",
@@ -43,7 +44,6 @@ by_table_all = {
     "by country or country subdivisions": "حسب البلد أو تقسيمات البلد",
     "by country or country-of-residence": "حسب البلد أو بلد الإقامة",
     "by company or shipbuilding company": "حسب الشركة أو شركة بناء السفن",
-    "by organization or nonprofit organization": "حسب المنظمة أو المؤسسات غير الربحية",
     "by organization or research organization": "حسب المنظمة أو منظمة البحوث",
     "by orientation or political orientation": "حسب التوجه أو التوجه السياسي",
     "by religion or former religion": "حسب الدين أو الدين السابق",
@@ -52,7 +52,6 @@ by_table_all = {
     "by country by country subdivisions": "حسب البلد حسب تقسيمات البلد",
     "by country by country-of-residence": "حسب البلد حسب بلد الإقامة",
     "by company by shipbuilding company": "حسب الشركة حسب شركة بناء السفن",
-    "by organization by nonprofit organization": "حسب المنظمة حسب المؤسسات غير الربحية",
     "by organization by research organization": "حسب المنظمة حسب منظمة البحوث",
     "by orientation by political orientation": "حسب التوجه حسب التوجه السياسي",
     "by religion by former religion": "حسب الدين حسب الدين السابق",
@@ -224,16 +223,16 @@ def test_bys_new_1(category: str, expected: str) -> None:
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("category, expected", by_table_year.items(), ids=by_table_year.keys())
+@pytest.mark.parametrize("category, expected", _by_table_year.items(), ids=_by_table_year.keys())
 @pytest.mark.slow
 def test_by_table_year(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("category, expected", by_of_fields.items(), ids=by_of_fields.keys())
+@pytest.mark.parametrize("category, expected", _by_of_fields.items(), ids=_by_of_fields.keys())
 @pytest.mark.slow
-def test_by_of_fields(category: str, expected: str) -> None:
+def test__by_of_fields(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 

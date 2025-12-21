@@ -1,3 +1,73 @@
+## [#245](https://github.com/MrIbrahem/ArWikiCats/pull/245) - 2025-12-21
+
+## [#244](https://github.com/MrIbrahem/ArWikiCats/pull/244) - 2025-12-21
+
+* **Bug Fixes**
+  * Corrected Arabic label for "Oxford University Cricket Club" and removed an obsolete person alias.
+
+* **Refactor**
+  * Reorganized translation lookup and mapping resources for more consistent resolution and smaller public surface.
+
+* **Tests**
+  * Added and updated tests to cover renamed/expanded translation mappings and lookup behavior.
+
+* **Chores**
+  * Updated changelog and gitignore entries.
+
+## [#243](https://github.com/MrIbrahem/ArWikiCats/pull/243) - 2025-12-21
+
+* **New Features**
+  * Added new Arabic translations and expanded category mappings (including sports and medalist categories).
+  * New example scripts and a reusable compare-and-export utility for label comparisons.
+
+* **Bug Fixes**
+  * Updated Arabic translations for educational institution and event-related categories.
+  * Corrected several branch/category translation strings.
+
+* **Refactor**
+  * Renamed and reorganized translation resources and mapping keys for clearer public interfaces.
+
+* **Tests**
+  * Added and updated test fixtures to cover new/changed category mappings.
+
+## [#242](https://github.com/MrIbrahem/ArWikiCats/pull/242) - 2025-12-20
+
+* **Tests**
+  * Expanded test coverage for separator resolution and text-splitting functionality with multiple edge cases
+  * Enhanced test datasets for military and personnel-related translations
+  * Improved test validation scenarios for dictionary operations and data integrity
+  * Removed obsolete test code and consolidated test structure
+
+## [#240](https://github.com/MrIbrahem/ArWikiCats/pull/240) - 2025-12-20
+
+* **Tests**
+  * Expanded test coverage for separator resolution and text-splitting functionality with multiple edge cases
+  * Enhanced test datasets for military and personnel-related translations
+  * Improved test validation scenarios for dictionary operations and data integrity
+  * Removed obsolete test code and consolidated test structure
+
+* **New Features**
+  * Extended translation support for additional category types including saints, eugenicists, political figures, religious workers, and contemporary artists.
+  * Improved handling of composite category labels with enhanced key normalization.
+
+* **Updates**
+  * Refined translation mappings for location-based categories.
+  * Updated category naming conventions for improved clarity.
+
+* **Tests**
+  * Expanded test coverage for translation resolution across multiple category types.
+
+## [#239](https://github.com/MrIbrahem/ArWikiCats/pull/239) - 2025-12-19
+
+* **Refactor**
+  * Consolidated multiple resolver functions into a single unified resolver for improved efficiency.
+  * Reorganized internal module structure to streamline dependencies and reduce code complexity.
+  * Removed deprecated formatting classes to improve system stability.
+
+* **Bug Fixes**
+  * Fixed category resolution for certain year-based and establishment-related categories.
+  * Corrected module import paths to ensure proper resolution across the system.
+
 ## [#238](https://github.com/MrIbrahem/ArWikiCats/pull/238) - 2025-12-19
 
 * **New Features**

@@ -27,3 +27,4 @@ examples/diff.json
 _work_files/data.json
 examples/compare_diff.json
 examples/compare_no_labels.json
+/ArWikiCats/helps/*.jsonl

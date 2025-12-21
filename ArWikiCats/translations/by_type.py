@@ -1,8 +1,40 @@
 #!/usr/bin/python3
 """ """
-
-from ..helps import len_print
+import functools
+from ..helps import len_print, dump_data
 from .utils.json_dir import open_json_file
+
+
+def build_yearly_category_translation():
+    COMPETITION_CATEGORY_LABELS = {
+        "girls": "فتيات",
+        "mixed": "مختلط",
+        "boys": "فتيان",
+        "singles": "فردي",
+        "womens": "سيدات",
+        "ladies": "سيدات",
+        "males": "رجال",
+        "men's": "رجال",
+    }
+    # ---
+    TOURNAMENT_STAGE_LABELS = {
+        "tournament": "مسابقة",
+        "singles": "فردي",
+        "qualification": "تصفيات",
+        "team": "فريق",
+        "doubles": "زوجي",
+    }
+
+    _by_table_year = {}
+
+    for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
+        for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
+            by_entry_key = f"by year - {category_key} {stage_key}"
+            translation_label = f"حسب السنة - {stage_label} {category_label}"
+            _by_table_year[by_entry_key] = translation_label
+    # ---
+    return _by_table_year
+
 
 PRIMARY_BY_COMPONENTS = {
     "setting location": "موقع الأحداث",
@@ -52,9 +84,9 @@ PRIMARY_BY_COMPONENTS = {
     "nation": "الموطن",
     "nationality": "الجنسية",
     "newspaper": "الصحيفة",
-    "non-profit organizations": "المؤسسات غير الربحية",
+    "non-profit organizations": "المنظمات غير الربحية",
     "non-profit publishers": "ناشرون غير ربحيون",
-    "nonprofit organization": "المؤسسات غير الربحية",
+    "nonprofit organization": "المنظمات غير الربحية",
     "occupation": "المهنة",
     "organization": "المنظمة",
     "organizer": "المنظم",
@@ -87,7 +119,7 @@ PRIMARY_BY_COMPONENTS = {
     "writer": "الكاتب",
 }
 
-Music_By_table = {
+_by_music_table_base = {
     "by city": "حسب المدينة",
     "by seniority": "حسب الأقدمية",
     "by producer": "حسب المنتج",
@@ -112,9 +144,16 @@ Music_By_table = {
 
 BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
 
-By_table = dict(BY_TABLE_BASED)
+by_table_main = dict(BY_TABLE_BASED)
 
-by_under_keys = {
+_by_of_fields = {}
+_by_map_table = {}
+_by_and_fields = {}
+_by_or_fields = {}
+_by_by_fields = {}
+_by_music_labels = {}
+
+_by_under_keys = {
     "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
     "by men's under-17 national team": "حسب المنتخب الوطني للرجال تحت 17 سنة",
     "by men's under-18 national team": "حسب المنتخب الوطني للرجال تحت 18 سنة",
@@ -148,7 +187,7 @@ COMPETITION_CATEGORY_LABELS = {
     "males": "رجال",
     "men's": "رجال",
 }
-# ---
+
 TOURNAMENT_STAGE_LABELS = {
     "tournament": "مسابقة",
     "singles": "فردي",
@@ -157,15 +196,6 @@ TOURNAMENT_STAGE_LABELS = {
     "doubles": "زوجي",
 }
 
-by_table_year = {}
-
-for category_key, category_label in COMPETITION_CATEGORY_LABELS.items():
-    for stage_key, stage_label in TOURNAMENT_STAGE_LABELS.items():
-        by_entry_key = f"by year - {category_key} {stage_key}"
-        translation_label = f"حسب السنة - {stage_label} {category_label}"
-        by_table_year[by_entry_key] = translation_label
-# ---
-# ---
 CONTEXT_FIELD_LABELS = {
     "city": "مدينة",
     "date": "تاريخ",
@@ -180,10 +210,10 @@ CONTEXT_FIELD_LABELS = {
     "millennium": "ألفية",
     "century": "قرن",
 }
-by_of_fields = {}
+
 
 for context_key, context_label in CONTEXT_FIELD_LABELS.items():
-    by_of_fields.update({
+    _by_of_fields.update({
         f"by {context_key} of shooting location": f"حسب {context_label} موقع التصوير",
         f"by {context_key} of developer": f"حسب {context_label} التطوير",
         f"by {context_key} of location": f"حسب {context_label} الموقع",
@@ -200,28 +230,23 @@ for context_key, context_label in CONTEXT_FIELD_LABELS.items():
         f"by {context_key} of completion": f"حسب {context_label} الانتهاء",
     })
 
-by_map_table = {}
-by_and_fields = {}
-by_or_fields = {}
-by_by_fields = {}
-
 for component_key, component_label in PRIMARY_BY_COMPONENTS.items():
-    by_map_table[f"by {component_key}"] = f"حسب {component_label}"
+    _by_map_table[f"by {component_key}"] = f"حسب {component_label}"
 
     for secondary_key, secondary_label in PRIMARY_BY_COMPONENTS.items():
         if component_key != secondary_key:
 
             combined_key = f"by {component_key} and {secondary_key}"
             combined_label = f"حسب {component_label} و{secondary_label}"
-            by_and_fields[combined_key] = combined_label
+            _by_and_fields[combined_key] = combined_label
 
             either_key = f"by {component_key} or {secondary_key}"
             either_label = f"حسب {component_label} أو {secondary_label}"
-            by_or_fields[either_key] = either_label
+            _by_or_fields[either_key] = either_label
 
             chained_key = f"by {component_key} by {secondary_key}"
             chained_label = f"حسب {component_label} حسب {secondary_label}"
-            by_by_fields[chained_key] = chained_label
+            _by_by_fields[chained_key] = chained_label
 
 ADDITIONAL_BY_COMPONENTS = {
     "composer": "الملحن",
@@ -231,43 +256,57 @@ ADDITIONAL_BY_COMPONENTS = {
     "manufacturer": "الصانع",
     "manufacturer nationality": "جنسية الصانع",
 }
-# ---
-by_musics = {}
-# ---
+
 for component_key, component_label in ADDITIONAL_BY_COMPONENTS.items():
-    by_musics[f"by {component_key}"] = f"حسب {component_label}"
-    by_musics[f"by genre and {component_key}"] = f"حسب النوع الفني و{component_label}"
+    _by_music_labels[f"by {component_key}"] = f"حسب {component_label}"
+    _by_music_labels[f"by genre and {component_key}"] = f"حسب النوع الفني و{component_label}"
 
-By_table.update(by_under_keys)
-By_table.update(by_table_year)
-By_table.update(by_of_fields)
-By_table.update(by_map_table)
-By_table.update(by_and_fields)
-By_table.update(by_or_fields)
-By_table.update(by_by_fields)
-By_table.update(by_musics)
-By_table.update(Music_By_table)
+_by_table_year = build_yearly_category_translation()
 
-By_orginal2 = {
-    entry.replace("by ", "", 1).lower(): By_table[entry].replace("حسب ", "", 1) for entry in By_table
+by_table_main.update(_by_under_keys)
+by_table_main.update(_by_table_year)
+by_table_main.update(_by_of_fields)
+by_table_main.update(_by_map_table)
+by_table_main.update(_by_and_fields)
+by_table_main.update(_by_or_fields)
+by_table_main.update(_by_by_fields)
+by_table_main.update(_by_music_labels)
+by_table_main.update(_by_music_table_base)
+
+by_orginal2 = {
+    entry.replace("by ", "", 1).lower(): by_table_main[entry].replace("حسب ", "", 1) for entry in by_table_main
 }
 
+
+def by_table_main_get(by_section):
+    return (
+        by_table_main.get(by_section, "") or
+        ""
+    )
+
+
+def by_table_get(by_section):
+    return (
+        by_table_main.get(by_section, "") or
+        by_orginal2.get(by_section, "") or
+        ""
+    )
+
+
 len_print.data_len("by_table.py", {
-    "by_table": By_table,
-    "By_orginal2": By_orginal2,
-    "by_table_year": by_table_year,
-    "by_of_fields": by_of_fields,
-    "by_and_fields": by_and_fields,
-    "by_or_fields": by_or_fields,
-    "by_by_fields": by_by_fields,
-    "by_musics": by_musics,
-    "Music_By_table": Music_By_table,
-    "by_under_keys": by_under_keys,
+    "by_table_main": by_table_main,
+    "by_orginal2": by_orginal2,
+    "_by_table_year": _by_table_year,
+    "_by_of_fields": _by_of_fields,
+    "_by_and_fields": _by_and_fields,
+    "_by_or_fields": _by_or_fields,
+    "_by_by_fields": _by_by_fields,
+    "_by_music_labels": _by_music_labels,
+    "_by_music_table_base": _by_music_table_base,
+    "_by_under_keys": _by_under_keys,
 })
 
 __all__ = [
-    "BY_TABLE_BASED",
-    "PRIMARY_BY_COMPONENTS",
-    "by_table_year",
-    "By_table",
+    "by_table_main_get",
+    "by_table_get",
 ]

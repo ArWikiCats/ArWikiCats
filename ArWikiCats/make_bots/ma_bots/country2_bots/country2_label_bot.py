@@ -11,7 +11,7 @@ from ....helps.log import logger
 from ....utils import fix_minor, check_key_in_tables_return_tuple
 from ...format_bots import category_relation_mapping, pop_format, pop_format2
 from ....ma_bots import country_bot
-from ....translations import By_table, typeTable
+from ....translations import typeTable, by_table_get
 from ...matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
@@ -59,11 +59,11 @@ def make_cnt_lab(
             else:
                 logger.info(f'>>>>>> Add في to {part_1_normalized=} part_1_normalized in New_players:')
                 resolved_label += " في "
-        if part_2_normalized not in By_table:
+        if not by_table_get(part_2_normalized):
             # Films_O_TT[country2] = resolved_label
             add_to_Films_O_TT(country2, resolved_label)
         else:
-            logger.info("<<lightblue>>>>>> part_2_normalized in By_table")
+            logger.info("<<lightblue>>>>>> part_2_normalized in By table main")
 
     if part_2_label:
         if not part_2_normalized.startswith("by "):

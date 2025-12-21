@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.o_bots.fax import te_language
+from ArWikiCats.make_bots.languages_bot.languages_resolvers import te_language
 
 fast_data = {}
 

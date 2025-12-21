@@ -3,15 +3,10 @@
 
 from ..helps import len_print
 
-# import re
-# ---
 from .mixed.all_keys3 import ALBUMS_TYPE
 
 language_key_translations = {}
-# "spanish" : "إسبانية",
-# "arabic" : "عربية",
-# }
-# ---
+
 PRIMARY_LANGUAGE_TRANSLATIONS = {
     "balinese": "بالية",
     "pali": "بالية",

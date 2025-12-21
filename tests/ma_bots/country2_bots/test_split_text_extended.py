@@ -446,6 +446,6 @@ def test_data_to(category: str, expected: tuple[str, str]) -> None:
 
 @pytest.mark.fast
 @pytest.mark.parametrize("category,expected", data_based_in.items(), ids=data_based_in.keys())
-def test_data_based_in(category: str, expected: tuple[str, str]) -> None:
+def test_split_text_by_separator(category: str, expected: tuple[str, str]) -> None:
     result: tuple[str, str] = split_text_by_separator(separator=" based in ", country=category)
     assert result == expected

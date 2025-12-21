@@ -4,13 +4,21 @@ from pathlib import Path
 from typing import Callable
 
 
-def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
-    if not data:
-        return
-
+def dump_one(data: dict, file_name: str) -> None:
     diff_data_path = Path(__file__).parent / "diff_data"
     diff_data_path.mkdir(exist_ok=True, parents=True)
     file_path = diff_data_path / f"{file_name}.json"
+
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Error writing diff data: {e}")
+
+
+def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
+    if not data:
+        return
 
     if _sort:
         data_sorted = {x: v for x, v in data.items() if v}
@@ -18,11 +26,7 @@ def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
     else:
         data_sorted = data
 
-    try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(data_sorted, f, ensure_ascii=False, indent=4)
-    except Exception as e:
-        print(f"Error writing diff data: {e}")
+    dump_one(data_sorted, file_name)
 
 
 def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None:

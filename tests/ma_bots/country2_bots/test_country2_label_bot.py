@@ -16,35 +16,35 @@ def test_separator_arabic_resolve() -> None:
     # Test "to" separator
     result = separator_arabic_resolve("to")
     assert result == " إلى "
-    
+
     # Test "on" separator
     result = separator_arabic_resolve("on")
     assert result == " على "
-    
+
     # Test "about" separator
     result = separator_arabic_resolve("about")
     assert result == " عن "
-    
+
     # Test "based in" separator
     result = separator_arabic_resolve("based in")
     assert result == " مقرها في "
-    
+
     # Test "in" separator (from category_relation_mapping)
     result = separator_arabic_resolve("in")
     assert result == " في "
-    
+
     # Test "from" separator (from category_relation_mapping)
     result = separator_arabic_resolve("from")
     assert result == " من "
-    
+
     # Test "by" separator (should return space, not from mapping)
     result = separator_arabic_resolve("by")
     assert result == " "
-    
+
     # Test empty string
     result = separator_arabic_resolve("")
     assert isinstance(result, str)
-    
+
     # Test unknown separator
     result = separator_arabic_resolve("unknown_sep")
     assert isinstance(result, str)
@@ -537,7 +537,7 @@ title_work_tests_data = {
     "songs about south dakota": "أغاني عن داكوتا الجنوبية",
     "south american football by country": "كرة القدم الأمريكية الجنوبية حسب البلد",
     "spain by decade": "إسبانيا حسب العقد",
-    "sport in ottoman empire": "الرياضة في في الدولة العثمانية",
+    "sport in ottoman empire": "الرياضة في الدولة العثمانية",
     "sports by country": "ألعاب رياضية حسب البلد",
     "sports by month": "ألعاب رياضية حسب الشهر",
     "sports clubs and teams in brazil": "أندية وفرق رياضية في البرازيل",

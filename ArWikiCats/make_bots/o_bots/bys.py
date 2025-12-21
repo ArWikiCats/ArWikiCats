@@ -10,10 +10,10 @@ from __future__ import annotations
 import re
 import functools
 from ...helps import logger, dump_data
-from ...translations import By_orginal2, By_table, get_from_new_p17_final
-from ..lazy_data_bots.bot_2018 import pop_All_2018
+from ...translations import get_from_new_p17_final, by_table_get, sport_lab_nat_load_new, People_key, by_table_main_get
+
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..media_bots.films_bot import te_films
-from ...translations import sport_lab_nat_load_new, People_key
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
 BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)
@@ -29,8 +29,8 @@ def find_dual_by_keys(normalized: str) -> str:
         return ""
 
     first_key, second_key = match.groups()
-    first_label = By_orginal2.get(first_key.lower(), "")
-    second_label = By_orginal2.get(second_key.lower(), "")
+    first_label = by_table_get(first_key.lower())
+    second_label = by_table_get(second_key.lower())
 
     logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
     logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
@@ -62,6 +62,7 @@ def by_people_bot(key: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def make_new_by_label(category: str) -> str:
     """Return the Arabic label for ``category`` that starts with ``by``.
 
@@ -136,13 +137,10 @@ def get_by_label(category: str) -> str:
 
     first_label = (
         get_from_new_p17_final(first_part_cleaned) or
-        pop_All_2018.get(first_part_cleaned, "") or
+        get_pop_All_18(first_part_cleaned, "") or
         ""
     )
-    by_label = (
-        By_table.get(by_section, "") or
-        ""
-    )
+    by_label = by_table_main_get(by_section)
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part=}, {by_section=}")
 
@@ -184,13 +182,13 @@ def get_and_label(category: str) -> str:
 
     first_label = (
         get_from_new_p17_final(first_part, None) or
-        pop_All_2018.get(first_part) or
+        get_pop_All_18(first_part) or
         ""
     )
 
     last_label = (
         get_from_new_p17_final(last_part, None) or
-        pop_All_2018.get(last_part) or
+        get_pop_All_18(last_part) or
         ""
     )
 
