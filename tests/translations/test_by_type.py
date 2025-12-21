@@ -3,7 +3,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 # from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.translations import by_table_get
-from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
+from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 data0 = {
     "by year": "حسب السنة",

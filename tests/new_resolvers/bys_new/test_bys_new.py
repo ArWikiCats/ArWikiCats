@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.o_bots.bys_new import resolve_by_labels
+from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 from ArWikiCats.translations.by_type import (
     _by_of_fields,
@@ -14,6 +14,8 @@ from ArWikiCats.translations.by_type import (
 )
 
 data1 = {
+    "by populated place and decade": "حسب المكان المأهول والعقد",
+    "by populated place and year": "حسب المكان المأهول والسنة",
     "by city or city of sport": "حسب المدينة أو مدينة الرياضة",
     "by city by city of sport": "حسب المدينة حسب مدينة الرياضة",
     "by city and city of sport": "حسب المدينة ومدينة الرياضة",

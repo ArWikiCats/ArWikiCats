@@ -5,6 +5,12 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "category:non-profit organizations by continent": "تصنيف:منظمات غير ربحية حسب القارة",
+    "category:non-profit organizations by country": "تصنيف:منظمات غير ربحية حسب البلد",
+    "category:non-profit organizations by dependent territory": "تصنيف:منظمات غير ربحية حسب الأقاليم التابعة",
+    "category:non-profit organizations by subject": "تصنيف:منظمات غير ربحية حسب الموضوع",
+    "category:non-profit organizations by type": "تصنيف:منظمات غير ربحية حسب الفئة",
+    "category:academic journals published by non-profit organizations by country": "تصنيف:نشرات دورية أكاديمية نشرتها منظمات غير ربحية حسب البلد",
     "Category:German military personnel by branch": "تصنيف:أفراد عسكريون ألمان حسب الفرع",
     "Category:Dutch military personnel by branch": "تصنيف:أفراد عسكريون هولنديون حسب الفرع",
     "Category:1697 meteorology": "تصنيف:الأرصاد الجوية في 1697",
