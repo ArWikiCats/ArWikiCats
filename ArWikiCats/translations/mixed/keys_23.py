@@ -92,7 +92,7 @@ ANTI_SUFFIXES: dict[str, str] = {
     "literary awards": "جوائز أدبية",
     "magazines": "مجلات",
     "manga": "مانغا",
-    "mmagazines": "مجلات",
+    "magazines": "مجلات",
     "music": "موسيقى",
     "names": "أسماء",
     "newspapers": "صحف",
