@@ -60,7 +60,7 @@ basedtypeTable = {
     "-related professional associations": "جمعيات تخصصية متعلقة",
     "-related lists": "قوائم متعلقة",
     "commonwealth games competitors for": "منافسون في ألعاب الكومنولث من",
-    "winter olympics competitors for": "منافسون في الألعاب الأولمبية الشتوية من",
+    "winter olympics competitors for": "منافسون أولمبيون شتويون من",
     "uci women's road world cup": "كأس العالم لسباق الدراجات على الطريق للنساء",
 }
 

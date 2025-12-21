@@ -29,18 +29,18 @@ medalists_type: Dict[str, str] = {
     "%s competitors": "منافسون في %s",
     "%s medallists": "فائزون بميداليات %s",
     "%s medalists": "فائزون بميداليات %s",
-    "%s gold medalists": "فائزون بميداليات ذهبية %s",
-    "%s silver medalists": "فائزون بميداليات فضية %s",
-    "%s bronze medalists": "فائزون بميداليات برونزية %s",
+    "%s gold medalists": "فائزون بميداليات ذهبية في %s",
+    "%s silver medalists": "فائزون بميداليات فضية في %s",
+    "%s bronze medalists": "فائزون بميداليات برونزية في %s",
 }
 
 for tty, tty_lab in medalists_type.items():
     for k, v in SUMMER_WINTER_GAMES.items():
         olympics[tty % k] = tty_lab % v
     olympics[tty % "world athletics indoor championships"] = tty_lab % "بطولة العالم لألعاب القوى داخل الصالات"
-    olympics[tty % "olympics"] = tty_lab % "أولمبية"
 
-    # olympics[tty % " games"] = tty_lab % "في "
+olympics["olympics medallists"] = "فائزون بميداليات أولمبية"
+olympics["olympics medalists"] = "فائزون بميداليات أولمبية"
 
 
 olympics["fis nordic world ski championships medalists"] = "فائزون بميداليات بطولة العالم للتزلج النوردي على الثلج"

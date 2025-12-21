@@ -322,11 +322,11 @@ olympics = {
 
 for_countries_t = {
     "Category:Winter Olympics competitors for Eswatini": "تصنيف:منافسون أولمبيون شتويون من إسواتيني",
-    "Category:Winter Olympics competitors by country": "تصنيف:منافسون في الألعاب الأولمبية الشتوية حسب البلد",
-    "Category:Winter Olympics competitors by sport": "تصنيف:منافسون في الألعاب الأولمبية الشتوية حسب الرياضة",
-    "Category:Winter Olympics competitors by sport and country": "تصنيف:منافسون في الألعاب الأولمبية الشتوية حسب الرياضة والبلد",
-    "Category:Winter Olympics competitors by sport and year": "تصنيف:منافسون في الألعاب الأولمبية الشتوية حسب الرياضة والسنة",
-    "Category:Winter Olympics competitors by year": "تصنيف:منافسون في الألعاب الأولمبية الشتوية حسب السنة",
+    "Category:Winter Olympics competitors by country": "تصنيف:منافسون أولمبيون شتويون حسب البلد",
+    "Category:Winter Olympics competitors by sport": "تصنيف:منافسون أولمبيون شتويون حسب الرياضة",
+    "Category:Winter Olympics competitors by sport and country": "تصنيف:منافسون أولمبيون شتويون حسب الرياضة والبلد",
+    "Category:Winter Olympics competitors by sport and year": "تصنيف:منافسون أولمبيون شتويون حسب الرياضة والسنة",
+    "Category:Winter Olympics competitors by year": "تصنيف:منافسون أولمبيون شتويون حسب السنة",
 }
 
 for_countries = {

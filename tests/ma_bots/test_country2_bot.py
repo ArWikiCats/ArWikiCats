@@ -188,7 +188,7 @@ data_slow = {
     "ethiopian basketball players": "لاعبو كرة سلة إثيوبيون",
     "euroleague by club": "الدوري الأوروبي لكرة السلة حسب النادي",
     "european games gold medalists for slovakia": "فائزون بميداليات ذهبية في الألعاب الأوروبية من سلوفاكيا",
-    "european games medalists for poland": "فائزون بميداليات في الألعاب الأوروبية من بولندا",
+    "european games medalists for poland": "فائزون بميداليات الألعاب الأوروبية من بولندا",
     "european rugby union by country": "اتحاد الرجبي الأوروبي حسب البلد",
     "executions in washington (state)": "إعدامات في ولاية واشنطن",
     "expatriate sports-people from northern ireland": "رياضيون مغتربون من أيرلندا الشمالية",

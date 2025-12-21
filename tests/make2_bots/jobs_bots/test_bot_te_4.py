@@ -169,7 +169,7 @@ Multi_Sports_data = {
     "summer olympics coaches": "مدربون في الألعاب الأولمبية الصيفية",
     "summer olympics competitors": "منافسون أولمبيون صيفيون",
     "summer world university games competitors": "منافسون في ألعاب الجامعات العالمية الصيفية",
-    "winter olympics competitors": "منافسون في الألعاب الأولمبية الشتوية",
+    "winter olympics competitors": "منافسون أولمبيون شتويون",
     "youth olympics biathletes": "لاعبو بياثلون في الألعاب الأولمبية الشبابية",
     "youth olympics ice hockey players": "لاعبو هوكي جليد في الألعاب الأولمبية الشبابية",
     "youth olympics nordic combined skiers": "متزحلقو تزلج نوردي مزدوج في الألعاب الأولمبية الشبابية",

@@ -17,6 +17,7 @@ sports_formatted_data = {
 
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
+    "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
     "olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_ar}",
     "olympic silver medalists for {en} in {en_sport}": "فائزون بميداليات فضية أولمبية من {ar} في {sport_ar}",
     "olympic bronze medalists for {en} in {en_sport}": "فائزون بميداليات برونزية أولمبية من {ar} في {sport_ar}",
