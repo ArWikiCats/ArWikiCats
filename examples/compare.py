@@ -45,9 +45,10 @@ def compare_and_export_labels(data, name):
     print(f"{same=}, {len(diff)=}")
 
     output_dir = Path(__file__).parent
+    if diff:
+        with open(output_dir / f"{name}_diff.json", "w", encoding="utf-8") as f:
+            json.dump(diff, f, ensure_ascii=False, indent=4)
 
-    with open(output_dir / f"{name}_diff.json", "w", encoding="utf-8") as f:
-        json.dump(diff, f, ensure_ascii=False, indent=4)
-
-    with open(output_dir / f"{name}_no_labels.json", "w", encoding="utf-8") as f:
-        json.dump(no_labels, f, ensure_ascii=False, indent=4)
+    if no_labels:
+        with open(output_dir / f"{name}_no_labels.json", "w", encoding="utf-8") as f:
+            json.dump(no_labels, f, ensure_ascii=False, indent=4)
