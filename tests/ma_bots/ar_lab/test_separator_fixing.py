@@ -6,7 +6,6 @@ and edge cases.
 """
 
 import pytest
-from unittest.mock import patch
 
 from ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab import (
     separator_lists_fixing,
@@ -200,15 +199,25 @@ class TestHelperFunctions:
         # " in" (with space) is not in "military installations", so should be False
         assert result is True
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.pop_of_without_in", [])
-    def test_handle_in_separator_adds_في(self) -> None:
+    def test_handle_in_separator_adds_في(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test _handle_in_separator adds 'في' when conditions are met."""
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.pop_of_without_in",
+            [],
+            raising=False,
+        )
+
         result = _handle_in_separator("منشآت عسكرية", "in", "military installations in")
         assert result == "منشآت عسكرية في"
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.pop_of_without_in", ["military installations in"])
-    def test_handle_in_separator_skips_for_exceptions(self) -> None:
+    def test_handle_in_separator_skips_for_exceptions(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test _handle_in_separator skips adding 'في' for exception types."""
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.pop_of_without_in",
+            ["military installations in"],
+            raising=False,
+        )
+
         result = _handle_in_separator("منشآت عسكرية", "in", "military installations in")
         assert result == "منشآت عسكرية"
 
@@ -280,13 +289,17 @@ class TestEdgeCases:
         # type_lower should be lowercase so this should not match
         assert result == "منشآت عسكرية"
 
-    @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    def test_add_in_tab_removesuffix_python_39(self, mock_get_pop):
+    def test_add_in_tab_removesuffix_python_39(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that removesuffix method works correctly (Python 3.9+)."""
-        mock_get_pop.return_value = "some_value"
+        monkeypatch.setattr(
+            "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18",
+            lambda *_: "some_value",
+            raising=False,
+        )
 
         # This should work even if removesuffix is used
         result = add_in_tab("رياضيون", "athletes of", "in")
+
         # Function should handle the ' of' removal correctly
         assert isinstance(result, str)
 
