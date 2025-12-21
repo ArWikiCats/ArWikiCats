@@ -567,7 +567,7 @@ te4_2018_Jobs_data = {
     "ukrainian artists": "فنانون أوكرانيون",
     "ukrainian expatriate sports-people": "رياضيون أوكرانيون مغتربون",
     "ukrainian female pair skaters": "متزلجات فنيات على الجليد أوكرانيات",
-    "urdu-language musical comedy films": "أفلام موسيقية كوميدية باللغة الأردية",
+    "urdu-language musical comedy films": "أفلام كوميدية موسيقية باللغة الأردية",
     "uruguayan actors": "ممثلون أوروغويانيون",
     "uruguayan dramatists and playwrights": "كتاب دراما ومسرح أوروغويانيون",
     "uruguayan dramatists": "دراميون أوروغويانيون",

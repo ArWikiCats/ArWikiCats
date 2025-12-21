@@ -1,7 +1,7 @@
 {
     "zombie comedy": {
         "male": "كوميديا الزومبي",
-        "female": "كوميديا الزومبي"
+        "female": "كوميدية الزومبي"
     },
     "political cinema": {
         "male": "سينمائي سياسي",
@@ -69,11 +69,11 @@
     },
     "romantic comedy": {
         "male": "كوميديا رومانسي",
-        "female": "كوميديا رومانسية"
+        "female": "كوميدية رومانسية"
     },
     "musical comedy": {
         "male": "كوميديا موسيقي",
-        "female": "كوميديا موسيقية"
+        "female": "كوميدية موسيقية"
     },
     "european art cinema": {
         "male": "السينما الفنية الأوروبية",
@@ -81,15 +81,15 @@
     },
     "comedy drama": {
         "male": "كوميديا درامية",
-        "female": "كوميديا درامية"
+        "female": "كوميدية درامية"
     },
     "comedy fiction": {
         "male": "كوميديا خيال",
-        "female": "كوميديا خيالية"
+        "female": "كوميدية خيالية"
     },
     "comedy thriller": {
         "male": "كوميديا إثارة",
-        "female": "كوميديا إثارة"
+        "female": "كوميدية إثارة"
     },
     "comedy horror": {
         "male": "كوميدي رعب",
