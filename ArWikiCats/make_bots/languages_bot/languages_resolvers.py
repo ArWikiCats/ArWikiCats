@@ -4,9 +4,16 @@ from __future__ import annotations
 
 import functools
 
-from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
-from ...translations import LANGUAGE_RESOURCE_FORMATS, PRIMARY_LANGUAGE_TRANSLATIONS
+from ...translations import PRIMARY_LANGUAGE_TRANSLATIONS
+
+LANGUAGE_RESOURCE_FORMATS = {
+    "poems": "قصائد %s",
+    "phonology": "نطقيات %s",
+    "mythology": "أساطير %s",
+    "texts": "نصوص %s",
+    "prose texts": "نصوص نثرية %s",
+}
 
 
 @functools.lru_cache(maxsize=None)
