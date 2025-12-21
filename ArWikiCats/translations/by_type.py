@@ -112,7 +112,7 @@ Music_By_table = {
 
 BY_TABLE_BASED = open_json_file("keys/By_table.json") or {}
 
-By_table = dict(BY_TABLE_BASED)
+By_table_main = dict(BY_TABLE_BASED)
 
 by_under_keys = {
     "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
@@ -238,32 +238,32 @@ for component_key, component_label in ADDITIONAL_BY_COMPONENTS.items():
     by_musics[f"by {component_key}"] = f"حسب {component_label}"
     by_musics[f"by genre and {component_key}"] = f"حسب النوع الفني و{component_label}"
 
-By_table.update(by_under_keys)
-By_table.update(by_table_year)
-By_table.update(by_of_fields)
-By_table.update(by_map_table)
-By_table.update(by_and_fields)
-By_table.update(by_or_fields)
-By_table.update(by_by_fields)
-By_table.update(by_musics)
-By_table.update(Music_By_table)
+By_table_main.update(by_under_keys)
+By_table_main.update(by_table_year)
+By_table_main.update(by_of_fields)
+By_table_main.update(by_map_table)
+By_table_main.update(by_and_fields)
+By_table_main.update(by_or_fields)
+By_table_main.update(by_by_fields)
+By_table_main.update(by_musics)
+By_table_main.update(Music_By_table)
 
 By_orginal2 = {
-    entry.replace("by ", "", 1).lower(): By_table[entry].replace("حسب ", "", 1) for entry in By_table
+    entry.replace("by ", "", 1).lower(): By_table_main[entry].replace("حسب ", "", 1) for entry in By_table_main
 }
 
 
 @dump_data(1)
 def by_table_get(by_section):
     return (
-        By_table.get(by_section, "") or
+        By_table_main.get(by_section, "") or
         By_orginal2.get(by_section, "") or
         ""
     )
 
 
 len_print.data_len("by_table.py", {
-    "by_table": By_table,
+    "by_table": By_table_main,
     "By_orginal2": By_orginal2,
     "by_table_year": by_table_year,
     "by_of_fields": by_of_fields,
@@ -279,5 +279,5 @@ __all__ = [
     "BY_TABLE_BASED",
     "PRIMARY_BY_COMPONENTS",
     "by_table_year",
-    "By_table",
+    "By_table_main",
 ]

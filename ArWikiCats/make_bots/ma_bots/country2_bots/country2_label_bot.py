@@ -63,7 +63,7 @@ def make_cnt_lab(
             # Films_O_TT[country2] = resolved_label
             add_to_Films_O_TT(country2, resolved_label)
         else:
-            logger.info("<<lightblue>>>>>> part_2_normalized in By_table")
+            logger.info("<<lightblue>>>>>> part_2_normalized in By_table_main")
 
     if part_2_label:
         if not part_2_normalized.startswith("by "):

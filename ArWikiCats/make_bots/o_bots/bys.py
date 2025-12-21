@@ -10,10 +10,10 @@ from __future__ import annotations
 import re
 import functools
 from ...helps import logger, dump_data
-from ...translations import get_from_new_p17_final, by_table_get
-from ..lazy_data_bots.bot_2018 import pop_All_2018
+from ...translations import get_from_new_p17_final, by_table_get, sport_lab_nat_load_new, People_key
+
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..media_bots.films_bot import te_films
-from ...translations import sport_lab_nat_load_new, People_key
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
 BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)
@@ -136,13 +136,10 @@ def get_by_label(category: str) -> str:
 
     first_label = (
         get_from_new_p17_final(first_part_cleaned) or
-        pop_All_2018.get(first_part_cleaned, "") or
+        get_pop_All_18(first_part_cleaned, "") or
         ""
     )
-    by_label = (
-        by_table_get(by_section) or
-        ""
-    )
+    by_label = by_table_get(by_section)
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part=}, {by_section=}")
 
@@ -184,13 +181,13 @@ def get_and_label(category: str) -> str:
 
     first_label = (
         get_from_new_p17_final(first_part, None) or
-        pop_All_2018.get(first_part) or
+        get_pop_All_18(first_part) or
         ""
     )
 
     last_label = (
         get_from_new_p17_final(last_part, None) or
-        pop_All_2018.get(last_part) or
+        get_pop_All_18(last_part) or
         ""
     )
 
