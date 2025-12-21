@@ -22,22 +22,22 @@ from ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab import (
 class TestSeparatorListsFixing:
     """Tests for separator_lists_fixing function."""
 
-    def test_add_في_with_in_separator(self) -> None:
+    def test_add_in_with_in_separator(self) -> None:
         """Test adding 'في' when separator is 'in'."""
         result = separator_lists_fixing("منشآت عسكرية", "in", "military installations in")
         assert result == "منشآت عسكرية في"
 
-    def test_skip_في_when_already_present(self) -> None:
+    def test_skip_in_when_already_present(self) -> None:
         """Test that 'في' is not added if already present."""
         result = separator_lists_fixing("منشآت عسكرية في", "in", "military installations in")
         assert result == "منشآت عسكرية في"
 
-    def test_add_في_with_at_separator(self) -> None:
+    def test_add_in_with_at_separator(self) -> None:
         """Test adding 'في' when separator is 'at'."""
         result = separator_lists_fixing("رياضة", "at", "sport at")
         assert result == "رياضة في"
 
-    def test_skip_في_with_at_when_already_present(self) -> None:
+    def test_skip_in_with_at_when_already_present(self) -> None:
         """Test that 'في' is not added with 'at' if already present."""
         result = separator_lists_fixing("رياضة في", "at", "sport at")
         assert result == "رياضة في"
@@ -62,7 +62,7 @@ class TestSeparatorListsFixing:
         result = separator_lists_fixing("تاريخ", "of", "history")
         assert result == "تاريخ"
 
-    def test_skip_في_for_exception_types(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_skip_in_for_exception_types(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'في' is not added for types in pop_of_without_in."""
         monkeypatch.setattr(
             "ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.pop_of_without_in",
@@ -114,7 +114,7 @@ class TestAddInTab:
         assert result == "رياضيون"
 
     @patch("ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab.get_pop_All_18")
-    def test_skip_من_when_في_in_label(self, mock_get_pop):
+    def test_skip_من_when_in_in_label(self, mock_get_pop):
         """Test that 'من' is not added when 'في' is already in label."""
         mock_get_pop.return_value = "some_value"
 
@@ -152,15 +152,15 @@ class TestAddInTab:
 class TestHelperFunctions:
     """Tests for helper functions."""
 
-    def test_should_add_preposition_في_true(self) -> None:
+    def test_should_add_preposition_in_true(self) -> None:
         """Test _should_add_preposition_في returns True when conditions are met."""
         assert _should_add_preposition_في("منشآت عسكرية", "military installations in") is True
 
-    def test_should_add_preposition_في_false_when_في_present(self) -> None:
+    def test_should_add_preposition_in_false_when_in_present(self) -> None:
         """Test _should_add_preposition_في returns False when 'في' is present."""
         assert _should_add_preposition_في("منشآت عسكرية في", "military installations in") is False
 
-    def test_should_add_preposition_في_false_when_no_in(self) -> None:
+    def test_should_add_preposition_in_false_when_no_in(self) -> None:
         """Test _should_add_preposition_في returns False when ' in' (with space) is not in type_lower.
 
         'installations' contains substring 'in' but not ' in' with a leading space.
@@ -186,7 +186,7 @@ class TestHelperFunctions:
         result = _handle_at_separator("رياضة", "sport at")
         assert result == "رياضة في"
 
-    def test_handle_at_separator_skips_when_في_present(self) -> None:
+    def test_handle_at_separator_skips_when_in_present(self) -> None:
         """Test _handle_at_separator doesn't add 'في' when already present."""
         result = _handle_at_separator("رياضة في", "sport at")
         assert result == "رياضة في"
@@ -215,7 +215,7 @@ class TestHelperFunctions:
         """Test _should_add_من_for_of_suffix returns False when type doesn't end with ' of'."""
         assert _should_add_من_for_of_suffix("athletes", "some_value", "رياضيون") is False
 
-    def test_should_add_من_for_of_suffix_false_في_present(self) -> None:
+    def test_should_add_من_for_of_suffix_false_in_present(self) -> None:
         """Test _should_add_من_for_of_suffix returns False when 'في' is in label."""
         assert _should_add_من_for_of_suffix("athletes of", "some_value", "رياضيون في") is False
 
