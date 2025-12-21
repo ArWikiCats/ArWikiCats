@@ -21,11 +21,13 @@ ONLY_COUNTRY_NAMES = {
 # NOTE: formatted_data_en_ar_only used in other resolver
 
 formatted_data_en_ar_only: Dict[str, str] = {
+    "military world games medalists for {en}" : "فائزون بميداليات دورة الألعاب العسكرية من {ar}",
+    "world games medalists for {en}" : "فائزون بميداليات دورة الألعاب العالمية من {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
     "united states secretaries of state": "وزراء خارجية أمريكيون",
-    "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
+    "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
 
     "{en}": "{ar}",
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
