@@ -278,7 +278,6 @@ by_orginal2 = {
 }
 
 
-@dump_data(1)
 def by_table_get(by_section):
     return (
         by_table_main.get(by_section, "") or
