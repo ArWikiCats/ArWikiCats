@@ -100,11 +100,17 @@ def _build_formatted_data() -> Dict[str, str]:
         formatted_data[f"west {base_key}"] = base_label.format(game_ar="{game_ar} الغربية", ar="{ar}")
         formatted_data[f"east {base_key}"] = base_label.format(game_ar="{game_ar} الشرقية", ar="{ar}")
 
+    olympic_types = {
+        "olympic": "أولمبية",
+        "winter olympic": "أولمبية شتوية",
+        "summer olympic": "أولمبية صيفية",
+        "paralympic": "بارالمبية",
+
+    }
     formatted_data.update({
-        "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
         "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
 
-
+        # medalists
         "olympic medalists": "فائزون بميداليات أولمبية",
         "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
         "olympic silver medalists": "فائزون بميداليات فضية أولمبية",
@@ -113,15 +119,25 @@ def _build_formatted_data() -> Dict[str, str]:
         "winter olympic medalists": "فائزون بميداليات أولمبية شتوية",
         "summer olympic medalists": "فائزون بميداليات أولمبية صيفية",
 
-        "winter olympic competitors for {en}": "منافسون أولمبيون شتويون من {ar}",
-        "paralympic competitors for {en}": "منافسون بارالمبيون من {ar}",
-        "olympic competitors for {en}": "منافسون أولمبيون من {ar}",
-        "summer olympic competitors for {en}": "منافسون أولمبيون صيفيون من {ar}",
+        # medalists + countries
+        "olympic medalists for {en}": "فائزون بميداليات أولمبية من {ar}",
+        "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
+        "olympic silver medalists for {en}": "فائزون بميداليات فضية أولمبية من {ar}",
+        "olympic bronze medalists for {en}": "فائزون بميداليات برونزية أولمبية من {ar}",
 
-        "winter olympic competitors": "منافسون أولمبيون شتويون",
+        # competitors
         "paralympic competitors": "منافسون بارالمبيون",
         "olympic competitors": "منافسون أولمبيون",
+
+        "winter olympic competitors": "منافسون أولمبيون شتويون",
         "summer olympic competitors": "منافسون أولمبيون صيفيون",
+
+        # competitors + countries
+        "paralympic competitors for {en}": "منافسون بارالمبيون من {ar}",
+        "olympic competitors for {en}": "منافسون أولمبيون من {ar}",
+
+        "winter olympic competitors for {en}": "منافسون أولمبيون شتويون من {ar}",
+        "summer olympic competitors for {en}": "منافسون أولمبيون صيفيون من {ar}",
     })
 
     return formatted_data

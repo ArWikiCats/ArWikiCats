@@ -964,7 +964,7 @@ data_1 = {
     "Category:Stratovolcanoes of Papua New Guinea": "تصنيف:براكين طبقية في بابوا غينيا الجديدة",
     "Category:Subdivisions of Papua New Guinea": "تصنيف:تقسيمات بابوا غينيا الجديدة",
     "Category:Suburbs in Papua New Guinea": "تصنيف:ضواحي في بابوا غينيا الجديدة",
-    "Category:Summer Olympics competitors for Papua New Guinea": "تصنيف:منافسون في الألعاب الأولمبية الصيفية من بابوا غينيا الجديدة",
+    "Category:Summer Olympics competitors for Papua New Guinea": "تصنيف:منافسون أولمبيون صيفيون من بابوا غينيا الجديدة",
     "Category:Swimming competitions in Papua New Guinea": "تصنيف:منافسات سباحة في بابوا غينيا الجديدة",
     "Category:Swimming in Papua New Guinea": "تصنيف:السباحة في بابوا غينيا الجديدة",
     "Category:Telecommunications in Papua New Guinea": "تصنيف:الاتصالات عن بعد في بابوا غينيا الجديدة",
