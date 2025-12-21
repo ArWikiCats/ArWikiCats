@@ -51,6 +51,8 @@ def test_separator_arabic_resolve() -> None:
 
 
 title_work_tests_data = {
+    "people from santa fe province": "أشخاص من محافظة سانتا في",
+
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
     # "mass media in morocco": "وسائل إعلام في المغرب",
 
@@ -444,7 +446,6 @@ title_work_tests_data = {
     "people from hawaii": "أشخاص من هاواي في",
     "people from madhya pradesh": "أشخاص من ماديا براديش في",
     "people from ottoman empire": "أشخاص من الدولة العثمانية في",
-    "people from santa fe province": "أشخاص من محافظة سانتا في في",
     "people from saxony": "أشخاص من ساكسونيا في",
     "people from south lanarkshire": "أشخاص من جنوب لاناركشاير في",
     "people from west sumatra": "أشخاص من سومطرة الغربية في",

@@ -58,7 +58,9 @@ def make_cnt_lab(
                 resolved_label = f"{part_1_label}{ar_separator}من {part_2_label}"
             else:
                 logger.info(f'>>>>>> Add في to {part_1_normalized=} part_1_normalized in New_players:')
-                resolved_label += " في "
+                if not resolved_label.strip().endswith(" في"):
+                    resolved_label += " في "
+
         if not by_table_get(part_2_normalized):
             # Films_O_TT[country2] = resolved_label
             add_to_Films_O_TT(country2, resolved_label)
