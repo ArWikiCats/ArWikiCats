@@ -167,7 +167,7 @@ Multi_Sports_data = {
     "sea games competitors": "منافسون في ألعاب البحر",
     "south american games competitors": "منافسون في ألعاب أمريكا الجنوبية",
     "summer olympics coaches": "مدربون في الألعاب الأولمبية الصيفية",
-    "summer olympics competitors": "منافسون في الألعاب الأولمبية الصيفية",
+    "summer olympics competitors": "منافسون أولمبيون صيفيون",
     "summer world university games competitors": "منافسون في ألعاب الجامعات العالمية الصيفية",
     "winter olympics competitors": "منافسون في الألعاب الأولمبية الشتوية",
     "youth olympics biathletes": "لاعبو بياثلون في الألعاب الأولمبية الشبابية",

@@ -530,7 +530,7 @@ data_slow = {
     "squares in london": "ساحات في لندن",
     "sri lankan emigrants to india": "سريلانكيون مهاجرون إلى الهند",
     "sri lanka–vietnam relations": "العلاقات السريلانكية الفيتنامية",
-    "summer olympics competitors for canada": "منافسون في الألعاب الأولمبية الصيفية من كندا",
+    "summer olympics competitors for canada": "منافسون أولمبيون صيفيون من كندا",
     "synagogues in france": "كنس في فرنسا",
     "sánchez ramírez province": "محافظة سانشيز راميريز",
     "table tennis clubs": "أندية كرة طاولة",

@@ -892,7 +892,7 @@ data_list = [
     ("studios in poland", " in ", "استديوهات في بولندا"),
     ("sudanese people of hungarian descent", " of ", "سودانيون في أصل مجري"),
     ("suicides by-firearm-in nevada", " by-firearm-in ", "منتحرون بإطلاق النار في نيفادا"),
-    ("summer olympics competitors for peru", " for ", "منافسون في الألعاب الأولمبية الصيفية من بيرو"),
+    ("summer olympics competitors for peru", " for ", "منافسون أولمبيون صيفيون من بيرو"),
     ("swedish emigrants to jordan", " to ", "سويديون مهاجرون إلى الأردن"),
     ("swedish male musicians by century", " by ", "موسيقيون ذكور سويديون حسب القرن"),
     ("symbols of nuevo león", " of ", "رموز ولاية نويفو ليون"),
