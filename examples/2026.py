@@ -14,4 +14,4 @@ file_path = Path(__file__).parent / "data/2026.json"
 with open(file_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-compare_and_export_labels(data, "compare")
+compare_and_export_labels(data, "2026")
