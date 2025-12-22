@@ -44,3 +44,38 @@ def get_squad_title(tit: str) -> str:
     logger.info(f'<<lightblue>> get_squad_title:"{tit}", {lab=} ')
 
     return lab
+
+
+def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
+    """
+    Process squad-related category labels.
+
+    Args:
+        category3_o (str): The original category string
+
+    Returns:
+        str: The processed category label or empty string
+    """
+    category_lab = ""
+    list_of_cat = ""
+    category3 = category3_o.strip()
+
+    if category3.endswith(" squad templates"):
+        list_of_cat = "قوالب تشكيلات {}"
+        category3 = category3[: -len(" squad templates")]
+        cate_labs = get_squad_title(category3)
+        if cate_labs:
+            category_lab = f"قوالب {cate_labs}"
+
+    elif category3.endswith(" squad navigational boxes"):
+        list_of_cat = "صناديق تصفح تشكيلات {}"
+        category3 = category3[: -len(" squad navigational boxes")]
+        cate_labs = get_squad_title(category3)
+        if cate_labs:
+            category_lab = f"صناديق تصفح {cate_labs}"
+
+    if category_lab:
+        logger.debug(f"<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}")
+        logger.debug(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
+
+    return category_lab

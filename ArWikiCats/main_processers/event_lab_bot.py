@@ -16,7 +16,7 @@ from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..ma_bots import ye_ts_bot
 from ..ma_bots.country2_bot import Get_country2
 from ..ma_bots.lab_seoo_bot import event_label_work
-from ..ma_bots.squad_title_bot import get_squad_title
+from ..ma_bots.squad_title_bot import get_list_of_and_cat3_with_lab2
 from ..make_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
@@ -24,41 +24,6 @@ from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers.translations_resolvers.nats_sports import nats_new_create_label
 
 from ..translations import get_from_new_p17_final, wrap_team_xo_normal_2025
-
-
-def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
-    """
-    Process squad-related category labels.
-
-    Args:
-        category3_o (str): The original category string
-
-    Returns:
-        str: The processed category label or empty string
-    """
-    category_lab = ""
-    list_of_cat = ""
-    category3 = category3_o.strip()
-
-    if category3.endswith(" squad templates"):
-        list_of_cat = "قوالب تشكيلات {}"
-        category3 = category3[: -len(" squad templates")]
-        cate_labs = get_squad_title(category3)
-        if cate_labs:
-            category_lab = f"قوالب {cate_labs}"
-
-    elif category3.endswith(" squad navigational boxes"):
-        list_of_cat = "صناديق تصفح تشكيلات {}"
-        category3 = category3[: -len(" squad navigational boxes")]
-        cate_labs = get_squad_title(category3)
-        if cate_labs:
-            category_lab = f"صناديق تصفح {cate_labs}"
-
-    if category_lab:
-        logger.debug(f"<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}")
-        logger.debug(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
-
-    return category_lab
 
 
 class EventLabResolver:
