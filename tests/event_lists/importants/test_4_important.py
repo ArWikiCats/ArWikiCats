@@ -6,7 +6,8 @@ from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
     "category:people from santa fe province": "تصنيف:أشخاص من محافظة سانتا في",
-
+    "Category:Italy political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إيطاليون",
+    "Category:Bosnia and Herzegovina political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون بوسنيون",
     "category:non-profit organizations by continent": "تصنيف:منظمات غير ربحية حسب القارة",
     "category:non-profit organizations by country": "تصنيف:منظمات غير ربحية حسب البلد",
     "category:non-profit organizations by dependent territory": "تصنيف:منظمات غير ربحية حسب الأقاليم التابعة",
