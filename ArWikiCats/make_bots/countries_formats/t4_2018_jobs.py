@@ -21,7 +21,6 @@ from ...translations import (
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix
 from ..jobs_bots.prefix_bot import womens_prefixes_work, mens_prefixes_work
-# from ..jobs_bots.relegin_jobs import try_religions_jobs_with_suffix
 from ..jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
 from ..languages_bot.langs_w import Lang_work
 from ..languages_bot.resolve_languages_new import resolve_languages_labels
@@ -224,8 +223,6 @@ def te4_2018_Jobs(cate: str) -> str:
 
     if not country_lab:
         country_lab = new_religions_jobs_with_suffix(cate_lower)
-
-    # if not country_lab: country_lab = try_religions_jobs_with_suffix(cate_lower)
 
     logger.debug(f'end te4_2018_Jobs "{cate}" , {country_lab=}, cate2:{cate_lower_original}')
 

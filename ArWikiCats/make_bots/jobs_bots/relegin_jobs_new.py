@@ -162,7 +162,7 @@ def new_religions_jobs_with_suffix(category: str) -> str:
         The translated Arabic category string, or an empty string if no match is found.
     """
     category = category.replace("'", "").lower()
-    logger.debug(f"\t xx start: <<lightred>>try_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
+    logger.debug(f"\t xx start: <<lightred>>new_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
 
     return mens_result(category) or womens_result(category)
 

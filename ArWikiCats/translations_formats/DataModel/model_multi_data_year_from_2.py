@@ -35,7 +35,6 @@ Example:
     >>> bot.create_label("14th-century writers from Yemen")
     'كتاب من اليمن في القرن 14'
 """
-from ...make_bots.format_bots import category_relation_mapping
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 from .model_multi_data_year_from import FormatDataFrom
 
@@ -75,6 +74,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         self,
         country_bot: FormatDataFrom,
         year_bot: FormatDataFrom,
+        category_relation_mapping: dict[str, str] = {},
         search_first_part: bool = False,
         data_to_find: dict[str, str] | None = None,
         other_key_first: bool = False,
@@ -84,6 +84,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         Args:
             country_bot: FormatDataFrom instance for handling "from" relation patterns.
             year_bot: FormatDataFrom instance for handling year/time patterns.
+            category_relation_mapping: Mapping of relation words to Arabic translations.
             search_first_part: If True, search using only the first part after normalization.
             data_to_find: Optional dictionary for direct category-to-label lookups.
             other_key_first: If True, process year/other key before country key.
@@ -93,6 +94,11 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         self.other_bot = year_bot
         self.data_to_find = data_to_find
         self.other_key_first = other_key_first
+
+        self.category_relation_mapping = dict(sorted(
+            category_relation_mapping.items(),
+            key=lambda k: (-k[0].count(" "), -len(k[0])),
+        ))
 
     def get_relation_word(self, category: str) -> tuple[str, str]:
         """
@@ -121,7 +127,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
             >>> bot.get_relation_word("Works published by Oxford")
             ('published by', 'نشرتها')
         """
-        for separator, separator_name in category_relation_mapping.items():
+        for separator, separator_name in self.category_relation_mapping.items():
             separator_with_spaces = f" {separator} "
             if separator_with_spaces in category:
                 return separator, separator_name
@@ -183,4 +189,4 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
             >>> mapping["published by"]
             'نشرتها'
         """
-        return category_relation_mapping
+        return self.category_relation_mapping

@@ -16,7 +16,6 @@ from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..ma_bots import ye_ts_bot
 from ..ma_bots.country2_bot import Get_country2
 from ..ma_bots.lab_seoo_bot import event_label_work
-from ..ma_bots.squad_title_bot import resolve_squads_labels_and_templates
 from ..make_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
@@ -316,8 +315,7 @@ def event_Lab(cate_r: str) -> str:
     cate_r = cate_r.lower().replace("_", " ")
     category3: str = _process_category_formatting(cate_r)
 
-    # First, try to get squad-related labels
-    result = ""  # resolve_squads_labels_and_templates(category3)
+    result = ""
 
     if not result:
         result = resolver.process_category(cate_r, category3)
