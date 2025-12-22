@@ -4,6 +4,12 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:Wheelchair basketball at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
+    "Category:Wheelchair fencing at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح مبارزة سيف الشيش على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
+    "Category:Wheelchair tennis at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح كرة المضرب على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
+    "Category:Athletics at the Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية",
+    "Category:Athletics at the Summer Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية الصيفية",
+    "Category:Italian defectors to the Soviet Union": "تصنيف:إيطاليون منشقون إلى الاتحاد السوفيتي",
     "Category:Lists of organisations based in Papua New Guinea": "تصنيف:قوائم منظمات مقرها في بابوا غينيا الجديدة",
     "Category:COVID-19 pandemic in Papua New Guinea templates": "تصنيف:قوالب جائحة فيروس كورونا في بابوا غينيا الجديدة",
     "Category:20th-century executions by Papua New Guinea": "تصنيف:إعدامات في بابوا غينيا الجديدة في القرن 20",

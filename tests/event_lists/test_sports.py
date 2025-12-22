@@ -91,8 +91,6 @@ data3 = {
     "Category:European national under-21 association football teams": "تصنيف:منتخبات كرة قدم وطنية أوروبية تحت 21 سنة",
     "Category:Expatriate women's association football players": "تصنيف:لاعبات كرة قدم مغتربات",
     "Category:Expatriate women's footballers by location": "تصنيف:لاعبات كرة قدم مغتربات حسب الموقع",
-    "Category:Athletics at the Summer Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية الصيفية",
-    "Category:Athletics at the Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية",
     "Category:Australia at the Summer Universiade": "تصنيف:أستراليا في الألعاب الجامعية الصيفية",
     "Category:Australia international soccer players": "تصنيف:لاعبو منتخب أستراليا لكرة القدم",
     "Category:Australian male sprinters": "تصنيف:عداؤون سريعون ذكور أستراليون",
