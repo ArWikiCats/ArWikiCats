@@ -9,7 +9,7 @@ import functools
 from ...helps import logger
 from ...translations_formats import FormatDataV2
 from ...translations import countries_nat_en_key
-from ..translations_resolvers.countries_names import formatted_data_en_ar_only
+from ..translations_resolvers.countries_names_data import formatted_data_en_ar_only
 from .data import country_names_and_nats_data
 
 countries_nat_en_key_example = {
