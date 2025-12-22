@@ -9,6 +9,8 @@ from typing import Mapping, Tuple
 from ...helps.log import logger
 from ...translations.nats.Nationality import NationalityEntry
 from ...translations import (
+    Nat_the_male,
+    Nat_the_female,
     Nat_men,
     Nat_women,
     all_country_ar,
@@ -228,9 +230,10 @@ def resolve_relations_label(value: str) -> str:
     resolved = _resolve_relations(
         normalized,
         RELATIONS_FEMALE,
-        "female",
-        Nat_women,
-        add_article=True,
+        # "female",
+        "the_female",
+        Nat_the_female,
+        add_article=False,
     )
     if resolved:
         logger.info(f"resolve_relations_label (female): cat: {value}, {resolved=}")
@@ -239,9 +242,10 @@ def resolve_relations_label(value: str) -> str:
     resolved = _resolve_relations(
         normalized,
         RELATIONS_MALE,
-        "male",
-        Nat_men,
-        add_article=True,
+        # "male",
+        "the_male",
+        Nat_the_male,
+        add_article=False,
     )
     if resolved:
         logger.info(f"resolve_relations_label (male): cat: {value}, {resolved=}")

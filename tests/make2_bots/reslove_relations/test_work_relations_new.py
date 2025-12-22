@@ -10,7 +10,7 @@ ireland_test_data = {
     "algeria–ireland relations": "العلاقات الأيرلندية الجزائرية",
     "andorra–ireland relations": "العلاقات الأندورية الأيرلندية",
     "angola–ireland relations": "العلاقات الأنغولية الأيرلندية",
-    "antigua and barbuda–ireland relations": "العلاقات الأنتيغوية الوبربودية الأيرلندية",
+    "antigua and barbuda–ireland relations": "العلاقات الأنتيغوية والبربودية الأيرلندية",
     "argentina–ireland relations": "العلاقات الأرجنتينية الأيرلندية",
     "argentina–ireland sports relations": "العلاقات الأرجنتينية الأيرلندية الرياضية",
     "armenia–ireland relations": "العلاقات الأرمينية الأيرلندية",
