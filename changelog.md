@@ -1,3 +1,14 @@
+
+## [#258](https://github.com/MrIbrahem/ArWikiCats/pull/258) - 2025-12-23
+
+* **Refactor**
+  * Streamlined squad label resolution by consolidating processing logic
+  * Simplified religion-related job label generation by removing legacy function
+  * Updated internal data formatting to accept category relation mappings via constructor parameter
+
+* **Chores**
+  * Removed outdated comments and documentation cleanup
+
 ## [Integrate MultiDataFormatterYearAndFrom with category_relation_mapping] [#257](https://github.com/MrIbrahem/ArWikiCats/pull/257) - 2025-12-22
 
 * **New Features**
