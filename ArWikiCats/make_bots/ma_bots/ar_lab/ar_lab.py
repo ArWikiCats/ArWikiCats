@@ -129,7 +129,7 @@ def separator_lists_fixing(type_label: str, separator_stripped: str, type_lower:
     return type_label
 
 
-def _should_add_من_for_from_separator(type_label: str) -> bool:
+def _should_add_min_for_from_separator(type_label: str) -> bool:
     """Check if 'من' should be added for 'from' separator.
 
     Args:
@@ -141,7 +141,7 @@ def _should_add_من_for_from_separator(type_label: str) -> bool:
     return not type_label.strip().endswith(" من")
 
 
-def _should_add_من_for_of_suffix(type_lower: str, ty_in18: str, type_label: str) -> bool:
+def _should_add_min_for_of_suffix(type_lower: str, ty_in18: str, type_label: str, type_lower_prefix: str="") -> bool:
     """Check if 'من' should be added for ' of' suffix.
 
     Args:
@@ -157,6 +157,9 @@ def _should_add_من_for_of_suffix(type_lower: str, ty_in18: str, type_label: st
         return False
 
     if not type_lower.endswith(" of"):
+        return False
+
+    if pop_of_without_in.get(type_lower) or pop_of_without_in.get(type_lower_prefix):
         return False
 
     if " في" in type_label:
@@ -186,7 +189,7 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
     """
     # Handle 'from' separator
     if separator_stripped == "from":
-        if _should_add_من_for_from_separator(type_label):
+        if _should_add_min_for_from_separator(type_label):
             logger.info(f">>>> Add من to type_label '{type_label}' (separator: from)")
             return f"{type_label} من "
         return type_label
@@ -194,12 +197,12 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
     # Get population data for type
     ty_in18 = get_pop_All_18(type_lower)
 
-    # Check if we should add 'من' for ' of' suffix
-    if not _should_add_من_for_of_suffix(type_lower, ty_in18, type_label):
-        return type_label
-
     # Extract type without ' of' suffix
     type_lower_prefix = type_lower.removesuffix(" of")
+
+    # Check if we should add 'من' for ' of' suffix
+    if not _should_add_min_for_of_suffix(type_lower, ty_in18, type_label, type_lower_prefix):
+        return type_label
 
     # Check if type (with or without ' of') is in tables
     in_tables = check_key_new_players(type_lower)

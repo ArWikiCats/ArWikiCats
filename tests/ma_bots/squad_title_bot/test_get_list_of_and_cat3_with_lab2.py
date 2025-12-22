@@ -7,8 +7,17 @@ import pytest
 from ArWikiCats.ma_bots.squad_title_bot import resolve_squads_labels_and_templates
 from ArWikiCats import resolve_label_ar
 
+list_data_0 = {
+    "Bahrain AFC Asian Cup squad navigational boxes": "صناديق تصفح تشكيلات البحرين في كأس آسيا",
+}
+
 list_data = {
     # "1880 european competition for women's football squad templates": "قوالب تشكيلات منافسات أوروبية في كرة القدم للسيدات 1880",
+
+    "1904 Summer Olympics football squad navigational boxes": "صناديق تصفح تشكيلات كرة القدم في الألعاب الأولمبية الصيفية 1904",
+    "1984 AFC Asian Cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1984",
+    "1952 Summer Olympics field hockey squad navigational boxes": "صناديق تصفح تشكيلات هوكي الميدان في الألعاب الأولمبية الصيفية 1952",
+    "2022 European Women's Handball Championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للسيدات 2022",
 
     "1880 fifa women's world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم للسيدات 1880",
     "1880 afc asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1880",
@@ -81,15 +90,15 @@ def test_squad_with_resolve(category: str, expected_key: str, monkeypatch: pytes
 @pytest.mark.fast
 def test_resolve_squads_labels_and_templates() -> None:
     # Test with a basic input
-    result = resolve_squads_labels_and_templates("test category")
+    result = resolve_label_ar("test category")
     assert isinstance(result, str)
 
     # Test with squad templates
-    result_squad = resolve_squads_labels_and_templates("2020 squad templates")
+    result_squad = resolve_label_ar("2020 squad templates")
     assert isinstance(result_squad, str)
     assert result_squad == "قوالب تشكيلات 2020"
 
     # Test with empty strings
-    result_empty = resolve_squads_labels_and_templates("")
+    result_empty = resolve_label_ar("")
     assert isinstance(result_empty, str)
     assert result_empty == ""

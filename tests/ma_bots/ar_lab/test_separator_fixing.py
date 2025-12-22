@@ -13,8 +13,8 @@ from ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab import (
     _should_add_preposition_في,
     _handle_in_separator,
     _handle_at_separator,
-    _should_add_من_for_from_separator,
-    _should_add_من_for_of_suffix,
+    _should_add_min_for_from_separator,
+    _should_add_min_for_of_suffix,
 )
 
 
@@ -231,33 +231,33 @@ class TestHelperFunctions:
         result = _handle_at_separator("رياضة في", "sport at")
         assert result == "رياضة في"
 
-    def test_should_add_من_for_from_separator_true(self) -> None:
-        """Test _should_add_من_for_from_separator returns True when 'من' not present."""
-        assert _should_add_من_for_from_separator("رياضيون") is True
+    def test_should_add_min_for_from_separator_true(self) -> None:
+        """Test _should_add_min_for_from_separator returns True when 'من' not present."""
+        assert _should_add_min_for_from_separator("رياضيون") is True
 
-    def test_should_add_من_for_from_separator_false(self) -> None:
-        """Test _should_add_من_for_from_separator returns False when 'من' is present."""
-        assert _should_add_من_for_from_separator("رياضيون من") is False
+    def test_should_add_min_for_from_separator_false(self) -> None:
+        """Test _should_add_min_for_from_separator returns False when 'من' is present."""
+        assert _should_add_min_for_from_separator("رياضيون من") is False
 
-    def test_should_add_من_for_from_separator_with_spaces(self) -> None:
-        """Test _should_add_من_for_from_separator handles trailing spaces."""
-        assert _should_add_من_for_from_separator("رياضيون   ") is True
+    def test_should_add_min_for_from_separator_with_spaces(self) -> None:
+        """Test _should_add_min_for_from_separator handles trailing spaces."""
+        assert _should_add_min_for_from_separator("رياضيون   ") is True
 
-    def test_should_add_من_for_of_suffix_true(self) -> None:
-        """Test _should_add_من_for_of_suffix returns True when all conditions are met."""
-        assert _should_add_من_for_of_suffix("athletes of", "some_value", "رياضيون") is True
+    def test_should_add_min_for_of_suffix_true(self) -> None:
+        """Test _should_add_min_for_of_suffix returns True when all conditions are met."""
+        assert _should_add_min_for_of_suffix("athletes of", "some_value", "رياضيون") is True
 
-    def test_should_add_من_for_of_suffix_false_no_ty_in18(self) -> None:
-        """Test _should_add_من_for_of_suffix returns False when ty_in18 is None."""
-        assert _should_add_من_for_of_suffix("athletes of", None, "رياضيون") is False
+    def test_should_add_min_for_of_suffix_false_no_ty_in18(self) -> None:
+        """Test _should_add_min_for_of_suffix returns False when ty_in18 is None."""
+        assert _should_add_min_for_of_suffix("athletes of", None, "رياضيون") is False
 
-    def test_should_add_من_for_of_suffix_false_no_of(self) -> None:
-        """Test _should_add_من_for_of_suffix returns False when type doesn't end with ' of'."""
-        assert _should_add_من_for_of_suffix("athletes", "some_value", "رياضيون") is False
+    def test_should_add_min_for_of_suffix_false_no_of(self) -> None:
+        """Test _should_add_min_for_of_suffix returns False when type doesn't end with ' of'."""
+        assert _should_add_min_for_of_suffix("athletes", "some_value", "رياضيون") is False
 
-    def test_should_add_من_for_of_suffix_false_in_present(self) -> None:
-        """Test _should_add_من_for_of_suffix returns False when 'في' is in label."""
-        assert _should_add_من_for_of_suffix("athletes of", "some_value", "رياضيون في") is False
+    def test_should_add_min_for_of_suffix_false_in_present(self) -> None:
+        """Test _should_add_min_for_of_suffix returns False when 'في' is in label."""
+        assert _should_add_min_for_of_suffix("athletes of", "some_value", "رياضيون في") is False
 
 
 class TestEdgeCases:
