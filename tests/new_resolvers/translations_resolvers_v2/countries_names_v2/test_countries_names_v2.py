@@ -8,6 +8,17 @@ from typing import Callable
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_v2 import resolve_by_countries_names_v2
 
+political_data = {
+    "tunisia political leader": "قادة سياسيون تونسيون",
+    "australia political leader": "قادة سياسيون أستراليون",
+    "japan political leader": "قادة سياسيون يابانيون",
+    "mauritius political leader": "قادة سياسيون موريشيوسيون",
+    "morocco political leader": "قادة سياسيون مغاربة",
+    "rwanda political leader": "قادة سياسيون روانديون",
+    "syria political leader": "قادة سياسيون سوريون",
+    "west india political leader": "قادة سياسيون هنود غربيون"
+}
+
 main_data = {
     # ar patterns
     "national university of yemen": "جامعة اليمن الوطنية",
@@ -26,14 +37,6 @@ main_data = {
     "victoria-australia government": "حكومة فيكتوريا (أستراليا)",
     "georgia government": "حكومة جورجيا",
     "yemen governorate": "محافظة اليمن",
-    "tunisia political leader": "قادة تونس السياسيون",
-    "australia political leader": "قادة أستراليا السياسيون",
-    "japan political leader": "قادة اليابان السياسيون",
-    "mauritius political leader": "قادة موريشيوس السياسيون",
-    "morocco political leader": "قادة المغرب السياسيون",
-    "rwanda political leader": "قادة رواندا السياسيون",
-    "syria political leader": "قادة سوريا السياسيون",
-    "west india political leader": "قادة الهند الغربية السياسيون",
     "yemen presidents": "رؤساء اليمن",
     "tunisia presidents": "رؤساء تونس",
     "west india presidents": "رؤساء الهند الغربية",
@@ -114,8 +117,16 @@ def test_resolve_by_countries_names_v2(category: str, expected: str) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", political_data.items(), ids=political_data.keys())
+@pytest.mark.fast
+def test_political_data_v2(category: str, expected: str) -> None:
+    label = resolve_by_countries_names_v2(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
     ("test_resolve_by_countries_names_v2", main_data, resolve_by_countries_names_v2),
+    ("test_political_data_v2", political_data, resolve_by_countries_names_v2),
 ]
 
 

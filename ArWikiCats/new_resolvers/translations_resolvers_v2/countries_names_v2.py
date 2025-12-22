@@ -46,6 +46,9 @@ all_data: dict[str, str] = {
 
 
     # males - en_is_P17_ar_is_mens
+    "{en} political leaders": "قادة سياسيون {males}",
+    "{en} political leader": "قادة سياسيون {males}",
+
     "{en} government officials": "مسؤولون حكوميون {males}",
 
     # female - military_format_women_without_al_from_end

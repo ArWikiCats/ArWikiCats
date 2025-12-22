@@ -8,6 +8,17 @@ from typing import Callable
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.translations_resolvers.countries_names import resolve_by_countries_names
 
+political_data_v1 = {
+    "west india political leader": "قادة الهند الغربية السياسيون",
+    "australia political leader": "قادة أستراليا السياسيون",
+    "japan political leader": "قادة اليابان السياسيون",
+    "mauritius political leader": "قادة موريشيوس السياسيون",
+    "morocco political leader": "قادة المغرب السياسيون",
+    "rwanda political leader": "قادة رواندا السياسيون",
+    "syria political leader": "قادة سوريا السياسيون",
+    "tunisia political leader": "قادة تونس السياسيون",
+}
+
 main_data = {
     "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
@@ -40,7 +51,6 @@ main_data = {
     "victoria-australia government": "حكومة فيكتوريا (أستراليا)",
 
     "west india government personnel": "موظفي حكومة الهند الغربية",
-    "west india political leader": "قادة الهند الغربية السياسيون",
     "west india presidents": "رؤساء الهند الغربية",
     "west india responses": "استجابات الهند الغربية",
 
@@ -48,13 +58,6 @@ main_data = {
     "democratic-republic-of-congo territorial officials": "مسؤولو أقاليم جمهورية الكونغو الديمقراطية",
     "democratic-republic-of-congo war": "حرب جمهورية الكونغو الديمقراطية",
 
-    "australia political leader": "قادة أستراليا السياسيون",
-    "japan political leader": "قادة اليابان السياسيون",
-    "mauritius political leader": "قادة موريشيوس السياسيون",
-    "morocco political leader": "قادة المغرب السياسيون",
-    "rwanda political leader": "قادة رواندا السياسيون",
-    "syria political leader": "قادة سوريا السياسيون",
-    "tunisia political leader": "قادة تونس السياسيون",
     "united states elections": "انتخابات الولايات المتحدة",
     "england war and conflict": "حروب ونزاعات إنجلترا",
     "england war": "حرب إنجلترا",
@@ -74,8 +77,16 @@ def test_resolve_by_countries_names(category: str, expected: str) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", political_data_v1.items(), ids=political_data_v1.keys())
+@pytest.mark.fast
+def test_political_data_v1(category: str, expected: str) -> None:
+    label = resolve_by_countries_names(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
     ("test_resolve_by_countries_names", main_data, resolve_by_countries_names),
+    ("test_political_data_v1", political_data_v1, resolve_by_countries_names),
 ]
 
 

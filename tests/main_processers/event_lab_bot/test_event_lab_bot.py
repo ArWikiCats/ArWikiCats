@@ -35,11 +35,7 @@ data = {
 }
 
 
-@pytest.mark.parametrize(
-    "text, expected",
-    data.items(),
-    ids=[x for x in data],
-)
+@pytest.mark.parametrize("text, expected", data.items(), ids=data.keys())
 def test_basic_cases(text: str, expected: str) -> None:
     result = event_Lab(text)
     assert result == expected

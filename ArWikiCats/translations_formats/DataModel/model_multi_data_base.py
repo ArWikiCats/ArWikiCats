@@ -133,6 +133,9 @@ class MultiDataFormatterBaseHelpers:
         if self.search_first_part and template_ar_first:
             return self.country_bot.search(category)
 
+        if not template_ar:
+            logger.debug(">>>create_label No template found")
+            return ""
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(template_data.nat_key)
         other_ar = self.other_bot.get_key_label(template_data.other_key)

@@ -11,6 +11,7 @@ from ...translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
 # NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly
 
 ONLY_COUNTRY_NAMES = {
+    "{en} political leader": "قادة {ar} السياسيون",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
     "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
@@ -19,6 +20,7 @@ ONLY_COUNTRY_NAMES = {
 
 # NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
+
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
@@ -56,7 +58,6 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "{en} government": "حكومة {ar}",
     "{en} governorate": "محافظة {ar}",
     "{en} olympics squad": "تشكيلات {ar} في الألعاب الأولمبية",
-    "{en} political leader": "قادة {ar} السياسيون",
     "{en} presidents": "رؤساء {ar}",
     "{en} responses": "استجابات {ar}",
     "{en} summer olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الصيفية",

@@ -11,11 +11,13 @@ from ..countries_formats import resolved_countries_formats_labels
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
+
 from ...new_resolvers.translations_resolvers_v2.ministers_resolver import resolve_secretaries_labels
+from ...new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
+
 from ...new_resolvers.translations_resolvers import resolved_translations_resolvers
 from ...new_resolvers.new_jobs_resolver import new_jobs_resolver_label
-# from ...translations_resolvers_v3i import resolved_translations_resolvers_v3i
-from ...new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ...new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
 from .film_keys_bot import resolve_films
 
 from ..media_bots.film_keys_bot import get_Films_key_CAO
@@ -54,11 +56,16 @@ def te_films(category: str) -> str:
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
         "nat_match": lambda k: nat_match(k),
+
+        # NOTE: resolved_translations_resolvers_v2 must be before resolved_translations_resolvers to avoid conflicts like:
+        # resolved_translations_resolvers> [Italy political leader]:  "قادة إيطاليا السياسيون"
+        # resolved_translations_resolvers_v2> [Italy political leader]:  "قادة سياسيون إيطاليون"
+
+        "resolved_translations_resolvers_v2": lambda k: resolved_translations_resolvers_v2(k),
         "resolved_countries_formats_labels": lambda k: resolved_countries_formats_labels(k),
         "resolved_translations_resolvers": lambda k: resolved_translations_resolvers(k),
         "new_jobs_resolver_label": lambda k: new_jobs_resolver_label(k),
         # "resolved_translations_resolvers_v3i": lambda k: resolved_translations_resolvers_v3i(k),
-        "resolved_translations_resolvers_v2": lambda k: resolved_translations_resolvers_v2(k),
         "te_language": lambda k: te_language(k),
 
     }

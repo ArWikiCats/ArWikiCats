@@ -842,7 +842,6 @@ data_1 = {
     "Category:Papua New Guinea national soccer team matches": "تصنيف:مباريات منتخب بابوا غينيا الجديدة لكرة القدم",
     "Category:Papua New Guinea national soccer team navigational boxes": "تصنيف:صناديق تصفح منتخب بابوا غينيا الجديدة لكرة القدم",
     "Category:Papua New Guinea navigational boxes": "تصنيف:صناديق تصفح بابوا غينيا الجديدة",
-    "Category:Papua New Guinea political leader navigational boxes": "تصنيف:صناديق تصفح قادة بابوا غينيا الجديدة السياسيون",
     "Category:Papua New Guinea politics and government templates": "تصنيف:قوالب سياسة وحكومة بابوا غينيا الجديدة",
     "Category:Papua New Guinea sidebar templates": "تصنيف:قوالب أشرطة جانبية بابوا غينيا الجديدة",
     "Category:Papua New Guinea sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في بابوا غينيا الجديدة",
