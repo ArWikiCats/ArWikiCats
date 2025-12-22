@@ -1,5 +1,32 @@
 #!/usr/bin/python3
-"""Base class for FormatData classes with shared functionality."""
+"""
+Base module for category translation formatter classes.
+
+This module provides the FormatDataBase class which serves as the foundation
+for all single-element category translation formatters. It contains shared
+functionality for pattern matching, template lookup, and placeholder replacement.
+
+Classes:
+    FormatDataBase: Abstract base class for all FormatData-type formatters.
+
+The FormatDataBase class provides:
+    - Regex pattern building from data_list keys
+    - Case-insensitive key matching and template lookup
+    - Placeholder normalization and replacement
+    - Caching for performance optimization
+
+Example:
+    >>> # FormatDataBase is an abstract class - use FormatData instead
+    >>> from ArWikiCats.translations_formats.DataModel import FormatData
+    >>> bot = FormatData(
+    ...     formatted_data={"{sport} players": "لاعبو {sport_label}"},
+    ...     data_list={"football": "كرة القدم"},
+    ...     key_placeholder="{sport}",
+    ...     value_placeholder="{sport_label}",
+    ... )
+    >>> bot.search("football players")
+    'لاعبو كرة القدم'
+"""
 
 import functools
 import re
@@ -9,7 +36,41 @@ from ...helps.log import logger
 
 
 class FormatDataBase:
-    """Base class containing shared functionality for all FormatData classes."""
+    """
+    Abstract base class for single-element category translation formatters.
+
+    This class provides the core functionality for translating category strings
+    by matching keys from a data_list and replacing them using template patterns.
+    It is meant to be subclassed by specific formatter implementations.
+
+    Attributes:
+        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        formatted_data_ci (Dict[str, str]): Case-insensitive version of formatted_data.
+        data_list (Dict[str, Any]): Key-to-Arabic-label mappings for replacements.
+        data_list_ci (Dict[str, Any]): Case-insensitive version of data_list.
+        key_placeholder (str): Placeholder string for the key in patterns.
+        text_after (str): Optional text that appears after the key.
+        text_before (str): Optional text that appears before the key.
+        regex_filter (str): Regex pattern for word boundary detection.
+        alternation (str): Regex alternation string built from data_list keys.
+        pattern (re.Pattern): Compiled regex pattern for key matching.
+
+    Methods:
+        match_key: Find and return a matching key from the category.
+        normalize_category: Replace matched key with placeholder.
+        get_template: Get Arabic template for a category.
+        get_template_ar: Get Arabic template by normalized key.
+        get_key_label: Get Arabic label for a key.
+        search: End-to-end translation of a category string.
+        create_label: Alias for search.
+
+    Note:
+        Subclasses must implement apply_pattern_replacement and replace_value_placeholder.
+
+    Example:
+        >>> # This is an abstract class - see FormatData for usage
+        >>> from ArWikiCats.translations_formats.DataModel import FormatData
+    """
 
     def __init__(
         self,
@@ -51,10 +112,7 @@ class FormatDataBase:
             logger.debug(f">keys_to_pattern(): len(new_pattern keys) = {len(self.data_list_ci):,}")
 
         # to fix bug that selected "black" instead of "black-and-white"
-        keys_sorted = sorted(
-            self.data_list_ci.keys(),
-            key=lambda k: (-k.count(" "), -len(k))
-        )
+        keys_sorted = sorted(self.data_list_ci.keys(), key=lambda k: (-k.count(" "), -len(k)))
 
         return "|".join(map(re.escape, keys_sorted))
 
@@ -68,7 +126,7 @@ class FormatDataBase:
         if self.alternation is None:
             self.alternation = self.create_alternation()
 
-        data_pattern = fr"(?<!{self.regex_filter})({self.alternation})(?!{self.regex_filter})"
+        data_pattern = rf"(?<!{self.regex_filter})({self.alternation})(?!{self.regex_filter})"
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -189,7 +247,7 @@ class FormatDataBase:
         sport_key = self.match_key(category)
 
         if not sport_key:
-            logger.debug(f'No sport key matched for {category=}')
+            logger.debug(f"No sport key matched for {category=}")
             return ""
 
         sport_label = self.get_key_label(sport_key)
@@ -233,7 +291,7 @@ class FormatDataBase:
         return self._search(category)
 
     def search_all_category(self, category: str) -> str:
-        logger.debug("--"*5)
+        logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
         normalized_category = category.lower().replace("category:", "")
 

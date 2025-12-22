@@ -1,25 +1,57 @@
 #!/usr/bin/python3
 """
-Provides classes for formatting template-driven translation labels.
-- format_multi_data: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
+Module for multi-formatter category translation classes.
+
+This module provides classes that combine two formatter instances to handle
+categories with two dynamic elements (e.g., nationality and sport, country
+and year). Each class orchestrates a "country_bot" and "other_bot" to
+normalize and translate complex category strings.
+
+Classes:
+    MultiDataFormatterBase: Combines two FormatData instances.
+    MultiDataFormatterBaseYear: Combines FormatData with YearFormatData.
+    MultiDataFormatterBaseYearV2: Combines FormatDataV2 with YearFormatData.
+    MultiDataFormatterDataDouble: Combines FormatData with FormatDataDouble.
+
+Example:
+    >>> from ArWikiCats.translations_formats.DataModel import MultiDataFormatterBase, FormatData
+    >>> country_bot = FormatData(...)  # nationality formatter
+    >>> sport_bot = FormatData(...)    # sport formatter
+    >>> bot = MultiDataFormatterBase(country_bot, sport_bot)
+    >>> bot.create_label("british football players")
+    'لاعبو كرة القدم بريطانيون'
 
 test at tests.translations_formats.test_format_2_data.py
 """
 
 from typing import Dict
-from .model_data_v2 import FormatDataV2
+
 from .model_data import FormatData
-from .model_data_time import YearFormatData
 from .model_data_double import FormatDataDouble
+from .model_data_time import YearFormatData
+from .model_data_v2 import FormatDataV2
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 
 class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
     """
-    Handles complex formatting involving two sets of data lists (e.g.,
-    nationality and sport, or country and year). It orchestrates two
-    formatter instances (`FormatData` or `YearFormatData`) to normalize
-    and translate category strings.
+    Combines two FormatData instances for dual-element category translations.
+
+    This class orchestrates two FormatData formatter instances to handle
+    categories that contain two dynamic elements (e.g., nationality and sport).
+    It normalizes the category by replacing both elements with placeholders,
+    then uses templates to generate the final Arabic translation.
+
+    Attributes:
+        country_bot (FormatData): Formatter for the first dynamic element (e.g., nationality).
+        other_bot (FormatData): Formatter for the second dynamic element (e.g., sport).
+        search_first_part (bool): If True, search using only the first part after normalization.
+        data_to_find (Dict[str, str] | None): Optional direct lookup dictionary for category labels.
+
+    Example:
+        >>> bot = MultiDataFormatterBase(country_bot, sport_bot)
+        >>> bot.create_label("british football championships")
+        'بطولات كرة القدم البريطانية'
     """
 
     def __init__(
@@ -40,6 +72,23 @@ class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
 
 class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
     """
+    Combines FormatData with YearFormatData for year-based category translations.
+
+    This class orchestrates a FormatData instance for nationality/country
+    elements and a YearFormatData instance for temporal elements. It handles
+    categories like "14th-century British writers" by normalizing both the
+    century and nationality, then combining them into an Arabic translation.
+
+    Attributes:
+        country_bot (FormatData): Formatter for nationality/country elements.
+        other_bot (YearFormatData): Formatter for year/decade/century elements.
+        search_first_part (bool): If True, search using only the first part after normalization.
+        data_to_find (Dict[str, str] | None): Optional direct lookup dictionary for category labels.
+
+    Example:
+        >>> bot = MultiDataFormatterBaseYear(country_bot, year_bot)
+        >>> bot.create_label("14th-century british writers")
+        'كتاب بريطانيون في القرن 14'
     """
 
     def __init__(
@@ -59,6 +108,24 @@ class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
 
 class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
     """
+    Combines FormatDataV2 with YearFormatData for advanced year-based translations.
+
+    This class orchestrates a FormatDataV2 instance (supporting dictionary values)
+    for nationality/country elements and a YearFormatData instance for temporal
+    elements. The other_key_first parameter controls which element is processed
+    first during normalization.
+
+    Attributes:
+        country_bot (FormatDataV2): Formatter for nationality/country elements with dict support.
+        other_bot (YearFormatData): Formatter for year/decade/century elements.
+        search_first_part (bool): If True, search using only the first part after normalization.
+        data_to_find (Dict[str, str] | None): Optional direct lookup dictionary for category labels.
+        other_key_first (bool): If True, process year element before nationality element.
+
+    Example:
+        >>> bot = MultiDataFormatterBaseYearV2(country_bot, year_bot, other_key_first=True)
+        >>> bot.create_label("14th-century yemeni writers")
+        'كتاب يمنيون في القرن 14'
     """
 
     def __init__(
@@ -80,10 +147,23 @@ class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
 
 class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
     """
-    Handles complex formatting involving two sets of data lists (e.g.,
-    nationality and sport, or country and year). It orchestrates two
-    formatter instances (`FormatData` or `YearFormatData`) to normalize
-    and translate category strings.
+    Combines FormatData with FormatDataDouble for double-key category translations.
+
+    This class orchestrates a FormatData instance for nationality/country
+    elements and a FormatDataDouble instance for elements that may have
+    two adjacent keys (e.g., "action drama" in film genres). It handles
+    categories like "british action drama films".
+
+    Attributes:
+        country_bot (FormatData): Formatter for nationality/country elements.
+        other_bot (FormatDataDouble): Formatter for double-key elements (e.g., film genres).
+        search_first_part (bool): If True, search using only the first part after normalization.
+        data_to_find (Dict[str, str] | None): Optional direct lookup dictionary for category labels.
+
+    Example:
+        >>> bot = MultiDataFormatterDataDouble(country_bot, genre_bot)
+        >>> bot.create_label("british action drama films")
+        'أفلام أكشن دراما بريطانية'
     """
 
     def __init__(

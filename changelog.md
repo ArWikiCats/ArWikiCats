@@ -1,3 +1,35 @@
+## [Integrate MultiDataFormatterYearAndFrom with category_relation_mapping] [#257](https://github.com/MrIbrahem/ArWikiCats/pull/257) - 2025-12-22
+
+* **New Features**
+  * Enhanced `MultiDataFormatterYearAndFrom` class with `category_relation_mapping` integration
+  * Added `get_relation_word()` method to find relation words (prepositions like "from", "in", "by") in categories
+  * Added `resolve_relation_label()` method to append Arabic relation words to base labels
+  * Added `get_relation_mapping()` method to access the full relation word mapping
+
+* **Documentation**
+  * Added comprehensive docstrings to all classes in `ArWikiCats/translations_formats/DataModel/`:
+    - `model_data_base.py`: FormatDataBase class
+    - `model_data.py`: FormatData class
+    - `model_data_double.py`: FormatDataDouble class
+    - `model_data_time.py`: YearFormatDataLegacy class and YearFormatData function
+    - `model_data_v2.py`: FormatDataV2 and MultiDataFormatterBaseV2 classes
+    - `model_multi_data.py`: MultiDataFormatterBase, MultiDataFormatterBaseYear, MultiDataFormatterBaseYearV2, MultiDataFormatterDataDouble classes
+    - `model_multi_data_base.py`: NormalizeResult dataclass and MultiDataFormatterBaseHelpers class
+    - `model_multi_data_year_from.py`: FormatDataFrom and MultiDataFormatterYearAndFrom classes
+  * Added comprehensive docstrings to files in `ArWikiCats/translations_formats/`:
+    - `__init__.py`: Package-level documentation with all exports
+    - `data_new_model.py`: format_films_country_data function
+    - `data_with_time.py`: format_year_country_data and format_year_country_data_v2 functions
+    - `multi_data.py`: format_multi_data, format_multi_data_v2, and get_other_data functions
+  * Added module-level documentation with usage examples
+  * Added inline comments explaining key logic
+
+* **Tests**
+  * Added 37 new test cases for `MultiDataFormatterYearAndFrom` functionality
+  * Tests cover: get_relation_word, resolve_relation_label, get_relation_mapping
+  * Tests include edge cases: empty inputs, duplicate relations, case sensitivity
+  * Integration tests verify backward compatibility with existing functionality
+
 ## [#253](https://github.com/MrIbrahem/ArWikiCats/pull/253) - 2025-12-22
 
 * **New Features**
