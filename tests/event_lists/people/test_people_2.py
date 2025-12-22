@@ -9,7 +9,7 @@ data1 = {
     "Category:Afghan expatriates": "تصنيف:أفغان مغتربون",
     "Category:Ambassadors of Afghanistan to Argentina": "تصنيف:سفراء أفغانستان لدى الأرجنتين",
     "Category:Ambassadors of Afghanistan to Australia": "تصنيف:سفراء أفغانستان لدى أستراليا",
-    "Category:American people by status": "تصنيف:أعلام أمريكيون حسب الحالة",
+    "Category:American people by status": "تصنيف:أمريكيون حسب الحالة",
     "Category:American people of the Iraq War": "تصنيف:أمريكيون في حرب العراق",
     "Category:European women in business": "تصنيف:أوروبيات في الأعمال",
     "Category:Ivorian emigrants": "تصنيف:إيفواريون مهاجرون",

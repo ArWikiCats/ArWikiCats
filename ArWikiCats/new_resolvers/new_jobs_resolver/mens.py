@@ -15,7 +15,7 @@ def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
         "{en_nat}": "{ar_nat}",
-        "{en_nat} people": "أعلام {ar_nat}",
+        # "{en_nat} people": "أعلام {ar_nat}",
         # "{en_nat} people": "{ar_nat}",
 
         "{en_nat}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {ar_nat}",

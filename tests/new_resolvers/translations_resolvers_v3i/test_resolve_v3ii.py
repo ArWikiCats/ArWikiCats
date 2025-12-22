@@ -10,7 +10,7 @@ test_data = {
     "21st-century yemeni writers": "كتاب يمنيون في القرن 21",
     "21st-century New Zealand writers": "كتاب نيوزيلنديون في القرن 21",
     # "20th century american people": "أمريكيون في القرن 20",
-    "20th century american people": "أعلام أمريكيون في القرن 20",
+    "20th century american people": "أمريكيون في القرن 20",
 }
 
 

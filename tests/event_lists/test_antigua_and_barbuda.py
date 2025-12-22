@@ -43,7 +43,7 @@ data_0 = {
 
 data_1 = {
     "Category:21st-century Antigua and Barbuda politicians": "تصنيف:سياسيون أنتيغويون وبربوديون في القرن 21",
-    "Category:21st-century Antigua and Barbuda people": "تصنيف:أعلام أنتيغويون وبربوديون في القرن 21",
+    "Category:21st-century Antigua and Barbuda people": "تصنيف:أنتيغويون وبربوديون في القرن 21",
     "Category:New Zealand emigrants to Antigua and Barbuda": "تصنيف:نيوزيلنديون مهاجرون إلى أنتيغوا وباربودا",
 
     "Category:Paralympic competitors for Antigua and Barbuda": "تصنيف:منافسون بارالمبيون من أنتيغوا وباربودا",
@@ -331,7 +331,7 @@ data_1 = {
     "Category:Antigua and Barbuda officials of the United Nations": "تصنيف:مسؤولون أنتيغويون وبربوديون في الأمم المتحدة",
     "Category:Antigua and Barbuda people by descent": "تصنيف:أنتيغويون وبربوديون حسب الأصل العرقي أو الوطني",
     "Category:Antigua and Barbuda people by occupation": "تصنيف:أنتيغويون وبربوديون حسب المهنة",
-    "Category:Antigua and Barbuda people by parish": "تصنيف:أعلام أنتيغويون وبربوديون حسب الأبرشية",
+    "Category:Antigua and Barbuda people by parish": "تصنيف:أنتيغويون وبربوديون حسب الأبرشية",
     "Category:Antigua and Barbuda people by political orientation": "تصنيف:أنتيغويون وبربوديون حسب التوجه السياسي",
     "Category:Antigua and Barbuda people by religion": "تصنيف:أنتيغويون وبربوديون حسب الدين",
     "Category:Antigua and Barbuda people imprisoned abroad": "تصنيف:مسجونون في الخارج أنتيغويون وبربوديون",

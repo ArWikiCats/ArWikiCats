@@ -257,7 +257,7 @@ data_slow = {
     "history of women": "تاريخ المرأة",
     "hospitals in uganda": "مستشفيات في أوغندا",
     "houses on the-national-register-of-historic-places": "منازل في السجل الوطني للأماكن التاريخية",
-    "hungarian people imprisoned-in germany": "أعلام مجريون مسجونون في ألمانيا",
+    "hungarian people imprisoned-in germany": "مجريون مسجونون في ألمانيا",
     "ice hockey people": "أعلام هوكي جليد",
     "ice skating": "تزلج على الجليد",
     "icelandic emigrants to new zealand": "آيسلنديون مهاجرون إلى نيوزيلندا",
