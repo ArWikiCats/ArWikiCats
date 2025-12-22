@@ -3,8 +3,7 @@ TODO: merge with translations_resolvers OR translations_resolvers_v2
 """
 import functools
 import re
-from ...helps.log import logger
-from ...helps.jsonl_dump import dump_data
+from ...helps import logger, len_print
 from ...translations import (
     AFTER_KEYS_TEAM,
     countries_from_nat,
@@ -52,9 +51,6 @@ sport_formts_enar_p17_jobs = {
 }
 
 
-SPORT_FORMTS_ENAR_P17_TEAM = {}
-
-
 def _build_new_tato() -> dict[str, str]:
     data = {}
 
@@ -86,80 +82,86 @@ def _build_new_tato() -> dict[str, str]:
 
 def _build_nat_formats_for_p17() -> dict:
     """Construct nationality placeholders used for P17 sports formats."""
-    New_Tato = _build_new_tato()
-    data = {}
     NAT_PLACE_HOLDER = "{}"
-    data["xoxo league"] = "دوري {} xoxo "
-    data["professional xoxo league"] = "دوري {} xoxo للمحترفين"
-    data["amateur xoxo cup"] = "كأس {} xoxo للهواة"
-    data["youth xoxo cup"] = "كأس {} xoxo للشباب"
-    data["men's xoxo cup"] = "كأس {} xoxo للرجال"
-    data["women's xoxo cup"] = "كأس {} xoxo للسيدات"
-    data["amateur xoxo championships"] = "بطولة {} xoxo للهواة"
-    data["youth xoxo championships"] = "بطولة {} xoxo للشباب"
-    data["men's xoxo championships"] = "بطولة {} xoxo للرجال"
-    data["women's xoxo championships"] = "بطولة {} xoxo للسيدات"
-    data["amateur xoxo championship"] = "بطولة {} xoxo للهواة"
-    data["youth xoxo championship"] = "بطولة {} xoxo للشباب"
-    data["men's xoxo championship"] = "بطولة {} xoxo للرجال"
-    data["women's xoxo championship"] = "بطولة {} xoxo للسيدات"
-    data["xoxo cup"] = "كأس {} xoxo"
-    data["xoxo cup"] = "كأس {} xoxo"
+    data = {
+        "xoxo league": "دوري {} xoxo ",
+        "professional xoxo league": "دوري {} xoxo للمحترفين",
+        "amateur xoxo cup": "كأس {} xoxo للهواة",
+        "youth xoxo cup": "كأس {} xoxo للشباب",
+        "men's xoxo cup": "كأس {} xoxo للرجال",
+        "women's xoxo cup": "كأس {} xoxo للسيدات",
+        "amateur xoxo championships": "بطولة {} xoxo للهواة",
+        "youth xoxo championships": "بطولة {} xoxo للشباب",
+        "men's xoxo championships": "بطولة {} xoxo للرجال",
+        "women's xoxo championships": "بطولة {} xoxo للسيدات",
+        "amateur xoxo championship": "بطولة {} xoxo للهواة",
+        "youth xoxo championship": "بطولة {} xoxo للشباب",
+        "men's xoxo championship": "بطولة {} xoxo للرجال",
+        "women's xoxo championship": "بطولة {} xoxo للسيدات",
+        "xoxo cup": "كأس {} xoxo",
+        # ---national youth handball team
+        "xoxo national team": f"منتخب {NAT_PLACE_HOLDER} xoxo",
+        "national xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo",
 
-    number_xo = 0
-    for tyu, tyu_lab in New_Tato.items():
-        logger.debug(" ========= country =========== ")
-        K_at_p = tyu_lab.format("xoxo")
-        number_xo += 1
-        nat_Lab = "منتخب {} " + K_at_p
-        for pre, pre_lab in AFTER_KEYS_TEAM.items():
-            number_xo += 1
-            pre_lab2 = pre_lab.format(nat_Lab)
-            Ab = f"{tyu} xoxo {pre}"
-            if pre == "team players" and "women's" in Ab:
-                pre_lab2 = pre_lab2.replace(r"لاعبو ", "لاعبات ")
-            elif "لاعبو " in pre_lab2 and "women's" in Ab:
-                pre_lab2 = pre_lab2.replace(r"لاعبو ", "لاعبات ")
-            printo = f"nat_Lab: [{Ab}] : " + pre_lab2
-            # if team2 == "road cycling"and pre == "team":
-            # print("%d: %s" % (number_xo , printo) )
-            logger.debug("%d: %s" % (number_xo, printo))
-            data[Ab] = pre_lab2
-    # ---national youth handball team
-    data["xoxo national team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo"
-    data["national xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo"
-    # Category:Denmark national football team staff
-    data["xoxo national team staff"] = f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo"
-    # Category:Denmark national football team non-playing staff
-    data["xoxo national team non-playing staff"] = f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo غير اللاعبين"
-    # Polish men's volleyball national team national junior men's
-    data["national junior men's xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين"
-    data["national junior xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين"
-    data["national women's xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
-    data["mennnn's national xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال"
-    data["men's xoxo national team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال"
-    data["national men's xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال"
-    # Australian men's U23 national road cycling team
-    data["men's u23 national xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo تحت 23 سنة للرجال"
-    data["xoxo league"] = f"دوري {NAT_PLACE_HOLDER} xoxo"
-    data["professional xoxo league"] = f"دوري {NAT_PLACE_HOLDER} xoxo للمحترفين"
-    data["national youth xoxo team"] = f"منتخب {NAT_PLACE_HOLDER} xoxo للشباب"
+        # Category:Denmark national football team staff
+        "xoxo national team staff": f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo",
 
-    data["national women's xoxo team managers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
-    data["national xoxo team managers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo"
+        # Category:Denmark national football team non-playing staff
+        "xoxo national team non-playing staff": f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo غير اللاعبين",
 
-    data["national women's xoxo team coaches"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
-    data["national xoxo team coaches"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo"
+        # Polish men's volleyball national team national junior men's
+        "national junior men's xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين",
+        "national junior xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين",
+        "national women's xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
+        "mennnn's national xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال",
+        "men's xoxo national team": f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال",
+        "national men's xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال",
 
-    data["national women's xoxo team trainers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات"
-    data["national xoxo team trainers"] = f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo"
+        # Australian men's U23 national road cycling team
+        "men's u23 national xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo تحت 23 سنة للرجال",
+        "national youth xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للشباب",
+
+        "national women's xoxo team managers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
+        "national xoxo team managers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo",
+
+        "national women's xoxo team coaches": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
+        "national xoxo team coaches": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo",
+
+        "national women's xoxo team trainers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
+        "national xoxo team trainers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo",
+    }
+
     return data
 
 
-SPORT_FORMTS_ENAR_P17_TEAM = _build_nat_formats_for_p17()
+def generate_team_data(New_Tato) -> dict:
+    data = {}
+    for tyu, tyu_lab in New_Tato.items():
+        logger.debug(" ========= country =========== ")
+        K_at_p = tyu_lab.format("xoxo")
+        nat_Lab = "منتخب {} " + K_at_p
+
+        for pre, pre_lab in AFTER_KEYS_TEAM.items():    # 35
+            pre_lab2 = pre_lab.format(nat_Lab)
+            Ab = f"{tyu} xoxo {pre}"
+
+            if pre == "team players" and "women's" in Ab:
+                pre_lab2 = pre_lab2.replace(r"لاعبو ", "لاعبات ")
+
+            elif "لاعبو " in pre_lab2 and "women's" in Ab:
+                pre_lab2 = pre_lab2.replace(r"لاعبو ", "لاعبات ")
+
+            data[Ab] = pre_lab2
+    return data
 
 
-def get_sport_formts_enar_p17_jobs(suffix: str) -> str:  # sport_formts_enar_p17_jobs
+NEW_TATO = _build_new_tato()                    # 110
+TEAM_DATA = generate_team_data(NEW_TATO)        # 3850
+
+SPORT_FORMTS_ENAR_P17_TEAM = _build_nat_formats_for_p17()  # 33
+
+
+def get_sport_formts_enar_p17_jobs(suffix: str) -> str:
     """
     Return a sport label that merges templates with Arabic sport names.
 
@@ -200,7 +202,7 @@ def get_sport_formts_enar_p17_jobs(suffix: str) -> str:  # sport_formts_enar_p17
     return con_3_label
 
 
-def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # SPORT_FORMTS_ENAR_P17_TEAM
+def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:
     """
     Return a sport label that merges templates with Arabic sport names.
 
@@ -213,15 +215,14 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # SPORT_FORMTS_ENAR_P
 
     sport_label = ""
 
-    template_label = ""
     normalized_key = suffix.replace(sport_key, "xoxo")
     normalized_key = re.sub(sport_key, "xoxo", normalized_key, flags=re.IGNORECASE)
 
     logger.info(f'Get_SFxo_en_ar_is P17: {suffix=}, {sport_key=}, team_xoxo:"{normalized_key}"')
 
-    if normalized_key in SPORT_FORMTS_ENAR_P17_TEAM:
+    template_label = SPORT_FORMTS_ENAR_P17_TEAM.get(normalized_key, "") or TEAM_DATA.get(normalized_key, "")
+    if template_label:
         sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
-        template_label = SPORT_FORMTS_ENAR_P17_TEAM.get(normalized_key, "")
 
     else:
         logger.info(
@@ -242,7 +243,6 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # SPORT_FORMTS_ENAR_P
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
 def get_p17_with_sport(category: str) -> str:
     """
     TODO: use FormatData method
@@ -276,8 +276,15 @@ def get_p17_with_sport(category: str) -> str:
     return resolved_label
 
 
+len_print.data_len(
+    "p17_bot_sport.py",
+    {
+        "NEW_TATO": NEW_TATO,
+        "TEAM_DATA": TEAM_DATA,
+        "SPORT_FORMTS_ENAR_P17_TEAM": SPORT_FORMTS_ENAR_P17_TEAM,
+    },
+)
+
 __all__ = [
-    "Get_Sport_Format_xo_en_ar_is_P17",
-    "get_sport_formts_enar_p17_jobs",
     "get_p17_with_sport",
 ]
