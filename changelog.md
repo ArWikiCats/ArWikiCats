@@ -1,3 +1,22 @@
+## [Integrate MultiDataFormatterYearAndFrom with category_relation_mapping] - 2025-12-22
+
+* **New Features**
+  * Enhanced `MultiDataFormatterYearAndFrom` class with `category_relation_mapping` integration
+  * Added `get_relation_word()` method to find relation words (prepositions like "from", "in", "by") in categories
+  * Added `resolve_relation_label()` method to append Arabic relation words to base labels
+  * Added `get_relation_mapping()` method to access the full relation word mapping
+
+* **Documentation**
+  * Added comprehensive docstrings to `FormatDataFrom` and `MultiDataFormatterYearAndFrom` classes
+  * Added module-level documentation with usage examples
+  * Added inline comments explaining key logic
+
+* **Tests**
+  * Added 37 new test cases for `MultiDataFormatterYearAndFrom` functionality
+  * Tests cover: get_relation_word, resolve_relation_label, get_relation_mapping
+  * Tests include edge cases: empty inputs, duplicate relations, case sensitivity
+  * Integration tests verify backward compatibility with existing functionality
+
 ## [#253](https://github.com/MrIbrahem/ArWikiCats/pull/253) - 2025-12-22
 
 * **New Features**
