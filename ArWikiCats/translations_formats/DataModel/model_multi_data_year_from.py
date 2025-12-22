@@ -38,7 +38,7 @@ Example:
 import re
 
 from ...helps import logger
-# from .model_data_time import YearFormatData
+from ...make_bots.format_bots import category_relation_mapping
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 
@@ -213,3 +213,94 @@ class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
         self.other_bot = year_bot
         self.data_to_find = data_to_find
         self.other_key_first = other_key_first
+
+    def get_relation_word(self, category: str) -> tuple[str, str]:
+        """
+        Find the first relation word in the category using category_relation_mapping.
+
+        Searches for relation words (prepositions like "from", "in", "by") in the
+        category string and returns the matching key and its Arabic translation.
+
+        Note:
+            The method returns the first match found based on the iteration order
+            of category_relation_mapping dictionary (insertion order in Python 3.7+).
+            Longer/more specific relation phrases should be defined before shorter ones
+            in the mapping to ensure correct matching (e.g., "published by" before "by").
+
+        Args:
+            category: The English category string to search.
+
+        Returns:
+            A tuple of (relation_key, arabic_translation). Returns ("", "") if no match.
+
+        Example:
+            >>> bot.get_relation_word("People from Germany")
+            ('from', 'من')
+            >>> bot.get_relation_word("Buildings in France")
+            ('in', 'في')
+            >>> bot.get_relation_word("Works published by Oxford")
+            ('published by', 'نشرتها')
+        """
+        for separator, separator_name in category_relation_mapping.items():
+            separator_with_spaces = f" {separator} "
+            if separator_with_spaces in category:
+                return separator, separator_name
+        return "", ""
+
+    def resolve_relation_label(self, category: str, base_label: str) -> str:
+        """
+        Append the Arabic relation word to a base label based on the category.
+
+        Finds the relation word in the category and appends its Arabic equivalent
+        to the base label if appropriate.
+
+        Args:
+            category: The English category string containing a relation word.
+            base_label: The Arabic base label to append the relation to.
+
+        Returns:
+            The base label with the Arabic relation word appended, or the original
+            base label if no relation is found or if it's already present.
+
+        Example:
+            >>> bot.resolve_relation_label("Writers from Yemen", "كتاب")
+            'كتاب من'
+            >>> bot.resolve_relation_label("People in Germany", "أشخاص")
+            'أشخاص في'
+        """
+        if not base_label or not category:
+            return base_label
+
+        relation_key, relation_ar = self.get_relation_word(category)
+
+        if not relation_ar:
+            return base_label
+
+        # Avoid duplicate relation words by checking if it ends with the relation
+        # or contains it as a complete word (surrounded by spaces or at boundaries)
+        relation_ar_stripped = relation_ar.strip()
+        if base_label.endswith(relation_ar_stripped) or base_label.endswith(f" {relation_ar_stripped}"):
+            return base_label
+        if f" {relation_ar_stripped} " in base_label:
+            return base_label
+
+        return f"{base_label} {relation_ar}".strip()
+
+    def get_relation_mapping(self) -> dict[str, str]:
+        """
+        Return the category_relation_mapping dictionary.
+
+        This provides access to the full relation word mapping for external use
+        or inspection.
+
+        Returns:
+            The category_relation_mapping dictionary with English keys and Arabic values.
+
+        Example:
+            >>> mapping = bot.get_relation_mapping()
+            >>> mapping["from"]
+            'من'
+            >>> mapping["published by"]
+            'نشرتها'
+        """
+        return category_relation_mapping
