@@ -6,9 +6,8 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
-    get_p17_with_sport,
-)
+from ArWikiCats.make_bots.countries_formats.p17_bot_sport import get_p17_with_sport
+from ArWikiCats.make_bots.countries_formats.p17_bot_sport_for_job import get_p17_with_sport_jobs
 
 # =========================================================
 #                   get_p17_with_sport
@@ -138,7 +137,7 @@ data_1 = {
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_get_p17_with_sport_1(category: str, expected: str) -> None:
-    label = get_p17_with_sport(category)
+    label = get_p17_with_sport(category) or get_p17_with_sport_jobs(category)
     assert label == expected
 
 
