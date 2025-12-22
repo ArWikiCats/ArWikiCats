@@ -144,5 +144,5 @@ def test_film_keys_2(category: str, expected: str) -> None:
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
-    dump_diff_text(expected, diff_result, name)
+    # dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
