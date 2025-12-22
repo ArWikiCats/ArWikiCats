@@ -7,7 +7,6 @@ from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.countries_formats.p17_bot_sport import get_p17_with_sport
-from ArWikiCats.make_bots.countries_formats.p17_bot_sport_for_job import get_p17_with_sport_jobs
 
 # =========================================================
 #                   get_p17_with_sport
@@ -48,9 +47,7 @@ data_1 = {
     "england national women's cricket team": "منتخب إنجلترا للكريكت للسيدات",
     "england national women's rugby union team matches": "مباريات منتخب إنجلترا لاتحاد الرجبي للسيدات",
     "fiji national rugby union team": "منتخب فيجي لاتحاد الرجبي",
-    "fiji women's international rugby union players": "لاعبات اتحاد رجبي دوليات من فيجي",
     "finland national football team navigational boxes": "صناديق تصفح منتخب فنلندا لكرة القدم",
-    "france international women's rugby sevens players": "لاعبات سباعيات رجبي دوليات من فرنسا",
     "france national football team": "منتخب فرنسا لكرة القدم",
     "france national under-21 football team": "منتخب فرنسا لكرة القدم تحت 21 سنة",
     "germany national football team": "منتخب ألمانيا لكرة القدم",
@@ -71,11 +68,9 @@ data_1 = {
     "liberia national football team": "منتخب ليبيريا لكرة القدم",
     "malaysia national football team results": "نتائج منتخب ماليزيا لكرة القدم",
     "maldives national women's football team": "منتخب جزر المالديف لكرة القدم للسيدات",
-    "mali summer olympics football": "كرة قدم مالي في الألعاب الأولمبية الصيفية",
     "mauritania national basketball team": "منتخب موريتانيا لكرة السلة",
     "mauritius national women's football team": "منتخب موريشيوس لكرة القدم للسيدات",
     "mexico national women's football team navigational boxes": "صناديق تصفح منتخب المكسيك لكرة القدم للسيدات",
-    "moldova football manager history": "تاريخ مدربو كرة قدم مولدوفا",
     "netherlands national rugby union team coaches": "مدربو منتخب هولندا لاتحاد الرجبي",
     "new zealand national women's cricket team": "منتخب نيوزيلندا للكريكت للسيدات",
     "new zealand national women's football team managers": "مدربو منتخب نيوزيلندا لكرة القدم للسيدات",
@@ -89,7 +84,6 @@ data_1 = {
     "philippines national football team records and statistics": "سجلات وإحصائيات منتخب الفلبين لكرة القدم",
     "philippines national football team records": "سجلات منتخب الفلبين لكرة القدم",
     "philippines national women's football team navigational boxes": "صناديق تصفح منتخب الفلبين لكرة القدم للسيدات",
-    "poland summer olympics football": "كرة قدم بولندا في الألعاب الأولمبية الصيفية",
     "portugal national football team records and statistics": "سجلات وإحصائيات منتخب البرتغال لكرة القدم",
     "portugal national football team records": "سجلات منتخب البرتغال لكرة القدم",
     "qatar national football team navigational boxes": "صناديق تصفح منتخب قطر لكرة القدم",
@@ -130,14 +124,13 @@ data_1 = {
     "united states national rugby league team coaches": "مدربو منتخب الولايات المتحدة لدوري الرجبي",
     "wales national football team results": "نتائج منتخب ويلز لكرة القدم",
     "wales national women's rugby league team players": "لاعبات منتخب ويلز لدوري الرجبي للسيدات",
-    "yemen international soccer players": "لاعبو كرة قدم دوليون من اليمن",
 }
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_get_p17_with_sport_1(category: str, expected: str) -> None:
-    label = get_p17_with_sport(category) or get_p17_with_sport_jobs(category)
+    label = get_p17_with_sport(category)
     assert label == expected
 
 

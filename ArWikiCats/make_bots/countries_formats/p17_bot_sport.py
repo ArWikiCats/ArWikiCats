@@ -1,5 +1,5 @@
 """
-TODO: merge with translations_resolvers OR translations_resolvers_v2
+TODO: merge with translations_resolvers OR translations_resolvers_v2 or (Recommended: p17_sport_to_move_under.py)
 """
 import functools
 import re
@@ -48,7 +48,7 @@ def _build_nat_formats_for_p17() -> dict:
     """Construct nationality placeholders used for P17 sports formats."""
     NAT_PLACE_HOLDER = "{}"
     data = {
-        "xoxo league": "دوري {} xoxo ",
+        "xoxo league": "دوري {} xoxo",
         "professional xoxo league": "دوري {} xoxo للمحترفين",
         "amateur xoxo cup": "كأس {} xoxo للهواة",
         "youth xoxo cup": "كأس {} xoxo للشباب",
@@ -166,7 +166,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
+@dump_data()
 def get_p17_with_sport(category: str) -> str:
     """
     TODO: use FormatData method
