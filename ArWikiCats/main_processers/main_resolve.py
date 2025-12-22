@@ -98,13 +98,14 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
             category_lab = start_ylab
 
         if not category_lab:
-            category_lab = event2bot.event2(changed_cat)
+            category_lab = event2bot.event2_new(changed_cat)
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)
 
     if not category_lab and is_cat_okay:
-        category_lab = start_ylab
+        # category_lab = start_ylab
+        category_lab = ye_ts_bot.translate_general_category(changed_cat)
 
     if category_lab and fix_label:
         category_lab = fixlabel(category_lab, en=category)

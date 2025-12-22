@@ -163,6 +163,8 @@ def event2_new(category_r: str) -> str:
         stubs_label(category_r) or
         ""
     )
+    if ar_label.startswith("تصنيف:"):
+        ar_label = ar_label[len("تصنيف:"):]
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ event2_new end 3 ^^^^^^^^^ ")
 
