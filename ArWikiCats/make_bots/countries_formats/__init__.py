@@ -1,6 +1,5 @@
 
-# from ...new_resolvers.translations_resolvers import countries_names
-from . import p17_bot, p17_bot_sport, p17_sport_to_move_under  # , p17_bot_2
+from . import p17_bot, p17_bot_sport, p17_sport_to_move_under
 
 
 def resolved_countries_formats_labels(normalized_category) -> str:

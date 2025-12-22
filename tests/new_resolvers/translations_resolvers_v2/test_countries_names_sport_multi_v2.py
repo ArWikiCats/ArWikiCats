@@ -16,6 +16,15 @@ test_data_1 = {
         "تصنيف:فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "Category:Olympic gold medalists for the United States in football":
         "تصنيف:فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القدم",
+
+    # "yemen international soccer players": "لاعبو كرة قدم دوليون من اليمن",
+    "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
+    "fiji women's international rugby union players": "لاعبات اتحاد رجبي دوليات من فيجي",
+    "france international women's rugby sevens players": "لاعبات سباعيات رجبي دوليات من فرنسا",
+    "mali summer olympics football": "كرة قدم مالي في الألعاب الأولمبية الصيفية",
+    "moldova football manager history": "تاريخ مدربو كرة قدم مولدوفا",
+    "poland summer olympics football": "كرة قدم بولندا في الألعاب الأولمبية الصيفية",
+    "yemen under-17 international basketball managers": "مدربو كرة سلة تحت 17 سنة دوليون من اليمن",
 }
 
 

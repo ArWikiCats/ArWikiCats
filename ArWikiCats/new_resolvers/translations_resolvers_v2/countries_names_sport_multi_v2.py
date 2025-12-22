@@ -14,7 +14,6 @@ from .nats_as_country_names import nats_keys_as_country_names
 
 
 sports_formatted_data = {
-
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
@@ -24,20 +23,51 @@ sports_formatted_data = {
 
     "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} playerss": "لاعبات {sport_jobs}",
-
     "{en} women's national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
     "{en} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
-
     "{en} national {en_sport} team" : "منتخب {ar} {sport_team}",
     "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
+    "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
+    "women's {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
+
 
     "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
-
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
 
-    "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
+    "{en} international men's {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
+    "{en} men's international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
+    "{en} international women's {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
-    "women's {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
+
+    # data from p17_bot_sport_for_job.py
+    "{en} under-13 international {en_sport} managers": "مدربو {sport_jobs} تحت 13 سنة دوليون من {ar}",
+    "{en} under-13 international {en_sport} players": "لاعبو {sport_jobs} تحت 13 سنة دوليون من {ar}",
+    "{en} under-14 international {en_sport} managers": "مدربو {sport_jobs} تحت 14 سنة دوليون من {ar}",
+    "{en} under-14 international {en_sport} players": "لاعبو {sport_jobs} تحت 14 سنة دوليون من {ar}",
+    "{en} under-15 international {en_sport} managers": "مدربو {sport_jobs} تحت 15 سنة دوليون من {ar}",
+    "{en} under-15 international {en_sport} players": "لاعبو {sport_jobs} تحت 15 سنة دوليون من {ar}",
+    "{en} under-16 international {en_sport} managers": "مدربو {sport_jobs} تحت 16 سنة دوليون من {ar}",
+    "{en} under-16 international {en_sport} players": "لاعبو {sport_jobs} تحت 16 سنة دوليون من {ar}",
+    "{en} under-17 international {en_sport} managers": "مدربو {sport_jobs} تحت 17 سنة دوليون من {ar}",
+    "{en} under-17 international {en_sport} players": "لاعبو {sport_jobs} تحت 17 سنة دوليون من {ar}",
+    "{en} under-18 international {en_sport} managers": "مدربو {sport_jobs} تحت 18 سنة دوليون من {ar}",
+    "{en} under-18 international {en_sport} players": "لاعبو {sport_jobs} تحت 18 سنة دوليون من {ar}",
+    "{en} under-19 international {en_sport} managers": "مدربو {sport_jobs} تحت 19 سنة دوليون من {ar}",
+    "{en} under-19 international {en_sport} players": "لاعبو {sport_jobs} تحت 19 سنة دوليون من {ar}",
+    "{en} under-20 international {en_sport} managers": "مدربو {sport_jobs} تحت 20 سنة دوليون من {ar}",
+    "{en} under-20 international {en_sport} players": "لاعبو {sport_jobs} تحت 20 سنة دوليون من {ar}",
+    "{en} under-21 international {en_sport} managers": "مدربو {sport_jobs} تحت 21 سنة دوليون من {ar}",
+    "{en} under-21 international {en_sport} players": "لاعبو {sport_jobs} تحت 21 سنة دوليون من {ar}",
+    "{en} under-23 international {en_sport} managers": "مدربو {sport_jobs} تحت 23 سنة دوليون من {ar}",
+    "{en} under-23 international {en_sport} players": "لاعبو {sport_jobs} تحت 23 سنة دوليون من {ar}",
+    "{en} under-24 international {en_sport} managers": "مدربو {sport_jobs} تحت 24 سنة دوليون من {ar}",
+    "{en} under-24 international {en_sport} players": "لاعبو {sport_jobs} تحت 24 سنة دوليون من {ar}",
+
+    "{en} olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية",
+    "{en} summer olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية الصيفية",
+
+    "{en} winter olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية الشتوية",
+    "{en} {en_sport} manager history": "تاريخ مدربو {sport_jobs} {ar}",
 }
 
 WOMENS_NATIONAL_DATA = {
@@ -98,8 +128,10 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=10000)
 def resolve_countries_names_sport(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_countries_names_sport: {category=}")
+
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
+
     logger.debug(f"<<yellow>> end resolve_countries_names_sport: {category=}, {result=}")
     return result
 

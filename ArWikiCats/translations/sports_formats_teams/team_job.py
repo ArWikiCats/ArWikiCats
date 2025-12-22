@@ -8,49 +8,6 @@ import re
 from ...helps import len_print
 from ..sports.sports_lists import AFTER_KEYS_NAT, LEVELS, NEW_TATO_NAT
 
-sport_formts_enar_p17_jobs = {
-    "international men's xoxo players": "لاعبو xoxo دوليون من {}",
-    "international women's xoxo players": "لاعبات xoxo دوليات من {}",
-    "international xoxo players": "لاعبو xoxo دوليون من {}",
-    "men's international xoxo players": "لاعبو xoxo دوليون من {}",
-    "olympics xoxo": "xoxo {} في الألعاب الأولمبية",
-    "summer olympics xoxo": "xoxo {} في الألعاب الأولمبية الصيفية",
-    "under-13 international xoxo managers": "مدربو xoxo تحت 13 سنة دوليون من {}",
-    "under-13 international xoxo players": "لاعبو xoxo تحت 13 سنة دوليون من {}",
-    "under-14 international xoxo managers": "مدربو xoxo تحت 14 سنة دوليون من {}",
-    "under-14 international xoxo players": "لاعبو xoxo تحت 14 سنة دوليون من {}",
-    "under-15 international xoxo managers": "مدربو xoxo تحت 15 سنة دوليون من {}",
-    "under-15 international xoxo players": "لاعبو xoxo تحت 15 سنة دوليون من {}",
-    "under-16 international xoxo managers": "مدربو xoxo تحت 16 سنة دوليون من {}",
-    "under-16 international xoxo players": "لاعبو xoxo تحت 16 سنة دوليون من {}",
-    "under-17 international xoxo managers": "مدربو xoxo تحت 17 سنة دوليون من {}",
-    "under-17 international xoxo players": "لاعبو xoxo تحت 17 سنة دوليون من {}",
-    "under-18 international xoxo managers": "مدربو xoxo تحت 18 سنة دوليون من {}",
-    "under-18 international xoxo players": "لاعبو xoxo تحت 18 سنة دوليون من {}",
-    "under-19 international xoxo managers": "مدربو xoxo تحت 19 سنة دوليون من {}",
-    "under-19 international xoxo players": "لاعبو xoxo تحت 19 سنة دوليون من {}",
-    "under-20 international xoxo managers": "مدربو xoxo تحت 20 سنة دوليون من {}",
-    "under-20 international xoxo players": "لاعبو xoxo تحت 20 سنة دوليون من {}",
-    "under-21 international xoxo managers": "مدربو xoxo تحت 21 سنة دوليون من {}",
-    "under-21 international xoxo players": "لاعبو xoxo تحت 21 سنة دوليون من {}",
-    "under-23 international xoxo managers": "مدربو xoxo تحت 23 سنة دوليون من {}",
-    "under-23 international xoxo players": "لاعبو xoxo تحت 23 سنة دوليون من {}",
-    "under-24 international xoxo managers": "مدربو xoxo تحت 24 سنة دوليون من {}",
-    "under-24 international xoxo players": "لاعبو xoxo تحت 24 سنة دوليون من {}",
-    "winter olympics xoxo": "xoxo {} في الألعاب الأولمبية الشتوية",
-    "women's international xoxo players": "لاعبات xoxo دوليات من {}",
-    "xoxo manager history": "تاريخ مدربو xoxo {}"
-}
-# ---
-New_team_xo_labels = {
-    "xoxo": "xoxo",
-    "xoxo league": "دوري xoxo",
-    "xoxo finals": "نهائيات xoxo",
-    "xoxo champions": "أبطال xoxo",
-    "olympics xoxo": "xoxo في الألعاب الأولمبية",
-    "summer olympics xoxo": "xoxo في الألعاب الأولمبية الصيفية",
-    "winter olympics xoxo": "xoxo في الألعاب الأولمبية الشتوية",
-}
 # ---
 # New_team_xo_jobs[ "xoxo olympic champions"] = "تاريخ مدربو منتخبات xoxo وطنية للسيدات"
 # tab[Category:Women's national football manager history navigational boxes] = "تصنيف:صناديق تصفح تاريخ مدربو منتخبات كرة قدم وطنية للسيدات"
@@ -223,17 +180,13 @@ new_team_xo_jobs_additional = _load_additional()        # 16083
 len_print.data_len(
     "sports_formats_teams/team_job.py",
     {
-        "sport_formts_enar_p17_jobs": sport_formts_enar_p17_jobs,
         "new_team_xo_jobs_additional": new_team_xo_jobs_additional,
-        "New_team_xo_labels": New_team_xo_labels,
         "New_team_xo_jobs": New_team_xo_jobs,
     },
 )
 
 
 __all__ = [
-    "sport_formts_enar_p17_jobs",
     "new_team_xo_jobs_additional",
     "New_team_xo_jobs",
-    "New_team_xo_labels",
 ]

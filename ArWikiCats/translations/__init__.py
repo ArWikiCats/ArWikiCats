@@ -1,5 +1,6 @@
 """ """
 
+from .sports.sports_lists import AFTER_KEYS_TEAM
 from .utils.json_dir import open_json_file
 from .sports.sub_teams_keys import sub_teams_new
 from .companies import New_Company
@@ -91,12 +92,11 @@ from .tv.films_mslslat import (
 from .type_tables import typeTable
 from .utils.match_sport_keys import match_sport_key
 
-from .sports_formats_teams.te3 import SPORT_FORMTS_ENAR_P17_TEAM
 from .utils import apply_pattern_replacements
-from .sports_formats_teams.team_job import sport_formts_enar_p17_jobs
 from .sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 __all__ = [
+    "AFTER_KEYS_TEAM",
     "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",
@@ -104,9 +104,7 @@ __all__ = [
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
     "COUNTRY_LABEL_OVERRIDES",
-    "sport_formts_enar_p17_jobs",
     "apply_pattern_replacements",
-    "SPORT_FORMTS_ENAR_P17_TEAM",
     "typeTable",
     "teams_new_founder",
     "find_teams_2025",
