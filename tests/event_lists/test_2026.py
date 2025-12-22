@@ -208,15 +208,15 @@ data3 = {
 }
 
 to_test = [
-    ("test_4_data_1", data1),
-    ("test_4_data_2", data2),
-    # ("test_4_data_3", data3),
+    ("test_2026_data_1", data1),
+    ("test_2026_data_2", data2),
+    # ("test_2026_data_3", data3),
 ]
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
 @pytest.mark.skip2
-def test_4_data_1(category: str, expected: str) -> None:
+def test_2026_data_1(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
