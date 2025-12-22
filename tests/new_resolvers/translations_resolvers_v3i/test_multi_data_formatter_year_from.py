@@ -8,6 +8,8 @@ This module tests the new methods added to MultiDataFormatterYearAndFrom2:
 - get_relation_mapping: Access the category_relation_mapping dictionary
 
 Tests follow existing project conventions and use pytest parametrize for data-driven testing.
+
+TODO: use MultiDataFormatterYearAndFrom2 in workflows.
 """
 
 import pytest
