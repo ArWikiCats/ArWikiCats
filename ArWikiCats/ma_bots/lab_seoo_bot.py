@@ -30,19 +30,17 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 def te_bot_3(category_key: str) -> str:
     """Return cached category labels when available in ``New_Lan``."""
-    arabic_label = ""
+    arabic_label = New_Lan.get(category_key.lower(), "")
 
-    if category_key.lower() in New_Lan:
+    if arabic_label:
         logger.info("<<lightblue>>>> vvvvvvvvvvvv te_bot_3 start vvvvvvvvvvvv ")
-        existing_label = New_Lan[category_key.lower()]
-        logger.info(f'<<lightyellow>>>>>>  {category_key}", labs :"{existing_label}"')
-        if existing_label is not None:
-            if re.sub(en_literes, "", existing_label, flags=re.IGNORECASE) == existing_label:
-                normalized_label = f"تصنيف:{fixtitle.fixlabel(existing_label, en=category_key)}"
-                logger.info(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
-                logger.info("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
-                return normalized_label
-    return arabic_label
+        logger.info(f'<<lightyellow>>>>>>  {category_key}", labs :"{arabic_label}"')
+        if re.sub(en_literes, "", arabic_label, flags=re.IGNORECASE) == arabic_label:
+            normalized_label = f"تصنيف:{fixtitle.fixlabel(arabic_label, en=category_key)}"
+            logger.info(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
+            logger.info("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
+            return normalized_label
+    return ""
 
 
 @functools.lru_cache(maxsize=None)
