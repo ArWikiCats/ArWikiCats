@@ -15,14 +15,12 @@ from ArWikiCats.make_bots.countries_formats.p17_bot_sport import (
 # =========================================================
 
 data_1 = {
-    "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
-    "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
-    "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
     "africa football league": "دوري إفريقيا لكرة القدم",
     "angola basketball cup": "كأس أنغولا لكرة السلة",
     "angola national football team lists": "قوائم منتخب أنغولا لكرة القدم",
     "argentina national field hockey team navigational boxes": "صناديق تصفح منتخب الأرجنتين لهوكي الميدان",
     "argentina national football team navigational boxes": "صناديق تصفح منتخب الأرجنتين لكرة القدم",
+    "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "aruba national football team navigational boxes": "صناديق تصفح منتخب أروبا لكرة القدم",
     "australia national men's under-23 soccer team": "منتخب أستراليا لكرة القدم تحت 23 سنة للرجال",
     "australia national netball team": "منتخب أستراليا لكرة الشبكة",
@@ -70,6 +68,7 @@ data_1 = {
     "ivory coast national football team navigational boxes": "صناديق تصفح منتخب ساحل العاج لكرة القدم",
     "jamaica national women's football team navigational boxes": "صناديق تصفح منتخب جامايكا لكرة القدم للسيدات",
     "kazakhstan national handball team templates": "قوالب منتخب كازاخستان لكرة اليد",
+    "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "liberia national football team": "منتخب ليبيريا لكرة القدم",
     "malaysia national football team results": "نتائج منتخب ماليزيا لكرة القدم",
     "maldives national women's football team": "منتخب جزر المالديف لكرة القدم للسيدات",
@@ -124,6 +123,7 @@ data_1 = {
     "switzerland national men's ice hockey team": "منتخب سويسرا لهوكي الجليد للرجال",
     "switzerland national women's basketball team": "منتخب سويسرا لكرة السلة للسيدات",
     "togo national women's basketball team": "منتخب توغو لكرة السلة للسيدات",
+    "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
     "turkey national women's volleyball team coaches": "مدربو منتخب تركيا لكرة الطائرة للسيدات",
     "united states national field hockey team": "منتخب الولايات المتحدة لهوكي الميدان",
     "united states national men's soccer team records and statistics": "سجلات وإحصائيات منتخب الولايات المتحدة لكرة القدم للرجال",
