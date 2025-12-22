@@ -318,7 +318,6 @@ data_1 = {
     "Category:Antigua and Barbuda football club seasons": "تصنيف:مواسم أندية كرة قدم أنتيغوية وبربودية",
     "Category:Antigua and Barbuda football logos": "تصنيف:شعارات كرة القدم الأنتيغوية الوبربودية",
     "Category:Antigua and Barbuda football managers": "تصنيف:مدربو كرة قدم أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda football navigational boxes": "تصنيف:صناديق تصفح كرة القدم الأنتيغوية الوبربودية",
     "Category:Antigua and Barbuda football templates": "تصنيف:قوالب كرة القدم الأنتيغوية الوبربودية",
     "Category:Antigua and Barbuda freestyle swimmers": "تصنيف:سباحو تزلج حر أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda high jumpers": "تصنيف:متسابقو قفز عالي أنتيغويون وبربوديون",

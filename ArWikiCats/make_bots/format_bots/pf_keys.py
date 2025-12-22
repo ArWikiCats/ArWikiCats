@@ -21,6 +21,8 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
     "players in": "playerss in",
 
+    "diplomatic missions of": "diplomatic-missions-of",
+    "fiba world championship for women": "fiba women's world championship",
     "central american and caribbean games": "central-american-and-caribbean-games",
     "elections,": "elections",
 
@@ -45,6 +47,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "accidents and incidents": "accidents-and-incidents",
     "adaptations of works": "adaptations-of-works",
     "africa cup of nations": "africa cup-of-nations",
+    "african cup of nations": "african cup-of-nations",
     "african american": "africanamerican",
     "african-american": "africanamerican",
     "ancient greek": "ancient-greek",
@@ -120,7 +123,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "scholars of islam": "scholars-of-islam",
     "shot dead by law enforcement officers": "shot dead-by-law enforcement officers",
     "sport ministers": "sport-ministers",
-    "sports culture": "sprts culture",
+    "sports culture": "sports-culture",
     "sports events": "sports-events",
     "sports media": "sports-media",
     "sports ministers": "sports-ministers",

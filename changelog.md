@@ -1,3 +1,19 @@
+## [#253](https://github.com/MrIbrahem/ArWikiCats/pull/253) - 2025-12-22
+
+* **New Features**
+  * Enhanced Arabic category label translations for international sports and historical categories
+  * Added support for burial sites and dynasty-related translations
+  * Expanded country-specific leader and position translations
+
+* **Bug Fixes**
+  * Corrected translation typos in category mappings
+  * Fixed Arabic label generation for squad categories
+  * Improved historical category translations
+
+* **Data Updates**
+  * Expanded translation database with new mappings
+  * Updated category label examples with corrections
+
 ## [#249](https://github.com/MrIbrahem/ArWikiCats/pull/249) - 2025-12-22
 
 * **Bug Fixes**

@@ -1,8 +1,5 @@
 """
-
-from ..ma_bots.squad_title_bot import get_squad_title
-# label = get_squad_title(tit)
-
+TODO: remove it
 """
 
 import functools
@@ -26,8 +23,7 @@ def get_squad_title(tit: str) -> str:
     if not lab:
         lab = with_years_bot.Try_With_Years(tit)
 
-    if lab:
-        lab = f"تشكيلات {lab}"
+    # if lab: lab = f"تشكيلات {lab}"
 
     if not lab:
         for oo, oo_lab in All_P17.items():
@@ -37,10 +33,48 @@ def get_squad_title(tit: str) -> str:
                 logger.info(f'<<lightblue>> get_squad_title tit.startswith("{oo}"), tit2:({tit2}) ')
                 falab = get_pop_All_18(tit2) or pop_of_football_lower.get(tit2) or get_from_new_p17_final(tit2) or ""
                 if falab:
-                    lab = f"تشكيلات {oo_lab} في {falab}"
+                    # lab = f"تشكيلات {oo_lab} في {falab}"
+                    lab = f"{oo_lab} في {falab}"
                     break
 
     lab = fix_minor(lab)
     logger.info(f'<<lightblue>> get_squad_title:"{tit}", {lab=} ')
 
     return lab
+
+
+def resolve_squads_labels_and_templates(category3_o: str) -> str:
+    """
+    Process squad-related category labels.
+
+    Args:
+        category3_o (str): The original category string
+
+    Returns:
+        str: The processed category label or empty string
+    """
+    category_lab = ""
+    list_of_cat = ""
+    category3 = category3_o.strip()
+
+    if category3.endswith(" squad templates"):
+        list_of_cat = "قوالب تشكيلات {}"
+        category3 = category3[: -len(" squad templates")]
+        cate_labs = get_squad_title(category3)
+        if cate_labs:
+            # category_lab = f"قوالب {cate_labs}"
+            category_lab = list_of_cat.format(cate_labs)
+
+    elif category3.endswith(" squad navigational boxes"):
+        list_of_cat = "صناديق تصفح تشكيلات {}"
+        category3 = category3[: -len(" squad navigational boxes")]
+        cate_labs = get_squad_title(category3)
+        if cate_labs:
+            # category_lab = f"صناديق تصفح {cate_labs}"
+            category_lab = list_of_cat.format(cate_labs)
+
+    if category_lab:
+        logger.debug(f"<<lightblue>>get_list_of_and_cat3_with_lab(): {list_of_cat=}, {category3=}, {category_lab=}")
+        logger.debug(f"<<lightblue>>(): {category3_o=}, {category_lab=}")
+
+    return category_lab

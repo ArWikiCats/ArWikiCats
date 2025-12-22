@@ -25,7 +25,7 @@ data1 = {
     "Category:Figure skaters at 2007 Winter Universiade": "تصنيف:متزلجون فنيون في الألعاب الجامعية الشتوية 2007",
     "Category:Nations at 2010 Summer Youth Olympics": "تصنيف:بلدان في الألعاب الأولمبية الشبابية الصيفية 2010",
     "Category:military personnel of republic-of china": "تصنيف:أفراد عسكريون من جمهورية الصين",
-    "Category:children of prime ministers of ukraine": "تصنيف:أطفال رؤساء وزراء أوكرانيا",
+    "Category:children of prime ministers of ukraine": "تصنيف:أبناء رؤساء وزراء أوكرانيا",
     # "Category:roman catholic bishops of fulda": "تصنيف:",
     "Category:men of poseidon": "تصنيف:رجال من بوسيدون",
     "Category:Olympic shooters of Egypt": "تصنيف:رماة أولمبيون من مصر",

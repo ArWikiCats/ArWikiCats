@@ -4,9 +4,22 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.event_lab_bot import get_list_of_and_cat3_with_lab2
+from ArWikiCats.ma_bots.squad_title_bot import resolve_squads_labels_and_templates
+from ArWikiCats import resolve_label_ar
+
+list_data_0 = {
+    "Bahrain AFC Asian Cup squad navigational boxes": "صناديق تصفح تشكيلات البحرين في كأس آسيا",
+}
 
 list_data = {
+    # "1880 european competition for women's football squad templates": "قوالب تشكيلات منافسات أوروبية في كرة القدم للسيدات 1880",
+
+    "1904 Summer Olympics football squad navigational boxes": "صناديق تصفح تشكيلات كرة القدم في الألعاب الأولمبية الصيفية 1904",
+    "1984 AFC Asian Cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1984",
+    "1952 Summer Olympics field hockey squad navigational boxes": "صناديق تصفح تشكيلات هوكي الميدان في الألعاب الأولمبية الصيفية 1952",
+    "2022 European Women's Handball Championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للسيدات 2022",
+
+    "1880 fifa women's world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم للسيدات 1880",
     "1880 afc asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1880",
     "1880 afc women's asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الآسيوية لكرة القدم للسيدات 1880",
     "1880 afc women's championship squad navigational boxes": "صناديق تصفح تشكيلات بطولة آسيا للسيدات 1880",
@@ -20,7 +33,6 @@ list_data = {
     "1880 copa américa femenina squad navigational boxes": "صناديق تصفح تشكيلات كوبا أمريكا فمنينا 1880",
     "1880 copa américa squad navigational boxes": "صناديق تصفح تشكيلات كوبا أمريكا 1880",
     "1880 cricket world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم للكريكت 1880",
-    "1880 european competition for women's football squad templates": "قوالب تشكيلات منافسات أوروبية في كرة القدم للسيدات 1880",
     "1880 european men's handball championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للرجال 1880",
     "1880 european women's handball championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للسيدات 1880",
     "1880 fiba asia championship squad templates": "قوالب تشكيلات بطولة أمم آسيا لكرة السلة 1880",
@@ -31,8 +43,6 @@ list_data = {
     "1880 fiba world championship squad templates": "قوالب تشكيلات بطولة كأس العالم لكرة السلة 1880",
     "1880 fiba world cup squad templates": "قوالب تشكيلات كأس العالم لكرة السلة 1880",
     "1880 fifa confederations cup squad navigational boxes": "صناديق تصفح تشكيلات كأس القارات 1880",
-    "1880 fifa women's world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم للسيدات 1880",
-    "1880 fifa world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم 1880",
     "1880 men's hockey world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم للهوكي للرجال 1880",
     "1880 oceania cup squad navigational boxes": "صناديق تصفح تشكيلات كأس أوقيانوسيا 1880",
     "1880 ofc nations cup squad navigational boxes": "صناديق تصفح تشكيلات كأس أوقيانوسيا للأمم 1880",
@@ -65,22 +75,30 @@ list_data = {
 @pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
 @pytest.mark.fast
 def test_list_data(category: str, expected_key: str) -> None:
-    label = get_list_of_and_cat3_with_lab2(category)
+    label = resolve_squads_labels_and_templates(category)
+    assert label == expected_key
+
+
+@pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
+@pytest.mark.fast
+def test_squad_with_resolve(category: str, expected_key: str, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("ArWikiCats.main_processers.event_lab_bot.resolve_squads_labels_and_templates", lambda x: "")
+    label = resolve_label_ar(category)
     assert label == expected_key
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_with_lab2() -> None:
+def test_resolve_squads_labels_and_templates() -> None:
     # Test with a basic input
-    result = get_list_of_and_cat3_with_lab2("test category")
+    result = resolve_label_ar("test category")
     assert isinstance(result, str)
 
     # Test with squad templates
-    result_squad = get_list_of_and_cat3_with_lab2("2020 squad templates")
+    result_squad = resolve_label_ar("2020 squad templates")
     assert isinstance(result_squad, str)
     assert result_squad == "قوالب تشكيلات 2020"
 
     # Test with empty strings
-    result_empty = get_list_of_and_cat3_with_lab2("")
+    result_empty = resolve_label_ar("")
     assert isinstance(result_empty, str)
     assert result_empty == ""

@@ -14,8 +14,10 @@ def get_episodes(category3: str, category3_nolower: str = "") -> Tuple[str, str]
     """
 
     list_of_cat = ""
+
     if not category3_nolower:
         category3_nolower = category3
+
     category3_nolower = category3_nolower.strip()
     category3 = category3.strip()
     # Generate episode patterns for seasons 1–10

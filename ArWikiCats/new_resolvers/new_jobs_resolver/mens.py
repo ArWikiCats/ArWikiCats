@@ -44,6 +44,10 @@ def _load_formatted_data() -> dict:
         "{en_nat} emigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
         "emigrants {en_nat} {en_job}": "{ar_job} مهاجرون",
 
+        # "spouses of {en_nat} politicians": "قرينات سياسيون {ar_nat}",
+        "spouses of {en_nat}": "قرينات {ar_nat}",
+        "spouses of {en_nat} {en_job}": "قرينات {ar_job} {ar_nat}",
+
     }
 
     # { "{en_nat} male emigrants": "{ar_nat} مهاجرون ذكور", "{en_nat} emigrants male": "{ar_nat} مهاجرون ذكور", "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور" }
