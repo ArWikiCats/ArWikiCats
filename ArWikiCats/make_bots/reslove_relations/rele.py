@@ -123,14 +123,9 @@ def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str
     return label
 
 
-def _combine_labels(labels: Tuple[str, str], add_article: bool, joiner: str = " ") -> str:
+def _combine_labels(labels: Tuple[str, str], joiner: str = " ") -> str:
     """Combine ``labels`` with sorting and optional article insertion."""
     sorted_labels = sorted(labels)
-    if add_article:
-        combined = " ".join(sorted_labels)
-        # Replicate the historical behaviour where each word receives an ``ال``
-        # prefix and the combined string keeps the order alphabetical.
-        return apply_arabic_article(combined)
 
     return joiner.join(sorted_labels)
 
@@ -158,7 +153,6 @@ def _resolve_relations(
     gender_key: str,
     nat_table: Mapping[str, str],
     *,
-    add_article: bool,
     joiner: str = " ",
 ) -> str:
     """Resolve a relation label using ``suffixes`` and ``nat_table``."""
@@ -184,7 +178,7 @@ def _resolve_relations(
         logger.info(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')
         return ""
 
-    combined = _combine_labels((first_label, second_label), add_article, joiner=joiner)
+    combined = _combine_labels((first_label, second_label), joiner=joiner)
 
     if suffix.strip() != "relations" or "nato" not in {first_key, second_key}:
         return template.format(combined)
@@ -233,7 +227,6 @@ def resolve_relations_label(value: str) -> str:
         # "female",
         "the_female",
         Nat_the_female,
-        add_article=False,
     )
     if resolved:
         logger.info(f"resolve_relations_label (female): cat: {value}, {resolved=}")
@@ -245,7 +238,6 @@ def resolve_relations_label(value: str) -> str:
         # "male",
         "the_male",
         Nat_the_male,
-        add_article=False,
     )
     if resolved:
         logger.info(f"resolve_relations_label (male): cat: {value}, {resolved=}")
@@ -257,7 +249,6 @@ def resolve_relations_label(value: str) -> str:
         P17_PREFIXES,
         "",
         all_country_labels,
-        add_article=False,
         joiner=" و",
     )
 

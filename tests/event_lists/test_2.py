@@ -68,10 +68,7 @@ data_list_bad = {
     "Paralympic competitors for Cape Verde": "تصنيف:منافسون بارالمبيون من الرأس الأخضر",
     "20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
 
-    "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا القرن 20",
     "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس في القرن 20",
-    "Category:20th century members of maine legislature": "تصنيف:أعضاء هيئة مين التشريعية في القرن 20",
-    "Category:20th century prime ministers of japan": "تصنيف:رؤساء وزراء اليابان القرن 20",
     "Category:september 1550 sports-events in germany": "تصنيف:أحداث سبتمبر 1550 الرياضية في ألمانيا",
     "Category:1550s disestablishments in yugoslavia": "تصنيف:انحلالات عقد 1550 في يوغوسلافيا",
     "Category:20th century disestablishments in united kingdom": "تصنيف:انحلالات القرن 20 في المملكة المتحدة",
