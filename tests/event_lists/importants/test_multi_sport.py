@@ -5,6 +5,7 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text, dump_same_an
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty_value = {
+    "Category:Scheduled multi-sport events": "تصنيف:أحداث رياضية متعددة مقررة",
     "Category:Defunct multi-sport events": "تصنيف:أحداث رياضية متعددة سابقة",
     "Category:Disabled multi-sport events": "تصنيف:أحداث رياضية متعددة معاقون",
     "Category:Timor-Leste at multi-sport events": "تصنيف:أحداث رياضية متعددة في تيمور الشرقية",
@@ -253,7 +254,6 @@ data_1 = {
     "Category:North Korea at winter multi-sport events": "تصنيف:كوريا الشمالية في أحداث رياضية متعددة شتوية",
     "Category:Pakistan at winter multi-sport events": "تصنيف:باكستان في أحداث رياضية متعددة شتوية",
     "Category:Philippines at winter multi-sport events": "تصنيف:الفلبين في أحداث رياضية متعددة شتوية",
-    "Category:Scheduled multi-sport events": "تصنيف:أحداث رياضية متعددة مقررة",
     "Category:Singapore at winter multi-sport events": "تصنيف:سنغافورة في أحداث رياضية متعددة شتوية",
     "Category:South Korea at winter multi-sport events": "تصنيف:كوريا الجنوبية في أحداث رياضية متعددة شتوية",
     "Category:Spain at winter multi-sport events": "تصنيف:إسبانيا في أحداث رياضية متعددة شتوية",

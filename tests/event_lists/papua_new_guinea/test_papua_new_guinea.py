@@ -5,6 +5,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data_skip = {
+    "Category:Defunct airports in Papua New Guinea": "تصنيف:مطارات سابقة في بابوا غينيا الجديدة",
     "Category:April 2023 in Papua New Guinea": "تصنيف:بابوا غينيا الجديدة في أبريل 2023",
     "Category:February 2024 in Papua New Guinea": "تصنيف:بابوا غينيا الجديدة في فبراير 2024",
     "Category:May 2024 in Papua New Guinea": "تصنيف:بابوا غينيا الجديدة في مايو 2024",
@@ -301,6 +302,12 @@ data_0 = {
 
 data_1 = {
 
+    "Category:Chief justices of Papua New Guinea": "تصنيف:رؤساء قضاء بابوا غينيا الجديدة",
+    "Category:Coaches of the Papua New Guinea national cricket team": "تصنيف:مدربو منتخب بابوا غينيا الجديدة للكريكت",
+    "Category:Foreign relations of Papua New Guinea": "تصنيف:علاقات بابوا غينيا الجديدة الخارجية",
+    "Category:Governors of provinces of Papua New Guinea": "تصنيف:حكام محافظات بابوا غينيا الجديدة",
+    "Category:National symbols of Papua New Guinea": "تصنيف:رموز بابوا غينيا الجديدة الوطنية",
+    "Category:Provinces of Papua New Guinea": "تصنيف:محافظات بابوا غينيا الجديدة",
     "Category:Orders, decorations, and medals of Papua New Guinea": "تصنيف:مراتب تشريفية وأوسمة وميداليات بابوا غينيا الجديدة",
     "Category:1910s establishments in Papua New Guinea": "تصنيف:تأسيسات عقد 1910 في بابوا غينيا الجديدة",
     "Category:1910s in Papua New Guinea": "تصنيف:بابوا غينيا الجديدة في عقد 1910",
@@ -535,7 +542,6 @@ data_1 = {
     "Category:Caves of Papua New Guinea": "تصنيف:كهوف بابوا غينيا الجديدة",
     "Category:Cemeteries in Papua New Guinea": "تصنيف:مقابر في بابوا غينيا الجديدة",
     "Category:Centuries in Papua New Guinea": "تصنيف:قرون في بابوا غينيا الجديدة",
-    "Category:Chief justices of Papua New Guinea": "تصنيف:رؤساء قضاء من بابوا غينيا الجديدة",
     "Category:Children's books set in Papua New Guinea": "تصنيف:كتب أطفال تقع أحداثها في بابوا غينيا الجديدة",
     "Category:Chile–Papua New Guinea relations": "تصنيف:العلاقات التشيلية الغينية",
     "Category:China–Papua New Guinea relations": "تصنيف:العلاقات الصينية الغينية",
@@ -545,7 +551,6 @@ data_1 = {
     "Category:Churches in Papua New Guinea": "تصنيف:كنائس في بابوا غينيا الجديدة",
     "Category:Cinema of Papua New Guinea": "تصنيف:سينما في بابوا غينيا الجديدة",
     "Category:Civil aviation in Papua New Guinea": "تصنيف:الطيران المدني في بابوا غينيا الجديدة",
-    "Category:Coaches of the Papua New Guinea national cricket team": "تصنيف:مدربو منتخب بابوا غينيا الجديدة للكريكت",
     "Category:Commonwealth Games bronze medallists for Papua New Guinea": "تصنيف:فائزون بميداليات برونزية في ألعاب الكومنولث من بابوا غينيا الجديدة",
     "Category:Commonwealth Games competitors for Papua New Guinea": "تصنيف:منافسون في ألعاب الكومنولث من بابوا غينيا الجديدة",
     "Category:Commonwealth Games gold medallists for Papua New Guinea": "تصنيف:فائزون بميداليات ذهبية في ألعاب الكومنولث من بابوا غينيا الجديدة",
@@ -576,7 +581,6 @@ data_1 = {
     "Category:Deaths in Papua New Guinea": "تصنيف:وفيات في بابوا غينيا الجديدة",
     "Category:Decades in Papua New Guinea": "تصنيف:عقود في بابوا غينيا الجديدة",
     "Category:Defunct airlines of Papua New Guinea": "تصنيف:شركات طيران سابقة في بابوا غينيا الجديدة",
-    "Category:Defunct airports in Papua New Guinea": "تصنيف:مطارات سابقة في بابوا غينيا الجديدة",
     "Category:Defunct companies of Papua New Guinea": "تصنيف:شركات سابقة في بابوا غينيا الجديدة",
     "Category:Defunct organisations based in Papua New Guinea": "تصنيف:منظمات سابقة مقرها في بابوا غينيا الجديدة",
     "Category:Defunct political parties in Papua New Guinea": "تصنيف:أحزاب سياسية سابقة في بابوا غينيا الجديدة",
@@ -658,7 +662,6 @@ data_1 = {
     "Category:Football venues in Papua New Guinea": "تصنيف:ملاعب كرة القدم في بابوا غينيا الجديدة",
     "Category:Footballers in Papua New Guinea": "تصنيف:لاعبو كرة قدم في بابوا غينيا الجديدة",
     "Category:Footballers in Papua New Guinea by club": "تصنيف:لاعبو كرة قدم في بابوا غينيا الجديدة حسب النادي",
-    "Category:Foreign relations of Papua New Guinea": "تصنيف:علاقات بابوا غينيا الجديدة الخارجية",
     "Category:Former buildings and structures in Papua New Guinea": "تصنيف:مبان ومنشآت سابقة في بابوا غينيا الجديدة",
     "Category:Fossil fuels in Papua New Guinea": "تصنيف:وقود أحفوري في بابوا غينيا الجديدة",
     "Category:France–Papua New Guinea relations": "تصنيف:العلاقات الغينية الفرنسية",
@@ -674,7 +677,6 @@ data_1 = {
     "Category:Ghana–Papua New Guinea relations": "تصنيف:العلاقات الغانية الغينية",
     "Category:Government ministers of Papua New Guinea": "تصنيف:وزراء بابوا غينيا الجديدة",
     "Category:Government of Papua New Guinea": "تصنيف:حكومة بابوا غينيا الجديدة",
-    "Category:Governors of provinces of Papua New Guinea": "تصنيف:حكام من محافظات بابوا غينيا الجديدة",
     "Category:Governors of the Bank of Papua New Guinea": "تصنيف:حكام من بنك بابوا غينيا الجديدة",
     "Category:Governors-general of Papua New Guinea": "تصنيف:حكام عموم بابوا غينيا الجديدة",
     "Category:Greece–Papua New Guinea relations": "تصنيف:العلاقات الغينية اليونانية",
@@ -778,7 +780,6 @@ data_1 = {
     "Category:Music festivals in Papua New Guinea": "تصنيف:مهرجانات موسيقية في بابوا غينيا الجديدة",
     "Category:Music of Papua New Guinea": "تصنيف:موسيقى بابوا غينيا الجديدة",
     "Category:National sports teams of Papua New Guinea": "تصنيف:منتخبات رياضية وطنية من بابوا غينيا الجديدة",
-    "Category:National symbols of Papua New Guinea": "تصنيف:رموز بابوا غينيا الجديدة الوطنية",
     "Category:Natural disasters in Papua New Guinea": "تصنيف:كوارث طبيعية في بابوا غينيا الجديدة",
     "Category:Natural gas fields in Papua New Guinea": "تصنيف:حقول غاز طبيعي في بابوا غينيا الجديدة",
     "Category:Natural gas in Papua New Guinea": "تصنيف:غاز طبيعي في بابوا غينيا الجديدة",
@@ -903,7 +904,6 @@ data_1 = {
     "Category:Protected areas of Papua New Guinea": "تصنيف:مناطق محمية في بابوا غينيا الجديدة",
     "Category:Protestant missionaries in Papua New Guinea": "تصنيف:مبشرون بروتستانتيون في بابوا غينيا الجديدة",
     "Category:Protestantism in Papua New Guinea": "تصنيف:البروتستانتية في بابوا غينيا الجديدة",
-    "Category:Provinces of Papua New Guinea": "تصنيف:محافظات بابوا غينيا الجديدة",
     "Category:Provincial capitals in Papua New Guinea": "تصنيف:عواصم محافظات في بابوا غينيا الجديدة",
     "Category:Public holidays in Papua New Guinea": "تصنيف:عطلات رسمية في بابوا غينيا الجديدة",
     "Category:Radio in Papua New Guinea": "تصنيف:راديو في بابوا غينيا الجديدة",

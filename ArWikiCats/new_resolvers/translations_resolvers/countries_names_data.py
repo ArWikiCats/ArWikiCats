@@ -28,6 +28,10 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "national congress ({en})": "المؤتمر الوطني ({ar})",
     "national council ({en})": "المجلس الوطني ({ar})",
     "national assembly ({en})": "الجمعية الوطنية ({ar})",
+    "members of national assembly ({en})": "أعضاء الجمعية الوطنية ({ar})",
+    "women members of national assembly ({en})": "عضوات الجمعية الوطنية ({ar})",
+    "members of parliament of {en}": "أعضاء برلمان {ar}",
+    "women members of parliament of {en}": "عضوات برلمان {ar}",
 
     "senate ({en})": "مجلس الشيوخ ({ar})",
     "{en} general assembly": "جمعية {ar} العامة",

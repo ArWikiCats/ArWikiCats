@@ -159,6 +159,13 @@ def _should_add_min_for_of_suffix(type_lower: str, ty_in18: str, type_label: str
     if not type_lower.endswith(" of"):
         return False
 
+    skip_in = [
+        "مدربو",
+    ]
+
+    if type_label in skip_in:
+        return False
+
     if pop_of_without_in.get(type_lower) or pop_of_without_in.get(type_lower_prefix):
         return False
 
