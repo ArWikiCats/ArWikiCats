@@ -9,7 +9,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 for_countries_t = {
-    "Category:Winter Olympics competitors for Algeria by sport": "تصنيف:منافسون أولمبيون شتويون من الجزائر حسب الرياضة",
+    # "Category:Winter Olympics competitors for Algeria by sport": "تصنيف:منافسون في الألعاب الأولمبية الشتوية من الجزائر حسب الرياضة",
+    # "Category:Winter Olympics competitors for Algeria by sport": "تصنيف:منافسون أولمبيون شتويون من الجزائر حسب الرياضة",
     "Category:Winter Olympics competitors for Eswatini": "تصنيف:منافسون أولمبيون شتويون من إسواتيني",
     "Category:Winter Olympics competitors by country": "تصنيف:منافسون أولمبيون شتويون حسب البلد",
     "Category:Winter Olympics competitors by sport": "تصنيف:منافسون أولمبيون شتويون حسب الرياضة",
