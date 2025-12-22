@@ -1,4 +1,20 @@
 
+## [#259](https://github.com/MrIbrahem/ArWikiCats/pull/259) - 2025-12-23
+
+* **Refactor**
+  * Consolidated squad label resolution logic and simplified related processing workflows
+  * Reorganized internal data structures for sports team and national category translations
+  * Updated label resolution pathways to use unified translation resolvers
+
+* **New Features**
+  * Expanded sports category translations with additional locale variants including Olympics, managerial history, and age-group categories
+  * Enhanced data structures for improved organization of team and national sports labels
+
+* **Documentation & Chores**
+  * Removed outdated comments and placeholder code
+  * Updated test coverage badge from 13,900+ to 20,000+ successful tests
+  * Cleaned up module documentation and imports
+
 ## [#258](https://github.com/MrIbrahem/ArWikiCats/pull/258) - 2025-12-23
 
 * **Refactor**
