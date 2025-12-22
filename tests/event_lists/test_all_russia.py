@@ -633,7 +633,6 @@ data1 = {
     "Category:Muslim communities of Russia": "تصنيف:مجتمعات إسلامية في روسيا",
     "Category:National Guard of Russia": "تصنيف:الحرس الوطني في روسيا",
     "Category:National parks of Russia": "تصنيف:متنزهات وطنية في روسيا",
-    "Category:National symbols of Russia": "تصنيف:رموز وطنية روسيا",
     "Category:National trade union centers of Russia": "تصنيف:مراكز نقابية وطنية في روسيا",
     "Category:Natural history of Russia": "تصنيف:تاريخ روسيا الطبيعي",
     "Category:Naturalized citizens of Russia": "تصنيف:متجنسون في روسيا",
