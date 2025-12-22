@@ -122,7 +122,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "scholars of islam": "scholars-of-islam",
     "shot dead by law enforcement officers": "shot dead-by-law enforcement officers",
     "sport ministers": "sport-ministers",
-    "sports culture": "sprts culture",
+    "sports culture": "sports-culture",
     "sports events": "sports-events",
     "sports media": "sports-media",
     "sports ministers": "sports-ministers",
