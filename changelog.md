@@ -1,3 +1,18 @@
+## [#249](https://github.com/MrIbrahem/ArWikiCats/pull/249) - 2025-12-22
+
+* **Bug Fixes**
+  * Improved handling of missing Arabic templates to prevent resolution errors.
+  * Corrected Arabic spelling and diacritics in category labels.
+
+* **New Features**
+  * Added support for gendered Arabic translations of political titles.
+  * Enhanced translation resolution system with improved fallback handling.
+  * Removed obsolete multi-sport category mapping.
+
+* **Tests**
+  * Expanded test coverage for political leader category translations.
+  * Added fast and slow path testing for improved test efficiency.
+
 ## [#248](https://github.com/MrIbrahem/ArWikiCats/pull/248) - 2025-12-22
 
 * **Bug Fixes**
