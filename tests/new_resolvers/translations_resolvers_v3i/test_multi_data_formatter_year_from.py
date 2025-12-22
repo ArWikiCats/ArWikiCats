@@ -1,205 +1,321 @@
 #!/usr/bin/python3
 """
-Module for handling year-and-from based category translations.
+Tests for MultiDataFormatterYearAndFrom2 class with category_relation_mapping integration.
 
-This module provides classes for formatting template-driven translation labels
-that combine temporal patterns (years, decades, centuries) with "from" relation
-patterns (e.g., "writers from Yemen", "people from Germany").
+This module tests the new methods added to MultiDataFormatterYearAndFrom2:
+- get_relation_word: Find relation words in categories
+- resolve_relation_label: Append Arabic relation words to labels
+- get_relation_mapping: Access the category_relation_mapping dictionary
 
-The module integrates with category_relation_mapping to resolve relation words
-(prepositions like "from", "in", "by") into their Arabic equivalents.
+Tests follow existing project conventions and use pytest parametrize for data-driven testing.
 
-Classes:
-    FormatDataFrom: A dynamic wrapper for handling category transformations
-        with customizable callbacks for key matching and searching.
-    MultiDataFormatterYearAndFrom: Combines year-based and "from" relation
-        category translations using the parent class helpers.
-
-Example:
-    >>> from ArWikiCats.translations_formats import MultiDataFormatterYearAndFrom, FormatDataFrom
-    >>> country_bot = FormatDataFrom(
-    ...     formatted_data={"{year1} {country1}": "{country1} في {year1}"},
-    ...     key_placeholder="{country1}",
-    ...     value_placeholder="{country1}",
-    ...     search_callback=get_label_func,
-    ...     match_key_callback=match_key_func,
-    ... )
-    >>> year_bot = FormatDataFrom(
-    ...     formatted_data={},
-    ...     key_placeholder="{year1}",
-    ...     value_placeholder="{year1}",
-    ...     search_callback=convert_time_to_arabic,
-    ...     match_key_callback=match_time_en_first,
-    ... )
-    >>> bot = MultiDataFormatterYearAndFrom(country_bot, year_bot, other_key_first=True)
-    >>> bot.create_label("14th-century writers from Yemen")
-    'كتاب من اليمن في القرن 14'
+TODO: use MultiDataFormatterYearAndFrom2 in workflows.
 """
-import re
 
-from ...helps import logger
-# from .model_data_time import YearFormatData
-from .model_multi_data_base import MultiDataFormatterBaseHelpers
+import pytest
+
+from ArWikiCats.make_bots.format_bots import category_relation_mapping
+from ArWikiCats.time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
+from ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom2
 
 
-class FormatDataFrom:
-    """
-    A dynamic wrapper for handling category transformations with customizable callbacks.
+def get_label(text: str) -> str:
+    """Mock label lookup function for testing."""
+    data = {
+        "writers from Hong Kong": "كتاب من هونغ كونغ",
+        "writers from yemen": "كتاب من اليمن",
+        "writers from Crown of Aragon": "كتاب من تاج أرغون",
+        "writers gg yemen": "كتاب من اليمن",
+        "people from germany": "أشخاص من ألمانيا",
+        "buildings in france": "مباني في فرنسا",
+    }
+    return data.get(text.lower(), "")
 
-    This class provides a flexible way to normalize category strings by extracting
-    keys (e.g., year patterns, country names) and replacing them with placeholders.
-    It uses callback functions for key matching and searching, allowing customization
-    for different category types.
 
-    Attributes:
-        formatted_data (dict[str, str]): Mapping of template patterns to Arabic translations.
-        formatted_data_ci (dict[str, str]): Case-insensitive version of formatted_data.
-        key_placeholder (str): Placeholder string for the key (e.g., "{year1}", "{country1}").
-        value_placeholder (str): Placeholder string for the value in Arabic templates.
-        search_callback (callable): Function to search/translate a key to its Arabic label.
-        match_key_callback (callable): Function to extract a key from a category string.
-        fixing_callback (callable | None): Optional callback for post-processing results.
+@pytest.fixture
+def multi_bot() -> MultiDataFormatterYearAndFrom2:
+    """Create a MultiDataFormatterYearAndFrom2 instance for testing."""
+    formatted_data = {
+        "{year1} {country1}": "{country1} في {year1}",
+    }
+    country_bot = FormatDataFrom(
+        formatted_data=formatted_data,
+        key_placeholder="{country1}",
+        value_placeholder="{country1}",
+        search_callback=get_label,
+        match_key_callback=lambda x: x.replace("{year1}", "").strip(),
+    )
+    year_bot = FormatDataFrom(
+        formatted_data={},
+        key_placeholder="{year1}",
+        value_placeholder="{year1}",
+        search_callback=convert_time_to_arabic,
+        match_key_callback=match_time_en_first,
+    )
+    return MultiDataFormatterYearAndFrom2(
+        country_bot=country_bot,
+        year_bot=year_bot,
+        category_relation_mapping=category_relation_mapping,
+        other_key_first=True,
+    )
 
-    Example:
-        >>> bot = FormatDataFrom(
-        ...     formatted_data={"{year1} {country1}": "{country1} في {year1}"},
-        ...     key_placeholder="{country1}",
-        ...     value_placeholder="{country1}",
-        ...     search_callback=lambda x: "كتاب من اليمن" if "yemen" in x.lower() else "",
-        ...     match_key_callback=lambda x: x.replace("{year1}", "").strip(),
-        ... )
-        >>> bot.match_key("{year1} writers from yemen")
-        'writers from yemen'
-    """
 
-    def __init__(
-        self,
-        formatted_data: dict[str, str],
-        key_placeholder: str,
-        value_placeholder: str,
-        search_callback: callable,
-        match_key_callback: callable,
-        fixing_callback: callable = None,
+class TestGetRelationWord:
+    """Tests for get_relation_word method."""
+
+    # Test data: (category, expected_key, expected_arabic)
+    test_data = [
+        ("People from Germany", "from", "من"),
+        ("Buildings in France", "in", "في"),
+        ("Works published by Oxford", "published by", "نشرتها"),
+        ("Films directed by Spielberg", "directed by", "أخرجها"),
+        ("Ships launched in 1910", "launched in", "أطلقت في"),
+        ("Cities established in 1750", "established in", "أسست في"),
+        ("People convicted of espionage in Iran", "convicted of espionage in", "أدينوا بالتجسس في"),
+        ("Books written by Dickens", "written by", "كتبها"),
+        ("Items manufactured in China", "manufactured in", "صنعت في"),
+        ("Treaties concluded in Vienna", "concluded in", "أبرمت في"),
+    ]
+
+    @pytest.mark.parametrize(
+        "category,expected_key,expected_arabic",
+        test_data,
+        ids=[t[0] for t in test_data],
+    )
+    def test_get_relation_word(
+        self, multi_bot: MultiDataFormatterYearAndFrom2, category: str, expected_key: str, expected_arabic: str
     ) -> None:
-        self.search_callback = search_callback
-        self.match_key_callback = match_key_callback
+        """Test that get_relation_word correctly identifies relation words."""
+        key, arabic = multi_bot.get_relation_word(category)
+        assert key == expected_key
+        assert arabic == expected_arabic
 
-        self.key_placeholder = key_placeholder
-        self.value_placeholder = value_placeholder
-        self.formatted_data = formatted_data
-        self.formatted_data_ci = {k.lower(): v for k, v in formatted_data.items()}
-        self.fixing_callback = fixing_callback
+    def test_no_relation_word(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that get_relation_word returns empty tuple when no relation found."""
+        key, arabic = multi_bot.get_relation_word("Random category without relation")
+        assert key == ""
+        assert arabic == ""
 
-    def match_key(self, text: str) -> str:
-        """Extract English year/decade and return it as the key."""
-        return self.match_key_callback(text)
-
-    def normalize_category(self, text: str, key: str) -> str:
-        """
-        Replace matched year with placeholder.
-        normalize_category: key='writers from yemen', text='{year1} writers from yemen'
-        """
-        logger.debug(f"normalize_category: {key=}, {text=}")
-        if not key:
-            return text
-        result = re.sub(re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE)
-        logger.debug(f"normalize_category: {result=}")  # result='{year1} {country1}'
-        return result
-
-    def normalize_category_with_key(self, category: str) -> tuple[str, str]:
-        """
-        Normalize nationality placeholders within a category string.
-
-        Example:
-            category:"Yemeni national football teams", result: "natar national football teams"
-        """
-        key = self.match_key(category)
-        result = ""
-        if key:
-            result = self.normalize_category(category, key)
-        return key, result
-
-    def replace_value_placeholder(self, label: str, value: str) -> str:
-        # Replace placeholder
-        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
-        result = label.replace(self.value_placeholder, value)
-        if self.fixing_callback:
-            result = self.fixing_callback(result)
-        return result
-
-    def get_template_ar(self, template_key: str) -> str:
-        """Lookup template in a case-insensitive dict."""
-        # Case-insensitive key lookup
-        template_key = template_key.lower()
-        logger.debug(f"get_template_ar: {template_key=}")
-        result = self.formatted_data_ci.get(template_key, "")
-
-        if not result:
-            if template_key.startswith("category:"):
-                template_key = template_key.replace("category:", "")
-                result = self.formatted_data_ci.get(template_key, "")
-            else:
-                result = self.formatted_data_ci.get(f"category:{template_key}", "")
-
-        logger.debug(f"get_template_ar: {template_key=}, {result=}")
-        return result
-
-    def get_key_label(self, key: str) -> str:
-        """place holders"""
-        if not key:
-            return ""
-        logger.debug(f"get_key_label: {key=}")
-        return self.search(key)
-
-    def search(self, text: str) -> str:
-        """place holders"""
-        return self.search_callback(text)
-
-    def search_all(self, key: str) -> str:
-        """place holders"""
-        return self.search(key)
+    def test_relation_word_requires_spaces(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that relation words must be surrounded by spaces."""
+        # "builtin" should not match "built in"
+        key, arabic = multi_bot.get_relation_word("Somethingbuiltin somewhere")
+        assert key == ""
+        assert arabic == ""
 
 
-class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
-    """
-    Combines year-based and "from" relation category translations.
+class TestResolveRelationLabel:
+    """Tests for resolve_relation_label method."""
 
-    This class orchestrates two FormatDataFrom instances (country_bot and year_bot)
-    to normalize and translate category strings that contain both temporal patterns
-    and "from" relation patterns.
+    # Test data: (category, base_label, expected_result)
+    test_data = [
+        ("Writers from Yemen", "كتاب", "كتاب من"),
+        ("People in Germany", "أشخاص", "أشخاص في"),
+        ("Buildings built in France", "مباني", "مباني بنيت في"),
+        ("Films directed by Spielberg", "أفلام", "أفلام أخرجها"),
+        ("Works published by Oxford", "أعمال", "أعمال نشرتها"),
+    ]
 
-    The class integrates with category_relation_mapping to resolve relation words
-    (prepositions like "from", "in", "by") into their Arabic equivalents when
-    building labels.
-
-    Attributes:
-        country_bot (FormatDataFrom): Handles the "from" relation part (e.g., "writers from Yemen").
-        other_bot (FormatDataFrom): Handles the year/time part (e.g., "14th-century").
-        search_first_part (bool): If True, search using only the first part (after country normalization).
-        data_to_find (dict[str, str] | None): Optional direct lookup dictionary for category labels.
-        other_key_first (bool): If True, process the year/other key before the country key.
-
-    """
-
-    def __init__(
-        self,
-        country_bot: FormatDataFrom,
-        year_bot: FormatDataFrom,
-        search_first_part: bool = False,
-        data_to_find: dict[str, str] | None = None,
-        other_key_first: bool = False,
+    @pytest.mark.parametrize(
+        "category,base_label,expected",
+        test_data,
+        ids=[t[0] for t in test_data],
+    )
+    def test_resolve_relation_label(
+        self, multi_bot: MultiDataFormatterYearAndFrom2, category: str, base_label: str, expected: str
     ) -> None:
-        """Prepare helpers for matching and formatting template-driven labels.
+        """Test that resolve_relation_label correctly appends Arabic relation words."""
+        result = multi_bot.resolve_relation_label(category, base_label)
+        assert result == expected
 
-        Args:
-            country_bot: FormatDataFrom instance for handling "from" relation patterns.
-            year_bot: FormatDataFrom instance for handling year/time patterns.
-            search_first_part: If True, search using only the first part after normalization.
-            data_to_find: Optional dictionary for direct category-to-label lookups.
-            other_key_first: If True, process year/other key before country key.
-        """
-        self.search_first_part = search_first_part
-        self.country_bot = country_bot
-        self.other_bot = year_bot
-        self.data_to_find = data_to_find
-        self.other_key_first = other_key_first
+    def test_empty_base_label(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that resolve_relation_label handles empty base_label."""
+        result = multi_bot.resolve_relation_label("Writers from Yemen", "")
+        assert result == ""
+
+    def test_empty_category(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that resolve_relation_label handles empty category."""
+        result = multi_bot.resolve_relation_label("", "كتاب")
+        assert result == "كتاب"
+
+    def test_no_relation_in_category(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that resolve_relation_label returns original label when no relation found."""
+        result = multi_bot.resolve_relation_label("Random text", "كتاب")
+        assert result == "كتاب"
+
+    def test_avoid_duplicate_relation(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that resolve_relation_label avoids adding duplicate relation words."""
+        # "من" is already at the end of the base_label
+        result = multi_bot.resolve_relation_label("Writers from Yemen", "كتاب من")
+        assert result == "كتاب من"
+
+    def test_avoid_duplicate_relation_with_country(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that resolve_relation_label avoids duplicates when relation is in middle."""
+        # "من" appears in the middle followed by country
+        result = multi_bot.resolve_relation_label("Writers from Yemen", "كتاب من اليمن")
+        assert result == "كتاب من اليمن"
+
+    def test_no_false_positive_duplicate_detection(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that substring matches don't produce false positives."""
+        # "من" is part of "من الكتاب" but not as a standalone relation word
+        # The method should still add "من" because it's not at word boundaries
+        result = multi_bot.resolve_relation_label("Writers from Yemen", "أشخاص")
+        assert result == "أشخاص من"
+
+
+class TestGetRelationMapping:
+    """Tests for get_relation_mapping method."""
+
+    def test_get_relation_mapping_contains_expected_keys(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that get_relation_mapping contains expected relation words."""
+        mapping = multi_bot.get_relation_mapping()
+        # Check some expected keys
+        assert "from" in mapping
+        assert "in" in mapping
+        assert "by" in mapping
+        assert "published by" in mapping
+        assert "directed by" in mapping
+
+    def test_get_relation_mapping_contains_expected_values(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that get_relation_mapping contains expected Arabic translations."""
+        mapping = multi_bot.get_relation_mapping()
+        assert mapping["from"] == "من"
+        assert mapping["in"] == "في"
+        assert mapping["by"] == "حسب"
+        assert mapping["published by"] == "نشرتها"
+
+
+class TestIntegrationWithExistingFunctionality:
+    """Integration tests to ensure new methods work with existing functionality."""
+
+    def test_create_label_still_works(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that create_label still works after adding new methods."""
+        result = multi_bot.create_label("14th-century writers from yemen")
+        assert result == "كتاب من اليمن في القرن 14"
+
+    def test_search_all_still_works(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that search_all still works after adding new methods."""
+        result = multi_bot.search_all("14th-century writers from yemen")
+        assert result == "كتاب من اليمن في القرن 14"
+
+    def test_normalize_both_new_still_works(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that normalize_both_new still works after adding new methods."""
+        result = multi_bot.normalize_both_new("14th-century writers from yemen")
+        assert result.nat_key == "writers from yemen"
+        assert result.other_key == "14th-century"
+
+
+class TestEdgeCases:
+    """Edge case tests for robust handling."""
+
+    def test_multiple_relation_words(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test category with multiple relation words returns first match."""
+        # "from" appears before "in" in category_relation_mapping
+        key, arabic = multi_bot.get_relation_word("People from Germany in Europe")
+        # Should match the first relation word found in the mapping
+        assert key in ["from", "in"]
+
+    def test_case_sensitivity(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test that relation word matching is case-sensitive."""
+        # The current implementation is case-sensitive
+        key, arabic = multi_bot.get_relation_word("People FROM Germany")
+        # Should not match because "FROM" != "from"
+        assert key == ""
+        assert arabic == ""
+
+    def test_special_characters_in_relation(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
+        """Test relation words with special characters like hyphens."""
+        key, arabic = multi_bot.get_relation_word("Schools for-deaf in New York")
+        assert key == "for-deaf"
+        assert arabic == "للصم"
+
+
+class TestFormatDataFromClass:
+    """Tests for the FormatDataFrom class."""
+
+    def test_format_data_from_init(self) -> None:
+        """Test FormatDataFrom initialization."""
+        bot = FormatDataFrom(
+            formatted_data={"test": "اختبار"},
+            key_placeholder="{key}",
+            value_placeholder="{value}",
+            search_callback=lambda x: x,
+            match_key_callback=lambda x: x,
+        )
+        assert bot.key_placeholder == "{key}"
+        assert bot.value_placeholder == "{value}"
+        assert bot.formatted_data == {"test": "اختبار"}
+        assert "test" in bot.formatted_data_ci
+
+    def test_format_data_from_match_key(self) -> None:
+        """Test FormatDataFrom.match_key method."""
+        bot = FormatDataFrom(
+            formatted_data={},
+            key_placeholder="{key}",
+            value_placeholder="{value}",
+            search_callback=lambda x: x,
+            match_key_callback=lambda x: x.upper(),
+        )
+        result = bot.match_key("test")
+        assert result == "TEST"
+
+    def test_format_data_from_search(self) -> None:
+        """Test FormatDataFrom.search method."""
+        bot = FormatDataFrom(
+            formatted_data={},
+            key_placeholder="{key}",
+            value_placeholder="{value}",
+            search_callback=lambda x: f"searched: {x}",
+            match_key_callback=lambda x: x,
+        )
+        result = bot.search("test")
+        assert result == "searched: test"
+
+    def test_format_data_from_normalize_category(self) -> None:
+        """Test FormatDataFrom.normalize_category method."""
+        bot = FormatDataFrom(
+            formatted_data={},
+            key_placeholder="{placeholder}",
+            value_placeholder="{value}",
+            search_callback=lambda x: x,
+            match_key_callback=lambda x: x,
+        )
+        result = bot.normalize_category("category with key here", "key")
+        assert result == "category with {placeholder} here"
+
+    def test_format_data_from_get_template_ar(self) -> None:
+        """Test FormatDataFrom.get_template_ar method."""
+        bot = FormatDataFrom(
+            formatted_data={"{year1} {country1}": "{country1} في {year1}"},
+            key_placeholder="{country1}",
+            value_placeholder="{country1}",
+            search_callback=lambda x: x,
+            match_key_callback=lambda x: x,
+        )
+        result = bot.get_template_ar("{year1} {country1}")
+        assert result == "{country1} في {year1}"
+
+    def test_format_data_from_get_template_ar_case_insensitive(self) -> None:
+        """Test FormatDataFrom.get_template_ar is case-insensitive."""
+        bot = FormatDataFrom(
+            formatted_data={"{Year1} {Country1}": "{country1} في {year1}"},
+            key_placeholder="{country1}",
+            value_placeholder="{country1}",
+            search_callback=lambda x: x,
+            match_key_callback=lambda x: x,
+        )
+        result = bot.get_template_ar("{year1} {country1}")
+        assert result == "{country1} في {year1}"
+
+    def test_format_data_from_fixing_callback(self) -> None:
+        """Test FormatDataFrom with fixing_callback."""
+        bot = FormatDataFrom(
+            formatted_data={},
+            key_placeholder="{key}",
+            value_placeholder="{value}",
+            search_callback=lambda x: x,
+            match_key_callback=lambda x: x,
+            fixing_callback=lambda x: x.strip().upper(),
+        )
+        result = bot.replace_value_placeholder("  test {value}  ", "input")
+        assert result == "TEST INPUT"
