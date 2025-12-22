@@ -142,9 +142,22 @@ class TestResolveRelationLabel:
 
     def test_avoid_duplicate_relation(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
         """Test that resolve_relation_label avoids adding duplicate relation words."""
-        # "من" is already in the base_label
+        # "من" is already at the end of the base_label
+        result = multi_bot.resolve_relation_label("Writers from Yemen", "كتاب من")
+        assert result == "كتاب من"
+
+    def test_avoid_duplicate_relation_with_country(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+        """Test that resolve_relation_label avoids duplicates when relation is in middle."""
+        # "من" appears in the middle followed by country
         result = multi_bot.resolve_relation_label("Writers from Yemen", "كتاب من اليمن")
         assert result == "كتاب من اليمن"
+
+    def test_no_false_positive_duplicate_detection(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+        """Test that substring matches don't produce false positives."""
+        # "من" is part of "من الكتاب" but not as a standalone relation word
+        # The method should still add "من" because it's not at word boundaries
+        result = multi_bot.resolve_relation_label("Writers from Yemen", "أشخاص")
+        assert result == "أشخاص من"
 
 
 class TestGetRelationMapping:

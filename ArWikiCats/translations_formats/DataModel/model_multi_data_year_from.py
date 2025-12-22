@@ -221,6 +221,12 @@ class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
         Searches for relation words (prepositions like "from", "in", "by") in the
         category string and returns the matching key and its Arabic translation.
 
+        Note:
+            The method returns the first match found based on the iteration order
+            of category_relation_mapping dictionary (insertion order in Python 3.7+).
+            Longer/more specific relation phrases should be defined before shorter ones
+            in the mapping to ensure correct matching (e.g., "published by" before "by").
+
         Args:
             category: The English category string to search.
 
@@ -270,8 +276,12 @@ class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
         if not relation_ar:
             return base_label
 
-        # Avoid duplicate relation words
-        if relation_ar.strip() in base_label:
+        # Avoid duplicate relation words by checking if it ends with the relation
+        # or contains it as a complete word (surrounded by spaces or at boundaries)
+        relation_ar_stripped = relation_ar.strip()
+        if base_label.endswith(relation_ar_stripped) or base_label.endswith(f" {relation_ar_stripped}"):
+            return base_label
+        if f" {relation_ar_stripped} " in base_label:
             return base_label
 
         return f"{base_label} {relation_ar}".strip()
