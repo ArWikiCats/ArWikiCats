@@ -1,3 +1,5 @@
+## [#250](https://github.com/MrIbrahem/ArWikiCats/pull/250) - 2025-12-22
+
 ## [#249](https://github.com/MrIbrahem/ArWikiCats/pull/249) - 2025-12-22
 
 * **Bug Fixes**
