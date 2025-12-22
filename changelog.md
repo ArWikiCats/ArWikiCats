@@ -7,7 +7,15 @@
   * Added `get_relation_mapping()` method to access the full relation word mapping
 
 * **Documentation**
-  * Added comprehensive docstrings to `FormatDataFrom` and `MultiDataFormatterYearAndFrom` classes
+  * Added comprehensive docstrings to all classes in `ArWikiCats/translations_formats/DataModel/`:
+    - `model_data_base.py`: FormatDataBase class
+    - `model_data.py`: FormatData class
+    - `model_data_double.py`: FormatDataDouble class
+    - `model_data_time.py`: YearFormatDataLegacy class and YearFormatData function
+    - `model_data_v2.py`: FormatDataV2 and MultiDataFormatterBaseV2 classes
+    - `model_multi_data.py`: MultiDataFormatterBase, MultiDataFormatterBaseYear, MultiDataFormatterBaseYearV2, MultiDataFormatterDataDouble classes
+    - `model_multi_data_base.py`: NormalizeResult dataclass and MultiDataFormatterBaseHelpers class
+    - `model_multi_data_year_from.py`: FormatDataFrom and MultiDataFormatterYearAndFrom classes
   * Added module-level documentation with usage examples
   * Added inline comments explaining key logic
 

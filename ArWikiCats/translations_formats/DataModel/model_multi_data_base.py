@@ -1,13 +1,32 @@
 #!/usr/bin/python3
 """
-Provides classes for formatting template-driven translation labels.
-- format_multi_data: Handles complex formatting involving two sets of data lists (e.g., nationality and sport).
+Module providing base helper classes for multi-formatter category translations.
+
+This module provides the MultiDataFormatterBaseHelpers class which contains
+shared functionality for all multi-formatter classes. It handles the core
+logic of normalizing categories with two dynamic elements and combining
+their translations.
+
+Classes:
+    NormalizeResult: Dataclass storing the results of category normalization.
+    MultiDataFormatterBaseHelpers: Base class with shared translation logic.
+
+Example:
+    >>> # This is a base class - use subclasses like MultiDataFormatterBase instead
+    >>> from ArWikiCats.translations_formats.DataModel import MultiDataFormatterBase
+    >>> bot = MultiDataFormatterBase(country_bot, sport_bot)
+    >>> result = bot.normalize_both_new("british football championships")
+    >>> result.nat_key
+    'british'
+    >>> result.other_key
+    'football'
 
 test at tests.translations_formats.test_format_2_data.py
 """
 
 import functools
 from dataclasses import dataclass
+
 from ...helps.log import logger
 
 # -----------------------
@@ -17,7 +36,29 @@ from ...helps.log import logger
 
 @dataclass
 class NormalizeResult:
-    """Data structure representing each processed category."""
+    """
+    Data structure representing the results of category normalization.
+
+    This dataclass stores all the components extracted during the
+    normalization of a category string, including the original category,
+    the template keys, and the extracted dynamic elements.
+
+    Attributes:
+        template_key_first: The normalized template after first element replacement.
+        category: The original normalized category string.
+        template_key: The final normalized template with both elements replaced.
+        nat_key: The extracted nationality/country key.
+        other_key: The extracted other element key (e.g., sport, year).
+
+    Example:
+        >>> result = NormalizeResult(
+        ...     template_key_first="{nat} football championships",
+        ...     category="british football championships",
+        ...     template_key="{nat} {sport} championships",
+        ...     nat_key="british",
+        ...     other_key="football",
+        ... )
+    """
 
     template_key_first: str
     category: str
@@ -27,8 +68,43 @@ class NormalizeResult:
 
 
 class MultiDataFormatterBaseHelpers:
+    """
+    Base class providing shared functionality for multi-formatter translations.
+
+    This class contains the core logic for normalizing and translating
+    category strings that contain two dynamic elements. It is meant to
+    be inherited by specific formatter classes that define the country_bot
+    and other_bot attributes.
+
+    Attributes:
+        country_bot: Formatter for the first dynamic element (set by subclass).
+        other_bot: Formatter for the second dynamic element (set by subclass).
+        search_first_part (bool): If True, search using only the first part.
+        data_to_find (dict | None): Optional direct lookup dictionary.
+        other_key_first (bool): If True, process other_bot before country_bot.
+
+    Methods:
+        normalize_nat_label: Normalize nationality element in category.
+        normalize_other_label: Normalize other element (sport, year) in category.
+        normalize_both_new: Normalize both elements, returning NormalizeResult.
+        normalize_both: Normalize both elements, returning template string.
+        create_label: Create the final Arabic translation.
+        search: Alias for create_label.
+        search_all: Try create_label, then individual bot searches.
+        search_all_category: search_all with "تصنيف:" prefix handling.
+
+    Example:
+        >>> # Subclass usage
+        >>> class MyFormatter(MultiDataFormatterBaseHelpers):
+        ...     def __init__(self, country_bot, other_bot):
+        ...         self.country_bot = country_bot
+        ...         self.other_bot = other_bot
+        ...         self.data_to_find = None
+    """
+
     def __init__(self) -> None:
         self.data_to_find = None
+
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
     # ------------------------------------------------------
@@ -155,23 +231,13 @@ class MultiDataFormatterBaseHelpers:
         return self.create_label(category)
 
     def search_all(self, category: str) -> str:
-        return (
-            self.create_label(category) or
-            self.country_bot.search(category) or
-            self.other_bot.search(category) or
-            ""
-        )
+        return self.create_label(category) or self.country_bot.search(category) or self.other_bot.search(category) or ""
 
     def search_all_other_first(self, category: str) -> str:
-        return (
-            self.other_bot.search(category) or
-            self.country_bot.search(category) or
-            self.create_label(category) or
-            ""
-        )
+        return self.other_bot.search(category) or self.country_bot.search(category) or self.create_label(category) or ""
 
     def search_all_category(self, category: str) -> str:
-        logger.debug("--"*5)
+        logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
 
         normalized_category = category.lower().replace("category:", "")
