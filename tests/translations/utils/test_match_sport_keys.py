@@ -20,7 +20,6 @@ CATEGORY_SAMPLES = {
     "Category:fifa world cup qualifiers": "fifa world cup",
     "Category:fifa futsal world cup finals": "fifa futsal world cup",
     "Category:shot put at the Paralympics": "shot put",
-    "Category:multi-sport events": "multi-sport",
     # --- Racing variants ---
     "Category:Automobile racing in Japan": "automobile racing",
     "Category:Gaelic football racing cup": "gaelic football racing",
@@ -31,7 +30,6 @@ CATEGORY_SAMPLES = {
     "Category:Motorsports racing in the UK": "motorsports racing",
     "Category:FIFA Futsal World Cup racing series": "fifa futsal world cup racing",
     "Category:FIFA World Cup racing team awards": "fifa world cup racing",
-    "Category:Multi-sport racing competition": "multi-sport racing",
     "Category:Beach handball racing contest": "beach handball racing",
     "Category:Shot put racing in national games": "shot put racing",
     # --- Non-racing base forms ---

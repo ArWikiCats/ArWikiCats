@@ -203,7 +203,6 @@ the_male_sport_team_data = {
     "malagasy mountain bike racing federation": "الاتحاد المدغشقري لسباق الدراجات الجبلية",
     "malawian muay thai federation": "الاتحاد الملاوي للموياي تاي",
     "malaysian muay thai racing federation": "الاتحاد الماليزي لسباق موياي تاي",
-    "maldivian multi-sport racing federation": "الاتحاد المالديفي لسباق رياضية متعددة",
     "malian netball federation": "الاتحاد المالي لكرة الشبكة",
     "maltese netball racing federation": "الاتحاد المالطي لسباق كرة الشبكة",
     "martiniquais orienteering federation": "الاتحاد المارتينيكي لسباق الموجه",
