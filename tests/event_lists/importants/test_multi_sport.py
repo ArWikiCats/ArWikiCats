@@ -345,7 +345,7 @@ data_1 = {
     "Category:Mauritius at multi-sport events": "تصنيف:موريشيوس في الأحداث الرياضية المتعددة",
     "Category:Medalists at multi-sport events by year": "تصنيف:فائزون بميداليات في الأحداث الرياضية المتعددة حسب السنة",
     "Category:Modern pentathlon at multi-sport events": "تصنيف:الخماسي الحديث في الأحداث الرياضية المتعددة",
-    "Category:Moldova at multi-sport events": "تصنيف:مولدافيا في الأحداث الرياضية المتعددة",
+    "Category:Moldova at multi-sport events": "تصنيف:مولدوفا في الأحداث الرياضية المتعددة",
     "Category:Morocco at multi-sport events": "تصنيف:المغرب في الأحداث الرياضية المتعددة",
     "Category:Multi-sport events by continent": "تصنيف:أحداث رياضية متعددة حسب القارة",
     "Category:Multi-sport events in Africa": "تصنيف:أحداث رياضية متعددة في إفريقيا",

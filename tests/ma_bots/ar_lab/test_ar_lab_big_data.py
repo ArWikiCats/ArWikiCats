@@ -571,7 +571,7 @@ data_list = [
     ("government ministers of northern cyprus", " of ", "وزراء قبرص الشمالية"),
     ("government of chicago", " of ", "حكومة شيكاغو"),
     ("government of la rioja", " of ", "حكومة منطقة لا ريوخا"),
-    ("government of moldova", " of ", "حكومة مولدافيا"),
+    ("government of moldova", " of ", "حكومة مولدوفا"),
     ("government of nazi germany", " of ", "حكومة ألمانيا النازية"),
     ("grand viziers of egypt", " of ", "صدور عظام في مصر"),
     ("greenlandic emigrants to canada", " to ", "جرينلانديون مهاجرون إلى كندا"),

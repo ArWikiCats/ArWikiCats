@@ -343,7 +343,7 @@ for_countries = {
     "Category:Winter Olympics competitors for Kazakhstan": "تصنيف:منافسون أولمبيون شتويون من كازاخستان",
     "Category:Winter Olympics competitors for Latvia": "تصنيف:منافسون أولمبيون شتويون من لاتفيا",
     "Category:Winter Olympics competitors for Lebanon": "تصنيف:منافسون أولمبيون شتويون من لبنان",
-    "Category:Winter Olympics competitors for Moldova": "تصنيف:منافسون أولمبيون شتويون من مولدافيا",
+    "Category:Winter Olympics competitors for Moldova": "تصنيف:منافسون أولمبيون شتويون من مولدوفا",
     "Category:Winter Olympics competitors for Morocco": "تصنيف:منافسون أولمبيون شتويون من المغرب",
     "Category:Winter Olympics competitors for Norway": "تصنيف:منافسون أولمبيون شتويون من النرويج",
     "Category:Winter Olympics competitors for Romania": "تصنيف:منافسون أولمبيون شتويون من رومانيا",

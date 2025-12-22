@@ -292,7 +292,7 @@ data_1 = {
     "Category:Deaths by person in Mexico": "تصنيف:وفيات حسب الشخص في المكسيك",
     "Category:Deaths by person in Mississippi": "تصنيف:وفيات حسب الشخص في مسيسيبي",
     "Category:Deaths by person in Missouri": "تصنيف:وفيات حسب الشخص في ميزوري",
-    "Category:Deaths by person in Moldova": "تصنيف:وفيات حسب الشخص في مولدافيا",
+    "Category:Deaths by person in Moldova": "تصنيف:وفيات حسب الشخص في مولدوفا",
     "Category:Deaths by person in Morocco": "تصنيف:وفيات حسب الشخص في المغرب",
     "Category:Deaths by person in Moscow": "تصنيف:وفيات حسب الشخص في موسكو",
     "Category:Deaths by person in Nevada": "تصنيف:وفيات حسب الشخص في نيفادا",
