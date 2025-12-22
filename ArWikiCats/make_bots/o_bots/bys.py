@@ -21,7 +21,7 @@ BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)
 AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)
 
 
-@dump_data(1)
+#@dump_data(1)
 def find_dual_by_keys(normalized: str) -> str:
     resolved = ""
     match = DUAL_BY_PATTERN.match(normalized)
@@ -63,7 +63,7 @@ def by_people_bot(key: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
+#@dump_data(1)
 def make_new_by_label(category: str) -> str:
     """Return the Arabic label for ``category`` that starts with ``by``.
 
@@ -109,7 +109,7 @@ def make_by_label(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
+#@dump_data(1)
 def get_by_label(category: str) -> str:
     """Return the label for a category in the form ``<entity> by <suffix>``.
 
@@ -153,7 +153,7 @@ def get_by_label(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
+#@dump_data(1)
 def get_and_label(category: str) -> str:
     """Return the label for ``<entity> and <entity>`` categories.
 

@@ -56,7 +56,7 @@ def get_sport_label(key: str) -> str:
     return ""
 
 
-@dump_data(1)
+# @dump_data(1)
 def by_table_extended_get(text) -> str:
     if not text.lower().startswith("by "):
         return ""

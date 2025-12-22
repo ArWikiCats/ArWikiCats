@@ -11,7 +11,7 @@ import re
 from typing import Optional
 
 from ..fix import fixtitle
-from ..helps.log import logger
+from ..helps import logger, dump_data
 from ..translations import Jobs_new, jobs_mens_data
 from ..utils import get_relation_word, get_value_from_any_table
 from ..time_resolvers import time_to_arabic
@@ -55,6 +55,7 @@ def find_lab(category: str, category_r: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1, input_keys=["category", "start_get_country2"])
 def work_separator_names(
     category: str,
     cate_test: str = "",
