@@ -359,7 +359,6 @@ data_1 = {
     "Category:Namibia at multi-sport events": "تصنيف:ناميبيا في الأحداث الرياضية المتعددة",
     "Category:Nations at multi-sport events": "تصنيف:بلدان في الأحداث الرياضية المتعددة",
     "Category:Nations at multi-sport events by country": "تصنيف:بلدان في الأحداث الرياضية المتعددة حسب البلد",
-    "Category:Nations at multi-sport events navigational boxes": "تصنيف:صناديق تصفح بلدان في الأحداث الرياضية المتعددة",
     "Category:Netherlands Antilles at multi-sport events": "تصنيف:جزر الأنتيل الهولندية في الأحداث الرياضية المتعددة",
     "Category:North Macedonia at multi-sport events": "تصنيف:مقدونيا الشمالية في الأحداث الرياضية المتعددة",
     "Category:Palestine at multi-sport events": "تصنيف:فلسطين في الأحداث الرياضية المتعددة",

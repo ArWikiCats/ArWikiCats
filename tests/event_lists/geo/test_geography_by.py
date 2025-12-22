@@ -9,7 +9,6 @@ data1 = {
     "Category:Airlines by dependent territory": "تصنيف:شركات طيران حسب الأقاليم التابعة",
     "Category:Ambassadors by country of origin": "تصنيف:سفراء حسب البلد الأصل",
     "Category:Ambassadors by mission country": "تصنيف:سفراء حسب بلد البعثة",
-    "Category:American Civil War by state navigational boxes": "تصنيف:صناديق تصفح الحرب الأهلية الأمريكية حسب الولاية",
     "Category:American basketball coaches by state": "تصنيف:مدربو كرة سلة أمريكيون حسب الولاية",
     "Category:American culture by state": "تصنيف:ثقافة أمريكية حسب الولاية",
     "Category:Awards by country": "تصنيف:جوائز حسب البلد",

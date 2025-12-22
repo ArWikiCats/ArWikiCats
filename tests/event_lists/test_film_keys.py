@@ -116,7 +116,6 @@ data_2 = {
     "Category:Zimbabwean women film directors": "تصنيف:مخرجات أفلام زيمبابويات",
     "Category:Zombie film series": "تصنيف:سلاسل أفلام زومبي",
     "Category:Zombie film series navigational boxes": "تصنيف:صناديق تصفح سلاسل أفلام زومبي",
-    "Category:1880s in film by country": "تصنيف:أفلام في عقد 1880 حسب البلد",
     "Category:Asian film awards": "تصنيف:جوائز الأفلام الآسيوية",
     "Category:Asian Film Awards": "تصنيف:جوائز الأفلام الآسيوية",
     "Category:Asian Film Awards navigational boxes": "تصنيف:صناديق تصفح جوائز الأفلام الآسيوية",
