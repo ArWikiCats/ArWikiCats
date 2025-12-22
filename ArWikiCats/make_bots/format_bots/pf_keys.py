@@ -21,6 +21,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
     "players in": "playerss in",
 
+    "fiba world championship for women": "fiba women's world championship",
     "central american and caribbean games": "central-american-and-caribbean-games",
     "elections,": "elections",
 
@@ -45,6 +46,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "accidents and incidents": "accidents-and-incidents",
     "adaptations of works": "adaptations-of-works",
     "africa cup of nations": "africa cup-of-nations",
+    "african cup of nations": "african cup-of-nations",
     "african american": "africanamerican",
     "african-american": "africanamerican",
     "ancient greek": "ancient-greek",

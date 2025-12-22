@@ -317,7 +317,7 @@ def event_Lab(cate_r: str) -> str:
     category3: str = _process_category_formatting(cate_r)
 
     # First, try to get squad-related labels
-    result = get_list_of_and_cat3_with_lab2(category3)
+    result = ""  # get_list_of_and_cat3_with_lab2(category3)
 
     if not result:
         result = resolver.process_category(cate_r, category3)

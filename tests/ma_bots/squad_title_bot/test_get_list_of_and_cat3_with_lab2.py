@@ -5,8 +5,12 @@ Tests
 import pytest
 
 from ArWikiCats.ma_bots.squad_title_bot import get_list_of_and_cat3_with_lab2
+from ArWikiCats import resolve_label_ar
 
 list_data = {
+    # "1880 european competition for women's football squad templates": "قوالب تشكيلات منافسات أوروبية في كرة القدم للسيدات 1880",
+
+    "1880 fifa women's world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم للسيدات 1880",
     "1880 afc asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1880",
     "1880 afc women's asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الآسيوية لكرة القدم للسيدات 1880",
     "1880 afc women's championship squad navigational boxes": "صناديق تصفح تشكيلات بطولة آسيا للسيدات 1880",
@@ -20,7 +24,6 @@ list_data = {
     "1880 copa américa femenina squad navigational boxes": "صناديق تصفح تشكيلات كوبا أمريكا فمنينا 1880",
     "1880 copa américa squad navigational boxes": "صناديق تصفح تشكيلات كوبا أمريكا 1880",
     "1880 cricket world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم للكريكت 1880",
-    "1880 european competition for women's football squad templates": "قوالب تشكيلات منافسات أوروبية في كرة القدم للسيدات 1880",
     "1880 european men's handball championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للرجال 1880",
     "1880 european women's handball championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للسيدات 1880",
     "1880 fiba asia championship squad templates": "قوالب تشكيلات بطولة أمم آسيا لكرة السلة 1880",
@@ -31,8 +34,6 @@ list_data = {
     "1880 fiba world championship squad templates": "قوالب تشكيلات بطولة كأس العالم لكرة السلة 1880",
     "1880 fiba world cup squad templates": "قوالب تشكيلات كأس العالم لكرة السلة 1880",
     "1880 fifa confederations cup squad navigational boxes": "صناديق تصفح تشكيلات كأس القارات 1880",
-    "1880 fifa women's world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم للسيدات 1880",
-    "1880 fifa world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم 1880",
     "1880 men's hockey world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم للهوكي للرجال 1880",
     "1880 oceania cup squad navigational boxes": "صناديق تصفح تشكيلات كأس أوقيانوسيا 1880",
     "1880 ofc nations cup squad navigational boxes": "صناديق تصفح تشكيلات كأس أوقيانوسيا للأمم 1880",
@@ -66,6 +67,14 @@ list_data = {
 @pytest.mark.fast
 def test_list_data(category: str, expected_key: str) -> None:
     label = get_list_of_and_cat3_with_lab2(category)
+    assert label == expected_key
+
+
+@pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
+@pytest.mark.fast
+def test_squad_with_resolve(category: str, expected_key: str, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr("ArWikiCats.main_processers.event_lab_bot.get_list_of_and_cat3_with_lab2", lambda x: "")
+    label = resolve_label_ar(category)
     assert label == expected_key
 
 
