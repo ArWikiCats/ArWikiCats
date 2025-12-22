@@ -1,5 +1,27 @@
 #!/usr/bin/python3
 """
+Module for dictionary-based category translation formatting (Version 2).
+
+This module provides FormatDataV2 and MultiDataFormatterBaseV2 classes for
+advanced category translations where the data_list values can be dictionaries
+with multiple placeholder replacements instead of simple strings.
+
+Classes:
+    FormatDataV2: Handles dictionary-based template-driven category translations.
+    MultiDataFormatterBaseV2: Combines two FormatDataV2 instances for complex translations.
+
+Example:
+    >>> from ArWikiCats.translations_formats.DataModel import FormatDataV2
+    >>> formatted_data = {
+    ...     "{country} people": "{demonym} أشخاص",
+    ... }
+    >>> data_list = {
+    ...     "yemen": {"demonym": "يمنيون", "country_ar": "اليمن"},
+    ...     "egypt": {"demonym": "مصريون", "country_ar": "مصر"},
+    ... }
+    >>> bot = FormatDataV2(formatted_data, data_list, key_placeholder="{country}")
+    >>> bot.search("yemen people")
+    'يمنيون أشخاص'
 """
 
 import re
@@ -11,6 +33,32 @@ from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 
 class FormatDataV2(FormatDataBase):
+    """
+    Handles dictionary-based template-driven category translations.
+
+    This class extends FormatDataBase to support data_list values that are
+    dictionaries containing multiple placeholders. This allows for more
+    complex translations where multiple parts of the template need to be
+    replaced with different values from the same key's data.
+
+    Attributes:
+        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        data_list (Dict[str, Union[str, Dict[str, str]]]): Key mappings where values can be
+            simple strings or dictionaries with multiple placeholder values.
+        key_placeholder (str): Placeholder used in formatted_data keys.
+        text_after (str): Optional text that appears after the key in patterns.
+        text_before (str): Optional text that appears before the key in patterns.
+
+    Example:
+        >>> bot = FormatDataV2(
+        ...     formatted_data={"{country} writers": "{demonym} كتاب"},
+        ...     data_list={"yemen": {"demonym": "يمنيون"}},
+        ...     key_placeholder="{country}",
+        ... )
+        >>> bot.search("yemen writers")
+        'يمنيون كتاب'
+    """
+
     def __init__(
         self,
         formatted_data: Dict[str, str],
@@ -54,6 +102,23 @@ class FormatDataV2(FormatDataBase):
 
 class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
     """
+    Combines two FormatDataV2 instances for complex category translations.
+
+    This class orchestrates two FormatDataV2 formatter instances to handle
+    categories that contain two dynamic elements (e.g., nationality and
+    profession). It inherits from MultiDataFormatterBaseHelpers to provide
+    the core translation logic.
+
+    Attributes:
+        country_bot (FormatDataV2): Formatter for the first dynamic element (e.g., nationality).
+        other_bot (FormatDataV2): Formatter for the second dynamic element (e.g., profession).
+        search_first_part (bool): If True, search using only the first part after normalization.
+        data_to_find (Dict[str, str] | None): Optional direct lookup dictionary for category labels.
+
+    Example:
+        >>> bot = MultiDataFormatterBaseV2(country_bot, profession_bot)
+        >>> bot.create_label("yemeni writers")
+        'كتاب يمنيون'
     """
 
     def __init__(

@@ -1,13 +1,66 @@
 #!/usr/bin/python3
-""" """
+"""
+Module for single-placeholder category translation formatting.
+
+This module provides the FormatData class for translating category strings
+using a single key-value placeholder pattern. It is the primary class for
+simple category translations where one dynamic element (e.g., sport name,
+nationality) needs to be replaced with its Arabic equivalent.
+
+Classes:
+    FormatData: Handles single-placeholder template-driven category translations.
+
+Example:
+    >>> from ArWikiCats.translations_formats.DataModel import FormatData
+    >>> formatted_data = {
+    ...     "{sport} players": "لاعبو {sport_label}",
+    ...     "{sport} coaches": "مدربو {sport_label}",
+    ... }
+    >>> data_list = {
+    ...     "football": "كرة القدم",
+    ...     "basketball": "كرة السلة",
+    ... }
+    >>> bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    >>> bot.search("football players")
+    'لاعبو كرة القدم'
+"""
 
 import functools
 from typing import Dict
+
 from ...helps.log import logger
 from .model_data_base import FormatDataBase
 
 
 class FormatData(FormatDataBase):
+    """
+    Handles single-placeholder template-driven category translations.
+
+    This class extends FormatDataBase to provide functionality for translating
+    category strings where a single dynamic element needs to be replaced. It
+    uses regex pattern matching to find keys in input categories and replaces
+    them with their Arabic equivalents using template strings.
+
+    Attributes:
+        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
+        key_placeholder (str): Placeholder used in formatted_data keys (e.g., "{sport}").
+        value_placeholder (str): Placeholder used in formatted_data values (e.g., "{sport_label}").
+        text_after (str): Optional text that appears after the key in patterns.
+        text_before (str): Optional text that appears before the key in patterns.
+        regex_filter (str): Regex pattern for word boundary detection.
+
+    Example:
+        >>> bot = FormatData(
+        ...     formatted_data={"{sport} players": "لاعبو {sport_label}"},
+        ...     data_list={"football": "كرة القدم"},
+        ...     key_placeholder="{sport}",
+        ...     value_placeholder="{sport_label}",
+        ... )
+        >>> bot.search("football players")
+        'لاعبو كرة القدم'
+    """
+
     def __init__(
         self,
         formatted_data: Dict[str, str],

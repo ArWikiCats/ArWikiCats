@@ -1,5 +1,29 @@
 #!/usr/bin/python3
-""" """
+"""
+Module for double-key category translation formatting.
+
+This module provides the FormatDataDouble class for translating category strings
+that contain two dynamic elements that need to be matched and combined. It is used
+for categories like "action drama films" where both "action" and "drama" are
+separate keys that need to be identified and their labels combined.
+
+Classes:
+    FormatDataDouble: Handles double-key template-driven category translations.
+
+Example:
+    >>> from ArWikiCats.translations_formats.DataModel import FormatDataDouble
+    >>> formatted_data = {
+    ...     "{film_key} films": "أفلام {film_label}",
+    ... }
+    >>> data_list = {
+    ...     "action": "أكشن",
+    ...     "drama": "دراما",
+    ...     "comedy": "كوميدي",
+    ... }
+    >>> bot = FormatDataDouble(formatted_data, data_list, key_placeholder="{film_key}", value_placeholder="{film_label}")
+    >>> bot.search("action drama films")
+    'أفلام أكشن دراما'
+"""
 
 import functools
 import re
@@ -10,6 +34,35 @@ from .model_data_base import FormatDataBase
 
 
 class FormatDataDouble(FormatDataBase):
+    """
+    Handles double-key template-driven category translations.
+
+    This class extends FormatDataBase to handle categories where two adjacent
+    keys from the data_list appear together (e.g., "action drama films").
+    It can match both single keys and pairs of keys, combining their Arabic
+    labels in the correct order.
+
+    Attributes:
+        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
+        key_placeholder (str): Placeholder used in formatted_data keys.
+        value_placeholder (str): Placeholder used in formatted_data values.
+        keys_to_split (dict): Cache mapping combined keys to their component parts.
+        put_label_last (dict): Keys whose labels should appear last in combinations.
+        search_multi_cache (dict): Cache for combined label lookups.
+        pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
+
+    Example:
+        >>> bot = FormatDataDouble(
+        ...     formatted_data={"{genre} films": "أفلام {genre_label}"},
+        ...     data_list={"action": "أكشن", "drama": "دراما"},
+        ...     key_placeholder="{genre}",
+        ...     value_placeholder="{genre_label}",
+        ... )
+        >>> bot.search("action drama films")
+        'أفلام أكشن دراما'
+    """
+
     def __init__(
         self,
         formatted_data: Dict[str, str],
@@ -50,7 +103,7 @@ class FormatDataDouble(FormatDataBase):
         if self.alternation is None:
             self.alternation = self.create_alternation()
 
-        data_pattern = fr"(?<!\w)({self.alternation}) ({self.alternation})(?!\w)"
+        data_pattern = rf"(?<!\w)({self.alternation}) ({self.alternation})(?!\w)"
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
