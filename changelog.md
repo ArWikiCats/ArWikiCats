@@ -16,6 +16,11 @@
     - `model_multi_data.py`: MultiDataFormatterBase, MultiDataFormatterBaseYear, MultiDataFormatterBaseYearV2, MultiDataFormatterDataDouble classes
     - `model_multi_data_base.py`: NormalizeResult dataclass and MultiDataFormatterBaseHelpers class
     - `model_multi_data_year_from.py`: FormatDataFrom and MultiDataFormatterYearAndFrom classes
+  * Added comprehensive docstrings to files in `ArWikiCats/translations_formats/`:
+    - `__init__.py`: Package-level documentation with all exports
+    - `data_new_model.py`: format_films_country_data function
+    - `data_with_time.py`: format_year_country_data and format_year_country_data_v2 functions
+    - `multi_data.py`: format_multi_data, format_multi_data_v2, and get_other_data functions
   * Added module-level documentation with usage examples
   * Added inline comments explaining key logic
 
