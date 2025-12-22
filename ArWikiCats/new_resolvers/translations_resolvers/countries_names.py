@@ -19,6 +19,8 @@ ONLY_COUNTRY_NAMES = {
 
 # NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
+    # "{en} political leader": "قادة {ar} السياسيون",
+
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
@@ -56,7 +58,6 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "{en} government": "حكومة {ar}",
     "{en} governorate": "محافظة {ar}",
     "{en} olympics squad": "تشكيلات {ar} في الألعاب الأولمبية",
-    "{en} political leader": "قادة {ar} السياسيون",
     "{en} presidents": "رؤساء {ar}",
     "{en} responses": "استجابات {ar}",
     "{en} summer olympics squad": "تشكيلات {ar} في الألعاب الأولمبية الصيفية",

@@ -1,3 +1,18 @@
+## [#248](https://github.com/MrIbrahem/ArWikiCats/pull/248) - 2025-12-22
+
+* **Bug Fixes**
+  * Corrected Arabic spelling/diacritics across many category labels (notably Moldova and sidebar template texts).
+
+* **New Features**
+  * Removed an obsolete "multi-sport" category key from sports metadata.
+
+* **Tests**
+  * Added and updated tests covering multi-sport and Olympics-related category label resolution and diff workflows.
+
+* **Chores**
+  * Updated example/data bundles with many category additions, deletions and reorders.
+  * Switched the source used for Olympic-event translations to a revised translations dataset.
+
 ## [#247](https://github.com/MrIbrahem/ArWikiCats/pull/247) - 2025-12-22
 
 * **New Features**
