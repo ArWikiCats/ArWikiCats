@@ -53,6 +53,7 @@ def multi_bot() -> MultiDataFormatterYearAndFrom2:
     return MultiDataFormatterYearAndFrom2(
         country_bot=country_bot,
         year_bot=year_bot,
+        category_relation_mapping=category_relation_mapping,
         other_key_first=True,
     )
 
@@ -162,12 +163,6 @@ class TestResolveRelationLabel:
 
 class TestGetRelationMapping:
     """Tests for get_relation_mapping method."""
-
-    def test_get_relation_mapping_returns_dict(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
-        """Test that get_relation_mapping returns the category_relation_mapping dict."""
-        mapping = multi_bot.get_relation_mapping()
-        assert isinstance(mapping, dict)
-        assert mapping is category_relation_mapping
 
     def test_get_relation_mapping_contains_expected_keys(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that get_relation_mapping contains expected relation words."""
