@@ -65,18 +65,15 @@ formatted_data_en_ar_only: Dict[str, str] = {
 # TODO: add data from pop_of_without_in.json
 pop_of_without_in_data = {
     "children of prime ministers of {en}": "أبناء رؤساء وزراء {ar}",
-    "spouses of leaders {en}": "قرينات قادة {ar}",
     "chief justices of {en}": "رؤساء قضاء {ar}",
     "heads of state of {en}": "قادة {ar}",
     "high commissioners to {en}": "مندوبون ساميون لدى {ar}",
     "university of {en}": "جامعة {ar}",
     "presidents of {en}": "رؤساء {ar}",
     "superintendents of public instruction of {en}": "مدراء تعليم عام في {ar}",
-    "appellate courts of {en}": "محاكم استئناف ولايات {ar}",
     "archipelagoes of {en}": "أرخبيلات {ar}",
     "armies of {en}": "جيوش {ar}",
     "arrondissements of {en}": "دوائر {ar}",
-    "assassination of {en}": "اغتيال {ar}",
     "bank of {en}": "بنك {ar}",
     "basins of {en}": "أحواض {ar}",
     "battles and operations of {en}": "معارك وعمليات {ar}",
@@ -89,7 +86,6 @@ pop_of_without_in_data = {
     "biota of {en}": "حيويات {ar}",
     "birds of {en}": "طيور {ar}",
     "borders of {en}": "حدود {ar}",
-    # "burial sites of {en}": "مواقع دفن {ar}",
 
     "cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
     "cabinet of {en}": "مجلس وزراء {ar}",
@@ -190,7 +186,6 @@ pop_of_without_in_data = {
     "reefs of {en}": "شعاب {ar}",
     "regions of {en}": "مناطق {ar}",
     "rivers of {en}": "أنهار {ar}",
-    "romanization of {en}": "رومنة {ar}",
     "rornadoes of {en}": "أعاصير {ar}",
     "royal families of {en}": "عائلات ملكية {ar}",
     "rulers of {en}": "حكام {ar}",
@@ -215,7 +210,6 @@ pop_of_without_in_data = {
     "symbols of {en}": "رموز {ar}",
     "terminology of {en}": "مصطلحات {ar}",
     "terms of {en}": "فترات {ar}",
-    "the university of {en}": "جامعة {ar}",
     "tour of {en}": "طواف {ar}",
     "treasurers of {en}": "أمناء خزينة {ar}",
     "tribes of {en}": "قبائل {ar}",
@@ -235,6 +229,7 @@ pop_of_without_in_data = {
     "wives of {en}": "زوجات {ar}",
     "works of {en}": "أعمال {ar}",
     "years of {en}": "سنوات {ar}",
+    "air defence units and formations of {en}": "وحدات وتشكيلات دفاع جوي في {ar}",
 }
 formatted_data_en_ar_only.update(pop_of_without_in_data)
 
