@@ -1,4 +1,4 @@
-## [Integrate MultiDataFormatterYearAndFrom with category_relation_mapping] [#256](https://github.com/MrIbrahem/ArWikiCats/pull/256) - 2025-12-22
+## [Integrate MultiDataFormatterYearAndFrom with category_relation_mapping] [#257](https://github.com/MrIbrahem/ArWikiCats/pull/257) - 2025-12-22
 
 * **New Features**
   * Enhanced `MultiDataFormatterYearAndFrom` class with `category_relation_mapping` integration
