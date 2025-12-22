@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Tests for MultiDataFormatterYearAndFrom class with category_relation_mapping integration.
+Tests for MultiDataFormatterYearAndFrom2 class with category_relation_mapping integration.
 
-This module tests the new methods added to MultiDataFormatterYearAndFrom:
+This module tests the new methods added to MultiDataFormatterYearAndFrom2:
 - get_relation_word: Find relation words in categories
 - resolve_relation_label: Append Arabic relation words to labels
 - get_relation_mapping: Access the category_relation_mapping dictionary
@@ -14,7 +14,7 @@ import pytest
 
 from ArWikiCats.make_bots.format_bots import category_relation_mapping
 from ArWikiCats.time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
-from ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
+from ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom2
 
 
 def get_label(text: str) -> str:
@@ -31,8 +31,8 @@ def get_label(text: str) -> str:
 
 
 @pytest.fixture
-def multi_bot() -> MultiDataFormatterYearAndFrom:
-    """Create a MultiDataFormatterYearAndFrom instance for testing."""
+def multi_bot() -> MultiDataFormatterYearAndFrom2:
+    """Create a MultiDataFormatterYearAndFrom2 instance for testing."""
     formatted_data = {
         "{year1} {country1}": "{country1} في {year1}",
     }
@@ -50,7 +50,7 @@ def multi_bot() -> MultiDataFormatterYearAndFrom:
         search_callback=convert_time_to_arabic,
         match_key_callback=match_time_en_first,
     )
-    return MultiDataFormatterYearAndFrom(
+    return MultiDataFormatterYearAndFrom2(
         country_bot=country_bot,
         year_bot=year_bot,
         other_key_first=True,
@@ -80,20 +80,20 @@ class TestGetRelationWord:
         ids=[t[0] for t in test_data],
     )
     def test_get_relation_word(
-        self, multi_bot: MultiDataFormatterYearAndFrom, category: str, expected_key: str, expected_arabic: str
+        self, multi_bot: MultiDataFormatterYearAndFrom2, category: str, expected_key: str, expected_arabic: str
     ) -> None:
         """Test that get_relation_word correctly identifies relation words."""
         key, arabic = multi_bot.get_relation_word(category)
         assert key == expected_key
         assert arabic == expected_arabic
 
-    def test_no_relation_word(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_no_relation_word(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that get_relation_word returns empty tuple when no relation found."""
         key, arabic = multi_bot.get_relation_word("Random category without relation")
         assert key == ""
         assert arabic == ""
 
-    def test_relation_word_requires_spaces(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_relation_word_requires_spaces(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that relation words must be surrounded by spaces."""
         # "builtin" should not match "built in"
         key, arabic = multi_bot.get_relation_word("Somethingbuiltin somewhere")
@@ -119,40 +119,40 @@ class TestResolveRelationLabel:
         ids=[t[0] for t in test_data],
     )
     def test_resolve_relation_label(
-        self, multi_bot: MultiDataFormatterYearAndFrom, category: str, base_label: str, expected: str
+        self, multi_bot: MultiDataFormatterYearAndFrom2, category: str, base_label: str, expected: str
     ) -> None:
         """Test that resolve_relation_label correctly appends Arabic relation words."""
         result = multi_bot.resolve_relation_label(category, base_label)
         assert result == expected
 
-    def test_empty_base_label(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_empty_base_label(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that resolve_relation_label handles empty base_label."""
         result = multi_bot.resolve_relation_label("Writers from Yemen", "")
         assert result == ""
 
-    def test_empty_category(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_empty_category(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that resolve_relation_label handles empty category."""
         result = multi_bot.resolve_relation_label("", "كتاب")
         assert result == "كتاب"
 
-    def test_no_relation_in_category(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_no_relation_in_category(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that resolve_relation_label returns original label when no relation found."""
         result = multi_bot.resolve_relation_label("Random text", "كتاب")
         assert result == "كتاب"
 
-    def test_avoid_duplicate_relation(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_avoid_duplicate_relation(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that resolve_relation_label avoids adding duplicate relation words."""
         # "من" is already at the end of the base_label
         result = multi_bot.resolve_relation_label("Writers from Yemen", "كتاب من")
         assert result == "كتاب من"
 
-    def test_avoid_duplicate_relation_with_country(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_avoid_duplicate_relation_with_country(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that resolve_relation_label avoids duplicates when relation is in middle."""
         # "من" appears in the middle followed by country
         result = multi_bot.resolve_relation_label("Writers from Yemen", "كتاب من اليمن")
         assert result == "كتاب من اليمن"
 
-    def test_no_false_positive_duplicate_detection(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_no_false_positive_duplicate_detection(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that substring matches don't produce false positives."""
         # "من" is part of "من الكتاب" but not as a standalone relation word
         # The method should still add "من" because it's not at word boundaries
@@ -163,13 +163,13 @@ class TestResolveRelationLabel:
 class TestGetRelationMapping:
     """Tests for get_relation_mapping method."""
 
-    def test_get_relation_mapping_returns_dict(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_get_relation_mapping_returns_dict(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that get_relation_mapping returns the category_relation_mapping dict."""
         mapping = multi_bot.get_relation_mapping()
         assert isinstance(mapping, dict)
         assert mapping is category_relation_mapping
 
-    def test_get_relation_mapping_contains_expected_keys(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_get_relation_mapping_contains_expected_keys(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that get_relation_mapping contains expected relation words."""
         mapping = multi_bot.get_relation_mapping()
         # Check some expected keys
@@ -179,7 +179,7 @@ class TestGetRelationMapping:
         assert "published by" in mapping
         assert "directed by" in mapping
 
-    def test_get_relation_mapping_contains_expected_values(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_get_relation_mapping_contains_expected_values(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that get_relation_mapping contains expected Arabic translations."""
         mapping = multi_bot.get_relation_mapping()
         assert mapping["from"] == "من"
@@ -191,17 +191,17 @@ class TestGetRelationMapping:
 class TestIntegrationWithExistingFunctionality:
     """Integration tests to ensure new methods work with existing functionality."""
 
-    def test_create_label_still_works(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_create_label_still_works(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that create_label still works after adding new methods."""
         result = multi_bot.create_label("14th-century writers from yemen")
         assert result == "كتاب من اليمن في القرن 14"
 
-    def test_search_all_still_works(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_search_all_still_works(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that search_all still works after adding new methods."""
         result = multi_bot.search_all("14th-century writers from yemen")
         assert result == "كتاب من اليمن في القرن 14"
 
-    def test_normalize_both_new_still_works(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_normalize_both_new_still_works(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that normalize_both_new still works after adding new methods."""
         result = multi_bot.normalize_both_new("14th-century writers from yemen")
         assert result.nat_key == "writers from yemen"
@@ -211,14 +211,14 @@ class TestIntegrationWithExistingFunctionality:
 class TestEdgeCases:
     """Edge case tests for robust handling."""
 
-    def test_multiple_relation_words(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_multiple_relation_words(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test category with multiple relation words returns first match."""
         # "from" appears before "in" in category_relation_mapping
         key, arabic = multi_bot.get_relation_word("People from Germany in Europe")
         # Should match the first relation word found in the mapping
         assert key in ["from", "in"]
 
-    def test_case_sensitivity(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_case_sensitivity(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test that relation word matching is case-sensitive."""
         # The current implementation is case-sensitive
         key, arabic = multi_bot.get_relation_word("People FROM Germany")
@@ -226,7 +226,7 @@ class TestEdgeCases:
         assert key == ""
         assert arabic == ""
 
-    def test_special_characters_in_relation(self, multi_bot: MultiDataFormatterYearAndFrom) -> None:
+    def test_special_characters_in_relation(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test relation words with special characters like hyphens."""
         key, arabic = multi_bot.get_relation_word("Schools for-deaf in New York")
         assert key == "for-deaf"

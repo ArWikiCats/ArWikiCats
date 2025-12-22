@@ -253,7 +253,11 @@ def format_multi_data_v2(
     )
 
     other_formatted_data = (
-        {x: v for x, v in formatted_data.items() if key2_placeholder in x and key_placeholder not in x}
+        {
+            x: v for x, v
+            in formatted_data.items()
+            if key2_placeholder in x and key_placeholder not in x
+        }
         if use_other_formatted_data
         else {}
     )

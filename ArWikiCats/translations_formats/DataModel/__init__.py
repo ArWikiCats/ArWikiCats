@@ -10,6 +10,7 @@ from .model_multi_data import (
 )
 from .model_multi_data_base import NormalizeResult
 from .model_multi_data_year_from import FormatDataFrom, MultiDataFormatterYearAndFrom
+from .model_multi_data_year_from_2 import MultiDataFormatterYearAndFrom2
 
 __all__ = [
     "FormatDataV2",
@@ -23,5 +24,6 @@ __all__ = [
     "FormatData",
     "NormalizeResult",
     "MultiDataFormatterYearAndFrom",
+    "MultiDataFormatterYearAndFrom2",
     "FormatDataFrom",
 ]

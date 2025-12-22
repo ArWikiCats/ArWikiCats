@@ -60,6 +60,7 @@ from .DataModel import (
     MultiDataFormatterBaseYearV2,
     MultiDataFormatterDataDouble,
     MultiDataFormatterYearAndFrom,
+    MultiDataFormatterYearAndFrom2,
     NormalizeResult,
     YearFormatData,
 )
@@ -69,6 +70,7 @@ __all__ = [
     "MultiDataFormatterBaseYear",
     "MultiDataFormatterBaseYearV2",
     "MultiDataFormatterYearAndFrom",
+    "MultiDataFormatterYearAndFrom2",
     "FormatDataFrom",
     "MultiDataFormatterDataDouble",
     "FormatDataV2",
