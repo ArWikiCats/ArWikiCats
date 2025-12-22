@@ -55,7 +55,7 @@ def find_lab(category: str, category_r: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1, input_keys=["category_r"])
+@dump_data(1, input_keys=["category", "start_get_country2"])
 def work_separator_names(
     category: str,
     cate_test: str = "",

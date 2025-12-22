@@ -199,7 +199,7 @@ def separator_arabic_resolve(separator: str) -> str:
     return ar_separator
 
 
-@dump_data()
+# @dump_data()
 def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
 
     part_2_label = c_2_1_lab(part_2, With_Years=With_Years)
