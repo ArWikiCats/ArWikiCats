@@ -42,7 +42,7 @@ def compare_and_export_labels(data, name):
             diff["new"][key] = value
             diff["old"][key] = data.get(key)
 
-    print(f"{len(same)=}, {len(diff['old'])=}")
+    print(f"same: {len(same)}, diff: {len(diff['old'])}")
 
     output_dir = Path(__file__).parent
     if diff["new"]:

@@ -5,6 +5,13 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "Category:Academic staff of Incheon National University": "تصنيف:أعضاء هيئة تدريس جامعة إنتشون الوطنية",
+    "Category:Lists of 1900s films": "تصنيف:قوائم أفلام إنتاج عقد 1900",
+    "Category:Academic staff of University of Galați": "تصنيف:أعضاء هيئة تدريس جامعة غالاتس",
+    "Category:Women members of Senate of Spain": "تصنيف:عضوات مجلس شيوخ إسبانيا",
+    "Category:Defunct shopping malls in Malaysia": "تصنيف:مراكز تسوق سابقة في ماليزيا",
+    "Category:Defunct communist parties in Nepal": "تصنيف:أحزاب شيوعية سابقة في نيبال",
+    "Category:Defunct European restaurants in London": "تصنيف:مطاعم أوروبية سابقة في لندن",
     "Category:Burial sites of Aragonese royal houses": "",
     "Category:Burial sites of Castilian royal houses": "",
     "Category:Burial sites of Frankish noble families": "",
