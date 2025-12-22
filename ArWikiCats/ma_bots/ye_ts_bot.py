@@ -11,7 +11,7 @@ import re
 from typing import Optional
 
 from ..fix import fixtitle
-from ..helps.log import logger
+from ..helps import logger, dump_data
 from ..translations import Jobs_new, jobs_mens_data
 from ..utils import get_relation_word, get_value_from_any_table
 from ..time_resolvers import time_to_arabic
@@ -121,6 +121,7 @@ def _translate_general_category(category_r: str, category: str, start_get_countr
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
     """
     "Category:20th-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
