@@ -3,8 +3,33 @@ import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_arabic_category_label
 
-data1 = {
+data_not_ready = {
     "Category:20th century members of maine legislature": "تصنيف:أعضاء هيئة مين التشريعية في القرن 20",
+    "Category:Wheelchair basketball at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
+    "Category:Wheelchair fencing at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح مبارزة سيف الشيش على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
+    "Category:Wheelchair tennis at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح كرة المضرب على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
+    "Category:Athletics at the Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية",
+    "Category:Athletics at the Summer Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية الصيفية",
+    "Category:Nations at multi-sport events navigational boxes": "تصنيف:صناديق تصفح بلدان في الأحداث الرياضية المتعددة",
+    "Category:American Civil War by state navigational boxes": "تصنيف:صناديق تصفح الحرب الأهلية الأمريكية حسب الولاية",
+    "Category:Canadian football teams": "تصنيف:فرق كرة القدم الكندية",
+    "Category:Canadian football people": "تصنيف:أعلام كرة القدم الكندية",
+    "Category:Canadian football leagues": "تصنيف:دوريات كرة القدم الكندية",
+    "Category:1880s in film by country": "تصنيف:أفلام في عقد 1880 حسب البلد",
+    "Category:Canadian football on television": "تصنيف:كرة القدم الكندية على التلفاز",
+    "Category:1980 sports events in Europe": "تصنيف:أحداث 1980 الرياضية في أوروبا",
+    "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
+    "Category:20th-century presidents of Russia": "تصنيف:رؤساء روسيا القرن 20",
+    "Category:Attacks on diplomatic missions of Russia": "تصنيف:هجمات على بعثات دبلوماسية روسيا",
+    "Category:waba champions cup": "تصنيف:كأس دوري غرب آسيا لكرة السلة",
+    "Category:Italian defectors to the Soviet Union": "تصنيف:إيطاليون منشقون إلى الاتحاد السوفيتي",
+    "Category:Lists of organisations based in Papua New Guinea": "تصنيف:قوائم منظمات مقرها في بابوا غينيا الجديدة",
+    "Category:COVID-19 pandemic in Papua New Guinea templates": "تصنيف:قوالب جائحة فيروس كورونا في بابوا غينيا الجديدة",
+    "Category:20th-century executions by Papua New Guinea": "تصنيف:إعدامات في بابوا غينيا الجديدة في القرن 20",
+    "Category:Works by Antigua and Barbuda people": "تصنيف:أعمال أنتيغويون وبربوديون",
+}
+
+data1 = {
     "category:lists of american non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية أمريكية",
     "category:lists of australian non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية أسترالية",
     "category:lists of british non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية بريطانية",
@@ -25,36 +50,14 @@ data1 = {
 }
 
 data2 = {
-    "Category:Wheelchair basketball at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
-    "Category:Wheelchair fencing at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح مبارزة سيف الشيش على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
-    "Category:Wheelchair tennis at the Summer Paralympics navigational boxes": "تصنيف:صناديق تصفح كرة المضرب على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
-    "Category:Athletics at the Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية",
-    "Category:Athletics at the Summer Universiade navigational boxes": "تصنيف:صناديق تصفح ألعاب القوى في الألعاب الجامعية الصيفية",
-    "Category:Italian defectors to the Soviet Union": "تصنيف:إيطاليون منشقون إلى الاتحاد السوفيتي",
-    "Category:Lists of organisations based in Papua New Guinea": "تصنيف:قوائم منظمات مقرها في بابوا غينيا الجديدة",
-    "Category:COVID-19 pandemic in Papua New Guinea templates": "تصنيف:قوالب جائحة فيروس كورونا في بابوا غينيا الجديدة",
-    "Category:20th-century executions by Papua New Guinea": "تصنيف:إعدامات في بابوا غينيا الجديدة في القرن 20",
-    "Category:Nations at multi-sport events navigational boxes": "تصنيف:صناديق تصفح بلدان في الأحداث الرياضية المتعددة",
-    "Category:American Civil War by state navigational boxes": "تصنيف:صناديق تصفح الحرب الأهلية الأمريكية حسب الولاية",
-    "Category:1880s in film by country": "تصنيف:أفلام في عقد 1880 حسب البلد",
-    "Category:Canadian football teams": "تصنيف:فرق كرة القدم الكندية",
-    "Category:Canadian football people": "تصنيف:أعلام كرة القدم الكندية",
-    "Category:Canadian football leagues": "تصنيف:دوريات كرة القدم الكندية",
-    "Category:Canadian football on television": "تصنيف:كرة القدم الكندية على التلفاز",
-    "Category:Works by Antigua and Barbuda people": "تصنيف:أعمال أنتيغويون وبربوديون",
     "Category:Lists of Antigua and Barbuda people": "تصنيف:قوائم أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda football templates": "تصنيف:قوالب كرة القدم الأنتيغوية والبربودية",
-    "Category:20th-century presidents of Russia": "تصنيف:رؤساء روسيا القرن 20",
-    "Category:Attacks on diplomatic missions of Russia": "تصنيف:هجمات على بعثات دبلوماسية روسيا",
-    "Category:waba champions cup": "تصنيف:كأس دوري غرب آسيا لكرة السلة",
     "Category:10th century chinese people by occupation": "تصنيف:صينيون في القرن 10 حسب المهنة",
     "Category:15th century swiss people by occupation": "تصنيف:سويسريون في القرن 15 حسب المهنة",
     "Category:16th century iranian people by occupation": "تصنيف:إيرانيون في القرن 16 حسب المهنة",
     "Category:20th century croatian people by occupation": "تصنيف:كروات في القرن 20 حسب المهنة",
     "Category:21st century yemeni people by occupation": "تصنيف:يمنيون في القرن 21 حسب المهنة",
     "Category:3rd century asian people by nationality": "تصنيف:آسيويين في القرن 3 حسب الجنسية",
-    "Category:1980 sports events in Europe": "تصنيف:أحداث 1980 الرياضية في أوروبا",
-    "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     "Category:20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة"
 }
 
