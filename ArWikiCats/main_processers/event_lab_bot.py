@@ -71,56 +71,28 @@ class EventLabResolver:
         """Initialize the EventLabResolver with default values."""
         self.foot_ballers: bool = False
 
-    def _process_category_formatting(self, cate_r: str) -> Tuple[str, str, str]:
-        """
-        Process and format the input category string.
-
-        Args:
-            cate_r (str): The raw category string
-
-        Returns:
-            Tuple[str, str, str]: Formatted category, lowercase version without prefix, original without prefix
-        """
-        category: str = cate_r.lower()
-        category = category.replace("_", " ")
-        if not category.startswith("category:"):
-            category = f"category:{category}"
-        category = change_cat(category)
-
-        category3_nolower: str = cate_r
-        if category3_nolower.startswith("Category:"):
-            category3_nolower = category3_nolower.split("Category:")[1]
-
-        category3: str = category.lower()
-        if category3.startswith("category:"):
-            category3 = category3.split("category:")[1]
-
-        return category, category3_nolower, category3
-
-    def _handle_special_suffixes(self, category3: str, category3_nolower: str) -> Tuple[str, str, bool]:
+    def _handle_special_suffixes(self, category3: str) -> Tuple[str, str, bool]:
         """
         Handle categories with special suffixes like episodes or templates.
 
         Args:
             category3 (str): The lowercase category string
-            category3_nolower (str): The original category string without prefix
 
         Returns:
             Tuple[str, str, bool]: List of category, updated category3, and whether Wikidata was found
         """
+
         list_of_cat: str = ""
 
         if category3.endswith(" episodes"):
-            list_of_cat, category3 = get_episodes(category3, category3_nolower)
+            list_of_cat, category3 = get_episodes(category3)
 
         elif category3.endswith(" templates"):
             list_of_cat, category3 = get_templates_fo(category3)
 
         else:
             # Process with the main category processing function
-            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(
-                category3, category3_nolower, app_settings.find_stubs
-            )
+            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(category3, find_stubs=app_settings.find_stubs)
 
         return list_of_cat, category3
 
@@ -229,53 +201,7 @@ class EventLabResolver:
 
         return category_lab
 
-    def _handle_cricketer_categories(self, category3: str, category3_nolower: str) -> str:
-        """
-        Handle special cricket player categories.
-
-        Args:
-            category3 (str): The lowercase category string
-            category3_nolower (str): The original category string without prefix
-
-        Returns:
-            str: The processed category label or empty string
-        """
-        category32: str = ""
-        list_of_cat2: str = ""
-
-        if category3.endswith(" cricketers"):
-            list_of_cat2 = "لاعبو كريكت من {}"
-            category32 = category3_nolower[: -len(" cricketers")]
-        elif category3.endswith(" cricket captains"):
-            list_of_cat2 = "قادة كريكت من {}"
-            category32 = category3_nolower[: -len(" cricket captains")]
-
-        if list_of_cat2 and category32:
-            category3_lab = get_from_new_p17_final(category32.lower())
-            if category3_lab:
-                return list_of_cat2.format(category3_lab)
-
-        return ""
-
-    def _finalize_category_label(self, category_lab: str, cate_r: str) -> str:
-        """
-        Finalize the category label by applying final formatting.
-
-        Args:
-            category_lab (str): The current category label
-            cate_r (str): Original category string
-
-        Returns:
-            str: The final formatted category label
-        """
-        if category_lab:
-            # Apply final formatting and prefix
-            fixed = fixtitle.fixlabel(category_lab, en=cate_r)
-            category_lab = f"تصنيف:{fixed}"
-
-        return category_lab
-
-    def process_category(self, cate_r: str) -> str:
+    def process_category(self, category3: str, cate_r: str) -> str:
         """
         Main method to process a category and return its Arabic label.
 
@@ -285,12 +211,10 @@ class EventLabResolver:
         Returns:
             str: The Arabic label for the category
         """
-        # Process and format the category
-        category, category3_nolower, category3 = self._process_category_formatting(cate_r)
         original_category3 = category3
 
         # First, try to get squad-related labels
-        category_lab = get_list_of_and_cat3_with_lab2(category3)
+        category_lab = ""
 
         # Initialize flags
         self.foot_ballers = False
@@ -298,7 +222,7 @@ class EventLabResolver:
 
         # Handle special suffixes
         if not category_lab:
-            list_of_cat, category3 = self._handle_special_suffixes(category3, category3_nolower)
+            list_of_cat, category3 = self._handle_special_suffixes(category3)
 
         # Handle country-based labels (e.g., basketball players from a country)
         if not category_lab and list_of_cat:
@@ -340,15 +264,6 @@ class EventLabResolver:
         if not category_lab:
             category_lab = ye_ts_bot.translate_general_category(original_category3, fix_title=False)
 
-        # Handle cricket player categories
-        if not category_lab:
-            cricket_label = self._handle_cricketer_categories(category3, category3_nolower)
-            if cricket_label:
-                category_lab = cricket_label
-
-        # Finalize the label
-        category_lab = self._finalize_category_label(category_lab, cate_r)
-
         return category_lab
 
 
@@ -356,6 +271,71 @@ class EventLabResolver:
 
 
 resolver = EventLabResolver()
+
+
+def _finalize_category_label(category_lab: str, cate_r: str) -> str:
+    """
+    Finalize the category label by applying final formatting.
+
+    Args:
+        category_lab (str): The current category label
+        cate_r (str): Original category string
+
+    Returns:
+        str: The final formatted category label
+    """
+    if category_lab:
+        # Apply final formatting and prefix
+        fixed = fixtitle.fixlabel(category_lab, en=cate_r)
+        category_lab = f"تصنيف:{fixed}"
+
+    return category_lab
+
+
+def _handle_cricketer_categories(category3: str) -> str:
+    """
+    Handle special cricket player categories.
+
+    Args:
+        category3 (str): The lowercase category string
+
+    Returns:
+        str: The processed category label or empty string
+    """
+    category32: str = ""
+    list_of_cat2: str = ""
+
+    if category3.endswith(" cricketers"):
+        list_of_cat2 = "لاعبو كريكت من {}"
+        category32 = category3[: -len(" cricketers")]
+    elif category3.endswith(" cricket captains"):
+        list_of_cat2 = "قادة كريكت من {}"
+        category32 = category3[: -len(" cricket captains")]
+
+    if list_of_cat2 and category32:
+        category3_lab = get_from_new_p17_final(category32)
+        if category3_lab:
+            return list_of_cat2.format(category3_lab)
+
+    return ""
+
+
+def _process_category_formatting(category: str) -> str:
+    """
+    Process and format the input category string.
+
+    Args:
+        category (str): The raw category string
+
+    Returns:
+        str: lowercase version without prefix
+    """
+    if category.startswith("category:"):
+        category = category.split("category:")[1]
+
+    category = change_cat(category)
+
+    return category
 
 
 def event_Lab(cate_r: str) -> str:
@@ -368,8 +348,23 @@ def event_Lab(cate_r: str) -> str:
     Returns:
         str: The Arabic label for the category
     """
-    result = resolver.process_category(cate_r)
+    cate_r = cate_r.lower().replace("_", " ")
+    category3: str = _process_category_formatting(cate_r)
 
+    # First, try to get squad-related labels
+    result = get_list_of_and_cat3_with_lab2(category3)
+
+    if not result:
+        result = resolver.process_category(cate_r, category3)
+
+    # Handle cricket player categories
+    if not result:
+        result = _handle_cricketer_categories(category3)
+
+    if not result:
+        return ""
+
+    result = _finalize_category_label(result, cate_r)
     if result == "تصنيف:":
         return ""
 
