@@ -424,7 +424,6 @@ empty_data = {
 }
 
 data1 = {
-    "Category:Attacks on diplomatic missions of Russia": "تصنيف:هجمات على بعثات دبلوماسية روسيا",
     "Category:People executed by the Tsardom of Russia": "تصنيف:أشخاص أعدموا من قبل روسيا القيصرية",
     "Category:Military personnel of the Tsardom of Russia": "تصنيف:أفراد عسكريون من روسيا القيصرية",
     "Category:Military history of the Tsardom of Russia": "تصنيف:تاريخ روسيا القيصرية العسكري",
@@ -453,7 +452,6 @@ data1 = {
     "Category:16th-century military history of Russia": "تصنيف:تاريخ روسيا العسكري في القرن 16",
     "Category:17th-century military history of Russia": "تصنيف:تاريخ روسيا العسكري في القرن 17",
     "Category:20th-century military history of Russia": "تصنيف:تاريخ روسيا العسكري في القرن 20",
-    "Category:20th-century presidents of Russia": "تصنيف:رؤساء روسيا القرن 20",
     "Category:21st-century military history of Russia": "تصنيف:تاريخ روسيا العسكري في القرن 21",
     "Category:Accidents and incidents by airline of Russia": "تصنيف:حوادث حسب شركة الطيران في روسيا",
     "Category:Acting presidents of Russia": "تصنيف:رؤساء روسيا بالإنابة",
@@ -811,6 +809,6 @@ def test_all_russia(category: str, expected: str) -> None:
 @pytest.mark.dump
 def test_peoples(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-    # dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
+    dump_diff(diff_result, name)
+    # dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

@@ -3,8 +3,8 @@
 Country Label Bot Module
 """
 
+import functools
 import re
-from typing import Dict
 
 from . import country2_bot, country2_lab
 
@@ -26,7 +26,6 @@ from . import ye_ts_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 
 from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
-get_country_done: Dict[str, str] = {}
 
 
 class CountryLabelRetriever:
@@ -37,18 +36,16 @@ class CountryLabelRetriever:
     def __init__(self) -> None:
         pass
 
+    @functools.lru_cache(maxsize=1024)
     def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
         """Retrieve the label for a given country name."""
         country = country.lower()
-
-        if country in get_country_done:
-            logger.debug(f'>>>> get_country: "{country}" in get_country_done, lab:"{get_country_done[country]}"')
-            return get_country_done[country]
 
         logger.debug(">> ----------------- get_country start ----------------- ")
         logger.debug(f'>>>> Get country for "{country}"')
 
         resolved_label = self._check_basic_lookups(country)
+
         if resolved_label == "" and start_get_country2:
             resolved_label = country2_bot.Get_country2(country)
 
@@ -74,7 +71,6 @@ class CountryLabelRetriever:
                 ""
             )
 
-        get_country_done[country] = resolved_label
         logger.debug(f'>>>> Get country "{resolved_label=}"')
         logger.debug(">> ----------------- end get_country ----------------- ")
         return resolved_label

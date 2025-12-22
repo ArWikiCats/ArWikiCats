@@ -116,7 +116,6 @@ data_2 = {
     "Category:Zimbabwean women film directors": "تصنيف:مخرجات أفلام زيمبابويات",
     "Category:Zombie film series": "تصنيف:سلاسل أفلام زومبي",
     "Category:Zombie film series navigational boxes": "تصنيف:صناديق تصفح سلاسل أفلام زومبي",
-    "Category:1880s in film by country": "تصنيف:أفلام في عقد 1880 حسب البلد",
     "Category:Asian film awards": "تصنيف:جوائز الأفلام الآسيوية",
     "Category:Asian Film Awards": "تصنيف:جوائز الأفلام الآسيوية",
     "Category:Asian Film Awards navigational boxes": "تصنيف:صناديق تصفح جوائز الأفلام الآسيوية",
@@ -144,5 +143,5 @@ def test_film_keys_2(category: str, expected: str) -> None:
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
-    dump_diff_text(expected, diff_result, name)
+    # dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

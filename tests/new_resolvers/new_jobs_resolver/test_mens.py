@@ -11,8 +11,8 @@ test_data2 = {
     "Category:Turkish expatriate sports-people": "تصنيف:رياضيون أتراك مغتربون",
 
     # nat
-    "welsh people": "أعلام ويلزيون",
-    "yemeni people": "أعلام يمنيون",
+    "welsh people": "ويلزيون",
+    "yemeni people": "يمنيون",
     "abkhazian-american": "أبخازيون أمريكيون",
     # "abkhazian-american people": "أبخازيون أمريكيون",
 

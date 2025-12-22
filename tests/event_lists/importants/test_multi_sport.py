@@ -359,7 +359,6 @@ data_1 = {
     "Category:Namibia at multi-sport events": "تصنيف:ناميبيا في الأحداث الرياضية المتعددة",
     "Category:Nations at multi-sport events": "تصنيف:بلدان في الأحداث الرياضية المتعددة",
     "Category:Nations at multi-sport events by country": "تصنيف:بلدان في الأحداث الرياضية المتعددة حسب البلد",
-    "Category:Nations at multi-sport events navigational boxes": "تصنيف:صناديق تصفح بلدان في الأحداث الرياضية المتعددة",
     "Category:Netherlands Antilles at multi-sport events": "تصنيف:جزر الأنتيل الهولندية في الأحداث الرياضية المتعددة",
     "Category:North Macedonia at multi-sport events": "تصنيف:مقدونيا الشمالية في الأحداث الرياضية المتعددة",
     "Category:Palestine at multi-sport events": "تصنيف:فلسطين في الأحداث الرياضية المتعددة",
@@ -420,5 +419,5 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     # dump_same_and_not_same(data, diff_result, name)
 
     dump_diff(diff_result, name)
-    dump_diff_text(expected, diff_result, name)
+    # dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

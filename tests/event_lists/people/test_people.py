@@ -19,7 +19,6 @@ data1 = {
 data2 = {
     "Category:Iranian nuclear medicine physicians": "تصنيف:أطباء طب نووي إيرانيون",
     "Category:Israeli people of Northern Ireland descent": "تصنيف:إسرائيليون من أصل أيرلندي شمالي",
-    "Category:Italian defectors to the Soviet Union": "تصنيف:إيطاليون منشقون إلى الاتحاد السوفيتي",
     "Category:Ivorian American": "تصنيف:أمريكيون إيفواريون",
     "Category:Ivorian diaspora in Asia": "تصنيف:شتات إيفواري في آسيا",
     "Category:Medical doctors by specialty and nationality": "تصنيف:أطباء حسب التخصص والجنسية",

@@ -16,9 +16,11 @@ from ...format_bots import category_relation_mapping
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.bot import Films_O_TT, New_Lan
 from ...matables_bots.check_bot import check_key_new_players
+
 from ....ma_bots.country_bot import get_country
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
+
 from .reg_result import get_cats, get_reg_result
 
 type_after_country = ["non-combat"]
@@ -276,6 +278,9 @@ class LabelForStartWithYearOrTypeo:
 
     def finalize(self) -> str:
         """Perform final validation and return the completed label."""
+        if not self.arlabel:
+            return ""
+
         category2 = (
             self.cate[len("category:") :].lower() if self.cate.lower().startswith("category:") else self.cate.lower()
         )
@@ -342,4 +347,7 @@ def label_for_startwith_year_or_typeo(category_r: str) -> str:
     """Return an Arabic label for categories that begin with years or types."""
     builder = LabelForStartWithYearOrTypeo()
 
-    return builder.build(category_r).strip()
+    result = ""
+    result = builder.build(category_r).strip()
+    logger.debug(f":: label_for_startwith_year_or_typeo: {category_r=} => {result=}")
+    return result

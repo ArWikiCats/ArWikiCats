@@ -200,6 +200,7 @@ def fix_it(ar_label: str, en_label: str) -> str:
     ar_label = re.sub(r"^شغب (\d+)", r"شغب في \g<1>", ar_label)
     ar_label = re.sub(r"قوائممتعلقة", "قوائم متعلقة", ar_label)
     ar_label = re.sub(r" في أصل ", " من أصل ", ar_label)
+    ar_label = re.sub(r"حلقات قوائم", "قوائم حلقات", ar_label)
     ar_label = _normalize_conflict_phrases(ar_label)
 
     # if "لاعبو " and "سيدات" in label_old: fix it to لاعبات (use all())

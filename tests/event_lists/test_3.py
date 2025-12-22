@@ -11,13 +11,13 @@ data0 = {
 }
 
 data1 = {
-    "ivorian people": "تصنيف:أعلام إيفواريون",
+    "ivorian people": "تصنيف:إيفواريون",
     "japanese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو يابانيون",
     "chinese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو صينيون",
     "arab lgbtq people": "تصنيف:أعلام إل جي بي تي كيو عرب",
     "rwandan political people": "تصنيف:ساسة روانديون",
-    "maldivian people": "تصنيف:أعلام مالديفيون",
-    "malian people": "تصنيف:أعلام ماليون",
+    "maldivian people": "تصنيف:مالديفيون",
+    "malian people": "تصنيف:ماليون",
     "maltese lgbtq people": "تصنيف:أعلام إل جي بي تي كيو مالطيون",
     "namibia–russia relations": "تصنيف:العلاقات الروسية الناميبية",
     "morocco–netherlands relations": "تصنيف:العلاقات المغربية الهولندية",

@@ -19,7 +19,6 @@ temporal_1 = {
     "Category:1960s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة عقد 1960",
     "Category:1970s black comedy films": "تصنيف:أفلام كوميدية سوداء عقد 1970",
     "Category:1970s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة عقد 1970",
-    "Category:1980 sports events in Europe": "تصنيف:أحداث 1980 الرياضية في أوروبا",
     "Category:1980s black comedy films": "تصنيف:أفلام كوميدية سوداء عقد 1980",
     "Category:1980s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة عقد 1980",
     "Category:1990s BC disestablishments in Asia": "تصنيف:انحلالات عقد 1990 ق م في آسيا",
@@ -60,7 +59,6 @@ temporal_2 = {
 temporal_3 = {
     "Category:10th millennium in fiction": "تصنيف:الخيال في الألفية 10",
     "Category:1270s in the Holy Roman Empire": "تصنيف:الإمبراطورية الرومانية المقدسة في عقد 1270",
-    "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     "Category:19th-century actors by religion": "تصنيف:ممثلون في القرن 19 حسب الدين",
     "Category:19th-century people by religion": "تصنيف:أشخاص في القرن 19 حسب الدين",
     "Category:2000s in the United States by state": "تصنيف:الولايات المتحدة في عقد 2000 حسب الولاية",

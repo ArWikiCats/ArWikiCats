@@ -225,7 +225,7 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, separator: str = "") -> str:
     """Wraps the event2bot.event2 function with caching."""
-    return event2bot.event2(category)
+    return event2bot.event2_new(category)
 
 
 @dataclass

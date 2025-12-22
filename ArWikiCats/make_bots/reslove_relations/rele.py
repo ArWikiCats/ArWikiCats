@@ -9,6 +9,8 @@ from typing import Mapping, Tuple
 from ...helps.log import logger
 from ...translations.nats.Nationality import NationalityEntry
 from ...translations import (
+    Nat_the_male,
+    Nat_the_female,
     Nat_men,
     Nat_women,
     all_country_ar,
@@ -121,14 +123,9 @@ def _lookup_country_label(key: str, gender_key: str, nat_table: Mapping[str, str
     return label
 
 
-def _combine_labels(labels: Tuple[str, str], add_article: bool, joiner: str = " ") -> str:
+def _combine_labels(labels: Tuple[str, str], joiner: str = " ") -> str:
     """Combine ``labels`` with sorting and optional article insertion."""
     sorted_labels = sorted(labels)
-    if add_article:
-        combined = " ".join(sorted_labels)
-        # Replicate the historical behaviour where each word receives an ``ال``
-        # prefix and the combined string keeps the order alphabetical.
-        return apply_arabic_article(combined)
 
     return joiner.join(sorted_labels)
 
@@ -156,7 +153,6 @@ def _resolve_relations(
     gender_key: str,
     nat_table: Mapping[str, str],
     *,
-    add_article: bool,
     joiner: str = " ",
 ) -> str:
     """Resolve a relation label using ``suffixes`` and ``nat_table``."""
@@ -182,7 +178,7 @@ def _resolve_relations(
         logger.info(f'\t\t>>>><<lightblue>> missing label for: "{first_key}" or "{second_key}"')
         return ""
 
-    combined = _combine_labels((first_label, second_label), add_article, joiner=joiner)
+    combined = _combine_labels((first_label, second_label), joiner=joiner)
 
     if suffix.strip() != "relations" or "nato" not in {first_key, second_key}:
         return template.format(combined)
@@ -228,9 +224,9 @@ def resolve_relations_label(value: str) -> str:
     resolved = _resolve_relations(
         normalized,
         RELATIONS_FEMALE,
-        "female",
-        Nat_women,
-        add_article=True,
+        # "female",
+        "the_female",
+        Nat_the_female,
     )
     if resolved:
         logger.info(f"resolve_relations_label (female): cat: {value}, {resolved=}")
@@ -239,9 +235,9 @@ def resolve_relations_label(value: str) -> str:
     resolved = _resolve_relations(
         normalized,
         RELATIONS_MALE,
-        "male",
-        Nat_men,
-        add_article=True,
+        # "male",
+        "the_male",
+        Nat_the_male,
     )
     if resolved:
         logger.info(f"resolve_relations_label (male): cat: {value}, {resolved=}")
@@ -253,7 +249,6 @@ def resolve_relations_label(value: str) -> str:
         P17_PREFIXES,
         "",
         all_country_labels,
-        add_article=False,
         joiner=" و",
     )
 
