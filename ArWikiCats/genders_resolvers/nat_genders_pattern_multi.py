@@ -1,8 +1,6 @@
 """
 Module to resolve nationality gender patterns in Arabic categories.
 
-TODO: use format_multi_data_v2
-
 """
 
 import re

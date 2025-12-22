@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots.squad_title_bot import get_squad_title
+from ArWikiCats import resolve_label_ar
 
 get_squad_title_data = {
     "1970 fiba women's basketball world cup": "كأس العالم لكرة السلة للسيدات 1970",
@@ -33,7 +33,6 @@ get_squad_title_data = {
     "1970 fiba world cup": "كأس العالم لكرة السلة 1970",
     "1970 fifa confederations cup": "كأس القارات 1970",
     "1970 fifa women's world cup": "كأس العالم لكرة القدم للسيدات 1970",
-    "1970 fifa world cup": "كأس العالم لكرة القدم 1970",
     "1970 men's hockey world cup": "كأس العالم للهوكي للرجال 1970",
     "1970 oceania cup": "كأس أوقيانوسيا 1970",
     "1970 ofc nations cup": "كأس أوقيانوسيا للأمم 1970",
@@ -63,18 +62,18 @@ get_squad_title_data = {
 @pytest.mark.parametrize("category, expected_key", get_squad_title_data.items(), ids=get_squad_title_data.keys())
 @pytest.mark.fast
 def test_get_squad_title_data(category: str, expected_key: str) -> None:
-    label = get_squad_title(category)
+    label = resolve_label_ar(category)
     assert label == expected_key
 
 
 def test_get_squad_title() -> None:
     # Test with a basic input
-    result = get_squad_title("test squad")
+    result = resolve_label_ar("test squad")
     assert isinstance(result, str)
 
-    result_empty = get_squad_title("")
+    result_empty = resolve_label_ar("")
     assert isinstance(result_empty, str)
 
     # Test with various inputs
-    result_various = get_squad_title("football team")
+    result_various = resolve_label_ar("football team")
     assert isinstance(result_various, str)

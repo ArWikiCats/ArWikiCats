@@ -4,7 +4,6 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots.squad_title_bot import resolve_squads_labels_and_templates
 from ArWikiCats import resolve_label_ar
 
 list_data_0 = {
@@ -75,14 +74,13 @@ list_data = {
 @pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
 @pytest.mark.fast
 def test_list_data(category: str, expected_key: str) -> None:
-    label = resolve_squads_labels_and_templates(category)
+    label = resolve_label_ar(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
 @pytest.mark.fast
-def test_squad_with_resolve(category: str, expected_key: str, monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr("ArWikiCats.main_processers.event_lab_bot.resolve_squads_labels_and_templates", lambda x: "")
+def test_squad_with_resolve(category: str, expected_key: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected_key
 
