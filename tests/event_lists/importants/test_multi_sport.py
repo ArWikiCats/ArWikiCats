@@ -4,6 +4,14 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text, dump_same_an
 
 from ArWikiCats import resolve_arabic_category_label
 
+data_empty_value = {
+    "Category:Defunct multi-sport events": "تصنيف:أحداث رياضية متعددة سابقة",
+    "Category:Disabled multi-sport events": "تصنيف:أحداث رياضية متعددة معاقون",
+    "Category:Timor-Leste at multi-sport events": "تصنيف:أحداث رياضية متعددة في تيمور الشرقية",
+    "Category:Wikipedia categories named after multi-sport events": "تصنيف:تصنيفات سميت بأسماء أحداث رياضية متعددة",
+    "Category:Youth multi-sport events": "تصنيف:أحداث رياضية متعددة شبابية"
+}
+
 data_0 = {
     "Category:1896 in multi-sport events": "تصنيف:الأحداث الرياضية المتعددة في 1896",
     "Category:1900 in multi-sport events": "تصنيف:الأحداث الرياضية المتعددة في 1900",
@@ -104,11 +112,6 @@ data_0 = {
     "Category:2025 in multi-sport events": "تصنيف:الأحداث الرياضية المتعددة في 2025",
     "Category:2026 in multi-sport events": "تصنيف:الأحداث الرياضية المتعددة في 2026",
     "Category:2028 in multi-sport events": "تصنيف:الأحداث الرياضية المتعددة في 2028",
-    "Category:Defunct multi-sport events": "تصنيف:أحداث رياضية متعددة سابقة",
-    "Category:Disabled multi-sport events": "تصنيف:أحداث رياضية متعددة معاقون",
-    "Category:Timor-Leste at multi-sport events": "تصنيف:أحداث رياضية متعددة في تيمور الشرقية",
-    "Category:Wikipedia categories named after multi-sport events": "تصنيف:تصنيفات سميت بأسماء أحداث رياضية متعددة",
-    "Category:Youth multi-sport events": "تصنيف:أحداث رياضية متعددة شبابية"
 }
 
 
