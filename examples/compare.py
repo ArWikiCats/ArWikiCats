@@ -31,21 +31,21 @@ def compare_and_export_labels(data, name):
     print_memory()
 
     same = {}
-    diff = {}
-
+    diff = {
+        "old": {},
+        "new": {},
+    }
     for key, value in labels.items():
         if value == data.get(key):
             same[key] = value
         else:
-            diff[key] = {
-                "old": data.get(key),
-                "new": value
-            }
+            diff["new"][key] = value
+            diff["old"][key] = data.get(key)
 
-    print(f"{len(same)=}, {len(diff)=}")
+    print(f"{len(same)=}, {len(diff['old'])=}")
 
     output_dir = Path(__file__).parent
-    if diff:
+    if diff["new"]:
         with open(output_dir / f"{name}_diff.json", "w", encoding="utf-8") as f:
             json.dump(diff, f, ensure_ascii=False, indent=4)
 
@@ -53,6 +53,6 @@ def compare_and_export_labels(data, name):
         with open(output_dir / f"{name}_no_labels.json", "w", encoding="utf-8") as f:
             json.dump(no_labels, f, ensure_ascii=False, indent=4)
 
-    if diff or no_labels:
+    if diff["new"] or no_labels:
         with open(output_dir / f"{name}_same.json", "w", encoding="utf-8") as f:
             json.dump(same, f, ensure_ascii=False, indent=4)

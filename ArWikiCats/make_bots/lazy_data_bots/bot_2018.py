@@ -20,7 +20,7 @@ from ...translations import (
     sub_teams_new,
     SPORTS_KEYS_FOR_LABEL,
     films_mslslat_tab,
-    olympics,
+    olympic_event_translations,
 )
 
 
@@ -77,7 +77,13 @@ def _get_from_alias(key: str) -> str:
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
-    result = first_data.get(key.lower(), "") or olympics.get(key, "") or olympics.get(key.lower(), "")
+    result = (
+        first_data.get(key.lower(), "") or
+        # olympic_event_translations.get(key, "") or
+        # olympic_event_translations.get(key.lower(), "") or
+        ""
+    )
+
     if result:
         return result
 

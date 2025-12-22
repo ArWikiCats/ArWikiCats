@@ -41,7 +41,6 @@ wheelchair_by_nats = {
 
 
 wheelchair_basketball = {
-    "Category:Wheelchair basketball at multi-sport events": "تصنيف:أحداث كرة السلة على الكراسي المتحركة في رياضية متعددة",
     "Category:Wheelchair basketball at the 2020 Parapan American Games": "تصنيف:كرة السلة على الكراسي المتحركة في ألعاب بارابان الأمريكية 2020",
     "Category:Wheelchair basketball at the 2020 Summer Paralympics": "تصنيف:كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الصيفية 2020",
     "Category:Wheelchair basketball at the Asian Para Games": "تصنيف:كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الآسيوية",
@@ -129,7 +128,6 @@ wheelchair_sports = {
     "Category:Wheelchair rugby templates": "تصنيف:قوالب رجبي على كراسي متحركة",
     "Category:Wheelchair rugby": "تصنيف:الرجبي على الكراسي المتحركة",
     "Category:Wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
-    "Category:Wheelchair tennis at multi-sport events": "تصنيف:أحداث كرة المضرب على الكراسي المتحركة في رياضية متعددة",
     "Category:Wheelchair tennis at the 2020 Parapan American Games": "تصنيف:كرة المضرب على الكراسي المتحركة في ألعاب بارابان الأمريكية 2020",
     "Category:Wheelchair tennis at the 2020 Summer Paralympics": "تصنيف:كرة المضرب على الكراسي المتحركة في الألعاب البارالمبية الصيفية 2020",
     "Category:Wheelchair tennis at the Asian Para Games": "تصنيف:كرة المضرب على الكراسي المتحركة في الألعاب البارالمبية الآسيوية",

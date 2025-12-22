@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .games_labs import SUMMER_WINTER_GAMES
-from .olympics_data import olympics
+from .olympics_data import olympic_event_translations
 from .skeys import (
     SPORT_FORMTS_FEMALE_NAT,
     SPORT_FORMTS_MALE_NAT,
@@ -17,5 +17,5 @@ __all__ = [
     "SPORTS_KEYS_FOR_TEAM",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
-    "olympics",
+    "olympic_event_translations",
 ]

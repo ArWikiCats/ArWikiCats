@@ -381,7 +381,7 @@ test_data = {
     "mauritania–european union relations": "علاقات الاتحاد الأوروبي وموريتانيا",
     "mauritius–european union relations": "علاقات الاتحاد الأوروبي وموريشيوس",
     "mexico–european union relations": "علاقات الاتحاد الأوروبي والمكسيك",
-    "moldova–european union relations": "علاقات الاتحاد الأوروبي ومولدافيا",
+    "moldova–european union relations": "علاقات الاتحاد الأوروبي ومولدوفا",
     "mongolia–european union relations": "علاقات الاتحاد الأوروبي ومنغوليا",
     "montenegro–european union relations": "علاقات الاتحاد الأوروبي والجبل الأسود",
     "morocco–european union relations": "علاقات الاتحاد الأوروبي والمغرب",

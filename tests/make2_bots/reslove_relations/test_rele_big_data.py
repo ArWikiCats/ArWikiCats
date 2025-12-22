@@ -27,7 +27,7 @@ big_data = {
     "kyrgyzstan–european union relations": "علاقات الاتحاد الأوروبي وقيرغيزستان",
     "liechtenstein–european union relations": "علاقات الاتحاد الأوروبي وليختنشتاين",
     "mauritania–european union relations": "علاقات الاتحاد الأوروبي وموريتانيا",
-    "moldova–european union relations": "علاقات الاتحاد الأوروبي ومولدافيا",
+    "moldova–european union relations": "علاقات الاتحاد الأوروبي ومولدوفا",
     "montenegro–european union relations": "علاقات الاتحاد الأوروبي والجبل الأسود",
     "namibia–european union relations": "علاقات الاتحاد الأوروبي وناميبيا",
     "north macedonia–european union relations": "علاقات الاتحاد الأوروبي ومقدونيا الشمالية",

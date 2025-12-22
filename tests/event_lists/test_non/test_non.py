@@ -536,7 +536,7 @@ data1 = {
     "category:non-profit organisations based in malaysia": "تصنيف:منظمات غير ربحية مقرها في ماليزيا",
     "category:non-profit organisations based in maldives": "تصنيف:منظمات غير ربحية مقرها في جزر المالديف",
     "category:non-profit organisations based in mecklenburg-vorpommern": "تصنيف:منظمات غير ربحية مقرها في مكلنبورغ فوربومرن",
-    "category:non-profit organisations based in moldova": "تصنيف:منظمات غير ربحية مقرها في مولدافيا",
+    "category:non-profit organisations based in moldova": "تصنيف:منظمات غير ربحية مقرها في مولدوفا",
     "category:non-profit organisations based in myanmar": "تصنيف:منظمات غير ربحية مقرها في ميانمار",
     "category:non-profit organisations based in namibia": "تصنيف:منظمات غير ربحية مقرها في ناميبيا",
     "category:non-profit organisations based in nepal": "تصنيف:منظمات غير ربحية مقرها في نيبال",

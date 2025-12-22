@@ -78,7 +78,7 @@ data_1 = {
     "mauritania national basketball team": "منتخب موريتانيا لكرة السلة",
     "mauritius national women's football team": "منتخب موريشيوس لكرة القدم للسيدات",
     "mexico national women's football team navigational boxes": "صناديق تصفح منتخب المكسيك لكرة القدم للسيدات",
-    "moldova football manager history": "تاريخ مدربو كرة قدم مولدافيا",
+    "moldova football manager history": "تاريخ مدربو كرة قدم مولدوفا",
     "netherlands national rugby union team coaches": "مدربو منتخب هولندا لاتحاد الرجبي",
     "new zealand national women's cricket team": "منتخب نيوزيلندا للكريكت للسيدات",
     "new zealand national women's football team managers": "مدربو منتخب نيوزيلندا لكرة القدم للسيدات",

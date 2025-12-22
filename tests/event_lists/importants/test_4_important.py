@@ -118,7 +118,7 @@ data1 = {
     "maltese second division": "تصنيف:الدوري المالطي الدرجة الثانية",
     "mauritian league": "تصنيف:الدوري الموريشيوسي",
     "men's african volleyball championship": "تصنيف:بطولة إفريقيا لكرة الطائرة رجالية",
-    "moldovan cup": "تصنيف:كأس مولدافيا",
+    "moldovan cup": "تصنيف:كأس مولدوفا",
     "national basketball league of canada": "تصنيف:دوريات كرة سلة وطنية في كندا",
     "national basketball league": "تصنيف:دوريات كرة سلة وطنية",
     "national football league": "تصنيف:دوري كرة القدم الوطني الأيرلندي",

@@ -67,6 +67,16 @@ def _load_base_records() -> dict[str, SportKeyRecord]:
         logger.warning("Unexpected sports key payload type: %s", type(data))
         return records
 
+    multi_sport_key = {
+        "multi-sport": {
+            "label": "رياضية متعددة",
+            "team": "",
+            "jobs": "رياضية متعددة",
+            "olympic": "رياضية متعددة أولمبية"
+        }
+    }
+    # data.update(multi_sport_key)
+
     for key, value in data.items():
         if isinstance(key, str) and isinstance(value, Mapping):
             if value.get("ignore"):

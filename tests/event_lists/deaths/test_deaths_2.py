@@ -66,7 +66,7 @@ covid_pandemic_data ={
     "Category:Deaths from the COVID-19 pandemic in Minas Gerais": "تصنيف:وفيات من جائحة فيروس كورونا في ميناس جيرايس",
     "Category:Deaths from the COVID-19 pandemic in Mississippi": "تصنيف:وفيات من جائحة فيروس كورونا في مسيسيبي",
     "Category:Deaths from the COVID-19 pandemic in Missouri": "تصنيف:وفيات من جائحة فيروس كورونا في ميزوري",
-    "Category:Deaths from the COVID-19 pandemic in Moldova": "تصنيف:وفيات من جائحة فيروس كورونا في مولدافيا",
+    "Category:Deaths from the COVID-19 pandemic in Moldova": "تصنيف:وفيات من جائحة فيروس كورونا في مولدوفا",
     "Category:Deaths from the COVID-19 pandemic in Myanmar": "تصنيف:وفيات من جائحة فيروس كورونا في ميانمار",
     "Category:Deaths from the COVID-19 pandemic in Nepal": "تصنيف:وفيات من جائحة فيروس كورونا في نيبال",
     "Category:Deaths from the COVID-19 pandemic in New Mexico": "تصنيف:وفيات من جائحة فيروس كورونا في نيومكسيكو",
