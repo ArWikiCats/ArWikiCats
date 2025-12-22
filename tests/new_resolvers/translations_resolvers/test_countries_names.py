@@ -77,6 +77,13 @@ def test_resolve_by_countries_names(category: str, expected: str) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", political_data_v1.items(), ids=political_data_v1.keys())
+@pytest.mark.fast
+def test_political_data_v1(category: str, expected: str) -> None:
+    label = resolve_by_countries_names(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
     ("test_resolve_by_countries_names", main_data, resolve_by_countries_names),
     ("test_political_data_v1", political_data_v1, resolve_by_countries_names),

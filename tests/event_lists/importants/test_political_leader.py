@@ -14,7 +14,7 @@ data_0 = {
     "Category:European Union political leader navigational boxes": "تصنيف:صناديق تصفح قائد سياسي الاتحاد الأوروبي",
 }
 
-data_1 = {
+data_fast = {
     "Category:Zimbabwe political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون زيمبابويون",
     "Category:Yemen political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون يمنيون",
     "Category:Vietnam political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون فيتناميون",
@@ -30,6 +30,9 @@ data_1 = {
     "Category:Turkey political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أتراك",
     "Category:Tunisia political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون تونسيون",
     "Category:Tunisia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون تونسيون",
+}
+
+data_slow = {
     "Category:Thailand political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون تايلنديون",
     "Category:Taiwan political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون تايوانيون",
     "Category:Syria political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون سوريون",
@@ -145,13 +148,20 @@ data_1 = {
 }
 
 to_test = [
-    ("test_political_leader_1", data_1),
+    ("test_political_leader_1", data_fast),
+    ("test_political_leader_slow", data_slow),
 ]
 
 
-@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
-@pytest.mark.skip2
+@pytest.mark.parametrize("category, expected", data_fast.items(), ids=data_fast.keys())
+@pytest.mark.fast
 def test_political_leader_1(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
+@pytest.mark.parametrize("category, expected", data_slow.items(), ids=data_slow.keys())
+@pytest.mark.slow
+def test_political_leader_slow(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
