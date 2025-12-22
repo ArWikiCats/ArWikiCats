@@ -55,6 +55,7 @@ def find_lab(category: str, category_r: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1, input_keys=["category_r"])
 def work_separator_names(
     category: str,
     cate_test: str = "",
@@ -121,7 +122,6 @@ def _translate_general_category(category_r: str, category: str, start_get_countr
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1, input_keys=["category_r"])
 def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
     """
     "Category:20th-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
