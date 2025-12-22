@@ -10,7 +10,9 @@ from ...helps.log import logger
 from ...translations import (
     Nat_men,
     Nat_women,
+    Nat_the_female,
     New_female_keys,
+    Nat_the_male,
     New_male_keys,
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
@@ -44,7 +46,7 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
         str: The formatted country label for men based on the inputs.
     """
 
-    men_nat_lab = Nat_men.get(nat, "")
+    men_nat_lab = Nat_the_male.get(nat, "")
 
     if not men_nat_lab:
         return ""
@@ -54,8 +56,6 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
 
     if not suffix_label:
         return ""
-
-    men_nat_lab = add_definite_article(men_nat_lab)
 
     country_lab = suffix_label.format(men_nat_lab)
     logger.info(f'Work_for_New_2018_men_Keys_with_all: {suffix=}, {suffix_label=} ')
@@ -99,17 +99,16 @@ def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
     return country_lab
 
 
-def _get_female_def_label(suffix: str, women_nat_lab: str) -> str | None:
+def _get_female_def_label(suffix: str, the_female_nat_lab: str) -> str | None:
     """Attempt to get female label with definite article."""
     con_3_lab = en_is_nat_ar_is_al_women.get(suffix.strip(), "")
     if not con_3_lab:
         return None
 
-    women_nat_lab_def = add_definite_article(women_nat_lab)
     if "{nat}" in con_3_lab:
-        country_lab = con_3_lab.format(nat=women_nat_lab_def)
+        country_lab = con_3_lab.format(nat=the_female_nat_lab)
     else:
-        country_lab = con_3_lab.format(women_nat_lab_def)
+        country_lab = con_3_lab.format(the_female_nat_lab)
     logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ')
     return country_lab
 
@@ -137,6 +136,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
     parameter.
     """
     women_nat_lab = Nat_women.get(nat, "")
+    the_female_nat_lab = Nat_the_female.get(nat, "")
     men_nat_lab = Nat_men.get(nat, "")
 
     logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), {suffix=}, nat_lab={women_nat_lab}')
@@ -157,7 +157,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
         return res
 
     # 4. نسائية بألف ولام التعريف
-    res = _get_female_def_label(suffix, women_nat_lab)
+    res = _get_female_def_label(suffix, the_female_nat_lab)
     if res is not None:
         return res
 

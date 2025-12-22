@@ -225,7 +225,7 @@ def test_4_data_1(category: str, expected: str) -> None:
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-    # dump_diff(diff_result, name)
+    dump_diff(diff_result, name)
 
-    dump_same_and_not_same(data, expected, name)
+    # dump_same_and_not_same(data, expected, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
