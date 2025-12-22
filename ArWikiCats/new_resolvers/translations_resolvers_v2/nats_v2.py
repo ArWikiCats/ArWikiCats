@@ -107,6 +107,9 @@ male_data = {
 }
 
 female_data = {
+    "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
+    "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
+
     "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
     "{en} non-fiction comic strips": "شرائط مصورة {female} غير خيالية",
     "{en} non-fiction comic": "قصص مصورة {female} غير خيالية",
@@ -309,6 +312,21 @@ female_data = {
     "{en} youth music competitions": "منافسات موسيقية شبابية {female}",
     "{en} youth sports competitions": "منافسات رياضية شبابية {female}",
 }
+
+burial_sites = {
+    "{en} dynasties": "أسر {female}",
+    "ancient {en} dynasties": "أسر {female} قديمة",
+    "{en} imperial dynasties": "أسر إمبراطورية {female}",
+    "{en} noble families": "عائلات نبيلة {female}",
+    "{en} royal houses": "بيوت ملكية {female}",
+    "imperial {en} families": "أسر إمبراطورية {female}",
+}
+female_data.update(burial_sites)
+
+female_data.update({
+    f"burial sites of {k}": f"مواقع دفن {v}"
+    for k, v in burial_sites.items()
+})
 
 the_female_data = {
     "{en} film awards": "جوائز الأفلام {the_female}",
