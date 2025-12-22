@@ -75,7 +75,7 @@ def event_label_work(target_category: str) -> str:
         resolved_category_label = team_work.Get_team_work_Club(normalized_target_category)
 
     if not resolved_category_label:
-        resolved_category_label = event2bot.event2(normalized_target_category)
+        resolved_category_label = event2bot.event2_new(normalized_target_category)
 
     if not resolved_category_label:
         resolved_category_label = get_pop_All_18(normalized_target_category, "")

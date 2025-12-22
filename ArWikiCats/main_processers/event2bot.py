@@ -109,9 +109,11 @@ def event2(category_r: str) -> str:
     logger.info("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
     logger.info(f'<<lightyellow>>>>>> event2 :"{category_r}"')
     category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
+
     ar_label = univer.te_universities(category_r)
     if ar_label:
         return ar_label
+
     category_lab = event2_d2(category_r)
 
     if category_lab:
@@ -127,5 +129,41 @@ def event2(category_r: str) -> str:
         ar_label = stubs_label(category_r)
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
+
+    return ar_label
+
+
+@functools.lru_cache(maxsize=None)
+def event2_new(category_r: str) -> str:
+    """Process a category string and return a corresponding label.
+
+    This function takes a category string as input, processes it to extract
+    relevant information, and attempts to generate a label based on
+    predefined patterns and rules. It utilizes regular expressions to
+    identify various time periods, such as centuries and millennia, and
+    uses @functools.lru_cache for performance optimization. If no label can be generated,
+    it defaults to a fallback mechanism.
+
+    Args:
+        category_r (str): The category string to be processed.
+
+    Returns:
+        str: The generated label corresponding to the input category string, or an
+            empty string if no label could be determined.
+    """
+
+    logger.info("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
+    logger.info(f'<<lightyellow>>>>>> event2_new :"{category_r}"')
+    category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
+
+    ar_label = (
+        univer.te_universities(category_r) or
+        event2_d2(category_r) or
+        label_for_startwith_year_or_typeo(category_r) or
+        stubs_label(category_r) or
+        ""
+    )
+
+    logger.info("<<lightblue>>>> ^^^^^^^^^ event2_new end 3 ^^^^^^^^^ ")
 
     return ar_label

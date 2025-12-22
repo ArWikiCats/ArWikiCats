@@ -4,7 +4,7 @@
 
 import pytest
 
-from ArWikiCats.main_processers.event2bot import event2, event2_d2, stubs_label
+from ArWikiCats.main_processers.event2bot import event2_new, event2_d2, stubs_label
 
 fast_data = {
 
@@ -69,7 +69,7 @@ fast_data = {
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_event2_fast(category: str, expected: str) -> None:
-    label = event2(category)
+    label = event2_new(category)
     assert label == expected
 
 
@@ -103,13 +103,13 @@ def test_stubs_label() -> None:
 
 def test_event2() -> None:
     # Test with a basic input
-    result = event2("test category")
+    result = event2_new("test category")
     assert isinstance(result, str)
 
     # Test with different input
-    result_various = event2("sports event")
+    result_various = event2_new("sports event")
     assert isinstance(result_various, str)
 
     # Test with empty string
-    result_empty = event2("")
+    result_empty = event2_new("")
     assert isinstance(result_empty, str)
