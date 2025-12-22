@@ -122,7 +122,10 @@ def _translate_general_category(category_r: str, category: str, start_get_countr
 
 @functools.lru_cache(maxsize=10000)
 def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
-
+    """
+    "Category:20th-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
+    "Category:21st-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 21 حسب الآلة من أيرلندا الشمالية",
+    """
     category = category_r.replace("_", " ")
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 

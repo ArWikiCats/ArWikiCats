@@ -88,8 +88,8 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
         category_lab = nat_men_pattern.resolve_nat_men_pattern_new(changed_cat)
         from_match = category_lab != ""
 
-    if not category_lab:
-        start_ylab = ye_ts_bot.translate_general_category(changed_cat)
+    start_ylab = ""
+    # if not category_lab: start_ylab = ye_ts_bot.translate_general_category(changed_cat)
 
     if not category_lab and is_cat_okay:
         category_lab = cash_2022.get(category.lower(), "") or cash_2022.get(changed_cat, "")
