@@ -100,6 +100,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:  # SPORT_FORMTS_ENAR_P
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def get_p17_with_sport(category: str) -> str:
     """
     TODO: use FormatData method

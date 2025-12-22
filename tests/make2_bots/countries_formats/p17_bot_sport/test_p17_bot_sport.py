@@ -18,7 +18,6 @@ data_1 = {
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "kosovo national football team managers": "مدربو منتخب كوسوفو لكرة القدم",
     "trinidad and tobago national football team managers": "مدربو منتخب ترينيداد وتوباغو لكرة القدم",
-
     "africa football league": "دوري إفريقيا لكرة القدم",
     "angola basketball cup": "كأس أنغولا لكرة السلة",
     "angola national football team lists": "قوائم منتخب أنغولا لكرة القدم",
