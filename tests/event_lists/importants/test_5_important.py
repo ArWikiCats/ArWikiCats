@@ -30,6 +30,7 @@ data_empty = {
 }
 
 data0 = {
+    "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
     "Category:Academic staff of University of Nigeria": "تصنيف:أعضاء هيئة تدريس جامعة نيجيريا",
     "Category:Early modern history of Portugal": "تصنيف:تاريخ البرتغال الحديث المبكر",
 }
