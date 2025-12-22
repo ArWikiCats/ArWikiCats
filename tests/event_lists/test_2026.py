@@ -4,14 +4,14 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:20th century members of maine legislature": "تصنيف:أعضاء هيئة مين التشريعية في القرن 20",
     "category:lists of american non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية أمريكية",
     "category:lists of australian non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية أسترالية",
     "category:lists of british non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية بريطانية",
     "category:lists of canadian non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية كندية",
     "category:lists of non-fiction television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية غير خيالية",
-    "Category:20th century synagogues in switzerland": "تصنيف:كنس القرن 20 في سويسرا",
-    "Category:20th century members of maine legislature": "تصنيف:أعضاء القرن 20 هيئة مين التشريعية",
-    "Category:20th century prime ministers of japan": "تصنيف:رؤساء وزراء القرن 20 اليابان",
+    "Category:20th century synagogues in switzerland": "تصنيف:كنس في سويسرا في القرن 20",
+    "Category:20th century prime ministers of japan": "تصنيف:رؤساء وزراء اليابان في القرن 20",
     "Category:2010–11 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2010–11",
     "Category:2011–12 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2011–12",
     "Category:2012–13 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2012–13",
