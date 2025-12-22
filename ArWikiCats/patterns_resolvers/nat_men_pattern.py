@@ -34,7 +34,7 @@ def _bot_new() -> FormatDataV2:
         formatted_data=formatted_data,
         data_list=nats_data,
         key_placeholder="{en_nat}",
-        text_after="",
+        text_after=" people",
         text_before="the ",
     )
 

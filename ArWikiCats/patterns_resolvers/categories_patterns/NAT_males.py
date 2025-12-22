@@ -36,7 +36,8 @@ NAT_DATA_MALES = {
     # "{en_nat} presidential election": "الانتخابات الرئاسية {males}",
 
     # "{en_nat} sports coaches": "مدربو رياضة {males}",  # 110
-    "{en_nat} people": "أعلام {males}",  # 187
+    "{en_nat}": "{males}",  # 187
+    # "{en_nat} people": "أعلام {males}",  # 187
     "{en_nat} lgbtq people": "أعلام إل جي بي تي كيو {males}",  # 187
     "{en_nat} people by occupation": "{males} حسب المهنة",  # 182
     "{en_nat} sports-people": "رياضيون {males}",  # 174
