@@ -46,7 +46,7 @@ def get_squad_title(tit: str) -> str:
     return lab
 
 
-def get_list_of_and_cat3_with_lab2(category3_o: str) -> str:
+def resolve_squads_labels_and_templates(category3_o: str) -> str:
     """
     Process squad-related category labels.
 

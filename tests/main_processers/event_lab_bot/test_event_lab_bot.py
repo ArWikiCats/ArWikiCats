@@ -57,7 +57,7 @@ def test_event_lab() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 1) Direct label via get_list_of_and_cat3_with_lab2
+# 1) Direct label via resolve_squads_labels_and_templates
 # ---------------------------------------------------------------------------
 
 

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots.squad_title_bot import get_list_of_and_cat3_with_lab2
+from ArWikiCats.ma_bots.squad_title_bot import resolve_squads_labels_and_templates
 from ArWikiCats import resolve_label_ar
 
 list_data = {
@@ -66,30 +66,30 @@ list_data = {
 @pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
 @pytest.mark.fast
 def test_list_data(category: str, expected_key: str) -> None:
-    label = get_list_of_and_cat3_with_lab2(category)
+    label = resolve_squads_labels_and_templates(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", list_data.items(), ids=list_data.keys())
 @pytest.mark.fast
 def test_squad_with_resolve(category: str, expected_key: str, monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr("ArWikiCats.main_processers.event_lab_bot.get_list_of_and_cat3_with_lab2", lambda x: "")
+    monkeypatch.setattr("ArWikiCats.main_processers.event_lab_bot.resolve_squads_labels_and_templates", lambda x: "")
     label = resolve_label_ar(category)
     assert label == expected_key
 
 
 @pytest.mark.fast
-def test_get_list_of_and_cat3_with_lab2() -> None:
+def test_resolve_squads_labels_and_templates() -> None:
     # Test with a basic input
-    result = get_list_of_and_cat3_with_lab2("test category")
+    result = resolve_squads_labels_and_templates("test category")
     assert isinstance(result, str)
 
     # Test with squad templates
-    result_squad = get_list_of_and_cat3_with_lab2("2020 squad templates")
+    result_squad = resolve_squads_labels_and_templates("2020 squad templates")
     assert isinstance(result_squad, str)
     assert result_squad == "قوالب تشكيلات 2020"
 
     # Test with empty strings
-    result_empty = get_list_of_and_cat3_with_lab2("")
+    result_empty = resolve_squads_labels_and_templates("")
     assert isinstance(result_empty, str)
     assert result_empty == ""
