@@ -56,6 +56,11 @@ def te_films(category: str) -> str:
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
         "nat_match": lambda k: nat_match(k),
+
+        # NOTE: resolved_translations_resolvers_v2 must be before resolved_translations_resolvers to avoid conflicts like:
+        # resolved_translations_resolvers> [Italy political leader]:  "قادة إيطاليا السياسيون"
+        # resolved_translations_resolvers_v2> [Italy political leader]:  "قادة سياسيون إيطاليون"
+
         "resolved_translations_resolvers_v2": lambda k: resolved_translations_resolvers_v2(k),
         "resolved_countries_formats_labels": lambda k: resolved_countries_formats_labels(k),
         "resolved_translations_resolvers": lambda k: resolved_translations_resolvers(k),
