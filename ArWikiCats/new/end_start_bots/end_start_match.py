@@ -115,7 +115,7 @@ to_get_startswith: Dict[str, Dict[str, Any]] = {
     "presidents of ": {"lab": "رؤساء {}", "example": ""},
     "family of ": {"lab": "عائلة {}", "example": ""},
     "lists of ": {"lab": "قوائم {}", "example": ""},
-    "children of ": {"lab": "أطفال {}", "example": ""},
+    "children of ": {"lab": "أبناء {}", "example": ""},
     "discoveries by ": {"lab": "اكتشافات بواسطة {}", "example": ""},
     "__films about ": {"lab": "أفلام عن {}", "example": ""},
 }
