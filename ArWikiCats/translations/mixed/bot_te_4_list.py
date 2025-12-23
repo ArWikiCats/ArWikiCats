@@ -5,8 +5,8 @@ Rich lookup tables for gendered and national prefix/suffix mappings.
 from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..sports import (
-    SPORT_FORMTS_FEMALE_NAT,
-    SPORT_FORMTS_MALE_NAT,
+    SPORT_FORMATS_FEMALE_NAT,
+    SPORT_FORMATS_MALE_NAT,
     SPORTS_KEYS_FOR_TEAM,
 )
 from ..sports.games_labs import SUMMER_WINTER_GAMES
@@ -187,7 +187,7 @@ def _extend_female_sport_mappings() -> None:
 
     """
     data = {}
-    for key, value in SPORT_FORMTS_FEMALE_NAT.items():
+    for key, value in SPORT_FORMATS_FEMALE_NAT.items():
         data[key] = value
     for category, label in baston_women.items():
         data[category.lower()] = f"{label} {{}}"
@@ -419,7 +419,7 @@ def _build_new_kkk() -> dict[str, str]:
 def _extend_sport_mappings() -> None:
     """Populate sport related mappings for both genders."""
 
-    for key, value in SPORT_FORMTS_MALE_NAT.items():
+    for key, value in SPORT_FORMATS_MALE_NAT.items():
         en_is_nat_ar_is_al_mens[key] = value
 
     for category, label in baston_men.items():
@@ -500,9 +500,9 @@ Multi_sport_for_Jobs: dict[str, str] = {
 Multi_sport_for_Jobs.update(SUMMER_WINTER_GAMES)
 Multi_sport_for_Jobs.update(AFC_KEYS)
 
-SPORT_FORMTS_NEW_KKK = _build_new_kkk()  # الإنجليزي جنسية والعربي اسم البلد
+SPORT_FORMATS_NEW_KKK = _build_new_kkk()  # الإنجليزي جنسية والعربي اسم البلد
 
-en_is_nat_ar_is_P17.update(SPORT_FORMTS_NEW_KKK)
+en_is_nat_ar_is_P17.update(SPORT_FORMATS_NEW_KKK)
 
 _extend_sport_mappings()
 
