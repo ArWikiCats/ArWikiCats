@@ -41,9 +41,6 @@ main_data_under = {
     "{en} {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم "
 }
 
-KEY_AR_PLACEHOLDER = "{ar}"
-KEY_EN_PLACEHOLDER = "{en}"
-
 
 @functools.lru_cache(maxsize=1)
 def _load_multi_bot() -> MultiDataFormatterBase:
@@ -68,8 +65,8 @@ def _load_multi_bot() -> MultiDataFormatterBase:
         key_placeholder="{under_en}",
         value_placeholder="{under_ar}",
         data_list2=countries_from_nat,
-        key2_placeholder=KEY_EN_PLACEHOLDER,
-        value2_placeholder=KEY_AR_PLACEHOLDER,
+        key2_placeholder="{en}",
+        value2_placeholder="{ar}",
     )
 
 
