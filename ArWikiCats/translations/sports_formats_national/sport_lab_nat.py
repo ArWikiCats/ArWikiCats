@@ -27,39 +27,6 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
         "xzxz super leagues": "دوريات سوبر xzxz {nat}",
     }
     # ---
-    # (fifth|first|fourth|second|seventh|sixth|third|top)[ -](level|tier)
-    LEVELS: dict[str, str] = {
-        "premier": "الدرجة الممتازة",
-        "top level": "الدرجة الأولى",
-        "first level": "الدرجة الأولى",
-        "first tier": "الدرجة الأولى",
-        "second level": "الدرجة الثانية",
-        "second tier": "الدرجة الثانية",
-        "third level": "الدرجة الثالثة",
-        "third tier": "الدرجة الثالثة",
-        "fourth level": "الدرجة الرابعة",
-        "fourth tier": "الدرجة الرابعة",
-        "fifth level": "الدرجة الخامسة",
-        "fifth tier": "الدرجة الخامسة",
-        "sixth level": "الدرجة السادسة",
-        "sixth tier": "الدرجة السادسة",
-        "seventh level": "الدرجة السابعة",
-        "seventh tier": "الدرجة السابعة",
-    }
-    # ---
-    for level, lvl_lab in LEVELS.items():
-        data[f"national xzxz {level} league"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"
-        data[f"national xzxz {level} leagues"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"
-
-        data[f"defunct xzxz {level} league"] = f"دوريات xzxz {{nat}} سابقة من {lvl_lab}"
-        data[f"defunct xzxz {level} leagues"] = f"دوريات xzxz {{nat}} سابقة من {lvl_lab}"
-
-        data[f"{level} xzxz league"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
-        data[f"{level} xzxz leagues"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
-        data[f"xzxz {level} league"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
-        data[f"xzxz {level} leagues"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
-    # ---
-    # ---
     """
 
     new way to make keys 2024
@@ -144,7 +111,8 @@ def _load_additional() -> dict[str, str]:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
 
             data[f"{ty_nat} {place_holder} teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs)
-        data[f"{ty_nat} teams"] = "فرق {place_holder} {nat}"
+
+        # data[f"{ty_nat} {place_holder} teams"] = f"فرق {place_holder} {{nat}}"
     return data
 
 
@@ -185,6 +153,117 @@ New_For_nat_female_xo_team_2 = {
 
 New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in New_For_nat_female_xo_team.items()})
 New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in new_for_nat_female_xo_team_additional.items()})
+New_For_nat_female_xo_team_2.update({
+
+    "{nat} xzxz teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national amateur under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior men's under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior women's under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national men's under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national women's under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth women's under-24 teams": "فرق xzxz {nat}"
+})
 
 # remove "the " from the start of all Nat_women_2 keys
 Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}

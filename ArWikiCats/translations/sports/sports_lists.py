@@ -28,7 +28,7 @@ def _build_new_tato_nat() -> dict[str, str]:
         "national junior women's": "{nat} للناشئات",
         "national men's": "{nat} للرجال",
         "national women's": "{nat} للسيدات",
-        "multi-national women's": "{nat} متعددة الجنسيات للسيدات",
+        # "multi-national women's": "{nat} متعددة الجنسيات للسيدات",
         "national youth women's": "{nat} للشابات",
     }
 
