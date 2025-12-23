@@ -12,7 +12,7 @@ from ...translations import Nat_women
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 
-AFTER_KEYS_NAT_LEVELS = {
+AFTER_KEYS_LEVELS_NAT = {
     "premier league": "دوريات {lab} من الدرجة الممتازة",
     "premier leagues": "دوريات {lab} من الدرجة الممتازة",
     "second level league": "دوريات {lab} من الدرجة الثانية",
@@ -84,7 +84,7 @@ AFTER_KEYS_NAT = {
     "venues": "ملاعب {lab}"
 }
 
-AFTER_KEYS_NAT.update(AFTER_KEYS_NAT_LEVELS)
+AFTER_KEYS_NAT.update(AFTER_KEYS_LEVELS_NAT)
 
 NEW_TATO_NAT = {
     "": "{nat}",
@@ -112,42 +112,42 @@ NEW_TATO_NAT = {
     "national amateur under-21": "{nat} تحت 21 سنة للهواة",
     "national amateur under-23": "{nat} تحت 23 سنة للهواة",
     "national amateur under-24": "{nat} تحت 24 سنة للهواة",
-    "national junior men's": "{nat} للناشئين",
-    "national junior men's under-13": "{nat} تحت 13 سنة للناشئين",
-    "national junior men's under-14": "{nat} تحت 14 سنة للناشئين",
-    "national junior men's under-15": "{nat} تحت 15 سنة للناشئين",
-    "national junior men's under-16": "{nat} تحت 16 سنة للناشئين",
-    "national junior men's under-17": "{nat} تحت 17 سنة للناشئين",
-    "national junior men's under-18": "{nat} تحت 18 سنة للناشئين",
-    "national junior men's under-19": "{nat} تحت 19 سنة للناشئين",
-    "national junior men's under-20": "{nat} تحت 20 سنة للناشئين",
-    "national junior men's under-21": "{nat} تحت 21 سنة للناشئين",
-    "national junior men's under-23": "{nat} تحت 23 سنة للناشئين",
-    "national junior men's under-24": "{nat} تحت 24 سنة للناشئين",
-    "national junior women's": "{nat} للناشئات",
-    "national junior women's under-13": "{nat} تحت 13 سنة للناشئات",
-    "national junior women's under-14": "{nat} تحت 14 سنة للناشئات",
-    "national junior women's under-15": "{nat} تحت 15 سنة للناشئات",
-    "national junior women's under-16": "{nat} تحت 16 سنة للناشئات",
-    "national junior women's under-17": "{nat} تحت 17 سنة للناشئات",
-    "national junior women's under-18": "{nat} تحت 18 سنة للناشئات",
-    "national junior women's under-19": "{nat} تحت 19 سنة للناشئات",
-    "national junior women's under-20": "{nat} تحت 20 سنة للناشئات",
-    "national junior women's under-21": "{nat} تحت 21 سنة للناشئات",
-    "national junior women's under-23": "{nat} تحت 23 سنة للناشئات",
-    "national junior women's under-24": "{nat} تحت 24 سنة للناشئات",
-    "national men's": "{nat} للرجال",
-    "national men's under-13": "{nat} تحت 13 سنة للرجال",
-    "national men's under-14": "{nat} تحت 14 سنة للرجال",
-    "national men's under-15": "{nat} تحت 15 سنة للرجال",
-    "national men's under-16": "{nat} تحت 16 سنة للرجال",
-    "national men's under-17": "{nat} تحت 17 سنة للرجال",
-    "national men's under-18": "{nat} تحت 18 سنة للرجال",
-    "national men's under-19": "{nat} تحت 19 سنة للرجال",
-    "national men's under-20": "{nat} تحت 20 سنة للرجال",
-    "national men's under-21": "{nat} تحت 21 سنة للرجال",
-    "national men's under-23": "{nat} تحت 23 سنة للرجال",
-    "national men's under-24": "{nat} تحت 24 سنة للرجال",
+    "national junior mens": "{nat} للناشئين",
+    "national junior mens under-13": "{nat} تحت 13 سنة للناشئين",
+    "national junior mens under-14": "{nat} تحت 14 سنة للناشئين",
+    "national junior mens under-15": "{nat} تحت 15 سنة للناشئين",
+    "national junior mens under-16": "{nat} تحت 16 سنة للناشئين",
+    "national junior mens under-17": "{nat} تحت 17 سنة للناشئين",
+    "national junior mens under-18": "{nat} تحت 18 سنة للناشئين",
+    "national junior mens under-19": "{nat} تحت 19 سنة للناشئين",
+    "national junior mens under-20": "{nat} تحت 20 سنة للناشئين",
+    "national junior mens under-21": "{nat} تحت 21 سنة للناشئين",
+    "national junior mens under-23": "{nat} تحت 23 سنة للناشئين",
+    "national junior mens under-24": "{nat} تحت 24 سنة للناشئين",
+    "national junior womens": "{nat} للناشئات",
+    "national junior womens under-13": "{nat} تحت 13 سنة للناشئات",
+    "national junior womens under-14": "{nat} تحت 14 سنة للناشئات",
+    "national junior womens under-15": "{nat} تحت 15 سنة للناشئات",
+    "national junior womens under-16": "{nat} تحت 16 سنة للناشئات",
+    "national junior womens under-17": "{nat} تحت 17 سنة للناشئات",
+    "national junior womens under-18": "{nat} تحت 18 سنة للناشئات",
+    "national junior womens under-19": "{nat} تحت 19 سنة للناشئات",
+    "national junior womens under-20": "{nat} تحت 20 سنة للناشئات",
+    "national junior womens under-21": "{nat} تحت 21 سنة للناشئات",
+    "national junior womens under-23": "{nat} تحت 23 سنة للناشئات",
+    "national junior womens under-24": "{nat} تحت 24 سنة للناشئات",
+    "national mens": "{nat} للرجال",
+    "national mens under-13": "{nat} تحت 13 سنة للرجال",
+    "national mens under-14": "{nat} تحت 14 سنة للرجال",
+    "national mens under-15": "{nat} تحت 15 سنة للرجال",
+    "national mens under-16": "{nat} تحت 16 سنة للرجال",
+    "national mens under-17": "{nat} تحت 17 سنة للرجال",
+    "national mens under-18": "{nat} تحت 18 سنة للرجال",
+    "national mens under-19": "{nat} تحت 19 سنة للرجال",
+    "national mens under-20": "{nat} تحت 20 سنة للرجال",
+    "national mens under-21": "{nat} تحت 21 سنة للرجال",
+    "national mens under-23": "{nat} تحت 23 سنة للرجال",
+    "national mens under-24": "{nat} تحت 24 سنة للرجال",
     "national under-13": "{nat} تحت 13 سنة",
     "national under-14": "{nat} تحت 14 سنة",
     "national under-15": "{nat} تحت 15 سنة",
@@ -159,18 +159,18 @@ NEW_TATO_NAT = {
     "national under-21": "{nat} تحت 21 سنة",
     "national under-23": "{nat} تحت 23 سنة",
     "national under-24": "{nat} تحت 24 سنة",
-    "national women's": "{nat} للسيدات",
-    "national women's under-13": "{nat} تحت 13 سنة للسيدات",
-    "national women's under-14": "{nat} تحت 14 سنة للسيدات",
-    "national women's under-15": "{nat} تحت 15 سنة للسيدات",
-    "national women's under-16": "{nat} تحت 16 سنة للسيدات",
-    "national women's under-17": "{nat} تحت 17 سنة للسيدات",
-    "national women's under-18": "{nat} تحت 18 سنة للسيدات",
-    "national women's under-19": "{nat} تحت 19 سنة للسيدات",
-    "national women's under-20": "{nat} تحت 20 سنة للسيدات",
-    "national women's under-21": "{nat} تحت 21 سنة للسيدات",
-    "national women's under-23": "{nat} تحت 23 سنة للسيدات",
-    "national women's under-24": "{nat} تحت 24 سنة للسيدات",
+    "national womens": "{nat} للسيدات",
+    "national womens under-13": "{nat} تحت 13 سنة للسيدات",
+    "national womens under-14": "{nat} تحت 14 سنة للسيدات",
+    "national womens under-15": "{nat} تحت 15 سنة للسيدات",
+    "national womens under-16": "{nat} تحت 16 سنة للسيدات",
+    "national womens under-17": "{nat} تحت 17 سنة للسيدات",
+    "national womens under-18": "{nat} تحت 18 سنة للسيدات",
+    "national womens under-19": "{nat} تحت 19 سنة للسيدات",
+    "national womens under-20": "{nat} تحت 20 سنة للسيدات",
+    "national womens under-21": "{nat} تحت 21 سنة للسيدات",
+    "national womens under-23": "{nat} تحت 23 سنة للسيدات",
+    "national womens under-24": "{nat} تحت 24 سنة للسيدات",
     "national youth": "{nat} للشباب",
     "national youth under-13": "{nat} تحت 13 سنة للشباب",
     "national youth under-14": "{nat} تحت 14 سنة للشباب",
@@ -183,18 +183,18 @@ NEW_TATO_NAT = {
     "national youth under-21": "{nat} تحت 21 سنة للشباب",
     "national youth under-23": "{nat} تحت 23 سنة للشباب",
     "national youth under-24": "{nat} تحت 24 سنة للشباب",
-    "national youth women's": "{nat} للشابات",
-    "national youth women's under-13": "{nat} تحت 13 سنة للشابات",
-    "national youth women's under-14": "{nat} تحت 14 سنة للشابات",
-    "national youth women's under-15": "{nat} تحت 15 سنة للشابات",
-    "national youth women's under-16": "{nat} تحت 16 سنة للشابات",
-    "national youth women's under-17": "{nat} تحت 17 سنة للشابات",
-    "national youth women's under-18": "{nat} تحت 18 سنة للشابات",
-    "national youth women's under-19": "{nat} تحت 19 سنة للشابات",
-    "national youth women's under-20": "{nat} تحت 20 سنة للشابات",
-    "national youth women's under-21": "{nat} تحت 21 سنة للشابات",
-    "national youth women's under-23": "{nat} تحت 23 سنة للشابات",
-    "national youth women's under-24": "{nat} تحت 24 سنة للشابات"
+    "national youth womens": "{nat} للشابات",
+    "national youth womens under-13": "{nat} تحت 13 سنة للشابات",
+    "national youth womens under-14": "{nat} تحت 14 سنة للشابات",
+    "national youth womens under-15": "{nat} تحت 15 سنة للشابات",
+    "national youth womens under-16": "{nat} تحت 16 سنة للشابات",
+    "national youth womens under-17": "{nat} تحت 17 سنة للشابات",
+    "national youth womens under-18": "{nat} تحت 18 سنة للشابات",
+    "national youth womens under-19": "{nat} تحت 19 سنة للشابات",
+    "national youth womens under-20": "{nat} تحت 20 سنة للشابات",
+    "national youth womens under-21": "{nat} تحت 21 سنة للشابات",
+    "national youth womens under-23": "{nat} تحت 23 سنة للشابات",
+    "national youth womens under-24": "{nat} تحت 24 سنة للشابات"
 }
 
 
@@ -206,12 +206,12 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
         "national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
         "amateur xzxz cup": "كأس {nat} xzxz للهواة",
         "youth xzxz cup": "كأس {nat} xzxz للشباب",
-        "men's xzxz cup": "كأس {nat} xzxz للرجال",
-        "women's xzxz cup": "كأس {nat} xzxz للسيدات",
+        "mens xzxz cup": "كأس {nat} xzxz للرجال",
+        "womens xzxz cup": "كأس {nat} xzxz للسيدات",
         "xzxz super leagues": "دوريات سوبر xzxz {nat}",
     }
     nat_f = "{nat}"
-    data["women's xzxz"] = f"xzxz {nat_f} نسائية"
+    data["womens xzxz"] = f"xzxz {nat_f} نسائية"
     data["xzxz chairmen and investors"] = f"رؤساء ومسيرو xzxz {nat_f}"
     data["defunct xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f} سابقة"
     data["xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f}"
@@ -232,7 +232,7 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
         data[f"professional xzxz {en}"] = f"{ar} xzxz {nat_f} للمحترفين"
         data[f"defunct xzxz {en}"] = f"{ar} xzxz {nat_f} سابقة"
         data[f"domestic xzxz {en}"] = f"{ar} xzxz محلية {nat_f}"
-        data[f"domestic women's xzxz {en}"] = f"{ar} xzxz محلية {nat_f} للسيدات"
+        data[f"domestic womens xzxz {en}"] = f"{ar} xzxz محلية {nat_f} للسيدات"
 
         data[f"domestic xzxz {en}"] = f"{ar} xzxz {nat_f} محلية"
         data[f"indoor xzxz {en}"] = f"{ar} xzxz {nat_f} داخل الصالات"
@@ -245,14 +245,14 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
         "indoor xzxz": "xzxz {nat} داخل الصالات",
         "outdoor xzxz": "xzxz {nat} في الهواء الطلق",
 
-        # european national women's volleyball teams
-        "national women's xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
+        # european national womens volleyball teams
+        "national womens xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
         "national xzxz teams": "منتخبات xzxz وطنية {nat}",
         # ---
         "reserve xzxz teams": "فرق xzxz احتياطية {nat}",
         "defunct xzxz teams": "فرق xzxz سابقة {nat}",
         # ---
-        "national a' xzxz teams": "منتخبات xzxz محليين {nat}",
+        "national a xzxz teams": "منتخبات xzxz محليين {nat}",
         "national b xzxz teams": "منتخبات xzxz رديفة {nat}",
         "national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
     })
@@ -276,9 +276,9 @@ def _load_additional() -> dict[str, str]:
         Ar_labs = teams_label.format(nat="{nat}")
 
         for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():       # 67
-            if pr_e in ["players"] and "women's" in ty_nat:
+            if pr_e in ["players"] and "womens" in ty_nat:
                 pr_e_Lab = "لاعبات {lab}"
-            elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
+            elif "لاعبو" in pr_e_Lab and "womens" in ty_nat:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
 
             data[f"{ty_nat} {place_holder} teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs)
@@ -301,8 +301,8 @@ New_For_nat_female_xo_team_2 = {
     "{nat} national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
     "{nat} amateur xzxz cup": "كأس {nat} xzxz للهواة",
     "{nat} youth xzxz cup": "كأس {nat} xzxz للشباب",
-    "{nat} men's xzxz cup": "كأس {nat} xzxz للرجال",
-    "{nat} women's xzxz cup": "كأس {nat} xzxz للسيدات",
+    "{nat} mens xzxz cup": "كأس {nat} xzxz للرجال",
+    "{nat} womens xzxz cup": "كأس {nat} xzxz للسيدات",
     "{nat} xzxz super leagues": "دوريات سوبر xzxz {nat}",
 
     # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
@@ -310,14 +310,14 @@ New_For_nat_female_xo_team_2 = {
     "{nat} indoor xzxz": "xzxz {nat} داخل الصالات",
     "{nat} outdoor xzxz": "xzxz {nat} في الهواء الطلق",
 
-    # european national women's volleyball teams
-    "{nat} national women's xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
+    # european national womens volleyball teams
+    "{nat} national womens xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
     "{nat} national xzxz teams": "منتخبات xzxz وطنية {nat}",
     # ---
     "{nat} reserve xzxz teams": "فرق xzxz احتياطية {nat}",
     "{nat} defunct xzxz teams": "فرق xzxz سابقة {nat}",
     # ---
-    "{nat} national a' xzxz teams": "منتخبات xzxz محليين {nat}",
+    "{nat} national a xzxz teams": "منتخبات xzxz محليين {nat}",
     "{nat} national b xzxz teams": "منتخبات xzxz رديفة {nat}",
     "{nat} national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
 }
@@ -348,42 +348,42 @@ New_For_nat_female_xo_team_2.update({
     "{nat} xzxz national amateur under-21 teams": "فرق xzxz {nat}",
     "{nat} xzxz national amateur under-23 teams": "فرق xzxz {nat}",
     "{nat} xzxz national amateur under-24 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-13 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-14 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-15 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-16 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-17 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-18 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-19 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-20 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-21 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-23 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior men's under-24 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-13 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-14 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-15 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-16 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-17 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-18 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-19 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-20 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-21 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-23 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national junior women's under-24 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-13 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-14 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-15 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-16 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-17 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-18 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-19 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-20 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-21 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-23 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national men's under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior mens under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national junior womens under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national mens under-24 teams": "فرق xzxz {nat}",
     "{nat} xzxz national teams": "فرق xzxz {nat}",
     "{nat} xzxz national under-13 teams": "فرق xzxz {nat}",
     "{nat} xzxz national under-14 teams": "فرق xzxz {nat}",
@@ -396,18 +396,18 @@ New_For_nat_female_xo_team_2.update({
     "{nat} xzxz national under-21 teams": "فرق xzxz {nat}",
     "{nat} xzxz national under-23 teams": "فرق xzxz {nat}",
     "{nat} xzxz national under-24 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-13 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-14 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-15 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-16 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-17 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-18 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-19 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-20 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-21 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-23 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national women's under-24 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national womens under-24 teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth under-13 teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth under-14 teams": "فرق xzxz {nat}",
@@ -420,18 +420,18 @@ New_For_nat_female_xo_team_2.update({
     "{nat} xzxz national youth under-21 teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth under-23 teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth under-24 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-13 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-14 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-15 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-16 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-17 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-18 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-19 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-20 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-21 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-23 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth women's under-24 teams": "فرق xzxz {nat}"
+    "{nat} xzxz national youth womens teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-13 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-14 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-15 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-16 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-17 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-18 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-19 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-20 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-21 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-23 teams": "فرق xzxz {nat}",
+    "{nat} xzxz national youth womens under-24 teams": "فرق xzxz {nat}"
 })
 New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in new_for_nat_female_xo_team_additional.items()})
 
@@ -449,6 +449,20 @@ both_bot = format_multi_data(
     text_after=" people",
     text_before="the ",
 )
+
+
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower()
+
+    replacements = {
+        "expatriates": "expatriate",
+        "canadian football": "canadian-football",
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    return category
 
 
 @functools.lru_cache(maxsize=None)

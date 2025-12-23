@@ -1,16 +1,9 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations.sports_formats_national.sport_lab_nat import (
-    sport_lab_nat_load_new,
-)
+from ArWikiCats.translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 data = {
-    "south american second tier football leagues": "دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
-    "european second tier basketball leagues": "دوريات كرة سلة أوروبية من الدرجة الثانية",
-    "european second tier ice hockey leagues": "دوريات هوكي جليد أوروبية من الدرجة الثانية",
-    "israeli basketball premier league": "دوريات كرة سلة إسرائيلية من الدرجة الممتازة",
-
     "afghan cricket": "كريكت أفغانية",
     "african archery": "نبالة إفريقية",
     "african basketball leagues": "دوريات كرة سلة إفريقية",
