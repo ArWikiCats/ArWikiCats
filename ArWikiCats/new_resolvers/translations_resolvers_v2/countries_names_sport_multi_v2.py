@@ -4,13 +4,14 @@
 """
 import functools
 
-from ...make_bots.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...helps import logger
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ..translations_resolvers.countries_names_data import formatted_data_en_ar_only
 from .nats_as_country_names import nats_keys_as_country_names
+from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
@@ -172,7 +173,7 @@ def resolve_countries_names_sport(category: str) -> str:
 
 
 def resolve_countries_names_sport_with_ends(category) -> str:
-    label2 = resolve_sport_category_suffix_with_mapping(category, label_mappings_ends, resolve_countries_names_sport)
+    label2 = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, resolve_countries_names_sport)
 
     if label2.startswith("لاعبو ") and "للسيدات" in label2:
         label2 = label2.replace("لاعبو ", "لاعبات ")

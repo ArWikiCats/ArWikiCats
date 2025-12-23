@@ -10,49 +10,8 @@ from ...translations import (
     SPORT_KEY_RECORDS,
 )
 
-from ..handle_suffixes import resolve_sport_category_suffix_with_mapping
-
-label_mappings_ends = {
-    "champions": "أبطال",
-    "clubs": "أندية",
-    "coaches": "مدربو",
-    "competitions": "منافسات",
-    "events": "أحداث",
-    "films": "أفلام",
-    "finals": "نهائيات",
-    "home stadiums": "ملاعب",
-    "leagues": "دوريات",
-    "lists": "قوائم",
-    "manager history": "تاريخ مدربو",
-    "managers": "مدربو",
-    "matches": "مباريات",
-    "navigational boxes": "صناديق تصفح",
-    "non-profit organizations": "منظمات غير ربحية",
-    "non-profit publishers": "ناشرون غير ربحيون",
-    "organisations": "منظمات",
-    "organizations": "منظمات",
-    "players": "لاعبو",
-    "positions": "مراكز",
-    "records": "سجلات",
-    "records and statistics": "سجلات وإحصائيات",
-    "results": "نتائج",
-    "rivalries": "دربيات",
-    "scouts": "كشافة",
-    "squads": "تشكيلات",
-    "statistics": "إحصائيات",
-    "teams": "فرق",
-    "templates": "قوالب",
-    "tournaments": "بطولات",
-    "trainers": "مدربو",
-    "umpires": "حكام",
-    "venues": "ملاعب"
-}
-
-label_mappings_ends = dict(sorted(
-    label_mappings_ends.items(),
-    key=lambda k: (-k[0].count(" "), -len(k[0])),
-))
-
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ..teams_mappings_ends import teams_label_mappings_ends
 
 # NOTE: plan to use it later
 TEAM_DATA_NEW = {
@@ -276,7 +235,7 @@ def _get_p17_with_sport(category: str) -> str:
 def get_p17_with_sport_new(category: str) -> str:
     logger.debug(f"<<yellow>> start get_p17_with_sport_new: {category=}")
 
-    result = resolve_sport_category_suffix_with_mapping(category, label_mappings_ends, _get_p17_with_sport)
+    result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, _get_p17_with_sport)
 
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")

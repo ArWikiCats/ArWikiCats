@@ -6,13 +6,14 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new, label_mappings_ends
+from ArWikiCats.new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import resolve_countries_names_sport
+from ArWikiCats.make_bots.teams_mappings_ends import teams_label_mappings_ends
 
 
 def resolve_countries_names_sport_n(category) -> str:
-    label2 = resolve_sport_category_suffix_with_mapping(category, label_mappings_ends, resolve_countries_names_sport)
+    label2 = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, resolve_countries_names_sport)
 
     if label2.startswith("لاعبو ") and "للسيدات" in label2:
         label2 = label2.replace("لاعبو ", "لاعبات ")

@@ -4,7 +4,7 @@
 from ..helps import logger
 
 
-def normalize_text(text):
+def normalize_text(text: str) -> str:
     text = text.lower().replace("category:", "")
     # text = text.replace("sportspeople", "sports-people")
     text = text.replace(" the ", " ")
@@ -15,9 +15,9 @@ def normalize_text(text):
 
 
 def combine_value_and_label(
-    value,
-    new_label,
-    format_key="",
+    value: str,
+    new_label: str,
+    format_key: str="",
 ) -> str:
     """
     Combine value and new_label based on format_key.
