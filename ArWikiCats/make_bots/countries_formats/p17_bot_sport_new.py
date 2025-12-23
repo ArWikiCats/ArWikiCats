@@ -104,6 +104,9 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def _get_p17_with_sport(category: str) -> str:
+    if countries_from_nat.get(category):
+        return ""
+
     logger.debug(f"<<yellow>> start _get_p17_with_sport: {category=}")
 
     both_bot = _load_bot()
@@ -114,8 +117,24 @@ def _get_p17_with_sport(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+def fix_keys(category: str) -> str:
+    category = category.lower().replace("category:", "")
+    # category = category.replace("'", "")
+
+    replacements = {
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    return category.strip()
+
+
+@functools.lru_cache(maxsize=10000)
 @dump_data()
 def get_p17_with_sport_new(category: str) -> str:
+    category = fix_keys(category)
+
     logger.debug(f"<<yellow>> start get_p17_with_sport_new: {category=}")
 
     result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, _get_p17_with_sport)

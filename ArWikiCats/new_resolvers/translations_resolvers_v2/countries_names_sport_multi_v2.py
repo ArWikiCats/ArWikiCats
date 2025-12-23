@@ -143,20 +143,22 @@ def remove_the(text: str) -> str:
     return text
 
 
+nats_data = {
+    remove_the(v["en"]): v
+    for x, v in all_country_with_nat_ar.items()
+    if v.get("ar") and v.get("en")
+}
+
+nats_data.update(nats_keys_as_country_names)
+
+nats_data.update({
+    x: v for x, v in nats_keys_as_country_names.items()
+    if v.get("ar") and v.get("en")
+})
+
+
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBaseV2:
-    nats_data = {
-        remove_the(v["en"]): v
-        for x, v in all_country_with_nat_ar.items()
-        if v.get("ar") and v.get("en")
-    }
-
-    nats_data.update(nats_keys_as_country_names)
-
-    nats_data.update({
-        x: v for x, v in nats_keys_as_country_names.items()
-        if v.get("ar") and v.get("en")
-    })
 
     sports_data = {
         x: {
@@ -183,7 +185,25 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
 
 @functools.lru_cache(maxsize=10000)
+def fix_keys(category: str) -> str:
+    category = category.lower().replace("category:", "")
+    # category = category.replace("'", "")
+
+    replacements = {
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    return category.strip()
+
+
+@functools.lru_cache(maxsize=10000)
 def resolve_countries_names_sport(category: str) -> str:
+    category = fix_keys(category)
+    if nats_data.get(category):
+        return ""
+
     logger.debug(f"<<yellow>> start resolve_countries_names_sport: {category=}")
 
     both_bot = _load_bot()
@@ -194,6 +214,7 @@ def resolve_countries_names_sport(category: str) -> str:
 
 
 def resolve_countries_names_sport_with_ends(category) -> str:
+    category = fix_keys(category)
     label2 = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, resolve_countries_names_sport)
 
     if label2.startswith("لاعبو ") and "للسيدات" in label2:
