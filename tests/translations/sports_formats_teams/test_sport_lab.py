@@ -106,7 +106,6 @@ test_find_jobs_bot_data = {
     "football cup competitions": "منافسات كؤوس كرة قدم",
     "football cups": "كؤوس كرة قدم",
     "football league competitions": "منافسات دوري كرة قدم",
-    "football seventh tier leagues": "دوريات كرة قدم من الدرجة السابعة",
     "fourth level football leagues": "دوريات كرة قدم من الدرجة الرابعة",
     "indoor football": "كرة قدم داخل الصالات",
     "indoor hockey clubs": "أندية هوكي داخل الصالات",

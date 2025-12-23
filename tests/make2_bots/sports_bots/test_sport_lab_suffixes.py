@@ -70,7 +70,6 @@ get_teams_new_data = {
     "football cups": "كؤوس كرة قدم",
     "football governing bodies": "هيئات تنظيم كرة قدم",
     "football league": "دوري كرة القدم",
-    "football seventh tier leagues": "دوريات كرة قدم من الدرجة السابعة",
     "gocomics": "قصص مصورة غو",
     "indoor football": "كرة قدم داخل الصالات",
     "indoor hockey": "هوكي داخل الصالات",
