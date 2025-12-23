@@ -6,7 +6,7 @@ NOTE: this is has alot of common code with ArWikiCats/translations/sports_format
 import re
 
 from ...helps import len_print
-from ..sports.sports_lists import AFTER_KEYS_NAT, LEVELS, NEW_TATO_NAT
+from ..sports.sports_lists import AFTER_KEYS_NAT, NEW_TATO_NAT
 
 # ---
 # New_team_xo_jobs[ "xoxo olympic champions"] = "تاريخ مدربو منتخبات xoxo وطنية للسيدات"
@@ -99,49 +99,41 @@ for year in YEARS_LIST:
     New_team_xo_jobs[f"national under-{year} xoxo manager history"] = f"تاريخ مدربو منتخبات xoxo تحت {year} سنة"
     New_team_xo_jobs[f"under-{year} xoxo manager history"] = f"تاريخ مدربو فرق xoxo تحت {year} سنة"
 
-
-def _load_additional() -> dict[str, str]:
-    data = {}
-    place_holder = "xoxo"
-    for ty_nat, tas in NEW_TATO_NAT.items():  # 120
-        tas = tas.strip()
-        tasf = tas.format(nat="").strip()
-        league_label = f"دوريات {place_holder} وطنية {tasf}"
-        Ar_labs_3 = f"منتخبات {place_holder} وطنية {tasf}"
-        if "national" not in ty_nat:
-            Ar_labs_3 = f"فرق {place_holder} {tasf}"
-            league_label = f"دوريات {place_holder} {tasf}"
-        elif "multi-national" in ty_nat:
-            Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
-            league_label = league_label.replace(" وطنية", "")
-
-        for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():       # 67
-            if pr_e in ["players", "playerss"] and "women's" in ty_nat:
-                pr_e_Lab = "لاعبات {lab}"
-            elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
-                pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
-
-            data[f"{ty_nat} {place_holder} teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs_3)
-            data[f"{ty_nat} {place_holder} leagues {pr_e}".strip()] = pr_e_Lab.format(lab=league_label)
-
-            if "national" not in ty_nat:
-                data[f"{ty_nat.strip()} {place_holder} teams"] = f"فرق {place_holder} {tasf}"
-
-    return data
-
-
+# (fifth|first|fourth|second|seventh|sixth|third|top)[ -](level|tier)
+LEVELS: dict[str, str] = {
+    "premier": "الدرجة الممتازة",
+    "top level": "الدرجة الأولى",
+    "first level": "الدرجة الأولى",
+    "first tier": "الدرجة الأولى",
+    "second level": "الدرجة الثانية",
+    "second tier": "الدرجة الثانية",
+    "third level": "الدرجة الثالثة",
+    "third tier": "الدرجة الثالثة",
+    "fourth level": "الدرجة الرابعة",
+    "fourth tier": "الدرجة الرابعة",
+    "fifth level": "الدرجة الخامسة",
+    "fifth tier": "الدرجة الخامسة",
+    "sixth level": "الدرجة السادسة",
+    "sixth tier": "الدرجة السادسة",
+    "seventh level": "الدرجة السابعة",
+    "seventh tier": "الدرجة السابعة",
+}
+"""
+Category:National association football second-tier league champions
+Category:Association football third-tier league seasons
+Category:Association football second-tier league seasons
+Category:Association football fourth-tier league seasons
+Category:National association football third-tier leagues
+Category:National association football fifth-tier leagues
+Category:National association football fourth-tier leagues
+Category:National association football second-tier leagues
+Category:National association football seventh-tier leagues
+Category:National association football sixth-tier leagues
+Category:Seasons in European third-tier association football leagues
+"""
 for level, lvl_lab in LEVELS.items():
-    New_team_xo_jobs[f"national xoxo {level} league"] = f"دوريات xoxo وطنية من {lvl_lab}"
-    New_team_xo_jobs[f"national xoxo {level} leagues"] = f"دوريات xoxo وطنية من {lvl_lab}"
-
-    New_team_xo_jobs[f"defunct xoxo {level} leagues"] = f"دوريات xoxo سابقة من {lvl_lab}"
-    New_team_xo_jobs[f"defunct xoxo {level} league"] = f"دوريات xoxo سابقة من {lvl_lab}"
-
     New_team_xo_jobs[f"{level} xoxo league"] = f"دوريات xoxo من {lvl_lab}"
     New_team_xo_jobs[f"{level} xoxo leagues"] = f"دوريات xoxo من {lvl_lab}"
-
-    New_team_xo_jobs[f"xoxo {level} league"] = f"دوريات xoxo من {lvl_lab}"
-    New_team_xo_jobs[f"xoxo {level} leagues"] = f"دوريات xoxo من {lvl_lab}"
 
 New_team_xo_jobs["women's xoxo"] = "xoxo نسائية"
 New_team_xo_jobs["xoxo chairmen and investors"] = "رؤساء ومسيرو xoxo"
@@ -174,20 +166,14 @@ for en, ar in typies.items():
     New_team_xo_jobs[f"defunct indoor xoxo {en}"] = f"{ar} xoxo داخل الصالات سابقة"
     New_team_xo_jobs[f"defunct outdoor xoxo {en}"] = f"{ar} xoxo في الهواء الطلق سابقة"
 
-# ---
-new_team_xo_jobs_additional = _load_additional()        # 16083
-# New_team_xo_jobs.update(new_team_xo_jobs_additional)
-# ---
 len_print.data_len(
     "sports_formats_teams/team_job.py",
     {
-        "new_team_xo_jobs_additional": new_team_xo_jobs_additional,
         "New_team_xo_jobs": New_team_xo_jobs,
     },
 )
 
 
 __all__ = [
-    "new_team_xo_jobs_additional",
     "New_team_xo_jobs",
 ]
