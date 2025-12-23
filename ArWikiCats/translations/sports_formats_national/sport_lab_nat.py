@@ -168,7 +168,8 @@ def _load_additional() -> dict[str, str]:
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 New_For_nat_female_xo_team_2 = {
-    "{nat} xzxz": "xzxz {nat}",
+    "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball
+    "{nat} domestic xzxz": "xzxz {nat} محلية",
     "{nat} xzxz championships": "بطولات xzxz {nat}",
     "{nat} national xzxz championships": "بطولات xzxz وطنية {nat}",
     "{nat} national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
@@ -186,7 +187,6 @@ New_For_nat_female_xo_team_2 = {
     # ---
     "{nat} professional xzxz": "xzxz {nat} للمحترفين",
     "{nat} defunct xzxz": "xzxz {nat} سابقة",
-    "{nat} domestic xzxz": "xzxz محلية {nat}",
     "{nat} domestic womens xzxz": "xzxz محلية {nat} للسيدات",
     "{nat} indoor xzxz": "xzxz {nat} داخل الصالات",
     "{nat} outdoor xzxz": "xzxz {nat} في الهواء الطلق",
@@ -201,34 +201,8 @@ New_For_nat_female_xo_team_2 = {
     "{nat} national a xzxz teams": "منتخبات xzxz محليين {nat}",
     "{nat} national b xzxz teams": "منتخبات xzxz رديفة {nat}",
     "{nat} national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
-
     "deaths by {nat} airstrikes": "وفيات بضربات جوية {nat}",
     "{nat} airstrikes": "ضربات جوية {nat}",
-    "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball
-    "{nat} xzxz championships": "بطولات xzxz {nat}",
-    "{nat} national xzxz championships": "بطولات xzxz وطنية {nat}",
-    "{nat} national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
-    "{nat} amateur xzxz cup": "كأس {nat} xzxz للهواة",
-    "{nat} youth xzxz cup": "كأس {nat} xzxz للشباب",
-    "{nat} mens xzxz cup": "كأس {nat} xzxz للرجال",
-    "{nat} womens xzxz cup": "كأس {nat} xzxz للسيدات",
-    "{nat} xzxz super leagues": "دوريات سوبر xzxz {nat}",
-
-    # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
-    "{nat} domestic xzxz": "xzxz {nat} محلية",
-    "{nat} indoor xzxz": "xzxz {nat} داخل الصالات",
-    "{nat} outdoor xzxz": "xzxz {nat} في الهواء الطلق",
-
-    # european national womens volleyball teams
-    "{nat} national womens xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
-    "{nat} national xzxz teams": "منتخبات xzxz وطنية {nat}",
-    # ---
-    "{nat} reserve xzxz teams": "فرق xzxz احتياطية {nat}",
-    "{nat} defunct xzxz teams": "فرق xzxz سابقة {nat}",
-    # ---
-    "{nat} national a xzxz teams": "منتخبات xzxz محليين {nat}",
-    "{nat} national b xzxz teams": "منتخبات xzxz رديفة {nat}",
-    "{nat} national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
 }
 
 New_For_nat_female_xo_team_2.update({
