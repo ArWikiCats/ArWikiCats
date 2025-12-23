@@ -79,7 +79,7 @@ data1 = {
     "cambodian league": "تصنيف:الدوري الكمبودي",
     "costa rican cup": "تصنيف:كأس كوستاريكا",
     "cricket world cup": "تصنيف:كأس العالم للكريكت",
-    "croatian premier handball league": "تصنيف:دوريات كرة يد كرواتية من الدرجة الممتازة",
+    "croatian premier handball league": "تصنيف:الدوري الكرواتي الممتاز لكرة اليد",
     "cyprus cup": "تصنيف:كأس قبرص",
     "east asian games": "تصنيف:الألعاب الآسيوية الشرقية",
     "first league of serbia and montenegro": "تصنيف:دوري كرة القدم الدرجة الأولى في صربيا والجبل الأسود",

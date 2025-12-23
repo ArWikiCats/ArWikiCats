@@ -187,6 +187,9 @@ sports_formatted_data = {
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
 
     "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
+    # Category:African women's national association football teams
+    "womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية للسيدات",
+    "{en} womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للسيدات",
 }
 
 
@@ -196,7 +199,6 @@ def _levels_data() -> dict[str, str]:
         "{en} premier {en_sport} league": "الدوري {the_male} الممتاز {sport_team}",
 
         # "bangladesh football premier leagues": "تصنيف:دوريات كرة قدم بنغلاديشية من الدرجة الممتازة",
-        # "croatian premier handball league": "تصنيف:دوريات كرة يد كرواتية من الدرجة الممتازة",
         "{en} {en_sport} premier leagues": "دوريات {sport_jobs} {female} من الدرجة الممتازة",
         "{en_sport} premier leagues": "دوريات {sport_jobs} من الدرجة الممتازة",
         "{en} premier {en_sport} leagues": "دوريات {sport_jobs} {female} من الدرجة الممتازة",

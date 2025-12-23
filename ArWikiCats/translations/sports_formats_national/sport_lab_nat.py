@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """
-NOTE: this is has alot of common code with ArWikiCats/translations/sports_formats_teams/team_job.py
+NOTE:
+    - this is has alot of common code with ArWikiCats/translations/sports_formats_teams/team_job.py
+    - this file has alot of formatted_data
 
-TODO: this file has alot of formatted_data
+TODO: merge with ArWikiCats/new_resolvers/translations_resolvers_v2/nats_sport_multi_v2.py
+
 """
 
 import functools
@@ -13,38 +16,15 @@ from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 
 AFTER_KEYS_LEVELS_NAT = {
-    "premier league": "دوريات {lab} من الدرجة الممتازة",
     "premier leagues": "دوريات {lab} من الدرجة الممتازة",
-    "second level league": "دوريات {lab} من الدرجة الثانية",
-    "second level leagues": "دوريات {lab} من الدرجة الثانية",
-    "second tier league": "دوريات {lab} من الدرجة الثانية",
-    "second tier leagues": "دوريات {lab} من الدرجة الثانية",
-    "seventh level league": "دوريات {lab} من الدرجة السابعة",
-    "seventh level leagues": "دوريات {lab} من الدرجة السابعة",
-    "seventh tier league": "دوريات {lab} من الدرجة السابعة",
-    "seventh tier leagues": "دوريات {lab} من الدرجة السابعة",
-    "sixth level league": "دوريات {lab} من الدرجة السادسة",
-    "sixth level leagues": "دوريات {lab} من الدرجة السادسة",
-    "sixth tier league": "دوريات {lab} من الدرجة السادسة",
-    "sixth tier leagues": "دوريات {lab} من الدرجة السادسة",
-    "third level league": "دوريات {lab} من الدرجة الثالثة",
-    "third level leagues": "دوريات {lab} من الدرجة الثالثة",
-    "third tier league": "دوريات {lab} من الدرجة الثالثة",
-    "third tier leagues": "دوريات {lab} من الدرجة الثالثة",
-    "top level league": "دوريات {lab} من الدرجة الأولى",
-    "top level leagues": "دوريات {lab} من الدرجة الأولى",
-    "fifth level league": "دوريات {lab} من الدرجة الخامسة",
-    "fifth level leagues": "دوريات {lab} من الدرجة الخامسة",
-    "fifth tier league": "دوريات {lab} من الدرجة الخامسة",
-    "fifth tier leagues": "دوريات {lab} من الدرجة الخامسة",
-    "first level league": "دوريات {lab} من الدرجة الأولى",
-    "first level leagues": "دوريات {lab} من الدرجة الأولى",
-    "first tier league": "دوريات {lab} من الدرجة الأولى",
     "first tier leagues": "دوريات {lab} من الدرجة الأولى",
-    "fourth level league": "دوريات {lab} من الدرجة الرابعة",
-    "fourth level leagues": "دوريات {lab} من الدرجة الرابعة",
-    "fourth tier league": "دوريات {lab} من الدرجة الرابعة",
+    "top tier leagues": "دوريات {lab} من الدرجة الأولى",
+    "second tier leagues": "دوريات {lab} من الدرجة الثانية",
+    "third tier leagues": "دوريات {lab} من الدرجة الثالثة",
     "fourth tier leagues": "دوريات {lab} من الدرجة الرابعة",
+    "fifth tier leagues": "دوريات {lab} من الدرجة الخامسة",
+    "sixth tier leagues": "دوريات {lab} من الدرجة السادسة",
+    "seventh tier leagues": "دوريات {lab} من الدرجة السابعة",
 }
 
 AFTER_KEYS_NAT = {
@@ -455,12 +435,12 @@ def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower()
 
     replacements = {
-        "expatriates": "expatriate",
+        "level": "tier",
         "canadian football": "canadian-football",
     }
 
     for old, new in replacements.items():
-        category = category.replace(old, new)
+        category = re.sub(rf"\b{re.escape(old)}\b", new, category)
 
     return category
 
