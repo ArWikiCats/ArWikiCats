@@ -51,7 +51,7 @@ data1 = {
 
 data2 = {
     "Category:Lists of Antigua and Barbuda people": "تصنيف:قوائم أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda football templates": "تصنيف:قوالب كرة القدم الأنتيغوية والبربودية",
+    "Category:Antigua and Barbuda football templates": "تصنيف:قوالب كرة قدم أنتيغوية وبربودية",
     "Category:10th century chinese people by occupation": "تصنيف:صينيون في القرن 10 حسب المهنة",
     "Category:15th century swiss people by occupation": "تصنيف:سويسريون في القرن 15 حسب المهنة",
     "Category:16th century iranian people by occupation": "تصنيف:إيرانيون في القرن 16 حسب المهنة",

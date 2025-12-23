@@ -41,7 +41,7 @@ TEMPLATES_TEAMS: Dict[str, str] = {
 
     "national {en_sport} team": "المنتخب الوطني في {sport_ar}",
 }
-# ---------- team_job.py ----------
+# ---------- teamv_job.py ----------
 SPORTS_EN_TO_AR: Dict[str, str] = {
     "association football": "كرة القدم",
     "football": "كرة القدم",

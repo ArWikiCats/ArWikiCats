@@ -5,6 +5,17 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "Category:National association football second-tier league champions": "x",
+    "Category:Association football third-tier league seasons": "x",
+    "Category:Association football second-tier league seasons": "x",
+    "Category:Association football fourth-tier league seasons": "x",
+    "Category:National association football third-tier leagues": "x",
+    "Category:National association football fifth-tier leagues": "x",
+    "Category:National association football fourth-tier leagues": "x",
+    "Category:National association football second-tier leagues": "x",
+    "Category:National association football seventh-tier leagues": "x",
+    "Category:National association football sixth-tier leagues": "x",
+    "Category:Seasons in European third-tier association football leagues": "x",
     "Category:Academic staff of Incheon National University": "تصنيف:أعضاء هيئة تدريس جامعة إنتشون الوطنية",
     "Category:Lists of 1900s films": "تصنيف:قوائم أفلام إنتاج عقد 1900",
     "Category:Academic staff of University of Galați": "تصنيف:أعضاء هيئة تدريس جامعة غالاتس",
@@ -36,6 +47,11 @@ data0 = {
 }
 
 data1 = {
+    "south american second tier football leagues": "تصنيف:دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
+    "european second tier basketball leagues": "تصنيف:دوريات كرة سلة أوروبية من الدرجة الثانية",
+    "european second tier ice hockey leagues": "تصنيف:دوريات هوكي جليد أوروبية من الدرجة الثانية",
+    "israeli basketball premier league": "تصنيف:الدوري الإسرائيلي الممتاز لكرة السلة",
+
     "Category:Burial sites of ancient Irish dynasties": "تصنيف:مواقع دفن أسر أيرلندية قديمة",
     "Category:Burial sites of Arab dynasties": "تصنيف:مواقع دفن أسر عربية",
     "Category:Burial sites of Asian royal families": "تصنيف:مواقع دفن عائلات ملكية آسيوية",
@@ -78,6 +94,14 @@ data_2 = {
 }
 
 data_3 = {
+    "1550 in asian women's football": "تصنيف:كرة قدم آسيوية للسيدات في 1550",
+    "1520 in south american women's football": "تصنيف:كرة قدم أمريكية جنوبية للسيدات في 1520",
+    "canadian women's ice hockey by league": "تصنيف:هوكي جليد كندية للسيدات حسب الدوري",
+    "european women's football by country": "تصنيف:كرة قدم أوروبية للسيدات حسب البلد",
+    "south american women's football": "تصنيف:كرة قدم أمريكية جنوبية للسيدات",
+    "1789 in south american women's football": "تصنيف:كرة قدم أمريكية جنوبية للسيدات في 1789",
+    "european national men's field hockey teams": "تصنيف:منتخبات هوكي ميدان وطنية أوروبية للرجال",
+    "northern ireland national men's football teams": "تصنيف:منتخبات كرة قدم وطنية أيرلندية شمالية للرجال",
 }
 
 to_test = [

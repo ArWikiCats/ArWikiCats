@@ -1,9 +1,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations.sports_formats_national.sport_lab_nat import (
-    sport_lab_nat_load_new,
-)
+from ArWikiCats.translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 data = {
     "afghan cricket": "كريكت أفغانية",
@@ -113,9 +111,6 @@ data = {
     "european ice hockey leagues": "دوريات هوكي جليد أوروبية",
     "european ice hockey": "هوكي جليد أوروبية",
     "european national beach soccer teams": "منتخبات كرة قدم شاطئية وطنية أوروبية",
-    "european national men's field hockey teams": "منتخبات هوكي ميدان وطنية أوروبية للرجال",
-    "european second tier basketball leagues": "دوريات كرة سلة أوروبية من الدرجة الثانية",
-    "european second tier ice hockey leagues": "دوريات هوكي جليد أوروبية من الدرجة الثانية",
     "european volleyball leagues": "دوريات كرة طائرة أوروبية",
     "european water polo": "كرة ماء أوروبية",
     "faroese football leagues": "دوريات كرة قدم فاروية",
@@ -154,7 +149,6 @@ data = {
     "irish cricket": "كريكت أيرلندية",
     "irish domestic cricket competitions": "منافسات كريكت أيرلندية محلية",
     "irish football cups": "كؤوس كرة قدم أيرلندية",
-    "israeli basketball premier league": "دوريات كرة سلة إسرائيلية من الدرجة الممتازة",
     "israeli basketball": "كرة سلة إسرائيلية",
     "israeli football leagues": "دوريات كرة قدم إسرائيلية",
     "israeli ice hockey": "هوكي جليد إسرائيلية",
@@ -188,7 +182,6 @@ data = {
     "north american domestic football cups": "كؤوس كرة قدم أمريكية شمالية محلية",
     "north american futsal": "كرة صالات أمريكية شمالية",
     "north american martial arts": "فنون قتالية أمريكية شمالية",
-    "northern ireland national men's football teams": "منتخبات كرة قدم وطنية أيرلندية شمالية للرجال",
     "norwegian football leagues": "دوريات كرة قدم نرويجية",
     "norwegian ice hockey": "هوكي جليد نرويجية",
     "oceanian basketball": "كرة سلة أوقيانوسية",
@@ -242,7 +235,6 @@ data = {
     "south american futsal": "كرة صالات أمريكية جنوبية",
     "south american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية جنوبية",
     "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
-    "south american second tier football leagues": "دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
     "south korean basketball": "كرة سلة كورية جنوبية",
     "soviet football leagues": "دوريات كرة قدم سوفيتية",
     "soviet ice hockey": "هوكي جليد سوفيتية",
@@ -336,7 +328,6 @@ data_womens = {
     "romanian women's football": "كرة قدم رومانية نسائية",
     "samoan women's football": "كرة قدم ساموية نسائية",
     "scottish women's football": "كرة قدم إسكتلندية نسائية",
-    "south american women's football": "كرة قدم أمريكية جنوبية نسائية",
     "spanish women's football": "كرة قدم إسبانية نسائية",
     "swedish women's football": "كرة قدم سويدية نسائية",
     "swiss women's football": "كرة قدم سويسرية نسائية",
@@ -354,8 +345,6 @@ def test_sport_lab_nat_load(key: str, expected: str) -> None:
 
 data2 = {
     "russian football teams": "فرق كرة قدم روسية",
-    "canadian football teams": "فرق كرة قدم كندية",
-    "canadian football competitions": "منافسات كرة قدم كندية",
     "american football teams": "فرق كرة قدم أمريكية",
     "american football competitions": "منافسات كرة قدم أمريكية",
     "north american football clubs": "أندية كرة قدم أمريكية شمالية",

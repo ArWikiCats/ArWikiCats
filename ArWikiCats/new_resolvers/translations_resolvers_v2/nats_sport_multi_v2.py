@@ -118,6 +118,7 @@ NAT_P17_OIOI = {
 }
 
 sports_formatted_data = {
+
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
 
     # american coaches of basketball
@@ -186,8 +187,60 @@ sports_formatted_data = {
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
 
     "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
+    # Category:African women's national association football teams
+    "womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية للسيدات",
+    "{en} womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للسيدات",
+    "{en} womens {en_sport}": "{sport_jobs} {female} للسيدات",
+
+    # northern ireland national men's football teams
+    "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للرجال",
+    "{en} national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للرجال",
 }
 
+
+def _levels_data() -> dict[str, str]:
+    data = {
+        "{en} {en_sport} premier league": "الدوري {the_male} الممتاز {sport_team}",
+        "{en} premier {en_sport} league": "الدوري {the_male} الممتاز {sport_team}",
+
+        # "bangladesh football premier leagues": "تصنيف:دوريات كرة قدم بنغلاديشية من الدرجة الممتازة",
+        "{en} {en_sport} premier leagues": "دوريات {sport_jobs} {female} من الدرجة الممتازة",
+        "{en_sport} premier leagues": "دوريات {sport_jobs} من الدرجة الممتازة",
+        "{en} premier {en_sport} leagues": "دوريات {sport_jobs} {female} من الدرجة الممتازة",
+        "premier {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الممتازة",
+    }
+    LEVELS: dict[str, str] = {
+        "premier": "الدرجة الممتازة",
+        "top level": "الدرجة الأولى",
+        "first level": "الدرجة الأولى",
+        "first tier": "الدرجة الأولى",
+        "second level": "الدرجة الثانية",
+        "second tier": "الدرجة الثانية",
+        "third level": "الدرجة الثالثة",
+        "third tier": "الدرجة الثالثة",
+        "fourth level": "الدرجة الرابعة",
+        "fourth tier": "الدرجة الرابعة",
+        "fifth level": "الدرجة الخامسة",
+        "fifth tier": "الدرجة الخامسة",
+        "sixth level": "الدرجة السادسة",
+        "sixth tier": "الدرجة السادسة",
+        "seventh level": "الدرجة السابعة",
+        "seventh tier": "الدرجة السابعة",
+    }
+    for level, lvl_lab in LEVELS.items():
+        data.update({
+            f"{{en}} {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
+            f"{{en}} {level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
+
+            f"national {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} وطنية من {lvl_lab}",
+            f"{{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
+            f"{level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
+        })
+
+    return data
+
+
+sports_formatted_data.update(_levels_data())
 sports_formatted_data.update(sports_formatted_data_for_jobs)
 sports_formatted_data.update(NAT_P17_OIOI)
 

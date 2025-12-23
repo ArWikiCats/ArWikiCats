@@ -58,7 +58,10 @@ the_male_data = {
     "{en} involvement": "التدخل {the_male}",
     "{en} census": "التعداد {the_male}",
     "{en} professional football league": "دوري كرة القدم {the_male} للمحترفين",
+
+    "{en} football premier league": "الدوري {the_male} الممتاز لكرة القدم",
     "{en} premier football league": "الدوري {the_male} الممتاز لكرة القدم",
+
     "{en} national super league": "دوري السوبر {the_male}",
     "{en} super league": "دوري السوبر {the_male}",
     "{en} premier league": "الدوري {the_male} الممتاز",
