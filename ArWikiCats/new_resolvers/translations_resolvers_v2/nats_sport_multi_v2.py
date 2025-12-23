@@ -190,6 +190,11 @@ sports_formatted_data = {
     # Category:African women's national association football teams
     "womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية للسيدات",
     "{en} womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للسيدات",
+    "{en} womens {en_sport}": "{sport_jobs} {female} للسيدات",
+
+    # northern ireland national men's football teams
+    "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للرجال",
+    "{en} national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للرجال",
 }
 
 
