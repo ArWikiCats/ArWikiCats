@@ -3,6 +3,8 @@
 
 """
 import functools
+
+from ...make_bots.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...helps import logger
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations.nats.Nationality import all_country_with_nat_ar
@@ -169,6 +171,15 @@ def resolve_countries_names_sport(category: str) -> str:
     return result
 
 
+def resolve_countries_names_sport_with_ends(category) -> str:
+    label2 = resolve_sport_category_suffix_with_mapping(category, label_mappings_ends, resolve_countries_names_sport)
+
+    if label2.startswith("لاعبو ") and "للسيدات" in label2:
+        label2 = label2.replace("لاعبو ", "لاعبات ")
+    return label2
+
+
 __all__ = [
     "resolve_countries_names_sport",
+    "resolve_countries_names_sport_with_ends",
 ]

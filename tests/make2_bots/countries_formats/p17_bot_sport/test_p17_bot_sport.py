@@ -6,7 +6,7 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ArWikiCats.make_bots.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new, label_mappings_ends
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import resolve_countries_names_sport
 
@@ -54,7 +54,6 @@ data_1 = {
     "angola basketball cup": "كأس أنغولا لكرة السلة",
     "angola national football team lists": "قوائم منتخب أنغولا لكرة القدم",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
-    "australia national men's under-23 soccer team": "منتخب أستراليا لكرة القدم تحت 23 سنة للرجال",
     "australia national netball team": "منتخب أستراليا لكرة الشبكة",
     "australia national water polo team": "منتخب أستراليا لكرة الماء",
     "austria national basketball team": "منتخب النمسا لكرة السلة",
@@ -62,10 +61,8 @@ data_1 = {
     "brazil national rugby league team": "منتخب البرازيل لدوري الرجبي",
     "canada national basketball team players": "لاعبو منتخب كندا لكرة السلة",
     "canada national men's soccer team matches": "مباريات منتخب كندا لكرة القدم للرجال",
-    "brazil national under-23 football team results": "نتائج منتخب البرازيل لكرة القدم تحت 23 سنة",
     "brazil national women's football team managers": "مدربو منتخب البرازيل لكرة القدم للسيدات",
     "china national football team results": "نتائج منتخب الصين لكرة القدم",
-    "colombia national under-20 football team managers": "مدربو منتخب كولومبيا لكرة القدم تحت 20 سنة",
     "croatia national football team": "منتخب كرواتيا لكرة القدم",
     "czech republic national women's football team managers": "مدربو منتخب التشيك لكرة القدم للسيدات",
     "democratic-republic-of-congo national football team matches": "مباريات منتخب جمهورية الكونغو الديمقراطية لكرة القدم",
@@ -76,9 +73,7 @@ data_1 = {
     "england national women's rugby union team matches": "مباريات منتخب إنجلترا لاتحاد الرجبي للسيدات",
     "fiji national rugby union team": "منتخب فيجي لاتحاد الرجبي",
     "france national football team": "منتخب فرنسا لكرة القدم",
-    "france national under-21 football team": "منتخب فرنسا لكرة القدم تحت 21 سنة",
     "germany national football team": "منتخب ألمانيا لكرة القدم",
-    "germany national under-21 football team managers": "مدربو منتخب ألمانيا لكرة القدم تحت 21 سنة",
     "ghana national football team": "منتخب غانا لكرة القدم",
     "guinea national football team": "منتخب غينيا لكرة القدم",
     "hong kong national football team matches": "مباريات منتخب هونغ كونغ لكرة القدم",
@@ -124,7 +119,6 @@ data_1 = {
     "soviet union national basketball team": "منتخب الاتحاد السوفيتي لكرة السلة",
     "soviet union national water polo team": "منتخب الاتحاد السوفيتي لكرة الماء",
     "spain national women's water polo team coaches": "مدربو منتخب إسبانيا لكرة الماء للسيدات",
-    "sweden national under-21 football team managers": "مدربو منتخب السويد لكرة القدم تحت 21 سنة",
     "switzerland national men's ice hockey team": "منتخب سويسرا لهوكي الجليد للرجال",
     "switzerland national women's basketball team": "منتخب سويسرا لكرة السلة للسيدات",
     "togo national women's basketball team": "منتخب توغو لكرة السلة للسيدات",
@@ -138,8 +132,17 @@ data_1 = {
     "wales national women's rugby league team players": "لاعبات منتخب ويلز لدوري الرجبي للسيدات",
 }
 
+data_0 = {
+    "sweden national under-21 football team managers": "مدربو منتخب السويد لكرة القدم تحت 21 سنة",
+    "france national under-21 football team": "منتخب فرنسا لكرة القدم تحت 21 سنة",
+    "germany national under-21 football team managers": "مدربو منتخب ألمانيا لكرة القدم تحت 21 سنة",
+    "colombia national under-20 football team managers": "مدربو منتخب كولومبيا لكرة القدم تحت 20 سنة",
+    "brazil national under-23 football team results": "نتائج منتخب البرازيل لكرة القدم تحت 23 سنة",
+    "australia national men's under-23 soccer team": "منتخب أستراليا لكرة القدم تحت 23 سنة للرجال",
+}
 
-@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
+
+@pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.fast
 def test_get_p17_with_sport_1(category: str, expected: str) -> None:
     label1 = get_p17_with_sport_new(category)
@@ -147,13 +150,12 @@ def test_get_p17_with_sport_1(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_get_p17_with_sport_2(category: str, expected: str) -> None:
     label1 = get_p17_with_sport_new(category)
     assert label1 == expected
 
     label2 = resolve_countries_names_sport_n(category)
-
     assert label2 == expected
 
 # =========================================================

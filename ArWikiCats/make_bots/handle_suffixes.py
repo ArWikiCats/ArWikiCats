@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 """
-from ...helps import logger
+from ..helps import logger
 
 
 def normalize_text(text):

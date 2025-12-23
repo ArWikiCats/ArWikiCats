@@ -10,7 +10,7 @@ from ...translations import (
     SPORT_KEY_RECORDS,
 )
 
-from .handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ..handle_suffixes import resolve_sport_category_suffix_with_mapping
 
 label_mappings_ends = {
     "champions": "أبطال",
