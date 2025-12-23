@@ -42,25 +42,6 @@ def _build_new_tato_nat() -> dict[str, str]:
 
 NEW_TATO_NAT: Final[dict[str, str]] = _build_new_tato_nat()
 
-LEVELS: Final[dict[str, str]] = {
-    "premier": "الدرجة الممتازة",
-    "top level": "الدرجة الأولى",
-    "first level": "الدرجة الأولى",
-    "first tier": "الدرجة الأولى",
-    "second level": "الدرجة الثانية",
-    "second tier": "الدرجة الثانية",
-    "third level": "الدرجة الثالثة",
-    "third tier": "الدرجة الثالثة",
-    "fourth level": "الدرجة الرابعة",
-    "fourth tier": "الدرجة الرابعة",
-    "fifth level": "الدرجة الخامسة",
-    "fifth tier": "الدرجة الخامسة",
-    "sixth level": "الدرجة السادسة",
-    "sixth tier": "الدرجة السادسة",
-    "seventh level": "الدرجة السابعة",
-    "seventh tier": "الدرجة السابعة",
-}
-
 # Keys appended after a base sport name when generating extended templates.
 AFTER_KEYS: Final[dict[str, str]] = {
     "squads": "تشكيلات",
@@ -115,9 +96,31 @@ def _extend_suffix_mappings() -> dict[str, str]:
     for suffix_key, suffix_label in AFTER_KEYS.items():
         AFTER_KEYS_NAT[suffix_key] = f"{suffix_label} {{lab}}"
 
+    # (fifth|first|fourth|second|seventh|sixth|third|top)[ -](level|tier)
+    LEVELS: Final[dict[str, str]] = {
+        "top level": "الدرجة الأولى",
+        "first level": "الدرجة الأولى",
+        "first tier": "الدرجة الأولى",
+        "second level": "الدرجة الثانية",
+        "second tier": "الدرجة الثانية",
+        "third level": "الدرجة الثالثة",
+        "third tier": "الدرجة الثالثة",
+        "fourth level": "الدرجة الرابعة",
+        "fourth tier": "الدرجة الرابعة",
+        "fifth level": "الدرجة الخامسة",
+        "fifth tier": "الدرجة الخامسة",
+        "sixth level": "الدرجة السادسة",
+        "sixth tier": "الدرجة السادسة",
+        "seventh level": "الدرجة السابعة",
+        "seventh tier": "الدرجة السابعة",
+    }
+
     for level_key, level_label in LEVELS.items():
         AFTER_KEYS_NAT[f"{level_key} league"] = f"دوريات {{lab}} من {level_label}"
         AFTER_KEYS_NAT[f"{level_key} leagues"] = f"دوريات {{lab}} من {level_label}"
+
+    AFTER_KEYS_NAT["premier league"] = "دوريات {lab} من الدرجة الممتازة"
+    AFTER_KEYS_NAT["premier leagues"] = "دوريات {lab} من الدرجة الممتازة"
 
     return AFTER_KEYS_NAT
 
@@ -128,7 +131,6 @@ AFTER_KEYS_NAT = _extend_suffix_mappings()
 __all__ = [
     "AFTER_KEYS",
     "AFTER_KEYS_NAT",
-    "LEVELS",
     "NEW_TATO_NAT",
 ]
 
@@ -137,7 +139,6 @@ len_print.data_len(
     {
         "AFTER_KEYS": AFTER_KEYS,
         "AFTER_KEYS_NAT": AFTER_KEYS_NAT,
-        "LEVELS": LEVELS,
         "NEW_TATO_NAT": NEW_TATO_NAT,
     },
 )

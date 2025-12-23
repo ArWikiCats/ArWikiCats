@@ -27,6 +27,7 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
         "xzxz super leagues": "دوريات سوبر xzxz {nat}",
     }
     # ---
+    # (fifth|first|fourth|second|seventh|sixth|third|top)[ -](level|tier)
     LEVELS: dict[str, str] = {
         "premier": "الدرجة الممتازة",
         "top level": "الدرجة الأولى",
