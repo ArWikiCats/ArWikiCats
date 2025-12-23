@@ -1,4 +1,15 @@
 
+## [#262](https://github.com/MrIbrahem/ArWikiCats/pull/262) - 2025-12-23
+
+* **New Features**
+  * Data-driven sports category resolution with updated team-label mappings and improved suffix handling, including gendered form adjustments.
+
+* **Bug Fixes**
+  * Fixed inconsistent naming of sport-format constants across translations and mappings.
+
+* **Tests**
+  * Updated and added tests to validate the new resolution flow and mappings; adjusted test data and expectations.
+
 ## [#260](https://github.com/MrIbrahem/ArWikiCats/pull/260) - 2025-12-23
 
 * **New Features**
