@@ -102,7 +102,8 @@ new_team_jobs.update({
     # Category:Multi-national women's basketball leagues in Europe
     "multi-national women's xoxo leagues": "دوريات xoxo نسائية متعددة الجنسيات",
     # Category:National junior women's goalball teams
-    "national junior women's xoxo teams": "منتخبات xoxo للناشئات"
+    "national junior women's xoxo teams": "منتخبات xoxo للناشئات",
+    "xoxo teams rivalries": "دربيات فرق xoxo",
 })
 
 jobs_bot = FormatData(new_team_jobs, SPORTS_KEYS_FOR_JOBS, key_placeholder="xoxo", value_placeholder="xoxo")

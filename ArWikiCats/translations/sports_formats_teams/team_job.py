@@ -102,17 +102,18 @@ for year in YEARS_LIST:
 
 def _load_additional() -> dict[str, str]:
     data = {}
-
+    place_holder = "xoxo"
     for ty_nat, tas in NEW_TATO_NAT.items():  # 120
         tas = tas.strip()
-        Ar_labs_3 = f"منتخبات xoxo وطنية {tas.format(nat='').strip()}"
-        Ar_labs_league = f"دوريات xoxo وطنية {tas.format(nat='').strip()}"
+        tasf = tas.format(nat="").strip()
+        league_label = f"دوريات {place_holder} وطنية {tasf}"
+        Ar_labs_3 = f"منتخبات {place_holder} وطنية {tasf}"
         if "national" not in ty_nat:
-            Ar_labs_3 = f"فرق xoxo {tas.format(nat='').strip()}"
-            Ar_labs_league = f"دوريات xoxo {tas.format(nat='').strip()}"
+            Ar_labs_3 = f"فرق {place_holder} {tasf}"
+            league_label = f"دوريات {place_holder} {tasf}"
         elif "multi-national" in ty_nat:
             Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
-            Ar_labs_league = Ar_labs_league.replace(" وطنية", "")
+            league_label = league_label.replace(" وطنية", "")
 
         for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():       # 67
             if pr_e in ["players", "playerss"] and "women's" in ty_nat:
@@ -120,11 +121,11 @@ def _load_additional() -> dict[str, str]:
             elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
 
-            data[f"{ty_nat} xoxo teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs_3)
-            data[f"{ty_nat} xoxo leagues {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs_league)
+            data[f"{ty_nat} {place_holder} teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs_3)
+            data[f"{ty_nat} {place_holder} leagues {pr_e}".strip()] = pr_e_Lab.format(lab=league_label)
 
             if "national" not in ty_nat:
-                data[f"{ty_nat.strip()} xoxo teams"] = "فرق xoxo " + tas.format(nat="").strip()
+                data[f"{ty_nat.strip()} {place_holder} teams"] = f"فرق {place_holder} {tasf}"
 
     return data
 
