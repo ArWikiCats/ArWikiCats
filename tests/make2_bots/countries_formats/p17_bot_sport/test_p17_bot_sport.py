@@ -6,12 +6,12 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.p17_bot_sport import get_p17_with_sport
+from ArWikiCats.make_bots.countries_formats.handle_suffixes import resolve_p17_bot_sport_suffixes
 from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import resolve_countries_names_sport
 
 # =========================================================
-#                   get_p17_with_sport
+#                   get_p17_with_sport_new
 # =========================================================
 
 data_1 = {
@@ -133,39 +133,26 @@ data_1 = {
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_get_p17_with_sport_1(category: str, expected: str) -> None:
-    label1 = get_p17_with_sport(category)
+    label1 = get_p17_with_sport_new(category)
     assert label1 == expected
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.skip2
 def test_get_p17_with_sport_2(category: str, expected: str) -> None:
-    label1 = get_p17_with_sport(category)
+    label1 = get_p17_with_sport_new(category)
     assert label1 == expected
 
-    label2 = resolve_countries_names_sport(category)
+    label2 = resolve_p17_bot_sport_suffixes(category, resolve_countries_names_sport)
     assert label2 == expected
-
-
-@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
-@pytest.mark.skip2
-def test_get_p17_with_sport_3(category: str, expected: str) -> None:
-    """
-    pytest tests/make2_bots/countries_formats/p17_bot_sport/test_p17_bot_sport.py::test_get_p17_with_sport_3 -m skip2
-    """
-    label1 = get_p17_with_sport(category)
-    assert label1 == expected
-
-    label2 = get_p17_with_sport_new(category)
-    assert label2 == expected
-
 
 # =========================================================
 #                   DUMP
 # =========================================================
 
+
 TEMPORAL_CASES = [
-    ("test_get_p17_with_sport_1", data_1, get_p17_with_sport),
+    ("test_get_p17_with_sport_1", data_1, get_p17_with_sport_new),
 ]
 
 

@@ -3,16 +3,14 @@ TODO: merge with translations_resolvers OR translations_resolvers_v2 or (Recomme
 """
 import functools
 import re
-from ...helps import dump_data, logger, len_print
+from ...helps import dump_data, logger
+from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations import (
     countries_from_nat,
-    SPORTS_KEYS_FOR_TEAM,
-    match_sport_key,
-    apply_pattern_replacements,
+    SPORT_KEY_RECORDS,
 )
 
-from ..jobs_bots.get_helps import get_suffix_with_keys
-from .p17_bot_sport_wrap import resolve_p17_bot_sport_suffixes
+from .handle_suffixes import resolve_p17_bot_sport_suffixes
 
 # NOTE: plan to use it later
 TEAM_DATA_NEW = {
@@ -29,236 +27,215 @@ TEAM_DATA_NEW = {
 }
 
 SPORT_FORMATS_ENAR_P17_TEAM = {
-    "xoxo league": "دوري {} xoxo",
-    "professional xoxo league": "دوري {} xoxo للمحترفين",
-    "amateur xoxo cup": "كأس {} xoxo للهواة",
-    "youth xoxo cup": "كأس {} xoxo للشباب",
-    "men's xoxo cup": "كأس {} xoxo للرجال",
-    "women's xoxo cup": "كأس {} xoxo للسيدات",
-    "amateur xoxo championships": "بطولة {} xoxo للهواة",
-    "youth xoxo championships": "بطولة {} xoxo للشباب",
-    "men's xoxo championships": "بطولة {} xoxo للرجال",
-    "women's xoxo championships": "بطولة {} xoxo للسيدات",
-    "amateur xoxo championship": "بطولة {} xoxo للهواة",
-    "youth xoxo championship": "بطولة {} xoxo للشباب",
-    "men's xoxo championship": "بطولة {} xoxo للرجال",
-    "women's xoxo championship": "بطولة {} xoxo للسيدات",
-    "xoxo cup": "كأس {} xoxo",
+    "{en} {en_sport} league": "دوري {ar} {sport_team}",
+    "{en} professional {en_sport} league": "دوري {ar} {sport_team} للمحترفين",
+    "{en} amateur {en_sport} cup": "كأس {ar} {sport_team} للهواة",
+    "{en} youth {en_sport} cup": "كأس {ar} {sport_team} للشباب",
+    "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
+    "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
+    "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
+    "{en} women's {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+    "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
+    "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
+    "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
+    "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
+    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
     # ---national youth handball team
-    "xoxo national team": "منتخب {} xoxo",
-    "national xoxo team": "منتخب {} xoxo",
+    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team": "منتخب {ar} {sport_team}",
 
     # Category:Denmark national football team staff
-    "xoxo national team staff": "طاقم منتخب {} xoxo",
+    "{en} {en_sport} national team staff": "طاقم منتخب {ar} {sport_team}",
 
     # Category:Denmark national football team non-playing staff
-    "xoxo national team non-playing staff": "طاقم منتخب {} xoxo غير اللاعبين",
+    "{en} {en_sport} national team non-playing staff": "طاقم منتخب {ar} {sport_team} غير اللاعبين",
 
     # Polish men's volleyball national team national junior men's
-    "national junior men's xoxo team": "منتخب {} xoxo للناشئين",
-    "national junior xoxo team": "منتخب {} xoxo للناشئين",
-    "national women's xoxo team": "منتخب {} xoxo للسيدات",
-    "mennnn's national xoxo team": "منتخب {} xoxo للرجال",
-    "men's xoxo national team": "منتخب {} xoxo للرجال",
-    "national men's xoxo team": "منتخب {} xoxo للرجال",
+    "{en} national junior men's {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national women's {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} mennnn's national {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} men's {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
+    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
 
     # Australian men's U23 national road cycling team
-    "men's u23 national xoxo team": "منتخب {} xoxo تحت 23 سنة للرجال",
-    "national youth xoxo team": "منتخب {} xoxo للشباب",
+    "{en} men's u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+    "{en} national youth {en_sport} team": "منتخب {ar} {sport_team} للشباب",
 
-    "national women's xoxo team managers": "مدربو منتخب {} xoxo للسيدات",
-    "national xoxo team managers": "مدربو منتخب {} xoxo",
+    "{en} national women's {en_sport} team managers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team managers": "مدربو منتخب {ar} {sport_team}",
 
-    "national women's xoxo team coaches": "مدربو منتخب {} xoxo للسيدات",
-    "national xoxo team coaches": "مدربو منتخب {} xoxo",
+    "{en} national women's {en_sport} team coaches": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team coaches": "مدربو منتخب {ar} {sport_team}",
 
-    "national women's xoxo team trainers": "مدربو منتخب {} xoxo للسيدات",
-    "national xoxo team trainers": "مدربو منتخب {} xoxo",
+    "{en} national women's {en_sport} team trainers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team trainers": "مدربو منتخب {ar} {sport_team}",
 
-    "national youth women's xoxo team": "منتخب {} xoxo للشابات",
-    "national junior women's xoxo team": "منتخب {} xoxo للناشئات",
-    "national amateur xoxo team": "منتخب {} xoxo للهواة",
-    "multi-national women's xoxo team": "منتخب {} xoxo متعددة الجنسيات للسيدات",
+    "{en} national youth women's {en_sport} team": "منتخب {ar} {sport_team} للشابات",
+    "{en} national junior women's {en_sport} team": "منتخب {ar} {sport_team} للناشئات",
+    "{en} national amateur {en_sport} team": "منتخب {ar} {sport_team} للهواة",
+    "{en} multi-national women's {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
 
-    "men's under-23 national xoxo team": "منتخب {} xoxo تحت 23 سنة للرجال",
-    "multi-national women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة متعددة الجنسيات للسيدات",
-    "multi-national women's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة متعددة الجنسيات للسيدات",
-    "national amateur under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للهواة",
-    "national amateur under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للهواة",
-    "national amateur under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للهواة",
-    "national amateur under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة للهواة",
-    "national amateur under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة للهواة",
-    "national amateur under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة للهواة",
-    "national amateur under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة للهواة",
-    "national amateur under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة للهواة",
-    "national amateur under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للهواة",
-    "national amateur under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للهواة",
-    "national amateur under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للهواة",
-    "national junior men's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للناشئين",
-    "national junior men's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للناشئين",
-    "national junior men's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للناشئين",
-    "national junior men's under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة للناشئين",
-    "national junior men's under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة للناشئين",
-    "national junior men's under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة للناشئين",
-    "national junior men's under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة للناشئين",
-    "national junior men's under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة للناشئين",
-    "national junior men's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للناشئين",
-    "national junior men's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للناشئين",
-    "national junior men's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للناشئين",
-    "national junior women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للناشئات",
-    "national junior women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للناشئات",
-    "national junior women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للناشئات",
-    "national junior women's under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة للناشئات",
-    "national junior women's under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة للناشئات",
-    "national junior women's under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة للناشئات",
-    "national junior women's under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة للناشئات",
-    "national junior women's under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة للناشئات",
-    "national junior women's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للناشئات",
-    "national junior women's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للناشئات",
-    "national junior women's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للناشئات",
-    "national men's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للرجال",
-    "national men's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للرجال",
-    "national men's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للرجال",
-    "national men's under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة للرجال",
-    "national men's under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة للرجال",
-    "national men's under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة للرجال",
-    "national men's under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة للرجال",
-    "national men's under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة للرجال",
-    "national men's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للرجال",
-    "national men's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للرجال",
-    "national men's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للرجال",
-    "national under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة",
-    "national under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة",
-    "national under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة",
-    "national under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة",
-    "national under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة",
-    "national under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة",
-    "national under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة",
-    "national under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة",
-    "national under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة",
-    "national under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة",
-    "national under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة",
-    "national women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للسيدات",
-    "national women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للسيدات",
-    "national women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للسيدات",
-    "national women's under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة للسيدات",
-    "national women's under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة للسيدات",
-    "national women's under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة للسيدات",
-    "national women's under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة للسيدات",
-    "national women's under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة للسيدات",
-    "national women's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للسيدات",
-    "national women's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للسيدات",
-    "national women's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للسيدات",
-    "national youth under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للشباب",
-    "national youth under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للشباب",
-    "national youth under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للشباب",
-    "national youth under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة للشباب",
-    "national youth under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة للشباب",
-    "national youth under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة للشباب",
-    "national youth under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة للشباب",
-    "national youth under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة للشباب",
-    "national youth under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للشباب",
-    "national youth under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للشباب",
-    "national youth under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للشباب",
-    "national youth women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للشابات",
-    "national youth women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للشابات",
-    "national youth women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للشابات",
-    "national youth women's under-16 xoxo team": "منتخب {} xoxo تحت 16 سنة للشابات",
-    "national youth women's under-17 xoxo team": "منتخب {} xoxo تحت 17 سنة للشابات",
-    "national youth women's under-18 xoxo team": "منتخب {} xoxo تحت 18 سنة للشابات",
-    "national youth women's under-19 xoxo team": "منتخب {} xoxo تحت 19 سنة للشابات",
-    "national youth women's under-20 xoxo team": "منتخب {} xoxo تحت 20 سنة للشابات",
-    "national youth women's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للشابات",
-    "national youth women's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للشابات",
-    "national youth women's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للشابات"
+    "{en} men's under-23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+    "{en} multi-national women's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة متعددة الجنسيات للسيدات",
+    "{en} multi-national women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة متعددة الجنسيات للسيدات",
+    "{en} national amateur under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للهواة",
+    "{en} national amateur under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للهواة",
+    "{en} national amateur under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للهواة",
+    "{en} national amateur under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للهواة",
+    "{en} national amateur under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للهواة",
+    "{en} national amateur under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للهواة",
+    "{en} national amateur under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للهواة",
+    "{en} national amateur under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للهواة",
+    "{en} national amateur under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للهواة",
+    "{en} national amateur under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للهواة",
+    "{en} national amateur under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للهواة",
+    "{en} national junior men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للناشئين",
+    "{en} national junior men's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للناشئين",
+    "{en} national junior men's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للناشئين",
+    "{en} national junior men's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للناشئين",
+    "{en} national junior men's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للناشئين",
+    "{en} national junior men's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للناشئين",
+    "{en} national junior men's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للناشئين",
+    "{en} national junior men's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للناشئين",
+    "{en} national junior men's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للناشئين",
+    "{en} national junior men's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للناشئين",
+    "{en} national junior men's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للناشئين",
+    "{en} national junior women's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للناشئات",
+    "{en} national junior women's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للناشئات",
+    "{en} national junior women's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للناشئات",
+    "{en} national junior women's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للناشئات",
+    "{en} national junior women's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للناشئات",
+    "{en} national junior women's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للناشئات",
+    "{en} national junior women's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للناشئات",
+    "{en} national junior women's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للناشئات",
+    "{en} national junior women's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للناشئات",
+    "{en} national junior women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للناشئات",
+    "{en} national junior women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للناشئات",
+    "{en} national men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للرجال",
+    "{en} national men's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للرجال",
+    "{en} national men's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للرجال",
+    "{en} national men's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للرجال",
+    "{en} national men's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للرجال",
+    "{en} national men's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للرجال",
+    "{en} national men's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للرجال",
+    "{en} national men's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للرجال",
+    "{en} national men's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للرجال",
+    "{en} national men's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+    "{en} national men's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للرجال",
+    "{en} national under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة",
+    "{en} national under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة",
+    "{en} national under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة",
+    "{en} national under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة",
+    "{en} national under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة",
+    "{en} national under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة",
+    "{en} national under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة",
+    "{en} national under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة",
+    "{en} national under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة",
+    "{en} national under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة",
+    "{en} national under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة",
+    "{en} national women's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للسيدات",
+    "{en} national women's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للسيدات",
+    "{en} national women's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للسيدات",
+    "{en} national women's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للسيدات",
+    "{en} national women's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للسيدات",
+    "{en} national women's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للسيدات",
+    "{en} national women's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للسيدات",
+    "{en} national women's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للسيدات",
+    "{en} national women's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للسيدات",
+    "{en} national women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للسيدات",
+    "{en} national women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للسيدات",
+    "{en} national youth under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للشباب",
+    "{en} national youth under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للشباب",
+    "{en} national youth under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للشباب",
+    "{en} national youth under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للشباب",
+    "{en} national youth under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للشباب",
+    "{en} national youth under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للشباب",
+    "{en} national youth under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للشباب",
+    "{en} national youth under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للشباب",
+    "{en} national youth under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للشباب",
+    "{en} national youth under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للشباب",
+    "{en} national youth under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للشباب",
+    "{en} national youth women's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للشابات",
+    "{en} national youth women's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للشابات",
+    "{en} national youth women's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للشابات",
+    "{en} national youth women's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للشابات",
+    "{en} national youth women's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للشابات",
+    "{en} national youth women's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للشابات",
+    "{en} national youth women's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للشابات",
+    "{en} national youth women's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للشابات",
+    "{en} national youth women's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للشابات",
+    "{en} national youth women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للشابات",
+    "{en} national youth women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للشابات"
 }
 
 
-def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:
-    """
-    Return a sport label that merges templates with Arabic sport names.
+def remove_the(text: str) -> str:
+    if text.lower().startswith("the "):
+        return text[4:]
+    return text
 
-    Example:
-        suffix: "winter olympics softball", return: "كرة لينة {} في الألعاب الأولمبية الشتوية"
-    """
-    sport_key = match_sport_key(suffix)
-    if not sport_key:
-        return ""
 
-    sport_label = SPORTS_KEYS_FOR_TEAM.get(sport_key, "")
+@functools.lru_cache(maxsize=1)
+def _load_bot() -> MultiDataFormatterBaseV2:
+    nats_data = {
+        x: {"ar": v}
+        for x, v in countries_from_nat.items()
+    }
 
-    if not sport_label:
-        return ""
+    sports_data = {
+        x: {
+            "sport_ar": v["label"],
+            "sport_team": v["team"],
+            "sport_jobs": v["jobs"],
+        }
+        for x, v in SPORT_KEY_RECORDS.items()
+        if v.get("label")
+    }
 
-    normalized_key = re.sub(re.escape(sport_key), "xoxo", suffix, flags=re.IGNORECASE)
-
-    logger.info(f'Get_SFxo_en_ar_is P17: {suffix=}, {sport_key=}, team_xoxo:"{normalized_key}"')
-
-    template_label = SPORT_FORMATS_ENAR_P17_TEAM.get(normalized_key, "")
-
-    if not template_label:
-        logger.info(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in SPORT_FORMATS_ENAR_P17_TEAM')
-        return ""
-
-    con_3_label = apply_pattern_replacements(template_label, sport_label, "xoxo")
-
-    logger.info(f'Get_SFxo_en_ar_is P17 {suffix=}, {con_3_label=}')
-
-    return con_3_label
+    both_bot = format_multi_data_v2(
+        formatted_data=SPORT_FORMATS_ENAR_P17_TEAM,
+        data_list=nats_data,
+        key_placeholder="{en}",
+        data_list2=sports_data,
+        key2_placeholder="{en_sport}",
+        text_after="",
+        text_before="the ",
+        search_first_part=True,
+        use_other_formatted_data=True,
+    )
+    return both_bot
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data()
 def _get_p17_with_sport(category: str) -> str:
-    """
-    """
-    resolved_label = ""
-    category = category.lower()
+    logger.debug(f"<<yellow>> start _get_p17_with_sport: {category=}")
 
-    suffix, country_start = get_suffix_with_keys(category, countries_from_nat)
-    country_start_lab = countries_from_nat.get(country_start, "")
+    both_bot = _load_bot()
+    result = both_bot.search_all_category(category)
 
-    if not suffix or not country_start:
-        logger.info(f'<<lightred>>>>>> {suffix=} or {country_start=} == ""')
-        return ""
-
-    logger.debug(f'<<lightblue>> {country_start=}, {suffix=}')
-    logger.debug(f'<<lightpurple>>>>>> {country_start_lab=}')
-
-    suffix_label = Get_Sport_Format_xo_en_ar_is_P17(suffix.strip())
-
-    if not suffix_label:
-        logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')
-        return ""
-
-    if "{nat}" in suffix_label:
-        resolved_label = suffix_label.format(nat=country_start_lab)
-    else:
-        resolved_label = suffix_label.format(country_start_lab)
-
-    logger.debug(f'<<lightblue>>>>>> Get_P17_with_p17_sport: test_60: new cnt_la "{resolved_label}" ')
-
-    return resolved_label
+    logger.debug(f"<<yellow>> end _get_p17_with_sport: {category=}, {result=}")
+    return result
 
 
 @functools.lru_cache(maxsize=10000)
 @dump_data()
 def get_p17_with_sport_new(category: str) -> str:
     logger.debug(f"<<yellow>> start get_p17_with_sport_new: {category=}")
-    result = (
-        resolve_p17_bot_sport_suffixes(category, _get_p17_with_sport) or
-        _get_p17_with_sport(category) or
-        ""
-    )
+
+    result = resolve_p17_bot_sport_suffixes(category, _get_p17_with_sport)
+
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")
 

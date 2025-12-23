@@ -48,7 +48,7 @@ label_mappings_ends = dict(sorted(
 
 def normalize_text(text):
     text = text.lower().replace("category:", "")
-    text = text.replace("sportspeople", "sports-people")
+    # text = text.replace("sportspeople", "sports-people")
     text = text.replace(" the ", " ")
     # text = text.replace("republic of", "republic-of")
     if text.startswith("the "):
@@ -63,7 +63,7 @@ def resolve_p17_bot_sport_suffixes(category: str, callback: callable) -> str:
 
     result = ""
 
-    category = normalize_text(category)
+    # category = normalize_text(category)
     for key, value in label_mappings_ends.items():
         if category.endswith(key):
             new_category = category[: -len(key)].strip()
@@ -71,7 +71,8 @@ def resolve_p17_bot_sport_suffixes(category: str, callback: callable) -> str:
             if new_label:
                 result = f"{value} {new_label}"
             break
-
+    if not result:
+        result = callback(category)
     logger.debug(f"<<yellow>> end resolve_p17_bot_sport_suffixes: {category=}, {result=}")
     return result
 
