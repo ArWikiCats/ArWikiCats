@@ -43,6 +43,30 @@ def _build_new_tato() -> dict[str, str]:
     return data
 
 
+TEAM_DATA_NEW = {
+    "men's {under_en} national xoxo team": "منتخب {} xoxo {under_ar} للرجال",
+    "multi-national women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} متعددة الجنسيات للسيدات",
+    "national amateur {under_en} xoxo team": "منتخب {} xoxo {under_ar} للهواة",
+    "national junior men's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للناشئين",
+    "national junior women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للناشئات",
+    "national men's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للرجال",
+    "national {under_en} xoxo team": "منتخب {} xoxo {under_ar}",
+    "national women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للسيدات",
+    "national youth {under_en} xoxo team": "منتخب {} xoxo {under_ar} للشباب",
+    "national youth women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للشابات",
+
+    "multi-national women's xoxo team": "منتخب {} xoxo متعددة الجنسيات للسيدات",
+    "national amateur xoxo team": "منتخب {} xoxo للهواة",
+    "national junior men's xoxo team": "منتخب {} xoxo للناشئين",
+    "national junior women's xoxo team": "منتخب {} xoxo للناشئات",
+    "national men's xoxo team": "منتخب {} xoxo للرجال",
+    "national women's xoxo team": "منتخب {} xoxo للسيدات",
+    "national xoxo team": "منتخب {} xoxo",
+    "national youth women's xoxo team": "منتخب {} xoxo للشابات",
+    "national youth xoxo team": "منتخب {} xoxo للشباب"
+}
+
+
 AFTER_KEYS_FOR_TEAMS = {
     "": "{}",
     "champions": "أبطال {}",
