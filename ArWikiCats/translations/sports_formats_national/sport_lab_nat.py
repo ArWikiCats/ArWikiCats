@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" """
+"""
+NOTE: this is has alot of common code with ArWikiCats/translations/sports_formats_teams/team_job.py
+"""
 
 import functools
 import re

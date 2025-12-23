@@ -5,7 +5,6 @@ import functools
 import re
 from ...helps import dump_data, logger, len_print
 from ...translations import (
-    AFTER_KEYS_TEAM,
     countries_from_nat,
     SPORTS_KEYS_FOR_TEAM,
     match_sport_key,
@@ -44,9 +43,46 @@ def _build_new_tato() -> dict[str, str]:
     return data
 
 
+AFTER_KEYS_FOR_TEAMS = {
+    "team": "{}",
+    "team champions": "أبطال {}",
+    "team clubs": "أندية {}",
+    "team coaches": "مدربو {}",
+    "team competitions": "منافسات {}",
+    "team events": "أحداث {}",
+    "team films": "أفلام {}",
+    "team finals": "نهائيات {}",
+    "team home stadiums": "ملاعب {}",
+    "team leagues": "دوريات {}",
+    "team lists": "قوائم {}",
+    "team manager history": "تاريخ مدربو {}",
+    "team managers": "مدربو {}",
+    "team matches": "مباريات {}",
+    "team navigational boxes": "صناديق تصفح {}",
+    "team non-profit organizations": "منظمات غير ربحية {}",
+    "team non-profit publishers": "ناشرون غير ربحيون {}",
+    "team organisations": "منظمات {}",
+    "team organizations": "منظمات {}",
+    "team players": "لاعبو {}",
+    "team positions": "مراكز {}",
+    "team records": "سجلات {}",
+    "team records and statistics": "سجلات وإحصائيات {}",
+    "team results": "نتائج {}",
+    "team rivalries": "دربيات {}",
+    "team scouts": "كشافة {}",
+    "team squads": "تشكيلات {}",
+    "team statistics": "إحصائيات {}",
+    "team teams": "فرق {}",
+    "team templates": "قوالب {}",
+    "team tournaments": "بطولات {}",
+    "team trainers": "مدربو {}",
+    "team umpires": "حكام {}",
+    "team venues": "ملاعب {}"
+}
+
+
 def _build_nat_formats_for_p17() -> dict:
     """Construct nationality placeholders used for P17 sports formats."""
-    NAT_PLACE_HOLDER = "{}"
     data = {
         "xoxo league": "دوري {} xoxo",
         "professional xoxo league": "دوري {} xoxo للمحترفين",
@@ -64,35 +100,35 @@ def _build_nat_formats_for_p17() -> dict:
         "women's xoxo championship": "بطولة {} xoxo للسيدات",
         "xoxo cup": "كأس {} xoxo",
         # ---national youth handball team
-        "xoxo national team": f"منتخب {NAT_PLACE_HOLDER} xoxo",
-        "national xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo",
+        "xoxo national team": "منتخب {} xoxo",
+        "national xoxo team": "منتخب {} xoxo",
 
         # Category:Denmark national football team staff
-        "xoxo national team staff": f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo",
+        "xoxo national team staff": "طاقم منتخب {} xoxo",
 
         # Category:Denmark national football team non-playing staff
-        "xoxo national team non-playing staff": f"طاقم منتخب {NAT_PLACE_HOLDER} xoxo غير اللاعبين",
+        "xoxo national team non-playing staff": "طاقم منتخب {} xoxo غير اللاعبين",
 
         # Polish men's volleyball national team national junior men's
-        "national junior men's xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين",
-        "national junior xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للناشئين",
-        "national women's xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
-        "mennnn's national xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال",
-        "men's xoxo national team": f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال",
-        "national men's xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للرجال",
+        "national junior men's xoxo team": "منتخب {} xoxo للناشئين",
+        "national junior xoxo team": "منتخب {} xoxo للناشئين",
+        "national women's xoxo team": "منتخب {} xoxo للسيدات",
+        "mennnn's national xoxo team": "منتخب {} xoxo للرجال",
+        "men's xoxo national team": "منتخب {} xoxo للرجال",
+        "national men's xoxo team": "منتخب {} xoxo للرجال",
 
         # Australian men's U23 national road cycling team
-        "men's u23 national xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo تحت 23 سنة للرجال",
-        "national youth xoxo team": f"منتخب {NAT_PLACE_HOLDER} xoxo للشباب",
+        "men's u23 national xoxo team": "منتخب {} xoxo تحت 23 سنة للرجال",
+        "national youth xoxo team": "منتخب {} xoxo للشباب",
 
-        "national women's xoxo team managers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
-        "national xoxo team managers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo",
+        "national women's xoxo team managers": "مدربو منتخب {} xoxo للسيدات",
+        "national xoxo team managers": "مدربو منتخب {} xoxo",
 
-        "national women's xoxo team coaches": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
-        "national xoxo team coaches": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo",
+        "national women's xoxo team coaches": "مدربو منتخب {} xoxo للسيدات",
+        "national xoxo team coaches": "مدربو منتخب {} xoxo",
 
-        "national women's xoxo team trainers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo للسيدات",
-        "national xoxo team trainers": f"مدربو منتخب {NAT_PLACE_HOLDER} xoxo",
+        "national women's xoxo team trainers": "مدربو منتخب {} xoxo للسيدات",
+        "national xoxo team trainers": "مدربو منتخب {} xoxo",
     }
 
     return data
@@ -105,7 +141,7 @@ def generate_team_data(New_Tato) -> dict:
         K_at_p = tyu_lab.format("xoxo")
         nat_Lab = "منتخب {} " + K_at_p
 
-        for pre, pre_lab in AFTER_KEYS_TEAM.items():    # 35
+        for pre, pre_lab in AFTER_KEYS_FOR_TEAMS.items():    # 35
             pre_lab2 = pre_lab.format(nat_Lab)
             Ab = f"{tyu} xoxo {pre}"
 

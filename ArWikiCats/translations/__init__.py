@@ -1,6 +1,5 @@
 """ """
 
-from .sports.sports_lists import AFTER_KEYS_TEAM
 from .utils.json_dir import open_json_file
 from .sports.sub_teams_keys import sub_teams_new
 from .companies import New_Company
@@ -96,7 +95,6 @@ from .utils import apply_pattern_replacements
 from .sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 __all__ = [
-    "AFTER_KEYS_TEAM",
     "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",

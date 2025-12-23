@@ -103,16 +103,8 @@ AFTER_KEYS: Final[dict[str, str]] = {
 }
 
 
-def _extend_suffix_mappings() -> tuple[dict[str, str], dict[str, str]]:
-    """Populate ``AFTER_KEYS_TEAM`` and ``AFTER_KEYS_NAT`` with variants."""
-
-    # Templates used when building team specific suffixes.
-    AFTER_KEYS_TEAM: dict[str, str] = {
-        "team": "{}",
-        "team umpires": "حكام {}",
-        "team trainers": "مدربو {}",
-        "team scouts": "كشافة {}",
-    }
+def _extend_suffix_mappings() -> dict[str, str]:
+    """Populate ``AFTER_KEYS_NAT`` with variants."""
 
     AFTER_KEYS_NAT: dict[str, str] = {
         "": "{lab}",
@@ -121,23 +113,21 @@ def _extend_suffix_mappings() -> tuple[dict[str, str], dict[str, str]]:
     }
 
     for suffix_key, suffix_label in AFTER_KEYS.items():
-        AFTER_KEYS_TEAM[f"team {suffix_key}"] = f"{suffix_label} {{}}"
         AFTER_KEYS_NAT[suffix_key] = f"{suffix_label} {{lab}}"
 
     for level_key, level_label in LEVELS.items():
         AFTER_KEYS_NAT[f"{level_key} league"] = f"دوريات {{lab}} من {level_label}"
         AFTER_KEYS_NAT[f"{level_key} leagues"] = f"دوريات {{lab}} من {level_label}"
 
-    return AFTER_KEYS_TEAM, AFTER_KEYS_NAT
+    return AFTER_KEYS_NAT
 
 
-AFTER_KEYS_TEAM, AFTER_KEYS_NAT = _extend_suffix_mappings()
+AFTER_KEYS_NAT = _extend_suffix_mappings()
 
 
 __all__ = [
     "AFTER_KEYS",
     "AFTER_KEYS_NAT",
-    "AFTER_KEYS_TEAM",
     "LEVELS",
     "NEW_TATO_NAT",
 ]
@@ -147,7 +137,6 @@ len_print.data_len(
     {
         "AFTER_KEYS": AFTER_KEYS,
         "AFTER_KEYS_NAT": AFTER_KEYS_NAT,
-        "AFTER_KEYS_TEAM": AFTER_KEYS_TEAM,
         "LEVELS": LEVELS,
         "NEW_TATO_NAT": NEW_TATO_NAT,
     },
