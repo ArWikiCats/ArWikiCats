@@ -233,7 +233,6 @@ data_in = {
     "1789 in north america": ("1789", "north america"),
     "1789 in south america": ("1789", "south america"),
     "1789 in south american football": ("1789", "south american football"),
-    "1789 in south american women's football": ("1789", "south american women's football"),
     "1789 in the united kingdom": ("1789", "the united kingdom"),
     "1789 in women's sport": ("1789", "women's sport"),
     "1789 in youth football": ("1789", "youth football"),

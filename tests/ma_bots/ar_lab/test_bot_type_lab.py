@@ -148,8 +148,6 @@ data = [
     (" in ", "defunct sports clubs and teams", "أندية رياضية سابقة وفرق"),
     (" in ", "installations of united states air force", "منشآت في القوات الجوية الأمريكية"),
     (" in ", "united states air force", "القوات الجوية الأمريكية"),
-    (" by ", "1789 in south american women's football", "كرة قدم أمريكية جنوبية نسائية في 1789"),
-    (" by ", "south american women's football", "كرة قدم أمريكية جنوبية نسائية"),
     (" of ", "roman catholic archbishops of", "رؤساء أساقفة رومان كاثوليك في "),
     (" in ", "christian buildings and structures", "مبان ومنشآت مسيحية"),
     (" from ", "major league baseball players", "لاعبو دوري كرة القاعدة الرئيسي"),

@@ -243,7 +243,6 @@ data_test = [
     ("in", "saint vincent and grenadines", "سانت فنسنت وجزر غرينادين"),
     ("in", "santa maria da feira", "سانتا ماريا دا فييرا"),
     ("in", "south african rugby union", "اتحاد الرجبي الجنوب الإفريقي"),
-    ("in", "south american women's football", "كرة قدم أمريكية جنوبية نسائية"),
     ("in", "south korean women's sport", "رياضة كورية جنوبية نسائية"),
     ("in", "special region of yogyakarta", "يوجياكرتا"),
     ("in", "american civil war", "الحرب الأهلية الأمريكية"),

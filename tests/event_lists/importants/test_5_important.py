@@ -83,6 +83,14 @@ data_2 = {
 }
 
 data_3 = {
+    "1550 in asian women's football": "تصنيف:كرة قدم آسيوية للسيدات في 1550",
+    "1520 in south american women's football": "تصنيف:كرة قدم أمريكية جنوبية للسيدات في 1520",
+    "canadian women's ice hockey by league": "تصنيف:هوكي جليد كندية للسيدات حسب الدوري",
+    "european women's football by country": "تصنيف:كرة قدم أوروبية للسيدات حسب البلد",
+    "south american women's football": "تصنيف:كرة قدم أمريكية جنوبية للسيدات",
+    "1789 in south american women's football": "تصنيف:كرة قدم أمريكية جنوبية للسيدات في 1789",
+    "european national men's field hockey teams": "تصنيف:منتخبات هوكي ميدان وطنية أوروبية للرجال",
+    "northern ireland national men's football teams": "تصنيف:منتخبات كرة قدم وطنية أيرلندية شمالية للرجال",
 }
 
 to_test = [
