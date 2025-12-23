@@ -61,12 +61,13 @@ SPORT_FORMATS_ENAR_P17_TEAM = {
 
     "national women's xoxo team trainers": "مدربو منتخب {} xoxo للسيدات",
     "national xoxo team trainers": "مدربو منتخب {} xoxo",
-}
 
-TEAM_DATA = {
-    "men's u23 national xoxo team": "منتخب {} xoxo تحت 23 سنة للرجال",
-    "men's under-23 national xoxo team": "منتخب {} xoxo تحت 23 سنة للرجال",
+    "national youth women's xoxo team": "منتخب {} xoxo للشابات",
+    "national junior women's xoxo team": "منتخب {} xoxo للناشئات",
+    "national amateur xoxo team": "منتخب {} xoxo للهواة",
     "multi-national women's xoxo team": "منتخب {} xoxo متعددة الجنسيات للسيدات",
+
+    "men's under-23 national xoxo team": "منتخب {} xoxo تحت 23 سنة للرجال",
     "multi-national women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة متعددة الجنسيات للسيدات",
     "multi-national women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة متعددة الجنسيات للسيدات",
     "multi-national women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة متعددة الجنسيات للسيدات",
@@ -78,8 +79,6 @@ TEAM_DATA = {
     "multi-national women's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة متعددة الجنسيات للسيدات",
     "multi-national women's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة متعددة الجنسيات للسيدات",
     "multi-national women's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة متعددة الجنسيات للسيدات",
-    "national xoxo team": "منتخب {} xoxo",
-    "national amateur xoxo team": "منتخب {} xoxo للهواة",
     "national amateur under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للهواة",
     "national amateur under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للهواة",
     "national amateur under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للهواة",
@@ -91,7 +90,6 @@ TEAM_DATA = {
     "national amateur under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للهواة",
     "national amateur under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للهواة",
     "national amateur under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للهواة",
-    "national junior men's xoxo team": "منتخب {} xoxo للناشئين",
     "national junior men's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للناشئين",
     "national junior men's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للناشئين",
     "national junior men's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للناشئين",
@@ -103,7 +101,6 @@ TEAM_DATA = {
     "national junior men's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للناشئين",
     "national junior men's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للناشئين",
     "national junior men's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للناشئين",
-    "national junior women's xoxo team": "منتخب {} xoxo للناشئات",
     "national junior women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للناشئات",
     "national junior women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للناشئات",
     "national junior women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للناشئات",
@@ -115,7 +112,6 @@ TEAM_DATA = {
     "national junior women's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للناشئات",
     "national junior women's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للناشئات",
     "national junior women's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للناشئات",
-    "national men's xoxo team": "منتخب {} xoxo للرجال",
     "national men's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للرجال",
     "national men's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للرجال",
     "national men's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للرجال",
@@ -138,7 +134,6 @@ TEAM_DATA = {
     "national under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة",
     "national under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة",
     "national under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة",
-    "national women's xoxo team": "منتخب {} xoxo للسيدات",
     "national women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للسيدات",
     "national women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للسيدات",
     "national women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للسيدات",
@@ -150,7 +145,6 @@ TEAM_DATA = {
     "national women's under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للسيدات",
     "national women's under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للسيدات",
     "national women's under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للسيدات",
-    "national youth xoxo team": "منتخب {} xoxo للشباب",
     "national youth under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للشباب",
     "national youth under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للشباب",
     "national youth under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للشباب",
@@ -162,7 +156,6 @@ TEAM_DATA = {
     "national youth under-21 xoxo team": "منتخب {} xoxo تحت 21 سنة للشباب",
     "national youth under-23 xoxo team": "منتخب {} xoxo تحت 23 سنة للشباب",
     "national youth under-24 xoxo team": "منتخب {} xoxo تحت 24 سنة للشباب",
-    "national youth women's xoxo team": "منتخب {} xoxo للشابات",
     "national youth women's under-13 xoxo team": "منتخب {} xoxo تحت 13 سنة للشابات",
     "national youth women's under-14 xoxo team": "منتخب {} xoxo تحت 14 سنة للشابات",
     "national youth women's under-15 xoxo team": "منتخب {} xoxo تحت 15 سنة للشابات",
@@ -197,7 +190,7 @@ def Get_Sport_Format_xo_en_ar_is_P17(suffix: str) -> str:
 
     logger.info(f'Get_SFxo_en_ar_is P17: {suffix=}, {sport_key=}, team_xoxo:"{normalized_key}"')
 
-    template_label = SPORT_FORMATS_ENAR_P17_TEAM.get(normalized_key, "") or TEAM_DATA.get(normalized_key, "")
+    template_label = SPORT_FORMATS_ENAR_P17_TEAM.get(normalized_key, "")
 
     if not template_label:
         logger.info(f'Get_SFxo_en_ar_is P17 team_xoxo:"{normalized_key}" not in SPORT_FORMATS_ENAR_P17_TEAM')
@@ -263,7 +256,6 @@ def get_p17_with_sport(category: str) -> str:
 len_print.data_len(
     "p17_bot_sport.py",
     {
-        "TEAM_DATA": TEAM_DATA,
         "SPORT_FORMATS_ENAR_P17_TEAM": SPORT_FORMATS_ENAR_P17_TEAM,
     },
 )
