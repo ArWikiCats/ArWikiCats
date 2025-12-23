@@ -1,8 +1,9 @@
 """
-TODO: merge with translations_resolvers OR translations_resolvers_v2 or (Recommended: p17_sport_to_move_under.py)
+
+TODO: merge with countries_names_sport_multi_v2.py
+
 """
 import functools
-import re
 from ...helps import dump_data, logger
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations import (
@@ -13,72 +14,7 @@ from ...translations import (
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ..teams_mappings_ends import teams_label_mappings_ends
 
-# NOTE: plan to use it later
-TEAM_DATA_NEW = {
-    "men's {under_en} national xoxo team": "منتخب {} xoxo {under_ar} للرجال",
-    "multi-national women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} متعددة الجنسيات للسيدات",
-    "national amateur {under_en} xoxo team": "منتخب {} xoxo {under_ar} للهواة",
-    "national junior men's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للناشئين",
-    "national junior women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للناشئات",
-    "national men's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للرجال",
-    "national {under_en} xoxo team": "منتخب {} xoxo {under_ar}",
-    "national women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للسيدات",
-    "national youth {under_en} xoxo team": "منتخب {} xoxo {under_ar} للشباب",
-    "national youth women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للشابات",
-}
-
 SPORT_FORMATS_ENAR_P17_TEAM = {
-    "{en} {en_sport} league": "دوري {ar} {sport_team}",
-    "{en} professional {en_sport} league": "دوري {ar} {sport_team} للمحترفين",
-    "{en} amateur {en_sport} cup": "كأس {ar} {sport_team} للهواة",
-    "{en} youth {en_sport} cup": "كأس {ar} {sport_team} للشباب",
-    "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
-    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
-    "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
-    "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
-    "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
-    "{en} women's {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
-    "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
-    "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
-    "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
-    "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
-    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
-    # ---national youth handball team
-    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
-    "{en} national {en_sport} team": "منتخب {ar} {sport_team}",
-
-    # Category:Denmark national football team staff
-    "{en} {en_sport} national team staff": "طاقم منتخب {ar} {sport_team}",
-
-    # Category:Denmark national football team non-playing staff
-    "{en} {en_sport} national team non-playing staff": "طاقم منتخب {ar} {sport_team} غير اللاعبين",
-
-    # Polish men's volleyball national team national junior men's
-    "{en} national junior men's {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
-    "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
-    "{en} national women's {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
-    "{en} mennnn's national {en_sport} team": "منتخب {ar} {sport_team} للرجال",
-    "{en} men's {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
-    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
-
-    # Australian men's U23 national road cycling team
-    "{en} men's u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
-    "{en} national youth {en_sport} team": "منتخب {ar} {sport_team} للشباب",
-
-    "{en} national women's {en_sport} team managers": "مدربو منتخب {ar} {sport_team} للسيدات",
-    "{en} national {en_sport} team managers": "مدربو منتخب {ar} {sport_team}",
-
-    "{en} national women's {en_sport} team coaches": "مدربو منتخب {ar} {sport_team} للسيدات",
-    "{en} national {en_sport} team coaches": "مدربو منتخب {ar} {sport_team}",
-
-    "{en} national women's {en_sport} team trainers": "مدربو منتخب {ar} {sport_team} للسيدات",
-    "{en} national {en_sport} team trainers": "مدربو منتخب {ar} {sport_team}",
-
-    "{en} national youth women's {en_sport} team": "منتخب {ar} {sport_team} للشابات",
-    "{en} national junior women's {en_sport} team": "منتخب {ar} {sport_team} للناشئات",
-    "{en} national amateur {en_sport} team": "منتخب {ar} {sport_team} للهواة",
-    "{en} multi-national women's {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
-
     "{en} men's under-23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
     "{en} multi-national women's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة متعددة الجنسيات للسيدات",
     "{en} multi-national women's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة متعددة الجنسيات للسيدات",
@@ -197,12 +133,10 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
     sports_data = {
         x: {
-            "sport_ar": v["label"],
             "sport_team": v["team"],
-            "sport_jobs": v["jobs"],
         }
         for x, v in SPORT_KEY_RECORDS.items()
-        if v.get("label")
+        if v.get("team")
     }
 
     both_bot = format_multi_data_v2(
