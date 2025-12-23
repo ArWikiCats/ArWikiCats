@@ -1,4 +1,21 @@
 
+## [#262](https://github.com/MrIbrahem/ArWikiCats/pull/262) - 2025-12-23
+
+* **New Features**
+  * Replaced legacy hard-coded sport label resolution with a data-driven pipeline and improved suffix handling, including gendered form adjustments.
+
+* **Bug Fixes**
+  * Standardized sport-format constant names and removed outdated mappings for consistent outputs.
+
+* **Documentation / Data**
+  * Added sorted team-label mappings and many new translations for national, youth, staff, leagues and multinational categories.
+
+* **Tests**
+  * Updated and added tests to validate the new resolution flow and revised expected outputs.
+
+* **Chores**
+  * Public API names and exports updated to align with the new resolution pipeline.
+
 ## [#260](https://github.com/MrIbrahem/ArWikiCats/pull/260) - 2025-12-23
 
 * **New Features**

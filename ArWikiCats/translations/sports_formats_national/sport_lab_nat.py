@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
 NOTE: this is has alot of common code with ArWikiCats/translations/sports_formats_teams/team_job.py
+
+TODO: this file has alot of formatted_data
 """
 
 import functools
@@ -9,7 +11,7 @@ from ...helps import logger, len_print
 from ...translations import Nat_women
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from ..sports.sports_lists import AFTER_KEYS_NAT, LEVELS, NEW_TATO_NAT
+from ..sports.sports_lists import AFTER_KEYS_NAT, NEW_TATO_NAT
 
 
 def _load_new_for_nat_female_xo_team() -> dict[str, str]:
@@ -23,6 +25,25 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
         "men's xzxz cup": "كأس {nat} xzxz للرجال",
         "women's xzxz cup": "كأس {nat} xzxz للسيدات",
         "xzxz super leagues": "دوريات سوبر xzxz {nat}",
+    }
+    # ---
+    LEVELS: dict[str, str] = {
+        "premier": "الدرجة الممتازة",
+        "top level": "الدرجة الأولى",
+        "first level": "الدرجة الأولى",
+        "first tier": "الدرجة الأولى",
+        "second level": "الدرجة الثانية",
+        "second tier": "الدرجة الثانية",
+        "third level": "الدرجة الثالثة",
+        "third tier": "الدرجة الثالثة",
+        "fourth level": "الدرجة الرابعة",
+        "fourth tier": "الدرجة الرابعة",
+        "fifth level": "الدرجة الخامسة",
+        "fifth tier": "الدرجة الخامسة",
+        "sixth level": "الدرجة السادسة",
+        "sixth tier": "الدرجة السادسة",
+        "seventh level": "الدرجة السابعة",
+        "seventh tier": "الدرجة السابعة",
     }
     # ---
     for level, lvl_lab in LEVELS.items():
@@ -102,27 +123,27 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
 
 def _load_additional() -> dict[str, str]:
     data = {}
-
+    place_holder = "xzxz"
     for ty_nat, tas in NEW_TATO_NAT.items():  # 120
         tas = tas.strip()
         tasf = tas.format(nat="").strip()
-        K_at_p = f"منتخبات xzxz وطنية {tas}"
-        Ar_labs_3 = f"منتخبات xzxz وطنية {tasf}"
+        teams_label = f"منتخبات {place_holder} وطنية {tas}"
+        Ar_labs_3 = f"منتخبات {place_holder} وطنية {tasf}"
         if "national" not in ty_nat:
-            K_at_p = f"فرق xzxz {tas}"
-            Ar_labs_3 = f"فرق xzxz {tasf}"
+            teams_label = f"فرق {place_holder} {tas}"
+            Ar_labs_3 = f"فرق {place_holder} {tasf}"
         elif "multi-national" in ty_nat:
             Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
-        Ar_labs = K_at_p.format(nat="{nat}")
+        Ar_labs = teams_label.format(nat="{nat}")
+
         for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():       # 67
             if pr_e in ["players", "playerss"] and "women's" in ty_nat:
                 pr_e_Lab = "لاعبات {lab}"
             elif "لاعبو" in pr_e_Lab and "women's" in ty_nat:
                 pr_e_Lab = re.sub(r"لاعبو ", "لاعبات ", pr_e_Lab)
-            Ab = f"{ty_nat} xzxz teams {pr_e}"
-            Ab = Ab.strip()
-            data[Ab] = pr_e_Lab.format(lab=Ar_labs)
-        data[f"{ty_nat} teams"] = "فرق xzxz {nat}"
+
+            data[f"{ty_nat} {place_holder} teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs)
+        data[f"{ty_nat} teams"] = "فرق {place_holder} {nat}"
     return data
 
 

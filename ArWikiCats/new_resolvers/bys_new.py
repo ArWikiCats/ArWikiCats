@@ -138,6 +138,13 @@ def _load_data_to_find() -> dict[str, str]:
     }
 
     data_to_find = {
+        "by women's national team": "حسب المنتخب الوطني للسيدات",
+        "by women's youth national team": "حسب المنتخب الوطني للناشئات",
+        "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة",
+        "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
+        "by women's under-20 national team": "حسب المنتخب الوطني للسيدات تحت 20 سنة",
+        "by women's under-17 national team": "حسب المنتخب الوطني للسيدات تحت 17 سنة",
+
         "by national amateur team": "حسب المنتخب الوطني للهواة",
         "by national men's amateur team": "حسب المنتخب الوطني للهواة للرجال",
         "by national men's team": "حسب منتخب الرجال الوطني",
