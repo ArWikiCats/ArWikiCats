@@ -1,4 +1,16 @@
 
+## [#263](https://github.com/MrIbrahem/ArWikiCats/pull/263) - 2025-12-23
+
+* **New Features**
+  * Enhanced sports category translation with improved suffix-based resolution for better accuracy in categorizing national teams, leagues, and gender-specific variants.
+  * Added support for comprehensive youth and age-group sports category recognition.
+
+* **Bug Fixes**
+  * Improved handling of gender-specific player and team terminology in sports translations.
+
+* **Tests**
+  * Expanded test coverage for sports category resolution and translation validation.
+
 ## [#262](https://github.com/MrIbrahem/ArWikiCats/pull/262) - 2025-12-23
 
 * **New Features**
