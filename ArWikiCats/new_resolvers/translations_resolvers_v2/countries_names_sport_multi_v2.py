@@ -68,7 +68,7 @@ sports_formatted_data = {
     "{en} winter olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية الشتوية",
     "{en} {en_sport} manager history": "تاريخ مدربو {sport_jobs} {ar}",
 
-    # data from SPORT_FORMTS_ENAR_P17_TEAM
+    # data from SPORT_FORMATS_ENAR_P17_TEAM
     "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
     "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
     "{en} amateur {en_sport} cup": "كأس {ar} {sport_team} للهواة",

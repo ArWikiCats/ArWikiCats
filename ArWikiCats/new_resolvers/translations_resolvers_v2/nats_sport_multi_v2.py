@@ -146,7 +146,7 @@ sports_formatted_data = {
     "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
     "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
 
-    # SPORT_FORMTS_FEMALE_NAT
+    # SPORT_FORMATS_FEMALE_NAT
     # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
     "{en} outdoor {en_sport}": "{sport_ar} {the_female} في الهواء الطلق",
     "{en} indoor {en_sport}": "{sport_ar} {the_female} داخل الصالات",
