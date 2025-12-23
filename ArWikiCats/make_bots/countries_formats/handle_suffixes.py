@@ -14,7 +14,34 @@ def normalize_text(text):
     return text.strip()
 
 
-def resolve_sport_category_suffix_with_mapping(category: str, data: dict[str, str], callback: callable) -> str:
+def combine_value_and_label(
+    value,
+    new_label,
+    format_key="",
+) -> str:
+    """
+    Combine value and new_label based on format_key.
+    Examples:
+    - If format_key is "", return "value new_label".
+    - If format_key is "{}", return value formatted with new_label.
+    - If format_key == "ar", return value formatted with new_label using format_map.
+    """
+    if not format_key:
+        return f"{value} {new_label}"
+
+    if format_key == "{}":
+        return value.format(new_label)
+
+    result = value.format_map({format_key: new_label})
+    return result
+
+
+def resolve_sport_category_suffix_with_mapping(
+    category: str,
+    data: dict[str, str],
+    callback: callable,
+    format_key: str = "",
+) -> str:
     """."""
     logger.debug(f"<<yellow>> start resolve_sport_category_suffix_with_mapping: {category=}")
 
@@ -26,10 +53,12 @@ def resolve_sport_category_suffix_with_mapping(category: str, data: dict[str, st
             new_category = category[: -len(key)].strip()
             new_label = callback(new_category)
             if new_label:
-                result = f"{value} {new_label}"
+                result = combine_value_and_label(value, new_label, format_key)
             break
+
     if not result:
         result = callback(category)
+
     logger.debug(f"<<yellow>> end resolve_sport_category_suffix_with_mapping: {category=}, {result=}")
     return result
 

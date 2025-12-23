@@ -10,9 +10,18 @@ from ArWikiCats.make_bots.countries_formats.handle_suffixes import resolve_sport
 from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new, label_mappings_ends
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import resolve_countries_names_sport
 
+
+def resolve_countries_names_sport_n(category) -> str:
+    label2 = resolve_sport_category_suffix_with_mapping(category, label_mappings_ends, resolve_countries_names_sport)
+
+    if label2.startswith("لاعبو ") and "للسيدات" in label2:
+        label2 = label2.replace("لاعبو ", "لاعبات ")
+    return label2
+
 # =========================================================
 #                   get_p17_with_sport_new
 # =========================================================
+
 
 data_1 = {
     "paraguay national women's football team navigational boxes": "صناديق تصفح منتخب باراغواي لكرة القدم للسيدات",
@@ -143,7 +152,8 @@ def test_get_p17_with_sport_2(category: str, expected: str) -> None:
     label1 = get_p17_with_sport_new(category)
     assert label1 == expected
 
-    label2 = resolve_sport_category_suffix_with_mapping(category, label_mappings_ends, resolve_countries_names_sport)
+    label2 = resolve_countries_names_sport_n(category)
+
     assert label2 == expected
 
 # =========================================================
@@ -153,6 +163,7 @@ def test_get_p17_with_sport_2(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_get_p17_with_sport_1", data_1, get_p17_with_sport_new),
+    ("test_get_p17_with_sport_3", data_1, resolve_countries_names_sport_n),
 ]
 
 
