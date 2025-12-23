@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 """
+NOTE: this is has alot of common code with ArWikiCats/translations/sports_formats_teams/team_job.py
+
+TODO: this file has alot of formatted_data
 NOTE: this file has alot of formatted_data
 
 TODO: merge with ArWikiCats/new_resolvers/translations_resolvers_v2/nats_sport_multi_v2.py
@@ -12,6 +15,114 @@ from ...helps import logger, len_print
 from ...translations import Nat_women
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ..sports.sports_lists import AFTER_KEYS_NAT, NEW_TATO_NAT
+
+
+def _load_new_for_nat_female_xo_team() -> dict[str, str]:
+    data = {
+        "xzxz": "xzxz {nat}",  # Category:American_basketball
+        "xzxz championships": "بطولات xzxz {nat}",
+        "national xzxz championships": "بطولات xzxz وطنية {nat}",
+        "national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
+        "amateur xzxz cup": "كأس {nat} xzxz للهواة",
+        "youth xzxz cup": "كأس {nat} xzxz للشباب",
+        "men's xzxz cup": "كأس {nat} xzxz للرجال",
+        "women's xzxz cup": "كأس {nat} xzxz للسيدات",
+        "xzxz super leagues": "دوريات سوبر xzxz {nat}",
+    }
+    # ---
+    LEVELS: dict[str, str] = {
+        "premier": "الدرجة الممتازة",
+        "top level": "الدرجة الأولى",
+        "first level": "الدرجة الأولى",
+        "first tier": "الدرجة الأولى",
+        "second level": "الدرجة الثانية",
+        "second tier": "الدرجة الثانية",
+        "third level": "الدرجة الثالثة",
+        "third tier": "الدرجة الثالثة",
+        "fourth level": "الدرجة الرابعة",
+        "fourth tier": "الدرجة الرابعة",
+        "fifth level": "الدرجة الخامسة",
+        "fifth tier": "الدرجة الخامسة",
+        "sixth level": "الدرجة السادسة",
+        "sixth tier": "الدرجة السادسة",
+        "seventh level": "الدرجة السابعة",
+        "seventh tier": "الدرجة السابعة",
+    }
+    # ---
+    for level, lvl_lab in LEVELS.items():
+        data[f"national xzxz {level} league"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"
+        data[f"national xzxz {level} leagues"] = f"دوريات xzxz {{nat}} وطنية من {lvl_lab}"
+
+        data[f"defunct xzxz {level} league"] = f"دوريات xzxz {{nat}} سابقة من {lvl_lab}"
+        data[f"defunct xzxz {level} leagues"] = f"دوريات xzxz {{nat}} سابقة من {lvl_lab}"
+
+        data[f"{level} xzxz league"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
+        data[f"{level} xzxz leagues"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
+        data[f"xzxz {level} league"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
+        data[f"xzxz {level} leagues"] = f"دوريات xzxz {{nat}} من {lvl_lab}"
+    # ---
+    # ---
+    """
+
+    new way to make keys 2024
+
+
+    && indoor & outdoor &&
+    """
+    # ---
+    nat_f = "{nat}"
+    data["women's xzxz"] = f"xzxz {nat_f} نسائية"
+    data["xzxz chairmen and investors"] = f"رؤساء ومسيرو xzxz {nat_f}"
+    data["defunct xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f} سابقة"
+    data["xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f}"
+    data["domestic xzxz cup"] = f"كؤوس xzxz {nat_f} محلية"
+    data["current xzxz seasons"] = f"مواسم xzxz {nat_f} حالية"
+    # ---
+
+    typies = {
+        "cups": "كؤوس",
+        "clubs": "أندية",
+        "competitions": "منافسات",
+        "leagues": "دوريات",
+        "coaches": "مدربو",  # Category:Indoor soccer coaches in the United States by club
+    }
+
+    for en, ar in typies.items():
+        data[f"xzxz {en}"] = f"{ar} xzxz {nat_f}"
+        data[f"professional xzxz {en}"] = f"{ar} xzxz {nat_f} للمحترفين"
+        data[f"defunct xzxz {en}"] = f"{ar} xzxz {nat_f} سابقة"
+        data[f"domestic xzxz {en}"] = f"{ar} xzxz محلية {nat_f}"
+        data[f"domestic women's xzxz {en}"] = f"{ar} xzxz محلية {nat_f} للسيدات"
+
+        data[f"domestic xzxz {en}"] = f"{ar} xzxz {nat_f} محلية"
+        data[f"indoor xzxz {en}"] = f"{ar} xzxz {nat_f} داخل الصالات"
+        data[f"outdoor xzxz {en}"] = f"{ar} xzxz {nat_f} في الهواء الطلق"
+        data[f"defunct indoor xzxz {en}"] = f"{ar} xzxz {nat_f} داخل الصالات سابقة"
+        data[f"defunct outdoor xzxz {en}"] = f"{ar} xzxz {nat_f} في الهواء الطلق سابقة"
+    # ---
+    # ---
+    # indoor & outdoor
+    # tab[Category:Canadian domestic Soccer] = "تصنيف:كرة قدم كندية محلية"
+    data.update({
+        # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
+        "domestic xzxz": "xzxz {nat} محلية",
+        "indoor xzxz": "xzxz {nat} داخل الصالات",
+        "outdoor xzxz": "xzxz {nat} في الهواء الطلق",
+
+        # european national women's volleyball teams
+        "national women's xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
+        "national xzxz teams": "منتخبات xzxz وطنية {nat}",
+        # ---
+        "reserve xzxz teams": "فرق xzxz احتياطية {nat}",
+        "defunct xzxz teams": "فرق xzxz سابقة {nat}",
+        # ---
+        "national a' xzxz teams": "منتخبات xzxz محليين {nat}",
+        "national b xzxz teams": "منتخبات xzxz رديفة {nat}",
+        "national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
+    })
+    # ---
+    return data
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 
 AFTER_KEYS_NAT2 = {
@@ -142,12 +253,17 @@ NEW_TATO_NAT = {
 def _load_additional() -> dict[str, str]:
     data = {}
     place_holder = "xzxz"
+    place_holder = "xzxz"
     for ty_nat, tas in NEW_TATO_NAT.items():  # 120
         tas = tas.strip()
         tasf = tas.format(nat="").strip()
         teams_label = f"منتخبات {place_holder} وطنية {tas}"
         Ar_labs_3 = f"منتخبات {place_holder} وطنية {tasf}"
+        teams_label = f"منتخبات {place_holder} وطنية {tas}"
+        Ar_labs_3 = f"منتخبات {place_holder} وطنية {tasf}"
         if "national" not in ty_nat:
+            teams_label = f"فرق {place_holder} {tas}"
+            Ar_labs_3 = f"فرق {place_holder} {tasf}"
             teams_label = f"فرق {place_holder} {tas}"
             Ar_labs_3 = f"فرق {place_holder} {tasf}"
         elif "multi-national" in ty_nat:
