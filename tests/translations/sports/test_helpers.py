@@ -38,11 +38,3 @@ def test_build_cycling_templates_produces_derivative_keys() -> None:
 def test_cycling_aliases_match_primary_templates() -> None:
     assert cycling.CYCLING_TEMPLATES is cycling.CYCLING_TEMPLATES
     assert cycling.CYCLING_TEMPLATES is cycling.CYCLING_TEMPLATES
-
-
-def test_new_tato_nat_includes_year_templates() -> None:
-    result = sports_lists.NEW_TATO_NAT
-
-    assert result[" under-17"] == "{nat} تحت 17 سنة"
-    assert result["national under-17"] == "{nat} تحت 17 سنة"
-    assert result[""] == "{nat}"

@@ -68,7 +68,7 @@ data1 = {
     "australian football league": "تصنيف:الدوري الأسترالي لكرة القدم",
     "azerbaijan first division": "تصنيف:أذربيجان",
     "bandy world cup": "تصنيف:كأس العالم للباندي",
-    "bangladesh football premier league": "تصنيف:دوريات كرة قدم بنغلاديشية من الدرجة الممتازة",
+    "bangladesh football premier leagues": "تصنيف:دوريات كرة قدم بنغلاديشية من الدرجة الممتازة",
     "barbados fa cup": "تصنيف:كأس الاتحاد البربادوسي",
     "barbados premier division": "تصنيف:الدوري البربادوسي الممتاز",
     "bermudian premier division": "تصنيف:الدوري البرمودي الممتاز",

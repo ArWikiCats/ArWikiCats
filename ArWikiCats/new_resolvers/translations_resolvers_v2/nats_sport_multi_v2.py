@@ -118,6 +118,7 @@ NAT_P17_OIOI = {
 }
 
 sports_formatted_data = {
+
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
 
     # american coaches of basketball
@@ -188,6 +189,17 @@ sports_formatted_data = {
     "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
 }
 
+
+def _levels_data() -> dict[str, str]:
+    data = {
+        # "bangladesh football premier leagues": "تصنيف:دوريات كرة قدم بنغلاديشية من الدرجة الممتازة",
+        "{en} {en_sport} premier leagues": "دوريات {sport_jobs} {female} من الدرجة الممتازة",
+        "{en_sport} premier leagues": "دوريات {sport_jobs} من الدرجة الممتازة",
+    }
+    return data
+
+
+sports_formatted_data.update(_levels_data())
 sports_formatted_data.update(sports_formatted_data_for_jobs)
 sports_formatted_data.update(NAT_P17_OIOI)
 

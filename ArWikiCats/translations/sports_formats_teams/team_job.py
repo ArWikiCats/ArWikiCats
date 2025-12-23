@@ -6,7 +6,6 @@ NOTE: this is has alot of common code with ArWikiCats/translations/sports_format
 import re
 
 from ...helps import len_print
-from ..sports.sports_lists import AFTER_KEYS_NAT, NEW_TATO_NAT
 
 # ---
 # New_team_xo_jobs[ "xoxo olympic champions"] = "تاريخ مدربو منتخبات xoxo وطنية للسيدات"
