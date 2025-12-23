@@ -36,6 +36,11 @@ data0 = {
 }
 
 data1 = {
+    "south american second tier football leagues": "تصنيف:دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
+    "european second tier basketball leagues": "تصنيف:دوريات كرة سلة أوروبية من الدرجة الثانية",
+    "european second tier ice hockey leagues": "تصنيف:دوريات هوكي جليد أوروبية من الدرجة الثانية",
+    "israeli basketball premier league": "تصنيف:الدوري الإسرائيلي الممتاز لكرة السلة",
+
     "Category:Burial sites of ancient Irish dynasties": "تصنيف:مواقع دفن أسر أيرلندية قديمة",
     "Category:Burial sites of Arab dynasties": "تصنيف:مواقع دفن أسر عربية",
     "Category:Burial sites of Asian royal families": "تصنيف:مواقع دفن عائلات ملكية آسيوية",

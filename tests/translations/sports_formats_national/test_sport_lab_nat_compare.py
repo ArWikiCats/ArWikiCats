@@ -6,6 +6,11 @@ from ArWikiCats.translations.sports_formats_national.sport_lab_nat import (
 )
 
 data = {
+    "south american second tier football leagues": "دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
+    "european second tier basketball leagues": "دوريات كرة سلة أوروبية من الدرجة الثانية",
+    "european second tier ice hockey leagues": "دوريات هوكي جليد أوروبية من الدرجة الثانية",
+    "israeli basketball premier league": "دوريات كرة سلة إسرائيلية من الدرجة الممتازة",
+
     "afghan cricket": "كريكت أفغانية",
     "african archery": "نبالة إفريقية",
     "african basketball leagues": "دوريات كرة سلة إفريقية",
@@ -114,8 +119,6 @@ data = {
     "european ice hockey": "هوكي جليد أوروبية",
     "european national beach soccer teams": "منتخبات كرة قدم شاطئية وطنية أوروبية",
     "european national men's field hockey teams": "منتخبات هوكي ميدان وطنية أوروبية للرجال",
-    "european second tier basketball leagues": "دوريات كرة سلة أوروبية من الدرجة الثانية",
-    "european second tier ice hockey leagues": "دوريات هوكي جليد أوروبية من الدرجة الثانية",
     "european volleyball leagues": "دوريات كرة طائرة أوروبية",
     "european water polo": "كرة ماء أوروبية",
     "faroese football leagues": "دوريات كرة قدم فاروية",
@@ -154,7 +157,6 @@ data = {
     "irish cricket": "كريكت أيرلندية",
     "irish domestic cricket competitions": "منافسات كريكت أيرلندية محلية",
     "irish football cups": "كؤوس كرة قدم أيرلندية",
-    "israeli basketball premier league": "دوريات كرة سلة إسرائيلية من الدرجة الممتازة",
     "israeli basketball": "كرة سلة إسرائيلية",
     "israeli football leagues": "دوريات كرة قدم إسرائيلية",
     "israeli ice hockey": "هوكي جليد إسرائيلية",
@@ -242,7 +244,6 @@ data = {
     "south american futsal": "كرة صالات أمريكية جنوبية",
     "south american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية جنوبية",
     "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
-    "south american second tier football leagues": "دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
     "south korean basketball": "كرة سلة كورية جنوبية",
     "soviet football leagues": "دوريات كرة قدم سوفيتية",
     "soviet ice hockey": "هوكي جليد سوفيتية",

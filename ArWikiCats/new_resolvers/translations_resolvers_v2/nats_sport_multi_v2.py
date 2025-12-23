@@ -192,10 +192,44 @@ sports_formatted_data = {
 
 def _levels_data() -> dict[str, str]:
     data = {
+        "{en} {en_sport} premier league": "الدوري {the_male} الممتاز {sport_team}",
+        "{en} premier {en_sport} league": "الدوري {the_male} الممتاز {sport_team}",
+
         # "bangladesh football premier leagues": "تصنيف:دوريات كرة قدم بنغلاديشية من الدرجة الممتازة",
+        # "croatian premier handball league": "تصنيف:دوريات كرة يد كرواتية من الدرجة الممتازة",
         "{en} {en_sport} premier leagues": "دوريات {sport_jobs} {female} من الدرجة الممتازة",
         "{en_sport} premier leagues": "دوريات {sport_jobs} من الدرجة الممتازة",
+        "{en} premier {en_sport} leagues": "دوريات {sport_jobs} {female} من الدرجة الممتازة",
+        "premier {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الممتازة",
     }
+    LEVELS: dict[str, str] = {
+        "premier": "الدرجة الممتازة",
+        "top level": "الدرجة الأولى",
+        "first level": "الدرجة الأولى",
+        "first tier": "الدرجة الأولى",
+        "second level": "الدرجة الثانية",
+        "second tier": "الدرجة الثانية",
+        "third level": "الدرجة الثالثة",
+        "third tier": "الدرجة الثالثة",
+        "fourth level": "الدرجة الرابعة",
+        "fourth tier": "الدرجة الرابعة",
+        "fifth level": "الدرجة الخامسة",
+        "fifth tier": "الدرجة الخامسة",
+        "sixth level": "الدرجة السادسة",
+        "sixth tier": "الدرجة السادسة",
+        "seventh level": "الدرجة السابعة",
+        "seventh tier": "الدرجة السابعة",
+    }
+    for level, lvl_lab in LEVELS.items():
+        data.update({
+            f"{{en}} {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
+            f"{{en}} {level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
+
+            f"national {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} وطنية من {lvl_lab}",
+            f"{{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
+            f"{level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
+        })
+
     return data
 
 
