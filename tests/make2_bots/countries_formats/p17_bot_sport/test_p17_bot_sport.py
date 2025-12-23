@@ -6,8 +6,7 @@ import pytest
 from typing import Callable
 
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new, SPORT_FORMATS_ENAR_P17_TEAM
-from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import sports_formatted_data
+from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new
 
 # =========================================================
 #                   get_p17_with_sport_new
@@ -46,15 +45,3 @@ def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-@pytest.mark.skip
-def test_compare_data():
-    # SPORT_FORMATS_ENAR_P17_TEAM
-    # sports_formatted_data
-    same_keys = {x: v for x, v in SPORT_FORMATS_ENAR_P17_TEAM.items() if x in sports_formatted_data and sports_formatted_data[x] == v}
-    dump_diff(same_keys, "same_keys")
-
-    diff_value = {x: v for x, v in SPORT_FORMATS_ENAR_P17_TEAM.items() if x in sports_formatted_data and sports_formatted_data[x] != v}
-    dump_diff(diff_value, "same_keys_diff_value")
-    assert same_keys == {}, f"Found same keys in both data sets: {same_keys}"

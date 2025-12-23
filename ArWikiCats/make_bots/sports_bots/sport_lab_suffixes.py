@@ -1,4 +1,8 @@
-"""Helpers for resolving sports teams and language categories."""
+"""
+Helpers for resolving sports teams and language categories.
+
+TODO: compare this file with ArWikiCats/new/handle_suffixes.py
+"""
 
 from __future__ import annotations
 

@@ -15,51 +15,7 @@ from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ..teams_mappings_ends import teams_label_mappings_ends
 
 SPORT_FORMATS_ENAR_P17_TEAM = {
-    "{en} men's under-23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
-    "{en} multi-national women's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة متعددة الجنسيات للسيدات",
-    "{en} multi-national women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة متعددة الجنسيات للسيدات",
-    "{en} national amateur under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للهواة",
-    "{en} national amateur under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للهواة",
-    "{en} national amateur under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للهواة",
-    "{en} national amateur under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للهواة",
-    "{en} national amateur under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للهواة",
-    "{en} national amateur under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للهواة",
-    "{en} national amateur under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للهواة",
-    "{en} national amateur under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للهواة",
-    "{en} national amateur under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للهواة",
-    "{en} national amateur under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للهواة",
-    "{en} national amateur under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للهواة",
-    "{en} national junior men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للناشئين",
-    "{en} national junior men's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للناشئين",
-    "{en} national junior men's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للناشئين",
-    "{en} national junior men's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للناشئين",
-    "{en} national junior men's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للناشئين",
-    "{en} national junior men's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للناشئين",
-    "{en} national junior men's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للناشئين",
-    "{en} national junior men's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للناشئين",
-    "{en} national junior men's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للناشئين",
-    "{en} national junior men's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للناشئين",
-    "{en} national junior men's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للناشئين",
-    "{en} national junior women's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للناشئات",
-    "{en} national junior women's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للناشئات",
-    "{en} national junior women's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للناشئات",
-    "{en} national junior women's under-16 {en_sport} team": "منتخب {ar} {sport_team} تحت 16 سنة للناشئات",
-    "{en} national junior women's under-17 {en_sport} team": "منتخب {ar} {sport_team} تحت 17 سنة للناشئات",
-    "{en} national junior women's under-18 {en_sport} team": "منتخب {ar} {sport_team} تحت 18 سنة للناشئات",
-    "{en} national junior women's under-19 {en_sport} team": "منتخب {ar} {sport_team} تحت 19 سنة للناشئات",
-    "{en} national junior women's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للناشئات",
-    "{en} national junior women's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للناشئات",
-    "{en} national junior women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للناشئات",
-    "{en} national junior women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للناشئات",
+
     "{en} national men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للرجال",
     "{en} national men's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للرجال",
     "{en} national men's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للرجال",
@@ -116,12 +72,6 @@ SPORT_FORMATS_ENAR_P17_TEAM = {
     "{en} national youth women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للشابات",
     "{en} national youth women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للشابات"
 }
-
-
-def remove_the(text: str) -> str:
-    if text.lower().startswith("the "):
-        return text[4:]
-    return text
 
 
 @functools.lru_cache(maxsize=1)

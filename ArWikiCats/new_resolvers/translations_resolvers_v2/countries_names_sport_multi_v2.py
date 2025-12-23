@@ -42,6 +42,8 @@ sports_formatted_data = {
     "{en} international women's {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
     # data from p17_bot_sport_for_job.py
+    # "national men's under-17 {en_sport} teams": "منتخبات {sport_jobs} تحت 17 سنة للرجال",
+
     "{en} under-13 international {en_sport} players": "لاعبو {sport_jobs} تحت 13 سنة دوليون من {ar}",
     "{en} under-14 international {en_sport} players": "لاعبو {sport_jobs} تحت 14 سنة دوليون من {ar}",
     "{en} under-15 international {en_sport} players": "لاعبو {sport_jobs} تحت 15 سنة دوليون من {ar}",

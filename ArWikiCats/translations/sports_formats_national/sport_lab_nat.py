@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
 NOTE: this is has alot of common code with ArWikiCats/translations/sports_formats_teams/team_job.py
+
+TODO: this file has alot of formatted_data
 """
 
 import functools
@@ -9,7 +11,7 @@ from ...helps import logger, len_print
 from ...translations import Nat_women
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from ..sports.sports_lists import AFTER_KEYS_NAT, LEVELS, NEW_TATO_NAT
+from ..sports.sports_lists import AFTER_KEYS_NAT, NEW_TATO_NAT
 
 
 def _load_new_for_nat_female_xo_team() -> dict[str, str]:
@@ -23,6 +25,25 @@ def _load_new_for_nat_female_xo_team() -> dict[str, str]:
         "men's xzxz cup": "كأس {nat} xzxz للرجال",
         "women's xzxz cup": "كأس {nat} xzxz للسيدات",
         "xzxz super leagues": "دوريات سوبر xzxz {nat}",
+    }
+    # ---
+    LEVELS: dict[str, str] = {
+        "premier": "الدرجة الممتازة",
+        "top level": "الدرجة الأولى",
+        "first level": "الدرجة الأولى",
+        "first tier": "الدرجة الأولى",
+        "second level": "الدرجة الثانية",
+        "second tier": "الدرجة الثانية",
+        "third level": "الدرجة الثالثة",
+        "third tier": "الدرجة الثالثة",
+        "fourth level": "الدرجة الرابعة",
+        "fourth tier": "الدرجة الرابعة",
+        "fifth level": "الدرجة الخامسة",
+        "fifth tier": "الدرجة الخامسة",
+        "sixth level": "الدرجة السادسة",
+        "sixth tier": "الدرجة السادسة",
+        "seventh level": "الدرجة السابعة",
+        "seventh tier": "الدرجة السابعة",
     }
     # ---
     for level, lvl_lab in LEVELS.items():
