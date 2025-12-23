@@ -14,7 +14,7 @@ if _Dir := Path(__file__).parent.parent:
 from ArWikiCats import print_memory, batch_resolve_labels
 
 
-def compare_and_export_labels(data, name):
+def compare_and_export_labels(data, name, remove_ar_prefix=False):
     time_start = time.time()
 
     result = batch_resolve_labels(tqdm(list(data.keys())))
@@ -36,11 +36,14 @@ def compare_and_export_labels(data, name):
         "new": {},
     }
     for key, value in labels.items():
-        if value == data.get(key):
+        value = value.replace("تصنيف:", "") if remove_ar_prefix else value
+        data_value = data.get(key, "").replace("تصنيف:", "") if remove_ar_prefix else data.get(key, "")
+
+        if value == data_value:
             same[key] = value
         else:
             diff["new"][key] = value
-            diff["old"][key] = data.get(key)
+            diff["old"][key] = data_value
 
     print(f"same: {len(same)}, diff: {len(diff['old'])}")
 

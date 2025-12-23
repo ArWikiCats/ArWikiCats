@@ -14,4 +14,4 @@ file_path = Path(__file__).parent / "data/teams_to_test.json"
 with open(file_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-compare_and_export_labels(data, "teams_to_test")
+compare_and_export_labels(data, "teams_to_test", remove_ar_prefix=True)
