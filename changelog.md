@@ -1,4 +1,19 @@
 
+## [#260](https://github.com/MrIbrahem/ArWikiCats/pull/260) - 2025-12-23
+
+* **New Features**
+  * Broader Arabic labeling for many sport categories, including additional team, youth, amateur and women's variants
+  * Improved suffix-aware resolution so category endings yield more natural combined labels
+
+* **Refactor**
+  * Simplified internal data sources and initialization to streamline label generation and normalization
+
+* **Tests**
+  * Added tests exercising sport category resolution and new label outputs
+
+* **Chores**
+  * Cleaned up exports and reduced redundant runtime data reporting
+
 ## [#259](https://github.com/MrIbrahem/ArWikiCats/pull/259) - 2025-12-23
 
 * **Refactor**
