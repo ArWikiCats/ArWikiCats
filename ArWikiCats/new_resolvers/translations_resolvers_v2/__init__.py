@@ -20,7 +20,7 @@ def resolved_translations_resolvers_v2(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> Trying v2 resolvers for: {normalized_category=}")
 
     resolved_label = (
-        countries_names_sport_multi_v2.resolve_countries_names_sport(normalized_category) or
+        countries_names_sport_multi_v2.resolve_countries_names_sport_with_ends(normalized_category) or
         countries_names_v2.resolve_by_countries_names_v2(normalized_category) or
         nats_sport_multi_v2.resolve_nats_sport_multi_v2(normalized_category) or
         nats_v2.resolve_by_nats(normalized_category) or
