@@ -3,12 +3,15 @@
 
 """
 import functools
+
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...helps import logger
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ..translations_resolvers.countries_names_data import formatted_data_en_ar_only
 from .nats_as_country_names import nats_keys_as_country_names
+from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
@@ -23,10 +26,10 @@ sports_formatted_data = {
 
     "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} playerss": "لاعبات {sport_jobs}",
-    "{en} women's national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
-    "{en} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
-    "{en} national {en_sport} team" : "منتخب {ar} {sport_team}",
-    "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
+    "{en} women's national {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} women's national {en_sport} team players": "لاعبات منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team": "منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team players": "لاعبو منتخب {ar} {sport_team}",
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
     "women's {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
 
@@ -39,28 +42,29 @@ sports_formatted_data = {
     "{en} international women's {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
     # data from p17_bot_sport_for_job.py
-    "{en} under-13 international {en_sport} managers": "مدربو {sport_jobs} تحت 13 سنة دوليون من {ar}",
     "{en} under-13 international {en_sport} players": "لاعبو {sport_jobs} تحت 13 سنة دوليون من {ar}",
-    "{en} under-14 international {en_sport} managers": "مدربو {sport_jobs} تحت 14 سنة دوليون من {ar}",
     "{en} under-14 international {en_sport} players": "لاعبو {sport_jobs} تحت 14 سنة دوليون من {ar}",
-    "{en} under-15 international {en_sport} managers": "مدربو {sport_jobs} تحت 15 سنة دوليون من {ar}",
     "{en} under-15 international {en_sport} players": "لاعبو {sport_jobs} تحت 15 سنة دوليون من {ar}",
-    "{en} under-16 international {en_sport} managers": "مدربو {sport_jobs} تحت 16 سنة دوليون من {ar}",
     "{en} under-16 international {en_sport} players": "لاعبو {sport_jobs} تحت 16 سنة دوليون من {ar}",
-    "{en} under-17 international {en_sport} managers": "مدربو {sport_jobs} تحت 17 سنة دوليون من {ar}",
     "{en} under-17 international {en_sport} players": "لاعبو {sport_jobs} تحت 17 سنة دوليون من {ar}",
-    "{en} under-18 international {en_sport} managers": "مدربو {sport_jobs} تحت 18 سنة دوليون من {ar}",
     "{en} under-18 international {en_sport} players": "لاعبو {sport_jobs} تحت 18 سنة دوليون من {ar}",
-    "{en} under-19 international {en_sport} managers": "مدربو {sport_jobs} تحت 19 سنة دوليون من {ar}",
     "{en} under-19 international {en_sport} players": "لاعبو {sport_jobs} تحت 19 سنة دوليون من {ar}",
-    "{en} under-20 international {en_sport} managers": "مدربو {sport_jobs} تحت 20 سنة دوليون من {ar}",
     "{en} under-20 international {en_sport} players": "لاعبو {sport_jobs} تحت 20 سنة دوليون من {ar}",
-    "{en} under-21 international {en_sport} managers": "مدربو {sport_jobs} تحت 21 سنة دوليون من {ar}",
     "{en} under-21 international {en_sport} players": "لاعبو {sport_jobs} تحت 21 سنة دوليون من {ar}",
-    "{en} under-23 international {en_sport} managers": "مدربو {sport_jobs} تحت 23 سنة دوليون من {ar}",
     "{en} under-23 international {en_sport} players": "لاعبو {sport_jobs} تحت 23 سنة دوليون من {ar}",
-    "{en} under-24 international {en_sport} managers": "مدربو {sport_jobs} تحت 24 سنة دوليون من {ar}",
     "{en} under-24 international {en_sport} players": "لاعبو {sport_jobs} تحت 24 سنة دوليون من {ar}",
+
+    "{en} under-13 international {en_sport} managers": "مدربو {sport_jobs} تحت 13 سنة دوليون من {ar}",
+    "{en} under-14 international {en_sport} managers": "مدربو {sport_jobs} تحت 14 سنة دوليون من {ar}",
+    "{en} under-15 international {en_sport} managers": "مدربو {sport_jobs} تحت 15 سنة دوليون من {ar}",
+    "{en} under-16 international {en_sport} managers": "مدربو {sport_jobs} تحت 16 سنة دوليون من {ar}",
+    "{en} under-17 international {en_sport} managers": "مدربو {sport_jobs} تحت 17 سنة دوليون من {ar}",
+    "{en} under-18 international {en_sport} managers": "مدربو {sport_jobs} تحت 18 سنة دوليون من {ar}",
+    "{en} under-19 international {en_sport} managers": "مدربو {sport_jobs} تحت 19 سنة دوليون من {ar}",
+    "{en} under-20 international {en_sport} managers": "مدربو {sport_jobs} تحت 20 سنة دوليون من {ar}",
+    "{en} under-21 international {en_sport} managers": "مدربو {sport_jobs} تحت 21 سنة دوليون من {ar}",
+    "{en} under-23 international {en_sport} managers": "مدربو {sport_jobs} تحت 23 سنة دوليون من {ar}",
+    "{en} under-24 international {en_sport} managers": "مدربو {sport_jobs} تحت 24 سنة دوليون من {ar}",
 
     "{en} olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية",
     "{en} summer olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية الصيفية",
@@ -68,39 +72,57 @@ sports_formatted_data = {
     "{en} winter olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية الشتوية",
     "{en} {en_sport} manager history": "تاريخ مدربو {sport_jobs} {ar}",
 
-    # data from SPORT_FORMTS_ENAR_P17_TEAM
-    "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
-    "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
+    # data from SPORT_FORMATS_ENAR_P17_TEAM
+
+    "{en} {en_sport} league": "دوري {ar} {sport_team}",
+    "{en} professional {en_sport} league": "دوري {ar} {sport_team} للمحترفين",
     "{en} amateur {en_sport} cup": "كأس {ar} {sport_team} للهواة",
-    "{en} men's u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
-    "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
-    "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
+    "{en} youth {en_sport} cup": "كأس {ar} {sport_team} للشباب",
     "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
-    "{en} men's {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
-    "{en} mennnn's national {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
+    "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
+    "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
+    "{en} women's {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+    "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
+    "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
+    "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
+    "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
+    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
+    # ---national youth handball team
+    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
+
+    # Category:Denmark national football team staff
+    "{en} {en_sport} national team staff": "طاقم منتخب {ar} {sport_team}",
+
+    # Category:Denmark national football team non-playing staff
+    "{en} {en_sport} national team non-playing staff": "طاقم منتخب {ar} {sport_team} غير اللاعبين",
+
+    # Polish men's volleyball national team national junior men's
     "{en} national junior men's {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
     "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
-    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
     "{en} national women's {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
-    "{en} national women's {en_sport} team coaches": "مدربو منتخب {ar} {sport_team} للسيدات",
-    "{en} national women's {en_sport} team managers": "مدربو منتخب {ar} {sport_team} للسيدات",
-    "{en} national women's {en_sport} team trainers": "مدربو منتخب {ar} {sport_team} للسيدات",
-    "{en} national {en_sport} team coaches": "مدربو منتخب {ar} {sport_team}",
-    "{en} national {en_sport} team managers": "مدربو منتخب {ar} {sport_team}",
-    "{en} national {en_sport} team trainers": "مدربو منتخب {ar} {sport_team}",
+    "{en} men's national {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} men's {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
+    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+
+    # Australian men's U23 national road cycling team
+    "{en} men's u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
     "{en} national youth {en_sport} team": "منتخب {ar} {sport_team} للشباب",
-    "{en} professional {en_sport} league": "دوري {ar} {sport_team} للمحترفين",
-    "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
-    "{en} women's {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
-    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
-    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
-    "{en} {en_sport} league": "دوري {ar} {sport_team}",
-    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
-    "{en} {en_sport} national team non-playing staff": "طاقم منتخب {ar} {sport_team} غير اللاعبين",
-    "{en} {en_sport} national team staff": "طاقم منتخب {ar} {sport_team}",
-    "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
-    "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
-    "{en} youth {en_sport} cup": "كأس {ar} {sport_team} للشباب"
+
+    "{en} national women's {en_sport} team managers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team managers": "مدربو منتخب {ar} {sport_team}",
+
+    "{en} national women's {en_sport} team coaches": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team coaches": "مدربو منتخب {ar} {sport_team}",
+
+    "{en} national women's {en_sport} team trainers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team trainers": "مدربو منتخب {ar} {sport_team}",
+
+    "{en} national youth women's {en_sport} team": "منتخب {ar} {sport_team} للشابات",
+    "{en} national junior women's {en_sport} team": "منتخب {ar} {sport_team} للناشئات",
+    "{en} national amateur {en_sport} team": "منتخب {ar} {sport_team} للهواة",
+    "{en} multi-national women's {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
 }
 
 WOMENS_NATIONAL_DATA = {
@@ -169,6 +191,15 @@ def resolve_countries_names_sport(category: str) -> str:
     return result
 
 
+def resolve_countries_names_sport_with_ends(category) -> str:
+    label2 = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, resolve_countries_names_sport)
+
+    if label2.startswith("لاعبو ") and "للسيدات" in label2:
+        label2 = label2.replace("لاعبو ", "لاعبات ")
+    return label2
+
+
 __all__ = [
     "resolve_countries_names_sport",
+    "resolve_countries_names_sport_with_ends",
 ]
