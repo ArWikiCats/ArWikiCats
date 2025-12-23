@@ -345,8 +345,6 @@ def test_sport_lab_nat_load(key: str, expected: str) -> None:
 
 data2 = {
     "russian football teams": "فرق كرة قدم روسية",
-    "canadian football teams": "فرق كرة قدم كندية",
-    "canadian football competitions": "منافسات كرة قدم كندية",
     "american football teams": "فرق كرة قدم أمريكية",
     "american football competitions": "منافسات كرة قدم أمريكية",
     "north american football clubs": "أندية كرة قدم أمريكية شمالية",

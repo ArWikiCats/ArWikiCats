@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-NOTE:
-    - this is has alot of common code with ArWikiCats/translations/sports_formats_teams/team_job.py
-    - this file has alot of formatted_data
+NOTE: this file has alot of formatted_data
 
 TODO: merge with ArWikiCats/new_resolvers/translations_resolvers_v2/nats_sport_multi_v2.py
 
@@ -14,8 +12,10 @@ from ...helps import logger, len_print
 from ...translations import Nat_women
 from ...translations_formats import format_multi_data
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 
-AFTER_KEYS_LEVELS_NAT = {
+AFTER_KEYS_NAT2 = {
+    "": "{lab}",
     "premier leagues": "دوريات {lab} من الدرجة الممتازة",
     "first tier leagues": "دوريات {lab} من الدرجة الأولى",
     "top tier leagues": "دوريات {lab} من الدرجة الأولى",
@@ -26,45 +26,6 @@ AFTER_KEYS_LEVELS_NAT = {
     "sixth tier leagues": "دوريات {lab} من الدرجة السادسة",
     "seventh tier leagues": "دوريات {lab} من الدرجة السابعة",
 }
-
-AFTER_KEYS_NAT = {
-    "": "{lab}",
-    "champions": "أبطال {lab}",
-    "clubs": "أندية {lab}",
-    "coaches": "مدربو {lab}",
-    "competitions": "منافسات {lab}",
-    "events": "أحداث {lab}",
-    "films": "أفلام {lab}",
-    "finals": "نهائيات {lab}",
-    "home stadiums": "ملاعب {lab}",
-    "leagues": "دوريات {lab}",
-    "lists": "قوائم {lab}",
-    "manager history": "تاريخ مدربو {lab}",
-    "managers": "مدربو {lab}",
-    "matches": "مباريات {lab}",
-    "navigational boxes": "صناديق تصفح {lab}",
-    "non-profit organizations": "منظمات غير ربحية {lab}",
-    "non-profit publishers": "ناشرون غير ربحيون {lab}",
-    "organisations": "منظمات {lab}",
-    "organizations": "منظمات {lab}",
-    "players": "لاعبو {lab}",
-    "positions": "مراكز {lab}",
-    "records": "سجلات {lab}",
-    "records and statistics": "سجلات وإحصائيات {lab}",
-    "results": "نتائج {lab}",
-    "rivalries": "دربيات {lab}",
-    "scouts": "كشافة {lab}",
-    "squads": "تشكيلات {lab}",
-    "statistics": "إحصائيات {lab}",
-    "teams": "فرق {lab}",
-    "templates": "قوالب {lab}",
-    "tournaments": "بطولات {lab}",
-    "trainers": "مدربو {lab}",
-    "umpires": "حكام {lab}",
-    "venues": "ملاعب {lab}"
-}
-
-AFTER_KEYS_NAT.update(AFTER_KEYS_LEVELS_NAT)
 
 NEW_TATO_NAT = {
     "": "{nat}",
@@ -178,68 +139,6 @@ NEW_TATO_NAT = {
 }
 
 
-def _load_new_for_nat_female_xo_team() -> dict[str, str]:
-    data = {
-        "xzxz": "xzxz {nat}",
-        "xzxz championships": "بطولات xzxz {nat}",
-        "national xzxz championships": "بطولات xzxz وطنية {nat}",
-        "national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
-        "amateur xzxz cup": "كأس {nat} xzxz للهواة",
-        "youth xzxz cup": "كأس {nat} xzxz للشباب",
-        "mens xzxz cup": "كأس {nat} xzxz للرجال",
-        "womens xzxz cup": "كأس {nat} xzxz للسيدات",
-        "xzxz super leagues": "دوريات سوبر xzxz {nat}",
-    }
-    nat_f = "{nat}"
-    data["womens xzxz"] = f"xzxz {nat_f} نسائية"
-    data["xzxz chairmen and investors"] = f"رؤساء ومسيرو xzxz {nat_f}"
-    data["defunct xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f} سابقة"
-    data["xzxz cup competitions"] = f"منافسات كؤوس xzxz {nat_f}"
-    data["domestic xzxz cup"] = f"كؤوس xzxz {nat_f} محلية"
-    data["current xzxz seasons"] = f"مواسم xzxz {nat_f} حالية"
-    # ---
-
-    typies = {
-        "cups": "كؤوس",
-        "clubs": "أندية",
-        "competitions": "منافسات",
-        "leagues": "دوريات",
-        "coaches": "مدربو",  # Category:Indoor soccer coaches in the United States by club
-    }
-
-    for en, ar in typies.items():
-        data[f"xzxz {en}"] = f"{ar} xzxz {nat_f}"
-        data[f"professional xzxz {en}"] = f"{ar} xzxz {nat_f} للمحترفين"
-        data[f"defunct xzxz {en}"] = f"{ar} xzxz {nat_f} سابقة"
-        data[f"domestic xzxz {en}"] = f"{ar} xzxz محلية {nat_f}"
-        data[f"domestic womens xzxz {en}"] = f"{ar} xzxz محلية {nat_f} للسيدات"
-
-        data[f"domestic xzxz {en}"] = f"{ar} xzxz {nat_f} محلية"
-        data[f"indoor xzxz {en}"] = f"{ar} xzxz {nat_f} داخل الصالات"
-        data[f"outdoor xzxz {en}"] = f"{ar} xzxz {nat_f} في الهواء الطلق"
-        data[f"defunct indoor xzxz {en}"] = f"{ar} xzxz {nat_f} داخل الصالات سابقة"
-        data[f"defunct outdoor xzxz {en}"] = f"{ar} xzxz {nat_f} في الهواء الطلق سابقة"
-    data.update({
-        # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
-        "domestic xzxz": "xzxz {nat} محلية",
-        "indoor xzxz": "xzxz {nat} داخل الصالات",
-        "outdoor xzxz": "xzxz {nat} في الهواء الطلق",
-
-        # european national womens volleyball teams
-        "national womens xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
-        "national xzxz teams": "منتخبات xzxz وطنية {nat}",
-        # ---
-        "reserve xzxz teams": "فرق xzxz احتياطية {nat}",
-        "defunct xzxz teams": "فرق xzxz سابقة {nat}",
-        # ---
-        "national a xzxz teams": "منتخبات xzxz محليين {nat}",
-        "national b xzxz teams": "منتخبات xzxz رديفة {nat}",
-        "national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
-    })
-    # ---
-    return data
-
-
 def _load_additional() -> dict[str, str]:
     data = {}
     place_holder = "xzxz"
@@ -255,7 +154,7 @@ def _load_additional() -> dict[str, str]:
             Ar_labs_3 = Ar_labs_3.replace(" وطنية", "")
         Ar_labs = teams_label.format(nat="{nat}")
 
-        for pr_e, pr_e_Lab in AFTER_KEYS_NAT.items():       # 67
+        for pr_e, pr_e_Lab in AFTER_KEYS_NAT2.items():       # 67
             if pr_e in ["players"] and "womens" in ty_nat:
                 pr_e_Lab = "لاعبات {lab}"
             elif "لاعبو" in pr_e_Lab and "womens" in ty_nat:
@@ -267,12 +166,42 @@ def _load_additional() -> dict[str, str]:
     return data
 
 
-New_For_nat_female_xo_team = _load_new_for_nat_female_xo_team()
-new_for_nat_female_xo_team_additional = _load_additional()  # 8162
-
-
-# TODO: add data from New_For_nat_female_xo_team and new_for_nat_female_xo_team_additional
+# TODO: add data from new_for_nat_female_xo_team_additional
 New_For_nat_female_xo_team_2 = {
+    "{nat} xzxz": "xzxz {nat}",
+    "{nat} xzxz championships": "بطولات xzxz {nat}",
+    "{nat} national xzxz championships": "بطولات xzxz وطنية {nat}",
+    "{nat} national xzxz champions": "أبطال بطولات xzxz وطنية {nat}",
+    "{nat} amateur xzxz cup": "كأس {nat} xzxz للهواة",
+    "{nat} youth xzxz cup": "كأس {nat} xzxz للشباب",
+    "{nat} mens xzxz cup": "كأس {nat} xzxz للرجال",
+    "{nat} womens xzxz cup": "كأس {nat} xzxz للسيدات",
+    "{nat} xzxz super leagues": "دوريات سوبر xzxz {nat}",
+    "{nat} womens xzxz": "xzxz {nat} نسائية",
+    "{nat} xzxz chairmen and investors": "رؤساء ومسيرو xzxz {nat}",
+    "{nat} defunct xzxz cup competitions": "منافسات كؤوس xzxz {nat} سابقة",
+    "{nat} xzxz cup competitions": "منافسات كؤوس xzxz {nat}",
+    "{nat} domestic xzxz cup": "كؤوس xzxz {nat} محلية",
+    "{nat} current xzxz seasons": "مواسم xzxz {nat} حالية",
+    # ---
+    "{nat} professional xzxz": "xzxz {nat} للمحترفين",
+    "{nat} defunct xzxz": "xzxz {nat} سابقة",
+    "{nat} domestic xzxz": "xzxz محلية {nat}",
+    "{nat} domestic womens xzxz": "xzxz محلية {nat} للسيدات",
+    "{nat} indoor xzxz": "xzxz {nat} داخل الصالات",
+    "{nat} outdoor xzxz": "xzxz {nat} في الهواء الطلق",
+    "{nat} defunct indoor xzxz": "xzxz {nat} داخل الصالات سابقة",
+    "{nat} defunct outdoor xzxz": "xzxz {nat} في الهواء الطلق سابقة",
+    # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
+    # european national womens volleyball teams
+    "{nat} national womens xzxz teams": "منتخبات xzxz وطنية {nat} للسيدات",
+    "{nat} national xzxz teams": "منتخبات xzxz وطنية {nat}",
+    "{nat} reserve xzxz teams": "فرق xzxz احتياطية {nat}",
+    "{nat} defunct xzxz teams": "فرق xzxz سابقة {nat}",
+    "{nat} national a xzxz teams": "منتخبات xzxz محليين {nat}",
+    "{nat} national b xzxz teams": "منتخبات xzxz رديفة {nat}",
+    "{nat} national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
+
     "deaths by {nat} airstrikes": "وفيات بضربات جوية {nat}",
     "{nat} airstrikes": "ضربات جوية {nat}",
     "{nat} xzxz": "xzxz {nat}",  # Category:American_basketball
@@ -302,7 +231,6 @@ New_For_nat_female_xo_team_2 = {
     "{nat} national reserve xzxz teams": "منتخبات xzxz وطنية احتياطية {nat}",
 }
 
-New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in New_For_nat_female_xo_team.items()})
 New_For_nat_female_xo_team_2.update({
     "{nat} xzxz teams": "فرق xzxz {nat}",
     "{nat} xzxz under-13 teams": "فرق xzxz {nat}",
@@ -413,14 +341,13 @@ New_For_nat_female_xo_team_2.update({
     "{nat} xzxz national youth womens under-23 teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth womens under-24 teams": "فرق xzxz {nat}"
 })
-New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in new_for_nat_female_xo_team_additional.items()})
 
-# remove "the " from the start of all Nat_women_2 keys
-Nat_women_2 = {k[4:] if k.startswith("the ") else k: v for k, v in Nat_women.items()}
+new_for_nat_female_xo_team_additional = _load_additional()  # 8162
+New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in new_for_nat_female_xo_team_additional.items()})
 
 both_bot = format_multi_data(
     New_For_nat_female_xo_team_2,
-    Nat_women_2,
+    Nat_women,
     key_placeholder="{nat}",
     value_placeholder="{nat}",
     data_list2=SPORTS_KEYS_FOR_JOBS,
@@ -445,10 +372,68 @@ def fix_keys(category: str) -> str:
     return category
 
 
+keys_ending = {
+    "cups": "كؤوس {lab}",
+    "champions": "أبطال {lab}",
+    "clubs": "أندية {lab}",
+    "coaches": "مدربو {lab}",  # Category:Indoor soccer coaches in the United States by club
+    "competitions": "منافسات {lab}",
+    "events": "أحداث {lab}",
+    "films": "أفلام {lab}",
+    "finals": "نهائيات {lab}",
+    "home stadiums": "ملاعب {lab}",
+    "leagues": "دوريات {lab}",
+    "lists": "قوائم {lab}",
+    "manager history": "تاريخ مدربو {lab}",
+    "managers": "مدربو {lab}",
+    "matches": "مباريات {lab}",
+    "navigational boxes": "صناديق تصفح {lab}",
+    "non-profit organizations": "منظمات غير ربحية {lab}",
+    "non-profit publishers": "ناشرون غير ربحيون {lab}",
+    "organisations": "منظمات {lab}",
+    "organizations": "منظمات {lab}",
+    "players": "لاعبو {lab}",
+    "positions": "مراكز {lab}",
+    "records": "سجلات {lab}",
+    "records and statistics": "سجلات وإحصائيات {lab}",
+    "results": "نتائج {lab}",
+    "rivalries": "دربيات {lab}",
+    "scouts": "كشافة {lab}",
+    "squads": "تشكيلات {lab}",
+    "statistics": "إحصائيات {lab}",
+    "teams": "فرق {lab}",
+    "templates": "قوالب {lab}",
+    "tournaments": "بطولات {lab}",
+    "trainers": "مدربو {lab}",
+    "umpires": "حكام {lab}",
+    "venues": "ملاعب {lab}"
+}
+
+keys_ending = dict(sorted(
+    keys_ending.items(),
+    key=lambda k: (-k[0].count(" "), -len(k[0])),
+))
+
+
 @functools.lru_cache(maxsize=None)
-def sport_lab_nat_load_new(category) -> str:
-    logger.debug(f"<<yellow>> start sport_lab_nat_load_new: {category=}")
+def _sport_lab_nat_load_new(category) -> str:
+    logger.debug(f"<<yellow>> start _sport_lab_nat_load_new: {category=}")
     result = both_bot.create_label(category)
+    logger.debug(f"<<yellow>> end _sport_lab_nat_load_new: {category=}, {result=}")
+    return result
+
+
+@functools.lru_cache(maxsize=10000)
+def sport_lab_nat_load_new(category: str) -> str:
+    category = fix_keys(category)
+
+    logger.debug(f"<<yellow>> start sport_lab_nat_load_new: {category=}")
+
+    result = resolve_sport_category_suffix_with_mapping(category, keys_ending, _sport_lab_nat_load_new, format_key="lab")
+
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
+
     logger.debug(f"<<yellow>> end sport_lab_nat_load_new: {category=}, {result=}")
     return result
 
@@ -456,7 +441,7 @@ def sport_lab_nat_load_new(category) -> str:
 len_print.data_len(
     "sports_formats_national/te2.py",
     {
-        "New_For_nat_female_xo_team": New_For_nat_female_xo_team,
+        "New_For_nat_female_xo_team_2": New_For_nat_female_xo_team_2,
         "new_for_nat_female_xo_team_additional": new_for_nat_female_xo_team_additional,
     },
 )

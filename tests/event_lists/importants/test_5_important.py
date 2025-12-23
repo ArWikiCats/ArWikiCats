@@ -5,6 +5,17 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "Category:National association football second-tier league champions": "x",
+    "Category:Association football third-tier league seasons": "x",
+    "Category:Association football second-tier league seasons": "x",
+    "Category:Association football fourth-tier league seasons": "x",
+    "Category:National association football third-tier leagues": "x",
+    "Category:National association football fifth-tier leagues": "x",
+    "Category:National association football fourth-tier leagues": "x",
+    "Category:National association football second-tier leagues": "x",
+    "Category:National association football seventh-tier leagues": "x",
+    "Category:National association football sixth-tier leagues": "x",
+    "Category:Seasons in European third-tier association football leagues": "x",
     "Category:Academic staff of Incheon National University": "تصنيف:أعضاء هيئة تدريس جامعة إنتشون الوطنية",
     "Category:Lists of 1900s films": "تصنيف:قوائم أفلام إنتاج عقد 1900",
     "Category:Academic staff of University of Galați": "تصنيف:أعضاء هيئة تدريس جامعة غالاتس",
