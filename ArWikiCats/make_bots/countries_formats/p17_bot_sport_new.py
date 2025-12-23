@@ -8,7 +8,7 @@ from ...helps import dump_data, logger
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations import (
     countries_from_nat,
-    SPORT_KEY_RECORDS,
+    SPORTS_KEYS_FOR_TEAM,
 )
 
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
@@ -133,10 +133,9 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
     sports_data = {
         x: {
-            "sport_team": v["team"],
+            "sport_team": v,
         }
-        for x, v in SPORT_KEY_RECORDS.items()
-        if v.get("team")
+        for x, v in SPORTS_KEYS_FOR_TEAM.items()
     }
 
     both_bot = format_multi_data_v2(
