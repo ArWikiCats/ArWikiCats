@@ -15,7 +15,6 @@ from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ..teams_mappings_ends import teams_label_mappings_ends
 
 SPORT_FORMATS_ENAR_P17_TEAM = {
-
     "{en} national men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للرجال",
     "{en} national men's under-14 {en_sport} team": "منتخب {ar} {sport_team} تحت 14 سنة للرجال",
     "{en} national men's under-15 {en_sport} team": "منتخب {ar} {sport_team} تحت 15 سنة للرجال",
