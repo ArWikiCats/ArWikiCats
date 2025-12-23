@@ -4,18 +4,17 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import resolve_countries_names_sport
 
 test_data_1 = {
-    "Category:Afghanistan Football Federation": "تصنيف:الاتحاد الأفغاني لكرة القدم",
-    "Category:Aruba Football Federation": "تصنيف:الاتحاد الأروبي لكرة القدم",
-    "Category:Bhutan Football Federation": "تصنيف:الاتحاد البوتاني لكرة القدم",
+    "Category:Afghanistan Football Federation": "الاتحاد الأفغاني لكرة القدم",
+    "Category:Aruba Football Federation": "الاتحاد الأروبي لكرة القدم",
+    "Category:Bhutan Football Federation": "الاتحاد البوتاني لكرة القدم",
 
-    "United States": "الولايات المتحدة",
     "Olympic gold medalists for United States": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة",
     "Olympic gold medalists for United States in alpine skiing":
         "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "Category:Olympic gold medalists for United States in alpine skiing":
-        "تصنيف:فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
+        "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
     "Category:Olympic gold medalists for the United States in football":
-        "تصنيف:فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القدم",
+        "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القدم",
 
     # "yemen international soccer players": "لاعبو كرة قدم دوليون من اليمن",
     "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
