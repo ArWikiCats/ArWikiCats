@@ -59,6 +59,7 @@ def _load_multi_bot() -> MultiDataFormatterBase:
         "under-21": "تحت 21 سنة",
         "under-23": "تحت 23 سنة",
         "under-24": "تحت 24 سنة",
+        "u23": "تحت 23 سنة",
     }
 
     return format_multi_data(

@@ -38,7 +38,6 @@ sports_formatted_data = {
     "{en} men's international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
     "{en} international women's {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
-
     # data from p17_bot_sport_for_job.py
     "{en} under-13 international {en_sport} managers": "مدربو {sport_jobs} تحت 13 سنة دوليون من {ar}",
     "{en} under-13 international {en_sport} players": "لاعبو {sport_jobs} تحت 13 سنة دوليون من {ar}",
@@ -68,6 +67,40 @@ sports_formatted_data = {
 
     "{en} winter olympics {en_sport}": "{sport_jobs} {ar} في الألعاب الأولمبية الشتوية",
     "{en} {en_sport} manager history": "تاريخ مدربو {sport_jobs} {ar}",
+
+    # data from SPORT_FORMTS_ENAR_P17_TEAM
+    "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
+    "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
+    "{en} amateur {en_sport} cup": "كأس {ar} {sport_team} للهواة",
+    "{en} men's u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+    "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
+    "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
+    "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+    "{en} men's {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
+    "{en} mennnn's national {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} national junior men's {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} national women's {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} national women's {en_sport} team coaches": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national women's {en_sport} team managers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national women's {en_sport} team trainers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team coaches": "مدربو منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team managers": "مدربو منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team trainers": "مدربو منتخب {ar} {sport_team}",
+    "{en} national youth {en_sport} team": "منتخب {ar} {sport_team} للشباب",
+    "{en} professional {en_sport} league": "دوري {ar} {sport_team} للمحترفين",
+    "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
+    "{en} women's {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
+    "{en} {en_sport} league": "دوري {ar} {sport_team}",
+    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
+    "{en} {en_sport} national team non-playing staff": "طاقم منتخب {ar} {sport_team} غير اللاعبين",
+    "{en} {en_sport} national team staff": "طاقم منتخب {ar} {sport_team}",
+    "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
+    "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
+    "{en} youth {en_sport} cup": "كأس {ar} {sport_team} للشباب"
 }
 
 WOMENS_NATIONAL_DATA = {

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-!
+NOTE: this is has alot of common code with ArWikiCats/translations/sports_formats_national/sport_lab_nat.py
 """
 
 import re

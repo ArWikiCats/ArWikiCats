@@ -14,6 +14,30 @@ from ...translations import (
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from .p17_bot_sport_wrap import resolve_p17_bot_sport_suffixes
 
+# NOTE: plan to use it later
+TEAM_DATA_NEW = {
+    "men's {under_en} national xoxo team": "منتخب {} xoxo {under_ar} للرجال",
+    "multi-national women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} متعددة الجنسيات للسيدات",
+    "national amateur {under_en} xoxo team": "منتخب {} xoxo {under_ar} للهواة",
+    "national junior men's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للناشئين",
+    "national junior women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للناشئات",
+    "national men's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للرجال",
+    "national {under_en} xoxo team": "منتخب {} xoxo {under_ar}",
+    "national women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للسيدات",
+    "national youth {under_en} xoxo team": "منتخب {} xoxo {under_ar} للشباب",
+    "national youth women's {under_en} xoxo team": "منتخب {} xoxo {under_ar} للشابات",
+
+    "multi-national women's xoxo team": "منتخب {} xoxo متعددة الجنسيات للسيدات",
+    "national amateur xoxo team": "منتخب {} xoxo للهواة",
+    "national junior men's xoxo team": "منتخب {} xoxo للناشئين",
+    "national junior women's xoxo team": "منتخب {} xoxo للناشئات",
+    "national men's xoxo team": "منتخب {} xoxo للرجال",
+    "national women's xoxo team": "منتخب {} xoxo للسيدات",
+    "national xoxo team": "منتخب {} xoxo",
+    "national youth women's xoxo team": "منتخب {} xoxo للشابات",
+    "national youth xoxo team": "منتخب {} xoxo للشباب"
+}
+
 
 def _build_nat_formats_for_p17() -> dict:
     """Construct nationality placeholders used for P17 sports formats."""
@@ -264,8 +288,8 @@ def _get_p17_with_sport(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 @dump_data()
-def get_p17_with_sport(category: str) -> str:
-    logger.debug(f"<<yellow>> start get_p17_with_sport: {category=}")
+def get_p17_with_sport_new(category: str) -> str:
+    logger.debug(f"<<yellow>> start get_p17_with_sport_new: {category=}")
     result = (
         resolve_p17_bot_sport_suffixes(category, _get_p17_with_sport) or
         _get_p17_with_sport(category) or
@@ -274,18 +298,10 @@ def get_p17_with_sport(category: str) -> str:
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")
 
-    logger.debug(f"<<yellow>> end get_p17_with_sport: {category=}, {result=}")
+    logger.debug(f"<<yellow>> end get_p17_with_sport_new: {category=}, {result=}")
     return result
 
 
-len_print.data_len(
-    "p17_bot_sport.py",
-    {
-        "TEAM_DATA": TEAM_DATA,
-        "SPORT_FORMTS_ENAR_P17_TEAM": SPORT_FORMTS_ENAR_P17_TEAM,
-    },
-)
-
 __all__ = [
-    "get_p17_with_sport",
+    "get_p17_with_sport_new",
 ]
