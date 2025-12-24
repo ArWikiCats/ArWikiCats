@@ -92,7 +92,11 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
     # if not category_lab: start_ylab = ye_ts_bot.translate_general_category(changed_cat)
 
     if not category_lab and is_cat_okay:
-        category_lab = cash_2022.get(category.lower(), "") or cash_2022.get(changed_cat, "")
+        category_lower = category.lower()
+        if category_lower != changed_cat:
+            category_lab = cash_2022.get(category_lower, "")
+        if not category_lab:
+            category_lab = cash_2022.get(changed_cat, "")
 
         if not category_lab and app_settings.start_tgc_resolver_first:
             category_lab = start_ylab

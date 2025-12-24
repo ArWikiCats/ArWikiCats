@@ -158,7 +158,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     }
     formatted_data = _build_formatted_data()
 
-    """both_bot_ = format_multi_data_v2(
+    r"""both_bot_ = format_multi_data_v2(
         formatted_data=formatted_data,
         data_list=sports_data,
         key_placeholder="{game_en}",
