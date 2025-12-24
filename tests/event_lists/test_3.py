@@ -153,7 +153,7 @@ data1 = {
     "south korea national under-23 football team": "تصنيف:منتخب كوريا الجنوبية لكرة القدم تحت 23 سنة",
     "portugal women's national football team": "تصنيف:منتخب البرتغال لكرة القدم للسيدات",
     "vietnam national basketball team": "تصنيف:منتخب فيتنام لكرة السلة",
-    "uruguay national football team": "تصنيف:منتخب الأوروغواي لكرة القدم",
+    "uruguay national football team": "تصنيف:منتخب أوروغواي لكرة القدم",
     "bolivia national soccer team": "تصنيف:منتخب بوليفيا لكرة القدم",
 
 }

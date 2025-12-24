@@ -139,7 +139,7 @@ data_list = [
     ("1550 establishments in philippines", " in ", "تأسيسات 1550 في الفلبين"),
     ("1550 establishments in spanish empire", " in ", "تأسيسات 1550 في الإمبراطورية الإسبانية"),
     ("1550 establishments in thirteen colonies", " in ", "تأسيسات 1550 في المستعمرات الثلاث عشرة"),
-    ("1550 establishments in uruguay", " in ", "تأسيسات 1550 في الأوروغواي"),
+    ("1550 establishments in uruguay", " in ", "تأسيسات 1550 في أوروغواي"),
     ("1550 establishments in virginia", " in ", "تأسيسات 1550 في فرجينيا"),
     ("1550 establishments in wales", " in ", "تأسيسات 1550 في ويلز"),
     ("1550 establishments in wyoming", " in ", "تأسيسات 1550 في وايومنغ"),

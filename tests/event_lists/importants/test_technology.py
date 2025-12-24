@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_diff_text, dump_same_and_not_same
+from load_one_data import dump_diff, one_dump_test_no_labels, dump_diff_text, dump_same_and_not_same
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -170,7 +170,7 @@ data_slow = {
     "Category:Historians of technology": "تصنيف:مؤرخو من التقانة",
     "Category:History of science and technology in China": "تصنيف:تاريخ العلوم والتقانة في الصين",
     "Category:History of science and technology in England": "تصنيف:تاريخ العلوم والتقانة في إنجلترا",
-    "Category:Information technology in Uruguay": "تصنيف:تقانة المعلومات في الأوروغواي",
+    "Category:Information technology in Uruguay": "تصنيف:تقانة المعلومات في أوروغواي",
     "Category:Music technology": "تصنيف:تقانة موسيقية",
     "Category:Nuclear technology by former country": "تصنيف:تقانة نووية حسب البلد السابق",
     "Category:Nuclear technology in Kazakhstan": "تصنيف:تقانة نووية في كازاخستان",
@@ -262,7 +262,7 @@ data_slow = {
     "Category:Science and technology in the United States by state or territory": "تصنيف:العلوم والتقانة في الولايات المتحدة حسب الولاية أو الإقليم",
     "Category:Science and technology in the West Midlands (county)": "تصنيف:العلوم والتقانة في مقاطعة ميدلاند الغربية",
     "Category:Science and technology in Tunisia": "تصنيف:العلوم والتقانة في تونس",
-    "Category:Science and technology in Uruguay": "تصنيف:العلوم والتقانة في الأوروغواي",
+    "Category:Science and technology in Uruguay": "تصنيف:العلوم والتقانة في أوروغواي",
     "Category:Science and technology in Wales": "تصنيف:العلوم والتقانة في ويلز",
     "Category:Science and technology in Warwickshire": "تصنيف:العلوم والتقانة في وركشير",
     "Category:Science and technology in West Sussex": "تصنيف:العلوم والتقانة في غرب ساسكس",
@@ -292,8 +292,8 @@ def test_technology_slow(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-    dump_diff(diff_result, name)
-    # dump_diff_text(expected, diff_result, name)
+    expected, diff_result, no_labels = one_dump_test_no_labels(data, resolve_arabic_category_label)
+    # dump_diff(diff_result, name)
+    dump_diff_text(expected, diff_result, name)
     # dump_same_and_not_same(data, diff_result, name, just_dump=True)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}, len no_labels: {len(no_labels):,}"

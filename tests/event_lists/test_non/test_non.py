@@ -714,7 +714,7 @@ data1 = {
     "category:non-profit organizations based in united states by city": "تصنيف:منظمات غير ربحية مقرها في الولايات المتحدة حسب المدينة",
     "category:non-profit organizations based in united states by state or territory": "تصنيف:منظمات غير ربحية مقرها في الولايات المتحدة حسب الولاية أو الإقليم",
     "category:non-profit organizations based in united states": "تصنيف:منظمات غير ربحية مقرها في الولايات المتحدة",
-    "category:non-profit organizations based in uruguay": "تصنيف:منظمات غير ربحية مقرها في الأوروغواي",
+    "category:non-profit organizations based in uruguay": "تصنيف:منظمات غير ربحية مقرها في أوروغواي",
     "category:non-profit organizations based in utah": "تصنيف:منظمات غير ربحية مقرها في يوتا",
     "category:non-profit organizations based in vancouver": "تصنيف:منظمات غير ربحية مقرها في فانكوفر",
     "category:non-profit organizations based in venezuela": "تصنيف:منظمات غير ربحية مقرها في فنزويلا",

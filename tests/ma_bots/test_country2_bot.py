@@ -460,7 +460,7 @@ data_slow = {
     "politics of united states": "سياسة الولايات المتحدة",
     "populated places in latvia": "أماكن مأهولة في لاتفيا",
     "populated places in portugal": "أماكن مأهولة في البرتغال",
-    "populated places in uruguay": "أماكن مأهولة في الأوروغواي",
+    "populated places in uruguay": "أماكن مأهولة في أوروغواي",
     "prime ministers of malaysia": "رؤساء وزراء ماليزيا",
     "protected areas of united states": "مناطق محمية في الولايات المتحدة",
     "provinces of saudi arabia": "مقاطعات السعودية",
