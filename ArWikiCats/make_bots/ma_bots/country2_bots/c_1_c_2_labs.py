@@ -7,7 +7,7 @@ import functools
 import re
 
 from ....helps.log import logger
-from ...date_bots import with_years_bot
+from ....time_resolvers import with_years_bot
 from ...format_bots import get_tabl_with_in, pop_format
 from ...lazy_data_bots.bot_2018 import get_pop_All_18
 from ...matables_bots.table1_bot import get_KAKO

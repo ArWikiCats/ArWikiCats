@@ -17,7 +17,7 @@ from ..translations import (
     jobs_mens_data,
     pop_of_without_in,
 )
-from ..make_bots.date_bots import with_years_bot
+from ..time_resolvers import with_years_bot
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.media_bots.films_bot import te_films
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
