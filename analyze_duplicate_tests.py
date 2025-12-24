@@ -276,7 +276,7 @@ class DuplicateTestAnalyzer:
             except Exception as e:
                 print(f"❌ خطأ في تحديث {file_path}: {e}")
 
-        print(f"\n✨ تم الانتهاء!")
+        print("\n✨ تم الانتهاء!")
         print(f"   - الملفات المعدلة: {files_modified}")
         print(f"   - الأسطر المحذوفة: {lines_removed}")
 
