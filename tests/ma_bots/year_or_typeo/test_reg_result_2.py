@@ -7,7 +7,7 @@ from typing import Sequence
 import pytest
 from _pytest.mark.structures import ParameterSet
 
-from ArWikiCats.make_bots.ma_bots.year_or_typeo.reg_result import (
+from ArWikiCats.make_bots.ma_bots2.year_or_typeo.reg_result import (
     category_relation_mapping,
     get_reg_result,
 )

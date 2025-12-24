@@ -2079,7 +2079,7 @@
   - Updated regex patterns for consistent dash character handling
   - Improved category normalization logic
 
-- **Refactors [bot_lab.py](ArWikiCats/make_bots/ma_bots/year_or_typeo/bot_lab.py)**
+- **Refactors [bot_lab.py](ArWikiCats/make_bots/ma_bots2/year_or_typeo/bot_lab.py)**
 
   - Refactored event labeling into modular helper functions
   - Simplified category normalization

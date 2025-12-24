@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.year_or_typeo.mk3 import (
+from ArWikiCats.make_bots.ma_bots2.year_or_typeo.mk3 import (
     new_func_mk2,
 )
 

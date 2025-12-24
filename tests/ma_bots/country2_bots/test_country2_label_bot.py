@@ -4,7 +4,7 @@ Tests for country2_label_bot module functions.
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import (
+from ArWikiCats.make_bots.ma_bots2.country2_bots.country2_label_bot import (
     country_2_title_work,
     separator_arabic_resolve,
 )

@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.year_or_typeo.dodo_2019 import work_2019, work_2019_wrap
+from ArWikiCats.make_bots.ma_bots2.year_or_typeo.dodo_2019 import work_2019, work_2019_wrap
 
 examples = {
     "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",

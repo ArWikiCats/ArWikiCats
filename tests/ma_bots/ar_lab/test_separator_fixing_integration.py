@@ -7,7 +7,7 @@ and actual data dependencies.
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab import (
+from ArWikiCats.make_bots.ma_bots2.ar_lab.ar_lab import (
     add_in_tab,
     separator_lists_fixing,
 )

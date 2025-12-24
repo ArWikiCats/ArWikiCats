@@ -1,5 +1,5 @@
 # import pytest
-from ArWikiCats.make_bots.ma_bots.year_or_typeo.bot_lab import (
+from ArWikiCats.make_bots.ma_bots2.year_or_typeo.bot_lab import (
     label_for_startwith_year_or_typeo,
 )
 
