@@ -309,7 +309,7 @@ def fix_keys(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def _resolve_nats_sport_multi_v2(category: str) -> str:
+def resolve_nats_sport_multi_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start _resolve_nats_sport_multi_v2: {category=}")
 
     both_bot = _load_bot()
@@ -321,12 +321,12 @@ def _resolve_nats_sport_multi_v2(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_nats_sport_multi_v2(category: str) -> str:
+def _resolve_nats_sport_multi_v2_to_check(category: str) -> str:
     category = fix_keys(category)
 
     logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
 
-    result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, _resolve_nats_sport_multi_v2)
+    result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, resolve_nats_sport_multi_v2)
 
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")
