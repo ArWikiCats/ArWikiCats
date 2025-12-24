@@ -1,4 +1,17 @@
 
+## [Identify and suggest improvements to slow or inefficient code] - 2024-12-24
+
+* **Performance Improvements**
+  * Added `@functools.lru_cache` to `open_json_file()` function to cache JSON file loading, eliminating redundant file I/O operations
+  * Optimized `_apply_suffix_replacements()` in fix/fixtitle.py by replacing regex compilation with efficient string slicing
+  * Optimized `check_key_new_players()` to avoid duplicate loop iterations over the same tables
+  * Reduced redundant `str.lower()` calls in main_resolve.py by caching the lowercased value
+  * Achieved ~31,000x speedup on cached category translations and up to 886,000 categories/second throughput
+
+* **Bug Fixes**
+  * Fixed invalid escape sequence warning in countries_names_medalists.py by using raw string literal
+  * Fixed invalid escape sequence warning in test_get_label_new.py by using raw string literal
+
 ## [#265](https://github.com/MrIbrahem/ArWikiCats/pull/265) - 2025-12-24
 
 * **Bug Fixes**
