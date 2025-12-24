@@ -208,8 +208,10 @@ def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
         ""
     )
 
-    part_1_label = c_1_1_lab(separator, part_1, With_Years=With_Years) or country_bot.Get_c_t_lab(
-        part_1, "", lab_type="type_label"
+    part_1_label = (
+        c_1_1_lab(separator, part_1, With_Years=With_Years) or
+        country_bot.Get_c_t_lab(part_1, "", lab_type="type_label") or
+        ""
     )
 
     if part_2_label == "" or part_1_label == "":
