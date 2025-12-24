@@ -173,7 +173,7 @@ ireland_test_data = {
     "ireland–venezuela relations": "العلاقات الأيرلندية الفنزويلية",
     "ireland–vietnam relations": "العلاقات الأيرلندية الفيتنامية",
     "ireland–west germany relations": "العلاقات الألمانية الغربية الأيرلندية",
-    "ireland–yugoslavia relations": "العلاقات الأيرلندية اليوغوسلافية",
+    "ireland–yugoslavia relations": "العلاقات الأيرلندية اليوغسلافية",
     "ireland–zambia relations": "العلاقات الأيرلندية الزامبية",
     "ireland–zimbabwe relations": "العلاقات الأيرلندية الزيمبابوية",
     "ireland–zimbabwe sports relations": "العلاقات الأيرلندية الزيمبابوية الرياضية"

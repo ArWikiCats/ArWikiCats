@@ -275,9 +275,9 @@ data = {
     "welsh football leagues": "دوريات كرة قدم ويلزية",
     "west german ice hockey": "هوكي جليد ألمانية غربية",
     "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة",
-    "yugoslav basketball clubs": "أندية كرة سلة يوغوسلافية",
-    "yugoslav basketball": "كرة سلة يوغوسلافية",
-    "yugoslav ice hockey": "هوكي جليد يوغوسلافية",
+    "yugoslav basketball clubs": "أندية كرة سلة يوغسلافية",
+    "yugoslav basketball": "كرة سلة يوغسلافية",
+    "yugoslav ice hockey": "هوكي جليد يوغسلافية",
     "zimbabwean cricket": "كريكت زيمبابوية",
 }
 

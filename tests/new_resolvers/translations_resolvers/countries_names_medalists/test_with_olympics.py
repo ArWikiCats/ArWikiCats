@@ -353,7 +353,7 @@ for_countries = {
     "Category:Winter Olympics competitors for Switzerland": "تصنيف:منافسون أولمبيون شتويون من سويسرا",
     "Category:Winter Olympics competitors for Thailand": "تصنيف:منافسون أولمبيون شتويون من تايلاند",
     "Category:Winter Olympics competitors for West Germany": "تصنيف:منافسون أولمبيون شتويون من ألمانيا الغربية",
-    "Category:Winter Olympics competitors for Yugoslavia": "تصنيف:منافسون أولمبيون شتويون من يوغوسلافيا",
+    "Category:Winter Olympics competitors for Yugoslavia": "تصنيف:منافسون أولمبيون شتويون من يوغسلافيا",
     "Category:Winter Olympics competitors for the Czech Republic": "تصنيف:منافسون أولمبيون شتويون من التشيك",
     "Category:Winter Olympics competitors for the Netherlands": "تصنيف:منافسون أولمبيون شتويون من هولندا",
     "Category:Winter Olympics competitors for the Soviet Union": "تصنيف:منافسون أولمبيون شتويون من الاتحاد السوفيتي",

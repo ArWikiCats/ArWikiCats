@@ -70,7 +70,7 @@ data_list_bad = {
 
     "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس في القرن 20",
     "Category:september 1550 sports-events in germany": "تصنيف:أحداث سبتمبر 1550 الرياضية في ألمانيا",
-    "Category:1550s disestablishments in yugoslavia": "تصنيف:انحلالات عقد 1550 في يوغوسلافيا",
+    "Category:1550s disestablishments in yugoslavia": "تصنيف:انحلالات عقد 1550 في يوغسلافيا",
     "Category:20th century disestablishments in united kingdom": "تصنيف:انحلالات القرن 20 في المملكة المتحدة",
     "Category:november 1550 sports-events in north america": "تصنيف:أحداث نوفمبر 1550 الرياضية في أمريكا الشمالية",
     "Category:1550s establishments in wisconsin": "تصنيف:تأسيسات عقد 1550 في ويسكونسن",

@@ -607,8 +607,8 @@ fast_data = [
     {"cate": "yemeni descent", "nat": "yemeni", "suffix": "descent", "output": "أصل يمني"},
     {"cate": "yemeni sport", "nat": "yemeni", "suffix": "sport", "output": "رياضة يمنية"},
     {"cate": "yoruba descent", "nat": "yoruba", "suffix": "descent", "output": "أصل يوروبي"},
-    {"cate": "yugoslav descent", "nat": "yugoslav", "suffix": "descent", "output": "أصل يوغوسلافي"},
-    {"cate": "yugoslav sport", "nat": "yugoslav", "suffix": "sport", "output": "رياضة يوغوسلافية"},
+    {"cate": "yugoslav descent", "nat": "yugoslav", "suffix": "descent", "output": "أصل يوغسلافي"},
+    {"cate": "yugoslav sport", "nat": "yugoslav", "suffix": "sport", "output": "رياضة يوغسلافية"},
     {"cate": "zimbabwean companies", "nat": "zimbabwean", "suffix": "companies", "output": "شركات زيمبابوية"},
     {"cate": "zimbabwean descent", "nat": "zimbabwean", "suffix": "descent", "output": "أصل زيمبابوي"},
     {

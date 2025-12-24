@@ -682,7 +682,7 @@ def test_translate_general_category_event2_fast(tab) -> None:
 
 data_list_bad = [
     ("september 1550 sports-events in germany", " in ", "أحداث سبتمبر 1550 الرياضية في ألمانيا"),
-    ("1550s disestablishments in yugoslavia", " in ", "انحلالات عقد 1550 في يوغوسلافيا"),
+    ("1550s disestablishments in yugoslavia", " in ", "انحلالات عقد 1550 في يوغسلافيا"),
     ("20th century synagogues in switzerland", " in ", "كنس القرن 20 في سويسرا"),
     ("20th century disestablishments in the united kingdom", " in ", "انحلالات القرن 20 في المملكة المتحدة"),
     ("november 1550 sports-events in north america", " in ", "أحداث نوفمبر 1550 الرياضية في أمريكا الشمالية"),

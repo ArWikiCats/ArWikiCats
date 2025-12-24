@@ -602,7 +602,7 @@ te4_2018_Jobs_data = {
     "wheelchair rugby players": "لاعبو رجبي على كراسي متحركة",
     "wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة",
     "yemeni shi'a muslims": "يمنيون مسلمون شيعة",
-    "yugoslav sprinters": "عداؤون سريعون يوغوسلافيون",
+    "yugoslav sprinters": "عداؤون سريعون يوغسلافيون",
     "zambian emigrants": "زامبيون مهاجرون",
     "zambian wheelchair racers": "متسابقو كراسي متحركة زامبيون",
     "zambian writers": "كتاب زامبيون",
