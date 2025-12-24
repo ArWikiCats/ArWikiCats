@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.ma_bots.country2_bots.c_1_c_2_labs import c_1_1_lab, c_2_1_lab
+from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import c_1_1_lab, c_2_1_lab
 
 fast_data_c_1_1_lab = [
     {"separator": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
