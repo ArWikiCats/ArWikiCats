@@ -184,7 +184,7 @@ WEAPON_EVENTS: dict[str, str] = {
     "battles": "معارك",
     "sieges": "حصارات",
     "missiles": "صواريخ",
-    "technology": "تقنية",
+    "technology": "تقانة",
 }
 
 BOOK_CATEGORIES: dict[str, str] = {

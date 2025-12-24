@@ -199,7 +199,7 @@ NON_FICTION_ADDITIONAL_TOPICS: Mapping[str, str] = {
     "social sciences": "علوم اجتماعية",
     "music": "موسيقى",
     "science": "علم",
-    "technology": "تقنية",
+    "technology": "تقانة",
     "comedy": "كوميدي",
 }
 

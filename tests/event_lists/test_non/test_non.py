@@ -727,7 +727,7 @@ data1 = {
     "category:non-profit organizations based in wyoming": "تصنيف:منظمات غير ربحية مقرها في وايومنغ",
     "category:non-profit organizations": "تصنيف:منظمات غير ربحية",
     "category:non-profit publishers": "تصنيف:ناشرون غير ربحيون",
-    "category:non-profit technology": "تصنيف:تقنية العمل الخيري",
+    "category:non-profit technology": "تصنيف:تقانة العمل الخيري",
     "category:non-renewable energy companies": "تصنيف:شركات طاقة غير متجددة",
     "category:non-renewable resource companies by century of disestablishment": "تصنيف:شركات موارد غير متجددة حسب قرن الانحلال",
     "category:non-renewable resource companies by century of establishment": "تصنيف:شركات موارد غير متجددة حسب قرن التأسيس",

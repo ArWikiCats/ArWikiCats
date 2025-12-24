@@ -253,7 +253,7 @@ fast_data_c_1_1_lab = [
     {"separator": " of ", "cone_1": "battles and operations of", "output": "معارك وعمليات"},
     {"separator": " of ", "cone_1": "burial sites of", "output": "مواقع دفن"},
     {"separator": " of ", "cone_1": "canyons and gorges of", "output": "أخاديد في"},
-    {"separator": " of ", "cone_1": "chemical technology of", "output": "تقنية كيميائية في"},
+    {"separator": " of ", "cone_1": "chemical technology of", "output": "تقانة كيميائية في"},
     {"separator": " of ", "cone_1": "chief justices of", "output": "رؤساء قضاء"},
     {"separator": " of ", "cone_1": "congressional districts of", "output": "مقاطعات الكونغرس في"},
     {"separator": " of ", "cone_1": "cultural depictions of", "output": "تصوير ثقافي عن"},

@@ -356,8 +356,8 @@
         "females": "موسيقيات ريذم أند بلوز"
     },
     "technology writers": {
-        "males": "كتاب تقنية",
-        "females": "كاتبات تقنية"
+        "males": "كتاب تقانة",
+        "females": "كاتبات تقانة"
     },
     "blues guitarists": {
         "males": "عازفو قيثارة بلوز",
@@ -812,8 +812,8 @@
         "females": "عازفات قيثارة السول"
     },
     "technology journalists": {
-        "males": "صحفيو تقنية",
-        "females": "صحفيات تقنية"
+        "males": "صحفيو تقانة",
+        "females": "صحفيات تقانة"
     },
     "fado singers": {
         "males": "مغنو فادو",
