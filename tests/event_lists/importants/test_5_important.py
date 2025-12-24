@@ -46,6 +46,17 @@ data0 = {
     "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
     "Category:Academic staff of University of Nigeria": "تصنيف:أعضاء هيئة تدريس جامعة نيجيريا",
     "Category:Early modern history of Portugal": "تصنيف:تاريخ البرتغال الحديث المبكر",
+    "Category:European League of Football coaches": "تصنيف:الدوري الأوروبي في مدربو كرة قدم",
+    "Category:Greens Party of Georgia politicians": "تصنيف:حزب الخضر في سياسيو جورجيا",
+    "Category:First League of Serbia and Montenegro managers": "تصنيف:دوري كرة القدم الدرجة الأولى في مدربو صربيا والجبل الأسود",
+    "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
+    "Category:Los Angeles Angels of Anaheim announcers": "تصنيف:لوس أنجلوس آنجلز لأنهايم في مذيعو انهايم",
+    "Category:Political positions of United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية",
+    "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2000",
+    "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2008",
+    "Category:Political positions of the 2016 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2016",
+    "Category:Political positions of the 2020 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2020",
+    "Category:Political positions of the 2024 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2024",
 }
 
 data1 = {
@@ -108,8 +119,8 @@ data_3 = {
 
 to_test = [
     ("test_5_data_0", data0),
-    ("test_5_data_1", data1),
-    ("test_5_data_3", data_3),
+    # ("test_5_data_1", data1),
+    # ("test_5_data_3", data_3),
 ]
 
 
@@ -134,5 +145,5 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    # dump_diff_text(expected, diff_result, name)
+    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

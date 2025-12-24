@@ -105,8 +105,6 @@ jobs_data = open_json_file("jobs/jobs.json")
 
 JOBS_2020_BASE.update({x: v for x, v in jobs_data["JOBS_2020"].items() if v.get("males") and v.get("females")})
 
-JOBS_PEOPLE_ROLES.update({x: v for x, v in jobs_data["JOBS_PEOPLE"].items() if v.get("males") and v.get("females")})
-
 JOBS_TYPE_TRANSLATIONS.update({x: v for x, v in jobs_data["JOBS_TYPE"].items() if v})  # v is string
 
 
