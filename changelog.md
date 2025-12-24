@@ -3,6 +3,8 @@
 
 * **Refactor**
   * Simplified the `event_label_work` function in `lab_seoo_bot.py` by replacing multiple sequential `if not resolved_category_label:` conditional blocks with a cleaner "or" chaining pattern for improved readability and maintainability.
+  * Applied the same or-chaining pattern in `p17_bot.py` for `suffix_label` resolution.
+  * Applied the same or-chaining pattern in `country2_label_bot.py` for `part_1_label` and `part_2_label` resolution.
 
 ## [#265](https://github.com/MrIbrahem/ArWikiCats/pull/265) - 2025-12-24
 
