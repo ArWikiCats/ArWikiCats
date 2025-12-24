@@ -1,7 +1,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.ma_bots2.year_or_typeo.bot_lab import (
+from ArWikiCats.ma_bots2.year_or_typeo.bot_lab import (
     label_for_startwith_year_or_typeo,
 )
 

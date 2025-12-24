@@ -5,15 +5,15 @@ Usage:
 
 import re
 
-from ....helps.log import logger
-from ....utils import check_key_in_tables, check_key_in_tables_return_tuple
-from ...format_bots import ar_lab_before_year_to_add_in, country_before_year
-from ...matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
-from ...matables_bots.bot import (
+from ...helps.log import logger
+from ...utils import check_key_in_tables, check_key_in_tables_return_tuple
+from ...make_bots.format_bots import ar_lab_before_year_to_add_in, country_before_year
+from ...make_bots.matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
+from ...make_bots.matables_bots.bot import (
     Films_O_TT,
     Table_for_frist_word,
 )
-from ...matables_bots.check_bot import check_key_new_players
+from ...make_bots.matables_bots.check_bot import check_key_new_players
 
 
 def check_country_in_tables(country: str) -> bool:

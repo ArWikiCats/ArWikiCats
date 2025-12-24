@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots2.year_or_typeo.reg_result import (
+from ArWikiCats.ma_bots2.year_or_typeo.reg_result import (
     TypiesResult,
     basedtypeTable,
     get_reg_result,

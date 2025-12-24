@@ -7,17 +7,17 @@ from .bot_lab import label_for_startwith_year_or_typeo
 
 import re
 
-from ....fix import fixtitle
-from ....helps.log import logger
-from ....translations import Nat_mens, typeTable
-from ....utils import check_key_in_tables
-from ....time_resolvers import time_to_arabic
-from ...format_bots import category_relation_mapping
-from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...matables_bots.bot import Films_O_TT, New_Lan
-from ...matables_bots.check_bot import check_key_new_players
+from ...fix import fixtitle
+from ...helps.log import logger
+from ...translations import Nat_mens, typeTable
+from ...utils import check_key_in_tables
+from ...time_resolvers import time_to_arabic
+from ...make_bots.format_bots import category_relation_mapping
+from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ...make_bots.matables_bots.bot import Films_O_TT, New_Lan
+from ...make_bots.matables_bots.check_bot import check_key_new_players
 
-from ....ma_bots.country_bot import get_country
+from ...ma_bots.country_bot import get_country
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 

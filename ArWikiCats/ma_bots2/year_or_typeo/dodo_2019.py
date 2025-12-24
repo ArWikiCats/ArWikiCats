@@ -9,11 +9,11 @@ from .year_or_typeo.dodo_2019 import work_2019
 import re
 import functools
 
-from ....helps.log import logger
-from ....time_resolvers.time_to_arabic import match_en_return_ar
-from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...matables_bots.check_bot import check_key_new_players
-from ....ma_bots.country_bot import get_country
+from ...helps.log import logger
+from ...time_resolvers.time_to_arabic import match_en_return_ar
+from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ...make_bots.matables_bots.check_bot import check_key_new_players
+from ...ma_bots.country_bot import get_country
 
 
 def work_2019(category3: str, year: str, year_labe: str) -> str:
