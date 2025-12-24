@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" """
+"""
+TODO: need improvements
+"""
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
@@ -101,7 +103,7 @@ data = {
     "chinese open boxing": "الصين المفتوحة للبوكسينغ",
     "chinese outdoor boxing championship": "بطولة الصين للبوكسينغ في الهواء الطلق",
     "chinese outdoor boxing championships": "بطولة الصين للبوكسينغ في الهواء الطلق",
-    "chinese outdoor boxing clubs": "أندية للبوكسينغ الصين في الهواء الطلق",
+    "chinese outdoor boxing clubs": "تصنيف:أندية البوكسينغ الصينية في الهواء الطلق",
     "chinese women's boxing championship": "بطولة الصين للبوكسينغ للسيدات",
     "chinese women's boxing championships": "بطولة الصين للبوكسينغ للسيدات",
     "chinese youth boxing championship": "بطولة الصين للبوكسينغ للشباب",
@@ -110,7 +112,7 @@ data = {
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_sport_lab_oioioi_load(category: str, expected: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected

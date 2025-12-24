@@ -148,7 +148,7 @@ def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower()
     category = category.replace("expatriates", "expatriate")
     category = REGEX_WOMENS.sub("female", category)
-    return category
+    return category.strip()
 
 
 @functools.lru_cache(maxsize=10000)

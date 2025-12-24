@@ -76,10 +76,7 @@ to_get_endswith: Dict[str, Dict[str, Any]] = {
         "lab": "مفوضو {}",
         "example": "Category:Major Indoor Soccer League (1978–1992) commissioners",
     },
-    "commentators": {
-        "lab": "معلقو {}",
-        "example": "Category:Major Indoor Soccer League (1978–1992) commentators",
-    },
+    # "commentators": { "lab": "معلقو {}", "example": "Category:Major Indoor Soccer League (1978–1992) commentators", },
     "events": {
         "lab": "أحداث {}",
         "example": "",

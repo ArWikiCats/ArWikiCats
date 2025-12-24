@@ -65,7 +65,7 @@ for key in pop_key_4:
 
     structures_data[f"{key2} geology"] = f"جيولوجيا {lab}"
     structures_data[f"{key2} mining"] = f"تعدين {lab}"
-    structures_data[f"{key2} technology"] = f"تقنيات {lab}"
+    structures_data[f"{key2} technology"] = f"تقانة {lab}"
     structures_data[f"{key2} disasters"] = f"كوارث {lab}"
     structures_data[f"{key2} issues"] = f"قضايا {lab}"
     # New_male_keys[f"{key2} economics"] = "اقتصاد {}".format(lab)

@@ -269,7 +269,12 @@ def fixlabel(label_old: str, en: str = "") -> str:
     if re.sub(letters_regex, "", label_old, flags=re.IGNORECASE) != label_old:
         return ""
 
-    if "مشاعر معادية للإسرائيليون" in label_old:
+    skip_labels = [
+        "مراكز سياسية",
+        "مشاعر معادية للإسرائيليون",
+    ]
+
+    if any(label in label_old for label in skip_labels):
         return ""
 
     if "لاعبات" in label_old and "مغتربون" in label_old:

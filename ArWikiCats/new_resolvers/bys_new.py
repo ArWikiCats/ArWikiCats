@@ -470,8 +470,8 @@ def _load_by_data_new() -> dict[str, str]:
         "suicide bomber": "بتفجير انتحاري",
         "taxon": "الأصنوفة",
         "team": "الفريق",
-        "technique": "التقنية",
-        "technology": "التكنولوجيا",
+        "technique": "التقنية",     # not تقانة
+        "technology": "التقانة", # التكنولوجيا
         "term": "الفترة",
         "theatre": "المسرح",
         "time": "الوقت",

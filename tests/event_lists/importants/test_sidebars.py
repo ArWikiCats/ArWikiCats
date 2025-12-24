@@ -35,7 +35,7 @@ data_0 = {
 data_1 = {
     "Category:Arts and culture sidebar templates": "تصنيف:قوالب أشرطة جانبية الفنون وثقافة",
     "Category:Economics by country sidebar templates": "تصنيف:قوالب أشرطة جانبية الاقتصاد حسب البلد",
-    "Category:History of science and technology sidebar templates": "تصنيف:قوالب أشرطة جانبية تاريخ العلوم والتكنولوجيا",
+    "Category:History of science and technology sidebar templates": "تصنيف:قوالب أشرطة جانبية تاريخ العلوم والتقانة",
     "Category:Islam sidebar templates": "تصنيف:قوالب أشرطة جانبية الإسلام",
     "Category:Moldova sidebar templates": "تصنيف:قوالب أشرطة جانبية مولدوفا",
     "Category:Motorsport sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضة المحركات",

@@ -15,6 +15,7 @@ from ...ma_bots.ye_ts_bot import translate_general_category
 from ..matables_bots.data import Add_in_table
 from ..matables_bots.table1_bot import get_KAKO
 from ..reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
+from ...new_resolvers.reslove_all import new_resolvers_all
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)
@@ -51,7 +52,7 @@ def _handle_year_at_start(category_text: str) -> str:
     if year == category_text or not year:
         return ""
 
-    remainder = category_text[len(year) :].strip()
+    remainder = category_text[len(year) :].strip().lower()
     logger.debug(f">>> _handle_year_at_start: {year=}, suffix:{remainder}")
 
     remainder_label = ""
@@ -59,17 +60,14 @@ def _handle_year_at_start(category_text: str) -> str:
         remainder_label = WORD_AFTER_YEARS[remainder]
 
     if not remainder_label:
-        remainder_label = get_from_pf_keys2(remainder.strip().lower())
-
-    if not remainder_label:
-        remainder_label = get_KAKO(remainder.strip().lower())
-        logger.debug(f">>> _handle_year_at_start get_KAKO con_3_lab:{remainder_label}")
-
-    if not remainder_label:
-        remainder_label = translate_general_category(remainder, fix_title=False)
-
-    if not remainder_label:
-        remainder_label = country2_lab.get_lab_for_country2(remainder)
+        remainder_label = (
+            new_resolvers_all(remainder) or
+            get_from_pf_keys2(remainder) or
+            get_KAKO(remainder) or
+            translate_general_category(remainder, fix_title=False) or
+            country2_lab.get_lab_for_country2(remainder) or
+            ""
+        )
 
     if not remainder_label:
         return ""
@@ -114,12 +112,12 @@ def _handle_year_at_end(
     logger.debug(f">>> _handle_year_at_end: year2:{year_at_end_label}")
     remainder = category_text[: -len(year_at_end_label)]
 
-    # print("translate_general_category 5")
-    remainder_label = translate_general_category(remainder, fix_title=False)
-
-    if not remainder_label:
-        remainder_label = country2_lab.get_lab_for_country2(remainder)
-
+    remainder_label = (
+        new_resolvers_all(remainder) or
+        translate_general_category(remainder, fix_title=False) or
+        country2_lab.get_lab_for_country2(remainder) or
+        ""
+    )
     if "–present" in formatted_year_label:
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")
 

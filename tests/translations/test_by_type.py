@@ -132,7 +132,7 @@ data1 = {
     "by subgenre": "حسب النوع الفرعي",
     "by subject": "حسب الموضوع",
     "by team": "حسب الفريق",
-    "by technology": "حسب التكنولوجيا",
+    "by technology": "حسب التقانة",
     "by term": "حسب الفترة",
     "by time": "حسب الوقت",
     "by topic": "حسب الموضوع",

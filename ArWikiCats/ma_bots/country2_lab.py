@@ -47,7 +47,9 @@ def resolve_all(country2) -> str:
             raise TypeError(f"Resolver '{name}' returned non-string type {type(result)}: {result}")
 
         # Valid str → return
-        return result
+        if result:
+            logger.info(f'>> resolve_all "{country2}": label: {result}')
+            return result
 
     # No resolver succeeded
     return ""
@@ -68,7 +70,6 @@ def get_lab_for_country2(country: str) -> str:
     if not resolved_label and country2.startswith("the "):
         resolved_label = get_pop_All_18(country2[len("the ") :], "")
 
-    if resolved_label:
-        logger.info(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
+    logger.info(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
 
     return resolved_label

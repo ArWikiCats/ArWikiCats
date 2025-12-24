@@ -214,7 +214,7 @@ FEMALE_EXPANSIONS: dict[str, str] = {
     "{base} logistics": "لوجستية {label}",
     "{base} research": "أبحاث {label}",
     "{base} industry": "صناعة {label}",
-    "{base} technology": "تقنيات {label}",
+    "{base} technology": "تقانة {label}",
     "{base} disasters": "كوارث {label}",
     "{base} writing": "كتابات {label}",
     "{base} issues": "قضايا {label}",
@@ -256,7 +256,7 @@ def _add_religious_entries() -> None:
         data[f"{lowered} temples"] = f"معابد {label}"
         data[f"{lowered} research"] = f"أبحاث {label}"
         data[f"{lowered} industry"] = f"صناعة {label}"
-        data[f"{lowered} technology"] = f"تقنيات {label}"
+        data[f"{lowered} technology"] = f"تقانة {label}"
         data[f"{lowered} disasters"] = f"كوارث {label}"
         data[f"{lowered} politics"] = f"سياسة {label}"
         data[f"{lowered} banks"] = f"بنوك {label}"
@@ -286,7 +286,7 @@ def _add_film_entries() -> None:
         data[f"{lowered} organization"] = f"منظمات {label}"
         data[f"{lowered} research"] = f"أبحاث {label}"
         data[f"{lowered} industry"] = f"صناعة {label}"
-        data[f"{lowered} technology"] = f"تقنيات {label}"
+        data[f"{lowered} technology"] = f"تقانة {label}"
         data[f"{lowered} disasters"] = f"كوارث {label}"
         data[f"{lowered} issues"] = f"قضايا {label}"
         data[f"{lowered} culture"] = f"ثقافة {label}"

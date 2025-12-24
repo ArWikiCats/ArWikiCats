@@ -178,7 +178,7 @@ def fix_keys(category: str) -> str:
     for old, new in replacements.items():
         category = category.replace(old, new)
 
-    return category
+    return category.strip()
 
 
 @functools.lru_cache(maxsize=10000)

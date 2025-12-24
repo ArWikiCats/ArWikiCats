@@ -631,7 +631,7 @@ data_1 = {
     "Category:Sailing competitions in Antigua and Barbuda": "تصنيف:منافسات إبحار في أنتيغوا وباربودا",
     "Category:Sailing in Antigua and Barbuda": "تصنيف:الإبحار في أنتيغوا وباربودا",
     "Category:Schools in Antigua and Barbuda": "تصنيف:مدارس في أنتيغوا وباربودا",
-    "Category:Science and technology in Antigua and Barbuda": "تصنيف:العلوم والتكنولوجيا في أنتيغوا وباربودا",
+    "Category:Science and technology in Antigua and Barbuda": "تصنيف:العلوم والتقانة في أنتيغوا وباربودا",
     "Category:Scottish people of Antigua and Barbuda descent": "تصنيف:إسكتلنديون من أصل أنتيغوي وبربودي",
     "Category:Seasons in Antigua and Barbuda sport": "تصنيف:مواسم في رياضة أنتيغوية وبربودية",
     "Category:Service companies of Antigua and Barbuda": "تصنيف:شركات خدمات في أنتيغوا وباربودا",

@@ -5,6 +5,7 @@ Key-label mappings for generic mixed categories.
 from __future__ import annotations
 
 from collections.abc import Mapping
+from unittest import result
 
 from ...helps import len_print, logger
 from ..jobs.jobs_singers import SINGERS_TAB
@@ -184,7 +185,7 @@ WEAPON_EVENTS: dict[str, str] = {
     "battles": "معارك",
     "sieges": "حصارات",
     "missiles": "صواريخ",
-    "technology": "تقنية",
+    "technology": "تقانة",
 }
 
 BOOK_CATEGORIES: dict[str, str] = {
@@ -567,7 +568,9 @@ pf_keys2.update(no_the)
 
 def get_from_pf_keys2(text: str) -> str:
     """Look up the Arabic label for a term in the ``pf_keys2`` mapping."""
-    return pf_keys2.get(text, "")
+    label = pf_keys2.get(text, "")
+    logger.info(f">> get_from_pf_keys2() Found: {label}")
+    return label
 
 
 len_print.data_len(

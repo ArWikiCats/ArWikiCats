@@ -258,8 +258,8 @@ BY_TABLE_BASED = {
     "by subject": "حسب الموضوع",
     "by taxon": "حسب الأصنوفة",
     "by team": "حسب الفريق",
-    "by technique": "حسب التقنية",
-    "by technology": "حسب التكنولوجيا",
+    "by technique": "حسب التقنية",       # not تقانة
+    "by technology": "حسب التقانة",
     "by term": "حسب الفترة",
     "by theatre": "حسب المسرح",
     "by time": "حسب الوقت",

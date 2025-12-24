@@ -82,15 +82,28 @@ JOBS_TYPE_TRANSLATIONS: Mapping[str, str] = {
 }
 
 JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
-    "bloggers": {"males": "مدونو", "females": "مدونات"},
+    "bloggers": {"males": "مدونون", "females": "مدونات"},
     "writers": {"males": "كتاب", "females": "كاتبات"},
+    "news anchors": {"males": "مذيعو أخبار", "females": "مذيعات أخبار"},
+    "non-fiction writers": {"males": "كتاب غير روائيين", "females": "كاتبات غير روائيات"},
+    "critics": {"males": "نقاد", "females": "ناقدات"},
+    "personalities": {"males": "شخصيات", "females": "شخصيات"},
+
+    "journalists": {"males": "صحفيو", "females": "صحفيات"},
+    "producers": {"males": "منتجو", "females": "منتجات"},
+    "authors": {"males": "مؤلفو", "females": "مؤلفات"},
+    "editors": {"males": "محررو", "females": "محررات"},
+    "artists": {"males": "فنانو", "females": "فنانات"},
+    "directors": {"males": "مخرجو", "females": "مخرجات"},
+    "publisherspeople": {"males": "ناشرو", "females": "ناشرات"},
+    "publishers (people)": {"males": "ناشرو", "females": "ناشرات"},
+    "presenters": {"males": "مذيعو", "females": "مذيعات"},
+    "creators": {"males": "مبتكرو", "females": "مبتكرات"},
 }
 
 jobs_data = open_json_file("jobs/jobs.json")
 
 JOBS_2020_BASE.update({x: v for x, v in jobs_data["JOBS_2020"].items() if v.get("males") and v.get("females")})
-
-JOBS_PEOPLE_ROLES.update({x: v for x, v in jobs_data["JOBS_PEOPLE"].items() if v.get("males") and v.get("females")})
 
 JOBS_TYPE_TRANSLATIONS.update({x: v for x, v in jobs_data["JOBS_TYPE"].items() if v})  # v is string
 
@@ -160,6 +173,11 @@ def _merge_jobs_sources() -> GenderedLabelMap:
     """Combine JSON sources and static configuration into a single map."""
 
     jobs_pp = open_json_file("jobs/jobs_Men_Womens_PP.json")
+    jobs_pp.update({
+        "candidates": {"males": "مرشحون", "females": "مرشحات"},
+        "presidential candidates": {"males": "مرشحون رئاسيون", "females": "مرشحات رئاسيات"},
+        "political candidates": {"males": "مرشحون سياسيون", "females": "مرشحات سياسيات"},
+    })
 
     jobs_pp["coaches"] = {"males": "مدربون", "females": "مدربات"}
     # jobs_pp["sports coaches"] = {"males": "مدربون رياضيون", "females": "مدربات رياضيات"}

@@ -104,7 +104,43 @@ def build_keys2_py_mapping() -> dict[str, str]:
 
     data = open_json_file("keys/keys2_py.json") or {}
     # data["men"] = "رجال"
-
+    # https://quarry.wmcloud.org/query/100263#
+    # (مرشحو|مدربو|صحفيو|مستكشفو|سياسيو|لاعبو|مدربو|مؤرخو|مؤسسو|موظفو|مدربو|مسيرو|خريجو|معلقو|مفوضو|مذيعو|موسيقيو|مغنو|معلمو|طبالو|مدونو|ملحنو|مؤلفو|منتجو|محررو|فنانو|مخرجو|ناشرو|مبتكرو) (في|من)
+    others = {
+        "producers": "منتجو",
+        "editors": "محررو",
+        "artists": "فنانو",
+        "directors": "مخرجو",
+        "publisherspeople": "ناشرو",
+        "presenters": "مذيعو",
+        "creators": "مبتكرو",
+        "musicians": "موسيقيو",
+        "singers": "مغنو",
+        "educators": "معلمو",
+        "bloggers": "مدونو",
+        "drummers": "طبالو",
+        "authors": "مؤلفو",
+        "composers": "ملحنو",
+        "broadcasters": "مذيعو",
+        "commentators": "معلقو",
+        "commissioners": "مفوضو",
+    }
+    data.update({
+        "candidates for": "مرشحو",
+        "trainers of": "مدربو",
+        "journalists of": "صحفيو",
+        "explorers of": "مستكشفو",
+        "political people of": "سياسيو",
+        "players of": "لاعبو",
+        "managers of": "مدربو",
+        "historians of": "مؤرخو",
+        "founders of": "مؤسسو",
+        "employees of": "موظفو",
+        "coaches of": "مدربو",
+        "investors of": "مسيرو",
+        "alumni of": "خريجو",
+        "chairmen and investors of": "رؤساء ومسيرو",
+    })
     data.update(medical_keys)
 
     return data

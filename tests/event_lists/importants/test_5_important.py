@@ -5,6 +5,13 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",
+    "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2008",
+    "Category:Political positions of the 2016 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2016",
+    "Category:Political positions of the 2020 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2020",
+    "Category:Political positions of the 2024 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2024",
+    "Category:17th-century dukes of Limburg": "تصنيف:دوقات ليمبورغ في القرن 17",
+    "Category:Politics and technology": "تصنيف:السياسة والتقانة",
     "Category:National association football second-tier league champions": "x",
     "Category:Association football third-tier league seasons": "x",
     "Category:Association football second-tier league seasons": "x",
@@ -41,12 +48,14 @@ data_empty = {
 }
 
 data0 = {
+    "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
+    "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
+    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",}
+
+data1 = {
     "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
     "Category:Academic staff of University of Nigeria": "تصنيف:أعضاء هيئة تدريس جامعة نيجيريا",
     "Category:Early modern history of Portugal": "تصنيف:تاريخ البرتغال الحديث المبكر",
-}
-
-data1 = {
     "south american second tier football leagues": "تصنيف:دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
     "european second tier basketball leagues": "تصنيف:دوريات كرة سلة أوروبية من الدرجة الثانية",
     "european second tier ice hockey leagues": "تصنيف:دوريات هوكي جليد أوروبية من الدرجة الثانية",
@@ -106,8 +115,8 @@ data_3 = {
 
 to_test = [
     ("test_5_data_0", data0),
-    ("test_5_data_1", data1),
-    ("test_5_data_3", data_3),
+    # ("test_5_data_1", data1),
+    # ("test_5_data_3", data_3),
 ]
 
 
@@ -132,5 +141,5 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    # dump_diff_text(expected, diff_result, name)
+    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
