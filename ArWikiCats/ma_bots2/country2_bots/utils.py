@@ -4,7 +4,7 @@ This module provides functions for processing and generating labels for country 
 """
 
 from typing import Tuple
-from ....helps import logger
+from ...helps import logger
 
 
 def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
