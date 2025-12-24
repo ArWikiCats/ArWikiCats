@@ -568,7 +568,7 @@ data1 = {
     "Category:Heads of the federal subjects of Russia": "تصنيف:قادة كيانات روسيا الاتحادية",
     "Category:Health ministers of Russia": "تصنيف:وزراء صحة في روسيا",
     "Category:Hills of Russia": "تصنيف:تلال روسيا",
-    "Category:Historians of Russia": "تصنيف:مؤرخو من روسيا",
+    "Category:Historians of Russia": "تصنيف:مؤرخو روسيا",
     "Category:Historiography of Russia": "تصنيف:تأريخ روسيا",
     "Category:History of Russia": "تصنيف:تاريخ روسيا",
     "Category:Hot springs of Russia": "تصنيف:ينابيع حارة روسيا",

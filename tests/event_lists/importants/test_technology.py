@@ -167,7 +167,7 @@ data_slow = {
     "Category:Defunct technology companies of the United Kingdom": "تصنيف:شركات تقانة سابقة في المملكة المتحدة",
     "Category:Documentary films about technology": "تصنيف:أفلام وثائقية عن التقانة",
     "Category:European Union and science and technology": "تصنيف:الاتحاد الأوروبي والعلوم والتقانة",
-    "Category:Historians of technology": "تصنيف:مؤرخو من التقانة",
+    "Category:Historians of technology": "تصنيف:مؤرخو التقانة",
     "Category:History of science and technology in China": "تصنيف:تاريخ العلوم والتقانة في الصين",
     "Category:History of science and technology in England": "تصنيف:تاريخ العلوم والتقانة في إنجلترا",
     "Category:Information technology in Uruguay": "تصنيف:تقانة المعلومات في أوروغواي",

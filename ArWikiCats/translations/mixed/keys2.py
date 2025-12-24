@@ -104,6 +104,10 @@ def build_keys2_py_mapping() -> dict[str, str]:
 
     data = open_json_file("keys/keys2_py.json") or {}
     # data["men"] = "رجال"
+    # (مرشحو|مدربو|صحفيو|مستكشفو|سياسيو|لاعبو|مدربو|مؤرخو|مؤسسو|موظفو|مدربو|مسيرو|خريجو|معلقو) (في|من)
+    others = {
+        "commentators": "معلقو",
+    }
     data.update({
         "candidates for": "مرشحو",
         "trainers of": "مدربو",
@@ -117,8 +121,8 @@ def build_keys2_py_mapping() -> dict[str, str]:
         "employees of": "موظفو",
         "coaches of": "مدربو",
         "investors of": "مسيرو",
-        "chairmen and investors of": "رؤساء ومسيرو",
         "alumni of": "خريجو",
+        "chairmen and investors of": "رؤساء ومسيرو",
     })
     data.update(medical_keys)
 
