@@ -43,14 +43,9 @@ data_empty = {
 }
 
 data0 = {
-    "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
-    "Category:Academic staff of University of Nigeria": "تصنيف:أعضاء هيئة تدريس جامعة نيجيريا",
-    "Category:Early modern history of Portugal": "تصنيف:تاريخ البرتغال الحديث المبكر",
     "Category:European League of Football coaches": "تصنيف:الدوري الأوروبي في مدربو كرة قدم",
-    "Category:Greens Party of Georgia politicians": "تصنيف:حزب الخضر في سياسيو جورجيا",
     "Category:First League of Serbia and Montenegro managers": "تصنيف:دوري كرة القدم الدرجة الأولى في مدربو صربيا والجبل الأسود",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
-    "Category:Los Angeles Angels of Anaheim announcers": "تصنيف:لوس أنجلوس آنجلز لأنهايم في مذيعو انهايم",
     "Category:Political positions of United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية",
     "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2000",
     "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2008",
@@ -60,6 +55,9 @@ data0 = {
 }
 
 data1 = {
+    "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
+    "Category:Academic staff of University of Nigeria": "تصنيف:أعضاء هيئة تدريس جامعة نيجيريا",
+    "Category:Early modern history of Portugal": "تصنيف:تاريخ البرتغال الحديث المبكر",
     "south american second tier football leagues": "تصنيف:دوريات كرة قدم أمريكية جنوبية من الدرجة الثانية",
     "european second tier basketball leagues": "تصنيف:دوريات كرة سلة أوروبية من الدرجة الثانية",
     "european second tier ice hockey leagues": "تصنيف:دوريات هوكي جليد أوروبية من الدرجة الثانية",
