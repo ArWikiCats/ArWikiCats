@@ -82,8 +82,23 @@ JOBS_TYPE_TRANSLATIONS: Mapping[str, str] = {
 }
 
 JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
-    "bloggers": {"males": "مدونو", "females": "مدونات"},
+    "bloggers": {"males": "مدونون", "females": "مدونات"},
     "writers": {"males": "كتاب", "females": "كاتبات"},
+    "news anchors": {"males": "مذيعو أخبار", "females": "مذيعات أخبار"},
+    "non-fiction writers": {"males": "كتاب غير روائيين", "females": "كاتبات غير روائيات"},
+    "critics": {"males": "نقاد", "females": "ناقدات"},
+    "personalities": {"males": "شخصيات", "females": "شخصيات"},
+
+    "journalists": {"males": "صحفيو", "females": "صحفيات"},
+    "producers": {"males": "منتجو", "females": "منتجات"},
+    "authors": {"males": "مؤلفو", "females": "مؤلفات"},
+    "editors": {"males": "محررو", "females": "محررات"},
+    "artists": {"males": "فنانو", "females": "فنانات"},
+    "directors": {"males": "مخرجو", "females": "مخرجات"},
+    "publisherspeople": {"males": "ناشرو", "females": "ناشرات"},
+    "publishers (people)": {"males": "ناشرو", "females": "ناشرات"},
+    "presenters": {"males": "مذيعو", "females": "مذيعات"},
+    "creators": {"males": "مبتكرو", "females": "مبتكرات"},
 }
 
 jobs_data = open_json_file("jobs/jobs.json")

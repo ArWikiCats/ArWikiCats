@@ -5,6 +5,7 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "Category:17th-century dukes of Limburg": "تصنيف:دوقات ليمبورغ في القرن 17",
     "Category:Politics and technology": "تصنيف:السياسة والتقانة",
     "Category:National association football second-tier league champions": "x",
     "Category:Association football third-tier league seasons": "x",

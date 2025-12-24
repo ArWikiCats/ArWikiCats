@@ -12,10 +12,20 @@ from ..media_bots.film_keys_bot import resolve_films
 from ..o_bots.utils import resolve_suffix_template
 
 Teams_new_end_keys = {
-    "fan clubs": "أندية معجبي {}",
     "broadcasters": "مذيعو {}",
     "commentators": "معلقو {}",
     "commissioners": "مفوضو {}",
+    "trainers": "مدربو {}",
+    "chairmen and investors": "رؤساء ومسيرو {}",
+    "coaches": "مدربو {}",
+    "managers": "مدربو {}",  # "مدراء {}"
+    "manager": "مدربو {}",
+    "manager history": "تاريخ مدربو {}",
+    "footballers": "لاعبو {}",
+    "playerss": "لاعبو {}",
+    "players": "لاعبو {}",
+
+    "fan clubs": "أندية معجبي {}",
     "owners and executives": "رؤساء تنفيذيون وملاك {}",
     "personnel": "أفراد {}",
     "owners": "ملاك {}",
@@ -33,7 +43,6 @@ Teams_new_end_keys = {
     "governing bodies": "هيئات تنظيم {}",
     "bodies": "هيئات {}",
     "video games": "ألعاب فيديو {}",
-    "chairmen and investors": "رؤساء ومسيرو {}",
     "comics": "قصص مصورة {}",
     "cups": "كؤوس {}",
     "records and statistics": "سجلات وإحصائيات {}",
@@ -58,17 +67,9 @@ Teams_new_end_keys = {
     "awards": "جوائز {}",
     "songs": "أغاني {}",
     "non-playing staff": "طاقم {} غير اللاعبين",
-    "trainers": "مدربو {}",
     "umpires": "حكام {}",
     "cup playoffs": "تصفيات كأس {}",
     "cup": "كأس {}",
-    "coaches": "مدربو {}",
-    "managers": "مدربو {}",  # "مدراء {}"
-    "manager": "مدربو {}",
-    "manager history": "تاريخ مدربو {}",
-    "footballers": "لاعبو {}",
-    "playerss": "لاعبو {}",
-    "players": "لاعبو {}",
     "results": "نتائج {}",
     "matches": "مباريات {}",
     "rivalries": "دربيات {}",
