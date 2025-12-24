@@ -5,6 +5,7 @@ import pytest
 
 from ArWikiCats.translations import Nat_women, film_keys_for_female
 from ArWikiCats.translations_formats import MultiDataFormatterDataDouble, format_films_country_data
+
 # from ArWikiCats.make_bots.media_bots.film_keys_bot import get_Films_key_CAO
 
 

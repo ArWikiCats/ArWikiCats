@@ -3,8 +3,8 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats.make_bots.languages_bot.langs_w import Lang_work
 from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 

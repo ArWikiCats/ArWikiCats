@@ -4,6 +4,7 @@ Tests for bys_new bot
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
+
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 _by_of_fields = {

@@ -2,11 +2,12 @@
 Tests
 """
 
-import pytest
 import re
+
+import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import sports_resolver, jobs_resolver
+from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import jobs_resolver, sports_resolver
 
 test_sport_bot_data= {
     "footballers": "لاعبو ولاعبات كرة قدم",

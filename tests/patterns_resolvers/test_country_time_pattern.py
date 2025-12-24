@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.patterns_resolvers.country_time_pattern import resolve_country_time_pattern, load_bot
+from ArWikiCats.patterns_resolvers.country_time_pattern import load_bot, resolve_country_time_pattern
 from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
 
 test_data = {

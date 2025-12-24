@@ -1,6 +1,7 @@
 """
 """
 import pytest
+
 from ArWikiCats.make_bots.format_bots.pf_keys import change_key_mappings_replacements
 
 data1 = {

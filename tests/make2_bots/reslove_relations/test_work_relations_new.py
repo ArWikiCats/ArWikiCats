@@ -1,6 +1,8 @@
 from __future__ import annotations
+
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 ireland_test_data = {

@@ -1,5 +1,7 @@
 from __future__ import annotations
+
 import pytest
+
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 test_data = {

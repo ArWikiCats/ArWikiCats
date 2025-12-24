@@ -6,7 +6,6 @@ from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.new_resolvers.translations_resolvers.us_states import _STATE_SUFFIX_TEMPLATES_BASE, normalize_state
 from ArWikiCats.translations import US_STATES
 
-
 test_data_keys = {
     # "{en} republicans": "أعضاء الحزب الجمهوري في {ar}",
     "{en} counties": "مقاطعات {ar}",

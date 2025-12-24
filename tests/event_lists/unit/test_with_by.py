@@ -1,5 +1,6 @@
 #
 import pytest
+
 from ArWikiCats import resolve_arabic_category_label
 
 data2 = {

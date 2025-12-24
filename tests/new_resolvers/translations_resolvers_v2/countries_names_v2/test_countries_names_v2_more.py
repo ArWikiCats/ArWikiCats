@@ -6,7 +6,6 @@ import pytest
 
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_v2 import resolve_by_countries_names_v2
 
-
 test_data = {
     "bahamas royal defence force": "قوات الدفاع الملكية البهامية",
     # -------------------------

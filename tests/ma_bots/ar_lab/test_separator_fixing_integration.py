@@ -8,8 +8,8 @@ and actual data dependencies.
 import pytest
 
 from ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab import (
-    separator_lists_fixing,
     add_in_tab,
+    separator_lists_fixing,
 )
 
 

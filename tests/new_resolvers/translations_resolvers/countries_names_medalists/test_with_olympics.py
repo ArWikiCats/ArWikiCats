@@ -2,10 +2,11 @@
 Tests
 """
 
-import pytest
 from typing import Callable
 
+import pytest
 from load_one_data import dump_diff, one_dump_test
+
 from ArWikiCats.new_resolvers.translations_resolvers.countries_names_medalists import resolve_countries_names_medalists
 
 olympics = {

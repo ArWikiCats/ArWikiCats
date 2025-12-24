@@ -2,7 +2,8 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, one_dump_test
+
 from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import get_job_label
 
 test_0 = {
