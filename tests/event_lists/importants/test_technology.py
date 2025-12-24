@@ -179,7 +179,7 @@ data_slow = {
     "Category:Nuclear technology in the Soviet Union": "تصنيف:تقانة نووية في الاتحاد السوفيتي",
     "Category:People associated with technology": "تصنيف:أشخاص مرتبطون مع التقانة",
     "Category:Philosophers of technology": "تصنيف:فلاسفة من التقانة",
-    "Category:Politics and technology": "تصنيف:سياسة والتقانة",
+    "Category:Politics and technology": "تصنيف:السياسة والتقانة",
     "Category:Science and technology by continent": "تصنيف:العلوم والتقانة حسب القارة",
     "Category:Science and technology by country": "تصنيف:العلوم والتقانة حسب البلد",
     "Category:Science and technology by location": "تصنيف:العلوم والتقانة حسب الموقع",
