@@ -225,7 +225,6 @@ data_2018_with_nat = {
     "estonian music people": "شخصيات موسيقية إستونية",
     "european american culture": "ثقافة أمريكية أوروبية",
     "european-argentine culture": "ثقافة أرجنتينية أوروبية",
-    "explorers of": "مستكشفو",
     "fictional australian rules footballers": "لاعبو كرة قدم أسترالية خياليون",
     "filipino-american culture": "ثقافة أمريكية فلبينية",
     "film editors": "محررو أفلام",

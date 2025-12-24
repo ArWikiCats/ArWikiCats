@@ -79,6 +79,27 @@ def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False)
     return org, diff
 
 
+def one_dump_test_no_labels(dataset: dict, callback: Callable[[str], str], do_strip=False) -> tuple[dict, dict]:
+    print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
+    org = {}
+    diff = {}
+    data = {x: v for x, v in dataset.items()}  # if v
+    no_labels = []
+    for cat, ar in data.items():
+        result = callback(cat)
+        # ---
+        if do_strip:
+            result = result.strip() if isinstance(result, str) else result
+            ar = ar.strip() if isinstance(ar, str) else ar
+        # ---
+        if not result:
+            no_labels.append(cat)
+        elif result != ar:
+            org[cat] = ar
+            diff[cat] = result
+    return org, diff, no_labels
+
+
 def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: bool=False) -> None:
     """
     Dump same data as JSON file for easy copy-paste to wiki.

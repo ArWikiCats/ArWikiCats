@@ -160,6 +160,11 @@ def _merge_jobs_sources() -> GenderedLabelMap:
     """Combine JSON sources and static configuration into a single map."""
 
     jobs_pp = open_json_file("jobs/jobs_Men_Womens_PP.json")
+    jobs_pp.update({
+        "candidates": {"males": "مرشحون", "females": "مرشحات"},
+        "presidential candidates": {"males": "مرشحون رئاسيون", "females": "مرشحات رئاسيات"},
+        "political candidates": {"males": "مرشحون سياسيون", "females": "مرشحات سياسيات"},
+    })
 
     jobs_pp["coaches"] = {"males": "مدربون", "females": "مدربات"}
     # jobs_pp["sports coaches"] = {"males": "مدربون رياضيون", "females": "مدربات رياضيات"}

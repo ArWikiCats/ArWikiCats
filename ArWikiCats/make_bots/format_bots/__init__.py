@@ -108,7 +108,7 @@ pp_ends_with_pase = {
     "third division": "{} الدرجة الثالثة",
     "forth division": "{} الدرجة الرابعة",
     "candidates": "مرشحو {}",
-    "candidates for": "مرشحو {} في",
+    # "candidates for": "مرشحو {} في",
     "squad": "تشكيلة {}",
     "squads": "تشكيلات {}",
     "final tournaments": "نهائيات مسابقات {}",

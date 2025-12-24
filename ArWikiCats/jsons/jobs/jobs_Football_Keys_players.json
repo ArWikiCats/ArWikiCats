@@ -1,31 +1,47 @@
 {
+    "journalists": {
+        "males": "صحفيو",
+        "females": "صحفيات"
+    },
+    "players": {
+        "males": "لاعبو",
+        "females": "لاعبات"
+    },
+    "placekickers": {
+        "males": "مسددو",
+        "females": "مسددات"
+    },
+    "kickers": {
+        "males": "راكلو",
+        "females": "راكلات"
+    },
+    "defenders": {
+        "males": "مدافعو",
+        "females": "مدافعات"
+    },
+    "forwards": {
+        "males": "مهاجمو",
+        "females": "مهاجمات"
+    },
+    "fullbacks": {
+        "males": "مدافعو",
+        "females": "مدافعات"
+    },
+    "defencemen": {
+        "males": "مدافعو",
+        "females": "مدافعات"
+    },
     "receivers": {
         "males": "مستقبلو",
         "females": "مستقبلات"
-    },
-    "wide receivers": {
-        "males": "مستقبلون واسعون",
-        "females": "مستقبلات واسعات"
     },
     "tackles": {
         "males": "مصطدمو",
         "females": "مصطدمات"
     },
-    "utility players": {
-        "males": "لاعبو مراكز متعددة",
-        "females": "لاعبات مراكز متعددة"
-    },
     "trainers": {
         "males": "مدربو",
         "females": "مدربات"
-    },
-    "peoplee": {
-        "males": "أعلام",
-        "females": "أعلام"
-    },
-    "scouts": {
-        "males": "كشافة",
-        "females": "كشافة"
     },
     "coaches": {
         "males": "مدربو",
@@ -39,17 +55,25 @@
         "males": "مدربو",
         "females": "مدربات"
     },
+    "utility players": {
+        "males": "لاعبو مراكز متعددة",
+        "females": "لاعبات مراكز متعددة"
+    },
+    "wide receivers": {
+        "males": "مستقبلون واسعون",
+        "females": "مستقبلات واسعات"
+    },
+    "peoplee": {
+        "males": "أعلام",
+        "females": "أعلام"
+    },
+    "scouts": {
+        "males": "كشافة",
+        "females": "كشافة"
+    },
     "directors": {
         "males": "مدراء",
         "females": "مديرات"
-    },
-    "journalists": {
-        "males": "صحفيو",
-        "females": "صحفيات"
-    },
-    "players": {
-        "males": "لاعبو",
-        "females": "لاعبات"
     },
     "halfbacks": {
         "males": "أظهرة مساعدون",
@@ -71,29 +95,13 @@
         "males": "لاعبو وسط",
         "females": "لاعبات وسط"
     },
-    "placekickers": {
-        "males": "مسددو",
-        "females": "مسددات"
-    },
-    "kickers": {
-        "males": "راكلو",
-        "females": "راكلات"
-    },
     "drop kickers": {
         "males": "مسددو ركلات",
         "females": "مسددات ركلات"
     },
-    "defenders": {
-        "males": "مدافعو",
-        "females": "مدافعات"
-    },
     "central defenders": {
         "males": "قلوب دفاع",
         "females": "مدافعات مركزيات"
-    },
-    "forwards": {
-        "males": "مهاجمو",
-        "females": "مهاجمات"
     },
     "inside forwards": {
         "males": "مهاجمون داخليون",
@@ -110,10 +118,6 @@
     "power forwards": {
         "males": "مهاجمون أقوياء الجسم",
         "females": "مهاجمات قويات الجسم"
-    },
-    "fullbacks": {
-        "males": "مدافعو",
-        "females": "مدافعات"
     },
     "defensive backs": {
         "males": "مدافعون خلفيون",
@@ -162,10 +166,6 @@
     "right wingers": {
         "males": "أجنحة يمين",
         "females": "جناحات يمين"
-    },
-    "defencemen": {
-        "males": "مدافعو",
-        "females": "مدافعات"
     },
     "wingers": {
         "males": "أجنحة",
