@@ -43,8 +43,7 @@ data_empty = {
 }
 
 data0 = {
-    "Category:European League of Football coaches": "تصنيف:الدوري الأوروبي في مدربو كرة قدم",
-    "Category:First League of Serbia and Montenegro managers": "تصنيف:دوري كرة القدم الدرجة الأولى في مدربو صربيا والجبل الأسود",
+    "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
     "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",
     "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",

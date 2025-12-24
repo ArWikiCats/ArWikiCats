@@ -82,7 +82,6 @@ data1 = {
     "croatian premier handball league": "تصنيف:الدوري الكرواتي الممتاز لكرة اليد",
     "cyprus cup": "تصنيف:كأس قبرص",
     "east asian games": "تصنيف:الألعاب الآسيوية الشرقية",
-    "first league of serbia and montenegro": "تصنيف:دوري كرة القدم الدرجة الأولى في صربيا والجبل الأسود",
     "french women's handball championship": "تصنيف:بطولة فرنسا لكرة اليد للسيدات",
     "gerry weber open": "تصنيف:بطولة هالي المفتوحة",
     "grand prix": "تصنيف:سباق الجائزة الكبرى",
