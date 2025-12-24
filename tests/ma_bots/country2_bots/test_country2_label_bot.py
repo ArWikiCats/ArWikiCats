@@ -520,7 +520,7 @@ title_work_tests_data = {
     "saint kitts and nevis in summer olympics": "سانت كيتس ونيفيس في الألعاب الأولمبية الصيفية",
     "school districts in california": "مناطق تعليمية في كاليفورنيا",
     "schools in delaware": "مدارس في ديلاوير",
-    "science and technology in united states": "العلوم والتكنولوجيا في الولايات المتحدة",
+    "science and technology in united states": "العلوم والتقانة في الولايات المتحدة",
     "scientists from ottoman empire": "علماء من الدولة العثمانية في",
     "sculptures of men": "منحوتات في رجال",
     "sexual violence in asia": "عنف جنسي في آسيا",

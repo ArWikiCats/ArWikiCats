@@ -929,7 +929,7 @@ data_1 = {
     "Category:Running in Papua New Guinea": "تصنيف:ركض في بابوا غينيا الجديدة",
     "Category:Sailing in Papua New Guinea": "تصنيف:الإبحار في بابوا غينيا الجديدة",
     "Category:Schools in Papua New Guinea": "تصنيف:مدارس في بابوا غينيا الجديدة",
-    "Category:Science and technology in Papua New Guinea": "تصنيف:العلوم والتكنولوجيا في بابوا غينيا الجديدة",
+    "Category:Science and technology in Papua New Guinea": "تصنيف:العلوم والتقانة في بابوا غينيا الجديدة",
     "Category:Separatism in Papua New Guinea": "تصنيف:الانفصالية في بابوا غينيا الجديدة",
     "Category:Service companies of Papua New Guinea": "تصنيف:شركات خدمات في بابوا غينيا الجديدة",
     "Category:Service industries in Papua New Guinea": "تصنيف:صناعات خدمية في بابوا غينيا الجديدة",

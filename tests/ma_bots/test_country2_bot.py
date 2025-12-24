@@ -492,7 +492,7 @@ data_slow = {
     "sailing for puerto rico": "الإبحار في بورتوريكو",
     "school districts in california": "مناطق تعليمية في كاليفورنيا",
     "schools in delaware": "مدارس في ديلاوير",
-    "science and technology in united states": "العلوم والتكنولوجيا في الولايات المتحدة",
+    "science and technology in united states": "العلوم والتقانة في الولايات المتحدة",
     "science fiction literature": "أدب خيال علمي",
     "scientists from ottoman empire": "علماء من الدولة العثمانية",
     "sculptures of men": "منحوتات في رجال",

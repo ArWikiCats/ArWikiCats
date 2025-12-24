@@ -834,7 +834,7 @@ data_list = [
     ("saint kitts and nevis in summer olympics by year", " by ", "سانت كيتس ونيفيس في الألعاب الأولمبية الصيفية حسب السنة", ),
     ("saint kitts and nevis in summer olympics", " in ", "سانت كيتس ونيفيس في الألعاب الأولمبية الصيفية"),
     ("schools in turkey", " in ", "مدارس في تركيا"),
-    ("science and technology in romania", " in ", "العلوم والتكنولوجيا في رومانيا"),
+    ("science and technology in romania", " in ", "العلوم والتقانة في رومانيا"),
     ("science in art", " in ", "العلم في الفن"),
     ("scientists from indianapolis", " from ", "علماء من إنديانابوليس"),
     ("seasons in asian football leagues", " in ", "مواسم في دوريات كرة قدم آسيوية"),

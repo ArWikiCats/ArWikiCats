@@ -34,7 +34,7 @@ geography_in_1 = {
     "Category:Rail transport in Sri Lanka by province": "تصنيف:السكك الحديدية في سريلانكا حسب المقاطعة",
     "Category:Riots and civil disorder in the United States by state": "تصنيف:شغب وعصيان مدني في الولايات المتحدة حسب الولاية",
     "Category:Schools in Westchester County, New York": "تصنيف:مدارس في مقاطعة ويستتشستر (نيويورك)",
-    "Category:Science and technology in the United States by state": "تصنيف:العلوم والتكنولوجيا في الولايات المتحدة حسب الولاية",
+    "Category:Science and technology in the United States by state": "تصنيف:العلوم والتقانة في الولايات المتحدة حسب الولاية",
     "Category:Slavery in the United States by state": "تصنيف:العبودية في الولايات المتحدة حسب الولاية",
     "Category:Sports venues in Westchester County, New York": "تصنيف:ملاعب رياضية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Education in Westchester County, New York": "تصنيف:التعليم في مقاطعة ويستتشستر (نيويورك)",
