@@ -373,6 +373,11 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
     if "iranian" in all_nat:
         countries_nat_en_key["islamic republic of iran"] = all_nat["iranian"]
 
+    countries_from_nat.update({
+        "serbia and montenegro": "صربيا والجبل الأسود",
+        "serbia-and-montenegro": "صربيا والجبل الأسود",
+    })
+
     return {
         "Nat_men": Nat_men,
         "Nat_mens": Nat_mens,

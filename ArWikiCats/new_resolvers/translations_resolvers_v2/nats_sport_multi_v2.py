@@ -12,6 +12,8 @@ from ...translations_formats import format_multi_data_v2, MultiDataFormatterBase
 from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from .data import sports_formatted_data_for_jobs
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
 NAT_P17_OIOI_TO_CHECK = {
     "{en} {en_sport} cups": "كؤوس {sport_team} {ar}",
@@ -118,6 +120,7 @@ NAT_P17_OIOI = {
 }
 
 sports_formatted_data = {
+    "first league of {en}": "دوري {ar} الممتاز",
 
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
 
@@ -200,6 +203,8 @@ sports_formatted_data = {
 
 def _levels_data() -> dict[str, str]:
     data = {
+        "{en} league of {en_sport} coaches": "مدربو الدوري {the_male} {sport_team}",
+        "{en} league of {en_sport}": "الدوري {the_male} {sport_team}",
         "{en} {en_sport} premier league": "الدوري {the_male} الممتاز {sport_team}",
         "{en} premier {en_sport} league": "الدوري {the_male} الممتاز {sport_team}",
 
@@ -300,12 +305,27 @@ def fix_keys(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_nats_sport_multi_v2(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
+def _resolve_nats_sport_multi_v2(category: str) -> str:
+    logger.debug(f"<<yellow>> start _resolve_nats_sport_multi_v2: {category=}")
 
     both_bot = _load_bot()
     category = fix_keys(category)
     result = both_bot.search_all_category(category)
+
+    logger.debug(f"<<yellow>> end _resolve_nats_sport_multi_v2: {category=}, {result=}")
+    return result
+
+
+@functools.lru_cache(maxsize=10000)
+def resolve_nats_sport_multi_v2(category: str) -> str:
+    category = fix_keys(category)
+
+    logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
+
+    result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, _resolve_nats_sport_multi_v2)
+
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
 
     logger.debug(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}")
     return result

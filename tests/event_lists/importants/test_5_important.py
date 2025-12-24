@@ -46,12 +46,12 @@ data0 = {
     "Category:European League of Football coaches": "تصنيف:الدوري الأوروبي في مدربو كرة قدم",
     "Category:First League of Serbia and Montenegro managers": "تصنيف:دوري كرة القدم الدرجة الأولى في مدربو صربيا والجبل الأسود",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
-    "Category:Political positions of United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية",
-    "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2000",
-    "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2008",
-    "Category:Political positions of the 2016 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2016",
-    "Category:Political positions of the 2020 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2020",
-    "Category:Political positions of the 2024 United States presidential candidates": "تصنيف:مراكز سياسية في مرشحو الرئاسة الأمريكية 2024",
+    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",
+    "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",
+    "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2008",
+    "Category:Political positions of the 2016 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2016",
+    "Category:Political positions of the 2020 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2020",
+    "Category:Political positions of the 2024 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2024",
 }
 
 data1 = {

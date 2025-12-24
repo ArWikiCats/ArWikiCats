@@ -24,9 +24,8 @@ from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..make_bots.sports_bots import team_work
 from . import ye_ts_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
-
 from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
-
+from ..new_resolvers.reslove_all import new_resolvers_all
 
 class CountryLabelRetriever:
     """
@@ -65,6 +64,7 @@ class CountryLabelRetriever:
 
         if not resolved_label:
             resolved_label = (
+                new_resolvers_all(country) or
                 self._check_regex_years(country) or
                 self._check_members(country) or
                 SPORTS_KEYS_FOR_LABEL.get(country, "") or

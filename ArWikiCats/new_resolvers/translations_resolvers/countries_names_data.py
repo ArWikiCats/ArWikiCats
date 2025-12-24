@@ -6,8 +6,8 @@ from typing import Dict
 
 # NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
+    "first league of {en}": "دوري {ar} الممتاز",
     "early modern history of {en}": "تاريخ {ar} الحديث المبكر",
-    "early-modern history of {en}": "تاريخ {ar} الحديث المبكر",
     "modern history of {en}": "تاريخ {ar} الحديث",
     "history of {en}": "تاريخ {ar}",
     "academic staff of university of {en}": "أعضاء هيئة تدريس جامعة {ar}",
