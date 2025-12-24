@@ -35,7 +35,7 @@ def work_with_pp_start_with2(cone_1: str, separator: str, with_years: bool = Fal
     for pri_ss, pri_lab in pp_start_with2.items():
         if cone_1.startswith(pri_ss):
             U_c = cone_1[len(pri_ss) :]
-            logger.debug(f' pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ')
+            logger.debug(f" pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ")
             U_lab = country2_lab.get_lab_for_country2(U_c)
 
             if U_lab == "" and with_years:
@@ -44,7 +44,7 @@ def work_with_pp_start_with2(cone_1: str, separator: str, with_years: bool = Fal
             if U_lab:
                 logger.debug(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"), {U_c=}, {U_lab=}')
                 part_1_label = pri_lab.format(U_lab)
-                logger.debug(f'>>>> {part_1_label=}')
+                logger.debug(f">>>> {part_1_label=}")
                 break
     return part_1_label
 
@@ -70,24 +70,24 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
 
     if cone_1 == "women" and separator.strip() == "from":
         part_1_label = "نساء"
-        logger.debug(f'>> >> >> Make {cone_1=}.')
+        logger.debug(f">> >> >> Make {cone_1=}.")
         return part_1_label
 
     part_1_label = (
-        get_pop_All_18(cone_1) or
-        te_films(cone_1) or
-        sport_lab_nat_load_new(cone_1) or
-        sport_lab_suffixes.get_teams_new(cone_1) or
-        parties_bot.get_parties_lab(cone_1) or
-        team_work.Get_team_work_Club(cone_1) or
-        get_tabl_with_in(cone_1, separator) or
-        convert_time_to_arabic(cone_1) or
-        time_label(cone_1) or
-        work_with_pp_start_with2(cone_1, separator, with_years) or
-        pop_format.get(cone_1) or
-        get_from_pf_keys2(cone_1) or
-        get_KAKO(cone_1) or
-        ""
+        get_pop_All_18(cone_1)
+        or te_films(cone_1)
+        or sport_lab_nat_load_new(cone_1)
+        or sport_lab_suffixes.get_teams_new(cone_1)
+        or parties_bot.get_parties_lab(cone_1)
+        or team_work.Get_team_work_Club(cone_1)
+        or get_tabl_with_in(cone_1, separator)
+        or convert_time_to_arabic(cone_1)
+        or time_label(cone_1)
+        or work_with_pp_start_with2(cone_1, separator, with_years)
+        or pop_format.get(cone_1)
+        or get_from_pf_keys2(cone_1)
+        or get_KAKO(cone_1)
+        or ""
     )
 
     if not part_1_label:
@@ -103,19 +103,19 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
     cone_2 = cone_2.strip().lower()
 
     part_2_label = (
-        get_pop_All_18(cone_2) or
-        bys.get_by_label(cone_2) or
-        te_films(cone_2) or
-        sport_lab_nat_load_new(cone_2) or
-        sport_lab_suffixes.get_teams_new(cone_2) or
-        parties_bot.get_parties_lab(cone_2) or
-        bys.get_and_label(cone_2) or
-        team_work.Get_team_work_Club(cone_2) or
-        get_from_pf_keys2(cone_2.strip().lower()) or
-        get_KAKO(cone_2) or
-        time_label(cone_2) or
-        convert_time_to_arabic(cone_2) or
-        ""
+        get_pop_All_18(cone_2)
+        or bys.get_by_label(cone_2)
+        or te_films(cone_2)
+        or sport_lab_nat_load_new(cone_2)
+        or sport_lab_suffixes.get_teams_new(cone_2)
+        or parties_bot.get_parties_lab(cone_2)
+        or bys.get_and_label(cone_2)
+        or team_work.Get_team_work_Club(cone_2)
+        or get_from_pf_keys2(cone_2.strip().lower())
+        or get_KAKO(cone_2)
+        or time_label(cone_2)
+        or convert_time_to_arabic(cone_2)
+        or ""
     )
 
     logger.debug(f"{cone_2=} -> {part_2_label=}")
@@ -124,7 +124,6 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
 
 
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
-
     maren = re.match(r"\d\d\d\d", part_2_normalized)
     if maren:
         if part_1_normalized == "war of" and resolved_label == f"الحرب في {part_2_normalized}":
@@ -306,19 +305,17 @@ def separator_arabic_resolve(separator: str) -> str:
 
 # @dump_data()
 def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
-
     part_2_label = (
-        c_2_1_lab(part_2) or
-        country_bot.Get_c_t_lab(part_2, "") or
-        (with_years_bot.Try_With_Years(part_2) if with_years else "") or
-
-        ""
+        c_2_1_lab(part_2)
+        or country_bot.Get_c_t_lab(part_2, "")
+        or (with_years_bot.Try_With_Years(part_2) if with_years else "")
+        or ""
     )
 
     part_1_label = (
-        c_1_1_lab(separator, part_1, with_years=with_years) or
-        country_bot.Get_c_t_lab(part_1, "", lab_type="type_label") or
-        ""
+        c_1_1_lab(separator, part_1, with_years=with_years)
+        or country_bot.Get_c_t_lab(part_1, "", lab_type="type_label")
+        or ""
     )
 
     if part_2_label == "" or part_1_label == "":
@@ -364,7 +361,6 @@ def get_separator(country: str) -> str:
 
 
 def country_2_title_work(country: str, with_years: bool = True) -> str:
-
     separator = get_separator(country)
 
     if not separator:
