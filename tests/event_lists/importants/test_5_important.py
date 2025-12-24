@@ -5,6 +5,11 @@ from load_one_data import dump_diff, one_dump_test, dump_diff_text
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",
+    "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2008",
+    "Category:Political positions of the 2016 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2016",
+    "Category:Political positions of the 2020 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2020",
+    "Category:Political positions of the 2024 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2024",
     "Category:17th-century dukes of Limburg": "تصنيف:دوقات ليمبورغ في القرن 17",
     "Category:Politics and technology": "تصنيف:السياسة والتقانة",
     "Category:National association football second-tier league champions": "x",
@@ -45,13 +50,7 @@ data_empty = {
 data0 = {
     "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
-    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",
-    "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",
-    "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2008",
-    "Category:Political positions of the 2016 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2016",
-    "Category:Political positions of the 2020 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2020",
-    "Category:Political positions of the 2024 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2024",
-}
+    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",}
 
 data1 = {
     "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
