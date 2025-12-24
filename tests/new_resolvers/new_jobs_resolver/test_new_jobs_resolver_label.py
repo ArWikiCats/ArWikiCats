@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+
 from ArWikiCats.new_resolvers.new_jobs_resolver import new_jobs_resolver_label
 
 main_data = {

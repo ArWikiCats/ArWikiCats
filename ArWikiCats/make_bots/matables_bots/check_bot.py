@@ -20,7 +20,8 @@ def check_key_new_players_n(key: str) -> bool:
 
 def check_key_new_players(key: str) -> bool:
     """Return True if the key exists in any player or job mapping table."""
-    result = any(key in table for table in set_tables) or any(key.lower() in table for table in set_tables)
+    key_lower = key.lower()
+    result = any(key in table or key_lower in table for table in set_tables)
     logger.info(f"check_key_new_players [{key}] == {result}")
     return result
 

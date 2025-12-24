@@ -8,14 +8,14 @@ from typing import Tuple
 
 from ....helps.jsonl_dump import dump_data
 from ....helps.log import logger
-from ....utils import fix_minor, check_key_in_tables_return_tuple
-from ...format_bots import category_relation_mapping, pop_format, pop_format2
 from ....ma_bots import country_bot
+from ....new_resolvers.bys_new import resolve_by_labels
 from ....translations import typeTable
+from ....utils import check_key_in_tables_return_tuple, fix_minor
+from ...format_bots import category_relation_mapping, pop_format, pop_format2
 from ...matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...matables_bots.check_bot import check_key_new_players
 from .c_1_c_2_labs import c_1_1_lab, c_2_1_lab
-from ....new_resolvers.bys_new import resolve_by_labels
 
 
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
@@ -36,7 +36,7 @@ def make_cnt_lab(
     part_1_label: str,
     part_1_normalized: str,
     part_2_normalized: str,
-    ar_separator: str
+    ar_separator: str,
 ) -> str:
     """
     Construct a formatted string based on various input parameters.
@@ -55,10 +55,10 @@ def make_cnt_lab(
     if co_in_tables or in_players:
         if in_players:
             if part_2_label.startswith("أصل "):
-                logger.info(f'>>>>>> Add من to {part_1_normalized=} part_1_normalized in New_players:')
+                logger.info(f">>>>>> Add من to {part_1_normalized=} part_1_normalized in New_players:")
                 resolved_label = f"{part_1_label}{ar_separator}من {part_2_label}"
             else:
-                logger.info(f'>>>>>> Add في to {part_1_normalized=} part_1_normalized in New_players:')
+                logger.info(f">>>>>> Add في to {part_1_normalized=} part_1_normalized in New_players:")
                 if not resolved_label.strip().endswith(" في"):
                     resolved_label += " في "
 
@@ -202,14 +202,17 @@ def separator_arabic_resolve(separator: str) -> str:
 # @dump_data()
 def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
 
-    part_2_label = c_2_1_lab(part_2, With_Years=With_Years)
-    part_1_label = c_1_1_lab(separator, part_1, With_Years=With_Years)
+    part_2_label = (
+        c_2_1_lab(part_2, With_Years=With_Years) or
+        country_bot.Get_c_t_lab(part_2, "") or
+        ""
+    )
 
-    if not part_2_label:
-        part_2_label = country_bot.Get_c_t_lab(part_2, "")
-
-    if not part_1_label:
-        part_1_label = country_bot.Get_c_t_lab(part_1, "", lab_type="type_label")
+    part_1_label = (
+        c_1_1_lab(separator, part_1, With_Years=With_Years) or
+        country_bot.Get_c_t_lab(part_1, "", lab_type="type_label") or
+        ""
+    )
 
     if part_2_label == "" or part_1_label == "":
         logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
@@ -219,11 +222,11 @@ def make_parts_labels(part_1, part_2, separator, With_Years) -> Tuple[str, str]:
     part_2_normalized = part_2.strip().lower()
 
     if (separator.strip() == "in" or part_1_normalized.endswith(" in")) and (not part_1_normalized.endswith(" في")):
-        logger.debug(f'>>>> Add في to {part_1_label=}')
+        logger.debug(f">>>> Add في to {part_1_label=}")
         part_1_label = f"{part_1_label} في"
 
     elif (separator.strip() == "from" or part_2_normalized.endswith(" from")) and (not part_2_label.endswith(" من")):
-        logger.debug(f'>>>> Add من to {part_2_label=}')
+        logger.debug(f">>>> Add من to {part_2_label=}")
         part_2_label = f"من {part_2_label}"
 
     return part_1_label, part_2_label
@@ -263,7 +266,7 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
 
     part_1, part_2 = split_text_by_separator(separator, country)
 
-    logger.info(f'2060 {part_1=}, {part_2=}, {separator=}')
+    logger.info(f"2060 {part_1=}, {part_2=}, {separator=}")
 
     part_1_label, part_2_label = make_parts_labels(part_1, part_2, separator, With_Years)
 
@@ -274,9 +277,13 @@ def country_2_title_work(country: str, With_Years: bool = True) -> str:
     part_1_normalized = part_1.strip().lower()
     part_2_normalized = part_2.strip().lower()
 
-    logger.info(f">>>> XX--== <<lightgreen>> {part_1_normalized=}, {part_1_label=}, {part_2_normalized=}, {part_2_label=}")
+    logger.info(
+        f">>>> XX--== <<lightgreen>> {part_1_normalized=}, {part_1_label=}, {part_2_normalized=}, {part_2_label=}"
+    )
 
-    if separator.strip() == "to" and (part_1_label.startswith("سفراء ") or part_1_normalized.strip() == "ambassadors of"):
+    if separator.strip() == "to" and (
+        part_1_label.startswith("سفراء ") or part_1_normalized.strip() == "ambassadors of"
+    ):
         ar_separator = " لدى "
     else:
         ar_separator = separator_arabic_resolve(separator)

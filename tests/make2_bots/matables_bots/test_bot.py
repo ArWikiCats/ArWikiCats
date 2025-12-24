@@ -3,8 +3,9 @@ Tests for matables_bots.bot module functions.
 """
 
 import pytest
-from ArWikiCats.make_bots.matables_bots.bot import add_to_new_players, add_to_Films_O_TT, players_new_keys, Films_O_TT
+
 from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats.make_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT, add_to_new_players, players_new_keys
 
 
 @pytest.mark.fast

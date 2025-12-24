@@ -4,12 +4,11 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.languages_bot.langs_w import (
-    # Lang_work,
+from ArWikiCats.make_bots.languages_bot.langs_w import (  # Lang_work,
     language_key_translations,
 )
-
-from ArWikiCats.make_bots.languages_bot.resolve_languages_new import add_definite_article, resolve_languages_labels as Lang_work
+from ArWikiCats.make_bots.languages_bot.resolve_languages_new import add_definite_article
+from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels as Lang_work
 
 languages_key_subset = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:15]}
 

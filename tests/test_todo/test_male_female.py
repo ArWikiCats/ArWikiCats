@@ -9,6 +9,7 @@ The categories should be like:
 """
 
 import pytest
+
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
 

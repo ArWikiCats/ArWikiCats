@@ -4,7 +4,7 @@
 
 import pytest
 
-from ArWikiCats.main_processers.event2bot import event2_new, event2_d2, stubs_label
+from ArWikiCats.main_processers.event2bot import event2_d2, event2_new, stubs_label
 
 fast_data = {
 

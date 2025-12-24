@@ -2,10 +2,11 @@
 Tests
 """
 
-import pytest
 from typing import Callable
 
+import pytest
 from load_one_data import dump_diff, one_dump_test
+
 from ArWikiCats.make_bots.countries_formats.p17_sport_to_move_under import resolve_sport_under_labels
 
 # =========================================================

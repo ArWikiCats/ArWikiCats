@@ -9,7 +9,6 @@ import re
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..main_processers import event2bot
-from ..translations import Ambassadors_tab, get_from_new_p17_final
 from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
@@ -17,12 +16,13 @@ from ..make_bots.matables_bots.bot import New_Lan
 from ..make_bots.media_bots.films_bot import te_films
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
+from ..make_bots.sports_bots import team_work
 
-from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 # from ..bots import tmp_bot
 from ..new_resolvers.translations_resolvers.us_states import resolve_us_states
-from ..make_bots.sports_bots import team_work
+from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..translations import Ambassadors_tab, get_from_new_p17_final
+from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -64,57 +64,26 @@ def event_label_work(target_category: str) -> str:
     normalized_target_category = target_category.lower().strip()
 
     logger.info("<<lightblue>>>> vvvvvvvvvvvv event_label_work start vvvvvvvvvvvv ")
-    logger.info(f'<<lightyellow>>>>>> {normalized_target_category=}')
+    logger.info(f"<<lightyellow>>>>>> {normalized_target_category=}")
 
-    resolved_category_label = get_from_new_p17_final(normalized_target_category, "")
-
-    if not resolved_category_label:
-        resolved_category_label = Ambassadors_tab.get(normalized_target_category, "")
-
-    if not resolved_category_label:
-        resolved_category_label = team_work.Get_team_work_Club(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = event2bot.event2_new(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = get_pop_All_18(normalized_target_category, "")
-
-    if not resolved_category_label:
-        resolved_category_label = convert_time_to_arabic(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = te4_2018_Jobs(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = Jobs_in_Multi_Sports(normalized_target_category)
-
-    # if not category_lab:
-    #     category_lab = tmp_bot.Work_Templates(category3)
-
-    if not resolved_category_label:
-        resolved_category_label = univer.te_universities(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = te_films(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = sport_lab_nat_load_new(normalized_target_category)
-
-    if not resolved_category_label:
-        # print("translate_general_category 12")
-        resolved_category_label = ye_ts_bot.translate_general_category(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = resolve_us_states(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = work_peoples(normalized_target_category)
-
-    if not resolved_category_label:
-        resolved_category_label = te_bot_3(normalized_target_category)
-
-    # print(f"{resolved_category_label=}")
+    resolved_category_label = (
+        get_from_new_p17_final(normalized_target_category, "") or
+        Ambassadors_tab.get(normalized_target_category, "") or
+        team_work.Get_team_work_Club(normalized_target_category) or
+        event2bot.event2_new(normalized_target_category) or
+        get_pop_All_18(normalized_target_category, "") or
+        convert_time_to_arabic(normalized_target_category) or
+        te4_2018_Jobs(normalized_target_category) or
+        Jobs_in_Multi_Sports(normalized_target_category) or
+        univer.te_universities(normalized_target_category) or
+        te_films(normalized_target_category) or
+        sport_lab_nat_load_new(normalized_target_category) or
+        ye_ts_bot.translate_general_category(normalized_target_category) or
+        resolve_us_states(normalized_target_category) or
+        work_peoples(normalized_target_category) or
+        te_bot_3(normalized_target_category) or
+        ""
+    )
 
     return resolved_category_label
 

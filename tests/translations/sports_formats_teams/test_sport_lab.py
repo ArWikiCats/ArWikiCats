@@ -3,11 +3,12 @@
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
+
 from ArWikiCats.translations.sports_formats_teams.sport_lab2 import (
-    wrap_team_xo_normal_2025,
+    find_jobs_bot,
     find_labels_bot,
     find_teams_bot,
-    find_jobs_bot,
+    wrap_team_xo_normal_2025,
 )
 
 test_find_jobs_bot_data_with_additional = {

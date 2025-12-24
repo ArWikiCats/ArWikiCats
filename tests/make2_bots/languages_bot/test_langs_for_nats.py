@@ -5,8 +5,8 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.languages_bot.langs_w import (
-    Lang_work,
     Films_key_For_nat,
+    Lang_work,
 )
 
 # from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels as Lang_work

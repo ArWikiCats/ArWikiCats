@@ -5,7 +5,7 @@ test runner for resolve_team_label.
 
 import pytest
 
-from ArWikiCats.new.Match_sports import resolve_team_label, SPORTS_EN_TO_AR
+from ArWikiCats.new.Match_sports import SPORTS_EN_TO_AR, resolve_team_label
 
 BASIC_EXAMPLES = [
     ("men's football world cup", "كأس العالم للرجال في كرة القدم"),

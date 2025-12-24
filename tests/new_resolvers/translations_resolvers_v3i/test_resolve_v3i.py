@@ -2,7 +2,11 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
-from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import multi_bot_v4, resolve_year_job_from_countries
+
+from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import (
+    multi_bot_v4,
+    resolve_year_job_from_countries,
+)
 
 bot = multi_bot_v4()
 

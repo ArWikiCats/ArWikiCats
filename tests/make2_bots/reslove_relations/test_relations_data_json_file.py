@@ -1,11 +1,12 @@
-import pytest
 import json
 from pathlib import Path
+
+import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.make_bots import change_cat
+from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 
 def _load_data(file_name, chunk_size=3000) -> list:

@@ -58,7 +58,7 @@ def _apply_prefix_replacements(text: str, replacements: Mapping[str, str]) -> st
 
 
 def _apply_suffix_replacements(text: str, replacements: Mapping[str, str]) -> str:
-    """Replace matching suffixes using anchored regular expressions.
+    """Replace matching suffixes using simple string slicing.
 
     Args:
         text: The text to normalise.
@@ -70,8 +70,8 @@ def _apply_suffix_replacements(text: str, replacements: Mapping[str, str]) -> st
 
     for suffix, replacement in replacements.items():
         if text.endswith(suffix):
-            pattern = re.compile(rf"{re.escape(suffix)}$")
-            text = pattern.sub(replacement, text).strip()
+            text = text[: -len(suffix)] + replacement
+            text = text.strip()
     return text
 
 

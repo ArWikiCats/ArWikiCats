@@ -7,9 +7,11 @@ It checks the suffix against the following tables:
 
 
 """
+
 import functools
-from ...helps.log import logger
+
 from ...helps.jsonl_dump import dump_data
+from ...helps.log import logger
 from ...translations import (
     countries_from_nat,
 )
@@ -36,7 +38,7 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
     key = suffix.strip()
     suffix_label = pop_format.get(key, "")
-    logger.debug(f'<<lightblue>>>>>> <<lightgreen>>pop_format<<lightblue>> {category=}, {country_start=}, {suffix=}')
+    logger.debug(f"<<lightblue>>>>>> <<lightgreen>>pop_format<<lightblue>> {category=}, {country_start=}, {suffix=}")
 
     return suffix_label
 
@@ -59,13 +61,12 @@ def get_p17_main(category: str) -> str:  # الإنجليزي جنسية وال�
         logger.info(f'<<lightred>>>>>> {suffix=} or {country_start=} == ""')
         return ""
 
-    logger.debug(f'<<lightblue>> {country_start=}, {suffix=}')
-    logger.debug(f'<<lightpurple>>>>>> {country_start_lab=}')
+    logger.debug(f"<<lightblue>> {country_start=}, {suffix=}")
+    logger.debug(f"<<lightpurple>>>>>> {country_start_lab=}")
 
-    suffix_label = from_category_relation_mapping(suffix)
-
-    if not suffix_label:
-        suffix_label = get_con_3_lab_pop_format(suffix, country_start, category)
+    suffix_label = (
+        from_category_relation_mapping(suffix) or get_con_3_lab_pop_format(suffix, country_start, category) or ""
+    )
 
     if not suffix_label:
         logger.debug(f'<<lightred>>>>>> {suffix_label=}, resolved_label == ""')

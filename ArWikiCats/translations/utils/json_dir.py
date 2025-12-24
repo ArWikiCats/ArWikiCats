@@ -3,6 +3,7 @@
 !
 """
 
+import functools
 import json
 from pathlib import Path
 from typing import Any, Dict, List
@@ -23,8 +24,12 @@ def _build_json_path(relative_path: str) -> Path:
     return Dir2 / "jsons" / path
 
 
+@functools.lru_cache(maxsize=128)
 def open_json_file(file_path: str = "") -> Dict[str, Any] | List[Any]:
-    """Open a JSON resource from the bundled ``jsons`` directory by name."""
+    """Open a JSON resource from the bundled ``jsons`` directory by name.
+
+    Results are cached to avoid repeated file I/O for the same file.
+    """
     if not file_path:
         return {}
     file_path_path = _build_json_path(file_path)

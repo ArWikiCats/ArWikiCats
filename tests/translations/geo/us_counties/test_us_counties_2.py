@@ -4,7 +4,6 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.new_resolvers.translations_resolvers.us_states import normalize_state
-
 from ArWikiCats.translations import US_STATES
 
 test_data = {

@@ -5,8 +5,8 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.translations_formats import (
-    format_multi_data,
     MultiDataFormatterBase,
+    format_multi_data,
 )
 
 

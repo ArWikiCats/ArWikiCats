@@ -4,6 +4,7 @@ Tests
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
+
 from ArWikiCats.make_bots.media_bots.tyty_new_format import get_films_key_tyty_new
 
 fast_data1 = {

@@ -1,6 +1,6 @@
 import pytest
-from ArWikiCats.make_bots.countries_formats.p17_bot import get_p17_main
 
+from ArWikiCats.make_bots.countries_formats.p17_bot import get_p17_main
 
 pop_format_test_data = {
     # ---------------------------------------------------------

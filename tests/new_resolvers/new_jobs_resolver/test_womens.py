@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.new_jobs_resolver.womens import womens_resolver_labels, nat_and_gender_keys
+from ArWikiCats.new_resolvers.new_jobs_resolver.womens import nat_and_gender_keys, womens_resolver_labels
 from ArWikiCats.translations import jobs_mens_data, jobs_womens_data
 
 test_data2 = {

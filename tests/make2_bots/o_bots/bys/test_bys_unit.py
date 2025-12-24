@@ -1,7 +1,9 @@
 """Tests for :mod:`make_bots.o_bots.bys`."""
 
 from __future__ import annotations
+
 import pytest
+
 from ArWikiCats.make_bots.o_bots import bys
 
 

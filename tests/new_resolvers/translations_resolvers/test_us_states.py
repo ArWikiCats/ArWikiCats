@@ -2,11 +2,17 @@
 Tests
 """
 
-import pytest
 from typing import Callable
+
+import pytest
 from load_one_data import dump_diff, one_dump_test
+
+from ArWikiCats.new_resolvers.translations_resolvers.us_states import (
+    normalize_state,
+    resolve_us_states,
+    us_states_new_keys,
+)
 from ArWikiCats.translations import US_STATES
-from ArWikiCats.new_resolvers.translations_resolvers.us_states import resolve_us_states, normalize_state, us_states_new_keys
 
 test_data = {
     "{en} in the War of 1812": "{ar} في حرب 1812",

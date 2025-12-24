@@ -3,7 +3,8 @@
 "Category:LGBTQ players of Canadian football": "تصنيف:لاعبو كرة قدم كندية مثليون",
 """
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, one_dump_test
+
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {

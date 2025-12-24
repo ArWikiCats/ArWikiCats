@@ -8,13 +8,13 @@ and edge cases.
 import pytest
 
 from ArWikiCats.make_bots.ma_bots.ar_lab.ar_lab import (
-    separator_lists_fixing,
-    add_in_tab,
-    _should_add_preposition_في,
-    _handle_in_separator,
     _handle_at_separator,
+    _handle_in_separator,
     _should_add_min_for_from_separator,
     _should_add_min_for_of_suffix,
+    _should_add_preposition_في,
+    add_in_tab,
+    separator_lists_fixing,
 )
 
 

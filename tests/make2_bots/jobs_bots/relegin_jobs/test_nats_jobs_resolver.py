@@ -3,6 +3,7 @@ TODO: write relegin_jobs_nats_jobs.py code
 """
 
 import pytest
+
 from ArWikiCats.make_bots.jobs_bots.nats_jobs_resolver import resolve_nats_jobs
 
 test_data = {

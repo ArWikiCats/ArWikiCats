@@ -1,8 +1,10 @@
 #
-import pytest
 from typing import Callable
+
+import pytest
 from load_one_data import dump_diff, one_dump_test
-from ArWikiCats.make_bots.countries_formats.p17_bot import get_con_3_lab_pop_format, from_category_relation_mapping
+
+from ArWikiCats.make_bots.countries_formats.p17_bot import from_category_relation_mapping, get_con_3_lab_pop_format
 
 test_data_with_pop_format = {
     "contemporary history of": "تاريخ {} المعاصر",

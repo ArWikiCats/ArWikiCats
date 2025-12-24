@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.media_bots.film_keys_bot import films_with_nat, Films
+from ArWikiCats.make_bots.media_bots.film_keys_bot import Films, films_with_nat
 
 fast_data = [
     {"category": "algerian television series debuts", "country_start": "algerian", "country_code": "television series debuts", "output": "مسلسلات تلفزيونية جزائرية بدأ عرضها في"},
