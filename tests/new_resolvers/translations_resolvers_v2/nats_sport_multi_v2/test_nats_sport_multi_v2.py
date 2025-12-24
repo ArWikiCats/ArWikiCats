@@ -338,7 +338,7 @@ the_male_sport_team_data = {
     "yemeni wheelchair beach handball federation": "الاتحاد اليمني لكرة اليد الشاطئية على الكراسي المتحركة",
     "yemenite wheelchair curling federation": "الاتحاد اليمني للكيرلنغ على الكراسي المتحركة",
     "yoruba wheelchair fencing federation": "الاتحاد اليوروبي لمبارزة سيف الشيش على الكراسي المتحركة",
-    "yugoslav wheelchair handball federation": "الاتحاد اليوغوسلافي لكرة اليد على الكراسي المتحركة",
+    "yugoslav wheelchair handball federation": "الاتحاد اليوغسلافي لكرة اليد على الكراسي المتحركة",
     "zambian wheelchair rugby federation": "الاتحاد الزامبي للرجبي على الكراسي المتحركة",
     "zanzibari wheelchair rugby league federation": "الاتحاد الزنجباري لدوري الرجبي على الكراسي المتحركة",
     "zaïrean wheelchair sports federation": "الاتحاد الزائيري للرياضة على الكراسي المتحركة",

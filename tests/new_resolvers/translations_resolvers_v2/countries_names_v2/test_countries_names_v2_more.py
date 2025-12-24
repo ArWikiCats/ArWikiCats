@@ -27,7 +27,7 @@ test_data = {
     "western sahara government officials": "مسؤولون حكوميون صحراويون",
     "yemen government officials": "مسؤولون حكوميون يمنيون",
     "yoruba government officials": "مسؤولون حكوميون يوروبيون",
-    "yugoslavia government officials": "مسؤولون حكوميون يوغوسلافيون",
+    "yugoslavia government officials": "مسؤولون حكوميون يوغسلافيون",
     "zaire government officials": "مسؤولون حكوميون زائيريون",
     "zambia government officials": "مسؤولون حكوميون زامبيون",
     "zanzibar government officials": "مسؤولون حكوميون زنجباريون",
@@ -56,7 +56,7 @@ test_data = {
     "western sahara air force": "القوات الجوية الصحراوية",
     "yemen air force": "القوات الجوية اليمنية",
     "yoruba air force": "القوات الجوية اليوروبية",
-    "yugoslavia air force": "القوات الجوية اليوغوسلافية",
+    "yugoslavia air force": "القوات الجوية اليوغسلافية",
     "zaire air force": "القوات الجوية الزائيرية",
     "zambia air force": "القوات الجوية الزامبية",
     "zanzibar air force": "القوات الجوية الزنجبارية",
@@ -88,7 +88,7 @@ test_data = {
     "zambia naval forces": "البحرية الزامبية",
     "west germany royal navy": "البحرية الملكية الألمانية الغربية",
     "western sahara navy": "البحرية الصحراوية",
-    "yugoslavia naval force": "البحرية اليوغوسلافية",
+    "yugoslavia naval force": "البحرية اليوغسلافية",
     "zimbabwe naval forces": "البحرية الزيمبابوية",
 
     # -------------------------

@@ -98,7 +98,7 @@ test_data = {
     "Yemeni Sufis": "تصنيف:يمنيون صوفيون",
     "Yemeni Sunni Muslims": "تصنيف:يمنيون مسلمون سنة",
     "Yemeni Zaydis": "تصنيف:يمنيون زيود",
-    "Yugoslav Christians": "تصنيف:يوغوسلافيون مسيحيون",
+    "Yugoslav Christians": "تصنيف:يوغسلافيون مسيحيون",
     "Zambian Anglicans": "تصنيف:زامبيون أنجليكيون",
     "Zambian Christians": "تصنيف:زامبيون مسيحيون",
     "Zimbabwean Anglicans": "تصنيف:زيمبابويون أنجليكيون",

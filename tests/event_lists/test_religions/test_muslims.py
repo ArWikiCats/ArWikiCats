@@ -188,7 +188,7 @@ religions_data = {
     "vietnamese muslims": "تصنيف:فيتناميون مسلمون",
     "welsh muslims": "تصنيف:ويلزيون مسلمون",
     "yemeni muslims": "تصنيف:يمنيون مسلمون",
-    "yugoslav muslims": "تصنيف:يوغوسلافيون مسلمون",
+    "yugoslav muslims": "تصنيف:يوغسلافيون مسلمون",
     "zambian muslims": "تصنيف:زامبيون مسلمون",
     "zimbabwean muslims": "تصنيف:زيمبابويون مسلمون",
     "anti-muslim sentiment": "تصنيف:مشاعر معادية للمسلمون",

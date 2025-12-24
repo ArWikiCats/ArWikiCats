@@ -866,7 +866,7 @@ data1 = {
     "category:women non-fiction writers": "تصنيف:كاتبات غير روائيات",
     "category:works based on non-fiction books": "تصنيف:أعمال مبنية على كتب غير خيالية",
     "category:yemeni non-fiction writers": "تصنيف:كتاب غير روائيين يمنيون",
-    "category:yugoslav non-fiction writers": "تصنيف:كتاب غير روائيين يوغوسلافيون",
+    "category:yugoslav non-fiction writers": "تصنيف:كتاب غير روائيين يوغسلافيون",
     "category:zambian non-fiction writers": "تصنيف:كتاب غير روائيين زامبيون",
     "category:zimbabwean non-fiction writers": "تصنيف:كتاب غير روائيين زيمبابويون",
 }

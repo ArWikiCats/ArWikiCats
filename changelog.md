@@ -1,4 +1,18 @@
 
+## [#265](https://github.com/MrIbrahem/ArWikiCats/pull/265) - 2025-12-24
+
+* **Bug Fixes**
+  * Corrected many Arabic translations (Uruguay name variants, standardized "technology" wording to "تقانة", refined political candidate phrasing and related gendered labels).
+
+* **New Features**
+  * Added debug logging around label resolution and introduced a unified resolver to improve detection and consistency of generated labels.
+
+* **Refactor**
+  * Consolidated resolution flows and reorganized sports/role label mappings for more consistent outputs.
+
+* **Tests**
+  * Updated existing tests, added new technology/category resolution tests and test data.
+
 ## [#263](https://github.com/MrIbrahem/ArWikiCats/pull/263) - 2025-12-23
 
 * **New Features**

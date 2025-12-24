@@ -223,7 +223,7 @@ title_work_tests_data = {
     "disestablishments in ottoman empire": "انحلالات في الدولة العثمانية",
     "disestablishments in papua new guinea": "انحلالات في بابوا غينيا الجديدة",
     "disestablishments in spain": "انحلالات في إسبانيا",
-    "disestablishments in yugoslavia": "انحلالات في يوغوسلافيا",
+    "disestablishments in yugoslavia": "انحلالات في يوغسلافيا",
     "documentaries about crime": "وثائقيات عن جريمة",
     "documentary films about federico fellini": "أفلام وثائقية عن فيديريكو فليني",
     "documentary films about south carolina": "أفلام وثائقية عن كارولاينا الجنوبية",

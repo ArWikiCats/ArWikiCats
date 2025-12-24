@@ -44,7 +44,7 @@ party_data = {
     ),
     "cuba": ("communist party-of cuba", "كوبا", "الحزب الشيوعي في كوبا"),
     "soviet union": ("communist party-of soviet union", "الاتحاد السوفيتي", "الحزب الشيوعي في الاتحاد السوفيتي"),
-    "yugoslavia": ("communist party-of yugoslavia", "يوغوسلافيا", "الحزب الشيوعي في يوغوسلافيا"),
+    "yugoslavia": ("communist party-of yugoslavia", "يوغسلافيا", "الحزب الشيوعي في يوغسلافيا"),
 }
 
 

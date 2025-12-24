@@ -307,7 +307,7 @@ data_1 = {
     "Category:Venezuelan non-fiction writers": "تصنيف:كتاب غير روائيين فنزويليون",
     "Category:Vietnamese non-fiction writers": "تصنيف:كتاب غير روائيين فيتناميون",
     "Category:Yemeni non-fiction writers": "تصنيف:كتاب غير روائيين يمنيون",
-    "Category:Yugoslav non-fiction writers": "تصنيف:كتاب غير روائيين يوغوسلافيون",
+    "Category:Yugoslav non-fiction writers": "تصنيف:كتاب غير روائيين يوغسلافيون",
     "Category:Zambian non-fiction writers": "تصنيف:كتاب غير روائيين زامبيون",
 }
 to_test = [

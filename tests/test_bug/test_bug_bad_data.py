@@ -22,7 +22,7 @@ data_new = {
     "disestablishments in ottoman empire": "انحلالات في الدولة العثمانية",
     "disestablishments in papua new guinea": "انحلالات في بابوا غينيا الجديدة",
     "disestablishments in spain": "انحلالات في إسبانيا",
-    "disestablishments in yugoslavia": "انحلالات في يوغوسلافيا",
+    "disestablishments in yugoslavia": "انحلالات في يوغسلافيا",
     "establishments in guernsey": "تأسيسات في غيرنزي",
     "establishments in north macedonia": "تأسيسات في مقدونيا الشمالية",
     "establishments in sint maarten": "تأسيسات في سينت مارتن",
