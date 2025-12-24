@@ -519,14 +519,14 @@ fast_data_c_2_1_lab = {
 @pytest.mark.parametrize("data", fast_data_c_1_1_lab, ids=lambda x: x["cone_1"])
 @pytest.mark.fast
 def test_c_1_1_lab(data) -> None:
-    label = c_1_1_lab(data["separator"], data["cone_1"], With_Years=False)
+    label = c_1_1_lab(data["separator"], data["cone_1"], with_years=False)
     assert label == data["output"]
 
 
 @pytest.mark.parametrize("category, expected", fast_data_c_2_1_lab.items(), ids=fast_data_c_2_1_lab.keys())
 @pytest.mark.fast
 def test_c_2_1_lab(category: str, expected: str) -> None:
-    label = c_2_1_lab(category, With_Years=True)
+    label = c_2_1_lab(category, with_years=True)
     assert label == expected
 
 

@@ -54,7 +54,7 @@ def time_label(text: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
+def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
     """
     Retrieve a label based on the given parameters.
     Example:
@@ -78,7 +78,7 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
         get_tabl_with_in(cone_1, separator) or
         convert_time_to_arabic(cone_1) or
         time_label(cone_1) or
-        work_with_pp_start_with2(cone_1, separator, With_Years) or
+        work_with_pp_start_with2(cone_1, separator, with_years) or
         pop_format.get(cone_1) or
         get_from_pf_keys2(cone_1) or
         get_KAKO(cone_1) or
@@ -92,7 +92,7 @@ def c_1_1_lab(separator: str, cone_1: str, With_Years: bool = False) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
+def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
     """Retrieve a label based on the provided cone identifier."""
 
     cone_2 = cone_2.strip().lower()
@@ -112,9 +112,6 @@ def c_2_1_lab(cone_2: str, With_Years: bool = False) -> str:
         convert_time_to_arabic(cone_2) or
         ""
     )
-
-    if not part_2_label and With_Years:
-        part_2_label = with_years_bot.Try_With_Years(cone_2)
 
     logger.debug(f"{cone_2=} -> {part_2_label=}")
 

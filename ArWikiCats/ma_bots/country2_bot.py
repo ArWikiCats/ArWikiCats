@@ -15,7 +15,7 @@ from ..make_bots.ma_bots.country2_bots.country2_label_bot import country_2_title
 
 
 @functools.lru_cache(maxsize=None)
-def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
+def Get_country2(country: str, with_years: bool = True, fix_title=True) -> str:
     """Retrieve information related to a specified country."""
 
     normalized_country = country.lower().strip()
@@ -28,7 +28,7 @@ def Get_country2(country: str, With_Years: bool = True, fix_title=True) -> str:
             normalized_country, start_get_country2=False, fix_title=False
         )
 
-    _label = country_2_title_work(country, With_Years=With_Years)
+    _label = country_2_title_work(country, with_years=with_years)
     # if not resolved_label and _label:
     if _label:
         resolved_label = _label
