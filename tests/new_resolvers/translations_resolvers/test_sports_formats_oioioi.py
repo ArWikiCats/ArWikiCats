@@ -65,6 +65,7 @@ data0 = {
 }
 
 data = {
+    "chinese outdoor boxing clubs": "تصنيف:أندية البوكسينغ الصينية في الهواء الطلق",
     "chinese men's boxing championship": "بطولة الصين للبوكسينغ للرجال",
     "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
     "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
@@ -103,7 +104,6 @@ data = {
     "chinese open boxing": "الصين المفتوحة للبوكسينغ",
     "chinese outdoor boxing championship": "بطولة الصين للبوكسينغ في الهواء الطلق",
     "chinese outdoor boxing championships": "بطولة الصين للبوكسينغ في الهواء الطلق",
-    "chinese outdoor boxing clubs": "تصنيف:أندية البوكسينغ الصينية في الهواء الطلق",
     "chinese women's boxing championship": "بطولة الصين للبوكسينغ للسيدات",
     "chinese women's boxing championships": "بطولة الصين للبوكسينغ للسيدات",
     "chinese youth boxing championship": "بطولة الصين للبوكسينغ للشباب",
