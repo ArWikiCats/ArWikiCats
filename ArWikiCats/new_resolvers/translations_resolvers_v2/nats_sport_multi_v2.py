@@ -15,6 +15,10 @@ from .data import sports_formatted_data_for_jobs
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
+teams_label_mappings_ends = dict(teams_label_mappings_ends)  # type: ignore
+if "players" in teams_label_mappings_ends:
+    del teams_label_mappings_ends["players"]  # type: ignore
+
 NAT_P17_OIOI_TO_CHECK = {
     "{en} {en_sport} cups": "كؤوس {sport_team} {ar}",
     "{en} {en_sport} leagues": "دوريات {sport_team} {ar}",

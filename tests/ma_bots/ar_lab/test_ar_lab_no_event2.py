@@ -323,7 +323,7 @@ data_list = [
     {
         "separator": " of ",
         "category": "20th century governors of ottoman empire",
-        "output": "حكام القرن 20 الدولة العثمانية",
+        "output": "حكام في القرن 20 في الدولة العثمانية",
     },
     {"separator": " in ", "category": "20th century mosques in asia", "output": "مساجد القرن 20 في آسيا"},
     {
