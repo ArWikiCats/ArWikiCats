@@ -28,7 +28,7 @@ from ...o_bots.peoples_resolver import make_people_lab
 from ...sports_bots import team_work
 from ....ma_bots import country2_lab
 from ....ma_bots.country_bot import Get_c_t_lab, get_country
-from ....translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ....new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 from ....new_resolvers.reslove_all import new_resolvers_all
 # from ....genders_processers import resolve_nat_genders_pattern_v2

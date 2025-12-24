@@ -11,7 +11,7 @@ import re
 from ...helps import logger, len_print
 from ...translations import Nat_women
 from ...translations_formats import format_multi_data
-from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 
 AFTER_KEYS_NAT2 = {

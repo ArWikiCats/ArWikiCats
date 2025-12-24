@@ -12,7 +12,7 @@ from ...helps.log import logger
 from ...translations import SPORTS_KEYS_FOR_JOBS
 from ..o_bots.utils import resolve_suffix_template
 from ...new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
-from ...translations.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
+from ...new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 from . import team_work
 
 

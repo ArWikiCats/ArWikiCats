@@ -12,8 +12,9 @@ import functools
 from ...helps import logger, dump_data
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 from ..media_bots.films_bot import te_films
-from ...translations import get_from_new_p17_final, sport_lab_nat_load_new, People_key
+from ...translations import get_from_new_p17_final, People_key
 
+from ...new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 from ...new_resolvers.bys_new import resolve_by_labels
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)

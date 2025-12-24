@@ -13,7 +13,7 @@ from ..new_resolvers.translations_resolvers.us_states import resolve_us_states
 from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
-from ..translations.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ..new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 # Dictionary of resolvers mapped to their callable functions
 resolvers = {

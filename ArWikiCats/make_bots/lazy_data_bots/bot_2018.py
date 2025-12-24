@@ -8,10 +8,10 @@ from typing import Dict
 
 from ...helps import len_print, logger
 from ...new_resolvers.bys_new import resolve_by_labels
+from ...new_resolvers.translations_resolvers.match_labs import find_teams_2025
 from ...translations import (
     open_json_file,
     Clubs_key_2,
-    find_teams_2025,
     pop_final_5,
     Jobs_new,
     jobs_mens_data,

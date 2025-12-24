@@ -4,7 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.translations.sports_formats_teams.sport_lab2 import (
+from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import (
     find_jobs_bot,
     find_labels_bot,
     find_teams_bot,
