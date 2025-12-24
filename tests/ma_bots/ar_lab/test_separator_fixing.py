@@ -7,7 +7,7 @@ and edge cases.
 
 import pytest
 
-from ArWikiCats.make_bots.ma_bots2.ar_lab.ar_lab import (
+from ArWikiCats.ma_bots2.ar_lab.ar_lab import (
     _handle_at_separator,
     _handle_in_separator,
     _should_add_min_for_from_separator,

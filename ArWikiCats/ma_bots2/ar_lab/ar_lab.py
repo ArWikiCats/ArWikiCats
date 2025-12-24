@@ -8,10 +8,10 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
-from ....helps.log import logger
-from ....main_processers import event2bot
-from ....utils import check_key_in_tables_return_tuple, fix_minor
-from ...format_bots import (
+from ...helps.log import logger
+from ...main_processers import event2bot
+from ...utils import check_key_in_tables_return_tuple, fix_minor
+from ...make_bots.format_bots import (
     Dont_Add_min,
     category_relation_mapping,
     for_table,
@@ -19,14 +19,14 @@ from ...format_bots import (
     pop_format2,
     pop_format33,
 )
-from ....translations import pop_of_without_in
-from ...lazy_data_bots.bot_2018 import get_pop_All_18
-from ...matables_bots.data import Keep_it_frist, Keep_it_last
-from ...matables_bots.bot import (
+from ...translations import pop_of_without_in
+from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
+from ...make_bots.matables_bots.bot import (
     Add_ar_in,
     Table_for_frist_word,
 )
-from ...matables_bots.check_bot import check_key_new_players
+from ...make_bots.matables_bots.check_bot import check_key_new_players
 from .lab import (
     get_con_lab,
     get_type_country,
