@@ -636,7 +636,7 @@ data_1 = {
     "Category:Expatriate sportspeople in Papua New Guinea": "تصنيف:رياضيون مغتربون في بابوا غينيا الجديدة",
     "Category:Expatriate sportspeople in Papua New Guinea by nationality": "تصنيف:رياضيون مغتربون في بابوا غينيا الجديدة حسب الجنسية",
     "Category:Expatriates in Papua New Guinea": "تصنيف:مغتربون في بابوا غينيا الجديدة",
-    "Category:Explorers of Papua New Guinea": "تصنيف:مستكشفو من بابوا غينيا الجديدة",
+    "Category:Explorers of Papua New Guinea": "تصنيف:مستكشفو بابوا غينيا الجديدة",
     "Category:Fauna of Papua New Guinea": "تصنيف:حيوانات بابوا غينيا الجديدة",
     "Category:Featured pictures of Papua New Guinea": "تصنيف:صور مميزة عن بابوا غينيا الجديدة",
     "Category:Federated States of Micronesia–Papua New Guinea relations": "تصنيف:العلاقات الغينية الميكرونيزية",
