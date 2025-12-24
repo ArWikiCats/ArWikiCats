@@ -62,10 +62,10 @@ data0 = {
     "chinese professional boxing cups": "كؤوس للبوكسينغ الصين للمحترفين",
     "chinese outdoor boxing cups": "كؤوس للبوكسينغ الصين في الهواء الطلق",
     "chinese professional boxing leagues": "دوريات للبوكسينغ الصين للمحترفين",
+    "chinese outdoor boxing clubs": "تصنيف:أندية البوكسينغ الصينية في الهواء الطلق",
 }
 
 data = {
-    "chinese outdoor boxing clubs": "تصنيف:أندية البوكسينغ الصينية في الهواء الطلق",
     "chinese men's boxing championship": "بطولة الصين للبوكسينغ للرجال",
     "chinese amateur boxing championship": "بطولة الصين للبوكسينغ للهواة",
     "chinese amateur boxing championships": "بطولة الصين للبوكسينغ للهواة",
@@ -112,14 +112,14 @@ data = {
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_sport_lab_oioioi_load(category: str, expected: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected
 
 
 to_test = [
-    # ("test_sport_lab_oioioi_load_0", data0, resolve_nats_sport_multi_v2),
+    ("test_sport_lab_oioioi_load_0", data0, resolve_nats_sport_multi_v2),
     ("test_sport_lab_oioioi_load_2", data, resolve_nats_sport_multi_v2),
 ]
 
