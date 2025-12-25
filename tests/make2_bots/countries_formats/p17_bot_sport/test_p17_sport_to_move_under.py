@@ -13,7 +13,12 @@ from ArWikiCats.make_bots.countries_formats.p17_sport_to_move_under import resol
 #
 # =========================================================
 
-data_under = {
+data_no_nats = {
+    "softball national youth womens under-24 teams": "منتخبات كرة لينة تحت 24 سنة للشابات",
+    "national mens under-19 softball teams": "منتخبات كرة لينة تحت 19 سنة للرجال",
+}
+
+data_with_nats = {
     "egypt under-19 international players": "لاعبون تحت 19 سنة دوليون من مصر",
     "aruba men's under-20 international footballers": "لاعبو منتخب أروبا تحت 20 سنة لكرة القدم للرجال",
     "egypt amateur under-19 international footballers": "لاعبو منتخب مصر تحت 19 سنة لكرة القدم للهواة",
@@ -61,9 +66,16 @@ data_under = {
 }
 
 
-@pytest.mark.parametrize("category, expected", data_under.items(), ids=data_under.keys())
+@pytest.mark.parametrize("category, expected", data_no_nats.items(), ids=data_no_nats.keys())
 @pytest.mark.fast
-def test_under(category: str, expected: str) -> None:
+def test_data_no_nats(category: str, expected: str) -> None:
+    label2 = resolve_sport_under_labels(category)
+    assert label2 == expected
+
+
+@pytest.mark.parametrize("category, expected", data_with_nats.items(), ids=data_with_nats.keys())
+@pytest.mark.fast
+def test_data_with_nats(category: str, expected: str) -> None:
     label2 = resolve_sport_under_labels(category)
     assert label2 == expected
 
@@ -73,7 +85,8 @@ def test_under(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_under_multi", data_under, resolve_sport_under_labels),
+    ("test_data_no_nats", data_no_nats, resolve_sport_under_labels),
+    ("test_data_with_nats", data_with_nats, resolve_sport_under_labels),
 ]
 
 

@@ -26,6 +26,7 @@ under_data = {
 
 # TODO: support nats keys
 sports_data_under = {
+    "{en_sport} national youth womens {under_en} teams": "منتخبات {sport_jobs} {under_ar} للشابات",
     "national mens {under_en} {en_sport} teams": "منتخبات {sport_jobs} {under_ar} للرجال",
     "mens {under_en} national {en_sport} teams": "منتخبات {sport_team} {under_ar} للرجال",
     "multi-national womens {under_en} {en_sport} teams": "منتخبات {sport_team} {under_ar} متعددة الجنسيات للسيدات",
