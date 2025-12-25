@@ -348,12 +348,15 @@ def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_20
     # category = fix_keys(category)
     teams_label_mappings_ends = _get_sorted_teams_labels()
 
-    label2 = resolve_sport_category_suffix_with_mapping(
-        category=category,
-        data=teams_label_mappings_ends,
-        callback=callback,
-        fix_result_callable=fix_result_callable,
-    )
+    label2 = callback(category)
+
+    if not label2:
+        label2 = resolve_sport_category_suffix_with_mapping(
+            category=category,
+            data=teams_label_mappings_ends,
+            callback=callback,
+            fix_result_callable=fix_result_callable,
+        )
 
     return label2
 

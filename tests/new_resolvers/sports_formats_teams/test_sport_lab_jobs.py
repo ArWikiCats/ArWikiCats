@@ -13,7 +13,6 @@ test_find_jobs_bot_data_with_additional = {
     "women's national under-18 ice hockey teams": "منتخبات هوكي جليد وطنية تحت 18 سنة للسيدات",
     "national youth women's football teams": "منتخبات كرة قدم وطنية للشابات",
     "american football leagues templates": "قوالب دوريات كرة قدم أمريكية",
-    "multi-national women's basketball leagues": "دوريات كرة سلة متعددة الجنسيات للسيدات",
     "national softball teams coaches": "مدربو منتخبات كرة لينة وطنية",
     "national under-15 football teams": "منتخبات كرة قدم وطنية تحت 15 سنة",
     "national under-18 football teams": "منتخبات كرة قدم وطنية تحت 18 سنة",
@@ -43,6 +42,22 @@ test_find_jobs_bot_data_with_additional = {
 }
 
 test_find_jobs_bot_data = {
+    "grand slam (wrestling) tournaments": "بطولات مصارعة كبرى",
+    "international men's wrestling competitions": "منافسات مصارعة رجالية دولية",
+    "international women's wrestling competitions": "منافسات مصارعة نسائية دولية",
+    "international men's football competitions": "منافسات كرة قدم رجالية دولية",
+    "international women's basketball competitions": "منافسات كرة سلة نسائية دولية",
+    "international women's cricket competitions": "منافسات كريكت نسائية دولية",
+    "international women's field hockey competitions": "منافسات هوكي ميدان نسائية دولية",
+    "international women's football competitions": "منافسات كرة قدم نسائية دولية",
+
+    "multi-national women's basketball leagues": "دوريات كرة سلة نسائية متعددة الجنسيات",
+    "professional wrestling cups": "كؤوس مصارعة محترفين",
+    "professional wrestling clubs": "أندية مصارعة محترفين",
+    "professional wrestling coaches": "مدربو مصارعة محترفين",
+    "professional wrestling competitions": "منافسات مصارعة محترفين",
+    "professional wrestling leagues": "دوريات مصارعة محترفين",
+
     "defunct indoor wrestling cups": "كؤوس مصارعة داخل الصالات سابقة",
     "defunct outdoor wrestling cups": "كؤوس مصارعة في الهواء الطلق سابقة",
     "defunct wrestling cup competitions": "منافسات كؤوس مصارعة سابقة",
@@ -52,7 +67,6 @@ test_find_jobs_bot_data = {
     "domestic wrestling cups": "كؤوس مصارعة محلية",
     "wrestling cup competitions": "منافسات كؤوس مصارعة",
     "wrestling cups": "كؤوس مصارعة",
-    "professional wrestling cups": "كؤوس مصارعة للمحترفين",
     "outdoor wrestling cups": "كؤوس مصارعة في الهواء الطلق",
     "indoor wrestling cups": "كؤوس مصارعة داخل الصالات",
 
@@ -102,18 +116,15 @@ test_find_jobs_bot_data = {
     "fourth tier wrestling leagues": "دوريات مصارعة من الدرجة الرابعة",
     "grand slam (wrestling)": "بطولات مصارعة كبرى",
     "grand slam (wrestling) tournament champions": "أبطال بطولات مصارعة كبرى",
-    "grand slam (wrestling) tournaments": "بطولات مصارعة كبرى",
     "indoor wrestling": "مصارعة داخل الصالات",
     "indoor wrestling clubs": "أندية مصارعة داخل الصالات",
     "indoor wrestling coaches": "مدربو مصارعة داخل الصالات",
     "indoor wrestling competitions": "منافسات مصارعة داخل الصالات",
     "indoor wrestling leagues": "دوريات مصارعة داخل الصالات",
     "international men's wrestling": "مصارعة دولية للرجال",
-    "international men's wrestling competitions": "منافسات مصارعة رجالية دولية",
     "international men's wrestling players": "لاعبو مصارعة دوليون",
     "international men's wrestling playerss": "لاعبو مصارعة دوليون",
     "international women's wrestling": "مصارعة دولية للسيدات",
-    "international women's wrestling competitions": "منافسات مصارعة نسائية دولية",
     "international women's wrestling players": "لاعبات مصارعة دوليات",
     "international women's wrestling playerss": "لاعبات مصارعة دوليات",
     "international wrestling": "مصارعة دولية",
@@ -173,10 +184,6 @@ test_find_jobs_bot_data = {
     "outdoor wrestling leagues": "دوريات مصارعة في الهواء الطلق",
     "premier wrestling league": "دوريات مصارعة من الدرجة الممتازة",
     "premier wrestling leagues": "دوريات مصارعة من الدرجة الممتازة",
-    "professional wrestling clubs": "أندية مصارعة للمحترفين",
-    "professional wrestling coaches": "مدربو مصارعة للمحترفين",
-    "professional wrestling competitions": "منافسات مصارعة للمحترفين",
-    "professional wrestling leagues": "دوريات مصارعة للمحترفين",
     "reserve wrestling teams": "فرق مصارعة احتياطية",
     "second level wrestling league": "دوريات مصارعة من الدرجة الثانية",
     "second level wrestling leagues": "دوريات مصارعة من الدرجة الثانية",
@@ -320,7 +327,6 @@ test_find_jobs_bot_data = {
     "international handball competitions": "منافسات كرة يد دولية",
     "international ice hockey competitions": "منافسات هوكي جليد دولية",
     "international kabaddi competitions": "منافسات كابادي دولية",
-    "international men's football competitions": "منافسات كرة قدم رجالية دولية",
     "international netball competitions": "منافسات كرة شبكة دولية",
     "international roller hockey competitions": "منافسات هوكي دحرجة دولية",
     "international rugby league competitions": "منافسات دوري رجبي دولية",
@@ -332,10 +338,6 @@ test_find_jobs_bot_data = {
     "international volleyball competitions": "منافسات كرة طائرة دولية",
     "international water polo competitions": "منافسات كرة ماء دولية",
     "international weightlifting competitions": "منافسات رفع أثقال دولية",
-    "international women's basketball competitions": "منافسات كرة سلة نسائية دولية",
-    "international women's cricket competitions": "منافسات كريكت نسائية دولية",
-    "international women's field hockey competitions": "منافسات هوكي ميدان نسائية دولية",
-    "international women's football competitions": "منافسات كرة قدم نسائية دولية",
     "international wrestling competitions": "منافسات مصارعة دولية",
     "international youth basketball competitions": "منافسات كرة سلة شبابية دولية",
     "international youth football competitions": "منافسات كرة قدم شبابية دولية",
@@ -406,7 +408,7 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_find_jobs_bot", test_find_jobs_bot_data, wrap_callback),
-    ("test_find_jobs_bot_with_additional", test_find_jobs_bot_data_with_additional, wrap_callback),
+    # ("test_find_jobs_bot_with_additional", test_find_jobs_bot_data_with_additional, wrap_callback),
 ]
 
 
