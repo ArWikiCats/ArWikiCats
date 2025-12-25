@@ -12,29 +12,6 @@ from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_mu
     resolve_countries_names_sport_with_ends,
 )
 
-nats_sport_multi_v2_data = {
-    "yemeni mens basketball cup": "كأس اليمن لكرة السلة للرجال",
-    "yemeni womens basketball cup": "كأس اليمن لكرة السلة للسيدات",
-    "yemeni basketball cup": "كأس اليمن لكرة السلة",
-    "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
-    "chinese domestic boxing cup": "كؤوس بوكسينغ صينية محلية",
-    "chinese boxing cup": "كأس الصين للبوكسينغ",
-    "chinese boxing cup competitions": "منافسات كأس الصين للبوكسينغ",
-    "chinese defunct boxing cup competitions": "منافسات كؤوس بوكسينغ صينية سابقة",
-
-    "chinese defunct indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات سابقة",
-    "chinese defunct boxing cups": "كؤوس بوكسينغ صينية سابقة",
-    "chinese defunct outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق سابقة",
-    "chinese professional boxing cups": "كؤوس بوكسينغ صينية للمحترفين",
-
-    "chinese indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات",
-    "chinese outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق",
-    "chinese domestic boxing cups": "كؤوس بوكسينغ صينية محلية",
-    "chinese domestic women's boxing cups": "كؤوس بوكسينغ صينية محلية للسيدات",
-    "chinese boxing cups": "كؤوس بوكسينغ صينية",
-
-}
-
 sport_lab2_data = {
     "defunct indoor boxing": "بوكسينغ داخل الصالات سابقة",
     "defunct indoor boxing clubs": "أندية بوكسينغ داخل الصالات سابقة",
@@ -76,6 +53,29 @@ sport_lab2_data = {
     "wrestling world cup": "كأس العالم للمصارعة"
 }
 
+nats_sport_multi_v2_data = {
+    "yemeni mens basketball cup": "كأس اليمن لكرة السلة للرجال",
+    "yemeni womens basketball cup": "كأس اليمن لكرة السلة للسيدات",
+    "yemeni basketball cup": "كأس اليمن لكرة السلة",
+    "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
+    "chinese domestic boxing cup": "كؤوس بوكسينغ صينية محلية",
+    "chinese boxing cup": "كأس الصين للبوكسينغ",
+    "chinese boxing cup competitions": "منافسات كأس الصين للبوكسينغ",
+    "chinese defunct boxing cup competitions": "منافسات كؤوس بوكسينغ صينية سابقة",
+
+    "chinese defunct indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات سابقة",
+    "chinese defunct boxing cups": "كؤوس بوكسينغ صينية سابقة",
+    "chinese defunct outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق سابقة",
+    "chinese professional boxing cups": "كؤوس بوكسينغ صينية للمحترفين",
+
+    "chinese indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات",
+    "chinese outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق",
+    "chinese domestic boxing cups": "كؤوس بوكسينغ صينية محلية",
+    "chinese domestic women's boxing cups": "كؤوس بوكسينغ صينية محلية للسيدات",
+    "chinese boxing cups": "كؤوس بوكسينغ صينية",
+
+}
+
 sport_lab_nat_load_new_data = {
     "asian domestic football cups": "كؤوس كرة قدم آسيوية محلية",
     "austrian football cups": "كؤوس كرة قدم نمساوية",
@@ -106,10 +106,16 @@ rcn_sport_with_ends_data = {
 }
 
 to_test = [
-    ("test_resolve_nats_sport_multi_v2", nats_sport_multi_v2_data, resolve_nats_sport_multi_v2),
     ("test_sport_lab2_data", sport_lab2_data, wrap_team_xo_normal_2025_with_ends),
+    ("test_resolve_nats_sport_multi_v2", nats_sport_multi_v2_data, resolve_nats_sport_multi_v2),
     ("test_sport_lab_nat_load_new", sport_lab_nat_load_new_data, sport_lab_nat_load_new),
     ("test_rcn_sport_with_ends", rcn_sport_with_ends_data, resolve_countries_names_sport_with_ends),
+    # ---
+    ("test_test_sport_cup_0", sport_lab_nat_load_new_data, wrap_team_xo_normal_2025_with_ends),
+    ("test_test_sport_cup_1", sport_lab_nat_load_new_data, resolve_nats_sport_multi_v2),
+    ("test_test_sport_cup_2", sport_lab_nat_load_new_data, sport_lab_nat_load_new),
+    ("test_test_sport_cup_3", sport_lab_nat_load_new_data, resolve_countries_names_sport_with_ends),
+    # ---
 ]
 
 
