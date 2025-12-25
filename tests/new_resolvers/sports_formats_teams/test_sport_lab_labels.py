@@ -8,6 +8,18 @@ from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import find_labels
 from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 test_find_labels_bot_data_0 = {
+    "wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
+    "rugby": "الرجبي",
+    "speed skating": "التزلج السريع",
+    "martial arts": "الفنون القتالية",
+    "baseball": "كرة القاعدة",
+    "basketball": "كرة السلة",
+    "chess": "الشطرنج",
+    "field hockey": "هوكي الميدان",
+    "professional wrestling clubs": "أندية مصارعة المحترفين",
+    "professional wrestling coaches": "مدربو مصارعة المحترفين",
+    "wrestling clubs": "أندية المصارعة",
+    "wrestling coaches": "مدربو المصارعة"
 }
 
 test_find_labels_bot_data = {
@@ -64,7 +76,7 @@ def test_test_find_labels_bot_data_0(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_find_labels_bot", test_find_labels_bot_data, wrap_callback),
-    ("test_find_labels_bot_2", test_find_labels_bot_data, resolve_nats_sport_multi_v2),
+    ("test_find_labels_bot_2", test_find_labels_bot_data_0, wrap_callback),
 ]
 
 

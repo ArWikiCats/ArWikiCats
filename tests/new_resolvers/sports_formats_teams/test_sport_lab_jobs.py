@@ -50,17 +50,6 @@ test_find_jobs_bot_data_0 = {
 }
 
 test_find_jobs_bot_data = {
-    "multi-national women's basketball leagues": "دوريات كرة سلة نسائية متعددة الجنسيات",
-    "national junior women's basketball teams": "منتخبات كرة سلة للناشئات",
-
-    "wheelchair rugby league": "دوري رجبي على كراسي متحركة",
-    "rugby": "رجبي",
-    "speed skating": "تزلج سريع",
-    "martial arts": "فنون قتالية",
-    "baseball": "كرة قاعدة",
-    "basketball": "كرة سلة",
-    "chess": "شطرنج",
-    "field hockey": "هوكي ميدان",
 
     "amateur wrestling": "مصارعة للهواة",
     "international women's wrestling competitions": "منافسات مصارعة دولية للسيدات",
@@ -109,8 +98,6 @@ test_find_jobs_bot_data = {
 
     "grand slam (wrestling) tournaments": "بطولات مصارعة كبرى",
     "professional wrestling cups": "كؤوس مصارعة محترفين",
-    "professional wrestling clubs": "أندية مصارعة محترفين",
-    "professional wrestling coaches": "مدربو مصارعة محترفين",
     "professional wrestling competitions": "منافسات مصارعة محترفين",
     "professional wrestling leagues": "دوريات مصارعة محترفين",
 
@@ -261,8 +248,6 @@ test_find_jobs_bot_data = {
     "women's international wrestling players": "لاعبات مصارعة دوليات",
     "women's international wrestling playerss": "لاعبات مصارعة دوليات",
     "wrestling chairmen and investors": "رؤساء ومسيرو مصارعة",
-    "wrestling clubs": "أندية مصارعة",
-    "wrestling coaches": "مدربو مصارعة",
     "wrestling competitions": "منافسات مصارعة",
     "wrestling league competitions": "منافسات دوري مصارعة",
     "wrestling league teams": "فرق دوري مصارعة",

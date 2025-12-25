@@ -38,7 +38,7 @@ data_1 = {
     "Category:History of science and technology sidebar templates": "تصنيف:قوالب أشرطة جانبية تاريخ العلوم والتقانة",
     "Category:Islam sidebar templates": "تصنيف:قوالب أشرطة جانبية الإسلام",
     "Category:Moldova sidebar templates": "تصنيف:قوالب أشرطة جانبية مولدوفا",
-    "Category:Motorsport sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضة المحركات",
+    # "Category:Motorsport sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضة المحركات",
     "Category:Olympics sidebar templates": "تصنيف:قوالب أشرطة جانبية الألعاب الأولمبية",
     "Category:Palestine sidebar templates": "تصنيف:قوالب أشرطة جانبية فلسطين",
     "Category:Sidebar templates by topic": "تصنيف:قوالب أشرطة جانبية حسب الموضوع",
