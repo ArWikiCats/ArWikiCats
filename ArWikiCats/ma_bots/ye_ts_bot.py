@@ -18,7 +18,7 @@ from ..time_resolvers import time_to_arabic
 from ..make_bots.format_bots import category_relation_mapping
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import Films_O_TT, players_new_keys
-from ..make_bots.ma_bots.ar_lab import find_ar_label
+from ..ma_bots2.ar_lab import find_ar_label
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

@@ -16,10 +16,17 @@ from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_mu
 # =========================================================
 
 data_0 = {
+    "new zealand amateur kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للهواة",
+    "new zealand youth kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للشباب",
+    "new zealand men's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للرجال",
+    "new zealand women's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للسيدات",
+    "new zealand kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ",
 
 }
 
 data_1 = {
+    "angola basketball cup": "كأس أنغولا لكرة السلة",
+
     "paraguay national women's football team navigational boxes": "صناديق تصفح منتخب باراغواي لكرة القدم للسيدات",
     "peru national football team navigational boxes": "صناديق تصفح منتخب بيرو لكرة القدم",
     "philippines national women's football team navigational boxes": "صناديق تصفح منتخب الفلبين لكرة القدم للسيدات",
@@ -47,7 +54,6 @@ data_1 = {
     "mexico national women's football team navigational boxes": "صناديق تصفح منتخب المكسيك لكرة القدم للسيدات",
 
     "africa football league": "دوري إفريقيا لكرة القدم",
-    "angola basketball cup": "كأس أنغولا لكرة السلة",
     "angola national football team lists": "قوائم منتخب أنغولا لكرة القدم",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "australia national netball team": "منتخب أستراليا لكرة الشبكة",

@@ -1021,12 +1021,6 @@ with_all_data = [
         "output": "الدوري السلوفيني لهوكي الجليد",
     },
     {
-        "cate": "south african rugby union",
-        "nat": "south african",
-        "suffix": "rugby union",
-        "output": "اتحاد الرجبي الجنوب الإفريقي",
-    },
-    {
         "cate": "south american rugby union",
         "nat": "south american",
         "suffix": "rugby union",

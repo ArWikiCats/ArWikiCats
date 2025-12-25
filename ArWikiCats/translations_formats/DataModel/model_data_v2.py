@@ -81,10 +81,22 @@ class FormatDataV2(FormatDataBase):
 
     def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
         """Replace value placeholder once template is chosen."""
+        if not isinstance(sport_label, dict):
+            return template_label
+
         final_label = template_label
+
         if isinstance(sport_label, dict):
-            for key, value in sport_label.items():
-                final_label = final_label.replace(f"{{{key}}}", value)
+            for key, val in sport_label.items():
+                if isinstance(val, str) and val:
+                    final_label = final_label.replace(f"{{{key}}}", val)
+
+        # if any(f"{key}" in final_label for key in sport_label.keys()):
+        #     logger.warning(f"Not all placeholders replaced in {final_label=}, {sport_label=}")
+        #     # If not all placeholders were replaced, we can choose to either
+        #     # leave the label as is or apply some default behavior.
+        #     # For now, we'll just log a warning and return the label.
+        #     return ""
 
         return final_label.strip()
 
@@ -92,10 +104,20 @@ class FormatDataV2(FormatDataBase):
         """
         Used in MultiDataFormatterBaseV2 / MultiDataFormatterBaseHelpers
         """
+        if not isinstance(value, dict):
+            return label
+
         final_label = label
-        if isinstance(value, dict):
-            for key, val in value.items():
+        for key, val in value.items():
+            if isinstance(val, str) and val:
                 final_label = final_label.replace(f"{{{key}}}", val)
+
+        # if any(f"{key}" in final_label for key in value.keys()):
+        #     logger.warning(f"Not all placeholders replaced in {final_label=}, {value=}")
+        #     # If not all placeholders were replaced, we can choose to either
+        #     # leave the label as is or apply some default behavior.
+        #     # For now, we'll just log a warning and return the label.
+        #     return ""
 
         return final_label
 

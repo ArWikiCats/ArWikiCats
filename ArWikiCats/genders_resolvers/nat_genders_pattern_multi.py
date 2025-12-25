@@ -74,18 +74,18 @@ def _make_sport_formatted_data() -> dict[str, str]:
         "{en_nat} footballers": "لاعبو ولاعبات كرة قدم {males}",
 
         # _build_players_data - sports without nats
-        "female {sport_en} players": "لاعبات {sport_ar}",
+        "female {en_sport} players": "لاعبات {sport_ar}",
 
         # _build_players_data - sports with nats
-        "{en_nat} female {sport_en} players": "لاعبات {sport_ar} {females}",
+        "{en_nat} female {en_sport} players": "لاعبات {sport_ar} {females}",
 
         # _build_players_data - sports without nats
-        "male {sport_en} players": "لاعبو {sport_ar}",
-        "{sport_en} players": "لاعبو ولاعبات {sport_ar}",
+        "male {en_sport} players": "لاعبو {sport_ar}",
+        "{en_sport} players": "لاعبو ولاعبات {sport_ar}",
 
         # _build_players_data - sports with nats
-        "{en_nat} male {sport_en} players": "لاعبو {sport_ar} {males}",
-        "{en_nat} {sport_en} players": "لاعبو ولاعبات {sport_ar} {males}",
+        "{en_nat} male {en_sport} players": "لاعبو {sport_ar} {males}",
+        "{en_nat} {en_sport} players": "لاعبو ولاعبات {sport_ar} {males}",
     }
 
     players_of_data = {
@@ -140,7 +140,7 @@ def _sport_bot() -> MultiDataFormatterBaseV2:
         data_list=nats_data,
         key_placeholder="{en_nat}",
         data_list2=sports_data_new,
-        key2_placeholder="{sport_en}",
+        key2_placeholder="{en_sport}",
         text_after="",
         text_before="the ",
         search_first_part=True,

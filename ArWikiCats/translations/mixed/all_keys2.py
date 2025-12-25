@@ -476,6 +476,14 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
     data.update(BASE_LABELS)
     data.update(_build_direction_region_entries())
     data.update(pop_of_with_in)
+    pop_of_without_in = dict(pop_of_without_in)
+
+    pop_of_without_in_del = {
+        "explorers": "مستكشفون",
+        "historians": "مؤرخون"
+    }
+    for key in pop_of_without_in_del:
+        pop_of_without_in.pop(key, None)
 
     _update_lowercase(data, [pop_of_without_in], skip_existing=True)
 

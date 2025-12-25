@@ -58,6 +58,8 @@ data_3 = {
 }
 
 data_4 = {
+    "Category:Republic of Ireland women's international footballers": "تصنيف:لاعبات كرة قدم دوليات أيرلنديات",
+    "Category:Republic of Ireland association football leagues": "تصنيف:دوريات كرة القدم الأيرلندية",
     "Category:Ireland women's national field hockey team coaches": "تصنيف:مدربو منتخب أيرلندا لهوكي الميدان للسيدات",
     "Category:Ireland women's national field hockey team": "تصنيف:منتخب أيرلندا لهوكي الميدان للسيدات",
 
@@ -68,11 +70,9 @@ data_4 = {
     "Category:Ireland women's national rugby union team": "تصنيف:منتخب أيرلندا لاتحاد الرجبي للسيدات",
 
     "Category:Republic of Ireland women's international rugby union players": "تصنيف:لاعبات اتحاد رجبي دوليات من جمهورية أيرلندا",
-    "Category:Republic of Ireland women's international footballers": "تصنيف:لاعبات منتخب جمهورية أيرلندا لكرة القدم للسيدات",
     "Category:Republic of Ireland women's youth international footballers": "تصنيف:لاعبات منتخب جمهورية أيرلندا لكرة القدم للشابات",
     "Category:Republic of Ireland women's association footballers": "تصنيف:لاعبات كرة قدم أيرلنديات",
 
-    "Category:Republic of Ireland association football leagues": "تصنيف:دوريات كرة قدم أيرلندية",
     # "Category:Republic of Ireland association football": "تصنيف:كرة قدم أيرلندية",
     "Category:Republic of Ireland women's association football": "تصنيف:كرة قدم أيرلندية للسيدات",
     "Category:Northern Ireland women's national football team": "تصنيف:منتخب أيرلندا الشمالية لكرة القدم للسيدات",

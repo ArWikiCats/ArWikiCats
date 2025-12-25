@@ -48,9 +48,10 @@ data_empty = {
 }
 
 data0 = {
+    "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",
     "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
-    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",}
+    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية", }
 
 data1 = {
     "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
@@ -141,5 +142,5 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    dump_diff_text(expected, diff_result, name)
+    # dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

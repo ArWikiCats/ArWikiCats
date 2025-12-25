@@ -293,7 +293,7 @@ def test_technology_slow(category: str, expected: str) -> None:
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result, no_labels = one_dump_test_no_labels(data, resolve_arabic_category_label)
-    # dump_diff(diff_result, name)
-    dump_diff_text(expected, diff_result, name)
+    dump_diff(diff_result, name)
+    # dump_diff_text(expected, diff_result, name)
     # dump_same_and_not_same(data, diff_result, name, just_dump=True)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}, len no_labels: {len(no_labels):,}"
