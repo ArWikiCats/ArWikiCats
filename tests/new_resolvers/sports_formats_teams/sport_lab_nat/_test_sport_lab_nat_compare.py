@@ -350,7 +350,7 @@ def test_sport_lab_nat_load_0(key: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("key,expected", data_1.items(), ids=data_1.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_sport_lab_nat_load_1(key: str, expected: str) -> None:
     result2 = sport_lab_nat_load_new(key)
     assert result2 == expected

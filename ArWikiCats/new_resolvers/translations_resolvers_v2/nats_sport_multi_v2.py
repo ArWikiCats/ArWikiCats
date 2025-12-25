@@ -217,7 +217,8 @@ sports_formatted_data = {
     "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
 
     # "yemeni football": "كرة قدم يمنية",
-    "{en} {en_sport}": "{sport_jobs} {female}",
+    # "{en} {en_sport}": "{sport_jobs} {female}",
+    "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
     "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
 
     "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",

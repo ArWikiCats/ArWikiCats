@@ -16,8 +16,8 @@ new_for_nat_female_xo_team_2_data = {
     "trinidad and tobago basketball cup": "كؤوس كرة سلة ترنيدادية",
     "trinidad and tobago domestic basketball cup": "كؤوس كرة سلة ترنيدادية محلية",
 
-    "yemeni football": "كرة قدم يمنية",
-    "new zealand basketball": "كرة سلة نيوزيلندية",  # Category:American_basketball
+    # "yemeni football": "كرة قدم يمنية",
+    # "new zealand basketball": "كرة سلة نيوزيلندية",  # Category:American_basketball
     "yemeni national football": "كرة قدم وطنية يمنية",
     "new zealand national basketball": "كرة سلة وطنية نيوزيلندية",
 
@@ -53,8 +53,8 @@ new_for_nat_female_xo_team_2_data = {
 }
 
 end_key_mappings_data = {
-    "yemeni football finals": "نهائيات كرة قدم يمنية",
-    "yemeni football": "كرة قدم يمنية",
+    # "yemeni football finals": "نهائيات كرة قدم يمنية",
+    # "yemeni football": "كرة قدم يمنية",
     "yemeni national football": "كرة قدم وطنية يمنية",
 
     "yemeni national football home stadiums": "ملاعب كرة قدم وطنية يمنية",
