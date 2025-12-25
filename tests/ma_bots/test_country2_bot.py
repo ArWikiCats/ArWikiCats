@@ -112,7 +112,6 @@ data_slow = {
     "canada by city": "كندا حسب المدينة",
     "canada by month": "كندا حسب الشهر",
     "canada–gabon relations": "العلاقات الغابونية الكندية",
-    "canadian ice hockey by league": "هوكي جليد كندية حسب الدوري",
     "canadian ice hockey by team": "هوكي جليد كندية حسب الفريق",
     "cancer in hungary": "السرطان في المجر",
     "cancer in philippines": "السرطان في الفلبين",
