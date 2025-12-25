@@ -193,25 +193,30 @@ sports_formatted_data = {
     "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
     "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
 
-
     "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
     "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
     "{en} {en_sport} cup": "كأس {ar} {sport_team}",
 
     # NAT_P17_OIOI_TO_CHECK data
-    "{en} defunct {en_sport} cup": "كؤوس {sport_team} {ar} سابقة",
-    "{en} domestic {en_sport} cup": "كؤوس {sport_team} {ar} محلية",
+    # "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
+    "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
+    "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
 
-    # "{en} {en_sport}": "{sport_team} {ar}",
-    "{en} current {en_sport} seasons": "مواسم {sport_team} {ar} حالية",
+    # "yemeni domestic basketball": "كرة سلة يمنية محلية",
+    "{en} domestic {en_sport}": "{sport_jobs} {female} محلية",
+    "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
 
-    "{en} defunct indoor {en_sport}": "{sport_team} {ar} داخل الصالات سابقة",
-    "{en} defunct {en_sport}": "{sport_team} {ar} سابقة",
-    "{en} defunct outdoor {en_sport}": "{sport_team} {ar} في الهواء الطلق سابقة",
+    # "yemeni football": "كرة قدم يمنية",
+    "{en} {en_sport}": "{sport_jobs} {female}",
+    "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
 
-    "{en} domestic {en_sport}": "{sport_team} {ar} محلية",
-    "{en} domestic womens {en_sport}": "{sport_team} محلية {ar} للسيدات",
-    "{en} professional {en_sport}": "{sport_team} {ar} للمحترفين",
+    "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
+
+    "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
+    "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
+    "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
+
+    "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
 }
 
 
