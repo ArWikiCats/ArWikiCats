@@ -32,6 +32,7 @@ teams_label_mappings_ends = {
     "squads": "تشكيلات",
     "statistics": "إحصائيات",
     "teams": "فرق",
+    "cups": "كؤوس",
     "templates": "قوالب",
     "tournaments": "بطولات",
     "trainers": "مدربو",

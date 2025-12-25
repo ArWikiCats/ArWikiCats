@@ -26,7 +26,7 @@ teams_bot = FormatData(
     teams_formatted_data,
     SPORTS_KEYS_FOR_TEAM,
     key_placeholder="{en_sport}",
-    value_placeholder="{sport_teams}",
+    value_placeholder="{sport_team}",
 )
 jobs_bot = FormatData(
     jobs_formatted_data,

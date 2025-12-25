@@ -68,6 +68,12 @@ def _get_sorted_teams_labels() -> dict[str, str]:
 
 
 sports_formatted_data = {
+    "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
+    "men's {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+    "women's {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+    "{en_sport} world cup": "كأس العالم {sport_team}",
+    "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
+
     "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
     "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
     "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",

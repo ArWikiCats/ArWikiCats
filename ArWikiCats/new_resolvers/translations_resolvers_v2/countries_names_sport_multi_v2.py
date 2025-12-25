@@ -17,6 +17,12 @@ from ..sports_formats_teams.sport_lab2_data import labels_formatted_data
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
 sports_formatted_data = {
+    "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
+    "men's {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+    "women's {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+    "{en_sport} world cup": "كأس العالم {sport_team}",
+    "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
+
     # sports_formatted_data data:
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
