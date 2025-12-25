@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 data_1 = {
+    "yemeni football": "كرة قدم يمنية",
+    "yemeni national football": "كرة قدم وطنية يمنية",
     "yemeni national football teams fifth tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الخامسة",
     "yemeni national football teams first tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الأولى",
     "yemeni national football teams fourth tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الرابعة",
