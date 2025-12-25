@@ -149,7 +149,7 @@ nats_data = {
     if v.get("ar") and v.get("en")
 }
 
-nats_data.update(nats_keys_as_country_names)
+# nats_data.update(nats_keys_as_country_names)
 
 nats_data.update({
     x: v for x, v in nats_keys_as_country_names.items()
