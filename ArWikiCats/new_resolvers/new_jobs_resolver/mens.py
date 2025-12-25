@@ -3,9 +3,9 @@ This module provides functionality to translate category titles
 """
 import functools
 
-from ...helps import logger, len_print
-from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from ...helps import logger
+from ...translations import jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
+from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 
 from .utils import one_Keys_more_2, nat_and_gender_keys
@@ -16,45 +16,45 @@ countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
-        "{en_nat}": "{ar_nat}",
-        # "{en_nat} people": "أعلام {ar_nat}",
-        # "{en_nat} people": "{ar_nat}",
+        "{en_nat}": "{males}",
+        # "{en_nat} people": "أعلام {males}",
+        # "{en_nat} people": "{males}",
 
-        "{en_nat}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {ar_nat}",
-        "{en_nat} coaches of canadian-football": "مدربو كرة قدم كندية {ar_nat}",
+        "{en_nat}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
+        "{en_nat} coaches of canadian-football": "مدربو كرة قدم كندية {males}",
 
-        "{en_nat}-american": "{ar_nat} أمريكيون",
-        "{en_nat} eugenicists": "علماء {ar_nat} متخصصون في تحسين النسل",
-        "{en_nat} politicians who committed suicide": "سياسيون {ar_nat} أقدموا على الانتحار",
-        "{en_nat} contemporary artists": "فنانون {ar_nat} معاصرون",
+        "{en_nat}-american": "{males} أمريكيون",
+        "{en_nat} eugenicists": "علماء {males} متخصصون في تحسين النسل",
+        "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
+        "{en_nat} contemporary artists": "فنانون {males} معاصرون",
 
         # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
-        "{en_nat} expatriate {en_job}": "{ar_job} {ar_nat} مغتربون",
+        "{en_nat} expatriate {en_job}": "{ar_job} {males} مغتربون",
 
         # "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
-        "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {ar_nat} مغتربون",
+        "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {males} مغتربون",
 
         # [Category:Turkish immigrants sports-people] : "تصنيف:رياضيون أتراك مهاجرون"
-        "{en_nat} immigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
+        "{en_nat} immigrants {en_job}": "{ar_job} {males} مهاجرون",
 
-        "{en_nat} films people": "أعلام أفلام {ar_nat}",
-        "{en_nat} film people": "أعلام أفلام {ar_nat}",
-        "male {en_nat}": "{ar_nat} ذكور",
+        "{en_nat} films people": "أعلام أفلام {males}",
+        "{en_nat} film people": "أعلام أفلام {males}",
+        "male {en_nat}": "{males} ذكور",
 
         # emigrants keys
         # "{en_nat} emigrants": "{ar_job} مهاجرون",
-        "{en_nat} emigrants {en_job}": "{ar_job} {ar_nat} مهاجرون",
+        "{en_nat} emigrants {en_job}": "{ar_job} {males} مهاجرون",
         "emigrants {en_nat} {en_job}": "{ar_job} مهاجرون",
 
-        # "spouses of {en_nat} politicians": "قرينات سياسيون {ar_nat}",
-        "spouses of {en_nat}": "قرينات {ar_nat}",
-        "spouses of {en_nat} {en_job}": "قرينات {ar_job} {ar_nat}",
+        # "spouses of {en_nat} politicians": "قرينات سياسيون {males}",
+        "spouses of {en_nat}": "قرينات {males}",
+        "spouses of {en_nat} {en_job}": "قرينات {ar_job} {males}",
 
     }
 
-    # { "{en_nat} male emigrants": "{ar_nat} مهاجرون ذكور", "{en_nat} emigrants male": "{ar_nat} مهاجرون ذكور", "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور" }
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{ar_nat} مهاجرون ذكور"))
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{ar_nat} مغتربون ذكور"))
+    # { "{en_nat} male emigrants": "{males} مهاجرون ذكور", "{en_nat} emigrants male": "{males} مهاجرون ذكور", "male {en_nat} emigrants": "{males} مهاجرون ذكور" }
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{males} مهاجرون ذكور"))
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{males} مغتربون ذكور"))
 
     formatted_data_jobs = {
 
@@ -75,12 +75,12 @@ def _load_formatted_data() -> dict:
 
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update({
-        f"{{en_nat}} {x}": f"{v} {{ar_nat}}" for x, v in formatted_data_jobs.items()
-        if "{en_nat}" not in x and "{ar_nat}" not in v
+        f"{{en_nat}} {x}": f"{v} {{males}}" for x, v in formatted_data_jobs.items()
+        if "{en_nat}" not in x and "{males}" not in v
     })
 
     # formatted_data.update({
-    #     f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{ar_nat}}" for x, v in formatted_data_jobs.items()
+    #     f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{males}}" for x, v in formatted_data_jobs.items()
     # })
 
     genders_keys: dict[str, str] = {
@@ -96,24 +96,25 @@ def _load_formatted_data() -> dict:
     for x, v in genders_keys.items():
         # formatted_data.update( one_Keys_more_2(x, v, add_women=False) )
         formatted_data.update(
-            one_Keys_more_2(x, v, add_women=False)
+            one_Keys_more_2(x, v, ar_nat_key="{males}", add_women=False)
         )
 
     formatted_data.update(formatted_data_jobs_with_nat)
     formatted_data.update({
-        "{en_nat} emigrants": "{ar_nat} مهاجرون",
-        "fictional {en_nat} religious workers": "عمال دينيون {ar_nat} خياليون",
-        "{en_nat} religious workers": "عمال دينيون {ar_nat}",
+        "{en_nat} emigrants": "{males} مهاجرون",
+        "fictional {en_nat} religious workers": "عمال دينيون {males} خياليون",
+        "{en_nat} religious workers": "عمال دينيون {males}",
 
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
-        # "{en_nat} saints": "{ar_nat} قديسون",
-        "{en_nat} eugenicists": "علماء {ar_nat} متخصصون في تحسين النسل",
-        "{en_nat} politicians who committed suicide": "سياسيون {ar_nat} أقدموا على الانتحار",
-        "{en_nat} contemporary artists": "فنانون {ar_nat} معاصرون",
+        # "{en_nat} saints": "{males} قديسون",
+        "{en_nat} eugenicists": "علماء {males} متخصصون في تحسين النسل",
+        "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
+        "{en_nat} contemporary artists": "فنانون {males} معاصرون",
 
-        "{en_nat} scholars of islam": "{ar_nat} باحثون عن الإسلام",
-        "{en_nat} convicted-of-murder": "{ar_nat} أدينوا بالقتل",
-        "{en_nat} womens rights activists": "{ar_nat} ناشطون في حقوق المرأة",
+        "{en_nat} scholars of islam": "{males} باحثون عن الإسلام",
+        "{en_nat} convicted-of-murder": "{males} أدينوا بالقتل",
+        "{en_nat} womens rights activists": "{males} ناشطون في حقوق المرأة",
+        "{en_nat} businesspeople": "شخصيات أعمال {female}",
     })
 
     return formatted_data
@@ -126,7 +127,7 @@ def _load_jobs_data() -> dict[str, str]:
     ]
     # all keys without any word from not_in_keys
     data = {
-        x: v
+        x: {"ar_job": v}
         for x, v in jobs_mens_data.items()
         if not any(word in x for word in not_in_keys)
         and not RELIGIOUS_KEYS_PP.get(x)
@@ -136,7 +137,7 @@ def _load_jobs_data() -> dict[str, str]:
 
 
 @functools.lru_cache(maxsize=1)
-def load_bot() -> MultiDataFormatterBase:
+def load_bot() -> MultiDataFormatterBaseV2:
     jobs_data_enhanced = _load_jobs_data()
     logger.debug(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
 
@@ -145,23 +146,25 @@ def load_bot() -> MultiDataFormatterBase:
     logger.debug(f"_load_formatted_data mens: {len(formatted_data):,}")
 
     nats_data: dict[str, str] = {
-        x: v for x, v in Nat_mens.items()
+        x: v for x, v in all_country_with_nat.items()
         if "-american" not in x
     }
 
     nats_data.update({
-        x: v.get("males") for x, v in nats_keys_as_country_names.items()
-        if v.get("males")
+        x: v for x, v in nats_keys_as_country_names.items()
     })
 
-    return format_multi_data(
+    return format_multi_data_v2(
         formatted_data=formatted_data,
+
         data_list=nats_data,
         key_placeholder="{en_nat}",
-        value_placeholder="{ar_nat}",
+        # value_placeholder="{males}",
+
         data_list2=jobs_data_enhanced,
         key2_placeholder="{en_job}",
-        value2_placeholder="{ar_job}",
+        # value2_placeholder="{ar_job}",
+
         text_after=" people",
         text_before="the ",
         use_other_formatted_data=True,

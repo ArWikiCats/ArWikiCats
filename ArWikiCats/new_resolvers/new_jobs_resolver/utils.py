@@ -1,33 +1,41 @@
 
 
-def one_Keys_more_2(x, v, add_women=False) -> dict[str, str]:
+def one_Keys_more_2(
+    x,
+    v,
+    ar_nat_key="{ar_nat}",
+    en_nat_key="{en_nat}",
+    ar_job_key="{ar_job}",
+    en_job_key="{en_job}",
+    add_women=False,
+) -> dict[str, str]:
     data = {}
     # writers blind
-    data[f"{{en_job}} {x}"] = f"{{ar_job}} {v}"
+    data[f"{en_job_key} {x}"] = f"{ar_job_key} {v}"
 
     # greek blind
-    data[f"{{en_nat}} {x}"] = f"{{ar_nat}} {v}"
+    data[f"{en_nat_key} {x}"] = f"{ar_nat_key} {v}"
 
     # greek writers blind
-    data[f"{{en_nat}} {{en_job}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+    data[f"{en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
     # writers greek blind
-    data[f"{{en_job}} {{en_nat}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+    data[f"{en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
     if add_women:
         # female greek blind
-        data[f"{{women}} {{en_nat}} {x}"] = f"{{ar_nat}} {v}"
+        data[f"{{women}} {en_nat_key} {x}"] = f"{ar_nat_key} {v}"
 
         # female writers blind
-        data[f"{{women}} {{en_job}} {x}"] = f"{{ar_job}} {v}"
+        data[f"{{women}} {en_job_key} {x}"] = f"{ar_job_key} {v}"
         # female greek writers blind
-        data[f"{{women}} {{en_nat}} {{en_job}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+        data[f"{{women}} {en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
         # writers female greek blind
-        data[f"{{en_job}} {{women}} {{en_nat}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+        data[f"{en_job_key} {{women}} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
         # female writers greek blind
-        data[f"{{women}} {{en_job}} {{en_nat}} {x}"] = f"{{ar_job}} {{ar_nat}} {v}"
+        data[f"{{women}} {en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
     return data
 
