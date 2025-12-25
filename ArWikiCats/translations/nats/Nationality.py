@@ -172,6 +172,8 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
     """
 
     alias_map: Dict[str, str] = {
+        "luxembourg": "luxembourgish",
+
         "ancient romans": "ancient-romans",
         "ancient-roman": "ancient-romans",
         "arabian": "arab",
@@ -194,7 +196,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "ivoirian": "ivorian",
         "kosovar": "kosovan",
         "lao": "laotian",
-        "luxembourg": "luxembourgish",
         "mosotho": "lesotho",
         "nepali": "nepalese",
         "roman": "romanian",

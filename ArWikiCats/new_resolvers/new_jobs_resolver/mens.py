@@ -4,11 +4,13 @@ This module provides functionality to translate category titles
 import functools
 
 from ...helps import logger, len_print
-from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP
+from ...translations import Nat_mens, jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 
 from .utils import one_Keys_more_2, nat_and_gender_keys
+
+countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 
 def _load_formatted_data() -> dict:
@@ -186,7 +188,7 @@ def mens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
 
     category = fix_keys(category)
-    if category in nats_keys_as_country_names_bad_keys:
+    if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
         logger.debug(f"<<yellow>> end mens_resolver_labels: {category=}, [result=]")
         return ""
 

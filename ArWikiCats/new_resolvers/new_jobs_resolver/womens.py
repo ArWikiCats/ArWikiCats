@@ -5,10 +5,13 @@ compare with womens_prefixes_work
 import functools
 import re
 from ...helps import len_print, logger
-from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP, FEMALE_JOBS_BASE
+from ...translations import Nat_Womens, jobs_womens_data, RELIGIOUS_KEYS_PP, FEMALE_JOBS_BASE, all_country_with_nat
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
+
+
+countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 
 def _load_formatted_data() -> dict:
@@ -156,7 +159,7 @@ def womens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
     category = fix_keys(category)
 
-    if category in nats_keys_as_country_names_bad_keys:
+    if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
         logger.debug(f"<<yellow>> end womens_resolver_labels: {category=}, [result=]")
         return ""
 

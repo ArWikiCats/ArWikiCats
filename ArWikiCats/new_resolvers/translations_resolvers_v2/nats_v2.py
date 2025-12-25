@@ -7,8 +7,10 @@ import functools
 from ...helps import logger
 from .nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 from ...translations_formats import FormatDataV2
-from ...translations import all_country_with_nat_ar
+from ...translations import all_country_with_nat_ar, all_country_with_nat
 from .data import country_names_and_nats_data
+
+countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 peoples_nats_not_jobs_males = {
     "{en} expatriates": "{males} مغتربون",
@@ -410,7 +412,7 @@ def _load_bot() -> FormatDataV2:
 def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 
-    if category in nats_keys_as_country_names_bad_keys:
+    if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
         logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, [result=]")
         return ""
 
