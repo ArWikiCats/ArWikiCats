@@ -102,6 +102,11 @@ rcn_sport_with_ends_data = {
     "new zealand men's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للرجال",
     "new zealand women's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للسيدات",
     "new zealand kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ",
+    "yemen amateur kick boxing cup": "كأس اليمن للكيك بوكسينغ للهواة",
+    "yemen youth kick boxing cup": "كأس اليمن للكيك بوكسينغ للشباب",
+    "yemen men's kick boxing cup": "كأس اليمن للكيك بوكسينغ للرجال",
+    "yemen women's kick boxing cup": "كأس اليمن للكيك بوكسينغ للسيدات",
+    "yemen kick boxing cup": "كأس اليمن للكيك بوكسينغ",
 }
 
 to_test = [
