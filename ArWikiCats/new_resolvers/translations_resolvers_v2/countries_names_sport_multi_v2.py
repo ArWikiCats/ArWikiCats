@@ -13,7 +13,7 @@ from ..translations_resolvers.countries_names_data import formatted_data_en_ar_o
 from .nats_as_country_names import nats_keys_as_country_names
 from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
-from ..sports_formats_teams.sport_lab2 import labels_formatted_data
+from ..sports_formats_teams.sport_lab2_data import labels_formatted_data
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
 sports_formatted_data = {

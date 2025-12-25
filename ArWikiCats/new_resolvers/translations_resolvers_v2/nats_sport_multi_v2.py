@@ -15,6 +15,7 @@ from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from .data import sports_formatted_data_for_jobs
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ..sports_formats_teams.sport_lab2_data import labels_formatted_data
 
 
 @functools.lru_cache(maxsize=1)
@@ -221,6 +222,8 @@ sports_formatted_data = {
 
     "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
 }
+
+sports_formatted_data.update(labels_formatted_data)
 
 
 def _levels_data() -> dict[str, str]:
