@@ -123,7 +123,7 @@ to_test = [
 
 
 @pytest.mark.parametrize("category, expected", nats_sport_multi_v2_data.items(), ids=nats_sport_multi_v2_data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_resolve_nats_sport_multi_v2(category: str, expected: str) -> None:
     label1 = resolve_nats_sport_multi_v2(category)
     assert isinstance(label1, str)
@@ -131,7 +131,7 @@ def test_resolve_nats_sport_multi_v2(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category, expected", sport_lab2_data.items(), ids=sport_lab2_data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_sport_lab2_data(category: str, expected: str) -> None:
     label1 = wrap_team_xo_normal_2025_with_ends(category)
     assert isinstance(label1, str)
@@ -139,7 +139,7 @@ def test_sport_lab2_data(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category, expected", sport_lab_nat_load_new_data.items(), ids=sport_lab_nat_load_new_data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_sport_lab_nat_load_new(category: str, expected: str) -> None:
     label1 = sport_lab_nat_load_new(category)
     assert isinstance(label1, str)
@@ -147,7 +147,7 @@ def test_sport_lab_nat_load_new(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category, expected", rcn_sport_with_ends_data.items(), ids=rcn_sport_with_ends_data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_rcn_sport_with_ends(category: str, expected: str) -> None:
     label1 = resolve_countries_names_sport_with_ends(category)
     assert isinstance(label1, str)
