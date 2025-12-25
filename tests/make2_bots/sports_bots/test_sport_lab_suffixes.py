@@ -3,12 +3,23 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.sports_bots.sport_lab_suffixes import get_teams_new
 
 get_teams_new_data = {
+    "international cricket records and statistics": "سجلات وإحصائيات كريكت دولية",
+
+    "sports cup competitions": "منافسات كؤوس رياضية",
+    "international men's football competitions": "منافسات كرة قدم دولية للرجال",
+    "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
+    "international women's cricket competitions": "منافسات كريكت دولية للسيدات",
+    "international women's field hockey competitions": "منافسات هوكي ميدان دولية للسيدات",
+    "international women's football competitions": "منافسات كرة قدم دولية للسيدات",
+    "under-13 equestrian manager history": "تاريخ مدربو فروسية تحت 13 سنة",
+    "under-14 equestrian manager history": "تاريخ مدربو فروسية تحت 14 سنة",
+
     "soccer cup competitions": "منافسات كؤوس كرة قدم",
-    "sports cup competitions": "",  # sports jobs key is empty { "jobs": ""}
     "national youth baseball teams": "منتخبات كرة قاعدة وطنية شبابية",
     "national youth basketball teams": "منتخبات كرة سلة وطنية شبابية",
 
@@ -72,7 +83,7 @@ get_teams_new_data = {
     "football cups": "كؤوس كرة قدم",
     "football governing bodies": "هيئات تنظيم كرة قدم",
     "football league": "دوري كرة القدم",
-    "gocomics": "قصص مصورة غو",
+    "go comics": "قصص مصورة غو",
     "indoor football": "كرة قدم داخل الصالات",
     "indoor hockey": "هوكي داخل الصالات",
     "indoor track and field": "سباقات مضمار وميدان داخل الصالات",
@@ -84,7 +95,6 @@ get_teams_new_data = {
     "international basketball competitions": "منافسات كرة سلة دولية",
     "international boxing competitions": "منافسات بوكسينغ دولية",
     "international cricket competitions": "منافسات كريكت دولية",
-    "international cricket records and statistics": "سجلات وإحصائيات كريكت دولية",
     "international cycle races": "سباقات دراجات دولية",
     "international fencing competitions": "منافسات مبارزة سيف شيش دولية",
     "international field hockey competitions": "منافسات هوكي ميدان دولية",
@@ -96,7 +106,6 @@ get_teams_new_data = {
     "international ice hockey competitions": "منافسات هوكي جليد دولية",
     "international karate competitions": "منافسات كاراتيه دولية",
     "international kickboxing competitions": "منافسات كيك بوكسينغ دولية",
-    "international men's football competitions": "منافسات كرة قدم رجالية دولية",
     "international netball players": "لاعبو كرة شبكة دوليون",
     "international roller hockey competitions": "منافسات هوكي دحرجة دولية",
     "international rugby league competitions": "منافسات دوري رجبي دولية",
@@ -107,10 +116,6 @@ get_teams_new_data = {
     "international volleyball competitions": "منافسات كرة طائرة دولية",
     "international water polo competitions": "منافسات كرة ماء دولية",
     "international weightlifting competitions": "منافسات رفع أثقال دولية",
-    "international women's basketball competitions": "منافسات كرة سلة نسائية دولية",
-    "international women's cricket competitions": "منافسات كريكت نسائية دولية",
-    "international women's field hockey competitions": "منافسات هوكي ميدان نسائية دولية",
-    "international women's football competitions": "منافسات كرة قدم نسائية دولية",
     "international wrestling competitions": "منافسات مصارعة دولية",
     "international youth basketball competitions": "منافسات كرة سلة شبابية دولية",
     "international youth football competitions": "منافسات كرة قدم شبابية دولية",
@@ -154,9 +159,7 @@ get_teams_new_data = {
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
     "tennis logos": "شعارات كرة مضرب",
-    "under-13 equestrian manager history": "تاريخ مدربو فرق فروسية تحت 13 سنة",
     "under-13 equestrian": "فروسية تحت 13 سنة",
-    "under-14 equestrian manager history": "تاريخ مدربو فرق فروسية تحت 14 سنة",
     "under-14 equestrian": "فروسية تحت 14 سنة",
     "under-16 basketball": "كرة سلة تحت 16 سنة",
     "under-19 basketball": "كرة سلة تحت 19 سنة",
@@ -182,6 +185,19 @@ get_teams_new_data = {
 def test_get_teams_new_data(category: str, expected_key: str) -> None:
     label = get_teams_new(category)
     assert label == expected_key
+
+
+to_test = [
+    ("test_get_teams_new_data", get_teams_new_data),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_all(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, get_teams_new)
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 def test_get_teams_new() -> None:

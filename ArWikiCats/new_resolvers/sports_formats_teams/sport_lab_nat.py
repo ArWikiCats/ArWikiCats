@@ -21,6 +21,13 @@ from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_f
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
+    # "yemeni football": "كرة قدم يمنية",
+    "{en} {en_sport}": "{sport_jobs} {female}",  # Category:American_basketball
+    # "yemeni national football": "كرة قدم وطنية يمنية",
+    "{en} national {en_sport}": "{sport_jobs} وطنية {female}",
+
+    "{en} womens {en_sport}": "{sport_jobs} {female} نسائية",
+
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
     "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
     "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
@@ -36,11 +43,6 @@ new_for_nat_female_xo_team_2 = {
     "{en} {en_sport} cup": "كؤوس {sport_jobs} {female}",
     "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
 
-    # "yemeni football": "كرة قدم يمنية",
-    "{en} {en_sport}": "{sport_jobs} {female}",  # Category:American_basketball
-    # "yemeni national football": "كرة قدم وطنية يمنية",
-    "{en} national {en_sport}": "{sport_jobs} وطنية {female}",
-
     "{en} {en_sport} teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national teams": "منتخبات {sport_jobs} {female}",
 
@@ -55,7 +57,6 @@ new_for_nat_female_xo_team_2 = {
     "{en} national {en_sport} champions": "أبطال {sport_jobs} وطنية {female}",
 
     "{en} {en_sport} super leagues": "دوريات سوبر {sport_jobs} {female}",
-    "{en} womens {en_sport}": "{sport_jobs} {female} نسائية",
     "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
     # ---
     "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
@@ -73,6 +74,9 @@ new_for_nat_female_xo_team_2 = {
     "{en} national a {en_sport} teams": "منتخبات {sport_jobs} محليين {female}",
     "{en} national b {en_sport} teams": "منتخبات {sport_jobs} رديفة {female}",
     "{en} national reserve {en_sport} teams": "منتخبات {sport_jobs} وطنية احتياطية {female}",
+
+    "{en} national {en_sport} teams premier": "منتخبات {sport_jobs} وطنية {female} من الدرجة الممتازة",
+    "{en} {en_sport} teams premier": "فرق {sport_jobs} {female} من الدرجة الممتازة",
 }
 
 new_for_nat_female_xo_team_additional = {
@@ -187,12 +191,9 @@ new_for_nat_female_xo_team_additional = {
 
 new_for_nat_female_xo_team_2.update(new_for_nat_female_xo_team_additional)
 
-new_for_nat_female_xo_team_2.update({
-    "{en} national {en_sport} teams premier": "منتخبات {sport_jobs} وطنية {female} من الدرجة الممتازة",
-    "{en} {en_sport} teams premier": "فرق {sport_jobs} {female} من الدرجة الممتازة",
-})
 new_for_nat_female_xo_team_2.update(labels_formatted_data)
 new_for_nat_female_xo_team_2.update(jobs_formatted_data_shared)
+
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
@@ -200,7 +201,10 @@ def _load_bot() -> MultiDataFormatterBase:
         x: {"female": v}
         for x, v in Nat_women.items()
     }
-
+    sport_key_records = dict(SPORT_KEY_RECORDS)
+    sport_key_records.get("sports", {}).update({
+        "jobs": "رياضية",
+    })
     nats_data.update({
         x: {
             "female": v.get("female")
@@ -225,7 +229,7 @@ def _load_bot() -> MultiDataFormatterBase:
         key_placeholder="{en}",
         data_list2=sports_data,
         key2_placeholder="{en_sport}",
-        text_after="",
+        text_after=" people",
         text_before="the ",
         search_first_part=True,
         use_other_formatted_data=True,

@@ -4,6 +4,11 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
 
 data_0 = {
+    "mexican women's sports": "رياضية مكسيكية نسائية",
+    "canadian women's sports": "رياضية كندية نسائية",
+    "american women's sports": "رياضية أمريكية نسائية",
+    "ancient-greek sports": "رياضية يونانية قديمة",
+
     "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",
     "american defunct football teams": "فرق كرة قدم أمريكية سابقة",
     "central american national football teams": "منتخبات كرة قدم وطنية أمريكية أوسطية",
@@ -42,7 +47,6 @@ data_1 = {
     "american college": "كليات أمريكية",
     "american ice hockey": "هوكي جليد أمريكية",
     "american soccer leagues": "دوريات كرة قدم أمريكية",
-    "ancient-greek sports": "رياضية يونانية قديمة",
     "andorran football leagues": "دوريات كرة قدم أندورية",
     "angolan basketball": "كرة سلة أنغولية",
     "argentine basketball": "كرة سلة أرجنتينية",
@@ -285,7 +289,6 @@ data_womens = {
     "american women's basketball": "كرة سلة أمريكية نسائية",
     "american women's ice hockey": "هوكي جليد أمريكية نسائية",
     "american women's soccer": "كرة قدم أمريكية نسائية",
-    "american women's sports": "رياضية أمريكية نسائية",
     "asian women's football": "كرة قدم آسيوية نسائية",
     "australian women's field hockey": "هوكي ميدان أسترالية نسائية",
     "australian women's soccer": "كرة قدم أسترالية نسائية",
@@ -296,7 +299,6 @@ data_womens = {
     "Canadian women's ice hockey": "هوكي جليد كندية نسائية",
     "canadian women's ice hockey": "هوكي جليد كندية نسائية",
     "canadian women's soccer": "كرة قدم كندية نسائية",
-    "canadian women's sports": "رياضية كندية نسائية",
     "chinese women's football": "كرة قدم صينية نسائية",
     "croatian women's football": "كرة قدم كرواتية نسائية",
     "czech women's football": "كرة قدم تشيكية نسائية",
@@ -315,7 +317,6 @@ data_womens = {
     "italian women's football": "كرة قدم إيطالية نسائية",
     "japanese women's football": "كرة قدم يابانية نسائية",
     "jordanian women's football": "كرة قدم أردنية نسائية",
-    "mexican women's sports": "رياضية مكسيكية نسائية",
     "north american women's football": "كرة قدم أمريكية شمالية نسائية",
     "norwegian women's football": "كرة قدم نرويجية نسائية",
     "oceanian women's football": "كرة قدم أوقيانوسية نسائية",

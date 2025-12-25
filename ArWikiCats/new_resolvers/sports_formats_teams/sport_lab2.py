@@ -39,6 +39,7 @@ jobs_bot = FormatData(
 @functools.lru_cache(maxsize=1)
 def _get_sorted_teams_labels() -> dict[str, str]:
     mappings_data = {
+        "records and statistics": "سجلات وإحصائيات",
         "finals": "نهائيات",
         "matches": "مباريات",
         "manager history": "تاريخ مدربو",
