@@ -12,13 +12,19 @@ import re
 from ...translations_formats.DataModel.model_multi_data import MultiDataFormatterBase
 from ...helps import logger, len_print
 from ...translations import Nat_women
-from ...translations_formats import format_multi_data
-from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ...translations_formats import format_multi_data_v2, format_multi_data
+from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS, SPORT_KEY_RECORDS
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
+    "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
+    "men's {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+    "women's {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+    "{en_sport} world cup": "كأس العالم {sport_team}",
+    "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
+
     "{en} amateur {en_sport} cup": "كأس {female} {sport_jobs} للهواة",
     "{en} youth {en_sport} cup": "كأس {female} {sport_jobs} للشباب",
     "{en} mens {en_sport} cup": "كأس {female} {sport_jobs} للرجال",
@@ -187,14 +193,30 @@ new_for_nat_female_xo_team_2.update({
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
-    nats_data = dict(Nat_women)
+    nats_data = {
+        x: {"female": v}
+        for x, v in Nat_women.items()
+    }
 
     nats_data.update({
-        x: v.get("female") for x, v in nats_keys_as_country_names.items()
+        x: {
+            "female": v.get("female")
+        }
+        for x, v in nats_keys_as_country_names.items()
         if v.get("female")
     })
 
-    return format_multi_data(
+    sports_data = {
+        x: {
+            "sport_label": v.get("label", ""),
+            "sport_team": v.get("team", ""),
+            "sport_jobs": v.get("jobs", ""),
+        }
+        for x, v in SPORT_KEY_RECORDS.items()
+        if v.get("jobs")
+    }
+
+    """return format_multi_data(
         new_for_nat_female_xo_team_2,
         nats_data,
         key_placeholder="{en}",
@@ -204,6 +226,17 @@ def _load_bot() -> MultiDataFormatterBase:
         value2_placeholder="{sport_jobs}",
         text_after=" people",
         text_before="the ",
+    )"""
+    return format_multi_data_v2(
+        formatted_data=new_for_nat_female_xo_team_2,
+        data_list=nats_data,
+        key_placeholder="{en}",
+        data_list2=sports_data,
+        key2_placeholder="{en_sport}",
+        text_after="",
+        text_before="the ",
+        search_first_part=True,
+        use_other_formatted_data=True,
     )
 
 

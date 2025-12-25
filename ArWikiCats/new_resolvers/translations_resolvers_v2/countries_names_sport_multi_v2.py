@@ -176,9 +176,9 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
     sports_data = {
         x: {
-            "sport_label": v["label"],
-            "sport_team": v["team"],
-            "sport_jobs": v["jobs"],
+            "sport_label": v.get("label", ""),
+            "sport_team": v.get("team", ""),
+            "sport_jobs": v.get("jobs", ""),
         }
         for x, v in SPORT_KEY_RECORDS.items()
         if v.get("label")
