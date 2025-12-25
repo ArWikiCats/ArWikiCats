@@ -215,12 +215,26 @@ def resolve_countries_names_sport(category: str) -> str:
     return result
 
 
+def fix_result_callable(result, category, key, value):
+
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
+
+    if key == "teams" and "national" in category:
+        result = result.replace("فرق ", "منتخبات ")
+
+    return result
+
+
 def resolve_countries_names_sport_with_ends(category) -> str:
     category = fix_keys(category)
-    label2 = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, resolve_countries_names_sport)
 
-    if label2.startswith("لاعبو ") and "للسيدات" in label2:
-        label2 = label2.replace("لاعبو ", "لاعبات ")
+    label2 = resolve_sport_category_suffix_with_mapping(
+        category=category,
+        data=teams_label_mappings_ends,
+        callback=resolve_countries_names_sport,
+        fix_result_callable=fix_result_callable,
+    )
     return label2
 
 

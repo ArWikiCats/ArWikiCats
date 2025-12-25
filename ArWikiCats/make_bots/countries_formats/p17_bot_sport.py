@@ -129,6 +129,17 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
+def fix_result_callable(result, category, key, value):
+
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
+
+    if key == "teams" and "national" in category:
+        result = result.replace("فرق ", "منتخبات ")
+
+    return result
+
+
 @functools.lru_cache(maxsize=10000)
 @dump_data()
 def get_p17_with_sport_new(category: str) -> str:
@@ -136,10 +147,12 @@ def get_p17_with_sport_new(category: str) -> str:
 
     logger.debug(f"<<yellow>> start get_p17_with_sport_new: {category=}")
 
-    result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, _get_p17_with_sport)
-
-    if result.startswith("لاعبو ") and "للسيدات" in result:
-        result = result.replace("لاعبو ", "لاعبات ")
+    result = resolve_sport_category_suffix_with_mapping(
+        category=category,
+        data=teams_label_mappings_ends,
+        callback=_get_p17_with_sport,
+        fix_result_callable=fix_result_callable,
+    )
 
     logger.debug(f"<<yellow>> end get_p17_with_sport_new: {category=}, {result=}")
     return result

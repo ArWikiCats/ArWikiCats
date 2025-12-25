@@ -333,16 +333,30 @@ def _resolve_nats_sport_multi_v2(category: str) -> str:
     return result
 
 
+def fix_result_callable(result, category, key, value):
+
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
+
+    if key == "teams" and "national" in category:
+        result = result.replace("فرق ", "منتخبات ")
+
+    return result
+
+
 @functools.lru_cache(maxsize=10000)
 def resolve_nats_sport_multi_v2(category: str) -> str:
     category = fix_keys(category)
 
     logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
     teams_label_mappings_ends = _get_sorted_teams_labels()
-    result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, _resolve_nats_sport_multi_v2)
 
-    if result.startswith("لاعبو ") and "للسيدات" in result:
-        result = result.replace("لاعبو ", "لاعبات ")
+    result = resolve_sport_category_suffix_with_mapping(
+        category=category,
+        data=teams_label_mappings_ends,
+        callback=_resolve_nats_sport_multi_v2,
+        fix_result_callable=fix_result_callable,
+    )
 
     logger.debug(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}")
     return result
