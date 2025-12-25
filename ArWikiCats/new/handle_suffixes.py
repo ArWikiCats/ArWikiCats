@@ -40,6 +40,7 @@ def resolve_sport_category_suffix_with_mapping(
     category: str,
     data: dict[str, str],
     callback: callable,
+    fix_result_callable: callable = None,
     format_key: str = "",
 ) -> str:
     """."""
@@ -54,6 +55,8 @@ def resolve_sport_category_suffix_with_mapping(
             new_label = callback(new_category)
             if new_label:
                 result = combine_value_and_label(value, new_label, format_key)
+                if fix_result_callable:
+                    result = fix_result_callable(result, category, key, value)
             break
 
     if not result:
