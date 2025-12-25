@@ -14,7 +14,7 @@ from ...new_resolvers.bys_new import resolve_by_labels
 from ...time_resolvers import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2, typeTable
-from ...new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ...new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
 from ...utils import check_key_in_tables_return_tuple, fix_minor
 from ...make_bots.format_bots import category_relation_mapping, get_tabl_with_in, pop_format, pop_format2
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18

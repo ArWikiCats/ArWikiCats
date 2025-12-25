@@ -5,7 +5,7 @@ Resolves category labels for sports federations based on nationality.
 This module constructs a formatter that combines nationality data with sports data
 to translate category titles like "{nationality} {sport} federation" into Arabic.
 
-NOTE: compare it with ArWikiCats/new_resolvers/sports_formats_national/sport_lab_nat.py
+NOTE: compare it with ArWikiCats/new_resolvers/sports_formats_teams/sport_lab_nat.py
 
 """
 import functools

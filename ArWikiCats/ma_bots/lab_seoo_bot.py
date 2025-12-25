@@ -22,7 +22,7 @@ from ..make_bots.sports_bots import team_work
 from ..new_resolvers.translations_resolvers.us_states import resolve_us_states
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import Ambassadors_tab, get_from_new_p17_final
-from ..new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ..new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"

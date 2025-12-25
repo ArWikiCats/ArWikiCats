@@ -5,7 +5,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025_with_ends
-from ArWikiCats.new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
 from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import (

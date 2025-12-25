@@ -38,33 +38,6 @@ jobs_bot = FormatData(
 
 @functools.lru_cache(maxsize=1)
 def _get_sorted_teams_labels() -> dict[str, str]:
-    teams_label_mappings_ends_old = {
-        "champions": "أبطال",
-        "events": "أحداث",
-        "films": "أفلام",
-        "home stadiums": "ملاعب",
-        "lists": "قوائم",
-        "managers": "مدربو",
-        "navigational boxes": "صناديق تصفح",
-        "non-profit organizations": "منظمات غير ربحية",
-        "non-profit publishers": "ناشرون غير ربحيون",
-        "organisations": "منظمات",
-        "organizations": "منظمات",
-        "players": "لاعبو",
-        "positions": "مراكز",
-        "records and statistics": "سجلات وإحصائيات",
-        "records": "سجلات",
-        "results": "نتائج",
-        "rivalries": "دربيات",
-        "scouts": "كشافة",
-        "squads": "تشكيلات",
-        "statistics": "إحصائيات",
-        "templates": "قوالب",
-        "trainers": "مدربو",
-        "umpires": "حكام",
-        "venues": "ملاعب",
-    }
-
     teams_label_mappings_ends = {
         "finals": "نهائيات",
         "matches": "مباريات",

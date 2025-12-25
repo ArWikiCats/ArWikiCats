@@ -1,7 +1,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
 
 data_0 = {
     "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",
@@ -368,7 +368,7 @@ def test_compare(key: str, expected: str) -> None:
     """
     Important because keys like: (canadian football, american football) are in both Nationality and SPORTS_KEYS
     """
-    # pytest tests/translations/sports_formats_national/test_sport_lab_nat_compare.py -m skip2
+    # pytest tests/translations/sports_formats_teams/test_sport_lab_nat_compare.py -m skip2
 
     result2 = sport_lab_nat_load_new(key)
 

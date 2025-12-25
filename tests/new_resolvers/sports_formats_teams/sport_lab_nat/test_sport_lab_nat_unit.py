@@ -1,7 +1,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
 
 new_for_nat_female_xo_team_2_data = {
 

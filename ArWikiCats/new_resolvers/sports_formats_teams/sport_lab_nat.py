@@ -15,7 +15,7 @@ from ...translations import Nat_women
 from ...translations_formats import format_multi_data
 from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...new_resolvers.translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
+from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
@@ -318,7 +318,7 @@ def sport_lab_nat_load_new(category: str) -> str:
 
 
 len_print.data_len(
-    "sports_formats_national/te2.py",
+    "sports_formats_teams/sport_lab_nat.py",
     {
         "new_for_nat_female_xo_team_2": new_for_nat_female_xo_team_2,
         "new_for_nat_female_xo_team_additional": new_for_nat_female_xo_team_additional,
