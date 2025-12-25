@@ -4,37 +4,9 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import (
-    find_labels_bot,
-    find_teams_bot,
-    wrap_team_xo_normal_2025,
-)
-test_find_labels_bot_data = {
-    "baseball league": "دوري كرة القاعدة",
-    "basketball": "كرة السلة",
-    "chess": "الشطرنج",
-    "field hockey": "هوكي الميدان",
-    "football league": "دوري كرة القدم",
-    "hockey league": "دوري هوكي",
-    "ice hockey league": "دوري هوكي الجليد",
-    "martial arts": "الفنون القتالية",
-    "rugby finals": "نهائيات الرجبي",
-    "rugby league finals": "نهائيات دوري الرجبي",
-    "rugby league league": "دوري دوري الرجبي",
-    "rugby": "الرجبي",
-    "speed skating": "التزلج السريع",
-    "sports league": "دوري ألعاب رياضية",
-    "summer olympics basketball": "كرة السلة في الألعاب الأولمبية الصيفية",
-    "summer olympics field hockey": "هوكي الميدان في الألعاب الأولمبية الصيفية",
-    "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
-    "summer olympics handball": "كرة اليد في الألعاب الأولمبية الصيفية",
-    "summer olympics rugby sevens": "سباعيات الرجبي في الألعاب الأولمبية الصيفية",
-    "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
-    "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
-    "wheelchair rugby finals": "نهائيات الرجبي على الكراسي المتحركة",
-    "wheelchair rugby league finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
-    "wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
-    "winter olympics sports": "ألعاب رياضية في الألعاب الأولمبية الشتوية"
+from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import find_teams_bot, wrap_team_xo_normal_2025_with_ends
+
+test_find_teams_bot_data_0 = {
 }
 
 test_find_teams_bot_data = {
@@ -117,17 +89,29 @@ test_find_teams_bot_data = {
 }
 
 
+def wrap_callback(category: str) -> str:
+    return wrap_team_xo_normal_2025_with_ends(category, callback=find_teams_bot)
+
+
 @pytest.mark.parametrize("category, expected", test_find_teams_bot_data.items(), ids=test_find_teams_bot_data.keys())
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category: str, expected: str) -> None:
-    label1 = wrap_team_xo_normal_2025(category)
+    label1 = wrap_callback(category)
+    assert isinstance(label1, str)
+    assert label1 == expected
+
+
+@pytest.mark.parametrize("category, expected", test_find_teams_bot_data_0.items(), ids=test_find_teams_bot_data_0.keys())
+@pytest.mark.fast
+def test_test_find_teams_bot_data_0(category: str, expected: str) -> None:
+    label1 = wrap_callback(category)
     assert isinstance(label1, str)
     assert label1 == expected
 
 
 TEMPORAL_CASES = [
-    ("test_find_labels_bot", test_find_labels_bot_data, find_labels_bot),
-    ("test_find_teams_bot", test_find_teams_bot_data, find_teams_bot),
+    ("test_find_teams_bot", test_find_teams_bot_data, wrap_callback),
+    # ("test_find_teams_bot_with_additional", test_find_teams_bot_data_with_additional, wrap_callback),
 ]
 
 
