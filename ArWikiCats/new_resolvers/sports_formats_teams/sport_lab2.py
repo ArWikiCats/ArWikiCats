@@ -344,14 +344,14 @@ def wrap_team_xo_normal_2025(team: str) -> str:
     return result.strip()
 
 
-def wrap_team_xo_normal_2025_with_ends(category) -> str:
+def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_2025) -> str:
     # category = fix_keys(category)
     teams_label_mappings_ends = _get_sorted_teams_labels()
 
     label2 = resolve_sport_category_suffix_with_mapping(
         category=category,
         data=teams_label_mappings_ends,
-        callback=wrap_team_xo_normal_2025,
+        callback=callback,
         fix_result_callable=fix_result_callable,
     )
 
