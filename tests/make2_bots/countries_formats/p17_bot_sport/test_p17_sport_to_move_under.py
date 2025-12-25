@@ -16,6 +16,7 @@ from ArWikiCats.make_bots.countries_formats.p17_sport_to_move_under import resol
 data_no_nats = {
     "softball national youth womens under-24 teams": "منتخبات كرة لينة تحت 24 سنة للشابات",
     "national mens under-19 softball teams": "منتخبات كرة لينة تحت 19 سنة للرجال",
+    "multi-national womens under-19 football teams": "منتخبات كرة قدم تحت 19 سنة متعددة الجنسيات للسيدات",
 }
 
 data_with_nats = {

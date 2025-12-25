@@ -7,7 +7,7 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.countries_formats.p17_bot_sport_new import get_p17_with_sport_new
+from ArWikiCats.make_bots.countries_formats.p17_bot_sport import get_p17_with_sport_new
 
 # =========================================================
 #                   get_p17_with_sport_new
