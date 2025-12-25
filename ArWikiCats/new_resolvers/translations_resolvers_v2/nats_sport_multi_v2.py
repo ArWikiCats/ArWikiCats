@@ -285,7 +285,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
     sports_data = {
         x: {
-            "sport_ar": v["label"],
+            "sport_label": v["label"],
             "sport_team": v["team"],
             "sport_jobs": v["jobs"],
         }

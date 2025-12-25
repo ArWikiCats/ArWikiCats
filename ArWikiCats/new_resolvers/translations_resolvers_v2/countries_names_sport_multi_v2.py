@@ -15,14 +15,20 @@ from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
-
 sports_formatted_data = {
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
-    "olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_ar}",
-    "olympic silver medalists for {en} in {en_sport}": "فائزون بميداليات فضية أولمبية من {ar} في {sport_ar}",
-    "olympic bronze medalists for {en} in {en_sport}": "فائزون بميداليات برونزية أولمبية من {ar} في {sport_ar}",
+    "olympic silver medalists for {en}": "فائزون بميداليات فضية أولمبية من {ar}",
+    "olympic bronze medalists for {en}": "فائزون بميداليات برونزية أولمبية من {ar}",
+
+    "olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_label}",
+    "olympic silver medalists for {en} in {en_sport}": "فائزون بميداليات فضية أولمبية من {ar} في {sport_label}",
+    "olympic bronze medalists for {en} in {en_sport}": "فائزون بميداليات برونزية أولمبية من {ar} في {sport_label}",
+
+    "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
+    "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
+    "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
 
     "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} playerss": "لاعبات {sport_jobs}",
@@ -164,7 +170,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
     sports_data = {
         x: {
-            "sport_ar": v["label"],
+            "sport_label": v["label"],
             "sport_team": v["team"],
             "sport_jobs": v["jobs"],
         }
