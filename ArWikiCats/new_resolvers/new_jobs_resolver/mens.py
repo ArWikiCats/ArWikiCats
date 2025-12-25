@@ -4,10 +4,9 @@ This module provides functionality to translate category titles
 import functools
 
 from ...helps import logger
-from ...translations import jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
+from ...translations import all_country_with_nat_ar, jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
-
 from .utils import one_Keys_more_2, nat_and_gender_keys
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -146,9 +145,8 @@ def load_bot() -> MultiDataFormatterBaseV2:
     logger.debug(f"_load_formatted_data mens: {len(formatted_data):,}")
 
     nats_data: dict[str, str] = {
-        x: v for x, v in all_country_with_nat.items()
-        if "-american" not in x
-    }
+        x: v for x, v in all_country_with_nat_ar.items()
+    }   # 342
 
     nats_data.update({
         x: v for x, v in nats_keys_as_country_names.items()
@@ -189,8 +187,8 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def mens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
-
     category = fix_keys(category)
+
     if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
         logger.debug(f"<<yellow>> end mens_resolver_labels: {category=}, [result=]")
         return ""
