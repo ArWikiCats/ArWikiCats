@@ -78,10 +78,13 @@ sports_formatted_data = {
 
     "{en} {en_sport} league": "دوري {ar} {sport_team}",
     "{en} professional {en_sport} league": "دوري {ar} {sport_team} للمحترفين",
+
     "{en} amateur {en_sport} cup": "كأس {ar} {sport_team} للهواة",
     "{en} youth {en_sport} cup": "كأس {ar} {sport_team} للشباب",
     "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
     "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
+
     "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
     "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
     "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
@@ -90,7 +93,6 @@ sports_formatted_data = {
     "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
     "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
     "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
-    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
     # ---national youth handball team
     "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
 

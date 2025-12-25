@@ -19,6 +19,15 @@ from ...new_resolvers.translations_resolvers_v2.nats_as_country_names import nat
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
+    "{en} amateur {sport_en} cup": "كأس {female} {sport_jobs} للهواة",
+    "{en} youth {sport_en} cup": "كأس {female} {sport_jobs} للشباب",
+    "{en} mens {sport_en} cup": "كأس {female} {sport_jobs} للرجال",
+    "{en} womens {sport_en} cup": "كأس {female} {sport_jobs} للسيدات",
+
+    "{en} defunct {sport_en} cup": "كؤوس {sport_jobs} {female} سابقة",
+    "{en} {sport_en} cup": "كؤوس {sport_jobs} {female}",
+    "{en} domestic {sport_en} cup": "كؤوس {sport_jobs} {female} محلية",
+
     # "yemeni football": "كرة قدم يمنية",
     "{en} {sport_en}": "{sport_jobs} {female}",  # Category:American_basketball
     # "yemeni national football": "كرة قدم وطنية يمنية",
@@ -34,16 +43,8 @@ new_for_nat_female_xo_team_2 = {
     # "{en} national {sport_en} champions": "أبطال بطولات {sport_jobs} وطنية {female}",
     "{en} national {sport_en} champions": "أبطال {sport_jobs} وطنية {female}",
 
-    "{en} amateur {sport_en} cup": "كأس {female} {sport_jobs} للهواة",
-    "{en} youth {sport_en} cup": "كأس {female} {sport_jobs} للشباب",
-    "{en} mens {sport_en} cup": "كأس {female} {sport_jobs} للرجال",
-    "{en} womens {sport_en} cup": "كأس {female} {sport_jobs} للسيدات",
-
     "{en} {sport_en} super leagues": "دوريات سوبر {sport_jobs} {female}",
     "{en} womens {sport_en}": "{sport_jobs} {female} نسائية",
-    "{en} defunct {sport_en} cup": "كؤوس {sport_jobs} {female} سابقة",
-    "{en} {sport_en} cup": "كؤوس {sport_jobs} {female}",
-    "{en} domestic {sport_en} cup": "كؤوس {sport_jobs} {female} محلية",
     "{en} current {sport_en} seasons": "مواسم {sport_jobs} {female} حالية",
     # ---
     "{en} professional {sport_en}": "{sport_jobs} {female} للمحترفين",

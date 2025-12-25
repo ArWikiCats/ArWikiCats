@@ -96,9 +96,6 @@ sports_formatted_data = {
 
     # _build_new_kkk() -> dict[str, str]:
     # Category:National junior womens goalball teams
-    "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
-    "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
-    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
     "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
     "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
     "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
@@ -197,16 +194,21 @@ sports_formatted_data = {
     "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
 
 
+    "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+    "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
+
     # NAT_P17_OIOI_TO_CHECK data
+    "{en} defunct {en_sport} cup": "كؤوس {sport_team} {ar} سابقة",
+    "{en} domestic {en_sport} cup": "كؤوس {sport_team} {ar} محلية",
+
     # "{en} {en_sport}": "{sport_team} {ar}",
     "{en} current {en_sport} seasons": "مواسم {sport_team} {ar} حالية",
 
     "{en} defunct indoor {en_sport}": "{sport_team} {ar} داخل الصالات سابقة",
     "{en} defunct {en_sport}": "{sport_team} {ar} سابقة",
-    "{en} defunct {en_sport} cup": "كؤوس {sport_team} {ar} سابقة",
     "{en} defunct outdoor {en_sport}": "{sport_team} {ar} في الهواء الطلق سابقة",
 
-    "{en} domestic {en_sport} cup": "كؤوس {sport_team} {ar} محلية",
     "{en} domestic {en_sport}": "{sport_team} {ar} محلية",
     "{en} domestic womens {en_sport}": "{sport_team} محلية {ar} للسيدات",
     "{en} professional {en_sport}": "{sport_team} {ar} للمحترفين",

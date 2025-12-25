@@ -7,6 +7,15 @@ new_for_nat_female_xo_team_2_data = {
 
     "yemeni": "",
 
+    "trinidad and tobago amateur basketball cup": "كأس ترنيدادية كرة سلة للهواة",
+    "trinidad and tobago youth basketball cup": "كأس ترنيدادية كرة سلة للشباب",
+    "trinidad and tobago mens basketball cup": "كأس ترنيدادية كرة سلة للرجال",
+    "trinidad and tobago womens basketball cup": "كأس ترنيدادية كرة سلة للسيدات",
+
+    "trinidad and tobago defunct basketball cup": "كؤوس كرة سلة ترنيدادية سابقة",
+    "trinidad and tobago basketball cup": "كؤوس كرة سلة ترنيدادية",
+    "trinidad and tobago domestic basketball cup": "كؤوس كرة سلة ترنيدادية محلية",
+
     "yemeni football": "كرة قدم يمنية",
     "new zealand basketball": "كرة سلة نيوزيلندية",  # Category:American_basketball
     "yemeni national football": "كرة قدم وطنية يمنية",
@@ -20,16 +29,8 @@ new_for_nat_female_xo_team_2_data = {
     "new zealand national basketball championships": "بطولات كرة سلة وطنية نيوزيلندية",
     "new zealand national basketball champions": "أبطال كرة سلة وطنية نيوزيلندية",
 
-    "trinidad and tobago amateur basketball cup": "كأس ترنيدادية كرة سلة للهواة",
-    "trinidad and tobago youth basketball cup": "كأس ترنيدادية كرة سلة للشباب",
-    "trinidad and tobago mens basketball cup": "كأس ترنيدادية كرة سلة للرجال",
-    "trinidad and tobago womens basketball cup": "كأس ترنيدادية كرة سلة للسيدات",
-
     "trinidad and tobago basketball super leagues": "دوريات سوبر كرة سلة ترنيدادية",
     "trinidad and tobago womens basketball": "كرة سلة ترنيدادية نسائية",
-    "trinidad and tobago defunct basketball cup": "كؤوس كرة سلة ترنيدادية سابقة",
-    "trinidad and tobago basketball cup": "كؤوس كرة سلة ترنيدادية",
-    "trinidad and tobago domestic basketball cup": "كؤوس كرة سلة ترنيدادية محلية",
     "trinidad and tobago current basketball seasons": "مواسم كرة سلة ترنيدادية حالية",
     # ---
     "trinidad and tobago professional basketball": "كرة سلة ترنيدادية للمحترفين",
@@ -52,8 +53,11 @@ new_for_nat_female_xo_team_2_data = {
 }
 
 end_key_mappings_data = {
+    "yemeni football finals": "نهائيات كرة قدم يمنية",
     "yemeni football": "كرة قدم يمنية",
     "yemeni national football": "كرة قدم وطنية يمنية",
+
+    "yemeni national football home stadiums": "ملاعب كرة قدم وطنية يمنية",
     "yemeni national football teams fifth tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الخامسة",
     "yemeni national football teams first tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الأولى",
     "yemeni national football teams fourth tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الرابعة",
