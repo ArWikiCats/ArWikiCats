@@ -128,7 +128,6 @@ under_data = {
 }
 
 YOUTH_TEAM_LABELS = {
-    "": "{female}",
     "under-13": "تحت 13 سنة",
     "under-14": "تحت 14 سنة",
     "under-15": "تحت 15 سنة",
@@ -141,7 +140,6 @@ YOUTH_TEAM_LABELS = {
     "under-23": "تحت 23 سنة",
     "under-24": "تحت 24 سنة",
 
-    "national": "{female}",
     "national amateur": "للهواة",
     "national junior mens": "للناشئين",
     "national junior womens": "للناشئات",
@@ -249,7 +247,6 @@ def _load_additional() -> dict[str, str]:
     place_holder = "xzxz"
 
     AFTER_KEYS_NAT2 = {
-        "": "{lab}",
         "premier": "{lab} من الدرجة الممتازة",
         "first tier": "{lab} من الدرجة الأولى",
         "top tier": "{lab} من الدرجة الأولى",
@@ -260,17 +257,18 @@ def _load_additional() -> dict[str, str]:
         "sixth tier": "{lab} من الدرجة السادسة",
         "seventh tier": "{lab} من الدرجة السابعة",
     }
-
     for yt_type, yt_name in YOUTH_TEAM_LABELS.items():  # 120
         teams_label = f"منتخبات {place_holder} وطنية {{female}} {yt_name}"
 
         if "national" not in yt_type:
             teams_label = f"فرق {place_holder} {{female}} {yt_name}"
 
-        Ar_labs = teams_label.format(female="{en}")
+        Ar_labs = teams_label.format(female="{female}")
 
         for pr_e, pr_e_Lab in AFTER_KEYS_NAT2.items():       # 67
-            data[f"{{en}} {yt_type} {place_holder} teams {pr_e}".strip()] = pr_e_Lab.format(lab=Ar_labs)
+            key = f"{{en}} {yt_type} {place_holder} teams {pr_e}"
+            key = key.replace("  ", " ").strip()
+            data[key] = pr_e_Lab.format(lab=Ar_labs)
     return data
 
 
@@ -318,6 +316,26 @@ New_For_nat_female_xo_team_2 = {
 
 new_for_nat_female_xo_team_additional = _load_additional()  # 8162
 New_For_nat_female_xo_team_2.update(new_for_nat_female_xo_team_additional)
+New_For_nat_female_xo_team_2.update({
+    "{en} national xzxz teams fifth tier": "منتخبات xzxz وطنية {female} من الدرجة الخامسة",
+    "{en} national xzxz teams first tier": "منتخبات xzxz وطنية {female} من الدرجة الأولى",
+    "{en} national xzxz teams fourth tier": "منتخبات xzxz وطنية {female} من الدرجة الرابعة",
+    "{en} national xzxz teams premier": "منتخبات xzxz وطنية {female} من الدرجة الممتازة",
+    "{en} national xzxz teams second tier": "منتخبات xzxz وطنية {female} من الدرجة الثانية",
+    "{en} national xzxz teams seventh tier": "منتخبات xzxz وطنية {female} من الدرجة السابعة",
+    "{en} national xzxz teams sixth tier": "منتخبات xzxz وطنية {female} من الدرجة السادسة",
+    "{en} national xzxz teams third tier": "منتخبات xzxz وطنية {female} من الدرجة الثالثة",
+    "{en} national xzxz teams top tier": "منتخبات xzxz وطنية {female} من الدرجة الأولى",
+    "{en} xzxz teams fifth tier": "فرق xzxz {female} من الدرجة الخامسة",
+    "{en} xzxz teams first tier": "فرق xzxz {female} من الدرجة الأولى",
+    "{en} xzxz teams fourth tier": "فرق xzxz {female} من الدرجة الرابعة",
+    "{en} xzxz teams premier": "فرق xzxz {female} من الدرجة الممتازة",
+    "{en} xzxz teams second tier": "فرق xzxz {female} من الدرجة الثانية",
+    "{en} xzxz teams seventh tier": "فرق xzxz {female} من الدرجة السابعة",
+    "{en} xzxz teams sixth tier": "فرق xzxz {female} من الدرجة السادسة",
+    "{en} xzxz teams third tier": "فرق xzxz {female} من الدرجة الثالثة",
+    "{en} xzxz teams top tier": "فرق xzxz {female} من الدرجة الأولى"
+})
 
 both_bot = format_multi_data(
     New_For_nat_female_xo_team_2,
