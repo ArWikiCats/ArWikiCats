@@ -242,7 +242,6 @@ data_test = [
     ("in", "israeli reality television series", "مسلسلات تلفزيونية واقعية إسرائيلية"),
     ("in", "saint vincent and grenadines", "سانت فنسنت وجزر غرينادين"),
     ("in", "santa maria da feira", "سانتا ماريا دا فييرا"),
-    ("in", "south african rugby union", "اتحاد الرجبي الجنوب الإفريقي"),
     ("in", "south korean women's sport", "رياضة كورية جنوبية نسائية"),
     ("in", "special region of yogyakarta", "يوجياكرتا"),
     ("in", "american civil war", "الحرب الأهلية الأمريكية"),

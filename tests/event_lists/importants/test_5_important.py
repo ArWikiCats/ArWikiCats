@@ -48,9 +48,10 @@ data_empty = {
 }
 
 data0 = {
+    "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",
     "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
-    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",}
+    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية", }
 
 data1 = {
     "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",

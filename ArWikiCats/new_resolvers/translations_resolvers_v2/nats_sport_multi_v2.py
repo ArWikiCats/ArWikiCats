@@ -219,6 +219,7 @@ sports_formatted_data = {
     # "yemeni football": "كرة قدم يمنية",
     # "{en} {en_sport}": "{sport_jobs} {female}",
     "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
+    "{en} rugby union": "اتحاد الرجبي {the_male}",  # Category:American_basketball
     "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
 
     "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
