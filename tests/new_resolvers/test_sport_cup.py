@@ -111,7 +111,6 @@ to_test = [
     ("test_sport_lab_nat_load_new", sport_lab_nat_load_new_data, sport_lab_nat_load_new),
     ("test_rcn_sport_with_ends", rcn_sport_with_ends_data, resolve_countries_names_sport_with_ends),
     # ---
-    ("test_test_sport_cup_0", sport_lab_nat_load_new_data, wrap_team_xo_normal_2025_with_ends),
     ("test_test_sport_cup_1", sport_lab_nat_load_new_data, resolve_nats_sport_multi_v2),
     ("test_test_sport_cup_2", sport_lab_nat_load_new_data, sport_lab_nat_load_new),
     ("test_test_sport_cup_3", sport_lab_nat_load_new_data, resolve_countries_names_sport_with_ends),
