@@ -9,6 +9,19 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 data0 = {
+    "chinese outdoor boxing clubs": "أندية بوكسينغ صينية في الهواء الطلق",
+    "chinese outdoor boxing": "بوكسينغ صينية في الهواء الطلق",
+    "chinese women's boxing": "بوكسينغ صينية للسيدات",
+    "chinese indoor boxing": "بوكسينغ صينية داخل الصالات",
+
+
+    "chinese domestic women's boxing clubs": "أندية للبوكسينغ محلية الصين للسيدات",
+    "chinese domestic women's boxing coaches": "مدربو للبوكسينغ محلية الصين للسيدات",
+    "chinese domestic women's boxing competitions": "منافسات للبوكسينغ محلية الصين للسيدات",
+    "chinese domestic women's boxing cups": "كؤوس للبوكسينغ محلية الصين للسيدات",
+    "chinese domestic women's boxing leagues": "دوريات للبوكسينغ محلية الصين للسيدات",
+
+
     "chinese boxing cups": "كؤوس للبوكسينغ الصين",
     "chinese boxing leagues": "دوريات للبوكسينغ الصين",
     "chinese boxing chairmen and investors": "رؤساء ومسيرو للبوكسينغ الصين",
@@ -16,8 +29,6 @@ data0 = {
     "chinese boxing coaches": "مدربو للبوكسينغ الصين",
     "chinese boxing competitions": "منافسات للبوكسينغ الصين",
     "chinese boxing cup competitions": "منافسات كؤوس للبوكسينغ الصين",
-    "chinese outdoor boxing": "للبوكسينغ الصين في الهواء الطلق",
-    "chinese women's boxing": "للبوكسينغ الصين نسائية",
     "chinese current boxing seasons": "مواسم للبوكسينغ الصين حالية",
     "chinese defunct indoor boxing clubs": "أندية للبوكسينغ الصين داخل الصالات سابقة",
     "chinese defunct indoor boxing coaches": "مدربو للبوكسينغ الصين داخل الصالات سابقة",
@@ -42,12 +53,6 @@ data0 = {
     "chinese domestic boxing cup": "كؤوس للبوكسينغ الصين محلية",
     "chinese domestic boxing cups": "كؤوس للبوكسينغ الصين محلية",
     "chinese domestic boxing leagues": "دوريات للبوكسينغ الصين محلية",
-    "chinese domestic women's boxing clubs": "أندية للبوكسينغ محلية الصين للسيدات",
-    "chinese domestic women's boxing coaches": "مدربو للبوكسينغ محلية الصين للسيدات",
-    "chinese domestic women's boxing competitions": "منافسات للبوكسينغ محلية الصين للسيدات",
-    "chinese domestic women's boxing cups": "كؤوس للبوكسينغ محلية الصين للسيدات",
-    "chinese domestic women's boxing leagues": "دوريات للبوكسينغ محلية الصين للسيدات",
-    "chinese indoor boxing": "للبوكسينغ الصين داخل الصالات",
     "chinese indoor boxing clubs": "أندية للبوكسينغ الصين داخل الصالات",
     "chinese indoor boxing coaches": "مدربو للبوكسينغ الصين داخل الصالات",
     "chinese indoor boxing competitions": "منافسات للبوكسينغ الصين داخل الصالات",
@@ -62,7 +67,6 @@ data0 = {
     "chinese professional boxing cups": "كؤوس للبوكسينغ الصين للمحترفين",
     "chinese outdoor boxing cups": "كؤوس للبوكسينغ الصين في الهواء الطلق",
     "chinese professional boxing leagues": "دوريات للبوكسينغ الصين للمحترفين",
-    "chinese outdoor boxing clubs": "تصنيف:أندية البوكسينغ الصينية في الهواء الطلق",
 }
 
 data = {

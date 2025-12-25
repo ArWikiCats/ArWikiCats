@@ -13,11 +13,54 @@ from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from .data import sports_formatted_data_for_jobs
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
-teams_label_mappings_ends = dict(teams_label_mappings_ends)  # type: ignore
-if "players" in teams_label_mappings_ends:
-    del teams_label_mappings_ends["players"]  # type: ignore
+
+@functools.lru_cache(maxsize=1)
+def _get_sorted_teams_labels() -> dict[str, str]:
+    teams_label_mappings_ends_old = {
+        "champions": "أبطال",
+        "coaches": "مدربو",
+        "events": "أحداث",
+        "films": "أفلام",
+        "finals": "نهائيات",
+        "home stadiums": "ملاعب",
+        "leagues": "دوريات",
+        "lists": "قوائم",
+        "manager history": "تاريخ مدربو",
+        "managers": "مدربو",
+        "matches": "مباريات",
+        "navigational boxes": "صناديق تصفح",
+        "non-profit organizations": "منظمات غير ربحية",
+        "non-profit publishers": "ناشرون غير ربحيون",
+        "organisations": "منظمات",
+        "organizations": "منظمات",
+        "players": "لاعبو",
+        "positions": "مراكز",
+        "records and statistics": "سجلات وإحصائيات",
+        "records": "سجلات",
+        "results": "نتائج",
+        "rivalries": "دربيات",
+        "scouts": "كشافة",
+        "squads": "تشكيلات",
+        "statistics": "إحصائيات",
+        "templates": "قوالب",
+        "tournaments": "بطولات",
+        "trainers": "مدربو",
+        "umpires": "حكام",
+        "venues": "ملاعب",
+    }
+
+    teams_label_mappings_ends = {
+        "clubs": "أندية",
+        "competitions": "منافسات",
+    }
+
+    teams_label_mappings_ends = dict(sorted(
+        teams_label_mappings_ends.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    ))
+    return teams_label_mappings_ends
+
 
 NAT_P17_OIOI_TO_CHECK = {
     "{en} {en_sport} cups": "كؤوس {sport_team} {ar}",
@@ -27,8 +70,6 @@ NAT_P17_OIOI_TO_CHECK = {
     "{en} {en_sport} coaches": "مدربو {sport_team} {ar}",
     "{en} {en_sport} competitions": "منافسات {sport_team} {ar}",
     "{en} {en_sport} cup competitions": "منافسات كؤوس {sport_team} {ar}",
-    "{en} outdoor {en_sport}": "{sport_team} {ar} في الهواء الطلق",
-    "{en} womens {en_sport}": "{sport_team} {ar} نسائية",
     "{en} current {en_sport} seasons": "مواسم {sport_team} {ar} حالية",
     "{en} defunct indoor {en_sport} clubs": "أندية {sport_team} {ar} داخل الصالات سابقة",
     "{en} defunct indoor {en_sport} coaches": "مدربو {sport_team} {ar} داخل الصالات سابقة",
@@ -76,21 +117,16 @@ NAT_P17_OIOI_TO_CHECK = {
 }
 
 NAT_P17_OIOI = {
-    "{en} outdoor {en_sport} clubs": "أندية {sport_team} {ar} في الهواء الطلق",
     "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
     "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
     "{en} championships ({en_sport})": "بطولة {ar} {sport_team}",
     "{en} championships {en_sport}": "بطولة {ar} {sport_team}",
     "{en} mens {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
     "{en} mens {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
-    "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
-    "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
     "{en} {en_sport} championship": "بطولة {ar} {sport_team}",
-    "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
     "{en} {en_sport} indoor championship": "بطولة {ar} {sport_team} داخل الصالات",
     "{en} {en_sport} indoor championships": "بطولة {ar} {sport_team} داخل الصالات",
     "{en} {en_sport} junior championships": "بطولة {ar} {sport_team} للناشئين",
-    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
     "{en} {en_sport} u-13 championships": "بطولة {ar} {sport_team} تحت 13 سنة",
     "{en} {en_sport} u-14 championships": "بطولة {ar} {sport_team} تحت 14 سنة",
     "{en} {en_sport} u-15 championships": "بطولة {ar} {sport_team} تحت 15 سنة",
@@ -113,8 +149,6 @@ NAT_P17_OIOI = {
     "{en} {en_sport} u21 championships": "بطولة {ar} {sport_team} تحت 21 سنة",
     "{en} {en_sport} u23 championships": "بطولة {ar} {sport_team} تحت 23 سنة",
     "{en} {en_sport} u24 championships": "بطولة {ar} {sport_team} تحت 24 سنة",
-    "{en} open ({en_sport})": "{ar} المفتوحة {sport_team}",
-    "{en} open {en_sport}": "{ar} المفتوحة {sport_team}",
     "{en} outdoor {en_sport} championship": "بطولة {ar} {sport_team} في الهواء الطلق",
     "{en} outdoor {en_sport} championships": "بطولة {ar} {sport_team} في الهواء الطلق",
     "{en} womens {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
@@ -124,6 +158,13 @@ NAT_P17_OIOI = {
 }
 
 sports_formatted_data = {
+
+    "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
+    "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
+    "{en} open ({en_sport})": "{ar} المفتوحة {sport_team}",
+    "{en} open {en_sport}": "{ar} المفتوحة {sport_team}",
+
     "first league of {en}": "دوري {ar} الممتاز",
 
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
@@ -155,9 +196,12 @@ sports_formatted_data = {
     "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
 
     # SPORT_FORMATS_FEMALE_NAT
-    # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
-    "{en} outdoor {en_sport}": "{sport_ar} {the_female} في الهواء الطلق",
-    "{en} indoor {en_sport}": "{sport_ar} {the_female} داخل الصالات",
+    # [chinese outdoor boxing] : "تصنيف:بوكسينغ صينية في الهواء الطلق",
+    "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
+    "{en} outdoor {en_sport} clubs": "أندية {sport_jobs} {female} في الهواء الطلق",
+
+    # [Category:American Indoor Soccer] : "تصنيف:كرة قدم أمريكية داخل الصالات",
+    "{en} indoor {en_sport}": "{sport_jobs} {female} داخل الصالات",
 
     # data
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
@@ -325,7 +369,7 @@ def _resolve_nats_sport_multi_v2_to_check(category: str) -> str:
     category = fix_keys(category)
 
     logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
-
+    teams_label_mappings_ends = _get_sorted_teams_labels()
     result = resolve_sport_category_suffix_with_mapping(category, teams_label_mappings_ends, resolve_nats_sport_multi_v2)
 
     if result.startswith("لاعبو ") and "للسيدات" in result:
