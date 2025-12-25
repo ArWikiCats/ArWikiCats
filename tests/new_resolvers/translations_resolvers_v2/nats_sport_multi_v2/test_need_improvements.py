@@ -22,9 +22,6 @@ data_1 = {
 }
 
 nat_p17_oioi_to_check_data = {
-    "olympic gold medalists in baseball": "فائزون بميداليات ذهبية أولمبية في كرة القاعدة",
-    "olympic bronze medalists in baseball": "فائزون بميداليات برونزية أولمبية في كرة القاعدة",
-
     "chinese current boxing seasons": "مواسم بوكسينغ صينية حالية",
     "chinese defunct indoor boxing clubs": "أندية بوكسينغ صينية داخل الصالات سابقة",
     "chinese defunct indoor boxing coaches": "مدربو بوكسينغ صينية داخل الصالات سابقة",

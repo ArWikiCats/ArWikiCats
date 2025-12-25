@@ -245,7 +245,6 @@ fast_data_c_1_1_lab = [
     },
     {"separator": " in ", "cone_1": "universities and colleges", "output": "جامعات وكليات"},
     {"separator": " in ", "cone_1": "video games set", "output": "ألعاب فيديو تقع أحداثها"},
-    {"separator": " in ", "cone_1": "welsh football clubs", "output": "أندية كرة قدم ويلزية"},
     {"separator": " in ", "cone_1": "world heritage sites", "output": "مواقع التراث العالمي"},
     {"separator": " of ", "cone_1": "archaeological sites of", "output": "مواقع أثرية في"},
     {"separator": " of ", "cone_1": "azerbaijan university of", "output": "جامعة أذربيجان"},

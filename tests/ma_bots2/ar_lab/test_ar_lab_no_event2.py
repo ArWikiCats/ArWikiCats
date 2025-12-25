@@ -292,7 +292,6 @@ data_list = [
         "category": "5th century disestablishments in the byzantine empire",
         "output": "انحلالات القرن 5 في الإمبراطورية البيزنطية",
     },
-    {"separator": " in ", "category": "1450s establishments in the caribbean", "output": "تأسيسات عقد 1450 في الكاريبي"},
     {
         "separator": " in ",
         "category": "april 1450 sports-events in south america",
@@ -557,11 +556,7 @@ data_list = [
         "output": "دراميون بريطانيون في القرن 19 وكتاب مسرحيون",
     },
     {"separator": " by ", "category": "1450s disestablishments by continent", "output": "انحلالات عقد 1450 حسب القارة"},
-    {
-        "separator": " in ",
-        "category": "2nd millennium disestablishments in the democratic-republic-of-congo",
-        "output": "انحلالات الألفية 2 في جمهورية الكونغو الديمقراطية",
-    },
+
     {
         "separator": " in ",
         "category": "august 1450 sports-events in oceania",

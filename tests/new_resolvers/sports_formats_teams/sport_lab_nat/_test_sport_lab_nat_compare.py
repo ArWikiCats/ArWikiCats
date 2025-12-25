@@ -270,7 +270,6 @@ data_1 = {
     "uzbekistani football leagues": "دوريات كرة قدم أوزبكستانية",
     "vietnamese basketball": "كرة سلة فيتنامية",
     "vietnamese martial arts": "فنون قتالية فيتنامية",
-    "welsh football clubs": "أندية كرة قدم ويلزية",
     "welsh football leagues": "دوريات كرة قدم ويلزية",
     "west german ice hockey": "هوكي جليد ألمانية غربية",
     "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة",

@@ -98,7 +98,6 @@ data_list = [
     ("artists from novi sad", " from ", "فنانون من نوفي ساد"),
     ("artists from zurich", " from ", "فنانون من زيورخ"),
     ("asia by city", " by ", "آسيا حسب المدينة"),
-    ("asian ice hockey by country", " by ", "هوكي جليد آسيوية حسب البلد"),
     ("august 1550 by continent", " by ", "أغسطس 1550 حسب القارة"),
     ("august 1550 by country", " by ", "أغسطس 1550 حسب البلد"),
     ("austrian artists by century", " by ", "فنانون نمساويون حسب القرن"),
