@@ -38,7 +38,7 @@ jobs_bot = FormatData(
 
 @functools.lru_cache(maxsize=1)
 def _get_sorted_teams_labels() -> dict[str, str]:
-    teams_label_mappings_ends = {
+    mappings_data = {
         "finals": "نهائيات",
         "matches": "مباريات",
         "manager history": "تاريخ مدربو",
@@ -51,13 +51,13 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "cups": "كؤوس",
     }
 
-    teams_label_mappings_ends = dict(
+    mappings_data = dict(
         sorted(
-            teams_label_mappings_ends.items(),
+            mappings_data.items(),
             key=lambda k: (-k[0].count(" "), -len(k[0])),
         )
     )
-    return teams_label_mappings_ends
+    return mappings_data
 
 
 def fix_result_callable(result, category, key, value):
@@ -97,8 +97,15 @@ def wrap_team_xo_normal_2025(team: str) -> str:
     return result.strip()
 
 
+@functools.lru_cache(maxsize=10000)
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower().replace("category:", "")
+
+    return category.strip()
+
+
 def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_2025) -> str:
-    # category = fix_keys(category)
+    category = fix_keys(category)
     teams_label_mappings_ends = _get_sorted_teams_labels()
 
     label2 = callback(category)

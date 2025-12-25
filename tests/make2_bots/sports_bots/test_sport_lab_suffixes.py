@@ -7,6 +7,8 @@ import pytest
 from ArWikiCats.make_bots.sports_bots.sport_lab_suffixes import get_teams_new
 
 get_teams_new_data = {
+    "soccer cup competitions": "منافسات كؤوس كرة قدم",
+    "sports cup competitions": "",  # sports jobs key is empty { "jobs": ""}
     "national youth baseball teams": "منتخبات كرة قاعدة وطنية شبابية",
     "national youth basketball teams": "منتخبات كرة سلة وطنية شبابية",
 
@@ -148,8 +150,6 @@ get_teams_new_data = {
     "rugby league world cup": "كأس العالم لدوري الرجبي",
     "shooting sports equipment": "معدات رماية",
     "snooker terminology": "مصطلحات سنوكر",
-    "soccer cup competitions": "منافسات كؤوس كرة قدم",
-    "sports cup competitions": "منافسات كؤوس رياضية",
     "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",

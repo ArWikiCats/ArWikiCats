@@ -12,16 +12,18 @@ import re
 from ...translations_formats.DataModel.model_multi_data import MultiDataFormatterBase
 from ...helps import logger, len_print
 from ...translations import Nat_women
-from ...translations_formats import format_multi_data_v2, format_multi_data
-from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS, SPORT_KEY_RECORDS
+from ...translations_formats import format_multi_data_v2
+from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
+
+from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_formatted_data_shared
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
-    "men's {en_sport} world cup": "كأس العالم {sport_team} للرجال",
-    "women's {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+    "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+    "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
 
@@ -189,7 +191,8 @@ new_for_nat_female_xo_team_2.update({
     "{en} national {en_sport} teams premier": "منتخبات {sport_jobs} وطنية {female} من الدرجة الممتازة",
     "{en} {en_sport} teams premier": "فرق {sport_jobs} {female} من الدرجة الممتازة",
 })
-
+new_for_nat_female_xo_team_2.update(labels_formatted_data)
+new_for_nat_female_xo_team_2.update(jobs_formatted_data_shared)
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
@@ -216,17 +219,6 @@ def _load_bot() -> MultiDataFormatterBase:
         if v.get("jobs")
     }
 
-    """return format_multi_data(
-        new_for_nat_female_xo_team_2,
-        nats_data,
-        key_placeholder="{en}",
-        value_placeholder="{female}",
-        data_list2=SPORTS_KEYS_FOR_JOBS,
-        key2_placeholder="{en_sport}",
-        value2_placeholder="{sport_jobs}",
-        text_after=" people",
-        text_before="the ",
-    )"""
     return format_multi_data_v2(
         formatted_data=new_for_nat_female_xo_team_2,
         data_list=nats_data,
@@ -301,7 +293,7 @@ def _load_end_key_mappings() -> dict[str, str]:
 def _sport_lab_nat_load_new(category) -> str:
     logger.debug(f"<<yellow>> start _sport_lab_nat_load_new: {category=}")
     both_bot = _load_bot()
-    result = both_bot.create_label(category)
+    result = both_bot.search_all_category(category)
     logger.debug(f"<<yellow>> end _sport_lab_nat_load_new: {category=}, {result=}")
     return result
 

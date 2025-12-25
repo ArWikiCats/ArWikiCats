@@ -15,7 +15,7 @@ from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from .data import sports_formatted_data_for_jobs
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ..sports_formats_teams.sport_lab2_data import labels_formatted_data
+from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_formatted_data_shared
 
 
 @functools.lru_cache(maxsize=1)
@@ -45,13 +45,13 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "squads": "تشكيلات",
         "statistics": "إحصائيات",
         "templates": "قوالب",
-        "tournaments": "بطولات",
         "trainers": "مدربو",
         "umpires": "حكام",
         "venues": "ملاعب",
     }
 
-    teams_label_mappings_ends = {
+    mappings_data = {
+        "tournaments": "بطولات",
         "leagues": "دوريات",
         "coaches": "مدربو",
         "clubs": "أندية",
@@ -60,17 +60,17 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "cups": "كؤوس",
     }
 
-    teams_label_mappings_ends = dict(sorted(
-        teams_label_mappings_ends.items(),
+    mappings_data = dict(sorted(
+        mappings_data.items(),
         key=lambda k: (-k[0].count(" "), -len(k[0])),
     ))
-    return teams_label_mappings_ends
+    return mappings_data
 
 
 sports_formatted_data = {
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
-    "men's {en_sport} world cup": "كأس العالم {sport_team} للرجال",
-    "women's {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+    "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+    "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
 
@@ -230,6 +230,7 @@ sports_formatted_data = {
 }
 
 sports_formatted_data.update(labels_formatted_data)
+sports_formatted_data.update(jobs_formatted_data_shared)
 
 
 def _levels_data() -> dict[str, str]:

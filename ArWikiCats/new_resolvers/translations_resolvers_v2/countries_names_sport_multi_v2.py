@@ -13,13 +13,13 @@ from ..translations_resolvers.countries_names_data import formatted_data_en_ar_o
 from .nats_as_country_names import nats_keys_as_country_names
 from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
-from ..sports_formats_teams.sport_lab2_data import labels_formatted_data
+from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_formatted_data_shared
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
 sports_formatted_data = {
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
-    "men's {en_sport} world cup": "كأس العالم {sport_team} للرجال",
-    "women's {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+    "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+    "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
 
@@ -34,22 +34,22 @@ sports_formatted_data = {
     "olympic silver medalists for {en} in {en_sport}": "فائزون بميداليات فضية أولمبية من {ar} في {sport_label}",
     "olympic bronze medalists for {en} in {en_sport}": "فائزون بميداليات برونزية أولمبية من {ar} في {sport_label}",
 
-    "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
-    "women's {en_sport} playerss": "لاعبات {sport_jobs}",
-    "{en} women's national {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
-    "{en} women's national {en_sport} team players": "لاعبات منتخب {ar} {sport_team} للسيدات",
+    "{en} womens {en_sport} playerss": "لاعبات {sport_jobs} {females}",
+    "womens {en_sport} playerss": "لاعبات {sport_jobs}",
+    "{en} womens national {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} womens national {en_sport} team players": "لاعبات منتخب {ar} {sport_team} للسيدات",
     "{en} national {en_sport} team": "منتخب {ar} {sport_team}",
     "{en} national {en_sport} team players": "لاعبو منتخب {ar} {sport_team}",
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
-    "women's {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
+    "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
 
 
-    "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
+    "{en} womens international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
 
-    "{en} international men's {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
-    "{en} men's international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
-    "{en} international women's {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
+    "{en} international mens {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
+    "{en} mens international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
+    "{en} international womens {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
 
     # data from p17_bot_sport_for_job.py
     # "national men's under-17 {en_sport} teams": "منتخبات {sport_jobs} تحت 17 سنة للرجال",
@@ -91,18 +91,18 @@ sports_formatted_data = {
 
     "{en} amateur {en_sport} cup": "كأس {ar} {sport_team} للهواة",
     "{en} youth {en_sport} cup": "كأس {ar} {sport_team} للشباب",
-    "{en} men's {en_sport} cup": "كأس {ar} {sport_team} للرجال",
-    "{en} women's {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+    "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+    "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
     "{en} {en_sport} cup": "كأس {ar} {sport_team}",
 
     "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
     "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
-    "{en} men's {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
-    "{en} women's {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+    "{en} mens {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
+    "{en} womens {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
     "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
-    "{en} men's {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
-    "{en} women's {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
+    "{en} mens {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
+    "{en} womens {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
     # ---national youth handball team
     "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
 
@@ -113,38 +113,39 @@ sports_formatted_data = {
     "{en} {en_sport} national team non-playing staff": "طاقم منتخب {ar} {sport_team} غير اللاعبين",
 
     # Polish men's volleyball national team national junior men's
-    "{en} national junior men's {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+    "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
     "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
-    "{en} national women's {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
-    "{en} men's national {en_sport} team": "منتخب {ar} {sport_team} للرجال",
-    "{en} men's {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
-    "{en} national men's {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} mens national {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+    "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
+    "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
 
     # Australian men's U23 national road cycling team
-    "{en} men's u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+    "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
     "{en} national youth {en_sport} team": "منتخب {ar} {sport_team} للشباب",
 
-    "{en} national women's {en_sport} team managers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national womens {en_sport} team managers": "مدربو منتخب {ar} {sport_team} للسيدات",
     "{en} national {en_sport} team managers": "مدربو منتخب {ar} {sport_team}",
 
-    "{en} national women's {en_sport} team coaches": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national womens {en_sport} team coaches": "مدربو منتخب {ar} {sport_team} للسيدات",
     "{en} national {en_sport} team coaches": "مدربو منتخب {ar} {sport_team}",
 
-    "{en} national women's {en_sport} team trainers": "مدربو منتخب {ar} {sport_team} للسيدات",
+    "{en} national womens {en_sport} team trainers": "مدربو منتخب {ar} {sport_team} للسيدات",
     "{en} national {en_sport} team trainers": "مدربو منتخب {ar} {sport_team}",
 
-    "{en} national youth women's {en_sport} team": "منتخب {ar} {sport_team} للشابات",
-    "{en} national junior women's {en_sport} team": "منتخب {ar} {sport_team} للناشئات",
+    "{en} national youth womens {en_sport} team": "منتخب {ar} {sport_team} للشابات",
+    "{en} national junior womens {en_sport} team": "منتخب {ar} {sport_team} للناشئات",
     "{en} national amateur {en_sport} team": "منتخب {ar} {sport_team} للهواة",
-    "{en} multi-national women's {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
+    "{en} multi-national womens {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
 }
 
 sports_formatted_data.update(labels_formatted_data)
+sports_formatted_data.update(jobs_formatted_data_shared)
 
 WOMENS_NATIONAL_DATA = {
-    x.replace("women's national", "national women's"): v
+    x.replace("womens national", "national womens"): v
     for x, v in sports_formatted_data.items()
-    if "women's national" in x
+    if "womens national" in x
 }
 
 sports_formatted_data.update(WOMENS_NATIONAL_DATA)
@@ -201,7 +202,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=10000)
 def fix_keys(category: str) -> str:
     category = category.lower().replace("category:", "")
-    # category = category.replace("'", "")
+    category = category.replace("'", "")
 
     replacements = {
     }

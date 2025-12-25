@@ -2,21 +2,41 @@
 """
 """
 
-jobs_formatted_data = {
+jobs_formatted_data_shared = {
     "{en_sport}": "{sport_jobs}",
+    "domestic {en_sport}": "{sport_jobs} محلية",
+    "professional {en_sport}": "{sport_jobs} للمحترفين",
+    "indoor {en_sport}": "{sport_jobs} داخل الصالات",
+    "defunct indoor {en_sport}": "{sport_jobs} داخل الصالات سابقة",
 
-    "defunct indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات سابقة",
+    "{en_sport} cup": "كؤوس {sport_jobs}",
+    "{en_sport} cups": "كؤوس {sport_jobs}",
+
     "defunct outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق سابقة",
     "defunct {en_sport} cup": "كؤوس {sport_jobs} سابقة",
     "defunct {en_sport} cups": "كؤوس {sport_jobs} سابقة",
-    "domestic women's {en_sport} cups": "كؤوس {sport_jobs} محلية للسيدات",
+    "domestic womens {en_sport} cups": "كؤوس {sport_jobs} محلية للسيدات",
     "domestic {en_sport} cup": "كؤوس {sport_jobs} محلية",
     "domestic {en_sport} cups": "كؤوس {sport_jobs} محلية",
+
+}
+
+jobs_formatted_data = {
+
+    "domestic womens {en_sport} leagues": "دوريات {sport_jobs} محلية للسيدات",
+    "domestic womens {en_sport}": "{sport_jobs} محلية للسيدات",
+    "domestic {en_sport} leagues": "دوريات {sport_jobs} محلية",
+
+    "defunct indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات سابقة",
     "indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات",
+    "indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات",
+    "defunct indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات سابقة",
+
     "outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق",
+
     "professional {en_sport} cups": "كؤوس {sport_jobs} للمحترفين",
-    "{en_sport} cup": "كؤوس {sport_jobs}",
-    "{en_sport} cups": "كؤوس {sport_jobs}",
+    "professional {en_sport} leagues": "دوريات {sport_jobs} للمحترفين",
+
 
     "under-13 {en_sport}": "{sport_jobs} تحت 13 سنة",
     "under-14 {en_sport}": "{sport_jobs} تحت 14 سنة",
@@ -33,17 +53,11 @@ jobs_formatted_data = {
     "amateur {en_sport}": "{sport_jobs} للهواة",
     "college {en_sport}": "{sport_jobs} الكليات",
     "current {en_sport} seasons": "مواسم {sport_jobs} حالية",
-    "defunct indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات سابقة",
-    "defunct indoor {en_sport}": "{sport_jobs} داخل الصالات سابقة",
     "defunct outdoor {en_sport} leagues": "دوريات {sport_jobs} في الهواء الطلق سابقة",
     "defunct outdoor {en_sport}": "{sport_jobs} في الهواء الطلق سابقة",
     "defunct {en_sport} leagues": "دوريات {sport_jobs} سابقة",
     "defunct {en_sport} teams": "فرق {sport_jobs} سابقة",
     "defunct {en_sport}": "{sport_jobs} سابقة",
-    "domestic women's {en_sport} leagues": "دوريات {sport_jobs} محلية للسيدات",
-    "domestic women's {en_sport}": "{sport_jobs} محلية للسيدات",
-    "domestic {en_sport} leagues": "دوريات {sport_jobs} محلية",
-    "domestic {en_sport}": "{sport_jobs} محلية",
     "fictional {en_sport}": "{sport_jobs} خيالية",
     "fifth level {en_sport} league": "دوريات {sport_jobs} من الدرجة الخامسة",
     "fifth level {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الخامسة",
@@ -62,14 +76,12 @@ jobs_formatted_data = {
     "grand slam ({en_sport}) tournament champions": "أبطال بطولات {sport_jobs} كبرى",
     "grand slam ({en_sport}) tournaments": "بطولات {sport_jobs} كبرى",
     "grand slam ({en_sport})": "بطولات {sport_jobs} كبرى",
-    "indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات",
-    "indoor {en_sport}": "{sport_jobs} داخل الصالات",
-    "international men's {en_sport} players": "لاعبو {sport_jobs} دوليون",
-    "international men's {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
-    "international men's {en_sport}": "{sport_jobs} دولية للرجال",
-    "international women's {en_sport} players": "لاعبات {sport_jobs} دوليات",
-    "international women's {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
-    "international women's {en_sport}": "{sport_jobs} دولية للسيدات",
+    "international mens {en_sport} players": "لاعبو {sport_jobs} دوليون",
+    "international mens {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
+    "international mens {en_sport}": "{sport_jobs} دولية للرجال",
+    "international womens {en_sport} players": "لاعبات {sport_jobs} دوليات",
+    "international womens {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
+    "international womens {en_sport}": "{sport_jobs} دولية للسيدات",
     "International {en_sport} competition": "منافسات {sport_jobs} دولية",
     "International {en_sport} competitions": "منافسات {sport_jobs} دولية",
     "international {en_sport} managers": "مدربو {sport_jobs} دوليون",
@@ -78,23 +90,23 @@ jobs_formatted_data = {
     "International {en_sport} races": "سباقات {sport_jobs} دولية",
     "International {en_sport}": "{sport_jobs} دولية",
     "international youth {en_sport}": "{sport_jobs} شبابية دولية",
-    "men's international {en_sport} players": "لاعبو {sport_jobs} دوليون",
-    "men's international {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
-    "men's international {en_sport}": "{sport_jobs} دولية للرجال",
-    "men's {en_sport} teams": "فرق {sport_jobs} رجالية",
-    "men's {en_sport}": "{sport_jobs} رجالية",
+    "mens international {en_sport} players": "لاعبو {sport_jobs} دوليون",
+    "mens international {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
+    "mens international {en_sport}": "{sport_jobs} دولية للرجال",
+    "mens {en_sport} teams": "فرق {sport_jobs} رجالية",
+    "mens {en_sport}": "{sport_jobs} رجالية",
     "military {en_sport}": "{sport_jobs} عسكرية",
     "multi-national {en_sport} championships": "بطولات {sport_jobs} متعددة الجنسيات",
     "multi-national {en_sport} league": "دوريات {sport_jobs} متعددة الجنسيات",
     "multi-national {en_sport} leagues": "دوريات {sport_jobs} متعددة الجنسيات",
-    "national a' {en_sport} teams": "منتخبات {sport_jobs} للمحليين",
+    "national a {en_sport} teams": "منتخبات {sport_jobs} للمحليين",
     "national a. {en_sport} teams": "منتخبات {sport_jobs} للمحليين",
     "national b {en_sport} teams": "منتخبات {sport_jobs} رديفة",
     "national b. {en_sport} teams": "منتخبات {sport_jobs} رديفة",
-    "national junior men's {en_sport} teams": "منتخبات {sport_jobs} وطنية للناشئين",
+    "national junior mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للناشئين",
     "national junior {en_sport} teams": "منتخبات {sport_jobs} وطنية للناشئين",
-    "national men's {en_sport} teams": "منتخبات {sport_jobs} وطنية رجالية",
-    "national men's {en_sport}": "منتخبات {sport_jobs} وطنية للرجال",
+    "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية رجالية",
+    "national mens {en_sport}": "منتخبات {sport_jobs} وطنية للرجال",
     "national reserve {en_sport} teams": "منتخبات {sport_jobs} وطنية احتياطية",
     "national under-13 {en_sport}": "منتخبات {sport_jobs} تحت 13 سنة",
     "national under-14 {en_sport}": "منتخبات {sport_jobs} تحت 14 سنة",
@@ -107,8 +119,8 @@ jobs_formatted_data = {
     "national under-21 {en_sport}": "منتخبات {sport_jobs} تحت 21 سنة",
     "national under-23 {en_sport}": "منتخبات {sport_jobs} تحت 23 سنة",
     "national under-24 {en_sport}": "منتخبات {sport_jobs} تحت 24 سنة",
-    "national women's {en_sport} teams": "منتخبات {sport_jobs} وطنية نسائية",
-    "national women's {en_sport}": "منتخبات {sport_jobs} وطنية للسيدات",
+    "national womens {en_sport} teams": "منتخبات {sport_jobs} وطنية نسائية",
+    "national womens {en_sport}": "منتخبات {sport_jobs} وطنية للسيدات",
     "national {en_sport} champions": "أبطال بطولات {sport_jobs} وطنية",
     "national {en_sport} championships": "بطولات {sport_jobs} وطنية",
     "national {en_sport} league": "دوريات {sport_jobs} وطنية",
@@ -121,8 +133,6 @@ jobs_formatted_data = {
     "outdoor {en_sport}": "{sport_jobs} في الهواء الطلق",
     "premier {en_sport} league": "دوريات {sport_jobs} من الدرجة الممتازة",
     "premier {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الممتازة",
-    "professional {en_sport} leagues": "دوريات {sport_jobs} للمحترفين",
-    "professional {en_sport}": "{sport_jobs} للمحترفين",
     "reserve {en_sport} teams": "فرق {sport_jobs} احتياطية",
     "second level {en_sport} league": "دوريات {sport_jobs} من الدرجة الثانية",
     "second level {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الثانية",
@@ -142,11 +152,11 @@ jobs_formatted_data = {
     "third tier {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الثالثة",
     "top level {en_sport} league": "دوريات {sport_jobs} من الدرجة الأولى",
     "top level {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الأولى",
-    "women's international {en_sport} players": "لاعبات {sport_jobs} دوليات",
-    "women's international {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
-    "women's international {en_sport}": "{sport_jobs} دولية للسيدات",
-    "women's {en_sport} teams": "فرق {sport_jobs} نسائية",
-    "women's {en_sport}": "{sport_jobs} نسائية",
+    "womens international {en_sport} players": "لاعبات {sport_jobs} دوليات",
+    "womens international {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
+    "womens international {en_sport}": "{sport_jobs} دولية للسيدات",
+    "womens {en_sport} teams": "فرق {sport_jobs} نسائية",
+    "womens {en_sport}": "{sport_jobs} نسائية",
     "{en_sport} chairmen and investors": "رؤساء ومسيرو {sport_jobs}",
     "{en_sport} league teams": "فرق دوري {sport_jobs}",
     "{en_sport} league": "دوري {sport_jobs}",
@@ -160,10 +170,12 @@ jobs_formatted_data = {
     "youth {en_sport}": "{sport_jobs} شبابية",
 
     # Category:Multi-national women's basketball leagues in Europe
-    "multi-national women's {en_sport} leagues": "دوريات {sport_jobs} نسائية متعددة الجنسيات",
+    "multi-national womens {en_sport} leagues": "دوريات {sport_jobs} نسائية متعددة الجنسيات",
     # Category:National junior women's goalball teams
-    "national junior women's {en_sport} teams": "منتخبات {sport_jobs} للناشئات",
+    "national junior womens {en_sport} teams": "منتخبات {sport_jobs} للناشئات",
 }
+
+jobs_formatted_data.update(jobs_formatted_data_shared)
 
 # NOTE: used in countries_names_sport_multi_v2.py and nats_sport_multi_v2.py
 labels_formatted_data = {
@@ -182,18 +194,18 @@ labels_formatted_data = {
 
 teams_formatted_data = {
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
-    "men's {en_sport} world cup": "كأس العالم {sport_team} للرجال",
-    "women's {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+    "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+    "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
 
     "international {en_sport} council": "المجلس الدولي {sport_team}",
-    "men's {en_sport} championship": "بطولة {sport_team} للرجال",
-    "men's {en_sport} world championship": "بطولة العالم {sport_team} للرجال",
+    "mens {en_sport} championship": "بطولة {sport_team} للرجال",
+    "mens {en_sport} world championship": "بطولة العالم {sport_team} للرجال",
     "outdoor world {en_sport} championship": "بطولة العالم {sport_team} في الهواء الطلق",
-    "women's world {en_sport} championship": "بطولة العالم {sport_team} للسيدات",
-    "women's {en_sport} championship": "بطولة {sport_team} للسيدات",
-    "women's {en_sport} world championship": "بطولة العالم {sport_team} للسيدات",
+    "womens world {en_sport} championship": "بطولة العالم {sport_team} للسيدات",
+    "womens {en_sport} championship": "بطولة {sport_team} للسيدات",
+    "womens {en_sport} world championship": "بطولة العالم {sport_team} للسيدات",
     "world amateur {en_sport} championship": "بطولة العالم {sport_team} للهواة",
     "world champion national {en_sport} teams": "أبطال بطولة العالم {sport_team}",
     "world junior {en_sport} championship": "بطولة العالم {sport_team} للناشئين",
@@ -217,6 +229,7 @@ teams_formatted_data = {
 
 
 __all__ = [
+    "jobs_formatted_data_shared",
     "jobs_formatted_data",
     "labels_formatted_data",
     "teams_formatted_data",

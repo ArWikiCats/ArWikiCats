@@ -26,7 +26,6 @@ sport_lab2_data = {
     "football cups": "كؤوس كرة قدم",
     "basketball cup competitions": "منافسات كؤوس كرة سلة",
     "field hockey cup competitions": "منافسات كؤوس هوكي ميدان",
-    "sports cup competitions": "منافسات كؤوس رياضية",
 
     "baseball world cup": "كأس العالم لكرة القاعدة",
     "biathlon world cup": "كأس العالم للبياثلون",
