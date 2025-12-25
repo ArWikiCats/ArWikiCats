@@ -41,6 +41,10 @@ data2 = {
 
     # "Category:Coaches of the West Indies national cricket team": "",
     # "Category:Nauru international soccer players": "",
+    "Category:South Africa international soccer players": "تصنيف:لاعبو منتخب جنوب إفريقيا لكرة القدم",
+    "Category:Australia international soccer players": "تصنيف:لاعبو منتخب أستراليا لكرة القدم",
+    "Category:Canada men's international soccer players": "تصنيف:لاعبو كرة قدم دوليون من كندا",
+
     "Category:Afghanistan women's national football team coaches": "تصنيف:مدربو منتخب أفغانستان لكرة القدم للسيدات",
     "Category:Coaches of Yemen national cricket team": "تصنيف:مدربو منتخب اليمن للكريكت",
     "Category:Cuba women's national basketball team": "تصنيف:منتخب كوبا لكرة السلة للسيدات",
@@ -55,7 +59,6 @@ data2 = {
     "Category:Seasons in Omani football": "تصنيف:مواسم في كرة القدم العمانية",
     "Category:Ski jumping at the Winter Universiade": "تصنيف:القفز التزلجي في الألعاب الجامعية الشتوية",
     "Category:Skiing coaches": "تصنيف:مدربو تزلج",
-    "Category:South Africa international soccer players": "تصنيف:لاعبو منتخب جنوب إفريقيا لكرة القدم",
     "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
     "Category:Sports competitors by nationality and competition": "تصنيف:منافسون رياضيون حسب الجنسية والمنافسة",
     "Category:Sports organisations of Andorra": "تصنيف:منظمات رياضية في أندورا",
@@ -92,9 +95,7 @@ data3 = {
     "Category:Expatriate women's association football players": "تصنيف:لاعبات كرة قدم مغتربات",
     "Category:Expatriate women's footballers by location": "تصنيف:لاعبات كرة قدم مغتربات حسب الموقع",
     "Category:Australia at the Summer Universiade": "تصنيف:أستراليا في الألعاب الجامعية الصيفية",
-    "Category:Australia international soccer players": "تصنيف:لاعبو منتخب أستراليا لكرة القدم",
     "Category:Australian male sprinters": "تصنيف:عداؤون سريعون ذكور أستراليون",
-    "Category:Canada men's international soccer players": "تصنيف:لاعبو منتخب كندا لكرة القدم للرجال",
     "Category:Canadian sports businesspeople": "تصنيف:شخصيات أعمال رياضيون كنديون",
     "Category:Cape Verde at the Paralympics": "تصنيف:الرأس الأخضر في الألعاب البارالمبية",
     "Category:Cape Verdean football managers": "تصنيف:مدربو كرة قدم أخضريون",

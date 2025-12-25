@@ -155,7 +155,7 @@ def test_rcn_sport_with_ends(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
+@pytest.mark.skip2
 def test_dump_it(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
