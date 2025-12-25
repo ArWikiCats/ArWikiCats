@@ -6,7 +6,7 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.ma_bots.country2_bot import Get_country2
-from ArWikiCats.make_bots.ma_bots.country2_bots.country2_label_bot import country_2_title_work
+from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 
 data_new = {
     "australia by century": "أستراليا حسب القرن",

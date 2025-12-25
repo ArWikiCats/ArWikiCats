@@ -41,7 +41,7 @@ data = {
     "mecha anime and manga": "أنمي ميكا",
     "gymnastics organizations": "منظمات جمباز",
     "national cricket teams": "منتخبات كريكت وطنية",
-    "international women's basketball competitions": "منافسات كرة سلة نسائية دولية",
+    "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
     "water polo": "كرة الماء",
     "national women's sports teams of": "منتخبات رياضية وطنية نسائية في",
     "world judo championships": "بطولة العالم للجودو",

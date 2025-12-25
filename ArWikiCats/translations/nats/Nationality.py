@@ -172,6 +172,8 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
     """
 
     alias_map: Dict[str, str] = {
+        "luxembourg": "luxembourgish",
+
         "ancient romans": "ancient-romans",
         "ancient-roman": "ancient-romans",
         "arabian": "arab",
@@ -194,7 +196,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "ivoirian": "ivorian",
         "kosovar": "kosovan",
         "lao": "laotian",
-        "luxembourg": "luxembourgish",
         "mosotho": "lesotho",
         "nepali": "nepalese",
         "roman": "romanian",
@@ -430,6 +431,28 @@ en_nats_to_ar_label: LookupTable = result_tables["en_nats_to_ar_label"]
 
 nats_to_add = {}
 
+len_result = {
+    "raw_nats_as_en_key": 17,
+    "ar_Nat_men": 711,
+    "Nat_men": 841,
+
+    "Nat_mens": 843,
+    "Nat_women": 843,
+    "Nat_Womens": 843,
+    "All_Nat": 843,
+    "Nat_the_male": 843,
+    "Nat_the_female": 843,
+
+    "all_country_ar": 285,
+    "countries_from_nat": 287,
+
+    "all_country_with_nat_ar": 342,
+    "en_nats_to_ar_label": 342,
+
+    "all_country_with_nat": 336,
+    "American_nat": 422,
+    "countries_nat_en_key": 286,
+}
 len_print.data_len(
     "nationality.py",
     {

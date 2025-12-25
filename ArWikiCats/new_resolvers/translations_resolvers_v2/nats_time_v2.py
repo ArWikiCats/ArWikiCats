@@ -47,11 +47,7 @@ def resolve_nats_time_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_nats_time_v2: {category=}")
     yc_bot = _bot_new()
 
-    normalized_category = category.lower().replace("category:", "")
-    result = yc_bot.create_label(normalized_category)
-
-    if result and category.lower().startswith("category:"):
-        result = "تصنيف:" + result
+    result = yc_bot.search_all_category(category)
 
     logger.debug(f"<<yellow>> end resolve_nats_time_v2: {category=}, {result=}")
     return result or ""

@@ -7,8 +7,8 @@ import re
 from typing import Mapping, Tuple
 
 from ...helps.log import logger
-from ...translations.nats.Nationality import NationalityEntry
 from ...translations import (
+    NationalityEntry,
     Nat_the_male,
     Nat_the_female,
     Nat_men,

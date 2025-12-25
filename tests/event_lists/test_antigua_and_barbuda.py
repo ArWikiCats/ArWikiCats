@@ -387,7 +387,6 @@ data_1 = {
     "Category:Antigua and Barbuda sport by year": "تصنيف:رياضة أنتيغوية وبربودية حسب السنة",
     "Category:Antigua and Barbuda sport-related lists": "تصنيف:قوائم متعلقة برياضة أنتيغوية وبربودية",
     "Category:Antigua and Barbuda sports coaches": "تصنيف:مدربو رياضة أنتيغويون وبربوديون",
-    "Category:Antigua and Barbuda sports navigational boxes": "تصنيف:صناديق تصفح رياضية أنتيغوية وبربودية",
     "Category:Antigua and Barbuda sportspeople": "تصنيف:رياضيون أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda sportspeople by sport": "تصنيف:رياضيون أنتيغويون وبربوديون حسب الرياضة",
     "Category:Antigua and Barbuda sportswomen": "تصنيف:رياضيات أنتيغويات وبربوديات",

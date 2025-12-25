@@ -28,7 +28,7 @@ data = {
     "category:films by movement": "تصنيف:أفلام حسب الحركة",
     "category:golfers from massachusetts": "تصنيف:لاعبو غولف من ماساتشوستس",
     "category:historic trails and roads in the united states by state": "تصنيف:طرق وممرات تاريخية في الولايات المتحدة حسب الولاية",
-    "category:international women's basketball competitions hosted by cuba": "تصنيف:منافسات كرة سلة نسائية دولية استضافتها كوبا",
+    "category:international women's basketball competitions hosted by cuba": "تصنيف:منافسات كرة سلة دولية للسيدات استضافتها كوبا",
     "category:languages of cayman islands": "تصنيف:لغات جزر كايمان",
     "category:multi-sport events in yemen": "تصنيف:أحداث رياضية متعددة في اليمن",
     "category:parks in the roman empire": "تصنيف:متنزهات في الإمبراطورية الرومانية",

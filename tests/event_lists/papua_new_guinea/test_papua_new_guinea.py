@@ -22,6 +22,8 @@ data_skip = {
 }
 
 data_0 = {
+    "Category:Papua New Guinea men's international soccer players": "تصنيف:لاعبو كرة قدم دوليون من بابوا غينيا الجديدة",
+    "Category:Papua New Guinea women's international soccer players": "تصنيف:لاعبات كرة قدم دوليات من بابوا غينيا الجديدة",
     "Category:Buka, Papua New Guinea": "",
     "Category:Southern Region, Papua New Guinea geography stubs": "",
     "Category:Southern Region, Papua New Guinea": "",
@@ -824,7 +826,6 @@ data_1 = {
     "Category:Papua New Guinea in World War II": "تصنيف:بابوا غينيا الجديدة في الحرب العالمية الثانية",
     "Category:Papua New Guinea infobox templates": "تصنيف:قوالب معلومات بابوا غينيا الجديدة",
     "Category:Papua New Guinea international women's rugby sevens players": "تصنيف:لاعبات سباعيات رجبي دوليات من بابوا غينيا الجديدة",
-    "Category:Papua New Guinea men's international soccer players": "تصنيف:لاعبو منتخب بابوا غينيا الجديدة لكرة القدم للرجال",
     "Category:Papua New Guinea national netball team": "تصنيف:منتخب بابوا غينيا الجديدة لكرة الشبكة",
     "Category:Papua New Guinea national rugby league team": "تصنيف:منتخب بابوا غينيا الجديدة لدوري الرجبي",
     "Category:Papua New Guinea national rugby league team coaches": "تصنيف:مدربو منتخب بابوا غينيا الجديدة لدوري الرجبي",
@@ -843,7 +844,6 @@ data_1 = {
     "Category:Papua New Guinea sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في بابوا غينيا الجديدة",
     "Category:Papua New Guinea sports templates": "تصنيف:قوالب بابوا غينيا الجديدة الرياضية",
     "Category:Papua New Guinea templates": "تصنيف:قوالب بابوا غينيا الجديدة",
-    "Category:Papua New Guinea women's international soccer players": "تصنيف:لاعبات منتخب بابوا غينيا الجديدة لكرة القدم للسيدات",
     "Category:Papua New Guinea women's national football team": "تصنيف:منتخب بابوا غينيا الجديدة لكرة القدم للسيدات",
     "Category:Papua New Guinea women's national rugby league team players": "تصنيف:لاعبات منتخب بابوا غينيا الجديدة لدوري الرجبي للسيدات",
     "Category:Papua New Guinea women's national soccer team navigational boxes": "تصنيف:صناديق تصفح منتخب بابوا غينيا الجديدة لكرة القدم للسيدات",

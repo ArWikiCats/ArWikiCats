@@ -137,7 +137,7 @@ class MultiDataFormatterBaseHelpers:
         Normalize both nationality and sport tokens in the category.
 
         Example:
-            input: "british softball championshipszz", output: "natar xoxo championshipszz"
+            input: "british softball championships", output: "natar xoxo championships"
         """
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
@@ -162,7 +162,7 @@ class MultiDataFormatterBaseHelpers:
         Normalize both nationality and sport tokens in the category.
 
         Example:
-            input: "british softball championshipszz", output: "natar xoxo championshipszz"
+            input: "british softball championships", output: "natar xoxo championships"
         """
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
@@ -215,7 +215,6 @@ class MultiDataFormatterBaseHelpers:
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(template_data.nat_key)
         other_ar = self.other_bot.get_key_label(template_data.other_key)
-
         logger.debug(f">>>create_label {country_ar=}, {other_ar=}")
         if not country_ar or not other_ar:
             return ""

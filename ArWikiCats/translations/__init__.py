@@ -44,6 +44,7 @@ from .mixed.jenders_prefix_suffix import (
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
 from .nats.Nationality import (
+    NationalityEntry,
     raw_nats_as_en_key,
     All_Nat,
     Nat_men,
@@ -72,11 +73,7 @@ from .sports.Sport_key import (
     SPORT_KEY_RECORDS_BASE,
     SPORT_KEY_RECORDS,
 )
-from ..new_resolvers.translations_resolvers.match_labs import find_teams_2025
 from .sports_formats_2025.teamsnew_bot import teams_new_founder
-from .sports_formats_national.sport_lab_nat import (
-    sport_lab_nat_load_new,
-)
 from .tv.films_mslslat import (
     Films_key_333,
     Films_key_CAO,
@@ -93,10 +90,8 @@ from .type_tables import typeTable
 from .utils.match_sport_keys import match_sport_key
 
 from .utils import apply_pattern_replacements
-from .sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 __all__ = [
-    "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",
     "SPORT_JOB_VARIANTS",
@@ -106,11 +101,9 @@ __all__ = [
     "apply_pattern_replacements",
     "typeTable",
     "teams_new_founder",
-    "find_teams_2025",
     "match_sport_key",
     "olympic_event_translations",
     "en_nats_to_ar_label",
-    "sport_lab_nat_load_new",
     "CITY_TRANSLATIONS_LOWER",
     "jobs_mens_data",
     "jobs_womens_data",
@@ -121,6 +114,7 @@ __all__ = [
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
     "get_from_new_p17_final",
+    "NationalityEntry",
     "raw_nats_as_en_key",
     "All_Nat",
     "Nat_women",
