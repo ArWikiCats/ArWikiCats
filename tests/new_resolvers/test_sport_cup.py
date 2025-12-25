@@ -4,12 +4,44 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
+from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025_with_ends
 from ArWikiCats.new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
+from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
+
+from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import (
+    resolve_countries_names_sport_with_ends,
+)
+
+nats_sport_multi_v2_data = {
+    "yemeni mens basketball cup": "كأس اليمن لكرة السلة للرجال",
+    "yemeni womens basketball cup": "كأس اليمن لكرة السلة للسيدات",
+    "yemeni basketball cup": "كأس اليمن لكرة السلة",
+    "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
+    "chinese domestic boxing cup": "كؤوس بوكسينغ صينية محلية",
+    "chinese boxing cup": "كأس الصين للبوكسينغ",
+    "chinese boxing cup competitions": "منافسات كأس الصين للبوكسينغ",
+    "chinese defunct boxing cup competitions": "منافسات كؤوس بوكسينغ صينية سابقة",
+
+    "chinese defunct indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات سابقة",
+    "chinese defunct boxing cups": "كؤوس بوكسينغ صينية سابقة",
+    "chinese defunct outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق سابقة",
+    "chinese professional boxing cups": "كؤوس بوكسينغ صينية للمحترفين",
+
+    "chinese indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات",
+    "chinese outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق",
+    "chinese domestic boxing cups": "كؤوس بوكسينغ صينية محلية",
+    "chinese domestic women's boxing cups": "كؤوس بوكسينغ صينية محلية للسيدات",
+    "chinese boxing cups": "كؤوس بوكسينغ صينية",
+
+}
 
 sport_lab2_data = {
+    "defunct indoor boxing": "بوكسينغ داخل الصالات سابقة",
+    "defunct indoor boxing clubs": "أندية بوكسينغ داخل الصالات سابقة",
+    "defunct indoor boxing cups": "كؤوس بوكسينغ داخل الصالات سابقة",
     "defunct football cup competitions": "منافسات كؤوس كرة قدم سابقة",
     "defunct football cups": "كؤوس كرة قدم سابقة",
+
     "professional football cups": "كؤوس كرة قدم للمحترفين",
     "domestic football cup": "كؤوس كرة قدم محلية",
     "domestic football cups": "كؤوس كرة قدم محلية",
@@ -18,6 +50,7 @@ sport_lab2_data = {
     "basketball cup competitions": "منافسات كؤوس كرة سلة",
     "field hockey cup competitions": "منافسات كؤوس هوكي ميدان",
     "sports cup competitions": "منافسات كؤوس رياضية",
+
     "baseball world cup": "كأس العالم لكرة القاعدة",
     "biathlon world cup": "كأس العالم للبياثلون",
     "cricket world cup": "كأس العالم للكريكت",
@@ -64,14 +97,34 @@ sport_lab_nat_load_new_data = {
 
 }
 
-test_find_teams_bot_data = {
+rcn_sport_with_ends_data = {
+    "new zealand amateur kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للهواة",
+    "new zealand youth kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للشباب",
+    "new zealand men's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للرجال",
+    "new zealand women's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للسيدات",
+    "new zealand kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ",
 }
+
+to_test = [
+    ("test_resolve_nats_sport_multi_v2", nats_sport_multi_v2_data, resolve_nats_sport_multi_v2),
+    ("test_sport_lab2_data", sport_lab2_data, wrap_team_xo_normal_2025_with_ends),
+    ("test_sport_lab_nat_load_new", sport_lab_nat_load_new_data, sport_lab_nat_load_new),
+    ("test_rcn_sport_with_ends", rcn_sport_with_ends_data, resolve_countries_names_sport_with_ends),
+]
+
+
+@pytest.mark.parametrize("category, expected", nats_sport_multi_v2_data.items(), ids=nats_sport_multi_v2_data.keys())
+@pytest.mark.fast
+def test_resolve_nats_sport_multi_v2(category: str, expected: str) -> None:
+    label1 = resolve_nats_sport_multi_v2(category)
+    assert isinstance(label1, str)
+    assert label1 == expected
 
 
 @pytest.mark.parametrize("category, expected", sport_lab2_data.items(), ids=sport_lab2_data.keys())
 @pytest.mark.fast
 def test_sport_lab2_data(category: str, expected: str) -> None:
-    label1 = wrap_team_xo_normal_2025(category)
+    label1 = wrap_team_xo_normal_2025_with_ends(category)
     assert isinstance(label1, str)
     assert label1 == expected
 
@@ -82,3 +135,22 @@ def test_sport_lab_nat_load_new(category: str, expected: str) -> None:
     label1 = sport_lab_nat_load_new(category)
     assert isinstance(label1, str)
     assert label1 == expected
+
+
+@pytest.mark.parametrize("category, expected", rcn_sport_with_ends_data.items(), ids=rcn_sport_with_ends_data.keys())
+@pytest.mark.fast
+def test_rcn_sport_with_ends(category: str, expected: str) -> None:
+    label1 = resolve_countries_names_sport_with_ends(category)
+    assert isinstance(label1, str)
+    assert label1 == expected
+
+
+@pytest.mark.parametrize("name,data,callback", to_test)
+@pytest.mark.dump
+def test_dump_it(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
+    dump_diff(diff_result, name)
+
+    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
+    # dump_diff(add_result, f"{name}_add")
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

@@ -9,20 +9,9 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
 
 data_1 = {
-    "yemeni mens basketball cup": "كأس اليمن لكرة السلة للرجال",
-    "yemeni womens basketball cup": "كأس اليمن لكرة السلة للسيدات",
-    "yemeni basketball cup": "كأس اليمن لكرة السلة",
-    "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
     "yemeni domestic basketball": "كرة سلة يمنية محلية",
     "yemeni domestic womens basketball": "كرة سلة يمنية محلية للسيدات",
 
-    "chinese domestic boxing cup": "كؤوس بوكسينغ صينية محلية",
-    "chinese boxing cup": "كأس الصين للبوكسينغ",
-    "chinese boxing cup competitions": "منافسات كأس الصين للبوكسينغ",
-    "chinese defunct boxing cup competitions": "منافسات كؤوس بوكسينغ صينية سابقة",
-
-    "chinese indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات",
-    "chinese outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق",
     "chinese indoor boxing clubs": "أندية بوكسينغ صينية داخل الصالات",
     "chinese indoor boxing coaches": "مدربو بوكسينغ صينية داخل الصالات",
     "chinese indoor boxing competitions": "منافسات بوكسينغ صينية داخل الصالات",
@@ -33,14 +22,11 @@ data_1 = {
 }
 
 nat_p17_oioi_to_check_data = {
-    "chinese boxing cups": "كؤوس بوكسينغ صينية",
     "chinese boxing chairmen and investors": "رؤساء ومسيرو بوكسينغ صينية",
     "chinese boxing leagues": "دوريات بوكسينغ صينية",
     "chinese boxing clubs": "أندية بوكسينغ صينية",
     "chinese boxing coaches": "مدربو بوكسينغ صينية",
     "chinese boxing competitions": "منافسات بوكسينغ صينية",
-    "chinese domestic boxing cups": "كؤوس بوكسينغ صينية محلية",
-    "chinese domestic women's boxing cups": "كؤوس بوكسينغ صينية محلية للسيدات",
     "chinese domestic women's boxing clubs": "أندية بوكسينغ صينية محلية للسيدات",
     "chinese domestic women's boxing coaches": "مدربو بوكسينغ صينية محلية للسيدات",
     "chinese domestic women's boxing competitions": "منافسات بوكسينغ صينية محلية للسيدات",
@@ -50,11 +36,6 @@ nat_p17_oioi_to_check_data = {
     "chinese domestic boxing coaches": "مدربو بوكسينغ صينية محلية",
     "chinese domestic boxing competitions": "منافسات بوكسينغ صينية محلية",
     "chinese domestic boxing leagues": "دوريات بوكسينغ صينية محلية",
-
-    "chinese defunct indoor boxing cups": "كؤوس للبوكسينغ الصين داخل الصالات سابقة",
-    "chinese defunct boxing cups": "كؤوس للبوكسينغ الصين سابقة",
-    "chinese defunct outdoor boxing cups": "كؤوس للبوكسينغ الصين في الهواء الطلق سابقة",
-    "chinese professional boxing cups": "كؤوس للبوكسينغ الصين للمحترفين",
 
     "chinese current boxing seasons": "مواسم للبوكسينغ الصين حالية",
     "chinese defunct indoor boxing clubs": "أندية للبوكسينغ الصين داخل الصالات سابقة",

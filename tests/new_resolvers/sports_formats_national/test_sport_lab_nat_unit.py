@@ -34,7 +34,7 @@ new_for_nat_female_xo_team_2_data = {
     "trinidad and tobago current basketball seasons": "مواسم كرة سلة ترنيدادية حالية",
     # ---
     "trinidad and tobago professional basketball": "كرة سلة ترنيدادية للمحترفين",
-    "trinidad and tobago domestic womens basketball": "كرة سلة محلية ترنيدادية للسيدات",
+    "trinidad and tobago domestic womens basketball": "كرة سلة ترنيدادية محلية للسيدات",
     "trinidad and tobago indoor basketball": "كرة سلة ترنيدادية داخل الصالات",
     "trinidad and tobago outdoor basketball": "كرة سلة ترنيدادية في الهواء الطلق",
     "trinidad and tobago defunct indoor basketball": "كرة سلة ترنيدادية داخل الصالات سابقة",
