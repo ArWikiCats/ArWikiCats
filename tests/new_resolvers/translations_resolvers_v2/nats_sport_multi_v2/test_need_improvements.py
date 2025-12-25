@@ -22,6 +22,9 @@ data_1 = {
 }
 
 nat_p17_oioi_to_check_data = {
+    "olympic gold medalists in baseball": "فائزون بميداليات ذهبية أولمبية في كرة القاعدة",
+    "olympic bronze medalists in baseball": "فائزون بميداليات برونزية أولمبية في كرة القاعدة",
+
     "chinese boxing chairmen and investors": "رؤساء ومسيرو بوكسينغ صينية",
     "chinese boxing leagues": "دوريات بوكسينغ صينية",
     "chinese boxing clubs": "أندية بوكسينغ صينية",
