@@ -205,7 +205,7 @@ New_For_nat_female_xo_team_2 = {
     "{nat} airstrikes": "ضربات جوية {nat}",
 }
 
-New_For_nat_female_xo_team_2.update({
+under_data = {
     "{nat} xzxz teams": "فرق xzxz {nat}",
     "{nat} xzxz under-13 teams": "فرق xzxz {nat}",
     "{nat} xzxz under-14 teams": "فرق xzxz {nat}",
@@ -313,8 +313,10 @@ New_For_nat_female_xo_team_2.update({
     "{nat} xzxz national youth womens under-20 teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth womens under-21 teams": "فرق xzxz {nat}",
     "{nat} xzxz national youth womens under-23 teams": "فرق xzxz {nat}",
-    "{nat} xzxz national youth womens under-24 teams": "فرق xzxz {nat}"
-})
+    "{nat} xzxz national youth womens under-24 teams": "فرق xzxz {nat}",
+}
+
+# New_For_nat_female_xo_team_2.update(under_data)
 
 new_for_nat_female_xo_team_additional = _load_additional()  # 8162
 New_For_nat_female_xo_team_2.update({f"{{nat}} {x}": v for x, v in new_for_nat_female_xo_team_additional.items()})

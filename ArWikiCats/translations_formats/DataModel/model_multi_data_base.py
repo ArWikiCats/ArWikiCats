@@ -137,7 +137,7 @@ class MultiDataFormatterBaseHelpers:
         Normalize both nationality and sport tokens in the category.
 
         Example:
-            input: "british softball championshipszz", output: "natar xoxo championshipszz"
+            input: "british softball championships", output: "natar xoxo championships"
         """
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
@@ -162,7 +162,7 @@ class MultiDataFormatterBaseHelpers:
         Normalize both nationality and sport tokens in the category.
 
         Example:
-            input: "british softball championshipszz", output: "natar xoxo championshipszz"
+            input: "british softball championships", output: "natar xoxo championships"
         """
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())

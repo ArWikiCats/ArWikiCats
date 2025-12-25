@@ -15,6 +15,7 @@ data6 = {
 }
 
 ar_sport_team_data = {
+    # "Yemeni football championships clubs": "أندية بطولة اليمن لكرة القدم",
     "british softball championshipszz": "بطولة المملكة المتحدة للكرة اللينة",
     "ladies british softball tour": "بطولة المملكة المتحدة للكرة اللينة للسيدات",
     "british football tour": "بطولة المملكة المتحدة لكرة القدم",

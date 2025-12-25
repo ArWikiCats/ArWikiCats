@@ -11,17 +11,17 @@ from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 impo
 data_1 = {
 }
 
-data_2 = {
+nat_p17_oioi_to_check_data = {
+    "chinese boxing chairmen and investors": "رؤساء ومسيرو للبوكسينغ الصين",
+
     "chinese domestic women's boxing clubs": "أندية للبوكسينغ محلية الصين للسيدات",
     "chinese domestic women's boxing coaches": "مدربو للبوكسينغ محلية الصين للسيدات",
     "chinese domestic women's boxing competitions": "منافسات للبوكسينغ محلية الصين للسيدات",
     "chinese domestic women's boxing cups": "كؤوس للبوكسينغ محلية الصين للسيدات",
     "chinese domestic women's boxing leagues": "دوريات للبوكسينغ محلية الصين للسيدات",
 
-
     "chinese boxing cups": "كؤوس للبوكسينغ الصين",
     "chinese boxing leagues": "دوريات للبوكسينغ الصين",
-    "chinese boxing chairmen and investors": "رؤساء ومسيرو للبوكسينغ الصين",
     "chinese boxing clubs": "أندية للبوكسينغ الصين",
     "chinese boxing coaches": "مدربو للبوكسينغ الصين",
     "chinese boxing competitions": "منافسات للبوكسينغ الصين",
@@ -77,7 +77,7 @@ def test_need_improvements_1(category: str, expected: str) -> None:
     assert label2 == expected
 
 
-@pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
+@pytest.mark.parametrize("category, expected", nat_p17_oioi_to_check_data.items(), ids=nat_p17_oioi_to_check_data.keys())
 @pytest.mark.skip2
 def test_need_improvements_2(category: str, expected: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
@@ -93,7 +93,7 @@ def test_need_improvements_3(category: str, expected: str) -> None:
 
 to_test = [
     ("test_need_improvements_1", data_1, resolve_nats_sport_multi_v2),
-    ("test_need_improvements_2", data_2, resolve_nats_sport_multi_v2),
+    ("test_need_improvements_2", nat_p17_oioi_to_check_data, resolve_nats_sport_multi_v2),
     ("test_need_improvements_3", data_3, resolve_nats_sport_multi_v2),
 ]
 

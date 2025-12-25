@@ -18,7 +18,6 @@ from ...translations.mixed.keys2 import medical_keys
 from ...translations import get_from_new_p17_final, get_from_pf_keys2
 
 from ...make_bots.matables_bots.table1_bot import get_KAKO
-# from ..make_bots.ma_bots.country2_lab import get_lab_for_country2
 from ...helps import logger
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..new_jobs_resolver import new_jobs_resolver_label
