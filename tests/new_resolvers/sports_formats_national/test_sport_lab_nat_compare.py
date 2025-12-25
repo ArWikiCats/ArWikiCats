@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
 data_0 = {
+    "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",
+    "american defunct football teams": "فرق كرة قدم أمريكية سابقة",
     "central american national football teams": "منتخبات كرة قدم وطنية أمريكية أوسطية",
     "south american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية جنوبية",
     "oceanian national rugby union teams": "منتخبات اتحاد رجبي وطنية أوقيانوسية",
@@ -14,6 +16,10 @@ data_0 = {
 }
 
 data_1 = {
+    "central american under-13 football": "كرة قدم أمريكية أوسطية تحت 13 سنة",
+    "central american football": "كرة قدم أمريكية أوسطية",
+    "central american national football": "كرة قدم وطنية أمريكية أوسطية",
+
     "african national under-23 football teams": "منتخبات كرة قدم وطنية إفريقية تحت 23 سنة",
     "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
     "republic-of ireland national youth football teams": "منتخبات كرة قدم وطنية أيرلندية للشباب",
@@ -288,6 +294,9 @@ data_1 = {
 }
 
 data_womens = {
+    "european national womens volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
+    "european national womens volleyball teams players": "لاعبات منتخبات كرة طائرة وطنية أوروبية للسيدات",
+
     "african women's football": "كرة قدم إفريقية نسائية",
     "algerian women's football": "كرة قدم جزائرية نسائية",
     "american women's basketball": "كرة سلة أمريكية نسائية",
@@ -349,9 +358,23 @@ data_2 = {
 }
 
 
+@pytest.mark.parametrize("key,expected", data_0.items(), ids=data_0.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load_0(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
 @pytest.mark.parametrize("key,expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
-def test_sport_lab_nat_load(key: str, expected: str) -> None:
+def test_sport_lab_nat_load_1(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("key,expected", data_womens.items(), ids=data_womens.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load_3(key: str, expected: str) -> None:
     result2 = sport_lab_nat_load_new(key)
     assert result2 == expected
 
@@ -380,6 +403,7 @@ def test_the_compare() -> None:
 
 
 to_test = [
+    ("test_sport_lab_nat_load_0", data_0),
     ("test_sport_lab_nat_load_1", data_1),
     ("test_sport_lab_nat_load_2", data_2),
     ("test_sport_lab_nat_load_3", data_womens),
