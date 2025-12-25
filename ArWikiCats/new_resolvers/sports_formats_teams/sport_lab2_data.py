@@ -3,7 +3,6 @@
 """
 
 jobs_formatted_data_shared = {
-    "{en_sport}": "{sport_jobs}",
     "domestic {en_sport}": "{sport_jobs} محلية",
     "professional {en_sport}": "{sport_jobs} للمحترفين",
     "indoor {en_sport}": "{sport_jobs} داخل الصالات",
@@ -22,6 +21,7 @@ jobs_formatted_data_shared = {
 }
 
 jobs_formatted_data = {
+    "{en_sport}": "{sport_jobs}",
 
     "domestic womens {en_sport} leagues": "دوريات {sport_jobs} محلية للسيدات",
     "domestic womens {en_sport}": "{sport_jobs} محلية للسيدات",
