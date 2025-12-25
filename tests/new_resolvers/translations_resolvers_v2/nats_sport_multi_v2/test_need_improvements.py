@@ -25,6 +25,24 @@ nat_p17_oioi_to_check_data = {
     "olympic gold medalists in baseball": "فائزون بميداليات ذهبية أولمبية في كرة القاعدة",
     "olympic bronze medalists in baseball": "فائزون بميداليات برونزية أولمبية في كرة القاعدة",
 
+    "chinese current boxing seasons": "مواسم بوكسينغ صينية حالية",
+    "chinese defunct indoor boxing clubs": "أندية بوكسينغ صينية داخل الصالات سابقة",
+    "chinese defunct indoor boxing coaches": "مدربو بوكسينغ صينية داخل الصالات سابقة",
+    "chinese defunct indoor boxing competitions": "منافسات بوكسينغ صينية داخل الصالات سابقة",
+    "chinese defunct indoor boxing leagues": "دوريات بوكسينغ صينية داخل الصالات سابقة",
+    "chinese defunct boxing clubs": "أندية بوكسينغ صينية سابقة",
+    "chinese defunct boxing coaches": "مدربو بوكسينغ صينية سابقة",
+    "chinese defunct boxing competitions": "منافسات بوكسينغ صينية سابقة",
+    "chinese defunct boxing leagues": "دوريات بوكسينغ صينية سابقة",
+    "chinese defunct outdoor boxing clubs": "أندية بوكسينغ صينية في الهواء الطلق سابقة",
+    "chinese defunct outdoor boxing coaches": "مدربو بوكسينغ صينية في الهواء الطلق سابقة",
+    "chinese defunct outdoor boxing competitions": "منافسات بوكسينغ صينية في الهواء الطلق سابقة",
+    "chinese defunct outdoor boxing leagues": "دوريات بوكسينغ صينية في الهواء الطلق سابقة",
+    "chinese professional boxing clubs": "أندية بوكسينغ صينية للمحترفين",
+    "chinese professional boxing coaches": "مدربو بوكسينغ صينية للمحترفين",
+    "chinese professional boxing competitions": "منافسات بوكسينغ صينية للمحترفين",
+    "chinese professional boxing leagues": "دوريات بوكسينغ صينية للمحترفين",
+
     "chinese boxing chairmen and investors": "رؤساء ومسيرو بوكسينغ صينية",
     "chinese boxing leagues": "دوريات بوكسينغ صينية",
     "chinese boxing clubs": "أندية بوكسينغ صينية",
@@ -40,29 +58,10 @@ nat_p17_oioi_to_check_data = {
     "chinese domestic boxing competitions": "منافسات بوكسينغ صينية محلية",
     "chinese domestic boxing leagues": "دوريات بوكسينغ صينية محلية",
 
-    "chinese current boxing seasons": "مواسم للبوكسينغ الصين حالية",
-    "chinese defunct indoor boxing clubs": "أندية للبوكسينغ الصين داخل الصالات سابقة",
-    "chinese defunct indoor boxing coaches": "مدربو للبوكسينغ الصين داخل الصالات سابقة",
-    "chinese defunct indoor boxing competitions": "منافسات للبوكسينغ الصين داخل الصالات سابقة",
-    "chinese defunct indoor boxing leagues": "دوريات للبوكسينغ الصين داخل الصالات سابقة",
-    "chinese defunct boxing clubs": "أندية للبوكسينغ الصين سابقة",
-    "chinese defunct boxing coaches": "مدربو للبوكسينغ الصين سابقة",
-    "chinese defunct boxing competitions": "منافسات للبوكسينغ الصين سابقة",
-    "chinese defunct boxing leagues": "دوريات للبوكسينغ الصين سابقة",
-    "chinese defunct outdoor boxing clubs": "أندية للبوكسينغ الصين في الهواء الطلق سابقة",
-    "chinese defunct outdoor boxing coaches": "مدربو للبوكسينغ الصين في الهواء الطلق سابقة",
-    "chinese defunct outdoor boxing competitions": "منافسات للبوكسينغ الصين في الهواء الطلق سابقة",
-    "chinese defunct outdoor boxing leagues": "دوريات للبوكسينغ الصين في الهواء الطلق سابقة",
-
-    "chinese professional boxing clubs": "أندية للبوكسينغ الصين للمحترفين",
-    "chinese professional boxing coaches": "مدربو للبوكسينغ الصين للمحترفين",
-    "chinese professional boxing competitions": "منافسات للبوكسينغ الصين للمحترفين",
-    "chinese professional boxing leagues": "دوريات للبوكسينغ الصين للمحترفين",
 }
 
 data_3 = {
 }
-
 
 to_test = [
     ("test_need_improvements_1", data_1, resolve_nats_sport_multi_v2),
@@ -79,7 +78,7 @@ def test_need_improvements_1(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category, expected", nat_p17_oioi_to_check_data.items(), ids=nat_p17_oioi_to_check_data.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_need_improvements_2(category: str, expected: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected

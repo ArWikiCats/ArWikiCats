@@ -15,7 +15,7 @@ from ...translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_TEAM,
 )
 
-new_team_xo_jobs = {
+jobs_formatted_data = {
     "{en_sport}": "{sport_jobs}",
     "under-13 {en_sport}": "{sport_jobs} تحت 13 سنة",
     "under-14 {en_sport}": "{sport_jobs} تحت 14 سنة",
@@ -168,9 +168,15 @@ new_team_xo_jobs = {
     "{en_sport} super leagues": "دوريات سوبر {sport_jobs}",
     "youth international {en_sport}": "{sport_jobs} دولية شبابية",
     "youth {en_sport}": "{sport_jobs} شبابية",
+
+    # Category:Multi-national women's basketball leagues in Europe
+    "multi-national women's {en_sport} leagues": "دوريات {sport_label} نسائية متعددة الجنسيات",
+    # Category:National junior women's goalball teams
+    "national junior women's {en_sport} teams": "منتخبات {sport_label} للناشئات",
 }
 
-new_team_xo_labels = {
+# NOTE: used in countries_names_sport_multi_v2.py
+labels_formatted_data = {
     "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
     "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
     "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
@@ -182,7 +188,7 @@ new_team_xo_labels = {
     "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
 }
 
-new_team_xo_team_labels = {
+teams_formatted_data = {
     "amateur {en_sport} world cup": "كأس العالم {sport_teams} للهواة",
     "international {en_sport} council": "المجلس الدولي {sport_teams}",
     "men's {en_sport} championship": "بطولة {sport_teams} للرجال",
@@ -216,31 +222,21 @@ new_team_xo_team_labels = {
     "youth {en_sport} world cup": "كأس العالم {sport_teams} للشباب",
 }
 
-new_team_jobs = dict(new_team_xo_jobs)
-
-new_team_jobs.update(
-    {
-        # Category:Multi-national women's basketball leagues in Europe
-        "multi-national women's {en_sport} leagues": "دوريات {sport_label} نسائية متعددة الجنسيات",
-        # Category:National junior women's goalball teams
-        "national junior women's {en_sport} teams": "منتخبات {sport_label} للناشئات",
-    }
-)
 
 labels_bot = FormatData(
-    new_team_xo_labels,
+    labels_formatted_data,
     SPORTS_KEYS_FOR_LABEL,
     key_placeholder="{en_sport}",
     value_placeholder="{sport_label}",
 )
 teams_bot = FormatData(
-    new_team_xo_team_labels,
+    teams_formatted_data,
     SPORTS_KEYS_FOR_TEAM,
     key_placeholder="{en_sport}",
     value_placeholder="{sport_teams}",
 )
 jobs_bot = FormatData(
-    new_team_jobs,
+    jobs_formatted_data,
     SPORTS_KEYS_FOR_JOBS,
     key_placeholder="{en_sport}",
     value_placeholder="{sport_jobs}",

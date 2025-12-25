@@ -13,9 +13,11 @@ from ..translations_resolvers.countries_names_data import formatted_data_en_ar_o
 from .nats_as_country_names import nats_keys_as_country_names
 from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
+from ..sports_formats_teams.sport_lab2 import labels_formatted_data
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
 sports_formatted_data = {
+    # sports_formatted_data data:
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
@@ -25,10 +27,6 @@ sports_formatted_data = {
     "olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_label}",
     "olympic silver medalists for {en} in {en_sport}": "فائزون بميداليات فضية أولمبية من {ar} في {sport_label}",
     "olympic bronze medalists for {en} in {en_sport}": "فائزون بميداليات برونزية أولمبية من {ar} في {sport_label}",
-
-    "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
-    "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
-    "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
 
     "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} playerss": "لاعبات {sport_jobs}",
@@ -134,6 +132,8 @@ sports_formatted_data = {
     "{en} national amateur {en_sport} team": "منتخب {ar} {sport_team} للهواة",
     "{en} multi-national women's {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
 }
+
+sports_formatted_data.update(labels_formatted_data)
 
 WOMENS_NATIONAL_DATA = {
     x.replace("women's national", "national women's"): v
