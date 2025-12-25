@@ -230,8 +230,8 @@ sports_formatted_data = {
     "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
 }
 
-sports_formatted_data.update(labels_formatted_data)
-sports_formatted_data.update(jobs_formatted_data_shared)
+# sports_formatted_data.update(labels_formatted_data)
+# sports_formatted_data.update(jobs_formatted_data_shared)
 
 
 def _levels_data() -> dict[str, str]:

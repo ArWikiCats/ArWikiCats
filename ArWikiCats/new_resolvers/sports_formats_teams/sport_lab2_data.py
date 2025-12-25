@@ -3,6 +3,7 @@
 """
 
 jobs_formatted_data_shared = {
+    "{en_sport} competitions": "منافسات {sport_jobs}",
     "domestic {en_sport}": "{sport_jobs} محلية",
     "professional {en_sport}": "{sport_jobs} للمحترفين",
     "indoor {en_sport}": "{sport_jobs} داخل الصالات",
@@ -21,7 +22,7 @@ jobs_formatted_data_shared = {
 }
 
 jobs_formatted_data = {
-    "{en_sport}": "{sport_jobs}",
+    # "{en_sport}": "{sport_jobs}",
 
     "domestic womens {en_sport} leagues": "دوريات {sport_jobs} محلية للسيدات",
     "domestic womens {en_sport}": "{sport_jobs} محلية للسيدات",
@@ -179,7 +180,7 @@ jobs_formatted_data.update(jobs_formatted_data_shared)
 
 # NOTE: used in countries_names_sport_multi_v2.py and nats_sport_multi_v2.py
 labels_formatted_data = {
-    # "{en_sport}": "{sport_label}",
+    "{en_sport}": "{sport_label}",
     "{en_sport} finals": "نهائيات {sport_label}",
     "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
     "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",

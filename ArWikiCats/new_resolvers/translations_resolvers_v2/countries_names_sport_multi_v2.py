@@ -139,8 +139,8 @@ sports_formatted_data = {
     "{en} multi-national womens {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
 }
 
-sports_formatted_data.update(labels_formatted_data)
-sports_formatted_data.update(jobs_formatted_data_shared)
+# sports_formatted_data.update(labels_formatted_data)
+# sports_formatted_data.update(jobs_formatted_data_shared)
 
 WOMENS_NATIONAL_DATA = {
     x.replace("womens national", "national womens"): v

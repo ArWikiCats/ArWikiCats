@@ -24,6 +24,8 @@ new_for_nat_female_xo_team_2 = {
     # "yemeni football": "كرة قدم يمنية",
     # "{en} {en_sport}": "{sport_jobs} {female}",  # Category:American_basketball
     "{en} {en_sport} leagues": "دوريات {sport_jobs} {female}",
+    "{en} {en_sport} competitions": "منافسات {sport_jobs} {female}",
+    "{en_sport} competitions": "منافسات {sport_jobs}",
     # "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
     # "yemeni national football": "كرة قدم وطنية يمنية",
     "{en} national {en_sport}": "{sport_jobs} وطنية {female}",
@@ -193,8 +195,8 @@ new_for_nat_female_xo_team_additional = {
 
 new_for_nat_female_xo_team_2.update(new_for_nat_female_xo_team_additional)
 
-new_for_nat_female_xo_team_2.update(labels_formatted_data)
-new_for_nat_female_xo_team_2.update(jobs_formatted_data_shared)
+# new_for_nat_female_xo_team_2.update(labels_formatted_data)
+# new_for_nat_female_xo_team_2.update(jobs_formatted_data_shared)
 
 
 @functools.lru_cache(maxsize=1)
