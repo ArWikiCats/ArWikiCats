@@ -130,6 +130,19 @@ def load_bot() -> MultiDataFormatterBaseV2:
         x: v for x, v in nats_keys_as_country_names.items()
     })
 
+    nats_data.update({
+        "jewish american": {
+            "male": "أمريكي يهودي",
+            "males": "أمريكيون يهود",
+            "female": "أمريكية يهودية",
+            "females": "أمريكيات يهوديات",
+            "en": "",
+            "ar": "",
+            "the_female": "الأمريكية اليهودية",
+            "the_male": "الأمريكي اليهودي"
+        }
+    })
+
     return format_multi_data_v2(
         formatted_data=formatted_data,
 
