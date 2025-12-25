@@ -21,7 +21,8 @@ from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
-from ..translations import get_from_new_p17_final, wrap_team_xo_normal_2025
+from ..translations import get_from_new_p17_final
+from ..new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025_with_ends
 
 
 class EventLabResolver:
@@ -99,7 +100,7 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = wrap_team_xo_normal_2025(category3) or resolve_nats_sport_multi_v2(category3)
+        category_lab = wrap_team_xo_normal_2025_with_ends(category3) or resolve_nats_sport_multi_v2(category3)
         if category_lab:
             return category_lab
 

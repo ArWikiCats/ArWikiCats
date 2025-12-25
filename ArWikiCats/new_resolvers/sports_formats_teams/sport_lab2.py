@@ -78,6 +78,7 @@ jobs_formatted_data = {
     "international women's {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
     "international women's {en_sport}": "{sport_jobs} دولية للسيدات",
     "International {en_sport} competition": "منافسات {sport_jobs} دولية",
+    "International {en_sport} competitions": "منافسات {sport_jobs} دولية",
     "international {en_sport} managers": "مدربو {sport_jobs} دوليون",
     "international {en_sport} players": "لاعبو {sport_jobs} دوليون",
     "international {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
@@ -177,16 +178,17 @@ jobs_formatted_data = {
 
 # NOTE: used in countries_names_sport_multi_v2.py
 labels_formatted_data = {
+    # "{en_sport}": "{sport_label}",
     "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
     "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
     "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
-    "{en_sport}": "{sport_label}",
     "{en_sport} league": "دوري {sport_label}",
     "{en_sport} champions": "أبطال {sport_label}",
     "olympics {en_sport}": "{sport_label} في الألعاب الأولمبية",
     "summer olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الصيفية",
     "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
 }
+
 
 teams_formatted_data = {
     "amateur {en_sport} world cup": "كأس العالم {sport_teams} للهواة",

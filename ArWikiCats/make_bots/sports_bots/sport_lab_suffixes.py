@@ -12,7 +12,7 @@ from ...helps.log import logger
 from ...translations import SPORTS_KEYS_FOR_JOBS
 from ..o_bots.utils import resolve_suffix_template
 from ...new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
-from ...new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
+from ...new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025_with_ends
 from . import team_work
 
 
@@ -38,7 +38,7 @@ def get_teams_new(team_name: str) -> str:
     logger.info(f'start get_teams_new team:"{normalized_team}"')
     logger.debug(f"get_teams_new: Resolving team label, team: {normalized_team}")
 
-    team_label = wrap_team_xo_normal_2025(normalized_team) or resolve_nats_sport_multi_v2(normalized_team)
+    team_label = wrap_team_xo_normal_2025_with_ends(normalized_team) or resolve_nats_sport_multi_v2(normalized_team)
 
     if not team_label:
         team_label = resolve_suffix_template(

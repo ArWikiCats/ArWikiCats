@@ -90,10 +90,8 @@ from .type_tables import typeTable
 from .utils.match_sport_keys import match_sport_key
 
 from .utils import apply_pattern_replacements
-from ..new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025
 
 __all__ = [
-    "wrap_team_xo_normal_2025",
     "open_json_file",
     "sub_teams_new",
     "SPORT_JOB_VARIANTS",
