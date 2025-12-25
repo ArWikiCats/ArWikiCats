@@ -3,14 +3,33 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_formats_national.sport_lab_nat import sport_lab_nat_load_new
 
-data = {
+data_0 = {
+    "central american national football teams": "منتخبات كرة قدم وطنية أمريكية أوسطية",
+    "south american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية جنوبية",
+    "oceanian national rugby union teams": "منتخبات اتحاد رجبي وطنية أوقيانوسية",
+    "oceanian national football teams": "منتخبات كرة قدم وطنية أوقيانوسية",
+    "european national beach soccer teams": "منتخبات كرة قدم شاطئية وطنية أوروبية",
+    "luxembourg national football teams": "منتخبات كرة قدم وطنية لوكسمبورغية",
+    "central american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية أوسطية",
+}
+
+data_1 = {
+    "african national under-23 football teams": "منتخبات كرة قدم وطنية إفريقية تحت 23 سنة",
+    "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
+    "republic-of ireland national youth football teams": "منتخبات كرة قدم وطنية أيرلندية للشباب",
+    "oceanian national under-17 football teams": "منتخبات كرة قدم وطنية أوقيانوسية تحت 17 سنة",
+    "botswana national youth football teams": "منتخبات كرة قدم وطنية بوتسوانية للشباب",
+    "asian national under-23 football teams": "منتخبات كرة قدم وطنية آسيوية تحت 23 سنة",
+    "asian national youth football teams": "منتخبات كرة قدم وطنية آسيوية للشباب",
+    "european national women's volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
+    "european national women's under-21 football teams": "منتخبات كرة قدم وطنية أوروبية تحت 21 سنة للسيدات",
+
     "afghan cricket": "كريكت أفغانية",
     "african archery": "نبالة إفريقية",
     "african basketball leagues": "دوريات كرة سلة إفريقية",
     "african basketball": "كرة سلة إفريقية",
     "african football leagues": "دوريات كرة قدم إفريقية",
     "african handball": "كرة يد إفريقية",
-    "african national under-23 football teams": "منتخبات كرة قدم وطنية إفريقية تحت 23 سنة",
     "albanian football leagues": "دوريات كرة قدم ألبانية",
     "algerian basketball": "كرة سلة جزائرية",
     "american basketball": "كرة سلة أمريكية",
@@ -30,8 +49,6 @@ data = {
     "asian football leagues": "دوريات كرة قدم آسيوية",
     "asian futsal": "كرة صالات آسيوية",
     "asian ice hockey": "هوكي جليد آسيوية",
-    "asian national under-23 football teams": "منتخبات كرة قدم وطنية آسيوية تحت 23 سنة",
-    "asian national youth football teams": "منتخبات كرة قدم وطنية آسيوية للشباب",
     "asian rugby league competitions": "منافسات دوري رجبي آسيوية",
     "australian basketball": "كرة سلة أسترالية",
     "australian college": "كليات أسترالية",
@@ -60,7 +77,6 @@ data = {
     "belgian football leagues": "دوريات كرة قدم بلجيكية",
     "belgian ice hockey": "هوكي جليد بلجيكية",
     "bosnia and herzegovina football leagues": "دوريات كرة قدم بوسنية",
-    "botswana national youth football teams": "منتخبات كرة قدم وطنية بوتسوانية للشباب",
     "brazilian football leagues": "دوريات كرة قدم برازيلية",
     "brazilian martial arts": "فنون قتالية برازيلية",
     "british basketball leagues": "دوريات كرة سلة بريطانية",
@@ -75,8 +91,6 @@ data = {
     "canadian domestic cricket competitions": "منافسات كريكت كندية محلية",
     "canadian domestic cricket": "كريكت كندية محلية",
     "canadian ice hockey": "هوكي جليد كندية",
-    "central american national football teams": "منتخبات كرة قدم وطنية أمريكية أوسطية",
-    "central american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية أوسطية",
     "chinese basketball": "كرة سلة صينية",
     "chinese football leagues": "دوريات كرة قدم صينية",
     "croatian basketball": "كرة سلة كرواتية",
@@ -110,7 +124,6 @@ data = {
     "european futsal": "كرة صالات أوروبية",
     "european ice hockey leagues": "دوريات هوكي جليد أوروبية",
     "european ice hockey": "هوكي جليد أوروبية",
-    "european national beach soccer teams": "منتخبات كرة قدم شاطئية وطنية أوروبية",
     "european volleyball leagues": "دوريات كرة طائرة أوروبية",
     "european water polo": "كرة ماء أوروبية",
     "faroese football leagues": "دوريات كرة قدم فاروية",
@@ -168,7 +181,6 @@ data = {
     "lebanese football leagues": "دوريات كرة قدم لبنانية",
     "lithuanian basketball": "كرة سلة ليتوانية",
     "lithuanian ice hockey": "هوكي جليد ليتوانية",
-    "luxembourg national football teams": "منتخبات كرة قدم وطنية لوكسمبورغية",
     "malaysian basketball": "كرة سلة ماليزية",
     "malaysian cricket": "كريكت ماليزية",
     "malaysian football competitions": "منافسات كرة قدم ماليزية",
@@ -188,9 +200,6 @@ data = {
     "oceanian domestic football cups": "كؤوس كرة قدم أوقيانوسية محلية",
     "oceanian football leagues": "دوريات كرة قدم أوقيانوسية",
     "oceanian futsal": "كرة صالات أوقيانوسية",
-    "oceanian national football teams": "منتخبات كرة قدم وطنية أوقيانوسية",
-    "oceanian national rugby union teams": "منتخبات اتحاد رجبي وطنية أوقيانوسية",
-    "oceanian national under-17 football teams": "منتخبات كرة قدم وطنية أوقيانوسية تحت 17 سنة",
     "omani cricket": "كريكت عمانية",
     "pakistani cricket": "كريكت باكستانية",
     "panamanian football leagues": "دوريات كرة قدم بنمية",
@@ -207,7 +216,6 @@ data = {
     "republic-of ireland football cups": "كؤوس كرة قدم أيرلندية",
     "republic-of ireland football leagues": "دوريات كرة قدم أيرلندية",
     "republic-of ireland football": "كرة قدم أيرلندية",
-    "republic-of ireland national youth football teams": "منتخبات كرة قدم وطنية أيرلندية للشباب",
     "romanian basketball": "كرة سلة رومانية",
     "romanian ice hockey": "هوكي جليد رومانية",
     "russian basketball": "كرة سلة روسية",
@@ -233,8 +241,6 @@ data = {
     "south african soccer leagues": "دوريات كرة قدم جنوبية إفريقية",
     "south american basketball": "كرة سلة أمريكية جنوبية",
     "south american futsal": "كرة صالات أمريكية جنوبية",
-    "south american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية جنوبية",
-    "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
     "south korean basketball": "كرة سلة كورية جنوبية",
     "soviet football leagues": "دوريات كرة قدم سوفيتية",
     "soviet ice hockey": "هوكي جليد سوفيتية",
@@ -282,8 +288,6 @@ data = {
 }
 
 data_womens = {
-    "european national women's volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
-
     "african women's football": "كرة قدم إفريقية نسائية",
     "algerian women's football": "كرة قدم جزائرية نسائية",
     "american women's basketball": "كرة سلة أمريكية نسائية",
@@ -308,7 +312,6 @@ data_womens = {
     "dutch women's football": "كرة قدم هولندية نسائية",
     "english women's football": "كرة قدم إنجليزية نسائية",
     "estonian women's football": "كرة قدم إستونية نسائية",
-    "european national women's under-21 football teams": "منتخبات كرة قدم وطنية أوروبية تحت 21 سنة للسيدات",
     "european women's basketball": "كرة سلة أوروبية نسائية",
     "european women's football": "كرة قدم أوروبية نسائية",
     "finnish women's football": "كرة قدم فنلندية نسائية",
@@ -335,15 +338,7 @@ data_womens = {
     "west german women's football": "كرة قدم ألمانية غربية نسائية",
 }
 
-
-@pytest.mark.parametrize("key,expected", data.items(), ids=data.keys())
-@pytest.mark.fast
-def test_sport_lab_nat_load(key: str, expected: str) -> None:
-    result2 = sport_lab_nat_load_new(key)
-    assert result2 == expected
-
-
-data2 = {
+data_2 = {
     "russian football teams": "فرق كرة قدم روسية",
     "american football teams": "فرق كرة قدم أمريكية",
     "american football competitions": "منافسات كرة قدم أمريكية",
@@ -354,7 +349,14 @@ data2 = {
 }
 
 
-@pytest.mark.parametrize("key,expected", data2.items(), ids=data2.keys())
+@pytest.mark.parametrize("key,expected", data_1.items(), ids=data_1.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("key,expected", data_2.items(), ids=data_2.keys())
 @pytest.mark.fast
 def test_compare(key: str, expected: str) -> None:
     """
@@ -378,8 +380,8 @@ def test_the_compare() -> None:
 
 
 to_test = [
-    ("test_sport_lab_nat_load_1", data),
-    ("test_sport_lab_nat_load_2", data2),
+    ("test_sport_lab_nat_load_1", data_1),
+    ("test_sport_lab_nat_load_2", data_2),
     ("test_sport_lab_nat_load_3", data_womens),
 ]
 

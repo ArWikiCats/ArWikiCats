@@ -56,8 +56,6 @@ new_for_nat_female_xo_team_2 = {
     "{en} national a {sport_en} teams": "منتخبات {sport_jobs} محليين {female}",
     "{en} national b {sport_en} teams": "منتخبات {sport_jobs} رديفة {female}",
     "{en} national reserve {sport_en} teams": "منتخبات {sport_jobs} وطنية احتياطية {female}",
-    "deaths by {en} airstrikes": "وفيات بضربات جوية {female}",
-    "{en} airstrikes": "ضربات جوية {female}",
 }
 
 new_for_nat_female_xo_team_additional = {

@@ -130,6 +130,7 @@ female_data = {
     "{en} crimes against humanity": "جرائم ضد الإنسانية {female}",
     "{en} war crimes": "جرائم حرب {female}",
     "{en} airstrikes": "ضربات جوية {female}",
+    "deaths by {en} airstrikes": "وفيات بضربات جوية {female}",
     "{en} archipelagoes": "أرخبيلات {female}",
     "{en} architecture": "عمارة {female}",
     "{en} autobiographies": "ترجمة ذاتية {female}",
