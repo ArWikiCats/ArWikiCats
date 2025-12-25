@@ -50,6 +50,18 @@ test_find_jobs_bot_data_0 = {
 }
 
 test_find_jobs_bot_data = {
+    "multi-national women's basketball leagues": "دوريات كرة سلة نسائية متعددة الجنسيات",
+    "national junior women's basketball teams": "منتخبات كرة سلة للناشئات",
+
+    "wheelchair rugby league": "دوري رجبي على كراسي متحركة",
+    "rugby": "رجبي",
+    "speed skating": "تزلج سريع",
+    "martial arts": "فنون قتالية",
+    "baseball": "كرة قاعدة",
+    "basketball": "كرة سلة",
+    "chess": "شطرنج",
+    "field hockey": "هوكي ميدان",
+
     "amateur wrestling": "مصارعة للهواة",
     "international women's wrestling competitions": "منافسات مصارعة دولية للسيدات",
     "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
@@ -80,7 +92,6 @@ test_find_jobs_bot_data = {
     "women's wrestling": "مصارعة نسائية",
     "women's wrestling teams": "فرق مصارعة نسائية",
     "national women's wrestling teams": "منتخبات مصارعة وطنية نسائية",
-    "multi-national women's basketball leagues": "دوريات كرة سلة نسائية متعددة الجنسيات",
 
     "under-13 wrestling manager history": "تاريخ مدربو مصارعة تحت 13 سنة",
     "under-14 wrestling manager history": "تاريخ مدربو مصارعة تحت 14 سنة",

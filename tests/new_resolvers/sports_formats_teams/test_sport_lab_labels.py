@@ -11,26 +11,22 @@ test_find_labels_bot_data_0 = {
 }
 
 test_find_labels_bot_data = {
+    "wheelchair rugby finals": "نهائيات الرجبي على الكراسي المتحركة",
+    "wheelchair rugby league finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
+    "rugby finals": "نهائيات الرجبي",
+    "rugby league finals": "نهائيات دوري الرجبي",
+    "baseball finals": "نهائيات كرة القاعدة",
+
     "olympic gold medalists in baseball": "فائزون بميداليات ذهبية أولمبية في كرة القاعدة",
     "olympic bronze medalists in baseball": "فائزون بميداليات برونزية أولمبية في كرة القاعدة",
 
     "baseball champions": "أبطال كرة القاعدة",
-    "baseball finals": "نهائيات كرة القاعدة",
     "baseball league": "دوري كرة القاعدة",
-    "baseball": "كرة القاعدة",
-    "basketball": "كرة السلة",
-    "chess": "الشطرنج",
-    "field hockey": "هوكي الميدان",
     "football league": "دوري كرة القدم",
     "hockey league": "دوري هوكي",
     "ice hockey league": "دوري هوكي الجليد",
-    "martial arts": "الفنون القتالية",
     "olympics baseball": "كرة القاعدة في الألعاب الأولمبية",
-    "rugby finals": "نهائيات الرجبي",
-    "rugby league finals": "نهائيات دوري الرجبي",
     "rugby league league": "دوري دوري الرجبي",
-    "rugby": "الرجبي",
-    "speed skating": "التزلج السريع",
     "softball league": "دوري الكرة اللينة",
     "summer olympics baseball": "كرة القاعدة في الألعاب الأولمبية الصيفية",
     "summer olympics basketball chairmen and investors": "رؤساء ومسيرو كرة السلة في الألعاب الأولمبية الصيفية",
@@ -41,9 +37,6 @@ test_find_labels_bot_data = {
     "summer olympics rugby sevens": "سباعيات الرجبي في الألعاب الأولمبية الصيفية",
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
-    "wheelchair rugby finals": "نهائيات الرجبي على الكراسي المتحركة",
-    "wheelchair rugby league finals": "نهائيات دوري الرجبي على الكراسي المتحركة",
-    "wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
     "winter olympics baseball": "كرة القاعدة في الألعاب الأولمبية الشتوية",
     "winter olympics sports": "ألعاب رياضية في الألعاب الأولمبية الشتوية",
 }
