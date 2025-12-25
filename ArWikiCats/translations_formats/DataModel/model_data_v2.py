@@ -91,12 +91,12 @@ class FormatDataV2(FormatDataBase):
                 if isinstance(val, str) and val:
                     final_label = final_label.replace(f"{{{key}}}", val)
 
-        if any(f"{key}" in final_label for key in sport_label.keys()):
-            logger.warning(f"Not all placeholders replaced in {final_label=}, {sport_label=}")
-            # If not all placeholders were replaced, we can choose to either
-            # leave the label as is or apply some default behavior.
-            # For now, we'll just log a warning and return the label.
-            return ""
+        # if any(f"{key}" in final_label for key in sport_label.keys()):
+        #     logger.warning(f"Not all placeholders replaced in {final_label=}, {sport_label=}")
+        #     # If not all placeholders were replaced, we can choose to either
+        #     # leave the label as is or apply some default behavior.
+        #     # For now, we'll just log a warning and return the label.
+        #     return ""
 
         return final_label.strip()
 
@@ -112,12 +112,12 @@ class FormatDataV2(FormatDataBase):
             if isinstance(val, str) and val:
                 final_label = final_label.replace(f"{{{key}}}", val)
 
-        if any(f"{key}" in final_label for key in value.keys()):
-            logger.warning(f"Not all placeholders replaced in {final_label=}, {value=}")
-            # If not all placeholders were replaced, we can choose to either
-            # leave the label as is or apply some default behavior.
-            # For now, we'll just log a warning and return the label.
-            return ""
+        # if any(f"{key}" in final_label for key in value.keys()):
+        #     logger.warning(f"Not all placeholders replaced in {final_label=}, {value=}")
+        #     # If not all placeholders were replaced, we can choose to either
+        #     # leave the label as is or apply some default behavior.
+        #     # For now, we'll just log a warning and return the label.
+        #     return ""
 
         return final_label
 

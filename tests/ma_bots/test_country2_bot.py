@@ -274,7 +274,7 @@ data_slow = {
     "international field hockey competitions": "منافسات هوكي ميدان دولية",
     "international football": "كرة قدم دولية",
     "international schools in united arab emirates": "مدارس دولية في الإمارات العربية المتحدة",
-    "international women's basketball competitions": "منافسات كرة سلة نسائية دولية",
+    "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
     "iowa territory": "إقليم آيوا",
     "islands of greece": "جزر اليونان",
     "italian defectors to soviet union": "إيطاليون منشقون إلى الاتحاد السوفيتي",

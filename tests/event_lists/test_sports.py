@@ -30,7 +30,7 @@ data1 = {
     "Category:Argentina women's international footballers": "تصنيف:لاعبات منتخب الأرجنتين لكرة القدم للسيدات",
     "Category:Belgian athletics coaches": "تصنيف:مدربو ألعاب قوى بلجيكيون",
     "Category:Coaches of national cricket teams": "تصنيف:مدربو منتخبات كريكت وطنية",
-    "Category:International women's basketball competitions hosted by Cuba": "تصنيف:منافسات كرة سلة نسائية دولية استضافتها كوبا",
+    "Category:International women's basketball competitions hosted by Cuba": "تصنيف:منافسات كرة سلة دولية للسيدات استضافتها كوبا",
     "Category:Sports coaches by nationality": "تصنيف:مدربو رياضة حسب الجنسية",
     "Category:Transport companies established in 1909": "تصنيف:شركات نقل أسست في 1909",
     "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
