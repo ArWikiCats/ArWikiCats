@@ -7,7 +7,7 @@ import pytest
 from ArWikiCats.time_resolvers.labs_years import LabsYears
 
 
-@pytest.mark.fast
+@pytest.mark.unit
 def test_labsyears() -> None:
     # Test the LabsYears class functionality
     labs_years_bot = LabsYears()
@@ -31,6 +31,7 @@ def test_labsyears() -> None:
     assert isinstance(from_year2, str)
 
 
+@pytest.mark.unit
 def test_lab_from_year_no_year() -> None:
     """Should return empty tuple when no 4-digit year exists."""
     bot = LabsYears()
@@ -38,6 +39,7 @@ def test_lab_from_year_no_year() -> None:
     assert result == ("", "")
 
 
+@pytest.mark.unit
 def test_lab_from_year_year_detected_but_no_template() -> None:
     """Should extract the year but return empty second value if template not found."""
     bot = LabsYears()
@@ -45,6 +47,7 @@ def test_lab_from_year_year_detected_but_no_template() -> None:
     assert result == ("1999", "")
 
 
+@pytest.mark.unit
 def test_lab_from_year_add_creates() -> None:
     """Should correctly create the template key/value with year replaced by {year1}."""
     bot = LabsYears()
@@ -62,6 +65,7 @@ def test_lab_from_year_add_creates() -> None:
     assert label2 == "تصنيف:قوائم متعلقة بعقد 1670"
 
 
+@pytest.mark.unit
 def test_lab_from_year_add_creates_template() -> None:
     """Should correctly create the template key/value with year replaced by {year1}."""
     bot = LabsYears()
@@ -76,6 +80,7 @@ def test_lab_from_year_add_creates_template() -> None:
     assert bot.category_templates["category:films in {year1}"] == "تصنيف:أفلام في {year1}"
 
 
+@pytest.mark.unit
 def test_lab_from_year_successful_lookup_and_replacement() -> None:
     """Should return converted label and increment lookup_count."""
     bot = LabsYears()
@@ -95,6 +100,7 @@ def test_lab_from_year_successful_lookup_and_replacement() -> None:
     assert bot.lookup_count == 1
 
 
+@pytest.mark.unit
 def test_lab_from_year_template_exists_with_different_year() -> None:
     """Should correctly replace {year1} back to real year even if category is different year."""
     bot = LabsYears()
@@ -115,6 +121,7 @@ def test_lab_from_year_template_exists_with_different_year() -> None:
     assert bot.lookup_count == 1
 
 
+@pytest.mark.unit
 def test_lab_from_year_add_missing_real_year() -> None:
     """Should do nothing if en_year is not inside category_lab."""
     bot = LabsYears()
@@ -130,6 +137,7 @@ def test_lab_from_year_add_missing_real_year() -> None:
     assert bot.category_templates == {}
 
 
+@pytest.mark.unit
 def test_with_decade() -> None:
     bot = LabsYears()
 
