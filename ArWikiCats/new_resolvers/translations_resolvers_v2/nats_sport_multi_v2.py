@@ -360,7 +360,7 @@ def _resolve_nats_sport_multi_v2(category: str) -> str:
     return result
 
 
-def fix_result_callable(result, category, key, value):
+def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
 
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")

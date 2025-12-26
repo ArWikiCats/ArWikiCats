@@ -52,7 +52,25 @@ def resolve_suffix_with_mapping_genders(
     fix_result_callable: callable = None,
     format_key: str = "",
 ) -> str:
-    """."""
+    """Resolves a category label by finding a matching suffix with gender-specific translations.
+
+    This function iterates through a mapping of suffixes to gendered labels. If a category
+    ends with a known suffix, it determines the correct gendered form (male or female)
+    based on the presence of 'womens' in the category string. It then recursively calls
+    a callback function on the remainder of the category string and combines the results.
+
+    Args:
+        category: The input category string to translate.
+        data: A dictionary mapping English suffixes to `GenderedLabel` objects.
+        callback: A callable that will be used to translate the base category string
+            after a suffix is stripped.
+        fix_result_callable: An optional callable to apply final fixes to the result.
+        format_key: A format string for combining the gendered value and the new label.
+
+    Returns:
+        The translated category label, or the result of the callback on the original
+        category if no suffix matches.
+    """
     logger.debug(f"<<yellow>> start resolve_suffix_with_mapping_genders: {category=}")
 
     result = ""
