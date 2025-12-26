@@ -144,7 +144,7 @@ data = [
     (" of ", "french guianan people of", "غويانيون فرنسيون في "),
     (" from ", "players of american football", "لاعبو كرة قدم أمريكية"),
     (" during ", "military history of estonia", "تاريخ إستونيا العسكري"),
-    (" in ", "defunct sports clubs and teams", "أندية رياضية سابقة وفرق"),
+    (" in ", "defunct sports clubs and teams", "أندية وفرق رياضية سابقة"),
     (" in ", "installations of united states air force", "منشآت في القوات الجوية الأمريكية"),
     (" in ", "united states air force", "القوات الجوية الأمريكية"),
     (" of ", "roman catholic archbishops of", "رؤساء أساقفة رومان كاثوليك في "),

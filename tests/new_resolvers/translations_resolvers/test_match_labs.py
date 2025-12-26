@@ -6,6 +6,15 @@ import pytest
 
 from ArWikiCats.new_resolvers.translations_resolvers.match_labs import find_teams_2025
 
+data00 = {
+    "sports competitions": "منافسات رياضية",
+    "women's sports clubs": "أندية رياضية نسائية",
+    "women's sports competitions": "منافسات رياضية نسائية",
+    "women's sports leagues": "دوريات رياضية نسائية",
+    "women's sports organizations": "منظمات رياضية نسائية",
+    "sports films": "أفلام رياضية",
+    "women's sports teams": "فرق رياضية نسائية",
+}
 data6 = {
     "amateur football competitions": "منافسات كرة قدم للهواة",
     "american football teams": "فرق كرة قدم أمريكية",
@@ -59,8 +68,6 @@ data6 = {
     "soccer matches": "مباريات كرة قدم",
     "soccer venues": "ملاعب كرة قدم",
     "softball venues": "ملاعب كرة لينة",
-    "sports competitions": "منافسات رياضية",
-    "sports films": "أفلام رياضية",
     "table tennis clubs": "أندية كرة طاولة",
     "tennis people": "أعلام كرة مضرب",
     "tennis tournaments": "بطولات كرة مضرب",
@@ -83,11 +90,6 @@ data6 = {
     "women's cricket teams": "فرق كريكت نسائية",
     "women's football clubs": "أندية كرة قدم نسائية",
     "women's soccer leagues": "دوريات كرة قدم نسائية",
-    "women's sports clubs": "أندية رياضية نسائية",
-    "women's sports competitions": "منافسات رياضية نسائية",
-    "women's sports leagues": "دوريات رياضية نسائية",
-    "women's sports organizations": "منظمات رياضية نسائية",
-    "women's sports teams": "فرق رياضية نسائية",
     "youth athletics competitions": "منافسات ألعاب قوى شبابية",
     "youth football competitions": "منافسات كرة قدم شبابية",
 }
