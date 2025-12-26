@@ -4,12 +4,10 @@ TODO: merge with sports_resolvers/raw_sports.py
 """
 
 import functools
-from typing import Dict
-
-from ...helps import logger, len_print
+from ...helps import logger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
-from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS, SPORT_KEY_RECORDS
-from ...translations_formats import FormatData, FormatDataV2
+from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations_formats import FormatDataV2
 
 teams_2025_sample = {
     "{sport} people": "أعلام {sport_jobs}",
@@ -66,6 +64,7 @@ mappings_data: dict[str, str] = {
 
 teams_2025 = {
     "{sport}": "{sport_jobs}",
+    # "{sport}": "{sport_label}",
     "amateur {sport}": "{sport_jobs} للهواة",
     "mens youth {sport}": "{sport_jobs} للشباب",
     "mens {sport}": "{sport_jobs} رجالية",
@@ -144,21 +143,6 @@ PPP_Keys = {
 
 
 @functools.lru_cache(maxsize=1)
-def load_class() -> FormatData:
-    """Load and cache the formatter used for 2025 team categories."""
-    sports_keys_for_jobs = dict(SPORTS_KEYS_FOR_JOBS)
-    sports_keys_for_jobs.pop("sports", None)
-    bot = FormatData(
-        formatted_data=teams_2025,
-        data_list=sports_keys_for_jobs,
-        key_placeholder="{sport}",
-        value_placeholder="{sport_jobs}"
-    )
-
-    return bot
-
-
-@functools.lru_cache(maxsize=1)
 def load_v2() -> FormatDataV2:
     """Load and cache the formatter used for 2025 team categories."""
 
@@ -193,7 +177,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 @functools.lru_cache(maxsize=None)
 def _find_teams_2025(category: str, default: str = "") -> str:
     """Search for a 2025 team label, falling back to ``default`` when absent."""
-    bot = load_class()
+    bot = load_v2()
     return bot.search_all_category(category) or default
 
 
@@ -211,6 +195,8 @@ def find_teams_2025(category) -> str:
     category = fix_keys(category)
 
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
+    # if SPORT_KEY_RECORDS.get(category): return SPORT_KEY_RECORDS[category].get("label", "")
+
     label2 = _find_teams_2025(category)
 
     if not label2:
@@ -233,11 +219,6 @@ def find_teams_2025(category) -> str:
     return label2
 
 
-len_print.data_len("sports/teams_new_data_2025.py", {
-    "teams_2025": teams_2025  # teams_2025: 526 <> "TEAMS_NEW": "352,946",
-})
-
 __all__ = [
     "find_teams_2025",
-    "teams_2025",
 ]
