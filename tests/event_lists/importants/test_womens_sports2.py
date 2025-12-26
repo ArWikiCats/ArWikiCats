@@ -36,19 +36,23 @@ data0 = {
 }
 
 data1 = {
-    "Category:Summer Olympics sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية الصيفية",
-    "Category:Olympic sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية",
-    "Category:Winter Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الشتوية",
-    "Category:Summer Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الصيفية",
-    "Category:Winter Olympics sports templates": "تصنيف:قوالب ألعاب رياضية في الألعاب الأولمبية الشتوية",
-    "Category:Summer Olympics sports templates": "تصنيف:قوالب الألعاب الأولمبية الصيفية الرياضية",
-    "Category:Former Olympic sports": "تصنيف:ألعاب أولمبية سابقة",
-    "Category:Ancient Olympic sports": "تصنيف:رياضات أولمبية قديمة",
-    "Category:Summer Olympic sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
-    "Category:Olympic sports": "تصنيف:ألعاب رياضية أولمبية",
 }
 
 data2 = {
+    "Category:Former Olympic sports": "تصنيف:رياضات أولمبية سابقة",
+    "Category:Ancient Olympic sports": "تصنيف:رياضات أولمبية قديمة",
+    "Category:Olympic sports": "تصنيف:رياضات ألعاب أولمبية",
+    "Category:Summer Olympic sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
+    "Category:Winter Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضات الألعاب الأولمبية الشتوية",
+    "Category:Summer Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضات الألعاب الأولمبية الصيفية",
+    "Category:Winter Olympics sports templates": "تصنيف:قوالب رياضات الألعاب الأولمبية الشتوية",
+    "Category:Summer Olympics sports templates": "تصنيف:قوالب رياضات الألعاب الأولمبية الصيفية",
+
+    "Category:Winter Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الشتوية",
+    "Category:Summer Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
+
+    "Category:Summer Olympics sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية الصيفية",
+    "Category:Olympic sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية",
     "Category:Summer Olympics sidebar templates": "تصنيف:قوالب أشرطة جانبية الألعاب الأولمبية الصيفية",
     "Category:Azerbaijan sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في أذربيجان",
     "Category:Austria sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في النمسا",
