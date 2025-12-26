@@ -1,4 +1,13 @@
 
+## [#276](https://github.com/MrIbrahem/ArWikiCats/pull/276) - 2025-12-27
+
+### Highlights
+
+* **Sports Team Category Resolution Logic**: The sports team category mapping logic in `match_labs.py` has been refactored to use `{sport_jobs}` placeholders and `FormatDataV2` with `SPORT_KEY_RECORDS` for more accurate and flexible label generation. This includes updates to the `teams_2025` data structure and the main lookup logic to utilize `load_v2` and `search_all_category` for improved cache efficiency and category matching.
+* **Test Coverage and Reliability**: Test cases in `test_match_labs.py` were updated to cover the new sports team label logic, including new mappings and edge cases. Fixtures in `test_extended.py` now use `{sport_label}`-based mapping for better test decoupling. Additionally, numerous tests in `test_labs_years.py` and `test_with_years_bot.py` have been marked with `pytest.mark.unit` and `pytest.mark.fast` for improved test suite organization and performance tracking.
+* **Performance and Data Accuracy**: Timing measurements in `compare.py` were upgraded from `time.time()` to `time.perf_counter()` for enhanced accuracy. A duplicate entry in `COUNTRY_YEAR_DATA` was corrected, and new test cases were added to `test_country_time_pattern.py` to improve coverage for country-year categories.
+* **Codebase Streamlining**: Unused imports and legacy code, such as `len_print` and deprecated data exports, have been removed from `match_labs.py` to streamline the module and reduce technical debt.
+
 ## [#275](https://github.com/MrIbrahem/ArWikiCats/pull/275) - 2025-12-27
 
 * **New Features**
