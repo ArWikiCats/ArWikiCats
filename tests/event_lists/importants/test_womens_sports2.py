@@ -5,15 +5,6 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
-    "Category:Sports sidebar templates": "",
-    "Category:Sports at multi-sport events sidebar templates": "",
-    "Category:Sports at the Summer Universiade": "",
-    "Category:sports by country": "",
-    "Category:sports by month": "",
-    "Category:Sports in Westchester County, New York": "",
-    "Category:Summer Olympics sports sidebar templates": "",
-    "Category:wheelchair sports": "",
-    "Category:Winter Olympics sports sidebar templates": "",
     "Category:American women's sports": "تصنيف:رياضات نسائية أمريكية",
     "Category:women's sports leagues in uzbekistan": "تصنيف:دوريات رياضات نسائية في أوزبكستان",
     "Category:Women's sports organizations in the United States": "تصنيف:منظمات رياضات نسائية في الولايات المتحدة",
@@ -42,6 +33,9 @@ data0 = {
     "Category:Women's sport by period": "تصنيف:رياضة نسائية حسب الحقبة",
     "Category:Women's sport in Mexico City": "تصنيف:رياضة نسائية في مدينة مكسيكو",
     "Category:Women's sport in Oceania by period": "تصنيف:رياضة نسائية في أوقيانوسيا حسب الحقبة",
+}
+
+data1 = {
     "Category:Sports sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية",
     "Category:Sports at multi-sport events sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية في الأحداث الرياضية المتعددة",
     "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
@@ -51,9 +45,6 @@ data0 = {
     "Category:Summer Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الصيفية",
     "Category:wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
     "Category:Winter Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الشتوية",
-}
-
-data1 = {
 }
 
 data2 = {
