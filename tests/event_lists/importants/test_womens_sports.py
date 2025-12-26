@@ -5,6 +5,36 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:2023 FIFA Women's World Cup players": "تصنيف:لاعبات كأس العالم لكرة القدم للسيدات 2023",
+    "Category:European Women's Hockey League players": "تصنيف:لاعبات الدوري الأوروبي للهوكي للسيدات",
+    "Category:UEFA Women's Euro 2017 players": "تصنيف:لاعبات بطولة أمم أوروبا لكرة القدم للسيدات 2017",
+    "Category:Victorian Women's Football League players": "تصنيف:لاعبات الدوري الفيكتوري لكرة القدم للسيدات",
+    "Category:Women's England Hockey League players": "تصنيف:لاعبات دوري إنجلترا للهوكي نسائية",
+    "Category:Women's Irish Hockey League players": "تصنيف:لاعبات الدوري الأيرلندي للهوكي نسائية",
+    "Category:Women's Korean Basketball League players": "تصنيف:لاعبات الدوري الكوري لكرة السلة نسائية",
+    "Category:Women's National Basketball Association players": "تصنيف:لاعبات الاتحاد الوطني لكرة السلة النسائية",
+
+}
+
+data2 = {
+    "Category:Ireland women's national basketball team players": "تصنيف:لاعبات منتخب أيرلندا لكرة السلة للسيدات",
+    "Category:Rugby league players by women's national team": "تصنيف:لاعبات دوري رجبي حسب منتخب السيدات الوطني",
+    "Category:Rugby union players by women's national team": "تصنيف:لاعبات اتحاد رجبي حسب منتخب السيدات الوطني",
+    "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبات الرابطة الصينية لكرة السلة للسيدات",
+    "Category:Association football players by women's under-20 national team": "تصنيف:لاعبات كرة قدم حسب المنتخب الوطني للسيدات تحت 20 سنة",
+    "Category:Association football players by women's under-21 national team": "تصنيف:لاعبات كرة قدم حسب المنتخب الوطني للسيدات تحت 21 سنة",
+    "Category:Association football players by women's under-23 national team": "تصنيف:لاعبات كرة قدم حسب المنتخب الوطني للسيدات تحت 23 سنة",
+    "Category:Basketball players by women's national team": "تصنيف:لاعبات كرة سلة حسب منتخب السيدات الوطني",
+    "Category:Galatasaray S.K. (women's basketball) players": "تصنيف:لاعبات نادي غلطة سراي لكرة السلة للسيدات",
+    "Category:Handball players by women's national team": "تصنيف:لاعبات كرة يد حسب منتخب السيدات الوطني",
+    "Category:UEFA Women's Euro 2022 players": "تصنيف:لاعبات بطولة أمم أوروبا لكرة القدم للسيدات 2022",
+    "Category:UEFA Women's Euro 2025 players": "تصنيف:لاعبات بطولة أمم أوروبا لكرة القدم للسيدات 2025",
+    "Category:Women's National Basketball Association players from Belgium": "تصنيف:لاعبات الاتحاد الوطني لكرة السلة النسائية من بلجيكا",
+    "Category:Women's National Basketball Association players from Croatia": "تصنيف:لاعبات الاتحاد الوطني لكرة السلة النسائية من كرواتيا",
+    "Category:Women's National Basketball Association players from Serbia": "تصنيف:لاعبات الاتحاد الوطني لكرة السلة النسائية من صربيا",
+    "Category:Women's National Basketball League players": "تصنيف:لاعبات الدوري الوطني لكرة السلة للسيدات",
+    "Category:Women's basketball players in the United States by league": "تصنيف:لاعبات كرة سلة نسائية في الولايات المتحدة حسب الدوري",
+    "Category:Women's handball players": "تصنيف:لاعبات كرة يد",
     "Category:1964 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1964",
     "Category:1972 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1972",
     "Category:2003 in Canadian women's sports": "تصنيف:رياضات نسائية كندية في 2003",
@@ -23,9 +53,6 @@ data1 = {
     "Category:Women's basketball players in the United States by league": "تصنيف:لاعبات كرة سلة نسائية في الولايات المتحدة حسب الدوري",
     "Category:Women's soccer players in Australia by competition": "تصنيف:لاعبات كرة قدم نسائية في أستراليا حسب المنافسة",
     "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
-}
-
-data2 = {
     "Category:American women's sports by year": "تصنيف:رياضات نسائية أمريكية حسب السنة",
     "Category:American women's sports by decade": "تصنيف:رياضات نسائية أمريكية حسب العقد",
     "Category:1887 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1887",
@@ -47,7 +74,6 @@ data2 = {
     "Category:1959 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1959",
     "Category:1961 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1961",
     "Category:1963 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1963",
-    "Category:1964 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1964",
     "Category:1966 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1966",
     "Category:1967 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1967",
     "Category:1968 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1968",

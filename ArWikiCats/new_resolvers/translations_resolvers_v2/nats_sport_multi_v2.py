@@ -133,6 +133,10 @@ sports_formatted_data = {
     "{en} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
     "{en} {en_sport} tour": "بطولة {ar} {sport_team}",
 
+    # Category:yemeni Women's Football League
+    "{en} womens {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+    "{en} womens {en_sport} league لاعبو": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+
     "womens national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
 
     "{en} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
