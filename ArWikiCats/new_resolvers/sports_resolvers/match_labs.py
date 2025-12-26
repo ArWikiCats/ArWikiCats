@@ -147,7 +147,12 @@ PPP_Keys = {
 def load_class() -> FormatData:
     """Load and cache the formatter used for 2025 team categories."""
     SPORTS_KEYS_FOR_JOBS.pop("sports", None)
-    bot = FormatData(teams_2025, SPORTS_KEYS_FOR_JOBS, key_placeholder="{sport}", value_placeholder="{sport_label}")
+    bot = FormatData(
+        teams_2025,
+        SPORTS_KEYS_FOR_JOBS,
+        key_placeholder="{sport}",
+        value_placeholder="{sport_label}"
+    )
 
     return bot
 
@@ -166,7 +171,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 def _find_teams_2025(category: str, default: str = "") -> str:
     """Search for a 2025 team label, falling back to ``default`` when absent."""
     bot = load_class()
-    return bot.search(category) or default
+    return bot.search_all_category(category) or default
 
 
 @functools.lru_cache(maxsize=10000)
