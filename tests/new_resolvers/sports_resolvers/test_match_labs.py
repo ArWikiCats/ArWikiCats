@@ -15,7 +15,9 @@ data00 = {
     "sports films": "أفلام رياضية",
     "women's sports teams": "فرق رياضية نسائية",
 }
+
 data6 = {
+    "Category:amateur football competitions": "منافسات كرة قدم للهواة",
     "amateur football competitions": "منافسات كرة قدم للهواة",
     "american football teams": "فرق كرة قدم أمريكية",
     "american football venues": "ملاعب كرة قدم أمريكية",
