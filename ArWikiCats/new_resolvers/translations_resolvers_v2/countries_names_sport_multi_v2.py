@@ -24,6 +24,11 @@ sports_formatted_data = {
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
 
     # sports_formatted_data data:
+    # "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
+    # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
+    "{en} sports federation": "الاتحاد {the_male} للرياضة",
+    "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
+
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",

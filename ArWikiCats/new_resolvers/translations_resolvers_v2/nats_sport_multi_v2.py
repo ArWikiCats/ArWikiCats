@@ -119,6 +119,11 @@ sports_formatted_data = {
     "{en} indoor {en_sport}": "{sport_jobs} {female} داخل الصالات",
 
     # data
+    # "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
+    # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
+    "{en} sports federation": "الاتحاد {the_male} للرياضة",
+    "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
+
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
     "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
