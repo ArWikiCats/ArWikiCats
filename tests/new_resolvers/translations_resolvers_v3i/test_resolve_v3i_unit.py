@@ -50,6 +50,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
     )
 
 
+@pytest.mark.unit
 class TestYearPart:
 
     test_data_standard = {
@@ -65,6 +66,7 @@ class TestYearPart:
         assert result == expected
 
 
+@pytest.mark.unit
 class TestMatchKeys:
     test_keys = {
         "14th-century writers from Hong Kong": ("14th-century", "writers from Hong Kong"),
@@ -92,6 +94,7 @@ class TestMatchKeys:
         assert result == c_key
 
 
+@pytest.mark.unit
 class TestCountriesPart:
     test_data_standard = {
         "writers from Hong Kong": "كتاب من هونغ كونغ",
@@ -108,6 +111,7 @@ class TestCountriesPart:
         assert result == expected
 
 
+@pytest.mark.unit
 class TestPart3:
     test_data_standard = {
         "14th-century writers from Hong Kong": "كتاب من هونغ كونغ في القرن 14",

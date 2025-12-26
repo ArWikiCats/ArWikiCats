@@ -20,7 +20,7 @@ from ...translations import get_from_new_p17_final, get_from_pf_keys2
 from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...helps import logger
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from ..jobs_resolvers import new_jobs_resolver_label
+from ..jobs_resolvers import resolve_jobs_main
 
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
@@ -54,7 +54,7 @@ def get_job_label(text: str) -> str:
     text = normalize_text(text)
     result = (
         jobs_part_labels.get(text) or
-        new_jobs_resolver_label(text) or
+        resolve_jobs_main(text) or
         # get_lab_for_country2(text) or
         ""
     )

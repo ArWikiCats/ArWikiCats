@@ -1,5 +1,5 @@
 """
-pytest tests/big_data/test_big.py -m dumpbig
+pytest tests/test_examples.py -m examples
 """
 
 import json
@@ -7,20 +7,24 @@ from pathlib import Path
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
-
 from ArWikiCats import resolve_arabic_category_label
 
 
 @pytest.fixture
-def load_json_data(request):
+def example_data(request: pytest.FixtureRequest):
     file_path = request.param
-    if not file_path.exists():
-        return {}  # أو pytest.skip(f"File {file_path} not found")
     with open(file_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        return json.load(f), file_path.stem
 
 
-def run_dump_logic(name, data):
+DATA_DIR = Path(__file__).parent.parent / "examples/data"
+FILE_PATHS = list(DATA_DIR.glob("*.json"))
+
+
+@pytest.mark.examples
+@pytest.mark.parametrize("example_data", FILE_PATHS, indirect=True, ids=lambda p: p.name)
+def test_examples_data(example_data: tuple[dict[str, str], str]) -> None:
+    data, name = example_data
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
@@ -28,13 +32,3 @@ def run_dump_logic(name, data):
     dump_diff(expected2, f"{name}_expected")
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-JSON_FILES = list((Path(__file__).parent / "religions_data").glob("*.json"))
-
-
-@pytest.mark.dumpbig
-@pytest.mark.parametrize("load_json_data", JSON_FILES, indirect=True, ids=lambda p: f"test_big_{p.name}")
-def test_religions_big_data(load_json_data, request) -> None:
-    name = request.node.callspec.id
-    run_dump_logic(name, load_json_data)

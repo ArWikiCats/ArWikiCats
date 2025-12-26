@@ -190,21 +190,21 @@ additional_keys_data = {
 
 
 @pytest.mark.parametrize("key,expected", new_for_nat_female_xo_team_2_data.items(), ids=new_for_nat_female_xo_team_2_data.keys())
-@pytest.mark.fast
+@pytest.mark.unit
 def test_new_for_nat_female_xo_team_2_data(key: str, expected: str) -> None:
     result2 = sport_lab_nat_load_new(key)
     assert result2 == expected
 
 
 @pytest.mark.parametrize("key,expected", end_key_mappings_data.items(), ids=end_key_mappings_data.keys())
-@pytest.mark.fast
+@pytest.mark.unit
 def test_end_key_mappings_data(key: str, expected: str) -> None:
     result2 = sport_lab_nat_load_new(key)
     assert result2 == expected
 
 
 @pytest.mark.parametrize("key,expected", additional_keys_data.items(), ids=additional_keys_data.keys())
-@pytest.mark.fast
+@pytest.mark.unit
 def test_additional_keys_data(key: str, expected: str) -> None:
     result2 = sport_lab_nat_load_new(key)
     assert result2 == expected

@@ -1,4 +1,17 @@
 
+## [#275](https://github.com/MrIbrahem/ArWikiCats/pull/275) - 2025-12-27
+
+* **New Features**
+  * Sports category resolution capability introduced for enhanced data classification
+
+* **Tests**
+  * Expanded test coverage with improved organization and categorization
+  * Test execution efficiency enhanced through refactored loading mechanisms
+
+* **Chores**
+  * Internal resolver architecture optimized for better maintainability and clarity
+  * Data entries cleaned up for consistency
+
 ## [#273](https://github.com/MrIbrahem/ArWikiCats/pull/273) - 2025-12-27
 
 * **Refactor**

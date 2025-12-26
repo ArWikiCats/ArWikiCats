@@ -13,11 +13,11 @@ from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_n
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 
 from ...new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
-from ...new_resolvers.nationalities_resolvers import resolved_translations_resolvers_v2
+from ...new_resolvers.nationalities_resolvers import resolve_nationalities_main
 
-from ...new_resolvers.countries_names_resolvers import resolved_translations_resolvers
-from ...new_resolvers.jobs_resolvers import new_jobs_resolver_label
-from ...new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
+from ...new_resolvers.countries_names_resolvers import resolve_countries_names_main
+from ...new_resolvers.jobs_resolvers import resolve_jobs_main
+from ...new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .film_keys_bot import resolve_films
 
 from ..media_bots.film_keys_bot import get_Films_key_CAO
@@ -61,10 +61,10 @@ def te_films(category: str) -> str:
         # resolved_translations_resolvers> [Italy political leader]:  "قادة إيطاليا السياسيون"
         # resolved_translations_resolvers_v2> [Italy political leader]:  "قادة سياسيون إيطاليون"
 
-        "resolved_translations_resolvers_v2": lambda k: resolved_translations_resolvers_v2(k),
+        "resolved_translations_resolvers_v2": lambda k: resolve_nationalities_main(k),
         "resolved_countries_formats_labels": lambda k: resolved_countries_formats_labels(k),
-        "resolved_translations_resolvers": lambda k: resolved_translations_resolvers(k),
-        "new_jobs_resolver_label": lambda k: new_jobs_resolver_label(k),
+        "resolved_translations_resolvers": lambda k: resolve_countries_names_main(k),
+        "new_jobs_resolver_label": lambda k: resolve_jobs_main(k),
         # "resolved_translations_resolvers_v3i": lambda k: resolved_translations_resolvers_v3i(k),
         "te_language": lambda k: te_language(k),
 
