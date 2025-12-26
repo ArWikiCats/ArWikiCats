@@ -36,18 +36,30 @@ data0 = {
 }
 
 data1 = {
-    "Category:Sports sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية",
-    "Category:Sports at multi-sport events sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية في الأحداث الرياضية المتعددة",
+    "Category:Summer Olympics sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية الصيفية",
+    "Category:Olympic sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية",
+    "Category:Winter Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الشتوية",
+    "Category:Summer Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الصيفية",
+    "Category:Winter Olympics sports templates": "تصنيف:قوالب ألعاب رياضية في الألعاب الأولمبية الشتوية",
+    "Category:Summer Olympics sports templates": "تصنيف:قوالب الألعاب الأولمبية الصيفية الرياضية",
+    "Category:Former Olympic sports": "تصنيف:ألعاب أولمبية سابقة",
+    "Category:Ancient Olympic sports": "تصنيف:رياضات أولمبية قديمة",
+    "Category:Summer Olympic sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
+    "Category:Olympic sports": "تصنيف:ألعاب رياضية أولمبية",
+}
+
+data2 = {
+    "Category:Summer Olympics sidebar templates": "تصنيف:قوالب أشرطة جانبية الألعاب الأولمبية الصيفية",
+    "Category:Azerbaijan sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في أذربيجان",
+    "Category:Austria sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في النمسا",
+    "Category:Winter Olympics sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية الشتوية",
+    "Category:wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
+    "Category:Sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية",
+    "Category:Sports at multi-sport events sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الأحداث الرياضية المتعددة",
     "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
     "Category:sports by country": "تصنيف:ألعاب رياضية حسب البلد",
     "Category:sports by month": "تصنيف:ألعاب رياضية حسب الشهر",
     "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
-    "Category:Summer Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الصيفية",
-    "Category:wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
-    "Category:Winter Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الشتوية",
-}
-
-data2 = {
 }
 
 to_test = [
