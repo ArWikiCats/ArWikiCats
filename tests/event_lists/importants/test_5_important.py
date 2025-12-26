@@ -48,6 +48,8 @@ data_empty = {
 }
 
 data0 = {
+    "Category:1972 in American women's sports": "تصنيف:رياضية أمريكية نسائية في 1972",
+    "Category:2003 in Canadian women's sports": "تصنيف:رياضية كندية نسائية في 2003",
     "Category:Jewish football clubs": "تصنيف:أندية كرة القدم اليهودية",
     "Category:Jewish sports": "تصنيف:ألعاب رياضية اليهودية",
     "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",
