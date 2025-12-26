@@ -1,5 +1,5 @@
 """
-pytest tests/big_data/test_big.py -m skip2
+pytest tests/big_data/test_big.py -m dumpbig
 """
 
 import json
@@ -21,7 +21,7 @@ for file in json_files:
 
 
 @pytest.mark.parametrize("name,data", _CASES.items())
-@pytest.mark.skip2
+@pytest.mark.dumpbig
 def test_religions_big_data(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
@@ -40,7 +40,7 @@ if file_path2.exists():
 
 
 @pytest.mark.parametrize("name,data", [(f"test_big_data_2_{len(data_2)}_item", data_2)])
-@pytest.mark.skip2
+@pytest.mark.dumpbig
 def test_religions_big_data_2(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
@@ -59,7 +59,7 @@ if file_path.exists():
 
 
 @pytest.mark.parametrize("name,data", [(f"test_big_data_3_with_{len(data_3)}_item", data_3)])
-@pytest.mark.skip2
+@pytest.mark.dumpbig
 def test_religions_big_data_3(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
