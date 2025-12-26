@@ -37,6 +37,7 @@ data1 = {
     "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
 }
 data2 = {
+    "Category:Women's sport by country and year": "تصنيف:رياضة نسوية حسب البلد حسب السنة",
     "Category:American women's sports by year": "تصنيف:رياضية أمريكية نسائية حسب السنة",
     "Category:American women's sports by decade": "تصنيف:رياضية أمريكية نسائية حسب العقد",
     "Category:1887 in American women's sports": "تصنيف:رياضية أمريكية نسائية في 1887",
@@ -160,5 +161,5 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    # dump_diff_text(expected, diff_result, name)
+    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
