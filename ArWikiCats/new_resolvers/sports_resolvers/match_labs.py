@@ -8,7 +8,7 @@ from typing import Dict
 
 from ...helps import logger, len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
-from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS, SPORT_KEY_RECORDS
 from ...translations_formats import FormatData, FormatDataV2
 
 teams_2025_sample = {
@@ -146,10 +146,11 @@ PPP_Keys = {
 @functools.lru_cache(maxsize=1)
 def load_class() -> FormatData:
     """Load and cache the formatter used for 2025 team categories."""
-    SPORTS_KEYS_FOR_JOBS.pop("sports", None)
+    sports_keys_for_jobs = dict(SPORTS_KEYS_FOR_JOBS)
+    sports_keys_for_jobs.pop("sports", None)
     bot = FormatData(
-        teams_2025,
-        SPORTS_KEYS_FOR_JOBS,
+        formatted_data=teams_2025,
+        data_list=sports_keys_for_jobs,
         key_placeholder="{sport}",
         value_placeholder="{sport_jobs}"
     )
@@ -160,12 +161,20 @@ def load_class() -> FormatData:
 @functools.lru_cache(maxsize=1)
 def load_v2() -> FormatDataV2:
     """Load and cache the formatter used for 2025 team categories."""
-    SPORTS_KEYS_FOR_JOBS.pop("sports", None)
+
+    sports_data = {
+        x: {
+            "sport_label": v.get("label", ""),
+            "sport_team": v.get("team", ""),
+            "sport_jobs": v.get("jobs", ""),
+        }
+        for x, v in SPORT_KEY_RECORDS.items()
+        if v.get("jobs") and x != "sports"
+    }
     bot = FormatDataV2(
-        teams_2025,
-        SPORTS_KEYS_FOR_JOBS,
+        formatted_data=teams_2025,
+        data_list=sports_data,
         key_placeholder="{sport}",
-        value_placeholder="{sport_jobs}"
     )
 
     return bot
