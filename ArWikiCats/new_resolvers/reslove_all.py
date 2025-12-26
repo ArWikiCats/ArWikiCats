@@ -18,7 +18,7 @@ def new_resolvers_all(category: str) -> str:
         resolve_v3i_main(category) or
         resolve_nationalities_main(category) or
         resolve_countries_names_main(category) or
-        resolve_sports_main(category) or
+        # resolve_sports_main(category) or
         ""
     )
     logger.debug(f"<< new_resolvers_all: {category} => {category_lab}")
