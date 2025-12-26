@@ -73,7 +73,6 @@ from .sports.Sport_key import (
     SPORT_KEY_RECORDS_BASE,
     SPORT_KEY_RECORDS,
 )
-from .sports_formats_2025.teamsnew_bot import teams_new_founder
 from .tv.films_mslslat import (
     Films_key_333,
     Films_key_CAO,
@@ -100,7 +99,6 @@ __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "apply_pattern_replacements",
     "typeTable",
-    "teams_new_founder",
     "match_sport_key",
     "olympic_event_translations",
     "en_nats_to_ar_label",
