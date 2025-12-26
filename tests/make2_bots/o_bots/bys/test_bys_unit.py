@@ -7,6 +7,7 @@ import pytest
 from ArWikiCats.make_bots.o_bots import bys
 
 
+@pytest.mark.unit
 def test_make_by_label_prefers_film_labels(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         "ArWikiCats.make_bots.o_bots.bys.te_films",
@@ -17,6 +18,7 @@ def test_make_by_label_prefers_film_labels(monkeypatch: pytest.MonkeyPatch) -> N
     assert result == "بواسطة فيلم"
 
 
+@pytest.mark.unit
 def test_make_by_label_falls_back_to_nationality(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         "ArWikiCats.make_bots.o_bots.bys.te_films",
@@ -27,6 +29,7 @@ def test_make_by_label_falls_back_to_nationality(monkeypatch: pytest.MonkeyPatch
     assert result == "بواسطة مصري"
 
 
+@pytest.mark.unit
 def test_find_dual_by_keys_supports_dual_categories(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         "ArWikiCats.make_bots.o_bots.bys.resolve_by_labels",
@@ -37,6 +40,7 @@ def test_find_dual_by_keys_supports_dual_categories(monkeypatch: pytest.MonkeyPa
     assert result == "حسب ألفا وبيتا"
 
 
+@pytest.mark.unit
 def test_get_by_label_combines_entity_and_suffix(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         "ArWikiCats.make_bots.o_bots.bys.resolve_by_labels",
@@ -51,6 +55,7 @@ def test_get_by_label_combines_entity_and_suffix(monkeypatch: pytest.MonkeyPatch
     assert result == "فنان حسب الميلاد"
 
 
+@pytest.mark.unit
 def test_get_and_label_returns_joined_entities(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
         "ArWikiCats.make_bots.o_bots.bys.get_from_new_p17_final",

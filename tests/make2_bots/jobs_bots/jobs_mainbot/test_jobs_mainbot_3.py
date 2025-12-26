@@ -30,10 +30,7 @@ def test_nat_mens_people_uses_full_mapping(country_key: str, expected_label: str
     assert result == f"أعلام {expected_label}"
 
 
-@pytest.mark.parametrize(
-    "country_key",
-    sorted(set(Nat_mens.keys()) & set(Nat_Womens.keys())),
-)
+@pytest.mark.parametrize("country_key", sorted(set(Nat_mens.keys()) & set(Nat_Womens.keys())))
 @pytest.mark.dict
 def test_nat_womens_women_uses_full_mapping_for_intersection(country_key: str) -> None:
     """For countries present in both Nat_mens and Nat_Womens, 'women' must use Nat_Womens."""
@@ -113,6 +110,7 @@ def test_mens_nato_templates_are_applied_for_all_men_keys(
     assert result == expected
 
 
+@pytest.mark.fast
 def test_mens_religious_expatriate() -> None:
     """Test religious + expatriate combination (both in NAT_BEFORE_OCC)"""
     result = jobs_with_nat_prefix("", "turkmenistan", "jewish")
