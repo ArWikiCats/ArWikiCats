@@ -20,11 +20,9 @@ data_2 = {
     "Category:UEFA Women's Euro 2022 players": "تصنيف:لاعبو بطولة أمم أوروبا لكرة القدم للسيدات 2022",
     "Category:UEFA Women's Euro 2025 players": "تصنيف:لاعبو بطولة أمم أوروبا لكرة القدم للسيدات 2025",
     "Category:Victorian Women's Football League players": "تصنيف:لاعبو الدوري الفيكتوري لكرة القدم للسيدات",
-    "Category:Women's basketball players in the United States by league": "تصنيف:لاعبو كرة سلة نسائية في الولايات المتحدة حسب الدوري",
     "Category:Women's England Hockey League players": "تصنيف:لاعبو دوري إنجلترا للهوكي نسائية",
     "Category:Women's Irish Hockey League players": "تصنيف:لاعبو الدوري الأيرلندي للهوكي نسائية",
     "Category:Women's Korean Basketball League players": "تصنيف:لاعبو الدوري الكوري لكرة السلة نسائية",
-    "Category:Women's soccer players in Australia by competition": "تصنيف:لاعبو كرة قدم نسائية في أستراليا حسب المنافسة",
 }
 
 data_3 = {

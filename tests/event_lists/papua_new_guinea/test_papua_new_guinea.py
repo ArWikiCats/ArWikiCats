@@ -948,7 +948,6 @@ data_1 = {
     "Category:Sports clubs and teams in Papua New Guinea": "تصنيف:أندية وفرق رياضية في بابوا غينيا الجديدة",
     "Category:Sports competitions in Papua New Guinea": "تصنيف:منافسات رياضية في بابوا غينيا الجديدة",
     "Category:Sports festivals in Papua New Guinea": "تصنيف:مهرجانات رياضية في بابوا غينيا الجديدة",
-    "Category:Sports leagues in Papua New Guinea": "تصنيف:دوريات ألعاب رياضية في بابوا غينيا الجديدة",
     "Category:Sports organisations of Papua New Guinea": "تصنيف:منظمات رياضية في بابوا غينيا الجديدة",
     "Category:Sports venues in Papua New Guinea": "تصنيف:ملاعب رياضية في بابوا غينيا الجديدة",
     "Category:Sportspeople in Papua New Guinea": "تصنيف:رياضيون في بابوا غينيا الجديدة",

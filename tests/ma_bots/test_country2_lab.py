@@ -84,7 +84,6 @@ data = {
     "wheelchair rugby competitions": "منافسات رجبي على كراسي متحركة",
     "wheelchair rugby people": "أعلام رجبي على كراسي متحركة",
     "wheelchair rugby templates": "قوالب رجبي على كراسي متحركة",
-    "wheelchair sports": "ألعاب رياضية على الكراسي المتحركة",
     "wheelchair tennis tournaments": "بطولات كرة مضرب على كراسي متحركة",
     "air force ": "قوات جوية",
     "german footballers": "لاعبو كرة قدم ألمان",

@@ -59,7 +59,6 @@ data2 = {
     "Category:Seasons in Omani football": "تصنيف:مواسم في كرة القدم العمانية",
     "Category:Ski jumping at the Winter Universiade": "تصنيف:القفز التزلجي في الألعاب الجامعية الشتوية",
     "Category:Skiing coaches": "تصنيف:مدربو تزلج",
-    "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
     "Category:Sports competitors by nationality and competition": "تصنيف:منافسون رياضيون حسب الجنسية والمنافسة",
     "Category:Sports organisations of Andorra": "تصنيف:منظمات رياضية في أندورا",
     "Category:sports-people from Boston": "تصنيف:رياضيون من بوسطن",

@@ -519,8 +519,6 @@ data_slow = {
     "south west africa": "جنوب غرب إفريقيا",
     "spain by decade": "إسبانيا حسب العقد",
     "speed skating": "التزلج السريع",
-    "sports by country": "ألعاب رياضية حسب البلد",
-    "sports by month": "ألعاب رياضية حسب الشهر",
     "sports clubs and teams in brazil": "أندية وفرق رياضية في البرازيل",
     "sports clubs and teams": "أندية وفرق رياضية",
     "sports teams": "فرق رياضية",
