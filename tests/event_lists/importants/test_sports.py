@@ -565,6 +565,7 @@ to_test = [
     ("test_sports_data_1", data1),
     ("test_sports_data_2", data2),
     ("test_sports_data_3", data3),
+    ("test_sports_data_4", data4),
 ]
 
 
