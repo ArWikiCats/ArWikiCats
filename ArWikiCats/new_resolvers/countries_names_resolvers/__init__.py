@@ -1,5 +1,9 @@
 
-from . import countries_names, us_states, countries_names_medalists
+from . import (
+    countries_names,
+    medalists_resolvers,
+    us_states,
+)
 from ...helps import logger
 
 
@@ -10,7 +14,7 @@ def resolved_translations_resolvers(normalized_category) -> str:
 
     resolved_label = (
         countries_names.resolve_by_countries_names(normalized_category) or
-        countries_names_medalists.resolve_countries_names_medalists(normalized_category) or
+        medalists_resolvers.resolve_countries_names_medalists(normalized_category) or
         us_states.resolve_us_states(normalized_category) or
         ""
     )

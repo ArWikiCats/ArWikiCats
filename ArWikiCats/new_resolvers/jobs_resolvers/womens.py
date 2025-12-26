@@ -7,7 +7,7 @@ import re
 from ...helps import len_print, logger
 from ...translations import all_country_with_nat_ar, jobs_womens_data, RELIGIOUS_KEYS_PP, FEMALE_JOBS_BASE, all_country_with_nat
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
+from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
 
 

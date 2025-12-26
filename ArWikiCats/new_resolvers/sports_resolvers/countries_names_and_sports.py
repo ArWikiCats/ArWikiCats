@@ -9,11 +9,10 @@ from ...helps import logger
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
-from ..translations_resolvers.countries_names_data import formatted_data_en_ar_only
-from .nats_as_country_names import nats_keys_as_country_names
+from ..countries_names_resolvers.countries_names_data import formatted_data_en_ar_only
+from ..nats_as_country_names import nats_keys_as_country_names
 from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
-from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_formatted_data_shared
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
 sports_formatted_data = {
@@ -150,9 +149,6 @@ sports_formatted_data = {
     "{en} national amateur {en_sport} team": "منتخب {ar} {sport_team} للهواة",
     "{en} multi-national womens {en_sport} team": "منتخب {ar} {sport_team} متعددة الجنسيات للسيدات",
 }
-
-# sports_formatted_data.update(labels_formatted_data)
-# sports_formatted_data.update(jobs_formatted_data_shared)
 
 WOMENS_NATIONAL_DATA = {
     x.replace("womens national", "national womens"): v

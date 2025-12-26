@@ -178,7 +178,7 @@ jobs_formatted_data = {
 
 jobs_formatted_data.update(jobs_formatted_data_shared)
 
-# NOTE: used in countries_names_sport_multi_v2.py and nats_sport_multi_v2.py
+# NOTE: used in countries_names_sport_multi_v2.py and nats_and_sports.py
 labels_formatted_data = {
     "{en_sport}": "{sport_label}",
     "{en_sport} finals": "نهائيات {sport_label}",

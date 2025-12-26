@@ -2,7 +2,7 @@
 """
 NOTE: this file has alot of formatted_data
 
-TODO: merge with ArWikiCats/new_resolvers/translations_resolvers_v2/nats_sport_multi_v2.py
+TODO: merge with sports_resolvers/nationalities_and_sports.py
 
 """
 
@@ -15,9 +15,7 @@ from ...translations import Nat_women
 from ...translations_formats import format_multi_data_v2
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ..translations_resolvers_v2.nats_as_country_names import nats_keys_as_country_names
-
-from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_formatted_data_shared
+from ..nats_as_country_names import nats_keys_as_country_names
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
@@ -194,9 +192,6 @@ new_for_nat_female_xo_team_additional = {
 }
 
 new_for_nat_female_xo_team_2.update(new_for_nat_female_xo_team_additional)
-
-# new_for_nat_female_xo_team_2.update(labels_formatted_data)
-# new_for_nat_female_xo_team_2.update(jobs_formatted_data_shared)
 
 
 @functools.lru_cache(maxsize=1)

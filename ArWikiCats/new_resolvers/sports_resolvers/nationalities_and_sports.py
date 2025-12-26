@@ -13,9 +13,8 @@ from ...helps import logger
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
-from .data import sports_formatted_data_for_jobs
+from ..nationalities_resolvers.data import sports_formatted_data_for_jobs
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_formatted_data_shared
 
 
 @functools.lru_cache(maxsize=1)
@@ -242,10 +241,6 @@ sports_formatted_data = {
 
     "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
 }
-
-# sports_formatted_data.update(labels_formatted_data)
-# sports_formatted_data.update(jobs_formatted_data_shared)
-
 
 def _levels_data() -> dict[str, str]:
     data = {

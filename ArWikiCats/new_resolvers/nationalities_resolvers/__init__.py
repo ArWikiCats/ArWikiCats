@@ -1,14 +1,15 @@
 
 import functools
 
+from ..countries_names_resolvers import countries_names_v2
+
+from ..sports_resolvers import countries_names_and_sports, nationalities_and_sports
+
 from ...helps import logger
 from . import (
-    countries_names_sport_multi_v2,
-    countries_names_v2,
     ministers_resolver,
-    nats_sport_multi_v2,
-    nats_v2,
-    nats_time_v2,
+    nationalities_time_v2,
+    nationalities_v2,
 )
 
 
@@ -20,11 +21,11 @@ def resolved_translations_resolvers_v2(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> Trying v2 resolvers for: {normalized_category=}")
 
     resolved_label = (
-        countries_names_sport_multi_v2.resolve_countries_names_sport_with_ends(normalized_category) or
+        countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category) or
         countries_names_v2.resolve_by_countries_names_v2(normalized_category) or
-        nats_sport_multi_v2.resolve_nats_sport_multi_v2(normalized_category) or
-        nats_v2.resolve_by_nats(normalized_category) or
-        nats_time_v2.resolve_nats_time_v2(normalized_category) or
+        nationalities_and_sports.resolve_nats_sport_multi_v2(normalized_category) or
+        nationalities_v2.resolve_by_nats(normalized_category) or
+        nationalities_time_v2.resolve_nats_time_v2(normalized_category) or
         ministers_resolver.resolve_secretaries_labels(normalized_category) or
         ""
     )

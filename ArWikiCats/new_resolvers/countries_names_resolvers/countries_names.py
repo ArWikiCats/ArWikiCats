@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 """
 Resolve country names categories translations
+
+countries_names.py use only countries names without nationalities
+countries_names_v2.py use countries names with nationalities
+
 """
 from typing import Dict
 import functools

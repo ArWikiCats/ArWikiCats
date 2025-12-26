@@ -12,11 +12,11 @@ from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 
-from ...new_resolvers.translations_resolvers_v2.ministers_resolver import resolve_secretaries_labels
-from ...new_resolvers.translations_resolvers_v2 import resolved_translations_resolvers_v2
+from ...new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
+from ...new_resolvers.nationalities_resolvers import resolved_translations_resolvers_v2
 
-from ...new_resolvers.translations_resolvers import resolved_translations_resolvers
-from ...new_resolvers.new_jobs_resolver import new_jobs_resolver_label
+from ...new_resolvers.countries_names_resolvers import resolved_translations_resolvers
+from ...new_resolvers.jobs_resolvers import new_jobs_resolver_label
 from ...new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
 from .film_keys_bot import resolve_films
 

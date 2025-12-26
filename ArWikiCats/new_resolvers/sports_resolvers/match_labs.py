@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" """
+"""
+TODO: merge with sports_resolvers/raw_sports.py
+"""
 
 import functools
 from typing import Dict
@@ -7,7 +9,6 @@ from typing import Dict
 from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
 from ...translations_formats import FormatData
-# from ...translations.jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 
 teams_2025_sample = {
