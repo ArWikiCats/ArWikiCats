@@ -16,7 +16,7 @@ data1 = {
     "Category:1550 in sports": "تصنيف:ألعاب رياضية في 1550",
     "Category:december 1550 in sports": "تصنيف:ألعاب رياضية في ديسمبر 1550",
     "Category:june 1550 in sports": "تصنيف:ألعاب رياضية في يونيو 1550",
-    "Category:Sports leagues in Papua New Guinea": "تصنيف:دوريات رياضية في بابوا غينيا الجديدة",
+    "Category:Sports leagues in Papua New Guinea": "تصنيف:دوريات ألعاب رياضية في بابوا غينيا الجديدة",
     "Category:honduran people in sports": "تصنيف:هندوراسيون في ألعاب رياضية",
     "Category:Jewish sports": "تصنيف:ألعاب رياضية يهودية",
     "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
