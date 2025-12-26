@@ -48,6 +48,8 @@ data_empty = {
 }
 
 data0 = {
+    "Category:Jewish football clubs": "تصنيف:أندية كرة القدم اليهودية",
+    "Category:Jewish sports": "تصنيف:ألعاب رياضية اليهودية",
     "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",
     "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
