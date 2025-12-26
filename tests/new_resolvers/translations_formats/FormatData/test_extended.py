@@ -3,7 +3,6 @@ from typing import Dict
 
 import pytest
 
-from ArWikiCats.new_resolvers.sports_resolvers.match_labs import teams_2025
 from ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
 from ArWikiCats.translations_formats import FormatData
 
@@ -12,7 +11,15 @@ from ArWikiCats.translations_formats import FormatData
 
 @pytest.fixture(scope="session")
 def formatted_data() -> Dict[str, str]:
-    return teams_2025
+    return {
+        "{sport}": "{sport_label}",
+        "amateur {sport}": "{sport_label} للهواة",
+        "mens youth {sport}": "{sport_label} للشباب",
+        "mens {sport}": "{sport_label} رجالية",
+        "womens youth {sport}": "{sport_label} للشابات",
+        "womens {sport}": "{sport_label} نسائية",
+        "youth {sport}": "{sport_label} شبابية",
+    }
 
 
 @pytest.fixture(scope="session")
