@@ -1,4 +1,19 @@
 
+## [#272](https://github.com/MrIbrahem/ArWikiCats/pull/272) - 2025-12-26
+
+* **New Features**
+  * Added broader sports and teams translations (Olympic, wheelchair, clubs & teams) and new team/league templates.
+
+* **Bug Fixes**
+  * Improved Arabic feminine agreement for player labels (ensures feminine plural where appropriate).
+  * Corrected several sports federation and competition translations and spelling fixes.
+
+* **Improvements**
+  * Expanded coverage of sports-related translation keys and national/team variants.
+
+* **Tests**
+  * Added and updated data-driven tests covering team and women's sports translations.
+
 ## [#265](https://github.com/MrIbrahem/ArWikiCats/pull/265) - 2025-12-24
 
 * **Bug Fixes**
