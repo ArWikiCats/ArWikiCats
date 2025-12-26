@@ -1,4 +1,12 @@
 
+## [#273](https://github.com/MrIbrahem/ArWikiCats/pull/273) - 2025-12-27
+
+* **Refactor**
+  * Reorganized internal resolver module structure to improve code organization and maintainability
+  * Consolidated resolver modules into specialized categories for better clarity
+  * Updated import paths throughout the codebase to reflect the new structure
+  * No changes to public functionality or user-facing features
+
 ## [#272](https://github.com/MrIbrahem/ArWikiCats/pull/272) - 2025-12-26
 
 * **New Features**

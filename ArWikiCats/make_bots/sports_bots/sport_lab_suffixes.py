@@ -11,8 +11,8 @@ import functools
 from ...helps import logger, dump_data
 from ...translations import SPORTS_KEYS_FOR_JOBS
 from ..o_bots.utils import resolve_suffix_template
-from ...new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
-from ...new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025_with_ends
+from ...new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
+from ...new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from . import team_work
 
 

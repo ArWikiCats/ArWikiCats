@@ -4,15 +4,15 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab2 import wrap_team_xo_normal_2025_with_ends
-from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
-from ArWikiCats.new_resolvers.translations_resolvers_v2.nats_sport_multi_v2 import resolve_nats_sport_multi_v2
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
+from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
-from ArWikiCats.new_resolvers.translations_resolvers_v2.countries_names_sport_multi_v2 import (
+from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import (
     resolve_countries_names_sport_with_ends,
 )
 
-sport_lab2_data = {
+sport_lab2_test_data = {
     "defunct indoor boxing": "بوكسينغ داخل الصالات سابقة",
     "defunct indoor boxing clubs": "أندية بوكسينغ داخل الصالات سابقة",
     "defunct indoor boxing cups": "كؤوس بوكسينغ داخل الصالات سابقة",
@@ -110,14 +110,14 @@ rcn_sport_with_ends_data = {
 }
 
 to_test = [
-    ("test_sport_lab2_data", sport_lab2_data, wrap_team_xo_normal_2025_with_ends),
+    ("test_sport_lab2_data", sport_lab2_test_data, wrap_team_xo_normal_2025_with_ends),
     ("test_resolve_nats_sport_multi_v2", nats_sport_multi_v2_data, resolve_nats_sport_multi_v2),
     ("test_sport_lab_nat_load_new", sport_lab_nat_load_new_data, sport_lab_nat_load_new),
     ("test_rcn_sport_with_ends", rcn_sport_with_ends_data, resolve_countries_names_sport_with_ends),
     # ---
-    ("test_test_sport_cup_1", sport_lab2_data, resolve_nats_sport_multi_v2),
-    ("test_test_sport_cup_2", sport_lab2_data, sport_lab_nat_load_new),
-    ("test_test_sport_cup_3", sport_lab2_data, resolve_countries_names_sport_with_ends),
+    ("test_test_sport_cup_1", sport_lab2_test_data, resolve_nats_sport_multi_v2),
+    ("test_test_sport_cup_2", sport_lab2_test_data, sport_lab_nat_load_new),
+    ("test_test_sport_cup_3", sport_lab2_test_data, resolve_countries_names_sport_with_ends),
     # ---
 ]
 
@@ -130,7 +130,7 @@ def test_resolve_nats_sport_multi_v2(category: str, expected: str) -> None:
     assert label1 == expected
 
 
-@pytest.mark.parametrize("category, expected", sport_lab2_data.items(), ids=sport_lab2_data.keys())
+@pytest.mark.parametrize("category, expected", sport_lab2_test_data.items(), ids=sport_lab2_test_data.keys())
 @pytest.mark.skip2
 def test_sport_lab2_data(category: str, expected: str) -> None:
     label1 = wrap_team_xo_normal_2025_with_ends(category)

@@ -1,0 +1,58 @@
+#!/usr/bin/python3
+"""
+Resolve country names categories translations
+
+countries_names.py use only countries names without nationalities
+countries_names_v2.py use countries names with nationalities
+
+"""
+from typing import Dict
+import functools
+from ...helps import logger
+from ...translations_formats import FormatData, MultiDataFormatterBase
+from ...translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
+from .countries_names_data import formatted_data_en_ar_only
+
+# NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly
+
+ONLY_COUNTRY_NAMES = {
+    "{en} political leader": "قادة {ar} السياسيون",
+    "government ministers of {en}": "وزراء {ar}",
+    "secretaries of {en}": "وزراء {ar}",
+    "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
+}
+formatted_data_updated = dict(formatted_data_en_ar_only)
+formatted_data_updated.update(ONLY_COUNTRY_NAMES)
+countries_from_nat_data: Dict[str, str] = dict(countries_from_nat)
+
+# TODO: update countries_from_nat_data with COUNTRY_LABEL_OVERRIDES after check any issues!
+
+
+@functools.lru_cache(maxsize=1)
+def _load_bot() -> MultiDataFormatterBase:
+
+    return FormatData(
+        formatted_data_updated,
+        countries_from_nat_data,
+        key_placeholder="{en}",
+        value_placeholder="{ar}",
+        text_before="the ",
+        regex_filter=r"[\w-]",
+    )
+
+
+@functools.lru_cache(maxsize=10000)
+def resolve_by_countries_names(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_by_countries_names: {category=}")
+
+    nat_bot = _load_bot()
+    result = nat_bot.search_all_category(category)
+
+    logger.debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
+    return result
+
+
+__all__ = [
+    "resolve_by_countries_names",
+]

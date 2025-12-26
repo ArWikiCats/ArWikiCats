@@ -281,7 +281,7 @@ ArWikiCats/
 │
 ├── translations_formats/
 │   ├──
-├── translations_resolvers/
+├── countries_names_resolvers/
 │   ├──
 ├── helps/
 ├── utils/
