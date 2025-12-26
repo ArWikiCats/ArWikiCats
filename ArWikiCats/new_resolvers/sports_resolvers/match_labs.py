@@ -6,7 +6,7 @@ TODO: merge with sports_resolvers/raw_sports.py
 import functools
 from typing import Dict
 
-from ...helps import len_print
+from ...helps import logger, len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
 from ...translations_formats import FormatData
 from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
@@ -182,6 +182,7 @@ def fix_keys(category: str) -> str:
 def find_teams_2025(category) -> str:
     category = fix_keys(category)
 
+    logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
     label2 = _find_teams_2025(category)
 
     if not label2:
@@ -200,6 +201,7 @@ def find_teams_2025(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
+    logger.debug(f"<<yellow>> end find_teams_2025: {category=}, {label2=}")
     return label2
 
 

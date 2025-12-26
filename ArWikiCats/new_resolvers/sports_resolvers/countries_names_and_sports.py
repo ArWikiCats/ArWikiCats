@@ -249,6 +249,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 
 def resolve_countries_names_sport_with_ends(category) -> str:
     category = fix_keys(category)
+    logger.debug(f"<<yellow>> start resolve_countries_names_sport_with_ends: {category=}")
 
     label2 = resolve_sport_category_suffix_with_mapping(
         category=category,
@@ -256,6 +257,7 @@ def resolve_countries_names_sport_with_ends(category) -> str:
         callback=resolve_countries_names_sport,
         fix_result_callable=fix_result_callable,
     )
+    logger.debug(f"<<yellow>> end resolve_countries_names_sport_with_ends: {category=}, {label2=}")
     return label2
 
 

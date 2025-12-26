@@ -108,6 +108,7 @@ def fix_keys(category: str) -> str:
 
 def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_2025) -> str:
     category = fix_keys(category)
+    logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025_with_ends: {category=}")
     teams_label_mappings_ends = _get_sorted_teams_labels()
 
     label2 = callback(category)
@@ -120,6 +121,7 @@ def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_20
             fix_result_callable=fix_result_callable,
         )
 
+    logger.debug(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {label2=}")
     return label2
 
 
