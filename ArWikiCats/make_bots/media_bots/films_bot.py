@@ -15,7 +15,7 @@ from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ...new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
 from ...new_resolvers.nationalities_resolvers import resolved_translations_resolvers_v2
 
-from ...new_resolvers.countries_names_resolvers import resolved_translations_resolvers
+from ...new_resolvers.countries_names_resolvers import resolved_countries_names_main
 from ...new_resolvers.jobs_resolvers import new_jobs_resolver_label
 from ...new_resolvers.translations_resolvers_v3i import resolved_translations_resolvers_v3i
 from .film_keys_bot import resolve_films
@@ -63,7 +63,7 @@ def te_films(category: str) -> str:
 
         "resolved_translations_resolvers_v2": lambda k: resolved_translations_resolvers_v2(k),
         "resolved_countries_formats_labels": lambda k: resolved_countries_formats_labels(k),
-        "resolved_translations_resolvers": lambda k: resolved_translations_resolvers(k),
+        "resolved_translations_resolvers": lambda k: resolved_countries_names_main(k),
         "new_jobs_resolver_label": lambda k: new_jobs_resolver_label(k),
         # "resolved_translations_resolvers_v3i": lambda k: resolved_translations_resolvers_v3i(k),
         "te_language": lambda k: te_language(k),
