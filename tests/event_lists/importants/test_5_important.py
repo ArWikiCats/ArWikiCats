@@ -48,12 +48,12 @@ data_empty = {
 }
 
 data0 = {
-    "yemeni national junior women's under-16 football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للناشئات",
-    "yemeni national junior women's football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية للناشئات",
-    "yemeni national women's under-16 football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للسيدات",
-    "yemeni national youth women's under-16 football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للشابات",
-    "yemeni national youth women's football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية للشابات",
-    "Category:Native American women leaders": "تصنيف:قائدات أمريكيات أصليات",
+    # "Category:Native American women leaders": "تصنيف:قائدات أمريكيات أصليون",
+    "yemeni national junior women's under-16 football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للناشئات",
+    "yemeni national junior women's football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية للناشئات",
+    "yemeni national women's under-16 football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للسيدات",
+    "yemeni national youth women's under-16 football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للشابات",
+    "yemeni national youth women's football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية للشابات",
     "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
     "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
     "Category:German people convicted of torture": "تصنيف:ألمان أدينوا بتعذيب",

@@ -5,6 +5,36 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:2023 FIFA Women's World Cup players": "تصنيف:لاعبو كأس العالم لكرة القدم للسيدات 2023",
+    "Category:Association football players by women's under-20 national team": "تصنيف:لاعبو كرة قدم حسب المنتخب الوطني للسيدات تحت 20 سنة",
+    "Category:Association football players by women's under-21 national team": "تصنيف:لاعبو كرة قدم حسب المنتخب الوطني للسيدات تحت 21 سنة",
+    "Category:Association football players by women's under-23 national team": "تصنيف:لاعبو كرة قدم حسب المنتخب الوطني للسيدات تحت 23 سنة",
+    "Category:Basketball players by women's national team": "تصنيف:لاعبو كرة سلة حسب منتخب السيدات الوطني",
+    "Category:European Women's Hockey League players": "تصنيف:لاعبو الدوري الأوروبي للهوكي للسيدات",
+    "Category:Galatasaray S.K. (women's basketball) players": "تصنيف:لاعبو نادي غلطة سراي لكرة السلة للسيدات",
+    "Category:Handball players by women's national team": "تصنيف:لاعبو كرة يد حسب منتخب السيدات الوطني",
+    "Category:Ireland women's national basketball team players": "تصنيف:لاعبو منتخب أيرلندا الوطني لكرة السلة للسيدات",
+    "Category:Rugby league players by women's national team": "تصنيف:لاعبو دوري رغبي حسب منتخب السيدات الوطني",
+    "Category:Rugby union players by women's national team": "تصنيف:لاعبو اتحاد رغبي حسب منتخب السيدات الوطني",
+    "Category:UEFA Women's Euro 2017 players": "تصنيف:لاعبو بطولة أمم أوروبا للسيدات 2017",
+    "Category:UEFA Women's Euro 2022 players": "تصنيف:لاعبو بطولة أمم أوروبا لكرة القدم للسيدات 2022",
+    "Category:UEFA Women's Euro 2025 players": "تصنيف:لاعبو بطولة أمم أوروبا لكرة القدم للسيدات 2025",
+    "Category:Victorian Women's Football League players": "تصنيف:لاعبو الدوري الفيكتوري لكرة القدم للسيدات",
+    "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبو الدوري الصيني لكرة السلة للسيدات",
+    "Category:Women's England Hockey League players": "تصنيف:لاعبو دوري إنجلترا للهوكي نسائية",
+    "Category:Women's Irish Hockey League players": "تصنيف:لاعبو الدوري الأيرلندي للهوكي نسائية",
+    "Category:Women's Korean Basketball League players": "تصنيف:لاعبو الدوري الكوري لكرة السلة نسائية",
+    "Category:Women's National Basketball Association players": "تصنيف:لاعبو الاتحاد الوطني لكرة السلة النسائية",
+    "Category:Women's National Basketball Association players from Belgium": "تصنيف:لاعبو الاتحاد الوطني لكرة السلة النسائية من بلجيكا",
+    "Category:Women's National Basketball Association players from Croatia": "تصنيف:لاعبو الاتحاد الوطني لكرة السلة النسائية من كرواتيا",
+    "Category:Women's National Basketball Association players from Serbia": "تصنيف:لاعبو الاتحاد الوطني لكرة السلة النسائية من صربيا",
+    "Category:Women's National Basketball League players": "تصنيف:لاعبو الدوري الوطني لكرة السلة للسيدات",
+    "Category:Women's basketball players in the United States by league": "تصنيف:لاعبو كرة سلة نسائية في الولايات المتحدة حسب الدوري",
+    "Category:Women's handball players": "تصنيف:لاعبو كرة يد نسائية",
+    "Category:Women's soccer players in Australia by competition": "تصنيف:لاعبو كرة قدم نسائية في أستراليا حسب المنافسة",
+}
+
+data2 = {
     "Category:2023 FIFA Women's World Cup players": "تصنيف:لاعبات كأس العالم لكرة القدم للسيدات 2023",
     "Category:European Women's Hockey League players": "تصنيف:لاعبات الدوري الأوروبي للهوكي للسيدات",
     "Category:UEFA Women's Euro 2017 players": "تصنيف:لاعبات بطولة أمم أوروبا لكرة القدم للسيدات 2017",
@@ -13,10 +43,6 @@ data1 = {
     "Category:Women's Irish Hockey League players": "تصنيف:لاعبات الدوري الأيرلندي للهوكي نسائية",
     "Category:Women's Korean Basketball League players": "تصنيف:لاعبات الدوري الكوري لكرة السلة نسائية",
     "Category:Women's National Basketball Association players": "تصنيف:لاعبات الاتحاد الوطني لكرة السلة النسائية",
-
-}
-
-data2 = {
     "Category:Ireland women's national basketball team players": "تصنيف:لاعبات منتخب أيرلندا لكرة السلة للسيدات",
     "Category:Rugby league players by women's national team": "تصنيف:لاعبات دوري رجبي حسب منتخب السيدات الوطني",
     "Category:Rugby union players by women's national team": "تصنيف:لاعبات اتحاد رجبي حسب منتخب السيدات الوطني",
