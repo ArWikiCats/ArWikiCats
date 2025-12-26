@@ -144,7 +144,7 @@ PPP_Keys = {
 @functools.lru_cache(maxsize=1)
 def load_class() -> FormatData:
     """Load and cache the formatter used for 2025 team categories."""
-
+    SPORTS_KEYS_FOR_JOBS.pop("sports", None)
     bot = FormatData(teams_2025, SPORTS_KEYS_FOR_JOBS, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     return bot

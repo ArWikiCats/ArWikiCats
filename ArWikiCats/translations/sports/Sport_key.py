@@ -83,6 +83,13 @@ def _load_base_records() -> dict[str, SportKeyRecord]:
         }
     }
     # data.update(multi_sport_key)
+    # data.update({"sports": {
+    #     "label": "رياضات",
+    #     "team": "",
+    #     "jobs_old": "",
+    #     "jobs": "",
+    #     "olympic": "رياضات أولمبية"
+    # }})
 
     for key, value in data.items():
         if isinstance(key, str) and isinstance(value, Mapping):
