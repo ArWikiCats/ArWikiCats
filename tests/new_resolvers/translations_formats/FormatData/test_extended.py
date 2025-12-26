@@ -3,7 +3,7 @@ from typing import Dict
 
 import pytest
 
-from ArWikiCats.new_resolvers.translations_resolvers.match_labs import teams_2025
+from ArWikiCats.new_resolvers.sports_resolvers.match_labs import teams_2025
 from ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
 from ArWikiCats.translations_formats import FormatData
 

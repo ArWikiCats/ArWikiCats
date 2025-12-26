@@ -1,0 +1,405 @@
+import pytest
+from load_one_data import dump_diff, one_dump_test
+
+from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+
+data_0 = {
+    "ancient-greek sports": "رياضية يونانية قديمة",
+
+    "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",
+    "american defunct football teams": "فرق كرة قدم أمريكية سابقة",
+    "central american national football teams": "منتخبات كرة قدم وطنية أمريكية أوسطية",
+    "south american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية جنوبية",
+    "oceanian national rugby union teams": "منتخبات اتحاد رجبي وطنية أوقيانوسية",
+    "oceanian national football teams": "منتخبات كرة قدم وطنية أوقيانوسية",
+    "european national beach soccer teams": "منتخبات كرة قدم شاطئية وطنية أوروبية",
+    "luxembourg national football teams": "منتخبات كرة قدم وطنية لوكسمبورغية",
+    "central american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية أوسطية",
+}
+
+data_1 = {
+    "central american under-13 football": "كرة قدم أمريكية أوسطية تحت 13 سنة",
+    "central american football": "كرة قدم أمريكية أوسطية",
+    "central american national football": "كرة قدم وطنية أمريكية أوسطية",
+
+    "african national under-23 football teams": "منتخبات كرة قدم وطنية إفريقية تحت 23 سنة",
+    "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
+    "republic-of ireland national youth football teams": "منتخبات كرة قدم وطنية أيرلندية للشباب",
+    "oceanian national under-17 football teams": "منتخبات كرة قدم وطنية أوقيانوسية تحت 17 سنة",
+    "botswana national youth football teams": "منتخبات كرة قدم وطنية بوتسوانية للشباب",
+    "asian national under-23 football teams": "منتخبات كرة قدم وطنية آسيوية تحت 23 سنة",
+    "asian national youth football teams": "منتخبات كرة قدم وطنية آسيوية للشباب",
+    "european national women's volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
+    "european national women's under-21 football teams": "منتخبات كرة قدم وطنية أوروبية تحت 21 سنة للسيدات",
+
+    "afghan cricket": "كريكت أفغانية",
+    "african archery": "نبالة إفريقية",
+    "african basketball leagues": "دوريات كرة سلة إفريقية",
+    "african basketball": "كرة سلة إفريقية",
+    "african football leagues": "دوريات كرة قدم إفريقية",
+    "african handball": "كرة يد إفريقية",
+    "albanian football leagues": "دوريات كرة قدم ألبانية",
+    "algerian basketball": "كرة سلة جزائرية",
+    "american basketball": "كرة سلة أمريكية",
+    "american college": "كليات أمريكية",
+    "american ice hockey": "هوكي جليد أمريكية",
+    "american soccer leagues": "دوريات كرة قدم أمريكية",
+    "andorran football leagues": "دوريات كرة قدم أندورية",
+    "angolan basketball": "كرة سلة أنغولية",
+    "argentine basketball": "كرة سلة أرجنتينية",
+    "argentine football leagues": "دوريات كرة قدم أرجنتينية",
+    "armenian football leagues": "دوريات كرة قدم أرمينية",
+    "asian basketball leagues": "دوريات كرة سلة آسيوية",
+    "asian basketball": "كرة سلة آسيوية",
+    "asian domestic cricket competitions": "منافسات كريكت آسيوية محلية",
+    "asian football leagues": "دوريات كرة قدم آسيوية",
+    "asian futsal": "كرة صالات آسيوية",
+    "asian ice hockey": "هوكي جليد آسيوية",
+    "asian rugby league competitions": "منافسات دوري رجبي آسيوية",
+    "australian basketball": "كرة سلة أسترالية",
+    "australian college": "كليات أسترالية",
+    "australian cricket": "كريكت أسترالية",
+    "australian domestic cricket": "كريكت أسترالية محلية",
+    "australian field hockey": "هوكي ميدان أسترالية",
+    "australian football clubs": "أندية كرة قدم أسترالية",
+    "australian netball": "كرة شبكة أسترالية",
+    "australian soccer leagues": "دوريات كرة قدم أسترالية",
+    "austrian basketball": "كرة سلة نمساوية",
+    "austrian football leagues": "دوريات كرة قدم نمساوية",
+    "austrian ice hockey leagues": "دوريات هوكي جليد نمساوية",
+    "austrian ice hockey": "هوكي جليد نمساوية",
+    "azerbaijani football leagues": "دوريات كرة قدم أذربيجانية",
+    "bahraini football leagues": "دوريات كرة قدم بحرينية",
+    "bangladesh cricket": "كريكت بنغلاديشية",
+    "bangladeshi cricket": "كريكت بنغلاديشية",
+    "basque football competitions": "منافسات كرة قدم باسكية",
+    "belarusian basketball": "كرة سلة بيلاروسية",
+    "belarusian ice hockey": "هوكي جليد بيلاروسية",
+    "belgian basketball": "كرة سلة بلجيكية",
+    "belgian cricket": "كريكت بلجيكية",
+    "belgian football chairmen and investors": "رؤساء ومسيرو كرة قدم بلجيكية",
+    "belgian football leagues": "دوريات كرة قدم بلجيكية",
+    "belgian ice hockey": "هوكي جليد بلجيكية",
+    "bosnia and herzegovina football leagues": "دوريات كرة قدم بوسنية",
+    "brazilian football leagues": "دوريات كرة قدم برازيلية",
+    "brazilian martial arts": "فنون قتالية برازيلية",
+    "british basketball leagues": "دوريات كرة سلة بريطانية",
+    "british basketball": "كرة سلة بريطانية",
+    "british ice hockey": "هوكي جليد بريطانية",
+    "bulgarian basketball": "كرة سلة بلغارية",
+    "bulgarian football leagues": "دوريات كرة قدم بلغارية",
+    "bulgarian ice hockey": "هوكي جليد بلغارية",
+    "canadian basketball": "كرة سلة كندية",
+    "canadian cricket": "كريكت كندية",
+    "canadian curling": "كيرلنغ كندية",
+    "canadian domestic cricket competitions": "منافسات كريكت كندية محلية",
+    "canadian domestic cricket": "كريكت كندية محلية",
+    "canadian ice hockey": "هوكي جليد كندية",
+    "chinese basketball": "كرة سلة صينية",
+    "chinese football leagues": "دوريات كرة قدم صينية",
+    "croatian basketball": "كرة سلة كرواتية",
+    "croatian ice hockey": "هوكي جليد كرواتية",
+    "czech basketball": "كرة سلة تشيكية",
+    "czech football clubs": "أندية كرة قدم تشيكية",
+    "czech ice hockey leagues": "دوريات هوكي جليد تشيكية",
+    "czech ice hockey": "هوكي جليد تشيكية",
+    "czechoslovak ice hockey": "هوكي جليد تشيكوسلوفاكية",
+    "danish football leagues": "دوريات كرة قدم دنماركية",
+    "danish ice hockey": "هوكي جليد دنماركية",
+    "dutch basketball": "كرة سلة هولندية",
+    "dutch cricket": "كريكت هولندية",
+    "dutch football leagues": "دوريات كرة قدم هولندية",
+    "emirati cricket": "كريكت إماراتية",
+    "emirati football clubs": "أندية كرة قدم إماراتية",
+    "english cricket": "كريكت إنجليزية",
+    "english football leagues": "دوريات كرة قدم إنجليزية",
+    "english football teams": "فرق كرة قدم إنجليزية",
+    "english netball": "كرة شبكة إنجليزية",
+    "estonian basketball": "كرة سلة إستونية",
+    "estonian ice hockey": "هوكي جليد إستونية",
+    "european basketball leagues": "دوريات كرة سلة أوروبية",
+    "european basketball": "كرة سلة أوروبية",
+    "european field hockey": "هوكي ميدان أوروبية",
+    "european football leagues": "دوريات كرة قدم أوروبية",
+    "european futsal leagues": "دوريات كرة صالات أوروبية",
+    "european futsal": "كرة صالات أوروبية",
+    "european ice hockey leagues": "دوريات هوكي جليد أوروبية",
+    "european ice hockey": "هوكي جليد أوروبية",
+    "european volleyball leagues": "دوريات كرة طائرة أوروبية",
+    "european water polo": "كرة ماء أوروبية",
+    "faroese football leagues": "دوريات كرة قدم فاروية",
+    "finnish basketball": "كرة سلة فنلندية",
+    "finnish ice hockey": "هوكي جليد فنلندية",
+    "french basketball": "كرة سلة فرنسية",
+    "french ice hockey": "هوكي جليد فرنسية",
+    "georgian basketball": "كرة سلة جورجية",
+    "german basketball": "كرة سلة ألمانية",
+    "german football leagues": "دوريات كرة قدم ألمانية",
+    "german ice hockey": "هوكي جليد ألمانية",
+    "german martial arts": "فنون قتالية ألمانية",
+    "greek basketball": "كرة سلة يونانية",
+    "greek football leagues": "دوريات كرة قدم يونانية",
+    "greek ice hockey": "هوكي جليد يونانية",
+    "hong kong basketball": "كرة سلة هونغ كونغية",
+    "hong kong football leagues": "دوريات كرة قدم هونغ كونغية",
+    "hungarian basketball": "كرة سلة مجرية",
+    "hungarian handball": "كرة يد مجرية",
+    "hungarian ice hockey": "هوكي جليد مجرية",
+    "hungarian water polo competitions": "منافسات كرة ماء مجرية",
+    "hungarian water polo": "كرة ماء مجرية",
+    "icelandic basketball": "كرة سلة آيسلندية",
+    "icelandic ice hockey": "هوكي جليد آيسلندية",
+    "indian basketball": "كرة سلة هندية",
+    "indian cricket": "كريكت هندية",
+    "indian football leagues": "دوريات كرة قدم هندية",
+    "indonesian basketball": "كرة سلة إندونيسية",
+    "indonesian football competitions": "منافسات كرة قدم إندونيسية",
+    "indonesian football leagues": "دوريات كرة قدم إندونيسية",
+    "iranian football leagues": "دوريات كرة قدم إيرانية",
+    "iranian futsal leagues": "دوريات كرة صالات إيرانية",
+    "iraqi football leagues": "دوريات كرة قدم عراقية",
+    "irish college": "كليات أيرلندية",
+    "irish cricket": "كريكت أيرلندية",
+    "irish domestic cricket competitions": "منافسات كريكت أيرلندية محلية",
+    "israeli basketball": "كرة سلة إسرائيلية",
+    "israeli football leagues": "دوريات كرة قدم إسرائيلية",
+    "israeli ice hockey": "هوكي جليد إسرائيلية",
+    "italian basketball": "كرة سلة إيطالية",
+    "italian football leagues": "دوريات كرة قدم إيطالية",
+    "italian ice hockey": "هوكي جليد إيطالية",
+    "japanese football leagues": "دوريات كرة قدم يابانية",
+    "japanese ice hockey": "هوكي جليد يابانية",
+    "jordanian basketball": "كرة سلة أردنية",
+    "kazakhstani basketball": "كرة سلة كازاخستانية",
+    "kazakhstani ice hockey": "هوكي جليد كازاخستانية",
+    "kenyan cricket": "كريكت كينية",
+    "latvian basketball": "كرة سلة لاتفية",
+    "latvian ice hockey": "هوكي جليد لاتفية",
+    "lebanese basketball": "كرة سلة لبنانية",
+    "lebanese football leagues": "دوريات كرة قدم لبنانية",
+    "lithuanian basketball": "كرة سلة ليتوانية",
+    "lithuanian ice hockey": "هوكي جليد ليتوانية",
+    "malaysian basketball": "كرة سلة ماليزية",
+    "malaysian cricket": "كريكت ماليزية",
+    "malaysian football competitions": "منافسات كرة قدم ماليزية",
+    "moldovan football clubs": "أندية كرة قدم مولدوفية",
+    "nepalese cricket": "كريكت نيبالية",
+    "nepalese domestic cricket competitions": "منافسات كريكت نيبالية محلية",
+    "nigerian basketball": "كرة سلة نيجيرية",
+    "nordic skiing competitions": "منافسات تزلج نوردية",
+    "nordic skiing": "تزلج نوردية",
+    "north american basketball": "كرة سلة أمريكية شمالية",
+    "north american futsal": "كرة صالات أمريكية شمالية",
+    "north american martial arts": "فنون قتالية أمريكية شمالية",
+    "norwegian football leagues": "دوريات كرة قدم نرويجية",
+    "norwegian ice hockey": "هوكي جليد نرويجية",
+    "oceanian basketball": "كرة سلة أوقيانوسية",
+    "oceanian football leagues": "دوريات كرة قدم أوقيانوسية",
+    "oceanian futsal": "كرة صالات أوقيانوسية",
+    "omani cricket": "كريكت عمانية",
+    "pakistani cricket": "كريكت باكستانية",
+    "panamanian football leagues": "دوريات كرة قدم بنمية",
+    "peruvian football leagues": "دوريات كرة قدم بيروية",
+    "philippine basketball leagues": "دوريات كرة سلة فلبينية",
+    "philippine basketball": "كرة سلة فلبينية",
+    "philippine volleyball leagues": "دوريات كرة طائرة فلبينية",
+    "polish basketball": "كرة سلة بولندية",
+    "polish football clubs": "أندية كرة قدم بولندية",
+    "polish ice hockey": "هوكي جليد بولندية",
+    "portuguese auto racing teams": "فرق سباق سيارات برتغالية",
+    "portuguese basketball": "كرة سلة برتغالية",
+    "portuguese football leagues": "دوريات كرة قدم برتغالية",
+    "republic-of ireland football leagues": "دوريات كرة قدم أيرلندية",
+    "republic-of ireland football": "كرة قدم أيرلندية",
+    "romanian basketball": "كرة سلة رومانية",
+    "romanian ice hockey": "هوكي جليد رومانية",
+    "russian basketball": "كرة سلة روسية",
+    "russian football chairmen and investors": "رؤساء ومسيرو كرة قدم روسية",
+    "russian football leagues": "دوريات كرة قدم روسية",
+    "russian football teams": "فرق كرة قدم روسية",
+    "russian ice hockey leagues": "دوريات هوكي جليد روسية",
+    "russian ice hockey": "هوكي جليد روسية",
+    "scottish cricket": "كريكت إسكتلندية",
+    "scottish football leagues": "دوريات كرة قدم إسكتلندية",
+    "serbian basketball": "كرة سلة صربية",
+    "serbian football leagues": "دوريات كرة قدم صربية",
+    "serbian ice hockey": "هوكي جليد صربية",
+    "slovak basketball": "كرة سلة سلوفاكية",
+    "slovak football leagues": "دوريات كرة قدم سلوفاكية",
+    "slovak ice hockey leagues": "دوريات هوكي جليد سلوفاكية",
+    "slovak ice hockey": "هوكي جليد سلوفاكية",
+    "slovenian basketball": "كرة سلة سلوفينية",
+    "slovenian ice hockey": "هوكي جليد سلوفينية",
+    "south african cricket": "كريكت جنوبية إفريقية",
+    "south african netball": "كرة شبكة جنوبية إفريقية",
+    "south african soccer leagues": "دوريات كرة قدم جنوبية إفريقية",
+    "south american basketball": "كرة سلة أمريكية جنوبية",
+    "south american futsal": "كرة صالات أمريكية جنوبية",
+    "south korean basketball": "كرة سلة كورية جنوبية",
+    "soviet football leagues": "دوريات كرة قدم سوفيتية",
+    "soviet ice hockey": "هوكي جليد سوفيتية",
+    "spanish basketball ": "كرة سلة إسبانية",
+    "spanish basketball leagues": "دوريات كرة سلة إسبانية",
+    "spanish basketball": "كرة سلة إسبانية",
+    "spanish football leagues": "دوريات كرة قدم إسبانية",
+    "spanish futsal": "كرة صالات إسبانية",
+    "spanish handball": "كرة يد إسبانية",
+    "spanish ice hockey": "هوكي جليد إسبانية",
+    "sri lankan cricket": "كريكت سريلانكية",
+    "sri lankan martial arts": "فنون قتالية سريلانكية",
+    "swedish basketball": "كرة سلة سويدية",
+    "swedish football leagues": "دوريات كرة قدم سويدية",
+    "swedish ice hockey leagues": "دوريات هوكي جليد سويدية",
+    "swedish ice hockey": "هوكي جليد سويدية",
+    "swiss ice hockey": "هوكي جليد سويسرية",
+    "thai basketball": "كرة سلة تايلندية",
+    "thai football chairmen and investors": "رؤساء ومسيرو كرة قدم تايلندية",
+    "thai football leagues": "دوريات كرة قدم تايلندية",
+    "tunisian football clubs": "أندية كرة قدم تونسية",
+    "turkish basketball": "كرة سلة تركية",
+    "turkish football chairmen and investors": "رؤساء ومسيرو كرة قدم تركية",
+    "turkish ice hockey": "هوكي جليد تركية",
+    "ugandan cricket": "كريكت أوغندية",
+    "ukrainian basketball": "كرة سلة أوكرانية",
+    "ukrainian football clubs": "أندية كرة قدم أوكرانية",
+    "ukrainian football leagues": "دوريات كرة قدم أوكرانية",
+    "uruguayan football chairmen and investors": "رؤساء ومسيرو كرة قدم أوروغويانية",
+    "uzbekistani football leagues": "دوريات كرة قدم أوزبكستانية",
+    "vietnamese basketball": "كرة سلة فيتنامية",
+    "vietnamese martial arts": "فنون قتالية فيتنامية",
+    "welsh football leagues": "دوريات كرة قدم ويلزية",
+    "west german ice hockey": "هوكي جليد ألمانية غربية",
+    "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة",
+    "yugoslav basketball clubs": "أندية كرة سلة يوغسلافية",
+    "yugoslav basketball": "كرة سلة يوغسلافية",
+    "yugoslav ice hockey": "هوكي جليد يوغسلافية",
+    "zimbabwean cricket": "كريكت زيمبابوية",
+}
+
+data_womens = {
+    "european national womens volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
+    "european national womens volleyball teams players": "لاعبات منتخبات كرة طائرة وطنية أوروبية للسيدات",
+
+    "african women's football": "كرة قدم إفريقية نسائية",
+    "algerian women's football": "كرة قدم جزائرية نسائية",
+    "american women's basketball": "كرة سلة أمريكية نسائية",
+    "american women's ice hockey": "هوكي جليد أمريكية نسائية",
+    "american women's soccer": "كرة قدم أمريكية نسائية",
+    "asian women's football": "كرة قدم آسيوية نسائية",
+    "australian women's field hockey": "هوكي ميدان أسترالية نسائية",
+    "australian women's soccer": "كرة قدم أسترالية نسائية",
+    "belarusian women's football": "كرة قدم بيلاروسية نسائية",
+    "belgian women's football": "كرة قدم بلجيكية نسائية",
+    "brazilian women's football": "كرة قدم برازيلية نسائية",
+    "bulgarian women's football": "كرة قدم بلغارية نسائية",
+    "Canadian women's ice hockey": "هوكي جليد كندية نسائية",
+    "canadian women's ice hockey": "هوكي جليد كندية نسائية",
+    "canadian women's soccer": "كرة قدم كندية نسائية",
+    "chinese women's football": "كرة قدم صينية نسائية",
+    "croatian women's football": "كرة قدم كرواتية نسائية",
+    "czech women's football": "كرة قدم تشيكية نسائية",
+    "danish women's football": "كرة قدم دنماركية نسائية",
+    "dutch women's football": "كرة قدم هولندية نسائية",
+    "english women's football": "كرة قدم إنجليزية نسائية",
+    "estonian women's football": "كرة قدم إستونية نسائية",
+    "european women's basketball": "كرة سلة أوروبية نسائية",
+    "european women's football": "كرة قدم أوروبية نسائية",
+    "finnish women's football": "كرة قدم فنلندية نسائية",
+    "french women's football": "كرة قدم فرنسية نسائية",
+    "german women's football": "كرة قدم ألمانية نسائية",
+    "indian women's cricket": "كريكت هندية نسائية",
+    "indian women's football": "كرة قدم هندية نسائية",
+    "israeli women's football": "كرة قدم إسرائيلية نسائية",
+    "italian women's football": "كرة قدم إيطالية نسائية",
+    "japanese women's football": "كرة قدم يابانية نسائية",
+    "jordanian women's football": "كرة قدم أردنية نسائية",
+    "north american women's football": "كرة قدم أمريكية شمالية نسائية",
+    "norwegian women's football": "كرة قدم نرويجية نسائية",
+    "oceanian women's football": "كرة قدم أوقيانوسية نسائية",
+    "portuguese women's football": "كرة قدم برتغالية نسائية",
+    "romanian women's football": "كرة قدم رومانية نسائية",
+    "samoan women's football": "كرة قدم ساموية نسائية",
+    "scottish women's football": "كرة قدم إسكتلندية نسائية",
+    "spanish women's football": "كرة قدم إسبانية نسائية",
+    "swedish women's football": "كرة قدم سويدية نسائية",
+    "swiss women's football": "كرة قدم سويسرية نسائية",
+    "turkish women's football": "كرة قدم تركية نسائية",
+    "west german women's football": "كرة قدم ألمانية غربية نسائية",
+}
+
+data_2 = {
+    "russian football teams": "فرق كرة قدم روسية",
+    "american football teams": "فرق كرة قدم أمريكية",
+    "american football competitions": "منافسات كرة قدم أمريكية",
+    "north american football clubs": "أندية كرة قدم أمريكية شمالية",
+    "north american football leagues": "دوريات كرة قدم أمريكية شمالية",
+    "central american football leagues": "دوريات كرة قدم أمريكية أوسطية",
+    "south american football leagues": "دوريات كرة قدم أمريكية جنوبية",
+}
+
+
+@pytest.mark.parametrize("key,expected", data_0.items(), ids=data_0.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load_0(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("key,expected", data_1.items(), ids=data_1.keys())
+@pytest.mark.skip2
+def test_sport_lab_nat_load_1(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("key,expected", data_womens.items(), ids=data_womens.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load_3(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("key,expected", data_2.items(), ids=data_2.keys())
+@pytest.mark.fast
+def test_compare(key: str, expected: str) -> None:
+    """
+    Important because keys like: (canadian football, american football) are in both Nationality and SPORTS_KEYS
+    """
+    # pytest tests/translations/sports_formats_teams/test_sport_lab_nat_compare.py -m skip2
+
+    result2 = sport_lab_nat_load_new(key)
+
+    assert result2 == expected
+
+
+@pytest.mark.fast
+def test_the_compare() -> None:
+    key = "the yemeni people under-13 baseball teams"
+    expected = "فرق كرة قاعدة يمنية تحت 13 سنة"
+
+    result2 = sport_lab_nat_load_new(key)
+
+    assert result2 == expected, f"Error: {result2=}, {expected=}"
+
+
+to_test = [
+    ("test_sport_lab_nat_load_0", data_0),
+    ("test_sport_lab_nat_load_1", data_1),
+    ("test_sport_lab_nat_load_2", data_2),
+    ("test_sport_lab_nat_load_3", data_womens),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_all(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, sport_lab_nat_load_new)
+    dump_diff(diff_result, name)
+
+    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
+    # dump_diff(add_result, f"{name}_empty")
+
+    # add_result2 = {x: v for x, v in data.items() if x not in add_result}
+    # dump_diff(add_result2, f"{name}_not_empty")
+
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

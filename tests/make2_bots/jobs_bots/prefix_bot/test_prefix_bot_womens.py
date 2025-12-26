@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
-from ArWikiCats.new_resolvers.new_jobs_resolver.womens import womens_resolver_labels
+from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
 
 test_womens_data = {
     "expatriate women's football players": "لاعبات كرة قدم مغتربات",
