@@ -97,8 +97,8 @@ TEAM_SPORT_TRANSLATIONS: Mapping[str, str] = {
     "players of australian rules football": "كرة القدم الأسترالية",
     "kabaddi players": "كابادي",
     "poker players": "بوكر",
-    "rugby league players": "دوري الرغبي",
-    "rugby union players": "اتحاد الرغبي",
+    "rugby league players": "دوري الرجبي",
+    "rugby union players": "اتحاد الرجبي",
     "lacrosse players": "لاكروس",
 }
 

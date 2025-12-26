@@ -17,6 +17,13 @@ from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_f
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
 sports_formatted_data = {
+
+    # Category:yemeni Women's Football League
+    "womens {en} {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+    "womens {en} {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+    "{en} womens {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+    "{en} womens {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
     "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
     "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
