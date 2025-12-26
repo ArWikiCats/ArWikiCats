@@ -7,6 +7,7 @@ import pytest
 from ArWikiCats.new_resolvers.sports_resolvers.match_labs import find_teams_2025
 
 data00 = {
+    "football": "كرة قدم",
     "sports competitions": "منافسات رياضية",
     "women's sports clubs": "أندية رياضية نسائية",
     "women's sports competitions": "منافسات رياضية نسائية",
@@ -550,7 +551,6 @@ teams_2025_data = {
     "youth football wide receivers": "مستقبلون واسعون كرة قدم شبابية",
     "youth football wing halves": "أنصاف أجنحة كرة قدم شبابية",
     "youth football wingers": "أجنحة كرة قدم شبابية",
-    "football": "كرة قدم",
     "football centers": "لاعبو وسط كرة قدم",
     "football central defenders": "قلوب دفاع كرة قدم",
     "football centres": "لاعبو وسط كرة قدم",
