@@ -197,10 +197,6 @@ def find_teams_2025(category) -> str:
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
     # if SPORT_KEY_RECORDS.get(category): return SPORT_KEY_RECORDS[category].get("label", "")
 
-    logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
-    # if SPORT_KEY_RECORDS.get(category): return SPORT_KEY_RECORDS[category].get("label", "")
-
-    logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
     label2 = _find_teams_2025(category)
 
     if not label2:
