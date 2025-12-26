@@ -113,6 +113,7 @@ male_data = {
 
 female_data = {
     # "Category:1972 in American women's sports": "تصنيف:رياضة أمريكية للسيدات في 1972",
+    "{en} sports": "ألعاب رياضية {female}",
     "{en} womens sports": "رياضات نسائية {female}",
     "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
     "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
