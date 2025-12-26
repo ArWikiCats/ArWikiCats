@@ -5,6 +5,7 @@ import functools
 from typing import Dict
 
 from ...helps import len_print
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
 from ...translations_formats import FormatData
 from ...translations.jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
@@ -31,16 +32,16 @@ teams_2025_sample = {
 
 PPP_Keys = {
     "": "",
-    "men's": "رجالية",
-    "women's": "نسائية",
+    "mens": "رجالية",
+    "womens": "نسائية",
     "youth": "شبابية",
-    "men's youth": "للشباب",
-    "women's youth": "للشابات",
+    "mens youth": "للشباب",
+    "womens youth": "للشابات",
     "amateur": "للهواة",
 }
 
 
-after_keys: dict[str, str] = {
+mappings_data: dict[str, str] = {
     "squads": "تشكيلات",
     "finals": "نهائيات",
     "positions": "مراكز",
@@ -57,12 +58,9 @@ after_keys: dict[str, str] = {
     "umpires": "حكام",
     "trainers": "مدربو",
     "scouts": "كشافة",
-    # "people" : "أعلام",
     "coaches": "مدربو",
     "leagues": "دوريات",
     "managers": "مدربو",
-    # "managers" : "مدراء",
-    # "captains" : "مدربو",
     "playerss": "لاعبو",
     "players": "لاعبو",
     "results": "نتائج",
@@ -79,6 +77,20 @@ after_keys: dict[str, str] = {
     "records and statistics": "سجلات وإحصائيات",
     "manager history": "تاريخ مدربو",
 }
+
+mappings_data = dict(
+    sorted(
+        mappings_data.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
+
+football_keys_players = dict(
+    sorted(
+        FOOTBALL_KEYS_PLAYERS.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
 
 @functools.lru_cache(maxsize=1)
@@ -108,13 +120,12 @@ def load_data() -> Dict[str, str]:
         value2 = f"{sport_label} {PPP_Keys[PP]}".strip()
         data[key2] = value2
 
-        for after, after_label in after_keys.items():
-            data[f"{key2} {after}"] = f"{after_label} {value2}"
+        # for after, after_label in mappings_data.items(): data[f"{key2} {after}"] = f"{after_label} {value2}"
 
         for after in FOOTBALL_KEYS_PLAYERS:
             PP_o = f"{key2} {after}"
             llab = FOOTBALL_KEYS_PLAYERS[after]["males"]
-            if "women's" in PP_o:
+            if "womens" in PP_o:
                 llab = FOOTBALL_KEYS_PLAYERS[after]["females"]
 
             data[PP_o] = f"{llab} {value2}"
@@ -132,11 +143,52 @@ def load_class() -> FormatData:
     return bot
 
 
+def fix_result_callable(result, category, key, value):
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
+
+    if key == "teams" and "national" in category:
+        result = result.replace("فرق ", "منتخبات ")
+
+    return result
+
+
 @functools.lru_cache(maxsize=None)
-def find_teams_2025(category: str, default: str = "") -> str:
+def _find_teams_2025(category: str, default: str = "") -> str:
     """Search for a 2025 team label, falling back to ``default`` when absent."""
     bot = load_class()
     return bot.search(category) or default
+
+
+@functools.lru_cache(maxsize=10000)
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower().replace("category:", "")
+
+    return category.strip()
+
+
+def find_teams_2025(category) -> str:
+    category = fix_keys(category)
+
+    label2 = _find_teams_2025(category)
+
+    if not label2:
+        label2 = resolve_sport_category_suffix_with_mapping(
+            category=category,
+            data=mappings_data,
+            callback=_find_teams_2025,
+            fix_result_callable=fix_result_callable,
+        )
+
+    if not label2:
+        label2 = resolve_suffix_with_mapping_genders(
+            category=category,
+            data=mappings_data,
+            callback=_find_teams_2025,
+            fix_result_callable=fix_result_callable,
+        )
+
+    return label2
 
 
 len_print.data_len("sports/teams_new_data_2025.py", {"teams_2025": load_data()})  # teams_2025: 526 <> "TEAMS_NEW": "352,946",

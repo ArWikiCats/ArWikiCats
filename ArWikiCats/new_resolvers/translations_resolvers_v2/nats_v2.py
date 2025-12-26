@@ -276,7 +276,6 @@ female_data = {
     "{en} sport": "رياضة {female}",
     "{en} sports competitions": "منافسات رياضية {female}",
     "{en} sports events": "أحداث رياضية {female}",
-    "{en} sports": "رياضة {female}",
     "{en} surnames": "ألقاب {female}",
     "{en} swamps": "مستنقعات {female}",
     "{en} telenovelas": "تيلينوفيلا {female}",

@@ -36,6 +36,36 @@ def combine_value_and_label(
     return result
 
 
+def resolve_suffix_with_mapping_genders(
+    category: str,
+    data: dict[str, str],
+    callback: callable,
+    fix_result_callable: callable = None,
+    format_key: str = "",
+) -> str:
+    """."""
+    logger.debug(f"<<yellow>> start resolve_suffix_with_mapping_genders: {category=}")
+
+    result = ""
+
+    # category = normalize_text(category)
+    for key, value in data.items():
+        if category.endswith(key):
+            new_category = category[: -len(key)].strip()
+            new_label = callback(new_category)
+            if new_label:
+                result = combine_value_and_label(value, new_label, format_key)
+                if fix_result_callable:
+                    result = fix_result_callable(result, category, key, value)
+            break
+
+    if not result:
+        result = callback(category)
+
+    logger.debug(f"<<yellow>> end resolve_suffix_with_mapping_genders: {category=}, {result=}")
+    return result
+
+
 def resolve_sport_category_suffix_with_mapping(
     category: str,
     data: dict[str, str],
