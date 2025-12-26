@@ -28,6 +28,7 @@ def sample_data() -> tuple[dict[str, str], dict[str, str]]:
     return formatted_data, data_list
 
 
+@pytest.mark.unit
 def test_keys_to_pattern(sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list, "{sport}", "{sport_label}")
@@ -37,6 +38,7 @@ def test_keys_to_pattern(sample_data: tuple[dict[str, str], dict[str, str]]) -> 
     assert pattern.search("snooker") is not None
 
 
+@pytest.mark.unit
 @pytest.mark.parametrize(
     "category,expected",
     [
@@ -52,6 +54,7 @@ def test_match_key(category: str, expected: str, sample_data: tuple[dict[str, st
     assert bot.match_key(category) == expected
 
 
+@pytest.mark.unit
 @pytest.mark.parametrize(
     "template_label,sport_label,expected",
     [
@@ -67,6 +70,7 @@ def test_apply_pattern_replacement(template_label: str, sport_label: str, expect
     assert bot.apply_pattern_replacement(template_label, sport_label) == expected
 
 
+@pytest.mark.unit
 @pytest.mark.parametrize(
     "category,sport_key,expected",
     [
@@ -81,6 +85,7 @@ def test_normalize_category(category: str, sport_key: str, expected: str, sample
     assert result.lower() == expected.lower()
 
 
+@pytest.mark.unit
 @pytest.mark.parametrize(
     "category,expected",
     [
@@ -99,12 +104,14 @@ def test_search(sample_data: tuple[dict[str, str], dict[str, str]], category: st
     assert bot.search(category) == expected
 
 
+@pytest.mark.unit
 def test_search_no_sport_match(sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list)
     assert bot.search("unrelated topic") == ""
 
 
+@pytest.mark.unit
 def test_search_no_template_label(sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list)
@@ -112,6 +119,7 @@ def test_search_no_template_label(sample_data: tuple[dict[str, str], dict[str, s
     assert bot.search("men's football world cup") == ""
 
 
+@pytest.mark.unit
 def test_case(sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
@@ -119,6 +127,7 @@ def test_case(sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
     assert result == "كأس العالم للرجال في كرة القدم"
 
 
+@pytest.mark.unit
 def test_get_template(sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
@@ -128,6 +137,7 @@ def test_get_template(sample_data: tuple[dict[str, str], dict[str, str]]) -> Non
     assert template_label == "كأس العالم للرجال في {sport_label}"
 
 
+@pytest.mark.unit
 def test_empty_data_lists() -> None:
     bot = FormatData({}, {}, key_placeholder="{k}", value_placeholder="{v}")
     assert bot.match_key("any") == ""
@@ -135,6 +145,7 @@ def test_empty_data_lists() -> None:
     assert bot.keys_to_pattern() is None
 
 
+@pytest.mark.unit
 def test_case_insensitivity(sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")

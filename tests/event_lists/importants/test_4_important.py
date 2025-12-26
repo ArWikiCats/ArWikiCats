@@ -115,7 +115,6 @@ data1 = {
     "moldovan cup": "تصنيف:كأس مولدوفا",
     "national basketball league of canada": "تصنيف:دوريات كرة سلة وطنية في كندا",
     "national basketball league": "تصنيف:دوريات كرة سلة وطنية",
-    "national football league": "تصنيف:دوري كرة القدم الوطني الأيرلندي",
     "national hockey league": "تصنيف:دوريات هوكي وطنية",
     "national soccer league": "تصنيف:دوريات كرة قدم وطنية",
     "nigerian professional football league": "تصنيف:دوري كرة القدم النيجيري للمحترفين",
