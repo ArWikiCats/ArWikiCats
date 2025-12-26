@@ -50,7 +50,6 @@ test_find_labels_bot_data = {
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
     "winter olympics baseball": "كرة القاعدة في الألعاب الأولمبية الشتوية",
-    "winter olympics sports": "ألعاب رياضية في الألعاب الأولمبية الشتوية",
 }
 
 

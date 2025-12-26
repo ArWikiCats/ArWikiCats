@@ -3,6 +3,15 @@
 """
 from ..helps import logger
 
+from typing import TypedDict, Dict
+
+
+class GenderedLabel(TypedDict):
+    """Represent an Arabic label split into masculine and feminine forms."""
+
+    males: str
+    females: str
+
 
 def normalize_text(text: str) -> str:
     text = text.lower().replace("category:", "")
@@ -33,6 +42,55 @@ def combine_value_and_label(
         return value.format(new_label)
 
     result = value.format_map({format_key: new_label})
+    return result
+
+
+def resolve_suffix_with_mapping_genders(
+    category: str,
+    data: Dict[str, GenderedLabel],
+    callback: callable,
+    fix_result_callable: callable = None,
+    format_key: str = "",
+) -> str:
+    """Resolves a category label by finding a matching suffix with gender-specific translations.
+
+    This function iterates through a mapping of suffixes to gendered labels. If a category
+    ends with a known suffix, it determines the correct gendered form (male or female)
+    based on the presence of 'womens' in the category string. It then recursively calls
+    a callback function on the remainder of the category string and combines the results.
+
+    Args:
+        category: The input category string to translate.
+        data: A dictionary mapping English suffixes to `GenderedLabel` objects.
+        callback: A callable that will be used to translate the base category string
+            after a suffix is stripped.
+        fix_result_callable: An optional callable to apply final fixes to the result.
+        format_key: A format string for combining the gendered value and the new label.
+
+    Returns:
+        The translated category label, or the result of the callback on the original
+        category if no suffix matches.
+    """
+    logger.debug(f"<<yellow>> start resolve_suffix_with_mapping_genders: {category=}")
+
+    result = ""
+
+    # category = normalize_text(category)
+    for key, value in data.items():
+        gender_value = value["females"] if "womens" in category else value["males"]
+        if category.endswith(key):
+            new_category = category[: -len(key)].strip()
+            new_label = callback(new_category)
+            if new_label:
+                result = combine_value_and_label(gender_value, new_label, format_key)
+                if fix_result_callable:
+                    result = fix_result_callable(result, category, key, gender_value)
+            break
+
+    if not result:
+        result = callback(category)
+
+    logger.debug(f"<<yellow>> end resolve_suffix_with_mapping_genders: {category=}, {result=}")
     return result
 
 

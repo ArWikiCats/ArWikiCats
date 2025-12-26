@@ -258,6 +258,7 @@ def _load_end_key_mappings() -> dict[str, str]:
         "cups": "كؤوس {lab}",
         "champions": "أبطال {lab}",
         "clubs": "أندية {lab}",
+        "clubs and teams": "أندية وفرق {lab}",
         "coaches": "مدربو {lab}",  # Category:Indoor soccer coaches in the United States by club
         "competitions": "منافسات {lab}",
         "events": "أحداث {lab}",
@@ -320,7 +321,7 @@ def fix_keys(category: str) -> str:
     return category
 
 
-def fix_result_callable(result, category, key, value):
+def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
 
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")

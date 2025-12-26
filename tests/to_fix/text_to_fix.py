@@ -396,7 +396,7 @@ data1 = {
     "Category:Asian pop singer navigational boxes": "تصنيف:قوالب مغنو بوب آسيويين",
     "Category:Asian pop singers templates": "تصنيف:قوالب مغنو بوب آسيويين",
     "Category:Asian revolutionaries": "تصنيف:ثوار آسيويين",
-    "Category:Asian rugby union players": "تصنيف:لاعبو اتحاد رغبي آسيويين",
+    "Category:Asian rugby union players": "تصنيف:لاعبو اتحاد رجبي آسيويين",
     "Category:Asian scientists": "تصنيف:علماء آسيويين",
     "Category:Asian scientists by nationality": "تصنيف:علماء آسيويين حسب الجنسية",
     "Category:Asian sociologists": "تصنيف:علماء اجتماع آسيويين",

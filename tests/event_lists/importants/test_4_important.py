@@ -150,7 +150,7 @@ data1 = {
     "turkish handball super league": "تصنيف:دوري السوبر كرة اليد التركي",
     "vietnamese second division": "تصنيف:الدوري الفيتنامي الدرجة الثانية",
     "women's chinese basketball association": "تصنيف:الرابطة الصينية لكرة السلة للسيدات",
-    "women's korean basketball league": "تصنيف:الدوري الكوري لكرة السلة نسائية",
+    "women's korean basketball league": "تصنيف:الدوري الكوري لكرة السلة للسيدات",
     "world games": "تصنيف:دورة الألعاب العالمية",
     "yemeni unity cup": "تصنيف:كأس الوحدة اليمنية",
     "College sports coaches in the United States by sport by state": "تصنيف:مدربو رياضات الكليات في الولايات المتحدة حسب الرياضة حسب الولاية",

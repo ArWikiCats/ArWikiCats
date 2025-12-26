@@ -8,7 +8,6 @@ from ArWikiCats.ma_bots2.ar_lab import get_type_lab
 
 data = [
     # (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
-    # (" of ", "national women's sports teams of", "منتخبات رياضية وطنية نسائية"),
     # (" by ", "mass media in morocco", "وسائل إعلام في المغرب"),
 
     ("in", "arizona territory", "إقليم أريزونا"),
@@ -145,7 +144,7 @@ data = [
     (" of ", "french guianan people of", "غويانيون فرنسيون في "),
     (" from ", "players of american football", "لاعبو كرة قدم أمريكية"),
     (" during ", "military history of estonia", "تاريخ إستونيا العسكري"),
-    (" in ", "defunct sports clubs and teams", "أندية رياضية سابقة وفرق"),
+    (" in ", "defunct sports clubs and teams", "أندية وفرق رياضية سابقة"),
     (" in ", "installations of united states air force", "منشآت في القوات الجوية الأمريكية"),
     (" in ", "united states air force", "القوات الجوية الأمريكية"),
     (" of ", "roman catholic archbishops of", "رؤساء أساقفة رومان كاثوليك في "),
@@ -227,7 +226,6 @@ data = [
     (" by ", "1789 in south america", "أمريكا الجنوبية في 1789"),
     (" of ", "law enforcement agencies of", "تصنيف:وكالات تطبيق القانون في "),
     (" by ", "parks in south america", "متنزهات في أمريكا الجنوبية"),
-    (" in ", "women's sports clubs and teams", "أندية رياضية نسائية وفرق"),
     (" disestablished in ", "television channels and stations", "قنوات وشبكات تلفزيونية"),
     (" to ", "permanent representatives of bahrain", "مندوبو البحرين الدائمون"),
     (" for ", "pan american games competitors", "منافسون في دورة الألعاب الأمريكية"),

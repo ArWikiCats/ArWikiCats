@@ -4,9 +4,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_formats_teams.sport_lab_nat import sport_lab_nat_load_new
 
 data_0 = {
-    "mexican women's sports": "رياضية مكسيكية نسائية",
-    "canadian women's sports": "رياضية كندية نسائية",
-    "american women's sports": "رياضية أمريكية نسائية",
     "ancient-greek sports": "رياضية يونانية قديمة",
 
     "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",

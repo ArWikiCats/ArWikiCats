@@ -57,6 +57,7 @@ TELEVISION_KEYS = {
     "bodies": "هيئات",
     "championships": "بطولات",
     "clubs": "أندية",
+    "clubs and teams": "أندية وفرق",
     "comic strips": "شرائط مصورة",
     "comics": "قصص مصورة",
     "competition": "منافسات",

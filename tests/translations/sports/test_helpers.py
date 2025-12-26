@@ -5,7 +5,7 @@ import sys
 
 import pytest
 
-from ArWikiCats.translations.sports import _helpers, cycling, sports_lists
+from ArWikiCats.translations.sports import _helpers, cycling
 
 
 def test_extend_with_templates_preserves_positional_placeholders() -> None:

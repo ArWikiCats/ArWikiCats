@@ -17,7 +17,6 @@ geography_data = {
 }
 
 geography_in_1 = {
-    "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
     "Category:Buildings and structures in the United States by state": "تصنيف:مبان ومنشآت في الولايات المتحدة حسب الولاية",
     "Category:Buildings and structures in Westchester County, New York": "تصنيف:مبان ومنشآت في مقاطعة ويستتشستر (نيويورك)",
     "Category:Cemeteries in Westchester County, New York": "تصنيف:مقابر في مقاطعة ويستتشستر (نيويورك)",
@@ -68,7 +67,6 @@ geography_in_2 = {
     "Category:Transportation in the United States by state": "تصنيف:النقل في الولايات المتحدة حسب الولاية",
     "Category:Transportation in Westchester County, New York": "تصنيف:النقل في مقاطعة ويستتشستر (نيويورك)",
     "Category:Universities and colleges in Westchester County, New York": "تصنيف:جامعات وكليات في مقاطعة ويستتشستر (نيويورك)",
-    "Category:Women's sports organizations in the United States": "تصنيف:منظمات الرياضات النسوية في الولايات المتحدة",
 }
 
 test_data = [

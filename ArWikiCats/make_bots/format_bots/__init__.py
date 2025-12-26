@@ -51,9 +51,9 @@ Dont_Add_min = [
 # ---
 ar_lab_before_year_to_add_in = [
     # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
-    # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رغبي للمنتخبات الوطنية 1900"
+    # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رجبي للمنتخبات الوطنية 1900"
     "كتاب بأسماء مستعارة",
-    "بطولات اتحاد رغبي للمنتخبات الوطنية",
+    "بطولات اتحاد رجبي للمنتخبات الوطنية",
 ]
 # ---
 country_before_year = [

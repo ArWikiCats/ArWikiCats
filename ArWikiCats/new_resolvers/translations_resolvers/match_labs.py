@@ -5,20 +5,13 @@ import functools
 from typing import Dict
 
 from ...helps import len_print
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
 from ...translations_formats import FormatData
-from ...translations.jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
+# from ...translations.jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from ...translations.sports.sports_lists import AFTER_KEYS
 
 teams_2025_sample = {
-    "{sport}": "{sport_label}",
-    # "{sport} managers": "مدراء {sport_label}",
-    "{sport} managers": "مدربو {sport_label}",
-    "{sport} coaches": "مدربو {sport_label}",
     "{sport} people": "أعلام {sport_label}",
-    "{sport} playerss": "لاعبو {sport_label}",
-    "{sport} players": "لاعبو {sport_label}",
-    "{sport} referees": "حكام {sport_label}",
     "{sport} squads": "تشكيلات {sport_label}",
     "{sport} finals": "نهائيات {sport_label}",
     "{sport} positions": "مراكز {sport_label}",
@@ -30,75 +23,190 @@ teams_2025_sample = {
     "{sport} organizations": "منظمات {sport_label}",
 }
 
+mappings_data: dict[str, str] = {
+    "squads": "تشكيلات",
+    "finals": "نهائيات",
+    "positions": "مراكز",
+    "tournaments": "بطولات",
+    "films": "أفلام",
+    "teams": "فرق",
+    "venues": "ملاعب",
+    "clubs": "أندية",
+    "clubs and teams": "أندية وفرق",
+    "organizations": "منظمات",
+    "non-profit organizations": "منظمات غير ربحية",
+    "non-profit publishers": "ناشرون غير ربحيون",
+    "organisations": "منظمات",
+    "events": "أحداث",
+    "scouts": "كشافة",
+    "leagues": "دوريات",
+    "results": "نتائج",
+    "matches": "مباريات",
+    "navigational boxes": "صناديق تصفح",
+    "lists": "قوائم",
+    "home stadiums": "ملاعب",
+    "templates": "قوالب",
+    "rivalries": "دربيات",
+    "champions": "أبطال",
+    "competitions": "منافسات",
+    "statistics": "إحصائيات",
+    "records": "سجلات",
+    "records and statistics": "سجلات وإحصائيات",
+    "manager history": "تاريخ مدربو",
+
+    "trainers": "مدربو",
+    "coaches": "مدربو",
+    "managers": "مدربو",
+    "people": "أعلام",
+    "umpires": "حكام",
+    "referees": "حكام",
+    "directors": "مدراء",
+}
+
+teams_2025 = {
+    "{sport}": "{sport_label}",
+    "amateur {sport}": "{sport_label} للهواة",
+    "mens youth {sport}": "{sport_label} للشباب",
+    "mens {sport}": "{sport_label} رجالية",
+    "womens youth {sport}": "{sport_label} للشابات",
+    "womens {sport}": "{sport_label} نسائية",
+    "youth {sport}": "{sport_label} شبابية",
+}
+
+FOOTBALL_KEYS_PLAYERS = {
+    "journalists": {"males": "صحفيو", "females": "صحفيات"},
+    "players": {"males": "لاعبو", "females": "لاعبات"},
+    "placekickers": {"males": "مسددو", "females": "مسددات"},
+    "kickers": {"males": "راكلو", "females": "راكلات"},
+    "defenders": {"males": "مدافعو", "females": "مدافعات"},
+    "forwards": {"males": "مهاجمو", "females": "مهاجمات"},
+    "fullbacks": {"males": "مدافعو", "females": "مدافعات"},
+    "defencemen": {"males": "مدافعو", "females": "مدافعات"},
+    "receivers": {"males": "مستقبلو", "females": "مستقبلات"},
+    "tackles": {"males": "مصطدمو", "females": "مصطدمات"},
+
+    "sports-people": {"males": "رياضيو", "females": "رياضيات"},
+    "utility players": {"males": "لاعبو مراكز متعددة", "females": "لاعبات مراكز متعددة"},
+    "wide receivers": {"males": "مستقبلون واسعون", "females": "مستقبلات واسعات"},
+    "peoplee": {"males": "أعلام", "females": "أعلام"},
+    "scouts": {"males": "كشافة", "females": "كشافة"},
+    "halfbacks": {"males": "أظهرة مساعدون", "females": "ظهيرات مساعدات"},
+    "quarterbacks": {"males": "أظهرة رباعيون", "females": "ظهيرات رباعيات"},
+    "centers": {"males": "لاعبو وسط", "females": "لاعبات وسط"},
+    "centres": {"males": "لاعبو وسط", "females": "لاعبات وسط"},
+    "midfielders": {"males": "لاعبو وسط", "females": "لاعبات وسط"},
+    "drop kickers": {"males": "مسددو ركلات", "females": "مسددات ركلات"},
+    "central defenders": {"males": "قلوب دفاع", "females": "مدافعات مركزيات"},
+    "inside forwards": {"males": "مهاجمون داخليون", "females": "مهاجمات داخليات"},
+    "outside forwards": {"males": "مهاجمون خارجيون", "females": "مهاجمات خارجيات"},
+    "small forwards": {"males": "مهاجمون صغيرو الجسم", "females": "مهاجمات صغيرات الجسم"},
+    "power forwards": {"males": "مهاجمون أقوياء الجسم", "females": "مهاجمات قويات الجسم"},
+    "defensive backs": {"males": "مدافعون خلفيون", "females": "مدافعات خلفيات"},
+    "running backs": {"males": "راكضون للخلف", "females": "راكضات للخلف"},
+    "linebackers": {"males": "أظهرة", "females": "ظهيرات"},
+    "goalkeepers": {"males": "حراس مرمى", "females": "حارسات مرمى"},
+    "goaltenders": {"males": "حراس مرمى", "females": "حارسات مرمى"},
+    "guards": {"males": "حراس", "females": "حارسات"},
+    "shooting guards": {"males": "مدافعون مسددون", "females": "مدافعات مسددات"},
+    "point guards": {"males": "لاعبو هجوم خلفي", "females": "لاعبات هجوم خلفي"},
+    "offensive linemen": {"males": "مهاجمو خط", "females": "مهاجمات خط"},
+    "defensive linemen": {"males": "مدافعو خط", "females": "مدافعات خط"},
+    "left wingers": {"males": "أجنحة يسار", "females": "جناحات يسار"},
+    "right wingers": {"males": "أجنحة يمين", "females": "جناحات يمين"},
+    "wingers": {"males": "أجنحة", "females": "جناحات"},
+    "wing halves": {"males": "أنصاف أجنحة", "females": "جناحات نصفيات"},
+}
+
+mappings_data = dict(
+    sorted(
+        mappings_data.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
+
+football_keys_players = dict(
+    sorted(
+        FOOTBALL_KEYS_PLAYERS.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
+
 PPP_Keys = {
     "": "",
-    "men's": "رجالية",
-    "women's": "نسائية",
+    "mens": "رجالية",
+    "womens": "نسائية",
     "youth": "شبابية",
-    "men's youth": "للشباب",
-    "women's youth": "للشابات",
+    "mens youth": "للشباب",
+    "womens youth": "للشابات",
     "amateur": "للهواة",
 }
 
 
 @functools.lru_cache(maxsize=1)
-def load_data() -> Dict[str, str]:
-    """
-    lazy load TEAMS_NEW
-
-    # result length: "count": 325907, "size": "7.3 MiB" ( SPORT_KEY_RECORDS*1425  (223*1425))
-    """
-    data = {}
-    # 526 item per SPORTS_KEYS_FOR_JOBS items
-    sport = "{sport}"
-    sport_label = "{sport_label}"
-    data = {
-        # f"{sport}": f"{sport_label}",
-        # f"{sport} managers": f"مدراء {sport_label}",
-        f"{sport} managers": f"مدربو {sport_label}",
-        f"{sport} coaches": f"مدربو {sport_label}",
-        f"{sport} people": f"أعلام {sport_label}",
-        f"{sport} playerss": f"لاعبو {sport_label}",
-        f"{sport} players": f"لاعبو {sport_label}",
-        f"{sport} referees": f"حكام {sport_label}",
-    }
-
-    for PP in PPP_Keys:
-        key2 = f"{PP} {sport}".strip()
-        value2 = f"{sport_label} {PPP_Keys[PP]}".strip()
-        data[key2] = value2
-        for after, after_label in AFTER_KEYS.items():
-            data[f"{key2} {after}"] = f"{after_label} {value2}"
-        for after in FOOTBALL_KEYS_PLAYERS:
-            PP_o = f"{key2} {after}"
-            llab = FOOTBALL_KEYS_PLAYERS[after]["males"]
-            if "women's" in PP_o:
-                llab = FOOTBALL_KEYS_PLAYERS[after]["females"]
-            data[PP_o] = f"{llab} {value2}"
-
-    return data
-
-
-@functools.lru_cache(maxsize=1)
 def load_class() -> FormatData:
     """Load and cache the formatter used for 2025 team categories."""
-    teams_2025 = load_data()
-
+    SPORTS_KEYS_FOR_JOBS.pop("sports", None)
     bot = FormatData(teams_2025, SPORTS_KEYS_FOR_JOBS, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
     return bot
 
 
+def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
+
+    if key == "teams" and "national" in category:
+        result = result.replace("فرق ", "منتخبات ")
+
+    return result
+
+
 @functools.lru_cache(maxsize=None)
-def find_teams_2025(category: str, default: str = "") -> str:
+def _find_teams_2025(category: str, default: str = "") -> str:
     """Search for a 2025 team label, falling back to ``default`` when absent."""
     bot = load_class()
     return bot.search(category) or default
 
 
-len_print.data_len("sports/teams_new_data_2025.py", {"teams_2025": 533})  # teams_2025: 533 <> "TEAMS_NEW": "352,946",
+@functools.lru_cache(maxsize=10000)
+def fix_keys(category: str) -> str:
+
+    category = category.lower().replace("category:", "")
+    category = category.replace("'", "")
+    category = category.replace("playerss", "players")
+
+    return category.strip()
+
+
+def find_teams_2025(category) -> str:
+    category = fix_keys(category)
+
+    label2 = _find_teams_2025(category)
+
+    if not label2:
+        label2 = resolve_sport_category_suffix_with_mapping(
+            category=category,
+            data=mappings_data,
+            callback=_find_teams_2025,
+            fix_result_callable=fix_result_callable,
+        )
+
+    if not label2:
+        label2 = resolve_suffix_with_mapping_genders(
+            category=category,
+            data=football_keys_players,
+            callback=_find_teams_2025,
+            fix_result_callable=fix_result_callable,
+        )
+
+    return label2
+
+
+len_print.data_len("sports/teams_new_data_2025.py", {
+    "teams_2025": teams_2025  # teams_2025: 526 <> "TEAMS_NEW": "352,946",
+})
 
 __all__ = [
     "find_teams_2025",
-    "load_data",
+    "teams_2025",
 ]

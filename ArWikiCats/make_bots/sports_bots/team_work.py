@@ -57,6 +57,7 @@ Teams_new_end_keys = {
     "films": "أفلام {}",
     "championships": "بطولات {}",
     "music": "موسيقى {}",
+    "clubs and teams": "أندية وفرق {}",
     "clubs": "أندية {}",
     "referees": "حكام {}",
     "organizations": "منظمات {}",

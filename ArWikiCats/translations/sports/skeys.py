@@ -33,7 +33,7 @@ def _build_male_nat() -> Dict[str, str]:
     for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
         # Middle East Rally Championship بطولة الشرق الأوسط للراليات
 
-        label_index[f"{team2.lower()} federation"] = f"الاتحاد {COUNTRY_PLACEHOLDER} {team2_lab}"
+        # label_index[f"{team2.lower()} federation"] = f"الاتحاد {COUNTRY_PLACEHOLDER} {team2_lab}"
 
         label_index[f"{team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
 

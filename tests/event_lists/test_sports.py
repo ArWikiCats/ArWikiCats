@@ -33,7 +33,6 @@ data1 = {
     "Category:International women's basketball competitions hosted by Cuba": "تصنيف:منافسات كرة سلة دولية للسيدات استضافتها كوبا",
     "Category:Sports coaches by nationality": "تصنيف:مدربو رياضة حسب الجنسية",
     "Category:Transport companies established in 1909": "تصنيف:شركات نقل أسست في 1909",
-    "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
 }
 
 data2 = {
@@ -59,7 +58,6 @@ data2 = {
     "Category:Seasons in Omani football": "تصنيف:مواسم في كرة القدم العمانية",
     "Category:Ski jumping at the Winter Universiade": "تصنيف:القفز التزلجي في الألعاب الجامعية الشتوية",
     "Category:Skiing coaches": "تصنيف:مدربو تزلج",
-    "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
     "Category:Sports competitors by nationality and competition": "تصنيف:منافسون رياضيون حسب الجنسية والمنافسة",
     "Category:Sports organisations of Andorra": "تصنيف:منظمات رياضية في أندورا",
     "Category:sports-people from Boston": "تصنيف:رياضيون من بوسطن",

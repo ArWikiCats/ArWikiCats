@@ -290,6 +290,12 @@ class FormatDataBase:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 
+    def check_placeholders(self, category: str, result: str) -> str:
+        if "{" in result:
+            logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
+            return ""
+        return result
+
     def search_all_category(self, category: str) -> str:
         logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
@@ -299,5 +305,8 @@ class FormatDataBase:
 
         if result and category.lower().startswith("category:"):
             result = "تصنيف:" + result
+
+        result = self.check_placeholders(category, result)
+
         logger.debug(">> search_all_category end")
         return result

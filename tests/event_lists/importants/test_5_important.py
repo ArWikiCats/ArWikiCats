@@ -48,6 +48,19 @@ data_empty = {
 }
 
 data0 = {
+    # "Category:Native American women leaders": "تصنيف:قائدات أمريكيات أصليون",
+    "yemeni national junior women's under-16 football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للناشئات",
+    "yemeni national junior women's football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية للناشئات",
+    "yemeni national women's under-16 football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للسيدات",
+    "yemeni national youth women's under-16 football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للشابات",
+    "yemeni national youth women's football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية للشابات",
+    "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
+    "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
+    "Category:German people convicted of torture": "تصنيف:ألمان أدينوا بتعذيب",
+    "Category:Romania football manager history navigational boxes": "تصنيف:صناديق تصفح تاريخ مدربو كرة قدم رومانيا",
+
+    "Category:Jewish football clubs": "تصنيف:أندية كرة القدم اليهودية",
+    "Category:Jewish sports": "تصنيف:ألعاب رياضية يهودية",
     "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",
     "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",

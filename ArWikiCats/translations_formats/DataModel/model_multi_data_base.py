@@ -229,21 +229,30 @@ class MultiDataFormatterBaseHelpers:
     def search(self, category: str) -> str:
         return self.create_label(category)
 
+    def check_placeholders(self, category: str, result: str) -> str:
+        if "{" in result:
+            logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
+            return ""
+        return result
+
     def search_all(self, category: str) -> str:
-        return (
+        result = (
             self.create_label(category) or
             self.country_bot.search(category) or
             self.other_bot.search(category) or
+            ""
+        )
+        return result
+
+    def search_all_other_first(self, category: str) -> str:
+        result = (
+            self.other_bot.search(category) or
+            self.country_bot.search(category) or
+            self.create_label(category) or
             ""
         )
 
-    def search_all_other_first(self, category: str) -> str:
-        return (
-            self.other_bot.search(category) or
-            self.country_bot.search(category) or
-            self.create_label(category) or
-            ""
-        )
+        return self.check_placeholders(category, result)
 
     def search_all_category(self, category: str) -> str:
         logger.debug("--"*5)
@@ -254,5 +263,7 @@ class MultiDataFormatterBaseHelpers:
 
         if result and category.lower().startswith("category:"):
             result = "تصنيف:" + result
+
+        result = self.check_placeholders(category, result)
         logger.debug(">> search_all_category end")
         return result

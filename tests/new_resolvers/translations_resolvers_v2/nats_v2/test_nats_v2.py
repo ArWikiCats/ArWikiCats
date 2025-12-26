@@ -146,6 +146,8 @@ test_data_male = {
 }
 
 test_data_female = {
+    # "women's sports": "رياضات نسائية",
+    "American women's sports": "رياضات نسائية أمريكية",
     # female - en_is_nat_ar_is_women
     "American airstrikes": "ضربات جوية أمريكية",
     "American autobiographies": "ترجمة ذاتية أمريكية",

@@ -30,8 +30,6 @@ data_new = {
     "football by country": "كرة القدم حسب البلد",
     "men's football by continent": "كرة القدم للرجال حسب القارة",
     "new zealand by decade": "نيوزيلندا حسب العقد",
-    "sports by country": "ألعاب رياضية حسب البلد",
-    "sports by month": "ألعاب رياضية حسب الشهر",
     "united states by state or territory": "الولايات المتحدة حسب الولاية أو الإقليم",
     "united states by state": "الولايات المتحدة حسب الولاية",
     "united states in 1520": "الولايات المتحدة في 1520",

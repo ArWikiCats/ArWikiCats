@@ -17,6 +17,13 @@ from ..sports_formats_teams.sport_lab2_data import labels_formatted_data, jobs_f
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
 sports_formatted_data = {
+
+    # Category:yemeni Women's Football League
+    "womens {en} {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+    "womens {en} {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+    "{en} womens {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+    "{en} womens {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
     "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
     "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
@@ -24,6 +31,11 @@ sports_formatted_data = {
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
 
     # sports_formatted_data data:
+    # "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
+    # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
+    "{en} sports federation": "الاتحاد {the_male} للرياضة",
+    "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
+
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
 
     "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
@@ -228,7 +240,7 @@ def resolve_countries_names_sport(category: str) -> str:
     return result
 
 
-def fix_result_callable(result, category, key, value):
+def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
 
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")

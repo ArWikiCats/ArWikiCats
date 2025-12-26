@@ -31,7 +31,7 @@ sport_lab2_data = {
     "biathlon world cup": "كأس العالم للبياثلون",
     "cricket world cup": "كأس العالم للكريكت",
     "curling world cup": "كأس العالم للكيرلنغ",
-    "esports world cup": "كأس العالم للرياضة إلكترونية",
+    "esports world cup": "كأس العالم للرياضة الإلكترونية",
     "hockey world cup": "كأس العالم للهوكي",
     "men's hockey world cup": "كأس العالم للهوكي للرجال",
     "men's rugby world cup": "كأس العالم للرجبي للرجال",

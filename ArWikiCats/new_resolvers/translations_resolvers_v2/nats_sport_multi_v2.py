@@ -55,6 +55,7 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "leagues": "دوريات",
         "coaches": "مدربو",
         "clubs": "أندية",
+        "clubs and teams": "أندية وفرق",
         "competitions": "منافسات",
         "chairmen and investors": "رؤساء ومسيرو",
         "cups": "كؤوس",
@@ -119,6 +120,11 @@ sports_formatted_data = {
     "{en} indoor {en_sport}": "{sport_jobs} {female} داخل الصالات",
 
     # data
+    # "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
+    # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
+    "{en} sports federation": "الاتحاد {the_male} للرياضة",
+    "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
+
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
     "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
@@ -126,6 +132,12 @@ sports_formatted_data = {
     "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
     "{en} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
     "{en} {en_sport} tour": "بطولة {ar} {sport_team}",
+
+    # Category:yemeni Women's Football League
+    "womens {en} {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+    "womens {en} {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+    "{en} womens {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+    "{en} womens {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
 
     "womens national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
 
@@ -348,7 +360,7 @@ def _resolve_nats_sport_multi_v2(category: str) -> str:
     return result
 
 
-def fix_result_callable(result, category, key, value):
+def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
 
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")

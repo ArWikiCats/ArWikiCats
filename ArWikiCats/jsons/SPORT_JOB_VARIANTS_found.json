@@ -91,10 +91,6 @@
         "males": "لاعبو بولو",
         "females": "لاعبات بولو"
     },
-    "sports coaches": {
-        "males": "مدربو رياضية",
-        "females": "مدربات رياضية"
-    },
     "chess players": {
         "males": "لاعبو شطرنج",
         "females": "لاعبات شطرنج"
@@ -202,10 +198,6 @@
     "men's ice hockey players": {
         "males": "لاعبو هوكي جليد رجالية",
         "females": ""
-    },
-    "sports executives": {
-        "males": "مسيرو رياضية",
-        "females": "مسيرات رياضية"
     },
     "swimming coaches": {
         "males": "مدربو سباحة",
@@ -327,10 +319,6 @@
         "males": "حراس مرمى هوكي",
         "females": "حارسات مرمى هوكي"
     },
-    "sports journalists": {
-        "males": "صحفيو رياضية",
-        "females": "صحفيات رياضية"
-    },
     "association football managers": {
         "males": "مدربو كرة قدم",
         "females": "مدربات كرة قدم"
@@ -399,10 +387,6 @@
         "males": "لاعبو هوكي ميدان أولمبيون",
         "females": "لاعبات هوكي ميدان أولمبيات"
     },
-    "sports biography": {
-        "males": "أعلام رياضة",
-        "females": ""
-    },
     "skiing biography": {
         "males": "أعلام تزلج",
         "females": ""
@@ -446,10 +430,6 @@
     "hockey left wingers": {
         "males": "أجنحة يسار هوكي",
         "females": "جناحات يسار هوكي"
-    },
-    "sports players": {
-        "males": "لاعبو رياضية",
-        "females": "لاعبات رياضية"
     },
     "ice hockey centres": {
         "males": "لاعبو وسط هوكي جليد",
@@ -963,10 +943,6 @@
         "males": "مدربو تزلج ريفي",
         "females": "مدربات تزلج ريفي"
     },
-    "sports managers": {
-        "males": "مدربو رياضية",
-        "females": "مدربات رياضية"
-    },
     "men's handball players": {
         "males": "لاعبو كرة يد رجالية",
         "females": ""
@@ -1335,10 +1311,6 @@
         "males": "أعلام سهام مريشة",
         "females": ""
     },
-    "sports announcers": {
-        "males": "مذيعو رياضية",
-        "females": "مذيعات رياضية"
-    },
     "rugby union executives": {
         "males": "مسيرو اتحاد رجبي",
         "females": "مسيرات اتحاد رجبي"
@@ -1646,10 +1618,6 @@
     "cue sports referees": {
         "males": "حكام بلياردو",
         "females": "حكمات بلياردو"
-    },
-    "sports referees": {
-        "males": "حكام رياضية",
-        "females": "حكمات رياضية"
     },
     "cycle race stage winners": {
         "males": "فائزون في مراحل سباق دراجات",
@@ -2150,10 +2118,6 @@
     "athletics journalists": {
         "males": "صحفيو ألعاب قوى",
         "females": "صحفيات ألعاب قوى"
-    },
-    "sports scouts": {
-        "males": "كشافة رياضية",
-        "females": "كشافة رياضية"
     },
     "sumo announcers": {
         "males": "مذيعو سومو",

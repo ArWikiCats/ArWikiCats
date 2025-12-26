@@ -63,10 +63,6 @@
         "males": "نحاتون رياضيون",
         "females": "نحاتات رياضيات"
     },
-    "wheelchair discus throwers": {
-        "males": "رماة قرص على الكراسي المتحركة",
-        "females": "راميات قرص على الكراسي المتحركة"
-    },
     "sports scientists": {
         "males": "علماء رياضيون",
         "females": "عالمات رياضيات"
@@ -90,14 +86,6 @@
     "sports workers": {
         "males": "عمال رياضيون",
         "females": "عاملات رياضيات"
-    },
-    "professional journalists": {
-        "males": "صحفيون محترفون",
-        "females": "صحفيات محترفات"
-    },
-    "professional bowlers": {
-        "males": "لاعبو بولينج محترفون",
-        "females": "لاعبات بولينج محترفات"
     },
     "sports award winners": {
         "males": "حائزو جوائز رياضيون",
@@ -130,6 +118,18 @@
     "sports youtubers": {
         "males": "مشاهير يوتيوب رياضيون",
         "females": " رياضيات"
+    },
+    "professional journalists": {
+        "males": "صحفيون محترفون",
+        "females": "صحفيات محترفات"
+    },
+    "professional bowlers": {
+        "males": "لاعبو بولينج محترفون",
+        "females": "لاعبات بولينج محترفات"
+    },
+    "wheelchair discus throwers": {
+        "males": "رماة قرص على الكراسي المتحركة",
+        "females": "راميات قرص على الكراسي المتحركة"
     },
     "professional employees": {
         "males": "موظفون محترفون",
