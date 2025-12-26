@@ -16,7 +16,7 @@ def resolve_sports_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--"*20)
-    logger.debug(f"<><><><><><> <<green>> resolve_sports_main for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> Trying sports_resolvers resolvers for: {normalized_category=}")
 
     resolved_label = (
         countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category) or
@@ -27,7 +27,7 @@ def resolve_sports_main(normalized_category) -> str:
         ""
     )
 
-    logger.debug(f"<<green>> end resolve_sports_main: {normalized_category=}, {resolved_label=}")
+    logger.debug(f"<<green>> end sports_resolvers: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

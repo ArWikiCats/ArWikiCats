@@ -20,7 +20,7 @@ def resolve_v3i_main(normalized_category) -> str:
         ""
     )
 
-    logger.debug(f"<<green>> end resolved_translations_resolvers_v3i: {normalized_category=}, {resolved_label=}")
+    logger.debug(f"<<green>> end v3i: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

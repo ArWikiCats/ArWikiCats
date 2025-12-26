@@ -18,7 +18,7 @@ def resolve_nationalities_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--"*20)
-    logger.debug(f"<><><><><><> <<green>> Trying v2 resolvers for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> Trying nationalities_resolvers resolvers for: {normalized_category=}")
 
     resolved_label = (
         countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category) or
@@ -30,7 +30,7 @@ def resolve_nationalities_main(normalized_category) -> str:
         ""
     )
 
-    logger.debug(f"<<green>> end resolved_translations_resolvers_v2: {normalized_category=}, {resolved_label=}")
+    logger.debug(f"<<green>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 
