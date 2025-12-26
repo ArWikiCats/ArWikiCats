@@ -8,10 +8,9 @@ from ...helps import len_print
 from ...translations_formats import FormatData
 from ...translations.jobs.jobs_players_list import FOOTBALL_KEYS_PLAYERS
 from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
-from ...translations.sports.sports_lists import AFTER_KEYS
 
 teams_2025_sample = {
-    "{sport}": "{sport_label}",
+    # "{sport}": "{sport_label}",
     # "{sport} managers": "مدراء {sport_label}",
     "{sport} managers": "مدربو {sport_label}",
     "{sport} coaches": "مدربو {sport_label}",
@@ -41,6 +40,47 @@ PPP_Keys = {
 }
 
 
+after_keys: dict[str, str] = {
+    "squads": "تشكيلات",
+    "finals": "نهائيات",
+    "positions": "مراكز",
+    "tournaments": "بطولات",
+    "films": "أفلام",
+    "teams": "فرق",
+    "venues": "ملاعب",
+    "clubs": "أندية",
+    "organizations": "منظمات",
+    "non-profit organizations": "منظمات غير ربحية",
+    "non-profit publishers": "ناشرون غير ربحيون",
+    "organisations": "منظمات",
+    "events": "أحداث",
+    "umpires": "حكام",
+    "trainers": "مدربو",
+    "scouts": "كشافة",
+    # "people" : "أعلام",
+    "coaches": "مدربو",
+    "leagues": "دوريات",
+    "managers": "مدربو",
+    # "managers" : "مدراء",
+    # "captains" : "مدربو",
+    "playerss": "لاعبو",
+    "players": "لاعبو",
+    "results": "نتائج",
+    "matches": "مباريات",
+    "navigational boxes": "صناديق تصفح",
+    "lists": "قوائم",
+    "home stadiums": "ملاعب",
+    "templates": "قوالب",
+    "rivalries": "دربيات",
+    "champions": "أبطال",
+    "competitions": "منافسات",
+    "statistics": "إحصائيات",
+    "records": "سجلات",
+    "records and statistics": "سجلات وإحصائيات",
+    "manager history": "تاريخ مدربو",
+}
+
+
 @functools.lru_cache(maxsize=1)
 def load_data() -> Dict[str, str]:
     """
@@ -67,13 +107,16 @@ def load_data() -> Dict[str, str]:
         key2 = f"{PP} {sport}".strip()
         value2 = f"{sport_label} {PPP_Keys[PP]}".strip()
         data[key2] = value2
-        for after, after_label in AFTER_KEYS.items():
+
+        for after, after_label in after_keys.items():
             data[f"{key2} {after}"] = f"{after_label} {value2}"
+
         for after in FOOTBALL_KEYS_PLAYERS:
             PP_o = f"{key2} {after}"
             llab = FOOTBALL_KEYS_PLAYERS[after]["males"]
             if "women's" in PP_o:
                 llab = FOOTBALL_KEYS_PLAYERS[after]["females"]
+
             data[PP_o] = f"{llab} {value2}"
 
     return data
@@ -96,7 +139,7 @@ def find_teams_2025(category: str, default: str = "") -> str:
     return bot.search(category) or default
 
 
-len_print.data_len("sports/teams_new_data_2025.py", {"teams_2025": 533})  # teams_2025: 533 <> "TEAMS_NEW": "352,946",
+len_print.data_len("sports/teams_new_data_2025.py", {"teams_2025": load_data()})  # teams_2025: 526 <> "TEAMS_NEW": "352,946",
 
 __all__ = [
     "find_teams_2025",
