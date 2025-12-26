@@ -4,28 +4,6 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 
 from ArWikiCats import resolve_arabic_category_label
 
-data0 = {
-    "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
-    "Category:Defunct women's sports clubs and teams": "",
-    "Category:Women's sports in United States by state": "تصنيف:الرياضات النسوية في الولايات المتحدة حسب الولاية",
-    "Category:Women's sport by continent and period": "تصنيف:رياضة نسائية حسب القارة والحقبة",
-    "Category:Women's sport by period": "تصنيف:رياضة نسائية حسب الحقبة",
-    "Category:Women's sport in Mexico City": "تصنيف:رياضة نسائية في مدينة مكسيكو",
-    "Category:Women's sport in Oceania by period": "تصنيف:رياضة نسائية في أوقيانوسيا حسب الحقبة",
-    "Category:Women's sports by dependent territory": "تصنيف:الرياضات النسوية حسب الأقاليم التابعة",
-    "Category:Women's sports seasons by continent": "تصنيف:مواسم الرياضات النسوية حسب القارة",
-    "Category:Women's sports seasons": "تصنيف:مواسم رياضية نسائية",
-    "Category:Sports sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية",
-    "Category:Sports at multi-sport events sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية في الأحداث الرياضية المتعددة",
-    "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
-    "Category:sports by country": "تصنيف:ألعاب رياضية حسب البلد",
-    "Category:sports by month": "تصنيف:ألعاب رياضية حسب الشهر",
-    "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
-    "Category:Summer Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الصيفية",
-    "Category:wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
-    "Category:Winter Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية ألعاب رياضية في الألعاب الأولمبية الشتوية",
-}
-
 data1 = {
     "Category:1964 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1964",
     "Category:1972 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1972",
@@ -567,21 +545,24 @@ data3 = {
 }
 
 to_test = [
-    ("test_sports_data_0", data0),
     ("test_sports_data_1", data1),
     ("test_sports_data_2", data2),
     ("test_sports_data_3", data3),
-    # ("test_sports_data_4", data4),
 ]
-
-
-@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
-def test_sports_data_0(category: str, expected: str) -> None:
-    assert resolve_arabic_category_label(category) == expected
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
 def test_sports_data_1(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
+@pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
+def test_sports_data_2(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
+@pytest.mark.parametrize("category, expected", data3.items(), ids=data3.keys())
+def test_sports_data_3(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 

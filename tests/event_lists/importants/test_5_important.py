@@ -53,13 +53,6 @@ data0 = {
     "Category:German people convicted of torture": "تصنيف:ألمان أدينوا بتعذيب",
     "Category:Romania football manager history navigational boxes": "تصنيف:صناديق تصفح تاريخ مدربو كرة قدم رومانيا",
 
-    "Category:mexican women's sports": "تصنيف:رياضات نسائية مكسيكية",
-    "Category:canadian women's sports": "تصنيف:رياضات نسائية كندية",
-    "Category:american women's sports": "تصنيف:رياضات نسائية أمريكية",
-    "Category:2026 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 2026",
-    "Category:1964 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1964",
-    "Category:1972 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1972",
-    "Category:2003 in Canadian women's sports": "تصنيف:رياضات نسائية كندية في 2003",
     "Category:Jewish football clubs": "تصنيف:أندية كرة القدم اليهودية",
     "Category:Jewish sports": "تصنيف:ألعاب رياضية يهودية",
     "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",

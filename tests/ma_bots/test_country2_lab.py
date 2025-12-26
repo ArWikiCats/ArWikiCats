@@ -43,7 +43,6 @@ data = {
     "national cricket teams": "منتخبات كريكت وطنية",
     "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
     "water polo": "كرة الماء",
-    "national women's sports teams of": "منتخبات رياضية وطنية نسائية في",
     "world judo championships": "بطولة العالم للجودو",
     "youth athletics competitions": "منافسات ألعاب قوى شبابية",
     "youth athletics": "ألعاب القوى للشباب",

@@ -959,7 +959,6 @@ data_list_in = {
     "women's cricket teams in india": "فرق الكريكت للسيدات في الهند",
     "women's football in slovakia": "كرة القدم للسيدات في سلوفاكيا",
     "women's futsal in bolivia": "كرة صالات للسيدات في بوليفيا",
-    "women's sports leagues in uzbekistan": "دوريات الرياضات النسوية في أوزبكستان",
     "years in curaçao": "سنوات في كوراساو",
     "years of 20th century in australia": "سنوات القرن 20 في أستراليا",
     "youth sport in british virgin islands": "رياضة شبابية في جزر العذراء البريطانية",
