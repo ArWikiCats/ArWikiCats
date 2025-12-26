@@ -32,6 +32,7 @@ mappings_data: dict[str, str] = {
     "teams": "فرق",
     "venues": "ملاعب",
     "clubs": "أندية",
+    "clubs and teams": "أندية وفرق",
     "organizations": "منظمات",
     "non-profit organizations": "منظمات غير ربحية",
     "non-profit publishers": "ناشرون غير ربحيون",

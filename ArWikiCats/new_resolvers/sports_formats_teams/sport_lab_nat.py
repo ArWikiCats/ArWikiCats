@@ -258,6 +258,7 @@ def _load_end_key_mappings() -> dict[str, str]:
         "cups": "كؤوس {lab}",
         "champions": "أبطال {lab}",
         "clubs": "أندية {lab}",
+        "clubs and teams": "أندية وفرق {lab}",
         "coaches": "مدربو {lab}",  # Category:Indoor soccer coaches in the United States by club
         "competitions": "منافسات {lab}",
         "events": "أحداث {lab}",

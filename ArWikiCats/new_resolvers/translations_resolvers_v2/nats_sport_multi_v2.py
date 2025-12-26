@@ -55,6 +55,7 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "leagues": "دوريات",
         "coaches": "مدربو",
         "clubs": "أندية",
+        "clubs and teams": "أندية وفرق",
         "competitions": "منافسات",
         "chairmen and investors": "رؤساء ومسيرو",
         "cups": "كؤوس",

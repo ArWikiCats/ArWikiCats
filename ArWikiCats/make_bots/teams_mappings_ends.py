@@ -5,6 +5,7 @@
 
 teams_label_mappings_ends = {
     "champions": "أبطال",
+    "clubs and teams": "أندية وفرق",
     "clubs": "أندية",
     "coaches": "مدربو",
     "competitions": "منافسات",
