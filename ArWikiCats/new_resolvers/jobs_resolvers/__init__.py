@@ -2,7 +2,7 @@
 from . import womens, mens
 
 
-def new_jobs_resolver_label(normalized_category) -> str:
+def resolve_jobs_main(normalized_category) -> str:
 
     normalized_category = normalized_category.lower().replace("category:", "")
     resolved_label = (
@@ -15,5 +15,5 @@ def new_jobs_resolver_label(normalized_category) -> str:
 
 
 __all__ = [
-    "new_jobs_resolver_label",
+    "resolve_jobs_main",
 ]

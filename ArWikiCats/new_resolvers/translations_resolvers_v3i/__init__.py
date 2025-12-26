@@ -9,7 +9,7 @@ from . import (
 
 
 @functools.lru_cache(maxsize=None)
-def resolved_translations_resolvers_v3i(normalized_category) -> str:
+def resolve_v3i_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--"*20)
     logger.debug(f"<><><><><><> <<green>> Trying v3i resolvers for: {normalized_category=}")
@@ -25,5 +25,5 @@ def resolved_translations_resolvers_v3i(normalized_category) -> str:
 
 
 __all__ = [
-    "resolved_translations_resolvers_v3i",
+    "resolve_v3i_main",
 ]

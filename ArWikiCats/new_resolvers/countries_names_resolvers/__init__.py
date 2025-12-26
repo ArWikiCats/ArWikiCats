@@ -7,7 +7,7 @@ from . import (
 from ...helps import logger
 
 
-def resolved_countries_names_main(normalized_category) -> str:
+def resolve_countries_names_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--"*20)
     logger.debug(f"<><><><><><> <<green>> Trying v1 resolvers for: {normalized_category=}")
@@ -24,5 +24,5 @@ def resolved_countries_names_main(normalized_category) -> str:
 
 
 __all__ = [
-    "resolved_countries_names_main",
+    "resolve_countries_names_main",
 ]

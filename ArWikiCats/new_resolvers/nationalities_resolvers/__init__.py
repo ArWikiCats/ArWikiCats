@@ -14,7 +14,7 @@ from . import (
 
 
 @functools.lru_cache(maxsize=None)
-def resolved_translations_resolvers_v2(normalized_category) -> str:
+def resolve_nationalities_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--"*20)
@@ -35,5 +35,5 @@ def resolved_translations_resolvers_v2(normalized_category) -> str:
 
 
 __all__ = [
-    "resolved_translations_resolvers_v2",
+    "resolve_nationalities_main",
 ]
