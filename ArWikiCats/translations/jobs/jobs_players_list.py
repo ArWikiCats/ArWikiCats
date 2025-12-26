@@ -332,6 +332,18 @@ WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
 # SPORT_JOB_VARIANTS = _build_sports_job_variants(SPORTS_KEYS_FOR_JOBS, FOOTBALL_KEYS_PLAYERS)
 SPORT_JOB_VARIANTS = open_json_file("SPORT_JOB_VARIANTS_found.json") or {}
 
+SPORT_JOB_VARIANTS.update({
+    "sports executives": {"males": "مسيرو رياضية", "females": "مسيرات رياضية"},
+    "sports coaches": {"males": "مدربو رياضية", "females": "مدربات رياضية"},
+    "sports journalists": {"males": "صحفيو رياضية", "females": "صحفيات رياضية"},
+    "sports biography": {"males": "أعلام رياضة", "females": ""},
+    "sports players": {"males": "لاعبو رياضية", "females": "لاعبات رياضية"},
+    "sports managers": {"males": "مدربو رياضية", "females": "مدربات رياضية"},
+    "sports announcers": {"males": "مذيعو رياضية", "females": "مذيعات رياضية"},
+    "sports referees": {"males": "حكام رياضية", "females": "حكمات رياضية"},
+    "sports scouts": {"males": "كشافة رياضية", "females": "كشافة رياضية"},
+})
+
 SPORT_JOB_VARIANTS_additional = {
 
     "canadian football players": {
