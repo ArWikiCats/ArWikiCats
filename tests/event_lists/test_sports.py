@@ -33,7 +33,6 @@ data1 = {
     "Category:International women's basketball competitions hosted by Cuba": "تصنيف:منافسات كرة سلة دولية للسيدات استضافتها كوبا",
     "Category:Sports coaches by nationality": "تصنيف:مدربو رياضة حسب الجنسية",
     "Category:Transport companies established in 1909": "تصنيف:شركات نقل أسست في 1909",
-    "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
 }
 
 data2 = {

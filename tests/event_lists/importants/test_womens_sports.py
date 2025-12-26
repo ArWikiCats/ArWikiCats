@@ -5,6 +5,16 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:Women's sports teams in Cuba": "تصنيف:فرق الرياضات النسوية في كوبا",
+    "Category:Defunct women's sports clubs and teams": "",
+    "Category:Women's sports in United States by state": "تصنيف:الرياضات النسوية في الولايات المتحدة حسب الولاية",
+    "Category:Women's sport by continent and period": "تصنيف:رياضة نسائية حسب القارة والحقبة",
+    "Category:Women's sport by period": "تصنيف:رياضة نسائية حسب الحقبة",
+    "Category:Women's sport in Mexico City": "تصنيف:رياضة نسائية في مدينة مكسيكو",
+    "Category:Women's sport in Oceania by period": "تصنيف:رياضة نسائية في أوقيانوسيا حسب الحقبة",
+    "Category:Women's sports by dependent territory": "تصنيف:الرياضات النسوية حسب الأقاليم التابعة",
+    "Category:Women's sports seasons by continent": "تصنيف:مواسم الرياضات النسوية حسب القارة",
+    "Category:Women's sports seasons": "تصنيف:مواسم رياضية نسائية",
     "Category:Sports sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية",
     "Category:Sports at multi-sport events sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضية في الأحداث الرياضية المتعددة",
     "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
@@ -554,7 +564,6 @@ data3 = {
     "Category:Women's sports in Oregon": "تصنيف:رياضات نسائية في أوريغون",
     "Category:Women's sports in Palau": "تصنيف:رياضات نسائية في بالاو",
     "Category:Women's sports in Vienna": "تصنيف:رياضات نسائية في فيينا",
-    "Category:Defunct women's sports clubs and teams": ""
 }
 
 to_test = [
