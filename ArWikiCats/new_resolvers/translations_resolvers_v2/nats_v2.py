@@ -32,14 +32,14 @@ males_data.update(peoples_nats_not_jobs_males)
 ar_data = {
     # ar - en_is_nat_ar_is_P17
     "{en} grand prix": "جائزة {ar} الكبرى",
-    "{en} king's cup": "كأس ملك {ar}",  # Bahraini King's Cup
+    "{en} kings cup": "كأس ملك {ar}",  # Bahraini King's Cup
     "{en} cup": "كأس {ar}",
     "{en} independence": "استقلال {ar}",
     "{en} open": "{ar} المفتوحة",
     "{en} ladies open": "{ar} المفتوحة للسيدات",
     "{en} national university": "جامعة {ar} الوطنية",
     "{en} national university alumni": "خريجو جامعة {ar} الوطنية",
-    "{en} national women's motorsports racing team": "منتخب {ar} لسباق رياضة المحركات للسيدات",
+    "{en} national womens motorsports racing team": "منتخب {ar} لسباق رياضة المحركات للسيدات",
 
 }
 
@@ -78,7 +78,7 @@ the_male_data = {
     "{en} labour law": "قانون العمل {the_male}",
     "{en} abortion law": "قانون الإجهاض {the_male}",
     "{en} rugby union leagues": "اتحاد دوري الرجبي {the_male}",
-    "{en} women's rugby union": "اتحاد الرجبي {the_male} للنساء",
+    "{en} womens rugby union": "اتحاد الرجبي {the_male} للنساء",
     "{en} rugby union": "اتحاد الرجبي {the_male}",
     "{en} presidential pardons": "العفو الرئاسي {the_male}",
     "{en} pardons": "العفو {the_male}",
@@ -112,6 +112,8 @@ male_data = {
 }
 
 female_data = {
+    # "Category:1972 in American women's sports": "تصنيف:رياضة أمريكية للسيدات في 1972",
+    "{en} womens sports": "رياضات نسائية {female}",
     "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
     "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
 
@@ -312,7 +314,7 @@ female_data = {
     "{en} webcomic": "ويب كومكس {female}",
     "{en} webcomics": "ويب كومكس {female}",
     "{en} websites": "مواقع ويب {female}",
-    "{en} women's sport": "رياضة {female} نسائية",
+    "{en} womens sport": "رياضة {female} نسائية",
     "{en} works": "أعمال {female}",
     "{en} youth competitions": "منافسات شبابية {female}",
     "{en} youth music competitions": "منافسات موسيقية شبابية {female}",
@@ -385,7 +387,7 @@ the_female_data = {
     "{en} political party": "أحزاب سياسية {female}",
 }
 
-all_formatted_data = males_data | ar_data | the_male_data | female_data | male_data | the_female_data | country_names_and_nats_data
+all_formatted_data = males_data | ar_data | the_male_data | male_data | the_female_data | country_names_and_nats_data | female_data
 
 
 @functools.lru_cache(maxsize=1)
@@ -408,6 +410,18 @@ def _load_bot() -> FormatDataV2:
     )
 
 
+def fix_keys(category: str) -> str:
+    """Fix known issues in category keys before searching.
+
+    Args:
+        category: The original category key.
+    """
+    # Fix specific known issues with category keys
+    category = category.lower().replace("category:", "")
+    category = category.replace("'", "")
+    return category.strip()
+
+
 @functools.lru_cache(maxsize=10000)
 def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
@@ -415,7 +429,7 @@ def resolve_by_nats(category: str) -> str:
     if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
         logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, [result=]")
         return ""
-
+    category = fix_keys(category)
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
     logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
