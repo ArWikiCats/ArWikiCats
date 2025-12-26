@@ -51,18 +51,6 @@ after_keys: dict[str, str] = {
 
 
 @functools.lru_cache(maxsize=1)
-def lazy_load() -> Dict[str, str]:
-    """Load and cache the 2025 teams dataset."""
-    return load_teams_new()
-
-
-@functools.lru_cache(maxsize=None)
-def teams_new_founder(key: str, default: str = "") -> str:
-    """Look up a team label from the cached 2025 dataset."""
-    data = lazy_load()
-    return data.get(key, default)
-
-
 def load_teams_new() -> Dict[str, str]:
     """
     lazy load TEAMS_NEW
@@ -110,7 +98,13 @@ def load_teams_new() -> Dict[str, str]:
     return data
 
 
+@functools.lru_cache(maxsize=None)
+def teams_new_founder(key: str, default: str = "") -> str:
+    """Look up a team label from the cached 2025 dataset."""
+    data = load_teams_new()
+    return data.get(key, default)
+
+
 __all__ = [
-    "load_teams_new",
     "teams_new_founder",
 ]
