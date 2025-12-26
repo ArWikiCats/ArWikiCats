@@ -3,6 +3,15 @@
 """
 from ..helps import logger
 
+from typing import TypedDict, Dict
+
+
+class GenderedLabel(TypedDict):
+    """Represent an Arabic label split into masculine and feminine forms."""
+
+    males: str
+    females: str
+
 
 def normalize_text(text: str) -> str:
     text = text.lower().replace("category:", "")
@@ -38,7 +47,7 @@ def combine_value_and_label(
 
 def resolve_suffix_with_mapping_genders(
     category: str,
-    data: dict[str, str],
+    data: Dict[str, GenderedLabel],
     callback: callable,
     fix_result_callable: callable = None,
     format_key: str = "",
@@ -50,13 +59,14 @@ def resolve_suffix_with_mapping_genders(
 
     # category = normalize_text(category)
     for key, value in data.items():
+        gender_value = value["females"] if "womens" in category else value["males"]
         if category.endswith(key):
             new_category = category[: -len(key)].strip()
             new_label = callback(new_category)
             if new_label:
-                result = combine_value_and_label(value, new_label, format_key)
+                result = combine_value_and_label(gender_value, new_label, format_key)
                 if fix_result_callable:
-                    result = fix_result_callable(result, category, key, value)
+                    result = fix_result_callable(result, category, key, gender_value)
             break
 
     if not result:

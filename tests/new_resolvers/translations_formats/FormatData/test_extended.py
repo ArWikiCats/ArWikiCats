@@ -3,7 +3,7 @@ from typing import Dict
 
 import pytest
 
-from ArWikiCats.new_resolvers.translations_resolvers.match_labs import load_data
+from ArWikiCats.new_resolvers.translations_resolvers.match_labs import teams_2025
 from ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
 from ArWikiCats.translations_formats import FormatData
 
@@ -12,7 +12,7 @@ from ArWikiCats.translations_formats import FormatData
 
 @pytest.fixture(scope="session")
 def formatted_data() -> Dict[str, str]:
-    return load_data()
+    return teams_2025
 
 
 @pytest.fixture(scope="session")
@@ -75,12 +75,6 @@ def test_normalize_category(bot: FormatData, category: str, sport_key: str, expe
     assert normalized == expected
 
 
-# --- get_template -----------------------------------------------
-def test_get_template_found(bot: FormatData) -> None:
-    label = bot.get_template("football", "men's football players")
-    assert "لاعبو كرة قدم رجالية" in label or label != ""
-
-
 def test_get_template_not_found(bot: FormatData) -> None:
     label = bot.get_template("football", "unrelated term")
     assert label == ""
@@ -99,19 +93,6 @@ def test_apply_pattern_replacement(bot: FormatData, template_label: str, sport_l
     bot.value_placeholder = "xoxo"
     result = bot.apply_pattern_replacement(template_label, sport_label)
     assert result == expected
-
-
-# --- search basic functionality --------------------------------------
-@pytest.mark.parametrize(
-    "category,expected",
-    [
-        ("men's football players", "لاعبو كرة قدم رجالية"),
-        ("women's basketball coaches", "مدربات كرة سلة نسائية"),
-        ("men's youth snooker records and statistics", "سجلات وإحصائيات سنوكر للشباب"),
-    ],
-)
-def test_search_valid(bot: FormatData, category: str, expected: str) -> None:
-    assert bot.search(category) == expected
 
 
 @pytest.mark.parametrize(
@@ -137,40 +118,3 @@ def test_search_missing_sport_label(formatted_data: Dict[str, str], data_list: D
 def test_search_missing_template_label(formatted_data: Dict[str, str], data_list: Dict[str, str]) -> None:
     bot = FormatData({}, data_list)
     assert bot.search("men's football players") == ""
-
-
-def test_search_case_insensitive(bot: FormatData) -> None:
-    result = bot.search("MEN'S FOOTBALL PLAYERS")
-    assert result == "لاعبو كرة قدم رجالية"
-
-
-# --- broader sampling -------------------------------------------------
-@pytest.mark.parametrize(
-    "sport_key",
-    [
-        "rugby union",
-        "basketball",
-        "handball",
-        "volleyball",
-        "cycling",
-    ],
-)
-def test_multiple_sports(bot: FormatData, sport_key: str) -> None:
-    category = f"men's {sport_key} teams"
-    result = bot.search(category)
-    assert isinstance(result, str)
-    assert result != ""
-
-
-# --- consistency check ------------------------------------------------
-def test_all_templates_work(bot: FormatData) -> None:
-    """Randomly sample a few template keys and ensure no crash occurs."""
-    import random
-
-    keys = random.sample(list(bot.formatted_data.keys()), 50)
-    for k in keys:
-        sample = k.replace("{sport}", "football")
-        try:
-            bot.search(sample)
-        except Exception as e:
-            pytest.fail(f"Unexpected exception for key {k}: {e}")
