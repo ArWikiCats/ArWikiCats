@@ -210,10 +210,8 @@ data3 = {
     "Category:Women's sports in West Germany": "تصنيف:الرياضات النسوية في ألمانيا الغربية",
     "Category:Women's sports in Wisconsin": "تصنيف:الرياضات النسوية في ويسكونسن",
     "Category:Women's sports seasons by continent": "تصنيف:مواسم الرياضات النسوية حسب القارة",
-    "Category:Works about women's sports": "تصنيف:أعمال عن الرياضات النسوية"
-}
+    "Category:Works about women's sports": "تصنيف:أعمال عن الرياضات النسوية",
 
-data4 = {
     "Category:1884 in women's sport": "تصنيف:رياضة نسوية في 1884",
     "Category:1885 in women's sport": "تصنيف:رياضة نسوية في 1885",
     "Category:1886 in women's sport": "تصنيف:رياضة نسوية في 1886",
@@ -565,7 +563,7 @@ to_test = [
     ("test_sports_data_1", data1),
     ("test_sports_data_2", data2),
     ("test_sports_data_3", data3),
-    ("test_sports_data_4", data4),
+    # ("test_sports_data_4", data4),
 ]
 
 
@@ -584,6 +582,6 @@ def test_sports_data_1(category: str, expected: str) -> None:
 def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
-    # dump_same_and_not_same(data, diff_result, name)
+    # dump_same_and_not_same(data, diff_result, name, True)
     dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

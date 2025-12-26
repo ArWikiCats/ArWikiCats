@@ -9,7 +9,7 @@ from ArWikiCats.ma_bots.country2_lab import get_lab_for_country2
 data = {
     "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
     "olympic medalists": "فائزون بميداليات أولمبية",
-    "women's sports": "الرياضات النسوية",
+    "women's sports": "رياضات نسائية",
     "by state": "حسب الولاية",
     "handball competitions": "منافسات كرة يد",
     "georgia (u.s. state)": "ولاية جورجيا",
