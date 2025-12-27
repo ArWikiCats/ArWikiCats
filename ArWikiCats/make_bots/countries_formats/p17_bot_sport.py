@@ -111,7 +111,7 @@ def _get_p17_with_sport(category: str) -> str:
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
 
-    logger.debug(f"<<yellow>> end _get_p17_with_sport: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end _get_p17_with_sport: {category=}, {result=}", result)
     return result
 
 
@@ -154,7 +154,7 @@ def get_p17_with_sport_new(category: str) -> str:
         fix_result_callable=fix_result_callable,
     )
 
-    logger.debug(f"<<yellow>> end get_p17_with_sport_new: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end get_p17_with_sport_new: {category=}, {result=}", result)
     return result
 
 

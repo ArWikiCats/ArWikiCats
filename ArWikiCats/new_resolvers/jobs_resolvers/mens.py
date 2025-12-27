@@ -202,13 +202,13 @@ def mens_resolver_labels(category: str) -> str:
     category = fix_keys(category)
 
     if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
-        logger.debug(f"<<yellow>> end mens_resolver_labels: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
         return ""
 
     _bot = load_bot()
     result = _bot.search_all_category(category)
 
-    logger.debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
     return result
 
 # len_print.data_len("mens.py", {"formatted_data": _load_formatted_data()})

@@ -83,13 +83,16 @@ def _load_base_records() -> dict[str, SportKeyRecord]:
         }
     }
     # data.update(multi_sport_key)
-    # data.update({"sports": {
-    #     "label": "رياضات",
-    #     "team": "",
-    #     "jobs_old": "",
-    #     "jobs": "",
-    #     "olympic": "رياضات أولمبية"
-    # }})
+    sports_key = {
+        "sports": {
+            "label": "رياضات",
+            "team": "للرياضات",
+            "jobs_old": "",
+            "jobs": "رياضية",
+            "olympic": "رياضات أولمبية"
+        }
+    }
+    # data.update(sports_key)
 
     for key, value in data.items():
         if isinstance(key, str) and isinstance(value, Mapping):
@@ -215,9 +218,12 @@ SPORT_KEY_RECORDS = SPORT_KEY_RECORDS_BASE | SPORT_KEY_RECORDS_VARIANTS
 
 SPORT_KEY_TABLES: SportKeyTables = _build_tables(SPORT_KEY_RECORDS)
 
-SPORTS_KEYS_FOR_LABEL: Final[dict[str, str]] = SPORT_KEY_TABLES.label
 SPORTS_KEYS_FOR_TEAM: Final[dict[str, str]] = SPORT_KEY_TABLES.team
 SPORTS_KEYS_FOR_OLYMPIC: Final[dict[str, str]] = SPORT_KEY_TABLES.olympic
+
+SPORTS_KEYS_FOR_LABEL: Final[dict[str, str]] = SPORT_KEY_TABLES.label
+# SPORTS_KEYS_FOR_LABEL["sports"] = "رياضات"
+# SPORTS_KEYS_FOR_LABEL["sports"] = "ألعاب رياضية"
 
 SPORTS_KEYS_FOR_JOBS: Final[dict[str, str]] = SPORT_KEY_TABLES.jobs
 SPORTS_KEYS_FOR_JOBS["sports"] = "رياضية"

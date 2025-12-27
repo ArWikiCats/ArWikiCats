@@ -5,6 +5,10 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
+test_1 = {
+    "Category:Wheelchair basketball": "تصنيف:كرة السلة على الكراسي المتحركة",
+}
+
 wheelchair_by_nats = {
     "Category:Swiss Wheelchair Curling Championship": "تصنيف:بطولة سويسرا للكيرلنغ على الكراسي المتحركة",
     "Category:European Wheelchair Basketball Championship": "تصنيف:بطولة أوروبا لكرة السلة على الكراسي المتحركة",
@@ -93,7 +97,6 @@ wheelchair_sports = {
     "Category:Wheelchair basketball terminology": "تصنيف:مصطلحات كرة سلة على كراسي متحركة",
     "Category:Wheelchair basketball venues in Turkey": "تصنيف:ملاعب كرة السلة على الكراسي المتحركة في تركيا",
     "Category:Wheelchair Basketball World Championship": "تصنيف:بطولة العالم لكرة السلة على الكراسي المتحركة",
-    "Category:Wheelchair basketball": "تصنيف:كرة السلة على الكراسي المتحركة",
     "Category:Wheelchair curlers at the 2020 Winter Paralympics": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة في الألعاب البارالمبية الشتوية 2020",
     "Category:Wheelchair curlers by nationality": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة حسب الجنسية",
     "Category:Wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة",
@@ -148,6 +151,13 @@ TEMPORAL_CASES = [
     ("test_wheelchair_basketball", wheelchair_basketball),
     ("test_wheelchair_sports", wheelchair_sports),
 ]
+
+
+@pytest.mark.parametrize("category, expected", test_1.items(), ids=test_1.keys())
+@pytest.mark.fast
+def test_wheelchair_first(category: str, expected: str) -> None:
+    label = resolve_arabic_category_label(category)
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", wheelchair_by_nats.items(), ids=wheelchair_by_nats.keys())

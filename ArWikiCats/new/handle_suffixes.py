@@ -90,7 +90,7 @@ def resolve_suffix_with_mapping_genders(
     if not result:
         result = callback(category)
 
-    logger.debug(f"<<yellow>> end resolve_suffix_with_mapping_genders: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_suffix_with_mapping_genders: {category=}, {result=}", result)
     return result
 
 
@@ -120,7 +120,7 @@ def resolve_sport_category_suffix_with_mapping(
     if not result:
         result = callback(category)
 
-    logger.debug(f"<<yellow>> end resolve_sport_category_suffix_with_mapping: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_category_suffix_with_mapping: {category=}, {result=}", result)
     return result
 
 

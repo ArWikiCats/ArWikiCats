@@ -194,7 +194,6 @@ data3 = {
     "Category:Women's sports in Vancouver": "تصنيف:رياضات نسائية في فانكوفر",
     "Category:Women's sports in West Germany": "تصنيف:رياضات نسائية في ألمانيا الغربية",
     "Category:Women's sports in Wisconsin": "تصنيف:رياضات نسائية في ويسكونسن",
-    "Category:Women's sports seasons by continent": "تصنيف:مواسم رياضات نسائية حسب القارة",
     "Category:Works about women's sports": "تصنيف:أعمال عن رياضات نسائية",
     "Category:1884 in women's sport": "تصنيف:رياضة نسائية في 1884",
     "Category:1885 in women's sport": "تصنيف:رياضة نسائية في 1885",

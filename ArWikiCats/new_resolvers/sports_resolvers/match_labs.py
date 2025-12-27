@@ -6,8 +6,8 @@ TODO: merge with sports_resolvers/raw_sports.py
 import functools
 from ...helps import logger, dump_data
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
-from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
+from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 
 teams_2025_sample = {
     "{sport} people": "أعلام {sport_jobs}",
@@ -153,8 +153,9 @@ def load_v2() -> FormatDataV2:
             "sport_jobs": v.get("jobs", ""),
         }
         for x, v in SPORT_KEY_RECORDS.items()
-        if v.get("jobs") and x != "sports"
+        if v.get("jobs")
     }
+    sports_data.pop("sports", None)
     bot = FormatDataV2(
         formatted_data=teams_2025,
         data_list=sports_data,
@@ -198,26 +199,26 @@ def find_teams_2025(category) -> str:
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
     # if SPORT_KEY_RECORDS.get(category): return SPORT_KEY_RECORDS[category].get("label", "")
 
-    label2 = _find_teams_2025(category)
+    result = _find_teams_2025(category)
 
-    if not label2:
-        label2 = resolve_sport_category_suffix_with_mapping(
+    if not result:
+        result = resolve_sport_category_suffix_with_mapping(
             category=category,
             data=mappings_data,
             callback=_find_teams_2025,
             fix_result_callable=fix_result_callable,
         )
 
-    if not label2:
-        label2 = resolve_suffix_with_mapping_genders(
+    if not result:
+        result = resolve_suffix_with_mapping_genders(
             category=category,
             data=football_keys_players,
             callback=_find_teams_2025,
             fix_result_callable=fix_result_callable,
         )
 
-    logger.debug(f"<<yellow>> end find_teams_2025: {category=}, {label2=}")
-    return label2
+    logger.info_if_or_debug(f"<<yellow>> end find_teams_2025: {category=}, {result=}", result)
+    return result
 
 
 __all__ = [

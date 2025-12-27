@@ -49,7 +49,7 @@ def resolve_by_countries_names(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
 
-    logger.debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}", result)
     return result
 
 

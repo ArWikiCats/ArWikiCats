@@ -5,14 +5,18 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:Women's sports clubs and teams in Afghanistan": "تصنيف:أندية وفرق رياضية نسائية في أفغانستان",
+    "Category:Women's sports seasons by continent": "تصنيف:مواسم رياضات نسائية حسب القارة",
+    "Category:Women's sports seasons": "تصنيف:مواسم رياضات نسائية",
+}
+
+data1 = {
     "Category:American women's sports": "تصنيف:رياضات نسائية أمريكية",
     "Category:women's sports leagues in uzbekistan": "تصنيف:دوريات رياضات نسائية في أوزبكستان",
     "Category:Women's sports organizations in the United States": "تصنيف:منظمات رياضات نسائية في الولايات المتحدة",
     "Category:Women's sports teams in Cuba": "تصنيف:فرق رياضات نسائية في كوبا",
     "Category:Women's sports in United States by state": "تصنيف:رياضات نسائية في الولايات المتحدة حسب الولاية",
     "Category:Women's sports by dependent territory": "تصنيف:رياضات نسائية حسب الأقاليم التابعة",
-    "Category:Women's sports seasons by continent": "تصنيف:مواسم رياضات نسائية حسب القارة",
-    "Category:Women's sports seasons": "تصنيف:مواسم رياضات نسائية",
     "Category:women's sports clubs": "تصنيف:أندية رياضية نسائية",
     "Category:women's sports competitions": "تصنيف:منافسات رياضية نسائية",
     "Category:women's sports leagues": "تصنيف:دوريات رياضية نسائية",
@@ -33,9 +37,6 @@ data0 = {
     "Category:Women's sport by period": "تصنيف:رياضة نسائية حسب الحقبة",
     "Category:Women's sport in Mexico City": "تصنيف:رياضة نسائية في مدينة مكسيكو",
     "Category:Women's sport in Oceania by period": "تصنيف:رياضة نسائية في أوقيانوسيا حسب الحقبة",
-}
-
-data1 = {
 }
 
 data2 = {
@@ -74,16 +75,22 @@ to_test = [
 
 
 @pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
+@pytest.mark.fast
 def test_sports2_data_0(category: str, expected: str) -> None:
+    """
+    pytest tests/event_lists/womens/test_womens_sports2.py::test_sports2_data_0
+    """
     assert resolve_arabic_category_label(category) == expected
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
+@pytest.mark.fast
 def test_sports2_data_1(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
 @pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
+@pytest.mark.fast
 def test_sports2_data_2(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 

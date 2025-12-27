@@ -28,6 +28,63 @@ from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_ne
 from ..new_resolvers.reslove_all import new_resolvers_all
 
 
+@functools.lru_cache(maxsize=10000)
+def _resolve_remainder(remainder: str) -> str:
+    """Helper to resolve the label for the remainder of a string."""
+    label = (
+        country2_bot.Get_country2(remainder) or
+        country2_lab.get_lab_for_country2(remainder) or
+        ye_ts_bot.translate_general_category(remainder, fix_title=False) or
+        ""
+    )
+    return label
+
+
+def _validate_separators(country: str) -> bool:
+    """Check if the country string contains invalid separators."""
+    separators = [
+        "based in",
+        "in",
+        "by",
+        "about",
+        "to",
+        "of",
+        "-of ",  # special case
+        "from",
+        "at",
+        "on",
+    ]
+    separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
+    for sep in separators:
+        if sep in country:
+            return False
+    return True
+
+
+def check_historical_prefixes(country: str) -> str:
+    """Check for historical prefixes."""
+    historical_prefixes = {
+        "defunct national": "{} وطنية سابقة",
+    }
+    country = country.lower().strip()
+    if not _validate_separators(country):
+        return ""
+
+    for prefix, prefix_template in historical_prefixes.items():
+        if country.startswith(f"{prefix} "):
+            logger.debug(f">>> country.startswith({prefix})")
+            remainder = country[len(prefix) :].strip()
+            remainder_label = _resolve_remainder(remainder)
+
+            if remainder_label:
+                resolved_label = prefix_template.format(remainder_label)
+                if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
+                    resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
+                logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
+                return resolved_label
+    return ""
+
+
 class CountryLabelRetriever:
     """
     A class to handle the retrieval of country labels and related terms.
@@ -42,7 +99,7 @@ class CountryLabelRetriever:
         country = country.lower()
 
         logger.debug(">> ----------------- get_country start ----------------- ")
-        logger.debug(f'>>>> Get country for "{country}"')
+        logger.debug(f"<<yellow>> start get_country_label: {country=}")
 
         resolved_label = self._check_basic_lookups(country)
 
@@ -50,14 +107,13 @@ class CountryLabelRetriever:
             resolved_label = country2_bot.Get_country2(country)
 
         if not resolved_label:
-            resolved_label = self._check_prefixes(country)
-
-        is_valid = True
+            resolved_label = (
+                _resolve_remainder(country) or
+                self._check_prefixes(country) or
+                ""
+            )
         if not resolved_label:
-            is_valid = self._validate_separators(country)
-
-        if not resolved_label and is_valid:
-            resolved_label = self._check_historical_prefixes(country)
+            resolved_label = check_historical_prefixes(country)
 
         if resolved_label:
             if "سنوات في القرن" in resolved_label:
@@ -72,8 +128,7 @@ class CountryLabelRetriever:
                 ""
             )
 
-        logger.debug(f'>>>> Get country "{resolved_label=}"')
-        logger.debug(">> ----------------- end get_country ----------------- ")
+        logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
         return resolved_label
 
     def _check_basic_lookups(self, country: str) -> str:
@@ -100,64 +155,13 @@ class CountryLabelRetriever:
             if country.startswith(prefix):
                 logger.debug(f">>> country.startswith({prefix})")
                 remainder = country[len(prefix) :]
-                remainder_label = self._resolve_remainder(remainder)
+                remainder_label = _resolve_remainder(remainder)
 
                 if remainder_label:
                     new_label = f"{remainder_label} {prefix_label}"
                     logger.info(f'>>>>>> xxx new cnt_la  "{new_label}" ')
                     return new_label
 
-        return ""
-
-    def _resolve_remainder(self, remainder: str) -> str:
-        """Helper to resolve the label for the remainder of a string."""
-        label = country2_bot.Get_country2(remainder)
-
-        if label == "":
-            label = country2_lab.get_lab_for_country2(remainder)
-
-        if label == "":
-            label = ye_ts_bot.translate_general_category(remainder, fix_title=False)
-        return label
-
-    def _validate_separators(self, country: str) -> bool:
-        """Check if the country string contains invalid separators."""
-        separators = [
-            "based in",
-            "in",
-            "by",
-            "about",
-            "to",
-            "of",
-            "-of ",  # special case
-            "from",
-            "at",
-            "on",
-        ]
-        separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
-        for sep in separators:
-            if sep in country:
-                return False
-        return True
-
-    def _check_historical_prefixes(self, country: str) -> str:
-        """Check for historical prefixes."""
-        historical_prefixes = {
-            "defunct national ": "{} وطنية سابقة",
-        }
-
-        for prefix, prefix_template in historical_prefixes.items():
-            if country.startswith(prefix):
-                logger.debug(f">>> country.startswith({prefix})")
-                remainder = country[len(prefix) :]
-                remainder_label = self._resolve_remainder(remainder)
-
-                if remainder_label:
-                    resolved_label = prefix_template.format(remainder_label)
-                    if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
-                        resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
-                    logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
-                    return resolved_label
         return ""
 
     def _check_regex_years(self, country: str) -> str:

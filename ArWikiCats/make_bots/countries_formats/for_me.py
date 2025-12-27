@@ -30,10 +30,7 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
     """Retrieve country label for men based on category, nationality, and a
     specific key.
 
-    This function constructs a cash key from the provided category,
-    nationality, and a third parameter. It checks if this key exists in the
-    `wo_2018_cash` dictionary. If it does, it returns the corresponding
-    value. If not, it attempts to derive a country label based on the
+    This function attempts to derive a country label based on the
     nationality and the provided key. The function utilizes various mappings
     to format the country label appropriately.
 

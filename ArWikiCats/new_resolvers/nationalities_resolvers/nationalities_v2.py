@@ -427,12 +427,12 @@ def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 
     if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
-        logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip resolve_by_nats: {category=}, [result=]")
         return ""
     category = fix_keys(category)
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
-    logger.debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}", result)
     return result
 
 
