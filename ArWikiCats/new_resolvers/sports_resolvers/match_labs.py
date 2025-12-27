@@ -199,26 +199,26 @@ def find_teams_2025(category) -> str:
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
     # if SPORT_KEY_RECORDS.get(category): return SPORT_KEY_RECORDS[category].get("label", "")
 
-    label2 = _find_teams_2025(category)
+    result = _find_teams_2025(category)
 
-    if not label2:
-        label2 = resolve_sport_category_suffix_with_mapping(
+    if not result:
+        result = resolve_sport_category_suffix_with_mapping(
             category=category,
             data=mappings_data,
             callback=_find_teams_2025,
             fix_result_callable=fix_result_callable,
         )
 
-    if not label2:
-        label2 = resolve_suffix_with_mapping_genders(
+    if not result:
+        result = resolve_suffix_with_mapping_genders(
             category=category,
             data=football_keys_players,
             callback=_find_teams_2025,
             fix_result_callable=fix_result_callable,
         )
 
-    logger.info(f"<<yellow>> end find_teams_2025: {category=}, {label2=}")
-    return label2
+    logger.info_if_or_debug(f"<<yellow>> end find_teams_2025: {category=}, {result=}", result)
+    return result
 
 
 __all__ = [

@@ -111,18 +111,18 @@ def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_20
     logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025_with_ends: {category=}")
     teams_label_mappings_ends = _get_sorted_teams_labels()
 
-    label2 = callback(category)
+    result = callback(category)
 
-    if not label2:
-        label2 = resolve_sport_category_suffix_with_mapping(
+    if not result:
+        result = resolve_sport_category_suffix_with_mapping(
             category=category,
             data=teams_label_mappings_ends,
             callback=callback,
             fix_result_callable=fix_result_callable,
         )
 
-    logger.info(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {label2=}")
-    return label2
+    logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}", result)
+    return result
 
 
 __all__ = [

@@ -542,7 +542,7 @@ def resolve_by_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_labels: {normalized_category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(normalized_category)
-    logger.info(f"<<yellow>> end resolve_by_labels: {normalized_category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_by_labels: {normalized_category=}, {result=}", result)
     return result
 
 

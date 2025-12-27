@@ -203,7 +203,7 @@ def resolve_languages_labels(category: str) -> str:
         ""
     )
 
-    logger.info(f"<<yellow>> end resolve_languages_labels: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_languages_labels: {category=}, {result=}", result)
     return result
 
 

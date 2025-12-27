@@ -37,7 +37,7 @@ def resolve_country_time_pattern(category: str) -> str:
         # Only call again if the string is different after normalization
         if normalized_category != category:
             result = yc_bot.create_label(normalized_category)
-    logger.info(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}", result)
     return result or ""
 
 

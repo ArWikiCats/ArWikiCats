@@ -49,7 +49,7 @@ def resolve_nat_men_pattern_new(category: str) -> str:
 
     if result and category.lower().startswith("category:"):
         result="تصنيف:" + result
-    logger.info(f"<<yellow>> end resolve_nat_men_pattern_new: {category=}, {result=}")
+    logger.info_if_or_debug(f"<<yellow>> end resolve_nat_men_pattern_new: {category=}, {result=}", result)
 
     return result or ""
 
