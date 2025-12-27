@@ -153,7 +153,7 @@ def load_v2() -> FormatDataV2:
             "sport_jobs": v.get("jobs", ""),
         }
         for x, v in SPORT_KEY_RECORDS.items()
-        if v.get("jobs")  # and x != "sports"
+        if v.get("jobs")
     }
     sports_data.pop("sports", None)
     bot = FormatDataV2(

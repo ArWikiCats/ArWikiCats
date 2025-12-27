@@ -32,10 +32,10 @@ class LoggerWrap:
         self._logger.info(make_str(msg), *args, **kwargs)
 
     def info_if_or_debug(self, msg: str, value: str) -> None:
-        """Log an info message after formatting color codes."""
+        """Log an info message if value is truthy, otherwise log a debug message."""
         if value:
             self._logger.info(make_str(msg))
-
+        else:
             self._logger.debug(make_str(msg))
 
     def output(self, msg: str, *args, **kwargs) -> None:
