@@ -8,8 +8,9 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.sports_bots.sport_lab_suffixes import get_teams_new
 
 get_teams_new_data = {
+    "Women's sports seasons": "مواسم رياضية نسائية",
+    "sports seasons": "مواسم رياضات",
     "international cricket records and statistics": "سجلات وإحصائيات كريكت دولية",
-
     "sports cup competitions": "منافسات كؤوس رياضية",
     "international men's football competitions": "منافسات كرة قدم دولية للرجال",
     "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
