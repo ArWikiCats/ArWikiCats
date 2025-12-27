@@ -34,7 +34,9 @@ data_new = {
     "united states by state": "الولايات المتحدة حسب الولاية",
     "united states in 1520": "الولايات المتحدة في 1520",
     "women's football by country": "كرة القدم للسيدات حسب البلد",
-    "youth football by continent": "كرة القدم للشباب حسب القارة"
+    "youth football by continent": "كرة القدم للشباب حسب القارة",
+    "April 1904 in Europe": "أبريل 1904 في أوروبا",
+    "April 1904 in United Kingdom": "أبريل 1904 في المملكة المتحدة",
 }
 
 
