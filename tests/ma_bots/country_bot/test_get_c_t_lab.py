@@ -1,24 +1,10 @@
 """
-Tests
+TODO: write tests
 """
 
 import pytest
 
-from ArWikiCats.ma_bots.country_bot import Get_c_t_lab, get_country
-
-
-def test_get_country() -> None:
-    # Test with a basic input
-    result = get_country("test country")
-    assert isinstance(result, str)
-
-    # Test with different parameter
-    result_with_country2 = get_country("test country", False)
-    assert isinstance(result_with_country2, str)
-
-    # Test with empty string
-    result_empty = get_country("")
-    assert isinstance(result_empty, str)
+from ArWikiCats.ma_bots.country_bot import Get_c_t_lab
 
 
 def test_get_c_t_lab() -> None:

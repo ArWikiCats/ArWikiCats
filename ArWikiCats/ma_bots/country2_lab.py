@@ -2,6 +2,7 @@
 """
 """
 
+import functools
 from ..helps.log import logger
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
@@ -30,6 +31,7 @@ resolvers = {
 }
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_all(country2) -> str:
     """
     Iterate through all resolver functions. Return the first valid string.
@@ -55,6 +57,7 @@ def resolve_all(country2) -> str:
     return ""
 
 
+@functools.lru_cache(maxsize=10000)
 def get_lab_for_country2(country: str) -> str:
     """Retrieve laboratory information for a specified country."""
 
