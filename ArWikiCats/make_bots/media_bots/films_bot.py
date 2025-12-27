@@ -14,6 +14,7 @@ from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 
 from ...new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
 from ...new_resolvers.nationalities_resolvers import resolve_nationalities_main
+from ...new_resolvers.sports_resolvers import resolve_sports_main
 
 from ...new_resolvers.countries_names_resolvers import resolve_countries_names_main
 from ...new_resolvers.jobs_resolvers import resolve_jobs_main
@@ -57,15 +58,16 @@ def te_films(category: str) -> str:
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
         "nat_match": lambda k: nat_match(k),
 
-        # NOTE: resolved_translations_resolvers_v2 must be before resolved_translations_resolvers to avoid conflicts like:
-        # resolved_translations_resolvers> [Italy political leader]:  "قادة إيطاليا السياسيون"
-        # resolved_translations_resolvers_v2> [Italy political leader]:  "قادة سياسيون إيطاليون"
+        # NOTE: resolve_nationalities_main must be before resolve_countries_names_main to avoid conflicts like:
+        # resolve_countries_names_main> [Italy political leader]:  "قادة إيطاليا السياسيون"
+        # resolve_nationalities_main> [Italy political leader]:  "قادة سياسيون إيطاليون"
 
-        "resolved_translations_resolvers_v2": lambda k: resolve_nationalities_main(k),
+        "resolve_sports_main": lambda k: resolve_sports_main(k),
+        "resolve_nationalities_main": lambda k: resolve_nationalities_main(k),
         "resolved_countries_formats_labels": lambda k: resolved_countries_formats_labels(k),
-        "resolved_translations_resolvers": lambda k: resolve_countries_names_main(k),
-        "new_jobs_resolver_label": lambda k: resolve_jobs_main(k),
-        # "resolved_translations_resolvers_v3i": lambda k: resolved_translations_resolvers_v3i(k),
+        "resolve_countries_names_main": lambda k: resolve_countries_names_main(k),
+        "resolve_jobs_main": lambda k: resolve_jobs_main(k),
+        # "resolve_v3i_main": lambda k: resolve_v3i_main(k),
         "te_language": lambda k: te_language(k),
 
     }
@@ -94,9 +96,9 @@ def te_films(category: str) -> str:
         return resolved_label
 
     # most likely due to a circular import
-    # resolved_label = resolved_translations_resolvers_v3i(normalized_category)
+    # resolved_label = resolve_v3i_main(normalized_category)
     # if resolved_label:
-    #     logger.info(f'>>>> (te_films) resolved_translations_resolvers_v3i, {normalized_category=}, {resolved_label=}')
+    #     logger.info(f'>>>> (te_films) resolve_v3i_main, {normalized_category=}, {resolved_label=}')
     #     return resolved_label
 
     return ""

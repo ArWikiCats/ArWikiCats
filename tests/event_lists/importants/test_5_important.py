@@ -5,6 +5,8 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "lists of 20th millennium women's olympic table tennis players films by city" : "قوائم أفلام لاعبات كرة طاولة أولمبيات الألفية 20 حسب المدينة",
+    "category:2020 women's wheelchair tennis players by city": "تصنيف:لاعبات كرة مضرب على كراسي متحركة نسائية في 2020 حسب المدينة",
     "Category:2020 wheelchair tennis by city": "تصنيف:كرة المضرب على الكراسي المتحركة في 2020 حسب المدينة",
     "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",
     "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2008",

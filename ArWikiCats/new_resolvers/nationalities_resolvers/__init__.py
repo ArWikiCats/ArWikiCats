@@ -3,7 +3,7 @@ import functools
 from ...helps import logger
 
 from ..countries_names_resolvers import countries_names_v2
-from ..sports_resolvers import countries_names_and_sports, nationalities_and_sports
+# from ..sports_resolvers import countries_names_and_sports, nationalities_and_sports
 from . import (
     ministers_resolver,
     nationalities_time_v2,
@@ -19,9 +19,11 @@ def resolve_nationalities_main(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> Trying nationalities_resolvers resolvers for: {normalized_category=}")
 
     resolved_label = (
-        countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category) or
-        countries_names_v2.resolve_by_countries_names_v2(normalized_category) or
-        nationalities_and_sports.resolve_nats_sport_multi_v2(normalized_category) or
+        # countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category) or  # sports_resolvers
+        # nationalities_and_sports.resolve_nats_sport_multi_v2(normalized_category) or                # sports_resolvers
+
+        countries_names_v2.resolve_by_countries_names_v2(normalized_category) or                    # countries_names_resolvers
+
         nationalities_v2.resolve_by_nats(normalized_category) or
         nationalities_time_v2.resolve_nats_time_v2(normalized_category) or
         ministers_resolver.resolve_secretaries_labels(normalized_category) or

@@ -197,7 +197,9 @@ def find_teams_2025(category) -> str:
     category = fix_keys(category)
 
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
-    # if SPORT_KEY_RECORDS.get(category): return SPORT_KEY_RECORDS[category].get("label", "")
+
+    if SPORT_KEY_RECORDS.get(category):
+        return SPORT_KEY_RECORDS[category].get("label", "")
 
     result = _find_teams_2025(category)
 
