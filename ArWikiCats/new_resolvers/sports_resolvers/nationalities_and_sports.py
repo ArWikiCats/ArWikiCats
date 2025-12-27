@@ -88,6 +88,8 @@ sports_formatted_data = {
 
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
 
+    # "yemeni men's basketball players" : "لاعبو كرة سلة رجالية يمنيون",
+    "{en} mens {en_sport} players": "لاعبو {sport_jobs} {males}",
     # american coaches of basketball
     "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
     "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
@@ -241,6 +243,7 @@ sports_formatted_data = {
 
     "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
 }
+
 
 def _levels_data() -> dict[str, str]:
     data = {
