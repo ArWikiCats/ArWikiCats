@@ -12,6 +12,8 @@ test_data = {
     # "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     # "Category:years of the 1990s in egypt": "تصنيف:سنوات عقد 1990 في مصر",
 
+    "Category:July 2003 in Russia": "تصنيف:يوليو 2003 في روسيا",
+    "Category:May 1939 in Canada": "تصنيف:مايو 1939 في كندا",
     "Category:2010s establishments in egypt": "تصنيف:تأسيسات عقد 2010 في مصر",
     "Category:1999 establishments in egypt": "تصنيف:تأسيسات سنة 1999 في مصر",
     "Category:2010 events in iraq": "تصنيف:أحداث 2010 في العراق",

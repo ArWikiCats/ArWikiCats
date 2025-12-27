@@ -15,13 +15,14 @@ COUNTRY_YEAR_DATA_TO_CHECK = {
 
 # Category:18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
+    "category:{year1} in {country1}": "تصنيف:{year1} في {country1}",  # 34632
+
     "category:{year1} synagogues in {country1}": "تصنيف:كنس في {country1} في {year1}",
     "category:{year1} prime ministers of {country1}": "تصنيف:رؤساء وزراء {country1} في {year1}",
     "category:{year1} heads of state of {country1}": "تصنيف:قادة {country1} في {year1}",
     "category:{year1} elections in {country1}": "تصنيف:انتخابات {year1} في {country1}",  # 1550
 
     "category:{year1} people of {country1}": "تصنيف:أشخاص من {country1} {year1}",  # 34632
-    "category:{year1} in {country1}": "تصنيف:{year1} في {country1}",  # 34632
     "category:{year1} establishments in {country1}": "تصنيف:تأسيسات سنة {year1} في {country1}",  # 19853
     "category:{year1} events in {country1}": "تصنيف:أحداث {year1} في {country1}",  # 7413
     "category:{year1} disestablishments in {country1}": "تصنيف:انحلالات سنة {year1} في {country1}",  # 4600

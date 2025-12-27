@@ -15,7 +15,7 @@ from ArWikiCats import print_memory, batch_resolve_labels
 
 
 def compare_and_export_labels(data, name, remove_ar_prefix=False):
-    time_start = time.time()
+    time_start = time.perf_counter()
 
     result = batch_resolve_labels(tqdm(list(data.keys())))
     labels = result.labels
@@ -26,7 +26,7 @@ def compare_and_export_labels(data, name, remove_ar_prefix=False):
     print(f"labels: {len(labels)}")
     print(f"no_labels: {len(no_labels)}")
 
-    time_diff = time.time() - time_start
+    time_diff = time.perf_counter() - time_start
     print(f"total time: {time_diff} seconds")
     print_memory()
 

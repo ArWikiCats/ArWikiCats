@@ -4,24 +4,22 @@ TODO: merge with sports_resolvers/raw_sports.py
 """
 
 import functools
-from typing import Dict
-
-from ...helps import logger, len_print
+from ...helps import logger, dump_data
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
-from ...translations_formats import FormatData
-from ...translations.sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations_formats import FormatDataV2
 
 teams_2025_sample = {
-    "{sport} people": "أعلام {sport_label}",
-    "{sport} squads": "تشكيلات {sport_label}",
-    "{sport} finals": "نهائيات {sport_label}",
-    "{sport} positions": "مراكز {sport_label}",
-    "{sport} tournaments": "بطولات {sport_label}",
-    "{sport} films": "أفلام {sport_label}",
-    "{sport} teams": "فرق {sport_label}",
-    "{sport} venues": "ملاعب {sport_label}",
-    "{sport} clubs": "أندية {sport_label}",
-    "{sport} organizations": "منظمات {sport_label}",
+    "{sport} people": "أعلام {sport_jobs}",
+    "{sport} squads": "تشكيلات {sport_jobs}",
+    "{sport} finals": "نهائيات {sport_jobs}",
+    "{sport} positions": "مراكز {sport_jobs}",
+    "{sport} tournaments": "بطولات {sport_jobs}",
+    "{sport} films": "أفلام {sport_jobs}",
+    "{sport} teams": "فرق {sport_jobs}",
+    "{sport} venues": "ملاعب {sport_jobs}",
+    "{sport} clubs": "أندية {sport_jobs}",
+    "{sport} organizations": "منظمات {sport_jobs}",
 }
 
 mappings_data: dict[str, str] = {
@@ -65,13 +63,14 @@ mappings_data: dict[str, str] = {
 }
 
 teams_2025 = {
-    "{sport}": "{sport_label}",
-    "amateur {sport}": "{sport_label} للهواة",
-    "mens youth {sport}": "{sport_label} للشباب",
-    "mens {sport}": "{sport_label} رجالية",
-    "womens youth {sport}": "{sport_label} للشابات",
-    "womens {sport}": "{sport_label} نسائية",
-    "youth {sport}": "{sport_label} شبابية",
+    "{sport}": "{sport_jobs}",
+    # "{sport}": "{sport_label}",
+    "amateur {sport}": "{sport_jobs} للهواة",
+    "mens youth {sport}": "{sport_jobs} للشباب",
+    "mens {sport}": "{sport_jobs} رجالية",
+    "womens youth {sport}": "{sport_jobs} للشابات",
+    "womens {sport}": "{sport_jobs} نسائية",
+    "youth {sport}": "{sport_jobs} شبابية",
 }
 
 FOOTBALL_KEYS_PLAYERS = {
@@ -144,10 +143,23 @@ PPP_Keys = {
 
 
 @functools.lru_cache(maxsize=1)
-def load_class() -> FormatData:
+def load_v2() -> FormatDataV2:
     """Load and cache the formatter used for 2025 team categories."""
-    SPORTS_KEYS_FOR_JOBS.pop("sports", None)
-    bot = FormatData(teams_2025, SPORTS_KEYS_FOR_JOBS, key_placeholder="{sport}", value_placeholder="{sport_label}")
+
+    sports_data = {
+        x: {
+            "sport_label": v.get("label", ""),
+            "sport_team": v.get("team", ""),
+            "sport_jobs": v.get("jobs", ""),
+        }
+        for x, v in SPORT_KEY_RECORDS.items()
+        if v.get("jobs") and x != "sports"
+    }
+    bot = FormatDataV2(
+        formatted_data=teams_2025,
+        data_list=sports_data,
+        key_placeholder="{sport}",
+    )
 
     return bot
 
@@ -165,8 +177,8 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 @functools.lru_cache(maxsize=None)
 def _find_teams_2025(category: str, default: str = "") -> str:
     """Search for a 2025 team label, falling back to ``default`` when absent."""
-    bot = load_class()
-    return bot.search(category) or default
+    bot = load_v2()
+    return bot.search_all_category(category) or default
 
 
 @functools.lru_cache(maxsize=10000)
@@ -179,10 +191,13 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
+@dump_data(1)
 def find_teams_2025(category) -> str:
     category = fix_keys(category)
 
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
+    # if SPORT_KEY_RECORDS.get(category): return SPORT_KEY_RECORDS[category].get("label", "")
+
     label2 = _find_teams_2025(category)
 
     if not label2:
@@ -205,11 +220,6 @@ def find_teams_2025(category) -> str:
     return label2
 
 
-len_print.data_len("sports/teams_new_data_2025.py", {
-    "teams_2025": teams_2025  # teams_2025: 526 <> "TEAMS_NEW": "352,946",
-})
-
 __all__ = [
     "find_teams_2025",
-    "teams_2025",
 ]
