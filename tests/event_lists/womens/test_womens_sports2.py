@@ -5,6 +5,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:Women's sports clubs and teams in Afghanistan": "تصنيف:أندية وفرق رياضية نسائية في أفغانستان",
     "Category:Women's sports seasons by continent": "تصنيف:مواسم رياضات نسائية حسب القارة",
     "Category:Women's sports seasons": "تصنيف:مواسم رياضات نسائية",
 }
@@ -76,6 +77,9 @@ to_test = [
 @pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
 @pytest.mark.fast
 def test_sports2_data_0(category: str, expected: str) -> None:
+    """
+    pytest tests/event_lists/womens/test_womens_sports2.py::test_sports2_data_0
+    """
     assert resolve_arabic_category_label(category) == expected
 
 
