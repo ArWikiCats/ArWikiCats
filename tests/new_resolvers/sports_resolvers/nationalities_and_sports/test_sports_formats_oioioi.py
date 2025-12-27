@@ -9,6 +9,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 data_1 = {
+    "yemeni men's basketball players" : "لاعبو كرة سلة يمنيون",
     "chinese outdoor boxing clubs": "أندية بوكسينغ صينية في الهواء الطلق",
     "chinese outdoor boxing": "بوكسينغ صينية في الهواء الطلق",
     "chinese women's boxing": "بوكسينغ صينية للسيدات",

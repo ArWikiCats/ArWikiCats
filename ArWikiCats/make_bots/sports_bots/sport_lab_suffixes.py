@@ -16,7 +16,7 @@ from ...new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_202
 from . import team_work
 
 
-@dump_data(1)
+# @dump_data(1)
 def resolve_team_suffix(normalized_team) -> str:
     return resolve_suffix_template(
         normalized_team,

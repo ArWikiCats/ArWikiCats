@@ -1,4 +1,38 @@
 
+## [#278](https://github.com/MrIbrahem/ArWikiCats/pull/278) - 2025-12-27
+This pull request introduces several improvements and refactorings to the job, nationality, and category label resolution logic, with a focus on normalization, maintainability, and improved translation accuracy. The main themes are normalization of input keys, improved label resolution order, codebase cleanup, and enhanced support for gendered and religious job categories.
+
+**Key changes:**
+
+### Normalization and Key Handling
+
+* Introduced the `fix_keys` function to standardize category strings by replacing certain words (e.g., "expatriates" → "expatriate", "womens"/"women" → "female") and removing apostrophes, which is now used in multiple places to ensure consistent input for resolvers.
+* Added regular expressions for handling "the" and gendered terms in category names to improve normalization.
+
+### Label Resolution Logic
+
+* Updated the job label resolution pipeline (`te4_2018_Jobs`) to first try `resolve_jobs_main`, then fall back to religious jobs and nationality prefix label resolvers, improving accuracy and flexibility.
+* In the main film and country name resolvers, clarified and reordered the resolution pipeline to prioritize more accurate or recent resolvers, with explanatory comments.
+* Added a new `jobs_with_nat_prefix_label` function, with caching and logging, to provide a more robust and normalized way of generating job labels with nationality prefixes.
+
+### Gendered and Religious Job Handling
+
+* Refactored the handling of female job/religious category formatting to consistently use "female" instead of "womens" or "{female}", simplifying the mapping and improving match reliability.
+* Updated male and female occupation label construction to use a single-line call and improved logging.
+* Added new gendered key translations (e.g., "abolitionists") and improved the way gendered keys are expanded in job data formatting.
+
+### Codebase Maintenance and Cleanup
+
+* Removed unused imports and legacy function aliases, and consolidated logger/dump_data imports for consistency.
+* Added or adjusted caching decorators and logging for better performance and traceability.
+
+### Miscellaneous Fixes
+
+* Corrected and clarified comments regarding the order of resolvers to prevent misresolution in edge cases.
+* Made minor data corrections in job/religion mappings (e.g., "expatriates" → "expatriate", "female rights activists" instead of "womens rights activists").
+
+These changes collectively improve the robustness, maintainability, and correctness of the category and label resolution system.
+
 ## [#277](https://github.com/MrIbrahem/ArWikiCats/pull/277) - 2025-12-27
 
 * **New Features**

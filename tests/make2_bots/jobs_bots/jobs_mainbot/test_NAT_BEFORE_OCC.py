@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import (
-    MEN_WOMENS_WITH_NATO,
+    GENDER_NATIONALITY_TEMPLATES,
     Nat_mens,
     jobs_with_nat_prefix,
 )
@@ -19,8 +19,8 @@ from ArWikiCats.translations import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 def test_men_womens_with_nato_matches_source_template() -> None:
     """NATO-labelled entries should retain the placeholder for substitution."""
 
-    assert MEN_WOMENS_WITH_NATO
-    for labels in MEN_WOMENS_WITH_NATO.values():
+    assert GENDER_NATIONALITY_TEMPLATES
+    for labels in GENDER_NATIONALITY_TEMPLATES.values():
         assert "{nato}" in labels["males"]
         assert "{nato}" in labels["females"]
 

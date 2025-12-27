@@ -46,6 +46,7 @@ NAT_DATA_MALES = {
     "{en_nat} people in sports": "{males} في ألعاب رياضية",  # 177
     "{en_nat} people by ethnic or national origin": "{males} حسب الأصل العرقي أو الوطني",  # 178
     "{en_nat} expatriates": "{males} مغتربون",  # 116
+    "{en_nat} expatriate": "{males} مغتربون",  # 116
     "{en_nat} men by occupation": "رجال {males} حسب المهنة",  # 174
     "{en_nat} people by descent": "{males} حسب الأصل العرقي أو الوطني",  # 175
     "{en_nat} writers": "كتاب {males}",  # 95

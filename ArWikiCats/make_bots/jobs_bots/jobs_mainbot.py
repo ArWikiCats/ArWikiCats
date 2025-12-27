@@ -10,8 +10,9 @@ gender-specific templates, and Arabic language formatting conventions.
 import functools
 from typing import Optional
 
-from ...helps.log import logger
+from ...helps import logger, dump_data
 from ...translations import (
+    All_Nat,
     NAT_BEFORE_OCC,
     Nat_mens,
     Nat_Womens,
@@ -19,6 +20,7 @@ from ...translations import (
     short_womens_jobs,
 )
 from .prefix_bot import mens_prefixes_work, womens_prefixes_work
+from ..jobs_bots.get_helps import get_suffix_with_keys
 
 # ============================================================================
 # Constants
@@ -217,9 +219,7 @@ def _build_gender_occupation_label(
         country_label, nationality_label, constructed_label
     )
 
-    logger.debug(
-        f'\t<<lightblue>> Built {gender_key} occupation label: "{final_label}"'
-    )
+    logger.info_if_or_debug(f"<<yellow>> end _build_gender_occupation_label: {final_label=}", final_label)
 
     return final_label
 
@@ -327,9 +327,7 @@ def _handle_male_label(country_prefix, males, normalized_suffix, find_nats) -> s
     male_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=True)
     logger.debug(f"{male_occupation=}, {normalized_suffix=}")
 
-    male_label = _build_gender_occupation_label(
-        GENDER_MALE, normalized_suffix, male_nationality, male_occupation
-    )
+    male_label = _build_gender_occupation_label(GENDER_MALE, normalized_suffix, male_nationality, male_occupation)
 
     return male_label
 
@@ -352,13 +350,12 @@ def _handle_female_label(country_prefix, females, normalized_suffix, find_nats) 
     female_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=False)
     logger.debug(f"{female_occupation=}, {normalized_suffix=}")
 
-    female_label = _build_gender_occupation_label(
-        GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation
-    )
+    female_label = _build_gender_occupation_label(GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation)
 
     return female_label
 
 
+# @functools.lru_cache(maxsize=None)
 @functools.lru_cache(maxsize=None)
 def jobs_with_nat_prefix(
     cate: str,
@@ -422,29 +419,29 @@ def jobs_with_nat_prefix(
     return ""
 
 
-# ============================================================================
-# Legacy Function Aliases (for backward compatibility)
-# ============================================================================
+@functools.lru_cache(maxsize=None)
+@dump_data(1)
+def jobs_with_nat_prefix_label(cate: str) -> str:
+    """
+    TODO: use FormatData method
+    """
+    cate = cate.replace("_", " ")
+    logger.debug(f"<<lightyellow>>>> jobs_with_nat_prefix_label >> cate:({cate}) ")
+
+    cate_lower = cate.lower()
+
+    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, All_Nat, "nat")
+
+    if not category_suffix or not country_prefix:
+        return ""
+
+    country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
+
+    logger.debug(f'end jobs_with_nat_prefix_label "{cate}" , {country_lab=}')
+
+    return country_lab
 
 
-def fix_expatriates(country_lab: str, country_label: str, nat_lab: str) -> str:
-    """Legacy function - use _normalize_expatriate_label instead."""
-    return _normalize_expatriate_label(country_label, nat_lab, country_lab)
-
-
-def create_country_lab(country_label: str, nat_lab: str, category_suffix: str) -> str:
-    """Legacy function - use _construct_country_nationality_label instead."""
-    return _construct_country_nationality_label(country_label, nat_lab, category_suffix)
-
-
-def country_lab_mens_womens(
-    jender_key: str,
-    category_suffix: str,
-    nat_lab: str,
-    country_label: str,
-) -> str:
-    """Legacy function - use _build_gender_occupation_label instead."""
-    return _build_gender_occupation_label(jender_key, category_suffix, nat_lab, country_label)
-
-
-MEN_WOMENS_WITH_NATO = GENDER_NATIONALITY_TEMPLATES
+__all__ = [
+    "_construct_country_nationality_label",
+]

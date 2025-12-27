@@ -141,7 +141,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data()
+# @dump_data()
 def get_p17_with_sport_new(category: str) -> str:
     category = fix_keys(category)
 

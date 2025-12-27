@@ -1,134 +1,169 @@
 """
-TODO: write relegin_jobs_nats_jobs.py code
+TODO: write code relegin_jobs_nats_jobs.py
 """
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.nats_jobs_resolver import resolve_nats_jobs
+# from ArWikiCats.make_bots.jobs_bots.nats_jobs_resolver import resolve_nats_jobs
+# from ArWikiCats import resolve_label_ar as resolve_nats_jobs
+from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
+from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix_label as resolve_nats_jobs
+
+data_without_nats = {
+    "painters shi'a muslims": "رسامون مسلمون شيعة",
+    "painters shia muslims": "رسامون مسلمون شيعة",
+    "painters male muslims": "رسامون ذكور مسلمون",
+    "muslims painters": "رسامون مسلمون",
+    "painters muslims": "رسامون مسلمون",
+    "female painters shi'a muslims": "رسامات مسلمات شيعيات",
+    "painters female shia muslims": "رسامات مسلمات شيعيات",
+    "painters women's muslims": "رسامات مسلمات",
+    "painters female muslims": "رسامات مسلمات",
+    "women's painters muslims": "رسامات مسلمات",
+    "women's muslims": "مسلمات",
+    "muslims": "مسلمون",
+}
+
+test_data_error = {
+    "Ancient Roman saints": "رومان قدماء قديسون",
+    "Yemeni muslims male": "يمنيون مسلمون ذكور",
+    "muslims Yemeni": "يمنيون مسلمون",
+    "female Yemeni shi'a muslims": "مسلمات شيعيات يمنيات",
+    "women's Yemeni muslims": "مسلمات يمنيات",
+}
 
 test_data = {
-    "Afghan Christians" : "تصنيف:أفغان مسيحيون",
-    "American Episcopalians": "تصنيف:أمريكيون أسقفيون",
-    "American Hindus": "تصنيف:أمريكيون هندوس",
-    "American saints": "تصنيف:أمريكيون قديسون",
-    "American Sufis": "تصنيف:أمريكيون صوفيون",
-    "American Sunni Muslims": "تصنيف:أمريكيون مسلمون سنة",
-    "Ancient Roman saints": "تصنيف:رومان قدماء قديسون",
-    "Angolan Anglicans": "تصنيف:أنغوليون أنجليكيون",
-    "Angolan Christians": "تصنيف:أنغوليون مسيحيون",
-    "Arab Christians": "تصنيف:عرب مسيحيون",
-    "Argentine Anglicans": "تصنيف:أرجنتينيون أنجليكيون",
-    "Argentine Christians": "تصنيف:أرجنتينيون مسيحيون",
-    "Argentine saints": "تصنيف:أرجنتينيون قديسون",
-    "Armenian Christians": "تصنيف:أرمن مسيحيون",
-    "Armenian saints": "تصنيف:أرمن قديسون",
-    "Armenian Yazidis": "تصنيف:أرمن يزيديون",
-    "Aruban Christians": "تصنيف:أروبيون مسيحيون",
-    "Asian Christians": "تصنيف:آسيويين مسيحيون",
-    "Asian Hindus": "تصنيف:آسيويين هندوس",
-    "Asian Sufis": "تصنيف:آسيويين صوفيون",
-    "Assyrian saints": "تصنيف:آشوريون قديسون",
-    "Australian Anglicans": "تصنيف:أستراليون أنجليكيون",
-    "Australian Christians": "تصنيف:أستراليون مسيحيون",
-    "Australian Hindus": "تصنيف:أستراليون هندوس",
-    "Australian saints": "تصنيف:أستراليون قديسون",
-    "Australian Sufis": "تصنيف:أستراليون صوفيون",
-    "Australian Sunni Muslims": "تصنيف:أستراليون مسلمون سنة",
-    "Austrian Christians": "تصنيف:نمساويون مسيحيون",
-    "Austrian saints": "تصنيف:نمساويون قديسون",
-    "Austrian Sunni Muslims": "تصنيف:نمساويون مسلمون سنة",
-    "Azerbaijani Christians": "تصنيف:أذربيجانيون مسيحيون",
-    "Bahamian Anglicans": "تصنيف:بهاميون أنجليكيون",
-    "Bahamian Christians": "تصنيف:بهاميون مسيحيون",
-    "Bahraini Christians": "تصنيف:بحرينيون مسيحيون",
-    "Bahraini Sufis": "تصنيف:بحرينيون صوفيون",
-    "Bahraini Sunni Muslims": "تصنيف:بحرينيون مسلمون سنة",
-    "Bangladeshi Anglicans": "تصنيف:بنغلاديشيون أنجليكيون",
-    "Bangladeshi Christians": "تصنيف:بنغلاديشيون مسيحيون",
-    "Bangladeshi Hindus": "تصنيف:بنغلاديشيون هندوس",
-    "Bangladeshi Sufis": "تصنيف:بنغلاديشيون صوفيون",
-    "Bangladeshi Sunni Muslims": "تصنيف:بنغلاديشيون مسلمون سنة",
-    "Barbadian Anglicans": "تصنيف:بربادوسيون أنجليكيون",
-    "Barbadian Christians": "تصنيف:بربادوسيون مسيحيون",
-    "Barbadian Hindus": "تصنيف:بربادوسيون هندوس",
-    "Belarusian Christians": "تصنيف:بيلاروسيون مسيحيون",
-    "Belgian Christians": "تصنيف:بلجيكيون مسيحيون",
-    "Belgian Hindus": "تصنيف:بلجيكيون هندوس",
-    "Belgian saints": "تصنيف:بلجيكيون قديسون",
-    "Belgian Sunni Muslims": "تصنيف:بلجيكيون مسلمون سنة",
-    "Belizean Anglicans": "تصنيف:بليزيون أنجليكيون",
-    "Belizean Christians": "تصنيف:بليزيون مسيحيون",
-    "Trinidad and Tobago Anglicans": "تصنيف:ترنيداديون أنجليكيون",
-    "Trinidad and Tobago Christians": "تصنيف:ترنيداديون مسيحيون",
-    "Trinidad and Tobago Hindus": "تصنيف:ترنيداديون هندوس",
-    "Tunisian Christians": "تصنيف:تونسيون مسيحيون",
-    "Tunisian Sufis": "تصنيف:تونسيون صوفيون",
-    "Tunisian Sunni Muslims": "تصنيف:تونسيون مسلمون سنة",
-    "Turkish Christians": "تصنيف:أتراك مسيحيون",
-    "Turkish Cypriot Sufis": "تصنيف:قبرصيون شماليون صوفيون",
-    "Turkish Cypriot Sunni Muslims": "تصنيف:قبرصيون شماليون مسلمون سنة",
-    "Turkish Sufis": "تصنيف:أتراك صوفيون",
-    "Turkish Sunni Muslims": "تصنيف:أتراك مسلمون سنة",
-    "Turkish Yazidis": "تصنيف:أتراك يزيديون",
-    "Turkmenistan Sufis": "تصنيف:تركمانيون صوفيون",
-    "Tuvaluan Christians": "تصنيف:توفاليون مسيحيون",
-    "Ugandan Anglicans": "تصنيف:أوغنديون أنجليكيون",
-    "Ugandan Christians": "تصنيف:أوغنديون مسيحيون",
-    "Ugandan saints": "تصنيف:أوغنديون قديسون",
-    "Ukrainian Christians": "تصنيف:أوكرانيون مسيحيون",
-    "Ukrainian saints": "تصنيف:أوكرانيون قديسون",
-    "Ukrainian Sunni Muslims": "تصنيف:أوكرانيون مسلمون سنة",
-    "Uruguayan Christians": "تصنيف:أوروغويانيون مسيحيون",
-    "Uruguayan saints": "تصنيف:أوروغويانيون قديسون",
-    "Uzbek Sufis": "تصنيف:أوزبكيون صوفيون",
-    "Uzbekistani Christians": "تصنيف:أوزبكستانيون مسيحيون",
-    "Uzbekistani Hindus": "تصنيف:أوزبكستانيون هندوس",
-    "Uzbekistani Sunni Muslims": "تصنيف:أوزبكستانيون مسلمون سنة",
-    "Vanuatuan Anglicans": "تصنيف:فانواتيون أنجليكيون",
-    "Vanuatuan Christians": "تصنيف:فانواتيون مسيحيون",
-    "Venezuelan Christians": "تصنيف:فنزويليون مسيحيون",
-    "Venezuelan Hindus": "تصنيف:فنزويليون هندوس",
-    "Vietnamese Christians": "تصنيف:فيتناميون مسيحيون",
-    "Vietnamese Hindus": "تصنيف:فيتناميون هندوس",
-    "Vietnamese saints": "تصنيف:فيتناميون قديسون",
-    "Welsh Anglicans": "تصنيف:ويلزيون أنجليكيون",
-    "Welsh Christians": "تصنيف:ويلزيون مسيحيون",
-    "Welsh Hindus": "تصنيف:ويلزيون هندوس",
-    "Welsh saints": "تصنيف:ويلزيون قديسون",
-    "Yemeni Christians": "تصنيف:يمنيون مسيحيون",
-    "Yemeni Sufis": "تصنيف:يمنيون صوفيون",
-    "Yemeni Sunni Muslims": "تصنيف:يمنيون مسلمون سنة",
-    "Yemeni Zaydis": "تصنيف:يمنيون زيود",
-    "Yugoslav Christians": "تصنيف:يوغسلافيون مسيحيون",
-    "Zambian Anglicans": "تصنيف:زامبيون أنجليكيون",
-    "Zambian Christians": "تصنيف:زامبيون مسيحيون",
-    "Zimbabwean Anglicans": "تصنيف:زيمبابويون أنجليكيون",
-    "Zimbabwean Christians": "تصنيف:زيمبابويون مسيحيون",
-    "Zimbabwean Hindus": "تصنيف:زيمبابويون هندوس",
-    "Zimbabwean Sunni Muslims": "تصنيف:زيمبابويون مسلمون سنة"
+    "Afghan Christians" : "أفغان مسيحيون",
+    "American Episcopalians": "أمريكيون أسقفيون",
+    "American Hindus": "أمريكيون هندوس",
+    "American saints": "أمريكيون قديسون",
+    "American Sufis": "أمريكيون صوفيون",
+    "American Sunni Muslims": "أمريكيون مسلمون سنة",
+    "Angolan Anglicans": "أنغوليون أنجليكيون",
+    "Angolan Christians": "أنغوليون مسيحيون",
+    "Arab Christians": "عرب مسيحيون",
+    "Argentine Anglicans": "أرجنتينيون أنجليكيون",
+    "Argentine Christians": "أرجنتينيون مسيحيون",
+    "Argentine saints": "أرجنتينيون قديسون",
+    "Armenian Christians": "أرمن مسيحيون",
+    "Armenian saints": "أرمن قديسون",
+    "Armenian Yazidis": "أرمن يزيديون",
+    "Aruban Christians": "أروبيون مسيحيون",
+    "Asian Christians": "آسيويين مسيحيون",
+    "Asian Hindus": "آسيويين هندوس",
+    "Asian Sufis": "آسيويين صوفيون",
+    "Assyrian saints": "آشوريون قديسون",
+    "Australian Anglicans": "أستراليون أنجليكيون",
+    "Australian Christians": "أستراليون مسيحيون",
+    "Australian Hindus": "أستراليون هندوس",
+    "Australian saints": "أستراليون قديسون",
+    "Australian Sufis": "أستراليون صوفيون",
+    "Australian Sunni Muslims": "أستراليون مسلمون سنة",
+    "Austrian Christians": "نمساويون مسيحيون",
+    "Austrian saints": "نمساويون قديسون",
+    "Austrian Sunni Muslims": "نمساويون مسلمون سنة",
+    "Azerbaijani Christians": "أذربيجانيون مسيحيون",
+    "Bahamian Anglicans": "بهاميون أنجليكيون",
+    "Bahamian Christians": "بهاميون مسيحيون",
+    "Bahraini Christians": "بحرينيون مسيحيون",
+    "Bahraini Sufis": "بحرينيون صوفيون",
+    "Bahraini Sunni Muslims": "بحرينيون مسلمون سنة",
+    "Bangladeshi Anglicans": "بنغلاديشيون أنجليكيون",
+    "Bangladeshi Christians": "بنغلاديشيون مسيحيون",
+    "Bangladeshi Hindus": "بنغلاديشيون هندوس",
+    "Bangladeshi Sufis": "بنغلاديشيون صوفيون",
+    "Bangladeshi Sunni Muslims": "بنغلاديشيون مسلمون سنة",
+    "Barbadian Anglicans": "بربادوسيون أنجليكيون",
+    "Barbadian Christians": "بربادوسيون مسيحيون",
+    "Barbadian Hindus": "بربادوسيون هندوس",
+    "Belarusian Christians": "بيلاروسيون مسيحيون",
+    "Belgian Christians": "بلجيكيون مسيحيون",
+    "Belgian Hindus": "بلجيكيون هندوس",
+    "Belgian saints": "بلجيكيون قديسون",
+    "Belgian Sunni Muslims": "بلجيكيون مسلمون سنة",
+    "Belizean Anglicans": "بليزيون أنجليكيون",
+    "Belizean Christians": "بليزيون مسيحيون",
+    "Trinidad and Tobago Anglicans": "ترنيداديون أنجليكيون",
+    "Trinidad and Tobago Christians": "ترنيداديون مسيحيون",
+    "Trinidad and Tobago Hindus": "ترنيداديون هندوس",
+    "Tunisian Christians": "تونسيون مسيحيون",
+    "Tunisian Sufis": "تونسيون صوفيون",
+    "Tunisian Sunni Muslims": "تونسيون مسلمون سنة",
+    "Turkish Christians": "أتراك مسيحيون",
+    "Turkish Cypriot Sufis": "قبرصيون شماليون صوفيون",
+    "Turkish Cypriot Sunni Muslims": "قبرصيون شماليون مسلمون سنة",
+    "Turkish Sufis": "أتراك صوفيون",
+    "Turkish Sunni Muslims": "أتراك مسلمون سنة",
+    "Turkish Yazidis": "أتراك يزيديون",
+    "Turkmenistan Sufis": "تركمانيون صوفيون",
+    "Tuvaluan Christians": "توفاليون مسيحيون",
+    "Ugandan Anglicans": "أوغنديون أنجليكيون",
+    "Ugandan Christians": "أوغنديون مسيحيون",
+    "Ugandan saints": "أوغنديون قديسون",
+    "Ukrainian Christians": "أوكرانيون مسيحيون",
+    "Ukrainian saints": "أوكرانيون قديسون",
+    "Ukrainian Sunni Muslims": "أوكرانيون مسلمون سنة",
+    "Uruguayan Christians": "أوروغويانيون مسيحيون",
+    "Uruguayan saints": "أوروغويانيون قديسون",
+    "Uzbek Sufis": "أوزبكيون صوفيون",
+    "Uzbekistani Christians": "أوزبكستانيون مسيحيون",
+    "Uzbekistani Hindus": "أوزبكستانيون هندوس",
+    "Uzbekistani Sunni Muslims": "أوزبكستانيون مسلمون سنة",
+    "Vanuatuan Anglicans": "فانواتيون أنجليكيون",
+    "Vanuatuan Christians": "فانواتيون مسيحيون",
+    "Venezuelan Christians": "فنزويليون مسيحيون",
+    "Venezuelan Hindus": "فنزويليون هندوس",
+    "Vietnamese Christians": "فيتناميون مسيحيون",
+    "Vietnamese Hindus": "فيتناميون هندوس",
+    "Vietnamese saints": "فيتناميون قديسون",
+    "Welsh Anglicans": "ويلزيون أنجليكيون",
+    "Welsh Christians": "ويلزيون مسيحيون",
+    "Welsh Hindus": "ويلزيون هندوس",
+    "Welsh saints": "ويلزيون قديسون",
+    "Yemeni Christians": "يمنيون مسيحيون",
+    "Yemeni Sufis": "يمنيون صوفيون",
+    "Yemeni Sunni Muslims": "يمنيون مسلمون سنة",
+    "Yemeni Zaydis": "يمنيون زيود",
+    "Yugoslav Christians": "يوغسلافيون مسيحيون",
+    "Zambian Anglicans": "زامبيون أنجليكيون",
+    "Zambian Christians": "زامبيون مسيحيون",
+    "Zimbabwean Anglicans": "زيمبابويون أنجليكيون",
+    "Zimbabwean Christians": "زيمبابويون مسيحيون",
+    "Zimbabwean Hindus": "زيمبابويون هندوس",
+    "Zimbabwean Sunni Muslims": "زيمبابويون مسلمون سنة"
 }
 
 test_religions_data = {
     "Yemeni shi'a muslims": "يمنيون مسلمون شيعة",
     "Yemeni shia muslims": "يمنيون مسلمون شيعة",
-    "Yemeni male muslims": "يمنيون مسلمون ذكور",
-    "Yemeni muslims male": "يمنيون مسلمون ذكور",
-    "muslims Yemeni": "يمنيون مسلمون",
+    "Yemeni male muslims": "مسلمون ذكور يمنيون",
     "Yemeni muslims": "يمنيون مسلمون",
     "Yemeni people muslims": "يمنيون مسلمون",
 }
 
 test_religions_female_data = {
-    "female Yemeni shi'a muslims": "يمنيات مسلمات شيعيات",
-    "Yemeni female shia muslims": "يمنيات مسلمات شيعيات",
-    "Yemeni women's muslims": "يمنيات مسلمات",
-    "Yemeni female muslims": "يمنيات مسلمات",
-    "women's Yemeni muslims": "يمنيات مسلمات",
+    "Yemeni female shia muslims": "مسلمات شيعيات يمنيات",
+    "Yemeni women's muslims": "مسلمات يمنيات",
+    "Yemeni female muslims": "مسلمات يمنيات",
 }
 
 
-@pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.parametrize("input_text,expected", test_data_error.items(), ids=test_data_error.keys())
 @pytest.mark.skip2
+def test_relegin_jobs(input_text: str, expected: str) -> None:
+    result = resolve_nats_jobs(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
+
+
+@pytest.mark.parametrize("input_text,expected", data_without_nats.items(), ids=data_without_nats.keys())
+@pytest.mark.skip2
+def test_data_without_nats(input_text: str, expected: str) -> None:
+    result = resolve_nats_jobs(input_text)
+    assert result == expected, f"{expected=}, {result=}, {input_text=}"
+
+
+@pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
 def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
 
     result = resolve_nats_jobs(input_text)
@@ -136,14 +171,14 @@ def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_religions_jobs_1(category: str, expected: str) -> None:
     result = resolve_nats_jobs(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("category,expected", test_religions_female_data.items(), ids=test_religions_female_data.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_religions_females(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = resolve_nats_jobs(category)

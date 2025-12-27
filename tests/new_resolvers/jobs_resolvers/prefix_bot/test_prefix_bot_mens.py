@@ -256,13 +256,6 @@ test_mens_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
-@pytest.mark.fast
-def test_mens_prefixes_work(category: str, expected: str) -> None:
-    label = mens_prefixes_work(category)
-    assert label == expected
-
-
 by_data_fast = {
     "by abraham lincoln": "بواسطة أبراهام لينكون",
     "by andrea mantegna": "بواسطة أندريا مانتينيا",
@@ -361,13 +354,6 @@ by_data_fast = {
 }
 
 
-@pytest.mark.parametrize("category, expected", by_data_fast.items(), ids=by_data_fast.keys())
-@pytest.mark.fast
-def test_by_data(category: str, expected: str) -> None:
-    label = mens_prefixes_work(category)
-    assert label == expected
-
-
 test_suffix = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
     "bulgarian deaf": "بلغاريون صم",
@@ -385,13 +371,6 @@ test_suffix = {
     "slovenian deaf": "سلوفينيون صم",
     "ukrainian deaf": "أوكرانيون صم",
 }
-
-
-@pytest.mark.parametrize("category, expected", test_suffix.items(), ids=test_suffix.keys())
-@pytest.mark.fast
-def test_work_mens_suffix(category: str, expected: str) -> None:
-    label = work_mens_suffix(category)
-    assert label == expected
 
 
 test_prefix = {
@@ -639,6 +618,27 @@ test_prefix = {
     "romantic composers": "ملحنون رومانسيون",
     "sunni muslim scholars-of-islam": "باحثون عن الإسلام مسلمون سنة",
 }
+
+
+@pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
+@pytest.mark.fast
+def test_mens_prefixes_work(category: str, expected: str) -> None:
+    label = mens_prefixes_work(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", by_data_fast.items(), ids=by_data_fast.keys())
+@pytest.mark.fast
+def test_by_data(category: str, expected: str) -> None:
+    label = mens_prefixes_work(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_suffix.items(), ids=test_suffix.keys())
+@pytest.mark.fast
+def test_work_mens_suffix(category: str, expected: str) -> None:
+    label = work_mens_suffix(category)
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_prefix.items(), ids=test_prefix.keys())

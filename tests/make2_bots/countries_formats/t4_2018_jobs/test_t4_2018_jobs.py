@@ -18,6 +18,8 @@ te4_2018_Jobs_data_old = {
 }
 
 te4_2018_Jobs_data = {
+    "the caribbean": "",
+    "caribbean": "",
     "european sports coaches": "مدربو رياضة أوروبيون",
     "albanian sports coaches": "مدربو رياضة ألبان",
 
@@ -563,7 +565,7 @@ te4_2018_Jobs_data = {
     "turkish women athletes": "لاعبات قوى تركيات",
     "turkish women wheelchair racers": "متسابقات كراسي متحركة تركيات",
     "turkish women's rights activists": "أتراك ناشطون في حقوق المرأة",
-    "turkish women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية تركيات",
+    "turkish women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة تركيات",
     "ukrainian artists": "فنانون أوكرانيون",
     "ukrainian expatriate sports-people": "رياضيون أوكرانيون مغتربون",
     "ukrainian female pair skaters": "متزلجات فنيات على الجليد أوكرانيات",

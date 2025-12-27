@@ -2,6 +2,7 @@
 This module provides functionality to translate category titles
 """
 import functools
+import re
 
 from ...helps import logger
 from ...translations import all_country_with_nat_ar, jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
@@ -10,6 +11,8 @@ from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_cou
 from .utils import one_Keys_more_2, nat_and_gender_keys
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
+
+REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
 
 def _load_formatted_data() -> dict:
@@ -85,6 +88,7 @@ def _load_formatted_data() -> dict:
     genders_keys: dict[str, str] = {
         "male deaf": "صم ذكور",
         "blind": "مكفوفون",
+        "abolitionists": "مناهضون للعبودية",
         "deaf": "صم",
         "deafblind": "صم ومكفوفون",
         "killed-in-action": "قتلوا في عمليات قتالية",
@@ -94,9 +98,15 @@ def _load_formatted_data() -> dict:
 
     for x, v in genders_keys.items():
         # formatted_data.update( one_Keys_more_2(x, v, add_women=False) )
-        formatted_data.update(
-            one_Keys_more_2(x, v, ar_nat_key="{males}", add_women=False)
+        keys_more = one_Keys_more_2(
+            x, v,
+            en_nat_key="{en_nat}",
+            en_job_key="{en_job}",
+            ar_nat_key="{males}",
+            ar_job_key="{ar_job}",
+            add_women=False,
         )
+        formatted_data.update(keys_more)
 
     formatted_data.update(formatted_data_jobs_with_nat)
     formatted_data.update({
@@ -106,6 +116,9 @@ def _load_formatted_data() -> dict:
 
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
         # "{en_nat} saints": "{males} قديسون",
+        "{en_nat} anti-communists": "{males} مناهضون للشيوعية",
+        "{en_nat} disability rights activists": "{males} ناشطون في حقوق الإعاقة",
+        "{en_nat} executed abroad": "{males} أعدموا في الخارج",
         "{en_nat} eugenicists": "علماء {males} متخصصون في تحسين النسل",
         "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
         "{en_nat} contemporary artists": "فنانون {males} معاصرون",
@@ -115,6 +128,31 @@ def _load_formatted_data() -> dict:
         "{en_nat} womens rights activists": "{males} ناشطون في حقوق المرأة",
         "{en_nat} businesspeople": "شخصيات أعمال {female}",
     })
+
+    NAT_BEFORE_OCC_BASE = [
+        "murdered abroad",
+        "contemporary",
+        "tour de france stage winners",
+        "deafblind",
+        "deaf",
+        "blind",
+        "jews",
+        # "women's rights activists",
+        "human rights activists",
+        "imprisoned",
+        "imprisoned abroad",
+        "conservationists",
+        "expatriate",
+        "defectors",
+        "scholars of islam",
+        "scholars-of-islam",
+        "amputees",
+        "executed abroad",
+        "emigrants",
+    ]
+    for x in NAT_BEFORE_OCC_BASE:
+        if jobs_mens_data.get(x):
+            formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data[x]}"
 
     return formatted_data
 
@@ -184,7 +222,8 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
 def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower()
-
+    category = REGEX_THE.sub("", category)
+    category = re.sub(r"\s+", " ", category)
     replacements = {
         "expatriates": "expatriate",
         "canadian football": "canadian-football",
