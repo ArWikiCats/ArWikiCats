@@ -1,11 +1,9 @@
 
 import functools
+from ...helps import logger
 
 from ..countries_names_resolvers import countries_names_v2
-
 from ..sports_resolvers import countries_names_and_sports, nationalities_and_sports
-
-from ...helps import logger
 from . import (
     ministers_resolver,
     nationalities_time_v2,
