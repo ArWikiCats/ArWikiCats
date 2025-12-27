@@ -10,8 +10,9 @@ gender-specific templates, and Arabic language formatting conventions.
 import functools
 from typing import Optional
 
-from ...helps.log import logger
+from ...helps import logger, dump_data
 from ...translations import (
+    All_Nat,
     NAT_BEFORE_OCC,
     Nat_mens,
     Nat_Womens,
@@ -19,6 +20,7 @@ from ...translations import (
     short_womens_jobs,
 )
 from .prefix_bot import mens_prefixes_work, womens_prefixes_work
+from ..jobs_bots.get_helps import get_suffix_with_keys
 
 # ============================================================================
 # Constants
@@ -416,26 +418,28 @@ def jobs_with_nat_prefix(
     return ""
 
 
-# ============================================================================
-# Legacy Function Aliases (for backward compatibility)
-# ============================================================================
+@dump_data(1)
+def jobs_with_nat_prefix_label(cate: str) -> str:
+    """
+    TODO: use FormatData method
+    """
+    cate = cate.replace("_", " ")
+    logger.debug(f"<<lightyellow>>>> jobs_with_nat_prefix_label >> cate:({cate}) ")
+
+    cate_lower = cate.lower()
+
+    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, All_Nat, "nat")
+
+    if not category_suffix or not country_prefix:
+        return ""
+
+    country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
+
+    logger.debug(f'end jobs_with_nat_prefix_label "{cate}" , {country_lab=}')
+
+    return country_lab
 
 
-def fix_expatriates(country_lab: str, country_label: str, nat_lab: str) -> str:
-    """Legacy function - use _normalize_expatriate_label instead."""
-    return _normalize_expatriate_label(country_label, nat_lab, country_lab)
-
-
-def create_country_lab(country_label: str, nat_lab: str, category_suffix: str) -> str:
-    """Legacy function - use _construct_country_nationality_label instead."""
-    return _construct_country_nationality_label(country_label, nat_lab, category_suffix)
-
-
-def country_lab_mens_womens(
-    jender_key: str,
-    category_suffix: str,
-    nat_lab: str,
-    country_label: str,
-) -> str:
-    """Legacy function - use _build_gender_occupation_label instead."""
-    return _build_gender_occupation_label(jender_key, category_suffix, nat_lab, country_label)
+__all__ = [
+    "_construct_country_nationality_label",
+]

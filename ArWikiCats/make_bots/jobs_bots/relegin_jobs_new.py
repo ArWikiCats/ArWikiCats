@@ -4,10 +4,12 @@
 """
 
 import functools
+import re
 from ...helps.log import logger
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
 from ...translations_formats import format_multi_data, MultiDataFormatterBase
 
+REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 
 NAT_BEFORE_OCC_BASE = [
     "convicted-of-murder",
@@ -28,7 +30,6 @@ NAT_BEFORE_OCC_BASE = [
     "scholars of islam",
     "scholars-of-islam",
     "amputees",
-    "expatriates",
     "executed abroad",
     "emigrants",
 ]
@@ -39,32 +40,24 @@ def _load_womens_bot() -> MultiDataFormatterBase:
     religions_data = {x: v["females"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("females")}
 
     female_formatted_data = {
-        "{female} {job_en}": "{job_ar}",
-        "people {female} {rele_en}": "{rele_ar}",
-        "{female} {rele_en}": "{rele_ar}",
+        "female {job_en}": "{job_ar}",
+        "people female {rele_en}": "{rele_ar}",
+        "female {rele_en}": "{rele_ar}",
 
-        "{female} {rele_en} {job_en}": "{job_ar} {rele_ar}",
-        "{female} {job_en} {rele_en}": "{job_ar} {rele_ar}",
+        "female {rele_en} {job_en}": "{job_ar} {rele_ar}",
+        "female {job_en} {rele_en}": "{job_ar} {rele_ar}",
 
-        "{rele_en} {female} {job_en}": "{job_ar} {rele_ar}",
-        "{job_en} {female} {rele_en}": "{job_ar} {rele_ar}",
+        "{rele_en} female {job_en}": "{job_ar} {rele_ar}",
+        "{job_en} female {rele_en}": "{job_ar} {rele_ar}",
 
-        "{rele_en} {female} saints": "قديسات {rele_ar}",
-        "{rele_en} {female} eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
-        "{rele_en} {female} politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
-        "{rele_en} {female} contemporary artists": "فنانات {rele_ar} معاصرات",
+        "{rele_en} female saints": "قديسات {rele_ar}",
+        "{rele_en} female eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
+        "{rele_en} female politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
+        "{rele_en} female contemporary artists": "فنانات {rele_ar} معاصرات",
     }
 
-    formatted_data = {}
-
-    for x, v in female_formatted_data.items():
-        formatted_data[x] = v
-        if "{female}" in x:
-            formatted_data[x.replace("{female}", "female")] = v
-            formatted_data[x.replace("{female}", "womens")] = v
-
     return format_multi_data(
-        formatted_data=formatted_data,
+        formatted_data=female_formatted_data,
         data_list=religions_data,
         key_placeholder="{rele_en}",
         value_placeholder="{rele_ar}",
@@ -85,7 +78,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "{job_en}": "{job_ar}",
         "people {rele_en}": "{rele_ar}",
         "{rele_en}": "{rele_ar}",
-        "{rele_en} expatriates": "{rele_ar} مغتربون",
+        "{rele_en} expatriate": "{rele_ar} مغتربون",
 
         # "{rele_en} {job_en}": "{job_ar} {rele_ar}",
         # "{job_en} {rele_en}": "{job_ar} {rele_ar}",
@@ -110,7 +103,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
         "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
         "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
-        "{rele_en} womens rights activists": "{rele_ar} ناشطون في حقوق المرأة",
+        "{rele_en} female rights activists": "{rele_ar} ناشطون في حقوق المرأة",
     }
 
     for x in NAT_BEFORE_OCC_BASE:
@@ -149,6 +142,20 @@ def mens_result(category: str) -> str:
     return nat_bot.search_all_category(category)
 
 
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower()
+
+    replacements = {
+        "expatriates": "expatriate",
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    category = REGEX_WOMENS.sub("female", category)
+    return category.strip()
+
+
 @functools.lru_cache(maxsize=None)
 def new_religions_jobs_with_suffix(category: str) -> str:
     """
@@ -161,7 +168,7 @@ def new_religions_jobs_with_suffix(category: str) -> str:
     Returns:
         The translated Arabic category string, or an empty string if no match is found.
     """
-    category = category.replace("'", "").lower()
+    category = fix_keys(category)
     logger.debug(f"\t xx start: <<lightred>>new_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
 
     return mens_result(category) or womens_result(category)
