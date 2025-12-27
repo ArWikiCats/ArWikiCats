@@ -565,7 +565,7 @@ title_work_tests_data = {
     "tourist attractions in nicaragua": "مواقع جذب سياحي في نيكاراغوا",
     "tourist attractions in united states": "مواقع جذب سياحي في الولايات المتحدة",
     "trade unions in caribbean": "نقابات عمالية في الكاريبي",
-    "transport infrastructure in south america": "بنية تحتية للنقل في أمريكا الجنوبية",
+    "transport infrastructure in south america": "البنية التحتية للنقل في أمريكا الجنوبية",
     "transport museums in canada": "متاحف نقل في كندا",
     "transportation buildings and structures in new hampshire": "مبان ومنشآت نقل في نيوهامشير",
     "transportation in united states": "النقل في الولايات المتحدة",
