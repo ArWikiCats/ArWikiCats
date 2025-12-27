@@ -217,9 +217,7 @@ def _build_gender_occupation_label(
         country_label, nationality_label, constructed_label
     )
 
-    logger.debug(
-        f'\t<<lightblue>> Built {gender_key} occupation label: "{final_label}"'
-    )
+    logger.info_if_or_debug(f"<<yellow>> end _build_gender_occupation_label: {final_label=}", final_label)
 
     return final_label
 
@@ -327,9 +325,7 @@ def _handle_male_label(country_prefix, males, normalized_suffix, find_nats) -> s
     male_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=True)
     logger.debug(f"{male_occupation=}, {normalized_suffix=}")
 
-    male_label = _build_gender_occupation_label(
-        GENDER_MALE, normalized_suffix, male_nationality, male_occupation
-    )
+    male_label = _build_gender_occupation_label(GENDER_MALE, normalized_suffix, male_nationality, male_occupation)
 
     return male_label
 
@@ -352,9 +348,7 @@ def _handle_female_label(country_prefix, females, normalized_suffix, find_nats) 
     female_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=False)
     logger.debug(f"{female_occupation=}, {normalized_suffix=}")
 
-    female_label = _build_gender_occupation_label(
-        GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation
-    )
+    female_label = _build_gender_occupation_label(GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation)
 
     return female_label
 
@@ -445,6 +439,3 @@ def country_lab_mens_womens(
 ) -> str:
     """Legacy function - use _build_gender_occupation_label instead."""
     return _build_gender_occupation_label(jender_key, category_suffix, nat_lab, country_label)
-
-
-MEN_WOMENS_WITH_NATO = GENDER_NATIONALITY_TEMPLATES
