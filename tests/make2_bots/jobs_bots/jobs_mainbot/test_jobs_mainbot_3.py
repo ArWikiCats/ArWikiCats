@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import (
-    MEN_WOMENS_WITH_NATO,
+    GENDER_NATIONALITY_TEMPLATES,
     jobs_with_nat_prefix,
 )
 from ArWikiCats.translations import Nat_mens, Nat_Womens, jobs_mens_data, short_womens_jobs
@@ -87,18 +87,18 @@ def test_short_womens_jobs_combined_with_nationality_egyptian(
 
 
 # =========================================================
-#   NEW TESTS – MEN_WOMENS_WITH_NATO TEMPLATE BEHAVIOR
+#   NEW TESTS – GENDER_NATIONALITY_TEMPLATES TEMPLATE BEHAVIOR
 # =========================================================
 
 
-@pytest.mark.parametrize("suffix, template", MEN_WOMENS_WITH_NATO.items())
+@pytest.mark.parametrize("suffix, template", GENDER_NATIONALITY_TEMPLATES.items())
 @pytest.mark.dict
 def test_mens_nato_templates_are_applied_for_all_men_keys(
     suffix: str,
     template: dict,
 ) -> None:
     """
-    For every key in MEN_WOMENS_WITH_NATO, the men's template should be used
+    For every key in GENDER_NATIONALITY_TEMPLATES, the men's template should be used
     with {nato} replaced by the correct nationality name.
     """
     mens_nat = Nat_mens.get("yemeni") or "يمنيون"

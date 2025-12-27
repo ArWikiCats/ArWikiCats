@@ -43,12 +43,12 @@ class Tests:
     # =========================================================
 
     def test_mens_politicians_suicide_template(self) -> None:
-        """Test MEN_WOMENS_WITH_NATO template for men"""
+        """Test GENDER_NATIONALITY_TEMPLATES template for men"""
         result = jobs_with_nat_prefix("", "afghan", "politicians who committed suicide")
         assert result == "سياسيون أفغان أقدموا على الانتحار"
 
     def test_womens_artists_template_with_override(self) -> None:
-        """Test MEN_WOMENS_WITH_NATO template for women with manual override"""
+        """Test GENDER_NATIONALITY_TEMPLATES template for women with manual override"""
         result = jobs_with_nat_prefix("", "zanzibari", "female contemporary artists", females="زنجباريات")
         # assert result == "فنانات زنجباريات معاصرات"
         assert result == ""

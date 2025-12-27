@@ -246,7 +246,7 @@ def test_new_womens_short_job_women_in_politics_argentinean() -> None:
     assert result == "سياسيات أرجنتينيات"
 
 
-# --- MEN_WOMENS_WITH_NATO Tests ---
+# --- GENDER_NATIONALITY_TEMPLATES Tests ---
 
 
 def test_mens_with_people() -> None:

@@ -3,7 +3,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import create_country_lab
+from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import _construct_country_nationality_label
 from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
 
@@ -347,7 +347,7 @@ for key, data in RELIGIOUS_KEYS_10.items():
     mens_label = data.get("males", "")
     if mens_label:
         for job_key, job_label in jobs_mens_data.items():
-            label = create_country_lab(job_label, mens_label, job_key)
+            label = _construct_country_nationality_label(job_label, mens_label, job_key)
             expatriates_data[f"{key} {job_key}"] = label
 
 
