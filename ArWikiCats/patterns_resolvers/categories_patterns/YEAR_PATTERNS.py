@@ -37,7 +37,7 @@ YEAR_DATA = {
     "category:fungi described in {year1}": "تصنيف:فطريات وصفت في {year1}",  # 206
     "category:government agencies established in {year1}": "تصنيف:وكالات حكومية أسست في {year1}",  # 165
     "category:houses completed in {year1}": "تصنيف:منازل اكتملت في {year1}",  # 213
-    "category:infrastructure completed in {year1}": "تصنيف:بنية تحتية اكتملت في {year1}",  # 268
+    "category:infrastructure completed in {year1}": "تصنيف:البنية التحتية اكتملت في {year1}",  # 268
     "category:insects described in {year1}": "تصنيف:حشرات وصفت في {year1}",  # 199
     "category:mammals described in {year1}": "تصنيف:ثدييات وصفت في {year1}",  # 247
     "category:manufacturing companies established in {year1}": "تصنيف:شركات تصنيع أسست في {year1}",  # 194

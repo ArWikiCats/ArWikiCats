@@ -72,7 +72,7 @@ for key in pop_key_4:
 
     structures_data[f"{key2} electricity"] = f"كهرباء {lab}"
     structures_data[f"{key2} fields"] = f"حقول {lab}"
-    structures_data[f"{key2} infrastructure"] = f"بنية تحتية {lab}"
+    structures_data[f"{key2} infrastructure"] = f"البنية التحتية {lab}"
     structures_data[f"{key2} refineries"] = f"مصافي {lab}"
     structures_data[f"{key2} pipelines"] = f"خطوط أنابيب {lab}"
 
