@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -24,9 +24,9 @@ def run_dump_logic(name, data):
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
-    expected2 = {x: v for x, v in expected.items() if v and x in diff_result}
-    dump_diff(expected2, f"{name}_expected")
-
+    # expected2 = {x: v for x, v in expected.items() if v and x in diff_result}
+    # dump_diff(expected2, f"{name}_expected")
+    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
