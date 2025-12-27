@@ -18,6 +18,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
+from ...new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix, jobs_with_nat_prefix_label
 from ..jobs_bots.prefix_bot import womens_prefixes_work, mens_prefixes_work
@@ -182,6 +183,7 @@ def te4_2018_Jobs(cate: str) -> str:
     cate_lower_original = cate.lower()
 
     country_lab = (
+        resolve_jobs_main(cate_lower_original) or
         new_religions_jobs_with_suffix(cate_lower_original) or
         jobs_with_nat_prefix_label(cate_lower_original) or
         ""

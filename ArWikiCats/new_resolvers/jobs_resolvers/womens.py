@@ -16,23 +16,23 @@ countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get
 
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
-        "{en_nat} {women} actresses": "ممثلات {females}",
+        "{en_nat} female actresses": "ممثلات {females}",
         "{en_nat} actresses": "ممثلات {females}",
 
-        "{en_nat} expatriate {women} {en_job}": "{ar_job} {females} مغتربات",
-        "{en_nat}-american {women} people": "أمريكيات {females}",
+        "{en_nat} expatriate female {en_job}": "{ar_job} {females} مغتربات",
+        "{en_nat}-american female people": "أمريكيات {females}",
 
-        "{en_nat} {women} eugenicists": "عالمات {females} متخصصات في تحسين النسل",
-        "{en_nat} {women} politicians who committed suicide": "سياسيات {females} أقدمن على الانتحار",
-        "{en_nat} {women} contemporary artists": "فنانات {females} معاصرات",
+        "{en_nat} female eugenicists": "عالمات {females} متخصصات في تحسين النسل",
+        "{en_nat} female politicians who committed suicide": "سياسيات {females} أقدمن على الانتحار",
+        "{en_nat} female contemporary artists": "فنانات {females} معاصرات",
 
         # base keys
-        "{women} {en_nat} people": "{females}",
-        "{en_nat} {women} people": "{females}",
+        "female {en_nat} people": "{females}",
+        "{en_nat} female people": "{females}",
     }
 
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{females} مغتربات"))
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "{women}", "{females} مهاجرات"))
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "female", "{females} مغتربات"))
+    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "female", "{females} مهاجرات"))
 
     formatted_data_jobs = {
         # jobs
@@ -41,25 +41,25 @@ def _load_formatted_data() -> dict:
 
         # base keys
         "{en_job}": "{ar_job}",
-        "{women} {en_job}": "{ar_job}",
+        "female {en_job}": "{ar_job}",
 
-        "{women} {en_job} people": "{ar_job}",
+        "female {en_job} people": "{ar_job}",
         # "{en_job} people": "أعلام {ar_job}",
         "{en_job} people": "{ar_job}",
 
         # expatriate keys
-        "{women} expatriate {en_job}": "{ar_job} مغتربات",
-        "expatriate {women} {en_job}": "{ar_job} مغتربات",
+        "female expatriate {en_job}": "{ar_job} مغتربات",
+        "expatriate female {en_job}": "{ar_job} مغتربات",
         "expatriate {en_job}": "{ar_job} مغتربات",
 
         # emigrants keys
-        "{women} emigrants {en_job}": "{ar_job} مهاجرات",
-        "emigrants {women} {en_job}": "{ar_job} مهاجرات",
+        "female emigrants {en_job}": "{ar_job} مهاجرات",
+        "emigrants female {en_job}": "{ar_job} مهاجرات",
         "emigrants {en_job}": "{ar_job} مهاجرات",
     }
 
-    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "{women}", "{ar_job} مغتربات"))
-    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "{women}", "{ar_job} مهاجرات"))
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "female", "{ar_job} مغتربات"))
+    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "female", "{ar_job} مهاجرات"))
 
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update({
@@ -74,6 +74,7 @@ def _load_formatted_data() -> dict:
     genders_keys: dict[str, str] = {
         "blind": "مكفوفات",
         "deaf": "صم",
+        "abolitionists": "مناهضات للعبودية",
         "deafblind": "صم ومكفوفات",
         "killed-in-action": "قتلن في عمليات قتالية",
         "killed in action": "قتلن في عمليات قتالية",
@@ -82,12 +83,16 @@ def _load_formatted_data() -> dict:
 
     for x, v in genders_keys.items():
         formatted_data.update(
-            one_Keys_more_2(x, v, ar_nat_key="{females}", add_women=True)
+            one_Keys_more_2(x, v, ar_nat_key="{females}", women_key="female", add_women=True)
         )
     formatted_data.update(formatted_data_jobs_with_nat)
 
-    # formatted_data.update({ "{en_nat} {women} film directors": "مخرجات أفلام {females}"})
-    formatted_data_final = filter_and_replace_gender_terms(formatted_data)
+    # formatted_data.update({ "{en_nat} female film directors": "مخرجات أفلام {females}"})
+    formatted_data.update({
+        "{en_nat} female abolitionists": "{females} مناهضات للعبودية",
+    })
+    # formatted_data_final = filter_and_replace_gender_terms(formatted_data)
+    formatted_data_final = formatted_data
 
     return formatted_data_final
 

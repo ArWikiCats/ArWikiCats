@@ -7,6 +7,7 @@ def one_Keys_more_2(
     en_nat_key="{en_nat}",
     ar_job_key="{ar_job}",
     en_job_key="{en_job}",
+    women_key="{women}",
     add_women=False,
 ) -> dict[str, str]:
     data = {}
@@ -24,18 +25,22 @@ def one_Keys_more_2(
 
     if add_women:
         # female greek blind
-        data[f"{{women}} {en_nat_key} {x}"] = f"{ar_nat_key} {v}"
+        data[f"{women_key} {en_nat_key} {x}"] = f"{ar_nat_key} {v}"
 
         # female writers blind
-        data[f"{{women}} {en_job_key} {x}"] = f"{ar_job_key} {v}"
+        data[f"{women_key} {en_job_key} {x}"] = f"{ar_job_key} {v}"
+
+        # Mauritanian female writers abolitionists
+        data[f"{en_nat_key} {women_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
+
         # female greek writers blind
-        data[f"{{women}} {en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
+        data[f"{women_key} {en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
         # writers female greek blind
-        data[f"{en_job_key} {{women}} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
+        data[f"{en_job_key} {women_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
         # female writers greek blind
-        data[f"{{women}} {en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
+        data[f"{women_key} {en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
     return data
 
