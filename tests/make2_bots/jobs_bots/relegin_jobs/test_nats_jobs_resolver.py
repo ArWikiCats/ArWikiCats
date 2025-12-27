@@ -24,7 +24,6 @@ data_without_nats = {
     "muslims": "مسلمون",
 }
 
-
 test_data_error = {
     "Ancient Roman saints": "رومان قدماء قديسون",
     "Yemeni muslims male": "يمنيون مسلمون ذكور",

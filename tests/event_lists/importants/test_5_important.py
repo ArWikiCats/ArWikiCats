@@ -51,6 +51,13 @@ data_empty = {
 }
 
 data0 = {
+    "Category:cultural depictions of Canadian activists": "تصنيف:تصوير ثقافي عن ناشطون كنديون",
+    "Category:Assassinated Canadian activists": "تصنيف:ناشطون كنديون مغتالون",
+    "Category:Assassinated Guatemalan diplomats": "تصنيف:دبلوماسيون غواتيماليون مغتالون",
+    "Category:Assassinated Swedish diplomats": "تصنيف:دبلوماسيون سويديون مغتالون",
+    "Category:Ancient Indian people by occupation": "تصنيف:أعلام هنود قدماء حسب المهنة",
+    "Category:Fictional Australian criminals": "تصنيف:مجرمون أستراليون خياليون",
+    "Category:Assassinated Peruvian politicians": "تصنيف:سياسيون بيرويون مغتالون",
     # "Category:Native American women leaders": "تصنيف:قائدات أمريكيات أصليون",
     "yemeni national junior women's under-16 football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للناشئات",
     "yemeni national junior women's football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية للناشئات",
@@ -116,6 +123,7 @@ data1 = {
     "Category:Burial sites of Romanian royal houses": "تصنيف:مواقع دفن بيوت ملكية رومانية",
     "Category:Burial sites of imperial Chinese families": "تصنيف:مواقع دفن أسر إمبراطورية صينية",
 }
+
 data_2 = {
 }
 
@@ -139,6 +147,9 @@ to_test = [
 
 @pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
 def test_5_data_0(category: str, expected: str) -> None:
+    """
+    pytest tests/event_lists/importants/test_5_important.py::test_5_data_0
+    """
     assert resolve_arabic_category_label(category) == expected
 
 
