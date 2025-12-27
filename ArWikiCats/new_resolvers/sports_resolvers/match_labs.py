@@ -6,8 +6,8 @@ TODO: merge with sports_resolvers/raw_sports.py
 import functools
 from ...helps import logger, dump_data
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
-from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
+from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 
 teams_2025_sample = {
     "{sport} people": "أعلام {sport_jobs}",
@@ -153,8 +153,9 @@ def load_v2() -> FormatDataV2:
             "sport_jobs": v.get("jobs", ""),
         }
         for x, v in SPORT_KEY_RECORDS.items()
-        if v.get("jobs") and x != "sports"
+        if v.get("jobs")  # and x != "sports"
     }
+    sports_data.pop("sports", None)
     bot = FormatDataV2(
         formatted_data=teams_2025,
         data_list=sports_data,
