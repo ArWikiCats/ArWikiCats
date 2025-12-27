@@ -31,6 +31,13 @@ class LoggerWrap:
         """Log an info message after formatting color codes."""
         self._logger.info(make_str(msg), *args, **kwargs)
 
+    def info_if_or_debug(self, msg: str, value: str) -> None:
+        """Log an info message after formatting color codes."""
+        if value:
+            self._logger.info(make_str(msg))
+
+            self._logger.debug(make_str(msg))
+
     def output(self, msg: str, *args, **kwargs) -> None:
         """Alias for info logging while preserving formatting."""
         self._logger.info(make_str(msg), *args, **kwargs)
