@@ -5,6 +5,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
+    "Category:2020 wheelchair tennis by city": "تصنيف:كرة المضرب على الكراسي المتحركة في 2020 حسب المدينة",
     "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",
     "Category:Political positions of the 2008 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2008",
     "Category:Political positions of the 2016 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2016",
