@@ -11,6 +11,8 @@ from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_cou
 from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
 
 
+REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
+REGEX_THE = re.compile(r"\b(the)\b", re.I)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 
@@ -166,11 +168,9 @@ def load_bot() -> MultiDataFormatterBaseV2:
     )
 
 
-REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
-
-
 def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower()
+    category = REGEX_THE.sub("", category)
 
     replacements = {
         "expatriates": "expatriate",

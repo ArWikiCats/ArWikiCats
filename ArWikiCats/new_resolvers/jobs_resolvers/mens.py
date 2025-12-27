@@ -2,6 +2,7 @@
 This module provides functionality to translate category titles
 """
 import functools
+import re
 
 from ...helps import logger
 from ...translations import all_country_with_nat_ar, jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
@@ -10,6 +11,8 @@ from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_cou
 from .utils import one_Keys_more_2, nat_and_gender_keys
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
+
+REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
 
 def _load_formatted_data() -> dict:
@@ -219,7 +222,8 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
 def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower()
-
+    category = REGEX_THE.sub("", category)
+    category = re.sub(r"\s+", " ", category)
     replacements = {
         "expatriates": "expatriate",
         "canadian football": "canadian-football",
