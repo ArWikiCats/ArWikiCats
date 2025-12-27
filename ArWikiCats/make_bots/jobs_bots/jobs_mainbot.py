@@ -355,6 +355,7 @@ def _handle_female_label(country_prefix, females, normalized_suffix, find_nats) 
     return female_label
 
 
+# @functools.lru_cache(maxsize=None)
 @functools.lru_cache(maxsize=None)
 def jobs_with_nat_prefix(
     cate: str,
@@ -418,6 +419,7 @@ def jobs_with_nat_prefix(
     return ""
 
 
+@functools.lru_cache(maxsize=None)
 @dump_data(1)
 def jobs_with_nat_prefix_label(cate: str) -> str:
     """
