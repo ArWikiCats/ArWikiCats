@@ -6,6 +6,20 @@ import pytest
 
 from ArWikiCats.new_resolvers.sports_resolvers.match_labs import find_teams_2025
 
+test_new = {
+    "Women's sports": "رياضات نسائية",
+    "Women's sports seasons": "مواسم رياضات نسائية",
+    "sports seasons": "مواسم رياضات",
+}
+
+
+@pytest.mark.parametrize("category, expected_key", test_new.items(), ids=test_new.keys())
+@pytest.mark.fast
+def test_new_data(category: str, expected_key: str) -> None:
+    label = find_teams_2025(category)
+    assert label == ""  # expected_key
+
+
 data00 = {
     "football": "كرة قدم",
     "sports competitions": "منافسات رياضية",
