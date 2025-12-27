@@ -1,4 +1,16 @@
 
+## [#277](https://github.com/MrIbrahem/ArWikiCats/pull/277) - 2025-12-27
+
+* **New Features**
+  * Added translation entry for "sports seasons" in Arabic.
+
+* **Performance**
+  * Implemented caching for country-related lookups to improve response times.
+
+* **Improvements**
+  * Enhanced logging visibility to surface successful resolutions more prominently.
+  * Refactored internal resolution logic for better maintainability.
+
 ## [#276](https://github.com/MrIbrahem/ArWikiCats/pull/276) - 2025-12-27
 
 ### Highlights
