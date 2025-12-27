@@ -207,7 +207,7 @@ def resolve_countries_names_medalists(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(normalized_category)
 
-    logger.debug(f"<<yellow>> end resolve_countries_names_medalists: {normalized_category=}, {result=}")
+    logger.info(f"<<yellow>> end resolve_countries_names_medalists: {normalized_category=}, {result=}")
     return result
 
 

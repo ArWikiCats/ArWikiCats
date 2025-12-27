@@ -117,5 +117,5 @@ def resolve_team_label(title_en: str) -> str:
     bot = _load_sports_bot()
     normalized_title = _normalize(title_en)
     result = bot.search(normalized_title)
-    logger.debug(f"<<yellow>> end resolve_by_labels: {title_en=}, {result=}")
+    logger.info(f"<<yellow>> end resolve_by_labels: {title_en=}, {result=}")
     return result

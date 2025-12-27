@@ -351,7 +351,7 @@ def _resolve_nats_sport_multi_v2(category: str) -> str:
     category = fix_keys(category)
     result = both_bot.search_all_category(category)
 
-    logger.debug(f"<<yellow>> end _resolve_nats_sport_multi_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end _resolve_nats_sport_multi_v2: {category=}, {result=}")
     return result
 
 
@@ -380,7 +380,7 @@ def resolve_nats_sport_multi_v2(category: str) -> str:
         fix_result_callable=fix_result_callable,
     )
 
-    logger.debug(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}")
     return result
 
 

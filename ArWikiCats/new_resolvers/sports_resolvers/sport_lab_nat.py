@@ -298,7 +298,7 @@ def _sport_lab_nat_load_new(category) -> str:
     logger.debug(f"<<yellow>> start _sport_lab_nat_load_new: {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
-    logger.debug(f"<<yellow>> end _sport_lab_nat_load_new: {category=}, {result=}")
+    logger.info(f"<<yellow>> end _sport_lab_nat_load_new: {category=}, {result=}")
     return result
 
 
@@ -342,7 +342,7 @@ def sport_lab_nat_load_new(category: str) -> str:
         format_key="lab",
     )
 
-    logger.debug(f"<<yellow>> end sport_lab_nat_load_new: {category=}, {result=}")
+    logger.info(f"<<yellow>> end sport_lab_nat_load_new: {category=}, {result=}")
     return result
 
 

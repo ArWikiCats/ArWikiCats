@@ -232,7 +232,7 @@ def resolve_countries_names_sport(category: str) -> str:
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
 
-    logger.debug(f"<<yellow>> end resolve_countries_names_sport: {category=}, {result=}")
+    logger.info(f"<<yellow>> end resolve_countries_names_sport: {category=}, {result=}")
     return result
 
 
@@ -257,7 +257,7 @@ def resolve_countries_names_sport_with_ends(category) -> str:
         callback=resolve_countries_names_sport,
         fix_result_callable=fix_result_callable,
     )
-    logger.debug(f"<<yellow>> end resolve_countries_names_sport_with_ends: {category=}, {label2=}")
+    logger.info(f"<<yellow>> end resolve_countries_names_sport_with_ends: {category=}, {label2=}")
     return label2
 
 

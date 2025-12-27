@@ -217,7 +217,7 @@ def find_teams_2025(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
-    logger.debug(f"<<yellow>> end find_teams_2025: {category=}, {label2=}")
+    logger.info(f"<<yellow>> end find_teams_2025: {category=}, {label2=}")
     return label2
 
 

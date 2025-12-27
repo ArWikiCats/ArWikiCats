@@ -49,7 +49,7 @@ def resolve_nats_time_v2(category: str) -> str:
 
     result = yc_bot.search_all_category(category)
 
-    logger.debug(f"<<yellow>> end resolve_nats_time_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end resolve_nats_time_v2: {category=}, {result=}")
     return result or ""
 
 
