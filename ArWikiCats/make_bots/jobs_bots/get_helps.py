@@ -10,7 +10,7 @@ import functools
 from dataclasses import dataclass
 from typing import Iterable, Optional, Union
 
-from ...helps.log import logger
+from ...helps import logger, dump_data
 from ...translations import RELIGIOUS_KEYS_PP, All_Nat, Nat_women, countries_from_nat
 
 # Type alias for keys data - can be dict or list
@@ -130,6 +130,7 @@ def _try_match_prefix(
     return PrefixMatch(country_prefix=key, category_suffix=suffix)
 
 
+# @dump_data(1, input_keys=["category"])
 def get_suffix_with_keys(
     category: str,
     data_keys: KeysDataType,
