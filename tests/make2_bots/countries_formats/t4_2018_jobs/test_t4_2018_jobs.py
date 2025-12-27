@@ -18,6 +18,8 @@ te4_2018_Jobs_data_old = {
 }
 
 te4_2018_Jobs_data = {
+    "the caribbean": "",
+    "caribbean": "",
     "european sports coaches": "مدربو رياضة أوروبيون",
     "albanian sports coaches": "مدربو رياضة ألبان",
 
