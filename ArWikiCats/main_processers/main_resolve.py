@@ -21,7 +21,6 @@ from ..make_bots.format_bots import change_cat
 from ..ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
 from ..new_resolvers.reslove_all import new_resolvers_all
-
 from ..fix import fixlabel
 
 
