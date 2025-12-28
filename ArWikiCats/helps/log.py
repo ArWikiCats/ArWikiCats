@@ -31,8 +31,8 @@ class LoggerWrap:
 
             self._logger.addHandler(handler)
 
-    def setLevel(self, level: int|str) -> None:
-        """Enable or disable the underlying logger dynamically."""
+    def set_level(self, level: Union[int, str]) -> None:
+        """Set the logging level for the underlying logger."""
         self._logger.setLevel(level)
 
     def disable_logger(self, is_disabled: bool) -> None:
@@ -124,7 +124,7 @@ def config_logger(level: Optional[Union[int, str]] = None, name: str = __name__)
     if not level:
         level = logging.DEBUG
 
-    logger.setLevel(level)
+    logger.set_level(level)
 
     # logging.basicConfig(
     #     filename=name,
