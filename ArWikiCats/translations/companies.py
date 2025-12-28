@@ -130,6 +130,8 @@ COMPANY_TYPE_TRANSLATIONS = {
     "logistics": "لوجستية",
     "military logistics": "لوجستية عسكرية",
     "wholesalers": "بيع بالجملة",
+    "department stores": "متاجر متعددة الأقسام",
+    "clothing retailers": "متاجر ملابس بالتجزئة",
 }
 # ---
 companies_keys3 = {}
@@ -137,40 +139,46 @@ companies_data = {}
 # ---
 for company_type, arabic_label in COMPANY_TYPE_TRANSLATIONS.items():  # Media company founders
     company_type_lower = company_type.lower()
-    # so = f"{company_type_lower} %s"
-    companies_data[f"{company_type_lower} company"] = f"شركات {arabic_label}"
-    companies_data[f"{company_type_lower} offices"] = f"مكاتب {arabic_label}"
+    companies_data.update({
+        f"{company_type_lower} company": f"شركات {arabic_label}",
+        f"{company_type_lower} offices": f"مكاتب {arabic_label}",
 
-    companies_data[f"{company_type_lower} companies of"] = f"شركات {arabic_label} في"
-    companies_data[f"defunct {company_type_lower} companies"] = f"شركات {arabic_label} سابقة"
+        f"{company_type_lower} companies of": f"شركات {arabic_label} في",
+        f"defunct {company_type_lower} companies": f"شركات {arabic_label} سابقة",
 
-    # NOTE: CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
-    companies_data[f"defunct-{company_type_lower}-companies"] = f"شركات {arabic_label} سابقة"
+        # NOTE: CHANGE_KEY_MAPPINGS[f"defunct {x} companies": f"defunct-{x}-companies"
+        f"defunct-{company_type_lower}-companies": f"شركات {arabic_label} سابقة",
 
-    companies_data[f"defunct {company_type_lower}"] = f"{arabic_label} سابقة"
-    companies_data[f"defunct {company_type_lower} of"] = f"{arabic_label} سابقة في"
-    companies_data[f"{company_type_lower} firms of"] = f"شركات {arabic_label} في"
-    companies_data[f"{company_type_lower} services"] = f"خدمات {arabic_label}"
-    companies_data[f"{company_type_lower} firms"] = f"شركات {arabic_label}"
-    companies_data[f"{company_type_lower} franchises"] = f"امتيازات {arabic_label}"
-    companies_data[f"{company_type_lower} accidents-and-incidents"] = f"حوادث {arabic_label}"
-    companies_data[f"{company_type_lower} accidents and incidents"] = f"حوادث {arabic_label}"
-    companies_data[f"{company_type_lower} accidents or incidents"] = f"حوادث {arabic_label}"
-    companies_data[f"{company_type_lower} accidents"] = f"حوادث {arabic_label}"
-    companies_data[f"{company_type_lower} incidents"] = f"حوادث {arabic_label}"
-    companies_data[f"{company_type_lower} software"] = f"برمجيات {arabic_label}"
-    companies_data[f"{company_type_lower} databases"] = f"قواعد بيانات {arabic_label}"
-    companies_data[f"{company_type_lower} agencies"] = f"وكالات {arabic_label}"
-    companies_data[f"{company_type_lower} disciplines"] = f"تخصصات {arabic_label}"
-    companies_data[f"{company_type_lower} museums"] = f"متاحف {arabic_label}"
-    companies_data[f"{company_type_lower} organizations"] = f"منظمات {arabic_label}"
-    companies_data[f"{company_type_lower} organization"] = f"منظمات {arabic_label}"
-    companies_data[f"{company_type_lower} facilities"] = f"مرافق {arabic_label}"
-    companies_data[f"{company_type_lower} bunkers"] = f"مخابئ {arabic_label}"
-    companies_data[f"{company_type_lower} industry"] = f"صناعة {arabic_label}"
-    companies_data[f"{company_type_lower} industry organisations"] = f"منظمات صناعة {arabic_label}"
-    companies_data[f"{company_type_lower} industry organizations"] = f"منظمات صناعة {arabic_label}"
-    # companies_data[f"{key2} of"] = "{} في".format(lab)
+        f"defunct {company_type_lower}": f"{arabic_label} سابقة",
+        f"defunct {company_type_lower} of": f"{arabic_label} سابقة في",
+        f"{company_type_lower} firms of": f"شركات {arabic_label} في",
+        f"{company_type_lower} services": f"خدمات {arabic_label}",
+        f"{company_type_lower} firms": f"شركات {arabic_label}",
+        f"{company_type_lower} franchises": f"امتيازات {arabic_label}",
+
+        f"{company_type_lower} accidents-and-incidents": f"حوادث {arabic_label}",
+        f"{company_type_lower} accidents and incidents": f"حوادث {arabic_label}",
+        f"{company_type_lower} accidents or incidents": f"حوادث {arabic_label}",
+
+        f"{company_type_lower} accidents": f"حوادث {arabic_label}",
+        f"{company_type_lower} incidents": f"حوادث {arabic_label}",
+        f"{company_type_lower} software": f"برمجيات {arabic_label}",
+        f"{company_type_lower} databases": f"قواعد بيانات {arabic_label}",
+        f"{company_type_lower} agencies": f"وكالات {arabic_label}",
+        f"{company_type_lower} disciplines": f"تخصصات {arabic_label}",
+        f"{company_type_lower} museums": f"متاحف {arabic_label}",
+        f"{company_type_lower} organizations": f"منظمات {arabic_label}",
+        f"{company_type_lower} organization": f"منظمات {arabic_label}",
+        f"{company_type_lower} facilities": f"مرافق {arabic_label}",
+        f"{company_type_lower} bunkers": f"مخابئ {arabic_label}",
+        f"{company_type_lower} industry": f"صناعة {arabic_label}",
+        f"{company_type_lower} industry organisations": f"منظمات صناعة {arabic_label}",
+        f"{company_type_lower} industry organizations": f"منظمات صناعة {arabic_label}",
+
+        # "online clothing retailers": "متاجر ملابس بالتجزئة عبر الإنترنت",
+        f"online {company_type_lower}": f"{arabic_label} عبر الإنترنت",
+    })
+
 # ---
 companies_to_jobs = {}
 # ---
