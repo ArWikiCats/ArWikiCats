@@ -86,6 +86,7 @@ def config_logger(level: Optional[Union[int, str]] = None) -> None:
         level = logging.DEBUG
 
     logging.basicConfig(
+        filename=__name__,
         level=level,
         # format='%(asctime)s - %(levelname)s - %(message)s',
         format="%(levelname)s - %(message)s",
