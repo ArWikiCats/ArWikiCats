@@ -8,6 +8,15 @@ from ...translations_formats import FormatData
 from ...translations import US_STATES
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
+    # "georgia (u.s. state)": "ولاية جورجيا",
+    "{en} (u.s. state)": "ولاية {ar}",
+
+    # "new york (state)": "ولاية نيويورك",
+    "{en} (state)": "ولاية {ar}",
+
+    # Category:Defunct department stores based in Washington State
+    "{en} state": "ولاية {ar}",
+
     "secretaries of state of {en}": "وزراء خارجية {ar}",
     "secretaries of state for {en}": "وزراء خارجية {ar}",
 

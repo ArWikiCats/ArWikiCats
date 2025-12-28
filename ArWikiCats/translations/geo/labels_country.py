@@ -18,6 +18,15 @@ from .us_counties import US_COUNTY_TRANSLATIONS
 from ..nats.Nationality import all_country_ar
 
 US_STATES = {
+    "georgia (u.s. state)": "ولاية جورجيا",
+    "new york (state)": "ولاية نيويورك",
+    "washington (state)": "ولاية واشنطن",
+
+    "washington": "واشنطن",
+    "washington, d.c.": "واشنطن العاصمة",
+    "georgia": "جورجيا",
+    "new york": "نيويورك",
+
     "alabama": "ألاباما",
     "alaska": "ألاسكا",
     "arizona": "أريزونا",
@@ -27,8 +36,6 @@ US_STATES = {
     "connecticut": "كونيتيكت",
     "delaware": "ديلاوير",
     "florida": "فلوريدا",
-    "georgia (u.s. state)": "ولاية جورجيا",
-    "georgia": "جورجيا",
     "hawaii": "هاواي",
     "idaho": "أيداهو",
     "illinois": "إلينوي",
@@ -50,8 +57,6 @@ US_STATES = {
     "new hampshire": "نيوهامشير",
     "new jersey": "نيوجيرسي",
     "new mexico": "نيومكسيكو",
-    "new york (state)": "ولاية نيويورك",
-    "new york": "نيويورك",
     "north carolina": "كارولاينا الشمالية",
     "north dakota": "داكوتا الشمالية",
     "ohio": "أوهايو",
@@ -66,9 +71,6 @@ US_STATES = {
     "utah": "يوتا",
     "vermont": "فيرمونت",
     "virginia": "فرجينيا",
-    "washington (state)": "ولاية واشنطن",
-    "washington": "واشنطن",
-    "washington, d.c.": "واشنطن العاصمة",
     "west virginia": "فيرجينيا الغربية",
     "wisconsin": "ويسكونسن",
     "wyoming": "وايومنغ",

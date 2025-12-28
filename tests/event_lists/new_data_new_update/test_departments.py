@@ -5,20 +5,18 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data_0 = {
-    "Category:Children's clothing designers": "",
-    "Category:Children's clothing retailers": "",
-    "Category:Defunct department stores based in Downtown Los Angeles": "",
-    "Category:Defunct department stores based in Greater Los Angeles": "",
-    "Category:Defunct department stores based in New York State": "",
-    "Category:Defunct department stores based in North Hollywood": "",
-    "Category:Defunct department stores based in Southeast Los Angeles County, California": "",
-    "Category:Defunct department stores based in the Miracle Mile": "",
-    "Category:Defunct department stores based in the San Fernando Valley": "",
-    "Category:Defunct department stores based in the San Gabriel Valley": "",
-    "Category:Defunct department stores based in the South Bay, Los Angeles County": "",
-    "Category:Defunct department stores based in the Westside, Los Angeles": "",
-    "Category:Defunct department stores based in Washington State": "",
-    "Category:Department stores in Southend-on-Sea (town)": ""
+    "Category:Children's clothing designers": "x",
+    "Category:Children's clothing retailers": "x",
+    "Category:Defunct department stores based in Downtown Los Angeles": "x",
+    "Category:Defunct department stores based in Greater Los Angeles": "x",
+    "Category:Defunct department stores based in North Hollywood": "x",
+    "Category:Defunct department stores based in Southeast Los Angeles County, California": "x",
+    "Category:Defunct department stores based in the Miracle Mile": "x",
+    "Category:Defunct department stores based in the San Fernando Valley": "x",
+    "Category:Defunct department stores based in the San Gabriel Valley": "x",
+    "Category:Defunct department stores based in the South Bay, Los Angeles County": "x",
+    "Category:Defunct department stores based in the Westside, Los Angeles": "x",
+    "Category:Department stores in Southend-on-Sea (town)": "x",
 }
 
 data_1 = {
@@ -132,6 +130,8 @@ data_2 = {
 }
 
 data_3 = {
+    "Category:Defunct department stores based in New York State": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ولاية نيويورك",
+    "Category:Defunct department stores based in Washington State": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ولاية واشنطن",
     "Category:Online clothing retailers": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت",
     "Category:Online clothing retailers of Canada": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في كندا",
     "Category:Online clothing retailers of Germany": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في ألمانيا",
