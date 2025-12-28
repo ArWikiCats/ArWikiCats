@@ -1,3 +1,4 @@
+import difflib
 import logging
 from typing import Optional, Union
 
@@ -6,14 +7,33 @@ from ..helps.printe_helper import make_str
 
 
 class LoggerWrap:
-    """Light wrapper around ``logging.Logger`` with colorized helpers."""
+    """Project-scoped logger with colorized helpers."""
 
-    def __init__(self, name: str, disable_log=False) -> None:
+    def __init__(self, name: str, disable_log: bool = False, level: int = logging.DEBUG) -> None:
         """Initialize the wrapped logger and optionally disable output."""
         self._logger = logging.getLogger(name)
 
+        # Prevent leaking to root logger
+        self._logger.propagate = False
+
         if disable_log:
             self._logger.disabled = True
+            return
+
+        if not self._logger.handlers:
+            self._logger.setLevel(level)
+
+            handler = logging.StreamHandler()
+            formatter = logging.Formatter(
+                "%(levelname)s - %(message)s"
+            )
+            handler.setFormatter(formatter)
+
+            self._logger.addHandler(handler)
+
+    def setLevel(self, level: int|str) -> None:
+        """Enable or disable the underlying logger dynamically."""
+        self._logger.setLevel(level)
 
     def disable_logger(self, is_disabled: bool) -> None:
         """Enable or disable the underlying logger dynamically."""
@@ -67,12 +87,31 @@ class LoggerWrap:
         """Log at an arbitrary level with formatted content."""
         self._logger.log(level, make_str(msg), *args, **kwargs)
 
+    def showDiff(self, oldtext: str, newtext: str) -> None:
+        """Show the difference between two text strings using the logger."""
 
-logger = LoggerWrap(__name__, print_settings.noprint)
+        diff = difflib.unified_diff(
+            oldtext.splitlines(),
+            newtext.splitlines(),
+            lineterm="",
+            fromfile="Old Text",
+            tofile="New Text",
+        )
+        for line in diff:
+            if line.startswith("+") and not line.startswith("+++"):
+                self._logger.warning(make_str(f"<<lightgreen>>{line}<<default>>"))
+            elif line.startswith("-") and not line.startswith("---"):
+                self._logger.warning(make_str(f"<<lightred>>{line}<<default>>"))
+            else:
+                self._logger.warning(make_str(line))
 
 
-def config_logger(level: Optional[Union[int, str]] = None) -> None:
+logger = LoggerWrap(__name__, disable_log=print_settings.noprint)
+
+
+def config_logger(level: Optional[Union[int, str]] = None, name: str = __name__) -> None:
     """Configure the root logger with sensible defaults for the project."""
+    global logger
     _levels = [
         "CRITICAL",
         "ERROR",
@@ -85,13 +124,15 @@ def config_logger(level: Optional[Union[int, str]] = None) -> None:
     if not level:
         level = logging.DEBUG
 
-    logging.basicConfig(
-        filename=__name__,
-        level=level,
-        # format='%(asctime)s - %(levelname)s - %(message)s',
-        format="%(levelname)s - %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-    )
+    logger.setLevel(level)
+
+    # logging.basicConfig(
+    #     filename=name,
+    #     level=level,
+    #     # format='%(asctime)s - %(levelname)s - %(message)s',
+    #     format="%(levelname)s - %(message)s",
+    #     datefmt="%Y-%m-%d %H:%M:%S",
+    # )
 
 
 __all__ = [
