@@ -4,14 +4,31 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
-data = {
+data_0 = {
+    "Category:Children's clothing designers": "",
+    "Category:Children's clothing retailers": "",
+    "Category:Defunct department stores based in Downtown Los Angeles": "",
+    "Category:Defunct department stores based in Greater Los Angeles": "",
+    "Category:Defunct department stores based in New York State": "",
+    "Category:Defunct department stores based in North Hollywood": "",
+    "Category:Defunct department stores based in Southeast Los Angeles County, California": "",
+    "Category:Defunct department stores based in the Miracle Mile": "",
+    "Category:Defunct department stores based in the San Fernando Valley": "",
+    "Category:Defunct department stores based in the San Gabriel Valley": "",
+    "Category:Defunct department stores based in the South Bay, Los Angeles County": "",
+    "Category:Defunct department stores based in the Westside, Los Angeles": "",
+    "Category:Defunct department stores based in Washington State": "",
+    "Category:Department stores in Southend-on-Sea (town)": ""
+}
+
+data_1 = {
     "Category:Companies that have filed for bankruptcy in Canada": "تصنيف:شركات أعلنت إفلاسها في كندا",
     "Category:Clothing retailers of the United States": "تصنيف:متاجر ملابس بالتجزئة في الولايات المتحدة",
     "Category:Department stores of the United States": "تصنيف:متاجر متعددة الأقسام في الولايات المتحدة",
     "Category:Department stores of Canada": "تصنيف:متاجر متعددة الأقسام في كندا",
 }
 
-data2 = {
+data_2 = {
     "Category:Companies that have filed for bankruptcy in Brazil": "تصنيف:شركات أعلنت إفلاسها في البرازيل",
     "Category:Companies that have filed for bankruptcy in Canada": "تصنيف:شركات أعلنت إفلاسها في كندا",
     "Category:Companies that have filed for bankruptcy in Japan": "تصنيف:شركات أعلنت إفلاسها في اليابان",
@@ -113,117 +130,111 @@ data2 = {
     "Category:Films set in department stores": "تصنيف:أفلام تقع أحداثها في متاجر متعددة الأقسام",
     "Category:Fiction about department stores": "تصنيف:الخيال عن متاجر متعددة الأقسام",
 }
+
 data_3 = {
-    "Category:Children's clothing designers": "",
-    "Category:Children's clothing retailers": "",
-    "Category:Online clothing retailers": "",
-    "Category:Online clothing retailers of Canada": "",
-    "Category:Online clothing retailers of Germany": "",
-    "Category:Online clothing retailers of India": "",
-    "Category:Online clothing retailers of Italy": "",
-    "Category:Online clothing retailers of Singapore": "",
-    "Category:Online clothing retailers of Spain": "",
-    "Category:Online clothing retailers of the United Kingdom": "",
-    "Category:Online clothing retailers of the United States": "",
-    "Category:Defunct clothing retailers of the United States": "",
-    "Category:Defunct department stores": "",
-    "Category:Defunct department stores based in Alabama": "",
-    "Category:Defunct department stores based in Arizona": "",
-    "Category:Defunct department stores based in Arkansas": "",
-    "Category:Defunct department stores based in Atlanta": "",
-    "Category:Defunct department stores based in California": "",
-    "Category:Defunct department stores based in Chicago": "",
-    "Category:Defunct department stores based in Cincinnati": "",
-    "Category:Defunct department stores based in Cleveland": "",
-    "Category:Defunct department stores based in Colorado": "",
-    "Category:Defunct department stores based in Columbus, Ohio": "",
-    "Category:Defunct department stores based in Connecticut": "",
-    "Category:Defunct department stores based in Dayton, Ohio": "",
-    "Category:Defunct department stores based in Downtown Los Angeles": "",
-    "Category:Defunct department stores based in Florida": "",
-    "Category:Defunct department stores based in Georgia (U.S. state)": "",
-    "Category:Defunct department stores based in Greater Los Angeles": "",
-    "Category:Defunct department stores based in Hawaii": "",
-    "Category:Defunct department stores based in Hollywood": "",
-    "Category:Defunct department stores based in Illinois": "",
-    "Category:Defunct department stores based in Indiana": "",
-    "Category:Defunct department stores based in Iowa": "",
-    "Category:Defunct department stores based in Kentucky": "",
-    "Category:Defunct department stores based in Long Beach, California": "",
-    "Category:Defunct department stores based in Louisiana": "",
-    "Category:Defunct department stores based in Maine": "",
-    "Category:Defunct department stores based in Maryland": "",
-    "Category:Defunct department stores based in Massachusetts": "",
-    "Category:Defunct department stores based in Michigan": "",
-    "Category:Defunct department stores based in Minnesota": "",
-    "Category:Defunct department stores based in Mississippi": "",
-    "Category:Defunct department stores based in Missouri": "",
-    "Category:Defunct department stores based in Nebraska": "",
-    "Category:Defunct department stores based in Nevada": "",
-    "Category:Defunct department stores based in New Jersey": "",
-    "Category:Defunct department stores based in New York City": "",
-    "Category:Defunct department stores based in New York State": "",
-    "Category:Defunct department stores based in North Carolina": "",
-    "Category:Defunct department stores based in North Dakota": "",
-    "Category:Defunct department stores based in North Hollywood": "",
-    "Category:Defunct department stores based in Ohio": "",
-    "Category:Defunct department stores based in Oklahoma": "",
-    "Category:Defunct department stores based in Orange County, California": "",
-    "Category:Defunct department stores based in Oregon": "",
-    "Category:Defunct department stores based in Pennsylvania": "",
-    "Category:Defunct department stores based in Philadelphia": "",
-    "Category:Defunct department stores based in Pittsburgh": "",
-    "Category:Defunct department stores based in Sacramento": "",
-    "Category:Defunct department stores based in San Bernardino County, California": "",
-    "Category:Defunct department stores based in San Diego": "",
-    "Category:Defunct department stores based in South Carolina": "",
-    "Category:Defunct department stores based in Southeast Los Angeles County, California": "",
-    "Category:Defunct department stores based in Tennessee": "",
-    "Category:Defunct department stores based in Texas": "",
-    "Category:Defunct department stores based in the City of Los Angeles": "",
-    "Category:Defunct department stores based in the Miracle Mile": "",
-    "Category:Defunct department stores based in the San Fernando Valley": "",
-    "Category:Defunct department stores based in the San Francisco Bay Area": "",
-    "Category:Defunct department stores based in the San Gabriel Valley": "",
-    "Category:Defunct department stores based in the South Bay, Los Angeles County": "",
-    "Category:Defunct department stores based in the Westside, Los Angeles": "",
-    "Category:Defunct department stores based in Toledo, Ohio": "",
-    "Category:Defunct department stores based in Utah": "",
-    "Category:Defunct department stores based in Virginia": "",
-    "Category:Defunct department stores based in Washington, D.C.": "",
-    "Category:Defunct department stores based in Washington State": "",
-    "Category:Defunct department stores based in West Virginia": "",
-    "Category:Defunct department stores based in Wisconsin": "",
-    "Category:Defunct department stores by country": "",
-    "Category:Defunct department stores of Australia": "",
-    "Category:Defunct department stores of Mexico": "",
-    "Category:Defunct department stores of Thailand": "",
-    "Category:Defunct department stores of the United Kingdom": "",
-    "Category:Defunct department stores of the United States": "",
-    "Category:Defunct department stores of the United States by city": "",
-    "Category:Defunct department stores of the United States by state": "",
-    "Category:Department stores in Southend-on-Sea (town)": "",
-    "Category:May Department Stores": ""
+    "Category:Online clothing retailers": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت",
+    "Category:Online clothing retailers of Canada": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في كندا",
+    "Category:Online clothing retailers of Germany": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في ألمانيا",
+    "Category:Online clothing retailers of India": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في الهند",
+    "Category:Online clothing retailers of Italy": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في إيطاليا",
+    "Category:Online clothing retailers of Singapore": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في سنغافورة",
+    "Category:Online clothing retailers of Spain": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في إسبانيا",
+    "Category:Online clothing retailers of the United Kingdom": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في المملكة المتحدة",
+    "Category:Online clothing retailers of the United States": "تصنيف:متاجر ملابس بالتجزئة عبر الإنترنت في الولايات المتحدة",
+    "Category:Defunct clothing retailers of the United States": "تصنيف:متاجر ملابس بالتجزئة سابقة في الولايات المتحدة",
+    "Category:Defunct department stores": "تصنيف:متاجر متعددة الأقسام سابقة",
+    "Category:Defunct department stores based in Alabama": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ألاباما",
+    "Category:Defunct department stores based in Arizona": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أريزونا",
+    "Category:Defunct department stores based in Arkansas": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أركنساس",
+    "Category:Defunct department stores based in Atlanta": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أتلانتا (جورجيا)",
+    "Category:Defunct department stores based in California": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كاليفورنيا",
+    "Category:Defunct department stores based in Chicago": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في شيكاغو",
+    "Category:Defunct department stores based in Cincinnati": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في سينسيناتي",
+    "Category:Defunct department stores based in Cleveland": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كليفلاند",
+    "Category:Defunct department stores based in Colorado": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كولورادو",
+    "Category:Defunct department stores based in Columbus, Ohio": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كولومبوس (أوهايو)",
+    "Category:Defunct department stores based in Connecticut": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كونيتيكت",
+    "Category:Defunct department stores based in Dayton, Ohio": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في دايتون (أوهايو)",
+    "Category:Defunct department stores based in Florida": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فلوريدا",
+    "Category:Defunct department stores based in Georgia (U.S. state)": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ولاية جورجيا",
+    "Category:Defunct department stores based in Hawaii": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في هاواي",
+    "Category:Defunct department stores based in Hollywood": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في هوليوود",
+    "Category:Defunct department stores based in Illinois": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في إلينوي",
+    "Category:Defunct department stores based in Indiana": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في إنديانا",
+    "Category:Defunct department stores based in Iowa": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في آيوا",
+    "Category:Defunct department stores based in Kentucky": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كنتاكي",
+    "Category:Defunct department stores based in Long Beach, California": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في لونغ بيتش (كاليفورنيا)",
+    "Category:Defunct department stores based in Louisiana": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في لويزيانا",
+    "Category:Defunct department stores based in Maine": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في مين",
+    "Category:Defunct department stores based in Maryland": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ماريلند",
+    "Category:Defunct department stores based in Massachusetts": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ماساتشوستس",
+    "Category:Defunct department stores based in Michigan": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ميشيغان",
+    "Category:Defunct department stores based in Minnesota": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في منيسوتا",
+    "Category:Defunct department stores based in Mississippi": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في مسيسيبي",
+    "Category:Defunct department stores based in Missouri": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ميزوري",
+    "Category:Defunct department stores based in Nebraska": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في نبراسكا",
+    "Category:Defunct department stores based in Nevada": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في نيفادا",
+    "Category:Defunct department stores based in New Jersey": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في نيوجيرسي",
+    "Category:Defunct department stores based in New York City": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في مدينة نيويورك",
+    "Category:Defunct department stores based in North Carolina": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كارولاينا الشمالية",
+    "Category:Defunct department stores based in North Dakota": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في داكوتا الشمالية",
+    "Category:Defunct department stores based in Ohio": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أوهايو",
+    "Category:Defunct department stores based in Oklahoma": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أوكلاهوما",
+    "Category:Defunct department stores based in Orange County, California": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في مقاطعة أورانج (كاليفورنيا)",
+    "Category:Defunct department stores based in Oregon": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أوريغون",
+    "Category:Defunct department stores based in Pennsylvania": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في بنسلفانيا",
+    "Category:Defunct department stores based in Philadelphia": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فيلادلفيا",
+    "Category:Defunct department stores based in Pittsburgh": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في بيتسبرغ",
+    "Category:Defunct department stores based in Sacramento": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ساكرامينتو",
+    "Category:Defunct department stores based in San Bernardino County, California": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في مقاطعه سان بيرناردينو (كاليفورنيا)",
+    "Category:Defunct department stores based in San Diego": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في سان دييغو",
+    "Category:Defunct department stores based in South Carolina": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في كارولاينا الجنوبية",
+    "Category:Defunct department stores based in Tennessee": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في تينيسي",
+    "Category:Defunct department stores based in Texas": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في تكساس",
+    "Category:Defunct department stores based in the City of Los Angeles": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في مدينة لوس أنجلوس",
+    "Category:Defunct department stores based in the San Francisco Bay Area": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في منطقة خليج سان فرانسيسكو",
+    "Category:Defunct department stores based in Toledo, Ohio": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في توليدو (أوهايو)",
+    "Category:Defunct department stores based in Utah": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في يوتا",
+    "Category:Defunct department stores based in Virginia": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فرجينيا",
+    "Category:Defunct department stores based in Washington, D.C.": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في واشنطن العاصمة",
+    "Category:Defunct department stores based in West Virginia": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فيرجينيا الغربية",
+    "Category:Defunct department stores based in Wisconsin": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ويسكونسن",
+    "Category:Defunct department stores by country": "تصنيف:متاجر متعددة الأقسام سابقة حسب البلد",
+    "Category:Defunct department stores of Australia": "تصنيف:متاجر متعددة الأقسام سابقة في أستراليا",
+    "Category:Defunct department stores of Mexico": "تصنيف:متاجر متعددة الأقسام سابقة في المكسيك",
+    "Category:Defunct department stores of Thailand": "تصنيف:متاجر متعددة الأقسام سابقة في تايلاند",
+    "Category:Defunct department stores of the United Kingdom": "تصنيف:متاجر متعددة الأقسام سابقة في المملكة المتحدة",
+    "Category:Defunct department stores of the United States": "تصنيف:متاجر متعددة الأقسام سابقة في الولايات المتحدة",
+    "Category:Defunct department stores of the United States by city": "تصنيف:متاجر متعددة الأقسام سابقة في الولايات المتحدة حسب المدينة",
+    "Category:Defunct department stores of the United States by state": "تصنيف:متاجر متعددة الأقسام سابقة في الولايات المتحدة حسب الولاية",
 }
 
 
-@pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_departments_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
+@pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
 @pytest.mark.fast
 def test_departments_2(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", data_3.items(), ids=data_3.keys())
+@pytest.mark.fast
+def test_departments_3(category: str, expected: str) -> None:
+    label = resolve_arabic_category_label(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
-    ("test_departments_1", data),
-    ("test_departments_2", data2),
+    ("test_departments_1", data_1),
+    ("test_departments_2", data_2),
+    ("test_departments_3", data_3),
 ]
 
 
