@@ -175,7 +175,7 @@ data = [
     (" of ", "oil and gas companies of", "شركات النفط والغاز في"),
     (" by ", "1789 in youth football", "كرة القدم للشباب في 1789"),
     (" of ", "british military personnel of", "أفراد عسكريون بريطانيون في "),
-    (" by ", "transport infrastructure in south america", "بنية تحتية للنقل في أمريكا الجنوبية"),
+    (" by ", "transport infrastructure in south america", "البنية التحتية للنقل في أمريكا الجنوبية"),
     (
         " in ",
         "railway stations on the-national-register-of-historic-places",

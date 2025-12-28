@@ -974,7 +974,7 @@ data_1 = {
     "Category:Transport buildings and structures in Papua New Guinea": "تصنيف:مبان ومنشآت نقل في بابوا غينيا الجديدة",
     "Category:Transport disasters in Papua New Guinea": "تصنيف:كوارث نقل في بابوا غينيا الجديدة",
     "Category:Transport in Papua New Guinea": "تصنيف:النقل في بابوا غينيا الجديدة",
-    "Category:Transport infrastructure in Papua New Guinea": "تصنيف:بنية تحتية للنقل في بابوا غينيا الجديدة",
+    "Category:Transport infrastructure in Papua New Guinea": "تصنيف:البنية التحتية للنقل في بابوا غينيا الجديدة",
     "Category:Transport organisations based in Papua New Guinea": "تصنيف:منظمات نقل مقرها في بابوا غينيا الجديدة",
     "Category:Treaties of Papua New Guinea": "تصنيف:معاهدات بابوا غينيا الجديدة",
     "Category:Tropical cyclones in Papua New Guinea": "تصنيف:أعاصير مدارية في بابوا غينيا الجديدة",
