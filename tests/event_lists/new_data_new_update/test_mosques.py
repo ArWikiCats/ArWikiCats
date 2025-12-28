@@ -1,5 +1,6 @@
 #
 import pytest
+from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -16,3 +17,17 @@ data = {
 def test_mosques(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
+
+
+TEMPORAL_CASES = [
+    ("test_mosques", data),
+]
+
+
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.dump
+def test_all(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

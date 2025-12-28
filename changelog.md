@@ -1,4 +1,10 @@
 
+## [#280](https://github.com/MrIbrahem/ArWikiCats/pull/280) - 2025-12-28
+
+* **Localization Updates**
+  * Added Arabic translations for newly supported countries and regions
+  * Updated existing Arabic translations to improve accuracy and consistency
+
 ## [#278](https://github.com/MrIbrahem/ArWikiCats/pull/278) - 2025-12-27
 This pull request introduces several improvements and refactorings to the job, nationality, and category label resolution logic, with a focus on normalization, maintainability, and improved translation accuracy. The main themes are normalization of input keys, improved label resolution order, codebase cleanup, and enhanced support for gendered and religious job categories.
 
