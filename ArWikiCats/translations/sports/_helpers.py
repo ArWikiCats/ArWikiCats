@@ -8,12 +8,10 @@ and well typed.
 
 from __future__ import annotations
 
-import logging
 from collections.abc import Iterable, Mapping, MutableMapping
 from string import Formatter
 from typing import Any
-
-LOGGER = logging.getLogger(__name__)
+from ...helps import logger
 
 # The list of age categories that appear throughout the sports templates.
 # It is referenced from multiple modules, therefore it lives in a single
@@ -29,6 +27,8 @@ def _count_positional_fields(template: str) -> int:
     for _, field_name, _, _ in formatter.parse(template):
         if field_name == "":
             count += 1
+    logger.debug(f"Template '{template}' has {count} positional fields")
+
     return count
 
 
