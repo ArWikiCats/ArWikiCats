@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-import logging
-import sys
-
 import pytest
 
 from ArWikiCats.translations.sports import _helpers, cycling

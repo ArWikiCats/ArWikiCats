@@ -1,6 +1,6 @@
 import difflib
 import logging
-from typing import Optional, Union
+from typing import Union
 
 from ..config import print_settings
 from ..helps.printe_helper import make_str
@@ -9,7 +9,7 @@ from ..helps.printe_helper import make_str
 class LoggerWrap:
     """Project-scoped logger with colorized helpers."""
 
-    def __init__(self, name: str, disable_log: bool = False, level: int = logging.DEBUG) -> None:
+    def __init__(self, name: str, disable_log: bool = False, level: int = logging.ERROR) -> None:
         """Initialize the wrapped logger and optionally disable output."""
         self._logger = logging.getLogger(name)
 
@@ -34,6 +34,10 @@ class LoggerWrap:
     def set_level(self, level: Union[int, str]) -> None:
         """Set the logging level for the underlying logger."""
         self._logger.setLevel(level)
+
+    def setLevel(self, level: Union[int, str]) -> None:
+        """Set the logging level for the underlying logger."""
+        return self.set_level(level)
 
     def disable_logger(self, is_disabled: bool) -> None:
         """Enable or disable the underlying logger dynamically."""
@@ -109,34 +113,7 @@ class LoggerWrap:
 logger = LoggerWrap(__name__, disable_log=print_settings.noprint)
 
 
-def config_logger(level: Optional[Union[int, str]] = None, name: str = __name__) -> None:
-    """Configure the root logger with sensible defaults for the project."""
-    global logger
-    _levels = [
-        "CRITICAL",
-        "ERROR",
-        "WARNING",
-        "INFO",
-        "DEBUG",
-        "NOTSET",
-    ]
-
-    if not level:
-        level = logging.DEBUG
-
-    logger.set_level(level)
-
-    # logging.basicConfig(
-    #     filename=name,
-    #     level=level,
-    #     # format='%(asctime)s - %(levelname)s - %(message)s',
-    #     format="%(levelname)s - %(message)s",
-    #     datefmt="%Y-%m-%d %H:%M:%S",
-    # )
-
-
 __all__ = [
     "logger",
     "LoggerWrap",
-    "config_logger",
 ]

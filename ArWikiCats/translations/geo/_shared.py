@@ -8,14 +8,11 @@ book-keeping logic.
 """
 
 from __future__ import annotations
-
-import logging
 from collections.abc import Iterable, Mapping, MutableMapping
 from typing import Any
 
 from ..utils.json_dir import open_json_file
-
-LOGGER = logging.getLogger(__name__)
+from ...helps import logger
 
 
 def load_json_mapping(file_key: str) -> dict[str, str]:
@@ -45,7 +42,7 @@ def load_json_mapping(file_key: str) -> dict[str, str]:
         cleaned_mapping[str(key)] = str(value)
 
     if not cleaned_mapping and raw_mapping:
-        LOGGER.debug("JSON mapping '%s' did not contain usable labels", file_key)
+        logger.debug("JSON mapping '%s' did not contain usable labels", file_key)
 
     return cleaned_mapping
 
@@ -104,4 +101,4 @@ def log_mapping_stats(name: str, **mappings: Mapping[Any, Any]) -> None:
     """Emit debug logging with information about mapping sizes."""
 
     for mapping_name, mapping in mappings.items():
-        LOGGER.debug("%s.%s contains %d entries", name, mapping_name, len(mapping))
+        logger.debug("%s.%s contains %d entries", name, mapping_name, len(mapping))

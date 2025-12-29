@@ -174,7 +174,7 @@ print(label)
 ## 4.2 معالجة قائمة كاملة
 
 ```python
-from ArWikiCats import EventProcessor
+from ArWikiCats import batch_resolve_labels
 
 categories = [
     "Category:2015 American television",
@@ -182,8 +182,7 @@ categories = [
     "Category:Belgian cyclists",
 ]
 
-processor = EventProcessor()
-result = processor.process(categories)
+result = batch_resolve_labels(categories)
 
 print(result.labels)
 print(result.no_labels)

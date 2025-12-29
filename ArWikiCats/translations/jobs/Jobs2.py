@@ -4,14 +4,11 @@ Assemble gendered Arabic labels for general job categories.
 
 from __future__ import annotations
 
-import logging
 from typing import Mapping, Tuple
 
-from ...helps import len_print
+from ...helps import len_print, logger
 from ..utils.json_dir import open_json
 from .jobs_defs import GenderedLabelMap
-
-LOGGER = logging.getLogger(__name__)
 
 jobs_primary = open_json("jobs/Jobs_22.json")
 jobs_additional = open_json("jobs/jobs_3.json")
@@ -204,6 +201,7 @@ def _build_jobs_datasets() -> Tuple[GenderedLabelMap, GenderedLabelMap]:
             if labels["males"] or labels["females"]:
                 combined_jobs[job_key] = labels
 
+    logger.debug(f"Built JOBS_2 with {len(combined_jobs)} entries")
     return combined_jobs, lowercase_additional
 
 

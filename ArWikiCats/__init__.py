@@ -7,11 +7,10 @@ from .event_processing import (
     resolve_arabic_category_label,
 )
 from .helps.len_print import dump_all_len
-from .helps.log import LoggerWrap, config_logger, logger
+from .helps.log import LoggerWrap, logger
 from .helps.memory import print_memory
 
 __all__ = [
-    "config_logger",
     "logger",
     "LoggerWrap",
     "resolve_label_ar",

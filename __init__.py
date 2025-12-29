@@ -6,13 +6,11 @@ from .ArWikiCats import (
     resolve_arabic_category_label,
     dump_all_len,
     LoggerWrap,
-    config_logger,
     logger,
     config_all_params,
 )
 
 __all__ = [
-    "config_logger",
     "logger",
     "LoggerWrap",
     "batch_resolve_labels",
