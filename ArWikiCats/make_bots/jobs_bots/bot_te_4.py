@@ -5,7 +5,7 @@ Bot for translating job-related and nationality-based categories.
 This module provides functionality for matching and translating categories
 related to jobs, nationalities, and multi-sports topics from English to Arabic.
 
-TODO: planed to be replaced by translations_resolvers_v2
+TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 """
 
 import functools

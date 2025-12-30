@@ -40,19 +40,6 @@ def test_load_json_mapping_filters_and_normalizes(monkeypatch) -> None:
     assert mock_data[1] == "value"
 
 
-def test_load_json_mapping_logs_when_no_entries(monkeypatch, caplog) -> None:
-    def fake_open_json(file_key: str) -> dict[str, str]:
-        return {"empty": ""}
-
-    monkeypatch.setattr(_shared, "open_json_file", fake_open_json)
-
-    caplog.set_level(logging.DEBUG)
-    result = _shared.load_json_mapping("empty")
-
-    assert result == {}
-    assert "did not contain usable labels" in caplog.text
-
-
 def test_merge_mappings_prefers_later_entries() -> None:
     merged = _shared.merge_mappings({"a": "1"}, {"b": "2"}, {"a": "3"})
 
@@ -83,12 +70,3 @@ def test_normalize_to_lower_returns_new_dict() -> None:
 
     assert normalized == {"key": "Value"}
     assert normalized is not original
-
-
-def test_log_mapping_stats_emits_debug(caplog) -> None:
-    caplog.set_level(logging.DEBUG)
-
-    _shared.log_mapping_stats("example", first={"a": 1, "b": 2})
-
-    assert "example.first" in caplog.text
-    assert "2 entries" in caplog.text

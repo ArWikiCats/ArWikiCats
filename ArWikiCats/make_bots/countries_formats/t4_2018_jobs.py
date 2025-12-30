@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-TODO: planed to be replaced by translations_resolvers_v2
+TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 """
 
 import functools
