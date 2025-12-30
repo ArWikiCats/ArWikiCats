@@ -15,7 +15,7 @@ from ..nats.Nationality import Nat_mens
 from ..sports.cycling import BASE_CYCLING_EVENTS
 from ..tv.films_mslslat import film_keys_for_female
 from ..utils.json_dir import open_json_file
-from .Jobs2 import JOBS_2
+from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 from .jobs_defs import (
     GenderedLabel,
@@ -221,10 +221,13 @@ def _add_jobs_from_jobs2(jobs_pp: GenderedLabelMap) -> GenderedLabelMap:
     """Merge entries from :mod:`Jobs2` that are missing from ``jobs_pp``."""
 
     merged = copy_gendered_map(jobs_pp)
-    for job_key, labels in JOBS_2.items():
-        lowered = job_key.lower()
-        if lowered not in merged and (labels["males"] or labels["females"]):
-            merged[lowered] = {"males": labels["males"], "females": labels["females"]}
+    sources = [JOBS_2, JOBS_3333]
+    for source in sources:
+        for job_key, labels in source.items():
+            lowered = job_key.lower()
+            if lowered not in merged and (labels["males"] or labels["females"]):
+                merged[lowered] = {"males": labels["males"], "females": labels["females"]}
+
     return merged
 
 
