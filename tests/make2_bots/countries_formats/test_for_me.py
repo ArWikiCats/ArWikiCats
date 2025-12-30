@@ -3,7 +3,7 @@
 
 import pytest
 
-# from ArWikiCats.translations_resolvers_v2.nats_v2 import resolve_by_nats
+# from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
 from ArWikiCats.make_bots.countries_formats.for_me import (
     Work_for_me,
     Work_for_New_2018_men_Keys_with_all,

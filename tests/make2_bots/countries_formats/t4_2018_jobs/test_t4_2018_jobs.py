@@ -5,6 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
 
 te4_2018_Jobs_data_old = {
     "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية إسرائيليات",
