@@ -3,19 +3,24 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, dump_diff_text, one_dump_test
+
 
 from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
+from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
+from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
+from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
 
 te4_2018_Jobs_data_old = {
-    "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية إسرائيليات",
-    "german women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية ألمانيات",
-    "french women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية فرنسيات",
-    "dutch women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية هولنديات",
-    "canadian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية كنديات",
-    "british women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية بريطانيات",
-    "australian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية أستراليات",
-    "american women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة نسائية أمريكيات",
+    "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة إسرائيليات",
+    "german women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة ألمانيات",
+    "french women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة فرنسيات",
+    "dutch women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة هولنديات",
+    "canadian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة كنديات",
+    "british women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة بريطانيات",
+    "australian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أستراليات",
+    "american women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أمريكيات",
 }
 
 te4_2018_Jobs_data = {
@@ -664,12 +669,47 @@ data_fast = {
 @pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=te4_2018_Jobs_data.keys())
 @pytest.mark.slow
 def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
-    label = te4_2018_Jobs(category)
-    assert label == expected_key
+    label1 = te4_2018_Jobs(category)
+    assert label1 == expected_key
+
+    # label2 = new_resolvers_all(category)
+    # assert label2 == expected_key
+
+
+@pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data_old.items(), ids=te4_2018_Jobs_data_old.keys())
+@pytest.mark.slow
+def test_te4_2018_Jobs_data_old(category: str, expected_key: str) -> None:
+    label1 = te4_2018_Jobs(category)
+    assert label1 == expected_key
+
+    # # label2 = resolve_sports_main(category)
+    # label2 = new_resolvers_all(category)
+    # assert label2 == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
-    label = te4_2018_Jobs(category)
-    assert label == expected_key
+    label1 = te4_2018_Jobs(category)
+    assert label1 == expected_key
+
+    # label2 = new_resolvers_all(category)
+    # assert label2 == expected_key
+
+
+to_test = [
+    ("te4_2018_Jobs_data_old", te4_2018_Jobs_data_old),
+    ("te4_2018_Jobs_data", te4_2018_Jobs_data),
+    ("te4_2018_data_fast", data_fast),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_it(name: str, data: dict[str, str]) -> None:
+
+    expected, diff_result = one_dump_test(data, new_resolvers_all)
+    dump_diff(diff_result, name)
+
+    # dump_diff_text(expected, diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
