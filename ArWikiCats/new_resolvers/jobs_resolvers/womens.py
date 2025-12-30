@@ -31,6 +31,8 @@ def _load_formatted_data() -> dict:
         # base keys
         "female {en_nat} people": "{females}",
         "{en_nat} female people": "{females}",
+        "female {en_nat}": "{females}",
+        "{en_nat} female": "{females}",
     }
 
     formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "female", "{females} مغتربات"))
