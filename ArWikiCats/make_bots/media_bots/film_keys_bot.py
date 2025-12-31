@@ -3,7 +3,7 @@
 
 Helper utilities for resolving film- and media-related categories.
 
-TODO: refactor the code
+TODO: replaced by resolve_films
 """
 
 import functools
@@ -20,7 +20,7 @@ from ...translations import (
     en_is_nat_ar_is_women,
     television_keys,
 )
-from .tyty_new_format import get_films_key_tyty_new
+from .resolve_films import get_films_key_tyty_new
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 
