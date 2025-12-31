@@ -22,7 +22,7 @@ from ...new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .film_keys_bot import resolve_films
 
 from ..media_bots.film_keys_bot import get_Films_key_CAO
-from ..media_bots.tyty_new_format import get_films_key_tyty_new
+from .resolve_films import get_films_key_tyty_new
 from ...make_bots.languages_bot.languages_resolvers import te_language
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 

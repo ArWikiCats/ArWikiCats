@@ -5,12 +5,15 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.media_bots.tyty_new_format import get_films_key_tyty_new
+from ArWikiCats.make_bots.media_bots.resolve_films import get_films_key_tyty_new
 
 fast_data1 = {
-    "american animated short film television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",
-    "american animated action television series": "مسلسلات تلفزيونية رسوم متحركة أمريكية",
+    "american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",
+    "american drama television series": "مسلسلات تلفزيونية درامية أمريكية",
     # nats
+    "action classical albums": "ألبومات كلاسيكية حركة",
+    "yemeni action classical albums": "ألبومات كلاسيكية حركة يمنية",
+    "yemeni novellas": "روايات قصيرة يمنية",
     "yemeni films": "أفلام يمنية",
     "Yemeni action films": "أفلام حركة يمنية",
     "Yemeni action drama films": "أفلام حركة درامية يمنية",
@@ -48,7 +51,6 @@ fast_data1 = {
     "action supernatural drama films": "أفلام حركة دراما خارقة للطبيعة",
     "action survival films": "أفلام حركة البقاء على قيد الحياة",
     "action teen films": "أفلام حركة مراهقة",
-    "action television films": "أفلام حركة تلفزيونية",
     "action thriller 3d films": "أفلام إثارة حركة ثلاثية الأبعاد",
     "action thriller 4d films": "أفلام إثارة حركة رباعية الأبعاد",
     "action thriller action films": "أفلام إثارة حركة حركة",
