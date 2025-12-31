@@ -593,7 +593,7 @@ data_slow = {
     "water polo": "كرة الماء",
     "web colors": "ألوان الويب",
     "west bank premier league": "الدوري الفلسطيني الممتاز للضفة الغربية",
-    "west virginia": "فيرجينيا الغربية",
+    "west virginia": "فرجينيا الغربية",
     "wheelchair basketball competitions between national teams": "منافسات كرة سلة على كراسي متحركة بين منتخبات وطنية",
     "wheelchair basketball competitions": "منافسات كرة سلة على كراسي متحركة",
     "wheelchair basketball leagues": "دوريات كرة سلة على كراسي متحركة",

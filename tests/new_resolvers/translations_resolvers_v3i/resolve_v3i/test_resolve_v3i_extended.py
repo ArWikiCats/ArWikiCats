@@ -256,7 +256,7 @@ test_data_2 = {
     "7th-century people from the Umayyad Caliphate": "أشخاص من الدولة الأموية في القرن 7",
     "6th-century people from the Visigothic Kingdom": "أشخاص من مملكة القوط في القرن 6",
     "7th-century people from the Visigothic Kingdom": "أشخاص من مملكة القوط في القرن 7",
-    "19th-century people from West Virginia": "أشخاص من فيرجينيا الغربية في القرن 19",
+    "19th-century people from West Virginia": "أشخاص من فرجينيا الغربية في القرن 19",
     "19th-century philosophers from the Russian Empire": "فلاسفة من الإمبراطورية الروسية في القرن 19",
     "19th-century photographers from the Russian Empire": "مصورون من الإمبراطورية الروسية في القرن 19",
     "17th-century physicians from Bohemia": "أطباء من بوهيميا في القرن 17",

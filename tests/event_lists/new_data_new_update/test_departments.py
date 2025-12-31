@@ -197,7 +197,7 @@ data_3 = {
     "Category:Defunct department stores based in Utah": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في يوتا",
     "Category:Defunct department stores based in Virginia": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فرجينيا",
     "Category:Defunct department stores based in Washington, D.C.": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في واشنطن العاصمة",
-    "Category:Defunct department stores based in West Virginia": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فيرجينيا الغربية",
+    "Category:Defunct department stores based in West Virginia": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فرجينيا الغربية",
     "Category:Defunct department stores based in Wisconsin": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في ويسكونسن",
     "Category:Defunct department stores by country": "تصنيف:متاجر متعددة الأقسام سابقة حسب البلد",
     "Category:Defunct department stores of Australia": "تصنيف:متاجر متعددة الأقسام سابقة في أستراليا",

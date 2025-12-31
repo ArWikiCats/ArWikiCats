@@ -193,7 +193,7 @@ data1 = {
     "Category:Players of Canadian football from Virginia": "تصنيف:لاعبو كرة قدم كندية من فرجينيا",
     "Category:Players of Canadian football from Washington (state)": "تصنيف:لاعبو كرة قدم كندية من ولاية واشنطن",
     "Category:Players of Canadian football from Washington, D.C.": "تصنيف:لاعبو كرة قدم كندية من واشنطن العاصمة",
-    "Category:Players of Canadian football from West Virginia": "تصنيف:لاعبو كرة قدم كندية من فيرجينيا الغربية",
+    "Category:Players of Canadian football from West Virginia": "تصنيف:لاعبو كرة قدم كندية من فرجينيا الغربية",
     "Category:Players of Canadian football from Wisconsin": "تصنيف:لاعبو كرة قدم كندية من ويسكونسن",
     "Category:Players of Canadian football from Wyoming": "تصنيف:لاعبو كرة قدم كندية من وايومنغ",
     "Category:Players of Canadian football": "تصنيف:لاعبو كرة قدم كندية",

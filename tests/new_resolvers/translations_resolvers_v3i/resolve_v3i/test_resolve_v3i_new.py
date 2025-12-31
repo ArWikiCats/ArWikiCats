@@ -521,7 +521,7 @@ test_data_standard = {
     "20th-century people from Virginia": "أشخاص من فرجينيا في القرن 20",
     "20th-century people from Washington (state)": "أشخاص من ولاية واشنطن في القرن 20",
     "20th-century people from Washington, D.C.": "أشخاص من واشنطن العاصمة في القرن 20",
-    "20th-century people from West Virginia": "أشخاص من فيرجينيا الغربية في القرن 20",
+    "20th-century people from West Virginia": "أشخاص من فرجينيا الغربية في القرن 20",
     "20th-century people from Wisconsin": "أشخاص من ويسكونسن في القرن 20",
     "20th-century people from Wyoming": "أشخاص من وايومنغ في القرن 20",
     "20th-century photographers from Northern Ireland": "مصورون من أيرلندا الشمالية في القرن 20",

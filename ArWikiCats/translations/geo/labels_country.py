@@ -71,7 +71,7 @@ US_STATES = {
     "utah": "يوتا",
     "vermont": "فيرمونت",
     "virginia": "فرجينيا",
-    "west virginia": "فيرجينيا الغربية",
+    "west virginia": "فرجينيا الغربية",
     "wisconsin": "ويسكونسن",
     "wyoming": "وايومنغ",
 }
