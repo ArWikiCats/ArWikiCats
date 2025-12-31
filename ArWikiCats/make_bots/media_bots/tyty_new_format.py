@@ -19,6 +19,16 @@ def _make_bot() -> MultiDataFormatterBase:
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
+
+        "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
+        "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
+
+        "{nat_en} television-seasons": "مواسم تلفزيونية {nat_ar}",
+        "{nat_en} television seasons": "مواسم تلفزيونية {nat_ar}",
+
+        "{nat_en} {film_key} television-seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
+        "{nat_en} {film_key} television seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
+
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
 
@@ -65,59 +75,6 @@ def _make_bot() -> MultiDataFormatterBase:
     bot.other_bot.update_put_label_last(put_label_last)
 
     return bot
-
-
-search_multi_cache = {
-    "upcoming christmas": "{tyty} قادمة عيد الميلاد",
-    "christmas upcoming": "{tyty} قادمة عيد الميلاد",
-    "action comedy drama": "{tyty} حركة كوميدية درامية",
-    "action comedy fiction": "{tyty} حركة كوميدية خيالية",
-    "action comedy thriller": "{tyty} حركة كوميدية إثارة",
-    "adult animated supernatural drama": "{tyty} رسوم متحركة خارقة للطبيعة للكبار درامية",
-    "animated science fantasy": "{tyty} علمية رسوم متحركة فانتازيا",
-    "animated science fiction": "{tyty} علمية رسوم متحركة خيالية",
-    "black comedy drama": "{tyty} كوميدية سوداء درامية",
-    "black comedy fiction": "{tyty} كوميدية سوداء خيالية",
-    "black comedy horror": "{tyty} كوميدية سوداء رعب",
-    "black comedy thriller": "{tyty} كوميدية سوداء إثارة",
-    "children's animated science": "{tyty} رسوم متحركة أطفال علمية",
-    "children's animated short": "{tyty} رسوم متحركة أطفال قصيرة",
-    "children's comedy drama": "{tyty} أطفال كوميدية درامية",
-    "children's comedy fiction": "{tyty} أطفال كوميدية خيالية",
-    "children's comedy thriller": "{tyty} أطفال كوميدية إثارة",
-    "crime comedy drama": "{tyty} جنائية كوميدية درامية",
-    "crime comedy fiction": "{tyty} جنائية كوميدية خيالية",
-    "crime comedy horror": "{tyty} جنائية كوميدية رعب",
-    "crime comedy thriller": "{tyty} جنائية كوميدية إثارة",
-    "criminal comedy drama": "{tyty} كوميديا الجريمة درامية",
-    "criminal comedy fiction": "{tyty} كوميديا الجريمة خيالية",
-    "criminal comedy horror": "{tyty} كوميديا الجريمة رعب",
-    "criminal comedy thriller": "{tyty} كوميديا الجريمة إثارة",
-    "musical comedy thriller": "{tyty} كوميديا موسيقية إثارة",
-    "romantic comedy thriller": "{tyty} كوميديا رومانسية إثارة",
-    "science fiction action thriller": "{tyty} خيال علمي وحركة إثارة",
-}
-
-
-@functools.lru_cache(maxsize=None)
-def search_multi_new(text: str) -> str:
-    if search_multi_cache.get(text.lower()):
-        return search_multi_cache[text.lower()]
-
-    bot = _make_bot()
-    key = bot.other_bot.match_key(text)
-
-    if not key:
-        return ""
-
-    label = bot.other_bot.get_key_label(key)
-
-    if not label:
-        return ""
-
-    label = f"{{tyty}} {label}"
-
-    return label
 
 
 @functools.lru_cache(maxsize=None)

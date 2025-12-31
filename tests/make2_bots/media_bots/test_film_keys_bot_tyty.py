@@ -8,6 +8,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.make_bots.media_bots.tyty_new_format import get_films_key_tyty_new
 
 fast_data1 = {
+    "american animated short film television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",
+    "american animated action television series": "مسلسلات تلفزيونية رسوم متحركة أمريكية",
     # nats
     "yemeni films": "أفلام يمنية",
     "Yemeni action films": "أفلام حركة يمنية",
