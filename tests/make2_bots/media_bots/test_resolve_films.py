@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.resolve_films import get_films_key_tyty_new
+from ArWikiCats.make_bots.media_bots.resolve_films import get_films_key_tyty_new
 
 fast_data1 = {
     "american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",
