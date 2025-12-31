@@ -161,11 +161,10 @@ def get_films_key_tyty_new(text: str) -> str:
     Returns:
         str: The resolved label string, or empty string if no match is found.
     """
-    normalized_category = text.lower().strip()
-    logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_category=}")
     normalized_text = text.lower().replace("category:", " ").strip()
+    logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
     bot = _make_bot()
 
     result = bot.search_all(normalized_text)
-    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new: {normalized_category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}", result)
     return result
