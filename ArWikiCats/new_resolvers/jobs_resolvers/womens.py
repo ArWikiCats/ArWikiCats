@@ -3,16 +3,12 @@ This module provides functionality to translate category titles
 compare with womens_prefixes_work
 """
 import functools
-import re
 from ...helps import len_print, logger
 from ...translations import all_country_with_nat_ar, jobs_womens_data, RELIGIOUS_KEYS_PP, FEMALE_JOBS_BASE, all_country_with_nat
 from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
 from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
-from .utils import one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
+from .utils import fix_keys, one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
 
-
-REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
-REGEX_THE = re.compile(r"\b(the)\b", re.I)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 
@@ -168,22 +164,6 @@ def load_bot() -> MultiDataFormatterBaseV2:
         use_other_formatted_data=True,
         search_first_part=True,
     )
-
-
-def fix_keys(category: str) -> str:
-    category = category.replace("'", "").lower()
-    category = REGEX_THE.sub("", category)
-
-    replacements = {
-        "expatriates": "expatriate",
-        "canadian football": "canadian-football",
-    }
-
-    for old, new in replacements.items():
-        category = category.replace(old, new)
-
-    category = REGEX_WOMENS.sub("female", category)
-    return category.strip()
 
 
 @functools.lru_cache(maxsize=10000)
