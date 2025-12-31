@@ -1,4 +1,19 @@
 
+## [#285](https://github.com/MrIbrahem/ArWikiCats/pull/285) - 2025-12-31
+
+* **Bug Fixes**
+  * Standardized Arabic transliterations for geographic locations and personal names to ensure consistent terminology across all translations.
+
+* **New Features**
+  * Enhanced mapping support for female-related job categories with additional variants.
+  * Improved sports category text normalization for better translation accuracy.
+
+* **Documentation**
+  * Added comprehensive refactoring strategy and testing plans to guide future development.
+
+* **Tests**
+  * Expanded test coverage with new test utilities and updated test data to reflect translation improvements.
+
 ## [#280](https://github.com/MrIbrahem/ArWikiCats/pull/280) - 2025-12-28
 
 * **Localization Updates**

@@ -48,7 +48,7 @@ geography_us_2 = {
 
 geography_us_3 = {
     "Category:Wyoming": "تصنيف:وايومنغ",
-    "Category:West Virginia": "تصنيف:فيرجينيا الغربية",
+    "Category:West Virginia": "تصنيف:فرجينيا الغربية",
     "Category:Texas": "تصنيف:تكساس",
     "Category:Tennessee": "تصنيف:تينيسي",
     "Category:South Carolina": "تصنيف:كارولاينا الجنوبية",

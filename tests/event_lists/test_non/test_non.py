@@ -722,7 +722,7 @@ data1 = {
     "category:non-profit organizations based in vietnam": "تصنيف:منظمات غير ربحية مقرها في فيتنام",
     "category:non-profit organizations based in virginia": "تصنيف:منظمات غير ربحية مقرها في فرجينيا",
     "category:non-profit organizations based in washington (state)": "تصنيف:منظمات غير ربحية مقرها في ولاية واشنطن",
-    "category:non-profit organizations based in west virginia": "تصنيف:منظمات غير ربحية مقرها في فيرجينيا الغربية",
+    "category:non-profit organizations based in west virginia": "تصنيف:منظمات غير ربحية مقرها في فرجينيا الغربية",
     "category:non-profit organizations based in wisconsin": "تصنيف:منظمات غير ربحية مقرها في ويسكونسن",
     "category:non-profit organizations based in wyoming": "تصنيف:منظمات غير ربحية مقرها في وايومنغ",
     "category:non-profit organizations": "تصنيف:منظمات غير ربحية",

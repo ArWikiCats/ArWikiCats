@@ -20,7 +20,7 @@ data = {
     "north carolina": "كارولاينا الشمالية",
     "north dakota": "داكوتا الشمالية",
     "washington (state)": "ولاية واشنطن",
-    "west virginia": "فيرجينيا الغربية",
+    "west virginia": "فرجينيا الغربية",
     "south carolina": "كارولاينا الجنوبية",
     "rhode island": "رود آيلاند",
     "south dakota": "داكوتا الجنوبية",

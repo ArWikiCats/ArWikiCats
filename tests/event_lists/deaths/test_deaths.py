@@ -403,7 +403,7 @@ data_1 = {
     "Category:Deaths from brain cancer in Turkey": "تصنيف:وفيات سرطان الدماغ في تركيا",
     "Category:Deaths from brain cancer in Ukraine": "تصنيف:وفيات سرطان الدماغ في أوكرانيا",
     "Category:Deaths from brain cancer in Washington, D.C.": "تصنيف:وفيات سرطان الدماغ في واشنطن العاصمة",
-    "Category:Deaths from brain cancer in West Virginia": "تصنيف:وفيات سرطان الدماغ في فيرجينيا الغربية",
+    "Category:Deaths from brain cancer in West Virginia": "تصنيف:وفيات سرطان الدماغ في فرجينيا الغربية",
     "Category:Deaths from cancer by country subdivision": "تصنيف:وفيات السرطان حسب تقسيم البلد",
     "Category:Deaths from cancer by country": "تصنيف:وفيات السرطان حسب البلد",
     "Category:Deaths from cancer by former country": "تصنيف:وفيات السرطان حسب البلد السابق",

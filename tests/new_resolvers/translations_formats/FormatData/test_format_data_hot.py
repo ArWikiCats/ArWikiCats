@@ -27,7 +27,7 @@ def bot() -> FormatData:
         "washington (state)": "ولاية واشنطن",
         "washington": "واشنطن",
         "washington, d.c.": "واشنطن العاصمة",
-        "west virginia": "فيرجينيا الغربية",
+        "west virginia": "فرجينيا الغربية",
     }
     _bot = FormatData(formatted_data, data_list, key_placeholder="{en}", value_placeholder="{ar}")
 

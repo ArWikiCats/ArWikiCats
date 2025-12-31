@@ -10,6 +10,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 the_male_sport_team_data = {
+    # "people-of-the-ottoman-empire rugbyunion racing federation": "الاتحاد العثماني لسباق اتحاد الرجبي",
+    # "people-of-the-ottoman-empire football federation": "تصنيف:الاتحاد العثماني لكرة القدم",
     "democratic republic of congo dragon boat federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
     "democratic-republic-of-congo dragon boat racing federation": "الاتحاد الكونغوي الديمقراطي لسباق قوارب التنين",
     "republic of congo synchronised swimming racing federation": "الاتحاد الكونغوي لسباق السباحة المتزامنة",
@@ -250,7 +252,6 @@ the_male_sport_team_data = {
     "paraguayan rugby union federation": "الاتحاد البارغواياني لاتحاد الرجبي",
     "parthian rugby union racing federation": "الاتحاد الفرثي لسباق اتحاد الرجبي",
     "people from jerusalem rugbyunion federation": "الاتحاد المقدسي لاتحاد الرجبي",
-    "people-of-the-ottoman-empire rugbyunion racing federation": "الاتحاد العثماني لسباق اتحاد الرجبي",
     "peruvian running racing federation": "الاتحاد البيروي لسباق الركض",
     "portuguese sailing federation": "الاتحاد البرتغالي للإبحار",
     "prussian sailing racing federation": "الاتحاد البروسي لسباق الإبحار",

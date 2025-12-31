@@ -12,6 +12,7 @@ from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ..countries_names_resolvers.countries_names_data import formatted_data_en_ar_only
 from ..nats_as_country_names import nats_keys_as_country_names
 from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
+from .utils import fix_keys
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 
@@ -205,20 +206,6 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         use_other_formatted_data=True,
     )
     return both_bot
-
-
-@functools.lru_cache(maxsize=10000)
-def fix_keys(category: str) -> str:
-    category = category.lower().replace("category:", "")
-    category = category.replace("'", "")
-
-    replacements = {
-    }
-
-    for old, new in replacements.items():
-        category = category.replace(old, new)
-
-    return category.strip()
 
 
 @functools.lru_cache(maxsize=10000)

@@ -1,5 +1,30 @@
 
 
+import functools
+import re
+
+
+REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
+REGEX_THE = re.compile(r"\b(the)\b", re.I)
+
+
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower()
+    category = REGEX_THE.sub("", category)
+    category = re.sub(r"\s+", " ", category)
+
+    replacements = {
+        "expatriates": "expatriate",
+        "canadian football": "canadian-football",
+    }
+
+    for old, new in replacements.items():
+        category = category.replace(old, new)
+
+    category = REGEX_WOMENS.sub("female", category)
+    return category.strip()
+
+
 def one_Keys_more_2(
     x,
     v,

@@ -69,7 +69,7 @@ data_list = [
     {
         "separator": " in ",
         "category": "1450s disestablishments in west virginia",
-        "output": "انحلالات عقد 1450 في فيرجينيا الغربية",
+        "output": "انحلالات عقد 1450 في فرجينيا الغربية",
     },
     {
         "separator": " in ",
@@ -374,7 +374,7 @@ data_list = [
     {
         "separator": " in ",
         "category": "1450s establishments in west virginia",
-        "output": "تأسيسات عقد 1450 في فيرجينيا الغربية",
+        "output": "تأسيسات عقد 1450 في فرجينيا الغربية",
     },
     {"separator": " in ", "category": "march 1450 sports-events in mexico", "output": "أحداث مارس 1450 الرياضية في المكسيك"},
     {"separator": " in ", "category": "21st century establishments in kosovo", "output": "تأسيسات القرن 21 في كوسوفو"},

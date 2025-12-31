@@ -15,6 +15,7 @@ from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ..nationalities_resolvers.data import sports_formatted_data_for_jobs
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from .utils import fix_keys
 
 
 @functools.lru_cache(maxsize=1)
@@ -125,6 +126,9 @@ sports_formatted_data = {
     # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
     "{en} sports federation": "الاتحاد {the_male} للرياضة",
     "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
+
+    "{en} wheelchair racers": "متسابقو كراسي متحركة {males}",
+    "{en} mens wheelchair racers": "متسابقو كراسي متحركة {males}",
 
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
     "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
@@ -330,20 +334,6 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         use_other_formatted_data=True,
     )
     return both_bot
-
-
-def fix_keys(category: str) -> str:
-    category = category.replace("'", "").lower()
-
-    replacements = {
-        "expatriates": "expatriate",
-        "canadian football": "canadian-football",
-    }
-
-    for old, new in replacements.items():
-        category = category.replace(old, new)
-
-    return category
 
 
 @functools.lru_cache(maxsize=10000)
